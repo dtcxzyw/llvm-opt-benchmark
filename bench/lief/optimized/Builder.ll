@@ -2778,7 +2778,7 @@ _ZNSt20back_insert_iteratorISt6vectorIPN4LIEF5MachO6BinaryESaIS4_EEEaSEOS4_.exit
   br i1 %.not.i, label %_ZNSt6vectorIPN4LIEF5MachO6BinaryESaIS3_EED2Ev.exit12, label %.lr.ph.i, !llvm.loop !192
 
 _ZNSt6vectorIPN4LIEF5MachO6BinaryESaIS3_EED2Ev.exit12: ; preds = %_ZNSt20back_insert_iteratorISt6vectorIPN4LIEF5MachO6BinaryESaIS4_EEEaSEOS4_.exit.i, %14
-  %.sroa.16.035 = phi ptr [ null, %14 ], [ %16, %_ZNSt20back_insert_iteratorISt6vectorIPN4LIEF5MachO6BinaryESaIS4_EEEaSEOS4_.exit.i ]
+  %.sroa.16.3 = phi ptr [ null, %14 ], [ %16, %_ZNSt20back_insert_iteratorISt6vectorIPN4LIEF5MachO6BinaryESaIS4_EEEaSEOS4_.exit.i ]
   %.sroa.10.2 = phi ptr [ null, %14 ], [ %.sroa.10.1, %_ZNSt20back_insert_iteratorISt6vectorIPN4LIEF5MachO6BinaryESaIS4_EEEaSEOS4_.exit.i ]
   %.sroa.016.3 = phi ptr [ null, %14 ], [ %.sroa.016.2, %_ZNSt20back_insert_iteratorISt6vectorIPN4LIEF5MachO6BinaryESaIS4_EEEaSEOS4_.exit.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -2786,7 +2786,7 @@ _ZNSt6vectorIPN4LIEF5MachO6BinaryESaIS3_EED2Ev.exit12: ; preds = %_ZNSt20back_in
   %40 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %.sroa.10.2, ptr %40, align 8, !tbaa !69
   %41 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %.sroa.16.035, ptr %41, align 8, !tbaa !25
+  store ptr %.sroa.16.3, ptr %41, align 8, !tbaa !25
   %42 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %44 = getelementptr inbounds nuw i8, ptr %4, i64 96
@@ -2909,7 +2909,7 @@ _ZNSt20back_insert_iteratorISt6vectorIPN4LIEF5MachO6BinaryESaIS4_EEEaSEOS4_.exit
   br i1 %.not.i, label %_ZNSt6vectorIPN4LIEF5MachO6BinaryESaIS3_EED2Ev.exit11, label %.lr.ph.i, !llvm.loop !193
 
 _ZNSt6vectorIPN4LIEF5MachO6BinaryESaIS3_EED2Ev.exit11: ; preds = %_ZNSt20back_insert_iteratorISt6vectorIPN4LIEF5MachO6BinaryESaIS4_EEEaSEOS4_.exit.i, %14
-  %.sroa.16.034 = phi ptr [ null, %14 ], [ %16, %_ZNSt20back_insert_iteratorISt6vectorIPN4LIEF5MachO6BinaryESaIS4_EEEaSEOS4_.exit.i ]
+  %.sroa.16.3 = phi ptr [ null, %14 ], [ %16, %_ZNSt20back_insert_iteratorISt6vectorIPN4LIEF5MachO6BinaryESaIS4_EEEaSEOS4_.exit.i ]
   %.sroa.10.2 = phi ptr [ null, %14 ], [ %.sroa.10.1, %_ZNSt20back_insert_iteratorISt6vectorIPN4LIEF5MachO6BinaryESaIS4_EEEaSEOS4_.exit.i ]
   %.sroa.015.3 = phi ptr [ null, %14 ], [ %.sroa.015.2, %_ZNSt20back_insert_iteratorISt6vectorIPN4LIEF5MachO6BinaryESaIS4_EEEaSEOS4_.exit.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -2917,7 +2917,7 @@ _ZNSt6vectorIPN4LIEF5MachO6BinaryESaIS3_EED2Ev.exit11: ; preds = %_ZNSt20back_in
   %40 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %.sroa.10.2, ptr %40, align 8, !tbaa !69
   %41 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %.sroa.16.034, ptr %41, align 8, !tbaa !25
+  store ptr %.sroa.16.3, ptr %41, align 8, !tbaa !25
   %42 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %44 = getelementptr inbounds nuw i8, ptr %4, i64 96
@@ -3151,7 +3151,7 @@ _ZNSt20back_insert_iteratorISt6vectorIPN4LIEF5MachO6BinaryESaIS4_EEEaSEOS4_.exit
   br i1 %.not.i, label %_ZNSt6vectorIPN4LIEF5MachO6BinaryESaIS3_EED2Ev.exit, label %.lr.ph.i, !llvm.loop !194
 
 _ZNSt6vectorIPN4LIEF5MachO6BinaryESaIS3_EED2Ev.exit: ; preds = %_ZNSt20back_insert_iteratorISt6vectorIPN4LIEF5MachO6BinaryESaIS4_EEEaSEOS4_.exit.i, %14
-  %.sroa.16.037 = phi ptr [ null, %14 ], [ %16, %_ZNSt20back_insert_iteratorISt6vectorIPN4LIEF5MachO6BinaryESaIS4_EEEaSEOS4_.exit.i ]
+  %.sroa.16.3 = phi ptr [ null, %14 ], [ %16, %_ZNSt20back_insert_iteratorISt6vectorIPN4LIEF5MachO6BinaryESaIS4_EEEaSEOS4_.exit.i ]
   %.sroa.10.2 = phi ptr [ null, %14 ], [ %.sroa.10.1, %_ZNSt20back_insert_iteratorISt6vectorIPN4LIEF5MachO6BinaryESaIS4_EEEaSEOS4_.exit.i ]
   %.sroa.017.3 = phi ptr [ null, %14 ], [ %.sroa.017.2, %_ZNSt20back_insert_iteratorISt6vectorIPN4LIEF5MachO6BinaryESaIS4_EEEaSEOS4_.exit.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -3159,7 +3159,7 @@ _ZNSt6vectorIPN4LIEF5MachO6BinaryESaIS3_EED2Ev.exit: ; preds = %_ZNSt20back_inse
   %40 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %.sroa.10.2, ptr %40, align 8, !tbaa !69
   %41 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %.sroa.16.037, ptr %41, align 8, !tbaa !25
+  store ptr %.sroa.16.3, ptr %41, align 8, !tbaa !25
   %42 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %44 = getelementptr inbounds nuw i8, ptr %4, i64 96

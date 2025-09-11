@@ -12251,8 +12251,8 @@ define internal fastcc noalias noundef ptr @findReplica(ptr noundef nonnull read
   %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 1464), align 8, !tbaa !29
   call void @listRewind(ptr noundef %5, ptr noundef nonnull %3) #21
   %6 = call ptr @listNext(ptr noundef nonnull %3) #21
-  %.not18 = icmp eq ptr %6, null
-  br i1 %.not18, label %.loopexit, label %.lr.ph
+  %.not19 = icmp eq ptr %6, null
+  br i1 %.not19, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %connAddrPeerName.exit.thread
   %7 = phi ptr [ %27, %connAddrPeerName.exit.thread ], [ %6, %2 ]

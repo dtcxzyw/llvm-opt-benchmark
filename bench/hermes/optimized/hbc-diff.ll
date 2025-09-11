@@ -250,7 +250,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 1, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %humanize.0164 = phi i1 [ false, %for.body.lr.ph ], [ %humanize.1, %for.inc ]
+  %humanize.0165 = phi i1 [ false, %for.body.lr.ph ], [ %humanize.1, %for.inc ]
   %fileBufs.sroa.15.0163 = phi ptr [ null, %for.body.lr.ph ], [ %fileBufs.sroa.15.1, %for.inc ]
   %fileBufs.sroa.8.0162 = phi ptr [ null, %for.body.lr.ph ], [ %fileBufs.sroa.8.1, %for.inc ]
   %fileBufs.sroa.0.0161 = phi ptr [ null, %for.body.lr.ph ], [ %fileBufs.sroa.0.1, %for.inc ]
@@ -485,7 +485,7 @@ for.inc:                                          ; preds = %for.body.tail, %_ZN
   %fileBufs.sroa.0.1 = phi ptr [ %fileBufs.sroa.0.0161, %for.body.tail ], [ %fileBufs.sroa.0.2, %_ZN4llvh7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEED2Ev.exit ]
   %fileBufs.sroa.8.1 = phi ptr [ %fileBufs.sroa.8.0162, %for.body.tail ], [ %fileBufs.sroa.8.2, %_ZN4llvh7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEED2Ev.exit ]
   %fileBufs.sroa.15.1 = phi ptr [ %fileBufs.sroa.15.0163, %for.body.tail ], [ %fileBufs.sroa.15.2, %_ZN4llvh7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEED2Ev.exit ]
-  %humanize.1 = phi i1 [ true, %for.body.tail ], [ %humanize.0164, %_ZN4llvh7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEED2Ev.exit ]
+  %retval.2 = phi i1 [ true, %for.body.tail ], [ %humanize.0164, %_ZN4llvh7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEED2Ev.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !12

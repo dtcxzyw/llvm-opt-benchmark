@@ -426,15 +426,15 @@ define void @_ZN5boost10filesystem6detail11dir_itr_impdlEPv(ptr noundef captures
 define hidden noundef zeroext i1 @_ZN5boost10filesystem6detail18is_empty_directoryEONS_5scope15unique_resourceIiNS2_10fd_deleterENS2_18fd_resource_traitsEEERKNS0_4pathEPNS_6system10error_codeE(ptr noundef nonnull align 4 captures(none) dereferenceable(4) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %2) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %4 = load i32, ptr %0, align 4, !tbaa !23
   %5 = tail call ptr @fdopendir(i32 noundef %4)
-  %.not36 = icmp eq ptr %5, null
-  br i1 %.not36, label %6, label %9, !prof !22
+  %.not38 = icmp eq ptr %5, null
+  br i1 %.not38, label %6, label %9, !prof !22
 
 6:                                                ; preds = %3
   %7 = tail call ptr @__errno_location() #33
   %8 = load i32, ptr %7, align 4, !tbaa !23
-  br label %.thread33
+  br label %.thread34
 
-.thread33:                                        ; preds = %14, %6
+.thread34:                                        ; preds = %14, %6
   %.017 = phi i32 [ %8, %6 ], [ %15, %14 ]
   invoke void @_ZN5boost10filesystem10emit_errorEiRKNS0_4pathEPNS_6system10error_codeEPKc(i32 noundef %.017, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %2, ptr noundef nonnull @.str)
           to label %.thread unwind label %29
@@ -447,7 +447,7 @@ define hidden noundef zeroext i1 @_ZN5boost10filesystem6detail18is_empty_directo
 11:                                               ; preds = %.backedge, %9
   store i32 0, ptr %10, align 4, !tbaa !23
   %12 = invoke ptr @readdir64(ptr noundef nonnull %5)
-          to label %13 unwind label %.thread41
+          to label %13 unwind label %.thread47
 
 13:                                               ; preds = %11
   %.not = icmp eq ptr %12, null
@@ -456,9 +456,9 @@ define hidden noundef zeroext i1 @_ZN5boost10filesystem6detail18is_empty_directo
 14:                                               ; preds = %13
   %15 = load i32, ptr %10, align 4, !tbaa !23
   %.not24 = icmp eq i32 %15, 0
-  br i1 %.not24, label %.thread.thread, label %.thread33
+  br i1 %.not24, label %.thread.thread, label %.thread34
 
-.thread41:                                        ; preds = %11
+.thread47:                                        ; preds = %11
   %16 = landingpad { ptr, i32 }
           cleanup
   br label %31
@@ -486,8 +486,8 @@ define hidden noundef zeroext i1 @_ZN5boost10filesystem6detail18is_empty_directo
 .backedge:                                        ; preds = %24, %21
   br label %11
 
-.thread:                                          ; preds = %24, %21, %.thread33
-  br i1 %.not36, label %_ZNSt10unique_ptrI11__dirstreamZN5boost10filesystem6detail18is_empty_directoryEONS1_5scope15unique_resourceIiNS4_10fd_deleterENS4_18fd_resource_traitsEEERKNS2_4pathEPNS1_6system10error_codeEE16closedir_deleterED2Ev.exit, label %.thread.thread
+.thread:                                          ; preds = %24, %21, %.thread34
+  br i1 %.not38, label %_ZNSt10unique_ptrI11__dirstreamZN5boost10filesystem6detail18is_empty_directoryEONS1_5scope15unique_resourceIiNS4_10fd_deleterENS4_18fd_resource_traitsEEERKNS2_4pathEPNS1_6system10error_codeEE16closedir_deleterED2Ev.exit, label %.thread.thread
 
 .thread.thread:                                   ; preds = %17, %14, %.thread
   %28 = tail call i32 @closedir(ptr noundef nonnull %5)
@@ -496,19 +496,19 @@ define hidden noundef zeroext i1 @_ZN5boost10filesystem6detail18is_empty_directo
 _ZNSt10unique_ptrI11__dirstreamZN5boost10filesystem6detail18is_empty_directoryEONS1_5scope15unique_resourceIiNS4_10fd_deleterENS4_18fd_resource_traitsEEERKNS2_4pathEPNS1_6system10error_codeEE16closedir_deleterED2Ev.exit: ; preds = %.thread, %.thread.thread
   ret i1 false
 
-29:                                               ; preds = %.thread33
+29:                                               ; preds = %.thread34
   %30 = landingpad { ptr, i32 }
           cleanup
-  br i1 %.not36, label %_ZNSt10unique_ptrI11__dirstreamZN5boost10filesystem6detail18is_empty_directoryEONS1_5scope15unique_resourceIiNS4_10fd_deleterENS4_18fd_resource_traitsEEERKNS2_4pathEPNS1_6system10error_codeEE16closedir_deleterED2Ev.exit29, label %31
+  br i1 %.not38, label %_ZNSt10unique_ptrI11__dirstreamZN5boost10filesystem6detail18is_empty_directoryEONS1_5scope15unique_resourceIiNS4_10fd_deleterENS4_18fd_resource_traitsEEERKNS2_4pathEPNS1_6system10error_codeEE16closedir_deleterED2Ev.exit29, label %31
 
-31:                                               ; preds = %.thread41, %29
-  %.pn43 = phi { ptr, i32 } [ %16, %.thread41 ], [ %30, %29 ]
+31:                                               ; preds = %.thread47, %29
+  %.pn49 = phi { ptr, i32 } [ %16, %.thread41 ], [ %30, %29 ]
   %32 = tail call i32 @closedir(ptr noundef nonnull %5)
   br label %_ZNSt10unique_ptrI11__dirstreamZN5boost10filesystem6detail18is_empty_directoryEONS1_5scope15unique_resourceIiNS4_10fd_deleterENS4_18fd_resource_traitsEEERKNS2_4pathEPNS1_6system10error_codeEE16closedir_deleterED2Ev.exit29
 
 _ZNSt10unique_ptrI11__dirstreamZN5boost10filesystem6detail18is_empty_directoryEONS1_5scope15unique_resourceIiNS4_10fd_deleterENS4_18fd_resource_traitsEEERKNS2_4pathEPNS1_6system10error_codeEE16closedir_deleterED2Ev.exit29: ; preds = %29, %31
-  %.pn44 = phi { ptr, i32 } [ %30, %29 ], [ %.pn43, %31 ]
-  resume { ptr, i32 } %.pn44
+  %.pn50 = phi { ptr, i32 } [ %30, %29 ], [ %.pn49, %31 ]
+  resume { ptr, i32 } %.pn50
 }
 
 declare ptr @fdopendir(i32 noundef) local_unnamed_addr #5

@@ -767,12 +767,12 @@ define hidden void @zend_accel_finalize_delayed_early_binding_list(ptr noundef r
   %.not41 = icmp eq i32 %12, 0
   br i1 %.not41, label %.critedge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %4, %.lr.ph.backedge
-  %.02839 = phi ptr [ %.02839.be, %.lr.ph.backedge ], [ %10, %4 ]
+.lr.ph:                                           ; preds = %4, %.critedge
+  %.040 = phi ptr [ %.02839.be, %.lr.ph.backedge ], [ %10, %4 ]
   %15 = getelementptr inbounds nuw i8, ptr %.02839, i64 28
   %16 = load i8, ptr %15, align 4, !tbaa !77
   %17 = icmp eq i8 %16, -111
-  br i1 %17, label %18, label %43
+  br i1 %17, label %18, label %41
 
 18:                                               ; preds = %.lr.ph
   %19 = getelementptr inbounds nuw i8, ptr %.02839, i64 8
@@ -814,17 +814,17 @@ zend_string_equals.exit.thread:                   ; preds = %26, %zend_string_eq
   store i32 %38, ptr %39, align 8, !tbaa !79
   %40 = getelementptr inbounds nuw i8, ptr %.1, i64 32
   %.not34 = icmp ult ptr %40, %8
-  %41 = getelementptr inbounds nuw i8, ptr %.02839, i64 32
+  %41 = getelementptr inbounds nuw i8, ptr %.040, i64 32
   %42 = icmp ult ptr %41, %14
   %or.cond = select i1 %.not34, i1 %42, i1 false
   br i1 %or.cond, label %.lr.ph.backedge, label %.critedge
 
-43:                                               ; preds = %.lr.ph
-  %.old = getelementptr inbounds nuw i8, ptr %.02839, i64 32
+41:                                               ; preds = %.lr.ph
+  %.old = getelementptr inbounds nuw i8, ptr %.040, i64 32
   %.old40 = icmp ult ptr %.old, %14
-  br i1 %.old40, label %.lr.ph.backedge, label %.critedge
+  br i1 %.old40, label %.critedge, label %.critedge
 
-.lr.ph.backedge:                                  ; preds = %43, %zend_string_equals.exit.thread
+.critedge:                                        ; preds = %41, %zend_string_equals.exit.thread
   %.02839.be = phi ptr [ %.old, %43 ], [ %41, %zend_string_equals.exit.thread ]
   br label %.lr.ph
 

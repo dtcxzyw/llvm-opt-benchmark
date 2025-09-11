@@ -59,13 +59,13 @@ invoke.cont11:                                    ; preds = %invoke.cont6
           to label %invoke.cont13 unwind label %lpad
 
 invoke.cont13:                                    ; preds = %invoke.cont11
-  call void @_ZN2EA6EAMain11CommandLineD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %commandLine) #9
+  call void @_ZN2EA6EAMain11CommandLineD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %commandLine) #10
   ret i32 %call12
 
 lpad:                                             ; preds = %invoke.cont11, %invoke.cont6, %invoke.cont5, %invoke.cont3, %entry
   %5 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2EA6EAMain11CommandLineD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %commandLine) #9
+  call void @_ZN2EA6EAMain11CommandLineD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %commandLine) #10
   resume { ptr, i32 } %5
 }
 
@@ -129,7 +129,7 @@ if.else15.tail:                                   ; preds = %sub_164
 
 if.then22:                                        ; preds = %if.else15.tail
   %add.ptr25 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  %call26 = tail call i32 @atoi(ptr noundef nonnull %add.ptr25) #10
+  %call26 = tail call i32 @atoi(ptr noundef nonnull %add.ptr25) #11
   store i32 %call26, ptr @gEASTL_TestLevel, align 4
   %cmp27 = icmp slt i32 %call26, 1
   br i1 %cmp27, label %if.end32.sink.split, label %if.else29
@@ -161,7 +161,7 @@ if.else34.tail:                                   ; preds = %sub_167
 
 if.then41:                                        ; preds = %if.else34.tail
   %add.ptr44 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  %call45 = tail call i32 @atoi(ptr noundef nonnull %add.ptr44) #10
+  %call45 = tail call i32 @atoi(ptr noundef nonnull %add.ptr44) #11
   tail call void @_ZN2EA8UnitTest11SetRandSeedEj(i32 noundef %call45)
   %inc47 = add nsw i32 %nOptionCount.078, 1
   br label %for.inc
@@ -236,27 +236,27 @@ invoke.cont96:                                    ; preds = %if.end74
           to label %invoke.cont98 unwind label %lpad95
 
 invoke.cont98:                                    ; preds = %invoke.cont96
-  %25 = load i8, ptr %mRemainingSizeField.i.i.i.i.i.i, align 1
-  %tobool.i.i.i = icmp slt i8 %25, 0
-  %26 = load ptr, ptr %sClockTime, align 8
-  %spec.select.i.i = select i1 %tobool.i.i.i, ptr %26, ptr %sClockTime
+  %26 = load i8, ptr %mRemainingSizeField.i.i.i.i.i.i, align 1
+  %tobool.i.i.i = icmp slt i8 %26, 0
+  %27 = load ptr, ptr %sClockTime, align 8
+  %spec.select.i.i = select i1 %tobool.i.i.i, ptr %27, ptr %sClockTime
   invoke void (ptr, ...) @_ZN2EA8UnitTest6ReportEPKcz(ptr noundef nonnull @.str.13, ptr noundef %spec.select.i.i)
           to label %if.end106 unwind label %lpad95
 
-lpad95:                                           ; preds = %if.end106, %invoke.cont98, %invoke.cont96, %if.end74
+invoke.cont100:                                   ; preds = %if.end106, %invoke.cont98, %invoke.cont96, %if.end74
   %27 = landingpad { ptr, i32 }
           cleanup
-  %28 = load i8, ptr %mRemainingSizeField.i.i.i.i.i.i, align 1
-  %tobool.i.i.i53 = icmp slt i8 %28, 0
+  %29 = load i8, ptr %mRemainingSizeField.i.i.i.i.i.i, align 1
+  %tobool.i.i.i53 = icmp slt i8 %29, 0
   br i1 %tobool.i.i.i53, label %if.then.i.i, label %ehcleanup
 
 if.then.i.i:                                      ; preds = %lpad95
-  %29 = load ptr, ptr %sClockTime, align 8
-  %tobool.not.i.i.i = icmp eq ptr %29, null
+  %30 = load ptr, ptr %sClockTime, align 8
+  %tobool.not.i.i.i = icmp eq ptr %30, null
   br i1 %tobool.not.i.i.i, label %ehcleanup, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i
 
 _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i:   ; preds = %if.then.i.i
-  call void @_ZdaPv(ptr noundef nonnull %29) #11
+  call void @_ZdaPv(ptr noundef nonnull %30) #12
   br label %ehcleanup
 
 if.end106:                                        ; preds = %invoke.cont98
@@ -264,17 +264,17 @@ if.end106:                                        ; preds = %invoke.cont98
           to label %invoke.cont107 unwind label %lpad95
 
 invoke.cont107:                                   ; preds = %if.end106
-  %30 = load i8, ptr %mRemainingSizeField.i.i.i.i.i.i, align 1
-  %tobool.i.i.i55 = icmp slt i8 %30, 0
+  %31 = load i8, ptr %mRemainingSizeField.i.i.i.i.i.i, align 1
+  %tobool.i.i.i55 = icmp slt i8 %31, 0
   br i1 %tobool.i.i.i55, label %if.then.i.i56, label %_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit59
 
 if.then.i.i56:                                    ; preds = %invoke.cont107
-  %31 = load ptr, ptr %sClockTime, align 8
-  %tobool.not.i.i.i57 = icmp eq ptr %31, null
+  %32 = load ptr, ptr %sClockTime, align 8
+  %tobool.not.i.i.i57 = icmp eq ptr %32, null
   br i1 %tobool.not.i.i.i57, label %_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit59, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i58
 
 _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i58: ; preds = %if.then.i.i56
-  call void @_ZdaPv(ptr noundef nonnull %31) #11
+  call void @_ZdaPv(ptr noundef nonnull %32) #12
   br label %_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit59
 
 _ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit59: ; preds = %invoke.cont107, %if.then.i.i56, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i58
@@ -444,10 +444,10 @@ declare void @_ZN2EA6EAMain16PlatformShutdownEi(i32 noundef) local_unnamed_addr 
 declare noundef i32 @_ZN2EA4StdC8StrtoU32EPKcPPci(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdaPv(ptr noundef) local_unnamed_addr #5
+declare void @_ZdaPv(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #6
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE6appendEPKcS4_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %pBegin, ptr noundef %pEnd) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -508,7 +508,7 @@ if.then.i:                                        ; preds = %if.then5
   br i1 %tobool.not.i.i, label %_ZN5eastl12basic_stringIcNS_9allocatorEE14DeallocateSelfEv.exit, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i
 
 _ZN5eastl9allocator10deallocateEPvm.exit.i.i:     ; preds = %if.then.i
-  tail call void @_ZdaPv(ptr noundef nonnull %7) #11
+  tail call void @_ZdaPv(ptr noundef nonnull %7) #12
   br label %_ZN5eastl12basic_stringIcNS_9allocatorEE14DeallocateSelfEv.exit
 
 _ZN5eastl12basic_stringIcNS_9allocatorEE14DeallocateSelfEv.exit: ; preds = %if.then5, %if.then.i, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i
@@ -547,10 +547,10 @@ if.end23:                                         ; preds = %cond.false.i, %cond
 declare noundef ptr @_ZnamPKcijS0_i(i64 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr captures(none)) local_unnamed_addr #7
+declare i64 @strlen(ptr captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #8
+declare i64 @llvm.umax.i64(i64, i64) #9
 
 attributes #0 = { mustprogress norecurse uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -559,7 +559,7 @@ attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stac
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: read) }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #9 = { nounwind }
 attributes #10 = { nounwind willreturn memory(read) }

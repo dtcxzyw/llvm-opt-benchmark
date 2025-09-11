@@ -1799,51 +1799,51 @@ declare i32 @CVodeGetB(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @PrintOutput(ptr noundef %0) unnamed_addr #0 {
-  %2 = tail call ptr @N_VGetArrayPointer(ptr noundef %0) #9
+  %3 = tail call ptr @N_VGetArrayPointer(ptr noundef %0) #9
   br label %.preheader35
 
-.preheader35:                                     ; preds = %1, %12
+.preheader35:                                     ; preds = %1, %25
   %indvars.iv51 = phi i64 [ 1, %1 ], [ %indvars.iv.next52, %12 ]
   %3 = getelementptr double, ptr %2, i64 %indvars.iv51
   %4 = getelementptr i8, ptr %3, i64 -8
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader35, %11
+.preheader:                                       ; preds = %.preheader35, %24
   %indvars.iv48 = phi i64 [ 19, %.preheader35 ], [ %indvars.iv.next49, %11 ]
-  %.02841 = phi double [ 0.000000e+00, %.preheader35 ], [ %.230, %11 ]
+  %.143 = phi double [ 0.000000e+00, %.preheader35 ], [ %.230, %11 ]
   %.idx = mul i64 %indvars.iv48, 960
-  %5 = getelementptr i8, ptr %4, i64 %.idx
-  br label %6
+  %10 = getelementptr i8, ptr %4, i64 %.idx
+  br label %11
 
-6:                                                ; preds = %.preheader, %6
+11:                                               ; preds = %.preheader, %6
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %6 ]
-  %.12937 = phi double [ %.02841, %.preheader ], [ %.230, %6 ]
+  %.239 = phi double [ %.143, %.preheader ], [ %.230, %6 ]
   %.idx55 = mul i64 %indvars.iv, 48
-  %7 = getelementptr i8, ptr %5, i64 %.idx55
-  %8 = load double, ptr %7, align 8, !tbaa !24
-  %9 = tail call double @llvm.fabs.f64(double %8)
-  %10 = fcmp ogt double %9, %.12937
-  %.230 = select i1 %10, double %8, double %.12937
+  %12 = getelementptr i8, ptr %10, i64 %.idx55
+  %13 = load double, ptr %12, align 8, !tbaa !24
+  %14 = tail call double @llvm.fabs.f64(double %13)
+  %15 = fcmp ogt double %14, %.12937
+  %.230 = select i1 %15, double %13, double %.239
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 20
-  br i1 %exitcond.not, label %11, label %6
+  br i1 %exitcond.not, label %24, label %11
 
-11:                                               ; preds = %6
+24:                                               ; preds = %6
   %indvars.iv.next49 = add nsw i64 %indvars.iv48, -1
   %.not = icmp eq i64 %indvars.iv48, 0
-  br i1 %.not, label %12, label %.preheader
+  br i1 %.not, label %25, label %.preheader
 
-12:                                               ; preds = %11
-  %13 = trunc nuw nsw i64 %indvars.iv51 to i32
-  %14 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.31, i32 noundef %13)
-  %15 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.32, double noundef %.230)
+25:                                               ; preds = %24
+  %26 = trunc nuw nsw i64 %indvars.iv51 to i32
+  %27 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.31, i32 noundef %26)
+  %28 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.32, double noundef %.230)
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.5)
-  %16 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.34, double noundef poison, double noundef poison)
+  %29 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.34, double noundef poison, double noundef poison)
   %indvars.iv.next52 = add nuw nsw i64 %indvars.iv51, 1
   %exitcond54.not = icmp eq i64 %indvars.iv.next52, 7
-  br i1 %exitcond54.not, label %17, label %.preheader35
+  br i1 %exitcond54.not, label %30, label %.preheader35
 
-17:                                               ; preds = %12
+30:                                               ; preds = %25
   ret void
 }
 

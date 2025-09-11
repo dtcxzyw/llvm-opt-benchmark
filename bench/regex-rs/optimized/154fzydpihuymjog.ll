@@ -1923,17 +1923,17 @@ thread-pre-split:                                 ; preds = %68
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %185, %102
-  %.sroa.0.0107.i = phi i64 [ %.sroa.0.1.i, %185 ], [ 1, %102 ]
-  %.sroa.7.0106.i = phi i64 [ %.sroa.7.1.i, %185 ], [ 0, %102 ]
-  %.sroa.11.0105.i = phi i64 [ %.sroa.11.1.i, %185 ], [ 1, %102 ]
-  %.sroa.15.0104.i = phi i64 [ %.sroa.15.1.i, %185 ], [ 0, %102 ]
-  %.sroa.19.0103.i = phi i1 [ %brmerge, %185 ], [ false, %102 ]
-  %.sroa.22.0102.i = phi i64 [ %162, %185 ], [ 0, %102 ]
-  %.sroa.25.0101.i = phi i64 [ %154, %185 ], [ 0, %102 ]
-  %.sroa.28.0100.i = phi i32 [ %110, %185 ], [ 0, %102 ]
-  %.sroa.43.099.i = phi i8 [ %.054.i, %185 ], [ 1, %102 ]
-  %.sroa.46.098.i = phi i8 [ %.053.i, %185 ], [ 1, %102 ]
-  %.sroa.49.097.i = phi i8 [ %.0.i, %185 ], [ 1, %102 ]
+  %.sroa.0.0108.i = phi i64 [ %.sroa.0.1.i, %185 ], [ 1, %102 ]
+  %.sroa.7.0107.i = phi i64 [ %.sroa.7.1.i, %185 ], [ 0, %102 ]
+  %.sroa.11.0106.i = phi i64 [ %.sroa.11.1.i, %185 ], [ 1, %102 ]
+  %.sroa.15.0105.i = phi i64 [ %.sroa.15.1.i, %185 ], [ 0, %102 ]
+  %.sroa.19.0104.i = phi i1 [ %brmerge, %185 ], [ false, %102 ]
+  %.sroa.22.0103.i = phi i64 [ %162, %185 ], [ 0, %102 ]
+  %.sroa.25.0102.i = phi i64 [ %154, %185 ], [ 0, %102 ]
+  %.sroa.28.0101.i = phi i32 [ %110, %185 ], [ 0, %102 ]
+  %.sroa.43.0100.i = phi i8 [ %.054.i, %185 ], [ 1, %102 ]
+  %.sroa.46.099.i = phi i8 [ %.053.i, %185 ], [ 1, %102 ]
+  %.sroa.49.098.i = phi i8 [ %.0.i, %185 ], [ 1, %102 ]
   %.sroa.5.094.i = phi i64 [ %162, %185 ], [ undef, %102 ]
   %.sroa.0.08393.i = phi ptr [ %105, %185 ], [ %103, %102 ]
   %105 = getelementptr inbounds nuw i8, ptr %.sroa.0.08393.i, i64 48
@@ -1941,8 +1941,8 @@ thread-pre-split:                                 ; preds = %68
   %107 = load ptr, ptr %106, align 8, !alias.scope !279, !nonnull !9, !align !157, !noundef !9
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 56
   %109 = load i32, ptr %108, align 8, !noalias !279, !noundef !9
-  %110 = or i32 %109, %.sroa.28.0100.i
-  %111 = trunc nuw i8 %.sroa.43.099.i to i1
+  %110 = or i32 %109, %.sroa.28.0101.i
+  %111 = trunc nuw i8 %.sroa.43.0100.i to i1
   br i1 %111, label %148, label %151
 
 .preheader.i:                                     ; preds = %185, %113
@@ -2026,23 +2026,23 @@ thread-pre-split:                                 ; preds = %68
   %.054.i = phi i8 [ %150, %148 ], [ 0, %.lr.ph.i ]
   %152 = getelementptr inbounds nuw i8, ptr %107, i64 48
   %153 = load i64, ptr %152, align 8, !noalias !279, !noundef !9
-  %154 = call i64 @llvm.uadd.sat.i64(i64 %.sroa.25.0101.i, i64 %153)
+  %154 = call i64 @llvm.uadd.sat.i64(i64 %.sroa.25.0102.i, i64 %153)
   %155 = getelementptr inbounds nuw i8, ptr %107, i64 32
   %156 = load i64, ptr %155, align 8, !range !16, !noalias !279, !noundef !9
   %trunc.i = trunc nuw i64 %156 to i1
   %trunc.i.not = xor i1 %trunc.i, true
-  %brmerge = or i1 %.sroa.19.0103.i, %trunc.i.not
+  %brmerge = or i1 %.sroa.19.0104.i, %trunc.i.not
   br i1 %brmerge, label %161, label %157
 
 157:                                              ; preds = %151
   %158 = getelementptr inbounds nuw i8, ptr %107, i64 40
   %159 = load i64, ptr %158, align 8, !noalias !279
-  %160 = call i64 @llvm.uadd.sat.i64(i64 %159, i64 %.sroa.22.0102.i)
+  %160 = call i64 @llvm.uadd.sat.i64(i64 %159, i64 %.sroa.22.0103.i)
   br label %161
 
 161:                                              ; preds = %151, %157
   %162 = phi i64 [ %160, %157 ], [ %.sroa.5.094.i, %151 ]
-  %163 = trunc nuw i8 %.sroa.46.098.i to i1
+  %163 = trunc nuw i8 %.sroa.46.099.i to i1
   br i1 %163, label %164, label %167
 
 164:                                              ; preds = %161
@@ -2052,7 +2052,7 @@ thread-pre-split:                                 ; preds = %68
 
 167:                                              ; preds = %164, %161
   %.053.i = phi i8 [ %166, %164 ], [ 0, %161 ]
-  %168 = trunc nuw i8 %.sroa.49.097.i to i1
+  %168 = trunc nuw i8 %.sroa.49.098.i to i1
   br i1 %168, label %169, label %172
 
 169:                                              ; preds = %167
@@ -2062,7 +2062,7 @@ thread-pre-split:                                 ; preds = %68
 
 172:                                              ; preds = %169, %167
   %.0.i = phi i8 [ %171, %169 ], [ 0, %167 ]
-  %173 = icmp eq i64 %.sroa.0.0107.i, 1
+  %173 = icmp eq i64 %.sroa.0.0108.i, 1
   br i1 %173, label %174, label %176
 
 174:                                              ; preds = %172
@@ -2071,15 +2071,15 @@ thread-pre-split:                                 ; preds = %68
   br i1 %trunc57.i, label %178, label %176
 
 176:                                              ; preds = %178, %174, %172
-  %.sroa.7.1.i = phi i64 [ %.sroa.7.0106.i, %172 ], [ %181, %178 ], [ undef, %174 ]
+  %.sroa.7.1.i = phi i64 [ %.sroa.7.0107.i, %172 ], [ %181, %178 ], [ undef, %174 ]
   %.sroa.0.1.i = phi i64 [ 0, %172 ], [ 1, %178 ], [ 0, %174 ]
-  %177 = icmp eq i64 %.sroa.11.0105.i, 1
+  %177 = icmp eq i64 %.sroa.11.0106.i, 1
   br i1 %177, label %182, label %185
 
 178:                                              ; preds = %174
   %179 = getelementptr inbounds nuw i8, ptr %107, i64 8
   %180 = load i64, ptr %179, align 8, !noalias !279
-  %181 = call i64 @llvm.uadd.sat.i64(i64 %.sroa.7.0106.i, i64 %180)
+  %181 = call i64 @llvm.uadd.sat.i64(i64 %.sroa.7.0107.i, i64 %180)
   br label %176
 
 182:                                              ; preds = %176
@@ -2089,7 +2089,7 @@ thread-pre-split:                                 ; preds = %68
   br i1 %trunc58.i, label %187, label %185
 
 185:                                              ; preds = %187, %182, %176
-  %.sroa.15.1.i = phi i64 [ %.sroa.15.0104.i, %176 ], [ %192, %187 ], [ undef, %182 ]
+  %.sroa.528.1.i = phi i64 [ %.sroa.15.0104.i, %176 ], [ %192, %187 ], [ undef, %182 ]
   %.sroa.11.1.i = phi i64 [ 0, %176 ], [ %.sroa.027.0.i, %187 ], [ 0, %182 ]
   %186 = icmp eq ptr %105, %104
   br i1 %186, label %.preheader.i, label %.lr.ph.i
@@ -2097,7 +2097,7 @@ thread-pre-split:                                 ; preds = %68
 187:                                              ; preds = %182
   %188 = getelementptr inbounds nuw i8, ptr %107, i64 24
   %189 = load i64, ptr %188, align 8, !noalias !279
-  %190 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %.sroa.15.0104.i, i64 %189)
+  %190 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %.sroa.15.0105.i, i64 %189)
   %191 = extractvalue { i64, i1 } %190, 1
   %192 = extractvalue { i64, i1 } %190, 0
   %not..i = xor i1 %191, true

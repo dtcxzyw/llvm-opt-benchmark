@@ -25814,7 +25814,7 @@ _ZN6rustls7hash_hs13HandshakeHash11add_message17h96486aaaeca9d316E.exit: ; preds
           to label %457 unwind label %.loopexit.split-lp202.loopexit.split-lp
 
 215:                                              ; preds = %.lr.ph, %511
-  %.sroa.025.0253 = phi i64 [ 0, %.lr.ph ], [ %216, %511 ]
+  %.sroa.025.0278 = phi i64 [ 0, %.lr.ph ], [ %216, %511 ]
   %216 = add nuw i64 %.sroa.025.0253, 1
   %217 = load ptr, ptr %150, align 8, !nonnull !14, !align !47, !noundef !14
   %218 = load ptr, ptr %151, align 8, !nonnull !14, !noundef !14

@@ -712,7 +712,7 @@ mi_outc.exit.i:                                   ; preds = %207, %206
   br label %mi_outc.exit51.i
 
 mi_outc.exit51.i:                                 ; preds = %216, %.split.i
-  %223 = phi ptr [ %213, %.split.i ], [ %222, %216 ]
+  %.11 = phi ptr [ %213, %.split.i ], [ %222, %216 ]
   %.not.i260 = icmp ugt i64 %204, %.054.i
   br i1 %.not.i260, label %.split56.us.i, label %.split.i, !llvm.loop !22
 

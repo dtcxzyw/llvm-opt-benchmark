@@ -278,7 +278,7 @@ define dso_local noundef zeroext i1 @_ZN15rcMeshLoaderObj4loadERKNSt7__cxx1112ba
   br label %.outer
 
 .outer:                                           ; preds = %.loopexit, %30
-  %.0118.ph = phi i32 [ %.1119158, %.loopexit ], [ 0, %30 ]
+  %.0118.ph = phi i32 [ %.1119159, %.loopexit ], [ 0, %30 ]
   %.089.ph = phi ptr [ %40, %.loopexit ], [ %26, %30 ]
   br label %36
 
@@ -489,13 +489,13 @@ _ZL9parseFacePcPiii.exit:                         ; preds = %94
   br i1 %108, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %104, %_ZL9parseFacePcPiii.exit
-  %.0.i160 = phi i64 [ %indvars.iv.i, %_ZL9parseFacePcPiii.exit ], [ 32, %104 ]
+  %.0.i161 = phi i64 [ %indvars.iv.i, %_ZL9parseFacePcPiii.exit ], [ 32, %104 ]
   %109 = load i32, ptr %4, align 16
   %110 = icmp slt i32 %109, 0
   br i1 %110, label %.loopexit, label %.lr.ph.split.preheader
 
 .lr.ph.split.preheader:                           ; preds = %.lr.ph
-  %wide.trip.count = and i64 %.0.i160, 4294967295
+  %wide.trip.count = and i64 %.0.i161, 4294967295
   br label %.lr.ph.split
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %148
@@ -587,7 +587,7 @@ _ZN15rcMeshLoaderObj11addTriangleEiiiRi.exit:     ; preds = %._crit_edge17.i, %1
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !10
 
 .loopexit:                                        ; preds = %_ZL8parseRowPcS_S_i.exit, %148, %_ZN15rcMeshLoaderObj9addVertexEfffRi.exit, %switch.early.test, %switch.early.test, %.lr.ph, %_ZL9parseFacePcPiii.exit
-  %.1119158 = phi i32 [ %.0118.ph, %_ZL9parseFacePcPiii.exit ], [ %.0118.ph, %.lr.ph ], [ %.0118.ph, %switch.early.test ], [ %.0118.ph, %switch.early.test ], [ %.2120, %_ZN15rcMeshLoaderObj9addVertexEfffRi.exit ], [ %.0118.ph, %148 ], [ %.0118.ph, %_ZL8parseRowPcS_S_i.exit ]
+  %.1119159 = phi i32 [ %.0118.ph, %_ZL9parseFacePcPiii.exit ], [ %.0118.ph, %.lr.ph ], [ %.0118.ph, %switch.early.test ], [ %.0118.ph, %switch.early.test ], [ %.2120, %_ZN15rcMeshLoaderObj9addVertexEfffRi.exit ], [ %.0118.ph, %148 ], [ %.0118.ph, %_ZL8parseRowPcS_S_i.exit ]
   br label %.outer, !llvm.loop !11
 
 149:                                              ; preds = %36

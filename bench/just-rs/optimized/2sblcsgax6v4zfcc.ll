@@ -10750,7 +10750,7 @@ _ZN4just5color5Color6active17hcd18acd676d3d894E.llvm.11107275065492906757.exit.t
   %189 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %190 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %191 = getelementptr inbounds nuw i8, ptr %57, i64 16
-  %brmerge165.i = select i1 %137, i1 true, i1 %switch.i.i
+  %brmerge166.i = select i1 %137, i1 true, i1 %switch.i.i
   br label %.cont23.i
 
 192:                                              ; preds = %"_ZN4core3ptr42drop_in_place$LT$std..process..Command$GT$17h5af37505a8b37905E.exit.i", %.loopexit.split-lp94.i, %.loopexit93.i
@@ -10793,18 +10793,18 @@ _ZN4just5color5Color6active17hcd18acd676d3d894E.llvm.11107275065492906757.exit.t
   br label %"_ZN4core3ptr42drop_in_place$LT$std..process..Command$GT$17h5af37505a8b37905E.exit.i"
 
 .cont23.i:                                        ; preds = %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17hf929b0f86a055458E.exit.backedge.i", %.cont23.lr.ph.i
-  %.sroa.29.2163.i = phi ptr [ %.sroa.29.2160.i, %.cont23.lr.ph.i ], [ %.sroa.29.2.i, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17hf929b0f86a055458E.exit.backedge.i" ]
-  %.sroa.15.1162.i.in = phi ptr [ %120, %.cont23.lr.ph.i ], [ %.sroa.29.12.i.lcssa, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17hf929b0f86a055458E.exit.backedge.i" ]
-  %.0104161.i = phi i64 [ %128, %.cont23.lr.ph.i ], [ %199, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17hf929b0f86a055458E.exit.backedge.i" ]
+  %.sroa.29.2164.i = phi ptr [ %.sroa.29.2160.i, %.cont23.lr.ph.i ], [ %.sroa.29.2.i, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17hf929b0f86a055458E.exit.backedge.i" ]
+  %.sroa.15.1163.i.in = phi ptr [ %120, %.cont23.lr.ph.i ], [ %.sroa.29.12.i.lcssa, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17hf929b0f86a055458E.exit.backedge.i" ]
+  %.0104162.i = phi i64 [ %128, %.cont23.lr.ph.i ], [ %199, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17hf929b0f86a055458E.exit.backedge.i" ]
   call void @llvm.lifetime.start.p0(ptr nonnull %68), !noalias !1654
   store i64 0, ptr %68, align 8, !noalias !1654
   store ptr inttoptr (i64 1 to ptr), ptr %.sroa.463.0..sroa_idx.i, align 8, !noalias !1654
   store i64 0, ptr %.sroa.564.0..sroa_idx.i, align 8, !noalias !1654
-  %193 = invoke noundef zeroext i1 @_ZN4just4line4Line8is_quiet17hed00f03a417691a2E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.sroa.15.1162.i.in)
+  %193 = invoke noundef zeroext i1 @_ZN4just4line4Line8is_quiet17hed00f03a417691a2E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.sroa.15.1163.i.in)
           to label %.cont21.i unwind label %.loopexit.split-lp83.loopexit.i, !noalias !1655
 
 .cont21.i:                                        ; preds = %.cont23.i
-  %194 = invoke noundef zeroext i1 @_ZN4just4line4Line13is_infallible17hefe9dd72340916a6E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.sroa.15.1162.i.in)
+  %194 = invoke noundef zeroext i1 @_ZN4just4line4Line13is_infallible17hefe9dd72340916a6E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.sroa.15.1163.i.in)
           to label %"_ZN4core6option15Option$LT$T$GT$6map_or17hd9641815afd9dcc7E.exit.i" unwind label %.loopexit.split-lp83.loopexit.i, !noalias !1655
 
 "_ZN4core6option15Option$LT$T$GT$6map_or17hd9641815afd9dcc7E.exit.i": ; preds = %.cont21.i
@@ -10817,14 +10817,14 @@ _ZN4just5color5Color6active17hcd18acd676d3d894E.llvm.11107275065492906757.exit.t
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h40fdd5783492af91E.exit.thread54.i"
 
 .cont.i:                                          ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17hd9641815afd9dcc7E.exit.i"
-  %197 = invoke noundef zeroext i1 @_ZN4just4line4Line10is_comment17h890f52b9797d7c9aE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.sroa.15.1162.i.in)
+  %197 = invoke noundef zeroext i1 @_ZN4just4line4Line10is_comment17h890f52b9797d7c9aE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.sroa.15.1163.i.in)
           to label %"_ZN4core6option15Option$LT$T$GT$6map_or17ha85e7c06a59b9546E.exit.i" unwind label %.loopexit.split-lp83.loopexit.i, !noalias !1655
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h40fdd5783492af91E.exit.thread54.i": ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17ha85e7c06a59b9546E.exit.i", %_ZN5alloc6string6String3pop17h7d0b8e12802f1bb7E.exit.i
-  %198 = phi ptr [ %.sroa.15.1162.i.in, %"_ZN4core6option15Option$LT$T$GT$6map_or17ha85e7c06a59b9546E.exit.i" ], [ %.sroa.29.12.i157, %_ZN5alloc6string6String3pop17h7d0b8e12802f1bb7E.exit.i ]
-  %.sroa.29.12.i157 = phi ptr [ %.sroa.29.2163.i, %"_ZN4core6option15Option$LT$T$GT$6map_or17ha85e7c06a59b9546E.exit.i" ], [ %.sroa.29.12.i, %_ZN5alloc6string6String3pop17h7d0b8e12802f1bb7E.exit.i ]
+  %198 = phi ptr [ %.sroa.15.1163.i.in, %"_ZN4core6option15Option$LT$T$GT$6map_or17ha85e7c06a59b9546E.exit.i" ], [ %.sroa.29.12.i157, %_ZN5alloc6string6String3pop17h7d0b8e12802f1bb7E.exit.i ]
+  %.sroa.29.12.i157 = phi ptr [ %.sroa.29.2164.i, %"_ZN4core6option15Option$LT$T$GT$6map_or17ha85e7c06a59b9546E.exit.i" ], [ %.sroa.29.12.i, %_ZN5alloc6string6String3pop17h7d0b8e12802f1bb7E.exit.i ]
   %.0101.i155 = phi i1 [ false, %"_ZN4core6option15Option$LT$T$GT$6map_or17ha85e7c06a59b9546E.exit.i" ], [ true, %_ZN5alloc6string6String3pop17h7d0b8e12802f1bb7E.exit.i ]
-  %.1.i154 = phi i64 [ %.0104161.i, %"_ZN4core6option15Option$LT$T$GT$6map_or17ha85e7c06a59b9546E.exit.i" ], [ %199, %_ZN5alloc6string6String3pop17h7d0b8e12802f1bb7E.exit.i ]
+  %.1.i154 = phi i64 [ %.0104162.i, %"_ZN4core6option15Option$LT$T$GT$6map_or17ha85e7c06a59b9546E.exit.i" ], [ %199, %_ZN5alloc6string6String3pop17h7d0b8e12802f1bb7E.exit.i ]
   %199 = add i64 %.1.i154, 1
   br i1 %.0103.i, label %202, label %201
 
@@ -11101,7 +11101,7 @@ _ZN5alloc6string6String3pop17h7d0b8e12802f1bb7E.exit.i: ; preds = %.thread23.i.i
   br i1 %317, label %.thread61.i, label %318
 
 318:                                              ; preds = %314
-  br i1 %brmerge165.i, label %319, label %320
+  br i1 %brmerge166.i, label %319, label %320
 
 319:                                              ; preds = %329, %318
   br i1 %151, label %332, label %331

@@ -1074,8 +1074,8 @@ define linkonce_odr dso_local void @_ZN15OverlapRecovery11CreateSceneEv(ptr noun
 43:                                               ; preds = %.lr.ph40, %._crit_edge35
   %44 = phi i32 [ %32, %.lr.ph40 ], [ %51, %._crit_edge35 ]
   %45 = phi float [ %34, %.lr.ph40 ], [ %52, %._crit_edge35 ]
-  %.02437 = phi float [ %34, %.lr.ph40 ], [ %53, %._crit_edge35 ]
-  %.02536 = phi i32 [ 0, %.lr.ph40 ], [ %54, %._crit_edge35 ]
+  %.02338 = phi float [ %34, %.lr.ph40 ], [ %53, %._crit_edge35 ]
+  %.02437 = phi i32 [ 0, %.lr.ph40 ], [ %54, %._crit_edge35 ]
   %46 = icmp slt i32 %.02536, %44
   br i1 %46, label %.lr.ph34.preheader, label %.._crit_edge35_crit_edge
 
@@ -1090,7 +1090,7 @@ define linkonce_odr dso_local void @_ZN15OverlapRecovery11CreateSceneEv(ptr noun
   %50 = fmul float %47, %49
   br label %.lr.ph34
 
-._crit_edge35:                                    ; preds = %.lr.ph34, %.._crit_edge35_crit_edge
+._crit_edge35.loopexit:                           ; preds = %.lr.ph34, %.._crit_edge35_crit_edge
   %.pre-phi = phi float [ %.pre, %.._crit_edge35_crit_edge ], [ %61, %.lr.ph34 ]
   %51 = phi i32 [ %44, %.._crit_edge35_crit_edge ], [ %64, %.lr.ph34 ]
   %52 = phi float [ %45, %.._crit_edge35_crit_edge ], [ %60, %.lr.ph34 ]
@@ -1101,24 +1101,24 @@ define linkonce_odr dso_local void @_ZN15OverlapRecovery11CreateSceneEv(ptr noun
 
 .lr.ph34:                                         ; preds = %.lr.ph34.preheader, %.lr.ph34
   %indvars.iv43 = phi i64 [ poison, %.lr.ph34.preheader ], [ %indvars.iv.next44, %.lr.ph34 ]
-  %.02631 = phi float [ %50, %.lr.ph34.preheader ], [ %62, %.lr.ph34 ]
-  %.02730 = phi i32 [ %.02536, %.lr.ph34.preheader ], [ %63, %.lr.ph34 ]
+  %.02631 = phi float [ %50, %.lr.ph34.preheader ], [ %64, %.lr.ph34 ]
+  %.02730 = phi i32 [ %.02536, %.lr.ph34.preheader ], [ %65, %.lr.ph34 ]
   store float %.02631, ptr %35, align 4, !tbaa !15
   store float %.02437, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !15
   %.sroa.02.0.copyload = load i32, ptr %9, align 4
-  %56 = call i64 @b2CreateBody(i32 %.sroa.02.0.copyload, ptr noundef nonnull %2)
-  %57 = call i64 @b2CreatePolygonShape(i64 %56, ptr noundef nonnull %4, ptr noundef nonnull %3)
-  %58 = load ptr, ptr %24, align 8, !tbaa !35
+  %58 = call i64 @b2CreateBody(i32 %.sroa.02.0.copyload, ptr noundef nonnull %2)
+  %59 = call i64 @b2CreatePolygonShape(i64 %58, ptr noundef nonnull %4, ptr noundef nonnull %3)
+  %60 = load ptr, ptr %24, align 8, !tbaa !35
   %indvars.iv.next44 = add nsw i64 %indvars.iv43, 1
-  %59 = getelementptr inbounds %struct.b2BodyId, ptr %58, i64 %indvars.iv43
-  store i64 %56, ptr %59, align 4
-  %60 = load float, ptr %16, align 4, !tbaa !50
-  %61 = fmul float %36, %60
-  %62 = fadd float %.02631, %61
-  %63 = add nuw nsw i32 %.02730, 1
-  %64 = load i32, ptr %19, align 4, !tbaa !48
-  %65 = icmp slt i32 %63, %64
-  br i1 %65, label %.lr.ph34, label %._crit_edge35, !llvm.loop !56
+  %61 = getelementptr inbounds %struct.b2BodyId, ptr %60, i64 %indvars.iv43
+  store i64 %58, ptr %61, align 4
+  %62 = load float, ptr %16, align 4, !tbaa !50
+  %63 = fmul float %36, %62
+  %64 = fadd float %.02631, %63
+  %65 = add nuw nsw i32 %.02730, 1
+  %66 = load i32, ptr %19, align 4, !tbaa !48
+  %67 = icmp slt i32 %65, %66
+  br i1 %67, label %.lr.ph34, label %._crit_edge35.loopexit, !llvm.loop !56
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

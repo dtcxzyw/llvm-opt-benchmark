@@ -1494,8 +1494,8 @@ _ZN5follyL6k_to_qEdd.exit:                        ; preds = %38, %42
 
 .outer:                                           ; preds = %_ZN5follyL6k_to_qEdd.exit60, %54
   %.pre138.ph = phi ptr [ %.pre.pre, %_ZN5follyL6k_to_qEdd.exit60 ], [ %47, %54 ]
-  %.ph = phi ptr [ %101, %_ZN5follyL6k_to_qEdd.exit60 ], [ %30, %54 ]
-  %.ph191 = phi ptr [ %102, %_ZN5follyL6k_to_qEdd.exit60 ], [ %32, %54 ]
+  %.ph = phi ptr [ %99, %_ZN5follyL6k_to_qEdd.exit60 ], [ %30, %54 ]
+  %.ph191 = phi ptr [ %100, %_ZN5follyL6k_to_qEdd.exit60 ], [ %32, %54 ]
   %.sroa.088.1.ph = phi double [ %.sroa.078.0, %_ZN5follyL6k_to_qEdd.exit60 ], [ %.sroa.088.0, %54 ]
   %.sroa.14.1.ph = phi double [ %.sroa.7.0, %_ZN5follyL6k_to_qEdd.exit60 ], [ %.sroa.14.0, %54 ]
   %.sroa.0103.1.ph = phi ptr [ %.sroa.0103.2, %_ZN5follyL6k_to_qEdd.exit60 ], [ %.sroa.0103.0, %54 ]
@@ -1626,14 +1626,14 @@ _ZNSt6vectorIN5folly7TDigest8CentroidESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__
   %.pre137 = phi double [ %98, %97 ], [ poison, %_ZNSt6vectorIN5folly7TDigest8CentroidESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i ]
   store ptr %92, ptr %4, align 8, !tbaa !24
   store ptr %96, ptr %28, align 8, !tbaa !23
-  %99 = getelementptr inbounds nuw %"class.folly::TDigest::Centroid", ptr %92, i64 %90
-  store ptr %99, ptr %55, align 8, !tbaa !25
+  %98 = getelementptr inbounds nuw %"class.folly::TDigest::Centroid", ptr %92, i64 %90
+  store ptr %98, ptr %55, align 8, !tbaa !25
   br label %_ZNSt6vectorIN5folly7TDigest8CentroidESaIS2_EE9push_backERKS2_.exit
 
 _ZNSt6vectorIN5folly7TDigest8CentroidESaIS2_EE9push_backERKS2_.exit: ; preds = %78, %_ZNSt6vectorIN5folly7TDigest8CentroidESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
-  %100 = phi double [ poison, %78 ], [ %.pre137, %_ZNSt6vectorIN5folly7TDigest8CentroidESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ]
-  %101 = phi ptr [ %.ph, %78 ], [ %92, %_ZNSt6vectorIN5folly7TDigest8CentroidESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ]
-  %102 = phi ptr [ %79, %78 ], [ %96, %_ZNSt6vectorIN5folly7TDigest8CentroidESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ]
+  %.pre137146 = phi double [ poison, %78 ], [ %.pre137, %_ZNSt6vectorIN5folly7TDigest8CentroidESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ]
+  %99 = phi ptr [ %.ph, %78 ], [ %92, %_ZNSt6vectorIN5folly7TDigest8CentroidESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ]
+  %100 = phi ptr [ %79, %78 ], [ %96, %_ZNSt6vectorIN5folly7TDigest8CentroidESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ]
   %103 = fadd double %.056.ph, 1.000000e+00
   %104 = fdiv double %.056.ph, %100
   %105 = fcmp ult double %104, 5.000000e-01

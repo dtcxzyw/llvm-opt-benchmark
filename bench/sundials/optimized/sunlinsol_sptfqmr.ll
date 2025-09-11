@@ -444,17 +444,17 @@ define range(i32 -9998, 806) i32 @SUNLinSolSolve_SPTFQMR(ptr noundef readonly ca
   br label %126
 
 126:                                              ; preds = %.lr.ph, %307
-  %.0435627 = phi double [ %79, %.lr.ph ], [ %204, %307 ]
-  %.0436626 = phi double [ 0.000000e+00, %.lr.ph ], [ %206, %307 ]
-  %.0439625 = phi double [ 0.000000e+00, %.lr.ph ], [ %198, %307 ]
-  %.sroa.0.0624 = phi double [ %74, %.lr.ph ], [ %273, %307 ]
-  %.0453623 = phi i32 [ 0, %.lr.ph ], [ %.4457, %307 ]
-  %.0458622 = phi i32 [ 0, %.lr.ph ], [ %310, %307 ]
+  %.0435635 = phi double [ %79, %.lr.ph ], [ %204, %307 ]
+  %.0436634 = phi double [ 0.000000e+00, %.lr.ph ], [ %206, %307 ]
+  %.0439633 = phi double [ 0.000000e+00, %.lr.ph ], [ %198, %307 ]
+  %.sroa.0.0632 = phi double [ %74, %.lr.ph ], [ %273, %307 ]
+  %.0446631 = phi i32 [ 0, %.lr.ph ], [ %.4457, %307 ]
+  %.0453630 = phi i32 [ 0, %.lr.ph ], [ %310, %307 ]
   %127 = load i32, ptr %43, align 4, !tbaa !53
   %128 = add nsw i32 %127, 1
   store i32 %128, ptr %43, align 4, !tbaa !53
   %129 = call double @N_VDotProd(ptr noundef %11, ptr noundef %17) #13
-  %130 = fdiv double %.sroa.0.0624, %129
+  %130 = fdiv double %.sroa.0.0632, %129
   %131 = fneg double %130
   call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %23, double noundef %131, ptr noundef %17, ptr noundef %13) #13
   %132 = load ptr, ptr %121, align 8, !tbaa !55
@@ -546,12 +546,12 @@ define range(i32 -9998, 806) i32 @SUNLinSolSolve_SPTFQMR(ptr noundef readonly ca
   br label %171
 
 171:                                              ; preds = %168, %270
-  %.1621 = phi double [ %.0435627, %168 ], [ %204, %270 ]
-  %.1437620 = phi double [ %.0436626, %168 ], [ %206, %270 ]
-  %.1440619 = phi double [ %.0439625, %168 ], [ %198, %270 ]
-  %.1454618 = phi i32 [ %.0453623, %168 ], [ %.4457, %270 ]
+  %.1628 = phi double [ %.0435635, %168 ], [ %204, %270 ]
+  %.1437627 = phi double [ %.0436634, %168 ], [ %206, %270 ]
+  %.1440626 = phi double [ %.0439633, %168 ], [ %198, %270 ]
+  %.1447625 = phi i32 [ %.0446631, %168 ], [ %.4457, %270 ]
   %172 = phi i1 [ true, %168 ], [ false, %270 ]
-  %.0459617 = phi i32 [ 0, %168 ], [ 1, %270 ]
+  %.0459623 = phi i32 [ 0, %168 ], [ 1, %270 ]
   br i1 %172, label %173, label %194
 
 173:                                              ; preds = %171
@@ -594,22 +594,22 @@ define range(i32 -9998, 806) i32 @SUNLinSolSolve_SPTFQMR(ptr noundef readonly ca
 
 194:                                              ; preds = %171, %192, %184, %.thread538
   %.sink = phi ptr [ %23, %.thread538 ], [ %23, %184 ], [ %23, %192 ], [ %13, %171 ]
-  %.0442 = phi double [ 0.000000e+00, %.thread538 ], [ 0.000000e+00, %184 ], [ %193, %192 ], [ poison, %171 ]
+  %.3449 = phi double [ 0.000000e+00, %.thread538 ], [ 0.000000e+00, %184 ], [ %193, %192 ], [ poison, %171 ]
   %195 = fmul double %.1440619, %.1440619
-  %196 = fmul double %195, %.1437620
+  %195 = fmul double %195, %.1437620
   %197 = fdiv double %196, %130
   call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %.sink, double noundef %197, ptr noundef %15, ptr noundef %15) #13
-  %198 = fdiv double %.0442, %.1621
+  %198 = fdiv double %.0442, %.1628
   %199 = call double @llvm.fmuladd.f64(double %198, double %198, double 1.000000e+00)
   %200 = fcmp ugt double %199, 0.000000e+00
   %sqrt = call double @llvm.sqrt.f64(double %199)
   %201 = fdiv double 1.000000e+00, %sqrt
   %202 = select i1 %200, double %201, double 0x7FF0000000000000
-  %203 = fmul double %.1621, %198
+  %203 = fmul double %.1628, %198
   %204 = fmul double %203, %202
   %205 = fmul double %202, %202
   %206 = fmul double %130, %205
-  %207 = or i32 %.0459617, %.0458622
+  %207 = or i32 %.0459623, %.0458622
   %or.cond = icmp eq i32 %207, 0
   br i1 %or.cond, label %208, label %211
 
@@ -627,10 +627,10 @@ define range(i32 -9998, 806) i32 @SUNLinSolSolve_SPTFQMR(ptr noundef readonly ca
   br label %212
 
 212:                                              ; preds = %211, %210
-  %213 = add nuw nsw i32 %.0459617, 1
+  %213 = add nuw nsw i32 %.0459623, 1
   %214 = uitofp nneg i32 %213 to double
-  %sqrt546 = call double @llvm.sqrt.f64(double %214)
-  %215 = fmul double %sqrt546, %204
+  %sqrt547 = call double @llvm.sqrt.f64(double %214)
+  %215 = fmul double %sqrt547, %204
   store double %215, ptr %44, align 8, !tbaa !54
   %216 = fcmp ugt double %215, %4
   br i1 %216, label %217, label %.thread540.thread
@@ -779,7 +779,7 @@ define range(i32 -9998, 806) i32 @SUNLinSolSolve_SPTFQMR(ptr noundef readonly ca
 271:                                              ; preds = %270
   %272 = load ptr, ptr %121, align 8, !tbaa !55
   %273 = call double @N_VDotProd(ptr noundef %11, ptr noundef %272) #13
-  %274 = fdiv double %273, %.sroa.0.0624
+  %274 = fdiv double %273, %.sroa.0.0632
   %275 = load ptr, ptr %121, align 8, !tbaa !55
   call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %275, double noundef %274, ptr noundef %13, ptr noundef %23) #13
   %276 = fmul double %274, %274

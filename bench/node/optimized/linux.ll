@@ -2780,7 +2780,7 @@ do.body107:                                       ; preds = %for.inc, %if.end64
   %102 = load i64, ptr %events109, align 8
   %add = add i64 %102, %conv
   store i64 %add, ptr %events109, align 8
-  br i1 %reset_timeout.1, label %if.end137, label %if.then113
+  br i1 %reset_timeout.1, label %if.end121, label %if.then113
 
 if.then113:                                       ; preds = %do.body107
   %103 = load ptr, ptr %internal_fields, align 8
@@ -2788,9 +2788,9 @@ if.then113:                                       ; preds = %do.body107
   %104 = load i64, ptr %events_waiting, align 8
   %add119 = add i64 %104, %conv
   store i64 %add119, ptr %events_waiting, align 8
-  br label %if.end137
+  br label %if.end121
 
-if.end137:                                        ; preds = %if.then113, %do.body107
+if.end121:                                        ; preds = %if.then113, %do.body107
   %timeout.addr.3 = phi i32 [ %.timeout, %if.then113 ], [ %timeout.addr.1, %do.body107 ]
   store ptr null, ptr %inv66, align 8
   %cmp138.not = icmp eq i32 %nevents.0.lcssa, 0
@@ -2811,20 +2811,20 @@ update_timeout:                                   ; preds = %if.then56, %if.end1
   ]
 
 if.end156:                                        ; preds = %update_timeout
-  %105 = load i64, ptr %time, align 8
-  %sub.neg = sub i64 %2, %105
-  %106 = trunc i64 %sub.neg to i32
-  %conv160 = add i32 %real_timeout.0.ph103, %106
+  %107 = load i64, ptr %time, align 8
+  %sub.neg = sub i64 %2, %107
+  %108 = trunc i64 %sub.neg to i32
+  %conv160 = add i32 %real_timeout.0.ph103, %108
   %cmp161 = icmp slt i32 %conv160, 1
   br i1 %cmp161, label %for.end165, label %for.cond.outer102
 
 for.end165:                                       ; preds = %if.then140, %if.end156, %update_timeout, %if.then26
-  %107 = load i32, ptr %ringfd, align 8
-  %cmp167.not = icmp eq i32 %107, -1
+  %109 = load i32, ptr %ringfd, align 8
+  %cmp167.not = icmp eq i32 %109, -1
   br i1 %cmp167.not, label %if.end177, label %while.cond170.preheader
 
 while.cond170.preheader:                          ; preds = %for.end165
-  %108 = load ptr, ptr %ctl1, align 8
+  %110 = load ptr, ptr %ctl1, align 8
   %109 = load i32, ptr %108, align 4
   %110 = load ptr, ptr %sqtail, align 8
   %111 = load i32, ptr %110, align 4
@@ -2833,7 +2833,7 @@ while.cond170.preheader:                          ; preds = %for.end165
 
 while.body175:                                    ; preds = %while.cond170.preheader, %while.body175
   call fastcc void @uv__epoll_ctl_flush(i32 noundef %4, ptr noundef nonnull %ctl1, ptr noundef nonnull %prep)
-  %112 = load ptr, ptr %ctl1, align 8
+  %114 = load ptr, ptr %ctl1, align 8
   %113 = load i32, ptr %112, align 4
   %114 = load ptr, ptr %sqtail, align 8
   %115 = load i32, ptr %114, align 4

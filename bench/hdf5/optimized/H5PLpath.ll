@@ -767,7 +767,7 @@ sub_1.i:                                          ; preds = %sub_0.i
   %98 = icmp slt i32 %95, 0
   br i1 %98, label %.loopexit.thread.i, label %102
 
-.loopexit.thread.i:                               ; preds = %.backedge.i, %.loopexit.i, %.preheader.i
+99:                                               ; preds = %.backedge.i, %.loopexit.i, %.preheader.i
   %.2101.i = phi ptr [ %52, %.loopexit.i ], [ null, %.preheader.i ], [ %.1.be.i, %.backedge.i ]
   %.344100.i = phi i32 [ %95, %.loopexit.i ], [ poison, %.preheader.i ], [ poison, %.backedge.i ]
   %99 = load i64, ptr @H5E_PLUGIN_g, align 8, !tbaa !17
@@ -775,7 +775,7 @@ sub_1.i:                                          ; preds = %sub_0.i
   %101 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5PL__path_table_iterate_process_path, i32 noundef 679, i64 noundef %99, i64 noundef %100, ptr noundef nonnull @.str.28) #13
   br label %102
 
-102:                                              ; preds = %.loopexit.thread.i, %.loopexit.i, %.thread.i
+102:; preds = %.loopexit.thread.i, %.loopexit.i, %.thread.i
   %.142.ph.i = phi i32 [ -1, %.thread.i ], [ %95, %.loopexit.i ], [ %.344100.i, %.loopexit.thread.i ]
   %.040.ph.i = phi ptr [ %52, %.thread.i ], [ %52, %.loopexit.i ], [ %.2101.i, %.loopexit.thread.i ]
   %103 = call i32 @closedir(ptr noundef nonnull %32)

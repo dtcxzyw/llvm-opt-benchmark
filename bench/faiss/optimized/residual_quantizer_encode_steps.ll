@@ -1521,7 +1521,7 @@ define linkonce_odr void @_ZN5faiss15HeapWithBucketsINS_4CMaxIfiEELj8ELj3EE7bs_a
 
 23:                                               ; preds = %34, %.preheader.us
   %indvars.iv139 = phi i64 [ %indvars.iv.next140, %34 ], [ 0, %.preheader.us ]
-  %24 = phi float [ %35, %34 ], [ %.promoted, %.preheader.us ]
+  %.promoted.us110 = phi float [ %35, %34 ], [ %.promoted, %.preheader.us ]
   %25 = getelementptr inbounds nuw float, ptr %21, i64 %indvars.iv139
   %26 = load float, ptr %25, align 4, !tbaa !30
   %27 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv139
@@ -1887,7 +1887,7 @@ define linkonce_odr void @_ZN5faiss15HeapWithBucketsINS_4CMaxIfiEELj8ELj2EE7bs_a
 
 22:                                               ; preds = %33, %.preheader.us
   %indvars.iv136 = phi i64 [ %indvars.iv.next137, %33 ], [ 0, %.preheader.us ]
-  %23 = phi float [ %34, %33 ], [ %.promoted, %.preheader.us ]
+  %.promoted.us110 = phi float [ %34, %33 ], [ %.promoted, %.preheader.us ]
   %24 = getelementptr inbounds nuw float, ptr %indvars.iv140.sroa.phi178, i64 %indvars.iv136
   %25 = load float, ptr %24, align 4, !tbaa !30
   %26 = getelementptr inbounds nuw i32, ptr %indvars.iv140.sroa.phi, i64 %indvars.iv136
@@ -2248,7 +2248,7 @@ define linkonce_odr void @_ZN5faiss15HeapWithBucketsINS_4CMaxIfiEELj16ELj2EE7bs_
 
 22:                                               ; preds = %33, %.preheader.us
   %indvars.iv136 = phi i64 [ %indvars.iv.next137, %33 ], [ 0, %.preheader.us ]
-  %23 = phi float [ %34, %33 ], [ %.promoted, %.preheader.us ]
+  %.promoted.us110 = phi float [ %34, %33 ], [ %.promoted, %.preheader.us ]
   %24 = getelementptr inbounds nuw float, ptr %indvars.iv140.sroa.phi178, i64 %indvars.iv136
   %25 = load float, ptr %24, align 4, !tbaa !30
   %26 = getelementptr inbounds nuw i32, ptr %indvars.iv140.sroa.phi, i64 %indvars.iv136
@@ -2609,7 +2609,7 @@ define linkonce_odr void @_ZN5faiss15HeapWithBucketsINS_4CMaxIfiEELj32ELj2EE7bs_
 
 22:                                               ; preds = %33, %.preheader.us
   %indvars.iv136 = phi i64 [ %indvars.iv.next137, %33 ], [ 0, %.preheader.us ]
-  %23 = phi float [ %34, %33 ], [ %.promoted, %.preheader.us ]
+  %.promoted.us110 = phi float [ %34, %33 ], [ %.promoted, %.preheader.us ]
   %24 = getelementptr inbounds nuw float, ptr %indvars.iv140.sroa.phi178, i64 %indvars.iv136
   %25 = load float, ptr %24, align 4, !tbaa !30
   %26 = getelementptr inbounds nuw i32, ptr %indvars.iv140.sroa.phi, i64 %indvars.iv136

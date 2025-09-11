@@ -972,7 +972,7 @@ _ZNSt20back_insert_iteratorISt6vectorIPN4LIEF3DEX7MapItemESaIS4_EEEaSEOS4_.exit.
 
 _ZNSt12_Vector_baseIPN4LIEF3DEX7MapItemESaIS3_EEC2EmRKS4_.exit.i.i.thread: ; preds = %"_ZSt9transformISt23_Rb_tree_const_iteratorISt4pairIKN4LIEF3DEX7MapItem5TYPESES4_EESt20back_insert_iteratorISt6vectorIPS4_SaISB_EEEZNKS3_7MapList5itemsEvE3$_0ET0_T_SI_SH_T1_.exit.thread", %"_ZSt9transformISt23_Rb_tree_const_iteratorISt4pairIKN4LIEF3DEX7MapItem5TYPESES4_EESt20back_insert_iteratorISt6vectorIPS4_SaISB_EEEZNKS3_7MapList5itemsEvE3$_0ET0_T_SI_SH_T1_.exit"
   %42 = phi i64 [ %14, %"_ZSt9transformISt23_Rb_tree_const_iteratorISt4pairIKN4LIEF3DEX7MapItem5TYPESES4_EESt20back_insert_iteratorISt6vectorIPS4_SaISB_EEEZNKS3_7MapList5itemsEvE3$_0ET0_T_SI_SH_T1_.exit.thread" ], [ %40, %"_ZSt9transformISt23_Rb_tree_const_iteratorISt4pairIKN4LIEF3DEX7MapItem5TYPESES4_EESt20back_insert_iteratorISt6vectorIPS4_SaISB_EEEZNKS3_7MapList5itemsEvE3$_0ET0_T_SI_SH_T1_.exit" ]
-  %.sroa.09.330 = phi ptr [ %.sroa.10.0, %"_ZSt9transformISt23_Rb_tree_const_iteratorISt4pairIKN4LIEF3DEX7MapItem5TYPESES4_EESt20back_insert_iteratorISt6vectorIPS4_SaISB_EEEZNKS3_7MapList5itemsEvE3$_0ET0_T_SI_SH_T1_.exit.thread" ], [ %.sroa.09.2, %"_ZSt9transformISt23_Rb_tree_const_iteratorISt4pairIKN4LIEF3DEX7MapItem5TYPESES4_EESt20back_insert_iteratorISt6vectorIPS4_SaISB_EEEZNKS3_7MapList5itemsEvE3$_0ET0_T_SI_SH_T1_.exit" ]
+  %.sroa.09.333 = phi ptr [ %.sroa.10.0, %"_ZSt9transformISt23_Rb_tree_const_iteratorISt4pairIKN4LIEF3DEX7MapItem5TYPESES4_EESt20back_insert_iteratorISt6vectorIPS4_SaISB_EEEZNKS3_7MapList5itemsEvE3$_0ET0_T_SI_SH_T1_.exit.thread" ], [ %.sroa.09.2, %"_ZSt9transformISt23_Rb_tree_const_iteratorISt4pairIKN4LIEF3DEX7MapItem5TYPESES4_EESt20back_insert_iteratorISt6vectorIPS4_SaISB_EEEZNKS3_7MapList5itemsEvE3$_0ET0_T_SI_SH_T1_.exit" ]
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
@@ -1000,7 +1000,7 @@ _ZNSt12_Vector_baseIPN4LIEF3DEX7MapItemESaIS3_EEC2EmRKS4_.exit.i.i.thread: ; pre
 
 _ZN4LIEF12ref_iteratorIKSt6vectorIPNS_3DEX7MapItemESaIS4_EES4_N9__gnu_cxx17__normal_iteratorIPKS4_S6_EEEC2ES6_.exit: ; preds = %_ZNSt12_Vector_baseIPN4LIEF3DEX7MapItemESaIS3_EEC2EmRKS4_.exit.i.i.thread, %48
   %53 = phi i64 [ %42, %_ZNSt12_Vector_baseIPN4LIEF3DEX7MapItemESaIS3_EEC2EmRKS4_.exit.i.i.thread ], [ %40, %48 ]
-  %.sroa.09.329 = phi ptr [ %.sroa.09.330, %_ZNSt12_Vector_baseIPN4LIEF3DEX7MapItemESaIS3_EEC2EmRKS4_.exit.i.i.thread ], [ %.sroa.09.2, %48 ]
+  %.sroa.09.332 = phi ptr [ %.sroa.09.333, %_ZNSt12_Vector_baseIPN4LIEF3DEX7MapItemESaIS3_EEC2EmRKS4_.exit.i.i.thread ], [ %.sroa.09.2, %48 ]
   %54 = phi ptr [ null, %_ZNSt12_Vector_baseIPN4LIEF3DEX7MapItemESaIS3_EEC2EmRKS4_.exit.i.i.thread ], [ %51, %48 ]
   %55 = phi ptr [ %43, %_ZNSt12_Vector_baseIPN4LIEF3DEX7MapItemESaIS3_EEC2EmRKS4_.exit.i.i.thread ], [ %50, %48 ]
   %56 = phi ptr [ null, %_ZNSt12_Vector_baseIPN4LIEF3DEX7MapItemESaIS3_EEC2EmRKS4_.exit.i.i.thread ], [ %49, %48 ]
@@ -1009,13 +1009,13 @@ _ZN4LIEF12ref_iteratorIKSt6vectorIPNS_3DEX7MapItemESaIS4_EES4_N9__gnu_cxx17__nor
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 0, ptr %58, align 8
   store ptr %56, ptr %57, align 8, !tbaa !40
-  %.not.i.i.i = icmp eq ptr %.sroa.09.329, null
+  %.not.i.i.i = icmp eq ptr %.sroa.09.332, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIPN4LIEF3DEX7MapItemESaIS3_EED2Ev.exit5, label %59
 
 59:                                               ; preds = %_ZN4LIEF12ref_iteratorIKSt6vectorIPNS_3DEX7MapItemESaIS4_EES4_N9__gnu_cxx17__normal_iteratorIPKS4_S6_EEEC2ES6_.exit
   %60 = ptrtoint ptr %.sroa.16.0 to i64
   %61 = sub i64 %60, %53
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.09.329, i64 noundef %61) #26
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.09.332, i64 noundef %61) #26
   br label %_ZNSt6vectorIPN4LIEF3DEX7MapItemESaIS3_EED2Ev.exit5
 
 _ZNSt6vectorIPN4LIEF3DEX7MapItemESaIS3_EED2Ev.exit5: ; preds = %59, %_ZN4LIEF12ref_iteratorIKSt6vectorIPNS_3DEX7MapItemESaIS4_EES4_N9__gnu_cxx17__normal_iteratorIPKS4_S6_EEEC2ES6_.exit

@@ -182,9 +182,9 @@ define hidden void @WebPRescalerImportRowShrink_C(ptr noalias noundef readonly c
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge50
-  %indvars.iv55 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next56, %._crit_edge50 ]
-  %indvars60 = trunc i64 %indvars.iv55 to i32
-  %15 = icmp sgt i32 %7, %indvars60
+  %indvars.iv57 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next58, %._crit_edge50 ]
+  %indvars62 = trunc i64 %indvars.iv57 to i32
+  %15 = icmp sgt i32 %7, %indvars62
   br i1 %15, label %.lr.ph49, label %._crit_edge50
 
 .lr.ph49:                                         ; preds = %.preheader
@@ -196,7 +196,7 @@ define hidden void @WebPRescalerImportRowShrink_C(ptr noalias noundef readonly c
   br label %21
 
 21:                                               ; preds = %.lr.ph49, %._crit_edge
-  %indvars.iv57 = phi i64 [ %indvars.iv55, %.lr.ph49 ], [ %indvars.iv.next58, %._crit_edge ]
+  %indvars.iv59 = phi i64 [ %indvars.iv57, %.lr.ph49 ], [ %indvars.iv.next58, %._crit_edge ]
   %.03248 = phi i32 [ 0, %.lr.ph49 ], [ %.1.lcssa, %._crit_edge ]
   %.03347 = phi i32 [ 0, %.lr.ph49 ], [ %39, %._crit_edge ]
   %22 = add nsw i32 %16, %.03248
@@ -213,10 +213,10 @@ define hidden void @WebPRescalerImportRowShrink_C(ptr noalias noundef readonly c
   %27 = zext i8 %26 to i32
   %28 = add i32 %.13440, %27
   %indvars.iv.next = add nsw i64 %indvars.iv, %13
-  %29 = icmp sgt i32 %24, 0
-  br i1 %29, label %.lr.ph, label %._crit_edge, !llvm.loop !21
+  %31 = icmp sgt i32 %24, 0
+  br i1 %31, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !21
 
-._crit_edge:                                      ; preds = %.lr.ph, %21
+._crit_edge.loopexit:                             ; preds = %.lr.ph, %21
   %.134.lcssa = phi i32 [ %.03347, %21 ], [ %28, %.lr.ph ]
   %.1.lcssa = phi i32 [ %22, %21 ], [ %24, %.lr.ph ]
   %.031.lcssa = phi i32 [ 0, %21 ], [ %27, %.lr.ph ]
@@ -227,8 +227,8 @@ define hidden void @WebPRescalerImportRowShrink_C(ptr noalias noundef readonly c
   %34 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv57
   store i32 %33, ptr %34, align 4, !tbaa !16
   %35 = zext i32 %31 to i64
-  %36 = mul nuw i64 %20, %35
-  %37 = add nuw i64 %36, 2147483648
+  %35 = mul nuw i64 %20, %35
+  %36 = add nuw i64 %35, 2147483648
   %38 = lshr i64 %37, 32
   %39 = trunc nuw i64 %38 to i32
   %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, %14
@@ -237,8 +237,8 @@ define hidden void @WebPRescalerImportRowShrink_C(ptr noalias noundef readonly c
   br i1 %41, label %21, label %._crit_edge50, !llvm.loop !22
 
 ._crit_edge50:                                    ; preds = %._crit_edge, %.preheader
-  %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next56, %14
+  %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next58, %14
   br i1 %exitcond.not, label %._crit_edge52, label %.preheader, !llvm.loop !23
 
 ._crit_edge52:                                    ; preds = %._crit_edge50, %2

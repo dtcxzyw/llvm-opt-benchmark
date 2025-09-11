@@ -6101,8 +6101,8 @@ _ZN9actix_web4http6header19content_disposition10split_once17h324428193170cb49E.e
   br label %376
 
 376:                                              ; preds = %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17hcaa853dd8193a8e7E.exit229", %372, %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17hcaa853dd8193a8e7E.exit195"
-  %.sink640 = phi i64 [ 1, %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17hcaa853dd8193a8e7E.exit229" ], [ 3, %372 ], [ 0, %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17hcaa853dd8193a8e7E.exit195" ]
-  store i64 %.sink640, ptr %24, align 8
+  %.sink676 = phi i64 [ 1, %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17hcaa853dd8193a8e7E.exit229" ], [ 3, %372 ], [ 0, %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17hcaa853dd8193a8e7E.exit195" ]
+  store i64 %.sink676, ptr %24, align 8
   %377 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !1132, !noalias !1135, !noundef !9
   %378 = load i64, ptr %35, align 8, !alias.scope !1132, !noalias !1135, !noundef !9
   %379 = icmp eq i64 %377, %378
@@ -6153,9 +6153,9 @@ _ZN9actix_web4http6header19content_disposition10split_once17h324428193170cb49E.e
           to label %398 unwind label %74
 
 .sink.split:                                      ; preds = %.noexc200, %259, %.noexc198, %255
-  %.sink645 = phi i64 [ %.pre.i197, %.noexc198 ], [ %.ph, %255 ], [ %.pre.i199, %.noexc200 ], [ %.ph, %259 ]
+  %.sink681 = phi i64 [ %.pre.i197, %.noexc198 ], [ %.ph, %255 ], [ %.pre.i199, %.noexc200 ], [ %.ph, %259 ]
   %394 = load ptr, ptr %108, align 8, !nonnull !9, !noundef !9
-  %395 = getelementptr inbounds i8, ptr %394, i64 %.sink645
+  %395 = getelementptr inbounds i8, ptr %394, i64 %.sink681
   store i8 %253, ptr %395, align 1
   %396 = load i64, ptr %109, align 8, !noundef !9
   %397 = add i64 %396, 1

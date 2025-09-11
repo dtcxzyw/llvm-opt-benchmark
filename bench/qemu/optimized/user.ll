@@ -1626,7 +1626,7 @@ sub_0:
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_user_state, i64 20), align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) getelementptr inbounds nuw (i8, ptr @gdbserver_user_state, i64 24), i8 noundef 0, i64 noundef 128, i1 noundef false) #16
   %12 = tail call i32 @gdb_put_packet(ptr noundef nonnull @.str.19) #16
-  br label %42
+  br label %48
 
 .tail12:                                          ; preds = %sub_0
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 1
@@ -1637,7 +1637,7 @@ sub_0:
 16:                                               ; preds = %.tail12
   store i8 1, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_user_state, i64 20), align 4
   %17 = tail call i32 @gdb_put_packet(ptr noundef nonnull @.str.19) #16
-  br label %42
+  br label %48
 
 18:                                               ; preds = %.tail12
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 1
@@ -1653,7 +1653,7 @@ sub_0:
   %.not16 = icmp eq i32 %24, 0
   br i1 %.not16, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %22, %38
+25:                                               ; preds = %22, %45
   %25 = load ptr, ptr %4, align 8
   %26 = load i8, ptr %25, align 1
   switch i8 %26, label %.loopexit [
@@ -1661,23 +1661,23 @@ sub_0:
     i8 59, label %27
   ]
 
-27:                                               ; preds = %.lr.ph, %.lr.ph
-  %28 = load i32, ptr %3, align 4
-  %29 = icmp ugt i32 %28, 1023
-  br i1 %29, label %38, label %30
+30:                                               ; preds = %.lr.ph, %.lr.ph
+  %31 = load i32, ptr %3, align 4
+  %32 = icmp ugt i32 %31, 1023
+  br i1 %32, label %45, label %33
 
-30:                                               ; preds = %27
-  %31 = zext nneg i32 %28 to i64
-  %32 = and i64 %31, 63
-  %33 = shl nuw i64 1, %32
-  %34 = lshr i64 %31, 6
-  %35 = getelementptr inbounds nuw i64, ptr %2, i64 %34
-  %36 = load i64, ptr %35, align 8
-  %37 = or i64 %36, %33
-  store i64 %37, ptr %35, align 8
-  br label %38
+33:                                               ; preds = %30
+  %34 = zext nneg i32 %31 to i64
+  %35 = and i64 %34, 63
+  %36 = shl nuw i64 1, %35
+  %37 = lshr i64 %34, 6
+  %38 = getelementptr inbounds nuw i64, ptr %2, i64 %37
+  %39 = load i64, ptr %38, align 8
+  %40 = or i64 %39, %36
+  store i64 %40, ptr %38, align 8
+  br label %45
 
-38:                                               ; preds = %27, %30
+45:                                               ; preds = %27, %30
   %.not11 = icmp ne i8 %26, 0
   call void @llvm.assume(i1 %.not11)
   %39 = getelementptr inbounds nuw i8, ptr %25, i64 1
@@ -1686,11 +1686,11 @@ sub_0:
   %.not = icmp eq i32 %40, 0
   br i1 %.not, label %.lr.ph, label %.loopexit
 
-.loopexit:                                        ; preds = %38, %.lr.ph, %sub_0, %.tail, %22, %18
-  %41 = call i32 @gdb_put_packet(ptr noundef nonnull @.str.24) #16
-  br label %42
+.loopexit:                                        ; preds = %45, %.lr.ph, %sub_0, %.tail, %22, %18
+  %47 = call i32 @gdb_put_packet(ptr noundef nonnull @.str.24) #16
+  br label %48
 
-42:                                               ; preds = %.loopexit, %16, %11
+48:                                               ; preds = %.loopexit, %16, %11
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -1847,7 +1847,7 @@ attributes #11 = { mustprogress nofree norecurse nosync nounwind sspstrong willr
 attributes #12 = { nocallback nofree nounwind memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
 attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #15 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #15 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #16 = { nounwind }
 attributes #17 = { nounwind willreturn memory(none) }
 attributes #18 = { noreturn nounwind }

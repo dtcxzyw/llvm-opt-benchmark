@@ -13798,30 +13798,30 @@ _ZNKSt4lessIN3zmq6blob_tEEclERKS1_S4_.exit25:     ; preds = %18
   %21 = icmp eq i32 %19, 0
   %22 = icmp ult i64 %7, %12
   %spec.select.i.i24 = and i1 %22, %21
-  br i1 %spec.select.i.i24, label %_ZNKSt4lessIN3zmq6blob_tEEclERKS1_S4_.exit.thread, label %_ZNSt8_Rb_treeIN3zmq6blob_tESt4pairIKS1_NS0_21routing_socket_base_t10out_pipe_tEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS6_EPSt18_Rb_tree_node_baseRS3_.exit
+  br i1 %spec.select.i.i24, label %_ZNKSt4lessIN3zmq6blob_tEEclERKS1_S4_.exit.thread, label %23
 
-_ZNSt8_Rb_treeIN3zmq6blob_tESt4pairIKS1_NS0_21routing_socket_base_t10out_pipe_tEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS6_EPSt18_Rb_tree_node_baseRS3_.exit: ; preds = %_ZNKSt4lessIN3zmq6blob_tEEclERKS1_S4_.exit25
-  %23 = getelementptr inbounds nuw i8, ptr %.049, i64 24
-  %24 = load ptr, ptr %23, align 8, !tbaa !170
+23:                                               ; preds = %_ZNKSt4lessIN3zmq6blob_tEEclERKS1_S4_.exit25
+  %24 = getelementptr inbounds nuw i8, ptr %.049, i64 24
+  %25 = load ptr, ptr %24, align 8, !tbaa !170
   %.not10.i26 = icmp eq ptr %24, null
   br i1 %.not10.i26, label %_ZNSt8_Rb_treeIN3zmq6blob_tESt4pairIKS1_NS0_21routing_socket_base_t10out_pipe_tEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE14_M_upper_boundEPSt13_Rb_tree_nodeIS6_EPSt18_Rb_tree_node_baseRS3_.exit, label %.lr.ph.i27
 
 .lr.ph.i27:                                       ; preds = %_ZNSt8_Rb_treeIN3zmq6blob_tESt4pairIKS1_NS0_21routing_socket_base_t10out_pipe_tEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS6_EPSt18_Rb_tree_node_baseRS3_.exit, %_ZNKSt4lessIN3zmq6blob_tEEclERKS1_S4_.exit.thread.i32
   %.012.i28 = phi ptr [ %.1.i35, %_ZNKSt4lessIN3zmq6blob_tEEclERKS1_S4_.exit.thread.i32 ], [ %24, %_ZNSt8_Rb_treeIN3zmq6blob_tESt4pairIKS1_NS0_21routing_socket_base_t10out_pipe_tEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS6_EPSt18_Rb_tree_node_baseRS3_.exit ]
   %.0811.i29 = phi ptr [ %.19.i34, %_ZNKSt4lessIN3zmq6blob_tEEclERKS1_S4_.exit.thread.i32 ], [ %.02248, %_ZNSt8_Rb_treeIN3zmq6blob_tESt4pairIKS1_NS0_21routing_socket_base_t10out_pipe_tEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS6_EPSt18_Rb_tree_node_baseRS3_.exit ]
-  %25 = getelementptr inbounds nuw i8, ptr %.012.i28, i64 32
-  %26 = load ptr, ptr %25, align 8, !tbaa !230
-  %27 = getelementptr inbounds nuw i8, ptr %.012.i28, i64 40
-  %28 = load i64, ptr %27, align 8, !tbaa !11
-  %29 = tail call i64 @llvm.umin.i64(i64 %28, i64 %7)
-  %30 = tail call i32 @memcmp(ptr noundef %5, ptr noundef %26, i64 noundef %29) #40
-  %31 = icmp slt i32 %30, 0
-  br i1 %31, label %_ZNKSt4lessIN3zmq6blob_tEEclERKS1_S4_.exit.thread.i32, label %_ZNKSt4lessIN3zmq6blob_tEEclERKS1_S4_.exit.i30
+  %39 = getelementptr inbounds nuw i8, ptr %.012.i28, i64 32
+  %40 = load ptr, ptr %39, align 8, !tbaa !230
+  %41 = getelementptr inbounds nuw i8, ptr %.012.i28, i64 40
+  %42 = load i64, ptr %41, align 8, !tbaa !11
+  %43 = tail call i64 @llvm.umin.i64(i64 %42, i64 %7)
+  %44 = tail call i32 @memcmp(ptr noundef %5, ptr noundef %40, i64 noundef %43) #40
+  %45 = icmp slt i32 %44, 0
+  br i1 %45, label %_ZNKSt4lessIN3zmq6blob_tEEclERKS1_S4_.exit.thread.i32, label %_ZNKSt4lessIN3zmq6blob_tEEclERKS1_S4_.exit.i30
 
 _ZNKSt4lessIN3zmq6blob_tEEclERKS1_S4_.exit.i30:   ; preds = %.lr.ph.i27
-  %32 = icmp eq i32 %30, 0
-  %33 = icmp ult i64 %7, %28
-  %spec.select.i.i.i31 = and i1 %33, %32
+  %46 = icmp eq i32 %44, 0
+  %47 = icmp ult i64 %7, %42
+  %spec.select.i.i.i31 = and i1 %47, %46
   %spec.select.i = select i1 %spec.select.i.i.i31, i64 16, i64 24
   %spec.select14.i = select i1 %spec.select.i.i.i31, ptr %.012.i28, ptr %.0811.i29
   br label %_ZNKSt4lessIN3zmq6blob_tEEclERKS1_S4_.exit.thread.i32
@@ -13829,16 +13829,16 @@ _ZNKSt4lessIN3zmq6blob_tEEclERKS1_S4_.exit.i30:   ; preds = %.lr.ph.i27
 _ZNKSt4lessIN3zmq6blob_tEEclERKS1_S4_.exit.thread.i32: ; preds = %_ZNKSt4lessIN3zmq6blob_tEEclERKS1_S4_.exit.i30, %.lr.ph.i27
   %.sink.i33 = phi i64 [ 16, %.lr.ph.i27 ], [ %spec.select.i, %_ZNKSt4lessIN3zmq6blob_tEEclERKS1_S4_.exit.i30 ]
   %.19.i34 = phi ptr [ %.012.i28, %.lr.ph.i27 ], [ %spec.select14.i, %_ZNKSt4lessIN3zmq6blob_tEEclERKS1_S4_.exit.i30 ]
-  %34 = getelementptr inbounds nuw i8, ptr %.012.i28, i64 %.sink.i33
-  %.1.i35 = load ptr, ptr %34, align 8, !tbaa !169
+  %48 = getelementptr inbounds nuw i8, ptr %.012.i28, i64 %.sink.i33
+  %.1.i35 = load ptr, ptr %48, align 8, !tbaa !169
   %.not.i36 = icmp eq ptr %.1.i35, null
   br i1 %.not.i36, label %_ZNSt8_Rb_treeIN3zmq6blob_tESt4pairIKS1_NS0_21routing_socket_base_t10out_pipe_tEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE14_M_upper_boundEPSt13_Rb_tree_nodeIS6_EPSt18_Rb_tree_node_baseRS3_.exit, label %.lr.ph.i27, !llvm.loop !265
 
 _ZNKSt4lessIN3zmq6blob_tEEclERKS1_S4_.exit.thread: ; preds = %_ZNKSt4lessIN3zmq6blob_tEEclERKS1_S4_.exit25, %18, %_ZNKSt4lessIN3zmq6blob_tEEclERKS1_S4_.exit, %8
   %.sink = phi i64 [ 24, %8 ], [ 24, %_ZNKSt4lessIN3zmq6blob_tEEclERKS1_S4_.exit ], [ 16, %18 ], [ 16, %_ZNKSt4lessIN3zmq6blob_tEEclERKS1_S4_.exit25 ]
   %.123 = phi ptr [ %.02248, %8 ], [ %.02248, %_ZNKSt4lessIN3zmq6blob_tEEclERKS1_S4_.exit ], [ %.049, %18 ], [ %.049, %_ZNKSt4lessIN3zmq6blob_tEEclERKS1_S4_.exit25 ]
-  %35 = getelementptr inbounds nuw i8, ptr %.049, i64 %.sink
-  %.0 = load ptr, ptr %35, align 8, !tbaa !169
+  %49 = getelementptr inbounds nuw i8, ptr %.049, i64 %.sink
+  %.0 = load ptr, ptr %49, align 8, !tbaa !169
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %_ZNSt8_Rb_treeIN3zmq6blob_tESt4pairIKS1_NS0_21routing_socket_base_t10out_pipe_tEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE14_M_upper_boundEPSt13_Rb_tree_nodeIS6_EPSt18_Rb_tree_node_baseRS3_.exit, label %8, !llvm.loop !266
 

@@ -930,7 +930,7 @@ define noundef zeroext i1 @lv_obj_replace_style(ptr noundef readonly captures(ad
   %35 = and i16 %34, 63
   %36 = zext nneg i16 %35 to i64
   %37 = icmp samesign ult i64 %indvars.iv.next91, %36
-  br i1 %37, label %.lr.ph.split.us.split.us, label %.critedge, !llvm.loop !70
+  br i1 %37, label %.lr.ph.split.us.split.us, label %._crit_edge, !llvm.loop !70
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %54
   %38 = phi i16 [ %55, %54 ], [ %13, %.lr.ph.split.us ]
@@ -971,7 +971,7 @@ define noundef zeroext i1 @lv_obj_replace_style(ptr noundef readonly captures(ad
   %57 = and i16 %56, 63
   %58 = zext nneg i16 %57 to i64
   %59 = icmp samesign ult i64 %indvars.iv.next89, %58
-  br i1 %59, label %.lr.ph.split.us.split, label %.critedge, !llvm.loop !70
+  br i1 %59, label %.lr.ph.split.us.split, label %._crit_edge, !llvm.loop !70
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %.not56, label %.lr.ph.split.split.us, label %.lr.ph.split.split
@@ -1015,7 +1015,7 @@ define noundef zeroext i1 @lv_obj_replace_style(ptr noundef readonly captures(ad
   %79 = and i16 %78, 63
   %80 = zext nneg i16 %79 to i64
   %81 = icmp samesign ult i64 %indvars.iv.next87, %80
-  br i1 %81, label %.lr.ph.split.split.us, label %.critedge, !llvm.loop !70
+  br i1 %81, label %.lr.ph.split.split.us, label %._crit_edge, !llvm.loop !70
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %99
   %82 = phi i16 [ %100, %99 ], [ %13, %.lr.ph.split ]
@@ -1059,9 +1059,9 @@ define noundef zeroext i1 @lv_obj_replace_style(ptr noundef readonly captures(ad
   %102 = and i16 %101, 63
   %103 = zext nneg i16 %102 to i64
   %104 = icmp samesign ult i64 %indvars.iv.next, %103
-  br i1 %104, label %.lr.ph.split.split, label %.critedge, !llvm.loop !70
+  br i1 %104, label %.lr.ph.split.split, label %._crit_edge, !llvm.loop !70
 
-.critedge:                                        ; preds = %99, %76, %54, %32, %11, %4
+._crit_edge:                                      ; preds = %99, %76, %54, %32, %11, %4
   ret i1 false
 }
 

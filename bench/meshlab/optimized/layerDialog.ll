@@ -6227,7 +6227,7 @@ define noundef i32 @_ZN11LayerDialog8stepAnimEi(ptr noundef nonnull align 8 capt
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %8 = tail call noundef i32 @_ZNK12MeshDocument10meshNumberEv(ptr noundef nonnull align 8 dereferenceable(192) %7)
   %9 = icmp ugt i32 %8, 1
-  br i1 %9, label %.preheader, label %78
+  br i1 %9, label %.preheader, label %89
 
 .preheader:                                       ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 176
@@ -6241,9 +6241,9 @@ define noundef i32 @_ZN11LayerDialog8stepAnimEi(ptr noundef nonnull align 8 capt
   %17 = sub i64 %15, %16
   %18 = ashr exact i64 %17, 2
   %19 = icmp ugt i64 %18, 1
-  br i1 %19, label %.lr.ph90, label %_ZNK10MainWindow3GLAEv.exit37
+  br i1 %19, label %.lr.ph91, label %.critedge
 
-.lr.ph90:                                         ; preds = %.preheader, %_ZNSt6vectorIiSaIiEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS1_EE.exit
+.lr.ph91:                                         ; preds = %.preheader, %_ZNSt6vectorIiSaIiEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS1_EE.exit
   %20 = phi i64 [ %71, %_ZNSt6vectorIiSaIiEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS1_EE.exit ], [ %18, %.preheader ]
   %21 = phi ptr [ %67, %_ZNSt6vectorIiSaIiEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS1_EE.exit ], [ %14, %.preheader ]
   %22 = phi ptr [ %65, %_ZNSt6vectorIiSaIiEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS1_EE.exit ], [ %.pre, %.preheader ]
@@ -6257,10 +6257,10 @@ define noundef i32 @_ZN11LayerDialog8stepAnimEi(ptr noundef nonnull align 8 capt
   %.not58 = icmp eq ptr %21, %22
   br i1 %.not58, label %._crit_edge65.thread, label %.lr.ph64
 
-.lr.ph64:                                         ; preds = %.lr.ph90, %._crit_edge
+.lr.ph64:                                         ; preds = %.lr.ph91, %._crit_edge
   %.162 = phi i8 [ %.2.lcssa, %._crit_edge ], [ 0, %.lr.ph90 ]
   %.22561 = phi i32 [ %.326.lcssa, %._crit_edge ], [ 0, %.lr.ph90 ]
-  %.sroa.047.059 = phi ptr [ %53, %._crit_edge ], [ %21, %.lr.ph90 ]
+  %.12860 = phi ptr [ %53, %._crit_edge ], [ %21, %.lr.ph90 ]
   %29 = tail call ptr @_ZN12MeshDocument12meshIteratorEv(ptr noundef nonnull align 8 dereferenceable(192) %7)
   %30 = tail call ptr @_ZN12MeshDocument9meshBeginEv(ptr noundef nonnull align 8 dereferenceable(192) %29)
   %31 = tail call ptr @_ZN12MeshDocument7meshEndEv(ptr noundef nonnull align 8 dereferenceable(192) %29)
@@ -6313,11 +6313,11 @@ _ZNK10MainWindow3GLAEv.exit:                      ; preds = %.lr.ph
 ._crit_edge65:                                    ; preds = %._crit_edge
   %.pre72.pre.pre = load ptr, ptr %11, align 8
   %54 = icmp eq i8 %.2.lcssa, 0
-  br i1 %54, label %._crit_edge65.thread, label %_ZNK10MainWindow3GLAEv.exit37
+  br i1 %54, label %._crit_edge65.thread, label %.critedge
 
-._crit_edge65.thread:                             ; preds = %.lr.ph90, %._crit_edge65
+._crit_edge65.thread:                             ; preds = %.lr.ph91, %._crit_edge65
   %.225.lcssa89 = phi i32 [ %.326.lcssa, %._crit_edge65 ], [ 0, %.lr.ph90 ]
-  %.pre72.pre87 = phi ptr [ %.pre72.pre.pre, %._crit_edge65 ], [ %22, %.lr.ph90 ]
+  %.128.lcssa88 = phi ptr [ %.pre72.pre.pre, %._crit_edge65 ], [ %22, %.lr.ph90 ]
   %55 = load ptr, ptr %10, align 8
   %56 = load i32, ptr %12, align 8
   %57 = sext i32 %56 to i64
@@ -6348,21 +6348,21 @@ _ZNSt6vectorIiSaIiEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS1_EE.exit: ; preds
   %70 = sub i64 %68, %69
   %71 = ashr exact i64 %70, 2
   %72 = icmp ugt i64 %71, 1
-  br i1 %72, label %.lr.ph90, label %_ZNK10MainWindow3GLAEv.exit37
+  br i1 %72, label %.lr.ph91, label %.critedge
 
-_ZNK10MainWindow3GLAEv.exit37:                    ; preds = %._crit_edge65, %_ZNSt6vectorIiSaIiEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS1_EE.exit, %.preheader
+.critedge:                                        ; preds = %._crit_edge65, %_ZNSt6vectorIiSaIiEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS1_EE.exit, %.preheader
   %.124.lcssa.ph = phi i32 [ 0, %.preheader ], [ %.225.lcssa89, %_ZNSt6vectorIiSaIiEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS1_EE.exit ], [ %.326.lcssa, %._crit_edge65 ]
   tail call void @_ZN11LayerDialog27updatePerMeshItemVisibilityEv(ptr noundef nonnull align 8 dereferenceable(256) %0)
   tail call void @_ZN11LayerDialog32updatePerMeshItemSelectionStatusEv(ptr noundef nonnull align 8 dereferenceable(256) %0)
-  %73 = load ptr, ptr %3, align 8
-  %74 = getelementptr inbounds nuw i8, ptr %73, i64 1368
-  %75 = load ptr, ptr %74, align 8, !nonnull !10, !noundef !10
-  %76 = getelementptr inbounds nuw i8, ptr %75, i64 256
-  %77 = load ptr, ptr %76, align 8
-  tail call void @_ZN7QWidget6updateEv(ptr noundef nonnull align 8 dereferenceable(48) %77)
-  br label %78
+  %84 = load ptr, ptr %3, align 8
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 1368
+  %86 = load ptr, ptr %85, align 8, !nonnull !10, !noundef !10
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 256
+  %88 = load ptr, ptr %87, align 8
+  tail call void @_ZN7QWidget6updateEv(ptr noundef nonnull align 8 dereferenceable(48) %88)
+  br label %89
 
-78:                                               ; preds = %_ZNK10MainWindow3GLAEv.exit37, %2
+89:                                               ; preds = %_ZNK10MainWindow3GLAEv.exit37, %2
   %.023 = phi i32 [ %.124.lcssa.ph, %_ZNK10MainWindow3GLAEv.exit37 ], [ 0, %2 ]
   ret i32 %.023
 }

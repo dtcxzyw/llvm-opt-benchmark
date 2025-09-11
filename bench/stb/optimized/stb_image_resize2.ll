@@ -1166,16 +1166,16 @@ define void @stbir__calculate_coefficients_for_gather_downsample(i32 noundef %0,
   %22 = icmp slt i32 %18, %16
   %23 = select i1 %21, i1 %22, i1 false
   %24 = icmp slt i32 %0, %1
-  br i1 %24, label %.lr.ph83, label %._crit_edge
+  br i1 %24, label %.lr.ph84, label %._crit_edge
 
-.lr.ph83:                                         ; preds = %10
+.lr.ph84:                                         ; preds = %10
   %25 = add nsw i32 %16, -1
   %26 = add nsw i32 %18, -1
   %27 = sext i32 %5 to i64
   br label %28
 
-28:                                               ; preds = %.lr.ph83, %.loopexit
-  %.082 = phi i32 [ %0, %.lr.ph83 ], [ %95, %.loopexit ]
+28:                                               ; preds = %.lr.ph84, %.loopexit
+  %.083 = phi i32 [ %0, %.lr.ph83 ], [ %95, %.loopexit ]
   %29 = sitofp i32 %.082 to float
   %30 = fadd float %29, 5.000000e-01
   %31 = fmul float %12, %30
@@ -1203,8 +1203,8 @@ define void @stbir__calculate_coefficients_for_gather_downsample(i32 noundef %0,
   %52 = bitcast <4 x float> %51 to <4 x i32>
   %53 = and <4 x i32> %52, <i32 -1082130432, i32 poison, i32 poison, i32 poison>
   %54 = bitcast <4 x i32> %53 to <4 x float>
-  %foldExtExtBinop92 = fadd <4 x float> %50, %54
-  %55 = extractelement <4 x float> %foldExtExtBinop92, i64 0
+  %foldExtExtBinop93 = fadd <4 x float> %50, %54
+  %55 = extractelement <4 x float> %foldExtExtBinop93, i64 0
   %56 = fptosi float %55 to i32
   %spec.select.i = tail call i32 @llvm.smin.i32(i32 %56, i32 %25)
   %57 = fptosi float %46 to i32
@@ -1257,30 +1257,30 @@ define void @stbir__calculate_coefficients_for_gather_downsample(i32 noundef %0,
   br i1 %81, label %82, label %84
 
 82:                                               ; preds = %68
-  store i32 %.082, ptr %79, align 4, !tbaa !34
+  store i32 %.083, ptr %79, align 4, !tbaa !34
   %83 = getelementptr inbounds nuw i8, ptr %79, i64 4
-  store i32 %.082, ptr %83, align 4, !tbaa !37
+  store i32 %.083, ptr %83, align 4, !tbaa !37
   store float %spec.store.select, ptr %78, align 4, !tbaa !50
   br label %94
 
 84:                                               ; preds = %68
   %85 = load float, ptr %78, align 4, !tbaa !50
   %86 = fcmp oeq float %85, 0.000000e+00
-  br i1 %86, label %87, label %._crit_edge87
+  br i1 %86, label %87, label %._crit_edge88
 
-._crit_edge87:                                    ; preds = %84
+._crit_edge88:                                    ; preds = %84
   %.pre = load i32, ptr %79, align 4, !tbaa !34
   br label %88
 
 87:                                               ; preds = %84
-  store i32 %.082, ptr %79, align 4, !tbaa !34
+  store i32 %.083, ptr %79, align 4, !tbaa !34
   br label %88
 
-88:                                               ; preds = %._crit_edge87, %87
-  %89 = phi i32 [ %.pre, %._crit_edge87 ], [ %.082, %87 ]
+88:                                               ; preds = %._crit_edge88, %87
+  %89 = phi i32 [ %.pre, %._crit_edge87 ], [ %.083, %87 ]
   %90 = getelementptr inbounds nuw i8, ptr %79, i64 4
-  store i32 %.082, ptr %90, align 4, !tbaa !37
-  %91 = sub nsw i32 %.082, %89
+  store i32 %.083, ptr %90, align 4, !tbaa !37
+  %91 = sub nsw i32 %.083, %89
   %92 = sext i32 %91 to i64
   %93 = getelementptr inbounds float, ptr %78, i64 %92
   store float %spec.store.select, ptr %93, align 4, !tbaa !50
@@ -2600,16 +2600,16 @@ stbir__calculate_coefficients_for_gather_upsample.exit: ; preds = %stbir__calcul
   %146 = icmp slt i32 %142, %140
   %147 = select i1 %145, i1 %146, i1 false
   %148 = icmp sgt i32 %105, %135
-  br i1 %148, label %.lr.ph83.i, label %stbir__calculate_coefficients_for_gather_downsample.exit
+  br i1 %148, label %.lr.ph84.i, label %stbir__calculate_coefficients_for_gather_downsample.exit
 
-.lr.ph83.i:                                       ; preds = %134
+.lr.ph84.i:                                       ; preds = %134
   %149 = add nsw i32 %140, -1
   %150 = add nsw i32 %142, -1
   %151 = sext i32 %.0143 to i64
   br label %152
 
-152:                                              ; preds = %.loopexit.i, %.lr.ph83.i
-  %.082.i = phi i32 [ %135, %.lr.ph83.i ], [ %218, %.loopexit.i ]
+152:                                              ; preds = %.loopexit.i, %.lr.ph84.i
+  %.083.i = phi i32 [ %135, %.lr.ph83.i ], [ %218, %.loopexit.i ]
   %153 = sitofp i32 %.082.i to float
   %154 = fadd float %153, 5.000000e-01
   %155 = fmul float %136, %154
@@ -2691,30 +2691,30 @@ stbir__calculate_coefficients_for_gather_upsample.exit: ; preds = %stbir__calcul
   br i1 %204, label %205, label %207
 
 205:                                              ; preds = %191
-  store i32 %.082.i, ptr %202, align 4, !tbaa !34
+  store i32 %.083.i, ptr %202, align 4, !tbaa !34
   %206 = getelementptr inbounds nuw i8, ptr %202, i64 4
-  store i32 %.082.i, ptr %206, align 4, !tbaa !37
+  store i32 %.083.i, ptr %206, align 4, !tbaa !37
   store float %spec.store.select.i, ptr %201, align 4, !tbaa !50
   br label %217
 
 207:                                              ; preds = %191
   %208 = load float, ptr %201, align 4, !tbaa !50
   %209 = fcmp oeq float %208, 0.000000e+00
-  br i1 %209, label %210, label %._crit_edge87.i
+  br i1 %209, label %210, label %._crit_edge88.i
 
-._crit_edge87.i:                                  ; preds = %207
+._crit_edge88.i:                                  ; preds = %207
   %.pre.i = load i32, ptr %202, align 4, !tbaa !34
   br label %211
 
 210:                                              ; preds = %207
-  store i32 %.082.i, ptr %202, align 4, !tbaa !34
+  store i32 %.083.i, ptr %202, align 4, !tbaa !34
   br label %211
 
-211:                                              ; preds = %210, %._crit_edge87.i
-  %212 = phi i32 [ %.pre.i, %._crit_edge87.i ], [ %.082.i, %210 ]
+211:                                              ; preds = %210, %._crit_edge88.i
+  %212 = phi i32 [ %.pre.i, %._crit_edge87.i ], [ %.083.i, %210 ]
   %213 = getelementptr inbounds nuw i8, ptr %202, i64 4
-  store i32 %.082.i, ptr %213, align 4, !tbaa !37
-  %214 = sub nsw i32 %.082.i, %212
+  store i32 %.083.i, ptr %213, align 4, !tbaa !37
+  %214 = sub nsw i32 %.083.i, %212
   %215 = sext i32 %214 to i64
   %216 = getelementptr inbounds float, ptr %201, i64 %215
   store float %spec.store.select.i, ptr %216, align 4, !tbaa !50

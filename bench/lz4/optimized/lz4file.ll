@@ -202,8 +202,8 @@ define i64 @LZ4F_read(ptr noundef captures(address_is_null) %0, ptr noundef %1, 
   br i1 %or.cond, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %3
-  %.not47 = icmp eq i64 %2, 0
-  br i1 %.not47, label %.loopexit, label %.lr.ph
+  %.not54 = icmp eq i64 %2, 0
+  br i1 %.not54, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -216,14 +216,14 @@ define i64 @LZ4F_read(ptr noundef captures(address_is_null) %0, ptr noundef %1, 
 
 13:                                               ; preds = %.lr.ph, %32
   %14 = phi i64 [ %.pre, %.lr.ph ], [ %35, %32 ]
-  %.03046 = phi i64 [ 0, %.lr.ph ], [ %37, %32 ]
-  %.03145 = phi ptr [ %1, %.lr.ph ], [ %38, %32 ]
+  %.03053 = phi i64 [ 0, %.lr.ph ], [ %37, %32 ]
+  %.03152 = phi ptr [ %1, %.lr.ph ], [ %38, %32 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %15 = load i64, ptr %8, align 8, !tbaa !22
   %16 = sub i64 %15, %14
   store i64 %16, ptr %4, align 8, !tbaa !16
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %17 = sub nuw i64 %2, %.03046
+  %17 = sub nuw i64 %2, %.03053
   store i64 %17, ptr %5, align 8, !tbaa !16
   %18 = icmp eq i64 %15, %14
   br i1 %18, label %19, label %25
@@ -247,7 +247,7 @@ define i64 @LZ4F_read(ptr noundef captures(address_is_null) %0, ptr noundef %1, 
   %27 = load ptr, ptr %0, align 8, !tbaa !8
   %28 = load ptr, ptr %10, align 8, !tbaa !14
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 %26
-  %30 = call i64 @LZ4F_decompress(ptr noundef %27, ptr noundef %.03145, ptr noundef nonnull %5, ptr noundef %29, ptr noundef nonnull %4, ptr noundef null) #10
+  %30 = call i64 @LZ4F_decompress(ptr noundef %27, ptr noundef %.03152, ptr noundef nonnull %5, ptr noundef %29, ptr noundef nonnull %4, ptr noundef null) #10
   %31 = call i32 @LZ4F_isError(i64 noundef %30) #10
   %.not39 = icmp eq i32 %31, 0
   br i1 %.not39, label %32, label %.thread
@@ -263,15 +263,15 @@ define i64 @LZ4F_read(ptr noundef captures(address_is_null) %0, ptr noundef %1, 
   %35 = add i64 %34, %33
   store i64 %35, ptr %9, align 8, !tbaa !23
   %36 = load i64, ptr %5, align 8, !tbaa !16
-  %37 = add i64 %36, %.03046
-  %38 = getelementptr inbounds nuw i8, ptr %.03145, i64 %36
+  %37 = add i64 %36, %.03053
+  %38 = getelementptr inbounds nuw i8, ptr %.03152, i64 %36
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %39 = icmp ult i64 %37, %2
   br i1 %39, label %13, label %.loopexit
 
-.loopexit:                                        ; preds = %32, %.preheader, %.thread, %3
-  %.033 = phi i64 [ -21, %3 ], [ %.03046, %.thread ], [ 0, %.preheader ], [ %37, %32 ]
+.loopexit.sink.split:                             ; preds = %32, %.preheader, %.thread, %3
+  %.033.ph = phi i64 [ -21, %3 ], [ %.03053, %.thread ], [ 0, %.preheader ], [ %37, %32 ]
   ret i64 %.033
 }
 

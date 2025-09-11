@@ -2598,7 +2598,7 @@ define hidden void @"_ZN4moka12notification8notifier29NotificationTask$LT$K$C$V$
   tail call void @_ZN11parking_lot9raw_mutex8RawMutex11unlock_slow17h4f1db2d09399a6dbE(ptr noundef nonnull align 1 %12, i1 noundef zeroext false)
   br label %"_ZN4core3ptr99drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$$LP$$RP$$GT$$GT$17h7a02385584c2d95dE.exit"
 
-"_ZN4core3ptr99drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$$LP$$RP$$GT$$GT$17h7a02385584c2d95dE.exit": ; preds = %24, %22, %113
+"_ZN4core3ptr99drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$$LP$$RP$$GT$$GT$17h7a02385584c2d95dE.exit": ; preds = %24, %22, %115
   ret void
 
 25:                                               ; preds = %.preheader, %108
@@ -2841,7 +2841,7 @@ define hidden void @"_ZN4moka12notification8notifier29NotificationTask$LT$K$C$V$
   call void @__rust_dealloc(ptr noundef nonnull %85, i64 noundef %98, i64 noundef %100) #23
   br label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h40376e5a544ae0d6E.exit.thread"
 
-103:                                              ; preds = %116, %.body54
+103:                                              ; preds = %118, %.body54
   %104 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #35
@@ -2864,32 +2864,32 @@ define hidden void @"_ZN4moka12notification8notifier29NotificationTask$LT$K$C$V$
 109:                                              ; preds = %"_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h9bd3ffa255191efdE.exit43"
   unreachable
 
-110:                                              ; preds = %48, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.5937325364934216154.exit.i4.i.i39"
+111:                                              ; preds = %48, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.5937325364934216154.exit.i4.i.i39"
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   store atomic i8 0, ptr %18 release, align 1
   %111 = cmpxchg ptr %12, i8 1, i8 0 release monotonic, align 1
   %.sroa.18.0.in.i.i.i.i63 = extractvalue { i8, i1 } %111, 1
   br i1 %.sroa.18.0.in.i.i.i.i63, label %113, label %112
 
-112:                                              ; preds = %110
+114:                                              ; preds = %110
   call void @_ZN11parking_lot9raw_mutex8RawMutex11unlock_slow17h4f1db2d09399a6dbE(ptr noundef nonnull align 1 %12, i1 noundef zeroext false)
-  br label %113
+  br label %115
 
-113:                                              ; preds = %112, %110
-  %114 = getelementptr inbounds nuw i8, ptr %11, i64 50
-  store atomic i8 0, ptr %114 release, align 1
+115:                                              ; preds = %114, %110
+  %116 = getelementptr inbounds nuw i8, ptr %11, i64 50
+  store atomic i8 0, ptr %116 release, align 1
   br label %"_ZN4core3ptr99drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$$LP$$RP$$GT$$GT$17h7a02385584c2d95dE.exit"
 
-"_ZN4core3ptr99drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$$LP$$RP$$GT$$GT$17h7a02385584c2d95dE.exit67": ; preds = %.thread106, %116
+"_ZN4core3ptr99drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$$LP$$RP$$GT$$GT$17h7a02385584c2d95dE.exit67": ; preds = %.thread106, %118
   resume { ptr, i32 } %.pn22102
 
 .thread106:                                       ; preds = %.thread112.loopexit, %.thread112.loopexit.split-lp, %70, %.body54, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.5937325364934216154.exit.i.i.i37", %40
   %.pn22102 = phi { ptr, i32 } [ %41, %40 ], [ %41, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.5937325364934216154.exit.i.i.i37" ], [ %89, %.body54 ], [ %71, %70 ], [ %lpad.loopexit, %.thread112.loopexit ], [ %lpad.loopexit.split-lp, %.thread112.loopexit.split-lp ]
-  %115 = cmpxchg ptr %12, i8 1, i8 0 release monotonic, align 1
-  %.sroa.18.0.in.i.i.i.i65 = extractvalue { i8, i1 } %115, 1
-  br i1 %.sroa.18.0.in.i.i.i.i65, label %"_ZN4core3ptr99drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$$LP$$RP$$GT$$GT$17h7a02385584c2d95dE.exit67", label %116
+  %117 = cmpxchg ptr %12, i8 1, i8 0 release monotonic, align 1
+  %.sroa.18.0.in.i.i.i.i65 = extractvalue { i8, i1 } %117, 1
+  br i1 %.sroa.18.0.in.i.i.i.i65, label %"_ZN4core3ptr99drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$$LP$$RP$$GT$$GT$17h7a02385584c2d95dE.exit67", label %118
 
-116:                                              ; preds = %.thread106
+118:                                              ; preds = %.thread106
   invoke void @_ZN11parking_lot9raw_mutex8RawMutex11unlock_slow17h4f1db2d09399a6dbE(ptr noundef nonnull align 1 %12, i1 noundef zeroext false)
           to label %"_ZN4core3ptr99drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$$LP$$RP$$GT$$GT$17h7a02385584c2d95dE.exit67" unwind label %103
 }

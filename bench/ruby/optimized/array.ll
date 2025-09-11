@@ -12228,8 +12228,8 @@ rb_array_len.exit:                                ; preds = %7, %10
   br i1 %.not30, label %17, label %.preheader
 
 .preheader:                                       ; preds = %13
-  %.not3155 = icmp eq i64 %.0.i, 0
-  br i1 %.not3155, label %rb_long2num_inline.exit, label %.lr.ph
+  %.not3158 = icmp eq i64 %.0.i, 0
+  br i1 %.not3158, label %rb_long2num_inline.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -12245,8 +12245,8 @@ rb_array_len.exit:                                ; preds = %7, %10
 
 21:                                               ; preds = %.lr.ph, %rb_array_len.exit35
   %22 = phi i64 [ %.pre, %.lr.ph ], [ %39, %rb_array_len.exit35 ]
-  %.02256 = phi i64 [ %.0.i, %.lr.ph ], [ %spec.select, %rb_array_len.exit35 ]
-  %23 = add i64 %.02256, -1
+  %.02259 = phi i64 [ %.0.i, %.lr.ph ], [ %spec.select, %rb_array_len.exit35 ]
+  %23 = add i64 %.02259, -1
   %24 = and i64 %22, 8192
   %.not.i.i = icmp eq i64 %24, 0
   br i1 %.not.i.i, label %25, label %RARRAY_AREF.exit
@@ -12261,11 +12261,11 @@ RARRAY_AREF.exit:                                 ; preds = %21, %25
   %28 = load i64, ptr %27, align 8, !tbaa !13
   %29 = tail call i64 @rb_yield(i64 noundef %28) #24
   %30 = and i64 %29, -5
-  %.not49 = icmp eq i64 %30, 0
-  br i1 %.not49, label %38, label %31
+  %.not52 = icmp eq i64 %30, 0
+  br i1 %.not52, label %38, label %31
 
 31:                                               ; preds = %RARRAY_AREF.exit
-  %32 = add i64 %.02256, 4611686018427387903
+  %32 = add i64 %.02259, 4611686018427387903
   %or.cond.i = icmp sgt i64 %32, -1
   br i1 %or.cond.i, label %33, label %36
 
@@ -12351,25 +12351,25 @@ RARRAY_AREF.exit39:                               ; preds = %54, %57
   %65 = tail call i64 @rb_int2big(i64 noundef %53) #24
   br label %rb_long2num_inline.exit
 
-66:                                               ; preds = %RARRAY_AREF.exit39
+67:                                               ; preds = %RARRAY_AREF.exit39
   %67 = load i64, ptr %4, align 8, !tbaa !7
   %68 = and i64 %67, 8192
   %.not.i43 = icmp eq i64 %68, 0
   br i1 %.not.i43, label %72, label %69
 
-69:                                               ; preds = %66
-  %70 = lshr i64 %67, 15
-  %71 = and i64 %70, 127
-  br label %rb_array_len.exit45
-
 72:                                               ; preds = %66
-  %73 = load i64, ptr %51, align 8, !tbaa !12
+  %73 = lshr i64 %67, 15
+  %74 = and i64 %73, 127
   br label %rb_array_len.exit45
 
-rb_array_len.exit45:                              ; preds = %69, %72
-  %.0.i44 = phi i64 [ %71, %69 ], [ %73, %72 ]
-  %74 = icmp sgt i64 %53, %.0.i44
-  br i1 %74, label %rb_long2num_inline.exit, label %rb_long2num_inline.exit42
+75:                                               ; preds = %66
+  %76 = load i64, ptr %51, align 8, !tbaa !12
+  br label %rb_array_len.exit45
+
+rb_array_len.exit45:                              ; preds = %72, %75
+  %.0.i44 = phi i64 [ %74, %69 ], [ %76, %72 ]
+  %77 = icmp sgt i64 %53, %.0.i44
+  br i1 %77, label %rb_long2num_inline.exit, label %rb_long2num_inline.exit42
 
 rb_long2num_inline.exit:                          ; preds = %rb_array_len.exit45, %rb_long2num_inline.exit42, %rb_array_len.exit35, %.preheader, %62, %64, %36, %33, %17
   %.0 = phi i64 [ %20, %17 ], [ %35, %33 ], [ %37, %36 ], [ 4, %64 ], [ 4, %62 ], [ 4, %.preheader ], [ 4, %rb_array_len.exit35 ], [ 4, %rb_long2num_inline.exit42 ], [ 4, %rb_array_len.exit45 ]

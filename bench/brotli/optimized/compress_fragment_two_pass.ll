@@ -9123,9 +9123,9 @@ define internal fastcc void @StoreCommands(ptr noundef initializes((0, 1024), (1
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 2688
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 1024
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 1280
-  tail call void @BrotliBuildAndStoreHuffmanTreeFast(ptr noundef nonnull %18, ptr noundef nonnull %0, i64 noundef %2, i64 noundef 8, ptr noundef nonnull %19, ptr noundef nonnull %20, ptr noundef %5, ptr noundef %6) #11
-  %.not79 = icmp eq i64 %4, 0
-  br i1 %.not79, label %._crit_edge71, label %.lr.ph70
+  tail call void @BrotliBuildAndStoreHuffmanTreeFast(ptr noundef nonnull %18, ptr noundef nonnull %0, i64 noundef %2, i64 noundef 8, ptr noundef nonnull %19, ptr noundef nonnull %20, ptr noundef %5, ptr noundef %6) #10
+  %.not80 = icmp eq i64 %4, 0
+  br i1 %.not80, label %._crit_edge71, label %.lr.ph70
 
 .lr.ph70:                                         ; preds = %._crit_edge, %.lr.ph70
   %.16368 = phi i64 [ %28, %.lr.ph70 ], [ 0, %._crit_edge ]
@@ -9138,8 +9138,8 @@ define internal fastcc void @StoreCommands(ptr noundef initializes((0, 1024), (1
   %27 = add i32 %26, 1
   store i32 %27, ptr %25, align 4, !tbaa !41
   %28 = add nuw i64 %.16368, 1
-  %exitcond82.not = icmp eq i64 %28, %4
-  br i1 %exitcond82.not, label %._crit_edge71, label %.lr.ph70, !llvm.loop !506
+  %exitcond83.not = icmp eq i64 %28, %4
+  br i1 %exitcond83.not, label %._crit_edge71, label %.lr.ph70, !llvm.loop !506
 
 ._crit_edge71:                                    ; preds = %.lr.ph70, %._crit_edge
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 1796
@@ -9160,9 +9160,9 @@ define internal fastcc void @StoreCommands(ptr noundef initializes((0, 1024), (1
   store i32 %40, ptr %38, align 4, !tbaa !41
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 6792
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(704) %41, i8 0, i64 704, i1 false)
-  tail call void @BrotliCreateHuffmanTree(ptr noundef nonnull %10, i64 noundef 64, i32 noundef 15, ptr noundef nonnull %18, ptr noundef nonnull %8) #11
+  tail call void @BrotliCreateHuffmanTree(ptr noundef nonnull %10, i64 noundef 64, i32 noundef 15, ptr noundef nonnull %18, ptr noundef nonnull %8) #10
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 2368
-  tail call void @BrotliCreateHuffmanTree(ptr noundef nonnull %35, i64 noundef 64, i32 noundef 14, ptr noundef nonnull %18, ptr noundef nonnull %42) #11
+  tail call void @BrotliCreateHuffmanTree(ptr noundef nonnull %35, i64 noundef 64, i32 noundef 14, ptr noundef nonnull %18, ptr noundef nonnull %42) #10
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 2328
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %41, ptr noundef nonnull align 1 dereferenceable(24) %43, i64 24, i1 false)
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 6816
@@ -9185,7 +9185,7 @@ define internal fastcc void @StoreCommands(ptr noundef initializes((0, 1024), (1
   %57 = load i64, ptr %56, align 4
   store i64 %57, ptr %55, align 4
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 7496
-  tail call void @BrotliConvertBitDepthsToSymbols(ptr noundef nonnull %41, i64 noundef 64, ptr noundef nonnull %58) #11
+  tail call void @BrotliConvertBitDepthsToSymbols(ptr noundef nonnull %41, i64 noundef 64, ptr noundef nonnull %58) #10
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 7544
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %9, ptr noundef nonnull align 2 dereferenceable(16) %59, i64 16, i1 false)
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 2448
@@ -9203,7 +9203,7 @@ define internal fastcc void @StoreCommands(ptr noundef initializes((0, 1024), (1
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 7592
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(16) %67, ptr noundef nonnull align 2 dereferenceable(16) %68, i64 16, i1 false)
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 2560
-  tail call void @BrotliConvertBitDepthsToSymbols(ptr noundef nonnull %42, i64 noundef 64, ptr noundef nonnull %69) #11
+  tail call void @BrotliConvertBitDepthsToSymbols(ptr noundef nonnull %42, i64 noundef 64, ptr noundef nonnull %69) #10
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 6800
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %70, i8 0, i64 56, i1 false)
   %71 = load i64, ptr %43, align 4
@@ -9245,17 +9245,17 @@ define internal fastcc void @StoreCommands(ptr noundef initializes((0, 1024), (1
   br i1 %exitcond.not.i, label %BuildAndStoreCommandPrefixCode.exit, label %82, !llvm.loop !507
 
 BuildAndStoreCommandPrefixCode.exit:              ; preds = %82
-  tail call void @BrotliStoreHuffmanTree(ptr noundef nonnull %41, i64 noundef 704, ptr noundef nonnull %18, ptr noundef %5, ptr noundef %6) #11
-  tail call void @BrotliStoreHuffmanTree(ptr noundef nonnull %42, i64 noundef 64, ptr noundef nonnull %18, ptr noundef %5, ptr noundef %6) #11
-  br i1 %.not79, label %._crit_edge78, label %.lr.ph77.preheader
+  tail call void @BrotliStoreHuffmanTree(ptr noundef nonnull %41, i64 noundef 704, ptr noundef nonnull %18, ptr noundef %5, ptr noundef %6) #10
+  tail call void @BrotliStoreHuffmanTree(ptr noundef nonnull %42, i64 noundef 64, ptr noundef nonnull %18, ptr noundef %5, ptr noundef %6) #10
+  br i1 %.not80, label %._crit_edge78, label %.lr.ph78.preheader
 
-.lr.ph77.preheader:                               ; preds = %BuildAndStoreCommandPrefixCode.exit
+.lr.ph78.preheader:                               ; preds = %BuildAndStoreCommandPrefixCode.exit
   %.pre = load i64, ptr %5, align 8, !tbaa !3, !alias.scope !508, !noalias !511
-  br label %.lr.ph77
+  br label %.lr.ph78
 
-.lr.ph77:                                         ; preds = %.lr.ph77.preheader, %.loopexit
+.lr.ph78:                                         ; preds = %.lr.ph78.preheader, %.loopexit
   %95 = phi i64 [ %126, %.loopexit ], [ %.pre, %.lr.ph77.preheader ]
-  %.26476 = phi i64 [ %132, %.loopexit ], [ 0, %.lr.ph77.preheader ]
+  %.077 = phi i64 [ %132, %.loopexit ], [ 0, %.lr.ph77.preheader ]
   %96 = getelementptr inbounds nuw i32, ptr %3, i64 %.26476
   %97 = load i32, ptr %96, align 4, !tbaa !41
   %98 = and i32 %97, 255
@@ -9298,20 +9298,20 @@ BuildAndStoreCommandPrefixCode.exit:              ; preds = %82
   %127 = icmp samesign ult i32 %98, 24
   br i1 %127, label %128, label %.loopexit
 
-128:                                              ; preds = %.lr.ph77
+128:                                              ; preds = %.lr.ph78
   %129 = getelementptr inbounds nuw i32, ptr @StoreCommands.kInsertOffset, i64 %100
   %130 = load i32, ptr %129, align 4, !tbaa !41
   %131 = sub nsw i32 0, %99
-  %.not81 = icmp eq i32 %130, %131
-  tail call void @llvm.assume(i1 %.not81)
+  %.not82 = icmp eq i32 %130, %131
+  tail call void @llvm.assume(i1 %.not82)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %128, %.lr.ph77
-  %132 = add nuw i64 %.26476, 1
+.loopexit:; preds = %128, %.lr.ph78
+  %132 = add nuw i64 %.077, 1
   %exitcond83.not = icmp eq i64 %132, %4
   br i1 %exitcond83.not, label %._crit_edge78, label %.lr.ph77, !llvm.loop !520
 
-._crit_edge78:                                    ; preds = %.loopexit, %BuildAndStoreCommandPrefixCode.exit
+._crit_edge78:; preds = %.loopexit, %BuildAndStoreCommandPrefixCode.exit
   ret void
 }
 

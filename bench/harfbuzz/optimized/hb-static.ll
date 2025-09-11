@@ -5790,22 +5790,22 @@ _ZN11hb_vector_tIjLb0EE6resizeEibb.exit:          ; preds = %22
 
 .lr.ph74.preheader:                               ; preds = %.preheader
   %68 = zext nneg i32 %.04780 to i64
-  %wide.trip.count99 = zext nneg i32 %46 to i64
+  %wide.trip.count101 = zext nneg i32 %46 to i64
   br label %.lr.ph74
 
 .lr.ph74:                                         ; preds = %.lr.ph74.preheader, %.lr.ph74
-  %indvars.iv96 = phi i64 [ %68, %.lr.ph74.preheader ], [ %indvars.iv.next97, %.lr.ph74 ]
+  %indvars.iv98 = phi i64 [ %68, %.lr.ph74.preheader ], [ %indvars.iv.next99, %.lr.ph74 ]
   %.45672 = phi i32 [ poison, %.lr.ph74.preheader ], [ %73, %.lr.ph74 ]
   %69 = phi ptr [ %40, %.lr.ph74.preheader ], [ %70, %.lr.ph74 ]
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 1
   %71 = load i8, ptr %69, align 1, !tbaa !188
   %72 = zext i8 %71 to i32
   %73 = add i32 %.45672, %72
-  %74 = getelementptr inbounds nuw i32, ptr %37, i64 %indvars.iv96
+  %74 = getelementptr inbounds nuw i32, ptr %37, i64 %indvars.iv98
   store i32 %73, ptr %74, align 4, !tbaa !74
-  %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
-  %exitcond100.not = icmp eq i64 %indvars.iv.next97, %wide.trip.count99
-  br i1 %exitcond100.not, label %.loopexit.sink.split, label %.lr.ph74, !llvm.loop !254
+  %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
+  %exitcond102.not = icmp eq i64 %indvars.iv.next99, %wide.trip.count101
+  br i1 %exitcond102.not, label %.loopexit.sink.split, label %.lr.ph74, !llvm.loop !254
 
 .loopexit.sink.split:                             ; preds = %.lr.ph, %.lr.ph74
   %.lcssa.sink = phi ptr [ %70, %.lr.ph74 ], [ %62, %.lr.ph ]

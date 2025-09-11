@@ -295,8 +295,8 @@ define internal fastcc noundef i32 @overlay_merge(ptr noundef %0, ptr noundef %1
   br i1 %4, label %.lr.ph, label %.thread
 
 .lr.ph:                                           ; preds = %2, %select.unfold
-  %.02128 = phi i32 [ %14, %select.unfold ], [ %3, %2 ]
-  %5 = tail call i32 @fdt_subnode_offset(ptr noundef %1, i32 noundef %.02128, ptr noundef nonnull @.str.5) #8
+  %.02129 = phi i32 [ %14, %select.unfold ], [ %3, %2 ]
+  %5 = tail call i32 @fdt_subnode_offset(ptr noundef %1, i32 noundef %.02129, ptr noundef nonnull @.str.5) #8
   %6 = icmp eq i32 %5, -1
   br i1 %6, label %select.unfold, label %7
 
@@ -305,7 +305,7 @@ define internal fastcc noundef i32 @overlay_merge(ptr noundef %0, ptr noundef %1
   br i1 %8, label %.thread, label %9
 
 9:                                                ; preds = %7
-  %10 = tail call fastcc i32 @overlay_get_target(ptr noundef %0, ptr noundef %1, i32 noundef %.02128, ptr noundef null)
+  %10 = tail call fastcc i32 @overlay_get_target(ptr noundef %0, ptr noundef %1, i32 noundef %.02129, ptr noundef null)
   %11 = icmp slt i32 %10, 0
   br i1 %11, label %.thread, label %12
 
@@ -315,7 +315,7 @@ define internal fastcc noundef i32 @overlay_merge(ptr noundef %0, ptr noundef %1
   br i1 %.not, label %select.unfold, label %.thread
 
 select.unfold:                                    ; preds = %12, %.lr.ph
-  %14 = tail call i32 @fdt_next_subnode(ptr noundef %1, i32 noundef %.02128) #8
+  %14 = tail call i32 @fdt_next_subnode(ptr noundef %1, i32 noundef %.02129) #8
   %15 = icmp sgt i32 %14, -1
   br i1 %15, label %.lr.ph, label %.thread, !llvm.loop !8
 

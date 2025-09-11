@@ -1402,10 +1402,10 @@ _ZN6insn_t6lengthEv.exit:                         ; preds = %3, %27, %29
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 3896
   %45 = load ptr, ptr %44, align 8, !tbaa !229
   %46 = icmp eq ptr %43, %45
-  br i1 %46, label %._crit_edge98, label %.lr.ph97
+  br i1 %46, label %._crit_edge99, label %.lr.ph98
 
 47:                                               ; preds = %.lr.ph, %89
-  %.094 = phi i1 [ false, %.lr.ph ], [ %.1, %89 ]
+  %.095 = phi i1 [ false, %.lr.ph ], [ %.1, %89 ]
   %.sroa.088.093 = phi ptr [ %34, %.lr.ph ], [ %90, %89 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %48 = getelementptr inbounds nuw i8, ptr %.sroa.088.093, i64 32
@@ -1449,7 +1449,7 @@ _ZN6insn_t6lengthEv.exit:                         ; preds = %3, %27, %29
   %.066 = phi i32 [ 32, %51 ], [ 120, %55 ], [ 102, %56 ], [ 118, %57 ], [ 32, %60 ], [ 99, %61 ]
   %.065 = phi i1 [ false, %51 ], [ false, %55 ], [ false, %56 ], [ false, %57 ], [ true, %60 ], [ false, %61 ]
   %.064 = phi i1 [ false, %51 ], [ false, %55 ], [ false, %56 ], [ true, %57 ], [ false, %60 ], [ false, %61 ]
-  %.not = xor i1 %.094, true
+  %.not = xor i1 %.095, true
   %or.cond = or i1 %.065, %.064
   %or.cond76 = and i1 %or.cond, %.not
   br i1 %or.cond76, label %64, label %77
@@ -1471,7 +1471,7 @@ _ZN6insn_t6lengthEv.exit:                         ; preds = %3, %27, %29
   br label %77
 
 77:                                               ; preds = %64, %62
-  %.2 = phi i1 [ %.094, %62 ], [ true, %64 ]
+  %.2 = phi i1 [ %.095, %62 ], [ true, %64 ]
   br i1 %.065, label %89, label %78
 
 78:                                               ; preds = %77
@@ -1501,42 +1501,42 @@ _ZN6insn_t6lengthEv.exit:                         ; preds = %3, %27, %29
   br label %89
 
 89:                                               ; preds = %77, %88, %85, %47
-  %.1 = phi i1 [ %.094, %47 ], [ %.2, %85 ], [ %.2, %88 ], [ %.2, %77 ]
+  %.168 = phi i1 [ %.094, %47 ], [ %.2, %85 ], [ %.2, %88 ], [ %.2, %77 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %90 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.088.093) #25
   %91 = icmp eq ptr %90, %35
   br i1 %91, label %._crit_edge, label %47
 
-._crit_edge98:                                    ; preds = %.lr.ph97, %._crit_edge
+._crit_edge99:                                    ; preds = %.lr.ph98, %._crit_edge
   %92 = load ptr, ptr %13, align 8, !tbaa !229
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 3920
   %94 = load ptr, ptr %93, align 8, !tbaa !229
   %95 = icmp eq ptr %92, %94
-  br i1 %95, label %._crit_edge102, label %.lr.ph101
+  br i1 %95, label %._crit_edge103, label %.lr.ph102
 
-.lr.ph97:                                         ; preds = %._crit_edge, %.lr.ph97
-  %.sroa.084.095 = phi ptr [ %97, %.lr.ph97 ], [ %43, %._crit_edge ]
-  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.084.095, i64 16
+.lr.ph98:                                         ; preds = %._crit_edge, %.lr.ph98
+  %.sroa.084.096 = phi ptr [ %97, %.lr.ph97 ], [ %43, %._crit_edge ]
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.084.096, i64 16
   %.sroa.3.0.copyload = load i64, ptr %.sroa.3.0..sroa_idx, align 8
   %96 = tail call i64 @fwrite(ptr nonnull @.str.9, i64 5, i64 1, ptr %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 %.sroa.3.0.copyload, ptr %6, align 8, !tbaa !160
   call fastcc void @_ZL22commit_log_print_valueP8_IO_FILEiPKv(ptr noundef %11, i32 noundef %18, ptr noundef %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %97 = getelementptr inbounds nuw i8, ptr %.sroa.084.095, i64 24
+  %97 = getelementptr inbounds nuw i8, ptr %.sroa.084.096, i64 24
   %98 = icmp eq ptr %97, %45
-  br i1 %98, label %._crit_edge98, label %.lr.ph97
+  br i1 %98, label %._crit_edge99, label %.lr.ph98
 
-._crit_edge102:                                   ; preds = %.lr.ph101, %._crit_edge98
+._crit_edge103:                                   ; preds = %.lr.ph102, %._crit_edge99
   %fputc74 = tail call i32 @fputc(i32 10, ptr %11)
   ret void
 
-.lr.ph101:                                        ; preds = %._crit_edge98, %.lr.ph101
-  %.sroa.079.099 = phi ptr [ %102, %.lr.ph101 ], [ %92, %._crit_edge98 ]
-  %.sroa.0.0.copyload = load i8, ptr %.sroa.079.099, align 8
-  %.sroa.477.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.079.099, i64 8
+.lr.ph102:                                        ; preds = %._crit_edge99, %.lr.ph102
+  %.sroa.079.0100 = phi ptr [ %102, %.lr.ph101 ], [ %92, %._crit_edge98 ]
+  %.sroa.0.0.copyload = load i8, ptr %.sroa.079.0100, align 8
+  %.sroa.477.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.079.0100, i64 8
   %.sroa.477.0.copyload = load i64, ptr %.sroa.477.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.079.099, i64 16
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.079.0100, i64 16
   %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8
   %99 = tail call i64 @fwrite(ptr nonnull @.str.9, i64 5, i64 1, ptr %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -1550,9 +1550,9 @@ _ZN6insn_t6lengthEv.exit:                         ; preds = %3, %27, %29
   store i64 %.sroa.477.0.copyload, ptr %4, align 8, !tbaa !160
   call fastcc void @_ZL22commit_log_print_valueP8_IO_FILEiPKv(ptr noundef %11, i32 noundef %101, ptr noundef %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %102 = getelementptr inbounds nuw i8, ptr %.sroa.079.099, i64 24
+  %102 = getelementptr inbounds nuw i8, ptr %.sroa.079.0100, i64 24
   %103 = icmp eq ptr %102, %94
-  br i1 %103, label %._crit_edge102, label %.lr.ph101
+  br i1 %103, label %._crit_edge103, label %.lr.ph102
 }
 
 declare void @__cxa_rethrow() local_unnamed_addr

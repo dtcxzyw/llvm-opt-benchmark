@@ -15,24 +15,24 @@ define dso_local noundef i32 @curlx_get_line(ptr noundef %0, ptr noundef capture
 4:                                                ; preds = %15, %2
   %5 = call ptr @fgets(ptr noundef nonnull %3, i32 noundef 128, ptr noundef %1)
   %.not = icmp eq ptr %5, null
-  br i1 %.not, label %.loopexit, label %6
+  br i1 %.not, label %.thread, label %6
 
 6:                                                ; preds = %4
   %7 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #6
   %.not20 = icmp eq i64 %7, 0
-  br i1 %.not20, label %.loopexit, label %8
+  br i1 %.not20, label %.thread, label %8
 
 8:                                                ; preds = %6
   %9 = call i32 @curlx_dyn_addn(ptr noundef %0, ptr noundef nonnull %5, i64 noundef %7) #5
   %.not21 = icmp eq i32 %9, 0
-  br i1 %.not21, label %10, label %.loopexit
+  br i1 %.not21, label %10, label %.thread
 
 10:                                               ; preds = %8
   %11 = getelementptr i8, ptr %5, i64 %7
   %12 = getelementptr i8, ptr %11, i64 -1
   %13 = load i8, ptr %12, align 1, !tbaa !4
   %14 = icmp eq i8 %13, 10
-  br i1 %14, label %.loopexit, label %15
+  br i1 %14, label %.thread, label %15
 
 15:                                               ; preds = %10
   %16 = call i32 @feof(ptr noundef %1) #5
@@ -41,9 +41,9 @@ define dso_local noundef i32 @curlx_get_line(ptr noundef %0, ptr noundef capture
 
 17:                                               ; preds = %15
   %18 = call i32 @curlx_dyn_addn(ptr noundef %0, ptr noundef nonnull @.str, i64 noundef 1) #5
-  br label %.loopexit
+  br label %.thread
 
-.loopexit:                                        ; preds = %6, %8, %10, %4, %17
+.thread:                                          ; preds = %6, %8, %10, %4, %17
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 0
 }

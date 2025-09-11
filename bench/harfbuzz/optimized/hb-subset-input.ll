@@ -387,10 +387,10 @@ define dso_local noundef range(i32 0, 2) i32 @hb_subset_input_set_user_data(ptr 
 .preheader.i:                                     ; preds = %6
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load atomic i64, ptr %8 acquire, align 8
-  %.not1926.i = icmp eq i64 %9, 0
-  br i1 %.not1926.i, label %.lr.ph.i, label %.split.loop.exit24.i, !prof !46
+  %.not1927.i = icmp eq i64 %9, 0
+  br i1 %.not1927.i, label %.lr.ph.i, label %.split.loop.exit25.i, !prof !46
 
-.lr.ph.i:                                         ; preds = %.preheader.i, %19
+.lr.ph.i:                                         ; preds = %.preheader.i, %20
   %10 = tail call noalias dereferenceable_or_null(56) ptr @calloc(i64 noundef 1, i64 noundef 56) #22
   %.not20.i = icmp eq ptr %10, null
   br i1 %.not20.i, label %_ZL23hb_object_set_user_dataI17hb_subset_input_tEbPT_P18hb_user_data_key_tPvPFvS5_Ei.exit, label %11, !prof !45
@@ -402,25 +402,25 @@ define dso_local noundef range(i32 0, 2) i32 @hb_subset_input_set_user_data(ptr 
   %14 = ptrtoint ptr %10 to i64
   %15 = cmpxchg weak ptr %8, i64 0, i64 %14 acq_rel monotonic, align 8
   %16 = extractvalue { i64, i1 } %15, 1
-  br i1 %16, label %.split.loop.exit.i, label %19, !prof !40
+  br i1 %16, label %.split.loop.exit.i, label %20, !prof !40
 
-.split.loop.exit24.i:                             ; preds = %19, %.preheader.i
-  %.lcssa.i = phi i64 [ %9, %.preheader.i ], [ %21, %19 ]
+.split.loop.exit25.i:                             ; preds = %20, %.preheader.i
+  %.lcssa.i = phi i64 [ %9, %.preheader.i ], [ %22, %19 ]
   %17 = inttoptr i64 %.lcssa.i to ptr
   br label %.split.loop.exit.i
 
-.split.loop.exit.i:                               ; preds = %11, %.split.loop.exit24.i
+.split.loop.exit.i:                               ; preds = %11, %.split.loop.exit25.i
   %.016.i = phi ptr [ %17, %.split.loop.exit24.i ], [ %10, %11 ]
   %18 = tail call noundef zeroext i1 @_ZN20hb_user_data_array_t3setEP18hb_user_data_key_tPvPFvS2_Ei(ptr noundef nonnull align 8 dereferenceable(56) %.016.i, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4)
   br label %_ZL23hb_object_set_user_dataI17hb_subset_input_tEbPT_P18hb_user_data_key_tPvPFvS5_Ei.exit
 
-19:                                               ; preds = %11
+20:                                               ; preds = %11
   tail call void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE4finiERS2_(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(56) %10)
-  %20 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull align 8 dereferenceable(56) %10) #21
+  %21 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull align 8 dereferenceable(56) %10) #21
   tail call void @free(ptr noundef nonnull %10) #21
-  %21 = load atomic i64, ptr %8 acquire, align 8
-  %.not19.i = icmp eq i64 %21, 0
-  br i1 %.not19.i, label %.lr.ph.i, label %.split.loop.exit24.i, !prof !47
+  %22 = load atomic i64, ptr %8 acquire, align 8
+  %.not19.i = icmp eq i64 %22, 0
+  br i1 %.not19.i, label %.lr.ph.i, label %.split.loop.exit25.i, !prof !47
 
 _ZL23hb_object_set_user_dataI17hb_subset_input_tEbPT_P18hb_user_data_key_tPvPFvS5_Ei.exit: ; preds = %.lr.ph.i, %5, %6, %.split.loop.exit.i
   ret i32 0

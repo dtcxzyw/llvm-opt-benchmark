@@ -1073,17 +1073,17 @@ _ZN5ZXing11PatternView5shiftEi.exit:              ; preds = %_ZN5ZXing8BitArray1
 433:                                              ; preds = %_ZNK5ZXing11PatternView7isValidEv.exit119.thread.invoke, %.invoke, %471, %445
   %434 = landingpad { ptr, i32 }
           cleanup
-  br label %680
+  br label %681
 
 .loopexit:                                        ; preds = %418
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %680
+  br label %681
 
 .loopexit.split-lp:                               ; preds = %413
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %680
+  br label %681
 
 .critedge:                                        ; preds = %372, %_ZN5ZXing11PatternView5shiftEi.exit, %_ZN5ZXing11PatternView10skipSymbolEv.exit108
   %435 = phi ptr [ %126, %_ZN5ZXing11PatternView10skipSymbolEv.exit108 ], [ %431, %_ZN5ZXing11PatternView5shiftEi.exit ], [ %431, %372 ]
@@ -1746,14 +1746,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit201: ; preds = %_Z
   call void @_ZdlPvm(ptr noundef nonnull %.sroa.0209.0.lcssa, i64 noundef %679) #20
   br label %_ZN5ZXing8BitArrayD2Ev.exit
 
-680:                                              ; preds = %.loopexit, %.loopexit.split-lp, %433
+681:                                              ; preds = %.loopexit, %.loopexit.split-lp, %433
   %.sroa.0209.1 = phi ptr [ %.sroa.0209.0.lcssa, %433 ], [ %.sroa.0209.2, %.loopexit ], [ %.sroa.0209.2, %.loopexit.split-lp ]
   %.sroa.37.1 = phi ptr [ null, %433 ], [ %.sroa.37.2, %.loopexit ], [ %.sroa.37.2, %.loopexit.split-lp ]
   %.pn88 = phi { ptr, i32 } [ %434, %433 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %.not.i.i.i.i203 = icmp eq ptr %.sroa.0209.1, null
   br i1 %.not.i.i.i.i203, label %_ZN5ZXing8BitArrayD2Ev.exit204, label %..thread272_crit_edge
 
-..thread272_crit_edge:                            ; preds = %680
+..thread272_crit_edge:                            ; preds = %681
   %.pre375 = ptrtoint ptr %.sroa.0209.1 to i64
   %681 = ptrtoint ptr %.sroa.37.1 to i64
   br label %.thread272
@@ -1767,7 +1767,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit201: ; preds = %_Z
   call void @_ZdlPvm(ptr noundef nonnull %.sroa.0209.1277, i64 noundef %682) #20
   br label %_ZN5ZXing8BitArrayD2Ev.exit204
 
-_ZN5ZXing8BitArrayD2Ev.exit204:                   ; preds = %680, %.thread272
+_ZN5ZXing8BitArrayD2Ev.exit204:                   ; preds = %681, %.thread272
   %.pn88280 = phi { ptr, i32 } [ %.pn88, %680 ], [ %.pn88279, %.thread272 ]
   resume { ptr, i32 } %.pn88280
 

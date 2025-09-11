@@ -60,7 +60,7 @@ define dso_local noundef range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef r
   br label %24
 
 24:                                               ; preds = %.noexc.i, %91
-  %.034107 = phi i32 [ 1024, %.noexc.i ], [ %92, %91 ]
+  %.0113 = phi i32 [ 1024, %.noexc.i ], [ %92, %91 ]
   %25 = invoke noundef i64 @_Z13GetTimeMillisv()
           to label %._crit_edge.i.i40 unwind label %28
 
@@ -75,7 +75,7 @@ define dso_local noundef range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef r
   br label %94
 
 ._crit_edge.i.i40:                                ; preds = %24, %26
-  %.025106 = phi i32 [ %27, %26 ], [ 0, %24 ]
+  %.2111 = phi i32 [ %27, %26 ], [ 0, %24 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %13, ptr %4, align 8, !tbaa !4
   store i64 0, ptr %14, align 8, !tbaa !15

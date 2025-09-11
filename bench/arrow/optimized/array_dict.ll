@@ -13907,9 +13907,9 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit157:
 
 _ZNSt6vectorISt10shared_ptrIN5arrow6BufferEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i: ; preds = %352
   %.not.i.i.i.i158 = icmp eq ptr %357, %358
-  br i1 %.not.i.i.i.i158, label %.thread374, label %.lr.ph.preheader.i.i.i.i.i159
+  br i1 %.not.i.i.i.i158, label %.thread379, label %.lr.ph.preheader.i.i.i.i.i159
 
-.thread374:                                       ; preds = %_ZNSt6vectorISt10shared_ptrIN5arrow6BufferEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i
+.thread379:                                       ; preds = %_ZNSt6vectorISt10shared_ptrIN5arrow6BufferEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i
   %364 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %365 = getelementptr inbounds nuw i8, ptr %11, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, i8 0, i64 24, i1 false)
@@ -14067,7 +14067,7 @@ _ZN5arrow6StatusD2Ev.exit173:                     ; preds = %_ZNSt12__shared_ptr
   %.not96 = icmp ult i64 %422, %428
   br i1 %.not96, label %373, label %.critedge109, !llvm.loop !884
 
-.critedge109:                                     ; preds = %_ZN5arrow6StatusD2Ev.exit173, %.thread374
+.critedge109:                                     ; preds = %_ZN5arrow6StatusD2Ev.exit173, %.thread379
   %429 = phi ptr [ %365, %.thread374 ], [ %369, %_ZN5arrow6StatusD2Ev.exit173 ]
   %430 = phi ptr [ %364, %.thread374 ], [ %368, %_ZN5arrow6StatusD2Ev.exit173 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %15)

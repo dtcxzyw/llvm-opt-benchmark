@@ -908,7 +908,7 @@ define hidden void @evmap_delete_all_(ptr noundef readonly captures(none) %0) lo
   br label %.thread.i
 
 .thread.i:                                        ; preds = %10, %..thread_crit_edge.i.loopexit, %.lr.ph.i
-  %15 = phi i32 [ %6, %.lr.ph.i ], [ %.pre.i.pre, %..thread_crit_edge.i.loopexit ], [ poison, %10 ]
+  %.pre.i15 = phi i32 [ %6, %.lr.ph.i ], [ %.pre.i.pre, %..thread_crit_edge.i.loopexit ], [ poison, %10 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %16 = sext i32 %15 to i64
   %17 = icmp slt i64 %indvars.iv.next.i, %16
@@ -947,7 +947,7 @@ evmap_signal_foreach_signal.exit:                 ; preds = %.thread.i, %1
   br label %.thread.i9
 
 .thread.i9:                                       ; preds = %26, %..thread_crit_edge.i7.loopexit, %.lr.ph.i3
-  %31 = phi i32 [ %22, %.lr.ph.i3 ], [ %.pre.i8.pre, %..thread_crit_edge.i7.loopexit ], [ poison, %26 ]
+  %.pre.i818 = phi i32 [ %22, %.lr.ph.i3 ], [ %.pre.i8.pre, %..thread_crit_edge.i7.loopexit ], [ poison, %26 ]
   %indvars.iv.next.i10 = add nuw nsw i64 %indvars.iv.i4, 1
   %32 = sext i32 %31 to i64
   %33 = icmp slt i64 %indvars.iv.next.i10, %32
@@ -1253,14 +1253,14 @@ define hidden i32 @evmap_foreach_event_(ptr noundef %0, ptr noundef readonly cap
   %.0914.i = phi ptr [ %.09.i, %13 ], [ %.0912.i, %12 ]
   %15 = tail call i32 %1(ptr noundef nonnull %0, ptr noundef nonnull %.0914.i, ptr noundef %2) #7
   %.not11.i = icmp eq i32 %15, 0
-  br i1 %.not11.i, label %13, label %evmap_signal_foreach_signal.exit
+  br i1 %.not11.i, label %13, label %evmap_io_foreach_fd.exit
 
 ..thread_crit_edge.i.loopexit:                    ; preds = %13
   %.pre.i.pre = load i32, ptr %5, align 8
   br label %.thread.i
 
 .thread.i:                                        ; preds = %12, %..thread_crit_edge.i.loopexit, %.lr.ph.i
-  %16 = phi i32 [ %8, %.lr.ph.i ], [ %.pre.i.pre, %..thread_crit_edge.i.loopexit ], [ poison, %12 ]
+  %.pre.i44 = phi i32 [ %8, %.lr.ph.i ], [ %.pre.i.pre, %..thread_crit_edge.i.loopexit ], [ poison, %12 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %17 = sext i32 %16 to i64
   %18 = icmp slt i64 %indvars.iv.next.i, %17
@@ -1271,7 +1271,7 @@ define hidden i32 @evmap_foreach_event_(ptr noundef %0, ptr noundef readonly cap
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 832
   %21 = load i32, ptr %20, align 8
   %22 = icmp sgt i32 %21, 0
-  br i1 %22, label %.lr.ph.i7, label %evmap_signal_foreach_signal.exit
+  br i1 %22, label %.lr.ph.i7, label %evmap_io_foreach_fd.exit
 
 .lr.ph.i7:                                        ; preds = %.loopexit, %.thread.i13
   %23 = phi i32 [ %31, %.thread.i13 ], [ %21, %.loopexit ]
@@ -1297,20 +1297,20 @@ define hidden i32 @evmap_foreach_event_(ptr noundef %0, ptr noundef readonly cap
   %.0914.i20 = phi ptr [ %.09.i23, %28 ], [ %.0912.i17, %27 ]
   %30 = tail call i32 %1(ptr noundef nonnull %0, ptr noundef nonnull %.0914.i20, ptr noundef %2) #7
   %.not11.i21 = icmp eq i32 %30, 0
-  br i1 %.not11.i21, label %28, label %evmap_signal_foreach_signal.exit
+  br i1 %.not11.i21, label %28, label %evmap_io_foreach_fd.exit
 
 ..thread_crit_edge.i11.loopexit:                  ; preds = %28
   %.pre.i12.pre = load i32, ptr %20, align 8
   br label %.thread.i13
 
 .thread.i13:                                      ; preds = %27, %..thread_crit_edge.i11.loopexit, %.lr.ph.i7
-  %31 = phi i32 [ %23, %.lr.ph.i7 ], [ %.pre.i12.pre, %..thread_crit_edge.i11.loopexit ], [ poison, %27 ]
+  %.pre.i1247 = phi i32 [ %23, %.lr.ph.i7 ], [ %.pre.i12.pre, %..thread_crit_edge.i11.loopexit ], [ poison, %27 ]
   %indvars.iv.next.i14 = add nuw nsw i64 %indvars.iv.i8, 1
   %32 = sext i32 %31 to i64
   %33 = icmp slt i64 %indvars.iv.next.i14, %32
-  br i1 %33, label %.lr.ph.i7, label %evmap_signal_foreach_signal.exit, !llvm.loop !11
+  br i1 %33, label %.lr.ph.i7, label %evmap_io_foreach_fd.exit, !llvm.loop !11
 
-evmap_signal_foreach_signal.exit:                 ; preds = %.lr.ph.i15, %.thread.i13, %.lr.ph.i19, %.loopexit
+evmap_io_foreach_fd.exit:                         ; preds = %.lr.ph.i15, %.thread.i13, %.lr.ph.i19, %.loopexit
   %.0 = phi i32 [ poison, %.loopexit ], [ %30, %.lr.ph.i19 ], [ poison, %.thread.i13 ], [ %15, %.lr.ph.i15 ]
   ret i32 %.0
 }

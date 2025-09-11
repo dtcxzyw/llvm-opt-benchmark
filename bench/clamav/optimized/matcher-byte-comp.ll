@@ -1349,8 +1349,8 @@ cli_bcomp_chk_hex.exit:                           ; preds = %.tail27.thread.i, %
   %.0149 = phi i64 [ 0, %78 ], [ 0, %75 ], [ 0, %97 ], [ 0, %94 ], [ 0, %115 ], [ 0, %112 ], [ %122, %120 ], [ %125, %123 ], [ %128, %126 ], [ %130, %129 ], [ %134, %132 ], [ %137, %135 ], [ %141, %138 ], [ %144, %142 ]
   %147 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %148 = load i32, ptr %147, align 8, !tbaa !32
-  %.not270 = icmp eq i32 %148, 0
-  br i1 %.not270, label %.loopexit, label %.lr.ph
+  %.not277 = icmp eq i32 %148, 0
+  br i1 %.not277, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %146
   %149 = getelementptr inbounds nuw i8, ptr %3, i64 40
@@ -1361,11 +1361,11 @@ cli_bcomp_chk_hex.exit:                           ; preds = %.tail27.thread.i, %
 .lr.ph.split:                                     ; preds = %.lr.ph
   %151 = and i32 %62, 4
   %.not176 = icmp eq i32 %151, 0
-  %wide.trip.count300 = zext i32 %148 to i64
+  %wide.trip.count307 = zext i32 %148 to i64
   br i1 %.not176, label %.lr.ph.split.split.us, label %.lr.ph.split.split.split.split
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %168
-  %indvars.iv297 = phi i64 [ %indvars.iv.next298, %168 ], [ 0, %.lr.ph.split ]
+  %indvars.iv304 = phi i64 [ %indvars.iv.next298, %168 ], [ 0, %.lr.ph.split ]
   %152 = getelementptr inbounds nuw ptr, ptr %150, i64 %indvars.iv297
   %153 = load ptr, ptr %152, align 8, !tbaa !33
   %.not174.us = icmp eq ptr %153, null
@@ -1437,7 +1437,7 @@ cli_bcomp_chk_hex.exit:                           ; preds = %.tail27.thread.i, %
 
 185:                                              ; preds = %177, %173, %.lr.ph.split.split.split.split, %181
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count300
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count307
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split.split.split.split
 
 .loopexit:                                        ; preds = %181, %185, %171, %173, %177, %156, %168, %154, %164, %160, %.lr.ph, %146, %131, %119, %115, %105, %111, %cli_bcomp_chk_hex.exit, %97, %87, %93, %78, %69, %74, %145

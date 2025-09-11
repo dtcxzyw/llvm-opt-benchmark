@@ -293,7 +293,7 @@ define dso_local noalias noundef ptr @stats_prefix_dump(ptr noundef readnone cap
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) poison, ptr noundef nonnull align 1 dereferenceable(6) @.str.4, i64 6, i1 false)
   br label %29
 
-29:                                               ; preds = %28, %11
+29:; preds = %28, %11
   ret ptr %9
 }
 

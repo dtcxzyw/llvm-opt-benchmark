@@ -139,9 +139,9 @@ define hidden void @_sodium_argon2_fill_memory_blocks(ptr noundef %0, i32 nounde
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %6 = load i32, ptr %5, align 4
   %7 = icmp eq i32 %6, 0
-  br i1 %7, label %.loopexit, label %.split
+  br i1 %7, label %.loopexit, label %.split.preheader
 
-.split:                                           ; preds = %4, %._crit_edge
+.split.preheader:                                 ; preds = %4, %._crit_edge
   %8 = phi i32 [ %14, %._crit_edge ], [ 1, %4 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %._crit_edge ], [ 0, %4 ]
   %.sroa.5.015 = phi i64 [ %.sroa.5.1.lcssa, %._crit_edge ], [ undef, %4 ]
@@ -165,7 +165,7 @@ define hidden void @_sodium_argon2_fill_memory_blocks(ptr noundef %0, i32 nounde
 
 ._crit_edge:                                      ; preds = %9, %.split
   %14 = phi i32 [ 0, %.split ], [ %12, %9 ]
-  %.sroa.5.1.lcssa = phi i64 [ %.sroa.5.8.insert.insert, %.split ], [ %.sroa.5.12.insert.mask, %9 ]
+  %15 = phi i64 [ %.sroa.5.8.insert.insert, %.split ], [ %.sroa.5.12.insert.mask, %9 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %.loopexit, label %.split, !llvm.loop !14

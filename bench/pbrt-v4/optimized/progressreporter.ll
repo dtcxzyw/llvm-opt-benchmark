@@ -642,9 +642,9 @@ _ZN4pbrtL13TerminalWidthEv.exit:                  ; preds = %6, %10, %13
   %34 = add i64 %29, %33
   %scevgep = getelementptr i8, ptr %26, i64 %34
   %35 = getelementptr i8, ptr %26, i64 %34
-  %scevgep82 = getelementptr i8, ptr %35, i64 1
+  %scevgep83 = getelementptr i8, ptr %35, i64 1
   %36 = getelementptr inbounds nuw i8, ptr %scevgep, i64 2
-  store i8 93, ptr %scevgep82, align 1, !tbaa !17
+  store i8 93, ptr %scevgep83, align 1, !tbaa !17
   %37 = getelementptr inbounds nuw i8, ptr %scevgep, i64 3
   store i8 32, ptr %36, align 1, !tbaa !17
   store i8 0, ptr %37, align 1, !tbaa !17

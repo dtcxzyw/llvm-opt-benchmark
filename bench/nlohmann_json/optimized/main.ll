@@ -4459,7 +4459,7 @@ _ZN7doctest12_GLOBAL__N_17wildcmpEPKcS2_b.exit.thread.loopexit.us: ; preds = %10
   %.03557.us.i.us = phi ptr [ %23, %21 ], [ %0, %.lr.ph.i.us ]
   %19 = load i8, ptr %.03358.us.i.us, align 1, !tbaa !38
   %.not42.us.i.us = icmp eq i8 %19, 42
-  br i1 %.not42.us.i.us, label %.lr.ph70.split.us.i.us, label %20
+  br i1 %.not42.us.i.us, label %.lr.ph71.split.us.i.us, label %20
 
 20:                                               ; preds = %.lr.ph.split.us.i.us
   %.not47.us.i.us = icmp eq i8 %19, %18
@@ -4474,20 +4474,20 @@ _ZN7doctest12_GLOBAL__N_17wildcmpEPKcS2_b.exit.thread.loopexit.us: ; preds = %10
   %.not.us.i.us = icmp eq i8 %24, 0
   br i1 %.not.us.i.us, label %.preheader.i.us45.preheader, label %.lr.ph.split.us.i.us, !llvm.loop !144
 
-.lr.ph70.split.us.i.usthread-pre-split:           ; preds = %40
+.lr.ph71.split.us.i.usthread-pre-split:           ; preds = %40
   %.pr = load i8, ptr %.2.us.i.us, align 1, !tbaa !38
-  br label %.lr.ph70.split.us.i.us
+  br label %.lr.ph71.split.us.i.us
 
-.lr.ph70.split.us.i.us:                           ; preds = %.lr.ph.split.us.i.us, %.lr.ph70.split.us.i.usthread-pre-split
+.lr.ph71.split.us.i.us:                           ; preds = %.lr.ph.split.us.i.us, %.lr.ph71.split.us.i.usthread-pre-split
   %25 = phi i8 [ %.pr, %.lr.ph70.split.us.i.usthread-pre-split ], [ 42, %.lr.ph.split.us.i.us ]
   %26 = phi i8 [ %41, %.lr.ph70.split.us.i.usthread-pre-split ], [ %18, %.lr.ph.split.us.i.us ]
-  %.03069.us.i.us = phi ptr [ %.131.us.i.us, %.lr.ph70.split.us.i.usthread-pre-split ], [ %0, %.lr.ph.split.us.i.us ]
-  %.13468.us.i.us = phi ptr [ %.2.us.i.us, %.lr.ph70.split.us.i.usthread-pre-split ], [ %.03358.us.i.us, %.lr.ph.split.us.i.us ]
-  %.13667.us.i.us = phi ptr [ %.237.us.i.us, %.lr.ph70.split.us.i.usthread-pre-split ], [ %.03557.us.i.us, %.lr.ph.split.us.i.us ]
+  %.070.us.i.us = phi ptr [ %.131.us.i.us, %.lr.ph70.split.us.i.usthread-pre-split ], [ %0, %.lr.ph.split.us.i.us ]
+  %.03069.us.i.us = phi ptr [ %.2.us.i.us, %.lr.ph70.split.us.i.usthread-pre-split ], [ %.03358.us.i.us, %.lr.ph.split.us.i.us ]
+  %.13468.us.i.us = phi ptr [ %.237.us.i.us, %.lr.ph70.split.us.i.usthread-pre-split ], [ %.03557.us.i.us, %.lr.ph.split.us.i.us ]
   %27 = icmp eq i8 %25, 42
   br i1 %27, label %35, label %28
 
-28:                                               ; preds = %.lr.ph70.split.us.i.us
+28:                                               ; preds = %.lr.ph71.split.us.i.us
   %29 = icmp eq i8 %25, %26
   %.old.us.i.us = icmp eq i8 %25, 63
   %or.cond51.us.i.us = or i1 %29, %.old.us.i.us
@@ -4502,7 +4502,7 @@ _ZN7doctest12_GLOBAL__N_17wildcmpEPKcS2_b.exit.thread.loopexit.us: ; preds = %10
   %34 = getelementptr inbounds nuw i8, ptr %.13667.us.i.us, i64 1
   br label %40
 
-35:                                               ; preds = %.lr.ph70.split.us.i.us
+35:                                               ; preds = %.lr.ph71.split.us.i.us
   %36 = getelementptr inbounds nuw i8, ptr %.13468.us.i.us, i64 1
   %37 = load i8, ptr %36, align 1, !tbaa !38
   %.not45.us.i.us = icmp eq i8 %37, 0
@@ -4518,7 +4518,7 @@ _ZN7doctest12_GLOBAL__N_17wildcmpEPKcS2_b.exit.thread.loopexit.us: ; preds = %10
   %.131.us.i.us = phi ptr [ %39, %38 ], [ %.03069.us.i.us, %32 ], [ %31, %30 ]
   %41 = load i8, ptr %.237.us.i.us, align 1, !tbaa !38
   %.not43.us.i.us = icmp eq i8 %41, 0
-  br i1 %.not43.us.i.us, label %.preheader.i.us45.preheader, label %.lr.ph70.split.us.i.usthread-pre-split, !llvm.loop !145
+  br i1 %.not43.us.i.us, label %.preheader.i.us45.preheader, label %.lr.ph71.split.us.i.usthread-pre-split, !llvm.loop !145
 
 .preheader.i.us45.preheader:                      ; preds = %21, %40
   %.3.i.us47.ph = phi ptr [ %.2.us.i.us, %40 ], [ %22, %21 ]
@@ -4553,7 +4553,7 @@ _ZN7doctest12_GLOBAL__N_17wildcmpEPKcS2_b.exit.thread.us48: ; preds = %20, %.pre
   %.03557.i = phi ptr [ %58, %56 ], [ %0, %.lr.ph.i ]
   %50 = load i8, ptr %.03358.i, align 1, !tbaa !38
   %.not42.i = icmp eq i8 %50, 42
-  br i1 %.not42.i, label %.lr.ph70.split.i, label %51
+  br i1 %.not42.i, label %.lr.ph71.split.i, label %51
 
 51:                                               ; preds = %.lr.ph.split.i
   %52 = sext i8 %50 to i32
@@ -4572,20 +4572,20 @@ _ZN7doctest12_GLOBAL__N_17wildcmpEPKcS2_b.exit.thread.us48: ; preds = %20, %.pre
   %.not.i = icmp eq i8 %59, 0
   br i1 %.not.i, label %.preheader.i.preheader, label %.lr.ph.split.i, !llvm.loop !144
 
-.lr.ph70.split.ithread-pre-split:                 ; preds = %80
+.lr.ph71.split.ithread-pre-split:                 ; preds = %80
   %.pr94 = load i8, ptr %.2.i, align 1, !tbaa !38
-  br label %.lr.ph70.split.i
+  br label %.lr.ph71.split.i
 
-.lr.ph70.split.i:                                 ; preds = %.lr.ph.split.i, %.lr.ph70.split.ithread-pre-split
+.lr.ph71.split.i:                                 ; preds = %.lr.ph.split.i, %.lr.ph71.split.ithread-pre-split
   %60 = phi i8 [ %.pr94, %.lr.ph70.split.ithread-pre-split ], [ 42, %.lr.ph.split.i ]
   %61 = phi i8 [ %81, %.lr.ph70.split.ithread-pre-split ], [ %49, %.lr.ph.split.i ]
-  %.03069.i = phi ptr [ %.131.i, %.lr.ph70.split.ithread-pre-split ], [ %0, %.lr.ph.split.i ]
-  %.13468.i = phi ptr [ %.2.i, %.lr.ph70.split.ithread-pre-split ], [ %.03358.i, %.lr.ph.split.i ]
-  %.13667.i = phi ptr [ %.237.i, %.lr.ph70.split.ithread-pre-split ], [ %.03557.i, %.lr.ph.split.i ]
+  %.070.i = phi ptr [ %.131.i, %.lr.ph70.split.ithread-pre-split ], [ %0, %.lr.ph.split.i ]
+  %.03069.i = phi ptr [ %.2.i, %.lr.ph70.split.ithread-pre-split ], [ %.03358.i, %.lr.ph.split.i ]
+  %.13468.i = phi ptr [ %.237.i, %.lr.ph70.split.ithread-pre-split ], [ %.03557.i, %.lr.ph.split.i ]
   %62 = icmp eq i8 %60, 42
   br i1 %62, label %63, label %68
 
-63:                                               ; preds = %.lr.ph70.split.i
+63:                                               ; preds = %.lr.ph71.split.i
   %64 = getelementptr inbounds nuw i8, ptr %.13468.i, i64 1
   %65 = load i8, ptr %64, align 1, !tbaa !38
   %.not45.i = icmp eq i8 %65, 0
@@ -4595,7 +4595,7 @@ _ZN7doctest12_GLOBAL__N_17wildcmpEPKcS2_b.exit.thread.us48: ; preds = %20, %.pre
   %67 = getelementptr inbounds nuw i8, ptr %.13667.i, i64 1
   br label %80
 
-68:                                               ; preds = %.lr.ph70.split.i
+68:                                               ; preds = %.lr.ph71.split.i
   %69 = sext i8 %60 to i32
   %70 = tail call i32 @tolower(i32 noundef %69) #52
   %71 = sext i8 %61 to i32
@@ -4620,7 +4620,7 @@ _ZN7doctest12_GLOBAL__N_17wildcmpEPKcS2_b.exit.thread.us48: ; preds = %20, %.pre
   %.131.i = phi ptr [ %67, %66 ], [ %.03069.i, %75 ], [ %79, %78 ]
   %81 = load i8, ptr %.237.i, align 1, !tbaa !38
   %.not43.i = icmp eq i8 %81, 0
-  br i1 %.not43.i, label %.preheader.i.preheader, label %.lr.ph70.split.ithread-pre-split, !llvm.loop !145
+  br i1 %.not43.i, label %.preheader.i.preheader, label %.lr.ph71.split.ithread-pre-split, !llvm.loop !145
 
 .preheader.i.preheader:                           ; preds = %56, %80
   %.3.i.ph = phi ptr [ %.2.i, %80 ], [ %57, %56 ]

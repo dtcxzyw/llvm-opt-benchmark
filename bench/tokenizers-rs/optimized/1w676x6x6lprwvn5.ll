@@ -4038,7 +4038,7 @@ define hidden noalias noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_ma
   %.sroa.6.0.copyload = load i32, ptr %.sroa.6.0..sroa_idx, align 8, !alias.scope !640
   %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 20
   %.sroa.9.0.copyload = load i32, ptr %.sroa.9.0..sroa_idx, align 4, !alias.scope !640
-  %.not.i.not.not = icmp ugt i32 %.sroa.9.0.copyload, %.sroa.6.0.copyload
+  %.not.i.not = icmp ugt i32 %.sroa.9.0.copyload, %.sroa.6.0.copyload
   tail call void @llvm.experimental.noalias.scope.decl(metadata !644)
   %.val.i = load ptr, ptr %0, align 8, !alias.scope !647, !noalias !650, !nonnull !9, !align !10, !noundef !9
   %5 = getelementptr inbounds nuw i8, ptr %.val.i, i64 16
@@ -4064,7 +4064,7 @@ _ZN10serde_json3ser9Formatter12begin_object17h57975019aad754f6E.exit.i: ; preds 
   %17 = load i64, ptr %5, align 8, !alias.scope !670, !noalias !664, !noundef !9
   %18 = add i64 %17, 1
   store i64 %18, ptr %5, align 8, !alias.scope !670, !noalias !664
-  br i1 %.not.i.not.not, label %.lr.ph.i.i.i, label %19
+  br i1 %.not.i.not, label %.lr.ph.i.i.i, label %19
 
 19:                                               ; preds = %_ZN10serde_json3ser9Formatter12begin_object17h57975019aad754f6E.exit.i
   %20 = load i64, ptr %.val.i, align 8, !alias.scope !672, !noalias !683, !noundef !9
@@ -4573,7 +4573,7 @@ _ZN4core4iter6traits8iterator8Iterator12try_for_each17h15952c2f2d2cd88eE.exit: ;
   %264 = icmp eq i64 %263, %262
   br i1 %264, label %"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeMap$GT$3end17hcab1604f9dbadce9E.exit.sink.split.sink.split", label %"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeMap$GT$3end17hcab1604f9dbadce9E.exit.sink.split"
 
-"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeMap$GT$3end17hcab1604f9dbadce9E.exit.sink.split.sink.split": ; preds = %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h15952c2f2d2cd88eE.exit, %19
+"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeMap$GT$3end17hcab1604f9dbadce9E.exit.sink.split.sink.split":; preds = %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h15952c2f2d2cd88eE.exit, %19
   %.sink = phi i64 [ %18, %19 ], [ %262, %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h15952c2f2d2cd88eE.exit ]
   %265 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hc691459aa6f899ddE.llvm.2256714685376175499"(ptr noalias noundef nonnull align 8 dereferenceable(24) %.val.i, i64 noundef %.sink, i64 noundef 1), !noalias !9
   %266 = extractvalue { i64, i64 } %265, 0
@@ -4583,13 +4583,13 @@ _ZN4core4iter6traits8iterator8Iterator12try_for_each17h15952c2f2d2cd88eE.exit: ;
   br label %"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeMap$GT$3end17hcab1604f9dbadce9E.exit.sink.split"
 
 "_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeMap$GT$3end17hcab1604f9dbadce9E.exit.sink.split": ; preds = %"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeMap$GT$3end17hcab1604f9dbadce9E.exit.sink.split.sink.split", %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h15952c2f2d2cd88eE.exit, %19
-  %.sink88 = phi i64 [ %18, %19 ], [ %262, %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h15952c2f2d2cd88eE.exit ], [ %.pre.i.i.i.i.i.i.i7, %"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeMap$GT$3end17hcab1604f9dbadce9E.exit.sink.split.sink.split" ]
-  %268 = load ptr, ptr %14, align 8, !noalias !9, !nonnull !9, !noundef !9
-  %269 = getelementptr inbounds i8, ptr %268, i64 %.sink88
-  store i8 125, ptr %269, align 1, !noalias !9
-  %270 = load i64, ptr %5, align 8, !noalias !9, !noundef !9
-  %271 = add i64 %270, 1
-  store i64 %271, ptr %5, align 8, !noalias !9
+  %.sink89 = phi i64 [ %18, %19 ], [ %262, %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h15952c2f2d2cd88eE.exit ], [ %.pre.i.i.i.i.i.i.i7, %"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeMap$GT$3end17hcab1604f9dbadce9E.exit.sink.split.sink.split" ]
+  %270 = load ptr, ptr %14, align 8, !noalias !9, !nonnull !9, !noundef !9
+  %271 = getelementptr inbounds i8, ptr %270, i64 %.sink89
+  store i8 125, ptr %271, align 1, !noalias !9
+  %272 = load i64, ptr %5, align 8, !noalias !9, !noundef !9
+  %273 = add i64 %272, 1
+  store i64 %273, ptr %5, align 8, !noalias !9
   ret ptr null
 }
 

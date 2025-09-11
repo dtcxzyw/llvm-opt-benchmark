@@ -286,9 +286,9 @@ define hidden range(i64 -9223372036854775806, -9223372036854775808) i64 @Curl_co
 
 12:                                               ; preds = %7
   %.not18 = icmp eq ptr %.030, null
-  br i1 %.not18, label %13, label %.thread48
+  br i1 %.not18, label %13, label %.thread
 
-.thread48:                                        ; preds = %12
+.thread:                                          ; preds = %12
   %.010.sroa.gep13.i44 = getelementptr inbounds nuw i8, ptr %.030, i64 8
   br label %Curl_shutdown_timeleft.exit.thread23
 
@@ -307,7 +307,7 @@ define hidden range(i64 -9223372036854775806, -9223372036854775808) i64 @Curl_co
   %.not16.i = icmp eq i32 %.pre34.pre, 0
   br i1 %.not16.i, label %._crit_edge, label %Curl_shutdown_timeleft.exit.thread23
 
-Curl_shutdown_timeleft.exit.thread23:             ; preds = %.thread48, %17
+Curl_shutdown_timeleft.exit.thread23:             ; preds = %.thread, %17
   %.pre344555 = phi i32 [ poison, %.thread48 ], [ %.pre34.pre, %17 ]
   %18 = phi i64 [ %11, %.thread48 ], [ %.pre, %17 ]
   %.24654 = phi ptr [ %.030, %.thread48 ], [ %3, %17 ]
