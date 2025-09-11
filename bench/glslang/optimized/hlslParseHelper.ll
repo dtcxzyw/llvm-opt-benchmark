@@ -3306,16 +3306,14 @@ _ZNK7glslang16HlslParseContext19shouldConvertLValueEPK11TIntermNode.exit: ; pred
   br i1 %164, label %switch.lookup, label %485
 
 switch.lookup:                                    ; preds = %157
-  %switch.cast = trunc nuw i32 %switch.tableidx to i15
-  %switch.downshift = lshr i15 -2, %switch.cast
-  %switch.masked = trunc i15 %switch.downshift to i1
+  %switch.masked = icmp ne i32 %switch.tableidx, 0
   %165 = load ptr, ptr %161, align 8
   %166 = getelementptr inbounds nuw i8, ptr %165, i64 96
   %167 = load ptr, ptr %166, align 8
   %168 = call noundef ptr %167(ptr noundef nonnull align 8 dereferenceable(32) %161) #25
   %169 = icmp eq ptr %168, null
   %170 = or i1 %.0102, %169
-  %or.cond3 = or i1 %170, %switch.masked
+  %or.cond3 = or i1 %switch.masked, %170
   br i1 %or.cond3, label %171, label %467
 
 171:                                              ; preds = %switch.lookup

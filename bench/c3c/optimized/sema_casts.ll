@@ -2850,9 +2850,7 @@ define internal zeroext i1 @rule_sa_to_ptr(ptr noundef readonly captures(none) %
   unreachable
 
 switch.lookup:                                    ; preds = %29
-  %switch.cast = trunc nuw i32 %switch.tableidx to i4
-  %switch.downshift = lshr i4 -4, %switch.cast
-  %switch.masked = trunc i4 %switch.downshift to i1
+  %switch.masked = icmp ugt i32 %switch.tableidx, 1
   %40 = getelementptr i8, ptr %0, i64 8
   %.val = load ptr, ptr %40, align 8
   %41 = getelementptr i8, ptr %0, i64 24
