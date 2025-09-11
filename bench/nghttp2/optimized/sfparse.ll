@@ -1464,7 +1464,6 @@ define internal fastcc range(i32 -1, 1) i32 @parser_string(ptr noundef captures(
 
 .lr.ph:                                           ; preds = %7, %14
   %9 = phi ptr [ %.ptr36, %14 ], [ %.ptr, %7 ]
-  %.032 = phi i32 [ %.1, %14 ], [ 0, %7 ]
   %storemerge31.idx = phi i64 [ %storemerge29.add, %14 ], [ 1, %7 ]
   %storemerge31.ptr = getelementptr inbounds nuw i8, ptr %3, i64 %storemerge31.idx
   %10 = load i8, ptr %storemerge31.ptr, align 1, !tbaa !12
@@ -1582,7 +1581,6 @@ define internal fastcc range(i32 -1, 1) i32 @parser_string(ptr noundef captures(
 
 14:                                               ; preds = %12, %12, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
   %storemerge29.idx = phi i64 [ %storemerge31.idx, %.lr.ph ], [ %storemerge31.idx, %.lr.ph ], [ %storemerge31.idx, %.lr.ph ], [ %storemerge31.idx, %.lr.ph ], [ %storemerge31.idx, %.lr.ph ], [ %storemerge31.idx, %.lr.ph ], [ %storemerge31.idx, %.lr.ph ], [ %storemerge31.idx, %.lr.ph ], [ %storemerge31.idx, %.lr.ph ], [ %storemerge31.idx, %.lr.ph ], [ %storemerge31.idx, %.lr.ph ], [ %storemerge31.idx, %.lr.ph ], [ %storemerge31.idx, %.lr.ph ], [ %storemerge31.idx, %.lr.ph ], [ %storemerge31.idx, %.lr.ph ], [ %storemerge31.idx, %.lr.ph ], [ %storemerge31.idx, %.lr.ph ], [ %storemerge31.idx, %.lr.ph ], [ %storemerge31.idx, %.lr.ph ], [ %storemerge31.idx, %.lr.ph ], [ %storemerge31.idx, %.lr.ph ], [ %storemerge31.idx, %.lr.ph ], [ %storemerge31.idx, %.lr.ph ], [ %storemerge31.idx, %.lr.ph ], [ %storemerge31.idx, %.lr.ph ], [ %storemerge31.idx, %.lr.ph ], [ %storemerge31.idx, %.lr.ph ], [ %storemerge31.idx, %.lr.ph ], [ %storemerge31.idx, %.lr.ph ], [ %storemerge31.idx, %.lr.ph ], [ %storemerge31.idx, %.lr.ph ], [ %storemerge31.idx, %.lr.ph ], [ %storemerge31.idx, %.lr.ph ], [ %storemerge31.idx, %.lr.ph ], [ %storemerge31.idx, %.lr.ph ], [ %storemerge31.idx, %.lr.ph ], [ %storemerge31.idx, %.lr.ph ], [ %storemerge31.idx, %.lr.ph ], [ %storemerge31.idx, %.lr.ph ], [ %storemerge31.idx, %.lr.ph ], [ %storemerge31.idx, %.lr.ph ], [ %storemerge31.idx, %.lr.ph ], [ %storemerge31.idx, %.lr.ph ], [ %storemerge31.idx, %.lr.ph ], [ %storemerge31.idx, %.lr.ph ], [ %storemerge31.idx, %.lr.ph ], [ %storemerge31.idx, %.lr.ph ], [ %storemerge31.idx, %.lr.ph ], [ %storemerge31.idx, %.lr.ph ], [ %storemerge31.idx, %.lr.ph ], [ %storemerge31.idx, %.lr.ph ], [ %storemerge31.idx, %.lr.ph ], [ %storemerge31.idx, %.lr.ph ], [ %storemerge31.idx, %.lr.ph ], [ %storemerge31.idx, %.lr.ph ], [ %storemerge31.idx, %.lr.ph ], [ %storemerge31.idx, %.lr.ph ], [ %storemerge31.idx, %.lr.ph ], [ %storemerge31.idx, %.lr.ph ], [ %storemerge31.idx, %.lr.ph ], [ %storemerge31.idx, %.lr.ph ], [ %storemerge31.idx, %.lr.ph ], [ %storemerge31.idx, %.lr.ph ], [ %storemerge31.idx, %.lr.ph ], [ %storemerge31.idx, %.lr.ph ], [ %storemerge31.idx, %.lr.ph ], [ %storemerge31.idx, %.lr.ph ], [ %storemerge31.idx, %.lr.ph ], [ %storemerge31.idx, %.lr.ph ], [ %storemerge31.idx, %.lr.ph ], [ %storemerge31.idx, %.lr.ph ], [ %storemerge31.idx, %.lr.ph ], [ %storemerge31.idx, %.lr.ph ], [ %storemerge31.idx, %.lr.ph ], [ %storemerge31.idx, %.lr.ph ], [ %storemerge31.idx, %.lr.ph ], [ %storemerge31.idx, %.lr.ph ], [ %storemerge31.idx, %.lr.ph ], [ %storemerge31.idx, %.lr.ph ], [ %storemerge31.idx, %.lr.ph ], [ %storemerge31.idx, %.lr.ph ], [ %storemerge31.idx, %.lr.ph ], [ %storemerge31.idx, %.lr.ph ], [ %storemerge31.idx, %.lr.ph ], [ %storemerge31.idx, %.lr.ph ], [ %storemerge31.idx, %.lr.ph ], [ %storemerge31.idx, %.lr.ph ], [ %storemerge31.idx, %.lr.ph ], [ %storemerge31.idx, %.lr.ph ], [ %storemerge31.idx, %.lr.ph ], [ %storemerge31.idx, %.lr.ph ], [ %storemerge31.idx, %.lr.ph ], [ %storemerge31.idx, %.lr.ph ], [ %storemerge31.add, %12 ], [ %storemerge31.add, %12 ]
-  %.1 = phi i32 [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ 1, %12 ], [ 1, %12 ]
   %storemerge29.add = add nuw nsw i64 %storemerge29.idx, 1
   %.ptr36 = getelementptr inbounds nuw i8, ptr %3, i64 %storemerge29.add
   store ptr %.ptr36, ptr %0, align 8, !tbaa !10
@@ -1591,30 +1589,28 @@ define internal fastcc range(i32 -1, 1) i32 @parser_string(ptr noundef captures(
 
 15:                                               ; preds = %.lr.ph
   %.not21 = icmp eq ptr %1, null
-  br i1 %.not21, label %22, label %16
+  br i1 %.not21, label %21, label %16
 
 16:                                               ; preds = %15
   store i32 3, ptr %1, align 8, !tbaa !15
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i32 %.032, ptr %17, align 4, !tbaa !17
   %gepdiff = add nsw i64 %storemerge31.idx, -1
-  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i64 %gepdiff, ptr %19, align 8, !tbaa !12
-  %20 = icmp eq i64 %storemerge31.idx, 1
-  %21 = select i1 %20, ptr null, ptr %.ptr
-  store ptr %21, ptr %18, align 8, !tbaa !12
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store i64 %gepdiff, ptr %18, align 8, !tbaa !12
+  %19 = icmp eq i64 %storemerge31.idx, 1
+  %20 = select i1 %19, ptr null, ptr %.ptr
+  store ptr %20, ptr %17, align 8, !tbaa !12
   %.pre = load ptr, ptr %0, align 8, !tbaa !10
-  br label %22
+  br label %21
 
-22:                                               ; preds = %16, %15
-  %23 = phi ptr [ %.pre, %16 ], [ %9, %15 ]
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 1
-  store ptr %24, ptr %0, align 8, !tbaa !10
+21:                                               ; preds = %16, %15
+  %22 = phi ptr [ %.pre, %16 ], [ %9, %15 ]
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 1
+  store ptr %23, ptr %0, align 8, !tbaa !10
   br label %.loopexit
 
-.loopexit:                                        ; preds = %11, %12, %.lr.ph, %14, %7, %22
-  %.019 = phi i32 [ 0, %22 ], [ -1, %7 ], [ -1, %14 ], [ -1, %.lr.ph ], [ -1, %12 ], [ -1, %11 ]
+.loopexit:                                        ; preds = %11, %12, %.lr.ph, %14, %7, %21
+  %.019 = phi i32 [ 0, %21 ], [ -1, %7 ], [ -1, %14 ], [ -1, %.lr.ph ], [ -1, %12 ], [ -1, %11 ]
   ret i32 %.019
 }
 

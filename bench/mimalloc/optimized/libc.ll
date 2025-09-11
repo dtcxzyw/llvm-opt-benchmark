@@ -694,7 +694,6 @@ mi_outc.exit.i:                                   ; preds = %207, %206
   br i1 %212, label %.split.i, label %.split56.us.i
 
 .split.i:                                         ; preds = %211, %mi_outc.exit51.i
-  %.10 = phi ptr [ %.11, %mi_outc.exit51.i ], [ %.5306, %211 ]
   %213 = phi ptr [ %223, %mi_outc.exit51.i ], [ %.5306, %211 ]
   %.054.i = phi i64 [ %214, %mi_outc.exit51.i ], [ %.0192, %211 ]
   %.not.i50.i = icmp ult ptr %213, %10
@@ -713,13 +712,11 @@ mi_outc.exit.i:                                   ; preds = %207, %206
   br label %mi_outc.exit51.i
 
 mi_outc.exit51.i:                                 ; preds = %216, %.split.i
-  %.11 = phi ptr [ %222, %216 ], [ %.10, %.split.i ]
-  %223 = phi ptr [ %222, %216 ], [ %213, %.split.i ]
+  %223 = phi ptr [ %213, %.split.i ], [ %222, %216 ]
   %.not.i260 = icmp ugt i64 %204, %.054.i
   br i1 %.not.i260, label %.split56.us.i, label %.split.i, !llvm.loop !22
 
 .split56.us.i:                                    ; preds = %mi_outc.exit51.i, %211
-  %.8309 = phi ptr [ %.5306, %211 ], [ %.11, %mi_outc.exit51.i ]
   %224 = phi ptr [ %.5306, %211 ], [ %223, %mi_outc.exit51.i ]
   %.not46.i = icmp ne i8 %.0198, 0
   %.not.i52.i = icmp ult ptr %224, %10
@@ -732,7 +729,7 @@ mi_outc.exit51.i:                                 ; preds = %216, %.split.i
   br label %mi_outc.exit53.i
 
 mi_outc.exit53.i:                                 ; preds = %225, %.split56.us.i
-  %.9310 = phi ptr [ %226, %225 ], [ %.8309, %.split56.us.i ]
+  %.9310 = phi ptr [ %226, %225 ], [ %.5306, %.split56.us.i ]
   %227 = phi ptr [ %226, %225 ], [ %224, %.split56.us.i ]
   %228 = ptrtoint ptr %227 to i64
   %229 = ptrtoint ptr %.5306 to i64

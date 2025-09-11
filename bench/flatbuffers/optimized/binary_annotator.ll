@@ -9796,8 +9796,6 @@ _ZNSt6vectorIN11flatbuffers12BinaryRegionESaIS1_EED2Ev.exit: ; preds = %1, %_ZSt
   br i1 %137, label %_ZNSt6vectorIN11flatbuffers12BinaryRegionESaIS1_EE5clearEv.exit, label %503
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %494
-  %.pre189195 = phi ptr [ %.pre189196, %494 ], [ %121, %.lr.ph.preheader ]
-  %.pre188192 = phi ptr [ %.pre188193, %494 ], [ %123, %.lr.ph.preheader ]
   %138 = phi ptr [ %495, %494 ], [ %121, %.lr.ph.preheader ]
   %139 = phi ptr [ %496, %494 ], [ %123, %.lr.ph.preheader ]
   %.038153 = phi i64 [ %.1, %494 ], [ %134, %.lr.ph.preheader ]
@@ -10860,16 +10858,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit59: ; preds = %_ZN
   br label %544
 
 490:                                              ; preds = %_ZN11flatbuffers19BinaryRegionCommentD2Ev.exit88, %144
-  %.pre189 = phi ptr [ %.pre189.pre, %_ZN11flatbuffers19BinaryRegionCommentD2Ev.exit88 ], [ %.pre189195, %144 ]
-  %.pre188 = phi ptr [ %.pre188.pre, %_ZN11flatbuffers19BinaryRegionCommentD2Ev.exit88 ], [ %.pre188192, %144 ]
+  %.pre189 = phi ptr [ %.pre189.pre, %_ZN11flatbuffers19BinaryRegionCommentD2Ev.exit88 ], [ poison, %144 ]
+  %.pre188 = phi ptr [ %.pre188.pre, %_ZN11flatbuffers19BinaryRegionCommentD2Ev.exit88 ], [ poison, %144 ]
   %491 = getelementptr inbounds nuw i8, ptr %140, i64 8
   %492 = load i64, ptr %491, align 8, !tbaa !70
   %493 = add i64 %492, %141
   br label %494
 
 494:                                              ; preds = %.lr.ph, %490
-  %.pre189196 = phi ptr [ %.pre189, %490 ], [ %.pre189195, %.lr.ph ]
-  %.pre188193 = phi ptr [ %.pre188, %490 ], [ %.pre188192, %.lr.ph ]
   %495 = phi ptr [ %.pre189, %490 ], [ %138, %.lr.ph ]
   %496 = phi ptr [ %.pre188, %490 ], [ %139, %.lr.ph ]
   %.1 = phi i64 [ %493, %490 ], [ %.038153, %.lr.ph ]
@@ -48279,25 +48275,24 @@ _ZSt22__chunk_insertion_sortIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12Bin
   br label %15
 
 15:                                               ; preds = %.lr.ph, %_ZSt17__merge_sort_loopIPN11flatbuffers12BinaryRegionEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEElNS3_5__ops15_Iter_comp_iterIPFbRKS1_SC_EEEEvT_SG_T0_T1_T2_.exit
-  %.052 = phi i64 [ 7, %.lr.ph ], [ %61, %_ZSt17__merge_sort_loopIPN11flatbuffers12BinaryRegionEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEElNS3_5__ops15_Iter_comp_iterIPFbRKS1_SC_EEEEvT_SG_T0_T1_T2_.exit ]
-  %16 = shl nsw i64 %.052, 1
+  %.049 = phi i64 [ 7, %.lr.ph ], [ %61, %_ZSt17__merge_sort_loopIPN11flatbuffers12BinaryRegionEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEElNS3_5__ops15_Iter_comp_iterIPFbRKS1_SC_EEEEvT_SG_T0_T1_T2_.exit ]
+  %16 = shl nsw i64 %.049, 1
   %.not30.i = icmp slt i64 %8, %16
   br i1 %.not30.i, label %_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12BinaryRegionESt6vectorIS3_SaIS3_EEEES4_lNS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_T1_T2_.exit, label %.lr.ph.i19.preheader
 
 .lr.ph.i19.preheader:                             ; preds = %15
-  %.idx = mul nsw i64 %.052, 160
-  %.idx38 = mul nsw i64 %.052, 320
+  %.idx = mul nsw i64 %.049, 160
+  %.idx38 = mul nsw i64 %.049, 320
   br label %.lr.ph.i19
 
 .lr.ph.i19:                                       ; preds = %.lr.ph.i19.preheader, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12BinaryRegionESt6vectorIS3_SaIS3_EEEES4_NS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEET0_T_SH_SH_SH_SG_T1_.exit
-  %.032.i = phi ptr [ %.08.lcssa.i.i.i.i.i9.i, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12BinaryRegionESt6vectorIS3_SaIS3_EEEES4_NS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEET0_T_SH_SH_SH_SG_T1_.exit ], [ %2, %.lr.ph.i19.preheader ]
   %.sroa.022.031.i = phi ptr [ %18, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12BinaryRegionESt6vectorIS3_SaIS3_EEEES4_NS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEET0_T_SH_SH_SH_SG_T1_.exit ], [ %0, %.lr.ph.i19.preheader ]
   %17 = getelementptr inbounds i8, ptr %.sroa.022.031.i, i64 %.idx
   %18 = getelementptr inbounds i8, ptr %.sroa.022.031.i, i64 %.idx38
   br label %.lr.ph.i28
 
 .lr.ph.i28:                                       ; preds = %.lr.ph.i19, %29
-  %.028.i = phi ptr [ %30, %29 ], [ %.032.i, %.lr.ph.i19 ]
+  %.028.i = phi ptr [ %30, %29 ], [ poison, %.lr.ph.i19 ]
   %.sroa.021.027.i = phi ptr [ %.sroa.021.1.i, %29 ], [ %.sroa.022.031.i, %.lr.ph.i19 ]
   %.sroa.017.026.i = phi ptr [ %.sroa.017.1.i, %29 ], [ %17, %.lr.ph.i19 ]
   %19 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(160) %.sroa.017.026.i, ptr noundef nonnull align 8 dereferenceable(160) %.sroa.021.027.i)
@@ -48340,7 +48335,7 @@ _ZSt22__chunk_insertion_sortIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12Bin
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %.lr.ph.i.i.i.i.i.i, %.lr.ph.preheader.i.i.i.i.i.i
   %.012.i.i.i.i.i.i = phi i64 [ %43, %.lr.ph.i.i.i.i.i.i ], [ %37, %.lr.ph.preheader.i.i.i.i.i.i ]
-  %.0811.i.i.i.i.i.i = phi ptr [ %42, %.lr.ph.i.i.i.i.i.i ], [ %30, %.lr.ph.preheader.i.i.i.i.i.i ]
+  %.0811.i.i.i.i.i.i = phi ptr [ %42, %.lr.ph.i.i.i.i.i.i ], [ poison, %.lr.ph.preheader.i.i.i.i.i.i ]
   %.0910.i.i.i.i.i.i = phi ptr [ %41, %.lr.ph.i.i.i.i.i.i ], [ %.sroa.021.1.i, %.lr.ph.preheader.i.i.i.i.i.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %.0811.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(160) %.0910.i.i.i.i.i.i, i64 40, i1 false)
   %38 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i, i64 40
@@ -48353,7 +48348,6 @@ _ZSt22__chunk_insertion_sortIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12Bin
   br i1 %44, label %.lr.ph.i.i.i.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12BinaryRegionESt6vectorIS3_SaIS3_EEEES4_ET0_T_SA_S9_.exit.i, !llvm.loop !731
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12BinaryRegionESt6vectorIS3_SaIS3_EEEES4_ET0_T_SA_S9_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i, %.critedge.i
-  %.08.lcssa.i.i.i.i.i.i = phi ptr [ %30, %.critedge.i ], [ %42, %.lr.ph.i.i.i.i.i.i ]
   %45 = ptrtoint ptr %18 to i64
   %46 = ptrtoint ptr %.sroa.017.1.i to i64
   %47 = sub i64 %45, %46
@@ -48366,7 +48360,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12BinaryRegionESt6vector
 
 .lr.ph.i.i.i.i.i11.i:                             ; preds = %.lr.ph.i.i.i.i.i11.i, %.lr.ph.preheader.i.i.i.i.i10.i
   %.012.i.i.i.i.i12.i = phi i64 [ %55, %.lr.ph.i.i.i.i.i11.i ], [ %49, %.lr.ph.preheader.i.i.i.i.i10.i ]
-  %.0811.i.i.i.i.i13.i = phi ptr [ %54, %.lr.ph.i.i.i.i.i11.i ], [ %.08.lcssa.i.i.i.i.i.i, %.lr.ph.preheader.i.i.i.i.i10.i ]
+  %.0811.i.i.i.i.i13.i = phi ptr [ %54, %.lr.ph.i.i.i.i.i11.i ], [ poison, %.lr.ph.preheader.i.i.i.i.i10.i ]
   %.0910.i.i.i.i.i14.i = phi ptr [ %53, %.lr.ph.i.i.i.i.i11.i ], [ %.sroa.017.1.i, %.lr.ph.preheader.i.i.i.i.i10.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %.0811.i.i.i.i.i13.i, ptr noundef nonnull align 8 dereferenceable(160) %.0910.i.i.i.i.i14.i, i64 40, i1 false)
   %50 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i13.i, i64 40
@@ -48379,7 +48373,6 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12BinaryRegionESt6vector
   br i1 %56, label %.lr.ph.i.i.i.i.i11.i, label %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12BinaryRegionESt6vectorIS3_SaIS3_EEEES4_NS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEET0_T_SH_SH_SH_SG_T1_.exit, !llvm.loop !731
 
 _ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12BinaryRegionESt6vectorIS3_SaIS3_EEEES4_NS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEET0_T_SH_SH_SH_SG_T1_.exit: ; preds = %.lr.ph.i.i.i.i.i11.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12BinaryRegionESt6vectorIS3_SaIS3_EEEES4_ET0_T_SA_S9_.exit.i
-  %.08.lcssa.i.i.i.i.i9.i = phi ptr [ %.08.lcssa.i.i.i.i.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12BinaryRegionESt6vectorIS3_SaIS3_EEEES4_ET0_T_SA_S9_.exit.i ], [ %54, %.lr.ph.i.i.i.i.i11.i ]
   %57 = sub i64 %5, %45
   %58 = sdiv exact i64 %57, 160
   %.not.i20 = icmp slt i64 %58, %16
@@ -48387,18 +48380,17 @@ _ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12BinaryRegionE
 
 _ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12BinaryRegionESt6vectorIS3_SaIS3_EEEES4_lNS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_T1_T2_.exit: ; preds = %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12BinaryRegionESt6vectorIS3_SaIS3_EEEES4_NS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEET0_T_SH_SH_SH_SG_T1_.exit, %15
   %.sroa.022.0.lcssa.i = phi ptr [ %0, %15 ], [ %18, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12BinaryRegionESt6vectorIS3_SaIS3_EEEES4_NS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEET0_T_SH_SH_SH_SG_T1_.exit ]
-  %.0.lcssa.i = phi ptr [ %2, %15 ], [ %.08.lcssa.i.i.i.i.i9.i, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12BinaryRegionESt6vectorIS3_SaIS3_EEEES4_NS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEET0_T_SH_SH_SH_SG_T1_.exit ]
   %.lcssa.i = phi i64 [ %8, %15 ], [ %58, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12BinaryRegionESt6vectorIS3_SaIS3_EEEES4_NS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEET0_T_SH_SH_SH_SG_T1_.exit ]
-  %.sroa.speculated.i = tail call i64 @llvm.smin.i64(i64 %.052, i64 %.lcssa.i)
+  %.sroa.speculated.i = tail call i64 @llvm.smin.i64(i64 %.049, i64 %.lcssa.i)
   %59 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %.sroa.022.0.lcssa.i, i64 %.sroa.speculated.i
-  %60 = tail call noundef ptr @_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12BinaryRegionESt6vectorIS3_SaIS3_EEEES4_NS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEET0_T_SH_SH_SH_SG_T1_(ptr %.sroa.022.0.lcssa.i, ptr %59, ptr %59, ptr %1, ptr noundef %.0.lcssa.i, ptr %3)
-  %61 = shl nsw i64 %.052, 2
+  %60 = tail call noundef ptr @_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12BinaryRegionESt6vectorIS3_SaIS3_EEEES4_NS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEET0_T_SH_SH_SH_SG_T1_(ptr %.sroa.022.0.lcssa.i, ptr %59, ptr %59, ptr %1, ptr noundef %2, ptr %3)
+  %61 = shl nsw i64 %.049, 2
   %.not28.i = icmp slt i64 %14, %61
   br i1 %.not28.i, label %_ZSt17__merge_sort_loopIPN11flatbuffers12BinaryRegionEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEElNS3_5__ops15_Iter_comp_iterIPFbRKS1_SC_EEEEvT_SG_T0_T1_T2_.exit, label %.lr.ph.i21.preheader
 
 .lr.ph.i21.preheader:                             ; preds = %_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12BinaryRegionESt6vectorIS3_SaIS3_EEEES4_lNS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_T1_T2_.exit
-  %.idx39 = mul nsw i64 %.052, 320
-  %.idx40 = mul nsw i64 %.052, 640
+  %.idx39 = mul nsw i64 %.049, 320
+  %.idx40 = mul nsw i64 %.049, 640
   br label %.lr.ph.i21
 
 .lr.ph.i21:                                       ; preds = %.lr.ph.i21.preheader, %_ZSt12__move_mergeIPN11flatbuffers12BinaryRegionEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEENS3_5__ops15_Iter_comp_iterIPFbRKS1_SC_EEEET0_T_SH_SH_SH_SG_T1_.exit

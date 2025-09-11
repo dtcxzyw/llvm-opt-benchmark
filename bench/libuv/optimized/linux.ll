@@ -2056,22 +2056,22 @@ define hidden void @uv__io_poll(ptr noundef %0, i32 noundef %1) local_unnamed_ad
   %100 = getelementptr inbounds nuw i8, ptr %10, i64 344
   br label %.outer
 
-.outer:                                           ; preds = %347, %._crit_edge
-  %.0124.ph = phi i32 [ %349, %347 ], [ 48, %._crit_edge ]
-  %.0123.ph = phi i32 [ %.0123.ph166, %347 ], [ %1, %._crit_edge ]
-  %.1118.ph = phi i1 [ true, %347 ], [ %.not139, %._crit_edge ]
-  %.1.ph = phi i32 [ 0, %347 ], [ %.155, %._crit_edge ]
+.outer:                                           ; preds = %342, %._crit_edge
+  %.0124.ph = phi i32 [ %344, %342 ], [ 48, %._crit_edge ]
+  %.0123.ph = phi i32 [ %.0123.ph166, %342 ], [ %1, %._crit_edge ]
+  %.1118.ph = phi i1 [ true, %342 ], [ %.not139, %._crit_edge ]
+  %.1.ph = phi i32 [ 0, %342 ], [ %.155, %._crit_edge ]
   br label %.outer165
 
-.outer165:                                        ; preds = %.outer, %351
-  %.0123.ph166 = phi i32 [ %.0123.ph, %.outer ], [ %354, %351 ]
-  %.1118.ph167 = phi i1 [ %.1118.ph, %.outer ], [ true, %351 ]
-  %.1.ph168 = phi i32 [ %.1.ph, %.outer ], [ %354, %351 ]
+.outer165:                                        ; preds = %.outer, %346
+  %.0123.ph166 = phi i32 [ %.0123.ph, %.outer ], [ %349, %346 ]
+  %.1118.ph167 = phi i1 [ %.1118.ph, %.outer ], [ true, %346 ]
+  %.1.ph168 = phi i32 [ %.1.ph, %.outer ], [ %349, %346 ]
   br label %101
 
-101:                                              ; preds = %.outer165, %350
-  %.1118 = phi i1 [ true, %350 ], [ %.1118.ph167, %.outer165 ]
-  %.1 = phi i32 [ %.2, %350 ], [ %.1.ph168, %.outer165 ]
+101:                                              ; preds = %.outer165, %345
+  %.1118 = phi i1 [ true, %345 ], [ %.1118.ph167, %.outer165 ]
+  %.1 = phi i32 [ %.2, %345 ], [ %.1.ph168, %.outer165 ]
   %102 = load i32, ptr %85, align 4
   %103 = icmp eq i32 %102, 0
   br i1 %103, label %104, label %107
@@ -2159,7 +2159,7 @@ uv__update_time.exit:                             ; preds = %128, %131
   %139 = icmp eq i32 %119, 0
   %brmerge.not = select i1 %.1118, i1 %139, i1 false
   %..mux = select i1 %.1118, i32 %.1, i32 %.
-  br i1 %brmerge.not, label %.loopexit, label %350
+  br i1 %brmerge.not, label %.loopexit, label %345
 
 140:                                              ; preds = %uv__update_time.exit
   store i32 %119, ptr %84, align 8
@@ -2174,8 +2174,6 @@ uv__update_time.exit:                             ; preds = %128, %131
 .lr.ph186:                                        ; preds = %.lr.ph186.preheader, %uv__poll_io_uring.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph186.preheader ], [ %indvars.iv.next, %uv__poll_io_uring.exit ]
   %.0125183 = phi i32 [ 0, %.lr.ph186.preheader ], [ %.1126, %uv__poll_io_uring.exit ]
-  %.0127182 = phi i32 [ 0, %.lr.ph186.preheader ], [ %.1128, %uv__poll_io_uring.exit ]
-  %.0130181 = phi i32 [ 0, %.lr.ph186.preheader ], [ %.1131, %uv__poll_io_uring.exit ]
   %142 = getelementptr inbounds nuw %struct.epoll_event, ptr %4, i64 %indvars.iv
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 4
   %144 = load i32, ptr %143, align 4
@@ -2471,21 +2469,16 @@ uv__iou_fs_statx_post.exit.i:                     ; preds = %178, %174
   br label %329
 
 329:                                              ; preds = %324, %326
-  %.2129 = phi i32 [ %.0127182, %326 ], [ 1, %324 ]
   %330 = add nsw i32 %.0125183, 1
   br label %uv__poll_io_uring.exit
 
 uv__poll_io_uring.exit:                           ; preds = %315, %303, %294, %329, %.lr.ph186, %313
-  %.1131 = phi i32 [ %.0130181, %.lr.ph186 ], [ %.0130181, %313 ], [ %.0130181, %329 ], [ 1, %294 ], [ 1, %303 ], [ %.0130181, %315 ]
-  %.1128 = phi i32 [ %.0127182, %.lr.ph186 ], [ %.0127182, %313 ], [ %.2129, %329 ], [ %.0127182, %294 ], [ %.0127182, %303 ], [ %.0127182, %315 ]
   %.1126 = phi i32 [ %.0125183, %.lr.ph186 ], [ %.0125183, %313 ], [ %330, %329 ], [ %.0125183, %294 ], [ %.0125183, %303 ], [ %.0125183, %315 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge187, label %.lr.ph186
 
 ._crit_edge187:                                   ; preds = %uv__poll_io_uring.exit, %140
-  %.0130.lcssa = phi i32 [ 0, %140 ], [ %.1131, %uv__poll_io_uring.exit ]
-  %.0127.lcssa = phi i32 [ 0, %140 ], [ %.1128, %uv__poll_io_uring.exit ]
   %.0125.lcssa = phi i32 [ 0, %140 ], [ %.1126, %uv__poll_io_uring.exit ]
   %331 = sext i32 %.0125.lcssa to i64
   %332 = load ptr, ptr %9, align 8
@@ -2505,67 +2498,52 @@ uv__poll_io_uring.exit:                           ; preds = %315, %303, %294, %3
 
 341:                                              ; preds = %336, %._crit_edge187
   %.3 = phi i32 [ %., %336 ], [ %.1, %._crit_edge187 ]
-  %.not145 = icmp eq i32 %.0127.lcssa, 0
-  br i1 %.not145, label %344, label %342
+  store ptr null, ptr %91, align 8
+  %.not146 = icmp eq i32 %.0125.lcssa, 0
+  br i1 %.not146, label %345, label %342
 
 342:                                              ; preds = %341
-  call void @uv__metrics_update_idle_time(ptr noundef nonnull %0) #17
-  %343 = load ptr, ptr %94, align 8
-  call void %343(ptr noundef nonnull %0, ptr noundef nonnull %94, i32 noundef 1) #17
-  br label %344
-
-344:                                              ; preds = %342, %341
-  store ptr null, ptr %91, align 8
-  %345 = or i32 %.0127.lcssa, %.0130.lcssa
-  %or.cond3.not = icmp eq i32 %345, 0
-  br i1 %or.cond3.not, label %346, label %.loopexit164
-
-346:                                              ; preds = %344
-  %.not146 = icmp eq i32 %.0125.lcssa, 0
-  br i1 %.not146, label %350, label %347
-
-347:                                              ; preds = %346
-  %348 = icmp ne i32 %119, 1024
-  %349 = add nsw i32 %.0124.ph, -1
-  %.not147 = icmp eq i32 %349, 0
-  %or.cond157 = select i1 %348, i1 true, i1 %.not147
+  %343 = icmp ne i32 %119, 1024
+  %344 = add nsw i32 %.0124.ph, -1
+  %.not147 = icmp eq i32 %344, 0
+  %or.cond157 = select i1 %343, i1 true, i1 %.not147
   br i1 %or.cond157, label %.loopexit164, label %.outer
 
-350:                                              ; preds = %138, %346
-  %.2 = phi i32 [ %.3, %346 ], [ %..mux, %138 ]
-  switch i32 %.2, label %351 [
+345:                                              ; preds = %138, %341
+  %.2 = phi i32 [ %.3, %341 ], [ %..mux, %138 ]
+  switch i32 %.2, label %346 [
     i32 0, label %.loopexit164
     i32 -1, label %101
   ]
 
-351:                                              ; preds = %350
-  %352 = load i64, ptr %19, align 8
-  %.neg = sub i64 %20, %352
-  %353 = trunc i64 %.neg to i32
-  %354 = add i32 %.0123.ph166, %353
-  %355 = icmp slt i32 %354, 1
-  br i1 %355, label %.loopexit164, label %.outer165
+346:                                              ; preds = %345
+  %347 = load i64, ptr %19, align 8
+  %.neg = sub i64 %20, %347
+  %348 = trunc i64 %.neg to i32
+  %349 = add i32 %.0123.ph166, %348
+  %350 = icmp slt i32 %349, 1
+  br i1 %350, label %.loopexit164, label %.outer165
 
-.loopexit164:                                     ; preds = %347, %351, %350, %344, %104
-  %356 = load i32, ptr %87, align 8
-  %.not150 = icmp eq i32 %356, -1
+.loopexit164:                                     ; preds = %342, %346, %345, %104
+  %351 = load i32, ptr %87, align 8
+  %.not150 = icmp eq i32 %351, -1
   br i1 %.not150, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %.loopexit164
-  %357 = load ptr, ptr %11, align 8
-  %358 = load i32, ptr %357, align 4
-  %359 = load ptr, ptr %88, align 8
-  %360 = load i32, ptr %359, align 4
-  %.not151190 = icmp eq i32 %358, %360
+  %352 = load ptr, ptr %11, align 8
+  %353 = load i32, ptr %352, align 4
+  %354 = load ptr, ptr %88, align 8
+  %355 = load i32, ptr %354, align 4
+  %.not151190 = icmp eq i32 %353, %355
   br i1 %.not151190, label %.loopexit, label %.lr.ph191
 
 .lr.ph191:                                        ; preds = %.preheader, %.lr.ph191
   call fastcc void @uv__epoll_ctl_flush(i32 noundef %24, ptr noundef nonnull %11, ptr noundef %5)
-  %361 = load ptr, ptr %11, align 8
-  %362 = load i32, ptr %361, align 4
-  %363 = load ptr, ptr %88, align 8
-  %364 = load i32, ptr %363, align 4
-  %.not151 = icmp eq i32 %362, %364
+  %356 = load ptr, ptr %11, align 8
+  %357 = load i32, ptr %356, align 4
+  %358 = load ptr, ptr %88, align 8
+  %359 = load i32, ptr %358, align 4
+  %.not151 = icmp eq i32 %357, %359
   br i1 %.not151, label %.loopexit, label %.lr.ph191
 
 .loopexit:                                        ; preds = %138, %.lr.ph191, %.preheader, %.loopexit164

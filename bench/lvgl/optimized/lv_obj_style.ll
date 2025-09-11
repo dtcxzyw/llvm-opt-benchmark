@@ -864,7 +864,7 @@ lv_obj_get_style_width.exit:                      ; preds = %get_selector_style_
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef zeroext i1 @lv_obj_replace_style(ptr noundef %0, ptr noundef readnone captures(address) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define noundef zeroext i1 @lv_obj_replace_style(ptr noundef readonly captures(address) %0, ptr noundef readnone captures(address) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = trunc i32 %3 to i16
   %6 = and i32 %3, 16711680
   %7 = icmp eq ptr %0, null
@@ -897,7 +897,6 @@ define noundef zeroext i1 @lv_obj_replace_style(ptr noundef %0, ptr noundef read
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %32
   %17 = phi i16 [ %33, %32 ], [ %13, %.lr.ph.split.us ]
   %indvars.iv90 = phi i64 [ %indvars.iv.next91, %32 ], [ 0, %.lr.ph.split.us ]
-  %.04768.us.us = phi i1 [ %.1.us.us, %32 ], [ false, %.lr.ph.split.us ]
   %18 = load ptr, ptr %15, align 8, !tbaa !38
   %19 = getelementptr inbounds nuw %struct._lv_obj_style_t, ptr %18, i64 %indvars.iv90
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
@@ -926,18 +925,16 @@ define noundef zeroext i1 @lv_obj_replace_style(ptr noundef %0, ptr noundef read
 
 32:                                               ; preds = %25, %23, %.lr.ph.split.us.split.us
   %33 = phi i16 [ %.pre94, %25 ], [ %17, %.lr.ph.split.us.split.us ], [ %17, %23 ]
-  %.1.us.us = phi i1 [ true, %25 ], [ %.04768.us.us, %.lr.ph.split.us.split.us ], [ %.04768.us.us, %23 ]
   %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, 1
   %34 = lshr i16 %33, 4
   %35 = and i16 %34, 63
   %36 = zext nneg i16 %35 to i64
   %37 = icmp samesign ult i64 %indvars.iv.next91, %36
-  br i1 %37, label %.lr.ph.split.us.split.us, label %._crit_edge, !llvm.loop !70
+  br i1 %37, label %.lr.ph.split.us.split.us, label %.critedge, !llvm.loop !70
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %54
   %38 = phi i16 [ %55, %54 ], [ %13, %.lr.ph.split.us ]
   %indvars.iv88 = phi i64 [ %indvars.iv.next89, %54 ], [ 0, %.lr.ph.split.us ]
-  %.04768.us = phi i1 [ %.1.us, %54 ], [ false, %.lr.ph.split.us ]
   %39 = load ptr, ptr %15, align 8, !tbaa !38
   %40 = getelementptr inbounds nuw %struct._lv_obj_style_t, ptr %39, i64 %indvars.iv88
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
@@ -969,13 +966,12 @@ define noundef zeroext i1 @lv_obj_replace_style(ptr noundef %0, ptr noundef read
 
 54:                                               ; preds = %47, %45, %.lr.ph.split.us.split
   %55 = phi i16 [ %.pre93, %47 ], [ %38, %.lr.ph.split.us.split ], [ %38, %45 ]
-  %.1.us = phi i1 [ true, %47 ], [ %.04768.us, %.lr.ph.split.us.split ], [ %.04768.us, %45 ]
   %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
   %56 = lshr i16 %55, 4
   %57 = and i16 %56, 63
   %58 = zext nneg i16 %57 to i64
   %59 = icmp samesign ult i64 %indvars.iv.next89, %58
-  br i1 %59, label %.lr.ph.split.us.split, label %._crit_edge, !llvm.loop !70
+  br i1 %59, label %.lr.ph.split.us.split, label %.critedge, !llvm.loop !70
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %.not56, label %.lr.ph.split.split.us, label %.lr.ph.split.split
@@ -983,7 +979,6 @@ define noundef zeroext i1 @lv_obj_replace_style(ptr noundef %0, ptr noundef read
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %76
   %60 = phi i16 [ %77, %76 ], [ %13, %.lr.ph.split ]
   %indvars.iv86 = phi i64 [ %indvars.iv.next87, %76 ], [ 0, %.lr.ph.split ]
-  %.04768.us71 = phi i1 [ %.1.us76, %76 ], [ false, %.lr.ph.split ]
   %61 = load ptr, ptr %15, align 8, !tbaa !38
   %62 = getelementptr inbounds nuw %struct._lv_obj_style_t, ptr %61, i64 %indvars.iv86
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -1015,18 +1010,16 @@ define noundef zeroext i1 @lv_obj_replace_style(ptr noundef %0, ptr noundef read
 
 76:                                               ; preds = %69, %67, %.lr.ph.split.split.us
   %77 = phi i16 [ %.pre92, %69 ], [ %60, %.lr.ph.split.split.us ], [ %60, %67 ]
-  %.1.us76 = phi i1 [ true, %69 ], [ %.04768.us71, %.lr.ph.split.split.us ], [ %.04768.us71, %67 ]
   %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
   %78 = lshr i16 %77, 4
   %79 = and i16 %78, 63
   %80 = zext nneg i16 %79 to i64
   %81 = icmp samesign ult i64 %indvars.iv.next87, %80
-  br i1 %81, label %.lr.ph.split.split.us, label %._crit_edge, !llvm.loop !70
+  br i1 %81, label %.lr.ph.split.split.us, label %.critedge, !llvm.loop !70
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %99
   %82 = phi i16 [ %100, %99 ], [ %13, %.lr.ph.split ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %99 ], [ 0, %.lr.ph.split ]
-  %.04768 = phi i1 [ %.1, %99 ], [ false, %.lr.ph.split ]
   %83 = load ptr, ptr %15, align 8, !tbaa !38
   %84 = getelementptr inbounds nuw %struct._lv_obj_style_t, ptr %83, i64 %indvars.iv
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 8
@@ -1061,25 +1054,15 @@ define noundef zeroext i1 @lv_obj_replace_style(ptr noundef %0, ptr noundef read
 
 99:                                               ; preds = %90, %.lr.ph.split.split, %92
   %100 = phi i16 [ %.pre, %92 ], [ %82, %.lr.ph.split.split ], [ %82, %90 ]
-  %.1 = phi i1 [ true, %92 ], [ %.04768, %.lr.ph.split.split ], [ %.04768, %90 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %101 = lshr i16 %100, 4
   %102 = and i16 %101, 63
   %103 = zext nneg i16 %102 to i64
   %104 = icmp samesign ult i64 %indvars.iv.next, %103
-  br i1 %104, label %.lr.ph.split.split, label %._crit_edge, !llvm.loop !70
+  br i1 %104, label %.lr.ph.split.split, label %.critedge, !llvm.loop !70
 
-._crit_edge:                                      ; preds = %99, %76, %54, %32
-  %.047.lcssa = phi i1 [ %.1.us.us, %32 ], [ %.1.us, %54 ], [ %.1.us76, %76 ], [ %.1, %99 ]
-  br i1 %.047.lcssa, label %105, label %.critedge
-
-105:                                              ; preds = %._crit_edge
-  tail call void @lv_obj_refresh_style(ptr noundef nonnull %0, i32 noundef %6, i8 noundef zeroext -1)
-  br label %.critedge
-
-.critedge:                                        ; preds = %11, %._crit_edge, %105, %4
-  %.0 = phi i1 [ false, %4 ], [ true, %105 ], [ false, %._crit_edge ], [ false, %11 ]
-  ret i1 %.0
+.critedge:                                        ; preds = %99, %76, %54, %32, %11, %4
+  ret i1 false
 }
 
 declare void @lv_style_reset(ptr noundef) local_unnamed_addr #1

@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str = private unnamed_addr constant [2 x i8] c"\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @curlx_get_line(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
+define dso_local noundef i32 @curlx_get_line(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca [128 x i8], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   tail call void @curlx_dyn_reset(ptr noundef %0) #5
@@ -15,24 +15,24 @@ define dso_local range(i32 0, 2) i32 @curlx_get_line(ptr noundef %0, ptr noundef
 4:                                                ; preds = %15, %2
   %5 = call ptr @fgets(ptr noundef nonnull %3, i32 noundef 128, ptr noundef %1)
   %.not = icmp eq ptr %5, null
-  br i1 %.not, label %.thread, label %6
+  br i1 %.not, label %.loopexit, label %6
 
 6:                                                ; preds = %4
   %7 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #6
   %.not20 = icmp eq i64 %7, 0
-  br i1 %.not20, label %.thread, label %8
+  br i1 %.not20, label %.loopexit, label %8
 
 8:                                                ; preds = %6
   %9 = call i32 @curlx_dyn_addn(ptr noundef %0, ptr noundef nonnull %5, i64 noundef %7) #5
   %.not21 = icmp eq i32 %9, 0
-  br i1 %.not21, label %10, label %.thread
+  br i1 %.not21, label %10, label %.loopexit
 
 10:                                               ; preds = %8
   %11 = getelementptr i8, ptr %5, i64 %7
   %12 = getelementptr i8, ptr %11, i64 -1
   %13 = load i8, ptr %12, align 1, !tbaa !4
   %14 = icmp eq i8 %13, 10
-  br i1 %14, label %.thread, label %15
+  br i1 %14, label %.loopexit, label %15
 
 15:                                               ; preds = %10
   %16 = call i32 @feof(ptr noundef %1) #5
@@ -41,14 +41,11 @@ define dso_local range(i32 0, 2) i32 @curlx_get_line(ptr noundef %0, ptr noundef
 
 17:                                               ; preds = %15
   %18 = call i32 @curlx_dyn_addn(ptr noundef %0, ptr noundef nonnull @.str, i64 noundef 1) #5
-  %.not23 = icmp eq i32 %18, 0
-  %. = zext i1 %.not23 to i32
-  br label %.thread
+  br label %.loopexit
 
-.thread:                                          ; preds = %10, %8, %4, %6, %17
-  %.3 = phi i32 [ %., %17 ], [ 0, %8 ], [ 1, %10 ], [ 0, %4 ], [ 0, %6 ]
+.loopexit:                                        ; preds = %6, %8, %10, %4, %17
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret i32 %.3
+  ret i32 0
 }
 
 declare void @curlx_dyn_reset(ptr noundef) local_unnamed_addr #1

@@ -27536,14 +27536,14 @@ define internal void @_ZN12_GLOBAL__N_137GenerateRealTest_ExhaustiveFloat_Test8T
 
 _ZN4absl7GetFlagIlEET_RKNS_14flags_internal4FlagIS1_EE.exit: ; preds = %1, %31
   %.sroa.0.0.i.i.i = phi i64 [ %30, %1 ], [ %32, %31 ]
+  %.promoted = load i64, ptr %2, align 8
+  %.promoted152 = load i64, ptr %4, align 8
+  %.promoted159 = load i64, ptr %5, align 8
   %.not175 = icmp eq i64 %.sroa.0.0.i.i.i, 0
   br i1 %.not175, label %._crit_edge.thread, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %_ZN4absl7GetFlagIlEET_RKNS_14flags_internal4FlagIS1_EE.exit
   %.promoted157 = load i64, ptr %3, align 8
-  %.promoted152 = load i64, ptr %4, align 8
-  %.promoted159 = load i64, ptr %5, align 8
-  %.promoted = load i64, ptr %2, align 8
   %.promoted145 = load i64, ptr %6, align 8
   br label %.lr.ph
 
@@ -27552,9 +27552,6 @@ _ZN4absl7GetFlagIlEET_RKNS_14flags_internal4FlagIS1_EE.exit: ; preds = %1, %31
   br label %.loopexit
 
 .loopexit:                                        ; preds = %..loopexit_crit_edge, %.lr.ph
-  %.promoted135160 = phi i64 [ %.promoted135161, %..loopexit_crit_edge ], [ %.promoted135163164, %.lr.ph ]
-  %.promoted133153 = phi i64 [ %.promoted133154, %..loopexit_crit_edge ], [ %.promoted133156166, %.lr.ph ]
-  %.promoted132148 = phi i64 [ %.promoted132149, %..loopexit_crit_edge ], [ %.promoted132151167, %.lr.ph ]
   %.lcssa144146 = phi i64 [ %56, %..loopexit_crit_edge ], [ %.lcssa144147168, %.lr.ph ]
   %.lcssa = phi i64 [ %75, %..loopexit_crit_edge ], [ %.lcssa158165, %.lr.ph ]
   %.1129.lcssa = phi float [ %.2130, %..loopexit_crit_edge ], [ %.0128169, %.lr.ph ]
@@ -27572,10 +27569,7 @@ _ZN4absl7GetFlagIlEET_RKNS_14flags_internal4FlagIS1_EE.exit: ; preds = %1, %31
   %.0170 = phi float [ %.1.lcssa, %.loopexit ], [ 2.000000e+00, %.lr.ph.preheader ]
   %.0128169 = phi float [ %.1129.lcssa, %.loopexit ], [ 1.000000e+00, %.lr.ph.preheader ]
   %.lcssa144147168 = phi i64 [ %.lcssa144146, %.loopexit ], [ %.promoted145, %.lr.ph.preheader ]
-  %.promoted132151167 = phi i64 [ %.promoted132148, %.loopexit ], [ %.promoted, %.lr.ph.preheader ]
-  %.promoted133156166 = phi i64 [ %.promoted133153, %.loopexit ], [ %.promoted152, %.lr.ph.preheader ]
   %.lcssa158165 = phi i64 [ %.lcssa, %.loopexit ], [ %.promoted157, %.lr.ph.preheader ]
-  %.promoted135163164 = phi i64 [ %.promoted135160, %.loopexit ], [ %.promoted159, %.lr.ph.preheader ]
   %36 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.033171, i1 true)
   %37 = icmp ugt i64 %.033171, 16777215
   %38 = sub nsw i64 40, %36
@@ -27588,18 +27582,15 @@ _ZN4absl7GetFlagIlEET_RKNS_14flags_internal4FlagIS1_EE.exit: ; preds = %1, %31
   br i1 %41, label %"_ZZN12_GLOBAL__N_137GenerateRealTest_ExhaustiveFloat_Test8TestBodyEvENK3$_0clEm.exit", label %.loopexit
 
 "_ZZN12_GLOBAL__N_137GenerateRealTest_ExhaustiveFloat_Test8TestBodyEvENK3$_0clEm.exit": ; preds = %.lr.ph, %"_ZZN12_GLOBAL__N_137GenerateRealTest_ExhaustiveFloat_Test8TestBodyEvENK3$_1clEf.exit"
-  %.promoted135162 = phi i64 [ %.promoted135161, %"_ZZN12_GLOBAL__N_137GenerateRealTest_ExhaustiveFloat_Test8TestBodyEvENK3$_1clEf.exit" ], [ %.promoted135163164, %.lr.ph ]
-  %.promoted133155 = phi i64 [ %.promoted133154, %"_ZZN12_GLOBAL__N_137GenerateRealTest_ExhaustiveFloat_Test8TestBodyEvENK3$_1clEf.exit" ], [ %.promoted133156166, %.lr.ph ]
-  %.promoted132150 = phi i64 [ %.promoted132149, %"_ZZN12_GLOBAL__N_137GenerateRealTest_ExhaustiveFloat_Test8TestBodyEvENK3$_1clEf.exit" ], [ %.promoted132151167, %.lr.ph ]
   %.130139 = phi i64 [ %76, %"_ZZN12_GLOBAL__N_137GenerateRealTest_ExhaustiveFloat_Test8TestBodyEvENK3$_1clEf.exit" ], [ %.029172, %.lr.ph ]
   %.134138 = phi i64 [ %77, %"_ZZN12_GLOBAL__N_137GenerateRealTest_ExhaustiveFloat_Test8TestBodyEvENK3$_1clEf.exit" ], [ %.033171, %.lr.ph ]
   %.1137 = phi float [ %.2, %"_ZZN12_GLOBAL__N_137GenerateRealTest_ExhaustiveFloat_Test8TestBodyEvENK3$_1clEf.exit" ], [ %.0170, %.lr.ph ]
   %.1129136 = phi float [ %.2130, %"_ZZN12_GLOBAL__N_137GenerateRealTest_ExhaustiveFloat_Test8TestBodyEvENK3$_1clEf.exit" ], [ %.0128169, %.lr.ph ]
   %42 = phi i64 [ %56, %"_ZZN12_GLOBAL__N_137GenerateRealTest_ExhaustiveFloat_Test8TestBodyEvENK3$_1clEf.exit" ], [ %.lcssa144147168, %.lr.ph ]
-  %43 = phi i64 [ %66, %"_ZZN12_GLOBAL__N_137GenerateRealTest_ExhaustiveFloat_Test8TestBodyEvENK3$_1clEf.exit" ], [ %.promoted132151167, %.lr.ph ]
-  %44 = phi i64 [ %65, %"_ZZN12_GLOBAL__N_137GenerateRealTest_ExhaustiveFloat_Test8TestBodyEvENK3$_1clEf.exit" ], [ %.promoted133156166, %.lr.ph ]
+  %43 = phi i64 [ %66, %"_ZZN12_GLOBAL__N_137GenerateRealTest_ExhaustiveFloat_Test8TestBodyEvENK3$_1clEf.exit" ], [ %.promoted, %.lr.ph ]
+  %44 = phi i64 [ %65, %"_ZZN12_GLOBAL__N_137GenerateRealTest_ExhaustiveFloat_Test8TestBodyEvENK3$_1clEf.exit" ], [ %.promoted152, %.lr.ph ]
   %45 = phi i64 [ %75, %"_ZZN12_GLOBAL__N_137GenerateRealTest_ExhaustiveFloat_Test8TestBodyEvENK3$_1clEf.exit" ], [ %.lcssa158165, %.lr.ph ]
-  %46 = phi i64 [ %74, %"_ZZN12_GLOBAL__N_137GenerateRealTest_ExhaustiveFloat_Test8TestBodyEvENK3$_1clEf.exit" ], [ %.promoted135163164, %.lr.ph ]
+  %46 = phi i64 [ %74, %"_ZZN12_GLOBAL__N_137GenerateRealTest_ExhaustiveFloat_Test8TestBodyEvENK3$_1clEf.exit" ], [ %.promoted159, %.lr.ph ]
   %47 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.134138, i1 true)
   %48 = trunc nuw nsw i64 %47 to i32
   %49 = shl i64 %.134138, %47
@@ -27627,8 +27618,6 @@ _ZN4absl7GetFlagIlEET_RKNS_14flags_internal4FlagIS1_EE.exit: ; preds = %1, %31
   br label %64
 
 64:                                               ; preds = %62, %60
-  %.promoted133154 = phi i64 [ %63, %62 ], [ %.promoted133155, %60 ]
-  %.promoted132149 = phi i64 [ %.promoted132150, %62 ], [ %61, %60 ]
   %65 = phi i64 [ %63, %62 ], [ %44, %60 ]
   %66 = phi i64 [ %43, %62 ], [ %61, %60 ]
   %.2130 = phi float [ %58, %62 ], [ %.1129136, %60 ]
@@ -27647,7 +27636,6 @@ _ZN4absl7GetFlagIlEET_RKNS_14flags_internal4FlagIS1_EE.exit: ; preds = %1, %31
   br label %"_ZZN12_GLOBAL__N_137GenerateRealTest_ExhaustiveFloat_Test8TestBodyEvENK3$_1clEf.exit"
 
 "_ZZN12_GLOBAL__N_137GenerateRealTest_ExhaustiveFloat_Test8TestBodyEvENK3$_1clEf.exit": ; preds = %70, %72
-  %.promoted135161 = phi i64 [ %73, %72 ], [ %.promoted135162, %70 ]
   %74 = phi i64 [ %73, %72 ], [ %46, %70 ]
   %75 = phi i64 [ %45, %72 ], [ %71, %70 ]
   %.2 = phi float [ %68, %72 ], [ %.1137, %70 ]
@@ -27667,7 +27655,7 @@ _ZN4absl7GetFlagIlEET_RKNS_14flags_internal4FlagIS1_EE.exit: ; preds = %1, %31
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 268435456, ptr %8, align 4, !tbaa !72
-  %83 = icmp ugt i64 %.promoted133153, 268435456
+  %83 = icmp ugt i64 %.promoted152, 268435456
   br i1 %83, label %84, label %85
 
 84:                                               ; preds = %82

@@ -25075,15 +25075,10 @@ define linkonce_odr hidden noundef ptr @_ZNK5boost13property_tree11basic_ptreeIN
   %20 = inttoptr i64 %18 to ptr
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %22 = load i64, ptr %21, align 8, !tbaa !18
-  br label %.outer
-
-.outer:                                           ; preds = %31, %.lr.ph.i.i.i.i
-  %.pn.i.i.ph = phi ptr [ %33, %31 ], [ %20, %.lr.ph.i.i.i.i ]
-  %.01729.i.i.i.i.ph = phi ptr [ %.030.i.i.i.i, %31 ], [ %15, %.lr.ph.i.i.i.i ]
   br label %23
 
-23:                                               ; preds = %.outer, %35
-  %.pn.i.i = phi ptr [ %37, %35 ], [ %.pn.i.i.ph, %.outer ]
+23:                                               ; preds = %.backedge, %.lr.ph.i.i.i.i
+  %.pn.i.i = phi ptr [ %20, %.lr.ph.i.i.i.i ], [ %.pn.i.i.be, %.backedge ]
   %.030.i.i.i.i = getelementptr inbounds i8, ptr %.pn.i.i, i64 -72
   %24 = getelementptr inbounds i8, ptr %.pn.i.i, i64 -64
   %25 = load i64, ptr %24, align 8, !tbaa !18
@@ -25113,28 +25108,31 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   %32 = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 8
   %33 = load ptr, ptr %32, align 8, !tbaa !3
   %34 = icmp eq ptr %33, null
-  br i1 %34, label %._crit_edge.i.i.i.i, label %.outer, !llvm.loop !406
+  br i1 %34, label %._crit_edge.i.i.i.i, label %.backedge
 
 35:                                               ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i.i
   %36 = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 16
   %37 = load ptr, ptr %36, align 8, !tbaa !3
   %38 = icmp eq ptr %37, null
-  br i1 %38, label %._crit_edge.i.i.i.i, label %23, !llvm.loop !406
+  br i1 %38, label %._crit_edge.i.i.i.i, label %.backedge
 
-._crit_edge.i.i.i.i:                              ; preds = %31, %35
-  %.017.lcssa.i.i.i.i = phi ptr [ %.01729.i.i.i.i.ph, %35 ], [ %.030.i.i.i.i, %31 ]
-  %39 = icmp eq ptr %.017.lcssa.i.i.i.i, %15
+.backedge:                                        ; preds = %35, %31
+  %.pn.i.i.be = phi ptr [ %37, %35 ], [ %33, %31 ]
+  br label %23, !llvm.loop !406
+
+._crit_edge.i.i.i.i:                              ; preds = %35, %31
+  %39 = icmp eq ptr %.030.i.i.i.i, %15
   br i1 %39, label %.thread, label %40
 
 40:                                               ; preds = %._crit_edge.i.i.i.i
-  %41 = getelementptr inbounds nuw i8, ptr %.017.lcssa.i.i.i.i, i64 8
+  %41 = getelementptr inbounds i8, ptr %.pn.i.i, i64 -64
   %42 = load i64, ptr %41, align 8, !tbaa !18
   %.sroa.speculated.i.i.i19.i.i.i.i = call i64 @llvm.umin.i64(i64 %42, i64 %22)
   %43 = icmp eq i64 %.sroa.speculated.i.i.i19.i.i.i.i, 0
   br i1 %43, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i23.i.i.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i20.i.i.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i20.i.i.i.i: ; preds = %40
-  %44 = load ptr, ptr %.017.lcssa.i.i.i.i, align 8, !tbaa !21
+  %44 = load ptr, ptr %.030.i.i.i.i, align 8, !tbaa !21
   %45 = call i32 @memcmp(ptr noundef %.pre14, ptr noundef %44, i64 noundef %.sroa.speculated.i.i.i19.i.i.i.i) #26
   %.not.i.i.i21.i.i.i.i = icmp eq i32 %45, 0
   br i1 %.not.i.i.i21.i.i.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i23.i.i.i.i, label %47
@@ -25160,7 +25158,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i23.i.i.i.i: ; preds = %_Z
   br i1 %53, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i10, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i9
 
 54:                                               ; preds = %47
-  %55 = getelementptr inbounds nuw i8, ptr %.017.lcssa.i.i.i.i, i64 32
+  %55 = getelementptr inbounds i8, ptr %.pn.i.i, i64 -40
   %56 = invoke noundef ptr @_ZNK5boost13property_tree11basic_ptreeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_EE9walk_pathERNS0_11string_pathIS7_NS0_13id_translatorIS7_EEEE(ptr noundef nonnull align 8 dereferenceable(40) %55, ptr noundef nonnull align 8 dereferenceable(48) %1)
           to label %..thread_crit_edge unwind label %49
 

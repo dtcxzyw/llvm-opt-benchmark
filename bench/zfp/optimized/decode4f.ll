@@ -1322,55 +1322,53 @@ define range(i64 0, 4294967296) i64 @zfp_decode_block_strided_float_4(ptr nounde
   %12 = sub nsw i64 %4, %11
   %13 = shl nsw i64 %4, 2
   %14 = sub nsw i64 %5, %13
-  br label %.preheader29.i
+  br label %.preheader2.i
 
-.preheader29.i:                                   ; preds = %26, %6
-  %.041.i = phi i32 [ 0, %6 ], [ %27, %26 ]
-  %.02340.i = phi ptr [ %7, %6 ], [ %16, %26 ]
-  %.02439.i = phi ptr [ %1, %6 ], [ %28, %26 ]
-  br label %.preheader28.i
+.preheader2.i:                                    ; preds = %26, %6
+  %.012.i = phi i32 [ 0, %6 ], [ %27, %26 ]
+  %.02411.i = phi ptr [ %1, %6 ], [ %28, %26 ]
+  br label %.preheader1.i
 
-.preheader28.i:                                   ; preds = %23, %.preheader29.i
-  %.02038.i = phi i32 [ 0, %.preheader29.i ], [ %24, %23 ]
-  %.137.i = phi ptr [ %.02340.i, %.preheader29.i ], [ %16, %23 ]
-  %.12536.i = phi ptr [ %.02439.i, %.preheader29.i ], [ %25, %23 ]
+.preheader1.i:                                    ; preds = %23, %.preheader2.i
+  %.02010.i = phi i32 [ 0, %.preheader2.i ], [ %24, %23 ]
+  %.1259.i = phi ptr [ %.02411.i, %.preheader2.i ], [ %25, %23 ]
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %20, %.preheader28.i
-  %.02135.i = phi i32 [ 0, %.preheader28.i ], [ %21, %20 ]
-  %.234.i = phi ptr [ %.137.i, %.preheader28.i ], [ %16, %20 ]
-  %.22633.i = phi ptr [ %.12536.i, %.preheader28.i ], [ %22, %20 ]
+.preheader.i:                                     ; preds = %20, %.preheader1.i
+  %.0218.i = phi i32 [ 0, %.preheader1.i ], [ %21, %20 ]
+  %.27.i = phi ptr [ poison, %.preheader1.i ], [ %16, %20 ]
+  %.2266.i = phi ptr [ %.1259.i, %.preheader1.i ], [ %22, %20 ]
   br label %15
 
 15:                                               ; preds = %15, %.preheader.i
-  %.02232.i = phi i32 [ 0, %.preheader.i ], [ %18, %15 ]
-  %.331.i = phi ptr [ %.234.i, %.preheader.i ], [ %16, %15 ]
-  %.32730.i = phi ptr [ %.22633.i, %.preheader.i ], [ %19, %15 ]
-  %16 = getelementptr inbounds nuw i8, ptr %.331.i, i64 4
-  %17 = load float, ptr %.331.i, align 4, !tbaa !20
-  store float %17, ptr %.32730.i, align 4, !tbaa !20
-  %18 = add nuw nsw i32 %.02232.i, 1
-  %19 = getelementptr inbounds float, ptr %.32730.i, i64 %2
+  %.0225.i = phi i32 [ 0, %.preheader.i ], [ %18, %15 ]
+  %.34.i = phi ptr [ %.27.i, %.preheader.i ], [ %16, %15 ]
+  %.3273.i = phi ptr [ %.2266.i, %.preheader.i ], [ %19, %15 ]
+  %16 = getelementptr inbounds nuw i8, ptr %.34.i, i64 4
+  %17 = load float, ptr %.34.i, align 4, !tbaa !20
+  store float %17, ptr %.3273.i, align 4, !tbaa !20
+  %18 = add nuw nsw i32 %.0225.i, 1
+  %19 = getelementptr inbounds float, ptr %.3273.i, i64 %2
   %exitcond.not.i = icmp eq i32 %18, 4
   br i1 %exitcond.not.i, label %20, label %15
 
 20:                                               ; preds = %15
-  %21 = add nuw nsw i32 %.02135.i, 1
+  %21 = add nuw nsw i32 %.0218.i, 1
   %22 = getelementptr inbounds float, ptr %19, i64 %10
-  %exitcond45.not.i = icmp eq i32 %21, 4
-  br i1 %exitcond45.not.i, label %23, label %.preheader.i
+  %exitcond16.not.i = icmp eq i32 %21, 4
+  br i1 %exitcond16.not.i, label %23, label %.preheader.i
 
 23:                                               ; preds = %20
-  %24 = add nuw nsw i32 %.02038.i, 1
+  %24 = add nuw nsw i32 %.02010.i, 1
   %25 = getelementptr inbounds float, ptr %22, i64 %12
-  %exitcond46.not.i = icmp eq i32 %24, 4
-  br i1 %exitcond46.not.i, label %26, label %.preheader28.i
+  %exitcond17.not.i = icmp eq i32 %24, 4
+  br i1 %exitcond17.not.i, label %26, label %.preheader1.i
 
 26:                                               ; preds = %23
-  %27 = add nuw nsw i32 %.041.i, 1
+  %27 = add nuw nsw i32 %.012.i, 1
   %28 = getelementptr inbounds float, ptr %25, i64 %14
-  %exitcond47.not.i = icmp eq i32 %27, 4
-  br i1 %exitcond47.not.i, label %scatter_float_4.exit, label %.preheader29.i
+  %exitcond18.not.i = icmp eq i32 %27, 4
+  br i1 %exitcond18.not.i, label %scatter_float_4.exit, label %.preheader2.i
 
 scatter_float_4.exit:                             ; preds = %26
   call void @llvm.lifetime.end.p0(ptr nonnull %7)

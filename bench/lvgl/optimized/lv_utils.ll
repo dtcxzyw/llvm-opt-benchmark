@@ -10,35 +10,32 @@ define noundef ptr @lv_utils_bsearch(ptr noundef %0, ptr noundef %1, i64 noundef
   %.not22 = icmp eq i64 %2, 0
   br i1 %.not22, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %5, %18
-  %.01624 = phi ptr [ %.1, %18 ], [ %1, %5 ]
-  %.01923 = phi i64 [ %.120, %18 ], [ %2, %5 ]
+.lr.ph:                                           ; preds = %5, %17
+  %.01923 = phi i64 [ %.120, %17 ], [ %2, %5 ]
   %6 = lshr i64 %.01923, 1
   %7 = mul i64 %6, %3
-  %8 = getelementptr inbounds nuw i8, ptr %.01624, i64 %7
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 %7
   %9 = tail call i32 %4(ptr noundef %0, ptr noundef %8) #3
   %10 = icmp sgt i32 %9, 0
-  br i1 %10, label %11, label %16
+  br i1 %10, label %11, label %15
 
 11:                                               ; preds = %.lr.ph
   %12 = and i64 %.01923, 1
   %13 = xor i64 %12, 1
   %14 = sub nsw i64 %6, %13
-  %15 = getelementptr inbounds nuw i8, ptr %8, i64 %3
-  br label %18
+  br label %17
 
-16:                                               ; preds = %.lr.ph
-  %17 = icmp slt i32 %9, 0
-  br i1 %17, label %18, label %._crit_edge
+15:                                               ; preds = %.lr.ph
+  %16 = icmp slt i32 %9, 0
+  br i1 %16, label %17, label %._crit_edge
 
-18:                                               ; preds = %16, %11
-  %.120 = phi i64 [ %14, %11 ], [ %6, %16 ]
-  %.1 = phi ptr [ %15, %11 ], [ %.01624, %16 ]
+17:                                               ; preds = %15, %11
+  %.120 = phi i64 [ %14, %11 ], [ %6, %15 ]
   %.not = icmp eq i64 %.120, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !3
 
-._crit_edge:                                      ; preds = %16, %18, %5
-  %.0 = phi ptr [ null, %5 ], [ null, %18 ], [ %8, %16 ]
+._crit_edge:                                      ; preds = %15, %17, %5
+  %.0 = phi ptr [ null, %5 ], [ null, %17 ], [ %8, %15 ]
   ret ptr %.0
 }
 

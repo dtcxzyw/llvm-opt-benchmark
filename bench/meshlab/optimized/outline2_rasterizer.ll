@@ -484,7 +484,6 @@ _ZN9QPolygonFD2Ev.exit:                           ; preds = %_ZN8QPainter11drawP
 
 .lr.ph419:                                        ; preds = %.preheader375, %_ZNSt6vectorI7QPointFSaIS0_EE9push_backERKS0_.exit200
   %.pre482494 = phi ptr [ %.pre482495, %_ZNSt6vectorI7QPointFSaIS0_EE9push_backERKS0_.exit200 ], [ %178, %.preheader375 ]
-  %.pre481485 = phi ptr [ %.pre481486, %_ZNSt6vectorI7QPointFSaIS0_EE9push_backERKS0_.exit200 ], [ %178, %.preheader375 ]
   %182 = phi ptr [ %255, %_ZNSt6vectorI7QPointFSaIS0_EE9push_backERKS0_.exit200 ], [ %178, %.preheader375 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNSt6vectorI7QPointFSaIS0_EE9push_backERKS0_.exit200 ], [ 1, %.preheader375 ]
   %.sroa.30.0417 = phi ptr [ %.sroa.30.2, %_ZNSt6vectorI7QPointFSaIS0_EE9push_backERKS0_.exit200 ], [ null, %.preheader375 ]
@@ -516,7 +515,6 @@ _ZN9QPolygonFD2Ev.exit:                           ; preds = %_ZN8QPainter11drawP
 
 192:                                              ; preds = %.noexc177, %189, %.lr.ph419
   %.pre482493 = phi ptr [ %.pre482494, %.lr.ph419 ], [ %190, %189 ], [ %.pre.i.i176, %.noexc177 ]
-  %.pre481484 = phi ptr [ %.pre481485, %.lr.ph419 ], [ %190, %189 ], [ %.pre.i.i176, %.noexc177 ]
   %193 = phi ptr [ %182, %.lr.ph419 ], [ %190, %189 ], [ %.pre.i.i176, %.noexc177 ]
   %194 = getelementptr inbounds nuw i8, ptr %193, i64 16
   %195 = load i64, ptr %194, align 8
@@ -584,13 +582,12 @@ _ZNSt6vectorI7QPointFSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit22.i.i: ; preds = 
 
 _ZNSt6vectorI7QPointFSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i: ; preds = %216, %_ZNSt6vectorI7QPointFSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit22.i.i
   %.pre482492 = phi ptr [ %.pre481.pre, %216 ], [ %.pre482493, %_ZNSt6vectorI7QPointFSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit22.i.i ]
-  %.pre481 = phi ptr [ %.pre481.pre, %216 ], [ %.pre481484, %_ZNSt6vectorI7QPointFSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit22.i.i ]
+  %.pre481 = phi ptr [ %.pre481.pre, %216 ], [ poison, %_ZNSt6vectorI7QPointFSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit22.i.i ]
   %217 = getelementptr inbounds nuw %class.QPointF, ptr %212, i64 %210
   br label %_ZNSt6vectorI7QPointFSaIS0_EE9push_backERKS0_.exit
 
 _ZNSt6vectorI7QPointFSaIS0_EE9push_backERKS0_.exit: ; preds = %_ZNSt6vectorI7QPointFSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i, %199
   %.pre482491 = phi ptr [ %.pre482492, %_ZNSt6vectorI7QPointFSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i ], [ %.pre482493, %199 ]
-  %.pre481488 = phi ptr [ %.pre481, %_ZNSt6vectorI7QPointFSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i ], [ %.pre481484, %199 ]
   %218 = phi ptr [ %.pre481, %_ZNSt6vectorI7QPointFSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i ], [ %193, %199 ]
   %.sroa.0.3 = phi ptr [ %212, %_ZNSt6vectorI7QPointFSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i ], [ %.sroa.0.0415, %199 ]
   %.0.lcssa.i.i.i.i.i.i.pn = phi ptr [ %.0.lcssa.i.i.i.i.i.i, %_ZNSt6vectorI7QPointFSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i ], [ %.sroa.13.0416, %199 ]
@@ -622,7 +619,6 @@ _ZNSt6vectorI7QPointFSaIS0_EE9push_backERKS0_.exit: ; preds = %_ZNSt6vectorI7QPo
 
 228:                                              ; preds = %.noexc183, %225, %_ZNSt6vectorI7QPointFSaIS0_EE9push_backERKS0_.exit
   %.pre482490 = phi ptr [ %.pre482491, %_ZNSt6vectorI7QPointFSaIS0_EE9push_backERKS0_.exit ], [ %226, %225 ], [ %.pre.i.i182, %.noexc183 ]
-  %.pre481487 = phi ptr [ %.pre481488, %_ZNSt6vectorI7QPointFSaIS0_EE9push_backERKS0_.exit ], [ %226, %225 ], [ %.pre.i.i182, %.noexc183 ]
   %229 = phi ptr [ %218, %_ZNSt6vectorI7QPointFSaIS0_EE9push_backERKS0_.exit ], [ %226, %225 ], [ %.pre.i.i182, %.noexc183 ]
   %230 = getelementptr inbounds nuw i8, ptr %229, i64 16
   %231 = load i64, ptr %230, align 8
@@ -696,7 +692,6 @@ _ZNSt6vectorI7QPointFSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal
 
 _ZNSt6vectorI7QPointFSaIS0_EE9push_backERKS0_.exit200: ; preds = %_ZNSt6vectorI7QPointFSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i197, %234
   %.pre482495 = phi ptr [ %.pre482, %_ZNSt6vectorI7QPointFSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i197 ], [ %.pre482490, %234 ]
-  %.pre481486 = phi ptr [ %.pre482, %_ZNSt6vectorI7QPointFSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i197 ], [ %.pre481487, %234 ]
   %255 = phi ptr [ %.pre482, %_ZNSt6vectorI7QPointFSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i197 ], [ %229, %234 ]
   %.sroa.0.4 = phi ptr [ %248, %_ZNSt6vectorI7QPointFSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i197 ], [ %.sroa.0.3, %234 ]
   %.sroa.13.2 = phi ptr [ %252, %_ZNSt6vectorI7QPointFSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i197 ], [ %235, %234 ]

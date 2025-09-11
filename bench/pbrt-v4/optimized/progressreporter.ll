@@ -642,9 +642,9 @@ _ZN4pbrtL13TerminalWidthEv.exit:                  ; preds = %6, %10, %13
   %34 = add i64 %29, %33
   %scevgep = getelementptr i8, ptr %26, i64 %34
   %35 = getelementptr i8, ptr %26, i64 %34
-  %scevgep83 = getelementptr i8, ptr %35, i64 1
+  %scevgep82 = getelementptr i8, ptr %35, i64 1
   %36 = getelementptr inbounds nuw i8, ptr %scevgep, i64 2
-  store i8 93, ptr %scevgep83, align 1, !tbaa !17
+  store i8 93, ptr %scevgep82, align 1, !tbaa !17
   %37 = getelementptr inbounds nuw i8, ptr %scevgep, i64 3
   store i8 32, ptr %36, align 1, !tbaa !17
   store i8 0, ptr %37, align 1, !tbaa !17
@@ -663,7 +663,6 @@ _ZN4pbrtL13TerminalWidthEv.exit:                  ; preds = %6, %10, %13
 
 49:                                               ; preds = %_ZN4pbrtL13TerminalWidthEv.exit, %128
   %.080 = phi i32 [ 0, %_ZN4pbrtL13TerminalWidthEv.exit ], [ %.1.lcssa, %128 ]
-  %.03279 = phi ptr [ %30, %_ZN4pbrtL13TerminalWidthEv.exit ], [ %.133.lcssa, %128 ]
   %.03777 = phi i32 [ 0, %_ZN4pbrtL13TerminalWidthEv.exit ], [ %66, %128 ]
   %.sroa.0.076 = phi i64 [ 250, %_ZN4pbrtL13TerminalWidthEv.exit ], [ %.sroa.0.1, %128 ]
   %50 = load atomic i8, ptr %42 seq_cst, align 8
@@ -743,13 +742,10 @@ _ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000EEEEvRKNSt6chrono8durationIT_T0
   %84 = add i32 %83, %81
   %85 = zext i32 %84 to i64
   %86 = add nuw nsw i64 %85, 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.03279, i8 43, i64 %86, i1 false), !tbaa !17
-  %scevgep84 = getelementptr i8, ptr %.03279, i64 1
-  %scevgep85 = getelementptr i8, ptr %scevgep84, i64 %85
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) poison, i8 43, i64 %86, i1 false), !tbaa !17
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph.preheader, %73
-  %.133.lcssa = phi ptr [ %.03279, %73 ], [ %scevgep85, %.lr.ph.preheader ]
   %.1.lcssa = phi i32 [ %.080, %73 ], [ %81, %.lr.ph.preheader ]
   %87 = load ptr, ptr @stdout, align 8, !tbaa !50
   %88 = call i32 @fputs(ptr noundef nonnull %26, ptr noundef %87)

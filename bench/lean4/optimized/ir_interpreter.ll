@@ -13757,7 +13757,6 @@ _ZN4lean13alloc_closureEPvjj.exit:                ; preds = %.noexc
   br label %440
 
 335:                                              ; preds = %.lr.ph242, %364
-  %.pre267275 = phi ptr [ %326, %.lr.ph242 ], [ %.pre267276, %364 ]
   %336 = phi ptr [ %326, %.lr.ph242 ], [ %365, %364 ]
   %337 = phi ptr [ %328, %.lr.ph242 ], [ %371, %364 ]
   %338 = phi i64 [ 0, %.lr.ph242 ], [ %369, %364 ]
@@ -13799,14 +13798,13 @@ _ZN4lean13alloc_closureEPvjj.exit:                ; preds = %.noexc
   br label %_ZN4lean2ir11interpreter3varERKNS_3natE.exit.i163
 
 _ZN4lean2ir11interpreter3varERKNS_3natE.exit.i163: ; preds = %.noexc164, %344
-  %.pre267 = phi ptr [ %.pre267.pre, %.noexc164 ], [ %.pre267275, %344 ]
+  %.pre267 = phi ptr [ %.pre267.pre, %.noexc164 ], [ poison, %344 ]
   %361 = phi ptr [ %.pre.i.i162, %.noexc164 ], [ %355, %344 ]
   %362 = getelementptr inbounds nuw %"union.lean::ir::value", ptr %361, i64 %353
   %363 = load i64, ptr %362, align 8, !tbaa !11
   br label %364
 
 364:                                              ; preds = %335, %_ZN4lean2ir11interpreter3varERKNS_3natE.exit.i163
-  %.pre267276 = phi ptr [ %.pre267, %_ZN4lean2ir11interpreter3varERKNS_3natE.exit.i163 ], [ %.pre267275, %335 ]
   %365 = phi ptr [ %.pre267, %_ZN4lean2ir11interpreter3varERKNS_3natE.exit.i163 ], [ %336, %335 ]
   %.sroa.0.0.i160 = phi i64 [ %363, %_ZN4lean2ir11interpreter3varERKNS_3natE.exit.i163 ], [ 1, %335 ]
   %366 = inttoptr i64 %.sroa.0.0.i160 to ptr
@@ -13848,7 +13846,6 @@ _ZN4lean2ir11interpreter3varERKNS_3natE.exit.i163: ; preds = %.noexc164, %344
   br label %440
 
 387:                                              ; preds = %.lr.ph246, %_ZN4lean2ir11interpreter8eval_argERKNS_10object_refE.exit174
-  %.pre268278 = phi ptr [ %377, %.lr.ph246 ], [ %.pre268279, %_ZN4lean2ir11interpreter8eval_argERKNS_10object_refE.exit174 ]
   %388 = phi ptr [ %377, %.lr.ph246 ], [ %415, %_ZN4lean2ir11interpreter8eval_argERKNS_10object_refE.exit174 ]
   %389 = phi ptr [ %379, %.lr.ph246 ], [ %420, %_ZN4lean2ir11interpreter8eval_argERKNS_10object_refE.exit174 ]
   %.0122244 = phi i64 [ 0, %.lr.ph246 ], [ %418, %_ZN4lean2ir11interpreter8eval_argERKNS_10object_refE.exit174 ]
@@ -13889,14 +13886,13 @@ _ZN4lean2ir11interpreter3varERKNS_3natE.exit.i163: ; preds = %.noexc164, %344
   br label %_ZN4lean2ir11interpreter3varERKNS_3natE.exit.i172
 
 _ZN4lean2ir11interpreter3varERKNS_3natE.exit.i172: ; preds = %.noexc173, %395
-  %.pre268 = phi ptr [ %.pre268.pre, %.noexc173 ], [ %.pre268278, %395 ]
+  %.pre268 = phi ptr [ %.pre268.pre, %.noexc173 ], [ poison, %395 ]
   %412 = phi ptr [ %.pre.i.i171, %.noexc173 ], [ %406, %395 ]
   %413 = getelementptr inbounds nuw %"union.lean::ir::value", ptr %412, i64 %404
   %414 = load i64, ptr %413, align 8, !tbaa !11
   br label %_ZN4lean2ir11interpreter8eval_argERKNS_10object_refE.exit174
 
 _ZN4lean2ir11interpreter8eval_argERKNS_10object_refE.exit174: ; preds = %_ZN4lean2ir11interpreter3varERKNS_3natE.exit.i172, %387
-  %.pre268279 = phi ptr [ %.pre268, %_ZN4lean2ir11interpreter3varERKNS_3natE.exit.i172 ], [ %.pre268278, %387 ]
   %415 = phi ptr [ %.pre268, %_ZN4lean2ir11interpreter3varERKNS_3natE.exit.i172 ], [ %388, %387 ]
   %.sroa.0.0.i169 = phi i64 [ %414, %_ZN4lean2ir11interpreter3varERKNS_3natE.exit.i172 ], [ 1, %387 ]
   %416 = inttoptr i64 %.sroa.0.0.i169 to ptr
@@ -14026,7 +14022,6 @@ _ZN4lean2ir11interpreter3varERKNS_3natE.exit181:  ; preds = %._crit_edge, %466
   br label %_ZN4lean7dec_refEP11lean_object.exit
 
 477:                                              ; preds = %.lr.ph, %_ZN4lean2ir11interpreter8eval_argERKNS_10object_refE.exit188
-  %.pre265272 = phi ptr [ %6, %.lr.ph ], [ %.pre265273, %_ZN4lean2ir11interpreter8eval_argERKNS_10object_refE.exit188 ]
   %478 = phi ptr [ %6, %.lr.ph ], [ %505, %_ZN4lean2ir11interpreter8eval_argERKNS_10object_refE.exit188 ]
   %479 = phi ptr [ %443, %.lr.ph ], [ %510, %_ZN4lean2ir11interpreter8eval_argERKNS_10object_refE.exit188 ]
   %.0110239 = phi i64 [ 0, %.lr.ph ], [ %508, %_ZN4lean2ir11interpreter8eval_argERKNS_10object_refE.exit188 ]
@@ -14064,14 +14059,13 @@ _ZN4lean2ir11interpreter3varERKNS_3natE.exit181:  ; preds = %._crit_edge, %466
   br label %_ZN4lean2ir11interpreter3varERKNS_3natE.exit.i187
 
 _ZN4lean2ir11interpreter3varERKNS_3natE.exit.i187: ; preds = %501, %485
-  %.pre265 = phi ptr [ %.pre265.pre, %501 ], [ %.pre265272, %485 ]
+  %.pre265 = phi ptr [ %.pre265.pre, %501 ], [ poison, %485 ]
   %502 = phi ptr [ %.pre.i.i186, %501 ], [ %496, %485 ]
   %503 = getelementptr inbounds nuw %"union.lean::ir::value", ptr %502, i64 %494
   %504 = load i64, ptr %503, align 8, !tbaa !11
   br label %_ZN4lean2ir11interpreter8eval_argERKNS_10object_refE.exit188
 
 _ZN4lean2ir11interpreter8eval_argERKNS_10object_refE.exit188: ; preds = %477, %_ZN4lean2ir11interpreter3varERKNS_3natE.exit.i187
-  %.pre265273 = phi ptr [ %.pre265, %_ZN4lean2ir11interpreter3varERKNS_3natE.exit.i187 ], [ %.pre265272, %477 ]
   %505 = phi ptr [ %.pre265, %_ZN4lean2ir11interpreter3varERKNS_3natE.exit.i187 ], [ %478, %477 ]
   %.sroa.0.0.i184 = phi i64 [ %504, %_ZN4lean2ir11interpreter3varERKNS_3natE.exit.i187 ], [ 1, %477 ]
   %506 = inttoptr i64 %.sroa.0.0.i184 to ptr
@@ -14618,7 +14612,6 @@ _ZN4lean11alloc_cnstrEjjj.exit:                   ; preds = %_ZL23lean_alloc_sma
   br label %66
 
 66:                                               ; preds = %.lr.ph, %_ZN4lean2ir11interpreter8eval_argERKNS_10object_refE.exit
-  %.pre28 = phi ptr [ %61, %.lr.ph ], [ %.pre29, %_ZN4lean2ir11interpreter8eval_argERKNS_10object_refE.exit ]
   %67 = phi ptr [ %61, %.lr.ph ], [ %93, %_ZN4lean2ir11interpreter8eval_argERKNS_10object_refE.exit ]
   %.02427 = phi i64 [ 0, %.lr.ph ], [ %97, %_ZN4lean2ir11interpreter8eval_argERKNS_10object_refE.exit ]
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 24
@@ -14655,14 +14648,13 @@ _ZN4lean11alloc_cnstrEjjj.exit:                   ; preds = %_ZL23lean_alloc_sma
   br label %_ZN4lean2ir11interpreter3varERKNS_3natE.exit.i
 
 _ZN4lean2ir11interpreter3varERKNS_3natE.exit.i:   ; preds = %89, %73
-  %.pre = phi ptr [ %.pre.pre, %89 ], [ %.pre28, %73 ]
+  %.pre = phi ptr [ %.pre.pre, %89 ], [ poison, %73 ]
   %90 = phi ptr [ %.pre.i.i25, %89 ], [ %84, %73 ]
   %91 = getelementptr inbounds nuw %"union.lean::ir::value", ptr %90, i64 %82
   %92 = load i64, ptr %91, align 8, !tbaa !11
   br label %_ZN4lean2ir11interpreter8eval_argERKNS_10object_refE.exit
 
 _ZN4lean2ir11interpreter8eval_argERKNS_10object_refE.exit: ; preds = %66, %_ZN4lean2ir11interpreter3varERKNS_3natE.exit.i
-  %.pre29 = phi ptr [ %.pre, %_ZN4lean2ir11interpreter3varERKNS_3natE.exit.i ], [ %.pre28, %66 ]
   %93 = phi ptr [ %.pre, %_ZN4lean2ir11interpreter3varERKNS_3natE.exit.i ], [ %67, %66 ]
   %.sroa.0.0.i = phi i64 [ %92, %_ZN4lean2ir11interpreter3varERKNS_3natE.exit.i ], [ 1, %66 ]
   %94 = inttoptr i64 %.sroa.0.0.i to ptr

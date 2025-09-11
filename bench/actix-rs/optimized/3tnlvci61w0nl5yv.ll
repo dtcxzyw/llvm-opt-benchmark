@@ -5301,7 +5301,6 @@ _ZN5alloc6string6String9from_utf817h11549ca97a8af181E.exit: ; preds = %51
 134:                                              ; preds = %.lr.ph, %198
   %.sroa.14.0497 = phi i64 [ %86, %.lr.ph ], [ %.sroa.14.1, %198 ]
   %.sroa.071.0496 = phi ptr [ %84, %.lr.ph ], [ %.sroa.071.1, %198 ]
-  %.sroa.5266.0495 = phi i64 [ undef, %.lr.ph ], [ %.sroa.5266.1, %198 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %33)
   invoke fastcc void @_ZN9actix_web4http6header19content_disposition19split_once_and_trim17h29c212953b9614b7E(ptr noalias noundef align 8 captures(none) dereferenceable(32) %33, ptr noalias noundef nonnull readonly align 1 %.sroa.071.0496, i64 noundef %.sroa.14.0497, i32 noundef 61)
           to label %136 unwind label %.loopexit418
@@ -5512,7 +5511,6 @@ _ZN5alloc6string6String9from_utf817h11549ca97a8af181E.exit: ; preds = %51
   br label %198
 
 198:                                              ; preds = %385, %193
-  %.sroa.5266.1 = phi i64 [ %.sroa.5266.2, %385 ], [ %.sroa.5266.0495, %193 ]
   %.sroa.071.1 = phi ptr [ %.sroa.071.2, %385 ], [ %151, %193 ]
   %.sroa.14.1 = phi i64 [ %.sroa.14.2, %385 ], [ %152, %193 ]
   %199 = icmp eq i64 %.sroa.14.1, 0
@@ -5593,7 +5591,6 @@ _ZN5alloc6string6String9from_utf817h11549ca97a8af181E.exit: ; preds = %51
   br label %224
 
 224:                                              ; preds = %350, %220
-  %.sroa.5266.2 = phi i64 [ %.sroa.8276.0382, %350 ], [ %.sroa.5266.0495, %220 ]
   %.sroa.071.2 = phi ptr [ %326, %350 ], [ %213, %220 ]
   %.sroa.14.2 = phi i64 [ %327, %350 ], [ %214, %220 ]
   switch i64 %138, label %.loopexit410 [
@@ -6011,7 +6008,7 @@ _ZN9actix_web4http6header19content_disposition10split_once17h324428193170cb49E.e
   br label %224
 
 .loopexit426:                                     ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h8740a68798f75895E.exit", %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h8740a68798f75895E.exit.thread"
-  %.sroa.5266.3396 = phi i64 [ %.sroa.5266.0495, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h8740a68798f75895E.exit.thread" ], [ %.sroa.8276.0382, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h8740a68798f75895E.exit" ]
+  %.sroa.5266.3396 = phi i64 [ poison, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h8740a68798f75895E.exit.thread" ], [ %.sroa.8276.0382, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h8740a68798f75895E.exit" ]
   %.sroa.7268.0394 = phi i8 [ 5, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h8740a68798f75895E.exit.thread" ], [ %.sroa.9279.0384, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h8740a68798f75895E.exit" ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.766.sroa.8, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.8270, i64 7, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8270)
@@ -6104,8 +6101,8 @@ _ZN9actix_web4http6header19content_disposition10split_once17h324428193170cb49E.e
   br label %376
 
 376:                                              ; preds = %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17hcaa853dd8193a8e7E.exit229", %372, %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17hcaa853dd8193a8e7E.exit195"
-  %.sink676 = phi i64 [ 1, %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17hcaa853dd8193a8e7E.exit229" ], [ 3, %372 ], [ 0, %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17hcaa853dd8193a8e7E.exit195" ]
-  store i64 %.sink676, ptr %24, align 8
+  %.sink640 = phi i64 [ 1, %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17hcaa853dd8193a8e7E.exit229" ], [ 3, %372 ], [ 0, %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17hcaa853dd8193a8e7E.exit195" ]
+  store i64 %.sink640, ptr %24, align 8
   %377 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !1132, !noalias !1135, !noundef !9
   %378 = load i64, ptr %35, align 8, !alias.scope !1132, !noalias !1135, !noundef !9
   %379 = icmp eq i64 %377, %378
@@ -6156,9 +6153,9 @@ _ZN9actix_web4http6header19content_disposition10split_once17h324428193170cb49E.e
           to label %398 unwind label %74
 
 .sink.split:                                      ; preds = %.noexc200, %259, %.noexc198, %255
-  %.sink681 = phi i64 [ %.pre.i197, %.noexc198 ], [ %.ph, %255 ], [ %.pre.i199, %.noexc200 ], [ %.ph, %259 ]
+  %.sink645 = phi i64 [ %.pre.i197, %.noexc198 ], [ %.ph, %255 ], [ %.pre.i199, %.noexc200 ], [ %.ph, %259 ]
   %394 = load ptr, ptr %108, align 8, !nonnull !9, !noundef !9
-  %395 = getelementptr inbounds i8, ptr %394, i64 %.sink681
+  %395 = getelementptr inbounds i8, ptr %394, i64 %.sink645
   store i8 %253, ptr %395, align 1
   %396 = load i64, ptr %109, align 8, !noundef !9
   %397 = add i64 %396, 1

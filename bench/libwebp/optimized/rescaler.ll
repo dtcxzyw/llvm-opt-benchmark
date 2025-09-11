@@ -182,9 +182,9 @@ define hidden void @WebPRescalerImportRowShrink_C(ptr noalias noundef readonly c
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge50
-  %indvars.iv57 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next58, %._crit_edge50 ]
-  %indvars62 = trunc i64 %indvars.iv57 to i32
-  %15 = icmp sgt i32 %7, %indvars62
+  %indvars.iv55 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next56, %._crit_edge50 ]
+  %indvars60 = trunc i64 %indvars.iv55 to i32
+  %15 = icmp sgt i32 %7, %indvars60
   br i1 %15, label %.lr.ph49, label %._crit_edge50
 
 .lr.ph49:                                         ; preds = %.preheader
@@ -196,59 +196,49 @@ define hidden void @WebPRescalerImportRowShrink_C(ptr noalias noundef readonly c
   br label %21
 
 21:                                               ; preds = %.lr.ph49, %._crit_edge
-  %indvars.iv59 = phi i64 [ %indvars.iv57, %.lr.ph49 ], [ %indvars.iv.next60, %._crit_edge ]
+  %indvars.iv57 = phi i64 [ %indvars.iv55, %.lr.ph49 ], [ %indvars.iv.next58, %._crit_edge ]
   %.03248 = phi i32 [ 0, %.lr.ph49 ], [ %.1.lcssa, %._crit_edge ]
-  %.03347 = phi i32 [ 0, %.lr.ph49 ], [ %42, %._crit_edge ]
-  %.03645 = phi i32 [ %indvars62, %.lr.ph49 ], [ %.137.lcssa, %._crit_edge ]
+  %.03347 = phi i32 [ 0, %.lr.ph49 ], [ %39, %._crit_edge ]
   %22 = add nsw i32 %16, %.03248
   %23 = icmp sgt i32 %22, 0
   br i1 %23, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %21
-  %24 = sext i32 %.03645 to i64
-  br label %25
-
-25:                                               ; preds = %.lr.ph, %25
-  %indvars.iv = phi i64 [ %24, %.lr.ph ], [ %indvars.iv.next, %25 ]
-  %.141 = phi i32 [ %22, %.lr.ph ], [ %26, %25 ]
-  %.13440 = phi i32 [ %.03347, %.lr.ph ], [ %30, %25 ]
-  %26 = sub nsw i32 %.141, %17
-  %27 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
-  %28 = load i8, ptr %27, align 1, !tbaa !15
-  %29 = zext i8 %28 to i32
-  %30 = add i32 %.13440, %29
+.lr.ph:                                           ; preds = %21, %.lr.ph
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ poison, %21 ]
+  %.141 = phi i32 [ %24, %.lr.ph ], [ %22, %21 ]
+  %.13440 = phi i32 [ %28, %.lr.ph ], [ %.03347, %21 ]
+  %24 = sub nsw i32 %.141, %17
+  %25 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
+  %26 = load i8, ptr %25, align 1, !tbaa !15
+  %27 = zext i8 %26 to i32
+  %28 = add i32 %.13440, %27
   %indvars.iv.next = add nsw i64 %indvars.iv, %13
-  %31 = icmp sgt i32 %26, 0
-  br i1 %31, label %25, label %._crit_edge.loopexit, !llvm.loop !21
+  %29 = icmp sgt i32 %24, 0
+  br i1 %29, label %.lr.ph, label %._crit_edge, !llvm.loop !21
 
-._crit_edge.loopexit:                             ; preds = %25
-  %32 = trunc nsw i64 %indvars.iv.next to i32
-  br label %._crit_edge
-
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %21
-  %.137.lcssa = phi i32 [ %.03645, %21 ], [ %32, %._crit_edge.loopexit ]
-  %.134.lcssa = phi i32 [ %.03347, %21 ], [ %30, %._crit_edge.loopexit ]
-  %.1.lcssa = phi i32 [ %22, %21 ], [ %26, %._crit_edge.loopexit ]
-  %.031.lcssa = phi i32 [ 0, %21 ], [ %29, %._crit_edge.loopexit ]
-  %33 = mul i32 %.031.lcssa, %.1.lcssa
-  %34 = sub i32 0, %33
-  %35 = mul i32 %17, %.134.lcssa
-  %36 = add i32 %35, %33
-  %37 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv59
-  store i32 %36, ptr %37, align 4, !tbaa !16
-  %38 = zext i32 %34 to i64
-  %39 = mul nuw i64 %20, %38
-  %40 = add nuw i64 %39, 2147483648
-  %41 = lshr i64 %40, 32
-  %42 = trunc nuw i64 %41 to i32
-  %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, %14
-  %43 = trunc nuw i64 %indvars.iv.next60 to i32
-  %44 = icmp sgt i32 %7, %43
-  br i1 %44, label %21, label %._crit_edge50, !llvm.loop !22
+._crit_edge:                                      ; preds = %.lr.ph, %21
+  %.134.lcssa = phi i32 [ %.03347, %21 ], [ %28, %.lr.ph ]
+  %.1.lcssa = phi i32 [ %22, %21 ], [ %24, %.lr.ph ]
+  %.031.lcssa = phi i32 [ 0, %21 ], [ %27, %.lr.ph ]
+  %30 = mul i32 %.031.lcssa, %.1.lcssa
+  %31 = sub i32 0, %30
+  %32 = mul i32 %17, %.134.lcssa
+  %33 = add i32 %32, %30
+  %34 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv57
+  store i32 %33, ptr %34, align 4, !tbaa !16
+  %35 = zext i32 %31 to i64
+  %36 = mul nuw i64 %20, %35
+  %37 = add nuw i64 %36, 2147483648
+  %38 = lshr i64 %37, 32
+  %39 = trunc nuw i64 %38 to i32
+  %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, %14
+  %40 = trunc nuw i64 %indvars.iv.next58 to i32
+  %41 = icmp sgt i32 %7, %40
+  br i1 %41, label %21, label %._crit_edge50, !llvm.loop !22
 
 ._crit_edge50:                                    ; preds = %._crit_edge, %.preheader
-  %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next58, %14
+  %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next56, %14
   br i1 %exitcond.not, label %._crit_edge52, label %.preheader, !llvm.loop !23
 
 ._crit_edge52:                                    ; preds = %._crit_edge50, %2

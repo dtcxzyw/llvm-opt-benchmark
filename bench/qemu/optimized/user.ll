@@ -1626,7 +1626,7 @@ sub_0:
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_user_state, i64 20), align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) getelementptr inbounds nuw (i8, ptr @gdbserver_user_state, i64 24), i8 noundef 0, i64 noundef 128, i1 noundef false) #16
   %12 = tail call i32 @gdb_put_packet(ptr noundef nonnull @.str.19) #16
-  br label %48
+  br label %42
 
 .tail12:                                          ; preds = %sub_0
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 1
@@ -1637,7 +1637,7 @@ sub_0:
 16:                                               ; preds = %.tail12
   store i8 1, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_user_state, i64 20), align 4
   %17 = tail call i32 @gdb_put_packet(ptr noundef nonnull @.str.19) #16
-  br label %48
+  br label %42
 
 18:                                               ; preds = %.tail12
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 1
@@ -1653,61 +1653,44 @@ sub_0:
   %.not16 = icmp eq i32 %24, 0
   br i1 %.not16, label %.lr.ph, label %.loopexit
 
-25:                                               ; preds = %41
-  %26 = getelementptr inbounds nuw i8, ptr %28, i64 1
-  store ptr %26, ptr %4, align 8
-  %27 = call i32 @qemu_strtoui(ptr noundef nonnull %26, ptr noundef nonnull %4, i32 noundef 16, ptr noundef nonnull %3) #16
-  %.not = icmp eq i32 %27, 0
-  br i1 %.not, label %.lr.ph, label %.loopexit
-
-.lr.ph:                                           ; preds = %22, %25
-  %.017 = phi i8 [ %.1, %25 ], [ 0, %22 ]
-  %28 = load ptr, ptr %4, align 8
-  %29 = load i8, ptr %28, align 1
-  switch i8 %29, label %.loopexit [
-    i8 0, label %30
-    i8 59, label %30
+.lr.ph:                                           ; preds = %22, %38
+  %25 = load ptr, ptr %4, align 8
+  %26 = load i8, ptr %25, align 1
+  switch i8 %26, label %.loopexit [
+    i8 0, label %27
+    i8 59, label %27
   ]
 
-30:                                               ; preds = %.lr.ph, %.lr.ph
-  %31 = load i32, ptr %3, align 4
-  %32 = icmp ugt i32 %31, 1023
-  br i1 %32, label %41, label %33
+27:                                               ; preds = %.lr.ph, %.lr.ph
+  %28 = load i32, ptr %3, align 4
+  %29 = icmp ugt i32 %28, 1023
+  br i1 %29, label %38, label %30
 
-33:                                               ; preds = %30
-  %34 = zext nneg i32 %31 to i64
-  %35 = and i64 %34, 63
-  %36 = shl nuw i64 1, %35
-  %37 = lshr i64 %34, 6
-  %38 = getelementptr inbounds nuw i64, ptr %2, i64 %37
-  %39 = load i64, ptr %38, align 8
-  %40 = or i64 %39, %36
-  store i64 %40, ptr %38, align 8
-  br label %41
+30:                                               ; preds = %27
+  %31 = zext nneg i32 %28 to i64
+  %32 = and i64 %31, 63
+  %33 = shl nuw i64 1, %32
+  %34 = lshr i64 %31, 6
+  %35 = getelementptr inbounds nuw i64, ptr %2, i64 %34
+  %36 = load i64, ptr %35, align 8
+  %37 = or i64 %36, %33
+  store i64 %37, ptr %35, align 8
+  br label %38
 
-41:                                               ; preds = %30, %33
-  %.1 = phi i8 [ %.017, %33 ], [ 1, %30 ]
-  %.not11 = icmp eq i8 %29, 0
-  br i1 %.not11, label %42, label %25
+38:                                               ; preds = %27, %30
+  %.not11 = icmp ne i8 %26, 0
+  call void @llvm.assume(i1 %.not11)
+  %39 = getelementptr inbounds nuw i8, ptr %25, i64 1
+  store ptr %39, ptr %4, align 8
+  %40 = call i32 @qemu_strtoui(ptr noundef nonnull %39, ptr noundef nonnull %4, i32 noundef 16, ptr noundef nonnull %3) #16
+  %.not = icmp eq i32 %40, 0
+  br i1 %.not, label %.lr.ph, label %.loopexit
 
-42:                                               ; preds = %41
-  %43 = trunc nuw i8 %.1 to i1
-  store i8 %.1, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_user_state, i64 20), align 4
-  br i1 %43, label %45, label %44
+.loopexit:                                        ; preds = %38, %.lr.ph, %sub_0, %.tail, %22, %18
+  %41 = call i32 @gdb_put_packet(ptr noundef nonnull @.str.24) #16
+  br label %42
 
-44:                                               ; preds = %42
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) getelementptr inbounds nuw (i8, ptr @gdbserver_user_state, i64 24), ptr noundef nonnull align 16 dereferenceable(128) %2, i64 noundef 128, i1 noundef false) #16
-  br label %45
-
-45:                                               ; preds = %44, %42
-  %46 = call i32 @gdb_put_packet(ptr noundef nonnull @.str.19) #16
-  br label %48
-
-.loopexit:                                        ; preds = %25, %.lr.ph, %sub_0, %.tail, %22, %18
-  %47 = call i32 @gdb_put_packet(ptr noundef nonnull @.str.24) #16
-  br label %48
-
-48:                                               ; preds = %.loopexit, %45, %16, %11
+42:                                               ; preds = %.loopexit, %16, %11
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -1846,8 +1829,8 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.bswap.i16(i16) #14
 
-; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #15
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #15
 
 attributes #0 = { nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
@@ -1864,7 +1847,7 @@ attributes #11 = { mustprogress nofree norecurse nosync nounwind sspstrong willr
 attributes #12 = { nocallback nofree nounwind memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
 attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #15 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #15 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #16 = { nounwind }
 attributes #17 = { nounwind willreturn memory(none) }
 attributes #18 = { noreturn nounwind }

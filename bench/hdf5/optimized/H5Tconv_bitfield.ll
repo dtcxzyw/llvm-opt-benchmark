@@ -361,10 +361,10 @@ define range(i32 -1, 1) i32 @H5T__conv_b_b(ptr noundef %0, ptr noundef readonly 
   br label %.loopexit225
 
 192:                                              ; preds = %183, %187
-  %.sink256 = phi i1 [ true, %187 ], [ false, %183 ]
+  %.sink255 = phi i1 [ true, %187 ], [ false, %183 ]
   %193 = getelementptr inbounds nuw i8, ptr %184, i64 64
   %194 = load i64, ptr %193, align 8, !tbaa !25
-  call void @H5T__bit_set(ptr noundef %.0183, i64 noundef 0, i64 noundef %194, i1 noundef zeroext %.sink256) #8
+  call void @H5T__bit_set(ptr noundef %.0183, i64 noundef 0, i64 noundef %194, i1 noundef zeroext %.sink255) #8
   %195 = load ptr, ptr %65, align 8, !tbaa !16
   %196 = getelementptr inbounds nuw i8, ptr %195, i64 64
   %197 = load i64, ptr %196, align 8, !tbaa !25
@@ -388,12 +388,12 @@ define range(i32 -1, 1) i32 @H5T__conv_b_b(ptr noundef %0, ptr noundef readonly 
   br label %.loopexit225
 
 208:                                              ; preds = %192, %203
-  %.sink259 = phi i1 [ true, %203 ], [ false, %192 ]
+  %.sink258 = phi i1 [ true, %203 ], [ false, %192 ]
   %209 = getelementptr inbounds nuw i8, ptr %195, i64 16
   %210 = load i64, ptr %209, align 8, !tbaa !27
   %211 = shl i64 %210, 3
   %212 = sub i64 %211, %200
-  call void @H5T__bit_set(ptr noundef %.0183, i64 noundef %200, i64 noundef %212, i1 noundef zeroext %.sink259) #8
+  call void @H5T__bit_set(ptr noundef %.0183, i64 noundef %200, i64 noundef %212, i1 noundef zeroext %.sink258) #8
   %213 = load ptr, ptr %65, align 8, !tbaa !16
   %214 = getelementptr inbounds nuw i8, ptr %213, i64 48
   %215 = load i32, ptr %214, align 8, !tbaa !25
@@ -465,7 +465,6 @@ define range(i32 -1, 1) i32 @H5T__conv_b_b(ptr noundef %0, ptr noundef readonly 
   br label %.thread220
 
 .loopexit225:                                     ; preds = %245, %101, %.thread, %204, %188, %163
-  %.1 = phi i32 [ -1, %188 ], [ -1, %204 ], [ -1, %163 ], [ -1, %.thread ], [ 0, %101 ], [ 0, %245 ]
   %.not210 = icmp eq ptr %.1177, null
   br i1 %.not210, label %.thread220, label %251
 
@@ -474,7 +473,7 @@ define range(i32 -1, 1) i32 @H5T__conv_b_b(ptr noundef %0, ptr noundef readonly 
   br label %.thread220
 
 .thread220:                                       ; preds = %97, %56, %50, %18, %45, %41, %32, %23, %247, %9, %251, %.loopexit225
-  %.0 = phi i32 [ %.1, %251 ], [ %.1, %.loopexit225 ], [ 0, %9 ], [ -1, %97 ], [ -1, %56 ], [ -1, %50 ], [ 0, %18 ], [ 0, %45 ], [ -1, %41 ], [ -1, %32 ], [ -1, %23 ], [ -1, %247 ]
+  %.0 = phi i32 [ -1, %251 ], [ -1, %.loopexit225 ], [ 0, %9 ], [ -1, %97 ], [ -1, %56 ], [ -1, %50 ], [ 0, %18 ], [ 0, %45 ], [ -1, %41 ], [ -1, %32 ], [ -1, %23 ], [ -1, %247 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.0
 }

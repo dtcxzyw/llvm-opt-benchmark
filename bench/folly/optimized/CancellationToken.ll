@@ -226,14 +226,13 @@ define void @_ZN5folly6detail17CancellationState14removeCallbackEPNS_20Cancellat
   br label %8
 
 8:                                                ; preds = %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i, %2
-  %.sroa.4.0.i = phi i32 [ 0, %2 ], [ %.sroa.4.1.lcssa.i, %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i ]
   %.0.i = phi i64 [ %6, %2 ], [ %29, %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i ]
   %9 = and i64 %.0.i, 2
   %.not6.i = icmp eq i64 %9, 0
   br i1 %.not6.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %8, %_ZN5folly6detail7Sleeper4waitEv.exit.i
-  %.sroa.4.17.i = phi i32 [ %.sroa.4.2.i, %_ZN5folly6detail7Sleeper4waitEv.exit.i ], [ %.sroa.4.0.i, %8 ]
+  %.sroa.4.17.i = phi i32 [ %.sroa.4.2.i, %_ZN5folly6detail7Sleeper4waitEv.exit.i ], [ poison, %8 ]
   %10 = icmp ult i32 %.sroa.4.17.i, 4000
   br i1 %10, label %11, label %13
 
@@ -281,7 +280,6 @@ _ZN5folly6detail7Sleeper4waitEv.exit.i:           ; preds = %.critedge.i.i.i, %1
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !39
 
 ._crit_edge.i:                                    ; preds = %_ZN5folly6detail7Sleeper4waitEv.exit.i, %8
-  %.sroa.4.1.lcssa.i = phi i32 [ %.sroa.4.0.i, %8 ], [ %.sroa.4.2.i, %_ZN5folly6detail7Sleeper4waitEv.exit.i ]
   %.1.lcssa.i = phi i64 [ %.0.i, %8 ], [ %24, %_ZN5folly6detail7Sleeper4waitEv.exit.i ]
   %26 = or disjoint i64 %.1.lcssa.i, 2
   %27 = cmpxchg weak ptr %5, i64 %.1.lcssa.i, i64 %26 acquire monotonic, align 8
@@ -455,14 +453,13 @@ define void @_ZN5folly6detail17CancellationState4lockEv(ptr noundef nonnull alig
   br label %6
 
 6:                                                ; preds = %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit, %1
-  %.sroa.4.0 = phi i32 [ 0, %1 ], [ %.sroa.4.1.lcssa, %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit ]
   %.0 = phi i64 [ %4, %1 ], [ %27, %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit ]
   %7 = and i64 %.0, 2
   %.not6 = icmp eq i64 %7, 0
   br i1 %.not6, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6, %_ZN5folly6detail7Sleeper4waitEv.exit
-  %.sroa.4.17 = phi i32 [ %.sroa.4.2, %_ZN5folly6detail7Sleeper4waitEv.exit ], [ %.sroa.4.0, %6 ]
+  %.sroa.4.17 = phi i32 [ %.sroa.4.2, %_ZN5folly6detail7Sleeper4waitEv.exit ], [ poison, %6 ]
   %8 = icmp ult i32 %.sroa.4.17, 4000
   br i1 %8, label %9, label %11
 
@@ -510,7 +507,6 @@ _ZN5folly6detail7Sleeper4waitEv.exit:             ; preds = %9, %.critedge.i.i
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !39
 
 ._crit_edge:                                      ; preds = %_ZN5folly6detail7Sleeper4waitEv.exit, %6
-  %.sroa.4.1.lcssa = phi i32 [ %.sroa.4.0, %6 ], [ %.sroa.4.2, %_ZN5folly6detail7Sleeper4waitEv.exit ]
   %.1.lcssa = phi i64 [ %.0, %6 ], [ %22, %_ZN5folly6detail7Sleeper4waitEv.exit ]
   %24 = or disjoint i64 %.1.lcssa, 2
   %25 = cmpxchg weak ptr %3, i64 %.1.lcssa, i64 %24 acquire monotonic, align 8
@@ -730,14 +726,13 @@ _ZN5folly6detail17CancellationState4lockEv.exit.thread: ; preds = %58
   br label %61
 
 61:                                               ; preds = %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i20, %59
-  %.sroa.4.0.i = phi i32 [ 0, %59 ], [ %.sroa.4.1.lcssa.i, %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i20 ]
   %.0.i = phi i64 [ %60, %59 ], [ %82, %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i20 ]
   %62 = and i64 %.0.i, 2
   %.not6.i = icmp eq i64 %62, 0
   br i1 %.not6.i, label %._crit_edge.i, label %.lr.ph.i14
 
 .lr.ph.i14:                                       ; preds = %61, %_ZN5folly6detail7Sleeper4waitEv.exit.i17
-  %.sroa.4.17.i = phi i32 [ %.sroa.4.2.i18, %_ZN5folly6detail7Sleeper4waitEv.exit.i17 ], [ %.sroa.4.0.i, %61 ]
+  %.sroa.4.17.i = phi i32 [ %.sroa.4.2.i18, %_ZN5folly6detail7Sleeper4waitEv.exit.i17 ], [ poison, %61 ]
   %63 = icmp ult i32 %.sroa.4.17.i, 4000
   br i1 %63, label %64, label %66
 
@@ -785,7 +780,6 @@ _ZN5folly6detail7Sleeper4waitEv.exit.i17:         ; preds = %.critedge.i.i.i16, 
   br i1 %.not.i19, label %._crit_edge.i, label %.lr.ph.i14, !llvm.loop !39
 
 ._crit_edge.i:                                    ; preds = %_ZN5folly6detail7Sleeper4waitEv.exit.i17, %61
-  %.sroa.4.1.lcssa.i = phi i32 [ %.sroa.4.0.i, %61 ], [ %.sroa.4.2.i18, %_ZN5folly6detail7Sleeper4waitEv.exit.i17 ]
   %.1.lcssa.i = phi i64 [ %.0.i, %61 ], [ %77, %_ZN5folly6detail7Sleeper4waitEv.exit.i17 ]
   %79 = or disjoint i64 %.1.lcssa.i, 2
   %80 = cmpxchg weak ptr %5, i64 %.1.lcssa.i, i64 %79 acquire monotonic, align 8

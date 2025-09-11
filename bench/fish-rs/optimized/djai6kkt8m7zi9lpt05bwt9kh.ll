@@ -18044,8 +18044,6 @@ define noundef range(i32 0, 3) i32 @_ZN4fish8builtins8function8function17hb8d4f6
   br label %326
 
 326:                                              ; preds = %.backedge, %.noexc138
-  %.sroa.4246.0 = phi i32 [ undef, %.noexc138 ], [ %.sroa.4246.0.be, %.backedge ]
-  %.sroa.7247.0 = phi i64 [ undef, %.noexc138 ], [ %.sroa.7247.0.be, %.backedge ]
   %.sroa.01.0.i = phi i1 [ false, %.noexc138 ], [ %.sroa.01.0.i.be, %.backedge ]
   %327 = invoke noundef i32 @_ZN4fish7wgetopt9WGetopter8next_opt17h00a46e38b64ab16dE(ptr noalias noundef nonnull align 8 dereferenceable(112) %84)
           to label %.noexc139 unwind label %.loopexit.split-lp347.loopexit
@@ -18830,8 +18828,8 @@ define noundef range(i32 0, 3) i32 @_ZN4fish8builtins8function8function17hb8d4f6
   br label %.thread264
 
 547:                                              ; preds = %574, %.noexc169, %.noexc167, %523, %570
-  %.sroa.4246.2 = phi i32 [ %.sroa.5107.0.extract.trunc..i, %570 ], [ %.sroa.4246.0, %523 ], [ %565, %.noexc167 ], [ %.sroa.5110.0.extract.trunc.i, %.noexc169 ], [ 0, %574 ]
-  %.sroa.7247.2 = phi i64 [ %.sroa.7247.0, %570 ], [ %524, %523 ], [ %.sroa.7247.0, %.noexc167 ], [ %.sroa.095.1.i, %.noexc169 ], [ 0, %574 ]
+  %.sroa.4246.2 = phi i32 [ %.sroa.5107.0.extract.trunc..i, %570 ], [ poison, %523 ], [ %565, %.noexc167 ], [ %.sroa.5110.0.extract.trunc.i, %.noexc169 ], [ 0, %574 ]
+  %.sroa.7247.2 = phi i64 [ poison, %570 ], [ %524, %523 ], [ poison, %.noexc167 ], [ %.sroa.095.1.i, %.noexc169 ], [ 0, %574 ]
   %.sink.i = phi i32 [ 3, %570 ], [ 5, %523 ], [ 3, %.noexc167 ], [ 4, %.noexc169 ], [ 4, %574 ]
   %548 = load i64, ptr %.sroa.5.0..sroa_idx.i131, align 8, !alias.scope !1365, !noalias !1368, !noundef !3
   %549 = load i64, ptr %315, align 8, !range !194, !alias.scope !1365, !noalias !1368, !noundef !3
@@ -19257,8 +19255,6 @@ define noundef range(i32 0, 3) i32 @_ZN4fish8builtins8function8function17hb8d4f6
   br label %.backedge
 
 .backedge:                                        ; preds = %.noexc181, %.noexc176, %627, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h192b44b7fb101e0cE.exit.i", %.noexc158, %.noexc155, %.noexc151, %446, %389, %350, %344
-  %.sroa.4246.0.be = phi i32 [ %.sroa.4246.0, %627 ], [ %.sroa.4246.0, %389 ], [ %.sroa.4246.0, %446 ], [ %.sroa.4246.0, %.noexc151 ], [ %.sroa.4246.0, %.noexc155 ], [ %.sroa.4246.0, %.noexc158 ], [ %.sroa.4246.2, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h192b44b7fb101e0cE.exit.i" ], [ %.sroa.4246.0, %344 ], [ %.sroa.4246.0, %.noexc176 ], [ %.sroa.4246.0, %.noexc181 ], [ %.sroa.4246.0, %350 ]
-  %.sroa.7247.0.be = phi i64 [ %.sroa.7247.0, %627 ], [ %.sroa.7247.0, %389 ], [ %.sroa.7247.0, %446 ], [ %.sroa.7247.0, %.noexc151 ], [ %.sroa.7247.0, %.noexc155 ], [ %.sroa.7247.0, %.noexc158 ], [ %.sroa.7247.2, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h192b44b7fb101e0cE.exit.i" ], [ %.sroa.7247.0, %344 ], [ %.sroa.7247.0, %.noexc176 ], [ %.sroa.7247.0, %.noexc181 ], [ %.sroa.7247.0, %350 ]
   %.sroa.01.0.i.be = phi i1 [ true, %627 ], [ true, %389 ], [ false, %446 ], [ false, %.noexc151 ], [ false, %.noexc155 ], [ false, %.noexc158 ], [ false, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h192b44b7fb101e0cE.exit.i" ], [ false, %344 ], [ false, %.noexc176 ], [ false, %.noexc181 ], [ false, %350 ]
   br label %326
 

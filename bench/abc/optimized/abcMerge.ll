@@ -2546,7 +2546,6 @@ Abc_Clock.exit:                                   ; preds = %2, %9
   br label %54
 
 54:                                               ; preds = %.lr.ph146, %92
-  %.val107.pre162 = phi i32 [ 0, %.lr.ph146 ], [ %.val107.pre163, %92 ]
   %indvars.iv159 = phi i64 [ 0, %.lr.ph146 ], [ %indvars.iv.next160, %92 ]
   %55 = phi ptr [ %49, %.lr.ph146 ], [ %93, %92 ]
   %.0145 = phi i32 [ 0, %.lr.ph146 ], [ %.1, %92 ]
@@ -2583,7 +2582,7 @@ Abc_Clock.exit:                                   ; preds = %2, %9
   br label %70
 
 70:                                               ; preds = %69, %67
-  %.val107.pre = phi i32 [ %.val107.pre.pre, %69 ], [ %.val107.pre162, %67 ]
+  %.val107.pre = phi i32 [ %.val107.pre.pre, %69 ], [ poison, %67 ]
   %.val110 = load i32, ptr %42, align 4, !tbaa !43
   %71 = icmp eq i32 %.val110, 0
   br i1 %71, label %72, label %74
@@ -2652,7 +2651,6 @@ Abc_Clock.exit:                                   ; preds = %2, %9
   br label %92
 
 92:                                               ; preds = %60, %54, %89, %.critedge6, %72, %63
-  %.val107.pre163 = phi i32 [ %.val107.pre162, %54 ], [ %.val107.pre162, %63 ], [ 0, %72 ], [ %.val107.pre, %89 ], [ %.val107.pre, %.critedge6 ], [ %.val107.pre162, %60 ]
   %.1 = phi i32 [ %.0145, %54 ], [ %.0145, %63 ], [ %.0145, %72 ], [ %78, %89 ], [ %78, %.critedge6 ], [ %.0145, %60 ]
   %indvars.iv.next160 = add nuw nsw i64 %indvars.iv159, 1
   %93 = load ptr, ptr %13, align 8, !tbaa !34

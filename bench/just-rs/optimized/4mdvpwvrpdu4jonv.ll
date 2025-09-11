@@ -3323,9 +3323,6 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.exit.i330:
   %.sroa.93158.0 = phi i64 [ undef, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h87221ba266999237E.exit.lr.ph" ], [ %.sroa.93158.1, %532 ]
   %.sroa.8.0 = phi ptr [ undef, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h87221ba266999237E.exit.lr.ph" ], [ %.sroa.8.1, %532 ]
   %312 = phi i64 [ %186, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h87221ba266999237E.exit.lr.ph" ], [ %533, %532 ]
-  %.sroa.15.01347 = phi ptr [ undef, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h87221ba266999237E.exit.lr.ph" ], [ %.sroa.15.1.lcssa, %532 ]
-  %.sroa.17504.01346 = phi i64 [ undef, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h87221ba266999237E.exit.lr.ph" ], [ %.sroa.17504.1.lcssa, %532 ]
-  %.sroa.19.01345 = phi ptr [ undef, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h87221ba266999237E.exit.lr.ph" ], [ %.sroa.19.1.lcssa, %532 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !384)
   %313 = add i64 %312, -1
   store i64 %313, ptr %156, align 8, !alias.scope !384, !noalias !387
@@ -3911,9 +3908,6 @@ _ZN3std4path4Path12strip_prefix17h93ad17499da5bf50E.exit.i: ; preds = %336
   %.sroa.8.1 = phi ptr [ %.sroa.8.0, %466 ], [ %.sroa.8.3, %._crit_edge.loopexit ]
   %469 = phi i64 [ 0, %466 ], [ %.pre1783, %._crit_edge.loopexit ]
   %470 = phi ptr [ %.val, %466 ], [ %.pre1782, %._crit_edge.loopexit ]
-  %.sroa.19.1.lcssa = phi ptr [ %.sroa.19.01345, %466 ], [ %.sroa.19.2, %._crit_edge.loopexit ]
-  %.sroa.17504.1.lcssa = phi i64 [ %.sroa.17504.01346, %466 ], [ %.sroa.17504.2, %._crit_edge.loopexit ]
-  %.sroa.15.1.lcssa = phi ptr [ %.sroa.15.01347, %466 ], [ %.sroa.15.2, %._crit_edge.loopexit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %94)
   call void @llvm.lifetime.start.p0(ptr nonnull %93)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %93, ptr noundef nonnull align 8 dereferenceable(24) %116, i64 24, i1 false)
@@ -3951,9 +3945,6 @@ _ZN3std4path4Path12strip_prefix17h93ad17499da5bf50E.exit.i: ; preds = %336
   %.sroa.93158.2 = phi i64 [ %.sroa.93158.3, %537 ], [ %.sroa.93158.0, %466 ]
   %.sroa.8.2 = phi ptr [ %.sroa.8.3, %537 ], [ %.sroa.8.0, %466 ]
   %.sroa.0495.01342 = phi ptr [ %478, %537 ], [ %.val, %466 ]
-  %.sroa.15.11341 = phi ptr [ %.sroa.15.2, %537 ], [ %.sroa.15.01347, %466 ]
-  %.sroa.17504.11340 = phi i64 [ %.sroa.17504.2, %537 ], [ %.sroa.17504.01346, %466 ]
-  %.sroa.19.11339 = phi ptr [ %.sroa.19.2, %537 ], [ %.sroa.19.01345, %466 ]
   %478 = getelementptr inbounds nuw i8, ptr %.sroa.0495.01342, i64 272
   %479 = load i64, ptr %.sroa.0495.01342, align 8, !range !532, !noundef !13
   %480 = xor i64 %479, -9223372036854775808
@@ -4154,9 +4145,6 @@ _ZN3std4path4Path12strip_prefix17h93ad17499da5bf50E.exit.i: ; preds = %336
 537:                                              ; preds = %.thread670, %984, %658, %.lr.ph
   %.sroa.93158.3 = phi i64 [ %.sroa.93158.2, %.lr.ph ], [ %.sroa.93158.2, %658 ], [ %.sroa.93158.5, %984 ], [ %.sroa.93158.5, %.thread670 ]
   %.sroa.8.3 = phi ptr [ %.sroa.8.2, %.lr.ph ], [ %.sroa.8.2, %658 ], [ %.sroa.8.5, %984 ], [ %.sroa.8.5, %.thread670 ]
-  %.sroa.19.2 = phi ptr [ %.sroa.19.11339, %.lr.ph ], [ %.sroa.19.11339, %658 ], [ %.sroa.19.3, %984 ], [ %.sroa.19.3, %.thread670 ]
-  %.sroa.17504.2 = phi i64 [ %.sroa.17504.11340, %.lr.ph ], [ %.sroa.17504.11340, %658 ], [ %.sroa.17504.3, %984 ], [ %.sroa.17504.3, %.thread670 ]
-  %.sroa.15.2 = phi ptr [ %.sroa.15.11341, %.lr.ph ], [ %.sroa.15.11341, %658 ], [ %.sroa.15.3, %984 ], [ %.sroa.15.3, %.thread670 ]
   %538 = icmp eq ptr %478, %467
   br i1 %538, label %._crit_edge.loopexit, label %.lr.ph
 
@@ -5035,9 +5023,9 @@ _ZN3std4path4Path4join17h1c94c080314e7f53E.exit.i: ; preds = %755
   br label %770
 
 808:                                              ; preds = %770, %.loopexit.i, %848
-  %.sroa.19.4 = phi ptr [ %.sroa.435.i.sroa.7.7.copyload, %.loopexit.i ], [ %.sroa.19.11339, %848 ], [ %.sroa.19.11339, %770 ]
-  %.sroa.17504.4 = phi i64 [ %.sroa.435.i.sroa.6.7.copyload, %.loopexit.i ], [ %.sroa.5583.0.copyload, %848 ], [ %.sroa.17504.11340, %770 ]
-  %.sroa.15.4 = phi ptr [ %.sroa.435.i.sroa.5.7.copyload, %.loopexit.i ], [ %.sroa.4582.0.copyload, %848 ], [ %.sroa.15.11341, %770 ]
+  %.sroa.19.4 = phi ptr [ %.sroa.435.i.sroa.7.7.copyload, %.loopexit.i ], [ poison, %848 ], [ poison, %770 ]
+  %.sroa.17504.4 = phi i64 [ %.sroa.435.i.sroa.6.7.copyload, %.loopexit.i ], [ %.sroa.5583.0.copyload, %848 ], [ poison, %770 ]
+  %.sroa.15.4 = phi ptr [ %.sroa.435.i.sroa.5.7.copyload, %.loopexit.i ], [ %.sroa.4582.0.copyload, %848 ], [ poison, %770 ]
   %.sroa.10498.0 = phi i64 [ %.sroa.435.i.sroa.3.7.copyload, %.loopexit.i ], [ %.sroa.0581.0.copyload, %848 ], [ -9223372036854775808, %770 ]
   %.sroa.0497.0 = phi i8 [ 0, %.loopexit.i ], [ 44, %848 ], [ 44, %770 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %27), !noalias !848
@@ -5597,9 +5585,6 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit130.i: ; preds = %896
   %.sroa.93158.5 = phi i64 [ %.sroa.17504.5, %973 ], [ %.sroa.93158.4, %961 ]
   %.sroa.8.5 = phi ptr [ %.sroa.15.5, %973 ], [ %.sroa.8.4, %961 ]
   %970 = phi i64 [ %.sroa.10498.1, %973 ], [ %.sroa.0.0, %961 ]
-  %.sroa.19.3 = phi ptr [ %.sroa.19.5, %973 ], [ %.sroa.19.11339, %961 ]
-  %.sroa.17504.3 = phi i64 [ %.sroa.17504.5, %973 ], [ %.sroa.17504.11340, %961 ]
-  %.sroa.15.3 = phi ptr [ %.sroa.15.5, %973 ], [ %.sroa.15.11341, %961 ]
   %.not301 = icmp eq i64 %970, -9223372036854775808
   br i1 %.not301, label %984, label %976
 

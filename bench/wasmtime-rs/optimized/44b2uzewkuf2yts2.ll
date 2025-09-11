@@ -7027,8 +7027,6 @@ define void @_ZN16wasmtime_runtime8instance14InstanceHandle10wasm_fault17he9a262
 .lr.ph.i:                                         ; preds = %8, %28
   %14 = phi ptr [ %29, %28 ], [ %12, %8 ]
   %.sroa.0.07.i = phi i64 [ %.sroa.0.1.i, %28 ], [ 0, %8 ]
-  %.sroa.6.sroa.4.06.i = phi i64 [ %.sroa.6.sroa.4.1.i, %28 ], [ undef, %8 ]
-  %.sroa.6.sroa.0.05.i = phi i64 [ %.sroa.6.sroa.0.1.i, %28 ], [ undef, %8 ]
   %15 = load i64, ptr %.sroa.3.0..sroa_idx.i, align 8, !alias.scope !1078, !noalias !1075, !noundef !4
   %16 = add i64 %15, 1
   store i64 %16, ptr %.sroa.3.0..sroa_idx.i, align 8, !alias.scope !1078, !noalias !1075
@@ -7048,8 +7046,6 @@ define void @_ZN16wasmtime_runtime8instance14InstanceHandle10wasm_fault17he9a262
   br i1 %or.cond.i, label %31, label %28
 
 28:                                               ; preds = %33, %.lr.ph.i
-  %.sroa.6.sroa.0.1.i = phi i64 [ %38, %33 ], [ %.sroa.6.sroa.0.05.i, %.lr.ph.i ]
-  %.sroa.6.sroa.4.1.i = phi i64 [ %39, %33 ], [ %.sroa.6.sroa.4.06.i, %.lr.ph.i ]
   %.sroa.0.1.i = phi i64 [ 1, %33 ], [ %.sroa.0.07.i, %.lr.ph.i ]
   %29 = call noundef align 8 dereferenceable_or_null(24) ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hda2a2148ee3b10b4E.llvm.12299150788236080081"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4), !noalias !1075
   %30 = icmp eq ptr %29, null
@@ -7070,19 +7066,12 @@ define void @_ZN16wasmtime_runtime8instance14InstanceHandle10wasm_fault17he9a262
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %37 = load ptr, ptr %36, align 8, !invariant.load !4, !noalias !1090, !nonnull !4
   %38 = call noundef i64 %37(ptr noundef nonnull align 1 %34), !noalias !1090
-  %39 = sub i64 %2, %24
   br label %28
 
 _ZN16wasmtime_runtime8instance8Instance10wasm_fault17h8b41f797171ba572E.exit: ; preds = %28, %8
-  %.sroa.6.sroa.0.0.lcssa.i = phi i64 [ undef, %8 ], [ %.sroa.6.sroa.0.1.i, %28 ]
-  %.sroa.6.sroa.4.0.lcssa.i = phi i64 [ undef, %8 ], [ %.sroa.6.sroa.4.1.i, %28 ]
   %.sroa.0.0.lcssa.i = phi i64 [ 0, %8 ], [ %.sroa.0.1.i, %28 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !1075
   store i64 %.sroa.0.0.lcssa.i, ptr %0, align 8, !alias.scope !1075
-  %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.6.sroa.0.0.lcssa.i, ptr %.sroa.6.0..sroa_idx.i, align 8, !alias.scope !1075
-  %.sroa.6.sroa.4.0..sroa.6.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.6.sroa.4.0.lcssa.i, ptr %.sroa.6.sroa.4.0..sroa.6.0..sroa_idx.sroa_idx.i, align 8, !alias.scope !1075
   ret void
 }
 

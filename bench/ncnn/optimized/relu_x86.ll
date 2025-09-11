@@ -690,7 +690,7 @@ define internal void @_ZNK4ncnn8ReLU_x8620forward_inplace_int8ERNS_3MatERKNS_6Op
   %9 = alloca i32, align 4
   %10 = load i32, ptr %2, align 4, !tbaa !18
   %11 = icmp sgt i32 %10, 0
-  br i1 %11, label %12, label %46
+  br i1 %11, label %12, label %44
 
 12:                                               ; preds = %5
   %13 = add nsw i32 %10, -1
@@ -723,53 +723,51 @@ define internal void @_ZNK4ncnn8ReLU_x8620forward_inplace_int8ERNS_3MatERKNS_6Op
   br label %.noexc
 
 .noexc:                                           ; preds = %.noexc.preheader, %._crit_edge
-  %23 = phi i32 [ %16, %.noexc.preheader ], [ %42, %._crit_edge ]
-  %24 = phi i32 [ %20, %.noexc.preheader ], [ %43, %._crit_edge ]
-  %25 = phi i32 [ %20, %.noexc.preheader ], [ %44, %._crit_edge ]
+  %23 = phi i32 [ %16, %.noexc.preheader ], [ %41, %._crit_edge ]
+  %24 = phi i32 [ %20, %.noexc.preheader ], [ %42, %._crit_edge ]
   %indvars.iv = phi i64 [ %22, %.noexc.preheader ], [ %indvars.iv.next, %._crit_edge ]
-  %26 = icmp sgt i32 %25, 0
-  br i1 %26, label %.lr.ph.preheader, label %._crit_edge
+  %25 = icmp sgt i32 %24, 0
+  br i1 %25, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %.noexc
-  %27 = load ptr, ptr %3, align 8, !tbaa !41, !noalias !66
-  %28 = load i64, ptr %18, align 8, !tbaa !45, !noalias !66
-  %29 = mul i64 %28, %indvars.iv
-  %30 = load i64, ptr %19, align 8, !tbaa !13, !noalias !66
-  %31 = mul i64 %29, %30
-  %32 = getelementptr inbounds nuw i8, ptr %27, i64 %31
+  %26 = load ptr, ptr %3, align 8, !tbaa !41, !noalias !66
+  %27 = load i64, ptr %18, align 8, !tbaa !45, !noalias !66
+  %28 = mul i64 %27, %indvars.iv
+  %29 = load i64, ptr %19, align 8, !tbaa !13, !noalias !66
+  %30 = mul i64 %28, %29
+  %31 = getelementptr inbounds nuw i8, ptr %26, i64 %30
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %37
-  %33 = phi i32 [ %38, %37 ], [ %24, %.lr.ph.preheader ]
-  %.029 = phi i32 [ %40, %37 ], [ 0, %.lr.ph.preheader ]
-  %.01928 = phi ptr [ %39, %37 ], [ %32, %.lr.ph.preheader ]
-  %34 = load i8, ptr %.01928, align 1, !tbaa !49
-  %35 = icmp slt i8 %34, 0
-  br i1 %35, label %36, label %37
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %36
+  %32 = phi i32 [ %37, %36 ], [ poison, %.lr.ph.preheader ]
+  %.029 = phi i32 [ %39, %36 ], [ 0, %.lr.ph.preheader ]
+  %.01928 = phi ptr [ %38, %36 ], [ %31, %.lr.ph.preheader ]
+  %33 = load i8, ptr %.01928, align 1, !tbaa !49
+  %34 = icmp slt i8 %33, 0
+  br i1 %34, label %35, label %36
 
-36:                                               ; preds = %.lr.ph
+35:                                               ; preds = %.lr.ph
   store i8 0, ptr %.01928, align 1, !tbaa !49
   %.pre = load i32, ptr %4, align 4, !tbaa !18
-  br label %37
+  br label %36
 
-37:                                               ; preds = %36, %.lr.ph
-  %38 = phi i32 [ %.pre, %36 ], [ %33, %.lr.ph ]
-  %39 = getelementptr inbounds nuw i8, ptr %.01928, i64 1
-  %40 = add nuw nsw i32 %.029, 1
-  %41 = icmp slt i32 %40, %38
-  br i1 %41, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !69
+36:                                               ; preds = %35, %.lr.ph
+  %37 = phi i32 [ %.pre, %35 ], [ %32, %.lr.ph ]
+  %38 = getelementptr inbounds nuw i8, ptr %.01928, i64 1
+  %39 = add nuw nsw i32 %.029, 1
+  %40 = icmp slt i32 %39, %37
+  br i1 %40, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !69
 
-._crit_edge.loopexit:                             ; preds = %37
+._crit_edge.loopexit:                             ; preds = %36
   %.pre35 = load i32, ptr %7, align 4, !tbaa !18
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.noexc
-  %42 = phi i32 [ %.pre35, %._crit_edge.loopexit ], [ %23, %.noexc ]
-  %43 = phi i32 [ %38, %._crit_edge.loopexit ], [ %24, %.noexc ]
-  %44 = phi i32 [ %38, %._crit_edge.loopexit ], [ %25, %.noexc ]
+  %41 = phi i32 [ %.pre35, %._crit_edge.loopexit ], [ %23, %.noexc ]
+  %42 = phi i32 [ %37, %._crit_edge.loopexit ], [ %24, %.noexc ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %45 = sext i32 %42 to i64
-  %.not.not = icmp slt i64 %indvars.iv, %45
+  %43 = sext i32 %41 to i64
+  %.not.not = icmp slt i64 %indvars.iv, %43
   br i1 %.not.not, label %.noexc, label %._crit_edge32, !llvm.loop !70
 
 ._crit_edge32:                                    ; preds = %._crit_edge, %.noexc.lr.ph, %12
@@ -778,9 +776,9 @@ define internal void @_ZNK4ncnn8ReLU_x8620forward_inplace_int8ERNS_3MatERKNS_6Op
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %46
+  br label %44
 
-46:                                               ; preds = %._crit_edge32, %5
+44:                                               ; preds = %._crit_edge32, %5
   ret void
 }
 

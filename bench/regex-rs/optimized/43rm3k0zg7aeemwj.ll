@@ -2177,24 +2177,18 @@ define hidden noundef zeroext i1 @_ZN12regex_syntax3hir7visitor11HeapVisitor5vis
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %7, align 8
   %8 = call noundef zeroext i1 @"_ZN97_$LT$regex_syntax..hir..print..Writer$LT$W$GT$$u20$as$u20$regex_syntax..hir..visitor..Visitor$GT$9visit_pre17h23e30531a2cb5d0bE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %1)
-  br i1 %8, label %.loopexit, label %.lr.ph.lr.ph
+  br i1 %8, label %.loopexit, label %.lr.ph
 
-.lr.ph.lr.ph:                                     ; preds = %3
+.lr.ph:                                           ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.8.8..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.sroa.1156.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
-  br label %.lr.ph
-
-.lr.ph:                                           ; preds = %.lr.ph.lr.ph, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6559da0a4fc85048E.exit"
-  %.0.ph114 = phi ptr [ %1, %.lr.ph.lr.ph ], [ %.0.in.i.sroa.speculated, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6559da0a4fc85048E.exit" ]
-  %.sroa.16.0.ph113 = phi ptr [ undef, %.lr.ph.lr.ph ], [ %.sroa.16.1.ph84, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6559da0a4fc85048E.exit" ]
-  %.sroa.18.0.ph112 = phi i64 [ undef, %.lr.ph.lr.ph ], [ %.sroa.18.1.ph83, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6559da0a4fc85048E.exit" ]
   br label %10
 
-10:                                               ; preds = %.lr.ph, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6559da0a4fc85048E.exit37"
-  %.0111 = phi ptr [ %.0.ph114, %.lr.ph ], [ %.0.in.i32.sroa.speculated, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6559da0a4fc85048E.exit37" ]
-  %11 = load i64, ptr %.0111, align 8, !range !277, !alias.scope !278, !noalias !281, !noundef !4
+10:                                               ; preds = %.lr.ph, %.backedge
+  %.0104 = phi ptr [ %1, %.lr.ph ], [ %.0.be, %.backedge ]
+  %11 = load i64, ptr %.0104, align 8, !range !277, !alias.scope !278, !noalias !281, !noundef !4
   switch i64 %11, label %_ZN12regex_syntax3hir7visitor11HeapVisitor6induct17hcc11919c1d8feaaaE.exit [
     i64 6, label %20
     i64 7, label %23
@@ -2203,13 +2197,13 @@ define hidden noundef zeroext i1 @_ZN12regex_syntax3hir7visitor11HeapVisitor5vis
   ]
 
 12:                                               ; preds = %10
-  %13 = getelementptr inbounds nuw i8, ptr %.0111, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %.0104, i64 24
   %14 = load i64, ptr %13, align 8, !alias.scope !278, !noalias !281, !noundef !4
   %15 = icmp eq i64 %14, 0
   br i1 %15, label %_ZN12regex_syntax3hir7visitor11HeapVisitor6induct17hcc11919c1d8feaaaE.exit, label %.thread
 
 16:                                               ; preds = %10
-  %17 = getelementptr inbounds nuw i8, ptr %.0111, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %.0104, i64 24
   %18 = load i64, ptr %17, align 8, !alias.scope !278, !noalias !281, !noundef !4
   %19 = icmp eq i64 %18, 0
   br i1 %19, label %_ZN12regex_syntax3hir7visitor11HeapVisitor6induct17hcc11919c1d8feaaaE.exit, label %.thread
@@ -2217,28 +2211,28 @@ define hidden noundef zeroext i1 @_ZN12regex_syntax3hir7visitor11HeapVisitor5vis
 .thread:                                          ; preds = %16, %12
   %.sroa.18.1.ph.ph.in = phi i64 [ %14, %12 ], [ %18, %16 ]
   %.sroa.0.0.ph.ph = phi i64 [ 2, %12 ], [ 3, %16 ]
-  %.sroa.12.1.ph.ph.in = getelementptr inbounds nuw i8, ptr %.0111, i64 16
+  %.sroa.12.1.ph.ph.in = getelementptr inbounds nuw i8, ptr %.0104, i64 16
   %.sroa.12.1.ph.ph = load ptr, ptr %.sroa.12.1.ph.ph.in, align 8, !alias.scope !278, !noalias !281, !nonnull !4, !noundef !4
   %.sroa.16.1.ph.ph = getelementptr inbounds nuw i8, ptr %.sroa.12.1.ph.ph, i64 48
   %.sroa.18.1.ph.ph = add i64 %.sroa.18.1.ph.ph.in, -1
   br label %_ZN12regex_syntax3hir7visitor5Frame5child17h7989d29082ddd62fE.exit
 
 20:                                               ; preds = %10
-  %21 = getelementptr inbounds nuw i8, ptr %.0111, i64 8
-  %22 = getelementptr inbounds nuw i8, ptr %.0111, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %.0104, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %.0104, i64 16
   %.0.in.i.sroa.speculate.load. = load ptr, ptr %22, align 8
   br label %_ZN12regex_syntax3hir7visitor5Frame5child17h7989d29082ddd62fE.exit
 
 23:                                               ; preds = %10
-  %24 = getelementptr inbounds nuw i8, ptr %.0111, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %.0104, i64 8
   %.0.in.i.sroa.speculate.load.40 = load ptr, ptr %24, align 8
   br label %_ZN12regex_syntax3hir7visitor5Frame5child17h7989d29082ddd62fE.exit
 
 _ZN12regex_syntax3hir7visitor5Frame5child17h7989d29082ddd62fE.exit: ; preds = %.thread, %20, %23
   %.in = phi ptr [ %21, %20 ], [ %24, %23 ], [ %.sroa.12.1.ph.ph, %.thread ]
   %.sroa.0.0.ph86 = phi i64 [ 0, %20 ], [ 1, %23 ], [ %.sroa.0.0.ph.ph, %.thread ]
-  %.sroa.16.1.ph84 = phi ptr [ %.sroa.16.0.ph113, %20 ], [ %.sroa.16.0.ph113, %23 ], [ %.sroa.16.1.ph.ph, %.thread ]
-  %.sroa.18.1.ph83 = phi i64 [ %.sroa.18.0.ph112, %20 ], [ %.sroa.18.0.ph112, %23 ], [ %.sroa.18.1.ph.ph, %.thread ]
+  %.sroa.16.1.ph84 = phi ptr [ poison, %20 ], [ poison, %23 ], [ %.sroa.16.1.ph.ph, %.thread ]
+  %.sroa.18.1.ph83 = phi i64 [ poison, %20 ], [ poison, %23 ], [ %.sroa.18.1.ph.ph, %.thread ]
   %.0.in.i.sroa.speculated = phi ptr [ %.0.in.i.sroa.speculate.load., %20 ], [ %.0.in.i.sroa.speculate.load.40, %23 ], [ %.sroa.12.1.ph.ph, %.thread ]
   %25 = ptrtoint ptr %.in to i64
   %26 = load i64, ptr %7, align 8, !alias.scope !283, !noalias !286, !noundef !4
@@ -2255,7 +2249,7 @@ _ZN12regex_syntax3hir7visitor5Frame5child17h7989d29082ddd62fE.exit: ; preds = %.
   %30 = phi i64 [ %.pre.i, %29 ], [ %26, %_ZN12regex_syntax3hir7visitor5Frame5child17h7989d29082ddd62fE.exit ]
   %31 = load ptr, ptr %9, align 8, !alias.scope !283, !noalias !286, !nonnull !4, !noundef !4
   %32 = getelementptr inbounds { ptr, { i64, [3 x i64] } }, ptr %31, i64 %30
-  store ptr %.0111, ptr %32, align 8
+  store ptr %.0104, ptr %32, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %32, i64 8
   store i64 %.sroa.0.0.ph86, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %32, i64 16
@@ -2267,11 +2261,15 @@ _ZN12regex_syntax3hir7visitor5Frame5child17h7989d29082ddd62fE.exit: ; preds = %.
   %33 = load i64, ptr %7, align 8, !alias.scope !283, !noalias !286, !noundef !4
   %34 = add i64 %33, 1
   store i64 %34, ptr %7, align 8, !alias.scope !283, !noalias !286
-  %35 = call noundef zeroext i1 @"_ZN97_$LT$regex_syntax..hir..print..Writer$LT$W$GT$$u20$as$u20$regex_syntax..hir..visitor..Visitor$GT$9visit_pre17h23e30531a2cb5d0bE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %6, ptr noalias noundef readonly align 8 dereferenceable(48) %.0.in.i.sroa.speculated)
-  br i1 %35, label %.loopexit, label %.lr.ph
+  br label %.backedge
+
+.backedge:                                        ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6559da0a4fc85048E.exit", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6559da0a4fc85048E.exit37"
+  %.0.be = phi ptr [ %.0.in.i.sroa.speculated, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6559da0a4fc85048E.exit" ], [ %.0.in.i32.sroa.speculated, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6559da0a4fc85048E.exit37" ]
+  %35 = call noundef zeroext i1 @"_ZN97_$LT$regex_syntax..hir..print..Writer$LT$W$GT$$u20$as$u20$regex_syntax..hir..visitor..Visitor$GT$9visit_pre17h23e30531a2cb5d0bE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %6, ptr noalias noundef readonly align 8 dereferenceable(48) %.0.be)
+  br i1 %35, label %.loopexit, label %10
 
 _ZN12regex_syntax3hir7visitor11HeapVisitor6induct17hcc11919c1d8feaaaE.exit: ; preds = %10, %12, %16
-  %36 = call noundef zeroext i1 @"_ZN97_$LT$regex_syntax..hir..print..Writer$LT$W$GT$$u20$as$u20$regex_syntax..hir..visitor..Visitor$GT$10visit_post17h424aaeb6cbe312a8E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.0111)
+  %36 = call noundef zeroext i1 @"_ZN97_$LT$regex_syntax..hir..print..Writer$LT$W$GT$$u20$as$u20$regex_syntax..hir..visitor..Visitor$GT$10visit_post17h424aaeb6cbe312a8E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.0104)
   br i1 %36, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %_ZN12regex_syntax3hir7visitor11HeapVisitor6induct17hcc11919c1d8feaaaE.exit, %49
@@ -2310,7 +2308,7 @@ _ZN12regex_syntax3hir7visitor11HeapVisitor6induct17hcc11919c1d8feaaaE.exit: ; pr
   %.sroa.7.0.copyload = load i64, ptr %.sroa.7.0..sroa_idx, align 8
   switch i64 %47, label %52 [
     i64 2, label %.thread99
-    i64 3, label %67
+    i64 3, label %66
   ]
 
 49:                                               ; preds = %45
@@ -2318,7 +2316,7 @@ _ZN12regex_syntax3hir7visitor11HeapVisitor6induct17hcc11919c1d8feaaaE.exit: ; pr
   %50 = call noundef zeroext i1 @"_ZN97_$LT$regex_syntax..hir..print..Writer$LT$W$GT$$u20$as$u20$regex_syntax..hir..visitor..Visitor$GT$10visit_post17h424aaeb6cbe312a8E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.sroa.048.0.copyload)
   br i1 %50, label %.loopexit, label %.preheader
 
-.thread99:                                        ; preds = %67, %48
+.thread99:                                        ; preds = %66, %48
   %51 = inttoptr i64 %.sroa.7.0.copyload to ptr
   br label %_ZN12regex_syntax3hir7visitor5Frame5child17h7989d29082ddd62fE.exit35
 
@@ -2363,22 +2361,21 @@ _ZN12regex_syntax3hir7visitor5Frame5child17h7989d29082ddd62fE.exit35: ; preds = 
   %65 = add i64 %64, 1
   store i64 %65, ptr %7, align 8, !alias.scope !294, !noalias !297
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %66 = call noundef zeroext i1 @"_ZN97_$LT$regex_syntax..hir..print..Writer$LT$W$GT$$u20$as$u20$regex_syntax..hir..visitor..Visitor$GT$9visit_pre17h23e30531a2cb5d0bE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %6, ptr noalias noundef readonly align 8 dereferenceable(48) %.0.in.i32.sroa.speculated)
-  br i1 %66, label %.loopexit, label %10
+  br label %.backedge
 
-67:                                               ; preds = %48
+66:                                               ; preds = %48
   call void @llvm.experimental.noalias.scope.decl(metadata !299)
   call void @llvm.experimental.noalias.scope.decl(metadata !302)
-  %68 = load ptr, ptr %6, align 8, !alias.scope !305, !noalias !306, !nonnull !4, !align !5, !noundef !4
-  %69 = call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17hd5a64a03c9fdc386E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %68, ptr noalias noundef nonnull readonly align 1 @anon.a0cf07ee2bf0c4ef13b938348e5442a5.63.llvm.746658106587683372, i64 noundef 1), !noalias !305
-  br i1 %69, label %70, label %.thread99
+  %67 = load ptr, ptr %6, align 8, !alias.scope !305, !noalias !306, !nonnull !4, !align !5, !noundef !4
+  %68 = call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17hd5a64a03c9fdc386E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %67, ptr noalias noundef nonnull readonly align 1 @anon.a0cf07ee2bf0c4ef13b938348e5442a5.63.llvm.746658106587683372, i64 noundef 1), !noalias !305
+  br i1 %68, label %69, label %.thread99
 
-70:                                               ; preds = %67
+69:                                               ; preds = %66
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6559da0a4fc85048E.exit", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6559da0a4fc85048E.exit37", %_ZN12regex_syntax3hir7visitor11HeapVisitor6induct17hcc11919c1d8feaaaE.exit, %49, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17ha7298382b4c38916E.exit", %.preheader, %3, %70
-  %.017 = phi i1 [ true, %70 ], [ true, %3 ], [ true, %49 ], [ false, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17ha7298382b4c38916E.exit" ], [ false, %.preheader ], [ true, %_ZN12regex_syntax3hir7visitor11HeapVisitor6induct17hcc11919c1d8feaaaE.exit ], [ true, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6559da0a4fc85048E.exit37" ], [ true, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6559da0a4fc85048E.exit" ]
+.loopexit:                                        ; preds = %.backedge, %_ZN12regex_syntax3hir7visitor11HeapVisitor6induct17hcc11919c1d8feaaaE.exit, %49, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17ha7298382b4c38916E.exit", %.preheader, %3, %69
+  %.017 = phi i1 [ true, %69 ], [ true, %3 ], [ true, %49 ], [ false, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17ha7298382b4c38916E.exit" ], [ false, %.preheader ], [ true, %_ZN12regex_syntax3hir7visitor11HeapVisitor6induct17hcc11919c1d8feaaaE.exit ], [ true, %.backedge ]
   ret i1 %.017
 }
 

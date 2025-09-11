@@ -784,7 +784,6 @@ define void @ZSTD_buildFSETable(ptr noundef captures(none) %0, ptr noundef reado
 
 74:                                               ; preds = %._crit_edge17.i, %69
   %indvars.iv41.i = phi i64 [ 0, %69 ], [ %indvars.iv.next42.i, %._crit_edge17.i ]
-  %.0115.i20.i = phi i32 [ 0, %69 ], [ %.1116.i.lcssa.i, %._crit_edge17.i ]
   %75 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv41.i
   %76 = load i16, ptr %75, align 2, !tbaa !3
   %77 = sext i16 %76 to i32
@@ -797,8 +796,8 @@ define void @ZSTD_buildFSETable(ptr noundef captures(none) %0, ptr noundef reado
 
 .lr.ph16.i:                                       ; preds = %85, %.lr.ph16.preheader.i
   %.0114.i14.i = phi i32 [ %86, %85 ], [ 0, %.lr.ph16.preheader.i ]
-  %.1116.i13.i = phi i32 [ %.2.i.i, %85 ], [ %.0115.i20.i, %.lr.ph16.preheader.i ]
-  %80 = zext nneg i32 %.1116.i13.i to i64
+  %.1116.i13.i = phi i32 [ %.2.i.i, %85 ], [ poison, %.lr.ph16.preheader.i ]
+  %80 = zext i32 %.1116.i13.i to i64
   %81 = getelementptr inbounds nuw %struct.ZSTD_seqSymbol, ptr %12, i64 %80
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 4
   store i32 %79, ptr %82, align 4, !tbaa !40
@@ -806,7 +805,7 @@ define void @ZSTD_buildFSETable(ptr noundef captures(none) %0, ptr noundef reado
 
 83:                                               ; preds = %83, %.lr.ph16.i
   %.1116.pn.i.i = phi i32 [ %.1116.i13.i, %.lr.ph16.i ], [ %.2.i.i, %83 ]
-  %.pn.i.i = add nuw i32 %73, %.1116.pn.i.i
+  %.pn.i.i = add i32 %73, %.1116.pn.i.i
   %.2.i.i = and i32 %.pn.i.i, %16
   %84 = icmp ugt i32 %.2.i.i, %.1.i.i
   br i1 %84, label %83, label %85, !prof !47, !llvm.loop !48
@@ -817,7 +816,6 @@ define void @ZSTD_buildFSETable(ptr noundef captures(none) %0, ptr noundef reado
   br i1 %exitcond40.not.i, label %._crit_edge17.i, label %.lr.ph16.i, !llvm.loop !49
 
 ._crit_edge17.i:                                  ; preds = %85, %74
-  %.1116.i.lcssa.i = phi i32 [ %.0115.i20.i, %74 ], [ %.2.i.i, %85 ]
   %indvars.iv.next42.i = add nuw nsw i64 %indvars.iv41.i, 1
   %exitcond45.not.i = icmp eq i64 %indvars.iv.next42.i, %wide.trip.count.i
   br i1 %exitcond45.not.i, label %.loopexit.i.loopexit17, label %74, !llvm.loop !50
@@ -1015,7 +1013,6 @@ define internal fastcc void @ZSTD_buildFSETable_body_bmi2(ptr noundef captures(n
 
 73:                                               ; preds = %.lr.ph22, %._crit_edge17
   %indvars.iv41 = phi i64 [ 0, %.lr.ph22 ], [ %indvars.iv.next42, %._crit_edge17 ]
-  %.0115.i20 = phi i32 [ 0, %.lr.ph22 ], [ %.1116.i.lcssa, %._crit_edge17 ]
   %74 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv41
   %75 = load i16, ptr %74, align 2, !tbaa !3
   %76 = sext i16 %75 to i32
@@ -1028,8 +1025,8 @@ define internal fastcc void @ZSTD_buildFSETable_body_bmi2(ptr noundef captures(n
 
 .lr.ph16:                                         ; preds = %.lr.ph16.preheader, %84
   %.0114.i14 = phi i32 [ %85, %84 ], [ 0, %.lr.ph16.preheader ]
-  %.1116.i13 = phi i32 [ %.2.i, %84 ], [ %.0115.i20, %.lr.ph16.preheader ]
-  %79 = zext nneg i32 %.1116.i13 to i64
+  %.1116.i13 = phi i32 [ %.2.i, %84 ], [ poison, %.lr.ph16.preheader ]
+  %79 = zext i32 %.1116.i13 to i64
   %80 = getelementptr inbounds nuw %struct.ZSTD_seqSymbol, ptr %8, i64 %79
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 4
   store i32 %78, ptr %81, align 4, !tbaa !40
@@ -1037,7 +1034,7 @@ define internal fastcc void @ZSTD_buildFSETable_body_bmi2(ptr noundef captures(n
 
 82:                                               ; preds = %82, %.lr.ph16
   %.1116.pn.i = phi i32 [ %.1116.i13, %.lr.ph16 ], [ %.2.i, %82 ]
-  %.pn.i = add nuw i32 %72, %.1116.pn.i
+  %.pn.i = add i32 %72, %.1116.pn.i
   %.2.i = and i32 %.pn.i, %12
   %83 = icmp ugt i32 %.2.i, %.1.i
   br i1 %83, label %82, label %84, !prof !47, !llvm.loop !48
@@ -1048,7 +1045,6 @@ define internal fastcc void @ZSTD_buildFSETable_body_bmi2(ptr noundef captures(n
   br i1 %exitcond40.not, label %._crit_edge17, label %.lr.ph16, !llvm.loop !49
 
 ._crit_edge17:                                    ; preds = %84, %73
-  %.1116.i.lcssa = phi i32 [ %.0115.i20, %73 ], [ %.2.i, %84 ]
   %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
   %exitcond45.not = icmp eq i64 %indvars.iv.next42, %wide.trip.count52
   br i1 %exitcond45.not, label %.loopexit, label %73, !llvm.loop !50

@@ -3675,9 +3675,9 @@ define internal fastcc void @_ZN12aho_corasick3nfa13noncontiguous8Compiler10buil
   %12 = icmp ne ptr %3, null
   tail call void @llvm.assume(i1 %12)
   %13 = icmp eq ptr %2, %3
-  br i1 %13, label %._crit_edge, label %.lr.ph307
+  br i1 %13, label %._crit_edge, label %.lr.ph283
 
-.lr.ph307:                                        ; preds = %4
+.lr.ph283:                                        ; preds = %4
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 512
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 912
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 920
@@ -3695,24 +3695,24 @@ define internal fastcc void @_ZN12aho_corasick3nfa13noncontiguous8Compiler10buil
   %28 = getelementptr inbounds nuw i8, ptr %8, i64 4
   br label %29
 
-29:                                               ; preds = %.lr.ph307, %.backedge
-  %.sroa.0186.0299 = phi ptr [ %2, %.lr.ph307 ], [ %30, %.backedge ]
-  %.sroa.8.0298 = phi i64 [ 0, %.lr.ph307 ], [ %37, %.backedge ]
-  %30 = getelementptr inbounds nuw i8, ptr %.sroa.0186.0299, i64 48
-  %31 = getelementptr inbounds nuw i8, ptr %.sroa.0186.0299, i64 16
+29:                                               ; preds = %.lr.ph283, %.backedge
+  %.sroa.0186.0280 = phi ptr [ %2, %.lr.ph283 ], [ %30, %.backedge ]
+  %.sroa.8.0279 = phi i64 [ 0, %.lr.ph283 ], [ %37, %.backedge ]
+  %30 = getelementptr inbounds nuw i8, ptr %.sroa.0186.0280, i64 48
+  %31 = getelementptr inbounds nuw i8, ptr %.sroa.0186.0280, i64 16
   %32 = load i64, ptr %31, align 8, !alias.scope !177, !noalias !184, !noundef !7
   %33 = icmp ugt i64 %32, 4
-  %34 = load ptr, ptr %.sroa.0186.0299, align 8, !alias.scope !177, !noalias !184, !nonnull !7
-  %35 = getelementptr inbounds nuw i8, ptr %.sroa.0186.0299, i64 8
+  %34 = load ptr, ptr %.sroa.0186.0280, align 8, !alias.scope !177, !noalias !184, !nonnull !7
+  %35 = getelementptr inbounds nuw i8, ptr %.sroa.0186.0280, i64 8
   %36 = load i64, ptr %35, align 8, !alias.scope !177, !noalias !184
-  %.sink11.i.i.i.i.i = select i1 %33, ptr %34, ptr %.sroa.0186.0299
+  %.sink11.i.i.i.i.i = select i1 %33, ptr %34, ptr %.sroa.0186.0280
   %.sink10.i.i.i.i.i = select i1 %33, i64 %36, i64 %32
-  %37 = add i64 %.sroa.8.0298, 1
-  store i64 %.sroa.8.0298, ptr %11, align 8
-  %38 = icmp ult i64 %.sroa.8.0298, 2147483647
-  %39 = trunc nuw nsw i64 %.sroa.8.0298 to i32
+  %37 = add i64 %.sroa.8.0279, 1
+  store i64 %.sroa.8.0279, ptr %11, align 8
+  %38 = icmp ult i64 %.sroa.8.0279, 2147483647
+  %39 = trunc nuw nsw i64 %.sroa.8.0279 to i32
   %.sroa.6.0 = select i1 %38, i32 %39, i32 undef
-  %exitcond.not = icmp eq i64 %.sroa.8.0298, 2147483647
+  %exitcond.not = icmp eq i64 %.sroa.8.0279, 2147483647
   br i1 %exitcond.not, label %41, label %42
 
 ._crit_edge:                                      ; preds = %.backedge, %4
@@ -3726,8 +3726,6 @@ define internal fastcc void @_ZN12aho_corasick3nfa13noncontiguous8Compiler10buil
   store i32 1, ptr %0, align 8
   %.sroa.3.0..sroa_idx103 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 2147483646, ptr %.sroa.3.0..sroa_idx103, align 8
-  %.sroa.4104.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.8.0298, ptr %.sroa.4104.0..sroa_idx, align 8
   br label %40
 
 42:                                               ; preds = %29
@@ -3739,8 +3737,6 @@ define internal fastcc void @_ZN12aho_corasick3nfa13noncontiguous8Compiler10buil
   store i32 2, ptr %0, align 8
   %.sroa.2121.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sroa.6.0, ptr %.sroa.2121.0..sroa_idx, align 4
-  %.sroa.3122.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sink10.i.i.i.i.i, ptr %.sroa.3122.0..sroa_idx, align 8
   br label %40
 
 46:                                               ; preds = %42
@@ -3754,7 +3750,7 @@ define internal fastcc void @_ZN12aho_corasick3nfa13noncontiguous8Compiler10buil
   store i64 %49, ptr %10, align 8
   %50 = icmp ult i64 %49, 2305843009213693952
   tail call void @llvm.assume(i1 %50)
-  %51 = icmp eq i64 %.sroa.8.0298, %49
+  %51 = icmp eq i64 %.sroa.8.0279, %49
   br i1 %51, label %53, label %52, !prof !191
 
 52:                                               ; preds = %46
@@ -3771,7 +3767,7 @@ define internal fastcc void @_ZN12aho_corasick3nfa13noncontiguous8Compiler10buil
 
 53:                                               ; preds = %46
   %54 = load i64, ptr %18, align 16, !range !148, !alias.scope !192, !noundef !7
-  %55 = icmp eq i64 %.sroa.8.0298, %54
+  %55 = icmp eq i64 %.sroa.8.0279, %54
   br i1 %55, label %56, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3ac86dfc9cb626aeE.exit"
 
 56:                                               ; preds = %53
@@ -3780,7 +3776,7 @@ define internal fastcc void @_ZN12aho_corasick3nfa13noncontiguous8Compiler10buil
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3ac86dfc9cb626aeE.exit": ; preds = %53, %56
   %57 = load ptr, ptr %19, align 8, !alias.scope !192, !nonnull !7, !noundef !7
-  %58 = getelementptr inbounds nuw i32, ptr %57, i64 %.sroa.8.0298
+  %58 = getelementptr inbounds nuw i32, ptr %57, i64 %.sroa.8.0279
   store i32 %44, ptr %58, align 4
   store i64 %37, ptr %17, align 16, !alias.scope !192
   %59 = load ptr, ptr %20, align 8, !nonnull !7, !align !167, !noundef !7
@@ -3800,14 +3796,14 @@ define internal fastcc void @_ZN12aho_corasick3nfa13noncontiguous8Compiler10buil
   br label %63
 
 "_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd279511892442c02E.exit": ; preds = %63, %172
-  %.sroa.072.0296 = phi i32 [ %.sroa.072.1, %172 ], [ %64, %63 ]
-  %.sroa.044.0295 = phi i1 [ %.sroa.044.2, %172 ], [ false, %63 ]
-  %.sroa.9.0294 = phi i64 [ %69, %172 ], [ 0, %63 ]
-  %.sroa.0191.0293 = phi ptr [ %68, %172 ], [ %.sink11.i.i.i.i.i, %63 ]
-  %68 = getelementptr inbounds nuw i8, ptr %.sroa.0191.0293, i64 1
-  %69 = add nuw i64 %.sroa.9.0294, 1
-  %70 = load i8, ptr %.sroa.0191.0293, align 1, !noundef !7
-  br i1 %.sroa.044.0295, label %79, label %75
+  %.sroa.072.0277 = phi i32 [ %.sroa.072.1, %172 ], [ %64, %63 ]
+  %.sroa.044.0276 = phi i1 [ %.sroa.044.2, %172 ], [ false, %63 ]
+  %.sroa.9.0275 = phi i64 [ %69, %172 ], [ 0, %63 ]
+  %.sroa.0191.0274 = phi ptr [ %68, %172 ], [ %.sink11.i.i.i.i.i, %63 ]
+  %68 = getelementptr inbounds nuw i8, ptr %.sroa.0191.0274, i64 1
+  %69 = add nuw i64 %.sroa.9.0275, 1
+  %70 = load i8, ptr %.sroa.0191.0274, align 1, !noundef !7
+  br i1 %.sroa.044.0276, label %79, label %75
 
 "_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd279511892442c02E.exit.thread": ; preds = %172, %63
   %.sroa.072.0.lcssa = phi i32 [ %64, %63 ], [ %.sroa.072.1, %172 ]
@@ -3834,7 +3830,7 @@ define internal fastcc void @_ZN12aho_corasick3nfa13noncontiguous8Compiler10buil
   br i1 %74, label %._crit_edge, label %29
 
 75:                                               ; preds = %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd279511892442c02E.exit"
-  %76 = zext i32 %.sroa.072.0296 to i64
+  %76 = zext i32 %.sroa.072.0277 to i64
   %77 = load i64, ptr %22, align 16, !noundef !7
   %78 = icmp ugt i64 %77, %76
   br i1 %78, label %84, label %94
@@ -3876,7 +3872,7 @@ define internal fastcc void @_ZN12aho_corasick3nfa13noncontiguous8Compiler10buil
 
 100:                                              ; preds = %_ZN12aho_corasick4util9prefilter19opposite_ascii_case17hd11b73191c6e033eE.exit, %95
   tail call void @llvm.experimental.noalias.scope.decl(metadata !196)
-  %101 = zext i32 %.sroa.072.0296 to i64
+  %101 = zext i32 %.sroa.072.0277 to i64
   %102 = load i64, ptr %22, align 16, !alias.scope !196, !noundef !7
   %103 = icmp ugt i64 %102, %101
   br i1 %103, label %104, label %110
@@ -3894,7 +3890,7 @@ define internal fastcc void @_ZN12aho_corasick3nfa13noncontiguous8Compiler10buil
   unreachable
 
 111:                                              ; preds = %104
-  %112 = tail call { ptr, i32 } @_ZN12aho_corasick3nfa13noncontiguous3NFA10iter_trans17h2ac97e12c5731ad4E(ptr noalias noundef nonnull readonly align 8 dereferenceable(440) %14, i32 noundef %.sroa.072.0296)
+  %112 = tail call { ptr, i32 } @_ZN12aho_corasick3nfa13noncontiguous3NFA10iter_trans17h2ac97e12c5731ad4E(ptr noalias noundef nonnull readonly align 8 dereferenceable(440) %14, i32 noundef %.sroa.072.0277)
   %113 = extractvalue { ptr, i32 } %112, 1
   %114 = icmp eq i32 %113, 0
   br i1 %114, label %_ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17h4fb09437acc0d6f4E.exit.thread, label %.lr.ph
@@ -3909,8 +3905,8 @@ define internal fastcc void @_ZN12aho_corasick3nfa13noncontiguous8Compiler10buil
   br label %120
 
 120:                                              ; preds = %.lr.ph, %127
-  %.sroa.2.0.i292 = phi i32 [ %113, %.lr.ph ], [ %.sroa.6.0.copyload.i, %127 ]
-  %121 = zext i32 %.sroa.2.0.i292 to i64
+  %.sroa.2.0.i273 = phi i32 [ %113, %.lr.ph ], [ %.sroa.6.0.copyload.i, %127 ]
+  %121 = zext i32 %.sroa.2.0.i273 to i64
   %122 = icmp ugt i64 %118, %121
   br i1 %122, label %123, label %126
 
@@ -3985,7 +3981,7 @@ _ZN12aho_corasick4util9prefilter19opposite_ascii_case17hd11b73191c6e033eE.exit: 
 
 _ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17h4fb09437acc0d6f4E.exit.thread: ; preds = %127, %111, %129, %_ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17h4fb09437acc0d6f4E.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  call void @_ZN12aho_corasick3nfa13noncontiguous3NFA11alloc_state17hf0cde6aeefc15e8eE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %8, ptr noalias noundef nonnull align 8 dereferenceable(440) %14, i64 noundef %.sroa.9.0294)
+  call void @_ZN12aho_corasick3nfa13noncontiguous3NFA11alloc_state17hf0cde6aeefc15e8eE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %8, ptr noalias noundef nonnull align 8 dereferenceable(440) %14, i64 noundef %.sroa.9.0275)
   %151 = load i32, ptr %8, align 8, !range !75, !noundef !7
   %.not165 = icmp eq i32 %151, 3
   %152 = load i32, ptr %28, align 4
@@ -4004,7 +4000,7 @@ _ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17h4fb09437acc0d6f4E.
 154:                                              ; preds = %_ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17h4fb09437acc0d6f4E.exit.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  call void @_ZN12aho_corasick3nfa13noncontiguous3NFA14add_transition17h8a7080a02f77cf8cE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %7, ptr noalias noundef nonnull align 8 dereferenceable(440) %14, i32 noundef %.sroa.072.0296, i8 noundef %70, i32 noundef %152)
+  call void @_ZN12aho_corasick3nfa13noncontiguous3NFA14add_transition17h8a7080a02f77cf8cE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %7, ptr noalias noundef nonnull align 8 dereferenceable(440) %14, i32 noundef %.sroa.072.0277, i8 noundef %70, i32 noundef %152)
   %155 = load i32, ptr %7, align 8, !range !75, !noundef !7
   %.not167 = icmp eq i32 %155, 3
   br i1 %.not167, label %157, label %156
@@ -4044,7 +4040,7 @@ _ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17h4fb09437acc0d6f4E.
 _ZN12aho_corasick4util9prefilter19opposite_ascii_case17hd11b73191c6e033eE.exit185: ; preds = %164, %167
   %.sroa.0.0.i184 = phi i8 [ %168, %167 ], [ %spec.select.i183, %164 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  call void @_ZN12aho_corasick3nfa13noncontiguous3NFA14add_transition17h8a7080a02f77cf8cE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %6, ptr noalias noundef nonnull align 8 dereferenceable(440) %14, i32 noundef %.sroa.072.0296, i8 noundef %.sroa.0.0.i184, i32 noundef %152)
+  call void @_ZN12aho_corasick3nfa13noncontiguous3NFA14add_transition17h8a7080a02f77cf8cE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %6, ptr noalias noundef nonnull align 8 dereferenceable(440) %14, i32 noundef %.sroa.072.0277, i8 noundef %.sroa.0.0.i184, i32 noundef %152)
   %169 = load i32, ptr %6, align 8, !range !75, !noundef !7
   %.not170 = icmp eq i32 %169, 3
   br i1 %.not170, label %171, label %170

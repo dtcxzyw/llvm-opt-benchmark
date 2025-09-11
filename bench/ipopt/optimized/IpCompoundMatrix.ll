@@ -1730,22 +1730,20 @@ define noundef zeroext i1 @_ZNK5Ipopt14CompoundMatrix13MatricesValidEv(ptr nound
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %.critedge75.thread
   %12 = phi ptr [ %91, %.critedge75.thread ], [ %3, %.preheader.lr.ph ]
-  %indvars.iv296 = phi i64 [ %indvars.iv.next297, %.critedge75.thread ], [ 0, %.preheader.lr.ph ]
-  %.063291 = phi i1 [ %.164, %.critedge75.thread ], [ true, %.preheader.lr.ph ]
+  %indvars.iv277 = phi i64 [ %indvars.iv.next278, %.critedge75.thread ], [ 0, %.preheader.lr.ph ]
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %14 = load i32, ptr %13, align 8, !tbaa !39
   %15 = icmp sgt i32 %14, 0
   br i1 %15, label %.lr.ph, label %.critedge75.thread
 
 ._crit_edge:                                      ; preds = %.critedge75.thread, %.preheader.lr.ph, %1
-  %.063.lcssa = phi i1 [ true, %1 ], [ true, %.preheader.lr.ph ], [ %.164, %.critedge75.thread ]
-  ret i1 %.063.lcssa
+  ret i1 true
 
-.lr.ph:                                           ; preds = %.preheader, %.critedge75.thread352
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.critedge75.thread352 ], [ 0, %.preheader ]
-  %16 = phi ptr [ %86, %.critedge75.thread352 ], [ %12, %.preheader ]
+.lr.ph:                                           ; preds = %.preheader, %.critedge75.thread323
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.critedge75.thread323 ], [ 0, %.preheader ]
+  %16 = phi ptr [ %86, %.critedge75.thread323 ], [ %12, %.preheader ]
   %17 = load ptr, ptr %7, align 8, !tbaa !88
-  %18 = getelementptr inbounds nuw %"class.std::vector.25", ptr %17, i64 %indvars.iv296
+  %18 = getelementptr inbounds nuw %"class.std::vector.25", ptr %17, i64 %indvars.iv277
   %19 = load ptr, ptr %18, align 8, !tbaa !57
   %20 = getelementptr inbounds nuw %"class.Ipopt::SmartPtr.35", ptr %19, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8, !tbaa !60
@@ -1754,14 +1752,14 @@ define noundef zeroext i1 @_ZNK5Ipopt14CompoundMatrix13MatricesValidEv(ptr nound
 
 _ZNK5Ipopt14CompoundMatrix9ConstCompEii.exit:     ; preds = %.lr.ph
   %22 = load ptr, ptr %8, align 8, !tbaa !86
-  %23 = getelementptr inbounds nuw %"class.std::vector.30", ptr %22, i64 %indvars.iv296
+  %23 = getelementptr inbounds nuw %"class.std::vector.30", ptr %22, i64 %indvars.iv277
   %24 = load ptr, ptr %23, align 8, !tbaa !65
   %25 = getelementptr inbounds nuw %"class.Ipopt::SmartPtr.36", ptr %24, i64 %indvars.iv
   %26 = load ptr, ptr %25, align 8, !tbaa !68
   %.not = icmp eq ptr %26, null
   %27 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %28 = load ptr, ptr %27, align 8, !tbaa !90, !noalias !98
-  %29 = getelementptr inbounds nuw %"class.std::vector.59", ptr %28, i64 %indvars.iv296
+  %29 = getelementptr inbounds nuw %"class.std::vector.59", ptr %28, i64 %indvars.iv277
   %30 = load ptr, ptr %29, align 8, !tbaa !94, !noalias !98
   %31 = getelementptr inbounds nuw %"class.Ipopt::SmartPtr", ptr %30, i64 %indvars.iv
   %32 = load ptr, ptr %31, align 8, !tbaa !10, !noalias !98
@@ -1769,7 +1767,7 @@ _ZNK5Ipopt14CompoundMatrix9ConstCompEii.exit:     ; preds = %.lr.ph
   br i1 %.not, label %33, label %_ZNK5Ipopt14CompoundMatrix9ConstCompEii.exit84.thread
 
 33:                                               ; preds = %_ZNK5Ipopt14CompoundMatrix9ConstCompEii.exit
-  br i1 %.not.i.i.i.i, label %.critedge75.thread352, label %34
+  br i1 %.not.i.i.i.i, label %.critedge75.thread323, label %34
 
 34:                                               ; preds = %33
   %35 = getelementptr inbounds nuw i8, ptr %32, i64 8
@@ -1779,7 +1777,7 @@ _ZNK5Ipopt14CompoundMatrix9ConstCompEii.exit:     ; preds = %.lr.ph
   %38 = getelementptr inbounds nuw i8, ptr %32, i64 12
   %39 = load i32, ptr %38, align 4, !tbaa !148
   %40 = icmp sgt i32 %39, 0
-  br i1 %40, label %41, label %.critedge71.thread330
+  br i1 %40, label %41, label %.critedge71.thread309
 
 41:                                               ; preds = %34
   %42 = add nsw i32 %36, 3
@@ -1795,7 +1793,7 @@ _ZNK5Ipopt14CompoundMatrix9ConstCompEii.exit84.thread: ; preds = %_ZNK5Ipopt14Co
 _ZNK5Ipopt14CompoundMatrix9ConstCompEii.exit84.thread.thread: ; preds = %.lr.ph
   %46 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %47 = load ptr, ptr %46, align 8, !tbaa !90, !noalias !153
-  %48 = getelementptr inbounds nuw %"class.std::vector.59", ptr %47, i64 %indvars.iv296
+  %48 = getelementptr inbounds nuw %"class.std::vector.59", ptr %47, i64 %indvars.iv277
   %49 = load ptr, ptr %48, align 8, !tbaa !94, !noalias !153
   %50 = getelementptr inbounds nuw %"class.Ipopt::SmartPtr", ptr %49, i64 %indvars.iv
   %51 = load ptr, ptr %50, align 8, !tbaa !10, !noalias !153
@@ -1807,14 +1805,14 @@ _ZNK5Ipopt14CompoundMatrix9ConstCompEii.exit84.thread.thread: ; preds = %.lr.ph
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %55 = load i32, ptr %54, align 8, !tbaa !3, !noalias !156
   %56 = icmp eq i32 %55, 0
-  br i1 %56, label %57, label %.critedge75.thread352
+  br i1 %56, label %57, label %.critedge75.thread323
 
 57:                                               ; preds = %52
   %58 = load ptr, ptr %53, align 8, !tbaa !8
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %60 = load ptr, ptr %59, align 8
   tail call void %60(ptr noundef nonnull align 8 dereferenceable(20) %53) #20
-  br label %.critedge75.thread352
+  br label %.critedge75.thread323
 
 ..thread186_crit_edge:                            ; preds = %41
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %32, i64 8
@@ -1827,16 +1825,16 @@ _ZNK5Ipopt14CompoundMatrix9ConstCompEii.exit84.thread.thread: ; preds = %.lr.ph
   %63 = add nsw i32 %61, -1
   store i32 %63, ptr %62, align 8, !tbaa !3
   %64 = icmp eq i32 %63, 0
-  br i1 %64, label %65, label %.critedge71.thread330
+  br i1 %64, label %65, label %.critedge71.thread309
 
 65:                                               ; preds = %.thread186
   %66 = load ptr, ptr %32, align 8, !tbaa !8
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %68 = load ptr, ptr %67, align 8
   tail call void %68(ptr noundef nonnull align 8 dereferenceable(20) %32) #20
-  br label %.critedge71.thread330
+  br label %.critedge71.thread309
 
-.critedge71.thread330:                            ; preds = %.thread186, %34, %65
+.critedge71.thread309:                            ; preds = %.thread186, %34, %65
   %69 = phi i1 [ %45, %65 ], [ false, %34 ], [ %45, %.thread186 ]
   %70 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %71 = load i32, ptr %70, align 8, !tbaa !3
@@ -1845,14 +1843,14 @@ _ZNK5Ipopt14CompoundMatrix9ConstCompEii.exit84.thread.thread: ; preds = %.lr.ph
   %73 = icmp eq i32 %72, 0
   br i1 %73, label %.thread, label %77
 
-.thread:                                          ; preds = %.critedge71.thread330
+.thread:                                          ; preds = %.critedge71.thread309
   %74 = load ptr, ptr %32, align 8, !tbaa !8
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 8
   %76 = load ptr, ptr %75, align 8
   tail call void %76(ptr noundef nonnull align 8 dereferenceable(20) %32) #20
   br label %77
 
-77:                                               ; preds = %.critedge71.thread330, %.thread
+77:                                               ; preds = %.critedge71.thread309, %.thread
   %78 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %79 = load i32, ptr %78, align 8, !tbaa !3
   %80 = add nsw i32 %79, -1
@@ -1865,12 +1863,12 @@ _ZNK5Ipopt14CompoundMatrix9ConstCompEii.exit84.thread.thread: ; preds = %.lr.ph
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 8
   %85 = load ptr, ptr %84, align 8
   tail call void %85(ptr noundef nonnull align 8 dereferenceable(20) %32) #20
-  br i1 %69, label %.critedge75.thread.loopexit, label %.critedge75.thread352
+  br i1 %69, label %.critedge75.thread.loopexit, label %.critedge75.thread323
 
 .critedge75:                                      ; preds = %77
-  br i1 %69, label %.critedge75.thread.loopexit, label %.critedge75.thread352
+  br i1 %69, label %.critedge75.thread.loopexit, label %.critedge75.thread323
 
-.critedge75.thread352:                            ; preds = %52, %33, %57, %82, %.critedge75
+.critedge75.thread323:                            ; preds = %52, %33, %57, %82, %.critedge75
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %86 = load ptr, ptr %2, align 8, !tbaa !25
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 24
@@ -1879,19 +1877,17 @@ _ZNK5Ipopt14CompoundMatrix9ConstCompEii.exit84.thread.thread: ; preds = %.lr.ph
   %90 = icmp slt i64 %indvars.iv.next, %89
   br i1 %90, label %.lr.ph, label %.critedge75.thread.loopexit, !llvm.loop !158
 
-.critedge75.thread.loopexit:                      ; preds = %_ZNK5Ipopt14CompoundMatrix9ConstCompEii.exit84.thread, %_ZNK5Ipopt14CompoundMatrix9ConstCompEii.exit84.thread.thread, %82, %.critedge75, %.critedge75.thread352
-  %.164.ph = phi i1 [ %.063291, %.critedge75.thread352 ], [ false, %.critedge75 ], [ false, %82 ], [ false, %_ZNK5Ipopt14CompoundMatrix9ConstCompEii.exit84.thread.thread ], [ false, %_ZNK5Ipopt14CompoundMatrix9ConstCompEii.exit84.thread ]
-  %.pre298 = load ptr, ptr %2, align 8, !tbaa !25
+.critedge75.thread.loopexit:                      ; preds = %_ZNK5Ipopt14CompoundMatrix9ConstCompEii.exit84.thread, %_ZNK5Ipopt14CompoundMatrix9ConstCompEii.exit84.thread.thread, %82, %.critedge75, %.critedge75.thread323
+  %.pre279 = load ptr, ptr %2, align 8, !tbaa !25
   br label %.critedge75.thread
 
 .critedge75.thread:                               ; preds = %.critedge75.thread.loopexit, %.preheader
-  %91 = phi ptr [ %12, %.preheader ], [ %.pre298, %.critedge75.thread.loopexit ]
-  %.164 = phi i1 [ %.063291, %.preheader ], [ %.164.ph, %.critedge75.thread.loopexit ]
-  %indvars.iv.next297 = add nuw nsw i64 %indvars.iv296, 1
+  %91 = phi ptr [ %12, %.preheader ], [ %.pre279, %.critedge75.thread.loopexit ]
+  %indvars.iv.next278 = add nuw nsw i64 %indvars.iv277, 1
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 20
   %93 = load i32, ptr %92, align 4, !tbaa !72
   %94 = sext i32 %93 to i64
-  %95 = icmp slt i64 %indvars.iv.next297, %94
+  %95 = icmp slt i64 %indvars.iv.next278, %94
   br i1 %95, label %.preheader, label %._crit_edge, !llvm.loop !159
 }
 

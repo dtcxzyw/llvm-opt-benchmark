@@ -321,7 +321,7 @@ define range(i32 -1, 1) i32 @H5VL__native_dataset_read(i64 noundef %0, ptr nound
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5VL__native_dataset_io_setup(i64 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i64 noundef %5, ptr noundef readonly captures(none) %6, ptr noundef nonnull captures(none) %7) unnamed_addr #0 {
+define internal fastcc noundef i32 @H5VL__native_dataset_io_setup(i64 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i64 noundef %5, ptr noundef readonly captures(none) %6, ptr noundef nonnull captures(none) %7) unnamed_addr #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i64, align 8
   %11 = load ptr, ptr %1, align 8, !tbaa !19
@@ -582,8 +582,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5VL__native_dataset_io_setup(i64 n
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !67
 
 .loopexit:                                        ; preds = %150, %8, %121, %.thread, %23, %29, %39, %53, %91, %122, %130, %138, %146
-  %.0100 = phi i32 [ -1, %23 ], [ -1, %29 ], [ -1, %39 ], [ -1, %138 ], [ -1, %146 ], [ -1, %121 ], [ -1, %122 ], [ -1, %130 ], [ -1, %53 ], [ -1, %91 ], [ -1, %.thread ], [ 0, %8 ], [ 0, %150 ]
-  ret i32 %.0100
+  ret i32 -1
 }
 
 declare void @H5CX_set_dxpl(i64 noundef) local_unnamed_addr #1

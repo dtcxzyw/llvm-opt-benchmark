@@ -3876,14 +3876,9 @@ define hidden void @"_ZN124_$LT$futures_util..stream..try_stream..try_filter..Tr
   %.sroa.590.0..sroa_idx91 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.sroa.693.0..sroa_idx94 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.sroa.796.0..sroa_idx97 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  br label %.outer
-
-.outer:                                           ; preds = %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$object_store..ObjectMeta$GT$$GT$17hf4f0a29d745cf783E.exit52", %3
-  %.sroa.9.sroa.0.0.ph = phi ptr [ %.sroa.9.sroa.0.2, %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$object_store..ObjectMeta$GT$$GT$17hf4f0a29d745cf783E.exit52" ], [ undef, %3 ]
-  %.sroa.9.sroa.9.0.ph = phi i64 [ %.sroa.9.sroa.9.2, %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$object_store..ObjectMeta$GT$$GT$17hf4f0a29d745cf783E.exit52" ], [ undef, %3 ]
   br label %11
 
-11:                                               ; preds = %.outer, %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$object_store..ObjectMeta$GT$$GT$17hf4f0a29d745cf783E.exit"
+11:                                               ; preds = %.backedge, %3
   %12 = load i8, ptr %6, align 8, !range !304, !noundef !5
   %13 = icmp eq i8 %12, 3
   br i1 %13, label %18, label %14
@@ -3948,7 +3943,7 @@ define hidden void @"_ZN124_$LT$futures_util..stream..try_stream..try_filter..Tr
 
 "_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$object_store..ObjectMeta$GT$$GT$17hf4f0a29d745cf783E.exit": ; preds = %25, %27
   store i64 -9223372036854775808, ptr %7, align 8
-  br label %11
+  br label %.backedge
 
 32:                                               ; preds = %37, %30
   %.pn43 = phi { ptr, i32 } [ %31, %30 ], [ %38, %37 ]
@@ -3983,8 +3978,8 @@ define hidden void @"_ZN124_$LT$futures_util..stream..try_stream..try_filter..Tr
   br label %50
 
 35:                                               ; preds = %18, %24
-  %.sroa.9.sroa.0.2 = phi ptr [ %.sroa.9.sroa.0.0.copyload, %24 ], [ %.sroa.9.sroa.0.0.ph, %18 ]
-  %.sroa.9.sroa.9.2 = phi i64 [ %.sroa.9.sroa.9.0.copyload, %24 ], [ %.sroa.9.sroa.9.0.ph, %18 ]
+  %.sroa.9.sroa.0.2 = phi ptr [ %.sroa.9.sroa.0.0.copyload, %24 ], [ poison, %18 ]
+  %.sroa.9.sroa.9.2 = phi i64 [ %.sroa.9.sroa.9.0.copyload, %24 ], [ poison, %18 ]
   %.sroa.061.0.ph.ph = phi i64 [ %23, %24 ], [ -9223372036854775808, %18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not41 = icmp eq i64 %.sroa.061.0.ph.ph, -9223372036854775808
@@ -4034,7 +4029,10 @@ define hidden void @"_ZN124_$LT$futures_util..stream..try_stream..try_filter..Tr
   store ptr %.sroa.9.sroa.0.2, ptr %.sroa.590.0..sroa_idx91, align 8
   store i64 %.sroa.9.sroa.9.2, ptr %.sroa.693.0..sroa_idx94, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.796.0..sroa_idx97, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.9.sroa.11, i64 72, i1 false)
-  br label %.outer
+  br label %.backedge
+
+.backedge:                                        ; preds = %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$object_store..ObjectMeta$GT$$GT$17hf4f0a29d745cf783E.exit52", %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$object_store..ObjectMeta$GT$$GT$17hf4f0a29d745cf783E.exit"
+  br label %11
 
 50:                                               ; preds = %34, %36, %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$object_store..ObjectMeta$GT$$GT$17hf4f0a29d745cf783E.exit50"
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
@@ -4059,14 +4057,9 @@ define hidden void @"_ZN124_$LT$futures_util..stream..try_stream..try_filter..Tr
   %.sroa.590.0..sroa_idx91 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.sroa.693.0..sroa_idx94 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.sroa.796.0..sroa_idx97 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  br label %.outer
-
-.outer:                                           ; preds = %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$object_store..ObjectMeta$GT$$GT$17hf4f0a29d745cf783E.exit52", %3
-  %.sroa.9.sroa.0.0.ph = phi ptr [ %.sroa.9.sroa.0.2, %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$object_store..ObjectMeta$GT$$GT$17hf4f0a29d745cf783E.exit52" ], [ undef, %3 ]
-  %.sroa.9.sroa.9.0.ph = phi i64 [ %.sroa.9.sroa.9.2, %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$object_store..ObjectMeta$GT$$GT$17hf4f0a29d745cf783E.exit52" ], [ undef, %3 ]
   br label %11
 
-11:                                               ; preds = %.outer, %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$object_store..ObjectMeta$GT$$GT$17hf4f0a29d745cf783E.exit"
+11:                                               ; preds = %.backedge, %3
   %12 = load i8, ptr %6, align 8, !range !304, !noundef !5
   %13 = icmp eq i8 %12, 3
   br i1 %13, label %18, label %14
@@ -4131,7 +4124,7 @@ define hidden void @"_ZN124_$LT$futures_util..stream..try_stream..try_filter..Tr
 
 "_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$object_store..ObjectMeta$GT$$GT$17hf4f0a29d745cf783E.exit": ; preds = %25, %27
   store i64 -9223372036854775808, ptr %7, align 8
-  br label %11
+  br label %.backedge
 
 32:                                               ; preds = %37, %30
   %.pn43 = phi { ptr, i32 } [ %31, %30 ], [ %38, %37 ]
@@ -4166,8 +4159,8 @@ define hidden void @"_ZN124_$LT$futures_util..stream..try_stream..try_filter..Tr
   br label %50
 
 35:                                               ; preds = %18, %24
-  %.sroa.9.sroa.0.2 = phi ptr [ %.sroa.9.sroa.0.0.copyload, %24 ], [ %.sroa.9.sroa.0.0.ph, %18 ]
-  %.sroa.9.sroa.9.2 = phi i64 [ %.sroa.9.sroa.9.0.copyload, %24 ], [ %.sroa.9.sroa.9.0.ph, %18 ]
+  %.sroa.9.sroa.0.2 = phi ptr [ %.sroa.9.sroa.0.0.copyload, %24 ], [ poison, %18 ]
+  %.sroa.9.sroa.9.2 = phi i64 [ %.sroa.9.sroa.9.0.copyload, %24 ], [ poison, %18 ]
   %.sroa.061.0.ph.ph = phi i64 [ %23, %24 ], [ -9223372036854775808, %18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not41 = icmp eq i64 %.sroa.061.0.ph.ph, -9223372036854775808
@@ -4217,7 +4210,10 @@ define hidden void @"_ZN124_$LT$futures_util..stream..try_stream..try_filter..Tr
   store ptr %.sroa.9.sroa.0.2, ptr %.sroa.590.0..sroa_idx91, align 8
   store i64 %.sroa.9.sroa.9.2, ptr %.sroa.693.0..sroa_idx94, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.796.0..sroa_idx97, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.9.sroa.11, i64 72, i1 false)
-  br label %.outer
+  br label %.backedge
+
+.backedge:                                        ; preds = %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$object_store..ObjectMeta$GT$$GT$17hf4f0a29d745cf783E.exit52", %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$object_store..ObjectMeta$GT$$GT$17hf4f0a29d745cf783E.exit"
+  br label %11
 
 50:                                               ; preds = %34, %36, %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$object_store..ObjectMeta$GT$$GT$17hf4f0a29d745cf783E.exit50"
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
@@ -4242,14 +4238,9 @@ define hidden void @"_ZN124_$LT$futures_util..stream..try_stream..try_filter..Tr
   %.sroa.590.0..sroa_idx91 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.sroa.693.0..sroa_idx94 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.sroa.796.0..sroa_idx97 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  br label %.outer
-
-.outer:                                           ; preds = %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$object_store..ObjectMeta$GT$$GT$17hf4f0a29d745cf783E.exit52", %3
-  %.sroa.9.sroa.0.0.ph = phi ptr [ %.sroa.9.sroa.0.2, %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$object_store..ObjectMeta$GT$$GT$17hf4f0a29d745cf783E.exit52" ], [ undef, %3 ]
-  %.sroa.9.sroa.9.0.ph = phi i64 [ %.sroa.9.sroa.9.2, %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$object_store..ObjectMeta$GT$$GT$17hf4f0a29d745cf783E.exit52" ], [ undef, %3 ]
   br label %11
 
-11:                                               ; preds = %.outer, %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$object_store..ObjectMeta$GT$$GT$17hf4f0a29d745cf783E.exit"
+11:                                               ; preds = %.backedge, %3
   %12 = load i8, ptr %6, align 8, !range !304, !noundef !5
   %13 = icmp eq i8 %12, 3
   br i1 %13, label %18, label %14
@@ -4314,7 +4305,7 @@ define hidden void @"_ZN124_$LT$futures_util..stream..try_stream..try_filter..Tr
 
 "_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$object_store..ObjectMeta$GT$$GT$17hf4f0a29d745cf783E.exit": ; preds = %25, %27
   store i64 -9223372036854775808, ptr %7, align 8
-  br label %11
+  br label %.backedge
 
 32:                                               ; preds = %37, %30
   %.pn43 = phi { ptr, i32 } [ %31, %30 ], [ %38, %37 ]
@@ -4349,8 +4340,8 @@ define hidden void @"_ZN124_$LT$futures_util..stream..try_stream..try_filter..Tr
   br label %50
 
 35:                                               ; preds = %18, %24
-  %.sroa.9.sroa.0.2 = phi ptr [ %.sroa.9.sroa.0.0.copyload, %24 ], [ %.sroa.9.sroa.0.0.ph, %18 ]
-  %.sroa.9.sroa.9.2 = phi i64 [ %.sroa.9.sroa.9.0.copyload, %24 ], [ %.sroa.9.sroa.9.0.ph, %18 ]
+  %.sroa.9.sroa.0.2 = phi ptr [ %.sroa.9.sroa.0.0.copyload, %24 ], [ poison, %18 ]
+  %.sroa.9.sroa.9.2 = phi i64 [ %.sroa.9.sroa.9.0.copyload, %24 ], [ poison, %18 ]
   %.sroa.061.0.ph.ph = phi i64 [ %23, %24 ], [ -9223372036854775808, %18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not41 = icmp eq i64 %.sroa.061.0.ph.ph, -9223372036854775808
@@ -4400,7 +4391,10 @@ define hidden void @"_ZN124_$LT$futures_util..stream..try_stream..try_filter..Tr
   store ptr %.sroa.9.sroa.0.2, ptr %.sroa.590.0..sroa_idx91, align 8
   store i64 %.sroa.9.sroa.9.2, ptr %.sroa.693.0..sroa_idx94, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.796.0..sroa_idx97, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.9.sroa.11, i64 72, i1 false)
-  br label %.outer
+  br label %.backedge
+
+.backedge:                                        ; preds = %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$object_store..ObjectMeta$GT$$GT$17hf4f0a29d745cf783E.exit52", %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$object_store..ObjectMeta$GT$$GT$17hf4f0a29d745cf783E.exit"
+  br label %11
 
 50:                                               ; preds = %34, %36, %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$object_store..ObjectMeta$GT$$GT$17hf4f0a29d745cf783E.exit50"
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)

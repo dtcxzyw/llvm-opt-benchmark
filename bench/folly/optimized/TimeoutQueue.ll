@@ -1024,15 +1024,10 @@ define noundef zeroext i1 @_ZN5folly12TimeoutQueue5eraseEl(ptr noundef nonnull a
 
 .lr.ph.i.i.i.i:                                   ; preds = %2
   %10 = inttoptr i64 %8 to ptr
-  br label %.outer
-
-.outer:                                           ; preds = %23, %.lr.ph.i.i.i.i
-  %.pn.i.i.ph = phi ptr [ %21, %23 ], [ %10, %.lr.ph.i.i.i.i ]
-  %.03238.i.i.i.i.ph = phi ptr [ %.039.i.i.i.i.le, %23 ], [ %5, %.lr.ph.i.i.i.i ]
   br label %11
 
-11:                                               ; preds = %.outer, %14
-  %.pn.i.i = phi ptr [ %16, %14 ], [ %.pn.i.i.ph, %.outer ]
+11:                                               ; preds = %.backedge, %.lr.ph.i.i.i.i
+  %.pn.i.i = phi ptr [ %10, %.lr.ph.i.i.i.i ], [ %.pn.i.i.be, %.backedge ]
   %.039.i.i.i.i = getelementptr inbounds i8, ptr %.pn.i.i, i64 -80
   %12 = load i64, ptr %.039.i.i.i.i, align 8, !tbaa !37
   %13 = icmp slt i64 %12, %1
@@ -1042,10 +1037,9 @@ define noundef zeroext i1 @_ZN5folly12TimeoutQueue5eraseEl(ptr noundef nonnull a
   %15 = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 16
   %16 = load ptr, ptr %15, align 8, !tbaa !39
   %17 = icmp eq ptr %16, null
-  br i1 %17, label %_ZN5boost11multi_index6detail18ordered_index_implINS0_6memberIN5folly12TimeoutQueue5EventElXadL_ZNS6_2idEEEEESt4lessIlENS1_9nth_layerILi1ES6_NS0_10indexed_byINS0_14ordered_uniqueIS7_N4mpl_2naESE_EENS0_18ordered_non_uniqueINS3_IS6_lXadL_ZNS6_10expirationEEEEESE_SE_EESE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_EESaIS6_EEENS_3mpl7vector0ISE_EENS1_18ordered_unique_tagENS1_19null_augment_policyEE5eraseEl.exit, label %11, !llvm.loop !54
+  br i1 %17, label %_ZN5boost11multi_index6detail18ordered_index_implINS0_6memberIN5folly12TimeoutQueue5EventElXadL_ZNS6_2idEEEEESt4lessIlENS1_9nth_layerILi1ES6_NS0_10indexed_byINS0_14ordered_uniqueIS7_N4mpl_2naESE_EENS0_18ordered_non_uniqueINS3_IS6_lXadL_ZNS6_10expirationEEEEESE_SE_EESE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_EESaIS6_EEENS_3mpl7vector0ISE_EENS1_18ordered_unique_tagENS1_19null_augment_policyEE5eraseEl.exit, label %.backedge
 
 18:                                               ; preds = %11
-  %.039.i.i.i.i.le = getelementptr inbounds i8, ptr %.pn.i.i, i64 -80
   %19 = icmp slt i64 %1, %12
   %20 = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 8
   %21 = load ptr, ptr %20, align 8, !tbaa !39
@@ -1053,9 +1047,14 @@ define noundef zeroext i1 @_ZN5folly12TimeoutQueue5eraseEl(ptr noundef nonnull a
   br i1 %19, label %23, label %24
 
 23:                                               ; preds = %18
-  br i1 %22, label %_ZN5boost11multi_index6detail18ordered_index_implINS0_6memberIN5folly12TimeoutQueue5EventElXadL_ZNS6_2idEEEEESt4lessIlENS1_9nth_layerILi1ES6_NS0_10indexed_byINS0_14ordered_uniqueIS7_N4mpl_2naESE_EENS0_18ordered_non_uniqueINS3_IS6_lXadL_ZNS6_10expirationEEEEESE_SE_EESE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_EESaIS6_EEENS_3mpl7vector0ISE_EENS1_18ordered_unique_tagENS1_19null_augment_policyEE5eraseEl.exit, label %.outer, !llvm.loop !54
+  br i1 %22, label %_ZN5boost11multi_index6detail18ordered_index_implINS0_6memberIN5folly12TimeoutQueue5EventElXadL_ZNS6_2idEEEEESt4lessIlENS1_9nth_layerILi1ES6_NS0_10indexed_byINS0_14ordered_uniqueIS7_N4mpl_2naESE_EENS0_18ordered_non_uniqueINS3_IS6_lXadL_ZNS6_10expirationEEEEESE_SE_EESE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_EESaIS6_EEENS_3mpl7vector0ISE_EENS1_18ordered_unique_tagENS1_19null_augment_policyEE5eraseEl.exit, label %.backedge
+
+.backedge:                                        ; preds = %23, %14
+  %.pn.i.i.be = phi ptr [ %16, %14 ], [ %21, %23 ]
+  br label %11, !llvm.loop !54
 
 24:                                               ; preds = %18
+  %.039.i.i.i.i.le = getelementptr inbounds i8, ptr %.pn.i.i, i64 -80
   br i1 %22, label %_ZN5boost11multi_index6detail25ordered_index_lower_boundINS1_18ordered_index_nodeINS1_19null_augment_policyENS3_IS4_NS1_15index_node_baseIN5folly12TimeoutQueue5EventESaIS8_EEEEEEENS0_6memberIS8_lXadL_ZNS8_2idEEEEElSt4lessIlEEEPT_SI_SI_RKT0_RKT1_RKT2_N4mpl_5bool_ILb0EEE.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.outer
 
 .lr.ph.i.i.i.i.i.outer:                           ; preds = %24, %27
@@ -1092,7 +1091,7 @@ _ZN5boost11multi_index6detail25ordered_index_lower_boundINS1_18ordered_index_nod
 
 .lr.ph.i21.i.i.i.i.outer:                         ; preds = %_ZN5boost11multi_index6detail25ordered_index_lower_boundINS1_18ordered_index_nodeINS1_19null_augment_policyENS3_IS4_NS1_15index_node_baseIN5folly12TimeoutQueue5EventESaIS8_EEEEEEENS0_6memberIS8_lXadL_ZNS8_2idEEEEElSt4lessIlEEEPT_SI_SI_RKT0_RKT1_RKT2_N4mpl_5bool_ILb0EEE.exit.i.i.i.i, %40
   %.pn.i25.pn.i.i.i.i.ph = phi ptr [ %42, %40 ], [ %36, %_ZN5boost11multi_index6detail25ordered_index_lower_boundINS1_18ordered_index_nodeINS1_19null_augment_policyENS3_IS4_NS1_15index_node_baseIN5folly12TimeoutQueue5EventESaIS8_EEEEEEENS0_6memberIS8_lXadL_ZNS8_2idEEEEElSt4lessIlEEEPT_SI_SI_RKT0_RKT1_RKT2_N4mpl_5bool_ILb0EEE.exit.i.i.i.i ]
-  %.0912.i23.i.i.i.i.ph = phi ptr [ %.013.i22.i.i.i.i.le, %40 ], [ %.03238.i.i.i.i.ph, %_ZN5boost11multi_index6detail25ordered_index_lower_boundINS1_18ordered_index_nodeINS1_19null_augment_policyENS3_IS4_NS1_15index_node_baseIN5folly12TimeoutQueue5EventESaIS8_EEEEEEENS0_6memberIS8_lXadL_ZNS8_2idEEEEElSt4lessIlEEEPT_SI_SI_RKT0_RKT1_RKT2_N4mpl_5bool_ILb0EEE.exit.i.i.i.i ]
+  %.0912.i23.i.i.i.i.ph = phi ptr [ %.013.i22.i.i.i.i.le, %40 ], [ poison, %_ZN5boost11multi_index6detail25ordered_index_lower_boundINS1_18ordered_index_nodeINS1_19null_augment_policyENS3_IS4_NS1_15index_node_baseIN5folly12TimeoutQueue5EventESaIS8_EEEEEEENS0_6memberIS8_lXadL_ZNS8_2idEEEEElSt4lessIlEEEPT_SI_SI_RKT0_RKT1_RKT2_N4mpl_5bool_ILb0EEE.exit.i.i.i.i ]
   br label %.lr.ph.i21.i.i.i.i
 
 .lr.ph.i21.i.i.i.i:                               ; preds = %.lr.ph.i21.i.i.i.i.outer, %44
@@ -1116,7 +1115,7 @@ _ZN5boost11multi_index6detail25ordered_index_lower_boundINS1_18ordered_index_nod
   br i1 %47, label %_ZNK5boost11multi_index6detail18ordered_index_implINS0_6memberIN5folly12TimeoutQueue5EventElXadL_ZNS6_2idEEEEESt4lessIlENS1_9nth_layerILi1ES6_NS0_10indexed_byINS0_14ordered_uniqueIS7_N4mpl_2naESE_EENS0_18ordered_non_uniqueINS3_IS6_lXadL_ZNS6_10expirationEEEEESE_SE_EESE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_EESaIS6_EEENS_3mpl7vector0ISE_EENS1_18ordered_unique_tagENS1_19null_augment_policyEE11equal_rangeIlEESt4pairINS1_19bidir_node_iteratorINS1_18ordered_index_nodeISQ_NSV_ISQ_NS1_15index_node_baseIS6_SK_EEEEEEEES10_ERKT_.exit.i, label %.lr.ph.i21.i.i.i.i, !llvm.loop !56
 
 _ZNK5boost11multi_index6detail18ordered_index_implINS0_6memberIN5folly12TimeoutQueue5EventElXadL_ZNS6_2idEEEEESt4lessIlENS1_9nth_layerILi1ES6_NS0_10indexed_byINS0_14ordered_uniqueIS7_N4mpl_2naESE_EENS0_18ordered_non_uniqueINS3_IS6_lXadL_ZNS6_10expirationEEEEESE_SE_EESE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_EESaIS6_EEENS_3mpl7vector0ISE_EENS1_18ordered_unique_tagENS1_19null_augment_policyEE11equal_rangeIlEESt4pairINS1_19bidir_node_iteratorINS1_18ordered_index_nodeISQ_NSV_ISQ_NS1_15index_node_baseIS6_SK_EEEEEEEES10_ERKT_.exit.i: ; preds = %44, %40, %_ZN5boost11multi_index6detail25ordered_index_lower_boundINS1_18ordered_index_nodeINS1_19null_augment_policyENS3_IS4_NS1_15index_node_baseIN5folly12TimeoutQueue5EventESaIS8_EEEEEEENS0_6memberIS8_lXadL_ZNS8_2idEEEEElSt4lessIlEEEPT_SI_SI_RKT0_RKT1_RKT2_N4mpl_5bool_ILb0EEE.exit.i.i.i.i
-  %.sroa.3.0.i.i.i.i = phi ptr [ %.03238.i.i.i.i.ph, %_ZN5boost11multi_index6detail25ordered_index_lower_boundINS1_18ordered_index_nodeINS1_19null_augment_policyENS3_IS4_NS1_15index_node_baseIN5folly12TimeoutQueue5EventESaIS8_EEEEEEENS0_6memberIS8_lXadL_ZNS8_2idEEEEElSt4lessIlEEEPT_SI_SI_RKT0_RKT1_RKT2_N4mpl_5bool_ILb0EEE.exit.i.i.i.i ], [ %.0912.i23.i.i.i.i.ph, %44 ], [ %.013.i22.i.i.i.i.le, %40 ]
+  %.sroa.3.0.i.i.i.i = phi ptr [ poison, %_ZN5boost11multi_index6detail25ordered_index_lower_boundINS1_18ordered_index_nodeINS1_19null_augment_policyENS3_IS4_NS1_15index_node_baseIN5folly12TimeoutQueue5EventESaIS8_EEEEEEENS0_6memberIS8_lXadL_ZNS8_2idEEEEElSt4lessIlEEEPT_SI_SI_RKT0_RKT1_RKT2_N4mpl_5bool_ILb0EEE.exit.i.i.i.i ], [ %.0912.i23.i.i.i.i.ph, %44 ], [ %.013.i22.i.i.i.i.le, %40 ]
   %.not8.i = icmp eq ptr %.09.lcssa.i.i.i.i.i, %.sroa.3.0.i.i.i.i
   br i1 %.not8.i, label %_ZN5boost11multi_index6detail18ordered_index_implINS0_6memberIN5folly12TimeoutQueue5EventElXadL_ZNS6_2idEEEEESt4lessIlENS1_9nth_layerILi1ES6_NS0_10indexed_byINS0_14ordered_uniqueIS7_N4mpl_2naESE_EENS0_18ordered_non_uniqueINS3_IS6_lXadL_ZNS6_10expirationEEEEESE_SE_EESE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_EESaIS6_EEENS_3mpl7vector0ISE_EENS1_18ordered_unique_tagENS1_19null_augment_policyEE5eraseEl.exit, label %.lr.ph.i
 

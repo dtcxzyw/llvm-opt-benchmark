@@ -25814,9 +25814,8 @@ _ZN6rustls7hash_hs13HandshakeHash11add_message17h96486aaaeca9d316E.exit: ; preds
           to label %457 unwind label %.loopexit.split-lp202.loopexit.split-lp
 
 215:                                              ; preds = %.lr.ph, %511
-  %.sroa.025.0278 = phi i64 [ 0, %.lr.ph ], [ %216, %511 ]
-  %.sroa.11.0275 = phi i64 [ undef, %.lr.ph ], [ %.sroa.11.2183.ph, %511 ]
-  %216 = add nuw i64 %.sroa.025.0278, 1
+  %.sroa.025.0253 = phi i64 [ 0, %.lr.ph ], [ %216, %511 ]
+  %216 = add nuw i64 %.sroa.025.0253, 1
   %217 = load ptr, ptr %150, align 8, !nonnull !14, !align !47, !noundef !14
   %218 = load ptr, ptr %151, align 8, !nonnull !14, !noundef !14
   %.val = load ptr, ptr %75, align 8
@@ -26424,7 +26423,7 @@ _ZN6rustls4rand10random_vec17h61554cbe9188f4ecE.exit.i: ; preds = %234
 
 413:                                              ; preds = %247, %407, %320
   %.sroa.0161.1 = phi i8 [ 13, %320 ], [ %.sroa.0161.0, %407 ], [ 14, %247 ]
-  %.sroa.11.1 = phi i64 [ %.sroa.6.0.copyload.i, %320 ], [ %.sroa.11.0275, %407 ], [ %.sroa.11.0275, %247 ]
+  %.sroa.11.1 = phi i64 [ %.sroa.6.0.copyload.i, %320 ], [ poison, %407 ], [ poison, %247 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !1383
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h316187016974866fE.llvm.4248407042397360440"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %44)
           to label %.noexc117 unwind label %.loopexit201
@@ -26847,12 +26846,11 @@ _ZN6rustls4rand10random_vec17h61554cbe9188f4ecE.exit.i: ; preds = %234
   br i1 %510, label %511, label %.loopexit211
 
 511:                                              ; preds = %509, %.thread180
-  %.sroa.11.2183.ph = phi i64 [ %.sroa.11.0275, %.thread180 ], [ %.sroa.11.1, %509 ]
   %exitcond.not = icmp eq i64 %216, %149
   br i1 %exitcond.not, label %._crit_edge, label %215
 
 .loopexit211:                                     ; preds = %509, %.thread184
-  %.sroa.11.2188 = phi i64 [ %.sroa.11.0275, %.thread184 ], [ %.sroa.11.1, %509 ]
+  %.sroa.11.2188 = phi i64 [ poison, %.thread184 ], [ %.sroa.11.1, %509 ]
   %.sroa.0161.3187 = phi i8 [ 14, %.thread184 ], [ %.sroa.0161.1, %509 ]
   store i8 %.sroa.0161.3187, ptr %0, align 8
   %.sroa.263.sroa.2.0..sroa.263.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8

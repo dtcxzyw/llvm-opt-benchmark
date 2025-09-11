@@ -946,7 +946,6 @@ _ZN5ZXing11PatternView10skipSymbolEv.exit108:     ; preds = %_ZNK5ZXing11Pattern
   %381 = phi i1 [ %371, %.lr.ph ], [ %377, %372 ]
   %.sroa.0209.0346486 = phi ptr [ null, %.lr.ph ], [ %.sroa.0209.4444, %372 ]
   %.sroa.20.0347485 = phi ptr [ null, %.lr.ph ], [ %.sroa.20.3446, %372 ]
-  %.sroa.37.0348484 = phi ptr [ null, %.lr.ph ], [ %.sroa.37.4448, %372 ]
   %382 = phi ptr [ %127, %.lr.ph ], [ %429, %372 ]
   %383 = phi ptr [ %312, %.lr.ph ], [ %428, %372 ]
   %384 = load i16, ptr %383, align 2, !tbaa !62
@@ -972,7 +971,7 @@ _ZN5ZXing11PatternView10skipSymbolEv.exit108:     ; preds = %_ZNK5ZXing11Pattern
 
 .lr.ph.i:                                         ; preds = %380, %_ZNSt6vectorIhSaIhEE9push_backEOh.exit.i
   %.sroa.0209.2 = phi ptr [ %.sroa.0209.3, %_ZNSt6vectorIhSaIhEE9push_backEOh.exit.i ], [ %.sroa.0209.0346486, %380 ]
-  %.sroa.37.2 = phi ptr [ %.sroa.37.3, %_ZNSt6vectorIhSaIhEE9push_backEOh.exit.i ], [ %.sroa.37.0348484, %380 ]
+  %.sroa.37.2 = phi ptr [ %.sroa.37.3, %_ZNSt6vectorIhSaIhEE9push_backEOh.exit.i ], [ poison, %380 ]
   %402 = phi ptr [ %.sroa.20.2, %_ZNSt6vectorIhSaIhEE9push_backEOh.exit.i ], [ %.sroa.20.0347485, %380 ]
   %.06.i = phi i32 [ %403, %_ZNSt6vectorIhSaIhEE9push_backEOh.exit.i ], [ %395, %380 ]
   %403 = add nsw i32 %.06.i, -1
@@ -1050,7 +1049,6 @@ _ZN5ZXing8BitArray10appendBitsEii.exit:           ; preds = %_ZNSt6vectorIhSaIhE
   br i1 %.not.i115, label %_ZN5ZXing11PatternView5shiftEi.exit, label %_ZN5ZXing8BitArray10appendBitsEii.exit.thread
 
 _ZN5ZXing8BitArray10appendBitsEii.exit.thread:    ; preds = %380, %_ZN5ZXing8BitArray10appendBitsEii.exit
-  %.sroa.37.4447 = phi ptr [ %.sroa.37.3, %_ZN5ZXing8BitArray10appendBitsEii.exit ], [ %.sroa.37.0348484, %380 ]
   %.sroa.20.3445 = phi ptr [ %.sroa.20.2, %_ZN5ZXing8BitArray10appendBitsEii.exit ], [ %.sroa.20.0347485, %380 ]
   %.sroa.0209.4443 = phi ptr [ %.sroa.0209.3, %_ZN5ZXing8BitArray10appendBitsEii.exit ], [ %.sroa.0209.0346486, %380 ]
   %426 = phi ptr [ %.pre, %_ZN5ZXing8BitArray10appendBitsEii.exit ], [ %383, %380 ]
@@ -1059,7 +1057,6 @@ _ZN5ZXing8BitArray10appendBitsEii.exit.thread:    ; preds = %380, %_ZN5ZXing8Bit
   br label %_ZN5ZXing11PatternView5shiftEi.exit
 
 _ZN5ZXing11PatternView5shiftEi.exit:              ; preds = %_ZN5ZXing8BitArray10appendBitsEii.exit, %_ZN5ZXing8BitArray10appendBitsEii.exit.thread
-  %.sroa.37.4448 = phi ptr [ %.sroa.37.3, %_ZN5ZXing8BitArray10appendBitsEii.exit ], [ %.sroa.37.4447, %_ZN5ZXing8BitArray10appendBitsEii.exit.thread ]
   %.sroa.20.3446 = phi ptr [ %.sroa.20.2, %_ZN5ZXing8BitArray10appendBitsEii.exit ], [ %.sroa.20.3445, %_ZN5ZXing8BitArray10appendBitsEii.exit.thread ]
   %.sroa.0209.4444 = phi ptr [ %.sroa.0209.3, %_ZN5ZXing8BitArray10appendBitsEii.exit ], [ %.sroa.0209.4443, %_ZN5ZXing8BitArray10appendBitsEii.exit.thread ]
   %428 = phi ptr [ null, %_ZN5ZXing8BitArray10appendBitsEii.exit ], [ %427, %_ZN5ZXing8BitArray10appendBitsEii.exit.thread ]
@@ -1076,23 +1073,22 @@ _ZN5ZXing11PatternView5shiftEi.exit:              ; preds = %_ZN5ZXing8BitArray1
 433:                                              ; preds = %_ZNK5ZXing11PatternView7isValidEv.exit119.thread.invoke, %.invoke, %471, %445
   %434 = landingpad { ptr, i32 }
           cleanup
-  br label %681
+  br label %680
 
 .loopexit:                                        ; preds = %418
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %681
+  br label %680
 
 .loopexit.split-lp:                               ; preds = %413
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %681
+  br label %680
 
 .critedge:                                        ; preds = %372, %_ZN5ZXing11PatternView5shiftEi.exit, %_ZN5ZXing11PatternView10skipSymbolEv.exit108
   %435 = phi ptr [ %126, %_ZN5ZXing11PatternView10skipSymbolEv.exit108 ], [ %431, %_ZN5ZXing11PatternView5shiftEi.exit ], [ %431, %372 ]
   %.sroa.0209.0.lcssa = phi ptr [ null, %_ZN5ZXing11PatternView10skipSymbolEv.exit108 ], [ %.sroa.0209.4444, %_ZN5ZXing11PatternView5shiftEi.exit ], [ %.sroa.0209.4444, %372 ]
   %.sroa.20.0.lcssa = phi ptr [ null, %_ZN5ZXing11PatternView10skipSymbolEv.exit108 ], [ %.sroa.20.3446, %_ZN5ZXing11PatternView5shiftEi.exit ], [ %.sroa.20.3446, %372 ]
-  %.sroa.37.0.lcssa = phi ptr [ null, %_ZN5ZXing11PatternView10skipSymbolEv.exit108 ], [ %.sroa.37.4448, %_ZN5ZXing11PatternView5shiftEi.exit ], [ %.sroa.37.4448, %372 ]
   %.lcssa322 = phi ptr [ %312, %_ZN5ZXing11PatternView10skipSymbolEv.exit108 ], [ %428, %_ZN5ZXing11PatternView5shiftEi.exit ], [ %428, %372 ]
   %or.cond.i110.not302.lcssa = phi i1 [ %.not1.i343, %_ZN5ZXing11PatternView10skipSymbolEv.exit108 ], [ true, %372 ], [ %or.cond.i110.not302, %_ZN5ZXing11PatternView5shiftEi.exit ]
   %436 = ptrtoint ptr %.sroa.20.0.lcssa to i64
@@ -1746,34 +1742,33 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit201: ; preds = %_Z
   br i1 %.not.i.i.i.i202, label %_ZN5ZXing8BitArrayD2Ev.exit, label %.thread
 
 .thread:                                          ; preds = %471, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit198, %492, %483, %678
-  %679 = ptrtoint ptr %.sroa.37.0.lcssa to i64
-  %680 = sub i64 %679, %437
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0209.0.lcssa, i64 noundef %680) #20
+  %679 = sub i64 0, %437
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0209.0.lcssa, i64 noundef %679) #20
   br label %_ZN5ZXing8BitArrayD2Ev.exit
 
-681:                                              ; preds = %.loopexit, %.loopexit.split-lp, %433
+680:                                              ; preds = %.loopexit, %.loopexit.split-lp, %433
   %.sroa.0209.1 = phi ptr [ %.sroa.0209.0.lcssa, %433 ], [ %.sroa.0209.2, %.loopexit ], [ %.sroa.0209.2, %.loopexit.split-lp ]
-  %.sroa.37.1 = phi ptr [ %.sroa.37.0.lcssa, %433 ], [ %.sroa.37.2, %.loopexit ], [ %.sroa.37.2, %.loopexit.split-lp ]
+  %.sroa.37.1 = phi ptr [ null, %433 ], [ %.sroa.37.2, %.loopexit ], [ %.sroa.37.2, %.loopexit.split-lp ]
   %.pn88 = phi { ptr, i32 } [ %434, %433 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %.not.i.i.i.i203 = icmp eq ptr %.sroa.0209.1, null
   br i1 %.not.i.i.i.i203, label %_ZN5ZXing8BitArrayD2Ev.exit204, label %..thread272_crit_edge
 
-..thread272_crit_edge:                            ; preds = %681
+..thread272_crit_edge:                            ; preds = %680
   %.pre375 = ptrtoint ptr %.sroa.0209.1 to i64
+  %681 = ptrtoint ptr %.sroa.37.1 to i64
   br label %.thread272
 
 .thread272:                                       ; preds = %..thread272_crit_edge, %484, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit201, %493
   %.pre-phi = phi i64 [ %.pre375, %..thread272_crit_edge ], [ %437, %484 ], [ %437, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit201 ], [ %437, %493 ]
   %.pn88279 = phi { ptr, i32 } [ %.pn88, %..thread272_crit_edge ], [ %485, %484 ], [ %.pn80.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit201 ], [ %494, %493 ]
-  %.sroa.37.1278 = phi ptr [ %.sroa.37.1, %..thread272_crit_edge ], [ %.sroa.37.0.lcssa, %484 ], [ %.sroa.37.0.lcssa, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit201 ], [ %.sroa.37.0.lcssa, %493 ]
+  %.sroa.37.1278 = phi i64 [ %681, %..thread272_crit_edge ], [ 0, %484 ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit201 ], [ 0, %493 ]
   %.sroa.0209.1277 = phi ptr [ %.sroa.0209.1, %..thread272_crit_edge ], [ %.sroa.0209.0.lcssa, %484 ], [ %.sroa.0209.0.lcssa, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit201 ], [ %.sroa.0209.0.lcssa, %493 ]
-  %682 = ptrtoint ptr %.sroa.37.1278 to i64
-  %683 = sub i64 %682, %.pre-phi
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0209.1277, i64 noundef %683) #20
+  %682 = sub i64 %.sroa.37.1278, %.pre-phi
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0209.1277, i64 noundef %682) #20
   br label %_ZN5ZXing8BitArrayD2Ev.exit204
 
-_ZN5ZXing8BitArrayD2Ev.exit204:                   ; preds = %681, %.thread272
-  %.pn88280 = phi { ptr, i32 } [ %.pn88, %681 ], [ %.pn88279, %.thread272 ]
+_ZN5ZXing8BitArrayD2Ev.exit204:                   ; preds = %680, %.thread272
+  %.pn88280 = phi { ptr, i32 } [ %.pn88, %680 ], [ %.pn88279, %.thread272 ]
   resume { ptr, i32 } %.pn88280
 
 _ZN5ZXing8BitArrayD2Ev.exit:                      ; preds = %.thread, %678, %_ZN5ZXing11PatternView10skipSymbolEv.exit, %_ZNK5ZXing11PatternView7isValidEv.exit.thread, %289, %366, %_ZN5ZXing4OneD12_GLOBAL__N_19IsPatternILi5ELi5EEEbRNS_11PatternViewERKNS_12FixedPatternIXT_EXT0_ELb0EEEf.exit.thread268, %28

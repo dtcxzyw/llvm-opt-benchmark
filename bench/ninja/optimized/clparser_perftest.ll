@@ -60,14 +60,13 @@ define dso_local noundef range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef r
   br label %24
 
 24:                                               ; preds = %.noexc.i, %91
-  %.0113 = phi i32 [ 0, %.noexc.i ], [ %.4, %91 ]
-  %.034112 = phi i32 [ 1024, %.noexc.i ], [ %92, %91 ]
+  %.034107 = phi i32 [ 1024, %.noexc.i ], [ %92, %91 ]
   %25 = invoke noundef i64 @_Z13GetTimeMillisv()
           to label %._crit_edge.i.i40 unwind label %28
 
 26:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit58
-  %27 = add nuw nsw i32 %.025110, 1
-  %exitcond.not = icmp eq i32 %27, %.034112
+  %27 = add nuw nsw i32 %.025106, 1
+  %exitcond.not = icmp eq i32 %27, %.034107
   br i1 %exitcond.not, label %77, label %._crit_edge.i.i40, !llvm.loop !16
 
 28:                                               ; preds = %24
@@ -76,8 +75,7 @@ define dso_local noundef range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef r
   br label %94
 
 ._crit_edge.i.i40:                                ; preds = %24, %26
-  %.2111 = phi i32 [ %.4, %26 ], [ %.0113, %24 ]
-  %.025110 = phi i32 [ %27, %26 ], [ 0, %24 ]
+  %.025106 = phi i32 [ %27, %26 ], [ 0, %24 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %13, ptr %4, align 8, !tbaa !4
   store i64 0, ptr %14, align 8, !tbaa !15
@@ -187,7 +185,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit52: ; preds = %_ZN
   br label %94
 
 60:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %38
-  %.4 = phi i32 [ 1, %38 ], [ %.2111, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   %61 = load ptr, ptr %18, align 8, !tbaa !23
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef %61)
           to label %_ZN8CLParserD2Ev.exit unwind label %62
@@ -252,10 +249,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit58: ; preds = %_ZN
   %82 = trunc i64 %80 to i32
   %83 = mul nsw i32 %82, 1000
   %84 = sitofp i32 %83 to float
-  %85 = uitofp nneg i32 %.034112 to float
+  %85 = uitofp nneg i32 %.034107 to float
   %86 = fdiv float %84, %85
   %87 = fpext float %86 to double
-  %88 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef %.034112, i32 noundef %82, double noundef %87)
+  %88 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef %.034107, i32 noundef %82, double noundef %87)
   br label %.thread73
 
 89:                                               ; preds = %77
@@ -264,8 +261,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit58: ; preds = %_ZN
   br label %94
 
 91:                                               ; preds = %79
-  %92 = shl nuw nsw i32 %.034112, 1
-  %93 = icmp ult i32 %.034112, 524288
+  %92 = shl nuw nsw i32 %.034107, 1
+  %93 = icmp ult i32 %.034107, 524288
   br i1 %93, label %24, label %.thread73, !llvm.loop !27
 
 94:                                               ; preds = %89, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit52, %28
@@ -287,7 +284,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i59
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit61
 
 .thread73:                                        ; preds = %91, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit58, %.thread77
-  %101 = phi i32 [ 0, %.thread77 ], [ %.4, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit58 ], [ 0, %91 ]
+  %101 = phi i32 [ 0, %.thread77 ], [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit58 ], [ 0, %91 ]
   %102 = load ptr, ptr %3, align 8, !tbaa !12
   %103 = icmp eq ptr %102, %8
   br i1 %103, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i63, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i62

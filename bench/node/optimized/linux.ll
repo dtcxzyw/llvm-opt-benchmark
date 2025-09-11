@@ -2458,9 +2458,7 @@ for.body.preheader:                               ; preds = %if.end64
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.inc ]
-  %have_iou_events.0119 = phi i32 [ 0, %for.body.preheader ], [ %have_iou_events.1, %for.inc ]
   %nevents.0118 = phi i32 [ 0, %for.body.preheader ], [ %nevents.1, %for.inc ]
-  %have_signals.0117 = phi i32 [ 0, %for.body.preheader ], [ %have_signals.1, %for.inc ]
   %add.ptr70 = getelementptr inbounds nuw %struct.epoll_event, ptr %events, i64 %indvars.iv
   %data71 = getelementptr inbounds nuw i8, ptr %add.ptr70, i64 4
   %32 = load i32, ptr %data71, align 4
@@ -2765,29 +2763,24 @@ if.else102:                                       ; preds = %if.then99
   br label %if.end104
 
 if.end104:                                        ; preds = %if.then99, %if.else102
-  %have_signals.2 = phi i32 [ %have_signals.0117, %if.else102 ], [ 1, %if.then99 ]
   %inc = add nsw i32 %nevents.0118, 1
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end81, %if.then.i, %if.then29.i, %if.else.i, %do.body26.i, %do.body18.i, %if.end104, %for.body
-  %have_signals.1 = phi i32 [ %have_signals.0117, %for.body ], [ %have_signals.2, %if.end104 ], [ %have_signals.0117, %do.body18.i ], [ %have_signals.0117, %do.body26.i ], [ %have_signals.0117, %if.else.i ], [ %have_signals.0117, %if.then29.i ], [ %have_signals.0117, %if.then.i ], [ %have_signals.0117, %if.end81 ]
   %nevents.1 = phi i32 [ %nevents.0118, %for.body ], [ %inc, %if.end104 ], [ %nevents.0118, %do.body18.i ], [ %nevents.0118, %do.body26.i ], [ %nevents.0118, %if.else.i ], [ %nevents.0118, %if.then29.i ], [ %nevents.0118, %if.then.i ], [ %nevents.0118, %if.end81 ]
-  %have_iou_events.1 = phi i32 [ %have_iou_events.0119, %for.body ], [ %have_iou_events.0119, %if.end104 ], [ 1, %do.body18.i ], [ 1, %do.body26.i ], [ %have_iou_events.0119, %if.else.i ], [ %have_iou_events.0119, %if.then29.i ], [ %have_iou_events.0119, %if.then.i ], [ %have_iou_events.0119, %if.end81 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %do.body107, label %for.body
 
 do.body107:                                       ; preds = %for.inc, %if.end64
-  %have_signals.0.lcssa = phi i32 [ 0, %if.end64 ], [ %have_signals.1, %for.inc ]
   %nevents.0.lcssa = phi i32 [ 0, %if.end64 ], [ %nevents.1, %for.inc ]
-  %have_iou_events.0.lcssa = phi i32 [ 0, %if.end64 ], [ %have_iou_events.1, %for.inc ]
   %conv = sext i32 %nevents.0.lcssa to i64
   %101 = load ptr, ptr %internal_fields, align 8
   %events109 = getelementptr inbounds nuw i8, ptr %101, i64 16
   %102 = load i64, ptr %events109, align 8
   %add = add i64 %102, %conv
   store i64 %add, ptr %events109, align 8
-  br i1 %reset_timeout.1, label %if.end121, label %if.then113
+  br i1 %reset_timeout.1, label %if.end137, label %if.then113
 
 if.then113:                                       ; preds = %do.body107
   %103 = load ptr, ptr %internal_fields, align 8
@@ -2795,26 +2788,11 @@ if.then113:                                       ; preds = %do.body107
   %104 = load i64, ptr %events_waiting, align 8
   %add119 = add i64 %104, %conv
   store i64 %add119, ptr %events_waiting, align 8
-  br label %if.end121
+  br label %if.end137
 
-if.end121:                                        ; preds = %if.then113, %do.body107
+if.end137:                                        ; preds = %if.then113, %do.body107
   %timeout.addr.3 = phi i32 [ %.timeout, %if.then113 ], [ %timeout.addr.1, %do.body107 ]
-  %cmp122.not = icmp eq i32 %have_signals.0.lcssa, 0
-  br i1 %cmp122.not, label %if.end128, label %if.then124
-
-if.then124:                                       ; preds = %if.end121
-  call void @uv__metrics_update_idle_time(ptr noundef nonnull %loop) #18
-  %105 = load ptr, ptr %signal_io_watcher, align 8
-  call void %105(ptr noundef nonnull %loop, ptr noundef nonnull %signal_io_watcher, i32 noundef 1) #18
-  br label %if.end128
-
-if.end128:                                        ; preds = %if.then124, %if.end121
   store ptr null, ptr %inv66, align 8
-  %106 = or i32 %have_iou_events.0.lcssa, %have_signals.0.lcssa
-  %or.cond1.not = icmp eq i32 %106, 0
-  br i1 %or.cond1.not, label %if.end137, label %for.end165
-
-if.end137:                                        ; preds = %if.end128
   %cmp138.not = icmp eq i32 %nevents.0.lcssa, 0
   br i1 %cmp138.not, label %update_timeout, label %if.then140
 
@@ -2833,33 +2811,33 @@ update_timeout:                                   ; preds = %if.then56, %if.end1
   ]
 
 if.end156:                                        ; preds = %update_timeout
-  %107 = load i64, ptr %time, align 8
-  %sub.neg = sub i64 %2, %107
-  %108 = trunc i64 %sub.neg to i32
-  %conv160 = add i32 %real_timeout.0.ph103, %108
+  %105 = load i64, ptr %time, align 8
+  %sub.neg = sub i64 %2, %105
+  %106 = trunc i64 %sub.neg to i32
+  %conv160 = add i32 %real_timeout.0.ph103, %106
   %cmp161 = icmp slt i32 %conv160, 1
   br i1 %cmp161, label %for.end165, label %for.cond.outer102
 
-for.end165:                                       ; preds = %if.then140, %if.end156, %update_timeout, %if.end128, %if.then26
-  %109 = load i32, ptr %ringfd, align 8
-  %cmp167.not = icmp eq i32 %109, -1
+for.end165:                                       ; preds = %if.then140, %if.end156, %update_timeout, %if.then26
+  %107 = load i32, ptr %ringfd, align 8
+  %cmp167.not = icmp eq i32 %107, -1
   br i1 %cmp167.not, label %if.end177, label %while.cond170.preheader
 
 while.cond170.preheader:                          ; preds = %for.end165
-  %110 = load ptr, ptr %ctl1, align 8
+  %108 = load ptr, ptr %ctl1, align 8
+  %109 = load i32, ptr %108, align 4
+  %110 = load ptr, ptr %sqtail, align 8
   %111 = load i32, ptr %110, align 4
-  %112 = load ptr, ptr %sqtail, align 8
-  %113 = load i32, ptr %112, align 4
-  %cmp173.not123 = icmp eq i32 %111, %113
+  %cmp173.not123 = icmp eq i32 %109, %111
   br i1 %cmp173.not123, label %if.end177, label %while.body175
 
 while.body175:                                    ; preds = %while.cond170.preheader, %while.body175
   call fastcc void @uv__epoll_ctl_flush(i32 noundef %4, ptr noundef nonnull %ctl1, ptr noundef nonnull %prep)
-  %114 = load ptr, ptr %ctl1, align 8
+  %112 = load ptr, ptr %ctl1, align 8
+  %113 = load i32, ptr %112, align 4
+  %114 = load ptr, ptr %sqtail, align 8
   %115 = load i32, ptr %114, align 4
-  %116 = load ptr, ptr %sqtail, align 8
-  %117 = load i32, ptr %116, align 4
-  %cmp173.not = icmp eq i32 %115, %117
+  %cmp173.not = icmp eq i32 %113, %115
   br i1 %cmp173.not, label %if.end177, label %while.body175
 
 if.end177:                                        ; preds = %if.then56, %while.body175, %while.cond170.preheader, %for.end165

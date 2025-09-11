@@ -4216,7 +4216,6 @@ define internal fastcc noundef zeroext i1 @_RNvNvNtCseG2FYMysgNb_3wax4rule5group
   br label %_RNCINvNvNtNtNtNtCs1LoaDTb72WA_4core4iter6traits8iterator8Iterator3any5checkTNtNtCseG2FYMysgNb_3wax5token8PositionRNtB1e_5TokenENCNCNvNvNtB1g_4rule5group31has_starting_component_boundary00E0B1g_.exit.thread.i.i.i
 
 _RNCINvNvNtNtNtNtCs1LoaDTb72WA_4core4iter6traits8iterator8Iterator3any5checkTNtNtCseG2FYMysgNb_3wax5token8PositionRNtB1e_5TokenENCNCNvNvNtB1g_4rule5group31has_starting_component_boundary00E0B1g_.exit.thread.i.i.i: ; preds = %_RNCINvNvNtNtNtNtCs1LoaDTb72WA_4core4iter6traits8iterator8Iterator3any5checkTNtNtCseG2FYMysgNb_3wax5token8PositionRNtB1e_5TokenENCNCNvNvNtB1g_4rule5group31has_starting_component_boundary00E0B1g_.exit.thread.i.i.i.backedge, %14
-  %.sroa.1040.0.i.i = phi ptr [ undef, %14 ], [ %.sroa.1040.3.i.i, %_RNCINvNvNtNtNtNtCs1LoaDTb72WA_4core4iter6traits8iterator8Iterator3any5checkTNtNtCseG2FYMysgNb_3wax5token8PositionRNtB1e_5TokenENCNCNvNvNtB1g_4rule5group31has_starting_component_boundary00E0B1g_.exit.thread.i.i.i.backedge ]
   %.sroa.01.0.copyload.i.i.i.i.i = phi i64 [ 3, %14 ], [ %.sroa.01.0.copyload.i.i23.i.i.i, %_RNCINvNvNtNtNtNtCs1LoaDTb72WA_4core4iter6traits8iterator8Iterator3any5checkTNtNtCseG2FYMysgNb_3wax5token8PositionRNtB1e_5TokenENCNCNvNvNtB1g_4rule5group31has_starting_component_boundary00E0B1g_.exit.thread.i.i.i.backedge ]
   call void @llvm.experimental.noalias.scope.decl(metadata !950)
   call void @llvm.experimental.noalias.scope.decl(metadata !953)
@@ -4256,7 +4255,6 @@ _RNvXs7_NtCslyFhtC9DD08_9itertools8adaptorsINtB5_8BatchingINtNtNtNtCs1LoaDTb72WA
   br i1 %trunc.i.i.i.i.i.i.i.i.i.i.i, label %.split.split.us.i.i.i.i.i, label %.split.us.split.i.i.i.i.i
 
 .split.us.split.i.i.i.i.i:                        ; preds = %26, %68
-  %.sroa.1040.1.i.i = phi ptr [ %.sroa.1040.2.i.i, %68 ], [ %.sroa.1040.0.i.i, %26 ]
   %28 = phi i64 [ 3, %68 ], [ %.pre.i.i.i.i.i.i, %26 ]
   %29 = icmp eq i64 %28, 3
   br i1 %29, label %30, label %_RINvMNtCs1LoaDTb72WA_4core6optionINtB3_6OptionIBw_TNtNtCseG2FYMysgNb_3wax5token8PositionRNtBP_5TokenEEE18get_or_insert_withNCNvMs3_NtNtNtB5_4iter8adapters8peekableINtB25_8PeekableINtBP_4WalkTjjEEE4peek0EBR_.llvm.8911405926988131354.exit.i.i.i.us.i.i.i.i.i
@@ -4341,7 +4339,7 @@ _RNvMs3_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB5_8VecDequeTNtNtCseG2
 
 .noexc7.i.i:                                      ; preds = %.noexc28.i.i, %_RNvMs3_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB5_8VecDequeTNtNtCseG2FYMysgNb_3wax5token8PositionRNtB18_5TokenEE9pop_frontB1a_.exit.i13.i.i, %30
   %.sroa.033.1.i.i = phi i64 [ %.sroa.033.0.copyload36.i.i, %.noexc28.i.i ], [ 2, %_RNvMs3_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB5_8VecDequeTNtNtCseG2FYMysgNb_3wax5token8PositionRNtB18_5TokenEE9pop_frontB1a_.exit.i13.i.i ], [ 2, %30 ]
-  %.sroa.1040.8.i.i = phi ptr [ %.sroa.625.0.copyload.i18.i.i, %.noexc28.i.i ], [ %.sroa.1040.1.i.i, %_RNvMs3_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB5_8VecDequeTNtNtCseG2FYMysgNb_3wax5token8PositionRNtB18_5TokenEE9pop_frontB1a_.exit.i13.i.i ], [ %.sroa.1040.1.i.i, %30 ]
+  %.sroa.1040.8.i.i = phi ptr [ %.sroa.625.0.copyload.i18.i.i, %.noexc28.i.i ], [ poison, %_RNvMs3_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB5_8VecDequeTNtNtCseG2FYMysgNb_3wax5token8PositionRNtB18_5TokenEE9pop_frontB1a_.exit.i13.i.i ], [ poison, %30 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !928
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !928
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !928
@@ -4353,7 +4351,6 @@ _RNvMs3_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB5_8VecDequeTNtNtCseG2
   br label %_RINvMNtCs1LoaDTb72WA_4core6optionINtB3_6OptionIBw_TNtNtCseG2FYMysgNb_3wax5token8PositionRNtBP_5TokenEEE18get_or_insert_withNCNvMs3_NtNtNtB5_4iter8adapters8peekableINtB25_8PeekableINtBP_4WalkTjjEEE4peek0EBR_.llvm.8911405926988131354.exit.i.i.i.us.i.i.i.i.i
 
 _RINvMNtCs1LoaDTb72WA_4core6optionINtB3_6OptionIBw_TNtNtCseG2FYMysgNb_3wax5token8PositionRNtBP_5TokenEEE18get_or_insert_withNCNvMs3_NtNtNtB5_4iter8adapters8peekableINtB25_8PeekableINtBP_4WalkTjjEEE4peek0EBR_.llvm.8911405926988131354.exit.i.i.i.us.i.i.i.i.i: ; preds = %.noexc7.i.i, %.split.us.split.i.i.i.i.i
-  %.sroa.1040.2.i.i = phi ptr [ %.sroa.1040.8.i.i, %.noexc7.i.i ], [ %.sroa.1040.1.i.i, %.split.us.split.i.i.i.i.i ]
   %61 = phi i64 [ %.sroa.033.1.i.i, %.noexc7.i.i ], [ %28, %.split.us.split.i.i.i.i.i ]
   %62 = phi i1 [ %60, %.noexc7.i.i ], [ true, %.split.us.split.i.i.i.i.i ]
   call void @llvm.assume(i1 %62)
@@ -4372,7 +4369,6 @@ _RINvMNtCs1LoaDTb72WA_4core6optionINtB3_6OptionIBw_TNtNtCseG2FYMysgNb_3wax5token
   br label %.split.us.split.i.i.i.i.i
 
 .split.split.us.i.i.i.i.i:                        ; preds = %26, %111
-  %.sroa.1040.5.i.i = phi ptr [ %.sroa.1040.6.i.i, %111 ], [ %.sroa.1040.0.i.i, %26 ]
   %69 = phi i64 [ 3, %111 ], [ %.pre.i.i.i.i.i.i, %26 ]
   %70 = icmp eq i64 %69, 3
   br i1 %70, label %71, label %_RINvMNtCs1LoaDTb72WA_4core6optionINtB3_6OptionIBw_TNtNtCseG2FYMysgNb_3wax5token8PositionRNtBP_5TokenEEE18get_or_insert_withNCNvMs3_NtNtNtB5_4iter8adapters8peekableINtB25_8PeekableINtBP_4WalkTjjEEE4peek0EBR_.llvm.8911405926988131354.exit.i.i.i.us10.i.i.i.i.i
@@ -4457,7 +4453,7 @@ _RNvMs3_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB5_8VecDequeTNtNtCseG2
 
 .noexc8.i.i:                                      ; preds = %.noexc11.i.i, %_RNvMs3_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB5_8VecDequeTNtNtCseG2FYMysgNb_3wax5token8PositionRNtB18_5TokenEE9pop_frontB1a_.exit.i.i.i, %71
   %.sroa.033.0.i.i = phi i64 [ %.sroa.033.0.copyload35.i.i, %.noexc11.i.i ], [ 2, %_RNvMs3_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB5_8VecDequeTNtNtCseG2FYMysgNb_3wax5token8PositionRNtB18_5TokenEE9pop_frontB1a_.exit.i.i.i ], [ 2, %71 ]
-  %.sroa.1040.7.i.i = phi ptr [ %.sroa.625.0.copyload.i.i.i, %.noexc11.i.i ], [ %.sroa.1040.5.i.i, %_RNvMs3_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB5_8VecDequeTNtNtCseG2FYMysgNb_3wax5token8PositionRNtB18_5TokenEE9pop_frontB1a_.exit.i.i.i ], [ %.sroa.1040.5.i.i, %71 ]
+  %.sroa.1040.7.i.i = phi ptr [ %.sroa.625.0.copyload.i.i.i, %.noexc11.i.i ], [ poison, %_RNvMs3_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB5_8VecDequeTNtNtCseG2FYMysgNb_3wax5token8PositionRNtB18_5TokenEE9pop_frontB1a_.exit.i.i.i ], [ poison, %71 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !928
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !928
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !928
@@ -4469,7 +4465,6 @@ _RNvMs3_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB5_8VecDequeTNtNtCseG2
   br label %_RINvMNtCs1LoaDTb72WA_4core6optionINtB3_6OptionIBw_TNtNtCseG2FYMysgNb_3wax5token8PositionRNtBP_5TokenEEE18get_or_insert_withNCNvMs3_NtNtNtB5_4iter8adapters8peekableINtB25_8PeekableINtBP_4WalkTjjEEE4peek0EBR_.llvm.8911405926988131354.exit.i.i.i.us10.i.i.i.i.i
 
 _RINvMNtCs1LoaDTb72WA_4core6optionINtB3_6OptionIBw_TNtNtCseG2FYMysgNb_3wax5token8PositionRNtBP_5TokenEEE18get_or_insert_withNCNvMs3_NtNtNtB5_4iter8adapters8peekableINtB25_8PeekableINtBP_4WalkTjjEEE4peek0EBR_.llvm.8911405926988131354.exit.i.i.i.us10.i.i.i.i.i: ; preds = %.noexc8.i.i, %.split.split.us.i.i.i.i.i
-  %.sroa.1040.6.i.i = phi ptr [ %.sroa.1040.7.i.i, %.noexc8.i.i ], [ %.sroa.1040.5.i.i, %.split.split.us.i.i.i.i.i ]
   %102 = phi i64 [ %.sroa.033.0.i.i, %.noexc8.i.i ], [ %69, %.split.split.us.i.i.i.i.i ]
   %103 = phi i1 [ %101, %.noexc8.i.i ], [ true, %.split.split.us.i.i.i.i.i ]
   call void @llvm.assume(i1 %103)
@@ -4491,12 +4486,10 @@ _RINvMNtCs1LoaDTb72WA_4core6optionINtB3_6OptionIBw_TNtNtCseG2FYMysgNb_3wax5token
   br label %.split.split.us.i.i.i.i.i
 
 .split8.us.i.i.i.i.i:                             ; preds = %_RINvMNtCs1LoaDTb72WA_4core6optionINtB3_6OptionIBw_TNtNtCseG2FYMysgNb_3wax5token8PositionRNtBP_5TokenEEE18get_or_insert_withNCNvMs3_NtNtNtB5_4iter8adapters8peekableINtB25_8PeekableINtBP_4WalkTjjEEE4peek0EBR_.llvm.8911405926988131354.exit.i.i.i.us.i.i.i.i.i, %_RINvMNtCs1LoaDTb72WA_4core6optionINtB3_6OptionIBw_TNtNtCseG2FYMysgNb_3wax5token8PositionRNtBP_5TokenEEE18get_or_insert_withNCNvMs3_NtNtNtB5_4iter8adapters8peekableINtB25_8PeekableINtBP_4WalkTjjEEE4peek0EBR_.llvm.8911405926988131354.exit.i.i.i.us10.i.i.i.i.i
-  %.sroa.1040.4.i.i = phi ptr [ %.sroa.1040.6.i.i, %_RINvMNtCs1LoaDTb72WA_4core6optionINtB3_6OptionIBw_TNtNtCseG2FYMysgNb_3wax5token8PositionRNtBP_5TokenEEE18get_or_insert_withNCNvMs3_NtNtNtB5_4iter8adapters8peekableINtB25_8PeekableINtBP_4WalkTjjEEE4peek0EBR_.llvm.8911405926988131354.exit.i.i.i.us10.i.i.i.i.i ], [ %.sroa.1040.2.i.i, %_RINvMNtCs1LoaDTb72WA_4core6optionINtB3_6OptionIBw_TNtNtCseG2FYMysgNb_3wax5token8PositionRNtBP_5TokenEEE18get_or_insert_withNCNvMs3_NtNtNtB5_4iter8adapters8peekableINtB25_8PeekableINtBP_4WalkTjjEEE4peek0EBR_.llvm.8911405926988131354.exit.i.i.i.us.i.i.i.i.i ]
   store i64 3, ptr %12, align 8, !alias.scope !962, !noalias !967
   br label %_RNvXs7_NtCslyFhtC9DD08_9itertools8adaptorsINtB5_8BatchingINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters8peekable8PeekableINtNtCseG2FYMysgNb_3wax5token4WalkTjjEEENCNvMsO_B1U_B1R_8starting0ENtNtNtB10_6traits8iterator8Iterator4nextB1W_.exit.i.i.i
 
 _RNvXs7_NtCslyFhtC9DD08_9itertools8adaptorsINtB5_8BatchingINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters8peekable8PeekableINtNtCseG2FYMysgNb_3wax5token4WalkTjjEEENCNvMsO_B1U_B1R_8starting0ENtNtNtB10_6traits8iterator8Iterator4nextB1W_.exit.i.i.i: ; preds = %64, %105, %.split8.us.i.i.i.i.i
-  %.sroa.1040.3.i.i = phi ptr [ %.sroa.1040.4.i.i, %.split8.us.i.i.i.i.i ], [ %.sroa.1040.6.i.i, %105 ], [ %.sroa.1040.2.i.i, %64 ]
   %.sroa.01.0.copyload.i.i23.i.i.i = phi i64 [ 3, %.split8.us.i.i.i.i.i ], [ %102, %105 ], [ %61, %64 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !956
   %112 = load i64, ptr %27, align 8, !range !20, !noalias !1005, !noundef !5
@@ -4928,7 +4921,6 @@ define internal fastcc noundef zeroext i1 @_RNvNvNtCseG2FYMysgNb_3wax4rule5group
   br label %_RNCINvNvNtNtNtNtCs1LoaDTb72WA_4core4iter6traits8iterator8Iterator3any5checkTNtNtCseG2FYMysgNb_3wax5token8PositionRNtB1e_5TokenENCNCNvNvNtB1g_4rule5group22has_starting_zom_token00E0B1g_.exit.thread.i.i.i
 
 _RNCINvNvNtNtNtNtCs1LoaDTb72WA_4core4iter6traits8iterator8Iterator3any5checkTNtNtCseG2FYMysgNb_3wax5token8PositionRNtB1e_5TokenENCNCNvNvNtB1g_4rule5group22has_starting_zom_token00E0B1g_.exit.thread.i.i.i: ; preds = %_RNCINvNvNtNtNtNtCs1LoaDTb72WA_4core4iter6traits8iterator8Iterator3any5checkTNtNtCseG2FYMysgNb_3wax5token8PositionRNtB1e_5TokenENCNCNvNvNtB1g_4rule5group22has_starting_zom_token00E0B1g_.exit.thread.i.i.i.backedge, %14
-  %.sroa.1040.0.i.i = phi ptr [ undef, %14 ], [ %.sroa.1040.3.i.i, %_RNCINvNvNtNtNtNtCs1LoaDTb72WA_4core4iter6traits8iterator8Iterator3any5checkTNtNtCseG2FYMysgNb_3wax5token8PositionRNtB1e_5TokenENCNCNvNvNtB1g_4rule5group22has_starting_zom_token00E0B1g_.exit.thread.i.i.i.backedge ]
   %.sroa.01.0.copyload.i.i.i.i.i = phi i64 [ 3, %14 ], [ %.sroa.01.0.copyload.i.i20.i.i.i, %_RNCINvNvNtNtNtNtCs1LoaDTb72WA_4core4iter6traits8iterator8Iterator3any5checkTNtNtCseG2FYMysgNb_3wax5token8PositionRNtB1e_5TokenENCNCNvNvNtB1g_4rule5group22has_starting_zom_token00E0B1g_.exit.thread.i.i.i.backedge ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1174)
   call void @llvm.experimental.noalias.scope.decl(metadata !1177)
@@ -4968,7 +4960,6 @@ _RNvXs7_NtCslyFhtC9DD08_9itertools8adaptorsINtB5_8BatchingINtNtNtNtCs1LoaDTb72WA
   br i1 %trunc.i.i.i.i.i.i.i.i.i.i.i, label %.split.split.us.i.i.i.i.i, label %.split.us.split.i.i.i.i.i
 
 .split.us.split.i.i.i.i.i:                        ; preds = %26, %68
-  %.sroa.1040.1.i.i = phi ptr [ %.sroa.1040.2.i.i, %68 ], [ %.sroa.1040.0.i.i, %26 ]
   %28 = phi i64 [ 3, %68 ], [ %.pre.i.i.i.i.i.i, %26 ]
   %29 = icmp eq i64 %28, 3
   br i1 %29, label %30, label %_RINvMNtCs1LoaDTb72WA_4core6optionINtB3_6OptionIBw_TNtNtCseG2FYMysgNb_3wax5token8PositionRNtBP_5TokenEEE18get_or_insert_withNCNvMs3_NtNtNtB5_4iter8adapters8peekableINtB25_8PeekableINtBP_4WalkTjjEEE4peek0EBR_.llvm.8911405926988131354.exit.i.i.i.us.i.i.i.i.i
@@ -5053,7 +5044,7 @@ _RNvMs3_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB5_8VecDequeTNtNtCseG2
 
 .noexc7.i.i:                                      ; preds = %.noexc28.i.i, %_RNvMs3_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB5_8VecDequeTNtNtCseG2FYMysgNb_3wax5token8PositionRNtB18_5TokenEE9pop_frontB1a_.exit.i13.i.i, %30
   %.sroa.033.1.i.i = phi i64 [ %.sroa.033.0.copyload36.i.i, %.noexc28.i.i ], [ 2, %_RNvMs3_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB5_8VecDequeTNtNtCseG2FYMysgNb_3wax5token8PositionRNtB18_5TokenEE9pop_frontB1a_.exit.i13.i.i ], [ 2, %30 ]
-  %.sroa.1040.8.i.i = phi ptr [ %.sroa.625.0.copyload.i18.i.i, %.noexc28.i.i ], [ %.sroa.1040.1.i.i, %_RNvMs3_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB5_8VecDequeTNtNtCseG2FYMysgNb_3wax5token8PositionRNtB18_5TokenEE9pop_frontB1a_.exit.i13.i.i ], [ %.sroa.1040.1.i.i, %30 ]
+  %.sroa.1040.8.i.i = phi ptr [ %.sroa.625.0.copyload.i18.i.i, %.noexc28.i.i ], [ poison, %_RNvMs3_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB5_8VecDequeTNtNtCseG2FYMysgNb_3wax5token8PositionRNtB18_5TokenEE9pop_frontB1a_.exit.i13.i.i ], [ poison, %30 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !1152
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !1152
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !1152
@@ -5065,7 +5056,6 @@ _RNvMs3_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB5_8VecDequeTNtNtCseG2
   br label %_RINvMNtCs1LoaDTb72WA_4core6optionINtB3_6OptionIBw_TNtNtCseG2FYMysgNb_3wax5token8PositionRNtBP_5TokenEEE18get_or_insert_withNCNvMs3_NtNtNtB5_4iter8adapters8peekableINtB25_8PeekableINtBP_4WalkTjjEEE4peek0EBR_.llvm.8911405926988131354.exit.i.i.i.us.i.i.i.i.i
 
 _RINvMNtCs1LoaDTb72WA_4core6optionINtB3_6OptionIBw_TNtNtCseG2FYMysgNb_3wax5token8PositionRNtBP_5TokenEEE18get_or_insert_withNCNvMs3_NtNtNtB5_4iter8adapters8peekableINtB25_8PeekableINtBP_4WalkTjjEEE4peek0EBR_.llvm.8911405926988131354.exit.i.i.i.us.i.i.i.i.i: ; preds = %.noexc7.i.i, %.split.us.split.i.i.i.i.i
-  %.sroa.1040.2.i.i = phi ptr [ %.sroa.1040.8.i.i, %.noexc7.i.i ], [ %.sroa.1040.1.i.i, %.split.us.split.i.i.i.i.i ]
   %61 = phi i64 [ %.sroa.033.1.i.i, %.noexc7.i.i ], [ %28, %.split.us.split.i.i.i.i.i ]
   %62 = phi i1 [ %60, %.noexc7.i.i ], [ true, %.split.us.split.i.i.i.i.i ]
   call void @llvm.assume(i1 %62)
@@ -5084,7 +5074,6 @@ _RINvMNtCs1LoaDTb72WA_4core6optionINtB3_6OptionIBw_TNtNtCseG2FYMysgNb_3wax5token
   br label %.split.us.split.i.i.i.i.i
 
 .split.split.us.i.i.i.i.i:                        ; preds = %26, %111
-  %.sroa.1040.5.i.i = phi ptr [ %.sroa.1040.6.i.i, %111 ], [ %.sroa.1040.0.i.i, %26 ]
   %69 = phi i64 [ 3, %111 ], [ %.pre.i.i.i.i.i.i, %26 ]
   %70 = icmp eq i64 %69, 3
   br i1 %70, label %71, label %_RINvMNtCs1LoaDTb72WA_4core6optionINtB3_6OptionIBw_TNtNtCseG2FYMysgNb_3wax5token8PositionRNtBP_5TokenEEE18get_or_insert_withNCNvMs3_NtNtNtB5_4iter8adapters8peekableINtB25_8PeekableINtBP_4WalkTjjEEE4peek0EBR_.llvm.8911405926988131354.exit.i.i.i.us10.i.i.i.i.i
@@ -5169,7 +5158,7 @@ _RNvMs3_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB5_8VecDequeTNtNtCseG2
 
 .noexc8.i.i:                                      ; preds = %.noexc11.i.i, %_RNvMs3_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB5_8VecDequeTNtNtCseG2FYMysgNb_3wax5token8PositionRNtB18_5TokenEE9pop_frontB1a_.exit.i.i.i, %71
   %.sroa.033.0.i.i = phi i64 [ %.sroa.033.0.copyload35.i.i, %.noexc11.i.i ], [ 2, %_RNvMs3_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB5_8VecDequeTNtNtCseG2FYMysgNb_3wax5token8PositionRNtB18_5TokenEE9pop_frontB1a_.exit.i.i.i ], [ 2, %71 ]
-  %.sroa.1040.7.i.i = phi ptr [ %.sroa.625.0.copyload.i.i.i, %.noexc11.i.i ], [ %.sroa.1040.5.i.i, %_RNvMs3_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB5_8VecDequeTNtNtCseG2FYMysgNb_3wax5token8PositionRNtB18_5TokenEE9pop_frontB1a_.exit.i.i.i ], [ %.sroa.1040.5.i.i, %71 ]
+  %.sroa.1040.7.i.i = phi ptr [ %.sroa.625.0.copyload.i.i.i, %.noexc11.i.i ], [ poison, %_RNvMs3_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB5_8VecDequeTNtNtCseG2FYMysgNb_3wax5token8PositionRNtB18_5TokenEE9pop_frontB1a_.exit.i.i.i ], [ poison, %71 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !1152
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !1152
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !1152
@@ -5181,7 +5170,6 @@ _RNvMs3_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB5_8VecDequeTNtNtCseG2
   br label %_RINvMNtCs1LoaDTb72WA_4core6optionINtB3_6OptionIBw_TNtNtCseG2FYMysgNb_3wax5token8PositionRNtBP_5TokenEEE18get_or_insert_withNCNvMs3_NtNtNtB5_4iter8adapters8peekableINtB25_8PeekableINtBP_4WalkTjjEEE4peek0EBR_.llvm.8911405926988131354.exit.i.i.i.us10.i.i.i.i.i
 
 _RINvMNtCs1LoaDTb72WA_4core6optionINtB3_6OptionIBw_TNtNtCseG2FYMysgNb_3wax5token8PositionRNtBP_5TokenEEE18get_or_insert_withNCNvMs3_NtNtNtB5_4iter8adapters8peekableINtB25_8PeekableINtBP_4WalkTjjEEE4peek0EBR_.llvm.8911405926988131354.exit.i.i.i.us10.i.i.i.i.i: ; preds = %.noexc8.i.i, %.split.split.us.i.i.i.i.i
-  %.sroa.1040.6.i.i = phi ptr [ %.sroa.1040.7.i.i, %.noexc8.i.i ], [ %.sroa.1040.5.i.i, %.split.split.us.i.i.i.i.i ]
   %102 = phi i64 [ %.sroa.033.0.i.i, %.noexc8.i.i ], [ %69, %.split.split.us.i.i.i.i.i ]
   %103 = phi i1 [ %101, %.noexc8.i.i ], [ true, %.split.split.us.i.i.i.i.i ]
   call void @llvm.assume(i1 %103)
@@ -5203,12 +5191,10 @@ _RINvMNtCs1LoaDTb72WA_4core6optionINtB3_6OptionIBw_TNtNtCseG2FYMysgNb_3wax5token
   br label %.split.split.us.i.i.i.i.i
 
 .split8.us.i.i.i.i.i:                             ; preds = %_RINvMNtCs1LoaDTb72WA_4core6optionINtB3_6OptionIBw_TNtNtCseG2FYMysgNb_3wax5token8PositionRNtBP_5TokenEEE18get_or_insert_withNCNvMs3_NtNtNtB5_4iter8adapters8peekableINtB25_8PeekableINtBP_4WalkTjjEEE4peek0EBR_.llvm.8911405926988131354.exit.i.i.i.us.i.i.i.i.i, %_RINvMNtCs1LoaDTb72WA_4core6optionINtB3_6OptionIBw_TNtNtCseG2FYMysgNb_3wax5token8PositionRNtBP_5TokenEEE18get_or_insert_withNCNvMs3_NtNtNtB5_4iter8adapters8peekableINtB25_8PeekableINtBP_4WalkTjjEEE4peek0EBR_.llvm.8911405926988131354.exit.i.i.i.us10.i.i.i.i.i
-  %.sroa.1040.4.i.i = phi ptr [ %.sroa.1040.6.i.i, %_RINvMNtCs1LoaDTb72WA_4core6optionINtB3_6OptionIBw_TNtNtCseG2FYMysgNb_3wax5token8PositionRNtBP_5TokenEEE18get_or_insert_withNCNvMs3_NtNtNtB5_4iter8adapters8peekableINtB25_8PeekableINtBP_4WalkTjjEEE4peek0EBR_.llvm.8911405926988131354.exit.i.i.i.us10.i.i.i.i.i ], [ %.sroa.1040.2.i.i, %_RINvMNtCs1LoaDTb72WA_4core6optionINtB3_6OptionIBw_TNtNtCseG2FYMysgNb_3wax5token8PositionRNtBP_5TokenEEE18get_or_insert_withNCNvMs3_NtNtNtB5_4iter8adapters8peekableINtB25_8PeekableINtBP_4WalkTjjEEE4peek0EBR_.llvm.8911405926988131354.exit.i.i.i.us.i.i.i.i.i ]
   store i64 3, ptr %12, align 8, !alias.scope !1186, !noalias !1191
   br label %_RNvXs7_NtCslyFhtC9DD08_9itertools8adaptorsINtB5_8BatchingINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters8peekable8PeekableINtNtCseG2FYMysgNb_3wax5token4WalkTjjEEENCNvMsO_B1U_B1R_8starting0ENtNtNtB10_6traits8iterator8Iterator4nextB1W_.exit.i.i.i
 
 _RNvXs7_NtCslyFhtC9DD08_9itertools8adaptorsINtB5_8BatchingINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters8peekable8PeekableINtNtCseG2FYMysgNb_3wax5token4WalkTjjEEENCNvMsO_B1U_B1R_8starting0ENtNtNtB10_6traits8iterator8Iterator4nextB1W_.exit.i.i.i: ; preds = %64, %105, %.split8.us.i.i.i.i.i
-  %.sroa.1040.3.i.i = phi ptr [ %.sroa.1040.4.i.i, %.split8.us.i.i.i.i.i ], [ %.sroa.1040.6.i.i, %105 ], [ %.sroa.1040.2.i.i, %64 ]
   %.sroa.01.0.copyload.i.i20.i.i.i = phi i64 [ 3, %.split8.us.i.i.i.i.i ], [ %102, %105 ], [ %61, %64 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !1180
   %112 = load i64, ptr %27, align 8, !range !20, !noalias !1229, !noundef !5

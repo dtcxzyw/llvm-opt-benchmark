@@ -3965,14 +3965,12 @@ define hidden { i64, i64 } @_ZN12tokio_quiche5http36driver8datagram15extract_flo
   br label %11
 
 11:                                               ; preds = %.lr.ph, %169
-  %.sroa.0.068 = phi i64 [ 0, %.lr.ph ], [ %.sroa.0.5, %169 ]
-  %.sroa.10.066 = phi i64 [ undef, %.lr.ph ], [ %.sroa.10.5, %169 ]
-  %.sroa.027.065 = phi ptr [ %1, %.lr.ph ], [ %12, %169 ]
-  %.sroa.06.064 = phi ptr [ null, %.lr.ph ], [ %.sroa.06.5, %169 ]
-  %.sroa.11.063 = phi i64 [ undef, %.lr.ph ], [ %.sroa.11.5, %169 ]
-  %.sroa.016.062 = phi ptr [ null, %.lr.ph ], [ %.sroa.016.4, %169 ]
-  %12 = getelementptr inbounds nuw i8, ptr %.sroa.027.065, i64 48
-  %13 = tail call { ptr, i64 } @"_ZN60_$LT$quiche..h3..Header$u20$as$u20$quiche..h3..NameValue$GT$4name17h0e2c197f5152d2dbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.sroa.027.065)
+  %.sroa.0.061 = phi i64 [ 0, %.lr.ph ], [ %.sroa.0.5, %169 ]
+  %.sroa.027.060 = phi ptr [ %1, %.lr.ph ], [ %12, %169 ]
+  %.sroa.06.059 = phi ptr [ null, %.lr.ph ], [ %.sroa.06.5, %169 ]
+  %.sroa.016.058 = phi ptr [ null, %.lr.ph ], [ %.sroa.016.4, %169 ]
+  %12 = getelementptr inbounds nuw i8, ptr %.sroa.027.060, i64 48
+  %13 = tail call { ptr, i64 } @"_ZN60_$LT$quiche..h3..Header$u20$as$u20$quiche..h3..NameValue$GT$4name17h0e2c197f5152d2dbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.sroa.027.060)
   %14 = extractvalue { ptr, i64 } %13, 0
   %15 = extractvalue { ptr, i64 } %13, 1
   switch i64 %15, label %23 [
@@ -3993,7 +3991,7 @@ define hidden { i64, i64 } @_ZN12tokio_quiche5http36driver8datagram15extract_flo
   br i1 %22, label %24, label %23
 
 23:                                               ; preds = %11, %149, %145, %141, %137, %133, %129, %125, %121, %117, %113, %109, %105, %101, %97, %93, %90, %81, %77, %73, %69, %65, %61, %57, %53, %50, %40, %36, %32, %28, %24, %19, %16
-  %.not32 = icmp eq ptr %.sroa.06.064, null
+  %.not32 = icmp eq ptr %.sroa.06.059, null
   br i1 %.not32, label %169, label %48
 
 24:                                               ; preds = %19
@@ -4027,15 +4025,15 @@ define hidden { i64, i64 } @_ZN12tokio_quiche5http36driver8datagram15extract_flo
   br i1 %43, label %44, label %23
 
 44:                                               ; preds = %40
-  %45 = tail call { ptr, i64 } @"_ZN60_$LT$quiche..h3..Header$u20$as$u20$quiche..h3..NameValue$GT$5value17hbfbeb9ad00ea8cb9E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.sroa.027.065)
+  %45 = tail call { ptr, i64 } @"_ZN60_$LT$quiche..h3..Header$u20$as$u20$quiche..h3..NameValue$GT$5value17hbfbeb9ad00ea8cb9E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.sroa.027.060)
   %46 = extractvalue { ptr, i64 } %45, 0
   %47 = extractvalue { ptr, i64 } %45, 1
   br label %48
 
 48:                                               ; preds = %44, %23
-  %.sroa.11.2 = phi i64 [ %.sroa.11.063, %23 ], [ %47, %44 ]
-  %.sroa.06.2 = phi ptr [ %.sroa.06.064, %23 ], [ %46, %44 ]
-  %49 = icmp eq i64 %.sroa.0.068, 1
+  %.sroa.11.2 = phi i64 [ poison, %23 ], [ %47, %44 ]
+  %.sroa.06.2 = phi ptr [ %.sroa.06.059, %23 ], [ %46, %44 ]
+  %49 = icmp eq i64 %.sroa.0.061, 1
   br i1 %49, label %._crit_edge, label %165
 
 50:                                               ; preds = %11
@@ -4092,13 +4090,13 @@ define hidden { i64, i64 } @_ZN12tokio_quiche5http36driver8datagram15extract_flo
   br i1 %84, label %85, label %23
 
 85:                                               ; preds = %81
-  %86 = tail call { ptr, i64 } @"_ZN60_$LT$quiche..h3..Header$u20$as$u20$quiche..h3..NameValue$GT$5value17hbfbeb9ad00ea8cb9E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.sroa.027.065)
+  %86 = tail call { ptr, i64 } @"_ZN60_$LT$quiche..h3..Header$u20$as$u20$quiche..h3..NameValue$GT$5value17hbfbeb9ad00ea8cb9E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.sroa.027.060)
   %87 = extractvalue { ptr, i64 } %86, 0
-  %.not31 = icmp eq ptr %.sroa.06.064, null
+  %.not31 = icmp eq ptr %.sroa.06.059, null
   br i1 %.not31, label %169, label %88
 
 88:                                               ; preds = %85
-  %89 = icmp eq i64 %.sroa.0.068, 1
+  %89 = icmp eq i64 %.sroa.0.061, 1
   %spec.select = zext i1 %89 to i64
   br label %.thread
 
@@ -4199,7 +4197,7 @@ define hidden { i64, i64 } @_ZN12tokio_quiche5http36driver8datagram15extract_flo
 
 153:                                              ; preds = %149
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %154 = tail call { ptr, i64 } @"_ZN60_$LT$quiche..h3..Header$u20$as$u20$quiche..h3..NameValue$GT$5value17hbfbeb9ad00ea8cb9E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.sroa.027.065)
+  %154 = tail call { ptr, i64 } @"_ZN60_$LT$quiche..h3..Header$u20$as$u20$quiche..h3..NameValue$GT$5value17hbfbeb9ad00ea8cb9E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.sroa.027.060)
   %155 = extractvalue { ptr, i64 } %154, 0
   %156 = extractvalue { ptr, i64 } %154, 1
   call void @_ZN4core3str8converts9from_utf817h34c91f7db7a649f7E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 1 %155, i64 noundef %156)
@@ -4218,51 +4216,46 @@ define hidden { i64, i64 } @_ZN12tokio_quiche5http36driver8datagram15extract_flo
   br i1 %163, label %166, label %167
 
 164:                                              ; preds = %153
-  %.not28 = icmp eq ptr %.sroa.06.064, null
+  %.not28 = icmp eq ptr %.sroa.06.059, null
   br i1 %.not28, label %169, label %165
 
 165:                                              ; preds = %166, %164, %48
-  %.sroa.11.4 = phi i64 [ %.sroa.11.2, %48 ], [ %.sroa.11.063, %164 ], [ %.sroa.11.063, %166 ]
-  %.sroa.06.4 = phi ptr [ %.sroa.06.2, %48 ], [ %.sroa.06.064, %164 ], [ %.sroa.06.064, %166 ]
-  %.sroa.10.4 = phi i64 [ %.sroa.10.066, %48 ], [ undef, %164 ], [ undef, %166 ]
-  %.not33 = icmp eq ptr %.sroa.016.062, null
+  %.sroa.06.4 = phi ptr [ %.sroa.06.2, %48 ], [ %.sroa.06.059, %164 ], [ %.sroa.06.059, %166 ]
+  %.not33 = icmp eq ptr %.sroa.016.058, null
   br i1 %.not33, label %169, label %._crit_edge
 
 166:                                              ; preds = %161
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %.not30 = icmp eq ptr %.sroa.06.064, null
+  %.not30 = icmp eq ptr %.sroa.06.059, null
   br i1 %.not30, label %169, label %165
 
 167:                                              ; preds = %161
   %168 = load i64, ptr %10, align 8, !noundef !7
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %.not29 = icmp eq ptr %.sroa.06.064, null
+  %.not29 = icmp eq ptr %.sroa.06.059, null
   br i1 %.not29, label %169, label %.thread
 
 ._crit_edge:                                      ; preds = %169, %165, %48
-  %.sroa.016.0.lcssa = phi ptr [ %.sroa.016.4, %169 ], [ %.sroa.016.062, %165 ], [ %.sroa.016.062, %48 ]
-  %.sroa.11.1 = phi i64 [ %.sroa.11.5, %169 ], [ %.sroa.11.4, %165 ], [ %.sroa.11.2, %48 ]
+  %.sroa.016.0.lcssa = phi ptr [ %.sroa.016.4, %169 ], [ %.sroa.016.058, %165 ], [ %.sroa.016.058, %48 ]
+  %.sroa.11.1 = phi i64 [ poison, %169 ], [ poison, %165 ], [ %.sroa.11.2, %48 ]
   %.sroa.06.1 = phi ptr [ %.sroa.06.5, %169 ], [ %.sroa.06.4, %165 ], [ %.sroa.06.2, %48 ]
-  %.sroa.10.1 = phi i64 [ %.sroa.10.5, %169 ], [ %.sroa.10.4, %165 ], [ %.sroa.10.066, %48 ]
   %.sroa.0.1 = phi i64 [ %.sroa.0.5, %169 ], [ 0, %165 ], [ 1, %48 ]
   %.not34 = icmp eq ptr %.sroa.06.1, null
   br i1 %.not34, label %.critedge, label %.thread
 
 169:                                              ; preds = %23, %85, %164, %166, %167, %165
-  %.sroa.016.4 = phi ptr [ null, %165 ], [ %.sroa.016.062, %23 ], [ %87, %85 ], [ %.sroa.016.062, %166 ], [ %.sroa.016.062, %167 ], [ %.sroa.016.062, %164 ]
-  %.sroa.11.5 = phi i64 [ %.sroa.11.4, %165 ], [ %.sroa.11.063, %23 ], [ %.sroa.11.063, %85 ], [ %.sroa.11.063, %166 ], [ %.sroa.11.063, %167 ], [ %.sroa.11.063, %164 ]
+  %.sroa.016.4 = phi ptr [ null, %165 ], [ %.sroa.016.058, %23 ], [ %87, %85 ], [ %.sroa.016.058, %166 ], [ %.sroa.016.058, %167 ], [ %.sroa.016.058, %164 ]
   %.sroa.06.5 = phi ptr [ %.sroa.06.4, %165 ], [ null, %23 ], [ null, %85 ], [ null, %166 ], [ null, %167 ], [ null, %164 ]
-  %.sroa.10.5 = phi i64 [ %.sroa.10.4, %165 ], [ %.sroa.10.066, %23 ], [ %.sroa.10.066, %85 ], [ undef, %166 ], [ %168, %167 ], [ undef, %164 ]
-  %.sroa.0.5 = phi i64 [ 0, %165 ], [ %.sroa.0.068, %23 ], [ %.sroa.0.068, %85 ], [ 0, %166 ], [ 1, %167 ], [ 0, %164 ]
+  %.sroa.0.5 = phi i64 [ 0, %165 ], [ %.sroa.0.061, %23 ], [ %.sroa.0.061, %85 ], [ 0, %166 ], [ 1, %167 ], [ 0, %164 ]
   %170 = icmp eq ptr %12, %6
   br i1 %170, label %._crit_edge, label %11
 
 .thread:                                          ; preds = %167, %88, %._crit_edge
   %.sroa.0.150 = phi i64 [ %.sroa.0.1, %._crit_edge ], [ %spec.select, %88 ], [ 1, %167 ]
-  %.sroa.10.149 = phi i64 [ %.sroa.10.1, %._crit_edge ], [ %.sroa.10.066, %88 ], [ %168, %167 ]
-  %.sroa.06.148 = phi ptr [ %.sroa.06.1, %._crit_edge ], [ %.sroa.06.064, %88 ], [ %.sroa.06.064, %167 ]
-  %.sroa.11.147 = phi i64 [ %.sroa.11.1, %._crit_edge ], [ %.sroa.11.063, %88 ], [ %.sroa.11.063, %167 ]
-  %.sroa.016.146 = phi ptr [ %.sroa.016.0.lcssa, %._crit_edge ], [ %87, %88 ], [ %.sroa.016.062, %167 ]
+  %.sroa.10.149 = phi i64 [ undef, %._crit_edge ], [ undef, %88 ], [ %168, %167 ]
+  %.sroa.06.148 = phi ptr [ %.sroa.06.1, %._crit_edge ], [ %.sroa.06.059, %88 ], [ %.sroa.06.059, %167 ]
+  %.sroa.11.147 = phi i64 [ %.sroa.11.1, %._crit_edge ], [ poison, %88 ], [ poison, %167 ]
+  %.sroa.016.146 = phi ptr [ %.sroa.016.0.lcssa, %._crit_edge ], [ %87, %88 ], [ %.sroa.016.058, %167 ]
   %171 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hd23a799ddb71a7d3E"(ptr noalias noundef nonnull readonly align 1 %.sroa.06.148, i64 noundef %.sroa.11.147, ptr noalias noundef nonnull readonly align 1 @anon.fd87fb3034442b9b5b38fd74be7358af.43, i64 noundef 11)
   %172 = icmp eq i64 %.sroa.0.150, 1
   %or.cond = select i1 %171, i1 %172, i1 false

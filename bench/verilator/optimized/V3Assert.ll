@@ -3942,8 +3942,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit217: ; preds = %_Z
   br label %_ZN7AstNode9privateAsI11AstCaseItemPS_EEPT_S2_.exit228
 
 ._crit_edge443:                                   ; preds = %._crit_edge435
-  %.not132 = icmp eq ptr %.1116.lcssa, null
-  br i1 %.not132, label %._crit_edge443.thread, label %_ZN8AstConstC2EP8FileLineNS_8BitFalseE.exit
+  br i1 poison, label %._crit_edge443.thread, label %_ZN8AstConstC2EP8FileLineNS_8BitFalseE.exit
 
 316:                                              ; preds = %.noexc223, %.noexc225, %.noexc226, %.noexc224, %.noexc222, %325
   %317 = landingpad { ptr, i32 }
@@ -3951,7 +3950,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit217: ; preds = %_Z
   br label %725
 
 _ZN7AstNode9privateAsI11AstCaseItemPS_EEPT_S2_.exit228: ; preds = %323, %.lr.ph442
-  %.0115440 = phi ptr [ null, %.lr.ph442 ], [ %.1116.lcssa, %323 ]
   %.0119439 = phi ptr [ %.pre, %.lr.ph442 ], [ %322, %323 ]
   %318 = getelementptr inbounds nuw i8, ptr %.0119439, i64 24
   %319 = load ptr, ptr %318, align 8, !tbaa !94
@@ -3965,7 +3963,6 @@ _ZN7AstNode9privateAsI11AstCaseItemPS_EEPT_S2_.exit228: ; preds = %323, %.lr.ph4
   br label %_ZN7AstNode9privateAsI11AstNodeExprPS_EEPT_S2_.exit
 
 ._crit_edge435:                                   ; preds = %_ZN9AstConcatC2EP8FileLineP11AstNodeExprS3_.exit, %_ZN7AstNode9privateAsI11AstCaseItemPS_EEPT_S2_.exit228
-  %.1116.lcssa = phi ptr [ %.0115440, %_ZN7AstNode9privateAsI11AstCaseItemPS_EEPT_S2_.exit228 ], [ %.2117, %_ZN9AstConcatC2EP8FileLineP11AstNodeExprS3_.exit ]
   %321 = getelementptr inbounds nuw i8, ptr %.0119439, i64 8
   %322 = load ptr, ptr %321, align 8, !tbaa !124
   %cond447 = icmp eq ptr %322, null
@@ -4016,7 +4013,7 @@ _ZN7AstNode9privateAsI11AstCaseItemPS_EEPT_S2_.exit228: ; preds = %323, %.lr.ph4
 
 _ZN7AstNode9privateAsI11AstNodeExprPS_EEPT_S2_.exit: ; preds = %392, %.lr.ph434
   %.sroa.0.0.copyload.i.i.i230 = phi i16 [ %.sroa.0.0.copyload.i.i.i230.pre, %.lr.ph434 ], [ %.sroa.0.0.copyload.i.i.i249, %392 ]
-  %.1116432 = phi ptr [ %.0115440, %.lr.ph434 ], [ %.2117, %392 ]
+  %.1116432 = phi ptr [ poison, %.lr.ph434 ], [ %.2117, %392 ]
   %.0120431 = phi ptr [ %319, %.lr.ph434 ], [ %391, %392 ]
   %.not = icmp eq i16 %.sroa.0.0.copyload.i.i.i230, 120
   br i1 %.not, label %337, label %348
@@ -4251,7 +4248,7 @@ _ZN9AstConcatC2EP8FileLineP11AstNodeExprS3_.exit: ; preds = %383, %.noexc247, %3
   br label %725
 
 _ZN8AstConstC2EP8FileLineNS_8BitFalseE.exit:      ; preds = %413, %.noexc.i257, %._crit_edge443
-  %.3118 = phi ptr [ %.1116.lcssa, %._crit_edge443 ], [ %405, %.noexc.i257 ], [ %405, %413 ]
+  %.3118 = phi ptr [ poison, %._crit_edge443 ], [ %405, %.noexc.i257 ], [ %405, %413 ]
   br i1 %.0.lcssa, label %426, label %422
 
 422:                                              ; preds = %_ZN8AstConstC2EP8FileLineNS_8BitFalseE.exit

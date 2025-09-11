@@ -1515,15 +1515,13 @@ define linkonce_odr void @_ZN5faiss15HeapWithBucketsINS_4CMaxIfiEELj8ELj3EE7bs_a
 
 .preheader.us:                                    ; preds = %.split.us.us, %.preheader97.split.us
   %indvars.iv143 = phi i64 [ %indvars.iv.next144, %.split.us.us ], [ 0, %.preheader97.split.us ]
-  %.promoted.us111 = phi float [ %.promoted.us109, %.split.us.us ], [ %.promoted, %.preheader97.split.us ]
   %21 = getelementptr inbounds nuw [8 x float], ptr %7, i64 %indvars.iv143
   %22 = getelementptr inbounds nuw [8 x i32], ptr %8, i64 %indvars.iv143
   br label %23
 
 23:                                               ; preds = %34, %.preheader.us
   %indvars.iv139 = phi i64 [ %indvars.iv.next140, %34 ], [ 0, %.preheader.us ]
-  %.promoted.us110 = phi float [ %.promoted.us109, %34 ], [ %.promoted.us111, %.preheader.us ]
-  %24 = phi float [ %35, %34 ], [ %.promoted.us111, %.preheader.us ]
+  %24 = phi float [ %35, %34 ], [ %.promoted, %.preheader.us ]
   %25 = getelementptr inbounds nuw float, ptr %21, i64 %indvars.iv139
   %26 = load float, ptr %25, align 4, !tbaa !30
   %27 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv139
@@ -1544,7 +1542,6 @@ _ZN5faiss4CMaxIfiE4cmp2Effii.exit.thread.us.us:   ; preds = %_ZN5faiss4CMaxIfiE4
   br label %34
 
 34:                                               ; preds = %_ZN5faiss4CMaxIfiE4cmp2Effii.exit.thread.us.us, %_ZN5faiss4CMaxIfiE4cmp2Effii.exit.us.us
-  %.promoted.us109 = phi float [ %26, %_ZN5faiss4CMaxIfiE4cmp2Effii.exit.thread.us.us ], [ %.promoted.us110, %_ZN5faiss4CMaxIfiE4cmp2Effii.exit.us.us ]
   %35 = phi float [ %26, %_ZN5faiss4CMaxIfiE4cmp2Effii.exit.thread.us.us ], [ %24, %_ZN5faiss4CMaxIfiE4cmp2Effii.exit.us.us ]
   %indvars.iv.next140 = add nuw nsw i64 %indvars.iv139, 1
   %exitcond142.not = icmp eq i64 %indvars.iv.next140, 8
@@ -1886,13 +1883,11 @@ define linkonce_odr void @_ZN5faiss15HeapWithBucketsINS_4CMaxIfiEELj8ELj2EE7bs_a
   %21 = phi i1 [ false, %.split.us.us ], [ true, %.preheader97.split.us ]
   %indvars.iv140.sroa.phi = phi ptr [ %indvars.iv140.sroa.gep, %.split.us.us ], [ %8, %.preheader97.split.us ]
   %indvars.iv140.sroa.phi178 = phi ptr [ %indvars.iv140.sroa.gep179, %.split.us.us ], [ %7, %.preheader97.split.us ]
-  %.promoted.us111 = phi float [ %.promoted.us109, %.split.us.us ], [ %.promoted, %.preheader97.split.us ]
   br label %22
 
 22:                                               ; preds = %33, %.preheader.us
   %indvars.iv136 = phi i64 [ %indvars.iv.next137, %33 ], [ 0, %.preheader.us ]
-  %.promoted.us110 = phi float [ %.promoted.us109, %33 ], [ %.promoted.us111, %.preheader.us ]
-  %23 = phi float [ %34, %33 ], [ %.promoted.us111, %.preheader.us ]
+  %23 = phi float [ %34, %33 ], [ %.promoted, %.preheader.us ]
   %24 = getelementptr inbounds nuw float, ptr %indvars.iv140.sroa.phi178, i64 %indvars.iv136
   %25 = load float, ptr %24, align 4, !tbaa !30
   %26 = getelementptr inbounds nuw i32, ptr %indvars.iv140.sroa.phi, i64 %indvars.iv136
@@ -1913,7 +1908,6 @@ _ZN5faiss4CMaxIfiE4cmp2Effii.exit.thread.us.us:   ; preds = %_ZN5faiss4CMaxIfiE4
   br label %33
 
 33:                                               ; preds = %_ZN5faiss4CMaxIfiE4cmp2Effii.exit.thread.us.us, %_ZN5faiss4CMaxIfiE4cmp2Effii.exit.us.us
-  %.promoted.us109 = phi float [ %25, %_ZN5faiss4CMaxIfiE4cmp2Effii.exit.thread.us.us ], [ %.promoted.us110, %_ZN5faiss4CMaxIfiE4cmp2Effii.exit.us.us ]
   %34 = phi float [ %25, %_ZN5faiss4CMaxIfiE4cmp2Effii.exit.thread.us.us ], [ %23, %_ZN5faiss4CMaxIfiE4cmp2Effii.exit.us.us ]
   %indvars.iv.next137 = add nuw nsw i64 %indvars.iv136, 1
   %exitcond139.not = icmp eq i64 %indvars.iv.next137, 8
@@ -2250,13 +2244,11 @@ define linkonce_odr void @_ZN5faiss15HeapWithBucketsINS_4CMaxIfiEELj16ELj2EE7bs_
   %21 = phi i1 [ false, %.split.us.us ], [ true, %.preheader97.split.us ]
   %indvars.iv140.sroa.phi = phi ptr [ %indvars.iv140.sroa.gep, %.split.us.us ], [ %8, %.preheader97.split.us ]
   %indvars.iv140.sroa.phi178 = phi ptr [ %indvars.iv140.sroa.gep179, %.split.us.us ], [ %7, %.preheader97.split.us ]
-  %.promoted.us111 = phi float [ %.promoted.us109, %.split.us.us ], [ %.promoted, %.preheader97.split.us ]
   br label %22
 
 22:                                               ; preds = %33, %.preheader.us
   %indvars.iv136 = phi i64 [ %indvars.iv.next137, %33 ], [ 0, %.preheader.us ]
-  %.promoted.us110 = phi float [ %.promoted.us109, %33 ], [ %.promoted.us111, %.preheader.us ]
-  %23 = phi float [ %34, %33 ], [ %.promoted.us111, %.preheader.us ]
+  %23 = phi float [ %34, %33 ], [ %.promoted, %.preheader.us ]
   %24 = getelementptr inbounds nuw float, ptr %indvars.iv140.sroa.phi178, i64 %indvars.iv136
   %25 = load float, ptr %24, align 4, !tbaa !30
   %26 = getelementptr inbounds nuw i32, ptr %indvars.iv140.sroa.phi, i64 %indvars.iv136
@@ -2277,7 +2269,6 @@ _ZN5faiss4CMaxIfiE4cmp2Effii.exit.thread.us.us:   ; preds = %_ZN5faiss4CMaxIfiE4
   br label %33
 
 33:                                               ; preds = %_ZN5faiss4CMaxIfiE4cmp2Effii.exit.thread.us.us, %_ZN5faiss4CMaxIfiE4cmp2Effii.exit.us.us
-  %.promoted.us109 = phi float [ %25, %_ZN5faiss4CMaxIfiE4cmp2Effii.exit.thread.us.us ], [ %.promoted.us110, %_ZN5faiss4CMaxIfiE4cmp2Effii.exit.us.us ]
   %34 = phi float [ %25, %_ZN5faiss4CMaxIfiE4cmp2Effii.exit.thread.us.us ], [ %23, %_ZN5faiss4CMaxIfiE4cmp2Effii.exit.us.us ]
   %indvars.iv.next137 = add nuw nsw i64 %indvars.iv136, 1
   %exitcond139.not = icmp eq i64 %indvars.iv.next137, 16
@@ -2614,13 +2605,11 @@ define linkonce_odr void @_ZN5faiss15HeapWithBucketsINS_4CMaxIfiEELj32ELj2EE7bs_
   %21 = phi i1 [ false, %.split.us.us ], [ true, %.preheader97.split.us ]
   %indvars.iv140.sroa.phi = phi ptr [ %indvars.iv140.sroa.gep, %.split.us.us ], [ %8, %.preheader97.split.us ]
   %indvars.iv140.sroa.phi178 = phi ptr [ %indvars.iv140.sroa.gep179, %.split.us.us ], [ %7, %.preheader97.split.us ]
-  %.promoted.us111 = phi float [ %.promoted.us109, %.split.us.us ], [ %.promoted, %.preheader97.split.us ]
   br label %22
 
 22:                                               ; preds = %33, %.preheader.us
   %indvars.iv136 = phi i64 [ %indvars.iv.next137, %33 ], [ 0, %.preheader.us ]
-  %.promoted.us110 = phi float [ %.promoted.us109, %33 ], [ %.promoted.us111, %.preheader.us ]
-  %23 = phi float [ %34, %33 ], [ %.promoted.us111, %.preheader.us ]
+  %23 = phi float [ %34, %33 ], [ %.promoted, %.preheader.us ]
   %24 = getelementptr inbounds nuw float, ptr %indvars.iv140.sroa.phi178, i64 %indvars.iv136
   %25 = load float, ptr %24, align 4, !tbaa !30
   %26 = getelementptr inbounds nuw i32, ptr %indvars.iv140.sroa.phi, i64 %indvars.iv136
@@ -2641,7 +2630,6 @@ _ZN5faiss4CMaxIfiE4cmp2Effii.exit.thread.us.us:   ; preds = %_ZN5faiss4CMaxIfiE4
   br label %33
 
 33:                                               ; preds = %_ZN5faiss4CMaxIfiE4cmp2Effii.exit.thread.us.us, %_ZN5faiss4CMaxIfiE4cmp2Effii.exit.us.us
-  %.promoted.us109 = phi float [ %25, %_ZN5faiss4CMaxIfiE4cmp2Effii.exit.thread.us.us ], [ %.promoted.us110, %_ZN5faiss4CMaxIfiE4cmp2Effii.exit.us.us ]
   %34 = phi float [ %25, %_ZN5faiss4CMaxIfiE4cmp2Effii.exit.thread.us.us ], [ %23, %_ZN5faiss4CMaxIfiE4cmp2Effii.exit.us.us ]
   %indvars.iv.next137 = add nuw nsw i64 %indvars.iv136, 1
   %exitcond139.not = icmp eq i64 %indvars.iv.next137, 32

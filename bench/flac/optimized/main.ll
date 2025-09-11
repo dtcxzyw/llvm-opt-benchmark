@@ -1356,14 +1356,12 @@ sub_0155.i:                                       ; preds = %451, %sub_0155.preh
   br i1 %.not127166.not.i, label %.thread148.i, label %.lr.ph.i5
 
 .thread148.i:                                     ; preds = %472, %459
-  %.8.lcssa.i = phi i32 [ 0, %459 ], [ %.9.ph.i, %472 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %do_it.exit
 
 .lr.ph.i5:                                        ; preds = %459, %472
   %indvars.iv179.i = phi i64 [ %indvars.iv.next180.i, %472 ], [ 0, %459 ]
-  %.8168.i = phi i32 [ %.9.ph.i, %472 ], [ 0, %459 ]
   %461 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 6320), align 8, !tbaa !36
   %462 = getelementptr inbounds nuw ptr, ptr %461, i64 %indvars.iv179.i
   %463 = load ptr, ptr %462, align 8, !tbaa !45
@@ -1385,7 +1383,6 @@ sub_0155.i:                                       ; preds = %451, %sub_0155.preh
   br label %472
 
 472:                                              ; preds = %470, %465
-  %.9.ph.i = phi i32 [ %.8168.i, %465 ], [ 1, %470 ]
   %indvars.iv.next180.i = add nuw nsw i64 %indvars.iv179.i, 1
   %473 = load i32, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 6312), align 8, !tbaa !48
   %474 = zext i32 %473 to i64
@@ -1403,7 +1400,7 @@ sub_0155.i:                                       ; preds = %451, %sub_0155.preh
   br label %do_it.exit
 
 do_it.exit:                                       ; preds = %423, %475, %.thread148.i, %._crit_edge.i, %434, %409, %398, %395, %392, %389, %382, %379, %376, %368, %362, %358, %341, %335, %331, %329, %324, %321, %318, %315, %311, %307, %303, %299, %295, %288, %261, %255, %250, %246, %239, %236, %233, %230, %225, %222, %201, %198, %69, %64, %parse_options.exit, %25
-  %.0 = phi i32 [ 1, %parse_options.exit ], [ 1, %25 ], [ 0, %64 ], [ 0, %69 ], [ 1, %230 ], [ 1, %233 ], [ 1, %236 ], [ 1, %239 ], [ 1, %246 ], [ 1, %250 ], [ 1, %255 ], [ 1, %288 ], [ 1, %303 ], [ 1, %307 ], [ 1, %311 ], [ 1, %315 ], [ 1, %318 ], [ 1, %321 ], [ 1, %324 ], [ 1, %329 ], [ 1, %331 ], [ 1, %335 ], [ 1, %358 ], [ 1, %362 ], [ 1, %368 ], [ 1, %376 ], [ 1, %379 ], [ 1, %382 ], [ 1, %389 ], [ 1, %392 ], [ 1, %395 ], [ 1, %398 ], [ 1, %341 ], [ 1, %295 ], [ 1, %299 ], [ 1, %261 ], [ 1, %222 ], [ 1, %225 ], [ 0, %201 ], [ 0, %198 ], [ %410, %409 ], [ 1, %475 ], [ %.8.lcssa.i, %.thread148.i ], [ %.662.i, %._crit_edge.i ], [ %435, %434 ], [ %.258.i, %423 ]
+  %.0 = phi i32 [ 1, %parse_options.exit ], [ 1, %25 ], [ 0, %64 ], [ 0, %69 ], [ 1, %230 ], [ 1, %233 ], [ 1, %236 ], [ 1, %239 ], [ 1, %246 ], [ 1, %250 ], [ 1, %255 ], [ 1, %288 ], [ 1, %303 ], [ 1, %307 ], [ 1, %311 ], [ 1, %315 ], [ 1, %318 ], [ 1, %321 ], [ 1, %324 ], [ 1, %329 ], [ 1, %331 ], [ 1, %335 ], [ 1, %358 ], [ 1, %362 ], [ 1, %368 ], [ 1, %376 ], [ 1, %379 ], [ 1, %382 ], [ 1, %389 ], [ 1, %392 ], [ 1, %395 ], [ 1, %398 ], [ 1, %341 ], [ 1, %295 ], [ 1, %299 ], [ 1, %261 ], [ 1, %222 ], [ 1, %225 ], [ 0, %201 ], [ 0, %198 ], [ %410, %409 ], [ 1, %475 ], [ 0, %.thread148.i ], [ %.662.i, %._crit_edge.i ], [ %435, %434 ], [ %.258.i, %423 ]
   %480 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 6320), align 8, !tbaa !36
   %.not.i6 = icmp eq ptr %480, null
   br i1 %.not.i6, label %493, label %.preheader.i7

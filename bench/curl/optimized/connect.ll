@@ -274,7 +274,6 @@ define hidden range(i64 -9223372036854775806, -9223372036854775808) i64 @Curl_co
   br label %7
 
 7:                                                ; preds = %.lr.ph, %Curl_shutdown_timeleft.exit.thread
-  %.pre3435 = phi i32 [ %5, %.lr.ph ], [ %.pre3436, %Curl_shutdown_timeleft.exit.thread ]
   %8 = phi i32 [ %5, %.lr.ph ], [ %25, %Curl_shutdown_timeleft.exit.thread ]
   %9 = phi i1 [ true, %.lr.ph ], [ false, %Curl_shutdown_timeleft.exit.thread ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ 1, %Curl_shutdown_timeleft.exit.thread ]
@@ -287,11 +286,11 @@ define hidden range(i64 -9223372036854775806, -9223372036854775808) i64 @Curl_co
 
 12:                                               ; preds = %7
   %.not18 = icmp eq ptr %.030, null
-  br i1 %.not18, label %13, label %.thread
+  br i1 %.not18, label %13, label %.thread48
 
-.thread:                                          ; preds = %12
+.thread48:                                        ; preds = %12
   %.010.sroa.gep13.i44 = getelementptr inbounds nuw i8, ptr %.030, i64 8
-  br label %17
+  br label %Curl_shutdown_timeleft.exit.thread23
 
 13:                                               ; preds = %12
   %14 = call { i64, i32 } @Curl_now() #10
@@ -304,18 +303,18 @@ define hidden range(i64 -9223372036854775806, -9223372036854775808) i64 @Curl_co
   %.not.i = icmp eq i64 %.pre, 0
   br i1 %.not.i, label %Curl_shutdown_timeleft.exit.thread, label %17
 
-17:                                               ; preds = %.thread, %13
-  %.010.sroa.gep13.i47 = phi ptr [ %.010.sroa.gep13.i44, %.thread ], [ %.010.sroa.gep13.i, %13 ]
-  %.246 = phi ptr [ %.030, %.thread ], [ %3, %13 ]
-  %18 = phi i64 [ %11, %.thread ], [ %.pre, %13 ]
-  %.pre3445 = phi i32 [ %.pre3435, %.thread ], [ %.pre34.pre, %13 ]
-  %.not16.i = icmp eq i32 %.pre3445, 0
+17:                                               ; preds = %13
+  %.not16.i = icmp eq i32 %.pre34.pre, 0
   br i1 %.not16.i, label %._crit_edge, label %Curl_shutdown_timeleft.exit.thread23
 
-Curl_shutdown_timeleft.exit.thread23:             ; preds = %17
-  %.pre19.i = load i64, ptr %.246, align 8
-  %.pre20.i = load i32, ptr %.010.sroa.gep13.i47, align 8
-  %19 = zext i32 %.pre3445 to i64
+Curl_shutdown_timeleft.exit.thread23:             ; preds = %.thread48, %17
+  %.pre344555 = phi i32 [ poison, %.thread48 ], [ %.pre34.pre, %17 ]
+  %18 = phi i64 [ %11, %.thread48 ], [ %.pre, %17 ]
+  %.24654 = phi ptr [ %.030, %.thread48 ], [ %3, %17 ]
+  %.010.sroa.gep13.i4753 = phi ptr [ %.010.sroa.gep13.i44, %.thread48 ], [ %.010.sroa.gep13.i, %17 ]
+  %.pre19.i = load i64, ptr %.24654, align 8
+  %.pre20.i = load i32, ptr %.010.sroa.gep13.i4753, align 8
+  %19 = zext i32 %.pre344555 to i64
   %20 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %21 = load i32, ptr %20, align 8
   %22 = call i64 @Curl_timediff(i64 %.pre19.i, i32 %.pre20.i, i64 %18, i32 %21) #10
@@ -329,10 +328,9 @@ Curl_shutdown_timeleft.exit.thread23:             ; preds = %17
   br label %Curl_shutdown_timeleft.exit.thread
 
 Curl_shutdown_timeleft.exit.thread:               ; preds = %13, %Curl_shutdown_timeleft.exit.thread23, %7
-  %.pre3436 = phi i32 [ %.pre3435, %7 ], [ %.pre33, %Curl_shutdown_timeleft.exit.thread23 ], [ %.pre34.pre, %13 ]
   %25 = phi i32 [ %8, %7 ], [ %.pre33, %Curl_shutdown_timeleft.exit.thread23 ], [ %.pre34.pre, %13 ]
   %.115 = phi i64 [ %.01429, %7 ], [ %spec.select, %Curl_shutdown_timeleft.exit.thread23 ], [ %.01429, %13 ]
-  %.1 = phi ptr [ %.030, %7 ], [ %.246, %Curl_shutdown_timeleft.exit.thread23 ], [ %3, %13 ]
+  %.1 = phi ptr [ %.030, %7 ], [ %.24654, %Curl_shutdown_timeleft.exit.thread23 ], [ %3, %13 ]
   %26 = icmp ne i32 %25, 0
   %27 = and i1 %26, %9
   br i1 %27, label %7, label %._crit_edge, !llvm.loop !91

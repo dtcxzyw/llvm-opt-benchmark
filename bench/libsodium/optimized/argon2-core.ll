@@ -139,45 +139,35 @@ define hidden void @_sodium_argon2_fill_memory_blocks(ptr noundef %0, i32 nounde
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %6 = load i32, ptr %5, align 4
   %7 = icmp eq i32 %6, 0
-  br i1 %7, label %.loopexit, label %.split.preheader
+  br i1 %7, label %.loopexit, label %.split
 
-.split.preheader:                                 ; preds = %4
-  %.sroa.0.0.insert.ext = zext i32 %1 to i64
-  br label %.split
-
-.split:                                           ; preds = %.split.preheader, %._crit_edge
-  %8 = phi i32 [ 1, %.split.preheader ], [ %15, %._crit_edge ]
-  %indvars.iv21 = phi i64 [ 0, %.split.preheader ], [ %indvars.iv.next22, %._crit_edge ]
-  %.sroa.0.016 = phi i64 [ %.sroa.0.0.insert.ext, %.split.preheader ], [ %.sroa.0.1.lcssa, %._crit_edge ]
-  %.sroa.5.015 = phi i64 [ undef, %.split.preheader ], [ %.sroa.5.1.lcssa, %._crit_edge ]
+.split:                                           ; preds = %4, %._crit_edge
+  %8 = phi i32 [ %14, %._crit_edge ], [ 1, %4 ]
+  %indvars.iv = phi i64 [ %indvars.iv.next, %._crit_edge ], [ 0, %4 ]
+  %.sroa.5.015 = phi i64 [ %.sroa.5.1.lcssa, %._crit_edge ], [ undef, %4 ]
   %.sroa.5.8.insert.mask = and i64 %.sroa.5.015, -256
-  %.sroa.5.8.insert.insert = or disjoint i64 %.sroa.5.8.insert.mask, %indvars.iv21
+  %.sroa.5.8.insert.insert = or disjoint i64 %.sroa.5.8.insert.mask, %indvars.iv
   %.not18 = icmp eq i32 %8, 0
   br i1 %.not18, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.split
   %.sroa.5.12.insert.mask = and i64 %.sroa.5.8.insert.insert, 4294967043
-  %9 = and i64 %.sroa.0.016, 4294967295
-  br label %10
+  br label %9
 
-10:                                               ; preds = %.lr.ph, %10
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %10 ]
-  %.sroa.0.4.insert.shift = shl nuw i64 %indvars.iv, 32
-  %.sroa.0.4.insert.insert = or disjoint i64 %.sroa.0.4.insert.shift, %9
-  %11 = load ptr, ptr @fill_segment, align 8
-  tail call void %11(ptr noundef nonnull %0, i64 %.sroa.0.4.insert.insert, i64 %.sroa.5.12.insert.mask) #10, !callees !12
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+9:                                                ; preds = %.lr.ph, %9
+  %.01013 = phi i32 [ 0, %.lr.ph ], [ %11, %9 ]
+  %10 = load ptr, ptr @fill_segment, align 8
+  tail call void %10(ptr noundef nonnull %0, i64 poison, i64 %.sroa.5.12.insert.mask) #10, !callees !12
+  %11 = add nuw i32 %.01013, 1
   %12 = load i32, ptr %5, align 4
-  %13 = zext i32 %12 to i64
-  %14 = icmp samesign ult i64 %indvars.iv.next, %13
-  br i1 %14, label %10, label %._crit_edge, !llvm.loop !13
+  %13 = icmp ult i32 %11, %12
+  br i1 %13, label %9, label %._crit_edge, !llvm.loop !13
 
-._crit_edge:                                      ; preds = %10, %.split
-  %15 = phi i32 [ 0, %.split ], [ %12, %10 ]
-  %.sroa.5.1.lcssa = phi i64 [ %.sroa.5.8.insert.insert, %.split ], [ %.sroa.5.12.insert.mask, %10 ]
-  %.sroa.0.1.lcssa = phi i64 [ %.sroa.0.016, %.split ], [ %.sroa.0.4.insert.insert, %10 ]
-  %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next22, 4
+._crit_edge:                                      ; preds = %9, %.split
+  %14 = phi i32 [ 0, %.split ], [ %12, %9 ]
+  %.sroa.5.1.lcssa = phi i64 [ %.sroa.5.8.insert.insert, %.split ], [ %.sroa.5.12.insert.mask, %9 ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %.loopexit, label %.split, !llvm.loop !14
 
 .loopexit:                                        ; preds = %._crit_edge, %2, %4

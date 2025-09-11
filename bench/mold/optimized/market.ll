@@ -657,9 +657,6 @@ define void @_ZN3tbb6detail2r16market16update_allotmentEv(ptr noundef nonnull re
 
 14:                                               ; preds = %1, %._crit_edge
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %._crit_edge ]
-  %.055 = phi i32 [ 0, %1 ], [ %.1.lcssa, %._crit_edge ]
-  %.02954 = phi i32 [ 0, %1 ], [ %.130.lcssa, %._crit_edge ]
-  %.03253 = phi i32 [ 3, %1 ], [ %.133.lcssa, %._crit_edge ]
   %.04351 = phi i32 [ %..i, %1 ], [ %17, %._crit_edge ]
   %15 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
   %16 = load i32, ptr %15, align 4, !tbaa !92
@@ -677,17 +674,14 @@ define void @_ZN3tbb6detail2r16market16update_allotmentEv(ptr noundef nonnull re
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %55, %14
-  %.133.lcssa = phi i32 [ %.03253, %14 ], [ %.234, %55 ]
-  %.130.lcssa = phi i32 [ %.02954, %14 ], [ %.231, %55 ]
-  %.1.lcssa = phi i32 [ %.055, %14 ], [ %.2, %55 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %13, label %14, !llvm.loop !99
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %55
-  %.148 = phi i32 [ %.2, %55 ], [ %.055, %.lr.ph.preheader ]
-  %.13047 = phi i32 [ %.231, %55 ], [ %.02954, %.lr.ph.preheader ]
-  %.13346 = phi i32 [ %.234, %55 ], [ %.03253, %.lr.ph.preheader ]
+  %.148 = phi i32 [ %.2, %55 ], [ poison, %.lr.ph.preheader ]
+  %.13047 = phi i32 [ %.231, %55 ], [ poison, %.lr.ph.preheader ]
+  %.13346 = phi i32 [ %.234, %55 ], [ poison, %.lr.ph.preheader ]
   %.sroa.040.045 = phi ptr [ %23, %55 ], [ %20, %.lr.ph.preheader ]
   %23 = getelementptr inbounds i8, ptr %.sroa.040.045, i64 -8
   %24 = load ptr, ptr %23, align 8, !tbaa !79
@@ -732,7 +726,7 @@ define void @_ZN3tbb6detail2r16market16update_allotmentEv(ptr noundef nonnull re
   %49 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %50 = load ptr, ptr %49, align 8, !tbaa !35
   tail call void @_ZN3tbb6detail2r15arena13set_allotmentEj(ptr noundef nonnull align 128 dereferenceable(768) %50, i32 noundef %.028)
-  %51 = zext nneg i32 %spec.select to i64
+  %51 = zext i32 %spec.select to i64
   %52 = icmp eq i64 %indvars.iv, %51
   %53 = load ptr, ptr %49, align 8, !tbaa !35
   tail call void @_ZN3tbb6detail2r15arena16set_top_priorityEb(ptr noundef nonnull align 128 dereferenceable(768) %53, i1 noundef zeroext %52)

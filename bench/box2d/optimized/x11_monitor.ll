@@ -486,11 +486,11 @@ getModeInfo.exit:                                 ; preds = %48, %49, %41
   br label %57
 
 57:                                               ; preds = %55, %55, %56
-  %.sink57 = phi i64 [ 8, %56 ], [ 12, %55 ], [ 12, %55 ]
+  %.sink58 = phi i64 [ 8, %56 ], [ 12, %55 ], [ 12, %55 ]
   %.sink = phi i64 [ 12, %56 ], [ 8, %55 ], [ 8, %55 ]
-  %58 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 %.sink57
-  %.sink55 = load i32, ptr %58, align 4, !tbaa !93, !noalias !161
-  store i32 %.sink55, ptr %4, align 4, !tbaa !164, !alias.scope !161
+  %58 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 %.sink58
+  %.sink56 = load i32, ptr %58, align 4, !tbaa !93, !noalias !161
+  store i32 %.sink56, ptr %4, align 4, !tbaa !164, !alias.scope !161
   %59 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 %.sink
   %.sink.i = load i32, ptr %59, align 4, !tbaa !93, !noalias !161
   store i32 %.sink.i, ptr %36, align 4, !tbaa !165, !alias.scope !161
@@ -549,47 +549,48 @@ vidmodeFromModeInfo.exit:                         ; preds = %57, %62, %65
   %89 = load i64, ptr %spec.select.i, align 8, !tbaa !158
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not38 = icmp eq i64 %89, 0
-  br i1 %.not38, label %.loopexit.thread, label %90
+  br i1 %.not38, label %111, label %.loopexit.thread
 
-90:                                               ; preds = %.loopexit
-  %91 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  %92 = load i64, ptr %91, align 8, !tbaa !171
-  %93 = icmp eq i64 %92, 0
-  br i1 %93, label %94, label %97
+.loopexit.thread:                                 ; preds = %.thread, %14, %.loopexit
+  %.154 = phi i64 [ %89, %.loopexit ], [ poison, %14 ], [ poison, %.thread ]
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 304
+  %91 = load i64, ptr %90, align 8, !tbaa !171
+  %92 = icmp eq i64 %91, 0
+  br i1 %92, label %93, label %96
 
-94:                                               ; preds = %90
-  %95 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  %96 = load i64, ptr %95, align 8, !tbaa !172
-  store i64 %96, ptr %91, align 8, !tbaa !171
-  br label %97
+93:                                               ; preds = %.loopexit.thread
+  %94 = getelementptr inbounds nuw i8, ptr %24, i64 24
+  %95 = load i64, ptr %94, align 8, !tbaa !172
+  store i64 %95, ptr %90, align 8, !tbaa !171
+  br label %96
 
-97:                                               ; preds = %94, %90
-  %98 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142216), align 8, !tbaa !173
-  %99 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
-  %100 = load i64, ptr %22, align 8, !tbaa !133
-  %101 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %102 = load i32, ptr %101, align 8, !tbaa !134
-  %103 = getelementptr inbounds nuw i8, ptr %24, i64 12
-  %104 = load i32, ptr %103, align 4, !tbaa !138
-  %105 = getelementptr inbounds nuw i8, ptr %24, i64 32
-  %106 = load i16, ptr %105, align 8, !tbaa !128
-  %107 = getelementptr inbounds nuw i8, ptr %24, i64 40
-  %108 = load ptr, ptr %107, align 8, !tbaa !174
-  %109 = getelementptr inbounds nuw i8, ptr %24, i64 36
-  %110 = load i32, ptr %109, align 4, !tbaa !175
-  %111 = call i32 %98(ptr noundef %99, ptr noundef %18, i64 noundef %100, i64 noundef 0, i32 noundef %102, i32 noundef %104, i64 noundef %89, i16 noundef zeroext %106, ptr noundef %108, i32 noundef %110) #9
-  br label %.loopexit.thread
+96:                                               ; preds = %93, %.loopexit.thread
+  %97 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142216), align 8, !tbaa !173
+  %98 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
+  %99 = load i64, ptr %22, align 8, !tbaa !133
+  %100 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %101 = load i32, ptr %100, align 8, !tbaa !134
+  %102 = getelementptr inbounds nuw i8, ptr %24, i64 12
+  %103 = load i32, ptr %102, align 4, !tbaa !138
+  %104 = getelementptr inbounds nuw i8, ptr %24, i64 32
+  %105 = load i16, ptr %104, align 8, !tbaa !128
+  %106 = getelementptr inbounds nuw i8, ptr %24, i64 40
+  %107 = load ptr, ptr %106, align 8, !tbaa !174
+  %108 = getelementptr inbounds nuw i8, ptr %24, i64 36
+  %109 = load i32, ptr %108, align 4, !tbaa !175
+  %110 = call i32 %97(ptr noundef %98, ptr noundef %18, i64 noundef %99, i64 noundef 0, i32 noundef %101, i32 noundef %103, i64 noundef %.154, i16 noundef zeroext %105, ptr noundef %107, i32 noundef %109) #9
+  br label %111
 
-.loopexit.thread:                                 ; preds = %.thread, %14, %97, %.loopexit
+111:                                              ; preds = %96, %.loopexit
   %112 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142128), align 8, !tbaa !114
   call void %112(ptr noundef %28) #9
   %113 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142112), align 8, !tbaa !142
-  call void %113(ptr noundef %24) #9
+  call void %113(ptr noundef nonnull %24) #9
   %114 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142136), align 8, !tbaa !106
   call void %114(ptr noundef %18) #9
   br label %115
 
-115:                                              ; preds = %9, %.loopexit.thread
+115:                                              ; preds = %9, %111
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %116
 

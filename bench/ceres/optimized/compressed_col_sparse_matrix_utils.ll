@@ -439,12 +439,12 @@ _ZN5ceres8internal16NumScalarEntriesERKSt6vectorINS0_5BlockESaIS2_EE.exit: ; pre
   %49 = phi ptr [ %26, %_ZN5ceres8internal16NumScalarEntriesERKSt6vectorINS0_5BlockESaIS2_EE.exit.thread ], [ %39, %_ZN5ceres8internal16NumScalarEntriesERKSt6vectorINS0_5BlockESaIS2_EE.exit ]
   %50 = phi ptr [ %25, %_ZN5ceres8internal16NumScalarEntriesERKSt6vectorINS0_5BlockESaIS2_EE.exit.thread ], [ %38, %_ZN5ceres8internal16NumScalarEntriesERKSt6vectorINS0_5BlockESaIS2_EE.exit ]
   %51 = phi ptr [ %24, %_ZN5ceres8internal16NumScalarEntriesERKSt6vectorINS0_5BlockESaIS2_EE.exit.thread ], [ %37, %_ZN5ceres8internal16NumScalarEntriesERKSt6vectorINS0_5BlockESaIS2_EE.exit ]
-  %.0.i46 = phi i64 [ 0, %_ZN5ceres8internal16NumScalarEntriesERKSt6vectorINS0_5BlockESaIS2_EE.exit.thread ], [ %36, %_ZN5ceres8internal16NumScalarEntriesERKSt6vectorINS0_5BlockESaIS2_EE.exit ]
-  %52 = icmp ult i64 %.0.i46, %48
+  %.0.i45 = phi i64 [ 0, %_ZN5ceres8internal16NumScalarEntriesERKSt6vectorINS0_5BlockESaIS2_EE.exit.thread ], [ %36, %_ZN5ceres8internal16NumScalarEntriesERKSt6vectorINS0_5BlockESaIS2_EE.exit ]
+  %52 = icmp ult i64 %.0.i45, %48
   br i1 %52, label %53, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
 53:                                               ; preds = %47
-  %54 = getelementptr inbounds nuw i32, ptr %49, i64 %.0.i46
+  %54 = getelementptr inbounds nuw i32, ptr %49, i64 %.0.i45
   %.not.i.i = icmp eq ptr %50, %54
   br i1 %.not.i.i, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit, label %55
 
@@ -476,9 +476,8 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %45, %47, %53, %55
   ret void
 
 64:                                               ; preds = %.lr.ph32, %._crit_edge
-  %indvars.iv35 = phi i64 [ 0, %.lr.ph32 ], [ %indvars.iv.next36, %._crit_edge ]
-  %.02231 = phi i32 [ 0, %.lr.ph32 ], [ %.1.lcssa, %._crit_edge ]
-  %65 = getelementptr inbounds nuw i32, ptr %57, i64 %indvars.iv35
+  %indvars.iv34 = phi i64 [ 0, %.lr.ph32 ], [ %indvars.iv.next35, %._crit_edge ]
+  %65 = getelementptr inbounds nuw i32, ptr %57, i64 %indvars.iv34
   %66 = load i32, ptr %65, align 4, !tbaa !16
   %67 = sext i32 %66 to i64
   %68 = getelementptr inbounds nuw %"struct.ceres::internal::Block", ptr %58, i64 %67
@@ -490,30 +489,24 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %45, %47, %53, %55
   %71 = getelementptr inbounds nuw i8, ptr %68, i64 4
   %72 = load i32, ptr %71, align 4, !tbaa !24
   %73 = load ptr, ptr %2, align 8, !tbaa !4
-  %74 = sext i32 %.02231 to i64
-  br label %76
+  br label %74
 
-._crit_edge.loopexit:                             ; preds = %76
-  %75 = trunc nsw i64 %indvars.iv.next to i32
-  br label %._crit_edge
+._crit_edge:                                      ; preds = %74, %64
+  %indvars.iv.next35 = add nuw nsw i64 %indvars.iv34, 1
+  %exitcond37.not = icmp eq i64 %indvars.iv.next35, %wide.trip.count
+  br i1 %exitcond37.not, label %._crit_edge33, label %64, !llvm.loop !34
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %64
-  %.1.lcssa = phi i32 [ %.02231, %64 ], [ %75, %._crit_edge.loopexit ]
-  %indvars.iv.next36 = add nuw nsw i64 %indvars.iv35, 1
-  %exitcond38.not = icmp eq i64 %indvars.iv.next36, %wide.trip.count
-  br i1 %exitcond38.not, label %._crit_edge33, label %64, !llvm.loop !34
-
-76:                                               ; preds = %.lr.ph, %76
-  %indvars.iv = phi i64 [ %74, %.lr.ph ], [ %indvars.iv.next, %76 ]
-  %.029 = phi i32 [ 0, %.lr.ph ], [ %79, %76 ]
-  %.02128 = phi i32 [ %72, %.lr.ph ], [ %77, %76 ]
-  %77 = add nsw i32 %.02128, 1
+74:                                               ; preds = %.lr.ph, %74
+  %indvars.iv = phi i64 [ poison, %.lr.ph ], [ %indvars.iv.next, %74 ]
+  %.029 = phi i32 [ 0, %.lr.ph ], [ %77, %74 ]
+  %.02128 = phi i32 [ %72, %.lr.ph ], [ %75, %74 ]
+  %75 = add nsw i32 %.02128, 1
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %78 = getelementptr inbounds nuw i32, ptr %73, i64 %indvars.iv
-  store i32 %.02128, ptr %78, align 4, !tbaa !16
-  %79 = add nuw nsw i32 %.029, 1
-  %exitcond.not = icmp eq i32 %79, %69
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %76, !llvm.loop !35
+  %76 = getelementptr inbounds nuw i32, ptr %73, i64 %indvars.iv
+  store i32 %.02128, ptr %76, align 4, !tbaa !16
+  %77 = add nuw nsw i32 %.029, 1
+  %exitcond.not = icmp eq i32 %77, %69
+  br i1 %exitcond.not, label %._crit_edge, label %74, !llvm.loop !35
 }
 
 declare noundef nonnull ptr @_ZN4absl12lts_2024011612log_internal17MakeCheckOpStringImmEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_T0_PKc(i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #3

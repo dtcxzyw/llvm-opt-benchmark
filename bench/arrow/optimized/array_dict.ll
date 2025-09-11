@@ -13266,7 +13266,6 @@ _ZNSt6vectorISt10shared_ptrIN5arrow9ArrayDataEESaIS3_EE17_S_check_init_lenEmRKS4
   br label %97
 
 85:                                               ; preds = %_ZN5arrow6ResultIbED2Ev.exit133.thread, %_ZN5arrow6ResultIbED2Ev.exit133
-  %.2376378 = phi i8 [ %.1278, %_ZN5arrow6ResultIbED2Ev.exit133.thread ], [ %.2.ph, %_ZN5arrow6ResultIbED2Ev.exit133 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %86 = load ptr, ptr %2, align 8, !tbaa !47
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 48
@@ -13289,7 +13288,6 @@ _ZNSt6vectorISt10shared_ptrIN5arrow9ArrayDataEESaIS3_EE17_S_check_init_lenEmRKS4
 97:                                               ; preds = %.lr.ph281, %85
   %98 = phi ptr [ %53, %.lr.ph281 ], [ %86, %85 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph281 ], [ %indvars.iv.next, %85 ]
-  %.1278 = phi i8 [ 0, %.lr.ph281 ], [ %.2376378, %85 ]
   %99 = load ptr, ptr %3, align 8, !tbaa !200
   %100 = load ptr, ptr %65, align 8, !tbaa !200
   %.not12.i = icmp eq ptr %99, %100
@@ -13583,13 +13581,12 @@ _ZNSt10shared_ptrIN5arrow9ArrayDataEEaSEOS2_.exit: ; preds = %.lr.ph, %209, %_ZN
   br i1 %232, label %.lr.ph, label %.loopexit273, !llvm.loop !874
 
 .loopexit273:                                     ; preds = %_ZNSt10shared_ptrIN5arrow9ArrayDataEEaSEOS2_.exit, %.preheader, %183
-  %.2.ph = phi i8 [ 1, %.preheader ], [ %.1278, %183 ], [ 1, %_ZNSt10shared_ptrIN5arrow9ArrayDataEEaSEOS2_.exit ]
-  %.pr373 = load ptr, ptr %7, align 8, !tbaa !129
-  %.not.i.i132 = icmp eq ptr %.pr373, null
+  %.pr372 = load ptr, ptr %7, align 8, !tbaa !129
+  %.not.i.i132 = icmp eq ptr %.pr372, null
   br i1 %.not.i.i132, label %_ZN5arrow6ResultIbED2Ev.exit133, label %233, !prof !875
 
 233:                                              ; preds = %.loopexit273
-  %234 = getelementptr inbounds nuw i8, ptr %.pr373, i64 1
+  %234 = getelementptr inbounds nuw i8, ptr %.pr372, i64 1
   %235 = load i8, ptr %234, align 1, !tbaa !132, !range !119, !noundef !120
   %236 = trunc nuw i8 %235 to i1
   br i1 %236, label %_ZN5arrow6ResultIbED2Ev.exit133, label %237
@@ -13696,10 +13693,9 @@ _ZNSt6vectorISt10shared_ptrIN5arrow9ArrayDataEESaIS3_EED2Ev.exit: ; preds = %_ZS
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.loopexit, %76
-  %272 = phi ptr [ %80, %76 ], [ %81, %.critedge.loopexit ]
-  %273 = phi ptr [ %77, %76 ], [ %.pre297, %.critedge.loopexit ]
-  %274 = phi ptr [ %75, %76 ], [ %.pre296, %.critedge.loopexit ]
-  %.1.lcssa = phi i8 [ 0, %76 ], [ %.2376378, %.critedge.loopexit ]
+  %272 = phi ptr [ %81, %.critedge.loopexit ], [ %80, %76 ]
+  %273 = phi ptr [ %.pre297, %.critedge.loopexit ], [ %77, %76 ]
+  %274 = phi ptr [ %.pre296, %.critedge.loopexit ], [ %75, %76 ]
   %.not4.i.i.i.i136 = icmp eq ptr %274, %273
   br i1 %.not4.i.i.i.i136, label %_ZSt8_DestroyIPSt10shared_ptrIN5arrow9ArrayDataEES3_EvT_S5_RSaIT0_E.exit.i147, label %.lr.ph.i.i.i.i137
 
@@ -13783,7 +13779,6 @@ _ZNSt6vectorISt10shared_ptrIN5arrow9ArrayDataEESaIS3_EED2Ev.exit149: ; preds = %
 
 305:                                              ; preds = %_ZNSt6vectorISt10shared_ptrIN5arrow9ArrayDataEESaIS3_EED2Ev.exit149, %_ZNSt10shared_ptrIN5arrow8DataTypeEEaSERKS2_.exit
   %306 = phi ptr [ %.pre298, %_ZNSt6vectorISt10shared_ptrIN5arrow9ArrayDataEESaIS3_EED2Ev.exit149 ], [ %53, %_ZNSt10shared_ptrIN5arrow8DataTypeEEaSERKS2_.exit ]
-  %.0 = phi i8 [ %.1.lcssa, %_ZNSt6vectorISt10shared_ptrIN5arrow9ArrayDataEESaIS3_EED2Ev.exit149 ], [ 0, %_ZNSt10shared_ptrIN5arrow8DataTypeEEaSERKS2_.exit ]
   %307 = getelementptr inbounds nuw i8, ptr %306, i64 40
   %308 = load i32, ptr %307, align 8, !tbaa !50
   %309 = icmp eq i32 %308, 29
@@ -13912,9 +13907,9 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit157:
 
 _ZNSt6vectorISt10shared_ptrIN5arrow6BufferEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i: ; preds = %352
   %.not.i.i.i.i158 = icmp eq ptr %357, %358
-  br i1 %.not.i.i.i.i158, label %.thread379, label %.lr.ph.preheader.i.i.i.i.i159
+  br i1 %.not.i.i.i.i158, label %.thread374, label %.lr.ph.preheader.i.i.i.i.i159
 
-.thread379:                                       ; preds = %_ZNSt6vectorISt10shared_ptrIN5arrow6BufferEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i
+.thread374:                                       ; preds = %_ZNSt6vectorISt10shared_ptrIN5arrow6BufferEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i
   %364 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %365 = getelementptr inbounds nuw i8, ptr %11, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, i8 0, i64 24, i1 false)
@@ -14072,9 +14067,9 @@ _ZN5arrow6StatusD2Ev.exit173:                     ; preds = %_ZNSt12__shared_ptr
   %.not96 = icmp ult i64 %422, %428
   br i1 %.not96, label %373, label %.critedge109, !llvm.loop !884
 
-.critedge109:                                     ; preds = %_ZN5arrow6StatusD2Ev.exit173, %.thread379
-  %429 = phi ptr [ %365, %.thread379 ], [ %369, %_ZN5arrow6StatusD2Ev.exit173 ]
-  %430 = phi ptr [ %364, %.thread379 ], [ %368, %_ZN5arrow6StatusD2Ev.exit173 ]
+.critedge109:                                     ; preds = %_ZN5arrow6StatusD2Ev.exit173, %.thread374
+  %429 = phi ptr [ %365, %.thread374 ], [ %369, %_ZN5arrow6StatusD2Ev.exit173 ]
+  %430 = phi ptr [ %364, %.thread374 ], [ %368, %_ZN5arrow6StatusD2Ev.exit173 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
@@ -14771,7 +14766,7 @@ _ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EED2Ev.exit25
   br label %752
 
 723:                                              ; preds = %_ZN5arrow6ResultISt10unique_ptrINS_17DictionaryUnifierESt14default_deleteIS2_EEED2Ev.exit, %305
-  %.3 = phi i8 [ 1, %_ZN5arrow6ResultISt10unique_ptrINS_17DictionaryUnifierESt14default_deleteIS2_EEED2Ev.exit ], [ %.0, %305 ]
+  %.3 = phi i8 [ 1, %_ZN5arrow6ResultISt10unique_ptrINS_17DictionaryUnifierESt14default_deleteIS2_EEED2Ev.exit ], [ 0, %305 ]
   store ptr null, ptr %0, align 8, !tbaa !129
   %724 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %.3, ptr %724, align 8, !tbaa !855
@@ -47827,7 +47822,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68: ; preds = %_ZN
   br label %109
 
 109:                                              ; preds = %.lr.ph, %_ZN5arrow6StatusD2Ev.exit72
-  %.pre108 = phi ptr [ %100, %.lr.ph ], [ %.pre109, %_ZN5arrow6StatusD2Ev.exit72 ]
   %110 = phi ptr [ %100, %.lr.ph ], [ %156, %_ZN5arrow6StatusD2Ev.exit72 ]
   %.039102 = phi i64 [ 0, %.lr.ph ], [ %157, %_ZN5arrow6StatusD2Ev.exit72 ]
   %111 = load ptr, ptr %103, align 8, !tbaa !2267
@@ -47903,7 +47897,7 @@ _ZNSt13_Bit_iteratorppEi.exit.i.i.i:              ; preds = %143, %140
   br label %_ZNSt6vectorIbSaIbEE9push_backEb.exit.i.i
 
 _ZNSt6vectorIbSaIbEE9push_backEb.exit.i.i:        ; preds = %._ZNSt6vectorIbSaIbEE9push_backEb.exit.i.i_crit_edge, %149, %146
-  %.pre = phi ptr [ %.pre.pre, %._ZNSt6vectorIbSaIbEE9push_backEb.exit.i.i_crit_edge ], [ %.pre108, %149 ], [ %.pre108, %146 ]
+  %.pre = phi ptr [ %.pre.pre, %._ZNSt6vectorIbSaIbEE9push_backEb.exit.i.i_crit_edge ], [ poison, %149 ], [ poison, %146 ]
   store i32 %138, ptr %126, align 4, !tbaa !85, !noalias !2270
   br label %_ZN5arrow6StatusD2Ev.exit72
 
@@ -47913,7 +47907,6 @@ _ZNSt6vectorIbSaIbEE9push_backEb.exit.i.i:        ; preds = %._ZNSt6vectorIbSaIb
   br label %206
 
 _ZN5arrow6StatusD2Ev.exit72:                      ; preds = %109, %_ZNSt6vectorIbSaIbEE9push_backEb.exit.i.i
-  %.pre109 = phi ptr [ %.pre, %_ZNSt6vectorIbSaIbEE9push_backEb.exit.i.i ], [ %.pre108, %109 ]
   %156 = phi ptr [ %.pre, %_ZNSt6vectorIbSaIbEE9push_backEb.exit.i.i ], [ %110, %109 ]
   %.0.i.i = phi i32 [ %138, %_ZNSt6vectorIbSaIbEE9push_backEb.exit.i.i ], [ %127, %109 ]
   store i32 %.0.i.i, ptr %124, align 4, !tbaa !85, !noalias !2270
@@ -48066,7 +48059,6 @@ _ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit78: ; preds = 
   br label %261
 
 212:                                              ; preds = %.lr.ph105, %_ZN5arrow6StatusD2Ev.exit88
-  %.pre107111 = phi ptr [ %74, %.lr.ph105 ], [ %.pre107112, %_ZN5arrow6StatusD2Ev.exit88 ]
   %213 = phi ptr [ %74, %.lr.ph105 ], [ %256, %_ZN5arrow6StatusD2Ev.exit88 ]
   %.037104 = phi i64 [ 0, %.lr.ph105 ], [ %257, %_ZN5arrow6StatusD2Ev.exit88 ]
   %214 = load ptr, ptr %77, align 8, !tbaa !2267
@@ -48138,12 +48130,11 @@ _ZNSt13_Bit_iteratorppEi.exit.i.i.i82:            ; preds = %245, %242
   br label %_ZNSt6vectorIbSaIbEE9push_backEb.exit.i.i83
 
 _ZNSt6vectorIbSaIbEE9push_backEb.exit.i.i83:      ; preds = %255, %251, %248
-  %.pre107 = phi ptr [ %.pre107.pre, %255 ], [ %.pre107111, %251 ], [ %.pre107111, %248 ]
+  %.pre107 = phi ptr [ %.pre107.pre, %255 ], [ poison, %251 ], [ poison, %248 ]
   store i32 %240, ptr %228, align 4, !tbaa !85, !noalias !2279
   br label %_ZN5arrow6StatusD2Ev.exit88
 
 _ZN5arrow6StatusD2Ev.exit88:                      ; preds = %_ZNSt6vectorIbSaIbEE9push_backEb.exit.i.i83, %212
-  %.pre107112 = phi ptr [ %.pre107, %_ZNSt6vectorIbSaIbEE9push_backEb.exit.i.i83 ], [ %.pre107111, %212 ]
   %256 = phi ptr [ %.pre107, %_ZNSt6vectorIbSaIbEE9push_backEb.exit.i.i83 ], [ %213, %212 ]
   store ptr null, ptr %0, align 8, !tbaa !129, !alias.scope !2284
   %257 = add nuw nsw i64 %.037104, 1

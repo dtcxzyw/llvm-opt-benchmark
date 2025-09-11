@@ -8221,7 +8221,6 @@ default.unreachable415:                           ; preds = %212, %.critedge
 
 212:                                              ; preds = %"_ZN4core3ptr68drop_in_place$LT$core..option..Option$LT$bytes..bytes..Bytes$GT$$GT$17hf3b5d558bc69c852E.exit220", %105
   %.val = phi i8 [ %.val.pre, %105 ], [ %.val373, %"_ZN4core3ptr68drop_in_place$LT$core..option..Option$LT$bytes..bytes..Bytes$GT$$GT$17hf3b5d558bc69c852E.exit220" ]
-  %.sroa.99221.0 = phi ptr [ undef, %105 ], [ %.sroa.99221.26234252269, %"_ZN4core3ptr68drop_in_place$LT$core..option..Option$LT$bytes..bytes..Bytes$GT$$GT$17hf3b5d558bc69c852E.exit220" ]
   %.sroa.76.0 = phi i8 [ undef, %105 ], [ %.val373, %"_ZN4core3ptr68drop_in_place$LT$core..option..Option$LT$bytes..bytes..Bytes$GT$$GT$17hf3b5d558bc69c852E.exit220" ]
   call void @llvm.lifetime.start.p0(ptr nonnull %71)
   store ptr null, ptr %71, align 8
@@ -8465,7 +8464,7 @@ default.unreachable415:                           ; preds = %212, %.critedge
   unreachable
 
 295:                                              ; preds = %.noexc, %236
-  %.sroa.99221.25 = phi ptr [ %.sroa.321.0.copyload.i.i, %236 ], [ %.sroa.99221.0, %.noexc ]
+  %.sroa.99221.25 = phi ptr [ %.sroa.321.0.copyload.i.i, %236 ], [ poison, %.noexc ]
   %.sroa.0.24 = phi i8 [ 1, %236 ], [ 2, %.noexc ]
   call void @llvm.lifetime.end.p0(ptr nonnull %61), !noalias !440
   br label %.noexc141
@@ -8698,7 +8697,7 @@ default.unreachable415:                           ; preds = %212, %.critedge
   unreachable
 
 377:                                              ; preds = %.noexc147, %319
-  %.sroa.99221.23 = phi ptr [ %.sroa.321.0.copyload.i5.i, %319 ], [ %.sroa.99221.0, %.noexc147 ]
+  %.sroa.99221.23 = phi ptr [ %.sroa.321.0.copyload.i5.i, %319 ], [ poison, %.noexc147 ]
   %.sroa.0.22 = phi i8 [ 1, %319 ], [ 2, %.noexc147 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %55), !noalias !475
   br label %.noexc152
@@ -8863,7 +8862,7 @@ default.unreachable415:                           ; preds = %212, %.critedge
   unreachable
 
 428:                                              ; preds = %.noexc158, %400
-  %.sroa.99221.21 = phi ptr [ %.sroa.315.0.copyload.i.i, %400 ], [ %.sroa.99221.0, %.noexc158 ]
+  %.sroa.99221.21 = phi ptr [ %.sroa.315.0.copyload.i.i, %400 ], [ poison, %.noexc158 ]
   %.sroa.0.20 = phi i8 [ 1, %400 ], [ 2, %.noexc158 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %49), !noalias !504
   br label %.noexc163
@@ -9034,7 +9033,7 @@ default.unreachable415:                           ; preds = %212, %.critedge
   unreachable
 
 480:                                              ; preds = %.noexc166, %450
-  %.sroa.99221.19 = phi ptr [ %.sroa.319.0.copyload.i.i, %450 ], [ %.sroa.99221.0, %.noexc166 ]
+  %.sroa.99221.19 = phi ptr [ %.sroa.319.0.copyload.i.i, %450 ], [ poison, %.noexc166 ]
   %.sroa.0.18 = phi i8 [ 1, %450 ], [ 2, %.noexc166 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %43), !noalias !535
   br label %.noexc171
@@ -9302,13 +9301,13 @@ default.unreachable415:                           ; preds = %212, %.critedge
   unreachable
 
 556:                                              ; preds = %.noexc175, %505
-  %.sroa.99221.17 = phi ptr [ %.sroa.319.0.copyload.i47.i, %505 ], [ %.sroa.99221.0, %.noexc175 ]
+  %.sroa.99221.17 = phi ptr [ %.sroa.319.0.copyload.i47.i, %505 ], [ poison, %.noexc175 ]
   %.sroa.0.16 = phi i8 [ 1, %505 ], [ 2, %.noexc175 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %35), !noalias !566
   br label %.noexc180
 
 _ZN5hyper5proto2h16decode12ChunkedState12read_size_lf17h15bdb1165744bb79E.exit.i: ; preds = %535, %537, %540, %.noexc183, %.noexc184, %.noexc185, %530, %533, %.noexc180
-  %.sroa.99221.15 = phi ptr [ %.sroa.99221.16, %.noexc180 ], [ %534, %533 ], [ %.sroa.99221.0, %530 ], [ %.sroa.99221.0, %.noexc185 ], [ %.sroa.99221.0, %.noexc184 ], [ %.sroa.99221.0, %.noexc183 ], [ %.sroa.99221.0, %540 ], [ %.sroa.99221.0, %537 ], [ %.sroa.99221.0, %535 ]
+  %.sroa.99221.15 = phi ptr [ %.sroa.99221.16, %.noexc180 ], [ %534, %533 ], [ poison, %530 ], [ poison, %.noexc185 ], [ poison, %.noexc184 ], [ poison, %.noexc183 ], [ poison, %540 ], [ poison, %537 ], [ poison, %535 ]
   %.sroa.76.2 = phi i8 [ %.sroa.76.0, %.noexc180 ], [ %.sroa.76.0, %533 ], [ 10, %530 ], [ 5, %.noexc185 ], [ 5, %.noexc184 ], [ 5, %.noexc183 ], [ 5, %540 ], [ 5, %537 ], [ 5, %535 ]
   %.sroa.0.14 = phi i8 [ %.sroa.0.15, %.noexc180 ], [ 1, %533 ], [ 0, %530 ], [ 0, %.noexc185 ], [ 0, %.noexc184 ], [ 0, %.noexc183 ], [ %541, %540 ], [ 0, %537 ], [ 0, %535 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %41), !noalias !565
@@ -9488,13 +9487,13 @@ _ZN5hyper5proto2h16decode12ChunkedState12read_size_lf17h15bdb1165744bb79E.exit.i
   unreachable
 
 612:                                              ; preds = %.noexc187, %580
-  %.sroa.99221.14 = phi ptr [ %.sroa.320.0.copyload.i.i, %580 ], [ %.sroa.99221.0, %.noexc187 ]
+  %.sroa.99221.14 = phi ptr [ %.sroa.320.0.copyload.i.i, %580 ], [ poison, %.noexc187 ]
   %.sroa.0.13 = phi i8 [ 1, %580 ], [ 2, %.noexc187 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %22), !noalias !597
   br label %_ZN5hyper5proto2h16decode12ChunkedState9read_body17h0dbfe58720df1e93E.exit.i
 
 _ZN5hyper5proto2h16decode12ChunkedState9read_body17h0dbfe58720df1e93E.exit.i: ; preds = %598, %612, %"_ZN4core3ptr68drop_in_place$LT$core..option..Option$LT$bytes..bytes..Bytes$GT$$GT$17hf3b5d558bc69c852E.exit.i.i"
-  %.sroa.99221.13 = phi ptr [ %.sroa.99221.14, %612 ], [ %.sroa.99221.0, %"_ZN4core3ptr68drop_in_place$LT$core..option..Option$LT$bytes..bytes..Bytes$GT$$GT$17hf3b5d558bc69c852E.exit.i.i" ], [ %587, %598 ]
+  %.sroa.99221.13 = phi ptr [ %.sroa.99221.14, %612 ], [ poison, %"_ZN4core3ptr68drop_in_place$LT$core..option..Option$LT$bytes..bytes..Bytes$GT$$GT$17hf3b5d558bc69c852E.exit.i.i" ], [ %587, %598 ]
   %.sroa.76.1 = phi i8 [ %.sroa.76.0, %612 ], [ %spec.select.i.i, %"_ZN4core3ptr68drop_in_place$LT$core..option..Option$LT$bytes..bytes..Bytes$GT$$GT$17hf3b5d558bc69c852E.exit.i.i" ], [ %.sroa.76.0, %598 ]
   %.sroa.0.12 = phi i8 [ %.sroa.0.13, %612 ], [ 0, %"_ZN4core3ptr68drop_in_place$LT$core..option..Option$LT$bytes..bytes..Bytes$GT$$GT$17hf3b5d558bc69c852E.exit.i.i" ], [ 1, %598 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %23), !noalias !597
@@ -9585,7 +9584,7 @@ _ZN5hyper5proto2h16decode12ChunkedState9read_body17h0dbfe58720df1e93E.exit.i: ; 
   unreachable
 
 645:                                              ; preds = %.noexc193, %618
-  %.sroa.99221.12 = phi ptr [ %.sroa.3.0.copyload.i.i, %618 ], [ %.sroa.99221.0, %.noexc193 ]
+  %.sroa.99221.12 = phi ptr [ %.sroa.3.0.copyload.i.i, %618 ], [ poison, %.noexc193 ]
   %.sroa.0.11 = phi i8 [ 1, %618 ], [ 2, %.noexc193 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %19), !noalias !628
   br label %.noexc194
@@ -9674,7 +9673,7 @@ _ZN5hyper5proto2h16decode12ChunkedState9read_body17h0dbfe58720df1e93E.exit.i: ; 
   unreachable
 
 678:                                              ; preds = %.noexc197, %651
-  %.sroa.99221.10 = phi ptr [ %.sroa.3.0.copyload.i81.i, %651 ], [ %.sroa.99221.0, %.noexc197 ]
+  %.sroa.99221.10 = phi ptr [ %.sroa.3.0.copyload.i81.i, %651 ], [ poison, %.noexc197 ]
   %.sroa.0.9 = phi i8 [ 1, %651 ], [ 2, %.noexc197 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17), !noalias !655
   br label %.noexc198
@@ -9830,7 +9829,7 @@ _ZN5hyper5proto2h16decode12ChunkedState9read_body17h0dbfe58720df1e93E.exit.i: ; 
   unreachable
 
 728:                                              ; preds = %.noexc201, %701
-  %.sroa.99221.8 = phi ptr [ %.sroa.315.0.copyload.i92.i, %701 ], [ %.sroa.99221.0, %.noexc201 ]
+  %.sroa.99221.8 = phi ptr [ %.sroa.315.0.copyload.i92.i, %701 ], [ poison, %.noexc201 ]
   %.sroa.0.7 = phi i8 [ 1, %701 ], [ 2, %.noexc201 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !682
   br label %.noexc206
@@ -9919,7 +9918,7 @@ _ZN5hyper5proto2h16decode12ChunkedState9read_body17h0dbfe58720df1e93E.exit.i: ; 
   unreachable
 
 761:                                              ; preds = %.noexc208, %734
-  %.sroa.99221.6 = phi ptr [ %.sroa.3.0.copyload.i109.i, %734 ], [ %.sroa.99221.0, %.noexc208 ]
+  %.sroa.99221.6 = phi ptr [ %.sroa.3.0.copyload.i109.i, %734 ], [ poison, %.noexc208 ]
   %.sroa.0.5 = phi i8 [ 1, %734 ], [ 2, %.noexc208 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !710
   br label %.noexc209
@@ -10009,7 +10008,7 @@ _ZN5hyper5proto2h16decode12ChunkedState9read_body17h0dbfe58720df1e93E.exit.i: ; 
   unreachable
 
 794:                                              ; preds = %.noexc212, %767
-  %.sroa.99221.4 = phi ptr [ %.sroa.3.0.copyload.i120.i, %767 ], [ %.sroa.99221.0, %.noexc212 ]
+  %.sroa.99221.4 = phi ptr [ %.sroa.3.0.copyload.i120.i, %767 ], [ poison, %.noexc212 ]
   %.sroa.0.3 = phi i8 [ 1, %767 ], [ 2, %.noexc212 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !737
   br label %.noexc213
@@ -10098,7 +10097,7 @@ _ZN5hyper5proto2h16decode12ChunkedState9read_body17h0dbfe58720df1e93E.exit.i: ; 
   unreachable
 
 827:                                              ; preds = %.noexc215, %800
-  %.sroa.99221.2 = phi ptr [ %.sroa.3.0.copyload.i130.i, %800 ], [ %.sroa.99221.0, %.noexc215 ]
+  %.sroa.99221.2 = phi ptr [ %.sroa.3.0.copyload.i130.i, %800 ], [ poison, %.noexc215 ]
   %.sroa.0.1 = phi i8 [ 1, %800 ], [ 2, %.noexc215 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !764
   br label %.noexc216
@@ -10149,7 +10148,6 @@ _ZN5hyper5proto2h16decode12ChunkedState4step17h31123d7bdc5643d1E.exit.thread.thr
 
 _ZN5hyper5proto2h16decode12ChunkedState4step17h31123d7bdc5643d1E.exit.thread.thread.thread: ; preds = %_ZN5hyper5proto2h16decode12ChunkedState4step17h31123d7bdc5643d1E.exit, %.noexc210, %.noexc199, %.noexc195, %474, %.noexc172, %.noexc164, %.noexc164, %354, %354, %425, %424, %359, %358, %365, %283, %.noexc207, %.noexc214
   %.val373 = phi i8 [ 10, %.noexc210 ], [ 0, %.noexc199 ], [ 7, %.noexc195 ], [ 3, %474 ], [ 4, %.noexc172 ], [ 2, %.noexc164 ], [ 2, %.noexc164 ], [ 2, %354 ], [ 2, %354 ], [ 4, %425 ], [ 3, %424 ], [ 4, %359 ], [ 3, %358 ], [ 1, %365 ], [ 1, %283 ], [ %spec.select, %.noexc207 ], [ %spec.select278, %.noexc214 ], [ %.sroa.76.3, %_ZN5hyper5proto2h16decode12ChunkedState4step17h31123d7bdc5643d1E.exit ]
-  %.sroa.99221.26234252269 = phi ptr [ %.sroa.99221.0, %.noexc210 ], [ %.sroa.99221.0, %.noexc199 ], [ %.sroa.99221.0, %.noexc195 ], [ %.sroa.99221.0, %474 ], [ %.sroa.99221.0, %.noexc172 ], [ %.sroa.99221.0, %.noexc164 ], [ %.sroa.99221.0, %.noexc164 ], [ %.sroa.99221.0, %354 ], [ %.sroa.99221.0, %354 ], [ %.sroa.99221.0, %425 ], [ %.sroa.99221.0, %424 ], [ %.sroa.99221.0, %359 ], [ %.sroa.99221.0, %358 ], [ %.sroa.99221.0, %365 ], [ %.sroa.99221.0, %283 ], [ %.sroa.99221.0, %.noexc207 ], [ %.sroa.99221.0, %.noexc214 ], [ %.sroa.99221.26, %_ZN5hyper5proto2h16decode12ChunkedState4step17h31123d7bdc5643d1E.exit ]
   store i8 %.val373, ptr %108, align 1
   %836 = load ptr, ptr %71, align 8, !noundef !4
   %.not127 = icmp eq ptr %836, null
@@ -10793,7 +10791,6 @@ default.unreachable415:                           ; preds = %212, %.critedge
 
 212:                                              ; preds = %"_ZN4core3ptr68drop_in_place$LT$core..option..Option$LT$bytes..bytes..Bytes$GT$$GT$17hf3b5d558bc69c852E.exit220", %105
   %.val = phi i8 [ %.val.pre, %105 ], [ %.val373, %"_ZN4core3ptr68drop_in_place$LT$core..option..Option$LT$bytes..bytes..Bytes$GT$$GT$17hf3b5d558bc69c852E.exit220" ]
-  %.sroa.99221.0 = phi ptr [ undef, %105 ], [ %.sroa.99221.26234252269, %"_ZN4core3ptr68drop_in_place$LT$core..option..Option$LT$bytes..bytes..Bytes$GT$$GT$17hf3b5d558bc69c852E.exit220" ]
   %.sroa.76.0 = phi i8 [ undef, %105 ], [ %.val373, %"_ZN4core3ptr68drop_in_place$LT$core..option..Option$LT$bytes..bytes..Bytes$GT$$GT$17hf3b5d558bc69c852E.exit220" ]
   call void @llvm.lifetime.start.p0(ptr nonnull %71)
   store ptr null, ptr %71, align 8
@@ -11037,7 +11034,7 @@ default.unreachable415:                           ; preds = %212, %.critedge
   unreachable
 
 295:                                              ; preds = %.noexc, %236
-  %.sroa.99221.25 = phi ptr [ %.sroa.321.0.copyload.i.i, %236 ], [ %.sroa.99221.0, %.noexc ]
+  %.sroa.99221.25 = phi ptr [ %.sroa.321.0.copyload.i.i, %236 ], [ poison, %.noexc ]
   %.sroa.0.24 = phi i8 [ 1, %236 ], [ 2, %.noexc ]
   call void @llvm.lifetime.end.p0(ptr nonnull %61), !noalias !828
   br label %.noexc141
@@ -11270,7 +11267,7 @@ default.unreachable415:                           ; preds = %212, %.critedge
   unreachable
 
 377:                                              ; preds = %.noexc147, %319
-  %.sroa.99221.23 = phi ptr [ %.sroa.321.0.copyload.i5.i, %319 ], [ %.sroa.99221.0, %.noexc147 ]
+  %.sroa.99221.23 = phi ptr [ %.sroa.321.0.copyload.i5.i, %319 ], [ poison, %.noexc147 ]
   %.sroa.0.22 = phi i8 [ 1, %319 ], [ 2, %.noexc147 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %55), !noalias !863
   br label %.noexc152
@@ -11435,7 +11432,7 @@ default.unreachable415:                           ; preds = %212, %.critedge
   unreachable
 
 428:                                              ; preds = %.noexc158, %400
-  %.sroa.99221.21 = phi ptr [ %.sroa.315.0.copyload.i.i, %400 ], [ %.sroa.99221.0, %.noexc158 ]
+  %.sroa.99221.21 = phi ptr [ %.sroa.315.0.copyload.i.i, %400 ], [ poison, %.noexc158 ]
   %.sroa.0.20 = phi i8 [ 1, %400 ], [ 2, %.noexc158 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %49), !noalias !892
   br label %.noexc163
@@ -11606,7 +11603,7 @@ default.unreachable415:                           ; preds = %212, %.critedge
   unreachable
 
 480:                                              ; preds = %.noexc166, %450
-  %.sroa.99221.19 = phi ptr [ %.sroa.319.0.copyload.i.i, %450 ], [ %.sroa.99221.0, %.noexc166 ]
+  %.sroa.99221.19 = phi ptr [ %.sroa.319.0.copyload.i.i, %450 ], [ poison, %.noexc166 ]
   %.sroa.0.18 = phi i8 [ 1, %450 ], [ 2, %.noexc166 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %43), !noalias !923
   br label %.noexc171
@@ -11874,13 +11871,13 @@ default.unreachable415:                           ; preds = %212, %.critedge
   unreachable
 
 556:                                              ; preds = %.noexc175, %505
-  %.sroa.99221.17 = phi ptr [ %.sroa.319.0.copyload.i47.i, %505 ], [ %.sroa.99221.0, %.noexc175 ]
+  %.sroa.99221.17 = phi ptr [ %.sroa.319.0.copyload.i47.i, %505 ], [ poison, %.noexc175 ]
   %.sroa.0.16 = phi i8 [ 1, %505 ], [ 2, %.noexc175 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %35), !noalias !954
   br label %.noexc180
 
 _ZN5hyper5proto2h16decode12ChunkedState12read_size_lf17h3961309733b5e173E.exit.i: ; preds = %535, %537, %540, %.noexc183, %.noexc184, %.noexc185, %530, %533, %.noexc180
-  %.sroa.99221.15 = phi ptr [ %.sroa.99221.16, %.noexc180 ], [ %534, %533 ], [ %.sroa.99221.0, %530 ], [ %.sroa.99221.0, %.noexc185 ], [ %.sroa.99221.0, %.noexc184 ], [ %.sroa.99221.0, %.noexc183 ], [ %.sroa.99221.0, %540 ], [ %.sroa.99221.0, %537 ], [ %.sroa.99221.0, %535 ]
+  %.sroa.99221.15 = phi ptr [ %.sroa.99221.16, %.noexc180 ], [ %534, %533 ], [ poison, %530 ], [ poison, %.noexc185 ], [ poison, %.noexc184 ], [ poison, %.noexc183 ], [ poison, %540 ], [ poison, %537 ], [ poison, %535 ]
   %.sroa.76.2 = phi i8 [ %.sroa.76.0, %.noexc180 ], [ %.sroa.76.0, %533 ], [ 10, %530 ], [ 5, %.noexc185 ], [ 5, %.noexc184 ], [ 5, %.noexc183 ], [ 5, %540 ], [ 5, %537 ], [ 5, %535 ]
   %.sroa.0.14 = phi i8 [ %.sroa.0.15, %.noexc180 ], [ 1, %533 ], [ 0, %530 ], [ 0, %.noexc185 ], [ 0, %.noexc184 ], [ 0, %.noexc183 ], [ %541, %540 ], [ 0, %537 ], [ 0, %535 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %41), !noalias !953
@@ -12060,13 +12057,13 @@ _ZN5hyper5proto2h16decode12ChunkedState12read_size_lf17h3961309733b5e173E.exit.i
   unreachable
 
 612:                                              ; preds = %.noexc187, %580
-  %.sroa.99221.14 = phi ptr [ %.sroa.320.0.copyload.i.i, %580 ], [ %.sroa.99221.0, %.noexc187 ]
+  %.sroa.99221.14 = phi ptr [ %.sroa.320.0.copyload.i.i, %580 ], [ poison, %.noexc187 ]
   %.sroa.0.13 = phi i8 [ 1, %580 ], [ 2, %.noexc187 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %22), !noalias !985
   br label %_ZN5hyper5proto2h16decode12ChunkedState9read_body17h995f6e31ca610656E.exit.i
 
 _ZN5hyper5proto2h16decode12ChunkedState9read_body17h995f6e31ca610656E.exit.i: ; preds = %598, %612, %"_ZN4core3ptr68drop_in_place$LT$core..option..Option$LT$bytes..bytes..Bytes$GT$$GT$17hf3b5d558bc69c852E.exit.i.i"
-  %.sroa.99221.13 = phi ptr [ %.sroa.99221.14, %612 ], [ %.sroa.99221.0, %"_ZN4core3ptr68drop_in_place$LT$core..option..Option$LT$bytes..bytes..Bytes$GT$$GT$17hf3b5d558bc69c852E.exit.i.i" ], [ %587, %598 ]
+  %.sroa.99221.13 = phi ptr [ %.sroa.99221.14, %612 ], [ poison, %"_ZN4core3ptr68drop_in_place$LT$core..option..Option$LT$bytes..bytes..Bytes$GT$$GT$17hf3b5d558bc69c852E.exit.i.i" ], [ %587, %598 ]
   %.sroa.76.1 = phi i8 [ %.sroa.76.0, %612 ], [ %spec.select.i.i, %"_ZN4core3ptr68drop_in_place$LT$core..option..Option$LT$bytes..bytes..Bytes$GT$$GT$17hf3b5d558bc69c852E.exit.i.i" ], [ %.sroa.76.0, %598 ]
   %.sroa.0.12 = phi i8 [ %.sroa.0.13, %612 ], [ 0, %"_ZN4core3ptr68drop_in_place$LT$core..option..Option$LT$bytes..bytes..Bytes$GT$$GT$17hf3b5d558bc69c852E.exit.i.i" ], [ 1, %598 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %23), !noalias !985
@@ -12157,7 +12154,7 @@ _ZN5hyper5proto2h16decode12ChunkedState9read_body17h995f6e31ca610656E.exit.i: ; 
   unreachable
 
 645:                                              ; preds = %.noexc193, %618
-  %.sroa.99221.12 = phi ptr [ %.sroa.3.0.copyload.i.i, %618 ], [ %.sroa.99221.0, %.noexc193 ]
+  %.sroa.99221.12 = phi ptr [ %.sroa.3.0.copyload.i.i, %618 ], [ poison, %.noexc193 ]
   %.sroa.0.11 = phi i8 [ 1, %618 ], [ 2, %.noexc193 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %19), !noalias !1016
   br label %.noexc194
@@ -12246,7 +12243,7 @@ _ZN5hyper5proto2h16decode12ChunkedState9read_body17h995f6e31ca610656E.exit.i: ; 
   unreachable
 
 678:                                              ; preds = %.noexc197, %651
-  %.sroa.99221.10 = phi ptr [ %.sroa.3.0.copyload.i81.i, %651 ], [ %.sroa.99221.0, %.noexc197 ]
+  %.sroa.99221.10 = phi ptr [ %.sroa.3.0.copyload.i81.i, %651 ], [ poison, %.noexc197 ]
   %.sroa.0.9 = phi i8 [ 1, %651 ], [ 2, %.noexc197 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17), !noalias !1043
   br label %.noexc198
@@ -12402,7 +12399,7 @@ _ZN5hyper5proto2h16decode12ChunkedState9read_body17h995f6e31ca610656E.exit.i: ; 
   unreachable
 
 728:                                              ; preds = %.noexc201, %701
-  %.sroa.99221.8 = phi ptr [ %.sroa.315.0.copyload.i92.i, %701 ], [ %.sroa.99221.0, %.noexc201 ]
+  %.sroa.99221.8 = phi ptr [ %.sroa.315.0.copyload.i92.i, %701 ], [ poison, %.noexc201 ]
   %.sroa.0.7 = phi i8 [ 1, %701 ], [ 2, %.noexc201 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !1070
   br label %.noexc206
@@ -12491,7 +12488,7 @@ _ZN5hyper5proto2h16decode12ChunkedState9read_body17h995f6e31ca610656E.exit.i: ; 
   unreachable
 
 761:                                              ; preds = %.noexc208, %734
-  %.sroa.99221.6 = phi ptr [ %.sroa.3.0.copyload.i109.i, %734 ], [ %.sroa.99221.0, %.noexc208 ]
+  %.sroa.99221.6 = phi ptr [ %.sroa.3.0.copyload.i109.i, %734 ], [ poison, %.noexc208 ]
   %.sroa.0.5 = phi i8 [ 1, %734 ], [ 2, %.noexc208 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !1098
   br label %.noexc209
@@ -12581,7 +12578,7 @@ _ZN5hyper5proto2h16decode12ChunkedState9read_body17h995f6e31ca610656E.exit.i: ; 
   unreachable
 
 794:                                              ; preds = %.noexc212, %767
-  %.sroa.99221.4 = phi ptr [ %.sroa.3.0.copyload.i120.i, %767 ], [ %.sroa.99221.0, %.noexc212 ]
+  %.sroa.99221.4 = phi ptr [ %.sroa.3.0.copyload.i120.i, %767 ], [ poison, %.noexc212 ]
   %.sroa.0.3 = phi i8 [ 1, %767 ], [ 2, %.noexc212 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !1125
   br label %.noexc213
@@ -12670,7 +12667,7 @@ _ZN5hyper5proto2h16decode12ChunkedState9read_body17h995f6e31ca610656E.exit.i: ; 
   unreachable
 
 827:                                              ; preds = %.noexc215, %800
-  %.sroa.99221.2 = phi ptr [ %.sroa.3.0.copyload.i130.i, %800 ], [ %.sroa.99221.0, %.noexc215 ]
+  %.sroa.99221.2 = phi ptr [ %.sroa.3.0.copyload.i130.i, %800 ], [ poison, %.noexc215 ]
   %.sroa.0.1 = phi i8 [ 1, %800 ], [ 2, %.noexc215 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !1152
   br label %.noexc216
@@ -12721,7 +12718,6 @@ _ZN5hyper5proto2h16decode12ChunkedState4step17h593eb4b881ff801dE.exit.thread.thr
 
 _ZN5hyper5proto2h16decode12ChunkedState4step17h593eb4b881ff801dE.exit.thread.thread.thread: ; preds = %_ZN5hyper5proto2h16decode12ChunkedState4step17h593eb4b881ff801dE.exit, %.noexc210, %.noexc199, %.noexc195, %474, %.noexc172, %.noexc164, %.noexc164, %354, %354, %425, %424, %359, %358, %365, %283, %.noexc207, %.noexc214
   %.val373 = phi i8 [ 10, %.noexc210 ], [ 0, %.noexc199 ], [ 7, %.noexc195 ], [ 3, %474 ], [ 4, %.noexc172 ], [ 2, %.noexc164 ], [ 2, %.noexc164 ], [ 2, %354 ], [ 2, %354 ], [ 4, %425 ], [ 3, %424 ], [ 4, %359 ], [ 3, %358 ], [ 1, %365 ], [ 1, %283 ], [ %spec.select, %.noexc207 ], [ %spec.select278, %.noexc214 ], [ %.sroa.76.3, %_ZN5hyper5proto2h16decode12ChunkedState4step17h593eb4b881ff801dE.exit ]
-  %.sroa.99221.26234252269 = phi ptr [ %.sroa.99221.0, %.noexc210 ], [ %.sroa.99221.0, %.noexc199 ], [ %.sroa.99221.0, %.noexc195 ], [ %.sroa.99221.0, %474 ], [ %.sroa.99221.0, %.noexc172 ], [ %.sroa.99221.0, %.noexc164 ], [ %.sroa.99221.0, %.noexc164 ], [ %.sroa.99221.0, %354 ], [ %.sroa.99221.0, %354 ], [ %.sroa.99221.0, %425 ], [ %.sroa.99221.0, %424 ], [ %.sroa.99221.0, %359 ], [ %.sroa.99221.0, %358 ], [ %.sroa.99221.0, %365 ], [ %.sroa.99221.0, %283 ], [ %.sroa.99221.0, %.noexc207 ], [ %.sroa.99221.0, %.noexc214 ], [ %.sroa.99221.26, %_ZN5hyper5proto2h16decode12ChunkedState4step17h593eb4b881ff801dE.exit ]
   store i8 %.val373, ptr %108, align 1
   %836 = load ptr, ptr %71, align 8, !noundef !4
   %.not127 = icmp eq ptr %836, null
@@ -13365,7 +13361,6 @@ default.unreachable415:                           ; preds = %212, %.critedge
 
 212:                                              ; preds = %"_ZN4core3ptr68drop_in_place$LT$core..option..Option$LT$bytes..bytes..Bytes$GT$$GT$17hf3b5d558bc69c852E.exit220", %105
   %.val = phi i8 [ %.val.pre, %105 ], [ %.val373, %"_ZN4core3ptr68drop_in_place$LT$core..option..Option$LT$bytes..bytes..Bytes$GT$$GT$17hf3b5d558bc69c852E.exit220" ]
-  %.sroa.99221.0 = phi ptr [ undef, %105 ], [ %.sroa.99221.26234252269, %"_ZN4core3ptr68drop_in_place$LT$core..option..Option$LT$bytes..bytes..Bytes$GT$$GT$17hf3b5d558bc69c852E.exit220" ]
   %.sroa.76.0 = phi i8 [ undef, %105 ], [ %.val373, %"_ZN4core3ptr68drop_in_place$LT$core..option..Option$LT$bytes..bytes..Bytes$GT$$GT$17hf3b5d558bc69c852E.exit220" ]
   call void @llvm.lifetime.start.p0(ptr nonnull %71)
   store ptr null, ptr %71, align 8
@@ -13609,7 +13604,7 @@ default.unreachable415:                           ; preds = %212, %.critedge
   unreachable
 
 295:                                              ; preds = %.noexc, %236
-  %.sroa.99221.25 = phi ptr [ %.sroa.321.0.copyload.i.i, %236 ], [ %.sroa.99221.0, %.noexc ]
+  %.sroa.99221.25 = phi ptr [ %.sroa.321.0.copyload.i.i, %236 ], [ poison, %.noexc ]
   %.sroa.0.24 = phi i8 [ 1, %236 ], [ 2, %.noexc ]
   call void @llvm.lifetime.end.p0(ptr nonnull %61), !noalias !1216
   br label %.noexc141
@@ -13842,7 +13837,7 @@ default.unreachable415:                           ; preds = %212, %.critedge
   unreachable
 
 377:                                              ; preds = %.noexc147, %319
-  %.sroa.99221.23 = phi ptr [ %.sroa.321.0.copyload.i5.i, %319 ], [ %.sroa.99221.0, %.noexc147 ]
+  %.sroa.99221.23 = phi ptr [ %.sroa.321.0.copyload.i5.i, %319 ], [ poison, %.noexc147 ]
   %.sroa.0.22 = phi i8 [ 1, %319 ], [ 2, %.noexc147 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %55), !noalias !1251
   br label %.noexc152
@@ -14007,7 +14002,7 @@ default.unreachable415:                           ; preds = %212, %.critedge
   unreachable
 
 428:                                              ; preds = %.noexc158, %400
-  %.sroa.99221.21 = phi ptr [ %.sroa.315.0.copyload.i.i, %400 ], [ %.sroa.99221.0, %.noexc158 ]
+  %.sroa.99221.21 = phi ptr [ %.sroa.315.0.copyload.i.i, %400 ], [ poison, %.noexc158 ]
   %.sroa.0.20 = phi i8 [ 1, %400 ], [ 2, %.noexc158 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %49), !noalias !1280
   br label %.noexc163
@@ -14178,7 +14173,7 @@ default.unreachable415:                           ; preds = %212, %.critedge
   unreachable
 
 480:                                              ; preds = %.noexc166, %450
-  %.sroa.99221.19 = phi ptr [ %.sroa.319.0.copyload.i.i, %450 ], [ %.sroa.99221.0, %.noexc166 ]
+  %.sroa.99221.19 = phi ptr [ %.sroa.319.0.copyload.i.i, %450 ], [ poison, %.noexc166 ]
   %.sroa.0.18 = phi i8 [ 1, %450 ], [ 2, %.noexc166 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %43), !noalias !1311
   br label %.noexc171
@@ -14446,13 +14441,13 @@ default.unreachable415:                           ; preds = %212, %.critedge
   unreachable
 
 556:                                              ; preds = %.noexc175, %505
-  %.sroa.99221.17 = phi ptr [ %.sroa.319.0.copyload.i47.i, %505 ], [ %.sroa.99221.0, %.noexc175 ]
+  %.sroa.99221.17 = phi ptr [ %.sroa.319.0.copyload.i47.i, %505 ], [ poison, %.noexc175 ]
   %.sroa.0.16 = phi i8 [ 1, %505 ], [ 2, %.noexc175 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %35), !noalias !1342
   br label %.noexc180
 
 _ZN5hyper5proto2h16decode12ChunkedState12read_size_lf17h5f4214fea6cf86a9E.exit.i: ; preds = %535, %537, %540, %.noexc183, %.noexc184, %.noexc185, %530, %533, %.noexc180
-  %.sroa.99221.15 = phi ptr [ %.sroa.99221.16, %.noexc180 ], [ %534, %533 ], [ %.sroa.99221.0, %530 ], [ %.sroa.99221.0, %.noexc185 ], [ %.sroa.99221.0, %.noexc184 ], [ %.sroa.99221.0, %.noexc183 ], [ %.sroa.99221.0, %540 ], [ %.sroa.99221.0, %537 ], [ %.sroa.99221.0, %535 ]
+  %.sroa.99221.15 = phi ptr [ %.sroa.99221.16, %.noexc180 ], [ %534, %533 ], [ poison, %530 ], [ poison, %.noexc185 ], [ poison, %.noexc184 ], [ poison, %.noexc183 ], [ poison, %540 ], [ poison, %537 ], [ poison, %535 ]
   %.sroa.76.2 = phi i8 [ %.sroa.76.0, %.noexc180 ], [ %.sroa.76.0, %533 ], [ 10, %530 ], [ 5, %.noexc185 ], [ 5, %.noexc184 ], [ 5, %.noexc183 ], [ 5, %540 ], [ 5, %537 ], [ 5, %535 ]
   %.sroa.0.14 = phi i8 [ %.sroa.0.15, %.noexc180 ], [ 1, %533 ], [ 0, %530 ], [ 0, %.noexc185 ], [ 0, %.noexc184 ], [ 0, %.noexc183 ], [ %541, %540 ], [ 0, %537 ], [ 0, %535 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %41), !noalias !1341
@@ -14632,13 +14627,13 @@ _ZN5hyper5proto2h16decode12ChunkedState12read_size_lf17h5f4214fea6cf86a9E.exit.i
   unreachable
 
 612:                                              ; preds = %.noexc187, %580
-  %.sroa.99221.14 = phi ptr [ %.sroa.320.0.copyload.i.i, %580 ], [ %.sroa.99221.0, %.noexc187 ]
+  %.sroa.99221.14 = phi ptr [ %.sroa.320.0.copyload.i.i, %580 ], [ poison, %.noexc187 ]
   %.sroa.0.13 = phi i8 [ 1, %580 ], [ 2, %.noexc187 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %22), !noalias !1373
   br label %_ZN5hyper5proto2h16decode12ChunkedState9read_body17hfce039664d9df9a2E.exit.i
 
 _ZN5hyper5proto2h16decode12ChunkedState9read_body17hfce039664d9df9a2E.exit.i: ; preds = %598, %612, %"_ZN4core3ptr68drop_in_place$LT$core..option..Option$LT$bytes..bytes..Bytes$GT$$GT$17hf3b5d558bc69c852E.exit.i.i"
-  %.sroa.99221.13 = phi ptr [ %.sroa.99221.14, %612 ], [ %.sroa.99221.0, %"_ZN4core3ptr68drop_in_place$LT$core..option..Option$LT$bytes..bytes..Bytes$GT$$GT$17hf3b5d558bc69c852E.exit.i.i" ], [ %587, %598 ]
+  %.sroa.99221.13 = phi ptr [ %.sroa.99221.14, %612 ], [ poison, %"_ZN4core3ptr68drop_in_place$LT$core..option..Option$LT$bytes..bytes..Bytes$GT$$GT$17hf3b5d558bc69c852E.exit.i.i" ], [ %587, %598 ]
   %.sroa.76.1 = phi i8 [ %.sroa.76.0, %612 ], [ %spec.select.i.i, %"_ZN4core3ptr68drop_in_place$LT$core..option..Option$LT$bytes..bytes..Bytes$GT$$GT$17hf3b5d558bc69c852E.exit.i.i" ], [ %.sroa.76.0, %598 ]
   %.sroa.0.12 = phi i8 [ %.sroa.0.13, %612 ], [ 0, %"_ZN4core3ptr68drop_in_place$LT$core..option..Option$LT$bytes..bytes..Bytes$GT$$GT$17hf3b5d558bc69c852E.exit.i.i" ], [ 1, %598 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %23), !noalias !1373
@@ -14729,7 +14724,7 @@ _ZN5hyper5proto2h16decode12ChunkedState9read_body17hfce039664d9df9a2E.exit.i: ; 
   unreachable
 
 645:                                              ; preds = %.noexc193, %618
-  %.sroa.99221.12 = phi ptr [ %.sroa.3.0.copyload.i.i, %618 ], [ %.sroa.99221.0, %.noexc193 ]
+  %.sroa.99221.12 = phi ptr [ %.sroa.3.0.copyload.i.i, %618 ], [ poison, %.noexc193 ]
   %.sroa.0.11 = phi i8 [ 1, %618 ], [ 2, %.noexc193 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %19), !noalias !1404
   br label %.noexc194
@@ -14818,7 +14813,7 @@ _ZN5hyper5proto2h16decode12ChunkedState9read_body17hfce039664d9df9a2E.exit.i: ; 
   unreachable
 
 678:                                              ; preds = %.noexc197, %651
-  %.sroa.99221.10 = phi ptr [ %.sroa.3.0.copyload.i81.i, %651 ], [ %.sroa.99221.0, %.noexc197 ]
+  %.sroa.99221.10 = phi ptr [ %.sroa.3.0.copyload.i81.i, %651 ], [ poison, %.noexc197 ]
   %.sroa.0.9 = phi i8 [ 1, %651 ], [ 2, %.noexc197 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17), !noalias !1431
   br label %.noexc198
@@ -14974,7 +14969,7 @@ _ZN5hyper5proto2h16decode12ChunkedState9read_body17hfce039664d9df9a2E.exit.i: ; 
   unreachable
 
 728:                                              ; preds = %.noexc201, %701
-  %.sroa.99221.8 = phi ptr [ %.sroa.315.0.copyload.i92.i, %701 ], [ %.sroa.99221.0, %.noexc201 ]
+  %.sroa.99221.8 = phi ptr [ %.sroa.315.0.copyload.i92.i, %701 ], [ poison, %.noexc201 ]
   %.sroa.0.7 = phi i8 [ 1, %701 ], [ 2, %.noexc201 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !1458
   br label %.noexc206
@@ -15063,7 +15058,7 @@ _ZN5hyper5proto2h16decode12ChunkedState9read_body17hfce039664d9df9a2E.exit.i: ; 
   unreachable
 
 761:                                              ; preds = %.noexc208, %734
-  %.sroa.99221.6 = phi ptr [ %.sroa.3.0.copyload.i109.i, %734 ], [ %.sroa.99221.0, %.noexc208 ]
+  %.sroa.99221.6 = phi ptr [ %.sroa.3.0.copyload.i109.i, %734 ], [ poison, %.noexc208 ]
   %.sroa.0.5 = phi i8 [ 1, %734 ], [ 2, %.noexc208 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !1486
   br label %.noexc209
@@ -15153,7 +15148,7 @@ _ZN5hyper5proto2h16decode12ChunkedState9read_body17hfce039664d9df9a2E.exit.i: ; 
   unreachable
 
 794:                                              ; preds = %.noexc212, %767
-  %.sroa.99221.4 = phi ptr [ %.sroa.3.0.copyload.i120.i, %767 ], [ %.sroa.99221.0, %.noexc212 ]
+  %.sroa.99221.4 = phi ptr [ %.sroa.3.0.copyload.i120.i, %767 ], [ poison, %.noexc212 ]
   %.sroa.0.3 = phi i8 [ 1, %767 ], [ 2, %.noexc212 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !1513
   br label %.noexc213
@@ -15242,7 +15237,7 @@ _ZN5hyper5proto2h16decode12ChunkedState9read_body17hfce039664d9df9a2E.exit.i: ; 
   unreachable
 
 827:                                              ; preds = %.noexc215, %800
-  %.sroa.99221.2 = phi ptr [ %.sroa.3.0.copyload.i130.i, %800 ], [ %.sroa.99221.0, %.noexc215 ]
+  %.sroa.99221.2 = phi ptr [ %.sroa.3.0.copyload.i130.i, %800 ], [ poison, %.noexc215 ]
   %.sroa.0.1 = phi i8 [ 1, %800 ], [ 2, %.noexc215 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !1540
   br label %.noexc216
@@ -15293,7 +15288,6 @@ _ZN5hyper5proto2h16decode12ChunkedState4step17ha85849e3445bc03eE.exit.thread.thr
 
 _ZN5hyper5proto2h16decode12ChunkedState4step17ha85849e3445bc03eE.exit.thread.thread.thread: ; preds = %_ZN5hyper5proto2h16decode12ChunkedState4step17ha85849e3445bc03eE.exit, %.noexc210, %.noexc199, %.noexc195, %474, %.noexc172, %.noexc164, %.noexc164, %354, %354, %425, %424, %359, %358, %365, %283, %.noexc207, %.noexc214
   %.val373 = phi i8 [ 10, %.noexc210 ], [ 0, %.noexc199 ], [ 7, %.noexc195 ], [ 3, %474 ], [ 4, %.noexc172 ], [ 2, %.noexc164 ], [ 2, %.noexc164 ], [ 2, %354 ], [ 2, %354 ], [ 4, %425 ], [ 3, %424 ], [ 4, %359 ], [ 3, %358 ], [ 1, %365 ], [ 1, %283 ], [ %spec.select, %.noexc207 ], [ %spec.select278, %.noexc214 ], [ %.sroa.76.3, %_ZN5hyper5proto2h16decode12ChunkedState4step17ha85849e3445bc03eE.exit ]
-  %.sroa.99221.26234252269 = phi ptr [ %.sroa.99221.0, %.noexc210 ], [ %.sroa.99221.0, %.noexc199 ], [ %.sroa.99221.0, %.noexc195 ], [ %.sroa.99221.0, %474 ], [ %.sroa.99221.0, %.noexc172 ], [ %.sroa.99221.0, %.noexc164 ], [ %.sroa.99221.0, %.noexc164 ], [ %.sroa.99221.0, %354 ], [ %.sroa.99221.0, %354 ], [ %.sroa.99221.0, %425 ], [ %.sroa.99221.0, %424 ], [ %.sroa.99221.0, %359 ], [ %.sroa.99221.0, %358 ], [ %.sroa.99221.0, %365 ], [ %.sroa.99221.0, %283 ], [ %.sroa.99221.0, %.noexc207 ], [ %.sroa.99221.0, %.noexc214 ], [ %.sroa.99221.26, %_ZN5hyper5proto2h16decode12ChunkedState4step17ha85849e3445bc03eE.exit ]
   store i8 %.val373, ptr %108, align 1
   %836 = load ptr, ptr %71, align 8, !noundef !4
   %.not127 = icmp eq ptr %836, null

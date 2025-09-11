@@ -1902,7 +1902,6 @@ define internal fastcc void @draw_main(ptr noundef %0) unnamed_addr #0 {
 92:                                               ; preds = %.lr.ph229, %._crit_edge224
   %93 = phi i32 [ %52, %.lr.ph229 ], [ %308, %._crit_edge224 ]
   %indvars.iv243 = phi i64 [ 0, %.lr.ph229 ], [ %indvars.iv.next244, %._crit_edge224 ]
-  %.0146226 = phi i32 [ 0, %.lr.ph229 ], [ %.2148.lcssa, %._crit_edge224 ]
   %94 = load ptr, ptr %50, align 8, !tbaa !20
   %95 = getelementptr inbounds nuw i32, ptr %94, i64 %indvars.iv243
   %96 = load i32, ptr %95, align 4, !tbaa !21
@@ -1943,7 +1942,7 @@ define internal fastcc void @draw_main(ptr noundef %0) unnamed_addr #0 {
 112:                                              ; preds = %.lr.ph223, %304
   %113 = phi i32 [ %109, %.lr.ph223 ], [ %305, %304 ]
   %.0142219 = phi i32 [ 0, %.lr.ph223 ], [ %306, %304 ]
-  %.2148217 = phi i32 [ %.0146226, %.lr.ph223 ], [ %.3, %304 ]
+  %.2148217 = phi i32 [ poison, %.lr.ph223 ], [ %.3, %304 ]
   %114 = load ptr, ptr %65, align 8, !tbaa !22
   %115 = zext i32 %.2148217 to i64
   %116 = getelementptr inbounds nuw ptr, ptr %114, i64 %115
@@ -2328,8 +2327,7 @@ define internal fastcc void @draw_main(ptr noundef %0) unnamed_addr #0 {
   br label %._crit_edge224
 
 ._crit_edge224:                                   ; preds = %._crit_edge224.loopexit, %108
-  %308 = phi i32 [ %93, %108 ], [ %.pre248, %._crit_edge224.loopexit ]
-  %.2148.lcssa = phi i32 [ %.0146226, %108 ], [ %.3, %._crit_edge224.loopexit ]
+  %308 = phi i32 [ %.pre248, %._crit_edge224.loopexit ], [ %93, %108 ]
   %indvars.iv.next244 = add nuw nsw i64 %indvars.iv243, 1
   %309 = zext i32 %308 to i64
   %310 = icmp samesign ult i64 %indvars.iv.next244, %309

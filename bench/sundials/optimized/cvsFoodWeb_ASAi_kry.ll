@@ -566,7 +566,7 @@ check_retval.exit113:                             ; preds = %245
   br label %255
 
 251:                                              ; preds = %245
-  call fastcc void @PrintOutput(ptr noundef nonnull %187, ptr noundef nonnull %12)
+  call fastcc void @PrintOutput(ptr noundef nonnull %187)
   call void @CVodeFree(ptr noundef nonnull %4) #9
   call void @N_VDestroy(ptr noundef nonnull %90) #9
   call void @N_VDestroy(ptr noundef nonnull %187) #9
@@ -1798,76 +1798,52 @@ declare i32 @CVodeB(ptr noundef, double noundef, i32 noundef) local_unnamed_addr
 declare i32 @CVodeGetB(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @PrintOutput(ptr noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
-  %3 = tail call ptr @N_VGetArrayPointer(ptr noundef %0) #9
-  %4 = getelementptr inbounds nuw i8, ptr %1, i64 784
-  %5 = getelementptr inbounds nuw i8, ptr %1, i64 792
+define internal fastcc void @PrintOutput(ptr noundef %0) unnamed_addr #0 {
+  %2 = tail call ptr @N_VGetArrayPointer(ptr noundef %0) #9
   br label %.preheader35
 
-.preheader35:                                     ; preds = %2, %25
-  %indvars.iv51 = phi i64 [ 1, %2 ], [ %indvars.iv.next52, %25 ]
-  %.046 = phi double [ 0.000000e+00, %2 ], [ %.3, %25 ]
-  %.02445 = phi double [ 0.000000e+00, %2 ], [ %.327, %25 ]
-  %6 = getelementptr double, ptr %3, i64 %indvars.iv51
-  %7 = getelementptr i8, ptr %6, i64 -8
+.preheader35:                                     ; preds = %1, %12
+  %indvars.iv51 = phi i64 [ 1, %1 ], [ %indvars.iv.next52, %12 ]
+  %3 = getelementptr double, ptr %2, i64 %indvars.iv51
+  %4 = getelementptr i8, ptr %3, i64 -8
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader35, %24
-  %indvars.iv48 = phi i64 [ 19, %.preheader35 ], [ %indvars.iv.next49, %24 ]
-  %.143 = phi double [ %.046, %.preheader35 ], [ %.3, %24 ]
-  %.12542 = phi double [ %.02445, %.preheader35 ], [ %.327, %24 ]
-  %.02841 = phi double [ 0.000000e+00, %.preheader35 ], [ %.230, %24 ]
-  %8 = trunc nuw nsw i64 %indvars.iv48 to i32
-  %9 = uitofp nneg i32 %8 to double
+.preheader:                                       ; preds = %.preheader35, %11
+  %indvars.iv48 = phi i64 [ 19, %.preheader35 ], [ %indvars.iv.next49, %11 ]
+  %.02841 = phi double [ 0.000000e+00, %.preheader35 ], [ %.230, %11 ]
   %.idx = mul i64 %indvars.iv48, 960
-  %10 = getelementptr i8, ptr %7, i64 %.idx
-  br label %11
+  %5 = getelementptr i8, ptr %4, i64 %.idx
+  br label %6
 
-11:                                               ; preds = %.preheader, %23
-  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %23 ]
-  %.239 = phi double [ %.143, %.preheader ], [ %.3, %23 ]
-  %.22638 = phi double [ %.12542, %.preheader ], [ %.327, %23 ]
-  %.12937 = phi double [ %.02841, %.preheader ], [ %.230, %23 ]
+6:                                                ; preds = %.preheader, %6
+  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %6 ]
+  %.12937 = phi double [ %.02841, %.preheader ], [ %.230, %6 ]
   %.idx55 = mul i64 %indvars.iv, 48
-  %12 = getelementptr i8, ptr %10, i64 %.idx55
-  %13 = load double, ptr %12, align 8, !tbaa !24
-  %14 = tail call double @llvm.fabs.f64(double %13)
-  %15 = fcmp ogt double %14, %.12937
-  br i1 %15, label %16, label %23
-
-16:                                               ; preds = %11
-  %17 = trunc nuw nsw i64 %indvars.iv to i32
-  %18 = uitofp nneg i32 %17 to double
-  %19 = load double, ptr %4, align 8, !tbaa !26
-  %20 = fmul double %19, %18
-  %21 = load double, ptr %5, align 8, !tbaa !27
-  %22 = fmul double %21, %9
-  br label %23
-
-23:                                               ; preds = %11, %16
-  %.230 = phi double [ %13, %16 ], [ %.12937, %11 ]
-  %.327 = phi double [ %20, %16 ], [ %.22638, %11 ]
-  %.3 = phi double [ %22, %16 ], [ %.239, %11 ]
+  %7 = getelementptr i8, ptr %5, i64 %.idx55
+  %8 = load double, ptr %7, align 8, !tbaa !24
+  %9 = tail call double @llvm.fabs.f64(double %8)
+  %10 = fcmp ogt double %9, %.12937
+  %.230 = select i1 %10, double %8, double %.12937
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 20
-  br i1 %exitcond.not, label %24, label %11
+  br i1 %exitcond.not, label %11, label %6
 
-24:                                               ; preds = %23
+11:                                               ; preds = %6
   %indvars.iv.next49 = add nsw i64 %indvars.iv48, -1
   %.not = icmp eq i64 %indvars.iv48, 0
-  br i1 %.not, label %25, label %.preheader
+  br i1 %.not, label %12, label %.preheader
 
-25:                                               ; preds = %24
-  %26 = trunc nuw nsw i64 %indvars.iv51 to i32
-  %27 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.31, i32 noundef %26)
-  %28 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.32, double noundef %.230)
+12:                                               ; preds = %11
+  %13 = trunc nuw nsw i64 %indvars.iv51 to i32
+  %14 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.31, i32 noundef %13)
+  %15 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.32, double noundef %.230)
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.5)
-  %29 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.34, double noundef %.327, double noundef %.3)
+  %16 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.34, double noundef poison, double noundef poison)
   %indvars.iv.next52 = add nuw nsw i64 %indvars.iv51, 1
   %exitcond54.not = icmp eq i64 %indvars.iv.next52, 7
-  br i1 %exitcond54.not, label %30, label %.preheader35
+  br i1 %exitcond54.not, label %17, label %.preheader35
 
-30:                                               ; preds = %25
+17:                                               ; preds = %12
   ret void
 }
 

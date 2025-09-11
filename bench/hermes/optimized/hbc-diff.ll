@@ -177,7 +177,7 @@ $_ZTVN4llvh13format_objectIJdcEEE = comdat any
 @_ZTVN4llvh13format_objectIJdcEEE = linkonce_odr hidden unnamed_addr constant { [4 x ptr] } { [4 x ptr] [ptr null, ptr null, ptr @_ZN4llvh18format_object_base4homeEv, ptr @_ZNK4llvh13format_objectIJdcEE7snprintEPcj] }, comdat, align 8
 
 ; Function Attrs: mustprogress norecurse nounwind uwtable
-define hidden noundef range(i32 0, 3) i32 @main(i32 noundef %argc, ptr noundef readonly captures(none) %argv) local_unnamed_addr #0 {
+define hidden noundef i32 @main(i32 noundef %argc, ptr noundef readonly captures(none) %argv) local_unnamed_addr #0 {
 entry:
   %ret.i = alloca %"struct.std::pair", align 8
   %agg.tmp.i = alloca %"class.std::unique_ptr.39", align 8
@@ -250,8 +250,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 1, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %humanize.0165 = phi i1 [ false, %for.body.lr.ph ], [ %humanize.1, %for.inc ]
-  %retval.1164 = phi i32 [ 0, %for.body.lr.ph ], [ %retval.2, %for.inc ]
+  %humanize.0164 = phi i1 [ false, %for.body.lr.ph ], [ %humanize.1, %for.inc ]
   %fileBufs.sroa.15.0163 = phi ptr [ null, %for.body.lr.ph ], [ %fileBufs.sroa.15.1, %for.inc ]
   %fileBufs.sroa.8.0162 = phi ptr [ null, %for.body.lr.ph ], [ %fileBufs.sroa.8.1, %for.inc ]
   %fileBufs.sroa.0.0161 = phi ptr [ null, %for.body.lr.ph ], [ %fileBufs.sroa.0.1, %for.inc ]
@@ -459,7 +458,6 @@ cleanup:                                          ; preds = %_ZNSt6vectorISt10un
   %fileBufs.sroa.0.2 = phi ptr [ %fileBufs.sroa.0.0161, %if.then.i.i72 ], [ %fileBufs.sroa.0.0161, %if.then4.i.i69 ], [ %call5.i.i.i.i.i.i, %_ZNSt6vectorISt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i ], [ %fileBufs.sroa.0.0161, %if.then.i.i78 ]
   %fileBufs.sroa.8.2 = phi ptr [ %fileBufs.sroa.8.0162, %if.then.i.i72 ], [ %fileBufs.sroa.8.0162, %if.then4.i.i69 ], [ %incdec.ptr.i.i.i, %_ZNSt6vectorISt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i ], [ %incdec.ptr.i.i79, %if.then.i.i78 ]
   %fileBufs.sroa.15.2 = phi ptr [ %fileBufs.sroa.15.0163, %if.then.i.i72 ], [ %fileBufs.sroa.15.0163, %if.then4.i.i69 ], [ %add.ptr19.i.i.i, %_ZNSt6vectorISt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i ], [ %fileBufs.sroa.15.0163, %if.then.i.i78 ]
-  %retval.3 = phi i32 [ 2, %if.then.i.i72 ], [ 2, %if.then4.i.i69 ], [ %retval.1164, %_ZNSt6vectorISt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i ], [ %retval.1164, %if.then.i.i78 ]
   %bf.load.i82 = load i8, ptr %HasError.i, align 8
   %bf.cast.i83 = trunc i8 %bf.load.i82 to i1
   br i1 %bf.cast.i83, label %_ZN4llvh7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEED2Ev.exit, label %if.then.i84
@@ -487,8 +485,7 @@ for.inc:                                          ; preds = %for.body.tail, %_ZN
   %fileBufs.sroa.0.1 = phi ptr [ %fileBufs.sroa.0.0161, %for.body.tail ], [ %fileBufs.sroa.0.2, %_ZN4llvh7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEED2Ev.exit ]
   %fileBufs.sroa.8.1 = phi ptr [ %fileBufs.sroa.8.0162, %for.body.tail ], [ %fileBufs.sroa.8.2, %_ZN4llvh7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEED2Ev.exit ]
   %fileBufs.sroa.15.1 = phi ptr [ %fileBufs.sroa.15.0163, %for.body.tail ], [ %fileBufs.sroa.15.2, %_ZN4llvh7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEED2Ev.exit ]
-  %retval.2 = phi i32 [ %retval.1164, %for.body.tail ], [ %retval.3, %_ZN4llvh7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEED2Ev.exit ]
-  %humanize.1 = phi i1 [ true, %for.body.tail ], [ %humanize.0165, %_ZN4llvh7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEED2Ev.exit ]
+  %humanize.1 = phi i1 [ true, %for.body.tail ], [ %humanize.0164, %_ZN4llvh7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEED2Ev.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !12
@@ -2872,7 +2869,7 @@ _ZL9diffFilesRKSt6vectorISt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteI
 cleanup26:                                        ; preds = %_ZN4llvh7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEED2Ev.exit, %_ZL9diffFilesRKSt6vectorISt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS2_EESaIS5_EERKS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EEb.exit
   %fileBufs.sroa.0.3 = phi ptr [ %fileBufs.sroa.0.1, %_ZL9diffFilesRKSt6vectorISt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS2_EESaIS5_EERKS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EEb.exit ], [ %fileBufs.sroa.0.2, %_ZN4llvh7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEED2Ev.exit ]
   %fileBufs.sroa.8.3 = phi ptr [ %fileBufs.sroa.8.1, %_ZL9diffFilesRKSt6vectorISt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS2_EESaIS5_EERKS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EEb.exit ], [ %fileBufs.sroa.8.2, %_ZN4llvh7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEED2Ev.exit ]
-  %retval.4 = phi i32 [ %retval.31182.i, %_ZL9diffFilesRKSt6vectorISt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS2_EESaIS5_EERKS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EEb.exit ], [ %retval.3, %_ZN4llvh7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEED2Ev.exit ]
+  %retval.4 = phi i32 [ %retval.31182.i, %_ZL9diffFilesRKSt6vectorISt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS2_EESaIS5_EERKS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EEb.exit ], [ poison, %_ZN4llvh7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEED2Ev.exit ]
   %291 = load ptr, ptr %filenames, align 8
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %filenames, i64 8
   %292 = load ptr, ptr %_M_finish.i, align 8

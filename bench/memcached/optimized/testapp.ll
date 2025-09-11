@@ -3612,7 +3612,7 @@ define dso_local void @STATS_UNLOCK() local_unnamed_addr #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
+define dso_local noundef range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   store ptr @jenkins_hash, ptr @hash, align 8, !tbaa !27
   tail call void @stats_prefix_init(i8 noundef signext 58) #21
   tail call void @crc32c_init() #21
@@ -3633,9 +3633,8 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef readnone 
   %.not1819 = icmp eq ptr %9, null
   br i1 %.not1819, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %6, %23
-  %indvars.iv23 = phi i64 [ %18, %23 ], [ 0, %6 ]
-  %.021 = phi i32 [ %.1, %23 ], [ 0, %6 ]
+.lr.ph:                                           ; preds = %6, %.lr.ph
+  %indvars.iv23 = phi i64 [ %18, %.lr.ph ], [ 0, %6 ]
   %10 = getelementptr inbounds nuw %struct.testcase, ptr @testcases, i64 %indvars.iv23
   %11 = load ptr, ptr @stdout, align 8, !tbaa !44
   %12 = tail call i32 @fflush(ptr noundef %11)
@@ -3647,31 +3646,20 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef readnone 
   %18 = add nuw nsw i64 %indvars.iv23, 1
   %19 = load ptr, ptr %10, align 16, !tbaa !57
   %20 = trunc nuw i64 %18 to i32
-  switch i32 %16, label %22 [
-    i32 0, label %23
-    i32 1, label %21
-  ]
-
-21:                                               ; preds = %.lr.ph
-  br label %23
-
-22:                                               ; preds = %.lr.ph
-  br label %23
-
-23:                                               ; preds = %.lr.ph, %21, %22
-  %.str.58.sink = phi ptr [ @.str.58, %21 ], [ @.str.59, %22 ], [ @.str.57, %.lr.ph ]
-  %.1 = phi i32 [ %.021, %21 ], [ 1, %22 ], [ %.021, %.lr.ph ]
-  %24 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull %.str.58.sink, i32 noundef %20, ptr noundef %19) #21
-  %25 = load ptr, ptr @stdout, align 8, !tbaa !44
-  %26 = tail call i32 @fflush(ptr noundef %25)
-  %27 = getelementptr inbounds nuw %struct.testcase, ptr @testcases, i64 %18
-  %28 = load ptr, ptr %27, align 16, !tbaa !57
-  %.not18 = icmp eq ptr %28, null
+  %switch.selectcmp = icmp eq i32 %16, 1
+  %switch.select = select i1 %switch.selectcmp, ptr @.str.58, ptr @.str.59
+  %switch.selectcmp26 = icmp eq i32 %16, 0
+  %switch.select27 = select i1 %switch.selectcmp26, ptr @.str.57, ptr %switch.select
+  %21 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull %switch.select27, i32 noundef %20, ptr noundef %19) #21
+  %22 = load ptr, ptr @stdout, align 8, !tbaa !44
+  %23 = tail call i32 @fflush(ptr noundef %22)
+  %24 = getelementptr inbounds nuw %struct.testcase, ptr @testcases, i64 %18
+  %25 = load ptr, ptr %24, align 16, !tbaa !57
+  %.not18 = icmp eq ptr %25, null
   br i1 %.not18, label %._crit_edge, label %.lr.ph, !llvm.loop !61
 
-._crit_edge:                                      ; preds = %23, %6
-  %.0.lcssa = phi i32 [ 0, %6 ], [ %.1, %23 ]
-  ret i32 %.0.lcssa
+._crit_edge:                                      ; preds = %.lr.ph, %6
+  ret i32 0
 }
 
 declare i32 @jenkins_hash(ptr noundef, i64 noundef) #2

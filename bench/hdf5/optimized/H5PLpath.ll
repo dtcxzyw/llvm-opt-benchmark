@@ -749,7 +749,7 @@ sub_1.i:                                          ; preds = %sub_0.i
 
 .thread.i:                                        ; preds = %76, %62, %54
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %.loopexit.thread.i
+  br label %102
 
 .backedge.sink.split.i:                           ; preds = %.thread61.i, %69
   %.1.be.ph.i = phi ptr [ %96, %.thread61.i ], [ %52, %69 ]
@@ -765,22 +765,24 @@ sub_1.i:                                          ; preds = %sub_0.i
 .loopexit.i:                                      ; preds = %92
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %98 = icmp slt i32 %95, 0
-  br i1 %98, label %99, label %.loopexit.thread.i
+  br i1 %98, label %.loopexit.thread.i, label %102
 
-99:                                               ; preds = %.loopexit.i
-  %100 = load i64, ptr @H5E_PLUGIN_g, align 8, !tbaa !17
-  %101 = load i64, ptr @H5E_CALLBACK_g, align 8, !tbaa !17
-  %102 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5PL__path_table_iterate_process_path, i32 noundef 679, i64 noundef %100, i64 noundef %101, ptr noundef nonnull @.str.28) #13
-  br label %.loopexit.thread.i
+.loopexit.thread.i:                               ; preds = %.backedge.i, %.loopexit.i, %.preheader.i
+  %.2101.i = phi ptr [ %52, %.loopexit.i ], [ null, %.preheader.i ], [ %.1.be.i, %.backedge.i ]
+  %.344100.i = phi i32 [ %95, %.loopexit.i ], [ poison, %.preheader.i ], [ poison, %.backedge.i ]
+  %99 = load i64, ptr @H5E_PLUGIN_g, align 8, !tbaa !17
+  %100 = load i64, ptr @H5E_CALLBACK_g, align 8, !tbaa !17
+  %101 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5PL__path_table_iterate_process_path, i32 noundef 679, i64 noundef %99, i64 noundef %100, ptr noundef nonnull @.str.28) #13
+  br label %102
 
-.loopexit.thread.i:                               ; preds = %.backedge.i, %99, %.loopexit.i, %.thread.i, %.preheader.i
-  %.142.ph.i = phi i32 [ -1, %.thread.i ], [ %95, %.loopexit.i ], [ %95, %99 ], [ 0, %.preheader.i ], [ 0, %.backedge.i ]
-  %.040.ph.i = phi ptr [ %52, %.thread.i ], [ %52, %.loopexit.i ], [ %52, %99 ], [ null, %.preheader.i ], [ %.1.be.i, %.backedge.i ]
+102:                                              ; preds = %.loopexit.thread.i, %.loopexit.i, %.thread.i
+  %.142.ph.i = phi i32 [ -1, %.thread.i ], [ %95, %.loopexit.i ], [ %.344100.i, %.loopexit.thread.i ]
+  %.040.ph.i = phi ptr [ %52, %.thread.i ], [ %52, %.loopexit.i ], [ %.2101.i, %.loopexit.thread.i ]
   %103 = call i32 @closedir(ptr noundef nonnull %32)
   %104 = icmp slt i32 %103, 0
   br i1 %104, label %H5PL__path_table_iterate_process_path.exit.thread13, label %H5PL__path_table_iterate_process_path.exit
 
-H5PL__path_table_iterate_process_path.exit.thread13: ; preds = %.loopexit.thread.i
+H5PL__path_table_iterate_process_path.exit.thread13: ; preds = %102
   %105 = load i64, ptr @H5E_FILE_g, align 8, !tbaa !17
   %106 = load i64, ptr @H5E_CLOSEERROR_g, align 8, !tbaa !17
   %107 = tail call ptr @__errno_location() #15
@@ -793,7 +795,7 @@ H5PL__path_table_iterate_process_path.exit.thread13: ; preds = %.loopexit.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.loopexit19
 
-H5PL__path_table_iterate_process_path.exit:       ; preds = %.loopexit.thread.i
+H5PL__path_table_iterate_process_path.exit:       ; preds = %102
   %112 = call ptr @H5MM_xfree(ptr noundef %.040.ph.i) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

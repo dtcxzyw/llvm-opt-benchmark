@@ -1246,7 +1246,6 @@ define hidden range(i32 -501, 1) i32 @nghttp2_http_parse_priority(ptr noundef ca
   %4 = alloca %struct.sfparse_parser, align 8
   %5 = alloca %struct.sfparse_vec, align 8
   %6 = alloca %struct.sfparse_value, align 8
-  %.sroa.0.0.copyload = load i32, ptr %0, align 4, !tbaa !67
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.sroa.5.0.copyload = load i32, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !67
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -1259,11 +1258,9 @@ define hidden range(i32 -501, 1) i32 @nghttp2_http_parse_priority(ptr noundef ca
 
 .outer.outer:                                     ; preds = %18, %3
   %.sroa.5.0.ph.ph = phi i32 [ %19, %18 ], [ %.sroa.5.0.copyload, %3 ]
-  %.sroa.0.0.ph.ph = phi i32 [ %.sroa.0.0.ph.ph41, %18 ], [ %.sroa.0.0.copyload, %3 ]
   br label %.outer.outer40
 
-.outer.outer40:                                   ; preds = %.outer.outer, %25
-  %.sroa.0.0.ph.ph41 = phi i32 [ %.sroa.0.0.ph.ph, %.outer.outer ], [ %26, %25 ]
+.outer.outer40:                                   ; preds = %20, %.outer.outer
   br label %.outer
 
 .outer:                                           ; preds = %.outer.outer40, %13
@@ -1273,7 +1270,7 @@ define hidden range(i32 -501, 1) i32 @nghttp2_http_parse_priority(ptr noundef ca
   %10 = call i32 @sfparse_parser_dict(ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6) #9
   switch i32 %10, label %.loopexit [
     i32 0, label %11
-    i32 -2, label %27
+    i32 -2, label %25
   ]
 
 11:                                               ; preds = %9
@@ -1304,19 +1301,14 @@ define hidden range(i32 -501, 1) i32 @nghttp2_http_parse_priority(ptr noundef ca
   %23 = load i64, ptr %8, align 8
   %24 = icmp ugt i64 %23, 7
   %or.cond5 = select i1 %22, i1 true, i1 %24
-  br i1 %or.cond5, label %.loopexit, label %25
+  br i1 %or.cond5, label %.loopexit, label %.outer.outer40
 
-25:                                               ; preds = %20
-  %26 = trunc nuw nsw i64 %23 to i32
-  br label %.outer.outer40
-
-27:                                               ; preds = %9
-  store i32 %.sroa.0.0.ph.ph41, ptr %0, align 4, !tbaa !67
+25:                                               ; preds = %9
   store i32 %.sroa.5.0.ph.ph, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !67
   br label %.loopexit
 
-.loopexit:                                        ; preds = %20, %16, %9, %27
-  %.0 = phi i32 [ 0, %27 ], [ -501, %9 ], [ -501, %16 ], [ -501, %20 ]
+.loopexit:                                        ; preds = %20, %16, %9, %25
+  %.0 = phi i32 [ 0, %25 ], [ -501, %9 ], [ -501, %16 ], [ -501, %20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

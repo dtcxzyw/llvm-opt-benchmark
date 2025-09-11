@@ -41,7 +41,7 @@ atomic_store_u.exit:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @je_extent_alloc_dss(ptr noundef %0, ptr noundef %1, ptr noundef readnone captures(address) %2, i64 noundef %3, i64 noundef %4, ptr noundef readonly captures(none) %5, ptr noundef captures(none) %6) local_unnamed_addr #1 {
+define hidden noalias noundef ptr @je_extent_alloc_dss(ptr noundef %0, ptr noundef %1, ptr noundef readnone captures(address) %2, i64 noundef %3, i64 noundef %4, ptr noundef readonly captures(none) %5, ptr noundef captures(none) %6) local_unnamed_addr #1 {
   %8 = alloca i32, align 4
   %9 = alloca %struct.edata_s, align 8
   %10 = icmp slt i64 %3, 0
@@ -99,7 +99,7 @@ atomic_compare_exchange_weak_b.exit.i:            ; preds = %24, %._crit_edge.i.
 atomic_load_b.exit:                               ; preds = %atomic_compare_exchange_weak_b.exit.i, %15
   %28 = load atomic i8, ptr @dss_exhausted.0 acquire, align 1
   %29 = trunc i8 %28 to i1
-  br i1 %29, label %.thread93, label %.preheader
+  br i1 %29, label %.thread92, label %.preheader
 
 .preheader:                                       ; preds = %atomic_load_b.exit
   %.not.i = icmp ne ptr %2, null
@@ -115,16 +115,16 @@ atomic_load_b.exit:                               ; preds = %atomic_compare_exch
 37:                                               ; preds = %.preheader, %99
   %38 = tail call ptr @sbrk(i64 noundef 0) #6
   %39 = icmp eq ptr %38, inttoptr (i64 -1 to ptr)
-  br i1 %39, label %.thread93, label %atomic_store_p.exit.i
+  br i1 %39, label %.thread92, label %atomic_store_p.exit.i
 
 atomic_store_p.exit.i:                            ; preds = %37
   %40 = ptrtoint ptr %38 to i64
   store atomic i64 %40, ptr @dss_max.0 release, align 8
   %.not9.i = icmp ne ptr %38, %2
-  %or.cond.i.not96 = and i1 %.not.i, %.not9.i
+  %or.cond.i.not94 = and i1 %.not.i, %.not9.i
   %41 = icmp eq ptr %38, null
-  %or.cond = or i1 %41, %or.cond.i.not96
-  br i1 %or.cond, label %.thread93, label %42
+  %or.cond = or i1 %41, %or.cond.i.not94
+  br i1 %or.cond, label %.thread92, label %42
 
 42:                                               ; preds = %atomic_store_p.exit.i
   %43 = load i8, ptr @je_opt_retain, align 1, !tbaa !11, !range !13, !noundef !14
@@ -187,7 +187,7 @@ atomic_store_p.exit:                              ; preds = %65
 75:                                               ; preds = %74, %72
   %76 = load i8, ptr %6, align 1, !tbaa !11, !range !13, !noundef !14
   %77 = trunc nuw i8 %76 to i1
-  br i1 %77, label %.thread112, label %78
+  br i1 %77, label %.thread109, label %78
 
 78:                                               ; preds = %75
   %79 = tail call zeroext i1 @je_pages_decommit(ptr noundef nonnull %51, i64 noundef %3) #6
@@ -196,27 +196,27 @@ atomic_store_p.exit:                              ; preds = %65
   %81 = load i8, ptr %5, align 1, !tbaa !11, !range !13, !noundef !14
   %82 = trunc nuw i8 %81 to i1
   %83 = select i1 %82, i1 %79, i1 false
-  br i1 %83, label %.thread113, label %.thread
+  br i1 %83, label %.thread110, label %.thread
 
-.thread112:                                       ; preds = %75
+.thread109:                                       ; preds = %75
   %84 = load i8, ptr %5, align 1, !tbaa !11, !range !13, !noundef !14
   %85 = trunc nuw i8 %84 to i1
-  br i1 %85, label %.thread113, label %.thread
+  br i1 %85, label %.thread110, label %.thread
 
-.thread113:                                       ; preds = %78, %.thread112
+.thread110:                                       ; preds = %78, %.thread109
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %86 = getelementptr inbounds nuw i8, ptr %9, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %86, i8 0, i64 104, i1 false)
   %87 = tail call ptr @je_arena_get_ehooks(ptr noundef nonnull %1) #6
   %.val84 = load i32, ptr %32, align 8, !tbaa !15
-  %.not97 = icmp eq i64 %3, 0
+  %.not95 = icmp eq i64 %3, 0
   %88 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %51, ptr %88, align 8, !tbaa !71
   %89 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i64 %3, ptr %89, align 8, !tbaa !72
   %90 = and i32 %.val84, -268431361
   %.masked.i87 = zext i32 %90 to i64
-  %91 = select i1 %.not97, i64 0, i64 4096
+  %91 = select i1 %.not95, i64 0, i64 4096
   %92 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store i64 232, ptr %92, align 8, !tbaa !73
   %.not.i88 = icmp eq i8 %43, 0
@@ -227,11 +227,11 @@ atomic_store_p.exit:                              ; preds = %65
   %96 = call zeroext i1 @je_extent_purge_forced_wrapper(ptr noundef %0, ptr noundef %87, ptr noundef nonnull %9, i64 noundef 0, i64 noundef %3) #6
   br i1 %96, label %97, label %98
 
-97:                                               ; preds = %.thread113
+97:                                               ; preds = %.thread110
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %51, i8 0, i64 %3, i1 false)
   br label %98
 
-98:                                               ; preds = %97, %.thread113
+98:                                               ; preds = %97, %.thread110
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.thread
 
@@ -241,16 +241,15 @@ atomic_store_p.exit:                              ; preds = %65
 
 atomic_store_b.exit:                              ; preds = %99
   store atomic i8 1, ptr @dss_exhausted.0 release, align 1
-  br label %.thread93
+  br label %.thread92
 
-.thread93:                                        ; preds = %atomic_store_p.exit.i, %37, %atomic_store_b.exit, %atomic_load_b.exit
+.thread92:                                        ; preds = %atomic_store_p.exit.i, %37, %atomic_store_b.exit, %atomic_load_b.exit
   store atomic i8 0, ptr @dss_extending release, align 1
   tail call void @je_edata_cache_put(ptr noundef %0, ptr noundef nonnull %12, ptr noundef nonnull %13) #6
   br label %.thread
 
-.thread:                                          ; preds = %78, %.thread112, %98, %11, %7, %.thread93
-  %.0 = phi ptr [ null, %.thread93 ], [ null, %7 ], [ null, %11 ], [ %51, %98 ], [ %51, %78 ], [ %51, %.thread112 ]
-  ret ptr %.0
+.thread:                                          ; preds = %78, %.thread109, %98, %11, %7, %.thread92
+  ret ptr null
 }
 
 declare ptr @je_edata_cache_get(ptr noundef, ptr noundef) local_unnamed_addr #2

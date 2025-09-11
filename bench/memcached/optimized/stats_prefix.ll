@@ -236,7 +236,7 @@ define dso_local void @stats_prefix_record_set(ptr noundef %0, i64 noundef %1) l
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noalias noundef ptr @stats_prefix_dump(ptr noundef writeonly captures(none) %0) local_unnamed_addr #2 {
+define dso_local noalias noundef ptr @stats_prefix_dump(ptr noundef readnone captures(none) %0) local_unnamed_addr #2 {
   tail call void @STATS_LOCK() #11
   %2 = load i32, ptr @total_prefix_size, align 4, !tbaa !18
   %3 = sext i32 %2 to i64
@@ -252,11 +252,10 @@ define dso_local noalias noundef ptr @stats_prefix_dump(ptr noundef writeonly ca
 11:                                               ; preds = %1
   tail call void @perror(ptr noundef nonnull @.str.3) #14
   tail call void @STATS_UNLOCK() #11
-  br label %32
+  br label %29
 
 .preheader:                                       ; preds = %1, %._crit_edge
   %indvars.iv = phi i64 [ %indvars.iv.next, %._crit_edge ], [ 0, %1 ]
-  %.035 = phi i32 [ %.1.lcssa, %._crit_edge ], [ 0, %1 ]
   %12 = getelementptr inbounds nuw ptr, ptr @prefix_stats, i64 %indvars.iv
   %.02830 = load ptr, ptr %12, align 8, !tbaa !7
   %.not31 = icmp eq ptr %.02830, null
@@ -264,7 +263,7 @@ define dso_local noalias noundef ptr @stats_prefix_dump(ptr noundef writeonly ca
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %.02833 = phi ptr [ %.028, %.lr.ph ], [ %.02830, %.preheader ]
-  %.132 = phi i32 [ %26, %.lr.ph ], [ %.035, %.preheader ]
+  %.132 = phi i32 [ %26, %.lr.ph ], [ poison, %.preheader ]
   %13 = sext i32 %.132 to i64
   %14 = getelementptr inbounds i8, ptr %9, i64 %13
   %15 = sub nsw i64 %8, %13
@@ -285,21 +284,16 @@ define dso_local noalias noundef ptr @stats_prefix_dump(ptr noundef writeonly ca
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  %.1.lcssa = phi i32 [ %.035, %.preheader ], [ %26, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
   br i1 %exitcond.not, label %28, label %.preheader, !llvm.loop !29
 
 28:                                               ; preds = %._crit_edge
   tail call void @STATS_UNLOCK() #11
-  %29 = sext i32 %.1.lcssa to i64
-  %30 = getelementptr inbounds i8, ptr %9, i64 %29
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %30, ptr noundef nonnull align 1 dereferenceable(6) @.str.4, i64 6, i1 false)
-  %31 = add nsw i32 %.1.lcssa, 5
-  store i32 %31, ptr %0, align 4, !tbaa !18
-  br label %32
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) poison, ptr noundef nonnull align 1 dereferenceable(6) @.str.4, i64 6, i1 false)
+  br label %29
 
-32:                                               ; preds = %28, %11
+29:                                               ; preds = %28, %11
   ret ptr %9
 }
 

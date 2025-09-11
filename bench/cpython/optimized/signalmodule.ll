@@ -3012,7 +3012,6 @@ PyErr_CheckSignals.exit.thread.i:                 ; preds = %PyErr_CheckSignals.
   br i1 %55, label %select.unfold.i, label %56
 
 .thread.i:                                        ; preds = %56, %PyErr_CheckSignals.exit.i, %33, %36, %24
-  %.2.ph.i = phi ptr [ %38, %36 ], [ null, %24 ], [ null, %56 ], [ @_Py_NoneStruct, %33 ], [ null, %PyErr_CheckSignals.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %62
 
@@ -3033,7 +3032,7 @@ select.unfold.i:                                  ; preds = %PyErr_CheckSignals.
   br label %62
 
 62:                                               ; preds = %select.unfold.i, %.thread.i
-  %.4.i = phi ptr [ %61, %select.unfold.i ], [ %.2.ph.i, %.thread.i ]
+  %.4.i = phi ptr [ %61, %select.unfold.i ], [ poison, %.thread.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %signal_sigtimedwait_impl.exit
 

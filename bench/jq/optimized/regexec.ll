@@ -8002,17 +8002,17 @@ define internal fastcc i32 @regset_search_body_regex_lead(ptr noundef readonly c
 
 .lr.ph:                                           ; preds = %9
   %13 = icmp eq i32 %5, 2
-  %wide.trip.count62 = zext nneg i32 %11 to i64
+  %wide.trip.count63 = zext nneg i32 %11 to i64
   br i1 %13, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %29
-  %indvars.iv59 = phi i64 [ %indvars.iv.next60, %29 ], [ 0, %.lr.ph ]
+  %indvars.iv60 = phi i64 [ %indvars.iv.next61, %29 ], [ 0, %.lr.ph ]
   %14 = load ptr, ptr %0, align 8, !tbaa !61
-  %15 = getelementptr inbounds nuw %struct.RR, ptr %14, i64 %indvars.iv59
+  %15 = getelementptr inbounds nuw %struct.RR, ptr %14, i64 %indvars.iv60
   %16 = load ptr, ptr %15, align 8, !tbaa !62
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !64
-  %19 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv59
+  %19 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv60
   %20 = load ptr, ptr %19, align 8, !tbaa !65
   %21 = tail call fastcc i32 @search_in_range(ptr noundef %16, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %4, ptr noundef %18, i32 noundef %6, ptr noundef %20)
   %22 = icmp sgt i32 %21, 0
@@ -8029,14 +8029,13 @@ define internal fastcc i32 @regset_search_body_regex_lead(ptr noundef readonly c
   br i1 %28, label %.loopexit.sink.split, label %29
 
 29:                                               ; preds = %25, %23
-  %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
-  %exitcond63.not = icmp eq i64 %indvars.iv.next60, %wide.trip.count62
-  br i1 %exitcond63.not, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !181
+  %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
+  %exitcond64.not = icmp eq i64 %indvars.iv.next61, %wide.trip.count63
+  br i1 %exitcond64.not, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !181
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %47
-  %indvars.iv = phi i64 [ %indvars.iv.next, %47 ], [ 0, %.lr.ph ]
-  %.03341 = phi i32 [ %.2, %47 ], [ -1, %.lr.ph ]
-  %.03440 = phi ptr [ %.135, %47 ], [ %4, %.lr.ph ]
+.lr.ph.split:                                     ; preds = %.lr.ph, %46
+  %indvars.iv = phi i64 [ %indvars.iv.next, %46 ], [ 0, %.lr.ph ]
+  %.03441 = phi ptr [ %.135, %46 ], [ %4, %.lr.ph ]
   %30 = load ptr, ptr %0, align 8, !tbaa !61
   %31 = getelementptr inbounds nuw %struct.RR, ptr %30, i64 %indvars.iv
   %32 = load ptr, ptr %31, align 8, !tbaa !62
@@ -8044,42 +8043,40 @@ define internal fastcc i32 @regset_search_body_regex_lead(ptr noundef readonly c
   %34 = load ptr, ptr %33, align 8, !tbaa !64
   %35 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
   %36 = load ptr, ptr %35, align 8, !tbaa !65
-  %37 = tail call fastcc i32 @search_in_range(ptr noundef %32, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %.03440, ptr noundef %4, ptr noundef %34, i32 noundef %6, ptr noundef %36)
+  %37 = tail call fastcc i32 @search_in_range(ptr noundef %32, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %.03441, ptr noundef %4, ptr noundef %34, i32 noundef %6, ptr noundef %36)
   %38 = icmp sgt i32 %37, 0
-  br i1 %38, label %39, label %45
+  br i1 %38, label %39, label %44
 
 39:                                               ; preds = %.lr.ph.split
   %40 = zext nneg i32 %37 to i64
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 %40
-  %42 = icmp ult ptr %41, %.03440
-  br i1 %42, label %43, label %47
+  %42 = icmp ult ptr %41, %.03441
+  br i1 %42, label %43, label %46
 
 43:                                               ; preds = %39
   store i32 %37, ptr %8, align 4, !tbaa !24
-  %44 = trunc nuw nsw i64 %indvars.iv to i32
-  br label %47
+  br label %46
 
-45:                                               ; preds = %.lr.ph.split
-  %46 = icmp eq i32 %37, 0
-  br i1 %46, label %.loopexit.sink.split, label %47
+44:                                               ; preds = %.lr.ph.split
+  %45 = icmp eq i32 %37, 0
+  br i1 %45, label %.loopexit.sink.split, label %46
 
-47:                                               ; preds = %43, %39, %45
-  %.135 = phi ptr [ %.03440, %39 ], [ %.03440, %45 ], [ %41, %43 ]
-  %.2 = phi i32 [ %.03341, %39 ], [ %.03341, %45 ], [ %44, %43 ]
+46:                                               ; preds = %43, %39, %44
+  %.135 = phi ptr [ %.03441, %39 ], [ %.03441, %44 ], [ %41, %43 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count62
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count63
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !181
 
-.loopexit.sink.split:                             ; preds = %45, %23, %25
-  %indvars.iv59.lcssa73.sink = phi i64 [ %indvars.iv59, %25 ], [ %indvars.iv59, %23 ], [ %indvars.iv, %45 ]
-  %.lcssa71.sink = phi i32 [ 0, %23 ], [ %21, %25 ], [ 0, %45 ]
-  %48 = trunc i64 %indvars.iv59.lcssa73.sink to i32
+.loopexit.sink.split:                             ; preds = %44, %23, %25
+  %indvars.iv60.lcssa73.sink = phi i64 [ %indvars.iv60, %25 ], [ %indvars.iv60, %23 ], [ %indvars.iv, %44 ]
+  %.lcssa71.sink = phi i32 [ 0, %23 ], [ %21, %25 ], [ 0, %44 ]
+  %47 = trunc i64 %indvars.iv60.lcssa73.sink to i32
   store i32 %.lcssa71.sink, ptr %8, align 4, !tbaa !24
   br label %.loopexit
 
-.loopexit:                                        ; preds = %47, %29, %.loopexit.sink.split, %9
-  %.1 = phi i32 [ -1, %9 ], [ %48, %.loopexit.sink.split ], [ -1, %29 ], [ %.2, %47 ]
-  ret i32 %.1
+.loopexit:                                        ; preds = %46, %29, %.loopexit.sink.split, %9
+  %.040 = phi i32 [ 0, %9 ], [ %47, %.loopexit.sink.split ], [ %11, %29 ], [ %11, %46 ]
+  ret i32 %.040
 }
 
 ; Function Attrs: nounwind uwtable

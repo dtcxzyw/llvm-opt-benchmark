@@ -4842,15 +4842,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit32: ; preds = %_ZN
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %37
   %.sroa.014.0.lcssa.i = phi i8 [ 0, %37 ], [ %.sroa.014.1.i, %._crit_edge.loopexit.i ]
   %.sroa.516.0.lcssa.i = phi i64 [ 0, %37 ], [ %43, %._crit_edge.loopexit.i ]
-  %.0.lcssa.i = phi i1 [ false, %37 ], [ %.1.i, %._crit_edge.loopexit.i ]
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %45 = load i8, ptr %44, align 8, !range !68
   %46 = trunc nuw i8 %45 to i1
-  %or.cond.i = select i1 %.0.lcssa.i, i1 true, i1 %46
-  br i1 %or.cond.i, label %_ZN12cmFileCopier22CollectMatchPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %58
+  br i1 %46, label %_ZN12cmFileCopier22CollectMatchPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %58
 
 .lr.ph.i:                                         ; preds = %37, %56
-  %.021.i = phi i1 [ %.1.i, %56 ], [ false, %37 ]
   %.sroa.516.020.i = phi i32 [ %.sroa.516.1.i, %56 ], [ 0, %37 ]
   %.sroa.011.019.i = phi ptr [ %57, %56 ], [ %39, %37 ]
   %.sroa.014.018.i = phi i8 [ %.sroa.014.1.i, %56 ], [ 0, %37 ]
@@ -4870,7 +4867,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit32: ; preds = %_ZN
 56:                                               ; preds = %49, %.lr.ph.i
   %.sroa.014.1.i = phi i8 [ %52, %49 ], [ %.sroa.014.018.i, %.lr.ph.i ]
   %.sroa.516.1.i = phi i32 [ %55, %49 ], [ %.sroa.516.020.i, %.lr.ph.i ]
-  %.1.i = phi i1 [ true, %49 ], [ %.021.i, %.lr.ph.i ]
   %57 = getelementptr inbounds nuw i8, ptr %.sroa.011.019.i, i64 600
   %.not.i = icmp eq ptr %57, %41
   br i1 %.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i

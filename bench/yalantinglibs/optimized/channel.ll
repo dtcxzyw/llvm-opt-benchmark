@@ -65068,16 +65068,11 @@ for.cond.preheader.i:                             ; preds = %_ZNK4asio19basic_st
   %cmp232.i = icmp sgt i64 %sub.ptr.sub.i.i, %4
   br i1 %cmp232.i, label %if.then3.i, label %if.end.i70
 
-if.then3.i.loopexit:                              ; preds = %if.end13.i
-  %start_pos.sroa.0.0.copyload82.le = load ptr, ptr %incdec.ptr.i, align 8
-  br label %if.then3.i
-
-if.then3.i:                                       ; preds = %if.then3.i.loopexit, %for.cond.preheader.i
-  %start_pos.sroa.16.3 = phi ptr [ %spec.select112.idx.sroa.sel, %for.cond.preheader.i ], [ %incdec.ptr.i, %if.then3.i.loopexit ]
-  %start_pos.sroa.5.4 = phi i64 [ %sub.ptr.sub.i.i, %for.cond.preheader.i ], [ %start_pos.sroa.5.0.copyload84, %if.then3.i.loopexit ]
-  %start_pos.sroa.0.4 = phi ptr [ %call.i.i, %for.cond.preheader.i ], [ %start_pos.sroa.0.0.copyload82.le, %if.then3.i.loopexit ]
-  %5 = phi i64 [ 0, %for.cond.preheader.i ], [ %add8.i, %if.then3.i.loopexit ]
-  %n.addr.0.lcssa.i = phi i64 [ %4, %for.cond.preheader.i ], [ %sub6.i, %if.then3.i.loopexit ]
+if.then3.i:                                       ; preds = %if.end13.i, %for.cond.preheader.i
+  %start_pos.sroa.16.3 = phi ptr [ %spec.select112.idx.sroa.sel, %for.cond.preheader.i ], [ %incdec.ptr.i, %if.end13.i ]
+  %start_pos.sroa.5.4 = phi i64 [ %sub.ptr.sub.i.i, %for.cond.preheader.i ], [ %start_pos.sroa.5.0.copyload84, %if.end13.i ]
+  %5 = phi i64 [ 0, %for.cond.preheader.i ], [ %add8.i, %if.end13.i ]
+  %n.addr.0.lcssa.i = phi i64 [ %4, %for.cond.preheader.i ], [ %sub6.i, %if.end13.i ]
   %add.i = add i64 %n.addr.0.lcssa.i, %5
   br label %_ZN4asio16buffers_iteratorINS_15const_buffers_1EcE7advanceEl.exit
 
@@ -65096,7 +65091,7 @@ if.end13.i:                                       ; preds = %if.end.i70
   %start_pos.sroa.5.0.incdec.ptr.i.sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 24
   %start_pos.sroa.5.0.copyload84 = load i64, ptr %start_pos.sroa.5.0.incdec.ptr.i.sroa_idx, align 8
   %cmp2.i = icmp sgt i64 %start_pos.sroa.5.0.copyload84, %sub6.i
-  br i1 %cmp2.i, label %if.then3.i.loopexit, label %if.end.i70, !llvm.loop !668
+  br i1 %cmp2.i, label %if.then3.i, label %if.end.i70, !llvm.loop !668
 
 if.else.i:                                        ; preds = %_ZNK4asio19basic_streambuf_refISaIcEE4dataEv.exit
   %cmp17.i = icmp slt i64 %4, 0
@@ -65114,7 +65109,6 @@ if.then23.i:                                      ; preds = %while.end.i
 if.end28.i:                                       ; preds = %while.end.i, %if.end28.lr.ph.i
   %start_pos.sroa.16.1 = phi ptr [ %spec.select112.idx.sroa.sel, %if.end28.lr.ph.i ], [ %start_pos.sroa.16.2, %while.end.i ]
   %start_pos.sroa.5.1 = phi i64 [ %sub.ptr.sub.i.i, %if.end28.lr.ph.i ], [ %start_pos.sroa.5.2, %while.end.i ]
-  %start_pos.sroa.0.1 = phi ptr [ %call.i.i, %if.end28.lr.ph.i ], [ %start_pos.sroa.0.2, %while.end.i ]
   %8 = phi ptr [ %spec.select112.idx.sroa.sel, %if.end28.lr.ph.i ], [ %11, %while.end.i ]
   %9 = phi i64 [ 0, %if.end28.lr.ph.i ], [ %sub33.i, %while.end.i ]
   %abs_n.028.i = phi i64 [ %sub19.i, %if.end28.lr.ph.i ], [ %sub30.i, %while.end.i ]
@@ -65134,18 +65128,13 @@ while.body.i:                                     ; preds = %while.cond.i
   %buffer.sroa.2.0.incdec.ptr42.sroa_idx.i = getelementptr inbounds i8, ptr %iter.0.i, i64 -8
   %buffer.sroa.2.0.copyload.i = load i64, ptr %buffer.sroa.2.0.incdec.ptr42.sroa_idx.i, align 8
   %cmp44.not.i = icmp eq i64 %buffer.sroa.2.0.copyload.i, 0
-  br i1 %cmp44.not.i, label %while.cond.i, label %if.then45.i, !llvm.loop !669
+  br i1 %cmp44.not.i, label %while.cond.i, label %while.end.i, !llvm.loop !669
 
-if.then45.i:                                      ; preds = %while.body.i
-  %buffer.sroa.0.0.copyload.i = load ptr, ptr %incdec.ptr42.i, align 8
-  br label %while.end.i
-
-while.end.i:                                      ; preds = %while.cond.i, %if.then45.i
-  %start_pos.sroa.16.2 = phi ptr [ %incdec.ptr42.i, %if.then45.i ], [ %start_pos.sroa.16.1, %while.cond.i ]
-  %start_pos.sroa.5.2 = phi i64 [ %buffer.sroa.2.0.copyload.i, %if.then45.i ], [ %start_pos.sroa.5.1, %while.cond.i ]
-  %start_pos.sroa.0.2 = phi ptr [ %buffer.sroa.0.0.copyload.i, %if.then45.i ], [ %start_pos.sroa.0.1, %while.cond.i ]
-  %11 = phi ptr [ %incdec.ptr42.i, %if.then45.i ], [ %8, %while.cond.i ]
-  %12 = phi i64 [ %buffer.sroa.2.0.copyload.i, %if.then45.i ], [ %10, %while.cond.i ]
+while.end.i:                                      ; preds = %while.body.i, %while.cond.i
+  %start_pos.sroa.16.2 = phi ptr [ %start_pos.sroa.16.1, %while.cond.i ], [ %incdec.ptr42.i, %while.body.i ]
+  %start_pos.sroa.5.2 = phi i64 [ %start_pos.sroa.5.1, %while.cond.i ], [ %buffer.sroa.2.0.copyload.i, %while.body.i ]
+  %11 = phi ptr [ %8, %while.cond.i ], [ %incdec.ptr42.i, %while.body.i ]
+  %12 = phi i64 [ %10, %while.cond.i ], [ %buffer.sroa.2.0.copyload.i, %while.body.i ]
   %cmp22.not.i = icmp ult i64 %12, %sub30.i
   br i1 %cmp22.not.i, label %if.end28.i, label %if.then23.i, !llvm.loop !670
 
@@ -65154,7 +65143,6 @@ _ZN4asio16buffers_iteratorINS_15const_buffers_1EcE7advanceEl.exit: ; preds = %if
   %start_pos.sroa.21.0 = phi i64 [ %add.i, %if.then3.i ], [ %sub25.i, %if.then23.i ], [ 0, %if.else.i ], [ %add8.i, %if.end.i70 ], [ %sub33.i, %if.end28.i ]
   %start_pos.sroa.8.1 = phi i64 [ %n.addr.0.lcssa.i, %if.then3.i ], [ %sub27.i, %if.then23.i ], [ 0, %if.else.i ], [ 0, %if.end.i70 ], [ 0, %if.end28.i ]
   %start_pos.sroa.5.5 = phi i64 [ %start_pos.sroa.5.4, %if.then3.i ], [ %start_pos.sroa.5.2, %if.then23.i ], [ %sub.ptr.sub.i.i, %if.else.i ], [ 0, %if.end.i70 ], [ %start_pos.sroa.5.1, %if.end28.i ]
-  %start_pos.sroa.0.5 = phi ptr [ %start_pos.sroa.0.4, %if.then3.i ], [ %start_pos.sroa.0.2, %if.then23.i ], [ %call.i.i, %if.else.i ], [ null, %if.end.i70 ], [ %start_pos.sroa.0.1, %if.end28.i ]
   %delim_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %13 = load ptr, ptr %delim_, align 8
   %_M_string_length.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -65172,12 +65160,11 @@ for.cond2.preheader.i:                            ; preds = %for.cond2.preheader
   %iter1.sroa.13.094.i = phi ptr [ %iter1.sroa.13.2.i, %_ZN4asio16buffers_iteratorINS_15const_buffers_1EcEppEv.exit25.i ], [ %start_pos.sroa.16.4, %for.cond2.preheader.lr.ph.i ]
   %iter1.sroa.8.093.i = phi i64 [ %iter1.sroa.8.1.i, %_ZN4asio16buffers_iteratorINS_15const_buffers_1EcEppEv.exit25.i ], [ %start_pos.sroa.8.1, %for.cond2.preheader.lr.ph.i ]
   %iter1.sroa.5.092.i = phi i64 [ %iter1.sroa.5.1.i, %_ZN4asio16buffers_iteratorINS_15const_buffers_1EcEppEv.exit25.i ], [ %start_pos.sroa.5.5, %for.cond2.preheader.lr.ph.i ]
-  %iter1.sroa.0.091.i = phi ptr [ %iter1.sroa.0.1.i, %_ZN4asio16buffers_iteratorINS_15const_buffers_1EcEppEv.exit25.i ], [ %start_pos.sroa.0.5, %for.cond2.preheader.lr.ph.i ]
   br label %if.end.i13
 
 if.end.i13:                                       ; preds = %_ZN4asio16buffers_iteratorINS_15const_buffers_1EcEppEv.exit.i, %for.cond2.preheader.i
   %test_iter2.sroa.0.080.i = phi ptr [ %13, %for.cond2.preheader.i ], [ %incdec.ptr.i.i, %_ZN4asio16buffers_iteratorINS_15const_buffers_1EcEppEv.exit.i ]
-  %test_iter1.sroa.0.079.i = phi ptr [ %iter1.sroa.0.091.i, %for.cond2.preheader.i ], [ %test_iter1.sroa.0.1.i, %_ZN4asio16buffers_iteratorINS_15const_buffers_1EcEppEv.exit.i ]
+  %test_iter1.sroa.0.079.i = phi ptr [ poison, %for.cond2.preheader.i ], [ %test_iter1.sroa.0.1.i, %_ZN4asio16buffers_iteratorINS_15const_buffers_1EcEppEv.exit.i ]
   %test_iter1.sroa.3.078.i = phi i64 [ %iter1.sroa.5.092.i, %for.cond2.preheader.i ], [ %test_iter1.sroa.3.1.i, %_ZN4asio16buffers_iteratorINS_15const_buffers_1EcEppEv.exit.i ]
   %test_iter1.sroa.5.077.i = phi i64 [ %iter1.sroa.8.093.i, %for.cond2.preheader.i ], [ %test_iter1.sroa.5.1.i, %_ZN4asio16buffers_iteratorINS_15const_buffers_1EcEppEv.exit.i ]
   %test_iter1.sroa.935.076.i = phi ptr [ %iter1.sroa.13.094.i, %for.cond2.preheader.i ], [ %test_iter1.sroa.935.2.i, %_ZN4asio16buffers_iteratorINS_15const_buffers_1EcEppEv.exit.i ]
@@ -65249,23 +65236,17 @@ while.body.i.i20.i:                               ; preds = %if.end.i.i15.i, %if
   %iter1.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %iter1.sroa.13.1.i, i64 8
   %iter1.sroa.5.0.copyload43.i = load i64, ptr %iter1.sroa.5.0..sroa_idx.i, align 8, !noalias !671
   %cmp11.not.i.i21.i = icmp eq i64 %iter1.sroa.5.0.copyload43.i, 0
-  br i1 %cmp11.not.i.i21.i, label %if.end13.i.i22.i, label %_ZN4asio16buffers_iteratorINS_15const_buffers_1EcEppEv.exit25.loopexit.i
+  br i1 %cmp11.not.i.i21.i, label %if.end13.i.i22.i, label %_ZN4asio16buffers_iteratorINS_15const_buffers_1EcEppEv.exit25.i
 
 if.end13.i.i22.i:                                 ; preds = %while.body.i.i20.i
   %incdec.ptr15.i.i23.i = getelementptr inbounds nuw i8, ptr %iter1.sroa.13.1.i, i64 16
   %cmp6.not.i.i24.i = icmp eq ptr %iter1.sroa.13.1.i, %data_buffers
-  br i1 %cmp6.not.i.i24.i, label %_ZN4asio16buffers_iteratorINS_15const_buffers_1EcEppEv.exit25.loopexit.i, label %while.body.i.i20.i, !llvm.loop !674
+  br i1 %cmp6.not.i.i24.i, label %_ZN4asio16buffers_iteratorINS_15const_buffers_1EcEppEv.exit25.i, label %while.body.i.i20.i, !llvm.loop !674
 
-_ZN4asio16buffers_iteratorINS_15const_buffers_1EcEppEv.exit25.loopexit.i: ; preds = %if.end13.i.i22.i, %while.body.i.i20.i
-  %iter1.sroa.13.2.ph.i = phi ptr [ %incdec.ptr15.i.i23.i, %if.end13.i.i22.i ], [ %iter1.sroa.13.1.i, %while.body.i.i20.i ]
-  %iter1.sroa.0.0.copyload39.le.i = load ptr, ptr %iter1.sroa.13.1.i, align 8, !noalias !671
-  br label %_ZN4asio16buffers_iteratorINS_15const_buffers_1EcEppEv.exit25.i
-
-_ZN4asio16buffers_iteratorINS_15const_buffers_1EcEppEv.exit25.i: ; preds = %_ZN4asio16buffers_iteratorINS_15const_buffers_1EcEppEv.exit25.loopexit.i, %if.end.i.i15.i, %for.inc17.i
-  %iter1.sroa.0.1.i = phi ptr [ %iter1.sroa.0.091.i, %if.end.i.i15.i ], [ %iter1.sroa.0.091.i, %for.inc17.i ], [ %iter1.sroa.0.0.copyload39.le.i, %_ZN4asio16buffers_iteratorINS_15const_buffers_1EcEppEv.exit25.loopexit.i ]
-  %iter1.sroa.5.1.i = phi i64 [ %iter1.sroa.5.092.i, %if.end.i.i15.i ], [ %iter1.sroa.5.092.i, %for.inc17.i ], [ %iter1.sroa.5.0.copyload43.i, %_ZN4asio16buffers_iteratorINS_15const_buffers_1EcEppEv.exit25.loopexit.i ]
-  %iter1.sroa.8.1.i = phi i64 [ 0, %if.end.i.i15.i ], [ %inc2.i.i12.i, %for.inc17.i ], [ 0, %_ZN4asio16buffers_iteratorINS_15const_buffers_1EcEppEv.exit25.loopexit.i ]
-  %iter1.sroa.13.2.i = phi ptr [ %incdec.ptr.i.i17.i, %if.end.i.i15.i ], [ %iter1.sroa.13.094.i, %for.inc17.i ], [ %iter1.sroa.13.2.ph.i, %_ZN4asio16buffers_iteratorINS_15const_buffers_1EcEppEv.exit25.loopexit.i ]
+_ZN4asio16buffers_iteratorINS_15const_buffers_1EcEppEv.exit25.i: ; preds = %while.body.i.i20.i, %if.end13.i.i22.i, %if.end.i.i15.i, %for.inc17.i
+  %iter1.sroa.5.1.i = phi i64 [ %iter1.sroa.5.092.i, %if.end.i.i15.i ], [ %iter1.sroa.5.092.i, %for.inc17.i ], [ %iter1.sroa.5.0.copyload43.i, %while.body.i.i20.i ], [ 0, %if.end13.i.i22.i ]
+  %iter1.sroa.8.1.i = phi i64 [ 0, %if.end.i.i15.i ], [ %inc2.i.i12.i, %for.inc17.i ], [ 0, %if.end13.i.i22.i ], [ 0, %while.body.i.i20.i ]
+  %iter1.sroa.13.2.i = phi ptr [ %incdec.ptr.i.i17.i, %if.end.i.i15.i ], [ %iter1.sroa.13.094.i, %for.inc17.i ], [ %iter1.sroa.13.1.i, %while.body.i.i20.i ], [ %incdec.ptr15.i.i23.i, %if.end13.i.i22.i ]
   %cmp.i.i.not.i = icmp eq i64 %inc.i.i10.i, %sub.ptr.sub.i.i
   br i1 %cmp.i.i.not.i, label %if.else, label %for.cond2.preheader.i, !llvm.loop !676
 

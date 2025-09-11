@@ -15,57 +15,50 @@ define hidden i32 @lj_str_cmp(ptr noundef readonly captures(none) %0, ptr nounde
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %6 = load i32, ptr %5, align 4, !tbaa !4
   %. = tail call i32 @llvm.umin.i32(i32 %4, i32 %6)
-  %.not54 = icmp eq i32 %., 0
-  br i1 %.not54, label %.loopexit, label %.lr.ph
+  %.not51 = icmp eq i32 %., 0
+  br i1 %.not51, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   br label %9
 
-9:                                                ; preds = %.lr.ph, %28
-  %.03253 = phi i32 [ 0, %.lr.ph ], [ %29, %28 ]
-  %10 = zext i32 %.03253 to i64
+9:                                                ; preds = %.lr.ph, %26
+  %.03250 = phi i32 [ 0, %.lr.ph ], [ %27, %26 ]
+  %10 = zext i32 %.03250 to i64
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 %10
   %12 = load i32, ptr %11, align 4, !tbaa !11
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 %10
   %14 = load i32, ptr %13, align 4, !tbaa !11
   %.not = icmp eq i32 %12, %14
-  br i1 %.not, label %28, label %15
+  br i1 %.not, label %26, label %15
 
 15:                                               ; preds = %9
-  %16 = tail call i32 @llvm.bswap.i32(i32 %12)
-  %17 = tail call i32 @llvm.bswap.i32(i32 %14)
-  %18 = sub i32 %.03253, %.
-  %19 = icmp sgt i32 %18, -4
-  br i1 %19, label %20, label %.thread
+  %16 = sub i32 %.03250, %.
+  %17 = icmp sgt i32 %16, -4
+  br i1 %17, label %18, label %.thread
 
-20:                                               ; preds = %15
-  %21 = shl i32 %18, 3
+18:                                               ; preds = %15
+  %19 = tail call i32 @llvm.bswap.i32(i32 %14)
+  %20 = tail call i32 @llvm.bswap.i32(i32 %12)
+  %21 = shl i32 %16, 3
   %22 = add i32 %21, 32
-  %23 = lshr i32 %16, %22
-  %24 = lshr i32 %17, %22
+  %23 = lshr i32 %20, %22
+  %24 = lshr i32 %19, %22
   %25 = icmp eq i32 %23, %24
   br i1 %25, label %.loopexit, label %.thread
 
-.thread:                                          ; preds = %15, %20
-  %.030 = phi i32 [ %23, %20 ], [ %16, %15 ]
-  %.029 = phi i32 [ %24, %20 ], [ %17, %15 ]
-  %26 = icmp ult i32 %.030, %.029
-  %27 = select i1 %26, i32 -1, i32 1
-  br label %32
+26:                                               ; preds = %9
+  %27 = add i32 %.03250, 4
+  %28 = icmp ult i32 %27, %.
+  br i1 %28, label %9, label %.loopexit, !llvm.loop !12
 
-28:                                               ; preds = %9
-  %29 = add i32 %.03253, 4
-  %30 = icmp ult i32 %29, %.
-  br i1 %30, label %9, label %.loopexit, !llvm.loop !12
+.loopexit:                                        ; preds = %26, %2, %18
+  %29 = sub i32 %4, %6
+  br label %.thread
 
-.loopexit:                                        ; preds = %28, %2, %20
-  %31 = sub i32 %4, %6
-  br label %32
-
-32:                                               ; preds = %.thread, %.loopexit
-  %.2 = phi i32 [ %31, %.loopexit ], [ %27, %.thread ]
+.thread:                                          ; preds = %18, %15, %.loopexit
+  %.2 = phi i32 [ %29, %.loopexit ], [ poison, %15 ], [ poison, %18 ]
   ret i32 %.2
 }
 

@@ -12244,15 +12244,15 @@ define dso_local void @failoverCommand(ptr noundef %0) local_unnamed_addr #0 {
 declare i32 @clusterAllowFailoverCmd(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @findReplica(ptr noundef nonnull readonly captures(none) %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc noalias noundef ptr @findReplica(ptr noundef nonnull readonly captures(none) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.listIter, align 8
   %4 = alloca [46 x i8], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 1464), align 8, !tbaa !29
   call void @listRewind(ptr noundef %5, ptr noundef nonnull %3) #21
   %6 = call ptr @listNext(ptr noundef nonnull %3) #21
-  %.not19 = icmp eq ptr %6, null
-  br i1 %.not19, label %.loopexit, label %.lr.ph
+  %.not18 = icmp eq ptr %6, null
+  br i1 %.not18, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %connAddrPeerName.exit.thread
   %7 = phi ptr [ %27, %connAddrPeerName.exit.thread ], [ %6, %2 ]
@@ -12305,9 +12305,8 @@ connAddrPeerName.exit.thread:                     ; preds = %21, %23, %12, %15, 
   br i1 %.not, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %connAddrPeerName.exit.thread, %2, %.thread
-  %.2 = phi ptr [ %9, %.thread ], [ null, %2 ], [ null, %connAddrPeerName.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret ptr %.2
+  ret ptr null
 }
 
 declare i64 @commandTimeSnapshot() local_unnamed_addr #1

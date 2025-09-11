@@ -678,8 +678,8 @@ define hidden i32 @lj_opt_fwd_hrefk(ptr noundef %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %3 = load i16, ptr %2, align 8, !tbaa !4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 520
-  %.027.in86 = load i16, ptr %4, align 8, !tbaa !4
-  %5 = icmp ugt i16 %.027.in86, %3
+  %.027.in81 = load i16, ptr %4, align 8, !tbaa !4
+  %5 = icmp ugt i16 %.027.in81, %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8, !tbaa !7
   %8 = zext i16 %3 to i64
@@ -692,15 +692,14 @@ define hidden i32 @lj_opt_fwd_hrefk(ptr noundef %0) local_unnamed_addr #1 {
   br label %12
 
 12:                                               ; preds = %.lr.ph, %fwd_aa_tab_clear.exit
-  %.027.in87 = phi i16 [ %.027.in86, %.lr.ph ], [ %.027.in, %fwd_aa_tab_clear.exit ]
-  %13 = zext i16 %.027.in87 to i64
+  %.027.in82 = phi i16 [ %.027.in81, %.lr.ph ], [ %.027.in, %fwd_aa_tab_clear.exit ]
+  %13 = zext i16 %.027.in82 to i64
   %14 = getelementptr inbounds nuw %union.IRIns, ptr %7, i64 %13
   %15 = load i16, ptr %14, align 8, !tbaa !4
   %16 = icmp eq i16 %3, %15
   br i1 %16, label %17, label %62
 
 17:                                               ; preds = %12
-  %.027.le = zext i16 %.027.in87 to i32
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %19 = load i16, ptr %18, align 8, !tbaa !4
   %20 = getelementptr inbounds nuw i8, ptr %14, i64 2
@@ -711,8 +710,8 @@ define hidden i32 @lj_opt_fwd_hrefk(ptr noundef %0) local_unnamed_addr #1 {
 23:                                               ; preds = %17
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 598
   %.014.in21.i = load i16, ptr %24, align 2, !tbaa !4
-  %25 = icmp ult i16 %.027.in87, %.014.in21.i
-  br i1 %25, label %.lr.ph.i, label %fwd_aa_tab_clear.exit.thread64
+  %25 = icmp ult i16 %.027.in82, %.014.in21.i
+  br i1 %25, label %.lr.ph.i, label %fwd_aa_tab_clear.exit.thread63
 
 .lr.ph.i:                                         ; preds = %23, %aa_table.exit.thread.i
   %.014.in23.i = phi i16 [ %.014.in.i, %aa_table.exit.thread.i ], [ %.014.in21.i, %23 ]
@@ -783,8 +782,8 @@ define hidden i32 @lj_opt_fwd_hrefk(ptr noundef %0) local_unnamed_addr #1 {
 aa_table.exit.thread.i:                           ; preds = %58, %45, %34, %.lr.ph.i
   %60 = getelementptr inbounds nuw i8, ptr %27, i64 6
   %.014.in.i = load i16, ptr %60, align 2, !tbaa !4
-  %61 = icmp ugt i16 %.014.in.i, %.027.in87
-  br i1 %61, label %.lr.ph.i, label %fwd_aa_tab_clear.exit.thread64, !llvm.loop !31
+  %61 = icmp ugt i16 %.014.in.i, %.027.in82
+  br i1 %61, label %.lr.ph.i, label %fwd_aa_tab_clear.exit.thread63, !llvm.loop !31
 
 62:                                               ; preds = %12
   %63 = zext i16 %15 to i64
@@ -879,13 +878,13 @@ fwd_aa_tab_clear.exit:                            ; preds = %86, %73, %62
 
 107:                                              ; preds = %104
   %108 = zext i16 %105 to i64
-  %.idx103 = shl nuw nsw i64 %108, 3
-  %109 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx103
+  %.idx98 = shl nuw nsw i64 %108, 3
+  %109 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx98
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 5
   %111 = load i8, ptr %110, align 1, !tbaa !4
   %112 = add i8 %111, -83
   %or.cond.i.i41 = icmp ult i8 %112, -2
-  %113 = icmp samesign ult i64 %97, %.idx103
+  %113 = icmp samesign ult i64 %97, %.idx98
   %or.cond = select i1 %or.cond.i.i41, i1 %113, i1 false
   br i1 %or.cond, label %.lr.ph.i.i.i47, label %aa_table.exit.thread.i39
 
@@ -924,10 +923,10 @@ fwd_aa_tab_clear.exit53:                          ; preds = %aa_table.exit.threa
 
 fwd_aa_tab_clear.exit.thread59:                   ; preds = %72, %83, %104, %117, %44, %31, %55, %17, %._crit_edge, %fwd_aa_tab_clear.exit53
   %127 = tail call i32 @lj_opt_cse(ptr noundef %0) #6
-  br label %fwd_aa_tab_clear.exit.thread64
+  br label %fwd_aa_tab_clear.exit.thread63
 
-fwd_aa_tab_clear.exit.thread64:                   ; preds = %aa_table.exit.thread.i, %23, %fwd_aa_tab_clear.exit.thread59
-  %.2 = phi i32 [ %127, %fwd_aa_tab_clear.exit.thread59 ], [ %.027.le, %23 ], [ %.027.le, %aa_table.exit.thread.i ]
+fwd_aa_tab_clear.exit.thread63:                   ; preds = %aa_table.exit.thread.i, %23, %fwd_aa_tab_clear.exit.thread59
+  %.2 = phi i32 [ %127, %fwd_aa_tab_clear.exit.thread59 ], [ poison, %23 ], [ poison, %aa_table.exit.thread.i ]
   ret i32 %.2
 }
 

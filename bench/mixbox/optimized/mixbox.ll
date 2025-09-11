@@ -3598,11 +3598,11 @@ thread-pre-split.i:                               ; preds = %457, %0
 35:                                               ; preds = %thread-pre-split.i
   call fastcc void @_ZL9fill_bitsP4zbuf(ptr noundef nonnull %4)
   %.pre.i = load i32, ptr %13, align 4, !tbaa !29
-  %.pre84.i = load i32, ptr %12, align 8, !tbaa !28
+  %.pre80.i = load i32, ptr %12, align 8, !tbaa !28
   br label %_ZL8zreceiveP4zbufi.exit.i
 
 _ZL8zreceiveP4zbufi.exit.i:                       ; preds = %35, %thread-pre-split.i
-  %36 = phi i32 [ %33, %thread-pre-split.i ], [ %.pre84.i, %35 ]
+  %36 = phi i32 [ %33, %thread-pre-split.i ], [ %.pre80.i, %35 ]
   %37 = phi i32 [ %32, %thread-pre-split.i ], [ %.pre.i, %35 ]
   %38 = and i32 %37, 1
   %39 = lshr i32 %37, 1
@@ -3614,13 +3614,13 @@ _ZL8zreceiveP4zbufi.exit.i:                       ; preds = %35, %thread-pre-spl
 
 42:                                               ; preds = %_ZL8zreceiveP4zbufi.exit.i
   call fastcc void @_ZL9fill_bitsP4zbuf(ptr noundef nonnull %4)
-  %.pre85.i = load i32, ptr %13, align 4, !tbaa !29
-  %.pre86.i = load i32, ptr %12, align 8, !tbaa !28
+  %.pre81.i = load i32, ptr %13, align 4, !tbaa !29
+  %.pre82.i = load i32, ptr %12, align 8, !tbaa !28
   br label %_ZL8zreceiveP4zbufi.exit27.i
 
 _ZL8zreceiveP4zbufi.exit27.i:                     ; preds = %42, %_ZL8zreceiveP4zbufi.exit.i
-  %43 = phi i32 [ %40, %_ZL8zreceiveP4zbufi.exit.i ], [ %.pre86.i, %42 ]
-  %44 = phi i32 [ %39, %_ZL8zreceiveP4zbufi.exit.i ], [ %.pre85.i, %42 ]
+  %43 = phi i32 [ %40, %_ZL8zreceiveP4zbufi.exit.i ], [ %.pre82.i, %42 ]
+  %44 = phi i32 [ %39, %_ZL8zreceiveP4zbufi.exit.i ], [ %.pre81.i, %42 ]
   %45 = and i32 %44, 3
   %46 = lshr i32 %44, 2
   store i32 %46, ptr %13, align 4, !tbaa !29
@@ -3639,11 +3639,11 @@ _ZL8zreceiveP4zbufi.exit27.i:                     ; preds = %42, %_ZL8zreceiveP4
 50:                                               ; preds = %48
   call fastcc void @_ZL9fill_bitsP4zbuf(ptr noundef nonnull %4)
   %.pre.i.i = load i32, ptr %12, align 8, !tbaa !28
-  %.pre87.i = load i32, ptr %13, align 4, !tbaa !29
+  %.pre83.i = load i32, ptr %13, align 4, !tbaa !29
   br label %_ZL8zreceiveP4zbufi.exit75.i.i
 
 _ZL8zreceiveP4zbufi.exit75.i.i:                   ; preds = %50, %48
-  %51 = phi i32 [ %46, %48 ], [ %.pre87.i, %50 ]
+  %51 = phi i32 [ %46, %48 ], [ %.pre83.i, %50 ]
   %52 = phi i32 [ %47, %48 ], [ %.pre.i.i, %50 ]
   %53 = and i32 %51, 31
   %54 = lshr i32 %51, 5
@@ -3689,17 +3689,9 @@ _ZL8zreceiveP4zbufi.exit73.i.i:                   ; preds = %66, %_ZL8zreceiveP4
   %71 = and i32 %68, 15
   %72 = add nuw nsw i32 %71, 4
   %wide.trip.count.i.i = zext nneg i32 %72 to i64
-  %.promoted21.i = load i32, ptr %7, align 8
-  %.promoted.i = load ptr, ptr %4, align 8
-  %.promoted34.i = load i32, ptr %6, align 4
-  %.promoted41.i = load i32, ptr %5, align 8
   br label %.preheader81.i.i
 
 .preheader81.i.i:                                 ; preds = %_ZL8zreceiveP4zbufi.exit72.i.i, %_ZL8zreceiveP4zbufi.exit73.i.i
-  %.promoted1448.i = phi i32 [ %.promoted41.i, %_ZL8zreceiveP4zbufi.exit73.i.i ], [ %.promoted1442.i, %_ZL8zreceiveP4zbufi.exit72.i.i ]
-  %.promoted1340.i = phi i32 [ %.promoted34.i, %_ZL8zreceiveP4zbufi.exit73.i.i ], [ %.promoted1335.i, %_ZL8zreceiveP4zbufi.exit72.i.i ]
-  %.promoted1233.i = phi ptr [ %.promoted.i, %_ZL8zreceiveP4zbufi.exit73.i.i ], [ %.promoted1227.i, %_ZL8zreceiveP4zbufi.exit72.i.i ]
-  %.promoted26.i = phi i32 [ %.promoted21.i, %_ZL8zreceiveP4zbufi.exit73.i.i ], [ %.promoted22.i, %_ZL8zreceiveP4zbufi.exit72.i.i ]
   %.promoted.i16.i = phi i32 [ %69, %_ZL8zreceiveP4zbufi.exit73.i.i ], [ %156, %_ZL8zreceiveP4zbufi.exit72.i.i ]
   %73 = phi i32 [ %70, %_ZL8zreceiveP4zbufi.exit73.i.i ], [ %157, %_ZL8zreceiveP4zbufi.exit72.i.i ]
   %indvars.iv.i.i = phi i64 [ 0, %_ZL8zreceiveP4zbufi.exit73.i.i ], [ %indvars.iv.next.i.i, %_ZL8zreceiveP4zbufi.exit72.i.i ]
@@ -3707,14 +3699,10 @@ _ZL8zreceiveP4zbufi.exit73.i.i:                   ; preds = %66, %_ZL8zreceiveP4
   br i1 %74, label %.preheader62.i, label %_ZL8zreceiveP4zbufi.exit72.i.i
 
 .preheader62.i:                                   ; preds = %.preheader81.i.i, %_ZL5zget8P4zbuf.exit.i.i
-  %.promoted1447.i = phi i32 [ %.promoted1444.i, %_ZL5zget8P4zbuf.exit.i.i ], [ %.promoted1448.i, %.preheader81.i.i ]
-  %.promoted1339.i = phi i32 [ %.promoted1337.i, %_ZL5zget8P4zbuf.exit.i.i ], [ %.promoted1340.i, %.preheader81.i.i ]
-  %.promoted1232.i = phi ptr [ %.promoted1229.i, %_ZL5zget8P4zbuf.exit.i.i ], [ %.promoted1233.i, %.preheader81.i.i ]
-  %.promoted25.i = phi i32 [ %.promoted24.i, %_ZL5zget8P4zbuf.exit.i.i ], [ %.promoted26.i, %.preheader81.i.i ]
-  %75 = phi i32 [ %146, %_ZL5zget8P4zbuf.exit.i.i ], [ %.promoted1448.i, %.preheader81.i.i ]
-  %76 = phi i32 [ %147, %_ZL5zget8P4zbuf.exit.i.i ], [ %.promoted1340.i, %.preheader81.i.i ]
-  %77 = phi ptr [ %148, %_ZL5zget8P4zbuf.exit.i.i ], [ %.promoted1233.i, %.preheader81.i.i ]
-  %78 = phi i32 [ %149, %_ZL5zget8P4zbuf.exit.i.i ], [ %.promoted26.i, %.preheader81.i.i ]
+  %75 = phi i32 [ %146, %_ZL5zget8P4zbuf.exit.i.i ], [ poison, %.preheader81.i.i ]
+  %76 = phi i32 [ %147, %_ZL5zget8P4zbuf.exit.i.i ], [ poison, %.preheader81.i.i ]
+  %77 = phi ptr [ %148, %_ZL5zget8P4zbuf.exit.i.i ], [ poison, %.preheader81.i.i ]
+  %78 = phi i32 [ %149, %_ZL5zget8P4zbuf.exit.i.i ], [ poison, %.preheader81.i.i ]
   %79 = phi i32 [ %152, %_ZL5zget8P4zbuf.exit.i.i ], [ %73, %.preheader81.i.i ]
   %80 = phi i32 [ %151, %_ZL5zget8P4zbuf.exit.i.i ], [ %.promoted.i16.i, %.preheader81.i.i ]
   %.highbits.i.i = lshr i32 %80, %79
@@ -3757,8 +3745,6 @@ _ZL8zreceiveP4zbufi.exit73.i.i:                   ; preds = %66, %_ZL8zreceiveP4
   br label %98
 
 98:                                               ; preds = %94, %85
-  %.promoted1446.i = phi i32 [ %91, %94 ], [ %.promoted1447.i, %85 ]
-  %.promoted1231.i = phi ptr [ %97, %94 ], [ %.promoted1232.i, %85 ]
   %99 = phi i32 [ %91, %94 ], [ %75, %85 ]
   %100 = phi ptr [ %97, %94 ], [ %77, %85 ]
   %101 = phi i8 [ %.pre.i52.i, %94 ], [ %88, %85 ]
@@ -3807,9 +3793,6 @@ _ZL8zreceiveP4zbufi.exit73.i.i:                   ; preds = %66, %_ZL8zreceiveP4
   br label %137
 
 137:                                              ; preds = %98, %82
-  %.promoted1445.i = phi i32 [ %.promoted1446.i, %98 ], [ %.promoted1447.i, %82 ]
-  %.promoted1338.i = phi i32 [ %136, %98 ], [ %.promoted1339.i, %82 ]
-  %.promoted1230.i = phi ptr [ %.promoted1231.i, %98 ], [ %.promoted1232.i, %82 ]
   %138 = phi i32 [ %99, %98 ], [ %75, %82 ]
   %139 = phi i32 [ %136, %98 ], [ %76, %82 ]
   %140 = phi ptr [ %100, %98 ], [ %77, %82 ]
@@ -3822,10 +3805,6 @@ _ZL8zreceiveP4zbufi.exit73.i.i:                   ; preds = %66, %_ZL8zreceiveP4
   br label %_ZL5zget8P4zbuf.exit.i.i
 
 _ZL5zget8P4zbuf.exit.i.i:                         ; preds = %137, %93
-  %.promoted1444.i = phi i32 [ %91, %93 ], [ %.promoted1445.i, %137 ]
-  %.promoted1337.i = phi i32 [ %.promoted1339.i, %93 ], [ %.promoted1338.i, %137 ]
-  %.promoted1229.i = phi ptr [ %.promoted1232.i, %93 ], [ %.promoted1230.i, %137 ]
-  %.promoted24.i = phi i32 [ %.promoted25.i, %93 ], [ %144, %137 ]
   %146 = phi i32 [ %91, %93 ], [ %138, %137 ]
   %147 = phi i32 [ %76, %93 ], [ %139, %137 ]
   %148 = phi ptr [ %77, %93 ], [ %140, %137 ]
@@ -3840,10 +3819,6 @@ _ZL5zget8P4zbuf.exit.i.i:                         ; preds = %137, %93
   br i1 %153, label %.preheader62.i, label %_ZL8zreceiveP4zbufi.exit72.i.i, !llvm.loop !31
 
 _ZL8zreceiveP4zbufi.exit72.i.i:                   ; preds = %_ZL5zget8P4zbuf.exit.i.i, %81, %.preheader81.i.i
-  %.promoted1442.i = phi i32 [ %.promoted1448.i, %.preheader81.i.i ], [ %.promoted1447.i, %81 ], [ %.promoted1444.i, %_ZL5zget8P4zbuf.exit.i.i ]
-  %.promoted1335.i = phi i32 [ %.promoted1340.i, %.preheader81.i.i ], [ %.promoted1339.i, %81 ], [ %.promoted1337.i, %_ZL5zget8P4zbuf.exit.i.i ]
-  %.promoted1227.i = phi ptr [ %.promoted1233.i, %.preheader81.i.i ], [ %.promoted1232.i, %81 ], [ %.promoted1229.i, %_ZL5zget8P4zbuf.exit.i.i ]
-  %.promoted22.i = phi i32 [ %.promoted26.i, %.preheader81.i.i ], [ %.promoted25.i, %81 ], [ %.promoted24.i, %_ZL5zget8P4zbuf.exit.i.i ]
   %154 = phi i32 [ %73, %.preheader81.i.i ], [ %79, %81 ], [ %152, %_ZL5zget8P4zbuf.exit.i.i ]
   %155 = phi i32 [ %.promoted.i16.i, %.preheader81.i.i ], [ %80, %81 ], [ %151, %_ZL5zget8P4zbuf.exit.i.i ]
   %156 = lshr i32 %155, 3
@@ -4435,13 +4410,13 @@ _ZL8zreceiveP4zbufi.exit.i34.i:                   ; preds = %423, %419
   br i1 %.not25.i, label %thread-pre-split.i, label %.preheader.i, !llvm.loop !39
 
 .preheader.i:                                     ; preds = %457, %.split.us.i
-  %indvars.iv80.i = phi i64 [ %indvars.iv.next81.i, %.split.us.i ], [ 0, %457 ]
-  %458 = and i64 %indvars.iv80.i, 63
+  %indvars.iv76.i = phi i64 [ %indvars.iv.next77.i, %.split.us.i ], [ 0, %457 ]
+  %458 = and i64 %indvars.iv76.i, 63
   %.not26.i = icmp eq i64 %458, 0
   br i1 %.not26.i, label %.split.us.i, label %.preheader.split.preheader.i
 
 .preheader.split.preheader.i:                     ; preds = %.preheader.i
-  %459 = mul nuw nsw i64 %indvars.iv80.i, 3
+  %459 = mul nuw nsw i64 %indvars.iv76.i, 3
   %460 = add nuw nsw i64 %459, 4294967293
   %461 = and i64 %460, 4294967295
   %462 = getelementptr inbounds nuw i8, ptr @_ZZL10mixbox_lutvE12decompressed, i64 %461
@@ -4449,9 +4424,9 @@ _ZL8zreceiveP4zbufi.exit.i34.i:                   ; preds = %423, %419
   br label %.preheader.split.i
 
 .split.us.i:                                      ; preds = %.preheader.split.i, %.preheader.i
-  %indvars.iv.next81.i = add nuw nsw i64 %indvars.iv80.i, 1
-  %exitcond83.not.i = icmp eq i64 %indvars.iv.next81.i, 266369
-  br i1 %exitcond83.not.i, label %_ZL10decompressPci.exit, label %.preheader.i, !llvm.loop !40
+  %indvars.iv.next77.i = add nuw nsw i64 %indvars.iv76.i, 1
+  %exitcond79.not.i = icmp eq i64 %indvars.iv.next77.i, 266369
+  br i1 %exitcond79.not.i, label %_ZL10decompressPci.exit, label %.preheader.i, !llvm.loop !40
 
 .preheader.split.i:                               ; preds = %.preheader.split.i, %.preheader.split.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.split.preheader.i ], [ %indvars.iv.next.i, %.preheader.split.i ]

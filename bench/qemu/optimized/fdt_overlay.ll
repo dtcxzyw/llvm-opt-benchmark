@@ -289,14 +289,14 @@ declare i32 @fdt_ro_probe_(ptr noundef) local_unnamed_addr #1
 declare i32 @fdt_find_max_phandle(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @overlay_merge(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc noundef i32 @overlay_merge(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call i32 @fdt_first_subnode(ptr noundef %1, i32 noundef 0) #8
   %4 = icmp sgt i32 %3, -1
   br i1 %4, label %.lr.ph, label %.thread
 
 .lr.ph:                                           ; preds = %2, %select.unfold
-  %.02129 = phi i32 [ %14, %select.unfold ], [ %3, %2 ]
-  %5 = tail call i32 @fdt_subnode_offset(ptr noundef %1, i32 noundef %.02129, ptr noundef nonnull @.str.5) #8
+  %.02128 = phi i32 [ %14, %select.unfold ], [ %3, %2 ]
+  %5 = tail call i32 @fdt_subnode_offset(ptr noundef %1, i32 noundef %.02128, ptr noundef nonnull @.str.5) #8
   %6 = icmp eq i32 %5, -1
   br i1 %6, label %select.unfold, label %7
 
@@ -305,7 +305,7 @@ define internal fastcc i32 @overlay_merge(ptr noundef %0, ptr noundef %1) unname
   br i1 %8, label %.thread, label %9
 
 9:                                                ; preds = %7
-  %10 = tail call fastcc i32 @overlay_get_target(ptr noundef %0, ptr noundef %1, i32 noundef %.02129, ptr noundef null)
+  %10 = tail call fastcc i32 @overlay_get_target(ptr noundef %0, ptr noundef %1, i32 noundef %.02128, ptr noundef null)
   %11 = icmp slt i32 %10, 0
   br i1 %11, label %.thread, label %12
 
@@ -315,13 +315,12 @@ define internal fastcc i32 @overlay_merge(ptr noundef %0, ptr noundef %1) unname
   br i1 %.not, label %select.unfold, label %.thread
 
 select.unfold:                                    ; preds = %12, %.lr.ph
-  %14 = tail call i32 @fdt_next_subnode(ptr noundef %1, i32 noundef %.02129) #8
+  %14 = tail call i32 @fdt_next_subnode(ptr noundef %1, i32 noundef %.02128) #8
   %15 = icmp sgt i32 %14, -1
   br i1 %15, label %.lr.ph, label %.thread, !llvm.loop !8
 
 .thread:                                          ; preds = %select.unfold, %7, %9, %12, %2
-  %.2 = phi i32 [ 0, %2 ], [ %13, %12 ], [ %10, %9 ], [ %5, %7 ], [ 0, %select.unfold ]
-  ret i32 %.2
+  ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable

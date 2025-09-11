@@ -167,7 +167,6 @@ define noundef range(i64 -44, 1) i64 @_ZN11duckdb_zstd20FSE_buildCTable_wkspEPjP
 
 .lr.ph188:                                        ; preds = %._crit_edge, %._crit_edge184
   %indvars.iv209 = phi i64 [ %indvars.iv.next210, %._crit_edge184 ], [ 0, %._crit_edge ]
-  %.0155186 = phi i32 [ %.1156.lcssa, %._crit_edge184 ], [ 0, %._crit_edge ]
   %90 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv209
   %91 = load i16, ptr %90, align 2, !tbaa !3
   %92 = sext i16 %91 to i32
@@ -180,15 +179,15 @@ define noundef range(i64 -44, 1) i64 @_ZN11duckdb_zstd20FSE_buildCTable_wkspEPjP
 
 95:                                               ; preds = %.lr.ph183, %100
   %.0153181 = phi i32 [ 0, %.lr.ph183 ], [ %101, %100 ]
-  %.1156180 = phi i32 [ %.0155186, %.lr.ph183 ], [ %.2, %100 ]
-  %96 = zext nneg i32 %.1156180 to i64
+  %.1156180 = phi i32 [ poison, %.lr.ph183 ], [ %.2, %100 ]
+  %96 = zext i32 %.1156180 to i64
   %97 = getelementptr inbounds nuw i8, ptr %20, i64 %96
   store i8 %94, ptr %97, align 1, !tbaa !7
   br label %98
 
 98:                                               ; preds = %98, %95
   %.1156.pn = phi i32 [ %.1156180, %95 ], [ %.2, %98 ]
-  %.pn = add nuw i32 %.1156.pn, %16
+  %.pn = add i32 %.1156.pn, %16
   %.2 = and i32 %.pn, %8
   %99 = icmp ugt i32 %.2, %.1
   br i1 %99, label %98, label %100, !llvm.loop !15
@@ -199,7 +198,6 @@ define noundef range(i64 -44, 1) i64 @_ZN11duckdb_zstd20FSE_buildCTable_wkspEPjP
   br i1 %exitcond208.not, label %._crit_edge184, label %95, !llvm.loop !16
 
 ._crit_edge184:                                   ; preds = %100, %.lr.ph188
-  %.1156.lcssa = phi i32 [ %.0155186, %.lr.ph188 ], [ %.2, %100 ]
   %indvars.iv.next210 = add nuw nsw i64 %indvars.iv209, 1
   %exitcond213.not = icmp eq i64 %indvars.iv.next210, %55
   br i1 %exitcond213.not, label %.loopexit174, label %.lr.ph188, !llvm.loop !17

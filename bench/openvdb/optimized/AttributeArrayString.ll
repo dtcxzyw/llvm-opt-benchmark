@@ -6051,7 +6051,6 @@ if.then:                                          ; preds = %entry
 while.body.i:                                     ; preds = %if.then, %_ZNSt15_Deque_iteratorISt4pairIjjERS1_PS1_EmIEl.exit.i
   %agg.tmp.sroa.0.0 = phi ptr [ %storemerge.i.i.i, %_ZNSt15_Deque_iteratorISt4pairIjjERS1_PS1_EmIEl.exit.i ], [ %4, %if.then ]
   %agg.tmp.sroa.4.0 = phi ptr [ %agg.tmp.sroa.4.1, %_ZNSt15_Deque_iteratorISt4pairIjjERS1_PS1_EmIEl.exit.i ], [ %5, %if.then ]
-  %agg.tmp.sroa.9.0 = phi ptr [ %agg.tmp.sroa.9.1, %_ZNSt15_Deque_iteratorISt4pairIjjERS1_PS1_EmIEl.exit.i ], [ %6, %if.then ]
   %agg.tmp.sroa.12.0 = phi ptr [ %agg.tmp.sroa.12.1, %_ZNSt15_Deque_iteratorISt4pairIjjERS1_PS1_EmIEl.exit.i ], [ %7, %if.then ]
   %8 = phi ptr [ %15, %_ZNSt15_Deque_iteratorISt4pairIjjERS1_PS1_EmIEl.exit.i ], [ %5, %if.then ]
   %__last.addr.012.i = phi ptr [ %add.ptr832.i, %_ZNSt15_Deque_iteratorISt4pairIjjERS1_PS1_EmIEl.exit.i ], [ %3, %if.then ]
@@ -6139,7 +6138,6 @@ cond.end.i.i.i:                                   ; preds = %cond.false.i.i.i, %
   %cond.i.i.i = phi i64 [ %div911.i.i.i, %cond.true.i.i.i ], [ %sub10.i.i.i, %cond.false.i.i.i ]
   %add.ptr11.i.i.i = getelementptr inbounds ptr, ptr %agg.tmp.sroa.12.0, i64 %cond.i.i.i
   %14 = load ptr, ptr %add.ptr11.i.i.i, align 8, !noalias !129
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %14, i64 512
   %mul.i.i.i = shl nsw i64 %cond.i.i.i, 6
   %sub14.i.i.i = sub nsw i64 %add.i.i.i, %mul.i.i.i
   %add.ptr15.i.i.i = getelementptr inbounds %"struct.std::pair.13", ptr %14, i64 %sub14.i.i.i
@@ -6147,7 +6145,6 @@ cond.end.i.i.i:                                   ; preds = %cond.false.i.i.i, %
 
 _ZNSt15_Deque_iteratorISt4pairIjjERS1_PS1_EmIEl.exit.i: ; preds = %cond.end.i.i.i, %if.then.i.i.i
   %agg.tmp.sroa.4.1 = phi ptr [ %agg.tmp.sroa.4.0, %if.then.i.i.i ], [ %14, %cond.end.i.i.i ]
-  %agg.tmp.sroa.9.1 = phi ptr [ %agg.tmp.sroa.9.0, %if.then.i.i.i ], [ %add.ptr.i.i.i.i, %cond.end.i.i.i ]
   %agg.tmp.sroa.12.1 = phi ptr [ %agg.tmp.sroa.12.0, %if.then.i.i.i ], [ %add.ptr11.i.i.i, %cond.end.i.i.i ]
   %15 = phi ptr [ %13, %if.then.i.i.i ], [ %14, %cond.end.i.i.i ]
   %storemerge.i.i.i = phi ptr [ %add.ptr.i.i.i, %if.then.i.i.i ], [ %add.ptr15.i.i.i, %cond.end.i.i.i ]
@@ -6156,13 +6153,12 @@ _ZNSt15_Deque_iteratorISt4pairIjjERS1_PS1_EmIEl.exit.i: ; preds = %cond.end.i.i.
   br i1 %cmp.i, label %while.body.i, label %_ZSt23__copy_move_backward_a1ILb1EPSt4pairIjjES1_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS7_PS7_EE6__typeES5_S5_SA_.exit, !llvm.loop !133
 
 _ZSt23__copy_move_backward_a1ILb1EPSt4pairIjjES1_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS7_PS7_EE6__typeES5_S5_SA_.exit: ; preds = %_ZNSt15_Deque_iteratorISt4pairIjjERS1_PS1_EmIEl.exit.i, %if.then
-  %agg.tmp.sroa.9.2 = phi ptr [ %6, %if.then ], [ %agg.tmp.sroa.9.1, %_ZNSt15_Deque_iteratorISt4pairIjjERS1_PS1_EmIEl.exit.i ]
   %agg.tmp.sroa.12.2 = phi ptr [ %7, %if.then ], [ %agg.tmp.sroa.12.1, %_ZNSt15_Deque_iteratorISt4pairIjjERS1_PS1_EmIEl.exit.i ]
   %16 = phi ptr [ %5, %if.then ], [ %15, %_ZNSt15_Deque_iteratorISt4pairIjjERS1_PS1_EmIEl.exit.i ]
   %17 = phi ptr [ %4, %if.then ], [ %storemerge.i.i.i, %_ZNSt15_Deque_iteratorISt4pairIjjERS1_PS1_EmIEl.exit.i ]
   store ptr %17, ptr %__result, align 8
   store ptr %16, ptr %_M_first3.i, align 8
-  store ptr %agg.tmp.sroa.9.2, ptr %_M_last4.i, align 8
+  store ptr %6, ptr %_M_last4.i, align 8
   store ptr %agg.tmp.sroa.12.2, ptr %_M_node5.i, align 8
   %18 = load ptr, ptr %_M_node1, align 8
   %__node.0290 = getelementptr inbounds i8, ptr %18, i64 -8
@@ -6172,7 +6168,7 @@ _ZSt23__copy_move_backward_a1ILb1EPSt4pairIjjES1_EN9__gnu_cxx11__enable_ifIXsr23
 
 for.body:                                         ; preds = %_ZSt23__copy_move_backward_a1ILb1EPSt4pairIjjES1_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS7_PS7_EE6__typeES5_S5_SA_.exit, %_ZSt23__copy_move_backward_a1ILb1EPSt4pairIjjES1_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS7_PS7_EE6__typeES5_S5_SA_.exit96
   %20 = phi ptr [ %agg.tmp7.sroa.11.1, %_ZSt23__copy_move_backward_a1ILb1EPSt4pairIjjES1_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS7_PS7_EE6__typeES5_S5_SA_.exit96 ], [ %agg.tmp.sroa.12.2, %_ZSt23__copy_move_backward_a1ILb1EPSt4pairIjjES1_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS7_PS7_EE6__typeES5_S5_SA_.exit ]
-  %21 = phi ptr [ %agg.tmp7.sroa.8.1, %_ZSt23__copy_move_backward_a1ILb1EPSt4pairIjjES1_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS7_PS7_EE6__typeES5_S5_SA_.exit96 ], [ %agg.tmp.sroa.9.2, %_ZSt23__copy_move_backward_a1ILb1EPSt4pairIjjES1_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS7_PS7_EE6__typeES5_S5_SA_.exit ]
+  %21 = phi ptr [ %agg.tmp7.sroa.8.1, %_ZSt23__copy_move_backward_a1ILb1EPSt4pairIjjES1_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS7_PS7_EE6__typeES5_S5_SA_.exit96 ], [ %6, %_ZSt23__copy_move_backward_a1ILb1EPSt4pairIjjES1_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS7_PS7_EE6__typeES5_S5_SA_.exit ]
   %22 = phi ptr [ %32, %_ZSt23__copy_move_backward_a1ILb1EPSt4pairIjjES1_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS7_PS7_EE6__typeES5_S5_SA_.exit96 ], [ %16, %_ZSt23__copy_move_backward_a1ILb1EPSt4pairIjjES1_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS7_PS7_EE6__typeES5_S5_SA_.exit ]
   %23 = phi ptr [ %storemerge.i.i.i60, %_ZSt23__copy_move_backward_a1ILb1EPSt4pairIjjES1_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS7_PS7_EE6__typeES5_S5_SA_.exit96 ], [ %17, %_ZSt23__copy_move_backward_a1ILb1EPSt4pairIjjES1_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS7_PS7_EE6__typeES5_S5_SA_.exit ]
   %__node.0292 = phi ptr [ %__node.0, %_ZSt23__copy_move_backward_a1ILb1EPSt4pairIjjES1_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS7_PS7_EE6__typeES5_S5_SA_.exit96 ], [ %__node.0290, %_ZSt23__copy_move_backward_a1ILb1EPSt4pairIjjES1_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS7_PS7_EE6__typeES5_S5_SA_.exit ]
@@ -6299,7 +6295,7 @@ _ZSt23__copy_move_backward_a1ILb1EPSt4pairIjjES1_EN9__gnu_cxx11__enable_ifIXsr23
 
 for.end:                                          ; preds = %_ZSt23__copy_move_backward_a1ILb1EPSt4pairIjjES1_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS7_PS7_EE6__typeES5_S5_SA_.exit96, %_ZSt23__copy_move_backward_a1ILb1EPSt4pairIjjES1_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS7_PS7_EE6__typeES5_S5_SA_.exit
   %34 = phi ptr [ %agg.tmp.sroa.12.2, %_ZSt23__copy_move_backward_a1ILb1EPSt4pairIjjES1_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS7_PS7_EE6__typeES5_S5_SA_.exit ], [ %agg.tmp7.sroa.11.1, %_ZSt23__copy_move_backward_a1ILb1EPSt4pairIjjES1_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS7_PS7_EE6__typeES5_S5_SA_.exit96 ]
-  %35 = phi ptr [ %agg.tmp.sroa.9.2, %_ZSt23__copy_move_backward_a1ILb1EPSt4pairIjjES1_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS7_PS7_EE6__typeES5_S5_SA_.exit ], [ %agg.tmp7.sroa.8.1, %_ZSt23__copy_move_backward_a1ILb1EPSt4pairIjjES1_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS7_PS7_EE6__typeES5_S5_SA_.exit96 ]
+  %35 = phi ptr [ %6, %_ZSt23__copy_move_backward_a1ILb1EPSt4pairIjjES1_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS7_PS7_EE6__typeES5_S5_SA_.exit ], [ %agg.tmp7.sroa.8.1, %_ZSt23__copy_move_backward_a1ILb1EPSt4pairIjjES1_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS7_PS7_EE6__typeES5_S5_SA_.exit96 ]
   %36 = phi ptr [ %16, %_ZSt23__copy_move_backward_a1ILb1EPSt4pairIjjES1_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS7_PS7_EE6__typeES5_S5_SA_.exit ], [ %32, %_ZSt23__copy_move_backward_a1ILb1EPSt4pairIjjES1_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS7_PS7_EE6__typeES5_S5_SA_.exit96 ]
   %37 = phi ptr [ %17, %_ZSt23__copy_move_backward_a1ILb1EPSt4pairIjjES1_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS7_PS7_EE6__typeES5_S5_SA_.exit ], [ %storemerge.i.i.i60, %_ZSt23__copy_move_backward_a1ILb1EPSt4pairIjjES1_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS7_PS7_EE6__typeES5_S5_SA_.exit96 ]
   %38 = load ptr, ptr %__first, align 8
@@ -6314,7 +6310,6 @@ for.end:                                          ; preds = %_ZSt23__copy_move_b
 
 while.body.i121:                                  ; preds = %for.end, %_ZNSt15_Deque_iteratorISt4pairIjjERS1_PS1_EmIEl.exit.i150
   %agg.tmp9.sroa.12.0 = phi ptr [ %agg.tmp9.sroa.12.1, %_ZNSt15_Deque_iteratorISt4pairIjjERS1_PS1_EmIEl.exit.i150 ], [ %34, %for.end ]
-  %agg.tmp9.sroa.9.0 = phi ptr [ %agg.tmp9.sroa.9.1, %_ZNSt15_Deque_iteratorISt4pairIjjERS1_PS1_EmIEl.exit.i150 ], [ %35, %for.end ]
   %agg.tmp9.sroa.4.0 = phi ptr [ %agg.tmp9.sroa.4.1, %_ZNSt15_Deque_iteratorISt4pairIjjERS1_PS1_EmIEl.exit.i150 ], [ %36, %for.end ]
   %agg.tmp9.sroa.0.0 = phi ptr [ %storemerge.i.i.i151, %_ZNSt15_Deque_iteratorISt4pairIjjERS1_PS1_EmIEl.exit.i150 ], [ %37, %for.end ]
   %40 = phi ptr [ %47, %_ZNSt15_Deque_iteratorISt4pairIjjERS1_PS1_EmIEl.exit.i150 ], [ %36, %for.end ]
@@ -6403,7 +6398,6 @@ cond.end.i.i.i143:                                ; preds = %cond.false.i.i.i141
   %cond.i.i.i144 = phi i64 [ %div911.i.i.i157, %cond.true.i.i.i156 ], [ %sub10.i.i.i142, %cond.false.i.i.i141 ]
   %add.ptr11.i.i.i145 = getelementptr inbounds ptr, ptr %agg.tmp9.sroa.12.0, i64 %cond.i.i.i144
   %46 = load ptr, ptr %add.ptr11.i.i.i145, align 8, !noalias !138
-  %add.ptr.i.i.i.i146 = getelementptr inbounds nuw i8, ptr %46, i64 512
   %mul.i.i.i147 = shl nsw i64 %cond.i.i.i144, 6
   %sub14.i.i.i148 = sub nsw i64 %add.i.i.i139, %mul.i.i.i147
   %add.ptr15.i.i.i149 = getelementptr inbounds %"struct.std::pair.13", ptr %46, i64 %sub14.i.i.i148
@@ -6411,7 +6405,6 @@ cond.end.i.i.i143:                                ; preds = %cond.false.i.i.i141
 
 _ZNSt15_Deque_iteratorISt4pairIjjERS1_PS1_EmIEl.exit.i150: ; preds = %cond.end.i.i.i143, %if.then.i.i.i158
   %agg.tmp9.sroa.12.1 = phi ptr [ %agg.tmp9.sroa.12.0, %if.then.i.i.i158 ], [ %add.ptr11.i.i.i145, %cond.end.i.i.i143 ]
-  %agg.tmp9.sroa.9.1 = phi ptr [ %agg.tmp9.sroa.9.0, %if.then.i.i.i158 ], [ %add.ptr.i.i.i.i146, %cond.end.i.i.i143 ]
   %agg.tmp9.sroa.4.1 = phi ptr [ %agg.tmp9.sroa.4.0, %if.then.i.i.i158 ], [ %46, %cond.end.i.i.i143 ]
   %47 = phi ptr [ %45, %if.then.i.i.i158 ], [ %46, %cond.end.i.i.i143 ]
   %storemerge.i.i.i151 = phi ptr [ %add.ptr.i.i.i159, %if.then.i.i.i158 ], [ %add.ptr15.i.i.i149, %cond.end.i.i.i143 ]
@@ -6438,7 +6431,6 @@ if.end:                                           ; preds = %entry
 
 while.body.i212:                                  ; preds = %if.end, %_ZNSt15_Deque_iteratorISt4pairIjjERS1_PS1_EmIEl.exit.i241
   %agg.tmp12.sroa.12.0 = phi ptr [ %agg.tmp12.sroa.12.1, %_ZNSt15_Deque_iteratorISt4pairIjjERS1_PS1_EmIEl.exit.i241 ], [ %53, %if.end ]
-  %agg.tmp12.sroa.9.0 = phi ptr [ %agg.tmp12.sroa.9.1, %_ZNSt15_Deque_iteratorISt4pairIjjERS1_PS1_EmIEl.exit.i241 ], [ %52, %if.end ]
   %agg.tmp12.sroa.4.0 = phi ptr [ %agg.tmp12.sroa.4.1, %_ZNSt15_Deque_iteratorISt4pairIjjERS1_PS1_EmIEl.exit.i241 ], [ %51, %if.end ]
   %agg.tmp12.sroa.0.0 = phi ptr [ %storemerge.i.i.i242, %_ZNSt15_Deque_iteratorISt4pairIjjERS1_PS1_EmIEl.exit.i241 ], [ %50, %if.end ]
   %54 = phi ptr [ %61, %_ZNSt15_Deque_iteratorISt4pairIjjERS1_PS1_EmIEl.exit.i241 ], [ %51, %if.end ]
@@ -6527,7 +6519,6 @@ cond.end.i.i.i234:                                ; preds = %cond.false.i.i.i232
   %cond.i.i.i235 = phi i64 [ %div911.i.i.i248, %cond.true.i.i.i247 ], [ %sub10.i.i.i233, %cond.false.i.i.i232 ]
   %add.ptr11.i.i.i236 = getelementptr inbounds ptr, ptr %agg.tmp12.sroa.12.0, i64 %cond.i.i.i235
   %60 = load ptr, ptr %add.ptr11.i.i.i236, align 8, !noalias !141
-  %add.ptr.i.i.i.i237 = getelementptr inbounds nuw i8, ptr %60, i64 512
   %mul.i.i.i238 = shl nsw i64 %cond.i.i.i235, 6
   %sub14.i.i.i239 = sub nsw i64 %add.i.i.i230, %mul.i.i.i238
   %add.ptr15.i.i.i240 = getelementptr inbounds %"struct.std::pair.13", ptr %60, i64 %sub14.i.i.i239
@@ -6535,7 +6526,6 @@ cond.end.i.i.i234:                                ; preds = %cond.false.i.i.i232
 
 _ZNSt15_Deque_iteratorISt4pairIjjERS1_PS1_EmIEl.exit.i241: ; preds = %cond.end.i.i.i234, %if.then.i.i.i249
   %agg.tmp12.sroa.12.1 = phi ptr [ %agg.tmp12.sroa.12.0, %if.then.i.i.i249 ], [ %add.ptr11.i.i.i236, %cond.end.i.i.i234 ]
-  %agg.tmp12.sroa.9.1 = phi ptr [ %agg.tmp12.sroa.9.0, %if.then.i.i.i249 ], [ %add.ptr.i.i.i.i237, %cond.end.i.i.i234 ]
   %agg.tmp12.sroa.4.1 = phi ptr [ %agg.tmp12.sroa.4.0, %if.then.i.i.i249 ], [ %60, %cond.end.i.i.i234 ]
   %61 = phi ptr [ %59, %if.then.i.i.i249 ], [ %60, %cond.end.i.i.i234 ]
   %storemerge.i.i.i242 = phi ptr [ %add.ptr.i.i.i250, %if.then.i.i.i249 ], [ %add.ptr15.i.i.i240, %cond.end.i.i.i234 ]
@@ -6544,15 +6534,15 @@ _ZNSt15_Deque_iteratorISt4pairIjjERS1_PS1_EmIEl.exit.i241: ; preds = %cond.end.i
   br i1 %cmp.i244, label %while.body.i212, label %return, !llvm.loop !133
 
 return:                                           ; preds = %_ZNSt15_Deque_iteratorISt4pairIjjERS1_PS1_EmIEl.exit.i150, %_ZNSt15_Deque_iteratorISt4pairIjjERS1_PS1_EmIEl.exit.i241, %if.end, %for.end
-  %.sink302 = phi ptr [ %37, %for.end ], [ %50, %if.end ], [ %storemerge.i.i.i242, %_ZNSt15_Deque_iteratorISt4pairIjjERS1_PS1_EmIEl.exit.i241 ], [ %storemerge.i.i.i151, %_ZNSt15_Deque_iteratorISt4pairIjjERS1_PS1_EmIEl.exit.i150 ]
-  %.sink = phi ptr [ %36, %for.end ], [ %51, %if.end ], [ %61, %_ZNSt15_Deque_iteratorISt4pairIjjERS1_PS1_EmIEl.exit.i241 ], [ %47, %_ZNSt15_Deque_iteratorISt4pairIjjERS1_PS1_EmIEl.exit.i150 ]
-  %agg.tmp12.sroa.9.2.sink = phi ptr [ %35, %for.end ], [ %52, %if.end ], [ %agg.tmp12.sroa.9.1, %_ZNSt15_Deque_iteratorISt4pairIjjERS1_PS1_EmIEl.exit.i241 ], [ %agg.tmp9.sroa.9.1, %_ZNSt15_Deque_iteratorISt4pairIjjERS1_PS1_EmIEl.exit.i150 ]
+  %.sink303 = phi ptr [ %37, %for.end ], [ %50, %if.end ], [ %storemerge.i.i.i242, %_ZNSt15_Deque_iteratorISt4pairIjjERS1_PS1_EmIEl.exit.i241 ], [ %storemerge.i.i.i151, %_ZNSt15_Deque_iteratorISt4pairIjjERS1_PS1_EmIEl.exit.i150 ]
+  %.sink302 = phi ptr [ %36, %for.end ], [ %51, %if.end ], [ %61, %_ZNSt15_Deque_iteratorISt4pairIjjERS1_PS1_EmIEl.exit.i241 ], [ %47, %_ZNSt15_Deque_iteratorISt4pairIjjERS1_PS1_EmIEl.exit.i150 ]
+  %.sink = phi ptr [ %35, %for.end ], [ %52, %if.end ], [ %52, %_ZNSt15_Deque_iteratorISt4pairIjjERS1_PS1_EmIEl.exit.i241 ], [ %35, %_ZNSt15_Deque_iteratorISt4pairIjjERS1_PS1_EmIEl.exit.i150 ]
   %agg.tmp12.sroa.12.2.sink = phi ptr [ %34, %for.end ], [ %53, %if.end ], [ %agg.tmp12.sroa.12.1, %_ZNSt15_Deque_iteratorISt4pairIjjERS1_PS1_EmIEl.exit.i241 ], [ %agg.tmp9.sroa.12.1, %_ZNSt15_Deque_iteratorISt4pairIjjERS1_PS1_EmIEl.exit.i150 ]
-  store ptr %.sink302, ptr %agg.result, align 8
+  store ptr %.sink303, ptr %agg.result, align 8
   %_M_first.i.i203 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
-  store ptr %.sink, ptr %_M_first.i.i203, align 8
+  store ptr %.sink302, ptr %_M_first.i.i203, align 8
   %_M_last.i.i204 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
-  store ptr %agg.tmp12.sroa.9.2.sink, ptr %_M_last.i.i204, align 8
+  store ptr %.sink, ptr %_M_last.i.i204, align 8
   %_M_node.i.i206 = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %agg.tmp12.sroa.12.2.sink, ptr %_M_node.i.i206, align 8
   ret void
