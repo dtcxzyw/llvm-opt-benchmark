@@ -8108,7 +8108,7 @@ _ZNK16hb_lazy_loader_tIN2OT4maxpE22hb_table_lazy_loader_tIS1_Lj2ELb1EE9hb_face_t
 104:                                              ; preds = %103, %100
   %105 = phi i32 [ 0, %103 ], [ %101, %100 ]
   %106 = or i1 %102, %.not19
-  br i1 %106, label %107, label %108
+  br i1 %106, label %107, label %108, !prof !297
 
 107:                                              ; preds = %104
   store i32 %105, ptr %88, align 4, !tbaa !88
@@ -8660,7 +8660,7 @@ _ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i.i: ; preds = %117
   store i32 %120, ptr %97, align 4, !tbaa !117
   %121 = load i8, ptr %99, align 8, !tbaa !112, !range !97, !noundef !101
   %122 = trunc nuw i8 %121 to i1
-  br i1 %122, label %123, label %_ZNK2OT8OffsetToINS_13VarRegionListENS_7IntTypeIjLj4EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit.thread13, !prof !297
+  br i1 %122, label %123, label %_ZNK2OT8OffsetToINS_13VarRegionListENS_7IntTypeIjLj4EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit.thread13, !prof !298
 
 123:                                              ; preds = %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i.i
   store i32 0, ptr %101, align 1, !tbaa !143
@@ -8669,7 +8669,7 @@ _ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i.i: ; preds = %117
 124:                                              ; preds = %112, %109, %123
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %_ZNK2OT8OffsetToINS_13VarRegionListENS_7IntTypeIjLj4EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit.thread13, label %100, !llvm.loop !298
+  br i1 %exitcond.not, label %_ZNK2OT8OffsetToINS_13VarRegionListENS_7IntTypeIjLj4EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit.thread13, label %100, !llvm.loop !299
 
 _ZNK2OT8OffsetToINS_13VarRegionListENS_7IntTypeIjLj4EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit.thread13: ; preds = %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i.i, %117, %100, %124, %95, %_ZNK2OT7ArrayOfINS_8OffsetToINS_7VarDataENS_7IntTypeIjLj4EEEvLb1EEENS3_ItLj2EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit, %_ZNK2OT8OffsetToINS_13VarRegionListENS_7IntTypeIjLj4EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit.thread, %86, %76, %_ZN21hb_sanitize_context_t8dispatchIN2OT13VarRegionListEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i, %16, %13, %2
   %125 = phi i1 [ false, %13 ], [ false, %2 ], [ false, %16 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i ], [ false, %_ZN21hb_sanitize_context_t8dispatchIN2OT13VarRegionListEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread ], [ false, %_ZNK2OT7ArrayOfINS_8OffsetToINS_7VarDataENS_7IntTypeIjLj4EEEvLb1EEENS3_ItLj2EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit ], [ false, %_ZNK2OT8OffsetToINS_13VarRegionListENS_7IntTypeIjLj4EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit.thread ], [ false, %86 ], [ false, %76 ], [ true, %95 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i.i ], [ false, %117 ], [ false, %100 ], [ true, %124 ]
@@ -9351,7 +9351,7 @@ _ZNK16hb_lazy_loader_tIN2OT4maxpE22hb_table_lazy_loader_tIS1_Lj2ELb1EE9hb_face_t
 103:                                              ; preds = %102, %99
   %104 = phi i32 [ 0, %102 ], [ %100, %99 ]
   %105 = or i1 %101, %.not19
-  br i1 %105, label %106, label %107
+  br i1 %105, label %106, label %107, !prof !297
 
 106:                                              ; preds = %103
   store i32 %104, ptr %87, align 4, !tbaa !79
@@ -10123,5 +10123,6 @@ attributes #16 = { nounwind allocsize(0,1) }
 !294 = !{!217, !220, i64 24}
 !295 = distinct !{!295, !10}
 !296 = distinct !{!296, !10}
-!297 = !{!"branch_weights", i32 2146410443, i32 1073205}
-!298 = distinct !{!298, !10}
+!297 = !{!"branch_weights", i32 12006001, i32 -589934592}
+!298 = !{!"branch_weights", i32 2146410443, i32 1073205}
+!299 = distinct !{!299, !10}
