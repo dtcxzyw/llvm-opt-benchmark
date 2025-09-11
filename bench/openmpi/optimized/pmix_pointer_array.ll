@@ -279,9 +279,9 @@ define internal fastcc noundef zeroext i1 @grow_table(ptr noundef %0, i32 nounde
   %.not.i = icmp eq ptr %4, null
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %6 = load i32, ptr %5, align 8, !tbaa !16
-  %.fr51 = freeze i32 %6
-  %7 = add i32 %.fr51, %1
-  %8 = srem i32 %7, %.fr51
+  %.fr49 = freeze i32 %6
+  %7 = add i32 %.fr49, %1
+  %8 = srem i32 %7, %.fr49
   %9 = sub nsw i32 %7, %8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %11 = load i32, ptr %10, align 4, !tbaa !15
@@ -289,8 +289,8 @@ define internal fastcc noundef zeroext i1 @grow_table(ptr noundef %0, i32 nounde
   br i1 %.not, label %13, label %12
 
 12:                                               ; preds = %2
-  %.not52 = icmp slt i32 %1, %11
-  br i1 %.not52, label %13, label %66
+  %.not50 = icmp slt i32 %1, %11
+  br i1 %.not50, label %13, label %66
 
 13:                                               ; preds = %12, %2
   %.042 = phi i32 [ %11, %12 ], [ %9, %2 ]
@@ -344,8 +344,8 @@ pmix_tma_realloc.exit:                            ; preds = %18, %22
   %39 = add nsw i64 %33, 63
   %40 = lshr i64 %39, 6
   %41 = trunc i64 %40 to i32
-  %.not53 = icmp eq i32 %41, %38
-  br i1 %.not53, label %.loopexit, label %42
+  %.not51 = icmp eq i32 %41, %38
+  br i1 %.not51, label %.loopexit, label %42
 
 42:                                               ; preds = %._crit_edge
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -358,31 +358,31 @@ pmix_tma_realloc.exit:                            ; preds = %18, %22
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %48 = load ptr, ptr %47, align 8, !tbaa !27
   %49 = tail call ptr %48(ptr noundef nonnull %3, ptr noundef %44, i64 noundef range(i64 -17179869184, 17179869177) %45) #6
-  br label %pmix_tma_realloc.exit57
+  br label %pmix_tma_realloc.exit55
 
 50:                                               ; preds = %42
   %51 = tail call ptr @realloc(ptr noundef %44, i64 noundef range(i64 -17179869184, 17179869177) %45) #8
-  br label %pmix_tma_realloc.exit57
+  br label %pmix_tma_realloc.exit55
 
-pmix_tma_realloc.exit57:                          ; preds = %46, %50
-  %.0.i56 = phi ptr [ %49, %46 ], [ %51, %50 ]
-  %52 = icmp eq ptr %.0.i56, null
+pmix_tma_realloc.exit55:                          ; preds = %46, %50
+  %.0.i54 = phi ptr [ %49, %46 ], [ %51, %50 ]
+  %52 = icmp eq ptr %.0.i54, null
   br i1 %52, label %66, label %53
 
-53:                                               ; preds = %pmix_tma_realloc.exit57
-  store ptr %.0.i56, ptr %43, align 8, !tbaa !18
+53:                                               ; preds = %pmix_tma_realloc.exit55
+  store ptr %.0.i54, ptr %43, align 8, !tbaa !18
   %54 = load i32, ptr %26, align 8, !tbaa !14
   %55 = sext i32 %54 to i64
   %56 = add nsw i64 %55, 63
   %57 = lshr i64 %56, 6
   %58 = trunc i64 %57 to i32
   %59 = icmp slt i32 %58, %38
-  br i1 %59, label %.lr.ph61.preheader, label %.loopexit
+  br i1 %59, label %.lr.ph59.preheader, label %.loopexit
 
-.lr.ph61.preheader:                               ; preds = %53
-  %sext72 = shl i64 %57, 32
-  %60 = ashr exact i64 %sext72, 29
-  %scevgep = getelementptr i8, ptr %.0.i56, i64 %60
+.lr.ph59.preheader:                               ; preds = %53
+  %sext69 = shl i64 %57, 32
+  %60 = ashr exact i64 %sext69, 29
+  %scevgep = getelementptr i8, ptr %.0.i54, i64 %60
   %61 = xor i64 %57, -1
   %62 = add nsw i64 %37, %61
   %63 = shl nsw i64 %62, 3
@@ -391,11 +391,11 @@ pmix_tma_realloc.exit57:                          ; preds = %46, %50
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep, i8 0, i64 %65, i1 false), !tbaa !23
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph61.preheader, %53, %._crit_edge
+.loopexit:                                        ; preds = %.lr.ph59.preheader, %53, %._crit_edge
   store i32 %.042, ptr %26, align 8, !tbaa !14
   br label %66
 
-66:                                               ; preds = %pmix_tma_realloc.exit57, %pmix_tma_realloc.exit, %12, %.loopexit
+66:                                               ; preds = %pmix_tma_realloc.exit55, %pmix_tma_realloc.exit, %12, %.loopexit
   %.0 = phi i1 [ true, %.loopexit ], [ false, %12 ], [ false, %pmix_tma_realloc.exit ], [ false, %pmix_tma_realloc.exit57 ]
   ret i1 %.0
 }

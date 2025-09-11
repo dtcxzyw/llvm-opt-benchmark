@@ -1435,8 +1435,8 @@ define internal fastcc ptr @debug_localname(ptr noundef readonly captures(none) 
   %17 = and i64 %16, 140737488355327
   %18 = inttoptr i64 %17 to ptr
   %19 = tail call fastcc i32 @debug_framepc(ptr noundef %0, ptr noundef %18, ptr noundef %14)
-  %.not53 = icmp eq ptr %14, null
-  br i1 %.not53, label %20, label %24
+  %.not52 = icmp eq ptr %14, null
+  br i1 %.not52, label %20, label %24
 
 20:                                               ; preds = %3
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -1447,11 +1447,11 @@ define internal fastcc ptr @debug_localname(ptr noundef readonly captures(none) 
 24:                                               ; preds = %20, %3
   %.046 = phi ptr [ %13, %3 ], [ %23, %20 ]
   %25 = icmp slt i32 %2, 0
-  %.not55 = icmp eq i32 %19, -1
+  %.not54 = icmp eq i32 %19, -1
   br i1 %25, label %26, label %49
 
 26:                                               ; preds = %24
-  br i1 %.not55, label %.thread, label %27
+  br i1 %.not54, label %.thread, label %27
 
 27:                                               ; preds = %26
   %28 = getelementptr inbounds nuw i8, ptr %18, i64 32
@@ -1460,8 +1460,8 @@ define internal fastcc ptr @debug_localname(ptr noundef readonly captures(none) 
   %31 = getelementptr inbounds i8, ptr %30, i64 -43
   %32 = load i8, ptr %31, align 1, !tbaa !60
   %33 = and i8 %32, 2
-  %.not56 = icmp eq i8 %33, 0
-  br i1 %.not56, label %.thread, label %34
+  %.not55 = icmp eq i8 %33, 0
+  br i1 %.not55, label %.thread, label %34
 
 34:                                               ; preds = %27
   %35 = getelementptr inbounds i8, ptr %30, i64 -94
@@ -1487,7 +1487,7 @@ define internal fastcc ptr @debug_localname(ptr noundef readonly captures(none) 
   br label %.thread
 
 49:                                               ; preds = %24
-  br i1 %.not55, label %90, label %50
+  br i1 %.not54, label %90, label %50
 
 50:                                               ; preds = %49
   %51 = getelementptr inbounds nuw i8, ptr %18, i64 32
@@ -1589,17 +1589,17 @@ debug_varname.exit:                               ; preds = %59, %.loopexit.i, %
   %87 = getelementptr inbounds nuw %union.TValue, ptr %11, i64 %86
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
   %89 = icmp ult ptr %88, %.046
-  %or.cond60 = select i1 %85, i1 %89, i1 false
-  br i1 %or.cond60, label %.sink.split, label %91
+  %or.cond59 = select i1 %85, i1 %89, i1 false
+  br i1 %or.cond59, label %.sink.split, label %91
 
 90:                                               ; preds = %49
   %.old1.not = icmp ne i32 %2, 0
   %.old = zext nneg i32 %2 to i64
-  %.old57 = getelementptr inbounds nuw %union.TValue, ptr %11, i64 %.old
-  %.old58 = getelementptr inbounds nuw i8, ptr %.old57, i64 8
-  %.old59 = icmp ult ptr %.old58, %.046
-  %or.cond61 = select i1 %.old1.not, i1 %.old59, i1 false
-  br i1 %or.cond61, label %.sink.split, label %91
+  %.old56 = getelementptr inbounds nuw %union.TValue, ptr %11, i64 %.old
+  %.old57 = getelementptr inbounds nuw i8, ptr %.old56, i64 8
+  %.old58 = icmp ult ptr %.old57, %.046
+  %or.cond60 = select i1 %.old1.not, i1 %.old58, i1 false
+  br i1 %or.cond60, label %.sink.split, label %91
 
 .sink.split:                                      ; preds = %debug_varname.exit, %90, %debug_varname.exit.thread
   %.2.i.ph.sink = phi ptr [ %.2.i.ph, %debug_varname.exit.thread ], [ @.str.36, %90 ], [ @.str.36, %debug_varname.exit ]

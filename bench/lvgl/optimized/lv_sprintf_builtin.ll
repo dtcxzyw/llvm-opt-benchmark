@@ -1753,22 +1753,22 @@ define internal fastcc i64 @_etoa(ptr noundef readonly captures(none) %0, ptr no
 _ntoa_long.exit:                                  ; preds = %88
   %98 = add i64 %81, 1
   %99 = icmp slt i32 %.1107.fr, 0
-  %spec.select93.i = add nsw i32 %.0101, -2
-  %invariant.umin104.i = zext nneg i32 %spec.select93.i to i64
-  %or.cond11106.i = icmp samesign ult i64 %92, %invariant.umin104.i
-  br i1 %or.cond11106.i, label %.critedge.i.thread, label %.critedge.i
+  %spec.select91.i = add nsw i32 %.0101, -2
+  %invariant.umin102.i = zext nneg i32 %spec.select91.i to i64
+  %or.cond11104.i = icmp samesign ult i64 %92, %invariant.umin102.i
+  br i1 %or.cond11104.i, label %.critedge.i.thread, label %.critedge.i
 
 .critedge.i.thread:                               ; preds = %_ntoa_long.exit
-  %scevgep114.i = getelementptr i8, ptr %9, i64 %92
-  %100 = sub nuw nsw i64 %invariant.umin104.i, %92
-  call void @llvm.memset.p0.i64(ptr align 1 %scevgep114.i, i8 48, i64 %100, i1 false), !tbaa !3
+  %scevgep112.i = getelementptr i8, ptr %9, i64 %92
+  %100 = sub nuw nsw i64 %invariant.umin102.i, %92
+  call void @llvm.memset.p0.i64(ptr align 1 %scevgep112.i, i8 48, i64 %100, i1 false), !tbaa !3
   br label %.thread.sink.split.i
 
 .critedge.i:                                      ; preds = %_ntoa_long.exit
   br i1 %96, label %.thread.sink.split.i, label %.lr.ph37.i.i.preheader
 
 .thread.sink.split.i:                             ; preds = %.critedge.i.thread, %.critedge.i
-  %.0.i118120 = phi i64 [ %invariant.umin104.i, %.critedge.i.thread ], [ %92, %.critedge.i ]
+  %.0.i118120 = phi i64 [ %invariant.umin102.i, %.critedge.i.thread ], [ %92, %.critedge.i ]
   %spec.select122 = select i1 %99, i8 45, i8 43
   %101 = add nuw nsw i64 %.0.i118120, 1
   %102 = getelementptr inbounds nuw i8, ptr %9, i64 %.0.i118120
@@ -1820,24 +1820,24 @@ define internal fastcc noundef i64 @_ntoa_format(ptr noundef readonly captures(n
   br i1 %.not, label %13, label %.critedge
 
 13:                                               ; preds = %11
-  %.not80 = icmp eq i32 %9, 0
-  br i1 %.not80, label %19, label %14
+  %.not78 = icmp eq i32 %9, 0
+  br i1 %.not78, label %19, label %14
 
 14:                                               ; preds = %13
   %15 = and i32 %10, 1
-  %.not81 = icmp eq i32 %15, 0
-  br i1 %.not81, label %19, label %16
+  %.not79 = icmp eq i32 %15, 0
+  br i1 %.not79, label %19, label %16
 
 16:                                               ; preds = %14
   %17 = and i32 %10, 12
-  %.not82 = icmp ne i32 %17, 0
-  %or.cond88.not = or i1 %6, %.not82
-  %18 = sext i1 %or.cond88.not to i32
-  %spec.select93 = add i32 %9, %18
+  %.not80 = icmp ne i32 %17, 0
+  %or.cond86.not = or i1 %6, %.not80
+  %18 = sext i1 %or.cond86.not to i32
+  %spec.select91 = add i32 %9, %18
   br label %19
 
 19:                                               ; preds = %16, %14, %13
-  %.174 = phi i32 [ %9, %14 ], [ 0, %13 ], [ %spec.select93, %16 ]
+  %.174 = phi i32 [ %9, %14 ], [ 0, %13 ], [ %spec.select91, %16 ]
   %20 = tail call i32 @llvm.umin.i32(i32 %8, i32 32)
   %invariant.umin = zext nneg i32 %20 to i64
   %21 = icmp ult i64 %5, %invariant.umin
@@ -1852,27 +1852,27 @@ define internal fastcc noundef i64 @_ntoa_format(ptr noundef readonly captures(n
 .preheader:                                       ; preds = %.lr.ph.preheader, %19
   %.1.lcssa = phi i64 [ %5, %19 ], [ %invariant.umin, %.lr.ph.preheader ]
   %23 = and i32 %10, 1
-  %.not83 = icmp eq i32 %23, 0
-  br i1 %.not83, label %.critedge, label %.lr.ph100
+  %.not81 = icmp eq i32 %23, 0
+  br i1 %.not81, label %.critedge, label %.lr.ph98
 
-.lr.ph100:                                        ; preds = %.preheader
+.lr.ph98:                                         ; preds = %.preheader
   %24 = tail call i32 @llvm.umin.i32(i32 %.174, i32 32)
-  %invariant.umin104 = zext nneg i32 %24 to i64
-  %or.cond11106 = icmp ult i64 %.1.lcssa, %invariant.umin104
-  br i1 %or.cond11106, label %.lr.ph108.preheader, label %.critedge
+  %invariant.umin102 = zext nneg i32 %24 to i64
+  %or.cond11104 = icmp ult i64 %.1.lcssa, %invariant.umin102
+  br i1 %or.cond11104, label %.lr.ph106.preheader, label %.critedge
 
-.lr.ph108.preheader:                              ; preds = %.lr.ph100
-  %scevgep114 = getelementptr i8, ptr %4, i64 %.1.lcssa
-  %25 = sub nuw nsw i64 %invariant.umin104, %.1.lcssa
-  tail call void @llvm.memset.p0.i64(ptr align 1 %scevgep114, i8 48, i64 %25, i1 false), !tbaa !3
+.lr.ph106.preheader:                              ; preds = %.lr.ph98
+  %scevgep112 = getelementptr i8, ptr %4, i64 %.1.lcssa
+  %25 = sub nuw nsw i64 %invariant.umin102, %.1.lcssa
+  tail call void @llvm.memset.p0.i64(ptr align 1 %scevgep112, i8 48, i64 %25, i1 false), !tbaa !3
   br label %.critedge
 
-.critedge:                                        ; preds = %.lr.ph108.preheader, %.preheader, %.lr.ph100, %11
+.critedge:                                        ; preds = %.lr.ph106.preheader, %.preheader, %.lr.ph98, %11
   %.073 = phi i32 [ %9, %11 ], [ %.174, %.lr.ph100 ], [ %.174, %.preheader ], [ %.174, %.lr.ph108.preheader ]
-  %.0 = phi i64 [ %5, %11 ], [ %.1.lcssa, %.lr.ph100 ], [ %.1.lcssa, %.preheader ], [ %invariant.umin104, %.lr.ph108.preheader ]
+  %.0 = phi i64 [ %5, %11 ], [ %.1.lcssa, %.lr.ph100 ], [ %.1.lcssa, %.preheader ], [ %invariant.umin102, %.lr.ph108.preheader ]
   %26 = and i32 %10, 16
-  %.not84 = icmp eq i32 %26, 0
-  br i1 %.not84, label %57, label %27
+  %.not82 = icmp eq i32 %26, 0
+  br i1 %.not82, label %57, label %27
 
 27:                                               ; preds = %.critedge
   %28 = and i32 %10, 1024
@@ -1886,8 +1886,8 @@ define internal fastcc noundef i64 @_ntoa_format(ptr noundef readonly captures(n
   %33 = icmp eq i64 %.0, %32
   %34 = zext i32 %.073 to i64
   %35 = icmp eq i64 %.0, %34
-  %or.cond90 = or i1 %33, %35
-  br i1 %or.cond90, label %36, label %41
+  %or.cond88 = or i1 %33, %35
+  br i1 %or.cond88, label %36, label %41
 
 36:                                               ; preds = %31
   %37 = add nsw i64 %.0, -1
@@ -1901,39 +1901,39 @@ define internal fastcc noundef i64 @_ntoa_format(ptr noundef readonly captures(n
 41:                                               ; preds = %36, %31, %27
   %.4 = phi i64 [ %.0, %27 ], [ %.0, %31 ], [ %spec.select, %36 ]
   %42 = icmp eq i32 %7, 16
-  br i1 %42, label %43, label %.critedge92
+  br i1 %42, label %43, label %.critedge90
 
 43:                                               ; preds = %41
   %44 = and i32 %10, 32
   %45 = icmp eq i32 %44, 0
   %46 = icmp ult i64 %.4, 32
   %or.cond5 = select i1 %45, i1 %46, i1 false
-  br i1 %or.cond5, label %.critedge92.thread.sink.split, label %47
+  br i1 %or.cond5, label %.critedge90.thread.sink.split, label %47
 
 47:                                               ; preds = %43
   %48 = icmp ne i32 %44, 0
   %or.cond7 = select i1 %48, i1 %46, i1 false
-  br i1 %or.cond7, label %.critedge92.thread.sink.split, label %.critedge92.thread
+  br i1 %or.cond7, label %.critedge90.thread.sink.split, label %.critedge90.thread
 
-.critedge92:                                      ; preds = %41
+.critedge90:                                      ; preds = %41
   %49 = icmp eq i32 %7, 2
   %50 = icmp ult i64 %.4, 32
   %or.cond9 = select i1 %49, i1 %50, i1 false
-  br i1 %or.cond9, label %.critedge92.thread.sink.split, label %.critedge92.thread
+  br i1 %or.cond9, label %.critedge90.thread.sink.split, label %.critedge90.thread
 
-.critedge92.thread.sink.split:                    ; preds = %.critedge92, %47, %43
+.critedge90.thread.sink.split:                    ; preds = %.critedge90, %47, %43
   %.sink = phi i8 [ 120, %43 ], [ 88, %47 ], [ 98, %.critedge92 ]
   %51 = add nuw nsw i64 %.4, 1
   %52 = getelementptr inbounds nuw i8, ptr %4, i64 %.4
   store i8 %.sink, ptr %52, align 1, !tbaa !3
-  br label %.critedge92.thread
+  br label %.critedge90.thread
 
-.critedge92.thread:                               ; preds = %.critedge92.thread.sink.split, %47, %.critedge92
+.critedge90.thread:                               ; preds = %.critedge90.thread.sink.split, %47, %.critedge90
   %.5 = phi i64 [ %.4, %.critedge92 ], [ %.4, %47 ], [ %51, %.critedge92.thread.sink.split ]
   %53 = icmp ult i64 %.5, 32
   br i1 %53, label %54, label %.thread
 
-54:                                               ; preds = %.critedge92.thread
+54:                                               ; preds = %.critedge90.thread
   %55 = add nuw nsw i64 %.5, 1
   %56 = getelementptr inbounds nuw i8, ptr %4, i64 %.5
   store i8 48, ptr %56, align 1, !tbaa !3
@@ -1949,22 +1949,22 @@ define internal fastcc noundef i64 @_ntoa_format(ptr noundef readonly captures(n
 
 60:                                               ; preds = %59
   %61 = and i32 %10, 4
-  %.not85 = icmp eq i32 %61, 0
-  br i1 %.not85, label %62, label %.thread.sink.split
+  %.not83 = icmp eq i32 %61, 0
+  br i1 %.not83, label %62, label %.thread.sink.split
 
 62:                                               ; preds = %60
   %63 = and i32 %10, 8
-  %.not86 = icmp eq i32 %63, 0
-  br i1 %.not86, label %.thread, label %.thread.sink.split
+  %.not84 = icmp eq i32 %63, 0
+  br i1 %.not84, label %.thread, label %.thread.sink.split
 
 .thread.sink.split:                               ; preds = %62, %60, %59
-  %.sink123 = phi i8 [ 45, %59 ], [ 43, %60 ], [ 32, %62 ]
+  %.sink121 = phi i8 [ 45, %59 ], [ 43, %60 ], [ 32, %62 ]
   %64 = add nuw nsw i64 %.3, 1
   %65 = getelementptr inbounds nuw i8, ptr %4, i64 %.3
-  store i8 %.sink123, ptr %65, align 1, !tbaa !3
+  store i8 %.sink121, ptr %65, align 1, !tbaa !3
   br label %.thread
 
-.thread:                                          ; preds = %.thread.sink.split, %.critedge92.thread, %62, %57
+.thread:                                          ; preds = %.thread.sink.split, %.critedge90.thread, %62, %57
   %.6 = phi i64 [ %.3, %62 ], [ %.3, %57 ], [ %.5, %.critedge92.thread ], [ %64, %.thread.sink.split ]
   %66 = and i32 %10, 3
   %or.cond.i = icmp eq i32 %66, 0

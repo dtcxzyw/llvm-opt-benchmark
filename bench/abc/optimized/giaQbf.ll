@@ -6663,10 +6663,10 @@ define void @Gia_ManGenWriteRel(ptr noundef readonly captures(none) %0, i32 noun
   br label %.sink.split
 
 .sink.split:                                      ; preds = %27, %33, %37
-  %.sink76 = phi i32 [ %41, %37 ], [ %35, %33 ], [ %32, %27 ]
+  %.sink73 = phi i32 [ %41, %37 ], [ %35, %33 ], [ %32, %27 ]
   %.val48.val.us.sink.in = phi ptr [ %40, %37 ], [ %34, %33 ], [ %31, %27 ]
   %.val48.val.us.sink = load ptr, ptr %.val48.val.us.sink.in, align 8, !tbaa !152
-  %42 = sext i32 %.sink76 to i64
+  %42 = sext i32 %.sink73 to i64
   %43 = getelementptr inbounds i64, ptr %.val48.val.us.sink, i64 %42
   %44 = getelementptr inbounds nuw i32, ptr %43, i64 %20
   %45 = load i32, ptr %44, align 4, !tbaa !12

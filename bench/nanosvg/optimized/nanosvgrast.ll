@@ -7533,8 +7533,8 @@ define internal fastcc void @nsvg__parseGradientStop(ptr noundef %0, ptr noundef
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 300
   store float 1.000000e+00, ptr %9, align 4, !tbaa !33
   %10 = load ptr, ptr %1, align 8, !tbaa !15
-  %.not55 = icmp eq ptr %10, null
-  br i1 %.not55, label %._crit_edge, label %.lr.ph
+  %.not54 = icmp eq ptr %10, null
+  br i1 %.not54, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %2 ]
@@ -7573,59 +7573,59 @@ define internal fastcc void @nsvg__parseGradientStop(ptr noundef %0, ptr noundef
   %32 = load i32, ptr %22, align 8, !tbaa !211
   %33 = add i32 %32, -1
   %34 = icmp sgt i32 %32, 1
-  %.pre72 = load float, ptr %7, align 4, !tbaa !208
-  br i1 %34, label %.lr.ph59, label %.thread
+  %.pre71 = load float, ptr %7, align 4, !tbaa !208
+  br i1 %34, label %.lr.ph58, label %.thread
 
-.lr.ph59:                                         ; preds = %31
+.lr.ph58:                                         ; preds = %31
   %wide.trip.count = zext nneg i32 %33 to i64
   br label %35
 
-35:                                               ; preds = %.lr.ph59, %40
-  %indvars.iv65 = phi i64 [ 0, %.lr.ph59 ], [ %indvars.iv.next66, %40 ]
-  %36 = getelementptr inbounds nuw %struct.NSVGgradientStop, ptr %29, i64 %indvars.iv65
+35:                                               ; preds = %.lr.ph58, %40
+  %indvars.iv64 = phi i64 [ 0, %.lr.ph59 ], [ %indvars.iv.next65, %40 ]
+  %36 = getelementptr inbounds nuw %struct.NSVGgradientStop, ptr %29, i64 %indvars.iv64
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 4
   %38 = load float, ptr %37, align 4, !tbaa !180
-  %39 = fcmp olt float %.pre72, %38
+  %39 = fcmp olt float %.pre71, %38
   br i1 %39, label %41, label %40
 
 40:                                               ; preds = %35
-  %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next66, %wide.trip.count
+  %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next65, %wide.trip.count
   br i1 %exitcond.not, label %.thread, label %35, !llvm.loop !212
 
 41:                                               ; preds = %35
-  %42 = trunc nuw nsw i64 %indvars.iv65 to i32
+  %42 = trunc nuw nsw i64 %indvars.iv64 to i32
   %43 = icmp sgt i32 %33, %42
-  br i1 %43, label %.lr.ph61.preheader, label %.thread
+  br i1 %43, label %.lr.ph60.preheader, label %.thread
 
-.lr.ph61.preheader:                               ; preds = %41
+.lr.ph60.preheader:                               ; preds = %41
   %44 = zext nneg i32 %32 to i64
   %45 = add nsw i64 %44, -1
-  %sext = shl i64 %indvars.iv65, 32
+  %sext = shl i64 %indvars.iv64, 32
   %46 = ashr exact i64 %sext, 32
-  br label %.lr.ph61
+  br label %.lr.ph60
 
-.lr.ph61:                                         ; preds = %.lr.ph61.preheader, %.lr.ph61
-  %indvars.iv68 = phi i64 [ %45, %.lr.ph61.preheader ], [ %indvars.iv.next69, %.lr.ph61 ]
+.lr.ph60:                                         ; preds = %.lr.ph60.preheader, %.lr.ph60
+  %indvars.iv67 = phi i64 [ %45, %.lr.ph61.preheader ], [ %indvars.iv.next68, %.lr.ph61 ]
   %47 = load ptr, ptr %25, align 8, !tbaa !78
-  %48 = getelementptr inbounds %struct.NSVGgradientStop, ptr %47, i64 %indvars.iv68
+  %48 = getelementptr inbounds %struct.NSVGgradientStop, ptr %47, i64 %indvars.iv67
   %49 = getelementptr i8, ptr %48, i64 -8
   %50 = load i64, ptr %49, align 4
   store i64 %50, ptr %48, align 4
-  %indvars.iv.next69 = add nsw i64 %indvars.iv68, -1
-  %51 = icmp sgt i64 %indvars.iv.next69, %46
-  br i1 %51, label %.lr.ph61, label %.thread.loopexit, !llvm.loop !213
+  %indvars.iv.next68 = add nsw i64 %indvars.iv67, -1
+  %51 = icmp sgt i64 %indvars.iv.next68, %46
+  br i1 %51, label %.lr.ph60, label %.thread.loopexit, !llvm.loop !213
 
-.thread.loopexit:                                 ; preds = %.lr.ph61
+.thread.loopexit:                                 ; preds = %.lr.ph60
   %.pre = load ptr, ptr %25, align 8, !tbaa !78
-  %.pre71 = load float, ptr %7, align 4, !tbaa !208
+  %.pre70 = load float, ptr %7, align 4, !tbaa !208
   br label %.thread
 
 .thread:                                          ; preds = %40, %.thread.loopexit, %31, %41
-  %52 = phi float [ %.pre72, %41 ], [ %.pre72, %31 ], [ %.pre71, %.thread.loopexit ], [ %.pre72, %40 ]
+  %52 = phi float [ %.pre71, %41 ], [ %.pre71, %31 ], [ %.pre70, %.thread.loopexit ], [ %.pre71, %40 ]
   %53 = phi ptr [ %29, %41 ], [ %29, %31 ], [ %.pre, %.thread.loopexit ], [ %29, %40 ]
-  %.052 = phi i32 [ %42, %41 ], [ %33, %31 ], [ %42, %.thread.loopexit ], [ %33, %40 ]
-  %54 = sext i32 %.052 to i64
+  %.051 = phi i32 [ %42, %41 ], [ %33, %31 ], [ %42, %.thread.loopexit ], [ %33, %40 ]
+  %54 = sext i32 %.051 to i64
   %55 = getelementptr inbounds %struct.NSVGgradientStop, ptr %53, i64 %54
   %56 = load i32, ptr %8, align 4, !tbaa !209
   %57 = load float, ptr %9, align 4, !tbaa !33

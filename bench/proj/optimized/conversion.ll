@@ -5241,8 +5241,8 @@ _ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation14Paramete
   %79 = getelementptr inbounds i8, ptr %78, i64 -16
   %80 = getelementptr inbounds i8, ptr %78, i64 -8
   %81 = load ptr, ptr %80, align 8, !tbaa !20
-  %.not.i.i.i21 = icmp eq ptr %81, null
-  br i1 %.not.i.i.i21, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation14ParameterValueEEED2Ev.exit, label %82
+  %.not.i.i.i17 = icmp eq ptr %81, null
+  br i1 %.not.i.i.i17, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation14ParameterValueEEED2Ev.exit, label %82
 
 82:                                               ; preds = %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation14ParameterValueEEEESaIS9_EED2Ev.exit
   %83 = getelementptr inbounds nuw i8, ptr %81, i64 8
@@ -5267,8 +5267,8 @@ _ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation14Paramete
 
 95:                                               ; preds = %82
   %96 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !21
-  %.not.i.i.i.i22 = icmp eq i8 %96, 0
-  br i1 %.not.i.i.i.i22, label %99, label %97
+  %.not.i.i.i.i18 = icmp eq i8 %96, 0
+  br i1 %.not.i.i.i.i18, label %99, label %97
 
 97:                                               ; preds = %95
   %98 = add nsw i32 %86, -1
@@ -20957,7 +20957,7 @@ define void @_ZN5osgeo4proj9operation10Conversion25createGeographic2DOffsetsERKN
 11:                                               ; preds = %4
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 16
   invoke void @_ZN5osgeo4proj9operation25createOpParamNameEPSGCodeEi(ptr dead_on_unwind nonnull writable sret(%"class.dropbox::oxygen::nn.106") align 8 %12, i32 noundef 8602)
-          to label %13 unwind label %.loopexit.loopexit38
+          to label %13 unwind label %.loopexit.loopexit25
 
 13:                                               ; preds = %11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
@@ -21013,17 +21013,17 @@ _ZSt10_ConstructIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18Oper
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   invoke void @_ZN5osgeo4proj6common7MeasureC1ERKS2_(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %2)
-          to label %34 unwind label %.thread32
+          to label %34 unwind label %.thread19
 
-.thread32:                                        ; preds = %31
+.thread19:                                        ; preds = %31
   %33 = landingpad { ptr, i32 }
           cleanup
-  br label %.loopexit34
+  br label %.loopexit21
 
 34:                                               ; preds = %31
   %35 = getelementptr inbounds nuw i8, ptr %9, i64 24
   invoke void @_ZN5osgeo4proj6common7MeasureC1ERKS2_(ptr noundef nonnull align 8 dereferenceable(24) %35, ptr noundef nonnull align 8 dereferenceable(24) %3)
-          to label %36 unwind label %.loopexit34.loopexit37
+          to label %36 unwind label %.loopexit21.loopexit24
 
 36:                                               ; preds = %34
   invoke void @_ZN5osgeo4proj9operation14VectorOfValuesC1ESt16initializer_listINS0_6common7MeasureEE(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr nonnull %9, i64 2)
@@ -21114,7 +21114,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18OperationParameterE
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 
-.loopexit.loopexit38:                             ; preds = %11
+.loopexit.loopexit25:                             ; preds = %11
   %73 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18OperationParameterEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #32
@@ -21125,11 +21125,11 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18OperationParameterE
           cleanup
   br label %87
 
-.loopexit34.loopexit37:                           ; preds = %34
+.loopexit21.loopexit24:                           ; preds = %34
   %76 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5osgeo4proj6common7MeasureD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #32
-  br label %.loopexit34
+  br label %.loopexit21
 
 77:                                               ; preds = %36
   %78 = landingpad { ptr, i32 }
@@ -21152,16 +21152,16 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18OperationParameterE
   %85 = getelementptr inbounds i8, ptr %84, i64 -24
   call void @_ZN5osgeo4proj6common7MeasureD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %85) #32
   %86 = icmp eq ptr %85, %9
-  br i1 %86, label %.loopexit34, label %83
+  br i1 %86, label %.loopexit21, label %83
 
-.loopexit34:                                      ; preds = %83, %.loopexit34.loopexit37, %.thread32
+.loopexit21:                                      ; preds = %83, %.loopexit21.loopexit24, %.thread19
   %.pn.pn = phi { ptr, i32 } [ %33, %.thread32 ], [ %76, %.loopexit34.loopexit37 ], [ %.pn, %83 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @_ZN5osgeo4proj9operation18VectorOfParametersD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #32
   br label %87
 
-87:                                               ; preds = %.loopexit34, %74
+87:                                               ; preds = %.loopexit21, %74
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %.loopexit34 ], [ %75, %74 ]
   br label %88
 
@@ -21172,7 +21172,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18OperationParameterE
   %91 = icmp eq ptr %90, %7
   br i1 %91, label %.loopexit, label %88
 
-.loopexit:                                        ; preds = %88, %.loopexit.loopexit38, %.thread
+.loopexit:                                        ; preds = %88, %.loopexit.loopexit25, %.thread
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %10, %.thread ], [ %73, %.loopexit.loopexit38 ], [ %.pn.pn.pn, %88 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -21264,12 +21264,12 @@ _ZSt10_ConstructIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18Oper
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   invoke void @_ZN5osgeo4proj6common7MeasureC1ERKS2_(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %2)
-          to label %37 unwind label %.thread33
+          to label %37 unwind label %.thread20
 
-.thread33:                                        ; preds = %34
+.thread20:                                        ; preds = %34
   %36 = landingpad { ptr, i32 }
           cleanup
-  br label %.loopexit35
+  br label %.loopexit22
 
 37:                                               ; preds = %34
   %38 = getelementptr inbounds nuw i8, ptr %10, i64 24
@@ -21399,7 +21399,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18OperationParameterE
   %90 = getelementptr inbounds i8, ptr %89, i64 -24
   call void @_ZN5osgeo4proj6common7MeasureD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %90) #32
   %91 = icmp eq ptr %90, %10
-  br i1 %91, label %.loopexit35, label %88
+  br i1 %91, label %.loopexit22, label %88
 
 92:                                               ; preds = %41
   %93 = landingpad { ptr, i32 }
@@ -21422,16 +21422,16 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18OperationParameterE
   %100 = getelementptr inbounds i8, ptr %99, i64 -24
   call void @_ZN5osgeo4proj6common7MeasureD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %100) #32
   %101 = icmp eq ptr %100, %10
-  br i1 %101, label %.loopexit35, label %98
+  br i1 %101, label %.loopexit22, label %98
 
-.loopexit35:                                      ; preds = %88, %98, %.thread33
+.loopexit22:                                      ; preds = %88, %98, %.thread20
   %.pn.pn = phi { ptr, i32 } [ %36, %.thread33 ], [ %.pn, %98 ], [ %87, %88 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @_ZN5osgeo4proj9operation18VectorOfParametersD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #32
   br label %102
 
-102:                                              ; preds = %.loopexit35, %84
+102:                                              ; preds = %.loopexit22, %84
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %.loopexit35 ], [ %85, %84 ]
   br label %103
 
@@ -21534,12 +21534,12 @@ _ZSt10_ConstructIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18Oper
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   invoke void @_ZN5osgeo4proj6common7MeasureC1ERKS2_(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %2)
-          to label %37 unwind label %.thread28
+          to label %37 unwind label %.thread20
 
-.thread28:                                        ; preds = %34
+.thread20:                                        ; preds = %34
   %36 = landingpad { ptr, i32 }
           cleanup
-  br label %.loopexit30
+  br label %.loopexit22
 
 37:                                               ; preds = %34
   %38 = getelementptr inbounds nuw i8, ptr %10, i64 24
@@ -21669,7 +21669,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18OperationParameterE
   %90 = getelementptr inbounds i8, ptr %89, i64 -24
   call void @_ZN5osgeo4proj6common7MeasureD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %90) #32
   %91 = icmp eq ptr %90, %10
-  br i1 %91, label %.loopexit30, label %88
+  br i1 %91, label %.loopexit22, label %88
 
 92:                                               ; preds = %41
   %93 = landingpad { ptr, i32 }
@@ -21692,16 +21692,16 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18OperationParameterE
   %100 = getelementptr inbounds i8, ptr %99, i64 -24
   call void @_ZN5osgeo4proj6common7MeasureD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %100) #32
   %101 = icmp eq ptr %100, %10
-  br i1 %101, label %.loopexit30, label %98
+  br i1 %101, label %.loopexit22, label %98
 
-.loopexit30:                                      ; preds = %88, %98, %.thread28
+.loopexit22:                                      ; preds = %88, %98, %.thread20
   %.pn.pn = phi { ptr, i32 } [ %36, %.thread28 ], [ %.pn, %98 ], [ %87, %88 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @_ZN5osgeo4proj9operation18VectorOfParametersD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #32
   br label %102
 
-102:                                              ; preds = %.loopexit30, %84
+102:                                              ; preds = %.loopexit22, %84
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %.loopexit30 ], [ %85, %84 ]
   br label %103
 

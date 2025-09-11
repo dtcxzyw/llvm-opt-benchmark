@@ -2292,7 +2292,7 @@ define internal fastcc void @GetResidual(i32 noundef %0, i32 noundef %1, ptr nou
   %45 = add i32 %1, -1
   %46 = icmp eq i32 %8, %45
   %47 = add nsw i32 %0, -1
-  %.not44.i = icmp eq i32 %11, 0
+  %.not43.i = icmp eq i32 %11, 0
   %48 = sext i32 %0 to i64
   %49 = getelementptr inbounds i32, ptr %2, i64 %48
   br i1 %44, label %.lr.ph.split.us.preheader, label %.lr.ph.split
@@ -2547,12 +2547,12 @@ define internal fastcc void @GetResidual(i32 noundef %0, i32 noundef %1, ptr nou
 181:                                              ; preds = %165
   %182 = icmp sgt i32 %170, %167
   %or.cond34.i.i = and i1 %178, %182
-  %spec.select75.i = select i1 %or.cond34.i.i, i32 %179, i32 %170
+  %spec.select74.i = select i1 %or.cond34.i.i, i32 %179, i32 %170
   br label %NearLosslessComponent.exit.i
 
 NearLosslessComponent.exit.i:                     ; preds = %181, %180, %164
   %.pre-phi.i = phi i32 [ %.pre.i, %164 ], [ %168, %180 ], [ %168, %181 ]
-  %.039.i = phi i32 [ %.narrow.i.i, %164 ], [ %spec.select.i, %180 ], [ %spec.select75.i, %181 ]
+  %.039.i = phi i32 [ %.narrow.i.i, %164 ], [ %spec.select.i, %180 ], [ %spec.select74.i, %181 ]
   %183 = lshr i32 %143, 8
   %184 = trunc i32 %183 to i8
   %185 = lshr i32 %139, 8
@@ -2576,33 +2576,33 @@ NearLosslessComponent.exit.i:                     ; preds = %181, %180, %164
   br i1 %200, label %203, label %204
 
 203:                                              ; preds = %NearLosslessComponent.exit.i
-  %.not33.i48.i = icmp samesign ugt i32 %192, %191
-  %or.cond.i49.i = select i1 %201, i1 true, i1 %.not33.i48.i
-  %spec.select76.i = select i1 %or.cond.i49.i, i32 %192, i32 %202
-  br label %NearLosslessComponent.exit50.i
+  %.not33.i47.i = icmp samesign ugt i32 %192, %191
+  %or.cond.i48.i = select i1 %201, i1 true, i1 %.not33.i47.i
+  %spec.select75.i = select i1 %or.cond.i48.i, i32 %192, i32 %202
+  br label %NearLosslessComponent.exit49.i
 
 204:                                              ; preds = %NearLosslessComponent.exit.i
   %205 = icmp sgt i32 %193, %191
-  %or.cond34.i45.i = and i1 %201, %205
-  %spec.select77.i = select i1 %or.cond34.i45.i, i32 %202, i32 %193
-  br label %NearLosslessComponent.exit50.i
+  %or.cond34.i44.i = and i1 %201, %205
+  %spec.select76.i = select i1 %or.cond34.i44.i, i32 %202, i32 %193
+  br label %NearLosslessComponent.exit49.i
 
-NearLosslessComponent.exit50.i:                   ; preds = %204, %203
-  %.0.in.i46.i = phi i32 [ %spec.select76.i, %203 ], [ %spec.select77.i, %204 ]
-  %.0.i47.i = trunc i32 %.0.in.i46.i to i8
-  %.narrow.i = add i8 %.0.i47.i, %186
-  %.narrow.i51.i = sub i8 %.narrow.i, %184
+NearLosslessComponent.exit49.i:                   ; preds = %204, %203
+  %.0.in.i45.i = phi i32 [ %spec.select75.i, %203 ], [ %spec.select76.i, %204 ]
+  %.0.i46.i = trunc i32 %.0.in.i45.i to i8
+  %.narrow.i = add i8 %.0.i46.i, %186
+  %.narrow.i50.i = sub i8 %.narrow.i, %184
   %206 = xor i8 %.narrow.i, -1
-  %.040.i = select i1 %.not44.i, i8 0, i8 %.narrow.i51.i
+  %.040.i = select i1 %.not43.i, i8 0, i8 %.narrow.i50.i
   %207 = lshr i32 %143, 16
   %208 = trunc i32 %207 to i8
-  %.narrow.i52.i = sub i8 %208, %.040.i
+  %.narrow.i51.i = sub i8 %208, %.040.i
   %209 = lshr i32 %139, 16
-  %210 = zext i8 %.narrow.i52.i to i32
+  %210 = zext i8 %.narrow.i51.i to i32
   %211 = sub nsw i32 %210, %209
   %212 = and i32 %211, 255
   %213 = zext i8 %206 to i32
-  %214 = select i1 %.not44.i, i32 255, i32 %213
+  %214 = select i1 %.not43.i, i32 255, i32 %213
   %215 = sub nsw i32 %214, %209
   %216 = and i32 %215, 255
   %217 = and i32 %212, %.pre-phi.i
@@ -2619,23 +2619,23 @@ NearLosslessComponent.exit50.i:                   ; preds = %204, %203
   %228 = add nuw i32 %217, %158
   br i1 %226, label %229, label %230
 
-229:                                              ; preds = %NearLosslessComponent.exit50.i
-  %.not33.i56.i = icmp samesign ugt i32 %217, %216
-  %or.cond.i57.i = select i1 %227, i1 true, i1 %.not33.i56.i
-  %spec.select78.i = select i1 %or.cond.i57.i, i32 %217, i32 %228
-  br label %NearLosslessComponent.exit58.i
+229:                                              ; preds = %NearLosslessComponent.exit49.i
+  %.not33.i55.i = icmp samesign ugt i32 %217, %216
+  %or.cond.i56.i = select i1 %227, i1 true, i1 %.not33.i55.i
+  %spec.select77.i = select i1 %or.cond.i56.i, i32 %217, i32 %228
+  br label %NearLosslessComponent.exit57.i
 
-230:                                              ; preds = %NearLosslessComponent.exit50.i
+230:                                              ; preds = %NearLosslessComponent.exit49.i
   %231 = icmp sgt i32 %218, %216
-  %or.cond34.i53.i = and i1 %227, %231
-  %spec.select79.i = select i1 %or.cond34.i53.i, i32 %228, i32 %218
-  br label %NearLosslessComponent.exit58.i
+  %or.cond34.i52.i = and i1 %227, %231
+  %spec.select78.i = select i1 %or.cond34.i52.i, i32 %228, i32 %218
+  br label %NearLosslessComponent.exit57.i
 
-NearLosslessComponent.exit58.i:                   ; preds = %230, %229
-  %.0.in.i54.i = phi i32 [ %spec.select78.i, %229 ], [ %spec.select79.i, %230 ]
+NearLosslessComponent.exit57.i:                   ; preds = %230, %229
+  %.0.in.i53.i = phi i32 [ %spec.select77.i, %229 ], [ %spec.select78.i, %230 ]
   %232 = trunc i32 %143 to i8
-  %.narrow.i59.i = sub i8 %232, %.040.i
-  %233 = zext i8 %.narrow.i59.i to i32
+  %.narrow.i58.i = sub i8 %232, %.040.i
+  %233 = zext i8 %.narrow.i58.i to i32
   %234 = sub i32 %233, %139
   %235 = and i32 %234, 255
   %236 = sub i32 %214, %139
@@ -2654,28 +2654,28 @@ NearLosslessComponent.exit58.i:                   ; preds = %230, %229
   %249 = add nuw i32 %238, %158
   br i1 %247, label %250, label %251
 
-250:                                              ; preds = %NearLosslessComponent.exit58.i
-  %.not33.i63.i = icmp samesign ugt i32 %238, %237
-  %or.cond.i64.i = select i1 %248, i1 true, i1 %.not33.i63.i
-  %spec.select80.i = select i1 %or.cond.i64.i, i32 %238, i32 %249
-  br label %NearLosslessComponent.exit65.i
+250:                                              ; preds = %NearLosslessComponent.exit57.i
+  %.not33.i62.i = icmp samesign ugt i32 %238, %237
+  %or.cond.i63.i = select i1 %248, i1 true, i1 %.not33.i62.i
+  %spec.select79.i = select i1 %or.cond.i63.i, i32 %238, i32 %249
+  br label %NearLosslessComponent.exit64.i
 
-251:                                              ; preds = %NearLosslessComponent.exit58.i
+251:                                              ; preds = %NearLosslessComponent.exit57.i
   %252 = icmp sgt i32 %239, %237
-  %or.cond34.i60.i = and i1 %248, %252
-  %spec.select81.i = select i1 %or.cond34.i60.i, i32 %249, i32 %239
-  br label %NearLosslessComponent.exit65.i
+  %or.cond34.i59.i = and i1 %248, %252
+  %spec.select80.i = select i1 %or.cond34.i59.i, i32 %249, i32 %239
+  br label %NearLosslessComponent.exit64.i
 
-NearLosslessComponent.exit65.i:                   ; preds = %251, %250
-  %.0.in.i61.i = phi i32 [ %spec.select80.i, %250 ], [ %spec.select81.i, %251 ]
+NearLosslessComponent.exit64.i:                   ; preds = %251, %250
+  %.0.in.i60.i = phi i32 [ %spec.select79.i, %250 ], [ %spec.select80.i, %251 ]
   %253 = shl i32 %.039.i, 24
-  %254 = shl i32 %.0.in.i54.i, 16
+  %254 = shl i32 %.0.in.i53.i, 16
   %255 = and i32 %254, 16711680
   %256 = or disjoint i32 %255, %253
-  %257 = shl i32 %.0.in.i46.i, 8
+  %257 = shl i32 %.0.in.i45.i, 8
   %258 = and i32 %257, 65280
   %259 = or disjoint i32 %256, %258
-  %260 = and i32 %.0.in.i61.i, 255
+  %260 = and i32 %.0.in.i60.i, 255
   %261 = or disjoint i32 %260, %259
   %.pre = and i32 %139, -16711936
   %.pre114 = and i32 %139, 16711935
@@ -2697,7 +2697,7 @@ NearLosslessComponent.exit65.i:                   ; preds = %251, %250
   %274 = icmp ult i32 %264, 16777216
   br i1 %274, label %286, label %292
 
-.thread126:                                       ; preds = %NearLosslessComponent.exit65.i, %148
+.thread126:                                       ; preds = %NearLosslessComponent.exit64.i, %148
   %.pre-phi115 = phi i32 [ %153, %148 ], [ %.pre114, %NearLosslessComponent.exit65.i ]
   %.pre-phi = phi i32 [ %150, %148 ], [ %.pre, %NearLosslessComponent.exit65.i ]
   %.0.i75 = phi i32 [ %157, %148 ], [ %261, %NearLosslessComponent.exit65.i ]

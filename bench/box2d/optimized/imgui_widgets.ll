@@ -45046,12 +45046,12 @@ define linkonce_odr dso_local noundef i32 @_ZN5ImGui20ScaleValueFromRatioTIiifEE
   %.pre-phi = phi float [ %.pre, %._crit_edge ], [ %28, %26 ]
   %31 = phi float [ %23, %._crit_edge ], [ %29, %26 ]
   %32 = icmp slt i32 %3, %2
-  %.095 = select i1 %32, float %31, float %22
-  %.093 = select i1 %32, float %22, float %31
+  %.093 = select i1 %32, float %31, float %22
+  %.091 = select i1 %32, float %22, float %31
   %33 = icmp eq i32 %3, 0
   %34 = icmp slt i32 %2, 0
-  %or.cond83 = and i1 %34, %33
-  %.194 = select i1 %or.cond83, float %.pre-phi, float %.093
+  %or.cond81 = and i1 %34, %33
+  %.192 = select i1 %or.cond81, float %.pre-phi, float %.091
   %35 = fsub float 1.000000e+00, %1
   %36 = select i1 %32, float %35, float %1
   %37 = mul nsw i32 %3, %2
@@ -45069,15 +45069,15 @@ define linkonce_odr dso_local noundef i32 @_ZN5ImGui20ScaleValueFromRatioTIiifEE
   %47 = fadd float %6, %45
   %48 = fcmp ult float %36, %46
   %49 = fcmp ugt float %36, %47
-  %or.cond84 = or i1 %48, %49
-  br i1 %or.cond84, label %50, label %103
+  %or.cond82 = or i1 %48, %49
+  br i1 %or.cond82, label %50, label %103
 
 50:                                               ; preds = %39
   %51 = fcmp olt float %36, %45
   br i1 %51, label %52, label %61
 
 52:                                               ; preds = %50
-  %53 = fneg float %.095
+  %53 = fneg float %.093
   %54 = fdiv float %53, %5
   %55 = fdiv float %36, %46
   %56 = fsub float 1.000000e+00, %55
@@ -45088,7 +45088,7 @@ define linkonce_odr dso_local noundef i32 @_ZN5ImGui20ScaleValueFromRatioTIiifEE
   br label %103
 
 61:                                               ; preds = %50
-  %62 = fdiv float %.194, %5
+  %62 = fdiv float %.192, %5
   %63 = fsub float %36, %47
   %64 = fsub float 1.000000e+00, %47
   %65 = fdiv float %63, %64
@@ -45099,21 +45099,21 @@ define linkonce_odr dso_local noundef i32 @_ZN5ImGui20ScaleValueFromRatioTIiifEE
 
 69:                                               ; preds = %30
   %70 = or i32 %3, %2
-  %or.cond85.not = icmp sgt i32 %70, -1
-  br i1 %or.cond85.not, label %77, label %71
+  %or.cond83.not = icmp sgt i32 %70, -1
+  br i1 %or.cond83.not, label %77, label %71
 
 71:                                               ; preds = %69
-  %72 = fdiv float %.095, %.194
+  %72 = fdiv float %.093, %.192
   %73 = fsub float 1.000000e+00, %36
   %74 = tail call noundef float @powf(float noundef %72, float noundef %73) #43, !tbaa !176
-  %75 = fmul float %.194, %74
+  %75 = fmul float %.192, %74
   %76 = fptosi float %75 to i32
   br label %103
 
 77:                                               ; preds = %69
-  %78 = fdiv float %.194, %.095
+  %78 = fdiv float %.192, %.093
   %79 = tail call noundef float @powf(float noundef %78, float noundef %36) #43, !tbaa !176
-  %80 = fmul float %.095, %79
+  %80 = fmul float %.093, %79
   %81 = fptosi float %80 to i32
   br label %103
 
@@ -45615,13 +45615,13 @@ define linkonce_odr dso_local noundef i64 @_ZN5ImGui20ScaleValueFromRatioTIxxdEE
   %.pre-phi = phi float [ %.pre, %._crit_edge ], [ %30, %28 ]
   %34 = phi double [ %25, %._crit_edge ], [ %32, %28 ]
   %35 = icmp slt i64 %3, %2
-  %.093 = select i1 %35, double %34, double %24
-  %.091 = select i1 %35, double %24, double %34
+  %.091 = select i1 %35, double %34, double %24
+  %.089 = select i1 %35, double %24, double %34
   %36 = icmp eq i64 %3, 0
   %37 = icmp slt i64 %2, 0
-  %or.cond81 = and i1 %37, %36
+  %or.cond79 = and i1 %37, %36
   %38 = fpext float %.pre-phi to double
-  %.192 = select i1 %or.cond81, double %38, double %.091
+  %.190 = select i1 %or.cond79, double %38, double %.089
   %39 = fsub float 1.000000e+00, %1
   %40 = select i1 %35, float %39, float %1
   %41 = mul nsw i64 %3, %2
@@ -45641,15 +45641,15 @@ define linkonce_odr dso_local noundef i64 @_ZN5ImGui20ScaleValueFromRatioTIxxdEE
   %53 = fadd float %6, %51
   %54 = fcmp ult float %40, %52
   %55 = fcmp ugt float %40, %53
-  %or.cond82 = or i1 %54, %55
-  br i1 %or.cond82, label %56, label %114
+  %or.cond80 = or i1 %54, %55
+  br i1 %or.cond80, label %56, label %114
 
 56:                                               ; preds = %43
   %57 = fcmp olt float %40, %51
   br i1 %57, label %58, label %68
 
 58:                                               ; preds = %56
-  %59 = fneg double %.093
+  %59 = fneg double %.091
   %60 = fdiv double %59, %16
   %61 = fdiv float %40, %52
   %62 = fsub float 1.000000e+00, %61
@@ -45661,7 +45661,7 @@ define linkonce_odr dso_local noundef i64 @_ZN5ImGui20ScaleValueFromRatioTIxxdEE
   br label %114
 
 68:                                               ; preds = %56
-  %69 = fdiv double %.192, %16
+  %69 = fdiv double %.190, %16
   %70 = fsub float %40, %53
   %71 = fsub float 1.000000e+00, %53
   %72 = fdiv float %70, %71
@@ -45673,23 +45673,23 @@ define linkonce_odr dso_local noundef i64 @_ZN5ImGui20ScaleValueFromRatioTIxxdEE
 
 77:                                               ; preds = %33
   %78 = or i64 %3, %2
-  %or.cond83.not = icmp sgt i64 %78, -1
-  br i1 %or.cond83.not, label %86, label %79
+  %or.cond81.not = icmp sgt i64 %78, -1
+  br i1 %or.cond81.not, label %86, label %79
 
 79:                                               ; preds = %77
-  %80 = fdiv double %.093, %.192
+  %80 = fdiv double %.091, %.190
   %81 = fsub float 1.000000e+00, %40
   %82 = fpext float %81 to double
   %83 = tail call noundef double @pow(double noundef %80, double noundef %82) #43, !tbaa !176
-  %84 = fmul double %.192, %83
+  %84 = fmul double %.190, %83
   %85 = fptosi double %84 to i64
   br label %114
 
 86:                                               ; preds = %77
-  %87 = fdiv double %.192, %.093
+  %87 = fdiv double %.190, %.091
   %88 = fpext float %40 to double
   %89 = tail call noundef double @pow(double noundef %87, double noundef %88) #43, !tbaa !176
-  %90 = fmul double %.093, %89
+  %90 = fmul double %.091, %89
   %91 = fptosi double %90 to i64
   br label %114
 
@@ -46577,8 +46577,8 @@ define linkonce_odr dso_local noundef float @_ZN5ImGui20ScaleRatioFromValueTIddd
 define linkonce_odr dso_local noundef double @_ZN5ImGui20ScaleValueFromRatioTIdddEET_ifS1_S1_bff(i32 noundef %0, float noundef %1, double noundef %2, double noundef %3, i1 noundef zeroext %4, float noundef %5, float noundef %6) local_unnamed_addr #4 comdat {
   %8 = fcmp ole float %1, 0.000000e+00
   %9 = fcmp oeq double %2, %3
-  %or.cond85 = or i1 %8, %9
-  br i1 %or.cond85, label %105, label %10
+  %or.cond83 = or i1 %8, %9
+  br i1 %or.cond83, label %105, label %10
 
 10:                                               ; preds = %7
   %11 = fcmp ult float %1, 1.000000e+00
@@ -46621,13 +46621,13 @@ define linkonce_odr dso_local noundef double @_ZN5ImGui20ScaleValueFromRatioTIdd
   %.pre-phi = phi float [ %.pre, %._crit_edge ], [ %28, %26 ]
   %32 = phi double [ %3, %._crit_edge ], [ %30, %26 ]
   %33 = fcmp olt double %3, %2
-  %.096 = select i1 %33, double %32, double %23
-  %.094 = select i1 %33, double %23, double %32
+  %.094 = select i1 %33, double %32, double %23
+  %.092 = select i1 %33, double %23, double %32
   %34 = fcmp oeq double %3, 0.000000e+00
   %35 = fcmp olt double %2, 0.000000e+00
   %or.cond = and i1 %35, %34
   %36 = fpext float %.pre-phi to double
-  %.195 = select i1 %or.cond, double %36, double %.094
+  %.193 = select i1 %or.cond, double %36, double %.092
   %37 = fsub float 1.000000e+00, %1
   %38 = select i1 %33, float %37, float %1
   %39 = fmul double %2, %3
@@ -46648,15 +46648,15 @@ define linkonce_odr dso_local noundef double @_ZN5ImGui20ScaleValueFromRatioTIdd
   %52 = fadd float %6, %50
   %53 = fcmp ult float %38, %51
   %54 = fcmp ugt float %38, %52
-  %or.cond86 = or i1 %53, %54
-  br i1 %or.cond86, label %55, label %105
+  %or.cond84 = or i1 %53, %54
+  br i1 %or.cond84, label %55, label %105
 
 55:                                               ; preds = %41
   %56 = fcmp olt float %38, %50
   br i1 %56, label %57, label %66
 
 57:                                               ; preds = %55
-  %58 = fneg double %.096
+  %58 = fneg double %.094
   %59 = fdiv double %58, %15
   %60 = fdiv float %38, %51
   %61 = fsub float 1.000000e+00, %60
@@ -46667,7 +46667,7 @@ define linkonce_odr dso_local noundef double @_ZN5ImGui20ScaleValueFromRatioTIdd
   br label %105
 
 66:                                               ; preds = %55
-  %67 = fdiv double %.195, %15
+  %67 = fdiv double %.193, %15
   %68 = fsub float %38, %52
   %69 = fsub float 1.000000e+00, %52
   %70 = fdiv float %68, %69
@@ -46682,18 +46682,18 @@ define linkonce_odr dso_local noundef double @_ZN5ImGui20ScaleValueFromRatioTIdd
   br i1 %or.cond3, label %76, label %82
 
 76:                                               ; preds = %74
-  %77 = fdiv double %.096, %.195
+  %77 = fdiv double %.094, %.193
   %78 = fsub float 1.000000e+00, %38
   %79 = fpext float %78 to double
   %80 = tail call noundef double @pow(double noundef %77, double noundef %79) #43, !tbaa !176
-  %81 = fmul double %.195, %80
+  %81 = fmul double %.193, %80
   br label %105
 
 82:                                               ; preds = %74
-  %83 = fdiv double %.195, %.096
+  %83 = fdiv double %.193, %.094
   %84 = fpext float %38 to double
   %85 = tail call noundef double @pow(double noundef %83, double noundef %84) #43, !tbaa !176
-  %86 = fmul double %.096, %85
+  %86 = fmul double %.094, %85
   br label %105
 
 87:                                               ; preds = %12

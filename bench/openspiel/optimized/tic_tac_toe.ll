@@ -686,8 +686,8 @@ _ZN10open_spiel11tic_tac_toe13PlayerToStateEi.exit: ; preds = %2, %6
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %25 = load i32, ptr %24, align 4
   %26 = icmp eq i32 %25, %.0.i
-  %or.cond58 = select i1 %or.cond, i1 %26, i1 false
-  br i1 %or.cond58, label %49, label %27
+  %or.cond52 = select i1 %or.cond, i1 %26, i1 false
+  br i1 %or.cond52, label %49, label %27
 
 27:                                               ; preds = %_ZN10open_spiel11tic_tac_toe13PlayerToStateEi.exit
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -696,12 +696,12 @@ _ZN10open_spiel11tic_tac_toe13PlayerToStateEi.exit: ; preds = %2, %6
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %32 = load i32, ptr %31, align 4
   %33 = icmp eq i32 %32, %.0.i
-  %or.cond61 = select i1 %30, i1 %33, i1 false
+  %or.cond55 = select i1 %30, i1 %33, i1 false
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %35 = load i32, ptr %34, align 4
   %36 = icmp eq i32 %35, %.0.i
-  %or.cond64 = select i1 %or.cond61, i1 %36, i1 false
-  br i1 %or.cond64, label %49, label %37
+  %or.cond58 = select i1 %or.cond55, i1 %36, i1 false
+  br i1 %or.cond58, label %49, label %37
 
 37:                                               ; preds = %27
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -710,32 +710,32 @@ _ZN10open_spiel11tic_tac_toe13PlayerToStateEi.exit: ; preds = %2, %6
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %42 = load i32, ptr %41, align 4
   %43 = icmp eq i32 %42, %.0.i
-  %or.cond67 = select i1 %40, i1 %43, i1 false
+  %or.cond61 = select i1 %40, i1 %43, i1 false
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %45 = load i32, ptr %44, align 4
   %46 = icmp eq i32 %45, %.0.i
-  %or.cond70 = select i1 %or.cond67, i1 %46, i1 false
+  %or.cond64 = select i1 %or.cond61, i1 %46, i1 false
   %brmerge.demorgan = and i1 %20, %30
-  %brmerge73.demorgan = and i1 %brmerge.demorgan, %40
-  %or.cond94 = or i1 %brmerge73.demorgan, %or.cond70
-  %or.cond76 = select i1 %23, i1 %33, i1 false
-  %or.cond79 = select i1 %or.cond76, i1 %43, i1 false
-  %or.cond95 = select i1 %or.cond94, i1 true, i1 %or.cond79
-  %or.cond82 = select i1 %26, i1 %36, i1 false
-  %or.cond85 = select i1 %or.cond82, i1 %46, i1 false
-  %or.cond96 = select i1 %or.cond95, i1 true, i1 %or.cond85
-  br i1 %or.cond96, label %49, label %47
+  %brmerge67.demorgan = and i1 %brmerge.demorgan, %40
+  %or.cond88 = or i1 %brmerge67.demorgan, %or.cond64
+  %or.cond70 = select i1 %23, i1 %33, i1 false
+  %or.cond73 = select i1 %or.cond70, i1 %43, i1 false
+  %or.cond89 = select i1 %or.cond88, i1 true, i1 %or.cond73
+  %or.cond76 = select i1 %26, i1 %36, i1 false
+  %or.cond79 = select i1 %or.cond76, i1 %46, i1 false
+  %or.cond90 = select i1 %or.cond89, i1 true, i1 %or.cond79
+  br i1 %or.cond90, label %49, label %47
 
 47:                                               ; preds = %37
-  %or.cond88 = select i1 %20, i1 %33, i1 false
-  %or.cond91 = select i1 %or.cond88, i1 %46, i1 false
+  %or.cond82 = select i1 %20, i1 %33, i1 false
+  %or.cond85 = select i1 %or.cond82, i1 %46, i1 false
   %spec.select = and i1 %40, %33
   %48 = select i1 %26, i1 %spec.select, i1 false
-  %spec.select97 = select i1 %or.cond91, i1 true, i1 %48
+  %spec.select91 = select i1 %or.cond85, i1 true, i1 %48
   br label %49
 
 49:                                               ; preds = %47, %37, %27, %_ZN10open_spiel11tic_tac_toe13PlayerToStateEi.exit
-  %50 = phi i1 [ true, %_ZN10open_spiel11tic_tac_toe13PlayerToStateEi.exit ], [ true, %27 ], [ true, %37 ], [ %spec.select97, %47 ]
+  %50 = phi i1 [ true, %_ZN10open_spiel11tic_tac_toe13PlayerToStateEi.exit ], [ true, %27 ], [ true, %37 ], [ %spec.select91, %47 ]
   ret i1 %50
 }
 
@@ -1377,8 +1377,8 @@ define void @_ZNK10open_spiel11tic_tac_toe14TicTacToeState7ReturnsEv(ptr dead_on
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %10, 2
-  %or.cond58.i = select i1 %or.cond.i, i1 %11, i1 false
-  br i1 %or.cond58.i, label %_ZN10open_spiel11tic_tac_toe12BoardHasLineERKSt5arrayINS0_9CellStateELm9EEi.exit.thread, label %12
+  %or.cond52.i = select i1 %or.cond.i, i1 %11, i1 false
+  br i1 %or.cond52.i, label %_ZN10open_spiel11tic_tac_toe12BoardHasLineERKSt5arrayINS0_9CellStateELm9EEi.exit.thread, label %12
 
 12:                                               ; preds = %2
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 72
@@ -1387,12 +1387,12 @@ define void @_ZNK10open_spiel11tic_tac_toe14TicTacToeState7ReturnsEv(ptr dead_on
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 76
   %17 = load i32, ptr %16, align 4
   %18 = icmp eq i32 %17, 2
-  %or.cond61.i = select i1 %15, i1 %18, i1 false
+  %or.cond55.i = select i1 %15, i1 %18, i1 false
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %20 = load i32, ptr %19, align 8
   %21 = icmp eq i32 %20, 2
-  %or.cond64.i = select i1 %or.cond61.i, i1 %21, i1 false
-  br i1 %or.cond64.i, label %_ZN10open_spiel11tic_tac_toe12BoardHasLineERKSt5arrayINS0_9CellStateELm9EEi.exit.thread, label %22
+  %or.cond58.i = select i1 %or.cond55.i, i1 %21, i1 false
+  br i1 %or.cond58.i, label %_ZN10open_spiel11tic_tac_toe12BoardHasLineERKSt5arrayINS0_9CellStateELm9EEi.exit.thread, label %22
 
 22:                                               ; preds = %12
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 84
@@ -1401,29 +1401,29 @@ define void @_ZNK10open_spiel11tic_tac_toe14TicTacToeState7ReturnsEv(ptr dead_on
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %27 = load i32, ptr %26, align 8
   %28 = icmp eq i32 %27, 2
-  %or.cond67.i = select i1 %25, i1 %28, i1 false
+  %or.cond61.i = select i1 %25, i1 %28, i1 false
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 92
   %30 = load i32, ptr %29, align 4
   %31 = icmp eq i32 %30, 2
-  %or.cond70.i = select i1 %or.cond67.i, i1 %31, i1 false
+  %or.cond64.i = select i1 %or.cond61.i, i1 %31, i1 false
   %brmerge.demorgan.i = and i1 %5, %15
-  %brmerge73.demorgan.i = and i1 %brmerge.demorgan.i, %25
-  %or.cond94.i = or i1 %brmerge73.demorgan.i, %or.cond70.i
-  %or.cond76.i = select i1 %8, i1 %18, i1 false
-  %or.cond79.i = select i1 %or.cond76.i, i1 %28, i1 false
-  %or.cond95.i = select i1 %or.cond94.i, i1 true, i1 %or.cond79.i
-  %or.cond82.i = select i1 %11, i1 %21, i1 false
-  %or.cond85.i = select i1 %or.cond82.i, i1 %31, i1 false
-  %or.cond96.i = select i1 %or.cond95.i, i1 true, i1 %or.cond85.i
-  br i1 %or.cond96.i, label %_ZN10open_spiel11tic_tac_toe12BoardHasLineERKSt5arrayINS0_9CellStateELm9EEi.exit.thread, label %_ZN10open_spiel11tic_tac_toe12BoardHasLineERKSt5arrayINS0_9CellStateELm9EEi.exit
+  %brmerge67.demorgan.i = and i1 %brmerge.demorgan.i, %25
+  %or.cond88.i = or i1 %brmerge67.demorgan.i, %or.cond64.i
+  %or.cond70.i = select i1 %8, i1 %18, i1 false
+  %or.cond73.i = select i1 %or.cond70.i, i1 %28, i1 false
+  %or.cond89.i = select i1 %or.cond88.i, i1 true, i1 %or.cond73.i
+  %or.cond76.i = select i1 %11, i1 %21, i1 false
+  %or.cond79.i = select i1 %or.cond76.i, i1 %31, i1 false
+  %or.cond90.i = select i1 %or.cond89.i, i1 true, i1 %or.cond79.i
+  br i1 %or.cond90.i, label %_ZN10open_spiel11tic_tac_toe12BoardHasLineERKSt5arrayINS0_9CellStateELm9EEi.exit.thread, label %_ZN10open_spiel11tic_tac_toe12BoardHasLineERKSt5arrayINS0_9CellStateELm9EEi.exit
 
 _ZN10open_spiel11tic_tac_toe12BoardHasLineERKSt5arrayINS0_9CellStateELm9EEi.exit: ; preds = %22
-  %or.cond88.i = select i1 %5, i1 %18, i1 false
-  %or.cond91.i = select i1 %or.cond88.i, i1 %31, i1 false
+  %or.cond82.i = select i1 %5, i1 %18, i1 false
+  %or.cond85.i = select i1 %or.cond82.i, i1 %31, i1 false
   %spec.select.i = and i1 %18, %25
   %32 = select i1 %11, i1 %spec.select.i, i1 false
-  %spec.select97.i = select i1 %or.cond91.i, i1 true, i1 %32
-  br i1 %spec.select97.i, label %_ZN10open_spiel11tic_tac_toe12BoardHasLineERKSt5arrayINS0_9CellStateELm9EEi.exit.thread, label %37
+  %spec.select91.i = select i1 %or.cond85.i, i1 true, i1 %32
+  br i1 %spec.select91.i, label %_ZN10open_spiel11tic_tac_toe12BoardHasLineERKSt5arrayINS0_9CellStateELm9EEi.exit.thread, label %37
 
 _ZN10open_spiel11tic_tac_toe12BoardHasLineERKSt5arrayINS0_9CellStateELm9EEi.exit.thread: ; preds = %22, %12, %2, %_ZN10open_spiel11tic_tac_toe12BoardHasLineERKSt5arrayINS0_9CellStateELm9EEi.exit
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
@@ -1444,41 +1444,41 @@ _ZN10open_spiel11tic_tac_toe12BoardHasLineERKSt5arrayINS0_9CellStateELm9EEi.exit
   %39 = icmp eq i32 %7, 1
   %or.cond.i18 = select i1 %38, i1 %39, i1 false
   %40 = icmp eq i32 %10, 1
-  %or.cond58.i19 = select i1 %or.cond.i18, i1 %40, i1 false
-  br i1 %or.cond58.i19, label %_ZN10open_spiel11tic_tac_toe12BoardHasLineERKSt5arrayINS0_9CellStateELm9EEi.exit37.thread, label %41
+  %or.cond52.i19 = select i1 %or.cond.i18, i1 %40, i1 false
+  br i1 %or.cond52.i19, label %_ZN10open_spiel11tic_tac_toe12BoardHasLineERKSt5arrayINS0_9CellStateELm9EEi.exit37.thread, label %41
 
 41:                                               ; preds = %37
   %42 = icmp eq i32 %14, 1
   %43 = icmp eq i32 %17, 1
-  %or.cond61.i20 = select i1 %42, i1 %43, i1 false
+  %or.cond55.i20 = select i1 %42, i1 %43, i1 false
   %44 = icmp eq i32 %20, 1
-  %or.cond64.i21 = select i1 %or.cond61.i20, i1 %44, i1 false
-  br i1 %or.cond64.i21, label %_ZN10open_spiel11tic_tac_toe12BoardHasLineERKSt5arrayINS0_9CellStateELm9EEi.exit37.thread, label %45
+  %or.cond58.i21 = select i1 %or.cond55.i20, i1 %44, i1 false
+  br i1 %or.cond58.i21, label %_ZN10open_spiel11tic_tac_toe12BoardHasLineERKSt5arrayINS0_9CellStateELm9EEi.exit37.thread, label %45
 
 45:                                               ; preds = %41
   %46 = icmp eq i32 %24, 1
   %47 = icmp eq i32 %27, 1
-  %or.cond67.i22 = select i1 %46, i1 %47, i1 false
+  %or.cond61.i22 = select i1 %46, i1 %47, i1 false
   %48 = icmp eq i32 %30, 1
-  %or.cond70.i23 = select i1 %or.cond67.i22, i1 %48, i1 false
+  %or.cond64.i23 = select i1 %or.cond61.i22, i1 %48, i1 false
   %brmerge.demorgan.i24 = and i1 %38, %42
-  %brmerge73.demorgan.i25 = and i1 %brmerge.demorgan.i24, %46
-  %or.cond94.i26 = or i1 %brmerge73.demorgan.i25, %or.cond70.i23
-  %or.cond76.i27 = select i1 %39, i1 %43, i1 false
-  %or.cond79.i28 = select i1 %or.cond76.i27, i1 %47, i1 false
-  %or.cond95.i29 = select i1 %or.cond94.i26, i1 true, i1 %or.cond79.i28
-  %or.cond82.i30 = select i1 %40, i1 %44, i1 false
-  %or.cond85.i31 = select i1 %or.cond82.i30, i1 %48, i1 false
-  %or.cond96.i32 = select i1 %or.cond95.i29, i1 true, i1 %or.cond85.i31
-  br i1 %or.cond96.i32, label %_ZN10open_spiel11tic_tac_toe12BoardHasLineERKSt5arrayINS0_9CellStateELm9EEi.exit37.thread, label %_ZN10open_spiel11tic_tac_toe12BoardHasLineERKSt5arrayINS0_9CellStateELm9EEi.exit37
+  %brmerge67.demorgan.i25 = and i1 %brmerge.demorgan.i24, %46
+  %or.cond88.i26 = or i1 %brmerge67.demorgan.i25, %or.cond64.i23
+  %or.cond70.i27 = select i1 %39, i1 %43, i1 false
+  %or.cond73.i28 = select i1 %or.cond70.i27, i1 %47, i1 false
+  %or.cond89.i29 = select i1 %or.cond88.i26, i1 true, i1 %or.cond73.i28
+  %or.cond76.i30 = select i1 %40, i1 %44, i1 false
+  %or.cond79.i31 = select i1 %or.cond76.i30, i1 %48, i1 false
+  %or.cond90.i32 = select i1 %or.cond89.i29, i1 true, i1 %or.cond79.i31
+  br i1 %or.cond90.i32, label %_ZN10open_spiel11tic_tac_toe12BoardHasLineERKSt5arrayINS0_9CellStateELm9EEi.exit37.thread, label %_ZN10open_spiel11tic_tac_toe12BoardHasLineERKSt5arrayINS0_9CellStateELm9EEi.exit37
 
 _ZN10open_spiel11tic_tac_toe12BoardHasLineERKSt5arrayINS0_9CellStateELm9EEi.exit37: ; preds = %45
-  %or.cond88.i33 = select i1 %38, i1 %43, i1 false
-  %or.cond91.i34 = select i1 %or.cond88.i33, i1 %48, i1 false
+  %or.cond82.i33 = select i1 %38, i1 %43, i1 false
+  %or.cond85.i34 = select i1 %or.cond82.i33, i1 %48, i1 false
   %spec.select.i35 = and i1 %43, %46
   %49 = select i1 %40, i1 %spec.select.i35, i1 false
-  %spec.select97.i36 = select i1 %or.cond91.i34, i1 true, i1 %49
-  br i1 %spec.select97.i36, label %_ZN10open_spiel11tic_tac_toe12BoardHasLineERKSt5arrayINS0_9CellStateELm9EEi.exit37.thread, label %54
+  %spec.select91.i36 = select i1 %or.cond85.i34, i1 true, i1 %49
+  br i1 %spec.select91.i36, label %_ZN10open_spiel11tic_tac_toe12BoardHasLineERKSt5arrayINS0_9CellStateELm9EEi.exit37.thread, label %54
 
 _ZN10open_spiel11tic_tac_toe12BoardHasLineERKSt5arrayINS0_9CellStateELm9EEi.exit37.thread: ; preds = %45, %41, %37, %_ZN10open_spiel11tic_tac_toe12BoardHasLineERKSt5arrayINS0_9CellStateELm9EEi.exit37
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)

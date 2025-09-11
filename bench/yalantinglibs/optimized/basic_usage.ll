@@ -215,9 +215,9 @@ if.else.i.i:                                      ; preds = %.noexc547
   %cmp3.i.i = icmp ult i64 %0, 65536
   %cmp12.i.i = icmp ult i64 %0, 4294967296
   %. = select i1 %cmp12.i.i, i64 8, i64 12
-  %.1329 = select i1 %cmp12.i.i, i8 16, i8 24
+  %.1325 = select i1 %cmp12.i.i, i8 16, i8 24
   %.sink = select i1 %cmp3.i.i, i64 6, i64 %.
-  %retval.i.i.sroa.10.1 = select i1 %cmp3.i.i, i8 8, i8 %.1329
+  %retval.i.i.sroa.10.1 = select i1 %cmp3.i.i, i8 8, i8 %.1325
   %add17.i.i = add i64 %0, %.sink
   %add31.i.i = add i64 %add17.i.i, 1
   br label %_ZN11struct_pack6detail26get_serialize_runtime_infoILm0EJ6personEEENS_21serialize_buffer_sizeEDpRKT0_.exit.i
@@ -343,11 +343,11 @@ if.then.i468:                                     ; preds = %.noexc472
 if.else.i440:                                     ; preds = %.noexc472
   %cmp3.i442 = icmp ult i64 %11, 65536
   %cmp12.i445 = icmp ult i64 %11, 4294967296
-  %.1330 = select i1 %cmp12.i445, i64 8, i64 12
-  %.1331 = select i1 %cmp12.i445, i8 16, i8 24
-  %.sink1308 = select i1 %cmp3.i442, i64 6, i64 %.1330
-  %retval.i430.sroa.10.1 = select i1 %cmp3.i442, i8 8, i8 %.1331
-  %add17.i459 = add i64 %11, %.sink1308
+  %.1326 = select i1 %cmp12.i445, i64 8, i64 12
+  %.1327 = select i1 %cmp12.i445, i8 16, i8 24
+  %.sink1304 = select i1 %cmp3.i442, i64 6, i64 %.1326
+  %retval.i430.sroa.10.1 = select i1 %cmp3.i442, i8 8, i8 %.1327
+  %add17.i459 = add i64 %11, %.sink1304
   %add31.i454 = add i64 %add17.i459, 1
   br label %_ZN11struct_pack6detail26get_serialize_runtime_infoILm0EJ6personEEENS_21serialize_buffer_sizeEDpRKT0_.exit473
 
@@ -560,11 +560,11 @@ if.then.i424:                                     ; preds = %.noexc428
 if.else.i396:                                     ; preds = %.noexc428
   %cmp3.i398 = icmp ult i64 %29, 65536
   %cmp12.i401 = icmp ult i64 %29, 4294967296
-  %.1332 = select i1 %cmp12.i401, i64 8, i64 12
-  %.1333 = select i1 %cmp12.i401, i8 16, i8 24
-  %.sink1312 = select i1 %cmp3.i398, i64 6, i64 %.1332
-  %retval.i386.sroa.10.1 = select i1 %cmp3.i398, i8 8, i8 %.1333
-  %add17.i415 = add i64 %29, %.sink1312
+  %.1328 = select i1 %cmp12.i401, i64 8, i64 12
+  %.1329 = select i1 %cmp12.i401, i8 16, i8 24
+  %.sink1308 = select i1 %cmp3.i398, i64 6, i64 %.1328
+  %retval.i386.sroa.10.1 = select i1 %cmp3.i398, i8 8, i8 %.1329
+  %add17.i415 = add i64 %29, %.sink1308
   %add31.i410 = add i64 %add17.i415, 1
   br label %_ZN11struct_pack6detail26get_serialize_runtime_infoILm0EJ6personEEENS_21serialize_buffer_sizeEDpRKT0_.exit429
 
@@ -776,11 +776,11 @@ if.then.i.i717:                                   ; preds = %.noexc721
 if.else.i.i684:                                   ; preds = %.noexc721
   %cmp3.i.i686 = icmp ult i64 %47, 65536
   %cmp12.i.i689 = icmp ult i64 %47, 4294967296
-  %.1334 = select i1 %cmp12.i.i689, i64 8, i64 12
-  %.1335 = select i1 %cmp12.i.i689, i8 16, i8 24
-  %.sink1316 = select i1 %cmp3.i.i686, i64 6, i64 %.1334
-  %retval.i.i669.sroa.10.1 = select i1 %cmp3.i.i686, i8 8, i8 %.1335
-  %add17.i.i708 = add i64 %47, %.sink1316
+  %.1330 = select i1 %cmp12.i.i689, i64 8, i64 12
+  %.1331 = select i1 %cmp12.i.i689, i8 16, i8 24
+  %.sink1312 = select i1 %cmp3.i.i686, i64 6, i64 %.1330
+  %retval.i.i669.sroa.10.1 = select i1 %cmp3.i.i686, i8 8, i8 %.1331
+  %add17.i.i708 = add i64 %47, %.sink1312
   %add31.i.i698 = add i64 %add17.i.i708, 1
   br label %_ZN11struct_pack6detail26get_serialize_runtime_infoILm0EJ6personEEENS_21serialize_buffer_sizeEDpRKT0_.exit.i699
 
@@ -896,11 +896,11 @@ if.then.i.i601:                                   ; preds = %.noexc605
 if.else.i.i568:                                   ; preds = %.noexc605
   %cmp3.i.i570 = icmp ult i64 %55, 65536
   %cmp12.i.i573 = icmp ult i64 %55, 4294967296
-  %.1336 = select i1 %cmp12.i.i573, i64 8, i64 12
-  %.1337 = select i1 %cmp12.i.i573, i8 16, i8 24
-  %.sink1318 = select i1 %cmp3.i.i570, i64 6, i64 %.1336
-  %retval.i.i551.sroa.10.1 = select i1 %cmp3.i.i570, i8 8, i8 %.1337
-  %add17.i.i592 = add i64 %55, %.sink1318
+  %.1332 = select i1 %cmp12.i.i573, i64 8, i64 12
+  %.1333 = select i1 %cmp12.i.i573, i8 16, i8 24
+  %.sink1314 = select i1 %cmp3.i.i570, i64 6, i64 %.1332
+  %retval.i.i551.sroa.10.1 = select i1 %cmp3.i.i570, i8 8, i8 %.1333
+  %add17.i.i592 = add i64 %55, %.sink1314
   %add31.i.i582 = add i64 %add17.i.i592, 1
   br label %_ZN11struct_pack6detail26get_serialize_runtime_infoILm0EJ6personEEENS_21serialize_buffer_sizeEDpRKT0_.exit.i583
 
@@ -1036,11 +1036,11 @@ if.then.i890:                                     ; preds = %.noexc894
 if.else.i862:                                     ; preds = %.noexc894
   %cmp5.i864 = icmp ult i64 %64, 65536
   %cmp14.i867 = icmp ult i64 %64, 4294967296
-  %.1338 = select i1 %cmp14.i867, i64 8, i64 12
-  %.1339 = select i1 %cmp14.i867, i8 16, i8 24
-  %.sink1320 = select i1 %cmp5.i864, i64 6, i64 %.1338
-  %retval.i851.sroa.10.1 = select i1 %cmp5.i864, i8 8, i8 %.1339
-  %add19.i881 = add i64 %64, %.sink1320
+  %.1334 = select i1 %cmp14.i867, i64 8, i64 12
+  %.1335 = select i1 %cmp14.i867, i8 16, i8 24
+  %.sink1316 = select i1 %cmp5.i864, i64 6, i64 %.1334
+  %retval.i851.sroa.10.1 = select i1 %cmp5.i864, i8 8, i8 %.1335
+  %add19.i881 = add i64 %64, %.sink1316
   %add33.i876 = add i64 %add19.i881, 1
   br label %_ZN11struct_pack6detail26get_serialize_runtime_infoILm0EJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEENS_21serialize_buffer_sizeEDpRKT0_.exit895
 
@@ -1173,11 +1173,11 @@ if.then.i339:                                     ; preds = %.noexc341
 if.else.i:                                        ; preds = %.noexc341
   %cmp3.i = icmp ult i64 %75, 65536
   %cmp12.i = icmp ult i64 %75, 4294967296
-  %.1340 = select i1 %cmp12.i, i64 8, i64 12
-  %.1341 = select i1 %cmp12.i, i8 16, i8 24
-  %.sink1322 = select i1 %cmp3.i, i64 6, i64 %.1340
-  %retval.i336.sroa.10.1 = select i1 %cmp3.i, i8 8, i8 %.1341
-  %add17.i = add i64 %75, %.sink1322
+  %.1336 = select i1 %cmp12.i, i64 8, i64 12
+  %.1337 = select i1 %cmp12.i, i8 16, i8 24
+  %.sink1318 = select i1 %cmp3.i, i64 6, i64 %.1336
+  %retval.i336.sroa.10.1 = select i1 %cmp3.i, i8 8, i8 %.1337
+  %add17.i = add i64 %75, %.sink1318
   %add31.i = add i64 %add17.i, 1
   br label %_ZN11struct_pack6detail26get_serialize_runtime_infoILm0EJ6personEEENS_21serialize_buffer_sizeEDpRKT0_.exit
 
@@ -1208,11 +1208,11 @@ if.then.i.i660:                                   ; preds = %.noexc664
 if.else.i.i627:                                   ; preds = %.noexc664
   %cmp3.i.i629 = icmp ult i64 %78, 65536
   %cmp12.i.i632 = icmp ult i64 %78, 4294967296
-  %.1342 = select i1 %cmp12.i.i632, i64 8, i64 12
-  %.1343 = select i1 %cmp12.i.i632, i8 16, i8 24
-  %.sink1323 = select i1 %cmp3.i.i629, i64 6, i64 %.1342
-  %retval.i.i610.sroa.10.1 = select i1 %cmp3.i.i629, i8 8, i8 %.1343
-  %add17.i.i651 = add i64 %78, %.sink1323
+  %.1338 = select i1 %cmp12.i.i632, i64 8, i64 12
+  %.1339 = select i1 %cmp12.i.i632, i8 16, i8 24
+  %.sink1319 = select i1 %cmp3.i.i629, i64 6, i64 %.1338
+  %retval.i.i610.sroa.10.1 = select i1 %cmp3.i.i629, i8 8, i8 %.1339
+  %add17.i.i651 = add i64 %78, %.sink1319
   %add31.i.i641 = add i64 %add17.i.i651, 1
   br label %_ZN11struct_pack6detail26get_serialize_runtime_infoILm0EJ6personEEENS_21serialize_buffer_sizeEDpRKT0_.exit.i642
 
@@ -1373,8 +1373,8 @@ _ZN11struct_pack11deserializeIJ6personETkNS_6detail16deserialize_viewESt6vectorI
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %name.i.i.i.i.i.i.i) #22
   store i32 %call3.i246247, ptr %ret.i, align 8
   store i8 0, ptr %m_has_val.i.i.i.i.i.i.i, align 8
-  %m_has_val.i.i.i.i.i.i.i6021291 = getelementptr inbounds nuw i8, ptr %p248, i64 40
-  store i8 0, ptr %m_has_val.i.i.i.i.i.i.i6021291, align 8
+  %m_has_val.i.i.i.i.i.i.i6021287 = getelementptr inbounds nuw i8, ptr %p248, i64 40
+  store i8 0, ptr %m_has_val.i.i.i.i.i.i.i6021287, align 8
   br label %if.else.i.i.i.i
 
 lpad.i233.body:                                   ; preds = %invoke.cont.i237
@@ -1426,17 +1426,17 @@ _ZN2tl6detail24expected_operations_baseI6personN11struct_pack4errcEE14construct_
   br label %_ZN2tl8expectedI6personN11struct_pack4errcEEC2EOS4_.exit
 
 if.else.i.i.i.i:                                  ; preds = %_ZN11struct_pack11deserializeIJ6personETkNS_6detail16deserialize_viewESt6vectorIcSaIcEEEEDaRKT0_.exit.thread, %_ZN11struct_pack11deserializeIJ6personETkNS_6detail16deserialize_viewESt6vectorIcSaIcEEEEDaRKT0_.exit
-  %m_has_val.i.i.i.i.i.i.i6021294 = phi ptr [ %m_has_val.i.i.i.i.i.i.i6021291, %_ZN11struct_pack11deserializeIJ6personETkNS_6detail16deserialize_viewESt6vectorIcSaIcEEEEDaRKT0_.exit.thread ], [ %m_has_val.i.i.i.i.i.i.i602, %_ZN11struct_pack11deserializeIJ6personETkNS_6detail16deserialize_viewESt6vectorIcSaIcEEEEDaRKT0_.exit ]
+  %m_has_val.i.i.i.i.i.i.i6021290 = phi ptr [ %m_has_val.i.i.i.i.i.i.i6021287, %_ZN11struct_pack11deserializeIJ6personETkNS_6detail16deserialize_viewESt6vectorIcSaIcEEEEDaRKT0_.exit.thread ], [ %m_has_val.i.i.i.i.i.i.i602, %_ZN11struct_pack11deserializeIJ6personETkNS_6detail16deserialize_viewESt6vectorIcSaIcEEEEDaRKT0_.exit ]
   %99 = phi i8 [ 0, %_ZN11struct_pack11deserializeIJ6personETkNS_6detail16deserialize_viewESt6vectorIcSaIcEEEEDaRKT0_.exit.thread ], [ %.pre, %_ZN11struct_pack11deserializeIJ6personETkNS_6detail16deserialize_viewESt6vectorIcSaIcEEEEDaRKT0_.exit ]
   %100 = load i32, ptr %ret.i, align 8
   store i32 %100, ptr %p248, align 8
   br label %_ZN2tl8expectedI6personN11struct_pack4errcEEC2EOS4_.exit
 
 _ZN2tl8expectedI6personN11struct_pack4errcEEC2EOS4_.exit: ; preds = %_ZN2tl6detail24expected_operations_baseI6personN11struct_pack4errcEE14construct_withINS0_18expected_move_baseIS2_S4_Lb0EEEEEvOT_.exit.i.i.i.i, %if.else.i.i.i.i
-  %m_has_val.i.i.i.i.i.i.i6021293 = phi ptr [ %m_has_val.i.i.i.i.i.i.i6021294, %if.else.i.i.i.i ], [ %m_has_val.i.i.i.i.i.i.i602, %_ZN2tl6detail24expected_operations_baseI6personN11struct_pack4errcEE14construct_withINS0_18expected_move_baseIS2_S4_Lb0EEEEEvOT_.exit.i.i.i.i ]
+  %m_has_val.i.i.i.i.i.i.i6021289 = phi ptr [ %m_has_val.i.i.i.i.i.i.i6021290, %if.else.i.i.i.i ], [ %m_has_val.i.i.i.i.i.i.i602, %_ZN2tl6detail24expected_operations_baseI6personN11struct_pack4errcEE14construct_withINS0_18expected_move_baseIS2_S4_Lb0EEEEEvOT_.exit.i.i.i.i ]
   %101 = phi i8 [ %99, %if.else.i.i.i.i ], [ %.pre1206, %_ZN2tl6detail24expected_operations_baseI6personN11struct_pack4errcEE14construct_withINS0_18expected_move_baseIS2_S4_Lb0EEEEEvOT_.exit.i.i.i.i ]
   %storemerge.i.i.i.i = phi i8 [ 0, %if.else.i.i.i.i ], [ 1, %_ZN2tl6detail24expected_operations_baseI6personN11struct_pack4errcEE14construct_withINS0_18expected_move_baseIS2_S4_Lb0EEEEEvOT_.exit.i.i.i.i ]
-  store i8 %storemerge.i.i.i.i, ptr %m_has_val.i.i.i.i.i.i.i6021293, align 8
+  store i8 %storemerge.i.i.i.i, ptr %m_has_val.i.i.i.i.i.i.i6021289, align 8
   %tobool.i.i.i.i.i.i.i = trunc i8 %101 to i1
   br i1 %tobool.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i604, label %_ZN2tl8expectedI6personN11struct_pack4errcEED2Ev.exit
 
@@ -1457,7 +1457,7 @@ if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %if.then.i.i.i.i.i.i
 
 _ZN6personD2Ev.exit.i.i.i.i.i.i.i:                ; preds = %if.then.i.i.i.i.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i.i.i
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %name.i.i.i.i.i.i.i) #22
-  %.pre1207 = load i8, ptr %m_has_val.i.i.i.i.i.i.i6021293, align 8
+  %.pre1207 = load i8, ptr %m_has_val.i.i.i.i.i.i.i6021289, align 8
   br label %_ZN2tl8expectedI6personN11struct_pack4errcEED2Ev.exit
 
 _ZN2tl8expectedI6personN11struct_pack4errcEED2Ev.exit: ; preds = %_ZN2tl8expectedI6personN11struct_pack4errcEEC2EOS4_.exit, %_ZN6personD2Ev.exit.i.i.i.i.i.i.i
@@ -1590,8 +1590,8 @@ _ZN11struct_pack9get_fieldI6personLm1ELm0ETkNS_6detail16deserialize_viewESt6vect
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(33) %ret.i261) #22
   store i32 %call3.i491492, ptr %ret.i261, align 8
   store i8 0, ptr %m_has_val.i.i.i.i.i.i.i633, align 8
-  %m_has_val.i.i.i.i.i.i.i6561295 = getelementptr inbounds nuw i8, ptr %name55, i64 32
-  store i8 0, ptr %m_has_val.i.i.i.i.i.i.i6561295, align 8
+  %m_has_val.i.i.i.i.i.i.i6561291 = getelementptr inbounds nuw i8, ptr %name55, i64 32
+  store i8 0, ptr %m_has_val.i.i.i.i.i.i.i6561291, align 8
   br label %if.else.i.i.i.i659
 
 lpad.i266.body:                                   ; preds = %invoke.cont.i271
@@ -1641,17 +1641,17 @@ _ZN2tl6detail24expected_operations_baseINSt7__cxx1112basic_stringIcSt11char_trai
   br label %_ZN2tl8expectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN11struct_pack4errcEEC2EOS9_.exit
 
 if.else.i.i.i.i659:                               ; preds = %_ZN11struct_pack9get_fieldI6personLm1ELm0ETkNS_6detail16deserialize_viewESt6vectorIcSaIcEEEEDaRKT2_.exit.thread, %_ZN11struct_pack9get_fieldI6personLm1ELm0ETkNS_6detail16deserialize_viewESt6vectorIcSaIcEEEEDaRKT2_.exit
-  %m_has_val.i.i.i.i.i.i.i6561298 = phi ptr [ %m_has_val.i.i.i.i.i.i.i6561295, %_ZN11struct_pack9get_fieldI6personLm1ELm0ETkNS_6detail16deserialize_viewESt6vectorIcSaIcEEEEDaRKT2_.exit.thread ], [ %m_has_val.i.i.i.i.i.i.i656, %_ZN11struct_pack9get_fieldI6personLm1ELm0ETkNS_6detail16deserialize_viewESt6vectorIcSaIcEEEEDaRKT2_.exit ]
+  %m_has_val.i.i.i.i.i.i.i6561294 = phi ptr [ %m_has_val.i.i.i.i.i.i.i6561291, %_ZN11struct_pack9get_fieldI6personLm1ELm0ETkNS_6detail16deserialize_viewESt6vectorIcSaIcEEEEDaRKT2_.exit.thread ], [ %m_has_val.i.i.i.i.i.i.i656, %_ZN11struct_pack9get_fieldI6personLm1ELm0ETkNS_6detail16deserialize_viewESt6vectorIcSaIcEEEEDaRKT2_.exit ]
   %126 = phi i8 [ 0, %_ZN11struct_pack9get_fieldI6personLm1ELm0ETkNS_6detail16deserialize_viewESt6vectorIcSaIcEEEEDaRKT2_.exit.thread ], [ %.pre1208, %_ZN11struct_pack9get_fieldI6personLm1ELm0ETkNS_6detail16deserialize_viewESt6vectorIcSaIcEEEEDaRKT2_.exit ]
   %127 = load i32, ptr %ret.i261, align 8
   store i32 %127, ptr %name55, align 8
   br label %_ZN2tl8expectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN11struct_pack4errcEEC2EOS9_.exit
 
 _ZN2tl8expectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN11struct_pack4errcEEC2EOS9_.exit: ; preds = %_ZN2tl6detail24expected_operations_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN11struct_pack4errcEE14construct_withINS0_18expected_move_baseIS7_S9_Lb0EEEEEvOT_.exit.i.i.i.i, %if.else.i.i.i.i659
-  %m_has_val.i.i.i.i.i.i.i6561297 = phi ptr [ %m_has_val.i.i.i.i.i.i.i6561298, %if.else.i.i.i.i659 ], [ %m_has_val.i.i.i.i.i.i.i656, %_ZN2tl6detail24expected_operations_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN11struct_pack4errcEE14construct_withINS0_18expected_move_baseIS7_S9_Lb0EEEEEvOT_.exit.i.i.i.i ]
+  %m_has_val.i.i.i.i.i.i.i6561293 = phi ptr [ %m_has_val.i.i.i.i.i.i.i6561294, %if.else.i.i.i.i659 ], [ %m_has_val.i.i.i.i.i.i.i656, %_ZN2tl6detail24expected_operations_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN11struct_pack4errcEE14construct_withINS0_18expected_move_baseIS7_S9_Lb0EEEEEvOT_.exit.i.i.i.i ]
   %128 = phi i8 [ %126, %if.else.i.i.i.i659 ], [ %.pre1210, %_ZN2tl6detail24expected_operations_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN11struct_pack4errcEE14construct_withINS0_18expected_move_baseIS7_S9_Lb0EEEEEvOT_.exit.i.i.i.i ]
   %storemerge.i.i.i.i660 = phi i8 [ 0, %if.else.i.i.i.i659 ], [ 1, %_ZN2tl6detail24expected_operations_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN11struct_pack4errcEE14construct_withINS0_18expected_move_baseIS7_S9_Lb0EEEEEvOT_.exit.i.i.i.i ]
-  store i8 %storemerge.i.i.i.i660, ptr %m_has_val.i.i.i.i.i.i.i6561297, align 8
+  store i8 %storemerge.i.i.i.i660, ptr %m_has_val.i.i.i.i.i.i.i6561293, align 8
   %tobool.i.i.i.i.i.i.i663 = trunc i8 %128 to i1
   br i1 %tobool.i.i.i.i.i.i.i663, label %if.then.i.i.i.i.i.i.i664, label %_ZN2tl8expectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN11struct_pack4errcEED2Ev.exit
 
@@ -1672,7 +1672,7 @@ if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %if.then.i.i.i.i.i.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i.i
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(33) %ret.i261) #22
-  %.pre1211 = load i8, ptr %m_has_val.i.i.i.i.i.i.i6561297, align 8
+  %.pre1211 = load i8, ptr %m_has_val.i.i.i.i.i.i.i6561293, align 8
   br label %_ZN2tl8expectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN11struct_pack4errcEED2Ev.exit
 
 _ZN2tl8expectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN11struct_pack4errcEED2Ev.exit: ; preds = %_ZN2tl8expectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN11struct_pack4errcEEC2EOS9_.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i.i.i.i.i
@@ -1717,11 +1717,11 @@ if.then.i841:                                     ; preds = %.noexc845
 if.else.i813:                                     ; preds = %.noexc845
   %cmp5.i815 = icmp ult i64 %135, 65536
   %cmp14.i818 = icmp ult i64 %135, 4294967296
-  %.1344 = select i1 %cmp14.i818, i64 8, i64 12
-  %.1345 = select i1 %cmp14.i818, i8 16, i8 24
-  %.sink1325 = select i1 %cmp5.i815, i64 6, i64 %.1344
-  %retval.i802.sroa.10.1 = select i1 %cmp5.i815, i8 8, i8 %.1345
-  %add19.i832 = add i64 %135, %.sink1325
+  %.1340 = select i1 %cmp14.i818, i64 8, i64 12
+  %.1341 = select i1 %cmp14.i818, i8 16, i8 24
+  %.sink1321 = select i1 %cmp5.i815, i64 6, i64 %.1340
+  %retval.i802.sroa.10.1 = select i1 %cmp5.i815, i8 8, i8 %.1341
+  %add19.i832 = add i64 %135, %.sink1321
   %add33.i827 = add i64 %add19.i832, 1
   br label %_ZN11struct_pack6detail26get_serialize_runtime_infoILm0EJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEENS_21serialize_buffer_sizeEDpRKT0_.exit846
 
@@ -1882,8 +1882,8 @@ _ZN11struct_pack11deserializeIJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaI
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(41) %ret.i283) #22
   store i32 %call3.i513514, ptr %ret.i283, align 8
   store i8 0, ptr %m_has_val.i.i.i.i.i.i.i745, align 8
-  %m_has_val.i.i.i.i.i.i.i7651299 = getelementptr inbounds nuw i8, ptr %result61, i64 40
-  store i8 0, ptr %m_has_val.i.i.i.i.i.i.i7651299, align 8
+  %m_has_val.i.i.i.i.i.i.i7651295 = getelementptr inbounds nuw i8, ptr %result61, i64 40
+  store i8 0, ptr %m_has_val.i.i.i.i.i.i.i7651295, align 8
   br label %if.else.i.i.i.i768
 
 lpad.i289.body:                                   ; preds = %invoke.cont.i294
@@ -1935,17 +1935,17 @@ _ZN2tl6detail24expected_operations_baseISt5tupleIJiNSt7__cxx1112basic_stringIcSt
   br label %_ZN2tl8expectedISt5tupleIJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEN11struct_pack4errcEEC2EOSB_.exit
 
 if.else.i.i.i.i768:                               ; preds = %_ZN11struct_pack11deserializeIJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEETkNS_6detail16deserialize_viewESt6vectorIcS5_EEEDaRKT0_.exit.thread, %_ZN11struct_pack11deserializeIJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEETkNS_6detail16deserialize_viewESt6vectorIcS5_EEEDaRKT0_.exit
-  %m_has_val.i.i.i.i.i.i.i7651302 = phi ptr [ %m_has_val.i.i.i.i.i.i.i7651299, %_ZN11struct_pack11deserializeIJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEETkNS_6detail16deserialize_viewESt6vectorIcS5_EEEDaRKT0_.exit.thread ], [ %m_has_val.i.i.i.i.i.i.i765, %_ZN11struct_pack11deserializeIJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEETkNS_6detail16deserialize_viewESt6vectorIcS5_EEEDaRKT0_.exit ]
+  %m_has_val.i.i.i.i.i.i.i7651298 = phi ptr [ %m_has_val.i.i.i.i.i.i.i7651295, %_ZN11struct_pack11deserializeIJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEETkNS_6detail16deserialize_viewESt6vectorIcS5_EEEDaRKT0_.exit.thread ], [ %m_has_val.i.i.i.i.i.i.i765, %_ZN11struct_pack11deserializeIJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEETkNS_6detail16deserialize_viewESt6vectorIcS5_EEEDaRKT0_.exit ]
   %158 = phi i8 [ 0, %_ZN11struct_pack11deserializeIJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEETkNS_6detail16deserialize_viewESt6vectorIcS5_EEEDaRKT0_.exit.thread ], [ %.pre1212, %_ZN11struct_pack11deserializeIJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEETkNS_6detail16deserialize_viewESt6vectorIcS5_EEEDaRKT0_.exit ]
   %159 = load i32, ptr %ret.i283, align 8
   store i32 %159, ptr %result61, align 8
   br label %_ZN2tl8expectedISt5tupleIJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEN11struct_pack4errcEEC2EOSB_.exit
 
 _ZN2tl8expectedISt5tupleIJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEN11struct_pack4errcEEC2EOSB_.exit: ; preds = %_ZN2tl6detail24expected_operations_baseISt5tupleIJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEN11struct_pack4errcEE14construct_withINS0_18expected_move_baseIS9_SB_Lb0EEEEEvOT_.exit.i.i.i.i, %if.else.i.i.i.i768
-  %m_has_val.i.i.i.i.i.i.i7651301 = phi ptr [ %m_has_val.i.i.i.i.i.i.i7651302, %if.else.i.i.i.i768 ], [ %m_has_val.i.i.i.i.i.i.i765, %_ZN2tl6detail24expected_operations_baseISt5tupleIJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEN11struct_pack4errcEE14construct_withINS0_18expected_move_baseIS9_SB_Lb0EEEEEvOT_.exit.i.i.i.i ]
+  %m_has_val.i.i.i.i.i.i.i7651297 = phi ptr [ %m_has_val.i.i.i.i.i.i.i7651298, %if.else.i.i.i.i768 ], [ %m_has_val.i.i.i.i.i.i.i765, %_ZN2tl6detail24expected_operations_baseISt5tupleIJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEN11struct_pack4errcEE14construct_withINS0_18expected_move_baseIS9_SB_Lb0EEEEEvOT_.exit.i.i.i.i ]
   %160 = phi i8 [ %158, %if.else.i.i.i.i768 ], [ %.pre1214, %_ZN2tl6detail24expected_operations_baseISt5tupleIJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEN11struct_pack4errcEE14construct_withINS0_18expected_move_baseIS9_SB_Lb0EEEEEvOT_.exit.i.i.i.i ]
   %storemerge.i.i.i.i769 = phi i8 [ 0, %if.else.i.i.i.i768 ], [ 1, %_ZN2tl6detail24expected_operations_baseISt5tupleIJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEN11struct_pack4errcEE14construct_withINS0_18expected_move_baseIS9_SB_Lb0EEEEEvOT_.exit.i.i.i.i ]
-  store i8 %storemerge.i.i.i.i769, ptr %m_has_val.i.i.i.i.i.i.i7651301, align 8
+  store i8 %storemerge.i.i.i.i769, ptr %m_has_val.i.i.i.i.i.i.i7651297, align 8
   %tobool.i.i.i.i.i.i.i776 = trunc i8 %160 to i1
   br i1 %tobool.i.i.i.i.i.i.i776, label %if.then.i.i.i.i.i.i.i777, label %_ZN2tl8expectedISt5tupleIJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEN11struct_pack4errcEED2Ev.exit
 
@@ -1966,7 +1966,7 @@ if.then.i.i.i.i.i.i.i.i.i.i.i.i.i:                ; preds = %if.then.i.i.i.i.i.i
 
 _ZNSt5tupleIJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit.i.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i.i.i.i.i.i
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(41) %ret.i283) #22
-  %.pre1215 = load i8, ptr %m_has_val.i.i.i.i.i.i.i7651301, align 8
+  %.pre1215 = load i8, ptr %m_has_val.i.i.i.i.i.i.i7651297, align 8
   br label %_ZN2tl8expectedISt5tupleIJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEN11struct_pack4errcEED2Ev.exit
 
 _ZN2tl8expectedISt5tupleIJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEN11struct_pack4errcEED2Ev.exit: ; preds = %_ZN2tl8expectedISt5tupleIJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEN11struct_pack4errcEEC2EOSB_.exit, %_ZNSt5tupleIJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit.i.i.i.i.i.i.i
@@ -2048,11 +2048,11 @@ if.then.i793:                                     ; preds = %.noexc797
 if.else.i786:                                     ; preds = %.noexc797
   %cmp5.i = icmp ult i64 %172, 65536
   %cmp14.i = icmp ult i64 %172, 4294967296
-  %.1346 = select i1 %cmp14.i, i64 8, i64 12
-  %.1347 = select i1 %cmp14.i, i8 16, i8 24
-  %.sink1327 = select i1 %cmp5.i, i64 6, i64 %.1346
-  %retval.i775.sroa.10.1 = select i1 %cmp5.i, i8 8, i8 %.1347
-  %add19.i789 = add i64 %172, %.sink1327
+  %.1342 = select i1 %cmp14.i, i64 8, i64 12
+  %.1343 = select i1 %cmp14.i, i8 16, i8 24
+  %.sink1323 = select i1 %cmp5.i, i64 6, i64 %.1342
+  %retval.i775.sroa.10.1 = select i1 %cmp5.i, i8 8, i8 %.1343
+  %add19.i789 = add i64 %172, %.sink1323
   %add33.i = add i64 %add19.i789, 1
   br label %_ZN11struct_pack6detail26get_serialize_runtime_infoILm0EJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEENS_21serialize_buffer_sizeEDpRKT0_.exit
 
@@ -2265,8 +2265,8 @@ _ZN11struct_pack11deserializeIJ6personETkNS_8reader_tE12fread_streamEEDaRT0_.exi
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %name.i.i.i.i.i.i.i895) #22
   store i32 %ret.i518.01204, ptr %ret.i316, align 8
   store i8 0, ptr %m_has_val.i.i.i.i.i.i.i897, align 8
-  %m_has_val.i.i.i.i.i.i.i9251303 = getelementptr inbounds nuw i8, ptr %p4, i64 40
-  store i8 0, ptr %m_has_val.i.i.i.i.i.i.i9251303, align 8
+  %m_has_val.i.i.i.i.i.i.i9251299 = getelementptr inbounds nuw i8, ptr %p4, i64 40
+  store i8 0, ptr %m_has_val.i.i.i.i.i.i.i9251299, align 8
   br label %if.else.i.i.i.i928
 
 lpad.i322.body:                                   ; preds = %call.i519.noexc
@@ -2321,17 +2321,17 @@ _ZN2tl6detail24expected_operations_baseI6personN11struct_pack4errcEE14construct_
   br label %_ZN2tl8expectedI6personN11struct_pack4errcEEC2EOS4_.exit942
 
 if.else.i.i.i.i928:                               ; preds = %_ZN11struct_pack11deserializeIJ6personETkNS_8reader_tE12fread_streamEEDaRT0_.exit.thread, %_ZN11struct_pack11deserializeIJ6personETkNS_8reader_tE12fread_streamEEDaRT0_.exit
-  %m_has_val.i.i.i.i.i.i.i9251306 = phi ptr [ %m_has_val.i.i.i.i.i.i.i9251303, %_ZN11struct_pack11deserializeIJ6personETkNS_8reader_tE12fread_streamEEDaRT0_.exit.thread ], [ %m_has_val.i.i.i.i.i.i.i925, %_ZN11struct_pack11deserializeIJ6personETkNS_8reader_tE12fread_streamEEDaRT0_.exit ]
+  %m_has_val.i.i.i.i.i.i.i9251302 = phi ptr [ %m_has_val.i.i.i.i.i.i.i9251299, %_ZN11struct_pack11deserializeIJ6personETkNS_8reader_tE12fread_streamEEDaRT0_.exit.thread ], [ %m_has_val.i.i.i.i.i.i.i925, %_ZN11struct_pack11deserializeIJ6personETkNS_8reader_tE12fread_streamEEDaRT0_.exit ]
   %201 = phi i8 [ 0, %_ZN11struct_pack11deserializeIJ6personETkNS_8reader_tE12fread_streamEEDaRT0_.exit.thread ], [ %194, %_ZN11struct_pack11deserializeIJ6personETkNS_8reader_tE12fread_streamEEDaRT0_.exit ]
   %202 = load i32, ptr %ret.i316, align 8
   store i32 %202, ptr %p4, align 8
   br label %_ZN2tl8expectedI6personN11struct_pack4errcEEC2EOS4_.exit942
 
 _ZN2tl8expectedI6personN11struct_pack4errcEEC2EOS4_.exit942: ; preds = %_ZN2tl6detail24expected_operations_baseI6personN11struct_pack4errcEE14construct_withINS0_18expected_move_baseIS2_S4_Lb0EEEEEvOT_.exit.i.i.i.i935, %if.else.i.i.i.i928
-  %m_has_val.i.i.i.i.i.i.i9251305 = phi ptr [ %m_has_val.i.i.i.i.i.i.i9251306, %if.else.i.i.i.i928 ], [ %m_has_val.i.i.i.i.i.i.i925, %_ZN2tl6detail24expected_operations_baseI6personN11struct_pack4errcEE14construct_withINS0_18expected_move_baseIS2_S4_Lb0EEEEEvOT_.exit.i.i.i.i935 ]
+  %m_has_val.i.i.i.i.i.i.i9251301 = phi ptr [ %m_has_val.i.i.i.i.i.i.i9251302, %if.else.i.i.i.i928 ], [ %m_has_val.i.i.i.i.i.i.i925, %_ZN2tl6detail24expected_operations_baseI6personN11struct_pack4errcEE14construct_withINS0_18expected_move_baseIS2_S4_Lb0EEEEEvOT_.exit.i.i.i.i935 ]
   %203 = phi i8 [ %201, %if.else.i.i.i.i928 ], [ %.pre1218, %_ZN2tl6detail24expected_operations_baseI6personN11struct_pack4errcEE14construct_withINS0_18expected_move_baseIS2_S4_Lb0EEEEEvOT_.exit.i.i.i.i935 ]
   %storemerge.i.i.i.i929 = phi i8 [ 0, %if.else.i.i.i.i928 ], [ 1, %_ZN2tl6detail24expected_operations_baseI6personN11struct_pack4errcEE14construct_withINS0_18expected_move_baseIS2_S4_Lb0EEEEEvOT_.exit.i.i.i.i935 ]
-  store i8 %storemerge.i.i.i.i929, ptr %m_has_val.i.i.i.i.i.i.i9251305, align 8
+  store i8 %storemerge.i.i.i.i929, ptr %m_has_val.i.i.i.i.i.i.i9251301, align 8
   %tobool.i.i.i.i.i.i.i944 = trunc i8 %203 to i1
   br i1 %tobool.i.i.i.i.i.i.i944, label %if.then.i.i.i.i.i.i.i945, label %_ZN2tl8expectedI6personN11struct_pack4errcEED2Ev.exit953
 
@@ -2352,7 +2352,7 @@ if.then.i.i.i.i.i.i.i.i.i.i948:                   ; preds = %if.then.i.i.i.i.i.i
 
 _ZN6personD2Ev.exit.i.i.i.i.i.i.i949:             ; preds = %if.then.i.i.i.i.i.i.i.i.i.i948, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i.i.i950
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %name.i.i.i.i.i.i.i895) #22
-  %.pre1219 = load i8, ptr %m_has_val.i.i.i.i.i.i.i9251305, align 8
+  %.pre1219 = load i8, ptr %m_has_val.i.i.i.i.i.i.i9251301, align 8
   br label %_ZN2tl8expectedI6personN11struct_pack4errcEED2Ev.exit953
 
 _ZN2tl8expectedI6personN11struct_pack4errcEED2Ev.exit953: ; preds = %_ZN2tl8expectedI6personN11struct_pack4errcEEC2EOS4_.exit942, %_ZN6personD2Ev.exit.i.i.i.i.i.i.i949

@@ -1546,8 +1546,8 @@ entry:
 lor.lhs.false:                                    ; preds = %entry
   %cmp10 = fcmp oge double %y, %1
   %cmp15 = fcmp olt double %y, %0
-  %or.cond6 = and i1 %cmp15, %cmp10
-  br i1 %or.cond6, label %if.then, label %return
+  %or.cond5 = and i1 %cmp15, %cmp10
+  br i1 %or.cond5, label %if.then, label %return
 
 if.then:                                          ; preds = %lor.lhs.false, %entry
   %sub = fsub double %y, %0
@@ -1567,8 +1567,8 @@ if.then:                                          ; preds = %lor.lhs.false, %ent
   %conv.i = zext i1 %cmp.i to i32
   %cmp1.i = fcmp olt double %sub39, 0.000000e+00
   %conv2.neg.i = sext i1 %cmp1.i to i32
-  %sub.i7 = add nsw i32 %conv2.neg.i, %conv.i
-  store i32 %sub.i7, ptr %dy, align 4
+  %sub.i6 = add nsw i32 %conv2.neg.i, %conv.i
+  store i32 %sub.i6, ptr %dy, align 4
   br label %return
 
 return:                                           ; preds = %lor.lhs.false, %if.then
@@ -1602,8 +1602,8 @@ lor.lhs.false:                                    ; preds = %if.then
   %y30 = getelementptr inbounds nuw i8, ptr %this, i64 56
   %4 = load double, ptr %y30, align 8
   %cmp31 = fcmp olt double %2, %4
-  %or.cond52 = select i1 %cmp24, i1 %cmp31, i1 false
-  br i1 %or.cond52, label %if.then32, label %if.end35
+  %or.cond51 = select i1 %cmp24, i1 %cmp31, i1 false
+  br i1 %or.cond51, label %if.then32, label %if.end35
 
 if.then32:                                        ; preds = %lor.lhs.false, %if.then
   store i32 1, ptr %dy, align 4
@@ -1626,13 +1626,13 @@ if.end35:                                         ; preds = %lor.lhs.false, %if.
   %agg.tmp42.sroa.0.0.copyload = load double, ptr %arrayidx44, align 8
   %agg.tmp42.sroa.2.0.arrayidx44.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 56
   %agg.tmp42.sroa.2.0.copyload = load double, ptr %agg.tmp42.sroa.2.0.arrayidx44.sroa_idx, align 8
-  %sub.i55 = fsub double %agg.tmp42.sroa.0.0.copyload, %agg.tmp.sroa.0.0.copyload
-  %sub3.i56 = fsub double %agg.tmp42.sroa.2.0.copyload, %agg.tmp.sroa.2.0.copyload
-  %sub.i59 = fsub double %sub.i55, %sub.i
-  %sub3.i60 = fsub double %sub3.i56, %sub3.i
+  %sub.i54 = fsub double %agg.tmp42.sroa.0.0.copyload, %agg.tmp.sroa.0.0.copyload
+  %sub3.i55 = fsub double %agg.tmp42.sroa.2.0.copyload, %agg.tmp.sroa.2.0.copyload
+  %sub.i58 = fsub double %sub.i54, %sub.i
+  %sub3.i59 = fsub double %sub3.i55, %sub3.i
   %mul = fmul double %sub3.i, 2.000000e+00
   %sub = fsub double %agg.tmp38.sroa.2.0.copyload, %y
-  %call56 = call noundef i32 @_ZN7msdfgen14solveQuadraticEPdddd(ptr noundef nonnull %t, double noundef %sub3.i60, double noundef %mul, double noundef %sub)
+  %call56 = call noundef i32 @_ZN7msdfgen14solveQuadraticEPdddd(ptr noundef nonnull %t, double noundef %sub3.i59, double noundef %mul, double noundef %sub)
   %cmp57 = icmp sgt i32 %call56, 1
   br i1 %cmp57, label %land.lhs.true58, label %if.end67
 
@@ -1649,8 +1649,8 @@ if.then62:                                        ; preds = %land.lhs.true58
   br label %for.body.preheader
 
 if.end67:                                         ; preds = %if.end35
-  %cmp6863 = icmp eq i32 %call56, 1
-  br i1 %cmp6863, label %for.body.preheader, label %for.end
+  %cmp6862 = icmp eq i32 %call56, 1
+  br i1 %cmp6862, label %for.body.preheader, label %for.end
 
 for.body.preheader:                               ; preds = %land.lhs.true58, %if.then62, %if.end67
   %7 = zext nneg i32 %call56 to i64
@@ -1658,40 +1658,40 @@ for.body.preheader:                               ; preds = %land.lhs.true58, %i
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.inc ]
-  %total.165 = phi i32 [ %total.0, %for.body.preheader ], [ %total.2, %for.inc ]
-  %nextDY.164 = phi i32 [ %nextDY.0, %for.body.preheader ], [ %nextDY.2, %for.inc ]
+  %total.164 = phi i32 [ %total.0, %for.body.preheader ], [ %total.2, %for.inc ]
+  %nextDY.163 = phi i32 [ %nextDY.0, %for.body.preheader ], [ %nextDY.2, %for.inc ]
   %arrayidx71 = getelementptr inbounds nuw double, ptr %t, i64 %indvars.iv
   %8 = load double, ptr %arrayidx71, align 8
   %cmp72 = fcmp ult double %8, 0.000000e+00
   %cmp76 = fcmp ugt double %8, 1.000000e+00
-  %or.cond53 = or i1 %cmp72, %cmp76
-  br i1 %or.cond53, label %for.inc, label %if.then77
+  %or.cond52 = or i1 %cmp72, %cmp76
+  br i1 %or.cond52, label %for.inc, label %if.then77
 
 if.then77:                                        ; preds = %for.body
   %9 = load double, ptr %p, align 8
   %mul83 = fmul double %8, 2.000000e+00
   %10 = call double @llvm.fmuladd.f64(double %mul83, double %sub.i, double %9)
   %mul90 = fmul double %8, %8
-  %11 = call double @llvm.fmuladd.f64(double %mul90, double %sub.i59, double %10)
-  %idxprom93 = zext nneg i32 %total.165 to i64
+  %11 = call double @llvm.fmuladd.f64(double %mul90, double %sub.i58, double %10)
+  %idxprom93 = zext nneg i32 %total.164 to i64
   %arrayidx94 = getelementptr inbounds nuw double, ptr %x, i64 %idxprom93
   store double %11, ptr %arrayidx94, align 8
-  %conv = sitofp i32 %nextDY.164 to double
-  %12 = call double @llvm.fmuladd.f64(double %8, double %sub3.i60, double %sub3.i)
+  %conv = sitofp i32 %nextDY.163 to double
+  %12 = call double @llvm.fmuladd.f64(double %8, double %sub3.i59, double %sub3.i)
   %mul100 = fmul double %12, %conv
   %cmp101 = fcmp ult double %mul100, 0.000000e+00
   br i1 %cmp101, label %for.inc, label %if.then102
 
 if.then102:                                       ; preds = %if.then77
-  %inc103 = add nuw nsw i32 %total.165, 1
+  %inc103 = add nuw nsw i32 %total.164, 1
   %arrayidx105 = getelementptr inbounds nuw i32, ptr %dy, i64 %idxprom93
-  store i32 %nextDY.164, ptr %arrayidx105, align 4
-  %sub106 = sub nsw i32 0, %nextDY.164
+  store i32 %nextDY.163, ptr %arrayidx105, align 4
+  %sub106 = sub nsw i32 0, %nextDY.163
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then102, %if.then77
-  %nextDY.2 = phi i32 [ %sub106, %if.then102 ], [ %nextDY.164, %if.then77 ], [ %nextDY.164, %for.body ]
-  %total.2 = phi i32 [ %inc103, %if.then102 ], [ %total.165, %if.then77 ], [ %total.165, %for.body ]
+  %nextDY.2 = phi i32 [ %sub106, %if.then102 ], [ %nextDY.163, %if.then77 ], [ %nextDY.163, %for.body ]
+  %total.2 = phi i32 [ %inc103, %if.then102 ], [ %total.164, %if.then77 ], [ %total.164, %for.body ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %cmp68 = icmp samesign ult i64 %indvars.iv.next, %7
   %cmp69 = icmp slt i32 %total.2, 2
@@ -1711,7 +1711,7 @@ if.then114:                                       ; preds = %for.end
   %or.cond = select i1 %cmp115, i1 %cmp117, i1 false
   %spec.select = select i1 %or.cond, i32 -1, i32 %nextDY.1.lcssa
   %dec = sext i1 %or.cond to i32
-  %spec.select54 = add nsw i32 %total.1.lcssa, %dec
+  %spec.select53 = add nsw i32 %total.1.lcssa, %dec
   %15 = load double, ptr %agg.tmp.sroa.2.0.arrayidx37.sroa_idx, align 8
   %cmp126 = fcmp olt double %14, %15
   br i1 %cmp126, label %land.lhs.true143, label %lor.lhs.false127
@@ -1723,31 +1723,31 @@ lor.lhs.false127:                                 ; preds = %if.then114
 land.lhs.true135:                                 ; preds = %lor.lhs.false127
   %16 = load double, ptr %y2, align 8
   %cmp142 = fcmp olt double %14, %16
-  %cmp144 = icmp slt i32 %spec.select54, 2
+  %cmp144 = icmp slt i32 %spec.select53, 2
   %or.cond1 = select i1 %cmp142, i1 %cmp144, i1 false
   br i1 %or.cond1, label %if.then145, label %if.end158
 
 land.lhs.true143:                                 ; preds = %if.then114
-  %cmp144.old = icmp slt i32 %spec.select54, 2
+  %cmp144.old = icmp slt i32 %spec.select53, 2
   br i1 %cmp144.old, label %if.then145, label %if.end158.thread
 
 if.then145:                                       ; preds = %land.lhs.true135, %land.lhs.true143
   %17 = load double, ptr %arrayidx44, align 8
-  %idxprom149 = sext i32 %spec.select54 to i64
+  %idxprom149 = sext i32 %spec.select53 to i64
   %arrayidx150 = getelementptr inbounds double, ptr %x, i64 %idxprom149
   store double %17, ptr %arrayidx150, align 8
   %cmp151 = icmp slt i32 %spec.select, 0
   br i1 %cmp151, label %if.then152, label %if.end158
 
 if.then152:                                       ; preds = %if.then145
-  %inc153 = add nsw i32 %spec.select54, 1
+  %inc153 = add nsw i32 %spec.select53, 1
   %arrayidx155 = getelementptr inbounds i32, ptr %dy, i64 %idxprom149
   store i32 -1, ptr %arrayidx155, align 4
   br label %if.end158
 
 if.end158:                                        ; preds = %lor.lhs.false127, %land.lhs.true135, %if.then152, %if.then145, %for.end
   %nextDY.3 = phi i32 [ 1, %if.then152 ], [ %nextDY.1.lcssa, %if.then145 ], [ %spec.select, %land.lhs.true135 ], [ %spec.select, %lor.lhs.false127 ], [ %nextDY.1.lcssa, %for.end ]
-  %total.3 = phi i32 [ %inc153, %if.then152 ], [ %spec.select54, %if.then145 ], [ %spec.select54, %land.lhs.true135 ], [ %spec.select54, %lor.lhs.false127 ], [ %total.1.lcssa, %for.end ]
+  %total.3 = phi i32 [ %inc153, %if.then152 ], [ %spec.select53, %if.then145 ], [ %spec.select53, %land.lhs.true135 ], [ %spec.select53, %lor.lhs.false127 ], [ %total.1.lcssa, %for.end ]
   %18 = load double, ptr %agg.tmp42.sroa.2.0.arrayidx44.sroa_idx, align 8
   %cmp162 = fcmp oge double %y, %18
   %cond163 = select i1 %cmp162, i32 1, i32 -1
@@ -1756,18 +1756,18 @@ if.end158:                                        ; preds = %lor.lhs.false127, %
 
 if.end158.thread:                                 ; preds = %land.lhs.true143
   %19 = load double, ptr %agg.tmp42.sroa.2.0.arrayidx44.sroa_idx, align 8
-  %cmp16281 = fcmp oge double %y, %19
-  %cond16382 = select i1 %cmp16281, i32 1, i32 -1
-  %cmp164.not83 = icmp eq i32 %spec.select, %cond16382
-  br i1 %cmp164.not83, label %if.end190, label %if.then167
+  %cmp16279 = fcmp oge double %y, %19
+  %cond16380 = select i1 %cmp16279, i32 1, i32 -1
+  %cmp164.not81 = icmp eq i32 %spec.select, %cond16380
+  br i1 %cmp164.not81, label %if.end190, label %if.then167
 
 if.then165:                                       ; preds = %if.end158
   %cmp166 = icmp sgt i32 %total.3, 0
   br i1 %cmp166, label %if.then167, label %if.else169
 
 if.then167:                                       ; preds = %if.end158.thread, %if.then165
-  %total.38589 = phi i32 [ %total.3, %if.then165 ], [ 2, %if.end158.thread ]
-  %dec168 = add nsw i32 %total.38589, -1
+  %total.38387 = phi i32 [ %total.3, %if.then165 ], [ 2, %if.end158.thread ]
+  %dec168 = add nsw i32 %total.38387, -1
   br label %if.end190
 
 if.else169:                                       ; preds = %if.then165

@@ -12545,7 +12545,7 @@ define linkonce_odr hidden void @_ZNK6casadi3Map4infoB5cxx11Ev(ptr dead_on_unwin
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 1320
   invoke void @_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6casadi11GenericTypeEEC2IRA2_KcRKxTnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISH_SI_EEEbE4typeELb1EEEOSH_OSI_(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull align 1 dereferenceable(2) @.str.95, ptr noundef nonnull align 8 dereferenceable(8) %7)
-          to label %8 unwind label %.loopexit.loopexit13
+          to label %8 unwind label %.loopexit.loopexit9
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -12625,7 +12625,7 @@ _ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6casadi11Generi
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
-.loopexit.loopexit13:                             ; preds = %2
+.loopexit.loopexit9:                              ; preds = %2
   %35 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6casadi11GenericTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %4) #26
@@ -12638,7 +12638,7 @@ _ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6casadi11Generi
   %39 = icmp eq ptr %38, %4
   br i1 %39, label %.loopexit, label %36
 
-.loopexit:                                        ; preds = %36, %.loopexit.loopexit13
+.loopexit:                                        ; preds = %36, %.loopexit.loopexit9
   %.pn = phi { ptr, i32 } [ %35, %.loopexit.loopexit13 ], [ %16, %36 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn

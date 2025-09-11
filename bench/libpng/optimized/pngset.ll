@@ -2238,8 +2238,8 @@ define void @png_set_keep_unknown_chunks(ptr noalias noundef %0, i32 noundef %1,
   %26 = mul nuw i32 %21, 5
   %27 = zext i32 %26 to i64
   %28 = tail call noalias ptr @png_malloc(ptr noundef nonnull %0, i64 noundef %27) #12
-  %.not81 = icmp eq i32 %spec.store.select, 0
-  br i1 %.not81, label %34, label %29
+  %.not80 = icmp eq i32 %spec.store.select, 0
+  br i1 %.not80, label %34, label %29
 
 29:                                               ; preds = %25
   %30 = load ptr, ptr %18, align 8, !tbaa !198
@@ -2249,25 +2249,25 @@ define void @png_set_keep_unknown_chunks(ptr noalias noundef %0, i32 noundef %1,
   br label %34
 
 33:                                               ; preds = %24
-  %.not80 = icmp eq i32 %spec.store.select, 0
-  br i1 %.not80, label %thread-pre-split, label %.lr.ph.i.preheader.us.preheader
+  %.not79 = icmp eq i32 %spec.store.select, 0
+  br i1 %.not79, label %thread-pre-split, label %.lr.ph.i.preheader.us.preheader
 
 34:                                               ; preds = %25, %29
-  %.not82 = icmp eq ptr %28, null
-  br i1 %.not82, label %thread-pre-split, label %.preheader91
+  %.not81 = icmp eq ptr %28, null
+  br i1 %.not81, label %thread-pre-split, label %.preheader90
 
-.preheader91:                                     ; preds = %34
+.preheader90:                                     ; preds = %34
   %35 = trunc nuw nsw i32 %1 to i8
   %wide.trip.count = zext nneg i32 %.066 to i64
-  br label %.preheader91.split
+  br label %.preheader90.split
 
 .lr.ph.i.preheader.us.preheader:                  ; preds = %33
-  %wide.trip.count111 = zext nneg i32 %.066 to i64
+  %wide.trip.count110 = zext nneg i32 %.066 to i64
   br label %.lr.ph.i.preheader.us
 
 .lr.ph.i.preheader.us:                            ; preds = %.lr.ph.i.preheader.us.preheader, %add_one_chunk.exit.us
-  %indvars.iv107 = phi i64 [ 0, %.lr.ph.i.preheader.us.preheader ], [ %indvars.iv.next108, %add_one_chunk.exit.us ]
-  %36 = mul i64 %indvars.iv107, 5
+  %indvars.iv106 = phi i64 [ 0, %.lr.ph.i.preheader.us.preheader ], [ %indvars.iv.next107, %add_one_chunk.exit.us ]
+  %36 = mul i64 %indvars.iv106, 5
   %37 = and i64 %36, 4294967295
   %38 = getelementptr inbounds nuw i8, ptr %.071, i64 %37
   br label %.lr.ph.i.us
@@ -2286,9 +2286,9 @@ define void @png_set_keep_unknown_chunks(ptr noalias noundef %0, i32 noundef %1,
   br i1 %exitcond.not.i.us, label %add_one_chunk.exit.us, label %.lr.ph.i.us, !llvm.loop !199
 
 add_one_chunk.exit.us:                            ; preds = %40, %.sink.split.i.loopexit.us
-  %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 1
-  %exitcond112.not = icmp eq i64 %indvars.iv.next108, %wide.trip.count111
-  br i1 %exitcond112.not, label %.preheader, label %.lr.ph.i.preheader.us, !llvm.loop !200
+  %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
+  %exitcond111.not = icmp eq i64 %indvars.iv.next107, %wide.trip.count110
+  br i1 %exitcond111.not, label %.preheader, label %.lr.ph.i.preheader.us, !llvm.loop !200
 
 .sink.split.i.loopexit.us:                        ; preds = %.lr.ph.i.us
   %43 = getelementptr inbounds nuw i8, ptr %.01722.i.us, i64 4
@@ -2296,21 +2296,21 @@ add_one_chunk.exit.us:                            ; preds = %40, %.sink.split.i.
   br label %add_one_chunk.exit.us
 
 .preheader:                                       ; preds = %.sink.split.i, %add_one_chunk.exit.us
-  %.068126128 = phi ptr [ %19, %add_one_chunk.exit.us ], [ %28, %.sink.split.i ]
+  %.068125127 = phi ptr [ %19, %add_one_chunk.exit.us ], [ %28, %.sink.split.i ]
   %.us-phi = phi i32 [ %spec.store.select, %add_one_chunk.exit.us ], [ %.016.ph.i, %.sink.split.i ]
-  %.not101 = icmp eq i32 %.us-phi, 0
-  br i1 %.not101, label %._crit_edge.thread, label %.lr.ph
+  %.not100 = icmp eq i32 %.us-phi, 0
+  br i1 %.not100, label %._crit_edge.thread, label %.lr.ph
 
-.preheader91.split:                               ; preds = %.preheader91, %.sink.split.i
+.preheader90.split:                               ; preds = %.preheader90, %.sink.split.i
   %indvars.iv = phi i64 [ 0, %.preheader91 ], [ %indvars.iv.next, %.sink.split.i ]
-  %.06593 = phi i32 [ %spec.store.select, %.preheader91 ], [ %.016.ph.i, %.sink.split.i ]
+  %.06592 = phi i32 [ %spec.store.select, %.preheader91 ], [ %.016.ph.i, %.sink.split.i ]
   %44 = mul i64 %indvars.iv, 5
   %45 = and i64 %44, 4294967295
   %46 = getelementptr inbounds nuw i8, ptr %.071, i64 %45
-  %.not24.i = icmp eq i32 %.06593, 0
+  %.not24.i = icmp eq i32 %.06592, 0
   br i1 %.not24.i, label %._crit_edge.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.preheader91.split, %48
+.lr.ph.i:                                         ; preds = %.preheader90.split, %48
   %.023.i = phi i32 [ %49, %48 ], [ 0, %.preheader91.split ]
   %.01722.i = phi ptr [ %50, %48 ], [ %28, %.preheader91.split ]
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %.01722.i, ptr noundef nonnull readonly dereferenceable(4) %46, i64 4)
@@ -2320,55 +2320,55 @@ add_one_chunk.exit.us:                            ; preds = %40, %.sink.split.i.
 48:                                               ; preds = %.lr.ph.i
   %49 = add nuw i32 %.023.i, 1
   %50 = getelementptr inbounds nuw i8, ptr %.01722.i, i64 5
-  %exitcond.not.i = icmp eq i32 %49, %.06593
+  %exitcond.not.i = icmp eq i32 %49, %.06592
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !199
 
-._crit_edge.i:                                    ; preds = %48, %.preheader91.split
+._crit_edge.i:                                    ; preds = %48, %.preheader90.split
   %.017.lcssa.i = phi ptr [ %28, %.preheader91.split ], [ %50, %48 ]
-  %51 = add i32 %.06593, 1
+  %51 = add i32 %.06592, 1
   %52 = load i32, ptr %46, align 1
   store i32 %52, ptr %.017.lcssa.i, align 1
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %.lr.ph.i, %._crit_edge.i
   %.017.lcssa.sink.i = phi ptr [ %.017.lcssa.i, %._crit_edge.i ], [ %.01722.i, %.lr.ph.i ]
-  %.016.ph.i = phi i32 [ %51, %._crit_edge.i ], [ %.06593, %.lr.ph.i ]
+  %.016.ph.i = phi i32 [ %51, %._crit_edge.i ], [ %.06592, %.lr.ph.i ]
   %53 = getelementptr inbounds nuw i8, ptr %.017.lcssa.sink.i, i64 4
   store i8 %35, ptr %53, align 1, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader, label %.preheader91.split, !llvm.loop !200
+  br i1 %exitcond.not, label %.preheader, label %.preheader90.split, !llvm.loop !200
 
 .lr.ph:                                           ; preds = %.preheader, %61
-  %.1100 = phi i32 [ %62, %61 ], [ 0, %.preheader ]
-  %.06299 = phi ptr [ %.163, %61 ], [ %.068126128, %.preheader ]
-  %.06497 = phi ptr [ %63, %61 ], [ %.068126128, %.preheader ]
-  %.16796 = phi i32 [ %.2, %61 ], [ 0, %.preheader ]
-  %54 = getelementptr inbounds nuw i8, ptr %.06497, i64 4
+  %.199 = phi i32 [ %62, %61 ], [ 0, %.preheader ]
+  %.06298 = phi ptr [ %.163, %61 ], [ %.068125127, %.preheader ]
+  %.06496 = phi ptr [ %63, %61 ], [ %.068125127, %.preheader ]
+  %.16795 = phi i32 [ %.2, %61 ], [ 0, %.preheader ]
+  %54 = getelementptr inbounds nuw i8, ptr %.06496, i64 4
   %55 = load i8, ptr %54, align 1, !tbaa !4
-  %.not86 = icmp eq i8 %55, 0
-  br i1 %.not86, label %61, label %56
+  %.not85 = icmp eq i8 %55, 0
+  br i1 %.not85, label %61, label %56
 
 56:                                               ; preds = %.lr.ph
-  %.not87 = icmp eq ptr %.06299, %.06497
-  br i1 %.not87, label %58, label %57
+  %.not86 = icmp eq ptr %.06298, %.06496
+  br i1 %.not86, label %58, label %57
 
 57:                                               ; preds = %56
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %.06299, ptr noundef nonnull align 1 dereferenceable(5) %.06497, i64 5, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %.06298, ptr noundef nonnull align 1 dereferenceable(5) %.06496, i64 5, i1 false)
   br label %58
 
 58:                                               ; preds = %57, %56
-  %59 = getelementptr inbounds nuw i8, ptr %.06299, i64 5
-  %60 = add i32 %.16796, 1
+  %59 = getelementptr inbounds nuw i8, ptr %.06298, i64 5
+  %60 = add i32 %.16795, 1
   br label %61
 
 61:                                               ; preds = %.lr.ph, %58
-  %.2 = phi i32 [ %60, %58 ], [ %.16796, %.lr.ph ]
-  %.163 = phi ptr [ %59, %58 ], [ %.06299, %.lr.ph ]
-  %62 = add nuw i32 %.1100, 1
-  %63 = getelementptr inbounds nuw i8, ptr %.06497, i64 5
-  %exitcond113.not = icmp eq i32 %62, %.us-phi
-  br i1 %exitcond113.not, label %._crit_edge, label %.lr.ph, !llvm.loop !201
+  %.2 = phi i32 [ %60, %58 ], [ %.16795, %.lr.ph ]
+  %.163 = phi ptr [ %59, %58 ], [ %.06298, %.lr.ph ]
+  %62 = add nuw i32 %.199, 1
+  %63 = getelementptr inbounds nuw i8, ptr %.06496, i64 5
+  %exitcond112.not = icmp eq i32 %62, %.us-phi
+  br i1 %exitcond112.not, label %._crit_edge, label %.lr.ph, !llvm.loop !201
 
 ._crit_edge:                                      ; preds = %61
   %64 = icmp eq i32 %.2, 0
@@ -2376,15 +2376,15 @@ add_one_chunk.exit.us:                            ; preds = %40, %.sink.split.i.
 
 ._crit_edge.thread:                               ; preds = %.preheader, %._crit_edge
   %65 = load ptr, ptr %18, align 8, !tbaa !198
-  %.not83 = icmp eq ptr %65, %.068126128
-  br i1 %.not83, label %67, label %66
+  %.not82 = icmp eq ptr %65, %.068125127
+  br i1 %.not82, label %67, label %66
 
 66:                                               ; preds = %._crit_edge.thread
-  tail call void @png_free(ptr noundef nonnull %0, ptr noundef nonnull %.068126128) #12
+  tail call void @png_free(ptr noundef nonnull %0, ptr noundef nonnull %.068125127) #12
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %33, %66, %._crit_edge, %34
-  %.270.ph = phi ptr [ null, %34 ], [ null, %66 ], [ %.068126128, %._crit_edge ], [ null, %33 ]
+  %.270.ph = phi ptr [ null, %34 ], [ null, %66 ], [ %.068125127, %._crit_edge ], [ null, %33 ]
   %.3.ph = phi i32 [ 0, %34 ], [ 0, %66 ], [ %.2, %._crit_edge ], [ 0, %33 ]
   %.pr = load ptr, ptr %18, align 8, !tbaa !198
   br label %67
@@ -2394,12 +2394,12 @@ thread-pre-split:                                 ; preds = %33, %66, %._crit_ed
   %.270 = phi ptr [ %.270.ph, %thread-pre-split ], [ null, %._crit_edge.thread ]
   %.3 = phi i32 [ %.3.ph, %thread-pre-split ], [ 0, %._crit_edge.thread ]
   store i32 %.3, ptr %16, align 4, !tbaa !197
-  %.not84 = icmp eq ptr %68, %.270
-  br i1 %.not84, label %72, label %69
+  %.not83 = icmp eq ptr %68, %.270
+  br i1 %.not83, label %72, label %69
 
 69:                                               ; preds = %67
-  %.not85 = icmp eq ptr %68, null
-  br i1 %.not85, label %71, label %70
+  %.not84 = icmp eq ptr %68, null
+  br i1 %.not84, label %71, label %70
 
 70:                                               ; preds = %69
   tail call void @png_free(ptr noundef nonnull %0, ptr noundef nonnull %68) #12

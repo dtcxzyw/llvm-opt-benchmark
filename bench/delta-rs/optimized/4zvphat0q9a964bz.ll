@@ -18508,7 +18508,7 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
   switch i8 %118, label %default.unreachable [
     i8 0, label %121
     i8 1, label %.invoke
-    i8 2, label %.invoke.loopexit177
+    i8 2, label %.invoke.loopexit176
     i8 3, label %126
   ]
 
@@ -18531,10 +18531,10 @@ default.unreachable:                              ; preds = %114
   store ptr %122, ptr %123, align 8, !noalias !2770
   br label %126
 
-.invoke.loopexit177:                              ; preds = %114
+.invoke.loopexit176:                              ; preds = %114
   br label %.invoke
 
-.invoke:                                          ; preds = %114, %.invoke.loopexit177
+.invoke:                                          ; preds = %114, %.invoke.loopexit176
   %124 = phi ptr [ @str.5, %.invoke.loopexit177 ], [ @str.4, %114 ]
   %125 = phi i64 [ 34, %.invoke.loopexit177 ], [ 35, %114 ]
   invoke void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 %124, i64 noundef %125, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.fa082ecd109e1e9e48d31b7779f57bae.642) #45

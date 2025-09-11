@@ -693,8 +693,8 @@ define hidden range(i32 0, 2) i32 @VP8LBitWriterClone(ptr noundef readonly captu
   %20 = sub i64 %19, %15
   %21 = add i64 %20, %9
   %.not.i = icmp eq ptr %11, %13
-  %.not41.i = icmp ugt i64 %21, %16
-  %or.cond.i = select i1 %.not.i, i1 true, i1 %.not41.i
+  %.not40.i = icmp ugt i64 %21, %16
+  %or.cond.i = select i1 %.not.i, i1 true, i1 %.not40.i
   br i1 %or.cond.i, label %22, label %37
 
 22:                                               ; preds = %2
@@ -708,8 +708,8 @@ define hidden range(i32 0, 2) i32 @VP8LBitWriterClone(ptr noundef readonly captu
   br i1 %28, label %VP8LBitWriterResize.exit, label %29
 
 29:                                               ; preds = %22
-  %.not42.i = icmp eq ptr %18, %13
-  br i1 %.not42.i, label %32, label %30
+  %.not41.i = icmp eq ptr %18, %13
+  br i1 %.not41.i, label %32, label %30
 
 30:                                               ; preds = %29
   %31 = load ptr, ptr %12, align 8, !tbaa !24
@@ -831,8 +831,8 @@ define hidden void @VP8LPutBitsFlushBits(ptr noundef captures(none) %0) local_un
   %16 = sub i64 %15, %12
   %17 = add i64 %14, %16
   %.not.i = icmp eq ptr %6, %10
-  %.not41.i = icmp ugt i64 %17, %13
-  %or.cond.i = or i1 %.not.i, %.not41.i
+  %.not40.i = icmp ugt i64 %17, %13
+  %or.cond.i = or i1 %.not.i, %.not40.i
   br i1 %or.cond.i, label %18, label %.thread
 
 18:                                               ; preds = %8
@@ -846,8 +846,8 @@ define hidden void @VP8LPutBitsFlushBits(ptr noundef captures(none) %0) local_un
   br i1 %24, label %32, label %25
 
 25:                                               ; preds = %18
-  %.not42.i = icmp eq ptr %3, %10
-  br i1 %.not42.i, label %28, label %26
+  %.not41.i = icmp eq ptr %3, %10
+  br i1 %.not41.i, label %28, label %26
 
 26:                                               ; preds = %25
   %27 = load ptr, ptr %9, align 8, !tbaa !24
@@ -928,8 +928,8 @@ define hidden void @VP8LPutBitsInternal(ptr noundef captures(none) %0, i32 nound
   %25 = sub i64 %24, %21
   %26 = add i64 %23, %25
   %.not.i = icmp eq ptr %14, %19
-  %.not41.i = icmp ugt i64 %26, %22
-  %or.cond.i = or i1 %.not.i, %.not41.i
+  %.not40.i = icmp ugt i64 %26, %22
+  %or.cond.i = or i1 %.not.i, %.not40.i
   br i1 %or.cond.i, label %27, label %.critedge
 
 27:                                               ; preds = %18
@@ -943,8 +943,8 @@ define hidden void @VP8LPutBitsInternal(ptr noundef captures(none) %0, i32 nound
   br i1 %33, label %41, label %34
 
 34:                                               ; preds = %27
-  %.not42.i = icmp eq ptr %15, %19
-  br i1 %.not42.i, label %37, label %35
+  %.not41.i = icmp eq ptr %15, %19
+  br i1 %.not41.i, label %37, label %35
 
 35:                                               ; preds = %34
   %36 = load ptr, ptr %12, align 8, !tbaa !24
@@ -1015,8 +1015,8 @@ define hidden ptr @VP8LBitWriterFinish(ptr noundef captures(none) %0) local_unna
   %17 = sub i64 %16, %12
   %18 = add i64 %17, %6
   %.not.i = icmp eq ptr %8, %10
-  %.not41.i = icmp ugt i64 %18, %13
-  %or.cond.i = select i1 %.not.i, i1 true, i1 %.not41.i
+  %.not40.i = icmp ugt i64 %18, %13
+  %or.cond.i = select i1 %.not.i, i1 true, i1 %.not40.i
   br i1 %or.cond.i, label %19, label %VP8LBitWriterResize.exit
 
 19:                                               ; preds = %1
@@ -1035,8 +1035,8 @@ VP8LBitWriterResize.exit.thread:                  ; preds = %19
   br label %44
 
 27:                                               ; preds = %19
-  %.not42.i = icmp eq ptr %15, %10
-  br i1 %.not42.i, label %30, label %28
+  %.not41.i = icmp eq ptr %15, %10
+  br i1 %.not41.i, label %30, label %28
 
 28:                                               ; preds = %27
   %29 = load ptr, ptr %9, align 8, !tbaa !24
