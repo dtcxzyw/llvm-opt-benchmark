@@ -1153,8 +1153,8 @@ ExpandColorMap.exit:                              ; preds = %.preheader.i, %.lr.
 
 93:                                               ; preds = %.critedge68
   %94 = tail call i32 @VP8LReadBits(ptr noundef nonnull %8, i32 noundef 1) #8
-  %.not79.i = icmp eq i32 %94, 0
-  br i1 %.not79.i, label %VP8LSetError.exit77, label %95
+  %.not80.i = icmp eq i32 %94, 0
+  br i1 %.not80.i, label %VP8LSetError.exit77, label %95
 
 95:                                               ; preds = %93
   %96 = tail call i32 @VP8LReadBits(ptr noundef nonnull %8, i32 noundef 3) #8
@@ -1168,8 +1168,8 @@ ExpandColorMap.exit:                              ; preds = %.preheader.i, %.lr.
   %104 = lshr i32 %103, %97
   %105 = mul i32 %101, %104
   %106 = call fastcc i32 @DecodeImageStream(i32 noundef %101, i32 noundef %104, i32 noundef 0, ptr noundef nonnull %3, ptr noundef nonnull %6)
-  %.not80.i = icmp eq i32 %106, 0
-  br i1 %.not80.i, label %VP8LSetError.exit77.thread, label %107
+  %.not81.i = icmp eq i32 %106, 0
+  br i1 %.not81.i, label %VP8LSetError.exit77.thread, label %107
 
 107:                                              ; preds = %95
   %108 = getelementptr inbounds nuw i8, ptr %3, i64 196
@@ -1261,13 +1261,13 @@ VP8LSetError.exit77:                              ; preds = %139, %127, %._crit_
   %.064.i = phi i32 [ 1, %93 ], [ 1, %.critedge68 ], [ %.268.i.lcssa, %._crit_edge ], [ 0, %127 ], [ %.3.i, %139 ]
   %141 = getelementptr inbounds nuw i8, ptr %3, i64 76
   %142 = load i32, ptr %141, align 4, !tbaa !51
-  %.not81.i = icmp eq i32 %142, 0
-  br i1 %.not81.i, label %143, label %VP8LSetError.exit77.thread
+  %.not82.i = icmp eq i32 %142, 0
+  br i1 %.not82.i, label %143, label %VP8LSetError.exit77.thread
 
 143:                                              ; preds = %VP8LSetError.exit77
   %144 = call i32 @ReadHuffmanCodesHelper(i32 noundef range(i32 -2147483648, 12) %.052, i32 noundef %.064.i, i32 noundef %.066.i, ptr noundef %.070.i, ptr noundef nonnull %3, ptr noundef nonnull %92, ptr noundef nonnull %7)
-  %.not82.i = icmp eq i32 %144, 0
-  br i1 %.not82.i, label %VP8LSetError.exit77.thread, label %148
+  %.not83.i = icmp eq i32 %144, 0
+  br i1 %.not83.i, label %VP8LSetError.exit77.thread, label %148
 
 VP8LSetError.exit77.thread:                       ; preds = %126, %124, %95, %143, %VP8LSetError.exit77
   %.373.i.ph = phi ptr [ %.070.i, %143 ], [ %.070.i, %VP8LSetError.exit77 ], [ null, %95 ], [ null, %124 ], [ null, %126 ]

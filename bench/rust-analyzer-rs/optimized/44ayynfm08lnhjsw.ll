@@ -6080,41 +6080,26 @@ define hidden { i64, ptr } @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..op
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %10 = load i8, ptr %9, align 4, !range !81, !alias.scope !1250, !noalias !1241, !noundef !11
   %11 = trunc nuw i8 %10 to i1
-  %12 = getelementptr inbounds nuw i8, ptr %1, i64 29
-  %13 = load i8, ptr %12, align 1, !range !81, !alias.scope !1250, !noalias !1241, !noundef !11
-  %14 = trunc nuw i8 %13 to i1
-  br i1 %11, label %19, label %15
+  br i1 %11, label %"_ZN11ide_assists8handlers16extract_function9make_call28_$u7b$$u7b$closure$u7d$$u7d$17h6535d11d2b32da8aE.llvm.6977743830891006301.exit", label %12
 
-15:                                               ; preds = %2
+12:                                               ; preds = %2
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 29
+  %14 = load i8, ptr %13, align 1, !range !81, !alias.scope !1250, !noalias !1241, !noundef !11
+  %15 = trunc nuw i8 %14 to i1
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 30
   %17 = load i8, ptr %16, align 2, !range !81, !alias.scope !1250, !noalias !1241, !noundef !11
   %18 = trunc nuw i8 %17 to i1
   %.not.i.i.i = xor i1 %18, true
-  %brmerge.i.i.i = select i1 %14, i1 true, i1 %.not.i.i.i
-  br i1 %brmerge.i.i.i, label %_ZN11ide_assists8handlers16extract_function5Param4kind17h4c0a60a6cf946b48E.llvm.14339125420948612040.exit.i.i, label %20
+  %brmerge.i.i.i = select i1 %15, i1 true, i1 %.not.i.i.i
+  br i1 %brmerge.i.i.i, label %_ZN11ide_assists8handlers16extract_function5Param4kind17h4c0a60a6cf946b48E.llvm.14339125420948612040.exit.i.i, label %"_ZN11ide_assists8handlers16extract_function9make_call28_$u7b$$u7b$closure$u7d$$u7d$17h6535d11d2b32da8aE.llvm.6977743830891006301.exit"
 
-19:                                               ; preds = %2
-  br i1 %14, label %"_ZN11ide_assists8handlers16extract_function9make_call28_$u7b$$u7b$closure$u7d$$u7d$17h6535d11d2b32da8aE.llvm.6977743830891006301.exit", label %20
-
-20:                                               ; preds = %19, %15
-  %21 = xor i1 %14, true
-  tail call void @llvm.assume(i1 %21)
+_ZN11ide_assists8handlers16extract_function5Param4kind17h4c0a60a6cf946b48E.llvm.14339125420948612040.exit.i.i: ; preds = %12
+  %switch.not.i.i = icmp ne i8 %14, 0
+  %19 = tail call { i64, ptr } @_ZN6syntax3ast4make8expr_ref17h5efd536a6e9bceccE(i64 noundef %7, ptr noundef %8, i1 noundef zeroext %switch.not.i.i), !noalias !1249
   br label %"_ZN11ide_assists8handlers16extract_function9make_call28_$u7b$$u7b$closure$u7d$$u7d$17h6535d11d2b32da8aE.llvm.6977743830891006301.exit"
 
-_ZN11ide_assists8handlers16extract_function5Param4kind17h4c0a60a6cf946b48E.llvm.14339125420948612040.exit.i.i: ; preds = %15
-  %switch.not.i.i = icmp eq i8 %13, 0
-  br i1 %switch.not.i.i, label %22, label %24
-
-22:                                               ; preds = %_ZN11ide_assists8handlers16extract_function5Param4kind17h4c0a60a6cf946b48E.llvm.14339125420948612040.exit.i.i
-  %23 = tail call { i64, ptr } @_ZN6syntax3ast4make8expr_ref17h5efd536a6e9bceccE(i64 noundef %7, ptr noundef %8, i1 noundef zeroext false), !noalias !1249
-  br label %"_ZN11ide_assists8handlers16extract_function9make_call28_$u7b$$u7b$closure$u7d$$u7d$17h6535d11d2b32da8aE.llvm.6977743830891006301.exit"
-
-24:                                               ; preds = %_ZN11ide_assists8handlers16extract_function5Param4kind17h4c0a60a6cf946b48E.llvm.14339125420948612040.exit.i.i
-  %25 = tail call { i64, ptr } @_ZN6syntax3ast4make8expr_ref17h5efd536a6e9bceccE(i64 noundef %7, ptr noundef %8, i1 noundef zeroext true), !noalias !1249
-  br label %"_ZN11ide_assists8handlers16extract_function9make_call28_$u7b$$u7b$closure$u7d$$u7d$17h6535d11d2b32da8aE.llvm.6977743830891006301.exit"
-
-"_ZN11ide_assists8handlers16extract_function9make_call28_$u7b$$u7b$closure$u7d$$u7d$17h6535d11d2b32da8aE.llvm.6977743830891006301.exit": ; preds = %19, %20, %22, %24
-  %.merged.i.i = phi { i64, ptr } [ %23, %22 ], [ %25, %24 ], [ %6, %20 ], [ %6, %19 ]
+"_ZN11ide_assists8handlers16extract_function9make_call28_$u7b$$u7b$closure$u7d$$u7d$17h6535d11d2b32da8aE.llvm.6977743830891006301.exit": ; preds = %2, %12, %_ZN11ide_assists8handlers16extract_function5Param4kind17h4c0a60a6cf946b48E.llvm.14339125420948612040.exit.i.i
+  %.merged.i.i = phi { i64, ptr } [ %6, %12 ], [ %6, %2 ], [ %19, %_ZN11ide_assists8handlers16extract_function5Param4kind17h4c0a60a6cf946b48E.llvm.14339125420948612040.exit.i.i ]
   ret { i64, ptr } %.merged.i.i
 }
 
@@ -40204,41 +40189,26 @@ define hidden { i64, ptr } @"_ZN11ide_assists8handlers16extract_function9make_ca
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %10 = load i8, ptr %9, align 4, !range !81, !alias.scope !9903, !noundef !11
   %11 = trunc nuw i8 %10 to i1
-  %12 = getelementptr inbounds nuw i8, ptr %1, i64 29
-  %13 = load i8, ptr %12, align 1, !range !81, !alias.scope !9903, !noundef !11
-  %14 = trunc nuw i8 %13 to i1
-  br i1 %11, label %19, label %15
+  br i1 %11, label %_ZN11ide_assists8handlers16extract_function5Param6to_arg17h4bd6d3442770a134E.exit, label %12
 
-15:                                               ; preds = %2
+12:                                               ; preds = %2
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 29
+  %14 = load i8, ptr %13, align 1, !range !81, !alias.scope !9903, !noundef !11
+  %15 = trunc nuw i8 %14 to i1
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 30
   %17 = load i8, ptr %16, align 2, !range !81, !alias.scope !9903, !noundef !11
   %18 = trunc nuw i8 %17 to i1
   %.not.i.i = xor i1 %18, true
-  %brmerge.i.i = select i1 %14, i1 true, i1 %.not.i.i
-  br i1 %brmerge.i.i, label %_ZN11ide_assists8handlers16extract_function5Param4kind17h4c0a60a6cf946b48E.llvm.14339125420948612040.exit.i, label %20
+  %brmerge.i.i = select i1 %15, i1 true, i1 %.not.i.i
+  br i1 %brmerge.i.i, label %_ZN11ide_assists8handlers16extract_function5Param4kind17h4c0a60a6cf946b48E.llvm.14339125420948612040.exit.i, label %_ZN11ide_assists8handlers16extract_function5Param6to_arg17h4bd6d3442770a134E.exit
 
-19:                                               ; preds = %2
-  br i1 %14, label %_ZN11ide_assists8handlers16extract_function5Param6to_arg17h4bd6d3442770a134E.exit, label %20
-
-20:                                               ; preds = %19, %15
-  %21 = xor i1 %14, true
-  tail call void @llvm.assume(i1 %21)
+_ZN11ide_assists8handlers16extract_function5Param4kind17h4c0a60a6cf946b48E.llvm.14339125420948612040.exit.i: ; preds = %12
+  %switch.not.i = icmp ne i8 %14, 0
+  %19 = tail call { i64, ptr } @_ZN6syntax3ast4make8expr_ref17h5efd536a6e9bceccE(i64 noundef %7, ptr noundef %8, i1 noundef zeroext %switch.not.i), !noalias !9900
   br label %_ZN11ide_assists8handlers16extract_function5Param6to_arg17h4bd6d3442770a134E.exit
 
-_ZN11ide_assists8handlers16extract_function5Param4kind17h4c0a60a6cf946b48E.llvm.14339125420948612040.exit.i: ; preds = %15
-  %switch.not.i = icmp eq i8 %13, 0
-  br i1 %switch.not.i, label %22, label %24
-
-22:                                               ; preds = %_ZN11ide_assists8handlers16extract_function5Param4kind17h4c0a60a6cf946b48E.llvm.14339125420948612040.exit.i
-  %23 = tail call { i64, ptr } @_ZN6syntax3ast4make8expr_ref17h5efd536a6e9bceccE(i64 noundef %7, ptr noundef %8, i1 noundef zeroext false), !noalias !9900
-  br label %_ZN11ide_assists8handlers16extract_function5Param6to_arg17h4bd6d3442770a134E.exit
-
-24:                                               ; preds = %_ZN11ide_assists8handlers16extract_function5Param4kind17h4c0a60a6cf946b48E.llvm.14339125420948612040.exit.i
-  %25 = tail call { i64, ptr } @_ZN6syntax3ast4make8expr_ref17h5efd536a6e9bceccE(i64 noundef %7, ptr noundef %8, i1 noundef zeroext true), !noalias !9900
-  br label %_ZN11ide_assists8handlers16extract_function5Param6to_arg17h4bd6d3442770a134E.exit
-
-_ZN11ide_assists8handlers16extract_function5Param6to_arg17h4bd6d3442770a134E.exit: ; preds = %19, %20, %22, %24
-  %.merged.i = phi { i64, ptr } [ %23, %22 ], [ %25, %24 ], [ %6, %20 ], [ %6, %19 ]
+_ZN11ide_assists8handlers16extract_function5Param6to_arg17h4bd6d3442770a134E.exit: ; preds = %2, %12, %_ZN11ide_assists8handlers16extract_function5Param4kind17h4c0a60a6cf946b48E.llvm.14339125420948612040.exit.i
+  %.merged.i = phi { i64, ptr } [ %6, %12 ], [ %6, %2 ], [ %19, %_ZN11ide_assists8handlers16extract_function5Param4kind17h4c0a60a6cf946b48E.llvm.14339125420948612040.exit.i ]
   ret { i64, ptr } %.merged.i
 }
 

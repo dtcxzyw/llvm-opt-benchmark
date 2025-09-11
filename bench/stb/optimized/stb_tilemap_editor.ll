@@ -8431,8 +8431,8 @@ stbte__hittest.exit:                              ; preds = %6, %13, %25
   %or.cond = select i1 %42, i1 %43, i1 false
   %44 = load i32, ptr getelementptr inbounds nuw (i8, ptr @stbte__ui, i64 1316332), align 4
   %45 = icmp slt i32 %38, %44
-  %or.cond154 = select i1 %or.cond, i1 %45, i1 false
-  br i1 %or.cond154, label %46, label %stbte__paste_stack.exit
+  %or.cond157 = select i1 %or.cond, i1 %45, i1 false
+  br i1 %or.cond157, label %46, label %stbte__paste_stack.exit
 
 46:                                               ; preds = %40
   %47 = mul nsw i32 %41, %38
@@ -8444,8 +8444,8 @@ stbte__hittest.exit:                              ; preds = %6, %13, %25
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 801040
   %54 = load i32, ptr %53, align 8, !tbaa !40
   %55 = icmp slt i32 %54, 0
-  %spec.select.i164 = select i1 %55, i32 %52, i32 %54
-  %56 = icmp sgt i32 %spec.select.i164, -1
+  %spec.select.i167 = select i1 %55, i32 %52, i32 %54
+  %56 = icmp sgt i32 %spec.select.i167, -1
   br i1 %56, label %85, label %.preheader.i
 
 .preheader.i:                                     ; preds = %46
@@ -8549,7 +8549,7 @@ stbte__hittest.exit:                              ; preds = %6, %13, %25
   br i1 %.not60.i, label %106, label %stbte__paste_stack.exit
 
 106:                                              ; preds = %104, %92, %85
-  %107 = zext nneg i32 %spec.select.i164 to i64
+  %107 = zext nneg i32 %spec.select.i167 to i64
   %108 = getelementptr inbounds nuw i16, ptr %29, i64 %107
   %109 = load i16, ptr %108, align 2, !tbaa !21
   %110 = getelementptr inbounds nuw i16, ptr %7, i64 %107
@@ -8557,7 +8557,7 @@ stbte__hittest.exit:                              ; preds = %6, %13, %25
   %111 = getelementptr inbounds nuw i16, ptr %50, i64 %107
   %112 = load i16, ptr %111, align 2, !tbaa !21
   %113 = sext i16 %112 to i32
-  %114 = icmp eq i32 %spec.select.i164, 0
+  %114 = icmp eq i32 %spec.select.i167, 0
   br i1 %114, label %115, label %119
 
 115:                                              ; preds = %106
@@ -8577,22 +8577,22 @@ stbte__hittest.exit:                              ; preds = %6, %13, %25
 
 122:                                              ; preds = %33
   %123 = load i32, ptr getelementptr inbounds nuw (i8, ptr @stbte__ui, i64 5256), align 8, !tbaa !180
-  %.not134 = icmp eq i32 %123, 0
-  br i1 %.not134, label %195, label %.preheader177
+  %.not137 = icmp eq i32 %123, 0
+  br i1 %.not137, label %195, label %.preheader180
 
-.preheader177:                                    ; preds = %122
+.preheader180:                                    ; preds = %122
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 800008
   %125 = load i32, ptr %124, align 8, !tbaa !28
   %126 = icmp sgt i32 %125, 0
   br i1 %126, label %.lr.ph.preheader, label %._crit_edge
 
-.lr.ph.preheader:                                 ; preds = %.preheader177
+.lr.ph.preheader:                                 ; preds = %.preheader180
   %127 = shl nuw i32 %125, 1
   %128 = zext i32 %127 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %7, ptr align 2 %29, i64 %128, i1 false), !tbaa !21
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %.lr.ph.preheader, %.preheader177
+._crit_edge:                                      ; preds = %.lr.ph.preheader, %.preheader180
   %129 = load i32, ptr getelementptr inbounds nuw (i8, ptr @stbte__ui, i64 5260), align 4, !tbaa !169
   %130 = sub nsw i32 %3, %129
   %131 = load i32, ptr getelementptr inbounds nuw (i8, ptr @stbte__ui, i64 5264), align 8, !tbaa !170
@@ -8610,8 +8610,8 @@ stbte__hittest.exit:                              ; preds = %6, %13, %25
   %or.cond5 = select i1 %138, i1 %139, i1 false
   %140 = load i32, ptr getelementptr inbounds nuw (i8, ptr @stbte__ui, i64 5272), align 8
   %141 = icmp slt i32 %136, %140
-  %or.cond156 = select i1 %or.cond5, i1 %141, i1 false
-  br i1 %or.cond156, label %142, label %stbte__clear_stack.exit
+  %or.cond159 = select i1 %or.cond5, i1 %141, i1 false
+  br i1 %or.cond159, label %142, label %stbte__clear_stack.exit
 
 142:                                              ; preds = %135
   %143 = getelementptr inbounds nuw i8, ptr %0, i64 800044
@@ -8619,21 +8619,21 @@ stbte__hittest.exit:                              ; preds = %6, %13, %25
   %145 = getelementptr inbounds nuw i8, ptr %0, i64 801040
   %146 = load i32, ptr %145, align 8, !tbaa !40
   %147 = icmp slt i32 %146, 0
-  %spec.select.i166 = select i1 %147, i32 %144, i32 %146
-  %148 = icmp sgt i32 %spec.select.i166, -1
-  br i1 %148, label %151, label %.preheader.i167
+  %spec.select.i169 = select i1 %147, i32 %144, i32 %146
+  %148 = icmp sgt i32 %spec.select.i169, -1
+  br i1 %148, label %151, label %.preheader.i170
 
-.preheader.i167:                                  ; preds = %142
-  br i1 %126, label %.lr.ph.i168, label %stbte__clear_stack.exit
+.preheader.i170:                                  ; preds = %142
+  br i1 %126, label %.lr.ph.i171, label %stbte__clear_stack.exit
 
-.lr.ph.i168:                                      ; preds = %.preheader.i167
+.lr.ph.i171:                                      ; preds = %.preheader.i170
   %149 = getelementptr inbounds nuw i8, ptr %0, i64 800896
   %150 = getelementptr inbounds nuw i8, ptr %0, i64 801056
   %wide.trip.count.i = zext nneg i32 %125 to i64
   br label %160
 
 151:                                              ; preds = %142
-  %152 = icmp eq i32 %spec.select.i166, 0
+  %152 = icmp eq i32 %spec.select.i169, 0
   br i1 %152, label %153, label %156
 
 153:                                              ; preds = %151
@@ -8643,18 +8643,18 @@ stbte__hittest.exit:                              ; preds = %6, %13, %25
 
 156:                                              ; preds = %153, %151
   %157 = phi i16 [ %155, %153 ], [ -1, %151 ]
-  %158 = zext nneg i32 %spec.select.i166 to i64
+  %158 = zext nneg i32 %spec.select.i169 to i64
   %159 = getelementptr inbounds nuw i16, ptr %7, i64 %158
   store i16 %157, ptr %159, align 2, !tbaa !21
   br label %stbte__clear_stack.exit
 
-160:                                              ; preds = %175, %.lr.ph.i168
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i168 ], [ %indvars.iv.next.i, %175 ]
+160:                                              ; preds = %175, %.lr.ph.i171
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i171 ], [ %indvars.iv.next.i, %175 ]
   %161 = getelementptr inbounds nuw %struct.stbte__layer, ptr %149, i64 %indvars.iv.i
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 12
   %163 = load i32, ptr %162, align 4, !tbaa !131
-  %.not.i169 = icmp eq i32 %163, 0
-  br i1 %.not.i169, label %164, label %175
+  %.not.i172 = icmp eq i32 %163, 0
+  br i1 %.not.i172, label %164, label %175
 
 164:                                              ; preds = %160
   %165 = getelementptr inbounds nuw i8, ptr %161, i64 8
@@ -8681,7 +8681,7 @@ stbte__hittest.exit:                              ; preds = %6, %13, %25
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %stbte__clear_stack.exit, label %160, !llvm.loop !147
 
-stbte__clear_stack.exit:                          ; preds = %175, %156, %.preheader.i167, %135, %._crit_edge
+stbte__clear_stack.exit:                          ; preds = %175, %156, %.preheader.i170, %135, %._crit_edge
   %176 = load i32, ptr getelementptr inbounds nuw (i8, ptr @stbte__ui, i64 5284), align 4, !tbaa !171
   %177 = sub nsw i32 %3, %176
   %178 = load i32, ptr getelementptr inbounds nuw (i8, ptr @stbte__ui, i64 5288), align 8, !tbaa !172
@@ -8696,8 +8696,8 @@ stbte__clear_stack.exit:                          ; preds = %175, %156, %.prehea
   %or.cond7 = select i1 %183, i1 %184, i1 false
   %185 = load i32, ptr getelementptr inbounds nuw (i8, ptr @stbte__ui, i64 5272), align 8
   %186 = icmp slt i32 %179, %185
-  %or.cond158 = select i1 %or.cond7, i1 %186, i1 false
-  br i1 %or.cond158, label %187, label %stbte__paste_stack.exit
+  %or.cond161 = select i1 %or.cond7, i1 %186, i1 false
+  br i1 %or.cond161, label %187, label %stbte__paste_stack.exit
 
 187:                                              ; preds = %181
   %188 = add nsw i32 %179, %131
@@ -8732,51 +8732,51 @@ stbte__clear_stack.exit:                          ; preds = %175, %156, %.prehea
   %209 = and i32 %208, 4095
   %210 = load i32, ptr getelementptr inbounds nuw (i8, ptr @stbte__ui, i64 5316), align 4, !tbaa !103
   %211 = load i32, ptr getelementptr inbounds nuw (i8, ptr @stbte__ui, i64 5320), align 8, !tbaa !128
-  %.not135 = icmp slt i32 %3, %210
-  %.not136 = icmp sgt i32 %3, %207
-  %or.cond159 = or i1 %.not136, %.not135
-  br i1 %or.cond159, label %212, label %213
+  %.not138 = icmp slt i32 %3, %210
+  %.not139 = icmp sgt i32 %3, %207
+  %or.cond162 = or i1 %.not139, %.not138
+  br i1 %or.cond162, label %212, label %213
 
 212:                                              ; preds = %205
-  %.not137 = icmp slt i32 %3, %207
-  %.not138 = icmp sgt i32 %3, %210
-  %or.cond160 = or i1 %.not137, %.not138
-  br i1 %or.cond160, label %stbte__paste_stack.exit, label %213
+  %.not140 = icmp slt i32 %3, %207
+  %.not141 = icmp sgt i32 %3, %210
+  %or.cond163 = or i1 %.not140, %.not141
+  br i1 %or.cond163, label %stbte__paste_stack.exit, label %213
 
 213:                                              ; preds = %212, %205
-  %.not139 = icmp slt i32 %4, %211
-  %.not140 = icmp sgt i32 %4, %209
-  %or.cond161 = or i1 %.not140, %.not139
-  br i1 %or.cond161, label %214, label %215
+  %.not142 = icmp slt i32 %4, %211
+  %.not143 = icmp sgt i32 %4, %209
+  %or.cond164 = or i1 %.not143, %.not142
+  br i1 %or.cond164, label %214, label %215
 
 214:                                              ; preds = %213
-  %.not141 = icmp slt i32 %4, %209
-  %.not142 = icmp sgt i32 %4, %211
-  %or.cond162 = select i1 %.not141, i1 true, i1 %.not142
-  br i1 %or.cond162, label %stbte__paste_stack.exit, label %215
+  %.not144 = icmp slt i32 %4, %209
+  %.not145 = icmp sgt i32 %4, %211
+  %or.cond165 = select i1 %.not144, i1 true, i1 %.not145
+  br i1 %or.cond165, label %stbte__paste_stack.exit, label %215
 
 215:                                              ; preds = %214, %213
   %216 = getelementptr inbounds nuw i8, ptr %0, i64 800008
   %217 = load i32, ptr %216, align 8, !tbaa !28
   %218 = icmp sgt i32 %217, 0
-  br i1 %218, label %.lr.ph183.preheader, label %._crit_edge184
+  br i1 %218, label %.lr.ph186.preheader, label %._crit_edge187
 
-.lr.ph183.preheader:                              ; preds = %215
+.lr.ph186.preheader:                              ; preds = %215
   %219 = shl nuw i32 %217, 1
   %220 = zext i32 %219 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %7, ptr align 2 %29, i64 %220, i1 false), !tbaa !21
-  br label %._crit_edge184
+  br label %._crit_edge187
 
-._crit_edge184:                                   ; preds = %.lr.ph183.preheader, %215
+._crit_edge187:                                   ; preds = %.lr.ph186.preheader, %215
   %221 = load i32, ptr getelementptr inbounds nuw (i8, ptr @stbte__ui, i64 4), align 4, !tbaa !96
   %222 = icmp eq i32 %221, 4
   br i1 %222, label %223, label %224
 
-223:                                              ; preds = %._crit_edge184
+223:                                              ; preds = %._crit_edge187
   call void @stbte__brush_predict(ptr noundef nonnull %0, ptr noundef nonnull %7)
   br label %stbte__paste_stack.exit
 
-224:                                              ; preds = %._crit_edge184
+224:                                              ; preds = %._crit_edge187
   %225 = call i32 @stbte__erase_predict(ptr noundef nonnull %0, ptr noundef nonnull %7, i32 noundef 1)
   br label %stbte__paste_stack.exit
 
@@ -8785,12 +8785,12 @@ stbte__paste_stack.exit:                          ; preds = %84, %121, %119, %10
   %226 = icmp eq i32 %30, %11
   %227 = load i32, ptr getelementptr inbounds nuw (i8, ptr @stbte__ui, i64 8), align 8
   %228 = icmp eq i32 %227, 0
-  %or.cond9.not146.not151 = select i1 %226, i1 %228, i1 false
+  %or.cond9.not149.not154 = select i1 %226, i1 %228, i1 false
   %229 = icmp eq i32 %.pre, 0
-  %or.cond11.not148 = select i1 %or.cond9.not146.not151, i1 %229, i1 false
+  %or.cond11.not151 = select i1 %or.cond9.not149.not154, i1 %229, i1 false
   %230 = load i32, ptr @stbte__ui, align 8
   %231 = icmp eq i32 %230, 1
-  %or.cond15 = select i1 %or.cond11.not148, i1 %231, i1 false
+  %or.cond15 = select i1 %or.cond11.not151, i1 %231, i1 false
   br i1 %or.cond15, label %232, label %stbte__brush_predict.exit
 
 232:                                              ; preds = %stbte__paste_stack.exit
@@ -8803,18 +8803,18 @@ stbte__paste_stack.exit:                          ; preds = %84, %121, %119, %10
   %236 = getelementptr inbounds nuw i8, ptr %0, i64 800008
   %237 = load i32, ptr %236, align 8, !tbaa !28
   %238 = icmp sgt i32 %237, 0
-  br i1 %238, label %._crit_edge187, label %stbte__brush_predict.exit
+  br i1 %238, label %._crit_edge190, label %stbte__brush_predict.exit
 
-._crit_edge187:                                   ; preds = %.preheader
+._crit_edge190:                                   ; preds = %.preheader
   %239 = shl nuw i32 %237, 1
   %240 = zext i32 %239 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %7, ptr align 2 %29, i64 %240, i1 false), !tbaa !21
   %241 = getelementptr inbounds nuw i8, ptr %0, i64 800040
   %242 = load i32, ptr %241, align 8, !tbaa !39
   %243 = icmp slt i32 %242, 0
-  br i1 %243, label %stbte__brush_predict.exit, label %.lr.ph.i170
+  br i1 %243, label %stbte__brush_predict.exit, label %.lr.ph.i173
 
-.lr.ph.i170:                                      ; preds = %._crit_edge187
+.lr.ph.i173:                                      ; preds = %._crit_edge190
   %244 = getelementptr inbounds nuw i8, ptr %0, i64 800856
   %245 = load ptr, ptr %244, align 8, !tbaa !24
   %246 = zext nneg i32 %242 to i64
@@ -8825,33 +8825,33 @@ stbte__paste_stack.exit:                          ; preds = %84, %121, %119, %10
   %251 = getelementptr inbounds nuw i8, ptr %0, i64 800044
   %252 = getelementptr inbounds nuw i8, ptr %0, i64 800896
   %253 = getelementptr inbounds nuw i8, ptr %0, i64 801056
-  %wide.trip.count.i171 = zext nneg i32 %237 to i64
+  %wide.trip.count.i174 = zext nneg i32 %237 to i64
   br label %254
 
-254:                                              ; preds = %286, %.lr.ph.i170
-  %indvars.iv.i172 = phi i64 [ 0, %.lr.ph.i170 ], [ %indvars.iv.next.i175, %286 ]
-  %255 = trunc nuw nsw i64 %indvars.iv.i172 to i32
+254:                                              ; preds = %286, %.lr.ph.i173
+  %indvars.iv.i175 = phi i64 [ 0, %.lr.ph.i173 ], [ %indvars.iv.next.i178, %286 ]
+  %255 = trunc nuw nsw i64 %indvars.iv.i175 to i32
   %256 = shl nuw i32 1, %255
   %257 = and i32 %256, %249
-  %.not.i173 = icmp eq i32 %257, 0
-  br i1 %.not.i173, label %286, label %258
+  %.not.i176 = icmp eq i32 %257, 0
+  br i1 %.not.i176, label %286, label %258
 
 258:                                              ; preds = %254
   %259 = load i32, ptr %250, align 8, !tbaa !40
   %260 = zext i32 %259 to i64
-  %.not28.i = icmp eq i64 %indvars.iv.i172, %260
+  %.not28.i = icmp eq i64 %indvars.iv.i175, %260
   br i1 %.not28.i, label %282, label %261
 
 261:                                              ; preds = %258
   %262 = load i32, ptr %251, align 4, !tbaa !130
   %263 = icmp slt i32 %262, 0
   %264 = zext i32 %262 to i64
-  %.not29.i = icmp eq i64 %indvars.iv.i172, %264
-  %or.cond.i174 = or i1 %263, %.not29.i
-  br i1 %or.cond.i174, label %265, label %286
+  %.not29.i = icmp eq i64 %indvars.iv.i175, %264
+  %or.cond.i177 = or i1 %263, %.not29.i
+  br i1 %or.cond.i177, label %265, label %286
 
 265:                                              ; preds = %261
-  %266 = getelementptr inbounds nuw %struct.stbte__layer, ptr %252, i64 %indvars.iv.i172
+  %266 = getelementptr inbounds nuw %struct.stbte__layer, ptr %252, i64 %indvars.iv.i175
   %267 = getelementptr inbounds nuw i8, ptr %266, i64 12
   %268 = load i32, ptr %267, align 4, !tbaa !131
   %.not30.i = icmp eq i32 %268, 0
@@ -8866,10 +8866,10 @@ stbte__paste_stack.exit:                          ; preds = %84, %121, %119, %10
   ]
 
 272:                                              ; preds = %269
-  %273 = getelementptr inbounds nuw i16, ptr %7, i64 %indvars.iv.i172
+  %273 = getelementptr inbounds nuw i16, ptr %7, i64 %indvars.iv.i175
   %274 = load i16, ptr %273, align 2, !tbaa !21
   %275 = sext i16 %274 to i32
-  %276 = icmp eq i64 %indvars.iv.i172, 0
+  %276 = icmp eq i64 %indvars.iv.i175, 0
   br i1 %276, label %277, label %280
 
 277:                                              ; preds = %272
@@ -8884,35 +8884,35 @@ stbte__paste_stack.exit:                          ; preds = %84, %121, %119, %10
 
 282:                                              ; preds = %280, %269, %258
   %283 = load i16, ptr %247, align 8, !tbaa !60
-  %284 = and i64 %indvars.iv.i172, 4294967295
+  %284 = and i64 %indvars.iv.i175, 4294967295
   %285 = getelementptr inbounds nuw i16, ptr %7, i64 %284
   store i16 %283, ptr %285, align 2, !tbaa !21
   br label %stbte__brush_predict.exit
 
 286:                                              ; preds = %280, %269, %265, %261, %254
-  %indvars.iv.next.i175 = add nuw nsw i64 %indvars.iv.i172, 1
-  %exitcond.not.i176 = icmp eq i64 %indvars.iv.next.i175, %wide.trip.count.i171
-  br i1 %exitcond.not.i176, label %stbte__brush_predict.exit, label %254, !llvm.loop !133
+  %indvars.iv.next.i178 = add nuw nsw i64 %indvars.iv.i175, 1
+  %exitcond.not.i179 = icmp eq i64 %indvars.iv.next.i178, %wide.trip.count.i174
+  br i1 %exitcond.not.i179, label %stbte__brush_predict.exit, label %254, !llvm.loop !133
 
-stbte__brush_predict.exit:                        ; preds = %286, %.preheader, %282, %._crit_edge187, %232, %stbte__paste_stack.exit
-  %.3 = phi ptr [ %.0119, %232 ], [ %.0119, %stbte__paste_stack.exit ], [ %7, %._crit_edge187 ], [ %7, %282 ], [ %7, %.preheader ], [ %7, %286 ]
+stbte__brush_predict.exit:                        ; preds = %286, %.preheader, %282, %._crit_edge190, %232, %stbte__paste_stack.exit
+  %.3 = phi ptr [ %.0119, %232 ], [ %.0119, %stbte__paste_stack.exit ], [ %7, %._crit_edge190 ], [ %7, %282 ], [ %7, %.preheader ], [ %7, %286 ]
   %287 = getelementptr inbounds nuw i8, ptr %0, i64 801040
   %288 = load i32, ptr %287, align 8, !tbaa !40
   %289 = icmp eq i32 %5, %288
-  %.pre193 = sext i32 %5 to i64
+  %.pre196 = sext i32 %5 to i64
   br i1 %289, label %stbte__brush_predict.exit._crit_edge, label %290
 
 290:                                              ; preds = %stbte__brush_predict.exit
-  %291 = getelementptr %struct.stbte__layer, ptr %0, i64 %.pre193
+  %291 = getelementptr %struct.stbte__layer, ptr %0, i64 %.pre196
   %292 = getelementptr i8, ptr %291, i64 800908
   %293 = load i32, ptr %292, align 4, !tbaa !131
-  %.not152 = icmp eq i32 %293, 0
+  %.not155 = icmp eq i32 %293, 0
   %294 = icmp slt i32 %288, 0
-  %or.cond163 = and i1 %294, %.not152
-  br i1 %or.cond163, label %stbte__brush_predict.exit._crit_edge, label %302
+  %or.cond166 = and i1 %294, %.not155
+  br i1 %or.cond166, label %stbte__brush_predict.exit._crit_edge, label %302
 
 stbte__brush_predict.exit._crit_edge:             ; preds = %stbte__brush_predict.exit, %290
-  %295 = getelementptr inbounds i16, ptr %.3, i64 %.pre193
+  %295 = getelementptr inbounds i16, ptr %.3, i64 %.pre196
   %296 = load i16, ptr %295, align 2, !tbaa !21
   %297 = icmp sgt i16 %296, -1
   br i1 %297, label %298, label %302

@@ -523,24 +523,24 @@ define noundef zeroext i1 @_ZN8facebook5velox9Timestamp10epochToUtcElR2tm(i64 no
 entry:
   %div = sdiv i64 %epoch, 86400
   %rem1 = srem i64 %epoch, 86400
-  %cmp55 = icmp slt i64 %rem1, 0
+  %cmp56 = icmp slt i64 %rem1, 0
   %0 = add nsw i64 %rem1, 86400
-  %rem.0.lcssa = select i1 %cmp55, i64 %0, i64 %rem1
+  %rem.0.lcssa = select i1 %cmp56, i64 %0, i64 %rem1
   %rem1.lobit = ashr i64 %rem1, 63
   %days.0.lcssa = add nsw i64 %div, %rem1.lobit
   %div2.lhs.trunc = trunc nsw i64 %rem.0.lcssa to i32
-  %div267 = udiv i32 %div2.lhs.trunc, 3600
+  %div269 = udiv i32 %div2.lhs.trunc, 3600
   %tm_hour = getelementptr inbounds nuw i8, ptr %tm, i64 8
-  store i32 %div267, ptr %tm_hour, align 8
+  store i32 %div269, ptr %tm_hour, align 8
   %rem3.lhs.trunc = trunc nsw i64 %rem.0.lcssa to i32
-  %rem368 = urem i32 %rem3.lhs.trunc, 3600
-  %div4.lhs.trunc = trunc nuw nsw i32 %rem368 to i16
-  %div452 = udiv i16 %div4.lhs.trunc, 60
-  %conv5 = zext nneg i16 %div452 to i32
+  %rem370 = urem i32 %rem3.lhs.trunc, 3600
+  %div4.lhs.trunc = trunc nuw nsw i32 %rem370 to i16
+  %div453 = udiv i16 %div4.lhs.trunc, 60
+  %conv5 = zext nneg i16 %div453 to i32
   %tm_min = getelementptr inbounds nuw i8, ptr %tm, i64 4
   store i32 %conv5, ptr %tm_min, align 4
-  %rem653 = urem i16 %div4.lhs.trunc, 60
-  %conv7 = zext nneg i16 %rem653 to i32
+  %rem654 = urem i16 %div4.lhs.trunc, 60
+  %conv7 = zext nneg i16 %rem654 to i32
   store i32 %conv7, ptr %tm, align 8
   %add8 = add nsw i64 %days.0.lcssa, 4
   %rem9 = srem i64 %add8, 7
@@ -563,27 +563,27 @@ while.cond20:                                     ; preds = %entry, %while.body2
 lor.rhs:                                          ; preds = %while.cond20
   %1 = and i64 %y.0.fr, 3
   %cmp.i = icmp eq i64 %1, 0
-  br i1 %cmp.i, label %land.rhs.i, label %_ZN8facebook5velox12_GLOBAL__N_16isLeapEl.exit.thread50
+  br i1 %cmp.i, label %land.rhs.i, label %_ZN8facebook5velox12_GLOBAL__N_16isLeapEl.exit.thread51
 
 land.rhs.i:                                       ; preds = %lor.rhs
   %rem1.i = srem i64 %y.0.fr, 100
   %cmp2.not.i = icmp eq i64 %rem1.i, 0
-  br i1 %cmp2.not.i, label %_ZN8facebook5velox12_GLOBAL__N_16isLeapEl.exit, label %_ZN8facebook5velox12_GLOBAL__N_16isLeapEl.exit.thread50
+  br i1 %cmp2.not.i, label %_ZN8facebook5velox12_GLOBAL__N_16isLeapEl.exit, label %_ZN8facebook5velox12_GLOBAL__N_16isLeapEl.exit.thread51
 
 _ZN8facebook5velox12_GLOBAL__N_16isLeapEl.exit:   ; preds = %land.rhs.i
   %rem3.i = srem i64 %y.0.fr, 400
   %cmp4.i = icmp eq i64 %rem3.i, 0
-  %spec.select54 = select i1 %cmp4.i, i64 366, i64 365
+  %spec.select55 = select i1 %cmp4.i, i64 366, i64 365
   %2 = zext i1 %cmp4.i to i64
-  br label %_ZN8facebook5velox12_GLOBAL__N_16isLeapEl.exit.thread50
+  br label %_ZN8facebook5velox12_GLOBAL__N_16isLeapEl.exit.thread51
 
-_ZN8facebook5velox12_GLOBAL__N_16isLeapEl.exit.thread50: ; preds = %_ZN8facebook5velox12_GLOBAL__N_16isLeapEl.exit, %land.rhs.i, %lor.rhs
+_ZN8facebook5velox12_GLOBAL__N_16isLeapEl.exit.thread51: ; preds = %_ZN8facebook5velox12_GLOBAL__N_16isLeapEl.exit, %land.rhs.i, %lor.rhs
   %idxprom = phi i64 [ 0, %lor.rhs ], [ 1, %land.rhs.i ], [ %2, %_ZN8facebook5velox12_GLOBAL__N_16isLeapEl.exit ]
-  %3 = phi i64 [ 365, %lor.rhs ], [ 366, %land.rhs.i ], [ %spec.select54, %_ZN8facebook5velox12_GLOBAL__N_16isLeapEl.exit ]
+  %3 = phi i64 [ 365, %lor.rhs ], [ 366, %land.rhs.i ], [ %spec.select55, %_ZN8facebook5velox12_GLOBAL__N_16isLeapEl.exit ]
   %cmp25.not = icmp samesign ult i64 %days.1, %3
   br i1 %cmp25.not, label %while.end39, label %while.body26
 
-while.body26:                                     ; preds = %while.cond20, %_ZN8facebook5velox12_GLOBAL__N_16isLeapEl.exit.thread50
+while.body26:                                     ; preds = %while.cond20, %_ZN8facebook5velox12_GLOBAL__N_16isLeapEl.exit.thread51
   %div27 = sdiv i64 %days.1, 365
   %add28 = add nsw i64 %div27, %y.0.fr
   %days.1.lobit.neg = ashr i64 %days.1, 63
@@ -594,20 +594,20 @@ while.body26:                                     ; preds = %while.cond20, %_ZN8
   %div.i.neg = sdiv i64 %add.i, -4
   %div1.neg.i.neg = sdiv i64 %add.i, 100
   %div2.i.neg = sdiv i64 %add.i, -400
-  %add.i43 = add nsw i64 %y.0.fr, 3999999999
-  %div.i44 = sdiv i64 %add.i43, 4
-  %div1.neg.i45 = sdiv i64 %add.i43, -100
-  %div2.i47 = sdiv i64 %add.i43, 400
-  %sub.i.neg = add i64 %div.i44, %days.1
-  %add3.i.neg = add i64 %sub.i.neg, %div1.neg.i45
-  %add34.neg = add i64 %add3.i.neg, %div2.i47
-  %sub.i46 = add i64 %add34.neg, %div.i.neg
-  %add3.i48 = add i64 %sub.i46, %div1.neg.i.neg
-  %sub37.neg = add i64 %add3.i48, %div2.i.neg
+  %add.i44 = add nsw i64 %y.0.fr, 3999999999
+  %div.i45 = sdiv i64 %add.i44, 4
+  %div1.neg.i46 = sdiv i64 %add.i44, -100
+  %div2.i48 = sdiv i64 %add.i44, 400
+  %sub.i.neg = add i64 %div.i45, %days.1
+  %add3.i.neg = add i64 %sub.i.neg, %div1.neg.i46
+  %add34.neg = add i64 %add3.i.neg, %div2.i48
+  %sub.i47 = add i64 %add34.neg, %div.i.neg
+  %add3.i49 = add i64 %sub.i47, %div1.neg.i.neg
+  %sub37.neg = add i64 %add3.i49, %div2.i.neg
   %sub38 = add i64 %sub37.neg, %mul.neg
   br label %while.cond20, !llvm.loop !4
 
-while.end39:                                      ; preds = %_ZN8facebook5velox12_GLOBAL__N_16isLeapEl.exit.thread50
+while.end39:                                      ; preds = %_ZN8facebook5velox12_GLOBAL__N_16isLeapEl.exit.thread51
   %4 = add i64 %y.0.fr, -2147485548
   %or.cond = icmp ult i64 %4, -4294967296
   br i1 %or.cond, label %return, label %if.end48
@@ -623,15 +623,15 @@ if.end48:                                         ; preds = %while.end39
   %arrayidx = getelementptr inbounds nuw [12 x i32], ptr @_ZN8facebook5velox12_GLOBAL__N_112monthLengthsE, i64 %idxprom
   %tm_mon = getelementptr inbounds nuw i8, ptr %tm, i64 16
   %6 = load i32, ptr %arrayidx, align 16
-  %conv5459 = sext i32 %6 to i64
-  %cmp55.not60 = icmp slt i64 %days.1, %conv5459
-  br i1 %cmp55.not60, label %for.end, label %for.body
+  %conv5460 = sext i32 %6 to i64
+  %cmp55.not61 = icmp slt i64 %days.1, %conv5460
+  br i1 %cmp55.not61, label %for.end, label %for.body
 
 for.body:                                         ; preds = %if.end48, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %if.end48 ]
-  %conv5463 = phi i64 [ %conv54, %for.body ], [ %conv5459, %if.end48 ]
-  %days.262 = phi i64 [ %sub60, %for.body ], [ %days.1, %if.end48 ]
-  %sub60 = sub nsw i64 %days.262, %conv5463
+  %conv5464 = phi i64 [ %conv54, %for.body ], [ %conv5460, %if.end48 ]
+  %days.263 = phi i64 [ %sub60, %for.body ], [ %days.1, %if.end48 ]
+  %sub60 = sub nsw i64 %days.263, %conv5464
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %arrayidx53 = getelementptr inbounds nuw i32, ptr %arrayidx, i64 %indvars.iv.next
   %7 = load i32, ptr %arrayidx53, align 4
@@ -646,8 +646,8 @@ for.end.loopexit:                                 ; preds = %for.body
 
 for.end:                                          ; preds = %for.end.loopexit, %if.end48
   %.pre-phi = phi i32 [ %.pre, %for.end.loopexit ], [ %conv50, %if.end48 ]
-  %storemerge42.lcssa = phi i32 [ %8, %for.end.loopexit ], [ 0, %if.end48 ]
-  store i32 %storemerge42.lcssa, ptr %tm_mon, align 8
+  %storemerge43.lcssa = phi i32 [ %8, %for.end.loopexit ], [ 0, %if.end48 ]
+  store i32 %storemerge43.lcssa, ptr %tm_mon, align 8
   %conv63 = add i32 %.pre-phi, 1
   %tm_mday = getelementptr inbounds nuw i8, ptr %tm, i64 12
   store i32 %conv63, ptr %tm_mday, align 4

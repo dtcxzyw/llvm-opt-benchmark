@@ -127891,7 +127891,6 @@ define dso_local noundef ptr @_ZN5clang4Sema28BuildStaticAssertDeclarationENS_14
   %45 = and i64 %43, -2
   %46 = inttoptr i64 %45 to ptr
   %47 = or i1 %40, %44
-  %narrow = or i1 %5, %47
   %.0 = select i1 %44, ptr %2, ptr %46
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %48 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -127900,7 +127899,7 @@ define dso_local noundef ptr @_ZN5clang4Sema28BuildStaticAssertDeclarationENS_14
   %49 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i8 0, ptr %49, align 4, !tbaa !1297
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  br i1 %narrow, label %.critedge.thread, label %.critedge
+  br i1 %47, label %.critedge.thread, label %.critedge
 
 .critedge:                                        ; preds = %38
   %51 = load ptr, ptr %50, align 8, !tbaa !1065

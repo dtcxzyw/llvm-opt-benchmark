@@ -38681,91 +38681,77 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
   %21 = getelementptr inbounds nuw i8, ptr %14, i64 28
   %22 = load i8, ptr %21, align 4, !range !2175, !alias.scope !12413, !noalias !12412, !noundef !4
   %23 = trunc nuw i8 %22 to i1
-  %24 = getelementptr inbounds nuw i8, ptr %14, i64 29
-  %25 = load i8, ptr %24, align 1, !range !2175, !alias.scope !12413, !noalias !12412, !noundef !4
-  %26 = trunc nuw i8 %25 to i1
-  br i1 %23, label %31, label %27
+  br i1 %23, label %"_ZN11ide_assists8handlers16extract_function9make_call28_$u7b$$u7b$closure$u7d$$u7d$17h6535d11d2b32da8aE.exit.i", label %24
 
-27:                                               ; preds = %15
+24:                                               ; preds = %15
+  %25 = getelementptr inbounds nuw i8, ptr %14, i64 29
+  %26 = load i8, ptr %25, align 1, !range !2175, !alias.scope !12413, !noalias !12412, !noundef !4
+  %27 = trunc nuw i8 %26 to i1
   %28 = getelementptr inbounds nuw i8, ptr %14, i64 30
   %29 = load i8, ptr %28, align 2, !range !2175, !alias.scope !12413, !noalias !12412, !noundef !4
   %30 = trunc nuw i8 %29 to i1
   %.not.i.i.i.i = xor i1 %30, true
-  %brmerge.i.i.i.i = select i1 %26, i1 true, i1 %.not.i.i.i.i
-  br i1 %brmerge.i.i.i.i, label %_ZN11ide_assists8handlers16extract_function5Param4kind17h4c0a60a6cf946b48E.llvm.14339125420948612040.exit.i.i.i, label %32
+  %brmerge.i.i.i.i = select i1 %27, i1 true, i1 %.not.i.i.i.i
+  br i1 %brmerge.i.i.i.i, label %_ZN11ide_assists8handlers16extract_function5Param4kind17h4c0a60a6cf946b48E.llvm.14339125420948612040.exit.i.i.i, label %"_ZN11ide_assists8handlers16extract_function9make_call28_$u7b$$u7b$closure$u7d$$u7d$17h6535d11d2b32da8aE.exit.i"
 
-31:                                               ; preds = %15
-  br i1 %26, label %"_ZN11ide_assists8handlers16extract_function9make_call28_$u7b$$u7b$closure$u7d$$u7d$17h6535d11d2b32da8aE.exit.i", label %32
-
-32:                                               ; preds = %31, %27
-  %33 = xor i1 %26, true
-  call void @llvm.assume(i1 %33)
+_ZN11ide_assists8handlers16extract_function5Param4kind17h4c0a60a6cf946b48E.llvm.14339125420948612040.exit.i.i.i: ; preds = %24
+  %switch.not.i.i.i = icmp ne i8 %26, 0
+  %31 = call { i64, ptr } @_ZN6syntax3ast4make8expr_ref17h5efd536a6e9bceccE(i64 noundef %19, ptr noundef %20, i1 noundef zeroext %switch.not.i.i.i), !noalias !12411
+  %.pre.i = extractvalue { i64, ptr } %31, 0
+  %.pre3.i = extractvalue { i64, ptr } %31, 1
   br label %"_ZN11ide_assists8handlers16extract_function9make_call28_$u7b$$u7b$closure$u7d$$u7d$17h6535d11d2b32da8aE.exit.i"
 
-_ZN11ide_assists8handlers16extract_function5Param4kind17h4c0a60a6cf946b48E.llvm.14339125420948612040.exit.i.i.i: ; preds = %27
-  %switch.not.i.i.i = icmp eq i8 %25, 0
-  br i1 %switch.not.i.i.i, label %34, label %36
-
-34:                                               ; preds = %_ZN11ide_assists8handlers16extract_function5Param4kind17h4c0a60a6cf946b48E.llvm.14339125420948612040.exit.i.i.i
-  %35 = call { i64, ptr } @_ZN6syntax3ast4make8expr_ref17h5efd536a6e9bceccE(i64 noundef %19, ptr noundef %20, i1 noundef zeroext false), !noalias !12411
-  br label %"_ZN11ide_assists8handlers16extract_function9make_call28_$u7b$$u7b$closure$u7d$$u7d$17h6535d11d2b32da8aE.exit.i"
-
-36:                                               ; preds = %_ZN11ide_assists8handlers16extract_function5Param4kind17h4c0a60a6cf946b48E.llvm.14339125420948612040.exit.i.i.i
-  %37 = call { i64, ptr } @_ZN6syntax3ast4make8expr_ref17h5efd536a6e9bceccE(i64 noundef %19, ptr noundef %20, i1 noundef zeroext true), !noalias !12411
-  br label %"_ZN11ide_assists8handlers16extract_function9make_call28_$u7b$$u7b$closure$u7d$$u7d$17h6535d11d2b32da8aE.exit.i"
-
-"_ZN11ide_assists8handlers16extract_function9make_call28_$u7b$$u7b$closure$u7d$$u7d$17h6535d11d2b32da8aE.exit.i": ; preds = %36, %34, %32, %31
-  %.merged.i.i.i = phi { i64, ptr } [ %35, %34 ], [ %37, %36 ], [ %18, %32 ], [ %18, %31 ]
-  %38 = extractvalue { i64, ptr } %.merged.i.i.i, 0
-  %39 = extractvalue { i64, ptr } %.merged.i.i.i, 1
+"_ZN11ide_assists8handlers16extract_function9make_call28_$u7b$$u7b$closure$u7d$$u7d$17h6535d11d2b32da8aE.exit.i": ; preds = %_ZN11ide_assists8handlers16extract_function5Param4kind17h4c0a60a6cf946b48E.llvm.14339125420948612040.exit.i.i.i, %24, %15
+  %.pre-phi4.i = phi ptr [ %20, %15 ], [ %20, %24 ], [ %.pre3.i, %_ZN11ide_assists8handlers16extract_function5Param4kind17h4c0a60a6cf946b48E.llvm.14339125420948612040.exit.i.i.i ]
+  %.pre-phi.i = phi i64 [ %19, %15 ], [ %19, %24 ], [ %.pre.i, %_ZN11ide_assists8handlers16extract_function5Param4kind17h4c0a60a6cf946b48E.llvm.14339125420948612040.exit.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !12416
-  store i64 %38, ptr %3, align 8, !noalias !12419
-  store ptr %39, ptr %9, align 8, !noalias !12419
-  %40 = load ptr, ptr %10, align 8, !noalias !12419, !nonnull !4, !align !51, !noundef !4
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  %42 = load i64, ptr %41, align 8, !noalias !12419, !noundef !4
-  %43 = icmp eq i64 %42, 0
-  br i1 %43, label %._crit_edge.i.i.i, label %44
+  store i64 %.pre-phi.i, ptr %3, align 8, !noalias !12419
+  store ptr %.pre-phi4.i, ptr %9, align 8, !noalias !12419
+  %32 = load ptr, ptr %10, align 8, !noalias !12419, !nonnull !4, !align !51, !noundef !4
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
+  %34 = load i64, ptr %33, align 8, !noalias !12419, !noundef !4
+  %35 = icmp eq i64 %34, 0
+  br i1 %35, label %._crit_edge.i.i.i, label %36
 
-44:                                               ; preds = %"_ZN11ide_assists8handlers16extract_function9make_call28_$u7b$$u7b$closure$u7d$$u7d$17h6535d11d2b32da8aE.exit.i"
-  %45 = load ptr, ptr %.pre.i.i.i, align 8, !noalias !12419, !nonnull !4, !align !51, !noundef !4
-  %46 = load ptr, ptr %40, align 8, !noalias !12419, !nonnull !4, !align !123, !noundef !4
-  %47 = invoke noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %45, ptr noalias noundef nonnull readonly align 1 %46, i64 noundef %42)
-          to label %53 unwind label %51, !noalias !12419
+36:                                               ; preds = %"_ZN11ide_assists8handlers16extract_function9make_call28_$u7b$$u7b$closure$u7d$$u7d$17h6535d11d2b32da8aE.exit.i"
+  %37 = load ptr, ptr %.pre.i.i.i, align 8, !noalias !12419, !nonnull !4, !align !51, !noundef !4
+  %38 = load ptr, ptr %32, align 8, !noalias !12419, !nonnull !4, !align !123, !noundef !4
+  %39 = invoke noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %37, ptr noalias noundef nonnull readonly align 1 %38, i64 noundef %34)
+          to label %45 unwind label %43, !noalias !12419
 
-._crit_edge.i.i.i:                                ; preds = %53, %"_ZN11ide_assists8handlers16extract_function9make_call28_$u7b$$u7b$closure$u7d$$u7d$17h6535d11d2b32da8aE.exit.i"
-  %48 = load ptr, ptr %12, align 8, !noalias !12419, !nonnull !4, !noundef !4
-  %49 = load ptr, ptr %.pre.i.i.i, align 8, !noalias !12419, !nonnull !4, !align !51, !noundef !4
-  %50 = invoke noundef zeroext i1 %48(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %49)
-          to label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h81204b3e08807624E.exit" unwind label %51, !noalias !12419
+._crit_edge.i.i.i:                                ; preds = %45, %"_ZN11ide_assists8handlers16extract_function9make_call28_$u7b$$u7b$closure$u7d$$u7d$17h6535d11d2b32da8aE.exit.i"
+  %40 = load ptr, ptr %12, align 8, !noalias !12419, !nonnull !4, !noundef !4
+  %41 = load ptr, ptr %.pre.i.i.i, align 8, !noalias !12419, !nonnull !4, !align !51, !noundef !4
+  %42 = invoke noundef zeroext i1 %40(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %41)
+          to label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h81204b3e08807624E.exit" unwind label %43, !noalias !12419
 
-51:                                               ; preds = %._crit_edge.i.i.i, %44
-  %52 = landingpad { ptr, i32 }
+43:                                               ; preds = %._crit_edge.i.i.i, %36
+  %44 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Expr$GT$17h87baedda7c371808E.llvm.6055058659040047083"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3) #38
-          to label %56 unwind label %54, !noalias !12419
+          to label %48 unwind label %46, !noalias !12419
 
-53:                                               ; preds = %44
-  br i1 %47, label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h81204b3e08807624E.exit.thread", label %._crit_edge.i.i.i
+45:                                               ; preds = %36
+  br i1 %39, label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h81204b3e08807624E.exit.thread", label %._crit_edge.i.i.i
 
-"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h81204b3e08807624E.exit.thread": ; preds = %53
+"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h81204b3e08807624E.exit.thread": ; preds = %45
   call void @"_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Expr$GT$17h87baedda7c371808E.llvm.6055058659040047083"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3), !noalias !12419
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !12416
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5b0b620a7961bd45E.exit"
 
-54:                                               ; preds = %51
-  %55 = landingpad { ptr, i32 }
+46:                                               ; preds = %43
+  %47 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #37, !noalias !12419
   unreachable
 
-56:                                               ; preds = %51
-  resume { ptr, i32 } %52
+48:                                               ; preds = %43
+  resume { ptr, i32 } %44
 
 "_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h81204b3e08807624E.exit": ; preds = %._crit_edge.i.i.i
   call void @"_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Expr$GT$17h87baedda7c371808E.llvm.6055058659040047083"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3), !noalias !12419
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !12416
-  br i1 %50, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5b0b620a7961bd45E.exit", label %13
+  br i1 %42, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5b0b620a7961bd45E.exit", label %13
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5b0b620a7961bd45E.exit": ; preds = %13, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h81204b3e08807624E.exit", %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h81204b3e08807624E.exit.thread"
   %.not.not.not.not.not22 = phi i1 [ true, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h81204b3e08807624E.exit.thread" ], [ %.not.not.not.not.not.not, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h81204b3e08807624E.exit" ], [ %.not.not.not.not.not.not, %13 ]

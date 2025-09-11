@@ -5051,7 +5051,7 @@ _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_
   br label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit1296
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i1025: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i1013
-  %bcmp.i1026 = call i32 @bcmp(ptr %.sroa.2317.0.copyload, ptr nonnull @.str.28, i64 %.sroa.0316.0.copyload)
+  %bcmp.i1026 = call i32 @bcmp(ptr noundef nonnull dereferenceable(11) %.sroa.2317.0.copyload, ptr noundef nonnull dereferenceable(11) @.str.28, i64 11)
   %1910 = icmp eq i32 %bcmp.i1026, 0
   br i1 %1910, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit1028, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i1029
 
@@ -5101,7 +5101,7 @@ _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_
   br label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit1296
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i1049: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i1041
-  %bcmp.i1050 = call i32 @bcmp(ptr %.sroa.2317.0.copyload, ptr nonnull @.str.34, i64 %.sroa.0316.0.copyload)
+  %bcmp.i1050 = call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %.sroa.2317.0.copyload, ptr noundef nonnull dereferenceable(8) @.str.34, i64 8)
   %1916 = icmp eq i32 %bcmp.i1050, 0
   br i1 %1916, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit1052, label %1927
 
@@ -5165,7 +5165,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i1077: ; preds = %1902
   br i1 %1923, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit1080, label %1927
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i1081: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i1061
-  %bcmp.i1082 = call i32 @bcmp(ptr nonnull %.sroa.2317.0.copyload, ptr nonnull @.str.42, i64 %.sroa.0316.0.copyload)
+  %bcmp.i1082 = call i32 @bcmp(ptr noundef nonnull dereferenceable(11) %.sroa.2317.0.copyload, ptr noundef nonnull dereferenceable(11) @.str.42, i64 11)
   %1924 = icmp eq i32 %bcmp.i1082, 0
   br i1 %1924, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit1080, label %1927
 
@@ -13354,7 +13354,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i2091: ; preds = %4511
   br i1 %4516, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit2094, label %4518
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i2095: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i2087
-  %bcmp.i2096 = call i32 @bcmp(ptr nonnull %.sroa.273.0.copyload, ptr nonnull @.str.339, i64 %.sroa.072.0.copyload)
+  %bcmp.i2096 = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %.sroa.273.0.copyload, ptr noundef nonnull dereferenceable(4) @.str.339, i64 4)
   %4517 = icmp eq i32 %bcmp.i2096, 0
   br i1 %4517, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit2094, label %4518
 
@@ -15165,8 +15165,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2304: ; preds = %_
   %.pre = load ptr, ptr %16, align 8, !tbaa !433
   %.sroa.035.0.copyload.pre = load i64, ptr %.pre, align 8, !tbaa !20
   %5122 = icmp ugt i64 %.sroa.035.0.copyload.pre, 2
-  %or.cond4071 = select i1 %5121, i1 %5122, i1 false
-  br i1 %or.cond4071, label %5123, label %5136
+  %or.cond4090 = select i1 %5121, i1 %5122, i1 false
+  br i1 %or.cond4090, label %5123, label %5136
 
 5123:                                             ; preds = %5119
   call void @llvm.lifetime.start.p0(ptr nonnull %749)
@@ -15928,8 +15928,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2377: ; preds = %_
   %spec.select = select i1 %.sroa.82681.0.lcssa, i8 %.sroa.02676.0.lcssa, i8 %5395
   %5396 = trunc i8 %spec.select to i1
   %5397 = getelementptr inbounds nuw i8, ptr %1, i64 152
-  %.sink4077 = select i1 %5396, i32 %.0719.lcssa, i32 2
-  store i32 %.sink4077, ptr %5397, align 8, !tbaa !468
+  %.sink4096 = select i1 %5396, i32 %.0719.lcssa, i32 2
+  store i32 %.sink4096, ptr %5397, align 8, !tbaa !468
   %5398 = getelementptr inbounds nuw i8, ptr %1, i64 744
   %5399 = load i8, ptr %5398, align 8, !tbaa !469, !range !370, !noundef !371
   %5400 = trunc nuw i8 %5399 to i1
@@ -16050,9 +16050,9 @@ _ZNSt13random_deviceC2Ev.exit2382:                ; preds = %_ZNKSt7__cxx1112bas
   br i1 %5449, label %5451, label %.sink.split
 
 .sink.split:                                      ; preds = %5444, %5443
-  %.sink4072 = phi i32 [ %.sroa.02690.0.lcssa, %5443 ], [ 0, %5444 ]
+  %.sink4091 = phi i32 [ %.sroa.02690.0.lcssa, %5443 ], [ 0, %5444 ]
   %5450 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  store i32 %.sink4072, ptr %5450, align 8, !tbaa !472
+  store i32 %.sink4091, ptr %5450, align 8, !tbaa !472
   br label %5451
 
 5451:                                             ; preds = %.sink.split, %5444
@@ -16060,7 +16060,7 @@ _ZNSt13random_deviceC2Ev.exit2382:                ; preds = %_ZNKSt7__cxx1112bas
   %.sink = select i1 %.sroa.5.0.lcssa, i8 %.sroa.02667.0.lcssa, i8 %5452
   %5453 = getelementptr inbounds nuw i8, ptr %1, i64 215
   store i8 %.sink, ptr %5453, align 1, !tbaa !473
-  br i1 %.sroa.52673.0.lcssa, label %.sink.split4074, label %5454
+  br i1 %.sroa.52673.0.lcssa, label %.sink.split4093, label %5454
 
 5454:                                             ; preds = %5451
   %5455 = getelementptr inbounds nuw i8, ptr %1, i64 976
@@ -16068,15 +16068,15 @@ _ZNSt13random_deviceC2Ev.exit2382:                ; preds = %_ZNKSt7__cxx1112bas
   %5457 = getelementptr inbounds nuw i8, ptr %1, i64 984
   %5458 = load ptr, ptr %5457, align 8, !tbaa !471
   %5459 = icmp eq ptr %5456, %5458
-  br i1 %5459, label %5461, label %.sink.split4074
+  br i1 %5459, label %5461, label %.sink.split4093
 
-.sink.split4074:                                  ; preds = %5454, %5451
-  %.sink4075 = phi i8 [ %.sroa.02671.0.lcssa, %5451 ], [ 0, %5454 ]
+.sink.split4093:                                  ; preds = %5454, %5451
+  %.sink4094 = phi i8 [ %.sroa.02671.0.lcssa, %5451 ], [ 0, %5454 ]
   %5460 = getelementptr inbounds nuw i8, ptr %1, i64 225
-  store i8 %.sink4075, ptr %5460, align 1, !tbaa !474
+  store i8 %.sink4094, ptr %5460, align 1, !tbaa !474
   br label %5461
 
-5461:                                             ; preds = %.sink.split4074, %5454
+5461:                                             ; preds = %.sink.split4093, %5454
   %5462 = getelementptr inbounds nuw i8, ptr %1, i64 181
   %5463 = load i8, ptr %5462, align 1, !tbaa !421, !range !370, !noundef !371
   %5464 = trunc nuw i8 %5463 to i1

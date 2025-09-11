@@ -2251,7 +2251,7 @@ common.resume:                                    ; preds = %.body, %80
   call void @llvm.lifetime.end.p0(ptr nonnull %70)
   ret ptr %.sroa.0.1
 
-192:                                              ; preds = %.invoke, %434, %_ZN10wasmi_wast10WastRunner8register17h88f78eb7c34b9778E.exit.thread.i.thread184, %431, %_ZN10wasmi_wast10WastRunner8register17h88f78eb7c34b9778E.exit.i.thread178, %455, %442, %440
+192:                                              ; preds = %.invoke, %434, %_ZN10wasmi_wast10WastRunner8register17h88f78eb7c34b9778E.exit.thread.i.thread185, %431, %_ZN10wasmi_wast10WastRunner8register17h88f78eb7c34b9778E.exit.i.thread179, %455, %442, %440
   %193 = landingpad { ptr, i32 }
           cleanup
   br label %.body60
@@ -2357,7 +2357,7 @@ common.resume:                                    ; preds = %.body, %80
   %215 = select i1 %213, i64 %214, i64 0
   switch i64 %215, label %250 [
     i64 0, label %346
-    i64 1, label %_ZN10wasmi_wast10WastRunner8register17h88f78eb7c34b9778E.exit.i.thread179
+    i64 1, label %_ZN10wasmi_wast10WastRunner8register17h88f78eb7c34b9778E.exit.i.thread180
     i64 2, label %198
   ], !prof !132
 
@@ -2383,7 +2383,7 @@ common.resume:                                    ; preds = %.body, %80
 
 .noexc.i:                                         ; preds = %222
   %.not12.i.i = icmp eq ptr %223, null
-  br i1 %.not12.i.i, label %_ZN10wasmi_wast10WastRunner8register17h88f78eb7c34b9778E.exit.i.thread178, label %.invoke.i
+  br i1 %.not12.i.i, label %_ZN10wasmi_wast10WastRunner8register17h88f78eb7c34b9778E.exit.i.thread179, label %.invoke.i
 
 224:                                              ; preds = %221
   %225 = load i32, ptr %130, align 8, !range !50, !alias.scope !136, !noalias !137, !noundef !9
@@ -2402,7 +2402,7 @@ common.resume:                                    ; preds = %.body, %80
   %233 = trunc nuw i64 %231 to i1
   %234 = icmp ne ptr %232, null
   call void @llvm.assume(i1 %234)
-  br i1 %233, label %.invoke.i, label %_ZN10wasmi_wast10WastRunner8register17h88f78eb7c34b9778E.exit.i.thread178
+  br i1 %233, label %.invoke.i, label %_ZN10wasmi_wast10WastRunner8register17h88f78eb7c34b9778E.exit.i.thread179
 
 235:                                              ; preds = %224
   call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !140
@@ -2416,12 +2416,12 @@ common.resume:                                    ; preds = %.body, %80
 
 .noexc173.i:                                      ; preds = %235
   call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !140
-  br label %_ZN10wasmi_wast10WastRunner8register17h88f78eb7c34b9778E.exit.thread.i.thread184
+  br label %_ZN10wasmi_wast10WastRunner8register17h88f78eb7c34b9778E.exit.thread.i.thread185
 
 .invoke.i:                                        ; preds = %.noexc172.i, %.noexc.i
   %237 = phi ptr [ %232, %.noexc172.i ], [ %223, %.noexc.i ]
   %238 = invoke noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17h6deace87c6175f09E"(ptr noalias noundef nonnull align 8 %237)
-          to label %_ZN10wasmi_wast10WastRunner8register17h88f78eb7c34b9778E.exit.thread.i.thread184 unwind label %.thread227.loopexit.split-lp.i, !noalias !128
+          to label %_ZN10wasmi_wast10WastRunner8register17h88f78eb7c34b9778E.exit.thread.i.thread185 unwind label %.thread227.loopexit.split-lp.i, !noalias !128
 
 239:                                              ; preds = %194
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %49, ptr noundef nonnull align 8 dereferenceable(80) %106, i64 80, i1 false), !noalias !125
@@ -2525,10 +2525,10 @@ common.resume:                                    ; preds = %.body, %80
   br label %.thread
 
 _ZN10wasmi_wast10WastRunner8register17h88f78eb7c34b9778E.exit.i: ; preds = %399, %341
-  switch i64 %175, label %_ZN10wasmi_wast10WastRunner8register17h88f78eb7c34b9778E.exit.i.thread178 [
+  switch i64 %175, label %_ZN10wasmi_wast10WastRunner8register17h88f78eb7c34b9778E.exit.i.thread179 [
     i64 0, label %.thread
     i64 1, label %.thread
-    i64 3, label %_ZN10wasmi_wast10WastRunner8register17h88f78eb7c34b9778E.exit.i.thread179
+    i64 3, label %_ZN10wasmi_wast10WastRunner8register17h88f78eb7c34b9778E.exit.i.thread180
     i64 4, label %.thread
     i64 6, label %.thread
     i64 7, label %.thread
@@ -2836,7 +2836,7 @@ select.unfold.i:                                  ; preds = %._crit_edge.i.i.i, 
   %357 = icmp ne i64 %355, 8
   call void @llvm.assume(i1 %357)
   %358 = select i1 %356, i64 %355, i64 8
-  switch i64 %358, label %_ZN10wasmi_wast10WastRunner8register17h88f78eb7c34b9778E.exit.i.thread178 [
+  switch i64 %358, label %_ZN10wasmi_wast10WastRunner8register17h88f78eb7c34b9778E.exit.i.thread179 [
     i64 0, label %.thread
     i64 1, label %.thread
     i64 3, label %.thread
@@ -2848,7 +2848,7 @@ select.unfold.i:                                  ; preds = %._crit_edge.i.i.i, 
     i64 10, label %.thread
   ]
 
-_ZN10wasmi_wast10WastRunner8register17h88f78eb7c34b9778E.exit.i.thread178: ; preds = %.noexc.i, %.noexc172.i, %"_ZN4core3ptr132drop_in_place$LT$core..result..Result$LT$$LP$core..option..Option$LT$$RF$str$GT$$C$wasmi..module..Module$RP$$C$anyhow..Error$GT$$GT$17hd8bb46ade30d05dfE.exit", %_ZN10wasmi_wast10WastRunner8register17h88f78eb7c34b9778E.exit.i
+_ZN10wasmi_wast10WastRunner8register17h88f78eb7c34b9778E.exit.i.thread179: ; preds = %.noexc.i, %.noexc172.i, %"_ZN4core3ptr132drop_in_place$LT$core..result..Result$LT$$LP$core..option..Option$LT$$RF$str$GT$$C$wasmi..module..Module$RP$$C$anyhow..Error$GT$$GT$17hd8bb46ade30d05dfE.exit", %_ZN10wasmi_wast10WastRunner8register17h88f78eb7c34b9778E.exit.i
   invoke fastcc void @"_ZN4core3ptr46drop_in_place$LT$wast..wast..WastDirective$GT$17h55dc7b7c26346be5E"(ptr noalias noundef nonnull align 8 dereferenceable(120) %64)
           to label %.thread unwind label %192
 
@@ -3176,12 +3176,12 @@ _ZN10wasmi_wast10WastRunner8register17h88f78eb7c34b9778E.exit.i.thread178: ; pre
   call void @llvm.lifetime.end.p0(ptr nonnull %38), !noalias !131
   br label %.thread
 
-_ZN10wasmi_wast10WastRunner8register17h88f78eb7c34b9778E.exit.i.thread179: ; preds = %211, %_ZN10wasmi_wast10WastRunner8register17h88f78eb7c34b9778E.exit.i
+_ZN10wasmi_wast10WastRunner8register17h88f78eb7c34b9778E.exit.i.thread180: ; preds = %211, %_ZN10wasmi_wast10WastRunner8register17h88f78eb7c34b9778E.exit.i
   %428 = load i64, ptr %106, align 8, !range !12, !alias.scope !194, !noalias !125, !noundef !9
   %429 = icmp samesign ult i64 %428, 3
   br i1 %429, label %430, label %.invoke
 
-430:                                              ; preds = %_ZN10wasmi_wast10WastRunner8register17h88f78eb7c34b9778E.exit.i.thread179
+430:                                              ; preds = %_ZN10wasmi_wast10WastRunner8register17h88f78eb7c34b9778E.exit.i.thread180
   %.not.i.i.i = icmp eq i64 %428, 2
   br i1 %.not.i.i.i, label %.thread, label %431
 
@@ -3189,13 +3189,13 @@ _ZN10wasmi_wast10WastRunner8register17h88f78eb7c34b9778E.exit.i.thread179: ; pre
   invoke void @"_ZN4core3ptr47drop_in_place$LT$wast..core..module..Module$GT$17h246d1fb3e4a12b5fE"(ptr noalias noundef nonnull align 8 dereferenceable(88) %106)
           to label %.thread unwind label %192
 
-.invoke:                                          ; preds = %_ZN10wasmi_wast10WastRunner8register17h88f78eb7c34b9778E.exit.i.thread179
+.invoke:                                          ; preds = %_ZN10wasmi_wast10WastRunner8register17h88f78eb7c34b9778E.exit.i.thread180
   invoke void @"_ZN4core3ptr88drop_in_place$LT$alloc..vec..Vec$LT$$LP$wast..token..Span$C$$RF$$u5b$u8$u5d$$RP$$GT$$GT$17h34eb9981a91b31e6E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %127)
           to label %.thread unwind label %192
 
 _ZN10wasmi_wast10WastRunner8register17h88f78eb7c34b9778E.exit.thread.i: ; preds = %.invoke280.i, %401, %343
   %.sroa.0.0.i50 = phi ptr [ %.sroa.0.3.i, %343 ], [ %.sroa.0.5.i, %401 ], [ %410, %.invoke280.i ]
-  switch i64 %175, label %_ZN10wasmi_wast10WastRunner8register17h88f78eb7c34b9778E.exit.thread.i.thread184 [
+  switch i64 %175, label %_ZN10wasmi_wast10WastRunner8register17h88f78eb7c34b9778E.exit.thread.i.thread185 [
     i64 0, label %.sink.split
     i64 1, label %.sink.split
     i64 3, label %.sink.split
@@ -3207,8 +3207,8 @@ _ZN10wasmi_wast10WastRunner8register17h88f78eb7c34b9778E.exit.thread.i: ; preds 
     i64 10, label %.sink.split
   ]
 
-_ZN10wasmi_wast10WastRunner8register17h88f78eb7c34b9778E.exit.thread.i.thread184: ; preds = %.noexc173.i, %.invoke.i, %_ZN10wasmi_wast10WastRunner8register17h88f78eb7c34b9778E.exit.thread.i
-  %.sroa.0.0.i50186 = phi ptr [ %.sroa.0.0.i50, %_ZN10wasmi_wast10WastRunner8register17h88f78eb7c34b9778E.exit.thread.i ], [ %238, %.invoke.i ], [ %236, %.noexc173.i ]
+_ZN10wasmi_wast10WastRunner8register17h88f78eb7c34b9778E.exit.thread.i.thread185: ; preds = %.noexc173.i, %.invoke.i, %_ZN10wasmi_wast10WastRunner8register17h88f78eb7c34b9778E.exit.thread.i
+  %.sroa.0.0.i50187 = phi ptr [ %.sroa.0.0.i50, %_ZN10wasmi_wast10WastRunner8register17h88f78eb7c34b9778E.exit.thread.i ], [ %238, %.invoke.i ], [ %236, %.noexc173.i ]
   invoke fastcc void @"_ZN4core3ptr46drop_in_place$LT$wast..wast..WastDirective$GT$17h55dc7b7c26346be5E"(ptr noalias noundef nonnull align 8 dereferenceable(120) %64)
           to label %.sink.split unwind label %192
 
@@ -3251,7 +3251,7 @@ _ZN10wasmi_wast10WastRunner8register17h88f78eb7c34b9778E.exit.thread.i.thread184
   invoke fastcc void @"_ZN4core3ptr46drop_in_place$LT$wast..wast..WastDirective$GT$17h55dc7b7c26346be5E"(ptr noalias noundef nonnull align 8 dereferenceable(120) %64) #16
           to label %.body60 unwind label %266
 
-.thread:                                          ; preds = %.invoke, %264, %294, %"_ZN4core3ptr132drop_in_place$LT$core..result..Result$LT$$LP$core..option..Option$LT$$RF$str$GT$$C$wasmi..module..Module$RP$$C$anyhow..Error$GT$$GT$17hd8bb46ade30d05dfE.exit196.i", %368, %376, %411, %427, %_ZN10wasmi_wast10WastRunner8register17h88f78eb7c34b9778E.exit.i, %_ZN10wasmi_wast10WastRunner8register17h88f78eb7c34b9778E.exit.i, %_ZN10wasmi_wast10WastRunner8register17h88f78eb7c34b9778E.exit.i, %_ZN10wasmi_wast10WastRunner8register17h88f78eb7c34b9778E.exit.i, %_ZN10wasmi_wast10WastRunner8register17h88f78eb7c34b9778E.exit.i, %_ZN10wasmi_wast10WastRunner8register17h88f78eb7c34b9778E.exit.i, %_ZN10wasmi_wast10WastRunner8register17h88f78eb7c34b9778E.exit.i, %_ZN10wasmi_wast10WastRunner8register17h88f78eb7c34b9778E.exit.i, %"_ZN4core3ptr132drop_in_place$LT$core..result..Result$LT$$LP$core..option..Option$LT$$RF$str$GT$$C$wasmi..module..Module$RP$$C$anyhow..Error$GT$$GT$17hd8bb46ade30d05dfE.exit", %"_ZN4core3ptr132drop_in_place$LT$core..result..Result$LT$$LP$core..option..Option$LT$$RF$str$GT$$C$wasmi..module..Module$RP$$C$anyhow..Error$GT$$GT$17hd8bb46ade30d05dfE.exit", %"_ZN4core3ptr132drop_in_place$LT$core..result..Result$LT$$LP$core..option..Option$LT$$RF$str$GT$$C$wasmi..module..Module$RP$$C$anyhow..Error$GT$$GT$17hd8bb46ade30d05dfE.exit", %"_ZN4core3ptr132drop_in_place$LT$core..result..Result$LT$$LP$core..option..Option$LT$$RF$str$GT$$C$wasmi..module..Module$RP$$C$anyhow..Error$GT$$GT$17hd8bb46ade30d05dfE.exit", %"_ZN4core3ptr132drop_in_place$LT$core..result..Result$LT$$LP$core..option..Option$LT$$RF$str$GT$$C$wasmi..module..Module$RP$$C$anyhow..Error$GT$$GT$17hd8bb46ade30d05dfE.exit", %"_ZN4core3ptr132drop_in_place$LT$core..result..Result$LT$$LP$core..option..Option$LT$$RF$str$GT$$C$wasmi..module..Module$RP$$C$anyhow..Error$GT$$GT$17hd8bb46ade30d05dfE.exit", %"_ZN4core3ptr132drop_in_place$LT$core..result..Result$LT$$LP$core..option..Option$LT$$RF$str$GT$$C$wasmi..module..Module$RP$$C$anyhow..Error$GT$$GT$17hd8bb46ade30d05dfE.exit", %"_ZN4core3ptr132drop_in_place$LT$core..result..Result$LT$$LP$core..option..Option$LT$$RF$str$GT$$C$wasmi..module..Module$RP$$C$anyhow..Error$GT$$GT$17hd8bb46ade30d05dfE.exit", %"_ZN4core3ptr132drop_in_place$LT$core..result..Result$LT$$LP$core..option..Option$LT$$RF$str$GT$$C$wasmi..module..Module$RP$$C$anyhow..Error$GT$$GT$17hd8bb46ade30d05dfE.exit", %430, %_ZN10wasmi_wast10WastRunner8register17h88f78eb7c34b9778E.exit.i.thread178, %431
+.thread:                                          ; preds = %.invoke, %264, %294, %"_ZN4core3ptr132drop_in_place$LT$core..result..Result$LT$$LP$core..option..Option$LT$$RF$str$GT$$C$wasmi..module..Module$RP$$C$anyhow..Error$GT$$GT$17hd8bb46ade30d05dfE.exit196.i", %368, %376, %411, %427, %_ZN10wasmi_wast10WastRunner8register17h88f78eb7c34b9778E.exit.i, %_ZN10wasmi_wast10WastRunner8register17h88f78eb7c34b9778E.exit.i, %_ZN10wasmi_wast10WastRunner8register17h88f78eb7c34b9778E.exit.i, %_ZN10wasmi_wast10WastRunner8register17h88f78eb7c34b9778E.exit.i, %_ZN10wasmi_wast10WastRunner8register17h88f78eb7c34b9778E.exit.i, %_ZN10wasmi_wast10WastRunner8register17h88f78eb7c34b9778E.exit.i, %_ZN10wasmi_wast10WastRunner8register17h88f78eb7c34b9778E.exit.i, %_ZN10wasmi_wast10WastRunner8register17h88f78eb7c34b9778E.exit.i, %"_ZN4core3ptr132drop_in_place$LT$core..result..Result$LT$$LP$core..option..Option$LT$$RF$str$GT$$C$wasmi..module..Module$RP$$C$anyhow..Error$GT$$GT$17hd8bb46ade30d05dfE.exit", %"_ZN4core3ptr132drop_in_place$LT$core..result..Result$LT$$LP$core..option..Option$LT$$RF$str$GT$$C$wasmi..module..Module$RP$$C$anyhow..Error$GT$$GT$17hd8bb46ade30d05dfE.exit", %"_ZN4core3ptr132drop_in_place$LT$core..result..Result$LT$$LP$core..option..Option$LT$$RF$str$GT$$C$wasmi..module..Module$RP$$C$anyhow..Error$GT$$GT$17hd8bb46ade30d05dfE.exit", %"_ZN4core3ptr132drop_in_place$LT$core..result..Result$LT$$LP$core..option..Option$LT$$RF$str$GT$$C$wasmi..module..Module$RP$$C$anyhow..Error$GT$$GT$17hd8bb46ade30d05dfE.exit", %"_ZN4core3ptr132drop_in_place$LT$core..result..Result$LT$$LP$core..option..Option$LT$$RF$str$GT$$C$wasmi..module..Module$RP$$C$anyhow..Error$GT$$GT$17hd8bb46ade30d05dfE.exit", %"_ZN4core3ptr132drop_in_place$LT$core..result..Result$LT$$LP$core..option..Option$LT$$RF$str$GT$$C$wasmi..module..Module$RP$$C$anyhow..Error$GT$$GT$17hd8bb46ade30d05dfE.exit", %"_ZN4core3ptr132drop_in_place$LT$core..result..Result$LT$$LP$core..option..Option$LT$$RF$str$GT$$C$wasmi..module..Module$RP$$C$anyhow..Error$GT$$GT$17hd8bb46ade30d05dfE.exit", %"_ZN4core3ptr132drop_in_place$LT$core..result..Result$LT$$LP$core..option..Option$LT$$RF$str$GT$$C$wasmi..module..Module$RP$$C$anyhow..Error$GT$$GT$17hd8bb46ade30d05dfE.exit", %"_ZN4core3ptr132drop_in_place$LT$core..result..Result$LT$$LP$core..option..Option$LT$$RF$str$GT$$C$wasmi..module..Module$RP$$C$anyhow..Error$GT$$GT$17hd8bb46ade30d05dfE.exit", %430, %_ZN10wasmi_wast10WastRunner8register17h88f78eb7c34b9778E.exit.i.thread179, %431
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
@@ -3285,8 +3285,8 @@ _ZN10wasmi_wast10WastRunner8register17h88f78eb7c34b9778E.exit.thread.i.thread184
   %.not44 = icmp eq ptr %.sroa.0.0.i50.ph, null
   br i1 %.not44, label %442, label %440
 
-.sink.split:                                      ; preds = %265, %353, %367, %368, %376, %411, %_ZN10wasmi_wast10WastRunner8register17h88f78eb7c34b9778E.exit.thread.i.thread184, %_ZN10wasmi_wast10WastRunner8register17h88f78eb7c34b9778E.exit.thread.i, %_ZN10wasmi_wast10WastRunner8register17h88f78eb7c34b9778E.exit.thread.i, %_ZN10wasmi_wast10WastRunner8register17h88f78eb7c34b9778E.exit.thread.i, %_ZN10wasmi_wast10WastRunner8register17h88f78eb7c34b9778E.exit.thread.i, %_ZN10wasmi_wast10WastRunner8register17h88f78eb7c34b9778E.exit.thread.i, %_ZN10wasmi_wast10WastRunner8register17h88f78eb7c34b9778E.exit.thread.i, %_ZN10wasmi_wast10WastRunner8register17h88f78eb7c34b9778E.exit.thread.i, %_ZN10wasmi_wast10WastRunner8register17h88f78eb7c34b9778E.exit.thread.i, %_ZN10wasmi_wast10WastRunner8register17h88f78eb7c34b9778E.exit.thread.i, %.thread109
-  %.sroa.0.2.i112.ph = phi ptr [ %199, %.thread109 ], [ %.sroa.0.0.i50186, %_ZN10wasmi_wast10WastRunner8register17h88f78eb7c34b9778E.exit.thread.i.thread184 ], [ %.sroa.0.0.i50, %_ZN10wasmi_wast10WastRunner8register17h88f78eb7c34b9778E.exit.thread.i ], [ %.sroa.0.0.i50, %_ZN10wasmi_wast10WastRunner8register17h88f78eb7c34b9778E.exit.thread.i ], [ %.sroa.0.0.i50, %_ZN10wasmi_wast10WastRunner8register17h88f78eb7c34b9778E.exit.thread.i ], [ %.sroa.0.0.i50, %_ZN10wasmi_wast10WastRunner8register17h88f78eb7c34b9778E.exit.thread.i ], [ %.sroa.0.0.i50, %_ZN10wasmi_wast10WastRunner8register17h88f78eb7c34b9778E.exit.thread.i ], [ %.sroa.0.0.i50, %_ZN10wasmi_wast10WastRunner8register17h88f78eb7c34b9778E.exit.thread.i ], [ %.sroa.0.0.i50, %_ZN10wasmi_wast10WastRunner8register17h88f78eb7c34b9778E.exit.thread.i ], [ %.sroa.0.0.i50, %_ZN10wasmi_wast10WastRunner8register17h88f78eb7c34b9778E.exit.thread.i ], [ %.sroa.0.0.i50, %_ZN10wasmi_wast10WastRunner8register17h88f78eb7c34b9778E.exit.thread.i ], [ %258, %265 ], [ %352, %353 ], [ %366, %367 ], [ %240, %368 ], [ %371, %376 ], [ %404, %411 ]
+.sink.split:                                      ; preds = %265, %353, %367, %368, %376, %411, %_ZN10wasmi_wast10WastRunner8register17h88f78eb7c34b9778E.exit.thread.i.thread185, %_ZN10wasmi_wast10WastRunner8register17h88f78eb7c34b9778E.exit.thread.i, %_ZN10wasmi_wast10WastRunner8register17h88f78eb7c34b9778E.exit.thread.i, %_ZN10wasmi_wast10WastRunner8register17h88f78eb7c34b9778E.exit.thread.i, %_ZN10wasmi_wast10WastRunner8register17h88f78eb7c34b9778E.exit.thread.i, %_ZN10wasmi_wast10WastRunner8register17h88f78eb7c34b9778E.exit.thread.i, %_ZN10wasmi_wast10WastRunner8register17h88f78eb7c34b9778E.exit.thread.i, %_ZN10wasmi_wast10WastRunner8register17h88f78eb7c34b9778E.exit.thread.i, %_ZN10wasmi_wast10WastRunner8register17h88f78eb7c34b9778E.exit.thread.i, %_ZN10wasmi_wast10WastRunner8register17h88f78eb7c34b9778E.exit.thread.i, %.thread109
+  %.sroa.0.2.i112.ph = phi ptr [ %199, %.thread109 ], [ %.sroa.0.0.i50187, %_ZN10wasmi_wast10WastRunner8register17h88f78eb7c34b9778E.exit.thread.i.thread185 ], [ %.sroa.0.0.i50, %_ZN10wasmi_wast10WastRunner8register17h88f78eb7c34b9778E.exit.thread.i ], [ %.sroa.0.0.i50, %_ZN10wasmi_wast10WastRunner8register17h88f78eb7c34b9778E.exit.thread.i ], [ %.sroa.0.0.i50, %_ZN10wasmi_wast10WastRunner8register17h88f78eb7c34b9778E.exit.thread.i ], [ %.sroa.0.0.i50, %_ZN10wasmi_wast10WastRunner8register17h88f78eb7c34b9778E.exit.thread.i ], [ %.sroa.0.0.i50, %_ZN10wasmi_wast10WastRunner8register17h88f78eb7c34b9778E.exit.thread.i ], [ %.sroa.0.0.i50, %_ZN10wasmi_wast10WastRunner8register17h88f78eb7c34b9778E.exit.thread.i ], [ %.sroa.0.0.i50, %_ZN10wasmi_wast10WastRunner8register17h88f78eb7c34b9778E.exit.thread.i ], [ %.sroa.0.0.i50, %_ZN10wasmi_wast10WastRunner8register17h88f78eb7c34b9778E.exit.thread.i ], [ %.sroa.0.0.i50, %_ZN10wasmi_wast10WastRunner8register17h88f78eb7c34b9778E.exit.thread.i ], [ %258, %265 ], [ %352, %353 ], [ %366, %367 ], [ %240, %368 ], [ %371, %376 ], [ %404, %411 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   call void @llvm.lifetime.end.p0(ptr nonnull %24)

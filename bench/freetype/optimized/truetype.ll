@@ -14738,8 +14738,8 @@ define internal fastcc void @ft_var_load_avar(ptr noundef %0) unnamed_addr #2 {
   %16 = load i64, ptr %3, align 8, !tbaa !223
   %17 = call i32 @FT_Stream_EnterFrame(ptr noundef nonnull %5, i64 noundef %16) #22
   store i32 %17, ptr %2, align 4, !tbaa !204
-  %.not74 = icmp eq i32 %17, 0
-  br i1 %.not74, label %18, label %91
+  %.not76 = icmp eq i32 %17, 0
+  br i1 %.not76, label %18, label %91
 
 18:                                               ; preds = %14
   %19 = call i32 @FT_Stream_GetULong(ptr noundef nonnull %5) #22
@@ -14755,75 +14755,75 @@ define internal fastcc void @ft_var_load_avar(ptr noundef %0) unnamed_addr #2 {
   %24 = load ptr, ptr %23, align 8, !tbaa !459
   %25 = load i32, ptr %24, align 8, !tbaa !460
   %26 = zext i32 %25 to i64
-  %.not75 = icmp eq i64 %21, %26
-  br i1 %.not75, label %27, label %90
+  %.not77 = icmp eq i64 %21, %26
+  br i1 %.not77, label %27, label %90
 
 27:                                               ; preds = %22
   %28 = call ptr @ft_mem_alloc(ptr noundef %7, i64 noundef 64, ptr noundef nonnull %2) #22
   %29 = getelementptr inbounds nuw i8, ptr %9, i64 56
   store ptr %28, ptr %29, align 8, !tbaa !550
   %30 = load i32, ptr %2, align 4, !tbaa !204
-  %.not76 = icmp eq i32 %30, 0
-  br i1 %.not76, label %31, label %90
+  %.not78 = icmp eq i32 %30, 0
+  br i1 %.not78, label %31, label %90
 
 31:                                               ; preds = %27
   %32 = call ptr @ft_mem_qrealloc(ptr noundef %7, i64 noundef 16, i64 noundef 0, i64 noundef %21, ptr noundef null, ptr noundef nonnull %2) #22
   store ptr %32, ptr %28, align 8, !tbaa !551
   %33 = load i32, ptr %2, align 4, !tbaa !204
-  %.not77 = icmp eq i32 %33, 0
-  br i1 %.not77, label %.preheader80, label %90
+  %.not79 = icmp eq i32 %33, 0
+  br i1 %.not79, label %.preheader82, label %90
 
-.preheader80:                                     ; preds = %31
+.preheader82:                                     ; preds = %31
   %34 = icmp sgt i32 %20, 0
-  br i1 %34, label %.lr.ph85, label %._crit_edge86
+  br i1 %34, label %.lr.ph87, label %._crit_edge88
 
-.lr.ph85:                                         ; preds = %.preheader80, %._crit_edge
-  %indvars.iv95 = phi i64 [ %indvars.iv.next96, %._crit_edge ], [ 0, %.preheader80 ]
-  %.084 = phi i32 [ %69, %._crit_edge ], [ 0, %.preheader80 ]
-  %.07183 = phi ptr [ %70, %._crit_edge ], [ %32, %.preheader80 ]
+.lr.ph87:                                         ; preds = %.preheader82, %._crit_edge
+  %indvars.iv97 = phi i64 [ %indvars.iv.next98, %._crit_edge ], [ 0, %.preheader82 ]
+  %.086 = phi i32 [ %69, %._crit_edge ], [ 0, %.preheader82 ]
+  %.07185 = phi ptr [ %70, %._crit_edge ], [ %32, %.preheader82 ]
   %35 = call zeroext i16 @FT_Stream_GetUShort(ptr noundef nonnull %5) #22
-  store i16 %35, ptr %.07183, align 8, !tbaa !588
+  store i16 %35, ptr %.07185, align 8, !tbaa !588
   %36 = zext i16 %35 to i64
   %37 = shl nuw nsw i64 %36, 2
   %38 = load i64, ptr %3, align 8, !tbaa !223
   %39 = icmp ugt i64 %37, %38
   br i1 %39, label %45, label %40
 
-40:                                               ; preds = %.lr.ph85
+40:                                               ; preds = %.lr.ph87
   %41 = call ptr @ft_mem_qrealloc(ptr noundef %7, i64 noundef 16, i64 noundef 0, i64 noundef %36, ptr noundef null, ptr noundef nonnull %2) #22
-  %42 = getelementptr inbounds nuw i8, ptr %.07183, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %.07185, i64 8
   store ptr %41, ptr %42, align 8, !tbaa !554
   %43 = load i32, ptr %2, align 4, !tbaa !204
-  %.not79 = icmp eq i32 %43, 0
-  br i1 %.not79, label %.preheader, label %45
+  %.not81 = icmp eq i32 %43, 0
+  br i1 %.not81, label %.preheader, label %45
 
 .preheader:                                       ; preds = %40
-  %44 = load i16, ptr %.07183, align 8, !tbaa !588
-  %.not91 = icmp eq i16 %44, 0
-  br i1 %.not91, label %._crit_edge, label %.lr.ph
+  %44 = load i16, ptr %.07185, align 8, !tbaa !588
+  %.not93 = icmp eq i16 %44, 0
+  br i1 %.not93, label %._crit_edge, label %.lr.ph
 
-45:                                               ; preds = %40, %.lr.ph85
-  %.not92 = icmp eq i32 %.084, 0
-  %.pre101 = load ptr, ptr %28, align 8, !tbaa !551
-  br i1 %.not92, label %._crit_edge90, label %.lr.ph89
+45:                                               ; preds = %40, %.lr.ph87
+  %.not94 = icmp eq i32 %.086, 0
+  %.pre103 = load ptr, ptr %28, align 8, !tbaa !551
+  br i1 %.not94, label %._crit_edge92, label %.lr.ph91
 
-.lr.ph89:                                         ; preds = %45, %.lr.ph89
-  %46 = phi ptr [ %50, %.lr.ph89 ], [ %.pre101, %45 ]
-  %indvars.iv98 = phi i64 [ %indvars.iv.next99, %.lr.ph89 ], [ %indvars.iv95, %45 ]
-  %indvars.iv.next99 = add nsw i64 %indvars.iv98, -1
-  %47 = getelementptr inbounds nuw %struct.GX_AVarSegmentRec_, ptr %46, i64 %indvars.iv.next99
+.lr.ph91:                                         ; preds = %45, %.lr.ph91
+  %46 = phi ptr [ %50, %.lr.ph91 ], [ %.pre103, %45 ]
+  %indvars.iv100 = phi i64 [ %indvars.iv.next101, %.lr.ph91 ], [ %indvars.iv97, %45 ]
+  %indvars.iv.next101 = add nsw i64 %indvars.iv100, -1
+  %47 = getelementptr inbounds nuw %struct.GX_AVarSegmentRec_, ptr %46, i64 %indvars.iv.next101
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %49 = load ptr, ptr %48, align 8, !tbaa !554
   call void @ft_mem_free(ptr noundef %7, ptr noundef %49) #22
   %50 = load ptr, ptr %28, align 8, !tbaa !551
-  %51 = getelementptr inbounds nuw %struct.GX_AVarSegmentRec_, ptr %50, i64 %indvars.iv.next99
+  %51 = getelementptr inbounds nuw %struct.GX_AVarSegmentRec_, ptr %50, i64 %indvars.iv.next101
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
   store ptr null, ptr %52, align 8, !tbaa !554
-  %53 = icmp sgt i64 %indvars.iv98, 1
-  br i1 %53, label %.lr.ph89, label %._crit_edge90, !llvm.loop !616
+  %53 = icmp sgt i64 %indvars.iv100, 1
+  br i1 %53, label %.lr.ph91, label %._crit_edge92, !llvm.loop !616
 
-._crit_edge90:                                    ; preds = %.lr.ph89, %45
-  %54 = phi ptr [ %.pre101, %45 ], [ %50, %.lr.ph89 ]
+._crit_edge92:                                    ; preds = %.lr.ph91, %45
+  %54 = phi ptr [ %.pre103, %45 ], [ %50, %.lr.ph91 ]
   call void @ft_mem_free(ptr noundef %7, ptr noundef %54) #22
   store ptr null, ptr %28, align 8, !tbaa !551
   br label %90
@@ -14844,28 +14844,28 @@ define internal fastcc void @ft_var_load_avar(ptr noundef %0) unnamed_addr #2 {
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
   store i64 %62, ptr %65, align 8, !tbaa !589
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %66 = load i16, ptr %.07183, align 8, !tbaa !588
+  %66 = load i16, ptr %.07185, align 8, !tbaa !588
   %67 = zext i16 %66 to i64
   %68 = icmp samesign ult i64 %indvars.iv.next, %67
   br i1 %68, label %.lr.ph, label %._crit_edge, !llvm.loop !617
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  %69 = add nuw nsw i32 %.084, 1
-  %70 = getelementptr inbounds nuw i8, ptr %.07183, i64 16
+  %69 = add nuw nsw i32 %.086, 1
+  %70 = getelementptr inbounds nuw i8, ptr %.07185, i64 16
   %exitcond.not = icmp eq i32 %69, %20
-  %indvars.iv.next96 = add nuw nsw i64 %indvars.iv95, 1
-  br i1 %exitcond.not, label %._crit_edge86, label %.lr.ph85, !llvm.loop !618
+  %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
+  br i1 %exitcond.not, label %._crit_edge88, label %.lr.ph87, !llvm.loop !618
 
-._crit_edge86:                                    ; preds = %._crit_edge, %.preheader80
+._crit_edge88:                                    ; preds = %._crit_edge, %.preheader82
   %71 = icmp slt i32 %19, 131072
   br i1 %71, label %90, label %72
 
-72:                                               ; preds = %._crit_edge86
+72:                                               ; preds = %._crit_edge88
   %73 = call i32 @FT_Stream_GetULong(ptr noundef nonnull %5) #22
   %74 = zext i32 %73 to i64
   %75 = call i32 @FT_Stream_GetULong(ptr noundef nonnull %5) #22
-  %.not78 = icmp eq i32 %75, 0
-  br i1 %.not78, label %83, label %76
+  %.not80 = icmp eq i32 %75, 0
+  br i1 %.not80, label %83, label %76
 
 76:                                               ; preds = %72
   %77 = zext i32 %75 to i64
@@ -14891,7 +14891,7 @@ define internal fastcc void @ft_var_load_avar(ptr noundef %0) unnamed_addr #2 {
   store i32 %89, ptr %2, align 4, !tbaa !204
   br label %90
 
-90:                                               ; preds = %18, %84, %83, %76, %._crit_edge86, %31, %27, %22, %._crit_edge90
+90:                                               ; preds = %18, %84, %83, %76, %._crit_edge88, %31, %27, %22, %._crit_edge92
   call void @FT_Stream_ExitFrame(ptr noundef nonnull %5) #22
   br label %91
 

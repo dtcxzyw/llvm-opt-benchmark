@@ -47499,7 +47499,7 @@ invoke.cont312:                                   ; preds = %invoke.cont312.lr.p
   %shr.i = lshr i64 %mul.i, 32
   %conv3.i = trunc nuw nsw i64 %shr.i to i32
   %231 = load i64, ptr %mSize.i276, align 8
-  switch i32 %conv3.i, label %default.unreachable9162 [
+  switch i32 %conv3.i, label %default.unreachable9322 [
     i32 0, label %if.then
     i32 1, label %if.then333
     i32 2, label %if.then362
@@ -48935,7 +48935,7 @@ if.then712:                                       ; preds = %invoke.cont686
   store i64 0, ptr %mSize.i276, align 8
   br label %invoke.cont691.invoke
 
-default.unreachable9162:                          ; preds = %invoke.cont312, %invoke.cont1671
+default.unreachable9322:                          ; preds = %invoke.cont312, %invoke.cont1671
   unreachable
 
 if.end732:                                        ; preds = %_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit1588, %invoke.cont691.invoke, %_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit1001.invoke, %invoke.cont686, %if.then422, %_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit1464, %invoke.cont628, %if.then606, %invoke.cont705, %if.then637, %invoke.cont676, %_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit1334, %if.then362
@@ -51117,7 +51117,7 @@ if.then8.i3093:                                   ; preds = %if.end.i3087
   %.pre8526 = load ptr, ptr %rbVectorInt, align 8
   %spec.store.select = select i1 %cmp13.i3095, ptr %.pre8526, ptr %incdec.ptr10.i3094
   store ptr %spec.store.select, ptr %mBegin.i3012, align 8
-  %spec.select9210 = select i1 %cmp13.i3095, ptr %.pre8526, ptr %incdec.ptr10.i3094
+  %spec.select9370 = select i1 %cmp13.i3095, ptr %.pre8526, ptr %incdec.ptr10.i3094
   br label %_ZN5eastl11ring_bufferIiNS_6vectorIiNS_9allocatorEEES2_E9push_backERKi.exit3098
 
 if.else.i3090:                                    ; preds = %if.end.i3087
@@ -51130,7 +51130,7 @@ if.else.i3090:                                    ; preds = %if.end.i3087
 
 _ZN5eastl11ring_bufferIiNS_6vectorIiNS_9allocatorEEES2_E9push_backERKi.exit3098: ; preds = %if.then8.i3093, %if.else.i3090
   %796 = phi ptr [ %.pre8525, %if.else.i3090 ], [ %.pre8526, %if.then8.i3093 ]
-  %797 = phi ptr [ %794, %if.else.i3090 ], [ %spec.select9210, %if.then8.i3093 ]
+  %797 = phi ptr [ %794, %if.else.i3090 ], [ %spec.select9370, %if.then8.i3093 ]
   %sub.ptr.lhs.cast.i.i.i.i.i3102 = ptrtoint ptr %791 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i3103 = ptrtoint ptr %797 to i64
   %sub.ptr.sub.i.i.i.i.i3104 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i3102, %sub.ptr.rhs.cast.i.i.i.i.i3103
@@ -51882,9 +51882,9 @@ if.then8.i3528:                                   ; preds = %if.end.i3522
   store ptr %incdec.ptr10.i3529, ptr %mBegin.i3012, align 8
   %cmp13.i3530 = icmp eq ptr %incdec.ptr10.i3529, %929
   %.pre8528 = load ptr, ptr %rbVectorInt, align 8
-  %spec.store.select9211 = select i1 %cmp13.i3530, ptr %.pre8528, ptr %incdec.ptr10.i3529
-  store ptr %spec.store.select9211, ptr %mBegin.i3012, align 8
-  %spec.select9212 = select i1 %cmp13.i3530, ptr %.pre8528, ptr %incdec.ptr10.i3529
+  %spec.store.select9371 = select i1 %cmp13.i3530, ptr %.pre8528, ptr %incdec.ptr10.i3529
+  store ptr %spec.store.select9371, ptr %mBegin.i3012, align 8
+  %spec.select9372 = select i1 %cmp13.i3530, ptr %.pre8528, ptr %incdec.ptr10.i3529
   br label %_ZN5eastl11ring_bufferIiNS_6vectorIiNS_9allocatorEEES2_E9push_backERKi.exit3533
 
 if.else.i3525:                                    ; preds = %if.end.i3522
@@ -51896,7 +51896,7 @@ if.else.i3525:                                    ; preds = %if.end.i3522
 
 _ZN5eastl11ring_bufferIiNS_6vectorIiNS_9allocatorEEES2_E9push_backERKi.exit3533: ; preds = %if.then8.i3528, %if.else.i3525
   %934 = phi ptr [ %.pre8527, %if.else.i3525 ], [ %.pre8528, %if.then8.i3528 ]
-  %935 = phi ptr [ %932, %if.else.i3525 ], [ %spec.select9212, %if.then8.i3528 ]
+  %935 = phi ptr [ %932, %if.else.i3525 ], [ %spec.select9372, %if.then8.i3528 ]
   %sub.ptr.lhs.cast.i.i.i.i.i3537 = ptrtoint ptr %929 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i3538 = ptrtoint ptr %935 to i64
   %sub.ptr.sub.i.i.i.i.i3539 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i3537, %sub.ptr.rhs.cast.i.i.i.i.i3538
@@ -52453,9 +52453,9 @@ if.then8.i3913:                                   ; preds = %if.end.i3907
   store ptr %incdec.ptr10.i3914, ptr %mBegin.i3844, align 8
   %cmp13.i3915 = icmp eq ptr %incdec.ptr10.i3914, %1031
   %.pre8530 = load ptr, ptr %rbVectorInt1156, align 8
-  %spec.store.select9213 = select i1 %cmp13.i3915, ptr %.pre8530, ptr %incdec.ptr10.i3914
-  store ptr %spec.store.select9213, ptr %mBegin.i3844, align 8
-  %spec.select9214 = select i1 %cmp13.i3915, ptr %.pre8530, ptr %incdec.ptr10.i3914
+  %spec.store.select9373 = select i1 %cmp13.i3915, ptr %.pre8530, ptr %incdec.ptr10.i3914
+  store ptr %spec.store.select9373, ptr %mBegin.i3844, align 8
+  %spec.select9374 = select i1 %cmp13.i3915, ptr %.pre8530, ptr %incdec.ptr10.i3914
   br label %_ZN5eastl11ring_bufferIiNS_6vectorIiNS_9allocatorEEES2_E9push_backERKi.exit3918
 
 if.else.i3910:                                    ; preds = %if.end.i3907
@@ -52468,7 +52468,7 @@ if.else.i3910:                                    ; preds = %if.end.i3907
 
 _ZN5eastl11ring_bufferIiNS_6vectorIiNS_9allocatorEEES2_E9push_backERKi.exit3918: ; preds = %if.then8.i3913, %if.else.i3910
   %1036 = phi ptr [ %.pre8529, %if.else.i3910 ], [ %.pre8530, %if.then8.i3913 ]
-  %1037 = phi ptr [ %1034, %if.else.i3910 ], [ %spec.select9214, %if.then8.i3913 ]
+  %1037 = phi ptr [ %1034, %if.else.i3910 ], [ %spec.select9374, %if.then8.i3913 ]
   %sub.ptr.lhs.cast.i.i.i.i.i3922 = ptrtoint ptr %1031 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i3923 = ptrtoint ptr %1037 to i64
   %sub.ptr.sub.i.i.i.i.i3924 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i3922, %sub.ptr.rhs.cast.i.i.i.i.i3923
@@ -52663,8 +52663,8 @@ for.body.i.i3989:                                 ; preds = %for.inc.i.i3993, %f
   %first2.sroa.2.036.i.i = phi ptr [ %1072, %for.body.lr.ph.i.i3987 ], [ %first2.sroa.2.1.i.i3997, %for.inc.i.i3993 ]
   %1078 = load i32, ptr %first1.sroa.2.037.i.i, align 4
   %1079 = load i32, ptr %first2.sroa.2.036.i.i, align 4
-  %or.cond9286.not = icmp eq i32 %1079, %1078
-  br i1 %or.cond9286.not, label %for.inc.i.i3993, label %invoke.cont1217.loopexit
+  %or.cond9446.not = icmp eq i32 %1079, %1078
+  br i1 %or.cond9446.not, label %for.inc.i.i3993, label %invoke.cont1217.loopexit
 
 for.inc.i.i3993:                                  ; preds = %for.body.i.i3989
   %incdec.ptr.i.i.i3994 = getelementptr inbounds nuw i8, ptr %first1.sroa.2.037.i.i, i64 4
@@ -52775,8 +52775,8 @@ for.body.i.i.i4029:                               ; preds = %for.inc.i.i.i4032, 
   %first2.sroa.2.036.i.i.i = phi ptr [ %1093, %for.body.lr.ph.i.i.i4027 ], [ %first2.sroa.2.1.i.i.i4035, %for.inc.i.i.i4032 ]
   %1099 = load i32, ptr %first1.sroa.2.037.i.i.i, align 4
   %1100 = load i32, ptr %first2.sroa.2.036.i.i.i, align 4
-  %or.cond9287.not = icmp eq i32 %1100, %1099
-  br i1 %or.cond9287.not, label %for.inc.i.i.i4032, label %invoke.cont1236.loopexit
+  %or.cond9447.not = icmp eq i32 %1100, %1099
+  br i1 %or.cond9447.not, label %for.inc.i.i.i4032, label %invoke.cont1236.loopexit
 
 for.inc.i.i.i4032:                                ; preds = %for.body.i.i.i4029
   %incdec.ptr.i.i.i.i4033 = getelementptr inbounds nuw i8, ptr %first1.sroa.2.037.i.i.i, i64 4
@@ -52887,8 +52887,8 @@ for.body.i.i.i4079:                               ; preds = %for.inc.i.i.i4085, 
   %first2.sroa.2.036.i.i.i4081 = phi ptr [ %1114, %for.body.lr.ph.i.i.i4076 ], [ %first2.sroa.2.1.i.i.i4091, %for.inc.i.i.i4085 ]
   %1120 = load i32, ptr %first1.sroa.2.037.i.i.i4080, align 4
   %1121 = load i32, ptr %first2.sroa.2.036.i.i.i4081, align 4
-  %or.cond9288.not = icmp eq i32 %1121, %1120
-  br i1 %or.cond9288.not, label %for.inc.i.i.i4085, label %invoke.cont1255.loopexit
+  %or.cond9448.not = icmp eq i32 %1121, %1120
+  br i1 %or.cond9448.not, label %for.inc.i.i.i4085, label %invoke.cont1255.loopexit
 
 for.inc.i.i.i4085:                                ; preds = %for.body.i.i.i4079
   %incdec.ptr.i.i.i.i4086 = getelementptr inbounds nuw i8, ptr %first1.sroa.2.037.i.i.i4080, i64 4
@@ -52999,8 +52999,8 @@ for.body.i.i4138:                                 ; preds = %for.inc.i.i4144, %f
   %first2.sroa.2.036.i.i4140 = phi ptr [ %1135, %for.body.lr.ph.i.i4135 ], [ %first2.sroa.2.1.i.i4150, %for.inc.i.i4144 ]
   %1141 = load i32, ptr %first1.sroa.2.037.i.i4139, align 4
   %1142 = load i32, ptr %first2.sroa.2.036.i.i4140, align 4
-  %or.cond9289.not = icmp eq i32 %1142, %1141
-  br i1 %or.cond9289.not, label %for.inc.i.i4144, label %invoke.cont1274.loopexit
+  %or.cond9449.not = icmp eq i32 %1142, %1141
+  br i1 %or.cond9449.not, label %for.inc.i.i4144, label %invoke.cont1274.loopexit
 
 for.inc.i.i4144:                                  ; preds = %for.body.i.i4138
   %incdec.ptr.i.i.i4145 = getelementptr inbounds nuw i8, ptr %first1.sroa.2.037.i.i4139, i64 4
@@ -53115,8 +53115,8 @@ for.body.i.i.i4197:                               ; preds = %for.inc.i.i.i4203, 
   %first2.sroa.2.036.i.i.i4199 = phi ptr [ %1156, %for.body.lr.ph.i.i.i4194 ], [ %first2.sroa.2.1.i.i.i4209, %for.inc.i.i.i4203 ]
   %1162 = load i32, ptr %first1.sroa.2.037.i.i.i4198, align 4
   %1163 = load i32, ptr %first2.sroa.2.036.i.i.i4199, align 4
-  %or.cond9290.not = icmp eq i32 %1163, %1162
-  br i1 %or.cond9290.not, label %for.inc.i.i.i4203, label %invoke.cont1295.loopexit
+  %or.cond9450.not = icmp eq i32 %1163, %1162
+  br i1 %or.cond9450.not, label %for.inc.i.i.i4203, label %invoke.cont1295.loopexit
 
 for.inc.i.i.i4203:                                ; preds = %for.body.i.i.i4197
   %incdec.ptr.i.i.i.i4204 = getelementptr inbounds nuw i8, ptr %first1.sroa.2.037.i.i.i4198, i64 4
@@ -53231,8 +53231,8 @@ for.body.i.i4256:                                 ; preds = %for.inc.i.i4262, %f
   %first2.sroa.2.036.i.i4258 = phi ptr [ %1177, %for.body.lr.ph.i.i4253 ], [ %first2.sroa.2.1.i.i4268, %for.inc.i.i4262 ]
   %1183 = load i32, ptr %first1.sroa.2.037.i.i4257, align 4
   %1184 = load i32, ptr %first2.sroa.2.036.i.i4258, align 4
-  %or.cond9291.not = icmp eq i32 %1184, %1183
-  br i1 %or.cond9291.not, label %for.inc.i.i4262, label %invoke.cont1316.loopexit
+  %or.cond9451.not = icmp eq i32 %1184, %1183
+  br i1 %or.cond9451.not, label %for.inc.i.i4262, label %invoke.cont1316.loopexit
 
 for.inc.i.i4262:                                  ; preds = %for.body.i.i4256
   %incdec.ptr.i.i.i4263 = getelementptr inbounds nuw i8, ptr %first1.sroa.2.037.i.i4257, i64 4
@@ -53347,8 +53347,8 @@ for.body.i.i4315:                                 ; preds = %for.inc.i.i4321, %f
   %first2.sroa.2.036.i.i4317 = phi ptr [ %1198, %for.body.lr.ph.i.i4312 ], [ %first2.sroa.2.1.i.i4327, %for.inc.i.i4321 ]
   %1204 = load i32, ptr %first1.sroa.2.037.i.i4316, align 4
   %1205 = load i32, ptr %first2.sroa.2.036.i.i4317, align 4
-  %or.cond9292.not = icmp eq i32 %1205, %1204
-  br i1 %or.cond9292.not, label %for.inc.i.i4321, label %invoke.cont1337.loopexit
+  %or.cond9452.not = icmp eq i32 %1205, %1204
+  br i1 %or.cond9452.not, label %for.inc.i.i4321, label %invoke.cont1337.loopexit
 
 for.inc.i.i4321:                                  ; preds = %for.body.i.i4315
   %incdec.ptr.i.i.i4322 = getelementptr inbounds nuw i8, ptr %first1.sroa.2.037.i.i4316, i64 4
@@ -54895,7 +54895,7 @@ invoke.cont1671:                                  ; preds = %invoke.cont1671.lr.
   %shr.i5107 = lshr i64 %mul.i5106, 32
   %conv3.i5108 = trunc nuw nsw i64 %shr.i5107 to i32
   %1430 = load i64, ptr %mSize.i4365, align 8
-  switch i32 %conv3.i5108, label %default.unreachable9162 [
+  switch i32 %conv3.i5108, label %default.unreachable9322 [
     i32 0, label %if.then1677
     i32 1, label %if.then1696
     i32 2, label %if.then1726

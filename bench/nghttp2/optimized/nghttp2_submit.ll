@@ -499,26 +499,26 @@ define i32 @nghttp2_submit_altsvc(ptr noundef %0, i8 noundef zeroext %1, i32 nou
 .thread:                                          ; preds = %19
   %23 = tail call ptr @nghttp2_mem_malloc(ptr noundef nonnull %8, i64 noundef %13) #8
   %24 = icmp eq ptr %23, null
-  br i1 %24, label %41, label %.thread64
+  br i1 %24, label %41, label %.thread65
 
 25:                                               ; preds = %20
   %26 = tail call ptr @nghttp2_cpymem(ptr noundef nonnull %21, ptr noundef %3, i64 noundef %4) #8
-  br label %.thread64
+  br label %.thread65
 
-.thread64:                                        ; preds = %.thread, %25
+.thread65:                                        ; preds = %.thread, %25
   %27 = phi ptr [ %21, %25 ], [ %23, %.thread ]
   %.048 = phi ptr [ %26, %25 ], [ %23, %.thread ]
   %28 = getelementptr inbounds nuw i8, ptr %.048, i64 1
   store i8 0, ptr %.048, align 1, !tbaa !7
-  %.not56 = icmp eq i64 %6, 0
-  br i1 %.not56, label %31, label %29
+  %.not57 = icmp eq i64 %6, 0
+  br i1 %.not57, label %31, label %29
 
-29:                                               ; preds = %.thread64
+29:                                               ; preds = %.thread65
   %30 = tail call ptr @nghttp2_cpymem(ptr noundef nonnull %28, ptr noundef %5, i64 noundef %6) #8
   br label %31
 
-31:                                               ; preds = %29, %.thread64
-  %.1 = phi ptr [ %30, %29 ], [ %28, %.thread64 ]
+31:                                               ; preds = %29, %.thread65
+  %.1 = phi ptr [ %30, %29 ], [ %28, %.thread65 ]
   store i8 0, ptr %.1, align 1, !tbaa !7
   %32 = tail call ptr @nghttp2_mem_malloc(ptr noundef nonnull %8, i64 noundef 160) #8
   %33 = icmp eq ptr %32, null
@@ -537,8 +537,8 @@ define i32 @nghttp2_submit_altsvc(ptr noundef %0, i8 noundef zeroext %1, i32 nou
   store ptr %37, ptr %38, align 8, !tbaa !7
   tail call void @nghttp2_frame_altsvc_init(ptr noundef nonnull %32, i32 noundef %2, ptr noundef nonnull %27, i64 noundef %4, ptr noundef nonnull %28, i64 noundef %6) #8
   %39 = tail call i32 @nghttp2_session_add_item(ptr noundef nonnull %0, ptr noundef nonnull %32) #8
-  %.not57 = icmp eq i32 %39, 0
-  br i1 %.not57, label %41, label %40
+  %.not58 = icmp eq i32 %39, 0
+  br i1 %.not58, label %41, label %40
 
 40:                                               ; preds = %35
   tail call void @nghttp2_frame_altsvc_free(ptr noundef nonnull %32, ptr noundef nonnull %8) #8

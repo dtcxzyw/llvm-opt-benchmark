@@ -1830,7 +1830,7 @@ define internal fastcc void @_ZN6uucore8features14backup_control12match_method17
   br i1 %41, label %43, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb4e512201672a880E.exit94.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb4e512201672a880E.exit90": ; preds = %19
-  %bcmp.i89 = call i32 @bcmp(ptr nonnull readonly align 1 %23, ptr nonnull @anon.760280bf321f50b9070dd398863d3d36.34, i64 %25), !alias.scope !400
+  %bcmp.i89 = call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(4) %23, ptr noundef nonnull dereferenceable(4) @anon.760280bf321f50b9070dd398863d3d36.34, i64 4), !alias.scope !400
   %42 = icmp eq i32 %bcmp.i89, 0
   br i1 %42, label %43, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb4e512201672a880E.exit94.thread"
 

@@ -2595,33 +2595,33 @@ define internal fastcc range(i32 -8, 4) i32 @evdns_nameserver_add_impl_(ptr noun
   %6 = load ptr, ptr %5, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %.loopexit90, label %.preheader
+  br i1 %.not, label %.loopexit91, label %.preheader
 
 .preheader:                                       ; preds = %3, %9
   %.072 = phi ptr [ %11, %9 ], [ %6, %3 ]
   %7 = getelementptr inbounds nuw i8, ptr %.072, i64 16
   %8 = tail call i32 @evutil_sockaddr_cmp(ptr noundef nonnull %7, ptr noundef %1, i32 noundef 1) #21
-  %.not79 = icmp eq i32 %8, 0
-  br i1 %.not79, label %.loopexit, label %9
+  %.not80 = icmp eq i32 %8, 0
+  br i1 %.not80, label %.loopexit, label %9
 
 9:                                                ; preds = %.preheader
   %10 = getelementptr inbounds nuw i8, ptr %.072, i64 280
   %11 = load ptr, ptr %10, align 8
-  %.not80 = icmp eq ptr %11, %6
-  br i1 %.not80, label %.loopexit90, label %.preheader, !llvm.loop !19
+  %.not81 = icmp eq ptr %11, %6
+  br i1 %.not81, label %.loopexit91, label %.preheader, !llvm.loop !19
 
-.loopexit90:                                      ; preds = %9, %3
+.loopexit91:                                      ; preds = %9, %3
   %12 = icmp sgt i32 %2, 128
   br i1 %12, label %13, label %14
 
-13:                                               ; preds = %.loopexit90
+13:                                               ; preds = %.loopexit91
   tail call void (i32, ptr, ...) @evdns_log_(i32 noundef 0, ptr noundef nonnull @.str.69, i32 noundef %2)
   br label %.loopexit
 
-14:                                               ; preds = %.loopexit90
+14:                                               ; preds = %.loopexit91
   %15 = tail call ptr @event_mm_malloc_(i64 noundef 448) #21
-  %.not81 = icmp eq ptr %15, null
-  br i1 %.not81, label %.loopexit, label %16
+  %.not82 = icmp eq ptr %15, null
+  br i1 %.not82, label %.loopexit, label %16
 
 16:                                               ; preds = %14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(448) %15, i8 0, i64 448, i1 false)
@@ -2641,44 +2641,44 @@ define internal fastcc range(i32 -8, 4) i32 @evdns_nameserver_add_impl_(ptr noun
 26:                                               ; preds = %16
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %28 = load i32, ptr %27, align 8
-  %.not82 = icmp eq i32 %28, 0
-  br i1 %.not82, label %37, label %29
+  %.not83 = icmp eq i32 %28, 0
+  br i1 %.not83, label %37, label %29
 
 29:                                               ; preds = %26
   %30 = tail call i32 @evutil_sockaddr_is_loopback_(ptr noundef nonnull %1) #21
-  %.not83 = icmp eq i32 %30, 0
-  %.pre91.pre93.pre96 = load i32, ptr %15, align 8
-  br i1 %.not83, label %31, label %37
+  %.not84 = icmp eq i32 %30, 0
+  %.pre92.pre94.pre97 = load i32, ptr %15, align 8
+  br i1 %.not84, label %31, label %37
 
 31:                                               ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %33 = load i32, ptr %27, align 8
-  %34 = tail call i32 @bind(i32 noundef %.pre91.pre93.pre96, ptr nonnull %32, i32 noundef %33) #21
+  %34 = tail call i32 @bind(i32 noundef %.pre92.pre94.pre97, ptr nonnull %32, i32 noundef %33) #21
   %35 = icmp slt i32 %34, 0
-  br i1 %35, label %36, label %._crit_edge95
+  br i1 %35, label %36, label %._crit_edge96
 
-._crit_edge95:                                    ; preds = %31
-  %.pre91.pre93.pre = load i32, ptr %15, align 8
+._crit_edge96:                                    ; preds = %31
+  %.pre92.pre94.pre = load i32, ptr %15, align 8
   br label %37
 
 36:                                               ; preds = %31
   tail call void (i32, ptr, ...) @evdns_log_(i32 noundef 2, ptr noundef nonnull @.str.52)
   br label %86
 
-37:                                               ; preds = %._crit_edge95, %29, %26
-  %.pre91.pre93 = phi i32 [ %.pre91.pre93.pre, %._crit_edge95 ], [ %.pre91.pre93.pre96, %29 ], [ %24, %26 ]
+37:                                               ; preds = %._crit_edge96, %29, %26
+  %.pre92.pre94 = phi i32 [ %.pre92.pre94.pre, %._crit_edge96 ], [ %.pre92.pre94.pre97, %29 ], [ %24, %26 ]
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %39 = load i32, ptr %38, align 8
-  %.not84 = icmp eq i32 %39, 0
-  br i1 %.not84, label %44, label %40
+  %.not85 = icmp eq i32 %39, 0
+  br i1 %.not85, label %44, label %40
 
 40:                                               ; preds = %37
-  %41 = tail call i32 @setsockopt(i32 noundef %.pre91.pre93, i32 noundef 1, i32 noundef 8, ptr noundef nonnull %38, i32 noundef 4) #21
-  %.not85 = icmp eq i32 %41, 0
-  br i1 %.not85, label %._crit_edge92, label %42
+  %41 = tail call i32 @setsockopt(i32 noundef %.pre92.pre94, i32 noundef 1, i32 noundef 8, ptr noundef nonnull %38, i32 noundef 4) #21
+  %.not86 = icmp eq i32 %41, 0
+  br i1 %.not86, label %._crit_edge93, label %42
 
-._crit_edge92:                                    ; preds = %40
-  %.pre91.pre = load i32, ptr %15, align 8
+._crit_edge93:                                    ; preds = %40
+  %.pre92.pre = load i32, ptr %15, align 8
   br label %44
 
 42:                                               ; preds = %40
@@ -2686,17 +2686,17 @@ define internal fastcc range(i32 -8, 4) i32 @evdns_nameserver_add_impl_(ptr noun
   tail call void (i32, ptr, ...) @evdns_log_(i32 noundef 2, ptr noundef nonnull @.str.70, i32 noundef %43)
   br label %86
 
-44:                                               ; preds = %._crit_edge92, %37
-  %.pre91 = phi i32 [ %.pre91.pre, %._crit_edge92 ], [ %.pre91.pre93, %37 ]
+44:                                               ; preds = %._crit_edge93, %37
+  %.pre92 = phi i32 [ %.pre92.pre, %._crit_edge93 ], [ %.pre92.pre94, %37 ]
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 292
   %46 = load i32, ptr %45, align 4
-  %.not86 = icmp eq i32 %46, 0
-  br i1 %.not86, label %51, label %47
+  %.not87 = icmp eq i32 %46, 0
+  br i1 %.not87, label %51, label %47
 
 47:                                               ; preds = %44
-  %48 = tail call i32 @setsockopt(i32 noundef %.pre91, i32 noundef 1, i32 noundef 7, ptr noundef nonnull %45, i32 noundef 4) #21
-  %.not87 = icmp eq i32 %48, 0
-  br i1 %.not87, label %._crit_edge, label %49
+  %48 = tail call i32 @setsockopt(i32 noundef %.pre92, i32 noundef 1, i32 noundef 7, ptr noundef nonnull %45, i32 noundef 4) #21
+  %.not88 = icmp eq i32 %48, 0
+  br i1 %.not88, label %._crit_edge, label %49
 
 ._crit_edge:                                      ; preds = %47
   %.pre = load i32, ptr %15, align 8
@@ -2708,7 +2708,7 @@ define internal fastcc range(i32 -8, 4) i32 @evdns_nameserver_add_impl_(ptr noun
   br label %86
 
 51:                                               ; preds = %._crit_edge, %44
-  %52 = phi i32 [ %.pre, %._crit_edge ], [ %.pre91, %44 ]
+  %52 = phi i32 [ %.pre, %._crit_edge ], [ %.pre92, %44 ]
   %53 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %54 = sext i32 %2 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %53, ptr nonnull align 2 %1, i64 %54, i1 false)
@@ -2725,8 +2725,8 @@ define internal fastcc range(i32 -8, 4) i32 @evdns_nameserver_add_impl_(ptr noun
   %62 = tail call i32 @event_assign(ptr noundef nonnull %58, ptr noundef %61, i32 noundef %52, i16 noundef signext 18, ptr noundef nonnull @nameserver_ready_callback, ptr noundef nonnull %15) #21
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %64 = load i32, ptr %63, align 8
-  %.not88 = icmp eq i32 %64, 0
-  br i1 %.not88, label %65, label %68
+  %.not89 = icmp eq i32 %64, 0
+  br i1 %.not89, label %65, label %68
 
 65:                                               ; preds = %51
   %66 = tail call i32 @event_add(ptr noundef nonnull %58, ptr noundef null) #21
@@ -2737,9 +2737,9 @@ define internal fastcc range(i32 -8, 4) i32 @evdns_nameserver_add_impl_(ptr noun
   %69 = call ptr @evutil_format_sockaddr_port_(ptr noundef nonnull %1, ptr noundef nonnull %4, i64 noundef 128) #21
   call void (i32, ptr, ...) @evdns_log_(i32 noundef 0, ptr noundef nonnull @.str.72, ptr noundef %69, ptr noundef nonnull %15)
   %70 = load ptr, ptr %5, align 8
-  %.not89 = icmp eq ptr %70, null
+  %.not90 = icmp eq ptr %70, null
   %71 = getelementptr inbounds nuw i8, ptr %15, i64 280
-  br i1 %.not89, label %72, label %74
+  br i1 %.not90, label %72, label %74
 
 72:                                               ; preds = %68
   %73 = getelementptr inbounds nuw i8, ptr %15, i64 288

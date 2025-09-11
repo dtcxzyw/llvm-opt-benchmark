@@ -10861,14 +10861,14 @@ define linkonce_odr dso_local void @_ZN7testing8internal16ContainerPrinter10Prin
   br i1 %7, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %12
-  %.021 = phi i64 [ %16, %12 ], [ 0, %2 ]
-  %.sroa.015.020 = phi ptr [ %17, %12 ], [ %4, %2 ]
-  %.not = icmp eq i64 %.021, 0
+  %.022 = phi i64 [ %16, %12 ], [ 0, %2 ]
+  %.sroa.016.021 = phi ptr [ %17, %12 ], [ %4, %2 ]
+  %.not = icmp eq i64 %.022, 0
   br i1 %.not, label %12, label %8
 
 8:                                                ; preds = %.lr.ph
   %9 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %1, i8 noundef signext 44)
-  %10 = icmp eq i64 %.021, 32
+  %10 = icmp eq i64 %.022, 32
   br i1 %10, label %.thread, label %12
 
 .thread:                                          ; preds = %8
@@ -10877,10 +10877,10 @@ define linkonce_odr dso_local void @_ZN7testing8internal16ContainerPrinter10Prin
 
 12:                                               ; preds = %8, %.lr.ph
   %13 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %1, i8 noundef signext 32)
-  %14 = load i32, ptr %.sroa.015.020, align 4
+  %14 = load i32, ptr %.sroa.016.021, align 4
   %15 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %14)
-  %16 = add i64 %.021, 1
-  %17 = getelementptr inbounds nuw i8, ptr %.sroa.015.020, i64 4
+  %16 = add i64 %.022, 1
+  %17 = getelementptr inbounds nuw i8, ptr %.sroa.016.021, i64 4
   %18 = icmp eq ptr %17, %6
   br i1 %18, label %._crit_edge, label %.lr.ph
 

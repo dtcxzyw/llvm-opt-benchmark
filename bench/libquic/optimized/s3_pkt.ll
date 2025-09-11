@@ -332,9 +332,9 @@ define hidden range(i32 -2147483648, 65536) i32 @ssl3_read_bytes(ptr noundef %0,
   %12 = icmp ne i32 %1, 23
   %13 = icmp ne i32 %4, 0
   %or.cond7 = and i1 %12, %13
-  br i1 %or.cond7, label %25, label %.preheader163
+  br i1 %or.cond7, label %25, label %.preheader164
 
-.preheader163:                                    ; preds = %11
+.preheader164:                                    ; preds = %11
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %cond = icmp eq i32 %1, 0
@@ -514,7 +514,7 @@ ssl3_get_record.exit:                             ; preds = %44
 
 103:                                              ; preds = %98
   call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 100, ptr noundef nonnull @.str, i32 noundef 413) #5
-  br label %.thread160
+  br label %.thread161
 
 104:                                              ; preds = %98, %94
   %105 = load i16, ptr %28, align 2, !tbaa !61
@@ -557,8 +557,8 @@ ssl3_get_record.exit:                             ; preds = %44
 124:                                              ; preds = %122
   %125 = load i8, ptr %17, align 1
   %126 = and i8 %125, 2
-  %.not140 = icmp eq i8 %126, 0
-  br i1 %.not140, label %127, label %ssl3_can_renegotiate.exit.thread
+  %.not141 = icmp eq i8 %126, 0
+  br i1 %.not141, label %127, label %ssl3_can_renegotiate.exit.thread
 
 127:                                              ; preds = %124
   %128 = load i32, ptr %18, align 4, !tbaa !70
@@ -571,12 +571,12 @@ ssl3_get_record.exit:                             ; preds = %44
 ssl3_can_renegotiate.exit:                        ; preds = %127
   %129 = getelementptr inbounds nuw i8, ptr %86, i64 252
   %130 = load i32, ptr %129, align 4, !tbaa !71
-  %.not250 = icmp eq i32 %130, 0
-  br i1 %.not250, label %.preheader, label %ssl3_can_renegotiate.exit.thread
+  %.not251 = icmp eq i32 %130, 0
+  br i1 %.not251, label %.preheader, label %ssl3_can_renegotiate.exit.thread
 
 ssl3_can_renegotiate.exit.thread:                 ; preds = %127, %ssl3_can_renegotiate.exit, %124
   call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 182, ptr noundef nonnull @.str, i32 noundef 452) #5
-  br label %.thread160
+  br label %.thread161
 
 .preheader:                                       ; preds = %127, %127, %ssl3_can_renegotiate.exit
   %131 = getelementptr inbounds nuw i8, ptr %86, i64 136
@@ -586,11 +586,11 @@ ssl3_can_renegotiate.exit.thread:                 ; preds = %127, %ssl3_can_rene
 
 .lr.ph:                                           ; preds = %.preheader
   %133 = getelementptr inbounds nuw i8, ptr %26, i64 128
-  %.promoted249 = load i16, ptr %28, align 2, !tbaa !61
+  %.promoted250 = load i16, ptr %28, align 2, !tbaa !61
   br label %134
 
 134:                                              ; preds = %.lr.ph, %142
-  %135 = phi i16 [ %.promoted249, %.lr.ph ], [ %144, %142 ]
+  %135 = phi i16 [ %.promoted250, %.lr.ph ], [ %144, %142 ]
   %136 = phi i8 [ %.promoted, %.lr.ph ], [ %145, %142 ]
   %137 = icmp eq i16 %135, 0
   br i1 %137, label %.backedge.backedge, label %138
@@ -598,12 +598,12 @@ ssl3_can_renegotiate.exit.thread:                 ; preds = %127, %ssl3_can_rene
 138:                                              ; preds = %134
   %139 = load ptr, ptr %133, align 8, !tbaa !66
   %140 = load i8, ptr %139, align 1, !tbaa !62
-  %.not146 = icmp eq i8 %140, 0
-  br i1 %.not146, label %142, label %141
+  %.not147 = icmp eq i8 %140, 0
+  br i1 %.not147, label %142, label %141
 
 141:                                              ; preds = %138
   call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 110, ptr noundef nonnull @.str, i32 noundef 466) #5
-  br label %.thread160
+  br label %.thread161
 
 142:                                              ; preds = %138
   %143 = getelementptr inbounds nuw i8, ptr %139, i64 1
@@ -618,8 +618,8 @@ ssl3_can_renegotiate.exit.thread:                 ; preds = %127, %ssl3_can_rene
 ._crit_edge:                                      ; preds = %142, %.preheader
   store i8 0, ptr %131, align 8, !tbaa !72
   %146 = load ptr, ptr %19, align 8, !tbaa !75
-  %.not142 = icmp eq ptr %146, null
-  br i1 %.not142, label %150, label %147
+  %.not143 = icmp eq ptr %146, null
+  br i1 %.not143, label %150, label %147
 
 147:                                              ; preds = %._crit_edge
   %148 = load i32, ptr %0, align 8, !tbaa !76
@@ -629,15 +629,15 @@ ssl3_can_renegotiate.exit.thread:                 ; preds = %127, %ssl3_can_rene
 
 150:                                              ; preds = %147, %._crit_edge
   %151 = call i32 @SSL_is_init_finished(ptr noundef nonnull %0) #5
-  %.not143 = icmp eq i32 %151, 0
-  br i1 %.not143, label %156, label %152
+  %.not144 = icmp eq i32 %151, 0
+  br i1 %.not144, label %156, label %152
 
 152:                                              ; preds = %150
   %153 = load ptr, ptr %14, align 8, !tbaa !6
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 81
   %155 = load i8, ptr %154, align 1, !tbaa !78
-  %.not144 = icmp eq i8 %155, 0
-  br i1 %.not144, label %156, label %157
+  %.not145 = icmp eq i8 %155, 0
+  br i1 %.not145, label %156, label %157
 
 156:                                              ; preds = %152, %150
   call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 68, ptr noundef nonnull @.str, i32 noundef 484) #5
@@ -650,12 +650,12 @@ ssl3_can_renegotiate.exit.thread:                 ; preds = %127, %ssl3_can_rene
 
 160:                                              ; preds = %157
   %161 = call i32 @ssl_write_buffer_is_pending(ptr noundef nonnull %0) #5
-  %.not145 = icmp eq i32 %161, 0
-  br i1 %.not145, label %163, label %162
+  %.not146 = icmp eq i32 %161, 0
+  br i1 %.not146, label %163, label %162
 
 162:                                              ; preds = %160
   call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 182, ptr noundef nonnull @.str, i32 noundef 498) #5
-  br label %.thread160
+  br label %.thread161
 
 163:                                              ; preds = %160
   %164 = load ptr, ptr %14, align 8, !tbaa !6
@@ -683,17 +683,17 @@ thread-pre-split:                                 ; preds = %90, %122
 
 175:                                              ; preds = %thread-pre-split
   %176 = load i16, ptr %28, align 2, !tbaa !61
-  %.not135 = icmp eq i16 %176, 2
-  br i1 %.not135, label %178, label %177
+  %.not136 = icmp eq i16 %176, 2
+  br i1 %.not136, label %178, label %177
 
 177:                                              ; preds = %175
   call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 102, ptr noundef nonnull @.str, i32 noundef 523) #5
-  br label %.thread160
+  br label %.thread161
 
 178:                                              ; preds = %175
   %179 = load ptr, ptr %19, align 8, !tbaa !75
-  %.not136 = icmp eq ptr %179, null
-  br i1 %.not136, label %186, label %180
+  %.not137 = icmp eq ptr %179, null
+  br i1 %.not137, label %186, label %180
 
 180:                                              ; preds = %178
   %181 = load i32, ptr %0, align 8, !tbaa !76
@@ -716,29 +716,29 @@ thread-pre-split:                                 ; preds = %90, %122
   %193 = getelementptr inbounds nuw i8, ptr %189, i64 2
   store ptr %193, ptr %188, align 8, !tbaa !66
   %194 = load ptr, ptr %23, align 8, !tbaa !81
-  %.not137 = icmp eq ptr %194, null
-  br i1 %.not137, label %195, label %.thread
+  %.not138 = icmp eq ptr %194, null
+  br i1 %.not138, label %195, label %.thread
 
 195:                                              ; preds = %186
   %196 = load ptr, ptr %24, align 8, !tbaa !64
   %197 = getelementptr inbounds nuw i8, ptr %196, i64 264
   %198 = load ptr, ptr %197, align 8, !tbaa !82
-  %.not138 = icmp eq ptr %198, null
-  %spec.select = select i1 %.not138, ptr %.0119.ph, ptr %198
-  %.not139 = icmp eq ptr %spec.select, null
-  br i1 %.not139, label %203, label %.thread
+  %.not139 = icmp eq ptr %198, null
+  %spec.select = select i1 %.not139, ptr %.0119.ph, ptr %198
+  %.not140 = icmp eq ptr %spec.select, null
+  br i1 %.not140, label %203, label %.thread
 
 .thread:                                          ; preds = %186, %195
-  %.1120154 = phi ptr [ %spec.select, %195 ], [ %194, %186 ]
+  %.1120155 = phi ptr [ %spec.select, %195 ], [ %194, %186 ]
   %199 = zext i8 %190 to i32
   %200 = shl nuw nsw i32 %199, 8
   %201 = zext i8 %192 to i32
   %202 = or disjoint i32 %200, %201
-  call void %.1120154(ptr noundef nonnull %0, i32 noundef 16388, i32 noundef %202) #5
+  call void %.1120155(ptr noundef nonnull %0, i32 noundef 16388, i32 noundef %202) #5
   br label %203
 
 203:                                              ; preds = %.thread, %195
-  %.1120155 = phi ptr [ %.1120154, %.thread ], [ null, %195 ]
+  %.1120156 = phi ptr [ %.1120155, %.thread ], [ null, %195 ]
   switch i8 %190, label %227 [
     i8 1, label %204
     i8 2, label %217
@@ -765,13 +765,13 @@ thread-pre-split:                                 ; preds = %90, %122
   %215 = icmp ugt i8 %214, 4
   br i1 %215, label %216, label %.outer
 
-.outer:                                           ; preds = %.preheader163, %211
-  %.0119.ph = phi ptr [ null, %.preheader163 ], [ %.1120155, %211 ]
+.outer:                                           ; preds = %.preheader164, %211
+  %.0119.ph = phi ptr [ null, %.preheader164 ], [ %.1120156, %211 ]
   br label %.backedge
 
 216:                                              ; preds = %211
   call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 220, ptr noundef nonnull @.str, i32 noundef 557) #5
-  br label %.thread160
+  br label %.thread161
 
 217:                                              ; preds = %203
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -792,12 +792,12 @@ thread-pre-split:                                 ; preds = %90, %122
 
 227:                                              ; preds = %203
   call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 227, ptr noundef nonnull @.str, i32 noundef 571) #5
-  br label %.thread160
+  br label %.thread161
 
 228:                                              ; preds = %thread-pre-split
   %229 = and i32 %87, 1
-  %.not134 = icmp eq i32 %229, 0
-  br i1 %.not134, label %231, label %230
+  %.not135 = icmp eq i32 %229, 0
+  br i1 %.not135, label %231, label %230
 
 230:                                              ; preds = %228
   store i16 0, ptr %28, align 2, !tbaa !61
@@ -808,21 +808,21 @@ thread-pre-split:                                 ; preds = %90, %122
 
 231:                                              ; preds = %228
   call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 225, ptr noundef nonnull @.str, i32 noundef 585) #5
-  br label %.thread160
+  br label %.thread161
 
-.thread160:                                       ; preds = %227, %216, %231, %177, %162, %141, %ssl3_can_renegotiate.exit.thread, %103
+.thread161:                                       ; preds = %227, %216, %231, %177, %162, %141, %ssl3_can_renegotiate.exit.thread, %103
   %.1115 = phi i8 [ 10, %103 ], [ 100, %ssl3_can_renegotiate.exit.thread ], [ 50, %141 ], [ 100, %162 ], [ 50, %177 ], [ 10, %231 ], [ 47, %227 ], [ 10, %216 ]
   %232 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %233 = load ptr, ptr %232, align 8, !tbaa !63
   %.not.i = icmp eq ptr %233, null
   br i1 %.not.i, label %237, label %234
 
-234:                                              ; preds = %.thread160
+234:                                              ; preds = %.thread161
   %235 = load ptr, ptr %24, align 8, !tbaa !64
   %236 = call i32 @SSL_CTX_remove_session(ptr noundef %235, ptr noundef nonnull %233) #5
   br label %237
 
-237:                                              ; preds = %234, %.thread160
+237:                                              ; preds = %234, %.thread161
   %238 = load ptr, ptr %14, align 8, !tbaa !6
   %239 = getelementptr inbounds nuw i8, ptr %238, i64 244
   store i32 1, ptr %239, align 4, !tbaa !55

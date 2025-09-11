@@ -2327,9 +2327,9 @@ GC_find_header.exit:                              ; preds = %10
 
 22:                                               ; preds = %GC_find_header.exit
   %23 = ptrtoint ptr %1 to i64
-  %.not57.unshifted = xor i64 %23, %5
-  %.not57 = icmp ult i64 %.not57.unshifted, 4096
-  br i1 %.not57, label %86, label %24
+  %.not58.unshifted = xor i64 %23, %5
+  %.not58 = icmp ult i64 %.not58.unshifted, 4096
+  br i1 %.not58, label %86, label %24
 
 24:                                               ; preds = %22
   %25 = lshr i64 %23, 22
@@ -2338,23 +2338,23 @@ GC_find_header.exit:                              ; preds = %10
   br label %28
 
 28:                                               ; preds = %28, %24
-  %.0.in.i61 = phi ptr [ %27, %24 ], [ %34, %28 ]
-  %.0.i62 = load ptr, ptr %.0.in.i61, align 8, !tbaa !53
-  %29 = getelementptr inbounds nuw i8, ptr %.0.i62, i64 8208
+  %.0.in.i62 = phi ptr [ %27, %24 ], [ %34, %28 ]
+  %.0.i63 = load ptr, ptr %.0.in.i62, align 8, !tbaa !53
+  %29 = getelementptr inbounds nuw i8, ptr %.0.i63, i64 8208
   %30 = load i64, ptr %29, align 8, !tbaa !54
   %31 = icmp ne i64 %30, %25
-  %32 = icmp ne ptr %.0.i62, %9
+  %32 = icmp ne ptr %.0.i63, %9
   %33 = select i1 %31, i1 %32, i1 false
-  %34 = getelementptr inbounds nuw i8, ptr %.0.i62, i64 8216
-  br i1 %33, label %28, label %GC_find_header.exit63, !llvm.loop !56
+  %34 = getelementptr inbounds nuw i8, ptr %.0.i63, i64 8216
+  br i1 %33, label %28, label %GC_find_header.exit64, !llvm.loop !56
 
-GC_find_header.exit63:                            ; preds = %28
+GC_find_header.exit64:                            ; preds = %28
   %35 = lshr i64 %23, 12
   %36 = and i64 %35, 1023
-  %37 = getelementptr inbounds nuw ptr, ptr %.0.i62, i64 %36
+  %37 = getelementptr inbounds nuw ptr, ptr %.0.i63, i64 %36
   %38 = load ptr, ptr %37, align 8, !tbaa !57
-  %.not58 = icmp eq ptr %38, null
-  br i1 %.not58, label %86, label %.sink.split
+  %.not59 = icmp eq ptr %38, null
+  br i1 %.not59, label %86, label %.sink.split
 
 39:                                               ; preds = %GC_find_header.exit
   %40 = icmp ult ptr %20, inttoptr (i64 4096 to ptr)
@@ -2365,7 +2365,7 @@ GC_find_header.exit63:                            ; preds = %28
   br label %42
 
 42:                                               ; preds = %GC_find_header.exit.i, %.lr.ph.i
-  %.012.i = phi ptr [ %20, %.lr.ph.i ], [ %.0.i64, %GC_find_header.exit.i ]
+  %.012.i = phi ptr [ %20, %.lr.ph.i ], [ %.0.i65, %GC_find_header.exit.i ]
   %.0811.i = phi ptr [ %41, %.lr.ph.i ], [ %45, %GC_find_header.exit.i ]
   %43 = ptrtoint ptr %.012.i to i64
   %44 = sub nsw i64 0, %43
@@ -2391,20 +2391,20 @@ GC_find_header.exit.i:                            ; preds = %50
   %57 = lshr i64 %46, 12
   %58 = and i64 %57, 1023
   %59 = getelementptr inbounds nuw ptr, ptr %.0.i.i, i64 %58
-  %.0.i64 = load ptr, ptr %59, align 8, !tbaa !57
-  %60 = icmp ult ptr %.0.i64, inttoptr (i64 4096 to ptr)
+  %.0.i65 = load ptr, ptr %59, align 8, !tbaa !57
+  %60 = icmp ult ptr %.0.i65, inttoptr (i64 4096 to ptr)
   br i1 %60, label %42, label %GC_find_starting_hblk.exit, !llvm.loop !67
 
 GC_find_starting_hblk.exit:                       ; preds = %GC_find_header.exit.i
-  %61 = getelementptr inbounds nuw i8, ptr %.0.i64, i64 32
+  %61 = getelementptr inbounds nuw i8, ptr %.0.i65, i64 32
   %62 = load i64, ptr %61, align 8, !tbaa !58
   %63 = getelementptr inbounds nuw i8, ptr %45, i64 %62
   %64 = icmp uge ptr %0, %63
   %65 = icmp uge ptr %1, %63
-  %or.cond.not69 = or i1 %64, %65
+  %or.cond.not70 = or i1 %64, %65
   %66 = icmp ult ptr %1, %45
-  %or.cond59 = or i1 %66, %or.cond.not69
-  br i1 %or.cond59, label %.sink.split, label %86
+  %or.cond60 = or i1 %66, %or.cond.not70
+  br i1 %or.cond60, label %.sink.split, label %86
 
 67:                                               ; preds = %39
   %68 = getelementptr inbounds nuw i8, ptr %20, i64 32
@@ -2439,15 +2439,15 @@ GC_find_starting_hblk.exit:                       ; preds = %GC_find_header.exit
   %.046 = phi ptr [ %71, %72 ], [ %80, %.thread ]
   %83 = icmp uge ptr %1, %.046
   %84 = icmp ult ptr %1, %.049
-  %or.cond60 = select i1 %83, i1 %84, i1 false
-  br i1 %or.cond60, label %86, label %.sink.split
+  %or.cond61 = select i1 %83, i1 %84, i1 false
+  br i1 %or.cond61, label %86, label %.sink.split
 
-.sink.split:                                      ; preds = %82, %75, %72, %GC_find_starting_hblk.exit, %GC_find_header.exit63
+.sink.split:                                      ; preds = %82, %75, %72, %GC_find_starting_hblk.exit, %GC_find_header.exit64
   %85 = load ptr, ptr @GC_same_obj_print_proc, align 8, !tbaa !12
   tail call void %85(ptr noundef %0, ptr noundef %1) #46
   br label %86
 
-86:                                               ; preds = %.sink.split, %82, %GC_find_starting_hblk.exit, %22, %GC_find_header.exit63
+86:                                               ; preds = %.sink.split, %82, %GC_find_starting_hblk.exit, %22, %GC_find_header.exit64
   ret ptr %0
 }
 
@@ -43381,8 +43381,8 @@ define internal fastcc void @soft_set_grungy_pages(ptr noundef %0, ptr noundef %
 42:                                               ; preds = %39
   %43 = load i64, ptr @pagemap_buf_fpos, align 8, !tbaa !10
   %44 = add nsw i64 %43, %40
-  %.not43.i = icmp eq i64 %44, %.034.i
-  br i1 %.not43.i, label %53, label %45
+  %.not44.i = icmp eq i64 %44, %.034.i
+  br i1 %.not44.i, label %53, label %45
 
 45:                                               ; preds = %42, %39
   %46 = load i32, ptr @pagemap_fd, align 4, !tbaa !3
