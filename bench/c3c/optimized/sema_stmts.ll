@@ -1116,8 +1116,8 @@ sema_analyse_compound_stmt.exit:                  ; preds = %248, %234
   %337 = load i32, ptr %336, align 8
   %.not.i32.i = icmp eq i32 %337, 0
   %338 = load ptr, ptr @ast_arena, align 8
-  %.not30.i365680 = icmp eq ptr %338, null
-  %.not30.i365 = select i1 %.not.i32.i, i1 true, i1 %.not30.i365680
+  %.not30.i365681 = icmp eq ptr %338, null
+  %.not30.i365 = select i1 %.not.i32.i, i1 true, i1 %.not30.i365681
   br i1 %.not30.i365, label %select.unfold._crit_edge, label %.lr.ph368.preheader
 
 .lr.ph368.preheader:                              ; preds = %335
@@ -1126,7 +1126,7 @@ sema_analyse_compound_stmt.exit:                  ; preds = %248, %234
   %341 = getelementptr inbounds nuw i8, ptr %340, i64 12
   %342 = load i8, ptr %341, align 4
   %343 = icmp eq i8 %342, 10
-  br i1 %343, label %.lr.ph368._crit_edge, label %.lr.ph970
+  br i1 %343, label %.lr.ph368._crit_edge, label %.lr.ph971
 
 select.unfold._crit_edge:                         ; preds = %select.unfold, %335
   store i8 24, ptr %20, align 4
@@ -1138,10 +1138,10 @@ select.unfold._crit_edge:                         ; preds = %select.unfold, %335
   %346 = getelementptr inbounds nuw i8, ptr %345, i64 12
   %347 = load i8, ptr %346, align 4
   %348 = icmp eq i8 %347, 10
-  br i1 %348, label %.lr.ph368._crit_edge, label %.lr.ph970
+  br i1 %348, label %.lr.ph368._crit_edge, label %.lr.ph971
 
 .lr.ph368._crit_edge:                             ; preds = %.lr.ph368, %.lr.ph368.preheader
-  %.lcssa898 = phi ptr [ %338, %.lr.ph368.preheader ], [ %418, %.lr.ph368 ]
+  %.lcssa899 = phi ptr [ %338, %.lr.ph368.preheader ], [ %418, %.lr.ph368 ]
   %.0.i89366.lcssa = phi ptr [ %340, %.lr.ph368.preheader ], [ %345, %.lr.ph368 ]
   %349 = getelementptr inbounds nuw i8, ptr %.0.i89366.lcssa, i64 16
   %350 = load i32, ptr %349, align 8
@@ -1156,7 +1156,7 @@ select.unfold._crit_edge:                         ; preds = %select.unfold, %335
   %353 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %354 = load i32, ptr %353, align 8
   %355 = zext i32 %350 to i64
-  %356 = getelementptr inbounds nuw %struct.Ast_, ptr %.lcssa898, i64 %355
+  %356 = getelementptr inbounds nuw %struct.Ast_, ptr %.lcssa899, i64 %355
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(48) %356, i64 48, i1 false)
   %357 = load ptr, ptr @ast_arena, align 8
   %358 = ptrtoint ptr %1 to i64
@@ -1207,9 +1207,9 @@ select.unfold._crit_edge:                         ; preds = %select.unfold, %335
   store i32 %354, ptr %379, align 8
   br label %sema_analyse_then_overwrite.exit.i94.thread
 
-.lr.ph970:                                        ; preds = %.lr.ph368.preheader, %.lr.ph368
-  %.0.i89366969 = phi ptr [ %345, %.lr.ph368 ], [ %340, %.lr.ph368.preheader ]
-  %380 = getelementptr inbounds nuw i8, ptr %.0.i89366969, i64 16
+.lr.ph971:                                        ; preds = %.lr.ph368.preheader, %.lr.ph368
+  %.0.i89366970 = phi ptr [ %345, %.lr.ph368 ], [ %340, %.lr.ph368.preheader ]
+  %380 = getelementptr inbounds nuw i8, ptr %.0.i89366970, i64 16
   %381 = load ptr, ptr %380, align 8
   %382 = tail call i32 @sema_check_comp_time_bool(ptr noundef %0, ptr noundef %381) #8
   switch i32 %382, label %383 [
@@ -1217,8 +1217,8 @@ select.unfold._crit_edge:                         ; preds = %select.unfold, %335
     i32 0, label %select.unfold
   ]
 
-383:                                              ; preds = %.lr.ph970
-  %384 = getelementptr inbounds nuw i8, ptr %.0.i89366969, i64 28
+383:                                              ; preds = %.lr.ph971
+  %384 = getelementptr inbounds nuw i8, ptr %.0.i89366970, i64 28
   %385 = load i32, ptr %384, align 4
   %.not.i41.i = icmp eq i32 %385, 0
   br i1 %.not.i41.i, label %386, label %387
@@ -1283,20 +1283,20 @@ select.unfold._crit_edge:                         ; preds = %select.unfold, %335
   store i32 %389, ptr %415, align 8
   br label %sema_analyse_then_overwrite.exit.i94.thread
 
-select.unfold:                                    ; preds = %.lr.ph970
-  %416 = getelementptr inbounds nuw i8, ptr %.0.i89366969, i64 24
+select.unfold:                                    ; preds = %.lr.ph971
+  %416 = getelementptr inbounds nuw i8, ptr %.0.i89366970, i64 24
   %417 = load i32, ptr %416, align 8
   %.not.i49.i = icmp eq i32 %417, 0
   %418 = load ptr, ptr @ast_arena, align 8
-  %.not30.i849 = icmp eq ptr %418, null
-  %.not30.i = select i1 %.not.i49.i, i1 true, i1 %.not30.i849
+  %.not30.i850 = icmp eq ptr %418, null
+  %.not30.i = select i1 %.not.i49.i, i1 true, i1 %.not30.i850
   br i1 %.not30.i, label %select.unfold._crit_edge, label %.lr.ph368
 
 sema_analyse_then_overwrite.exit.i94.thread:      ; preds = %386, %._crit_edge376, %351, %._crit_edge385, %305, %._crit_edge394, %select.unfold._crit_edge
   tail call void @sema_context_pop_ct_stack(ptr noundef %0, i32 noundef %298) #8
   br label %sema_analyse_statement_inner.exit.thread196
 
-sema_analyse_then_overwrite.exit.i94:             ; preds = %.lr.ph970, %.lr.ph372, %.lr.ph381, %.lr.ph390, %297
+sema_analyse_then_overwrite.exit.i94:             ; preds = %.lr.ph971, %.lr.ph372, %.lr.ph381, %.lr.ph390, %297
   tail call void @sema_context_pop_ct_stack(ptr noundef %0, i32 noundef %298) #8
   br label %.sink.split
 
@@ -2245,9 +2245,9 @@ sema_analyse_defer_stmt_body.exit.i:              ; preds = %434
   br label %962
 
 962:                                              ; preds = %957, %955
-  %.sink838 = phi ptr [ %961, %957 ], [ %956, %955 ]
+  %.sink839 = phi ptr [ %961, %957 ], [ %956, %955 ]
   %963 = load ptr, ptr @expr_arena, align 8
-  %964 = ptrtoint ptr %.sink838 to i64
+  %964 = ptrtoint ptr %.sink839 to i64
   %965 = ptrtoint ptr %963 to i64
   %966 = sub i64 %964, %965
   %.sink.in = sdiv exact i64 %966, 56
@@ -2337,9 +2337,9 @@ sema_analyse_defer_stmt_body.exit.i:              ; preds = %434
   br label %1016
 
 1016:                                             ; preds = %1014, %1009
-  %.sink842 = phi ptr [ %1015, %1014 ], [ %1013, %1009 ]
+  %.sink843 = phi ptr [ %1015, %1014 ], [ %1013, %1009 ]
   %1017 = load ptr, ptr @expr_arena, align 8
-  %1018 = ptrtoint ptr %.sink842 to i64
+  %1018 = ptrtoint ptr %.sink843 to i64
   %1019 = ptrtoint ptr %1017 to i64
   %1020 = sub i64 %1018, %1019
   %.sink562.in = sdiv exact i64 %1020, 56
@@ -2479,7 +2479,7 @@ sema_analyse_foreach_stmt.exit:                   ; preds = %1028, %1053
   %1097 = icmp eq i8 %1096, 22
   %1098 = zext i1 %1097 to i32
   %1099 = tail call fastcc zeroext i1 @sema_analyse_cond(ptr noundef nonnull %0, ptr noundef %1078, i32 noundef %1098)
-  br i1 %1099, label %1100, label %.critedge.i58.thread681
+  br i1 %1099, label %1100, label %.critedge.i58.thread682
 
 1100:                                             ; preds = %1089
   %1101 = load i8, ptr %1084, align 4
@@ -2489,11 +2489,11 @@ sema_analyse_foreach_stmt.exit:                   ; preds = %1028, %1053
 .critedge.i58.thread:                             ; preds = %1100
   %1102 = load i64, ptr %1083, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %1102, ptr noundef nonnull @.str.80) #8
-  br label %.critedge.i58.thread681
+  br label %.critedge.i58.thread682
 
 .critedge.i58:                                    ; preds = %1100
-  %.not848 = icmp eq ptr %1094, null
-  br i1 %.not848, label %.critedge.i58.thread681, label %1103
+  %.not849 = icmp eq ptr %1094, null
+  br i1 %.not849, label %.critedge.i58.thread682, label %1103
 
 1103:                                             ; preds = %.critedge.i58
   %1104 = load i8, ptr %1084, align 4
@@ -2505,35 +2505,35 @@ sema_analyse_foreach_stmt.exit:                   ; preds = %1028, %1053
 .thread178:                                       ; preds = %1103
   %1105 = load i64, ptr %1083, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %1105, ptr noundef nonnull @.str.81) #8
-  br label %.critedge.i58.thread681
+  br label %.critedge.i58.thread682
 
 1106:                                             ; preds = %1103, %1103
   %1107 = getelementptr inbounds nuw i8, ptr %1093, i64 12
   %1108 = load i8, ptr %1107, align 4
   switch i8 %1108, label %1109 [
-    i8 6, label %.critedge.i58.thread681
-    i8 23, label %.critedge.i58.thread681
+    i8 6, label %.critedge.i58.thread682
+    i8 23, label %.critedge.i58.thread682
   ]
 
 1109:                                             ; preds = %1106
   %1110 = load i64, ptr %1093, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %1110, ptr noundef nonnull @.str.82) #8
-  br label %.critedge.i58.thread681
+  br label %.critedge.i58.thread682
 
-.critedge.i58.thread681:                          ; preds = %1089, %.thread178, %.critedge.i58.thread, %1109, %1106, %1106, %.critedge.i58
+.critedge.i58.thread682:                          ; preds = %1089, %.thread178, %.critedge.i58.thread, %1109, %1106, %1106, %.critedge.i58
   %.1.i61 = phi i8 [ 0, %1109 ], [ 1, %1106 ], [ 1, %.critedge.i58 ], [ 1, %1106 ], [ 0, %.critedge.i58.thread ], [ 0, %.thread178 ], [ 0, %1089 ]
   %1111 = load i8, ptr %24, align 4
   %1112 = and i8 %1111, 3
   %or.cond103.i.not = icmp eq i8 %1112, 2
   br i1 %or.cond103.i.not, label %1113, label %1115
 
-1113:                                             ; preds = %.critedge.i58.thread681
+1113:                                             ; preds = %.critedge.i58.thread682
   %1114 = load i64, ptr %1083, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %1114, ptr noundef nonnull @.str.83) #8
   br label %1115
 
-1115:                                             ; preds = %1113, %.critedge.i58.thread681
-  %.3.i = phi i8 [ 0, %1113 ], [ %.1.i61, %.critedge.i58.thread681 ]
+1115:                                             ; preds = %1113, %.critedge.i58.thread682
+  %.3.i = phi i8 [ 0, %1113 ], [ %.1.i61, %.critedge.i58.thread682 ]
   %1116 = load i8, ptr %1084, align 4
   %1117 = icmp eq i8 %1116, 22
   br i1 %1117, label %1118, label %1137
@@ -2588,8 +2588,8 @@ sema_analyse_foreach_stmt.exit:                   ; preds = %1028, %1053
   br i1 %1141, label %1143, label %.thread186
 
 .thread186.sink.split:                            ; preds = %1137, %1132
-  %.sink843 = phi ptr [ %10, %1132 ], [ %11, %1137 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %1095, ptr noundef nonnull align 8 dereferenceable(48) %.sink843, i64 48, i1 false)
+  %.sink844 = phi ptr [ %10, %1132 ], [ %11, %1137 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %1095, ptr noundef nonnull align 8 dereferenceable(48) %.sink844, i64 48, i1 false)
   br label %.thread186
 
 .thread186:                                       ; preds = %.thread186.sink.split, %1134, %1140
@@ -2598,7 +2598,7 @@ sema_analyse_foreach_stmt.exit:                   ; preds = %1028, %1053
   br label %sema_analyse_if_stmt.exit
 
 1143:                                             ; preds = %1134, %1140
-  %.085.in.in.i684 = phi i8 [ %1136, %1134 ], [ %1142, %1140 ]
+  %.085.in.in.i685 = phi i8 [ %1136, %1134 ], [ %1142, %1140 ]
   %1144 = load i32, ptr %1090, align 8
   %.not99.i65 = icmp eq i32 %1144, 0
   br i1 %.not99.i65, label %.thread182, label %1145
@@ -2697,8 +2697,8 @@ sema_remove_unwraps_from_try.exit.i:              ; preds = %1182
   br i1 %.not.i109.i, label %.thread.i.i, label %sema_remove_unwraps_from_try.exit.i.thread
 
 sema_remove_unwraps_from_try.exit.i.thread:       ; preds = %1148, %1151, %1156, %1160, %1163, %sema_remove_unwraps_from_try.exit.i
-  %.val106.i.pr688 = phi ptr [ %.val106.i.pr.pre, %sema_remove_unwraps_from_try.exit.i ], [ %.val.i, %1163 ], [ %.val.i, %1160 ], [ %.val.i, %1156 ], [ %.val.i, %1151 ], [ %.val.i, %1148 ]
-  %1183 = getelementptr inbounds i8, ptr %.val106.i.pr688, i64 -8
+  %.val106.i.pr689 = phi ptr [ %.val106.i.pr.pre, %sema_remove_unwraps_from_try.exit.i ], [ %.val.i, %1163 ], [ %.val.i, %1160 ], [ %.val.i, %1156 ], [ %.val.i, %1151 ], [ %.val.i, %1148 ]
+  %1183 = getelementptr inbounds i8, ptr %.val106.i.pr689, i64 -8
   %1184 = load i32, ptr %1183, align 4
   %.not35.i110.i = icmp eq i32 %1184, 0
   br i1 %.not35.i110.i, label %.thread.i.i, label %1185
@@ -2706,7 +2706,7 @@ sema_remove_unwraps_from_try.exit.i.thread:       ; preds = %1148, %1151, %1156,
 1185:                                             ; preds = %sema_remove_unwraps_from_try.exit.i.thread
   %1186 = add i32 %1184, -1
   %1187 = zext i32 %1186 to i64
-  %1188 = getelementptr inbounds nuw ptr, ptr %.val106.i.pr688, i64 %1187
+  %1188 = getelementptr inbounds nuw ptr, ptr %.val106.i.pr689, i64 %1187
   %1189 = load ptr, ptr %1188, align 8
   br label %.thread.i.i
 
@@ -2796,7 +2796,7 @@ sema_remove_unwraps_from_try.exit.i.thread:       ; preds = %1148, %1151, %1156,
 
 1226:                                             ; preds = %.thread182, %.loopexit222
   %.084.i62185 = phi i1 [ false, %.thread182 ], [ %1225, %.loopexit222 ]
-  %1227 = and i8 %.085.in.in.i684, 2
+  %1227 = and i8 %.085.in.in.i685, 2
   %.not100.i64 = icmp eq i8 %1227, 0
   br i1 %.not100.i64, label %sema_analyse_if_stmt.exit.thread, label %1228
 
@@ -3393,7 +3393,7 @@ sema_analyse_macro_constant_ensures.exit.i.i:     ; preds = %.backedge.i.i.i, %1
   %1510 = load i32, ptr %1509, align 8
   %1511 = zext i32 %1510 to i64
   %1512 = getelementptr inbounds nuw %struct.Expr_, ptr %1499, i64 %1511
-  br label %.preheader1023
+  br label %.preheader1024
 
 1513:                                             ; preds = %1500
   %1514 = getelementptr inbounds nuw i8, ptr %.081.i, i64 32
@@ -3412,14 +3412,14 @@ sema_analyse_macro_constant_ensures.exit.i.i:     ; preds = %.backedge.i.i.i, %1
 1519:                                             ; preds = %1513
   %1520 = getelementptr inbounds nuw i8, ptr %.081.i, i64 24
   %1521 = load ptr, ptr %1520, align 8
-  br label %.preheader1023
+  br label %.preheader1024
 
-.preheader1023:                                   ; preds = %1519, %1508
+.preheader1024:                                   ; preds = %1519, %1508
   %.2.i.ph = phi ptr [ %1521, %1519 ], [ %1512, %1508 ]
   br label %1522
 
-1522:                                             ; preds = %.preheader1023, %1525
-  %.2.i = phi ptr [ %1527, %1525 ], [ %.2.i.ph, %.preheader1023 ]
+1522:                                             ; preds = %.preheader1024, %1525
+  %.2.i = phi ptr [ %1527, %1525 ], [ %.2.i.ph, %.preheader1024 ]
   %1523 = getelementptr inbounds nuw i8, ptr %.2.i, i64 16
   %1524 = load i16, ptr %1523, align 8
   %trunc117.i = trunc i16 %1524 to i8
@@ -3663,18 +3663,18 @@ sema_return_optional_check_is_valid_in_scope.exit.i: ; preds = %1591, %1571
   %1643 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %1644 = load i32, ptr %1643, align 8
   %.not111.i = icmp eq i32 %1644, 0
-  br i1 %.not111.i, label %1649, label %.preheader862
+  br i1 %.not111.i, label %1649, label %.preheader863
 
-.preheader862:                                    ; preds = %1642, %.preheader862
-  %.pn.in.i = phi i32 [ %1646, %.preheader862 ], [ %1644, %1642 ]
+.preheader863:                                    ; preds = %1642, %.preheader863
+  %.pn.in.i = phi i32 [ %1646, %.preheader863 ], [ %1644, %1642 ]
   %.pn.i = zext i32 %.pn.in.i to i64
   %.082.i = getelementptr inbounds nuw %struct.Ast_, ptr %1639, i64 %.pn.i
   %1645 = getelementptr inbounds nuw i8, ptr %.082.i, i64 8
   %1646 = load i32, ptr %1645, align 8
   %.not112.i = icmp eq i32 %1646, 0
-  br i1 %.not112.i, label %1647, label %.preheader862, !llvm.loop !25
+  br i1 %.not112.i, label %1647, label %.preheader863, !llvm.loop !25
 
-1647:                                             ; preds = %.preheader862
+1647:                                             ; preds = %.preheader863
   %1648 = getelementptr inbounds nuw i8, ptr %.082.i, i64 8
   store i32 %.pre145.i, ptr %1648, align 8
   br label %sema_analyse_return_stmt.exit
@@ -4474,12 +4474,12 @@ sema_analyse_return_stmt.exit:                    ; preds = %1473, %1607, %.loop
   br i1 %exitcond547.not, label %._crit_edge342, label %1933, !llvm.loop !30
 
 ._crit_edge342:                                   ; preds = %2069, %1928
-  %.0127.i692 = phi i32 [ 0, %1928 ], [ %1930, %2069 ]
+  %.0127.i693 = phi i32 [ 0, %1928 ], [ %1930, %2069 ]
   %.0133.i.lcssa = phi i32 [ 0, %1928 ], [ %.1134.i, %2069 ]
   %.0130.i.lcssa = phi i32 [ 0, %1928 ], [ %.1131.i, %2069 ]
-  %2070 = icmp eq i32 %.0130.i.lcssa, %.0127.i692
+  %2070 = icmp eq i32 %.0130.i.lcssa, %.0127.i693
   %spec.select154.i = select i1 %2070, i32 %.0133.i.lcssa, i32 %.0130.i.lcssa
-  %2071 = icmp ult i32 %spec.select154.i, %.0127.i692
+  %2071 = icmp ult i32 %spec.select154.i, %.0127.i693
   br i1 %2071, label %.lr.ph347.preheader, label %._crit_edge348
 
 .lr.ph347.preheader:                              ; preds = %._crit_edge342
@@ -4489,7 +4489,7 @@ sema_analyse_return_stmt.exit:                    ; preds = %1473, %1607, %.loop
 2073:                                             ; preds = %.lr.ph347
   %indvars.iv.next549 = add nuw nsw i64 %indvars.iv548, 1
   %2074 = trunc nsw i64 %indvars.iv.next549 to i32
-  %2075 = icmp ugt i32 %.0127.i692, %2074
+  %2075 = icmp ugt i32 %.0127.i693, %2074
   br i1 %2075, label %.lr.ph347, label %._crit_edge348, !llvm.loop !31
 
 .lr.ph347:                                        ; preds = %.lr.ph347.preheader, %2073
@@ -4605,8 +4605,8 @@ sema_analyse_then_overwrite.exit.i:               ; preds = %1974, %1971, %1962,
 2128:                                             ; preds = %2123
   %2129 = getelementptr inbounds nuw i8, ptr %2121, i64 24
   %2130 = load i16, ptr %2129, align 8
-  %trunc847 = trunc i16 %2130 to i8
-  switch i8 %trunc847, label %.critedge2.i [
+  %trunc848 = trunc i16 %2130 to i8
+  switch i8 %trunc848, label %.critedge2.i [
     i8 10, label %.critedge4.i
     i8 9, label %2133
   ]
@@ -5108,9 +5108,9 @@ sema_analyse_statement_inner.exit.thread198:      ; preds = %._crit_edge416, %23
   unreachable
 
 sema_analyse_statement_inner.exit.sink.split:     ; preds = %2270, %2276, %2309
-  %.lcssa723.sink = phi ptr [ %2307, %2309 ], [ %2265, %2276 ], [ %2265, %2270 ]
+  %.lcssa724.sink = phi ptr [ %2307, %2309 ], [ %2265, %2276 ], [ %2265, %2270 ]
   %.str.130.sink = phi ptr [ @.str.131, %2309 ], [ @.str.130, %2276 ], [ @.str.130, %2270 ]
-  %2357 = getelementptr inbounds nuw i8, ptr %.lcssa723.sink, i64 8
+  %2357 = getelementptr inbounds nuw i8, ptr %.lcssa724.sink, i64 8
   %2358 = load i64, ptr %2357, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %2358, ptr noundef nonnull %.str.130.sink) #8
   br label %sema_analyse_statement_inner.exit
@@ -5152,9 +5152,9 @@ sema_analyse_statement_inner.exit.thread196:      ; preds = %73, %.thread, %sema
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.lr.ph.i127, %74, %42, %40, %2366, %2363, %2363, %sema_analyse_compound_stmt.exit, %295, %419, %sema_analyse_foreach_stmt.exit, %1070, %1650, %sema_analyse_statement_inner.exit, %sema_analyse_foreach_stmt.exit.thread, %sema_analyse_if_stmt.exit, %sema_analyse_return_stmt.exit.thread, %sema_analyse_ct_foreach_stmt.exit, %232, %432, %.critedge.i.i135, %52, %127, %134, %.critedge.i123, %92, %.loopexit.i131, %.critedge70.i, %164, %.loopexit.i120, %context_labels_exist_in_scope.exit.i, %207, %277, %261, %265, %sema_analyse_then_overwrite.exit.i94, %421, %sema_analyse_defer_stmt_body.exit.i.thread, %sema_analyse_defer_stmt_body.exit.i, %473, %477, %1690, %._crit_edge183.i, %1775, %._crit_edge179.i, %._crit_edge.i, %1754, %1697, %1672, %1671, %1679, %1761, %1820, %sema_analyse_then_overwrite.exit.i, %2370
-  %.sink846 = phi i8 [ 0, %2370 ], [ 0, %sema_analyse_then_overwrite.exit.i ], [ 0, %1820 ], [ 0, %1761 ], [ 0, %1679 ], [ 0, %1671 ], [ 0, %1672 ], [ 0, %1697 ], [ 0, %1754 ], [ 0, %._crit_edge.i ], [ 0, %._crit_edge179.i ], [ 0, %1775 ], [ 0, %._crit_edge183.i ], [ 0, %1690 ], [ 0, %477 ], [ 0, %473 ], [ 0, %sema_analyse_defer_stmt_body.exit.i ], [ 0, %sema_analyse_defer_stmt_body.exit.i.thread ], [ 0, %421 ], [ 0, %sema_analyse_then_overwrite.exit.i94 ], [ 0, %265 ], [ 0, %261 ], [ 0, %277 ], [ 0, %207 ], [ 0, %context_labels_exist_in_scope.exit.i ], [ 0, %.loopexit.i120 ], [ 0, %164 ], [ 0, %.critedge70.i ], [ 0, %.loopexit.i131 ], [ 0, %92 ], [ 0, %.critedge.i123 ], [ 0, %134 ], [ 0, %127 ], [ 0, %52 ], [ 0, %.critedge.i.i135 ], [ 0, %432 ], [ 0, %232 ], [ 0, %sema_analyse_ct_foreach_stmt.exit ], [ 0, %sema_analyse_return_stmt.exit.thread ], [ 0, %sema_analyse_if_stmt.exit ], [ 0, %sema_analyse_foreach_stmt.exit.thread ], [ 0, %sema_analyse_statement_inner.exit ], [ 0, %1650 ], [ 0, %1070 ], [ 0, %sema_analyse_foreach_stmt.exit ], [ 0, %419 ], [ 0, %295 ], [ 0, %sema_analyse_compound_stmt.exit ], [ 24, %2363 ], [ 24, %2363 ], [ 24, %2366 ], [ 0, %40 ], [ 0, %42 ], [ 0, %74 ], [ 0, %.lr.ph.i127 ]
+  %.sink847 = phi i8 [ 0, %2370 ], [ 0, %sema_analyse_then_overwrite.exit.i ], [ 0, %1820 ], [ 0, %1761 ], [ 0, %1679 ], [ 0, %1671 ], [ 0, %1672 ], [ 0, %1697 ], [ 0, %1754 ], [ 0, %._crit_edge.i ], [ 0, %._crit_edge179.i ], [ 0, %1775 ], [ 0, %._crit_edge183.i ], [ 0, %1690 ], [ 0, %477 ], [ 0, %473 ], [ 0, %sema_analyse_defer_stmt_body.exit.i ], [ 0, %sema_analyse_defer_stmt_body.exit.i.thread ], [ 0, %421 ], [ 0, %sema_analyse_then_overwrite.exit.i94 ], [ 0, %265 ], [ 0, %261 ], [ 0, %277 ], [ 0, %207 ], [ 0, %context_labels_exist_in_scope.exit.i ], [ 0, %.loopexit.i120 ], [ 0, %164 ], [ 0, %.critedge70.i ], [ 0, %.loopexit.i131 ], [ 0, %92 ], [ 0, %.critedge.i123 ], [ 0, %134 ], [ 0, %127 ], [ 0, %52 ], [ 0, %.critedge.i.i135 ], [ 0, %432 ], [ 0, %232 ], [ 0, %sema_analyse_ct_foreach_stmt.exit ], [ 0, %sema_analyse_return_stmt.exit.thread ], [ 0, %sema_analyse_if_stmt.exit ], [ 0, %sema_analyse_foreach_stmt.exit.thread ], [ 0, %sema_analyse_statement_inner.exit ], [ 0, %1650 ], [ 0, %1070 ], [ 0, %sema_analyse_foreach_stmt.exit ], [ 0, %419 ], [ 0, %295 ], [ 0, %sema_analyse_compound_stmt.exit ], [ 24, %2363 ], [ 24, %2363 ], [ 24, %2366 ], [ 0, %40 ], [ 0, %42 ], [ 0, %74 ], [ 0, %.lr.ph.i127 ]
   %.0.ph = phi i1 [ false, %2370 ], [ false, %sema_analyse_then_overwrite.exit.i ], [ false, %1820 ], [ false, %1761 ], [ false, %1679 ], [ false, %1671 ], [ false, %1672 ], [ false, %1697 ], [ false, %1754 ], [ false, %._crit_edge.i ], [ false, %._crit_edge179.i ], [ false, %1775 ], [ false, %._crit_edge183.i ], [ false, %1690 ], [ false, %477 ], [ false, %473 ], [ false, %sema_analyse_defer_stmt_body.exit.i ], [ false, %sema_analyse_defer_stmt_body.exit.i.thread ], [ false, %421 ], [ false, %sema_analyse_then_overwrite.exit.i94 ], [ false, %265 ], [ false, %261 ], [ false, %277 ], [ false, %207 ], [ false, %context_labels_exist_in_scope.exit.i ], [ false, %.loopexit.i120 ], [ false, %164 ], [ false, %.critedge70.i ], [ false, %.loopexit.i131 ], [ false, %92 ], [ false, %.critedge.i123 ], [ false, %134 ], [ false, %127 ], [ false, %52 ], [ false, %.critedge.i.i135 ], [ false, %432 ], [ false, %232 ], [ false, %sema_analyse_ct_foreach_stmt.exit ], [ false, %sema_analyse_return_stmt.exit.thread ], [ false, %sema_analyse_if_stmt.exit ], [ false, %sema_analyse_foreach_stmt.exit.thread ], [ false, %sema_analyse_statement_inner.exit ], [ false, %1650 ], [ false, %1070 ], [ false, %sema_analyse_foreach_stmt.exit ], [ false, %419 ], [ false, %295 ], [ false, %sema_analyse_compound_stmt.exit ], [ true, %2363 ], [ true, %2363 ], [ true, %2366 ], [ false, %40 ], [ false, %42 ], [ false, %74 ], [ false, %.lr.ph.i127 ]
-  store i8 %.sink846, ptr %20, align 4
+  store i8 %.sink847, ptr %20, align 4
   br label %2372
 
 2372:                                             ; preds = %.sink.split, %sema_analyse_statement_inner.exit.thread196, %2360, %2

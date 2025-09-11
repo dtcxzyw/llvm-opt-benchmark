@@ -26,14 +26,14 @@ define dso_local noundef i32 @crypto_secretbox_detached(ptr noundef nonnull %0, 
   %17 = icmp ugt ptr %2, %0
   %18 = sub i64 %12, %11
   %19 = icmp ult i64 %18, %3
-  %or.cond50 = and i1 %17, %19
-  br i1 %or.cond50, label %.thread, label %21
+  %or.cond51 = and i1 %17, %19
+  br i1 %or.cond51, label %.thread, label %21
 
 .thread:                                          ; preds = %6, %16
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 %0, ptr noundef nonnull align 1 %2, i64 noundef %3, i1 noundef false) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %8, i8 noundef 0, i64 noundef 32, i1 noundef false) #7
   %20 = icmp ugt i64 %3, 32
-  %spec.store.select59 = call i64 @llvm.umin.i64(i64 %3, i64 32)
+  %spec.store.select66 = call i64 @llvm.umin.i64(i64 %3, i64 32)
   br label %.lr.ph.preheader
 
 21:                                               ; preds = %16
@@ -44,40 +44,40 @@ define dso_local noundef i32 @crypto_secretbox_detached(ptr noundef nonnull %0, 
   br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.thread, %21
-  %spec.store.select63 = phi i64 [ %spec.store.select59, %.thread ], [ %spec.store.select, %21 ]
+  %spec.store.select70 = phi i64 [ %spec.store.select66, %.thread ], [ %spec.store.select, %21 ]
   %23 = phi i1 [ %20, %.thread ], [ %22, %21 ]
-  %.04261 = phi ptr [ %0, %.thread ], [ %2, %21 ]
+  %.04268 = phi ptr [ %0, %.thread ], [ %2, %21 ]
   %scevgep = getelementptr inbounds nuw i8, ptr %8, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %scevgep, ptr align 1 %.04261, i64 %spec.store.select63, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %scevgep, ptr align 1 %.04268, i64 %spec.store.select70, i1 false)
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph.preheader, %21
-  %.not66 = phi i1 [ false, %.lr.ph.preheader ], [ true, %21 ]
-  %spec.store.select64 = phi i64 [ %spec.store.select63, %.lr.ph.preheader ], [ %spec.store.select, %21 ]
+  %.not73 = phi i1 [ false, %.lr.ph.preheader ], [ true, %21 ]
+  %spec.store.select71 = phi i64 [ %spec.store.select70, %.lr.ph.preheader ], [ %spec.store.select, %21 ]
   %24 = phi i1 [ %23, %.lr.ph.preheader ], [ %22, %21 ]
-  %.04262 = phi ptr [ %.04261, %.lr.ph.preheader ], [ %2, %21 ]
+  %.04269 = phi ptr [ %.04268, %.lr.ph.preheader ], [ %2, %21 ]
   %25 = getelementptr i8, ptr %4, i64 16
   %26 = call i32 @crypto_stream_salsa20_xor(ptr noundef nonnull %8, ptr noundef nonnull %8, i64 noundef 64, ptr noundef %25, ptr noundef nonnull %9) #7
   %27 = call i32 @crypto_onetimeauth_poly1305_init(ptr noundef nonnull %7, ptr noundef nonnull %8) #7
-  br i1 %.not66, label %._crit_edge55, label %.lr.ph54.preheader
+  br i1 %.not73, label %._crit_edge56, label %.lr.ph55.preheader
 
-.lr.ph54.preheader:                               ; preds = %._crit_edge
-  %scevgep57 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %0, ptr nonnull align 16 %scevgep57, i64 %spec.store.select64, i1 false)
-  br label %._crit_edge55
+.lr.ph55.preheader:                               ; preds = %._crit_edge
+  %scevgep58 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %0, ptr nonnull align 16 %scevgep58, i64 %spec.store.select71, i1 false)
+  br label %._crit_edge56
 
-._crit_edge55:                                    ; preds = %.lr.ph54.preheader, %._crit_edge
+._crit_edge56:                                    ; preds = %.lr.ph55.preheader, %._crit_edge
   call void @sodium_memzero(ptr noundef nonnull %8, i64 noundef 64) #7
   br i1 %24, label %28, label %33
 
-28:                                               ; preds = %._crit_edge55
-  %29 = getelementptr i8, ptr %0, i64 %spec.store.select64
-  %30 = getelementptr i8, ptr %.04262, i64 %spec.store.select64
-  %31 = sub nuw i64 %3, %spec.store.select64
+28:                                               ; preds = %._crit_edge56
+  %29 = getelementptr i8, ptr %0, i64 %spec.store.select71
+  %30 = getelementptr i8, ptr %.04269, i64 %spec.store.select71
+  %31 = sub nuw i64 %3, %spec.store.select71
   %32 = call i32 @crypto_stream_salsa20_xor_ic(ptr noundef %29, ptr noundef %30, i64 noundef %31, ptr noundef %25, i64 noundef 1, ptr noundef nonnull %9) #7
   br label %33
 
-33:                                               ; preds = %28, %._crit_edge55
+33:                                               ; preds = %28, %._crit_edge56
   call void @sodium_memzero(ptr noundef nonnull %9, i64 noundef 32) #7
   %34 = call i32 @crypto_onetimeauth_poly1305_update(ptr noundef nonnull %7, ptr noundef nonnull %0, i64 noundef %3) #7
   %35 = call i32 @crypto_onetimeauth_poly1305_final(ptr noundef nonnull %7, ptr noundef nonnull %1) #7
@@ -130,8 +130,8 @@ define dso_local range(i32 -1, 1) i32 @crypto_secretbox_open_detached(ptr nounde
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, i8 noundef 0, i64 noundef 32, i1 noundef false) #7
   %10 = icmp ugt i64 %3, 32
   %spec.store.select = call i64 @llvm.umin.i64(i64 %3, i64 32)
-  %.not60 = icmp eq i64 %3, 0
-  br i1 %.not60, label %._crit_edge, label %.lr.ph.preheader
+  %.not61 = icmp eq i64 %3, 0
+  br i1 %.not61, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %6
   %scevgep = getelementptr inbounds nuw i8, ptr %7, i64 32
@@ -162,36 +162,36 @@ define dso_local range(i32 -1, 1) i32 @crypto_secretbox_open_detached(ptr nounde
   %23 = icmp ugt ptr %0, %1
   %24 = sub i64 %18, %17
   %25 = icmp ult i64 %24, %3
-  %or.cond54 = and i1 %23, %25
-  br i1 %or.cond54, label %.thread, label %26
+  %or.cond55 = and i1 %23, %25
+  br i1 %or.cond55, label %.thread, label %26
 
 .thread:                                          ; preds = %16, %22
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 %0, ptr noundef nonnull align 1 %1, i64 noundef %3, i1 noundef false) #7
-  br label %._crit_edge59
+  br label %._crit_edge60
 
 26:                                               ; preds = %22
-  br i1 %.not60, label %._crit_edge59.thread, label %._crit_edge59
+  br i1 %.not61, label %._crit_edge60.thread, label %._crit_edge60
 
-._crit_edge59.thread:                             ; preds = %26
+._crit_edge60.thread:                             ; preds = %26
   call void @sodium_memzero(ptr noundef nonnull %7, i64 noundef 64) #7
   br label %.sink.split
 
-._crit_edge59:                                    ; preds = %26, %.thread
-  %.04565 = phi ptr [ %0, %.thread ], [ %1, %26 ]
-  %scevgep62 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %0, ptr nonnull align 16 %scevgep62, i64 %spec.store.select, i1 false)
+._crit_edge60:                                    ; preds = %26, %.thread
+  %.04572 = phi ptr [ %0, %.thread ], [ %1, %26 ]
+  %scevgep63 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %0, ptr nonnull align 16 %scevgep63, i64 %spec.store.select, i1 false)
   call void @sodium_memzero(ptr noundef nonnull %7, i64 noundef 64) #7
   br i1 %10, label %27, label %.sink.split
 
-27:                                               ; preds = %._crit_edge59
+27:                                               ; preds = %._crit_edge60
   %28 = getelementptr i8, ptr %0, i64 %spec.store.select
-  %29 = getelementptr i8, ptr %.04565, i64 %spec.store.select
+  %29 = getelementptr i8, ptr %.04572, i64 %spec.store.select
   %30 = sub nuw i64 %3, %spec.store.select
   %31 = call i32 @crypto_stream_salsa20_xor_ic(ptr noundef %28, ptr noundef %29, i64 noundef %30, ptr noundef %11, i64 noundef 1, ptr noundef nonnull %8) #7
   br label %.sink.split
 
-.sink.split:                                      ; preds = %._crit_edge59, %27, %._crit_edge59.thread, %._crit_edge
-  %.044.ph = phi i32 [ -1, %._crit_edge ], [ 0, %._crit_edge59.thread ], [ 0, %27 ], [ 0, %._crit_edge59 ]
+.sink.split:                                      ; preds = %._crit_edge60, %27, %._crit_edge60.thread, %._crit_edge
+  %.044.ph = phi i32 [ -1, %._crit_edge ], [ 0, %._crit_edge60.thread ], [ 0, %27 ], [ 0, %._crit_edge60 ]
   call void @sodium_memzero(ptr noundef nonnull %8, i64 noundef 32) #7
   br label %32
 

@@ -11206,7 +11206,7 @@ cgltf_component_size.exit:                        ; preds = %8, %switch.lookup
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 48
   %22 = load ptr, ptr %21, align 8
   %.not.i = icmp eq ptr %22, null
-  br i1 %.not.i, label %23, label %cgltf_buffer_view_data.exit.thread60
+  br i1 %.not.i, label %23, label %cgltf_buffer_view_data.exit.thread61
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds nuw i8, ptr %17, i64 8
@@ -11220,17 +11220,17 @@ cgltf_buffer_view_data.exit:                      ; preds = %23
   %28 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %29 = load i64, ptr %28, align 8
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 %29
-  br label %cgltf_buffer_view_data.exit.thread60
+  br label %cgltf_buffer_view_data.exit.thread61
 
-cgltf_buffer_view_data.exit.thread60:             ; preds = %cgltf_buffer_view_data.exit, %20
-  %.0.i5562 = phi ptr [ %30, %cgltf_buffer_view_data.exit ], [ %22, %20 ]
+cgltf_buffer_view_data.exit.thread61:             ; preds = %cgltf_buffer_view_data.exit, %20
+  %.0.i5663 = phi ptr [ %30, %cgltf_buffer_view_data.exit ], [ %22, %20 ]
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load i64, ptr %31, align 8
-  %33 = getelementptr inbounds nuw i8, ptr %.0.i5562, i64 %32
+  %33 = getelementptr inbounds nuw i8, ptr %.0.i5663, i64 %32
   %34 = icmp eq i64 %.0.i, %2
   br i1 %34, label %35, label %41
 
-35:                                               ; preds = %cgltf_buffer_view_data.exit.thread60
+35:                                               ; preds = %cgltf_buffer_view_data.exit.thread61
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %37 = load i64, ptr %36, align 8
   %38 = icmp eq i64 %37, %2
@@ -11241,31 +11241,31 @@ cgltf_buffer_view_data.exit.thread60:             ; preds = %cgltf_buffer_view_d
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1, ptr nonnull align 1 %33, i64 %40, i1 false)
   br label %cgltf_buffer_view_data.exit.thread
 
-41:                                               ; preds = %35, %cgltf_buffer_view_data.exit.thread60
+41:                                               ; preds = %35, %cgltf_buffer_view_data.exit.thread61
   switch i64 %2, label %cgltf_buffer_view_data.exit.thread [
     i64 2, label %.preheader
-    i64 4, label %.preheader63
+    i64 4, label %.preheader64
   ]
 
-.preheader63:                                     ; preds = %41
-  %.not70 = icmp eq i64 %., 0
-  br i1 %.not70, label %cgltf_buffer_view_data.exit.thread, label %.lr.ph
+.preheader64:                                     ; preds = %41
+  %.not71 = icmp eq i64 %., 0
+  br i1 %.not71, label %cgltf_buffer_view_data.exit.thread, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader63
+.lr.ph:                                           ; preds = %.preheader64
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %58
 
 .preheader:                                       ; preds = %41
-  %.not71 = icmp eq i64 %., 0
-  br i1 %.not71, label %cgltf_buffer_view_data.exit.thread, label %.lr.ph69
+  %.not72 = icmp eq i64 %., 0
+  br i1 %.not72, label %cgltf_buffer_view_data.exit.thread, label %.lr.ph70
 
-.lr.ph69:                                         ; preds = %.preheader
+.lr.ph70:                                         ; preds = %.preheader
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %44
 
-44:                                               ; preds = %.lr.ph69, %cgltf_component_read_index.exit
-  %.04468 = phi i64 [ 0, %.lr.ph69 ], [ %55, %cgltf_component_read_index.exit ]
-  %.04567 = phi ptr [ %33, %.lr.ph69 ], [ %57, %cgltf_component_read_index.exit ]
+44:                                               ; preds = %.lr.ph70, %cgltf_component_read_index.exit
+  %.04469 = phi i64 [ 0, %.lr.ph70 ], [ %55, %cgltf_component_read_index.exit ]
+  %.04568 = phi ptr [ %33, %.lr.ph70 ], [ %57, %cgltf_component_read_index.exit ]
   %45 = load i32, ptr %9, align 8
   switch i32 %45, label %cgltf_component_read_index.exit [
     i32 4, label %46
@@ -11274,65 +11274,65 @@ cgltf_buffer_view_data.exit.thread60:             ; preds = %cgltf_buffer_view_d
   ]
 
 46:                                               ; preds = %44
-  %47 = load i16, ptr %.04567, align 2
+  %47 = load i16, ptr %.04568, align 2
   br label %cgltf_component_read_index.exit
 
 48:                                               ; preds = %44
-  %49 = load i32, ptr %.04567, align 4
+  %49 = load i32, ptr %.04568, align 4
   %50 = trunc i32 %49 to i16
   br label %cgltf_component_read_index.exit
 
 51:                                               ; preds = %44
-  %52 = load i8, ptr %.04567, align 1
+  %52 = load i8, ptr %.04568, align 1
   %53 = zext i8 %52 to i16
   br label %cgltf_component_read_index.exit
 
 cgltf_component_read_index.exit:                  ; preds = %44, %46, %48, %51
-  %.0.i56 = phi i16 [ %47, %46 ], [ %50, %48 ], [ %53, %51 ], [ 0, %44 ]
-  %54 = getelementptr inbounds nuw i16, ptr %1, i64 %.04468
-  store i16 %.0.i56, ptr %54, align 2
-  %55 = add nuw i64 %.04468, 1
+  %.0.i57 = phi i16 [ %47, %46 ], [ %50, %48 ], [ %53, %51 ], [ 0, %44 ]
+  %54 = getelementptr inbounds nuw i16, ptr %1, i64 %.04469
+  store i16 %.0.i57, ptr %54, align 2
+  %55 = add nuw i64 %.04469, 1
   %56 = load i64, ptr %43, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %.04567, i64 %56
-  %exitcond73.not = icmp eq i64 %55, %.
-  br i1 %exitcond73.not, label %cgltf_buffer_view_data.exit.thread, label %44
+  %57 = getelementptr inbounds nuw i8, ptr %.04568, i64 %56
+  %exitcond74.not = icmp eq i64 %55, %.
+  br i1 %exitcond74.not, label %cgltf_buffer_view_data.exit.thread, label %44
 
-58:                                               ; preds = %.lr.ph, %cgltf_component_read_index.exit58
-  %.066 = phi i64 [ 0, %.lr.ph ], [ %69, %cgltf_component_read_index.exit58 ]
-  %.165 = phi ptr [ %33, %.lr.ph ], [ %71, %cgltf_component_read_index.exit58 ]
+58:                                               ; preds = %.lr.ph, %cgltf_component_read_index.exit59
+  %.067 = phi i64 [ 0, %.lr.ph ], [ %69, %cgltf_component_read_index.exit59 ]
+  %.166 = phi ptr [ %33, %.lr.ph ], [ %71, %cgltf_component_read_index.exit59 ]
   %59 = load i32, ptr %9, align 8
-  switch i32 %59, label %cgltf_component_read_index.exit58 [
+  switch i32 %59, label %cgltf_component_read_index.exit59 [
     i32 4, label %60
     i32 5, label %63
     i32 2, label %65
   ]
 
 60:                                               ; preds = %58
-  %61 = load i16, ptr %.165, align 2
+  %61 = load i16, ptr %.166, align 2
   %62 = zext i16 %61 to i32
-  br label %cgltf_component_read_index.exit58
+  br label %cgltf_component_read_index.exit59
 
 63:                                               ; preds = %58
-  %64 = load i32, ptr %.165, align 4
-  br label %cgltf_component_read_index.exit58
+  %64 = load i32, ptr %.166, align 4
+  br label %cgltf_component_read_index.exit59
 
 65:                                               ; preds = %58
-  %66 = load i8, ptr %.165, align 1
+  %66 = load i8, ptr %.166, align 1
   %67 = zext i8 %66 to i32
-  br label %cgltf_component_read_index.exit58
+  br label %cgltf_component_read_index.exit59
 
-cgltf_component_read_index.exit58:                ; preds = %58, %60, %63, %65
-  %.0.i57 = phi i32 [ %62, %60 ], [ %64, %63 ], [ %67, %65 ], [ 0, %58 ]
-  %68 = getelementptr inbounds nuw i32, ptr %1, i64 %.066
-  store i32 %.0.i57, ptr %68, align 4
-  %69 = add nuw i64 %.066, 1
+cgltf_component_read_index.exit59:                ; preds = %58, %60, %63, %65
+  %.0.i58 = phi i32 [ %62, %60 ], [ %64, %63 ], [ %67, %65 ], [ 0, %58 ]
+  %68 = getelementptr inbounds nuw i32, ptr %1, i64 %.067
+  store i32 %.0.i58, ptr %68, align 4
+  %69 = add nuw i64 %.067, 1
   %70 = load i64, ptr %42, align 8
-  %71 = getelementptr inbounds nuw i8, ptr %.165, i64 %70
+  %71 = getelementptr inbounds nuw i8, ptr %.166, i64 %70
   %exitcond.not = icmp eq i64 %69, %.
   br i1 %exitcond.not, label %cgltf_buffer_view_data.exit.thread, label %58
 
-cgltf_buffer_view_data.exit.thread:               ; preds = %cgltf_component_read_index.exit58, %cgltf_component_read_index.exit, %4, %.preheader63, %.preheader, %23, %cgltf_component_size.exit, %15, %41, %39
-  %.046 = phi i64 [ 0, %cgltf_component_size.exit ], [ 0, %15 ], [ %., %39 ], [ %., %41 ], [ 0, %23 ], [ 0, %.preheader ], [ 0, %.preheader63 ], [ %7, %4 ], [ %., %cgltf_component_read_index.exit ], [ %., %cgltf_component_read_index.exit58 ]
+cgltf_buffer_view_data.exit.thread:               ; preds = %cgltf_component_read_index.exit59, %cgltf_component_read_index.exit, %4, %.preheader64, %.preheader, %23, %cgltf_component_size.exit, %15, %41, %39
+  %.046 = phi i64 [ 0, %cgltf_component_size.exit ], [ 0, %15 ], [ %., %39 ], [ %., %41 ], [ 0, %23 ], [ 0, %.preheader ], [ 0, %.preheader64 ], [ %7, %4 ], [ %., %cgltf_component_read_index.exit ], [ %., %cgltf_component_read_index.exit59 ]
   ret i64 %.046
 }
 
@@ -25514,32 +25514,32 @@ define hidden noalias noundef ptr @par_shapes_create_parametric_disk(i32 noundef
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %10 = load ptr, ptr %9, align 8
-  %.not65.i = icmp eq ptr %10, null
-  br i1 %.not65.i, label %par_shapes_scale.exit, label %.lr.ph73.i
+  %.not66.i = icmp eq ptr %10, null
+  br i1 %.not66.i, label %par_shapes_scale.exit, label %.lr.ph74.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %.05969.i = phi i32 [ %15, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
-  %.06068.i = phi ptr [ %12, %.lr.ph.i ], [ %8, %.lr.ph.preheader.i ]
-  %11 = getelementptr inbounds nuw i8, ptr %.06068.i, i64 8
-  %12 = getelementptr inbounds nuw i8, ptr %.06068.i, i64 12
+  %.05970.i = phi i32 [ %15, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
+  %.06069.i = phi ptr [ %12, %.lr.ph.i ], [ %8, %.lr.ph.preheader.i ]
+  %11 = getelementptr inbounds nuw i8, ptr %.06069.i, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %.06069.i, i64 12
   %13 = load float, ptr %11, align 4
   %14 = fmul float %13, 0.000000e+00
   store float %14, ptr %11, align 4
-  %15 = add nuw nsw i32 %.05969.i, 1
+  %15 = add nuw nsw i32 %.05970.i, 1
   %exitcond.not = icmp eq i32 %15, %6
   br i1 %exitcond.not, label %._crit_edge.i, label %.lr.ph.i
 
-.lr.ph73.i:                                       ; preds = %._crit_edge.i, %par_shapes__normalize3.exit.i
-  %.071.i = phi i32 [ %32, %par_shapes__normalize3.exit.i ], [ 0, %._crit_edge.i ]
-  %.05870.i = phi ptr [ %33, %par_shapes__normalize3.exit.i ], [ %10, %._crit_edge.i ]
-  %16 = load float, ptr %.05870.i, align 4
+.lr.ph74.i:                                       ; preds = %._crit_edge.i, %par_shapes__normalize3.exit.i
+  %.072.i = phi i32 [ %32, %par_shapes__normalize3.exit.i ], [ 0, %._crit_edge.i ]
+  %.05871.i = phi ptr [ %33, %par_shapes__normalize3.exit.i ], [ %10, %._crit_edge.i ]
+  %16 = load float, ptr %.05871.i, align 4
   %17 = fmul float %16, 0.000000e+00
-  store float %17, ptr %.05870.i, align 4
-  %18 = getelementptr inbounds nuw i8, ptr %.05870.i, i64 4
+  store float %17, ptr %.05871.i, align 4
+  %18 = getelementptr inbounds nuw i8, ptr %.05871.i, i64 4
   %19 = load float, ptr %18, align 4
   %20 = fmul float %19, 0.000000e+00
   store float %20, ptr %18, align 4
-  %21 = getelementptr inbounds nuw i8, ptr %.05870.i, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %.05871.i, i64 8
   %22 = load float, ptr %21, align 4
   %23 = fmul float %20, %20
   %24 = tail call float @llvm.fmuladd.f32(float %17, float %17, float %23)
@@ -25547,22 +25547,22 @@ define hidden noalias noundef ptr @par_shapes_create_parametric_disk(i32 noundef
   %26 = fcmp ogt float %25, 0.000000e+00
   br i1 %26, label %27, label %par_shapes__normalize3.exit.i
 
-27:                                               ; preds = %.lr.ph73.i
+27:                                               ; preds = %.lr.ph74.i
   %sqrt.i.i = tail call float @llvm.sqrt.f32(float %25)
   %28 = fdiv float 1.000000e+00, %sqrt.i.i
   %29 = fmul float %17, %28
-  store float %29, ptr %.05870.i, align 4
+  store float %29, ptr %.05871.i, align 4
   %30 = fmul float %20, %28
   store float %30, ptr %18, align 4
   %31 = fmul float %22, %28
   store float %31, ptr %21, align 4
   br label %par_shapes__normalize3.exit.i
 
-par_shapes__normalize3.exit.i:                    ; preds = %27, %.lr.ph73.i
-  %32 = add nuw nsw i32 %.071.i, 1
-  %33 = getelementptr inbounds nuw i8, ptr %.05870.i, i64 12
+par_shapes__normalize3.exit.i:                    ; preds = %27, %.lr.ph74.i
+  %32 = add nuw nsw i32 %.072.i, 1
+  %33 = getelementptr inbounds nuw i8, ptr %.05871.i, i64 12
   %exitcond5.not = icmp eq i32 %32, %6
-  br i1 %exitcond5.not, label %par_shapes_scale.exit, label %.lr.ph73.i
+  br i1 %exitcond5.not, label %par_shapes_scale.exit, label %.lr.ph74.i
 
 par_shapes_scale.exit:                            ; preds = %par_shapes__normalize3.exit.i, %4, %._crit_edge.i, %2
   ret ptr %3
@@ -25587,25 +25587,25 @@ define hidden void @par_shapes_scale(ptr noundef readonly captures(none) %0, flo
   %10 = phi i1 [ %9, %._crit_edge.loopexit ], [ false, %4 ]
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load ptr, ptr %11, align 8
-  %.not65 = icmp eq ptr %12, null
-  br i1 %.not65, label %.loopexit, label %25
+  %.not66 = icmp eq ptr %12, null
+  br i1 %.not66, label %.loopexit, label %25
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.05969 = phi i32 [ %22, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.06068 = phi ptr [ %19, %.lr.ph ], [ %8, %.lr.ph.preheader ]
-  %13 = getelementptr inbounds nuw i8, ptr %.06068, i64 4
-  %14 = load float, ptr %.06068, align 4
+  %.05970 = phi i32 [ %22, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %.06069 = phi ptr [ %19, %.lr.ph ], [ %8, %.lr.ph.preheader ]
+  %13 = getelementptr inbounds nuw i8, ptr %.06069, i64 4
+  %14 = load float, ptr %.06069, align 4
   %15 = fmul float %1, %14
-  store float %15, ptr %.06068, align 4
-  %16 = getelementptr inbounds nuw i8, ptr %.06068, i64 8
+  store float %15, ptr %.06069, align 4
+  %16 = getelementptr inbounds nuw i8, ptr %.06069, i64 8
   %17 = load float, ptr %13, align 4
   %18 = fmul float %2, %17
   store float %18, ptr %13, align 4
-  %19 = getelementptr inbounds nuw i8, ptr %.06068, i64 12
+  %19 = getelementptr inbounds nuw i8, ptr %.06069, i64 12
   %20 = load float, ptr %16, align 4
   %21 = fmul float %3, %20
   store float %21, ptr %16, align 4
-  %22 = add nuw nsw i32 %.05969, 1
+  %22 = add nuw nsw i32 %.05970, 1
   %23 = load i32, ptr %5, align 8
   %24 = icmp slt i32 %22, %23
   br i1 %24, label %.lr.ph, label %._crit_edge.loopexit
@@ -25613,8 +25613,8 @@ define hidden void @par_shapes_scale(ptr noundef readonly captures(none) %0, flo
 25:                                               ; preds = %._crit_edge
   %26 = fcmp oeq float %1, %2
   %27 = fcmp oeq float %2, %3
-  %or.cond67 = and i1 %26, %27
-  br i1 %or.cond67, label %.loopexit, label %28
+  %or.cond68 = and i1 %26, %27
+  br i1 %or.cond68, label %.loopexit, label %28
 
 28:                                               ; preds = %25
   %29 = fcmp oeq float %1, 0.000000e+00
@@ -25648,19 +25648,19 @@ define hidden void @par_shapes_scale(ptr noundef readonly captures(none) %0, flo
   %.057 = phi float [ %47, %36 ], [ %35, %32 ]
   %.056 = phi float [ %44, %36 ], [ %34, %32 ]
   %.055 = phi float [ %40, %36 ], [ %33, %32 ]
-  br i1 %10, label %.lr.ph73, label %.loopexit
+  br i1 %10, label %.lr.ph74, label %.loopexit
 
-.lr.ph73:                                         ; preds = %48, %par_shapes__normalize3.exit
-  %.071 = phi i32 [ %66, %par_shapes__normalize3.exit ], [ 0, %48 ]
-  %.05870 = phi ptr [ %67, %par_shapes__normalize3.exit ], [ %12, %48 ]
-  %49 = load float, ptr %.05870, align 4
+.lr.ph74:                                         ; preds = %48, %par_shapes__normalize3.exit
+  %.072 = phi i32 [ %66, %par_shapes__normalize3.exit ], [ 0, %48 ]
+  %.05871 = phi ptr [ %67, %par_shapes__normalize3.exit ], [ %12, %48 ]
+  %49 = load float, ptr %.05871, align 4
   %50 = fmul float %.055, %49
-  store float %50, ptr %.05870, align 4
-  %51 = getelementptr inbounds nuw i8, ptr %.05870, i64 4
+  store float %50, ptr %.05871, align 4
+  %51 = getelementptr inbounds nuw i8, ptr %.05871, i64 4
   %52 = load float, ptr %51, align 4
   %53 = fmul float %.056, %52
   store float %53, ptr %51, align 4
-  %54 = getelementptr inbounds nuw i8, ptr %.05870, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %.05871, i64 8
   %55 = load float, ptr %54, align 4
   %56 = fmul float %.057, %55
   store float %56, ptr %54, align 4
@@ -25670,23 +25670,23 @@ define hidden void @par_shapes_scale(ptr noundef readonly captures(none) %0, flo
   %60 = fcmp ogt float %59, 0.000000e+00
   br i1 %60, label %61, label %par_shapes__normalize3.exit
 
-61:                                               ; preds = %.lr.ph73
+61:                                               ; preds = %.lr.ph74
   %sqrt.i = tail call float @llvm.sqrt.f32(float %59)
   %62 = fdiv float 1.000000e+00, %sqrt.i
   %63 = fmul float %50, %62
-  store float %63, ptr %.05870, align 4
+  store float %63, ptr %.05871, align 4
   %64 = fmul float %53, %62
   store float %64, ptr %51, align 4
   %65 = fmul float %56, %62
   store float %65, ptr %54, align 4
   br label %par_shapes__normalize3.exit
 
-par_shapes__normalize3.exit:                      ; preds = %.lr.ph73, %61
-  %66 = add nuw nsw i32 %.071, 1
-  %67 = getelementptr inbounds nuw i8, ptr %.05870, i64 12
+par_shapes__normalize3.exit:                      ; preds = %.lr.ph74, %61
+  %66 = add nuw nsw i32 %.072, 1
+  %67 = getelementptr inbounds nuw i8, ptr %.05871, i64 12
   %68 = load i32, ptr %5, align 8
   %69 = icmp slt i32 %66, %68
-  br i1 %69, label %.lr.ph73, label %.loopexit
+  br i1 %69, label %.lr.ph74, label %.loopexit
 
 .loopexit:                                        ; preds = %par_shapes__normalize3.exit, %48, %25, %._crit_edge
   ret void

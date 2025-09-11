@@ -7250,29 +7250,29 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4cvc58internal7Minisat12Double
   %7 = load ptr, ptr %6, align 8, !tbaa !392
   %8 = load i8, ptr %7, align 1, !tbaa !290
   %.not15.i = icmp eq i8 %8, 0
-  br i1 %.not15.i, label %.loopexit, label %.lr.ph.i15
+  br i1 %.not15.i, label %.loopexit, label %.lr.ph.i16
 
-9:                                                ; preds = %.lr.ph.i15
-  %indvars.iv.next.i19 = add nuw nsw i64 %indvars.iv.i16, 1
-  %10 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv.next.i19
+9:                                                ; preds = %.lr.ph.i16
+  %indvars.iv.next.i20 = add nuw nsw i64 %indvars.iv.i17, 1
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv.next.i20
   %11 = load i8, ptr %10, align 1, !tbaa !290
-  %.not.i20 = icmp eq i8 %11, 0
-  br i1 %.not.i20, label %.loopexit, label %.lr.ph.i15, !llvm.loop !404
+  %.not.i21 = icmp eq i8 %11, 0
+  br i1 %.not.i21, label %.loopexit, label %.lr.ph.i16, !llvm.loop !404
 
-.lr.ph.i15:                                       ; preds = %4, %9
-  %indvars.iv.i16 = phi i64 [ %indvars.iv.next.i19, %9 ], [ 0, %4 ]
+.lr.ph.i16:                                       ; preds = %4, %9
+  %indvars.iv.i17 = phi i64 [ %indvars.iv.next.i20, %9 ], [ 0, %4 ]
   %12 = phi i8 [ %11, %9 ], [ %8, %4 ]
-  %13 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv.i16
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv.i17
   %14 = load i8, ptr %13, align 1, !tbaa !290
-  %.not11.i17 = icmp eq i8 %14, %12
-  br i1 %.not11.i17, label %9, label %_ZN4cvc58internal7MinisatL5matchIPKcEEbRT_S4_.exit
+  %.not11.i18 = icmp eq i8 %14, %12
+  br i1 %.not11.i18, label %9, label %_ZN4cvc58internal7MinisatL5matchIPKcEEbRT_S4_.exit
 
 .loopexit:                                        ; preds = %9, %4
-  %.lcssa.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i19, %9 ]
+  %.lcssa.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i20, %9 ]
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 %.lcssa.i
   %16 = load i8, ptr %15, align 1, !tbaa !290
-  %.not11.i26 = icmp eq i8 %16, 61
-  br i1 %.not11.i26, label %17, label %_ZN4cvc58internal7MinisatL5matchIPKcEEbRT_S4_.exit
+  %.not11.i27 = icmp eq i8 %16, 61
+  br i1 %.not11.i27, label %17, label %_ZN4cvc58internal7MinisatL5matchIPKcEEbRT_S4_.exit
 
 17:                                               ; preds = %.loopexit
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 1
@@ -7314,8 +7314,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4cvc58internal7Minisat12Double
   %41 = load i8, ptr %40, align 8, !tbaa !419, !range !67, !noundef !68
   %42 = trunc nuw i8 %41 to i1
   %43 = fcmp oeq double %19, %37
-  %or.cond13.not = select i1 %42, i1 %43, i1 false
-  br i1 %or.cond13.not, label %48, label %44
+  %or.cond14.not = select i1 %42, i1 %43, i1 false
+  br i1 %or.cond14.not, label %48, label %44
 
 44:                                               ; preds = %39
   %45 = load ptr, ptr @stderr, align 8, !tbaa !311
@@ -7333,8 +7333,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4cvc58internal7Minisat12Double
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %_ZN4cvc58internal7MinisatL5matchIPKcEEbRT_S4_.exit
 
-_ZN4cvc58internal7MinisatL5matchIPKcEEbRT_S4_.exit: ; preds = %.lr.ph.i15, %.lr.ph.i, %.loopexit, %50
-  %.0 = phi i1 [ %21, %50 ], [ false, %.loopexit ], [ false, %.lr.ph.i ], [ false, %.lr.ph.i15 ]
+_ZN4cvc58internal7MinisatL5matchIPKcEEbRT_S4_.exit: ; preds = %.lr.ph.i16, %.lr.ph.i, %.loopexit, %50
+  %.0 = phi i1 [ %21, %50 ], [ false, %.loopexit ], [ false, %.lr.ph.i ], [ false, %.lr.ph.i16 ]
   ret i1 %.0
 }
 

@@ -58,7 +58,6 @@ $_ZN5arrow4util13StringBuilderIJRA39_KcRSt17basic_string_viewIcSt11char_traitsIc
 @.str.8 = private unnamed_addr constant [5 x i8] c"true\00", align 1
 @.str.9 = private unnamed_addr constant [2 x i8] c"1\00", align 1
 @.str.10 = private unnamed_addr constant [6 x i8] c"false\00", align 1
-@.str.11 = private unnamed_addr constant [2 x i8] c"0\00", align 1
 @.str.12 = private unnamed_addr constant [39 x i8] c"String is not a valid boolean value: '\00", align 1
 @.str.13 = private unnamed_addr constant [3 x i8] c"'.\00", align 1
 @__libc_single_threaded = external local_unnamed_addr global i8, align 1
@@ -2079,8 +2078,8 @@ _ZN5arrow8internal26AsciiEqualsCaseInsensitiveESt17basic_string_viewIcSt11char_t
   br i1 %30, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i15, label %_ZN5arrow8internal26AsciiEqualsCaseInsensitiveESt17basic_string_viewIcSt11char_traitsIcEES4_.exit
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i15: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, %_ZN5arrow8internal26AsciiEqualsCaseInsensitiveESt17basic_string_viewIcSt11char_traitsIcEES4_.exit14
-  %bcmp.i16 = tail call i32 @bcmp(ptr %2, ptr nonnull @.str.11, i64 %1)
-  %31 = icmp eq i32 %bcmp.i16, 0
+  %lhsc = load i8, ptr %2, align 1
+  %31 = icmp eq i8 %lhsc, 48
   br i1 %31, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit18, label %_ZN5arrow8internal26AsciiEqualsCaseInsensitiveESt17basic_string_viewIcSt11char_traitsIcEES4_.exit
 
 _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit18: ; preds = %20, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i15

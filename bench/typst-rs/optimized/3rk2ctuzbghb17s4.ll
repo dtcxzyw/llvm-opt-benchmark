@@ -103140,7 +103140,6 @@ _ZN5typst4util7Numeric7is_zero17h8b8e138031b37f84E.exit: ; preds = %_ZN5typst4ut
   br label %48
 
 41:                                               ; preds = %31, %30
-  tail call void @llvm.assume(i1 %29)
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !25267
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !25267
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !25267
@@ -103262,7 +103261,6 @@ _ZN5typst4util7Numeric7is_zero17h8b8e138031b37f84E.exit: ; preds = %_ZN5typst4ut
           to label %"_ZN74_$LT$typst..layout..abs..Abs$u20$as$u20$typst..foundations..repr..Repr$GT$4repr17h7872e6fe54bf8a67E.exit" unwind label %35
 
 31:                                               ; preds = %29, %28
-  tail call void @llvm.assume(i1 %27)
   tail call void @_ZN5typst11foundations4repr12format_float17h3cb6b2212318be92E(ptr noalias noundef nonnull sret({ { { [2 x i64] } } }) align 8 captures(none) dereferenceable(16) %0, double noundef %11, i1 noundef zeroext true, i8 2, i1 noundef zeroext false, ptr noalias noundef nonnull readonly align 1 @anon.984efe779a4077b66be6415f964eeb42.459.llvm.13383457361836014260, i64 noundef 2), !noalias !25303
   br label %68
 
@@ -135858,7 +135856,7 @@ define noundef range(i8 0, 10) i8 @"_ZN78_$LT$typst..model..figure.._..Fields$u2
   br label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h45ed752b1ddb1024E.exit66.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h45ed752b1ddb1024E.exit62": ; preds = %2
-  %bcmp.i61 = tail call i32 @bcmp(ptr nonnull readonly align 1 %0, ptr nonnull @anon.9bf146a73cb71d9c7e3fe69f46c42f4a.683, i64 %1), !alias.scope !34277
+  %bcmp.i61 = tail call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(8) %0, ptr noundef nonnull dereferenceable(8) @anon.9bf146a73cb71d9c7e3fe69f46c42f4a.683, i64 8), !alias.scope !34277
   %11 = icmp eq i32 %bcmp.i61, 0
   %spec.select164 = select i1 %11, i8 7, i8 9
   br label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h45ed752b1ddb1024E.exit66.thread"

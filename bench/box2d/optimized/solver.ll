@@ -3667,7 +3667,7 @@ define internal noundef zeroext i1 @b2ContinuousQueryCallback(i32 %0, i32 nounde
   %12 = load ptr, ptr %11, align 8, !tbaa !295
   %13 = load i32, ptr %10, align 8, !tbaa !172
   %14 = icmp eq i32 %1, %13
-  br i1 %14, label %.critedge132, label %15
+  br i1 %14, label %.critedge133, label %15
 
 15:                                               ; preds = %3
   %16 = load ptr, ptr %2, align 8, !tbaa !292
@@ -3680,46 +3680,46 @@ define internal noundef zeroext i1 @b2ContinuousQueryCallback(i32 %0, i32 nounde
   %22 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %23 = load i32, ptr %22, align 4, !tbaa !302
   %24 = icmp eq i32 %21, %23
-  br i1 %24, label %.critedge132, label %25
+  br i1 %24, label %.critedge133, label %25
 
 25:                                               ; preds = %15
   %26 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %27 = load i32, ptr %26, align 8, !tbaa !298
   %.not = icmp eq i32 %27, -1
-  br i1 %.not, label %28, label %.critedge132
+  br i1 %.not, label %28, label %.critedge133
 
 28:                                               ; preds = %25
   %29 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %30 = getelementptr inbounds nuw i8, ptr %19, i64 96
   %31 = tail call zeroext i1 @b2ShouldShapesCollide(ptr noundef nonnull byval(%struct.b2Filter) align 8 %29, ptr noundef nonnull byval(%struct.b2Filter) align 8 %30) #8
-  br i1 %31, label %32, label %.critedge132
+  br i1 %31, label %32, label %.critedge133
 
 32:                                               ; preds = %28
   %33 = getelementptr inbounds nuw i8, ptr %16, i64 1032
   %34 = load i32, ptr %20, align 4, !tbaa !302
-  %.val134 = load ptr, ptr %33, align 8, !tbaa !291
+  %.val135 = load ptr, ptr %33, align 8, !tbaa !291
   %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds %struct.b2Body, ptr %.val134, i64 %35
+  %36 = getelementptr inbounds %struct.b2Body, ptr %.val135, i64 %35
   %37 = tail call ptr @b2GetBodySim(ptr noundef nonnull %16, ptr noundef %36) #8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 93
   %39 = load i8, ptr %38, align 1, !tbaa !196, !range !197, !noundef !198
   %40 = trunc nuw i8 %39 to i1
-  br i1 %40, label %.critedge132, label %41
+  br i1 %40, label %.critedge133, label %41
 
 41:                                               ; preds = %32
   %42 = getelementptr inbounds nuw i8, ptr %12, i64 88
   %43 = load i32, ptr %42, align 4, !tbaa !190
-  %.val133 = load ptr, ptr %33, align 8, !tbaa !291
+  %.val134 = load ptr, ptr %33, align 8, !tbaa !291
   %44 = sext i32 %43 to i64
-  %45 = getelementptr inbounds %struct.b2Body, ptr %.val133, i64 %44
+  %45 = getelementptr inbounds %struct.b2Body, ptr %.val134, i64 %44
   %46 = tail call zeroext i1 @b2ShouldBodiesCollide(ptr noundef nonnull %16, ptr noundef %45, ptr noundef %36) #8
-  br i1 %46, label %47, label %.critedge132
+  br i1 %46, label %47, label %.critedge133
 
 47:                                               ; preds = %41
   %48 = getelementptr inbounds nuw i8, ptr %16, i64 1704
   %49 = load ptr, ptr %48, align 8, !tbaa !303
-  %.not130 = icmp eq ptr %49, null
-  br i1 %.not130, label %66, label %50
+  %.not131 = icmp eq ptr %49, null
+  br i1 %.not131, label %66, label %50
 
 50:                                               ; preds = %47
   %51 = load i32, ptr %19, align 8, !tbaa !172
@@ -3747,7 +3747,7 @@ define internal noundef zeroext i1 @b2ContinuousQueryCallback(i32 %0, i32 nounde
   %64 = or disjoint i64 %.sroa.545.0.insert.shift, %.sroa.043.0.insert.ext
   %.sroa.043.0.insert.insert = or disjoint i64 %64, %.sroa.447.0.insert.shift
   %65 = tail call zeroext i1 %49(i64 %.sroa.046.0.insert.insert, i64 %.sroa.043.0.insert.insert, ptr noundef %62) #8
-  br i1 %65, label %66, label %.critedge132
+  br i1 %65, label %66, label %.critedge133
 
 66:                                               ; preds = %50, %47
   %67 = getelementptr inbounds nuw i8, ptr %19, i64 20
@@ -3778,15 +3778,15 @@ define internal noundef zeroext i1 @b2ContinuousQueryCallback(i32 %0, i32 nounde
   %80 = fadd float %.sroa.06.4.vec.extract.i, %79
   %81 = getelementptr inbounds nuw i8, ptr %19, i64 148
   %82 = load <2 x float>, ptr %81, align 4
-  %.sroa.0.0.vec.extract.i136 = extractelement <2 x float> %82, i64 0
-  %foldExtExtBinop187 = fmul <2 x float> %.sroa.541.0.copyload, %82
-  %83 = extractelement <2 x float> %foldExtExtBinop187, i64 0
-  %.sroa.0.4.vec.extract.i138 = extractelement <2 x float> %82, i64 1
-  %84 = fmul float %.sroa.3.12.vec.extract.i, %.sroa.0.4.vec.extract.i138
+  %.sroa.0.0.vec.extract.i137 = extractelement <2 x float> %82, i64 0
+  %foldExtExtBinop188 = fmul <2 x float> %.sroa.541.0.copyload, %82
+  %83 = extractelement <2 x float> %foldExtExtBinop188, i64 0
+  %.sroa.0.4.vec.extract.i139 = extractelement <2 x float> %82, i64 1
+  %84 = fmul float %.sroa.3.12.vec.extract.i, %.sroa.0.4.vec.extract.i139
   %85 = fsub float %83, %84
   %86 = fadd float %.sroa.06.0.vec.extract.i, %85
-  %87 = fmul float %.sroa.3.12.vec.extract.i, %.sroa.0.0.vec.extract.i136
-  %88 = fmul float %.sroa.3.8.vec.extract.i, %.sroa.0.4.vec.extract.i138
+  %87 = fmul float %.sroa.3.12.vec.extract.i, %.sroa.0.0.vec.extract.i137
+  %88 = fmul float %.sroa.3.8.vec.extract.i, %.sroa.0.4.vec.extract.i139
   %89 = fadd float %87, %88
   %90 = fadd float %.sroa.06.4.vec.extract.i, %89
   %91 = fsub float %86, %76
@@ -3820,30 +3820,30 @@ b2GetLengthAndNormalize.exit:                     ; preds = %70, %97
   %106 = fsub float %.sroa.01.0.vec.extract.i, %76
   %.sroa.01.4.vec.extract.i = extractelement <2 x float> %.sroa.030.0.copyload, i64 1
   %107 = fsub float %.sroa.01.4.vec.extract.i, %80
-  %.sroa.0.4.vec.extract.i150 = extractelement <2 x float> %.sroa.06.0.i, i64 1
-  %108 = fmul float %.sroa.0.4.vec.extract.i150, %106
-  %.sroa.0.0.vec.extract.i152 = extractelement <2 x float> %.sroa.06.0.i, i64 0
-  %109 = fmul float %.sroa.0.0.vec.extract.i152, %107
+  %.sroa.0.4.vec.extract.i151 = extractelement <2 x float> %.sroa.06.0.i, i64 1
+  %108 = fmul float %.sroa.0.4.vec.extract.i151, %106
+  %.sroa.0.0.vec.extract.i153 = extractelement <2 x float> %.sroa.06.0.i, i64 0
+  %109 = fmul float %.sroa.0.0.vec.extract.i153, %107
   %110 = fsub float %108, %109
   %111 = fcmp olt float %110, 0.000000e+00
-  br i1 %111, label %.critedge132, label %112
+  br i1 %111, label %.critedge133, label %112
 
 112:                                              ; preds = %104
   %113 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %.sroa.026.0.copyload = load <2 x float>, ptr %113, align 8
-  %.sroa.01.0.vec.extract.i153 = extractelement <2 x float> %.sroa.026.0.copyload, i64 0
-  %114 = fsub float %.sroa.01.0.vec.extract.i153, %76
-  %115 = fmul float %.sroa.0.4.vec.extract.i150, %114
-  %.sroa.01.4.vec.extract.i156 = extractelement <2 x float> %.sroa.026.0.copyload, i64 1
-  %116 = fsub float %.sroa.01.4.vec.extract.i156, %80
-  %117 = fmul float %.sroa.0.0.vec.extract.i152, %116
+  %.sroa.01.0.vec.extract.i154 = extractelement <2 x float> %.sroa.026.0.copyload, i64 0
+  %114 = fsub float %.sroa.01.0.vec.extract.i154, %76
+  %115 = fmul float %.sroa.0.4.vec.extract.i151, %114
+  %.sroa.01.4.vec.extract.i157 = extractelement <2 x float> %.sroa.026.0.copyload, i64 1
+  %116 = fsub float %.sroa.01.4.vec.extract.i157, %80
+  %117 = fmul float %.sroa.0.0.vec.extract.i153, %116
   %118 = fsub float %115, %117
   %119 = fsub float %110, %118
   %120 = getelementptr inbounds nuw i8, ptr %12, i64 68
   %121 = load float, ptr %120, align 4, !tbaa !264
   %122 = fmul float %121, 2.500000e-01
   %123 = fcmp olt float %119, %122
-  br i1 %123, label %.critedge132, label %.critedge
+  br i1 %123, label %.critedge133, label %.critedge
 
 .critedge:                                        ; preds = %b2GetLengthAndNormalize.exit, %112, %66
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -3894,7 +3894,7 @@ b2GetLengthAndNormalize.exit:                     ; preds = %70, %97
 
 147:                                              ; preds = %144, %.critedge
   %148 = fcmp oeq float %142, 0.000000e+00
-  br i1 %148, label %149, label %.thread175
+  br i1 %148, label %149, label %.thread176
 
 149:                                              ; preds = %147
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -3912,23 +3912,23 @@ b2GetLengthAndNormalize.exit:                     ; preds = %70, %97
   %.sroa.010.sroa.4.0.extract.trunc = trunc nuw i64 %.sroa.010.sroa.4.0.extract.shift to i32
   %155 = bitcast i32 %.sroa.010.sroa.4.0.extract.trunc to float
   %156 = fcmp ogt float %155, 0.000000e+00
-  br i1 %156, label %157, label %.thread171
+  br i1 %156, label %157, label %.thread172
 
 157:                                              ; preds = %149
   %158 = load float, ptr %138, align 8, !tbaa !296
   %159 = fcmp ogt float %158, %155
-  br i1 %159, label %160, label %.thread171
+  br i1 %159, label %160, label %.thread172
 
-.thread171:                                       ; preds = %157, %149
+.thread172:                                       ; preds = %157, %149
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %.thread175
+  br label %.thread176
 
 160:                                              ; preds = %157
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.thread
 
 .thread:                                          ; preds = %144, %160
-  %.0121166 = phi float [ %155, %160 ], [ %142, %144 ]
+  %.0121167 = phi float [ %155, %160 ], [ %142, %144 ]
   %161 = getelementptr inbounds nuw i8, ptr %19, i64 280
   %162 = load i8, ptr %161, align 8, !tbaa !314, !range !197, !noundef !198
   %163 = trunc nuw i8 %162 to i1
@@ -3938,13 +3938,13 @@ b2GetLengthAndNormalize.exit:                     ; preds = %70, %97
   %165 = getelementptr inbounds nuw i8, ptr %10, i64 280
   %166 = load i8, ptr %165, align 8, !tbaa !314, !range !197, !noundef !198
   %167 = trunc nuw i8 %166 to i1
-  br i1 %167, label %168, label %.thread178
+  br i1 %167, label %168, label %.thread179
 
 168:                                              ; preds = %.thread, %164
-  %169 = call { <2 x float>, <2 x float> } @b2GetSweepTransform(ptr noundef nonnull %125, float noundef %.0121166) #8
+  %169 = call { <2 x float>, <2 x float> } @b2GetSweepTransform(ptr noundef nonnull %125, float noundef %.0121167) #8
   %170 = extractvalue { <2 x float>, <2 x float> } %169, 0
   %171 = extractvalue { <2 x float>, <2 x float> } %169, 1
-  %172 = call { <2 x float>, <2 x float> } @b2GetSweepTransform(ptr noundef nonnull %136, float noundef %.0121166) #8
+  %172 = call { <2 x float>, <2 x float> } @b2GetSweepTransform(ptr noundef nonnull %136, float noundef %.0121167) #8
   %173 = extractvalue { <2 x float>, <2 x float> } %172, 0
   %174 = extractvalue { <2 x float>, <2 x float> } %172, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -3977,17 +3977,17 @@ b2GetLengthAndNormalize.exit:                     ; preds = %70, %97
   %.sroa.0.0.insert.insert = or disjoint i64 %190, %.sroa.44.0.insert.shift
   %191 = call zeroext i1 %186(i64 %.sroa.03.0.insert.insert, i64 %.sroa.0.0.insert.insert, ptr noundef nonnull %8, ptr noundef %188) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br i1 %191, label %.thread178, label %.thread175
+  br i1 %191, label %.thread179, label %.thread176
 
-.thread178:                                       ; preds = %164, %168
-  store float %.0121166, ptr %138, align 8, !tbaa !296
-  br label %.thread175
+.thread179:                                       ; preds = %164, %168
+  store float %.0121167, ptr %138, align 8, !tbaa !296
+  br label %.thread176
 
-.thread175:                                       ; preds = %147, %.thread171, %.thread178, %168
+.thread176:                                       ; preds = %147, %.thread172, %.thread179, %168
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %.critedge132
+  br label %.critedge133
 
-.critedge132:                                     ; preds = %104, %112, %15, %25, %32, %.thread175, %50, %41, %28, %3
+.critedge133:                                     ; preds = %104, %112, %15, %25, %32, %.thread176, %50, %41, %28, %3
   ret i1 true
 }
 

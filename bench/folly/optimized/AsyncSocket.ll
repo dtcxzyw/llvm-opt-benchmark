@@ -20826,7 +20826,7 @@ define linkonce_odr void @_ZN5folly22ObserverContainerStoreINS_21ObserverContain
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i8, ptr %6, align 8, !tbaa !583, !range !20, !noundef !233
   %8 = trunc nuw i8 %7 to i1
-  br i1 %8, label %9, label %.critedge17, !prof !184
+  br i1 %8, label %9, label %.critedge18, !prof !184
 
 9:                                                ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -20843,19 +20843,19 @@ define linkonce_odr void @_ZN5folly22ObserverContainerStoreINS_21ObserverContain
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %12
   %14 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull @.str.32, i64 noundef 52)
-          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit20 unwind label %.loopexit.split-lp
+          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit21 unwind label %.loopexit.split-lp
 
-_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit20: ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
+_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit21: ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
   call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #50
   unreachable
 
-.critedge17:                                      ; preds = %3
+.critedge18:                                      ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %16 = load i8, ptr %15, align 8, !tbaa !628, !range !20, !noundef !233
   %17 = trunc nuw i8 %16 to i1
   br i1 %17, label %18, label %24, !prof !184
 
-18:                                               ; preds = %.critedge17
+18:                                               ; preds = %.critedge18
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   invoke void @_ZN6google15LogMessageFatalC1EPKci(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull @.str.22, i32 noundef 251)
           to label %19 unwind label %.loopexit.split-lp
@@ -20866,17 +20866,17 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit20: ; preds = %_ZStl
 
 21:                                               ; preds = %19
   %22 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull @.str.33, i64 noundef 56)
-          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit21 unwind label %.loopexit.split-lp
-
-_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit21: ; preds = %21
-  %23 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull @.str.32, i64 noundef 52)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit22 unwind label %.loopexit.split-lp
 
-_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit22: ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit21
+_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit22: ; preds = %21
+  %23 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull @.str.32, i64 noundef 52)
+          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit23 unwind label %.loopexit.split-lp
+
+_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit23: ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit22
   call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #50
   unreachable
 
-24:                                               ; preds = %.critedge17
+24:                                               ; preds = %.critedge18
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i8 1, ptr %6, align 8, !tbaa !583
   store i8 1, ptr %15, align 8, !tbaa !628
@@ -20890,26 +20890,26 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit22: ; preds = %_ZStl
   br i1 %29, label %.split, label %.split.us
 
 .split.us:                                        ; preds = %24
-  %.not37 = icmp eq i64 %28, 0
-  br i1 %.not37, label %.split31, label %.critedge.us
+  %.not38 = icmp eq i64 %28, 0
+  br i1 %.not38, label %.split32, label %.critedge.us
 
 ._crit_edge.loopexit:                             ; preds = %_ZN5folly6detail8function14FunctionTraitsIFvRSt10shared_ptrINS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS5_6EventsELm32EEEE8ObserverEEEEclESD_.exit.us
   %.pre = load i64, ptr %26, align 8, !tbaa !203
-  %.pre44 = and i64 %.pre, 4611686018427387903
-  br label %.split31
+  %.pre45 = and i64 %.pre, 4611686018427387903
+  br label %.split32
 
 .critedge.us:                                     ; preds = %.split.us, %_ZN5folly6detail8function14FunctionTraitsIFvRSt10shared_ptrINS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS5_6EventsELm32EEEE8ObserverEEEEclESD_.exit.us
-  %.012.us36 = phi i64 [ %41, %_ZN5folly6detail8function14FunctionTraitsIFvRSt10shared_ptrINS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS5_6EventsELm32EEEE8ObserverEEEEclESD_.exit.us ], [ 0, %.split.us ]
+  %.012.us37 = phi i64 [ %41, %_ZN5folly6detail8function14FunctionTraitsIFvRSt10shared_ptrINS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS5_6EventsELm32EEEE8ObserverEEEEclESD_.exit.us ], [ 0, %.split.us ]
   %32 = load i64, ptr %26, align 8, !tbaa !203
   %33 = and i64 %32, 4611686018427387903
-  %.not.i.us = icmp samesign ult i64 %.012.us36, %33
-  br i1 %.not.i.us, label %34, label %.split34.us
+  %.not.i.us = icmp samesign ult i64 %.012.us37, %33
+  br i1 %.not.i.us, label %34, label %.split35.us
 
 34:                                               ; preds = %.critedge.us
   %35 = load ptr, ptr %30, align 8
   %.not1.i.i.i.i.us = icmp slt i64 %32, 0
   %36 = select i1 %.not1.i.i.i.i.us, ptr %35, ptr %30
-  %37 = getelementptr inbounds nuw %"class.std::shared_ptr.16", ptr %36, i64 %.012.us36
+  %37 = getelementptr inbounds nuw %"class.std::shared_ptr.16", ptr %36, i64 %.012.us37
   %38 = load ptr, ptr %37, align 8, !tbaa !333
   %.not.us = icmp eq ptr %38, null
   br i1 %.not.us, label %_ZN5folly6detail8function14FunctionTraitsIFvRSt10shared_ptrINS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS5_6EventsELm32EEEE8ObserverEEEEclESD_.exit.us, label %39
@@ -20920,7 +20920,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit22: ; preds = %_ZStl
           to label %_ZN5folly6detail8function14FunctionTraitsIFvRSt10shared_ptrINS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS5_6EventsELm32EEEE8ObserverEEEEclESD_.exit.us unwind label %.loopexit.split.us
 
 _ZN5folly6detail8function14FunctionTraitsIFvRSt10shared_ptrINS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS5_6EventsELm32EEEE8ObserverEEEEclESD_.exit.us: ; preds = %39, %34
-  %41 = add nuw nsw i64 %.012.us36, 1
+  %41 = add nuw nsw i64 %.012.us37, 1
   %exitcond.not = icmp eq i64 %41, %28
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.critedge.us, !llvm.loop !634
 
@@ -20930,29 +20930,29 @@ _ZN5folly6detail8function14FunctionTraitsIFvRSt10shared_ptrINS_21ObserverContain
   br label %.loopexit
 
 .split:                                           ; preds = %24, %_ZN5folly6detail8function14FunctionTraitsIFvRSt10shared_ptrINS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS5_6EventsELm32EEEE8ObserverEEEEclESD_.exit
-  %.pre40.pre42 = phi i64 [ %.pre40.pre, %_ZN5folly6detail8function14FunctionTraitsIFvRSt10shared_ptrINS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS5_6EventsELm32EEEE8ObserverEEEEclESD_.exit ], [ %27, %24 ]
+  %.pre41.pre43 = phi i64 [ %.pre41.pre, %_ZN5folly6detail8function14FunctionTraitsIFvRSt10shared_ptrINS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS5_6EventsELm32EEEE8ObserverEEEEclESD_.exit ], [ %27, %24 ]
   %.012 = phi i64 [ %69, %_ZN5folly6detail8function14FunctionTraitsIFvRSt10shared_ptrINS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS5_6EventsELm32EEEE8ObserverEEEEclESD_.exit ], [ 0, %24 ]
   %42 = icmp samesign ult i64 %.012, %28
-  %.pre45 = and i64 %.pre40.pre42, 4611686018427387903
-  %43 = icmp samesign ult i64 %.012, %.pre45
+  %.pre46 = and i64 %.pre41.pre43, 4611686018427387903
+  %43 = icmp samesign ult i64 %.012, %.pre46
   br i1 %42, label %.critedge, label %44
 
 44:                                               ; preds = %.split
-  br i1 %43, label %.critedge.thread, label %.split31
+  br i1 %43, label %.critedge.thread, label %.split32
 
-.split31:                                         ; preds = %44, %.split.us, %._crit_edge.loopexit
-  %.us-phi = phi i64 [ %.pre, %._crit_edge.loopexit ], [ %27, %.split.us ], [ %.pre40.pre42, %44 ]
-  %.us-phi32 = phi i64 [ %.pre44, %._crit_edge.loopexit ], [ 0, %.split.us ], [ %.pre45, %44 ]
+.split32:                                         ; preds = %44, %.split.us, %._crit_edge.loopexit
+  %.us-phi = phi i64 [ %.pre, %._crit_edge.loopexit ], [ %27, %.split.us ], [ %.pre41.pre43, %44 ]
+  %.us-phi33 = phi i64 [ %.pre45, %._crit_edge.loopexit ], [ 0, %.split.us ], [ %.pre46, %44 ]
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %46 = load i8, ptr %45, align 4, !tbaa !585, !range !20, !noundef !233
   %47 = trunc nuw i8 %46 to i1
   br i1 %47, label %48, label %_ZN5folly6detail14ScopeGuardImplIZNS_22ObserverContainerStoreINS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS4_6EventsELm32EEEE8ObserverENS_35ObserverContainerStorePolicyDefaultILj2EEEE21invokeForEachObserverEONS_8FunctionIFvRSt10shared_ptrISA_EEEENS_26ObserverContainerStoreBaseISA_E26InvokeWhileIteratingPolicyEEUlvE_Lb1EED2Ev.exit
 
-48:                                               ; preds = %.split31
+48:                                               ; preds = %.split32
   %49 = load ptr, ptr %30, align 8
   %.not1.i.i.i.i.i = icmp slt i64 %.us-phi, 0
   %50 = select i1 %.not1.i.i.i.i.i, ptr %49, ptr %30
-  %51 = getelementptr inbounds nuw %"class.std::shared_ptr.16", ptr %50, i64 %.us-phi32
+  %51 = getelementptr inbounds nuw %"class.std::shared_ptr.16", ptr %50, i64 %.us-phi33
   %52 = invoke noundef ptr @_ZSt11__remove_ifIPSt10shared_ptrIN5folly21ObserverContainerBaseINS1_28AsyncSocketObserverInterfaceENS1_11AsyncSocketENS1_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEEN9__gnu_cxx5__ops10_Iter_predIZZNS1_22ObserverContainerStoreIS9_NS1_35ObserverContainerStorePolicyDefaultILj2EEEE21invokeForEachObserverEONS1_8FunctionIFvRSA_EEENS1_26ObserverContainerStoreBaseIS9_E26InvokeWhileIteratingPolicyEENKUlvE_clEvEUlRKT_E_EEESS_SS_SS_T0_(ptr noundef %50, ptr noundef %51)
           to label %53 unwind label %60
 
@@ -20973,25 +20973,25 @@ _ZN5folly6detail8function14FunctionTraitsIFvRSt10shared_ptrINS_21ObserverContain
   tail call void @__clang_call_terminate(ptr %62) #50
   unreachable
 
-_ZN5folly6detail14ScopeGuardImplIZNS_22ObserverContainerStoreINS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS4_6EventsELm32EEEE8ObserverENS_35ObserverContainerStorePolicyDefaultILj2EEEE21invokeForEachObserverEONS_8FunctionIFvRSt10shared_ptrISA_EEEENS_26ObserverContainerStoreBaseISA_E26InvokeWhileIteratingPolicyEEUlvE_Lb1EED2Ev.exit: ; preds = %.split31, %53
+_ZN5folly6detail14ScopeGuardImplIZNS_22ObserverContainerStoreINS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS4_6EventsELm32EEEE8ObserverENS_35ObserverContainerStorePolicyDefaultILj2EEEE21invokeForEachObserverEONS_8FunctionIFvRSt10shared_ptrISA_EEEENS_26ObserverContainerStoreBaseISA_E26InvokeWhileIteratingPolicyEEUlvE_Lb1EED2Ev.exit: ; preds = %.split32, %53
   store i8 0, ptr %6, align 8, !tbaa !583
   store i8 0, ptr %15, align 8, !tbaa !584
   store i8 0, ptr %45, align 4, !tbaa !585
   ret void
 
 .critedge:                                        ; preds = %.split
-  br i1 %43, label %.critedge.thread, label %.split34.us
+  br i1 %43, label %.critedge.thread, label %.split35.us
 
-.split34.us:                                      ; preds = %.critedge.us, %.critedge
+.split35.us:                                      ; preds = %.critedge.us, %.critedge
   invoke void @_ZN5folly6detail16throw_exception_ISt12out_of_rangeJPKcEEEvDpT0_(ptr noundef nonnull @.str.34) #21
           to label %.noexc unwind label %.loopexit.split-lp
 
-.noexc:                                           ; preds = %.split34.us
+.noexc:                                           ; preds = %.split35.us
   unreachable
 
 .critedge.thread:                                 ; preds = %44, %.critedge
   %63 = load ptr, ptr %30, align 8
-  %.not1.i.i.i.i = icmp slt i64 %.pre40.pre42, 0
+  %.not1.i.i.i.i = icmp slt i64 %.pre41.pre43, 0
   %64 = select i1 %.not1.i.i.i.i, ptr %63, ptr %30
   %65 = getelementptr inbounds nuw %"class.std::shared_ptr.16", ptr %64, i64 %.012
   %66 = load ptr, ptr %65, align 8, !tbaa !333
@@ -21004,11 +21004,11 @@ _ZN5folly6detail14ScopeGuardImplIZNS_22ObserverContainerStoreINS_21ObserverConta
           to label %._ZN5folly6detail8function14FunctionTraitsIFvRSt10shared_ptrINS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS5_6EventsELm32EEEE8ObserverEEEEclESD_.exit_crit_edge unwind label %.loopexit.split
 
 ._ZN5folly6detail8function14FunctionTraitsIFvRSt10shared_ptrINS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS5_6EventsELm32EEEE8ObserverEEEEclESD_.exit_crit_edge: ; preds = %67
-  %.pre40.pre.pre = load i64, ptr %26, align 8, !tbaa !203
+  %.pre41.pre.pre = load i64, ptr %26, align 8, !tbaa !203
   br label %_ZN5folly6detail8function14FunctionTraitsIFvRSt10shared_ptrINS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS5_6EventsELm32EEEE8ObserverEEEEclESD_.exit
 
 _ZN5folly6detail8function14FunctionTraitsIFvRSt10shared_ptrINS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS5_6EventsELm32EEEE8ObserverEEEEclESD_.exit: ; preds = %._ZN5folly6detail8function14FunctionTraitsIFvRSt10shared_ptrINS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS5_6EventsELm32EEEE8ObserverEEEEclESD_.exit_crit_edge, %.critedge.thread
-  %.pre40.pre = phi i64 [ %.pre40.pre.pre, %._ZN5folly6detail8function14FunctionTraitsIFvRSt10shared_ptrINS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS5_6EventsELm32EEEE8ObserverEEEEclESD_.exit_crit_edge ], [ %.pre40.pre42, %.critedge.thread ]
+  %.pre41.pre = phi i64 [ %.pre41.pre.pre, %._ZN5folly6detail8function14FunctionTraitsIFvRSt10shared_ptrINS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS5_6EventsELm32EEEE8ObserverEEEEclESD_.exit_crit_edge ], [ %.pre41.pre43, %.critedge.thread ]
   %69 = add nuw nsw i64 %.012, 1
   br label %.split, !llvm.loop !634
 
@@ -21017,7 +21017,7 @@ _ZN5folly6detail8function14FunctionTraitsIFvRSt10shared_ptrINS_21ObserverContain
           catch ptr null
   br label %.loopexit
 
-.loopexit.split-lp:                               ; preds = %9, %10, %18, %19, %12, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit, %21, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit21, %.split34.us
+.loopexit.split-lp:                               ; preds = %9, %10, %18, %19, %12, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit, %21, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit22, %.split35.us
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           catch ptr null
   br label %.loopexit

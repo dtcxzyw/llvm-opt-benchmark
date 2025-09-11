@@ -42506,12 +42506,12 @@ _ZN4fish6screen10ScreenData4line17h555952dbf2f6f3aaE.exit: ; preds = %184
   %196 = getelementptr { { { { i64, ptr, {} }, {} }, i64 }, i64, i8, [7 x i8] }, ptr %195, i64 %.sroa.0.0.sroa.speculated.i
   %197 = getelementptr inbounds nuw i8, ptr %196, i64 24
   %198 = load i64, ptr %197, align 8, !noundef !3
-  %.sroa.0.0.sroa.speculated.i50 = call noundef i64 @llvm.umax.i64(i64 %198, i64 %193)
+  %.sroa.0.0.sroa.speculated.i51 = call noundef i64 @llvm.umax.i64(i64 %198, i64 %193)
   %199 = getelementptr inbounds nuw i8, ptr %196, i64 8
   %200 = load ptr, ptr %199, align 8, !nonnull !3, !noundef !3
   %201 = getelementptr inbounds nuw i8, ptr %196, i64 16
   %202 = load i64, ptr %201, align 8, !noundef !3
-  %203 = icmp uge i64 %.sroa.0.0.sroa.speculated.i50, %202
+  %203 = icmp uge i64 %.sroa.0.0.sroa.speculated.i51, %202
   br i1 %203, label %204, label %205
 
 204:                                              ; preds = %_ZN4fish6screen10ScreenData4line17h555952dbf2f6f3aaE.exit
@@ -42519,60 +42519,60 @@ _ZN4fish6screen10ScreenData4line17h555952dbf2f6f3aaE.exit: ; preds = %184
   br i1 %.not, label %207, label %208
 
 205:                                              ; preds = %_ZN4fish6screen10ScreenData4line17h555952dbf2f6f3aaE.exit
-  %206 = getelementptr inbounds nuw { { i64, [1 x i64] }, i32, { i8, i8, i8, i8 } }, ptr %200, i64 %.sroa.0.0.sroa.speculated.i50
-  %.not40 = icmp eq i64 %.sroa.0.0.sroa.speculated.i, 0
-  br i1 %.not40, label %.thread, label %_ZN4fish6screen10ScreenData4line17h555952dbf2f6f3aaE.exit51
+  %206 = getelementptr inbounds nuw { { i64, [1 x i64] }, i32, { i8, i8, i8, i8 } }, ptr %200, i64 %.sroa.0.0.sroa.speculated.i51
+  %.not41 = icmp eq i64 %.sroa.0.0.sroa.speculated.i, 0
+  br i1 %.not41, label %.thread, label %_ZN4fish6screen10ScreenData4line17h555952dbf2f6f3aaE.exit52
 
 207:                                              ; preds = %204
-  %.not38 = icmp eq i64 %.sroa.0.0.sroa.speculated.i, 0
-  br i1 %.not38, label %.thread60, label %_ZN4fish6screen10ScreenData4line17h555952dbf2f6f3aaE.exit51.thread
+  %.not39 = icmp eq i64 %.sroa.0.0.sroa.speculated.i, 0
+  br i1 %.not39, label %.thread61, label %_ZN4fish6screen10ScreenData4line17h555952dbf2f6f3aaE.exit52.thread
 
 208:                                              ; preds = %204
   %209 = getelementptr { { i64, [1 x i64] }, i32, { i8, i8, i8, i8 } }, ptr %200, i64 %202
   %210 = getelementptr i8, ptr %209, i64 -24
-  %.not39 = icmp eq i64 %.sroa.0.0.sroa.speculated.i, 0
-  br i1 %.not39, label %215, label %_ZN4fish6screen10ScreenData4line17h555952dbf2f6f3aaE.exit51
+  %.not40 = icmp eq i64 %.sroa.0.0.sroa.speculated.i, 0
+  br i1 %.not40, label %215, label %_ZN4fish6screen10ScreenData4line17h555952dbf2f6f3aaE.exit52
 
-_ZN4fish6screen10ScreenData4line17h555952dbf2f6f3aaE.exit51: ; preds = %205, %208
+_ZN4fish6screen10ScreenData4line17h555952dbf2f6f3aaE.exit52: ; preds = %205, %208
   %.sroa.030.0 = phi ptr [ %206, %205 ], [ %210, %208 ]
   %211 = getelementptr i8, ptr %196, i64 -24
   %212 = load i64, ptr %211, align 8, !noundef !3
-  %.not41 = icmp eq i64 %212, 0
-  %.not42 = icmp eq ptr %.sroa.030.0, null
-  br i1 %.not41, label %216, label %217
+  %.not42 = icmp eq i64 %212, 0
+  %.not43 = icmp eq ptr %.sroa.030.0, null
+  br i1 %.not42, label %216, label %217
 
-_ZN4fish6screen10ScreenData4line17h555952dbf2f6f3aaE.exit51.thread: ; preds = %207
+_ZN4fish6screen10ScreenData4line17h555952dbf2f6f3aaE.exit52.thread: ; preds = %207
   %213 = getelementptr i8, ptr %196, i64 -24
   %214 = load i64, ptr %213, align 8, !noundef !3
-  %.not4172 = icmp eq i64 %214, 0
-  br i1 %.not4172, label %.thread60, label %.thread78
+  %.not4273 = icmp eq i64 %214, 0
+  br i1 %.not4273, label %.thread61, label %.thread79
 
 215:                                              ; preds = %208
-  %.not44 = icmp eq ptr %210, null
-  br i1 %.not44, label %.thread60, label %.thread
+  %.not45 = icmp eq ptr %210, null
+  br i1 %.not45, label %.thread61, label %.thread
 
-216:                                              ; preds = %_ZN4fish6screen10ScreenData4line17h555952dbf2f6f3aaE.exit51
-  br i1 %.not42, label %.thread60, label %.thread
+216:                                              ; preds = %_ZN4fish6screen10ScreenData4line17h555952dbf2f6f3aaE.exit52
+  br i1 %.not43, label %.thread61, label %.thread
 
-217:                                              ; preds = %_ZN4fish6screen10ScreenData4line17h555952dbf2f6f3aaE.exit51
-  br i1 %.not42, label %.thread78, label %.thread
+217:                                              ; preds = %_ZN4fish6screen10ScreenData4line17h555952dbf2f6f3aaE.exit52
+  br i1 %.not43, label %.thread79, label %.thread
 
-.thread78:                                        ; preds = %_ZN4fish6screen10ScreenData4line17h555952dbf2f6f3aaE.exit51.thread, %217
-  %218 = phi i64 [ %212, %217 ], [ %214, %_ZN4fish6screen10ScreenData4line17h555952dbf2f6f3aaE.exit51.thread ]
+.thread79:                                        ; preds = %_ZN4fish6screen10ScreenData4line17h555952dbf2f6f3aaE.exit52.thread, %217
+  %218 = phi i64 [ %212, %217 ], [ %214, %_ZN4fish6screen10ScreenData4line17h555952dbf2f6f3aaE.exit52.thread ]
   %219 = getelementptr i8, ptr %196, i64 -32
   %220 = load ptr, ptr %219, align 8, !nonnull !3, !noundef !3
   %221 = getelementptr { { i64, [1 x i64] }, i32, { i8, i8, i8, i8 } }, ptr %220, i64 %218
   %222 = getelementptr i8, ptr %221, i64 -24
   br label %.thread
 
-.thread:                                          ; preds = %205, %216, %217, %215, %.thread78
-  %.sroa.07.1 = phi ptr [ %210, %215 ], [ %222, %.thread78 ], [ %206, %205 ], [ %.sroa.030.0, %216 ], [ %.sroa.030.0, %217 ]
+.thread:                                          ; preds = %205, %216, %217, %215, %.thread79
+  %.sroa.07.1 = phi ptr [ %210, %215 ], [ %222, %.thread79 ], [ %206, %205 ], [ %.sroa.030.0, %216 ], [ %.sroa.030.0, %217 ]
   %223 = icmp ne ptr %.sroa.07.1, null
   call void @llvm.assume(i1 %223)
   %224 = load i64, ptr %.sroa.07.1, align 8, !range !280, !noundef !3
   %225 = getelementptr inbounds nuw i8, ptr %.sroa.07.1, i64 8
   %226 = load i64, ptr %225, align 8
-  switch i64 %224, label %.thread60 [
+  switch i64 %224, label %.thread61 [
     i64 1, label %227
     i64 3, label %230
   ]
@@ -42582,18 +42582,18 @@ _ZN4fish6screen10ScreenData4line17h555952dbf2f6f3aaE.exit51.thread: ; preds = %2
   call void @llvm.assume(i1 %228)
   %229 = zext i1 %203 to i64
   %spec.select = add i64 %226, %229
-  br label %.thread60
+  br label %.thread61
 
 230:                                              ; preds = %.thread
   %231 = icmp ult i64 %202, 384307168202282326
   call void @llvm.assume(i1 %231)
-  %spec.select48 = select i1 %203, i64 undef, i64 %226
-  %spec.select49 = select i1 %203, i64 0, i64 3
-  br label %.thread60
+  %spec.select49 = select i1 %203, i64 undef, i64 %226
+  %spec.select50 = select i1 %203, i64 0, i64 3
+  br label %.thread61
 
-.thread60:                                        ; preds = %_ZN4fish6screen10ScreenData4line17h555952dbf2f6f3aaE.exit51.thread, %207, %216, %215, %230, %227, %.thread
-  %.sroa.4.0 = phi i64 [ %226, %.thread ], [ %spec.select, %227 ], [ %spec.select48, %230 ], [ 0, %215 ], [ 0, %216 ], [ 0, %207 ], [ 0, %_ZN4fish6screen10ScreenData4line17h555952dbf2f6f3aaE.exit51.thread ]
-  %.sroa.0.0 = phi i64 [ %224, %.thread ], [ 1, %227 ], [ %spec.select49, %230 ], [ 2, %215 ], [ 2, %216 ], [ 2, %207 ], [ 2, %_ZN4fish6screen10ScreenData4line17h555952dbf2f6f3aaE.exit51.thread ]
+.thread61:                                        ; preds = %_ZN4fish6screen10ScreenData4line17h555952dbf2f6f3aaE.exit52.thread, %207, %216, %215, %230, %227, %.thread
+  %.sroa.4.0 = phi i64 [ %226, %.thread ], [ %spec.select, %227 ], [ %spec.select49, %230 ], [ 0, %215 ], [ 0, %216 ], [ 0, %207 ], [ 0, %_ZN4fish6screen10ScreenData4line17h555952dbf2f6f3aaE.exit52.thread ]
+  %.sroa.0.0 = phi i64 [ %224, %.thread ], [ 1, %227 ], [ %spec.select50, %230 ], [ 2, %215 ], [ 2, %216 ], [ 2, %207 ], [ 2, %_ZN4fish6screen10ScreenData4line17h555952dbf2f6f3aaE.exit52.thread ]
   %232 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %233 = insertvalue { i64, i64 } %232, i64 %.sroa.4.0, 1
   ret { i64, i64 } %233

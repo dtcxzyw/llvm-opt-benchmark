@@ -142,14 +142,14 @@ define i32 @b64_pton(ptr noundef readonly captures(none) %0, ptr noundef capture
 .outer.outer:                                     ; preds = %.outer.outer.backedge, %.outer.outer.outer
   %.054.ph.ph = phi ptr [ %.054.ph.ph.ph, %.outer.outer.outer ], [ null, %.outer.outer.backedge ]
   %.050.ph.ph = phi ptr [ %.050.ph.ph.ph, %.outer.outer.outer ], [ %8, %.outer.outer.backedge ]
-  %.not72.ph = phi i1 [ %.not72.ph.ph, %.outer.outer.outer ], [ false, %.outer.outer.backedge ]
+  %.not73.ph = phi i1 [ %.not73.ph.ph, %.outer.outer.outer ], [ false, %.outer.outer.backedge ]
   %.044.ph.ph = phi i32 [ %.044.ph.ph.ph, %.outer.outer.outer ], [ %.044.ph.ph.be, %.outer.outer.backedge ]
-  %.not69 = icmp eq ptr %.054.ph.ph, null
+  %.not70 = icmp eq ptr %.054.ph.ph, null
   br label %.outer
 
 .outer:                                           ; preds = %.outer.outer, %16
   %.050.ph = phi ptr [ %8, %16 ], [ %.050.ph.ph, %.outer.outer ]
-  %.not72 = phi i1 [ false, %16 ], [ %.not72.ph, %.outer.outer ]
+  %.not73 = phi i1 [ false, %16 ], [ %.not73.ph, %.outer.outer ]
   %.044.ph = phi i32 [ 1, %16 ], [ %.044.ph.ph, %.outer.outer ]
   br label %4
 
@@ -163,12 +163,12 @@ define i32 @b64_pton(ptr noundef readonly captures(none) %0, ptr noundef capture
   %7 = sext i8 %5 to i32
   %8 = getelementptr inbounds nuw i8, ptr %.050, i64 1
   %9 = tail call i32 @isspace(i32 noundef %7) #4
-  %.not62 = icmp eq i32 %9, 0
-  br i1 %.not62, label %10, label %4, !llvm.loop !8
+  %.not63 = icmp eq i32 %9, 0
+  br i1 %.not63, label %10, label %4, !llvm.loop !8
 
 10:                                               ; preds = %6
-  %cond80 = icmp eq i8 %5, 61
-  br i1 %cond80, label %54, label %11
+  %cond81 = icmp eq i8 %5, 61
+  br i1 %cond81, label %54, label %11
 
 11:                                               ; preds = %10
   %memchr = tail call ptr @memchr(ptr noundef nonnull dereferenceable(1) @g_base64, i32 %7, i64 65)
@@ -176,7 +176,7 @@ define i32 @b64_pton(ptr noundef readonly captures(none) %0, ptr noundef capture
   br i1 %12, label %.loopexit, label %13
 
 13:                                               ; preds = %11
-  switch i32 %.044.ph, label %.unreachabledefault162 [
+  switch i32 %.044.ph, label %.unreachabledefault163 [
     i32 0, label %14
     i32 1, label %20
     i32 2, label %32
@@ -184,21 +184,21 @@ define i32 @b64_pton(ptr noundef readonly captures(none) %0, ptr noundef capture
   ]
 
 14:                                               ; preds = %13
-  br i1 %.not69, label %.outer.outer.backedge, label %15, !llvm.loop !8
+  br i1 %.not70, label %.outer.outer.backedge, label %15, !llvm.loop !8
 
 15:                                               ; preds = %14
-  br i1 %.not70, label %16, label %.loopexit
+  br i1 %.not71, label %16, label %.loopexit
 
 16:                                               ; preds = %15
   %17 = ptrtoint ptr %memchr to i64
   %18 = trunc i64 %17 to i8
-  %.tr71 = sub i8 %18, ptrtoint (ptr @g_base64 to i8)
-  %19 = shl i8 %.tr71, 2
+  %.tr72 = sub i8 %18, ptrtoint (ptr @g_base64 to i8)
+  %19 = shl i8 %.tr72, 2
   store i8 %19, ptr %.054.ph.ph, align 1
   br label %.outer, !llvm.loop !8
 
 20:                                               ; preds = %13
-  br i1 %.not69, label %.outer.outer.backedge, label %21
+  br i1 %.not70, label %.outer.outer.backedge, label %21
 
 .outer.outer.backedge:                            ; preds = %14, %20, %32
   %.044.ph.ph.be = phi i32 [ 3, %32 ], [ 2, %20 ], [ 1, %14 ]
@@ -206,8 +206,8 @@ define i32 @b64_pton(ptr noundef readonly captures(none) %0, ptr noundef capture
 
 21:                                               ; preds = %20
   %22 = add i64 %.046.ph.ph.ph, 1
-  %.not67 = icmp ult i64 %22, %2
-  br i1 %.not67, label %23, label %.loopexit
+  %.not68 = icmp ult i64 %22, %2
+  br i1 %.not68, label %23, label %.loopexit
 
 23:                                               ; preds = %21
   %24 = ptrtoint ptr %memchr to i64
@@ -218,18 +218,18 @@ define i32 @b64_pton(ptr noundef readonly captures(none) %0, ptr noundef capture
   %29 = trunc i64 %26 to i8
   %30 = or i8 %28, %29
   store i8 %30, ptr %.054.ph.ph, align 1
-  %.tr68 = trunc i64 %24 to i8
-  %31 = shl i8 %.tr68, 4
+  %.tr69 = trunc i64 %24 to i8
+  %31 = shl i8 %.tr69, 4
   store i8 %31, ptr %27, align 1
   br label %.outer.outer.outer.backedge
 
 32:                                               ; preds = %13
-  br i1 %.not69, label %.outer.outer.backedge, label %33
+  br i1 %.not70, label %.outer.outer.backedge, label %33
 
 33:                                               ; preds = %32
   %34 = add i64 %.046.ph.ph.ph, 1
-  %.not65 = icmp ult i64 %34, %2
-  br i1 %.not65, label %35, label %.loopexit
+  %.not66 = icmp ult i64 %34, %2
+  br i1 %.not66, label %35, label %.loopexit
 
 35:                                               ; preds = %33
   %36 = ptrtoint ptr %memchr to i64
@@ -248,7 +248,7 @@ define i32 @b64_pton(ptr noundef readonly captures(none) %0, ptr noundef capture
 .outer.outer.outer.backedge:                      ; preds = %35, %23, %52
   %.054.ph.ph.ph.be = phi ptr [ %.4, %52 ], [ %27, %23 ], [ %39, %35 ]
   %.046.ph.ph.ph.be = phi i64 [ %53, %52 ], [ %22, %23 ], [ %34, %35 ]
-  %.not72.ph.ph.be = phi i1 [ true, %52 ], [ false, %23 ], [ false, %35 ]
+  %.not73.ph.ph.be = phi i1 [ true, %52 ], [ false, %23 ], [ false, %35 ]
   %.044.ph.ph.ph.be = phi i32 [ 0, %52 ], [ 2, %23 ], [ 3, %35 ]
   br label %.outer.outer.outer, !llvm.loop !8
 
@@ -256,13 +256,13 @@ define i32 @b64_pton(ptr noundef readonly captures(none) %0, ptr noundef capture
   %.054.ph.ph.ph = phi ptr [ %1, %3 ], [ %.054.ph.ph.ph.be, %.outer.outer.outer.backedge ]
   %.050.ph.ph.ph = phi ptr [ %0, %3 ], [ %8, %.outer.outer.outer.backedge ]
   %.046.ph.ph.ph = phi i64 [ 0, %3 ], [ %.046.ph.ph.ph.be, %.outer.outer.outer.backedge ]
-  %.not72.ph.ph = phi i1 [ true, %3 ], [ %.not72.ph.ph.be, %.outer.outer.outer.backedge ]
+  %.not73.ph.ph = phi i1 [ true, %3 ], [ %.not73.ph.ph.be, %.outer.outer.outer.backedge ]
   %.044.ph.ph.ph = phi i32 [ 0, %3 ], [ %.044.ph.ph.ph.be, %.outer.outer.outer.backedge ]
-  %.not70 = icmp ult i64 %.046.ph.ph.ph, %2
+  %.not71 = icmp ult i64 %.046.ph.ph.ph, %2
   br label %.outer.outer
 
 44:                                               ; preds = %13
-  br i1 %.not69, label %52, label %45
+  br i1 %.not70, label %52, label %45
 
 45:                                               ; preds = %44
   %46 = ptrtoint ptr %memchr to i64
@@ -291,64 +291,64 @@ define i32 @b64_pton(ptr noundef readonly captures(none) %0, ptr noundef capture
   ]
 
 .preheader:                                       ; preds = %54
-  %cond81101 = icmp eq i8 %56, 0
-  br i1 %cond81101, label %.loopexit, label %.lr.ph
+  %cond82102 = icmp eq i8 %56, 0
+  br i1 %cond82102, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %59
-  %.1103 = phi i32 [ %62, %59 ], [ %57, %.preheader ]
-  %.252102 = phi ptr [ %60, %59 ], [ %55, %.preheader ]
-  %58 = tail call i32 @isspace(i32 noundef %.1103) #4
-  %.not74 = icmp eq i32 %58, 0
-  br i1 %.not74, label %63, label %59
+  %.1104 = phi i32 [ %62, %59 ], [ %57, %.preheader ]
+  %.252103 = phi ptr [ %60, %59 ], [ %55, %.preheader ]
+  %58 = tail call i32 @isspace(i32 noundef %.1104) #4
+  %.not75 = icmp eq i32 %58, 0
+  br i1 %.not75, label %63, label %59
 
 59:                                               ; preds = %.lr.ph
-  %60 = getelementptr inbounds nuw i8, ptr %.252102, i64 1
-  %61 = load i8, ptr %.252102, align 1
+  %60 = getelementptr inbounds nuw i8, ptr %.252103, i64 1
+  %61 = load i8, ptr %.252103, align 1
   %62 = sext i8 %61 to i32
-  %cond81 = icmp eq i8 %61, 0
-  br i1 %cond81, label %.loopexit, label %.lr.ph, !llvm.loop !9
+  %cond82 = icmp eq i8 %61, 0
+  br i1 %cond82, label %.loopexit, label %.lr.ph, !llvm.loop !9
 
 63:                                               ; preds = %.lr.ph
-  %.not75 = icmp eq i32 %.1103, 61
-  br i1 %.not75, label %64, label %.loopexit
+  %.not76 = icmp eq i32 %.1104, 61
+  br i1 %.not76, label %64, label %.loopexit
 
 64:                                               ; preds = %63
-  %65 = getelementptr inbounds nuw i8, ptr %.252102, i64 1
-  %66 = load i8, ptr %.252102, align 1
+  %65 = getelementptr inbounds nuw i8, ptr %.252103, i64 1
+  %66 = load i8, ptr %.252103, align 1
   %67 = sext i8 %66 to i32
   br label %68
 
 68:                                               ; preds = %64, %54
   %.151 = phi ptr [ %65, %64 ], [ %55, %54 ]
   %.0 = phi i32 [ %67, %64 ], [ %57, %54 ]
-  %.not76104 = icmp eq i32 %.0, 0
-  br i1 %.not76104, label %._crit_edge, label %.lr.ph107
+  %.not77105 = icmp eq i32 %.0, 0
+  br i1 %.not77105, label %._crit_edge, label %.lr.ph108
 
-.lr.ph107:                                        ; preds = %68, %70
-  %.2106 = phi i32 [ %73, %70 ], [ %.0, %68 ]
-  %.353105 = phi ptr [ %71, %70 ], [ %.151, %68 ]
-  %69 = tail call i32 @isspace(i32 noundef %.2106) #4
-  %.not79 = icmp eq i32 %69, 0
-  br i1 %.not79, label %.loopexit, label %70
+.lr.ph108:                                        ; preds = %68, %70
+  %.2107 = phi i32 [ %73, %70 ], [ %.0, %68 ]
+  %.353106 = phi ptr [ %71, %70 ], [ %.151, %68 ]
+  %69 = tail call i32 @isspace(i32 noundef %.2107) #4
+  %.not80 = icmp eq i32 %69, 0
+  br i1 %.not80, label %.loopexit, label %70
 
-70:                                               ; preds = %.lr.ph107
-  %71 = getelementptr inbounds nuw i8, ptr %.353105, i64 1
-  %72 = load i8, ptr %.353105, align 1
+70:                                               ; preds = %.lr.ph108
+  %71 = getelementptr inbounds nuw i8, ptr %.353106, i64 1
+  %72 = load i8, ptr %.353106, align 1
   %73 = sext i8 %72 to i32
-  %.not76 = icmp eq i8 %72, 0
-  br i1 %.not76, label %._crit_edge, label %.lr.ph107, !llvm.loop !10
+  %.not77 = icmp eq i8 %72, 0
+  br i1 %.not77, label %._crit_edge, label %.lr.ph108, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %70, %68
-  %.not77 = icmp eq ptr %.054.ph.ph, null
-  br i1 %.not77, label %77, label %74
+  %.not78 = icmp eq ptr %.054.ph.ph, null
+  br i1 %.not78, label %77, label %74
 
 74:                                               ; preds = %._crit_edge
   %75 = load i8, ptr %.054.ph.ph, align 1
-  %.not78 = icmp eq i8 %75, 0
-  br i1 %.not78, label %77, label %.loopexit
+  %.not79 = icmp eq i8 %75, 0
+  br i1 %.not79, label %77, label %.loopexit
 
 76:                                               ; preds = %4
-  br i1 %.not72, label %77, label %.loopexit
+  br i1 %.not73, label %77, label %.loopexit
 
 .unreachabledefault:                              ; preds = %54
   unreachable
@@ -357,11 +357,11 @@ define i32 @b64_pton(ptr noundef readonly captures(none) %0, ptr noundef capture
   %78 = trunc i64 %.046.ph.ph.ph to i32
   br label %.loopexit
 
-.unreachabledefault162:                           ; preds = %13
+.unreachabledefault163:                           ; preds = %13
   unreachable
 
-.loopexit:                                        ; preds = %15, %11, %33, %21, %59, %.lr.ph107, %.preheader, %76, %74, %63, %54, %54, %77
-  %.049 = phi i32 [ %78, %77 ], [ -1, %54 ], [ -1, %54 ], [ -1, %63 ], [ -1, %74 ], [ -1, %76 ], [ -1, %.preheader ], [ -1, %.lr.ph107 ], [ -1, %59 ], [ -1, %21 ], [ -1, %33 ], [ -1, %11 ], [ -1, %15 ]
+.loopexit:                                        ; preds = %15, %11, %33, %21, %59, %.lr.ph108, %.preheader, %76, %74, %63, %54, %54, %77
+  %.049 = phi i32 [ %78, %77 ], [ -1, %54 ], [ -1, %54 ], [ -1, %63 ], [ -1, %74 ], [ -1, %76 ], [ -1, %.preheader ], [ -1, %.lr.ph108 ], [ -1, %59 ], [ -1, %21 ], [ -1, %33 ], [ -1, %11 ], [ -1, %15 ]
   ret i32 %.049
 }
 

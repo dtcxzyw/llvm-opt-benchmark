@@ -8641,17 +8641,17 @@ _ZNSt6vectorIP9aiTextureSaIS1_EE9push_backEOS1_.exit: ; preds = %48, %_ZNSt6vect
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %_ZNSt6vectorIP9aiTextureSaIS1_EE9push_backEOS1_.exit, %.critedge, %77
-  %.0.ptr.lcssa92 = phi ptr [ %.0.ptr.lcssa, %77 ], [ %.0.ptr.lcssa, %.critedge ], [ %.0.ptr74, %_ZNSt6vectorIP9aiTextureSaIS1_EE9push_backEOS1_.exit ]
-  %.0.idx.lcssa91 = phi i64 [ %.0.idx.lcssa, %77 ], [ %.0.idx.lcssa, %.critedge ], [ %.add, %_ZNSt6vectorIP9aiTextureSaIS1_EE9push_backEOS1_.exit ]
+  %.0.ptr.lcssa93 = phi ptr [ %.0.ptr.lcssa, %77 ], [ %.0.ptr.lcssa, %.critedge ], [ %.0.ptr74, %_ZNSt6vectorIP9aiTextureSaIS1_EE9push_backEOS1_.exit ]
+  %.0.idx.lcssa92 = phi i64 [ %.0.idx.lcssa, %77 ], [ %.0.idx.lcssa, %.critedge ], [ %.add, %_ZNSt6vectorIP9aiTextureSaIS1_EE9push_backEOS1_.exit ]
   %83 = phi i8 [ %82, %77 ], [ 0, %.critedge ], [ 0, %_ZNSt6vectorIP9aiTextureSaIS1_EE9push_backEOS1_.exit ]
   %84 = getelementptr inbounds nuw i8, ptr %72, i64 8
   store i8 %83, ptr %84, align 8
   %85 = add nsw i64 %73, 1062
-  %86 = icmp sgt i64 %.0.idx.lcssa91, %85
+  %86 = icmp sgt i64 %.0.idx.lcssa92, %85
   br i1 %86, label %93, label %87
 
 87:                                               ; preds = %.critedge.thread
-  %88 = getelementptr inbounds nuw i8, ptr %.0.ptr.lcssa92, i64 2
+  %88 = getelementptr inbounds nuw i8, ptr %.0.ptr.lcssa93, i64 2
   %89 = load i8, ptr %88, align 1
   %90 = zext i8 %89 to i32
   %91 = tail call i32 @tolower(i32 noundef %90) #31
@@ -8663,11 +8663,11 @@ _ZNSt6vectorIP9aiTextureSaIS1_EE9push_backEOS1_.exit: ; preds = %48, %_ZNSt6vect
   %95 = getelementptr inbounds nuw i8, ptr %72, i64 9
   store i8 %94, ptr %95, align 1
   %96 = add nsw i64 %73, 1061
-  %97 = icmp sgt i64 %.0.idx.lcssa91, %96
+  %97 = icmp sgt i64 %.0.idx.lcssa92, %96
   br i1 %97, label %104, label %98
 
 98:                                               ; preds = %93
-  %99 = getelementptr inbounds nuw i8, ptr %.0.ptr.lcssa92, i64 3
+  %99 = getelementptr inbounds nuw i8, ptr %.0.ptr.lcssa93, i64 3
   %100 = load i8, ptr %99, align 1
   %101 = zext i8 %100 to i32
   %102 = tail call i32 @tolower(i32 noundef %101) #31

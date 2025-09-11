@@ -6355,14 +6355,14 @@ _ZN7rocksdb11clock_cache12_GLOBAL__N_19TryInsertERKNS0_20ClockHandleBasicDataERN
   %61 = lshr i64 %60, 61
   switch i64 %61, label %76 [
     i64 7, label %62
-    i64 6, label %.sink.split261
+    i64 6, label %.sink.split264
   ], !prof !98
 
 62:                                               ; preds = %59
   %63 = getelementptr inbounds nuw i8, ptr %56, i64 16
   %bcmp.i.i.i.i.i.i.i136 = tail call i32 @bcmp(ptr noundef nonnull align 8 dereferenceable(16) %63, ptr noundef nonnull readonly align 8 dereferenceable(16) %8, i64 16)
   %.not9.i.i.i.i.i.i.i137 = icmp eq i32 %bcmp.i.i.i.i.i.i.i136, 0
-  br i1 %.not9.i.i.i.i.i.i.i137, label %64, label %.sink.split261
+  br i1 %.not9.i.i.i.i.i.i.i137, label %64, label %.sink.split264
 
 64:                                               ; preds = %62
   %65 = shl i64 %2, 30
@@ -6388,11 +6388,11 @@ _ZN7rocksdb11clock_cache12_GLOBAL__N_115BeginSlotInsertERKNS0_20ClockHandleBasic
   store atomic i64 %74, ptr %57 release, align 8
   br label %136
 
-.sink.split261:                                   ; preds = %59, %62
+.sink.split264:                                   ; preds = %59, %62
   %75 = atomicrmw sub ptr %57, i64 %2 acq_rel, align 8
   br label %76
 
-76:                                               ; preds = %.sink.split261, %_ZN7rocksdb11clock_cache12_GLOBAL__N_115BeginSlotInsertERKNS0_20ClockHandleBasicDataERNS0_11ClockHandleEmPb.exit.i135, %59
+76:                                               ; preds = %.sink.split264, %_ZN7rocksdb11clock_cache12_GLOBAL__N_115BeginSlotInsertERKNS0_20ClockHandleBasicDataERNS0_11ClockHandleEmPb.exit.i135, %59
   %77 = add nuw nsw i64 %.0110212, 1
   %exitcond.not = icmp eq i64 %77, 4
   br i1 %exitcond.not, label %78, label %53, !llvm.loop !222
@@ -6465,14 +6465,14 @@ _ZN7rocksdb11clock_cache12_GLOBAL__N_115BeginSlotInsertERKNS0_20ClockHandleBasic
   %119 = lshr i64 %118, 61
   switch i64 %119, label %134 [
     i64 7, label %120
-    i64 6, label %.sink.split262
+    i64 6, label %.sink.split265
   ], !prof !98
 
 120:                                              ; preds = %117
   %121 = getelementptr inbounds nuw i8, ptr %114, i64 16
   %bcmp.i.i.i.i.i.i.i143 = tail call i32 @bcmp(ptr noundef nonnull align 8 dereferenceable(16) %121, ptr noundef nonnull readonly align 8 dereferenceable(16) %8, i64 16)
   %.not9.i.i.i.i.i.i.i144 = icmp eq i32 %bcmp.i.i.i.i.i.i.i143, 0
-  br i1 %.not9.i.i.i.i.i.i.i144, label %122, label %.sink.split262
+  br i1 %.not9.i.i.i.i.i.i.i144, label %122, label %.sink.split265
 
 122:                                              ; preds = %120
   %123 = shl i64 %2, 30
@@ -6498,11 +6498,11 @@ _ZN7rocksdb11clock_cache12_GLOBAL__N_19TryInsertERKNS0_20ClockHandleBasicDataERN
   store atomic i64 %132, ptr %115 release, align 8
   br label %136
 
-.sink.split262:                                   ; preds = %117, %120
+.sink.split265:                                   ; preds = %117, %120
   %133 = atomicrmw sub ptr %115, i64 %2 acq_rel, align 8
   br label %134
 
-134:                                              ; preds = %.sink.split262, %_ZN7rocksdb11clock_cache12_GLOBAL__N_115BeginSlotInsertERKNS0_20ClockHandleBasicDataERNS0_11ClockHandleEmPb.exit.i142, %117
+134:                                              ; preds = %.sink.split265, %_ZN7rocksdb11clock_cache12_GLOBAL__N_115BeginSlotInsertERKNS0_20ClockHandleBasicDataERNS0_11ClockHandleEmPb.exit.i142, %117
   %135 = add i64 %.1111, 1
   br label %99, !llvm.loop !223
 

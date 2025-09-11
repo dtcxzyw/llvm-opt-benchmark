@@ -401,10 +401,10 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %0, %3
   %wide.trip.count = zext nneg i32 %5 to i64
   br label %7
 
-7:                                                ; preds = %.lr.ph, %80
-  %8 = phi ptr [ %4, %.lr.ph ], [ %81, %80 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %80 ]
-  %.024 = phi i8 [ 0, %.lr.ph ], [ %.1, %80 ]
+7:                                                ; preds = %.lr.ph, %79
+  %8 = phi ptr [ %4, %.lr.ph ], [ %80, %79 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %79 ]
+  %.024 = phi i8 [ 0, %.lr.ph ], [ %.1, %79 ]
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
@@ -412,20 +412,20 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %0, %3
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 176
   %14 = load ptr, ptr %13, align 8
   %.not = icmp eq ptr %14, null
-  br i1 %.not, label %80, label %15
+  br i1 %.not, label %79, label %15
 
 15:                                               ; preds = %7
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 160
   %17 = load ptr, ptr %16, align 8
   %18 = load i8, ptr %17, align 8
   %19 = trunc i8 %18 to i1
-  br i1 %19, label %20, label %80
+  br i1 %19, label %20, label %79
 
 20:                                               ; preds = %15
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %22 = load i64, ptr %21, align 8
   %.not15 = icmp eq i64 %22, 0
-  br i1 %.not15, label %80, label %23
+  br i1 %.not15, label %79, label %23
 
 23:                                               ; preds = %20
   %24 = load ptr, ptr %12, align 8
@@ -518,50 +518,49 @@ _ZN16ThresholdSupport24is_low_threshold_crossedE11MemoryUsage.exit.i: ; preds = 
   br i1 %or.cond14.i, label %68, label %_ZN10SensorInfo22set_gauge_sensor_levelE11MemoryUsageP16ThresholdSupport.exit
 
 68:                                               ; preds = %64, %57
-  %69 = add nuw nsw i32 %62, 1
-  store i32 %69, ptr %61, align 4
+  store i32 1, ptr %61, align 4
   br label %_ZN10SensorInfo22set_gauge_sensor_levelE11MemoryUsageP16ThresholdSupport.exit
 
 _ZN10SensorInfo22set_gauge_sensor_levelE11MemoryUsageP16ThresholdSupport.exit: ; preds = %52, %55, %56, %64, %68
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5)
-  %70 = trunc nuw i8 %.024 to i1
-  br i1 %70, label %80, label %71
+  %69 = trunc nuw i8 %.024 to i1
+  br i1 %69, label %79, label %70
 
-71:                                               ; preds = %_ZN10SensorInfo22set_gauge_sensor_levelE11MemoryUsageP16ThresholdSupport.exit
-  %72 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  %73 = load i32, ptr %72, align 8
-  %74 = icmp sgt i32 %73, 0
-  %75 = getelementptr inbounds nuw i8, ptr %14, i64 28
-  %76 = load i32, ptr %75, align 4
-  %77 = icmp sgt i32 %76, 0
-  %78 = select i1 %74, i1 true, i1 %77
-  %79 = zext i1 %78 to i8
-  br label %80
+70:                                               ; preds = %_ZN10SensorInfo22set_gauge_sensor_levelE11MemoryUsageP16ThresholdSupport.exit
+  %71 = getelementptr inbounds nuw i8, ptr %14, i64 24
+  %72 = load i32, ptr %71, align 8
+  %73 = icmp sgt i32 %72, 0
+  %74 = getelementptr inbounds nuw i8, ptr %14, i64 28
+  %75 = load i32, ptr %74, align 4
+  %76 = icmp sgt i32 %75, 0
+  %77 = select i1 %73, i1 true, i1 %76
+  %78 = zext i1 %77 to i8
+  br label %79
 
-80:                                               ; preds = %_ZN10SensorInfo22set_gauge_sensor_levelE11MemoryUsageP16ThresholdSupport.exit, %71, %7, %15, %20
-  %81 = phi ptr [ %8, %20 ], [ %8, %15 ], [ %8, %7 ], [ %.pre, %_ZN10SensorInfo22set_gauge_sensor_levelE11MemoryUsageP16ThresholdSupport.exit ], [ %.pre, %71 ]
-  %.1 = phi i8 [ %.024, %20 ], [ %.024, %15 ], [ %.024, %7 ], [ 1, %_ZN10SensorInfo22set_gauge_sensor_levelE11MemoryUsageP16ThresholdSupport.exit ], [ %79, %71 ]
+79:                                               ; preds = %_ZN10SensorInfo22set_gauge_sensor_levelE11MemoryUsageP16ThresholdSupport.exit, %70, %7, %15, %20
+  %80 = phi ptr [ %8, %20 ], [ %8, %15 ], [ %8, %7 ], [ %.pre, %_ZN10SensorInfo22set_gauge_sensor_levelE11MemoryUsageP16ThresholdSupport.exit ], [ %.pre, %70 ]
+  %.1 = phi i8 [ %.024, %20 ], [ %.024, %15 ], [ %.024, %7 ], [ 1, %_ZN10SensorInfo22set_gauge_sensor_levelE11MemoryUsageP16ThresholdSupport.exit ], [ %78, %70 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %7, !llvm.loop !9
 
-._crit_edge:                                      ; preds = %80
-  %82 = trunc nuw i8 %.1 to i1
-  br i1 %82, label %83, label %._crit_edge.thread
+._crit_edge:                                      ; preds = %79
+  %81 = trunc nuw i8 %.1 to i1
+  br i1 %81, label %82, label %._crit_edge.thread
 
-83:                                               ; preds = %._crit_edge
-  %84 = load ptr, ptr @Notification_lock, align 8
-  call void @_ZN7Monitor10notify_allEv(ptr noundef nonnull align 8 dereferenceable(104) %84) #12
+82:                                               ; preds = %._crit_edge
+  %83 = load ptr, ptr @Notification_lock, align 8
+  call void @_ZN7Monitor10notify_allEv(ptr noundef nonnull align 8 dereferenceable(104) %83) #12
   br label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit, %83, %._crit_edge
-  br i1 %.not.i.i, label %_ZN11MutexLockerD2Ev.exit, label %85
+._crit_edge.thread:                               ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit, %82, %._crit_edge
+  br i1 %.not.i.i, label %_ZN11MutexLockerD2Ev.exit, label %84
 
-85:                                               ; preds = %._crit_edge.thread
+84:                                               ; preds = %._crit_edge.thread
   call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %2) #12
   br label %_ZN11MutexLockerD2Ev.exit
 
-_ZN11MutexLockerD2Ev.exit:                        ; preds = %._crit_edge.thread, %85
+_ZN11MutexLockerD2Ev.exit:                        ; preds = %._crit_edge.thread, %84
   ret void
 }
 
@@ -618,14 +617,14 @@ _ZN16ThresholdSupport24is_low_threshold_crossedE11MemoryUsage.exit: ; preds = %1
   store i32 %29, ptr %22, align 8
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %30, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
-  br i1 %27, label %31, label %46
+  br i1 %27, label %31, label %45
 
 31:                                               ; preds = %28
   store i32 0, ptr %25, align 4
-  br label %46
+  br label %45
 
 32:                                               ; preds = %18, %_ZN16ThresholdSupport24is_low_threshold_crossedE11MemoryUsage.exit
-  br i1 %.0.i15, label %33, label %46
+  br i1 %.0.i15, label %33, label %45
 
 33:                                               ; preds = %32
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -642,14 +641,13 @@ _ZN16ThresholdSupport24is_low_threshold_crossedE11MemoryUsage.exit: ; preds = %1
   %42 = load i32, ptr %41, align 8
   %43 = icmp sgt i32 %42, 0
   %or.cond14 = select i1 %43, i1 %39, i1 false
-  br i1 %or.cond14, label %44, label %46
+  br i1 %or.cond14, label %44, label %45
 
 44:                                               ; preds = %40, %33
-  %45 = add nuw nsw i32 %38, 1
-  store i32 %45, ptr %37, align 4
-  br label %46
+  store i32 1, ptr %37, align 4
+  br label %45
 
-46:                                               ; preds = %32, %40, %44, %28, %31
+45:                                               ; preds = %32, %40, %44, %28, %31
   ret void
 }
 
@@ -783,32 +781,31 @@ _ZN16ThresholdSupport24is_low_threshold_crossedE11MemoryUsage.exit.i: ; preds = 
   br i1 %or.cond14.i, label %_ZN10SensorInfo22set_gauge_sensor_levelE11MemoryUsageP16ThresholdSupport.exit.thread, label %_ZN10SensorInfo22set_gauge_sensor_levelE11MemoryUsageP16ThresholdSupport.exit
 
 _ZN10SensorInfo22set_gauge_sensor_levelE11MemoryUsageP16ThresholdSupport.exit.thread: ; preds = %51, %58
-  %62 = add nuw nsw i32 %56, 1
-  store i32 %62, ptr %55, align 4
-  br label %69
+  store i32 1, ptr %55, align 4
+  br label %68
 
 _ZN10SensorInfo22set_gauge_sensor_levelE11MemoryUsageP16ThresholdSupport.exit: ; preds = %._ZN10SensorInfo22set_gauge_sensor_levelE11MemoryUsageP16ThresholdSupport.exit_crit_edge, %46, %49, %58
-  %63 = phi i32 [ %.pre, %._ZN10SensorInfo22set_gauge_sensor_levelE11MemoryUsageP16ThresholdSupport.exit_crit_edge ], [ %44, %46 ], [ 0, %49 ], [ %56, %58 ]
-  %64 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %65 = load i32, ptr %64, align 8
-  %66 = icmp sgt i32 %65, 0
-  %67 = icmp sgt i32 %63, 0
-  %68 = select i1 %66, i1 true, i1 %67
-  br i1 %68, label %69, label %71
+  %62 = phi i32 [ %.pre, %._ZN10SensorInfo22set_gauge_sensor_levelE11MemoryUsageP16ThresholdSupport.exit_crit_edge ], [ %44, %46 ], [ 0, %49 ], [ %56, %58 ]
+  %63 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %64 = load i32, ptr %63, align 8
+  %65 = icmp sgt i32 %64, 0
+  %66 = icmp sgt i32 %62, 0
+  %67 = select i1 %65, i1 true, i1 %66
+  br i1 %67, label %68, label %70
 
-69:                                               ; preds = %_ZN10SensorInfo22set_gauge_sensor_levelE11MemoryUsageP16ThresholdSupport.exit.thread, %_ZN10SensorInfo22set_gauge_sensor_levelE11MemoryUsageP16ThresholdSupport.exit
-  %70 = load ptr, ptr @Notification_lock, align 8
-  call void @_ZN7Monitor10notify_allEv(ptr noundef nonnull align 8 dereferenceable(104) %70) #12
-  br label %71
+68:                                               ; preds = %_ZN10SensorInfo22set_gauge_sensor_levelE11MemoryUsageP16ThresholdSupport.exit.thread, %_ZN10SensorInfo22set_gauge_sensor_levelE11MemoryUsageP16ThresholdSupport.exit
+  %69 = load ptr, ptr @Notification_lock, align 8
+  call void @_ZN7Monitor10notify_allEv(ptr noundef nonnull align 8 dereferenceable(104) %69) #12
+  br label %70
 
-71:                                               ; preds = %69, %_ZN10SensorInfo22set_gauge_sensor_levelE11MemoryUsageP16ThresholdSupport.exit
-  br i1 %.not.i.i, label %_ZN11MutexLockerD2Ev.exit, label %72
+70:                                               ; preds = %68, %_ZN10SensorInfo22set_gauge_sensor_levelE11MemoryUsageP16ThresholdSupport.exit
+  br i1 %.not.i.i, label %_ZN11MutexLockerD2Ev.exit, label %71
 
-72:                                               ; preds = %71
+71:                                               ; preds = %70
   call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %16) #12
   br label %_ZN11MutexLockerD2Ev.exit
 
-_ZN11MutexLockerD2Ev.exit:                        ; preds = %72, %71, %1, %6, %11
+_ZN11MutexLockerD2Ev.exit:                        ; preds = %71, %70, %1, %6, %11
   ret void
 }
 

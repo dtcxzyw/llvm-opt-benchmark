@@ -773,8 +773,8 @@ DecideOverRleUse.exit:                            ; preds = %._crit_edge
   br i1 %.not.i, label %._crit_edge110, label %.lr.ph109.preheader
 
 .lr.ph109.preheader:                              ; preds = %._crit_edge.loopexit.i, %DecideOverRleUse.exit
-  %.071137 = phi i1 [ %37, %._crit_edge.loopexit.i ], [ false, %DecideOverRleUse.exit ]
-  %.072136 = phi i1 [ %35, %._crit_edge.loopexit.i ], [ false, %DecideOverRleUse.exit ]
+  %.071139 = phi i1 [ %37, %._crit_edge.loopexit.i ], [ false, %DecideOverRleUse.exit ]
+  %.072138 = phi i1 [ %35, %._crit_edge.loopexit.i ], [ false, %DecideOverRleUse.exit ]
   br label %.lr.ph109
 
 .lr.ph109:                                        ; preds = %.lr.ph109.preheader, %BrotliWriteHuffmanTreeRepetitionsZeros.exit
@@ -783,16 +783,16 @@ DecideOverRleUse.exit:                            ; preds = %._crit_edge
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 %.146106
   %39 = load i8, ptr %38, align 1, !tbaa !11
   %40 = icmp ne i8 %39, 0
-  %or.cond = select i1 %40, i1 %.072136, i1 false
+  %or.cond = select i1 %40, i1 %.072138, i1 false
   %41 = icmp eq i8 %39, 0
-  %or.cond3 = select i1 %41, i1 %.071137, i1 false
+  %or.cond3 = select i1 %41, i1 %.071139, i1 false
   %or.cond88 = select i1 %or.cond, i1 true, i1 %or.cond3
   br i1 %or.cond88, label %.preheader, label %.critedge.thread
 
 .preheader:                                       ; preds = %.lr.ph109
   %.099 = add nuw i64 %.146106, 1
   %42 = icmp ult i64 %.099, %.04496
-  br i1 %42, label %.lr.ph102.preheader, label %.critedge.thread138
+  br i1 %42, label %.lr.ph102.preheader, label %.critedge.thread140
 
 .lr.ph102.preheader:                              ; preds = %.preheader
   %43 = sub i64 %.04496, %.146106
@@ -816,7 +816,7 @@ DecideOverRleUse.exit:                            ; preds = %._crit_edge
   %.1.lcssa = phi i64 [ %43, %47 ], [ %.1100, %.lr.ph102 ]
   br i1 %41, label %49, label %104
 
-.critedge.thread138:                              ; preds = %.preheader
+.critedge.thread140:                              ; preds = %.preheader
   br i1 %41, label %.lr.ph.preheader.i49, label %104
 
 .critedge.thread:                                 ; preds = %.lr.ph109
@@ -851,8 +851,8 @@ DecideOverRleUse.exit:                            ; preds = %._crit_edge
   %.not.i48 = icmp eq i64 %.1.lcssa, 0
   br i1 %.not.i48, label %BrotliWriteHuffmanTreeRepetitionsZeros.exit, label %.lr.ph.preheader.i49
 
-.lr.ph.preheader.i49:                             ; preds = %.critedge.thread138, %.critedge.thread, %.preheader.i
-  %.04176808386 = phi i64 [ %.1.lcssa, %.preheader.i ], [ 1, %.critedge.thread ], [ 1, %.critedge.thread138 ]
+.lr.ph.preheader.i49:                             ; preds = %.critedge.thread140, %.critedge.thread, %.preheader.i
+  %.04176808386 = phi i64 [ %.1.lcssa, %.preheader.i ], [ 1, %.critedge.thread ], [ 1, %.critedge.thread140 ]
   %.pre.i50 = load i64, ptr %2, align 8, !tbaa !18
   br label %.lr.ph.i51
 
@@ -950,8 +950,8 @@ Reverse.exit.i:                                   ; preds = %Reverse.exit.loopex
   %103 = icmp ult i64 %102, %.013.i39.i
   br i1 %103, label %.lr.ph.i36.i, label %BrotliWriteHuffmanTreeRepetitionsZeros.exit, !llvm.loop !36
 
-104:                                              ; preds = %.critedge.thread138, %.critedge.thread, %.critedge
-  %.04175 = phi i64 [ 1, %.critedge.thread ], [ %.1.lcssa, %.critedge ], [ 1, %.critedge.thread138 ]
+104:                                              ; preds = %.critedge.thread140, %.critedge.thread, %.critedge
+  %.04175 = phi i64 [ 1, %.critedge.thread ], [ %.1.lcssa, %.critedge ], [ 1, %.critedge.thread140 ]
   %.not.i53 = icmp eq i8 %.042108, %39
   br i1 %.not.i53, label %113, label %105
 

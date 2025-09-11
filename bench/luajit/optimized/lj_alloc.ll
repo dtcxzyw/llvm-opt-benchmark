@@ -362,9 +362,9 @@ define internal fastcc void @lj_alloc_free(ptr noundef %0, ptr noundef %1) unnam
 74:                                               ; preds = %67
   store ptr %.0283, ptr %71, align 8, !tbaa !45
   %cond = icmp eq ptr %.0283, null
-  br i1 %cond, label %.thread399, label %89
+  br i1 %cond, label %.thread402, label %89
 
-.thread399:                                       ; preds = %74
+.thread402:                                       ; preds = %74
   %75 = trunc i64 %70 to i32
   %76 = shl nuw i32 1, %75
   %77 = xor i32 %76, -1
@@ -439,9 +439,9 @@ define internal fastcc void @lj_alloc_free(ptr noundef %0, ptr noundef %1) unnam
   store i64 %25, ptr %8, align 8, !tbaa !36
   br label %.critedge350
 
-112:                                              ; preds = %.thread399, %102, %43, %37, %88, %99, %96, %66, %3
-  %.0274 = phi i64 [ %7, %3 ], [ %25, %66 ], [ %25, %96 ], [ %25, %99 ], [ %25, %88 ], [ %25, %37 ], [ %25, %43 ], [ %25, %102 ], [ %25, %.thread399 ]
-  %.0269 = phi ptr [ %4, %3 ], [ %24, %66 ], [ %24, %96 ], [ %24, %99 ], [ %24, %88 ], [ %24, %37 ], [ %24, %43 ], [ %24, %102 ], [ %24, %.thread399 ]
+112:                                              ; preds = %.thread402, %102, %43, %37, %88, %99, %96, %66, %3
+  %.0274 = phi i64 [ %7, %3 ], [ %25, %66 ], [ %25, %96 ], [ %25, %99 ], [ %25, %88 ], [ %25, %37 ], [ %25, %43 ], [ %25, %102 ], [ %25, %.thread402 ]
+  %.0269 = phi ptr [ %4, %3 ], [ %24, %66 ], [ %24, %96 ], [ %24, %99 ], [ %24, %88 ], [ %24, %37 ], [ %24, %43 ], [ %24, %102 ], [ %24, %.thread402 ]
   %113 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %114 = load i64, ptr %113, align 8, !tbaa !4
   %115 = and i64 %114, 2
@@ -725,9 +725,9 @@ has_segment_link.exit.thread54.i:                 ; preds = %158, %174, %has_seg
 257:                                              ; preds = %250
   store ptr %.0291, ptr %254, align 8, !tbaa !45
   %cond355 = icmp eq ptr %.0291, null
-  br i1 %cond355, label %.thread401, label %272
+  br i1 %cond355, label %.thread404, label %272
 
-.thread401:                                       ; preds = %257
+.thread404:                                       ; preds = %257
   %258 = trunc i64 %253 to i32
   %259 = shl nuw i32 1, %258
   %260 = xor i32 %259, -1
@@ -784,7 +784,7 @@ has_segment_link.exit.thread54.i:                 ; preds = %158, %174, %has_seg
   store ptr %.0291, ptr %284, align 8, !tbaa !40
   br label %285
 
-285:                                              ; preds = %.thread401, %249, %279, %282, %271, %220, %226
+285:                                              ; preds = %.thread404, %249, %279, %282, %271, %220, %226
   %286 = or i64 %211, 1
   %287 = getelementptr inbounds nuw i8, ptr %.0269, i64 8
   store i64 %286, ptr %287, align 8, !tbaa !4
@@ -932,16 +932,16 @@ has_segment_link.exit.thread54.i:                 ; preds = %158, %174, %has_seg
   br label %365
 
 365:                                              ; preds = %.thread, %361, %341
-  %.sink410 = phi i64 [ 48, %.thread ], [ 16, %361 ], [ 48, %341 ]
-  %.0272.lcssa404.sink = phi ptr [ %.0272, %.thread ], [ %363, %361 ], [ %333, %341 ]
-  %.0269.sink409 = phi ptr [ %.0269, %.thread ], [ %.0272, %361 ], [ %.0269, %341 ]
-  %.sink408 = phi i64 [ 16, %.thread ], [ 48, %361 ], [ 16, %341 ]
+  %.sink413 = phi i64 [ 48, %.thread ], [ 16, %361 ], [ 48, %341 ]
+  %.0272.lcssa407.sink = phi ptr [ %.0272, %.thread ], [ %363, %361 ], [ %333, %341 ]
+  %.0269.sink412 = phi ptr [ %.0269, %.thread ], [ %.0272, %361 ], [ %.0269, %341 ]
+  %.sink411 = phi i64 [ 16, %.thread ], [ 48, %361 ], [ 16, %341 ]
   %.0269.sink = phi ptr [ %.0269, %.thread ], [ null, %361 ], [ %.0269, %341 ]
-  %366 = getelementptr inbounds nuw i8, ptr %.0269, i64 %.sink410
-  store ptr %.0272.lcssa404.sink, ptr %366, align 8, !tbaa !45
+  %366 = getelementptr inbounds nuw i8, ptr %.0269, i64 %.sink413
+  store ptr %.0272.lcssa407.sink, ptr %366, align 8, !tbaa !45
   %367 = getelementptr inbounds nuw i8, ptr %.0269, i64 24
-  store ptr %.0269.sink409, ptr %367, align 8, !tbaa !44
-  %368 = getelementptr inbounds nuw i8, ptr %.0269, i64 %.sink408
+  store ptr %.0269.sink412, ptr %367, align 8, !tbaa !44
+  %368 = getelementptr inbounds nuw i8, ptr %.0269, i64 %.sink411
   store ptr %.0269.sink, ptr %368, align 8, !tbaa !45
   %369 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %370 = load i64, ptr %369, align 8, !tbaa !19
@@ -1453,10 +1453,10 @@ tmalloc_small.exit:                               ; preds = %188, %221
   %270 = lshr i64 %.0202.i, 63
   %271 = getelementptr inbounds nuw ptr, ptr %267, i64 %270
   %272 = load ptr, ptr %271, align 8, !tbaa !45
-  %.not236.i = icmp eq ptr %269, null
-  %.not237.i = icmp eq ptr %269, %272
-  %or.cond255.i = or i1 %.not236.i, %.not237.i
-  %.2207.i = select i1 %or.cond255.i, ptr %.0205.i, ptr %269
+  %.not242.i = icmp eq ptr %269, null
+  %.not243.i = icmp eq ptr %269, %272
+  %or.cond261.i = or i1 %.not242.i, %.not243.i
+  %.2207.i = select i1 %or.cond261.i, ptr %.0205.i, ptr %269
   %273 = icmp eq ptr %272, null
   %274 = shl i64 %.0202.i, 1
   br i1 %273, label %.thread.i173, label %258
@@ -1476,8 +1476,8 @@ tmalloc_small.exit:                               ; preds = %188, %221
   %280 = sub i32 0, %279
   %281 = or i32 %279, %280
   %282 = and i32 %281, %230
-  %.not238.i = icmp eq i32 %282, 0
-  br i1 %.not238.i, label %tmalloc_large.exit.thread, label %283
+  %.not244.i = icmp eq i32 %282, 0
+  br i1 %.not244.i, label %tmalloc_large.exit.thread, label %283
 
 283:                                              ; preds = %277
   %284 = tail call range(i32 1, 33) i32 @llvm.cttz.i32(i32 %282, i1 true)
@@ -1487,48 +1487,48 @@ tmalloc_small.exit:                               ; preds = %188, %221
   br label %.thread.thread.i
 
 .thread.thread.i:                                 ; preds = %283, %.thread.i173
-  %.0184275.i = phi ptr [ %.0184.i, %.thread.i173 ], [ null, %283 ]
+  %.0184281.i = phi ptr [ %.0184.i, %.thread.i173 ], [ null, %283 ]
   %.3197.i = phi ptr [ %.0194.i, %.thread.i173 ], [ %287, %283 ]
-  %.not239278.i = icmp eq ptr %.3197.i, null
-  br i1 %.not239278.i, label %._crit_edge.i, label %.lr.ph.i.preheader
+  %.not245284.i = icmp eq ptr %.3197.i, null
+  br i1 %.not245284.i, label %._crit_edge.i, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %264, %.thread.thread.i
-  %.4281.i.ph = phi ptr [ %.0184275.i, %.thread.thread.i ], [ %.1195.i, %264 ]
-  %.4192280.i.ph = phi i64 [ %.0188.i, %.thread.thread.i ], [ 0, %264 ]
-  %.5199279.i.ph = phi ptr [ %.3197.i, %.thread.thread.i ], [ %.1195.i, %264 ]
+  %.4287.i.ph = phi ptr [ %.0184281.i, %.thread.thread.i ], [ %.1195.i, %264 ]
+  %.4192286.i.ph = phi i64 [ %.0188.i, %.thread.thread.i ], [ 0, %264 ]
+  %.5199285.i.ph = phi ptr [ %.3197.i, %.thread.thread.i ], [ %.1195.i, %264 ]
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %298
-  %.4281.i = phi ptr [ %spec.select256.i, %298 ], [ %.4281.i.ph, %.lr.ph.i.preheader ]
-  %.4192280.i = phi i64 [ %spec.select.i174, %298 ], [ %.4192280.i.ph, %.lr.ph.i.preheader ]
-  %.5199279.i = phi ptr [ %299, %298 ], [ %.5199279.i.ph, %.lr.ph.i.preheader ]
-  %288 = getelementptr inbounds nuw i8, ptr %.5199279.i, i64 8
+  %.4287.i = phi ptr [ %spec.select262.i, %298 ], [ %.4287.i.ph, %.lr.ph.i.preheader ]
+  %.4192286.i = phi i64 [ %spec.select.i174, %298 ], [ %.4192286.i.ph, %.lr.ph.i.preheader ]
+  %.5199285.i = phi ptr [ %299, %298 ], [ %.5199285.i.ph, %.lr.ph.i.preheader ]
+  %288 = getelementptr inbounds nuw i8, ptr %.5199285.i, i64 8
   %289 = load i64, ptr %288, align 8, !tbaa !51
   %290 = and i64 %289, -4
   %291 = sub i64 %290, %228
-  %292 = icmp ult i64 %291, %.4192280.i
-  %spec.select.i174 = tail call i64 @llvm.umin.i64(i64 %291, i64 %.4192280.i)
-  %spec.select256.i = select i1 %292, ptr %.5199279.i, ptr %.4281.i
-  %293 = getelementptr inbounds nuw i8, ptr %.5199279.i, i64 32
+  %292 = icmp ult i64 %291, %.4192286.i
+  %spec.select.i174 = tail call i64 @llvm.umin.i64(i64 %291, i64 %.4192286.i)
+  %spec.select262.i = select i1 %292, ptr %.5199285.i, ptr %.4287.i
+  %293 = getelementptr inbounds nuw i8, ptr %.5199285.i, i64 32
   %294 = load ptr, ptr %293, align 8, !tbaa !45
-  %.not254.i = icmp eq ptr %294, null
-  br i1 %.not254.i, label %295, label %298
+  %.not260.i = icmp eq ptr %294, null
+  br i1 %.not260.i, label %295, label %298
 
 295:                                              ; preds = %.lr.ph.i
-  %296 = getelementptr inbounds nuw i8, ptr %.5199279.i, i64 40
+  %296 = getelementptr inbounds nuw i8, ptr %.5199285.i, i64 40
   %297 = load ptr, ptr %296, align 8, !tbaa !45
   br label %298
 
 298:                                              ; preds = %295, %.lr.ph.i
   %299 = phi ptr [ %297, %295 ], [ %294, %.lr.ph.i ]
-  %.not239.i = icmp eq ptr %299, null
-  br i1 %.not239.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !54
+  %.not245.i = icmp eq ptr %299, null
+  br i1 %.not245.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !54
 
 ._crit_edge.i:                                    ; preds = %298, %.thread.thread.i
   %.4192.lcssa.i = phi i64 [ %.0188.i, %.thread.thread.i ], [ %spec.select.i174, %298 ]
-  %.4.lcssa.i = phi ptr [ %.0184275.i, %.thread.thread.i ], [ %spec.select256.i, %298 ]
-  %.not240.i = icmp eq ptr %.4.lcssa.i, null
-  br i1 %.not240.i, label %tmalloc_large.exit.thread, label %300
+  %.4.lcssa.i = phi ptr [ %.0184281.i, %.thread.thread.i ], [ %spec.select262.i, %298 ]
+  %.not246.i = icmp eq ptr %.4.lcssa.i, null
+  br i1 %.not246.i, label %tmalloc_large.exit.thread, label %300
 
 300:                                              ; preds = %._crit_edge.i
   %301 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1543,8 +1543,8 @@ tmalloc_small.exit:                               ; preds = %188, %221
   %308 = load ptr, ptr %307, align 8, !tbaa !40
   %309 = getelementptr inbounds nuw i8, ptr %.4.lcssa.i, i64 24
   %310 = load ptr, ptr %309, align 8, !tbaa !44
-  %.not241.i = icmp eq ptr %310, %.4.lcssa.i
-  br i1 %.not241.i, label %316, label %311
+  %.not247.i = icmp eq ptr %310, %.4.lcssa.i
+  br i1 %.not247.i, label %316, label %311
 
 311:                                              ; preds = %305
   %312 = getelementptr inbounds nuw i8, ptr %.4.lcssa.i, i64 16
@@ -1558,14 +1558,14 @@ tmalloc_small.exit:                               ; preds = %188, %221
 316:                                              ; preds = %305
   %317 = getelementptr inbounds nuw i8, ptr %.4.lcssa.i, i64 40
   %318 = load ptr, ptr %317, align 8, !tbaa !45
-  %.not242.i = icmp eq ptr %318, null
-  br i1 %.not242.i, label %319, label %.critedge.i178.preheader
+  %.not248.i = icmp eq ptr %318, null
+  br i1 %.not248.i, label %319, label %.critedge.i178.preheader
 
 319:                                              ; preds = %316
   %320 = getelementptr inbounds nuw i8, ptr %.4.lcssa.i, i64 32
   %321 = load ptr, ptr %320, align 8, !tbaa !45
-  %.not243.i = icmp eq ptr %321, null
-  br i1 %.not243.i, label %328, label %.critedge.i178.preheader
+  %.not249.i = icmp eq ptr %321, null
+  br i1 %.not249.i, label %328, label %.critedge.i178.preheader
 
 .critedge.i178.preheader:                         ; preds = %319, %316
   %.1215.i.ph = phi ptr [ %320, %319 ], [ %317, %316 ]
@@ -1577,14 +1577,14 @@ tmalloc_small.exit:                               ; preds = %188, %221
   %.3213.i = phi ptr [ %.3213.i.ph, %.critedge.i178.preheader ], [ %.3213.i.be, %.critedge.i178.backedge ]
   %322 = getelementptr inbounds nuw i8, ptr %.3213.i, i64 40
   %323 = load ptr, ptr %322, align 8, !tbaa !45
-  %.not244.i = icmp eq ptr %323, null
-  br i1 %.not244.i, label %324, label %.critedge.i178.backedge
+  %.not250.i = icmp eq ptr %323, null
+  br i1 %.not250.i, label %324, label %.critedge.i178.backedge
 
 324:                                              ; preds = %.critedge.i178
   %325 = getelementptr inbounds nuw i8, ptr %.3213.i, i64 32
   %326 = load ptr, ptr %325, align 8, !tbaa !45
-  %.not245.i = icmp eq ptr %326, null
-  br i1 %.not245.i, label %327, label %.critedge.i178.backedge
+  %.not251.i = icmp eq ptr %326, null
+  br i1 %.not251.i, label %327, label %.critedge.i178.backedge
 
 .critedge.i178.backedge:                          ; preds = %324, %.critedge.i178
   %.1215.i.be = phi ptr [ %322, %.critedge.i178 ], [ %325, %324 ]
@@ -1597,8 +1597,8 @@ tmalloc_small.exit:                               ; preds = %188, %221
 
 328:                                              ; preds = %327, %319, %311
   %.0210.i = phi ptr [ %310, %311 ], [ %.3213.i, %327 ], [ null, %319 ]
-  %.not246.i = icmp eq ptr %308, null
-  br i1 %.not246.i, label %361, label %329
+  %.not252.i = icmp eq ptr %308, null
+  br i1 %.not252.i, label %361, label %329
 
 329:                                              ; preds = %328
   %330 = getelementptr inbounds nuw i8, ptr %.4.lcssa.i, i64 56
@@ -1611,9 +1611,9 @@ tmalloc_small.exit:                               ; preds = %188, %221
 335:                                              ; preds = %329
   store ptr %.0210.i, ptr %332, align 8, !tbaa !45
   %cond.i177 = icmp eq ptr %.0210.i, null
-  br i1 %cond.i177, label %.thread320.i, label %348
+  br i1 %cond.i177, label %.thread328.i, label %348
 
-.thread320.i:                                     ; preds = %335
+.thread328.i:                                     ; preds = %335
   %336 = trunc i64 %331 to i32
   %337 = shl nuw i32 1, %336
   %338 = xor i32 %337, -1
@@ -1637,16 +1637,16 @@ tmalloc_small.exit:                               ; preds = %188, %221
   br label %347
 
 347:                                              ; preds = %345, %344
-  %.not247.i = icmp eq ptr %.0210.i, null
-  br i1 %.not247.i, label %361, label %348
+  %.not253.i = icmp eq ptr %.0210.i, null
+  br i1 %.not253.i, label %361, label %348
 
 348:                                              ; preds = %347, %335
   %349 = getelementptr inbounds nuw i8, ptr %.0210.i, i64 48
   store ptr %308, ptr %349, align 8, !tbaa !40
   %350 = getelementptr inbounds nuw i8, ptr %.4.lcssa.i, i64 32
   %351 = load ptr, ptr %350, align 8, !tbaa !45
-  %.not248.i = icmp eq ptr %351, null
-  br i1 %.not248.i, label %355, label %352
+  %.not254.i = icmp eq ptr %351, null
+  br i1 %.not254.i, label %355, label %352
 
 352:                                              ; preds = %348
   %353 = getelementptr inbounds nuw i8, ptr %.0210.i, i64 32
@@ -1658,8 +1658,8 @@ tmalloc_small.exit:                               ; preds = %188, %221
 355:                                              ; preds = %352, %348
   %356 = getelementptr inbounds nuw i8, ptr %.4.lcssa.i, i64 40
   %357 = load ptr, ptr %356, align 8, !tbaa !45
-  %.not249.i = icmp eq ptr %357, null
-  br i1 %.not249.i, label %361, label %358
+  %.not255.i = icmp eq ptr %357, null
+  br i1 %.not255.i, label %361, label %358
 
 358:                                              ; preds = %355
   %359 = getelementptr inbounds nuw i8, ptr %.0210.i, i64 40
@@ -1668,7 +1668,7 @@ tmalloc_small.exit:                               ; preds = %188, %221
   store ptr %.0210.i, ptr %360, align 8, !tbaa !40
   br label %361
 
-361:                                              ; preds = %358, %355, %347, %.thread320.i, %328
+361:                                              ; preds = %358, %355, %347, %.thread328.i, %328
   %362 = icmp ult i64 %.4192.lcssa.i, 32
   br i1 %362, label %363, label %371
 
@@ -1705,8 +1705,8 @@ tmalloc_small.exit:                               ; preds = %188, %221
   %383 = trunc nuw nsw i64 %379 to i32
   %384 = shl nuw i32 1, %383
   %385 = and i32 %382, %384
-  %.not253.i = icmp eq i32 %385, 0
-  br i1 %.not253.i, label %386, label %388
+  %.not259.i = icmp eq i32 %385, 0
+  br i1 %.not259.i, label %386, label %388
 
 386:                                              ; preds = %378
   %387 = or i32 %382, %384
@@ -1763,8 +1763,8 @@ tmalloc_small.exit:                               ; preds = %188, %221
   %417 = trunc nuw nsw i64 %.0200.i to i32
   %418 = shl nuw i32 1, %417
   %419 = and i32 %416, %418
-  %.not250.i = icmp eq i32 %419, 0
-  br i1 %.not250.i, label %420, label %425
+  %.not256.i = icmp eq i32 %419, 0
+  br i1 %.not256.i, label %420, label %425
 
 420:                                              ; preds = %412
   %421 = or i32 %416, %418
@@ -1793,8 +1793,8 @@ tmalloc_small.exit:                               ; preds = %188, %221
   %433 = getelementptr inbounds nuw i8, ptr %.0186.i, i64 8
   %434 = load i64, ptr %433, align 8, !tbaa !51
   %435 = and i64 %434, -4
-  %.not251.i = icmp eq i64 %435, %.4192.lcssa.i
-  br i1 %.not251.i, label %446, label %436
+  %.not257.i = icmp eq i64 %435, %.4192.lcssa.i
+  br i1 %.not257.i, label %446, label %436
 
 436:                                              ; preds = %432
   %437 = getelementptr inbounds nuw i8, ptr %.0186.i, i64 32
@@ -1802,10 +1802,10 @@ tmalloc_small.exit:                               ; preds = %188, %221
   %439 = getelementptr inbounds nuw ptr, ptr %437, i64 %438
   %440 = shl i64 %.0185.i, 1
   %441 = load ptr, ptr %439, align 8, !tbaa !45
-  %.not252.i = icmp eq ptr %441, null
-  br i1 %.not252.i, label %.thread266.i, label %432
+  %.not258.i = icmp eq ptr %441, null
+  br i1 %.not258.i, label %.thread272.i, label %432
 
-.thread266.i:                                     ; preds = %436
+.thread272.i:                                     ; preds = %436
   %442 = getelementptr inbounds nuw ptr, ptr %437, i64 %438
   store ptr %306, ptr %442, align 8, !tbaa !45
   %443 = getelementptr inbounds nuw i8, ptr %306, i64 48
@@ -1830,7 +1830,7 @@ tmalloc_small.exit:                               ; preds = %188, %221
   store ptr null, ptr %452, align 8, !tbaa !40
   br label %tmalloc_large.exit
 
-tmalloc_large.exit:                               ; preds = %363, %391, %420, %.thread266.i, %446
+tmalloc_large.exit:                               ; preds = %363, %391, %420, %.thread272.i, %446
   %453 = getelementptr inbounds nuw i8, ptr %.4.lcssa.i, i64 16
   br label %alloc_sys.exit
 
