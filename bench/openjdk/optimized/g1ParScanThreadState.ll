@@ -4370,7 +4370,7 @@ define linkonce_odr hidden void @_ZN17G1ScanClosureBase26handle_non_cset_obj_com
   %.sroa.1.0.extract.trunc = trunc i24 %.sroa.1.0.extract.shift to i8
   switch i8 %.sroa.1.0.extract.trunc, label %_ZN15G1CollectedHeap21set_humongous_is_liveEP7oopDesc.exit [
     i8 -3, label %5
-    i8 -4, label %26
+    i8 -4, label %27
   ]
 
 5:                                                ; preds = %4
@@ -4390,93 +4390,94 @@ define linkonce_odr hidden void @_ZN17G1ScanClosureBase26handle_non_cset_obj_com
   %19 = and i64 %18, 4294967295
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 1448
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds nuw %struct.G1HeapRegionAttr, ptr %21, i64 %19, i32 1
-  %23 = load i8, ptr %22, align 1
-  %24 = icmp eq i8 %23, -3
-  br i1 %24, label %25, label %_ZN15G1CollectedHeap21set_humongous_is_liveEP7oopDesc.exit
+  %22 = getelementptr inbounds nuw %struct.G1HeapRegionAttr, ptr %21, i64 %19
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 1
+  %24 = load i8, ptr %23, align 1
+  %25 = icmp eq i8 %24, -3
+  br i1 %25, label %26, label %_ZN15G1CollectedHeap21set_humongous_is_liveEP7oopDesc.exit
 
-25:                                               ; preds = %5
-  store i8 -1, ptr %22, align 1
+26:                                               ; preds = %5
+  store i8 -1, ptr %23, align 1
   br label %_ZN15G1CollectedHeap21set_humongous_is_liveEP7oopDesc.exit
 
-26:                                               ; preds = %4
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %28 = load ptr, ptr %27, align 8
-  %29 = load ptr, ptr %2, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 520
-  %33 = load i64, ptr %32, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %31, i64 528
-  %35 = load i32, ptr %34, align 8
-  %36 = zext nneg i32 %35 to i64
-  %37 = shl i64 %33, %36
-  %38 = ptrtoint ptr %29 to i64
-  %39 = sub i64 %38, %37
-  %40 = load i32, ptr @_ZN12G1HeapRegion17LogOfHRGrainBytesE, align 4
-  %41 = zext nneg i32 %40 to i64
-  %42 = lshr i64 %39, %41
-  %43 = and i64 %42, 4294967295
-  %44 = getelementptr inbounds nuw i8, ptr %31, i64 496
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds nuw ptr, ptr %45, i64 %43
-  %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 64
-  %49 = load i32, ptr %48, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %28, i64 544
-  %51 = load ptr, ptr %50, align 8
-  %52 = zext i32 %49 to i64
-  %53 = getelementptr inbounds nuw %class.G1OopStarChunkedList, ptr %51, i64 %52
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 24
-  %55 = load ptr, ptr %54, align 8
-  %56 = icmp eq ptr %55, null
-  br i1 %56, label %57, label %61
+27:                                               ; preds = %4
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %29 = load ptr, ptr %28, align 8
+  %30 = load ptr, ptr %2, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  %32 = load ptr, ptr %31, align 8
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 520
+  %34 = load i64, ptr %33, align 8
+  %35 = getelementptr inbounds nuw i8, ptr %32, i64 528
+  %36 = load i32, ptr %35, align 8
+  %37 = zext nneg i32 %36 to i64
+  %38 = shl i64 %34, %37
+  %39 = ptrtoint ptr %30 to i64
+  %40 = sub i64 %39, %38
+  %41 = load i32, ptr @_ZN12G1HeapRegion17LogOfHRGrainBytesE, align 4
+  %42 = zext nneg i32 %41 to i64
+  %43 = lshr i64 %40, %42
+  %44 = and i64 %43, 4294967295
+  %45 = getelementptr inbounds nuw i8, ptr %32, i64 496
+  %46 = load ptr, ptr %45, align 8
+  %47 = getelementptr inbounds nuw ptr, ptr %46, i64 %44
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 64
+  %50 = load i32, ptr %49, align 8
+  %51 = getelementptr inbounds nuw i8, ptr %29, i64 544
+  %52 = load ptr, ptr %51, align 8
+  %53 = zext i32 %50 to i64
+  %54 = getelementptr inbounds nuw %class.G1OopStarChunkedList, ptr %52, i64 %53
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 24
+  %56 = load ptr, ptr %55, align 8
+  %57 = icmp eq ptr %56, null
+  br i1 %57, label %58, label %62
 
-57:                                               ; preds = %26
-  %58 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 536, i8 noundef zeroext 5, i32 noundef 0) #13
-  %59 = getelementptr inbounds nuw i8, ptr %58, i64 512
-  store ptr %58, ptr %59, align 8
-  %60 = getelementptr inbounds nuw i8, ptr %58, i64 520
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %60, i8 0, i64 16, i1 false)
+58:                                               ; preds = %27
+  %59 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 536, i8 noundef zeroext 5, i32 noundef 0) #13
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 512
+  store ptr %59, ptr %60, align 8
+  %61 = getelementptr inbounds nuw i8, ptr %59, i64 520
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %61, i8 0, i64 16, i1 false)
   br label %.sink.split.i.i.i
 
-61:                                               ; preds = %26
-  %62 = getelementptr inbounds nuw i8, ptr %55, i64 512
-  %63 = load ptr, ptr %62, align 8
-  %64 = icmp eq ptr %63, %62
-  br i1 %64, label %65, label %_ZN20G1ParScanThreadState39remember_reference_into_optional_regionIP7oopDescEEvPT_.exit
+62:                                               ; preds = %27
+  %63 = getelementptr inbounds nuw i8, ptr %56, i64 512
+  %64 = load ptr, ptr %63, align 8
+  %65 = icmp eq ptr %64, %63
+  br i1 %65, label %66, label %_ZN20G1ParScanThreadState39remember_reference_into_optional_regionIP7oopDescEEvPT_.exit
 
-65:                                               ; preds = %61
-  %66 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 536, i8 noundef zeroext 5, i32 noundef 0) #13
-  %67 = getelementptr inbounds nuw i8, ptr %66, i64 512
-  store ptr %66, ptr %67, align 8
-  %68 = getelementptr inbounds nuw i8, ptr %66, i64 520
-  %69 = getelementptr inbounds nuw i8, ptr %66, i64 528
-  store i64 0, ptr %69, align 8
-  store ptr %55, ptr %68, align 8
+66:                                               ; preds = %62
+  %67 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 536, i8 noundef zeroext 5, i32 noundef 0) #13
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 512
+  store ptr %67, ptr %68, align 8
+  %69 = getelementptr inbounds nuw i8, ptr %67, i64 520
+  %70 = getelementptr inbounds nuw i8, ptr %67, i64 528
+  store i64 0, ptr %70, align 8
+  store ptr %56, ptr %69, align 8
   br label %.sink.split.i.i.i
 
-.sink.split.i.i.i:                                ; preds = %65, %57
-  %.sink.i.i.i = phi ptr [ %66, %65 ], [ %58, %57 ]
-  store ptr %.sink.i.i.i, ptr %54, align 8
-  %70 = load i64, ptr %53, align 8
-  %71 = add i64 %70, 536
-  store i64 %71, ptr %53, align 8
+.sink.split.i.i.i:                                ; preds = %66, %58
+  %.sink.i.i.i = phi ptr [ %67, %66 ], [ %59, %58 ]
+  store ptr %.sink.i.i.i, ptr %55, align 8
+  %71 = load i64, ptr %54, align 8
+  %72 = add i64 %71, 536
+  store i64 %72, ptr %54, align 8
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %.sink.i.i.i, i64 512
   %.pre.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8
   br label %_ZN20G1ParScanThreadState39remember_reference_into_optional_regionIP7oopDescEEvPT_.exit
 
-_ZN20G1ParScanThreadState39remember_reference_into_optional_regionIP7oopDescEEvPT_.exit: ; preds = %61, %.sink.split.i.i.i
-  %72 = phi ptr [ %63, %61 ], [ %.pre.i.i, %.sink.split.i.i.i ]
-  %73 = phi ptr [ %55, %61 ], [ %.sink.i.i.i, %.sink.split.i.i.i ]
-  %74 = getelementptr inbounds nuw i8, ptr %73, i64 512
-  store ptr %2, ptr %72, align 8
-  %75 = load ptr, ptr %74, align 8
-  %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
-  store ptr %76, ptr %74, align 8
+_ZN20G1ParScanThreadState39remember_reference_into_optional_regionIP7oopDescEEvPT_.exit: ; preds = %62, %.sink.split.i.i.i
+  %73 = phi ptr [ %64, %62 ], [ %.pre.i.i, %.sink.split.i.i.i ]
+  %74 = phi ptr [ %56, %62 ], [ %.sink.i.i.i, %.sink.split.i.i.i ]
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 512
+  store ptr %2, ptr %73, align 8
+  %76 = load ptr, ptr %75, align 8
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 8
+  store ptr %77, ptr %75, align 8
   br label %_ZN15G1CollectedHeap21set_humongous_is_liveEP7oopDesc.exit
 
-_ZN15G1CollectedHeap21set_humongous_is_liveEP7oopDesc.exit: ; preds = %4, %25, %5, %_ZN20G1ParScanThreadState39remember_reference_into_optional_regionIP7oopDescEEvPT_.exit
+_ZN15G1CollectedHeap21set_humongous_is_liveEP7oopDesc.exit: ; preds = %4, %26, %5, %_ZN20G1ParScanThreadState39remember_reference_into_optional_regionIP7oopDescEEvPT_.exit
   ret void
 }
 
@@ -4666,7 +4667,7 @@ define linkonce_odr hidden void @_ZN17G1ScanClosureBase26handle_non_cset_obj_com
   %.sroa.1.0.extract.trunc = trunc i24 %.sroa.1.0.extract.shift to i8
   switch i8 %.sroa.1.0.extract.trunc, label %_ZN15G1CollectedHeap21set_humongous_is_liveEP7oopDesc.exit [
     i8 -3, label %5
-    i8 -4, label %26
+    i8 -4, label %27
   ]
 
 5:                                                ; preds = %4
@@ -4686,99 +4687,100 @@ define linkonce_odr hidden void @_ZN17G1ScanClosureBase26handle_non_cset_obj_com
   %19 = and i64 %18, 4294967295
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 1448
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds nuw %struct.G1HeapRegionAttr, ptr %21, i64 %19, i32 1
-  %23 = load i8, ptr %22, align 1
-  %24 = icmp eq i8 %23, -3
-  br i1 %24, label %25, label %_ZN15G1CollectedHeap21set_humongous_is_liveEP7oopDesc.exit
+  %22 = getelementptr inbounds nuw %struct.G1HeapRegionAttr, ptr %21, i64 %19
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 1
+  %24 = load i8, ptr %23, align 1
+  %25 = icmp eq i8 %24, -3
+  br i1 %25, label %26, label %_ZN15G1CollectedHeap21set_humongous_is_liveEP7oopDesc.exit
 
-25:                                               ; preds = %5
-  store i8 -1, ptr %22, align 1
+26:                                               ; preds = %5
+  store i8 -1, ptr %23, align 1
   br label %_ZN15G1CollectedHeap21set_humongous_is_liveEP7oopDesc.exit
 
-26:                                               ; preds = %4
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %28 = load ptr, ptr %27, align 8
-  %29 = load i32, ptr %2, align 4
-  %30 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
-  %31 = ptrtoint ptr %30 to i64
-  %32 = zext i32 %29 to i64
-  %33 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
-  %34 = zext nneg i32 %33 to i64
-  %35 = shl i64 %32, %34
-  %36 = add i64 %35, %31
-  %37 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 520
-  %40 = load i64, ptr %39, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %38, i64 528
-  %42 = load i32, ptr %41, align 8
-  %43 = zext nneg i32 %42 to i64
-  %44 = shl i64 %40, %43
-  %45 = sub i64 %36, %44
-  %46 = load i32, ptr @_ZN12G1HeapRegion17LogOfHRGrainBytesE, align 4
-  %47 = zext nneg i32 %46 to i64
-  %48 = lshr i64 %45, %47
-  %49 = and i64 %48, 4294967295
-  %50 = getelementptr inbounds nuw i8, ptr %38, i64 496
-  %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds nuw ptr, ptr %51, i64 %49
-  %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 64
-  %55 = load i32, ptr %54, align 8
-  %56 = getelementptr inbounds nuw i8, ptr %28, i64 544
-  %57 = load ptr, ptr %56, align 8
-  %58 = zext i32 %55 to i64
-  %59 = getelementptr inbounds nuw %class.G1OopStarChunkedList, ptr %57, i64 %58
-  %60 = getelementptr inbounds nuw i8, ptr %59, i64 32
-  %61 = load ptr, ptr %60, align 8
-  %62 = icmp eq ptr %61, null
-  br i1 %62, label %63, label %67
+27:                                               ; preds = %4
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %29 = load ptr, ptr %28, align 8
+  %30 = load i32, ptr %2, align 4
+  %31 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
+  %32 = ptrtoint ptr %31 to i64
+  %33 = zext i32 %30 to i64
+  %34 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %35 = zext nneg i32 %34 to i64
+  %36 = shl i64 %33, %35
+  %37 = add i64 %36, %32
+  %38 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  %39 = load ptr, ptr %38, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 520
+  %41 = load i64, ptr %40, align 8
+  %42 = getelementptr inbounds nuw i8, ptr %39, i64 528
+  %43 = load i32, ptr %42, align 8
+  %44 = zext nneg i32 %43 to i64
+  %45 = shl i64 %41, %44
+  %46 = sub i64 %37, %45
+  %47 = load i32, ptr @_ZN12G1HeapRegion17LogOfHRGrainBytesE, align 4
+  %48 = zext nneg i32 %47 to i64
+  %49 = lshr i64 %46, %48
+  %50 = and i64 %49, 4294967295
+  %51 = getelementptr inbounds nuw i8, ptr %39, i64 496
+  %52 = load ptr, ptr %51, align 8
+  %53 = getelementptr inbounds nuw ptr, ptr %52, i64 %50
+  %54 = load ptr, ptr %53, align 8
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 64
+  %56 = load i32, ptr %55, align 8
+  %57 = getelementptr inbounds nuw i8, ptr %29, i64 544
+  %58 = load ptr, ptr %57, align 8
+  %59 = zext i32 %56 to i64
+  %60 = getelementptr inbounds nuw %class.G1OopStarChunkedList, ptr %58, i64 %59
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 32
+  %62 = load ptr, ptr %61, align 8
+  %63 = icmp eq ptr %62, null
+  br i1 %63, label %64, label %68
 
-63:                                               ; preds = %26
-  %64 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 536, i8 noundef zeroext 5, i32 noundef 0) #13
-  %65 = getelementptr inbounds nuw i8, ptr %64, i64 512
-  store ptr %64, ptr %65, align 8
-  %66 = getelementptr inbounds nuw i8, ptr %64, i64 520
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %66, i8 0, i64 16, i1 false)
+64:                                               ; preds = %27
+  %65 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 536, i8 noundef zeroext 5, i32 noundef 0) #13
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 512
+  store ptr %65, ptr %66, align 8
+  %67 = getelementptr inbounds nuw i8, ptr %65, i64 520
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %67, i8 0, i64 16, i1 false)
   br label %.sink.split.i.i.i
 
-67:                                               ; preds = %26
-  %68 = getelementptr inbounds nuw i8, ptr %61, i64 512
-  %69 = load ptr, ptr %68, align 8
-  %70 = icmp eq ptr %69, %68
-  br i1 %70, label %71, label %_ZN20G1ParScanThreadState39remember_reference_into_optional_regionI9narrowOopEEvPT_.exit
+68:                                               ; preds = %27
+  %69 = getelementptr inbounds nuw i8, ptr %62, i64 512
+  %70 = load ptr, ptr %69, align 8
+  %71 = icmp eq ptr %70, %69
+  br i1 %71, label %72, label %_ZN20G1ParScanThreadState39remember_reference_into_optional_regionI9narrowOopEEvPT_.exit
 
-71:                                               ; preds = %67
-  %72 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 536, i8 noundef zeroext 5, i32 noundef 0) #13
-  %73 = getelementptr inbounds nuw i8, ptr %72, i64 512
-  store ptr %72, ptr %73, align 8
-  %74 = getelementptr inbounds nuw i8, ptr %72, i64 520
-  %75 = getelementptr inbounds nuw i8, ptr %72, i64 528
-  store i64 0, ptr %75, align 8
-  store ptr %61, ptr %74, align 8
+72:                                               ; preds = %68
+  %73 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 536, i8 noundef zeroext 5, i32 noundef 0) #13
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 512
+  store ptr %73, ptr %74, align 8
+  %75 = getelementptr inbounds nuw i8, ptr %73, i64 520
+  %76 = getelementptr inbounds nuw i8, ptr %73, i64 528
+  store i64 0, ptr %76, align 8
+  store ptr %62, ptr %75, align 8
   br label %.sink.split.i.i.i
 
-.sink.split.i.i.i:                                ; preds = %71, %63
-  %.sink.i.i.i = phi ptr [ %72, %71 ], [ %64, %63 ]
-  store ptr %.sink.i.i.i, ptr %60, align 8
-  %76 = load i64, ptr %59, align 8
-  %77 = add i64 %76, 536
-  store i64 %77, ptr %59, align 8
+.sink.split.i.i.i:                                ; preds = %72, %64
+  %.sink.i.i.i = phi ptr [ %73, %72 ], [ %65, %64 ]
+  store ptr %.sink.i.i.i, ptr %61, align 8
+  %77 = load i64, ptr %60, align 8
+  %78 = add i64 %77, 536
+  store i64 %78, ptr %60, align 8
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %.sink.i.i.i, i64 512
   %.pre.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8
   br label %_ZN20G1ParScanThreadState39remember_reference_into_optional_regionI9narrowOopEEvPT_.exit
 
-_ZN20G1ParScanThreadState39remember_reference_into_optional_regionI9narrowOopEEvPT_.exit: ; preds = %67, %.sink.split.i.i.i
-  %78 = phi ptr [ %69, %67 ], [ %.pre.i.i, %.sink.split.i.i.i ]
-  %79 = phi ptr [ %61, %67 ], [ %.sink.i.i.i, %.sink.split.i.i.i ]
-  %80 = getelementptr inbounds nuw i8, ptr %79, i64 512
-  store ptr %2, ptr %78, align 8
-  %81 = load ptr, ptr %80, align 8
-  %82 = getelementptr inbounds nuw i8, ptr %81, i64 8
-  store ptr %82, ptr %80, align 8
+_ZN20G1ParScanThreadState39remember_reference_into_optional_regionI9narrowOopEEvPT_.exit: ; preds = %68, %.sink.split.i.i.i
+  %79 = phi ptr [ %70, %68 ], [ %.pre.i.i, %.sink.split.i.i.i ]
+  %80 = phi ptr [ %62, %68 ], [ %.sink.i.i.i, %.sink.split.i.i.i ]
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 512
+  store ptr %2, ptr %79, align 8
+  %82 = load ptr, ptr %81, align 8
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
+  store ptr %83, ptr %81, align 8
   br label %_ZN15G1CollectedHeap21set_humongous_is_liveEP7oopDesc.exit
 
-_ZN15G1CollectedHeap21set_humongous_is_liveEP7oopDesc.exit: ; preds = %4, %25, %5, %_ZN20G1ParScanThreadState39remember_reference_into_optional_regionI9narrowOopEEvPT_.exit
+_ZN15G1CollectedHeap21set_humongous_is_liveEP7oopDesc.exit: ; preds = %4, %26, %5, %_ZN20G1ParScanThreadState39remember_reference_into_optional_regionI9narrowOopEEvPT_.exit
   ret void
 }
 
@@ -16638,7 +16640,7 @@ _ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i.i: ; preds = %_ZN5Stack
   %.sroa.1.0.extract.trunc.i = trunc i24 %.sroa.1.0.extract.shift.i to i8
   switch i8 %.sroa.1.0.extract.trunc.i, label %_ZN17G1ScanClosureBase26handle_non_cset_obj_commonI9narrowOopEEv16G1HeapRegionAttrPT_P7oopDesc.exit [
     i8 -3, label %112
-    i8 -4, label %128
+    i8 -4, label %129
   ]
 
 112:                                              ; preds = %111
@@ -16653,127 +16655,128 @@ _ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i.i: ; preds = %_ZN5Stack
   %121 = and i64 %120, 4294967295
   %122 = getelementptr inbounds nuw i8, ptr %43, i64 1448
   %123 = load ptr, ptr %122, align 8
-  %124 = getelementptr inbounds nuw %struct.G1HeapRegionAttr, ptr %123, i64 %121, i32 1
-  %125 = load i8, ptr %124, align 1
-  %126 = icmp eq i8 %125, -3
-  br i1 %126, label %127, label %_ZN17G1ScanClosureBase26handle_non_cset_obj_commonI9narrowOopEEv16G1HeapRegionAttrPT_P7oopDesc.exit
+  %124 = getelementptr inbounds nuw %struct.G1HeapRegionAttr, ptr %123, i64 %121
+  %125 = getelementptr inbounds nuw i8, ptr %124, i64 1
+  %126 = load i8, ptr %125, align 1
+  %127 = icmp eq i8 %126, -3
+  br i1 %127, label %128, label %_ZN17G1ScanClosureBase26handle_non_cset_obj_commonI9narrowOopEEv16G1HeapRegionAttrPT_P7oopDesc.exit
 
-127:                                              ; preds = %112
-  store i8 -1, ptr %124, align 1
+128:                                              ; preds = %112
+  store i8 -1, ptr %125, align 1
   br label %_ZN17G1ScanClosureBase26handle_non_cset_obj_commonI9narrowOopEEv16G1HeapRegionAttrPT_P7oopDesc.exit
 
-128:                                              ; preds = %111
-  %129 = load ptr, ptr %19, align 8
-  %130 = getelementptr inbounds nuw i8, ptr %129, i64 8
-  %131 = load ptr, ptr %130, align 8
-  %132 = getelementptr inbounds nuw i8, ptr %131, i64 520
-  %133 = load i64, ptr %132, align 8
-  %134 = getelementptr inbounds nuw i8, ptr %131, i64 528
-  %135 = load i32, ptr %134, align 8
-  %136 = zext nneg i32 %135 to i64
-  %137 = shl i64 %133, %136
-  %138 = sub i64 %42, %137
-  %139 = lshr i64 %138, %108
-  %140 = and i64 %139, 4294967295
-  %141 = getelementptr inbounds nuw i8, ptr %131, i64 496
-  %142 = load ptr, ptr %141, align 8
-  %143 = getelementptr inbounds nuw ptr, ptr %142, i64 %140
-  %144 = load ptr, ptr %143, align 8
-  %145 = getelementptr inbounds nuw i8, ptr %144, i64 64
-  %146 = load i32, ptr %145, align 8
-  %147 = getelementptr inbounds nuw i8, ptr %129, i64 544
-  %148 = load ptr, ptr %147, align 8
-  %149 = zext i32 %146 to i64
-  %150 = getelementptr inbounds nuw %class.G1OopStarChunkedList, ptr %148, i64 %149
-  %151 = getelementptr inbounds nuw i8, ptr %150, i64 32
-  %152 = load ptr, ptr %151, align 8
-  %153 = icmp eq ptr %152, null
-  br i1 %153, label %154, label %158
+129:                                              ; preds = %111
+  %130 = load ptr, ptr %19, align 8
+  %131 = getelementptr inbounds nuw i8, ptr %130, i64 8
+  %132 = load ptr, ptr %131, align 8
+  %133 = getelementptr inbounds nuw i8, ptr %132, i64 520
+  %134 = load i64, ptr %133, align 8
+  %135 = getelementptr inbounds nuw i8, ptr %132, i64 528
+  %136 = load i32, ptr %135, align 8
+  %137 = zext nneg i32 %136 to i64
+  %138 = shl i64 %134, %137
+  %139 = sub i64 %42, %138
+  %140 = lshr i64 %139, %108
+  %141 = and i64 %140, 4294967295
+  %142 = getelementptr inbounds nuw i8, ptr %132, i64 496
+  %143 = load ptr, ptr %142, align 8
+  %144 = getelementptr inbounds nuw ptr, ptr %143, i64 %141
+  %145 = load ptr, ptr %144, align 8
+  %146 = getelementptr inbounds nuw i8, ptr %145, i64 64
+  %147 = load i32, ptr %146, align 8
+  %148 = getelementptr inbounds nuw i8, ptr %130, i64 544
+  %149 = load ptr, ptr %148, align 8
+  %150 = zext i32 %147 to i64
+  %151 = getelementptr inbounds nuw %class.G1OopStarChunkedList, ptr %149, i64 %150
+  %152 = getelementptr inbounds nuw i8, ptr %151, i64 32
+  %153 = load ptr, ptr %152, align 8
+  %154 = icmp eq ptr %153, null
+  br i1 %154, label %155, label %159
 
-154:                                              ; preds = %128
-  %155 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 536, i8 noundef zeroext 5, i32 noundef 0) #13
-  %156 = getelementptr inbounds nuw i8, ptr %155, i64 512
-  store ptr %155, ptr %156, align 8
-  %157 = getelementptr inbounds nuw i8, ptr %155, i64 520
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %157, i8 0, i64 16, i1 false)
+155:                                              ; preds = %129
+  %156 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 536, i8 noundef zeroext 5, i32 noundef 0) #13
+  %157 = getelementptr inbounds nuw i8, ptr %156, i64 512
+  store ptr %156, ptr %157, align 8
+  %158 = getelementptr inbounds nuw i8, ptr %156, i64 520
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %158, i8 0, i64 16, i1 false)
   br label %.sink.split.i.i.i.i
 
-158:                                              ; preds = %128
-  %159 = getelementptr inbounds nuw i8, ptr %152, i64 512
-  %160 = load ptr, ptr %159, align 8
-  %161 = icmp eq ptr %160, %159
-  br i1 %161, label %162, label %_ZN20G1ParScanThreadState39remember_reference_into_optional_regionI9narrowOopEEvPT_.exit.i
+159:                                              ; preds = %129
+  %160 = getelementptr inbounds nuw i8, ptr %153, i64 512
+  %161 = load ptr, ptr %160, align 8
+  %162 = icmp eq ptr %161, %160
+  br i1 %162, label %163, label %_ZN20G1ParScanThreadState39remember_reference_into_optional_regionI9narrowOopEEvPT_.exit.i
 
-162:                                              ; preds = %158
-  %163 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 536, i8 noundef zeroext 5, i32 noundef 0) #13
-  %164 = getelementptr inbounds nuw i8, ptr %163, i64 512
-  store ptr %163, ptr %164, align 8
-  %165 = getelementptr inbounds nuw i8, ptr %163, i64 520
-  %166 = getelementptr inbounds nuw i8, ptr %163, i64 528
-  store i64 0, ptr %166, align 8
-  store ptr %152, ptr %165, align 8
+163:                                              ; preds = %159
+  %164 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 536, i8 noundef zeroext 5, i32 noundef 0) #13
+  %165 = getelementptr inbounds nuw i8, ptr %164, i64 512
+  store ptr %164, ptr %165, align 8
+  %166 = getelementptr inbounds nuw i8, ptr %164, i64 520
+  %167 = getelementptr inbounds nuw i8, ptr %164, i64 528
+  store i64 0, ptr %167, align 8
+  store ptr %153, ptr %166, align 8
   br label %.sink.split.i.i.i.i
 
-.sink.split.i.i.i.i:                              ; preds = %162, %154
-  %.sink.i.i.i.i = phi ptr [ %163, %162 ], [ %155, %154 ]
-  store ptr %.sink.i.i.i.i, ptr %151, align 8
-  %167 = load i64, ptr %150, align 8
-  %168 = add i64 %167, 536
-  store i64 %168, ptr %150, align 8
+.sink.split.i.i.i.i:                              ; preds = %163, %155
+  %.sink.i.i.i.i = phi ptr [ %164, %163 ], [ %156, %155 ]
+  store ptr %.sink.i.i.i.i, ptr %152, align 8
+  %168 = load i64, ptr %151, align 8
+  %169 = add i64 %168, 536
+  store i64 %169, ptr %151, align 8
   %.phi.trans.insert.i.i.i = getelementptr inbounds nuw i8, ptr %.sink.i.i.i.i, i64 512
   %.pre.i.i.i = load ptr, ptr %.phi.trans.insert.i.i.i, align 8
   br label %_ZN20G1ParScanThreadState39remember_reference_into_optional_regionI9narrowOopEEvPT_.exit.i
 
-_ZN20G1ParScanThreadState39remember_reference_into_optional_regionI9narrowOopEEvPT_.exit.i: ; preds = %.sink.split.i.i.i.i, %158
-  %169 = phi ptr [ %160, %158 ], [ %.pre.i.i.i, %.sink.split.i.i.i.i ]
-  %170 = phi ptr [ %152, %158 ], [ %.sink.i.i.i.i, %.sink.split.i.i.i.i ]
-  %171 = getelementptr inbounds nuw i8, ptr %170, i64 512
-  store ptr %32, ptr %169, align 8
-  %172 = load ptr, ptr %171, align 8
-  %173 = getelementptr inbounds nuw i8, ptr %172, i64 8
-  store ptr %173, ptr %171, align 8
+_ZN20G1ParScanThreadState39remember_reference_into_optional_regionI9narrowOopEEvPT_.exit.i: ; preds = %.sink.split.i.i.i.i, %159
+  %170 = phi ptr [ %161, %159 ], [ %.pre.i.i.i, %.sink.split.i.i.i.i ]
+  %171 = phi ptr [ %153, %159 ], [ %.sink.i.i.i.i, %.sink.split.i.i.i.i ]
+  %172 = getelementptr inbounds nuw i8, ptr %171, i64 512
+  store ptr %32, ptr %170, align 8
+  %173 = load ptr, ptr %172, align 8
+  %174 = getelementptr inbounds nuw i8, ptr %173, i64 8
+  store ptr %174, ptr %172, align 8
   br label %_ZN17G1ScanClosureBase26handle_non_cset_obj_commonI9narrowOopEEv16G1HeapRegionAttrPT_P7oopDesc.exit
 
-_ZN17G1ScanClosureBase26handle_non_cset_obj_commonI9narrowOopEEv16G1HeapRegionAttrPT_P7oopDesc.exit: ; preds = %111, %112, %127, %_ZN20G1ParScanThreadState39remember_reference_into_optional_regionI9narrowOopEEvPT_.exit.i
-  %174 = load i32, ptr %20, align 8
-  %175 = icmp eq i32 %174, 1
-  br i1 %175, label %_ZN25G1ScanEvacuatedObjClosure11do_oop_workI9narrowOopEEvPT_.exit, label %176
+_ZN17G1ScanClosureBase26handle_non_cset_obj_commonI9narrowOopEEv16G1HeapRegionAttrPT_P7oopDesc.exit: ; preds = %111, %112, %128, %_ZN20G1ParScanThreadState39remember_reference_into_optional_regionI9narrowOopEEvPT_.exit.i
+  %175 = load i32, ptr %20, align 8
+  %176 = icmp eq i32 %175, 1
+  br i1 %176, label %_ZN25G1ScanEvacuatedObjClosure11do_oop_workI9narrowOopEEvPT_.exit, label %177
 
-176:                                              ; preds = %_ZN17G1ScanClosureBase26handle_non_cset_obj_commonI9narrowOopEEv16G1HeapRegionAttrPT_P7oopDesc.exit
-  %177 = load ptr, ptr %19, align 8
+177:                                              ; preds = %_ZN17G1ScanClosureBase26handle_non_cset_obj_commonI9narrowOopEEv16G1HeapRegionAttrPT_P7oopDesc.exit
+  %178 = load ptr, ptr %19, align 8
   %.sroa.0.0.extract.trunc.i.i = trunc i24 %.sroa.0.0.copyload.i.i.i.i to i8
   %.not.i.i = icmp eq i8 %.sroa.0.0.extract.trunc.i.i, 0
-  br i1 %.not.i.i, label %_ZN25G1ScanEvacuatedObjClosure11do_oop_workI9narrowOopEEvPT_.exit, label %178
+  br i1 %.not.i.i, label %_ZN25G1ScanEvacuatedObjClosure11do_oop_workI9narrowOopEEvPT_.exit, label %179
 
-178:                                              ; preds = %176
-  %179 = getelementptr inbounds nuw i8, ptr %177, i64 88
-  %180 = load ptr, ptr %179, align 8
-  %181 = getelementptr inbounds nuw i8, ptr %180, i64 48
-  %182 = load ptr, ptr %181, align 8
-  %183 = load i32, ptr @_ZN9CardTable11_card_shiftE, align 4
-  %184 = zext nneg i32 %183 to i64
-  %185 = lshr i64 %105, %184
-  %186 = getelementptr inbounds i8, ptr %182, i64 %185
-  %187 = getelementptr inbounds nuw i8, ptr %180, i64 40
-  %188 = load ptr, ptr %187, align 8
-  %189 = ptrtoint ptr %186 to i64
-  %190 = ptrtoint ptr %188 to i64
-  %191 = sub i64 %189, %190
-  %192 = getelementptr inbounds nuw i8, ptr %177, i64 432
-  %193 = load i64, ptr %192, align 8
-  %.not.i.not.i.i = icmp eq i64 %193, %191
-  br i1 %.not.i.not.i.i, label %_ZN25G1ScanEvacuatedObjClosure11do_oop_workI9narrowOopEEvPT_.exit, label %194
+179:                                              ; preds = %177
+  %180 = getelementptr inbounds nuw i8, ptr %178, i64 88
+  %181 = load ptr, ptr %180, align 8
+  %182 = getelementptr inbounds nuw i8, ptr %181, i64 48
+  %183 = load ptr, ptr %182, align 8
+  %184 = load i32, ptr @_ZN9CardTable11_card_shiftE, align 4
+  %185 = zext nneg i32 %184 to i64
+  %186 = lshr i64 %105, %185
+  %187 = getelementptr inbounds i8, ptr %183, i64 %186
+  %188 = getelementptr inbounds nuw i8, ptr %181, i64 40
+  %189 = load ptr, ptr %188, align 8
+  %190 = ptrtoint ptr %187 to i64
+  %191 = ptrtoint ptr %189 to i64
+  %192 = sub i64 %190, %191
+  %193 = getelementptr inbounds nuw i8, ptr %178, i64 432
+  %194 = load i64, ptr %193, align 8
+  %.not.i.not.i.i = icmp eq i64 %194, %192
+  br i1 %.not.i.not.i.i, label %_ZN25G1ScanEvacuatedObjClosure11do_oop_workI9narrowOopEEvPT_.exit, label %195
 
-194:                                              ; preds = %178
-  %195 = getelementptr inbounds nuw i8, ptr %177, i64 24
-  %196 = getelementptr inbounds i8, ptr %188, i64 %191
-  tail call void @_ZN27G1RedirtyCardsLocalQueueSet7enqueueEPv(ptr noundef nonnull align 8 dereferenceable(64) %195, ptr noundef %196) #13
-  store i64 %191, ptr %192, align 8
+195:                                              ; preds = %179
+  %196 = getelementptr inbounds nuw i8, ptr %178, i64 24
+  %197 = getelementptr inbounds i8, ptr %189, i64 %192
+  tail call void @_ZN27G1RedirtyCardsLocalQueueSet7enqueueEPv(ptr noundef nonnull align 8 dereferenceable(64) %196, ptr noundef %197) #13
+  store i64 %192, ptr %193, align 8
   br label %_ZN25G1ScanEvacuatedObjClosure11do_oop_workI9narrowOopEEvPT_.exit
 
-_ZN25G1ScanEvacuatedObjClosure11do_oop_workI9narrowOopEEvPT_.exit: ; preds = %.lr.ph, %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i.i.i.i, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i.i, %104, %_ZN17G1ScanClosureBase26handle_non_cset_obj_commonI9narrowOopEEv16G1HeapRegionAttrPT_P7oopDesc.exit, %176, %178, %194
-  %197 = icmp ugt ptr %32, %27
-  br i1 %197, label %.lr.ph, label %.loopexit, !llvm.loop !83
+_ZN25G1ScanEvacuatedObjClosure11do_oop_workI9narrowOopEEvPT_.exit: ; preds = %.lr.ph, %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i.i.i.i, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i.i, %104, %_ZN17G1ScanClosureBase26handle_non_cset_obj_commonI9narrowOopEEv16G1HeapRegionAttrPT_P7oopDesc.exit, %177, %179, %195
+  %198 = icmp ugt ptr %32, %27
+  br i1 %198, label %.lr.ph, label %.loopexit, !llvm.loop !83
 
 ._crit_edge:                                      ; preds = %.loopexit, %3
   ret void
@@ -16957,7 +16960,7 @@ _ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i.i: ; preds = %_ZN5Stack
   %.sroa.1.0.extract.trunc.i = trunc i24 %.sroa.1.0.extract.shift.i to i8
   switch i8 %.sroa.1.0.extract.trunc.i, label %_ZN17G1ScanClosureBase26handle_non_cset_obj_commonIP7oopDescEEv16G1HeapRegionAttrPT_S2_.exit [
     i8 -3, label %104
-    i8 -4, label %120
+    i8 -4, label %121
   ]
 
 104:                                              ; preds = %103
@@ -16972,127 +16975,128 @@ _ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i.i: ; preds = %_ZN5Stack
   %113 = and i64 %112, 4294967295
   %114 = getelementptr inbounds nuw i8, ptr %36, i64 1448
   %115 = load ptr, ptr %114, align 8
-  %116 = getelementptr inbounds nuw %struct.G1HeapRegionAttr, ptr %115, i64 %113, i32 1
-  %117 = load i8, ptr %116, align 1
-  %118 = icmp eq i8 %117, -3
-  br i1 %118, label %119, label %_ZN17G1ScanClosureBase26handle_non_cset_obj_commonIP7oopDescEEv16G1HeapRegionAttrPT_S2_.exit
+  %116 = getelementptr inbounds nuw %struct.G1HeapRegionAttr, ptr %115, i64 %113
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 1
+  %118 = load i8, ptr %117, align 1
+  %119 = icmp eq i8 %118, -3
+  br i1 %119, label %120, label %_ZN17G1ScanClosureBase26handle_non_cset_obj_commonIP7oopDescEEv16G1HeapRegionAttrPT_S2_.exit
 
-119:                                              ; preds = %104
-  store i8 -1, ptr %116, align 1
+120:                                              ; preds = %104
+  store i8 -1, ptr %117, align 1
   br label %_ZN17G1ScanClosureBase26handle_non_cset_obj_commonIP7oopDescEEv16G1HeapRegionAttrPT_S2_.exit
 
-120:                                              ; preds = %103
-  %121 = load ptr, ptr %19, align 8
-  %122 = getelementptr inbounds nuw i8, ptr %121, i64 8
-  %123 = load ptr, ptr %122, align 8
-  %124 = getelementptr inbounds nuw i8, ptr %123, i64 520
-  %125 = load i64, ptr %124, align 8
-  %126 = getelementptr inbounds nuw i8, ptr %123, i64 528
-  %127 = load i32, ptr %126, align 8
-  %128 = zext nneg i32 %127 to i64
-  %129 = shl i64 %125, %128
-  %130 = sub i64 %37, %129
-  %131 = lshr i64 %130, %100
-  %132 = and i64 %131, 4294967295
-  %133 = getelementptr inbounds nuw i8, ptr %123, i64 496
-  %134 = load ptr, ptr %133, align 8
-  %135 = getelementptr inbounds nuw ptr, ptr %134, i64 %132
-  %136 = load ptr, ptr %135, align 8
-  %137 = getelementptr inbounds nuw i8, ptr %136, i64 64
-  %138 = load i32, ptr %137, align 8
-  %139 = getelementptr inbounds nuw i8, ptr %121, i64 544
-  %140 = load ptr, ptr %139, align 8
-  %141 = zext i32 %138 to i64
-  %142 = getelementptr inbounds nuw %class.G1OopStarChunkedList, ptr %140, i64 %141
-  %143 = getelementptr inbounds nuw i8, ptr %142, i64 24
-  %144 = load ptr, ptr %143, align 8
-  %145 = icmp eq ptr %144, null
-  br i1 %145, label %146, label %150
+121:                                              ; preds = %103
+  %122 = load ptr, ptr %19, align 8
+  %123 = getelementptr inbounds nuw i8, ptr %122, i64 8
+  %124 = load ptr, ptr %123, align 8
+  %125 = getelementptr inbounds nuw i8, ptr %124, i64 520
+  %126 = load i64, ptr %125, align 8
+  %127 = getelementptr inbounds nuw i8, ptr %124, i64 528
+  %128 = load i32, ptr %127, align 8
+  %129 = zext nneg i32 %128 to i64
+  %130 = shl i64 %126, %129
+  %131 = sub i64 %37, %130
+  %132 = lshr i64 %131, %100
+  %133 = and i64 %132, 4294967295
+  %134 = getelementptr inbounds nuw i8, ptr %124, i64 496
+  %135 = load ptr, ptr %134, align 8
+  %136 = getelementptr inbounds nuw ptr, ptr %135, i64 %133
+  %137 = load ptr, ptr %136, align 8
+  %138 = getelementptr inbounds nuw i8, ptr %137, i64 64
+  %139 = load i32, ptr %138, align 8
+  %140 = getelementptr inbounds nuw i8, ptr %122, i64 544
+  %141 = load ptr, ptr %140, align 8
+  %142 = zext i32 %139 to i64
+  %143 = getelementptr inbounds nuw %class.G1OopStarChunkedList, ptr %141, i64 %142
+  %144 = getelementptr inbounds nuw i8, ptr %143, i64 24
+  %145 = load ptr, ptr %144, align 8
+  %146 = icmp eq ptr %145, null
+  br i1 %146, label %147, label %151
 
-146:                                              ; preds = %120
-  %147 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 536, i8 noundef zeroext 5, i32 noundef 0) #13
-  %148 = getelementptr inbounds nuw i8, ptr %147, i64 512
-  store ptr %147, ptr %148, align 8
-  %149 = getelementptr inbounds nuw i8, ptr %147, i64 520
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %149, i8 0, i64 16, i1 false)
+147:                                              ; preds = %121
+  %148 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 536, i8 noundef zeroext 5, i32 noundef 0) #13
+  %149 = getelementptr inbounds nuw i8, ptr %148, i64 512
+  store ptr %148, ptr %149, align 8
+  %150 = getelementptr inbounds nuw i8, ptr %148, i64 520
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %150, i8 0, i64 16, i1 false)
   br label %.sink.split.i.i.i.i
 
-150:                                              ; preds = %120
-  %151 = getelementptr inbounds nuw i8, ptr %144, i64 512
-  %152 = load ptr, ptr %151, align 8
-  %153 = icmp eq ptr %152, %151
-  br i1 %153, label %154, label %_ZN20G1ParScanThreadState39remember_reference_into_optional_regionIP7oopDescEEvPT_.exit.i
+151:                                              ; preds = %121
+  %152 = getelementptr inbounds nuw i8, ptr %145, i64 512
+  %153 = load ptr, ptr %152, align 8
+  %154 = icmp eq ptr %153, %152
+  br i1 %154, label %155, label %_ZN20G1ParScanThreadState39remember_reference_into_optional_regionIP7oopDescEEvPT_.exit.i
 
-154:                                              ; preds = %150
-  %155 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 536, i8 noundef zeroext 5, i32 noundef 0) #13
-  %156 = getelementptr inbounds nuw i8, ptr %155, i64 512
-  store ptr %155, ptr %156, align 8
-  %157 = getelementptr inbounds nuw i8, ptr %155, i64 520
-  %158 = getelementptr inbounds nuw i8, ptr %155, i64 528
-  store i64 0, ptr %158, align 8
-  store ptr %144, ptr %157, align 8
+155:                                              ; preds = %151
+  %156 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 536, i8 noundef zeroext 5, i32 noundef 0) #13
+  %157 = getelementptr inbounds nuw i8, ptr %156, i64 512
+  store ptr %156, ptr %157, align 8
+  %158 = getelementptr inbounds nuw i8, ptr %156, i64 520
+  %159 = getelementptr inbounds nuw i8, ptr %156, i64 528
+  store i64 0, ptr %159, align 8
+  store ptr %145, ptr %158, align 8
   br label %.sink.split.i.i.i.i
 
-.sink.split.i.i.i.i:                              ; preds = %154, %146
-  %.sink.i.i.i.i = phi ptr [ %155, %154 ], [ %147, %146 ]
-  store ptr %.sink.i.i.i.i, ptr %143, align 8
-  %159 = load i64, ptr %142, align 8
-  %160 = add i64 %159, 536
-  store i64 %160, ptr %142, align 8
+.sink.split.i.i.i.i:                              ; preds = %155, %147
+  %.sink.i.i.i.i = phi ptr [ %156, %155 ], [ %148, %147 ]
+  store ptr %.sink.i.i.i.i, ptr %144, align 8
+  %160 = load i64, ptr %143, align 8
+  %161 = add i64 %160, 536
+  store i64 %161, ptr %143, align 8
   %.phi.trans.insert.i.i.i = getelementptr inbounds nuw i8, ptr %.sink.i.i.i.i, i64 512
   %.pre.i.i.i = load ptr, ptr %.phi.trans.insert.i.i.i, align 8
   br label %_ZN20G1ParScanThreadState39remember_reference_into_optional_regionIP7oopDescEEvPT_.exit.i
 
-_ZN20G1ParScanThreadState39remember_reference_into_optional_regionIP7oopDescEEvPT_.exit.i: ; preds = %.sink.split.i.i.i.i, %150
-  %161 = phi ptr [ %152, %150 ], [ %.pre.i.i.i, %.sink.split.i.i.i.i ]
-  %162 = phi ptr [ %144, %150 ], [ %.sink.i.i.i.i, %.sink.split.i.i.i.i ]
-  %163 = getelementptr inbounds nuw i8, ptr %162, i64 512
-  store ptr %32, ptr %161, align 8
-  %164 = load ptr, ptr %163, align 8
-  %165 = getelementptr inbounds nuw i8, ptr %164, i64 8
-  store ptr %165, ptr %163, align 8
+_ZN20G1ParScanThreadState39remember_reference_into_optional_regionIP7oopDescEEvPT_.exit.i: ; preds = %.sink.split.i.i.i.i, %151
+  %162 = phi ptr [ %153, %151 ], [ %.pre.i.i.i, %.sink.split.i.i.i.i ]
+  %163 = phi ptr [ %145, %151 ], [ %.sink.i.i.i.i, %.sink.split.i.i.i.i ]
+  %164 = getelementptr inbounds nuw i8, ptr %163, i64 512
+  store ptr %32, ptr %162, align 8
+  %165 = load ptr, ptr %164, align 8
+  %166 = getelementptr inbounds nuw i8, ptr %165, i64 8
+  store ptr %166, ptr %164, align 8
   br label %_ZN17G1ScanClosureBase26handle_non_cset_obj_commonIP7oopDescEEv16G1HeapRegionAttrPT_S2_.exit
 
-_ZN17G1ScanClosureBase26handle_non_cset_obj_commonIP7oopDescEEv16G1HeapRegionAttrPT_S2_.exit: ; preds = %103, %104, %119, %_ZN20G1ParScanThreadState39remember_reference_into_optional_regionIP7oopDescEEvPT_.exit.i
-  %166 = load i32, ptr %20, align 8
-  %167 = icmp eq i32 %166, 1
-  br i1 %167, label %_ZN25G1ScanEvacuatedObjClosure11do_oop_workIP7oopDescEEvPT_.exit, label %168
+_ZN17G1ScanClosureBase26handle_non_cset_obj_commonIP7oopDescEEv16G1HeapRegionAttrPT_S2_.exit: ; preds = %103, %104, %120, %_ZN20G1ParScanThreadState39remember_reference_into_optional_regionIP7oopDescEEvPT_.exit.i
+  %167 = load i32, ptr %20, align 8
+  %168 = icmp eq i32 %167, 1
+  br i1 %168, label %_ZN25G1ScanEvacuatedObjClosure11do_oop_workIP7oopDescEEvPT_.exit, label %169
 
-168:                                              ; preds = %_ZN17G1ScanClosureBase26handle_non_cset_obj_commonIP7oopDescEEv16G1HeapRegionAttrPT_S2_.exit
-  %169 = load ptr, ptr %19, align 8
+169:                                              ; preds = %_ZN17G1ScanClosureBase26handle_non_cset_obj_commonIP7oopDescEEv16G1HeapRegionAttrPT_S2_.exit
+  %170 = load ptr, ptr %19, align 8
   %.sroa.0.0.extract.trunc.i.i = trunc i24 %.sroa.0.0.copyload.i.i.i.i to i8
   %.not.i.i = icmp eq i8 %.sroa.0.0.extract.trunc.i.i, 0
-  br i1 %.not.i.i, label %_ZN25G1ScanEvacuatedObjClosure11do_oop_workIP7oopDescEEvPT_.exit, label %170
+  br i1 %.not.i.i, label %_ZN25G1ScanEvacuatedObjClosure11do_oop_workIP7oopDescEEvPT_.exit, label %171
 
-170:                                              ; preds = %168
-  %171 = getelementptr inbounds nuw i8, ptr %169, i64 88
-  %172 = load ptr, ptr %171, align 8
-  %173 = getelementptr inbounds nuw i8, ptr %172, i64 48
-  %174 = load ptr, ptr %173, align 8
-  %175 = load i32, ptr @_ZN9CardTable11_card_shiftE, align 4
-  %176 = zext nneg i32 %175 to i64
-  %177 = lshr i64 %97, %176
-  %178 = getelementptr inbounds i8, ptr %174, i64 %177
-  %179 = getelementptr inbounds nuw i8, ptr %172, i64 40
-  %180 = load ptr, ptr %179, align 8
-  %181 = ptrtoint ptr %178 to i64
-  %182 = ptrtoint ptr %180 to i64
-  %183 = sub i64 %181, %182
-  %184 = getelementptr inbounds nuw i8, ptr %169, i64 432
-  %185 = load i64, ptr %184, align 8
-  %.not.i.not.i.i = icmp eq i64 %185, %183
-  br i1 %.not.i.not.i.i, label %_ZN25G1ScanEvacuatedObjClosure11do_oop_workIP7oopDescEEvPT_.exit, label %186
+171:                                              ; preds = %169
+  %172 = getelementptr inbounds nuw i8, ptr %170, i64 88
+  %173 = load ptr, ptr %172, align 8
+  %174 = getelementptr inbounds nuw i8, ptr %173, i64 48
+  %175 = load ptr, ptr %174, align 8
+  %176 = load i32, ptr @_ZN9CardTable11_card_shiftE, align 4
+  %177 = zext nneg i32 %176 to i64
+  %178 = lshr i64 %97, %177
+  %179 = getelementptr inbounds i8, ptr %175, i64 %178
+  %180 = getelementptr inbounds nuw i8, ptr %173, i64 40
+  %181 = load ptr, ptr %180, align 8
+  %182 = ptrtoint ptr %179 to i64
+  %183 = ptrtoint ptr %181 to i64
+  %184 = sub i64 %182, %183
+  %185 = getelementptr inbounds nuw i8, ptr %170, i64 432
+  %186 = load i64, ptr %185, align 8
+  %.not.i.not.i.i = icmp eq i64 %186, %184
+  br i1 %.not.i.not.i.i, label %_ZN25G1ScanEvacuatedObjClosure11do_oop_workIP7oopDescEEvPT_.exit, label %187
 
-186:                                              ; preds = %170
-  %187 = getelementptr inbounds nuw i8, ptr %169, i64 24
-  %188 = getelementptr inbounds i8, ptr %180, i64 %183
-  tail call void @_ZN27G1RedirtyCardsLocalQueueSet7enqueueEPv(ptr noundef nonnull align 8 dereferenceable(64) %187, ptr noundef %188) #13
-  store i64 %183, ptr %184, align 8
+187:                                              ; preds = %171
+  %188 = getelementptr inbounds nuw i8, ptr %170, i64 24
+  %189 = getelementptr inbounds i8, ptr %181, i64 %184
+  tail call void @_ZN27G1RedirtyCardsLocalQueueSet7enqueueEPv(ptr noundef nonnull align 8 dereferenceable(64) %188, ptr noundef %189) #13
+  store i64 %184, ptr %185, align 8
   br label %_ZN25G1ScanEvacuatedObjClosure11do_oop_workIP7oopDescEEvPT_.exit
 
-_ZN25G1ScanEvacuatedObjClosure11do_oop_workIP7oopDescEEvPT_.exit: ; preds = %.lr.ph, %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i.i.i.i, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i.i, %96, %_ZN17G1ScanClosureBase26handle_non_cset_obj_commonIP7oopDescEEv16G1HeapRegionAttrPT_S2_.exit, %168, %170, %186
-  %189 = icmp ugt ptr %32, %27
-  br i1 %189, label %.lr.ph, label %.loopexit, !llvm.loop !85
+_ZN25G1ScanEvacuatedObjClosure11do_oop_workIP7oopDescEEvPT_.exit: ; preds = %.lr.ph, %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i.i.i.i, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i.i, %96, %_ZN17G1ScanClosureBase26handle_non_cset_obj_commonIP7oopDescEEv16G1HeapRegionAttrPT_S2_.exit, %169, %171, %187
+  %190 = icmp ugt ptr %32, %27
+  br i1 %190, label %.lr.ph, label %.loopexit, !llvm.loop !85
 
 ._crit_edge:                                      ; preds = %.loopexit, %3
   ret void
@@ -17307,7 +17311,7 @@ _ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i.i: ; preds = %_ZN5Stack
   %.sroa.1.0.extract.trunc.i = trunc i24 %.sroa.1.0.extract.shift.i to i8
   switch i8 %.sroa.1.0.extract.trunc.i, label %_ZN17G1ScanClosureBase26handle_non_cset_obj_commonI9narrowOopEEv16G1HeapRegionAttrPT_P7oopDesc.exit [
     i8 -3, label %113
-    i8 -4, label %129
+    i8 -4, label %130
   ]
 
 113:                                              ; preds = %112
@@ -17322,127 +17326,128 @@ _ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i.i: ; preds = %_ZN5Stack
   %122 = and i64 %121, 4294967295
   %123 = getelementptr inbounds nuw i8, ptr %44, i64 1448
   %124 = load ptr, ptr %123, align 8
-  %125 = getelementptr inbounds nuw %struct.G1HeapRegionAttr, ptr %124, i64 %122, i32 1
-  %126 = load i8, ptr %125, align 1
-  %127 = icmp eq i8 %126, -3
-  br i1 %127, label %128, label %_ZN17G1ScanClosureBase26handle_non_cset_obj_commonI9narrowOopEEv16G1HeapRegionAttrPT_P7oopDesc.exit
+  %125 = getelementptr inbounds nuw %struct.G1HeapRegionAttr, ptr %124, i64 %122
+  %126 = getelementptr inbounds nuw i8, ptr %125, i64 1
+  %127 = load i8, ptr %126, align 1
+  %128 = icmp eq i8 %127, -3
+  br i1 %128, label %129, label %_ZN17G1ScanClosureBase26handle_non_cset_obj_commonI9narrowOopEEv16G1HeapRegionAttrPT_P7oopDesc.exit
 
-128:                                              ; preds = %113
-  store i8 -1, ptr %125, align 1
+129:                                              ; preds = %113
+  store i8 -1, ptr %126, align 1
   br label %_ZN17G1ScanClosureBase26handle_non_cset_obj_commonI9narrowOopEEv16G1HeapRegionAttrPT_P7oopDesc.exit
 
-129:                                              ; preds = %112
-  %130 = load ptr, ptr %20, align 8
-  %131 = getelementptr inbounds nuw i8, ptr %130, i64 8
-  %132 = load ptr, ptr %131, align 8
-  %133 = getelementptr inbounds nuw i8, ptr %132, i64 520
-  %134 = load i64, ptr %133, align 8
-  %135 = getelementptr inbounds nuw i8, ptr %132, i64 528
-  %136 = load i32, ptr %135, align 8
-  %137 = zext nneg i32 %136 to i64
-  %138 = shl i64 %134, %137
-  %139 = sub i64 %43, %138
-  %140 = lshr i64 %139, %109
-  %141 = and i64 %140, 4294967295
-  %142 = getelementptr inbounds nuw i8, ptr %132, i64 496
-  %143 = load ptr, ptr %142, align 8
-  %144 = getelementptr inbounds nuw ptr, ptr %143, i64 %141
-  %145 = load ptr, ptr %144, align 8
-  %146 = getelementptr inbounds nuw i8, ptr %145, i64 64
-  %147 = load i32, ptr %146, align 8
-  %148 = getelementptr inbounds nuw i8, ptr %130, i64 544
-  %149 = load ptr, ptr %148, align 8
-  %150 = zext i32 %147 to i64
-  %151 = getelementptr inbounds nuw %class.G1OopStarChunkedList, ptr %149, i64 %150
-  %152 = getelementptr inbounds nuw i8, ptr %151, i64 32
-  %153 = load ptr, ptr %152, align 8
-  %154 = icmp eq ptr %153, null
-  br i1 %154, label %155, label %159
+130:                                              ; preds = %112
+  %131 = load ptr, ptr %20, align 8
+  %132 = getelementptr inbounds nuw i8, ptr %131, i64 8
+  %133 = load ptr, ptr %132, align 8
+  %134 = getelementptr inbounds nuw i8, ptr %133, i64 520
+  %135 = load i64, ptr %134, align 8
+  %136 = getelementptr inbounds nuw i8, ptr %133, i64 528
+  %137 = load i32, ptr %136, align 8
+  %138 = zext nneg i32 %137 to i64
+  %139 = shl i64 %135, %138
+  %140 = sub i64 %43, %139
+  %141 = lshr i64 %140, %109
+  %142 = and i64 %141, 4294967295
+  %143 = getelementptr inbounds nuw i8, ptr %133, i64 496
+  %144 = load ptr, ptr %143, align 8
+  %145 = getelementptr inbounds nuw ptr, ptr %144, i64 %142
+  %146 = load ptr, ptr %145, align 8
+  %147 = getelementptr inbounds nuw i8, ptr %146, i64 64
+  %148 = load i32, ptr %147, align 8
+  %149 = getelementptr inbounds nuw i8, ptr %131, i64 544
+  %150 = load ptr, ptr %149, align 8
+  %151 = zext i32 %148 to i64
+  %152 = getelementptr inbounds nuw %class.G1OopStarChunkedList, ptr %150, i64 %151
+  %153 = getelementptr inbounds nuw i8, ptr %152, i64 32
+  %154 = load ptr, ptr %153, align 8
+  %155 = icmp eq ptr %154, null
+  br i1 %155, label %156, label %160
 
-155:                                              ; preds = %129
-  %156 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 536, i8 noundef zeroext 5, i32 noundef 0) #13
-  %157 = getelementptr inbounds nuw i8, ptr %156, i64 512
-  store ptr %156, ptr %157, align 8
-  %158 = getelementptr inbounds nuw i8, ptr %156, i64 520
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %158, i8 0, i64 16, i1 false)
+156:                                              ; preds = %130
+  %157 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 536, i8 noundef zeroext 5, i32 noundef 0) #13
+  %158 = getelementptr inbounds nuw i8, ptr %157, i64 512
+  store ptr %157, ptr %158, align 8
+  %159 = getelementptr inbounds nuw i8, ptr %157, i64 520
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %159, i8 0, i64 16, i1 false)
   br label %.sink.split.i.i.i.i
 
-159:                                              ; preds = %129
-  %160 = getelementptr inbounds nuw i8, ptr %153, i64 512
-  %161 = load ptr, ptr %160, align 8
-  %162 = icmp eq ptr %161, %160
-  br i1 %162, label %163, label %_ZN20G1ParScanThreadState39remember_reference_into_optional_regionI9narrowOopEEvPT_.exit.i
+160:                                              ; preds = %130
+  %161 = getelementptr inbounds nuw i8, ptr %154, i64 512
+  %162 = load ptr, ptr %161, align 8
+  %163 = icmp eq ptr %162, %161
+  br i1 %163, label %164, label %_ZN20G1ParScanThreadState39remember_reference_into_optional_regionI9narrowOopEEvPT_.exit.i
 
-163:                                              ; preds = %159
-  %164 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 536, i8 noundef zeroext 5, i32 noundef 0) #13
-  %165 = getelementptr inbounds nuw i8, ptr %164, i64 512
-  store ptr %164, ptr %165, align 8
-  %166 = getelementptr inbounds nuw i8, ptr %164, i64 520
-  %167 = getelementptr inbounds nuw i8, ptr %164, i64 528
-  store i64 0, ptr %167, align 8
-  store ptr %153, ptr %166, align 8
+164:                                              ; preds = %160
+  %165 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 536, i8 noundef zeroext 5, i32 noundef 0) #13
+  %166 = getelementptr inbounds nuw i8, ptr %165, i64 512
+  store ptr %165, ptr %166, align 8
+  %167 = getelementptr inbounds nuw i8, ptr %165, i64 520
+  %168 = getelementptr inbounds nuw i8, ptr %165, i64 528
+  store i64 0, ptr %168, align 8
+  store ptr %154, ptr %167, align 8
   br label %.sink.split.i.i.i.i
 
-.sink.split.i.i.i.i:                              ; preds = %163, %155
-  %.sink.i.i.i.i = phi ptr [ %164, %163 ], [ %156, %155 ]
-  store ptr %.sink.i.i.i.i, ptr %152, align 8
-  %168 = load i64, ptr %151, align 8
-  %169 = add i64 %168, 536
-  store i64 %169, ptr %151, align 8
+.sink.split.i.i.i.i:                              ; preds = %164, %156
+  %.sink.i.i.i.i = phi ptr [ %165, %164 ], [ %157, %156 ]
+  store ptr %.sink.i.i.i.i, ptr %153, align 8
+  %169 = load i64, ptr %152, align 8
+  %170 = add i64 %169, 536
+  store i64 %170, ptr %152, align 8
   %.phi.trans.insert.i.i.i = getelementptr inbounds nuw i8, ptr %.sink.i.i.i.i, i64 512
   %.pre.i.i.i = load ptr, ptr %.phi.trans.insert.i.i.i, align 8
   br label %_ZN20G1ParScanThreadState39remember_reference_into_optional_regionI9narrowOopEEvPT_.exit.i
 
-_ZN20G1ParScanThreadState39remember_reference_into_optional_regionI9narrowOopEEvPT_.exit.i: ; preds = %.sink.split.i.i.i.i, %159
-  %170 = phi ptr [ %161, %159 ], [ %.pre.i.i.i, %.sink.split.i.i.i.i ]
-  %171 = phi ptr [ %153, %159 ], [ %.sink.i.i.i.i, %.sink.split.i.i.i.i ]
-  %172 = getelementptr inbounds nuw i8, ptr %171, i64 512
-  store ptr %33, ptr %170, align 8
-  %173 = load ptr, ptr %172, align 8
-  %174 = getelementptr inbounds nuw i8, ptr %173, i64 8
-  store ptr %174, ptr %172, align 8
+_ZN20G1ParScanThreadState39remember_reference_into_optional_regionI9narrowOopEEvPT_.exit.i: ; preds = %.sink.split.i.i.i.i, %160
+  %171 = phi ptr [ %162, %160 ], [ %.pre.i.i.i, %.sink.split.i.i.i.i ]
+  %172 = phi ptr [ %154, %160 ], [ %.sink.i.i.i.i, %.sink.split.i.i.i.i ]
+  %173 = getelementptr inbounds nuw i8, ptr %172, i64 512
+  store ptr %33, ptr %171, align 8
+  %174 = load ptr, ptr %173, align 8
+  %175 = getelementptr inbounds nuw i8, ptr %174, i64 8
+  store ptr %175, ptr %173, align 8
   br label %_ZN17G1ScanClosureBase26handle_non_cset_obj_commonI9narrowOopEEv16G1HeapRegionAttrPT_P7oopDesc.exit
 
-_ZN17G1ScanClosureBase26handle_non_cset_obj_commonI9narrowOopEEv16G1HeapRegionAttrPT_P7oopDesc.exit: ; preds = %112, %113, %128, %_ZN20G1ParScanThreadState39remember_reference_into_optional_regionI9narrowOopEEvPT_.exit.i
-  %175 = load i32, ptr %21, align 8
-  %176 = icmp eq i32 %175, 1
-  br i1 %176, label %_ZN25G1ScanEvacuatedObjClosure11do_oop_workI9narrowOopEEvPT_.exit, label %177
+_ZN17G1ScanClosureBase26handle_non_cset_obj_commonI9narrowOopEEv16G1HeapRegionAttrPT_P7oopDesc.exit: ; preds = %112, %113, %129, %_ZN20G1ParScanThreadState39remember_reference_into_optional_regionI9narrowOopEEvPT_.exit.i
+  %176 = load i32, ptr %21, align 8
+  %177 = icmp eq i32 %176, 1
+  br i1 %177, label %_ZN25G1ScanEvacuatedObjClosure11do_oop_workI9narrowOopEEvPT_.exit, label %178
 
-177:                                              ; preds = %_ZN17G1ScanClosureBase26handle_non_cset_obj_commonI9narrowOopEEv16G1HeapRegionAttrPT_P7oopDesc.exit
-  %178 = load ptr, ptr %20, align 8
+178:                                              ; preds = %_ZN17G1ScanClosureBase26handle_non_cset_obj_commonI9narrowOopEEv16G1HeapRegionAttrPT_P7oopDesc.exit
+  %179 = load ptr, ptr %20, align 8
   %.sroa.0.0.extract.trunc.i.i = trunc i24 %.sroa.0.0.copyload.i.i.i.i to i8
   %.not.i.i = icmp eq i8 %.sroa.0.0.extract.trunc.i.i, 0
-  br i1 %.not.i.i, label %_ZN25G1ScanEvacuatedObjClosure11do_oop_workI9narrowOopEEvPT_.exit, label %179
+  br i1 %.not.i.i, label %_ZN25G1ScanEvacuatedObjClosure11do_oop_workI9narrowOopEEvPT_.exit, label %180
 
-179:                                              ; preds = %177
-  %180 = getelementptr inbounds nuw i8, ptr %178, i64 88
-  %181 = load ptr, ptr %180, align 8
-  %182 = getelementptr inbounds nuw i8, ptr %181, i64 48
-  %183 = load ptr, ptr %182, align 8
-  %184 = load i32, ptr @_ZN9CardTable11_card_shiftE, align 4
-  %185 = zext nneg i32 %184 to i64
-  %186 = lshr i64 %106, %185
-  %187 = getelementptr inbounds i8, ptr %183, i64 %186
-  %188 = getelementptr inbounds nuw i8, ptr %181, i64 40
-  %189 = load ptr, ptr %188, align 8
-  %190 = ptrtoint ptr %187 to i64
-  %191 = ptrtoint ptr %189 to i64
-  %192 = sub i64 %190, %191
-  %193 = getelementptr inbounds nuw i8, ptr %178, i64 432
-  %194 = load i64, ptr %193, align 8
-  %.not.i.not.i.i = icmp eq i64 %194, %192
-  br i1 %.not.i.not.i.i, label %_ZN25G1ScanEvacuatedObjClosure11do_oop_workI9narrowOopEEvPT_.exit, label %195
+180:                                              ; preds = %178
+  %181 = getelementptr inbounds nuw i8, ptr %179, i64 88
+  %182 = load ptr, ptr %181, align 8
+  %183 = getelementptr inbounds nuw i8, ptr %182, i64 48
+  %184 = load ptr, ptr %183, align 8
+  %185 = load i32, ptr @_ZN9CardTable11_card_shiftE, align 4
+  %186 = zext nneg i32 %185 to i64
+  %187 = lshr i64 %106, %186
+  %188 = getelementptr inbounds i8, ptr %184, i64 %187
+  %189 = getelementptr inbounds nuw i8, ptr %182, i64 40
+  %190 = load ptr, ptr %189, align 8
+  %191 = ptrtoint ptr %188 to i64
+  %192 = ptrtoint ptr %190 to i64
+  %193 = sub i64 %191, %192
+  %194 = getelementptr inbounds nuw i8, ptr %179, i64 432
+  %195 = load i64, ptr %194, align 8
+  %.not.i.not.i.i = icmp eq i64 %195, %193
+  br i1 %.not.i.not.i.i, label %_ZN25G1ScanEvacuatedObjClosure11do_oop_workI9narrowOopEEvPT_.exit, label %196
 
-195:                                              ; preds = %179
-  %196 = getelementptr inbounds nuw i8, ptr %178, i64 24
-  %197 = getelementptr inbounds i8, ptr %189, i64 %192
-  tail call void @_ZN27G1RedirtyCardsLocalQueueSet7enqueueEPv(ptr noundef nonnull align 8 dereferenceable(64) %196, ptr noundef %197) #13
-  store i64 %192, ptr %193, align 8
+196:                                              ; preds = %180
+  %197 = getelementptr inbounds nuw i8, ptr %179, i64 24
+  %198 = getelementptr inbounds i8, ptr %190, i64 %193
+  tail call void @_ZN27G1RedirtyCardsLocalQueueSet7enqueueEPv(ptr noundef nonnull align 8 dereferenceable(64) %197, ptr noundef %198) #13
+  store i64 %193, ptr %194, align 8
   br label %_ZN25G1ScanEvacuatedObjClosure11do_oop_workI9narrowOopEEvPT_.exit
 
-_ZN25G1ScanEvacuatedObjClosure11do_oop_workI9narrowOopEEvPT_.exit: ; preds = %.lr.ph, %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i.i.i.i, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i.i, %105, %_ZN17G1ScanClosureBase26handle_non_cset_obj_commonI9narrowOopEEv16G1HeapRegionAttrPT_P7oopDesc.exit, %177, %179, %195
-  %198 = icmp ugt ptr %33, %28
-  br i1 %198, label %.lr.ph, label %.loopexit, !llvm.loop !87
+_ZN25G1ScanEvacuatedObjClosure11do_oop_workI9narrowOopEEvPT_.exit: ; preds = %.lr.ph, %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i.i.i.i, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i.i, %105, %_ZN17G1ScanClosureBase26handle_non_cset_obj_commonI9narrowOopEEv16G1HeapRegionAttrPT_P7oopDesc.exit, %178, %180, %196
+  %199 = icmp ugt ptr %33, %28
+  br i1 %199, label %.lr.ph, label %.loopexit, !llvm.loop !87
 
 ._crit_edge:                                      ; preds = %.loopexit, %3
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -17728,7 +17733,7 @@ _ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i.i: ; preds = %_ZN5Stack
   %.sroa.1.0.extract.trunc.i = trunc i24 %.sroa.1.0.extract.shift.i to i8
   switch i8 %.sroa.1.0.extract.trunc.i, label %_ZN17G1ScanClosureBase26handle_non_cset_obj_commonIP7oopDescEEv16G1HeapRegionAttrPT_S2_.exit [
     i8 -3, label %105
-    i8 -4, label %121
+    i8 -4, label %122
   ]
 
 105:                                              ; preds = %104
@@ -17743,127 +17748,128 @@ _ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i.i: ; preds = %_ZN5Stack
   %114 = and i64 %113, 4294967295
   %115 = getelementptr inbounds nuw i8, ptr %37, i64 1448
   %116 = load ptr, ptr %115, align 8
-  %117 = getelementptr inbounds nuw %struct.G1HeapRegionAttr, ptr %116, i64 %114, i32 1
-  %118 = load i8, ptr %117, align 1
-  %119 = icmp eq i8 %118, -3
-  br i1 %119, label %120, label %_ZN17G1ScanClosureBase26handle_non_cset_obj_commonIP7oopDescEEv16G1HeapRegionAttrPT_S2_.exit
+  %117 = getelementptr inbounds nuw %struct.G1HeapRegionAttr, ptr %116, i64 %114
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 1
+  %119 = load i8, ptr %118, align 1
+  %120 = icmp eq i8 %119, -3
+  br i1 %120, label %121, label %_ZN17G1ScanClosureBase26handle_non_cset_obj_commonIP7oopDescEEv16G1HeapRegionAttrPT_S2_.exit
 
-120:                                              ; preds = %105
-  store i8 -1, ptr %117, align 1
+121:                                              ; preds = %105
+  store i8 -1, ptr %118, align 1
   br label %_ZN17G1ScanClosureBase26handle_non_cset_obj_commonIP7oopDescEEv16G1HeapRegionAttrPT_S2_.exit
 
-121:                                              ; preds = %104
-  %122 = load ptr, ptr %20, align 8
-  %123 = getelementptr inbounds nuw i8, ptr %122, i64 8
-  %124 = load ptr, ptr %123, align 8
-  %125 = getelementptr inbounds nuw i8, ptr %124, i64 520
-  %126 = load i64, ptr %125, align 8
-  %127 = getelementptr inbounds nuw i8, ptr %124, i64 528
-  %128 = load i32, ptr %127, align 8
-  %129 = zext nneg i32 %128 to i64
-  %130 = shl i64 %126, %129
-  %131 = sub i64 %38, %130
-  %132 = lshr i64 %131, %101
-  %133 = and i64 %132, 4294967295
-  %134 = getelementptr inbounds nuw i8, ptr %124, i64 496
-  %135 = load ptr, ptr %134, align 8
-  %136 = getelementptr inbounds nuw ptr, ptr %135, i64 %133
-  %137 = load ptr, ptr %136, align 8
-  %138 = getelementptr inbounds nuw i8, ptr %137, i64 64
-  %139 = load i32, ptr %138, align 8
-  %140 = getelementptr inbounds nuw i8, ptr %122, i64 544
-  %141 = load ptr, ptr %140, align 8
-  %142 = zext i32 %139 to i64
-  %143 = getelementptr inbounds nuw %class.G1OopStarChunkedList, ptr %141, i64 %142
-  %144 = getelementptr inbounds nuw i8, ptr %143, i64 24
-  %145 = load ptr, ptr %144, align 8
-  %146 = icmp eq ptr %145, null
-  br i1 %146, label %147, label %151
+122:                                              ; preds = %104
+  %123 = load ptr, ptr %20, align 8
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 8
+  %125 = load ptr, ptr %124, align 8
+  %126 = getelementptr inbounds nuw i8, ptr %125, i64 520
+  %127 = load i64, ptr %126, align 8
+  %128 = getelementptr inbounds nuw i8, ptr %125, i64 528
+  %129 = load i32, ptr %128, align 8
+  %130 = zext nneg i32 %129 to i64
+  %131 = shl i64 %127, %130
+  %132 = sub i64 %38, %131
+  %133 = lshr i64 %132, %101
+  %134 = and i64 %133, 4294967295
+  %135 = getelementptr inbounds nuw i8, ptr %125, i64 496
+  %136 = load ptr, ptr %135, align 8
+  %137 = getelementptr inbounds nuw ptr, ptr %136, i64 %134
+  %138 = load ptr, ptr %137, align 8
+  %139 = getelementptr inbounds nuw i8, ptr %138, i64 64
+  %140 = load i32, ptr %139, align 8
+  %141 = getelementptr inbounds nuw i8, ptr %123, i64 544
+  %142 = load ptr, ptr %141, align 8
+  %143 = zext i32 %140 to i64
+  %144 = getelementptr inbounds nuw %class.G1OopStarChunkedList, ptr %142, i64 %143
+  %145 = getelementptr inbounds nuw i8, ptr %144, i64 24
+  %146 = load ptr, ptr %145, align 8
+  %147 = icmp eq ptr %146, null
+  br i1 %147, label %148, label %152
 
-147:                                              ; preds = %121
-  %148 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 536, i8 noundef zeroext 5, i32 noundef 0) #13
-  %149 = getelementptr inbounds nuw i8, ptr %148, i64 512
-  store ptr %148, ptr %149, align 8
-  %150 = getelementptr inbounds nuw i8, ptr %148, i64 520
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %150, i8 0, i64 16, i1 false)
+148:                                              ; preds = %122
+  %149 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 536, i8 noundef zeroext 5, i32 noundef 0) #13
+  %150 = getelementptr inbounds nuw i8, ptr %149, i64 512
+  store ptr %149, ptr %150, align 8
+  %151 = getelementptr inbounds nuw i8, ptr %149, i64 520
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %151, i8 0, i64 16, i1 false)
   br label %.sink.split.i.i.i.i
 
-151:                                              ; preds = %121
-  %152 = getelementptr inbounds nuw i8, ptr %145, i64 512
-  %153 = load ptr, ptr %152, align 8
-  %154 = icmp eq ptr %153, %152
-  br i1 %154, label %155, label %_ZN20G1ParScanThreadState39remember_reference_into_optional_regionIP7oopDescEEvPT_.exit.i
+152:                                              ; preds = %122
+  %153 = getelementptr inbounds nuw i8, ptr %146, i64 512
+  %154 = load ptr, ptr %153, align 8
+  %155 = icmp eq ptr %154, %153
+  br i1 %155, label %156, label %_ZN20G1ParScanThreadState39remember_reference_into_optional_regionIP7oopDescEEvPT_.exit.i
 
-155:                                              ; preds = %151
-  %156 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 536, i8 noundef zeroext 5, i32 noundef 0) #13
-  %157 = getelementptr inbounds nuw i8, ptr %156, i64 512
-  store ptr %156, ptr %157, align 8
-  %158 = getelementptr inbounds nuw i8, ptr %156, i64 520
-  %159 = getelementptr inbounds nuw i8, ptr %156, i64 528
-  store i64 0, ptr %159, align 8
-  store ptr %145, ptr %158, align 8
+156:                                              ; preds = %152
+  %157 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 536, i8 noundef zeroext 5, i32 noundef 0) #13
+  %158 = getelementptr inbounds nuw i8, ptr %157, i64 512
+  store ptr %157, ptr %158, align 8
+  %159 = getelementptr inbounds nuw i8, ptr %157, i64 520
+  %160 = getelementptr inbounds nuw i8, ptr %157, i64 528
+  store i64 0, ptr %160, align 8
+  store ptr %146, ptr %159, align 8
   br label %.sink.split.i.i.i.i
 
-.sink.split.i.i.i.i:                              ; preds = %155, %147
-  %.sink.i.i.i.i = phi ptr [ %156, %155 ], [ %148, %147 ]
-  store ptr %.sink.i.i.i.i, ptr %144, align 8
-  %160 = load i64, ptr %143, align 8
-  %161 = add i64 %160, 536
-  store i64 %161, ptr %143, align 8
+.sink.split.i.i.i.i:                              ; preds = %156, %148
+  %.sink.i.i.i.i = phi ptr [ %157, %156 ], [ %149, %148 ]
+  store ptr %.sink.i.i.i.i, ptr %145, align 8
+  %161 = load i64, ptr %144, align 8
+  %162 = add i64 %161, 536
+  store i64 %162, ptr %144, align 8
   %.phi.trans.insert.i.i.i = getelementptr inbounds nuw i8, ptr %.sink.i.i.i.i, i64 512
   %.pre.i.i.i = load ptr, ptr %.phi.trans.insert.i.i.i, align 8
   br label %_ZN20G1ParScanThreadState39remember_reference_into_optional_regionIP7oopDescEEvPT_.exit.i
 
-_ZN20G1ParScanThreadState39remember_reference_into_optional_regionIP7oopDescEEvPT_.exit.i: ; preds = %.sink.split.i.i.i.i, %151
-  %162 = phi ptr [ %153, %151 ], [ %.pre.i.i.i, %.sink.split.i.i.i.i ]
-  %163 = phi ptr [ %145, %151 ], [ %.sink.i.i.i.i, %.sink.split.i.i.i.i ]
-  %164 = getelementptr inbounds nuw i8, ptr %163, i64 512
-  store ptr %33, ptr %162, align 8
-  %165 = load ptr, ptr %164, align 8
-  %166 = getelementptr inbounds nuw i8, ptr %165, i64 8
-  store ptr %166, ptr %164, align 8
+_ZN20G1ParScanThreadState39remember_reference_into_optional_regionIP7oopDescEEvPT_.exit.i: ; preds = %.sink.split.i.i.i.i, %152
+  %163 = phi ptr [ %154, %152 ], [ %.pre.i.i.i, %.sink.split.i.i.i.i ]
+  %164 = phi ptr [ %146, %152 ], [ %.sink.i.i.i.i, %.sink.split.i.i.i.i ]
+  %165 = getelementptr inbounds nuw i8, ptr %164, i64 512
+  store ptr %33, ptr %163, align 8
+  %166 = load ptr, ptr %165, align 8
+  %167 = getelementptr inbounds nuw i8, ptr %166, i64 8
+  store ptr %167, ptr %165, align 8
   br label %_ZN17G1ScanClosureBase26handle_non_cset_obj_commonIP7oopDescEEv16G1HeapRegionAttrPT_S2_.exit
 
-_ZN17G1ScanClosureBase26handle_non_cset_obj_commonIP7oopDescEEv16G1HeapRegionAttrPT_S2_.exit: ; preds = %104, %105, %120, %_ZN20G1ParScanThreadState39remember_reference_into_optional_regionIP7oopDescEEvPT_.exit.i
-  %167 = load i32, ptr %21, align 8
-  %168 = icmp eq i32 %167, 1
-  br i1 %168, label %_ZN25G1ScanEvacuatedObjClosure11do_oop_workIP7oopDescEEvPT_.exit, label %169
+_ZN17G1ScanClosureBase26handle_non_cset_obj_commonIP7oopDescEEv16G1HeapRegionAttrPT_S2_.exit: ; preds = %104, %105, %121, %_ZN20G1ParScanThreadState39remember_reference_into_optional_regionIP7oopDescEEvPT_.exit.i
+  %168 = load i32, ptr %21, align 8
+  %169 = icmp eq i32 %168, 1
+  br i1 %169, label %_ZN25G1ScanEvacuatedObjClosure11do_oop_workIP7oopDescEEvPT_.exit, label %170
 
-169:                                              ; preds = %_ZN17G1ScanClosureBase26handle_non_cset_obj_commonIP7oopDescEEv16G1HeapRegionAttrPT_S2_.exit
-  %170 = load ptr, ptr %20, align 8
+170:                                              ; preds = %_ZN17G1ScanClosureBase26handle_non_cset_obj_commonIP7oopDescEEv16G1HeapRegionAttrPT_S2_.exit
+  %171 = load ptr, ptr %20, align 8
   %.sroa.0.0.extract.trunc.i.i = trunc i24 %.sroa.0.0.copyload.i.i.i.i to i8
   %.not.i.i = icmp eq i8 %.sroa.0.0.extract.trunc.i.i, 0
-  br i1 %.not.i.i, label %_ZN25G1ScanEvacuatedObjClosure11do_oop_workIP7oopDescEEvPT_.exit, label %171
+  br i1 %.not.i.i, label %_ZN25G1ScanEvacuatedObjClosure11do_oop_workIP7oopDescEEvPT_.exit, label %172
 
-171:                                              ; preds = %169
-  %172 = getelementptr inbounds nuw i8, ptr %170, i64 88
-  %173 = load ptr, ptr %172, align 8
-  %174 = getelementptr inbounds nuw i8, ptr %173, i64 48
-  %175 = load ptr, ptr %174, align 8
-  %176 = load i32, ptr @_ZN9CardTable11_card_shiftE, align 4
-  %177 = zext nneg i32 %176 to i64
-  %178 = lshr i64 %98, %177
-  %179 = getelementptr inbounds i8, ptr %175, i64 %178
-  %180 = getelementptr inbounds nuw i8, ptr %173, i64 40
-  %181 = load ptr, ptr %180, align 8
-  %182 = ptrtoint ptr %179 to i64
-  %183 = ptrtoint ptr %181 to i64
-  %184 = sub i64 %182, %183
-  %185 = getelementptr inbounds nuw i8, ptr %170, i64 432
-  %186 = load i64, ptr %185, align 8
-  %.not.i.not.i.i = icmp eq i64 %186, %184
-  br i1 %.not.i.not.i.i, label %_ZN25G1ScanEvacuatedObjClosure11do_oop_workIP7oopDescEEvPT_.exit, label %187
+172:                                              ; preds = %170
+  %173 = getelementptr inbounds nuw i8, ptr %171, i64 88
+  %174 = load ptr, ptr %173, align 8
+  %175 = getelementptr inbounds nuw i8, ptr %174, i64 48
+  %176 = load ptr, ptr %175, align 8
+  %177 = load i32, ptr @_ZN9CardTable11_card_shiftE, align 4
+  %178 = zext nneg i32 %177 to i64
+  %179 = lshr i64 %98, %178
+  %180 = getelementptr inbounds i8, ptr %176, i64 %179
+  %181 = getelementptr inbounds nuw i8, ptr %174, i64 40
+  %182 = load ptr, ptr %181, align 8
+  %183 = ptrtoint ptr %180 to i64
+  %184 = ptrtoint ptr %182 to i64
+  %185 = sub i64 %183, %184
+  %186 = getelementptr inbounds nuw i8, ptr %171, i64 432
+  %187 = load i64, ptr %186, align 8
+  %.not.i.not.i.i = icmp eq i64 %187, %185
+  br i1 %.not.i.not.i.i, label %_ZN25G1ScanEvacuatedObjClosure11do_oop_workIP7oopDescEEvPT_.exit, label %188
 
-187:                                              ; preds = %171
-  %188 = getelementptr inbounds nuw i8, ptr %170, i64 24
-  %189 = getelementptr inbounds i8, ptr %181, i64 %184
-  tail call void @_ZN27G1RedirtyCardsLocalQueueSet7enqueueEPv(ptr noundef nonnull align 8 dereferenceable(64) %188, ptr noundef %189) #13
-  store i64 %184, ptr %185, align 8
+188:                                              ; preds = %172
+  %189 = getelementptr inbounds nuw i8, ptr %171, i64 24
+  %190 = getelementptr inbounds i8, ptr %182, i64 %185
+  tail call void @_ZN27G1RedirtyCardsLocalQueueSet7enqueueEPv(ptr noundef nonnull align 8 dereferenceable(64) %189, ptr noundef %190) #13
+  store i64 %185, ptr %186, align 8
   br label %_ZN25G1ScanEvacuatedObjClosure11do_oop_workIP7oopDescEEvPT_.exit
 
-_ZN25G1ScanEvacuatedObjClosure11do_oop_workIP7oopDescEEvPT_.exit: ; preds = %.lr.ph, %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i.i.i.i, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i.i, %97, %_ZN17G1ScanClosureBase26handle_non_cset_obj_commonIP7oopDescEEv16G1HeapRegionAttrPT_S2_.exit, %169, %171, %187
-  %190 = icmp ugt ptr %33, %28
-  br i1 %190, label %.lr.ph, label %.loopexit, !llvm.loop !89
+_ZN25G1ScanEvacuatedObjClosure11do_oop_workIP7oopDescEEvPT_.exit: ; preds = %.lr.ph, %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i.i.i.i, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i.i, %97, %_ZN17G1ScanClosureBase26handle_non_cset_obj_commonIP7oopDescEEv16G1HeapRegionAttrPT_S2_.exit, %170, %172, %188
+  %191 = icmp ugt ptr %33, %28
+  br i1 %191, label %.lr.ph, label %.loopexit, !llvm.loop !89
 
 ._crit_edge:                                      ; preds = %.loopexit, %3
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -18182,7 +18188,7 @@ _ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i.i: ; preds = %_ZN5Stack
   %.sroa.1.0.extract.trunc.i = trunc i24 %.sroa.1.0.extract.shift.i to i8
   switch i8 %.sroa.1.0.extract.trunc.i, label %_ZN17G1ScanClosureBase26handle_non_cset_obj_commonI9narrowOopEEv16G1HeapRegionAttrPT_P7oopDesc.exit [
     i8 -3, label %112
-    i8 -4, label %128
+    i8 -4, label %129
   ]
 
 112:                                              ; preds = %111
@@ -18197,147 +18203,148 @@ _ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i.i: ; preds = %_ZN5Stack
   %121 = and i64 %120, 4294967295
   %122 = getelementptr inbounds nuw i8, ptr %43, i64 1448
   %123 = load ptr, ptr %122, align 8
-  %124 = getelementptr inbounds nuw %struct.G1HeapRegionAttr, ptr %123, i64 %121, i32 1
-  %125 = load i8, ptr %124, align 1
-  %126 = icmp eq i8 %125, -3
-  br i1 %126, label %127, label %_ZN17G1ScanClosureBase26handle_non_cset_obj_commonI9narrowOopEEv16G1HeapRegionAttrPT_P7oopDesc.exit
+  %124 = getelementptr inbounds nuw %struct.G1HeapRegionAttr, ptr %123, i64 %121
+  %125 = getelementptr inbounds nuw i8, ptr %124, i64 1
+  %126 = load i8, ptr %125, align 1
+  %127 = icmp eq i8 %126, -3
+  br i1 %127, label %128, label %_ZN17G1ScanClosureBase26handle_non_cset_obj_commonI9narrowOopEEv16G1HeapRegionAttrPT_P7oopDesc.exit
 
-127:                                              ; preds = %112
-  store i8 -1, ptr %124, align 1
+128:                                              ; preds = %112
+  store i8 -1, ptr %125, align 1
   br label %_ZN17G1ScanClosureBase26handle_non_cset_obj_commonI9narrowOopEEv16G1HeapRegionAttrPT_P7oopDesc.exit
 
-128:                                              ; preds = %111
-  %129 = load ptr, ptr %19, align 8
-  %130 = getelementptr inbounds nuw i8, ptr %129, i64 8
-  %131 = load ptr, ptr %130, align 8
-  %132 = getelementptr inbounds nuw i8, ptr %131, i64 520
-  %133 = load i64, ptr %132, align 8
-  %134 = getelementptr inbounds nuw i8, ptr %131, i64 528
-  %135 = load i32, ptr %134, align 8
-  %136 = zext nneg i32 %135 to i64
-  %137 = shl i64 %133, %136
-  %138 = sub i64 %42, %137
-  %139 = lshr i64 %138, %108
-  %140 = and i64 %139, 4294967295
-  %141 = getelementptr inbounds nuw i8, ptr %131, i64 496
-  %142 = load ptr, ptr %141, align 8
-  %143 = getelementptr inbounds nuw ptr, ptr %142, i64 %140
-  %144 = load ptr, ptr %143, align 8
-  %145 = getelementptr inbounds nuw i8, ptr %144, i64 64
-  %146 = load i32, ptr %145, align 8
-  %147 = getelementptr inbounds nuw i8, ptr %129, i64 544
-  %148 = load ptr, ptr %147, align 8
-  %149 = zext i32 %146 to i64
-  %150 = getelementptr inbounds nuw %class.G1OopStarChunkedList, ptr %148, i64 %149
-  %151 = getelementptr inbounds nuw i8, ptr %150, i64 32
-  %152 = load ptr, ptr %151, align 8
-  %153 = icmp eq ptr %152, null
-  br i1 %153, label %154, label %158
+129:                                              ; preds = %111
+  %130 = load ptr, ptr %19, align 8
+  %131 = getelementptr inbounds nuw i8, ptr %130, i64 8
+  %132 = load ptr, ptr %131, align 8
+  %133 = getelementptr inbounds nuw i8, ptr %132, i64 520
+  %134 = load i64, ptr %133, align 8
+  %135 = getelementptr inbounds nuw i8, ptr %132, i64 528
+  %136 = load i32, ptr %135, align 8
+  %137 = zext nneg i32 %136 to i64
+  %138 = shl i64 %134, %137
+  %139 = sub i64 %42, %138
+  %140 = lshr i64 %139, %108
+  %141 = and i64 %140, 4294967295
+  %142 = getelementptr inbounds nuw i8, ptr %132, i64 496
+  %143 = load ptr, ptr %142, align 8
+  %144 = getelementptr inbounds nuw ptr, ptr %143, i64 %141
+  %145 = load ptr, ptr %144, align 8
+  %146 = getelementptr inbounds nuw i8, ptr %145, i64 64
+  %147 = load i32, ptr %146, align 8
+  %148 = getelementptr inbounds nuw i8, ptr %130, i64 544
+  %149 = load ptr, ptr %148, align 8
+  %150 = zext i32 %147 to i64
+  %151 = getelementptr inbounds nuw %class.G1OopStarChunkedList, ptr %149, i64 %150
+  %152 = getelementptr inbounds nuw i8, ptr %151, i64 32
+  %153 = load ptr, ptr %152, align 8
+  %154 = icmp eq ptr %153, null
+  br i1 %154, label %155, label %159
 
-154:                                              ; preds = %128
-  %155 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 536, i8 noundef zeroext 5, i32 noundef 0) #13
-  %156 = getelementptr inbounds nuw i8, ptr %155, i64 512
-  store ptr %155, ptr %156, align 8
-  %157 = getelementptr inbounds nuw i8, ptr %155, i64 520
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %157, i8 0, i64 16, i1 false)
+155:                                              ; preds = %129
+  %156 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 536, i8 noundef zeroext 5, i32 noundef 0) #13
+  %157 = getelementptr inbounds nuw i8, ptr %156, i64 512
+  store ptr %156, ptr %157, align 8
+  %158 = getelementptr inbounds nuw i8, ptr %156, i64 520
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %158, i8 0, i64 16, i1 false)
   br label %.sink.split.i.i.i.i
 
-158:                                              ; preds = %128
-  %159 = getelementptr inbounds nuw i8, ptr %152, i64 512
-  %160 = load ptr, ptr %159, align 8
-  %161 = icmp eq ptr %160, %159
-  br i1 %161, label %162, label %_ZN20G1ParScanThreadState39remember_reference_into_optional_regionI9narrowOopEEvPT_.exit.i
+159:                                              ; preds = %129
+  %160 = getelementptr inbounds nuw i8, ptr %153, i64 512
+  %161 = load ptr, ptr %160, align 8
+  %162 = icmp eq ptr %161, %160
+  br i1 %162, label %163, label %_ZN20G1ParScanThreadState39remember_reference_into_optional_regionI9narrowOopEEvPT_.exit.i
 
-162:                                              ; preds = %158
-  %163 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 536, i8 noundef zeroext 5, i32 noundef 0) #13
-  %164 = getelementptr inbounds nuw i8, ptr %163, i64 512
-  store ptr %163, ptr %164, align 8
-  %165 = getelementptr inbounds nuw i8, ptr %163, i64 520
-  %166 = getelementptr inbounds nuw i8, ptr %163, i64 528
-  store i64 0, ptr %166, align 8
-  store ptr %152, ptr %165, align 8
+163:                                              ; preds = %159
+  %164 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 536, i8 noundef zeroext 5, i32 noundef 0) #13
+  %165 = getelementptr inbounds nuw i8, ptr %164, i64 512
+  store ptr %164, ptr %165, align 8
+  %166 = getelementptr inbounds nuw i8, ptr %164, i64 520
+  %167 = getelementptr inbounds nuw i8, ptr %164, i64 528
+  store i64 0, ptr %167, align 8
+  store ptr %153, ptr %166, align 8
   br label %.sink.split.i.i.i.i
 
-.sink.split.i.i.i.i:                              ; preds = %162, %154
-  %.sink.i.i.i.i = phi ptr [ %163, %162 ], [ %155, %154 ]
-  store ptr %.sink.i.i.i.i, ptr %151, align 8
-  %167 = load i64, ptr %150, align 8
-  %168 = add i64 %167, 536
-  store i64 %168, ptr %150, align 8
+.sink.split.i.i.i.i:                              ; preds = %163, %155
+  %.sink.i.i.i.i = phi ptr [ %164, %163 ], [ %156, %155 ]
+  store ptr %.sink.i.i.i.i, ptr %152, align 8
+  %168 = load i64, ptr %151, align 8
+  %169 = add i64 %168, 536
+  store i64 %169, ptr %151, align 8
   %.phi.trans.insert.i.i.i = getelementptr inbounds nuw i8, ptr %.sink.i.i.i.i, i64 512
   %.pre.i.i.i = load ptr, ptr %.phi.trans.insert.i.i.i, align 8
   br label %_ZN20G1ParScanThreadState39remember_reference_into_optional_regionI9narrowOopEEvPT_.exit.i
 
-_ZN20G1ParScanThreadState39remember_reference_into_optional_regionI9narrowOopEEvPT_.exit.i: ; preds = %.sink.split.i.i.i.i, %158
-  %169 = phi ptr [ %160, %158 ], [ %.pre.i.i.i, %.sink.split.i.i.i.i ]
-  %170 = phi ptr [ %152, %158 ], [ %.sink.i.i.i.i, %.sink.split.i.i.i.i ]
-  %171 = getelementptr inbounds nuw i8, ptr %170, i64 512
-  store ptr %32, ptr %169, align 8
-  %172 = load ptr, ptr %171, align 8
-  %173 = getelementptr inbounds nuw i8, ptr %172, i64 8
-  store ptr %173, ptr %171, align 8
+_ZN20G1ParScanThreadState39remember_reference_into_optional_regionI9narrowOopEEvPT_.exit.i: ; preds = %.sink.split.i.i.i.i, %159
+  %170 = phi ptr [ %161, %159 ], [ %.pre.i.i.i, %.sink.split.i.i.i.i ]
+  %171 = phi ptr [ %153, %159 ], [ %.sink.i.i.i.i, %.sink.split.i.i.i.i ]
+  %172 = getelementptr inbounds nuw i8, ptr %171, i64 512
+  store ptr %32, ptr %170, align 8
+  %173 = load ptr, ptr %172, align 8
+  %174 = getelementptr inbounds nuw i8, ptr %173, i64 8
+  store ptr %174, ptr %172, align 8
   br label %_ZN17G1ScanClosureBase26handle_non_cset_obj_commonI9narrowOopEEv16G1HeapRegionAttrPT_P7oopDesc.exit
 
-_ZN17G1ScanClosureBase26handle_non_cset_obj_commonI9narrowOopEEv16G1HeapRegionAttrPT_P7oopDesc.exit: ; preds = %111, %112, %127, %_ZN20G1ParScanThreadState39remember_reference_into_optional_regionI9narrowOopEEvPT_.exit.i
-  %174 = load i32, ptr %20, align 8
-  %175 = icmp eq i32 %174, 1
-  br i1 %175, label %_ZN25G1ScanEvacuatedObjClosure11do_oop_workI9narrowOopEEvPT_.exit, label %176
+_ZN17G1ScanClosureBase26handle_non_cset_obj_commonI9narrowOopEEv16G1HeapRegionAttrPT_P7oopDesc.exit: ; preds = %111, %112, %128, %_ZN20G1ParScanThreadState39remember_reference_into_optional_regionI9narrowOopEEvPT_.exit.i
+  %175 = load i32, ptr %20, align 8
+  %176 = icmp eq i32 %175, 1
+  br i1 %176, label %_ZN25G1ScanEvacuatedObjClosure11do_oop_workI9narrowOopEEvPT_.exit, label %177
 
-176:                                              ; preds = %_ZN17G1ScanClosureBase26handle_non_cset_obj_commonI9narrowOopEEv16G1HeapRegionAttrPT_P7oopDesc.exit
-  %177 = load ptr, ptr %19, align 8
+177:                                              ; preds = %_ZN17G1ScanClosureBase26handle_non_cset_obj_commonI9narrowOopEEv16G1HeapRegionAttrPT_P7oopDesc.exit
+  %178 = load ptr, ptr %19, align 8
   %.sroa.0.0.extract.trunc.i.i = trunc i24 %.sroa.0.0.copyload.i.i.i.i to i8
   %.not.i.i = icmp eq i8 %.sroa.0.0.extract.trunc.i.i, 0
-  br i1 %.not.i.i, label %_ZN25G1ScanEvacuatedObjClosure11do_oop_workI9narrowOopEEvPT_.exit, label %178
+  br i1 %.not.i.i, label %_ZN25G1ScanEvacuatedObjClosure11do_oop_workI9narrowOopEEvPT_.exit, label %179
 
-178:                                              ; preds = %176
-  %179 = getelementptr inbounds nuw i8, ptr %177, i64 88
-  %180 = load ptr, ptr %179, align 8
-  %181 = getelementptr inbounds nuw i8, ptr %180, i64 48
-  %182 = load ptr, ptr %181, align 8
-  %183 = load i32, ptr @_ZN9CardTable11_card_shiftE, align 4
-  %184 = zext nneg i32 %183 to i64
-  %185 = lshr i64 %105, %184
-  %186 = getelementptr inbounds i8, ptr %182, i64 %185
-  %187 = getelementptr inbounds nuw i8, ptr %180, i64 40
-  %188 = load ptr, ptr %187, align 8
-  %189 = ptrtoint ptr %186 to i64
-  %190 = ptrtoint ptr %188 to i64
-  %191 = sub i64 %189, %190
-  %192 = getelementptr inbounds nuw i8, ptr %177, i64 432
-  %193 = load i64, ptr %192, align 8
-  %.not.i.not.i.i = icmp eq i64 %193, %191
-  br i1 %.not.i.not.i.i, label %_ZN25G1ScanEvacuatedObjClosure11do_oop_workI9narrowOopEEvPT_.exit, label %194
+179:                                              ; preds = %177
+  %180 = getelementptr inbounds nuw i8, ptr %178, i64 88
+  %181 = load ptr, ptr %180, align 8
+  %182 = getelementptr inbounds nuw i8, ptr %181, i64 48
+  %183 = load ptr, ptr %182, align 8
+  %184 = load i32, ptr @_ZN9CardTable11_card_shiftE, align 4
+  %185 = zext nneg i32 %184 to i64
+  %186 = lshr i64 %105, %185
+  %187 = getelementptr inbounds i8, ptr %183, i64 %186
+  %188 = getelementptr inbounds nuw i8, ptr %181, i64 40
+  %189 = load ptr, ptr %188, align 8
+  %190 = ptrtoint ptr %187 to i64
+  %191 = ptrtoint ptr %189 to i64
+  %192 = sub i64 %190, %191
+  %193 = getelementptr inbounds nuw i8, ptr %178, i64 432
+  %194 = load i64, ptr %193, align 8
+  %.not.i.not.i.i = icmp eq i64 %194, %192
+  br i1 %.not.i.not.i.i, label %_ZN25G1ScanEvacuatedObjClosure11do_oop_workI9narrowOopEEvPT_.exit, label %195
 
-194:                                              ; preds = %178
-  %195 = getelementptr inbounds nuw i8, ptr %177, i64 24
-  %196 = getelementptr inbounds i8, ptr %188, i64 %191
-  tail call void @_ZN27G1RedirtyCardsLocalQueueSet7enqueueEPv(ptr noundef nonnull align 8 dereferenceable(64) %195, ptr noundef %196) #13
-  store i64 %191, ptr %192, align 8
+195:                                              ; preds = %179
+  %196 = getelementptr inbounds nuw i8, ptr %178, i64 24
+  %197 = getelementptr inbounds i8, ptr %189, i64 %192
+  tail call void @_ZN27G1RedirtyCardsLocalQueueSet7enqueueEPv(ptr noundef nonnull align 8 dereferenceable(64) %196, ptr noundef %197) #13
+  store i64 %192, ptr %193, align 8
   br label %_ZN25G1ScanEvacuatedObjClosure11do_oop_workI9narrowOopEEvPT_.exit
 
-_ZN25G1ScanEvacuatedObjClosure11do_oop_workI9narrowOopEEvPT_.exit: ; preds = %.lr.ph, %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i.i.i.i, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i.i, %104, %_ZN17G1ScanClosureBase26handle_non_cset_obj_commonI9narrowOopEEv16G1HeapRegionAttrPT_P7oopDesc.exit, %176, %178, %194
-  %197 = icmp ugt ptr %32, %27
-  br i1 %197, label %.lr.ph, label %.loopexit, !llvm.loop !91
+_ZN25G1ScanEvacuatedObjClosure11do_oop_workI9narrowOopEEvPT_.exit: ; preds = %.lr.ph, %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i.i.i.i, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i.i, %104, %_ZN17G1ScanClosureBase26handle_non_cset_obj_commonI9narrowOopEEv16G1HeapRegionAttrPT_P7oopDesc.exit, %177, %179, %195
+  %198 = icmp ugt ptr %32, %27
+  br i1 %198, label %.lr.ph, label %.loopexit, !llvm.loop !91
 
 ._crit_edge:                                      ; preds = %.loopexit, %.._crit_edge_crit_edge
   %.pre-phi = phi i64 [ %.pre, %.._crit_edge_crit_edge ], [ %17, %.loopexit ]
-  %198 = load i32, ptr @_ZN19InstanceMirrorKlass24_offset_of_static_fieldsE, align 4
-  %199 = sext i32 %198 to i64
-  %200 = add nsw i64 %.pre-phi, %199
-  %201 = inttoptr i64 %200 to ptr
-  %202 = tail call noundef i32 @_ZN15java_lang_Class22static_oop_field_countEP7oopDesc(ptr noundef %1) #13
-  %203 = sext i32 %202 to i64
-  %.idx.i = shl nsw i64 %203, 2
-  %204 = getelementptr inbounds i8, ptr %201, i64 %.idx.i
-  %205 = icmp sgt i32 %202, 0
-  br i1 %205, label %.lr.ph.i, label %_ZN19InstanceMirrorKlass23oop_oop_iterate_staticsI9narrowOop25G1ScanEvacuatedObjClosureEEvP7oopDescPT0_.exit
+  %199 = load i32, ptr @_ZN19InstanceMirrorKlass24_offset_of_static_fieldsE, align 4
+  %200 = sext i32 %199 to i64
+  %201 = add nsw i64 %.pre-phi, %200
+  %202 = inttoptr i64 %201 to ptr
+  %203 = tail call noundef i32 @_ZN15java_lang_Class22static_oop_field_countEP7oopDesc(ptr noundef %1) #13
+  %204 = sext i32 %203 to i64
+  %.idx.i = shl nsw i64 %204, 2
+  %205 = getelementptr inbounds i8, ptr %202, i64 %.idx.i
+  %206 = icmp sgt i32 %203, 0
+  br i1 %206, label %.lr.ph.i, label %_ZN19InstanceMirrorKlass23oop_oop_iterate_staticsI9narrowOop25G1ScanEvacuatedObjClosureEEvP7oopDescPT0_.exit
 
 .lr.ph.i:                                         ; preds = %._crit_edge, %.lr.ph.i
-  %.08.i = phi ptr [ %206, %.lr.ph.i ], [ %201, %._crit_edge ]
+  %.08.i = phi ptr [ %207, %.lr.ph.i ], [ %202, %._crit_edge ]
   tail call void @_ZN25G1ScanEvacuatedObjClosure11do_oop_workI9narrowOopEEvPT_(ptr noundef nonnull align 8 dereferenceable(36) %2, ptr noundef %.08.i)
-  %206 = getelementptr inbounds nuw i8, ptr %.08.i, i64 4
-  %207 = icmp ult ptr %206, %204
-  br i1 %207, label %.lr.ph.i, label %_ZN19InstanceMirrorKlass23oop_oop_iterate_staticsI9narrowOop25G1ScanEvacuatedObjClosureEEvP7oopDescPT0_.exit, !llvm.loop !92
+  %207 = getelementptr inbounds nuw i8, ptr %.08.i, i64 4
+  %208 = icmp ult ptr %207, %205
+  br i1 %208, label %.lr.ph.i, label %_ZN19InstanceMirrorKlass23oop_oop_iterate_staticsI9narrowOop25G1ScanEvacuatedObjClosureEEvP7oopDescPT0_.exit, !llvm.loop !92
 
 _ZN19InstanceMirrorKlass23oop_oop_iterate_staticsI9narrowOop25G1ScanEvacuatedObjClosureEEvP7oopDescPT0_.exit: ; preds = %.lr.ph.i, %._crit_edge
   ret void
@@ -18525,7 +18532,7 @@ _ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i.i: ; preds = %_ZN5Stack
   %.sroa.1.0.extract.trunc.i = trunc i24 %.sroa.1.0.extract.shift.i to i8
   switch i8 %.sroa.1.0.extract.trunc.i, label %_ZN17G1ScanClosureBase26handle_non_cset_obj_commonIP7oopDescEEv16G1HeapRegionAttrPT_S2_.exit [
     i8 -3, label %104
-    i8 -4, label %120
+    i8 -4, label %121
   ]
 
 104:                                              ; preds = %103
@@ -18540,147 +18547,148 @@ _ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i.i: ; preds = %_ZN5Stack
   %113 = and i64 %112, 4294967295
   %114 = getelementptr inbounds nuw i8, ptr %36, i64 1448
   %115 = load ptr, ptr %114, align 8
-  %116 = getelementptr inbounds nuw %struct.G1HeapRegionAttr, ptr %115, i64 %113, i32 1
-  %117 = load i8, ptr %116, align 1
-  %118 = icmp eq i8 %117, -3
-  br i1 %118, label %119, label %_ZN17G1ScanClosureBase26handle_non_cset_obj_commonIP7oopDescEEv16G1HeapRegionAttrPT_S2_.exit
+  %116 = getelementptr inbounds nuw %struct.G1HeapRegionAttr, ptr %115, i64 %113
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 1
+  %118 = load i8, ptr %117, align 1
+  %119 = icmp eq i8 %118, -3
+  br i1 %119, label %120, label %_ZN17G1ScanClosureBase26handle_non_cset_obj_commonIP7oopDescEEv16G1HeapRegionAttrPT_S2_.exit
 
-119:                                              ; preds = %104
-  store i8 -1, ptr %116, align 1
+120:                                              ; preds = %104
+  store i8 -1, ptr %117, align 1
   br label %_ZN17G1ScanClosureBase26handle_non_cset_obj_commonIP7oopDescEEv16G1HeapRegionAttrPT_S2_.exit
 
-120:                                              ; preds = %103
-  %121 = load ptr, ptr %19, align 8
-  %122 = getelementptr inbounds nuw i8, ptr %121, i64 8
-  %123 = load ptr, ptr %122, align 8
-  %124 = getelementptr inbounds nuw i8, ptr %123, i64 520
-  %125 = load i64, ptr %124, align 8
-  %126 = getelementptr inbounds nuw i8, ptr %123, i64 528
-  %127 = load i32, ptr %126, align 8
-  %128 = zext nneg i32 %127 to i64
-  %129 = shl i64 %125, %128
-  %130 = sub i64 %37, %129
-  %131 = lshr i64 %130, %100
-  %132 = and i64 %131, 4294967295
-  %133 = getelementptr inbounds nuw i8, ptr %123, i64 496
-  %134 = load ptr, ptr %133, align 8
-  %135 = getelementptr inbounds nuw ptr, ptr %134, i64 %132
-  %136 = load ptr, ptr %135, align 8
-  %137 = getelementptr inbounds nuw i8, ptr %136, i64 64
-  %138 = load i32, ptr %137, align 8
-  %139 = getelementptr inbounds nuw i8, ptr %121, i64 544
-  %140 = load ptr, ptr %139, align 8
-  %141 = zext i32 %138 to i64
-  %142 = getelementptr inbounds nuw %class.G1OopStarChunkedList, ptr %140, i64 %141
-  %143 = getelementptr inbounds nuw i8, ptr %142, i64 24
-  %144 = load ptr, ptr %143, align 8
-  %145 = icmp eq ptr %144, null
-  br i1 %145, label %146, label %150
+121:                                              ; preds = %103
+  %122 = load ptr, ptr %19, align 8
+  %123 = getelementptr inbounds nuw i8, ptr %122, i64 8
+  %124 = load ptr, ptr %123, align 8
+  %125 = getelementptr inbounds nuw i8, ptr %124, i64 520
+  %126 = load i64, ptr %125, align 8
+  %127 = getelementptr inbounds nuw i8, ptr %124, i64 528
+  %128 = load i32, ptr %127, align 8
+  %129 = zext nneg i32 %128 to i64
+  %130 = shl i64 %126, %129
+  %131 = sub i64 %37, %130
+  %132 = lshr i64 %131, %100
+  %133 = and i64 %132, 4294967295
+  %134 = getelementptr inbounds nuw i8, ptr %124, i64 496
+  %135 = load ptr, ptr %134, align 8
+  %136 = getelementptr inbounds nuw ptr, ptr %135, i64 %133
+  %137 = load ptr, ptr %136, align 8
+  %138 = getelementptr inbounds nuw i8, ptr %137, i64 64
+  %139 = load i32, ptr %138, align 8
+  %140 = getelementptr inbounds nuw i8, ptr %122, i64 544
+  %141 = load ptr, ptr %140, align 8
+  %142 = zext i32 %139 to i64
+  %143 = getelementptr inbounds nuw %class.G1OopStarChunkedList, ptr %141, i64 %142
+  %144 = getelementptr inbounds nuw i8, ptr %143, i64 24
+  %145 = load ptr, ptr %144, align 8
+  %146 = icmp eq ptr %145, null
+  br i1 %146, label %147, label %151
 
-146:                                              ; preds = %120
-  %147 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 536, i8 noundef zeroext 5, i32 noundef 0) #13
-  %148 = getelementptr inbounds nuw i8, ptr %147, i64 512
-  store ptr %147, ptr %148, align 8
-  %149 = getelementptr inbounds nuw i8, ptr %147, i64 520
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %149, i8 0, i64 16, i1 false)
+147:                                              ; preds = %121
+  %148 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 536, i8 noundef zeroext 5, i32 noundef 0) #13
+  %149 = getelementptr inbounds nuw i8, ptr %148, i64 512
+  store ptr %148, ptr %149, align 8
+  %150 = getelementptr inbounds nuw i8, ptr %148, i64 520
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %150, i8 0, i64 16, i1 false)
   br label %.sink.split.i.i.i.i
 
-150:                                              ; preds = %120
-  %151 = getelementptr inbounds nuw i8, ptr %144, i64 512
-  %152 = load ptr, ptr %151, align 8
-  %153 = icmp eq ptr %152, %151
-  br i1 %153, label %154, label %_ZN20G1ParScanThreadState39remember_reference_into_optional_regionIP7oopDescEEvPT_.exit.i
+151:                                              ; preds = %121
+  %152 = getelementptr inbounds nuw i8, ptr %145, i64 512
+  %153 = load ptr, ptr %152, align 8
+  %154 = icmp eq ptr %153, %152
+  br i1 %154, label %155, label %_ZN20G1ParScanThreadState39remember_reference_into_optional_regionIP7oopDescEEvPT_.exit.i
 
-154:                                              ; preds = %150
-  %155 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 536, i8 noundef zeroext 5, i32 noundef 0) #13
-  %156 = getelementptr inbounds nuw i8, ptr %155, i64 512
-  store ptr %155, ptr %156, align 8
-  %157 = getelementptr inbounds nuw i8, ptr %155, i64 520
-  %158 = getelementptr inbounds nuw i8, ptr %155, i64 528
-  store i64 0, ptr %158, align 8
-  store ptr %144, ptr %157, align 8
+155:                                              ; preds = %151
+  %156 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 536, i8 noundef zeroext 5, i32 noundef 0) #13
+  %157 = getelementptr inbounds nuw i8, ptr %156, i64 512
+  store ptr %156, ptr %157, align 8
+  %158 = getelementptr inbounds nuw i8, ptr %156, i64 520
+  %159 = getelementptr inbounds nuw i8, ptr %156, i64 528
+  store i64 0, ptr %159, align 8
+  store ptr %145, ptr %158, align 8
   br label %.sink.split.i.i.i.i
 
-.sink.split.i.i.i.i:                              ; preds = %154, %146
-  %.sink.i.i.i.i = phi ptr [ %155, %154 ], [ %147, %146 ]
-  store ptr %.sink.i.i.i.i, ptr %143, align 8
-  %159 = load i64, ptr %142, align 8
-  %160 = add i64 %159, 536
-  store i64 %160, ptr %142, align 8
+.sink.split.i.i.i.i:                              ; preds = %155, %147
+  %.sink.i.i.i.i = phi ptr [ %156, %155 ], [ %148, %147 ]
+  store ptr %.sink.i.i.i.i, ptr %144, align 8
+  %160 = load i64, ptr %143, align 8
+  %161 = add i64 %160, 536
+  store i64 %161, ptr %143, align 8
   %.phi.trans.insert.i.i.i = getelementptr inbounds nuw i8, ptr %.sink.i.i.i.i, i64 512
   %.pre.i.i.i = load ptr, ptr %.phi.trans.insert.i.i.i, align 8
   br label %_ZN20G1ParScanThreadState39remember_reference_into_optional_regionIP7oopDescEEvPT_.exit.i
 
-_ZN20G1ParScanThreadState39remember_reference_into_optional_regionIP7oopDescEEvPT_.exit.i: ; preds = %.sink.split.i.i.i.i, %150
-  %161 = phi ptr [ %152, %150 ], [ %.pre.i.i.i, %.sink.split.i.i.i.i ]
-  %162 = phi ptr [ %144, %150 ], [ %.sink.i.i.i.i, %.sink.split.i.i.i.i ]
-  %163 = getelementptr inbounds nuw i8, ptr %162, i64 512
-  store ptr %32, ptr %161, align 8
-  %164 = load ptr, ptr %163, align 8
-  %165 = getelementptr inbounds nuw i8, ptr %164, i64 8
-  store ptr %165, ptr %163, align 8
+_ZN20G1ParScanThreadState39remember_reference_into_optional_regionIP7oopDescEEvPT_.exit.i: ; preds = %.sink.split.i.i.i.i, %151
+  %162 = phi ptr [ %153, %151 ], [ %.pre.i.i.i, %.sink.split.i.i.i.i ]
+  %163 = phi ptr [ %145, %151 ], [ %.sink.i.i.i.i, %.sink.split.i.i.i.i ]
+  %164 = getelementptr inbounds nuw i8, ptr %163, i64 512
+  store ptr %32, ptr %162, align 8
+  %165 = load ptr, ptr %164, align 8
+  %166 = getelementptr inbounds nuw i8, ptr %165, i64 8
+  store ptr %166, ptr %164, align 8
   br label %_ZN17G1ScanClosureBase26handle_non_cset_obj_commonIP7oopDescEEv16G1HeapRegionAttrPT_S2_.exit
 
-_ZN17G1ScanClosureBase26handle_non_cset_obj_commonIP7oopDescEEv16G1HeapRegionAttrPT_S2_.exit: ; preds = %103, %104, %119, %_ZN20G1ParScanThreadState39remember_reference_into_optional_regionIP7oopDescEEvPT_.exit.i
-  %166 = load i32, ptr %20, align 8
-  %167 = icmp eq i32 %166, 1
-  br i1 %167, label %_ZN25G1ScanEvacuatedObjClosure11do_oop_workIP7oopDescEEvPT_.exit, label %168
+_ZN17G1ScanClosureBase26handle_non_cset_obj_commonIP7oopDescEEv16G1HeapRegionAttrPT_S2_.exit: ; preds = %103, %104, %120, %_ZN20G1ParScanThreadState39remember_reference_into_optional_regionIP7oopDescEEvPT_.exit.i
+  %167 = load i32, ptr %20, align 8
+  %168 = icmp eq i32 %167, 1
+  br i1 %168, label %_ZN25G1ScanEvacuatedObjClosure11do_oop_workIP7oopDescEEvPT_.exit, label %169
 
-168:                                              ; preds = %_ZN17G1ScanClosureBase26handle_non_cset_obj_commonIP7oopDescEEv16G1HeapRegionAttrPT_S2_.exit
-  %169 = load ptr, ptr %19, align 8
+169:                                              ; preds = %_ZN17G1ScanClosureBase26handle_non_cset_obj_commonIP7oopDescEEv16G1HeapRegionAttrPT_S2_.exit
+  %170 = load ptr, ptr %19, align 8
   %.sroa.0.0.extract.trunc.i.i = trunc i24 %.sroa.0.0.copyload.i.i.i.i to i8
   %.not.i.i = icmp eq i8 %.sroa.0.0.extract.trunc.i.i, 0
-  br i1 %.not.i.i, label %_ZN25G1ScanEvacuatedObjClosure11do_oop_workIP7oopDescEEvPT_.exit, label %170
+  br i1 %.not.i.i, label %_ZN25G1ScanEvacuatedObjClosure11do_oop_workIP7oopDescEEvPT_.exit, label %171
 
-170:                                              ; preds = %168
-  %171 = getelementptr inbounds nuw i8, ptr %169, i64 88
-  %172 = load ptr, ptr %171, align 8
-  %173 = getelementptr inbounds nuw i8, ptr %172, i64 48
-  %174 = load ptr, ptr %173, align 8
-  %175 = load i32, ptr @_ZN9CardTable11_card_shiftE, align 4
-  %176 = zext nneg i32 %175 to i64
-  %177 = lshr i64 %97, %176
-  %178 = getelementptr inbounds i8, ptr %174, i64 %177
-  %179 = getelementptr inbounds nuw i8, ptr %172, i64 40
-  %180 = load ptr, ptr %179, align 8
-  %181 = ptrtoint ptr %178 to i64
-  %182 = ptrtoint ptr %180 to i64
-  %183 = sub i64 %181, %182
-  %184 = getelementptr inbounds nuw i8, ptr %169, i64 432
-  %185 = load i64, ptr %184, align 8
-  %.not.i.not.i.i = icmp eq i64 %185, %183
-  br i1 %.not.i.not.i.i, label %_ZN25G1ScanEvacuatedObjClosure11do_oop_workIP7oopDescEEvPT_.exit, label %186
+171:                                              ; preds = %169
+  %172 = getelementptr inbounds nuw i8, ptr %170, i64 88
+  %173 = load ptr, ptr %172, align 8
+  %174 = getelementptr inbounds nuw i8, ptr %173, i64 48
+  %175 = load ptr, ptr %174, align 8
+  %176 = load i32, ptr @_ZN9CardTable11_card_shiftE, align 4
+  %177 = zext nneg i32 %176 to i64
+  %178 = lshr i64 %97, %177
+  %179 = getelementptr inbounds i8, ptr %175, i64 %178
+  %180 = getelementptr inbounds nuw i8, ptr %173, i64 40
+  %181 = load ptr, ptr %180, align 8
+  %182 = ptrtoint ptr %179 to i64
+  %183 = ptrtoint ptr %181 to i64
+  %184 = sub i64 %182, %183
+  %185 = getelementptr inbounds nuw i8, ptr %170, i64 432
+  %186 = load i64, ptr %185, align 8
+  %.not.i.not.i.i = icmp eq i64 %186, %184
+  br i1 %.not.i.not.i.i, label %_ZN25G1ScanEvacuatedObjClosure11do_oop_workIP7oopDescEEvPT_.exit, label %187
 
-186:                                              ; preds = %170
-  %187 = getelementptr inbounds nuw i8, ptr %169, i64 24
-  %188 = getelementptr inbounds i8, ptr %180, i64 %183
-  tail call void @_ZN27G1RedirtyCardsLocalQueueSet7enqueueEPv(ptr noundef nonnull align 8 dereferenceable(64) %187, ptr noundef %188) #13
-  store i64 %183, ptr %184, align 8
+187:                                              ; preds = %171
+  %188 = getelementptr inbounds nuw i8, ptr %170, i64 24
+  %189 = getelementptr inbounds i8, ptr %181, i64 %184
+  tail call void @_ZN27G1RedirtyCardsLocalQueueSet7enqueueEPv(ptr noundef nonnull align 8 dereferenceable(64) %188, ptr noundef %189) #13
+  store i64 %184, ptr %185, align 8
   br label %_ZN25G1ScanEvacuatedObjClosure11do_oop_workIP7oopDescEEvPT_.exit
 
-_ZN25G1ScanEvacuatedObjClosure11do_oop_workIP7oopDescEEvPT_.exit: ; preds = %.lr.ph, %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i.i.i.i, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i.i, %96, %_ZN17G1ScanClosureBase26handle_non_cset_obj_commonIP7oopDescEEv16G1HeapRegionAttrPT_S2_.exit, %168, %170, %186
-  %189 = icmp ugt ptr %32, %27
-  br i1 %189, label %.lr.ph, label %.loopexit, !llvm.loop !94
+_ZN25G1ScanEvacuatedObjClosure11do_oop_workIP7oopDescEEvPT_.exit: ; preds = %.lr.ph, %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i.i.i.i, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i.i, %96, %_ZN17G1ScanClosureBase26handle_non_cset_obj_commonIP7oopDescEEv16G1HeapRegionAttrPT_S2_.exit, %169, %171, %187
+  %190 = icmp ugt ptr %32, %27
+  br i1 %190, label %.lr.ph, label %.loopexit, !llvm.loop !94
 
 ._crit_edge:                                      ; preds = %.loopexit, %.._crit_edge_crit_edge
   %.pre-phi = phi i64 [ %.pre, %.._crit_edge_crit_edge ], [ %17, %.loopexit ]
-  %190 = load i32, ptr @_ZN19InstanceMirrorKlass24_offset_of_static_fieldsE, align 4
-  %191 = sext i32 %190 to i64
-  %192 = add nsw i64 %.pre-phi, %191
-  %193 = inttoptr i64 %192 to ptr
-  %194 = tail call noundef i32 @_ZN15java_lang_Class22static_oop_field_countEP7oopDesc(ptr noundef %1) #13
-  %195 = sext i32 %194 to i64
-  %.idx.i = shl nsw i64 %195, 3
-  %196 = getelementptr inbounds i8, ptr %193, i64 %.idx.i
-  %197 = icmp sgt i32 %194, 0
-  br i1 %197, label %.lr.ph.i, label %_ZN19InstanceMirrorKlass23oop_oop_iterate_staticsIP7oopDesc25G1ScanEvacuatedObjClosureEEvS2_PT0_.exit
+  %191 = load i32, ptr @_ZN19InstanceMirrorKlass24_offset_of_static_fieldsE, align 4
+  %192 = sext i32 %191 to i64
+  %193 = add nsw i64 %.pre-phi, %192
+  %194 = inttoptr i64 %193 to ptr
+  %195 = tail call noundef i32 @_ZN15java_lang_Class22static_oop_field_countEP7oopDesc(ptr noundef %1) #13
+  %196 = sext i32 %195 to i64
+  %.idx.i = shl nsw i64 %196, 3
+  %197 = getelementptr inbounds i8, ptr %194, i64 %.idx.i
+  %198 = icmp sgt i32 %195, 0
+  br i1 %198, label %.lr.ph.i, label %_ZN19InstanceMirrorKlass23oop_oop_iterate_staticsIP7oopDesc25G1ScanEvacuatedObjClosureEEvS2_PT0_.exit
 
 .lr.ph.i:                                         ; preds = %._crit_edge, %.lr.ph.i
-  %.08.i = phi ptr [ %198, %.lr.ph.i ], [ %193, %._crit_edge ]
+  %.08.i = phi ptr [ %199, %.lr.ph.i ], [ %194, %._crit_edge ]
   tail call void @_ZN25G1ScanEvacuatedObjClosure11do_oop_workIP7oopDescEEvPT_(ptr noundef nonnull align 8 dereferenceable(36) %2, ptr noundef %.08.i)
-  %198 = getelementptr inbounds nuw i8, ptr %.08.i, i64 8
-  %199 = icmp ult ptr %198, %196
-  br i1 %199, label %.lr.ph.i, label %_ZN19InstanceMirrorKlass23oop_oop_iterate_staticsIP7oopDesc25G1ScanEvacuatedObjClosureEEvS2_PT0_.exit, !llvm.loop !95
+  %199 = getelementptr inbounds nuw i8, ptr %.08.i, i64 8
+  %200 = icmp ult ptr %199, %197
+  br i1 %200, label %.lr.ph.i, label %_ZN19InstanceMirrorKlass23oop_oop_iterate_staticsIP7oopDesc25G1ScanEvacuatedObjClosureEEvS2_PT0_.exit, !llvm.loop !95
 
 _ZN19InstanceMirrorKlass23oop_oop_iterate_staticsIP7oopDesc25G1ScanEvacuatedObjClosureEEvS2_PT0_.exit: ; preds = %.lr.ph.i, %._crit_edge
   ret void
@@ -18894,7 +18902,7 @@ _ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i.i: ; preds = %_ZN5Stack
   %.sroa.1.0.extract.trunc.i = trunc i24 %.sroa.1.0.extract.shift.i to i8
   switch i8 %.sroa.1.0.extract.trunc.i, label %_ZN17G1ScanClosureBase26handle_non_cset_obj_commonI9narrowOopEEv16G1HeapRegionAttrPT_P7oopDesc.exit [
     i8 -3, label %112
-    i8 -4, label %128
+    i8 -4, label %129
   ]
 
 112:                                              ; preds = %111
@@ -18909,127 +18917,128 @@ _ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i.i: ; preds = %_ZN5Stack
   %121 = and i64 %120, 4294967295
   %122 = getelementptr inbounds nuw i8, ptr %43, i64 1448
   %123 = load ptr, ptr %122, align 8
-  %124 = getelementptr inbounds nuw %struct.G1HeapRegionAttr, ptr %123, i64 %121, i32 1
-  %125 = load i8, ptr %124, align 1
-  %126 = icmp eq i8 %125, -3
-  br i1 %126, label %127, label %_ZN17G1ScanClosureBase26handle_non_cset_obj_commonI9narrowOopEEv16G1HeapRegionAttrPT_P7oopDesc.exit
+  %124 = getelementptr inbounds nuw %struct.G1HeapRegionAttr, ptr %123, i64 %121
+  %125 = getelementptr inbounds nuw i8, ptr %124, i64 1
+  %126 = load i8, ptr %125, align 1
+  %127 = icmp eq i8 %126, -3
+  br i1 %127, label %128, label %_ZN17G1ScanClosureBase26handle_non_cset_obj_commonI9narrowOopEEv16G1HeapRegionAttrPT_P7oopDesc.exit
 
-127:                                              ; preds = %112
-  store i8 -1, ptr %124, align 1
+128:                                              ; preds = %112
+  store i8 -1, ptr %125, align 1
   br label %_ZN17G1ScanClosureBase26handle_non_cset_obj_commonI9narrowOopEEv16G1HeapRegionAttrPT_P7oopDesc.exit
 
-128:                                              ; preds = %111
-  %129 = load ptr, ptr %19, align 8
-  %130 = getelementptr inbounds nuw i8, ptr %129, i64 8
-  %131 = load ptr, ptr %130, align 8
-  %132 = getelementptr inbounds nuw i8, ptr %131, i64 520
-  %133 = load i64, ptr %132, align 8
-  %134 = getelementptr inbounds nuw i8, ptr %131, i64 528
-  %135 = load i32, ptr %134, align 8
-  %136 = zext nneg i32 %135 to i64
-  %137 = shl i64 %133, %136
-  %138 = sub i64 %42, %137
-  %139 = lshr i64 %138, %108
-  %140 = and i64 %139, 4294967295
-  %141 = getelementptr inbounds nuw i8, ptr %131, i64 496
-  %142 = load ptr, ptr %141, align 8
-  %143 = getelementptr inbounds nuw ptr, ptr %142, i64 %140
-  %144 = load ptr, ptr %143, align 8
-  %145 = getelementptr inbounds nuw i8, ptr %144, i64 64
-  %146 = load i32, ptr %145, align 8
-  %147 = getelementptr inbounds nuw i8, ptr %129, i64 544
-  %148 = load ptr, ptr %147, align 8
-  %149 = zext i32 %146 to i64
-  %150 = getelementptr inbounds nuw %class.G1OopStarChunkedList, ptr %148, i64 %149
-  %151 = getelementptr inbounds nuw i8, ptr %150, i64 32
-  %152 = load ptr, ptr %151, align 8
-  %153 = icmp eq ptr %152, null
-  br i1 %153, label %154, label %158
+129:                                              ; preds = %111
+  %130 = load ptr, ptr %19, align 8
+  %131 = getelementptr inbounds nuw i8, ptr %130, i64 8
+  %132 = load ptr, ptr %131, align 8
+  %133 = getelementptr inbounds nuw i8, ptr %132, i64 520
+  %134 = load i64, ptr %133, align 8
+  %135 = getelementptr inbounds nuw i8, ptr %132, i64 528
+  %136 = load i32, ptr %135, align 8
+  %137 = zext nneg i32 %136 to i64
+  %138 = shl i64 %134, %137
+  %139 = sub i64 %42, %138
+  %140 = lshr i64 %139, %108
+  %141 = and i64 %140, 4294967295
+  %142 = getelementptr inbounds nuw i8, ptr %132, i64 496
+  %143 = load ptr, ptr %142, align 8
+  %144 = getelementptr inbounds nuw ptr, ptr %143, i64 %141
+  %145 = load ptr, ptr %144, align 8
+  %146 = getelementptr inbounds nuw i8, ptr %145, i64 64
+  %147 = load i32, ptr %146, align 8
+  %148 = getelementptr inbounds nuw i8, ptr %130, i64 544
+  %149 = load ptr, ptr %148, align 8
+  %150 = zext i32 %147 to i64
+  %151 = getelementptr inbounds nuw %class.G1OopStarChunkedList, ptr %149, i64 %150
+  %152 = getelementptr inbounds nuw i8, ptr %151, i64 32
+  %153 = load ptr, ptr %152, align 8
+  %154 = icmp eq ptr %153, null
+  br i1 %154, label %155, label %159
 
-154:                                              ; preds = %128
-  %155 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 536, i8 noundef zeroext 5, i32 noundef 0) #13
-  %156 = getelementptr inbounds nuw i8, ptr %155, i64 512
-  store ptr %155, ptr %156, align 8
-  %157 = getelementptr inbounds nuw i8, ptr %155, i64 520
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %157, i8 0, i64 16, i1 false)
+155:                                              ; preds = %129
+  %156 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 536, i8 noundef zeroext 5, i32 noundef 0) #13
+  %157 = getelementptr inbounds nuw i8, ptr %156, i64 512
+  store ptr %156, ptr %157, align 8
+  %158 = getelementptr inbounds nuw i8, ptr %156, i64 520
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %158, i8 0, i64 16, i1 false)
   br label %.sink.split.i.i.i.i
 
-158:                                              ; preds = %128
-  %159 = getelementptr inbounds nuw i8, ptr %152, i64 512
-  %160 = load ptr, ptr %159, align 8
-  %161 = icmp eq ptr %160, %159
-  br i1 %161, label %162, label %_ZN20G1ParScanThreadState39remember_reference_into_optional_regionI9narrowOopEEvPT_.exit.i
+159:                                              ; preds = %129
+  %160 = getelementptr inbounds nuw i8, ptr %153, i64 512
+  %161 = load ptr, ptr %160, align 8
+  %162 = icmp eq ptr %161, %160
+  br i1 %162, label %163, label %_ZN20G1ParScanThreadState39remember_reference_into_optional_regionI9narrowOopEEvPT_.exit.i
 
-162:                                              ; preds = %158
-  %163 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 536, i8 noundef zeroext 5, i32 noundef 0) #13
-  %164 = getelementptr inbounds nuw i8, ptr %163, i64 512
-  store ptr %163, ptr %164, align 8
-  %165 = getelementptr inbounds nuw i8, ptr %163, i64 520
-  %166 = getelementptr inbounds nuw i8, ptr %163, i64 528
-  store i64 0, ptr %166, align 8
-  store ptr %152, ptr %165, align 8
+163:                                              ; preds = %159
+  %164 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 536, i8 noundef zeroext 5, i32 noundef 0) #13
+  %165 = getelementptr inbounds nuw i8, ptr %164, i64 512
+  store ptr %164, ptr %165, align 8
+  %166 = getelementptr inbounds nuw i8, ptr %164, i64 520
+  %167 = getelementptr inbounds nuw i8, ptr %164, i64 528
+  store i64 0, ptr %167, align 8
+  store ptr %153, ptr %166, align 8
   br label %.sink.split.i.i.i.i
 
-.sink.split.i.i.i.i:                              ; preds = %162, %154
-  %.sink.i.i.i.i = phi ptr [ %163, %162 ], [ %155, %154 ]
-  store ptr %.sink.i.i.i.i, ptr %151, align 8
-  %167 = load i64, ptr %150, align 8
-  %168 = add i64 %167, 536
-  store i64 %168, ptr %150, align 8
+.sink.split.i.i.i.i:                              ; preds = %163, %155
+  %.sink.i.i.i.i = phi ptr [ %164, %163 ], [ %156, %155 ]
+  store ptr %.sink.i.i.i.i, ptr %152, align 8
+  %168 = load i64, ptr %151, align 8
+  %169 = add i64 %168, 536
+  store i64 %169, ptr %151, align 8
   %.phi.trans.insert.i.i.i = getelementptr inbounds nuw i8, ptr %.sink.i.i.i.i, i64 512
   %.pre.i.i.i = load ptr, ptr %.phi.trans.insert.i.i.i, align 8
   br label %_ZN20G1ParScanThreadState39remember_reference_into_optional_regionI9narrowOopEEvPT_.exit.i
 
-_ZN20G1ParScanThreadState39remember_reference_into_optional_regionI9narrowOopEEvPT_.exit.i: ; preds = %.sink.split.i.i.i.i, %158
-  %169 = phi ptr [ %160, %158 ], [ %.pre.i.i.i, %.sink.split.i.i.i.i ]
-  %170 = phi ptr [ %152, %158 ], [ %.sink.i.i.i.i, %.sink.split.i.i.i.i ]
-  %171 = getelementptr inbounds nuw i8, ptr %170, i64 512
-  store ptr %32, ptr %169, align 8
-  %172 = load ptr, ptr %171, align 8
-  %173 = getelementptr inbounds nuw i8, ptr %172, i64 8
-  store ptr %173, ptr %171, align 8
+_ZN20G1ParScanThreadState39remember_reference_into_optional_regionI9narrowOopEEvPT_.exit.i: ; preds = %.sink.split.i.i.i.i, %159
+  %170 = phi ptr [ %161, %159 ], [ %.pre.i.i.i, %.sink.split.i.i.i.i ]
+  %171 = phi ptr [ %153, %159 ], [ %.sink.i.i.i.i, %.sink.split.i.i.i.i ]
+  %172 = getelementptr inbounds nuw i8, ptr %171, i64 512
+  store ptr %32, ptr %170, align 8
+  %173 = load ptr, ptr %172, align 8
+  %174 = getelementptr inbounds nuw i8, ptr %173, i64 8
+  store ptr %174, ptr %172, align 8
   br label %_ZN17G1ScanClosureBase26handle_non_cset_obj_commonI9narrowOopEEv16G1HeapRegionAttrPT_P7oopDesc.exit
 
-_ZN17G1ScanClosureBase26handle_non_cset_obj_commonI9narrowOopEEv16G1HeapRegionAttrPT_P7oopDesc.exit: ; preds = %111, %112, %127, %_ZN20G1ParScanThreadState39remember_reference_into_optional_regionI9narrowOopEEvPT_.exit.i
-  %174 = load i32, ptr %20, align 8
-  %175 = icmp eq i32 %174, 1
-  br i1 %175, label %_ZN25G1ScanEvacuatedObjClosure11do_oop_workI9narrowOopEEvPT_.exit, label %176
+_ZN17G1ScanClosureBase26handle_non_cset_obj_commonI9narrowOopEEv16G1HeapRegionAttrPT_P7oopDesc.exit: ; preds = %111, %112, %128, %_ZN20G1ParScanThreadState39remember_reference_into_optional_regionI9narrowOopEEvPT_.exit.i
+  %175 = load i32, ptr %20, align 8
+  %176 = icmp eq i32 %175, 1
+  br i1 %176, label %_ZN25G1ScanEvacuatedObjClosure11do_oop_workI9narrowOopEEvPT_.exit, label %177
 
-176:                                              ; preds = %_ZN17G1ScanClosureBase26handle_non_cset_obj_commonI9narrowOopEEv16G1HeapRegionAttrPT_P7oopDesc.exit
-  %177 = load ptr, ptr %19, align 8
+177:                                              ; preds = %_ZN17G1ScanClosureBase26handle_non_cset_obj_commonI9narrowOopEEv16G1HeapRegionAttrPT_P7oopDesc.exit
+  %178 = load ptr, ptr %19, align 8
   %.sroa.0.0.extract.trunc.i.i = trunc i24 %.sroa.0.0.copyload.i.i.i.i to i8
   %.not.i.i = icmp eq i8 %.sroa.0.0.extract.trunc.i.i, 0
-  br i1 %.not.i.i, label %_ZN25G1ScanEvacuatedObjClosure11do_oop_workI9narrowOopEEvPT_.exit, label %178
+  br i1 %.not.i.i, label %_ZN25G1ScanEvacuatedObjClosure11do_oop_workI9narrowOopEEvPT_.exit, label %179
 
-178:                                              ; preds = %176
-  %179 = getelementptr inbounds nuw i8, ptr %177, i64 88
-  %180 = load ptr, ptr %179, align 8
-  %181 = getelementptr inbounds nuw i8, ptr %180, i64 48
-  %182 = load ptr, ptr %181, align 8
-  %183 = load i32, ptr @_ZN9CardTable11_card_shiftE, align 4
-  %184 = zext nneg i32 %183 to i64
-  %185 = lshr i64 %105, %184
-  %186 = getelementptr inbounds i8, ptr %182, i64 %185
-  %187 = getelementptr inbounds nuw i8, ptr %180, i64 40
-  %188 = load ptr, ptr %187, align 8
-  %189 = ptrtoint ptr %186 to i64
-  %190 = ptrtoint ptr %188 to i64
-  %191 = sub i64 %189, %190
-  %192 = getelementptr inbounds nuw i8, ptr %177, i64 432
-  %193 = load i64, ptr %192, align 8
-  %.not.i.not.i.i = icmp eq i64 %193, %191
-  br i1 %.not.i.not.i.i, label %_ZN25G1ScanEvacuatedObjClosure11do_oop_workI9narrowOopEEvPT_.exit, label %194
+179:                                              ; preds = %177
+  %180 = getelementptr inbounds nuw i8, ptr %178, i64 88
+  %181 = load ptr, ptr %180, align 8
+  %182 = getelementptr inbounds nuw i8, ptr %181, i64 48
+  %183 = load ptr, ptr %182, align 8
+  %184 = load i32, ptr @_ZN9CardTable11_card_shiftE, align 4
+  %185 = zext nneg i32 %184 to i64
+  %186 = lshr i64 %105, %185
+  %187 = getelementptr inbounds i8, ptr %183, i64 %186
+  %188 = getelementptr inbounds nuw i8, ptr %181, i64 40
+  %189 = load ptr, ptr %188, align 8
+  %190 = ptrtoint ptr %187 to i64
+  %191 = ptrtoint ptr %189 to i64
+  %192 = sub i64 %190, %191
+  %193 = getelementptr inbounds nuw i8, ptr %178, i64 432
+  %194 = load i64, ptr %193, align 8
+  %.not.i.not.i.i = icmp eq i64 %194, %192
+  br i1 %.not.i.not.i.i, label %_ZN25G1ScanEvacuatedObjClosure11do_oop_workI9narrowOopEEvPT_.exit, label %195
 
-194:                                              ; preds = %178
-  %195 = getelementptr inbounds nuw i8, ptr %177, i64 24
-  %196 = getelementptr inbounds i8, ptr %188, i64 %191
-  tail call void @_ZN27G1RedirtyCardsLocalQueueSet7enqueueEPv(ptr noundef nonnull align 8 dereferenceable(64) %195, ptr noundef %196) #13
-  store i64 %191, ptr %192, align 8
+195:                                              ; preds = %179
+  %196 = getelementptr inbounds nuw i8, ptr %178, i64 24
+  %197 = getelementptr inbounds i8, ptr %189, i64 %192
+  tail call void @_ZN27G1RedirtyCardsLocalQueueSet7enqueueEPv(ptr noundef nonnull align 8 dereferenceable(64) %196, ptr noundef %197) #13
+  store i64 %192, ptr %193, align 8
   br label %_ZN25G1ScanEvacuatedObjClosure11do_oop_workI9narrowOopEEvPT_.exit
 
-_ZN25G1ScanEvacuatedObjClosure11do_oop_workI9narrowOopEEvPT_.exit: ; preds = %.lr.ph, %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i.i.i.i, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i.i, %104, %_ZN17G1ScanClosureBase26handle_non_cset_obj_commonI9narrowOopEEv16G1HeapRegionAttrPT_P7oopDesc.exit, %176, %178, %194
-  %197 = icmp ugt ptr %32, %27
-  br i1 %197, label %.lr.ph, label %.loopexit, !llvm.loop !97
+_ZN25G1ScanEvacuatedObjClosure11do_oop_workI9narrowOopEEvPT_.exit: ; preds = %.lr.ph, %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i.i.i.i, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i.i, %104, %_ZN17G1ScanClosureBase26handle_non_cset_obj_commonI9narrowOopEEv16G1HeapRegionAttrPT_P7oopDesc.exit, %177, %179, %195
+  %198 = icmp ugt ptr %32, %27
+  br i1 %198, label %.lr.ph, label %.loopexit, !llvm.loop !97
 
 ._crit_edge:                                      ; preds = %.loopexit, %3
   ret void
@@ -19213,7 +19222,7 @@ _ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i.i: ; preds = %_ZN5Stack
   %.sroa.1.0.extract.trunc.i = trunc i24 %.sroa.1.0.extract.shift.i to i8
   switch i8 %.sroa.1.0.extract.trunc.i, label %_ZN17G1ScanClosureBase26handle_non_cset_obj_commonIP7oopDescEEv16G1HeapRegionAttrPT_S2_.exit [
     i8 -3, label %104
-    i8 -4, label %120
+    i8 -4, label %121
   ]
 
 104:                                              ; preds = %103
@@ -19228,127 +19237,128 @@ _ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i.i: ; preds = %_ZN5Stack
   %113 = and i64 %112, 4294967295
   %114 = getelementptr inbounds nuw i8, ptr %36, i64 1448
   %115 = load ptr, ptr %114, align 8
-  %116 = getelementptr inbounds nuw %struct.G1HeapRegionAttr, ptr %115, i64 %113, i32 1
-  %117 = load i8, ptr %116, align 1
-  %118 = icmp eq i8 %117, -3
-  br i1 %118, label %119, label %_ZN17G1ScanClosureBase26handle_non_cset_obj_commonIP7oopDescEEv16G1HeapRegionAttrPT_S2_.exit
+  %116 = getelementptr inbounds nuw %struct.G1HeapRegionAttr, ptr %115, i64 %113
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 1
+  %118 = load i8, ptr %117, align 1
+  %119 = icmp eq i8 %118, -3
+  br i1 %119, label %120, label %_ZN17G1ScanClosureBase26handle_non_cset_obj_commonIP7oopDescEEv16G1HeapRegionAttrPT_S2_.exit
 
-119:                                              ; preds = %104
-  store i8 -1, ptr %116, align 1
+120:                                              ; preds = %104
+  store i8 -1, ptr %117, align 1
   br label %_ZN17G1ScanClosureBase26handle_non_cset_obj_commonIP7oopDescEEv16G1HeapRegionAttrPT_S2_.exit
 
-120:                                              ; preds = %103
-  %121 = load ptr, ptr %19, align 8
-  %122 = getelementptr inbounds nuw i8, ptr %121, i64 8
-  %123 = load ptr, ptr %122, align 8
-  %124 = getelementptr inbounds nuw i8, ptr %123, i64 520
-  %125 = load i64, ptr %124, align 8
-  %126 = getelementptr inbounds nuw i8, ptr %123, i64 528
-  %127 = load i32, ptr %126, align 8
-  %128 = zext nneg i32 %127 to i64
-  %129 = shl i64 %125, %128
-  %130 = sub i64 %37, %129
-  %131 = lshr i64 %130, %100
-  %132 = and i64 %131, 4294967295
-  %133 = getelementptr inbounds nuw i8, ptr %123, i64 496
-  %134 = load ptr, ptr %133, align 8
-  %135 = getelementptr inbounds nuw ptr, ptr %134, i64 %132
-  %136 = load ptr, ptr %135, align 8
-  %137 = getelementptr inbounds nuw i8, ptr %136, i64 64
-  %138 = load i32, ptr %137, align 8
-  %139 = getelementptr inbounds nuw i8, ptr %121, i64 544
-  %140 = load ptr, ptr %139, align 8
-  %141 = zext i32 %138 to i64
-  %142 = getelementptr inbounds nuw %class.G1OopStarChunkedList, ptr %140, i64 %141
-  %143 = getelementptr inbounds nuw i8, ptr %142, i64 24
-  %144 = load ptr, ptr %143, align 8
-  %145 = icmp eq ptr %144, null
-  br i1 %145, label %146, label %150
+121:                                              ; preds = %103
+  %122 = load ptr, ptr %19, align 8
+  %123 = getelementptr inbounds nuw i8, ptr %122, i64 8
+  %124 = load ptr, ptr %123, align 8
+  %125 = getelementptr inbounds nuw i8, ptr %124, i64 520
+  %126 = load i64, ptr %125, align 8
+  %127 = getelementptr inbounds nuw i8, ptr %124, i64 528
+  %128 = load i32, ptr %127, align 8
+  %129 = zext nneg i32 %128 to i64
+  %130 = shl i64 %126, %129
+  %131 = sub i64 %37, %130
+  %132 = lshr i64 %131, %100
+  %133 = and i64 %132, 4294967295
+  %134 = getelementptr inbounds nuw i8, ptr %124, i64 496
+  %135 = load ptr, ptr %134, align 8
+  %136 = getelementptr inbounds nuw ptr, ptr %135, i64 %133
+  %137 = load ptr, ptr %136, align 8
+  %138 = getelementptr inbounds nuw i8, ptr %137, i64 64
+  %139 = load i32, ptr %138, align 8
+  %140 = getelementptr inbounds nuw i8, ptr %122, i64 544
+  %141 = load ptr, ptr %140, align 8
+  %142 = zext i32 %139 to i64
+  %143 = getelementptr inbounds nuw %class.G1OopStarChunkedList, ptr %141, i64 %142
+  %144 = getelementptr inbounds nuw i8, ptr %143, i64 24
+  %145 = load ptr, ptr %144, align 8
+  %146 = icmp eq ptr %145, null
+  br i1 %146, label %147, label %151
 
-146:                                              ; preds = %120
-  %147 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 536, i8 noundef zeroext 5, i32 noundef 0) #13
-  %148 = getelementptr inbounds nuw i8, ptr %147, i64 512
-  store ptr %147, ptr %148, align 8
-  %149 = getelementptr inbounds nuw i8, ptr %147, i64 520
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %149, i8 0, i64 16, i1 false)
+147:                                              ; preds = %121
+  %148 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 536, i8 noundef zeroext 5, i32 noundef 0) #13
+  %149 = getelementptr inbounds nuw i8, ptr %148, i64 512
+  store ptr %148, ptr %149, align 8
+  %150 = getelementptr inbounds nuw i8, ptr %148, i64 520
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %150, i8 0, i64 16, i1 false)
   br label %.sink.split.i.i.i.i
 
-150:                                              ; preds = %120
-  %151 = getelementptr inbounds nuw i8, ptr %144, i64 512
-  %152 = load ptr, ptr %151, align 8
-  %153 = icmp eq ptr %152, %151
-  br i1 %153, label %154, label %_ZN20G1ParScanThreadState39remember_reference_into_optional_regionIP7oopDescEEvPT_.exit.i
+151:                                              ; preds = %121
+  %152 = getelementptr inbounds nuw i8, ptr %145, i64 512
+  %153 = load ptr, ptr %152, align 8
+  %154 = icmp eq ptr %153, %152
+  br i1 %154, label %155, label %_ZN20G1ParScanThreadState39remember_reference_into_optional_regionIP7oopDescEEvPT_.exit.i
 
-154:                                              ; preds = %150
-  %155 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 536, i8 noundef zeroext 5, i32 noundef 0) #13
-  %156 = getelementptr inbounds nuw i8, ptr %155, i64 512
-  store ptr %155, ptr %156, align 8
-  %157 = getelementptr inbounds nuw i8, ptr %155, i64 520
-  %158 = getelementptr inbounds nuw i8, ptr %155, i64 528
-  store i64 0, ptr %158, align 8
-  store ptr %144, ptr %157, align 8
+155:                                              ; preds = %151
+  %156 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 536, i8 noundef zeroext 5, i32 noundef 0) #13
+  %157 = getelementptr inbounds nuw i8, ptr %156, i64 512
+  store ptr %156, ptr %157, align 8
+  %158 = getelementptr inbounds nuw i8, ptr %156, i64 520
+  %159 = getelementptr inbounds nuw i8, ptr %156, i64 528
+  store i64 0, ptr %159, align 8
+  store ptr %145, ptr %158, align 8
   br label %.sink.split.i.i.i.i
 
-.sink.split.i.i.i.i:                              ; preds = %154, %146
-  %.sink.i.i.i.i = phi ptr [ %155, %154 ], [ %147, %146 ]
-  store ptr %.sink.i.i.i.i, ptr %143, align 8
-  %159 = load i64, ptr %142, align 8
-  %160 = add i64 %159, 536
-  store i64 %160, ptr %142, align 8
+.sink.split.i.i.i.i:                              ; preds = %155, %147
+  %.sink.i.i.i.i = phi ptr [ %156, %155 ], [ %148, %147 ]
+  store ptr %.sink.i.i.i.i, ptr %144, align 8
+  %160 = load i64, ptr %143, align 8
+  %161 = add i64 %160, 536
+  store i64 %161, ptr %143, align 8
   %.phi.trans.insert.i.i.i = getelementptr inbounds nuw i8, ptr %.sink.i.i.i.i, i64 512
   %.pre.i.i.i = load ptr, ptr %.phi.trans.insert.i.i.i, align 8
   br label %_ZN20G1ParScanThreadState39remember_reference_into_optional_regionIP7oopDescEEvPT_.exit.i
 
-_ZN20G1ParScanThreadState39remember_reference_into_optional_regionIP7oopDescEEvPT_.exit.i: ; preds = %.sink.split.i.i.i.i, %150
-  %161 = phi ptr [ %152, %150 ], [ %.pre.i.i.i, %.sink.split.i.i.i.i ]
-  %162 = phi ptr [ %144, %150 ], [ %.sink.i.i.i.i, %.sink.split.i.i.i.i ]
-  %163 = getelementptr inbounds nuw i8, ptr %162, i64 512
-  store ptr %32, ptr %161, align 8
-  %164 = load ptr, ptr %163, align 8
-  %165 = getelementptr inbounds nuw i8, ptr %164, i64 8
-  store ptr %165, ptr %163, align 8
+_ZN20G1ParScanThreadState39remember_reference_into_optional_regionIP7oopDescEEvPT_.exit.i: ; preds = %.sink.split.i.i.i.i, %151
+  %162 = phi ptr [ %153, %151 ], [ %.pre.i.i.i, %.sink.split.i.i.i.i ]
+  %163 = phi ptr [ %145, %151 ], [ %.sink.i.i.i.i, %.sink.split.i.i.i.i ]
+  %164 = getelementptr inbounds nuw i8, ptr %163, i64 512
+  store ptr %32, ptr %162, align 8
+  %165 = load ptr, ptr %164, align 8
+  %166 = getelementptr inbounds nuw i8, ptr %165, i64 8
+  store ptr %166, ptr %164, align 8
   br label %_ZN17G1ScanClosureBase26handle_non_cset_obj_commonIP7oopDescEEv16G1HeapRegionAttrPT_S2_.exit
 
-_ZN17G1ScanClosureBase26handle_non_cset_obj_commonIP7oopDescEEv16G1HeapRegionAttrPT_S2_.exit: ; preds = %103, %104, %119, %_ZN20G1ParScanThreadState39remember_reference_into_optional_regionIP7oopDescEEvPT_.exit.i
-  %166 = load i32, ptr %20, align 8
-  %167 = icmp eq i32 %166, 1
-  br i1 %167, label %_ZN25G1ScanEvacuatedObjClosure11do_oop_workIP7oopDescEEvPT_.exit, label %168
+_ZN17G1ScanClosureBase26handle_non_cset_obj_commonIP7oopDescEEv16G1HeapRegionAttrPT_S2_.exit: ; preds = %103, %104, %120, %_ZN20G1ParScanThreadState39remember_reference_into_optional_regionIP7oopDescEEvPT_.exit.i
+  %167 = load i32, ptr %20, align 8
+  %168 = icmp eq i32 %167, 1
+  br i1 %168, label %_ZN25G1ScanEvacuatedObjClosure11do_oop_workIP7oopDescEEvPT_.exit, label %169
 
-168:                                              ; preds = %_ZN17G1ScanClosureBase26handle_non_cset_obj_commonIP7oopDescEEv16G1HeapRegionAttrPT_S2_.exit
-  %169 = load ptr, ptr %19, align 8
+169:                                              ; preds = %_ZN17G1ScanClosureBase26handle_non_cset_obj_commonIP7oopDescEEv16G1HeapRegionAttrPT_S2_.exit
+  %170 = load ptr, ptr %19, align 8
   %.sroa.0.0.extract.trunc.i.i = trunc i24 %.sroa.0.0.copyload.i.i.i.i to i8
   %.not.i.i = icmp eq i8 %.sroa.0.0.extract.trunc.i.i, 0
-  br i1 %.not.i.i, label %_ZN25G1ScanEvacuatedObjClosure11do_oop_workIP7oopDescEEvPT_.exit, label %170
+  br i1 %.not.i.i, label %_ZN25G1ScanEvacuatedObjClosure11do_oop_workIP7oopDescEEvPT_.exit, label %171
 
-170:                                              ; preds = %168
-  %171 = getelementptr inbounds nuw i8, ptr %169, i64 88
-  %172 = load ptr, ptr %171, align 8
-  %173 = getelementptr inbounds nuw i8, ptr %172, i64 48
-  %174 = load ptr, ptr %173, align 8
-  %175 = load i32, ptr @_ZN9CardTable11_card_shiftE, align 4
-  %176 = zext nneg i32 %175 to i64
-  %177 = lshr i64 %97, %176
-  %178 = getelementptr inbounds i8, ptr %174, i64 %177
-  %179 = getelementptr inbounds nuw i8, ptr %172, i64 40
-  %180 = load ptr, ptr %179, align 8
-  %181 = ptrtoint ptr %178 to i64
-  %182 = ptrtoint ptr %180 to i64
-  %183 = sub i64 %181, %182
-  %184 = getelementptr inbounds nuw i8, ptr %169, i64 432
-  %185 = load i64, ptr %184, align 8
-  %.not.i.not.i.i = icmp eq i64 %185, %183
-  br i1 %.not.i.not.i.i, label %_ZN25G1ScanEvacuatedObjClosure11do_oop_workIP7oopDescEEvPT_.exit, label %186
+171:                                              ; preds = %169
+  %172 = getelementptr inbounds nuw i8, ptr %170, i64 88
+  %173 = load ptr, ptr %172, align 8
+  %174 = getelementptr inbounds nuw i8, ptr %173, i64 48
+  %175 = load ptr, ptr %174, align 8
+  %176 = load i32, ptr @_ZN9CardTable11_card_shiftE, align 4
+  %177 = zext nneg i32 %176 to i64
+  %178 = lshr i64 %97, %177
+  %179 = getelementptr inbounds i8, ptr %175, i64 %178
+  %180 = getelementptr inbounds nuw i8, ptr %173, i64 40
+  %181 = load ptr, ptr %180, align 8
+  %182 = ptrtoint ptr %179 to i64
+  %183 = ptrtoint ptr %181 to i64
+  %184 = sub i64 %182, %183
+  %185 = getelementptr inbounds nuw i8, ptr %170, i64 432
+  %186 = load i64, ptr %185, align 8
+  %.not.i.not.i.i = icmp eq i64 %186, %184
+  br i1 %.not.i.not.i.i, label %_ZN25G1ScanEvacuatedObjClosure11do_oop_workIP7oopDescEEvPT_.exit, label %187
 
-186:                                              ; preds = %170
-  %187 = getelementptr inbounds nuw i8, ptr %169, i64 24
-  %188 = getelementptr inbounds i8, ptr %180, i64 %183
-  tail call void @_ZN27G1RedirtyCardsLocalQueueSet7enqueueEPv(ptr noundef nonnull align 8 dereferenceable(64) %187, ptr noundef %188) #13
-  store i64 %183, ptr %184, align 8
+187:                                              ; preds = %171
+  %188 = getelementptr inbounds nuw i8, ptr %170, i64 24
+  %189 = getelementptr inbounds i8, ptr %181, i64 %184
+  tail call void @_ZN27G1RedirtyCardsLocalQueueSet7enqueueEPv(ptr noundef nonnull align 8 dereferenceable(64) %188, ptr noundef %189) #13
+  store i64 %184, ptr %185, align 8
   br label %_ZN25G1ScanEvacuatedObjClosure11do_oop_workIP7oopDescEEvPT_.exit
 
-_ZN25G1ScanEvacuatedObjClosure11do_oop_workIP7oopDescEEvPT_.exit: ; preds = %.lr.ph, %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i.i.i.i, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i.i, %96, %_ZN17G1ScanClosureBase26handle_non_cset_obj_commonIP7oopDescEEv16G1HeapRegionAttrPT_S2_.exit, %168, %170, %186
-  %189 = icmp ugt ptr %32, %27
-  br i1 %189, label %.lr.ph, label %.loopexit, !llvm.loop !99
+_ZN25G1ScanEvacuatedObjClosure11do_oop_workIP7oopDescEEvPT_.exit: ; preds = %.lr.ph, %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i.i.i.i, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i.i, %96, %_ZN17G1ScanClosureBase26handle_non_cset_obj_commonIP7oopDescEEv16G1HeapRegionAttrPT_S2_.exit, %169, %171, %187
+  %190 = icmp ugt ptr %32, %27
+  br i1 %190, label %.lr.ph, label %.loopexit, !llvm.loop !99
 
 ._crit_edge:                                      ; preds = %.loopexit, %3
   ret void

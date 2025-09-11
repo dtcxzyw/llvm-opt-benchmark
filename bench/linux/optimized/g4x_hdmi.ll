@@ -90,7 +90,8 @@ define dso_local i32 @g4x_hdmi_connector_atomic_check(ptr noundef %0, ptr nounde
   %42 = getelementptr inbounds nuw i8, ptr %38, i64 144
   %43 = load i32, ptr %42, align 8
   %44 = zext i32 %43 to i64
-  %45 = getelementptr %struct.__drm_crtcs_state, ptr %41, i64 %44, i32 3
+  %.split.us = getelementptr %struct.__drm_crtcs_state, ptr %41, i64 %44
+  %45 = getelementptr i8, ptr %.split.us, i64 24
   %46 = load ptr, ptr %45, align 8
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 10
   %48 = load i8, ptr %47, align 2
@@ -146,7 +147,8 @@ define dso_local i32 @g4x_hdmi_connector_atomic_check(ptr noundef %0, ptr nounde
   %77 = getelementptr inbounds nuw i8, ptr %73, i64 144
   %78 = load i32, ptr %77, align 8
   %79 = zext i32 %78 to i64
-  %80 = getelementptr %struct.__drm_crtcs_state, ptr %76, i64 %79, i32 3
+  %.split = getelementptr %struct.__drm_crtcs_state, ptr %76, i64 %79
+  %80 = getelementptr i8, ptr %.split, i64 24
   %81 = load ptr, ptr %80, align 8
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 10
   %83 = load i8, ptr %82, align 2
@@ -537,7 +539,8 @@ define internal i32 @g4x_hdmi_compute_config(ptr noundef %0, ptr noundef %1, ptr
   %51 = getelementptr inbounds nuw i8, ptr %47, i64 144
   %52 = load i32, ptr %51, align 8
   %53 = zext i32 %52 to i64
-  %54 = getelementptr %struct.__drm_crtcs_state, ptr %50, i64 %53, i32 3
+  %.split = getelementptr %struct.__drm_crtcs_state, ptr %50, i64 %53
+  %54 = getelementptr i8, ptr %.split, i64 24
   %55 = load ptr, ptr %54, align 8
   %56 = tail call zeroext i1 @intel_hdmi_compute_has_hdmi_sink(ptr noundef %37, ptr noundef %55, ptr noundef %35) #6
   br i1 %56, label %.split.loop.exit8, label %..thread_crit_edge

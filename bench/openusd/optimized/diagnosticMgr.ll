@@ -9840,24 +9840,25 @@ _ZN3tbb6detail2d117concurrent_vectorINS0_2d06paddedINS1_11ets_elementIbEELm128EE
   br i1 %.not.i7.i, label %._crit_edge.i.i, label %.lr.ph.i8.i
 
 .lr.ph.i8.i:                                      ; preds = %_ZN3tbb6detail2d117concurrent_vectorINS0_2d06paddedINS1_11ets_elementIbEELm128EEENS1_23cache_aligned_allocatorIS7_EEE29number_of_elements_in_segmentEm.exit.i.i, %_ZNSt16allocator_traitsIN3tbb6detail2d123cache_aligned_allocatorINS1_2d06paddedINS2_11ets_elementIbEELm128EEEEEE7destroyIS8_EEvRS9_PT_.exit.i.i
-  %.08.i.i = phi i64 [ %46, %_ZNSt16allocator_traitsIN3tbb6detail2d123cache_aligned_allocatorINS1_2d06paddedINS2_11ets_elementIbEELm128EEEEEE7destroyIS8_EEvRS9_PT_.exit.i.i ], [ 0, %_ZN3tbb6detail2d117concurrent_vectorINS0_2d06paddedINS1_11ets_elementIbEELm128EEENS1_23cache_aligned_allocatorIS7_EEE29number_of_elements_in_segmentEm.exit.i.i ]
-  %42 = getelementptr inbounds %"struct.tbb::detail::d0::padded.85", ptr %31, i64 %.08.i.i, i32 0, i32 0, i32 1
-  %43 = load i8, ptr %42, align 1
-  %44 = trunc i8 %43 to i1
-  br i1 %44, label %45, label %_ZNSt16allocator_traitsIN3tbb6detail2d123cache_aligned_allocatorINS1_2d06paddedINS2_11ets_elementIbEELm128EEEEEE7destroyIS8_EEvRS9_PT_.exit.i.i
+  %.08.i.i = phi i64 [ %47, %_ZNSt16allocator_traitsIN3tbb6detail2d123cache_aligned_allocatorINS1_2d06paddedINS2_11ets_elementIbEELm128EEEEEE7destroyIS8_EEvRS9_PT_.exit.i.i ], [ 0, %_ZN3tbb6detail2d117concurrent_vectorINS0_2d06paddedINS1_11ets_elementIbEELm128EEENS1_23cache_aligned_allocatorIS7_EEE29number_of_elements_in_segmentEm.exit.i.i ]
+  %42 = getelementptr inbounds %"struct.tbb::detail::d0::padded.85", ptr %31, i64 %.08.i.i
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 1
+  %44 = load i8, ptr %43, align 1
+  %45 = trunc i8 %44 to i1
+  br i1 %45, label %46, label %_ZNSt16allocator_traitsIN3tbb6detail2d123cache_aligned_allocatorINS1_2d06paddedINS2_11ets_elementIbEELm128EEEEEE7destroyIS8_EEvRS9_PT_.exit.i.i
 
-45:                                               ; preds = %.lr.ph.i8.i
-  store i8 0, ptr %42, align 1
+46:                                               ; preds = %.lr.ph.i8.i
+  store i8 0, ptr %43, align 1
   br label %_ZNSt16allocator_traitsIN3tbb6detail2d123cache_aligned_allocatorINS1_2d06paddedINS2_11ets_elementIbEELm128EEEEEE7destroyIS8_EEvRS9_PT_.exit.i.i
 
-_ZNSt16allocator_traitsIN3tbb6detail2d123cache_aligned_allocatorINS1_2d06paddedINS2_11ets_elementIbEELm128EEEEEE7destroyIS8_EEvRS9_PT_.exit.i.i: ; preds = %45, %.lr.ph.i8.i
-  %46 = add nuw i64 %.08.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %46, %.012.i.i.i
+_ZNSt16allocator_traitsIN3tbb6detail2d123cache_aligned_allocatorINS1_2d06paddedINS2_11ets_elementIbEELm128EEEEEE7destroyIS8_EEvRS9_PT_.exit.i.i: ; preds = %46, %.lr.ph.i8.i
+  %47 = add nuw i64 %.08.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %47, %.012.i.i.i
   br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i8.i, !llvm.loop !108
 
 ._crit_edge.i.i:                                  ; preds = %_ZNSt16allocator_traitsIN3tbb6detail2d123cache_aligned_allocatorINS1_2d06paddedINS2_11ets_elementIbEELm128EEEEEE7destroyIS8_EEvRS9_PT_.exit.i.i, %_ZN3tbb6detail2d117concurrent_vectorINS0_2d06paddedINS1_11ets_elementIbEELm128EEENS1_23cache_aligned_allocatorIS7_EEE29number_of_elements_in_segmentEm.exit.i.i, %35
-  %47 = load atomic i64, ptr %7 monotonic, align 8
-  %.not.i.i.i = icmp uge i64 %10, %47
+  %48 = load atomic i64, ptr %7 monotonic, align 8
+  %.not.i.i.i = icmp uge i64 %10, %48
   %or.cond.i.i.i = or i1 %33, %.not.i.i.i
   br i1 %or.cond.i.i.i, label %.sink.split.i.i.i, label %_ZN3tbb6detail2d113segment_tableINS0_2d06paddedINS1_11ets_elementIbEELm128EEENS1_23cache_aligned_allocatorIS7_EENS1_17concurrent_vectorIS7_S9_EELm3EE14delete_segmentEm.exit
 
@@ -9867,9 +9868,9 @@ _ZNSt16allocator_traitsIN3tbb6detail2d123cache_aligned_allocatorINS1_2d06paddedI
 
 _ZN3tbb6detail2d113segment_tableINS0_2d06paddedINS1_11ets_elementIbEELm128EEENS1_23cache_aligned_allocatorIS7_EENS1_17concurrent_vectorIS7_S9_EELm3EE14delete_segmentEm.exit: ; preds = %.sink.split.i.i.i, %._crit_edge.i.i, %_ZN3tbb6detail2d117concurrent_vectorINS0_2d06paddedINS1_11ets_elementIbEELm128EEENS1_23cache_aligned_allocatorIS7_EEE15nullify_segmentEPSt6atomicIPS7_Em.exit.i, %9
   %.not = icmp eq i64 %10, 0
-  br i1 %.not, label %48, label %9, !llvm.loop !109
+  br i1 %.not, label %49, label %9, !llvm.loop !109
 
-48:                                               ; preds = %_ZN3tbb6detail2d113segment_tableINS0_2d06paddedINS1_11ets_elementIbEELm128EEENS1_23cache_aligned_allocatorIS7_EENS1_17concurrent_vectorIS7_S9_EELm3EE14delete_segmentEm.exit
+49:                                               ; preds = %_ZN3tbb6detail2d113segment_tableINS0_2d06paddedINS1_11ets_elementIbEELm128EEENS1_23cache_aligned_allocatorIS7_EENS1_17concurrent_vectorIS7_S9_EELm3EE14delete_segmentEm.exit
   ret void
 }
 
@@ -10371,24 +10372,25 @@ _ZN3tbb6detail2d117concurrent_vectorINS0_2d06paddedINS1_11ets_elementImEELm128EE
   br i1 %.not.i7.i, label %._crit_edge.i.i, label %.lr.ph.i8.i
 
 .lr.ph.i8.i:                                      ; preds = %_ZN3tbb6detail2d117concurrent_vectorINS0_2d06paddedINS1_11ets_elementImEELm128EEENS1_23cache_aligned_allocatorIS7_EEE29number_of_elements_in_segmentEm.exit.i.i, %_ZNSt16allocator_traitsIN3tbb6detail2d123cache_aligned_allocatorINS1_2d06paddedINS2_11ets_elementImEELm128EEEEEE7destroyIS8_EEvRS9_PT_.exit.i.i
-  %.08.i.i = phi i64 [ %46, %_ZNSt16allocator_traitsIN3tbb6detail2d123cache_aligned_allocatorINS1_2d06paddedINS2_11ets_elementImEELm128EEEEEE7destroyIS8_EEvRS9_PT_.exit.i.i ], [ 0, %_ZN3tbb6detail2d117concurrent_vectorINS0_2d06paddedINS1_11ets_elementImEELm128EEENS1_23cache_aligned_allocatorIS7_EEE29number_of_elements_in_segmentEm.exit.i.i ]
-  %42 = getelementptr inbounds %"struct.tbb::detail::d0::padded", ptr %31, i64 %.08.i.i, i32 0, i32 0, i32 1
-  %43 = load i8, ptr %42, align 8
-  %44 = trunc i8 %43 to i1
-  br i1 %44, label %45, label %_ZNSt16allocator_traitsIN3tbb6detail2d123cache_aligned_allocatorINS1_2d06paddedINS2_11ets_elementImEELm128EEEEEE7destroyIS8_EEvRS9_PT_.exit.i.i
+  %.08.i.i = phi i64 [ %47, %_ZNSt16allocator_traitsIN3tbb6detail2d123cache_aligned_allocatorINS1_2d06paddedINS2_11ets_elementImEELm128EEEEEE7destroyIS8_EEvRS9_PT_.exit.i.i ], [ 0, %_ZN3tbb6detail2d117concurrent_vectorINS0_2d06paddedINS1_11ets_elementImEELm128EEENS1_23cache_aligned_allocatorIS7_EEE29number_of_elements_in_segmentEm.exit.i.i ]
+  %42 = getelementptr inbounds %"struct.tbb::detail::d0::padded", ptr %31, i64 %.08.i.i
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
+  %44 = load i8, ptr %43, align 8
+  %45 = trunc i8 %44 to i1
+  br i1 %45, label %46, label %_ZNSt16allocator_traitsIN3tbb6detail2d123cache_aligned_allocatorINS1_2d06paddedINS2_11ets_elementImEELm128EEEEEE7destroyIS8_EEvRS9_PT_.exit.i.i
 
-45:                                               ; preds = %.lr.ph.i8.i
-  store i8 0, ptr %42, align 8
+46:                                               ; preds = %.lr.ph.i8.i
+  store i8 0, ptr %43, align 8
   br label %_ZNSt16allocator_traitsIN3tbb6detail2d123cache_aligned_allocatorINS1_2d06paddedINS2_11ets_elementImEELm128EEEEEE7destroyIS8_EEvRS9_PT_.exit.i.i
 
-_ZNSt16allocator_traitsIN3tbb6detail2d123cache_aligned_allocatorINS1_2d06paddedINS2_11ets_elementImEELm128EEEEEE7destroyIS8_EEvRS9_PT_.exit.i.i: ; preds = %45, %.lr.ph.i8.i
-  %46 = add nuw i64 %.08.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %46, %.012.i.i.i
+_ZNSt16allocator_traitsIN3tbb6detail2d123cache_aligned_allocatorINS1_2d06paddedINS2_11ets_elementImEELm128EEEEEE7destroyIS8_EEvRS9_PT_.exit.i.i: ; preds = %46, %.lr.ph.i8.i
+  %47 = add nuw i64 %.08.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %47, %.012.i.i.i
   br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i8.i, !llvm.loop !118
 
 ._crit_edge.i.i:                                  ; preds = %_ZNSt16allocator_traitsIN3tbb6detail2d123cache_aligned_allocatorINS1_2d06paddedINS2_11ets_elementImEELm128EEEEEE7destroyIS8_EEvRS9_PT_.exit.i.i, %_ZN3tbb6detail2d117concurrent_vectorINS0_2d06paddedINS1_11ets_elementImEELm128EEENS1_23cache_aligned_allocatorIS7_EEE29number_of_elements_in_segmentEm.exit.i.i, %35
-  %47 = load atomic i64, ptr %7 monotonic, align 8
-  %.not.i.i.i = icmp uge i64 %10, %47
+  %48 = load atomic i64, ptr %7 monotonic, align 8
+  %.not.i.i.i = icmp uge i64 %10, %48
   %or.cond.i.i.i = or i1 %33, %.not.i.i.i
   br i1 %or.cond.i.i.i, label %.sink.split.i.i.i, label %_ZN3tbb6detail2d113segment_tableINS0_2d06paddedINS1_11ets_elementImEELm128EEENS1_23cache_aligned_allocatorIS7_EENS1_17concurrent_vectorIS7_S9_EELm3EE14delete_segmentEm.exit
 
@@ -10398,9 +10400,9 @@ _ZNSt16allocator_traitsIN3tbb6detail2d123cache_aligned_allocatorINS1_2d06paddedI
 
 _ZN3tbb6detail2d113segment_tableINS0_2d06paddedINS1_11ets_elementImEELm128EEENS1_23cache_aligned_allocatorIS7_EENS1_17concurrent_vectorIS7_S9_EELm3EE14delete_segmentEm.exit: ; preds = %.sink.split.i.i.i, %._crit_edge.i.i, %_ZN3tbb6detail2d117concurrent_vectorINS0_2d06paddedINS1_11ets_elementImEELm128EEENS1_23cache_aligned_allocatorIS7_EEE15nullify_segmentEPSt6atomicIPS7_Em.exit.i, %9
   %.not = icmp eq i64 %10, 0
-  br i1 %.not, label %48, label %9, !llvm.loop !119
+  br i1 %.not, label %49, label %9, !llvm.loop !119
 
-48:                                               ; preds = %_ZN3tbb6detail2d113segment_tableINS0_2d06paddedINS1_11ets_elementImEELm128EEENS1_23cache_aligned_allocatorIS7_EENS1_17concurrent_vectorIS7_S9_EELm3EE14delete_segmentEm.exit
+49:                                               ; preds = %_ZN3tbb6detail2d113segment_tableINS0_2d06paddedINS1_11ets_elementImEELm128EEENS1_23cache_aligned_allocatorIS7_EENS1_17concurrent_vectorIS7_S9_EELm3EE14delete_segmentEm.exit
   ret void
 }
 

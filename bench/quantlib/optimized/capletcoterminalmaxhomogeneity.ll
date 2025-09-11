@@ -3739,7 +3739,8 @@ invoke.cont312:                                   ; preds = %invoke.cont310
 
 invoke.cont314:                                   ; preds = %invoke.cont312
   %262 = load ptr, ptr %swapCovariancePseudoRoots, align 8, !tbaa !80
-  %rows_.i474 = getelementptr inbounds nuw %"class.QuantLib::Matrix", ptr %262, i64 %k263.0920, i32 1
+  %add.ptr.i473 = getelementptr inbounds nuw %"class.QuantLib::Matrix", ptr %262, i64 %k263.0920
+  %rows_.i474 = getelementptr inbounds nuw i8, ptr %add.ptr.i473, i64 8
   %263 = load i64, ptr %rows_.i474, align 8, !tbaa !99
   %call.i475 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %call.i466, i64 noundef %263)
           to label %invoke.cont319 unwind label %lpad309
@@ -3936,7 +3937,8 @@ invoke.cont371:                                   ; preds = %invoke.cont369
 
 invoke.cont373:                                   ; preds = %invoke.cont371
   %287 = load ptr, ptr %swapCovariancePseudoRoots, align 8, !tbaa !80
-  %columns_.i523 = getelementptr inbounds nuw %"class.QuantLib::Matrix", ptr %287, i64 %k263.0920, i32 2
+  %add.ptr.i522 = getelementptr inbounds nuw %"class.QuantLib::Matrix", ptr %287, i64 %k263.0920
+  %columns_.i523 = getelementptr inbounds nuw i8, ptr %add.ptr.i522, i64 16
   %288 = load i64, ptr %columns_.i523, align 8, !tbaa !83
   %call.i524 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %call.i515, i64 noundef %288)
           to label %invoke.cont378 unwind label %lpad368

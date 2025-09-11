@@ -3803,9 +3803,7 @@ switch.lookup:                                    ; preds = %4
   br i1 %.not29, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %switch.lookup
-  %switch.cast = trunc nuw i8 %5 to i3
-  %switch.downshift = lshr exact i3 -4, %switch.cast
-  %switch.masked = trunc i3 %switch.downshift to i1
+  %switch.masked = icmp eq i8 %5, 2
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph

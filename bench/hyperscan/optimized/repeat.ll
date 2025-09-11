@@ -449,11 +449,11 @@ mmbit_iterate_bounded.exit.thread:                ; preds = %192, %get_flat_mask
 
 210:                                              ; preds = %mmbit_iterate_bounded.exit.thread
   %211 = icmp ugt i32 %6, 256
-  br i1 %211, label %302, label %212
+  br i1 %211, label %301, label %212
 
 212:                                              ; preds = %210
   %213 = icmp samesign ult i32 %6, 65
-  br i1 %213, label %214, label %245
+  br i1 %213, label %214, label %get_flat_masks.exit155.preheader
 
 214:                                              ; preds = %212
   %215 = add nuw nsw i32 %.val, 8
@@ -512,212 +512,211 @@ mmbit_iterate_bounded.exit88.thread233:           ; preds = %mmbit_get_flat_bloc
   %244 = trunc nuw nsw i64 %243 to i32
   br label %mmbit_iterate_bounded.exit88.thread296
 
-245:                                              ; preds = %212
-  %246 = and i32 %6, 448
-  %247 = tail call i32 @llvm.umin.i32(i32 %16, i32 %246)
-  %.not57.i258.not = icmp eq i32 %247, 0
-  br i1 %.not57.i258.not, label %._crit_edge260, label %get_flat_masks.exit155
+get_flat_masks.exit155.preheader:                 ; preds = %212
+  %245 = and i32 %6, 448
+  %246 = tail call i32 @llvm.umin.i32(i32 %16, i32 %245)
+  br label %get_flat_masks.exit155
 
-get_flat_masks.exit155:                           ; preds = %245, %261
-  %.050.i259 = phi i32 [ %262, %261 ], [ 0, %245 ]
-  %248 = lshr exact i32 %.050.i259, 3
-  %249 = zext nneg i32 %248 to i64
-  %250 = getelementptr inbounds nuw i8, ptr %2, i64 %249
-  %251 = load i64, ptr %250, align 1
-  %252 = sub nuw nsw i32 %16, %.050.i259
-  %253 = icmp samesign ult i32 %252, 64
-  %254 = zext nneg i32 %252 to i64
-  %notmask245 = shl nsw i64 -1, %254
-  %255 = xor i64 %notmask245, -1
-  %256 = select i1 %253, i64 %255, i64 -1
-  %257 = and i64 %251, %256
-  %.not.i89 = icmp eq i64 %257, 0
-  br i1 %.not.i89, label %261, label %.thread201
+get_flat_masks.exit155:                           ; preds = %get_flat_masks.exit155.preheader, %260
+  %.050.i259 = phi i32 [ %261, %260 ], [ 0, %get_flat_masks.exit155.preheader ]
+  %247 = lshr exact i32 %.050.i259, 3
+  %248 = zext nneg i32 %247 to i64
+  %249 = getelementptr inbounds nuw i8, ptr %2, i64 %248
+  %250 = load i64, ptr %249, align 1
+  %251 = sub nuw nsw i32 %16, %.050.i259
+  %252 = icmp samesign ult i32 %251, 64
+  %253 = zext nneg i32 %251 to i64
+  %notmask245 = shl nsw i64 -1, %253
+  %254 = xor i64 %notmask245, -1
+  %255 = select i1 %252, i64 %254, i64 -1
+  %256 = and i64 %250, %255
+  %.not.i89 = icmp eq i64 %256, 0
+  br i1 %.not.i89, label %260, label %.thread201
 
 .thread201:                                       ; preds = %get_flat_masks.exit155
-  %258 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %257, i1 true)
-  %259 = trunc nuw nsw i64 %258 to i32
-  %260 = or disjoint i32 %.050.i259, %259
+  %257 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %256, i1 true)
+  %258 = trunc nuw nsw i64 %257 to i32
+  %259 = or disjoint i32 %.050.i259, %258
   br label %mmbit_iterate_bounded.exit88.thread296
 
-261:                                              ; preds = %get_flat_masks.exit155
-  %262 = add nuw nsw i32 %.050.i259, 64
-  %.not57.i = icmp samesign ult i32 %262, %247
+260:                                              ; preds = %get_flat_masks.exit155
+  %261 = add nuw nsw i32 %.050.i259, 64
+  %.not57.i = icmp samesign ult i32 %261, %246
   br i1 %.not57.i, label %get_flat_masks.exit155, label %._crit_edge260
 
-._crit_edge260:                                   ; preds = %261, %245
-  %263 = icmp samesign ult i32 %246, %16
-  br i1 %263, label %264, label %mmbit_iterate_bounded.exit88.thread
+._crit_edge260:                                   ; preds = %260
+  %262 = icmp samesign ult i32 %245, %16
+  br i1 %262, label %263, label %mmbit_iterate_bounded.exit88.thread
 
-264:                                              ; preds = %._crit_edge260
-  %265 = lshr exact i32 %246, 3
-  %266 = zext nneg i32 %265 to i64
-  %267 = getelementptr inbounds nuw i8, ptr %2, i64 %266
-  %268 = and i32 %6, 63
-  %269 = add nuw nsw i32 %268, 7
-  %270 = lshr i32 %269, 3
-  switch i32 %270, label %285 [
-    i32 1, label %271
-    i32 2, label %274
-    i32 3, label %277
-    i32 4, label %277
+263:                                              ; preds = %._crit_edge260
+  %264 = lshr exact i32 %245, 3
+  %265 = zext nneg i32 %264 to i64
+  %266 = getelementptr inbounds nuw i8, ptr %2, i64 %265
+  %267 = and i32 %6, 63
+  %268 = add nuw nsw i32 %267, 7
+  %269 = lshr i32 %268, 3
+  switch i32 %269, label %284 [
+    i32 1, label %270
+    i32 2, label %273
+    i32 3, label %276
+    i32 4, label %276
   ]
 
-271:                                              ; preds = %264
-  %272 = load i8, ptr %267, align 1
-  %273 = zext i8 %272 to i64
+270:                                              ; preds = %263
+  %271 = load i8, ptr %266, align 1
+  %272 = zext i8 %271 to i64
   br label %mmbit_get_flat_block.exit139
 
-274:                                              ; preds = %264
-  %275 = load i16, ptr %267, align 1
-  %276 = zext i16 %275 to i64
+273:                                              ; preds = %263
+  %274 = load i16, ptr %266, align 1
+  %275 = zext i16 %274 to i64
   br label %mmbit_get_flat_block.exit139
 
-277:                                              ; preds = %264, %264
-  %278 = zext nneg i32 %270 to i64
-  %279 = getelementptr inbounds nuw i8, ptr %267, i64 %278
-  %280 = getelementptr inbounds i8, ptr %279, i64 -4
-  %.0.copyload2.i136 = load i32, ptr %280, align 1
-  %281 = and i32 %269, 120
-  %282 = sub nsw i32 32, %281
-  %283 = lshr i32 %.0.copyload2.i136, %282
-  %284 = zext i32 %283 to i64
+276:                                              ; preds = %263, %263
+  %277 = zext nneg i32 %269 to i64
+  %278 = getelementptr inbounds nuw i8, ptr %266, i64 %277
+  %279 = getelementptr inbounds i8, ptr %278, i64 -4
+  %.0.copyload2.i136 = load i32, ptr %279, align 1
+  %280 = and i32 %268, 120
+  %281 = sub nsw i32 32, %280
+  %282 = lshr i32 %.0.copyload2.i136, %281
+  %283 = zext i32 %282 to i64
   br label %mmbit_get_flat_block.exit139
 
-285:                                              ; preds = %264
-  %286 = zext nneg i32 %270 to i64
-  %287 = getelementptr inbounds nuw i8, ptr %267, i64 %286
-  %288 = getelementptr inbounds i8, ptr %287, i64 -8
-  %.0.copyload.i138 = load i64, ptr %288, align 1
-  %289 = shl nuw nsw i64 %286, 3
-  %290 = sub nuw nsw i64 64, %289
-  %291 = lshr i64 %.0.copyload.i138, %290
+284:                                              ; preds = %263
+  %285 = zext nneg i32 %269 to i64
+  %286 = getelementptr inbounds nuw i8, ptr %266, i64 %285
+  %287 = getelementptr inbounds i8, ptr %286, i64 -8
+  %.0.copyload.i138 = load i64, ptr %287, align 1
+  %288 = shl nuw nsw i64 %285, 3
+  %289 = sub nuw nsw i64 64, %288
+  %290 = lshr i64 %.0.copyload.i138, %289
   br label %mmbit_get_flat_block.exit139
 
-mmbit_get_flat_block.exit139:                     ; preds = %285, %277, %274, %271
-  %.0.i137 = phi i64 [ %291, %285 ], [ %273, %271 ], [ %276, %274 ], [ %284, %277 ]
-  %292 = sub nuw nsw i32 %16, %246
-  %293 = icmp samesign ult i32 %292, 64
-  %294 = zext nneg i32 %292 to i64
-  %notmask244 = shl nsw i64 -1, %294
-  %295 = xor i64 %notmask244, -1
-  %296 = select i1 %293, i64 %295, i64 -1
-  %297 = and i64 %.0.i137, %296
-  %.not58.i = icmp eq i64 %297, 0
-  br i1 %.not58.i, label %mmbit_iterate_bounded.exit88.thread, label %298
+mmbit_get_flat_block.exit139:                     ; preds = %284, %276, %273, %270
+  %.0.i137 = phi i64 [ %290, %284 ], [ %272, %270 ], [ %275, %273 ], [ %283, %276 ]
+  %291 = sub nuw nsw i32 %16, %245
+  %292 = icmp samesign ult i32 %291, 64
+  %293 = zext nneg i32 %291 to i64
+  %notmask244 = shl nsw i64 -1, %293
+  %294 = xor i64 %notmask244, -1
+  %295 = select i1 %292, i64 %294, i64 -1
+  %296 = and i64 %.0.i137, %295
+  %.not58.i = icmp eq i64 %296, 0
+  br i1 %.not58.i, label %mmbit_iterate_bounded.exit88.thread, label %297
 
-298:                                              ; preds = %mmbit_get_flat_block.exit139
-  %299 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %297, i1 true)
-  %300 = trunc nuw nsw i64 %299 to i32
-  %301 = or disjoint i32 %246, %300
+297:                                              ; preds = %mmbit_get_flat_block.exit139
+  %298 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %296, i1 true)
+  %299 = trunc nuw nsw i64 %298 to i32
+  %300 = or disjoint i32 %245, %299
   br label %mmbit_iterate_bounded.exit88.thread296
 
-302:                                              ; preds = %210
-  %303 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %.val, i1 true)
-  %304 = zext nneg i32 %303 to i64
-  %305 = getelementptr inbounds nuw i8, ptr @mmbit_keyshift_lut, i64 %304
-  %306 = load i8, ptr %305, align 1
-  %307 = zext i8 %306 to i32
-  %308 = zext i8 %306 to i64
-  %309 = getelementptr inbounds nuw i8, ptr @mmbit_maxlevel_from_keyshift_lut, i64 %308
-  %310 = load i8, ptr %309, align 1
-  %311 = zext i8 %310 to i32
-  %312 = add nsw i32 %16, -1
-  %313 = zext i32 %312 to i64
+301:                                              ; preds = %210
+  %302 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %.val, i1 true)
+  %303 = zext nneg i32 %302 to i64
+  %304 = getelementptr inbounds nuw i8, ptr @mmbit_keyshift_lut, i64 %303
+  %305 = load i8, ptr %304, align 1
+  %306 = zext i8 %305 to i32
+  %307 = zext i8 %305 to i64
+  %308 = getelementptr inbounds nuw i8, ptr @mmbit_maxlevel_from_keyshift_lut, i64 %307
+  %309 = load i8, ptr %308, align 1
+  %310 = zext i8 %309 to i32
+  %311 = add nsw i32 %16, -1
+  %312 = zext nneg i32 %311 to i64
   br label %get_lowhi_masks.exit160
 
-get_lowhi_masks.exit160:                          ; preds = %359, %302
-  %.056.i = phi i32 [ 0, %302 ], [ %.157.i, %359 ]
-  %.052.i = phi i32 [ %307, %302 ], [ %360, %359 ]
-  %.048.i = phi i64 [ 0, %302 ], [ %.149.i, %359 ]
-  %.045.i = phi i32 [ 0, %302 ], [ %.146.i, %359 ]
-  %314 = zext nneg i32 %.052.i to i64
-  %315 = shl i64 64, %314
-  %316 = mul i64 %315, %.048.i
-  %317 = zext i32 %.045.i to i64
-  %318 = add i64 %316, %315
-  %319 = add i64 %318, -1
-  %..i = tail call i64 @llvm.umin.i64(i64 %319, i64 %313)
-  %320 = zext i32 %.056.i to i64
-  %321 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %320
-  %322 = load i32, ptr %321, align 4
-  %323 = zext i32 %322 to i64
-  %324 = shl nuw nsw i64 %323, 3
-  %325 = getelementptr inbounds nuw i8, ptr %2, i64 %324
-  %326 = shl i64 %.048.i, 3
-  %327 = getelementptr inbounds nuw i8, ptr %325, i64 %326
-  %328 = load i64, ptr %327, align 1
-  %329 = sub i32 %311, %.056.i
-  %330 = mul i32 %329, 6
-  %331 = tail call i64 @llvm.usub.sat.i64(i64 %317, i64 %316)
-  %332 = zext i32 %330 to i64
-  %333 = lshr i64 %331, %332
-  %334 = sub i64 %..i, %316
-  %335 = lshr i64 %334, %332
-  %336 = icmp samesign ult i64 %333, 64
-  %notmask247 = shl nsw i64 -1, %333
-  %337 = select i1 %336, i64 %notmask247, i64 0
-  %338 = icmp ult i64 %335, 63
-  %339 = add i64 %335, 1
-  %340 = and i64 %339, 4294967295
-  %notmask248 = shl nsw i64 -1, %340
-  %341 = xor i64 %notmask248, -1
-  %342 = select i1 %338, i64 %341, i64 -1
-  %343 = and i64 %337, %328
-  %344 = and i64 %343, %342
-  %.not.i101 = icmp eq i64 %344, 0
-  br i1 %.not.i101, label %352, label %345
+get_lowhi_masks.exit160:                          ; preds = %358, %301
+  %.056.i = phi i32 [ 0, %301 ], [ %.157.i, %358 ]
+  %.052.i = phi i32 [ %306, %301 ], [ %359, %358 ]
+  %.048.i = phi i64 [ 0, %301 ], [ %.149.i, %358 ]
+  %.045.i = phi i32 [ 0, %301 ], [ %.146.i, %358 ]
+  %313 = zext nneg i32 %.052.i to i64
+  %314 = shl i64 64, %313
+  %315 = mul i64 %314, %.048.i
+  %316 = zext i32 %.045.i to i64
+  %317 = add i64 %315, %314
+  %318 = add i64 %317, -1
+  %..i = tail call i64 @llvm.umin.i64(i64 %318, i64 %312)
+  %319 = zext i32 %.056.i to i64
+  %320 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %319
+  %321 = load i32, ptr %320, align 4
+  %322 = zext i32 %321 to i64
+  %323 = shl nuw nsw i64 %322, 3
+  %324 = getelementptr inbounds nuw i8, ptr %2, i64 %323
+  %325 = shl i64 %.048.i, 3
+  %326 = getelementptr inbounds nuw i8, ptr %324, i64 %325
+  %327 = load i64, ptr %326, align 1
+  %328 = sub i32 %310, %.056.i
+  %329 = mul i32 %328, 6
+  %330 = tail call i64 @llvm.usub.sat.i64(i64 %316, i64 %315)
+  %331 = zext i32 %329 to i64
+  %332 = lshr i64 %330, %331
+  %333 = sub i64 %..i, %315
+  %334 = lshr i64 %333, %331
+  %335 = icmp samesign ult i64 %332, 64
+  %notmask247 = shl nsw i64 -1, %332
+  %336 = select i1 %335, i64 %notmask247, i64 0
+  %337 = icmp ult i64 %334, 63
+  %338 = add i64 %334, 1
+  %339 = and i64 %338, 4294967295
+  %notmask248 = shl nsw i64 -1, %339
+  %340 = xor i64 %notmask248, -1
+  %341 = select i1 %337, i64 %340, i64 -1
+  %342 = and i64 %336, %327
+  %343 = and i64 %342, %341
+  %.not.i101 = icmp eq i64 %343, 0
+  br i1 %.not.i101, label %351, label %344
 
-345:                                              ; preds = %get_lowhi_masks.exit160
-  %346 = shl i64 %.048.i, 6
-  %347 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %344, i1 true)
-  %348 = or disjoint i64 %347, %346
-  %349 = icmp eq i32 %.056.i, %311
-  br i1 %349, label %mmbit_iterate_bounded.exit88, label %350
+344:                                              ; preds = %get_lowhi_masks.exit160
+  %345 = shl i64 %.048.i, 6
+  %346 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %343, i1 true)
+  %347 = or disjoint i64 %346, %345
+  %348 = icmp eq i32 %.056.i, %310
+  br i1 %348, label %mmbit_iterate_bounded.exit88, label %349
 
-350:                                              ; preds = %345
-  %351 = add i32 %.056.i, 1
-  br label %359
+349:                                              ; preds = %344
+  %350 = add i32 %.056.i, 1
+  br label %358
 
-352:                                              ; preds = %get_lowhi_masks.exit160
-  %353 = icmp ugt i64 %318, %313
-  %354 = icmp eq i32 %.056.i, 0
-  %or.cond250 = or i1 %354, %353
-  br i1 %or.cond250, label %mmbit_iterate_bounded.exit88.thread, label %355
+351:                                              ; preds = %get_lowhi_masks.exit160
+  %352 = icmp ugt i64 %317, %312
+  %353 = icmp eq i32 %.056.i, 0
+  %or.cond250 = or i1 %353, %352
+  br i1 %or.cond250, label %mmbit_iterate_bounded.exit88.thread, label %354
 
-355:                                              ; preds = %352
-  %356 = add i32 %.056.i, -1
-  %357 = trunc nuw i64 %318 to i32
-  %358 = lshr i64 %.048.i, 6
-  br label %359
+354:                                              ; preds = %351
+  %355 = add i32 %.056.i, -1
+  %356 = trunc nuw i64 %317 to i32
+  %357 = lshr i64 %.048.i, 6
+  br label %358
 
-359:                                              ; preds = %355, %350
-  %.sink307 = phi i32 [ 6, %355 ], [ -6, %350 ]
-  %.157.i = phi i32 [ %356, %355 ], [ %351, %350 ]
-  %.149.i = phi i64 [ %358, %355 ], [ %348, %350 ]
-  %.146.i = phi i32 [ %357, %355 ], [ %.045.i, %350 ]
-  %360 = add i32 %.052.i, %.sink307
+358:                                              ; preds = %354, %349
+  %.sink307 = phi i32 [ 6, %354 ], [ -6, %349 ]
+  %.157.i = phi i32 [ %355, %354 ], [ %350, %349 ]
+  %.149.i = phi i64 [ %357, %354 ], [ %347, %349 ]
+  %.146.i = phi i32 [ %356, %354 ], [ %.045.i, %349 ]
+  %359 = add i32 %.052.i, %.sink307
   br label %get_lowhi_masks.exit160
 
-mmbit_iterate_bounded.exit88:                     ; preds = %345
-  %361 = trunc i64 %348 to i32
-  %.not82 = icmp eq i32 %361, -1
+mmbit_iterate_bounded.exit88:                     ; preds = %344
+  %360 = trunc i64 %347 to i32
+  %.not82 = icmp eq i32 %360, -1
   br i1 %.not82, label %mmbit_iterate_bounded.exit88.thread, label %mmbit_iterate_bounded.exit88.thread296
 
-mmbit_iterate_bounded.exit88.thread296:           ; preds = %.thread201, %298, %mmbit_iterate_bounded.exit88.thread233, %mmbit_iterate_bounded.exit88
-  %.013.i87236 = phi i32 [ %244, %mmbit_iterate_bounded.exit88.thread233 ], [ %361, %mmbit_iterate_bounded.exit88 ], [ %260, %.thread201 ], [ %301, %298 ]
-  %362 = trunc i64 %spec.select to i32
-  %363 = add i32 %6, %362
-  %364 = sub i32 %363, %.065
-  %365 = add i32 %364, %.013.i87236
-  %366 = zext i32 %365 to i64
-  %367 = add i64 %8, %.pre269
-  %368 = add i64 %367, %366
-  %.83 = tail call i64 @llvm.umax.i64(i64 %7, i64 %368)
+mmbit_iterate_bounded.exit88.thread296:           ; preds = %.thread201, %297, %mmbit_iterate_bounded.exit88.thread233, %mmbit_iterate_bounded.exit88
+  %.013.i87236 = phi i32 [ %244, %mmbit_iterate_bounded.exit88.thread233 ], [ %360, %mmbit_iterate_bounded.exit88 ], [ %259, %.thread201 ], [ %300, %297 ]
+  %361 = trunc i64 %spec.select to i32
+  %362 = add i32 %6, %361
+  %363 = sub i32 %362, %.065
+  %364 = add i32 %363, %.013.i87236
+  %365 = zext i32 %364 to i64
+  %366 = add i64 %8, %.pre269
+  %367 = add i64 %366, %365
+  %.83 = tail call i64 @llvm.umax.i64(i64 %7, i64 %367)
   br label %mmbit_iterate_bounded.exit88.thread
 
-mmbit_iterate_bounded.exit88.thread:              ; preds = %352, %mmbit_get_flat_block.exit139, %._crit_edge260, %mmbit_get_flat_block.exit135, %202, %mmbit_iterate_bounded.exit88.thread296, %mmbit_iterate_bounded.exit88, %mmbit_iterate_bounded.exit.thread, %13, %._crit_edge268
-  %.0 = phi i64 [ %12, %._crit_edge268 ], [ 0, %13 ], [ %., %202 ], [ %.83, %mmbit_iterate_bounded.exit88.thread296 ], [ 0, %mmbit_iterate_bounded.exit88 ], [ 0, %mmbit_iterate_bounded.exit.thread ], [ 0, %mmbit_get_flat_block.exit135 ], [ 0, %._crit_edge260 ], [ 0, %mmbit_get_flat_block.exit139 ], [ 0, %352 ]
+mmbit_iterate_bounded.exit88.thread:              ; preds = %351, %mmbit_get_flat_block.exit139, %._crit_edge260, %mmbit_get_flat_block.exit135, %202, %mmbit_iterate_bounded.exit88.thread296, %mmbit_iterate_bounded.exit88, %mmbit_iterate_bounded.exit.thread, %13, %._crit_edge268
+  %.0 = phi i64 [ %12, %._crit_edge268 ], [ 0, %13 ], [ %., %202 ], [ %.83, %mmbit_iterate_bounded.exit88.thread296 ], [ 0, %mmbit_iterate_bounded.exit88 ], [ 0, %mmbit_iterate_bounded.exit.thread ], [ 0, %mmbit_get_flat_block.exit135 ], [ 0, %._crit_edge260 ], [ 0, %mmbit_get_flat_block.exit139 ], [ 0, %351 ]
   ret i64 %.0
 }
 
@@ -5308,7 +5307,7 @@ mmbit_get_flat_block.exit306:                     ; preds = %546, %538, %535, %5
   %572 = load i8, ptr %571, align 1
   %573 = zext i8 %572 to i32
   %574 = add nsw i32 %46, -1
-  %575 = zext i32 %574 to i64
+  %575 = zext nneg i32 %574 to i64
   br label %get_lowhi_masks.exit367
 
 get_lowhi_masks.exit367:                          ; preds = %621, %563

@@ -5349,9 +5349,9 @@ _ZN12regex_syntax3ast5parse15is_capture_char17h2907a3e450866a9aE.exit.thread.i.i
 
 1011:                                             ; preds = %.lr.ph.i.i.i.i.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.43.i.i.i.sroa.0.i.sroa.3)
-  %1012 = getelementptr inbounds { { { { i64, ptr }, i64 } }, { { i64, i64, i64 }, { i64, i64, i64 } }, i32, [1 x i32] }, ptr %989, i64 %992, i32 1
+  %1012 = getelementptr inbounds nuw i8, ptr %994, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %.sroa.43.i.i.i.sroa.0.i.sroa.3, ptr noundef nonnull align 8 dereferenceable(40) %1012, i64 40, i1 false), !noalias !667
-  %.sroa.43.i.i.i.sroa.4.4..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1012, i64 40
+  %.sroa.43.i.i.i.sroa.4.4..sroa_idx.i = getelementptr inbounds nuw i8, ptr %994, i64 64
   %.sroa.43.i.i.i.sroa.4.4.copyload.i = load i64, ptr %.sroa.43.i.i.i.sroa.4.4..sroa_idx.i, align 8, !noalias !667
   %1013 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17hdb84637038dc113dE"(i64 noundef %222, i1 noundef zeroext false)
           to label %1043 unwind label %1009, !noalias !667

@@ -102,77 +102,81 @@ define void @_Z16CalcSingleCommonii(i32 noundef %0, i32 noundef %1) local_unname
   %4 = alloca %struct.deal, align 8
   %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @cparam, i64 8), align 8
   %6 = sext i32 %1 to i64
-  %7 = getelementptr %struct.deal, ptr %5, i64 %6, i32 2
-  store i32 0, ptr %7, align 4
-  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @cparam, i64 8), align 8
-  %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  %10 = getelementptr inbounds %struct.deal, ptr %9, i64 %6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %4, ptr noundef nonnull align 4 dereferenceable(96) %10, i64 96, i1 false)
-  %11 = getelementptr inbounds nuw i8, ptr %8, i64 19204
-  %12 = getelementptr inbounds i32, ptr %11, i64 %6
-  %13 = load i32, ptr %12, align 4
-  %14 = getelementptr inbounds nuw i8, ptr %8, i64 20004
-  %15 = getelementptr inbounds i32, ptr %14, i64 %6
-  %16 = load i32, ptr %15, align 4
-  %17 = getelementptr inbounds nuw i8, ptr %8, i64 20804
-  %18 = getelementptr inbounds i32, ptr %17, i64 %6
-  %19 = load i32, ptr %18, align 4
-  %20 = call i32 @SolveBoard(ptr noundef nonnull byval(%struct.deal) align 8 %4, i32 noundef %13, i32 noundef %16, i32 noundef %19, ptr noundef nonnull %3, i32 noundef %0)
-  %21 = icmp eq i32 %20, 1
-  br i1 %21, label %22, label %27
+  %7 = getelementptr %struct.deal, ptr %5, i64 %6
+  %8 = getelementptr i8, ptr %7, i64 8
+  store i32 0, ptr %8, align 4
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @cparam, i64 8), align 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  %11 = getelementptr inbounds %struct.deal, ptr %10, i64 %6
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %4, ptr noundef nonnull align 4 dereferenceable(96) %11, i64 96, i1 false)
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 19204
+  %13 = getelementptr inbounds i32, ptr %12, i64 %6
+  %14 = load i32, ptr %13, align 4
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 20004
+  %16 = getelementptr inbounds i32, ptr %15, i64 %6
+  %17 = load i32, ptr %16, align 4
+  %18 = getelementptr inbounds nuw i8, ptr %9, i64 20804
+  %19 = getelementptr inbounds i32, ptr %18, i64 %6
+  %20 = load i32, ptr %19, align 4
+  %21 = call i32 @SolveBoard(ptr noundef nonnull byval(%struct.deal) align 8 %4, i32 noundef %14, i32 noundef %17, i32 noundef %20, ptr noundef nonnull %3, i32 noundef %0)
+  %22 = icmp eq i32 %21, 1
+  br i1 %22, label %23, label %29
 
-22:                                               ; preds = %2
-  %23 = getelementptr inbounds nuw i8, ptr %3, i64 164
-  %24 = load i32, ptr %23, align 4
-  %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @cparam, i64 16), align 8
-  %26 = getelementptr %struct.futureTricks, ptr %25, i64 %6, i32 5, i64 1
-  store i32 %24, ptr %26, align 4
-  br label %28
+23:                                               ; preds = %2
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 164
+  %25 = load i32, ptr %24, align 4
+  %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @cparam, i64 16), align 8
+  %27 = getelementptr %struct.futureTricks, ptr %26, i64 %6
+  %28 = getelementptr i8, ptr %27, i64 168
+  store i32 %25, ptr %28, align 4
+  br label %30
 
-27:                                               ; preds = %2
-  store i32 %20, ptr getelementptr inbounds nuw (i8, ptr @cparam, i64 24), align 8
-  br label %28
+29:                                               ; preds = %2
+  store i32 %21, ptr getelementptr inbounds nuw (i8, ptr @cparam, i64 24), align 8
+  br label %30
 
-28:                                               ; preds = %27, %22
-  %29 = call noundef ptr @_ZN6Memory6GetPtrEj(ptr noundef nonnull align 8 dereferenceable(56) @memory, i32 noundef %0)
-  %30 = getelementptr inbounds nuw i8, ptr %3, i64 164
-  br label %31
+30:                                               ; preds = %29, %23
+  %31 = call noundef ptr @_ZN6Memory6GetPtrEj(ptr noundef nonnull align 8 dereferenceable(56) @memory, i32 noundef %0)
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 164
+  br label %33
 
-31:                                               ; preds = %28, %50
-  %indvars.iv = phi i64 [ 1, %28 ], [ %indvars.iv.next, %50 ]
-  %32 = icmp eq i64 %indvars.iv, 2
-  %33 = load i32, ptr %30, align 4
-  %34 = sub nsw i32 13, %33
-  %35 = select i1 %32, i32 %33, i32 %34
-  %36 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @cparam, i64 8), align 8
-  %37 = getelementptr %struct.deal, ptr %36, i64 %6, i32 2
-  %38 = trunc nuw nsw i64 %indvars.iv to i32
-  store i32 %38, ptr %37, align 4
-  %39 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @cparam, i64 8), align 8
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 4
-  %41 = getelementptr inbounds %struct.deal, ptr %40, i64 %6
-  %42 = call noundef i32 @_Z14SolveSameBoardP10ThreadDataRK4dealP12futureTricksi(ptr noundef %29, ptr noundef nonnull align 4 dereferenceable(96) %41, ptr noundef nonnull %3, i32 noundef %35)
-  %43 = icmp eq i32 %42, 1
-  br i1 %43, label %44, label %49
+33:                                               ; preds = %30, %54
+  %indvars.iv = phi i64 [ 1, %30 ], [ %indvars.iv.next, %54 ]
+  %34 = icmp eq i64 %indvars.iv, 2
+  %35 = load i32, ptr %32, align 4
+  %36 = sub nsw i32 13, %35
+  %37 = select i1 %34, i32 %35, i32 %36
+  %38 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @cparam, i64 8), align 8
+  %39 = getelementptr %struct.deal, ptr %38, i64 %6
+  %40 = getelementptr i8, ptr %39, i64 8
+  %41 = trunc nuw nsw i64 %indvars.iv to i32
+  store i32 %41, ptr %40, align 4
+  %42 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @cparam, i64 8), align 8
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 4
+  %44 = getelementptr inbounds %struct.deal, ptr %43, i64 %6
+  %45 = call noundef i32 @_Z14SolveSameBoardP10ThreadDataRK4dealP12futureTricksi(ptr noundef %31, ptr noundef nonnull align 4 dereferenceable(96) %44, ptr noundef nonnull %3, i32 noundef %37)
+  %46 = icmp eq i32 %45, 1
+  br i1 %46, label %47, label %53
 
-44:                                               ; preds = %31
-  %45 = load i32, ptr %30, align 4
-  %46 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @cparam, i64 16), align 8
-  %47 = getelementptr %struct.futureTricks, ptr %46, i64 %6, i32 5, i64 1
-  %48 = getelementptr inbounds nuw i32, ptr %47, i64 %indvars.iv
-  store i32 %45, ptr %48, align 4
-  br label %50
+47:                                               ; preds = %33
+  %48 = load i32, ptr %32, align 4
+  %49 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @cparam, i64 16), align 8
+  %50 = getelementptr %struct.futureTricks, ptr %49, i64 %6
+  %51 = getelementptr i8, ptr %50, i64 168
+  %52 = getelementptr inbounds nuw i32, ptr %51, i64 %indvars.iv
+  store i32 %48, ptr %52, align 4
+  br label %54
 
-49:                                               ; preds = %31
-  store i32 %42, ptr getelementptr inbounds nuw (i8, ptr @cparam, i64 24), align 8
-  br label %50
+53:                                               ; preds = %33
+  store i32 %45, ptr getelementptr inbounds nuw (i8, ptr @cparam, i64 24), align 8
+  br label %54
 
-50:                                               ; preds = %44, %49
+54:                                               ; preds = %47, %53
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %51, label %31, !llvm.loop !4
+  br i1 %exitcond.not, label %55, label %33, !llvm.loop !4
 
-51:                                               ; preds = %50
+55:                                               ; preds = %54
   ret void
 }
 
@@ -194,10 +198,10 @@ define void @_Z14CopyCalcSingleRKSt6vectorIiSaIiEE(ptr noundef nonnull readonly 
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %.loopexit
-  %5 = phi ptr [ %21, %.loopexit ], [ %4, %1 ]
-  %6 = phi ptr [ %22, %.loopexit ], [ %3, %1 ]
-  %7 = phi i64 [ %24, %.loopexit ], [ 0, %1 ]
-  %.01114 = phi i32 [ %23, %.loopexit ], [ 0, %1 ]
+  %5 = phi ptr [ %23, %.loopexit ], [ %4, %1 ]
+  %6 = phi ptr [ %24, %.loopexit ], [ %3, %1 ]
+  %7 = phi i64 [ %26, %.loopexit ], [ 0, %1 ]
+  %.01114 = phi i32 [ %25, %.loopexit ], [ 0, %1 ]
   %8 = getelementptr inbounds nuw i32, ptr %5, i64 %7
   %9 = load i32, ptr %8, align 4
   %10 = icmp eq i32 %9, -1
@@ -210,12 +214,14 @@ define void @_Z14CopyCalcSingleRKSt6vectorIiSaIiEE(ptr noundef nonnull readonly 
   %13 = getelementptr inbounds nuw i32, ptr %12, i64 %7
   %14 = load i32, ptr %13, align 4
   %15 = sext i32 %14 to i64
-  %16 = getelementptr %struct.futureTricks, ptr %11, i64 %15, i32 5, i64 1
-  %17 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv
-  %18 = load i32, ptr %17, align 4
-  %19 = getelementptr inbounds nuw %struct.futureTricks, ptr %11, i64 %7, i32 5, i64 1
-  %20 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv
-  store i32 %18, ptr %20, align 4
+  %16 = getelementptr %struct.futureTricks, ptr %11, i64 %15
+  %17 = getelementptr i8, ptr %16, i64 168
+  %18 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv
+  %19 = load i32, ptr %18, align 4
+  %20 = getelementptr inbounds nuw %struct.futureTricks, ptr %11, i64 %7
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 168
+  %22 = getelementptr inbounds nuw i32, ptr %21, i64 %indvars.iv
+  store i32 %19, ptr %22, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %.loopexit.loopexit, label %.preheader, !llvm.loop !6
@@ -226,16 +232,16 @@ define void @_Z14CopyCalcSingleRKSt6vectorIiSaIiEE(ptr noundef nonnull readonly 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %.lr.ph
-  %21 = phi ptr [ %.pre16, %.loopexit.loopexit ], [ %5, %.lr.ph ]
-  %22 = phi ptr [ %.pre, %.loopexit.loopexit ], [ %6, %.lr.ph ]
-  %23 = add i32 %.01114, 1
-  %24 = zext i32 %23 to i64
-  %25 = ptrtoint ptr %22 to i64
-  %26 = ptrtoint ptr %21 to i64
-  %27 = sub i64 %25, %26
-  %28 = ashr exact i64 %27, 2
-  %29 = icmp ugt i64 %28, %24
-  br i1 %29, label %.lr.ph, label %._crit_edge, !llvm.loop !7
+  %23 = phi ptr [ %.pre16, %.loopexit.loopexit ], [ %5, %.lr.ph ]
+  %24 = phi ptr [ %.pre, %.loopexit.loopexit ], [ %6, %.lr.ph ]
+  %25 = add i32 %.01114, 1
+  %26 = zext i32 %25 to i64
+  %27 = ptrtoint ptr %24 to i64
+  %28 = ptrtoint ptr %23 to i64
+  %29 = sub i64 %27, %28
+  %30 = ashr exact i64 %29, 2
+  %31 = icmp ugt i64 %30, %26
+  br i1 %31, label %.lr.ph, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %.loopexit, %1
   ret void
@@ -246,8 +252,8 @@ define void @_Z15CalcChunkCommoni(i32 noundef %0) local_unnamed_addr #3 personal
   %2 = alloca %"class.std::vector.10", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   %3 = load i32, ptr @cparam, align 8
-  %.not18 = icmp eq i32 %3, 0
-  br i1 %.not18, label %_ZNSt6vectorI12futureTricksSaIS0_EE6resizeEm.exit.preheader, label %4
+  %.not17 = icmp eq i32 %3, 0
+  br i1 %.not17, label %_ZNSt6vectorI12futureTricksSaIS0_EE6resizeEm.exit.preheader, label %4
 
 4:                                                ; preds = %1
   %5 = zext i32 %3 to i64
@@ -259,14 +265,14 @@ _ZNSt6vectorI12futureTricksSaIS0_EE6resizeEm.exit.preheader: ; preds = %1, %4
 
 _ZNSt6vectorI12futureTricksSaIS0_EE6resizeEm.exit: ; preds = %_ZNSt6vectorI12futureTricksSaIS0_EE6resizeEm.exit.preheader, %.backedge
   %6 = invoke i64 @_ZN9Scheduler9GetNumberEi(ptr noundef nonnull align 8 dereferenceable(43416) @scheduler, i32 noundef %0)
-          to label %7 unwind label %.loopexit19
+          to label %7 unwind label %.loopexit18
 
 7:                                                ; preds = %_ZNSt6vectorI12futureTricksSaIS0_EE6resizeEm.exit
   %.sroa.05.0.extract.trunc = trunc i64 %6 to i32
   %8 = icmp eq i32 %.sroa.05.0.extract.trunc, -1
-  br i1 %8, label %34, label %17
+  br i1 %8, label %35, label %17
 
-.loopexit19:                                      ; preds = %_ZNSt6vectorI12futureTricksSaIS0_EE6resizeEm.exit, %33
+.loopexit18:                                      ; preds = %_ZNSt6vectorI12futureTricksSaIS0_EE6resizeEm.exit, %34
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %9
@@ -276,8 +282,8 @@ _ZNSt6vectorI12futureTricksSaIS0_EE6resizeEm.exit: ; preds = %_ZNSt6vectorI12fut
           cleanup
   br label %9
 
-9:                                                ; preds = %.loopexit.split-lp, %.loopexit19
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit19 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+9:                                                ; preds = %.loopexit.split-lp, %.loopexit18
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit18 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %10 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %10, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorI12futureTricksSaIS0_EED2Ev.exit, label %11
@@ -296,58 +302,57 @@ _ZNSt6vectorI12futureTricksSaIS0_EED2Ev.exit:     ; preds = %9, %11
 
 17:                                               ; preds = %7
   %.not = icmp ugt i64 %6, -4294967297
-  br i1 %.not, label %33, label %.preheader
+  br i1 %.not, label %34, label %.preheader
 
 .preheader:                                       ; preds = %17
   %sext = shl i64 %6, 32
   %18 = ashr exact i64 %sext, 32
   %19 = ashr i64 %6, 32
-  %.idx = mul nsw i64 %19, 216
-  %.idx15 = mul nsw i64 %18, 216
   br label %20
 
 20:                                               ; preds = %.preheader, %20
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %20 ]
   %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @cparam, i64 8), align 8
-  %22 = getelementptr %struct.deal, ptr %21, i64 %18, i32 2
-  %23 = trunc nuw nsw i64 %indvars.iv to i32
-  store i32 %23, ptr %22, align 4
-  %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @cparam, i64 16), align 8
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 4
-  %26 = getelementptr i8, ptr %25, i64 %.idx
-  %27 = getelementptr i8, ptr %26, i64 164
-  %28 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv
-  %29 = load i32, ptr %28, align 4
-  %30 = getelementptr i8, ptr %25, i64 %.idx15
-  %31 = getelementptr i8, ptr %30, i64 164
-  %32 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv
-  store i32 %29, ptr %32, align 4
+  %22 = getelementptr %struct.deal, ptr %21, i64 %18
+  %23 = getelementptr i8, ptr %22, i64 8
+  %24 = trunc nuw nsw i64 %indvars.iv to i32
+  store i32 %24, ptr %23, align 4
+  %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @cparam, i64 16), align 8
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 4
+  %27 = getelementptr inbounds %struct.futureTricks, ptr %26, i64 %19
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 164
+  %29 = getelementptr inbounds nuw i32, ptr %28, i64 %indvars.iv
+  %30 = load i32, ptr %29, align 4
+  %31 = getelementptr inbounds %struct.futureTricks, ptr %26, i64 %18
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 164
+  %33 = getelementptr inbounds nuw i32, ptr %32, i64 %indvars.iv
+  store i32 %30, ptr %33, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %.backedge, label %20, !llvm.loop !8
 
-33:                                               ; preds = %17
+34:                                               ; preds = %17
   invoke void @_Z16CalcSingleCommonii(i32 noundef %0, i32 noundef %.sroa.05.0.extract.trunc)
-          to label %.backedge unwind label %.loopexit19
+          to label %.backedge unwind label %.loopexit18
 
-.backedge:                                        ; preds = %20, %33
+.backedge:                                        ; preds = %20, %34
   br label %_ZNSt6vectorI12futureTricksSaIS0_EE6resizeEm.exit, !llvm.loop !9
 
-34:                                               ; preds = %7
-  %35 = load ptr, ptr %2, align 8
-  %.not.i.i.i16 = icmp eq ptr %35, null
-  br i1 %.not.i.i.i16, label %_ZNSt6vectorI12futureTricksSaIS0_EED2Ev.exit17, label %36
+35:                                               ; preds = %7
+  %36 = load ptr, ptr %2, align 8
+  %.not.i.i.i15 = icmp eq ptr %36, null
+  br i1 %.not.i.i.i15, label %_ZNSt6vectorI12futureTricksSaIS0_EED2Ev.exit16, label %37
 
-36:                                               ; preds = %34
-  %37 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %38 = load ptr, ptr %37, align 8
-  %39 = ptrtoint ptr %38 to i64
-  %40 = ptrtoint ptr %35 to i64
-  %41 = sub i64 %39, %40
-  call void @_ZdlPvm(ptr noundef nonnull %35, i64 noundef %41) #13
-  br label %_ZNSt6vectorI12futureTricksSaIS0_EED2Ev.exit17
+37:                                               ; preds = %35
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %39 = load ptr, ptr %38, align 8
+  %40 = ptrtoint ptr %39 to i64
+  %41 = ptrtoint ptr %36 to i64
+  %42 = sub i64 %40, %41
+  call void @_ZdlPvm(ptr noundef nonnull %36, i64 noundef %42) #13
+  br label %_ZNSt6vectorI12futureTricksSaIS0_EED2Ev.exit16
 
-_ZNSt6vectorI12futureTricksSaIS0_EED2Ev.exit17:   ; preds = %34, %36
+_ZNSt6vectorI12futureTricksSaIS0_EED2Ev.exit16:   ; preds = %35, %37
   ret void
 }
 
@@ -360,7 +365,7 @@ define noundef i32 @_Z14CalcAllBoardsNP6boardsP12solvedBoards(ptr noundef %0, pt
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @cparam, i64 24), align 8
   %3 = load i32, ptr %0, align 4
   %4 = icmp sgt i32 %3, 200
-  br i1 %4, label %15, label %5
+  br i1 %4, label %16, label %5
 
 5:                                                ; preds = %2
   store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @cparam, i64 8), align 8
@@ -373,26 +378,27 @@ define noundef i32 @_Z14CalcAllBoardsNP6boardsP12solvedBoards(ptr noundef %0, pt
 
 8:                                                ; preds = %5, %8
   %indvars.iv = phi i64 [ 0, %5 ], [ %indvars.iv.next, %8 ]
-  %9 = getelementptr inbounds nuw %struct.futureTricks, ptr %1, i64 %indvars.iv, i32 2
-  store i32 0, ptr %9, align 4
+  %9 = getelementptr inbounds nuw %struct.futureTricks, ptr %1, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store i32 0, ptr %10, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 200
-  br i1 %exitcond.not, label %10, label %8, !llvm.loop !10
+  br i1 %exitcond.not, label %11, label %8, !llvm.loop !10
 
-10:                                               ; preds = %8
-  %11 = tail call noundef i32 @_ZN6System10RunThreadsEv(ptr noundef nonnull align 8 dereferenceable(200) @sysdep)
-  %.not = icmp eq i32 %11, 1
-  br i1 %.not, label %12, label %15
+11:                                               ; preds = %8
+  %12 = tail call noundef i32 @_ZN6System10RunThreadsEv(ptr noundef nonnull align 8 dereferenceable(200) @sysdep)
+  %.not = icmp eq i32 %12, 1
+  br i1 %.not, label %13, label %16
 
-12:                                               ; preds = %10
-  %13 = load i32, ptr @cparam, align 8
-  store i32 %13, ptr %1, align 4
-  %14 = load i32, ptr getelementptr inbounds nuw (i8, ptr @cparam, i64 24), align 8
-  %. = tail call i32 @llvm.umax.i32(i32 %14, i32 1)
-  br label %15
+13:                                               ; preds = %11
+  %14 = load i32, ptr @cparam, align 8
+  store i32 %14, ptr %1, align 4
+  %15 = load i32, ptr getelementptr inbounds nuw (i8, ptr @cparam, i64 24), align 8
+  %. = tail call i32 @llvm.umax.i32(i32 %15, i32 1)
+  br label %16
 
-15:                                               ; preds = %12, %10, %2
-  %.0 = phi i32 [ -101, %2 ], [ %11, %10 ], [ %., %12 ]
+16:                                               ; preds = %13, %11, %2
+  %.0 = phi i32 [ -101, %2 ], [ %12, %11 ], [ %., %13 ]
   ret i32 %.0
 }
 
@@ -459,52 +465,54 @@ define i32 @CalcDDtable(ptr noundef readonly byval(%struct.ddTableDeal) align 8 
 
 22:                                               ; preds = %22, %20
   %indvars.iv.i = phi i64 [ 0, %20 ], [ %indvars.iv.next.i, %22 ]
-  %23 = getelementptr inbounds nuw %struct.futureTricks, ptr %4, i64 %indvars.iv.i, i32 2
-  store i32 0, ptr %23, align 4
+  %23 = getelementptr inbounds nuw %struct.futureTricks, ptr %4, i64 %indvars.iv.i
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  store i32 0, ptr %24, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 200
-  br i1 %exitcond.not.i, label %24, label %22, !llvm.loop !10
+  br i1 %exitcond.not.i, label %25, label %22, !llvm.loop !10
 
-24:                                               ; preds = %22
-  %25 = call noundef i32 @_ZN6System10RunThreadsEv(ptr noundef nonnull align 8 dereferenceable(200) @sysdep)
-  %.not.i = icmp eq i32 %25, 1
+25:                                               ; preds = %22
+  %26 = call noundef i32 @_ZN6System10RunThreadsEv(ptr noundef nonnull align 8 dereferenceable(200) @sysdep)
+  %.not.i = icmp eq i32 %26, 1
   br i1 %.not.i, label %_Z14CalcAllBoardsNP6boardsP12solvedBoards.exit, label %_Z14CalcAllBoardsNP6boardsP12solvedBoards.exit.thread
 
-_Z14CalcAllBoardsNP6boardsP12solvedBoards.exit:   ; preds = %24
-  %26 = load i32, ptr getelementptr inbounds nuw (i8, ptr @cparam, i64 24), align 8
-  %.not = icmp ult i32 %26, 2
+_Z14CalcAllBoardsNP6boardsP12solvedBoards.exit:   ; preds = %25
+  %27 = load i32, ptr getelementptr inbounds nuw (i8, ptr @cparam, i64 24), align 8
+  %.not = icmp ult i32 %27, 2
   br i1 %.not, label %.preheader, label %_Z14CalcAllBoardsNP6boardsP12solvedBoards.exit.thread
 
-.preheader:                                       ; preds = %_Z14CalcAllBoardsNP6boardsP12solvedBoards.exit, %40
-  %indvars.iv64 = phi i64 [ %indvars.iv.next65, %40 ], [ 0, %_Z14CalcAllBoardsNP6boardsP12solvedBoards.exit ]
-  %27 = getelementptr inbounds nuw %struct.deal, ptr %10, i64 %indvars.iv64
-  %28 = load i32, ptr %27, align 4
-  %29 = getelementptr inbounds nuw %struct.futureTricks, ptr %4, i64 %indvars.iv64, i32 5, i64 1
-  %30 = sext i32 %28 to i64
-  %31 = getelementptr inbounds [4 x i32], ptr %1, i64 %30
-  br label %32
+.preheader:                                       ; preds = %_Z14CalcAllBoardsNP6boardsP12solvedBoards.exit, %42
+  %indvars.iv64 = phi i64 [ %indvars.iv.next65, %42 ], [ 0, %_Z14CalcAllBoardsNP6boardsP12solvedBoards.exit ]
+  %28 = getelementptr inbounds nuw %struct.deal, ptr %10, i64 %indvars.iv64
+  %29 = load i32, ptr %28, align 4
+  %30 = getelementptr inbounds nuw %struct.futureTricks, ptr %4, i64 %indvars.iv64
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 168
+  %32 = sext i32 %29 to i64
+  %33 = getelementptr inbounds [4 x i32], ptr %1, i64 %32
+  br label %34
 
-32:                                               ; preds = %.preheader, %32
-  %indvars.iv60 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next61, %32 ]
-  %33 = getelementptr inbounds nuw i32, ptr %29, i64 %indvars.iv60
-  %34 = load i32, ptr %33, align 4
-  %35 = sub nsw i32 13, %34
-  %36 = getelementptr inbounds nuw i32, ptr @rho, i64 %indvars.iv60
-  %37 = load i32, ptr %36, align 4
-  %38 = sext i32 %37 to i64
-  %39 = getelementptr inbounds i32, ptr %31, i64 %38
-  store i32 %35, ptr %39, align 4
+34:                                               ; preds = %.preheader, %34
+  %indvars.iv60 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next61, %34 ]
+  %35 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv60
+  %36 = load i32, ptr %35, align 4
+  %37 = sub nsw i32 13, %36
+  %38 = getelementptr inbounds nuw i32, ptr @rho, i64 %indvars.iv60
+  %39 = load i32, ptr %38, align 4
+  %40 = sext i32 %39 to i64
+  %41 = getelementptr inbounds i32, ptr %33, i64 %40
+  store i32 %37, ptr %41, align 4
   %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
   %exitcond63.not = icmp eq i64 %indvars.iv.next61, 4
-  br i1 %exitcond63.not, label %40, label %32, !llvm.loop !13
+  br i1 %exitcond63.not, label %42, label %34, !llvm.loop !13
 
-40:                                               ; preds = %32
+42:                                               ; preds = %34
   %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 1
   %exitcond67.not = icmp eq i64 %indvars.iv.next65, 5
   br i1 %exitcond67.not, label %_Z14CalcAllBoardsNP6boardsP12solvedBoards.exit.thread, label %.preheader, !llvm.loop !14
 
-_Z14CalcAllBoardsNP6boardsP12solvedBoards.exit.thread: ; preds = %40, %24, %_Z14CalcAllBoardsNP6boardsP12solvedBoards.exit
-  %.032 = phi i32 [ %26, %_Z14CalcAllBoardsNP6boardsP12solvedBoards.exit ], [ %25, %24 ], [ 1, %40 ]
+_Z14CalcAllBoardsNP6boardsP12solvedBoards.exit.thread: ; preds = %42, %25, %_Z14CalcAllBoardsNP6boardsP12solvedBoards.exit
+  %.032 = phi i32 [ %27, %_Z14CalcAllBoardsNP6boardsP12solvedBoards.exit ], [ %26, %25 ], [ 1, %42 ]
   ret i32 %.032
 }
 
@@ -636,113 +644,115 @@ define i32 @CalcAllTables(ptr noundef readonly captures(none) %0, i32 noundef %1
 
 49:                                               ; preds = %49, %46
   %indvars.iv.i = phi i64 [ 0, %46 ], [ %indvars.iv.next.i, %49 ]
-  %50 = getelementptr inbounds nuw %struct.futureTricks, ptr %7, i64 %indvars.iv.i, i32 2
-  store i32 0, ptr %50, align 4
+  %50 = getelementptr inbounds nuw %struct.futureTricks, ptr %7, i64 %indvars.iv.i
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
+  store i32 0, ptr %51, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 200
-  br i1 %exitcond.not.i, label %51, label %49, !llvm.loop !10
+  br i1 %exitcond.not.i, label %52, label %49, !llvm.loop !10
 
-51:                                               ; preds = %49
-  %52 = call noundef i32 @_ZN6System10RunThreadsEv(ptr noundef nonnull align 8 dereferenceable(200) @sysdep)
-  %.not.i = icmp eq i32 %52, 1
+52:                                               ; preds = %49
+  %53 = call noundef i32 @_ZN6System10RunThreadsEv(ptr noundef nonnull align 8 dereferenceable(200) @sysdep)
+  %.not.i = icmp eq i32 %53, 1
   br i1 %.not.i, label %_Z14CalcAllBoardsNP6boardsP12solvedBoards.exit, label %_Z14CalcAllBoardsNP6boardsP12solvedBoards.exit.thread
 
-_Z14CalcAllBoardsNP6boardsP12solvedBoards.exit:   ; preds = %51
-  %53 = load i32, ptr @cparam, align 8
-  store i32 %53, ptr %7, align 4
-  %54 = load i32, ptr getelementptr inbounds nuw (i8, ptr @cparam, i64 24), align 8
-  %.not = icmp ult i32 %54, 2
-  br i1 %.not, label %55, label %_Z14CalcAllBoardsNP6boardsP12solvedBoards.exit.thread
+_Z14CalcAllBoardsNP6boardsP12solvedBoards.exit:   ; preds = %52
+  %54 = load i32, ptr @cparam, align 8
+  store i32 %54, ptr %7, align 4
+  %55 = load i32, ptr getelementptr inbounds nuw (i8, ptr @cparam, i64 24), align 8
+  %.not = icmp ult i32 %55, 2
+  br i1 %.not, label %56, label %_Z14CalcAllBoardsNP6boardsP12solvedBoards.exit.thread
 
-55:                                               ; preds = %_Z14CalcAllBoardsNP6boardsP12solvedBoards.exit
-  %56 = shl nsw i32 %53, 2
-  %57 = load i32, ptr %3, align 4
-  %58 = add nsw i32 %57, %56
-  store i32 %58, ptr %3, align 4
-  %59 = load i32, ptr %0, align 4
-  %60 = icmp sgt i32 %59, 0
-  br i1 %60, label %.preheader105.lr.ph, label %_Z14CalcAllBoardsNP6boardsP12solvedBoards.exit.thread
+56:                                               ; preds = %_Z14CalcAllBoardsNP6boardsP12solvedBoards.exit
+  %57 = shl nsw i32 %54, 2
+  %58 = load i32, ptr %3, align 4
+  %59 = add nsw i32 %58, %57
+  store i32 %59, ptr %3, align 4
+  %60 = load i32, ptr %0, align 4
+  %61 = icmp sgt i32 %60, 0
+  br i1 %61, label %.preheader105.lr.ph, label %_Z14CalcAllBoardsNP6boardsP12solvedBoards.exit.thread
 
-.preheader105.lr.ph:                              ; preds = %55
+.preheader105.lr.ph:                              ; preds = %56
   %.not130 = icmp eq i32 %spec.select102, 0
-  %61 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %62 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %62 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %63 = getelementptr inbounds nuw i8, ptr %3, i64 4
   br i1 %.not130, label %_Z14CalcAllBoardsNP6boardsP12solvedBoards.exit.thread, label %.preheader105.us.preheader
 
 .preheader105.us.preheader:                       ; preds = %.preheader105.lr.ph
-  %63 = zext i32 %spec.select102 to i64
+  %64 = zext i32 %spec.select102 to i64
   br label %.preheader105.us
 
 .preheader105.us:                                 ; preds = %.preheader105.us.preheader, %._crit_edge123.us
   %indvars.iv160 = phi i64 [ 0, %.preheader105.us.preheader ], [ %indvars.iv.next161, %._crit_edge123.us ]
-  %64 = mul nuw nsw i64 %indvars.iv160, %63
-  %65 = getelementptr inbounds nuw %struct.ddTableResults, ptr %62, i64 %indvars.iv160
-  br label %66
+  %65 = mul nuw nsw i64 %indvars.iv160, %64
+  %66 = getelementptr inbounds nuw %struct.ddTableResults, ptr %63, i64 %indvars.iv160
+  br label %67
 
-66:                                               ; preds = %.preheader105.us, %73
-  %indvars.iv155 = phi i64 [ 0, %.preheader105.us ], [ %indvars.iv.next156, %73 ]
-  %67 = add nuw nsw i64 %indvars.iv155, %64
-  %68 = getelementptr inbounds nuw %struct.deal, ptr %61, i64 %67
-  %69 = load i32, ptr %68, align 4
-  %70 = getelementptr %struct.futureTricks, ptr %7, i64 %67, i32 5, i64 1
-  %71 = sext i32 %69 to i64
-  %72 = getelementptr inbounds [4 x i32], ptr %65, i64 %71
-  br label %74
+67:                                               ; preds = %.preheader105.us, %75
+  %indvars.iv155 = phi i64 [ 0, %.preheader105.us ], [ %indvars.iv.next156, %75 ]
+  %68 = add nuw nsw i64 %indvars.iv155, %65
+  %69 = getelementptr inbounds nuw %struct.deal, ptr %62, i64 %68
+  %70 = load i32, ptr %69, align 4
+  %71 = getelementptr %struct.futureTricks, ptr %7, i64 %68
+  %72 = getelementptr i8, ptr %71, i64 168
+  %73 = sext i32 %70 to i64
+  %74 = getelementptr inbounds [4 x i32], ptr %66, i64 %73
+  br label %76
 
-73:                                               ; preds = %74
+75:                                               ; preds = %76
   %indvars.iv.next156 = add nuw nsw i64 %indvars.iv155, 1
-  %exitcond159.not = icmp eq i64 %indvars.iv.next156, %63
-  br i1 %exitcond159.not, label %._crit_edge123.us, label %66, !llvm.loop !19
+  %exitcond159.not = icmp eq i64 %indvars.iv.next156, %64
+  br i1 %exitcond159.not, label %._crit_edge123.us, label %67, !llvm.loop !19
 
-74:                                               ; preds = %74, %66
-  %indvars.iv151 = phi i64 [ %indvars.iv.next152, %74 ], [ 0, %66 ]
-  %75 = getelementptr inbounds nuw i32, ptr %70, i64 %indvars.iv151
-  %76 = load i32, ptr %75, align 4
-  %77 = sub nsw i32 13, %76
-  %78 = getelementptr inbounds nuw i32, ptr @rho, i64 %indvars.iv151
-  %79 = load i32, ptr %78, align 4
-  %80 = sext i32 %79 to i64
-  %81 = getelementptr inbounds i32, ptr %72, i64 %80
-  store i32 %77, ptr %81, align 4
+76:                                               ; preds = %76, %67
+  %indvars.iv151 = phi i64 [ %indvars.iv.next152, %76 ], [ 0, %67 ]
+  %77 = getelementptr inbounds nuw i32, ptr %72, i64 %indvars.iv151
+  %78 = load i32, ptr %77, align 4
+  %79 = sub nsw i32 13, %78
+  %80 = getelementptr inbounds nuw i32, ptr @rho, i64 %indvars.iv151
+  %81 = load i32, ptr %80, align 4
+  %82 = sext i32 %81 to i64
+  %83 = getelementptr inbounds i32, ptr %74, i64 %82
+  store i32 %79, ptr %83, align 4
   %indvars.iv.next152 = add nuw nsw i64 %indvars.iv151, 1
   %exitcond154.not = icmp eq i64 %indvars.iv.next152, 4
-  br i1 %exitcond154.not, label %73, label %74, !llvm.loop !20
+  br i1 %exitcond154.not, label %75, label %76, !llvm.loop !20
 
-._crit_edge123.us:                                ; preds = %73
+._crit_edge123.us:                                ; preds = %75
   %indvars.iv.next161 = add nuw nsw i64 %indvars.iv160, 1
-  %82 = load i32, ptr %0, align 4
-  %83 = sext i32 %82 to i64
-  %84 = icmp slt i64 %indvars.iv.next161, %83
-  br i1 %84, label %.preheader105.us, label %._crit_edge125, !llvm.loop !21
+  %84 = load i32, ptr %0, align 4
+  %85 = sext i32 %84 to i64
+  %86 = icmp slt i64 %indvars.iv.next161, %85
+  br i1 %86, label %.preheader105.us, label %._crit_edge125, !llvm.loop !21
 
 ._crit_edge125:                                   ; preds = %._crit_edge123.us
   %or.cond = icmp ult i32 %1, 4
-  %85 = icmp eq i32 %spec.select102, 5
-  %or.cond3 = select i1 %or.cond, i1 %85, i1 false
+  %87 = icmp eq i32 %spec.select102, 5
+  %or.cond3 = select i1 %or.cond, i1 %87, i1 false
   br i1 %or.cond3, label %.preheader, label %_Z14CalcAllBoardsNP6boardsP12solvedBoards.exit.thread
 
 .preheader:                                       ; preds = %._crit_edge125
-  %86 = icmp sgt i32 %82, 0
-  %87 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  br i1 %86, label %.lr.ph, label %_Z14CalcAllBoardsNP6boardsP12solvedBoards.exit.thread
+  %88 = icmp sgt i32 %84, 0
+  %89 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  br i1 %88, label %.lr.ph, label %_Z14CalcAllBoardsNP6boardsP12solvedBoards.exit.thread
 
-88:                                               ; preds = %.lr.ph
+90:                                               ; preds = %.lr.ph
   %indvars.iv.next164 = add nuw nsw i64 %indvars.iv163, 1
-  %89 = load i32, ptr %0, align 4
-  %90 = sext i32 %89 to i64
-  %91 = icmp slt i64 %indvars.iv.next164, %90
-  br i1 %91, label %.lr.ph, label %_Z14CalcAllBoardsNP6boardsP12solvedBoards.exit.thread, !llvm.loop !22
+  %91 = load i32, ptr %0, align 4
+  %92 = sext i32 %91 to i64
+  %93 = icmp slt i64 %indvars.iv.next164, %92
+  br i1 %93, label %.lr.ph, label %_Z14CalcAllBoardsNP6boardsP12solvedBoards.exit.thread, !llvm.loop !22
 
-.lr.ph:                                           ; preds = %.preheader, %88
-  %indvars.iv163 = phi i64 [ %indvars.iv.next164, %88 ], [ 0, %.preheader ]
-  %92 = getelementptr inbounds nuw %struct.ddTableResults, ptr %87, i64 %indvars.iv163
-  %93 = getelementptr inbounds nuw %struct.parResults, ptr %4, i64 %indvars.iv163
-  %94 = call i32 @Par(ptr noundef nonnull %92, ptr noundef %93, i32 noundef %1)
-  %.not99 = icmp eq i32 %94, 1
-  br i1 %.not99, label %88, label %_Z14CalcAllBoardsNP6boardsP12solvedBoards.exit.thread
+.lr.ph:                                           ; preds = %.preheader, %90
+  %indvars.iv163 = phi i64 [ %indvars.iv.next164, %90 ], [ 0, %.preheader ]
+  %94 = getelementptr inbounds nuw %struct.ddTableResults, ptr %89, i64 %indvars.iv163
+  %95 = getelementptr inbounds nuw %struct.parResults, ptr %4, i64 %indvars.iv163
+  %96 = call i32 @Par(ptr noundef nonnull %94, ptr noundef %95, i32 noundef %1)
+  %.not99 = icmp eq i32 %96, 1
+  br i1 %.not99, label %90, label %_Z14CalcAllBoardsNP6boardsP12solvedBoards.exit.thread
 
-_Z14CalcAllBoardsNP6boardsP12solvedBoards.exit.thread: ; preds = %.lr.ph, %88, %55, %.preheader105.lr.ph, %.preheader, %51, %._crit_edge, %._crit_edge125, %_Z14CalcAllBoardsNP6boardsP12solvedBoards.exit, %13, %12
-  %.079 = phi i32 [ -201, %12 ], [ -202, %13 ], [ %54, %_Z14CalcAllBoardsNP6boardsP12solvedBoards.exit ], [ 1, %._crit_edge125 ], [ %52, %51 ], [ -101, %._crit_edge ], [ 1, %.preheader ], [ 1, %.preheader105.lr.ph ], [ 1, %55 ], [ %94, %.lr.ph ], [ 1, %88 ]
+_Z14CalcAllBoardsNP6boardsP12solvedBoards.exit.thread: ; preds = %.lr.ph, %90, %56, %.preheader105.lr.ph, %.preheader, %52, %._crit_edge, %._crit_edge125, %_Z14CalcAllBoardsNP6boardsP12solvedBoards.exit, %13, %12
+  %.079 = phi i32 [ -201, %12 ], [ -202, %13 ], [ %55, %_Z14CalcAllBoardsNP6boardsP12solvedBoards.exit ], [ 1, %._crit_edge125 ], [ %53, %52 ], [ -101, %._crit_edge ], [ 1, %.preheader ], [ 1, %.preheader105.lr.ph ], [ 1, %56 ], [ %96, %.lr.ph ], [ 1, %90 ]
   ret i32 %.079
 }
 

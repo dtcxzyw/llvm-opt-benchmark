@@ -5463,8 +5463,8 @@ if.else275:                                       ; preds = %if.end269
   %ncsets.i262 = getelementptr inbounds nuw i8, ptr %p.val, i64 20
   %219 = load i32, ptr %ncsets.i262, align 4
   %idxprom.i263 = sext i32 %219 to i64
-  %arrayidx.idx.i = shl nsw i64 %idxprom.i263, 5
-  %arrayidx.i264 = getelementptr inbounds i8, ptr %218, i64 %arrayidx.idx.i
+  %arrayidx.idx.i = shl nuw nsw i64 %idxprom.i263, 5
+  %arrayidx.i264 = getelementptr inbounds nuw i8, ptr %218, i64 %arrayidx.idx.i
   %cmp30.i = icmp sgt i32 %219, 0
   br i1 %cmp30.i, label %for.body.us32.i, label %freezeset.exit
 

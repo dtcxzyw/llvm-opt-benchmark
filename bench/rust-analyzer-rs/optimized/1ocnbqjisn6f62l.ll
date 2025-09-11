@@ -43403,7 +43403,7 @@ define hidden void @"_ZN3ena12snapshot_vec28SnapshotVec$LT$D$C$V$C$L$GT$6update1
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load i64, ptr %13, align 8, !alias.scope !13316, !noundef !4
   %15 = icmp ult i64 %1, %14
-  br i1 %15, label %65, label %70, !prof !522
+  br i1 %15, label %65, label %71, !prof !522
 
 16:                                               ; preds = %8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -43537,14 +43537,15 @@ default.unreachable:                              ; preds = %27
 65:                                               ; preds = %12
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %67 = load ptr, ptr %66, align 8, !alias.scope !13316, !nonnull !4, !noundef !4
+  %68 = getelementptr inbounds { { i64, [1 x i64] }, i32, i32 }, ptr %67, i64 %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13359)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13362)
-  %68 = load i32, ptr %2, align 4, !alias.scope !13359, !noalias !13362, !noundef !4
-  %69 = getelementptr inbounds { { i64, [1 x i64] }, i32, i32 }, ptr %67, i64 %1, i32 1
-  store i32 %68, ptr %69, align 8, !alias.scope !13362, !noalias !13359
+  %69 = load i32, ptr %2, align 4, !alias.scope !13359, !noalias !13362, !noundef !4
+  %70 = getelementptr inbounds nuw i8, ptr %68, i64 16
+  store i32 %69, ptr %70, align 8, !alias.scope !13362, !noalias !13359
   ret void
 
-70:                                               ; preds = %12
+71:                                               ; preds = %12
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %1, i64 noundef %14, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.cb126e8220c221b8d58de877eca30dfb.32.llvm.6579604558243679033) #43
   unreachable
 }
@@ -43568,7 +43569,7 @@ define hidden void @"_ZN3ena12snapshot_vec28SnapshotVec$LT$D$C$V$C$L$GT$6update1
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load i64, ptr %13, align 8, !alias.scope !13372, !noundef !4
   %15 = icmp ult i64 %1, %14
-  br i1 %15, label %65, label %70, !prof !522
+  br i1 %15, label %65, label %71, !prof !522
 
 16:                                               ; preds = %8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -43702,14 +43703,15 @@ default.unreachable:                              ; preds = %27
 65:                                               ; preds = %12
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %67 = load ptr, ptr %66, align 8, !alias.scope !13372, !nonnull !4, !noundef !4
+  %68 = getelementptr inbounds { { i64, [1 x i64] }, i32, i32 }, ptr %67, i64 %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13415)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13418)
-  %68 = load i32, ptr %2, align 4, !alias.scope !13415, !noalias !13418, !noundef !4
-  %69 = getelementptr inbounds { { i64, [1 x i64] }, i32, i32 }, ptr %67, i64 %1, i32 1
-  store i32 %68, ptr %69, align 8, !alias.scope !13418, !noalias !13415
+  %69 = load i32, ptr %2, align 4, !alias.scope !13415, !noalias !13418, !noundef !4
+  %70 = getelementptr inbounds nuw i8, ptr %68, i64 16
+  store i32 %69, ptr %70, align 8, !alias.scope !13418, !noalias !13415
   ret void
 
-70:                                               ; preds = %12
+71:                                               ; preds = %12
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %1, i64 noundef %14, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.cb126e8220c221b8d58de877eca30dfb.32.llvm.6579604558243679033) #43
   unreachable
 }

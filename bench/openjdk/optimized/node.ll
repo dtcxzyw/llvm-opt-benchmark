@@ -8686,18 +8686,18 @@ define hidden noundef ptr @_ZNK10Node_Stack4findEj(ptr noundef nonnull readonly 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %12
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %12 ]
-  %13 = getelementptr inbounds nuw %"struct.Node_Stack::INode", ptr %6, i64 %indvars.iv, i32 1
-  %14 = load i32, ptr %13, align 8
-  %15 = icmp eq i32 %1, %14
-  br i1 %15, label %16, label %12
+  %13 = getelementptr inbounds nuw %"struct.Node_Stack::INode", ptr %6, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %15 = load i32, ptr %14, align 8
+  %16 = icmp eq i32 %1, %15
+  br i1 %16, label %17, label %12
 
-16:                                               ; preds = %.lr.ph
-  %17 = getelementptr inbounds nuw %"struct.Node_Stack::INode", ptr %6, i64 %indvars.iv
-  %18 = load ptr, ptr %17, align 8
+17:                                               ; preds = %.lr.ph
+  %18 = load ptr, ptr %13, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %12, %2, %16
-  %.07 = phi ptr [ %18, %16 ], [ null, %2 ], [ null, %12 ]
+.loopexit:                                        ; preds = %12, %2, %17
+  %.07 = phi ptr [ %18, %17 ], [ null, %2 ], [ null, %12 ]
   ret ptr %.07
 }
 
@@ -8786,9 +8786,10 @@ define hidden noundef i32 @_ZNK8TypeNode9ideal_regEv(ptr noundef nonnull readonl
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %6, i32 4
-  %8 = load i32, ptr %7, align 4
-  ret i32 %8
+  %7 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %6
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 20
+  %9 = load i32, ptr %8, align 4
+  ret i32 %9
 }
 
 declare noundef i32 @_ZNK4Node6OpcodeEv(ptr noundef nonnull align 8 dereferenceable(52)) unnamed_addr #1

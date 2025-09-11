@@ -671,10 +671,10 @@ define dso_local void @deinit_bloom_filters() local_unnamed_addr #0 {
 
 .lr.ph3.i:                                        ; preds = %.loopexit.i, %.lr.ph3.preheader.i
   %.pre10.i = phi ptr [ %.pre5, %.lr.ph3.preheader.i ], [ %.pre1014.i, %.loopexit.i ]
-  %2 = phi ptr [ %.pre5, %.lr.ph3.preheader.i ], [ %22, %.loopexit.i ]
-  %3 = phi i32 [ %1, %.lr.ph3.preheader.i ], [ %23, %.loopexit.i ]
-  %4 = phi i32 [ %.pre.i, %.lr.ph3.preheader.i ], [ %24, %.loopexit.i ]
-  %5 = phi i32 [ %.pre.i, %.lr.ph3.preheader.i ], [ %25, %.loopexit.i ]
+  %2 = phi ptr [ %.pre5, %.lr.ph3.preheader.i ], [ %23, %.loopexit.i ]
+  %3 = phi i32 [ %1, %.lr.ph3.preheader.i ], [ %24, %.loopexit.i ]
+  %4 = phi i32 [ %.pre.i, %.lr.ph3.preheader.i ], [ %25, %.loopexit.i ]
+  %5 = phi i32 [ %.pre.i, %.lr.ph3.preheader.i ], [ %26, %.loopexit.i ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph3.preheader.i ], [ %indvars.iv.next.i, %.loopexit.i ]
   %6 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.i
   %7 = load ptr, ptr %6, align 8, !tbaa !46
@@ -685,9 +685,9 @@ define dso_local void @deinit_bloom_filters() local_unnamed_addr #0 {
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph3.i, %free_one_bloom_filter.exit.i
   %.pre1016.i = phi ptr [ %.pre1015.i, %free_one_bloom_filter.exit.i ], [ %.pre10.i, %.lr.ph3.i ]
-  %9 = phi i32 [ %18, %free_one_bloom_filter.exit.i ], [ %4, %.lr.ph3.i ]
-  %10 = phi ptr [ %19, %free_one_bloom_filter.exit.i ], [ %.pre10.i, %.lr.ph3.i ]
-  %.01.i = phi i32 [ %20, %free_one_bloom_filter.exit.i ], [ 0, %.lr.ph3.i ]
+  %9 = phi i32 [ %19, %free_one_bloom_filter.exit.i ], [ %4, %.lr.ph3.i ]
+  %10 = phi ptr [ %20, %free_one_bloom_filter.exit.i ], [ %.pre10.i, %.lr.ph3.i ]
+  %.01.i = phi i32 [ %21, %free_one_bloom_filter.exit.i ], [ 0, %.lr.ph3.i ]
   %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv.i
   %12 = load ptr, ptr %11, align 8, !tbaa !46
   %.not.i.i = icmp eq ptr %12, null
@@ -697,9 +697,10 @@ define dso_local void @deinit_bloom_filters() local_unnamed_addr #0 {
   %.b = load i1, ptr @bloom_filters.1, align 4
   %14 = zext i32 %.01.i to i64
   %15 = select i1 %.b, i64 %14, i64 0
-  %16 = getelementptr inbounds nuw %struct.bloom_filter, ptr %12, i64 %15, i32 3
-  %17 = load ptr, ptr %16, align 8, !tbaa !33
-  tail call void @free(ptr noundef %17) #14
+  %16 = getelementptr inbounds nuw %struct.bloom_filter, ptr %12, i64 %15
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
+  %18 = load ptr, ptr %17, align 8, !tbaa !33
+  tail call void @free(ptr noundef %18) #14
   %.pre9.i = load ptr, ptr @bloom_filters.3, align 8, !tbaa !45
   %.pre11.i.b = load i1, ptr @bloom_filters.0, align 8
   %.pre11.i = select i1 %.pre11.i.b, i32 16383, i32 0
@@ -707,11 +708,11 @@ define dso_local void @deinit_bloom_filters() local_unnamed_addr #0 {
 
 free_one_bloom_filter.exit.i:                     ; preds = %13, %.lr.ph.split.i
   %.pre1015.i = phi ptr [ %.pre1016.i, %.lr.ph.split.i ], [ %.pre9.i, %13 ]
-  %18 = phi i32 [ %9, %.lr.ph.split.i ], [ %.pre11.i, %13 ]
-  %19 = phi ptr [ %10, %.lr.ph.split.i ], [ %.pre9.i, %13 ]
-  %20 = add nuw i32 %.01.i, 1
-  %21 = icmp ult i32 %20, %18
-  br i1 %21, label %.lr.ph.split.i, label %.loopexit.loopexit6.i, !llvm.loop !48
+  %19 = phi i32 [ %9, %.lr.ph.split.i ], [ %.pre11.i, %13 ]
+  %20 = phi ptr [ %10, %.lr.ph.split.i ], [ %.pre9.i, %13 ]
+  %21 = add nuw i32 %.01.i, 1
+  %22 = icmp ult i32 %21, %19
+  br i1 %22, label %.lr.ph.split.i, label %.loopexit.loopexit6.i, !llvm.loop !48
 
 .loopexit.loopexit6.i:                            ; preds = %free_one_bloom_filter.exit.i
   %.pre12.i = load i32, ptr @bloom_filters.2, align 8, !tbaa !42
@@ -719,42 +720,42 @@ free_one_bloom_filter.exit.i:                     ; preds = %13, %.lr.ph.split.i
 
 .loopexit.i:                                      ; preds = %.loopexit.loopexit6.i, %.lr.ph3.i
   %.pre1014.i = phi ptr [ %.pre1015.i, %.loopexit.loopexit6.i ], [ %.pre10.i, %.lr.ph3.i ]
-  %22 = phi ptr [ %19, %.loopexit.loopexit6.i ], [ %2, %.lr.ph3.i ]
-  %23 = phi i32 [ %.pre12.i, %.loopexit.loopexit6.i ], [ %3, %.lr.ph3.i ]
-  %24 = phi i32 [ %18, %.loopexit.loopexit6.i ], [ %4, %.lr.ph3.i ]
-  %25 = phi i32 [ %18, %.loopexit.loopexit6.i ], [ %5, %.lr.ph3.i ]
+  %23 = phi ptr [ %20, %.loopexit.loopexit6.i ], [ %2, %.lr.ph3.i ]
+  %24 = phi i32 [ %.pre12.i, %.loopexit.loopexit6.i ], [ %3, %.lr.ph3.i ]
+  %25 = phi i32 [ %19, %.loopexit.loopexit6.i ], [ %4, %.lr.ph3.i ]
+  %26 = phi i32 [ %19, %.loopexit.loopexit6.i ], [ %5, %.lr.ph3.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %26 = zext i32 %23 to i64
-  %27 = icmp samesign ult i64 %indvars.iv.next.i, %26
-  br i1 %27, label %.lr.ph3.i, label %._crit_edge.i, !llvm.loop !50
+  %27 = zext i32 %24 to i64
+  %28 = icmp samesign ult i64 %indvars.iv.next.i, %27
+  br i1 %28, label %.lr.ph3.i, label %._crit_edge.i, !llvm.loop !50
 
 ._crit_edge.i:                                    ; preds = %.loopexit.i
-  %28 = icmp eq i32 %23, 0
-  br i1 %28, label %deep_clear_bloom_filter_slab.exit, label %.lr.ph.i.i.preheader
+  %29 = icmp eq i32 %24, 0
+  br i1 %29, label %deep_clear_bloom_filter_slab.exit, label %.lr.ph.i.i.preheader
 
 .lr.ph.i.i.preheader:                             ; preds = %._crit_edge.i
-  %29 = load ptr, ptr @bloom_filters.3, align 8, !tbaa !45
-  %30 = load i32, ptr @bloom_filters.2, align 8, !tbaa !42
-  %31 = zext i32 %30 to i64
+  %30 = load ptr, ptr @bloom_filters.3, align 8, !tbaa !45
+  %31 = load i32, ptr @bloom_filters.2, align 8, !tbaa !42
+  %32 = zext i32 %31 to i64
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 0, %.lr.ph.i.i.preheader ]
-  %32 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv.i.i
-  %33 = load ptr, ptr %32, align 8, !tbaa !46
-  tail call void @free(ptr noundef %33) #14
+  %33 = getelementptr inbounds nuw ptr, ptr %30, i64 %indvars.iv.i.i
+  %34 = load ptr, ptr %33, align 8, !tbaa !46
+  tail call void @free(ptr noundef %34) #14
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %34 = icmp samesign ult i64 %indvars.iv.next.i.i, %31
-  br i1 %34, label %.lr.ph.i.i, label %deep_clear_bloom_filter_slab.exit.loopexit, !llvm.loop !51
+  %35 = icmp samesign ult i64 %indvars.iv.next.i.i, %32
+  br i1 %35, label %.lr.ph.i.i, label %deep_clear_bloom_filter_slab.exit.loopexit, !llvm.loop !51
 
 deep_clear_bloom_filter_slab.exit.loopexit:       ; preds = %.lr.ph.i.i
   %.pre = load ptr, ptr @bloom_filters.3, align 8, !tbaa !45
   br label %deep_clear_bloom_filter_slab.exit
 
 deep_clear_bloom_filter_slab.exit:                ; preds = %deep_clear_bloom_filter_slab.exit.loopexit, %0, %._crit_edge.i
-  %35 = phi ptr [ %.pre, %deep_clear_bloom_filter_slab.exit.loopexit ], [ %.pre5, %0 ], [ %.pre1014.i, %._crit_edge.i ]
+  %36 = phi ptr [ %.pre, %deep_clear_bloom_filter_slab.exit.loopexit ], [ %.pre5, %0 ], [ %.pre1014.i, %._crit_edge.i ]
   store i32 0, ptr @bloom_filters.2, align 8, !tbaa !42
-  tail call void @free(ptr noundef %35) #14
+  tail call void @free(ptr noundef %36) #14
   store ptr null, ptr @bloom_filters.3, align 8, !tbaa !45
   ret void
 }

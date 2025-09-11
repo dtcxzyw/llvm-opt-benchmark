@@ -102,7 +102,7 @@ define dso_local i8 @_ZN4Luau7CodeGen3X6413IrRegAllocX648allocRegENS1_7SizeX64Ej
   %20 = trunc nuw i64 %.065 to i8
   %21 = shl i8 %20, 3
   %22 = or disjoint i8 %21, 5
-  br label %93
+  br label %94
 
 23:                                               ; preds = %24
   %.038.add = add nuw nsw i64 %.038.idx63, 1
@@ -129,7 +129,7 @@ define dso_local i8 @_ZN4Luau7CodeGen3X6413IrRegAllocX648allocRegENS1_7SizeX64Ej
   %34 = and i8 %1, 7
   %35 = and i8 %.sroa.05.0.copyload, -8
   %36 = or disjoint i8 %35, %34
-  br label %93
+  br label %94
 
 .thread:                                          ; preds = %23, %14, %.preheader
   %.v = phi i64 [ 124, %.preheader ], [ 124, %14 ], [ 44, %23 ]
@@ -176,72 +176,73 @@ define dso_local i8 @_ZN4Luau7CodeGen3X6413IrRegAllocX648allocRegENS1_7SizeX64Ej
 
 _ZNK4Luau7CodeGen3X6413IrRegAllocX6434findInstructionWithFurthestNextUseERKSt5arrayIjLm16EE.exit: ; preds = %54
   %.not42 = icmp eq i32 %.1.i, -1
-  br i1 %.not42, label %93, label %55
+  br i1 %.not42, label %94, label %55
 
 55:                                               ; preds = %_ZNK4Luau7CodeGen3X6413IrRegAllocX6434findInstructionWithFurthestNextUseERKSt5arrayIjLm16EE.exit
   %56 = load ptr, ptr %39, align 8, !tbaa !66
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 24
   %58 = zext i32 %.1.i to i64
   %59 = load ptr, ptr %57, align 8, !tbaa !67
-  %60 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %59, i64 %58, i32 11
-  %.sroa.02.0.copyload = load i8, ptr %60, align 2, !tbaa !65
-  %61 = and i8 %1, 7
-  %62 = and i8 %.sroa.02.0.copyload, -8
-  %63 = or disjoint i8 %62, %61
-  %64 = icmp eq i8 %61, 5
-  %65 = lshr i8 %.sroa.02.0.copyload, 3
-  %66 = zext nneg i8 %65 to i64
-  br i1 %64, label %67, label %79
+  %60 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %59, i64 %58
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 38
+  %.sroa.02.0.copyload = load i8, ptr %61, align 2, !tbaa !65
+  %62 = and i8 %1, 7
+  %63 = and i8 %.sroa.02.0.copyload, -8
+  %64 = or disjoint i8 %63, %62
+  %65 = icmp eq i8 %62, 5
+  %66 = lshr i8 %.sroa.02.0.copyload, 3
+  %67 = zext nneg i8 %66 to i64
+  br i1 %65, label %68, label %80
 
-67:                                               ; preds = %55
-  %68 = getelementptr inbounds nuw i8, ptr %0, i64 108
-  %69 = getelementptr inbounds nuw i8, ptr %68, i64 %66
-  %70 = load i8, ptr %69, align 1, !tbaa !59, !range !61, !noundef !62
-  %71 = trunc nuw i8 %70 to i1
-  br i1 %71, label %78, label %72
+68:                                               ; preds = %55
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 108
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 %67
+  %71 = load i8, ptr %70, align 1, !tbaa !59, !range !61, !noundef !62
+  %72 = trunc nuw i8 %71 to i1
+  br i1 %72, label %79, label %73
 
-72:                                               ; preds = %67
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 124
-  %74 = getelementptr inbounds nuw i32, ptr %73, i64 %66
-  %75 = load i32, ptr %74, align 4, !tbaa !60
-  %76 = zext i32 %75 to i64
-  %77 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %59, i64 %76
-  tail call void @_ZN4Luau7CodeGen3X6413IrRegAllocX648preserveERNS0_6IrInstE(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef nonnull align 4 dereferenceable(43) %77)
-  br label %78
+73:                                               ; preds = %68
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 124
+  %75 = getelementptr inbounds nuw i32, ptr %74, i64 %67
+  %76 = load i32, ptr %75, align 4, !tbaa !60
+  %77 = zext i32 %76 to i64
+  %78 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %59, i64 %77
+  tail call void @_ZN4Luau7CodeGen3X6413IrRegAllocX648preserveERNS0_6IrInstE(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef nonnull align 4 dereferenceable(43) %78)
+  br label %79
 
-78:                                               ; preds = %72, %67
-  store i8 0, ptr %69, align 1, !tbaa !59
+79:                                               ; preds = %73, %68
+  store i8 0, ptr %70, align 1, !tbaa !59
   br label %_ZN4Luau7CodeGen3X6413IrRegAllocX647takeRegENS1_11RegisterX64Ej.exit
 
-79:                                               ; preds = %55
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %81 = getelementptr inbounds nuw i8, ptr %80, i64 %66
-  %82 = load i8, ptr %81, align 1, !tbaa !59, !range !61, !noundef !62
-  %83 = trunc nuw i8 %82 to i1
-  br i1 %83, label %90, label %84
+80:                                               ; preds = %55
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 %67
+  %83 = load i8, ptr %82, align 1, !tbaa !59, !range !61, !noundef !62
+  %84 = trunc nuw i8 %83 to i1
+  br i1 %84, label %91, label %85
 
-84:                                               ; preds = %79
-  %85 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %86 = getelementptr inbounds nuw i32, ptr %85, i64 %66
-  %87 = load i32, ptr %86, align 4, !tbaa !60
-  %88 = zext i32 %87 to i64
-  %89 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %59, i64 %88
-  tail call void @_ZN4Luau7CodeGen3X6413IrRegAllocX648preserveERNS0_6IrInstE(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef nonnull align 4 dereferenceable(43) %89)
-  br label %90
+85:                                               ; preds = %80
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  %87 = getelementptr inbounds nuw i32, ptr %86, i64 %67
+  %88 = load i32, ptr %87, align 4, !tbaa !60
+  %89 = zext i32 %88 to i64
+  %90 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %59, i64 %89
+  tail call void @_ZN4Luau7CodeGen3X6413IrRegAllocX648preserveERNS0_6IrInstE(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef nonnull align 4 dereferenceable(43) %90)
+  br label %91
 
-90:                                               ; preds = %84, %79
-  store i8 0, ptr %81, align 1, !tbaa !59
+91:                                               ; preds = %85, %80
+  store i8 0, ptr %82, align 1, !tbaa !59
   br label %_ZN4Luau7CodeGen3X6413IrRegAllocX647takeRegENS1_11RegisterX64Ej.exit
 
-_ZN4Luau7CodeGen3X6413IrRegAllocX647takeRegENS1_11RegisterX64Ej.exit: ; preds = %78, %90
-  %.sink.i = phi i64 [ 44, %90 ], [ 124, %78 ]
-  %91 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink.i
-  %92 = getelementptr inbounds nuw i32, ptr %91, i64 %66
-  store i32 %2, ptr %92, align 4, !tbaa !60
-  br label %93
+_ZN4Luau7CodeGen3X6413IrRegAllocX647takeRegENS1_11RegisterX64Ej.exit: ; preds = %79, %91
+  %.sink.i = phi i64 [ 44, %91 ], [ 124, %79 ]
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink.i
+  %93 = getelementptr inbounds nuw i32, ptr %92, i64 %67
+  store i32 %2, ptr %93, align 4, !tbaa !60
+  br label %94
 
-93:                                               ; preds = %_ZN4Luau7CodeGen3X6413IrRegAllocX647takeRegENS1_11RegisterX64Ej.exit, %_ZNK4Luau7CodeGen3X6413IrRegAllocX6434findInstructionWithFurthestNextUseERKSt5arrayIjLm16EE.exit, %30, %16
-  %.sroa.032.1 = phi i8 [ %22, %16 ], [ %36, %30 ], [ %63, %_ZN4Luau7CodeGen3X6413IrRegAllocX647takeRegENS1_11RegisterX64Ej.exit ], [ -128, %_ZNK4Luau7CodeGen3X6413IrRegAllocX6434findInstructionWithFurthestNextUseERKSt5arrayIjLm16EE.exit ]
+94:                                               ; preds = %_ZN4Luau7CodeGen3X6413IrRegAllocX647takeRegENS1_11RegisterX64Ej.exit, %_ZNK4Luau7CodeGen3X6413IrRegAllocX6434findInstructionWithFurthestNextUseERKSt5arrayIjLm16EE.exit, %30, %16
+  %.sroa.032.1 = phi i8 [ %22, %16 ], [ %36, %30 ], [ %64, %_ZN4Luau7CodeGen3X6413IrRegAllocX647takeRegENS1_11RegisterX64Ej.exit ], [ -128, %_ZNK4Luau7CodeGen3X6413IrRegAllocX6434findInstructionWithFurthestNextUseERKSt5arrayIjLm16EE.exit ]
   ret i8 %.sroa.032.1
 }
 

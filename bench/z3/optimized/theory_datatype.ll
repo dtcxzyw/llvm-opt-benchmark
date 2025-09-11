@@ -6527,7 +6527,7 @@ _ZN6vectorISt4pairIN3smt15theory_datatype8stack_opEPNS1_5enodeEELb0EjE4backEv.ex
   %46 = zext i32 %45 to i64
   %47 = getelementptr inbounds nuw %"struct.std::pair", ptr %41, i64 %46
   %48 = load i32, ptr %47, align 8, !tbaa !777
-  %49 = getelementptr inbounds nuw %"struct.std::pair", ptr %41, i64 %46, i32 1
+  %49 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %50 = load ptr, ptr %49, align 8, !tbaa !780
   store i32 %45, ptr %42, align 4, !tbaa !12
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8

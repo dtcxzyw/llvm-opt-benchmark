@@ -1149,7 +1149,8 @@ for.body:                                         ; preds = %if.end57, %for.inc
   %38 = phi ptr [ %43, %for.inc ], [ %33, %if.end57 ]
   %39 = phi ptr [ %44, %for.inc ], [ %32, %if.end57 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %if.end57 ]
-  %Bank = getelementptr inbounds nuw %"struct.irr::gui::CGUIEnvironment::SSpriteBank", ptr %38, i64 %indvars.iv, i32 1
+  %Bank.split = getelementptr inbounds nuw %"struct.irr::gui::CGUIEnvironment::SSpriteBank", ptr %38, i64 %indvars.iv
+  %Bank = getelementptr inbounds nuw i8, ptr %Bank.split, i64 64
   %40 = load ptr, ptr %Bank, align 8, !tbaa !100
   %tobool62.not = icmp eq ptr %40, null
   br i1 %tobool62.not, label %for.inc, label %if.then63
@@ -1191,7 +1192,8 @@ for.body76:                                       ; preds = %for.cond73.preheade
   %46 = phi ptr [ %51, %_ZNK3irr17IReferenceCounted4dropEv.exit187 ], [ %36, %for.cond73.preheader ]
   %47 = phi ptr [ %52, %_ZNK3irr17IReferenceCounted4dropEv.exit187 ], [ %35, %for.cond73.preheader ]
   %indvars.iv248 = phi i64 [ %indvars.iv.next249, %_ZNK3irr17IReferenceCounted4dropEv.exit187 ], [ 0, %for.cond73.preheader ]
-  %Font = getelementptr inbounds nuw %"struct.irr::gui::CGUIEnvironment::SFont", ptr %46, i64 %indvars.iv248, i32 1
+  %Font.split = getelementptr inbounds nuw %"struct.irr::gui::CGUIEnvironment::SFont", ptr %46, i64 %indvars.iv248
+  %Font = getelementptr inbounds nuw i8, ptr %Font.split, i64 64
   %48 = load ptr, ptr %Font, align 8, !tbaa !82
   %vtable79 = load ptr, ptr %48, align 8, !tbaa !11
   %vbase.offset.ptr80 = getelementptr i8, ptr %vtable79, i64 -24
@@ -4819,7 +4821,8 @@ entry:
 if.then:                                          ; preds = %entry
   %conv.i = zext i32 %call to i64
   %2 = load ptr, ptr %Fonts, align 8, !tbaa !99
-  %Font = getelementptr inbounds nuw %"struct.irr::gui::CGUIEnvironment::SFont", ptr %2, i64 %conv.i, i32 1
+  %Font.split = getelementptr inbounds nuw %"struct.irr::gui::CGUIEnvironment::SFont", ptr %2, i64 %conv.i
+  %Font = getelementptr inbounds nuw i8, ptr %Font.split, i64 64
   %3 = load ptr, ptr %Font, align 8, !tbaa !82
   br label %cleanup24
 
@@ -5047,7 +5050,8 @@ if.then:                                          ; preds = %entry
 if.then2:                                         ; preds = %if.then
   %conv.i = zext i32 %call to i64
   %2 = load ptr, ptr %Fonts, align 8, !tbaa !99
-  %Font = getelementptr inbounds nuw %"struct.irr::gui::CGUIEnvironment::SFont", ptr %2, i64 %conv.i, i32 1
+  %Font.split = getelementptr inbounds nuw %"struct.irr::gui::CGUIEnvironment::SFont", ptr %2, i64 %conv.i
+  %Font = getelementptr inbounds nuw i8, ptr %Font.split, i64 64
   %3 = load ptr, ptr %Font, align 8, !tbaa !82
   br label %cleanup
 
@@ -5177,7 +5181,8 @@ for.cond.preheader:                               ; preds = %entry
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %for.cond.preheader ]
-  %Font = getelementptr inbounds nuw %"struct.irr::gui::CGUIEnvironment::SFont", ptr %1, i64 %indvars.iv, i32 1
+  %Font.split = getelementptr inbounds nuw %"struct.irr::gui::CGUIEnvironment::SFont", ptr %1, i64 %indvars.iv
+  %Font = getelementptr inbounds nuw i8, ptr %Font.split, i64 64
   %3 = load ptr, ptr %Font, align 8, !tbaa !82
   %cmp4 = icmp eq ptr %3, %font
   br i1 %cmp4, label %if.then5, label %for.inc
@@ -5341,7 +5346,8 @@ entry:
 if.then:                                          ; preds = %entry
   %conv.i = zext i32 %call to i64
   %2 = load ptr, ptr %Banks, align 8, !tbaa !98
-  %Bank = getelementptr inbounds nuw %"struct.irr::gui::CGUIEnvironment::SSpriteBank", ptr %2, i64 %conv.i, i32 1
+  %Bank.split = getelementptr inbounds nuw %"struct.irr::gui::CGUIEnvironment::SSpriteBank", ptr %2, i64 %conv.i
+  %Bank = getelementptr inbounds nuw i8, ptr %Bank.split, i64 64
   %3 = load ptr, ptr %Bank, align 8, !tbaa !100
   br label %cleanup
 

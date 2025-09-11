@@ -7664,63 +7664,64 @@ define hidden noundef i32 @_ZN2cv8tinyxml211XMLDocument8SaveFileEP8_IO_FILEb(ptr
 
 21:                                               ; preds = %21, %3
   %indvars.iv.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i, %21 ]
-  %22 = getelementptr inbounds nuw %"struct.cv::tinyxml2::Entity", ptr @_ZN2cv8tinyxml2L8entitiesE, i64 %indvars.iv.i, i32 2
-  %23 = load i8, ptr %22, align 4, !tbaa !23
-  %24 = sext i8 %23 to i64
-  %25 = getelementptr inbounds i8, ptr %20, i64 %24
-  store i8 1, ptr %25, align 1, !tbaa !30
+  %22 = getelementptr inbounds nuw %"struct.cv::tinyxml2::Entity", ptr @_ZN2cv8tinyxml2L8entitiesE, i64 %indvars.iv.i
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 12
+  %24 = load i8, ptr %23, align 4, !tbaa !23
+  %25 = sext i8 %24 to i64
+  %26 = getelementptr inbounds i8, ptr %20, i64 %25
+  store i8 1, ptr %26, align 1, !tbaa !30
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 5
   br i1 %exitcond.not.i, label %_ZN2cv8tinyxml210XMLPrinterC2EP8_IO_FILEbi.exit, label %21, !llvm.loop !171
 
 _ZN2cv8tinyxml210XMLPrinterC2EP8_IO_FILEbi.exit:  ; preds = %21
-  %26 = getelementptr inbounds nuw i8, ptr %4, i64 304
-  %27 = getelementptr inbounds nuw i8, ptr %4, i64 240
-  store i8 1, ptr %27, align 8, !tbaa !30
-  %28 = getelementptr inbounds nuw i8, ptr %4, i64 262
-  store i8 1, ptr %28, align 2, !tbaa !30
-  %29 = getelementptr inbounds nuw i8, ptr %4, i64 264
-  store i8 1, ptr %29, align 8, !tbaa !30
-  store i32 1, ptr %26, align 8, !tbaa !172
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 304
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 240
+  store i8 1, ptr %28, align 8, !tbaa !30
+  %29 = getelementptr inbounds nuw i8, ptr %4, i64 262
+  store i8 1, ptr %29, align 2, !tbaa !30
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 264
+  store i8 1, ptr %30, align 8, !tbaa !30
+  store i32 1, ptr %27, align 8, !tbaa !172
   store i8 0, ptr %18, align 8, !tbaa !12
   invoke void @_ZNK2cv8tinyxml211XMLDocument5PrintEPNS0_10XMLPrinterE(ptr noundef nonnull align 8 dereferenceable(640) %0, ptr noundef nonnull %4)
-          to label %30 unwind label %39
+          to label %31 unwind label %40
 
-30:                                               ; preds = %_ZN2cv8tinyxml210XMLPrinterC2EP8_IO_FILEbi.exit
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 92
-  %32 = load i32, ptr %31, align 4, !tbaa !106
+31:                                               ; preds = %_ZN2cv8tinyxml210XMLPrinterC2EP8_IO_FILEbi.exit
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 92
+  %33 = load i32, ptr %32, align 4, !tbaa !106
   store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN2cv8tinyxml210XMLPrinterE, i64 16), ptr %4, align 8, !tbaa !39
-  %33 = load ptr, ptr %17, align 8, !tbaa !169
-  %.not.i.i = icmp eq ptr %33, %18
-  %34 = icmp eq ptr %33, null
-  %or.cond.i.i = or i1 %.not.i.i, %34
-  br i1 %or.cond.i.i, label %_ZN2cv8tinyxml28DynArrayIcLi20EED2Ev.exit.i, label %35
+  %34 = load ptr, ptr %17, align 8, !tbaa !169
+  %.not.i.i = icmp eq ptr %34, %18
+  %35 = icmp eq ptr %34, null
+  %or.cond.i.i = or i1 %.not.i.i, %35
+  br i1 %or.cond.i.i, label %_ZN2cv8tinyxml28DynArrayIcLi20EED2Ev.exit.i, label %36
 
-35:                                               ; preds = %30
-  call void @_ZdaPv(ptr noundef nonnull %33) #23
+36:                                               ; preds = %31
+  call void @_ZdaPv(ptr noundef nonnull %34) #23
   br label %_ZN2cv8tinyxml28DynArrayIcLi20EED2Ev.exit.i
 
-_ZN2cv8tinyxml28DynArrayIcLi20EED2Ev.exit.i:      ; preds = %35, %30
-  %36 = load ptr, ptr %7, align 8, !tbaa !160
-  %.not.i1.i = icmp eq ptr %36, %8
-  %37 = icmp eq ptr %36, null
-  %or.cond.i2.i = or i1 %.not.i1.i, %37
-  br i1 %or.cond.i2.i, label %_ZN2cv8tinyxml210XMLPrinterD2Ev.exit, label %38
+_ZN2cv8tinyxml28DynArrayIcLi20EED2Ev.exit.i:      ; preds = %36, %31
+  %37 = load ptr, ptr %7, align 8, !tbaa !160
+  %.not.i1.i = icmp eq ptr %37, %8
+  %38 = icmp eq ptr %37, null
+  %or.cond.i2.i = or i1 %.not.i1.i, %38
+  br i1 %or.cond.i2.i, label %_ZN2cv8tinyxml210XMLPrinterD2Ev.exit, label %39
 
-38:                                               ; preds = %_ZN2cv8tinyxml28DynArrayIcLi20EED2Ev.exit.i
-  call void @_ZdaPv(ptr noundef nonnull %36) #23
+39:                                               ; preds = %_ZN2cv8tinyxml28DynArrayIcLi20EED2Ev.exit.i
+  call void @_ZdaPv(ptr noundef nonnull %37) #23
   br label %_ZN2cv8tinyxml210XMLPrinterD2Ev.exit
 
-_ZN2cv8tinyxml210XMLPrinterD2Ev.exit:             ; preds = %_ZN2cv8tinyxml28DynArrayIcLi20EED2Ev.exit.i, %38
+_ZN2cv8tinyxml210XMLPrinterD2Ev.exit:             ; preds = %_ZN2cv8tinyxml28DynArrayIcLi20EED2Ev.exit.i, %39
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret i32 %32
+  ret i32 %33
 
-39:                                               ; preds = %_ZN2cv8tinyxml210XMLPrinterC2EP8_IO_FILEbi.exit
-  %40 = landingpad { ptr, i32 }
+40:                                               ; preds = %_ZN2cv8tinyxml210XMLPrinterC2EP8_IO_FILEbi.exit
+  %41 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2cv8tinyxml210XMLPrinterD2Ev(ptr noundef nonnull align 8 dereferenceable(312) %4) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  resume { ptr, i32 } %40
+  resume { ptr, i32 } %41
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -7761,66 +7762,67 @@ define hidden void @_ZNK2cv8tinyxml211XMLDocument5PrintEPNS0_10XMLPrinterE(ptr n
 
 20:                                               ; preds = %20, %2
   %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %20 ]
-  %21 = getelementptr inbounds nuw %"struct.cv::tinyxml2::Entity", ptr @_ZN2cv8tinyxml2L8entitiesE, i64 %indvars.iv.i, i32 2
-  %22 = load i8, ptr %21, align 4, !tbaa !23
-  %23 = sext i8 %22 to i64
-  %24 = getelementptr inbounds i8, ptr %19, i64 %23
-  store i8 1, ptr %24, align 1, !tbaa !30
+  %21 = getelementptr inbounds nuw %"struct.cv::tinyxml2::Entity", ptr @_ZN2cv8tinyxml2L8entitiesE, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 12
+  %23 = load i8, ptr %22, align 4, !tbaa !23
+  %24 = sext i8 %23 to i64
+  %25 = getelementptr inbounds i8, ptr %19, i64 %24
+  store i8 1, ptr %25, align 1, !tbaa !30
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 5
   br i1 %exitcond.not.i, label %_ZN2cv8tinyxml210XMLPrinterC2EP8_IO_FILEbi.exit, label %20, !llvm.loop !171
 
 _ZN2cv8tinyxml210XMLPrinterC2EP8_IO_FILEbi.exit:  ; preds = %20
-  %25 = getelementptr inbounds nuw i8, ptr %3, i64 304
-  %26 = getelementptr inbounds nuw i8, ptr %3, i64 240
-  store i8 1, ptr %26, align 8, !tbaa !30
-  %27 = getelementptr inbounds nuw i8, ptr %3, i64 262
-  store i8 1, ptr %27, align 2, !tbaa !30
-  %28 = getelementptr inbounds nuw i8, ptr %3, i64 264
-  store i8 1, ptr %28, align 8, !tbaa !30
-  store i32 1, ptr %25, align 8, !tbaa !172
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 304
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 240
+  store i8 1, ptr %27, align 8, !tbaa !30
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 262
+  store i8 1, ptr %28, align 2, !tbaa !30
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 264
+  store i8 1, ptr %29, align 8, !tbaa !30
+  store i32 1, ptr %26, align 8, !tbaa !172
   store i8 0, ptr %17, align 8, !tbaa !12
   %.not = icmp eq ptr %1, null
   %spec.store.select = select i1 %.not, ptr %3, ptr %1
-  %29 = load ptr, ptr %0, align 8, !tbaa !39
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 112
-  %31 = load ptr, ptr %30, align 8
-  %32 = invoke noundef zeroext i1 %31(ptr noundef nonnull align 8 dereferenceable(640) %0, ptr noundef nonnull %spec.store.select)
-          to label %33 unwind label %40
+  %30 = load ptr, ptr %0, align 8, !tbaa !39
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 112
+  %32 = load ptr, ptr %31, align 8
+  %33 = invoke noundef zeroext i1 %32(ptr noundef nonnull align 8 dereferenceable(640) %0, ptr noundef nonnull %spec.store.select)
+          to label %34 unwind label %41
 
-33:                                               ; preds = %_ZN2cv8tinyxml210XMLPrinterC2EP8_IO_FILEbi.exit
+34:                                               ; preds = %_ZN2cv8tinyxml210XMLPrinterC2EP8_IO_FILEbi.exit
   store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN2cv8tinyxml210XMLPrinterE, i64 16), ptr %3, align 8, !tbaa !39
-  %34 = load ptr, ptr %16, align 8, !tbaa !169
-  %.not.i.i = icmp eq ptr %34, %17
-  %35 = icmp eq ptr %34, null
-  %or.cond.i.i = or i1 %.not.i.i, %35
-  br i1 %or.cond.i.i, label %_ZN2cv8tinyxml28DynArrayIcLi20EED2Ev.exit.i, label %36
+  %35 = load ptr, ptr %16, align 8, !tbaa !169
+  %.not.i.i = icmp eq ptr %35, %17
+  %36 = icmp eq ptr %35, null
+  %or.cond.i.i = or i1 %.not.i.i, %36
+  br i1 %or.cond.i.i, label %_ZN2cv8tinyxml28DynArrayIcLi20EED2Ev.exit.i, label %37
 
-36:                                               ; preds = %33
-  call void @_ZdaPv(ptr noundef nonnull %34) #23
+37:                                               ; preds = %34
+  call void @_ZdaPv(ptr noundef nonnull %35) #23
   br label %_ZN2cv8tinyxml28DynArrayIcLi20EED2Ev.exit.i
 
-_ZN2cv8tinyxml28DynArrayIcLi20EED2Ev.exit.i:      ; preds = %36, %33
-  %37 = load ptr, ptr %6, align 8, !tbaa !160
-  %.not.i1.i = icmp eq ptr %37, %7
-  %38 = icmp eq ptr %37, null
-  %or.cond.i2.i = or i1 %.not.i1.i, %38
-  br i1 %or.cond.i2.i, label %_ZN2cv8tinyxml210XMLPrinterD2Ev.exit, label %39
+_ZN2cv8tinyxml28DynArrayIcLi20EED2Ev.exit.i:      ; preds = %37, %34
+  %38 = load ptr, ptr %6, align 8, !tbaa !160
+  %.not.i1.i = icmp eq ptr %38, %7
+  %39 = icmp eq ptr %38, null
+  %or.cond.i2.i = or i1 %.not.i1.i, %39
+  br i1 %or.cond.i2.i, label %_ZN2cv8tinyxml210XMLPrinterD2Ev.exit, label %40
 
-39:                                               ; preds = %_ZN2cv8tinyxml28DynArrayIcLi20EED2Ev.exit.i
-  call void @_ZdaPv(ptr noundef nonnull %37) #23
+40:                                               ; preds = %_ZN2cv8tinyxml28DynArrayIcLi20EED2Ev.exit.i
+  call void @_ZdaPv(ptr noundef nonnull %38) #23
   br label %_ZN2cv8tinyxml210XMLPrinterD2Ev.exit
 
-_ZN2cv8tinyxml210XMLPrinterD2Ev.exit:             ; preds = %_ZN2cv8tinyxml28DynArrayIcLi20EED2Ev.exit.i, %39
+_ZN2cv8tinyxml210XMLPrinterD2Ev.exit:             ; preds = %_ZN2cv8tinyxml28DynArrayIcLi20EED2Ev.exit.i, %40
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
-40:                                               ; preds = %_ZN2cv8tinyxml210XMLPrinterC2EP8_IO_FILEbi.exit
-  %41 = landingpad { ptr, i32 }
+41:                                               ; preds = %_ZN2cv8tinyxml210XMLPrinterC2EP8_IO_FILEbi.exit
+  %42 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2cv8tinyxml210XMLPrinterD2Ev(ptr noundef nonnull align 8 dereferenceable(312) %3) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  resume { ptr, i32 } %41
+  resume { ptr, i32 } %42
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -8123,24 +8125,25 @@ define hidden void @_ZN2cv8tinyxml210XMLPrinterC2EP8_IO_FILEbi(ptr noundef nonnu
 
 20:                                               ; preds = %.preheader, %20
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %20 ]
-  %21 = getelementptr inbounds nuw %"struct.cv::tinyxml2::Entity", ptr @_ZN2cv8tinyxml2L8entitiesE, i64 %indvars.iv, i32 2
-  %22 = load i8, ptr %21, align 4, !tbaa !23
-  %23 = sext i8 %22 to i64
-  %24 = getelementptr inbounds i8, ptr %19, i64 %23
-  store i8 1, ptr %24, align 1, !tbaa !30
+  %21 = getelementptr inbounds nuw %"struct.cv::tinyxml2::Entity", ptr @_ZN2cv8tinyxml2L8entitiesE, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 12
+  %23 = load i8, ptr %22, align 4, !tbaa !23
+  %24 = sext i8 %23 to i64
+  %25 = getelementptr inbounds i8, ptr %19, i64 %24
+  store i8 1, ptr %25, align 1, !tbaa !30
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
-  br i1 %exitcond.not, label %25, label %20, !llvm.loop !171
+  br i1 %exitcond.not, label %26, label %20, !llvm.loop !171
 
-25:                                               ; preds = %20
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  store i8 1, ptr %27, align 8, !tbaa !30
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 262
-  store i8 1, ptr %28, align 2, !tbaa !30
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  store i8 1, ptr %29, align 8, !tbaa !30
-  store i32 1, ptr %26, align 8, !tbaa !172
+26:                                               ; preds = %20
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 304
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 240
+  store i8 1, ptr %28, align 8, !tbaa !30
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 262
+  store i8 1, ptr %29, align 2, !tbaa !30
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  store i8 1, ptr %30, align 8, !tbaa !30
+  store i32 1, ptr %27, align 8, !tbaa !172
   store i8 0, ptr %17, align 8, !tbaa !12
   ret void
 }

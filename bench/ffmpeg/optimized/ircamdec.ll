@@ -103,94 +103,95 @@ define internal range(i32 -1094995529, 1) i32 @ircam_read_header(ptr noundef %0)
   br i1 %9, label %10, label %5
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds nuw %struct.endianess, ptr @table, i64 %indvars.iv, i32 1
-  %12 = load i32, ptr %11, align 4, !tbaa !31
-  switch i32 %12, label %.thread [
-    i32 1, label %13
-    i32 0, label %22
+  %11 = getelementptr inbounds nuw %struct.endianess, ptr @table, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
+  %13 = load i32, ptr %12, align 4, !tbaa !31
+  switch i32 %13, label %.thread [
+    i32 1, label %14
+    i32 0, label %23
   ]
 
-13:                                               ; preds = %10
-  %14 = load ptr, ptr %2, align 8, !tbaa !12
-  %15 = tail call i32 @avio_rl32(ptr noundef %14) #4
-  %16 = bitcast i32 %15 to float
-  %17 = tail call i64 @llvm.lrint.i64.f32(float %16)
-  %18 = load ptr, ptr %2, align 8, !tbaa !12
-  %19 = tail call i32 @avio_rl32(ptr noundef %18) #4
-  %20 = load ptr, ptr %2, align 8, !tbaa !12
-  %21 = tail call i32 @avio_rl32(ptr noundef %20) #4
-  br label %31
+14:                                               ; preds = %10
+  %15 = load ptr, ptr %2, align 8, !tbaa !12
+  %16 = tail call i32 @avio_rl32(ptr noundef %15) #4
+  %17 = bitcast i32 %16 to float
+  %18 = tail call i64 @llvm.lrint.i64.f32(float %17)
+  %19 = load ptr, ptr %2, align 8, !tbaa !12
+  %20 = tail call i32 @avio_rl32(ptr noundef %19) #4
+  %21 = load ptr, ptr %2, align 8, !tbaa !12
+  %22 = tail call i32 @avio_rl32(ptr noundef %21) #4
+  br label %32
 
-22:                                               ; preds = %10
-  %23 = load ptr, ptr %2, align 8, !tbaa !12
-  %24 = tail call i32 @avio_rb32(ptr noundef %23) #4
-  %25 = bitcast i32 %24 to float
-  %26 = tail call i64 @llvm.lrint.i64.f32(float %25)
-  %27 = load ptr, ptr %2, align 8, !tbaa !12
-  %28 = tail call i32 @avio_rb32(ptr noundef %27) #4
-  %29 = load ptr, ptr %2, align 8, !tbaa !12
-  %30 = tail call i32 @avio_rb32(ptr noundef %29) #4
-  br label %31
+23:                                               ; preds = %10
+  %24 = load ptr, ptr %2, align 8, !tbaa !12
+  %25 = tail call i32 @avio_rb32(ptr noundef %24) #4
+  %26 = bitcast i32 %25 to float
+  %27 = tail call i64 @llvm.lrint.i64.f32(float %26)
+  %28 = load ptr, ptr %2, align 8, !tbaa !12
+  %29 = tail call i32 @avio_rb32(ptr noundef %28) #4
+  %30 = load ptr, ptr %2, align 8, !tbaa !12
+  %31 = tail call i32 @avio_rb32(ptr noundef %30) #4
+  br label %32
 
-31:                                               ; preds = %22, %13
-  %.044.in = phi i64 [ %17, %13 ], [ %26, %22 ]
-  %.043 = phi i32 [ %19, %13 ], [ %28, %22 ]
-  %.042 = phi i32 [ %21, %13 ], [ %30, %22 ]
-  %.041 = phi ptr [ @ff_codec_ircam_le_tags, %13 ], [ @ff_codec_ircam_be_tags, %22 ]
+32:                                               ; preds = %23, %14
+  %.044.in = phi i64 [ %18, %14 ], [ %27, %23 ]
+  %.043 = phi i32 [ %20, %14 ], [ %29, %23 ]
+  %.042 = phi i32 [ %22, %14 ], [ %31, %23 ]
+  %.041 = phi ptr [ @ff_codec_ircam_le_tags, %14 ], [ @ff_codec_ircam_be_tags, %23 ]
   %.044 = trunc i64 %.044.in to i32
-  %32 = icmp ne i32 %.043, 0
-  %33 = icmp ne i32 %.044, 0
-  %or.cond = select i1 %32, i1 %33, i1 false
-  br i1 %or.cond, label %34, label %.thread
+  %33 = icmp ne i32 %.043, 0
+  %34 = icmp ne i32 %.044, 0
+  %or.cond = select i1 %33, i1 %34, i1 false
+  br i1 %or.cond, label %35, label %.thread
 
-34:                                               ; preds = %31
-  %35 = tail call ptr @avformat_new_stream(ptr noundef nonnull %0, ptr noundef null) #4
-  %.not = icmp eq ptr %35, null
-  br i1 %.not, label %.thread, label %36
+35:                                               ; preds = %32
+  %36 = tail call ptr @avformat_new_stream(ptr noundef nonnull %0, ptr noundef null) #4
+  %.not = icmp eq ptr %36, null
+  br i1 %.not, label %.thread, label %37
 
-36:                                               ; preds = %34
-  %37 = getelementptr inbounds nuw i8, ptr %35, i64 16
-  %38 = load ptr, ptr %37, align 8, !tbaa !32
-  store i32 1, ptr %38, align 8, !tbaa !39
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 132
-  store i32 %.043, ptr %39, align 4, !tbaa !42
-  %40 = icmp ugt i32 %.043, 512
-  br i1 %40, label %.thread, label %41
+37:                                               ; preds = %35
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 16
+  %39 = load ptr, ptr %38, align 8, !tbaa !32
+  store i32 1, ptr %39, align 8, !tbaa !39
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 132
+  store i32 %.043, ptr %40, align 4, !tbaa !42
+  %41 = icmp ugt i32 %.043, 512
+  br i1 %41, label %.thread, label %42
 
-41:                                               ; preds = %36
-  %42 = getelementptr inbounds nuw i8, ptr %38, i64 152
-  store i32 %.044, ptr %42, align 8, !tbaa !43
-  %43 = tail call i32 @ff_codec_get_id(ptr noundef nonnull %.041, i32 noundef %.042) #4
-  %44 = load ptr, ptr %37, align 8, !tbaa !32
-  %45 = getelementptr inbounds nuw i8, ptr %44, i64 4
-  store i32 %43, ptr %45, align 4, !tbaa !44
-  %46 = icmp eq i32 %43, 0
-  br i1 %46, label %47, label %48
+42:                                               ; preds = %37
+  %43 = getelementptr inbounds nuw i8, ptr %39, i64 152
+  store i32 %.044, ptr %43, align 8, !tbaa !43
+  %44 = tail call i32 @ff_codec_get_id(ptr noundef nonnull %.041, i32 noundef %.042) #4
+  %45 = load ptr, ptr %38, align 8, !tbaa !32
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 4
+  store i32 %44, ptr %46, align 4, !tbaa !44
+  %47 = icmp eq i32 %44, 0
+  br i1 %47, label %48, label %49
 
-47:                                               ; preds = %41
+48:                                               ; preds = %42
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.3, i32 noundef %.042) #4
   br label %.thread
 
-48:                                               ; preds = %41
-  %49 = tail call i32 @av_get_bits_per_sample(i32 noundef %43) #4
-  %50 = load ptr, ptr %37, align 8, !tbaa !32
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 56
-  store i32 %49, ptr %51, align 8, !tbaa !45
-  %52 = getelementptr inbounds nuw i8, ptr %50, i64 132
-  %53 = load i32, ptr %52, align 4, !tbaa !42
-  %54 = mul nsw i32 %53, %49
-  %55 = sdiv i32 %54, 8
-  %56 = getelementptr inbounds nuw i8, ptr %50, i64 156
-  store i32 %55, ptr %56, align 4, !tbaa !46
-  %57 = getelementptr inbounds nuw i8, ptr %50, i64 152
-  %58 = load i32, ptr %57, align 8, !tbaa !43
-  tail call void @avpriv_set_pts_info(ptr noundef nonnull %35, i32 noundef 64, i32 noundef 1, i32 noundef %58) #4
-  %59 = load ptr, ptr %2, align 8, !tbaa !12
-  %60 = tail call i64 @avio_skip(ptr noundef %59, i64 noundef 1008) #4
+49:                                               ; preds = %42
+  %50 = tail call i32 @av_get_bits_per_sample(i32 noundef %44) #4
+  %51 = load ptr, ptr %38, align 8, !tbaa !32
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 56
+  store i32 %50, ptr %52, align 8, !tbaa !45
+  %53 = getelementptr inbounds nuw i8, ptr %51, i64 132
+  %54 = load i32, ptr %53, align 4, !tbaa !42
+  %55 = mul nsw i32 %54, %50
+  %56 = sdiv i32 %55, 8
+  %57 = getelementptr inbounds nuw i8, ptr %51, i64 156
+  store i32 %56, ptr %57, align 4, !tbaa !46
+  %58 = getelementptr inbounds nuw i8, ptr %51, i64 152
+  %59 = load i32, ptr %58, align 8, !tbaa !43
+  tail call void @avpriv_set_pts_info(ptr noundef nonnull %36, i32 noundef 64, i32 noundef 1, i32 noundef %59) #4
+  %60 = load ptr, ptr %2, align 8, !tbaa !12
+  %61 = tail call i64 @avio_skip(ptr noundef %60, i64 noundef 1008) #4
   br label %.thread
 
-.thread:                                          ; preds = %5, %36, %34, %31, %10, %48, %47
-  %.0 = phi i32 [ -1094995529, %47 ], [ 0, %48 ], [ -1094995529, %10 ], [ -1094995529, %31 ], [ -12, %34 ], [ -38, %36 ], [ -1094995529, %5 ]
+.thread:                                          ; preds = %5, %37, %35, %32, %10, %49, %48
+  %.0 = phi i32 [ -1094995529, %48 ], [ 0, %49 ], [ -1094995529, %10 ], [ -1094995529, %32 ], [ -12, %35 ], [ -38, %37 ], [ -1094995529, %5 ]
   ret i32 %.0
 }
 

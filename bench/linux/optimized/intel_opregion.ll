@@ -422,14 +422,15 @@ define dso_local noundef range(i32 -110, 1) i32 @intel_opregion_notify_adapter(p
   br i1 %15, label %16, label %9
 
 16:                                               ; preds = %.preheader
-  %17 = getelementptr %struct.anon.47, ptr @power_state_map, i64 %12, i32 1
-  %18 = load i32, ptr %17, align 4
-  %19 = tail call fastcc i32 @swsci(ptr noundef %0, i32 noundef 1804, i32 noundef %18, ptr noundef null), !range !11
+  %17 = getelementptr %struct.anon.47, ptr @power_state_map, i64 %12
+  %18 = getelementptr i8, ptr %17, i64 4
+  %19 = load i32, ptr %18, align 4
+  %20 = tail call fastcc i32 @swsci(ptr noundef %0, i32 noundef 1804, i32 noundef %19, ptr noundef null), !range !11
   br label %.loopexit
 
 .loopexit:                                        ; preds = %9, %16, %2
-  %20 = phi i32 [ %19, %16 ], [ 0, %2 ], [ -22, %9 ]
-  ret i32 %20
+  %21 = phi i32 [ %20, %16 ], [ 0, %2 ], [ -22, %9 ]
+  ret i32 %21
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -1961,7 +1962,7 @@ define dso_local void @intel_opregion_suspend(ptr noundef %0, i32 noundef %1) lo
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 6592
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
-  br i1 %5, label %39, label %6
+  br i1 %5, label %40, label %6
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 2624
@@ -1985,40 +1986,41 @@ define dso_local void @intel_opregion_suspend(ptr noundef %0, i32 noundef %1) lo
   br i1 %19, label %20, label %13
 
 20:                                               ; preds = %.preheader
-  %21 = getelementptr %struct.anon.47, ptr @power_state_map, i64 %16, i32 1
-  %22 = load i32, ptr %21, align 4
-  %23 = tail call fastcc i32 @swsci(ptr noundef %0, i32 noundef 1804, i32 noundef %22, ptr noundef null), !range !11
+  %21 = getelementptr %struct.anon.47, ptr @power_state_map, i64 %16
+  %22 = getelementptr i8, ptr %21, i64 4
+  %23 = load i32, ptr %22, align 4
+  %24 = tail call fastcc i32 @swsci(ptr noundef %0, i32 noundef 1804, i32 noundef %23, ptr noundef null), !range !11
   br label %.loopexit
 
 .loopexit:                                        ; preds = %13, %20, %6
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 2638
-  %25 = load i8, ptr %24, align 2
-  %26 = icmp eq i8 %25, 0
-  br i1 %26, label %39, label %27
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 2638
+  %26 = load i8, ptr %25, align 2
+  %27 = icmp eq i8 %26, 0
+  br i1 %27, label %40, label %28
 
-27:                                               ; preds = %.loopexit
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 6624
-  %29 = load ptr, ptr %28, align 8
-  %30 = icmp eq ptr %29, null
-  br i1 %30, label %32, label %31
+28:                                               ; preds = %.loopexit
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 6624
+  %30 = load ptr, ptr %29, align 8
+  %31 = icmp eq ptr %30, null
+  br i1 %31, label %33, label %32
 
-31:                                               ; preds = %27
-  store i32 0, ptr %29, align 1
-  br label %32
+32:                                               ; preds = %28
+  store i32 0, ptr %30, align 1
+  br label %33
 
-32:                                               ; preds = %31, %27
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 6680
-  %34 = tail call zeroext i1 @cancel_work_sync(ptr noundef nonnull %33) #12
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 6600
-  %36 = load ptr, ptr %35, align 8
-  %37 = icmp eq ptr %36, null
-  br i1 %37, label %39, label %38
+33:                                               ; preds = %32, %28
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 6680
+  %35 = tail call zeroext i1 @cancel_work_sync(ptr noundef nonnull %34) #12
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 6600
+  %37 = load ptr, ptr %36, align 8
+  %38 = icmp eq ptr %37, null
+  br i1 %38, label %40, label %39
 
-38:                                               ; preds = %32
-  store i32 0, ptr %36, align 1
-  br label %39
+39:                                               ; preds = %33
+  store i32 0, ptr %37, align 1
+  br label %40
 
-39:                                               ; preds = %38, %32, %.loopexit, %2
+40:                                               ; preds = %39, %33, %.loopexit, %2
   ret void
 }
 

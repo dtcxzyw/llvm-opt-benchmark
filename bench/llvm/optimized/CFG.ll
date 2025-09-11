@@ -28064,26 +28064,26 @@ define internal fastcc void @_ZN12_GLOBAL__N_110CFGBuilder24findConstructionCont
   br label %16
 
 16:                                               ; preds = %.lr.ph, %tailrecurse.backedge
-  %17 = phi ptr [ %10, %.lr.ph ], [ %112, %tailrecurse.backedge ]
+  %17 = phi ptr [ %10, %.lr.ph ], [ %114, %tailrecurse.backedge ]
   %.tr6375 = phi ptr [ %2, %.lr.ph ], [ %.tr63.be, %tailrecurse.backedge ]
   %18 = load i16, ptr %.tr6375, align 8
   %19 = and i16 %18, 511
   switch i16 %19, label %_ZN5clang21CFGCXXRecordTypedCall20isCXXRecordTypedCallEPKNS_4ExprE.exit.thread [
     i16 115, label %20
     i16 116, label %20
-    i16 91, label %68
-    i16 94, label %68
-    i16 93, label %68
-    i16 92, label %68
-    i16 35, label %68
-    i16 62, label %110
-    i16 88, label %117
-    i16 81, label %119
-    i16 118, label %125
-    i16 50, label %133
-    i16 130, label %151
-    i16 55, label %157
-    i16 22, label %162
+    i16 91, label %69
+    i16 94, label %69
+    i16 93, label %69
+    i16 92, label %69
+    i16 35, label %69
+    i16 62, label %112
+    i16 88, label %119
+    i16 81, label %121
+    i16 118, label %127
+    i16 50, label %135
+    i16 130, label %153
+    i16 55, label %159
+    i16 22, label %164
   ]
 
 20:                                               ; preds = %16, %16
@@ -28164,207 +28164,209 @@ define internal fastcc void @_ZN12_GLOBAL__N_110CFGBuilder24findConstructionCont
 
 _ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4ExprEPKNS2_24ConstructionContextLayerENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E6lookupEPKS3_.exit.i: ; preds = %57, %44
   %64 = phi i64 [ %51, %44 ], [ %60, %57 ]
-  %65 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.486", ptr %40, i64 %64, i32 0, i32 1
-  %66 = load ptr, ptr %65, align 8, !tbaa !1186
-  %.not.i = icmp eq ptr %66, null
+  %65 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.486", ptr %40, i64 %64
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
+  %67 = load ptr, ptr %66, align 8, !tbaa !1186
+  %.not.i = icmp eq ptr %67, null
   br i1 %.not.i, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4ExprEPKNS2_24ConstructionContextLayerENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E6lookupEPKS3_.exit.thread.i, label %_ZN12_GLOBAL__N_110CFGBuilder26consumeConstructionContextEPKN5clang24ConstructionContextLayerEPNS1_4ExprE.exit
 
 _ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4ExprEPKNS2_24ConstructionContextLayerENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E6lookupEPKS3_.exit.thread.i: ; preds = %.lr.ph.i.i.i.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4ExprEPKNS2_24ConstructionContextLayerENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E6lookupEPKS3_.exit.i, %38
-  %67 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPN5clang4ExprEPKNS2_24ConstructionContextLayerENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_EixERKS4_(ptr noundef nonnull align 1 dereferenceable(1) %39, ptr noundef nonnull align 8 dereferenceable(8) %5)
-  store ptr %1, ptr %67, align 8, !tbaa !1186
+  %68 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPN5clang4ExprEPKNS2_24ConstructionContextLayerENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_EixERKS4_(ptr noundef nonnull align 1 dereferenceable(1) %39, ptr noundef nonnull align 8 dereferenceable(8) %5)
+  store ptr %1, ptr %68, align 8, !tbaa !1186
   br label %_ZN12_GLOBAL__N_110CFGBuilder26consumeConstructionContextEPKN5clang24ConstructionContextLayerEPNS1_4ExprE.exit
 
 _ZN12_GLOBAL__N_110CFGBuilder26consumeConstructionContextEPKN5clang24ConstructionContextLayerEPNS1_4ExprE.exit: ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4ExprEPKNS2_24ConstructionContextLayerENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E6lookupEPKS3_.exit.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4ExprEPKNS2_24ConstructionContextLayerENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E6lookupEPKS3_.exit.thread.i
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN5clang21CFGCXXRecordTypedCall20isCXXRecordTypedCallEPKNS_4ExprE.exit.thread
 
-68:                                               ; preds = %16, %16, %16, %16, %16
-  %69 = load i24, ptr %.tr6375, align 8
-  %70 = and i24 %69, 1536
-  %.not.i50 = icmp eq i24 %70, 0
+69:                                               ; preds = %16, %16, %16, %16, %16
+  %70 = load i24, ptr %.tr6375, align 8
+  %71 = and i24 %70, 1536
+  %.not.i50 = icmp eq i24 %71, 0
   br i1 %.not.i50, label %_ZN5clang21CFGCXXRecordTypedCall20isCXXRecordTypedCallEPKNS_4ExprE.exit, label %_ZN5clang21CFGCXXRecordTypedCall20isCXXRecordTypedCallEPKNS_4ExprE.exit.thread
 
-_ZN5clang21CFGCXXRecordTypedCall20isCXXRecordTypedCallEPKNS_4ExprE.exit: ; preds = %68
-  %71 = getelementptr inbounds nuw i8, ptr %.tr6375, i64 8
-  %.sroa.0.0.copyload.i.i = load i64, ptr %71, align 8, !tbaa !51
-  %72 = and i64 %.sroa.0.0.copyload.i.i, -16
-  %73 = inttoptr i64 %72 to ptr
-  %74 = getelementptr inbounds nuw i8, ptr %73, i64 8
-  %75 = load i64, ptr %74, align 8, !tbaa !51
-  %76 = and i64 %75, -16
-  %77 = inttoptr i64 %76 to ptr
-  %78 = load ptr, ptr %77, align 16, !tbaa !139
-  %79 = tail call noundef ptr @_ZNK5clang4Type18getAsCXXRecordDeclEv(ptr noundef nonnull align 16 dereferenceable(24) %78) #27
-  %.not60 = icmp eq ptr %79, null
-  br i1 %.not60, label %_ZN5clang21CFGCXXRecordTypedCall20isCXXRecordTypedCallEPKNS_4ExprE.exit.thread, label %80
+_ZN5clang21CFGCXXRecordTypedCall20isCXXRecordTypedCallEPKNS_4ExprE.exit: ; preds = %69
+  %72 = getelementptr inbounds nuw i8, ptr %.tr6375, i64 8
+  %.sroa.0.0.copyload.i.i = load i64, ptr %72, align 8, !tbaa !51
+  %73 = and i64 %.sroa.0.0.copyload.i.i, -16
+  %74 = inttoptr i64 %73 to ptr
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 8
+  %76 = load i64, ptr %75, align 8, !tbaa !51
+  %77 = and i64 %76, -16
+  %78 = inttoptr i64 %77 to ptr
+  %79 = load ptr, ptr %78, align 16, !tbaa !139
+  %80 = tail call noundef ptr @_ZNK5clang4Type18getAsCXXRecordDeclEv(ptr noundef nonnull align 16 dereferenceable(24) %79) #27
+  %.not60 = icmp eq ptr %80, null
+  br i1 %.not60, label %_ZN5clang21CFGCXXRecordTypedCall20isCXXRecordTypedCallEPKNS_4ExprE.exit.thread, label %81
 
-80:                                               ; preds = %_ZN5clang21CFGCXXRecordTypedCall20isCXXRecordTypedCallEPKNS_4ExprE.exit
+81:                                               ; preds = %_ZN5clang21CFGCXXRecordTypedCall20isCXXRecordTypedCallEPKNS_4ExprE.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %.tr6375, ptr %4, align 8, !tbaa !906
-  %81 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %82 = load ptr, ptr %81, align 8, !tbaa !249
-  %83 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  %84 = load i32, ptr %83, align 8, !tbaa !250
-  %85 = icmp eq i32 %84, 0
-  br i1 %85, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4ExprEPKNS2_24ConstructionContextLayerENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E6lookupEPKS3_.exit.thread.i58, label %86
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  %83 = load ptr, ptr %82, align 8, !tbaa !249
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 312
+  %85 = load i32, ptr %84, align 8, !tbaa !250
+  %86 = icmp eq i32 %85, 0
+  br i1 %86, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4ExprEPKNS2_24ConstructionContextLayerENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E6lookupEPKS3_.exit.thread.i58, label %87
 
-86:                                               ; preds = %80
-  %87 = ptrtoint ptr %.tr6375 to i64
-  %88 = trunc i64 %87 to i32
-  %89 = lshr i32 %88, 4
-  %90 = lshr i32 %88, 9
-  %91 = xor i32 %89, %90
-  %92 = add i32 %84, -1
-  %.01826.i.i.i.i51 = and i32 %92, %91
-  %93 = zext nneg i32 %.01826.i.i.i.i51 to i64
-  %94 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.486", ptr %82, i64 %93
-  %95 = load ptr, ptr %94, align 8, !tbaa !906
-  %96 = icmp eq ptr %.tr6375, %95
-  br i1 %96, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4ExprEPKNS2_24ConstructionContextLayerENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E6lookupEPKS3_.exit.i56, label %.lr.ph.i.i.i.i52, !prof !225
+87:                                               ; preds = %81
+  %88 = ptrtoint ptr %.tr6375 to i64
+  %89 = trunc i64 %88 to i32
+  %90 = lshr i32 %89, 4
+  %91 = lshr i32 %89, 9
+  %92 = xor i32 %90, %91
+  %93 = add i32 %85, -1
+  %.01826.i.i.i.i51 = and i32 %93, %92
+  %94 = zext nneg i32 %.01826.i.i.i.i51 to i64
+  %95 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.486", ptr %83, i64 %94
+  %96 = load ptr, ptr %95, align 8, !tbaa !906
+  %97 = icmp eq ptr %.tr6375, %96
+  br i1 %97, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4ExprEPKNS2_24ConstructionContextLayerENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E6lookupEPKS3_.exit.i56, label %.lr.ph.i.i.i.i52, !prof !225
 
-.lr.ph.i.i.i.i52:                                 ; preds = %86, %99
-  %97 = phi ptr [ %104, %99 ], [ %95, %86 ]
-  %.01828.i.i.i.i53 = phi i32 [ %.018.i.i.i.i55, %99 ], [ %.01826.i.i.i.i51, %86 ]
-  %.01627.i.i.i.i54 = phi i32 [ %100, %99 ], [ 1, %86 ]
-  %98 = icmp eq ptr %97, inttoptr (i64 -4096 to ptr)
-  br i1 %98, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4ExprEPKNS2_24ConstructionContextLayerENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E6lookupEPKS3_.exit.thread.i58, label %99, !prof !29
+.lr.ph.i.i.i.i52:                                 ; preds = %87, %100
+  %98 = phi ptr [ %105, %100 ], [ %96, %87 ]
+  %.01828.i.i.i.i53 = phi i32 [ %.018.i.i.i.i55, %100 ], [ %.01826.i.i.i.i51, %87 ]
+  %.01627.i.i.i.i54 = phi i32 [ %101, %100 ], [ 1, %87 ]
+  %99 = icmp eq ptr %98, inttoptr (i64 -4096 to ptr)
+  br i1 %99, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4ExprEPKNS2_24ConstructionContextLayerENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E6lookupEPKS3_.exit.thread.i58, label %100, !prof !29
 
-99:                                               ; preds = %.lr.ph.i.i.i.i52
-  %100 = add i32 %.01627.i.i.i.i54, 1
-  %101 = add i32 %.01627.i.i.i.i54, %.01828.i.i.i.i53
-  %.018.i.i.i.i55 = and i32 %101, %92
-  %102 = zext i32 %.018.i.i.i.i55 to i64
-  %103 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.486", ptr %82, i64 %102
-  %104 = load ptr, ptr %103, align 8, !tbaa !906
-  %105 = icmp eq ptr %.tr6375, %104
-  br i1 %105, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4ExprEPKNS2_24ConstructionContextLayerENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E6lookupEPKS3_.exit.i56, label %.lr.ph.i.i.i.i52, !prof !226, !llvm.loop !1185
+100:                                              ; preds = %.lr.ph.i.i.i.i52
+  %101 = add i32 %.01627.i.i.i.i54, 1
+  %102 = add i32 %.01627.i.i.i.i54, %.01828.i.i.i.i53
+  %.018.i.i.i.i55 = and i32 %102, %93
+  %103 = zext i32 %.018.i.i.i.i55 to i64
+  %104 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.486", ptr %83, i64 %103
+  %105 = load ptr, ptr %104, align 8, !tbaa !906
+  %106 = icmp eq ptr %.tr6375, %105
+  br i1 %106, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4ExprEPKNS2_24ConstructionContextLayerENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E6lookupEPKS3_.exit.i56, label %.lr.ph.i.i.i.i52, !prof !226, !llvm.loop !1185
 
-_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4ExprEPKNS2_24ConstructionContextLayerENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E6lookupEPKS3_.exit.i56: ; preds = %99, %86
-  %106 = phi i64 [ %93, %86 ], [ %102, %99 ]
-  %107 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.486", ptr %82, i64 %106, i32 0, i32 1
-  %108 = load ptr, ptr %107, align 8, !tbaa !1186
-  %.not.i57 = icmp eq ptr %108, null
+_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4ExprEPKNS2_24ConstructionContextLayerENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E6lookupEPKS3_.exit.i56: ; preds = %100, %87
+  %107 = phi i64 [ %94, %87 ], [ %103, %100 ]
+  %108 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.486", ptr %83, i64 %107
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 8
+  %110 = load ptr, ptr %109, align 8, !tbaa !1186
+  %.not.i57 = icmp eq ptr %110, null
   br i1 %.not.i57, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4ExprEPKNS2_24ConstructionContextLayerENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E6lookupEPKS3_.exit.thread.i58, label %_ZN12_GLOBAL__N_110CFGBuilder26consumeConstructionContextEPKN5clang24ConstructionContextLayerEPNS1_4ExprE.exit59
 
-_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4ExprEPKNS2_24ConstructionContextLayerENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E6lookupEPKS3_.exit.thread.i58: ; preds = %.lr.ph.i.i.i.i52, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4ExprEPKNS2_24ConstructionContextLayerENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E6lookupEPKS3_.exit.i56, %80
-  %109 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPN5clang4ExprEPKNS2_24ConstructionContextLayerENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_EixERKS4_(ptr noundef nonnull align 1 dereferenceable(1) %81, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  store ptr %1, ptr %109, align 8, !tbaa !1186
+_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4ExprEPKNS2_24ConstructionContextLayerENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E6lookupEPKS3_.exit.thread.i58: ; preds = %.lr.ph.i.i.i.i52, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4ExprEPKNS2_24ConstructionContextLayerENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E6lookupEPKS3_.exit.i56, %81
+  %111 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPN5clang4ExprEPKNS2_24ConstructionContextLayerENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_EixERKS4_(ptr noundef nonnull align 1 dereferenceable(1) %82, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  store ptr %1, ptr %111, align 8, !tbaa !1186
   br label %_ZN12_GLOBAL__N_110CFGBuilder26consumeConstructionContextEPKN5clang24ConstructionContextLayerEPNS1_4ExprE.exit59
 
 _ZN12_GLOBAL__N_110CFGBuilder26consumeConstructionContextEPKN5clang24ConstructionContextLayerEPNS1_4ExprE.exit59: ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4ExprEPKNS2_24ConstructionContextLayerENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E6lookupEPKS3_.exit.i56, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4ExprEPKNS2_24ConstructionContextLayerENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E6lookupEPKS3_.exit.thread.i58
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN5clang21CFGCXXRecordTypedCall20isCXXRecordTypedCallEPKNS_4ExprE.exit.thread
 
-110:                                              ; preds = %16
-  %111 = getelementptr inbounds nuw i8, ptr %.tr6375, i64 16
+112:                                              ; preds = %16
+  %113 = getelementptr inbounds nuw i8, ptr %.tr6375, i64 16
   br label %tailrecurse.backedge
 
-tailrecurse.backedge:                             ; preds = %110, %117, %123, %153, %159, %162
-  %.tr63.be.in = phi ptr [ %111, %110 ], [ %118, %117 ], [ %124, %123 ], [ %156, %153 ], [ %161, %159 ], [ %163, %162 ]
+tailrecurse.backedge:                             ; preds = %112, %119, %125, %155, %161, %164
+  %.tr63.be.in = phi ptr [ %113, %112 ], [ %120, %119 ], [ %126, %125 ], [ %158, %155 ], [ %163, %161 ], [ %165, %164 ]
   %.tr63.be = load ptr, ptr %.tr63.be.in, align 8, !tbaa !3
-  %112 = load ptr, ptr %9, align 8, !tbaa !122
-  %113 = getelementptr inbounds nuw i8, ptr %112, i64 68
-  %114 = load i8, ptr %113, align 4, !tbaa !1183, !range !129, !noundef !130
-  %115 = trunc nuw i8 %114 to i1
-  %116 = icmp ne ptr %.tr63.be, null
-  %or.cond = and i1 %116, %115
+  %114 = load ptr, ptr %9, align 8, !tbaa !122
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 68
+  %116 = load i8, ptr %115, align 4, !tbaa !1183, !range !129, !noundef !130
+  %117 = trunc nuw i8 %116 to i1
+  %118 = icmp ne ptr %.tr63.be, null
+  %or.cond = and i1 %118, %117
   br i1 %or.cond, label %16, label %_ZN5clang21CFGCXXRecordTypedCall20isCXXRecordTypedCallEPKNS_4ExprE.exit.thread
 
-117:                                              ; preds = %16
-  %118 = getelementptr inbounds nuw i8, ptr %.tr6375, i64 16
+119:                                              ; preds = %16
+  %120 = getelementptr inbounds nuw i8, ptr %.tr6375, i64 16
   br label %tailrecurse.backedge
 
-119:                                              ; preds = %16
-  %120 = load i32, ptr %.tr6375, align 8
-  %121 = lshr i32 %120, 19
-  %122 = and i32 %121, 127
-  switch i32 %122, label %_ZN5clang21CFGCXXRecordTypedCall20isCXXRecordTypedCallEPKNS_4ExprE.exit.thread [
-    i32 5, label %123
-    i32 20, label %123
+121:                                              ; preds = %16
+  %122 = load i32, ptr %.tr6375, align 8
+  %123 = lshr i32 %122, 19
+  %124 = and i32 %123, 127
+  switch i32 %124, label %_ZN5clang21CFGCXXRecordTypedCall20isCXXRecordTypedCallEPKNS_4ExprE.exit.thread [
+    i32 5, label %125
+    i32 20, label %125
   ]
 
-123:                                              ; preds = %119, %119
-  %124 = getelementptr inbounds nuw i8, ptr %.tr6375, i64 16
+125:                                              ; preds = %121, %121
+  %126 = getelementptr inbounds nuw i8, ptr %.tr6375, i64 16
   br label %tailrecurse.backedge
 
-125:                                              ; preds = %16
+127:                                              ; preds = %16
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %.tr6375, ptr %7, align 8, !tbaa !210
-  %126 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i32 4, ptr %126, align 8, !tbaa !213
-  %127 = getelementptr inbounds nuw i8, ptr %7, i64 12
-  store i32 0, ptr %127, align 4, !tbaa !214
-  %128 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.val46.val = load ptr, ptr %128, align 8, !tbaa !111
-  %129 = getelementptr inbounds nuw i8, ptr %.val46.val, i64 32
-  %130 = call noundef ptr @_ZN5clang24ConstructionContextLayer6createERNS_17BumpVectorContextERKNS_23ConstructionContextItemEPKS0_(ptr noundef nonnull align 8 dereferenceable(8) %129, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef %1) #27
-  %131 = getelementptr inbounds nuw i8, ptr %.tr6375, i64 24
-  %132 = load ptr, ptr %131, align 8, !tbaa !944
-  call fastcc void @_ZN12_GLOBAL__N_110CFGBuilder24findConstructionContextsEPKN5clang24ConstructionContextLayerEPNS1_4StmtE(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef %130, ptr noundef %132)
+  %128 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store i32 4, ptr %128, align 8, !tbaa !213
+  %129 = getelementptr inbounds nuw i8, ptr %7, i64 12
+  store i32 0, ptr %129, align 4, !tbaa !214
+  %130 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.val46.val = load ptr, ptr %130, align 8, !tbaa !111
+  %131 = getelementptr inbounds nuw i8, ptr %.val46.val, i64 32
+  %132 = call noundef ptr @_ZN5clang24ConstructionContextLayer6createERNS_17BumpVectorContextERKNS_23ConstructionContextItemEPKS0_(ptr noundef nonnull align 8 dereferenceable(8) %131, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef %1) #27
+  %133 = getelementptr inbounds nuw i8, ptr %.tr6375, i64 24
+  %134 = load ptr, ptr %133, align 8, !tbaa !944
+  call fastcc void @_ZN12_GLOBAL__N_110CFGBuilder24findConstructionContextsEPKN5clang24ConstructionContextLayerEPNS1_4StmtE(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef %132, ptr noundef %134)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZN5clang21CFGCXXRecordTypedCall20isCXXRecordTypedCallEPKNS_4ExprE.exit.thread
 
-133:                                              ; preds = %16
-  %134 = load i32, ptr %15, align 8, !tbaa !213
-  %135 = icmp eq i32 %134, 6
-  br i1 %135, label %136, label %_ZN5clang21CFGCXXRecordTypedCall20isCXXRecordTypedCallEPKNS_4ExprE.exit.thread
+135:                                              ; preds = %16
+  %136 = load i32, ptr %15, align 8, !tbaa !213
+  %137 = icmp eq i32 %136, 6
+  br i1 %137, label %138, label %_ZN5clang21CFGCXXRecordTypedCall20isCXXRecordTypedCallEPKNS_4ExprE.exit.thread
 
-136:                                              ; preds = %133
+138:                                              ; preds = %135
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %.tr6375, ptr %8, align 8, !tbaa !210
-  %137 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i32 3, ptr %137, align 8, !tbaa !213
-  %138 = getelementptr inbounds nuw i8, ptr %8, i64 12
-  store i32 0, ptr %138, align 4, !tbaa !214
-  %139 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.val48.val = load ptr, ptr %139, align 8, !tbaa !111
-  %140 = getelementptr inbounds nuw i8, ptr %.val48.val, i64 32
-  %141 = call noundef ptr @_ZN5clang24ConstructionContextLayer6createERNS_17BumpVectorContextERKNS_23ConstructionContextItemEPKS0_(ptr noundef nonnull align 8 dereferenceable(8) %140, ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull %1) #27
-  %142 = getelementptr inbounds nuw i8, ptr %.tr6375, i64 16
-  %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %142, align 8
-  %143 = and i64 %.0.copyload.i.i.i.i.i.i.i.i, 4
-  %144 = icmp eq i64 %143, 0
-  %145 = and i64 %.0.copyload.i.i.i.i.i.i.i.i, -8
-  %146 = inttoptr i64 %145 to ptr
-  br i1 %144, label %_ZNK5clang24MaterializeTemporaryExpr10getSubExprEv.exit, label %147
+  %139 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store i32 3, ptr %139, align 8, !tbaa !213
+  %140 = getelementptr inbounds nuw i8, ptr %8, i64 12
+  store i32 0, ptr %140, align 4, !tbaa !214
+  %141 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.val48.val = load ptr, ptr %141, align 8, !tbaa !111
+  %142 = getelementptr inbounds nuw i8, ptr %.val48.val, i64 32
+  %143 = call noundef ptr @_ZN5clang24ConstructionContextLayer6createERNS_17BumpVectorContextERKNS_23ConstructionContextItemEPKS0_(ptr noundef nonnull align 8 dereferenceable(8) %142, ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull %1) #27
+  %144 = getelementptr inbounds nuw i8, ptr %.tr6375, i64 16
+  %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %144, align 8
+  %145 = and i64 %.0.copyload.i.i.i.i.i.i.i.i, 4
+  %146 = icmp eq i64 %145, 0
+  %147 = and i64 %.0.copyload.i.i.i.i.i.i.i.i, -8
+  %148 = inttoptr i64 %147 to ptr
+  br i1 %146, label %_ZNK5clang24MaterializeTemporaryExpr10getSubExprEv.exit, label %149
 
-147:                                              ; preds = %136
-  %148 = getelementptr inbounds nuw i8, ptr %146, i64 40
-  %149 = load ptr, ptr %148, align 8, !tbaa !279
+149:                                              ; preds = %138
+  %150 = getelementptr inbounds nuw i8, ptr %148, i64 40
+  %151 = load ptr, ptr %150, align 8, !tbaa !279
   br label %_ZNK5clang24MaterializeTemporaryExpr10getSubExprEv.exit
 
-_ZNK5clang24MaterializeTemporaryExpr10getSubExprEv.exit: ; preds = %136, %147
-  %150 = phi ptr [ %149, %147 ], [ %146, %136 ]
-  call fastcc void @_ZN12_GLOBAL__N_110CFGBuilder24findConstructionContextsEPKN5clang24ConstructionContextLayerEPNS1_4StmtE(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef %141, ptr noundef %150)
+_ZNK5clang24MaterializeTemporaryExpr10getSubExprEv.exit: ; preds = %138, %149
+  %152 = phi ptr [ %151, %149 ], [ %148, %138 ]
+  call fastcc void @_ZN12_GLOBAL__N_110CFGBuilder24findConstructionContextsEPKN5clang24ConstructionContextLayerEPNS1_4StmtE(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef %143, ptr noundef %152)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZN5clang21CFGCXXRecordTypedCall20isCXXRecordTypedCallEPKNS_4ExprE.exit.thread
 
-151:                                              ; preds = %16
-  %152 = load i32, ptr %15, align 8, !tbaa !213
-  %.not = icmp eq i32 %152, 3
-  br i1 %.not, label %153, label %_ZN5clang21CFGCXXRecordTypedCall20isCXXRecordTypedCallEPKNS_4ExprE.exit.thread
+153:                                              ; preds = %16
+  %154 = load i32, ptr %15, align 8, !tbaa !213
+  %.not = icmp eq i32 %154, 3
+  br i1 %.not, label %155, label %_ZN5clang21CFGCXXRecordTypedCall20isCXXRecordTypedCallEPKNS_4ExprE.exit.thread
 
-153:                                              ; preds = %151
-  %154 = getelementptr inbounds nuw i8, ptr %.tr6375, i64 32
-  %155 = load ptr, ptr %154, align 8, !tbaa !3
-  tail call fastcc void @_ZN12_GLOBAL__N_110CFGBuilder24findConstructionContextsEPKN5clang24ConstructionContextLayerEPNS1_4StmtE(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull %1, ptr noundef %155)
-  %156 = getelementptr inbounds nuw i8, ptr %.tr6375, i64 40
+155:                                              ; preds = %153
+  %156 = getelementptr inbounds nuw i8, ptr %.tr6375, i64 32
+  %157 = load ptr, ptr %156, align 8, !tbaa !3
+  tail call fastcc void @_ZN12_GLOBAL__N_110CFGBuilder24findConstructionContextsEPKN5clang24ConstructionContextLayerEPNS1_4StmtE(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull %1, ptr noundef %157)
+  %158 = getelementptr inbounds nuw i8, ptr %.tr6375, i64 40
   br label %tailrecurse.backedge
 
-157:                                              ; preds = %16
-  %158 = tail call noundef zeroext i1 @_ZNK5clang12InitListExpr13isTransparentEv(ptr noundef nonnull align 8 dereferenceable(64) %.tr6375) #27
-  br i1 %158, label %159, label %_ZN5clang21CFGCXXRecordTypedCall20isCXXRecordTypedCallEPKNS_4ExprE.exit.thread
+159:                                              ; preds = %16
+  %160 = tail call noundef zeroext i1 @_ZNK5clang12InitListExpr13isTransparentEv(ptr noundef nonnull align 8 dereferenceable(64) %.tr6375) #27
+  br i1 %160, label %161, label %_ZN5clang21CFGCXXRecordTypedCall20isCXXRecordTypedCallEPKNS_4ExprE.exit.thread
 
-159:                                              ; preds = %157
-  %160 = getelementptr inbounds nuw i8, ptr %.tr6375, i64 16
-  %161 = load ptr, ptr %160, align 8, !tbaa !913
+161:                                              ; preds = %159
+  %162 = getelementptr inbounds nuw i8, ptr %.tr6375, i64 16
+  %163 = load ptr, ptr %162, align 8, !tbaa !913
   br label %tailrecurse.backedge
 
-162:                                              ; preds = %16
-  %163 = getelementptr inbounds nuw i8, ptr %.tr6375, i64 24
+164:                                              ; preds = %16
+  %165 = getelementptr inbounds nuw i8, ptr %.tr6375, i64 24
   br label %tailrecurse.backedge
 
-_ZN5clang21CFGCXXRecordTypedCall20isCXXRecordTypedCallEPKNS_4ExprE.exit.thread: ; preds = %tailrecurse.backedge, %157, %151, %119, %16, %3, %68, %_ZN12_GLOBAL__N_110CFGBuilder26consumeConstructionContextEPKN5clang24ConstructionContextLayerEPNS1_4ExprE.exit, %125, %_ZNK5clang24MaterializeTemporaryExpr10getSubExprEv.exit, %133, %_ZN12_GLOBAL__N_110CFGBuilder26consumeConstructionContextEPKN5clang24ConstructionContextLayerEPNS1_4ExprE.exit59, %_ZN5clang21CFGCXXRecordTypedCall20isCXXRecordTypedCallEPKNS_4ExprE.exit
+_ZN5clang21CFGCXXRecordTypedCall20isCXXRecordTypedCallEPKNS_4ExprE.exit.thread: ; preds = %tailrecurse.backedge, %159, %153, %121, %16, %3, %69, %_ZN12_GLOBAL__N_110CFGBuilder26consumeConstructionContextEPKN5clang24ConstructionContextLayerEPNS1_4ExprE.exit, %127, %_ZNK5clang24MaterializeTemporaryExpr10getSubExprEv.exit, %135, %_ZN12_GLOBAL__N_110CFGBuilder26consumeConstructionContextEPKN5clang24ConstructionContextLayerEPNS1_4ExprE.exit59, %_ZN5clang21CFGCXXRecordTypedCall20isCXXRecordTypedCallEPKNS_4ExprE.exit
   ret void
 }
 
@@ -28753,58 +28755,60 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_110CFGBuilder37retrieveAndCl
   br i1 %33, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4ExprEPKNS2_24ConstructionContextLayerENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E6lookupEPKS3_.exit, label %.lr.ph.i.i.i, !prof !226, !llvm.loop !1185
 
 _ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4ExprEPKNS2_24ConstructionContextLayerENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E6lookupEPKS3_.exit: ; preds = %27
-  %34 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.486", ptr %10, i64 %30, i32 0, i32 1
-  %35 = load ptr, ptr %34, align 8, !tbaa !1186
-  %.not = icmp eq ptr %35, null
+  %34 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.486", ptr %10, i64 %30
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
+  %36 = load ptr, ptr %35, align 8, !tbaa !1186
+  %.not = icmp eq ptr %36, null
   br i1 %.not, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4ExprEPKNS2_24ConstructionContextLayerENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E6lookupEPKS3_.exit.thread, label %.lr.ph.i.i.i8
 
 _ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4ExprEPKNS2_24ConstructionContextLayerENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E6lookupEPKS3_.exit.thread22: ; preds = %14
-  %36 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.486", ptr %10, i64 %21, i32 0, i32 1
-  %37 = load ptr, ptr %36, align 8, !tbaa !1186
-  %.not23 = icmp eq ptr %37, null
+  %37 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.486", ptr %10, i64 %21
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
+  %39 = load ptr, ptr %38, align 8, !tbaa !1186
+  %.not23 = icmp eq ptr %39, null
   br i1 %.not23, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4ExprEPKNS2_24ConstructionContextLayerENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E6lookupEPKS3_.exit.thread, label %.loopexit.i.i
 
-.lr.ph.i.i.i8:                                    ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4ExprEPKNS2_24ConstructionContextLayerENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E6lookupEPKS3_.exit, %40
-  %38 = phi ptr [ %45, %40 ], [ %23, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4ExprEPKNS2_24ConstructionContextLayerENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E6lookupEPKS3_.exit ]
-  %.01828.i.i.i9 = phi i32 [ %.018.i.i.i11, %40 ], [ %.01826.i.i.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4ExprEPKNS2_24ConstructionContextLayerENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E6lookupEPKS3_.exit ]
-  %.01627.i.i.i10 = phi i32 [ %41, %40 ], [ 1, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4ExprEPKNS2_24ConstructionContextLayerENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E6lookupEPKS3_.exit ]
-  %39 = icmp eq ptr %38, inttoptr (i64 -4096 to ptr)
-  br i1 %39, label %_ZN12_GLOBAL__N_110CFGBuilder26cleanupConstructionContextEPN5clang4ExprE.exit, label %40, !prof !29
+.lr.ph.i.i.i8:                                    ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4ExprEPKNS2_24ConstructionContextLayerENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E6lookupEPKS3_.exit, %42
+  %40 = phi ptr [ %47, %42 ], [ %23, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4ExprEPKNS2_24ConstructionContextLayerENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E6lookupEPKS3_.exit ]
+  %.01828.i.i.i9 = phi i32 [ %.018.i.i.i11, %42 ], [ %.01826.i.i.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4ExprEPKNS2_24ConstructionContextLayerENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E6lookupEPKS3_.exit ]
+  %.01627.i.i.i10 = phi i32 [ %43, %42 ], [ 1, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4ExprEPKNS2_24ConstructionContextLayerENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E6lookupEPKS3_.exit ]
+  %41 = icmp eq ptr %40, inttoptr (i64 -4096 to ptr)
+  br i1 %41, label %_ZN12_GLOBAL__N_110CFGBuilder26cleanupConstructionContextEPN5clang4ExprE.exit, label %42, !prof !29
 
-40:                                               ; preds = %.lr.ph.i.i.i8
-  %41 = add i32 %.01627.i.i.i10, 1
-  %42 = add i32 %.01627.i.i.i10, %.01828.i.i.i9
-  %.018.i.i.i11 = and i32 %42, %20
-  %43 = zext i32 %.018.i.i.i11 to i64
-  %44 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.486", ptr %10, i64 %43
-  %45 = load ptr, ptr %44, align 8, !tbaa !906
-  %46 = icmp eq ptr %1, %45
-  br i1 %46, label %.loopexit.i.i, label %.lr.ph.i.i.i8, !prof !226, !llvm.loop !1194
+42:                                               ; preds = %.lr.ph.i.i.i8
+  %43 = add i32 %.01627.i.i.i10, 1
+  %44 = add i32 %.01627.i.i.i10, %.01828.i.i.i9
+  %.018.i.i.i11 = and i32 %44, %20
+  %45 = zext i32 %.018.i.i.i11 to i64
+  %46 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.486", ptr %10, i64 %45
+  %47 = load ptr, ptr %46, align 8, !tbaa !906
+  %48 = icmp eq ptr %1, %47
+  br i1 %48, label %.loopexit.i.i, label %.lr.ph.i.i.i8, !prof !226, !llvm.loop !1194
 
-.loopexit.i.i:                                    ; preds = %40, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4ExprEPKNS2_24ConstructionContextLayerENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E6lookupEPKS3_.exit.thread22
-  %47 = phi ptr [ %37, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4ExprEPKNS2_24ConstructionContextLayerENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E6lookupEPKS3_.exit.thread22 ], [ %35, %40 ]
-  %.0.i.ph.i.i = phi ptr [ %22, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4ExprEPKNS2_24ConstructionContextLayerENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E6lookupEPKS3_.exit.thread22 ], [ %44, %40 ]
+.loopexit.i.i:                                    ; preds = %42, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4ExprEPKNS2_24ConstructionContextLayerENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E6lookupEPKS3_.exit.thread22
+  %49 = phi ptr [ %39, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4ExprEPKNS2_24ConstructionContextLayerENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E6lookupEPKS3_.exit.thread22 ], [ %36, %42 ]
+  %.0.i.ph.i.i = phi ptr [ %22, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4ExprEPKNS2_24ConstructionContextLayerENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E6lookupEPKS3_.exit.thread22 ], [ %46, %42 ]
   store ptr inttoptr (i64 -8192 to ptr), ptr %.0.i.ph.i.i, align 8, !tbaa !906
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  %49 = load i32, ptr %48, align 8, !tbaa !1190
-  %50 = add i32 %49, -1
-  store i32 %50, ptr %48, align 8, !tbaa !1190
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 308
-  %52 = load i32, ptr %51, align 4, !tbaa !1191
-  %53 = add i32 %52, 1
-  store i32 %53, ptr %51, align 4, !tbaa !1191
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 304
+  %51 = load i32, ptr %50, align 8, !tbaa !1190
+  %52 = add i32 %51, -1
+  store i32 %52, ptr %50, align 8, !tbaa !1190
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 308
+  %54 = load i32, ptr %53, align 4, !tbaa !1191
+  %55 = add i32 %54, 1
+  store i32 %55, ptr %53, align 4, !tbaa !1191
   br label %_ZN12_GLOBAL__N_110CFGBuilder26cleanupConstructionContextEPN5clang4ExprE.exit
 
 _ZN12_GLOBAL__N_110CFGBuilder26cleanupConstructionContextEPN5clang4ExprE.exit: ; preds = %.lr.ph.i.i.i8, %.loopexit.i.i
-  %54 = phi ptr [ %47, %.loopexit.i.i ], [ %35, %.lr.ph.i.i.i8 ]
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %56 = load ptr, ptr %55, align 8, !tbaa !111
-  %57 = getelementptr inbounds nuw i8, ptr %56, i64 32
-  %58 = tail call noundef ptr @_ZN5clang19ConstructionContext16createFromLayersERNS_17BumpVectorContextEPKNS_24ConstructionContextLayerE(ptr noundef nonnull align 8 dereferenceable(8) %57, ptr noundef nonnull %54) #27
+  %56 = phi ptr [ %49, %.loopexit.i.i ], [ %36, %.lr.ph.i.i.i8 ]
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %58 = load ptr, ptr %57, align 8, !tbaa !111
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 32
+  %60 = tail call noundef ptr @_ZN5clang19ConstructionContext16createFromLayersERNS_17BumpVectorContextEPKNS_24ConstructionContextLayerE(ptr noundef nonnull align 8 dereferenceable(8) %59, ptr noundef nonnull %56) #27
   br label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4ExprEPKNS2_24ConstructionContextLayerENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E6lookupEPKS3_.exit.thread
 
 _ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4ExprEPKNS2_24ConstructionContextLayerENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E6lookupEPKS3_.exit.thread: ; preds = %.lr.ph.i.i.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4ExprEPKNS2_24ConstructionContextLayerENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E6lookupEPKS3_.exit.thread22, %8, %_ZN12_GLOBAL__N_110CFGBuilder26cleanupConstructionContextEPN5clang4ExprE.exit, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4ExprEPKNS2_24ConstructionContextLayerENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E6lookupEPKS3_.exit, %2
-  %.0 = phi ptr [ null, %2 ], [ %58, %_ZN12_GLOBAL__N_110CFGBuilder26cleanupConstructionContextEPN5clang4ExprE.exit ], [ null, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4ExprEPKNS2_24ConstructionContextLayerENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E6lookupEPKS3_.exit ], [ null, %8 ], [ null, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4ExprEPKNS2_24ConstructionContextLayerENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E6lookupEPKS3_.exit.thread22 ], [ null, %.lr.ph.i.i.i ]
+  %.0 = phi ptr [ null, %2 ], [ %60, %_ZN12_GLOBAL__N_110CFGBuilder26cleanupConstructionContextEPN5clang4ExprE.exit ], [ null, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4ExprEPKNS2_24ConstructionContextLayerENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E6lookupEPKS3_.exit ], [ null, %8 ], [ null, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4ExprEPKNS2_24ConstructionContextLayerENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E6lookupEPKS3_.exit.thread22 ], [ null, %.lr.ph.i.i.i ]
   ret ptr %.0
 }
 

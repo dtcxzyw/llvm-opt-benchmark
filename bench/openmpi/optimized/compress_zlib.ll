@@ -34,14 +34,14 @@ define internal noundef zeroext i1 @zlib_compress(ptr noundef %0, i64 noundef %1
   %7 = icmp ult i64 %1, %6
   %8 = icmp ugt i64 %1, 4294967294
   %or.cond = or i1 %8, %7
-  br i1 %or.cond, label %46, label %9
+  br i1 %or.cond, label %47, label %9
 
 9:                                                ; preds = %4
   %10 = trunc nuw i64 %1 to i32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %5, i8 0, i64 112, i1 false)
   %11 = call i32 @deflateInit_(ptr noundef nonnull %5, i32 noundef 9, ptr noundef nonnull @.str, i32 noundef 112) #9
   %.not = icmp eq i32 %11, 0
-  br i1 %.not, label %12, label %46
+  br i1 %.not, label %12, label %47
 
 12:                                               ; preds = %9
   %13 = call i64 @deflateBound(ptr noundef nonnull %5, i64 noundef %1) #9
@@ -50,7 +50,7 @@ define internal noundef zeroext i1 @zlib_compress(ptr noundef %0, i64 noundef %1
 
 14:                                               ; preds = %12
   %15 = call i32 @deflateEnd(ptr noundef nonnull %5) #9
-  br label %46
+  br label %47
 
 16:                                               ; preds = %12
   %17 = call noalias ptr @malloc(i64 noundef %13) #10
@@ -59,7 +59,7 @@ define internal noundef zeroext i1 @zlib_compress(ptr noundef %0, i64 noundef %1
 
 19:                                               ; preds = %16
   %20 = call i32 @deflateEnd(ptr noundef nonnull %5) #9
-  br label %46
+  br label %47
 
 21:                                               ; preds = %16
   store ptr %0, ptr %5, align 8, !tbaa !13
@@ -77,7 +77,7 @@ define internal noundef zeroext i1 @zlib_compress(ptr noundef %0, i64 noundef %1
 
 28:                                               ; preds = %21
   call void @free(ptr noundef nonnull %17) #9
-  br label %46
+  br label %47
 
 29:                                               ; preds = %21
   %30 = load i32, ptr %24, align 8, !tbaa !18
@@ -90,7 +90,7 @@ define internal noundef zeroext i1 @zlib_compress(ptr noundef %0, i64 noundef %1
 
 36:                                               ; preds = %29
   call void @free(ptr noundef nonnull %17) #9
-  br label %46
+  br label %47
 
 37:                                               ; preds = %29
   store ptr %34, ptr %2, align 8, !tbaa !3
@@ -101,21 +101,22 @@ define internal noundef zeroext i1 @zlib_compress(ptr noundef %0, i64 noundef %1
   call void @free(ptr noundef nonnull %17) #9
   %39 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_pcompress_base_framework, i64 76), align 4, !tbaa !20
   %or.cond3 = icmp ult i32 %39, 64
-  br i1 %or.cond3, label %40, label %46
+  br i1 %or.cond3, label %40, label %47
 
 40:                                               ; preds = %37
   %41 = zext nneg i32 %39 to i64
-  %42 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %41, i32 2
-  %43 = load i32, ptr %42, align 4, !tbaa !29
-  %44 = icmp sgt i32 %43, 1
-  br i1 %44, label %45, label %46
+  %42 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %41
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 4
+  %44 = load i32, ptr %43, align 4, !tbaa !29
+  %45 = icmp sgt i32 %44, 1
+  br i1 %45, label %46, label %47
 
-45:                                               ; preds = %40
+46:                                               ; preds = %40
   call void (i32, ptr, ...) @pmix_output(i32 noundef %39, ptr noundef nonnull @.str.1, i64 noundef %1, i64 noundef %32) #9
-  br label %46
+  br label %47
 
-46:                                               ; preds = %37, %40, %45, %9, %4, %36, %28, %19, %14
-  %.0 = phi i1 [ false, %14 ], [ false, %19 ], [ false, %28 ], [ false, %36 ], [ false, %4 ], [ false, %9 ], [ true, %45 ], [ true, %40 ], [ true, %37 ]
+47:                                               ; preds = %37, %40, %46, %9, %4, %36, %28, %19, %14
+  %.0 = phi i1 [ false, %14 ], [ false, %19 ], [ false, %28 ], [ false, %36 ], [ false, %4 ], [ false, %9 ], [ true, %46 ], [ true, %40 ], [ true, %37 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.0
 }
@@ -126,31 +127,32 @@ define internal noundef zeroext i1 @zlib_decompress(ptr noundef writeonly captur
   %.0.copyload = load i32, ptr %2, align 1
   %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_pcompress_base_framework, i64 76), align 4, !tbaa !20
   %or.cond = icmp ult i32 %5, 64
-  br i1 %or.cond, label %6, label %12
+  br i1 %or.cond, label %6, label %13
 
 6:                                                ; preds = %4
   %7 = zext nneg i32 %5 to i64
-  %8 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %7, i32 2
-  %9 = load i32, ptr %8, align 4, !tbaa !29
-  %10 = icmp sgt i32 %9, 1
-  br i1 %10, label %11, label %12
+  %8 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %7
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  %10 = load i32, ptr %9, align 4, !tbaa !29
+  %11 = icmp sgt i32 %10, 1
+  br i1 %11, label %12, label %13
 
-11:                                               ; preds = %6
+12:                                               ; preds = %6
   tail call void (i32, ptr, ...) @pmix_output(i32 noundef %5, ptr noundef nonnull @.str.2, i64 noundef %3, i32 noundef %.0.copyload) #9
-  br label %12
+  br label %13
 
-12:                                               ; preds = %11, %6, %4
-  %13 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %14 = zext i32 %.0.copyload to i64
-  %15 = tail call fastcc zeroext i1 @doit(ptr noundef %0, i64 noundef %14, ptr noundef nonnull %13, i64 noundef %3)
-  br i1 %15, label %16, label %17
+13:                                               ; preds = %12, %6, %4
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %15 = zext i32 %.0.copyload to i64
+  %16 = tail call fastcc zeroext i1 @doit(ptr noundef %0, i64 noundef %15, ptr noundef nonnull %14, i64 noundef %3)
+  br i1 %16, label %17, label %18
 
-16:                                               ; preds = %12
-  store i64 %14, ptr %1, align 8, !tbaa !8
-  br label %17
+17:                                               ; preds = %13
+  store i64 %15, ptr %1, align 8, !tbaa !8
+  br label %18
 
-17:                                               ; preds = %12, %16
-  ret i1 %15
+18:                                               ; preds = %13, %17
+  ret i1 %16
 }
 
 ; Function Attrs: nounwind uwtable

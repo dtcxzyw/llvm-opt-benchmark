@@ -198,15 +198,16 @@ define dso_local void @list_config_fsck_msg_ids(ptr noundef %0, ptr noundef %1) 
 
 3:                                                ; preds = %2, %3
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %3 ]
-  %4 = getelementptr inbounds nuw %struct.anon, ptr @msg_id_info, i64 %indvars.iv, i32 2
-  %5 = load ptr, ptr %4, align 16, !tbaa !4
-  %6 = tail call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.34, ptr noundef %1, ptr noundef %5) #16
-  %7 = tail call ptr @string_list_append_nodup(ptr noundef %0, ptr noundef %6) #16
+  %4 = getelementptr inbounds nuw %struct.anon, ptr @msg_id_info, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %6 = load ptr, ptr %5, align 16, !tbaa !4
+  %7 = tail call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.34, ptr noundef %1, ptr noundef %6) #16
+  %8 = tail call ptr @string_list_append_nodup(ptr noundef %0, ptr noundef %7) #16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 66
-  br i1 %exitcond.not, label %8, label %3, !llvm.loop !11
+  br i1 %exitcond.not, label %9, label %3, !llvm.loop !11
 
-8:                                                ; preds = %3
+9:                                                ; preds = %3
   ret void
 }
 
@@ -316,40 +317,41 @@ define dso_local range(i32 0, 2) i32 @is_valid_msg_type(ptr noundef readonly cap
   tail call fastcc void @prepare_msg_ids()
   br label %3
 
-3:                                                ; preds = %7, %2
-  %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %7 ]
-  %4 = getelementptr inbounds nuw %struct.anon, ptr @msg_id_info, i64 %indvars.iv.i, i32 1
-  %5 = load ptr, ptr %4, align 8, !tbaa !13
-  %6 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %5) #17
-  %.not.i = icmp eq i32 %6, 0
-  br i1 %.not.i, label %parse_msg_id.exit, label %7
+3:                                                ; preds = %8, %2
+  %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %8 ]
+  %4 = getelementptr inbounds nuw %struct.anon, ptr @msg_id_info, i64 %indvars.iv.i
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %6 = load ptr, ptr %5, align 8, !tbaa !13
+  %7 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %6) #17
+  %.not.i = icmp eq i32 %7, 0
+  br i1 %.not.i, label %parse_msg_id.exit, label %8
 
-7:                                                ; preds = %3
+8:                                                ; preds = %3
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 66
   br i1 %exitcond.not.i, label %parse_msg_type.exit, label %3, !llvm.loop !19
 
 parse_msg_id.exit:                                ; preds = %3
-  %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(6) @.str.102) #17
-  %.not.i2 = icmp eq i32 %8, 0
-  br i1 %.not.i2, label %parse_msg_type.exit, label %9
+  %9 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(6) @.str.102) #17
+  %.not.i2 = icmp eq i32 %9, 0
+  br i1 %.not.i2, label %parse_msg_type.exit, label %10
 
-9:                                                ; preds = %parse_msg_id.exit
-  %10 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(5) @.str.103) #17
-  %.not4.i = icmp eq i32 %10, 0
-  br i1 %.not4.i, label %parse_msg_type.exit, label %11
+10:                                               ; preds = %parse_msg_id.exit
+  %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(5) @.str.103) #17
+  %.not4.i = icmp eq i32 %11, 0
+  br i1 %.not4.i, label %parse_msg_type.exit, label %12
 
-11:                                               ; preds = %9
-  %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(7) @.str.104) #17
-  %.not5.i = icmp eq i32 %12, 0
-  br i1 %.not5.i, label %parse_msg_type.exit, label %13
+12:                                               ; preds = %10
+  %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(7) @.str.104) #17
+  %.not5.i = icmp eq i32 %13, 0
+  br i1 %.not5.i, label %parse_msg_type.exit, label %14
 
-13:                                               ; preds = %11
+14:                                               ; preds = %12
   tail call void (ptr, ...) @die(ptr noundef nonnull @.str.105, ptr noundef nonnull %1) #18
   unreachable
 
-parse_msg_type.exit:                              ; preds = %7, %11, %9, %parse_msg_id.exit
-  %.0 = phi i32 [ 1, %parse_msg_id.exit ], [ 1, %9 ], [ 1, %11 ], [ 0, %7 ]
+parse_msg_type.exit:                              ; preds = %8, %12, %10, %parse_msg_id.exit
+  %.0 = phi i32 [ 1, %parse_msg_id.exit ], [ 1, %10 ], [ 1, %12 ], [ 0, %8 ]
   ret i32 %.0
 }
 
@@ -358,7 +360,7 @@ define dso_local void @fsck_set_msg_type_from_ids(ptr noundef captures(none) %0,
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8, !tbaa !20
   %.not = icmp eq ptr %5, null
-  br i1 %.not, label %6, label %19
+  br i1 %.not, label %6, label %20
 
 6:                                                ; preds = %3
   %7 = tail call ptr @xmalloc(i64 noundef 264) #16
@@ -369,38 +371,39 @@ define dso_local void @fsck_set_msg_type_from_ids(ptr noundef captures(none) %0,
 
 fsck_msg_type.exit.us:                            ; preds = %6, %fsck_msg_type.exit.us
   %indvars.iv16 = phi i64 [ %indvars.iv.next17, %fsck_msg_type.exit.us ], [ 0, %6 ]
-  %10 = getelementptr inbounds nuw %struct.anon, ptr @msg_id_info, i64 %indvars.iv16, i32 3
-  %11 = load i32, ptr %10, align 8, !tbaa !27
-  %12 = load i32, ptr %9, align 8, !tbaa !28
-  %13 = icmp ne i32 %12, 0
-  %14 = icmp eq i32 %11, 4
-  %or.cond.i.us = select i1 %13, i1 %14, i1 false
-  %spec.store.select.i.us = select i1 %or.cond.i.us, i32 3, i32 %11
-  %15 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv16
-  store i32 %spec.store.select.i.us, ptr %15, align 4, !tbaa !29
+  %10 = getelementptr inbounds nuw %struct.anon, ptr @msg_id_info, i64 %indvars.iv16
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  %12 = load i32, ptr %11, align 8, !tbaa !27
+  %13 = load i32, ptr %9, align 8, !tbaa !28
+  %14 = icmp ne i32 %13, 0
+  %15 = icmp eq i32 %12, 4
+  %or.cond.i.us = select i1 %14, i1 %15, i1 false
+  %spec.store.select.i.us = select i1 %or.cond.i.us, i32 3, i32 %12
+  %16 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv16
+  store i32 %spec.store.select.i.us, ptr %16, align 4, !tbaa !29
   %indvars.iv.next17 = add nuw nsw i64 %indvars.iv16, 1
   %exitcond19.not = icmp eq i64 %indvars.iv.next17, 66
   br i1 %exitcond19.not, label %.split13.us, label %fsck_msg_type.exit.us, !llvm.loop !30
 
 fsck_msg_type.exit:                               ; preds = %6, %fsck_msg_type.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %fsck_msg_type.exit ], [ 0, %6 ]
-  %16 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
-  %17 = load i32, ptr %16, align 4, !tbaa !29
-  %18 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv
-  store i32 %17, ptr %18, align 4, !tbaa !29
+  %17 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
+  %18 = load i32, ptr %17, align 4, !tbaa !29
+  %19 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv
+  store i32 %18, ptr %19, align 4, !tbaa !29
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 66
   br i1 %exitcond.not, label %.split13.us, label %fsck_msg_type.exit, !llvm.loop !30
 
 .split13.us:                                      ; preds = %fsck_msg_type.exit, %fsck_msg_type.exit.us
   store ptr %7, ptr %4, align 8, !tbaa !20
-  br label %19
+  br label %20
 
-19:                                               ; preds = %.split13.us, %3
-  %20 = phi ptr [ %7, %.split13.us ], [ %5, %3 ]
-  %21 = zext i32 %1 to i64
-  %22 = getelementptr inbounds nuw i32, ptr %20, i64 %21
-  store i32 %2, ptr %22, align 4, !tbaa !29
+20:                                               ; preds = %.split13.us, %3
+  %21 = phi ptr [ %7, %.split13.us ], [ %5, %3 ]
+  %22 = zext i32 %1 to i64
+  %23 = getelementptr inbounds nuw i32, ptr %21, i64 %22
+  store i32 %2, ptr %23, align 4, !tbaa !29
   ret void
 }
 
@@ -411,177 +414,181 @@ define dso_local void @fsck_set_msg_type(ptr noundef captures(none) %0, ptr noun
   tail call fastcc void @prepare_msg_ids()
   br label %4
 
-4:                                                ; preds = %8, %3
-  %indvars.iv.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i, %8 ]
-  %5 = getelementptr inbounds nuw %struct.anon, ptr @msg_id_info, i64 %indvars.iv.i, i32 1
-  %6 = load ptr, ptr %5, align 8, !tbaa !13
-  %7 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %6) #17
-  %.not.i = icmp eq i32 %7, 0
-  br i1 %.not.i, label %parse_msg_id.exit, label %8
+4:                                                ; preds = %9, %3
+  %indvars.iv.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i, %9 ]
+  %5 = getelementptr inbounds nuw %struct.anon, ptr @msg_id_info, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %7 = load ptr, ptr %6, align 8, !tbaa !13
+  %8 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %7) #17
+  %.not.i = icmp eq i32 %8, 0
+  br i1 %.not.i, label %parse_msg_id.exit, label %9
 
-8:                                                ; preds = %4
+9:                                                ; preds = %4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 66
   br i1 %exitcond.not.i, label %parse_msg_id.exit.thread, label %4, !llvm.loop !19
 
-parse_msg_id.exit.thread:                         ; preds = %8
+parse_msg_id.exit.thread:                         ; preds = %9
   tail call void (ptr, ...) @die(ptr noundef nonnull @.str, ptr noundef nonnull %1) #18
   unreachable
 
 parse_msg_id.exit:                                ; preds = %4
-  %9 = icmp eq i64 %indvars.iv.i, 53
-  br i1 %9, label %10, label %20
+  %10 = icmp eq i64 %indvars.iv.i, 53
+  br i1 %10, label %11, label %21
 
-10:                                               ; preds = %parse_msg_id.exit
-  %11 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %2, i32 noundef 58) #17
-  %.not = icmp eq ptr %11, null
-  br i1 %.not, label %20, label %12
+11:                                               ; preds = %parse_msg_id.exit
+  %12 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %2, i32 noundef 58) #17
+  %.not = icmp eq ptr %12, null
+  br i1 %.not, label %21, label %13
 
-12:                                               ; preds = %10
-  %13 = ptrtoint ptr %11 to i64
-  %14 = ptrtoint ptr %2 to i64
-  %15 = sub i64 %13, %14
-  %16 = tail call ptr @xmemdupz(ptr noundef nonnull %2, i64 noundef %15) #16
-  %17 = getelementptr inbounds nuw i8, ptr %11, i64 1
-  %18 = tail call i32 @git_parse_ssize_t(ptr noundef nonnull %17, ptr noundef nonnull @max_tree_entry_len) #16
-  %.not26 = icmp eq i32 %18, 0
-  br i1 %.not26, label %19, label %20
+13:                                               ; preds = %11
+  %14 = ptrtoint ptr %12 to i64
+  %15 = ptrtoint ptr %2 to i64
+  %16 = sub i64 %14, %15
+  %17 = tail call ptr @xmemdupz(ptr noundef nonnull %2, i64 noundef %16) #16
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 1
+  %19 = tail call i32 @git_parse_ssize_t(ptr noundef nonnull %18, ptr noundef nonnull @max_tree_entry_len) #16
+  %.not26 = icmp eq i32 %19, 0
+  br i1 %.not26, label %20, label %21
 
-19:                                               ; preds = %12
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.1, ptr noundef nonnull %17) #18
+20:                                               ; preds = %13
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.1, ptr noundef nonnull %18) #18
   unreachable
 
-20:                                               ; preds = %10, %12, %parse_msg_id.exit
-  %.020 = phi ptr [ null, %parse_msg_id.exit ], [ %16, %12 ], [ null, %10 ]
-  %.0 = phi ptr [ %2, %parse_msg_id.exit ], [ %16, %12 ], [ %2, %10 ]
-  %21 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0, ptr noundef nonnull dereferenceable(6) @.str.102) #17
-  %.not.i28 = icmp eq i32 %21, 0
-  br i1 %.not.i28, label %.split, label %22
+21:                                               ; preds = %11, %13, %parse_msg_id.exit
+  %.020 = phi ptr [ null, %parse_msg_id.exit ], [ %17, %13 ], [ null, %11 ]
+  %.0 = phi ptr [ %2, %parse_msg_id.exit ], [ %17, %13 ], [ %2, %11 ]
+  %22 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0, ptr noundef nonnull dereferenceable(6) @.str.102) #17
+  %.not.i28 = icmp eq i32 %22, 0
+  br i1 %.not.i28, label %.split, label %23
 
-22:                                               ; preds = %20
-  %23 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0, ptr noundef nonnull dereferenceable(5) @.str.103) #17
-  %.not4.i = icmp eq i32 %23, 0
-  br i1 %.not4.i, label %45, label %24
+23:                                               ; preds = %21
+  %24 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0, ptr noundef nonnull dereferenceable(5) @.str.103) #17
+  %.not4.i = icmp eq i32 %24, 0
+  br i1 %.not4.i, label %47, label %25
 
-24:                                               ; preds = %22
-  %25 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0, ptr noundef nonnull dereferenceable(7) @.str.104) #17
-  %.not5.i = icmp eq i32 %25, 0
-  br i1 %.not5.i, label %45, label %26
+25:                                               ; preds = %23
+  %26 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0, ptr noundef nonnull dereferenceable(7) @.str.104) #17
+  %.not5.i = icmp eq i32 %26, 0
+  br i1 %.not5.i, label %47, label %27
 
-26:                                               ; preds = %24
+27:                                               ; preds = %25
   tail call void (ptr, ...) @die(ptr noundef nonnull @.str.105, ptr noundef nonnull %.0) #18
   unreachable
 
-.split:                                           ; preds = %20
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %28 = load ptr, ptr %27, align 8, !tbaa !20
-  %.not.i29 = icmp eq ptr %28, null
-  br i1 %.not.i29, label %29, label %fsck_set_msg_type_from_ids.exit
+.split:                                           ; preds = %21
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %29 = load ptr, ptr %28, align 8, !tbaa !20
+  %.not.i29 = icmp eq ptr %29, null
+  br i1 %.not.i29, label %30, label %fsck_set_msg_type_from_ids.exit
 
-29:                                               ; preds = %.split
-  %30 = tail call ptr @xmalloc(i64 noundef 264) #16
-  %31 = load ptr, ptr %27, align 8, !tbaa !20
-  %.not.i.i = icmp eq ptr %31, null
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
+30:                                               ; preds = %.split
+  %31 = tail call ptr @xmalloc(i64 noundef 264) #16
+  %32 = load ptr, ptr %28, align 8, !tbaa !20
+  %.not.i.i = icmp eq ptr %32, null
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br i1 %.not.i.i, label %fsck_msg_type.exit.us.i, label %fsck_msg_type.exit.i
 
-fsck_msg_type.exit.us.i:                          ; preds = %29, %fsck_msg_type.exit.us.i
-  %indvars.iv16.i = phi i64 [ %indvars.iv.next17.i, %fsck_msg_type.exit.us.i ], [ 0, %29 ]
-  %33 = getelementptr inbounds nuw %struct.anon, ptr @msg_id_info, i64 %indvars.iv16.i, i32 3
-  %34 = load i32, ptr %33, align 8, !tbaa !27
-  %35 = load i32, ptr %32, align 8, !tbaa !28
-  %36 = icmp ne i32 %35, 0
-  %37 = icmp eq i32 %34, 4
-  %or.cond.i.us.i = select i1 %36, i1 %37, i1 false
-  %spec.store.select.i.us.i = select i1 %or.cond.i.us.i, i32 3, i32 %34
-  %38 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv16.i
-  store i32 %spec.store.select.i.us.i, ptr %38, align 4, !tbaa !29
+fsck_msg_type.exit.us.i:                          ; preds = %30, %fsck_msg_type.exit.us.i
+  %indvars.iv16.i = phi i64 [ %indvars.iv.next17.i, %fsck_msg_type.exit.us.i ], [ 0, %30 ]
+  %34 = getelementptr inbounds nuw %struct.anon, ptr @msg_id_info, i64 %indvars.iv16.i
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 24
+  %36 = load i32, ptr %35, align 8, !tbaa !27
+  %37 = load i32, ptr %33, align 8, !tbaa !28
+  %38 = icmp ne i32 %37, 0
+  %39 = icmp eq i32 %36, 4
+  %or.cond.i.us.i = select i1 %38, i1 %39, i1 false
+  %spec.store.select.i.us.i = select i1 %or.cond.i.us.i, i32 3, i32 %36
+  %40 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv16.i
+  store i32 %spec.store.select.i.us.i, ptr %40, align 4, !tbaa !29
   %indvars.iv.next17.i = add nuw nsw i64 %indvars.iv16.i, 1
   %exitcond19.not.i = icmp eq i64 %indvars.iv.next17.i, 66
   br i1 %exitcond19.not.i, label %.split13.us.i, label %fsck_msg_type.exit.us.i, !llvm.loop !30
 
-fsck_msg_type.exit.i:                             ; preds = %29, %fsck_msg_type.exit.i
-  %indvars.iv.i30 = phi i64 [ %indvars.iv.next.i31, %fsck_msg_type.exit.i ], [ 0, %29 ]
-  %39 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv.i30
-  %40 = load i32, ptr %39, align 4, !tbaa !29
-  %41 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv.i30
-  store i32 %40, ptr %41, align 4, !tbaa !29
+fsck_msg_type.exit.i:                             ; preds = %30, %fsck_msg_type.exit.i
+  %indvars.iv.i30 = phi i64 [ %indvars.iv.next.i31, %fsck_msg_type.exit.i ], [ 0, %30 ]
+  %41 = getelementptr inbounds nuw i32, ptr %32, i64 %indvars.iv.i30
+  %42 = load i32, ptr %41, align 4, !tbaa !29
+  %43 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv.i30
+  store i32 %42, ptr %43, align 4, !tbaa !29
   %indvars.iv.next.i31 = add nuw nsw i64 %indvars.iv.i30, 1
   %exitcond.not.i32 = icmp eq i64 %indvars.iv.next.i31, 66
   br i1 %exitcond.not.i32, label %.split13.us.i, label %fsck_msg_type.exit.i, !llvm.loop !30
 
 .split13.us.i:                                    ; preds = %fsck_msg_type.exit.i, %fsck_msg_type.exit.us.i
-  store ptr %30, ptr %27, align 8, !tbaa !20
+  store ptr %31, ptr %28, align 8, !tbaa !20
   br label %fsck_set_msg_type_from_ids.exit
 
 fsck_set_msg_type_from_ids.exit:                  ; preds = %.split, %.split13.us.i
-  %42 = phi ptr [ %30, %.split13.us.i ], [ %28, %.split ]
-  %43 = and i64 %indvars.iv.i, 4294967295
-  %44 = getelementptr inbounds nuw i32, ptr %42, i64 %43
-  store i32 3, ptr %44, align 4, !tbaa !29
-  br label %68
+  %44 = phi ptr [ %31, %.split13.us.i ], [ %29, %.split ]
+  %45 = and i64 %indvars.iv.i, 4294967295
+  %46 = getelementptr inbounds nuw i32, ptr %44, i64 %45
+  store i32 3, ptr %46, align 4, !tbaa !29
+  br label %72
 
-45:                                               ; preds = %22, %24
-  %.0.i.ph = phi i32 [ 0, %24 ], [ 4, %22 ]
-  %46 = and i64 %indvars.iv.i, 4294967295
-  %47 = getelementptr inbounds nuw %struct.anon, ptr @msg_id_info, i64 %46, i32 3
-  %48 = load i32, ptr %47, align 8, !tbaa !27
-  %49 = icmp eq i32 %48, 2
-  br i1 %49, label %67, label %.split22
+47:                                               ; preds = %23, %25
+  %.0.i.ph = phi i32 [ 0, %25 ], [ 4, %23 ]
+  %48 = and i64 %indvars.iv.i, 4294967295
+  %49 = getelementptr inbounds nuw %struct.anon, ptr @msg_id_info, i64 %48
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 24
+  %51 = load i32, ptr %50, align 8, !tbaa !27
+  %52 = icmp eq i32 %51, 2
+  br i1 %52, label %71, label %.split22
 
-.split22:                                         ; preds = %45
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %51 = load ptr, ptr %50, align 8, !tbaa !20
-  %.not.i33 = icmp eq ptr %51, null
-  br i1 %.not.i33, label %52, label %fsck_set_msg_type_from_ids.exit46
+.split22:                                         ; preds = %47
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %54 = load ptr, ptr %53, align 8, !tbaa !20
+  %.not.i33 = icmp eq ptr %54, null
+  br i1 %.not.i33, label %55, label %fsck_set_msg_type_from_ids.exit46
 
-52:                                               ; preds = %.split22
-  %53 = tail call ptr @xmalloc(i64 noundef 264) #16
-  %54 = load ptr, ptr %50, align 8, !tbaa !20
-  %.not.i.i34 = icmp eq ptr %54, null
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 16
+55:                                               ; preds = %.split22
+  %56 = tail call ptr @xmalloc(i64 noundef 264) #16
+  %57 = load ptr, ptr %53, align 8, !tbaa !20
+  %.not.i.i34 = icmp eq ptr %57, null
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br i1 %.not.i.i34, label %fsck_msg_type.exit.us.i40, label %fsck_msg_type.exit.i35
 
-fsck_msg_type.exit.us.i40:                        ; preds = %52, %fsck_msg_type.exit.us.i40
-  %indvars.iv16.i41 = phi i64 [ %indvars.iv.next17.i44, %fsck_msg_type.exit.us.i40 ], [ 0, %52 ]
-  %56 = getelementptr inbounds nuw %struct.anon, ptr @msg_id_info, i64 %indvars.iv16.i41, i32 3
-  %57 = load i32, ptr %56, align 8, !tbaa !27
-  %58 = load i32, ptr %55, align 8, !tbaa !28
-  %59 = icmp ne i32 %58, 0
-  %60 = icmp eq i32 %57, 4
-  %or.cond.i.us.i42 = select i1 %59, i1 %60, i1 false
-  %spec.store.select.i.us.i43 = select i1 %or.cond.i.us.i42, i32 3, i32 %57
-  %61 = getelementptr inbounds nuw i32, ptr %53, i64 %indvars.iv16.i41
-  store i32 %spec.store.select.i.us.i43, ptr %61, align 4, !tbaa !29
+fsck_msg_type.exit.us.i40:                        ; preds = %55, %fsck_msg_type.exit.us.i40
+  %indvars.iv16.i41 = phi i64 [ %indvars.iv.next17.i44, %fsck_msg_type.exit.us.i40 ], [ 0, %55 ]
+  %59 = getelementptr inbounds nuw %struct.anon, ptr @msg_id_info, i64 %indvars.iv16.i41
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 24
+  %61 = load i32, ptr %60, align 8, !tbaa !27
+  %62 = load i32, ptr %58, align 8, !tbaa !28
+  %63 = icmp ne i32 %62, 0
+  %64 = icmp eq i32 %61, 4
+  %or.cond.i.us.i42 = select i1 %63, i1 %64, i1 false
+  %spec.store.select.i.us.i43 = select i1 %or.cond.i.us.i42, i32 3, i32 %61
+  %65 = getelementptr inbounds nuw i32, ptr %56, i64 %indvars.iv16.i41
+  store i32 %spec.store.select.i.us.i43, ptr %65, align 4, !tbaa !29
   %indvars.iv.next17.i44 = add nuw nsw i64 %indvars.iv16.i41, 1
   %exitcond19.not.i45 = icmp eq i64 %indvars.iv.next17.i44, 66
   br i1 %exitcond19.not.i45, label %.split13.us.i39, label %fsck_msg_type.exit.us.i40, !llvm.loop !30
 
-fsck_msg_type.exit.i35:                           ; preds = %52, %fsck_msg_type.exit.i35
-  %indvars.iv.i36 = phi i64 [ %indvars.iv.next.i37, %fsck_msg_type.exit.i35 ], [ 0, %52 ]
-  %62 = getelementptr inbounds nuw i32, ptr %54, i64 %indvars.iv.i36
-  %63 = load i32, ptr %62, align 4, !tbaa !29
-  %64 = getelementptr inbounds nuw i32, ptr %53, i64 %indvars.iv.i36
-  store i32 %63, ptr %64, align 4, !tbaa !29
+fsck_msg_type.exit.i35:                           ; preds = %55, %fsck_msg_type.exit.i35
+  %indvars.iv.i36 = phi i64 [ %indvars.iv.next.i37, %fsck_msg_type.exit.i35 ], [ 0, %55 ]
+  %66 = getelementptr inbounds nuw i32, ptr %57, i64 %indvars.iv.i36
+  %67 = load i32, ptr %66, align 4, !tbaa !29
+  %68 = getelementptr inbounds nuw i32, ptr %56, i64 %indvars.iv.i36
+  store i32 %67, ptr %68, align 4, !tbaa !29
   %indvars.iv.next.i37 = add nuw nsw i64 %indvars.iv.i36, 1
   %exitcond.not.i38 = icmp eq i64 %indvars.iv.next.i37, 66
   br i1 %exitcond.not.i38, label %.split13.us.i39, label %fsck_msg_type.exit.i35, !llvm.loop !30
 
 .split13.us.i39:                                  ; preds = %fsck_msg_type.exit.i35, %fsck_msg_type.exit.us.i40
-  store ptr %53, ptr %50, align 8, !tbaa !20
+  store ptr %56, ptr %53, align 8, !tbaa !20
   br label %fsck_set_msg_type_from_ids.exit46
 
 fsck_set_msg_type_from_ids.exit46:                ; preds = %.split22, %.split13.us.i39
-  %65 = phi ptr [ %53, %.split13.us.i39 ], [ %51, %.split22 ]
-  %66 = getelementptr inbounds nuw i32, ptr %65, i64 %46
-  store i32 %.0.i.ph, ptr %66, align 4, !tbaa !29
-  br label %68
+  %69 = phi ptr [ %56, %.split13.us.i39 ], [ %54, %.split22 ]
+  %70 = getelementptr inbounds nuw i32, ptr %69, i64 %48
+  store i32 %.0.i.ph, ptr %70, align 4, !tbaa !29
+  br label %72
 
-67:                                               ; preds = %45
+71:                                               ; preds = %47
   tail call void (ptr, ...) @die(ptr noundef nonnull @.str.2, ptr noundef nonnull %1, ptr noundef nonnull %.0) #18
   unreachable
 
-68:                                               ; preds = %fsck_set_msg_type_from_ids.exit46, %fsck_set_msg_type_from_ids.exit
+72:                                               ; preds = %fsck_set_msg_type_from_ids.exit46, %fsck_set_msg_type_from_ids.exit
   tail call void @free(ptr noundef %.020) #16
   ret void
 }
@@ -735,54 +742,56 @@ define internal fastcc i32 @fsck_vreport(ptr noundef %0, ptr noundef %1, i32 nou
   %8 = load ptr, ptr %7, align 8, !tbaa !20
   %.not.i = icmp eq ptr %8, null
   %9 = zext i32 %2 to i64
-  br i1 %.not.i, label %10, label %17
+  br i1 %.not.i, label %10, label %18
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds nuw %struct.anon, ptr @msg_id_info, i64 %9, i32 3
-  %12 = load i32, ptr %11, align 8, !tbaa !27
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %14 = load i32, ptr %13, align 8, !tbaa !28
-  %15 = icmp ne i32 %14, 0
-  %16 = icmp eq i32 %12, 4
-  %or.cond.i = select i1 %15, i1 %16, i1 false
+  %11 = getelementptr inbounds nuw %struct.anon, ptr @msg_id_info, i64 %9
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  %13 = load i32, ptr %12, align 8, !tbaa !27
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %15 = load i32, ptr %14, align 8, !tbaa !28
+  %16 = icmp ne i32 %15, 0
+  %17 = icmp eq i32 %13, 4
+  %or.cond.i = select i1 %16, i1 %17, i1 false
   br i1 %or.cond.i, label %.thread, label %fsck_msg_type.exit
 
-17:                                               ; preds = %5
-  %18 = getelementptr inbounds nuw i32, ptr %8, i64 %9
-  %19 = load i32, ptr %18, align 4, !tbaa !29
+18:                                               ; preds = %5
+  %19 = getelementptr inbounds nuw i32, ptr %8, i64 %9
+  %20 = load i32, ptr %19, align 4, !tbaa !29
   br label %fsck_msg_type.exit
 
-fsck_msg_type.exit:                               ; preds = %10, %17
-  %.0.i = phi i32 [ %19, %17 ], [ %12, %10 ]
+fsck_msg_type.exit:                               ; preds = %10, %18
+  %.0.i = phi i32 [ %20, %18 ], [ %13, %10 ]
   switch i32 %.0.i, label %.thread.fold.split [
-    i32 0, label %28
+    i32 0, label %30
     i32 2, label %.thread
-    i32 1, label %20
+    i32 1, label %21
   ]
 
-20:                                               ; preds = %fsck_msg_type.exit
+21:                                               ; preds = %fsck_msg_type.exit
   br label %.thread
 
 .thread.fold.split:                               ; preds = %fsck_msg_type.exit
   br label %.thread
 
-.thread:                                          ; preds = %fsck_msg_type.exit, %.thread.fold.split, %10, %20
-  %.014 = phi i32 [ 3, %fsck_msg_type.exit ], [ 4, %20 ], [ 3, %10 ], [ %.0.i, %.thread.fold.split ]
+.thread:                                          ; preds = %fsck_msg_type.exit, %.thread.fold.split, %10, %21
+  %.014 = phi i32 [ 3, %fsck_msg_type.exit ], [ 4, %21 ], [ 3, %10 ], [ %.0.i, %.thread.fold.split ]
   tail call fastcc void @prepare_msg_ids()
-  %21 = getelementptr inbounds nuw %struct.anon, ptr @msg_id_info, i64 %9, i32 2
-  %22 = load ptr, ptr %21, align 16, !tbaa !4
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %6, ptr noundef nonnull @.str.107, ptr noundef %22) #16
+  %22 = getelementptr inbounds nuw %struct.anon, ptr @msg_id_info, i64 %9
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
+  %24 = load ptr, ptr %23, align 16, !tbaa !4
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %6, ptr noundef nonnull @.str.107, ptr noundef %24) #16
   call void @strbuf_vaddf(ptr noundef nonnull %6, ptr noundef %3, ptr noundef nonnull %4) #16
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %24 = load ptr, ptr %23, align 8, !tbaa !54
-  %25 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %26 = load ptr, ptr %25, align 8, !tbaa !55
-  %27 = call i32 %24(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %.014, i32 noundef %2, ptr noundef %26) #16
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %26 = load ptr, ptr %25, align 8, !tbaa !54
+  %27 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %28 = load ptr, ptr %27, align 8, !tbaa !55
+  %29 = call i32 %26(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %.014, i32 noundef %2, ptr noundef %28) #16
   call void @strbuf_release(ptr noundef nonnull %6) #16
-  br label %28
+  br label %30
 
-28:                                               ; preds = %fsck_msg_type.exit, %.thread
-  %.0 = phi i32 [ %27, %.thread ], [ %.0.i, %fsck_msg_type.exit ]
+30:                                               ; preds = %fsck_msg_type.exit, %.thread
+  %.0 = phi i32 [ %29, %.thread ], [ %.0.i, %fsck_msg_type.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }

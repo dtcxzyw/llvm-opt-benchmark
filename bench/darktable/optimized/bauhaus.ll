@@ -6346,9 +6346,9 @@ DT_BAUHAUS_WIDGET.exit:                           ; preds = %5, %7, %9
 33:                                               ; preds = %29
   %34 = getelementptr inbounds nuw [3 x float], ptr %23, i64 %indvars.iv
   store float %2, ptr %34, align 4, !tbaa !144
-  %35 = getelementptr inbounds nuw [3 x float], ptr %23, i64 %indvars.iv, i64 1
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 4
   store float %3, ptr %35, align 4, !tbaa !144
-  %36 = getelementptr inbounds nuw [3 x float], ptr %23, i64 %indvars.iv, i64 2
+  %36 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store float %4, ptr %36, align 4, !tbaa !144
   br label %47
 
@@ -6366,9 +6366,9 @@ DT_BAUHAUS_WIDGET.exit:                           ; preds = %5, %7, %9
   store float %1, ptr %42, align 4, !tbaa !144
   %43 = getelementptr inbounds [3 x float], ptr %23, i64 %41
   store float %2, ptr %43, align 4, !tbaa !144
-  %44 = getelementptr inbounds [3 x float], ptr %23, i64 %41, i64 1
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 4
   store float %3, ptr %44, align 4, !tbaa !144
-  %45 = getelementptr inbounds [3 x float], ptr %23, i64 %41, i64 2
+  %45 = getelementptr inbounds nuw i8, ptr %43, i64 8
   store float %4, ptr %45, align 4, !tbaa !144
   br label %47
 
@@ -12139,7 +12139,7 @@ define internal float @_action_process_combo(ptr noundef %0, i32 noundef %1, i32
   %6 = tail call ptr @g_type_check_instance_cast(ptr noundef %0, i64 noundef %5) #20
   %7 = fcmp reassoc nsz arcp contract afn une float %3, 0xC7EFFFFFE0000000
   %8 = icmp eq i32 %1, 1
-  br i1 %7, label %9, label %92
+  br i1 %7, label %9, label %93
 
 9:                                                ; preds = %4
   br i1 %8, label %15, label %10
@@ -12176,7 +12176,7 @@ dt_bauhaus_widget_get_quad_active.exit:           ; preds = %15, %17, %19
   %25 = lshr i32 %24, 4
   %.lobit.i = and i32 %25, 1
   %26 = uitofp nneg i32 %.lobit.i to float
-  br label %181
+  br label %182
 
 27:                                               ; preds = %10
   switch i32 %2, label %47 [
@@ -12190,7 +12190,7 @@ dt_bauhaus_widget_get_quad_active.exit:           ; preds = %15, %17, %19
 
 28:                                               ; preds = %27
   tail call fastcc void @_popup_show(ptr noundef nonnull %6)
-  br label %60
+  br label %61
 
 29:                                               ; preds = %27
   %30 = fneg reassoc nsz arcp contract afn float %3
@@ -12221,11 +12221,11 @@ dt_bauhaus_widget_get_quad_active.exit:           ; preds = %15, %17, %19
   %44 = add nsw i32 %43, -1
   store i32 %44, ptr %42, align 8, !tbaa !208
   %45 = tail call i32 @g_idle_add(ptr noundef nonnull @_combobox_idle_value_changed, ptr noundef nonnull %6) #20
-  br label %60
+  br label %61
 
 46:                                               ; preds = %27
   tail call void @dt_bauhaus_widget_reset(ptr noundef nonnull %6)
-  br label %60
+  br label %61
 
 47:                                               ; preds = %27
   %48 = add nsw i32 %2, -7
@@ -12235,274 +12235,275 @@ dt_bauhaus_widget_get_quad_active.exit:           ; preds = %15, %17, %19
   %52 = tail call ptr @dt_action_widget(ptr noundef %0) #20
   %53 = tail call ptr @g_hash_table_lookup(ptr noundef %51, ptr noundef %52) #20
   %.not51 = icmp eq ptr %53, null
-  br i1 %.not51, label %58, label %54
+  br i1 %.not51, label %59, label %54
 
 54:                                               ; preds = %47
   %55 = sext i32 %48 to i64
-  %56 = getelementptr inbounds %struct.dt_introspection_type_enum_tuple_t, ptr %53, i64 %55, i32 1
-  %57 = load i32, ptr %56, align 8, !tbaa !212
-  br label %58
+  %56 = getelementptr inbounds %struct.dt_introspection_type_enum_tuple_t, ptr %53, i64 %55
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
+  %58 = load i32, ptr %57, align 8, !tbaa !212
+  br label %59
 
-58:                                               ; preds = %54, %47
-  %.045 = phi i32 [ %57, %54 ], [ %48, %47 ]
-  %59 = tail call i32 @dt_bauhaus_combobox_set_from_value(ptr noundef nonnull %6, i32 noundef %.045)
-  br label %60
+59:                                               ; preds = %54, %47
+  %.045 = phi i32 [ %58, %54 ], [ %48, %47 ]
+  %60 = tail call i32 @dt_bauhaus_combobox_set_from_value(ptr noundef nonnull %6, i32 noundef %.045)
+  br label %61
 
-60:                                               ; preds = %28, %35, %46, %58
-  %61 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  %62 = load ptr, ptr %61, align 8, !tbaa !161
-  %63 = load atomic i64, ptr @dt_bh_get_type.static_g_define_type_id seq_cst, align 8
-  %.not.i.i.i.i = icmp eq i64 %63, 0
-  br i1 %.not.i.i.i.i, label %64, label %DT_BAUHAUS_WIDGET.exit.i.i
+61:                                               ; preds = %28, %35, %46, %59
+  %62 = getelementptr inbounds nuw i8, ptr %6, i64 48
+  %63 = load ptr, ptr %62, align 8, !tbaa !161
+  %64 = load atomic i64, ptr @dt_bh_get_type.static_g_define_type_id seq_cst, align 8
+  %.not.i.i.i.i = icmp eq i64 %64, 0
+  br i1 %.not.i.i.i.i, label %65, label %DT_BAUHAUS_WIDGET.exit.i.i
 
-64:                                               ; preds = %60
-  %65 = tail call i32 @g_once_init_enter(ptr noundef nonnull @dt_bh_get_type.static_g_define_type_id) #20
-  %.not4.i.i.i.i = icmp eq i32 %65, 0
-  br i1 %.not4.i.i.i.i, label %DT_BAUHAUS_WIDGET.exit.i.i, label %66
+65:                                               ; preds = %61
+  %66 = tail call i32 @g_once_init_enter(ptr noundef nonnull @dt_bh_get_type.static_g_define_type_id) #20
+  %.not4.i.i.i.i = icmp eq i32 %66, 0
+  br i1 %.not4.i.i.i.i, label %DT_BAUHAUS_WIDGET.exit.i.i, label %67
 
-66:                                               ; preds = %64
-  %67 = tail call fastcc i64 @dt_bh_get_type_once()
-  tail call void @g_once_init_leave(ptr noundef nonnull @dt_bh_get_type.static_g_define_type_id, i64 noundef %67) #20
+67:                                               ; preds = %65
+  %68 = tail call fastcc i64 @dt_bh_get_type_once()
+  tail call void @g_once_init_leave(ptr noundef nonnull @dt_bh_get_type.static_g_define_type_id, i64 noundef %68) #20
   br label %DT_BAUHAUS_WIDGET.exit.i.i
 
-DT_BAUHAUS_WIDGET.exit.i.i:                       ; preds = %66, %64, %60
-  %68 = load i64, ptr @dt_bh_get_type.static_g_define_type_id, align 8, !tbaa !6
-  %69 = tail call ptr @g_type_check_instance_cast(ptr noundef nonnull %6, i64 noundef %68) #20
-  %70 = getelementptr inbounds nuw i8, ptr %69, i64 40
-  %71 = load i32, ptr %70, align 8, !tbaa !105
-  %.not.i.i = icmp eq i32 %71, 2
-  br i1 %.not.i.i, label %72, label %.thread
+DT_BAUHAUS_WIDGET.exit.i.i:                       ; preds = %67, %65, %61
+  %69 = load i64, ptr @dt_bh_get_type.static_g_define_type_id, align 8, !tbaa !6
+  %70 = tail call ptr @g_type_check_instance_cast(ptr noundef nonnull %6, i64 noundef %69) #20
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 40
+  %72 = load i32, ptr %71, align 8, !tbaa !105
+  %.not.i.i = icmp eq i32 %72, 2
+  br i1 %.not.i.i, label %73, label %.thread
 
-72:                                               ; preds = %DT_BAUHAUS_WIDGET.exit.i.i
-  %73 = getelementptr inbounds nuw i8, ptr %69, i64 408
-  %74 = load i32, ptr %73, align 8, !tbaa !137
-  %75 = getelementptr i8, ptr %69, i64 440
-  %76 = load ptr, ptr %75, align 8, !tbaa !128
-  %77 = getelementptr inbounds nuw i8, ptr %76, i64 8
-  %78 = load i32, ptr %77, align 8, !tbaa !131
-  %.not8.i.i = icmp ult i32 %74, %78
-  br i1 %.not8.i.i, label %79, label %.thread.i
+73:                                               ; preds = %DT_BAUHAUS_WIDGET.exit.i.i
+  %74 = getelementptr inbounds nuw i8, ptr %70, i64 408
+  %75 = load i32, ptr %74, align 8, !tbaa !137
+  %76 = getelementptr i8, ptr %70, i64 440
+  %77 = load ptr, ptr %76, align 8, !tbaa !128
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 8
+  %79 = load i32, ptr %78, align 8, !tbaa !131
+  %.not8.i.i = icmp ult i32 %75, %79
+  br i1 %.not8.i.i, label %80, label %.thread.i
 
-.thread.i:                                        ; preds = %72
-  store i32 -1, ptr %73, align 8, !tbaa !137
-  br label %81
+.thread.i:                                        ; preds = %73
+  store i32 -1, ptr %74, align 8, !tbaa !137
+  br label %82
 
-79:                                               ; preds = %72
-  %80 = icmp slt i32 %74, 0
-  br i1 %80, label %81, label %87
+80:                                               ; preds = %73
+  %81 = icmp slt i32 %75, 0
+  br i1 %81, label %82, label %88
 
-81:                                               ; preds = %79, %.thread.i
-  %82 = getelementptr inbounds nuw i8, ptr %69, i64 416
-  %83 = load i32, ptr %82, align 8, !tbaa !150
-  %.not10.i = icmp eq i32 %83, 0
-  br i1 %.not10.i, label %.thread, label %84
+82:                                               ; preds = %80, %.thread.i
+  %83 = getelementptr inbounds nuw i8, ptr %70, i64 416
+  %84 = load i32, ptr %83, align 8, !tbaa !150
+  %.not10.i = icmp eq i32 %84, 0
+  br i1 %.not10.i, label %.thread, label %85
 
-84:                                               ; preds = %81
-  %85 = getelementptr inbounds nuw i8, ptr %69, i64 424
-  %86 = load ptr, ptr %85, align 8, !tbaa !164
+85:                                               ; preds = %82
+  %86 = getelementptr inbounds nuw i8, ptr %70, i64 424
+  %87 = load ptr, ptr %86, align 8, !tbaa !164
   br label %.thread
 
-87:                                               ; preds = %79
-  %.val.val.i = load ptr, ptr %76, align 8, !tbaa !133
-  %88 = zext nneg i32 %74 to i64
-  %89 = getelementptr inbounds nuw ptr, ptr %.val.val.i, i64 %88
-  %90 = load ptr, ptr %89, align 8, !tbaa !134
-  %91 = load ptr, ptr %90, align 8, !tbaa !149
+88:                                               ; preds = %80
+  %.val.val.i = load ptr, ptr %77, align 8, !tbaa !133
+  %89 = zext nneg i32 %75 to i64
+  %90 = getelementptr inbounds nuw ptr, ptr %.val.val.i, i64 %89
+  %91 = load ptr, ptr %90, align 8, !tbaa !134
+  %92 = load ptr, ptr %91, align 8, !tbaa !149
   br label %.thread
 
-.thread:                                          ; preds = %87, %84, %81, %DT_BAUHAUS_WIDGET.exit.i.i
-  %.0.i = phi ptr [ %91, %87 ], [ %86, %84 ], [ null, %81 ], [ null, %DT_BAUHAUS_WIDGET.exit.i.i ]
-  tail call void (ptr, ptr, ptr, ...) @dt_action_widget_toast(ptr noundef %62, ptr noundef nonnull %6, ptr noundef nonnull @.str.88, ptr noundef %.0.i) #20
-  br label %93
+.thread:                                          ; preds = %88, %85, %82, %DT_BAUHAUS_WIDGET.exit.i.i
+  %.0.i = phi ptr [ %92, %88 ], [ %87, %85 ], [ null, %82 ], [ null, %DT_BAUHAUS_WIDGET.exit.i.i ]
+  tail call void (ptr, ptr, ptr, ...) @dt_action_widget_toast(ptr noundef %63, ptr noundef nonnull %6, ptr noundef nonnull @.str.88, ptr noundef %.0.i) #20
+  br label %94
 
-92:                                               ; preds = %4
-  br i1 %8, label %98, label %93
+93:                                               ; preds = %4
+  br i1 %8, label %99, label %94
 
-93:                                               ; preds = %.thread, %92
-  %94 = getelementptr i8, ptr %6, i64 440
-  %95 = load ptr, ptr %94, align 8, !tbaa !106
-  %96 = getelementptr inbounds nuw i8, ptr %95, i64 8
-  %97 = load i32, ptr %96, align 8, !tbaa !131
-  %.not52 = icmp eq i32 %97, 0
-  br i1 %.not52, label %98, label %110
+94:                                               ; preds = %.thread, %93
+  %95 = getelementptr i8, ptr %6, i64 440
+  %96 = load ptr, ptr %95, align 8, !tbaa !106
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 8
+  %98 = load i32, ptr %97, align 8, !tbaa !131
+  %.not52 = icmp eq i32 %98, 0
+  br i1 %.not52, label %99, label %111
 
-98:                                               ; preds = %93, %92
-  %99 = load atomic i64, ptr @dt_bh_get_type.static_g_define_type_id seq_cst, align 8
-  %.not.i.i.i54 = icmp eq i64 %99, 0
-  br i1 %.not.i.i.i54, label %100, label %dt_bauhaus_widget_get_quad_active.exit57
+99:                                               ; preds = %94, %93
+  %100 = load atomic i64, ptr @dt_bh_get_type.static_g_define_type_id seq_cst, align 8
+  %.not.i.i.i54 = icmp eq i64 %100, 0
+  br i1 %.not.i.i.i54, label %101, label %dt_bauhaus_widget_get_quad_active.exit57
 
-100:                                              ; preds = %98
-  %101 = tail call i32 @g_once_init_enter(ptr noundef nonnull @dt_bh_get_type.static_g_define_type_id) #20
-  %.not4.i.i.i56 = icmp eq i32 %101, 0
-  br i1 %.not4.i.i.i56, label %dt_bauhaus_widget_get_quad_active.exit57, label %102
+101:                                              ; preds = %99
+  %102 = tail call i32 @g_once_init_enter(ptr noundef nonnull @dt_bh_get_type.static_g_define_type_id) #20
+  %.not4.i.i.i56 = icmp eq i32 %102, 0
+  br i1 %.not4.i.i.i56, label %dt_bauhaus_widget_get_quad_active.exit57, label %103
 
-102:                                              ; preds = %100
-  %103 = tail call fastcc i64 @dt_bh_get_type_once()
-  tail call void @g_once_init_leave(ptr noundef nonnull @dt_bh_get_type.static_g_define_type_id, i64 noundef %103) #20
+103:                                              ; preds = %101
+  %104 = tail call fastcc i64 @dt_bh_get_type_once()
+  tail call void @g_once_init_leave(ptr noundef nonnull @dt_bh_get_type.static_g_define_type_id, i64 noundef %104) #20
   br label %dt_bauhaus_widget_get_quad_active.exit57
 
-dt_bauhaus_widget_get_quad_active.exit57:         ; preds = %98, %100, %102
-  %104 = load i64, ptr @dt_bh_get_type.static_g_define_type_id, align 8, !tbaa !6
-  %105 = tail call ptr @g_type_check_instance_cast(ptr noundef %6, i64 noundef %104) #20
-  %106 = getelementptr inbounds nuw i8, ptr %105, i64 360
-  %107 = load i32, ptr %106, align 8, !tbaa !197
-  %108 = lshr i32 %107, 4
-  %.lobit.i55 = and i32 %108, 1
-  %109 = uitofp nneg i32 %.lobit.i55 to float
-  br label %181
+dt_bauhaus_widget_get_quad_active.exit57:         ; preds = %99, %101, %103
+  %105 = load i64, ptr @dt_bh_get_type.static_g_define_type_id, align 8, !tbaa !6
+  %106 = tail call ptr @g_type_check_instance_cast(ptr noundef %6, i64 noundef %105) #20
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 360
+  %108 = load i32, ptr %107, align 8, !tbaa !197
+  %109 = lshr i32 %108, 4
+  %.lobit.i55 = and i32 %109, 1
+  %110 = uitofp nneg i32 %.lobit.i55 to float
+  br label %182
 
-110:                                              ; preds = %93
-  %111 = icmp eq i32 %2, 3
-  %112 = load atomic i64, ptr @dt_bh_get_type.static_g_define_type_id seq_cst, align 8
-  %.not.i.i.i.i58 = icmp eq i64 %112, 0
-  br i1 %111, label %113, label %150
+111:                                              ; preds = %94
+  %112 = icmp eq i32 %2, 3
+  %113 = load atomic i64, ptr @dt_bh_get_type.static_g_define_type_id seq_cst, align 8
+  %.not.i.i.i.i58 = icmp eq i64 %113, 0
+  br i1 %112, label %114, label %151
 
-113:                                              ; preds = %110
-  br i1 %.not.i.i.i.i58, label %114, label %DT_BAUHAUS_WIDGET.exit.i.i59
+114:                                              ; preds = %111
+  br i1 %.not.i.i.i.i58, label %115, label %DT_BAUHAUS_WIDGET.exit.i.i59
 
-114:                                              ; preds = %113
-  %115 = tail call i32 @g_once_init_enter(ptr noundef nonnull @dt_bh_get_type.static_g_define_type_id) #20
-  %.not4.i.i.i.i65 = icmp eq i32 %115, 0
-  br i1 %.not4.i.i.i.i65, label %DT_BAUHAUS_WIDGET.exit.i.i59, label %116
+115:                                              ; preds = %114
+  %116 = tail call i32 @g_once_init_enter(ptr noundef nonnull @dt_bh_get_type.static_g_define_type_id) #20
+  %.not4.i.i.i.i65 = icmp eq i32 %116, 0
+  br i1 %.not4.i.i.i.i65, label %DT_BAUHAUS_WIDGET.exit.i.i59, label %117
 
-116:                                              ; preds = %114
-  %117 = tail call fastcc i64 @dt_bh_get_type_once()
-  tail call void @g_once_init_leave(ptr noundef nonnull @dt_bh_get_type.static_g_define_type_id, i64 noundef %117) #20
+117:                                              ; preds = %115
+  %118 = tail call fastcc i64 @dt_bh_get_type_once()
+  tail call void @g_once_init_leave(ptr noundef nonnull @dt_bh_get_type.static_g_define_type_id, i64 noundef %118) #20
   br label %DT_BAUHAUS_WIDGET.exit.i.i59
 
-DT_BAUHAUS_WIDGET.exit.i.i59:                     ; preds = %116, %114, %113
-  %118 = load i64, ptr @dt_bh_get_type.static_g_define_type_id, align 8, !tbaa !6
-  %119 = tail call ptr @g_type_check_instance_cast(ptr noundef nonnull %6, i64 noundef %118) #20
-  %120 = getelementptr inbounds nuw i8, ptr %119, i64 40
-  %121 = load i32, ptr %120, align 8, !tbaa !105
-  %.not.i.i60 = icmp eq i32 %121, 2
-  br i1 %.not.i.i60, label %122, label %dt_bauhaus_combobox_get_data.exit
+DT_BAUHAUS_WIDGET.exit.i.i59:                     ; preds = %117, %115, %114
+  %119 = load i64, ptr @dt_bh_get_type.static_g_define_type_id, align 8, !tbaa !6
+  %120 = tail call ptr @g_type_check_instance_cast(ptr noundef nonnull %6, i64 noundef %119) #20
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 40
+  %122 = load i32, ptr %121, align 8, !tbaa !105
+  %.not.i.i60 = icmp eq i32 %122, 2
+  br i1 %.not.i.i60, label %123, label %dt_bauhaus_combobox_get_data.exit
 
-122:                                              ; preds = %DT_BAUHAUS_WIDGET.exit.i.i59
-  %123 = getelementptr inbounds nuw i8, ptr %119, i64 408
-  %124 = load i32, ptr %123, align 8, !tbaa !137
-  %125 = getelementptr i8, ptr %119, i64 440
-  %126 = load ptr, ptr %125, align 8, !tbaa !128
-  %127 = getelementptr inbounds nuw i8, ptr %126, i64 8
-  %128 = load i32, ptr %127, align 8, !tbaa !131
-  %.not8.i.i62 = icmp ult i32 %124, %128
-  br i1 %.not8.i.i62, label %129, label %.thread.i63
+123:                                              ; preds = %DT_BAUHAUS_WIDGET.exit.i.i59
+  %124 = getelementptr inbounds nuw i8, ptr %120, i64 408
+  %125 = load i32, ptr %124, align 8, !tbaa !137
+  %126 = getelementptr i8, ptr %120, i64 440
+  %127 = load ptr, ptr %126, align 8, !tbaa !128
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 8
+  %129 = load i32, ptr %128, align 8, !tbaa !131
+  %.not8.i.i62 = icmp ult i32 %125, %129
+  br i1 %.not8.i.i62, label %130, label %.thread.i63
 
-.thread.i63:                                      ; preds = %122
-  store i32 -1, ptr %123, align 8, !tbaa !137
+.thread.i63:                                      ; preds = %123
+  store i32 -1, ptr %124, align 8, !tbaa !137
   br label %dt_bauhaus_combobox_get_data.exit
 
-129:                                              ; preds = %122
-  %130 = icmp slt i32 %124, 0
-  br i1 %130, label %dt_bauhaus_combobox_get_data.exit, label %131
+130:                                              ; preds = %123
+  %131 = icmp slt i32 %125, 0
+  br i1 %131, label %dt_bauhaus_combobox_get_data.exit, label %132
 
-131:                                              ; preds = %129
-  %.val.val.i64 = load ptr, ptr %126, align 8, !tbaa !133
-  %132 = zext nneg i32 %124 to i64
-  %133 = getelementptr inbounds nuw ptr, ptr %.val.val.i64, i64 %132
-  %134 = load ptr, ptr %133, align 8, !tbaa !134
-  %135 = getelementptr inbounds nuw i8, ptr %134, i64 16
-  %136 = load ptr, ptr %135, align 8, !tbaa !209
+132:                                              ; preds = %130
+  %.val.val.i64 = load ptr, ptr %127, align 8, !tbaa !133
+  %133 = zext nneg i32 %125 to i64
+  %134 = getelementptr inbounds nuw ptr, ptr %.val.val.i64, i64 %133
+  %135 = load ptr, ptr %134, align 8, !tbaa !134
+  %136 = getelementptr inbounds nuw i8, ptr %135, i64 16
+  %137 = load ptr, ptr %136, align 8, !tbaa !209
   br label %dt_bauhaus_combobox_get_data.exit
 
-dt_bauhaus_combobox_get_data.exit:                ; preds = %DT_BAUHAUS_WIDGET.exit.i.i59, %.thread.i63, %129, %131
-  %.0.i61 = phi ptr [ %136, %131 ], [ null, %129 ], [ null, %DT_BAUHAUS_WIDGET.exit.i.i59 ], [ null, %.thread.i63 ]
-  %137 = load atomic i64, ptr @dt_bh_get_type.static_g_define_type_id seq_cst, align 8
-  %.not.i.i.i66 = icmp eq i64 %137, 0
-  br i1 %.not.i.i.i66, label %138, label %dt_bauhaus_combobox_get_default.exit
+dt_bauhaus_combobox_get_data.exit:                ; preds = %DT_BAUHAUS_WIDGET.exit.i.i59, %.thread.i63, %130, %132
+  %.0.i61 = phi ptr [ %137, %132 ], [ null, %130 ], [ null, %DT_BAUHAUS_WIDGET.exit.i.i59 ], [ null, %.thread.i63 ]
+  %138 = load atomic i64, ptr @dt_bh_get_type.static_g_define_type_id seq_cst, align 8
+  %.not.i.i.i66 = icmp eq i64 %138, 0
+  br i1 %.not.i.i.i66, label %139, label %dt_bauhaus_combobox_get_default.exit
 
-138:                                              ; preds = %dt_bauhaus_combobox_get_data.exit
-  %139 = tail call i32 @g_once_init_enter(ptr noundef nonnull @dt_bh_get_type.static_g_define_type_id) #20
-  %.not4.i.i.i67 = icmp eq i32 %139, 0
-  br i1 %.not4.i.i.i67, label %dt_bauhaus_combobox_get_default.exit, label %140
+139:                                              ; preds = %dt_bauhaus_combobox_get_data.exit
+  %140 = tail call i32 @g_once_init_enter(ptr noundef nonnull @dt_bh_get_type.static_g_define_type_id) #20
+  %.not4.i.i.i67 = icmp eq i32 %140, 0
+  br i1 %.not4.i.i.i67, label %dt_bauhaus_combobox_get_default.exit, label %141
 
-140:                                              ; preds = %138
-  %141 = tail call fastcc i64 @dt_bh_get_type_once()
-  tail call void @g_once_init_leave(ptr noundef nonnull @dt_bh_get_type.static_g_define_type_id, i64 noundef %141) #20
+141:                                              ; preds = %139
+  %142 = tail call fastcc i64 @dt_bh_get_type_once()
+  tail call void @g_once_init_leave(ptr noundef nonnull @dt_bh_get_type.static_g_define_type_id, i64 noundef %142) #20
   br label %dt_bauhaus_combobox_get_default.exit
 
-dt_bauhaus_combobox_get_default.exit:             ; preds = %dt_bauhaus_combobox_get_data.exit, %138, %140
-  %142 = load i64, ptr @dt_bh_get_type.static_g_define_type_id, align 8, !tbaa !6
-  %143 = tail call ptr @g_type_check_instance_cast(ptr noundef nonnull %6, i64 noundef %142) #20
-  %144 = getelementptr inbounds nuw i8, ptr %143, i64 412
-  %145 = load i32, ptr %144, align 4, !tbaa !169
-  %146 = sext i32 %145 to i64
-  %147 = inttoptr i64 %146 to ptr
-  %148 = icmp ne ptr %.0.i61, %147
-  %149 = uitofp i1 %148 to float
-  br label %181
+dt_bauhaus_combobox_get_default.exit:             ; preds = %dt_bauhaus_combobox_get_data.exit, %139, %141
+  %143 = load i64, ptr @dt_bh_get_type.static_g_define_type_id, align 8, !tbaa !6
+  %144 = tail call ptr @g_type_check_instance_cast(ptr noundef nonnull %6, i64 noundef %143) #20
+  %145 = getelementptr inbounds nuw i8, ptr %144, i64 412
+  %146 = load i32, ptr %145, align 4, !tbaa !169
+  %147 = sext i32 %146 to i64
+  %148 = inttoptr i64 %147 to ptr
+  %149 = icmp ne ptr %.0.i61, %148
+  %150 = uitofp i1 %149 to float
+  br label %182
 
-150:                                              ; preds = %110
-  br i1 %.not.i.i.i.i58, label %151, label %DT_BAUHAUS_WIDGET.exit.i.i69
+151:                                              ; preds = %111
+  br i1 %.not.i.i.i.i58, label %152, label %DT_BAUHAUS_WIDGET.exit.i.i69
 
-151:                                              ; preds = %150
-  %152 = tail call i32 @g_once_init_enter(ptr noundef nonnull @dt_bh_get_type.static_g_define_type_id) #20
-  %.not4.i.i.i.i72 = icmp eq i32 %152, 0
-  br i1 %.not4.i.i.i.i72, label %DT_BAUHAUS_WIDGET.exit.i.i69, label %153
+152:                                              ; preds = %151
+  %153 = tail call i32 @g_once_init_enter(ptr noundef nonnull @dt_bh_get_type.static_g_define_type_id) #20
+  %.not4.i.i.i.i72 = icmp eq i32 %153, 0
+  br i1 %.not4.i.i.i.i72, label %DT_BAUHAUS_WIDGET.exit.i.i69, label %154
 
-153:                                              ; preds = %151
-  %154 = tail call fastcc i64 @dt_bh_get_type_once()
-  tail call void @g_once_init_leave(ptr noundef nonnull @dt_bh_get_type.static_g_define_type_id, i64 noundef %154) #20
+154:                                              ; preds = %152
+  %155 = tail call fastcc i64 @dt_bh_get_type_once()
+  tail call void @g_once_init_leave(ptr noundef nonnull @dt_bh_get_type.static_g_define_type_id, i64 noundef %155) #20
   br label %DT_BAUHAUS_WIDGET.exit.i.i69
 
-DT_BAUHAUS_WIDGET.exit.i.i69:                     ; preds = %153, %151, %150
-  %155 = load i64, ptr @dt_bh_get_type.static_g_define_type_id, align 8, !tbaa !6
-  %156 = tail call ptr @g_type_check_instance_cast(ptr noundef nonnull %6, i64 noundef %155) #20
-  %157 = getelementptr inbounds nuw i8, ptr %156, i64 40
-  %158 = load i32, ptr %157, align 8, !tbaa !105
-  %.not.i.i70 = icmp eq i32 %158, 2
-  br i1 %.not.i.i70, label %159, label %._crit_edge
+DT_BAUHAUS_WIDGET.exit.i.i69:                     ; preds = %154, %152, %151
+  %156 = load i64, ptr @dt_bh_get_type.static_g_define_type_id, align 8, !tbaa !6
+  %157 = tail call ptr @g_type_check_instance_cast(ptr noundef nonnull %6, i64 noundef %156) #20
+  %158 = getelementptr inbounds nuw i8, ptr %157, i64 40
+  %159 = load i32, ptr %158, align 8, !tbaa !105
+  %.not.i.i70 = icmp eq i32 %159, 2
+  br i1 %.not.i.i70, label %160, label %._crit_edge
 
-159:                                              ; preds = %DT_BAUHAUS_WIDGET.exit.i.i69
-  %160 = getelementptr inbounds nuw i8, ptr %156, i64 408
-  %161 = load i32, ptr %160, align 8, !tbaa !137
-  %162 = getelementptr inbounds nuw i8, ptr %156, i64 440
-  %163 = load ptr, ptr %162, align 8, !tbaa !128
-  %164 = getelementptr inbounds nuw i8, ptr %163, i64 8
-  %165 = load i32, ptr %164, align 8, !tbaa !131
-  %.not8.i.i71 = icmp ult i32 %161, %165
-  br i1 %.not8.i.i71, label %dt_bauhaus_combobox_get.exit, label %166
+160:                                              ; preds = %DT_BAUHAUS_WIDGET.exit.i.i69
+  %161 = getelementptr inbounds nuw i8, ptr %157, i64 408
+  %162 = load i32, ptr %161, align 8, !tbaa !137
+  %163 = getelementptr inbounds nuw i8, ptr %157, i64 440
+  %164 = load ptr, ptr %163, align 8, !tbaa !128
+  %165 = getelementptr inbounds nuw i8, ptr %164, i64 8
+  %166 = load i32, ptr %165, align 8, !tbaa !131
+  %.not8.i.i71 = icmp ult i32 %162, %166
+  br i1 %.not8.i.i71, label %dt_bauhaus_combobox_get.exit, label %167
 
-166:                                              ; preds = %159
-  store i32 -1, ptr %160, align 8, !tbaa !137
+167:                                              ; preds = %160
+  store i32 -1, ptr %161, align 8, !tbaa !137
   br label %._crit_edge
 
-dt_bauhaus_combobox_get.exit:                     ; preds = %159
-  %167 = icmp sgt i32 %161, -1
-  br i1 %167, label %.lr.ph, label %._crit_edge
+dt_bauhaus_combobox_get.exit:                     ; preds = %160
+  %168 = icmp sgt i32 %162, -1
+  br i1 %168, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %dt_bauhaus_combobox_get.exit
-  %.val = load ptr, ptr %94, align 8, !tbaa !128
+  %.val = load ptr, ptr %95, align 8, !tbaa !128
   %.val.val = load ptr, ptr %.val, align 8, !tbaa !133
-  %168 = zext nneg i32 %161 to i64
-  br label %175
+  %169 = zext nneg i32 %162 to i64
+  br label %176
 
-._crit_edge:                                      ; preds = %175, %166, %DT_BAUHAUS_WIDGET.exit.i.i69, %dt_bauhaus_combobox_get.exit
-  %.043.lcssa = phi i32 [ %161, %dt_bauhaus_combobox_get.exit ], [ -1, %DT_BAUHAUS_WIDGET.exit.i.i69 ], [ -1, %166 ], [ %spec.select, %175 ]
-  %169 = xor i32 %.043.lcssa, -1
-  %170 = sitofp i32 %169 to float
-  %171 = add nsw i32 %2, -7
-  %172 = icmp eq i32 %.043.lcssa, %171
-  %173 = select reassoc nsz arcp contract afn i1 %172, float -5.000000e-01, float 0.000000e+00
-  %174 = fadd reassoc nsz arcp contract afn float %173, %170
-  br label %181
+._crit_edge:                                      ; preds = %176, %167, %DT_BAUHAUS_WIDGET.exit.i.i69, %dt_bauhaus_combobox_get.exit
+  %.043.lcssa = phi i32 [ %162, %dt_bauhaus_combobox_get.exit ], [ -1, %DT_BAUHAUS_WIDGET.exit.i.i69 ], [ -1, %167 ], [ %spec.select, %176 ]
+  %170 = xor i32 %.043.lcssa, -1
+  %171 = sitofp i32 %170 to float
+  %172 = add nsw i32 %2, -7
+  %173 = icmp eq i32 %.043.lcssa, %172
+  %174 = select reassoc nsz arcp contract afn i1 %173, float -5.000000e-01, float 0.000000e+00
+  %175 = fadd reassoc nsz arcp contract afn float %174, %171
+  br label %182
 
-175:                                              ; preds = %.lr.ph, %175
-  %indvars.iv = phi i64 [ %168, %.lr.ph ], [ %indvars.iv.next, %175 ]
-  %.04373 = phi i32 [ %161, %.lr.ph ], [ %spec.select, %175 ]
-  %176 = getelementptr inbounds nuw ptr, ptr %.val.val, i64 %indvars.iv
-  %177 = load ptr, ptr %176, align 8, !tbaa !134
-  %178 = getelementptr inbounds nuw i8, ptr %177, i64 12
-  %179 = load i32, ptr %178, align 4, !tbaa !135
-  %.not53 = icmp eq i32 %179, 0
-  %180 = sext i1 %.not53 to i32
-  %spec.select = add nsw i32 %.04373, %180
+176:                                              ; preds = %.lr.ph, %176
+  %indvars.iv = phi i64 [ %169, %.lr.ph ], [ %indvars.iv.next, %176 ]
+  %.04373 = phi i32 [ %162, %.lr.ph ], [ %spec.select, %176 ]
+  %177 = getelementptr inbounds nuw ptr, ptr %.val.val, i64 %indvars.iv
+  %178 = load ptr, ptr %177, align 8, !tbaa !134
+  %179 = getelementptr inbounds nuw i8, ptr %178, i64 12
+  %180 = load i32, ptr %179, align 4, !tbaa !135
+  %.not53 = icmp eq i32 %180, 0
+  %181 = sext i1 %.not53 to i32
+  %spec.select = add nsw i32 %.04373, %181
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not82 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not82, label %._crit_edge, label %175
+  br i1 %.not82, label %._crit_edge, label %176
 
-181:                                              ; preds = %._crit_edge, %dt_bauhaus_combobox_get_default.exit, %dt_bauhaus_widget_get_quad_active.exit57, %dt_bauhaus_widget_get_quad_active.exit
-  %.044 = phi nsz float [ %26, %dt_bauhaus_widget_get_quad_active.exit ], [ %109, %dt_bauhaus_widget_get_quad_active.exit57 ], [ %149, %dt_bauhaus_combobox_get_default.exit ], [ %174, %._crit_edge ]
+182:                                              ; preds = %._crit_edge, %dt_bauhaus_combobox_get_default.exit, %dt_bauhaus_widget_get_quad_active.exit57, %dt_bauhaus_widget_get_quad_active.exit
+  %.044 = phi nsz float [ %26, %dt_bauhaus_widget_get_quad_active.exit ], [ %110, %dt_bauhaus_widget_get_quad_active.exit57 ], [ %150, %dt_bauhaus_combobox_get_default.exit ], [ %175, %._crit_edge ]
   ret float %.044
 }
 

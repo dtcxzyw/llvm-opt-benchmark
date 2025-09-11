@@ -91,7 +91,7 @@ define internal range(i32 -1163346256, 1) i32 @xv_write_header(ptr noundef %0) #
   br i1 %26, label %xv_get_tag_from_format.exit.thread, label %.lr.ph
 
 27:                                               ; preds = %.lr.ph
-  %28 = getelementptr inbounds nuw %struct.XVTagFormatMap, ptr @tag_codec_map, i64 %indvars.iv.next.i, i32 1
+  %28 = getelementptr inbounds nuw i8, ptr %31, i64 4
   %29 = load i32, ptr %28, align 4, !tbaa !41
   %30 = icmp eq i32 %29, %25
   br i1 %30, label %xv_get_tag_from_format.exit, label %.lr.ph, !llvm.loop !43
@@ -99,6 +99,7 @@ define internal range(i32 -1163346256, 1) i32 @xv_write_header(ptr noundef %0) #
 .lr.ph:                                           ; preds = %23, %27
   %indvars.iv.i135 = phi i64 [ %indvars.iv.next.i, %27 ], [ 0, %23 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i135, 1
+  %31 = getelementptr inbounds nuw %struct.XVTagFormatMap, ptr @tag_codec_map, i64 %indvars.iv.next.i
   %.not.i = icmp eq i64 %indvars.iv.next.i, 3
   br i1 %.not.i, label %.xv_get_tag_from_format.exit_crit_edge136, label %27, !llvm.loop !43
 
@@ -106,8 +107,7 @@ define internal range(i32 -1163346256, 1) i32 @xv_write_header(ptr noundef %0) #
   br label %xv_get_tag_from_format.exit, !llvm.loop !43
 
 xv_get_tag_from_format.exit:                      ; preds = %27, %.xv_get_tag_from_format.exit_crit_edge136
-  %31 = getelementptr inbounds nuw %struct.XVTagFormatMap, ptr @tag_codec_map, i64 %indvars.iv.next.i
-  %32 = load i32, ptr %31, align 8, !tbaa !45
+  %32 = load i32, ptr %31, align 4, !tbaa !45
   %.not122 = icmp eq i64 %indvars.iv.next.i, 3
   br i1 %.not122, label %33, label %xv_get_tag_from_format.exit.thread
 
@@ -195,7 +195,7 @@ xv_get_tag_from_format.exit.thread:               ; preds = %23, %xv_get_tag_fro
   %75 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %76 = load i64, ptr %75, align 8, !tbaa !59
   %.not127 = icmp eq i64 %76, 0
-  br i1 %.not127, label %77, label %113
+  br i1 %.not127, label %77, label %114
 
 77:                                               ; preds = %73
   %78 = getelementptr inbounds nuw i8, ptr %38, i64 232
@@ -203,236 +203,238 @@ xv_get_tag_from_format.exit.thread:               ; preds = %23, %xv_get_tag_fro
   %80 = getelementptr inbounds nuw i8, ptr %38, i64 224
   %81 = load i32, ptr %80, align 8, !tbaa !65
   %82 = sext i32 %81 to i64
-  %83 = getelementptr inbounds %struct.Screen, ptr %79, i64 %82, i32 2
-  %84 = load i64, ptr %83, align 8, !tbaa !66
-  %85 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  %86 = load i32, ptr %85, align 8, !tbaa !68
-  %87 = getelementptr inbounds nuw i8, ptr %8, i64 52
-  %88 = load i32, ptr %87, align 4, !tbaa !69
-  %89 = getelementptr inbounds nuw i8, ptr %8, i64 44
-  %90 = load i32, ptr %89, align 4, !tbaa !58
-  %91 = tail call i64 @XCreateSimpleWindow(ptr noundef nonnull %38, i64 noundef %84, i32 noundef %86, i32 noundef %88, i32 noundef %74, i32 noundef %90, i32 noundef 0, i64 noundef 0, i64 noundef 0) #5
-  %92 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store i64 %91, ptr %92, align 8, !tbaa !70
-  %93 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %94 = load ptr, ptr %93, align 8, !tbaa !71
-  %.not128 = icmp eq ptr %94, null
-  br i1 %.not128, label %95, label %99
+  %83 = getelementptr inbounds %struct.Screen, ptr %79, i64 %82
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 16
+  %85 = load i64, ptr %84, align 8, !tbaa !66
+  %86 = getelementptr inbounds nuw i8, ptr %8, i64 48
+  %87 = load i32, ptr %86, align 8, !tbaa !68
+  %88 = getelementptr inbounds nuw i8, ptr %8, i64 52
+  %89 = load i32, ptr %88, align 4, !tbaa !69
+  %90 = getelementptr inbounds nuw i8, ptr %8, i64 44
+  %91 = load i32, ptr %90, align 4, !tbaa !58
+  %92 = tail call i64 @XCreateSimpleWindow(ptr noundef nonnull %38, i64 noundef %85, i32 noundef %87, i32 noundef %89, i32 noundef %74, i32 noundef %91, i32 noundef 0, i64 noundef 0, i64 noundef 0) #5
+  %93 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store i64 %92, ptr %93, align 8, !tbaa !70
+  %94 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %95 = load ptr, ptr %94, align 8, !tbaa !71
+  %.not128 = icmp eq ptr %95, null
+  br i1 %.not128, label %96, label %100
 
-95:                                               ; preds = %77
-  %96 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %97 = load ptr, ptr %96, align 8, !tbaa !72
-  %98 = tail call noalias ptr @av_strdup(ptr noundef %97) #5
-  store ptr %98, ptr %93, align 8, !tbaa !71
-  %.not129 = icmp eq ptr %98, null
-  br i1 %.not129, label %195, label %._crit_edge145
+96:                                               ; preds = %77
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %98 = load ptr, ptr %97, align 8, !tbaa !72
+  %99 = tail call noalias ptr @av_strdup(ptr noundef %98) #5
+  store ptr %99, ptr %94, align 8, !tbaa !71
+  %.not129 = icmp eq ptr %99, null
+  br i1 %.not129, label %197, label %._crit_edge145
 
-._crit_edge145:                                   ; preds = %95
-  %.pre = load i64, ptr %92, align 8, !tbaa !70
-  br label %99
+._crit_edge145:                                   ; preds = %96
+  %.pre = load i64, ptr %93, align 8, !tbaa !70
+  br label %100
 
-99:                                               ; preds = %._crit_edge145, %77
-  %100 = phi ptr [ %98, %._crit_edge145 ], [ %94, %77 ]
-  %101 = phi i64 [ %.pre, %._crit_edge145 ], [ %91, %77 ]
-  %102 = load ptr, ptr %39, align 8, !tbaa !52
-  %103 = tail call i32 @XStoreName(ptr noundef %102, i64 noundef %101, ptr noundef nonnull %100) #5
-  %104 = load ptr, ptr %39, align 8, !tbaa !52
-  %105 = tail call i64 @XInternAtom(ptr noundef %104, ptr noundef nonnull @.str.20, i32 noundef 0) #5
-  %106 = getelementptr inbounds nuw i8, ptr %8, i64 152
-  store i64 %105, ptr %106, align 8, !tbaa !73
-  %107 = load ptr, ptr %39, align 8, !tbaa !52
-  %108 = load i64, ptr %92, align 8, !tbaa !70
-  %109 = tail call i32 @XSetWMProtocols(ptr noundef %107, i64 noundef %108, ptr noundef nonnull %106, i32 noundef 1) #5
-  %110 = load ptr, ptr %39, align 8, !tbaa !52
-  %111 = load i64, ptr %92, align 8, !tbaa !70
-  %112 = tail call i32 @XMapWindow(ptr noundef %110, i64 noundef %111) #5
+100:                                              ; preds = %._crit_edge145, %77
+  %101 = phi ptr [ %99, %._crit_edge145 ], [ %95, %77 ]
+  %102 = phi i64 [ %.pre, %._crit_edge145 ], [ %92, %77 ]
+  %103 = load ptr, ptr %39, align 8, !tbaa !52
+  %104 = tail call i32 @XStoreName(ptr noundef %103, i64 noundef %102, ptr noundef nonnull %101) #5
+  %105 = load ptr, ptr %39, align 8, !tbaa !52
+  %106 = tail call i64 @XInternAtom(ptr noundef %105, ptr noundef nonnull @.str.20, i32 noundef 0) #5
+  %107 = getelementptr inbounds nuw i8, ptr %8, i64 152
+  store i64 %106, ptr %107, align 8, !tbaa !73
+  %108 = load ptr, ptr %39, align 8, !tbaa !52
+  %109 = load i64, ptr %93, align 8, !tbaa !70
+  %110 = tail call i32 @XSetWMProtocols(ptr noundef %108, i64 noundef %109, ptr noundef nonnull %107, i32 noundef 1) #5
+  %111 = load ptr, ptr %39, align 8, !tbaa !52
+  %112 = load i64, ptr %93, align 8, !tbaa !70
+  %113 = tail call i32 @XMapWindow(ptr noundef %111, i64 noundef %112) #5
   %.pre146 = load ptr, ptr %39, align 8, !tbaa !52
-  br label %115
+  br label %116
 
-113:                                              ; preds = %73
-  %114 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store i64 %76, ptr %114, align 8, !tbaa !70
-  br label %115
+114:                                              ; preds = %73
+  %115 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store i64 %76, ptr %115, align 8, !tbaa !70
+  br label %116
 
-115:                                              ; preds = %113, %99
-  %116 = phi ptr [ %38, %113 ], [ %.pre146, %99 ]
-  %117 = getelementptr inbounds nuw i8, ptr %116, i64 232
-  %118 = load ptr, ptr %117, align 8, !tbaa !60
-  %119 = getelementptr inbounds nuw i8, ptr %116, i64 224
-  %120 = load i32, ptr %119, align 8, !tbaa !65
-  %121 = sext i32 %120 to i64
-  %122 = getelementptr inbounds %struct.Screen, ptr %118, i64 %121, i32 2
-  %123 = load i64, ptr %122, align 8, !tbaa !66
-  %124 = call i32 @XvQueryAdaptors(ptr noundef %116, i64 noundef %123, ptr noundef nonnull %2, ptr noundef nonnull %3) #5
-  %.not130 = icmp eq i32 %124, 0
-  br i1 %.not130, label %125, label %195
+116:                                              ; preds = %114, %100
+  %117 = phi ptr [ %38, %114 ], [ %.pre146, %100 ]
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 232
+  %119 = load ptr, ptr %118, align 8, !tbaa !60
+  %120 = getelementptr inbounds nuw i8, ptr %117, i64 224
+  %121 = load i32, ptr %120, align 8, !tbaa !65
+  %122 = sext i32 %121 to i64
+  %123 = getelementptr inbounds %struct.Screen, ptr %119, i64 %122
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 16
+  %125 = load i64, ptr %124, align 8, !tbaa !66
+  %126 = call i32 @XvQueryAdaptors(ptr noundef %117, i64 noundef %125, ptr noundef nonnull %2, ptr noundef nonnull %3) #5
+  %.not130 = icmp eq i32 %126, 0
+  br i1 %.not130, label %127, label %197
 
-125:                                              ; preds = %115
-  %126 = load i32, ptr %2, align 4, !tbaa !24
-  %.not131 = icmp eq i32 %126, 0
-  br i1 %.not131, label %127, label %128
+127:                                              ; preds = %116
+  %128 = load i32, ptr %2, align 4, !tbaa !24
+  %.not131 = icmp eq i32 %128, 0
+  br i1 %.not131, label %129, label %130
 
-127:                                              ; preds = %125
+129:                                              ; preds = %127
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.21) #5
   br label %xv_write_trailer.exit
 
-128:                                              ; preds = %125
-  %129 = load ptr, ptr %3, align 8, !tbaa !74
-  %130 = load i64, ptr %129, align 8, !tbaa !75
-  %131 = trunc i64 %130 to i32
-  %132 = getelementptr inbounds nuw i8, ptr %8, i64 144
-  store i32 %131, ptr %132, align 8, !tbaa !77
-  call void @XvFreeAdaptorInfo(ptr noundef nonnull %129) #5
-  %133 = load ptr, ptr %39, align 8, !tbaa !52
-  %134 = load i32, ptr %132, align 8, !tbaa !77
-  %135 = sext i32 %134 to i64
-  %136 = call ptr @XvListImageFormats(ptr noundef %133, i64 noundef %135, ptr noundef nonnull %6) #5
-  %.not132 = icmp eq ptr %136, null
-  br i1 %.not132, label %195, label %.preheader
+130:                                              ; preds = %127
+  %131 = load ptr, ptr %3, align 8, !tbaa !74
+  %132 = load i64, ptr %131, align 8, !tbaa !75
+  %133 = trunc i64 %132 to i32
+  %134 = getelementptr inbounds nuw i8, ptr %8, i64 144
+  store i32 %133, ptr %134, align 8, !tbaa !77
+  call void @XvFreeAdaptorInfo(ptr noundef nonnull %131) #5
+  %135 = load ptr, ptr %39, align 8, !tbaa !52
+  %136 = load i32, ptr %134, align 8, !tbaa !77
+  %137 = sext i32 %136 to i64
+  %138 = call ptr @XvListImageFormats(ptr noundef %135, i64 noundef %137, ptr noundef nonnull %6) #5
+  %.not132 = icmp eq ptr %138, null
+  br i1 %.not132, label %197, label %.preheader
 
-.preheader:                                       ; preds = %128
-  %137 = load i32, ptr %6, align 4, !tbaa !24
-  %138 = icmp sgt i32 %137, 0
-  br i1 %138, label %.lr.ph139.preheader, label %._crit_edge
+.preheader:                                       ; preds = %130
+  %139 = load i32, ptr %6, align 4, !tbaa !24
+  %140 = icmp sgt i32 %139, 0
+  br i1 %140, label %.lr.ph139.preheader, label %._crit_edge
 
 .lr.ph139.preheader:                              ; preds = %.preheader
-  %wide.trip.count = zext nneg i32 %137 to i64
+  %wide.trip.count = zext nneg i32 %139 to i64
   br label %.lr.ph139
 
-.lr.ph139:                                        ; preds = %.lr.ph139.preheader, %142
-  %indvars.iv = phi i64 [ 0, %.lr.ph139.preheader ], [ %indvars.iv.next, %142 ]
-  %139 = getelementptr inbounds nuw %struct.XvImageFormatValues, ptr %136, i64 %indvars.iv
-  %140 = load i32, ptr %139, align 4, !tbaa !78
-  %141 = icmp eq i32 %140, %.lcssa.i160
-  br i1 %141, label %._crit_edge.loopexit.split.loop.exit, label %142
+.lr.ph139:                                        ; preds = %.lr.ph139.preheader, %144
+  %indvars.iv = phi i64 [ 0, %.lr.ph139.preheader ], [ %indvars.iv.next, %144 ]
+  %141 = getelementptr inbounds nuw %struct.XvImageFormatValues, ptr %138, i64 %indvars.iv
+  %142 = load i32, ptr %141, align 4, !tbaa !78
+  %143 = icmp eq i32 %142, %.lcssa.i160
+  br i1 %143, label %._crit_edge.loopexit.split.loop.exit, label %144
 
-142:                                              ; preds = %.lr.ph139
+144:                                              ; preds = %.lr.ph139
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph139, !llvm.loop !80
 
 ._crit_edge.loopexit.split.loop.exit:             ; preds = %.lr.ph139
-  %143 = trunc nuw nsw i64 %indvars.iv to i32
+  %145 = trunc nuw nsw i64 %indvars.iv to i32
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %142, %._crit_edge.loopexit.split.loop.exit, %.preheader
-  %.0114.lcssa = phi i32 [ 0, %.preheader ], [ %143, %._crit_edge.loopexit.split.loop.exit ], [ %137, %142 ]
-  %144 = call i32 @XFree(ptr noundef nonnull %136) #5
-  %145 = load i32, ptr %6, align 4, !tbaa !24
-  %.not133 = icmp slt i32 %.0114.lcssa, %145
-  br i1 %.not133, label %149, label %146
+._crit_edge:                                      ; preds = %144, %._crit_edge.loopexit.split.loop.exit, %.preheader
+  %.0114.lcssa = phi i32 [ 0, %.preheader ], [ %145, %._crit_edge.loopexit.split.loop.exit ], [ %139, %144 ]
+  %146 = call i32 @XFree(ptr noundef nonnull %138) #5
+  %147 = load i32, ptr %6, align 4, !tbaa !24
+  %.not133 = icmp slt i32 %.0114.lcssa, %147
+  br i1 %.not133, label %151, label %148
 
-146:                                              ; preds = %._crit_edge
-  %147 = load i32, ptr %24, align 4, !tbaa !40
-  %148 = call ptr @av_get_pix_fmt_name(i32 noundef %147) #5
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.22, ptr noundef %148) #5
-  br label %195
+148:                                              ; preds = %._crit_edge
+  %149 = load i32, ptr %24, align 4, !tbaa !40
+  %150 = call ptr @av_get_pix_fmt_name(i32 noundef %149) #5
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.22, ptr noundef %150) #5
+  br label %197
 
-149:                                              ; preds = %._crit_edge
-  %150 = load ptr, ptr %39, align 8, !tbaa !52
-  %151 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %152 = load i64, ptr %151, align 8, !tbaa !70
-  %153 = call ptr @XCreateGC(ptr noundef %150, i64 noundef %152, i64 noundef 0, ptr noundef null) #5
-  %154 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr %153, ptr %154, align 8, !tbaa !81
-  %155 = load i32, ptr %43, align 8, !tbaa !53
-  store i32 %155, ptr %45, align 4, !tbaa !54
-  %156 = load i32, ptr %46, align 4, !tbaa !55
-  store i32 %156, ptr %48, align 8, !tbaa !56
-  %157 = load ptr, ptr %39, align 8, !tbaa !52
-  %158 = load i32, ptr %132, align 8, !tbaa !77
-  %159 = sext i32 %158 to i64
-  %160 = getelementptr inbounds nuw i8, ptr %8, i64 112
-  %161 = call ptr @XvShmCreateImage(ptr noundef %157, i64 noundef %159, i32 noundef %.lcssa.i160, ptr noundef null, i32 noundef %155, i32 noundef %156, ptr noundef nonnull %160) #5
-  %162 = getelementptr inbounds nuw i8, ptr %8, i64 88
-  store ptr %161, ptr %162, align 8, !tbaa !82
-  %163 = getelementptr inbounds nuw i8, ptr %161, i64 12
-  %164 = load i32, ptr %163, align 4, !tbaa !83
-  %165 = sext i32 %164 to i64
-  %166 = call i32 @shmget(i32 noundef 0, i64 noundef %165, i32 noundef 1023) #5
-  %167 = getelementptr inbounds nuw i8, ptr %8, i64 120
-  store i32 %166, ptr %167, align 8, !tbaa !86
-  %168 = call ptr @shmat(i32 noundef %166, ptr noundef null, i32 noundef 0) #5
-  %169 = getelementptr inbounds nuw i8, ptr %8, i64 128
-  store ptr %168, ptr %169, align 8, !tbaa !87
-  %170 = load ptr, ptr %162, align 8, !tbaa !82
-  %171 = getelementptr inbounds nuw i8, ptr %170, i64 40
-  store ptr %168, ptr %171, align 8, !tbaa !88
-  %172 = getelementptr inbounds nuw i8, ptr %8, i64 136
-  store i32 0, ptr %172, align 8, !tbaa !89
-  %173 = load ptr, ptr %39, align 8, !tbaa !52
-  %174 = call i32 @XShmAttach(ptr noundef %173, ptr noundef nonnull %160) #5
+151:                                              ; preds = %._crit_edge
+  %152 = load ptr, ptr %39, align 8, !tbaa !52
+  %153 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %154 = load i64, ptr %153, align 8, !tbaa !70
+  %155 = call ptr @XCreateGC(ptr noundef %152, i64 noundef %154, i64 noundef 0, ptr noundef null) #5
+  %156 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store ptr %155, ptr %156, align 8, !tbaa !81
+  %157 = load i32, ptr %43, align 8, !tbaa !53
+  store i32 %157, ptr %45, align 4, !tbaa !54
+  %158 = load i32, ptr %46, align 4, !tbaa !55
+  store i32 %158, ptr %48, align 8, !tbaa !56
+  %159 = load ptr, ptr %39, align 8, !tbaa !52
+  %160 = load i32, ptr %134, align 8, !tbaa !77
+  %161 = sext i32 %160 to i64
+  %162 = getelementptr inbounds nuw i8, ptr %8, i64 112
+  %163 = call ptr @XvShmCreateImage(ptr noundef %159, i64 noundef %161, i32 noundef %.lcssa.i160, ptr noundef null, i32 noundef %157, i32 noundef %158, ptr noundef nonnull %162) #5
+  %164 = getelementptr inbounds nuw i8, ptr %8, i64 88
+  store ptr %163, ptr %164, align 8, !tbaa !82
+  %165 = getelementptr inbounds nuw i8, ptr %163, i64 12
+  %166 = load i32, ptr %165, align 4, !tbaa !83
+  %167 = sext i32 %166 to i64
+  %168 = call i32 @shmget(i32 noundef 0, i64 noundef %167, i32 noundef 1023) #5
+  %169 = getelementptr inbounds nuw i8, ptr %8, i64 120
+  store i32 %168, ptr %169, align 8, !tbaa !86
+  %170 = call ptr @shmat(i32 noundef %168, ptr noundef null, i32 noundef 0) #5
+  %171 = getelementptr inbounds nuw i8, ptr %8, i64 128
+  store ptr %170, ptr %171, align 8, !tbaa !87
+  %172 = load ptr, ptr %164, align 8, !tbaa !82
+  %173 = getelementptr inbounds nuw i8, ptr %172, i64 40
+  store ptr %170, ptr %173, align 8, !tbaa !88
+  %174 = getelementptr inbounds nuw i8, ptr %8, i64 136
+  store i32 0, ptr %174, align 8, !tbaa !89
   %175 = load ptr, ptr %39, align 8, !tbaa !52
-  %176 = call i32 @XSync(ptr noundef %175, i32 noundef 0) #5
-  %177 = load i32, ptr %167, align 8, !tbaa !86
-  %178 = call i32 @shmctl(i32 noundef %177, i32 noundef 0, ptr noundef null) #5
-  %179 = load ptr, ptr %39, align 8, !tbaa !52
-  %180 = load i64, ptr %151, align 8, !tbaa !70
-  %181 = call i32 @XGetWindowAttributes(ptr noundef %179, i64 noundef %180, ptr noundef nonnull %5) #5
-  %182 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  store i16 0, ptr %182, align 4, !tbaa !90
-  %183 = getelementptr inbounds nuw i8, ptr %4, i64 10
-  store i16 0, ptr %183, align 2, !tbaa !93
-  %184 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i16 0, ptr %184, align 8, !tbaa !94
-  %185 = getelementptr inbounds nuw i8, ptr %4, i64 14
-  store i8 7, ptr %185, align 2, !tbaa !95
-  %186 = load ptr, ptr %39, align 8, !tbaa !52
-  %187 = getelementptr inbounds nuw i8, ptr %5, i64 80
-  %188 = load i64, ptr %187, align 8, !tbaa !96
-  %189 = call i32 @XAllocColor(ptr noundef %186, i64 noundef %188, ptr noundef nonnull %4) #5
-  %190 = load ptr, ptr %39, align 8, !tbaa !52
-  %191 = load ptr, ptr %154, align 8, !tbaa !81
-  %192 = load i64, ptr %4, align 8, !tbaa !98
-  %193 = call i32 @XSetForeground(ptr noundef %190, ptr noundef %191, i64 noundef %192) #5
-  %194 = getelementptr inbounds nuw i8, ptr %8, i64 44
-  store i32 0, ptr %194, align 4, !tbaa !58
+  %176 = call i32 @XShmAttach(ptr noundef %175, ptr noundef nonnull %162) #5
+  %177 = load ptr, ptr %39, align 8, !tbaa !52
+  %178 = call i32 @XSync(ptr noundef %177, i32 noundef 0) #5
+  %179 = load i32, ptr %169, align 8, !tbaa !86
+  %180 = call i32 @shmctl(i32 noundef %179, i32 noundef 0, ptr noundef null) #5
+  %181 = load ptr, ptr %39, align 8, !tbaa !52
+  %182 = load i64, ptr %153, align 8, !tbaa !70
+  %183 = call i32 @XGetWindowAttributes(ptr noundef %181, i64 noundef %182, ptr noundef nonnull %5) #5
+  %184 = getelementptr inbounds nuw i8, ptr %4, i64 12
+  store i16 0, ptr %184, align 4, !tbaa !90
+  %185 = getelementptr inbounds nuw i8, ptr %4, i64 10
+  store i16 0, ptr %185, align 2, !tbaa !93
+  %186 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i16 0, ptr %186, align 8, !tbaa !94
+  %187 = getelementptr inbounds nuw i8, ptr %4, i64 14
+  store i8 7, ptr %187, align 2, !tbaa !95
+  %188 = load ptr, ptr %39, align 8, !tbaa !52
+  %189 = getelementptr inbounds nuw i8, ptr %5, i64 80
+  %190 = load i64, ptr %189, align 8, !tbaa !96
+  %191 = call i32 @XAllocColor(ptr noundef %188, i64 noundef %190, ptr noundef nonnull %4) #5
+  %192 = load ptr, ptr %39, align 8, !tbaa !52
+  %193 = load ptr, ptr %156, align 8, !tbaa !81
+  %194 = load i64, ptr %4, align 8, !tbaa !98
+  %195 = call i32 @XSetForeground(ptr noundef %192, ptr noundef %193, i64 noundef %194) #5
+  %196 = getelementptr inbounds nuw i8, ptr %8, i64 44
+  store i32 0, ptr %196, align 4, !tbaa !58
   store i32 0, ptr %49, align 8, !tbaa !57
   br label %xv_write_trailer.exit
 
-195:                                              ; preds = %128, %115, %95, %146
-  %.0115 = phi i32 [ -22, %146 ], [ -12, %95 ], [ -542398533, %115 ], [ -542398533, %128 ]
-  %196 = load ptr, ptr %7, align 8, !tbaa !4
-  %197 = getelementptr inbounds nuw i8, ptr %196, i64 72
-  %198 = load ptr, ptr %197, align 8, !tbaa !52
-  %.not.i134 = icmp eq ptr %198, null
-  br i1 %.not.i134, label %xv_write_trailer.exit, label %199
+197:                                              ; preds = %130, %116, %96, %148
+  %.0115 = phi i32 [ -22, %148 ], [ -12, %96 ], [ -542398533, %116 ], [ -542398533, %130 ]
+  %198 = load ptr, ptr %7, align 8, !tbaa !4
+  %199 = getelementptr inbounds nuw i8, ptr %198, i64 72
+  %200 = load ptr, ptr %199, align 8, !tbaa !52
+  %.not.i134 = icmp eq ptr %200, null
+  br i1 %.not.i134, label %xv_write_trailer.exit, label %201
 
-199:                                              ; preds = %195
-  %200 = getelementptr inbounds nuw i8, ptr %196, i64 112
-  %201 = call i32 @XShmDetach(ptr noundef nonnull %198, ptr noundef nonnull %200) #5
-  %202 = getelementptr inbounds nuw i8, ptr %196, i64 88
-  %203 = load ptr, ptr %202, align 8, !tbaa !82
-  %.not13.i = icmp eq ptr %203, null
-  br i1 %.not13.i, label %208, label %204
+201:                                              ; preds = %197
+  %202 = getelementptr inbounds nuw i8, ptr %198, i64 112
+  %203 = call i32 @XShmDetach(ptr noundef nonnull %200, ptr noundef nonnull %202) #5
+  %204 = getelementptr inbounds nuw i8, ptr %198, i64 88
+  %205 = load ptr, ptr %204, align 8, !tbaa !82
+  %.not13.i = icmp eq ptr %205, null
+  br i1 %.not13.i, label %210, label %206
 
-204:                                              ; preds = %199
-  %205 = getelementptr inbounds nuw i8, ptr %203, i64 40
-  %206 = load ptr, ptr %205, align 8, !tbaa !88
-  %207 = call i32 @shmdt(ptr noundef %206) #5
-  %.pre.i = load ptr, ptr %202, align 8, !tbaa !82
-  br label %208
+206:                                              ; preds = %201
+  %207 = getelementptr inbounds nuw i8, ptr %205, i64 40
+  %208 = load ptr, ptr %207, align 8, !tbaa !88
+  %209 = call i32 @shmdt(ptr noundef %208) #5
+  %.pre.i = load ptr, ptr %204, align 8, !tbaa !82
+  br label %210
 
-208:                                              ; preds = %204, %199
-  %209 = phi ptr [ %.pre.i, %204 ], [ null, %199 ]
-  %210 = call i32 @XFree(ptr noundef %209) #5
-  %211 = getelementptr inbounds nuw i8, ptr %196, i64 8
-  %212 = load ptr, ptr %211, align 8, !tbaa !81
-  %.not14.i = icmp eq ptr %212, null
-  br i1 %.not14.i, label %216, label %213
+210:                                              ; preds = %206, %201
+  %211 = phi ptr [ %.pre.i, %206 ], [ null, %201 ]
+  %212 = call i32 @XFree(ptr noundef %211) #5
+  %213 = getelementptr inbounds nuw i8, ptr %198, i64 8
+  %214 = load ptr, ptr %213, align 8, !tbaa !81
+  %.not14.i = icmp eq ptr %214, null
+  br i1 %.not14.i, label %218, label %215
 
-213:                                              ; preds = %208
-  %214 = load ptr, ptr %197, align 8, !tbaa !52
-  %215 = call i32 @XFreeGC(ptr noundef %214, ptr noundef nonnull %212) #5
-  br label %216
+215:                                              ; preds = %210
+  %216 = load ptr, ptr %199, align 8, !tbaa !52
+  %217 = call i32 @XFreeGC(ptr noundef %216, ptr noundef nonnull %214) #5
+  br label %218
 
-216:                                              ; preds = %213, %208
-  %217 = load ptr, ptr %197, align 8, !tbaa !52
-  %218 = call i32 @XCloseDisplay(ptr noundef %217) #5
+218:                                              ; preds = %215, %210
+  %219 = load ptr, ptr %199, align 8, !tbaa !52
+  %220 = call i32 @XCloseDisplay(ptr noundef %219) #5
   br label %xv_write_trailer.exit
 
-xv_write_trailer.exit:                            ; preds = %216, %195, %149, %127, %40, %33, %22
-  %.0 = phi i32 [ -22, %22 ], [ 0, %149 ], [ -19, %127 ], [ -22, %40 ], [ -1163346256, %33 ], [ %.0115, %195 ], [ %.0115, %216 ]
+xv_write_trailer.exit:                            ; preds = %218, %197, %151, %129, %40, %33, %22
+  %.0 = phi i32 [ -22, %22 ], [ 0, %151 ], [ -19, %129 ], [ -22, %40 ], [ -1163346256, %33 ], [ %.0115, %197 ], [ %.0115, %218 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

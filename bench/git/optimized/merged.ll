@@ -251,8 +251,8 @@ define internal range(i32 -2147483648, 1) i32 @merged_iter_seek_void(ptr noundef
   %.not.i = icmp eq i64 %.val.i, 0
   br i1 %.not.i, label %.preheader.i, label %.lr.ph.i, !llvm.loop !37
 
-11:                                               ; preds = %26, %.lr.ph28.i
-  %.01727.i = phi i64 [ 0, %.lr.ph28.i ], [ %27, %26 ]
+11:                                               ; preds = %25, %.lr.ph28.i
+  %.01727.i = phi i64 [ 0, %.lr.ph28.i ], [ %26, %25 ]
   %12 = load ptr, ptr %0, align 8, !tbaa !30
   %13 = getelementptr inbounds nuw %struct.merged_subiter, ptr %12, i64 %.01727.i
   %14 = call i32 @iterator_seek(ptr noundef %13, ptr noundef %1) #6
@@ -261,38 +261,37 @@ define internal range(i32 -2147483648, 1) i32 @merged_iter_seek_void(ptr noundef
 
 16:                                               ; preds = %11
   %.not22.i = icmp eq i32 %14, 0
-  br i1 %.not22.i, label %17, label %26
+  br i1 %.not22.i, label %17, label %25
 
 17:                                               ; preds = %16
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %.01727.i, ptr %3, align 8, !tbaa !38
   %18 = load ptr, ptr %0, align 8, !tbaa !30
-  %19 = getelementptr inbounds nuw %struct.merged_subiter, ptr %18, i64 %.01727.i, i32 1
-  store ptr %19, ptr %9, align 8, !tbaa !41
-  %20 = getelementptr inbounds nuw %struct.merged_subiter, ptr %18, i64 %.01727.i
-  %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  %22 = call i32 @iterator_next(ptr noundef %20, ptr noundef nonnull %21) #6
-  %.not.i.i = icmp eq i32 %22, 0
-  br i1 %.not.i.i, label %23, label %merged_iter_advance_subiter.exit.i
+  %19 = getelementptr inbounds nuw %struct.merged_subiter, ptr %18, i64 %.01727.i
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  store ptr %20, ptr %9, align 8, !tbaa !41
+  %21 = call i32 @iterator_next(ptr noundef %19, ptr noundef nonnull %20) #6
+  %.not.i.i = icmp eq i32 %21, 0
+  br i1 %.not.i.i, label %22, label %merged_iter_advance_subiter.exit.i
 
-23:                                               ; preds = %17
-  %24 = call i32 @merged_iter_pqueue_add(ptr noundef nonnull %5, ptr noundef nonnull %3) #6
+22:                                               ; preds = %17
+  %23 = call i32 @merged_iter_pqueue_add(ptr noundef nonnull %5, ptr noundef nonnull %3) #6
   br label %merged_iter_advance_subiter.exit.i
 
-merged_iter_advance_subiter.exit.i:               ; preds = %23, %17
-  %.0.i.i = phi i32 [ %22, %17 ], [ %24, %23 ]
+merged_iter_advance_subiter.exit.i:               ; preds = %22, %17
+  %.0.i.i = phi i32 [ %21, %17 ], [ %23, %22 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %25 = icmp slt i32 %.0.i.i, 0
-  br i1 %25, label %merged_iter_seek.exit, label %26
+  %24 = icmp slt i32 %.0.i.i, 0
+  br i1 %24, label %merged_iter_seek.exit, label %25
 
-26:                                               ; preds = %merged_iter_advance_subiter.exit.i, %16
-  %27 = add nuw i64 %.01727.i, 1
-  %28 = load i64, ptr %7, align 8, !tbaa !31
-  %.not23.i = icmp ult i64 %27, %28
+25:                                               ; preds = %merged_iter_advance_subiter.exit.i, %16
+  %26 = add nuw i64 %.01727.i, 1
+  %27 = load i64, ptr %7, align 8, !tbaa !31
+  %.not23.i = icmp ult i64 %26, %27
   br i1 %.not23.i, label %11, label %merged_iter_seek.exit, !llvm.loop !42
 
-merged_iter_seek.exit:                            ; preds = %11, %merged_iter_advance_subiter.exit.i, %26, %.preheader.i
-  %spec.select.i = phi i32 [ 0, %.preheader.i ], [ 0, %26 ], [ %14, %11 ], [ %.0.i.i, %merged_iter_advance_subiter.exit.i ]
+merged_iter_seek.exit:                            ; preds = %11, %merged_iter_advance_subiter.exit.i, %25, %.preheader.i
+  %spec.select.i = phi i32 [ 0, %.preheader.i ], [ 0, %25 ], [ %14, %11 ], [ %.0.i.i, %merged_iter_advance_subiter.exit.i ]
   ret i32 %spec.select.i
 }
 
@@ -309,12 +308,12 @@ define internal i32 @merged_iter_next_void(ptr noundef %0, ptr noundef %1) #0 {
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %12
 
-12:                                               ; preds = %50, %2
+12:                                               ; preds = %48, %2
   %.val44.i = load i64, ptr %7, align 8, !tbaa !36
   %.not.i = icmp eq i64 %.val44.i, 0
   %13 = load i64, ptr %8, align 8, !tbaa !23
   %14 = icmp sgt i64 %13, -1
-  br i1 %14, label %15, label %25
+  br i1 %14, label %15, label %24
 
 15:                                               ; preds = %12
   br i1 %.not.i, label %merged_iter_next_entry.exit, label %16
@@ -323,102 +322,100 @@ define internal i32 @merged_iter_next_void(ptr noundef %0, ptr noundef %1) #0 {
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %13, ptr %4, align 8, !tbaa !38
   %17 = load ptr, ptr %0, align 8, !tbaa !30
-  %18 = getelementptr inbounds nuw %struct.merged_subiter, ptr %17, i64 %13, i32 1
-  store ptr %18, ptr %9, align 8, !tbaa !41
-  %19 = getelementptr inbounds nuw %struct.merged_subiter, ptr %17, i64 %13
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %21 = call i32 @iterator_next(ptr noundef %19, ptr noundef nonnull %20) #6
-  %.not.i.i = icmp eq i32 %21, 0
-  br i1 %.not.i.i, label %22, label %merged_iter_advance_subiter.exit.i
+  %18 = getelementptr inbounds nuw %struct.merged_subiter, ptr %17, i64 %13
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  store ptr %19, ptr %9, align 8, !tbaa !41
+  %20 = call i32 @iterator_next(ptr noundef %18, ptr noundef nonnull %19) #6
+  %.not.i.i = icmp eq i32 %20, 0
+  br i1 %.not.i.i, label %21, label %merged_iter_advance_subiter.exit.i
 
-22:                                               ; preds = %16
-  %23 = call i32 @merged_iter_pqueue_add(ptr noundef nonnull %6, ptr noundef nonnull %4) #6
+21:                                               ; preds = %16
+  %22 = call i32 @merged_iter_pqueue_add(ptr noundef nonnull %6, ptr noundef nonnull %4) #6
   br label %merged_iter_advance_subiter.exit.i
 
-merged_iter_advance_subiter.exit.i:               ; preds = %22, %16
-  %.0.i.i = phi i32 [ %21, %16 ], [ %23, %22 ]
+merged_iter_advance_subiter.exit.i:               ; preds = %21, %16
+  %.0.i.i = phi i32 [ %20, %16 ], [ %22, %21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %24 = icmp slt i32 %.0.i.i, 0
-  br i1 %24, label %merged_iter_next_entry.exit.thread, label %.thread.i
+  %23 = icmp slt i32 %.0.i.i, 0
+  br i1 %23, label %merged_iter_next_entry.exit.thread, label %.thread.i
 
 .thread.i:                                        ; preds = %merged_iter_advance_subiter.exit.i
   store i64 -1, ptr %8, align 8, !tbaa !23
-  br label %26
+  br label %25
 
-25:                                               ; preds = %12
-  br i1 %.not.i, label %merged_iter_next_entry.exit.thread, label %26
+24:                                               ; preds = %12
+  br i1 %.not.i, label %merged_iter_next_entry.exit.thread, label %25
 
-26:                                               ; preds = %25, %.thread.i
-  %27 = call { i64, ptr } @merged_iter_pqueue_remove(ptr noundef nonnull %6) #6
-  %28 = extractvalue { i64, ptr } %27, 0
-  %29 = extractvalue { i64, ptr } %27, 1
-  br label %30
+25:                                               ; preds = %24, %.thread.i
+  %26 = call { i64, ptr } @merged_iter_pqueue_remove(ptr noundef nonnull %6) #6
+  %27 = extractvalue { i64, ptr } %26, 0
+  %28 = extractvalue { i64, ptr } %26, 1
+  br label %29
 
-30:                                               ; preds = %merged_iter_advance_subiter.exit49.i, %26
+29:                                               ; preds = %merged_iter_advance_subiter.exit49.i, %25
   %.val.i = load i64, ptr %7, align 8, !tbaa !36
   %.not58.i = icmp eq i64 %.val.i, 0
-  br i1 %.not58.i, label %merged_iter_next_entry.exit.thread14, label %31
+  br i1 %.not58.i, label %merged_iter_next_entry.exit.thread14, label %30
 
-31:                                               ; preds = %30
+30:                                               ; preds = %29
   %.val45.i = load ptr, ptr %6, align 8, !tbaa !43
   %.val45.val.i = load i64, ptr %.val45.i, align 8, !tbaa !44
-  %32 = getelementptr i8, ptr %.val45.i, i64 8
-  %.val45.val46.i = load ptr, ptr %32, align 8, !tbaa !45
-  %33 = call i32 @reftable_record_cmp(ptr noundef %.val45.val46.i, ptr noundef %29) #6
-  %34 = icmp sgt i32 %33, 0
-  br i1 %34, label %merged_iter_next_entry.exit.thread14, label %35
+  %31 = getelementptr i8, ptr %.val45.i, i64 8
+  %.val45.val46.i = load ptr, ptr %31, align 8, !tbaa !45
+  %32 = call i32 @reftable_record_cmp(ptr noundef %.val45.val46.i, ptr noundef %28) #6
+  %33 = icmp sgt i32 %32, 0
+  br i1 %33, label %merged_iter_next_entry.exit.thread14, label %34
 
-35:                                               ; preds = %31
-  %36 = call { i64, ptr } @merged_iter_pqueue_remove(ptr noundef nonnull %6) #6
+34:                                               ; preds = %30
+  %35 = call { i64, ptr } @merged_iter_pqueue_remove(ptr noundef nonnull %6) #6
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %.val45.val.i, ptr %3, align 8, !tbaa !38
-  %37 = load ptr, ptr %0, align 8, !tbaa !30
-  %38 = getelementptr inbounds nuw %struct.merged_subiter, ptr %37, i64 %.val45.val.i, i32 1
+  %36 = load ptr, ptr %0, align 8, !tbaa !30
+  %37 = getelementptr inbounds nuw %struct.merged_subiter, ptr %36, i64 %.val45.val.i
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
   store ptr %38, ptr %10, align 8, !tbaa !41
-  %39 = getelementptr inbounds nuw %struct.merged_subiter, ptr %37, i64 %.val45.val.i
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
-  %41 = call i32 @iterator_next(ptr noundef %39, ptr noundef nonnull %40) #6
-  %.not.i47.i = icmp eq i32 %41, 0
-  br i1 %.not.i47.i, label %42, label %merged_iter_advance_subiter.exit49.i
+  %39 = call i32 @iterator_next(ptr noundef %37, ptr noundef nonnull %38) #6
+  %.not.i47.i = icmp eq i32 %39, 0
+  br i1 %.not.i47.i, label %40, label %merged_iter_advance_subiter.exit49.i
 
-42:                                               ; preds = %35
-  %43 = call i32 @merged_iter_pqueue_add(ptr noundef nonnull %6, ptr noundef nonnull %3) #6
+40:                                               ; preds = %34
+  %41 = call i32 @merged_iter_pqueue_add(ptr noundef nonnull %6, ptr noundef nonnull %3) #6
   br label %merged_iter_advance_subiter.exit49.i
 
-merged_iter_advance_subiter.exit49.i:             ; preds = %42, %35
-  %.0.i48.i = phi i32 [ %41, %35 ], [ %43, %42 ]
+merged_iter_advance_subiter.exit49.i:             ; preds = %40, %34
+  %.0.i48.i = phi i32 [ %39, %34 ], [ %41, %40 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %44 = icmp slt i32 %.0.i48.i, 0
-  br i1 %44, label %merged_iter_next_entry.exit.thread, label %30
+  %42 = icmp slt i32 %.0.i48.i, 0
+  br i1 %42, label %merged_iter_next_entry.exit.thread, label %29
 
-merged_iter_next_entry.exit.thread14:             ; preds = %30, %31
-  store i64 %28, ptr %8, align 8, !tbaa !23
+merged_iter_next_entry.exit.thread14:             ; preds = %29, %30
+  store i64 %27, ptr %8, align 8, !tbaa !23
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(152) %5, ptr noundef nonnull align 1 dereferenceable(152) %1, i64 152, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(152) %1, ptr noundef nonnull align 1 dereferenceable(152) %29, i64 152, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(152) %29, ptr noundef nonnull align 16 dereferenceable(152) %5, i64 152, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(152) %1, ptr noundef nonnull align 1 dereferenceable(152) %28, i64 152, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(152) %28, ptr noundef nonnull align 16 dereferenceable(152) %5, i64 152, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %48
+  br label %46
 
 merged_iter_next_entry.exit:                      ; preds = %15
-  %45 = load ptr, ptr %0, align 8, !tbaa !30
-  %46 = getelementptr inbounds nuw %struct.merged_subiter, ptr %45, i64 %13
-  %47 = call i32 @iterator_next(ptr noundef %46, ptr noundef %1) #6
-  %.not = icmp eq i32 %47, 0
-  br i1 %.not, label %48, label %merged_iter_next_entry.exit.thread
+  %43 = load ptr, ptr %0, align 8, !tbaa !30
+  %44 = getelementptr inbounds nuw %struct.merged_subiter, ptr %43, i64 %13
+  %45 = call i32 @iterator_next(ptr noundef %44, ptr noundef %1) #6
+  %.not = icmp eq i32 %45, 0
+  br i1 %.not, label %46, label %merged_iter_next_entry.exit.thread
 
-48:                                               ; preds = %merged_iter_next_entry.exit.thread14, %merged_iter_next_entry.exit
-  %49 = load i32, ptr %11, align 8, !tbaa !29
-  %.not10 = icmp eq i32 %49, 0
-  br i1 %.not10, label %merged_iter_next_entry.exit.thread, label %50
+46:                                               ; preds = %merged_iter_next_entry.exit.thread14, %merged_iter_next_entry.exit
+  %47 = load i32, ptr %11, align 8, !tbaa !29
+  %.not10 = icmp eq i32 %47, 0
+  br i1 %.not10, label %merged_iter_next_entry.exit.thread, label %48
 
-50:                                               ; preds = %48
-  %51 = call i32 @reftable_record_is_deletion(ptr noundef %1) #6
-  %.not11 = icmp eq i32 %51, 0
+48:                                               ; preds = %46
+  %49 = call i32 @reftable_record_is_deletion(ptr noundef %1) #6
+  %.not11 = icmp eq i32 %49, 0
   br i1 %.not11, label %merged_iter_next_entry.exit.thread, label %12
 
-merged_iter_next_entry.exit.thread:               ; preds = %48, %50, %25, %merged_iter_advance_subiter.exit.i, %merged_iter_next_entry.exit, %merged_iter_advance_subiter.exit49.i
-  %.1.ph = phi i32 [ %.0.i48.i, %merged_iter_advance_subiter.exit49.i ], [ 0, %48 ], [ 0, %50 ], [ %.0.i.i, %merged_iter_advance_subiter.exit.i ], [ 1, %25 ], [ %47, %merged_iter_next_entry.exit ]
+merged_iter_next_entry.exit.thread:               ; preds = %46, %48, %24, %merged_iter_advance_subiter.exit.i, %merged_iter_next_entry.exit, %merged_iter_advance_subiter.exit49.i
+  %.1.ph = phi i32 [ %.0.i48.i, %merged_iter_advance_subiter.exit49.i ], [ 0, %46 ], [ 0, %48 ], [ %.0.i.i, %merged_iter_advance_subiter.exit.i ], [ 1, %24 ], [ %45, %merged_iter_next_entry.exit ]
   ret i32 %.1.ph
 }
 
@@ -437,17 +434,18 @@ define internal void @merged_iter_close(ptr noundef %0) #0 {
   ret void
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
-  %.09 = phi i64 [ %10, %.lr.ph ], [ 0, %1 ]
+  %.09 = phi i64 [ %11, %.lr.ph ], [ 0, %1 ]
   %6 = load ptr, ptr %0, align 8, !tbaa !30
   %7 = getelementptr inbounds nuw %struct.merged_subiter, ptr %6, i64 %.09
   tail call void @reftable_iterator_destroy(ptr noundef %7) #6
   %8 = load ptr, ptr %0, align 8, !tbaa !30
-  %9 = getelementptr inbounds nuw %struct.merged_subiter, ptr %8, i64 %.09, i32 1
-  tail call void @reftable_record_release(ptr noundef nonnull %9) #6
-  %10 = add nuw i64 %.09, 1
-  %11 = load i64, ptr %3, align 8, !tbaa !31
-  %12 = icmp ult i64 %10, %11
-  br i1 %12, label %.lr.ph, label %._crit_edge, !llvm.loop !46
+  %9 = getelementptr inbounds nuw %struct.merged_subiter, ptr %8, i64 %.09
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  tail call void @reftable_record_release(ptr noundef nonnull %10) #6
+  %11 = add nuw i64 %.09, 1
+  %12 = load i64, ptr %3, align 8, !tbaa !31
+  %13 = icmp ult i64 %11, %12
+  br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !46
 }
 
 declare { i64, ptr } @merged_iter_pqueue_remove(ptr noundef) local_unnamed_addr #1

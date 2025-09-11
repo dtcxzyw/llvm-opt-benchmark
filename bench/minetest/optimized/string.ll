@@ -1658,7 +1658,8 @@ for.body:                                         ; preds = %while.end, %for.con
   br i1 %tobool13.not, label %if.then14, label %for.cond
 
 if.then14:                                        ; preds = %for.body
-  %flag = getelementptr inbounds nuw %struct.FlagDesc, ptr %flagdesc, i64 %indvars.iv, i32 1
+  %flag.split = getelementptr inbounds nuw %struct.FlagDesc, ptr %flagdesc, i64 %indvars.iv
+  %flag = getelementptr inbounds nuw i8, ptr %flag.split, i64 8
   %5 = load i32, ptr %flag, align 8, !tbaa !82
   %or = or i32 %5, %mask.057
   %or22 = select i1 %tobool7.not.not, i32 0, i32 %5

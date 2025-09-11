@@ -239,7 +239,8 @@ define dso_local void @mpol_rebind_task(ptr noundef readonly captures(none) %0, 
 
 19:                                               ; preds = %14, %10
   %20 = zext i16 %8 to i64
-  %21 = getelementptr %struct.mempolicy_operations, ptr @mpol_ops, i64 %20, i32 1
+  %.split = getelementptr %struct.mempolicy_operations, ptr @mpol_ops, i64 %20
+  %21 = getelementptr i8, ptr %.split, i64 8
   %22 = load ptr, ptr %21, align 8
   tail call void %22(ptr noundef nonnull %4, ptr noundef %1) #19
   br label %23
@@ -327,7 +328,8 @@ define dso_local void @mpol_rebind_mm(ptr noundef %0, ptr noundef %1) local_unna
 
 43:                                               ; preds = %38, %34
   %44 = zext i16 %32 to i64
-  %45 = getelementptr %struct.mempolicy_operations, ptr @mpol_ops, i64 %44, i32 1
+  %.split = getelementptr %struct.mempolicy_operations, ptr @mpol_ops, i64 %44
+  %45 = getelementptr i8, ptr %.split, i64 8
   %46 = load ptr, ptr %45, align 8
   call void %46(ptr noundef nonnull %28, ptr noundef %1) #19
   br label %47
@@ -2911,7 +2913,8 @@ define dso_local ptr @alloc_pages_mpol(i32 noundef %0, i32 noundef %1, ptr nound
   %35 = load ptr, ptr %34, align 8
   %36 = lshr i64 %32, 56
   %37 = and i64 %36, 3
-  %38 = getelementptr %struct.zone, ptr %35, i64 %37, i32 7
+  %.split = getelementptr %struct.zone, ptr %35, i64 %37
+  %38 = getelementptr i8, ptr %.split, i64 104
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr i8, ptr %39, i64 40
   tail call void asm "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %40, ptr elementtype(i64) %40) #19, !srcloc !53
@@ -3431,7 +3434,8 @@ define dso_local ptr @__mpol_dup(ptr noundef readonly captures(address) %0) loca
 
 30:                                               ; preds = %26, %22
   %31 = zext i16 %20 to i64
-  %32 = getelementptr %struct.mempolicy_operations, ptr @mpol_ops, i64 %31, i32 1
+  %.split = getelementptr %struct.mempolicy_operations, ptr @mpol_ops, i64 %31
+  %32 = getelementptr i8, ptr %.split, i64 8
   %33 = load ptr, ptr %32, align 8
   call void %33(ptr noundef nonnull %4, ptr noundef nonnull %2) #19
   br label %34
@@ -5889,7 +5893,8 @@ define internal range(i32 -5, 1) i32 @queue_folios_hugetlb(ptr noundef %0, i64 %
   %36 = select i1 %32, i64 %33, i64 %35
   %37 = add i64 %31, %36
   %38 = lshr i64 %37, 12
-  %39 = getelementptr %struct.page, ptr %28, i64 %38, i32 1, i32 0, i32 3
+  %.split = getelementptr %struct.page, ptr %28, i64 %38
+  %39 = getelementptr i8, ptr %.split, i64 40
   br label %44
 
 40:                                               ; preds = %5

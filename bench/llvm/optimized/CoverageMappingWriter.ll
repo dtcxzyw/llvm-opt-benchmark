@@ -1803,21 +1803,23 @@ define internal fastcc void @_ZN12_GLOBAL__N_127CounterExpressionsMinimizer4mark
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %.lr.ph, %tailrecurse
-  %6 = phi ptr [ %.pre, %.lr.ph ], [ %10, %tailrecurse ]
+  %6 = phi ptr [ %.pre, %.lr.ph ], [ %11, %tailrecurse ]
   %.tr45 = phi i64 [ %1, %.lr.ph ], [ %.sroa.0.0.copyload, %tailrecurse ]
   %.sroa.2.0.extract.shift = lshr i64 %.tr45, 32
   %7 = load ptr, ptr %5, align 8, !tbaa !62
   %8 = getelementptr inbounds nuw i32, ptr %7, i64 %.sroa.2.0.extract.shift
   store i32 1, ptr %8, align 4, !tbaa !56
-  %9 = getelementptr inbounds nuw %"struct.llvm::coverage::CounterExpression", ptr %6, i64 %.sroa.2.0.extract.shift, i32 1
-  %.sroa.01.0.copyload = load i64, ptr %9, align 4
+  %9 = getelementptr inbounds nuw %"struct.llvm::coverage::CounterExpression", ptr %6, i64 %.sroa.2.0.extract.shift
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  %.sroa.01.0.copyload = load i64, ptr %10, align 4
   tail call fastcc void @_ZN12_GLOBAL__N_127CounterExpressionsMinimizer4markEN4llvm8coverage7CounterE(ptr noundef nonnull align 8 dereferenceable(376) %0, i64 %.sroa.01.0.copyload)
-  %10 = load ptr, ptr %0, align 8, !tbaa !99
-  %11 = getelementptr inbounds nuw %"struct.llvm::coverage::CounterExpression", ptr %10, i64 %.sroa.2.0.extract.shift, i32 2
-  %.sroa.0.0.copyload = load i64, ptr %11, align 4
-  %12 = and i64 %.sroa.0.0.copyload, 4294967295
-  %13 = icmp eq i64 %12, 2
-  br i1 %13, label %tailrecurse, label %tailrecurse._crit_edge
+  %11 = load ptr, ptr %0, align 8, !tbaa !99
+  %12 = getelementptr inbounds nuw %"struct.llvm::coverage::CounterExpression", ptr %11, i64 %.sroa.2.0.extract.shift
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 12
+  %.sroa.0.0.copyload = load i64, ptr %13, align 4
+  %14 = and i64 %.sroa.0.0.copyload, 4294967295
+  %15 = icmp eq i64 %14, 2
+  br i1 %15, label %tailrecurse, label %tailrecurse._crit_edge
 
 tailrecurse._crit_edge:                           ; preds = %tailrecurse, %2
   ret void

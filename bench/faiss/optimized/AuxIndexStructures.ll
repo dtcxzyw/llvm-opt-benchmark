@@ -386,9 +386,9 @@ define void @_ZN5faiss10BufferListD2Ev(ptr noundef nonnull readonly align 8 capt
   %.not = icmp eq ptr %4, %5
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %23, %1
-  %.lcssa7 = phi ptr [ %5, %1 ], [ %24, %23 ]
-  %.lcssa = phi i64 [ %6, %1 ], [ %27, %23 ]
+._crit_edge:                                      ; preds = %24, %1
+  %.lcssa7 = phi ptr [ %5, %1 ], [ %25, %24 ]
+  %.lcssa = phi i64 [ %6, %1 ], [ %28, %24 ]
   %.not.i.i.i = icmp eq ptr %.lcssa7, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN5faiss10BufferList6BufferESaIS2_EED2Ev.exit, label %7
 
@@ -403,9 +403,9 @@ define void @_ZN5faiss10BufferListD2Ev(ptr noundef nonnull readonly align 8 capt
 _ZNSt6vectorIN5faiss10BufferList6BufferESaIS2_EED2Ev.exit: ; preds = %._crit_edge, %7
   ret void
 
-.lr.ph:                                           ; preds = %1, %23
-  %12 = phi ptr [ %24, %23 ], [ %5, %1 ]
-  %indvars.iv = phi i64 [ %indvars.iv.next, %23 ], [ 0, %1 ]
+.lr.ph:                                           ; preds = %1, %24
+  %12 = phi ptr [ %25, %24 ], [ %5, %1 ]
+  %indvars.iv = phi i64 [ %indvars.iv.next, %24 ], [ 0, %1 ]
   %13 = getelementptr inbounds nuw %"struct.faiss::BufferList::Buffer", ptr %12, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8, !tbaa !45
   %15 = icmp eq ptr %14, null
@@ -418,26 +418,27 @@ _ZNSt6vectorIN5faiss10BufferList6BufferESaIS2_EED2Ev.exit: ; preds = %._crit_edg
 
 17:                                               ; preds = %16, %.lr.ph
   %18 = phi ptr [ %.pre, %16 ], [ %12, %.lr.ph ]
-  %19 = getelementptr inbounds nuw %"struct.faiss::BufferList::Buffer", ptr %18, i64 %indvars.iv, i32 1
-  %20 = load ptr, ptr %19, align 8, !tbaa !47
-  %21 = icmp eq ptr %20, null
-  br i1 %21, label %23, label %22
+  %19 = getelementptr inbounds nuw %"struct.faiss::BufferList::Buffer", ptr %18, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %21 = load ptr, ptr %20, align 8, !tbaa !47
+  %22 = icmp eq ptr %21, null
+  br i1 %22, label %24, label %23
 
-22:                                               ; preds = %17
-  tail call void @_ZdaPv(ptr noundef nonnull %20) #27
+23:                                               ; preds = %17
+  tail call void @_ZdaPv(ptr noundef nonnull %21) #27
   %.pre13 = load ptr, ptr %2, align 8, !tbaa !43
-  br label %23
+  br label %24
 
-23:                                               ; preds = %17, %22
-  %24 = phi ptr [ %18, %17 ], [ %.pre13, %22 ]
+24:                                               ; preds = %17, %23
+  %25 = phi ptr [ %18, %17 ], [ %.pre13, %23 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %25 = load ptr, ptr %3, align 8, !tbaa !42
-  %26 = ptrtoint ptr %25 to i64
-  %27 = ptrtoint ptr %24 to i64
-  %28 = sub i64 %26, %27
-  %29 = ashr exact i64 %28, 4
-  %30 = icmp ugt i64 %29, %indvars.iv.next
-  br i1 %30, label %.lr.ph, label %._crit_edge, !llvm.loop !48
+  %26 = load ptr, ptr %3, align 8, !tbaa !42
+  %27 = ptrtoint ptr %26 to i64
+  %28 = ptrtoint ptr %25 to i64
+  %29 = sub i64 %27, %28
+  %30 = ashr exact i64 %29, 4
+  %31 = icmp ugt i64 %30, %indvars.iv.next
+  br i1 %31, label %.lr.ph, label %._crit_edge, !llvm.loop !48
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1063,7 +1064,7 @@ define void @_ZN5faiss24RangeSearchPartialResult5mergeERSt6vectorIPS0_SaIS2_EEb(
   %9 = lshr exact i64 %8, 3
   %10 = trunc i64 %9 to i32
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %147, label %12
+  br i1 %11, label %148, label %12
 
 12:                                               ; preds = %2
   %13 = load ptr, ptr %5, align 8, !tbaa !69
@@ -1125,7 +1126,7 @@ define void @_ZN5faiss24RangeSearchPartialResult5mergeERSt6vectorIPS0_SaIS2_EEb(
   %.not49 = icmp eq ptr %38, %4
   br i1 %.not49, label %._crit_edge, label %22
 
-.preheader:                                       ; preds = %146, %._crit_edge
+.preheader:                                       ; preds = %147, %._crit_edge
   %.not60 = icmp eq i64 %17, 0
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 16
   %.pre70 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !14
@@ -1137,13 +1138,13 @@ define void @_ZN5faiss24RangeSearchPartialResult5mergeERSt6vectorIPS0_SaIS2_EEb(
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %scevgep, ptr align 8 %.pre70, i64 %39, i1 false), !tbaa !15
   br label %._crit_edge63
 
-.lr.ph59:                                         ; preds = %.lr.ph59.preheader, %146
-  %indvars.iv = phi i64 [ 0, %.lr.ph59.preheader ], [ %indvars.iv.next, %146 ]
+.lr.ph59:                                         ; preds = %.lr.ph59.preheader, %147
+  %indvars.iv = phi i64 [ 0, %.lr.ph59.preheader ], [ %indvars.iv.next, %147 ]
   %40 = load ptr, ptr %0, align 8, !tbaa !77
   %41 = getelementptr inbounds nuw ptr, ptr %40, i64 %indvars.iv
   %42 = load ptr, ptr %41, align 8, !tbaa !69
   %.not38 = icmp eq ptr %42, null
-  br i1 %.not38, label %146, label %43
+  br i1 %.not38, label %147, label %43
 
 43:                                               ; preds = %.lr.ph59
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 48
@@ -1248,14 +1249,14 @@ _ZN5faiss10BufferList10copy_rangeEmmPlPf.exit.i:  ; preds = %_ZN5faiss10BufferLi
   br i1 %99, label %50, label %_ZN5faiss24RangeSearchPartialResult11copy_resultEb.exit, !llvm.loop !73
 
 _ZN5faiss24RangeSearchPartialResult11copy_resultEb.exit: ; preds = %_ZN5faiss10BufferList10copy_rangeEmmPlPf.exit.i, %43
-  br i1 %1, label %100, label %146
+  br i1 %1, label %100, label %147
 
 100:                                              ; preds = %_ZN5faiss24RangeSearchPartialResult11copy_resultEb.exit
   %101 = load ptr, ptr %0, align 8, !tbaa !77
   %102 = getelementptr inbounds nuw ptr, ptr %101, i64 %indvars.iv
   %103 = load ptr, ptr %102, align 8, !tbaa !69
   %104 = icmp eq ptr %103, null
-  br i1 %104, label %143, label %105
+  br i1 %104, label %144, label %105
 
 105:                                              ; preds = %100
   %106 = getelementptr inbounds nuw i8, ptr %103, i64 48
@@ -1281,9 +1282,9 @@ _ZNSt6vectorIN5faiss16RangeQueryResultESaIS1_EED2Ev.exit.i: ; preds = %108, %105
   %.not.i.i40 = icmp eq ptr %116, %117
   br i1 %.not.i.i40, label %._crit_edge.i.i, label %.lr.ph.i.i41
 
-._crit_edge.i.i:                                  ; preds = %135, %_ZNSt6vectorIN5faiss16RangeQueryResultESaIS1_EED2Ev.exit.i
-  %.lcssa7.i.i = phi ptr [ %117, %_ZNSt6vectorIN5faiss16RangeQueryResultESaIS1_EED2Ev.exit.i ], [ %136, %135 ]
-  %.lcssa.i.i = phi i64 [ %118, %_ZNSt6vectorIN5faiss16RangeQueryResultESaIS1_EED2Ev.exit.i ], [ %139, %135 ]
+._crit_edge.i.i:                                  ; preds = %136, %_ZNSt6vectorIN5faiss16RangeQueryResultESaIS1_EED2Ev.exit.i
+  %.lcssa7.i.i = phi ptr [ %117, %_ZNSt6vectorIN5faiss16RangeQueryResultESaIS1_EED2Ev.exit.i ], [ %137, %136 ]
+  %.lcssa.i.i = phi i64 [ %118, %_ZNSt6vectorIN5faiss16RangeQueryResultESaIS1_EED2Ev.exit.i ], [ %140, %136 ]
   %.not.i.i.i.i.i = icmp eq ptr %.lcssa7.i.i, null
   br i1 %.not.i.i.i.i.i, label %_ZN5faiss24RangeSearchPartialResultD2Ev.exit, label %119
 
@@ -1295,9 +1296,9 @@ _ZNSt6vectorIN5faiss16RangeQueryResultESaIS1_EED2Ev.exit.i: ; preds = %108, %105
   tail call void @_ZdlPvm(ptr noundef nonnull %.lcssa7.i.i, i64 noundef %123) #27
   br label %_ZN5faiss24RangeSearchPartialResultD2Ev.exit
 
-.lr.ph.i.i41:                                     ; preds = %_ZNSt6vectorIN5faiss16RangeQueryResultESaIS1_EED2Ev.exit.i, %135
-  %124 = phi ptr [ %136, %135 ], [ %117, %_ZNSt6vectorIN5faiss16RangeQueryResultESaIS1_EED2Ev.exit.i ]
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %135 ], [ 0, %_ZNSt6vectorIN5faiss16RangeQueryResultESaIS1_EED2Ev.exit.i ]
+.lr.ph.i.i41:                                     ; preds = %_ZNSt6vectorIN5faiss16RangeQueryResultESaIS1_EED2Ev.exit.i, %136
+  %124 = phi ptr [ %137, %136 ], [ %117, %_ZNSt6vectorIN5faiss16RangeQueryResultESaIS1_EED2Ev.exit.i ]
+  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %136 ], [ 0, %_ZNSt6vectorIN5faiss16RangeQueryResultESaIS1_EED2Ev.exit.i ]
   %125 = getelementptr inbounds nuw %"struct.faiss::BufferList::Buffer", ptr %124, i64 %indvars.iv.i.i
   %126 = load ptr, ptr %125, align 8, !tbaa !45
   %127 = icmp eq ptr %126, null
@@ -1310,48 +1311,49 @@ _ZNSt6vectorIN5faiss16RangeQueryResultESaIS1_EED2Ev.exit.i: ; preds = %108, %105
 
 129:                                              ; preds = %128, %.lr.ph.i.i41
   %130 = phi ptr [ %.pre.i.i, %128 ], [ %124, %.lr.ph.i.i41 ]
-  %131 = getelementptr inbounds nuw %"struct.faiss::BufferList::Buffer", ptr %130, i64 %indvars.iv.i.i, i32 1
-  %132 = load ptr, ptr %131, align 8, !tbaa !47
-  %133 = icmp eq ptr %132, null
-  br i1 %133, label %135, label %134
+  %131 = getelementptr inbounds nuw %"struct.faiss::BufferList::Buffer", ptr %130, i64 %indvars.iv.i.i
+  %132 = getelementptr inbounds nuw i8, ptr %131, i64 8
+  %133 = load ptr, ptr %132, align 8, !tbaa !47
+  %134 = icmp eq ptr %133, null
+  br i1 %134, label %136, label %135
 
-134:                                              ; preds = %129
-  tail call void @_ZdaPv(ptr noundef nonnull %132) #27
+135:                                              ; preds = %129
+  tail call void @_ZdaPv(ptr noundef nonnull %133) #27
   %.pre13.i.i = load ptr, ptr %114, align 8, !tbaa !43
-  br label %135
+  br label %136
 
-135:                                              ; preds = %134, %129
-  %136 = phi ptr [ %130, %129 ], [ %.pre13.i.i, %134 ]
+136:                                              ; preds = %135, %129
+  %137 = phi ptr [ %130, %129 ], [ %.pre13.i.i, %135 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %137 = load ptr, ptr %115, align 8, !tbaa !42
-  %138 = ptrtoint ptr %137 to i64
-  %139 = ptrtoint ptr %136 to i64
-  %140 = sub i64 %138, %139
-  %141 = ashr exact i64 %140, 4
-  %142 = icmp ugt i64 %141, %indvars.iv.next.i.i
-  br i1 %142, label %.lr.ph.i.i41, label %._crit_edge.i.i, !llvm.loop !48
+  %138 = load ptr, ptr %115, align 8, !tbaa !42
+  %139 = ptrtoint ptr %138 to i64
+  %140 = ptrtoint ptr %137 to i64
+  %141 = sub i64 %139, %140
+  %142 = ashr exact i64 %141, 4
+  %143 = icmp ugt i64 %142, %indvars.iv.next.i.i
+  br i1 %143, label %.lr.ph.i.i41, label %._crit_edge.i.i, !llvm.loop !48
 
 _ZN5faiss24RangeSearchPartialResultD2Ev.exit:     ; preds = %._crit_edge.i.i, %119
   tail call void @_ZdlPvm(ptr noundef nonnull %103, i64 noundef 72) #27
   %.pre69 = load ptr, ptr %0, align 8, !tbaa !77
-  br label %143
+  br label %144
 
-143:                                              ; preds = %_ZN5faiss24RangeSearchPartialResultD2Ev.exit, %100
-  %144 = phi ptr [ %.pre69, %_ZN5faiss24RangeSearchPartialResultD2Ev.exit ], [ %101, %100 ]
-  %145 = getelementptr inbounds nuw ptr, ptr %144, i64 %indvars.iv
-  store ptr null, ptr %145, align 8, !tbaa !69
-  br label %146
+144:                                              ; preds = %_ZN5faiss24RangeSearchPartialResultD2Ev.exit, %100
+  %145 = phi ptr [ %.pre69, %_ZN5faiss24RangeSearchPartialResultD2Ev.exit ], [ %101, %100 ]
+  %146 = getelementptr inbounds nuw ptr, ptr %145, i64 %indvars.iv
+  store ptr null, ptr %146, align 8, !tbaa !69
+  br label %147
 
-146:                                              ; preds = %_ZN5faiss24RangeSearchPartialResult11copy_resultEb.exit, %143, %.lr.ph59
+147:                                              ; preds = %_ZN5faiss24RangeSearchPartialResult11copy_resultEb.exit, %144, %.lr.ph59
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.preheader, label %.lr.ph59, !llvm.loop !79
 
 ._crit_edge63:                                    ; preds = %.preheader, %.lr.ph62
   store i64 0, ptr %.pre70, align 8, !tbaa !15
-  br label %147
+  br label %148
 
-147:                                              ; preds = %2, %._crit_edge63
+148:                                              ; preds = %2, %._crit_edge63
   ret void
 }
 

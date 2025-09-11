@@ -335,11 +335,11 @@ define internal { double, double } @_ZL15chamb_s_forward5PJ_LPP8PJconsts(double 
   br i1 %45, label %_ZL4vectP6pj_ctxdddddd.exit, label %_ZL4vectP6pj_ctxdddddd.exit.thread
 
 _ZL4vectP6pj_ctxdddddd.exit.thread:               ; preds = %43
-  %46 = getelementptr inbounds nuw %struct.anon, ptr %6, i64 %indvars.iv, i32 5
+  %46 = getelementptr inbounds nuw i8, ptr %11, i64 48
   %.sroa.055.0.copyload = load double, ptr %46, align 8, !tbaa !54
-  %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %46, i64 8
+  %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 56
   %.sroa.11.0.copyload = load double, ptr %.sroa.11.0..sroa_idx, align 8, !tbaa !54
-  br label %111
+  br label %112
 
 _ZL4vectP6pj_ctxdddddd.exit:                      ; preds = %43
   %47 = tail call double @sin(double noundef %20) #9, !tbaa !49
@@ -370,81 +370,82 @@ _ZL4vectP6pj_ctxdddddd.exit:                      ; preds = %43
   %61 = getelementptr inbounds nuw i8, ptr %6, i64 224
   br label %62
 
-62:                                               ; preds = %.critedge, %107
-  %indvars.iv77 = phi i64 [ 0, %.critedge ], [ %indvars.iv.next78, %107 ]
-  %.sroa.11.174 = phi double [ %.sroa.11.0.copyload61, %.critedge ], [ %.sroa.11.2, %107 ]
-  %.sroa.055.173 = phi double [ %.sroa.055.0.copyload59, %.critedge ], [ %.sroa.055.2, %107 ]
-  %63 = icmp eq i64 %indvars.iv77, 2
-  %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
+62:                                               ; preds = %.critedge, %108
+  %indvars.iv80 = phi i64 [ 0, %.critedge ], [ %indvars.iv.next81, %108 ]
+  %.sroa.11.175 = phi double [ %.sroa.11.0.copyload61, %.critedge ], [ %.sroa.11.2, %108 ]
+  %.sroa.055.174 = phi double [ %.sroa.055.0.copyload59, %.critedge ], [ %.sroa.055.2, %108 ]
+  %63 = icmp eq i64 %indvars.iv80, 2
+  %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
   %64 = load ptr, ptr %2, align 8, !tbaa !41
-  %65 = getelementptr inbounds nuw %struct.anon, ptr %6, i64 %indvars.iv77, i32 4
-  %66 = load double, ptr %65, align 8, !tbaa !56
-  %67 = getelementptr inbounds nuw %struct.VECT, ptr %4, i64 %indvars.iv77
-  %68 = load double, ptr %67, align 16, !tbaa !70
-  %69 = and i64 %indvars.iv.next78, 4294967295
-  %70 = select i1 %63, i64 0, i64 %69
-  %71 = getelementptr inbounds nuw %struct.VECT, ptr %4, i64 %70
-  %72 = load double, ptr %71, align 16, !tbaa !70
-  %73 = fmul double %68, %68
-  %74 = tail call double @llvm.fmuladd.f64(double %66, double %66, double %73)
-  %75 = fneg double %72
-  %76 = tail call double @llvm.fmuladd.f64(double %75, double %72, double %74)
-  %77 = fmul double %76, 5.000000e-01
-  %78 = fmul double %66, %68
-  %79 = fdiv double %77, %78
-  %80 = tail call noundef double @_Z5aacosP6pj_ctxd(ptr noundef %64, double noundef %79)
-  %81 = getelementptr inbounds nuw i8, ptr %67, i64 8
-  %82 = load double, ptr %81, align 8, !tbaa !68
-  %83 = fcmp olt double %82, 0.000000e+00
-  %84 = fneg double %80
-  %.0 = select i1 %83, double %84, double %80
-  %85 = trunc nuw nsw i64 %indvars.iv77 to i32
-  switch i32 %85, label %100 [
-    i32 0, label %86
-    i32 1, label %92
+  %65 = getelementptr inbounds nuw %struct.anon, ptr %6, i64 %indvars.iv80
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 32
+  %67 = load double, ptr %66, align 8, !tbaa !56
+  %68 = getelementptr inbounds nuw %struct.VECT, ptr %4, i64 %indvars.iv80
+  %69 = load double, ptr %68, align 16, !tbaa !70
+  %70 = and i64 %indvars.iv.next81, 4294967295
+  %71 = select i1 %63, i64 0, i64 %70
+  %72 = getelementptr inbounds nuw %struct.VECT, ptr %4, i64 %71
+  %73 = load double, ptr %72, align 16, !tbaa !70
+  %74 = fmul double %69, %69
+  %75 = tail call double @llvm.fmuladd.f64(double %67, double %67, double %74)
+  %76 = fneg double %73
+  %77 = tail call double @llvm.fmuladd.f64(double %76, double %73, double %75)
+  %78 = fmul double %77, 5.000000e-01
+  %79 = fmul double %67, %69
+  %80 = fdiv double %78, %79
+  %81 = tail call noundef double @_Z5aacosP6pj_ctxd(ptr noundef %64, double noundef %80)
+  %82 = getelementptr inbounds nuw i8, ptr %68, i64 8
+  %83 = load double, ptr %82, align 8, !tbaa !68
+  %84 = fcmp olt double %83, 0.000000e+00
+  %85 = fneg double %81
+  %.0 = select i1 %84, double %85, double %81
+  %86 = trunc nuw nsw i64 %indvars.iv80 to i32
+  switch i32 %86, label %101 [
+    i32 0, label %87
+    i32 1, label %93
   ]
 
-86:                                               ; preds = %62
-  %87 = tail call double @cos(double noundef %.0) #9, !tbaa !49
-  %88 = tail call double @llvm.fmuladd.f64(double %68, double %87, double %.sroa.055.173)
-  %89 = tail call double @sin(double noundef %.0) #9, !tbaa !49
-  %90 = fneg double %68
-  %91 = tail call double @llvm.fmuladd.f64(double %90, double %89, double %.sroa.11.174)
-  br label %107
+87:                                               ; preds = %62
+  %88 = tail call double @cos(double noundef %.0) #9, !tbaa !49
+  %89 = tail call double @llvm.fmuladd.f64(double %69, double %88, double %.sroa.055.174)
+  %90 = tail call double @sin(double noundef %.0) #9, !tbaa !49
+  %91 = fneg double %69
+  %92 = tail call double @llvm.fmuladd.f64(double %91, double %90, double %.sroa.11.175)
+  br label %108
 
-92:                                               ; preds = %62
-  %93 = load double, ptr %60, align 8, !tbaa !59
-  %94 = fsub double %93, %.0
-  %95 = tail call double @cos(double noundef %94) #9, !tbaa !49
-  %96 = fneg double %68
-  %97 = tail call double @llvm.fmuladd.f64(double %96, double %95, double %.sroa.055.173)
-  %98 = tail call double @sin(double noundef %94) #9, !tbaa !49
-  %99 = tail call double @llvm.fmuladd.f64(double %96, double %98, double %.sroa.11.174)
-  br label %107
+93:                                               ; preds = %62
+  %94 = load double, ptr %60, align 8, !tbaa !59
+  %95 = fsub double %94, %.0
+  %96 = tail call double @cos(double noundef %95) #9, !tbaa !49
+  %97 = fneg double %69
+  %98 = tail call double @llvm.fmuladd.f64(double %97, double %96, double %.sroa.055.174)
+  %99 = tail call double @sin(double noundef %95) #9, !tbaa !49
+  %100 = tail call double @llvm.fmuladd.f64(double %97, double %99, double %.sroa.11.175)
+  br label %108
 
-100:                                              ; preds = %62
-  %101 = load double, ptr %61, align 8, !tbaa !60
-  %102 = fsub double %101, %.0
-  %103 = tail call double @cos(double noundef %102) #9, !tbaa !49
-  %104 = tail call double @llvm.fmuladd.f64(double %68, double %103, double %.sroa.055.173)
-  %105 = tail call double @sin(double noundef %102) #9, !tbaa !49
-  %106 = tail call double @llvm.fmuladd.f64(double %68, double %105, double %.sroa.11.174)
-  br label %107
+101:                                              ; preds = %62
+  %102 = load double, ptr %61, align 8, !tbaa !60
+  %103 = fsub double %102, %.0
+  %104 = tail call double @cos(double noundef %103) #9, !tbaa !49
+  %105 = tail call double @llvm.fmuladd.f64(double %69, double %104, double %.sroa.055.174)
+  %106 = tail call double @sin(double noundef %103) #9, !tbaa !49
+  %107 = tail call double @llvm.fmuladd.f64(double %69, double %106, double %.sroa.11.175)
+  br label %108
 
-107:                                              ; preds = %86, %100, %92
-  %.sroa.055.2 = phi double [ %97, %92 ], [ %104, %100 ], [ %88, %86 ]
-  %.sroa.11.2 = phi double [ %99, %92 ], [ %106, %100 ], [ %91, %86 ]
-  %exitcond80.not = icmp eq i64 %indvars.iv.next78, 3
-  br i1 %exitcond80.not, label %108, label %62, !llvm.loop !71
+108:                                              ; preds = %87, %101, %93
+  %.sroa.055.2 = phi double [ %98, %93 ], [ %105, %101 ], [ %89, %87 ]
+  %.sroa.11.2 = phi double [ %100, %93 ], [ %107, %101 ], [ %92, %87 ]
+  %exitcond83.not = icmp eq i64 %indvars.iv.next81, 3
+  br i1 %exitcond83.not, label %109, label %62, !llvm.loop !71
 
-108:                                              ; preds = %107
-  %109 = fmul double %.sroa.055.2, 0x3FD5555555555555
-  %110 = fmul double %.sroa.11.2, 0x3FD5555555555555
-  br label %111
+109:                                              ; preds = %108
+  %110 = fmul double %.sroa.055.2, 0x3FD5555555555555
+  %111 = fmul double %.sroa.11.2, 0x3FD5555555555555
+  br label %112
 
-111:                                              ; preds = %108, %_ZL4vectP6pj_ctxdddddd.exit.thread
-  %.sroa.055.0 = phi double [ %.sroa.055.0.copyload, %_ZL4vectP6pj_ctxdddddd.exit.thread ], [ %109, %108 ]
-  %.sroa.11.0 = phi double [ %.sroa.11.0.copyload, %_ZL4vectP6pj_ctxdddddd.exit.thread ], [ %110, %108 ]
+112:                                              ; preds = %109, %_ZL4vectP6pj_ctxdddddd.exit.thread
+  %.sroa.055.0 = phi double [ %.sroa.055.0.copyload, %_ZL4vectP6pj_ctxdddddd.exit.thread ], [ %110, %109 ]
+  %.sroa.11.0 = phi double [ %.sroa.11.0.copyload, %_ZL4vectP6pj_ctxdddddd.exit.thread ], [ %111, %109 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.055.0, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.11.0, 1

@@ -251,23 +251,24 @@ define internal fastcc void @fmgr_info_cxt_security(i32 noundef %0, ptr noundef 
 
 .lr.ph.i:                                         ; preds = %76, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %76 ]
-  %77 = getelementptr inbounds nuw %struct.FmgrBuiltin, ptr @fmgr_builtins, i64 %indvars.iv.i, i32 4
-  %78 = load ptr, ptr %77, align 8
-  %79 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %73, ptr noundef nonnull dereferenceable(1) %78) #15
-  %80 = icmp eq i32 %79, 0
-  br i1 %80, label %84, label %76
+  %77 = getelementptr inbounds nuw %struct.FmgrBuiltin, ptr @fmgr_builtins, i64 %indvars.iv.i
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 8
+  %79 = load ptr, ptr %78, align 8
+  %80 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %73, ptr noundef nonnull dereferenceable(1) %79) #15
+  %81 = icmp eq i32 %80, 0
+  br i1 %81, label %fmgr_lookupByName.exit, label %76
 
 .loopexit:                                        ; preds = %76, %70
-  %81 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  tail call void @llvm.assume(i1 %81)
-  %82 = tail call i32 @errcode(i32 noundef 52461700) #13
-  %83 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.20, ptr noundef %73) #13
+  %82 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  tail call void @llvm.assume(i1 %82)
+  %83 = tail call i32 @errcode(i32 noundef 52461700) #13
+  %84 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.20, ptr noundef %73) #13
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 237, ptr noundef nonnull @__func__.fmgr_info_cxt_security) #13
   unreachable
 
-84:                                               ; preds = %.lr.ph.i
+fmgr_lookupByName.exit:                           ; preds = %.lr.ph.i
   tail call void @pfree(ptr noundef nonnull %73) #13
-  %85 = getelementptr inbounds nuw %struct.FmgrBuiltin, ptr @fmgr_builtins, i64 %indvars.iv.i, i32 5
+  %85 = getelementptr inbounds nuw i8, ptr %77, i64 16
   %86 = load ptr, ptr %85, align 8
   store ptr %86, ptr %1, align 8
   br label %169
@@ -430,8 +431,8 @@ fmgr_info_other_lang.exit:                        ; preds = %148
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %169
 
-169:                                              ; preds = %fmgr_info_other_lang.exit, %147, %fmgr_info_C_lang.exit, %84
-  %.sink = phi i8 [ 0, %fmgr_info_other_lang.exit ], [ 1, %147 ], [ 1, %fmgr_info_C_lang.exit ], [ 2, %84 ]
+169:                                              ; preds = %fmgr_info_other_lang.exit, %147, %fmgr_info_C_lang.exit, %fmgr_lookupByName.exit
+  %.sink = phi i8 [ 0, %fmgr_info_other_lang.exit ], [ 1, %147 ], [ 1, %fmgr_info_C_lang.exit ], [ 2, %fmgr_lookupByName.exit ]
   %170 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i8 %.sink, ptr %170, align 8
   store i32 %0, ptr %11, align 8
@@ -642,19 +643,19 @@ define dso_local i32 @fmgr_internal_function(ptr noundef readonly captures(none)
 
 .lr.ph.i:                                         ; preds = %4, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %4 ]
-  %5 = getelementptr inbounds nuw %struct.FmgrBuiltin, ptr @fmgr_builtins, i64 %indvars.iv.i, i32 4
-  %6 = load ptr, ptr %5, align 8
-  %7 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %6) #15
-  %8 = icmp eq i32 %7, 0
-  br i1 %8, label %9, label %4
+  %5 = getelementptr inbounds nuw %struct.FmgrBuiltin, ptr @fmgr_builtins, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %7 = load ptr, ptr %6, align 8
+  %8 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %7) #15
+  %9 = icmp eq i32 %8, 0
+  br i1 %9, label %fmgr_lookupByName.exit, label %4
 
-9:                                                ; preds = %.lr.ph.i
-  %10 = getelementptr inbounds nuw %struct.FmgrBuiltin, ptr @fmgr_builtins, i64 %indvars.iv.i
-  %11 = load i32, ptr %10, align 8
+fmgr_lookupByName.exit:                           ; preds = %.lr.ph.i
+  %10 = load i32, ptr %5, align 8
   br label %fmgr_lookupByName.exit.thread
 
-fmgr_lookupByName.exit.thread:                    ; preds = %4, %1, %9
-  %.0 = phi i32 [ %11, %9 ], [ 0, %1 ], [ 0, %4 ]
+fmgr_lookupByName.exit.thread:                    ; preds = %4, %1, %fmgr_lookupByName.exit
+  %.0 = phi i32 [ %10, %fmgr_lookupByName.exit ], [ 0, %1 ], [ 0, %4 ]
   ret i32 %.0
 }
 

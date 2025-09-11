@@ -1488,16 +1488,16 @@ define hidden void @proto_register_erf() local_unnamed_addr #1 {
   %57 = getelementptr inbounds nuw i8, ptr %16, i64 8
   br label %63
 
-.preheader.i:                                     ; preds = %269
+.preheader.i:                                     ; preds = %270
   %58 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %59 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %60 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %61 = getelementptr inbounds nuw i8, ptr %2, i64 160
   %62 = getelementptr inbounds nuw i8, ptr %2, i64 176
-  br label %276
+  br label %277
 
-63:                                               ; preds = %269, %0
-  %indvars.iv35.i = phi i64 [ 0, %0 ], [ %indvars.iv.next36.i, %269 ]
+63:                                               ; preds = %270, %0
+  %indvars.iv35.i = phi i64 [ 0, %0 ], [ %indvars.iv.next36.i, %270 ]
   %64 = getelementptr %struct.erf_meta_hf_template_t, ptr @erf_meta_tags, i64 %indvars.iv35.i
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
   br label %66
@@ -1890,7 +1890,7 @@ init_tag_value_subfields.exit.i.i.i:              ; preds = %227
   unreachable
 
 .preheader.i.i.i:                                 ; preds = %init_tag_value_subfields.exit.i.i.i, %.preheader.i.i.i
-  %.016.i.i.i = phi i64 [ %263, %.preheader.i.i.i ], [ 0, %init_tag_value_subfields.exit.i.i.i ]
+  %.016.i.i.i = phi i64 [ %264, %.preheader.i.i.i ], [ 0, %init_tag_value_subfields.exit.i.i.i ]
   %244 = load ptr, ptr %79, align 8
   %245 = getelementptr i8, ptr %244, i64 20
   %246 = getelementptr i32, ptr %245, i64 %.016.i.i.i
@@ -1910,13 +1910,14 @@ init_tag_value_subfields.exit.i.i.i:              ; preds = %227
   %257 = load ptr, ptr %77, align 8
   %258 = getelementptr inbounds nuw i8, ptr %257, i64 16
   %259 = load ptr, ptr %258, align 8
-  %260 = getelementptr %struct._value_string, ptr @ehdr_type_vals_short, i64 %.016.i.i.i, i32 1
-  %261 = load ptr, ptr %260, align 8
-  %262 = call noalias ptr (ptr, ptr, ...) @wmem_strconcat(ptr noundef %253, ptr noundef nonnull @.str.1034, ptr noundef %256, ptr noundef nonnull @.str.1035, ptr noundef %259, ptr noundef nonnull @.str.1035, ptr noundef %261, ptr noundef null)
-  store ptr %262, ptr %44, align 8
+  %260 = getelementptr %struct._value_string, ptr @ehdr_type_vals_short, i64 %.016.i.i.i
+  %261 = getelementptr inbounds nuw i8, ptr %260, i64 8
+  %262 = load ptr, ptr %261, align 8
+  %263 = call noalias ptr (ptr, ptr, ...) @wmem_strconcat(ptr noundef %253, ptr noundef nonnull @.str.1034, ptr noundef %256, ptr noundef nonnull @.str.1035, ptr noundef %259, ptr noundef nonnull @.str.1035, ptr noundef %262, ptr noundef null)
+  store ptr %263, ptr %44, align 8
   call void @wmem_array_append(ptr noundef %68, ptr noundef nonnull %4, i32 noundef 1)
-  %263 = add nuw nsw i64 %.016.i.i.i, 1
-  %exitcond.not.i54.i.i = icmp eq i64 %263, 11
+  %264 = add nuw nsw i64 %.016.i.i.i, 1
+  %exitcond.not.i54.i.i = icmp eq i64 %264, 11
   br i1 %exitcond.not.i54.i.i, label %init_ext_hdrs_tag_value_subfields.exit.i.i, label %.preheader.i.i.i, !llvm.loop !9
 
 init_ext_hdrs_tag_value_subfields.exit.i.i:       ; preds = %.preheader.i.i.i
@@ -1927,151 +1928,151 @@ init_tag_fields.exit.i:                           ; preds = %init_ext_hdrs_tag_v
   store ptr %75, ptr %15, align 8
   call void @wmem_array_append(ptr noundef %69, ptr noundef nonnull %15, i32 noundef 1)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
-  %264 = load ptr, ptr @erf_meta_index.0, align 8
-  %265 = load i32, ptr %71, align 8
-  %266 = zext i32 %265 to i64
-  %267 = inttoptr i64 %266 to ptr
-  %268 = call ptr @wmem_map_insert(ptr noundef %264, ptr noundef %267, ptr noundef %71)
+  %265 = load ptr, ptr @erf_meta_index.0, align 8
+  %266 = load i32, ptr %71, align 8
+  %267 = zext i32 %266 to i64
+  %268 = inttoptr i64 %267 to ptr
+  %269 = call ptr @wmem_map_insert(ptr noundef %265, ptr noundef %268, ptr noundef %71)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 18
-  br i1 %exitcond.not.i, label %269, label %66, !llvm.loop !10
+  br i1 %exitcond.not.i, label %270, label %66, !llvm.loop !10
 
-269:                                              ; preds = %init_tag_fields.exit.i
-  %270 = zext i16 %72 to i32
-  store i32 %270, ptr %16, align 8
-  %271 = load ptr, ptr %65, align 8
-  store ptr %271, ptr %57, align 8
-  %272 = load ptr, ptr @erf_meta_index.3, align 8
-  call void @wmem_array_append(ptr noundef %272, ptr noundef nonnull %16, i32 noundef 1)
-  store i32 %270, ptr %16, align 8
-  %273 = getelementptr inbounds nuw i8, ptr %64, i64 16
-  %274 = load ptr, ptr %273, align 16
-  store ptr %274, ptr %57, align 8
-  %275 = load ptr, ptr @erf_meta_index.4, align 8
-  call void @wmem_array_append(ptr noundef %275, ptr noundef nonnull %16, i32 noundef 1)
+270:                                              ; preds = %init_tag_fields.exit.i
+  %271 = zext i16 %72 to i32
+  store i32 %271, ptr %16, align 8
+  %272 = load ptr, ptr %65, align 8
+  store ptr %272, ptr %57, align 8
+  %273 = load ptr, ptr @erf_meta_index.3, align 8
+  call void @wmem_array_append(ptr noundef %273, ptr noundef nonnull %16, i32 noundef 1)
+  store i32 %271, ptr %16, align 8
+  %274 = getelementptr inbounds nuw i8, ptr %64, i64 16
+  %275 = load ptr, ptr %274, align 16
+  store ptr %275, ptr %57, align 8
+  %276 = load ptr, ptr @erf_meta_index.4, align 8
+  call void @wmem_array_append(ptr noundef %276, ptr noundef nonnull %16, i32 noundef 1)
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond38.not.i = icmp eq i64 %indvars.iv.next36.i, 251
   br i1 %exitcond38.not.i, label %.preheader.i, label %63, !llvm.loop !11
 
-276:                                              ; preds = %316, %.preheader.i
-  %indvars.iv39.i = phi i64 [ 1, %.preheader.i ], [ %indvars.iv.next40.i, %316 ]
-  %277 = getelementptr %struct.erf_meta_hf_template_t, ptr @erf_meta_sections, i64 %indvars.iv39.i
-  %278 = load ptr, ptr @erf_meta_index.1, align 8
-  %279 = load ptr, ptr @erf_meta_index.2, align 8
+277:                                              ; preds = %317, %.preheader.i
+  %indvars.iv39.i = phi i64 [ 1, %.preheader.i ], [ %indvars.iv.next40.i, %317 ]
+  %278 = getelementptr %struct.erf_meta_hf_template_t, ptr @erf_meta_sections, i64 %indvars.iv39.i
+  %279 = load ptr, ptr @erf_meta_index.1, align 8
+  %280 = load ptr, ptr @erf_meta_index.2, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(240) %2, ptr noundef nonnull align 16 dereferenceable(240) @__const.init_section_fields.hfri_tmp, i64 240, i1 false)
-  %280 = call ptr @wmem_epan_scope()
-  %281 = call noalias dereferenceable_or_null(40) ptr @wmem_alloc0(ptr noundef %280, i64 noundef 40) #11
-  %282 = load i16, ptr %277, align 16
-  store i16 %282, ptr %281, align 8
-  %283 = getelementptr inbounds nuw i8, ptr %281, i64 2
-  store i16 %282, ptr %283, align 2
-  %284 = getelementptr inbounds nuw i8, ptr %281, i64 24
-  store i32 -1, ptr %284, align 8
-  %285 = getelementptr inbounds nuw i8, ptr %281, i64 28
-  store i32 -1, ptr %285, align 4
-  %286 = getelementptr inbounds nuw i8, ptr %281, i64 8
-  store ptr %277, ptr %286, align 8
-  %287 = getelementptr inbounds nuw i8, ptr %281, i64 16
-  store ptr %277, ptr %287, align 8
-  %288 = getelementptr inbounds nuw i8, ptr %281, i64 32
-  store ptr null, ptr %288, align 8
-  %289 = call ptr @wmem_epan_scope()
-  %290 = call noalias noundef dereferenceable_or_null(132) ptr @wmem_alloc0(ptr noundef %289, i64 noundef 132) #11
-  call void @llvm.memset.p0.i64(ptr noundef align 4 dereferenceable(132) %290, i8 -1, i64 132, i1 false)
-  store ptr %290, ptr %288, align 8
-  %291 = call ptr @wmem_epan_scope()
-  %292 = getelementptr inbounds nuw i8, ptr %277, i64 16
-  %293 = load ptr, ptr %292, align 16
-  %294 = call noalias ptr (ptr, ptr, ...) @wmem_strconcat(ptr noundef %291, ptr noundef nonnull @.str.1034, ptr noundef %293, ptr noundef nonnull @.str.1101, ptr noundef null)
-  store ptr %294, ptr %58, align 16
-  store ptr %285, ptr %2, align 16
-  %295 = call ptr @wmem_epan_scope()
-  %296 = call noalias ptr (ptr, ptr, ...) @wmem_strconcat(ptr noundef %295, ptr noundef nonnull @.str.1034, ptr noundef %293, ptr noundef nonnull @.str.1102, ptr noundef null)
-  store ptr %296, ptr %60, align 16
-  %297 = load ptr, ptr %288, align 8
-  %298 = getelementptr inbounds nuw i8, ptr %297, i64 4
-  store ptr %298, ptr %59, align 16
-  %299 = call ptr @wmem_epan_scope()
-  %300 = call noalias ptr (ptr, ptr, ...) @wmem_strconcat(ptr noundef %299, ptr noundef nonnull @.str.1034, ptr noundef %293, ptr noundef nonnull @.str.1103, ptr noundef null)
-  store ptr %300, ptr %62, align 16
-  %301 = load ptr, ptr %288, align 8
-  %302 = getelementptr i8, ptr %301, i64 8
-  store ptr %302, ptr %61, align 16
-  call void @wmem_array_append(ptr noundef %278, ptr noundef nonnull %2, i32 noundef 3)
-  store ptr %284, ptr %1, align 8
-  call void @wmem_array_append(ptr noundef %279, ptr noundef nonnull %1, i32 noundef 1)
-  %303 = load ptr, ptr %288, align 8
-  store ptr %303, ptr %1, align 8
-  call void @wmem_array_append(ptr noundef %279, ptr noundef nonnull %1, i32 noundef 1)
+  %281 = call ptr @wmem_epan_scope()
+  %282 = call noalias dereferenceable_or_null(40) ptr @wmem_alloc0(ptr noundef %281, i64 noundef 40) #11
+  %283 = load i16, ptr %278, align 16
+  store i16 %283, ptr %282, align 8
+  %284 = getelementptr inbounds nuw i8, ptr %282, i64 2
+  store i16 %283, ptr %284, align 2
+  %285 = getelementptr inbounds nuw i8, ptr %282, i64 24
+  store i32 -1, ptr %285, align 8
+  %286 = getelementptr inbounds nuw i8, ptr %282, i64 28
+  store i32 -1, ptr %286, align 4
+  %287 = getelementptr inbounds nuw i8, ptr %282, i64 8
+  store ptr %278, ptr %287, align 8
+  %288 = getelementptr inbounds nuw i8, ptr %282, i64 16
+  store ptr %278, ptr %288, align 8
+  %289 = getelementptr inbounds nuw i8, ptr %282, i64 32
+  store ptr null, ptr %289, align 8
+  %290 = call ptr @wmem_epan_scope()
+  %291 = call noalias noundef dereferenceable_or_null(132) ptr @wmem_alloc0(ptr noundef %290, i64 noundef 132) #11
+  call void @llvm.memset.p0.i64(ptr noundef align 4 dereferenceable(132) %291, i8 -1, i64 132, i1 false)
+  store ptr %291, ptr %289, align 8
+  %292 = call ptr @wmem_epan_scope()
+  %293 = getelementptr inbounds nuw i8, ptr %278, i64 16
+  %294 = load ptr, ptr %293, align 16
+  %295 = call noalias ptr (ptr, ptr, ...) @wmem_strconcat(ptr noundef %292, ptr noundef nonnull @.str.1034, ptr noundef %294, ptr noundef nonnull @.str.1101, ptr noundef null)
+  store ptr %295, ptr %58, align 16
+  store ptr %286, ptr %2, align 16
+  %296 = call ptr @wmem_epan_scope()
+  %297 = call noalias ptr (ptr, ptr, ...) @wmem_strconcat(ptr noundef %296, ptr noundef nonnull @.str.1034, ptr noundef %294, ptr noundef nonnull @.str.1102, ptr noundef null)
+  store ptr %297, ptr %60, align 16
+  %298 = load ptr, ptr %289, align 8
+  %299 = getelementptr inbounds nuw i8, ptr %298, i64 4
+  store ptr %299, ptr %59, align 16
+  %300 = call ptr @wmem_epan_scope()
+  %301 = call noalias ptr (ptr, ptr, ...) @wmem_strconcat(ptr noundef %300, ptr noundef nonnull @.str.1034, ptr noundef %294, ptr noundef nonnull @.str.1103, ptr noundef null)
+  store ptr %301, ptr %62, align 16
+  %302 = load ptr, ptr %289, align 8
+  %303 = getelementptr i8, ptr %302, i64 8
+  store ptr %303, ptr %61, align 16
+  call void @wmem_array_append(ptr noundef %279, ptr noundef nonnull %2, i32 noundef 3)
+  store ptr %285, ptr %1, align 8
+  call void @wmem_array_append(ptr noundef %280, ptr noundef nonnull %1, i32 noundef 1)
+  %304 = load ptr, ptr %289, align 8
+  store ptr %304, ptr %1, align 8
+  call void @wmem_array_append(ptr noundef %280, ptr noundef nonnull %1, i32 noundef 1)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %.not.i = icmp eq i64 %indvars.iv39.i, 1
-  br i1 %.not.i, label %315, label %304
+  br i1 %.not.i, label %316, label %305
 
-304:                                              ; preds = %276
-  %305 = load ptr, ptr @erf_meta_index.0, align 8
-  %306 = load i32, ptr %281, align 8
-  %307 = zext i32 %306 to i64
-  %308 = inttoptr i64 %307 to ptr
-  %309 = call ptr @wmem_map_insert(ptr noundef %305, ptr noundef %308, ptr noundef %281)
-  %310 = zext i16 %282 to i32
-  store i32 %310, ptr %16, align 8
-  %311 = getelementptr inbounds nuw i8, ptr %277, i64 8
-  %312 = load ptr, ptr %311, align 8
-  store ptr %312, ptr %57, align 8
-  %313 = load ptr, ptr @erf_meta_index.3, align 8
-  call void @wmem_array_append(ptr noundef %313, ptr noundef nonnull %16, i32 noundef 1)
-  store i32 %310, ptr %16, align 8
-  store ptr %293, ptr %57, align 8
-  %314 = load ptr, ptr @erf_meta_index.4, align 8
+305:                                              ; preds = %277
+  %306 = load ptr, ptr @erf_meta_index.0, align 8
+  %307 = load i32, ptr %282, align 8
+  %308 = zext i32 %307 to i64
+  %309 = inttoptr i64 %308 to ptr
+  %310 = call ptr @wmem_map_insert(ptr noundef %306, ptr noundef %309, ptr noundef %282)
+  %311 = zext i16 %283 to i32
+  store i32 %311, ptr %16, align 8
+  %312 = getelementptr inbounds nuw i8, ptr %278, i64 8
+  %313 = load ptr, ptr %312, align 8
+  store ptr %313, ptr %57, align 8
+  %314 = load ptr, ptr @erf_meta_index.3, align 8
   call void @wmem_array_append(ptr noundef %314, ptr noundef nonnull %16, i32 noundef 1)
-  br label %316
+  store i32 %311, ptr %16, align 8
+  store ptr %294, ptr %57, align 8
+  %315 = load ptr, ptr @erf_meta_index.4, align 8
+  call void @wmem_array_append(ptr noundef %315, ptr noundef nonnull %16, i32 noundef 1)
+  br label %317
 
-315:                                              ; preds = %276
-  store ptr %281, ptr @erf_meta_index.5, align 8
-  br label %316
+316:                                              ; preds = %277
+  store ptr %282, ptr @erf_meta_index.5, align 8
+  br label %317
 
-316:                                              ; preds = %315, %304
+317:                                              ; preds = %316, %305
   %indvars.iv.next40.i = add nuw nsw i64 %indvars.iv39.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next40.i, 18
-  br i1 %exitcond42.not.i, label %init_meta_tags.exit, label %276, !llvm.loop !12
+  br i1 %exitcond42.not.i, label %init_meta_tags.exit, label %277, !llvm.loop !12
 
-init_meta_tags.exit:                              ; preds = %316
+init_meta_tags.exit:                              ; preds = %317
   store i32 0, ptr %16, align 8
   store ptr null, ptr %57, align 8
-  %317 = load ptr, ptr @erf_meta_index.3, align 8
-  call void @wmem_array_append(ptr noundef %317, ptr noundef nonnull %16, i32 noundef 1)
-  %318 = load ptr, ptr @erf_meta_index.4, align 8
+  %318 = load ptr, ptr @erf_meta_index.3, align 8
   call void @wmem_array_append(ptr noundef %318, ptr noundef nonnull %16, i32 noundef 1)
+  %319 = load ptr, ptr @erf_meta_index.4, align 8
+  call void @wmem_array_append(ptr noundef %319, ptr noundef nonnull %16, i32 noundef 1)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  %319 = load i32, ptr @proto_erf, align 4
-  call void @proto_register_field_array(i32 noundef %319, ptr noundef nonnull @proto_register_erf.hf, i32 noundef 143)
-  call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_erf.ett, i32 noundef 19)
   %320 = load i32, ptr @proto_erf, align 4
-  %321 = call ptr @expert_register_protocol(i32 noundef %320)
-  call void @expert_register_field_array(ptr noundef %321, ptr noundef nonnull @proto_register_erf.ei, i32 noundef 16)
-  %322 = load i32, ptr @proto_erf, align 4
-  %323 = load ptr, ptr @erf_meta_index.1, align 8
-  %324 = call ptr @wmem_array_get_raw(ptr noundef %323)
-  %325 = load ptr, ptr @erf_meta_index.1, align 8
-  %326 = call i32 @wmem_array_get_count(ptr noundef %325)
-  call void @proto_register_field_array(i32 noundef %322, ptr noundef %324, i32 noundef %326)
-  %327 = load ptr, ptr @erf_meta_index.2, align 8
-  %328 = call ptr @wmem_array_get_raw(ptr noundef %327)
-  %329 = load ptr, ptr @erf_meta_index.2, align 8
-  %330 = call i32 @wmem_array_get_count(ptr noundef %329)
-  call void @proto_register_subtree_array(ptr noundef %328, i32 noundef %330)
-  %331 = load i32, ptr @proto_erf, align 4
-  %332 = call ptr @prefs_register_protocol(i32 noundef %331, ptr noundef null)
-  call void @prefs_register_enum_preference(ptr noundef %332, ptr noundef nonnull @.str.281, ptr noundef nonnull @.str.282, ptr noundef nonnull @.str.283, ptr noundef nonnull @erf_hdlc_type, ptr noundef nonnull @proto_register_erf.erf_hdlc_options, i1 noundef zeroext false)
-  call void @prefs_register_bool_preference(ptr noundef %332, ptr noundef nonnull @.str.284, ptr noundef nonnull @.str.285, ptr noundef nonnull @.str.286, ptr noundef nonnull @erf_rawcell_first)
-  call void @prefs_register_enum_preference(ptr noundef %332, ptr noundef nonnull @.str.287, ptr noundef nonnull @.str.288, ptr noundef nonnull @.str.289, ptr noundef nonnull @erf_aal5_type, ptr noundef nonnull @proto_register_erf.erf_aal5_options, i1 noundef zeroext false)
-  call void @prefs_register_obsolete_preference(ptr noundef %332, ptr noundef nonnull @.str.290)
-  %333 = load i32, ptr @proto_erf, align 4
-  %334 = call ptr @register_dissector_table(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.291, i32 noundef %333, i32 noundef 4, i32 noundef 1)
-  store ptr %334, ptr @erf_dissector_table, align 8
+  call void @proto_register_field_array(i32 noundef %320, ptr noundef nonnull @proto_register_erf.hf, i32 noundef 143)
+  call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_erf.ett, i32 noundef 19)
+  %321 = load i32, ptr @proto_erf, align 4
+  %322 = call ptr @expert_register_protocol(i32 noundef %321)
+  call void @expert_register_field_array(ptr noundef %322, ptr noundef nonnull @proto_register_erf.ei, i32 noundef 16)
+  %323 = load i32, ptr @proto_erf, align 4
+  %324 = load ptr, ptr @erf_meta_index.1, align 8
+  %325 = call ptr @wmem_array_get_raw(ptr noundef %324)
+  %326 = load ptr, ptr @erf_meta_index.1, align 8
+  %327 = call i32 @wmem_array_get_count(ptr noundef %326)
+  call void @proto_register_field_array(i32 noundef %323, ptr noundef %325, i32 noundef %327)
+  %328 = load ptr, ptr @erf_meta_index.2, align 8
+  %329 = call ptr @wmem_array_get_raw(ptr noundef %328)
+  %330 = load ptr, ptr @erf_meta_index.2, align 8
+  %331 = call i32 @wmem_array_get_count(ptr noundef %330)
+  call void @proto_register_subtree_array(ptr noundef %329, i32 noundef %331)
+  %332 = load i32, ptr @proto_erf, align 4
+  %333 = call ptr @prefs_register_protocol(i32 noundef %332, ptr noundef null)
+  call void @prefs_register_enum_preference(ptr noundef %333, ptr noundef nonnull @.str.281, ptr noundef nonnull @.str.282, ptr noundef nonnull @.str.283, ptr noundef nonnull @erf_hdlc_type, ptr noundef nonnull @proto_register_erf.erf_hdlc_options, i1 noundef zeroext false)
+  call void @prefs_register_bool_preference(ptr noundef %333, ptr noundef nonnull @.str.284, ptr noundef nonnull @.str.285, ptr noundef nonnull @.str.286, ptr noundef nonnull @erf_rawcell_first)
+  call void @prefs_register_enum_preference(ptr noundef %333, ptr noundef nonnull @.str.287, ptr noundef nonnull @.str.288, ptr noundef nonnull @.str.289, ptr noundef nonnull @erf_aal5_type, ptr noundef nonnull @proto_register_erf.erf_aal5_options, i1 noundef zeroext false)
+  call void @prefs_register_obsolete_preference(ptr noundef %333, ptr noundef nonnull @.str.290)
+  %334 = load i32, ptr @proto_erf, align 4
+  %335 = call ptr @register_dissector_table(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.291, i32 noundef %334, i32 noundef 4, i32 noundef 1)
+  store ptr %335, ptr @erf_dissector_table, align 8
   call void @register_init_routine(ptr noundef nonnull @erf_init_dissection)
   ret void
 }
@@ -2525,7 +2526,7 @@ find_host_id.exit.i:                              ; preds = %181
 
 309:                                              ; preds = %309, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ %308, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %309 ]
-  %.not.i.i.i = icmp slt i64 %indvars.iv.i.i.i, %307
+  %.not.i.i.i = icmp samesign ult i64 %indvars.iv.i.i.i, %307
   %indvars.iv.tr.i.i.i = trunc i64 %indvars.iv.i.i.i to i32
   %310 = shl i32 %indvars.iv.tr.i.i.i, 1
   %311 = lshr i32 %297, %310

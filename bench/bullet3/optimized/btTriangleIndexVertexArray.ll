@@ -53,7 +53,7 @@ define dso_local void @_ZN26btTriangleIndexVertexArrayC2EiPiiiPfi(ptr noundef no
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 0, ptr %16, align 8, !tbaa !20
   %17 = invoke noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef 48, i32 noundef 16)
-          to label %.noexc unwind label %33
+          to label %.noexc unwind label %34
 
 .noexc:                                           ; preds = %7
   %.pre.i.i = load i32, ptr %14, align 4, !tbaa !18
@@ -84,7 +84,7 @@ _ZNK20btAlignedObjectArrayI13btIndexedMeshE4copyEiiPS0_.exit.i.i.i: ; preds = %1
 
 26:                                               ; preds = %_ZNK20btAlignedObjectArrayI13btIndexedMeshE4copyEiiPS0_.exit.i.i.i
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %23)
-          to label %_ZN20btAlignedObjectArrayI13btIndexedMeshE10deallocateEv.exit.i.i.i unwind label %33
+          to label %_ZN20btAlignedObjectArrayI13btIndexedMeshE10deallocateEv.exit.i.i.i unwind label %34
 
 _ZN20btAlignedObjectArrayI13btIndexedMeshE10deallocateEv.exit.i.i.i: ; preds = %26, %_ZNK20btAlignedObjectArrayI13btIndexedMeshE4copyEiiPS0_.exit.i.i.i
   store i8 1, ptr %12, align 8, !tbaa !10
@@ -112,17 +112,18 @@ _ZN20btAlignedObjectArrayI13btIndexedMeshE10deallocateEv.exit.i.i.i: ; preds = %
   %30 = add nsw i32 %29, 1
   store i32 %30, ptr %14, align 4, !tbaa !18
   %31 = sext i32 %29 to i64
-  %32 = getelementptr inbounds %struct.btIndexedMesh, ptr %17, i64 %31, i32 7
-  store i32 2, ptr %32, align 4, !tbaa !33
+  %32 = getelementptr inbounds %struct.btIndexedMesh, ptr %17, i64 %31
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 36
+  store i32 2, ptr %33, align 4, !tbaa !33
   ret void
 
-33:                                               ; preds = %26, %7
-  %34 = landingpad { ptr, i32 }
+34:                                               ; preds = %26, %7
+  %35 = landingpad { ptr, i32 }
           cleanup
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  tail call void @_ZN20btAlignedObjectArrayI13btIndexedMeshED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %35) #11
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  tail call void @_ZN20btAlignedObjectArrayI13btIndexedMeshED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %36) #11
   tail call void @_ZN23btStridingMeshInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #11
-  resume { ptr, i32 } %34
+  resume { ptr, i32 } %35
 }
 
 declare i32 @__gxx_personality_v0(...)

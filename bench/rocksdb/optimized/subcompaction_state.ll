@@ -458,30 +458,31 @@ _ZNK7rocksdb14OutputIteratorneERKS0_.exit:        ; preds = %_ZN7rocksdb14Output
 
 _ZNK7rocksdb14OutputIteratorneERKS0_.exit.thread: ; preds = %._ZNK7rocksdb14OutputIteratorneERKS0_.exit.thread_crit_edge, %_ZNK7rocksdb14OutputIteratorneERKS0_.exit
   %41 = phi ptr [ %.pre, %._ZNK7rocksdb14OutputIteratorneERKS0_.exit.thread_crit_edge ], [ %35, %_ZNK7rocksdb14OutputIteratorneERKS0_.exit ]
-  %42 = getelementptr inbounds nuw %"struct.rocksdb::CompactionOutputs::Output", ptr %41, i64 %.sroa.1114.0, i32 0, i32 0, i32 1
-  %43 = load i64, ptr %42, align 8, !tbaa !62
-  %44 = and i64 %43, 4611686018427387903
-  %45 = load ptr, ptr %0, align 8, !tbaa !65
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 1480
-  %47 = load i32, ptr %46, align 8, !tbaa !131
-  tail call void @_ZN7rocksdb10TableCache15ReleaseObsoleteEPNS_5CacheEmPNS1_6HandleEj(ptr noundef %1, i64 noundef %44, ptr noundef null, i32 noundef %47)
-  %48 = add i64 %.sroa.1114.0, 1
-  br i1 %.sroa.7.0, label %49, label %_ZN7rocksdb14OutputIteratorppEv.exit.backedge
+  %42 = getelementptr inbounds nuw %"struct.rocksdb::CompactionOutputs::Output", ptr %41, i64 %.sroa.1114.0
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
+  %44 = load i64, ptr %43, align 8, !tbaa !62
+  %45 = and i64 %44, 4611686018427387903
+  %46 = load ptr, ptr %0, align 8, !tbaa !65
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 1480
+  %48 = load i32, ptr %47, align 8, !tbaa !131
+  tail call void @_ZN7rocksdb10TableCache15ReleaseObsoleteEPNS_5CacheEmPNS1_6HandleEj(ptr noundef %1, i64 noundef %45, ptr noundef null, i32 noundef %48)
+  %49 = add i64 %.sroa.1114.0, 1
+  br i1 %.sroa.7.0, label %50, label %_ZN7rocksdb14OutputIteratorppEv.exit.backedge
 
-49:                                               ; preds = %_ZNK7rocksdb14OutputIteratorneERKS0_.exit.thread
-  %50 = load ptr, ptr %30, align 8, !tbaa !61
-  %51 = load ptr, ptr %27, align 8, !tbaa !59
-  %52 = ptrtoint ptr %50 to i64
+50:                                               ; preds = %_ZNK7rocksdb14OutputIteratorneERKS0_.exit.thread
+  %51 = load ptr, ptr %30, align 8, !tbaa !61
+  %52 = load ptr, ptr %27, align 8, !tbaa !59
   %53 = ptrtoint ptr %51 to i64
-  %54 = sub i64 %52, %53
-  %55 = sdiv exact i64 %54, 392
-  %.not.i9 = icmp ult i64 %48, %55
-  %spec.select22 = select i1 %.not.i9, i64 %48, i64 0
+  %54 = ptrtoint ptr %52 to i64
+  %55 = sub i64 %53, %54
+  %56 = sdiv exact i64 %55, 392
+  %.not.i9 = icmp ult i64 %49, %56
+  %spec.select22 = select i1 %.not.i9, i64 %49, i64 0
   br label %_ZN7rocksdb14OutputIteratorppEv.exit.backedge
 
-_ZN7rocksdb14OutputIteratorppEv.exit.backedge:    ; preds = %49, %_ZNK7rocksdb14OutputIteratorneERKS0_.exit.thread
-  %.sroa.7.0.be = phi i1 [ false, %_ZNK7rocksdb14OutputIteratorneERKS0_.exit.thread ], [ %.not.i9, %49 ]
-  %.sroa.1114.0.be = phi i64 [ %48, %_ZNK7rocksdb14OutputIteratorneERKS0_.exit.thread ], [ %spec.select22, %49 ]
+_ZN7rocksdb14OutputIteratorppEv.exit.backedge:    ; preds = %50, %_ZNK7rocksdb14OutputIteratorneERKS0_.exit.thread
+  %.sroa.7.0.be = phi i1 [ false, %_ZNK7rocksdb14OutputIteratorneERKS0_.exit.thread ], [ %.not.i9, %50 ]
+  %.sroa.1114.0.be = phi i64 [ %49, %_ZNK7rocksdb14OutputIteratorneERKS0_.exit.thread ], [ %spec.select22, %50 ]
   br label %_ZN7rocksdb14OutputIteratorppEv.exit
 
 .loopexit:                                        ; preds = %_ZNK7rocksdb14OutputIteratorneERKS0_.exit, %_ZN7rocksdb17CompactionOutputs7CleanupEv.exit8

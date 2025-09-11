@@ -399,65 +399,68 @@ define hidden noundef zeroext i1 @_ZN5array6solver15propagate_axiomEj(ptr nounde
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %4 = load ptr, ptr %3, align 8, !tbaa !3
   %5 = zext i32 %1 to i64
-  %6 = getelementptr inbounds nuw %"struct.array::solver::axiom_record", ptr %4, i64 %5, i32 1
-  %7 = load i32, ptr %6, align 4, !tbaa !50
-  %8 = icmp eq i32 %7, 2
-  br i1 %8, label %38, label %9
+  %6 = getelementptr inbounds nuw %"struct.array::solver::axiom_record", ptr %4, i64 %5
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %8 = load i32, ptr %7, align 4, !tbaa !50
+  %9 = icmp eq i32 %8, 2
+  br i1 %9, label %41, label %10
 
-9:                                                ; preds = %2
-  %10 = tail call noundef zeroext i1 @_ZN5array6solver12assert_axiomEj(ptr noundef nonnull align 8 dereferenceable(536) %0, i32 noundef %1)
-  %11 = load ptr, ptr %3, align 8, !tbaa !3
-  %12 = getelementptr inbounds nuw %"struct.array::solver::axiom_record", ptr %11, i64 %5, i32 1
-  %13 = load i32, ptr %12, align 4, !tbaa !50
-  %14 = icmp eq i32 %13, 1
-  br i1 %14, label %38, label %.noexc
+10:                                               ; preds = %2
+  %11 = tail call noundef zeroext i1 @_ZN5array6solver12assert_axiomEj(ptr noundef nonnull align 8 dereferenceable(536) %0, i32 noundef %1)
+  %12 = load ptr, ptr %3, align 8, !tbaa !3
+  %13 = getelementptr inbounds nuw %"struct.array::solver::axiom_record", ptr %12, i64 %5
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
+  %15 = load i32, ptr %14, align 4, !tbaa !50
+  %16 = icmp eq i32 %15, 1
+  br i1 %16, label %41, label %.noexc
 
-.noexc:                                           ; preds = %9
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %16 = load ptr, ptr %15, align 8, !tbaa !18
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 2168
-  %18 = getelementptr inbounds nuw i8, ptr %16, i64 2184
-  %19 = tail call noundef ptr @_ZN6region8allocateEm(ptr noundef nonnull align 8 dereferenceable(40) %18, i64 noundef 24)
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5array6solver9reset_newE, i64 16), ptr %19, align 8, !tbaa !41
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  store ptr %0, ptr %20, align 8
-  %.sroa.6.8..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 16
+.noexc:                                           ; preds = %10
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %18 = load ptr, ptr %17, align 8, !tbaa !18
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 2168
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 2184
+  %21 = tail call noundef ptr @_ZN6region8allocateEm(ptr noundef nonnull align 8 dereferenceable(40) %20, i64 noundef 24)
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5array6solver9reset_newE, i64 16), ptr %21, align 8, !tbaa !41
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  store ptr %0, ptr %22, align 8
+  %.sroa.6.8..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 16
   store i32 %1, ptr %.sroa.6.8..sroa_idx, align 8
-  %21 = load ptr, ptr %17, align 8, !tbaa !45
-  %22 = icmp eq ptr %21, null
-  br i1 %22, label %.noexc9, label %23
+  %23 = load ptr, ptr %19, align 8, !tbaa !45
+  %24 = icmp eq ptr %23, null
+  br i1 %24, label %.noexc9, label %25
 
-23:                                               ; preds = %.noexc
-  %24 = getelementptr inbounds i8, ptr %21, i64 -4
-  %25 = load i32, ptr %24, align 4, !tbaa !9
-  %26 = getelementptr inbounds i8, ptr %21, i64 -8
+25:                                               ; preds = %.noexc
+  %26 = getelementptr inbounds i8, ptr %23, i64 -4
   %27 = load i32, ptr %26, align 4, !tbaa !9
-  %28 = icmp eq i32 %25, %27
-  br i1 %28, label %.noexc9, label %29
+  %28 = getelementptr inbounds i8, ptr %23, i64 -8
+  %29 = load i32, ptr %28, align 4, !tbaa !9
+  %30 = icmp eq i32 %27, %29
+  br i1 %30, label %.noexc9, label %31
 
-.noexc9:                                          ; preds = %23, %.noexc
-  tail call void @_ZN6vectorIP5trailLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(56) %17)
-  %.pre.i.i.i = load ptr, ptr %17, align 8, !tbaa !45
+.noexc9:                                          ; preds = %25, %.noexc
+  tail call void @_ZN6vectorIP5trailLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(56) %19)
+  %.pre.i.i.i = load ptr, ptr %19, align 8, !tbaa !45
   %.phi.trans.insert.i.i.i = getelementptr inbounds i8, ptr %.pre.i.i.i, i64 -4
   %.pre2.i.i.i = load i32, ptr %.phi.trans.insert.i.i.i, align 4, !tbaa !9
-  br label %29
+  br label %31
 
-29:                                               ; preds = %.noexc9, %23
-  %30 = phi i32 [ %.pre2.i.i.i, %.noexc9 ], [ %25, %23 ]
-  %31 = phi ptr [ %.pre.i.i.i, %.noexc9 ], [ %21, %23 ]
-  %32 = getelementptr inbounds i8, ptr %31, i64 -4
-  %33 = zext i32 %30 to i64
-  %34 = getelementptr inbounds nuw ptr, ptr %31, i64 %33
-  store ptr %19, ptr %34, align 8, !tbaa !48
-  %35 = add i32 %30, 1
-  store i32 %35, ptr %32, align 4, !tbaa !9
-  %36 = load ptr, ptr %3, align 8, !tbaa !3
-  %37 = getelementptr inbounds nuw %"struct.array::solver::axiom_record", ptr %36, i64 %5, i32 1
-  store i32 2, ptr %37, align 4, !tbaa !50
-  br label %38
+31:                                               ; preds = %.noexc9, %25
+  %32 = phi i32 [ %.pre2.i.i.i, %.noexc9 ], [ %27, %25 ]
+  %33 = phi ptr [ %.pre.i.i.i, %.noexc9 ], [ %23, %25 ]
+  %34 = getelementptr inbounds i8, ptr %33, i64 -4
+  %35 = zext i32 %32 to i64
+  %36 = getelementptr inbounds nuw ptr, ptr %33, i64 %35
+  store ptr %21, ptr %36, align 8, !tbaa !48
+  %37 = add i32 %32, 1
+  store i32 %37, ptr %34, align 4, !tbaa !9
+  %38 = load ptr, ptr %3, align 8, !tbaa !3
+  %39 = getelementptr inbounds nuw %"struct.array::solver::axiom_record", ptr %38, i64 %5
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 4
+  store i32 2, ptr %40, align 4, !tbaa !50
+  br label %41
 
-38:                                               ; preds = %9, %29, %2
-  %.0 = phi i1 [ false, %2 ], [ %10, %29 ], [ %10, %9 ]
+41:                                               ; preds = %10, %31, %2
+  %.0 = phi i1 [ false, %2 ], [ %11, %31 ], [ %11, %10 ]
   ret i1 %.0
 }
 
@@ -7338,7 +7341,7 @@ define hidden noundef zeroext i1 @_ZN5array6solver18add_delayed_axiomsEv(ptr nou
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 412
   %4 = load i8, ptr %3, align 4, !tbaa !155, !range !158, !noundef !159
   %5 = trunc nuw i8 %4 to i1
-  br i1 %5, label %6, label %104
+  br i1 %5, label %6, label %105
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -7498,54 +7501,55 @@ _ZNK17array_recognizers10is_defaultEP4expr.exit:  ; preds = %59, %66, %71
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge57, label %22, !llvm.loop !292
 
-.lr.ph61:                                         ; preds = %_ZNK6vectorIN5array6solver12axiom_recordELb0EjE4sizeEv.exit, %90
-  %.460 = phi i1 [ %.5, %90 ], [ %.033.lcssa, %_ZNK6vectorIN5array6solver12axiom_recordELb0EjE4sizeEv.exit ]
-  %storemerge59 = phi i32 [ %92, %90 ], [ 0, %_ZNK6vectorIN5array6solver12axiom_recordELb0EjE4sizeEv.exit ]
+.lr.ph61:                                         ; preds = %_ZNK6vectorIN5array6solver12axiom_recordELb0EjE4sizeEv.exit, %91
+  %.460 = phi i1 [ %.5, %91 ], [ %.033.lcssa, %_ZNK6vectorIN5array6solver12axiom_recordELb0EjE4sizeEv.exit ]
+  %storemerge59 = phi i32 [ %93, %91 ], [ 0, %_ZNK6vectorIN5array6solver12axiom_recordELb0EjE4sizeEv.exit ]
   %83 = load ptr, ptr %15, align 8, !tbaa !3
   %84 = zext i32 %storemerge59 to i64
-  %85 = getelementptr inbounds nuw %"struct.array::solver::axiom_record", ptr %83, i64 %84, i32 1
-  %86 = load i32, ptr %85, align 4, !tbaa !50
-  %87 = icmp eq i32 %86, 1
-  br i1 %87, label %88, label %90
+  %85 = getelementptr inbounds nuw %"struct.array::solver::axiom_record", ptr %83, i64 %84
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 4
+  %87 = load i32, ptr %86, align 4, !tbaa !50
+  %88 = icmp eq i32 %87, 1
+  br i1 %88, label %89, label %91
 
-88:                                               ; preds = %.lr.ph61
-  %89 = tail call noundef zeroext i1 @_ZN5array6solver12assert_axiomEj(ptr noundef nonnull align 8 dereferenceable(536) %0, i32 noundef %storemerge59)
-  %spec.select40 = select i1 %89, i1 true, i1 %.460
+89:                                               ; preds = %.lr.ph61
+  %90 = tail call noundef zeroext i1 @_ZN5array6solver12assert_axiomEj(ptr noundef nonnull align 8 dereferenceable(536) %0, i32 noundef %storemerge59)
+  %spec.select40 = select i1 %90, i1 true, i1 %.460
   %.pre = load i32, ptr %21, align 4, !tbaa !263
-  br label %90
+  br label %91
 
-90:                                               ; preds = %88, %.lr.ph61
-  %91 = phi i32 [ %storemerge59, %.lr.ph61 ], [ %.pre, %88 ]
-  %.5 = phi i1 [ %.460, %.lr.ph61 ], [ %spec.select40, %88 ]
-  %92 = add i32 %91, 1
-  store i32 %92, ptr %21, align 4, !tbaa !263
-  %93 = icmp ult i32 %92, %20
-  br i1 %93, label %.lr.ph61, label %._crit_edge62, !llvm.loop !293
+91:                                               ; preds = %89, %.lr.ph61
+  %92 = phi i32 [ %storemerge59, %.lr.ph61 ], [ %.pre, %89 ]
+  %.5 = phi i1 [ %.460, %.lr.ph61 ], [ %spec.select40, %89 ]
+  %93 = add i32 %92, 1
+  store i32 %93, ptr %21, align 4, !tbaa !263
+  %94 = icmp ult i32 %93, %20
+  br i1 %94, label %.lr.ph61, label %._crit_edge62, !llvm.loop !293
 
-._crit_edge62:                                    ; preds = %90, %_ZNK6vectorIN5array6solver12axiom_recordELb0EjE4sizeEv.exit.thread, %_ZNK6vectorIN5array6solver12axiom_recordELb0EjE4sizeEv.exit
-  %.4.lcssa = phi i1 [ %.033.lcssa, %_ZNK6vectorIN5array6solver12axiom_recordELb0EjE4sizeEv.exit ], [ %.033.lcssa, %_ZNK6vectorIN5array6solver12axiom_recordELb0EjE4sizeEv.exit.thread ], [ %.5, %90 ]
-  %94 = getelementptr inbounds nuw i8, ptr %0, i64 456
-  %95 = load i8, ptr %94, align 8, !tbaa !294, !range !158, !noundef !159
-  store i8 0, ptr %94, align 8, !tbaa !294
-  %96 = load ptr, ptr %0, align 8, !tbaa !41
-  %97 = getelementptr inbounds nuw i8, ptr %96, i64 48
-  %98 = load ptr, ptr %97, align 8
-  %99 = invoke noundef zeroext i1 %98(ptr noundef nonnull align 8 dereferenceable(536) %0)
-          to label %100 unwind label %102
+._crit_edge62:                                    ; preds = %91, %_ZNK6vectorIN5array6solver12axiom_recordELb0EjE4sizeEv.exit.thread, %_ZNK6vectorIN5array6solver12axiom_recordELb0EjE4sizeEv.exit
+  %.4.lcssa = phi i1 [ %.033.lcssa, %_ZNK6vectorIN5array6solver12axiom_recordELb0EjE4sizeEv.exit ], [ %.033.lcssa, %_ZNK6vectorIN5array6solver12axiom_recordELb0EjE4sizeEv.exit.thread ], [ %.5, %91 ]
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 456
+  %96 = load i8, ptr %95, align 8, !tbaa !294, !range !158, !noundef !159
+  store i8 0, ptr %95, align 8, !tbaa !294
+  %97 = load ptr, ptr %0, align 8, !tbaa !41
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 48
+  %99 = load ptr, ptr %98, align 8
+  %100 = invoke noundef zeroext i1 %99(ptr noundef nonnull align 8 dereferenceable(536) %0)
+          to label %101 unwind label %103
 
-100:                                              ; preds = %._crit_edge62
-  %101 = select i1 %99, i1 true, i1 %.4.lcssa
-  store i8 %95, ptr %94, align 8, !tbaa !294
-  br label %104
+101:                                              ; preds = %._crit_edge62
+  %102 = select i1 %100, i1 true, i1 %.4.lcssa
+  store i8 %96, ptr %95, align 8, !tbaa !294
+  br label %105
 
-102:                                              ; preds = %._crit_edge62
-  %103 = landingpad { ptr, i32 }
+103:                                              ; preds = %._crit_edge62
+  %104 = landingpad { ptr, i32 }
           cleanup
-  store i8 %95, ptr %94, align 8, !tbaa !294
-  resume { ptr, i32 } %103
+  store i8 %96, ptr %95, align 8, !tbaa !294
+  resume { ptr, i32 } %104
 
-104:                                              ; preds = %1, %100
-  %.0 = phi i1 [ %101, %100 ], [ false, %1 ]
+105:                                              ; preds = %1, %101
+  %.0 = phi i1 [ %102, %101 ], [ false, %1 ]
   ret i1 %.0
 }
 
@@ -8880,8 +8884,9 @@ define linkonce_odr hidden void @_ZN5array6solver9reset_new4undoEv(ptr noundef n
   %6 = load i32, ptr %5, align 8, !tbaa !319
   %7 = load ptr, ptr %4, align 8, !tbaa !3
   %8 = zext i32 %6 to i64
-  %9 = getelementptr inbounds nuw %"struct.array::solver::axiom_record", ptr %7, i64 %8, i32 1
-  store i32 0, ptr %9, align 4, !tbaa !50
+  %9 = getelementptr inbounds nuw %"struct.array::solver::axiom_record", ptr %7, i64 %8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  store i32 0, ptr %10, align 4, !tbaa !50
   ret void
 }
 

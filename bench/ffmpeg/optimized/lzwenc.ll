@@ -133,9 +133,8 @@ define i32 @ff_lzw_encode(ptr noundef captures(none) %0, ptr noundef readonly ca
   %42 = phi i32 [ %55, %49 ], [ %41, %29 ]
   %43 = phi i64 [ %53, %49 ], [ %39, %29 ]
   %.01620.i = phi i32 [ %spec.select.i17.i, %49 ], [ %spec.select.i.i, %29 ]
-  %.idx.i = mul nsw i64 %43, 12
-  %44 = getelementptr i8, ptr %19, i64 %.idx.i
-  %45 = getelementptr i8, ptr %44, i64 8
+  %44 = getelementptr inbounds %struct.Code, ptr %19, i64 %43
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %46 = load i8, ptr %45, align 4, !tbaa !29
   %47 = icmp eq i8 %46, %31
   %48 = icmp eq i32 %42, %32
@@ -283,9 +282,8 @@ addCode.exit:                                     ; preds = %findCode.exit.addCo
   %121 = phi i32 [ %.pre, %findCode.exit.addCode.exit_crit_edge ], [ %112, %writeCode.exit ], [ %112, %119 ]
   %.0 = phi i32 [ %.016.lcssa.i, %findCode.exit.addCode.exit_crit_edge ], [ %35, %writeCode.exit ], [ %35, %119 ]
   %122 = sext i32 %.0 to i64
-  %.idx = mul nsw i64 %122, 12
-  %123 = getelementptr i8, ptr %19, i64 %.idx
-  %124 = getelementptr i8, ptr %123, i64 4
+  %123 = getelementptr inbounds %struct.Code, ptr %19, i64 %122
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 4
   %125 = load i32, ptr %124, align 4, !tbaa !33
   store i32 %125, ptr %13, align 4, !tbaa !22
   %126 = load i32, ptr %28, align 4, !tbaa !20

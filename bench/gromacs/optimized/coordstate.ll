@@ -3,7 +3,6 @@ source_filename = "bench/gromacs/original/coordstate.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"class.gmx::AwhDimParams" = type { i32, i32, double, double, double, double, double, double, double }
 %"struct.gmx::DimParams" = type { %"class.std::variant", double }
 %"class.std::variant" = type { %"struct.std::__detail::__variant::_Variant_base.base", [7 x i8] }
 %"struct.std::__detail::__variant::_Variant_base.base" = type { %"struct.std::__detail::__variant::_Move_assign_base.base" }
@@ -15,6 +14,7 @@ target triple = "x86_64-pc-linux-gnu"
 %"union.std::__detail::__variant::_Variadic_union" = type { %"struct.std::__detail::__variant::_Uninitialized" }
 %"struct.std::__detail::__variant::_Uninitialized" = type { %"struct.gmx::DimParams::PullDimParams" }
 %"struct.gmx::DimParams::PullDimParams" = type { double, double, double }
+%"class.gmx::AwhDimParams" = type { i32, i32, double, double, double, double, double, double, double }
 %"struct.gmx::GridPoint" = type { [4 x double], [4 x i32], %"class.std::vector.19" }
 %"class.std::vector.19" = type { %"struct.std::_Vector_base.20" }
 %"struct.std::_Vector_base.20" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" }
@@ -124,13 +124,15 @@ define void @_ZN3gmx10CoordStateC2ERKNS_13AwhBiasParamsENS_8ArrayRefIKNS_9DimPar
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
-  %24 = getelementptr inbounds nuw %"class.gmx::AwhDimParams", ptr %8, i64 %indvars.iv, i32 7
-  %25 = load double, ptr %24, align 8, !tbaa !15
-  %26 = getelementptr inbounds nuw %"struct.gmx::DimParams", ptr %2, i64 %indvars.iv, i32 1
-  %27 = load double, ptr %26, align 8, !tbaa !19
-  %28 = fmul double %25, %27
-  %29 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv
-  store double %28, ptr %29, align 8, !tbaa !28
+  %24 = getelementptr inbounds nuw %"struct.gmx::DimParams", ptr %2, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw %"class.gmx::AwhDimParams", ptr %8, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 48
+  %27 = load double, ptr %26, align 8, !tbaa !15
+  %28 = getelementptr inbounds nuw i8, ptr %24, i64 32
+  %29 = load double, ptr %28, align 8, !tbaa !19
+  %30 = fmul double %27, %29
+  %31 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv
+  store double %30, ptr %31, align 8, !tbaa !28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %18
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !29
@@ -346,16 +348,17 @@ _ZNSt6vectorIdSaIdEED2Ev.exit26.i:                ; preds = %132, %31
 _ZN3gmx12_GLOBAL__N_125getSampleFromDistributionENS_8ArrayRefIKdEElll.exit: ; preds = %40, %_ZNSt6vectorIdSaIdEED2Ev.exit.loopexit.i
   %.pre-phi.i = phi i64 [ %.pre.i, %_ZNSt6vectorIdSaIdEED2Ev.exit.loopexit.i ], [ %120, %40 ]
   %134 = sext i32 %2 to i64
-  %135 = getelementptr inbounds nuw %"struct.gmx::GridPoint", ptr %9, i64 %134, i32 2
-  %136 = sub i64 %.pre-phi.i, %120
+  %135 = getelementptr inbounds nuw %"struct.gmx::GridPoint", ptr %9, i64 %134
+  %136 = getelementptr inbounds nuw i8, ptr %135, i64 48
+  %137 = sub i64 %.pre-phi.i, %120
   tail call void @_ZdlPvm(ptr noundef nonnull %20, i64 noundef %12) #19
-  %sext = shl i64 %136, 29
-  %137 = ashr i64 %sext, 32
-  %138 = load ptr, ptr %135, align 8, !tbaa !36
-  %139 = getelementptr inbounds nuw i32, ptr %138, i64 %137
-  %140 = load i32, ptr %139, align 4, !tbaa !39
-  %141 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  store i32 %140, ptr %141, align 4, !tbaa !14
+  %sext = shl i64 %137, 29
+  %138 = ashr i64 %sext, 32
+  %139 = load ptr, ptr %136, align 8, !tbaa !36
+  %140 = getelementptr inbounds nuw i32, ptr %139, i64 %138
+  %141 = load i32, ptr %140, align 4, !tbaa !39
+  %142 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  store i32 %141, ptr %142, align 4, !tbaa !14
   ret void
 }
 

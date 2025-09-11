@@ -3405,10 +3405,11 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3opt18maxsmt_solver_base14get
   %4 = load ptr, ptr %3, align 8, !tbaa !26
   %5 = load ptr, ptr %4, align 8, !tbaa !3
   %6 = zext i32 %1 to i64
-  %7 = getelementptr inbounds nuw %"struct.opt::soft", ptr %5, i64 %6, i32 2
-  %8 = load i32, ptr %7, align 8, !tbaa !52
-  %9 = icmp eq i32 %8, 1
-  ret i1 %9
+  %7 = getelementptr inbounds nuw %"struct.opt::soft", ptr %5, i64 %6
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 48
+  %9 = load i32, ptr %8, align 8, !tbaa !52
+  %10 = icmp eq i32 %9, 1
+  ret i1 %10
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

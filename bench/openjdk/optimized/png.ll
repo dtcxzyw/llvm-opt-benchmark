@@ -433,13 +433,13 @@ define hidden void @png_free_data(ptr noalias noundef %0, ptr noalias noundef %1
   %5 = icmp eq ptr %0, null
   %6 = icmp eq ptr %1, null
   %or.cond = or i1 %5, %6
-  br i1 %or.cond, label %198, label %7
+  br i1 %or.cond, label %207, label %7
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %9 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %33, label %10
+  br i1 %.not, label %36, label %10
 
 10:                                               ; preds = %7
   %11 = and i32 %2, 16384
@@ -447,7 +447,7 @@ define hidden void @png_free_data(ptr noalias noundef %0, ptr noalias noundef %1
   %13 = load i32, ptr %12, align 4
   %14 = and i32 %11, %13
   %.not154 = icmp eq i32 %14, 0
-  br i1 %.not154, label %33, label %15
+  br i1 %.not154, label %36, label %15
 
 15:                                               ; preds = %10
   %.not155 = icmp eq i32 %3, -1
@@ -461,389 +461,398 @@ define hidden void @png_free_data(ptr noalias noundef %0, ptr noalias noundef %1
 
 19:                                               ; preds = %15
   %20 = sext i32 %3 to i64
-  %21 = getelementptr inbounds %struct.png_text_struct, ptr %9, i64 %20, i32 1
-  %22 = load ptr, ptr %21, align 8
-  tail call void @png_free(ptr noundef nonnull %0, ptr noundef %22) #30
-  %23 = load ptr, ptr %8, align 8
-  %24 = getelementptr inbounds %struct.png_text_struct, ptr %23, i64 %20, i32 1
-  store ptr null, ptr %24, align 8
-  br label %33
+  %21 = getelementptr inbounds %struct.png_text_struct, ptr %9, i64 %20
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %23 = load ptr, ptr %22, align 8
+  tail call void @png_free(ptr noundef nonnull %0, ptr noundef %23) #30
+  %24 = load ptr, ptr %8, align 8
+  %25 = getelementptr inbounds %struct.png_text_struct, ptr %24, i64 %20
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  store ptr null, ptr %26, align 8
+  br label %36
 
 .lr.ph:                                           ; preds = %.preheader175, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader175 ]
-  %25 = load ptr, ptr %8, align 8
-  %26 = getelementptr inbounds nuw %struct.png_text_struct, ptr %25, i64 %indvars.iv, i32 1
-  %27 = load ptr, ptr %26, align 8
-  tail call void @png_free(ptr noundef nonnull %0, ptr noundef %27) #30
+  %27 = load ptr, ptr %8, align 8
+  %28 = getelementptr inbounds nuw %struct.png_text_struct, ptr %27, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  %30 = load ptr, ptr %29, align 8
+  tail call void @png_free(ptr noundef nonnull %0, ptr noundef %30) #30
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %28 = load i32, ptr %16, align 4
-  %29 = sext i32 %28 to i64
-  %30 = icmp slt i64 %indvars.iv.next, %29
-  br i1 %30, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !9
+  %31 = load i32, ptr %16, align 4
+  %32 = sext i32 %31 to i64
+  %33 = icmp slt i64 %indvars.iv.next, %32
+  br i1 %33, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !9
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre = load ptr, ptr %8, align 8
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader175
-  %31 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %9, %.preheader175 ]
-  tail call void @png_free(ptr noundef nonnull %0, ptr noundef %31) #30
+  %34 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %9, %.preheader175 ]
+  tail call void @png_free(ptr noundef nonnull %0, ptr noundef %34) #30
   store ptr null, ptr %8, align 8
   store i32 0, ptr %16, align 4
-  %32 = getelementptr inbounds nuw i8, ptr %1, i64 152
-  store i32 0, ptr %32, align 8
-  br label %33
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 152
+  store i32 0, ptr %35, align 8
+  br label %36
 
-33:                                               ; preds = %19, %._crit_edge, %10, %7
-  %34 = and i32 %2, 8192
-  %35 = getelementptr inbounds nuw i8, ptr %1, i64 284
-  %36 = load i32, ptr %35, align 4
-  %37 = and i32 %34, %36
-  %.not156 = icmp eq i32 %37, 0
-  br i1 %.not156, label %45, label %38
+36:                                               ; preds = %19, %._crit_edge, %10, %7
+  %37 = and i32 %2, 8192
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 284
+  %39 = load i32, ptr %38, align 4
+  %40 = and i32 %37, %39
+  %.not156 = icmp eq i32 %40, 0
+  br i1 %.not156, label %48, label %41
 
-38:                                               ; preds = %33
-  %39 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %40 = load i32, ptr %39, align 8
-  %41 = and i32 %40, -17
-  store i32 %41, ptr %39, align 8
-  %42 = getelementptr inbounds nuw i8, ptr %1, i64 184
-  %43 = load ptr, ptr %42, align 8
-  tail call void @png_free(ptr noundef nonnull %0, ptr noundef %43) #30
-  store ptr null, ptr %42, align 8
-  %44 = getelementptr inbounds nuw i8, ptr %1, i64 34
-  store i16 0, ptr %44, align 2
-  %.pre206 = load i32, ptr %35, align 4
-  br label %45
+41:                                               ; preds = %36
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %43 = load i32, ptr %42, align 8
+  %44 = and i32 %43, -17
+  store i32 %44, ptr %42, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 184
+  %46 = load ptr, ptr %45, align 8
+  tail call void @png_free(ptr noundef nonnull %0, ptr noundef %46) #30
+  store ptr null, ptr %45, align 8
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 34
+  store i16 0, ptr %47, align 2
+  %.pre206 = load i32, ptr %38, align 4
+  br label %48
 
-45:                                               ; preds = %38, %33
-  %46 = phi i32 [ %.pre206, %38 ], [ %36, %33 ]
-  %47 = and i32 %2, 256
-  %48 = and i32 %47, %46
-  %.not157 = icmp eq i32 %48, 0
-  br i1 %.not157, label %57, label %49
+48:                                               ; preds = %41, %36
+  %49 = phi i32 [ %.pre206, %41 ], [ %39, %36 ]
+  %50 = and i32 %2, 256
+  %51 = and i32 %50, %49
+  %.not157 = icmp eq i32 %51, 0
+  br i1 %.not157, label %60, label %52
 
-49:                                               ; preds = %45
-  %50 = getelementptr inbounds nuw i8, ptr %1, i64 320
-  %51 = load ptr, ptr %50, align 8
-  tail call void @png_free(ptr noundef nonnull %0, ptr noundef %51) #30
-  %52 = getelementptr inbounds nuw i8, ptr %1, i64 328
-  %53 = load ptr, ptr %52, align 8
-  tail call void @png_free(ptr noundef nonnull %0, ptr noundef %53) #30
-  %54 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %50, i8 0, i64 16, i1 false)
-  %55 = load i32, ptr %54, align 8
-  %56 = and i32 %55, -16385
-  store i32 %56, ptr %54, align 8
-  %.pre207 = load i32, ptr %35, align 4
-  br label %57
+52:                                               ; preds = %48
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 320
+  %54 = load ptr, ptr %53, align 8
+  tail call void @png_free(ptr noundef nonnull %0, ptr noundef %54) #30
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 328
+  %56 = load ptr, ptr %55, align 8
+  tail call void @png_free(ptr noundef nonnull %0, ptr noundef %56) #30
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %53, i8 0, i64 16, i1 false)
+  %58 = load i32, ptr %57, align 8
+  %59 = and i32 %58, -16385
+  store i32 %59, ptr %57, align 8
+  %.pre207 = load i32, ptr %38, align 4
+  br label %60
 
-57:                                               ; preds = %49, %45
-  %58 = phi i32 [ %.pre207, %49 ], [ %46, %45 ]
-  %59 = and i32 %2, 128
-  %60 = and i32 %59, %58
-  %.not158 = icmp eq i32 %60, 0
-  br i1 %.not158, label %81, label %61
+60:                                               ; preds = %52, %48
+  %61 = phi i32 [ %.pre207, %52 ], [ %49, %48 ]
+  %62 = and i32 %2, 128
+  %63 = and i32 %62, %61
+  %.not158 = icmp eq i32 %63, 0
+  br i1 %.not158, label %84, label %64
 
-61:                                               ; preds = %57
-  %62 = getelementptr inbounds nuw i8, ptr %1, i64 248
-  %63 = load ptr, ptr %62, align 8
-  tail call void @png_free(ptr noundef nonnull %0, ptr noundef %63) #30
-  %64 = getelementptr inbounds nuw i8, ptr %1, i64 264
-  %65 = load ptr, ptr %64, align 8
-  tail call void @png_free(ptr noundef nonnull %0, ptr noundef %65) #30
-  store ptr null, ptr %62, align 8
-  store ptr null, ptr %64, align 8
-  %66 = getelementptr inbounds nuw i8, ptr %1, i64 272
-  %67 = load ptr, ptr %66, align 8
-  %.not159 = icmp eq ptr %67, null
-  br i1 %.not159, label %77, label %.preheader174
+64:                                               ; preds = %60
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 248
+  %66 = load ptr, ptr %65, align 8
+  tail call void @png_free(ptr noundef nonnull %0, ptr noundef %66) #30
+  %67 = getelementptr inbounds nuw i8, ptr %1, i64 264
+  %68 = load ptr, ptr %67, align 8
+  tail call void @png_free(ptr noundef nonnull %0, ptr noundef %68) #30
+  store ptr null, ptr %65, align 8
+  store ptr null, ptr %67, align 8
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 272
+  %70 = load ptr, ptr %69, align 8
+  %.not159 = icmp eq ptr %70, null
+  br i1 %.not159, label %80, label %.preheader174
 
-.preheader174:                                    ; preds = %61
-  %68 = getelementptr inbounds nuw i8, ptr %1, i64 281
-  %69 = load i8, ptr %68, align 1
-  %.not191 = icmp eq i8 %69, 0
+.preheader174:                                    ; preds = %64
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 281
+  %72 = load i8, ptr %71, align 1
+  %.not191 = icmp eq i8 %72, 0
   br i1 %.not191, label %._crit_edge181, label %.lr.ph180
 
 .lr.ph180:                                        ; preds = %.preheader174, %.lr.ph180
   %indvars.iv194 = phi i64 [ %indvars.iv.next195, %.lr.ph180 ], [ 0, %.preheader174 ]
-  %70 = load ptr, ptr %66, align 8
-  %71 = getelementptr inbounds nuw ptr, ptr %70, i64 %indvars.iv194
-  %72 = load ptr, ptr %71, align 8
-  tail call void @png_free(ptr noundef nonnull %0, ptr noundef %72) #30
+  %73 = load ptr, ptr %69, align 8
+  %74 = getelementptr inbounds nuw ptr, ptr %73, i64 %indvars.iv194
+  %75 = load ptr, ptr %74, align 8
+  tail call void @png_free(ptr noundef nonnull %0, ptr noundef %75) #30
   %indvars.iv.next195 = add nuw nsw i64 %indvars.iv194, 1
-  %73 = load i8, ptr %68, align 1
-  %74 = zext i8 %73 to i64
-  %75 = icmp samesign ult i64 %indvars.iv.next195, %74
-  br i1 %75, label %.lr.ph180, label %._crit_edge181.loopexit, !llvm.loop !10
+  %76 = load i8, ptr %71, align 1
+  %77 = zext i8 %76 to i64
+  %78 = icmp samesign ult i64 %indvars.iv.next195, %77
+  br i1 %78, label %.lr.ph180, label %._crit_edge181.loopexit, !llvm.loop !10
 
 ._crit_edge181.loopexit:                          ; preds = %.lr.ph180
-  %.pre208 = load ptr, ptr %66, align 8
+  %.pre208 = load ptr, ptr %69, align 8
   br label %._crit_edge181
 
 ._crit_edge181:                                   ; preds = %._crit_edge181.loopexit, %.preheader174
-  %76 = phi ptr [ %.pre208, %._crit_edge181.loopexit ], [ %67, %.preheader174 ]
-  tail call void @png_free(ptr noundef nonnull %0, ptr noundef %76) #30
-  store ptr null, ptr %66, align 8
-  br label %77
+  %79 = phi ptr [ %.pre208, %._crit_edge181.loopexit ], [ %70, %.preheader174 ]
+  tail call void @png_free(ptr noundef nonnull %0, ptr noundef %79) #30
+  store ptr null, ptr %69, align 8
+  br label %80
 
-77:                                               ; preds = %._crit_edge181, %61
-  %78 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %79 = load i32, ptr %78, align 8
-  %80 = and i32 %79, -1025
-  store i32 %80, ptr %78, align 8
-  %.pre209 = load i32, ptr %35, align 4
-  br label %81
+80:                                               ; preds = %._crit_edge181, %64
+  %81 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %82 = load i32, ptr %81, align 8
+  %83 = and i32 %82, -1025
+  store i32 %83, ptr %81, align 8
+  %.pre209 = load i32, ptr %38, align 4
+  br label %84
 
-81:                                               ; preds = %77, %57
-  %82 = phi i32 [ %.pre209, %77 ], [ %58, %57 ]
-  %83 = and i32 %2, 16
-  %84 = and i32 %83, %82
-  %.not160 = icmp eq i32 %84, 0
-  br i1 %.not160, label %93, label %85
+84:                                               ; preds = %80, %60
+  %85 = phi i32 [ %.pre209, %80 ], [ %61, %60 ]
+  %86 = and i32 %2, 16
+  %87 = and i32 %86, %85
+  %.not160 = icmp eq i32 %87, 0
+  br i1 %.not160, label %96, label %88
 
-85:                                               ; preds = %81
-  %86 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  %87 = load ptr, ptr %86, align 8
-  tail call void @png_free(ptr noundef nonnull %0, ptr noundef %87) #30
-  %88 = getelementptr inbounds nuw i8, ptr %1, i64 136
-  %89 = load ptr, ptr %88, align 8
-  tail call void @png_free(ptr noundef nonnull %0, ptr noundef %89) #30
-  %90 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %86, i8 0, i64 16, i1 false)
-  %91 = load i32, ptr %90, align 8
-  %92 = and i32 %91, -4097
-  store i32 %92, ptr %90, align 8
-  br label %93
+88:                                               ; preds = %84
+  %89 = getelementptr inbounds nuw i8, ptr %1, i64 128
+  %90 = load ptr, ptr %89, align 8
+  tail call void @png_free(ptr noundef nonnull %0, ptr noundef %90) #30
+  %91 = getelementptr inbounds nuw i8, ptr %1, i64 136
+  %92 = load ptr, ptr %91, align 8
+  tail call void @png_free(ptr noundef nonnull %0, ptr noundef %92) #30
+  %93 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %89, i8 0, i64 16, i1 false)
+  %94 = load i32, ptr %93, align 8
+  %95 = and i32 %94, -4097
+  store i32 %95, ptr %93, align 8
+  br label %96
 
-93:                                               ; preds = %85, %81
-  %94 = getelementptr inbounds nuw i8, ptr %1, i64 304
-  %95 = load ptr, ptr %94, align 8
-  %.not161 = icmp eq ptr %95, null
-  br i1 %.not161, label %128, label %96
+96:                                               ; preds = %88, %84
+  %97 = getelementptr inbounds nuw i8, ptr %1, i64 304
+  %98 = load ptr, ptr %97, align 8
+  %.not161 = icmp eq ptr %98, null
+  br i1 %.not161, label %134, label %99
 
-96:                                               ; preds = %93
-  %97 = and i32 %2, 32
-  %98 = load i32, ptr %35, align 4
-  %99 = and i32 %97, %98
-  %.not162 = icmp eq i32 %99, 0
-  br i1 %.not162, label %128, label %100
+99:                                               ; preds = %96
+  %100 = and i32 %2, 32
+  %101 = load i32, ptr %38, align 4
+  %102 = and i32 %100, %101
+  %.not162 = icmp eq i32 %102, 0
+  br i1 %.not162, label %134, label %103
 
-100:                                              ; preds = %96
+103:                                              ; preds = %99
   %.not163 = icmp eq i32 %3, -1
-  br i1 %.not163, label %.preheader173, label %104
+  br i1 %.not163, label %.preheader173, label %107
 
-.preheader173:                                    ; preds = %100
-  %101 = getelementptr inbounds nuw i8, ptr %1, i64 312
-  %102 = load i32, ptr %101, align 8
-  %103 = icmp sgt i32 %102, 0
-  br i1 %103, label %.lr.ph183, label %._crit_edge184
+.preheader173:                                    ; preds = %103
+  %104 = getelementptr inbounds nuw i8, ptr %1, i64 312
+  %105 = load i32, ptr %104, align 8
+  %106 = icmp sgt i32 %105, 0
+  br i1 %106, label %.lr.ph183, label %._crit_edge184
 
-104:                                              ; preds = %100
-  %105 = sext i32 %3 to i64
-  %106 = getelementptr inbounds %struct.png_sPLT_struct, ptr %95, i64 %105
-  %107 = load ptr, ptr %106, align 8
-  tail call void @png_free(ptr noundef nonnull %0, ptr noundef %107) #30
-  %108 = load ptr, ptr %94, align 8
-  %109 = getelementptr inbounds %struct.png_sPLT_struct, ptr %108, i64 %105, i32 2
+107:                                              ; preds = %103
+  %108 = sext i32 %3 to i64
+  %109 = getelementptr inbounds %struct.png_sPLT_struct, ptr %98, i64 %108
   %110 = load ptr, ptr %109, align 8
   tail call void @png_free(ptr noundef nonnull %0, ptr noundef %110) #30
-  %111 = load ptr, ptr %94, align 8
-  %112 = getelementptr inbounds %struct.png_sPLT_struct, ptr %111, i64 %105
-  store ptr null, ptr %112, align 8
-  %113 = load ptr, ptr %94, align 8
-  %114 = getelementptr inbounds %struct.png_sPLT_struct, ptr %113, i64 %105, i32 2
-  store ptr null, ptr %114, align 8
-  br label %128
+  %111 = load ptr, ptr %97, align 8
+  %112 = getelementptr inbounds %struct.png_sPLT_struct, ptr %111, i64 %108
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 16
+  %114 = load ptr, ptr %113, align 8
+  tail call void @png_free(ptr noundef nonnull %0, ptr noundef %114) #30
+  %115 = load ptr, ptr %97, align 8
+  %116 = getelementptr inbounds %struct.png_sPLT_struct, ptr %115, i64 %108
+  store ptr null, ptr %116, align 8
+  %117 = load ptr, ptr %97, align 8
+  %118 = getelementptr inbounds %struct.png_sPLT_struct, ptr %117, i64 %108
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 16
+  store ptr null, ptr %119, align 8
+  br label %134
 
 .lr.ph183:                                        ; preds = %.preheader173, %.lr.ph183
   %indvars.iv197 = phi i64 [ %indvars.iv.next198, %.lr.ph183 ], [ 0, %.preheader173 ]
-  %115 = load ptr, ptr %94, align 8
-  %116 = getelementptr inbounds nuw %struct.png_sPLT_struct, ptr %115, i64 %indvars.iv197
-  %117 = load ptr, ptr %116, align 8
-  tail call void @png_free(ptr noundef nonnull %0, ptr noundef %117) #30
-  %118 = load ptr, ptr %94, align 8
-  %119 = getelementptr inbounds nuw %struct.png_sPLT_struct, ptr %118, i64 %indvars.iv197, i32 2
-  %120 = load ptr, ptr %119, align 8
-  tail call void @png_free(ptr noundef nonnull %0, ptr noundef %120) #30
+  %120 = load ptr, ptr %97, align 8
+  %121 = getelementptr inbounds nuw %struct.png_sPLT_struct, ptr %120, i64 %indvars.iv197
+  %122 = load ptr, ptr %121, align 8
+  tail call void @png_free(ptr noundef nonnull %0, ptr noundef %122) #30
+  %123 = load ptr, ptr %97, align 8
+  %124 = getelementptr inbounds nuw %struct.png_sPLT_struct, ptr %123, i64 %indvars.iv197
+  %125 = getelementptr inbounds nuw i8, ptr %124, i64 16
+  %126 = load ptr, ptr %125, align 8
+  tail call void @png_free(ptr noundef nonnull %0, ptr noundef %126) #30
   %indvars.iv.next198 = add nuw nsw i64 %indvars.iv197, 1
-  %121 = load i32, ptr %101, align 8
-  %122 = sext i32 %121 to i64
-  %123 = icmp slt i64 %indvars.iv.next198, %122
-  br i1 %123, label %.lr.ph183, label %._crit_edge184.loopexit, !llvm.loop !11
+  %127 = load i32, ptr %104, align 8
+  %128 = sext i32 %127 to i64
+  %129 = icmp slt i64 %indvars.iv.next198, %128
+  br i1 %129, label %.lr.ph183, label %._crit_edge184.loopexit, !llvm.loop !11
 
 ._crit_edge184.loopexit:                          ; preds = %.lr.ph183
-  %.pre210 = load ptr, ptr %94, align 8
+  %.pre210 = load ptr, ptr %97, align 8
   br label %._crit_edge184
 
 ._crit_edge184:                                   ; preds = %._crit_edge184.loopexit, %.preheader173
-  %124 = phi ptr [ %.pre210, %._crit_edge184.loopexit ], [ %95, %.preheader173 ]
-  tail call void @png_free(ptr noundef nonnull %0, ptr noundef %124) #30
-  store ptr null, ptr %94, align 8
-  store i32 0, ptr %101, align 8
-  %125 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %126 = load i32, ptr %125, align 8
-  %127 = and i32 %126, -8193
-  store i32 %127, ptr %125, align 8
-  br label %128
+  %130 = phi ptr [ %.pre210, %._crit_edge184.loopexit ], [ %98, %.preheader173 ]
+  tail call void @png_free(ptr noundef nonnull %0, ptr noundef %130) #30
+  store ptr null, ptr %97, align 8
+  store i32 0, ptr %104, align 8
+  %131 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %132 = load i32, ptr %131, align 8
+  %133 = and i32 %132, -8193
+  store i32 %133, ptr %131, align 8
+  br label %134
 
-128:                                              ; preds = %104, %._crit_edge184, %96, %93
-  %129 = getelementptr inbounds nuw i8, ptr %1, i64 288
-  %130 = load ptr, ptr %129, align 8
-  %.not164 = icmp eq ptr %130, null
-  br i1 %.not164, label %152, label %131
+134:                                              ; preds = %107, %._crit_edge184, %99, %96
+  %135 = getelementptr inbounds nuw i8, ptr %1, i64 288
+  %136 = load ptr, ptr %135, align 8
+  %.not164 = icmp eq ptr %136, null
+  br i1 %.not164, label %161, label %137
 
-131:                                              ; preds = %128
-  %132 = and i32 %2, 512
-  %133 = load i32, ptr %35, align 4
-  %134 = and i32 %132, %133
-  %.not165 = icmp eq i32 %134, 0
-  br i1 %.not165, label %152, label %135
+137:                                              ; preds = %134
+  %138 = and i32 %2, 512
+  %139 = load i32, ptr %38, align 4
+  %140 = and i32 %138, %139
+  %.not165 = icmp eq i32 %140, 0
+  br i1 %.not165, label %161, label %141
 
-135:                                              ; preds = %131
+141:                                              ; preds = %137
   %.not166 = icmp eq i32 %3, -1
-  br i1 %.not166, label %.preheader172, label %139
+  br i1 %.not166, label %.preheader172, label %145
 
-.preheader172:                                    ; preds = %135
-  %136 = getelementptr inbounds nuw i8, ptr %1, i64 296
-  %137 = load i32, ptr %136, align 8
-  %138 = icmp sgt i32 %137, 0
-  br i1 %138, label %.lr.ph186, label %._crit_edge187
+.preheader172:                                    ; preds = %141
+  %142 = getelementptr inbounds nuw i8, ptr %1, i64 296
+  %143 = load i32, ptr %142, align 8
+  %144 = icmp sgt i32 %143, 0
+  br i1 %144, label %.lr.ph186, label %._crit_edge187
 
-139:                                              ; preds = %135
-  %140 = sext i32 %3 to i64
-  %141 = getelementptr inbounds %struct.png_unknown_chunk_t, ptr %130, i64 %140, i32 1
-  %142 = load ptr, ptr %141, align 8
-  tail call void @png_free(ptr noundef nonnull %0, ptr noundef %142) #30
-  %143 = load ptr, ptr %129, align 8
-  %144 = getelementptr inbounds %struct.png_unknown_chunk_t, ptr %143, i64 %140, i32 1
-  store ptr null, ptr %144, align 8
-  br label %152
+145:                                              ; preds = %141
+  %146 = sext i32 %3 to i64
+  %147 = getelementptr inbounds %struct.png_unknown_chunk_t, ptr %136, i64 %146
+  %148 = getelementptr inbounds nuw i8, ptr %147, i64 8
+  %149 = load ptr, ptr %148, align 8
+  tail call void @png_free(ptr noundef nonnull %0, ptr noundef %149) #30
+  %150 = load ptr, ptr %135, align 8
+  %151 = getelementptr inbounds %struct.png_unknown_chunk_t, ptr %150, i64 %146
+  %152 = getelementptr inbounds nuw i8, ptr %151, i64 8
+  store ptr null, ptr %152, align 8
+  br label %161
 
 .lr.ph186:                                        ; preds = %.preheader172, %.lr.ph186
   %indvars.iv200 = phi i64 [ %indvars.iv.next201, %.lr.ph186 ], [ 0, %.preheader172 ]
-  %145 = load ptr, ptr %129, align 8
-  %146 = getelementptr inbounds nuw %struct.png_unknown_chunk_t, ptr %145, i64 %indvars.iv200, i32 1
-  %147 = load ptr, ptr %146, align 8
-  tail call void @png_free(ptr noundef nonnull %0, ptr noundef %147) #30
+  %153 = load ptr, ptr %135, align 8
+  %154 = getelementptr inbounds nuw %struct.png_unknown_chunk_t, ptr %153, i64 %indvars.iv200
+  %155 = getelementptr inbounds nuw i8, ptr %154, i64 8
+  %156 = load ptr, ptr %155, align 8
+  tail call void @png_free(ptr noundef nonnull %0, ptr noundef %156) #30
   %indvars.iv.next201 = add nuw nsw i64 %indvars.iv200, 1
-  %148 = load i32, ptr %136, align 8
-  %149 = sext i32 %148 to i64
-  %150 = icmp slt i64 %indvars.iv.next201, %149
-  br i1 %150, label %.lr.ph186, label %._crit_edge187.loopexit, !llvm.loop !12
+  %157 = load i32, ptr %142, align 8
+  %158 = sext i32 %157 to i64
+  %159 = icmp slt i64 %indvars.iv.next201, %158
+  br i1 %159, label %.lr.ph186, label %._crit_edge187.loopexit, !llvm.loop !12
 
 ._crit_edge187.loopexit:                          ; preds = %.lr.ph186
-  %.pre211 = load ptr, ptr %129, align 8
+  %.pre211 = load ptr, ptr %135, align 8
   br label %._crit_edge187
 
 ._crit_edge187:                                   ; preds = %._crit_edge187.loopexit, %.preheader172
-  %151 = phi ptr [ %.pre211, %._crit_edge187.loopexit ], [ %130, %.preheader172 ]
-  tail call void @png_free(ptr noundef nonnull %0, ptr noundef %151) #30
-  store ptr null, ptr %129, align 8
-  store i32 0, ptr %136, align 8
-  br label %152
+  %160 = phi ptr [ %.pre211, %._crit_edge187.loopexit ], [ %136, %.preheader172 ]
+  tail call void @png_free(ptr noundef nonnull %0, ptr noundef %160) #30
+  store ptr null, ptr %135, align 8
+  store i32 0, ptr %142, align 8
+  br label %161
 
-152:                                              ; preds = %139, %._crit_edge187, %131, %128
-  %153 = and i32 %2, 8
-  %154 = load i32, ptr %35, align 4
-  %155 = and i32 %153, %154
-  %.not167 = icmp eq i32 %155, 0
-  br i1 %.not167, label %162, label %156
+161:                                              ; preds = %145, %._crit_edge187, %137, %134
+  %162 = and i32 %2, 8
+  %163 = load i32, ptr %38, align 4
+  %164 = and i32 %162, %163
+  %.not167 = icmp eq i32 %164, 0
+  br i1 %.not167, label %171, label %165
 
-156:                                              ; preds = %152
-  %157 = getelementptr inbounds nuw i8, ptr %1, i64 240
-  %158 = load ptr, ptr %157, align 8
-  tail call void @png_free(ptr noundef nonnull %0, ptr noundef %158) #30
-  store ptr null, ptr %157, align 8
-  %159 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %160 = load i32, ptr %159, align 8
-  %161 = and i32 %160, -65
-  store i32 %161, ptr %159, align 8
-  %.pre212 = load i32, ptr %35, align 4
-  br label %162
+165:                                              ; preds = %161
+  %166 = getelementptr inbounds nuw i8, ptr %1, i64 240
+  %167 = load ptr, ptr %166, align 8
+  tail call void @png_free(ptr noundef nonnull %0, ptr noundef %167) #30
+  store ptr null, ptr %166, align 8
+  %168 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %169 = load i32, ptr %168, align 8
+  %170 = and i32 %169, -65
+  store i32 %170, ptr %168, align 8
+  %.pre212 = load i32, ptr %38, align 4
+  br label %171
 
-162:                                              ; preds = %156, %152
-  %163 = phi i32 [ %.pre212, %156 ], [ %154, %152 ]
-  %164 = and i32 %2, 4096
-  %165 = and i32 %164, %163
-  %.not168 = icmp eq i32 %165, 0
-  br i1 %.not168, label %173, label %166
+171:                                              ; preds = %165, %161
+  %172 = phi i32 [ %.pre212, %165 ], [ %163, %161 ]
+  %173 = and i32 %2, 4096
+  %174 = and i32 %173, %172
+  %.not168 = icmp eq i32 %174, 0
+  br i1 %.not168, label %182, label %175
 
-166:                                              ; preds = %162
-  %167 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %168 = load ptr, ptr %167, align 8
-  tail call void @png_free(ptr noundef nonnull %0, ptr noundef %168) #30
-  store ptr null, ptr %167, align 8
-  %169 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %170 = load i32, ptr %169, align 8
-  %171 = and i32 %170, -9
-  store i32 %171, ptr %169, align 8
-  %172 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store i16 0, ptr %172, align 8
-  %.pre213 = load i32, ptr %35, align 4
-  br label %173
+175:                                              ; preds = %171
+  %176 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %177 = load ptr, ptr %176, align 8
+  tail call void @png_free(ptr noundef nonnull %0, ptr noundef %177) #30
+  store ptr null, ptr %176, align 8
+  %178 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %179 = load i32, ptr %178, align 8
+  %180 = and i32 %179, -9
+  store i32 %180, ptr %178, align 8
+  %181 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  store i16 0, ptr %181, align 8
+  %.pre213 = load i32, ptr %38, align 4
+  br label %182
 
-173:                                              ; preds = %166, %162
-  %174 = phi i32 [ %.pre213, %166 ], [ %163, %162 ]
-  %175 = and i32 %2, 64
-  %176 = and i32 %175, %174
-  %.not169 = icmp eq i32 %176, 0
-  br i1 %.not169, label %193, label %177
+182:                                              ; preds = %175, %171
+  %183 = phi i32 [ %.pre213, %175 ], [ %172, %171 ]
+  %184 = and i32 %2, 64
+  %185 = and i32 %184, %183
+  %.not169 = icmp eq i32 %185, 0
+  br i1 %.not169, label %202, label %186
 
-177:                                              ; preds = %173
-  %178 = getelementptr inbounds nuw i8, ptr %1, i64 336
-  %179 = load ptr, ptr %178, align 8
-  %.not170 = icmp eq ptr %179, null
-  br i1 %.not170, label %189, label %.preheader
+186:                                              ; preds = %182
+  %187 = getelementptr inbounds nuw i8, ptr %1, i64 336
+  %188 = load ptr, ptr %187, align 8
+  %.not170 = icmp eq ptr %188, null
+  br i1 %.not170, label %198, label %.preheader
 
-.preheader:                                       ; preds = %177
-  %180 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %181 = load i32, ptr %180, align 4
-  %.not192 = icmp eq i32 %181, 0
+.preheader:                                       ; preds = %186
+  %189 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %190 = load i32, ptr %189, align 4
+  %.not192 = icmp eq i32 %190, 0
   br i1 %.not192, label %._crit_edge190, label %.lr.ph189
 
 .lr.ph189:                                        ; preds = %.preheader, %.lr.ph189
   %indvars.iv203 = phi i64 [ %indvars.iv.next204, %.lr.ph189 ], [ 0, %.preheader ]
-  %182 = load ptr, ptr %178, align 8
-  %183 = getelementptr inbounds nuw ptr, ptr %182, i64 %indvars.iv203
-  %184 = load ptr, ptr %183, align 8
-  tail call void @png_free(ptr noundef nonnull %0, ptr noundef %184) #30
+  %191 = load ptr, ptr %187, align 8
+  %192 = getelementptr inbounds nuw ptr, ptr %191, i64 %indvars.iv203
+  %193 = load ptr, ptr %192, align 8
+  tail call void @png_free(ptr noundef nonnull %0, ptr noundef %193) #30
   %indvars.iv.next204 = add nuw nsw i64 %indvars.iv203, 1
-  %185 = load i32, ptr %180, align 4
-  %186 = zext i32 %185 to i64
-  %187 = icmp samesign ult i64 %indvars.iv.next204, %186
-  br i1 %187, label %.lr.ph189, label %._crit_edge190.loopexit, !llvm.loop !13
+  %194 = load i32, ptr %189, align 4
+  %195 = zext i32 %194 to i64
+  %196 = icmp samesign ult i64 %indvars.iv.next204, %195
+  br i1 %196, label %.lr.ph189, label %._crit_edge190.loopexit, !llvm.loop !13
 
 ._crit_edge190.loopexit:                          ; preds = %.lr.ph189
-  %.pre214 = load ptr, ptr %178, align 8
+  %.pre214 = load ptr, ptr %187, align 8
   br label %._crit_edge190
 
 ._crit_edge190:                                   ; preds = %._crit_edge190.loopexit, %.preheader
-  %188 = phi ptr [ %.pre214, %._crit_edge190.loopexit ], [ %179, %.preheader ]
-  tail call void @png_free(ptr noundef nonnull %0, ptr noundef %188) #30
-  store ptr null, ptr %178, align 8
-  %.pre215.pre = load i32, ptr %35, align 4
-  br label %189
-
-189:                                              ; preds = %._crit_edge190, %177
-  %.pre215 = phi i32 [ %.pre215.pre, %._crit_edge190 ], [ %174, %177 ]
-  %190 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %191 = load i32, ptr %190, align 8
-  %192 = and i32 %191, -32769
-  store i32 %192, ptr %190, align 8
-  br label %193
-
-193:                                              ; preds = %189, %173
-  %194 = phi i32 [ %.pre215, %189 ], [ %174, %173 ]
-  %.not171 = icmp eq i32 %3, -1
-  %195 = and i32 %2, -16929
-  %spec.select = select i1 %.not171, i32 %2, i32 %195
-  %196 = xor i32 %spec.select, -1
-  %197 = and i32 %194, %196
-  store i32 %197, ptr %35, align 4
+  %197 = phi ptr [ %.pre214, %._crit_edge190.loopexit ], [ %188, %.preheader ]
+  tail call void @png_free(ptr noundef nonnull %0, ptr noundef %197) #30
+  store ptr null, ptr %187, align 8
+  %.pre215.pre = load i32, ptr %38, align 4
   br label %198
 
-198:                                              ; preds = %4, %193
+198:                                              ; preds = %._crit_edge190, %186
+  %.pre215 = phi i32 [ %.pre215.pre, %._crit_edge190 ], [ %183, %186 ]
+  %199 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %200 = load i32, ptr %199, align 8
+  %201 = and i32 %200, -32769
+  store i32 %201, ptr %199, align 8
+  br label %202
+
+202:                                              ; preds = %198, %182
+  %203 = phi i32 [ %.pre215, %198 ], [ %183, %182 ]
+  %.not171 = icmp eq i32 %3, -1
+  %204 = and i32 %2, -16929
+  %spec.select = select i1 %.not171, i32 %2, i32 %204
+  %205 = xor i32 %spec.select, -1
+  %206 = and i32 %203, %205
+  store i32 %206, ptr %38, align 4
+  br label %207
+
+207:                                              ; preds = %4, %202
   ret void
 }
 

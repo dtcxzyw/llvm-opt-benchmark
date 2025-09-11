@@ -1607,11 +1607,11 @@ define noundef double @_ZN10Parameters9pixelDiffERN3vcg4ShotIfNS0_8Matrix44IfEEE
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   br label %8
 
-8:                                                ; preds = %.lr.ph, %43
-  %.02436 = phi double [ 0.000000e+00, %.lr.ph ], [ %.1, %43 ]
-  %.02535 = phi double [ 0.000000e+00, %.lr.ph ], [ %.126, %43 ]
-  %.02734 = phi i32 [ 0, %.lr.ph ], [ %.128, %43 ]
-  %.02933 = phi i32 [ 0, %.lr.ph ], [ %44, %43 ]
+8:                                                ; preds = %.lr.ph, %44
+  %.02436 = phi double [ 0.000000e+00, %.lr.ph ], [ %.1, %44 ]
+  %.02535 = phi double [ 0.000000e+00, %.lr.ph ], [ %.126, %44 ]
+  %.02734 = phi i32 [ 0, %.lr.ph ], [ %.128, %44 ]
+  %.02933 = phi i32 [ 0, %.lr.ph ], [ %45, %44 ]
   %9 = tail call i32 @rand() #26
   %10 = sitofp i32 %9 to double
   %11 = fmul double %10, 0x3E00000000000000
@@ -1632,59 +1632,60 @@ define noundef double @_ZN10Parameters9pixelDiffERN3vcg4ShotIfNS0_8Matrix44IfEEE
   %26 = urem i64 %19, %25
   %sext = shl i64 %26, 32
   %27 = ashr exact i64 %sext, 32
-  %28 = getelementptr inbounds %class.CVertexO, ptr %21, i64 %27, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
-  %29 = load float, ptr %28, align 4
-  %.sroa.031.0.vec.insert = insertelement <2 x float> poison, float %29, i64 0
-  %30 = getelementptr inbounds nuw i8, ptr %28, i64 4
-  %31 = load float, ptr %30, align 4
-  %.sroa.031.4.vec.insert = insertelement <2 x float> %.sroa.031.0.vec.insert, float %31, i64 1
-  %32 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  %33 = load float, ptr %32, align 4
-  %34 = tail call <2 x float> @_ZN10Parameters9pixelDiffERN3vcg4ShotIfNS0_8Matrix44IfEEEENS0_6Point3IfEE(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr noundef nonnull align 4 dereferenceable(132) %1, <2 x float> %.sroa.031.4.vec.insert, float %33)
-  %.sroa.0.0.vec.extract = extractelement <2 x float> %34, i64 0
-  %foldExtExtBinop = fmul <2 x float> %34, %34
-  %35 = extractelement <2 x float> %foldExtExtBinop, i64 1
-  %36 = tail call float @llvm.fmuladd.f32(float %.sroa.0.0.vec.extract, float %.sroa.0.0.vec.extract, float %35)
-  %37 = fcmp une float %36, 0.000000e+00
-  br i1 %37, label %38, label %43
+  %28 = getelementptr inbounds %class.CVertexO, ptr %21, i64 %27
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  %30 = load float, ptr %29, align 4
+  %.sroa.031.0.vec.insert = insertelement <2 x float> poison, float %30, i64 0
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 12
+  %32 = load float, ptr %31, align 4
+  %.sroa.031.4.vec.insert = insertelement <2 x float> %.sroa.031.0.vec.insert, float %32, i64 1
+  %33 = getelementptr inbounds nuw i8, ptr %28, i64 16
+  %34 = load float, ptr %33, align 4
+  %35 = tail call <2 x float> @_ZN10Parameters9pixelDiffERN3vcg4ShotIfNS0_8Matrix44IfEEEENS0_6Point3IfEE(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr noundef nonnull align 4 dereferenceable(132) %1, <2 x float> %.sroa.031.4.vec.insert, float %34)
+  %.sroa.0.0.vec.extract = extractelement <2 x float> %35, i64 0
+  %foldExtExtBinop = fmul <2 x float> %35, %35
+  %36 = extractelement <2 x float> %foldExtExtBinop, i64 1
+  %37 = tail call float @llvm.fmuladd.f32(float %.sroa.0.0.vec.extract, float %.sroa.0.0.vec.extract, float %36)
+  %38 = fcmp une float %37, 0.000000e+00
+  br i1 %38, label %39, label %44
 
-38:                                               ; preds = %8
-  %sqrt.i = tail call noundef float @llvm.sqrt.f32(float %36)
-  %39 = fpext float %sqrt.i to double
-  %40 = fcmp olt double %.02436, %39
-  %.2 = select i1 %40, double %39, double %.02436
-  %41 = tail call double @llvm.fmuladd.f64(double %39, double %39, double %.02535)
-  %42 = add nsw i32 %.02734, 1
-  br label %43
+39:                                               ; preds = %8
+  %sqrt.i = tail call noundef float @llvm.sqrt.f32(float %37)
+  %40 = fpext float %sqrt.i to double
+  %41 = fcmp olt double %.02436, %40
+  %.2 = select i1 %41, double %40, double %.02436
+  %42 = tail call double @llvm.fmuladd.f64(double %40, double %40, double %.02535)
+  %43 = add nsw i32 %.02734, 1
+  br label %44
 
-43:                                               ; preds = %8, %38
-  %.128 = phi i32 [ %.02734, %8 ], [ %42, %38 ]
-  %.126 = phi double [ %.02535, %8 ], [ %41, %38 ]
-  %.1 = phi double [ %.02436, %8 ], [ %.2, %38 ]
-  %44 = add nuw nsw i32 %.02933, 1
-  %exitcond.not = icmp eq i32 %44, %3
+44:                                               ; preds = %8, %39
+  %.128 = phi i32 [ %.02734, %8 ], [ %43, %39 ]
+  %.126 = phi double [ %.02535, %8 ], [ %42, %39 ]
+  %.1 = phi double [ %.02436, %8 ], [ %.2, %39 ]
+  %45 = add nuw nsw i32 %.02933, 1
+  %exitcond.not = icmp eq i32 %45, %3
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %8, !llvm.loop !30
 
-._crit_edge.loopexit:                             ; preds = %43
-  %45 = sitofp i32 %.128 to double
+._crit_edge.loopexit:                             ; preds = %44
+  %46 = sitofp i32 %.128 to double
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %4
-  %.027.lcssa = phi double [ 0.000000e+00, %4 ], [ %45, %._crit_edge.loopexit ]
+  %.027.lcssa = phi double [ 0.000000e+00, %4 ], [ %46, %._crit_edge.loopexit ]
   %.025.lcssa = phi double [ 0.000000e+00, %4 ], [ %.126, %._crit_edge.loopexit ]
   %.024.lcssa = phi double [ 0.000000e+00, %4 ], [ %.1, %._crit_edge.loopexit ]
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 113
-  %47 = load i8, ptr %46, align 1
-  %48 = trunc i8 %47 to i1
-  br i1 %48, label %52, label %49
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 113
+  %48 = load i8, ptr %47, align 1
+  %49 = trunc i8 %48 to i1
+  br i1 %49, label %53, label %50
 
-49:                                               ; preds = %._crit_edge
-  %50 = fdiv double %.025.lcssa, %.027.lcssa
-  %51 = tail call double @sqrt(double noundef %50) #26
-  br label %52
+50:                                               ; preds = %._crit_edge
+  %51 = fdiv double %.025.lcssa, %.027.lcssa
+  %52 = tail call double @sqrt(double noundef %51) #26
+  br label %53
 
-52:                                               ; preds = %._crit_edge, %49
-  %.0 = phi double [ %51, %49 ], [ %.024.lcssa, %._crit_edge ]
+53:                                               ; preds = %._crit_edge, %50
+  %.0 = phi double [ %52, %50 ], [ %.024.lcssa, %._crit_edge ]
   ret double %.0
 }
 

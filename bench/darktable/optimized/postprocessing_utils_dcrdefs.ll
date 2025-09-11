@@ -1355,7 +1355,7 @@ define void @_ZN6LibRaw14green_matchingEv(ptr noundef nonnull align 8 dereferenc
   %6 = load i16, ptr %5, align 4
   %.not95 = icmp eq i16 %6, 0
   %or.cond = select i1 %.not, i1 %.not95, i1 false
-  br i1 %or.cond, label %7, label %173
+  br i1 %or.cond, label %7, label %176
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 544
@@ -1418,9 +1418,9 @@ define void @_ZN6LibRaw14green_matchingEv(ptr noundef nonnull align 8 dereferenc
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge
-  %41 = phi i16 [ %30, %.preheader.lr.ph ], [ %167, %._crit_edge ]
-  %42 = phi i16 [ %.pre, %.preheader.lr.ph ], [ %168, %._crit_edge ]
-  %43 = phi i16 [ %.pre, %.preheader.lr.ph ], [ %169, %._crit_edge ]
+  %41 = phi i16 [ %30, %.preheader.lr.ph ], [ %170, %._crit_edge ]
+  %42 = phi i16 [ %.pre, %.preheader.lr.ph ], [ %171, %._crit_edge ]
+  %43 = phi i16 [ %.pre, %.preheader.lr.ph ], [ %172, %._crit_edge ]
   %.086107 = phi i32 [ %spec.select, %.preheader.lr.ph ], [ %.pre-phi, %._crit_edge ]
   %44 = zext i16 %43 to i32
   %45 = icmp samesign ult i32 %invariant.op, %44
@@ -1438,10 +1438,10 @@ define void @_ZN6LibRaw14green_matchingEv(ptr noundef nonnull align 8 dereferenc
   %50 = load ptr, ptr %2, align 8
   br label %51
 
-51:                                               ; preds = %.lr.ph, %161
-  %52 = phi i16 [ %42, %.lr.ph ], [ %162, %161 ]
-  %53 = phi i32 [ %44, %.lr.ph ], [ %164, %161 ]
-  %.0106 = phi i32 [ %.087, %.lr.ph ], [ %163, %161 ]
+51:                                               ; preds = %.lr.ph, %164
+  %52 = phi i16 [ %42, %.lr.ph ], [ %165, %164 ]
+  %53 = phi i32 [ %44, %.lr.ph ], [ %167, %164 ]
+  %.0106 = phi i32 [ %.087, %.lr.ph ], [ %166, %164 ]
   %54 = mul nuw nsw i32 %53, %46
   %55 = add nsw i32 %54, %.0106
   %56 = sext i32 %55 to i64
@@ -1465,126 +1465,129 @@ define void @_ZN6LibRaw14green_matchingEv(ptr noundef nonnull align 8 dereferenc
   %74 = mul nsw i32 %53, %48
   %75 = add nsw i32 %74, %.0106
   %76 = sext i32 %75 to i64
-  %77 = getelementptr inbounds [4 x i16], ptr %22, i64 %76, i64 3
-  %78 = load i16, ptr %77, align 2, !tbaa !108
-  %79 = zext i16 %78 to i32
-  %80 = mul nuw nsw i32 %53, %49
-  %81 = add nsw i32 %80, %.0106
-  %82 = sext i32 %81 to i64
-  %83 = getelementptr inbounds [4 x i16], ptr %22, i64 %82, i64 3
-  %84 = load i16, ptr %83, align 2, !tbaa !108
-  %85 = zext i16 %84 to i32
-  %86 = mul nsw i32 %53, %.086107
-  %87 = add nsw i32 %86, %.0106
-  %88 = sext i32 %87 to i64
-  %89 = getelementptr [4 x i16], ptr %22, i64 %88
-  %90 = getelementptr i8, ptr %89, i64 -10
-  %91 = load i16, ptr %90, align 2, !tbaa !108
-  %92 = zext i16 %91 to i32
-  %93 = getelementptr i8, ptr %89, i64 22
-  %94 = load i16, ptr %93, align 2, !tbaa !108
-  %95 = zext i16 %94 to i32
-  %96 = add nuw nsw i32 %63, %60
-  %97 = add nuw nsw i32 %96, %70
-  %98 = add nuw nsw i32 %97, %73
-  %99 = uitofp nneg i32 %98 to double
-  %100 = fmul reassoc nsz arcp contract afn double %99, 2.500000e-01
-  %101 = add nuw nsw i32 %85, %79
-  %102 = add nuw nsw i32 %101, %92
-  %103 = add nuw nsw i32 %102, %95
-  %104 = uitofp nneg i32 %103 to double
-  %105 = fmul reassoc nsz arcp contract afn double %104, 2.500000e-01
-  %106 = getelementptr inbounds [4 x i16], ptr %22, i64 %88, i64 3
-  %107 = load i16, ptr %106, align 2, !tbaa !108
-  %108 = uitofp i16 %107 to double
-  %109 = fcmp reassoc nsz arcp contract afn ogt double %37, %108
-  br i1 %109, label %110, label %161
+  %77 = getelementptr inbounds [4 x i16], ptr %22, i64 %76
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 6
+  %79 = load i16, ptr %78, align 2, !tbaa !108
+  %80 = zext i16 %79 to i32
+  %81 = mul nuw nsw i32 %53, %49
+  %82 = add nsw i32 %81, %.0106
+  %83 = sext i32 %82 to i64
+  %84 = getelementptr inbounds [4 x i16], ptr %22, i64 %83
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 6
+  %86 = load i16, ptr %85, align 2, !tbaa !108
+  %87 = zext i16 %86 to i32
+  %88 = mul nsw i32 %53, %.086107
+  %89 = add nsw i32 %88, %.0106
+  %90 = sext i32 %89 to i64
+  %91 = getelementptr [4 x i16], ptr %22, i64 %90
+  %92 = getelementptr i8, ptr %91, i64 -10
+  %93 = load i16, ptr %92, align 2, !tbaa !108
+  %94 = zext i16 %93 to i32
+  %95 = getelementptr i8, ptr %91, i64 22
+  %96 = load i16, ptr %95, align 2, !tbaa !108
+  %97 = zext i16 %96 to i32
+  %98 = add nuw nsw i32 %63, %60
+  %99 = add nuw nsw i32 %98, %70
+  %100 = add nuw nsw i32 %99, %73
+  %101 = uitofp nneg i32 %100 to double
+  %102 = fmul reassoc nsz arcp contract afn double %101, 2.500000e-01
+  %103 = add nuw nsw i32 %87, %80
+  %104 = add nuw nsw i32 %103, %94
+  %105 = add nuw nsw i32 %104, %97
+  %106 = uitofp nneg i32 %105 to double
+  %107 = fmul reassoc nsz arcp contract afn double %106, 2.500000e-01
+  %108 = getelementptr inbounds nuw i8, ptr %91, i64 6
+  %109 = load i16, ptr %108, align 2, !tbaa !108
+  %110 = uitofp i16 %109 to double
+  %111 = fcmp reassoc nsz arcp contract afn ogt double %37, %110
+  br i1 %111, label %112, label %164
 
-110:                                              ; preds = %51
-  %111 = sub nsw i32 %79, %85
-  %112 = tail call i32 @llvm.abs.i32(i32 %111, i1 true)
-  %113 = sub nsw i32 %79, %92
+112:                                              ; preds = %51
+  %113 = sub nsw i32 %80, %87
   %114 = tail call i32 @llvm.abs.i32(i32 %113, i1 true)
-  %115 = add nuw nsw i32 %114, %112
-  %116 = sub nsw i32 %79, %95
-  %117 = tail call i32 @llvm.abs.i32(i32 %116, i1 true)
-  %118 = sub nsw i32 %85, %92
+  %115 = sub nsw i32 %80, %94
+  %116 = tail call i32 @llvm.abs.i32(i32 %115, i1 true)
+  %117 = add nuw nsw i32 %116, %114
+  %118 = sub nsw i32 %80, %97
   %119 = tail call i32 @llvm.abs.i32(i32 %118, i1 true)
-  %120 = sub nsw i32 %92, %95
+  %120 = sub nsw i32 %87, %94
   %121 = tail call i32 @llvm.abs.i32(i32 %120, i1 true)
-  %122 = sub nsw i32 %85, %95
+  %122 = sub nsw i32 %94, %97
   %123 = tail call i32 @llvm.abs.i32(i32 %122, i1 true)
-  %124 = add nuw nsw i32 %115, %119
-  %125 = add nuw nsw i32 %124, %117
-  %126 = add nuw nsw i32 %125, %121
-  %127 = add nuw nsw i32 %126, %123
-  %128 = uitofp nneg i32 %127 to double
-  %129 = fmul reassoc nsz arcp contract afn double %128, 0x3FC5555555555555
-  %130 = sub nsw i32 %60, %63
-  %131 = tail call i32 @llvm.abs.i32(i32 %130, i1 true)
-  %132 = sub nsw i32 %60, %70
+  %124 = sub nsw i32 %87, %97
+  %125 = tail call i32 @llvm.abs.i32(i32 %124, i1 true)
+  %126 = add nuw nsw i32 %117, %121
+  %127 = add nuw nsw i32 %126, %119
+  %128 = add nuw nsw i32 %127, %123
+  %129 = add nuw nsw i32 %128, %125
+  %130 = uitofp nneg i32 %129 to double
+  %131 = fmul reassoc nsz arcp contract afn double %130, 0x3FC5555555555555
+  %132 = sub nsw i32 %60, %63
   %133 = tail call i32 @llvm.abs.i32(i32 %132, i1 true)
-  %134 = add nuw nsw i32 %133, %131
-  %135 = sub nsw i32 %60, %73
-  %136 = tail call i32 @llvm.abs.i32(i32 %135, i1 true)
-  %137 = sub nsw i32 %63, %70
+  %134 = sub nsw i32 %60, %70
+  %135 = tail call i32 @llvm.abs.i32(i32 %134, i1 true)
+  %136 = add nuw nsw i32 %135, %133
+  %137 = sub nsw i32 %60, %73
   %138 = tail call i32 @llvm.abs.i32(i32 %137, i1 true)
-  %139 = sub nsw i32 %70, %73
+  %139 = sub nsw i32 %63, %70
   %140 = tail call i32 @llvm.abs.i32(i32 %139, i1 true)
-  %141 = sub nsw i32 %63, %73
+  %141 = sub nsw i32 %70, %73
   %142 = tail call i32 @llvm.abs.i32(i32 %141, i1 true)
-  %143 = add nuw nsw i32 %134, %138
-  %144 = add nuw nsw i32 %143, %136
-  %145 = add nuw nsw i32 %144, %140
-  %146 = add nuw nsw i32 %145, %142
-  %147 = uitofp nneg i32 %146 to double
-  %148 = fmul reassoc nsz arcp contract afn double %147, 0x3FC5555555555555
-  %149 = fcmp reassoc nsz arcp contract afn olt double %148, %40
-  %150 = fcmp reassoc nsz arcp contract afn olt double %129, %40
-  %or.cond100 = select i1 %149, i1 %150, i1 false
-  br i1 %or.cond100, label %151, label %161
+  %143 = sub nsw i32 %63, %73
+  %144 = tail call i32 @llvm.abs.i32(i32 %143, i1 true)
+  %145 = add nuw nsw i32 %136, %140
+  %146 = add nuw nsw i32 %145, %138
+  %147 = add nuw nsw i32 %146, %142
+  %148 = add nuw nsw i32 %147, %144
+  %149 = uitofp nneg i32 %148 to double
+  %150 = fmul reassoc nsz arcp contract afn double %149, 0x3FC5555555555555
+  %151 = fcmp reassoc nsz arcp contract afn olt double %150, %40
+  %152 = fcmp reassoc nsz arcp contract afn olt double %131, %40
+  %or.cond100 = select i1 %151, i1 %152, i1 false
+  br i1 %or.cond100, label %153, label %164
 
-151:                                              ; preds = %110
-  %152 = getelementptr inbounds [4 x i16], ptr %50, i64 %88, i64 3
-  %153 = load i16, ptr %152, align 2, !tbaa !108
-  %154 = uitofp i16 %153 to double
-  %155 = fmul reassoc nsz arcp contract afn double %100, %154
-  %156 = fdiv reassoc nsz arcp contract afn double %155, %105
-  %157 = fptrunc reassoc nsz arcp contract afn double %156 to float
-  %158 = fcmp reassoc nsz arcp contract afn ogt float %157, 6.553500e+04
-  %159 = select reassoc nsz arcp contract afn i1 %158, float 6.553500e+04, float %157
-  %160 = fptoui float %159 to i16
-  store i16 %160, ptr %152, align 2, !tbaa !108
+153:                                              ; preds = %112
+  %154 = getelementptr inbounds [4 x i16], ptr %50, i64 %90
+  %155 = getelementptr inbounds nuw i8, ptr %154, i64 6
+  %156 = load i16, ptr %155, align 2, !tbaa !108
+  %157 = uitofp i16 %156 to double
+  %158 = fmul reassoc nsz arcp contract afn double %102, %157
+  %159 = fdiv reassoc nsz arcp contract afn double %158, %107
+  %160 = fptrunc reassoc nsz arcp contract afn double %159 to float
+  %161 = fcmp reassoc nsz arcp contract afn ogt float %160, 6.553500e+04
+  %162 = select reassoc nsz arcp contract afn i1 %161, float 6.553500e+04, float %160
+  %163 = fptoui float %162 to i16
+  store i16 %163, ptr %155, align 2, !tbaa !108
   %.pre109 = load i16, ptr %18, align 2, !tbaa !101
-  br label %161
+  br label %164
 
-161:                                              ; preds = %51, %110, %151
-  %162 = phi i16 [ %52, %51 ], [ %52, %110 ], [ %.pre109, %151 ]
-  %163 = add nuw nsw i32 %.0106, 2
-  %164 = zext i16 %162 to i32
-  %165 = add nsw i32 %164, -3
-  %166 = icmp slt i32 %163, %165
-  br i1 %166, label %51, label %._crit_edge.loopexit, !llvm.loop !136
+164:                                              ; preds = %51, %112, %153
+  %165 = phi i16 [ %52, %51 ], [ %52, %112 ], [ %.pre109, %153 ]
+  %166 = add nuw nsw i32 %.0106, 2
+  %167 = zext i16 %165 to i32
+  %168 = add nsw i32 %167, -3
+  %169 = icmp slt i32 %166, %168
+  br i1 %169, label %51, label %._crit_edge.loopexit, !llvm.loop !136
 
-._crit_edge.loopexit:                             ; preds = %161
+._crit_edge.loopexit:                             ; preds = %164
   %.pre110 = load i16, ptr %15, align 4, !tbaa !100
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.preheader.._crit_edge_crit_edge, %._crit_edge.loopexit
   %.pre-phi = phi i32 [ %.pre111, %.preheader.._crit_edge_crit_edge ], [ %49, %._crit_edge.loopexit ]
-  %167 = phi i16 [ %41, %.preheader.._crit_edge_crit_edge ], [ %.pre110, %._crit_edge.loopexit ]
-  %168 = phi i16 [ %42, %.preheader.._crit_edge_crit_edge ], [ %162, %._crit_edge.loopexit ]
-  %169 = phi i16 [ %43, %.preheader.._crit_edge_crit_edge ], [ %162, %._crit_edge.loopexit ]
-  %170 = zext i16 %167 to i32
-  %171 = add nsw i32 %170, -3
-  %172 = icmp slt i32 %.pre-phi, %171
-  br i1 %172, label %.preheader, label %._crit_edge108, !llvm.loop !137
+  %170 = phi i16 [ %41, %.preheader.._crit_edge_crit_edge ], [ %.pre110, %._crit_edge.loopexit ]
+  %171 = phi i16 [ %42, %.preheader.._crit_edge_crit_edge ], [ %165, %._crit_edge.loopexit ]
+  %172 = phi i16 [ %43, %.preheader.._crit_edge_crit_edge ], [ %165, %._crit_edge.loopexit ]
+  %173 = zext i16 %170 to i32
+  %174 = add nsw i32 %173, -3
+  %175 = icmp slt i32 %.pre-phi, %174
+  br i1 %175, label %.preheader, label %._crit_edge108, !llvm.loop !137
 
 ._crit_edge108:                                   ; preds = %._crit_edge, %.split91
   tail call void @_ZN6LibRaw4freeEPv(ptr noundef nonnull align 8 dereferenceable(767680) %0, ptr noundef %22)
-  br label %173
+  br label %176
 
-173:                                              ; preds = %1, %._crit_edge108
+176:                                              ; preds = %1, %._crit_edge108
   ret void
 }
 

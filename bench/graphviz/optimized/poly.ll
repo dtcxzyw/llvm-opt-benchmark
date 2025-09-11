@@ -633,7 +633,7 @@ gv_calloc.exit83:                                 ; preds = %gv_calloc.exit83.pr
   %56 = fdiv double %55, 7.200000e+01
   %57 = getelementptr inbounds nuw %struct.pointf_s, ptr %46, i64 %.076102
   store double %56, ptr %57, align 8, !tbaa !38
-  %58 = getelementptr inbounds nuw %struct.pointf_s, ptr %49, i64 %.076102, i32 1
+  %58 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %59 = load double, ptr %58, align 8, !tbaa !39
   %60 = fdiv double %59, 7.200000e+01
   %61 = getelementptr inbounds nuw i8, ptr %57, i64 8
@@ -1390,7 +1390,7 @@ gv_calloc.exit:                                   ; preds = %12
   %29 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %30 = load double, ptr %29, align 8, !tbaa !39
   %31 = fsub double %30, %3
-  %32 = getelementptr inbounds nuw %struct.pointf_s, ptr %21, i64 %indvars.iv, i32 1
+  %32 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store double %31, ptr %32, align 8, !tbaa !39
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1426,11 +1426,12 @@ gv_calloc.exit:                                   ; preds = %12
 52:                                               ; preds = %41, %33
   %53 = fcmp ult double %39, 0.000000e+00
   %.phi.trans.insert = sext i32 %36 to i64
-  %.phi.trans.insert54 = getelementptr inbounds %struct.pointf_s, ptr %21, i64 %.phi.trans.insert, i32 1
-  %.pre = load double, ptr %.phi.trans.insert54, align 8, !tbaa !39
+  %.phi.trans.insert54 = getelementptr inbounds %struct.pointf_s, ptr %21, i64 %.phi.trans.insert
+  %.phi.trans.insert55 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert54, i64 8
+  %.pre = load double, ptr %.phi.trans.insert55, align 8, !tbaa !39
   %54 = fcmp ugt double %.pre, 0.000000e+00
-  %or.cond64 = select i1 %53, i1 true, i1 %54
-  br i1 %or.cond64, label %._crit_edge53, label %57
+  %or.cond65 = select i1 %53, i1 true, i1 %54
+  br i1 %or.cond65, label %._crit_edge53, label %57
 
 ._crit_edge53:                                    ; preds = %52
   %55 = fcmp ult double %.pre, 0.000000e+00

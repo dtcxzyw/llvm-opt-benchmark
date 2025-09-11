@@ -541,10 +541,8 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
 
 45:                                               ; preds = %40
   %46 = load i32, ptr %7, align 8, !range !68, !noalias !61, !noundef !5
-  %trunc.i.i.i.i.i.i = trunc nuw i32 %46 to i1
   %47 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %48 = load ptr, ptr %47, align 8, !noalias !61, !nonnull !5
-  %.sroa.3.0.i.i.i.i.i.i = select i1 %trunc.i.i.i.i.i.i, ptr %48, ptr %13
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !61
   %switch.not.not.i.i.i.i.i = icmp eq i32 %46, 0
   br i1 %switch.not.not.i.i.i.i.i, label %49, label %51
@@ -554,7 +552,7 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
           to label %51 unwind label %43, !noalias !59
 
 51:                                               ; preds = %49, %45
-  %52 = phi ptr [ %.sroa.3.0.i.i.i.i.i.i, %45 ], [ %50, %49 ]
+  %52 = phi ptr [ %48, %45 ], [ %50, %49 ]
   invoke fastcc void @"_ZN4core3ptr74drop_in_place$LT$$LP$alloc..string..String$C$alloc..string..String$RP$$GT$17h2d94039278b7327cE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %12)
           to label %"_ZN5sqlez16typed_statements47_$LT$impl$u20$sqlez..connection..Connection$GT$10exec_bound28_$u7b$$u7b$closure$u7d$$u7d$17hbe11c7dae64a70ebE.exit.i.i.i.i" unwind label %57, !noalias !59
 

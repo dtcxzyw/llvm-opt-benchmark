@@ -1005,13 +1005,14 @@ define dso_local void @_ZNK4llvm6object8TapiFile13getSymbolTypeENS0_11DataRefImp
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %5 = and i64 %2, 4294967295
   %6 = load ptr, ptr %4, align 8, !tbaa !105
-  %7 = getelementptr inbounds nuw %"struct.llvm::object::TapiFile::Symbol", ptr %6, i64 %5, i32 3
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %9 = load i8, ptr %8, align 8
-  %10 = and i8 %9, -2
-  store i8 %10, ptr %8, align 8
-  %11 = load i32, ptr %7, align 4, !tbaa !108
-  store i32 %11, ptr %0, align 8, !tbaa !108
+  %7 = getelementptr inbounds nuw %"struct.llvm::object::TapiFile::Symbol", ptr %6, i64 %5
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 36
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %10 = load i8, ptr %9, align 8
+  %11 = and i8 %10, -2
+  store i8 %11, ptr %9, align 8
+  %12 = load i32, ptr %8, align 4, !tbaa !108
+  store i32 %12, ptr %0, align 8, !tbaa !108
   ret void
 }
 
@@ -1020,13 +1021,14 @@ define dso_local void @_ZNK4llvm6object8TapiFile14getSymbolFlagsENS0_11DataRefIm
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %5 = and i64 %2, 4294967295
   %6 = load ptr, ptr %4, align 8, !tbaa !105
-  %7 = getelementptr inbounds nuw %"struct.llvm::object::TapiFile::Symbol", ptr %6, i64 %5, i32 2
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %9 = load i8, ptr %8, align 8
-  %10 = and i8 %9, -2
-  store i8 %10, ptr %8, align 8
-  %11 = load i32, ptr %7, align 4, !tbaa !107
-  store i32 %11, ptr %0, align 8, !tbaa !107
+  %7 = getelementptr inbounds nuw %"struct.llvm::object::TapiFile::Symbol", ptr %6, i64 %5
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %10 = load i8, ptr %9, align 8
+  %11 = and i8 %10, -2
+  store i8 %11, ptr %9, align 8
+  %12 = load i32, ptr %8, align 4, !tbaa !107
+  store i32 %12, ptr %0, align 8, !tbaa !107
   ret void
 }
 

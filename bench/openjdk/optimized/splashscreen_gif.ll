@@ -31,25 +31,25 @@ define hidden range(i32 0, 2) i32 @SplashDecodeGif(ptr noundef %0, ptr noundef %
   %7 = alloca %struct.ImageRect, align 8
   %8 = tail call i32 @DGifSlurp(ptr noundef %1) #8
   %9 = icmp eq i32 %8, 0
-  br i1 %9, label %248, label %10
+  br i1 %9, label %249, label %10
 
 10:                                               ; preds = %2
   tail call void @SplashCleanup(ptr noundef %0) #8
   %11 = load i32, ptr %1, align 8
   %12 = icmp sgt i32 %11, 0
-  br i1 %12, label %13, label %248
+  br i1 %12, label %13, label %249
 
 13:                                               ; preds = %10
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 9320
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 9352
   %16 = load i32, ptr %15, align 8
   %17 = icmp sgt i32 %16, 0
-  br i1 %17, label %18, label %248
+  br i1 %17, label %18, label %249
 
 18:                                               ; preds = %13
   %19 = udiv i32 -1, %11
   %20 = icmp ugt i32 %19, %16
-  br i1 %20, label %21, label %248
+  br i1 %20, label %21, label %249
 
 21:                                               ; preds = %18
   %22 = mul nuw nsw i32 %16, %11
@@ -66,26 +66,26 @@ define hidden range(i32 0, 2) i32 @SplashDecodeGif(ptr noundef %0, ptr noundef %
   %32 = icmp sgt i32 %31, 0
   %33 = icmp sgt i32 %.0211, 0
   %or.cond = select i1 %32, i1 %33, i1 false
-  br i1 %or.cond, label %34, label %248
+  br i1 %or.cond, label %34, label %249
 
 34:                                               ; preds = %21
   %35 = udiv i32 -1, %31
   %36 = icmp ugt i32 %35, %.0211
-  br i1 %36, label %37, label %248
+  br i1 %36, label %37, label %249
 
 37:                                               ; preds = %34
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %39 = load i32, ptr %38, align 8
   %40 = add i32 %39, -1
   %or.cond261 = icmp ult i32 %40, 477218588
-  br i1 %or.cond261, label %41, label %248
+  br i1 %or.cond261, label %41, label %249
 
 41:                                               ; preds = %37
   %42 = mul nuw nsw i32 %.0211, %31
   %43 = zext nneg i32 %42 to i64
   %44 = tail call noalias ptr @malloc(i64 noundef %43) #9
   %.not = icmp eq ptr %44, null
-  br i1 %.not, label %248, label %45
+  br i1 %.not, label %249, label %45
 
 45:                                               ; preds = %41
   %46 = tail call noalias ptr @malloc(i64 noundef %43) #9
@@ -94,7 +94,7 @@ define hidden range(i32 0, 2) i32 @SplashDecodeGif(ptr noundef %0, ptr noundef %
 
 47:                                               ; preds = %45
   tail call void @free(ptr noundef nonnull %44) #8
-  br label %248
+  br label %249
 
 48:                                               ; preds = %45
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %44, i8 0, i64 %43, i1 false)
@@ -126,7 +126,7 @@ define hidden range(i32 0, 2) i32 @SplashDecodeGif(ptr noundef %0, ptr noundef %
 61:                                               ; preds = %.thread, %56
   tail call void @free(ptr noundef nonnull %44) #8
   tail call void @free(ptr noundef nonnull %46) #8
-  br label %248
+  br label %249
 
 62:                                               ; preds = %56
   %63 = load i32, ptr %38, align 8
@@ -379,98 +379,99 @@ define hidden range(i32 0, 2) i32 @SplashDecodeGif(ptr noundef %0, ptr noundef %
 200:                                              ; preds = %193
   call void @free(ptr noundef %44) #8
   call void @free(ptr noundef %46) #8
-  br label %248
+  br label %249
 
 201:                                              ; preds = %193
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %199, ptr nonnull align 1 %44, i64 %43, i1 false)
   %202 = trunc nuw nsw i64 %indvars.iv289 to i32
   call void @SplashInitFrameShape(ptr noundef nonnull %0, i32 noundef %202) #8
   %203 = load ptr, ptr %60, align 8
-  %204 = getelementptr inbounds nuw %struct.SplashImage, ptr %203, i64 %indvars.iv289, i32 1
-  store i32 %.0219.lcssa, ptr %204, align 8
+  %204 = getelementptr inbounds nuw %struct.SplashImage, ptr %203, i64 %indvars.iv289
+  %205 = getelementptr inbounds nuw i8, ptr %204, i64 8
+  store i32 %.0219.lcssa, ptr %205, align 8
   switch i32 %.0224.lcssa, label %.loopexit [
-    i32 1, label %205
-    i32 3, label %229
-    i32 2, label %206
+    i32 1, label %206
+    i32 3, label %230
+    i32 2, label %207
   ]
 
-205:                                              ; preds = %201
+206:                                              ; preds = %201
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %46, ptr nonnull align 1 %44, i64 %43, i1 false)
   br label %.loopexit
 
-206:                                              ; preds = %201
-  %207 = icmp slt i32 %.0216.lcssa, 0
-  br i1 %207, label %208, label %227
+207:                                              ; preds = %201
+  %208 = icmp slt i32 %.0216.lcssa, 0
+  br i1 %208, label %209, label %228
 
-208:                                              ; preds = %206
-  %209 = getelementptr inbounds nuw i8, ptr %87, i64 16
-  %210 = load ptr, ptr %209, align 8
-  %211 = load i32, ptr %77, align 4
-  %212 = sext i32 %211 to i64
-  %213 = getelementptr inbounds %struct.GifColorType, ptr %210, i64 %212
-  %214 = load i8, ptr %213, align 1
-  %215 = zext i8 %214 to i32
-  %216 = shl nuw nsw i32 %215, 16
-  %217 = getelementptr inbounds nuw i8, ptr %213, i64 1
-  %218 = load i8, ptr %217, align 1
-  %219 = zext i8 %218 to i32
-  %220 = shl nuw nsw i32 %219, 8
-  %221 = getelementptr inbounds nuw i8, ptr %213, i64 2
-  %222 = load i8, ptr %221, align 1
-  %223 = zext i8 %222 to i32
-  %224 = or disjoint i32 %216, %220
-  %225 = or disjoint i32 %224, %223
-  %226 = or disjoint i32 %225, -16777216
-  br label %227
+209:                                              ; preds = %207
+  %210 = getelementptr inbounds nuw i8, ptr %87, i64 16
+  %211 = load ptr, ptr %210, align 8
+  %212 = load i32, ptr %77, align 4
+  %213 = sext i32 %212 to i64
+  %214 = getelementptr inbounds %struct.GifColorType, ptr %211, i64 %213
+  %215 = load i8, ptr %214, align 1
+  %216 = zext i8 %215 to i32
+  %217 = shl nuw nsw i32 %216, 16
+  %218 = getelementptr inbounds nuw i8, ptr %214, i64 1
+  %219 = load i8, ptr %218, align 1
+  %220 = zext i8 %219 to i32
+  %221 = shl nuw nsw i32 %220, 8
+  %222 = getelementptr inbounds nuw i8, ptr %214, i64 2
+  %223 = load i8, ptr %222, align 1
+  %224 = zext i8 %223 to i32
+  %225 = or disjoint i32 %217, %221
+  %226 = or disjoint i32 %225, %224
+  %227 = or disjoint i32 %226, -16777216
+  br label %228
 
-227:                                              ; preds = %208, %206
-  %.0212 = phi i32 [ %226, %208 ], [ 0, %206 ]
+228:                                              ; preds = %209, %207
+  %.0212 = phi i32 [ %227, %209 ], [ 0, %207 ]
   call void @initRect(ptr noundef nonnull %7, i32 noundef %93, i32 noundef %97, i32 noundef %104, i32 noundef %110, i32 noundef 1, i32 noundef %.0211, ptr noundef nonnull %44, ptr noundef nonnull %14) #8
-  %228 = call i32 @fillRect(i32 noundef %.0212, ptr noundef nonnull %7) #8
+  %229 = call i32 @fillRect(i32 noundef %.0212, ptr noundef nonnull %7) #8
   br label %.loopexit
 
-229:                                              ; preds = %201
-  %230 = load i32, ptr %15, align 8
-  %231 = mul nsw i32 %230, %104
-  %232 = icmp slt i32 %231, 1
-  %brmerge = select i1 %232, i1 true, i1 %189
+230:                                              ; preds = %201
+  %231 = load i32, ptr %15, align 8
+  %232 = mul nsw i32 %231, %104
+  %233 = icmp slt i32 %232, 1
+  %brmerge = select i1 %233, i1 true, i1 %189
   br i1 %brmerge, label %.loopexit, label %.lr.ph279
 
-.lr.ph279:                                        ; preds = %229
-  %233 = mul i32 %230, %93
-  %234 = mul i32 %97, %.0211
-  %235 = add i32 %233, %234
-  %236 = zext nneg i32 %231 to i64
-  %237 = sext i32 %235 to i64
-  br label %238
+.lr.ph279:                                        ; preds = %230
+  %234 = mul i32 %231, %93
+  %235 = mul i32 %97, %.0211
+  %236 = add i32 %234, %235
+  %237 = zext nneg i32 %232 to i64
+  %238 = sext i32 %236 to i64
+  br label %239
 
-238:                                              ; preds = %.lr.ph279, %238
-  %indvars.iv286 = phi i64 [ %237, %.lr.ph279 ], [ %indvars.iv.next287, %238 ]
-  %.0214276 = phi i32 [ 0, %.lr.ph279 ], [ %241, %238 ]
-  %239 = getelementptr inbounds i8, ptr %44, i64 %indvars.iv286
-  %240 = getelementptr inbounds i8, ptr %46, i64 %indvars.iv286
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %239, ptr nonnull align 1 %240, i64 %236, i1 false)
+239:                                              ; preds = %.lr.ph279, %239
+  %indvars.iv286 = phi i64 [ %238, %.lr.ph279 ], [ %indvars.iv.next287, %239 ]
+  %.0214276 = phi i32 [ 0, %.lr.ph279 ], [ %242, %239 ]
+  %240 = getelementptr inbounds i8, ptr %44, i64 %indvars.iv286
+  %241 = getelementptr inbounds i8, ptr %46, i64 %indvars.iv286
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %240, ptr nonnull align 1 %241, i64 %237, i1 false)
   %indvars.iv.next287 = add nsw i64 %indvars.iv286, %78
-  %241 = add nuw nsw i32 %.0214276, 1
-  %242 = icmp slt i32 %241, %110
-  br i1 %242, label %238, label %.loopexit, !llvm.loop !9
+  %242 = add nuw nsw i32 %.0214276, 1
+  %243 = icmp slt i32 %242, %110
+  br i1 %243, label %239, label %.loopexit, !llvm.loop !9
 
-.loopexit:                                        ; preds = %238, %229, %201, %205, %227
+.loopexit:                                        ; preds = %239, %230, %201, %206, %228
   %indvars.iv.next290 = add nuw nsw i64 %indvars.iv289, 1
-  %243 = load i32, ptr %38, align 8
-  %244 = sext i32 %243 to i64
-  %245 = icmp slt i64 %indvars.iv.next290, %244
-  br i1 %245, label %79, label %._crit_edge283, !llvm.loop !10
+  %244 = load i32, ptr %38, align 8
+  %245 = sext i32 %244 to i64
+  %246 = icmp slt i64 %indvars.iv.next290, %245
+  br i1 %246, label %79, label %._crit_edge283, !llvm.loop !10
 
 ._crit_edge283:                                   ; preds = %.loopexit, %62
   call void @free(ptr noundef %44) #8
   call void @free(ptr noundef %46) #8
-  %246 = call i32 @DGifCloseFile(ptr noundef nonnull %1, ptr noundef null) #8
-  %247 = icmp ne i32 %246, 0
-  %.264 = zext i1 %247 to i32
-  br label %248
+  %247 = call i32 @DGifCloseFile(ptr noundef nonnull %1, ptr noundef null) #8
+  %248 = icmp ne i32 %247, 0
+  %.264 = zext i1 %248 to i32
+  br label %249
 
-248:                                              ; preds = %._crit_edge283, %41, %37, %21, %34, %10, %13, %18, %2, %200, %61, %47
+249:                                              ; preds = %._crit_edge283, %41, %37, %21, %34, %10, %13, %18, %2, %200, %61, %47
   %.0210 = phi i32 [ 0, %200 ], [ 0, %61 ], [ 0, %47 ], [ 0, %2 ], [ 0, %18 ], [ 0, %13 ], [ 0, %10 ], [ 0, %34 ], [ 0, %21 ], [ 0, %37 ], [ 0, %41 ], [ %.264, %._crit_edge283 ]
   ret i32 %.0210
 }

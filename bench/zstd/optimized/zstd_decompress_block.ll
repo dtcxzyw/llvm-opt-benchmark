@@ -680,8 +680,7 @@ define void @ZSTD_buildFSETable(ptr noundef captures(none) %0, ptr noundef reado
 23:                                               ; preds = %19
   %24 = add i32 %.0.i11.i, -1
   %25 = zext i32 %.0.i11.i to i64
-  %.idx132.i.i = shl nuw nsw i64 %25, 3
-  %26 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx132.i.i
+  %26 = getelementptr inbounds nuw %struct.ZSTD_seqSymbol, ptr %12, i64 %25
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 4
   %28 = trunc nuw i64 %indvars.iv.i to i32
   store i32 %28, ptr %27, align 4, !tbaa !40
@@ -759,8 +758,7 @@ define void @ZSTD_buildFSETable(ptr noundef captures(none) %0, ptr noundef reado
   %53 = and i64 %.0124.i33.i, %38
   %54 = load i8, ptr %52, align 1, !tbaa !7
   %55 = zext i8 %54 to i32
-  %.idx131.i.i = shl nuw nsw i64 %53, 3
-  %56 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx131.i.i
+  %56 = getelementptr inbounds nuw %struct.ZSTD_seqSymbol, ptr %12, i64 %53
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 4
   store i32 %55, ptr %57, align 4, !tbaa !40
   %58 = add nuw nsw i64 %.0124.i33.i, %39
@@ -768,8 +766,7 @@ define void @ZSTD_buildFSETable(ptr noundef captures(none) %0, ptr noundef reado
   %60 = getelementptr inbounds nuw i8, ptr %52, i64 1
   %61 = load i8, ptr %60, align 1, !tbaa !7
   %62 = zext i8 %61 to i32
-  %.idx131.i.i.c = shl nuw nsw i64 %59, 3
-  %63 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx131.i.i.c
+  %63 = getelementptr inbounds nuw %struct.ZSTD_seqSymbol, ptr %12, i64 %59
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 4
   store i32 %62, ptr %64, align 4, !tbaa !40
   %65 = add nuw nsw i64 %.0124.i33.i, %41
@@ -802,8 +799,7 @@ define void @ZSTD_buildFSETable(ptr noundef captures(none) %0, ptr noundef reado
   %.0114.i14.i = phi i32 [ %86, %85 ], [ 0, %.lr.ph16.preheader.i ]
   %.1116.i13.i = phi i32 [ %.2.i.i, %85 ], [ %.0115.i20.i, %.lr.ph16.preheader.i ]
   %80 = zext nneg i32 %.1116.i13.i to i64
-  %.idx.i.i = shl nuw nsw i64 %80, 3
-  %81 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx.i.i
+  %81 = getelementptr inbounds nuw %struct.ZSTD_seqSymbol, ptr %12, i64 %80
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 4
   store i32 %79, ptr %82, align 4, !tbaa !40
   br label %83
@@ -910,8 +906,7 @@ define internal fastcc void @ZSTD_buildFSETable_body_bmi2(ptr noundef captures(n
 23:                                               ; preds = %19
   %24 = add i32 %.0.i11, -1
   %25 = zext i32 %.0.i11 to i64
-  %.idx132.i = shl nuw nsw i64 %25, 3
-  %26 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx132.i
+  %26 = getelementptr inbounds nuw %struct.ZSTD_seqSymbol, ptr %8, i64 %25
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 4
   %28 = trunc nuw i64 %indvars.iv to i32
   store i32 %28, ptr %27, align 4, !tbaa !40
@@ -994,8 +989,7 @@ define internal fastcc void @ZSTD_buildFSETable_body_bmi2(ptr noundef captures(n
   %53 = and i64 %.0124.i33, %38
   %54 = load i8, ptr %52, align 1, !tbaa !7
   %55 = zext i8 %54 to i32
-  %.idx131.i = shl nuw nsw i64 %53, 3
-  %56 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx131.i
+  %56 = getelementptr inbounds nuw %struct.ZSTD_seqSymbol, ptr %8, i64 %53
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 4
   store i32 %55, ptr %57, align 4, !tbaa !40
   %58 = add nuw nsw i64 %.0124.i33, %39
@@ -1003,8 +997,7 @@ define internal fastcc void @ZSTD_buildFSETable_body_bmi2(ptr noundef captures(n
   %60 = getelementptr inbounds nuw i8, ptr %52, i64 1
   %61 = load i8, ptr %60, align 1, !tbaa !7
   %62 = zext i8 %61 to i32
-  %.idx131.i.c = shl nuw nsw i64 %59, 3
-  %63 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx131.i.c
+  %63 = getelementptr inbounds nuw %struct.ZSTD_seqSymbol, ptr %8, i64 %59
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 4
   store i32 %62, ptr %64, align 4, !tbaa !40
   %65 = add nuw nsw i64 %.0124.i33, %41
@@ -1037,8 +1030,7 @@ define internal fastcc void @ZSTD_buildFSETable_body_bmi2(ptr noundef captures(n
   %.0114.i14 = phi i32 [ %85, %84 ], [ 0, %.lr.ph16.preheader ]
   %.1116.i13 = phi i32 [ %.2.i, %84 ], [ %.0115.i20, %.lr.ph16.preheader ]
   %79 = zext nneg i32 %.1116.i13 to i64
-  %.idx.i = shl nuw nsw i64 %79, 3
-  %80 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx.i
+  %80 = getelementptr inbounds nuw %struct.ZSTD_seqSymbol, ptr %8, i64 %79
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 4
   store i32 %78, ptr %81, align 4, !tbaa !40
   br label %82

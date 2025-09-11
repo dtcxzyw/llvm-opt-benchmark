@@ -746,7 +746,7 @@ define range(i32 0, 2) i32 @Cudd_addHarwell(ptr noundef %0, ptr noundef %1, ptr 
   store i32 %365, ptr %363, align 4, !tbaa !37
   call void @Cudd_RecursiveDeref(ptr noundef %1, ptr noundef %.0447572) #8
   %366 = lshr i32 %.2445573, 1
-  %367 = icmp sgt i64 %indvars.iv656, 1
+  %367 = icmp samesign ugt i64 %indvars.iv656, 1
   br i1 %367, label %.lr.ph576, label %._crit_edge577, !llvm.loop !45
 
 ._crit_edge577:                                   ; preds = %359, %349
@@ -837,7 +837,7 @@ define range(i32 0, 2) i32 @Cudd_addHarwell(ptr noundef %0, ptr noundef %1, ptr 
   %404 = load i32, ptr %17, align 4, !tbaa !3
   %405 = ashr i32 %404, 1
   store i32 %405, ptr %17, align 4, !tbaa !3
-  %406 = icmp sgt i64 %indvars.iv659, 1
+  %406 = icmp samesign ugt i64 %indvars.iv659, 1
   br i1 %406, label %.lr.ph583, label %._crit_edge584, !llvm.loop !47
 
 ._crit_edge584:                                   ; preds = %397, %383
@@ -1034,7 +1034,7 @@ define range(i32 0, 2) i32 @Cudd_addHarwell(ptr noundef %0, ptr noundef %1, ptr 
   %496 = load i32, ptr %17, align 4, !tbaa !3
   %497 = ashr i32 %496, 1
   store i32 %497, ptr %17, align 4, !tbaa !3
-  %498 = icmp sgt i64 %indvars.iv671, 1
+  %498 = icmp samesign ugt i64 %indvars.iv671, 1
   br i1 %498, label %.lr.ph605, label %._crit_edge606, !llvm.loop !51
 
 ._crit_edge606:                                   ; preds = %489, %475

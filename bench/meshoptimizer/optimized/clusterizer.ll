@@ -1245,94 +1245,98 @@ define internal fastcc void @_ZN7meshoptL13kdtreeNearestEPNS_6KDNodeEjPKfmPKhS3_
   br i1 %13, label %.preheader, label %.lr.ph
 
 .preheader:                                       ; preds = %tailrecurse, %7
-  %14 = phi i64 [ %8, %7 ], [ %68, %tailrecurse ]
-  %.tr62.lcssa = phi i32 [ %1, %7 ], [ %67, %tailrecurse ]
-  %15 = getelementptr inbounds nuw %"struct.meshopt::KDNode", ptr %0, i64 %14, i32 1
-  %16 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %17 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  br label %18
+  %14 = phi i32 [ %11, %7 ], [ %74, %tailrecurse ]
+  %15 = phi i64 [ %8, %7 ], [ %71, %tailrecurse ]
+  %.tr62.lcssa = phi i32 [ %1, %7 ], [ %70, %tailrecurse ]
+  %16 = getelementptr inbounds nuw %"struct.meshopt::KDNode", ptr %0, i64 %15
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  br label %20
 
-18:                                               ; preds = %.preheader, %46
-  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %46 ]
-  %19 = trunc nuw nsw i64 %indvars.iv to i32
-  %20 = add i32 %.tr62.lcssa, %19
-  %21 = zext i32 %20 to i64
-  %22 = getelementptr inbounds nuw %"struct.meshopt::KDNode", ptr %0, i64 %21
-  %23 = load i32, ptr %22, align 4, !tbaa !42
+20:                                               ; preds = %.preheader, %49
+  %21 = phi i32 [ %14, %.preheader ], [ %50, %49 ]
+  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %49 ]
+  %22 = trunc nuw nsw i64 %indvars.iv to i32
+  %23 = add i32 %.tr62.lcssa, %22
   %24 = zext i32 %23 to i64
-  %25 = getelementptr inbounds nuw i8, ptr %3, i64 %24
-  %26 = load i8, ptr %25, align 1, !tbaa !42
-  %.not61 = icmp eq i8 %26, 0
-  br i1 %.not61, label %27, label %46
+  %25 = getelementptr inbounds nuw %"struct.meshopt::KDNode", ptr %0, i64 %24
+  %26 = load i32, ptr %25, align 4, !tbaa !42
+  %27 = zext i32 %26 to i64
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 %27
+  %29 = load i8, ptr %28, align 1, !tbaa !42
+  %.not61 = icmp eq i8 %29, 0
+  br i1 %.not61, label %30, label %49
 
-27:                                               ; preds = %18
-  %.idx = mul nuw nsw i64 %24, 24
-  %28 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx
-  %29 = load float, ptr %28, align 4, !tbaa !28
-  %30 = load float, ptr %4, align 4, !tbaa !28
-  %31 = fsub float %29, %30
-  %32 = getelementptr inbounds nuw i8, ptr %28, i64 4
-  %33 = load float, ptr %32, align 4, !tbaa !28
-  %34 = load float, ptr %16, align 4, !tbaa !28
-  %35 = fsub float %33, %34
-  %36 = fmul float %35, %35
-  %37 = tail call float @llvm.fmuladd.f32(float %31, float %31, float %36)
-  %38 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  %39 = load float, ptr %38, align 4, !tbaa !28
-  %40 = load float, ptr %17, align 4, !tbaa !28
-  %41 = fsub float %39, %40
-  %42 = tail call float @llvm.fmuladd.f32(float %41, float %41, float %37)
-  %sqrt = tail call float @llvm.sqrt.f32(float %42)
-  %43 = load float, ptr %6, align 4, !tbaa !28
-  %44 = fcmp olt float %sqrt, %43
-  br i1 %44, label %45, label %46
+30:                                               ; preds = %20
+  %.idx = mul nuw nsw i64 %27, 24
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx
+  %32 = load float, ptr %31, align 4, !tbaa !28
+  %33 = load float, ptr %4, align 4, !tbaa !28
+  %34 = fsub float %32, %33
+  %35 = getelementptr inbounds nuw i8, ptr %31, i64 4
+  %36 = load float, ptr %35, align 4, !tbaa !28
+  %37 = load float, ptr %18, align 4, !tbaa !28
+  %38 = fsub float %36, %37
+  %39 = fmul float %38, %38
+  %40 = tail call float @llvm.fmuladd.f32(float %34, float %34, float %39)
+  %41 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  %42 = load float, ptr %41, align 4, !tbaa !28
+  %43 = load float, ptr %19, align 4, !tbaa !28
+  %44 = fsub float %42, %43
+  %45 = tail call float @llvm.fmuladd.f32(float %44, float %44, float %40)
+  %sqrt = tail call float @llvm.sqrt.f32(float %45)
+  %46 = load float, ptr %6, align 4, !tbaa !28
+  %47 = fcmp olt float %sqrt, %46
+  br i1 %47, label %48, label %49
 
-45:                                               ; preds = %27
-  store i32 %23, ptr %5, align 4, !tbaa !16
+48:                                               ; preds = %30
+  store i32 %26, ptr %5, align 4, !tbaa !16
   store float %sqrt, ptr %6, align 4, !tbaa !28
-  br label %46
+  %.pre = load i32, ptr %17, align 4
+  br label %49
 
-46:                                               ; preds = %27, %45, %18
+49:                                               ; preds = %30, %48, %20
+  %50 = phi i32 [ %21, %30 ], [ %.pre, %48 ], [ %21, %20 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %47 = load i32, ptr %15, align 4
-  %48 = lshr i32 %47, 2
-  %49 = zext nneg i32 %48 to i64
-  %.not.not = icmp samesign ult i64 %indvars.iv, %49
-  br i1 %.not.not, label %18, label %.loopexit, !llvm.loop !58
+  %51 = lshr i32 %50, 2
+  %52 = zext nneg i32 %51 to i64
+  %.not.not = icmp samesign ult i64 %indvars.iv, %52
+  br i1 %.not.not, label %20, label %.loopexit, !llvm.loop !58
 
 .lr.ph:                                           ; preds = %7, %tailrecurse
-  %50 = phi i32 [ %72, %tailrecurse ], [ %12, %7 ]
-  %51 = phi i32 [ %71, %tailrecurse ], [ %11, %7 ]
-  %52 = phi ptr [ %69, %tailrecurse ], [ %9, %7 ]
-  %.tr6273 = phi i32 [ %67, %tailrecurse ], [ %1, %7 ]
-  %53 = zext nneg i32 %50 to i64
-  %54 = getelementptr inbounds nuw float, ptr %4, i64 %53
-  %55 = load float, ptr %54, align 4, !tbaa !28
-  %56 = load float, ptr %52, align 4, !tbaa !42
-  %57 = fsub float %55, %56
-  %58 = fcmp ugt float %57, 0.000000e+00
-  %59 = lshr i32 %51, 2
-  %60 = select i1 %58, i32 %59, i32 0
-  %61 = add i32 %.tr6273, 1
-  %62 = add i32 %60, %61
-  tail call fastcc void @_ZN7meshoptL13kdtreeNearestEPNS_6KDNodeEjPKfmPKhS3_RjRf(ptr noundef nonnull %0, i32 noundef %62, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 4 dereferenceable(4) %6)
-  %63 = tail call float @llvm.fabs.f32(float %57)
-  %64 = load float, ptr %6, align 4, !tbaa !28
-  %65 = fcmp ugt float %63, %64
-  br i1 %65, label %.loopexit, label %tailrecurse
+  %53 = phi i32 [ %75, %tailrecurse ], [ %12, %7 ]
+  %54 = phi i32 [ %74, %tailrecurse ], [ %11, %7 ]
+  %55 = phi ptr [ %72, %tailrecurse ], [ %9, %7 ]
+  %.tr6273 = phi i32 [ %70, %tailrecurse ], [ %1, %7 ]
+  %56 = zext nneg i32 %53 to i64
+  %57 = getelementptr inbounds nuw float, ptr %4, i64 %56
+  %58 = load float, ptr %57, align 4, !tbaa !28
+  %59 = load float, ptr %55, align 4, !tbaa !42
+  %60 = fsub float %58, %59
+  %61 = fcmp ugt float %60, 0.000000e+00
+  %62 = lshr i32 %54, 2
+  %63 = select i1 %61, i32 %62, i32 0
+  %64 = add i32 %.tr6273, 1
+  %65 = add i32 %63, %64
+  tail call fastcc void @_ZN7meshoptL13kdtreeNearestEPNS_6KDNodeEjPKfmPKhS3_RjRf(ptr noundef nonnull %0, i32 noundef %65, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 4 dereferenceable(4) %6)
+  %66 = tail call float @llvm.fabs.f32(float %60)
+  %67 = load float, ptr %6, align 4, !tbaa !28
+  %68 = fcmp ugt float %66, %67
+  br i1 %68, label %.loopexit, label %tailrecurse
 
 tailrecurse:                                      ; preds = %.lr.ph
-  %66 = xor i32 %60, %59
-  %67 = add i32 %66, %61
-  %68 = zext i32 %67 to i64
-  %69 = getelementptr inbounds nuw %"struct.meshopt::KDNode", ptr %0, i64 %68
-  %70 = getelementptr inbounds nuw i8, ptr %69, i64 4
-  %71 = load i32, ptr %70, align 4
-  %72 = and i32 %71, 3
-  %73 = icmp eq i32 %72, 3
-  br i1 %73, label %.preheader, label %.lr.ph
+  %69 = xor i32 %63, %62
+  %70 = add i32 %69, %64
+  %71 = zext i32 %70 to i64
+  %72 = getelementptr inbounds nuw %"struct.meshopt::KDNode", ptr %0, i64 %71
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 4
+  %74 = load i32, ptr %73, align 4
+  %75 = and i32 %74, 3
+  %76 = icmp eq i32 %75, 3
+  br i1 %76, label %.preheader, label %.lr.ph
 
-.loopexit:                                        ; preds = %.lr.ph, %46
+.loopexit:                                        ; preds = %.lr.ph, %49
   ret void
 }
 

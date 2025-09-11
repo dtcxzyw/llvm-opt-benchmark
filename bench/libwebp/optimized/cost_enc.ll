@@ -431,11 +431,11 @@ define hidden range(i32 0, 2) i32 @VP8RecordCoeffs(i32 noundef %0, ptr noundef r
   %.0.i = select i1 %17, i32 %20, i32 %16
   %21 = add nuw i32 %.0.i, 65536
   store i32 %21, ptr %9, align 4, !tbaa !38
-  br label %109
+  br label %110
 
 22:                                               ; preds = %.lr.ph65, %._crit_edge61
   %.03764 = phi i32 [ %3, %.lr.ph65 ], [ %.lcssa51, %._crit_edge61 ]
-  %.03863 = phi ptr [ %9, %.lr.ph65 ], [ %99, %._crit_edge61 ]
+  %.03863 = phi ptr [ %9, %.lr.ph65 ], [ %100, %._crit_edge61 ]
   %23 = load i32, ptr %.03863, align 4, !tbaa !38
   %24 = icmp ugt i32 %23, -131073
   %25 = add nsw i32 %23, 1
@@ -558,36 +558,36 @@ define hidden range(i32 0, 2) i32 @VP8RecordCoeffs(i32 noundef %0, ptr noundef r
   br i1 %.not43, label %._crit_edge61, label %79, !llvm.loop !48
 
 ._crit_edge61:                                    ; preds = %94, %68, %._crit_edge
-  %.sink82 = phi i64 [ 1, %._crit_edge ], [ 2, %68 ], [ 2, %94 ]
+  %.sink82 = phi i64 [ 44, %._crit_edge ], [ 88, %68 ], [ 88, %94 ]
   %95 = sext i32 %.lcssa51 to i64
   %96 = getelementptr inbounds i8, ptr @VP8EncBands, i64 %95
   %97 = load i8, ptr %96, align 1, !tbaa !8
   %98 = zext i8 %97 to i64
-  %.split = getelementptr inbounds nuw [3 x [11 x i32]], ptr %5, i64 %98
-  %99 = getelementptr inbounds nuw [11 x i32], ptr %.split, i64 %.sink82
-  %100 = load i32, ptr %10, align 4, !tbaa !40
-  %.not = icmp sgt i32 %.lcssa51, %100
+  %99 = getelementptr inbounds nuw [3 x [11 x i32]], ptr %5, i64 %98
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 %.sink82
+  %101 = load i32, ptr %10, align 4, !tbaa !40
+  %.not = icmp sgt i32 %.lcssa51, %101
   br i1 %.not, label %._crit_edge66, label %22, !llvm.loop !49
 
 ._crit_edge66:                                    ; preds = %._crit_edge61, %.preheader
-  %.038.lcssa = phi ptr [ %9, %.preheader ], [ %99, %._crit_edge61 ]
+  %.038.lcssa = phi ptr [ %9, %.preheader ], [ %100, %._crit_edge61 ]
   %.037.lcssa = phi i32 [ %3, %.preheader ], [ %.lcssa51, %._crit_edge61 ]
-  %101 = icmp slt i32 %.037.lcssa, 16
-  br i1 %101, label %102, label %109
+  %102 = icmp slt i32 %.037.lcssa, 16
+  br i1 %102, label %103, label %110
 
-102:                                              ; preds = %._crit_edge66
-  %103 = load i32, ptr %.038.lcssa, align 4, !tbaa !38
-  %104 = icmp ugt i32 %103, -131073
-  %105 = add nsw i32 %103, 1
-  %106 = lshr i32 %105, 1
-  %107 = and i32 %106, 2147450879
-  %.0.i50 = select i1 %104, i32 %107, i32 %103
-  %108 = add nuw i32 %.0.i50, 65536
-  store i32 %108, ptr %.038.lcssa, align 4, !tbaa !38
-  br label %109
+103:                                              ; preds = %._crit_edge66
+  %104 = load i32, ptr %.038.lcssa, align 4, !tbaa !38
+  %105 = icmp ugt i32 %104, -131073
+  %106 = add nsw i32 %104, 1
+  %107 = lshr i32 %106, 1
+  %108 = and i32 %107, 2147450879
+  %.0.i50 = select i1 %105, i32 %108, i32 %104
+  %109 = add nuw i32 %.0.i50, 65536
+  store i32 %109, ptr %.038.lcssa, align 4, !tbaa !38
+  br label %110
 
-109:                                              ; preds = %._crit_edge66, %102, %15
-  %.0 = phi i32 [ 0, %15 ], [ 1, %102 ], [ 1, %._crit_edge66 ]
+110:                                              ; preds = %._crit_edge66, %103, %15
+  %.0 = phi i32 [ 0, %15 ], [ 1, %103 ], [ 1, %._crit_edge66 ]
   ret i32 %.0
 }
 

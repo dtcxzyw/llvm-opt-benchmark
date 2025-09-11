@@ -566,7 +566,7 @@ printconf.exit:                                   ; preds = %.loopexit.i, %38, %
   br label %.backedge.i
 
 191:                                              ; preds = %186
-  %192 = getelementptr inbounds %struct.clam_option, ptr %157, i64 %160, i32 3
+  %192 = getelementptr inbounds nuw i8, ptr %161, i64 20
   %193 = load i32, ptr %192, align 4, !tbaa !27
   switch i32 %193, label %220 [
     i32 1, label %194

@@ -3471,7 +3471,8 @@ for.body:                                         ; preds = %for.inc, %for.body.
   %dest_size.02601 = phi i16 [ %conv, %for.body.lr.ph ], [ %dest_size.1, %for.inc ]
   %list_to.sroa.0.02600 = phi ptr [ %.sink.i1195, %for.body.lr.ph ], [ %list_to.sroa.0.1, %for.inc ]
   %122 = load ptr, ptr %list_to.sroa.0.02600, align 8, !tbaa !178
-  %count.i = getelementptr inbounds nuw %struct.ItemStack, ptr %122, i64 %indvars.iv, i32 1
+  %count.i.split = getelementptr inbounds nuw %struct.ItemStack, ptr %122, i64 %indvars.iv
+  %count.i = getelementptr inbounds nuw i8, ptr %count.i.split, i64 32
   %123 = load i16, ptr %count.i, align 8, !tbaa !179
   %cmp.i1586 = icmp eq i16 %123, 0
   br i1 %cmp.i1586, label %for.inc, label %_ZNSt10unique_ptrI13InventoryListNS0_14ResizeUnlockerEE5resetEPS0_.exit.i
@@ -3542,7 +3543,8 @@ for.body200:                                      ; preds = %for.inc211, %for.bo
   %dest_size.22608 = phi i16 [ %dest_size.0.lcssa, %for.body200.lr.ph ], [ %dest_size.3, %for.inc211 ]
   %list_to.sroa.0.22607 = phi ptr [ %list_to.sroa.0.0.lcssa, %for.body200.lr.ph ], [ %list_to.sroa.0.3, %for.inc211 ]
   %136 = load ptr, ptr %list_to.sroa.0.22607, align 8, !tbaa !178
-  %count.i1599 = getelementptr inbounds nuw %struct.ItemStack, ptr %136, i64 %indvars.iv2615, i32 1
+  %count.i1599.split = getelementptr inbounds nuw %struct.ItemStack, ptr %136, i64 %indvars.iv2615
+  %count.i1599 = getelementptr inbounds nuw i8, ptr %count.i1599.split, i64 32
   %137 = load i16, ptr %count.i1599, align 8, !tbaa !179
   %cmp.i1600 = icmp eq i16 %137, 0
   br i1 %cmp.i1600, label %_ZNSt10unique_ptrI13InventoryListNS0_14ResizeUnlockerEE5resetEPS0_.exit.i1605, label %for.inc211
@@ -4041,7 +4043,8 @@ if.then420:                                       ; preds = %land.end417
   %conv424 = sext i16 %197 to i64
   %conv.i1786 = and i64 %conv424, 4294967295
   %198 = load ptr, ptr %.sink.i1195, align 8, !tbaa !178
-  %count428 = getelementptr inbounds nuw %struct.ItemStack, ptr %198, i64 %conv.i1786, i32 1
+  %count428.split = getelementptr inbounds nuw %struct.ItemStack, ptr %198, i64 %conv.i1786
+  %count428 = getelementptr inbounds nuw i8, ptr %count428.split, i64 32
   %199 = load i16, ptr %count428, align 8, !tbaa !179
   %conv429 = zext i16 %199 to i32
   call void @_ZN11IMoveAction14swapDirectionsEv(ptr noundef nonnull align 8 dereferenceable(188) %this)
@@ -4194,7 +4197,8 @@ if.end540:                                        ; preds = %if.then532, %if.end
   %conv545 = sext i16 %216 to i64
   %conv.i1793 = and i64 %conv545, 4294967295
   %217 = load ptr, ptr %.sink.i, align 8, !tbaa !178
-  %count549 = getelementptr inbounds nuw %struct.ItemStack, ptr %217, i64 %conv.i1793, i32 1
+  %count549.split = getelementptr inbounds nuw %struct.ItemStack, ptr %217, i64 %conv.i1793
+  %count549 = getelementptr inbounds nuw i8, ptr %count549.split, i64 32
   %218 = load i16, ptr %count549, align 8, !tbaa !179
   %conv550 = zext i16 %218 to i32
   %cmp551 = icmp ugt i32 %.pr2423, %conv550
@@ -4490,8 +4494,7 @@ ehcleanup645:                                     ; preds = %if.then.i.i1869, %_
 
 if.end646:                                        ; preds = %if.end562
   call void @llvm.lifetime.start.p0(ptr nonnull %from_stack_was)
-  %add.ptr.i.i1875 = getelementptr inbounds nuw %struct.ItemStack, ptr %217, i64 %conv.i1793
-  invoke void @_ZN9ItemStackC2ERKS_(ptr noundef nonnull align 8 dereferenceable(312) %from_stack_was, ptr noundef nonnull align 8 dereferenceable(312) %add.ptr.i.i1875)
+  invoke void @_ZN9ItemStackC2ERKS_(ptr noundef nonnull align 8 dereferenceable(312) %from_stack_was, ptr noundef nonnull align 8 dereferenceable(312) %count549.split)
           to label %invoke.cont654 unwind label %lpad651
 
 invoke.cont654:                                   ; preds = %if.end646
@@ -4596,7 +4599,8 @@ lpad694:                                          ; preds = %if.then705
 
 for.body699:                                      ; preds = %for.cond692.preheader, %for.inc709
   %indvars.iv2618 = phi i64 [ %indvars.iv.next2619, %for.inc709 ], [ 0, %for.cond692.preheader ]
-  %count.i1888 = getelementptr inbounds nuw %struct.ItemStack, ptr %270, i64 %indvars.iv2618, i32 1
+  %count.i1888.split = getelementptr inbounds nuw %struct.ItemStack, ptr %270, i64 %indvars.iv2618
+  %count.i1888 = getelementptr inbounds nuw i8, ptr %count.i1888.split, i64 32
   %277 = load i16, ptr %count.i1888, align 8, !tbaa !179
   %cmp.i1889 = icmp eq i16 %277, 0
   br i1 %cmp.i1889, label %if.then705, label %for.inc709
@@ -7155,7 +7159,8 @@ if.end27:                                         ; preds = %if.end
   %conv = sext i16 %39 to i64
   %conv.i = and i64 %conv, 4294967295
   %40 = load ptr, ptr %call12, align 8, !tbaa !178
-  %count.i = getelementptr inbounds nuw %struct.ItemStack, ptr %40, i64 %conv.i, i32 1
+  %count.i.split = getelementptr inbounds nuw %struct.ItemStack, ptr %40, i64 %conv.i
+  %count.i = getelementptr inbounds nuw i8, ptr %count.i.split, i64 32
   %41 = load i16, ptr %count.i, align 8, !tbaa !179
   %cmp.i = icmp eq i16 %41, 0
   br i1 %cmp.i, label %if.then31, label %if.end58
@@ -7372,11 +7377,10 @@ if.end58:                                         ; preds = %if.end27
   %take_count.0.in = select i1 %cmp70.not.not, i16 %41, i16 %67
   %take_count.0 = zext i16 %take_count.0.in to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %src_item)
-  %add.ptr.i.i511 = getelementptr inbounds nuw %struct.ItemStack, ptr %40, i64 %conv.i
   %68 = getelementptr inbounds nuw i8, ptr %src_item, i64 16
   store ptr %68, ptr %src_item, align 8, !tbaa !10
-  %69 = load ptr, ptr %add.ptr.i.i511, align 8, !tbaa !24
-  %_M_string_length.i.i.i512 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i511, i64 8
+  %69 = load ptr, ptr %count.i.split, align 8, !tbaa !24
+  %_M_string_length.i.i.i512 = getelementptr inbounds nuw i8, ptr %count.i.split, i64 8
   %70 = load i64, ptr %_M_string_length.i.i.i512, align 8, !tbaa !16
   call void @llvm.lifetime.start.p0(ptr nonnull %__dnew.i.i.i)
   store i64 %70, ptr %__dnew.i.i.i, align 8, !tbaa !42
@@ -7418,11 +7422,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i: ; preds = 
   store i8 0, ptr %arrayidx.i.i.i.i, align 1, !tbaa !19
   call void @llvm.lifetime.end.p0(ptr nonnull %__dnew.i.i.i)
   %count.i514 = getelementptr inbounds nuw i8, ptr %src_item, i64 32
-  %count3.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i511, i64 32
-  %76 = load i32, ptr %count3.i, align 8
+  %76 = load i32, ptr %count.i, align 8
   store i32 %76, ptr %count.i514, align 8
   %metadata.i = getelementptr inbounds nuw i8, ptr %src_item, i64 40
-  %metadata4.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i511, i64 40
+  %metadata4.i = getelementptr inbounds nuw i8, ptr %count.i.split, i64 40
   invoke void @_ZN17ItemStackMetadataC1ERKS_(ptr noundef nonnull align 8 dereferenceable(272) %metadata.i, ptr noundef nonnull align 8 dereferenceable(272) %metadata4.i)
           to label %invoke.cont84 unwind label %lpad.i
 

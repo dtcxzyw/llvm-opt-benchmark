@@ -2193,7 +2193,7 @@ define void @_ZN7rocksdb20TestRandomAccessFile9MultiReadEPNS_11ReadRequestEm(ptr
 
 _ZN7rocksdb21FaultInjectionTestEnv18IsFilesystemActiveEv.exit: ; preds = %4
   %15 = trunc nuw i8 %11 to i1
-  br i1 %15, label %56, label %16
+  br i1 %15, label %57, label %16
 
 16:                                               ; preds = %_ZN7rocksdb21FaultInjectionTestEnv18IsFilesystemActiveEv.exit
   %17 = load ptr, ptr %7, align 8, !tbaa !152
@@ -2237,7 +2237,7 @@ _ZN7rocksdb21FaultInjectionTestEnv18IsFilesystemActiveEv.exit: ; preds = %4
   br label %_ZN7rocksdb21FaultInjectionTestEnv8GetErrorEv.exit
 
 common.resume:                                    ; preds = %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i11, %_ZNSt10unique_ptrIA_KcSt14default_deleteIS1_EED2Ev.exit14.i.i
-  %common.resume.op = phi { ptr, i32 } [ %40, %_ZNSt10unique_ptrIA_KcSt14default_deleteIS1_EED2Ev.exit14.i.i ], [ %55, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i11 ]
+  %common.resume.op = phi { ptr, i32 } [ %40, %_ZNSt10unique_ptrIA_KcSt14default_deleteIS1_EED2Ev.exit14.i.i ], [ %56, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i11 ]
   store ptr null, ptr %35, align 8, !tbaa !53
   resume { ptr, i32 } %common.resume.op
 
@@ -2259,45 +2259,46 @@ _ZN7rocksdb21FaultInjectionTestEnv8GetErrorEv.exit: ; preds = %16, %39
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN7rocksdb6StatusaSERKS0_.exit
-  %.013 = phi i64 [ %54, %_ZN7rocksdb6StatusaSERKS0_.exit ], [ 0, %.lr.ph.preheader ]
-  %42 = getelementptr inbounds nuw %"struct.rocksdb::ReadRequest", ptr %2, i64 %.013, i32 4
-  %.not.i = icmp eq ptr %42, %0
-  br i1 %.not.i, label %_ZN7rocksdb6StatusaSERKS0_.exit, label %43
+  %.013 = phi i64 [ %55, %_ZN7rocksdb6StatusaSERKS0_.exit ], [ 0, %.lr.ph.preheader ]
+  %42 = getelementptr inbounds nuw %"struct.rocksdb::ReadRequest", ptr %2, i64 %.013
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 40
+  %.not.i = icmp eq ptr %43, %0
+  br i1 %.not.i, label %_ZN7rocksdb6StatusaSERKS0_.exit, label %44
 
-43:                                               ; preds = %.lr.ph
-  store i8 %19, ptr %42, align 8, !tbaa !24
-  %44 = getelementptr inbounds nuw i8, ptr %42, i64 1
-  store i8 %22, ptr %44, align 1, !tbaa !44
-  %45 = getelementptr inbounds nuw i8, ptr %42, i64 2
-  store i8 %25, ptr %45, align 2, !tbaa !46
-  %46 = getelementptr inbounds nuw i8, ptr %42, i64 3
-  store i8 %28, ptr %46, align 1, !tbaa !50
-  %47 = getelementptr inbounds nuw i8, ptr %42, i64 4
-  store i8 %31, ptr %47, align 4, !tbaa !51
-  %48 = getelementptr inbounds nuw i8, ptr %42, i64 5
-  store i8 %34, ptr %48, align 1, !tbaa !52
+44:                                               ; preds = %.lr.ph
+  store i8 %19, ptr %43, align 8, !tbaa !24
+  %45 = getelementptr inbounds nuw i8, ptr %42, i64 41
+  store i8 %22, ptr %45, align 1, !tbaa !44
+  %46 = getelementptr inbounds nuw i8, ptr %42, i64 42
+  store i8 %25, ptr %46, align 2, !tbaa !46
+  %47 = getelementptr inbounds nuw i8, ptr %42, i64 43
+  store i8 %28, ptr %47, align 1, !tbaa !50
+  %48 = getelementptr inbounds nuw i8, ptr %42, i64 44
+  store i8 %31, ptr %48, align 4, !tbaa !51
+  %49 = getelementptr inbounds nuw i8, ptr %42, i64 45
+  store i8 %34, ptr %49, align 1, !tbaa !52
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  br i1 %.not.i.i, label %50, label %49
+  br i1 %.not.i.i, label %51, label %50
 
-49:                                               ; preds = %43
+50:                                               ; preds = %44
   invoke void @_ZN7rocksdb6Status9CopyStateEPKc(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %5, ptr noundef nonnull %41)
           to label %.noexc unwind label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i11
 
-.noexc:                                           ; preds = %49
+.noexc:                                           ; preds = %50
   %.pre.i = load ptr, ptr %5, align 8, !tbaa !53
-  br label %50
+  br label %51
 
-50:                                               ; preds = %.noexc, %43
-  %51 = phi ptr [ %.pre.i, %.noexc ], [ null, %43 ]
-  %52 = getelementptr inbounds nuw i8, ptr %42, i64 8
+51:                                               ; preds = %.noexc, %44
+  %52 = phi ptr [ %.pre.i, %.noexc ], [ null, %44 ]
+  %53 = getelementptr inbounds nuw i8, ptr %42, i64 48
   store ptr null, ptr %5, align 8, !tbaa !53
-  %53 = load ptr, ptr %52, align 8, !tbaa !53
-  store ptr %51, ptr %52, align 8, !tbaa !53
-  %.not.i.i.i.i.i = icmp eq ptr %53, null
+  %54 = load ptr, ptr %53, align 8, !tbaa !53
+  store ptr %52, ptr %53, align 8, !tbaa !53
+  %.not.i.i.i.i.i = icmp eq ptr %54, null
   br i1 %.not.i.i.i.i.i, label %_ZNSt10unique_ptrIA_KcSt14default_deleteIS1_EED2Ev.exit.i, label %_ZNSt10unique_ptrIA_KcSt14default_deleteIS1_EEaSEOS4_.exit.i
 
-_ZNSt10unique_ptrIA_KcSt14default_deleteIS1_EEaSEOS4_.exit.i: ; preds = %50
-  call void @_ZdaPv(ptr noundef nonnull %53) #24
+_ZNSt10unique_ptrIA_KcSt14default_deleteIS1_EEaSEOS4_.exit.i: ; preds = %51
+  call void @_ZdaPv(ptr noundef nonnull %54) #24
   %.pr.i = load ptr, ptr %5, align 8, !tbaa !53
   %.not.i12.i = icmp eq ptr %.pr.i, null
   br i1 %.not.i12.i, label %_ZNSt10unique_ptrIA_KcSt14default_deleteIS1_EED2Ev.exit.i, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i
@@ -2306,31 +2307,31 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
   call void @_ZdaPv(ptr noundef nonnull %.pr.i) #24
   br label %_ZNSt10unique_ptrIA_KcSt14default_deleteIS1_EED2Ev.exit.i
 
-_ZNSt10unique_ptrIA_KcSt14default_deleteIS1_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i, %_ZNSt10unique_ptrIA_KcSt14default_deleteIS1_EEaSEOS4_.exit.i, %50
+_ZNSt10unique_ptrIA_KcSt14default_deleteIS1_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i, %_ZNSt10unique_ptrIA_KcSt14default_deleteIS1_EEaSEOS4_.exit.i, %51
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN7rocksdb6StatusaSERKS0_.exit
 
 _ZN7rocksdb6StatusaSERKS0_.exit:                  ; preds = %_ZNSt10unique_ptrIA_KcSt14default_deleteIS1_EED2Ev.exit.i, %.lr.ph
-  %54 = add nuw i64 %.013, 1
-  %exitcond.not = icmp eq i64 %54, %3
+  %55 = add nuw i64 %.013, 1
+  %exitcond.not = icmp eq i64 %55, %3
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !170
 
-_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i11: ; preds = %49
-  %55 = landingpad { ptr, i32 }
+_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i11: ; preds = %50
+  %56 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdaPv(ptr noundef nonnull %41) #24
   br label %common.resume
 
-56:                                               ; preds = %_ZN7rocksdb21FaultInjectionTestEnv18IsFilesystemActiveEv.exit
-  %57 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %58 = load ptr, ptr %57, align 8, !tbaa !150
-  %59 = load ptr, ptr %58, align 8, !tbaa !22
-  %60 = getelementptr inbounds nuw i8, ptr %59, i64 32
-  %61 = load ptr, ptr %60, align 8
-  tail call void %61(ptr dead_on_unwind writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %58, ptr noundef %2, i64 noundef %3)
+57:                                               ; preds = %_ZN7rocksdb21FaultInjectionTestEnv18IsFilesystemActiveEv.exit
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %59 = load ptr, ptr %58, align 8, !tbaa !150
+  %60 = load ptr, ptr %59, align 8, !tbaa !22
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 32
+  %62 = load ptr, ptr %61, align 8
+  tail call void %62(ptr dead_on_unwind writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %59, ptr noundef %2, i64 noundef %3)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %_ZN7rocksdb6StatusaSERKS0_.exit, %_ZN7rocksdb21FaultInjectionTestEnv8GetErrorEv.exit, %56
+.loopexit:                                        ; preds = %_ZN7rocksdb6StatusaSERKS0_.exit, %_ZN7rocksdb21FaultInjectionTestEnv8GetErrorEv.exit, %57
   ret void
 }
 

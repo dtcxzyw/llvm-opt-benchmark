@@ -1251,7 +1251,8 @@ if.then.i.i.i:                                    ; preds = %call.i.i.i.noexc
 invoke.cont66:                                    ; preds = %.noexc45, %call.i.i.i.noexc
   %slots_.i.i.i3.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %31 = load ptr, ptr %slots_.i.i.i3.i.i.i, align 8, !noalias !10
-  %second.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %31, i64 %28, i32 0, i32 1
+  %add.ptr3.i.i.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %31, i64 %28
+  %second.i.i = getelementptr inbounds nuw i8, ptr %add.ptr3.i.i.i.i, i64 32
   %call69 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i, ptr noundef nonnull align 8 dereferenceable(32) %alias)
           to label %invoke.cont68 unwind label %lpad36
 
@@ -2674,7 +2675,8 @@ for.body199:                                      ; preds = %for.body199.lr.ph, 
   %indvars.iv1191 = phi i64 [ 0, %for.body199.lr.ph ], [ %indvars.iv.next1192, %for.inc207 ]
   %144 = load ptr, ptr %printer_91, align 8
   %145 = load ptr, ptr %message_types_.i261, align 8
-  %all_names_.i = getelementptr inbounds nuw %"class.google::protobuf::Descriptor", ptr %145, i64 %indvars.iv1191, i32 4
+  %add.ptr.i263 = getelementptr inbounds nuw %"class.google::protobuf::Descriptor", ptr %145, i64 %indvars.iv1191
+  %all_names_.i = getelementptr inbounds nuw i8, ptr %add.ptr.i263, i64 8
   %146 = load ptr, ptr %all_names_.i, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %vars.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %map.i264)
@@ -3433,7 +3435,8 @@ for.body215:                                      ; preds = %for.body215.lr.ph, 
   %indvars.iv1194 = phi i64 [ 0, %for.body215.lr.ph ], [ %indvars.iv.next1195, %for.inc223 ]
   %219 = load ptr, ptr %printer_91, align 8
   %220 = load ptr, ptr %enum_types_.i, align 8
-  %all_names_.i278 = getelementptr inbounds nuw %"class.google::protobuf::EnumDescriptor", ptr %220, i64 %indvars.iv1194, i32 4
+  %add.ptr.i277 = getelementptr inbounds nuw %"class.google::protobuf::EnumDescriptor", ptr %220, i64 %indvars.iv1194
+  %all_names_.i278 = getelementptr inbounds nuw i8, ptr %add.ptr.i277, i64 8
   %221 = load ptr, ptr %all_names_.i278, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %vars.i279)
   call void @llvm.lifetime.start.p0(ptr nonnull %map.i280)
@@ -6131,7 +6134,8 @@ invoke.cont33:                                    ; preds = %invoke.cont33.lr.ph
   %indvars.iv = phi i64 [ 0, %invoke.cont33.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %items_printed.0593 = phi i32 [ 0, %invoke.cont33.lr.ph ], [ %items_printed.1.fr, %for.inc ]
   %26 = load ptr, ptr %fields_.i, align 8
-  %all_names_.i112 = getelementptr inbounds nuw %"class.google::protobuf::FieldDescriptor", ptr %26, i64 %indvars.iv, i32 5
+  %add.ptr.i111 = getelementptr inbounds nuw %"class.google::protobuf::FieldDescriptor", ptr %26, i64 %indvars.iv
+  %all_names_.i112 = getelementptr inbounds nuw i8, ptr %add.ptr.i111, i64 8
   %27 = load ptr, ptr %all_names_.i112, align 8
   %call38 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %27) #25
   %28 = extractvalue { i64, ptr } %call38, 0
@@ -6388,8 +6392,9 @@ invoke.cont133.lr.ph:                             ; preds = %for.cond127.prehead
 invoke.cont102:                                   ; preds = %invoke.cont102.lr.ph, %invoke.cont120
   %indvars.iv614 = phi i64 [ 0, %invoke.cont102.lr.ph ], [ %indvars.iv.next615, %invoke.cont120 ]
   %76 = load ptr, ptr %fields_.i178, align 8
+  %add.ptr.i180 = getelementptr inbounds nuw %"class.google::protobuf::FieldDescriptor", ptr %76, i64 %indvars.iv614
   %77 = load ptr, ptr %printer_17, align 8
-  %all_names_.i183 = getelementptr inbounds nuw %"class.google::protobuf::FieldDescriptor", ptr %76, i64 %indvars.iv614, i32 5
+  %all_names_.i183 = getelementptr inbounds nuw i8, ptr %add.ptr.i180, i64 8
   %78 = load ptr, ptr %all_names_.i183, align 8
   %call112 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %78) #25
   %79 = extractvalue { i64, ptr } %call112, 0
@@ -8367,7 +8372,8 @@ _ZN6google8protobuf2io7Printer5PrintIJEEEvSt17basic_string_viewIcSt11char_traits
   %9 = load ptr, ptr %file_, align 8
   %services_.i = getelementptr inbounds nuw i8, ptr %9, i64 112
   %10 = load ptr, ptr %services_.i, align 8
-  %all_names_.i = getelementptr inbounds nuw %"class.google::protobuf::ServiceDescriptor", ptr %10, i64 %indvars.iv, i32 2
+  %add.ptr.i = getelementptr inbounds nuw %"class.google::protobuf::ServiceDescriptor", ptr %10, i64 %indvars.iv
+  %all_names_.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 8
   %11 = load ptr, ptr %all_names_.i, align 8
   call void @_ZN6google8protobuf2io7Printer5PrintIJA13_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvSt17basic_string_viewIcS8_EDpRKT_(ptr noundef nonnull align 8 dereferenceable(256) %8, i64 92, ptr nonnull @.str.93, ptr noundef nonnull align 1 dereferenceable(13) @.str.94, ptr noundef nonnull align 8 dereferenceable(32) %11)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

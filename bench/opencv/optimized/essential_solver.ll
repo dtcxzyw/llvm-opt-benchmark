@@ -1215,8 +1215,8 @@ _ZN2cvmlIdLi1ELi10EEENS_4MatxIT_XT0_EXT1_EEEdRKS3_.exit: ; preds = %346
   %364 = icmp eq i64 %indvars.iv750, 1
   %365 = icmp eq i64 %indvars.iv750, 2
   %366 = getelementptr inbounds nuw [3 x %"class.cv::Matx.22"], ptr %31, i64 %indvars.iv750
-  %367 = getelementptr inbounds nuw [3 x %"class.cv::Matx.22"], ptr %31, i64 %indvars.iv750, i64 1
-  %368 = getelementptr inbounds nuw [3 x %"class.cv::Matx.22"], ptr %31, i64 %indvars.iv750, i64 2
+  %367 = getelementptr inbounds nuw i8, ptr %366, i64 80
+  %368 = getelementptr inbounds nuw i8, ptr %366, i64 160
   %indvars.iv.next751 = add nuw nsw i64 %indvars.iv750, 1
   br label %370
 

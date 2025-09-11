@@ -572,9 +572,9 @@ ssl_select_next_record_layer.exit:                ; preds = %56
   %122 = load i8, ptr %121, align 8, !tbaa !115
   %123 = add i8 %122, -1
   %or.cond181 = icmp ult i8 %123, 4
-  br i1 %or.cond181, label %.thread245, label %126
+  br i1 %or.cond181, label %.thread205, label %126
 
-.thread245:                                       ; preds = %120
+.thread205:                                       ; preds = %120
   %124 = zext nneg i8 %122 to i32
   %125 = shl nuw nsw i32 256, %124
   store i32 %125, ptr %25, align 4, !tbaa !101
@@ -585,7 +585,7 @@ ssl_select_next_record_layer.exit:                ; preds = %56
   %.not174 = icmp eq i32 %.pr, 16384
   br i1 %.not174, label %129, label %127
 
-127:                                              ; preds = %.thread245, %126
+127:                                              ; preds = %.thread205, %126
   %128 = getelementptr inbounds nuw i8, ptr %.2153, i64 40
   call void @llvm.lifetime.start.p0(ptr nonnull %37)
   call void @OSSL_PARAM_construct_uint(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %37, ptr noundef nonnull @.str.12, ptr noundef nonnull %25) #9
@@ -625,15 +625,15 @@ ssl_select_next_record_layer.exit:                ; preds = %56
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 2312
   %148 = load ptr, ptr %147, align 8, !tbaa !120
   %.not21.i = icmp eq ptr %148, null
-  br i1 %.not21.i, label %ossl_get_max_early_data.exit.thread209, label %149
+  br i1 %.not21.i, label %ossl_get_max_early_data.exit.thread211, label %149
 
 149:                                              ; preds = %146
   %150 = getelementptr inbounds nuw i8, ptr %148, i64 836
   %151 = load i32, ptr %150, align 4, !tbaa !119
   %.not26.i = icmp eq i32 %151, 0
-  br i1 %.not26.i, label %ossl_get_max_early_data.exit.thread209, label %ossl_get_max_early_data.exit.thread, !prof !121
+  br i1 %.not26.i, label %ossl_get_max_early_data.exit.thread211, label %ossl_get_max_early_data.exit.thread, !prof !121
 
-ossl_get_max_early_data.exit.thread209:           ; preds = %146, %149
+ossl_get_max_early_data.exit.thread211:           ; preds = %146, %149
   call void @ERR_new() #9
   call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 131, ptr noundef nonnull @__func__.ossl_get_max_early_data) #9
   call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %0, i32 noundef 80, i32 noundef 786691, ptr noundef null) #9
@@ -675,8 +675,8 @@ ossl_get_max_early_data.exit:                     ; preds = %152, %157
   call void @llvm.lifetime.end.p0(ptr nonnull %38)
   br label %164
 
-164:                                              ; preds = %ossl_get_max_early_data.exit.thread209, %133, %ossl_get_max_early_data.exit, %162, %136
-  %.4 = phi ptr [ %163, %162 ], [ %.3, %ossl_get_max_early_data.exit ], [ %.3, %136 ], [ %.3, %133 ], [ %.3, %ossl_get_max_early_data.exit.thread209 ]
+164:                                              ; preds = %ossl_get_max_early_data.exit.thread211, %133, %ossl_get_max_early_data.exit, %162, %136
+  %.4 = phi ptr [ %163, %162 ], [ %.3, %ossl_get_max_early_data.exit ], [ %.3, %136 ], [ %.3, %133 ], [ %.3, %ossl_get_max_early_data.exit.thread211 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %39)
   call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %39) #9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.4, ptr noundef nonnull align 8 dereferenceable(40) %39, i64 40, i1 false), !tbaa.struct !108
@@ -711,13 +711,13 @@ ossl_get_max_early_data.exit:                     ; preds = %152, %157
   %183 = call zeroext i16 @dtls1_get_epoch(ptr noundef nonnull %0, i32 noundef 1) #9
   %.pre = load ptr, ptr %165, align 8, !tbaa !93
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 216
-  %.pre230 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !94
-  %.phi.trans.insert231 = getelementptr inbounds nuw i8, ptr %.pre230, i64 80
-  %.pre232 = load i32, ptr %.phi.trans.insert231, align 8, !tbaa !97
+  %.pre232 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !94
+  %.phi.trans.insert233 = getelementptr inbounds nuw i8, ptr %.pre232, i64 80
+  %.pre234 = load i32, ptr %.phi.trans.insert233, align 8, !tbaa !97
   br label %184
 
 184:                                              ; preds = %182, %173
-  %185 = phi i32 [ %.pre232, %182 ], [ %179, %173 ]
+  %185 = phi i32 [ %.pre234, %182 ], [ %179, %173 ]
   %.0138 = phi i16 [ %183, %182 ], [ 0, %173 ]
   %186 = and i32 %185, 8
   %.not176 = icmp eq i32 %186, 0
@@ -735,7 +735,7 @@ ossl_get_max_early_data.exit:                     ; preds = %152, %157
   %.sink = phi ptr [ %190, %189 ], [ %188, %187 ]
   %192 = call ptr @BIO_new(ptr noundef %.sink) #9
   %193 = icmp eq ptr %192, null
-  br i1 %193, label %.thread213, label %194
+  br i1 %193, label %.thread215, label %194
 
 194:                                              ; preds = %191
   store ptr %192, ptr %167, align 8, !tbaa !124
@@ -763,9 +763,9 @@ ossl_get_max_early_data.exit:                     ; preds = %152, %157
   br label %206
 
 206:                                              ; preds = %205, %218
-  %.0225 = phi i64 [ 0, %205 ], [ %.1, %218 ]
-  %.0137224 = phi i64 [ 0, %205 ], [ %219, %218 ]
-  %207 = getelementptr inbounds nuw %struct.ossl_dispatch_st, ptr @rlayer_dispatch, i64 %.0137224
+  %.0227 = phi i64 [ 0, %205 ], [ %.1, %218 ]
+  %.0137226 = phi i64 [ 0, %205 ], [ %219, %218 ]
+  %207 = getelementptr inbounds nuw %struct.ossl_dispatch_st, ptr @rlayer_dispatch, i64 %.0137226
   %208 = load i32, ptr %207, align 16, !tbaa !125
   switch i32 %208, label %215 [
     i32 2, label %209
@@ -783,14 +783,14 @@ ossl_get_max_early_data.exit:                     ; preds = %152, %157
   br i1 %214, label %218, label %215
 
 215:                                              ; preds = %206, %212, %209
-  %216 = add i64 %.0225, 1
-  %217 = getelementptr inbounds nuw %struct.ossl_dispatch_st, ptr %40, i64 %.0225
+  %216 = add i64 %.0227, 1
+  %217 = getelementptr inbounds nuw %struct.ossl_dispatch_st, ptr %40, i64 %.0227
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %217, ptr noundef nonnull align 16 dereferenceable(16) %207, i64 16, i1 false), !tbaa.struct !129
   br label %218
 
 218:                                              ; preds = %212, %209, %215
-  %.1 = phi i64 [ %216, %215 ], [ %.0225, %209 ], [ %.0225, %212 ]
-  %219 = add nuw nsw i64 %.0137224, 1
+  %.1 = phi i64 [ %216, %215 ], [ %.0227, %209 ], [ %.0227, %212 ]
+  %219 = add nuw nsw i64 %.0137226, 1
   %exitcond.not = icmp eq i64 %219, 5
   br i1 %exitcond.not, label %220, label %206, !llvm.loop !130
 
@@ -802,8 +802,8 @@ ossl_get_max_early_data.exit:                     ; preds = %152, %157
   %225 = load ptr, ptr %171, align 8, !tbaa !148
   %226 = call i32 %221(ptr noundef %222, ptr noundef %223, i32 noundef %1, i32 noundef %224, i32 noundef %2, i32 noundef %3, i16 noundef zeroext %.1139, ptr noundef %4, i64 noundef %5, ptr noundef %6, i64 noundef %7, ptr noundef %8, i64 noundef %9, ptr noundef %10, i64 noundef %11, ptr noundef %12, i64 noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %53, ptr noundef %17, ptr noundef %.0142, ptr noundef %.0154193199, ptr noundef %.1141, ptr noundef null, ptr noundef null, ptr noundef nonnull %20, ptr noundef nonnull %19, ptr noundef nonnull %40, ptr noundef %0, ptr noundef %225, ptr noundef nonnull %21) #9
   %227 = call i32 @BIO_free(ptr noundef %.0142) #9
-  switch i32 %226, label %.thread213.loopexit255 [
-    i32 -2, label %.thread213
+  switch i32 %226, label %.thread215.loopexit255 [
+    i32 -2, label %.thread215
     i32 -1, label %228
     i32 1, label %231
   ]
@@ -813,14 +813,14 @@ ossl_get_max_early_data.exit:                     ; preds = %152, %157
   %.not177 = icmp eq ptr %229, %.1149
   %.not178 = icmp eq ptr %229, null
   %or.cond182 = or i1 %.not177, %.not178
-  br i1 %or.cond182, label %.thread213, label %230
+  br i1 %or.cond182, label %.thread215, label %230
 
-.thread213.loopexit255:                           ; preds = %220
-  br label %.thread213
+.thread215.loopexit255:                           ; preds = %220
+  br label %.thread215
 
-.thread213:                                       ; preds = %228, %191, %220, %.thread213.loopexit255
-  %.sink252 = phi i32 [ 1426, %220 ], [ 1385, %191 ], [ 1438, %228 ], [ 1446, %.thread213.loopexit255 ]
-  %.sink251 = phi i32 [ 313, %220 ], [ 786691, %191 ], [ 322, %228 ], [ 786691, %.thread213.loopexit255 ]
+.thread215:                                       ; preds = %228, %191, %220, %.thread215.loopexit255
+  %.sink252 = phi i32 [ 1426, %220 ], [ 1385, %191 ], [ 1438, %228 ], [ 1446, %.thread215.loopexit255 ]
+  %.sink251 = phi i32 [ 313, %220 ], [ 786691, %191 ], [ 322, %228 ], [ 786691, %.thread215.loopexit255 ]
   call void @ERR_new() #9
   call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef %.sink252, ptr noundef nonnull @__func__.ssl_set_new_record_layer) #9
   call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %0, i32 noundef 80, i32 noundef %.sink251, ptr noundef null) #9
@@ -918,8 +918,8 @@ ossl_get_max_early_data.exit:                     ; preds = %152, %157
   call void %272(ptr noundef %.0.i184, i64 noundef %269) #9
   br label %ssl_post_record_layer_select.exit
 
-ssl_post_record_layer_select.exit:                ; preds = %273, %270, %267, %.thread213, %253, %70
-  %.0143 = phi i32 [ 0, %253 ], [ 0, %70 ], [ 0, %.thread213 ], [ 1, %267 ], [ 1, %270 ], [ 1, %273 ]
+ssl_post_record_layer_select.exit:                ; preds = %273, %270, %267, %.thread215, %253, %70
+  %.0143 = phi i32 [ 0, %253 ], [ 0, %70 ], [ 0, %.thread215 ], [ 1, %267 ], [ 1, %270 ], [ 1, %273 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   call void @llvm.lifetime.end.p0(ptr nonnull %24)

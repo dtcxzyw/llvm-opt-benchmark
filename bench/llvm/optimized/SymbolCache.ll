@@ -3062,7 +3062,8 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMap
   br i1 %.not35, label %_ZN4llvm8ExpectedIRNS_3pdb12SymbolStreamEED2Ev.exit, label %30
 
 30:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit
-  %31 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.262", ptr %9, i64 %.pn, i32 0, i32 1
+  %.sroa.0.1.i = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.262", ptr %9, i64 %.pn
+  %31 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i, i64 4
   %32 = load i32, ptr %31, align 4, !tbaa !215
   br label %82
 
@@ -10103,7 +10104,8 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMap
   br i1 %.not, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit.thread, label %26
 
 26:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit
-  %27 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.262", ptr %4, i64 %.pn, i32 0, i32 1
+  %.sroa.0.1.i = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.262", ptr %4, i64 %.pn
+  %27 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i, i64 4
   %28 = load i32, ptr %27, align 4, !tbaa !215
   br label %69
 

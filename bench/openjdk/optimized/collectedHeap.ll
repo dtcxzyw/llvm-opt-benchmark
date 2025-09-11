@@ -313,7 +313,7 @@ declare void @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 derefe
 define hidden void @_ZN9GCHeapLog8log_heapEP13CollectedHeapb(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.stringStream, align 8
   %5 = tail call noundef zeroext i1 @_ZN7VMError17is_error_reportedEv() #18
-  br i1 %5, label %39, label %6
+  br i1 %5, label %42, label %6
 
 6:                                                ; preds = %3
   %7 = zext i1 %2 to i8
@@ -342,34 +342,37 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %6, %17
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %21 = load ptr, ptr %20, align 8
   %22 = sext i32 %11 to i64
-  %23 = getelementptr inbounds %"class.EventLogBase<GCMessage>::EventRecord", ptr %21, i64 %22, i32 1
-  store ptr null, ptr %23, align 8
-  %24 = load ptr, ptr %20, align 8
-  %25 = getelementptr inbounds %"class.EventLogBase<GCMessage>::EventRecord", ptr %24, i64 %22
-  store double %8, ptr %25, align 8
-  %26 = load ptr, ptr %20, align 8
-  %27 = getelementptr inbounds %"class.EventLogBase<GCMessage>::EventRecord", ptr %26, i64 %22, i32 2, i32 1
-  store i8 %7, ptr %27, align 8
-  %28 = load ptr, ptr %20, align 8
-  %29 = getelementptr inbounds %"class.EventLogBase<GCMessage>::EventRecord", ptr %28, i64 %22, i32 2
-  %30 = load ptr, ptr %29, align 8
-  call void @_ZN12stringStreamC1EPcm(ptr noundef nonnull align 8 dereferenceable(129) %4, ptr noundef %30, i64 noundef 1024) #18
-  %31 = select i1 %2, ptr @.str.4, ptr @.str.5
-  %32 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %33 = load i32, ptr %32, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %1, i64 76
-  %35 = load i32, ptr %34, align 4
-  call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull @.str.6, ptr noundef nonnull %31, i32 noundef %33, i32 noundef %35) #18
-  %36 = load ptr, ptr %1, align 8
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 312
-  %38 = load ptr, ptr %37, align 8
-  call void %38(ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef nonnull %4) #18
+  %23 = getelementptr inbounds %"class.EventLogBase<GCMessage>::EventRecord", ptr %21, i64 %22
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  store ptr null, ptr %24, align 8
+  %25 = load ptr, ptr %20, align 8
+  %26 = getelementptr inbounds %"class.EventLogBase<GCMessage>::EventRecord", ptr %25, i64 %22
+  store double %8, ptr %26, align 8
+  %27 = load ptr, ptr %20, align 8
+  %28 = getelementptr inbounds %"class.EventLogBase<GCMessage>::EventRecord", ptr %27, i64 %22
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 1048
+  store i8 %7, ptr %29, align 8
+  %30 = load ptr, ptr %20, align 8
+  %31 = getelementptr inbounds %"class.EventLogBase<GCMessage>::EventRecord", ptr %30, i64 %22
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
+  %33 = load ptr, ptr %32, align 8
+  call void @_ZN12stringStreamC1EPcm(ptr noundef nonnull align 8 dereferenceable(129) %4, ptr noundef %33, i64 noundef 1024) #18
+  %34 = select i1 %2, ptr @.str.4, ptr @.str.5
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %36 = load i32, ptr %35, align 8
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 76
+  %38 = load i32, ptr %37, align 4
+  call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull @.str.6, ptr noundef nonnull %34, i32 noundef %36, i32 noundef %38) #18
+  %39 = load ptr, ptr %1, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 312
+  %41 = load ptr, ptr %40, align 8
+  call void %41(ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef nonnull %4) #18
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull @.str.7) #18
   call void @_ZN12stringStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(129) %4) #18
   call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %9) #18
-  br label %39
+  br label %42
 
-39:                                               ; preds = %3, %_ZN11MutexLockerD2Ev.exit
+42:                                               ; preds = %3, %_ZN11MutexLockerD2Ev.exit
   ret void
 }
 

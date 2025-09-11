@@ -7007,31 +7007,32 @@ _ZN9uv_pep4407version29starts_with_ignore_ascii_case17h55a29433e72f7083E.exit.th
 55:                                               ; preds = %.preheader.i.i
   %56 = insertvalue { i64, i64 } { i64 1, i64 poison }, i64 %.sroa.8.026.i, 1
   %57 = icmp ult i64 %.sroa.8.026.i, %22
-  br i1 %57, label %60, label %65
+  br i1 %57, label %60, label %66
 
-_ZN9uv_pep4407version9StringSet11starts_with17hf99ff96c8b8dd9cdE.exit.thread: ; preds = %_ZN9uv_pep4407version29starts_with_ignore_ascii_case17h55a29433e72f7083E.exit.thread.i, %18, %8, %_ZN9uv_pep4407version7ByteSet11starts_with17h482a18baabcdf19bE.exit.i, %66
-  %58 = phi { i64, i64 } [ %56, %66 ], [ { i64 0, i64 undef }, %_ZN9uv_pep4407version7ByteSet11starts_with17h482a18baabcdf19bE.exit.i ], [ { i64 0, i64 undef }, %8 ], [ { i64 0, i64 undef }, %18 ], [ { i64 0, i64 undef }, %_ZN9uv_pep4407version29starts_with_ignore_ascii_case17h55a29433e72f7083E.exit.thread.i ]
-  %.sroa.3.0 = phi i64 [ %.sroa.8.026.i, %66 ], [ undef, %_ZN9uv_pep4407version7ByteSet11starts_with17h482a18baabcdf19bE.exit.i ], [ undef, %8 ], [ undef, %18 ], [ undef, %_ZN9uv_pep4407version29starts_with_ignore_ascii_case17h55a29433e72f7083E.exit.thread.i ]
+_ZN9uv_pep4407version9StringSet11starts_with17hf99ff96c8b8dd9cdE.exit.thread: ; preds = %_ZN9uv_pep4407version29starts_with_ignore_ascii_case17h55a29433e72f7083E.exit.thread.i, %18, %8, %_ZN9uv_pep4407version7ByteSet11starts_with17h482a18baabcdf19bE.exit.i, %67
+  %58 = phi { i64, i64 } [ %56, %67 ], [ { i64 0, i64 undef }, %_ZN9uv_pep4407version7ByteSet11starts_with17h482a18baabcdf19bE.exit.i ], [ { i64 0, i64 undef }, %8 ], [ { i64 0, i64 undef }, %18 ], [ { i64 0, i64 undef }, %_ZN9uv_pep4407version29starts_with_ignore_ascii_case17h55a29433e72f7083E.exit.thread.i ]
+  %.sroa.3.0 = phi i64 [ %.sroa.8.026.i, %67 ], [ undef, %_ZN9uv_pep4407version7ByteSet11starts_with17h482a18baabcdf19bE.exit.i ], [ undef, %8 ], [ undef, %18 ], [ undef, %_ZN9uv_pep4407version29starts_with_ignore_ascii_case17h55a29433e72f7083E.exit.thread.i ]
   %59 = insertvalue { i64, i64 } %58, i64 %.sroa.3.0, 1
   ret { i64, i64 } %59
 
 60:                                               ; preds = %55
-  %61 = getelementptr inbounds nuw { ptr, i64 }, ptr %20, i64 %.sroa.8.026.i, i32 1
-  %62 = load i64, ptr %61, align 8, !noundef !3
-  %63 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %6, i64 %62)
-  %64 = extractvalue { i64, i1 } %63, 1
-  br i1 %64, label %68, label %66, !prof !169
+  %61 = getelementptr inbounds nuw { ptr, i64 }, ptr %20, i64 %.sroa.8.026.i
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
+  %63 = load i64, ptr %62, align 8, !noundef !3
+  %64 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %6, i64 %63)
+  %65 = extractvalue { i64, i1 } %64, 1
+  br i1 %65, label %69, label %67, !prof !169
 
-65:                                               ; preds = %55
+66:                                               ; preds = %55
   tail call void @_ZN4core9panicking18panic_bounds_check17h0328ca7e7f0749c4E(i64 noundef %.sroa.8.026.i, i64 noundef %22, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1495de09556023635d9825e3589d5aa9.131) #38
   unreachable
 
-66:                                               ; preds = %60
-  %67 = add nuw i64 %62, %6
-  store i64 %67, ptr %5, align 8
+67:                                               ; preds = %60
+  %68 = add nuw i64 %63, %6
+  store i64 %68, ptr %5, align 8
   br label %_ZN9uv_pep4407version9StringSet11starts_with17hf99ff96c8b8dd9cdE.exit.thread
 
-68:                                               ; preds = %60
+69:                                               ; preds = %60
   tail call void @_ZN4core6option13expect_failed17h653f5dbca1fa5fc0E(ptr noalias noundef nonnull readonly align 1 @anon.1495de09556023635d9825e3589d5aa9.128, i64 noundef 30, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1495de09556023635d9825e3589d5aa9.132) #38
   unreachable
 }

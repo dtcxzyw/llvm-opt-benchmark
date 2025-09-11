@@ -820,7 +820,8 @@ define internal fastcc noundef zeroext i1 @move_pgt_entry(i32 noundef range(i32 
   %41 = select i1 %37, i64 %38, i64 %40
   %42 = add i64 %36, %41
   %43 = lshr i64 %42, 12
-  %44 = getelementptr %struct.page, ptr %33, i64 %43, i32 1, i32 0, i32 3
+  %.split = getelementptr %struct.page, ptr %33, i64 %43
+  %44 = getelementptr i8, ptr %.split, i64 40
   tail call void @_raw_spin_lock(ptr noundef %44) #7
   %45 = load i64, ptr @vmemmap_base, align 8
   %46 = inttoptr i64 %45 to ptr
@@ -834,8 +835,9 @@ define internal fastcc noundef zeroext i1 @move_pgt_entry(i32 noundef range(i32 
   %54 = select i1 %50, i64 %51, i64 %53
   %55 = add i64 %49, %54
   %56 = lshr i64 %55, 12
-  %57 = getelementptr %struct.page, ptr %46, i64 %56, i32 1, i32 0, i32 3
-  %58 = icmp eq ptr %57, %44
+  %.split8 = getelementptr %struct.page, ptr %46, i64 %56
+  %57 = getelementptr i8, ptr %.split8, i64 40
+  %58 = icmp eq ptr %.split8, %.split
   br i1 %58, label %60, label %59
 
 59:                                               ; preds = %31

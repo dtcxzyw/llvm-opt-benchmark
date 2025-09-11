@@ -77,27 +77,29 @@ define void @free_srt_table_data(ptr noundef captures(none) %0) local_unnamed_ad
 6:                                                ; preds = %.lr.ph, %6
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %6 ]
   %7 = load ptr, ptr %5, align 8
-  %8 = getelementptr %struct._srt_procedure_t, ptr %7, i64 %indvars.iv, i32 2
-  %9 = load ptr, ptr %8, align 8
-  tail call void @g_free(ptr noundef %9)
-  %10 = load ptr, ptr %5, align 8
-  %11 = getelementptr %struct._srt_procedure_t, ptr %10, i64 %indvars.iv, i32 2
-  store ptr null, ptr %11, align 8
+  %8 = getelementptr %struct._srt_procedure_t, ptr %7, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 80
+  %10 = load ptr, ptr %9, align 8
+  tail call void @g_free(ptr noundef %10)
+  %11 = load ptr, ptr %5, align 8
+  %12 = getelementptr %struct._srt_procedure_t, ptr %11, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 80
+  store ptr null, ptr %13, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %12 = load i32, ptr %2, align 8
-  %13 = sext i32 %12 to i64
-  %14 = icmp slt i64 %indvars.iv.next, %13
-  br i1 %14, label %6, label %._crit_edge, !llvm.loop !6
+  %14 = load i32, ptr %2, align 8
+  %15 = sext i32 %14 to i64
+  %16 = icmp slt i64 %indvars.iv.next, %15
+  br i1 %16, label %6, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %6, %1
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %16 = load ptr, ptr %15, align 8
-  tail call void @g_free(ptr noundef %16)
-  store ptr null, ptr %15, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load ptr, ptr %17, align 8
   tail call void @g_free(ptr noundef %18)
   store ptr null, ptr %17, align 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %20 = load ptr, ptr %19, align 8
+  tail call void @g_free(ptr noundef %20)
+  store ptr null, ptr %19, align 8
   store i32 0, ptr %2, align 8
   ret void
 }
@@ -129,41 +131,43 @@ define void @free_srt_table(ptr noundef captures(none) %0, ptr noundef %1) local
 12:                                               ; preds = %12, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %12 ]
   %13 = load ptr, ptr %11, align 8
-  %14 = getelementptr %struct._srt_procedure_t, ptr %13, i64 %indvars.iv.i, i32 2
-  %15 = load ptr, ptr %14, align 8
-  tail call void @g_free(ptr noundef %15)
-  %16 = load ptr, ptr %11, align 8
-  %17 = getelementptr %struct._srt_procedure_t, ptr %16, i64 %indvars.iv.i, i32 2
-  store ptr null, ptr %17, align 8
+  %14 = getelementptr %struct._srt_procedure_t, ptr %13, i64 %indvars.iv.i
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 80
+  %16 = load ptr, ptr %15, align 8
+  tail call void @g_free(ptr noundef %16)
+  %17 = load ptr, ptr %11, align 8
+  %18 = getelementptr %struct._srt_procedure_t, ptr %17, i64 %indvars.iv.i
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 80
+  store ptr null, ptr %19, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %18 = load i32, ptr %8, align 8
-  %19 = sext i32 %18 to i64
-  %20 = icmp slt i64 %indvars.iv.next.i, %19
-  br i1 %20, label %12, label %free_srt_table_data.exit, !llvm.loop !6
+  %20 = load i32, ptr %8, align 8
+  %21 = sext i32 %20 to i64
+  %22 = icmp slt i64 %indvars.iv.next.i, %21
+  br i1 %22, label %12, label %free_srt_table_data.exit, !llvm.loop !6
 
 free_srt_table_data.exit:                         ; preds = %12, %.lr.ph
-  %21 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %22 = load ptr, ptr %21, align 8
-  tail call void @g_free(ptr noundef %22)
-  store ptr null, ptr %21, align 8
-  %23 = getelementptr inbounds nuw i8, ptr %7, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %24 = load ptr, ptr %23, align 8
   tail call void @g_free(ptr noundef %24)
   store ptr null, ptr %23, align 8
+  %25 = getelementptr inbounds nuw i8, ptr %7, i64 40
+  %26 = load ptr, ptr %25, align 8
+  tail call void @g_free(ptr noundef %26)
+  store ptr null, ptr %25, align 8
   store i32 0, ptr %8, align 8
   tail call void @g_free(ptr noundef %7)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %25 = load i32, ptr %3, align 8
-  %26 = zext i32 %25 to i64
-  %27 = icmp samesign ult i64 %indvars.iv.next, %26
-  br i1 %27, label %.lr.ph, label %._crit_edge, !llvm.loop !8
+  %27 = load i32, ptr %3, align 8
+  %28 = zext i32 %27 to i64
+  %29 = icmp samesign ult i64 %indvars.iv.next, %28
+  br i1 %29, label %.lr.ph, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %free_srt_table_data.exit, %2
-  %28 = tail call ptr @g_array_set_size(ptr noundef %1, i32 noundef 0)
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %30 = load ptr, ptr %29, align 8
-  tail call void @g_free(ptr noundef %30)
-  store ptr null, ptr %29, align 8
+  %30 = tail call ptr @g_array_set_size(ptr noundef %1, i32 noundef 0)
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %32 = load ptr, ptr %31, align 8
+  tail call void @g_free(ptr noundef %32)
+  store ptr null, ptr %31, align 8
   ret void
 }
 
@@ -178,7 +182,7 @@ define void @reset_srt_table(ptr noundef readonly captures(none) %0) local_unnam
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %reset_srt_table_data.exit
-  %4 = phi i32 [ %18, %reset_srt_table_data.exit ], [ %3, %1 ]
+  %4 = phi i32 [ %19, %reset_srt_table_data.exit ], [ %3, %1 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %reset_srt_table_data.exit ], [ 0, %1 ]
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr ptr, ptr %5, i64 %indvars.iv
@@ -195,24 +199,25 @@ define void @reset_srt_table(ptr noundef readonly captures(none) %0) local_unnam
 12:                                               ; preds = %12, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %12 ]
   %13 = load ptr, ptr %11, align 8
-  %14 = getelementptr %struct._srt_procedure_t, ptr %13, i64 %indvars.iv.i, i32 1
-  tail call void @time_stat_init(ptr noundef %14)
+  %14 = getelementptr %struct._srt_procedure_t, ptr %13, i64 %indvars.iv.i
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  tail call void @time_stat_init(ptr noundef nonnull %15)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %15 = load i32, ptr %8, align 8
-  %16 = sext i32 %15 to i64
-  %17 = icmp slt i64 %indvars.iv.next.i, %16
-  br i1 %17, label %12, label %reset_srt_table_data.exit.loopexit, !llvm.loop !9
+  %16 = load i32, ptr %8, align 8
+  %17 = sext i32 %16 to i64
+  %18 = icmp slt i64 %indvars.iv.next.i, %17
+  br i1 %18, label %12, label %reset_srt_table_data.exit.loopexit, !llvm.loop !9
 
 reset_srt_table_data.exit.loopexit:               ; preds = %12
   %.pre = load i32, ptr %2, align 8
   br label %reset_srt_table_data.exit
 
 reset_srt_table_data.exit:                        ; preds = %reset_srt_table_data.exit.loopexit, %.lr.ph
-  %18 = phi i32 [ %.pre, %reset_srt_table_data.exit.loopexit ], [ %4, %.lr.ph ]
+  %19 = phi i32 [ %.pre, %reset_srt_table_data.exit.loopexit ], [ %4, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %19 = zext i32 %18 to i64
-  %20 = icmp samesign ult i64 %indvars.iv.next, %19
-  br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !10
+  %20 = zext i32 %19 to i64
+  %21 = icmp samesign ult i64 %indvars.iv.next, %20
+  br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %reset_srt_table_data.exit, %1
   ret void
@@ -434,27 +439,29 @@ define ptr @init_srt_table(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %19 = load ptr, ptr %17, align 8
-  %20 = getelementptr %struct._srt_procedure_t, ptr %19, i64 %indvars.iv, i32 1
-  tail call void @time_stat_init(ptr noundef %20)
-  %21 = load ptr, ptr %17, align 8
-  %22 = getelementptr %struct._srt_procedure_t, ptr %21, i64 %indvars.iv
-  store i32 0, ptr %22, align 8
-  %23 = load ptr, ptr %17, align 8
-  %24 = getelementptr %struct._srt_procedure_t, ptr %23, i64 %indvars.iv, i32 2
-  store ptr null, ptr %24, align 8
+  %20 = getelementptr %struct._srt_procedure_t, ptr %19, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  tail call void @time_stat_init(ptr noundef nonnull %21)
+  %22 = load ptr, ptr %17, align 8
+  %23 = getelementptr %struct._srt_procedure_t, ptr %22, i64 %indvars.iv
+  store i32 0, ptr %23, align 8
+  %24 = load ptr, ptr %17, align 8
+  %25 = getelementptr %struct._srt_procedure_t, ptr %24, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 80
+  store ptr null, ptr %26, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %7
-  %25 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %26 = load i32, ptr %25, align 8
-  %27 = call ptr @g_array_insert_vals(ptr noundef %2, i32 noundef %26, ptr noundef nonnull %8, i32 noundef 1)
-  %28 = load ptr, ptr %8, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 48
-  store ptr %6, ptr %29, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %28 = load i32, ptr %27, align 8
+  %29 = call ptr @g_array_insert_vals(ptr noundef %2, i32 noundef %28, ptr noundef nonnull %8, i32 noundef 1)
+  %30 = load ptr, ptr %8, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 48
+  store ptr %6, ptr %31, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  ret ptr %28
+  ret ptr %30
 }
 
 ; Function Attrs: null_pointer_is_valid allocsize(0)
@@ -499,31 +506,34 @@ define void @init_srt_table_row(ptr noundef captures(none) %0, i32 noundef %1, p
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %15, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %16 = load ptr, ptr %8, align 8
-  %17 = getelementptr %struct._srt_procedure_t, ptr %16, i64 %indvars.iv, i32 1
-  tail call void @time_stat_init(ptr noundef %17)
-  %18 = load ptr, ptr %8, align 8
-  %19 = getelementptr %struct._srt_procedure_t, ptr %18, i64 %indvars.iv
-  %20 = trunc nsw i64 %indvars.iv to i32
-  store i32 %20, ptr %19, align 8
-  %21 = load ptr, ptr %8, align 8
-  %22 = getelementptr %struct._srt_procedure_t, ptr %21, i64 %indvars.iv, i32 2
-  store ptr null, ptr %22, align 8
+  %17 = getelementptr %struct._srt_procedure_t, ptr %16, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  tail call void @time_stat_init(ptr noundef nonnull %18)
+  %19 = load ptr, ptr %8, align 8
+  %20 = getelementptr %struct._srt_procedure_t, ptr %19, i64 %indvars.iv
+  %21 = trunc nsw i64 %indvars.iv to i32
+  store i32 %21, ptr %20, align 8
+  %22 = load ptr, ptr %8, align 8
+  %23 = getelementptr %struct._srt_procedure_t, ptr %22, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 80
+  store ptr null, ptr %24, align 8
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %23 = load i32, ptr %4, align 8
-  %24 = sext i32 %23 to i64
-  %25 = icmp slt i64 %indvars.iv.next, %24
-  br i1 %25, label %.lr.ph, label %.loopexit, !llvm.loop !12
+  %25 = load i32, ptr %4, align 8
+  %26 = sext i32 %25 to i64
+  %27 = icmp slt i64 %indvars.iv.next, %26
+  br i1 %27, label %.lr.ph, label %.loopexit, !llvm.loop !12
 
 .loopexit:                                        ; preds = %.lr.ph, %6, %3
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %27 = load ptr, ptr %26, align 8
-  %28 = sext i32 %1 to i64
-  %29 = getelementptr %struct._srt_procedure_t, ptr %27, i64 %28
-  store i32 %1, ptr %29, align 8
-  %30 = tail call noalias ptr @g_strdup(ptr noundef %2)
-  %31 = load ptr, ptr %26, align 8
-  %32 = getelementptr %struct._srt_procedure_t, ptr %31, i64 %28, i32 2
-  store ptr %30, ptr %32, align 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %29 = load ptr, ptr %28, align 8
+  %30 = sext i32 %1 to i64
+  %31 = getelementptr %struct._srt_procedure_t, ptr %29, i64 %30
+  store i32 %1, ptr %31, align 8
+  %32 = tail call noalias ptr @g_strdup(ptr noundef %2)
+  %33 = load ptr, ptr %28, align 8
+  %34 = getelementptr %struct._srt_procedure_t, ptr %33, i64 %30
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 80
+  store ptr %32, ptr %35, align 8
   ret void
 }
 
@@ -539,11 +549,12 @@ define void @add_srt_table_data(ptr noundef readonly captures(none) %0, i32 noun
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load ptr, ptr %7, align 8
   %9 = sext i32 %1 to i64
-  %10 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %10, i64 16, i1 false)
+  %10 = getelementptr %struct._srt_procedure_t, ptr %8, i64 %9
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %11, i64 16, i1 false)
   call void @nstime_delta(ptr noundef nonnull %6, ptr noundef nonnull %5, ptr noundef %2)
-  %11 = getelementptr %struct._srt_procedure_t, ptr %8, i64 %9, i32 1
-  call void @time_stat_update(ptr noundef %11, ptr noundef nonnull %6, ptr noundef %3)
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  call void @time_stat_update(ptr noundef nonnull %12, ptr noundef nonnull %6, ptr noundef %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void

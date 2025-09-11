@@ -1106,7 +1106,7 @@ define internal fastcc noundef ptr @cuddHashTableAlloc(ptr noundef captures(none
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !86
   %6 = icmp eq ptr %5, null
-  br i1 %6, label %7, label %57
+  br i1 %6, label %7, label %58
 
 7:                                                ; preds = %1
   %8 = load ptr, ptr @Extra_UtilMMoutOfMemory, align 8, !tbaa !50
@@ -1114,7 +1114,7 @@ define internal fastcc noundef ptr @cuddHashTableAlloc(ptr noundef captures(none
   %10 = zext i32 %9 to i64
   %11 = tail call noalias ptr @malloc(i64 noundef %10) #12
   %12 = icmp eq ptr %11, null
-  br i1 %12, label %13, label %48
+  br i1 %12, label %13, label %49
 
 13:                                               ; preds = %7
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -1150,71 +1150,72 @@ define internal fastcc noundef ptr @cuddHashTableAlloc(ptr noundef captures(none
 
 32:                                               ; preds = %.lr.ph, %32
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %32 ]
-  %33 = getelementptr inbounds nuw %struct.DdSubtable, ptr %31, i64 %indvars.iv, i32 4
-  %34 = load i32, ptr %33, align 4, !tbaa !93
-  %35 = shl i32 %34, 2
-  store i32 %35, ptr %33, align 4, !tbaa !93
+  %33 = getelementptr inbounds nuw %struct.DdSubtable, ptr %31, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 20
+  %35 = load i32, ptr %34, align 4, !tbaa !93
+  %36 = shl i32 %35, 2
+  store i32 %36, ptr %34, align 4, !tbaa !93
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %32, !llvm.loop !94
 
 ._crit_edge:                                      ; preds = %32, %18
-  %36 = getelementptr inbounds nuw i8, ptr %19, i64 256
-  store double 2.000000e-01, ptr %36, align 8, !tbaa !95
-  %37 = getelementptr inbounds nuw i8, ptr %19, i64 224
-  %38 = load i32, ptr %37, align 8, !tbaa !30
-  %39 = uitofp i32 %38 to double
-  %40 = fmul double %39, 2.000000e-01
-  %41 = fptoui double %40 to i32
-  %42 = getelementptr inbounds nuw i8, ptr %19, i64 248
-  store i32 %41, ptr %42, align 8, !tbaa !96
-  %43 = tail call noalias ptr @malloc(i64 noundef %10) #12
-  %44 = icmp eq ptr %43, null
-  br i1 %44, label %._crit_edge..thread_crit_edge, label %48
+  %37 = getelementptr inbounds nuw i8, ptr %19, i64 256
+  store double 2.000000e-01, ptr %37, align 8, !tbaa !95
+  %38 = getelementptr inbounds nuw i8, ptr %19, i64 224
+  %39 = load i32, ptr %38, align 8, !tbaa !30
+  %40 = uitofp i32 %39 to double
+  %41 = fmul double %40, 2.000000e-01
+  %42 = fptoui double %41 to i32
+  %43 = getelementptr inbounds nuw i8, ptr %19, i64 248
+  store i32 %42, ptr %43, align 8, !tbaa !96
+  %44 = tail call noalias ptr @malloc(i64 noundef %10) #12
+  %45 = icmp eq ptr %44, null
+  br i1 %45, label %._crit_edge..thread_crit_edge, label %49
 
 ._crit_edge..thread_crit_edge:                    ; preds = %._crit_edge
   %.pre = load ptr, ptr @Extra_UtilMMoutOfMemory, align 8, !tbaa !50
   br label %.thread
 
 .thread:                                          ; preds = %._crit_edge..thread_crit_edge, %13
-  %45 = phi ptr [ %.pre, %._crit_edge..thread_crit_edge ], [ %8, %13 ]
-  tail call void %45(i64 noundef %10) #13
-  %46 = load ptr, ptr %14, align 8, !tbaa !60
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 624
-  store i32 1, ptr %47, align 8, !tbaa !3
-  br label %60
+  %46 = phi ptr [ %.pre, %._crit_edge..thread_crit_edge ], [ %8, %13 ]
+  tail call void %46(i64 noundef %10) #13
+  %47 = load ptr, ptr %14, align 8, !tbaa !60
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 624
+  store i32 1, ptr %48, align 8, !tbaa !3
+  br label %61
 
-48:                                               ; preds = %._crit_edge, %7
-  %.048 = phi ptr [ %43, %._crit_edge ], [ %11, %7 ]
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %50 = load ptr, ptr %49, align 8, !tbaa !72
-  store ptr %50, ptr %.048, align 8, !tbaa !67
-  store ptr %.048, ptr %49, align 8, !tbaa !72
-  %51 = zext i32 %3 to i64
-  %52 = getelementptr inbounds nuw i8, ptr %.048, i64 %51
-  br label %53
+49:                                               ; preds = %._crit_edge, %7
+  %.048 = phi ptr [ %44, %._crit_edge ], [ %11, %7 ]
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %51 = load ptr, ptr %50, align 8, !tbaa !72
+  store ptr %51, ptr %.048, align 8, !tbaa !67
+  store ptr %.048, ptr %50, align 8, !tbaa !72
+  %52 = zext i32 %3 to i64
+  %53 = getelementptr inbounds nuw i8, ptr %.048, i64 %52
+  br label %54
 
-53:                                               ; preds = %48, %53
-  %.156 = phi i32 [ 1, %48 ], [ %55, %53 ]
-  %.04755 = phi ptr [ %52, %48 ], [ %54, %53 ]
-  %54 = getelementptr inbounds nuw i8, ptr %.04755, i64 %51
-  store ptr %54, ptr %.04755, align 8, !tbaa !76
-  %55 = add nuw nsw i32 %.156, 1
-  %exitcond58.not = icmp eq i32 %55, 1022
-  br i1 %exitcond58.not, label %56, label %53, !llvm.loop !97
+54:                                               ; preds = %49, %54
+  %.156 = phi i32 [ 1, %49 ], [ %56, %54 ]
+  %.04755 = phi ptr [ %53, %49 ], [ %55, %54 ]
+  %55 = getelementptr inbounds nuw i8, ptr %.04755, i64 %52
+  store ptr %55, ptr %.04755, align 8, !tbaa !76
+  %56 = add nuw nsw i32 %.156, 1
+  %exitcond58.not = icmp eq i32 %56, 1022
+  br i1 %exitcond58.not, label %57, label %54, !llvm.loop !97
 
-56:                                               ; preds = %53
-  store ptr null, ptr %54, align 8, !tbaa !76
-  br label %57
+57:                                               ; preds = %54
+  store ptr null, ptr %55, align 8, !tbaa !76
+  br label %58
 
-57:                                               ; preds = %56, %1
-  %58 = phi ptr [ %52, %56 ], [ %5, %1 ]
-  %59 = load ptr, ptr %58, align 8, !tbaa !76
-  store ptr %59, ptr %4, align 8, !tbaa !86
-  br label %60
+58:                                               ; preds = %57, %1
+  %59 = phi ptr [ %53, %57 ], [ %5, %1 ]
+  %60 = load ptr, ptr %59, align 8, !tbaa !76
+  store ptr %60, ptr %4, align 8, !tbaa !86
+  br label %61
 
-60:                                               ; preds = %57, %.thread
-  %.0 = phi ptr [ null, %.thread ], [ %58, %57 ]
+61:                                               ; preds = %58, %.thread
+  %.0 = phi ptr [ null, %.thread ], [ %59, %58 ]
   ret ptr %.0
 }
 

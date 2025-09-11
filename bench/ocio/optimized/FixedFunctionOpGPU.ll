@@ -31031,8 +31031,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
 
 471:                                              ; preds = %463, %471
   %indvars.iv = phi i64 [ 0, %463 ], [ %indvars.iv.next, %471 ]
-  %.idx = mul nuw nsw i64 %indvars.iv, 12
-  %472 = getelementptr inbounds nuw i8, ptr %264, i64 %.idx
+  %472 = getelementptr inbounds nuw [3 x float], ptr %264, i64 %indvars.iv
   %473 = getelementptr inbounds nuw i8, ptr %472, i64 8
   %474 = load float, ptr %473, align 4, !tbaa !25
   %475 = getelementptr inbounds nuw float, ptr %462, i64 %indvars.iv

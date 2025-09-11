@@ -11802,10 +11802,10 @@ define linkonce_odr noundef zeroext i1 @_ZN5arrow8internal13ParseUnsignedEPKcmPm
   %156 = getelementptr inbounds nuw i8, ptr %0, i64 18
   %157 = load i8, ptr %147, align 1, !tbaa !103
   %158 = add i8 %157, -48
-  %159 = mul i64 %153, 10
+  %159 = mul nuw nsw i64 %153, 10
   %160 = icmp ult i8 %158, 10
   %161 = zext nneg i8 %158 to i64
-  %162 = add i64 %159, %161
+  %162 = add nuw nsw i64 %159, %161
   br i1 %160, label %163, label %.thread
 
 163:                                              ; preds = %155

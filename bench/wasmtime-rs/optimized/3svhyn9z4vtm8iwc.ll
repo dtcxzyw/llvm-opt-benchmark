@@ -2945,65 +2945,66 @@ define void @"_ZN4core3ptr151drop_in_place$LT$$u5b$$LP$cranelift_isle..sema..Var
   br label %"_ZN4core3ptr141drop_in_place$LT$$LP$cranelift_isle..sema..VarId$C$cranelift_isle..sema..TypeId$C$alloc..boxed..Box$LT$cranelift_isle..sema..Expr$GT$$RP$$GT$17h3193e36787de83d7E.exit"
 
 "_ZN4core3ptr141drop_in_place$LT$$LP$cranelift_isle..sema..VarId$C$cranelift_isle..sema..TypeId$C$alloc..boxed..Box$LT$cranelift_isle..sema..Expr$GT$$RP$$GT$17h3193e36787de83d7E.exit": ; preds = %"_ZN4core3ptr72drop_in_place$LT$alloc..boxed..Box$LT$cranelift_isle..sema..Expr$GT$$GT$17h936f23d8c835a877E.exit.i", %2
-  %.0 = phi i64 [ 0, %2 ], [ %5, %"_ZN4core3ptr72drop_in_place$LT$alloc..boxed..Box$LT$cranelift_isle..sema..Expr$GT$$GT$17h936f23d8c835a877E.exit.i" ]
+  %.0 = phi i64 [ 0, %2 ], [ %6, %"_ZN4core3ptr72drop_in_place$LT$alloc..boxed..Box$LT$cranelift_isle..sema..Expr$GT$$GT$17h936f23d8c835a877E.exit.i" ]
   %3 = icmp eq i64 %.0, %1
-  br i1 %3, label %16, label %4
+  br i1 %3, label %17, label %4
 
 4:                                                ; preds = %"_ZN4core3ptr141drop_in_place$LT$$LP$cranelift_isle..sema..VarId$C$cranelift_isle..sema..TypeId$C$alloc..boxed..Box$LT$cranelift_isle..sema..Expr$GT$$RP$$GT$17h3193e36787de83d7E.exit"
-  %5 = add i64 %.0, 1
-  %6 = getelementptr inbounds { i64, i64, ptr }, ptr %0, i64 %.0, i32 2
-  %7 = load ptr, ptr %6, align 8, !noundef !3
-  invoke void @"_ZN4core3ptr47drop_in_place$LT$cranelift_isle..sema..Expr$GT$17h585c74c1aa1ee1deE"(ptr align 16 %7)
-          to label %"_ZN4core3ptr72drop_in_place$LT$alloc..boxed..Box$LT$cranelift_isle..sema..Expr$GT$$GT$17h936f23d8c835a877E.exit.i" unwind label %8
+  %5 = getelementptr inbounds { i64, i64, ptr }, ptr %0, i64 %.0
+  %6 = add i64 %.0, 1
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %8 = load ptr, ptr %7, align 8, !noundef !3
+  invoke void @"_ZN4core3ptr47drop_in_place$LT$cranelift_isle..sema..Expr$GT$17h585c74c1aa1ee1deE"(ptr align 16 %8)
+          to label %"_ZN4core3ptr72drop_in_place$LT$alloc..boxed..Box$LT$cranelift_isle..sema..Expr$GT$$GT$17h936f23d8c835a877E.exit.i" unwind label %9
 
-8:                                                ; preds = %4
-  %9 = landingpad { ptr, i32 }
+9:                                                ; preds = %4
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %10 = load ptr, ptr %6, align 8, !nonnull !3, !noundef !3
-  %11 = getelementptr i8, ptr %6, i64 8
-  invoke void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h85d293f56ff7b6d0E"(ptr align 1 %11, ptr nonnull %10, i64 16, i64 48)
-          to label %.body unwind label %12
+  %11 = load ptr, ptr %7, align 8, !nonnull !3, !noundef !3
+  %12 = getelementptr i8, ptr %5, i64 24
+  invoke void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h85d293f56ff7b6d0E"(ptr align 1 %12, ptr nonnull %11, i64 16, i64 48)
+          to label %.body unwind label %13
 
-12:                                               ; preds = %8
-  %13 = landingpad { ptr, i32 }
+13:                                               ; preds = %9
+  %14 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #12
   unreachable
 
 "_ZN4core3ptr72drop_in_place$LT$alloc..boxed..Box$LT$cranelift_isle..sema..Expr$GT$$GT$17h936f23d8c835a877E.exit.i": ; preds = %4
-  %14 = load ptr, ptr %6, align 8, !nonnull !3, !noundef !3
-  %15 = getelementptr i8, ptr %6, i64 8
-  invoke void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h85d293f56ff7b6d0E"(ptr align 1 %15, ptr nonnull %14, i64 16, i64 48)
-          to label %"_ZN4core3ptr141drop_in_place$LT$$LP$cranelift_isle..sema..VarId$C$cranelift_isle..sema..TypeId$C$alloc..boxed..Box$LT$cranelift_isle..sema..Expr$GT$$RP$$GT$17h3193e36787de83d7E.exit" unwind label %19
+  %15 = load ptr, ptr %7, align 8, !nonnull !3, !noundef !3
+  %16 = getelementptr i8, ptr %5, i64 24
+  invoke void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h85d293f56ff7b6d0E"(ptr align 1 %16, ptr nonnull %15, i64 16, i64 48)
+          to label %"_ZN4core3ptr141drop_in_place$LT$$LP$cranelift_isle..sema..VarId$C$cranelift_isle..sema..TypeId$C$alloc..boxed..Box$LT$cranelift_isle..sema..Expr$GT$$RP$$GT$17h3193e36787de83d7E.exit" unwind label %20
 
-16:                                               ; preds = %"_ZN4core3ptr141drop_in_place$LT$$LP$cranelift_isle..sema..VarId$C$cranelift_isle..sema..TypeId$C$alloc..boxed..Box$LT$cranelift_isle..sema..Expr$GT$$RP$$GT$17h3193e36787de83d7E.exit"
+17:                                               ; preds = %"_ZN4core3ptr141drop_in_place$LT$$LP$cranelift_isle..sema..VarId$C$cranelift_isle..sema..TypeId$C$alloc..boxed..Box$LT$cranelift_isle..sema..Expr$GT$$RP$$GT$17h3193e36787de83d7E.exit"
   ret void
 
-17:                                               ; preds = %21, %.body
-  %.1 = phi i64 [ %5, %.body ], [ %23, %21 ]
-  %18 = icmp eq i64 %.1, %1
-  br i1 %18, label %24, label %21
+18:                                               ; preds = %22, %.body
+  %.1 = phi i64 [ %6, %.body ], [ %24, %22 ]
+  %19 = icmp eq i64 %.1, %1
+  br i1 %19, label %25, label %22
 
-19:                                               ; preds = %"_ZN4core3ptr72drop_in_place$LT$alloc..boxed..Box$LT$cranelift_isle..sema..Expr$GT$$GT$17h936f23d8c835a877E.exit.i"
-  %20 = landingpad { ptr, i32 }
+20:                                               ; preds = %"_ZN4core3ptr72drop_in_place$LT$alloc..boxed..Box$LT$cranelift_isle..sema..Expr$GT$$GT$17h936f23d8c835a877E.exit.i"
+  %21 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.body:                                            ; preds = %8, %19
-  %eh.lpad-body = phi { ptr, i32 } [ %20, %19 ], [ %9, %8 ]
-  br label %17
+.body:                                            ; preds = %9, %20
+  %eh.lpad-body = phi { ptr, i32 } [ %21, %20 ], [ %10, %9 ]
+  br label %18
 
-21:                                               ; preds = %17
-  %22 = getelementptr inbounds { i64, i64, ptr }, ptr %0, i64 %.1
-  %23 = add i64 %.1, 1
-  invoke void @"_ZN4core3ptr141drop_in_place$LT$$LP$cranelift_isle..sema..VarId$C$cranelift_isle..sema..TypeId$C$alloc..boxed..Box$LT$cranelift_isle..sema..Expr$GT$$RP$$GT$17h3193e36787de83d7E"(ptr align 8 %22) #11
-          to label %17 unwind label %25
+22:                                               ; preds = %18
+  %23 = getelementptr inbounds { i64, i64, ptr }, ptr %0, i64 %.1
+  %24 = add i64 %.1, 1
+  invoke void @"_ZN4core3ptr141drop_in_place$LT$$LP$cranelift_isle..sema..VarId$C$cranelift_isle..sema..TypeId$C$alloc..boxed..Box$LT$cranelift_isle..sema..Expr$GT$$RP$$GT$17h3193e36787de83d7E"(ptr align 8 %23) #11
+          to label %18 unwind label %26
 
-24:                                               ; preds = %17
+25:                                               ; preds = %18
   resume { ptr, i32 } %eh.lpad-body
 
-25:                                               ; preds = %21
-  %26 = landingpad { ptr, i32 }
+26:                                               ; preds = %22
+  %27 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #12
   unreachable

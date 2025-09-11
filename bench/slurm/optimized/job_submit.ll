@@ -416,31 +416,32 @@ define dso_local i32 @job_submit_g_modify(ptr noundef initializes((628, 632)) %0
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %16 = load ptr, ptr @ops, align 8
-  %17 = getelementptr inbounds nuw %struct.slurm_submit_ops, ptr %16, i64 %indvars.iv, i32 1
-  %18 = load ptr, ptr %17, align 8
-  %19 = tail call i32 %18(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #9
+  %17 = getelementptr inbounds nuw %struct.slurm_submit_ops, ptr %16, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %19 = load ptr, ptr %18, align 8
+  %20 = tail call i32 %19(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %20 = load i32, ptr @g_context_cnt, align 4
-  %21 = sext i32 %20 to i64
-  %22 = icmp slt i64 %indvars.iv.next, %21
-  %23 = icmp eq i32 %19, 0
-  %24 = select i1 %22, i1 %23, i1 false
-  br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !13
+  %21 = load i32, ptr @g_context_cnt, align 4
+  %22 = sext i32 %21 to i64
+  %23 = icmp slt i64 %indvars.iv.next, %22
+  %24 = icmp eq i32 %20, 0
+  %25 = select i1 %23, i1 %24, i1 false
+  br i1 %25, label %.lr.ph, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  %.013.lcssa = phi i32 [ 0, %.preheader ], [ %19, %.lr.ph ]
-  %25 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull @context_lock) #9
-  %.not16 = icmp eq i32 %25, 0
-  br i1 %.not16, label %28, label %26
+  %.013.lcssa = phi i32 [ 0, %.preheader ], [ %20, %.lr.ph ]
+  %26 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull @context_lock) #9
+  %.not16 = icmp eq i32 %26, 0
+  br i1 %.not16, label %29, label %27
 
-26:                                               ; preds = %._crit_edge
-  %27 = tail call ptr @__errno_location() #10
-  store i32 %25, ptr %27, align 4
+27:                                               ; preds = %._crit_edge
+  %28 = tail call ptr @__errno_location() #10
+  store i32 %26, ptr %28, align 4
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.7, ptr noundef nonnull @__func__.job_submit_g_modify) #11
   unreachable
 
-28:                                               ; preds = %._crit_edge
-  %29 = call i32 @gettimeofday(ptr noundef nonnull %6, ptr noundef null) #9
+29:                                               ; preds = %._crit_edge
+  %30 = call i32 @gettimeofday(ptr noundef nonnull %6, ptr noundef null) #9
   call void @slurm_diff_tv_str(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef 20, ptr noundef nonnull @__func__.job_submit_g_modify, i64 noundef 0, ptr noundef nonnull %8) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)

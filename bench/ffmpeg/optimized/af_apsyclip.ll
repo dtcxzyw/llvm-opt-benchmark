@@ -675,7 +675,7 @@ define internal fastcc void @generate_spread_table(ptr noundef readonly captures
   %43 = getelementptr inbounds nuw [2 x i32], ptr %7, i64 %indvars.iv105
   store i32 %42, ptr %43, align 4, !tbaa !55
   %44 = sub nsw i32 %., %.06988
-  %45 = getelementptr inbounds nuw [2 x i32], ptr %7, i64 %indvars.iv105, i64 1
+  %45 = getelementptr inbounds nuw i8, ptr %43, i64 4
   store i32 %44, ptr %45, align 4, !tbaa !55
   %46 = icmp slt i32 %.06988, 2
   br i1 %46, label %59, label %54

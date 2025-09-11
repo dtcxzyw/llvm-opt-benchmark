@@ -3071,7 +3071,7 @@ define dso_local i32 @udpv6_sendmsg(ptr noundef %0, ptr noundef %1, i64 noundef 
   br label %130
 
 130:                                              ; preds = %129, %116
-  %131 = add nuw i32 %24, 8
+  %131 = add nuw nsw i32 %24, 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %21, i8 0, i64 88, i1 false)
   %132 = icmp eq ptr %113, null
   br i1 %132, label %184, label %133
@@ -3428,7 +3428,7 @@ select.unfold:                                    ; preds = %241, %thread-pre-sp
   br i1 %35, label %366, label %356
 
 356:                                              ; preds = %.thread
-  %357 = sext i32 %131 to i64
+  %357 = zext nneg i32 %131 to i64
   %358 = call ptr @ip6_make_skb(ptr noundef %0, ptr noundef nonnull %117, ptr noundef %1, i64 noundef %357, i32 noundef 8, ptr noundef nonnull %7, ptr noundef %326, i32 noundef %355, ptr noundef nonnull %6) #14
   %359 = ptrtoint ptr %358 to i64
   %360 = trunc i64 %359 to i32
@@ -3479,7 +3479,7 @@ select.unfold:                                    ; preds = %241, %thread-pre-sp
   %387 = trunc i32 %372 to i16
   %388 = add i16 %386, %387
   store i16 %388, ptr %385, align 2
-  %389 = sext i32 %372 to i64
+  %389 = zext nneg i32 %372 to i64
   %390 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %391 = load i32, ptr %390, align 4
   %392 = or i32 %391, 32768

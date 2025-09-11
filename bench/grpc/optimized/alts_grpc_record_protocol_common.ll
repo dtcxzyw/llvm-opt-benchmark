@@ -126,7 +126,7 @@ _ZL21ensure_iovec_buf_sizeP25alts_grpc_record_protocolPK17grpc_slice_buffer.exit
   ret void
 
 25:                                               ; preds = %.lr.ph, %42
-  %.030 = phi i64 [ 0, %.lr.ph ], [ %46, %42 ]
+  %.030 = phi i64 [ 0, %.lr.ph ], [ %47, %42 ]
   %26 = getelementptr inbounds nuw %struct.grpc_slice, ptr %18, i64 %.030
   %27 = load ptr, ptr %26, align 8, !tbaa !23
   %.not21 = icmp eq ptr %27, null
@@ -155,10 +155,11 @@ _ZL21ensure_iovec_buf_sizeP25alts_grpc_record_protocolPK17grpc_slice_buffer.exit
 42:                                               ; preds = %35, %28
   %43 = phi ptr [ %31, %28 ], [ %37, %35 ]
   %44 = phi i64 [ %34, %28 ], [ %41, %35 ]
-  %45 = getelementptr inbounds nuw %struct.iovec, ptr %43, i64 %.030, i32 1
-  store i64 %44, ptr %45, align 8, !tbaa !29
-  %46 = add nuw i64 %.030, 1
-  %exitcond.not = icmp eq i64 %46, %16
+  %45 = getelementptr inbounds nuw %struct.iovec, ptr %43, i64 %.030
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
+  store i64 %44, ptr %46, align 8, !tbaa !29
+  %47 = add nuw i64 %.030, 1
+  %exitcond.not = icmp eq i64 %47, %16
   br i1 %exitcond.not, label %._crit_edge, label %25, !llvm.loop !30
 }
 

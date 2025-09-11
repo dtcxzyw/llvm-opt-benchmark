@@ -3548,20 +3548,19 @@ define internal fastcc void @_ZNK10OpenSubdiv6v3_6_03Far16GregoryConverterIfE25c
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = sext i32 %1 to i64
   %14 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Far::GregoryConverter<float>::CornerTopology", ptr %12, i64 %13
-  %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
-  %16 = load i32, ptr %15, align 4
-  %17 = getelementptr inbounds nuw i8, ptr %14, i64 20
-  %18 = load float, ptr %17, align 4
-  %narrow = mul nuw nsw i32 %3, 216
-  %19 = zext nneg i32 %narrow to i64
-  %20 = getelementptr inbounds nuw i8, ptr %12, i64 %19
-  %21 = getelementptr inbounds nuw i8, ptr %20, i64 20
+  %15 = zext nneg i32 %3 to i64
+  %16 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Far::GregoryConverter<float>::CornerTopology", ptr %12, i64 %15
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 4
+  %18 = load i32, ptr %17, align 4
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 20
+  %20 = load float, ptr %19, align 4
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 20
   %22 = load float, ptr %21, align 4
   %23 = fdiv float %22, 3.000000e+00
-  %24 = tail call float @llvm.fmuladd.f32(float %18, float -2.000000e+00, float 3.000000e+00)
+  %24 = tail call float @llvm.fmuladd.f32(float %20, float -2.000000e+00, float 3.000000e+00)
   %25 = fsub float %24, %22
   %26 = fdiv float %25, 3.000000e+00
-  %27 = fmul float %18, 2.000000e+00
+  %27 = fmul float %20, 2.000000e+00
   %28 = fdiv float %27, 3.000000e+00
   %29 = load i32, ptr %0, align 8
   %30 = sext i32 %29 to i64
@@ -3600,22 +3599,22 @@ define internal fastcc void @_ZNK10OpenSubdiv6v3_6_03Far16GregoryConverterIfE25c
   br i1 %49, label %35, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124_addSparsePointToFullRowIfEEvPT_RKNS2_15SparseMatrixRowIS4_EES4_Pi.exit, !llvm.loop !24
 
 _ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124_addSparsePointToFullRowIfEEvPT_RKNS2_15SparseMatrixRowIS4_EES4_Pi.exit: ; preds = %35, %11
-  %.val12.i69 = load i32, ptr %5, align 8
-  %50 = icmp sgt i32 %.val12.i69, 0
-  br i1 %50, label %.lr.ph.i70, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124_addSparsePointToFullRowIfEEvPT_RKNS2_15SparseMatrixRowIS4_EES4_Pi.exit74
+  %.val12.i68 = load i32, ptr %5, align 8
+  %50 = icmp sgt i32 %.val12.i68, 0
+  br i1 %50, label %.lr.ph.i69, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124_addSparsePointToFullRowIfEEvPT_RKNS2_15SparseMatrixRowIS4_EES4_Pi.exit73
 
-.lr.ph.i70:                                       ; preds = %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124_addSparsePointToFullRowIfEEvPT_RKNS2_15SparseMatrixRowIS4_EES4_Pi.exit
+.lr.ph.i69:                                       ; preds = %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124_addSparsePointToFullRowIfEEvPT_RKNS2_15SparseMatrixRowIS4_EES4_Pi.exit
   %51 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %52 = getelementptr inbounds nuw i8, ptr %5, i64 16
   br label %53
 
-53:                                               ; preds = %53, %.lr.ph.i70
-  %indvars.iv.i71 = phi i64 [ 0, %.lr.ph.i70 ], [ %indvars.iv.next.i72, %53 ]
+53:                                               ; preds = %53, %.lr.ph.i69
+  %indvars.iv.i70 = phi i64 [ 0, %.lr.ph.i69 ], [ %indvars.iv.next.i71, %53 ]
   %54 = load ptr, ptr %51, align 8
-  %55 = getelementptr inbounds nuw i32, ptr %54, i64 %indvars.iv.i71
+  %55 = getelementptr inbounds nuw i32, ptr %54, i64 %indvars.iv.i70
   %56 = load i32, ptr %55, align 4
   %57 = load ptr, ptr %52, align 8
-  %58 = getelementptr inbounds nuw float, ptr %57, i64 %indvars.iv.i71
+  %58 = getelementptr inbounds nuw float, ptr %57, i64 %indvars.iv.i70
   %59 = load float, ptr %58, align 4
   %60 = sext i32 %56 to i64
   %61 = getelementptr inbounds float, ptr %9, i64 %60
@@ -3625,29 +3624,29 @@ _ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124_addSparsePointToFullRowIfEEvPT_RKNS2_
   %64 = add nsw i32 %56, 1
   %65 = getelementptr inbounds i32, ptr %10, i64 %60
   store i32 %64, ptr %65, align 4
-  %indvars.iv.next.i72 = add nuw nsw i64 %indvars.iv.i71, 1
-  %.val.i73 = load i32, ptr %5, align 8
-  %66 = sext i32 %.val.i73 to i64
-  %67 = icmp slt i64 %indvars.iv.next.i72, %66
-  br i1 %67, label %53, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124_addSparsePointToFullRowIfEEvPT_RKNS2_15SparseMatrixRowIS4_EES4_Pi.exit74, !llvm.loop !24
+  %indvars.iv.next.i71 = add nuw nsw i64 %indvars.iv.i70, 1
+  %.val.i72 = load i32, ptr %5, align 8
+  %66 = sext i32 %.val.i72 to i64
+  %67 = icmp slt i64 %indvars.iv.next.i71, %66
+  br i1 %67, label %53, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124_addSparsePointToFullRowIfEEvPT_RKNS2_15SparseMatrixRowIS4_EES4_Pi.exit73, !llvm.loop !24
 
-_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124_addSparsePointToFullRowIfEEvPT_RKNS2_15SparseMatrixRowIS4_EES4_Pi.exit74: ; preds = %53, %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124_addSparsePointToFullRowIfEEvPT_RKNS2_15SparseMatrixRowIS4_EES4_Pi.exit
-  %.val12.i75 = load i32, ptr %6, align 8
-  %68 = icmp sgt i32 %.val12.i75, 0
-  br i1 %68, label %.lr.ph.i76, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124_addSparsePointToFullRowIfEEvPT_RKNS2_15SparseMatrixRowIS4_EES4_Pi.exit80
+_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124_addSparsePointToFullRowIfEEvPT_RKNS2_15SparseMatrixRowIS4_EES4_Pi.exit73: ; preds = %53, %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124_addSparsePointToFullRowIfEEvPT_RKNS2_15SparseMatrixRowIS4_EES4_Pi.exit
+  %.val12.i74 = load i32, ptr %6, align 8
+  %68 = icmp sgt i32 %.val12.i74, 0
+  br i1 %68, label %.lr.ph.i75, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124_addSparsePointToFullRowIfEEvPT_RKNS2_15SparseMatrixRowIS4_EES4_Pi.exit79
 
-.lr.ph.i76:                                       ; preds = %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124_addSparsePointToFullRowIfEEvPT_RKNS2_15SparseMatrixRowIS4_EES4_Pi.exit74
+.lr.ph.i75:                                       ; preds = %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124_addSparsePointToFullRowIfEEvPT_RKNS2_15SparseMatrixRowIS4_EES4_Pi.exit73
   %69 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %70 = getelementptr inbounds nuw i8, ptr %6, i64 16
   br label %71
 
-71:                                               ; preds = %71, %.lr.ph.i76
-  %indvars.iv.i77 = phi i64 [ 0, %.lr.ph.i76 ], [ %indvars.iv.next.i78, %71 ]
+71:                                               ; preds = %71, %.lr.ph.i75
+  %indvars.iv.i76 = phi i64 [ 0, %.lr.ph.i75 ], [ %indvars.iv.next.i77, %71 ]
   %72 = load ptr, ptr %69, align 8
-  %73 = getelementptr inbounds nuw i32, ptr %72, i64 %indvars.iv.i77
+  %73 = getelementptr inbounds nuw i32, ptr %72, i64 %indvars.iv.i76
   %74 = load i32, ptr %73, align 4
   %75 = load ptr, ptr %70, align 8
-  %76 = getelementptr inbounds nuw float, ptr %75, i64 %indvars.iv.i77
+  %76 = getelementptr inbounds nuw float, ptr %75, i64 %indvars.iv.i76
   %77 = load float, ptr %76, align 4
   %78 = sext i32 %74 to i64
   %79 = getelementptr inbounds float, ptr %9, i64 %78
@@ -3657,18 +3656,18 @@ _ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124_addSparsePointToFullRowIfEEvPT_RKNS2_
   %82 = add nsw i32 %74, 1
   %83 = getelementptr inbounds i32, ptr %10, i64 %78
   store i32 %82, ptr %83, align 4
-  %indvars.iv.next.i78 = add nuw nsw i64 %indvars.iv.i77, 1
-  %.val.i79 = load i32, ptr %6, align 8
-  %84 = sext i32 %.val.i79 to i64
-  %85 = icmp slt i64 %indvars.iv.next.i78, %84
-  br i1 %85, label %71, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124_addSparsePointToFullRowIfEEvPT_RKNS2_15SparseMatrixRowIS4_EES4_Pi.exit80, !llvm.loop !24
+  %indvars.iv.next.i77 = add nuw nsw i64 %indvars.iv.i76, 1
+  %.val.i78 = load i32, ptr %6, align 8
+  %84 = sext i32 %.val.i78 to i64
+  %85 = icmp slt i64 %indvars.iv.next.i77, %84
+  br i1 %85, label %71, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124_addSparsePointToFullRowIfEEvPT_RKNS2_15SparseMatrixRowIS4_EES4_Pi.exit79, !llvm.loop !24
 
-_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124_addSparsePointToFullRowIfEEvPT_RKNS2_15SparseMatrixRowIS4_EES4_Pi.exit80: ; preds = %71, %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124_addSparsePointToFullRowIfEEvPT_RKNS2_15SparseMatrixRowIS4_EES4_Pi.exit74
+_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124_addSparsePointToFullRowIfEEvPT_RKNS2_15SparseMatrixRowIS4_EES4_Pi.exit79: ; preds = %71, %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124_addSparsePointToFullRowIfEEvPT_RKNS2_15SparseMatrixRowIS4_EES4_Pi.exit73
   %86 = add i32 %2, -1
-  %87 = add i32 %86, %16
-  %88 = srem i32 %87, %16
+  %87 = add i32 %86, %18
+  %88 = srem i32 %87, %18
   %89 = add nsw i32 %2, 1
-  %90 = srem i32 %89, %16
+  %90 = srem i32 %89, %18
   %91 = fdiv float %8, 9.000000e+00
   %92 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %93 = load ptr, ptr %92, align 8
@@ -3715,7 +3714,7 @@ _ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124_addSparsePointToFullRowIfEEvPT_RKNS2_
   %130 = icmp sgt i32 %29, 0
   br i1 %130, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124_addSparsePointToFullRowIfEEvPT_RKNS2_15SparseMatrixRowIS4_EES4_Pi.exit80
+.lr.ph:                                           ; preds = %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124_addSparsePointToFullRowIfEEvPT_RKNS2_15SparseMatrixRowIS4_EES4_Pi.exit79
   %131 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %132 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %wide.trip.count = zext nneg i32 %29 to i64
@@ -3723,19 +3722,19 @@ _ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124_addSparsePointToFullRowIfEEvPT_RKNS2_
 
 133:                                              ; preds = %.lr.ph, %146
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %146 ]
-  %.06581 = phi i32 [ 0, %.lr.ph ], [ %.1, %146 ]
+  %.06580 = phi i32 [ 0, %.lr.ph ], [ %.1, %146 ]
   %134 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv
   %135 = load i32, ptr %134, align 4
   %.not = icmp eq i32 %135, 0
   br i1 %.not, label %146, label %136
 
 136:                                              ; preds = %133
-  %137 = add nsw i32 %.06581, 1
+  %137 = add nsw i32 %.06580, 1
   %138 = add nsw i32 %135, -1
   %139 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv
   %140 = load float, ptr %139, align 4
   %141 = load ptr, ptr %131, align 8
-  %142 = sext i32 %.06581 to i64
+  %142 = sext i32 %.06580 to i64
   %143 = getelementptr inbounds i32, ptr %141, i64 %142
   store i32 %138, ptr %143, align 4
   %144 = load ptr, ptr %132, align 8
@@ -3744,39 +3743,39 @@ _ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124_addSparsePointToFullRowIfEEvPT_RKNS2_
   br label %146
 
 146:                                              ; preds = %133, %136
-  %.1 = phi i32 [ %137, %136 ], [ %.06581, %133 ]
+  %.1 = phi i32 [ %137, %136 ], [ %.06580, %133 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %133, !llvm.loop !25
 
-._crit_edge:                                      ; preds = %146, %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124_addSparsePointToFullRowIfEEvPT_RKNS2_15SparseMatrixRowIS4_EES4_Pi.exit80
-  %.065.lcssa = phi i32 [ 0, %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124_addSparsePointToFullRowIfEEvPT_RKNS2_15SparseMatrixRowIS4_EES4_Pi.exit80 ], [ %.1, %146 ]
+._crit_edge:                                      ; preds = %146, %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124_addSparsePointToFullRowIfEEvPT_RKNS2_15SparseMatrixRowIS4_EES4_Pi.exit79
+  %.065.lcssa = phi i32 [ 0, %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124_addSparsePointToFullRowIfEEvPT_RKNS2_15SparseMatrixRowIS4_EES4_Pi.exit79 ], [ %.1, %146 ]
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 9
   %148 = load i8, ptr %147, align 1
   %149 = trunc i8 %148 to i1
   %.val = load i32, ptr %7, align 8
   %150 = icmp slt i32 %.065.lcssa, %.val
-  %or.cond86 = select i1 %149, i1 %150, i1 false
-  br i1 %or.cond86, label %.lr.ph85, label %.loopexit
+  %or.cond85 = select i1 %149, i1 %150, i1 false
+  br i1 %or.cond85, label %.lr.ph84, label %.loopexit
 
-.lr.ph85:                                         ; preds = %._crit_edge
+.lr.ph84:                                         ; preds = %._crit_edge
   %151 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %152 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %153 = sext i32 %.065.lcssa to i64
   br label %154
 
-154:                                              ; preds = %.lr.ph85, %154
-  %indvars.iv88 = phi i64 [ %153, %.lr.ph85 ], [ %indvars.iv.next89, %154 ]
-  %indvars.iv.next89 = add nsw i64 %indvars.iv88, 1
+154:                                              ; preds = %.lr.ph84, %154
+  %indvars.iv87 = phi i64 [ %153, %.lr.ph84 ], [ %indvars.iv.next88, %154 ]
+  %indvars.iv.next88 = add nsw i64 %indvars.iv87, 1
   %155 = load ptr, ptr %151, align 8
-  %156 = getelementptr inbounds i32, ptr %155, i64 %indvars.iv88
+  %156 = getelementptr inbounds i32, ptr %155, i64 %indvars.iv87
   store i32 %1, ptr %156, align 4
   %157 = load ptr, ptr %152, align 8
-  %158 = getelementptr inbounds float, ptr %157, i64 %indvars.iv88
+  %158 = getelementptr inbounds float, ptr %157, i64 %indvars.iv87
   store float 0.000000e+00, ptr %158, align 4
-  %.val68 = load i32, ptr %7, align 8
-  %159 = sext i32 %.val68 to i64
-  %160 = icmp slt i64 %indvars.iv.next89, %159
+  %.val67 = load i32, ptr %7, align 8
+  %159 = sext i32 %.val67 to i64
+  %160 = icmp slt i64 %indvars.iv.next88, %159
   br i1 %160, label %154, label %.loopexit, !llvm.loop !26
 
 .loopexit:                                        ; preds = %154, %._crit_edge
@@ -9210,20 +9209,19 @@ define internal fastcc void @_ZNK10OpenSubdiv6v3_6_03Far16GregoryConverterIdE25c
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = sext i32 %1 to i64
   %14 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Far::GregoryConverter<double>::CornerTopology", ptr %12, i64 %13
-  %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
-  %16 = load i32, ptr %15, align 4
-  %17 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  %18 = load double, ptr %17, align 8
-  %narrow = mul nuw nsw i32 %3, 224
-  %19 = zext nneg i32 %narrow to i64
-  %20 = getelementptr inbounds nuw i8, ptr %12, i64 %19
-  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
+  %15 = zext nneg i32 %3 to i64
+  %16 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Far::GregoryConverter<double>::CornerTopology", ptr %12, i64 %15
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 4
+  %18 = load i32, ptr %17, align 4
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 24
+  %20 = load double, ptr %19, align 8
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %22 = load double, ptr %21, align 8
   %23 = fdiv double %22, 3.000000e+00
-  %24 = tail call double @llvm.fmuladd.f64(double %18, double -2.000000e+00, double 3.000000e+00)
+  %24 = tail call double @llvm.fmuladd.f64(double %20, double -2.000000e+00, double 3.000000e+00)
   %25 = fsub double %24, %22
   %26 = fdiv double %25, 3.000000e+00
-  %27 = fmul double %18, 2.000000e+00
+  %27 = fmul double %20, 2.000000e+00
   %28 = fdiv double %27, 3.000000e+00
   %29 = load i32, ptr %0, align 8
   %30 = sext i32 %29 to i64
@@ -9328,10 +9326,10 @@ _ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124_addSparsePointToFullRowIdEEvPT_RKNS2_
 
 _ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124_addSparsePointToFullRowIdEEvPT_RKNS2_15SparseMatrixRowIS4_EES4_Pi.exit79: ; preds = %72, %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124_addSparsePointToFullRowIdEEvPT_RKNS2_15SparseMatrixRowIS4_EES4_Pi.exit73
   %87 = add i32 %2, -1
-  %88 = add i32 %87, %16
-  %89 = srem i32 %88, %16
+  %88 = add i32 %87, %18
+  %89 = srem i32 %88, %18
   %90 = add nsw i32 %2, 1
-  %91 = srem i32 %90, %16
+  %91 = srem i32 %90, %18
   %92 = fdiv double %8, 9.000000e+00
   %93 = getelementptr inbounds nuw i8, ptr %14, i64 40
   %94 = load ptr, ptr %93, align 8

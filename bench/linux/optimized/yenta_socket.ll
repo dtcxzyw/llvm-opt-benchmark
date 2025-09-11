@@ -1330,19 +1330,19 @@ define internal noundef range(i32 -22, 1) i32 @yenta_set_io_map(ptr noundef read
   %78 = and i8 %77, 8
   %79 = icmp eq i8 %78, 0
   %80 = shl nuw nsw i32 4, %26
-  %81 = trunc nuw i32 %80 to i8
+  %81 = trunc nuw nsw i32 %80 to i8
   %82 = select i1 %79, i8 0, i8 %81
   %83 = or i8 %82, %75
   %84 = and i8 %77, 2
   %85 = icmp eq i8 %84, 0
   %86 = shl nuw nsw i32 1, %26
-  %87 = trunc nuw i32 %86 to i8
+  %87 = trunc nuw nsw i32 %86 to i8
   %88 = select i1 %85, i8 0, i8 %87
   %89 = or i8 %83, %88
   %90 = and i8 %77, 4
   %91 = icmp eq i8 %90, 0
   %92 = shl nuw nsw i32 2, %26
-  %93 = trunc nuw i32 %92 to i8
+  %93 = trunc nuw nsw i32 %92 to i8
   %94 = select i1 %91, i8 0, i8 %93
   %95 = or i8 %89, %94
   %96 = load ptr, ptr %8, align 8
@@ -1421,7 +1421,7 @@ define internal noundef range(i32 -22, 1) i32 @yenta_set_mem_map(ptr noundef rea
   br i1 %39, label %49, label %40
 
 40:                                               ; preds = %31
-  %41 = trunc nuw i32 %32 to i8
+  %41 = trunc nuw nsw i32 %32 to i8
   %42 = xor i8 %41, -1
   %43 = and i8 %36, %42
   %44 = load ptr, ptr %33, align 8
@@ -1567,7 +1567,7 @@ define internal noundef range(i32 -22, 1) i32 @yenta_set_mem_map(ptr noundef rea
   br i1 %161, label %170, label %162
 
 162:                                              ; preds = %106
-  %163 = trunc nuw i32 %32 to i8
+  %163 = trunc nuw nsw i32 %32 to i8
   %164 = or i8 %50, %163
   %165 = load ptr, ptr %33, align 8
   %166 = getelementptr i8, ptr %165, i64 2054

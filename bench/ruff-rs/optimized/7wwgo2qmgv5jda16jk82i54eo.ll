@@ -7578,7 +7578,7 @@ define hidden void @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$16swap_remo
   br i1 %71, label %72, label %"_ZN8indexmap3map4core19RefMut$LT$K$C$V$GT$18swap_remove_finish17hd4113537a1a9e742E.exit"
 
 72:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11swap_remove17h022584b16319fe33E.exit.i"
-  %73 = getelementptr inbounds nuw { { i32, i32 }, i64, {} }, ptr %6, i64 %65, i32 1
+  %73 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %74 = load i64, ptr %73, align 8, !noundef !4
   %75 = lshr i64 %74, 57
   %76 = trunc nuw nsw i64 %75 to i8

@@ -1139,7 +1139,7 @@ define dso_local void @_ZN4llvm3X8621updateImpliedFeaturesENS_9StringRefEbRNS_9S
   %.028.i.i.i.i35 = phi ptr [ %.028.i.i.i.i.ptr, %"_ZN4llvm7find_ifIRA129_KN12_GLOBAL__N_111FeatureInfoEZNS_3X8621updateImpliedFeaturesENS_9StringRefEbRNS_9StringMapIbNS_15MallocAllocatorEEEE3$_0EEDaOT_T0_.exit" ], [ getelementptr inbounds nuw (i8, ptr @_ZL12FeatureInfos, i64 5120), %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm3X8621updateImpliedFeaturesENS2_9StringRefEbRNS2_9StringMapIbNS2_15MallocAllocatorEEEE3$_0EclIPKN12_GLOBAL__N_111FeatureInfoEEEbT_.exit95.i.i.i.i" ], [ %.028.i.i.i.i.ptr47, %"_ZN4llvm7find_ifIRA129_KN12_GLOBAL__N_111FeatureInfoEZNS_3X8621updateImpliedFeaturesENS_9StringRefEbRNS_9StringMapIbNS_15MallocAllocatorEEEE3$_0EEDaOT_T0_.exit.thread45" ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
-  br i1 %2, label %36, label %67
+  br i1 %2, label %36, label %68
 
 36:                                               ; preds = %"_ZN4llvm7find_ifIRA129_KN12_GLOBAL__N_111FeatureInfoEZNS_3X8621updateImpliedFeaturesENS_9StringRefEbRNS_9StringMapIbNS_15MallocAllocatorEEEE3$_0EEDaOT_T0_.exit.thread33"
   %37 = getelementptr inbounds nuw i8, ptr %.028.i.i.i.i35, i64 16
@@ -1178,7 +1178,7 @@ _ZN4llvm6BitsetILj129EEoRERKS1_.exit.i:           ; preds = %43, %49
 49:                                               ; preds = %_ZN4llvm6BitsetILj129EEoRERKS1_.exit12.i
   %bcmp.i.i.i.i.i.i.i17 = call i32 @bcmp(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24)
   %.not9.i.i.i.i.i.i.not.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i17, 0
-  br i1 %.not9.i.i.i.i.i.i.not.i, label %66, label %_ZN4llvm6BitsetILj129EEoRERKS1_.exit.i, !llvm.loop !41
+  br i1 %.not9.i.i.i.i.i.i.not.i, label %67, label %_ZN4llvm6BitsetILj129EEoRERKS1_.exit.i, !llvm.loop !41
 
 50:                                               ; preds = %_ZN4llvm6BitsetILj129EEoRERKS1_.exit12.i, %_ZN4llvm6BitsetILj129EEoRERKS1_.exit.i
   %indvars.iv.i = phi i64 [ 129, %_ZN4llvm6BitsetILj129EEoRERKS1_.exit.i ], [ %indvars.iv.next.i, %_ZN4llvm6BitsetILj129EEoRERKS1_.exit12.i ]
@@ -1194,157 +1194,159 @@ _ZN4llvm6BitsetILj129EEoRERKS1_.exit.i:           ; preds = %43, %49
   br i1 %.not16.i, label %_ZN4llvm6BitsetILj129EEoRERKS1_.exit12.i, label %58
 
 58:                                               ; preds = %50
-  %59 = getelementptr inbounds nuw %"struct.(anonymous namespace)::FeatureInfo", ptr @_ZL12FeatureInfos, i64 %indvars.iv.next.i, i32 1
-  br label %60
+  %59 = getelementptr inbounds nuw %"struct.(anonymous namespace)::FeatureInfo", ptr @_ZL12FeatureInfos, i64 %indvars.iv.next.i
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
+  br label %61
 
-60:                                               ; preds = %60, %58
-  %indvars.iv.i9.i = phi i64 [ 0, %58 ], [ %indvars.iv.next.i10.i, %60 ]
-  %61 = getelementptr inbounds nuw i64, ptr %59, i64 %indvars.iv.i9.i
-  %62 = load i64, ptr %61, align 8, !tbaa !20
-  %63 = getelementptr inbounds nuw i64, ptr %8, i64 %indvars.iv.i9.i
-  %64 = load i64, ptr %63, align 8, !tbaa !20
-  %65 = or i64 %64, %62
-  store i64 %65, ptr %63, align 8, !tbaa !20
+61:                                               ; preds = %61, %58
+  %indvars.iv.i9.i = phi i64 [ 0, %58 ], [ %indvars.iv.next.i10.i, %61 ]
+  %62 = getelementptr inbounds nuw i64, ptr %60, i64 %indvars.iv.i9.i
+  %63 = load i64, ptr %62, align 8, !tbaa !20
+  %64 = getelementptr inbounds nuw i64, ptr %8, i64 %indvars.iv.i9.i
+  %65 = load i64, ptr %64, align 8, !tbaa !20
+  %66 = or i64 %65, %63
+  store i64 %66, ptr %64, align 8, !tbaa !20
   %indvars.iv.next.i10.i = add nuw nsw i64 %indvars.iv.i9.i, 1
   %.not.i11.i = icmp eq i64 %indvars.iv.next.i10.i, 3
-  br i1 %.not.i11.i, label %_ZN4llvm6BitsetILj129EEoRERKS1_.exit12.i, label %60, !llvm.loop !40
+  br i1 %.not.i11.i, label %_ZN4llvm6BitsetILj129EEoRERKS1_.exit12.i, label %61, !llvm.loop !40
 
-_ZN4llvm6BitsetILj129EEoRERKS1_.exit12.i:         ; preds = %60, %50
+_ZN4llvm6BitsetILj129EEoRERKS1_.exit12.i:         ; preds = %61, %50
   %.not.i = icmp eq i64 %indvars.iv.next.i, 0
   br i1 %.not.i, label %49, label %50, !llvm.loop !42
 
-66:                                               ; preds = %49
+67:                                               ; preds = %49
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZL25getImpliedEnabledFeaturesRN4llvm6BitsetILj129EEERKS1_.exit.preheader
 
-67:                                               ; preds = %"_ZN4llvm7find_ifIRA129_KN12_GLOBAL__N_111FeatureInfoEZNS_3X8621updateImpliedFeaturesENS_9StringRefEbRNS_9StringMapIbNS_15MallocAllocatorEEEE3$_0EEDaOT_T0_.exit.thread33"
-  %68 = ptrtoint ptr %.028.i.i.i.i35 to i64
-  %69 = sub i64 %68, ptrtoint (ptr @_ZL12FeatureInfos to i64)
-  %70 = sdiv exact i64 %69, 40
+68:                                               ; preds = %"_ZN4llvm7find_ifIRA129_KN12_GLOBAL__N_111FeatureInfoEZNS_3X8621updateImpliedFeaturesENS_9StringRefEbRNS_9StringMapIbNS_15MallocAllocatorEEEE3$_0EEDaOT_T0_.exit.thread33"
+  %69 = ptrtoint ptr %.028.i.i.i.i35 to i64
+  %70 = sub i64 %69, ptrtoint (ptr @_ZL12FeatureInfos to i64)
+  %71 = sdiv exact i64 %70, 40
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %71 = and i64 %70, 63
-  %72 = shl nuw i64 1, %71
-  %73 = lshr i64 %70, 6
-  %74 = and i64 %73, 67108863
-  %75 = getelementptr inbounds nuw i64, ptr %8, i64 %74
-  %76 = load i64, ptr %75, align 8, !tbaa !20
-  %77 = or i64 %76, %72
-  store i64 %77, ptr %75, align 8, !tbaa !20
-  %78 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %79 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  br label %80
+  %72 = and i64 %71, 63
+  %73 = shl nuw i64 1, %72
+  %74 = lshr i64 %71, 6
+  %75 = and i64 %74, 67108863
+  %76 = getelementptr inbounds nuw i64, ptr %8, i64 %75
+  %77 = load i64, ptr %76, align 8, !tbaa !20
+  %78 = or i64 %77, %73
+  store i64 %78, ptr %76, align 8, !tbaa !20
+  %79 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  br label %81
 
-80:                                               ; preds = %81, %67
+81:                                               ; preds = %82, %68
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false), !tbaa.struct !32
-  br label %82
+  br label %83
 
-81:                                               ; preds = %101
+82:                                               ; preds = %103
   %bcmp.i.i.i.i.i.i.i24 = call i32 @bcmp(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24)
   %.not9.i.i.i.i.i.i.not.i25 = icmp eq i32 %bcmp.i.i.i.i.i.i.i24, 0
-  br i1 %.not9.i.i.i.i.i.i.not.i25, label %_ZL26getImpliedDisabledFeaturesRN4llvm6BitsetILj129EEEj.exit, label %80, !llvm.loop !43
+  br i1 %.not9.i.i.i.i.i.i.not.i25, label %_ZL26getImpliedDisabledFeaturesRN4llvm6BitsetILj129EEEj.exit, label %81, !llvm.loop !43
 
-82:                                               ; preds = %101, %80
-  %indvars.iv.i18 = phi i64 [ 0, %80 ], [ %indvars.iv.next.i22, %101 ]
+83:                                               ; preds = %103, %81
+  %indvars.iv.i18 = phi i64 [ 0, %81 ], [ %indvars.iv.next.i22, %103 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %83 = getelementptr inbounds nuw %"struct.(anonymous namespace)::FeatureInfo", ptr @_ZL12FeatureInfos, i64 %indvars.iv.i18, i32 1
+  %84 = getelementptr inbounds nuw %"struct.(anonymous namespace)::FeatureInfo", ptr @_ZL12FeatureInfos, i64 %indvars.iv.i18
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !44)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %83, i64 24, i1 false), !tbaa.struct !32
-  br label %84
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %85, i64 24, i1 false), !tbaa.struct !32
+  br label %86
 
-84:                                               ; preds = %84, %82
-  %indvars.iv.i.i.i = phi i64 [ 0, %82 ], [ %indvars.iv.next.i.i.i, %84 ]
-  %85 = getelementptr inbounds nuw i64, ptr %8, i64 %indvars.iv.i.i.i
-  %86 = load i64, ptr %85, align 8, !tbaa !20, !noalias !44
-  %87 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv.i.i.i
-  %88 = load i64, ptr %87, align 8, !tbaa !20, !alias.scope !44
-  %89 = and i64 %88, %86
-  store i64 %89, ptr %87, align 8, !tbaa !20, !alias.scope !44
+86:                                               ; preds = %86, %83
+  %indvars.iv.i.i.i = phi i64 [ 0, %83 ], [ %indvars.iv.next.i.i.i, %86 ]
+  %87 = getelementptr inbounds nuw i64, ptr %8, i64 %indvars.iv.i.i.i
+  %88 = load i64, ptr %87, align 8, !tbaa !20, !noalias !44
+  %89 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv.i.i.i
+  %90 = load i64, ptr %89, align 8, !tbaa !20, !alias.scope !44
+  %91 = and i64 %90, %88
+  store i64 %91, ptr %89, align 8, !tbaa !20, !alias.scope !44
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 3
-  br i1 %.not.i.i.i, label %_ZNK4llvm6BitsetILj129EEanERKS1_.exit.i, label %84, !llvm.loop !37
+  br i1 %.not.i.i.i, label %_ZNK4llvm6BitsetILj129EEanERKS1_.exit.i, label %86, !llvm.loop !37
 
-_ZNK4llvm6BitsetILj129EEanERKS1_.exit.i:          ; preds = %84
-  %90 = load i64, ptr %6, align 8, !tbaa !20
-  %.not.i.i.i.i.i.i.i.i19 = icmp eq i64 %90, 0
-  %91 = load i64, ptr %78, align 8
-  %.not30.i.i.i.i.i.i.i.i20 = icmp eq i64 %91, 0
+_ZNK4llvm6BitsetILj129EEanERKS1_.exit.i:          ; preds = %86
+  %92 = load i64, ptr %6, align 8, !tbaa !20
+  %.not.i.i.i.i.i.i.i.i19 = icmp eq i64 %92, 0
+  %93 = load i64, ptr %79, align 8
+  %.not30.i.i.i.i.i.i.i.i20 = icmp eq i64 %93, 0
   %or.cond.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i19, i1 %.not30.i.i.i.i.i.i.i.i20, i1 false
   br i1 %or.cond.i.i.i, label %_ZNK4llvm6BitsetILj129EE3anyEv.exit.i, label %_ZNK4llvm6BitsetILj129EE3anyEv.exit.thread.i21
 
 _ZNK4llvm6BitsetILj129EE3anyEv.exit.thread.i21:   ; preds = %_ZNK4llvm6BitsetILj129EEanERKS1_.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %93
+  br label %95
 
 _ZNK4llvm6BitsetILj129EE3anyEv.exit.i:            ; preds = %_ZNK4llvm6BitsetILj129EEanERKS1_.exit.i
-  %92 = load i64, ptr %79, align 8, !tbaa !20
-  %.not31.i.i.i.i.i.i.i.not.i = icmp eq i64 %92, 0
+  %94 = load i64, ptr %80, align 8, !tbaa !20
+  %.not31.i.i.i.i.i.i.i.not.i = icmp eq i64 %94, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br i1 %.not31.i.i.i.i.i.i.i.not.i, label %101, label %93
+  br i1 %.not31.i.i.i.i.i.i.i.not.i, label %103, label %95
 
-93:                                               ; preds = %_ZNK4llvm6BitsetILj129EE3anyEv.exit.i, %_ZNK4llvm6BitsetILj129EE3anyEv.exit.thread.i21
-  %94 = and i64 %indvars.iv.i18, 63
-  %95 = shl nuw i64 1, %94
-  %96 = lshr i64 %indvars.iv.i18, 6
-  %97 = and i64 %96, 67108863
-  %98 = getelementptr inbounds nuw i64, ptr %8, i64 %97
-  %99 = load i64, ptr %98, align 8, !tbaa !20
-  %100 = or i64 %99, %95
-  store i64 %100, ptr %98, align 8, !tbaa !20
-  br label %101
+95:                                               ; preds = %_ZNK4llvm6BitsetILj129EE3anyEv.exit.i, %_ZNK4llvm6BitsetILj129EE3anyEv.exit.thread.i21
+  %96 = and i64 %indvars.iv.i18, 63
+  %97 = shl nuw i64 1, %96
+  %98 = lshr i64 %indvars.iv.i18, 6
+  %99 = and i64 %98, 67108863
+  %100 = getelementptr inbounds nuw i64, ptr %8, i64 %99
+  %101 = load i64, ptr %100, align 8, !tbaa !20
+  %102 = or i64 %101, %97
+  store i64 %102, ptr %100, align 8, !tbaa !20
+  br label %103
 
-101:                                              ; preds = %93, %_ZNK4llvm6BitsetILj129EE3anyEv.exit.i
+103:                                              ; preds = %95, %_ZNK4llvm6BitsetILj129EE3anyEv.exit.i
   %indvars.iv.next.i22 = add nuw nsw i64 %indvars.iv.i18, 1
   %.not.i23 = icmp eq i64 %indvars.iv.next.i22, 129
-  br i1 %.not.i23, label %81, label %82, !llvm.loop !47
+  br i1 %.not.i23, label %82, label %83, !llvm.loop !47
 
-_ZL26getImpliedDisabledFeaturesRN4llvm6BitsetILj129EEEj.exit: ; preds = %81
+_ZL26getImpliedDisabledFeaturesRN4llvm6BitsetILj129EEEj.exit: ; preds = %82
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZL25getImpliedEnabledFeaturesRN4llvm6BitsetILj129EEERKS1_.exit.preheader
 
-_ZL25getImpliedEnabledFeaturesRN4llvm6BitsetILj129EEERKS1_.exit.preheader: ; preds = %66, %36, %_ZL26getImpliedDisabledFeaturesRN4llvm6BitsetILj129EEEj.exit
+_ZL25getImpliedEnabledFeaturesRN4llvm6BitsetILj129EEERKS1_.exit.preheader: ; preds = %67, %36, %_ZL26getImpliedDisabledFeaturesRN4llvm6BitsetILj129EEEj.exit
   br label %_ZL25getImpliedEnabledFeaturesRN4llvm6BitsetILj129EEERKS1_.exit
 
-102:                                              ; preds = %.critedge
+104:                                              ; preds = %.critedge
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %"_ZN4llvm7find_ifIRA129_KN12_GLOBAL__N_111FeatureInfoEZNS_3X8621updateImpliedFeaturesENS_9StringRefEbRNS_9StringMapIbNS_15MallocAllocatorEEEE3$_0EEDaOT_T0_.exit.thread"
 
 _ZL25getImpliedEnabledFeaturesRN4llvm6BitsetILj129EEERKS1_.exit: ; preds = %_ZL25getImpliedEnabledFeaturesRN4llvm6BitsetILj129EEERKS1_.exit.preheader, %.critedge
   %indvars.iv = phi i64 [ %indvars.iv.next, %.critedge ], [ 0, %_ZL25getImpliedEnabledFeaturesRN4llvm6BitsetILj129EEERKS1_.exit.preheader ]
-  %103 = and i64 %indvars.iv, 63
-  %104 = shl nuw i64 1, %103
-  %105 = lshr i64 %indvars.iv, 6
-  %106 = and i64 %105, 67108863
-  %107 = getelementptr inbounds nuw i64, ptr %8, i64 %106
-  %108 = load i64, ptr %107, align 8, !tbaa !20
-  %109 = and i64 %108, %104
-  %.not42 = icmp eq i64 %109, 0
-  br i1 %.not42, label %.critedge, label %110
+  %105 = and i64 %indvars.iv, 63
+  %106 = shl nuw i64 1, %105
+  %107 = lshr i64 %indvars.iv, 6
+  %108 = and i64 %107, 67108863
+  %109 = getelementptr inbounds nuw i64, ptr %8, i64 %108
+  %110 = load i64, ptr %109, align 8, !tbaa !20
+  %111 = and i64 %110, %106
+  %.not42 = icmp eq i64 %111, 0
+  br i1 %.not42, label %.critedge, label %112
 
-110:                                              ; preds = %_ZL25getImpliedEnabledFeaturesRN4llvm6BitsetILj129EEERKS1_.exit
-  %111 = getelementptr inbounds nuw %"struct.(anonymous namespace)::FeatureInfo", ptr @_ZL12FeatureInfos, i64 %indvars.iv
-  %112 = getelementptr i8, ptr %111, i64 8
-  %.val14 = load i64, ptr %112, align 8
+112:                                              ; preds = %_ZL25getImpliedEnabledFeaturesRN4llvm6BitsetILj129EEERKS1_.exit
+  %113 = getelementptr inbounds nuw %"struct.(anonymous namespace)::FeatureInfo", ptr @_ZL12FeatureInfos, i64 %indvars.iv
+  %114 = getelementptr i8, ptr %113, i64 8
+  %.val14 = load i64, ptr %114, align 8
   %.8.val.pn.i = add i64 %.val14, -1
-  %113 = icmp eq i64 %.8.val.pn.i, 0
-  br i1 %113, label %.critedge, label %114
+  %115 = icmp eq i64 %.8.val.pn.i, 0
+  br i1 %115, label %.critedge, label %116
 
-114:                                              ; preds = %110
-  %.val13 = load ptr, ptr %111, align 8
+116:                                              ; preds = %112
+  %.val13 = load ptr, ptr %113, align 8
   %.0.val.pn.i = getelementptr inbounds nuw i8, ptr %.val13, i64 1
-  %115 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull %.0.val.pn.i, i64 %.8.val.pn.i) #10
-  %116 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr nonnull %.0.val.pn.i, i64 %.8.val.pn.i, i32 noundef %115)
-  %.fca.0.extract.i = extractvalue { ptr, i8 } %116, 0
-  %117 = load ptr, ptr %.fca.0.extract.i, align 8, !tbaa !48
-  %118 = getelementptr inbounds nuw i8, ptr %117, i64 8
-  store i8 %9, ptr %118, align 1, !tbaa !50
+  %117 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull %.0.val.pn.i, i64 %.8.val.pn.i) #10
+  %118 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr nonnull %.0.val.pn.i, i64 %.8.val.pn.i, i32 noundef %117)
+  %.fca.0.extract.i = extractvalue { ptr, i8 } %118, 0
+  %119 = load ptr, ptr %.fca.0.extract.i, align 8, !tbaa !48
+  %120 = getelementptr inbounds nuw i8, ptr %119, i64 8
+  store i8 %9, ptr %120, align 1, !tbaa !50
   br label %.critedge
 
-.critedge:                                        ; preds = %_ZL25getImpliedEnabledFeaturesRN4llvm6BitsetILj129EEERKS1_.exit, %110, %114
+.critedge:                                        ; preds = %_ZL25getImpliedEnabledFeaturesRN4llvm6BitsetILj129EEERKS1_.exit, %112, %116
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not = icmp eq i64 %indvars.iv.next, 129
-  br i1 %.not, label %102, label %_ZL25getImpliedEnabledFeaturesRN4llvm6BitsetILj129EEERKS1_.exit, !llvm.loop !51
+  br i1 %.not, label %104, label %_ZL25getImpliedEnabledFeaturesRN4llvm6BitsetILj129EEERKS1_.exit, !llvm.loop !51
 
-"_ZN4llvm7find_ifIRA129_KN12_GLOBAL__N_111FeatureInfoEZNS_3X8621updateImpliedFeaturesENS_9StringRefEbRNS_9StringMapIbNS_15MallocAllocatorEEEE3$_0EEDaOT_T0_.exit.thread": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm3X8621updateImpliedFeaturesENS2_9StringRefEbRNS2_9StringMapIbNS2_15MallocAllocatorEEEE3$_0EclIPKN12_GLOBAL__N_111FeatureInfoEEEbT_.exit95.i.i.i.i", %33, %"_ZN4llvm7find_ifIRA129_KN12_GLOBAL__N_111FeatureInfoEZNS_3X8621updateImpliedFeaturesENS_9StringRefEbRNS_9StringMapIbNS_15MallocAllocatorEEEE3$_0EEDaOT_T0_.exit", %102
+"_ZN4llvm7find_ifIRA129_KN12_GLOBAL__N_111FeatureInfoEZNS_3X8621updateImpliedFeaturesENS_9StringRefEbRNS_9StringMapIbNS_15MallocAllocatorEEEE3$_0EEDaOT_T0_.exit.thread": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm3X8621updateImpliedFeaturesENS2_9StringRefEbRNS2_9StringMapIbNS2_15MallocAllocatorEEEE3$_0EclIPKN12_GLOBAL__N_111FeatureInfoEEEbT_.exit95.i.i.i.i", %33, %"_ZN4llvm7find_ifIRA129_KN12_GLOBAL__N_111FeatureInfoEZNS_3X8621updateImpliedFeaturesENS_9StringRefEbRNS_9StringMapIbNS_15MallocAllocatorEEEE3$_0EEDaOT_T0_.exit", %104
   ret void
 }
 

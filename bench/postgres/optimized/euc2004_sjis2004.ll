@@ -594,7 +594,7 @@ get_ten.exit127.thread.i:                         ; preds = %get_ten.exit127.i, 
 112:                                              ; preds = %109
   %113 = shl nuw nsw i32 %21, 1
   %114 = add nsw i32 %113, -410
-  %115 = sub nsw i32 %114, %.sink.i125163.i
+  %115 = sub nuw nsw i32 %114, %.sink.i125163.i
   br label %118
 
 116:                                              ; preds = %98
@@ -615,8 +615,8 @@ get_ten.exit127.thread.i:                         ; preds = %get_ten.exit127.i, 
   %.095169.i = phi i32 [ %.095.ph.i, %118 ], [ %.0.i140.i, %58 ], [ %.0.i112148.i, %73 ]
   %.096167.i = phi i32 [ %.096.ph.i, %118 ], [ %61, %58 ], [ %76, %73 ]
   %.4.i = phi ptr [ %119, %118 ], [ %.093203.i, %58 ], [ %.093203.i, %73 ]
-  %121 = trunc i32 %.096167.i to i8
-  %122 = add i8 %121, -96
+  %121 = trunc nsw i32 %.096167.i to i8
+  %122 = add nsw i8 %121, -96
   %123 = getelementptr inbounds nuw i8, ptr %.4.i, i64 1
   store i8 %122, ptr %.4.i, align 1
   %124 = trunc nuw i32 %.095169.i to i8

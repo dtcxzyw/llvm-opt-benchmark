@@ -162,7 +162,7 @@ define noundef zeroext i1 @_ZN13duckdb_snappy21GetUncompressedLengthEPKcmPm(ptr 
 38:                                               ; preds = %37
   %39 = load i8, ptr %30, align 1, !tbaa !3
   %40 = zext i8 %39 to i32
-  %41 = shl i32 %40, 28
+  %41 = shl nuw i32 %40, 28
   %42 = or disjoint i32 %41, %35
   %43 = icmp ult i8 %39, 16
   br i1 %43, label %_ZN13duckdb_snappy6Varint16Parse32WithLimitEPKcS2_Pj.exit, label %_ZN13duckdb_snappy6Varint16Parse32WithLimitEPKcS2_Pj.exit.thread
@@ -2677,7 +2677,7 @@ define noundef zeroext i1 @_ZN13duckdb_snappy10UncompressEPKcmPNSt7__cxx1112basi
 39:                                               ; preds = %38
   %40 = load i8, ptr %31, align 1, !tbaa !3
   %41 = zext i8 %40 to i32
-  %42 = shl i32 %41, 28
+  %42 = shl nuw i32 %41, 28
   %43 = or disjoint i32 %42, %36
   %44 = icmp ult i8 %40, 16
   br i1 %44, label %45, label %_ZN13duckdb_snappy21GetUncompressedLengthEPKcmPm.exit.thread
@@ -3151,7 +3151,7 @@ define noundef i64 @_ZN13duckdb_snappy17CompressFromIOVecEPK5iovecmPNSt7__cxx111
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %3
-  %.0.lcssa.i = phi i64 [ 0, %3 ], [ %20, %.lr.ph.i ]
+  %.0.lcssa.i = phi i64 [ 0, %3 ], [ %21, %.lr.ph.i ]
   %5 = add i64 %.0.lcssa.i, 32
   %6 = udiv i64 %.0.lcssa.i, 6
   %7 = add i64 %5, %6
@@ -3179,20 +3179,21 @@ _ZN13duckdb_snappy15string_as_arrayEPNSt7__cxx1112basic_stringIcSt11char_traitsI
   unreachable
 
 .lr.ph.i:                                         ; preds = %3, %.lr.ph.i
-  %.014.i = phi i64 [ %20, %.lr.ph.i ], [ 0, %3 ]
-  %.01213.i = phi i64 [ %21, %.lr.ph.i ], [ 0, %3 ]
-  %18 = getelementptr inbounds nuw %struct.iovec, ptr %0, i64 %.01213.i, i32 1
-  %19 = load i64, ptr %18, align 8, !tbaa !65
-  %20 = add i64 %19, %.014.i
-  %21 = add nuw i64 %.01213.i, 1
-  %exitcond.not.i = icmp eq i64 %21, %1
+  %.014.i = phi i64 [ %21, %.lr.ph.i ], [ 0, %3 ]
+  %.01213.i = phi i64 [ %22, %.lr.ph.i ], [ 0, %3 ]
+  %18 = getelementptr inbounds nuw %struct.iovec, ptr %0, i64 %.01213.i
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %20 = load i64, ptr %19, align 8, !tbaa !65
+  %21 = add i64 %20, %.014.i
+  %22 = add nuw i64 %.01213.i, 1
+  %exitcond.not.i = icmp eq i64 %22, %1
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !93
 
 _ZN13duckdb_snappy17CompressFromIOVecEPK5iovecmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_18CompressionOptionsE.exit: ; preds = %_ZN13duckdb_snappy15string_as_arrayEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i
   store i64 %14, ptr %8, align 8, !tbaa !77
-  %22 = load ptr, ptr %2, align 8, !tbaa !80
-  %23 = getelementptr inbounds nuw i8, ptr %22, i64 %14
-  store i8 0, ptr %23, align 1, !tbaa !3
+  %23 = load ptr, ptr %2, align 8, !tbaa !80
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 %14
+  store i8 0, ptr %24, align 1, !tbaa !3
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %14
 }
@@ -3204,7 +3205,7 @@ define noundef i64 @_ZN13duckdb_snappy17CompressFromIOVecEPK5iovecmPNSt7__cxx111
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
-  %.0.lcssa = phi i64 [ 0, %4 ], [ %23, %.lr.ph ]
+  %.0.lcssa = phi i64 [ 0, %4 ], [ %24, %.lr.ph ]
   %6 = add i64 %.0.lcssa, 32
   %7 = udiv i64 %.0.lcssa, 6
   %8 = add i64 %6, %7
@@ -3240,13 +3241,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit: ; preds = %
   ret i64 %15
 
 .lr.ph:                                           ; preds = %4, %.lr.ph
-  %.014 = phi i64 [ %23, %.lr.ph ], [ 0, %4 ]
-  %.01213 = phi i64 [ %24, %.lr.ph ], [ 0, %4 ]
-  %21 = getelementptr inbounds nuw %struct.iovec, ptr %0, i64 %.01213, i32 1
-  %22 = load i64, ptr %21, align 8, !tbaa !65
-  %23 = add i64 %22, %.014
-  %24 = add nuw i64 %.01213, 1
-  %exitcond.not = icmp eq i64 %24, %1
+  %.014 = phi i64 [ %24, %.lr.ph ], [ 0, %4 ]
+  %.01213 = phi i64 [ %25, %.lr.ph ], [ 0, %4 ]
+  %21 = getelementptr inbounds nuw %struct.iovec, ptr %0, i64 %.01213
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %23 = load i64, ptr %22, align 8, !tbaa !65
+  %24 = add i64 %23, %.014
+  %25 = add nuw i64 %.01213, 1
+  %exitcond.not = icmp eq i64 %25, %1
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !93
 }
 

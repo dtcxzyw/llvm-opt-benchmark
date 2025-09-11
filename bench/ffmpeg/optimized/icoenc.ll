@@ -267,69 +267,74 @@ define internal noundef i32 @ico_write_trailer(ptr noundef readonly captures(non
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
   br label %13
 
-13:                                               ; preds = %.lr.ph, %42
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %42 ]
+13:                                               ; preds = %.lr.ph, %45
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %45 ]
   %14 = load ptr, ptr %11, align 8, !tbaa !49
-  %15 = getelementptr inbounds nuw %struct.IcoImage, ptr %14, i64 %indvars.iv, i32 2
-  %16 = load i8, ptr %15, align 4, !tbaa !54
-  %17 = zext i8 %16 to i32
-  tail call void @avio_w8(ptr noundef %5, i32 noundef %17) #2
-  %18 = load ptr, ptr %11, align 8, !tbaa !49
-  %19 = getelementptr inbounds nuw %struct.IcoImage, ptr %18, i64 %indvars.iv, i32 3
-  %20 = load i8, ptr %19, align 1, !tbaa !55
-  %21 = zext i8 %20 to i32
-  tail call void @avio_w8(ptr noundef %5, i32 noundef %21) #2
-  %22 = load ptr, ptr %12, align 8, !tbaa !31
-  %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv
-  %24 = load ptr, ptr %23, align 8, !tbaa !32
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  %26 = load ptr, ptr %25, align 8, !tbaa !34
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 4
-  %28 = load i32, ptr %27, align 4, !tbaa !41
-  %29 = icmp eq i32 %28, 78
-  br i1 %29, label %30, label %42
+  %15 = getelementptr inbounds nuw %struct.IcoImage, ptr %14, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %17 = load i8, ptr %16, align 4, !tbaa !54
+  %18 = zext i8 %17 to i32
+  tail call void @avio_w8(ptr noundef %5, i32 noundef %18) #2
+  %19 = load ptr, ptr %11, align 8, !tbaa !49
+  %20 = getelementptr inbounds nuw %struct.IcoImage, ptr %19, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 9
+  %22 = load i8, ptr %21, align 1, !tbaa !55
+  %23 = zext i8 %22 to i32
+  tail call void @avio_w8(ptr noundef %5, i32 noundef %23) #2
+  %24 = load ptr, ptr %12, align 8, !tbaa !31
+  %25 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv
+  %26 = load ptr, ptr %25, align 8, !tbaa !32
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
+  %28 = load ptr, ptr %27, align 8, !tbaa !34
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 4
+  %30 = load i32, ptr %29, align 4, !tbaa !41
+  %31 = icmp eq i32 %30, 78
+  br i1 %31, label %32, label %45
 
-30:                                               ; preds = %13
-  %31 = getelementptr inbounds nuw i8, ptr %26, i64 44
-  %32 = load i32, ptr %31, align 4, !tbaa !44
-  %33 = icmp eq i32 %32, 11
-  br i1 %33, label %34, label %42
+32:                                               ; preds = %13
+  %33 = getelementptr inbounds nuw i8, ptr %28, i64 44
+  %34 = load i32, ptr %33, align 4, !tbaa !44
+  %35 = icmp eq i32 %34, 11
+  br i1 %35, label %36, label %45
 
-34:                                               ; preds = %30
-  %35 = load ptr, ptr %11, align 8, !tbaa !49
-  %36 = getelementptr inbounds nuw %struct.IcoImage, ptr %35, i64 %indvars.iv, i32 4
-  %37 = load i16, ptr %36, align 2, !tbaa !57
-  %38 = icmp sgt i16 %37, 7
-  %39 = zext nneg i16 %37 to i32
-  %40 = shl nuw i32 1, %39
-  %41 = select i1 %38, i32 0, i32 %40
-  br label %42
+36:                                               ; preds = %32
+  %37 = load ptr, ptr %11, align 8, !tbaa !49
+  %38 = getelementptr inbounds nuw %struct.IcoImage, ptr %37, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 10
+  %40 = load i16, ptr %39, align 2, !tbaa !57
+  %41 = icmp sgt i16 %40, 7
+  %42 = zext nneg i16 %40 to i32
+  %43 = shl nuw i32 1, %42
+  %44 = select i1 %41, i32 0, i32 %43
+  br label %45
 
-42:                                               ; preds = %13, %30, %34
-  %.sink = phi i32 [ %41, %34 ], [ 0, %30 ], [ 0, %13 ]
+45:                                               ; preds = %13, %32, %36
+  %.sink = phi i32 [ %44, %36 ], [ 0, %32 ], [ 0, %13 ]
   tail call void @avio_w8(ptr noundef %5, i32 noundef %.sink) #2
   tail call void @avio_w8(ptr noundef %5, i32 noundef 0) #2
   tail call void @avio_wl16(ptr noundef %5, i32 noundef 1) #2
-  %43 = load ptr, ptr %11, align 8, !tbaa !49
-  %44 = getelementptr inbounds nuw %struct.IcoImage, ptr %43, i64 %indvars.iv, i32 4
-  %45 = load i16, ptr %44, align 2, !tbaa !57
-  %46 = sext i16 %45 to i32
-  tail call void @avio_wl16(ptr noundef %5, i32 noundef %46) #2
-  %47 = load ptr, ptr %11, align 8, !tbaa !49
-  %48 = getelementptr inbounds nuw %struct.IcoImage, ptr %47, i64 %indvars.iv, i32 1
-  %49 = load i32, ptr %48, align 4, !tbaa !59
-  tail call void @avio_wl32(ptr noundef %5, i32 noundef %49) #2
-  %50 = load ptr, ptr %11, align 8, !tbaa !49
-  %51 = getelementptr inbounds nuw %struct.IcoImage, ptr %50, i64 %indvars.iv
-  %52 = load i32, ptr %51, align 4, !tbaa !51
-  tail call void @avio_wl32(ptr noundef %5, i32 noundef %52) #2
+  %46 = load ptr, ptr %11, align 8, !tbaa !49
+  %47 = getelementptr inbounds nuw %struct.IcoImage, ptr %46, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 10
+  %49 = load i16, ptr %48, align 2, !tbaa !57
+  %50 = sext i16 %49 to i32
+  tail call void @avio_wl16(ptr noundef %5, i32 noundef %50) #2
+  %51 = load ptr, ptr %11, align 8, !tbaa !49
+  %52 = getelementptr inbounds nuw %struct.IcoImage, ptr %51, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 4
+  %54 = load i32, ptr %53, align 4, !tbaa !59
+  tail call void @avio_wl32(ptr noundef %5, i32 noundef %54) #2
+  %55 = load ptr, ptr %11, align 8, !tbaa !49
+  %56 = getelementptr inbounds nuw %struct.IcoImage, ptr %55, i64 %indvars.iv
+  %57 = load i32, ptr %56, align 4, !tbaa !51
+  tail call void @avio_wl32(ptr noundef %5, i32 noundef %57) #2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %53 = load i32, ptr %8, align 4, !tbaa !30
-  %54 = sext i32 %53 to i64
-  %55 = icmp slt i64 %indvars.iv.next, %54
-  br i1 %55, label %13, label %._crit_edge, !llvm.loop !62
+  %58 = load i32, ptr %8, align 4, !tbaa !30
+  %59 = sext i32 %58 to i64
+  %60 = icmp slt i64 %indvars.iv.next, %59
+  br i1 %60, label %13, label %._crit_edge, !llvm.loop !62
 
-._crit_edge:                                      ; preds = %42, %1
+._crit_edge:                                      ; preds = %45, %1
   ret i32 0
 }
 

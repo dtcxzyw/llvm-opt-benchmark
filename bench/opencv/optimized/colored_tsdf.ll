@@ -5054,7 +5054,7 @@ define linkonce_odr hidden { <2 x float>, float } @_ZNK2cv5kinfu20ColoredTSDFVol
   %44 = load float, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cv5kinfuL4nan3E, i64 4), align 4, !tbaa !34
   %.sroa.053.4.vec.insert = insertelement <2 x float> %.sroa.053.0.vec.insert, float %44, i64 1
   %45 = load float, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cv5kinfuL4nan3E, i64 8), align 4, !tbaa !34
-  br label %183
+  br label %184
 
 46:                                               ; preds = %36
   %47 = tail call float @llvm.floor.f32(float %14)
@@ -5193,7 +5193,7 @@ _ZN2cv5kinfu8colorFixERNS_7Point3_IfEE.exit:      ; preds = %166
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %183
+  br label %184
 
 166:                                              ; preds = %46, %166
   %indvars.iv = phi i64 [ 0, %46 ], [ %indvars.iv.next, %166 ]
@@ -5201,26 +5201,27 @@ _ZN2cv5kinfu8colorFixERNS_7Point3_IfEE.exit:      ; preds = %166
   %168 = load i32, ptr %167, align 4, !tbaa !14
   %169 = add nsw i32 %57, %168
   %170 = sext i32 %169 to i64
-  %171 = getelementptr inbounds %"struct.cv::kinfu::RGBTsdfVoxel", ptr %13, i64 %170, i32 2
-  %172 = load i16, ptr %171, align 2, !tbaa !301
-  %173 = sitofp i16 %172 to float
-  %174 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv
-  store float %173, ptr %174, align 4, !tbaa !34
-  %175 = getelementptr inbounds %"struct.cv::kinfu::RGBTsdfVoxel", ptr %13, i64 %170, i32 3
-  %176 = load i16, ptr %175, align 2, !tbaa !302
-  %177 = sitofp i16 %176 to float
-  %178 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv
-  store float %177, ptr %178, align 4, !tbaa !34
-  %179 = getelementptr inbounds %"struct.cv::kinfu::RGBTsdfVoxel", ptr %13, i64 %170, i32 4
-  %180 = load i16, ptr %179, align 2, !tbaa !303
-  %181 = sitofp i16 %180 to float
-  %182 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv
-  store float %181, ptr %182, align 4, !tbaa !34
+  %171 = getelementptr inbounds %"struct.cv::kinfu::RGBTsdfVoxel", ptr %13, i64 %170
+  %172 = getelementptr inbounds nuw i8, ptr %171, i64 2
+  %173 = load i16, ptr %172, align 2, !tbaa !301
+  %174 = sitofp i16 %173 to float
+  %175 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv
+  store float %174, ptr %175, align 4, !tbaa !34
+  %176 = getelementptr inbounds nuw i8, ptr %171, i64 4
+  %177 = load i16, ptr %176, align 2, !tbaa !302
+  %178 = sitofp i16 %177 to float
+  %179 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv
+  store float %178, ptr %179, align 4, !tbaa !34
+  %180 = getelementptr inbounds nuw i8, ptr %171, i64 6
+  %181 = load i16, ptr %180, align 2, !tbaa !303
+  %182 = sitofp i16 %181 to float
+  %183 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv
+  store float %182, ptr %183, align 4, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
   br i1 %exitcond.not, label %_ZN2cv5kinfu8colorFixERNS_7Point3_IfEE.exit, label %166, !llvm.loop !304
 
-183:                                              ; preds = %_ZN2cv5kinfu8colorFixERNS_7Point3_IfEE.exit, %42
+184:                                              ; preds = %_ZN2cv5kinfu8colorFixERNS_7Point3_IfEE.exit, %42
   %.sroa.053.0 = phi <2 x float> [ %.sroa.053.4.vec.insert, %42 ], [ %.sroa.053.2, %_ZN2cv5kinfu8colorFixERNS_7Point3_IfEE.exit ]
   %.sroa.11.0 = phi float [ %45, %42 ], [ %.sroa.11.1, %_ZN2cv5kinfu8colorFixERNS_7Point3_IfEE.exit ]
   %.fca.0.insert = insertvalue { <2 x float>, float } poison, <2 x float> %.sroa.053.0, 0

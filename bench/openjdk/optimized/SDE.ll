@@ -72,69 +72,70 @@ define hidden range(i32 0, 2) i32 @searchAllSourceNames(ptr noundef %0, ptr noun
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %.loopexit
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %.loopexit ]
-  %10 = getelementptr inbounds nuw %struct.StratumTableRecord, ptr %7, i64 %indvars.iv, i32 1
-  %11 = load i32, ptr %10, align 8
-  %12 = getelementptr %struct.StratumTableRecord, ptr %7, i64 %indvars.iv
-  %13 = getelementptr i8, ptr %12, i64 24
+  %10 = getelementptr inbounds nuw %struct.StratumTableRecord, ptr %7, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %12 = load i32, ptr %11, align 8
+  %13 = getelementptr i8, ptr %10, i64 24
   %14 = load i32, ptr %13, align 8
-  %15 = icmp slt i32 %11, %14
+  %15 = icmp slt i32 %12, %14
   br i1 %15, label %.lr.ph.i, label %.loopexit
 
 .lr.ph.i:                                         ; preds = %.lr.ph.split
-  %16 = sext i32 %11 to i64
+  %16 = sext i32 %12 to i64
   br label %.lr.ph.split.i
 
 .lr.ph.split.i:                                   ; preds = %patternMatch.exit.thread.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %16, %.lr.ph.i ], [ %indvars.iv.next.i, %patternMatch.exit.thread.i ]
-  %17 = getelementptr inbounds %struct.FileTableRecord, ptr %8, i64 %indvars.iv.i, i32 1
-  %18 = load ptr, ptr %17, align 8
-  %19 = icmp eq ptr %18, null
-  br i1 %19, label %patternMatch.exit.thread.i, label %20
+  %17 = getelementptr inbounds %struct.FileTableRecord, ptr %8, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %19 = load ptr, ptr %18, align 8
+  %20 = icmp eq ptr %19, null
+  br i1 %20, label %patternMatch.exit.thread.i, label %21
 
-20:                                               ; preds = %.lr.ph.split.i
-  %21 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #10
-  %22 = trunc i64 %21 to i32
-  %23 = load i8, ptr %2, align 1
-  %.not.i.i = icmp eq i8 %23, 42
-  br i1 %.not.i.i, label %31, label %24
+21:                                               ; preds = %.lr.ph.split.i
+  %22 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #10
+  %23 = trunc i64 %22 to i32
+  %24 = load i8, ptr %2, align 1
+  %.not.i.i = icmp eq i8 %24, 42
+  br i1 %.not.i.i, label %32, label %25
 
-24:                                               ; preds = %20
-  %25 = shl i64 %21, 32
-  %sext.i.i = add i64 %25, -4294967296
-  %26 = ashr exact i64 %sext.i.i, 32
-  %27 = getelementptr inbounds i8, ptr %2, i64 %26
-  %28 = load i8, ptr %27, align 1
-  %.not26.i.i = icmp eq i8 %28, 42
-  br i1 %.not26.i.i, label %31, label %29
+25:                                               ; preds = %21
+  %26 = shl i64 %22, 32
+  %sext.i.i = add i64 %26, -4294967296
+  %27 = ashr exact i64 %sext.i.i, 32
+  %28 = getelementptr inbounds i8, ptr %2, i64 %27
+  %29 = load i8, ptr %28, align 1
+  %.not26.i.i = icmp eq i8 %29, 42
+  br i1 %.not26.i.i, label %32, label %30
 
-29:                                               ; preds = %24
-  %30 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %2, ptr noundef nonnull readonly dereferenceable(1) %18) #10
+30:                                               ; preds = %25
+  %31 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %2, ptr noundef nonnull readonly dereferenceable(1) %19) #10
   br label %patternMatch.exit.i
 
-31:                                               ; preds = %24, %20
-  %32 = add nsw i32 %22, -1
-  %33 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %18) #10
-  %34 = trunc i64 %33 to i32
-  %35 = sub nsw i32 %34, %32
-  %36 = icmp slt i32 %35, 0
-  br i1 %36, label %patternMatch.exit.thread.i, label %37
+32:                                               ; preds = %25, %21
+  %33 = add nsw i32 %23, -1
+  %34 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %19) #10
+  %35 = trunc i64 %34 to i32
+  %36 = sub nsw i32 %35, %33
+  %37 = icmp slt i32 %36, 0
+  br i1 %37, label %patternMatch.exit.thread.i, label %38
 
-37:                                               ; preds = %31
-  %38 = zext nneg i32 %35 to i64
+38:                                               ; preds = %32
+  %39 = zext nneg i32 %36 to i64
   %.022.idx.i.i = zext i1 %.not.i.i to i64
   %.022.i.i = getelementptr inbounds nuw i8, ptr %2, i64 %.022.idx.i.i
-  %.021.idx.i.i = select i1 %.not.i.i, i64 %38, i64 0
-  %.021.i.i = getelementptr inbounds nuw i8, ptr %18, i64 %.021.idx.i.i
-  %39 = sext i32 %32 to i64
-  %40 = tail call i32 @strncmp(ptr noundef nonnull readonly %.022.i.i, ptr noundef nonnull readonly %.021.i.i, i64 noundef %39) #10
+  %.021.idx.i.i = select i1 %.not.i.i, i64 %39, i64 0
+  %.021.i.i = getelementptr inbounds nuw i8, ptr %19, i64 %.021.idx.i.i
+  %40 = sext i32 %33 to i64
+  %41 = tail call i32 @strncmp(ptr noundef nonnull readonly %.022.i.i, ptr noundef nonnull readonly %.021.i.i, i64 noundef %40) #10
   br label %patternMatch.exit.i
 
-patternMatch.exit.i:                              ; preds = %37, %29
-  %.0.shrunk.i.in.i = phi i32 [ %30, %29 ], [ %40, %37 ]
+patternMatch.exit.i:                              ; preds = %38, %30
+  %.0.shrunk.i.in.i = phi i32 [ %31, %30 ], [ %41, %38 ]
   %.0.shrunk.i.not.i = icmp eq i32 %.0.shrunk.i.in.i, 0
   br i1 %.0.shrunk.i.not.i, label %searchOneSourceName.exit, label %patternMatch.exit.thread.i
 
-patternMatch.exit.thread.i:                       ; preds = %patternMatch.exit.i, %31, %.lr.ph.split.i
+patternMatch.exit.thread.i:                       ; preds = %patternMatch.exit.i, %32, %.lr.ph.split.i
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %lftr.wideiv.i = trunc i64 %indvars.iv.next.i to i32
   %exitcond.not.i = icmp eq i32 %14, %lftr.wideiv.i
@@ -686,11 +687,11 @@ define hidden void @convertLineNumberTable(ptr noundef %0, ptr noundef %1, ptr n
 .lr.ph:                                           ; preds = %21
   %22 = load ptr, ptr @stratumTable, align 8
   %23 = zext nneg i32 %11 to i64
-  %24 = getelementptr inbounds nuw %struct.StratumTableRecord, ptr %22, i64 %23, i32 2
-  %25 = getelementptr inbounds nuw %struct.StratumTableRecord, ptr %22, i64 %23
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 28
+  %24 = getelementptr inbounds nuw %struct.StratumTableRecord, ptr %22, i64 %23
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 12
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 28
   %27 = load ptr, ptr @lineTable, align 8
-  %28 = load i32, ptr %24, align 4
+  %28 = load i32, ptr %25, align 4
   %29 = load i32, ptr %26, align 4
   %30 = icmp slt i32 %28, %29
   br i1 %30, label %.lr.ph.split, label %._crit_edge
@@ -703,7 +704,7 @@ define hidden void @convertLineNumberTable(ptr noundef %0, ptr noundef %1, ptr n
   %31 = add nsw i32 %.in, -1
   %32 = getelementptr inbounds nuw i8, ptr %.045, i64 8
   %33 = load i32, ptr %32, align 8
-  %34 = load i32, ptr %24, align 4
+  %34 = load i32, ptr %25, align 4
   %35 = load i32, ptr %26, align 4
   %36 = icmp slt i32 %34, %35
   br i1 %36, label %.lr.ph.i, label %stiLineTableIndex.exit.thread
@@ -737,17 +738,17 @@ stiLineTableIndex.exit:                           ; preds = %41
 
 46:                                               ; preds = %stiLineTableIndex.exit
   %47 = and i64 %indvars.iv.i, 4294967295
-  %48 = getelementptr inbounds nuw %struct.LineTableRecord, ptr %27, i64 %47, i32 5
-  %49 = load i32, ptr %48, align 4
-  %50 = getelementptr inbounds nuw %struct.LineTableRecord, ptr %27, i64 %47
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 12
+  %48 = getelementptr inbounds nuw %struct.LineTableRecord, ptr %27, i64 %47
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 20
+  %50 = load i32, ptr %49, align 4
+  %51 = getelementptr inbounds nuw i8, ptr %48, i64 12
   %52 = load i32, ptr %51, align 4
-  %53 = load i32, ptr %50, align 4
+  %53 = load i32, ptr %48, align 4
   %54 = sub nsw i32 %33, %53
-  %55 = getelementptr inbounds nuw i8, ptr %50, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %56 = load i32, ptr %55, align 4
   %57 = sdiv i32 %54, %56
-  %58 = shl i32 %49, 16
+  %58 = shl i32 %50, 16
   %59 = add i32 %58, %52
   %60 = add i32 %59, %57
   %.not40 = icmp eq i32 %60, %.03343
@@ -1155,10 +1156,10 @@ assureStratumTableSize.exit:                      ; preds = %.assureStratumTable
   %42 = getelementptr inbounds %struct.StratumTableRecord, ptr %40, i64 %41
   store ptr %0, ptr %42, align 8
   %43 = load i32, ptr @fileIndex, align 4
-  %44 = getelementptr inbounds %struct.StratumTableRecord, ptr %40, i64 %41, i32 1
+  %44 = getelementptr inbounds nuw i8, ptr %42, i64 8
   store i32 %43, ptr %44, align 8
   %45 = load i32, ptr @lineIndex, align 4
-  %46 = getelementptr inbounds %struct.StratumTableRecord, ptr %40, i64 %41, i32 2
+  %46 = getelementptr inbounds nuw i8, ptr %42, i64 12
   store i32 %45, ptr %46, align 4
   %47 = add nsw i32 %39, 1
   store i32 %47, ptr @stratumIndex, align 4
@@ -1218,9 +1219,9 @@ assureFileTableSize.exit:                         ; preds = %.assureFileTableSiz
   %25 = sext i32 %23 to i64
   %26 = getelementptr inbounds %struct.FileTableRecord, ptr %24, i64 %25
   store i32 %0, ptr %26, align 8
-  %27 = getelementptr inbounds %struct.FileTableRecord, ptr %24, i64 %25, i32 1
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store ptr %1, ptr %27, align 8
-  %28 = getelementptr inbounds %struct.FileTableRecord, ptr %24, i64 %25, i32 2
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 16
   store ptr %2, ptr %28, align 8
   %29 = add nsw i32 %23, 1
   store i32 %29, ptr @fileIndex, align 4
@@ -1279,15 +1280,15 @@ assureLineTableSize.exit:                         ; preds = %.assureLineTableSiz
   %28 = sext i32 %26 to i64
   %29 = getelementptr inbounds %struct.LineTableRecord, ptr %27, i64 %28
   store i32 %0, ptr %29, align 4
-  %30 = getelementptr inbounds %struct.LineTableRecord, ptr %27, i64 %28, i32 1
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 4
   store i32 %1, ptr %30, align 4
-  %31 = getelementptr inbounds %struct.LineTableRecord, ptr %27, i64 %28, i32 2
+  %31 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store i32 %2, ptr %31, align 4
-  %32 = getelementptr inbounds %struct.LineTableRecord, ptr %27, i64 %28, i32 3
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 12
   store i32 %3, ptr %32, align 4
-  %33 = getelementptr inbounds %struct.LineTableRecord, ptr %27, i64 %28, i32 4
+  %33 = getelementptr inbounds nuw i8, ptr %29, i64 16
   store i32 %4, ptr %33, align 4
-  %34 = getelementptr inbounds %struct.LineTableRecord, ptr %27, i64 %28, i32 5
+  %34 = getelementptr inbounds nuw i8, ptr %29, i64 20
   store i32 %5, ptr %34, align 4
   %35 = add nsw i32 %26, 1
   store i32 %35, ptr @lineIndex, align 4

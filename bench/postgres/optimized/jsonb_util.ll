@@ -69,10 +69,10 @@ define dso_local noundef ptr @JsonbValueToJsonb(ptr noundef %0) local_unnamed_ad
   br i1 %8, label %10, label %9
 
 9:                                                ; preds = %1
-  switch i32 %7, label %57 [
+  switch i32 %7, label %58 [
     i32 32, label %10
-    i32 17, label %47
-    i32 16, label %47
+    i32 17, label %48
+    i32 16, label %48
   ]
 
 10:                                               ; preds = %9, %1
@@ -105,7 +105,7 @@ define dso_local noundef ptr @JsonbValueToJsonb(ptr noundef %0) local_unnamed_ad
 
 24:                                               ; preds = %10
   %25 = load i32, ptr %23, align 8
-  switch i32 %25, label %35 [
+  switch i32 %25, label %36 [
     i32 16, label %26
     i32 17, label %27
   ]
@@ -122,14 +122,15 @@ define dso_local noundef ptr @JsonbValueToJsonb(ptr noundef %0) local_unnamed_ad
   %32 = add i32 %31, 1
   store i32 %32, ptr %28, align 8
   %33 = sext i32 %31 to i64
-  %34 = getelementptr inbounds %struct.JsonbPair, ptr %30, i64 %33, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %34, ptr noundef nonnull readonly align 8 dereferenceable(32) %21, i64 32, i1 false)
+  %34 = getelementptr inbounds %struct.JsonbPair, ptr %30, i64 %33
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %35, ptr noundef nonnull readonly align 8 dereferenceable(32) %21, i64 32, i1 false)
   br label %pushJsonbValueScalar.exit
 
-35:                                               ; preds = %24
-  %36 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  call void @llvm.assume(i1 %36)
-  %37 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.6) #13
+36:                                               ; preds = %24
+  %37 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  call void @llvm.assume(i1 %37)
+  %38 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.6) #13
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 723, ptr noundef nonnull @__func__.pushJsonbValueScalar) #13
   unreachable
 
@@ -138,66 +139,66 @@ pushJsonbValueScalar.exit:                        ; preds = %10, %26, %27
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @initStringInfo(ptr noundef nonnull %4) #13
   call void @enlargeStringInfo(ptr noundef nonnull %4, i32 noundef 4) #13
-  %38 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %39 = load i32, ptr %38, align 8
-  %40 = add i32 %39, 4
-  store i32 %40, ptr %38, align 8
-  %41 = load ptr, ptr %4, align 8
-  %42 = sext i32 %40 to i64
-  %43 = getelementptr inbounds i8, ptr %41, i64 %42
-  store i8 0, ptr %43, align 1
+  %39 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %40 = load i32, ptr %39, align 8
+  %41 = add i32 %40, 4
+  store i32 %41, ptr %39, align 8
+  %42 = load ptr, ptr %4, align 8
+  %43 = sext i32 %41 to i64
+  %44 = getelementptr inbounds i8, ptr %42, i64 %43
+  store i8 0, ptr %44, align 1
   call fastcc void @convertJsonbValue(ptr noundef %4, ptr noundef %5, ptr noundef nonnull %21, i32 noundef 0)
-  %44 = load ptr, ptr %4, align 8
-  %45 = load i32, ptr %38, align 8
-  %46 = shl i32 %45, 2
-  store i32 %46, ptr %44, align 4
+  %45 = load ptr, ptr %4, align 8
+  %46 = load i32, ptr %39, align 8
+  %47 = shl i32 %46, 2
+  store i32 %47, ptr %45, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %71
+  br label %72
 
-47:                                               ; preds = %9, %9
+48:                                               ; preds = %9, %9
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @initStringInfo(ptr noundef nonnull %2) #13
   call void @enlargeStringInfo(ptr noundef nonnull %2, i32 noundef 4) #13
-  %48 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %49 = load i32, ptr %48, align 8
-  %50 = add i32 %49, 4
-  store i32 %50, ptr %48, align 8
-  %51 = load ptr, ptr %2, align 8
-  %52 = sext i32 %50 to i64
-  %53 = getelementptr inbounds i8, ptr %51, i64 %52
-  store i8 0, ptr %53, align 1
+  %49 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %50 = load i32, ptr %49, align 8
+  %51 = add i32 %50, 4
+  store i32 %51, ptr %49, align 8
+  %52 = load ptr, ptr %2, align 8
+  %53 = sext i32 %51 to i64
+  %54 = getelementptr inbounds i8, ptr %52, i64 %53
+  store i8 0, ptr %54, align 1
   call fastcc void @convertJsonbValue(ptr noundef %2, ptr noundef %3, ptr noundef nonnull %0, i32 noundef 0)
-  %54 = load ptr, ptr %2, align 8
-  %55 = load i32, ptr %48, align 8
-  %56 = shl i32 %55, 2
-  store i32 %56, ptr %54, align 4
+  %55 = load ptr, ptr %2, align 8
+  %56 = load i32, ptr %49, align 8
+  %57 = shl i32 %56, 2
+  store i32 %57, ptr %55, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %71
+  br label %72
 
-57:                                               ; preds = %9
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %59 = load i32, ptr %58, align 8
-  %60 = add i32 %59, 4
-  %61 = sext i32 %60 to i64
-  %62 = tail call ptr @palloc(i64 noundef %61) #13
-  %63 = load i32, ptr %58, align 8
-  %64 = shl i32 %63, 2
-  %65 = add i32 %64, 16
-  store i32 %65, ptr %62, align 4
-  %66 = getelementptr inbounds nuw i8, ptr %62, i64 4
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %68 = load ptr, ptr %67, align 8
-  %69 = load i32, ptr %58, align 8
-  %70 = sext i32 %69 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %66, ptr align 4 %68, i64 %70, i1 false)
-  br label %71
+58:                                               ; preds = %9
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %60 = load i32, ptr %59, align 8
+  %61 = add i32 %60, 4
+  %62 = sext i32 %61 to i64
+  %63 = tail call ptr @palloc(i64 noundef %62) #13
+  %64 = load i32, ptr %59, align 8
+  %65 = shl i32 %64, 2
+  %66 = add i32 %65, 16
+  store i32 %66, ptr %63, align 4
+  %67 = getelementptr inbounds nuw i8, ptr %63, i64 4
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %69 = load ptr, ptr %68, align 8
+  %70 = load i32, ptr %59, align 8
+  %71 = sext i32 %70 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %67, ptr align 4 %69, i64 %71, i1 false)
+  br label %72
 
-71:                                               ; preds = %47, %57, %pushJsonbValueScalar.exit
-  %.0 = phi ptr [ %44, %pushJsonbValueScalar.exit ], [ %54, %47 ], [ %62, %57 ]
+72:                                               ; preds = %48, %58, %pushJsonbValueScalar.exit
+  %.0 = phi ptr [ %45, %pushJsonbValueScalar.exit ], [ %55, %48 ], [ %63, %58 ]
   ret ptr %.0
 }
 
@@ -211,13 +212,13 @@ define dso_local ptr @pushJsonbValue(ptr noundef %0, i32 noundef %1, ptr noundef
   %6 = and i32 %1, -2
   %or.cond = icmp ne i32 %6, 2
   %or.cond63.not = or i1 %or.cond, %.not
-  br i1 %or.cond63.not, label %88, label %7
+  br i1 %or.cond63.not, label %90, label %7
 
 7:                                                ; preds = %3
   %8 = load i32, ptr %2, align 8
-  switch i32 %8, label %88 [
+  switch i32 %8, label %90 [
     i32 17, label %9
-    i32 16, label %41
+    i32 16, label %42
   ]
 
 9:                                                ; preds = %7
@@ -260,217 +261,219 @@ define dso_local ptr @pushJsonbValue(ptr noundef %0, i32 noundef %1, ptr noundef
   %32 = getelementptr inbounds nuw %struct.JsonbPair, ptr %31, i64 %indvars.iv77
   %33 = tail call fastcc ptr @pushJsonbValueScalar(ptr noundef nonnull %0, i32 noundef 1, ptr noundef %32)
   %34 = load ptr, ptr %29, align 8
-  %35 = getelementptr inbounds nuw %struct.JsonbPair, ptr %34, i64 %indvars.iv77, i32 1
-  %36 = tail call ptr @pushJsonbValue(ptr noundef nonnull %0, i32 noundef 2, ptr noundef nonnull %35)
+  %35 = getelementptr inbounds nuw %struct.JsonbPair, ptr %34, i64 %indvars.iv77
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 32
+  %37 = tail call ptr @pushJsonbValue(ptr noundef nonnull %0, i32 noundef 2, ptr noundef nonnull %36)
   %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
-  %37 = load i32, ptr %26, align 8
-  %38 = sext i32 %37 to i64
-  %39 = icmp slt i64 %indvars.iv.next78, %38
-  br i1 %39, label %30, label %._crit_edge72, !llvm.loop !4
+  %38 = load i32, ptr %26, align 8
+  %39 = sext i32 %38 to i64
+  %40 = icmp slt i64 %indvars.iv.next78, %39
+  br i1 %40, label %30, label %._crit_edge72, !llvm.loop !4
 
 ._crit_edge72:                                    ; preds = %30, %9
-  %40 = tail call fastcc ptr @pushJsonbValueScalar(ptr noundef nonnull %0, i32 noundef 7, ptr noundef null)
+  %41 = tail call fastcc ptr @pushJsonbValueScalar(ptr noundef nonnull %0, i32 noundef 7, ptr noundef null)
   br label %pushJsonbValueScalar.exit
 
-41:                                               ; preds = %7
-  %42 = tail call ptr @palloc(i64 noundef 56) #13
-  %43 = load ptr, ptr %0, align 8
-  %44 = getelementptr inbounds nuw i8, ptr %42, i64 40
-  store ptr %43, ptr %44, align 8
-  %45 = getelementptr inbounds nuw i8, ptr %42, i64 48
-  store i8 0, ptr %45, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %42, i64 49
-  store i8 0, ptr %46, align 1
-  store ptr %42, ptr %0, align 8
-  store i32 16, ptr %42, align 8
-  %47 = load ptr, ptr %0, align 8
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
-  store i32 0, ptr %48, align 8
-  %49 = load ptr, ptr %0, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %49, i64 24
-  store i8 0, ptr %50, align 8
-  %51 = load ptr, ptr %0, align 8
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 32
-  store i64 4, ptr %52, align 8
-  %53 = load ptr, ptr %0, align 8
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 32
-  %55 = load i64, ptr %54, align 8
-  %56 = shl i64 %55, 5
-  %57 = tail call ptr @palloc(i64 noundef %56) #13
-  %58 = load ptr, ptr %0, align 8
-  %59 = getelementptr inbounds nuw i8, ptr %58, i64 16
-  store ptr %57, ptr %59, align 8
-  %60 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %61 = load i32, ptr %60, align 8
-  %62 = icmp sgt i32 %61, 0
-  br i1 %62, label %.lr.ph, label %._crit_edge
+42:                                               ; preds = %7
+  %43 = tail call ptr @palloc(i64 noundef 56) #13
+  %44 = load ptr, ptr %0, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %43, i64 40
+  store ptr %44, ptr %45, align 8
+  %46 = getelementptr inbounds nuw i8, ptr %43, i64 48
+  store i8 0, ptr %46, align 8
+  %47 = getelementptr inbounds nuw i8, ptr %43, i64 49
+  store i8 0, ptr %47, align 1
+  store ptr %43, ptr %0, align 8
+  store i32 16, ptr %43, align 8
+  %48 = load ptr, ptr %0, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
+  store i32 0, ptr %49, align 8
+  %50 = load ptr, ptr %0, align 8
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 24
+  store i8 0, ptr %51, align 8
+  %52 = load ptr, ptr %0, align 8
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 32
+  store i64 4, ptr %53, align 8
+  %54 = load ptr, ptr %0, align 8
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 32
+  %56 = load i64, ptr %55, align 8
+  %57 = shl i64 %56, 5
+  %58 = tail call ptr @palloc(i64 noundef %57) #13
+  %59 = load ptr, ptr %0, align 8
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
+  store ptr %58, ptr %60, align 8
+  %61 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %62 = load i32, ptr %61, align 8
+  %63 = icmp sgt i32 %62, 0
+  br i1 %63, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %41
-  %63 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  br label %64
+.lr.ph:                                           ; preds = %42
+  %64 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  br label %65
 
-64:                                               ; preds = %.lr.ph, %64
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %64 ]
-  %65 = load ptr, ptr %63, align 8
-  %66 = getelementptr inbounds nuw %struct.JsonbValue, ptr %65, i64 %indvars.iv
-  %67 = tail call ptr @pushJsonbValue(ptr noundef nonnull %0, i32 noundef 3, ptr noundef %66)
+65:                                               ; preds = %.lr.ph, %65
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %65 ]
+  %66 = load ptr, ptr %64, align 8
+  %67 = getelementptr inbounds nuw %struct.JsonbValue, ptr %66, i64 %indvars.iv
+  %68 = tail call ptr @pushJsonbValue(ptr noundef nonnull %0, i32 noundef 3, ptr noundef %67)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %68 = load i32, ptr %60, align 8
-  %69 = sext i32 %68 to i64
-  %70 = icmp slt i64 %indvars.iv.next, %69
-  br i1 %70, label %64, label %._crit_edge, !llvm.loop !6
+  %69 = load i32, ptr %61, align 8
+  %70 = sext i32 %69 to i64
+  %71 = icmp slt i64 %indvars.iv.next, %70
+  br i1 %71, label %65, label %._crit_edge, !llvm.loop !6
 
-._crit_edge:                                      ; preds = %64, %41
-  %71 = load ptr, ptr %0, align 8
-  %72 = getelementptr inbounds nuw i8, ptr %71, i64 40
-  %73 = load ptr, ptr %72, align 8
-  store ptr %73, ptr %0, align 8
-  %.not.i67 = icmp eq ptr %73, null
-  br i1 %.not.i67, label %pushJsonbValueScalar.exit, label %74
+._crit_edge:                                      ; preds = %65, %42
+  %72 = load ptr, ptr %0, align 8
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 40
+  %74 = load ptr, ptr %73, align 8
+  store ptr %74, ptr %0, align 8
+  %.not.i67 = icmp eq ptr %74, null
+  br i1 %.not.i67, label %pushJsonbValueScalar.exit, label %75
 
-74:                                               ; preds = %._crit_edge
-  %75 = load i32, ptr %73, align 8
-  switch i32 %75, label %85 [
-    i32 16, label %76
-    i32 17, label %77
+75:                                               ; preds = %._crit_edge
+  %76 = load i32, ptr %74, align 8
+  switch i32 %76, label %87 [
+    i32 16, label %77
+    i32 17, label %78
   ]
 
-76:                                               ; preds = %74
-  tail call fastcc void @appendElement(ptr noundef nonnull %73, ptr noundef nonnull %71)
+77:                                               ; preds = %75
+  tail call fastcc void @appendElement(ptr noundef nonnull %74, ptr noundef nonnull %72)
   br label %pushJsonbValueScalar.exit
 
-77:                                               ; preds = %74
-  %78 = getelementptr inbounds nuw i8, ptr %73, i64 8
-  %79 = getelementptr inbounds nuw i8, ptr %73, i64 16
-  %80 = load ptr, ptr %79, align 8
-  %81 = load i32, ptr %78, align 8
-  %82 = add i32 %81, 1
-  store i32 %82, ptr %78, align 8
-  %83 = sext i32 %81 to i64
-  %84 = getelementptr inbounds %struct.JsonbPair, ptr %80, i64 %83, i32 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %84, ptr noundef nonnull readonly align 8 dereferenceable(32) %71, i64 32, i1 false)
+78:                                               ; preds = %75
+  %79 = getelementptr inbounds nuw i8, ptr %74, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %74, i64 16
+  %81 = load ptr, ptr %80, align 8
+  %82 = load i32, ptr %79, align 8
+  %83 = add i32 %82, 1
+  store i32 %83, ptr %79, align 8
+  %84 = sext i32 %82 to i64
+  %85 = getelementptr inbounds %struct.JsonbPair, ptr %81, i64 %84
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 32
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %86, ptr noundef nonnull readonly align 8 dereferenceable(32) %72, i64 32, i1 false)
   br label %pushJsonbValueScalar.exit
 
-85:                                               ; preds = %74
-  %86 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  tail call void @llvm.assume(i1 %86)
-  %87 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.6) #13
+87:                                               ; preds = %75
+  %88 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  tail call void @llvm.assume(i1 %88)
+  %89 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.6) #13
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 723, ptr noundef nonnull @__func__.pushJsonbValueScalar) #13
   unreachable
 
-88:                                               ; preds = %7, %3
-  %89 = add i32 %1, -4
-  %or.cond5 = icmp ult i32 %89, -2
+90:                                               ; preds = %7, %3
+  %91 = add i32 %1, -4
+  %or.cond5 = icmp ult i32 %91, -2
   %or.cond66 = or i1 %.not, %or.cond5
-  br i1 %or.cond66, label %92, label %90
+  br i1 %or.cond66, label %94, label %92
 
-90:                                               ; preds = %88
-  %91 = load i32, ptr %2, align 8
-  %.not59 = icmp eq i32 %91, 18
-  br i1 %.not59, label %94, label %92
+92:                                               ; preds = %90
+  %93 = load i32, ptr %2, align 8
+  %.not59 = icmp eq i32 %93, 18
+  br i1 %.not59, label %96, label %94
 
-92:                                               ; preds = %90, %88
-  %93 = tail call fastcc ptr @pushJsonbValueScalar(ptr noundef %0, i32 noundef %1, ptr noundef %2)
+94:                                               ; preds = %92, %90
+  %95 = tail call fastcc ptr @pushJsonbValueScalar(ptr noundef %0, i32 noundef %1, ptr noundef %2)
   br label %pushJsonbValueScalar.exit
 
-94:                                               ; preds = %90
-  %95 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %96 = load ptr, ptr %95, align 8
-  %97 = tail call ptr @palloc0(i64 noundef 56) #13
-  store ptr %96, ptr %97, align 8
-  %98 = getelementptr inbounds nuw i8, ptr %97, i64 48
-  store ptr null, ptr %98, align 8
-  %99 = load i32, ptr %96, align 4
-  %100 = and i32 %99, 268435455
-  %101 = getelementptr inbounds nuw i8, ptr %97, i64 8
-  store i32 %100, ptr %101, align 8
-  %102 = getelementptr inbounds nuw i8, ptr %96, i64 4
-  %103 = getelementptr inbounds nuw i8, ptr %97, i64 16
-  store ptr %102, ptr %103, align 8
-  %104 = load i32, ptr %96, align 4
-  %105 = and i32 %104, 1610612736
-  switch i32 %105, label %121 [
-    i32 1073741824, label %106
-    i32 536870912, label %116
+96:                                               ; preds = %92
+  %97 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %98 = load ptr, ptr %97, align 8
+  %99 = tail call ptr @palloc0(i64 noundef 56) #13
+  store ptr %98, ptr %99, align 8
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 48
+  store ptr null, ptr %100, align 8
+  %101 = load i32, ptr %98, align 4
+  %102 = and i32 %101, 268435455
+  %103 = getelementptr inbounds nuw i8, ptr %99, i64 8
+  store i32 %102, ptr %103, align 8
+  %104 = getelementptr inbounds nuw i8, ptr %98, i64 4
+  %105 = getelementptr inbounds nuw i8, ptr %99, i64 16
+  store ptr %104, ptr %105, align 8
+  %106 = load i32, ptr %98, align 4
+  %107 = and i32 %106, 1610612736
+  switch i32 %107, label %123 [
+    i32 1073741824, label %108
+    i32 536870912, label %118
   ]
 
-106:                                              ; preds = %94
-  %107 = shl nuw nsw i32 %100, 2
-  %108 = zext nneg i32 %107 to i64
-  %109 = getelementptr inbounds nuw i8, ptr %102, i64 %108
-  %110 = getelementptr inbounds nuw i8, ptr %97, i64 24
-  store ptr %109, ptr %110, align 8
-  %111 = load i32, ptr %96, align 4
-  %112 = getelementptr inbounds nuw i8, ptr %97, i64 12
-  %113 = lshr i32 %111, 28
-  %114 = trunc nuw nsw i32 %113 to i8
-  %115 = and i8 %114, 1
-  store i8 %115, ptr %112, align 4
+108:                                              ; preds = %96
+  %109 = shl nuw nsw i32 %102, 2
+  %110 = zext nneg i32 %109 to i64
+  %111 = getelementptr inbounds nuw i8, ptr %104, i64 %110
+  %112 = getelementptr inbounds nuw i8, ptr %99, i64 24
+  store ptr %111, ptr %112, align 8
+  %113 = load i32, ptr %98, align 4
+  %114 = getelementptr inbounds nuw i8, ptr %99, i64 12
+  %115 = lshr i32 %113, 28
+  %116 = trunc nuw nsw i32 %115 to i8
+  %117 = and i8 %116, 1
+  store i8 %117, ptr %114, align 4
   br label %JsonbIteratorInit.exit
 
-116:                                              ; preds = %94
-  %117 = shl nuw nsw i32 %100, 3
-  %118 = zext nneg i32 %117 to i64
-  %119 = getelementptr inbounds nuw i8, ptr %102, i64 %118
-  %120 = getelementptr inbounds nuw i8, ptr %97, i64 24
-  store ptr %119, ptr %120, align 8
+118:                                              ; preds = %96
+  %119 = shl nuw nsw i32 %102, 3
+  %120 = zext nneg i32 %119 to i64
+  %121 = getelementptr inbounds nuw i8, ptr %104, i64 %120
+  %122 = getelementptr inbounds nuw i8, ptr %99, i64 24
+  store ptr %121, ptr %122, align 8
   br label %JsonbIteratorInit.exit
 
-121:                                              ; preds = %94
-  %122 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  tail call void @llvm.assume(i1 %122)
-  %123 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.13) #13
+123:                                              ; preds = %96
+  %124 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  tail call void @llvm.assume(i1 %124)
+  %125 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.13) #13
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1037, ptr noundef nonnull @__func__.iteratorFromContainer) #13
   unreachable
 
-JsonbIteratorInit.exit:                           ; preds = %106, %116
-  %.sink.i.i = phi i32 [ 2, %116 ], [ 0, %106 ]
-  %124 = getelementptr inbounds nuw i8, ptr %97, i64 44
-  store i32 %.sink.i.i, ptr %124, align 4
-  store ptr %97, ptr %4, align 8
-  %125 = load ptr, ptr %95, align 8
-  %126 = load i32, ptr %125, align 4
-  %127 = and i32 %126, 268435456
-  %.not60 = icmp eq i32 %127, 0
-  br i1 %.not60, label %135, label %128
+JsonbIteratorInit.exit:                           ; preds = %108, %118
+  %.sink.i.i = phi i32 [ 2, %118 ], [ 0, %108 ]
+  %126 = getelementptr inbounds nuw i8, ptr %99, i64 44
+  store i32 %.sink.i.i, ptr %126, align 4
+  store ptr %99, ptr %4, align 8
+  %127 = load ptr, ptr %97, align 8
+  %128 = load i32, ptr %127, align 4
+  %129 = and i32 %128, 268435456
+  %.not60 = icmp eq i32 %129, 0
+  br i1 %.not60, label %137, label %130
 
-128:                                              ; preds = %JsonbIteratorInit.exit
-  %129 = load ptr, ptr %0, align 8
-  %.not61 = icmp eq ptr %129, null
-  br i1 %.not61, label %135, label %130
+130:                                              ; preds = %JsonbIteratorInit.exit
+  %131 = load ptr, ptr %0, align 8
+  %.not61 = icmp eq ptr %131, null
+  br i1 %.not61, label %137, label %132
 
-130:                                              ; preds = %128
-  %131 = call i32 @JsonbIteratorNext(ptr noundef nonnull %4, ptr noundef nonnull %5, i1 noundef zeroext true)
-  %132 = call i32 @JsonbIteratorNext(ptr noundef nonnull %4, ptr noundef nonnull %5, i1 noundef zeroext true)
-  %133 = call fastcc ptr @pushJsonbValueScalar(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %5)
+132:                                              ; preds = %130
+  %133 = call i32 @JsonbIteratorNext(ptr noundef nonnull %4, ptr noundef nonnull %5, i1 noundef zeroext true)
   %134 = call i32 @JsonbIteratorNext(ptr noundef nonnull %4, ptr noundef nonnull %5, i1 noundef zeroext true)
+  %135 = call fastcc ptr @pushJsonbValueScalar(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %5)
+  %136 = call i32 @JsonbIteratorNext(ptr noundef nonnull %4, ptr noundef nonnull %5, i1 noundef zeroext true)
   br label %pushJsonbValueScalar.exit
 
-135:                                              ; preds = %128, %JsonbIteratorInit.exit
-  %136 = call i32 @JsonbIteratorNext(ptr noundef nonnull %4, ptr noundef nonnull %5, i1 noundef zeroext false)
-  %.not6273 = icmp eq i32 %136, 0
+137:                                              ; preds = %130, %JsonbIteratorInit.exit
+  %138 = call i32 @JsonbIteratorNext(ptr noundef nonnull %4, ptr noundef nonnull %5, i1 noundef zeroext false)
+  %.not6273 = icmp eq i32 %138, 0
   br i1 %.not6273, label %pushJsonbValueScalar.exit, label %.lr.ph75
 
-.lr.ph75:                                         ; preds = %135
-  %137 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  br label %138
+.lr.ph75:                                         ; preds = %137
+  %139 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  br label %140
 
-138:                                              ; preds = %.lr.ph75, %138
-  %139 = phi i32 [ %136, %.lr.ph75 ], [ %147, %138 ]
-  %140 = icmp samesign ult i32 %139, 4
-  %141 = icmp eq i32 %139, 4
-  %142 = load i8, ptr %137, align 8, !range !7
-  %143 = trunc nuw i8 %142 to i1
-  %or.cond9 = select i1 %141, i1 %143, i1 false
-  %144 = select i1 %140, i1 true, i1 %or.cond9
-  %145 = select i1 %144, ptr %5, ptr null
-  %146 = call fastcc ptr @pushJsonbValueScalar(ptr noundef %0, i32 noundef %139, ptr noundef %145)
-  %147 = call i32 @JsonbIteratorNext(ptr noundef nonnull %4, ptr noundef nonnull %5, i1 noundef zeroext false)
-  %.not62 = icmp eq i32 %147, 0
-  br i1 %.not62, label %pushJsonbValueScalar.exit, label %138, !llvm.loop !8
+140:                                              ; preds = %.lr.ph75, %140
+  %141 = phi i32 [ %138, %.lr.ph75 ], [ %149, %140 ]
+  %142 = icmp samesign ult i32 %141, 4
+  %143 = icmp eq i32 %141, 4
+  %144 = load i8, ptr %139, align 8, !range !7
+  %145 = trunc nuw i8 %144 to i1
+  %or.cond9 = select i1 %143, i1 %145, i1 false
+  %146 = select i1 %142, i1 true, i1 %or.cond9
+  %147 = select i1 %146, ptr %5, ptr null
+  %148 = call fastcc ptr @pushJsonbValueScalar(ptr noundef %0, i32 noundef %141, ptr noundef %147)
+  %149 = call i32 @JsonbIteratorNext(ptr noundef nonnull %4, ptr noundef nonnull %5, i1 noundef zeroext false)
+  %.not62 = icmp eq i32 %149, 0
+  br i1 %.not62, label %pushJsonbValueScalar.exit, label %140, !llvm.loop !8
 
-pushJsonbValueScalar.exit:                        ; preds = %138, %135, %77, %76, %._crit_edge, %130, %92, %._crit_edge72
-  %.055 = phi ptr [ %40, %._crit_edge72 ], [ %93, %92 ], [ %133, %130 ], [ %71, %._crit_edge ], [ %71, %76 ], [ %71, %77 ], [ null, %135 ], [ %146, %138 ]
+pushJsonbValueScalar.exit:                        ; preds = %140, %137, %78, %77, %._crit_edge, %132, %94, %._crit_edge72
+  %.055 = phi ptr [ %41, %._crit_edge72 ], [ %95, %94 ], [ %135, %132 ], [ %72, %._crit_edge ], [ %72, %77 ], [ %72, %78 ], [ null, %137 ], [ %148, %140 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.055
@@ -1774,14 +1777,14 @@ getJsonbOffset.exit:                              ; preds = %16, %19
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @pushJsonbValueScalar(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2) unnamed_addr #1 {
   %4 = alloca i8, align 1
-  switch i32 %1, label %191 [
+  switch i32 %1, label %194 [
     i32 4, label %5
     i32 6, label %33
     i32 1, label %50
-    i32 2, label %78
-    i32 3, label %87
-    i32 7, label %89
-    i32 5, label %173
+    i32 2, label %79
+    i32 3, label %89
+    i32 7, label %91
+    i32 5, label %175
   ]
 
 5:                                                ; preds = %3
@@ -1833,7 +1836,7 @@ define internal fastcc ptr @pushJsonbValueScalar(ptr noundef captures(none) %0, 
   %31 = load ptr, ptr %0, align 8
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
   store ptr %30, ptr %32, align 8
-  br label %194
+  br label %197
 
 33:                                               ; preds = %3
   %34 = tail call ptr @palloc(i64 noundef 56) #13
@@ -1860,7 +1863,7 @@ define internal fastcc ptr @pushJsonbValueScalar(ptr noundef captures(none) %0, 
   %48 = load ptr, ptr %0, align 8
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 16
   store ptr %47, ptr %49, align 8
-  br label %194
+  br label %197
 
 50:                                               ; preds = %3
   %51 = load ptr, ptr %0, align 8
@@ -1910,281 +1913,284 @@ appendKey.exit:                                   ; preds = %._crit_edge.i, %63
   %74 = load i32, ptr %52, align 8
   %75 = load ptr, ptr %71, align 8
   %76 = sext i32 %74 to i64
-  %77 = getelementptr inbounds %struct.JsonbPair, ptr %75, i64 %76, i32 2
-  store i32 %74, ptr %77, align 8
-  br label %194
+  %77 = getelementptr inbounds %struct.JsonbPair, ptr %75, i64 %76
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 64
+  store i32 %74, ptr %78, align 8
+  br label %197
 
-78:                                               ; preds = %3
-  %79 = load ptr, ptr %0, align 8
-  %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
-  %81 = getelementptr inbounds nuw i8, ptr %79, i64 16
-  %82 = load ptr, ptr %81, align 8
-  %83 = load i32, ptr %80, align 8
-  %84 = add i32 %83, 1
-  store i32 %84, ptr %80, align 8
-  %85 = sext i32 %83 to i64
-  %86 = getelementptr inbounds %struct.JsonbPair, ptr %82, i64 %85, i32 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %86, ptr noundef nonnull readonly align 8 dereferenceable(32) %2, i64 32, i1 false)
-  br label %194
-
-87:                                               ; preds = %3
-  %88 = load ptr, ptr %0, align 8
-  tail call fastcc void @appendElement(ptr noundef %88, ptr noundef %2)
-  br label %194
+79:                                               ; preds = %3
+  %80 = load ptr, ptr %0, align 8
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 8
+  %82 = getelementptr inbounds nuw i8, ptr %80, i64 16
+  %83 = load ptr, ptr %82, align 8
+  %84 = load i32, ptr %81, align 8
+  %85 = add i32 %84, 1
+  store i32 %85, ptr %81, align 8
+  %86 = sext i32 %84 to i64
+  %87 = getelementptr inbounds %struct.JsonbPair, ptr %83, i64 %86
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 32
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %88, ptr noundef nonnull readonly align 8 dereferenceable(32) %2, i64 32, i1 false)
+  br label %197
 
 89:                                               ; preds = %3
   %90 = load ptr, ptr %0, align 8
-  %91 = getelementptr inbounds nuw i8, ptr %90, i64 48
-  %92 = load i8, ptr %91, align 8, !range !7, !noundef !10
-  %93 = getelementptr inbounds nuw i8, ptr %90, i64 49
-  %94 = load i8, ptr %93, align 1, !range !7, !noundef !10
-  %95 = trunc nuw i8 %94 to i1
+  tail call fastcc void @appendElement(ptr noundef %90, ptr noundef %2)
+  br label %197
+
+91:                                               ; preds = %3
+  %92 = load ptr, ptr %0, align 8
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 48
+  %94 = load i8, ptr %93, align 8, !range !7, !noundef !10
+  %95 = getelementptr inbounds nuw i8, ptr %92, i64 49
+  %96 = load i8, ptr %95, align 1, !range !7, !noundef !10
+  %97 = trunc nuw i8 %96 to i1
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 0, ptr %4, align 1
-  %96 = getelementptr inbounds nuw i8, ptr %90, i64 8
-  %97 = load i32, ptr %96, align 8
-  %98 = icmp sgt i32 %97, 1
-  br i1 %98, label %99, label %.thread.i
+  %98 = getelementptr inbounds nuw i8, ptr %92, i64 8
+  %99 = load i32, ptr %98, align 8
+  %100 = icmp sgt i32 %99, 1
+  br i1 %100, label %101, label %.thread.i
 
-99:                                               ; preds = %89
-  %100 = getelementptr inbounds nuw i8, ptr %90, i64 16
-  %101 = load ptr, ptr %100, align 8
-  %102 = zext nneg i32 %97 to i64
-  call void @qsort_arg(ptr noundef %101, i64 noundef %102, i64 noundef 72, ptr noundef nonnull @lengthCompareJsonbPair, ptr noundef nonnull %4) #13
+101:                                              ; preds = %91
+  %102 = getelementptr inbounds nuw i8, ptr %92, i64 16
+  %103 = load ptr, ptr %102, align 8
+  %104 = zext nneg i32 %99 to i64
+  call void @qsort_arg(ptr noundef %103, i64 noundef %104, i64 noundef 72, ptr noundef nonnull @lengthCompareJsonbPair, ptr noundef nonnull %4) #13
   %.pre.i48 = load i8, ptr %4, align 1, !range !7
-  %103 = trunc nuw i8 %.pre.i48 to i1
-  %104 = and i8 %.pre.i48, %92
-  %or.cond.i.not = icmp eq i8 %104, 0
-  br i1 %or.cond.i.not, label %.thread.i, label %105
+  %105 = trunc nuw i8 %.pre.i48 to i1
+  %106 = and i8 %.pre.i48, %94
+  %or.cond.i.not = icmp eq i8 %106, 0
+  br i1 %or.cond.i.not, label %.thread.i, label %107
 
-105:                                              ; preds = %99
-  %106 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  call void @llvm.assume(i1 %106)
-  %107 = call i32 @errcode(i32 noundef 786562) #13
-  %108 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.12) #13
+107:                                              ; preds = %101
+  %108 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  call void @llvm.assume(i1 %108)
+  %109 = call i32 @errcode(i32 noundef 786562) #13
+  %110 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.12) #13
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1963, ptr noundef nonnull @__func__.uniqueifyJsonbObject) #13
   unreachable
 
-.thread.i:                                        ; preds = %99, %89
-  %109 = phi i1 [ %103, %99 ], [ false, %89 ]
-  %or.cond3.i = or i1 %109, %95
+.thread.i:                                        ; preds = %101, %91
+  %111 = phi i1 [ %105, %101 ], [ false, %91 ]
+  %or.cond3.i = or i1 %111, %97
   br i1 %or.cond3.i, label %.preheader.i, label %uniqueifyJsonbObject.exit
 
 .preheader.i:                                     ; preds = %.thread.i
-  %.pr.pre.i = load i32, ptr %96, align 8
-  br i1 %95, label %.lr.ph.i, label %.critedge.i
+  %.pr.pre.i = load i32, ptr %98, align 8
+  br i1 %97, label %.lr.ph.i, label %.critedge.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
-  %110 = getelementptr inbounds nuw i8, ptr %90, i64 16
-  %111 = icmp sgt i32 %.pr.pre.i, 0
-  br i1 %111, label %.lr.ph42.i, label %uniqueifyJsonbObject.exit
+  %112 = getelementptr inbounds nuw i8, ptr %92, i64 16
+  %113 = icmp sgt i32 %.pr.pre.i, 0
+  br i1 %113, label %.lr.ph42.i, label %uniqueifyJsonbObject.exit
 
 .lr.ph42.i:                                       ; preds = %.lr.ph.i
-  %.promoted43.i = load ptr, ptr %110, align 8
-  br label %112
+  %.promoted43.i = load ptr, ptr %112, align 8
+  br label %114
 
-112:                                              ; preds = %118, %.lr.ph42.i
-  %113 = phi ptr [ %.promoted43.i, %.lr.ph42.i ], [ %119, %118 ]
-  %114 = phi i32 [ %.pr.pre.i, %.lr.ph42.i ], [ %120, %118 ]
-  %115 = getelementptr inbounds nuw i8, ptr %113, i64 32
-  %116 = load i32, ptr %115, align 8
-  %117 = icmp eq i32 %116, 0
-  br i1 %117, label %118, label %.critedge.thread62.i
+114:                                              ; preds = %120, %.lr.ph42.i
+  %115 = phi ptr [ %.promoted43.i, %.lr.ph42.i ], [ %121, %120 ]
+  %116 = phi i32 [ %.pr.pre.i, %.lr.ph42.i ], [ %122, %120 ]
+  %117 = getelementptr inbounds nuw i8, ptr %115, i64 32
+  %118 = load i32, ptr %117, align 8
+  %119 = icmp eq i32 %118, 0
+  br i1 %119, label %120, label %.critedge.thread62.i
 
-118:                                              ; preds = %112
-  %119 = getelementptr inbounds nuw i8, ptr %113, i64 72
-  store ptr %119, ptr %110, align 8
-  %120 = add nsw i32 %114, -1
-  store i32 %120, ptr %96, align 8
-  %121 = icmp sgt i32 %114, 1
-  br i1 %121, label %112, label %uniqueifyJsonbObject.exit
+120:                                              ; preds = %114
+  %121 = getelementptr inbounds nuw i8, ptr %115, i64 72
+  store ptr %121, ptr %112, align 8
+  %122 = add nsw i32 %116, -1
+  store i32 %122, ptr %98, align 8
+  %123 = icmp sgt i32 %116, 1
+  br i1 %123, label %114, label %uniqueifyJsonbObject.exit
 
 .critedge.i:                                      ; preds = %.preheader.i
-  %122 = icmp sgt i32 %.pr.pre.i, 0
-  br i1 %122, label %.thread63.i, label %uniqueifyJsonbObject.exit
+  %124 = icmp sgt i32 %.pr.pre.i, 0
+  br i1 %124, label %.thread63.i, label %uniqueifyJsonbObject.exit
 
-.critedge.thread62.i:                             ; preds = %112
-  %123 = ptrtoint ptr %113 to i64
-  %.not60.i = icmp eq i32 %114, 1
+.critedge.thread62.i:                             ; preds = %114
+  %125 = ptrtoint ptr %115 to i64
+  %.not60.i = icmp eq i32 %116, 1
   br i1 %.not60.i, label %._crit_edge.i46, label %.lr.ph48.i
 
 .thread63.i:                                      ; preds = %.critedge.i
-  %124 = getelementptr inbounds nuw i8, ptr %90, i64 16
-  %125 = load ptr, ptr %124, align 8
-  %126 = ptrtoint ptr %125 to i64
+  %126 = getelementptr inbounds nuw i8, ptr %92, i64 16
+  %127 = load ptr, ptr %126, align 8
+  %128 = ptrtoint ptr %127 to i64
   %.not6064.i = icmp eq i32 %.pr.pre.i, 1
   br i1 %.not6064.i, label %._crit_edge.i46, label %.lr.ph48.thread.i
 
 .lr.ph48.thread.i:                                ; preds = %.thread63.i
-  %.0314465.i = getelementptr inbounds nuw i8, ptr %125, i64 72
+  %.0314465.i = getelementptr inbounds nuw i8, ptr %127, i64 72
   br label %.lr.ph48.split.i
 
 .lr.ph48.i:                                       ; preds = %.critedge.thread62.i
-  %.03144.i = getelementptr inbounds nuw i8, ptr %113, i64 72
+  %.03144.i = getelementptr inbounds nuw i8, ptr %115, i64 72
   br label %.lr.ph48.split.us.i
 
-.lr.ph48.split.us.i:                              ; preds = %140, %.lr.ph48.i
-  %127 = phi i32 [ %141, %140 ], [ %114, %.lr.ph48.i ]
-  %128 = phi ptr [ %142, %140 ], [ %113, %.lr.ph48.i ]
-  %.03147.us.i = phi ptr [ %.031.us.i, %140 ], [ %.03144.i, %.lr.ph48.i ]
-  %.046.us.i = phi ptr [ %.1.us.i, %140 ], [ %113, %.lr.ph48.i ]
-  %.pn45.us.i = phi ptr [ %.03147.us.i, %140 ], [ %113, %.lr.ph48.i ]
-  %129 = getelementptr i8, ptr %.pn45.us.i, i64 80
-  %.031.val.us.i = load i32, ptr %129, align 8
-  %130 = getelementptr i8, ptr %.046.us.i, i64 8
-  %.0.val.us.i = load i32, ptr %130, align 8
-  %131 = icmp eq i32 %.031.val.us.i, %.0.val.us.i
-  br i1 %131, label %lengthCompareJsonbStringValue.exit.us.i, label %lengthCompareJsonbStringValue.exit.thread.us.i
+.lr.ph48.split.us.i:                              ; preds = %142, %.lr.ph48.i
+  %129 = phi i32 [ %143, %142 ], [ %116, %.lr.ph48.i ]
+  %130 = phi ptr [ %144, %142 ], [ %115, %.lr.ph48.i ]
+  %.03147.us.i = phi ptr [ %.031.us.i, %142 ], [ %.03144.i, %.lr.ph48.i ]
+  %.046.us.i = phi ptr [ %.1.us.i, %142 ], [ %115, %.lr.ph48.i ]
+  %.pn45.us.i = phi ptr [ %.03147.us.i, %142 ], [ %115, %.lr.ph48.i ]
+  %131 = getelementptr i8, ptr %.pn45.us.i, i64 80
+  %.031.val.us.i = load i32, ptr %131, align 8
+  %132 = getelementptr i8, ptr %.046.us.i, i64 8
+  %.0.val.us.i = load i32, ptr %132, align 8
+  %133 = icmp eq i32 %.031.val.us.i, %.0.val.us.i
+  br i1 %133, label %lengthCompareJsonbStringValue.exit.us.i, label %lengthCompareJsonbStringValue.exit.thread.us.i
 
 lengthCompareJsonbStringValue.exit.us.i:          ; preds = %.lr.ph48.split.us.i
-  %132 = getelementptr i8, ptr %.046.us.i, i64 16
-  %.0.val38.us.i = load ptr, ptr %132, align 8
-  %133 = getelementptr i8, ptr %.pn45.us.i, i64 88
-  %.031.val37.us.i = load ptr, ptr %133, align 8
-  %134 = sext i32 %.031.val.us.i to i64
-  %bcmp.us.i = call i32 @bcmp(ptr %.031.val37.us.i, ptr %.0.val38.us.i, i64 %134)
+  %134 = getelementptr i8, ptr %.046.us.i, i64 16
+  %.0.val38.us.i = load ptr, ptr %134, align 8
+  %135 = getelementptr i8, ptr %.pn45.us.i, i64 88
+  %.031.val37.us.i = load ptr, ptr %135, align 8
+  %136 = sext i32 %.031.val.us.i to i64
+  %bcmp.us.i = call i32 @bcmp(ptr %.031.val37.us.i, ptr %.0.val38.us.i, i64 %136)
   %.not.us.i = icmp eq i32 %bcmp.us.i, 0
-  br i1 %.not.us.i, label %140, label %lengthCompareJsonbStringValue.exit.thread.us.i
+  br i1 %.not.us.i, label %142, label %lengthCompareJsonbStringValue.exit.thread.us.i
 
 lengthCompareJsonbStringValue.exit.thread.us.i:   ; preds = %lengthCompareJsonbStringValue.exit.us.i, %.lr.ph48.split.us.i
-  %135 = getelementptr inbounds nuw i8, ptr %.pn45.us.i, i64 104
-  %136 = load i32, ptr %135, align 8
-  %.not35.us.i = icmp eq i32 %136, 0
-  br i1 %.not35.us.i, label %140, label %137
+  %137 = getelementptr inbounds nuw i8, ptr %.pn45.us.i, i64 104
+  %138 = load i32, ptr %137, align 8
+  %.not35.us.i = icmp eq i32 %138, 0
+  br i1 %.not35.us.i, label %142, label %139
 
-137:                                              ; preds = %lengthCompareJsonbStringValue.exit.thread.us.i
-  %138 = getelementptr inbounds nuw i8, ptr %.046.us.i, i64 72
+139:                                              ; preds = %lengthCompareJsonbStringValue.exit.thread.us.i
+  %140 = getelementptr inbounds nuw i8, ptr %.046.us.i, i64 72
   %.not36.us.i = icmp eq ptr %.pn45.us.i, %.046.us.i
-  br i1 %.not36.us.i, label %140, label %139
+  br i1 %.not36.us.i, label %142, label %141
 
-139:                                              ; preds = %137
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %138, ptr noundef nonnull align 8 dereferenceable(72) %.03147.us.i, i64 72, i1 false)
-  %.pre57.i = load ptr, ptr %110, align 8
-  %.pre58.i = load i32, ptr %96, align 8
-  br label %140
+141:                                              ; preds = %139
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %140, ptr noundef nonnull align 8 dereferenceable(72) %.03147.us.i, i64 72, i1 false)
+  %.pre57.i = load ptr, ptr %112, align 8
+  %.pre58.i = load i32, ptr %98, align 8
+  br label %142
 
-140:                                              ; preds = %139, %137, %lengthCompareJsonbStringValue.exit.thread.us.i, %lengthCompareJsonbStringValue.exit.us.i
-  %141 = phi i32 [ %.pre58.i, %139 ], [ %127, %137 ], [ %127, %lengthCompareJsonbStringValue.exit.thread.us.i ], [ %127, %lengthCompareJsonbStringValue.exit.us.i ]
-  %142 = phi ptr [ %.pre57.i, %139 ], [ %128, %137 ], [ %128, %lengthCompareJsonbStringValue.exit.thread.us.i ], [ %128, %lengthCompareJsonbStringValue.exit.us.i ]
-  %.1.us.i = phi ptr [ %138, %139 ], [ %138, %137 ], [ %.046.us.i, %lengthCompareJsonbStringValue.exit.thread.us.i ], [ %.046.us.i, %lengthCompareJsonbStringValue.exit.us.i ]
+142:                                              ; preds = %141, %139, %lengthCompareJsonbStringValue.exit.thread.us.i, %lengthCompareJsonbStringValue.exit.us.i
+  %143 = phi i32 [ %.pre58.i, %141 ], [ %129, %139 ], [ %129, %lengthCompareJsonbStringValue.exit.thread.us.i ], [ %129, %lengthCompareJsonbStringValue.exit.us.i ]
+  %144 = phi ptr [ %.pre57.i, %141 ], [ %130, %139 ], [ %130, %lengthCompareJsonbStringValue.exit.thread.us.i ], [ %130, %lengthCompareJsonbStringValue.exit.us.i ]
+  %.1.us.i = phi ptr [ %140, %141 ], [ %140, %139 ], [ %.046.us.i, %lengthCompareJsonbStringValue.exit.thread.us.i ], [ %.046.us.i, %lengthCompareJsonbStringValue.exit.us.i ]
   %.031.us.i = getelementptr inbounds nuw i8, ptr %.03147.us.i, i64 72
-  %143 = ptrtoint ptr %.031.us.i to i64
-  %144 = ptrtoint ptr %142 to i64
-  %145 = sub i64 %143, %144
-  %146 = sdiv exact i64 %145, 72
-  %147 = sext i32 %141 to i64
-  %148 = icmp slt i64 %146, %147
-  br i1 %148, label %.lr.ph48.split.us.i, label %._crit_edge.i46, !llvm.loop !16
+  %145 = ptrtoint ptr %.031.us.i to i64
+  %146 = ptrtoint ptr %144 to i64
+  %147 = sub i64 %145, %146
+  %148 = sdiv exact i64 %147, 72
+  %149 = sext i32 %143 to i64
+  %150 = icmp slt i64 %148, %149
+  br i1 %150, label %.lr.ph48.split.us.i, label %._crit_edge.i46, !llvm.loop !16
 
-.lr.ph48.split.i:                                 ; preds = %159, %.lr.ph48.thread.i
-  %149 = phi i32 [ %160, %159 ], [ %.pr.pre.i, %.lr.ph48.thread.i ]
-  %150 = phi ptr [ %161, %159 ], [ %125, %.lr.ph48.thread.i ]
-  %.03147.i = phi ptr [ %.031.i, %159 ], [ %.0314465.i, %.lr.ph48.thread.i ]
-  %.046.i = phi ptr [ %.1.i, %159 ], [ %125, %.lr.ph48.thread.i ]
-  %.pn45.i = phi ptr [ %.03147.i, %159 ], [ %125, %.lr.ph48.thread.i ]
-  %151 = getelementptr i8, ptr %.pn45.i, i64 80
-  %.031.val.i = load i32, ptr %151, align 8
-  %152 = getelementptr i8, ptr %.046.i, i64 8
-  %.0.val.i = load i32, ptr %152, align 8
-  %153 = icmp eq i32 %.031.val.i, %.0.val.i
-  br i1 %153, label %lengthCompareJsonbStringValue.exit.i, label %lengthCompareJsonbStringValue.exit.thread.i
+.lr.ph48.split.i:                                 ; preds = %161, %.lr.ph48.thread.i
+  %151 = phi i32 [ %162, %161 ], [ %.pr.pre.i, %.lr.ph48.thread.i ]
+  %152 = phi ptr [ %163, %161 ], [ %127, %.lr.ph48.thread.i ]
+  %.03147.i = phi ptr [ %.031.i, %161 ], [ %.0314465.i, %.lr.ph48.thread.i ]
+  %.046.i = phi ptr [ %.1.i, %161 ], [ %127, %.lr.ph48.thread.i ]
+  %.pn45.i = phi ptr [ %.03147.i, %161 ], [ %127, %.lr.ph48.thread.i ]
+  %153 = getelementptr i8, ptr %.pn45.i, i64 80
+  %.031.val.i = load i32, ptr %153, align 8
+  %154 = getelementptr i8, ptr %.046.i, i64 8
+  %.0.val.i = load i32, ptr %154, align 8
+  %155 = icmp eq i32 %.031.val.i, %.0.val.i
+  br i1 %155, label %lengthCompareJsonbStringValue.exit.i, label %lengthCompareJsonbStringValue.exit.thread.i
 
 lengthCompareJsonbStringValue.exit.i:             ; preds = %.lr.ph48.split.i
-  %154 = getelementptr i8, ptr %.046.i, i64 16
-  %.0.val38.i = load ptr, ptr %154, align 8
-  %155 = getelementptr i8, ptr %.pn45.i, i64 88
-  %.031.val37.i = load ptr, ptr %155, align 8
-  %156 = sext i32 %.031.val.i to i64
-  %bcmp.i = call i32 @bcmp(ptr %.031.val37.i, ptr %.0.val38.i, i64 %156)
+  %156 = getelementptr i8, ptr %.046.i, i64 16
+  %.0.val38.i = load ptr, ptr %156, align 8
+  %157 = getelementptr i8, ptr %.pn45.i, i64 88
+  %.031.val37.i = load ptr, ptr %157, align 8
+  %158 = sext i32 %.031.val.i to i64
+  %bcmp.i = call i32 @bcmp(ptr %.031.val37.i, ptr %.0.val38.i, i64 %158)
   %.not.i47 = icmp eq i32 %bcmp.i, 0
-  br i1 %.not.i47, label %159, label %lengthCompareJsonbStringValue.exit.thread.i
+  br i1 %.not.i47, label %161, label %lengthCompareJsonbStringValue.exit.thread.i
 
 lengthCompareJsonbStringValue.exit.thread.i:      ; preds = %lengthCompareJsonbStringValue.exit.i, %.lr.ph48.split.i
-  %157 = getelementptr inbounds nuw i8, ptr %.046.i, i64 72
+  %159 = getelementptr inbounds nuw i8, ptr %.046.i, i64 72
   %.not36.i = icmp eq ptr %.pn45.i, %.046.i
-  br i1 %.not36.i, label %159, label %158
+  br i1 %.not36.i, label %161, label %160
 
-158:                                              ; preds = %lengthCompareJsonbStringValue.exit.thread.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %157, ptr noundef nonnull align 8 dereferenceable(72) %.03147.i, i64 72, i1 false)
-  %.pre55.i = load ptr, ptr %124, align 8
-  %.pre56.i = load i32, ptr %96, align 8
-  br label %159
+160:                                              ; preds = %lengthCompareJsonbStringValue.exit.thread.i
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %159, ptr noundef nonnull align 8 dereferenceable(72) %.03147.i, i64 72, i1 false)
+  %.pre55.i = load ptr, ptr %126, align 8
+  %.pre56.i = load i32, ptr %98, align 8
+  br label %161
 
-159:                                              ; preds = %158, %lengthCompareJsonbStringValue.exit.thread.i, %lengthCompareJsonbStringValue.exit.i
-  %160 = phi i32 [ %.pre56.i, %158 ], [ %149, %lengthCompareJsonbStringValue.exit.thread.i ], [ %149, %lengthCompareJsonbStringValue.exit.i ]
-  %161 = phi ptr [ %.pre55.i, %158 ], [ %150, %lengthCompareJsonbStringValue.exit.thread.i ], [ %150, %lengthCompareJsonbStringValue.exit.i ]
-  %.1.i = phi ptr [ %157, %158 ], [ %157, %lengthCompareJsonbStringValue.exit.thread.i ], [ %.046.i, %lengthCompareJsonbStringValue.exit.i ]
+161:                                              ; preds = %160, %lengthCompareJsonbStringValue.exit.thread.i, %lengthCompareJsonbStringValue.exit.i
+  %162 = phi i32 [ %.pre56.i, %160 ], [ %151, %lengthCompareJsonbStringValue.exit.thread.i ], [ %151, %lengthCompareJsonbStringValue.exit.i ]
+  %163 = phi ptr [ %.pre55.i, %160 ], [ %152, %lengthCompareJsonbStringValue.exit.thread.i ], [ %152, %lengthCompareJsonbStringValue.exit.i ]
+  %.1.i = phi ptr [ %159, %160 ], [ %159, %lengthCompareJsonbStringValue.exit.thread.i ], [ %.046.i, %lengthCompareJsonbStringValue.exit.i ]
   %.031.i = getelementptr inbounds nuw i8, ptr %.03147.i, i64 72
-  %162 = ptrtoint ptr %.031.i to i64
-  %163 = ptrtoint ptr %161 to i64
-  %164 = sub i64 %162, %163
-  %165 = sdiv exact i64 %164, 72
-  %166 = sext i32 %160 to i64
-  %167 = icmp slt i64 %165, %166
-  br i1 %167, label %.lr.ph48.split.i, label %._crit_edge.i46, !llvm.loop !16
+  %164 = ptrtoint ptr %.031.i to i64
+  %165 = ptrtoint ptr %163 to i64
+  %166 = sub i64 %164, %165
+  %167 = sdiv exact i64 %166, 72
+  %168 = sext i32 %162 to i64
+  %169 = icmp slt i64 %167, %168
+  br i1 %169, label %.lr.ph48.split.i, label %._crit_edge.i46, !llvm.loop !16
 
-._crit_edge.i46:                                  ; preds = %159, %140, %.thread63.i, %.critedge.thread62.i
-  %.0.lcssa.i = phi ptr [ %113, %.critedge.thread62.i ], [ %125, %.thread63.i ], [ %.1.us.i, %140 ], [ %.1.i, %159 ]
-  %.lcssa.i = phi i64 [ %123, %.critedge.thread62.i ], [ %126, %.thread63.i ], [ %144, %140 ], [ %163, %159 ]
-  %168 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i, i64 72
-  %169 = ptrtoint ptr %168 to i64
-  %170 = sub i64 %169, %.lcssa.i
-  %171 = sdiv exact i64 %170, 72
-  %172 = trunc i64 %171 to i32
-  store i32 %172, ptr %96, align 8
+._crit_edge.i46:                                  ; preds = %161, %142, %.thread63.i, %.critedge.thread62.i
+  %.0.lcssa.i = phi ptr [ %115, %.critedge.thread62.i ], [ %127, %.thread63.i ], [ %.1.us.i, %142 ], [ %.1.i, %161 ]
+  %.lcssa.i = phi i64 [ %125, %.critedge.thread62.i ], [ %128, %.thread63.i ], [ %146, %142 ], [ %165, %161 ]
+  %170 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i, i64 72
+  %171 = ptrtoint ptr %170 to i64
+  %172 = sub i64 %171, %.lcssa.i
+  %173 = sdiv exact i64 %172, 72
+  %174 = trunc i64 %173 to i32
+  store i32 %174, ptr %98, align 8
   br label %uniqueifyJsonbObject.exit
 
-uniqueifyJsonbObject.exit:                        ; preds = %118, %.thread.i, %.lr.ph.i, %.critedge.i, %._crit_edge.i46
+uniqueifyJsonbObject.exit:                        ; preds = %120, %.thread.i, %.lr.ph.i, %.critedge.i, %._crit_edge.i46
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %173
+  br label %175
 
-173:                                              ; preds = %uniqueifyJsonbObject.exit, %3
-  %174 = load ptr, ptr %0, align 8
-  %175 = getelementptr inbounds nuw i8, ptr %174, i64 40
-  %176 = load ptr, ptr %175, align 8
-  store ptr %176, ptr %0, align 8
-  %.not = icmp eq ptr %176, null
-  br i1 %.not, label %194, label %177
+175:                                              ; preds = %uniqueifyJsonbObject.exit, %3
+  %176 = load ptr, ptr %0, align 8
+  %177 = getelementptr inbounds nuw i8, ptr %176, i64 40
+  %178 = load ptr, ptr %177, align 8
+  store ptr %178, ptr %0, align 8
+  %.not = icmp eq ptr %178, null
+  br i1 %.not, label %197, label %179
 
-177:                                              ; preds = %173
-  %178 = load i32, ptr %176, align 8
-  switch i32 %178, label %188 [
-    i32 16, label %179
-    i32 17, label %180
+179:                                              ; preds = %175
+  %180 = load i32, ptr %178, align 8
+  switch i32 %180, label %191 [
+    i32 16, label %181
+    i32 17, label %182
   ]
 
-179:                                              ; preds = %177
-  call fastcc void @appendElement(ptr noundef nonnull %176, ptr noundef nonnull %174)
-  br label %194
+181:                                              ; preds = %179
+  call fastcc void @appendElement(ptr noundef nonnull %178, ptr noundef nonnull %176)
+  br label %197
 
-180:                                              ; preds = %177
-  %181 = getelementptr inbounds nuw i8, ptr %176, i64 8
-  %182 = getelementptr inbounds nuw i8, ptr %176, i64 16
-  %183 = load ptr, ptr %182, align 8
-  %184 = load i32, ptr %181, align 8
-  %185 = add i32 %184, 1
-  store i32 %185, ptr %181, align 8
-  %186 = sext i32 %184 to i64
-  %187 = getelementptr inbounds %struct.JsonbPair, ptr %183, i64 %186, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %187, ptr noundef nonnull readonly align 8 dereferenceable(32) %174, i64 32, i1 false)
-  br label %194
+182:                                              ; preds = %179
+  %183 = getelementptr inbounds nuw i8, ptr %178, i64 8
+  %184 = getelementptr inbounds nuw i8, ptr %178, i64 16
+  %185 = load ptr, ptr %184, align 8
+  %186 = load i32, ptr %183, align 8
+  %187 = add i32 %186, 1
+  store i32 %187, ptr %183, align 8
+  %188 = sext i32 %186 to i64
+  %189 = getelementptr inbounds %struct.JsonbPair, ptr %185, i64 %188
+  %190 = getelementptr inbounds nuw i8, ptr %189, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %190, ptr noundef nonnull readonly align 8 dereferenceable(32) %176, i64 32, i1 false)
+  br label %197
 
-188:                                              ; preds = %177
-  %189 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  call void @llvm.assume(i1 %189)
-  %190 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.6) #13
+191:                                              ; preds = %179
+  %192 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  call void @llvm.assume(i1 %192)
+  %193 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.6) #13
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 723, ptr noundef nonnull @__func__.pushJsonbValueScalar) #13
   unreachable
 
-191:                                              ; preds = %3
-  %192 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  tail call void @llvm.assume(i1 %192)
-  %193 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9) #13
+194:                                              ; preds = %3
+  %195 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  tail call void @llvm.assume(i1 %195)
+  %196 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9) #13
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 728, ptr noundef nonnull @__func__.pushJsonbValueScalar) #13
   unreachable
 
-194:                                              ; preds = %173, %180, %179, %87, %78, %appendKey.exit, %33, %23
-  %.0 = phi ptr [ %6, %23 ], [ %34, %33 ], [ null, %appendKey.exit ], [ null, %78 ], [ null, %87 ], [ %174, %179 ], [ %174, %180 ], [ %174, %173 ]
+197:                                              ; preds = %175, %182, %181, %89, %79, %appendKey.exit, %33, %23
+  %.0 = phi ptr [ %6, %23 ], [ %34, %33 ], [ null, %appendKey.exit ], [ null, %79 ], [ null, %89 ], [ %176, %181 ], [ %176, %182 ], [ %176, %175 ]
   ret ptr %.0
 }
 
@@ -2206,7 +2212,7 @@ define dso_local noundef zeroext i1 @JsonbDeepContains(ptr noundef captures(none
   br i1 %.not78, label %12, label %.critedge
 
 12:                                               ; preds = %2
-  switch i32 %10, label %206 [
+  switch i32 %10, label %207 [
     i32 6, label %13
     i32 4, label %99
   ]
@@ -2407,9 +2413,9 @@ JsonbIteratorInit.exit87:                         ; preds = %76, %86
   %110 = getelementptr inbounds nuw i8, ptr %4, i64 16
   br label %111
 
-111:                                              ; preds = %.lr.ph112, %203
-  %.059111 = phi i32 [ %101, %.lr.ph112 ], [ %.160, %203 ]
-  %.064110 = phi ptr [ null, %.lr.ph112 ], [ %.165, %203 ]
+111:                                              ; preds = %.lr.ph112, %204
+  %.059111 = phi i32 [ %101, %.lr.ph112 ], [ %.160, %204 ]
+  %.064110 = phi ptr [ null, %.lr.ph112 ], [ %.165, %204 ]
   %112 = load i32, ptr %4, align 8
   switch i32 %112, label %117 [
     i32 32, label %113
@@ -2424,7 +2430,7 @@ JsonbIteratorInit.exit87:                         ; preds = %76, %86
   %115 = load ptr, ptr %114, align 8
   %116 = call ptr @findJsonbValueFromContainer(ptr noundef %115, i32 noundef 1073741824, ptr noundef nonnull %4)
   %.not82 = icmp eq ptr %116, null
-  br i1 %.not82, label %.critedge, label %203
+  br i1 %.not82, label %.critedge, label %204
 
 117:                                              ; preds = %111
   %118 = icmp eq ptr %.064110, null
@@ -2474,164 +2480,165 @@ JsonbIteratorInit.exit87:                         ; preds = %76, %86
   %wide.trip.count = zext i32 %.261147 to i64
   br label %135
 
-135:                                              ; preds = %.lr.ph105, %200
-  %indvars.iv = phi i64 [ 0, %.lr.ph105 ], [ %indvars.iv.next, %200 ]
+135:                                              ; preds = %.lr.ph105, %201
+  %indvars.iv = phi i64 [ 0, %.lr.ph105 ], [ %indvars.iv.next, %201 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %136 = getelementptr inbounds nuw %struct.JsonbValue, ptr %.266145, i64 %indvars.iv, i32 1, i32 0, i32 1
-  %137 = load ptr, ptr %136, align 8
-  %138 = tail call ptr @palloc0(i64 noundef 56) #13
-  store ptr %137, ptr %138, align 8
-  %139 = getelementptr inbounds nuw i8, ptr %138, i64 48
-  store ptr null, ptr %139, align 8
-  %140 = load i32, ptr %137, align 4
-  %141 = and i32 %140, 268435455
-  %142 = getelementptr inbounds nuw i8, ptr %138, i64 8
-  store i32 %141, ptr %142, align 8
-  %143 = getelementptr inbounds nuw i8, ptr %137, i64 4
-  %144 = getelementptr inbounds nuw i8, ptr %138, i64 16
-  store ptr %143, ptr %144, align 8
-  %145 = load i32, ptr %137, align 4
-  %146 = and i32 %145, 1610612736
-  switch i32 %146, label %162 [
-    i32 1073741824, label %147
-    i32 536870912, label %157
+  %136 = getelementptr inbounds nuw %struct.JsonbValue, ptr %.266145, i64 %indvars.iv
+  %137 = getelementptr inbounds nuw i8, ptr %136, i64 16
+  %138 = load ptr, ptr %137, align 8
+  %139 = tail call ptr @palloc0(i64 noundef 56) #13
+  store ptr %138, ptr %139, align 8
+  %140 = getelementptr inbounds nuw i8, ptr %139, i64 48
+  store ptr null, ptr %140, align 8
+  %141 = load i32, ptr %138, align 4
+  %142 = and i32 %141, 268435455
+  %143 = getelementptr inbounds nuw i8, ptr %139, i64 8
+  store i32 %142, ptr %143, align 8
+  %144 = getelementptr inbounds nuw i8, ptr %138, i64 4
+  %145 = getelementptr inbounds nuw i8, ptr %139, i64 16
+  store ptr %144, ptr %145, align 8
+  %146 = load i32, ptr %138, align 4
+  %147 = and i32 %146, 1610612736
+  switch i32 %147, label %163 [
+    i32 1073741824, label %148
+    i32 536870912, label %158
   ]
 
-147:                                              ; preds = %135
-  %148 = shl nuw nsw i32 %141, 2
-  %149 = zext nneg i32 %148 to i64
-  %150 = getelementptr inbounds nuw i8, ptr %143, i64 %149
-  %151 = getelementptr inbounds nuw i8, ptr %138, i64 24
-  store ptr %150, ptr %151, align 8
-  %152 = load i32, ptr %137, align 4
-  %153 = getelementptr inbounds nuw i8, ptr %138, i64 12
-  %154 = lshr i32 %152, 28
-  %155 = trunc nuw nsw i32 %154 to i8
-  %156 = and i8 %155, 1
-  store i8 %156, ptr %153, align 4
+148:                                              ; preds = %135
+  %149 = shl nuw nsw i32 %142, 2
+  %150 = zext nneg i32 %149 to i64
+  %151 = getelementptr inbounds nuw i8, ptr %144, i64 %150
+  %152 = getelementptr inbounds nuw i8, ptr %139, i64 24
+  store ptr %151, ptr %152, align 8
+  %153 = load i32, ptr %138, align 4
+  %154 = getelementptr inbounds nuw i8, ptr %139, i64 12
+  %155 = lshr i32 %153, 28
+  %156 = trunc nuw nsw i32 %155 to i8
+  %157 = and i8 %156, 1
+  store i8 %157, ptr %154, align 4
   br label %JsonbIteratorInit.exit89
 
-157:                                              ; preds = %135
-  %158 = shl nuw nsw i32 %141, 3
-  %159 = zext nneg i32 %158 to i64
-  %160 = getelementptr inbounds nuw i8, ptr %143, i64 %159
-  %161 = getelementptr inbounds nuw i8, ptr %138, i64 24
-  store ptr %160, ptr %161, align 8
+158:                                              ; preds = %135
+  %159 = shl nuw nsw i32 %142, 3
+  %160 = zext nneg i32 %159 to i64
+  %161 = getelementptr inbounds nuw i8, ptr %144, i64 %160
+  %162 = getelementptr inbounds nuw i8, ptr %139, i64 24
+  store ptr %161, ptr %162, align 8
   br label %JsonbIteratorInit.exit89
 
-162:                                              ; preds = %135
-  %163 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  tail call void @llvm.assume(i1 %163)
-  %164 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.13) #13
+163:                                              ; preds = %135
+  %164 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  tail call void @llvm.assume(i1 %164)
+  %165 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.13) #13
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1037, ptr noundef nonnull @__func__.iteratorFromContainer) #13
   unreachable
 
-JsonbIteratorInit.exit89:                         ; preds = %147, %157
-  %.sink.i.i88 = phi i32 [ 2, %157 ], [ 0, %147 ]
-  %165 = getelementptr inbounds nuw i8, ptr %138, i64 44
-  store i32 %.sink.i.i88, ptr %165, align 4
-  store ptr %138, ptr %8, align 8
-  %166 = tail call ptr @palloc0(i64 noundef 56) #13
-  store ptr %133, ptr %166, align 8
-  %167 = getelementptr inbounds nuw i8, ptr %166, i64 48
-  store ptr null, ptr %167, align 8
-  %168 = load i32, ptr %133, align 4
-  %169 = and i32 %168, 268435455
-  %170 = getelementptr inbounds nuw i8, ptr %166, i64 8
-  store i32 %169, ptr %170, align 8
-  %171 = getelementptr inbounds nuw i8, ptr %166, i64 16
-  store ptr %134, ptr %171, align 8
-  %172 = load i32, ptr %133, align 4
-  %173 = and i32 %172, 1610612736
-  switch i32 %173, label %189 [
-    i32 1073741824, label %174
-    i32 536870912, label %184
+JsonbIteratorInit.exit89:                         ; preds = %148, %158
+  %.sink.i.i88 = phi i32 [ 2, %158 ], [ 0, %148 ]
+  %166 = getelementptr inbounds nuw i8, ptr %139, i64 44
+  store i32 %.sink.i.i88, ptr %166, align 4
+  store ptr %139, ptr %8, align 8
+  %167 = tail call ptr @palloc0(i64 noundef 56) #13
+  store ptr %133, ptr %167, align 8
+  %168 = getelementptr inbounds nuw i8, ptr %167, i64 48
+  store ptr null, ptr %168, align 8
+  %169 = load i32, ptr %133, align 4
+  %170 = and i32 %169, 268435455
+  %171 = getelementptr inbounds nuw i8, ptr %167, i64 8
+  store i32 %170, ptr %171, align 8
+  %172 = getelementptr inbounds nuw i8, ptr %167, i64 16
+  store ptr %134, ptr %172, align 8
+  %173 = load i32, ptr %133, align 4
+  %174 = and i32 %173, 1610612736
+  switch i32 %174, label %190 [
+    i32 1073741824, label %175
+    i32 536870912, label %185
   ]
 
-174:                                              ; preds = %JsonbIteratorInit.exit89
-  %175 = shl nuw nsw i32 %169, 2
-  %176 = zext nneg i32 %175 to i64
-  %177 = getelementptr inbounds nuw i8, ptr %134, i64 %176
-  %178 = getelementptr inbounds nuw i8, ptr %166, i64 24
-  store ptr %177, ptr %178, align 8
-  %179 = load i32, ptr %133, align 4
-  %180 = getelementptr inbounds nuw i8, ptr %166, i64 12
-  %181 = lshr i32 %179, 28
-  %182 = trunc nuw nsw i32 %181 to i8
-  %183 = and i8 %182, 1
-  store i8 %183, ptr %180, align 4
+175:                                              ; preds = %JsonbIteratorInit.exit89
+  %176 = shl nuw nsw i32 %170, 2
+  %177 = zext nneg i32 %176 to i64
+  %178 = getelementptr inbounds nuw i8, ptr %134, i64 %177
+  %179 = getelementptr inbounds nuw i8, ptr %167, i64 24
+  store ptr %178, ptr %179, align 8
+  %180 = load i32, ptr %133, align 4
+  %181 = getelementptr inbounds nuw i8, ptr %167, i64 12
+  %182 = lshr i32 %180, 28
+  %183 = trunc nuw nsw i32 %182 to i8
+  %184 = and i8 %183, 1
+  store i8 %184, ptr %181, align 4
   br label %JsonbIteratorInit.exit91
 
-184:                                              ; preds = %JsonbIteratorInit.exit89
-  %185 = shl nuw nsw i32 %169, 3
-  %186 = zext nneg i32 %185 to i64
-  %187 = getelementptr inbounds nuw i8, ptr %134, i64 %186
-  %188 = getelementptr inbounds nuw i8, ptr %166, i64 24
-  store ptr %187, ptr %188, align 8
+185:                                              ; preds = %JsonbIteratorInit.exit89
+  %186 = shl nuw nsw i32 %170, 3
+  %187 = zext nneg i32 %186 to i64
+  %188 = getelementptr inbounds nuw i8, ptr %134, i64 %187
+  %189 = getelementptr inbounds nuw i8, ptr %167, i64 24
+  store ptr %188, ptr %189, align 8
   br label %JsonbIteratorInit.exit91
 
-189:                                              ; preds = %JsonbIteratorInit.exit89
-  %190 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  tail call void @llvm.assume(i1 %190)
-  %191 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.13) #13
+190:                                              ; preds = %JsonbIteratorInit.exit89
+  %191 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  tail call void @llvm.assume(i1 %191)
+  %192 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.13) #13
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1037, ptr noundef nonnull @__func__.iteratorFromContainer) #13
   unreachable
 
-JsonbIteratorInit.exit91:                         ; preds = %174, %184
-  %.sink.i.i90 = phi i32 [ 2, %184 ], [ 0, %174 ]
-  %192 = getelementptr inbounds nuw i8, ptr %166, i64 44
-  store i32 %.sink.i.i90, ptr %192, align 4
-  store ptr %166, ptr %9, align 8
-  %193 = call zeroext i1 @JsonbDeepContains(ptr noundef nonnull %8, ptr noundef nonnull %9)
-  %194 = load ptr, ptr %8, align 8
-  %.not80 = icmp eq ptr %194, null
-  br i1 %.not80, label %196, label %195
+JsonbIteratorInit.exit91:                         ; preds = %175, %185
+  %.sink.i.i90 = phi i32 [ 2, %185 ], [ 0, %175 ]
+  %193 = getelementptr inbounds nuw i8, ptr %167, i64 44
+  store i32 %.sink.i.i90, ptr %193, align 4
+  store ptr %167, ptr %9, align 8
+  %194 = call zeroext i1 @JsonbDeepContains(ptr noundef nonnull %8, ptr noundef nonnull %9)
+  %195 = load ptr, ptr %8, align 8
+  %.not80 = icmp eq ptr %195, null
+  br i1 %.not80, label %197, label %196
 
-195:                                              ; preds = %JsonbIteratorInit.exit91
-  tail call void @pfree(ptr noundef nonnull %194) #13
-  br label %196
+196:                                              ; preds = %JsonbIteratorInit.exit91
+  tail call void @pfree(ptr noundef nonnull %195) #13
+  br label %197
 
-196:                                              ; preds = %195, %JsonbIteratorInit.exit91
-  %197 = load ptr, ptr %9, align 8
-  %.not81 = icmp eq ptr %197, null
-  br i1 %.not81, label %199, label %198
+197:                                              ; preds = %196, %JsonbIteratorInit.exit91
+  %198 = load ptr, ptr %9, align 8
+  %.not81 = icmp eq ptr %198, null
+  br i1 %.not81, label %200, label %199
 
-198:                                              ; preds = %196
-  tail call void @pfree(ptr noundef nonnull %197) #13
-  br label %199
+199:                                              ; preds = %197
+  tail call void @pfree(ptr noundef nonnull %198) #13
+  br label %200
 
-199:                                              ; preds = %198, %196
+200:                                              ; preds = %199, %197
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br i1 %193, label %._crit_edge106, label %200
+  br i1 %194, label %._crit_edge106, label %201
 
-200:                                              ; preds = %199
+201:                                              ; preds = %200
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond132.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond132.not, label %.critedge, label %135, !llvm.loop !18
 
-._crit_edge106:                                   ; preds = %199
-  %201 = trunc nuw i64 %indvars.iv to i32
-  %202 = icmp eq i32 %.261147, %201
-  br i1 %202, label %.critedge, label %203
+._crit_edge106:                                   ; preds = %200
+  %202 = trunc nuw i64 %indvars.iv to i32
+  %203 = icmp eq i32 %.261147, %202
+  br i1 %203, label %.critedge, label %204
 
-203:                                              ; preds = %._crit_edge106, %113
+204:                                              ; preds = %._crit_edge106, %113
   %.165 = phi ptr [ %.064110, %113 ], [ %.266145, %._crit_edge106 ]
   %.160 = phi i32 [ %.059111, %113 ], [ %.261147, %._crit_edge106 ]
-  %204 = call i32 @JsonbIteratorNext(ptr noundef %1, ptr noundef nonnull %4, i1 noundef zeroext true)
-  %205 = icmp eq i32 %204, 5
-  br i1 %205, label %.critedge, label %111
+  %205 = call i32 @JsonbIteratorNext(ptr noundef %1, ptr noundef nonnull %4, i1 noundef zeroext true)
+  %206 = icmp eq i32 %205, 5
+  br i1 %206, label %.critedge, label %111
 
-206:                                              ; preds = %12
-  %207 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  tail call void @llvm.assume(i1 %207)
-  %208 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.6) #13
+207:                                              ; preds = %12
+  %208 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  tail call void @llvm.assume(i1 %208)
+  %209 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.6) #13
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1308, ptr noundef nonnull @__func__.JsonbDeepContains) #13
   unreachable
 
-.critedge:                                        ; preds = %132, %119, %._crit_edge, %113, %203, %._crit_edge106, %200, %.preheader96, %.thread, %99, %13, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %13 ], [ false, %99 ], [ %.lcssa, %.thread ], [ true, %.preheader96 ], [ false, %200 ], [ false, %132 ], [ false, %119 ], [ false, %._crit_edge ], [ false, %113 ], [ true, %203 ], [ false, %._crit_edge106 ]
+.critedge:                                        ; preds = %132, %119, %._crit_edge, %113, %204, %._crit_edge106, %201, %.preheader96, %.thread, %99, %13, %2
+  %.0 = phi i1 [ false, %2 ], [ false, %13 ], [ false, %99 ], [ %.lcssa, %.thread ], [ true, %.preheader96 ], [ false, %201 ], [ false, %132 ], [ false, %119 ], [ false, %._crit_edge ], [ false, %113 ], [ true, %204 ], [ false, %._crit_edge106 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
@@ -2888,7 +2895,7 @@ define internal fastcc void @convertJsonbValue(ptr noundef nonnull %0, ptr nound
   %7 = alloca i32, align 4
   tail call void @check_stack_depth() #13
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %173, label %8
+  br i1 %.not, label %174, label %8
 
 8:                                                ; preds = %4
   %9 = load i32, ptr %2, align 8
@@ -2896,7 +2903,7 @@ define internal fastcc void @convertJsonbValue(ptr noundef nonnull %0, ptr nound
   br i1 %10, label %12, label %11
 
 11:                                               ; preds = %8
-  switch i32 %9, label %170 [
+  switch i32 %9, label %171 [
     i32 32, label %12
     i32 16, label %13
     i32 17, label %80
@@ -2904,7 +2911,7 @@ define internal fastcc void @convertJsonbValue(ptr noundef nonnull %0, ptr nound
 
 12:                                               ; preds = %11, %8
   tail call fastcc void @convertJsonbScalar(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2)
-  br label %173
+  br label %174
 
 13:                                               ; preds = %11
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -3033,7 +3040,7 @@ padBufferToInt.exit:                              ; preds = %.lr.ph.i, %13
 convertJsonbArray.exit:                           ; preds = %._crit_edge43
   %79 = or i32 %73, 1342177280
   store i32 %79, ptr %1, align 4
-  br label %173
+  br label %174
 
 80:                                               ; preds = %11
   %81 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -3146,74 +3153,75 @@ padBufferToInt.exit27:                            ; preds = %.lr.ph.i23, %80
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.lr.ph38, label %118, !llvm.loop !21
 
-139:                                              ; preds = %.lr.ph38, %150
-  %indvars.iv47 = phi i64 [ 0, %.lr.ph38 ], [ %indvars.iv.next48, %150 ]
-  %.1.i37 = phi i32 [ %138, %.lr.ph38 ], [ %161, %150 ]
-  %.146.i35 = phi i32 [ %123, %.lr.ph38 ], [ %144, %150 ]
+139:                                              ; preds = %.lr.ph38, %151
+  %indvars.iv47 = phi i64 [ 0, %.lr.ph38 ], [ %indvars.iv.next48, %151 ]
+  %.1.i37 = phi i32 [ %138, %.lr.ph38 ], [ %162, %151 ]
+  %.146.i35 = phi i32 [ %123, %.lr.ph38 ], [ %145, %151 ]
   %140 = load ptr, ptr %115, align 8
+  %141 = getelementptr inbounds nuw %struct.JsonbPair, ptr %140, i64 %indvars.iv47
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %141 = getelementptr inbounds nuw %struct.JsonbPair, ptr %140, i64 %indvars.iv47, i32 1
-  call fastcc void @convertJsonbValue(ptr noundef nonnull %0, ptr noundef %6, ptr noundef nonnull %141, i32 noundef %116)
-  %142 = load i32, ptr %6, align 4
-  %143 = and i32 %142, 268435455
-  %144 = add nuw nsw i32 %143, %.146.i35
-  %145 = icmp samesign ugt i32 %144, 268435455
-  br i1 %145, label %146, label %150
+  %142 = getelementptr inbounds nuw i8, ptr %141, i64 32
+  call fastcc void @convertJsonbValue(ptr noundef nonnull %0, ptr noundef %6, ptr noundef nonnull %142, i32 noundef %116)
+  %143 = load i32, ptr %6, align 4
+  %144 = and i32 %143, 268435455
+  %145 = add nuw nsw i32 %144, %.146.i35
+  %146 = icmp samesign ugt i32 %145, 268435455
+  br i1 %146, label %147, label %151
 
-146:                                              ; preds = %139
-  %147 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  tail call void @llvm.assume(i1 %147)
-  %148 = tail call i32 @errcode(i32 noundef 261) #13
-  %149 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.17, i32 noundef 268435455) #13
+147:                                              ; preds = %139
+  %148 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  tail call void @llvm.assume(i1 %148)
+  %149 = tail call i32 @errcode(i32 noundef 261) #13
+  %150 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.17, i32 noundef 268435455) #13
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1795, ptr noundef nonnull @__func__.convertJsonbObject) #13
   unreachable
 
-150:                                              ; preds = %139
-  %151 = trunc i64 %indvars.iv47 to i32
-  %152 = add i32 %82, %151
-  %153 = and i32 %152, 31
-  %154 = icmp eq i32 %153, 0
-  %155 = and i32 %142, 1879048192
-  %156 = or disjoint i32 %155, %144
-  %157 = or disjoint i32 %156, -2147483648
-  %158 = select i1 %154, i32 %157, i32 %142
+151:                                              ; preds = %139
+  %152 = trunc i64 %indvars.iv47 to i32
+  %153 = add i32 %82, %152
+  %154 = and i32 %153, 31
+  %155 = icmp eq i32 %154, 0
+  %156 = and i32 %143, 1879048192
+  %157 = or disjoint i32 %156, %145
+  %158 = or disjoint i32 %157, -2147483648
+  %159 = select i1 %155, i32 %158, i32 %143
   %.val51.i = load ptr, ptr %0, align 8
-  %159 = sext i32 %.1.i37 to i64
-  %160 = getelementptr inbounds i8, ptr %.val51.i, i64 %159
-  store i32 %158, ptr %160, align 1
-  %161 = add i32 %.1.i37, 4
+  %160 = sext i32 %.1.i37 to i64
+  %161 = getelementptr inbounds i8, ptr %.val51.i, i64 %160
+  store i32 %159, ptr %161, align 1
+  %162 = add i32 %.1.i37, 4
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
   %exitcond51.not = icmp eq i64 %indvars.iv.next48, %117
   br i1 %exitcond51.not, label %._crit_edge, label %139, !llvm.loop !22
 
-._crit_edge:                                      ; preds = %150, %padBufferToInt.exit27
-  %162 = load i32, ptr %83, align 8
-  %163 = sub i32 %162, %84
-  %164 = icmp sgt i32 %163, 268435455
-  br i1 %164, label %165, label %convertJsonbObject.exit
+._crit_edge:                                      ; preds = %151, %padBufferToInt.exit27
+  %163 = load i32, ptr %83, align 8
+  %164 = sub i32 %163, %84
+  %165 = icmp sgt i32 %164, 268435455
+  br i1 %165, label %166, label %convertJsonbObject.exit
 
-165:                                              ; preds = %._crit_edge
-  %166 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  tail call void @llvm.assume(i1 %166)
-  %167 = tail call i32 @errcode(i32 noundef 261) #13
-  %168 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.17, i32 noundef 268435455) #13
+166:                                              ; preds = %._crit_edge
+  %167 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  tail call void @llvm.assume(i1 %167)
+  %168 = tail call i32 @errcode(i32 noundef 261) #13
+  %169 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.17, i32 noundef 268435455) #13
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1815, ptr noundef nonnull @__func__.convertJsonbObject) #13
   unreachable
 
 convertJsonbObject.exit:                          ; preds = %._crit_edge
-  %169 = or i32 %163, 1342177280
-  store i32 %169, ptr %1, align 4
-  br label %173
+  %170 = or i32 %164, 1342177280
+  store i32 %170, ptr %1, align 4
+  br label %174
 
-170:                                              ; preds = %11
-  %171 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  tail call void @llvm.assume(i1 %171)
-  %172 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.15) #13
+171:                                              ; preds = %11
+  %172 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  tail call void @llvm.assume(i1 %172)
+  %173 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.15) #13
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1618, ptr noundef nonnull @__func__.convertJsonbValue) #13
   unreachable
 
-173:                                              ; preds = %convertJsonbArray.exit, %convertJsonbObject.exit, %4, %12
+174:                                              ; preds = %convertJsonbArray.exit, %convertJsonbObject.exit, %4, %12
   ret void
 }
 

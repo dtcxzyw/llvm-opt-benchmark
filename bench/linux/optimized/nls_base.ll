@@ -271,7 +271,7 @@ define dso_local i32 @utf8s_to_utf16s(ptr noundef readonly captures(none) %0, i3
   %70 = add nuw nsw i32 %47, 983040
   %71 = getelementptr i8, ptr %12, i64 2
   %72 = lshr i32 %70, 10
-  %73 = trunc nuw i32 %72 to i16
+  %73 = trunc nuw nsw i32 %72 to i16
   %74 = and i16 %73, 1023
   %75 = or disjoint i16 %74, -10240
   %76 = tail call i16 @llvm.bswap.i16(i16 %75)

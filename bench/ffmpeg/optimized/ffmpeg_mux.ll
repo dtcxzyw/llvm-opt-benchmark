@@ -1235,7 +1235,7 @@ define void @of_free(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca [64 x i8], align 1
   %3 = load ptr, ptr %0, align 8, !tbaa !106
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %100, label %4
+  br i1 %.not, label %103, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 176
@@ -1286,10 +1286,10 @@ define void @of_free(ptr noundef %0) local_unnamed_addr #0 {
 
 fc_close.exit:                                    ; preds = %._crit_edge, %26
   call void @av_freep(ptr noundef nonnull %0) #11
-  br label %100
+  br label %103
 
 27:                                               ; preds = %.lr.ph, %ost_free.exit
-  %28 = phi i32 [ %7, %.lr.ph ], [ %97, %ost_free.exit ]
+  %28 = phi i32 [ %7, %.lr.ph ], [ %100, %ost_free.exit ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %ost_free.exit ]
   %29 = load ptr, ptr %9, align 8, !tbaa !47
   %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv
@@ -1355,101 +1355,104 @@ fc_close.exit:                                    ; preds = %._crit_edge, %26
   %59 = getelementptr inbounds nuw i8, ptr %31, i64 288
   %60 = load i32, ptr %59, align 8, !tbaa !152
   %.not.i.i = icmp eq i32 %60, 0
-  br i1 %.not.i.i, label %enc_stats_uninit.exit.i, label %66
+  br i1 %.not.i.i, label %enc_stats_uninit.exit.i, label %67
 
 .lr.ph.i.i:                                       ; preds = %45, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 0, %45 ]
   %61 = load ptr, ptr %55, align 8, !tbaa !153
-  %62 = getelementptr inbounds nuw %struct.EncStatsComponent, ptr %61, i64 %indvars.iv.i.i, i32 1
-  call void @av_freep(ptr noundef nonnull %62) #11
+  %62 = getelementptr inbounds nuw %struct.EncStatsComponent, ptr %61, i64 %indvars.iv.i.i
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  call void @av_freep(ptr noundef nonnull %63) #11
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %63 = load i32, ptr %56, align 8, !tbaa !151
-  %64 = sext i32 %63 to i64
-  %65 = icmp slt i64 %indvars.iv.next.i.i, %64
-  br i1 %65, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !154
+  %64 = load i32, ptr %56, align 8, !tbaa !151
+  %65 = sext i32 %64 to i64
+  %66 = icmp slt i64 %indvars.iv.next.i.i, %65
+  br i1 %66, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !154
 
-66:                                               ; preds = %._crit_edge.i.i
-  %67 = getelementptr inbounds nuw i8, ptr %31, i64 248
-  %68 = call i32 @pthread_mutex_destroy(ptr noundef nonnull %67) #11
+67:                                               ; preds = %._crit_edge.i.i
+  %68 = getelementptr inbounds nuw i8, ptr %31, i64 248
+  %69 = call i32 @pthread_mutex_destroy(ptr noundef nonnull %68) #11
   br label %enc_stats_uninit.exit.i
 
-enc_stats_uninit.exit.i:                          ; preds = %66, %._crit_edge.i.i
+enc_stats_uninit.exit.i:                          ; preds = %67, %._crit_edge.i.i
   store i32 0, ptr %59, align 8, !tbaa !152
-  %69 = getelementptr inbounds nuw i8, ptr %31, i64 296
-  %70 = getelementptr inbounds nuw i8, ptr %31, i64 304
-  %71 = load i32, ptr %70, align 8, !tbaa !151
-  %72 = icmp sgt i32 %71, 0
-  br i1 %72, label %.lr.ph.i26.i, label %._crit_edge.i24.i
+  %70 = getelementptr inbounds nuw i8, ptr %31, i64 296
+  %71 = getelementptr inbounds nuw i8, ptr %31, i64 304
+  %72 = load i32, ptr %71, align 8, !tbaa !151
+  %73 = icmp sgt i32 %72, 0
+  br i1 %73, label %.lr.ph.i26.i, label %._crit_edge.i24.i
 
 ._crit_edge.i24.i:                                ; preds = %.lr.ph.i26.i, %enc_stats_uninit.exit.i
-  call void @av_freep(ptr noundef nonnull %69) #11
-  %73 = getelementptr inbounds nuw i8, ptr %31, i64 360
-  %74 = load i32, ptr %73, align 8, !tbaa !152
-  %.not.i25.i = icmp eq i32 %74, 0
-  br i1 %.not.i25.i, label %enc_stats_uninit.exit29.i, label %80
+  call void @av_freep(ptr noundef nonnull %70) #11
+  %74 = getelementptr inbounds nuw i8, ptr %31, i64 360
+  %75 = load i32, ptr %74, align 8, !tbaa !152
+  %.not.i25.i = icmp eq i32 %75, 0
+  br i1 %.not.i25.i, label %enc_stats_uninit.exit29.i, label %82
 
 .lr.ph.i26.i:                                     ; preds = %enc_stats_uninit.exit.i, %.lr.ph.i26.i
   %indvars.iv.i27.i = phi i64 [ %indvars.iv.next.i28.i, %.lr.ph.i26.i ], [ 0, %enc_stats_uninit.exit.i ]
-  %75 = load ptr, ptr %69, align 8, !tbaa !153
-  %76 = getelementptr inbounds nuw %struct.EncStatsComponent, ptr %75, i64 %indvars.iv.i27.i, i32 1
-  call void @av_freep(ptr noundef nonnull %76) #11
+  %76 = load ptr, ptr %70, align 8, !tbaa !153
+  %77 = getelementptr inbounds nuw %struct.EncStatsComponent, ptr %76, i64 %indvars.iv.i27.i
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 8
+  call void @av_freep(ptr noundef nonnull %78) #11
   %indvars.iv.next.i28.i = add nuw nsw i64 %indvars.iv.i27.i, 1
-  %77 = load i32, ptr %70, align 8, !tbaa !151
-  %78 = sext i32 %77 to i64
-  %79 = icmp slt i64 %indvars.iv.next.i28.i, %78
-  br i1 %79, label %.lr.ph.i26.i, label %._crit_edge.i24.i, !llvm.loop !154
+  %79 = load i32, ptr %71, align 8, !tbaa !151
+  %80 = sext i32 %79 to i64
+  %81 = icmp slt i64 %indvars.iv.next.i28.i, %80
+  br i1 %81, label %.lr.ph.i26.i, label %._crit_edge.i24.i, !llvm.loop !154
 
-80:                                               ; preds = %._crit_edge.i24.i
-  %81 = getelementptr inbounds nuw i8, ptr %31, i64 320
-  %82 = call i32 @pthread_mutex_destroy(ptr noundef nonnull %81) #11
+82:                                               ; preds = %._crit_edge.i24.i
+  %83 = getelementptr inbounds nuw i8, ptr %31, i64 320
+  %84 = call i32 @pthread_mutex_destroy(ptr noundef nonnull %83) #11
   br label %enc_stats_uninit.exit29.i
 
-enc_stats_uninit.exit29.i:                        ; preds = %80, %._crit_edge.i24.i
-  store i32 0, ptr %73, align 8, !tbaa !152
-  %83 = getelementptr inbounds nuw i8, ptr %31, i64 440
-  %84 = getelementptr inbounds nuw i8, ptr %31, i64 448
-  %85 = load i32, ptr %84, align 8, !tbaa !151
-  %86 = icmp sgt i32 %85, 0
-  br i1 %86, label %.lr.ph.i32.i, label %._crit_edge.i30.i
+enc_stats_uninit.exit29.i:                        ; preds = %82, %._crit_edge.i24.i
+  store i32 0, ptr %74, align 8, !tbaa !152
+  %85 = getelementptr inbounds nuw i8, ptr %31, i64 440
+  %86 = getelementptr inbounds nuw i8, ptr %31, i64 448
+  %87 = load i32, ptr %86, align 8, !tbaa !151
+  %88 = icmp sgt i32 %87, 0
+  br i1 %88, label %.lr.ph.i32.i, label %._crit_edge.i30.i
 
 ._crit_edge.i30.i:                                ; preds = %.lr.ph.i32.i, %enc_stats_uninit.exit29.i
-  call void @av_freep(ptr noundef nonnull %83) #11
-  %87 = getelementptr inbounds nuw i8, ptr %31, i64 504
-  %88 = load i32, ptr %87, align 8, !tbaa !152
-  %.not.i31.i = icmp eq i32 %88, 0
-  br i1 %.not.i31.i, label %enc_stats_uninit.exit35.i, label %94
+  call void @av_freep(ptr noundef nonnull %85) #11
+  %89 = getelementptr inbounds nuw i8, ptr %31, i64 504
+  %90 = load i32, ptr %89, align 8, !tbaa !152
+  %.not.i31.i = icmp eq i32 %90, 0
+  br i1 %.not.i31.i, label %enc_stats_uninit.exit35.i, label %97
 
 .lr.ph.i32.i:                                     ; preds = %enc_stats_uninit.exit29.i, %.lr.ph.i32.i
   %indvars.iv.i33.i = phi i64 [ %indvars.iv.next.i34.i, %.lr.ph.i32.i ], [ 0, %enc_stats_uninit.exit29.i ]
-  %89 = load ptr, ptr %83, align 8, !tbaa !153
-  %90 = getelementptr inbounds nuw %struct.EncStatsComponent, ptr %89, i64 %indvars.iv.i33.i, i32 1
-  call void @av_freep(ptr noundef nonnull %90) #11
+  %91 = load ptr, ptr %85, align 8, !tbaa !153
+  %92 = getelementptr inbounds nuw %struct.EncStatsComponent, ptr %91, i64 %indvars.iv.i33.i
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 8
+  call void @av_freep(ptr noundef nonnull %93) #11
   %indvars.iv.next.i34.i = add nuw nsw i64 %indvars.iv.i33.i, 1
-  %91 = load i32, ptr %84, align 8, !tbaa !151
-  %92 = sext i32 %91 to i64
-  %93 = icmp slt i64 %indvars.iv.next.i34.i, %92
-  br i1 %93, label %.lr.ph.i32.i, label %._crit_edge.i30.i, !llvm.loop !154
+  %94 = load i32, ptr %86, align 8, !tbaa !151
+  %95 = sext i32 %94 to i64
+  %96 = icmp slt i64 %indvars.iv.next.i34.i, %95
+  br i1 %96, label %.lr.ph.i32.i, label %._crit_edge.i30.i, !llvm.loop !154
 
-94:                                               ; preds = %._crit_edge.i30.i
-  %95 = getelementptr inbounds nuw i8, ptr %31, i64 464
-  %96 = call i32 @pthread_mutex_destroy(ptr noundef nonnull %95) #11
+97:                                               ; preds = %._crit_edge.i30.i
+  %98 = getelementptr inbounds nuw i8, ptr %31, i64 464
+  %99 = call i32 @pthread_mutex_destroy(ptr noundef nonnull %98) #11
   br label %enc_stats_uninit.exit35.i
 
-enc_stats_uninit.exit35.i:                        ; preds = %94, %._crit_edge.i30.i
-  store i32 0, ptr %87, align 8, !tbaa !152
+enc_stats_uninit.exit35.i:                        ; preds = %97, %._crit_edge.i30.i
+  store i32 0, ptr %89, align 8, !tbaa !152
   call void @av_freep(ptr noundef nonnull %30) #11
   %.pre = load i32, ptr %6, align 8, !tbaa !130
   br label %ost_free.exit
 
 ost_free.exit:                                    ; preds = %27, %enc_stats_uninit.exit35.i
-  %97 = phi i32 [ %28, %27 ], [ %.pre, %enc_stats_uninit.exit35.i ]
+  %100 = phi i32 [ %28, %27 ], [ %.pre, %enc_stats_uninit.exit35.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %98 = sext i32 %97 to i64
-  %99 = icmp slt i64 %indvars.iv.next, %98
-  br i1 %99, label %27, label %._crit_edge, !llvm.loop !155
+  %101 = sext i32 %100 to i64
+  %102 = icmp slt i64 %indvars.iv.next, %101
+  br i1 %102, label %27, label %._crit_edge, !llvm.loop !155
 
-100:                                              ; preds = %1, %fc_close.exit
+103:                                              ; preds = %1, %fc_close.exit
   ret void
 }
 

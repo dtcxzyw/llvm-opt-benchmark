@@ -49,34 +49,34 @@ define internal ptr @i2v_TLS_FEATURE(ptr readnone captures(none) %0, ptr noundef
   br i1 %6, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3, %20
-  %.015 = phi i32 [ %21, %20 ], [ 0, %3 ]
-  %7 = call ptr @OPENSSL_sk_value(ptr noundef %1, i32 noundef %.015) #5
+  %.014 = phi i32 [ %21, %20 ], [ 0, %3 ]
+  %7 = call ptr @OPENSSL_sk_value(ptr noundef %1, i32 noundef %.014) #5
   %8 = call i64 @ASN1_INTEGER_get(ptr noundef %7) #5
-  br label %9
+  br label %10
 
-9:                                                ; preds = %.lr.ph, %14
-  %10 = phi i1 [ true, %.lr.ph ], [ false, %14 ]
-  %.01214 = phi i64 [ 0, %.lr.ph ], [ 1, %14 ]
-  %11 = getelementptr inbounds nuw %struct.TLS_FEATURE_NAME, ptr @tls_feature_tbl, i64 %.01214
-  %12 = load i64, ptr %11, align 16, !tbaa !8
-  %13 = icmp eq i64 %8, %12
-  br i1 %13, label %15, label %14
+9:                                                ; preds = %10
+  br i1 %11, label %10, label %.critedge, !llvm.loop !8
 
-14:                                               ; preds = %9
-  br i1 %10, label %9, label %.critedge, !llvm.loop !12
+10:                                               ; preds = %.lr.ph, %9
+  %11 = phi i1 [ true, %.lr.ph ], [ false, %9 ]
+  %.01213 = phi i64 [ 0, %.lr.ph ], [ 1, %9 ]
+  %12 = getelementptr inbounds nuw %struct.TLS_FEATURE_NAME, ptr @tls_feature_tbl, i64 %.01213
+  %13 = load i64, ptr %12, align 16, !tbaa !10
+  %14 = icmp eq i64 %8, %13
+  br i1 %14, label %15, label %9
 
-15:                                               ; preds = %9
-  %16 = getelementptr inbounds nuw %struct.TLS_FEATURE_NAME, ptr @tls_feature_tbl, i64 %.01214, i32 1
+15:                                               ; preds = %10
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !14
   %18 = call i32 @X509V3_add_value(ptr noundef null, ptr noundef %17, ptr noundef nonnull %4) #5
   br label %20
 
-.critedge:                                        ; preds = %14
+.critedge:                                        ; preds = %9
   %19 = call i32 @X509V3_add_value_int(ptr noundef null, ptr noundef %7, ptr noundef nonnull %4) #5
   br label %20
 
 20:                                               ; preds = %15, %.critedge
-  %21 = add nuw nsw i32 %.015, 1
+  %21 = add nuw nsw i32 %.014, 1
   %22 = call i32 @OPENSSL_sk_num(ptr noundef %1) #5
   %23 = icmp slt i32 %21, %22
   br i1 %23, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !15
@@ -130,26 +130,26 @@ define internal ptr @v2i_TLS_FEATURE(ptr readnone captures(none) %0, ptr readnon
 
 20:                                               ; preds = %.lr.ph, %17
   %.034 = phi ptr [ %19, %17 ], [ %16, %.lr.ph ]
-  br label %21
+  br label %22
 
-21:                                               ; preds = %20, %27
-  %22 = phi i1 [ true, %20 ], [ false, %27 ]
-  %.03046 = phi i64 [ 0, %20 ], [ 1, %27 ]
-  %23 = getelementptr inbounds nuw %struct.TLS_FEATURE_NAME, ptr @tls_feature_tbl, i64 %.03046, i32 1
-  %24 = load ptr, ptr %23, align 8, !tbaa !14
-  %25 = tail call i32 @OPENSSL_strcasecmp(ptr noundef %.034, ptr noundef %24) #5
-  %26 = icmp eq i32 %25, 0
-  br i1 %26, label %28, label %27
+21:                                               ; preds = %22
+  br i1 %23, label %22, label %.critedge, !llvm.loop !20
 
-27:                                               ; preds = %21
-  br i1 %22, label %21, label %.critedge, !llvm.loop !20
+22:                                               ; preds = %20, %21
+  %23 = phi i1 [ true, %20 ], [ false, %21 ]
+  %.03046 = phi i64 [ 0, %20 ], [ 1, %21 ]
+  %24 = getelementptr inbounds nuw %struct.TLS_FEATURE_NAME, ptr @tls_feature_tbl, i64 %.03046
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %26 = load ptr, ptr %25, align 8, !tbaa !14
+  %27 = tail call i32 @OPENSSL_strcasecmp(ptr noundef %.034, ptr noundef %26) #5
+  %28 = icmp eq i32 %27, 0
+  br i1 %28, label %29, label %21
 
-28:                                               ; preds = %21
-  %29 = getelementptr inbounds nuw %struct.TLS_FEATURE_NAME, ptr @tls_feature_tbl, i64 %.03046
-  %30 = load i64, ptr %29, align 16, !tbaa !8
+29:                                               ; preds = %22
+  %30 = load i64, ptr %24, align 16, !tbaa !10
   br label %42
 
-.critedge:                                        ; preds = %27
+.critedge:                                        ; preds = %21
   %31 = call i64 @strtol(ptr noundef %.034, ptr noundef nonnull %4, i32 noundef 10) #5
   %32 = load ptr, ptr %4, align 8, !tbaa !21
   %33 = load i8, ptr %32, align 1, !tbaa !22
@@ -173,8 +173,8 @@ define internal ptr @v2i_TLS_FEATURE(ptr readnone captures(none) %0, ptr readnon
   tail call void (i32, ...) @ERR_add_error_data(i32 noundef 4, ptr noundef nonnull @.str.4, ptr noundef %40, ptr noundef nonnull @.str.5, ptr noundef %41) #5
   br label %51
 
-42:                                               ; preds = %34, %28
-  %.0 = phi i64 [ %30, %28 ], [ %31, %34 ]
+42:                                               ; preds = %34, %29
+  %.0 = phi i64 [ %30, %29 ], [ %31, %34 ]
   %43 = tail call ptr @ASN1_INTEGER_new() #5
   %44 = icmp eq ptr %43, null
   br i1 %44, label %50, label %45
@@ -267,18 +267,18 @@ attributes #5 = { nounwind }
 !5 = !{!"any pointer", !6, i64 0}
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C/C++ TBAA"}
-!8 = !{!9, !10, i64 0}
-!9 = !{!"", !10, i64 0, !11, i64 8}
-!10 = !{!"long", !6, i64 0}
-!11 = !{!"p1 omnipotent char", !5, i64 0}
-!12 = distinct !{!12, !13}
-!13 = !{!"llvm.loop.mustprogress"}
-!14 = !{!9, !11, i64 8}
-!15 = distinct !{!15, !13}
-!16 = distinct !{!16, !13}
-!17 = !{!18, !11, i64 16}
-!18 = !{!"", !11, i64 0, !11, i64 8, !11, i64 16}
-!19 = !{!18, !11, i64 8}
-!20 = distinct !{!20, !13}
-!21 = !{!11, !11, i64 0}
+!8 = distinct !{!8, !9}
+!9 = !{!"llvm.loop.mustprogress"}
+!10 = !{!11, !12, i64 0}
+!11 = !{!"", !12, i64 0, !13, i64 8}
+!12 = !{!"long", !6, i64 0}
+!13 = !{!"p1 omnipotent char", !5, i64 0}
+!14 = !{!11, !13, i64 8}
+!15 = distinct !{!15, !9}
+!16 = distinct !{!16, !9}
+!17 = !{!18, !13, i64 16}
+!18 = !{!"", !13, i64 0, !13, i64 8, !13, i64 16}
+!19 = !{!18, !13, i64 8}
+!20 = distinct !{!20, !9}
+!21 = !{!13, !13, i64 0}
 !22 = !{!6, !6, i64 0}

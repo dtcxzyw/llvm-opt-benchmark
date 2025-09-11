@@ -1358,8 +1358,8 @@ define internal fastcc void @getRowDescriptions(ptr noundef %0, i32 noundef %1) 
   %wide.trip.count = zext nneg i32 %22 to i64
   br label %45
 
-45:                                               ; preds = %.lr.ph139, %93
-  %indvars.iv = phi i64 [ 0, %.lr.ph139 ], [ %indvars.iv.next, %93 ]
+45:                                               ; preds = %.lr.ph139, %98
+  %indvars.iv = phi i64 [ 0, %.lr.ph139 ], [ %indvars.iv.next, %98 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -1368,37 +1368,37 @@ define internal fastcc void @getRowDescriptions(ptr noundef %0, i32 noundef %1) 
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %46 = call i32 @pqGets(ptr noundef nonnull %43, ptr noundef nonnull %0) #16
   %.not101 = icmp eq i32 %46, 0
-  br i1 %.not101, label %47, label %101
+  br i1 %.not101, label %47, label %106
 
 47:                                               ; preds = %45
   %48 = call i32 @pqGetInt(ptr noundef nonnull %3, i64 noundef 4, ptr noundef nonnull %0) #16
   %.not102 = icmp eq i32 %48, 0
-  br i1 %.not102, label %49, label %101
+  br i1 %.not102, label %49, label %106
 
 49:                                               ; preds = %47
   %50 = call i32 @pqGetInt(ptr noundef nonnull %4, i64 noundef 2, ptr noundef nonnull %0) #16
   %.not103 = icmp eq i32 %50, 0
-  br i1 %.not103, label %51, label %101
+  br i1 %.not103, label %51, label %106
 
 51:                                               ; preds = %49
   %52 = call i32 @pqGetInt(ptr noundef nonnull %5, i64 noundef 4, ptr noundef nonnull %0) #16
   %.not104 = icmp eq i32 %52, 0
-  br i1 %.not104, label %53, label %101
+  br i1 %.not104, label %53, label %106
 
 53:                                               ; preds = %51
   %54 = call i32 @pqGetInt(ptr noundef nonnull %6, i64 noundef 2, ptr noundef nonnull %0) #16
   %.not105 = icmp eq i32 %54, 0
-  br i1 %.not105, label %55, label %101
+  br i1 %.not105, label %55, label %106
 
 55:                                               ; preds = %53
   %56 = call i32 @pqGetInt(ptr noundef nonnull %7, i64 noundef 4, ptr noundef nonnull %0) #16
   %.not106 = icmp eq i32 %56, 0
-  br i1 %.not106, label %57, label %101
+  br i1 %.not106, label %57, label %106
 
 57:                                               ; preds = %55
   %58 = call i32 @pqGetInt(ptr noundef nonnull %8, i64 noundef 2, ptr noundef nonnull %0) #16
   %.not107 = icmp eq i32 %58, 0
-  br i1 %.not107, label %59, label %101
+  br i1 %.not107, label %59, label %106
 
 59:                                               ; preds = %57
   %60 = load i32, ptr %4, align 4
@@ -1422,7 +1422,7 @@ define internal fastcc void @getRowDescriptions(ptr noundef %0, i32 noundef %1) 
   %71 = getelementptr inbounds nuw %struct.pgresAttDesc, ptr %70, i64 %indvars.iv
   %72 = load ptr, ptr %71, align 8
   %.not110 = icmp eq ptr %72, null
-  br i1 %.not110, label %101, label %73
+  br i1 %.not110, label %106, label %73
 
 73:                                               ; preds = %59
   %74 = load i32, ptr %3, align 4
@@ -1430,33 +1430,38 @@ define internal fastcc void @getRowDescriptions(ptr noundef %0, i32 noundef %1) 
   store i32 %74, ptr %75, align 8
   %76 = load i32, ptr %4, align 4
   %77 = load ptr, ptr %44, align 8
-  %78 = getelementptr inbounds nuw %struct.pgresAttDesc, ptr %77, i64 %indvars.iv, i32 2
-  store i32 %76, ptr %78, align 4
-  %79 = load i32, ptr %8, align 4
-  %80 = load ptr, ptr %44, align 8
-  %81 = getelementptr inbounds nuw %struct.pgresAttDesc, ptr %80, i64 %indvars.iv, i32 3
-  store i32 %79, ptr %81, align 8
-  %82 = load i32, ptr %5, align 4
-  %83 = load ptr, ptr %44, align 8
-  %84 = getelementptr inbounds nuw %struct.pgresAttDesc, ptr %83, i64 %indvars.iv, i32 4
-  store i32 %82, ptr %84, align 4
-  %85 = load i32, ptr %6, align 4
-  %86 = load ptr, ptr %44, align 8
-  %87 = getelementptr inbounds nuw %struct.pgresAttDesc, ptr %86, i64 %indvars.iv, i32 5
-  store i32 %85, ptr %87, align 8
-  %88 = load i32, ptr %7, align 4
+  %78 = getelementptr inbounds nuw %struct.pgresAttDesc, ptr %77, i64 %indvars.iv
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 12
+  store i32 %76, ptr %79, align 4
+  %80 = load i32, ptr %8, align 4
+  %81 = load ptr, ptr %44, align 8
+  %82 = getelementptr inbounds nuw %struct.pgresAttDesc, ptr %81, i64 %indvars.iv
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 16
+  store i32 %80, ptr %83, align 8
+  %84 = load i32, ptr %5, align 4
+  %85 = load ptr, ptr %44, align 8
+  %86 = getelementptr inbounds nuw %struct.pgresAttDesc, ptr %85, i64 %indvars.iv
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 20
+  store i32 %84, ptr %87, align 4
+  %88 = load i32, ptr %6, align 4
   %89 = load ptr, ptr %44, align 8
-  %90 = getelementptr inbounds nuw %struct.pgresAttDesc, ptr %89, i64 %indvars.iv, i32 6
-  store i32 %88, ptr %90, align 4
-  %91 = load i32, ptr %8, align 4
-  %.not111 = icmp eq i32 %91, 1
-  br i1 %.not111, label %93, label %92
+  %90 = getelementptr inbounds nuw %struct.pgresAttDesc, ptr %89, i64 %indvars.iv
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 24
+  store i32 %88, ptr %91, align 8
+  %92 = load i32, ptr %7, align 4
+  %93 = load ptr, ptr %44, align 8
+  %94 = getelementptr inbounds nuw %struct.pgresAttDesc, ptr %93, i64 %indvars.iv
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 28
+  store i32 %92, ptr %95, align 4
+  %96 = load i32, ptr %8, align 4
+  %.not111 = icmp eq i32 %96, 1
+  br i1 %.not111, label %98, label %97
 
-92:                                               ; preds = %73
+97:                                               ; preds = %73
   store i32 0, ptr %42, align 4
-  br label %93
+  br label %98
 
-93:                                               ; preds = %92, %73
+98:                                               ; preds = %97, %73
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -1467,24 +1472,24 @@ define internal fastcc void @getRowDescriptions(ptr noundef %0, i32 noundef %1) 
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %45, !llvm.loop !8
 
-._crit_edge:                                      ; preds = %93, %.loopexit
-  %94 = getelementptr inbounds nuw i8, ptr %0, i64 1064
-  store ptr %.087117, ptr %94, align 8
-  %95 = load ptr, ptr %9, align 8
-  %.not100 = icmp eq ptr %95, null
-  br i1 %.not100, label %99, label %96
+._crit_edge:                                      ; preds = %98, %.loopexit
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 1064
+  store ptr %.087117, ptr %99, align 8
+  %100 = load ptr, ptr %9, align 8
+  %.not100 = icmp eq ptr %100, null
+  br i1 %.not100, label %104, label %101
 
-96:                                               ; preds = %._crit_edge
-  %97 = load i32, ptr %95, align 8
-  %98 = icmp eq i32 %97, 3
-  br i1 %98, label %99, label %111
+101:                                              ; preds = %._crit_edge
+  %102 = load i32, ptr %100, align 8
+  %103 = icmp eq i32 %102, 3
+  br i1 %103, label %104, label %116
 
-99:                                               ; preds = %96, %._crit_edge
-  %100 = getelementptr inbounds nuw i8, ptr %0, i64 420
-  store i32 2, ptr %100, align 4
-  br label %111
+104:                                              ; preds = %101, %._crit_edge
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 420
+  store i32 2, ptr %105, align 4
+  br label %116
 
-101:                                              ; preds = %57, %55, %53, %51, %49, %47, %45, %59
+106:                                              ; preds = %57, %55, %53, %51, %49, %47, %45, %59
   %.2.ph = phi ptr [ null, %59 ], [ @.str.35, %45 ], [ @.str.35, %47 ], [ @.str.35, %49 ], [ @.str.35, %51 ], [ @.str.35, %53 ], [ @.str.35, %55 ], [ @.str.35, %57 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -1494,34 +1499,34 @@ define internal fastcc void @getRowDescriptions(ptr noundef %0, i32 noundef %1) 
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.thread126
 
-.thread126:                                       ; preds = %101, %24, %.thread
-  %.088131 = phi ptr [ %.2.ph, %101 ], [ null, %24 ], [ @.str.35, %.thread ]
-  %102 = getelementptr inbounds nuw i8, ptr %0, i64 1064
-  %103 = load ptr, ptr %102, align 8
-  %.not112 = icmp eq ptr %.087117, %103
-  br i1 %.not112, label %.thread133, label %104
+.thread126:                                       ; preds = %106, %24, %.thread
+  %.088131 = phi ptr [ %.2.ph, %106 ], [ null, %24 ], [ @.str.35, %.thread ]
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 1064
+  %108 = load ptr, ptr %107, align 8
+  %.not112 = icmp eq ptr %.087117, %108
+  br i1 %.not112, label %.thread133, label %109
 
-104:                                              ; preds = %.thread126
+109:                                              ; preds = %.thread126
   call void @PQclear(ptr noundef nonnull %.087117) #16
   br label %.thread133
 
-.thread133:                                       ; preds = %17, %104, %.thread126
-  %.088132 = phi ptr [ %.088131, %104 ], [ %.088131, %.thread126 ], [ null, %17 ]
+.thread133:                                       ; preds = %17, %109, %.thread126
+  %.088132 = phi ptr [ %.088131, %109 ], [ %.088131, %.thread126 ], [ null, %17 ]
   call void @pqClearAsyncResult(ptr noundef nonnull %0) #16
   %.not113 = icmp eq ptr %.088132, null
   %spec.store.select = select i1 %.not113, ptr @.str.36, ptr %.088132
-  %105 = getelementptr inbounds nuw i8, ptr %0, i64 1120
-  call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %105, ptr noundef nonnull @.str.8, ptr noundef nonnull %spec.store.select) #16
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 1120
+  call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %110, ptr noundef nonnull @.str.8, ptr noundef nonnull %spec.store.select) #16
   call void @pqSaveErrorResult(ptr noundef nonnull %0) #16
-  %106 = getelementptr inbounds nuw i8, ptr %0, i64 1012
-  %107 = load i32, ptr %106, align 4
-  %108 = add i32 %1, 5
-  %109 = add i32 %108, %107
-  %110 = getelementptr inbounds nuw i8, ptr %0, i64 1016
-  store i32 %109, ptr %110, align 8
-  br label %111
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 1012
+  %112 = load i32, ptr %111, align 4
+  %113 = add i32 %1, 5
+  %114 = add i32 %113, %112
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 1016
+  store i32 %114, ptr %115, align 8
+  br label %116
 
-111:                                              ; preds = %96, %.thread133, %99
+116:                                              ; preds = %101, %.thread133, %104
   ret void
 }
 
@@ -1530,13 +1535,13 @@ define internal fastcc range(i32 -1, 1) i32 @getCopyStart(ptr noundef %0, i32 no
   %3 = alloca i32, align 4
   %4 = tail call ptr @PQmakeEmptyPGresult(ptr noundef %0, i32 noundef %1) #16
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %44, label %5
+  br i1 %.not, label %45, label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %7 = tail call i32 @pqGetc(ptr noundef nonnull %6, ptr noundef %0) #16
   %.not50 = icmp eq i32 %7, 0
-  br i1 %.not50, label %8, label %44
+  br i1 %.not50, label %8, label %45
 
 8:                                                ; preds = %5
   %9 = load i8, ptr %6, align 8
@@ -1546,7 +1551,7 @@ define internal fastcc range(i32 -1, 1) i32 @getCopyStart(ptr noundef %0, i32 no
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %13 = tail call i32 @pqGetInt(ptr noundef nonnull %12, i64 noundef 2, ptr noundef nonnull %0) #16
   %.not51 = icmp eq i32 %13, 0
-  br i1 %.not51, label %14, label %44
+  br i1 %.not51, label %14, label %45
 
 14:                                               ; preds = %8
   %15 = load i32, ptr %12, align 4
@@ -1560,7 +1565,7 @@ define internal fastcc range(i32 -1, 1) i32 @getCopyStart(ptr noundef %0, i32 no
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %20, ptr %21, align 8
   %.not52 = icmp eq ptr %20, null
-  br i1 %.not52, label %44, label %22
+  br i1 %.not52, label %45, label %22
 
 22:                                               ; preds = %17
   %23 = ptrtoint ptr %20 to i64
@@ -1599,31 +1604,32 @@ define internal fastcc range(i32 -1, 1) i32 @getCopyStart(ptr noundef %0, i32 no
 
 37:                                               ; preds = %35
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %44
+  br label %45
 
 38:                                               ; preds = %35
   %39 = load i32, ptr %3, align 4
   %sext = shl i32 %39, 16
   %40 = ashr exact i32 %sext, 16
   %41 = load ptr, ptr %34, align 8
-  %42 = getelementptr inbounds nuw %struct.pgresAttDesc, ptr %41, i64 %indvars.iv, i32 3
-  store i32 %40, ptr %42, align 8
+  %42 = getelementptr inbounds nuw %struct.pgresAttDesc, ptr %41, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
+  store i32 %40, ptr %43, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %35, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %38, %14
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 1064
-  store ptr %4, ptr %43, align 8
-  br label %45
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 1064
+  store ptr %4, ptr %44, align 8
+  br label %46
 
-44:                                               ; preds = %37, %17, %8, %5, %2
+45:                                               ; preds = %37, %17, %8, %5, %2
   call void @PQclear(ptr noundef %4) #16
-  br label %45
+  br label %46
 
-45:                                               ; preds = %44, %._crit_edge
-  %.043 = phi i32 [ -1, %44 ], [ 0, %._crit_edge ]
+46:                                               ; preds = %45, %._crit_edge
+  %.043 = phi i32 [ -1, %45 ], [ 0, %._crit_edge ]
   ret i32 %.043
 }
 

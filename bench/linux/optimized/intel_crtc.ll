@@ -178,7 +178,8 @@ define dso_local i32 @intel_crtc_get_vblank_counter(ptr noundef %0) local_unname
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 320
   %10 = load ptr, ptr %9, align 8
   %11 = zext i32 %7 to i64
-  %12 = getelementptr %struct.drm_vblank_crtc, ptr %10, i64 %11, i32 8
+  %.split = getelementptr %struct.drm_vblank_crtc, ptr %10, i64 %11
+  %12 = getelementptr i8, ptr %.split, i64 104
   %13 = load i32, ptr %12, align 8
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %15, label %18
@@ -922,7 +923,8 @@ define dso_local void @intel_pipe_update_start(ptr noundef readonly captures(non
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %8 = load i32, ptr %7, align 8
   %9 = zext i32 %8 to i64
-  %10 = getelementptr %struct.__drm_crtcs_state, ptr %6, i64 %9, i32 3
+  %.split = getelementptr %struct.__drm_crtcs_state, ptr %6, i64 %9
+  %10 = getelementptr i8, ptr %.split, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = tail call ptr @drm_crtc_vblank_waitqueue(ptr noundef %1) #12
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 7184
@@ -934,8 +936,8 @@ define dso_local void @intel_pipe_update_start(ptr noundef readonly captures(non
 17:                                               ; preds = %2
   %18 = getelementptr inbounds nuw i8, ptr %11, i64 872
   %19 = load i32, ptr %18, align 8
-  %.fr14 = freeze i32 %19
-  %20 = and i32 %.fr14, 512
+  %.fr17 = freeze i32 %19
+  %20 = and i32 %.fr17, 512
   %21 = icmp ne i32 %20, 0
   br label %22
 
@@ -1019,9 +1021,10 @@ define dso_local void @intel_pipe_update_start(ptr noundef readonly captures(non
   %67 = load ptr, ptr %5, align 8
   %68 = load i32, ptr %7, align 8
   %69 = zext i32 %68 to i64
-  %70 = getelementptr %struct.__drm_crtcs_state, ptr %67, i64 %69, i32 2
+  %.split10 = getelementptr %struct.__drm_crtcs_state, ptr %67, i64 %69
+  %70 = getelementptr i8, ptr %.split10, i64 16
   %71 = load ptr, ptr %70, align 8
-  %72 = getelementptr %struct.__drm_crtcs_state, ptr %67, i64 %69, i32 3
+  %72 = getelementptr i8, ptr %.split10, i64 24
   %73 = load ptr, ptr %72, align 8
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 10
   %75 = load i8, ptr %74, align 2
@@ -1241,11 +1244,11 @@ define dso_local void @intel_pipe_update_start(ptr noundef readonly captures(non
   %209 = icmp slt i32 %208, %164
   %210 = icmp sgt i32 %208, %142
   %211 = select i1 %209, i1 true, i1 %210
-  br i1 %211, label %.loopexit11, label %.preheader10
+  br i1 %211, label %.loopexit14, label %.preheader13
 
-212:                                              ; preds = %.preheader10
+212:                                              ; preds = %.preheader13
   %213 = icmp eq i64 %225, 0
-  br i1 %213, label %214, label %.preheader10, !llvm.loop !53
+  br i1 %213, label %214, label %.preheader13, !llvm.loop !53
 
 214:                                              ; preds = %212
   %215 = icmp eq ptr %4, null
@@ -1262,9 +1265,9 @@ define dso_local void @intel_pipe_update_start(ptr noundef readonly captures(non
   %222 = load i32, ptr %221, align 8
   %223 = add i32 %222, 65
   call void (ptr, ptr, ...) @_dev_err(ptr noundef %220, ptr noundef nonnull @.str.5, i32 noundef %223) #13
-  br label %.loopexit11
+  br label %.loopexit14
 
-.preheader10:                                     ; preds = %207, %212
+.preheader13:                                     ; preds = %207, %212
   %224 = phi i64 [ %225, %212 ], [ 2, %207 ]
   call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !54
   %225 = call i64 @schedule_timeout(i64 noundef %224) #12
@@ -1274,23 +1277,23 @@ define dso_local void @intel_pipe_update_start(ptr noundef readonly captures(non
   %227 = icmp slt i32 %226, %164
   %228 = icmp sgt i32 %226, %142
   %229 = select i1 %227, i1 true, i1 %228
-  br i1 %229, label %.loopexit11, label %212, !llvm.loop !53
+  br i1 %229, label %.loopexit14, label %212, !llvm.loop !53
 
-.loopexit11:                                      ; preds = %.preheader10, %219, %207
-  %230 = phi i32 [ %226, %219 ], [ %208, %207 ], [ %226, %.preheader10 ]
+.loopexit14:                                      ; preds = %.preheader13, %219, %207
+  %230 = phi i32 [ %226, %219 ], [ %208, %207 ], [ %226, %.preheader13 ]
   call void @finish_wait(ptr noundef %12, ptr noundef nonnull %3) #12
   call void @drm_crtc_vblank_put(ptr noundef %1) #12
   %231 = icmp eq i32 %230, %126
   %232 = select i1 %.fr, i1 %231, i1 false
   br i1 %232, label %.preheader.split, label %.loopexit
 
-.preheader.split:                                 ; preds = %.loopexit11, %.preheader.split
+.preheader.split:                                 ; preds = %.loopexit14, %.preheader.split
   %233 = call i32 @intel_get_crtc_scanline(ptr noundef %1) #12
   %234 = icmp eq i32 %233, %126
   br i1 %234, label %.preheader.split, label %.loopexit, !llvm.loop !55
 
-.loopexit:                                        ; preds = %.preheader.split, %.loopexit11
-  %235 = phi i32 [ %230, %.loopexit11 ], [ %233, %.preheader.split ]
+.loopexit:                                        ; preds = %.preheader.split, %.loopexit14
+  %235 = phi i32 [ %230, %.loopexit14 ], [ %233, %.preheader.split ]
   %236 = getelementptr inbounds nuw i8, ptr %1, i64 2040
   store i32 %235, ptr %236, align 8
   %237 = call i64 @ktime_get() #12
@@ -1307,7 +1310,8 @@ define dso_local void @intel_pipe_update_start(ptr noundef readonly captures(non
   %245 = getelementptr inbounds nuw i8, ptr %244, i64 320
   %246 = load ptr, ptr %245, align 8
   %247 = zext i32 %243 to i64
-  %248 = getelementptr %struct.drm_vblank_crtc, ptr %246, i64 %247, i32 8
+  %.split12 = getelementptr %struct.drm_vblank_crtc, ptr %246, i64 %247
+  %248 = getelementptr i8, ptr %.split12, i64 104
   %249 = load i32, ptr %248, align 8
   %250 = icmp eq i32 %249, 0
   br i1 %250, label %251, label %254
@@ -1419,7 +1423,8 @@ define dso_local void @intel_pipe_update_end(ptr noundef readonly captures(none)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %6 = load i32, ptr %5, align 8
   %7 = zext i32 %6 to i64
-  %8 = getelementptr %struct.__drm_crtcs_state, ptr %4, i64 %7, i32 3
+  %.split = getelementptr %struct.__drm_crtcs_state, ptr %4, i64 %7
+  %8 = getelementptr i8, ptr %.split, i64 24
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 1648
   %11 = load i32, ptr %10, align 8
@@ -1435,7 +1440,8 @@ define dso_local void @intel_pipe_update_end(ptr noundef readonly captures(none)
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 320
   %20 = load ptr, ptr %19, align 8
   %21 = zext i32 %17 to i64
-  %22 = getelementptr %struct.drm_vblank_crtc, ptr %20, i64 %21, i32 8
+  %.split5 = getelementptr %struct.drm_vblank_crtc, ptr %20, i64 %21
+  %22 = getelementptr i8, ptr %.split5, i64 104
   %23 = load i32, ptr %22, align 8
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %25, label %28

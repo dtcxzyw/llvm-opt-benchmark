@@ -255,7 +255,7 @@ define hidden void @packet_cleanup() local_unnamed_addr #0 {
   tail call void @g_slist_free(ptr noundef %11)
   %12 = load ptr, ptr @postdissectors, align 8
   %.not = icmp eq ptr %12, null
-  br i1 %.not, label %28, label %.preheader
+  br i1 %.not, label %29, label %.preheader
 
 .preheader:                                       ; preds = %0
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -263,35 +263,36 @@ define hidden void @packet_cleanup() local_unnamed_addr #0 {
   %.not7 = icmp eq i32 %14, 0
   br i1 %.not7, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %22, %.preheader
-  %.lcssa = phi ptr [ %12, %.preheader ], [ %23, %22 ]
+._crit_edge:                                      ; preds = %23, %.preheader
+  %.lcssa = phi ptr [ %12, %.preheader ], [ %24, %23 ]
   %15 = tail call ptr @g_array_free(ptr noundef %.lcssa, i32 noundef 1)
-  br label %28
+  br label %29
 
-.lr.ph:                                           ; preds = %.preheader, %22
-  %16 = phi ptr [ %23, %22 ], [ %12, %.preheader ]
-  %indvars.iv = phi i64 [ %indvars.iv.next, %22 ], [ 0, %.preheader ]
+.lr.ph:                                           ; preds = %.preheader, %23
+  %16 = phi ptr [ %24, %23 ], [ %12, %.preheader ]
+  %indvars.iv = phi i64 [ %indvars.iv.next, %23 ], [ 0, %.preheader ]
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr %struct.postdissector, ptr %17, i64 %indvars.iv, i32 1
-  %19 = load ptr, ptr %18, align 8
-  %.not5 = icmp eq ptr %19, null
-  br i1 %.not5, label %22, label %20
+  %18 = getelementptr %struct.postdissector, ptr %17, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %20 = load ptr, ptr %19, align 8
+  %.not5 = icmp eq ptr %20, null
+  br i1 %.not5, label %23, label %21
 
-20:                                               ; preds = %.lr.ph
-  %21 = tail call ptr @g_array_free(ptr noundef nonnull %19, i32 noundef 1)
+21:                                               ; preds = %.lr.ph
+  %22 = tail call ptr @g_array_free(ptr noundef nonnull %20, i32 noundef 1)
   %.pre = load ptr, ptr @postdissectors, align 8
-  br label %22
+  br label %23
 
-22:                                               ; preds = %.lr.ph, %20
-  %23 = phi ptr [ %16, %.lr.ph ], [ %.pre, %20 ]
+23:                                               ; preds = %.lr.ph, %21
+  %24 = phi ptr [ %16, %.lr.ph ], [ %.pre, %21 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  %25 = load i32, ptr %24, align 8
-  %26 = zext i32 %25 to i64
-  %27 = icmp samesign ult i64 %indvars.iv.next, %26
-  br i1 %27, label %.lr.ph, label %._crit_edge, !llvm.loop !6
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %26 = load i32, ptr %25, align 8
+  %27 = zext i32 %26 to i64
+  %28 = icmp samesign ult i64 %indvars.iv.next, %27
+  br i1 %28, label %.lr.ph, label %._crit_edge, !llvm.loop !6
 
-28:                                               ; preds = %._crit_edge, %0
+29:                                               ; preds = %._crit_edge, %0
   ret void
 }
 
@@ -6535,8 +6536,9 @@ define void @set_postdissector_wanted_hfids(ptr noundef readnone captures(addres
 
 17:                                               ; preds = %15, %12
   %18 = phi ptr [ %.pre16, %15 ], [ %6, %12 ]
-  %19 = getelementptr %struct.postdissector, ptr %18, i64 %indvars.iv, i32 1
-  store ptr %1, ptr %19, align 8
+  %19 = getelementptr %struct.postdissector, ptr %18, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  store ptr %1, ptr %20, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %7, %.preheader, %17, %2
@@ -6738,21 +6740,21 @@ define void @prime_epan_dissect_with_postdissector_wanted_hfids(ptr noundef %0) 
   %.not11 = icmp eq i32 %5, 0
   br i1 %.not11, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader, %25
-  %6 = phi ptr [ %26, %25 ], [ %2, %.preheader ]
-  %indvars.iv = phi i64 [ %indvars.iv.next, %25 ], [ 0, %.preheader ]
+.lr.ph:                                           ; preds = %.preheader, %23
+  %6 = phi ptr [ %24, %23 ], [ %2, %.preheader ]
+  %indvars.iv = phi i64 [ %indvars.iv.next, %23 ], [ 0, %.preheader ]
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr %struct.postdissector, ptr %7, i64 %indvars.iv
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %10, null
-  br i1 %.not, label %25, label %11
+  br i1 %.not, label %23, label %11
 
 11:                                               ; preds = %.lr.ph
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %13 = load i32, ptr %12, align 8
   %.not9 = icmp eq i32 %13, 0
-  br i1 %.not9, label %25, label %14
+  br i1 %.not9, label %23, label %14
 
 14:                                               ; preds = %11
   %15 = load ptr, ptr %8, align 8
@@ -6763,31 +6765,32 @@ define void @prime_epan_dissect_with_postdissector_wanted_hfids(ptr noundef %0) 
 
 19:                                               ; preds = %14
   %20 = tail call zeroext i1 @proto_is_protocol_enabled(ptr noundef nonnull %17)
-  %.pre15 = load ptr, ptr @postdissectors, align 8
-  br i1 %20, label %._crit_edge, label %25
+  %.pre17 = load ptr, ptr @postdissectors, align 8
+  br i1 %20, label %._crit_edge, label %23
 
 ._crit_edge:                                      ; preds = %19
-  %.pre13 = load ptr, ptr %.pre15, align 8
+  %.pre13 = load ptr, ptr %.pre17, align 8
+  %.phi.trans.insert = getelementptr %struct.postdissector, ptr %.pre13, i64 %indvars.iv
+  %.phi.trans.insert14 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert, i64 8
+  %.pre15 = load ptr, ptr %.phi.trans.insert14, align 8
   br label %21
 
 21:                                               ; preds = %._crit_edge, %14
-  %22 = phi ptr [ %.pre13, %._crit_edge ], [ %7, %14 ]
-  %23 = getelementptr %struct.postdissector, ptr %22, i64 %indvars.iv, i32 1
-  %24 = load ptr, ptr %23, align 8
-  tail call void @epan_dissect_prime_with_hfid_array(ptr noundef %0, ptr noundef %24)
-  %.pre14 = load ptr, ptr @postdissectors, align 8
-  br label %25
+  %22 = phi ptr [ %.pre15, %._crit_edge ], [ %10, %14 ]
+  tail call void @epan_dissect_prime_with_hfid_array(ptr noundef %0, ptr noundef %22)
+  %.pre16 = load ptr, ptr @postdissectors, align 8
+  br label %23
 
-25:                                               ; preds = %.lr.ph, %11, %19, %21
-  %26 = phi ptr [ %6, %.lr.ph ], [ %6, %11 ], [ %.pre15, %19 ], [ %.pre14, %21 ]
+23:                                               ; preds = %.lr.ph, %11, %19, %21
+  %24 = phi ptr [ %6, %.lr.ph ], [ %6, %11 ], [ %.pre17, %19 ], [ %.pre16, %21 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %28 = load i32, ptr %27, align 8
-  %29 = zext i32 %28 to i64
-  %30 = icmp samesign ult i64 %indvars.iv.next, %29
-  br i1 %30, label %.lr.ph, label %.loopexit, !llvm.loop !35
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %26 = load i32, ptr %25, align 8
+  %27 = zext i32 %26 to i64
+  %28 = icmp samesign ult i64 %indvars.iv.next, %27
+  br i1 %28, label %.lr.ph, label %.loopexit, !llvm.loop !35
 
-.loopexit:                                        ; preds = %25, %.preheader, %1
+.loopexit:                                        ; preds = %23, %.preheader, %1
   ret void
 }
 

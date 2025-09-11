@@ -66,90 +66,93 @@ define dso_local void @get_loadable_libraries() local_unnamed_addr #0 {
   %18 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv51
   %19 = load ptr, ptr %18, align 8
   %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @old_cluster, i64 120), align 8
-  %21 = getelementptr inbounds nuw %struct.DbInfo, ptr %20, i64 %indvars.iv51, i32 4
-  %22 = call i32 @PQntuples(ptr noundef %19) #9
-  %23 = icmp sgt i32 %22, 0
-  br i1 %23, label %.lr.ph.preheader, label %._crit_edge
+  %21 = getelementptr inbounds nuw %struct.DbInfo, ptr %20, i64 %indvars.iv51
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 1056
+  %23 = call i32 @PQntuples(ptr noundef %19) #9
+  %24 = icmp sgt i32 %23, 0
+  br i1 %24, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %.lr.ph47
-  %24 = trunc nuw nsw i64 %indvars.iv51 to i32
+  %25 = trunc nuw nsw i64 %indvars.iv51 to i32
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.137 = phi i32 [ %32, %.lr.ph ], [ %.03345, %.lr.ph.preheader ]
-  %.03536 = phi i32 [ %33, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %25 = call ptr @PQgetvalue(ptr noundef %19, i32 noundef %.03536, i32 noundef 0) #9
-  %26 = call ptr @pg_strdup(ptr noundef %25) #9
-  %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @os_info, i64 40), align 8
-  %28 = sext i32 %.137 to i64
-  %29 = getelementptr inbounds %struct.LibraryInfo, ptr %27, i64 %28
-  store ptr %26, ptr %29, align 8
-  %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @os_info, i64 40), align 8
-  %31 = getelementptr inbounds %struct.LibraryInfo, ptr %30, i64 %28, i32 1
-  store i32 %24, ptr %31, align 8
-  %32 = add i32 %.137, 1
-  %33 = add nuw nsw i32 %.03536, 1
-  %exitcond.not = icmp eq i32 %33, %22
+  %.137 = phi i32 [ %34, %.lr.ph ], [ %.03345, %.lr.ph.preheader ]
+  %.03536 = phi i32 [ %35, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %26 = call ptr @PQgetvalue(ptr noundef %19, i32 noundef %.03536, i32 noundef 0) #9
+  %27 = call ptr @pg_strdup(ptr noundef %26) #9
+  %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @os_info, i64 40), align 8
+  %29 = sext i32 %.137 to i64
+  %30 = getelementptr inbounds %struct.LibraryInfo, ptr %28, i64 %29
+  store ptr %27, ptr %30, align 8
+  %31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @os_info, i64 40), align 8
+  %32 = getelementptr inbounds %struct.LibraryInfo, ptr %31, i64 %29
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
+  store i32 %25, ptr %33, align 8
+  %34 = add i32 %.137, 1
+  %35 = add nuw nsw i32 %.03536, 1
+  %exitcond.not = icmp eq i32 %35, %23
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph47
-  %.1.lcssa = phi i32 [ %.03345, %.lr.ph47 ], [ %32, %.lr.ph ]
+  %.1.lcssa = phi i32 [ %.03345, %.lr.ph47 ], [ %34, %.lr.ph ]
   call void @PQclear(ptr noundef %19) #9
-  %34 = load i32, ptr %21, align 8
-  %35 = icmp sgt i32 %34, 0
-  br i1 %35, label %.lr.ph41, label %._crit_edge42
+  %36 = load i32, ptr %22, align 8
+  %37 = icmp sgt i32 %36, 0
+  br i1 %37, label %.lr.ph41, label %._crit_edge42
 
 .lr.ph41:                                         ; preds = %._crit_edge
-  %36 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %37 = trunc nuw nsw i64 %indvars.iv51 to i32
-  br label %41
+  %38 = getelementptr inbounds nuw i8, ptr %21, i64 1064
+  %39 = trunc nuw nsw i64 %indvars.iv51 to i32
+  br label %43
 
-._crit_edge42:                                    ; preds = %58, %._crit_edge
-  %.2.lcssa = phi i32 [ %.1.lcssa, %._crit_edge ], [ %.3, %58 ]
+._crit_edge42:                                    ; preds = %61, %._crit_edge
+  %.2.lcssa = phi i32 [ %.1.lcssa, %._crit_edge ], [ %.3, %61 ]
   %indvars.iv.next52 = add nuw nsw i64 %indvars.iv51, 1
-  %38 = load i32, ptr getelementptr inbounds nuw (i8, ptr @old_cluster, i64 128), align 8
-  %39 = sext i32 %38 to i64
-  %40 = icmp slt i64 %indvars.iv.next52, %39
-  br i1 %40, label %.lr.ph47, label %._crit_edge48, !llvm.loop !6
+  %40 = load i32, ptr getelementptr inbounds nuw (i8, ptr @old_cluster, i64 128), align 8
+  %41 = sext i32 %40 to i64
+  %42 = icmp slt i64 %indvars.iv.next52, %41
+  br i1 %42, label %.lr.ph47, label %._crit_edge48, !llvm.loop !6
 
-41:                                               ; preds = %.lr.ph41, %58
-  %42 = phi i32 [ %34, %.lr.ph41 ], [ %59, %58 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph41 ], [ %indvars.iv.next, %58 ]
-  %.238 = phi i32 [ %.1.lcssa, %.lr.ph41 ], [ %.3, %58 ]
-  %43 = load ptr, ptr %36, align 8
-  %44 = getelementptr inbounds nuw %struct.LogicalSlotInfo, ptr %43, i64 %indvars.iv
-  %45 = getelementptr inbounds nuw i8, ptr %44, i64 18
-  %46 = load i8, ptr %45, align 2, !range !7, !noundef !8
-  %47 = trunc nuw i8 %46 to i1
-  br i1 %47, label %58, label %48
+43:                                               ; preds = %.lr.ph41, %61
+  %44 = phi i32 [ %36, %.lr.ph41 ], [ %62, %61 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph41 ], [ %indvars.iv.next, %61 ]
+  %.238 = phi i32 [ %.1.lcssa, %.lr.ph41 ], [ %.3, %61 ]
+  %45 = load ptr, ptr %38, align 8
+  %46 = getelementptr inbounds nuw %struct.LogicalSlotInfo, ptr %45, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 18
+  %48 = load i8, ptr %47, align 2, !range !7, !noundef !8
+  %49 = trunc nuw i8 %48 to i1
+  br i1 %49, label %61, label %50
 
-48:                                               ; preds = %41
-  %49 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  %50 = load ptr, ptr %49, align 8
-  %51 = call ptr @pg_strdup(ptr noundef %50) #9
-  %52 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @os_info, i64 40), align 8
-  %53 = sext i32 %.238 to i64
-  %54 = getelementptr inbounds %struct.LibraryInfo, ptr %52, i64 %53
-  store ptr %51, ptr %54, align 8
-  %55 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @os_info, i64 40), align 8
-  %56 = getelementptr inbounds %struct.LibraryInfo, ptr %55, i64 %53, i32 1
-  store i32 %37, ptr %56, align 8
-  %57 = add i32 %.238, 1
-  %.pre = load i32, ptr %21, align 8
-  br label %58
+50:                                               ; preds = %43
+  %51 = getelementptr inbounds nuw i8, ptr %46, i64 8
+  %52 = load ptr, ptr %51, align 8
+  %53 = call ptr @pg_strdup(ptr noundef %52) #9
+  %54 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @os_info, i64 40), align 8
+  %55 = sext i32 %.238 to i64
+  %56 = getelementptr inbounds %struct.LibraryInfo, ptr %54, i64 %55
+  store ptr %53, ptr %56, align 8
+  %57 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @os_info, i64 40), align 8
+  %58 = getelementptr inbounds %struct.LibraryInfo, ptr %57, i64 %55
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
+  store i32 %39, ptr %59, align 8
+  %60 = add i32 %.238, 1
+  %.pre = load i32, ptr %22, align 8
+  br label %61
 
-58:                                               ; preds = %41, %48
-  %59 = phi i32 [ %42, %41 ], [ %.pre, %48 ]
-  %.3 = phi i32 [ %.238, %41 ], [ %57, %48 ]
+61:                                               ; preds = %43, %50
+  %62 = phi i32 [ %44, %43 ], [ %.pre, %50 ]
+  %.3 = phi i32 [ %.238, %43 ], [ %60, %50 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %60 = sext i32 %59 to i64
-  %61 = icmp slt i64 %indvars.iv.next, %60
-  br i1 %61, label %41, label %._crit_edge42, !llvm.loop !9
+  %63 = sext i32 %62 to i64
+  %64 = icmp slt i64 %indvars.iv.next, %63
+  br i1 %64, label %43, label %._crit_edge42, !llvm.loop !9
 
 ._crit_edge48:                                    ; preds = %._crit_edge42, %0
   %.033.lcssa = phi i32 [ 0, %0 ], [ %.2.lcssa, %._crit_edge42 ]
-  %62 = load ptr, ptr %1, align 8
-  call void @pg_free(ptr noundef %62) #9
+  %65 = load ptr, ptr %1, align 8
+  call void @pg_free(ptr noundef %65) #9
   call void @pg_free(ptr noundef %8) #9
   store i32 %.033.lcssa, ptr getelementptr inbounds nuw (i8, ptr @os_info, i64 48), align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
@@ -217,12 +220,12 @@ define dso_local void @check_loadable_libraries() local_unnamed_addr #0 {
 
 ._crit_edge.thread:                               ; preds = %0
   call void @PQfinish(ptr noundef %3) #9
-  br label %53
+  br label %55
 
-.lr.ph:                                           ; preds = %0, %47
-  %indvars.iv = phi i64 [ %indvars.iv.next, %47 ], [ 0, %0 ]
-  %.02232 = phi i32 [ %.1, %47 ], [ 0, %0 ]
-  %.02331 = phi ptr [ %.124, %47 ], [ null, %0 ]
+.lr.ph:                                           ; preds = %0, %49
+  %indvars.iv = phi i64 [ %indvars.iv.next, %49 ], [ 0, %0 ]
+  %.02232 = phi i32 [ %.1, %49 ], [ 0, %0 ]
+  %.02331 = phi ptr [ %.124, %49 ], [ null, %0 ]
   %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @os_info, i64 40), align 8
   %12 = getelementptr %struct.LibraryInfo, ptr %11, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8
@@ -282,39 +285,41 @@ define dso_local void @check_loadable_libraries() local_unnamed_addr #0 {
   %.124 = phi ptr [ %.3, %36 ], [ %.02331, %16 ]
   %.1 = phi i32 [ %.2, %36 ], [ %.02232, %16 ]
   %.not29 = icmp eq i32 %.1, 0
-  br i1 %.not29, label %47, label %38
+  br i1 %.not29, label %49, label %38
 
 38:                                               ; preds = %37
   %39 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @old_cluster, i64 120), align 8
   %40 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @os_info, i64 40), align 8
-  %41 = getelementptr inbounds nuw %struct.LibraryInfo, ptr %40, i64 %indvars.iv, i32 1
-  %42 = load i32, ptr %41, align 8
-  %43 = sext i32 %42 to i64
-  %44 = getelementptr inbounds %struct.DbInfo, ptr %39, i64 %43, i32 1
-  %45 = load ptr, ptr %44, align 8
-  %46 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %.124, ptr noundef nonnull @.str.10, ptr noundef %45) #9
-  br label %47
+  %41 = getelementptr inbounds nuw %struct.LibraryInfo, ptr %40, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
+  %43 = load i32, ptr %42, align 8
+  %44 = sext i32 %43 to i64
+  %45 = getelementptr inbounds %struct.DbInfo, ptr %39, i64 %44
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
+  %47 = load ptr, ptr %46, align 8
+  %48 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %.124, ptr noundef nonnull @.str.10, ptr noundef %47) #9
+  br label %49
 
-47:                                               ; preds = %38, %37
+49:                                               ; preds = %38, %37
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %48 = load i32, ptr getelementptr inbounds nuw (i8, ptr @os_info, i64 48), align 8
-  %49 = sext i32 %48 to i64
-  %50 = icmp slt i64 %indvars.iv.next, %49
-  br i1 %50, label %.lr.ph, label %._crit_edge, !llvm.loop !10
+  %50 = load i32, ptr getelementptr inbounds nuw (i8, ptr @os_info, i64 48), align 8
+  %51 = sext i32 %50 to i64
+  %52 = icmp slt i64 %indvars.iv.next, %51
+  br i1 %52, label %.lr.ph, label %._crit_edge, !llvm.loop !10
 
-._crit_edge:                                      ; preds = %47
+._crit_edge:                                      ; preds = %49
   call void @PQfinish(ptr noundef %3) #9
   %.not = icmp eq ptr %.124, null
-  br i1 %.not, label %53, label %51
+  br i1 %.not, label %55, label %53
 
-51:                                               ; preds = %._crit_edge
-  %52 = call i32 @fclose(ptr noundef nonnull %.124)
+53:                                               ; preds = %._crit_edge
+  %54 = call i32 @fclose(ptr noundef nonnull %.124)
   call void (i32, ptr, ...) @pg_log(i32 noundef 3, ptr noundef nonnull @.str.11) #9
   call void (ptr, ...) @pg_fatal(ptr noundef nonnull @.str.12, ptr noundef nonnull %1) #11
   unreachable
 
-53:                                               ; preds = %._crit_edge.thread, %._crit_edge
+55:                                               ; preds = %._crit_edge.thread, %._crit_edge
   call void @check_ok() #9
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void

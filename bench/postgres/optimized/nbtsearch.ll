@@ -616,143 +616,144 @@ BTreeTupleIsPivot.exit.thread:                    ; preds = %21, %BTreeTupleIsPi
   br label %48
 
 48:                                               ; preds = %.lr.ph, %.thread96
-  %.059118 = phi i32 [ 1, %.lr.ph ], [ %120, %.thread96 ]
+  %.059118 = phi i32 [ 1, %.lr.ph ], [ %121, %.thread96 ]
   %.063117 = phi ptr [ %46, %.lr.ph ], [ %.164101, %.thread96 ]
   %49 = getelementptr inbounds nuw i8, ptr %.063117, i64 4
   %50 = load i16, ptr %49, align 4
   %51 = sext i16 %50 to i32
   %.val.i80 = load i16, ptr %28, align 2
   %52 = icmp slt i16 %.val.i80, 0
-  br i1 %52, label %86, label %53
+  br i1 %52, label %87, label %53
 
 53:                                               ; preds = %48
   %54 = sext i16 %50 to i64
-  %55 = getelementptr %struct.CompactAttribute, ptr %6, i64 %54, i32 4
-  %56 = load i32, ptr %55, align 4
-  %57 = icmp sgt i32 %56, -1
-  br i1 %57, label %58, label %84
+  %55 = getelementptr %struct.CompactAttribute, ptr %6, i64 %54
+  %56 = getelementptr i8, ptr %55, i64 8
+  %57 = load i32, ptr %56, align 4
+  %58 = icmp sgt i32 %57, -1
+  br i1 %58, label %59, label %85
 
-58:                                               ; preds = %53
-  %59 = zext nneg i32 %56 to i64
-  %60 = getelementptr inbounds nuw i8, ptr %47, i64 %59
-  %61 = getelementptr inbounds nuw i8, ptr %55, i64 6
-  %62 = load i8, ptr %61, align 2, !range !5, !noundef !6
-  %63 = trunc nuw i8 %62 to i1
-  br i1 %63, label %64, label %82
+59:                                               ; preds = %53
+  %60 = zext nneg i32 %57 to i64
+  %61 = getelementptr inbounds nuw i8, ptr %47, i64 %60
+  %62 = getelementptr i8, ptr %55, i64 14
+  %63 = load i8, ptr %62, align 2, !range !5, !noundef !6
+  %64 = trunc nuw i8 %63 to i1
+  br i1 %64, label %65, label %83
 
-64:                                               ; preds = %58
-  %65 = getelementptr inbounds nuw i8, ptr %55, i64 4
-  %66 = load i16, ptr %65, align 4
-  switch i16 %66, label %78 [
-    i16 1, label %67
-    i16 2, label %70
-    i16 4, label %73
-    i16 8, label %76
+65:                                               ; preds = %59
+  %66 = getelementptr i8, ptr %55, i64 12
+  %67 = load i16, ptr %66, align 4
+  switch i16 %67, label %79 [
+    i16 1, label %68
+    i16 2, label %71
+    i16 4, label %74
+    i16 8, label %77
   ]
 
-67:                                               ; preds = %64
-  %68 = load i8, ptr %60, align 1
-  %69 = sext i8 %68 to i64
+68:                                               ; preds = %65
+  %69 = load i8, ptr %61, align 1
+  %70 = sext i8 %69 to i64
   br label %index_getattr.exit
 
-70:                                               ; preds = %64
-  %71 = load i16, ptr %60, align 2
-  %72 = sext i16 %71 to i64
+71:                                               ; preds = %65
+  %72 = load i16, ptr %61, align 2
+  %73 = sext i16 %72 to i64
   br label %index_getattr.exit
 
-73:                                               ; preds = %64
-  %74 = load i32, ptr %60, align 4
-  %75 = sext i32 %74 to i64
+74:                                               ; preds = %65
+  %75 = load i32, ptr %61, align 4
+  %76 = sext i32 %75 to i64
   br label %index_getattr.exit
 
-76:                                               ; preds = %64
-  %77 = load i64, ptr %60, align 8
+77:                                               ; preds = %65
+  %78 = load i64, ptr %61, align 8
   br label %index_getattr.exit
 
-78:                                               ; preds = %64
-  %79 = sext i16 %66 to i32
-  %80 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %80)
-  %81 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.6, i32 noundef range(i32 -32768, 32768) %79) #7
+79:                                               ; preds = %65
+  %80 = sext i16 %67 to i32
+  %81 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  tail call void @llvm.assume(i1 %81)
+  %82 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.6, i32 noundef range(i32 -32768, 32768) %80) #7
   tail call void @errfinish(ptr noundef nonnull @.str.7, i32 noundef 70, ptr noundef nonnull @__func__.fetch_att) #7
   unreachable
 
-82:                                               ; preds = %58
-  %83 = ptrtoint ptr %60 to i64
+83:                                               ; preds = %59
+  %84 = ptrtoint ptr %61 to i64
   br label %index_getattr.exit
 
-84:                                               ; preds = %53
-  %85 = tail call i64 @nocache_index_getattr(ptr noundef nonnull %27, i32 noundef range(i32 -32768, 32768) %51, ptr noundef nonnull %6) #7
+85:                                               ; preds = %53
+  %86 = tail call i64 @nocache_index_getattr(ptr noundef nonnull %27, i32 noundef range(i32 -32768, 32768) %51, ptr noundef nonnull %6) #7
   br label %index_getattr.exit
 
-86:                                               ; preds = %48
-  %87 = add nsw i32 %51, -1
-  %88 = ashr i32 %87, 3
-  %89 = sext i32 %88 to i64
-  %90 = getelementptr inbounds i8, ptr %47, i64 %89
-  %91 = load i8, ptr %90, align 1
-  %92 = zext i8 %91 to i32
-  %93 = and i32 %87, 7
-  %94 = shl nuw nsw i32 1, %93
-  %95 = and i32 %94, %92
-  %.not.i19.i = icmp eq i32 %95, 0
-  br i1 %.not.i19.i, label %index_getattr.exit.thread, label %96
+87:                                               ; preds = %48
+  %88 = add nsw i32 %51, -1
+  %89 = ashr i32 %88, 3
+  %90 = sext i32 %89 to i64
+  %91 = getelementptr inbounds i8, ptr %47, i64 %90
+  %92 = load i8, ptr %91, align 1
+  %93 = zext i8 %92 to i32
+  %94 = and i32 %88, 7
+  %95 = shl nuw nsw i32 1, %94
+  %96 = and i32 %95, %93
+  %.not.i19.i = icmp eq i32 %96, 0
+  br i1 %.not.i19.i, label %index_getattr.exit.thread, label %97
 
-96:                                               ; preds = %86
-  %97 = tail call i64 @nocache_index_getattr(ptr noundef nonnull %27, i32 noundef range(i32 -32768, 32768) %51, ptr noundef %6) #7
+97:                                               ; preds = %87
+  %98 = tail call i64 @nocache_index_getattr(ptr noundef nonnull %27, i32 noundef range(i32 -32768, 32768) %51, ptr noundef %6) #7
   br label %index_getattr.exit
 
-index_getattr.exit:                               ; preds = %67, %70, %73, %76, %82, %84, %96
-  %.1.i = phi i64 [ %97, %96 ], [ %69, %67 ], [ %72, %70 ], [ %75, %73 ], [ %77, %76 ], [ %83, %82 ], [ %85, %84 ]
-  %98 = load i32, ptr %.063117, align 8
-  %99 = and i32 %98, 1
-  %.not71 = icmp eq i32 %99, 0
-  br i1 %.not71, label %106, label %102
+index_getattr.exit:                               ; preds = %68, %71, %74, %77, %83, %85, %97
+  %.1.i = phi i64 [ %98, %97 ], [ %70, %68 ], [ %73, %71 ], [ %76, %74 ], [ %78, %77 ], [ %84, %83 ], [ %86, %85 ]
+  %99 = load i32, ptr %.063117, align 8
+  %100 = and i32 %99, 1
+  %.not71 = icmp eq i32 %100, 0
+  br i1 %.not71, label %107, label %103
 
-index_getattr.exit.thread:                        ; preds = %86
-  %100 = load i32, ptr %.063117, align 8
-  %101 = and i32 %100, 1
-  %.not71131 = icmp eq i32 %101, 0
-  br i1 %.not71131, label %104, label %.thread96
+index_getattr.exit.thread:                        ; preds = %87
+  %101 = load i32, ptr %.063117, align 8
+  %102 = and i32 %101, 1
+  %.not71131 = icmp eq i32 %102, 0
+  br i1 %.not71131, label %105, label %.thread96
 
-102:                                              ; preds = %index_getattr.exit
-  %103 = and i32 %98, 33554432
-  %.not74 = icmp eq i32 %103, 0
+103:                                              ; preds = %index_getattr.exit
+  %104 = and i32 %99, 33554432
+  %.not74 = icmp eq i32 %104, 0
   %.76 = select i1 %.not74, i32 1, i32 -1
   br label %.thread104
 
-104:                                              ; preds = %index_getattr.exit.thread
-  %105 = and i32 %100, 33554432
-  %.not73 = icmp eq i32 %105, 0
+105:                                              ; preds = %index_getattr.exit.thread
+  %106 = and i32 %101, 33554432
+  %.not73 = icmp eq i32 %106, 0
   %.77 = select i1 %.not73, i32 -1, i32 1
   br label %.thread104
 
-106:                                              ; preds = %index_getattr.exit
-  %107 = getelementptr inbounds nuw i8, ptr %.063117, i64 16
-  %108 = getelementptr inbounds nuw i8, ptr %.063117, i64 12
-  %109 = load i32, ptr %108, align 4
-  %110 = getelementptr inbounds nuw i8, ptr %.063117, i64 64
-  %111 = load i64, ptr %110, align 8
-  %112 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %107, i32 noundef %109, i64 noundef %.1.i, i64 noundef %111) #7
-  %113 = trunc i64 %112 to i32
-  %114 = load i32, ptr %.063117, align 8
-  %115 = and i32 %114, 16777216
-  %.not72 = icmp eq i32 %115, 0
-  br i1 %.not72, label %116, label %119
+107:                                              ; preds = %index_getattr.exit
+  %108 = getelementptr inbounds nuw i8, ptr %.063117, i64 16
+  %109 = getelementptr inbounds nuw i8, ptr %.063117, i64 12
+  %110 = load i32, ptr %109, align 4
+  %111 = getelementptr inbounds nuw i8, ptr %.063117, i64 64
+  %112 = load i64, ptr %111, align 8
+  %113 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %108, i32 noundef %110, i64 noundef %.1.i, i64 noundef %112) #7
+  %114 = trunc i64 %113 to i32
+  %115 = load i32, ptr %.063117, align 8
+  %116 = and i32 %115, 16777216
+  %.not72 = icmp eq i32 %116, 0
+  br i1 %.not72, label %117, label %120
 
-116:                                              ; preds = %106
-  %117 = icmp slt i32 %113, 0
-  %118 = sub nsw i32 0, %113
-  br i1 %117, label %.thread104, label %119
+117:                                              ; preds = %107
+  %118 = icmp slt i32 %114, 0
+  %119 = sub nsw i32 0, %114
+  br i1 %118, label %.thread104, label %120
 
-119:                                              ; preds = %116, %106
-  %.062 = phi i32 [ %113, %106 ], [ %118, %116 ]
+120:                                              ; preds = %117, %107
+  %.062 = phi i32 [ %114, %107 ], [ %119, %117 ]
   %.not75 = icmp eq i32 %.062, 0
   br i1 %.not75, label %.thread96, label %.thread104
 
-.thread96:                                        ; preds = %index_getattr.exit.thread, %119
+.thread96:                                        ; preds = %index_getattr.exit.thread, %120
   %.164101 = getelementptr inbounds nuw i8, ptr %.063117, i64 72
-  %120 = add nuw nsw i32 %.059118, 1
+  %121 = add nuw nsw i32 %.059118, 1
   %exitcond.not = icmp eq i32 %.059118, %.
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %48, !llvm.loop !11
 
@@ -761,119 +762,119 @@ index_getattr.exit.thread:                        ; preds = %86
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %42
-  %121 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %45, %42 ]
-  %122 = icmp sgt i32 %121, %43
-  br i1 %122, label %.thread104, label %123
+  %122 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %45, %42 ]
+  %123 = icmp sgt i32 %122, %43
+  br i1 %123, label %.thread104, label %124
 
-123:                                              ; preds = %._crit_edge
-  %124 = load i16, ptr %28, align 2
-  %125 = and i16 %124, 8192
-  %126 = icmp eq i16 %125, 0
-  br i1 %126, label %BTreeTupleGetHeapTID.exit, label %BTreeTupleIsPivot.exit.i
+124:                                              ; preds = %._crit_edge
+  %125 = load i16, ptr %28, align 2
+  %126 = and i16 %125, 8192
+  %127 = icmp eq i16 %126, 0
+  br i1 %127, label %BTreeTupleGetHeapTID.exit, label %BTreeTupleIsPivot.exit.i
 
-BTreeTupleIsPivot.exit.i:                         ; preds = %123
-  %127 = getelementptr i8, ptr %27, i64 4
-  %.val.i.i = load i16, ptr %127, align 2
-  %128 = and i16 %.val.i.i, 8192
-  %.not.i.i = icmp eq i16 %128, 0
-  br i1 %.not.i.i, label %129, label %BTreeTupleIsPosting.exit.i
+BTreeTupleIsPivot.exit.i:                         ; preds = %124
+  %128 = getelementptr i8, ptr %27, i64 4
+  %.val.i.i = load i16, ptr %128, align 2
+  %129 = and i16 %.val.i.i, 8192
+  %.not.i.i = icmp eq i16 %129, 0
+  br i1 %.not.i.i, label %130, label %BTreeTupleIsPosting.exit.i
 
-129:                                              ; preds = %BTreeTupleIsPivot.exit.i
-  %130 = and i16 %.val.i.i, 4096
-  %.not.i82 = icmp eq i16 %130, 0
-  br i1 %.not.i82, label %BTreeTupleGetHeapTID.exit.thread, label %131
+130:                                              ; preds = %BTreeTupleIsPivot.exit.i
+  %131 = and i16 %.val.i.i, 4096
+  %.not.i82 = icmp eq i16 %131, 0
+  br i1 %.not.i82, label %BTreeTupleGetHeapTID.exit.thread, label %132
 
-131:                                              ; preds = %129
-  %132 = and i16 %124, 8191
-  %133 = zext nneg i16 %132 to i64
-  %134 = getelementptr inbounds nuw i8, ptr %27, i64 %133
-  %135 = getelementptr inbounds i8, ptr %134, i64 -6
+132:                                              ; preds = %130
+  %133 = and i16 %125, 8191
+  %134 = zext nneg i16 %133 to i64
+  %135 = getelementptr inbounds nuw i8, ptr %27, i64 %134
+  %136 = getelementptr inbounds i8, ptr %135, i64 -6
   br label %BTreeTupleGetHeapTID.exit
 
 BTreeTupleIsPosting.exit.i:                       ; preds = %BTreeTupleIsPivot.exit.i
   %.val.i11.i = load i16, ptr %27, align 2
-  %136 = getelementptr i8, ptr %27, i64 2
-  %.val2.i.i = load i16, ptr %136, align 2
-  %137 = zext i16 %.val.i11.i to i64
-  %138 = shl nuw nsw i64 %137, 16
-  %139 = zext i16 %.val2.i.i to i64
-  %140 = getelementptr inbounds nuw i8, ptr %27, i64 %138
-  %141 = getelementptr inbounds nuw i8, ptr %140, i64 %139
+  %137 = getelementptr i8, ptr %27, i64 2
+  %.val2.i.i = load i16, ptr %137, align 2
+  %138 = zext i16 %.val.i11.i to i64
+  %139 = shl nuw nsw i64 %138, 16
+  %140 = zext i16 %.val2.i.i to i64
+  %141 = getelementptr inbounds nuw i8, ptr %27, i64 %139
+  %142 = getelementptr inbounds nuw i8, ptr %141, i64 %140
   br label %BTreeTupleGetHeapTID.exit
 
-BTreeTupleGetHeapTID.exit:                        ; preds = %123, %131, %BTreeTupleIsPosting.exit.i
-  %.0.i81 = phi ptr [ %135, %131 ], [ %141, %BTreeTupleIsPosting.exit.i ], [ %27, %123 ]
-  %142 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %143 = load ptr, ptr %142, align 8
-  %144 = icmp eq ptr %143, null
-  br i1 %144, label %148, label %159
+BTreeTupleGetHeapTID.exit:                        ; preds = %124, %132, %BTreeTupleIsPosting.exit.i
+  %.0.i81 = phi ptr [ %136, %132 ], [ %142, %BTreeTupleIsPosting.exit.i ], [ %27, %124 ]
+  %143 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %144 = load ptr, ptr %143, align 8
+  %145 = icmp eq ptr %144, null
+  br i1 %145, label %149, label %160
 
-BTreeTupleGetHeapTID.exit.thread:                 ; preds = %129
-  %145 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %146 = load ptr, ptr %145, align 8
-  %147 = icmp eq ptr %146, null
-  br i1 %147, label %148, label %.thread104
+BTreeTupleGetHeapTID.exit.thread:                 ; preds = %130
+  %146 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %147 = load ptr, ptr %146, align 8
+  %148 = icmp eq ptr %147, null
+  br i1 %148, label %149, label %.thread104
 
-148:                                              ; preds = %BTreeTupleGetHeapTID.exit.thread, %BTreeTupleGetHeapTID.exit
+149:                                              ; preds = %BTreeTupleGetHeapTID.exit.thread, %BTreeTupleGetHeapTID.exit
   %.0.i81108 = phi ptr [ null, %BTreeTupleGetHeapTID.exit.thread ], [ %.0.i81, %BTreeTupleGetHeapTID.exit ]
-  %149 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %150 = load i8, ptr %149, align 4, !range !5, !noundef !6
-  %151 = trunc nuw i8 %150 to i1
-  br i1 %151, label %158, label %152
+  %150 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %151 = load i8, ptr %150, align 4, !range !5, !noundef !6
+  %152 = trunc nuw i8 %151 to i1
+  br i1 %152, label %159, label %153
 
-152:                                              ; preds = %148
-  %153 = icmp eq i32 %121, %43
-  %154 = icmp eq ptr %.0.i81108, null
-  %or.cond = select i1 %153, i1 %154, i1 false
-  br i1 %or.cond, label %155, label %158
+153:                                              ; preds = %149
+  %154 = icmp eq i32 %122, %43
+  %155 = icmp eq ptr %.0.i81108, null
+  %or.cond = select i1 %154, i1 %155, i1 false
+  br i1 %or.cond, label %156, label %159
 
-155:                                              ; preds = %152
-  %156 = load i8, ptr %1, align 8, !range !5, !noundef !6
-  %157 = trunc nuw i8 %156 to i1
-  br i1 %157, label %.thread104, label %158
+156:                                              ; preds = %153
+  %157 = load i8, ptr %1, align 8, !range !5, !noundef !6
+  %158 = trunc nuw i8 %157 to i1
+  br i1 %158, label %.thread104, label %159
 
-158:                                              ; preds = %155, %152, %148
+159:                                              ; preds = %156, %153, %149
   br label %.thread104
 
-159:                                              ; preds = %BTreeTupleGetHeapTID.exit
-  %160 = tail call i32 @ItemPointerCompare(ptr noundef nonnull %143, ptr noundef nonnull %.0.i81) #7
-  %161 = icmp slt i32 %160, 1
-  br i1 %161, label %.thread104, label %162
+160:                                              ; preds = %BTreeTupleGetHeapTID.exit
+  %161 = tail call i32 @ItemPointerCompare(ptr noundef nonnull %144, ptr noundef nonnull %.0.i81) #7
+  %162 = icmp slt i32 %161, 1
+  br i1 %162, label %.thread104, label %163
 
-162:                                              ; preds = %159
-  %163 = load i16, ptr %28, align 2
-  %164 = and i16 %163, 8192
-  %165 = icmp eq i16 %164, 0
-  br i1 %165, label %.thread104, label %BTreeTupleIsPosting.exit
+163:                                              ; preds = %160
+  %164 = load i16, ptr %28, align 2
+  %165 = and i16 %164, 8192
+  %166 = icmp eq i16 %165, 0
+  br i1 %166, label %.thread104, label %BTreeTupleIsPosting.exit
 
-BTreeTupleIsPosting.exit:                         ; preds = %162
-  %166 = getelementptr i8, ptr %27, i64 4
-  %.val.i83 = load i16, ptr %166, align 2
-  %167 = and i16 %.val.i83, 8192
-  %.not112 = icmp eq i16 %167, 0
+BTreeTupleIsPosting.exit:                         ; preds = %163
+  %167 = getelementptr i8, ptr %27, i64 4
+  %.val.i83 = load i16, ptr %167, align 2
+  %168 = and i16 %.val.i83, 8192
+  %.not112 = icmp eq i16 %168, 0
   br i1 %.not112, label %.thread104, label %BTreeTupleGetMaxHeapTID.exit
 
 BTreeTupleGetMaxHeapTID.exit:                     ; preds = %BTreeTupleIsPosting.exit
-  %168 = load ptr, ptr %142, align 8
+  %169 = load ptr, ptr %143, align 8
   %.val.i.i.i = load i16, ptr %27, align 2
-  %169 = zext i16 %.val.i.i.i to i64
-  %170 = shl nuw nsw i64 %169, 16
-  %171 = getelementptr inbounds nuw i8, ptr %27, i64 %170
-  %172 = getelementptr i8, ptr %27, i64 2
-  %.val2.i.i.i = load i16, ptr %172, align 2
-  %173 = zext i16 %.val2.i.i.i to i64
-  %174 = getelementptr inbounds nuw i8, ptr %171, i64 %173
-  %175 = and i16 %.val.i83, 4095
-  %176 = zext nneg i16 %175 to i64
-  %177 = getelementptr %struct.ItemPointerData, ptr %174, i64 %176
-  %178 = getelementptr i8, ptr %177, i64 -6
-  %179 = tail call i32 @ItemPointerCompare(ptr noundef %168, ptr noundef %178) #7
-  %180 = icmp sgt i32 %179, 0
-  %.78 = zext i1 %180 to i32
+  %170 = zext i16 %.val.i.i.i to i64
+  %171 = shl nuw nsw i64 %170, 16
+  %172 = getelementptr inbounds nuw i8, ptr %27, i64 %171
+  %173 = getelementptr i8, ptr %27, i64 2
+  %.val2.i.i.i = load i16, ptr %173, align 2
+  %174 = zext i16 %.val2.i.i.i to i64
+  %175 = getelementptr inbounds nuw i8, ptr %172, i64 %174
+  %176 = and i16 %.val.i83, 4095
+  %177 = zext nneg i16 %176 to i64
+  %178 = getelementptr %struct.ItemPointerData, ptr %175, i64 %177
+  %179 = getelementptr i8, ptr %178, i64 -6
+  %180 = tail call i32 @ItemPointerCompare(ptr noundef %169, ptr noundef %179) #7
+  %181 = icmp sgt i32 %180, 0
+  %.78 = zext i1 %181 to i32
   br label %.thread104
 
-.thread104:                                       ; preds = %116, %119, %162, %BTreeTupleGetHeapTID.exit.thread, %104, %102, %BTreeTupleGetMaxHeapTID.exit, %159, %BTreeTupleIsPosting.exit, %155, %._crit_edge, %14, %158
-  %.0 = phi i32 [ 0, %158 ], [ 1, %14 ], [ 1, %._crit_edge ], [ 1, %155 ], [ %160, %BTreeTupleIsPosting.exit ], [ %160, %159 ], [ %.78, %BTreeTupleGetMaxHeapTID.exit ], [ %.77, %104 ], [ %.76, %102 ], [ 1, %BTreeTupleGetHeapTID.exit.thread ], [ %160, %162 ], [ 1, %116 ], [ %.062, %119 ]
+.thread104:                                       ; preds = %117, %120, %163, %BTreeTupleGetHeapTID.exit.thread, %105, %103, %BTreeTupleGetMaxHeapTID.exit, %160, %BTreeTupleIsPosting.exit, %156, %._crit_edge, %14, %159
+  %.0 = phi i32 [ 0, %159 ], [ 1, %14 ], [ 1, %._crit_edge ], [ 1, %156 ], [ %161, %BTreeTupleIsPosting.exit ], [ %161, %160 ], [ %.78, %BTreeTupleGetMaxHeapTID.exit ], [ %.77, %105 ], [ %.76, %103 ], [ 1, %BTreeTupleGetHeapTID.exit.thread ], [ %161, %163 ], [ 1, %117 ], [ %.062, %120 ]
   ret i32 %.0
 }
 

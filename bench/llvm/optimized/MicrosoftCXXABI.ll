@@ -21236,7 +21236,7 @@ define linkonce_odr hidden void @_ZN5clang7CodeGen15CodeGenFunction24CleanupDeac
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %1
   %.pre-phi = phi i64 [ %.pre14, %._crit_edge.loopexit ], [ %6, %1 ]
-  %.lcssa = phi i64 [ %37, %._crit_edge.loopexit ], [ %8, %1 ]
+  %.lcssa = phi i64 [ %38, %._crit_edge.loopexit ], [ %8, %1 ]
   %10 = icmp eq i64 %.lcssa, %.pre-phi
   br i1 %10, label %_ZN4llvm15SmallVectorImplIN5clang7CodeGen15CodeGenFunction25DeferredDeactivateCleanupEE6resizeEm.exit, label %11
 
@@ -21299,12 +21299,13 @@ _ZN4llvm15SmallVectorImplIN5clang7CodeGen15CodeGenFunction25DeferredDeactivateCl
   %32 = load ptr, ptr %31, align 8, !tbaa !1678
   tail call void @_ZN5clang7CodeGen15CodeGenFunction22DeactivateCleanupBlockENS0_12EHScopeStack15stable_iteratorEPN4llvm11InstructionE(ptr noundef nonnull align 8 dereferenceable(6496) %27, i64 %.sroa.01.0.copyload, ptr noundef %32) #25
   %33 = load ptr, ptr %3, align 8, !tbaa !402
-  %34 = getelementptr inbounds nuw %"struct.clang::CodeGen::CodeGenFunction::DeferredDeactivateCleanup", ptr %33, i64 %28, i32 1
-  %35 = load ptr, ptr %34, align 8, !tbaa !1678
-  %36 = tail call { ptr, i64 } @_ZN4llvm11Instruction15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(72) %35) #25
-  %37 = load i64, ptr %7, align 8, !tbaa !1641
-  %38 = icmp ugt i64 %28, %37
-  br i1 %38, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !1680
+  %34 = getelementptr inbounds nuw %"struct.clang::CodeGen::CodeGenFunction::DeferredDeactivateCleanup", ptr %33, i64 %28
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
+  %36 = load ptr, ptr %35, align 8, !tbaa !1678
+  %37 = tail call { ptr, i64 } @_ZN4llvm11Instruction15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(72) %36) #25
+  %38 = load i64, ptr %7, align 8, !tbaa !1641
+  %39 = icmp ugt i64 %28, %38
+  br i1 %39, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !1680
 }
 
 declare void @_ZN5clang7CodeGen15CodeGenFunction16PopCleanupBlocksENS0_12EHScopeStack15stable_iteratorEmSt16initializer_listIPPN4llvm5ValueEE(ptr noundef nonnull align 8 dereferenceable(6496), i64, i64 noundef, ptr, i64) local_unnamed_addr #5
@@ -24109,12 +24110,12 @@ _ZN4llvm15SmallVectorImplIN5clang7CodeGen8CGCXXABI17AddedStructorArgs3ArgEE12ass
   br label %_ZN4llvm11SmallVectorIN5clang7CodeGen8CGCXXABI17AddedStructorArgs3ArgELj1EED2Ev.exit
 
 43:                                               ; preds = %40
-  %44 = zext i32 %.pre20 to i64
-  %45 = icmp ugt i32 %.pre20, 1
-  br i1 %45, label %_ZSt4moveIPN5clang7CodeGen8CGCXXABI17AddedStructorArgs3ArgES5_ET0_T_S7_S6_.exit35.i, label %_ZSt4moveIPN5clang7CodeGen8CGCXXABI17AddedStructorArgs3ArgES5_ET0_T_S7_S6_.exit35.i.thread
+  %44 = icmp ugt i32 %.pre20, 1
+  br i1 %44, label %_ZSt4moveIPN5clang7CodeGen8CGCXXABI17AddedStructorArgs3ArgES5_ET0_T_S7_S6_.exit35.i, label %_ZSt4moveIPN5clang7CodeGen8CGCXXABI17AddedStructorArgs3ArgES5_ET0_T_S7_S6_.exit35.i.thread
 
 _ZSt4moveIPN5clang7CodeGen8CGCXXABI17AddedStructorArgs3ArgES5_ET0_T_S7_S6_.exit35.i: ; preds = %43
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(32) %35, ptr noundef nonnull %36, i64 noundef %44, i64 noundef 16) #25
+  %45 = zext i32 %.pre20 to i64
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(32) %35, ptr noundef nonnull %36, i64 noundef %45, i64 noundef 16) #25
   %.pre21 = load i32, ptr %14, align 8, !tbaa !484
   %.pre22.pre25.pre = load ptr, ptr %4, align 8, !tbaa !402
   %.pre28 = zext i32 %.pre21 to i64
@@ -24123,7 +24124,7 @@ _ZSt4moveIPN5clang7CodeGen8CGCXXABI17AddedStructorArgs3ArgES5_ET0_T_S7_S6_.exit3
 
 _ZSt4moveIPN5clang7CodeGen8CGCXXABI17AddedStructorArgs3ArgES5_ET0_T_S7_S6_.exit35.i.thread: ; preds = %43, %_ZSt4moveIPN5clang7CodeGen8CGCXXABI17AddedStructorArgs3ArgES5_ET0_T_S7_S6_.exit35.i
   %.pre22.pre2548 = phi ptr [ %.pre22.pre25.pre, %_ZSt4moveIPN5clang7CodeGen8CGCXXABI17AddedStructorArgs3ArgES5_ET0_T_S7_S6_.exit35.i ], [ %.pre23.pre, %43 ]
-  %.pre-phi47 = phi i64 [ %.pre28, %_ZSt4moveIPN5clang7CodeGen8CGCXXABI17AddedStructorArgs3ArgES5_ET0_T_S7_S6_.exit35.i ], [ %44, %43 ]
+  %.pre-phi47 = phi i64 [ %.pre28, %_ZSt4moveIPN5clang7CodeGen8CGCXXABI17AddedStructorArgs3ArgES5_ET0_T_S7_S6_.exit35.i ], [ 1, %43 ]
   %46 = load ptr, ptr %35, align 8, !tbaa !402
   %gepdiff.i = shl nuw nsw i64 %.pre-phi47, 4
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %46, ptr align 8 %.pre22.pre2548, i64 %gepdiff.i, i1 false)
@@ -24272,12 +24273,12 @@ _ZN5clang7CodeGen8CGCXXABI17AddedStructorArgsC2EN4llvm11SmallVectorINS2_3ArgELj1
   br label %_ZN4llvm11SmallVectorIN5clang7CodeGen8CGCXXABI17AddedStructorArgs3ArgELj1EED2Ev.exit
 
 41:                                               ; preds = %38
-  %42 = zext i32 %36 to i64
-  %43 = icmp ugt i32 %36, 1
-  br i1 %43, label %_ZSt4moveIPN5clang7CodeGen8CGCXXABI17AddedStructorArgs3ArgES5_ET0_T_S7_S6_.exit35.i, label %_ZSt4moveIPN5clang7CodeGen8CGCXXABI17AddedStructorArgs3ArgES5_ET0_T_S7_S6_.exit35.i.thread
+  %42 = icmp ugt i32 %36, 1
+  br i1 %42, label %_ZSt4moveIPN5clang7CodeGen8CGCXXABI17AddedStructorArgs3ArgES5_ET0_T_S7_S6_.exit35.i, label %_ZSt4moveIPN5clang7CodeGen8CGCXXABI17AddedStructorArgs3ArgES5_ET0_T_S7_S6_.exit35.i.thread
 
 _ZSt4moveIPN5clang7CodeGen8CGCXXABI17AddedStructorArgs3ArgES5_ET0_T_S7_S6_.exit35.i: ; preds = %41
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(32) %32, ptr noundef nonnull %33, i64 noundef %42, i64 noundef 16) #25
+  %43 = zext i32 %36 to i64
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(32) %32, ptr noundef nonnull %33, i64 noundef %43, i64 noundef 16) #25
   %.pre20 = load i32, ptr %9, align 8, !tbaa !484
   %.pre21.pre23.pre = load ptr, ptr %4, align 8, !tbaa !402
   %.pre26 = zext i32 %.pre20 to i64
@@ -24286,7 +24287,7 @@ _ZSt4moveIPN5clang7CodeGen8CGCXXABI17AddedStructorArgs3ArgES5_ET0_T_S7_S6_.exit3
 
 _ZSt4moveIPN5clang7CodeGen8CGCXXABI17AddedStructorArgs3ArgES5_ET0_T_S7_S6_.exit35.i.thread: ; preds = %41, %_ZSt4moveIPN5clang7CodeGen8CGCXXABI17AddedStructorArgs3ArgES5_ET0_T_S7_S6_.exit35.i
   %.pre21.pre2345 = phi ptr [ %.pre21.pre23.pre, %_ZSt4moveIPN5clang7CodeGen8CGCXXABI17AddedStructorArgs3ArgES5_ET0_T_S7_S6_.exit35.i ], [ %.pre22, %41 ]
-  %.pre-phi44 = phi i64 [ %.pre26, %_ZSt4moveIPN5clang7CodeGen8CGCXXABI17AddedStructorArgs3ArgES5_ET0_T_S7_S6_.exit35.i ], [ %42, %41 ]
+  %.pre-phi44 = phi i64 [ %.pre26, %_ZSt4moveIPN5clang7CodeGen8CGCXXABI17AddedStructorArgs3ArgES5_ET0_T_S7_S6_.exit35.i ], [ 1, %41 ]
   %44 = load ptr, ptr %32, align 8, !tbaa !402
   %gepdiff.i = shl nuw nsw i64 %.pre-phi44, 4
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %44, ptr align 8 %.pre21.pre2345, i64 %gepdiff.i, i1 false)

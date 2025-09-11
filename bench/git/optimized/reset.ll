@@ -1463,21 +1463,22 @@ _.exit44:                                         ; preds = %60, %62
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %73 = getelementptr inbounds nuw %struct.tree_desc, ptr %5, i64 %indvars.iv, i32 1
-  %74 = load ptr, ptr %73, align 8, !tbaa !100
-  call void @free(ptr noundef %74) #13
+  %73 = getelementptr inbounds nuw %struct.tree_desc, ptr %5, i64 %indvars.iv
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 8
+  %75 = load ptr, ptr %74, align 8, !tbaa !100
+  call void @free(ptr noundef %75) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !103
 
 .critedge.sink.split:                             ; preds = %40, %35
   %.str.62.sink = phi ptr [ @.str.61, %35 ], [ @.str.62, %40 ]
-  %75 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %.str.62.sink, i32 noundef 5) #13
+  %76 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %.str.62.sink, i32 noundef 5) #13
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.sink.split, %40, %35
-  %.0.i37.sink = phi ptr [ @.str.61, %35 ], [ @.str.62, %40 ], [ %75, %.critedge.sink.split ]
-  %76 = call i32 (ptr, ...) @error(ptr noundef %.0.i37.sink) #13
+  %.0.i37.sink = phi ptr [ @.str.61, %35 ], [ @.str.62, %40 ], [ %76, %.critedge.sink.split ]
+  %77 = call i32 (ptr, ...) @error(ptr noundef %.0.i37.sink) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.loopexit
 

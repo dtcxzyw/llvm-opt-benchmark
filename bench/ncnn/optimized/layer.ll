@@ -7301,7 +7301,7 @@ define hidden noundef ptr @_ZN4ncnn12create_layerEi(i32 noundef %0) local_unname
 
 4:                                                ; preds = %2
   %5 = zext nneg i32 %0 to i64
-  %6 = getelementptr inbounds nuw %"struct.ncnn::layer_registry_entry", ptr @_ZN4ncnnL21layer_registry_avx512E, i64 %5, i32 1
+  %6 = getelementptr inbounds nuw %"struct.ncnn::layer_registry_entry", ptr @_ZN4ncnnL21layer_registry_avx512E, i64 %5
   br label %19
 
 7:                                                ; preds = %2
@@ -7311,7 +7311,7 @@ define hidden noundef ptr @_ZN4ncnn12create_layerEi(i32 noundef %0) local_unname
 
 9:                                                ; preds = %7
   %10 = zext nneg i32 %0 to i64
-  %11 = getelementptr inbounds nuw %"struct.ncnn::layer_registry_entry", ptr @_ZN4ncnnL18layer_registry_fmaE, i64 %10, i32 1
+  %11 = getelementptr inbounds nuw %"struct.ncnn::layer_registry_entry", ptr @_ZN4ncnnL18layer_registry_fmaE, i64 %10
   br label %19
 
 12:                                               ; preds = %7
@@ -7321,111 +7321,113 @@ define hidden noundef ptr @_ZN4ncnn12create_layerEi(i32 noundef %0) local_unname
   br i1 %.not18.i, label %17, label %15
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds nuw %"struct.ncnn::layer_registry_entry", ptr @_ZN4ncnnL18layer_registry_avxE, i64 %14, i32 1
+  %16 = getelementptr inbounds nuw %"struct.ncnn::layer_registry_entry", ptr @_ZN4ncnnL18layer_registry_avxE, i64 %14
   br label %19
 
 17:                                               ; preds = %12
-  %18 = getelementptr inbounds nuw %"struct.ncnn::layer_registry_entry", ptr @_ZN4ncnnL19layer_registry_archE, i64 %14, i32 1
+  %18 = getelementptr inbounds nuw %"struct.ncnn::layer_registry_entry", ptr @_ZN4ncnnL19layer_registry_archE, i64 %14
   br label %19
 
 19:                                               ; preds = %17, %15, %9, %4
-  %.014.in.i = phi ptr [ %6, %4 ], [ %11, %9 ], [ %16, %15 ], [ %18, %17 ]
-  %.014.i = load ptr, ptr %.014.in.i, align 8, !tbaa !68
+  %.sink.i = phi ptr [ %11, %9 ], [ %18, %17 ], [ %16, %15 ], [ %6, %4 ]
+  %20 = getelementptr inbounds nuw i8, ptr %.sink.i, i64 8
+  %.014.i = load ptr, ptr %20, align 8, !tbaa !68
   %.not19.i = icmp eq ptr %.014.i, null
-  br i1 %.not19.i, label %20, label %24
+  br i1 %.not19.i, label %21, label %26
 
-20:                                               ; preds = %19
-  %21 = zext nneg i32 %0 to i64
-  %22 = getelementptr inbounds nuw %"struct.ncnn::layer_registry_entry", ptr @_ZN4ncnnL14layer_registryE, i64 %21, i32 1
-  %23 = load ptr, ptr %22, align 8, !tbaa !68
-  switch i32 %0, label %24 [
+21:                                               ; preds = %19
+  %22 = zext nneg i32 %0 to i64
+  %23 = getelementptr inbounds nuw %"struct.ncnn::layer_registry_entry", ptr @_ZN4ncnnL14layer_registryE, i64 %22
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  %25 = load ptr, ptr %24, align 8, !tbaa !68
+  switch i32 %0, label %26 [
     i32 34, label %_ZN4ncnn16create_layer_cpuEi.exit.thread
     i32 1, label %_ZN4ncnn16create_layer_cpuEi.exit.thread
   ]
 
-24:                                               ; preds = %20, %19
-  %.11523.i = phi ptr [ %23, %20 ], [ %.014.i, %19 ]
-  %25 = tail call noundef ptr %.11523.i(ptr noundef null)
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 40
-  store i32 %0, ptr %26, align 8, !tbaa !51
-  %27 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #21
-  %28 = getelementptr inbounds nuw i8, ptr %27, i64 48
-  %29 = getelementptr inbounds nuw i8, ptr %27, i64 64
-  store ptr %29, ptr %28, align 8, !tbaa !48
-  %30 = getelementptr inbounds nuw i8, ptr %27, i64 56
-  store i64 0, ptr %30, align 8, !tbaa !49
-  store i8 0, ptr %29, align 8, !tbaa !50
-  %31 = getelementptr inbounds nuw i8, ptr %27, i64 80
-  %32 = getelementptr inbounds nuw i8, ptr %27, i64 96
-  store ptr %32, ptr %31, align 8, !tbaa !48
-  %33 = getelementptr inbounds nuw i8, ptr %27, i64 88
-  store i64 0, ptr %33, align 8, !tbaa !49
-  store i8 0, ptr %32, align 8, !tbaa !50
-  %34 = getelementptr inbounds nuw i8, ptr %27, i64 112
-  %35 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %36 = getelementptr inbounds nuw i8, ptr %27, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %35, i8 0, i64 10, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %34, i8 0, i64 96, i1 false)
-  %37 = getelementptr inbounds nuw i8, ptr %27, i64 32
-  store ptr null, ptr %37, align 8, !tbaa !52
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4ncnn11Layer_finalE, i64 16), ptr %27, align 8, !tbaa !38
-  %38 = getelementptr inbounds nuw i8, ptr %27, i64 208
-  store ptr %25, ptr %38, align 8, !tbaa !69
-  store i32 %0, ptr %36, align 8, !tbaa !51
-  %39 = getelementptr inbounds nuw i8, ptr %25, i64 32
+26:                                               ; preds = %21, %19
+  %.11523.i = phi ptr [ %25, %21 ], [ %.014.i, %19 ]
+  %27 = tail call noundef ptr %.11523.i(ptr noundef null)
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 40
+  store i32 %0, ptr %28, align 8, !tbaa !51
+  %29 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #21
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 48
+  %31 = getelementptr inbounds nuw i8, ptr %29, i64 64
+  store ptr %31, ptr %30, align 8, !tbaa !48
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 56
+  store i64 0, ptr %32, align 8, !tbaa !49
+  store i8 0, ptr %31, align 8, !tbaa !50
+  %33 = getelementptr inbounds nuw i8, ptr %29, i64 80
+  %34 = getelementptr inbounds nuw i8, ptr %29, i64 96
+  store ptr %34, ptr %33, align 8, !tbaa !48
+  %35 = getelementptr inbounds nuw i8, ptr %29, i64 88
+  store i64 0, ptr %35, align 8, !tbaa !49
+  store i8 0, ptr %34, align 8, !tbaa !50
+  %36 = getelementptr inbounds nuw i8, ptr %29, i64 112
+  %37 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %29, i64 40
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %37, i8 0, i64 10, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %36, i8 0, i64 96, i1 false)
+  %39 = getelementptr inbounds nuw i8, ptr %29, i64 32
   store ptr null, ptr %39, align 8, !tbaa !52
-  %40 = getelementptr inbounds nuw i8, ptr %25, i64 112
-  %41 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIiSaIiEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %40, ptr noundef nonnull align 8 dereferenceable(24) %34)
-  %42 = getelementptr inbounds nuw i8, ptr %27, i64 136
-  %43 = load ptr, ptr %38, align 8, !tbaa !69
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 136
-  %45 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIiSaIiEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %44, ptr noundef nonnull align 8 dereferenceable(24) %42)
-  %46 = getelementptr inbounds nuw i8, ptr %27, i64 160
-  %47 = load ptr, ptr %38, align 8, !tbaa !69
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 160
-  %49 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN4ncnn3MatESaIS1_EEaSERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %48, ptr noundef nonnull align 8 dereferenceable(24) %46)
-  %50 = getelementptr inbounds nuw i8, ptr %27, i64 184
-  %51 = load ptr, ptr %38, align 8, !tbaa !69
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 184
-  %53 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN4ncnn3MatESaIS1_EEaSERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %52, ptr noundef nonnull align 8 dereferenceable(24) %50)
-  %54 = getelementptr inbounds nuw i8, ptr %27, i64 28
-  %55 = load i32, ptr %54, align 4, !tbaa !72
-  %56 = load ptr, ptr %38, align 8, !tbaa !69
-  %57 = getelementptr inbounds nuw i8, ptr %56, i64 28
-  store i32 %55, ptr %57, align 4, !tbaa !72
-  %58 = getelementptr inbounds nuw i8, ptr %56, i64 8
-  %59 = load i8, ptr %58, align 8, !tbaa !73, !range !25, !noundef !26
-  store i8 %59, ptr %35, align 8, !tbaa !73
-  %60 = getelementptr inbounds nuw i8, ptr %56, i64 9
-  %61 = load i8, ptr %60, align 1, !tbaa !4, !range !25, !noundef !26
-  %62 = getelementptr inbounds nuw i8, ptr %27, i64 9
-  store i8 %61, ptr %62, align 1, !tbaa !4
-  %63 = getelementptr inbounds nuw i8, ptr %56, i64 11
-  %64 = load i8, ptr %63, align 1, !tbaa !74, !range !25, !noundef !26
-  %65 = getelementptr inbounds nuw i8, ptr %27, i64 11
-  store i8 %64, ptr %65, align 1, !tbaa !74
-  %66 = getelementptr inbounds nuw i8, ptr %56, i64 12
-  %67 = load i8, ptr %66, align 4, !tbaa !75, !range !25, !noundef !26
-  %68 = getelementptr inbounds nuw i8, ptr %27, i64 12
-  store i8 %67, ptr %68, align 4, !tbaa !75
-  %69 = getelementptr inbounds nuw i8, ptr %56, i64 13
-  %70 = load i8, ptr %69, align 1, !tbaa !76, !range !25, !noundef !26
-  %71 = getelementptr inbounds nuw i8, ptr %27, i64 13
-  store i8 %70, ptr %71, align 1, !tbaa !76
-  %72 = getelementptr inbounds nuw i8, ptr %56, i64 14
-  %73 = load i8, ptr %72, align 2, !tbaa !77, !range !25, !noundef !26
-  %74 = getelementptr inbounds nuw i8, ptr %27, i64 14
-  store i8 %73, ptr %74, align 2, !tbaa !77
-  %75 = getelementptr inbounds nuw i8, ptr %27, i64 10
-  store i8 0, ptr %75, align 2, !tbaa !78
-  %76 = getelementptr inbounds nuw i8, ptr %27, i64 15
-  store i8 0, ptr %76, align 1, !tbaa !79
-  %77 = getelementptr inbounds nuw i8, ptr %27, i64 16
-  store i8 0, ptr %77, align 8, !tbaa !80
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4ncnn11Layer_finalE, i64 16), ptr %29, align 8, !tbaa !38
+  %40 = getelementptr inbounds nuw i8, ptr %29, i64 208
+  store ptr %27, ptr %40, align 8, !tbaa !69
+  store i32 %0, ptr %38, align 8, !tbaa !51
+  %41 = getelementptr inbounds nuw i8, ptr %27, i64 32
+  store ptr null, ptr %41, align 8, !tbaa !52
+  %42 = getelementptr inbounds nuw i8, ptr %27, i64 112
+  %43 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIiSaIiEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %42, ptr noundef nonnull align 8 dereferenceable(24) %36)
+  %44 = getelementptr inbounds nuw i8, ptr %29, i64 136
+  %45 = load ptr, ptr %40, align 8, !tbaa !69
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 136
+  %47 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIiSaIiEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %46, ptr noundef nonnull align 8 dereferenceable(24) %44)
+  %48 = getelementptr inbounds nuw i8, ptr %29, i64 160
+  %49 = load ptr, ptr %40, align 8, !tbaa !69
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 160
+  %51 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN4ncnn3MatESaIS1_EEaSERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %50, ptr noundef nonnull align 8 dereferenceable(24) %48)
+  %52 = getelementptr inbounds nuw i8, ptr %29, i64 184
+  %53 = load ptr, ptr %40, align 8, !tbaa !69
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 184
+  %55 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN4ncnn3MatESaIS1_EEaSERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %54, ptr noundef nonnull align 8 dereferenceable(24) %52)
+  %56 = getelementptr inbounds nuw i8, ptr %29, i64 28
+  %57 = load i32, ptr %56, align 4, !tbaa !72
+  %58 = load ptr, ptr %40, align 8, !tbaa !69
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 28
+  store i32 %57, ptr %59, align 4, !tbaa !72
+  %60 = getelementptr inbounds nuw i8, ptr %58, i64 8
+  %61 = load i8, ptr %60, align 8, !tbaa !73, !range !25, !noundef !26
+  store i8 %61, ptr %37, align 8, !tbaa !73
+  %62 = getelementptr inbounds nuw i8, ptr %58, i64 9
+  %63 = load i8, ptr %62, align 1, !tbaa !4, !range !25, !noundef !26
+  %64 = getelementptr inbounds nuw i8, ptr %29, i64 9
+  store i8 %63, ptr %64, align 1, !tbaa !4
+  %65 = getelementptr inbounds nuw i8, ptr %58, i64 11
+  %66 = load i8, ptr %65, align 1, !tbaa !74, !range !25, !noundef !26
+  %67 = getelementptr inbounds nuw i8, ptr %29, i64 11
+  store i8 %66, ptr %67, align 1, !tbaa !74
+  %68 = getelementptr inbounds nuw i8, ptr %58, i64 12
+  %69 = load i8, ptr %68, align 4, !tbaa !75, !range !25, !noundef !26
+  %70 = getelementptr inbounds nuw i8, ptr %29, i64 12
+  store i8 %69, ptr %70, align 4, !tbaa !75
+  %71 = getelementptr inbounds nuw i8, ptr %58, i64 13
+  %72 = load i8, ptr %71, align 1, !tbaa !76, !range !25, !noundef !26
+  %73 = getelementptr inbounds nuw i8, ptr %29, i64 13
+  store i8 %72, ptr %73, align 1, !tbaa !76
+  %74 = getelementptr inbounds nuw i8, ptr %58, i64 14
+  %75 = load i8, ptr %74, align 2, !tbaa !77, !range !25, !noundef !26
+  %76 = getelementptr inbounds nuw i8, ptr %29, i64 14
+  store i8 %75, ptr %76, align 2, !tbaa !77
+  %77 = getelementptr inbounds nuw i8, ptr %29, i64 10
+  store i8 0, ptr %77, align 2, !tbaa !78
+  %78 = getelementptr inbounds nuw i8, ptr %29, i64 15
+  store i8 0, ptr %78, align 1, !tbaa !79
+  %79 = getelementptr inbounds nuw i8, ptr %29, i64 16
+  store i8 0, ptr %79, align 8, !tbaa !80
   br label %_ZN4ncnn16create_layer_cpuEi.exit.thread
 
-_ZN4ncnn16create_layer_cpuEi.exit.thread:         ; preds = %20, %20, %1, %24
-  %.0 = phi ptr [ %27, %24 ], [ null, %1 ], [ null, %20 ], [ null, %20 ]
+_ZN4ncnn16create_layer_cpuEi.exit.thread:         ; preds = %21, %21, %1, %26
+  %.0 = phi ptr [ %29, %26 ], [ null, %1 ], [ null, %21 ], [ null, %21 ]
   ret ptr %.0
 }
 
@@ -7454,7 +7456,7 @@ _ZN4ncnn14layer_to_indexEPKc.exit:                ; preds = %2
   ]
 
 9:                                                ; preds = %_ZN4ncnn14layer_to_indexEPKc.exit
-  %10 = getelementptr inbounds nuw %"struct.ncnn::layer_registry_entry", ptr @_ZN4ncnnL14layer_registryE, i64 %indvars.iv.i, i32 1
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !68
   %12 = tail call noundef ptr %11(ptr noundef null)
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 40
@@ -7469,25 +7471,26 @@ _ZN4ncnn18create_layer_naiveEi.exit:              ; preds = %7, %9, %_ZN4ncnn14l
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_ZN4ncnn18create_layer_naiveEi(i32 noundef %0) local_unnamed_addr #2 {
   %or.cond = icmp ugt i32 %0, 106
-  br i1 %or.cond, label %9, label %2
+  br i1 %or.cond, label %10, label %2
 
 2:                                                ; preds = %1
   switch i32 %0, label %3 [
-    i32 34, label %9
-    i32 1, label %9
+    i32 34, label %10
+    i32 1, label %10
   ]
 
 3:                                                ; preds = %2
   %4 = zext nneg i32 %0 to i64
-  %5 = getelementptr inbounds nuw %"struct.ncnn::layer_registry_entry", ptr @_ZN4ncnnL14layer_registryE, i64 %4, i32 1
-  %6 = load ptr, ptr %5, align 8, !tbaa !68
-  %7 = tail call noundef ptr %6(ptr noundef null)
-  %8 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  store i32 %0, ptr %8, align 8, !tbaa !51
-  br label %9
+  %5 = getelementptr inbounds nuw %"struct.ncnn::layer_registry_entry", ptr @_ZN4ncnnL14layer_registryE, i64 %4
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %7 = load ptr, ptr %6, align 8, !tbaa !68
+  %8 = tail call noundef ptr %7(ptr noundef null)
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 40
+  store i32 %0, ptr %9, align 8, !tbaa !51
+  br label %10
 
-9:                                                ; preds = %3, %2, %2, %1
-  %.0 = phi ptr [ null, %1 ], [ %7, %3 ], [ null, %2 ], [ null, %2 ]
+10:                                               ; preds = %3, %2, %2, %1
+  %.0 = phi ptr [ null, %1 ], [ %8, %3 ], [ null, %2 ], [ null, %2 ]
   ret ptr %.0
 }
 
@@ -7527,35 +7530,36 @@ _ZN4ncnn14layer_to_indexEPKc.exit:                ; preds = %2
 
 14:                                               ; preds = %12, %10, %_ZN4ncnn14layer_to_indexEPKc.exit
   %_ZN4ncnnL19layer_registry_archE.sink = phi ptr [ @_ZN4ncnnL21layer_registry_avx512E, %_ZN4ncnn14layer_to_indexEPKc.exit ], [ @_ZN4ncnnL18layer_registry_fmaE, %10 ], [ %_ZN4ncnnL19layer_registry_archE._ZN4ncnnL18layer_registry_avxE, %12 ]
-  %15 = getelementptr inbounds nuw %"struct.ncnn::layer_registry_entry", ptr %_ZN4ncnnL19layer_registry_archE.sink, i64 %indvars.iv.i, i32 1
-  %.014.i = load ptr, ptr %15, align 8, !tbaa !68
+  %15 = getelementptr inbounds nuw %"struct.ncnn::layer_registry_entry", ptr %_ZN4ncnnL19layer_registry_archE.sink, i64 %indvars.iv.i
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %.014.i = load ptr, ptr %16, align 8, !tbaa !68
   %.not19.i = icmp eq ptr %.014.i, null
-  br i1 %.not19.i, label %16, label %.thread.i
+  br i1 %.not19.i, label %17, label %.thread.i
 
-16:                                               ; preds = %14
-  %17 = getelementptr inbounds nuw %"struct.ncnn::layer_registry_entry", ptr @_ZN4ncnnL14layer_registryE, i64 %indvars.iv.i, i32 1
-  %18 = load ptr, ptr %17, align 8, !tbaa !68
+17:                                               ; preds = %14
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %19 = load ptr, ptr %18, align 8, !tbaa !68
   switch i32 %8, label %.thread.i [
     i32 34, label %_ZN4ncnn16create_layer_cpuEi.exit
     i32 1, label %_ZN4ncnn16create_layer_cpuEi.exit
   ]
 
-.thread.i:                                        ; preds = %16, %14
-  %.11523.i = phi ptr [ %18, %16 ], [ %.014.i, %14 ]
-  %19 = tail call noundef ptr %.11523.i(ptr noundef null)
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 40
-  store i32 %8, ptr %20, align 8, !tbaa !51
+.thread.i:                                        ; preds = %17, %14
+  %.11523.i = phi ptr [ %19, %17 ], [ %.014.i, %14 ]
+  %20 = tail call noundef ptr %.11523.i(ptr noundef null)
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 40
+  store i32 %8, ptr %21, align 8, !tbaa !51
   br label %_ZN4ncnn16create_layer_cpuEi.exit
 
-_ZN4ncnn16create_layer_cpuEi.exit:                ; preds = %7, %.thread.i, %16, %16
-  %.0 = phi ptr [ %19, %.thread.i ], [ null, %16 ], [ null, %16 ], [ null, %7 ]
+_ZN4ncnn16create_layer_cpuEi.exit:                ; preds = %7, %.thread.i, %17, %17
+  %.0 = phi ptr [ %20, %.thread.i ], [ null, %17 ], [ null, %17 ], [ null, %7 ]
   ret ptr %.0
 }
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_ZN4ncnn16create_layer_cpuEi(i32 noundef %0) local_unnamed_addr #2 {
   %or.cond = icmp ugt i32 %0, 106
-  br i1 %or.cond, label %26, label %2
+  br i1 %or.cond, label %28, label %2
 
 2:                                                ; preds = %1
   %3 = tail call noundef i32 @_ZN4ncnn22cpu_support_x86_avx512Ev()
@@ -7564,7 +7568,7 @@ define hidden noundef ptr @_ZN4ncnn16create_layer_cpuEi(i32 noundef %0) local_un
 
 4:                                                ; preds = %2
   %5 = zext nneg i32 %0 to i64
-  %6 = getelementptr inbounds nuw %"struct.ncnn::layer_registry_entry", ptr @_ZN4ncnnL21layer_registry_avx512E, i64 %5, i32 1
+  %6 = getelementptr inbounds nuw %"struct.ncnn::layer_registry_entry", ptr @_ZN4ncnnL21layer_registry_avx512E, i64 %5
   br label %19
 
 7:                                                ; preds = %2
@@ -7574,7 +7578,7 @@ define hidden noundef ptr @_ZN4ncnn16create_layer_cpuEi(i32 noundef %0) local_un
 
 9:                                                ; preds = %7
   %10 = zext nneg i32 %0 to i64
-  %11 = getelementptr inbounds nuw %"struct.ncnn::layer_registry_entry", ptr @_ZN4ncnnL18layer_registry_fmaE, i64 %10, i32 1
+  %11 = getelementptr inbounds nuw %"struct.ncnn::layer_registry_entry", ptr @_ZN4ncnnL18layer_registry_fmaE, i64 %10
   br label %19
 
 12:                                               ; preds = %7
@@ -7584,37 +7588,39 @@ define hidden noundef ptr @_ZN4ncnn16create_layer_cpuEi(i32 noundef %0) local_un
   br i1 %.not18, label %17, label %15
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds nuw %"struct.ncnn::layer_registry_entry", ptr @_ZN4ncnnL18layer_registry_avxE, i64 %14, i32 1
+  %16 = getelementptr inbounds nuw %"struct.ncnn::layer_registry_entry", ptr @_ZN4ncnnL18layer_registry_avxE, i64 %14
   br label %19
 
 17:                                               ; preds = %12
-  %18 = getelementptr inbounds nuw %"struct.ncnn::layer_registry_entry", ptr @_ZN4ncnnL19layer_registry_archE, i64 %14, i32 1
+  %18 = getelementptr inbounds nuw %"struct.ncnn::layer_registry_entry", ptr @_ZN4ncnnL19layer_registry_archE, i64 %14
   br label %19
 
 19:                                               ; preds = %9, %17, %15, %4
-  %.014.in = phi ptr [ %6, %4 ], [ %11, %9 ], [ %16, %15 ], [ %18, %17 ]
-  %.014 = load ptr, ptr %.014.in, align 8, !tbaa !68
+  %.sink = phi ptr [ %11, %9 ], [ %18, %17 ], [ %16, %15 ], [ %6, %4 ]
+  %20 = getelementptr inbounds nuw i8, ptr %.sink, i64 8
+  %.014 = load ptr, ptr %20, align 8, !tbaa !68
   %.not19 = icmp eq ptr %.014, null
-  br i1 %.not19, label %20, label %.thread
+  br i1 %.not19, label %21, label %.thread
 
-20:                                               ; preds = %19
-  %21 = zext nneg i32 %0 to i64
-  %22 = getelementptr inbounds nuw %"struct.ncnn::layer_registry_entry", ptr @_ZN4ncnnL14layer_registryE, i64 %21, i32 1
-  %23 = load ptr, ptr %22, align 8, !tbaa !68
+21:                                               ; preds = %19
+  %22 = zext nneg i32 %0 to i64
+  %23 = getelementptr inbounds nuw %"struct.ncnn::layer_registry_entry", ptr @_ZN4ncnnL14layer_registryE, i64 %22
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  %25 = load ptr, ptr %24, align 8, !tbaa !68
   switch i32 %0, label %.thread [
-    i32 34, label %26
-    i32 1, label %26
+    i32 34, label %28
+    i32 1, label %28
   ]
 
-.thread:                                          ; preds = %20, %19
-  %.11523 = phi ptr [ %23, %20 ], [ %.014, %19 ]
-  %24 = tail call noundef ptr %.11523(ptr noundef null)
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 40
-  store i32 %0, ptr %25, align 8, !tbaa !51
-  br label %26
+.thread:                                          ; preds = %21, %19
+  %.11523 = phi ptr [ %25, %21 ], [ %.014, %19 ]
+  %26 = tail call noundef ptr %.11523(ptr noundef null)
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 40
+  store i32 %0, ptr %27, align 8, !tbaa !51
+  br label %28
 
-26:                                               ; preds = %20, %20, %.thread, %1
-  %.0 = phi ptr [ null, %1 ], [ %24, %.thread ], [ null, %20 ], [ null, %20 ]
+28:                                               ; preds = %21, %21, %.thread, %1
+  %.0 = phi ptr [ null, %1 ], [ %26, %.thread ], [ null, %21 ], [ null, %21 ]
   ret ptr %.0
 }
 

@@ -528,7 +528,7 @@ define void @_ZN4base14FileEnumerator4NextEv(ptr dead_on_unwind noalias writable
 
 33:                                               ; preds = %29
   call void @_ZN4base8FilePathC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0)
-  br label %138
+  br label %139
 
 34:                                               ; preds = %29
   %35 = load ptr, ptr %19, align 8, !tbaa !49, !noalias !50
@@ -599,7 +599,7 @@ _ZNSt5stackIN4base8FilePathESt5dequeIS1_SaIS1_EEE3popEv.exit: ; preds = %49, %51
           cleanup
   call void @_ZN4base8FilePathD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %139
+  br label %140
 
 64:                                               ; preds = %_ZNSt5stackIN4base8FilePathESt5dequeIS1_SaIS1_EEE3popEv.exit
   %65 = landingpad { ptr, i32 }
@@ -798,20 +798,21 @@ _ZNSt6vectorIN4base14FileEnumerator8FileInfoESaIS2_EED2Ev.exit: ; preds = %_ZSt8
   %.pn.pn = phi { ptr, i32 } [ %.pn, %122 ], [ %65, %64 ]
   call void @_ZNSt6vectorIN4base14FileEnumerator8FileInfoESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %139
+  br label %140
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIN4base14FileEnumerator8FileInfoESaIS2_EED2Ev.exit, %2
   %.lcssa31 = phi i64 [ %8, %2 ], [ %128, %_ZNSt6vectorIN4base14FileEnumerator8FileInfoESaIS2_EED2Ev.exit ]
   %.lcssa = phi ptr [ %11, %2 ], [ %130, %_ZNSt6vectorIN4base14FileEnumerator8FileInfoESaIS2_EED2Ev.exit ]
   %136 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %137 = getelementptr inbounds nuw %"class.base::FileEnumerator::FileInfo", ptr %.lcssa, i64 %.lcssa31, i32 1
-  call void @_ZNK4base8FilePath6AppendERKS0_(ptr dead_on_unwind writable sret(%"class.base::FilePath") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %136, ptr noundef nonnull align 8 dereferenceable(32) %137)
-  br label %138
+  %137 = getelementptr inbounds nuw %"class.base::FileEnumerator::FileInfo", ptr %.lcssa, i64 %.lcssa31
+  %138 = getelementptr inbounds nuw i8, ptr %137, i64 144
+  call void @_ZNK4base8FilePath6AppendERKS0_(ptr dead_on_unwind writable sret(%"class.base::FilePath") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %136, ptr noundef nonnull align 8 dereferenceable(32) %138)
+  br label %139
 
-138:                                              ; preds = %._crit_edge, %33
+139:                                              ; preds = %._crit_edge, %33
   ret void
 
-139:                                              ; preds = %135, %62
+140:                                              ; preds = %135, %62
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %135 ], [ %63, %62 ]
   resume { ptr, i32 } %.pn.pn.pn
 }

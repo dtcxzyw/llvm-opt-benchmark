@@ -1512,8 +1512,9 @@ invoke.cont137:                                   ; preds = %if.end136
   %169 = load i32, ptr %add.ptr.i143, align 4
   %conv143 = sext i32 %169 to i64
   %170 = load ptr, ptr %selectivity_, align 8
+  %add.ptr.i144 = getelementptr inbounds %"class.facebook::velox::SelectivityInfo", ptr %170, i64 %conv143
   %conv145 = sext i32 %call138 to i64
-  %numOut_.i = getelementptr inbounds %"class.facebook::velox::SelectivityInfo", ptr %170, i64 %conv143, i32 1
+  %numOut_.i = getelementptr inbounds nuw i8, ptr %add.ptr.i144, i64 8
   %171 = load i64, ptr %numOut_.i, align 8
   %add.i145 = add i64 %171, %conv145
   store i64 %add.i145, ptr %numOut_.i, align 8

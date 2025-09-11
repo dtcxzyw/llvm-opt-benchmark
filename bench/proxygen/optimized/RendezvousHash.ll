@@ -629,7 +629,8 @@ _ZNSt6vectorImSaImEE7reserveEm.exit:              ; preds = %if.end.i71, %_ZNSt1
 for.body60:                                       ; preds = %_ZNSt6vectorImSaImEE7reserveEm.exit, %for.inc64
   %25 = phi ptr [ %.pre195, %_ZNSt6vectorImSaImEE7reserveEm.exit ], [ %33, %for.inc64 ]
   %i57.0190 = phi i64 [ 0, %_ZNSt6vectorImSaImEE7reserveEm.exit ], [ %inc65, %for.inc64 ]
-  %second62 = getelementptr inbounds %"struct.std::pair.15", ptr %scaledWeights.sroa.0.2.lcssa225234, i64 %i57.0190, i32 1
+  %add.ptr.i89 = getelementptr inbounds %"struct.std::pair.15", ptr %scaledWeights.sroa.0.2.lcssa225234, i64 %i57.0190
+  %second62 = getelementptr inbounds nuw i8, ptr %add.ptr.i89, i64 8
   %26 = load ptr, ptr %_M_end_of_storage.i.i72, align 8
   %cmp.not.i92 = icmp eq ptr %25, %26
   br i1 %cmp.not.i92, label %if.else.i96, label %if.then.i93
@@ -1350,9 +1351,10 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterISt4pairIdmEEEclINS_17__normal_it
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterISt4pairIdmEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESD_EEbT_T0_.exit.thread30: ; preds = %lor.rhs.i.i.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterISt4pairIdmEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESD_EEbT_T0_.exit, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterISt4pairIdmEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESD_EEbT_T0_.exit.thread
   %4 = phi double [ %0, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterISt4pairIdmEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESD_EEbT_T0_.exit.thread ], [ %1, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterISt4pairIdmEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESD_EEbT_T0_.exit ], [ %1, %lor.rhs.i.i.i.i ]
   %5 = phi i64 [ %sub3, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterISt4pairIdmEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESD_EEbT_T0_.exit.thread ], [ %mul, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterISt4pairIdmEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESD_EEbT_T0_.exit ], [ %mul, %lor.rhs.i.i.i.i ]
+  %add.ptr.i18 = getelementptr inbounds %"struct.std::pair.15", ptr %__first.coerce, i64 %5
   %add.ptr.i19 = getelementptr inbounds %"struct.std::pair.15", ptr %__first.coerce, i64 %__holeIndex.addr.034
   store double %4, ptr %add.ptr.i19, align 8
-  %second.i = getelementptr inbounds %"struct.std::pair.15", ptr %__first.coerce, i64 %5, i32 1
+  %second.i = getelementptr inbounds nuw i8, ptr %add.ptr.i18, i64 8
   %6 = load i64, ptr %second.i, align 8
   %second3.i = getelementptr inbounds nuw i8, ptr %add.ptr.i19, i64 8
   store i64 %6, ptr %second3.i, align 8

@@ -177,7 +177,8 @@ define dso_local i32 @intel_dp_mst_atomic_check_link(ptr noundef %0, ptr noundef
   %82 = getelementptr i8, ptr %72, i64 128
   %83 = load i32, ptr %82, align 8
   %84 = zext i32 %83 to i64
-  %85 = getelementptr %struct.__drm_crtcs_state, ptr %81, i64 %84, i32 3
+  %.split = getelementptr %struct.__drm_crtcs_state, ptr %81, i64 %84
+  %85 = getelementptr i8, ptr %.split, i64 24
   %86 = load ptr, ptr %85, align 8
   %87 = icmp eq ptr %86, null
   br i1 %87, label %88, label %98, !prof !8
@@ -612,19 +613,20 @@ define dso_local noundef zeroext i1 @intel_dp_mst_crtc_needs_modeset(ptr noundef
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %6 = load i32, ptr %5, align 8
   %7 = zext i32 %6 to i64
-  %8 = getelementptr %struct.__drm_crtcs_state, ptr %4, i64 %7, i32 3
+  %.split = getelementptr %struct.__drm_crtcs_state, ptr %4, i64 %7
+  %8 = getelementptr i8, ptr %.split, i64 24
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 872
   %11 = load i32, ptr %10, align 8
   %12 = and i32 %11, 2048
   %13 = icmp eq i32 %12, 0
-  br i1 %13, label %.thread9, label %14
+  br i1 %13, label %.thread11, label %14
 
 14:                                               ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %16 = load i32, ptr %15, align 8
   %17 = icmp sgt i32 %16, 0
-  br i1 %17, label %18, label %.thread9
+  br i1 %17, label %18, label %.thread11
 
 18:                                               ; preds = %14
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -658,25 +660,25 @@ define dso_local noundef zeroext i1 @intel_dp_mst_crtc_needs_modeset(ptr noundef
 38:                                               ; preds = %33, %22
   %39 = add nuw nsw i64 %23, 1
   %40 = icmp eq i64 %39, %21
-  br i1 %40, label %.thread9, label %22, !llvm.loop !21
+  br i1 %40, label %.thread11, label %22, !llvm.loop !21
 
 .thread:                                          ; preds = %33, %27
   %41 = getelementptr inbounds nuw i8, ptr %25, i64 2424
   br label %42
 
-42:                                               ; preds = %.thread11, %.thread
-  %43 = phi i64 [ 0, %.thread ], [ %80, %.thread11 ]
+42:                                               ; preds = %.thread13, %.thread
+  %43 = phi i64 [ 0, %.thread ], [ %80, %.thread13 ]
   %44 = getelementptr %struct.__drm_connnectors_state, ptr %20, i64 %43
   %45 = load ptr, ptr %44, align 8
   %46 = icmp eq ptr %45, null
-  br i1 %46, label %.thread11, label %47
+  br i1 %46, label %.thread13, label %47
 
 47:                                               ; preds = %42
   %48 = getelementptr inbounds nuw i8, ptr %45, i64 2424
   %49 = load ptr, ptr %48, align 8
   %50 = load ptr, ptr %41, align 8
   %51 = icmp eq ptr %49, %50
-  br i1 %51, label %52, label %.thread11
+  br i1 %51, label %52, label %.thread13
 
 52:                                               ; preds = %47
   %53 = getelementptr inbounds nuw i8, ptr %44, i64 24
@@ -684,44 +686,45 @@ define dso_local noundef zeroext i1 @intel_dp_mst_crtc_needs_modeset(ptr noundef
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %56 = load ptr, ptr %55, align 8
   %57 = icmp eq ptr %56, null
-  br i1 %57, label %.thread11, label %58
+  br i1 %57, label %.thread13, label %58
 
 58:                                               ; preds = %52
   %59 = getelementptr inbounds nuw i8, ptr %56, i64 144
   %60 = load i32, ptr %59, align 8
   %61 = zext i32 %60 to i64
-  %62 = getelementptr %struct.__drm_crtcs_state, ptr %4, i64 %61, i32 3
+  %.split9 = getelementptr %struct.__drm_crtcs_state, ptr %4, i64 %61
+  %62 = getelementptr i8, ptr %.split9, i64 24
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 10
   %65 = load i8, ptr %64, align 2
   %66 = and i8 %65, 14
   %67 = icmp eq i8 %66, 0
-  br i1 %67, label %.thread11, label %68
+  br i1 %67, label %.thread13, label %68
 
 68:                                               ; preds = %58
-  %69 = getelementptr %struct.__drm_crtcs_state, ptr %4, i64 %61, i32 2
+  %69 = getelementptr i8, ptr %.split9, i64 16
   %70 = load ptr, ptr %69, align 8
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 4756
   %72 = load i8, ptr %71, align 4, !range !10, !noundef !11
   %73 = getelementptr inbounds nuw i8, ptr %63, i64 4756
   %74 = load i8, ptr %73, align 4, !range !10, !noundef !11
   %75 = icmp eq i8 %72, %74
-  br i1 %75, label %.thread11, label %76
+  br i1 %75, label %.thread13, label %76
 
 76:                                               ; preds = %68
   %77 = getelementptr inbounds nuw i8, ptr %45, i64 2432
   %78 = load ptr, ptr %77, align 8
   %79 = getelementptr inbounds nuw i8, ptr %49, i64 224
-  %.not12 = icmp eq ptr %78, %79
-  br i1 %.not12, label %.thread9, label %.thread11
+  %.not14 = icmp eq ptr %78, %79
+  br i1 %.not14, label %.thread11, label %.thread13
 
-.thread11:                                        ; preds = %76, %68, %58, %47, %52, %42
+.thread13:                                        ; preds = %76, %68, %58, %47, %52, %42
   %80 = add nuw nsw i64 %43, 1
   %81 = icmp eq i64 %80, %21
-  br i1 %81, label %.thread9, label %42, !llvm.loop !22
+  br i1 %81, label %.thread11, label %42, !llvm.loop !22
 
-.thread9:                                         ; preds = %38, %76, %.thread11, %14, %2
-  %82 = phi i1 [ false, %2 ], [ false, %14 ], [ true, %76 ], [ false, %.thread11 ], [ false, %38 ]
+.thread11:                                        ; preds = %38, %76, %.thread13, %14, %2
+  %82 = phi i1 [ false, %2 ], [ false, %14 ], [ true, %76 ], [ false, %.thread13 ], [ false, %38 ]
   ret i1 %82
 }
 
@@ -1272,7 +1275,8 @@ define internal ptr @intel_mst_atomic_best_encoder(ptr noundef readonly captures
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %10 = load ptr, ptr %9, align 8
   %11 = sext i32 %4 to i64
-  %12 = getelementptr %struct.__drm_connnectors_state, ptr %10, i64 %11, i32 3
+  %.split = getelementptr %struct.__drm_connnectors_state, ptr %10, i64 %11
+  %12 = getelementptr i8, ptr %.split, i64 24
   %13 = load ptr, ptr %12, align 8
   br label %14
 
@@ -1865,7 +1869,8 @@ define internal noundef i32 @intel_dp_mst_compute_config_late(ptr noundef readon
   %41 = getelementptr inbounds nuw i8, ptr %37, i64 144
   %42 = load i32, ptr %41, align 8
   %43 = zext i32 %42 to i64
-  %44 = getelementptr %struct.__drm_crtcs_state, ptr %40, i64 %43, i32 3
+  %.split = getelementptr %struct.__drm_crtcs_state, ptr %40, i64 %43
+  %44 = getelementptr i8, ptr %.split, i64 24
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 336
   %47 = load i8, ptr %46, align 8, !range !10, !noundef !11

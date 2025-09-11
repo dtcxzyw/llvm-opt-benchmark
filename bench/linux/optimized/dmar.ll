@@ -3585,15 +3585,15 @@ declare dso_local ptr @acpi_fetch_acpi_dev(ptr noundef) local_unnamed_addr #2
 define internal fastcc void @dmar_acpi_insert_dev_scope(i8 noundef zeroext %0, ptr noundef nonnull %1) unnamed_addr #3 section ".init.text" align 16 {
   %3 = load volatile ptr, ptr @dmar_drhd_units, align 8
   %4 = icmp eq ptr %3, @dmar_drhd_units
-  br i1 %4, label %.loopexit8, label %.preheader7
+  br i1 %4, label %.loopexit9, label %.preheader8
 
-.loopexit6:                                       ; preds = %80, %.preheader7
+.loopexit7:                                       ; preds = %80, %.preheader8
   %5 = load volatile ptr, ptr %7, align 8
   %6 = icmp eq ptr %5, @dmar_drhd_units
-  br i1 %6, label %.loopexit8, label %.preheader7, !llvm.loop !75
+  br i1 %6, label %.loopexit9, label %.preheader8, !llvm.loop !75
 
-.preheader7:                                      ; preds = %2, %.loopexit6
-  %7 = phi ptr [ %5, %.loopexit6 ], [ %3, %2 ]
+.preheader8:                                      ; preds = %2, %.loopexit7
+  %7 = phi ptr [ %5, %.loopexit7 ], [ %3, %2 ]
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr i8, ptr %9, i64 16
@@ -3604,10 +3604,10 @@ define internal fastcc void @dmar_acpi_insert_dev_scope(i8 noundef zeroext %0, p
   %15 = add i64 %14, %11
   %16 = ptrtoint ptr %10 to i64
   %17 = icmp ugt i64 %15, %16
-  br i1 %17, label %.preheader, label %.loopexit6
+  br i1 %17, label %.preheader, label %.loopexit7
 
-.preheader:                                       ; preds = %.preheader7, %80
-  %18 = phi ptr [ %84, %80 ], [ %10, %.preheader7 ]
+.preheader:                                       ; preds = %.preheader8, %80
+  %18 = phi ptr [ %84, %80 ], [ %10, %.preheader8 ]
   %19 = load i8, ptr %18, align 1
   %20 = icmp eq i8 %19, 5
   br i1 %20, label %21, label %80
@@ -3666,23 +3666,24 @@ define internal fastcc void @dmar_acpi_insert_dev_scope(i8 noundef zeroext %0, p
 .thread:                                          ; preds = %78, %33
   %.lcssa = phi i64 [ 0, %33 ], [ %49, %78 ]
   %59 = icmp eq i64 %.lcssa, %51
-  br i1 %59, label %.loopexit, label %.thread..thread5_crit_edge
+  br i1 %59, label %.loopexit, label %.thread..thread6_crit_edge
 
-.thread..thread5_crit_edge:                       ; preds = %.thread
+.thread..thread6_crit_edge:                       ; preds = %.thread
   %.pre = load ptr, ptr %48, align 8
-  br label %.thread5
+  br label %.thread6
 
 60:                                               ; preds = %54
   %61 = icmp eq ptr %57, null
-  br i1 %61, label %.thread5, label %78
+  br i1 %61, label %.thread6, label %78
 
-.thread5:                                         ; preds = %60, %.thread..thread5_crit_edge
-  %62 = phi ptr [ %.pre, %.thread..thread5_crit_edge ], [ %53, %60 ]
-  %63 = phi i64 [ %.lcssa, %.thread..thread5_crit_edge ], [ %55, %60 ]
+.thread6:                                         ; preds = %60, %.thread..thread6_crit_edge
+  %62 = phi ptr [ %.pre, %.thread..thread6_crit_edge ], [ %53, %60 ]
+  %63 = phi i64 [ %.lcssa, %.thread..thread6_crit_edge ], [ %55, %60 ]
   %64 = load i8, ptr %37, align 1
   %65 = shl i64 %63, 32
   %66 = ashr exact i64 %65, 32
-  %67 = getelementptr %struct.dmar_dev_scope, ptr %62, i64 %66, i32 1
+  %.split = getelementptr %struct.dmar_dev_scope, ptr %62, i64 %66
+  %67 = getelementptr i8, ptr %.split, i64 8
   store i8 %64, ptr %67, align 8
   %68 = load i8, ptr %26, align 1
   %69 = shl i8 %68, 3
@@ -3690,7 +3691,8 @@ define internal fastcc void @dmar_acpi_insert_dev_scope(i8 noundef zeroext %0, p
   %71 = and i8 %70, 7
   %72 = or disjoint i8 %71, %69
   %73 = load ptr, ptr %48, align 8
-  %74 = getelementptr %struct.dmar_dev_scope, ptr %73, i64 %66, i32 2
+  %.split5 = getelementptr %struct.dmar_dev_scope, ptr %73, i64 %66
+  %74 = getelementptr i8, ptr %.split5, i64 9
   store i8 %72, ptr %74, align 1
   %75 = tail call ptr @get_device(ptr noundef nonnull %27) #20
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !76
@@ -3716,26 +3718,26 @@ define internal fastcc void @dmar_acpi_insert_dev_scope(i8 noundef zeroext %0, p
   %84 = getelementptr i8, ptr %18, i64 %83
   %85 = ptrtoint ptr %84 to i64
   %86 = icmp ugt i64 %15, %85
-  br i1 %86, label %.preheader, label %.loopexit6, !llvm.loop !80
+  br i1 %86, label %.preheader, label %.loopexit7, !llvm.loop !80
 
-.loopexit8:                                       ; preds = %.loopexit6, %2
+.loopexit9:                                       ; preds = %.loopexit7, %2
   %87 = zext i8 %0 to i32
   %88 = getelementptr inbounds nuw i8, ptr %1, i64 696
   %89 = load ptr, ptr %88, align 8
   %90 = icmp eq ptr %89, null
   br i1 %90, label %91, label %94
 
-91:                                               ; preds = %.loopexit8
+91:                                               ; preds = %.loopexit9
   %92 = getelementptr inbounds nuw i8, ptr %1, i64 616
   %93 = load ptr, ptr %92, align 8
   br label %94
 
-94:                                               ; preds = %91, %.loopexit8
-  %95 = phi ptr [ %93, %91 ], [ %89, %.loopexit8 ]
+94:                                               ; preds = %91, %.loopexit9
+  %95 = phi ptr [ %93, %91 ], [ %89, %.loopexit9 ]
   %96 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.17, i32 noundef %87, ptr noundef %95) #18
   br label %97
 
-97:                                               ; preds = %94, %.thread5
+97:                                               ; preds = %94, %.thread6
   ret void
 }
 

@@ -279,60 +279,61 @@ define internal range(i32 -22, 1) i32 @prores_encode_init(ptr noundef initialize
   tail call void @ff_fdctdsp_init(ptr noundef nonnull %93, ptr noundef nonnull %0) #8
   %94 = load i32, ptr %28, align 8, !tbaa !37
   %95 = sext i32 %94 to i64
-  %96 = getelementptr inbounds %struct.AVProfile, ptr @profiles, i64 %95, i32 1
-  %97 = load ptr, ptr %96, align 8, !tbaa !45
-  %98 = load i32, ptr %97, align 1, !tbaa !47
-  %99 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 %98, ptr %99, align 4, !tbaa !48
-  %100 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  %101 = getelementptr inbounds nuw i8, ptr %3, i64 4152
-  br label %102
+  %96 = getelementptr inbounds %struct.AVProfile, ptr @profiles, i64 %95
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 8
+  %98 = load ptr, ptr %97, align 8, !tbaa !45
+  %99 = load i32, ptr %98, align 1, !tbaa !47
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  store i32 %99, ptr %100, align 4, !tbaa !48
+  %101 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  %102 = getelementptr inbounds nuw i8, ptr %3, i64 4152
+  br label %103
 
-102:                                              ; preds = %92, %scale_mat.exit95
+103:                                              ; preds = %92, %scale_mat.exit95
   %indvars.iv = phi i64 [ 1, %92 ], [ %indvars.iv.next, %scale_mat.exit95 ]
-  %103 = load i32, ptr %28, align 8, !tbaa !37
-  %104 = sext i32 %103 to i64
-  %105 = getelementptr inbounds [64 x i8], ptr @QMAT_LUMA, i64 %104
-  %106 = add nsw i64 %indvars.iv, -1
-  %107 = getelementptr inbounds [64 x i32], ptr %100, i64 %106
-  %108 = trunc nuw nsw i64 %indvars.iv to i32
-  br label %109
+  %104 = load i32, ptr %28, align 8, !tbaa !37
+  %105 = sext i32 %104 to i64
+  %106 = getelementptr inbounds [64 x i8], ptr @QMAT_LUMA, i64 %105
+  %107 = add nsw i64 %indvars.iv, -1
+  %108 = getelementptr inbounds [64 x i32], ptr %101, i64 %107
+  %109 = trunc nuw nsw i64 %indvars.iv to i32
+  br label %110
 
-109:                                              ; preds = %109, %102
-  %indvars.iv.i = phi i64 [ 0, %102 ], [ %indvars.iv.next.i, %109 ]
-  %110 = getelementptr inbounds nuw i8, ptr %105, i64 %indvars.iv.i
-  %111 = load i8, ptr %110, align 1, !tbaa !47
-  %112 = zext i8 %111 to i32
-  %113 = mul nuw nsw i32 %108, %112
-  %114 = getelementptr inbounds nuw i32, ptr %107, i64 %indvars.iv.i
-  store i32 %113, ptr %114, align 4, !tbaa !49
+110:                                              ; preds = %110, %103
+  %indvars.iv.i = phi i64 [ 0, %103 ], [ %indvars.iv.next.i, %110 ]
+  %111 = getelementptr inbounds nuw i8, ptr %106, i64 %indvars.iv.i
+  %112 = load i8, ptr %111, align 1, !tbaa !47
+  %113 = zext i8 %112 to i32
+  %114 = mul nuw nsw i32 %109, %113
+  %115 = getelementptr inbounds nuw i32, ptr %108, i64 %indvars.iv.i
+  store i32 %114, ptr %115, align 4, !tbaa !49
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 64
-  br i1 %exitcond.not.i, label %scale_mat.exit, label %109, !llvm.loop !50
+  br i1 %exitcond.not.i, label %scale_mat.exit, label %110, !llvm.loop !50
 
-scale_mat.exit:                                   ; preds = %109
-  %115 = load i32, ptr %28, align 8, !tbaa !37
-  %116 = sext i32 %115 to i64
-  %117 = getelementptr inbounds [64 x i8], ptr @QMAT_CHROMA, i64 %116
-  %118 = getelementptr inbounds [64 x i32], ptr %101, i64 %106
-  br label %119
+scale_mat.exit:                                   ; preds = %110
+  %116 = load i32, ptr %28, align 8, !tbaa !37
+  %117 = sext i32 %116 to i64
+  %118 = getelementptr inbounds [64 x i8], ptr @QMAT_CHROMA, i64 %117
+  %119 = getelementptr inbounds [64 x i32], ptr %102, i64 %107
+  br label %120
 
-119:                                              ; preds = %119, %scale_mat.exit
-  %indvars.iv.i92 = phi i64 [ 0, %scale_mat.exit ], [ %indvars.iv.next.i93, %119 ]
-  %120 = getelementptr inbounds nuw i8, ptr %117, i64 %indvars.iv.i92
-  %121 = load i8, ptr %120, align 1, !tbaa !47
-  %122 = zext i8 %121 to i32
-  %123 = mul nuw nsw i32 %108, %122
-  %124 = getelementptr inbounds nuw i32, ptr %118, i64 %indvars.iv.i92
-  store i32 %123, ptr %124, align 4, !tbaa !49
+120:                                              ; preds = %120, %scale_mat.exit
+  %indvars.iv.i92 = phi i64 [ 0, %scale_mat.exit ], [ %indvars.iv.next.i93, %120 ]
+  %121 = getelementptr inbounds nuw i8, ptr %118, i64 %indvars.iv.i92
+  %122 = load i8, ptr %121, align 1, !tbaa !47
+  %123 = zext i8 %122 to i32
+  %124 = mul nuw nsw i32 %109, %123
+  %125 = getelementptr inbounds nuw i32, ptr %119, i64 %indvars.iv.i92
+  store i32 %124, ptr %125, align 4, !tbaa !49
   %indvars.iv.next.i93 = add nuw nsw i64 %indvars.iv.i92, 1
   %exitcond.not.i94 = icmp eq i64 %indvars.iv.next.i93, 64
-  br i1 %exitcond.not.i94, label %scale_mat.exit95, label %119, !llvm.loop !50
+  br i1 %exitcond.not.i94, label %scale_mat.exit95, label %120, !llvm.loop !50
 
-scale_mat.exit95:                                 ; preds = %119
+scale_mat.exit95:                                 ; preds = %120
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 17
-  br i1 %exitcond.not, label %.loopexit, label %102, !llvm.loop !52
+  br i1 %exitcond.not, label %.loopexit, label %103, !llvm.loop !52
 
 .loopexit:                                        ; preds = %scale_mat.exit95, %85, %73, %59, %48, %44, %38, %26, %21, %14
   %.0 = phi i32 [ -22, %14 ], [ -22, %21 ], [ -22, %26 ], [ -22, %38 ], [ -22, %44 ], [ -22, %48 ], [ -12, %59 ], [ -12, %73 ], [ -12, %85 ], [ 0, %scale_mat.exit95 ]

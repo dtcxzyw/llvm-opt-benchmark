@@ -62,10 +62,10 @@ define hidden void @"_ZN3std4sync4mpmc5array16Channel$LT$T$GT$20discard_all_mess
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 384
   br label %12
 
-12:                                               ; preds = %40, %2
-  %13 = phi i64 [ %5, %2 ], [ %.pre, %40 ]
-  %.09 = phi i32 [ 0, %2 ], [ %.110, %40 ]
-  %.0 = phi i64 [ %3, %2 ], [ %.1, %40 ]
+12:                                               ; preds = %41, %2
+  %13 = phi i64 [ %5, %2 ], [ %.pre, %41 ]
+  %.09 = phi i32 [ 0, %2 ], [ %.110, %41 ]
+  %.0 = phi i64 [ %3, %2 ], [ %.1, %41 ]
   %14 = add i64 %13, -1
   %15 = and i64 %14, %.0
   %16 = load i64, ptr %8, align 8, !noundef !4
@@ -75,59 +75,60 @@ define hidden void @"_ZN3std4sync4mpmc5array16Channel$LT$T$GT$20discard_all_mess
   %20 = load i64, ptr %10, align 32, !noundef !4
   %21 = icmp ult i64 %15, %20
   tail call void @llvm.assume(i1 %21)
-  %22 = getelementptr inbounds { { { [12 x i64] } }, { i64 }, [1 x i64] }, ptr %19, i64 %15, i32 1
-  %23 = load atomic i64, ptr %22 acquire, align 16
-  %24 = add i64 %.0, 1
-  %25 = icmp eq i64 %24, %23
-  br i1 %25, label %28, label %26
+  %22 = getelementptr inbounds { { { [12 x i64] } }, { i64 }, [1 x i64] }, ptr %19, i64 %15
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 96
+  %24 = load atomic i64, ptr %23 acquire, align 16
+  %25 = add i64 %.0, 1
+  %26 = icmp eq i64 %25, %24
+  br i1 %26, label %29, label %27
 
-26:                                               ; preds = %12
-  %27 = icmp eq i64 %7, %.0
-  br i1 %27, label %39, label %32
+27:                                               ; preds = %12
+  %28 = icmp eq i64 %7, %.0
+  br i1 %28, label %40, label %33
 
-28:                                               ; preds = %12
-  %29 = add nuw i64 %15, 1
-  %30 = load i64, ptr %11, align 128, !noundef !4
-  %31 = icmp ult i64 %29, %30
-  br i1 %31, label %40, label %41
+29:                                               ; preds = %12
+  %30 = add nuw i64 %15, 1
+  %31 = load i64, ptr %11, align 128, !noundef !4
+  %32 = icmp ult i64 %30, %31
+  br i1 %32, label %41, label %42
 
-32:                                               ; preds = %26
-  %33 = icmp ult i32 %.09, 7
-  br i1 %33, label %35, label %34
+33:                                               ; preds = %27
+  %34 = icmp ult i32 %.09, 7
+  br i1 %34, label %36, label %35
 
-34:                                               ; preds = %32
+35:                                               ; preds = %33
   tail call void @_ZN3std6thread9yield_now17h644406618513f1f1E()
   br label %_ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit
 
-35:                                               ; preds = %32
-  %36 = mul nuw nsw i32 %.09, %.09
+36:                                               ; preds = %33
+  %37 = mul nuw nsw i32 %.09, %.09
   %.not.i = icmp eq i32 %.09, 0
   br i1 %.not.i, label %_ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %35, %.lr.ph.i
-  %.sroa.01.07.i = phi i32 [ %37, %.lr.ph.i ], [ 0, %35 ]
-  %37 = add nuw nsw i32 %.sroa.01.07.i, 1
+.lr.ph.i:                                         ; preds = %36, %.lr.ph.i
+  %.sroa.01.07.i = phi i32 [ %38, %.lr.ph.i ], [ 0, %36 ]
+  %38 = add nuw nsw i32 %.sroa.01.07.i, 1
   tail call void @llvm.x86.sse2.pause() #8
-  %exitcond.not.i = icmp eq i32 %37, %36
+  %exitcond.not.i = icmp eq i32 %38, %37
   br i1 %exitcond.not.i, label %_ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit, label %.lr.ph.i
 
-_ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit: ; preds = %.lr.ph.i, %34, %35
-  %38 = add i32 %.09, 1
-  br label %40
+_ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit: ; preds = %.lr.ph.i, %35, %36
+  %39 = add i32 %.09, 1
+  br label %41
 
-39:                                               ; preds = %26
+40:                                               ; preds = %27
   ret void
 
-40:                                               ; preds = %41, %28, %_ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit
-  %.110 = phi i32 [ %.09, %28 ], [ %.09, %41 ], [ %38, %_ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit ]
-  %.1 = phi i64 [ %23, %28 ], [ %43, %41 ], [ %.0, %_ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit ]
+41:                                               ; preds = %42, %29, %_ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit
+  %.110 = phi i32 [ %.09, %29 ], [ %.09, %42 ], [ %39, %_ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit ]
+  %.1 = phi i64 [ %24, %29 ], [ %44, %42 ], [ %.0, %_ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit ]
   %.pre = load i64, ptr %4, align 16
   br label %12
 
-41:                                               ; preds = %28
-  %42 = load i64, ptr %8, align 8, !noundef !4
-  %43 = add i64 %42, %18
-  br label %40
+42:                                               ; preds = %29
+  %43 = load i64, ptr %8, align 8, !noundef !4
+  %44 = add i64 %43, %18
+  br label %41
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -158,10 +159,10 @@ define hidden noundef zeroext i1 @"_ZN3std4sync4mpmc5array16Channel$LT$T$GT$20di
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 384
   br label %20
 
-20:                                               ; preds = %47, %11
-  %21 = phi i64 [ %12, %11 ], [ %.pre.i, %47 ]
-  %.09.i = phi i32 [ 0, %11 ], [ %.110.i, %47 ]
-  %.0.i = phi i64 [ %13, %11 ], [ %.1.i, %47 ]
+20:                                               ; preds = %48, %11
+  %21 = phi i64 [ %12, %11 ], [ %.pre.i, %48 ]
+  %.09.i = phi i32 [ 0, %11 ], [ %.110.i, %48 ]
+  %.0.i = phi i64 [ %13, %11 ], [ %.1.i, %48 ]
   %22 = add i64 %21, -1
   %23 = and i64 %.0.i, %22
   %24 = load i64, ptr %16, align 8, !noundef !4
@@ -171,58 +172,59 @@ define hidden noundef zeroext i1 @"_ZN3std4sync4mpmc5array16Channel$LT$T$GT$20di
   %28 = load i64, ptr %18, align 32, !noundef !4
   %29 = icmp ult i64 %23, %28
   tail call void @llvm.assume(i1 %29)
-  %30 = getelementptr inbounds { { { [12 x i64] } }, { i64 }, [1 x i64] }, ptr %27, i64 %23, i32 1
-  %31 = load atomic i64, ptr %30 acquire, align 16
-  %32 = add i64 %.0.i, 1
-  %33 = icmp eq i64 %32, %31
-  br i1 %33, label %36, label %34
+  %30 = getelementptr inbounds { { { [12 x i64] } }, { i64 }, [1 x i64] }, ptr %27, i64 %23
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 96
+  %32 = load atomic i64, ptr %31 acquire, align 16
+  %33 = add i64 %.0.i, 1
+  %34 = icmp eq i64 %33, %32
+  br i1 %34, label %37, label %35
 
-34:                                               ; preds = %20
-  %35 = icmp eq i64 %15, %.0.i
-  br i1 %35, label %"_ZN3std4sync4mpmc5array16Channel$LT$T$GT$20discard_all_messages17h67728a4623b08a04E.llvm.3250425514128941203.exit", label %40
+35:                                               ; preds = %20
+  %36 = icmp eq i64 %15, %.0.i
+  br i1 %36, label %"_ZN3std4sync4mpmc5array16Channel$LT$T$GT$20discard_all_messages17h67728a4623b08a04E.llvm.3250425514128941203.exit", label %41
 
-36:                                               ; preds = %20
-  %37 = add nuw i64 %23, 1
-  %38 = load i64, ptr %19, align 128, !noundef !4
-  %39 = icmp ult i64 %37, %38
-  br i1 %39, label %47, label %48
+37:                                               ; preds = %20
+  %38 = add nuw i64 %23, 1
+  %39 = load i64, ptr %19, align 128, !noundef !4
+  %40 = icmp ult i64 %38, %39
+  br i1 %40, label %48, label %49
 
-40:                                               ; preds = %34
-  %41 = icmp ult i32 %.09.i, 7
-  br i1 %41, label %43, label %42
+41:                                               ; preds = %35
+  %42 = icmp ult i32 %.09.i, 7
+  br i1 %42, label %44, label %43
 
-42:                                               ; preds = %40
+43:                                               ; preds = %41
   tail call void @_ZN3std6thread9yield_now17h644406618513f1f1E()
   br label %_ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit.i
 
-43:                                               ; preds = %40
-  %44 = mul nuw nsw i32 %.09.i, %.09.i
+44:                                               ; preds = %41
+  %45 = mul nuw nsw i32 %.09.i, %.09.i
   %.not.i.i = icmp eq i32 %.09.i, 0
   br i1 %.not.i.i, label %_ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit.i, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %43, %.lr.ph.i.i
-  %.sroa.01.07.i.i = phi i32 [ %45, %.lr.ph.i.i ], [ 0, %43 ]
-  %45 = add nuw nsw i32 %.sroa.01.07.i.i, 1
+.lr.ph.i.i:                                       ; preds = %44, %.lr.ph.i.i
+  %.sroa.01.07.i.i = phi i32 [ %46, %.lr.ph.i.i ], [ 0, %44 ]
+  %46 = add nuw nsw i32 %.sroa.01.07.i.i, 1
   tail call void @llvm.x86.sse2.pause() #8
-  %exitcond.not.i.i = icmp eq i32 %45, %44
+  %exitcond.not.i.i = icmp eq i32 %46, %45
   br i1 %exitcond.not.i.i, label %_ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit.i, label %.lr.ph.i.i
 
-_ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit.i: ; preds = %.lr.ph.i.i, %43, %42
-  %46 = add i32 %.09.i, 1
-  br label %47
+_ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit.i: ; preds = %.lr.ph.i.i, %44, %43
+  %47 = add i32 %.09.i, 1
+  br label %48
 
-47:                                               ; preds = %48, %_ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit.i, %36
-  %.110.i = phi i32 [ %.09.i, %36 ], [ %.09.i, %48 ], [ %46, %_ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit.i ]
-  %.1.i = phi i64 [ %31, %36 ], [ %50, %48 ], [ %.0.i, %_ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit.i ]
+48:                                               ; preds = %49, %_ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit.i, %37
+  %.110.i = phi i32 [ %.09.i, %37 ], [ %.09.i, %49 ], [ %47, %_ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit.i ]
+  %.1.i = phi i64 [ %32, %37 ], [ %51, %49 ], [ %.0.i, %_ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit.i ]
   %.pre.i = load i64, ptr %2, align 16
   br label %20
 
-48:                                               ; preds = %36
-  %49 = load i64, ptr %16, align 8, !noundef !4
-  %50 = add i64 %49, %26
-  br label %47
+49:                                               ; preds = %37
+  %50 = load i64, ptr %16, align 8, !noundef !4
+  %51 = add i64 %50, %26
+  br label %48
 
-"_ZN3std4sync4mpmc5array16Channel$LT$T$GT$20discard_all_messages17h67728a4623b08a04E.llvm.3250425514128941203.exit": ; preds = %34
+"_ZN3std4sync4mpmc5array16Channel$LT$T$GT$20discard_all_messages17h67728a4623b08a04E.llvm.3250425514128941203.exit": ; preds = %35
   ret i1 %8
 }
 

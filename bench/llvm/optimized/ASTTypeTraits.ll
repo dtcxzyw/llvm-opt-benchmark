@@ -1250,19 +1250,20 @@ define dso_local i32 @_ZNK5clang11ASTNodeKind12getCladeKindEv(ptr noundef nonnul
 define dso_local { ptr, i64 } @_ZNK5clang11ASTNodeKind11asStringRefEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0) local_unnamed_addr #4 align 2 {
   %2 = load i32, ptr %0, align 4, !tbaa !3
   %3 = zext i32 %2 to i64
-  %4 = getelementptr inbounds nuw %"struct.clang::ASTNodeKind::KindInfo", ptr @_ZN5clang11ASTNodeKind11AllKindInfoE, i64 %3, i32 1
-  %5 = load ptr, ptr %4, align 8, !tbaa !18
-  %.not.i = icmp eq ptr %5, null
-  br i1 %.not.i, label %_ZN4llvm9StringRefC2EPKc.exit, label %6
+  %4 = getelementptr inbounds nuw %"struct.clang::ASTNodeKind::KindInfo", ptr @_ZN5clang11ASTNodeKind11AllKindInfoE, i64 %3
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %6 = load ptr, ptr %5, align 8, !tbaa !18
+  %.not.i = icmp eq ptr %6, null
+  br i1 %.not.i, label %_ZN4llvm9StringRefC2EPKc.exit, label %7
 
-6:                                                ; preds = %1
-  %7 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #13
+7:                                                ; preds = %1
+  %8 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #13
   br label %_ZN4llvm9StringRefC2EPKc.exit
 
-_ZN4llvm9StringRefC2EPKc.exit:                    ; preds = %1, %6
-  %8 = phi i64 [ %7, %6 ], [ 0, %1 ]
-  %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %5, 0
-  %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %8, 1
+_ZN4llvm9StringRefC2EPKc.exit:                    ; preds = %1, %7
+  %9 = phi i64 [ %8, %7 ], [ 0, %1 ]
+  %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %6, 0
+  %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %9, 1
   ret { ptr, i64 } %.fca.1.insert
 }
 
@@ -1450,15 +1451,15 @@ define dso_local void @_ZNK5clang12DynTypedNode5printERN4llvm11raw_ostreamERKNS_
 
 11:                                               ; preds = %3
   tail call void @_ZNK5clang16TemplateArgument5printERKNS_14PrintingPolicyERN4llvm11raw_ostreamEb(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(48) %1, i1 noundef zeroext true) #13
-  br label %68
+  br label %69
 
 12:                                               ; preds = %3
   tail call void @_ZNK5clang16TemplateArgument5printERKNS_14PrintingPolicyERN4llvm11raw_ostreamEb(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(48) %1, i1 noundef zeroext true) #13
-  br label %68
+  br label %69
 
 13:                                               ; preds = %3
   tail call void @_ZNK5clang12TemplateName5printERN4llvm11raw_ostreamERKNS_14PrintingPolicyENS0_9QualifiedE(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef 1) #13
-  br label %68
+  br label %69
 
 14:                                               ; preds = %3
   %15 = icmp ne i32 %.sroa.0.0.copyload.i, 76
@@ -1469,7 +1470,7 @@ define dso_local void @_ZNK5clang12DynTypedNode5printERN4llvm11raw_ostreamERKNS_
 
 17:                                               ; preds = %14
   tail call void @_ZNK5clang19NestedNameSpecifier5printERN4llvm11raw_ostreamERKNS_14PrintingPolicyEb(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i1 noundef zeroext false) #13
-  br label %68
+  br label %69
 
 18:                                               ; preds = %14
   switch i32 %.sroa.0.0.copyload.i, label %.lr.ph.i.i.i.i [
@@ -1484,11 +1485,11 @@ define dso_local void @_ZNK5clang12DynTypedNode5printERN4llvm11raw_ostreamERKNS_
 
 20:                                               ; preds = %19
   tail call void @_ZNK5clang19NestedNameSpecifier5printERN4llvm11raw_ostreamERKNS_14PrintingPolicyEb(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i1 noundef zeroext false) #13
-  br label %68
+  br label %69
 
 21:                                               ; preds = %19
   %22 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.1047)
-  br label %68
+  br label %69
 
 23:                                               ; preds = %18
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -1498,7 +1499,7 @@ define dso_local void @_ZNK5clang12DynTypedNode5printERN4llvm11raw_ostreamERKNS_
   store i8 1, ptr %25, align 1, !tbaa !36
   call void @_ZNK5clang8QualType5printERN4llvm11raw_ostreamERKNS_14PrintingPolicyERKNS1_5TwineEj(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(34) %4, i32 noundef 0) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %68
+  br label %69
 
 .lr.ph.i.i.i.i:                                   ; preds = %18, %.lr.ph.i.i.i.i
   %.011.i.i.i.i = phi i32 [ %28, %.lr.ph.i.i.i.i ], [ %.sroa.0.0.copyload.i, %18 ]
@@ -1522,7 +1523,7 @@ _ZNK5clang12DynTypedNode3getINS_7TypeLocEEEPKT_v.exit: ; preds = %.lr.ph.i.i.i.i
   call void @_ZNK5clang8QualType5printERN4llvm11raw_ostreamERKNS_14PrintingPolicyERKNS1_5TwineEj(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(34) %6, i32 noundef 0) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %68
+  br label %69
 
 32:                                               ; preds = %.lr.ph.i.i.i.i
   switch i32 %.sroa.0.0.copyload.i, label %.lr.ph.i.i.i.i97 [
@@ -1545,7 +1546,7 @@ _ZNK5clang12DynTypedNode3getINS_4DeclEEEPKT_v.exit: ; preds = %.lr.ph.i.i.i.i97,
 
 36:                                               ; preds = %_ZNK5clang12DynTypedNode3getINS_4DeclEEEPKT_v.exit
   tail call void @_ZNK5clang4Decl5printERN4llvm11raw_ostreamERKNS_14PrintingPolicyEjb(ptr noundef nonnull align 8 dereferenceable(33) %16, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef 0, i1 noundef zeroext false) #13
-  br label %68
+  br label %69
 
 _ZNK5clang12DynTypedNode3getINS_4DeclEEEPKT_v.exit.thread: ; preds = %.lr.ph.i.i.i.i97, %_ZNK5clang12DynTypedNode3getINS_4DeclEEEPKT_v.exit
   %cond = icmp eq i32 %.sroa.0.0.copyload.i, 176
@@ -1569,7 +1570,7 @@ _ZNK5clang12DynTypedNode3getINS_4StmtEEEPKT_v.exit: ; preds = %.lr.ph.i.i.i.i102
   %41 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 1, ptr %41, align 8, !tbaa !40
   tail call void @_ZNK5clang4Stmt11printPrettyERN4llvm11raw_ostreamEPNS_13PrinterHelperERKNS_14PrintingPolicyEjNS1_9StringRefEPKNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef 0, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %7, ptr noundef null) #13
-  br label %68
+  br label %69
 
 _ZNK5clang12DynTypedNode3getINS_4StmtEEEPKT_v.exit.thread: ; preds = %.lr.ph.i.i.i.i102, %_ZNK5clang12DynTypedNode3getINS_4StmtEEEPKT_v.exit
   %cond137 = icmp eq i32 %.sroa.0.0.copyload.i, 450
@@ -1601,7 +1602,7 @@ _ZNK5clang12DynTypedNode3getINS_4TypeEEEPKT_v.exit: ; preds = %.lr.ph.i.i.i.i107
   call void @_ZNK5clang8QualType5printERN4llvm11raw_ostreamERKNS_14PrintingPolicyERKNS1_5TwineEj(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(34) %9, i32 noundef 0) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %68
+  br label %69
 
 _ZNK5clang12DynTypedNode3getINS_4TypeEEEPKT_v.exit.thread: ; preds = %.lr.ph.i.i.i.i107, %_ZNK5clang12DynTypedNode3getINS_4TypeEEEPKT_v.exit
   %cond138 = icmp eq i32 %.sroa.0.0.copyload.i, 614
@@ -1622,7 +1623,7 @@ _ZNK5clang12DynTypedNode3getINS_4AttrEEEPKT_v.exit: ; preds = %.lr.ph.i.i.i.i112
 
 53:                                               ; preds = %_ZNK5clang12DynTypedNode3getINS_4AttrEEEPKT_v.exit
   tail call void @_ZNK5clang4Attr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE(ptr noundef nonnull align 8 dereferenceable(35) %16, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(16) %2) #13
-  br label %68
+  br label %69
 
 _ZNK5clang12DynTypedNode3getINS_4AttrEEEPKT_v.exit.thread: ; preds = %.lr.ph.i.i.i.i112, %_ZNK5clang12DynTypedNode3getINS_4AttrEEEPKT_v.exit
   %.not133 = icmp eq i32 %.sroa.0.0.copyload.i, 1045
@@ -1630,7 +1631,7 @@ _ZNK5clang12DynTypedNode3getINS_4AttrEEEPKT_v.exit.thread: ; preds = %.lr.ph.i.i
 
 54:                                               ; preds = %_ZNK5clang12DynTypedNode3getINS_4AttrEEEPKT_v.exit.thread
   tail call void @_ZNK5clang4Decl5printERN4llvm11raw_ostreamERKNS_14PrintingPolicyEjb(ptr noundef nonnull align 8 dereferenceable(33) %16, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef 0, i1 noundef zeroext false) #13
-  br label %68
+  br label %69
 
 55:                                               ; preds = %_ZNK5clang12DynTypedNode3getINS_4AttrEEEPKT_v.exit.thread
   %56 = icmp ne i32 %.sroa.0.0.copyload.i, 1046
@@ -1639,28 +1640,29 @@ _ZNK5clang12DynTypedNode3getINS_4AttrEEEPKT_v.exit.thread: ; preds = %.lr.ph.i.i
 
 57:                                               ; preds = %55
   tail call void @_ZNK5clang16ConceptReference5printERN4llvm11raw_ostreamERKNS_14PrintingPolicyE(ptr noundef nonnull align 8 dereferenceable(72) %16, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(16) %2) #13
-  br label %68
+  br label %69
 
 .thread:                                          ; preds = %32, %18, %55
   %58 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.1049)
   %59 = load i32, ptr %0, align 8, !tbaa !3
   %60 = zext i32 %59 to i64
-  %61 = getelementptr inbounds nuw %"struct.clang::ASTNodeKind::KindInfo", ptr @_ZN5clang11ASTNodeKind11AllKindInfoE, i64 %60, i32 1
-  %62 = load ptr, ptr %61, align 8, !tbaa !18
-  %.not.i.i = icmp eq ptr %62, null
-  br i1 %.not.i.i, label %_ZNK5clang11ASTNodeKind11asStringRefEv.exit, label %63
+  %61 = getelementptr inbounds nuw %"struct.clang::ASTNodeKind::KindInfo", ptr @_ZN5clang11ASTNodeKind11AllKindInfoE, i64 %60
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
+  %63 = load ptr, ptr %62, align 8, !tbaa !18
+  %.not.i.i = icmp eq ptr %63, null
+  br i1 %.not.i.i, label %_ZNK5clang11ASTNodeKind11asStringRefEv.exit, label %64
 
-63:                                               ; preds = %.thread
-  %64 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %62) #13
+64:                                               ; preds = %.thread
+  %65 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %63) #13
   br label %_ZNK5clang11ASTNodeKind11asStringRefEv.exit
 
-_ZNK5clang11ASTNodeKind11asStringRefEv.exit:      ; preds = %.thread, %63
-  %65 = phi i64 [ %64, %63 ], [ 0, %.thread ]
-  %66 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(48) %58, ptr %62, i64 %65)
-  %67 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %66, ptr noundef nonnull @.str.1048)
-  br label %68
+_ZNK5clang11ASTNodeKind11asStringRefEv.exit:      ; preds = %.thread, %64
+  %66 = phi i64 [ %65, %64 ], [ 0, %.thread ]
+  %67 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(48) %58, ptr %63, i64 %66)
+  %68 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %67, ptr noundef nonnull @.str.1048)
+  br label %69
 
-68:                                               ; preds = %12, %17, %23, %36, %45, %54, %_ZNK5clang11ASTNodeKind11asStringRefEv.exit, %57, %53, %40, %_ZNK5clang12DynTypedNode3getINS_7TypeLocEEEPKT_v.exit, %20, %21, %13, %11
+69:                                               ; preds = %12, %17, %23, %36, %45, %54, %_ZNK5clang11ASTNodeKind11asStringRefEv.exit, %57, %53, %40, %_ZNK5clang12DynTypedNode3getINS_7TypeLocEEEPKT_v.exit, %20, %21, %13, %11
   ret void
 }
 
@@ -1775,7 +1777,7 @@ _ZNK5clang12DynTypedNode3getINS_4DeclEEEPKT_v.exit: ; preds = %.lr.ph.i.i.i.i, %
 
 9:                                                ; preds = %_ZNK5clang12DynTypedNode3getINS_4DeclEEEPKT_v.exit
   tail call void @_ZNK5clang4Decl4dumpERN4llvm11raw_ostreamEbNS_19ASTDumpOutputFormatE(ptr noundef nonnull align 8 dereferenceable(33) %8, ptr noundef nonnull align 8 dereferenceable(48) %1, i1 noundef zeroext false, i32 noundef 0) #13
-  br label %37
+  br label %38
 
 _ZNK5clang12DynTypedNode3getINS_4DeclEEEPKT_v.exit.thread: ; preds = %.lr.ph.i.i.i.i, %_ZNK5clang12DynTypedNode3getINS_4DeclEEEPKT_v.exit
   switch i32 %.sroa.0.0.copyload.i, label %.lr.ph.i.i.i.i31 [
@@ -1800,7 +1802,7 @@ _ZNK5clang12DynTypedNode3getINS_4StmtEEEPKT_v.exit: ; preds = %.lr.ph.i.i.i.i31,
 
 14:                                               ; preds = %_ZNK5clang12DynTypedNode3getINS_4StmtEEEPKT_v.exit
   tail call void @_ZNK5clang4Stmt4dumpERN4llvm11raw_ostreamERKNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(23216) %2) #13
-  br label %37
+  br label %38
 
 _ZNK5clang12DynTypedNode3getINS_4StmtEEEPKT_v.exit.thread: ; preds = %.lr.ph.i.i.i.i31, %_ZNK5clang12DynTypedNode3getINS_4StmtEEEPKT_v.exit
   switch i32 %.sroa.0.0.copyload.i, label %.lr.ph.i.i.i.i36 [
@@ -1825,7 +1827,7 @@ _ZNK5clang12DynTypedNode3getINS_4TypeEEEPKT_v.exit: ; preds = %.lr.ph.i.i.i.i36,
 
 19:                                               ; preds = %_ZNK5clang12DynTypedNode3getINS_4TypeEEEPKT_v.exit
   tail call void @_ZNK5clang4Type4dumpERN4llvm11raw_ostreamERKNS_10ASTContextE(ptr noundef nonnull align 16 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(23216) %2) #13
-  br label %37
+  br label %38
 
 _ZNK5clang12DynTypedNode3getINS_4TypeEEEPKT_v.exit.thread: ; preds = %.lr.ph.i.i.i.i36, %_ZNK5clang12DynTypedNode3getINS_4TypeEEEPKT_v.exit
   %20 = icmp ne i32 %.sroa.0.0.copyload.i, 1046
@@ -1836,7 +1838,7 @@ _ZNK5clang12DynTypedNode3getINS_4TypeEEEPKT_v.exit.thread: ; preds = %.lr.ph.i.i
 
 22:                                               ; preds = %_ZNK5clang12DynTypedNode3getINS_4TypeEEEPKT_v.exit.thread
   tail call void @_ZNK5clang16ConceptReference4dumpERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(72) %21, ptr noundef nonnull align 8 dereferenceable(48) %1) #13
-  br label %37
+  br label %38
 
 23:                                               ; preds = %_ZNK5clang12DynTypedNode3getINS_4TypeEEEPKT_v.exit.thread
   switch i32 %.sroa.0.0.copyload.i, label %.lr.ph.i.i.i.i43 [
@@ -1856,28 +1858,29 @@ _ZNK5clang12DynTypedNode3getINS_4TypeEEEPKT_v.exit.thread: ; preds = %.lr.ph.i.i
 
 _ZNK5clang12DynTypedNode3getINS_7TypeLocEEEPKT_v.exit: ; preds = %.lr.ph.i.i.i.i43, %23
   tail call void @_ZNK5clang7TypeLoc4dumpERN4llvm11raw_ostreamERKNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(23216) %2) #13
-  br label %37
+  br label %38
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i43, %3, %_ZNK5clang12DynTypedNode3getINS_4DeclEEEPKT_v.exit.thread, %_ZNK5clang12DynTypedNode3getINS_4StmtEEEPKT_v.exit.thread, %23
   %27 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.1050)
   %28 = load i32, ptr %0, align 8, !tbaa !3
   %29 = zext i32 %28 to i64
-  %30 = getelementptr inbounds nuw %"struct.clang::ASTNodeKind::KindInfo", ptr @_ZN5clang11ASTNodeKind11AllKindInfoE, i64 %29, i32 1
-  %31 = load ptr, ptr %30, align 8, !tbaa !18
-  %.not.i.i = icmp eq ptr %31, null
-  br i1 %.not.i.i, label %_ZNK5clang11ASTNodeKind11asStringRefEv.exit, label %32
+  %30 = getelementptr inbounds nuw %"struct.clang::ASTNodeKind::KindInfo", ptr @_ZN5clang11ASTNodeKind11AllKindInfoE, i64 %29
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  %32 = load ptr, ptr %31, align 8, !tbaa !18
+  %.not.i.i = icmp eq ptr %32, null
+  br i1 %.not.i.i, label %_ZNK5clang11ASTNodeKind11asStringRefEv.exit, label %33
 
-32:                                               ; preds = %.loopexit
-  %33 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %31) #13
+33:                                               ; preds = %.loopexit
+  %34 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %32) #13
   br label %_ZNK5clang11ASTNodeKind11asStringRefEv.exit
 
-_ZNK5clang11ASTNodeKind11asStringRefEv.exit:      ; preds = %.loopexit, %32
-  %34 = phi i64 [ %33, %32 ], [ 0, %.loopexit ]
-  %35 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(48) %27, ptr %31, i64 %34)
-  %36 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %35, ptr noundef nonnull @.str.1048)
-  br label %37
+_ZNK5clang11ASTNodeKind11asStringRefEv.exit:      ; preds = %.loopexit, %33
+  %35 = phi i64 [ %34, %33 ], [ 0, %.loopexit ]
+  %36 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(48) %27, ptr %32, i64 %35)
+  %37 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %36, ptr noundef nonnull @.str.1048)
+  br label %38
 
-37:                                               ; preds = %14, %22, %_ZNK5clang11ASTNodeKind11asStringRefEv.exit, %_ZNK5clang12DynTypedNode3getINS_7TypeLocEEEPKT_v.exit, %19, %9
+38:                                               ; preds = %14, %22, %_ZNK5clang11ASTNodeKind11asStringRefEv.exit, %_ZNK5clang12DynTypedNode3getINS_7TypeLocEEEPKT_v.exit, %19, %9
   ret void
 }
 

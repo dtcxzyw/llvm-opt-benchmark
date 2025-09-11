@@ -183,7 +183,8 @@ define dso_local void @netpoll_poll_dev(ptr noundef %0) #0 align 16 {
 
 25:                                               ; preds = %22, %18
   %26 = phi i64 [ %23, %22 ], [ 0, %18 ]
-  %27 = getelementptr %struct.netdev_queue, ptr %20, i64 %26, i32 11
+  %.split = getelementptr %struct.netdev_queue, ptr %20, i64 %26
+  %27 = getelementptr i8, ptr %.split, i64 132
   %28 = load volatile i32, ptr %27, align 4
   %29 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #15, !srcloc !9
   %30 = icmp eq i32 %28, %29

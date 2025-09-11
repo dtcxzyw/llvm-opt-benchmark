@@ -608,7 +608,7 @@ define noundef zeroext i1 @_ZNK6icu_7731FormattedValueStringBuilderImpl16nextPos
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %6 = load i32, ptr %5, align 8, !tbaa !23
   %7 = icmp sgt i32 %6, 0
-  br i1 %7, label %8, label %31
+  br i1 %7, label %8, label %32
 
 8:                                                ; preds = %4
   %9 = load i64, ptr %1, align 8, !tbaa !29
@@ -619,480 +619,484 @@ define noundef zeroext i1 @_ZNK6icu_7731FormattedValueStringBuilderImpl16nextPos
   br i1 %11, label %14, label %.thread
 
 14:                                               ; preds = %8
-  %15 = getelementptr inbounds %"struct.icu_77::SpanInfo", ptr %13, i64 %9, i32 2
-  %16 = load i32, ptr %15, align 4, !tbaa !32
-  %17 = icmp sgt i64 %9, 0
-  br i1 %17, label %.thread, label %31
+  %15 = getelementptr inbounds %"struct.icu_77::SpanInfo", ptr %13, i64 %9
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %17 = load i32, ptr %16, align 4, !tbaa !32
+  %18 = icmp sgt i64 %9, 0
+  br i1 %18, label %.thread, label %32
 
 .thread:                                          ; preds = %8, %14
-  %.1144230 = phi i32 [ %16, %14 ], [ -1, %8 ]
-  %18 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %19 = load i32, ptr %18, align 4, !tbaa !35
-  %20 = getelementptr %"struct.icu_77::SpanInfo", ptr %13, i64 %9
-  %21 = getelementptr i8, ptr %20, i64 -16
-  %22 = load i32, ptr %21, align 4, !tbaa !36
-  %23 = icmp eq i32 %19, %22
-  br i1 %23, label %24, label %31
+  %.1144230 = phi i32 [ %17, %14 ], [ -1, %8 ]
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %20 = load i32, ptr %19, align 4, !tbaa !35
+  %21 = getelementptr %"struct.icu_77::SpanInfo", ptr %13, i64 %9
+  %22 = getelementptr i8, ptr %21, i64 -16
+  %23 = load i32, ptr %22, align 4, !tbaa !36
+  %24 = icmp eq i32 %20, %23
+  br i1 %24, label %25, label %32
 
-24:                                               ; preds = %.thread
-  %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %26 = load i32, ptr %25, align 8, !tbaa !37
-  %27 = getelementptr i8, ptr %20, i64 -12
-  %28 = load i32, ptr %27, align 4, !tbaa !38
-  %29 = icmp eq i32 %26, %28
-  %30 = zext i1 %29 to i8
-  br label %31
+25:                                               ; preds = %.thread
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %27 = load i32, ptr %26, align 8, !tbaa !37
+  %28 = getelementptr i8, ptr %21, i64 -12
+  %29 = load i32, ptr %28, align 4, !tbaa !38
+  %30 = icmp eq i32 %27, %29
+  %31 = zext i1 %30 to i8
+  br label %32
 
-31:                                               ; preds = %14, %24, %.thread, %4
-  %.0143 = phi i32 [ -1, %4 ], [ %.1144230, %.thread ], [ %.1144230, %24 ], [ %16, %14 ]
-  %.0136 = phi i8 [ 0, %4 ], [ 0, %.thread ], [ %30, %24 ], [ 0, %14 ]
+32:                                               ; preds = %14, %25, %.thread, %4
+  %.0143 = phi i32 [ -1, %4 ], [ %.1144230, %.thread ], [ %.1144230, %25 ], [ %17, %14 ]
+  %.0136 = phi i8 [ 0, %4 ], [ 0, %.thread ], [ %31, %25 ], [ 0, %14 ]
   %.not301 = icmp eq i8 %2, 0
   %.phi.trans.insert437 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %.pre435.pre = load i32, ptr %.phi.trans.insert437, align 4, !tbaa !35
-  br i1 %.not301, label %._crit_edge, label %32
+  br i1 %.not301, label %._crit_edge, label %33
 
-32:                                               ; preds = %31
-  %33 = lshr i8 %2, 4
-  %34 = zext nneg i8 %33 to i32
-  %35 = icmp eq i32 %.pre435.pre, %34
-  br i1 %35, label %36, label %._crit_edge
+33:                                               ; preds = %32
+  %34 = lshr i8 %2, 4
+  %35 = zext nneg i8 %34 to i32
+  %36 = icmp eq i32 %.pre435.pre, %35
+  br i1 %36, label %37, label %._crit_edge
 
-36:                                               ; preds = %32
-  %37 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %38 = load i32, ptr %37, align 8, !tbaa !37
-  %39 = and i8 %2, 15
-  %40 = zext nneg i8 %39 to i32
-  %41 = icmp eq i32 %38, %40
-  %42 = zext i1 %41 to i8
+37:                                               ; preds = %33
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %39 = load i32, ptr %38, align 8, !tbaa !37
+  %40 = and i8 %2, 15
+  %41 = zext nneg i8 %40 to i32
+  %42 = icmp eq i32 %39, %41
+  %43 = zext i1 %42 to i8
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %31, %32, %36
-  %.0150 = phi i8 [ 0, %32 ], [ %42, %36 ], [ 0, %31 ]
-  %43 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %46 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %47 = load i32, ptr %46, align 8, !tbaa !39
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 140
-  %49 = load i32, ptr %48, align 4, !tbaa !40
-  %.not360 = icmp sgt i32 %47, %49
+._crit_edge:                                      ; preds = %32, %33, %37
+  %.0150 = phi i8 [ 0, %33 ], [ %43, %37 ], [ 0, %32 ]
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %48 = load i32, ptr %47, align 8, !tbaa !39
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 140
+  %50 = load i32, ptr %49, align 4, !tbaa !40
+  %.not360 = icmp sgt i32 %48, %50
   br i1 %.not360, label %.thread291, label %.lr.ph
 
 .lr.ph:                                           ; preds = %._crit_edge
-  %50 = load i32, ptr %45, align 8, !tbaa !41
-  %51 = add nsw i32 %49, %50
-  %52 = add nsw i32 %47, %50
-  %53 = icmp eq i32 %.pre435.pre, 2
-  %54 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %55 = load i32, ptr %54, align 8
-  %56 = icmp eq i32 %55, 0
-  %narrow = select i1 %53, i1 %56, i1 false
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %60 = lshr i8 %2, 4
-  %61 = zext nneg i8 %60 to i32
-  %62 = and i8 %2, 15
-  %63 = zext nneg i8 %62 to i32
-  br label %64
+  %51 = load i32, ptr %46, align 8, !tbaa !41
+  %52 = add nsw i32 %50, %51
+  %53 = add nsw i32 %48, %51
+  %54 = icmp eq i32 %.pre435.pre, 2
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %56 = load i32, ptr %55, align 8
+  %57 = icmp eq i32 %56, 0
+  %narrow = select i1 %54, i1 %57, i1 false
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %61 = lshr i8 %2, 4
+  %62 = zext nneg i8 %61 to i32
+  %63 = and i8 %2, 15
+  %64 = zext nneg i8 %63 to i32
+  br label %65
 
-64:                                               ; preds = %.lr.ph, %.thread252
-  %65 = phi i32 [ %51, %.lr.ph ], [ %251, %.thread252 ]
-  %66 = phi i32 [ %50, %.lr.ph ], [ %249, %.thread252 ]
+65:                                               ; preds = %.lr.ph, %.thread252
+  %66 = phi i32 [ %52, %.lr.ph ], [ %255, %.thread252 ]
+  %67 = phi i32 [ %51, %.lr.ph ], [ %253, %.thread252 ]
   %.0128367 = phi i32 [ -1, %.lr.ph ], [ %.2130267, %.thread252 ]
   %.2138366 = phi i8 [ %.0136, %.lr.ph ], [ %.3139266, %.thread252 ]
   %.2145365 = phi i32 [ %.0143, %.lr.ph ], [ %.3146265, %.thread252 ]
   %.1151364 = phi i8 [ %.0150, %.lr.ph ], [ %.2152264, %.thread252 ]
   %.0153363 = phi i1 [ %narrow, %.lr.ph ], [ %.1154263, %.thread252 ]
-  %.0156362 = phi i32 [ %52, %.lr.ph ], [ %248, %.thread252 ]
+  %.0156362 = phi i32 [ %53, %.lr.ph ], [ %252, %.thread252 ]
   %.sroa.0215.0361 = phi i8 [ 0, %.lr.ph ], [ %.sroa.0215.1261, %.thread252 ]
-  %67 = icmp slt i32 %.0156362, %65
-  %68 = load i8, ptr %44, align 8, !range !42
-  %69 = trunc nuw i8 %68 to i1
-  %70 = load ptr, ptr %57, align 8
-  %71 = select i1 %69, ptr %70, ptr %57
-  %72 = sext i32 %.0156362 to i64
-  %73 = getelementptr inbounds %"struct.icu_77::FormattedStringBuilder::Field", ptr %71, i64 %72
-  %74 = select i1 %67, ptr %73, ptr @_ZN6icu_77L9kEndFieldE
-  %75 = load i8, ptr %74, align 1, !tbaa !17
+  %68 = icmp slt i32 %.0156362, %66
+  %69 = load i8, ptr %45, align 8, !range !42
+  %70 = trunc nuw i8 %69 to i1
+  %71 = load ptr, ptr %58, align 8
+  %72 = select i1 %70, ptr %71, ptr %58
+  %73 = sext i32 %.0156362 to i64
+  %74 = getelementptr inbounds %"struct.icu_77::FormattedStringBuilder::Field", ptr %72, i64 %73
+  %75 = select i1 %68, ptr %74, ptr @_ZN6icu_77L9kEndFieldE
+  %76 = load i8, ptr %75, align 1, !tbaa !17
   %.not302 = icmp eq i8 %.sroa.0215.0361, 0
-  br i1 %.not302, label %113, label %76
+  br i1 %.not302, label %114, label %77
 
-76:                                               ; preds = %64
-  %.not303 = icmp eq i8 %.sroa.0215.0361, %75
-  br i1 %.not303, label %.thread252, label %77
+77:                                               ; preds = %65
+  %.not303 = icmp eq i8 %.sroa.0215.0361, %76
+  br i1 %.not303, label %.thread252, label %78
 
-77:                                               ; preds = %76
-  %78 = sub nsw i32 %.0156362, %66
-  %79 = icmp ne i8 %.sroa.0215.0361, 38
+78:                                               ; preds = %77
+  %79 = sub nsw i32 %.0156362, %67
+  %80 = icmp ne i8 %.sroa.0215.0361, 38
   %.mask.i = and i8 %.sroa.0215.0361, -16
-  %80 = icmp ne i8 %.mask.i, 48
-  %81 = and i1 %79, %80
-  br i1 %81, label %82, label %.thread231
+  %81 = icmp ne i8 %.mask.i, 48
+  %82 = and i1 %80, %81
+  br i1 %82, label %83, label %.thread231
 
-82:                                               ; preds = %77
-  %83 = tail call noundef ptr @_ZN6icu_777unisets3getENS0_3KeyE(i32 noundef 1)
-  %84 = load i8, ptr %44, align 8, !tbaa !43, !range !42, !noundef !44
-  %85 = trunc nuw i8 %84 to i1
-  %86 = load ptr, ptr %58, align 8
-  %87 = select i1 %85, ptr %86, ptr %58
-  %88 = load i32, ptr %45, align 8, !tbaa !41
-  %89 = sext i32 %88 to i64
-  %90 = getelementptr inbounds i16, ptr %87, i64 %89
-  %91 = tail call noundef i32 @_ZNK6icu_7710UnicodeSet8spanBackEPKDsi17USetSpanCondition(ptr noundef nonnull align 8 dereferenceable(200) %83, ptr noundef %90, i32 noundef %78, i32 noundef 1)
-  %.not189 = icmp sgt i32 %91, %.0128367
-  br i1 %.not189, label %94, label %92
+83:                                               ; preds = %78
+  %84 = tail call noundef ptr @_ZN6icu_777unisets3getENS0_3KeyE(i32 noundef 1)
+  %85 = load i8, ptr %45, align 8, !tbaa !43, !range !42, !noundef !44
+  %86 = trunc nuw i8 %85 to i1
+  %87 = load ptr, ptr %59, align 8
+  %88 = select i1 %86, ptr %87, ptr %59
+  %89 = load i32, ptr %46, align 8, !tbaa !41
+  %90 = sext i32 %89 to i64
+  %91 = getelementptr inbounds i16, ptr %88, i64 %90
+  %92 = tail call noundef i32 @_ZNK6icu_7710UnicodeSet8spanBackEPKDsi17USetSpanCondition(ptr noundef nonnull align 8 dereferenceable(200) %84, ptr noundef %91, i32 noundef %79, i32 noundef 1)
+  %.not189 = icmp sgt i32 %92, %.0128367
+  br i1 %.not189, label %95, label %93
 
-.thread231:                                       ; preds = %77
-  %.not189233 = icmp sgt i32 %78, %.0128367
-  br i1 %.not189233, label %.thread235, label %92
+.thread231:                                       ; preds = %78
+  %.not189233 = icmp sgt i32 %79, %.0128367
+  br i1 %.not189233, label %.thread235, label %93
 
-92:                                               ; preds = %.thread231, %82
-  %93 = add nsw i32 %.0156362, -1
+93:                                               ; preds = %.thread231, %83
+  %94 = add nsw i32 %.0156362, -1
   br label %.thread252
 
-94:                                               ; preds = %82
-  %95 = tail call noundef ptr @_ZN6icu_777unisets3getENS0_3KeyE(i32 noundef 1)
-  %96 = load i8, ptr %44, align 8, !tbaa !43, !range !42, !noundef !44
-  %97 = trunc nuw i8 %96 to i1
-  %98 = load ptr, ptr %58, align 8
-  %99 = select i1 %97, ptr %98, ptr %58
-  %100 = load i32, ptr %45, align 8, !tbaa !41
-  %101 = sext i32 %100 to i64
-  %102 = getelementptr inbounds i16, ptr %99, i64 %101
-  %103 = sext i32 %.0128367 to i64
-  %104 = getelementptr inbounds i16, ptr %102, i64 %103
-  %105 = load i32, ptr %48, align 4, !tbaa !40
-  %106 = sub nsw i32 %105, %.0128367
-  %107 = tail call noundef i32 @_ZNK6icu_7710UnicodeSet4spanEPKDsi17USetSpanCondition(ptr noundef nonnull align 8 dereferenceable(200) %95, ptr noundef %104, i32 noundef %106, i32 noundef 1)
-  %108 = add nsw i32 %107, %.0128367
+95:                                               ; preds = %83
+  %96 = tail call noundef ptr @_ZN6icu_777unisets3getENS0_3KeyE(i32 noundef 1)
+  %97 = load i8, ptr %45, align 8, !tbaa !43, !range !42, !noundef !44
+  %98 = trunc nuw i8 %97 to i1
+  %99 = load ptr, ptr %59, align 8
+  %100 = select i1 %98, ptr %99, ptr %59
+  %101 = load i32, ptr %46, align 8, !tbaa !41
+  %102 = sext i32 %101 to i64
+  %103 = getelementptr inbounds i16, ptr %100, i64 %102
+  %104 = sext i32 %.0128367 to i64
+  %105 = getelementptr inbounds i16, ptr %103, i64 %104
+  %106 = load i32, ptr %49, align 4, !tbaa !40
+  %107 = sub nsw i32 %106, %.0128367
+  %108 = tail call noundef i32 @_ZNK6icu_7710UnicodeSet4spanEPKDsi17USetSpanCondition(ptr noundef nonnull align 8 dereferenceable(200) %96, ptr noundef %105, i32 noundef %107, i32 noundef 1)
+  %109 = add nsw i32 %108, %.0128367
   br label %.thread235
 
-.thread235:                                       ; preds = %.thread231, %94
-  %.0173234237 = phi i32 [ %91, %94 ], [ %78, %.thread231 ]
-  %.0174 = phi i32 [ %108, %94 ], [ %.0128367, %.thread231 ]
-  %109 = lshr i8 %.sroa.0215.0361, 4
-  %110 = zext nneg i8 %109 to i32
-  %111 = and i8 %.sroa.0215.0361, 15
-  %112 = zext nneg i8 %111 to i32
-  tail call void @_ZN6icu_7724ConstrainedFieldPosition8setStateEiiii(ptr noundef nonnull align 8 dereferenceable(25) %1, i32 noundef %110, i32 noundef %112, i32 noundef %.0174, i32 noundef %.0173234237)
+.thread235:                                       ; preds = %.thread231, %95
+  %.0173234237 = phi i32 [ %92, %95 ], [ %79, %.thread231 ]
+  %.0174 = phi i32 [ %109, %95 ], [ %.0128367, %.thread231 ]
+  %110 = lshr i8 %.sroa.0215.0361, 4
+  %111 = zext nneg i8 %110 to i32
+  %112 = and i8 %.sroa.0215.0361, 15
+  %113 = zext nneg i8 %112 to i32
+  tail call void @_ZN6icu_7724ConstrainedFieldPosition8setStateEiiii(ptr noundef nonnull align 8 dereferenceable(25) %1, i32 noundef %111, i32 noundef %113, i32 noundef %.0174, i32 noundef %.0173234237)
   br label %.thread287
 
-113:                                              ; preds = %64
-  %114 = icmp sgt i32 %.0156362, %66
-  %115 = trunc nuw i8 %.2138366 to i1
-  %or.cond = select i1 %114, i1 %115, i1 false
-  br i1 %or.cond, label %116, label %.thread238
+114:                                              ; preds = %65
+  %115 = icmp sgt i32 %.0156362, %67
+  %116 = trunc nuw i8 %.2138366 to i1
+  %or.cond = select i1 %115, i1 %116, i1 false
+  br i1 %or.cond, label %117, label %.thread238
 
-116:                                              ; preds = %113
-  %117 = load i64, ptr %1, align 8, !tbaa !29
-  %118 = add nsw i64 %117, -1
-  %119 = load ptr, ptr %59, align 8, !tbaa !18
-  %120 = getelementptr inbounds %"struct.icu_77::SpanInfo", ptr %119, i64 %118, i32 3
-  %121 = load i32, ptr %120, align 4, !tbaa !45
-  %122 = sub nsw i32 %.0156362, %121
-  %123 = sext i32 %122 to i64
-  %124 = getelementptr inbounds %"struct.icu_77::FormattedStringBuilder::Field", ptr %71, i64 %123
-  %125 = load i8, ptr %124, align 1, !tbaa !17
-  %126 = icmp eq i8 %125, 49
-  br i1 %126, label %127, label %.thread238
+117:                                              ; preds = %114
+  %118 = load i64, ptr %1, align 8, !tbaa !29
+  %119 = add nsw i64 %118, -1
+  %120 = load ptr, ptr %60, align 8, !tbaa !18
+  %121 = getelementptr inbounds %"struct.icu_77::SpanInfo", ptr %120, i64 %119
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 12
+  %123 = load i32, ptr %122, align 4, !tbaa !45
+  %124 = sub nsw i32 %.0156362, %123
+  %125 = sext i32 %124 to i64
+  %126 = getelementptr inbounds %"struct.icu_77::FormattedStringBuilder::Field", ptr %72, i64 %125
+  %127 = load i8, ptr %126, align 1, !tbaa !17
+  %128 = icmp eq i8 %127, 49
+  br i1 %128, label %129, label %.thread238
 
-127:                                              ; preds = %116
-  %128 = tail call noundef signext i8 @_ZNK6icu_7724ConstrainedFieldPosition12matchesFieldEii(ptr noundef nonnull align 8 dereferenceable(25) %1, i32 noundef 3, i32 noundef 1)
-  %.not180 = icmp eq i8 %128, 0
-  br i1 %.not180, label %.thread238, label %129
+129:                                              ; preds = %117
+  %130 = tail call noundef signext i8 @_ZNK6icu_7724ConstrainedFieldPosition12matchesFieldEii(ptr noundef nonnull align 8 dereferenceable(25) %1, i32 noundef 3, i32 noundef 1)
+  %.not180 = icmp eq i8 %130, 0
+  br i1 %.not180, label %.thread238, label %131
 
-129:                                              ; preds = %127
-  %130 = load i32, ptr %45, align 8, !tbaa !41
-  %131 = load ptr, ptr %59, align 8, !tbaa !18
-  %132 = getelementptr inbounds %"struct.icu_77::SpanInfo", ptr %131, i64 %118, i32 3
-  %133 = load i32, ptr %132, align 4, !tbaa !45
-  %134 = add i32 %130, %133
-  %135 = sub i32 %.0156362, %134
-  %136 = add nsw i32 %135, %133
-  tail call void @_ZN6icu_7724ConstrainedFieldPosition8setStateEiiii(ptr noundef nonnull align 8 dereferenceable(25) %1, i32 noundef 3, i32 noundef 1, i32 noundef %135, i32 noundef %136)
+131:                                              ; preds = %129
+  %132 = load i32, ptr %46, align 8, !tbaa !41
+  %133 = load ptr, ptr %60, align 8, !tbaa !18
+  %134 = getelementptr inbounds %"struct.icu_77::SpanInfo", ptr %133, i64 %119
+  %135 = getelementptr inbounds nuw i8, ptr %134, i64 12
+  %136 = load i32, ptr %135, align 4, !tbaa !45
+  %137 = add i32 %132, %136
+  %138 = sub i32 %.0156362, %137
+  %139 = add nsw i32 %138, %136
+  tail call void @_ZN6icu_7724ConstrainedFieldPosition8setStateEiiii(ptr noundef nonnull align 8 dereferenceable(25) %1, i32 noundef 3, i32 noundef 1, i32 noundef %138, i32 noundef %139)
   br label %.thread287
 
-.thread238:                                       ; preds = %116, %127, %113
-  %.sroa.0204.0 = phi i8 [ %75, %113 ], [ %125, %116 ], [ %75, %127 ]
-  %.3159 = phi i32 [ %.0156362, %113 ], [ %122, %116 ], [ %.0156362, %127 ]
-  %.4140 = phi i8 [ %.2138366, %113 ], [ 1, %116 ], [ 0, %127 ]
+.thread238:                                       ; preds = %117, %129, %114
+  %.sroa.0204.0 = phi i8 [ %76, %114 ], [ %127, %117 ], [ %76, %129 ]
+  %.3159 = phi i32 [ %.0156362, %114 ], [ %124, %117 ], [ %.0156362, %129 ]
+  %.4140 = phi i8 [ %.2138366, %114 ], [ 1, %117 ], [ 0, %129 ]
   %.sroa.0204.0.fr = freeze i8 %.sroa.0204.0
-  %137 = tail call noundef signext i8 @_ZNK6icu_7724ConstrainedFieldPosition12matchesFieldEii(ptr noundef nonnull align 8 dereferenceable(25) %1, i32 noundef 2, i32 noundef 0)
-  %.not181 = icmp eq i8 %137, 0
-  br i1 %.not181, label %159, label %138
+  %140 = tail call noundef signext i8 @_ZNK6icu_7724ConstrainedFieldPosition12matchesFieldEii(ptr noundef nonnull align 8 dereferenceable(25) %1, i32 noundef 2, i32 noundef 0)
+  %.not181 = icmp eq i8 %140, 0
+  br i1 %.not181, label %162, label %141
 
-138:                                              ; preds = %.thread238
-  %139 = load i32, ptr %45, align 8, !tbaa !41
-  %140 = icmp sle i32 %.3159, %139
-  %or.cond5 = select i1 %140, i1 true, i1 %.0153363
-  %141 = trunc nuw i8 %.1151364 to i1
-  %or.cond7 = select i1 %or.cond5, i1 true, i1 %141
-  br i1 %or.cond7, label %159, label %142
+141:                                              ; preds = %.thread238
+  %142 = load i32, ptr %46, align 8, !tbaa !41
+  %143 = icmp sle i32 %.3159, %142
+  %or.cond5 = select i1 %143, i1 true, i1 %.0153363
+  %144 = trunc nuw i8 %.1151364 to i1
+  %or.cond7 = select i1 %or.cond5, i1 true, i1 %144
+  br i1 %or.cond7, label %162, label %145
 
-142:                                              ; preds = %138
-  %143 = load i8, ptr %44, align 8, !tbaa !43, !range !42, !noundef !44
-  %144 = trunc nuw i8 %143 to i1
-  %145 = load ptr, ptr %57, align 8
-  %146 = select i1 %144, ptr %145, ptr %57
-  %147 = sext i32 %.3159 to i64
-  %148 = getelementptr %"struct.icu_77::FormattedStringBuilder::Field", ptr %146, i64 %147
-  %149 = getelementptr i8, ptr %148, i64 -1
-  %.sroa.041.0.copyload = load i8, ptr %149, align 1, !tbaa !17
-  switch i8 %.sroa.041.0.copyload, label %159 [
-    i8 38, label %150
-    i8 32, label %150
+145:                                              ; preds = %141
+  %146 = load i8, ptr %45, align 8, !tbaa !43, !range !42, !noundef !44
+  %147 = trunc nuw i8 %146 to i1
+  %148 = load ptr, ptr %58, align 8
+  %149 = select i1 %147, ptr %148, ptr %58
+  %150 = sext i32 %.3159 to i64
+  %151 = getelementptr %"struct.icu_77::FormattedStringBuilder::Field", ptr %149, i64 %150
+  %152 = getelementptr i8, ptr %151, i64 -1
+  %.sroa.041.0.copyload = load i8, ptr %152, align 1, !tbaa !17
+  switch i8 %.sroa.041.0.copyload, label %162 [
+    i8 38, label %153
+    i8 32, label %153
   ]
 
-150:                                              ; preds = %142, %142
+153:                                              ; preds = %145, %145
   switch i8 %.sroa.0204.0.fr, label %.lr.ph370.preheader [
-    i8 38, label %159
-    i8 32, label %159
+    i8 38, label %162
+    i8 32, label %162
   ]
 
-.lr.ph370.preheader:                              ; preds = %150
-  %151 = sext i32 %.3159 to i64
-  %152 = sext i32 %139 to i64
-  %153 = add i32 %139, -1
+.lr.ph370.preheader:                              ; preds = %153
+  %154 = sext i32 %.3159 to i64
+  %155 = sext i32 %142 to i64
+  %156 = add i32 %142, -1
   br label %.lr.ph370
 
-.lr.ph370:                                        ; preds = %.lr.ph370.preheader, %155
-  %indvars.iv.in = phi i64 [ %151, %.lr.ph370.preheader ], [ %indvars.iv, %155 ]
+.lr.ph370:                                        ; preds = %.lr.ph370.preheader, %158
+  %indvars.iv.in = phi i64 [ %154, %.lr.ph370.preheader ], [ %indvars.iv, %158 ]
   %indvars.iv = add nsw i64 %indvars.iv.in, -1
-  %154 = getelementptr inbounds %"struct.icu_77::FormattedStringBuilder::Field", ptr %146, i64 %indvars.iv
-  %.sroa.0.0.copyload = load i8, ptr %154, align 1, !tbaa !17
+  %157 = getelementptr inbounds %"struct.icu_77::FormattedStringBuilder::Field", ptr %149, i64 %indvars.iv
+  %.sroa.0.0.copyload = load i8, ptr %157, align 1, !tbaa !17
   switch i8 %.sroa.0.0.copyload, label %.critedge.split.loop.exit498 [
-    i8 38, label %155
-    i8 32, label %155
+    i8 38, label %158
+    i8 32, label %158
   ]
 
-155:                                              ; preds = %.lr.ph370, %.lr.ph370
-  %.not182.not = icmp sgt i64 %indvars.iv, %152
+158:                                              ; preds = %.lr.ph370, %.lr.ph370
+  %.not182.not = icmp sgt i64 %indvars.iv, %155
   br i1 %.not182.not, label %.lr.ph370, label %.critedge, !llvm.loop !46
 
 .critedge.split.loop.exit498:                     ; preds = %.lr.ph370
-  %156 = trunc nsw i64 %indvars.iv to i32
+  %159 = trunc nsw i64 %indvars.iv to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %155, %.critedge.split.loop.exit498
-  %.0166.lcssa.ph = phi i32 [ %156, %.critedge.split.loop.exit498 ], [ %153, %155 ]
-  %reass.sub = sub i32 %.0166.lcssa.ph, %139
-  %157 = add i32 %reass.sub, 1
-  %158 = sub nsw i32 %.3159, %139
-  tail call void @_ZN6icu_7724ConstrainedFieldPosition8setStateEiiii(ptr noundef nonnull align 8 dereferenceable(25) %1, i32 noundef 2, i32 noundef 0, i32 noundef %157, i32 noundef %158)
+.critedge:                                        ; preds = %158, %.critedge.split.loop.exit498
+  %.0166.lcssa.ph = phi i32 [ %159, %.critedge.split.loop.exit498 ], [ %156, %158 ]
+  %reass.sub = sub i32 %.0166.lcssa.ph, %142
+  %160 = add i32 %reass.sub, 1
+  %161 = sub nsw i32 %.3159, %142
+  tail call void @_ZN6icu_7724ConstrainedFieldPosition8setStateEiiii(ptr noundef nonnull align 8 dereferenceable(25) %1, i32 noundef 2, i32 noundef 0, i32 noundef %160, i32 noundef %161)
   br label %.thread287
 
-159:                                              ; preds = %150, %150, %142, %138, %.thread238
-  br i1 %.not301, label %191, label %160
+162:                                              ; preds = %153, %153, %145, %141, %.thread238
+  br i1 %.not301, label %194, label %163
 
-160:                                              ; preds = %159
-  %161 = tail call noundef signext i8 @_ZNK6icu_7724ConstrainedFieldPosition12matchesFieldEii(ptr noundef nonnull align 8 dereferenceable(25) %1, i32 noundef %61, i32 noundef %63)
-  %.not183 = icmp eq i8 %161, 0
-  br i1 %.not183, label %191, label %162
+163:                                              ; preds = %162
+  %164 = tail call noundef signext i8 @_ZNK6icu_7724ConstrainedFieldPosition12matchesFieldEii(ptr noundef nonnull align 8 dereferenceable(25) %1, i32 noundef %62, i32 noundef %64)
+  %.not183 = icmp eq i8 %164, 0
+  br i1 %.not183, label %194, label %165
 
-162:                                              ; preds = %160
-  %163 = load i32, ptr %45, align 8, !tbaa !41
-  %164 = icmp sle i32 %.3159, %163
-  %165 = trunc nuw i8 %.1151364 to i1
-  %or.cond9 = select i1 %164, i1 true, i1 %165
-  br i1 %or.cond9, label %191, label %166
+165:                                              ; preds = %163
+  %166 = load i32, ptr %46, align 8, !tbaa !41
+  %167 = icmp sle i32 %.3159, %166
+  %168 = trunc nuw i8 %.1151364 to i1
+  %or.cond9 = select i1 %167, i1 true, i1 %168
+  br i1 %or.cond9, label %194, label %169
 
-166:                                              ; preds = %162
-  %167 = load i8, ptr %44, align 8, !tbaa !43, !range !42, !noundef !44
-  %168 = trunc nuw i8 %167 to i1
-  %169 = load ptr, ptr %57, align 8
-  %170 = select i1 %168, ptr %169, ptr %57
-  %171 = sext i32 %.3159 to i64
-  %172 = getelementptr %"struct.icu_77::FormattedStringBuilder::Field", ptr %170, i64 %171
-  %173 = getelementptr i8, ptr %172, i64 -1
-  %174 = load i8, ptr %173, align 1, !tbaa !48
-  %.mask.i193 = and i8 %174, -16
-  %175 = icmp eq i8 %.mask.i193, 32
-  %176 = icmp eq i8 %174, 1
-  %spec.select.i194 = or i1 %176, %175
-  br i1 %spec.select.i194, label %177, label %191
+169:                                              ; preds = %165
+  %170 = load i8, ptr %45, align 8, !tbaa !43, !range !42, !noundef !44
+  %171 = trunc nuw i8 %170 to i1
+  %172 = load ptr, ptr %58, align 8
+  %173 = select i1 %171, ptr %172, ptr %58
+  %174 = sext i32 %.3159 to i64
+  %175 = getelementptr %"struct.icu_77::FormattedStringBuilder::Field", ptr %173, i64 %174
+  %176 = getelementptr i8, ptr %175, i64 -1
+  %177 = load i8, ptr %176, align 1, !tbaa !48
+  %.mask.i193 = and i8 %177, -16
+  %178 = icmp eq i8 %.mask.i193, 32
+  %179 = icmp eq i8 %177, 1
+  %spec.select.i194 = or i1 %179, %178
+  br i1 %spec.select.i194, label %180, label %194
 
-177:                                              ; preds = %166
+180:                                              ; preds = %169
   %.mask.i195 = and i8 %.sroa.0204.0.fr, -16
-  %178 = icmp eq i8 %.mask.i195, 32
-  %179 = icmp eq i8 %.sroa.0204.0.fr, 1
-  %spec.select.i196 = or i1 %179, %178
-  br i1 %spec.select.i196, label %191, label %.lr.ph375.preheader
+  %181 = icmp eq i8 %.mask.i195, 32
+  %182 = icmp eq i8 %.sroa.0204.0.fr, 1
+  %spec.select.i196 = or i1 %182, %181
+  br i1 %spec.select.i196, label %194, label %.lr.ph375.preheader
 
-.lr.ph375.preheader:                              ; preds = %177
-  %180 = sext i32 %.3159 to i64
-  %181 = sext i32 %163 to i64
-  %182 = add i32 %163, -1
+.lr.ph375.preheader:                              ; preds = %180
+  %183 = sext i32 %.3159 to i64
+  %184 = sext i32 %166 to i64
+  %185 = add i32 %166, -1
   br label %.lr.ph375
 
-.lr.ph375:                                        ; preds = %.lr.ph375.preheader, %187
-  %indvars.iv430.in = phi i64 [ %180, %.lr.ph375.preheader ], [ %indvars.iv430, %187 ]
+.lr.ph375:                                        ; preds = %.lr.ph375.preheader, %190
+  %indvars.iv430.in = phi i64 [ %183, %.lr.ph375.preheader ], [ %indvars.iv430, %190 ]
   %indvars.iv430 = add nsw i64 %indvars.iv430.in, -1
-  %183 = getelementptr inbounds %"struct.icu_77::FormattedStringBuilder::Field", ptr %170, i64 %indvars.iv430
-  %184 = load i8, ptr %183, align 1, !tbaa !48
-  %.mask.i197 = and i8 %184, -16
-  %185 = icmp eq i8 %.mask.i197, 32
-  %186 = icmp eq i8 %184, 1
-  %spec.select.i198 = or i1 %186, %185
-  br i1 %spec.select.i198, label %187, label %.critedge11.split.loop.exit
+  %186 = getelementptr inbounds %"struct.icu_77::FormattedStringBuilder::Field", ptr %173, i64 %indvars.iv430
+  %187 = load i8, ptr %186, align 1, !tbaa !48
+  %.mask.i197 = and i8 %187, -16
+  %188 = icmp eq i8 %.mask.i197, 32
+  %189 = icmp eq i8 %187, 1
+  %spec.select.i198 = or i1 %189, %188
+  br i1 %spec.select.i198, label %190, label %.critedge11.split.loop.exit
 
-187:                                              ; preds = %.lr.ph375
-  %.not184.not = icmp sgt i64 %indvars.iv430, %181
+190:                                              ; preds = %.lr.ph375
+  %.not184.not = icmp sgt i64 %indvars.iv430, %184
   br i1 %.not184.not, label %.lr.ph375, label %.critedge11, !llvm.loop !49
 
 .critedge11.split.loop.exit:                      ; preds = %.lr.ph375
-  %188 = trunc nsw i64 %indvars.iv430 to i32
+  %191 = trunc nsw i64 %indvars.iv430 to i32
   br label %.critedge11
 
-.critedge11:                                      ; preds = %187, %.critedge11.split.loop.exit
-  %.0155.lcssa.ph = phi i32 [ %188, %.critedge11.split.loop.exit ], [ %182, %187 ]
-  %reass.sub379 = sub i32 %.0155.lcssa.ph, %163
-  %189 = add i32 %reass.sub379, 1
-  %190 = sub nsw i32 %.3159, %163
-  tail call void @_ZN6icu_7724ConstrainedFieldPosition8setStateEiiii(ptr noundef nonnull align 8 dereferenceable(25) %1, i32 noundef %61, i32 noundef %63, i32 noundef %189, i32 noundef %190)
+.critedge11:                                      ; preds = %190, %.critedge11.split.loop.exit
+  %.0155.lcssa.ph = phi i32 [ %191, %.critedge11.split.loop.exit ], [ %185, %190 ]
+  %reass.sub379 = sub i32 %.0155.lcssa.ph, %166
+  %192 = add i32 %reass.sub379, 1
+  %193 = sub nsw i32 %.3159, %166
+  tail call void @_ZN6icu_7724ConstrainedFieldPosition8setStateEiiii(ptr noundef nonnull align 8 dereferenceable(25) %1, i32 noundef %62, i32 noundef %64, i32 noundef %192, i32 noundef %193)
   br label %.thread287
 
-191:                                              ; preds = %177, %166, %162, %160, %159
-  %192 = trunc nuw i8 %.4140 to i1
-  br i1 %192, label %.critedge13, label %193
+194:                                              ; preds = %180, %169, %165, %163, %162
+  %195 = trunc nuw i8 %.4140 to i1
+  br i1 %195, label %.critedge13, label %196
 
-193:                                              ; preds = %191
-  %194 = icmp eq i8 %.sroa.0204.0.fr, 49
-  br i1 %194, label %.critedge15, label %195
+196:                                              ; preds = %194
+  %197 = icmp eq i8 %.sroa.0204.0.fr, 49
+  br i1 %197, label %.critedge15, label %198
 
-195:                                              ; preds = %193
-  %196 = load i32, ptr %45, align 8, !tbaa !41
-  %197 = sub nsw i32 %.3159, %196
-  %198 = icmp eq i32 %197, %.2145365
-  br i1 %198, label %.critedge15, label %.critedge13
+198:                                              ; preds = %196
+  %199 = load i32, ptr %46, align 8, !tbaa !41
+  %200 = sub nsw i32 %.3159, %199
+  %201 = icmp eq i32 %200, %.2145365
+  br i1 %201, label %.critedge15, label %.critedge13
 
-.critedge15:                                      ; preds = %193, %195
-  %199 = load i64, ptr %1, align 8, !tbaa !29
-  %200 = load i32, ptr %5, align 8, !tbaa !23
-  %201 = sext i32 %200 to i64
-  %.not185 = icmp slt i64 %199, %201
-  br i1 %.not185, label %202, label %.critedge15..thread291.loopexit_crit_edge
+.critedge15:                                      ; preds = %196, %198
+  %202 = load i64, ptr %1, align 8, !tbaa !29
+  %203 = load i32, ptr %5, align 8, !tbaa !23
+  %204 = sext i32 %203 to i64
+  %.not185 = icmp slt i64 %202, %204
+  br i1 %.not185, label %205, label %.critedge15..thread291.loopexit_crit_edge
 
 .critedge15..thread291.loopexit_crit_edge:        ; preds = %.critedge15
-  %.pre436.pre = load i32, ptr %48, align 4, !tbaa !40
+  %.pre436.pre = load i32, ptr %49, align 4, !tbaa !40
   br label %.thread291.loopexit
 
-202:                                              ; preds = %.critedge15
-  %203 = load ptr, ptr %59, align 8, !tbaa !18
-  %204 = getelementptr inbounds %"struct.icu_77::SpanInfo", ptr %203, i64 %199
-  %205 = load i32, ptr %204, align 4, !tbaa !36
-  %206 = getelementptr inbounds nuw i8, ptr %204, i64 4
-  %207 = load i32, ptr %206, align 4, !tbaa !38
-  %208 = getelementptr inbounds nuw i8, ptr %204, i64 12
-  %209 = load i32, ptr %208, align 4, !tbaa !45
-  %210 = add nsw i64 %199, 1
-  tail call void @_ZN6icu_7724ConstrainedFieldPosition24setInt64IterationContextEl(ptr noundef nonnull align 8 dereferenceable(25) %1, i64 noundef %210)
-  %211 = load i32, ptr %5, align 8, !tbaa !23
-  %212 = sext i32 %211 to i64
-  %213 = icmp slt i64 %210, %212
-  br i1 %213, label %214, label %218
+205:                                              ; preds = %.critedge15
+  %206 = load ptr, ptr %60, align 8, !tbaa !18
+  %207 = getelementptr inbounds %"struct.icu_77::SpanInfo", ptr %206, i64 %202
+  %208 = load i32, ptr %207, align 4, !tbaa !36
+  %209 = getelementptr inbounds nuw i8, ptr %207, i64 4
+  %210 = load i32, ptr %209, align 4, !tbaa !38
+  %211 = getelementptr inbounds nuw i8, ptr %207, i64 12
+  %212 = load i32, ptr %211, align 4, !tbaa !45
+  %213 = add nsw i64 %202, 1
+  tail call void @_ZN6icu_7724ConstrainedFieldPosition24setInt64IterationContextEl(ptr noundef nonnull align 8 dereferenceable(25) %1, i64 noundef %213)
+  %214 = load i32, ptr %5, align 8, !tbaa !23
+  %215 = sext i32 %214 to i64
+  %216 = icmp slt i64 %213, %215
+  br i1 %216, label %217, label %222
 
-214:                                              ; preds = %202
-  %215 = load ptr, ptr %59, align 8, !tbaa !18
-  %216 = getelementptr inbounds %"struct.icu_77::SpanInfo", ptr %215, i64 %210, i32 2
-  %217 = load i32, ptr %216, align 4, !tbaa !32
-  br label %218
+217:                                              ; preds = %205
+  %218 = load ptr, ptr %60, align 8, !tbaa !18
+  %219 = getelementptr inbounds %"struct.icu_77::SpanInfo", ptr %218, i64 %213
+  %220 = getelementptr inbounds nuw i8, ptr %219, i64 8
+  %221 = load i32, ptr %220, align 4, !tbaa !32
+  br label %222
 
-218:                                              ; preds = %214, %202
-  %.5148 = phi i32 [ %217, %214 ], [ %.2145365, %202 ]
-  %219 = icmp eq i32 %209, 0
-  br i1 %219, label %246, label %220
+222:                                              ; preds = %217, %205
+  %.5148 = phi i32 [ %221, %217 ], [ %.2145365, %205 ]
+  %223 = icmp eq i32 %212, 0
+  br i1 %223, label %250, label %224
 
-220:                                              ; preds = %218
-  %221 = tail call noundef signext i8 @_ZNK6icu_7724ConstrainedFieldPosition12matchesFieldEii(ptr noundef nonnull align 8 dereferenceable(25) %1, i32 noundef %205, i32 noundef %207)
-  %.not186 = icmp eq i8 %221, 0
-  br i1 %.not186, label %226, label %222
+224:                                              ; preds = %222
+  %225 = tail call noundef signext i8 @_ZNK6icu_7724ConstrainedFieldPosition12matchesFieldEii(ptr noundef nonnull align 8 dereferenceable(25) %1, i32 noundef %208, i32 noundef %210)
+  %.not186 = icmp eq i8 %225, 0
+  br i1 %.not186, label %230, label %226
 
-222:                                              ; preds = %220
-  %223 = load i32, ptr %45, align 8, !tbaa !41
-  %224 = sub nsw i32 %.3159, %223
-  %225 = add nsw i32 %224, %209
-  tail call void @_ZN6icu_7724ConstrainedFieldPosition8setStateEiiii(ptr noundef nonnull align 8 dereferenceable(25) %1, i32 noundef %205, i32 noundef %207, i32 noundef %224, i32 noundef %225)
+226:                                              ; preds = %224
+  %227 = load i32, ptr %46, align 8, !tbaa !41
+  %228 = sub nsw i32 %.3159, %227
+  %229 = add nsw i32 %228, %212
+  tail call void @_ZN6icu_7724ConstrainedFieldPosition8setStateEiiii(ptr noundef nonnull align 8 dereferenceable(25) %1, i32 noundef %208, i32 noundef %210, i32 noundef %228, i32 noundef %229)
   br label %.thread287
 
-226:                                              ; preds = %220
-  br i1 %194, label %227, label %.thread252
+230:                                              ; preds = %224
+  br i1 %197, label %231, label %.thread252
 
-227:                                              ; preds = %226
-  %228 = tail call noundef signext i8 @_ZNK6icu_7724ConstrainedFieldPosition12matchesFieldEii(ptr noundef nonnull align 8 dereferenceable(25) %1, i32 noundef 3, i32 noundef 1)
-  %.not187 = icmp eq i8 %228, 0
-  br i1 %.not187, label %233, label %229
+231:                                              ; preds = %230
+  %232 = tail call noundef signext i8 @_ZNK6icu_7724ConstrainedFieldPosition12matchesFieldEii(ptr noundef nonnull align 8 dereferenceable(25) %1, i32 noundef 3, i32 noundef 1)
+  %.not187 = icmp eq i8 %232, 0
+  br i1 %.not187, label %237, label %233
 
-229:                                              ; preds = %227
-  %230 = load i32, ptr %45, align 8, !tbaa !41
-  %231 = sub nsw i32 %.3159, %230
-  %232 = add nsw i32 %231, %209
-  tail call void @_ZN6icu_7724ConstrainedFieldPosition8setStateEiiii(ptr noundef nonnull align 8 dereferenceable(25) %1, i32 noundef 3, i32 noundef 1, i32 noundef %231, i32 noundef %232)
+233:                                              ; preds = %231
+  %234 = load i32, ptr %46, align 8, !tbaa !41
+  %235 = sub nsw i32 %.3159, %234
+  %236 = add nsw i32 %235, %212
+  tail call void @_ZN6icu_7724ConstrainedFieldPosition8setStateEiiii(ptr noundef nonnull align 8 dereferenceable(25) %1, i32 noundef 3, i32 noundef 1, i32 noundef %235, i32 noundef %236)
   br label %.thread287
 
-233:                                              ; preds = %227
-  %234 = add i32 %.3159, -1
-  %235 = add i32 %234, %209
+237:                                              ; preds = %231
+  %238 = add i32 %.3159, -1
+  %239 = add i32 %238, %212
   br label %.thread252
 
-.critedge13:                                      ; preds = %191, %195
-  %236 = icmp ult i8 %.sroa.0204.0.fr, 16
-  br i1 %236, label %.thread252, label %switch.early.test
+.critedge13:                                      ; preds = %194, %198
+  %240 = icmp ult i8 %.sroa.0204.0.fr, 16
+  br i1 %240, label %.thread252, label %switch.early.test
 
 switch.early.test:                                ; preds = %.critedge13
-  switch i8 %.sroa.0204.0.fr, label %237 [
+  switch i8 %.sroa.0204.0.fr, label %241 [
     i8 -1, label %.thread252
     i8 32, label %.thread252
   ]
 
-237:                                              ; preds = %switch.early.test
-  %238 = lshr i8 %.sroa.0204.0.fr, 4
-  %239 = zext nneg i8 %238 to i32
-  %240 = and i8 %.sroa.0204.0.fr, 15
-  %241 = zext nneg i8 %240 to i32
-  %242 = tail call noundef signext i8 @_ZNK6icu_7724ConstrainedFieldPosition12matchesFieldEii(ptr noundef nonnull align 8 dereferenceable(25) %1, i32 noundef %239, i32 noundef %241)
-  %.not188 = icmp eq i8 %242, 0
-  br i1 %.not188, label %.thread252, label %243
+241:                                              ; preds = %switch.early.test
+  %242 = lshr i8 %.sroa.0204.0.fr, 4
+  %243 = zext nneg i8 %242 to i32
+  %244 = and i8 %.sroa.0204.0.fr, 15
+  %245 = zext nneg i8 %244 to i32
+  %246 = tail call noundef signext i8 @_ZNK6icu_7724ConstrainedFieldPosition12matchesFieldEii(ptr noundef nonnull align 8 dereferenceable(25) %1, i32 noundef %243, i32 noundef %245)
+  %.not188 = icmp eq i8 %246, 0
+  br i1 %.not188, label %.thread252, label %247
 
-243:                                              ; preds = %237
-  %244 = load i32, ptr %45, align 8, !tbaa !41
-  %245 = sub nsw i32 %.3159, %244
+247:                                              ; preds = %241
+  %248 = load i32, ptr %46, align 8, !tbaa !41
+  %249 = sub nsw i32 %.3159, %248
   br label %.thread252
 
-246:                                              ; preds = %218
-  %247 = add nsw i32 %.3159, -1
+250:                                              ; preds = %222
+  %251 = add nsw i32 %.3159, -1
   br label %.thread252
 
-.thread252:                                       ; preds = %switch.early.test, %switch.early.test, %.critedge13, %226, %233, %243, %237, %76, %92, %246
-  %.2130267 = phi i32 [ %.0128367, %246 ], [ %.0128367, %233 ], [ %.0128367, %226 ], [ %.0128367, %switch.early.test ], [ %.0128367, %237 ], [ %245, %243 ], [ %.0128367, %76 ], [ -1, %92 ], [ %.0128367, %.critedge13 ], [ %.0128367, %switch.early.test ]
-  %.3139266 = phi i8 [ 0, %246 ], [ 0, %233 ], [ 0, %226 ], [ 0, %switch.early.test ], [ 0, %237 ], [ 0, %243 ], [ %.2138366, %76 ], [ %.2138366, %92 ], [ 0, %.critedge13 ], [ 0, %switch.early.test ]
-  %.3146265 = phi i32 [ %.5148, %246 ], [ %.5148, %233 ], [ %.5148, %226 ], [ %.2145365, %switch.early.test ], [ %.2145365, %237 ], [ %.2145365, %243 ], [ %.2145365, %76 ], [ %.2145365, %92 ], [ %.2145365, %.critedge13 ], [ %.2145365, %switch.early.test ]
-  %.2152264 = phi i8 [ %.1151364, %246 ], [ 0, %233 ], [ 0, %226 ], [ 0, %switch.early.test ], [ 0, %237 ], [ 0, %243 ], [ %.1151364, %76 ], [ %.1151364, %92 ], [ 0, %.critedge13 ], [ 0, %switch.early.test ]
-  %.1154263 = phi i1 [ %.0153363, %246 ], [ false, %233 ], [ false, %226 ], [ false, %switch.early.test ], [ false, %237 ], [ false, %243 ], [ %.0153363, %76 ], [ %.0153363, %92 ], [ false, %.critedge13 ], [ false, %switch.early.test ]
-  %.2158262 = phi i32 [ %247, %246 ], [ %235, %233 ], [ %.3159, %226 ], [ %.3159, %switch.early.test ], [ %.3159, %237 ], [ %.3159, %243 ], [ %.0156362, %76 ], [ %93, %92 ], [ %.3159, %.critedge13 ], [ %.3159, %switch.early.test ]
-  %.sroa.0215.1261 = phi i8 [ 0, %246 ], [ 0, %233 ], [ 0, %226 ], [ 0, %switch.early.test ], [ 0, %237 ], [ %.sroa.0204.0.fr, %243 ], [ %.sroa.0215.0361, %76 ], [ 0, %92 ], [ 0, %.critedge13 ], [ 0, %switch.early.test ]
-  %248 = add nsw i32 %.2158262, 1
-  %249 = load i32, ptr %45, align 8, !tbaa !41
-  %250 = load i32, ptr %48, align 4, !tbaa !40
-  %251 = add nsw i32 %250, %249
-  %.not.not = icmp slt i32 %.2158262, %251
-  br i1 %.not.not, label %64, label %.thread291.loopexit, !llvm.loop !50
+.thread252:                                       ; preds = %switch.early.test, %switch.early.test, %.critedge13, %230, %237, %247, %241, %77, %93, %250
+  %.2130267 = phi i32 [ %.0128367, %250 ], [ %.0128367, %237 ], [ %.0128367, %230 ], [ %.0128367, %switch.early.test ], [ %.0128367, %241 ], [ %249, %247 ], [ %.0128367, %77 ], [ -1, %93 ], [ %.0128367, %.critedge13 ], [ %.0128367, %switch.early.test ]
+  %.3139266 = phi i8 [ 0, %250 ], [ 0, %237 ], [ 0, %230 ], [ 0, %switch.early.test ], [ 0, %241 ], [ 0, %247 ], [ %.2138366, %77 ], [ %.2138366, %93 ], [ 0, %.critedge13 ], [ 0, %switch.early.test ]
+  %.3146265 = phi i32 [ %.5148, %250 ], [ %.5148, %237 ], [ %.5148, %230 ], [ %.2145365, %switch.early.test ], [ %.2145365, %241 ], [ %.2145365, %247 ], [ %.2145365, %77 ], [ %.2145365, %93 ], [ %.2145365, %.critedge13 ], [ %.2145365, %switch.early.test ]
+  %.2152264 = phi i8 [ %.1151364, %250 ], [ 0, %237 ], [ 0, %230 ], [ 0, %switch.early.test ], [ 0, %241 ], [ 0, %247 ], [ %.1151364, %77 ], [ %.1151364, %93 ], [ 0, %.critedge13 ], [ 0, %switch.early.test ]
+  %.1154263 = phi i1 [ %.0153363, %250 ], [ false, %237 ], [ false, %230 ], [ false, %switch.early.test ], [ false, %241 ], [ false, %247 ], [ %.0153363, %77 ], [ %.0153363, %93 ], [ false, %.critedge13 ], [ false, %switch.early.test ]
+  %.2158262 = phi i32 [ %251, %250 ], [ %239, %237 ], [ %.3159, %230 ], [ %.3159, %switch.early.test ], [ %.3159, %241 ], [ %.3159, %247 ], [ %.0156362, %77 ], [ %94, %93 ], [ %.3159, %.critedge13 ], [ %.3159, %switch.early.test ]
+  %.sroa.0215.1261 = phi i8 [ 0, %250 ], [ 0, %237 ], [ 0, %230 ], [ 0, %switch.early.test ], [ 0, %241 ], [ %.sroa.0204.0.fr, %247 ], [ %.sroa.0215.0361, %77 ], [ 0, %93 ], [ 0, %.critedge13 ], [ 0, %switch.early.test ]
+  %252 = add nsw i32 %.2158262, 1
+  %253 = load i32, ptr %46, align 8, !tbaa !41
+  %254 = load i32, ptr %49, align 4, !tbaa !40
+  %255 = add nsw i32 %254, %253
+  %.not.not = icmp slt i32 %.2158262, %255
+  br i1 %.not.not, label %65, label %.thread291.loopexit, !llvm.loop !50
 
 .thread291.loopexit:                              ; preds = %.thread252, %.critedge15..thread291.loopexit_crit_edge
-  %.pre436 = phi i32 [ %.pre436.pre, %.critedge15..thread291.loopexit_crit_edge ], [ %250, %.thread252 ]
-  %.pre434 = load i32, ptr %43, align 4, !tbaa !35
+  %.pre436 = phi i32 [ %.pre436.pre, %.critedge15..thread291.loopexit_crit_edge ], [ %254, %.thread252 ]
+  %.pre434 = load i32, ptr %44, align 4, !tbaa !35
   br label %.thread291
 
 .thread291:                                       ; preds = %.thread291.loopexit, %._crit_edge
-  %252 = phi i32 [ %.pre436, %.thread291.loopexit ], [ %49, %._crit_edge ]
-  %253 = phi i32 [ %.pre434, %.thread291.loopexit ], [ %.pre435.pre, %._crit_edge ]
-  %254 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %255 = load i32, ptr %254, align 8, !tbaa !37
-  tail call void @_ZN6icu_7724ConstrainedFieldPosition8setStateEiiii(ptr noundef nonnull align 8 dereferenceable(25) %1, i32 noundef %253, i32 noundef %255, i32 noundef %252, i32 noundef %252)
+  %256 = phi i32 [ %.pre436, %.thread291.loopexit ], [ %50, %._crit_edge ]
+  %257 = phi i32 [ %.pre434, %.thread291.loopexit ], [ %.pre435.pre, %._crit_edge ]
+  %258 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %259 = load i32, ptr %258, align 8, !tbaa !37
+  tail call void @_ZN6icu_7724ConstrainedFieldPosition8setStateEiiii(ptr noundef nonnull align 8 dereferenceable(25) %1, i32 noundef %257, i32 noundef %259, i32 noundef %256, i32 noundef %256)
   br label %.thread287
 
-.thread287:                                       ; preds = %229, %222, %.critedge11, %.critedge, %129, %.thread235, %.thread291
-  %cond290 = phi i1 [ false, %.thread291 ], [ true, %.thread235 ], [ true, %129 ], [ true, %.critedge ], [ true, %.critedge11 ], [ true, %222 ], [ true, %229 ]
+.thread287:                                       ; preds = %233, %226, %.critedge11, %.critedge, %131, %.thread235, %.thread291
+  %cond290 = phi i1 [ false, %.thread291 ], [ true, %.thread235 ], [ true, %131 ], [ true, %.critedge ], [ true, %.critedge11 ], [ true, %226 ], [ true, %233 ]
   ret i1 %cond290
 }
 

@@ -97,7 +97,8 @@ define dso_local ptr @get_shadow_from_swap_cache(i64 %0) local_unnamed_addr #2 a
   %4 = load ptr, ptr %3, align 8
   %5 = and i64 %0, 288230376151711743
   %6 = lshr i64 %5, 14
-  %7 = getelementptr %struct.address_space, ptr %4, i64 %6, i32 1
+  %.split = getelementptr %struct.address_space, ptr %4, i64 %6
+  %7 = getelementptr i8, ptr %.split, i64 8
   %8 = tail call ptr @xa_load(ptr noundef %7, i64 noundef %5) #11
   %9 = ptrtoint ptr %8 to i64
   %10 = and i64 %9, 1
@@ -643,7 +644,8 @@ define dso_local void @delete_from_swap_cache(ptr noundef %0) local_unnamed_addr
   %6 = load ptr, ptr %5, align 8
   %7 = lshr i64 %3, 14
   %8 = and i64 %7, 17592186044415
-  %9 = getelementptr %struct.address_space, ptr %6, i64 %8, i32 1
+  %.split = getelementptr %struct.address_space, ptr %6, i64 %8
+  %9 = getelementptr i8, ptr %.split, i64 8
   tail call void @_raw_spin_lock_irq(ptr noundef %9) #11
   tail call void @__delete_from_swap_cache(ptr noundef %0, i64 %3, ptr noundef null)
   tail call void @_raw_spin_unlock_irq(ptr noundef %9) #11
@@ -686,7 +688,8 @@ define dso_local void @clear_shadow_from_swap_cache(i32 noundef %0, i64 noundef 
   %18 = and i64 %17, 17592186044415
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %13, align 8, !annotation !5
-  %19 = getelementptr %struct.address_space, ptr %16, i64 %18, i32 1
+  %.split = getelementptr %struct.address_space, ptr %16, i64 %18
+  %19 = getelementptr i8, ptr %.split, i64 8
   store ptr %19, ptr %4, align 8
   store i64 %15, ptr %8, align 8
   store ptr inttoptr (i64 3 to ptr), ptr %10, align 8
@@ -1715,7 +1718,7 @@ define dso_local ptr @swapin_readahead(i64 %0, i32 noundef %1, ptr noundef reado
   %77 = sub nsw i64 %76, %73
   br label %78
 
-78:                                               ; preds = %61, %67, %70
+78:                                               ; preds = %70, %67, %61
   %79 = phi i64 [ %63, %61 ], [ %32, %67 ], [ %77, %70 ]
   %80 = phi i64 [ %27, %61 ], [ %69, %67 ], [ %74, %70 ]
   %81 = load i64, ptr %20, align 8

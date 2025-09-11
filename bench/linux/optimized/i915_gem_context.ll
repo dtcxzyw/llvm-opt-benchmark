@@ -989,7 +989,8 @@ define internal fastcc void @proto_context_close(ptr noundef %0, ptr noundef %1)
 .preheader:                                       ; preds = %22, %.preheader
   %26 = phi i64 [ %30, %.preheader ], [ 0, %22 ]
   %27 = load ptr, ptr %19, align 8
-  %28 = getelementptr %struct.i915_gem_proto_engine, ptr %27, i64 %26, i32 4
+  %.split = getelementptr %struct.i915_gem_proto_engine, ptr %27, i64 %26
+  %28 = getelementptr i8, ptr %.split, i64 24
   %29 = load ptr, ptr %28, align 8
   tail call void @kfree(ptr noundef %29) #17
   %30 = add nuw nsw i64 %26, 1
@@ -3772,7 +3773,8 @@ define internal fastcc i32 @set_proto_ctx_param(ptr noundef %0, ptr noundef capt
 270:                                              ; preds = %254
   store i32 1, ptr %248, align 8
   %271 = load ptr, ptr %194, align 8
-  %272 = getelementptr %struct.i915_gem_proto_engine, ptr %271, i64 %243, i32 1
+  %.split = getelementptr %struct.i915_gem_proto_engine, ptr %271, i64 %243
+  %272 = getelementptr i8, ptr %.split, i64 8
   store ptr %257, ptr %272, align 8
   %.pre = load i32, ptr %193, align 8
   br label %273
@@ -5250,7 +5252,8 @@ define internal range(i32 -22, 1) i32 @set_proto_ctx_engines_balance(ptr noundef
   store i32 1, ptr %131, align 8
   %133 = load ptr, ptr %95, align 8
   %134 = load ptr, ptr %39, align 8
-  %135 = getelementptr %struct.i915_gem_proto_engine, ptr %134, i64 %37, i32 1
+  %.split8 = getelementptr %struct.i915_gem_proto_engine, ptr %134, i64 %37
+  %135 = getelementptr i8, ptr %.split8, i64 8
   store ptr %133, ptr %135, align 8
   call void @kfree(ptr noundef nonnull %95) #17
   br label %141
@@ -5258,10 +5261,12 @@ define internal range(i32 -22, 1) i32 @set_proto_ctx_engines_balance(ptr noundef
 136:                                              ; preds = %128
   store i32 2, ptr %131, align 8
   %137 = load ptr, ptr %39, align 8
-  %138 = getelementptr %struct.i915_gem_proto_engine, ptr %137, i64 %37, i32 2
+  %.split = getelementptr %struct.i915_gem_proto_engine, ptr %137, i64 %37
+  %138 = getelementptr i8, ptr %.split, i64 16
   store i32 %91, ptr %138, align 8
   %139 = load ptr, ptr %39, align 8
-  %140 = getelementptr %struct.i915_gem_proto_engine, ptr %139, i64 %37, i32 4
+  %.split7 = getelementptr %struct.i915_gem_proto_engine, ptr %139, i64 %37
+  %140 = getelementptr i8, ptr %.split7, i64 24
   store ptr %95, ptr %140, align 8
   br label %141
 
@@ -5819,7 +5824,7 @@ define internal range(i32 -22, 1) i32 @set_proto_ctx_engines_parallel_submit(ptr
   %171 = getelementptr %struct.i915_engine_class_instance, ptr %147, i64 %170
   %172 = call i64 @_copy_from_user(ptr noundef nonnull %3, ptr noundef %171, i64 noundef 4) #17
   %173 = icmp eq i64 %172, 0
-  br i1 %173, label %174, label %.thread15
+  br i1 %173, label %174, label %.thread17
 
 174:                                              ; preds = %164
   %175 = load i16, ptr %3, align 4
@@ -5847,14 +5852,14 @@ define internal range(i32 -22, 1) i32 @set_proto_ctx_engines_parallel_submit(ptr
   %190 = zext i16 %189 to i32
   %191 = trunc i64 %168 to i32
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %186, i32 noundef 1, ptr noundef nonnull @.str.21, i32 noundef %191, i32 noundef %188, i32 noundef %190) #17
-  br label %.thread15
+  br label %.thread17
 
 192:                                              ; preds = %174
   %193 = getelementptr inbounds nuw i8, ptr %179, i64 56
   %194 = load i8, ptr %193, align 8
   switch i8 %194, label %195 [
-    i8 0, label %.thread15
-    i8 5, label %.thread15
+    i8 0, label %.thread17
+    i8 5, label %.thread17
   ]
 
 195:                                              ; preds = %192
@@ -5876,9 +5881,9 @@ define internal range(i32 -22, 1) i32 @set_proto_ctx_engines_parallel_submit(ptr
   %204 = phi ptr [ %202, %201 ], [ null, %199 ]
   %205 = zext i16 %197 to i32
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %204, i32 noundef 1, ptr noundef nonnull @.str.33, i32 noundef %200, i32 noundef %205) #17
-  br label %.thread15
+  br label %.thread17
 
-.thread15:                                        ; preds = %164, %192, %192, %203, %185
+.thread17:                                        ; preds = %164, %192, %192, %203, %185
   %.ph = phi i32 [ -22, %185 ], [ -22, %203 ], [ -14, %164 ], [ -22, %192 ], [ -22, %192 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %228
@@ -5912,18 +5917,21 @@ define internal range(i32 -22, 1) i32 @set_proto_ctx_engines_parallel_submit(ptr
   %221 = getelementptr %struct.i915_gem_proto_engine, ptr %220, i64 %12
   store i32 3, ptr %221, align 8
   %222 = load ptr, ptr %71, align 8
-  %223 = getelementptr %struct.i915_gem_proto_engine, ptr %222, i64 %12, i32 2
+  %.split = getelementptr %struct.i915_gem_proto_engine, ptr %222, i64 %12
+  %223 = getelementptr i8, ptr %.split, i64 16
   store i32 %37, ptr %223, align 8
   %224 = load ptr, ptr %71, align 8
-  %225 = getelementptr %struct.i915_gem_proto_engine, ptr %224, i64 %12, i32 3
+  %.split15 = getelementptr %struct.i915_gem_proto_engine, ptr %224, i64 %12
+  %225 = getelementptr i8, ptr %.split15, i64 20
   store i32 %23, ptr %225, align 4
   %226 = load ptr, ptr %71, align 8
-  %227 = getelementptr %struct.i915_gem_proto_engine, ptr %226, i64 %12, i32 4
+  %.split16 = getelementptr %struct.i915_gem_proto_engine, ptr %226, i64 %12
+  %227 = getelementptr i8, ptr %.split16, i64 24
   store ptr %144, ptr %227, align 8
   br label %.thread
 
-228:                                              ; preds = %214, %.thread15
-  %.ph18 = phi i32 [ %.ph, %.thread15 ], [ -22, %214 ]
+228:                                              ; preds = %214, %.thread17
+  %.ph20 = phi i32 [ %.ph, %.thread17 ], [ -22, %214 ]
   call void @kfree(ptr noundef nonnull %144) #17
   br label %.thread
 
@@ -5933,7 +5941,7 @@ define internal range(i32 -22, 1) i32 @set_proto_ctx_engines_parallel_submit(ptr
   br label %.thread
 
 .thread:                                          ; preds = %138, %229, %228, %219, %141, %136, %127, %102, %83, %81, %68, %56, %26, %15, %2
-  %232 = phi i32 [ -22, %56 ], [ -22, %68 ], [ -22, %81 ], [ -22, %102 ], [ -22, %127 ], [ -22, %136 ], [ %.ph18, %228 ], [ 0, %219 ], [ -14, %2 ], [ -14, %15 ], [ -14, %26 ], [ -14, %83 ], [ -12, %141 ], [ %231, %229 ], [ -12, %138 ]
+  %232 = phi i32 [ -22, %56 ], [ -22, %68 ], [ -22, %81 ], [ -22, %102 ], [ -22, %127 ], [ -22, %136 ], [ %.ph20, %228 ], [ 0, %219 ], [ -14, %2 ], [ -14, %15 ], [ -14, %26 ], [ -14, %83 ], [ -12, %141 ], [ %231, %229 ], [ -12, %138 ]
   ret i32 %232
 }
 

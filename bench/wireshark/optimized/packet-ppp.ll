@@ -7377,7 +7377,7 @@ define internal i32 @dissect_chap(ptr noundef %0, ptr noundef readonly captures(
   %36 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 4)
   %.fr109 = freeze i8 %36
   %37 = zext i8 %.fr109 to i32
-  %.not107 = icmp ult i32 %35, %37
+  %.not107 = icmp samesign ult i32 %35, %37
   %38 = load i32, ptr @hf_chap_value_size, align 4
   br i1 %.not107, label %61, label %39
 

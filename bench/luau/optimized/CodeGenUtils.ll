@@ -1758,8 +1758,9 @@ define dso_local void @_ZN4Luau7CodeGen22executeGETVARARGSConstEP9lua_StateP10lu
 
 .lr.ph27:                                         ; preds = %.lr.ph27.preheader, %.lr.ph27
   %indvars.iv30 = phi i64 [ %29, %.lr.ph27.preheader ], [ %indvars.iv.next31, %.lr.ph27 ]
-  %33 = getelementptr inbounds %struct.lua_TValue, ptr %23, i64 %indvars.iv30, i32 2
-  store i32 0, ptr %33, align 4, !tbaa !15
+  %33 = getelementptr inbounds %struct.lua_TValue, ptr %23, i64 %indvars.iv30
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 12
+  store i32 0, ptr %34, align 4, !tbaa !15
   %indvars.iv.next31 = add nsw i64 %indvars.iv30, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next31 to i32
   %exitcond33.not = icmp eq i32 %3, %lftr.wideiv

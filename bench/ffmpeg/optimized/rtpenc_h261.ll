@@ -81,7 +81,7 @@ define void @ff_rtp_send_h261(ptr noundef %0, ptr noundef %1, i32 noundef %2) lo
   br i1 %38, label %find_resync_marker_reverse.exit, label %39
 
 39:                                               ; preds = %36, %.lr.ph.i
-  %40 = icmp sgt i64 %.013.i.idx.in, 3
+  %40 = icmp samesign ugt i64 %.013.i.idx.in, 3
   br i1 %40, label %.lr.ph.i, label %find_resync_marker_reverse.exit, !llvm.loop !37
 
 find_resync_marker_reverse.exit:                  ; preds = %36, %39, %31

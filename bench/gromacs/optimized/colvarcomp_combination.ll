@@ -1113,7 +1113,7 @@ define void @_ZN6colvar17linearCombination14calc_gradientsEv(ptr noundef nonnull
 
 .lr.ph32:                                         ; preds = %1, %.loopexit
   %6 = phi ptr [ %12, %.loopexit ], [ %5, %1 ]
-  %.02430 = phi i64 [ %81, %.loopexit ], [ 0, %1 ]
+  %.02430 = phi i64 [ %82, %.loopexit ], [ 0, %1 ]
   %7 = getelementptr inbounds nuw ptr, ptr %6, i64 %.02430
   %8 = load ptr, ptr %7, align 8, !tbaa !16
   %9 = load ptr, ptr %8, align 8, !tbaa !42
@@ -1235,32 +1235,33 @@ _ZNK11colvarvalue4sizeEv.exit:                    ; preds = %41, %42, %43, %44, 
   br i1 %exitcond37.not, label %._crit_edge29, label %.preheader, !llvm.loop !150
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.027 = phi i64 [ %80, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %71 = getelementptr inbounds nuw %"class.colvarmodule::atom", ptr %64, i64 %.027, i32 7
-  %72 = load double, ptr %71, align 8, !tbaa !151, !noalias !152
-  %73 = fmul double %.0.i, %72
-  %74 = getelementptr inbounds nuw i8, ptr %71, i64 8
-  %75 = load double, ptr %74, align 8, !tbaa !155, !noalias !152
-  %76 = fmul double %.0.i, %75
-  %77 = getelementptr inbounds nuw i8, ptr %71, i64 16
-  %78 = load double, ptr %77, align 8, !tbaa !156, !noalias !152
-  %79 = fmul double %.0.i, %78
-  store double %73, ptr %71, align 8, !tbaa !133
-  store double %76, ptr %74, align 8, !tbaa !133
-  store double %79, ptr %77, align 8, !tbaa !133
-  %80 = add nuw i64 %.027, 1
-  %exitcond.not = icmp eq i64 %80, %68
+  %.027 = phi i64 [ %81, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %71 = getelementptr inbounds nuw %"class.colvarmodule::atom", ptr %64, i64 %.027
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 96
+  %73 = load double, ptr %72, align 8, !tbaa !151, !noalias !152
+  %74 = fmul double %.0.i, %73
+  %75 = getelementptr inbounds nuw i8, ptr %71, i64 104
+  %76 = load double, ptr %75, align 8, !tbaa !155, !noalias !152
+  %77 = fmul double %.0.i, %76
+  %78 = getelementptr inbounds nuw i8, ptr %71, i64 112
+  %79 = load double, ptr %78, align 8, !tbaa !156, !noalias !152
+  %80 = fmul double %.0.i, %79
+  store double %74, ptr %72, align 8, !tbaa !133
+  store double %77, ptr %75, align 8, !tbaa !133
+  store double %80, ptr %78, align 8, !tbaa !133
+  %81 = add nuw i64 %.027, 1
+  %exitcond.not = icmp eq i64 %81, %68
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !157
 
 .loopexit:                                        ; preds = %_ZNK11colvarvalue4sizeEv.exit, %.lr.ph32
-  %81 = add nuw i64 %.02430, 1
-  %82 = load ptr, ptr %3, align 8, !tbaa !38
-  %83 = ptrtoint ptr %82 to i64
-  %84 = ptrtoint ptr %12 to i64
-  %85 = sub i64 %83, %84
-  %86 = ashr exact i64 %85, 3
-  %87 = icmp ult i64 %81, %86
-  br i1 %87, label %.lr.ph32, label %._crit_edge33, !llvm.loop !158
+  %82 = add nuw i64 %.02430, 1
+  %83 = load ptr, ptr %3, align 8, !tbaa !38
+  %84 = ptrtoint ptr %83 to i64
+  %85 = ptrtoint ptr %12 to i64
+  %86 = sub i64 %84, %85
+  %87 = ashr exact i64 %86, 3
+  %88 = icmp ult i64 %82, %87
+  br i1 %88, label %.lr.ph32, label %._crit_edge33, !llvm.loop !158
 }
 
 declare void @_ZN6colvar3cvc15debug_gradientsEv(ptr noundef nonnull align 8 dereferenceable(1608)) unnamed_addr #0

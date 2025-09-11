@@ -574,38 +574,39 @@ _ZNK6vectorIN6spacer10iuc_solver11def_managerELb1EjE4sizeEv.exit5.lr.ph: ; preds
   br i1 %15, label %_ZN6vectorIN6spacer10iuc_solver11def_managerELb1EjE4backEv.exit, label %_ZNK6vectorIN6spacer10iuc_solver11def_managerELb1EjE4sizeEv.exit5.thread
 
 _ZN6vectorIN6spacer10iuc_solver11def_managerELb1EjE4backEv.exit: ; preds = %_ZNK6vectorIN6spacer10iuc_solver11def_managerELb1EjE4sizeEv.exit5.lr.ph, %_ZN6vectorIN6spacer10iuc_solver11def_managerELb1EjE8pop_backEv.exit
-  %16 = phi ptr [ %33, %_ZN6vectorIN6spacer10iuc_solver11def_managerELb1EjE8pop_backEv.exit ], [ %9, %_ZNK6vectorIN6spacer10iuc_solver11def_managerELb1EjE4sizeEv.exit5.lr.ph ]
-  %17 = phi i32 [ %36, %_ZN6vectorIN6spacer10iuc_solver11def_managerELb1EjE8pop_backEv.exit ], [ %12, %_ZNK6vectorIN6spacer10iuc_solver11def_managerELb1EjE4sizeEv.exit5.lr.ph ]
+  %16 = phi ptr [ %34, %_ZN6vectorIN6spacer10iuc_solver11def_managerELb1EjE8pop_backEv.exit ], [ %9, %_ZNK6vectorIN6spacer10iuc_solver11def_managerELb1EjE4sizeEv.exit5.lr.ph ]
+  %17 = phi i32 [ %37, %_ZN6vectorIN6spacer10iuc_solver11def_managerELb1EjE8pop_backEv.exit ], [ %12, %_ZNK6vectorIN6spacer10iuc_solver11def_managerELb1EjE4sizeEv.exit5.lr.ph ]
   %18 = getelementptr inbounds i8, ptr %16, i64 -4
   %19 = add i32 %17, -1
   %20 = zext i32 %19 to i64
-  %21 = getelementptr inbounds nuw %"struct.spacer::iuc_solver::def_manager", ptr %16, i64 %20, i32 1, i32 0, i32 1
-  %22 = load ptr, ptr %21, align 8, !tbaa !26
-  %23 = icmp eq ptr %22, null
-  br i1 %23, label %_ZN6vectorIN6spacer10iuc_solver11def_managerELb1EjE8pop_backEv.exit, label %24
+  %21 = getelementptr inbounds nuw %"struct.spacer::iuc_solver::def_manager", ptr %16, i64 %20
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
+  %23 = load ptr, ptr %22, align 8, !tbaa !26
+  %24 = icmp eq ptr %23, null
+  br i1 %24, label %_ZN6vectorIN6spacer10iuc_solver11def_managerELb1EjE8pop_backEv.exit, label %25
 
-24:                                               ; preds = %_ZN6vectorIN6spacer10iuc_solver11def_managerELb1EjE4backEv.exit
-  %25 = getelementptr inbounds i8, ptr %22, i64 -4
-  %26 = load i32, ptr %25, align 4, !tbaa !42
+25:                                               ; preds = %_ZN6vectorIN6spacer10iuc_solver11def_managerELb1EjE4backEv.exit
+  %26 = getelementptr inbounds i8, ptr %23, i64 -4
+  %27 = load i32, ptr %26, align 4, !tbaa !42
   br label %_ZN6vectorIN6spacer10iuc_solver11def_managerELb1EjE8pop_backEv.exit
 
-_ZN6vectorIN6spacer10iuc_solver11def_managerELb1EjE8pop_backEv.exit: ; preds = %_ZN6vectorIN6spacer10iuc_solver11def_managerELb1EjE4backEv.exit, %24
-  %.0.i.i6 = phi i32 [ %26, %24 ], [ 0, %_ZN6vectorIN6spacer10iuc_solver11def_managerELb1EjE4backEv.exit ]
-  %27 = load i32, ptr %14, align 8, !tbaa !87
-  %28 = sub i32 %27, %.0.i.i6
-  store i32 %28, ptr %14, align 8, !tbaa !87
-  %29 = load i32, ptr %18, align 4, !tbaa !42
-  %30 = add i32 %29, -1
-  %31 = zext i32 %30 to i64
-  %32 = getelementptr inbounds nuw %"struct.spacer::iuc_solver::def_manager", ptr %16, i64 %31
-  tail call void @_ZN6spacer10iuc_solver11def_managerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %32) #25
-  %33 = load ptr, ptr %8, align 8, !tbaa !39
-  %34 = getelementptr inbounds i8, ptr %33, i64 -4
-  %35 = load i32, ptr %34, align 4, !tbaa !42
-  %36 = add i32 %35, -1
-  store i32 %36, ptr %34, align 4, !tbaa !42
-  %37 = icmp ugt i32 %36, %13
-  br i1 %37, label %_ZN6vectorIN6spacer10iuc_solver11def_managerELb1EjE4backEv.exit, label %_ZNK6vectorIN6spacer10iuc_solver11def_managerELb1EjE4sizeEv.exit5.thread, !llvm.loop !88
+_ZN6vectorIN6spacer10iuc_solver11def_managerELb1EjE8pop_backEv.exit: ; preds = %_ZN6vectorIN6spacer10iuc_solver11def_managerELb1EjE4backEv.exit, %25
+  %.0.i.i6 = phi i32 [ %27, %25 ], [ 0, %_ZN6vectorIN6spacer10iuc_solver11def_managerELb1EjE4backEv.exit ]
+  %28 = load i32, ptr %14, align 8, !tbaa !87
+  %29 = sub i32 %28, %.0.i.i6
+  store i32 %29, ptr %14, align 8, !tbaa !87
+  %30 = load i32, ptr %18, align 4, !tbaa !42
+  %31 = add i32 %30, -1
+  %32 = zext i32 %31 to i64
+  %33 = getelementptr inbounds nuw %"struct.spacer::iuc_solver::def_manager", ptr %16, i64 %32
+  tail call void @_ZN6spacer10iuc_solver11def_managerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %33) #25
+  %34 = load ptr, ptr %8, align 8, !tbaa !39
+  %35 = getelementptr inbounds i8, ptr %34, i64 -4
+  %36 = load i32, ptr %35, align 4, !tbaa !42
+  %37 = add i32 %36, -1
+  store i32 %37, ptr %35, align 4, !tbaa !42
+  %38 = icmp ugt i32 %37, %13
+  br i1 %38, label %_ZN6vectorIN6spacer10iuc_solver11def_managerELb1EjE4backEv.exit, label %_ZNK6vectorIN6spacer10iuc_solver11def_managerELb1EjE4sizeEv.exit5.thread, !llvm.loop !88
 
 _ZNK6vectorIN6spacer10iuc_solver11def_managerELb1EjE4sizeEv.exit5.thread: ; preds = %_ZN6vectorIN6spacer10iuc_solver11def_managerELb1EjE8pop_backEv.exit, %_ZNK6vectorIN6spacer10iuc_solver11def_managerELb1EjE4sizeEv.exit5.lr.ph, %2
   ret void

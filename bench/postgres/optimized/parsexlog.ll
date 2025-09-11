@@ -300,7 +300,7 @@ define internal range(i32 -1, 8193) i32 @SimpleXLogPageRead(ptr noundef %0, i64 
 
 25:                                               ; preds = %5
   store i64 %11, ptr @xlogreadsegno, align 8
-  br i1 %18, label %26, label %77
+  br i1 %18, label %26, label %80
 
 26:                                               ; preds = %.thread, %25
   %27 = phi i64 [ %24, %.thread ], [ %11, %25 ]
@@ -317,144 +317,147 @@ define internal range(i32 -1, 8193) i32 @SimpleXLogPageRead(ptr noundef %0, i64 
 .lr.ph:                                           ; preds = %26
   %33 = sext i32 %.promoted to i64
   %wide.trip.count = sext i32 %31 to i64
-  %34 = getelementptr inbounds %struct.TimeLineHistoryEntry, ptr %.pre50.pre, i64 %33, i32 2
-  %35 = load i64, ptr %34, align 8
-  %36 = icmp ult i64 %35, %13
-  br i1 %36, label %.lr.ph59, label %.critedge
+  %34 = getelementptr inbounds %struct.TimeLineHistoryEntry, ptr %.pre50.pre, i64 %33
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
+  %36 = load i64, ptr %35, align 8
+  %37 = icmp ult i64 %36, %13
+  br i1 %37, label %.lr.ph59, label %.critedge
 
-37:                                               ; preds = %.lr.ph59
-  %38 = getelementptr inbounds %struct.TimeLineHistoryEntry, ptr %.pre50.pre, i64 %indvars.iv.next, i32 2
-  %39 = load i64, ptr %38, align 8
-  %40 = icmp ult i64 %39, %13
-  br i1 %40, label %.lr.ph59, label %.critedge, !llvm.loop !7
+38:                                               ; preds = %.lr.ph59
+  %39 = getelementptr inbounds %struct.TimeLineHistoryEntry, ptr %.pre50.pre, i64 %indvars.iv.next
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
+  %41 = load i64, ptr %40, align 8
+  %42 = icmp ult i64 %41, %13
+  br i1 %42, label %.lr.ph59, label %.critedge, !llvm.loop !7
 
-.lr.ph59:                                         ; preds = %.lr.ph, %37
-  %indvars.iv58 = phi i64 [ %indvars.iv.next, %37 ], [ %33, %.lr.ph ]
+.lr.ph59:                                         ; preds = %.lr.ph, %38
+  %indvars.iv58 = phi i64 [ %indvars.iv.next, %38 ], [ %33, %.lr.ph ]
   %indvars.iv.next = add nsw i64 %indvars.iv58, 1
-  %41 = trunc nsw i64 %indvars.iv.next to i32
-  store i32 %41, ptr %29, align 8
+  %43 = trunc nsw i64 %indvars.iv.next to i32
+  store i32 %43, ptr %29, align 8
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %..critedge.loopexit_crit_edge, label %37, !llvm.loop !7
+  br i1 %exitcond.not, label %..critedge.loopexit_crit_edge, label %38, !llvm.loop !7
 
 ..critedge.loopexit_crit_edge:                    ; preds = %.lr.ph59
   br label %.critedge, !llvm.loop !7
 
-.critedge:                                        ; preds = %37, %.lr.ph, %..critedge.loopexit_crit_edge, %26
-  %.pr = phi i32 [ %.promoted, %26 ], [ %41, %..critedge.loopexit_crit_edge ], [ %.promoted, %.lr.ph ], [ %41, %37 ]
-  %42 = icmp sgt i32 %.pr, 0
-  br i1 %42, label %.lr.ph42, label %.critedge2
+.critedge:                                        ; preds = %38, %.lr.ph, %..critedge.loopexit_crit_edge, %26
+  %.pr = phi i32 [ %.promoted, %26 ], [ %43, %..critedge.loopexit_crit_edge ], [ %.promoted, %.lr.ph ], [ %43, %38 ]
+  %44 = icmp sgt i32 %.pr, 0
+  br i1 %44, label %.lr.ph42, label %.critedge2
 
-.lr.ph42:                                         ; preds = %.critedge, %47
-  %43 = phi i32 [ %48, %47 ], [ %.pr, %.critedge ]
-  %44 = zext nneg i32 %43 to i64
-  %45 = getelementptr inbounds nuw %struct.TimeLineHistoryEntry, ptr %.pre50.pre, i64 %44, i32 1
-  %46 = load i64, ptr %45, align 8
-  %.not = icmp ult i64 %46, %13
-  br i1 %.not, label %.critedge2, label %47
+.lr.ph42:                                         ; preds = %.critedge, %50
+  %45 = phi i32 [ %51, %50 ], [ %.pr, %.critedge ]
+  %46 = zext nneg i32 %45 to i64
+  %47 = getelementptr inbounds nuw %struct.TimeLineHistoryEntry, ptr %.pre50.pre, i64 %46
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
+  %49 = load i64, ptr %48, align 8
+  %.not = icmp ult i64 %49, %13
+  br i1 %.not, label %.critedge2, label %50
 
-47:                                               ; preds = %.lr.ph42
-  %48 = add nsw i32 %43, -1
-  store i32 %48, ptr %29, align 8
-  %49 = icmp sgt i32 %43, 1
-  br i1 %49, label %.lr.ph42, label %.critedge2, !llvm.loop !8
+50:                                               ; preds = %.lr.ph42
+  %51 = add nsw i32 %45, -1
+  store i32 %51, ptr %29, align 8
+  %52 = icmp sgt i32 %45, 1
+  br i1 %52, label %.lr.ph42, label %.critedge2, !llvm.loop !8
 
-.critedge2:                                       ; preds = %.lr.ph42, %47, %.critedge
-  %.lcssa = phi i32 [ %.pr, %.critedge ], [ 0, %47 ], [ %43, %.lr.ph42 ]
-  %50 = sext i32 %.lcssa to i64
-  %51 = getelementptr inbounds %struct.TimeLineHistoryEntry, ptr %.pre50.pre, i64 %50
-  %52 = load i32, ptr %51, align 8
-  %53 = udiv i64 4294967296, %28
-  %54 = udiv i64 %27, %53
-  %55 = trunc i64 %54 to i32
-  %56 = urem i64 %27, %53
-  %57 = trunc nuw i64 %56 to i32
-  %58 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %6, i64 noundef 64, ptr noundef nonnull @.str.7, i32 noundef %52, i32 noundef %55, i32 noundef %57) #7
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 180
-  %60 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull @xlogfpath, i64 noundef 1024, ptr noundef nonnull @.str.8, ptr noundef nonnull %59, ptr noundef nonnull %6) #7
-  %61 = call i32 (ptr, i32, ...) @open(ptr noundef nonnull @xlogfpath, i32 noundef 0, i32 noundef 0) #7
-  store i32 %61, ptr @xlogreadfd, align 4
-  %62 = icmp slt i32 %61, 0
-  br i1 %62, label %63, label %76
+.critedge2:                                       ; preds = %.lr.ph42, %50, %.critedge
+  %.lcssa = phi i32 [ %.pr, %.critedge ], [ 0, %50 ], [ %45, %.lr.ph42 ]
+  %53 = sext i32 %.lcssa to i64
+  %54 = getelementptr inbounds %struct.TimeLineHistoryEntry, ptr %.pre50.pre, i64 %53
+  %55 = load i32, ptr %54, align 8
+  %56 = udiv i64 4294967296, %28
+  %57 = udiv i64 %27, %56
+  %58 = trunc i64 %57 to i32
+  %59 = urem i64 %27, %56
+  %60 = trunc nuw i64 %59 to i32
+  %61 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %6, i64 noundef 64, ptr noundef nonnull @.str.7, i32 noundef %55, i32 noundef %58, i32 noundef %60) #7
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 180
+  %63 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull @xlogfpath, i64 noundef 1024, ptr noundef nonnull @.str.8, ptr noundef nonnull %62, ptr noundef nonnull %6) #7
+  %64 = call i32 (ptr, i32, ...) @open(ptr noundef nonnull @xlogfpath, i32 noundef 0, i32 noundef 0) #7
+  store i32 %64, ptr @xlogreadfd, align 4
+  %65 = icmp slt i32 %64, 0
+  br i1 %65, label %66, label %79
 
-63:                                               ; preds = %.critedge2
-  %64 = load ptr, ptr %8, align 8
-  %65 = icmp eq ptr %64, null
-  br i1 %65, label %66, label %67
+66:                                               ; preds = %.critedge2
+  %67 = load ptr, ptr %8, align 8
+  %68 = icmp eq ptr %67, null
+  br i1 %68, label %69, label %70
 
-66:                                               ; preds = %63
+69:                                               ; preds = %66
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.9, ptr noundef nonnull @xlogfpath) #7
   br label %.critedge38
 
-67:                                               ; preds = %63
-  %68 = load i32, ptr @WalSegSz, align 4
-  %69 = sext i32 %68 to i64
-  %70 = call i32 @RestoreArchivedFile(ptr noundef nonnull %59, ptr noundef nonnull %6, i64 noundef %69, ptr noundef nonnull %64) #7
-  store i32 %70, ptr @xlogreadfd, align 4
-  %71 = icmp slt i32 %70, 0
-  br i1 %71, label %.critedge38, label %72
+70:                                               ; preds = %66
+  %71 = load i32, ptr @WalSegSz, align 4
+  %72 = sext i32 %71 to i64
+  %73 = call i32 @RestoreArchivedFile(ptr noundef nonnull %62, ptr noundef nonnull %6, i64 noundef %72, ptr noundef nonnull %67) #7
+  store i32 %73, ptr @xlogreadfd, align 4
+  %74 = icmp slt i32 %73, 0
+  br i1 %74, label %.critedge38, label %75
 
-72:                                               ; preds = %67
-  %73 = load i32, ptr @__pg_log_level, align 4
-  %74 = icmp ult i32 %73, 2
-  br i1 %74, label %75, label %76, !prof !9
+75:                                               ; preds = %70
+  %76 = load i32, ptr @__pg_log_level, align 4
+  %77 = icmp ult i32 %76, 2
+  br i1 %77, label %78, label %79, !prof !9
 
-75:                                               ; preds = %72
+78:                                               ; preds = %75
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 1, i32 noundef 0, ptr noundef nonnull @.str.10, ptr noundef nonnull @xlogfpath) #7
   %.pre.pre = load i32, ptr @xlogreadfd, align 4
-  br label %76
+  br label %79
 
-76:                                               ; preds = %.critedge2, %72, %75
-  %.pre = phi i32 [ %61, %.critedge2 ], [ %70, %72 ], [ %.pre.pre, %75 ]
+79:                                               ; preds = %.critedge2, %75, %78
+  %.pre = phi i32 [ %64, %.critedge2 ], [ %73, %75 ], [ %.pre.pre, %78 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %77
+  br label %80
 
-77:                                               ; preds = %76, %25
-  %78 = phi i32 [ %.pre, %76 ], [ %17, %25 ]
-  %79 = zext i32 %16 to i64
-  %80 = call i64 @lseek(i32 noundef %78, i64 noundef %79, i32 noundef 0) #7
-  %81 = icmp slt i64 %80, 0
-  br i1 %81, label %82, label %83
+80:                                               ; preds = %79, %25
+  %81 = phi i32 [ %.pre, %79 ], [ %17, %25 ]
+  %82 = zext i32 %16 to i64
+  %83 = call i64 @lseek(i32 noundef %81, i64 noundef %82, i32 noundef 0) #7
+  %84 = icmp slt i64 %83, 0
+  br i1 %84, label %85, label %86
 
-82:                                               ; preds = %77
+85:                                               ; preds = %80
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.11, ptr noundef nonnull @xlogfpath) #7
-  br label %99
+  br label %102
 
-83:                                               ; preds = %77
-  %84 = load i32, ptr @xlogreadfd, align 4
-  %85 = call i64 @read(i32 noundef %84, ptr noundef %4, i64 noundef 8192) #7
-  %86 = trunc i64 %85 to i32
-  %.not35 = icmp eq i32 %86, 8192
-  br i1 %.not35, label %91, label %87
+86:                                               ; preds = %80
+  %87 = load i32, ptr @xlogreadfd, align 4
+  %88 = call i64 @read(i32 noundef %87, ptr noundef %4, i64 noundef 8192) #7
+  %89 = trunc i64 %88 to i32
+  %.not35 = icmp eq i32 %89, 8192
+  br i1 %.not35, label %94, label %90
 
-87:                                               ; preds = %83
-  %88 = icmp slt i32 %86, 0
-  br i1 %88, label %89, label %90
+90:                                               ; preds = %86
+  %91 = icmp slt i32 %89, 0
+  br i1 %91, label %92, label %93
 
-89:                                               ; preds = %87
+92:                                               ; preds = %90
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.12, ptr noundef nonnull @xlogfpath) #7
-  br label %99
+  br label %102
 
-90:                                               ; preds = %87
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.13, ptr noundef nonnull @xlogfpath, i32 noundef %86, i64 noundef 8192) #7
-  br label %99
+93:                                               ; preds = %90
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.13, ptr noundef nonnull @xlogfpath, i32 noundef %89, i64 noundef 8192) #7
+  br label %102
 
-91:                                               ; preds = %83
-  %92 = load ptr, ptr @targetHistory, align 8
-  %93 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %94 = load i32, ptr %93, align 8
-  %95 = sext i32 %94 to i64
-  %96 = getelementptr inbounds %struct.TimeLineHistoryEntry, ptr %92, i64 %95
+94:                                               ; preds = %86
+  %95 = load ptr, ptr @targetHistory, align 8
+  %96 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %97 = load i32, ptr %96, align 8
-  %98 = getelementptr inbounds nuw i8, ptr %0, i64 1224
-  store i32 %97, ptr %98, align 8
-  br label %99
+  %98 = sext i32 %97 to i64
+  %99 = getelementptr inbounds %struct.TimeLineHistoryEntry, ptr %95, i64 %98
+  %100 = load i32, ptr %99, align 8
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 1224
+  store i32 %100, ptr %101, align 8
+  br label %102
 
-.critedge38:                                      ; preds = %67, %66
+.critedge38:                                      ; preds = %70, %69
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %99
+  br label %102
 
-99:                                               ; preds = %89, %90, %.critedge38, %91, %82
-  %.1 = phi i32 [ -1, %82 ], [ 8192, %91 ], [ -1, %.critedge38 ], [ -1, %90 ], [ -1, %89 ]
+102:                                              ; preds = %92, %93, %.critedge38, %94, %85
+  %.1 = phi i32 [ -1, %85 ], [ 8192, %94 ], [ -1, %.critedge38 ], [ -1, %93 ], [ -1, %92 ]
   ret i32 %.1
 }
 

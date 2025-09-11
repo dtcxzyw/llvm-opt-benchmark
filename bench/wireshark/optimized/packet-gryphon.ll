@@ -5903,7 +5903,7 @@ define internal fastcc noundef i32 @resp_list(ptr noundef %0, ptr noundef %1) un
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc range(i32 17, 276) i32 @resp_status(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 18, 276) i32 @resp_status(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 16)
   %4 = zext i8 %3 to i32
   %5 = load i32, ptr @hf_gryphon_status_num_running_copies, align 4

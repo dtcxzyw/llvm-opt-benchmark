@@ -1557,19 +1557,20 @@ stb__CompressAlphaBlock.exit:                     ; preds = %53
 
 54:                                               ; preds = %stb__CompressAlphaBlock.exit, %54
   %indvars.iv = phi i64 [ 0, %stb__CompressAlphaBlock.exit ], [ %indvars.iv.next, %54 ]
-  %55 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv, i64 3
-  store i8 -1, ptr %55, align 1, !tbaa !3
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 3
+  store i8 -1, ptr %56, align 1, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
   br i1 %exitcond.not, label %.loopexit.loopexit, label %54, !llvm.loop !28
 
 .loopexit.loopexit:                               ; preds = %54
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %4
   %.011 = phi ptr [ %1, %4 ], [ %5, %.loopexit.loopexit ]
-  %.010 = phi ptr [ %0, %4 ], [ %56, %.loopexit.loopexit ]
+  %.010 = phi ptr [ %0, %4 ], [ %57, %.loopexit.loopexit ]
   call void @stb__CompressColorBlock(ptr noundef %.010, ptr noundef %.011, i32 noundef %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void

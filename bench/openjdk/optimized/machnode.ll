@@ -103,13 +103,14 @@ define hidden noundef range(i32 0, 256) i32 @_ZNK8MachOper3regEP13PhaseRegAllocP
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %7 = load i32, ptr %6, align 8
   %8 = zext i32 %7 to i64
-  %9 = getelementptr inbounds nuw %class.OptoRegPair, ptr %5, i64 %8, i32 1
-  %10 = load i16, ptr %9, align 2
-  %11 = sext i16 %10 to i64
-  %12 = getelementptr inbounds i8, ptr @_ZN7Matcher10_regEncodeE, i64 %11
-  %13 = load i8, ptr %12, align 1
-  %14 = zext i8 %13 to i32
-  ret i32 %14
+  %9 = getelementptr inbounds nuw %class.OptoRegPair, ptr %5, i64 %8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 2
+  %11 = load i16, ptr %10, align 2
+  %12 = sext i16 %11 to i64
+  %13 = getelementptr inbounds i8, ptr @_ZN7Matcher10_regEncodeE, i64 %12
+  %14 = load i8, ptr %13, align 1
+  %15 = zext i8 %14 to i32
+  ret i32 %15
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
@@ -124,13 +125,14 @@ define hidden noundef range(i32 0, 256) i32 @_ZNK8MachOper3regEP13PhaseRegAllocP
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %13 = load i32, ptr %12, align 8
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw %class.OptoRegPair, ptr %11, i64 %14, i32 1
-  %16 = load i16, ptr %15, align 2
-  %17 = sext i16 %16 to i64
-  %18 = getelementptr inbounds i8, ptr @_ZN7Matcher10_regEncodeE, i64 %17
-  %19 = load i8, ptr %18, align 1
-  %20 = zext i8 %19 to i32
-  ret i32 %20
+  %15 = getelementptr inbounds nuw %class.OptoRegPair, ptr %11, i64 %14
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 2
+  %17 = load i16, ptr %16, align 2
+  %18 = sext i16 %17 to i64
+  %19 = getelementptr inbounds i8, ptr @_ZN7Matcher10_regEncodeE, i64 %18
+  %20 = load i8, ptr %19, align 1
+  %21 = zext i8 %20 to i32
+  ret i32 %21
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -2121,18 +2123,19 @@ define linkonce_odr hidden noundef i32 @_ZNK8MachNode9ideal_regEv(ptr noundef no
   %8 = tail call noundef ptr %7(ptr noundef nonnull align 8 dereferenceable(8) %4) #13
   %9 = load ptr, ptr @_ZN7TypeInt2CCE, align 8
   %10 = icmp eq ptr %8, %9
-  br i1 %10, label %17, label %11
+  br i1 %10, label %18, label %11
 
 11:                                               ; preds = %1
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %13 = load i32, ptr %12, align 8
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %14, i32 4
-  %16 = load i32, ptr %15, align 4
-  br label %17
+  %15 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %14
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 20
+  %17 = load i32, ptr %16, align 4
+  br label %18
 
-17:                                               ; preds = %1, %11
-  %.0 = phi i32 [ %16, %11 ], [ 15, %1 ]
+18:                                               ; preds = %1, %11
+  %.0 = phi i32 [ %17, %11 ], [ 15, %1 ]
   ret i32 %.0
 }
 

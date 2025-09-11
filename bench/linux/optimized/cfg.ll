@@ -287,7 +287,8 @@ define dso_local void @sta_set_rate_info_tx(ptr noundef readonly captures(none) 
   %53 = phi ptr [ %.pr, %51 ], [ %49, %47 ]
   %54 = load i8, ptr %1, align 1
   %55 = sext i8 %54 to i64
-  %56 = getelementptr %struct.ieee80211_rate, ptr %53, i64 %55, i32 1
+  %.split = getelementptr %struct.ieee80211_rate, ptr %53, i64 %55
+  %56 = getelementptr i8, ptr %.split, i64 4
   %57 = load i16, ptr %56, align 4
   %58 = getelementptr inbounds nuw i8, ptr %2, i64 2
   store i16 %57, ptr %58, align 2

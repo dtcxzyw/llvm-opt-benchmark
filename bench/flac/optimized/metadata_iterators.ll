@@ -674,7 +674,7 @@ define ptr @FLAC__metadata_simple_iterator_get_block(ptr noundef captures(none) 
   %14 = load i32, ptr %13, align 8, !tbaa !23
   %15 = tail call ptr @FLAC__metadata_object_new(i32 noundef %14) #33
   %.not = icmp eq ptr %15, null
-  br i1 %.not, label %615, label %16
+  br i1 %.not, label %616, label %16
 
 16:                                               ; preds = %1
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 236
@@ -687,14 +687,14 @@ define ptr @FLAC__metadata_simple_iterator_get_block(ptr noundef captures(none) 
   store i32 %21, ptr %22, align 8, !tbaa !37
   %23 = load ptr, ptr %0, align 8, !tbaa !24
   %24 = load i32, ptr %15, align 8, !tbaa !38
-  switch i32 %24, label %589 [
+  switch i32 %24, label %590 [
     i32 0, label %25
     i32 1, label %98
     i32 2, label %102
     i32 3, label %121
     i32 4, label %166
     i32 5, label %292
-    i32 6, label %438
+    i32 6, label %439
   ]
 
 25:                                               ; preds = %16
@@ -859,7 +859,7 @@ read_metadata_block_data_streaminfo_cb_.exit.i.i: ; preds = %unpack_uint64_.exit
 
 read_metadata_block_data_.exit.thread137:         ; preds = %98
   store i32 7, ptr %101, align 8, !tbaa !30
-  br label %602
+  br label %603
 
 102:                                              ; preds = %16
   %103 = getelementptr inbounds nuw i8, ptr %15, i64 16
@@ -975,7 +975,7 @@ unpack_uint64_.exit.i40.i.i:                      ; preds = %.lr.ph.i.i35.i.i
   br i1 %exitcond.not.i25.i.i.i, label %unpack_uint64_.exit26.i.i.i, label %.lr.ph.i21.i.i.i, !llvm.loop !47
 
 unpack_uint64_.exit26.i.i.i:                      ; preds = %.lr.ph.i21.i.i.i
-  %155 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_SeekPoint, ptr %147, i64 %indvars.iv.i.i.i, i32 1
+  %155 = getelementptr inbounds nuw i8, ptr %148, i64 8
   store i64 %153, ptr %155, align 8, !tbaa !56
   br label %.lr.ph.i27.i.i.i
 
@@ -993,7 +993,7 @@ unpack_uint64_.exit26.i.i.i:                      ; preds = %.lr.ph.i21.i.i.i
   br i1 %exitcond.not.i31.i.i.i, label %unpack_uint32_.exit.i41.i.i, label %.lr.ph.i27.i.i.i, !llvm.loop !32
 
 unpack_uint32_.exit.i41.i.i:                      ; preds = %.lr.ph.i27.i.i.i
-  %162 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_SeekPoint, ptr %147, i64 %indvars.iv.i.i.i, i32 2
+  %162 = getelementptr inbounds nuw i8, ptr %148, i64 16
   store i32 %160, ptr %162, align 8, !tbaa !57
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %163 = load i32, ptr %122, align 8, !tbaa !51
@@ -1608,10 +1608,11 @@ unpack_uint64_.exit84.i.i.i.i:                    ; preds = %.lr.ph.i78.i.i.i.i,
 unpack_uint32_.exit92.i.i.i.i:                    ; preds = %.lr.ph.i86.i.preheader.i.i.i, %430
   %.05.lcssa.i91.i.i.i.i = phi i8 [ 0, %430 ], [ %431, %.lr.ph.i86.i.preheader.i.i.i ]
   %432 = load ptr, ptr %413, align 8, !tbaa !77
-  %433 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Index, ptr %432, i64 %indvars.iv.i.i.i.i, i32 1
-  store i8 %.05.lcssa.i91.i.i.i.i, ptr %433, align 8, !tbaa !81
-  %434 = call i64 @fread(ptr noundef nonnull %8, i64 noundef 1, i64 noundef %367, ptr noundef %23) #33
-  %.not61.i.i.i.i = icmp eq i64 %434, %367
+  %433 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Index, ptr %432, i64 %indvars.iv.i.i.i.i
+  %434 = getelementptr inbounds nuw i8, ptr %433, i64 8
+  store i8 %.05.lcssa.i91.i.i.i.i, ptr %434, align 8, !tbaa !81
+  %435 = call i64 @fread(ptr noundef nonnull %8, i64 noundef 1, i64 noundef %367, ptr noundef %23) #33
+  %.not61.i.i.i.i = icmp eq i64 %435, %367
   br i1 %.not61.i.i.i.i, label %415, label %read_metadata_block_data_cuesheet_track_cb_.exit.thread.i.i.i
 
 read_metadata_block_data_cuesheet_track_cb_.exit.thread.i.i.i: ; preds = %410, %393, %391, %unpack_uint32_.exit.i.i.i.i, %unpack_uint64_.exit.i.i.i.i, %374, %unpack_uint32_.exit92.i.i.i.i, %unpack_uint64_.exit84.i.i.i.i, %.lr.ph.i49.i.i.i
@@ -1622,467 +1623,467 @@ read_metadata_block_data_cuesheet_track_cb_.exit.thread.i.i.i: ; preds = %410, %
 .loopexit.i61.i.i:                                ; preds = %415, %.thread.i.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %indvars.iv.next.i62.i.i = add nuw nsw i64 %indvars.iv.i60.i.i, 1
-  %435 = load i32, ptr %333, align 4, !tbaa !71
-  %436 = zext i32 %435 to i64
-  %437 = icmp samesign ult i64 %indvars.iv.next.i62.i.i, %436
-  br i1 %437, label %374, label %read_metadata_block_data_cuesheet_cb_.exit.i.i, !llvm.loop !82
+  %436 = load i32, ptr %333, align 4, !tbaa !71
+  %437 = zext i32 %436 to i64
+  %438 = icmp samesign ult i64 %indvars.iv.next.i62.i.i, %437
+  br i1 %438, label %374, label %read_metadata_block_data_cuesheet_cb_.exit.i.i, !llvm.loop !82
 
 read_metadata_block_data_cuesheet_cb_.exit.i.i:   ; preds = %.loopexit.i61.i.i, %read_metadata_block_data_cuesheet_track_cb_.exit.thread.i.i.i, %335, %unpack_uint32_.exit.i58.i.i, %unpack_uint32_.exit.thread.i.i.i, %317, %unpack_uint64_.exit.i56.i.i, %298, %292
   %.0.i49.i.i = phi i32 [ 6, %292 ], [ 6, %298 ], [ 6, %unpack_uint64_.exit.i56.i.i ], [ 6, %317 ], [ 5, %unpack_uint32_.exit.i58.i.i ], [ 11, %335 ], [ 5, %unpack_uint32_.exit.thread.i.i.i ], [ %.054.i.ph.i.i.i, %read_metadata_block_data_cuesheet_track_cb_.exit.thread.i.i.i ], [ 0, %.loopexit.i61.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %read_metadata_block_data_.exit
 
-438:                                              ; preds = %16
-  %439 = getelementptr inbounds nuw i8, ptr %15, i64 16
+439:                                              ; preds = %16
+  %440 = getelementptr inbounds nuw i8, ptr %15, i64 16
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %440 = load i32, ptr @FLAC__STREAM_METADATA_PICTURE_TYPE_LEN, align 4, !tbaa !4
-  %441 = lshr i32 %440, 3
-  %442 = zext nneg i32 %441 to i64
-  %443 = call i64 @fread(ptr noundef nonnull %7, i64 noundef 1, i64 noundef %442, ptr noundef %23) #33
-  %.not.i63.i.i = icmp eq i64 %443, %442
-  br i1 %.not.i63.i.i, label %444, label %read_metadata_block_data_picture_cb_.exit.i.i
+  %441 = load i32, ptr @FLAC__STREAM_METADATA_PICTURE_TYPE_LEN, align 4, !tbaa !4
+  %442 = lshr i32 %441, 3
+  %443 = zext nneg i32 %442 to i64
+  %444 = call i64 @fread(ptr noundef nonnull %7, i64 noundef 1, i64 noundef %443, ptr noundef %23) #33
+  %.not.i63.i.i = icmp eq i64 %444, %443
+  br i1 %.not.i63.i.i, label %445, label %read_metadata_block_data_picture_cb_.exit.i.i
 
-444:                                              ; preds = %438
-  %.not.i.i65.i.i = icmp ult i32 %440, 8
+445:                                              ; preds = %439
+  %.not.i.i65.i.i = icmp ult i32 %441, 8
   br i1 %.not.i.i65.i.i, label %unpack_uint32_.exit.i71.i.i, label %.lr.ph.i.i66.i.i
 
-.lr.ph.i.i66.i.i:                                 ; preds = %444, %.lr.ph.i.i66.i.i
-  %.09.i.i67.i.i = phi i32 [ %450, %.lr.ph.i.i66.i.i ], [ 0, %444 ]
-  %.058.i.i68.i.i = phi i32 [ %449, %.lr.ph.i.i66.i.i ], [ 0, %444 ]
-  %.067.i.i69.i.i = phi ptr [ %446, %.lr.ph.i.i66.i.i ], [ %7, %444 ]
-  %445 = shl i32 %.058.i.i68.i.i, 8
-  %446 = getelementptr inbounds nuw i8, ptr %.067.i.i69.i.i, i64 1
-  %447 = load i8, ptr %.067.i.i69.i.i, align 1, !tbaa !8
-  %448 = zext i8 %447 to i32
-  %449 = or disjoint i32 %445, %448
-  %450 = add nuw nsw i32 %.09.i.i67.i.i, 1
-  %exitcond.not.i.i70.i.i = icmp eq i32 %450, %441
+.lr.ph.i.i66.i.i:                                 ; preds = %445, %.lr.ph.i.i66.i.i
+  %.09.i.i67.i.i = phi i32 [ %451, %.lr.ph.i.i66.i.i ], [ 0, %445 ]
+  %.058.i.i68.i.i = phi i32 [ %450, %.lr.ph.i.i66.i.i ], [ 0, %445 ]
+  %.067.i.i69.i.i = phi ptr [ %447, %.lr.ph.i.i66.i.i ], [ %7, %445 ]
+  %446 = shl i32 %.058.i.i68.i.i, 8
+  %447 = getelementptr inbounds nuw i8, ptr %.067.i.i69.i.i, i64 1
+  %448 = load i8, ptr %.067.i.i69.i.i, align 1, !tbaa !8
+  %449 = zext i8 %448 to i32
+  %450 = or disjoint i32 %446, %449
+  %451 = add nuw nsw i32 %.09.i.i67.i.i, 1
+  %exitcond.not.i.i70.i.i = icmp eq i32 %451, %442
   br i1 %exitcond.not.i.i70.i.i, label %unpack_uint32_.exit.i71.i.i, label %.lr.ph.i.i66.i.i, !llvm.loop !32
 
-unpack_uint32_.exit.i71.i.i:                      ; preds = %.lr.ph.i.i66.i.i, %444
-  %.05.lcssa.i.i72.i.i = phi i32 [ 0, %444 ], [ %449, %.lr.ph.i.i66.i.i ]
-  store i32 %.05.lcssa.i.i72.i.i, ptr %439, align 8, !tbaa !83
-  %451 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  %452 = load i32, ptr @FLAC__STREAM_METADATA_PICTURE_MIME_TYPE_LENGTH_LEN, align 4, !tbaa !4
+unpack_uint32_.exit.i71.i.i:                      ; preds = %.lr.ph.i.i66.i.i, %445
+  %.05.lcssa.i.i72.i.i = phi i32 [ 0, %445 ], [ %450, %.lr.ph.i.i66.i.i ]
+  store i32 %.05.lcssa.i.i72.i.i, ptr %440, align 8, !tbaa !83
+  %452 = getelementptr inbounds nuw i8, ptr %15, i64 24
+  %453 = load i32, ptr @FLAC__STREAM_METADATA_PICTURE_MIME_TYPE_LENGTH_LEN, align 4, !tbaa !4
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %453 = lshr i32 %452, 3
-  %454 = zext nneg i32 %453 to i64
-  %455 = call i64 @fread(ptr noundef nonnull %6, i64 noundef 1, i64 noundef %454, ptr noundef %23) #33
-  %.not.i38.i.i.i = icmp eq i64 %455, %454
-  br i1 %.not.i38.i.i.i, label %456, label %read_metadata_block_data_picture_cstring_cb_.exit.thread.i.i.i
+  %454 = lshr i32 %453, 3
+  %455 = zext nneg i32 %454 to i64
+  %456 = call i64 @fread(ptr noundef nonnull %6, i64 noundef 1, i64 noundef %455, ptr noundef %23) #33
+  %.not.i38.i.i.i = icmp eq i64 %456, %455
+  br i1 %.not.i38.i.i.i, label %457, label %read_metadata_block_data_picture_cstring_cb_.exit.thread.i.i.i
 
-456:                                              ; preds = %unpack_uint32_.exit.i71.i.i
-  %.not.i.i.i73.i.i = icmp ult i32 %452, 8
+457:                                              ; preds = %unpack_uint32_.exit.i71.i.i
+  %.not.i.i.i73.i.i = icmp ult i32 %453, 8
   br i1 %.not.i.i.i73.i.i, label %unpack_uint32_.exit.thread.i.i.i.i, label %.lr.ph.i.i.i74.i.i
 
-.lr.ph.i.i.i74.i.i:                               ; preds = %456, %.lr.ph.i.i.i74.i.i
-  %.09.i.i.i75.i.i = phi i32 [ %462, %.lr.ph.i.i.i74.i.i ], [ 0, %456 ]
-  %.058.i.i.i76.i.i = phi i32 [ %461, %.lr.ph.i.i.i74.i.i ], [ 0, %456 ]
-  %.067.i.i.i77.i.i = phi ptr [ %458, %.lr.ph.i.i.i74.i.i ], [ %6, %456 ]
-  %457 = shl i32 %.058.i.i.i76.i.i, 8
-  %458 = getelementptr inbounds nuw i8, ptr %.067.i.i.i77.i.i, i64 1
-  %459 = load i8, ptr %.067.i.i.i77.i.i, align 1, !tbaa !8
-  %460 = zext i8 %459 to i32
-  %461 = or disjoint i32 %457, %460
-  %462 = add nuw nsw i32 %.09.i.i.i75.i.i, 1
-  %exitcond.not.i.i.i78.i.i = icmp eq i32 %462, %453
+.lr.ph.i.i.i74.i.i:                               ; preds = %457, %.lr.ph.i.i.i74.i.i
+  %.09.i.i.i75.i.i = phi i32 [ %463, %.lr.ph.i.i.i74.i.i ], [ 0, %457 ]
+  %.058.i.i.i76.i.i = phi i32 [ %462, %.lr.ph.i.i.i74.i.i ], [ 0, %457 ]
+  %.067.i.i.i77.i.i = phi ptr [ %459, %.lr.ph.i.i.i74.i.i ], [ %6, %457 ]
+  %458 = shl i32 %.058.i.i.i76.i.i, 8
+  %459 = getelementptr inbounds nuw i8, ptr %.067.i.i.i77.i.i, i64 1
+  %460 = load i8, ptr %.067.i.i.i77.i.i, align 1, !tbaa !8
+  %461 = zext i8 %460 to i32
+  %462 = or disjoint i32 %458, %461
+  %463 = add nuw nsw i32 %.09.i.i.i75.i.i, 1
+  %exitcond.not.i.i.i78.i.i = icmp eq i32 %463, %454
   br i1 %exitcond.not.i.i.i78.i.i, label %unpack_uint32_.exit.i.i79.i.i, label %.lr.ph.i.i.i74.i.i, !llvm.loop !32
 
 unpack_uint32_.exit.i.i79.i.i:                    ; preds = %.lr.ph.i.i.i74.i.i
-  %463 = load i32, ptr @FLAC__STREAM_METADATA_LENGTH_LEN, align 4, !tbaa !4
-  %464 = shl nuw i32 1, %463
-  %465 = icmp ugt i32 %461, %464
-  br i1 %465, label %read_metadata_block_data_picture_cstring_cb_.exit.thread.i.i.i, label %unpack_uint32_.exit.thread.i.i.i.i
+  %464 = load i32, ptr @FLAC__STREAM_METADATA_LENGTH_LEN, align 4, !tbaa !4
+  %465 = shl nuw i32 1, %464
+  %466 = icmp ugt i32 %462, %465
+  br i1 %466, label %read_metadata_block_data_picture_cstring_cb_.exit.thread.i.i.i, label %unpack_uint32_.exit.thread.i.i.i.i
 
-unpack_uint32_.exit.thread.i.i.i.i:               ; preds = %unpack_uint32_.exit.i.i79.i.i, %456
-  %.0101.i.i.i = phi i32 [ %461, %unpack_uint32_.exit.i.i79.i.i ], [ 0, %456 ]
-  %466 = load ptr, ptr %451, align 8, !tbaa !85
-  %.not23.i.i.i.i = icmp eq ptr %466, null
-  br i1 %.not23.i.i.i.i, label %468, label %467
+unpack_uint32_.exit.thread.i.i.i.i:               ; preds = %unpack_uint32_.exit.i.i79.i.i, %457
+  %.0101.i.i.i = phi i32 [ %462, %unpack_uint32_.exit.i.i79.i.i ], [ 0, %457 ]
+  %467 = load ptr, ptr %452, align 8, !tbaa !85
+  %.not23.i.i.i.i = icmp eq ptr %467, null
+  br i1 %.not23.i.i.i.i, label %469, label %468
 
-467:                                              ; preds = %unpack_uint32_.exit.thread.i.i.i.i
-  call void @free(ptr noundef nonnull %466) #33
-  br label %468
+468:                                              ; preds = %unpack_uint32_.exit.thread.i.i.i.i
+  call void @free(ptr noundef nonnull %467) #33
+  br label %469
 
-468:                                              ; preds = %467, %unpack_uint32_.exit.thread.i.i.i.i
-  %469 = zext i32 %.0101.i.i.i to i64
-  %470 = add nuw nsw i64 %469, 1
-  %471 = call noalias noundef ptr @malloc(i64 noundef %470) #36
-  store ptr %471, ptr %451, align 8, !tbaa !85
-  %472 = icmp eq ptr %471, null
-  br i1 %472, label %read_metadata_block_data_picture_cstring_cb_.exit.thread.i.i.i, label %473
+469:                                              ; preds = %468, %unpack_uint32_.exit.thread.i.i.i.i
+  %470 = zext i32 %.0101.i.i.i to i64
+  %471 = add nuw nsw i64 %470, 1
+  %472 = call noalias noundef ptr @malloc(i64 noundef %471) #36
+  store ptr %472, ptr %452, align 8, !tbaa !85
+  %473 = icmp eq ptr %472, null
+  br i1 %473, label %read_metadata_block_data_picture_cstring_cb_.exit.thread.i.i.i, label %474
 
-473:                                              ; preds = %468
+474:                                              ; preds = %469
   %.not24.i.i.i.i = icmp eq i32 %.0101.i.i.i, 0
-  br i1 %.not24.i.i.i.i, label %476, label %474
+  br i1 %.not24.i.i.i.i, label %477, label %475
 
-474:                                              ; preds = %473
-  %475 = call i64 @fread(ptr noundef nonnull %471, i64 noundef 1, i64 noundef %469, ptr noundef %23) #33
-  %.not25.i.i.i.i = icmp eq i64 %475, %469
+475:                                              ; preds = %474
+  %476 = call i64 @fread(ptr noundef nonnull %472, i64 noundef 1, i64 noundef %470, ptr noundef %23) #33
+  %.not25.i.i.i.i = icmp eq i64 %476, %470
   br i1 %.not25.i.i.i.i, label %._crit_edge.i.i.i.i, label %read_metadata_block_data_picture_cstring_cb_.exit.thread.i.i.i
 
-._crit_edge.i.i.i.i:                              ; preds = %474
-  %.pre27.i.i.i.i = load ptr, ptr %451, align 8, !tbaa !85
-  br label %476
+._crit_edge.i.i.i.i:                              ; preds = %475
+  %.pre27.i.i.i.i = load ptr, ptr %452, align 8, !tbaa !85
+  br label %477
 
-read_metadata_block_data_picture_cstring_cb_.exit.thread.i.i.i: ; preds = %474, %468, %unpack_uint32_.exit.i.i79.i.i, %unpack_uint32_.exit.i71.i.i
-  %.0.i.ph.i.i.i = phi i32 [ 6, %474 ], [ 11, %468 ], [ 5, %unpack_uint32_.exit.i.i79.i.i ], [ 6, %unpack_uint32_.exit.i71.i.i ]
+read_metadata_block_data_picture_cstring_cb_.exit.thread.i.i.i: ; preds = %475, %469, %unpack_uint32_.exit.i.i79.i.i, %unpack_uint32_.exit.i71.i.i
+  %.0.i.ph.i.i.i = phi i32 [ 6, %475 ], [ 11, %469 ], [ 5, %unpack_uint32_.exit.i.i79.i.i ], [ 6, %unpack_uint32_.exit.i71.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %read_metadata_block_data_picture_cb_.exit.i.i
 
-476:                                              ; preds = %._crit_edge.i.i.i.i, %473
-  %477 = phi ptr [ %.pre27.i.i.i.i, %._crit_edge.i.i.i.i ], [ %471, %473 ]
-  %478 = getelementptr inbounds nuw i8, ptr %477, i64 %469
-  store i8 0, ptr %478, align 1, !tbaa !8
+477:                                              ; preds = %._crit_edge.i.i.i.i, %474
+  %478 = phi ptr [ %.pre27.i.i.i.i, %._crit_edge.i.i.i.i ], [ %472, %474 ]
+  %479 = getelementptr inbounds nuw i8, ptr %478, i64 %470
+  store i8 0, ptr %479, align 1, !tbaa !8
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %479 = getelementptr inbounds nuw i8, ptr %15, i64 32
-  %480 = load i32, ptr @FLAC__STREAM_METADATA_PICTURE_DESCRIPTION_LENGTH_LEN, align 4, !tbaa !4
+  %480 = getelementptr inbounds nuw i8, ptr %15, i64 32
+  %481 = load i32, ptr @FLAC__STREAM_METADATA_PICTURE_DESCRIPTION_LENGTH_LEN, align 4, !tbaa !4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %481 = lshr i32 %480, 3
-  %482 = zext nneg i32 %481 to i64
-  %483 = call i64 @fread(ptr noundef nonnull %5, i64 noundef 1, i64 noundef %482, ptr noundef %23) #33
-  %.not.i39.i.i.i = icmp eq i64 %483, %482
-  br i1 %.not.i39.i.i.i, label %484, label %read_metadata_block_data_picture_cstring_cb_.exit56.thread.i.i.i
+  %482 = lshr i32 %481, 3
+  %483 = zext nneg i32 %482 to i64
+  %484 = call i64 @fread(ptr noundef nonnull %5, i64 noundef 1, i64 noundef %483, ptr noundef %23) #33
+  %.not.i39.i.i.i = icmp eq i64 %484, %483
+  br i1 %.not.i39.i.i.i, label %485, label %read_metadata_block_data_picture_cstring_cb_.exit56.thread.i.i.i
 
-484:                                              ; preds = %476
-  %.not.i.i41.i.i.i = icmp ult i32 %480, 8
+485:                                              ; preds = %477
+  %.not.i.i41.i.i.i = icmp ult i32 %481, 8
   br i1 %.not.i.i41.i.i.i, label %unpack_uint32_.exit.thread.i55.i.i.i, label %.lr.ph.i.i42.i.i.i
 
-.lr.ph.i.i42.i.i.i:                               ; preds = %484, %.lr.ph.i.i42.i.i.i
-  %.09.i.i43.i.i.i = phi i32 [ %490, %.lr.ph.i.i42.i.i.i ], [ 0, %484 ]
-  %.058.i.i44.i.i.i = phi i32 [ %489, %.lr.ph.i.i42.i.i.i ], [ 0, %484 ]
-  %.067.i.i45.i.i.i = phi ptr [ %486, %.lr.ph.i.i42.i.i.i ], [ %5, %484 ]
-  %485 = shl i32 %.058.i.i44.i.i.i, 8
-  %486 = getelementptr inbounds nuw i8, ptr %.067.i.i45.i.i.i, i64 1
-  %487 = load i8, ptr %.067.i.i45.i.i.i, align 1, !tbaa !8
-  %488 = zext i8 %487 to i32
-  %489 = or disjoint i32 %485, %488
-  %490 = add nuw nsw i32 %.09.i.i43.i.i.i, 1
-  %exitcond.not.i.i46.i.i.i = icmp eq i32 %490, %481
+.lr.ph.i.i42.i.i.i:                               ; preds = %485, %.lr.ph.i.i42.i.i.i
+  %.09.i.i43.i.i.i = phi i32 [ %491, %.lr.ph.i.i42.i.i.i ], [ 0, %485 ]
+  %.058.i.i44.i.i.i = phi i32 [ %490, %.lr.ph.i.i42.i.i.i ], [ 0, %485 ]
+  %.067.i.i45.i.i.i = phi ptr [ %487, %.lr.ph.i.i42.i.i.i ], [ %5, %485 ]
+  %486 = shl i32 %.058.i.i44.i.i.i, 8
+  %487 = getelementptr inbounds nuw i8, ptr %.067.i.i45.i.i.i, i64 1
+  %488 = load i8, ptr %.067.i.i45.i.i.i, align 1, !tbaa !8
+  %489 = zext i8 %488 to i32
+  %490 = or disjoint i32 %486, %489
+  %491 = add nuw nsw i32 %.09.i.i43.i.i.i, 1
+  %exitcond.not.i.i46.i.i.i = icmp eq i32 %491, %482
   br i1 %exitcond.not.i.i46.i.i.i, label %unpack_uint32_.exit.i47.i.i.i, label %.lr.ph.i.i42.i.i.i, !llvm.loop !32
 
 unpack_uint32_.exit.i47.i.i.i:                    ; preds = %.lr.ph.i.i42.i.i.i
-  %491 = load i32, ptr @FLAC__STREAM_METADATA_LENGTH_LEN, align 4, !tbaa !4
-  %492 = shl nuw i32 1, %491
-  %493 = icmp ugt i32 %489, %492
-  br i1 %493, label %read_metadata_block_data_picture_cstring_cb_.exit56.thread.i.i.i, label %unpack_uint32_.exit.thread.i55.i.i.i
+  %492 = load i32, ptr @FLAC__STREAM_METADATA_LENGTH_LEN, align 4, !tbaa !4
+  %493 = shl nuw i32 1, %492
+  %494 = icmp ugt i32 %490, %493
+  br i1 %494, label %read_metadata_block_data_picture_cstring_cb_.exit56.thread.i.i.i, label %unpack_uint32_.exit.thread.i55.i.i.i
 
-unpack_uint32_.exit.thread.i55.i.i.i:             ; preds = %unpack_uint32_.exit.i47.i.i.i, %484
-  %.1.i.i.i = phi i32 [ %489, %unpack_uint32_.exit.i47.i.i.i ], [ 0, %484 ]
-  %494 = load ptr, ptr %479, align 8, !tbaa !85
-  %.not23.i48.i.i.i = icmp eq ptr %494, null
-  br i1 %.not23.i48.i.i.i, label %496, label %495
+unpack_uint32_.exit.thread.i55.i.i.i:             ; preds = %unpack_uint32_.exit.i47.i.i.i, %485
+  %.1.i.i.i = phi i32 [ %490, %unpack_uint32_.exit.i47.i.i.i ], [ 0, %485 ]
+  %495 = load ptr, ptr %480, align 8, !tbaa !85
+  %.not23.i48.i.i.i = icmp eq ptr %495, null
+  br i1 %.not23.i48.i.i.i, label %497, label %496
 
-495:                                              ; preds = %unpack_uint32_.exit.thread.i55.i.i.i
-  call void @free(ptr noundef nonnull %494) #33
-  br label %496
+496:                                              ; preds = %unpack_uint32_.exit.thread.i55.i.i.i
+  call void @free(ptr noundef nonnull %495) #33
+  br label %497
 
-496:                                              ; preds = %495, %unpack_uint32_.exit.thread.i55.i.i.i
-  %497 = zext i32 %.1.i.i.i to i64
-  %498 = add nuw nsw i64 %497, 1
-  %499 = call noalias noundef ptr @malloc(i64 noundef %498) #36
-  store ptr %499, ptr %479, align 8, !tbaa !85
-  %500 = icmp eq ptr %499, null
-  br i1 %500, label %read_metadata_block_data_picture_cstring_cb_.exit56.thread.i.i.i, label %501
+497:                                              ; preds = %496, %unpack_uint32_.exit.thread.i55.i.i.i
+  %498 = zext i32 %.1.i.i.i to i64
+  %499 = add nuw nsw i64 %498, 1
+  %500 = call noalias noundef ptr @malloc(i64 noundef %499) #36
+  store ptr %500, ptr %480, align 8, !tbaa !85
+  %501 = icmp eq ptr %500, null
+  br i1 %501, label %read_metadata_block_data_picture_cstring_cb_.exit56.thread.i.i.i, label %502
 
-501:                                              ; preds = %496
+502:                                              ; preds = %497
   %.not24.i50.i.i.i = icmp eq i32 %.1.i.i.i, 0
-  br i1 %.not24.i50.i.i.i, label %504, label %502
+  br i1 %.not24.i50.i.i.i, label %505, label %503
 
-502:                                              ; preds = %501
-  %503 = call i64 @fread(ptr noundef nonnull %499, i64 noundef 1, i64 noundef %497, ptr noundef %23) #33
-  %.not25.i51.i.i.i = icmp eq i64 %503, %497
+503:                                              ; preds = %502
+  %504 = call i64 @fread(ptr noundef nonnull %500, i64 noundef 1, i64 noundef %498, ptr noundef %23) #33
+  %.not25.i51.i.i.i = icmp eq i64 %504, %498
   br i1 %.not25.i51.i.i.i, label %._crit_edge.i52.i.i.i, label %read_metadata_block_data_picture_cstring_cb_.exit56.thread.i.i.i
 
-._crit_edge.i52.i.i.i:                            ; preds = %502
-  %.pre27.i53.i.i.i = load ptr, ptr %479, align 8, !tbaa !85
-  br label %504
+._crit_edge.i52.i.i.i:                            ; preds = %503
+  %.pre27.i53.i.i.i = load ptr, ptr %480, align 8, !tbaa !85
+  br label %505
 
-read_metadata_block_data_picture_cstring_cb_.exit56.thread.i.i.i: ; preds = %502, %496, %unpack_uint32_.exit.i47.i.i.i, %476
-  %.0.i40.ph.i.i.i = phi i32 [ 6, %502 ], [ 11, %496 ], [ 5, %unpack_uint32_.exit.i47.i.i.i ], [ 6, %476 ]
+read_metadata_block_data_picture_cstring_cb_.exit56.thread.i.i.i: ; preds = %503, %497, %unpack_uint32_.exit.i47.i.i.i, %477
+  %.0.i40.ph.i.i.i = phi i32 [ 6, %503 ], [ 11, %497 ], [ 5, %unpack_uint32_.exit.i47.i.i.i ], [ 6, %477 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %read_metadata_block_data_picture_cb_.exit.i.i
 
-504:                                              ; preds = %._crit_edge.i52.i.i.i, %501
-  %505 = phi ptr [ %.pre27.i53.i.i.i, %._crit_edge.i52.i.i.i ], [ %499, %501 ]
-  %506 = getelementptr inbounds nuw i8, ptr %505, i64 %497
-  store i8 0, ptr %506, align 1, !tbaa !8
+505:                                              ; preds = %._crit_edge.i52.i.i.i, %502
+  %506 = phi ptr [ %.pre27.i53.i.i.i, %._crit_edge.i52.i.i.i ], [ %500, %502 ]
+  %507 = getelementptr inbounds nuw i8, ptr %506, i64 %498
+  store i8 0, ptr %507, align 1, !tbaa !8
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %507 = load i32, ptr @FLAC__STREAM_METADATA_PICTURE_WIDTH_LEN, align 4, !tbaa !4
-  %508 = lshr i32 %507, 3
-  %509 = zext nneg i32 %508 to i64
-  %510 = call i64 @fread(ptr noundef nonnull %7, i64 noundef 1, i64 noundef %509, ptr noundef %23) #33
-  %.not33.i.i.i = icmp eq i64 %510, %509
-  br i1 %.not33.i.i.i, label %511, label %read_metadata_block_data_picture_cb_.exit.i.i
+  %508 = load i32, ptr @FLAC__STREAM_METADATA_PICTURE_WIDTH_LEN, align 4, !tbaa !4
+  %509 = lshr i32 %508, 3
+  %510 = zext nneg i32 %509 to i64
+  %511 = call i64 @fread(ptr noundef nonnull %7, i64 noundef 1, i64 noundef %510, ptr noundef %23) #33
+  %.not33.i.i.i = icmp eq i64 %511, %510
+  br i1 %.not33.i.i.i, label %512, label %read_metadata_block_data_picture_cb_.exit.i.i
 
-511:                                              ; preds = %504
-  %.not.i57.i.i.i = icmp ult i32 %507, 8
+512:                                              ; preds = %505
+  %.not.i57.i.i.i = icmp ult i32 %508, 8
   br i1 %.not.i57.i.i.i, label %unpack_uint32_.exit65.i.i.i, label %.lr.ph.i58.i.i.i
 
-.lr.ph.i58.i.i.i:                                 ; preds = %511, %.lr.ph.i58.i.i.i
-  %.09.i59.i.i.i = phi i32 [ %517, %.lr.ph.i58.i.i.i ], [ 0, %511 ]
-  %.058.i60.i.i.i = phi i32 [ %516, %.lr.ph.i58.i.i.i ], [ 0, %511 ]
-  %.067.i61.i.i.i = phi ptr [ %513, %.lr.ph.i58.i.i.i ], [ %7, %511 ]
-  %512 = shl i32 %.058.i60.i.i.i, 8
-  %513 = getelementptr inbounds nuw i8, ptr %.067.i61.i.i.i, i64 1
-  %514 = load i8, ptr %.067.i61.i.i.i, align 1, !tbaa !8
-  %515 = zext i8 %514 to i32
-  %516 = or disjoint i32 %512, %515
-  %517 = add nuw nsw i32 %.09.i59.i.i.i, 1
-  %exitcond.not.i62.i.i.i = icmp eq i32 %517, %508
+.lr.ph.i58.i.i.i:                                 ; preds = %512, %.lr.ph.i58.i.i.i
+  %.09.i59.i.i.i = phi i32 [ %518, %.lr.ph.i58.i.i.i ], [ 0, %512 ]
+  %.058.i60.i.i.i = phi i32 [ %517, %.lr.ph.i58.i.i.i ], [ 0, %512 ]
+  %.067.i61.i.i.i = phi ptr [ %514, %.lr.ph.i58.i.i.i ], [ %7, %512 ]
+  %513 = shl i32 %.058.i60.i.i.i, 8
+  %514 = getelementptr inbounds nuw i8, ptr %.067.i61.i.i.i, i64 1
+  %515 = load i8, ptr %.067.i61.i.i.i, align 1, !tbaa !8
+  %516 = zext i8 %515 to i32
+  %517 = or disjoint i32 %513, %516
+  %518 = add nuw nsw i32 %.09.i59.i.i.i, 1
+  %exitcond.not.i62.i.i.i = icmp eq i32 %518, %509
   br i1 %exitcond.not.i62.i.i.i, label %unpack_uint32_.exit65.i.i.i, label %.lr.ph.i58.i.i.i, !llvm.loop !32
 
-unpack_uint32_.exit65.i.i.i:                      ; preds = %.lr.ph.i58.i.i.i, %511
-  %.05.lcssa.i64.i.i.i = phi i32 [ 0, %511 ], [ %516, %.lr.ph.i58.i.i.i ]
-  %518 = getelementptr inbounds nuw i8, ptr %15, i64 40
-  store i32 %.05.lcssa.i64.i.i.i, ptr %518, align 8, !tbaa !86
-  %519 = load i32, ptr @FLAC__STREAM_METADATA_PICTURE_HEIGHT_LEN, align 4, !tbaa !4
-  %520 = lshr i32 %519, 3
-  %521 = zext nneg i32 %520 to i64
-  %522 = call i64 @fread(ptr noundef nonnull %7, i64 noundef 1, i64 noundef %521, ptr noundef %23) #33
-  %.not34.i.i.i = icmp eq i64 %522, %521
-  br i1 %.not34.i.i.i, label %523, label %read_metadata_block_data_picture_cb_.exit.i.i
+unpack_uint32_.exit65.i.i.i:                      ; preds = %.lr.ph.i58.i.i.i, %512
+  %.05.lcssa.i64.i.i.i = phi i32 [ 0, %512 ], [ %517, %.lr.ph.i58.i.i.i ]
+  %519 = getelementptr inbounds nuw i8, ptr %15, i64 40
+  store i32 %.05.lcssa.i64.i.i.i, ptr %519, align 8, !tbaa !86
+  %520 = load i32, ptr @FLAC__STREAM_METADATA_PICTURE_HEIGHT_LEN, align 4, !tbaa !4
+  %521 = lshr i32 %520, 3
+  %522 = zext nneg i32 %521 to i64
+  %523 = call i64 @fread(ptr noundef nonnull %7, i64 noundef 1, i64 noundef %522, ptr noundef %23) #33
+  %.not34.i.i.i = icmp eq i64 %523, %522
+  br i1 %.not34.i.i.i, label %524, label %read_metadata_block_data_picture_cb_.exit.i.i
 
-523:                                              ; preds = %unpack_uint32_.exit65.i.i.i
-  %.not.i66.i.i.i = icmp ult i32 %519, 8
+524:                                              ; preds = %unpack_uint32_.exit65.i.i.i
+  %.not.i66.i.i.i = icmp ult i32 %520, 8
   br i1 %.not.i66.i.i.i, label %unpack_uint32_.exit74.i.i.i, label %.lr.ph.i67.i.i.i
 
-.lr.ph.i67.i.i.i:                                 ; preds = %523, %.lr.ph.i67.i.i.i
-  %.09.i68.i.i.i = phi i32 [ %529, %.lr.ph.i67.i.i.i ], [ 0, %523 ]
-  %.058.i69.i.i.i = phi i32 [ %528, %.lr.ph.i67.i.i.i ], [ 0, %523 ]
-  %.067.i70.i.i.i = phi ptr [ %525, %.lr.ph.i67.i.i.i ], [ %7, %523 ]
-  %524 = shl i32 %.058.i69.i.i.i, 8
-  %525 = getelementptr inbounds nuw i8, ptr %.067.i70.i.i.i, i64 1
-  %526 = load i8, ptr %.067.i70.i.i.i, align 1, !tbaa !8
-  %527 = zext i8 %526 to i32
-  %528 = or disjoint i32 %524, %527
-  %529 = add nuw nsw i32 %.09.i68.i.i.i, 1
-  %exitcond.not.i71.i.i.i = icmp eq i32 %529, %520
+.lr.ph.i67.i.i.i:                                 ; preds = %524, %.lr.ph.i67.i.i.i
+  %.09.i68.i.i.i = phi i32 [ %530, %.lr.ph.i67.i.i.i ], [ 0, %524 ]
+  %.058.i69.i.i.i = phi i32 [ %529, %.lr.ph.i67.i.i.i ], [ 0, %524 ]
+  %.067.i70.i.i.i = phi ptr [ %526, %.lr.ph.i67.i.i.i ], [ %7, %524 ]
+  %525 = shl i32 %.058.i69.i.i.i, 8
+  %526 = getelementptr inbounds nuw i8, ptr %.067.i70.i.i.i, i64 1
+  %527 = load i8, ptr %.067.i70.i.i.i, align 1, !tbaa !8
+  %528 = zext i8 %527 to i32
+  %529 = or disjoint i32 %525, %528
+  %530 = add nuw nsw i32 %.09.i68.i.i.i, 1
+  %exitcond.not.i71.i.i.i = icmp eq i32 %530, %521
   br i1 %exitcond.not.i71.i.i.i, label %unpack_uint32_.exit74.i.i.i, label %.lr.ph.i67.i.i.i, !llvm.loop !32
 
-unpack_uint32_.exit74.i.i.i:                      ; preds = %.lr.ph.i67.i.i.i, %523
-  %.05.lcssa.i73.i.i.i = phi i32 [ 0, %523 ], [ %528, %.lr.ph.i67.i.i.i ]
-  %530 = getelementptr inbounds nuw i8, ptr %15, i64 44
-  store i32 %.05.lcssa.i73.i.i.i, ptr %530, align 4, !tbaa !87
-  %531 = load i32, ptr @FLAC__STREAM_METADATA_PICTURE_DEPTH_LEN, align 4, !tbaa !4
-  %532 = lshr i32 %531, 3
-  %533 = zext nneg i32 %532 to i64
-  %534 = call i64 @fread(ptr noundef nonnull %7, i64 noundef 1, i64 noundef %533, ptr noundef %23) #33
-  %.not35.i.i.i = icmp eq i64 %534, %533
-  br i1 %.not35.i.i.i, label %535, label %read_metadata_block_data_picture_cb_.exit.i.i
+unpack_uint32_.exit74.i.i.i:                      ; preds = %.lr.ph.i67.i.i.i, %524
+  %.05.lcssa.i73.i.i.i = phi i32 [ 0, %524 ], [ %529, %.lr.ph.i67.i.i.i ]
+  %531 = getelementptr inbounds nuw i8, ptr %15, i64 44
+  store i32 %.05.lcssa.i73.i.i.i, ptr %531, align 4, !tbaa !87
+  %532 = load i32, ptr @FLAC__STREAM_METADATA_PICTURE_DEPTH_LEN, align 4, !tbaa !4
+  %533 = lshr i32 %532, 3
+  %534 = zext nneg i32 %533 to i64
+  %535 = call i64 @fread(ptr noundef nonnull %7, i64 noundef 1, i64 noundef %534, ptr noundef %23) #33
+  %.not35.i.i.i = icmp eq i64 %535, %534
+  br i1 %.not35.i.i.i, label %536, label %read_metadata_block_data_picture_cb_.exit.i.i
 
-535:                                              ; preds = %unpack_uint32_.exit74.i.i.i
-  %.not.i75.i.i.i = icmp ult i32 %531, 8
+536:                                              ; preds = %unpack_uint32_.exit74.i.i.i
+  %.not.i75.i.i.i = icmp ult i32 %532, 8
   br i1 %.not.i75.i.i.i, label %unpack_uint32_.exit83.i.i.i, label %.lr.ph.i76.i.i.i
 
-.lr.ph.i76.i.i.i:                                 ; preds = %535, %.lr.ph.i76.i.i.i
-  %.09.i77.i.i.i = phi i32 [ %541, %.lr.ph.i76.i.i.i ], [ 0, %535 ]
-  %.058.i78.i.i.i = phi i32 [ %540, %.lr.ph.i76.i.i.i ], [ 0, %535 ]
-  %.067.i79.i.i.i = phi ptr [ %537, %.lr.ph.i76.i.i.i ], [ %7, %535 ]
-  %536 = shl i32 %.058.i78.i.i.i, 8
-  %537 = getelementptr inbounds nuw i8, ptr %.067.i79.i.i.i, i64 1
-  %538 = load i8, ptr %.067.i79.i.i.i, align 1, !tbaa !8
-  %539 = zext i8 %538 to i32
-  %540 = or disjoint i32 %536, %539
-  %541 = add nuw nsw i32 %.09.i77.i.i.i, 1
-  %exitcond.not.i80.i.i.i = icmp eq i32 %541, %532
+.lr.ph.i76.i.i.i:                                 ; preds = %536, %.lr.ph.i76.i.i.i
+  %.09.i77.i.i.i = phi i32 [ %542, %.lr.ph.i76.i.i.i ], [ 0, %536 ]
+  %.058.i78.i.i.i = phi i32 [ %541, %.lr.ph.i76.i.i.i ], [ 0, %536 ]
+  %.067.i79.i.i.i = phi ptr [ %538, %.lr.ph.i76.i.i.i ], [ %7, %536 ]
+  %537 = shl i32 %.058.i78.i.i.i, 8
+  %538 = getelementptr inbounds nuw i8, ptr %.067.i79.i.i.i, i64 1
+  %539 = load i8, ptr %.067.i79.i.i.i, align 1, !tbaa !8
+  %540 = zext i8 %539 to i32
+  %541 = or disjoint i32 %537, %540
+  %542 = add nuw nsw i32 %.09.i77.i.i.i, 1
+  %exitcond.not.i80.i.i.i = icmp eq i32 %542, %533
   br i1 %exitcond.not.i80.i.i.i, label %unpack_uint32_.exit83.i.i.i, label %.lr.ph.i76.i.i.i, !llvm.loop !32
 
-unpack_uint32_.exit83.i.i.i:                      ; preds = %.lr.ph.i76.i.i.i, %535
-  %.05.lcssa.i82.i.i.i = phi i32 [ 0, %535 ], [ %540, %.lr.ph.i76.i.i.i ]
-  %542 = getelementptr inbounds nuw i8, ptr %15, i64 48
-  store i32 %.05.lcssa.i82.i.i.i, ptr %542, align 8, !tbaa !88
-  %543 = load i32, ptr @FLAC__STREAM_METADATA_PICTURE_COLORS_LEN, align 4, !tbaa !4
-  %544 = lshr i32 %543, 3
-  %545 = zext nneg i32 %544 to i64
-  %546 = call i64 @fread(ptr noundef nonnull %7, i64 noundef 1, i64 noundef %545, ptr noundef %23) #33
-  %.not36.i80.i.i = icmp eq i64 %546, %545
-  br i1 %.not36.i80.i.i, label %547, label %read_metadata_block_data_picture_cb_.exit.i.i
+unpack_uint32_.exit83.i.i.i:                      ; preds = %.lr.ph.i76.i.i.i, %536
+  %.05.lcssa.i82.i.i.i = phi i32 [ 0, %536 ], [ %541, %.lr.ph.i76.i.i.i ]
+  %543 = getelementptr inbounds nuw i8, ptr %15, i64 48
+  store i32 %.05.lcssa.i82.i.i.i, ptr %543, align 8, !tbaa !88
+  %544 = load i32, ptr @FLAC__STREAM_METADATA_PICTURE_COLORS_LEN, align 4, !tbaa !4
+  %545 = lshr i32 %544, 3
+  %546 = zext nneg i32 %545 to i64
+  %547 = call i64 @fread(ptr noundef nonnull %7, i64 noundef 1, i64 noundef %546, ptr noundef %23) #33
+  %.not36.i80.i.i = icmp eq i64 %547, %546
+  br i1 %.not36.i80.i.i, label %548, label %read_metadata_block_data_picture_cb_.exit.i.i
 
-547:                                              ; preds = %unpack_uint32_.exit83.i.i.i
-  %.not.i84.i.i.i = icmp ult i32 %543, 8
+548:                                              ; preds = %unpack_uint32_.exit83.i.i.i
+  %.not.i84.i.i.i = icmp ult i32 %544, 8
   br i1 %.not.i84.i.i.i, label %unpack_uint32_.exit92.i.i.i, label %.lr.ph.i85.i.i.i
 
-.lr.ph.i85.i.i.i:                                 ; preds = %547, %.lr.ph.i85.i.i.i
-  %.09.i86.i.i.i = phi i32 [ %553, %.lr.ph.i85.i.i.i ], [ 0, %547 ]
-  %.058.i87.i.i.i = phi i32 [ %552, %.lr.ph.i85.i.i.i ], [ 0, %547 ]
-  %.067.i88.i.i.i = phi ptr [ %549, %.lr.ph.i85.i.i.i ], [ %7, %547 ]
-  %548 = shl i32 %.058.i87.i.i.i, 8
-  %549 = getelementptr inbounds nuw i8, ptr %.067.i88.i.i.i, i64 1
-  %550 = load i8, ptr %.067.i88.i.i.i, align 1, !tbaa !8
-  %551 = zext i8 %550 to i32
-  %552 = or disjoint i32 %548, %551
-  %553 = add nuw nsw i32 %.09.i86.i.i.i, 1
-  %exitcond.not.i89.i.i.i = icmp eq i32 %553, %544
+.lr.ph.i85.i.i.i:                                 ; preds = %548, %.lr.ph.i85.i.i.i
+  %.09.i86.i.i.i = phi i32 [ %554, %.lr.ph.i85.i.i.i ], [ 0, %548 ]
+  %.058.i87.i.i.i = phi i32 [ %553, %.lr.ph.i85.i.i.i ], [ 0, %548 ]
+  %.067.i88.i.i.i = phi ptr [ %550, %.lr.ph.i85.i.i.i ], [ %7, %548 ]
+  %549 = shl i32 %.058.i87.i.i.i, 8
+  %550 = getelementptr inbounds nuw i8, ptr %.067.i88.i.i.i, i64 1
+  %551 = load i8, ptr %.067.i88.i.i.i, align 1, !tbaa !8
+  %552 = zext i8 %551 to i32
+  %553 = or disjoint i32 %549, %552
+  %554 = add nuw nsw i32 %.09.i86.i.i.i, 1
+  %exitcond.not.i89.i.i.i = icmp eq i32 %554, %545
   br i1 %exitcond.not.i89.i.i.i, label %unpack_uint32_.exit92.i.i.i, label %.lr.ph.i85.i.i.i, !llvm.loop !32
 
-unpack_uint32_.exit92.i.i.i:                      ; preds = %.lr.ph.i85.i.i.i, %547
-  %.05.lcssa.i91.i.i.i = phi i32 [ 0, %547 ], [ %552, %.lr.ph.i85.i.i.i ]
-  %554 = getelementptr inbounds nuw i8, ptr %15, i64 52
-  store i32 %.05.lcssa.i91.i.i.i, ptr %554, align 4, !tbaa !89
-  %555 = getelementptr inbounds nuw i8, ptr %15, i64 64
-  %556 = getelementptr inbounds nuw i8, ptr %15, i64 56
-  %557 = load i32, ptr @FLAC__STREAM_METADATA_PICTURE_DATA_LENGTH_LEN, align 4, !tbaa !4
+unpack_uint32_.exit92.i.i.i:                      ; preds = %.lr.ph.i85.i.i.i, %548
+  %.05.lcssa.i91.i.i.i = phi i32 [ 0, %548 ], [ %553, %.lr.ph.i85.i.i.i ]
+  %555 = getelementptr inbounds nuw i8, ptr %15, i64 52
+  store i32 %.05.lcssa.i91.i.i.i, ptr %555, align 4, !tbaa !89
+  %556 = getelementptr inbounds nuw i8, ptr %15, i64 64
+  %557 = getelementptr inbounds nuw i8, ptr %15, i64 56
+  %558 = load i32, ptr @FLAC__STREAM_METADATA_PICTURE_DATA_LENGTH_LEN, align 4, !tbaa !4
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %558 = lshr i32 %557, 3
-  %559 = zext nneg i32 %558 to i64
-  %560 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef %559, ptr noundef %23) #33
-  %.not.i.i = icmp eq i64 %560, %559
-  br i1 %.not.i.i, label %561, label %read_metadata_block_data_picture_cstring_cb_.exit.i
+  %559 = lshr i32 %558, 3
+  %560 = zext nneg i32 %559 to i64
+  %561 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef %560, ptr noundef %23) #33
+  %.not.i.i = icmp eq i64 %561, %560
+  br i1 %.not.i.i, label %562, label %read_metadata_block_data_picture_cstring_cb_.exit.i
 
-561:                                              ; preds = %unpack_uint32_.exit92.i.i.i
-  %.not.i.i5.i = icmp ult i32 %557, 8
+562:                                              ; preds = %unpack_uint32_.exit92.i.i.i
+  %.not.i.i5.i = icmp ult i32 %558, 8
   br i1 %.not.i.i5.i, label %unpack_uint32_.exit.thread.i.i, label %.lr.ph.i.i6.i
 
-unpack_uint32_.exit.thread.i.i:                   ; preds = %561
-  store i32 0, ptr %556, align 4, !tbaa !4
-  br label %571
+unpack_uint32_.exit.thread.i.i:                   ; preds = %562
+  store i32 0, ptr %557, align 4, !tbaa !4
+  br label %572
 
-.lr.ph.i.i6.i:                                    ; preds = %561, %.lr.ph.i.i6.i
-  %.09.i.i.i = phi i32 [ %567, %.lr.ph.i.i6.i ], [ 0, %561 ]
-  %.058.i.i.i = phi i32 [ %566, %.lr.ph.i.i6.i ], [ 0, %561 ]
-  %.067.i.i.i = phi ptr [ %563, %.lr.ph.i.i6.i ], [ %4, %561 ]
-  %562 = shl i32 %.058.i.i.i, 8
-  %563 = getelementptr inbounds nuw i8, ptr %.067.i.i.i, i64 1
-  %564 = load i8, ptr %.067.i.i.i, align 1, !tbaa !8
-  %565 = zext i8 %564 to i32
-  %566 = or disjoint i32 %562, %565
-  %567 = add nuw nsw i32 %.09.i.i.i, 1
-  %exitcond.not.i.i.i = icmp eq i32 %567, %558
+.lr.ph.i.i6.i:                                    ; preds = %562, %.lr.ph.i.i6.i
+  %.09.i.i.i = phi i32 [ %568, %.lr.ph.i.i6.i ], [ 0, %562 ]
+  %.058.i.i.i = phi i32 [ %567, %.lr.ph.i.i6.i ], [ 0, %562 ]
+  %.067.i.i.i = phi ptr [ %564, %.lr.ph.i.i6.i ], [ %4, %562 ]
+  %563 = shl i32 %.058.i.i.i, 8
+  %564 = getelementptr inbounds nuw i8, ptr %.067.i.i.i, i64 1
+  %565 = load i8, ptr %.067.i.i.i, align 1, !tbaa !8
+  %566 = zext i8 %565 to i32
+  %567 = or disjoint i32 %563, %566
+  %568 = add nuw nsw i32 %.09.i.i.i, 1
+  %exitcond.not.i.i.i = icmp eq i32 %568, %559
   br i1 %exitcond.not.i.i.i, label %unpack_uint32_.exit.i.i, label %.lr.ph.i.i6.i, !llvm.loop !32
 
 unpack_uint32_.exit.i.i:                          ; preds = %.lr.ph.i.i6.i
-  store i32 %566, ptr %556, align 4, !tbaa !4
-  %568 = load i32, ptr @FLAC__STREAM_METADATA_LENGTH_LEN, align 4, !tbaa !4
-  %569 = shl nuw i32 1, %568
-  %570 = icmp ugt i32 %566, %569
-  br i1 %570, label %read_metadata_block_data_picture_cstring_cb_.exit.i, label %571
+  store i32 %567, ptr %557, align 4, !tbaa !4
+  %569 = load i32, ptr @FLAC__STREAM_METADATA_LENGTH_LEN, align 4, !tbaa !4
+  %570 = shl nuw i32 1, %569
+  %571 = icmp ugt i32 %567, %570
+  br i1 %571, label %read_metadata_block_data_picture_cstring_cb_.exit.i, label %572
 
-571:                                              ; preds = %unpack_uint32_.exit.i.i, %unpack_uint32_.exit.thread.i.i
-  %572 = phi i32 [ 0, %unpack_uint32_.exit.thread.i.i ], [ %566, %unpack_uint32_.exit.i.i ]
-  %573 = load ptr, ptr %555, align 8, !tbaa !85
-  %.not23.i.i = icmp eq ptr %573, null
-  br i1 %.not23.i.i, label %575, label %574
+572:                                              ; preds = %unpack_uint32_.exit.i.i, %unpack_uint32_.exit.thread.i.i
+  %573 = phi i32 [ 0, %unpack_uint32_.exit.thread.i.i ], [ %567, %unpack_uint32_.exit.i.i ]
+  %574 = load ptr, ptr %556, align 8, !tbaa !85
+  %.not23.i.i = icmp eq ptr %574, null
+  br i1 %.not23.i.i, label %576, label %575
 
-574:                                              ; preds = %571
-  call void @free(ptr noundef nonnull %573) #33
-  %.pre.i.i = load i32, ptr %556, align 4, !tbaa !4
-  br label %575
+575:                                              ; preds = %572
+  call void @free(ptr noundef nonnull %574) #33
+  %.pre.i.i = load i32, ptr %557, align 4, !tbaa !4
+  br label %576
 
-575:                                              ; preds = %574, %571
-  %576 = phi i32 [ %.pre.i.i, %574 ], [ %572, %571 ]
-  %577 = zext i32 %576 to i64
-  %578 = add nuw nsw i64 %577, 1
-  %579 = call noalias noundef ptr @malloc(i64 noundef %578) #36
-  store ptr %579, ptr %555, align 8, !tbaa !85
-  %580 = icmp eq ptr %579, null
-  br i1 %580, label %read_metadata_block_data_picture_cstring_cb_.exit.i, label %581
+576:                                              ; preds = %575, %572
+  %577 = phi i32 [ %.pre.i.i, %575 ], [ %573, %572 ]
+  %578 = zext i32 %577 to i64
+  %579 = add nuw nsw i64 %578, 1
+  %580 = call noalias noundef ptr @malloc(i64 noundef %579) #36
+  store ptr %580, ptr %556, align 8, !tbaa !85
+  %581 = icmp eq ptr %580, null
+  br i1 %581, label %read_metadata_block_data_picture_cstring_cb_.exit.i, label %582
 
-581:                                              ; preds = %575
-  %.not24.i.i = icmp eq i32 %576, 0
-  br i1 %.not24.i.i, label %._crit_edge28.i.i, label %582
+582:                                              ; preds = %576
+  %.not24.i.i = icmp eq i32 %577, 0
+  br i1 %.not24.i.i, label %._crit_edge28.i.i, label %583
 
-582:                                              ; preds = %581
-  %583 = call i64 @fread(ptr noundef nonnull %579, i64 noundef 1, i64 noundef %577, ptr noundef %23) #33
-  %584 = load i32, ptr %556, align 4, !tbaa !4
-  %585 = zext i32 %584 to i64
-  %.not25.i.i = icmp eq i64 %583, %585
+583:                                              ; preds = %582
+  %584 = call i64 @fread(ptr noundef nonnull %580, i64 noundef 1, i64 noundef %578, ptr noundef %23) #33
+  %585 = load i32, ptr %557, align 4, !tbaa !4
+  %586 = zext i32 %585 to i64
+  %.not25.i.i = icmp eq i64 %584, %586
   br i1 %.not25.i.i, label %._crit_edge.i.i, label %read_metadata_block_data_picture_cstring_cb_.exit.i
 
-._crit_edge.i.i:                                  ; preds = %582
-  %.pre27.i.i = load ptr, ptr %555, align 8, !tbaa !85
+._crit_edge.i.i:                                  ; preds = %583
+  %.pre27.i.i = load ptr, ptr %556, align 8, !tbaa !85
   br label %._crit_edge28.i.i
 
-._crit_edge28.i.i:                                ; preds = %._crit_edge.i.i, %581
-  %586 = phi i64 [ %583, %._crit_edge.i.i ], [ 0, %581 ]
-  %587 = phi ptr [ %.pre27.i.i, %._crit_edge.i.i ], [ %579, %581 ]
-  %588 = getelementptr inbounds nuw i8, ptr %587, i64 %586
-  store i8 0, ptr %588, align 1, !tbaa !8
+._crit_edge28.i.i:                                ; preds = %._crit_edge.i.i, %582
+  %587 = phi i64 [ %584, %._crit_edge.i.i ], [ 0, %582 ]
+  %588 = phi ptr [ %.pre27.i.i, %._crit_edge.i.i ], [ %580, %582 ]
+  %589 = getelementptr inbounds nuw i8, ptr %588, i64 %587
+  store i8 0, ptr %589, align 1, !tbaa !8
   br label %read_metadata_block_data_picture_cstring_cb_.exit.i
 
-read_metadata_block_data_picture_cstring_cb_.exit.i: ; preds = %._crit_edge28.i.i, %582, %575, %unpack_uint32_.exit.i.i, %unpack_uint32_.exit92.i.i.i
-  %.0.i4.i = phi i32 [ 0, %._crit_edge28.i.i ], [ 6, %unpack_uint32_.exit92.i.i.i ], [ 5, %unpack_uint32_.exit.i.i ], [ 11, %575 ], [ 6, %582 ]
+read_metadata_block_data_picture_cstring_cb_.exit.i: ; preds = %._crit_edge28.i.i, %583, %576, %unpack_uint32_.exit.i.i, %unpack_uint32_.exit92.i.i.i
+  %.0.i4.i = phi i32 [ 0, %._crit_edge28.i.i ], [ 6, %unpack_uint32_.exit92.i.i.i ], [ 5, %unpack_uint32_.exit.i.i ], [ 11, %576 ], [ 6, %583 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %read_metadata_block_data_picture_cb_.exit.i.i
 
-read_metadata_block_data_picture_cb_.exit.i.i:    ; preds = %read_metadata_block_data_picture_cstring_cb_.exit.i, %unpack_uint32_.exit83.i.i.i, %unpack_uint32_.exit74.i.i.i, %unpack_uint32_.exit65.i.i.i, %504, %read_metadata_block_data_picture_cstring_cb_.exit56.thread.i.i.i, %read_metadata_block_data_picture_cstring_cb_.exit.thread.i.i.i, %438
-  %.0.i64.i.i = phi i32 [ 6, %438 ], [ 6, %504 ], [ 6, %unpack_uint32_.exit65.i.i.i ], [ 6, %unpack_uint32_.exit74.i.i.i ], [ 6, %unpack_uint32_.exit83.i.i.i ], [ %.0.i4.i, %read_metadata_block_data_picture_cstring_cb_.exit.i ], [ %.0.i.ph.i.i.i, %read_metadata_block_data_picture_cstring_cb_.exit.thread.i.i.i ], [ %.0.i40.ph.i.i.i, %read_metadata_block_data_picture_cstring_cb_.exit56.thread.i.i.i ]
+read_metadata_block_data_picture_cb_.exit.i.i:    ; preds = %read_metadata_block_data_picture_cstring_cb_.exit.i, %unpack_uint32_.exit83.i.i.i, %unpack_uint32_.exit74.i.i.i, %unpack_uint32_.exit65.i.i.i, %505, %read_metadata_block_data_picture_cstring_cb_.exit56.thread.i.i.i, %read_metadata_block_data_picture_cstring_cb_.exit.thread.i.i.i, %439
+  %.0.i64.i.i = phi i32 [ 6, %439 ], [ 6, %505 ], [ 6, %unpack_uint32_.exit65.i.i.i ], [ 6, %unpack_uint32_.exit74.i.i.i ], [ 6, %unpack_uint32_.exit83.i.i.i ], [ %.0.i4.i, %read_metadata_block_data_picture_cstring_cb_.exit.i ], [ %.0.i.ph.i.i.i, %read_metadata_block_data_picture_cstring_cb_.exit.thread.i.i.i ], [ %.0.i40.ph.i.i.i, %read_metadata_block_data_picture_cstring_cb_.exit56.thread.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %read_metadata_block_data_.exit
 
-589:                                              ; preds = %16
-  %590 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %591 = icmp eq i32 %21, 0
-  br i1 %591, label %592, label %593
+590:                                              ; preds = %16
+  %591 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %592 = icmp eq i32 %21, 0
+  br i1 %592, label %593, label %594
 
-592:                                              ; preds = %589
-  store ptr null, ptr %590, align 8, !tbaa !90
+593:                                              ; preds = %590
+  store ptr null, ptr %591, align 8, !tbaa !90
   br label %read_metadata_block_data_.exit.thread23
 
-593:                                              ; preds = %589
-  %594 = zext i32 %21 to i64
-  %595 = tail call noalias ptr @malloc(i64 noundef %594) #36
-  store ptr %595, ptr %590, align 8, !tbaa !90
-  %596 = icmp eq ptr %595, null
-  br i1 %596, label %read_metadata_block_data_.exit.thread, label %597
+594:                                              ; preds = %590
+  %595 = zext i32 %21 to i64
+  %596 = tail call noalias ptr @malloc(i64 noundef %595) #36
+  store ptr %596, ptr %591, align 8, !tbaa !90
+  %597 = icmp eq ptr %596, null
+  br i1 %597, label %read_metadata_block_data_.exit.thread, label %598
 
-597:                                              ; preds = %593
-  %598 = tail call i64 @fread(ptr noundef nonnull %595, i64 noundef 1, i64 noundef %594, ptr noundef %23) #33
-  %.not.i81.i.i = icmp eq i64 %598, %594
+598:                                              ; preds = %594
+  %599 = tail call i64 @fread(ptr noundef nonnull %596, i64 noundef 1, i64 noundef %595, ptr noundef %23) #33
+  %.not.i81.i.i = icmp eq i64 %599, %595
   br i1 %.not.i81.i.i, label %read_metadata_block_data_.exit.thread23, label %read_metadata_block_data_.exit.thread
 
-read_metadata_block_data_.exit.thread:            ; preds = %102, %113, %119, %593, %597
-  %.0.i.i.ph = phi i32 [ 6, %597 ], [ 11, %593 ], [ 6, %119 ], [ 11, %113 ], [ 6, %102 ]
-  %599 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  store i32 %.0.i.i.ph, ptr %599, align 8, !tbaa !30
-  br label %602
-
-read_metadata_block_data_.exit.thread23:          ; preds = %119, %111, %597, %592
+read_metadata_block_data_.exit.thread:            ; preds = %102, %113, %119, %594, %598
+  %.0.i.i.ph = phi i32 [ 6, %598 ], [ 11, %594 ], [ 6, %119 ], [ 11, %113 ], [ 6, %102 ]
   %600 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  store i32 0, ptr %600, align 8, !tbaa !30
+  store i32 %.0.i.i.ph, ptr %600, align 8, !tbaa !30
   br label %603
+
+read_metadata_block_data_.exit.thread23:          ; preds = %119, %111, %598, %593
+  %601 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  store i32 0, ptr %601, align 8, !tbaa !30
+  br label %604
 
 read_metadata_block_data_.exit.thread134:         ; preds = %98
   store i32 0, ptr %101, align 8, !tbaa !30
-  br label %603
+  br label %604
 
 read_metadata_block_data_.exit:                   ; preds = %read_metadata_block_data_streaminfo_cb_.exit.i.i, %read_metadata_block_data_seektable_cb_.exit.i.i, %read_metadata_block_data_vorbis_comment_cb_.exit.i.i, %read_metadata_block_data_cuesheet_cb_.exit.i.i, %read_metadata_block_data_picture_cb_.exit.i.i
   %.0.i.i = phi i32 [ %.0.i.i.i, %read_metadata_block_data_streaminfo_cb_.exit.i.i ], [ %.018.i.i.i, %read_metadata_block_data_seektable_cb_.exit.i.i ], [ %.0.i42.i.i, %read_metadata_block_data_vorbis_comment_cb_.exit.i.i ], [ %.0.i49.i.i, %read_metadata_block_data_cuesheet_cb_.exit.i.i ], [ %.0.i64.i.i, %read_metadata_block_data_picture_cb_.exit.i.i ]
-  %601 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  store i32 %.0.i.i, ptr %601, align 8, !tbaa !30
+  %602 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  store i32 %.0.i.i, ptr %602, align 8, !tbaa !30
   %.not26 = icmp eq i32 %.0.i.i, 0
-  br i1 %.not26, label %603, label %602
+  br i1 %.not26, label %604, label %603
 
-602:                                              ; preds = %read_metadata_block_data_.exit.thread137, %read_metadata_block_data_.exit.thread, %read_metadata_block_data_.exit
+603:                                              ; preds = %read_metadata_block_data_.exit.thread137, %read_metadata_block_data_.exit.thread, %read_metadata_block_data_.exit
   call void @FLAC__metadata_object_delete(ptr noundef nonnull %15) #33
-  br label %617
+  br label %618
 
-603:                                              ; preds = %read_metadata_block_data_.exit.thread134, %read_metadata_block_data_.exit.thread23, %read_metadata_block_data_.exit
-  %604 = phi ptr [ %600, %read_metadata_block_data_.exit.thread23 ], [ %601, %read_metadata_block_data_.exit ], [ %101, %read_metadata_block_data_.exit.thread134 ]
-  %605 = load ptr, ptr %0, align 8, !tbaa !24
-  %606 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %607 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %608 = load i32, ptr %607, align 8, !tbaa !31
-  %609 = zext i32 %608 to i64
-  %610 = getelementptr inbounds nuw i64, ptr %606, i64 %609
-  %611 = load i64, ptr %610, align 8, !tbaa !15
-  %612 = add nsw i64 %611, 4
-  %613 = call i32 @fseeko64(ptr noundef %605, i64 noundef %612, i32 noundef 0)
-  %.not19 = icmp eq i32 %613, 0
-  br i1 %.not19, label %617, label %614
+604:                                              ; preds = %read_metadata_block_data_.exit.thread134, %read_metadata_block_data_.exit.thread23, %read_metadata_block_data_.exit
+  %605 = phi ptr [ %601, %read_metadata_block_data_.exit.thread23 ], [ %602, %read_metadata_block_data_.exit ], [ %101, %read_metadata_block_data_.exit.thread134 ]
+  %606 = load ptr, ptr %0, align 8, !tbaa !24
+  %607 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %608 = getelementptr inbounds nuw i8, ptr %0, i64 232
+  %609 = load i32, ptr %608, align 8, !tbaa !31
+  %610 = zext i32 %609 to i64
+  %611 = getelementptr inbounds nuw i64, ptr %607, i64 %610
+  %612 = load i64, ptr %611, align 8, !tbaa !15
+  %613 = add nsw i64 %612, 4
+  %614 = call i32 @fseeko64(ptr noundef %606, i64 noundef %613, i32 noundef 0)
+  %.not19 = icmp eq i32 %614, 0
+  br i1 %.not19, label %618, label %615
 
-614:                                              ; preds = %603
-  store i32 7, ptr %604, align 8, !tbaa !30
+615:                                              ; preds = %604
+  store i32 7, ptr %605, align 8, !tbaa !30
   call void @FLAC__metadata_object_delete(ptr noundef nonnull %15) #33
-  br label %617
+  br label %618
 
-615:                                              ; preds = %1
-  %616 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  store i32 11, ptr %616, align 8, !tbaa !30
-  br label %617
+616:                                              ; preds = %1
+  %617 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  store i32 11, ptr %617, align 8, !tbaa !30
+  br label %618
 
-617:                                              ; preds = %615, %603, %614, %602
-  %.0 = phi ptr [ null, %614 ], [ null, %602 ], [ %15, %603 ], [ null, %615 ]
+618:                                              ; preds = %616, %604, %615, %603
+  %.0 = phi ptr [ null, %615 ], [ null, %603 ], [ %15, %604 ], [ null, %616 ]
   ret ptr %.0
 }
 
@@ -5403,7 +5404,7 @@ write_metadata_block_data_padding_cb_.exit.i.i:   ; preds = %.lr.ph.i.i.i, %._cr
   br i1 %exitcond.not.i.i38.i.i, label %pack_uint64_.exit.i.i.i, label %.lr.ph.i.i34.i.i, !llvm.loop !119
 
 pack_uint64_.exit.i.i.i:                          ; preds = %.lr.ph.i.i34.i.i
-  %259 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_SeekPoint, ptr %252, i64 %indvars.iv.i.i.i, i32 1
+  %259 = getelementptr inbounds nuw i8, ptr %253, i64 8
   %260 = load i64, ptr %259, align 8, !tbaa !56
   br label %.lr.ph.i12.i.i.i
 
@@ -5420,7 +5421,7 @@ pack_uint64_.exit.i.i.i:                          ; preds = %.lr.ph.i.i34.i.i
   br i1 %exitcond.not.i16.i.i.i, label %pack_uint64_.exit17.i.i.i, label %.lr.ph.i12.i.i.i, !llvm.loop !119
 
 pack_uint64_.exit17.i.i.i:                        ; preds = %.lr.ph.i12.i.i.i
-  %265 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_SeekPoint, ptr %252, i64 %indvars.iv.i.i.i, i32 2
+  %265 = getelementptr inbounds nuw i8, ptr %253, i64 16
   %266 = load i32, ptr %265, align 8, !tbaa !57
   br label %.lr.ph.i18.i.i.i
 
@@ -8419,14 +8420,14 @@ node_delete_.exit61:                              ; preds = %167
   %175 = getelementptr inbounds nuw i8, ptr %170, i64 8
   store i32 %162, ptr %175, align 8, !tbaa !37
   %176 = load i32, ptr %170, align 8, !tbaa !38
-  switch i32 %176, label %548 [
+  switch i32 %176, label %549 [
     i32 0, label %177
     i32 1, label %242
     i32 2, label %245
     i32 3, label %261
     i32 4, label %304
     i32 5, label %356
-    i32 6, label %453
+    i32 6, label %454
   ]
 
 177:                                              ; preds = %172
@@ -8689,7 +8690,7 @@ unpack_uint64_.exit.i40.i:                        ; preds = %.lr.ph.i.i35.i
   br i1 %exitcond.not.i25.i.i, label %unpack_uint64_.exit26.i.i, label %.lr.ph.i21.i.i, !llvm.loop !47
 
 unpack_uint64_.exit26.i.i:                        ; preds = %.lr.ph.i21.i.i
-  %293 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_SeekPoint, ptr %285, i64 %indvars.iv.i.i, i32 1
+  %293 = getelementptr inbounds nuw i8, ptr %286, i64 8
   store i64 %291, ptr %293, align 8, !tbaa !56
   br label %.lr.ph.i27.i.i
 
@@ -8707,7 +8708,7 @@ unpack_uint64_.exit26.i.i:                        ; preds = %.lr.ph.i21.i.i
   br i1 %exitcond.not.i31.i.i, label %unpack_uint32_.exit.i41.i, label %.lr.ph.i27.i.i, !llvm.loop !32
 
 unpack_uint32_.exit.i41.i:                        ; preds = %.lr.ph.i27.i.i
-  %300 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_SeekPoint, ptr %285, i64 %indvars.iv.i.i, i32 2
+  %300 = getelementptr inbounds nuw i8, ptr %286, i64 16
   store i32 %298, ptr %300, align 8, !tbaa !57
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %301 = load i32, ptr %262, align 8, !tbaa !51
@@ -9072,10 +9073,11 @@ unpack_uint64_.exit84.i.i.i:                      ; preds = %.lr.ph.i78.i.i.i, %
 unpack_uint32_.exit92.i.i.i:                      ; preds = %.lr.ph.i86.i.preheader.i.i, %445
   %.05.lcssa.i91.i.i.i = phi i8 [ 0, %445 ], [ %446, %.lr.ph.i86.i.preheader.i.i ]
   %447 = load ptr, ptr %428, align 8, !tbaa !77
-  %448 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Index, ptr %447, i64 %indvars.iv.i.i.i, i32 1
-  store i8 %.05.lcssa.i91.i.i.i, ptr %448, align 8, !tbaa !81
-  %449 = call i64 %2(ptr noundef nonnull %9, i64 noundef 1, i64 noundef %122, ptr noundef %1) #33
-  %.not61.i.i.i = icmp eq i64 %449, %122
+  %448 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Index, ptr %447, i64 %indvars.iv.i.i.i
+  %449 = getelementptr inbounds nuw i8, ptr %448, i64 8
+  store i8 %.05.lcssa.i91.i.i.i, ptr %449, align 8, !tbaa !81
+  %450 = call i64 %2(ptr noundef nonnull %9, i64 noundef 1, i64 noundef %122, ptr noundef %1) #33
+  %.not61.i.i.i = icmp eq i64 %450, %122
   br i1 %.not61.i.i.i, label %430, label %read_metadata_block_data_cuesheet_track_cb_.exit.thread.i.i
 
 read_metadata_block_data_cuesheet_track_cb_.exit.thread.i.i: ; preds = %425, %408, %406, %unpack_uint32_.exit.i.i.i, %unpack_uint64_.exit.i.i.i, %.lr.ph.i59.i, %unpack_uint32_.exit92.i.i.i, %unpack_uint64_.exit84.i.i.i, %.lr.ph.i49.i.i
@@ -9086,301 +9088,301 @@ read_metadata_block_data_cuesheet_track_cb_.exit.thread.i.i: ; preds = %425, %40
 .loopexit.i61.i:                                  ; preds = %430, %.thread.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %indvars.iv.next.i62.i = add nuw nsw i64 %indvars.iv.i60.i, 1
-  %450 = load i32, ptr %383, align 4, !tbaa !71
-  %451 = zext i32 %450 to i64
-  %452 = icmp samesign ult i64 %indvars.iv.next.i62.i, %451
-  br i1 %452, label %.lr.ph.i59.i, label %read_metadata_block_data_cuesheet_cb_.exit.i, !llvm.loop !82
+  %451 = load i32, ptr %383, align 4, !tbaa !71
+  %452 = zext i32 %451 to i64
+  %453 = icmp samesign ult i64 %indvars.iv.next.i62.i, %452
+  br i1 %453, label %.lr.ph.i59.i, label %read_metadata_block_data_cuesheet_cb_.exit.i, !llvm.loop !82
 
 read_metadata_block_data_cuesheet_cb_.exit.i:     ; preds = %.loopexit.i61.i, %read_metadata_block_data_cuesheet_track_cb_.exit.thread.i.i, %385, %unpack_uint32_.exit.i58.i, %unpack_uint32_.exit.thread.i.i, %370, %unpack_uint64_.exit.i56.i, %359, %356
   %.0.i49.i = phi i32 [ 6, %356 ], [ 6, %359 ], [ 6, %unpack_uint64_.exit.i56.i ], [ 6, %370 ], [ 5, %unpack_uint32_.exit.i58.i ], [ 11, %385 ], [ 5, %unpack_uint32_.exit.thread.i.i ], [ %.054.i.ph.i.i, %read_metadata_block_data_cuesheet_track_cb_.exit.thread.i.i ], [ 0, %.loopexit.i61.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %read_metadata_block_data_cb_.exit
 
-453:                                              ; preds = %172
-  %454 = getelementptr inbounds nuw i8, ptr %170, i64 16
+454:                                              ; preds = %172
+  %455 = getelementptr inbounds nuw i8, ptr %170, i64 16
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %455 = call i64 %2(ptr noundef nonnull %8, i64 noundef 1, i64 noundef %59, ptr noundef %1) #33
-  %.not.i63.i = icmp eq i64 %455, %59
-  br i1 %.not.i63.i, label %456, label %read_metadata_block_data_picture_cb_.exit.i
+  %456 = call i64 %2(ptr noundef nonnull %8, i64 noundef 1, i64 noundef %59, ptr noundef %1) #33
+  %.not.i63.i = icmp eq i64 %456, %59
+  br i1 %.not.i63.i, label %457, label %read_metadata_block_data_picture_cb_.exit.i
 
-456:                                              ; preds = %453
+457:                                              ; preds = %454
   br i1 %.not.i.i65.i, label %unpack_uint32_.exit.i71.i, label %.lr.ph.i.i66.i
 
-.lr.ph.i.i66.i:                                   ; preds = %456, %.lr.ph.i.i66.i
-  %.09.i.i67.i = phi i32 [ %462, %.lr.ph.i.i66.i ], [ 0, %456 ]
-  %.058.i.i68.i = phi i32 [ %461, %.lr.ph.i.i66.i ], [ 0, %456 ]
-  %.067.i.i69.i = phi ptr [ %458, %.lr.ph.i.i66.i ], [ %8, %456 ]
-  %457 = shl i32 %.058.i.i68.i, 8
-  %458 = getelementptr inbounds nuw i8, ptr %.067.i.i69.i, i64 1
-  %459 = load i8, ptr %.067.i.i69.i, align 1, !tbaa !8
-  %460 = zext i8 %459 to i32
-  %461 = or disjoint i32 %457, %460
-  %462 = add nuw nsw i32 %.09.i.i67.i, 1
-  %exitcond.not.i.i70.i = icmp eq i32 %462, %58
+.lr.ph.i.i66.i:                                   ; preds = %457, %.lr.ph.i.i66.i
+  %.09.i.i67.i = phi i32 [ %463, %.lr.ph.i.i66.i ], [ 0, %457 ]
+  %.058.i.i68.i = phi i32 [ %462, %.lr.ph.i.i66.i ], [ 0, %457 ]
+  %.067.i.i69.i = phi ptr [ %459, %.lr.ph.i.i66.i ], [ %8, %457 ]
+  %458 = shl i32 %.058.i.i68.i, 8
+  %459 = getelementptr inbounds nuw i8, ptr %.067.i.i69.i, i64 1
+  %460 = load i8, ptr %.067.i.i69.i, align 1, !tbaa !8
+  %461 = zext i8 %460 to i32
+  %462 = or disjoint i32 %458, %461
+  %463 = add nuw nsw i32 %.09.i.i67.i, 1
+  %exitcond.not.i.i70.i = icmp eq i32 %463, %58
   br i1 %exitcond.not.i.i70.i, label %unpack_uint32_.exit.i71.i, label %.lr.ph.i.i66.i, !llvm.loop !32
 
-unpack_uint32_.exit.i71.i:                        ; preds = %.lr.ph.i.i66.i, %456
-  %.05.lcssa.i.i72.i = phi i32 [ 0, %456 ], [ %461, %.lr.ph.i.i66.i ]
-  store i32 %.05.lcssa.i.i72.i, ptr %454, align 8, !tbaa !83
-  %463 = getelementptr inbounds nuw i8, ptr %170, i64 24
+unpack_uint32_.exit.i71.i:                        ; preds = %.lr.ph.i.i66.i, %457
+  %.05.lcssa.i.i72.i = phi i32 [ 0, %457 ], [ %462, %.lr.ph.i.i66.i ]
+  store i32 %.05.lcssa.i.i72.i, ptr %455, align 8, !tbaa !83
+  %464 = getelementptr inbounds nuw i8, ptr %170, i64 24
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %464 = call i64 %2(ptr noundef nonnull %7, i64 noundef 1, i64 noundef %62, ptr noundef %1) #33
-  %.not.i38.i.i = icmp eq i64 %464, %62
-  br i1 %.not.i38.i.i, label %465, label %read_metadata_block_data_picture_cstring_cb_.exit.thread.i.i
+  %465 = call i64 %2(ptr noundef nonnull %7, i64 noundef 1, i64 noundef %62, ptr noundef %1) #33
+  %.not.i38.i.i = icmp eq i64 %465, %62
+  br i1 %.not.i38.i.i, label %466, label %read_metadata_block_data_picture_cstring_cb_.exit.thread.i.i
 
-465:                                              ; preds = %unpack_uint32_.exit.i71.i
+466:                                              ; preds = %unpack_uint32_.exit.i71.i
   br i1 %.not.i.i.i73.i, label %unpack_uint32_.exit.thread.i.i.i, label %.lr.ph.i.i.i74.i
 
-.lr.ph.i.i.i74.i:                                 ; preds = %465, %.lr.ph.i.i.i74.i
-  %.09.i.i.i75.i = phi i32 [ %471, %.lr.ph.i.i.i74.i ], [ 0, %465 ]
-  %.058.i.i.i76.i = phi i32 [ %470, %.lr.ph.i.i.i74.i ], [ 0, %465 ]
-  %.067.i.i.i77.i = phi ptr [ %467, %.lr.ph.i.i.i74.i ], [ %7, %465 ]
-  %466 = shl i32 %.058.i.i.i76.i, 8
-  %467 = getelementptr inbounds nuw i8, ptr %.067.i.i.i77.i, i64 1
-  %468 = load i8, ptr %.067.i.i.i77.i, align 1, !tbaa !8
-  %469 = zext i8 %468 to i32
-  %470 = or disjoint i32 %466, %469
-  %471 = add nuw nsw i32 %.09.i.i.i75.i, 1
-  %exitcond.not.i.i.i78.i = icmp eq i32 %471, %61
+.lr.ph.i.i.i74.i:                                 ; preds = %466, %.lr.ph.i.i.i74.i
+  %.09.i.i.i75.i = phi i32 [ %472, %.lr.ph.i.i.i74.i ], [ 0, %466 ]
+  %.058.i.i.i76.i = phi i32 [ %471, %.lr.ph.i.i.i74.i ], [ 0, %466 ]
+  %.067.i.i.i77.i = phi ptr [ %468, %.lr.ph.i.i.i74.i ], [ %7, %466 ]
+  %467 = shl i32 %.058.i.i.i76.i, 8
+  %468 = getelementptr inbounds nuw i8, ptr %.067.i.i.i77.i, i64 1
+  %469 = load i8, ptr %.067.i.i.i77.i, align 1, !tbaa !8
+  %470 = zext i8 %469 to i32
+  %471 = or disjoint i32 %467, %470
+  %472 = add nuw nsw i32 %.09.i.i.i75.i, 1
+  %exitcond.not.i.i.i78.i = icmp eq i32 %472, %61
   br i1 %exitcond.not.i.i.i78.i, label %unpack_uint32_.exit.i.i79.i, label %.lr.ph.i.i.i74.i, !llvm.loop !32
 
 unpack_uint32_.exit.i.i79.i:                      ; preds = %.lr.ph.i.i.i74.i
-  %472 = icmp ugt i32 %470, %64
-  br i1 %472, label %read_metadata_block_data_picture_cstring_cb_.exit.thread.i.i, label %unpack_uint32_.exit.thread.i.i.i
+  %473 = icmp ugt i32 %471, %64
+  br i1 %473, label %read_metadata_block_data_picture_cstring_cb_.exit.thread.i.i, label %unpack_uint32_.exit.thread.i.i.i
 
-unpack_uint32_.exit.thread.i.i.i:                 ; preds = %unpack_uint32_.exit.i.i79.i, %465
-  %.0101.i.i = phi i32 [ %470, %unpack_uint32_.exit.i.i79.i ], [ 0, %465 ]
-  %473 = load ptr, ptr %463, align 8, !tbaa !85
-  %.not23.i.i.i = icmp eq ptr %473, null
-  br i1 %.not23.i.i.i, label %475, label %474
+unpack_uint32_.exit.thread.i.i.i:                 ; preds = %unpack_uint32_.exit.i.i79.i, %466
+  %.0101.i.i = phi i32 [ %471, %unpack_uint32_.exit.i.i79.i ], [ 0, %466 ]
+  %474 = load ptr, ptr %464, align 8, !tbaa !85
+  %.not23.i.i.i = icmp eq ptr %474, null
+  br i1 %.not23.i.i.i, label %476, label %475
 
-474:                                              ; preds = %unpack_uint32_.exit.thread.i.i.i
-  call void @free(ptr noundef nonnull %473) #33
-  br label %475
+475:                                              ; preds = %unpack_uint32_.exit.thread.i.i.i
+  call void @free(ptr noundef nonnull %474) #33
+  br label %476
 
-475:                                              ; preds = %474, %unpack_uint32_.exit.thread.i.i.i
-  %476 = zext i32 %.0101.i.i to i64
-  %477 = add nuw nsw i64 %476, 1
-  %478 = call noalias noundef ptr @malloc(i64 noundef %477) #36
-  store ptr %478, ptr %463, align 8, !tbaa !85
-  %479 = icmp eq ptr %478, null
-  br i1 %479, label %read_metadata_block_data_picture_cstring_cb_.exit.thread.i.i, label %480
+476:                                              ; preds = %475, %unpack_uint32_.exit.thread.i.i.i
+  %477 = zext i32 %.0101.i.i to i64
+  %478 = add nuw nsw i64 %477, 1
+  %479 = call noalias noundef ptr @malloc(i64 noundef %478) #36
+  store ptr %479, ptr %464, align 8, !tbaa !85
+  %480 = icmp eq ptr %479, null
+  br i1 %480, label %read_metadata_block_data_picture_cstring_cb_.exit.thread.i.i, label %481
 
-480:                                              ; preds = %475
+481:                                              ; preds = %476
   %.not24.i.i.i = icmp eq i32 %.0101.i.i, 0
-  br i1 %.not24.i.i.i, label %483, label %481
+  br i1 %.not24.i.i.i, label %484, label %482
 
-481:                                              ; preds = %480
-  %482 = call i64 %2(ptr noundef nonnull %478, i64 noundef 1, i64 noundef %476, ptr noundef %1) #33
-  %.not25.i.i.i = icmp eq i64 %482, %476
+482:                                              ; preds = %481
+  %483 = call i64 %2(ptr noundef nonnull %479, i64 noundef 1, i64 noundef %477, ptr noundef %1) #33
+  %.not25.i.i.i = icmp eq i64 %483, %477
   br i1 %.not25.i.i.i, label %._crit_edge.i.i.i, label %read_metadata_block_data_picture_cstring_cb_.exit.thread.i.i
 
-._crit_edge.i.i.i:                                ; preds = %481
-  %.pre27.i.i.i = load ptr, ptr %463, align 8, !tbaa !85
-  br label %483
+._crit_edge.i.i.i:                                ; preds = %482
+  %.pre27.i.i.i = load ptr, ptr %464, align 8, !tbaa !85
+  br label %484
 
-read_metadata_block_data_picture_cstring_cb_.exit.thread.i.i: ; preds = %481, %475, %unpack_uint32_.exit.i.i79.i, %unpack_uint32_.exit.i71.i
-  %.0.i.ph.i.i = phi i32 [ 6, %481 ], [ 11, %475 ], [ 5, %unpack_uint32_.exit.i.i79.i ], [ 6, %unpack_uint32_.exit.i71.i ]
+read_metadata_block_data_picture_cstring_cb_.exit.thread.i.i: ; preds = %482, %476, %unpack_uint32_.exit.i.i79.i, %unpack_uint32_.exit.i71.i
+  %.0.i.ph.i.i = phi i32 [ 6, %482 ], [ 11, %476 ], [ 5, %unpack_uint32_.exit.i.i79.i ], [ 6, %unpack_uint32_.exit.i71.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %read_metadata_block_data_picture_cb_.exit.i
 
-483:                                              ; preds = %._crit_edge.i.i.i, %480
-  %484 = phi ptr [ %.pre27.i.i.i, %._crit_edge.i.i.i ], [ %478, %480 ]
-  %485 = getelementptr inbounds nuw i8, ptr %484, i64 %476
-  store i8 0, ptr %485, align 1, !tbaa !8
+484:                                              ; preds = %._crit_edge.i.i.i, %481
+  %485 = phi ptr [ %.pre27.i.i.i, %._crit_edge.i.i.i ], [ %479, %481 ]
+  %486 = getelementptr inbounds nuw i8, ptr %485, i64 %477
+  store i8 0, ptr %486, align 1, !tbaa !8
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %486 = getelementptr inbounds nuw i8, ptr %170, i64 32
+  %487 = getelementptr inbounds nuw i8, ptr %170, i64 32
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %487 = call i64 %2(ptr noundef nonnull %6, i64 noundef 1, i64 noundef %67, ptr noundef %1) #33
-  %.not.i39.i.i = icmp eq i64 %487, %67
-  br i1 %.not.i39.i.i, label %488, label %read_metadata_block_data_picture_cstring_cb_.exit56.thread.i.i
+  %488 = call i64 %2(ptr noundef nonnull %6, i64 noundef 1, i64 noundef %67, ptr noundef %1) #33
+  %.not.i39.i.i = icmp eq i64 %488, %67
+  br i1 %.not.i39.i.i, label %489, label %read_metadata_block_data_picture_cstring_cb_.exit56.thread.i.i
 
-488:                                              ; preds = %483
+489:                                              ; preds = %484
   br i1 %.not.i.i41.i.i, label %unpack_uint32_.exit.thread.i55.i.i, label %.lr.ph.i.i42.i.i
 
-.lr.ph.i.i42.i.i:                                 ; preds = %488, %.lr.ph.i.i42.i.i
-  %.09.i.i43.i.i = phi i32 [ %494, %.lr.ph.i.i42.i.i ], [ 0, %488 ]
-  %.058.i.i44.i.i = phi i32 [ %493, %.lr.ph.i.i42.i.i ], [ 0, %488 ]
-  %.067.i.i45.i.i = phi ptr [ %490, %.lr.ph.i.i42.i.i ], [ %6, %488 ]
-  %489 = shl i32 %.058.i.i44.i.i, 8
-  %490 = getelementptr inbounds nuw i8, ptr %.067.i.i45.i.i, i64 1
-  %491 = load i8, ptr %.067.i.i45.i.i, align 1, !tbaa !8
-  %492 = zext i8 %491 to i32
-  %493 = or disjoint i32 %489, %492
-  %494 = add nuw nsw i32 %.09.i.i43.i.i, 1
-  %exitcond.not.i.i46.i.i = icmp eq i32 %494, %66
+.lr.ph.i.i42.i.i:                                 ; preds = %489, %.lr.ph.i.i42.i.i
+  %.09.i.i43.i.i = phi i32 [ %495, %.lr.ph.i.i42.i.i ], [ 0, %489 ]
+  %.058.i.i44.i.i = phi i32 [ %494, %.lr.ph.i.i42.i.i ], [ 0, %489 ]
+  %.067.i.i45.i.i = phi ptr [ %491, %.lr.ph.i.i42.i.i ], [ %6, %489 ]
+  %490 = shl i32 %.058.i.i44.i.i, 8
+  %491 = getelementptr inbounds nuw i8, ptr %.067.i.i45.i.i, i64 1
+  %492 = load i8, ptr %.067.i.i45.i.i, align 1, !tbaa !8
+  %493 = zext i8 %492 to i32
+  %494 = or disjoint i32 %490, %493
+  %495 = add nuw nsw i32 %.09.i.i43.i.i, 1
+  %exitcond.not.i.i46.i.i = icmp eq i32 %495, %66
   br i1 %exitcond.not.i.i46.i.i, label %unpack_uint32_.exit.i47.i.i, label %.lr.ph.i.i42.i.i, !llvm.loop !32
 
 unpack_uint32_.exit.i47.i.i:                      ; preds = %.lr.ph.i.i42.i.i
-  %495 = icmp ugt i32 %493, %64
-  br i1 %495, label %read_metadata_block_data_picture_cstring_cb_.exit56.thread.i.i, label %unpack_uint32_.exit.thread.i55.i.i
+  %496 = icmp ugt i32 %494, %64
+  br i1 %496, label %read_metadata_block_data_picture_cstring_cb_.exit56.thread.i.i, label %unpack_uint32_.exit.thread.i55.i.i
 
-unpack_uint32_.exit.thread.i55.i.i:               ; preds = %unpack_uint32_.exit.i47.i.i, %488
-  %.1.i.i = phi i32 [ %493, %unpack_uint32_.exit.i47.i.i ], [ 0, %488 ]
-  %496 = load ptr, ptr %486, align 8, !tbaa !85
-  %.not23.i48.i.i = icmp eq ptr %496, null
-  br i1 %.not23.i48.i.i, label %498, label %497
+unpack_uint32_.exit.thread.i55.i.i:               ; preds = %unpack_uint32_.exit.i47.i.i, %489
+  %.1.i.i = phi i32 [ %494, %unpack_uint32_.exit.i47.i.i ], [ 0, %489 ]
+  %497 = load ptr, ptr %487, align 8, !tbaa !85
+  %.not23.i48.i.i = icmp eq ptr %497, null
+  br i1 %.not23.i48.i.i, label %499, label %498
 
-497:                                              ; preds = %unpack_uint32_.exit.thread.i55.i.i
-  call void @free(ptr noundef nonnull %496) #33
-  br label %498
+498:                                              ; preds = %unpack_uint32_.exit.thread.i55.i.i
+  call void @free(ptr noundef nonnull %497) #33
+  br label %499
 
-498:                                              ; preds = %497, %unpack_uint32_.exit.thread.i55.i.i
-  %499 = zext i32 %.1.i.i to i64
-  %500 = add nuw nsw i64 %499, 1
-  %501 = call noalias noundef ptr @malloc(i64 noundef %500) #36
-  store ptr %501, ptr %486, align 8, !tbaa !85
-  %502 = icmp eq ptr %501, null
-  br i1 %502, label %read_metadata_block_data_picture_cstring_cb_.exit56.thread.i.i, label %503
+499:                                              ; preds = %498, %unpack_uint32_.exit.thread.i55.i.i
+  %500 = zext i32 %.1.i.i to i64
+  %501 = add nuw nsw i64 %500, 1
+  %502 = call noalias noundef ptr @malloc(i64 noundef %501) #36
+  store ptr %502, ptr %487, align 8, !tbaa !85
+  %503 = icmp eq ptr %502, null
+  br i1 %503, label %read_metadata_block_data_picture_cstring_cb_.exit56.thread.i.i, label %504
 
-503:                                              ; preds = %498
+504:                                              ; preds = %499
   %.not24.i50.i.i = icmp eq i32 %.1.i.i, 0
-  br i1 %.not24.i50.i.i, label %506, label %504
+  br i1 %.not24.i50.i.i, label %507, label %505
 
-504:                                              ; preds = %503
-  %505 = call i64 %2(ptr noundef nonnull %501, i64 noundef 1, i64 noundef %499, ptr noundef %1) #33
-  %.not25.i51.i.i = icmp eq i64 %505, %499
+505:                                              ; preds = %504
+  %506 = call i64 %2(ptr noundef nonnull %502, i64 noundef 1, i64 noundef %500, ptr noundef %1) #33
+  %.not25.i51.i.i = icmp eq i64 %506, %500
   br i1 %.not25.i51.i.i, label %._crit_edge.i52.i.i, label %read_metadata_block_data_picture_cstring_cb_.exit56.thread.i.i
 
-._crit_edge.i52.i.i:                              ; preds = %504
-  %.pre27.i53.i.i = load ptr, ptr %486, align 8, !tbaa !85
-  br label %506
+._crit_edge.i52.i.i:                              ; preds = %505
+  %.pre27.i53.i.i = load ptr, ptr %487, align 8, !tbaa !85
+  br label %507
 
-read_metadata_block_data_picture_cstring_cb_.exit56.thread.i.i: ; preds = %504, %498, %unpack_uint32_.exit.i47.i.i, %483
-  %.0.i40.ph.i.i = phi i32 [ 6, %504 ], [ 11, %498 ], [ 5, %unpack_uint32_.exit.i47.i.i ], [ 6, %483 ]
+read_metadata_block_data_picture_cstring_cb_.exit56.thread.i.i: ; preds = %505, %499, %unpack_uint32_.exit.i47.i.i, %484
+  %.0.i40.ph.i.i = phi i32 [ 6, %505 ], [ 11, %499 ], [ 5, %unpack_uint32_.exit.i47.i.i ], [ 6, %484 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %read_metadata_block_data_picture_cb_.exit.i
 
-506:                                              ; preds = %._crit_edge.i52.i.i, %503
-  %507 = phi ptr [ %.pre27.i53.i.i, %._crit_edge.i52.i.i ], [ %501, %503 ]
-  %508 = getelementptr inbounds nuw i8, ptr %507, i64 %499
-  store i8 0, ptr %508, align 1, !tbaa !8
+507:                                              ; preds = %._crit_edge.i52.i.i, %504
+  %508 = phi ptr [ %.pre27.i53.i.i, %._crit_edge.i52.i.i ], [ %502, %504 ]
+  %509 = getelementptr inbounds nuw i8, ptr %508, i64 %500
+  store i8 0, ptr %509, align 1, !tbaa !8
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %509 = call i64 %2(ptr noundef nonnull %8, i64 noundef 1, i64 noundef %70, ptr noundef %1) #33
-  %.not33.i.i = icmp eq i64 %509, %70
-  br i1 %.not33.i.i, label %510, label %read_metadata_block_data_picture_cb_.exit.i
+  %510 = call i64 %2(ptr noundef nonnull %8, i64 noundef 1, i64 noundef %70, ptr noundef %1) #33
+  %.not33.i.i = icmp eq i64 %510, %70
+  br i1 %.not33.i.i, label %511, label %read_metadata_block_data_picture_cb_.exit.i
 
-510:                                              ; preds = %506
+511:                                              ; preds = %507
   br i1 %.not.i57.i.i, label %unpack_uint32_.exit65.i.i, label %.lr.ph.i58.i.i
 
-.lr.ph.i58.i.i:                                   ; preds = %510, %.lr.ph.i58.i.i
-  %.09.i59.i.i = phi i32 [ %516, %.lr.ph.i58.i.i ], [ 0, %510 ]
-  %.058.i60.i.i = phi i32 [ %515, %.lr.ph.i58.i.i ], [ 0, %510 ]
-  %.067.i61.i.i = phi ptr [ %512, %.lr.ph.i58.i.i ], [ %8, %510 ]
-  %511 = shl i32 %.058.i60.i.i, 8
-  %512 = getelementptr inbounds nuw i8, ptr %.067.i61.i.i, i64 1
-  %513 = load i8, ptr %.067.i61.i.i, align 1, !tbaa !8
-  %514 = zext i8 %513 to i32
-  %515 = or disjoint i32 %511, %514
-  %516 = add nuw nsw i32 %.09.i59.i.i, 1
-  %exitcond.not.i62.i.i = icmp eq i32 %516, %69
+.lr.ph.i58.i.i:                                   ; preds = %511, %.lr.ph.i58.i.i
+  %.09.i59.i.i = phi i32 [ %517, %.lr.ph.i58.i.i ], [ 0, %511 ]
+  %.058.i60.i.i = phi i32 [ %516, %.lr.ph.i58.i.i ], [ 0, %511 ]
+  %.067.i61.i.i = phi ptr [ %513, %.lr.ph.i58.i.i ], [ %8, %511 ]
+  %512 = shl i32 %.058.i60.i.i, 8
+  %513 = getelementptr inbounds nuw i8, ptr %.067.i61.i.i, i64 1
+  %514 = load i8, ptr %.067.i61.i.i, align 1, !tbaa !8
+  %515 = zext i8 %514 to i32
+  %516 = or disjoint i32 %512, %515
+  %517 = add nuw nsw i32 %.09.i59.i.i, 1
+  %exitcond.not.i62.i.i = icmp eq i32 %517, %69
   br i1 %exitcond.not.i62.i.i, label %unpack_uint32_.exit65.i.i, label %.lr.ph.i58.i.i, !llvm.loop !32
 
-unpack_uint32_.exit65.i.i:                        ; preds = %.lr.ph.i58.i.i, %510
-  %.05.lcssa.i64.i.i = phi i32 [ 0, %510 ], [ %515, %.lr.ph.i58.i.i ]
-  %517 = getelementptr inbounds nuw i8, ptr %170, i64 40
-  store i32 %.05.lcssa.i64.i.i, ptr %517, align 8, !tbaa !86
-  %518 = call i64 %2(ptr noundef nonnull %8, i64 noundef 1, i64 noundef %73, ptr noundef %1) #33
-  %.not34.i.i = icmp eq i64 %518, %73
-  br i1 %.not34.i.i, label %519, label %read_metadata_block_data_picture_cb_.exit.i
+unpack_uint32_.exit65.i.i:                        ; preds = %.lr.ph.i58.i.i, %511
+  %.05.lcssa.i64.i.i = phi i32 [ 0, %511 ], [ %516, %.lr.ph.i58.i.i ]
+  %518 = getelementptr inbounds nuw i8, ptr %170, i64 40
+  store i32 %.05.lcssa.i64.i.i, ptr %518, align 8, !tbaa !86
+  %519 = call i64 %2(ptr noundef nonnull %8, i64 noundef 1, i64 noundef %73, ptr noundef %1) #33
+  %.not34.i.i = icmp eq i64 %519, %73
+  br i1 %.not34.i.i, label %520, label %read_metadata_block_data_picture_cb_.exit.i
 
-519:                                              ; preds = %unpack_uint32_.exit65.i.i
+520:                                              ; preds = %unpack_uint32_.exit65.i.i
   br i1 %.not.i66.i.i, label %unpack_uint32_.exit74.i.i, label %.lr.ph.i67.i.i
 
-.lr.ph.i67.i.i:                                   ; preds = %519, %.lr.ph.i67.i.i
-  %.09.i68.i.i = phi i32 [ %525, %.lr.ph.i67.i.i ], [ 0, %519 ]
-  %.058.i69.i.i = phi i32 [ %524, %.lr.ph.i67.i.i ], [ 0, %519 ]
-  %.067.i70.i.i = phi ptr [ %521, %.lr.ph.i67.i.i ], [ %8, %519 ]
-  %520 = shl i32 %.058.i69.i.i, 8
-  %521 = getelementptr inbounds nuw i8, ptr %.067.i70.i.i, i64 1
-  %522 = load i8, ptr %.067.i70.i.i, align 1, !tbaa !8
-  %523 = zext i8 %522 to i32
-  %524 = or disjoint i32 %520, %523
-  %525 = add nuw nsw i32 %.09.i68.i.i, 1
-  %exitcond.not.i71.i.i = icmp eq i32 %525, %72
+.lr.ph.i67.i.i:                                   ; preds = %520, %.lr.ph.i67.i.i
+  %.09.i68.i.i = phi i32 [ %526, %.lr.ph.i67.i.i ], [ 0, %520 ]
+  %.058.i69.i.i = phi i32 [ %525, %.lr.ph.i67.i.i ], [ 0, %520 ]
+  %.067.i70.i.i = phi ptr [ %522, %.lr.ph.i67.i.i ], [ %8, %520 ]
+  %521 = shl i32 %.058.i69.i.i, 8
+  %522 = getelementptr inbounds nuw i8, ptr %.067.i70.i.i, i64 1
+  %523 = load i8, ptr %.067.i70.i.i, align 1, !tbaa !8
+  %524 = zext i8 %523 to i32
+  %525 = or disjoint i32 %521, %524
+  %526 = add nuw nsw i32 %.09.i68.i.i, 1
+  %exitcond.not.i71.i.i = icmp eq i32 %526, %72
   br i1 %exitcond.not.i71.i.i, label %unpack_uint32_.exit74.i.i, label %.lr.ph.i67.i.i, !llvm.loop !32
 
-unpack_uint32_.exit74.i.i:                        ; preds = %.lr.ph.i67.i.i, %519
-  %.05.lcssa.i73.i.i = phi i32 [ 0, %519 ], [ %524, %.lr.ph.i67.i.i ]
-  %526 = getelementptr inbounds nuw i8, ptr %170, i64 44
-  store i32 %.05.lcssa.i73.i.i, ptr %526, align 4, !tbaa !87
-  %527 = call i64 %2(ptr noundef nonnull %8, i64 noundef 1, i64 noundef %76, ptr noundef %1) #33
-  %.not35.i.i = icmp eq i64 %527, %76
-  br i1 %.not35.i.i, label %528, label %read_metadata_block_data_picture_cb_.exit.i
+unpack_uint32_.exit74.i.i:                        ; preds = %.lr.ph.i67.i.i, %520
+  %.05.lcssa.i73.i.i = phi i32 [ 0, %520 ], [ %525, %.lr.ph.i67.i.i ]
+  %527 = getelementptr inbounds nuw i8, ptr %170, i64 44
+  store i32 %.05.lcssa.i73.i.i, ptr %527, align 4, !tbaa !87
+  %528 = call i64 %2(ptr noundef nonnull %8, i64 noundef 1, i64 noundef %76, ptr noundef %1) #33
+  %.not35.i.i = icmp eq i64 %528, %76
+  br i1 %.not35.i.i, label %529, label %read_metadata_block_data_picture_cb_.exit.i
 
-528:                                              ; preds = %unpack_uint32_.exit74.i.i
+529:                                              ; preds = %unpack_uint32_.exit74.i.i
   br i1 %.not.i75.i.i, label %unpack_uint32_.exit83.i.i, label %.lr.ph.i76.i.i
 
-.lr.ph.i76.i.i:                                   ; preds = %528, %.lr.ph.i76.i.i
-  %.09.i77.i.i = phi i32 [ %534, %.lr.ph.i76.i.i ], [ 0, %528 ]
-  %.058.i78.i.i = phi i32 [ %533, %.lr.ph.i76.i.i ], [ 0, %528 ]
-  %.067.i79.i.i = phi ptr [ %530, %.lr.ph.i76.i.i ], [ %8, %528 ]
-  %529 = shl i32 %.058.i78.i.i, 8
-  %530 = getelementptr inbounds nuw i8, ptr %.067.i79.i.i, i64 1
-  %531 = load i8, ptr %.067.i79.i.i, align 1, !tbaa !8
-  %532 = zext i8 %531 to i32
-  %533 = or disjoint i32 %529, %532
-  %534 = add nuw nsw i32 %.09.i77.i.i, 1
-  %exitcond.not.i80.i.i = icmp eq i32 %534, %75
+.lr.ph.i76.i.i:                                   ; preds = %529, %.lr.ph.i76.i.i
+  %.09.i77.i.i = phi i32 [ %535, %.lr.ph.i76.i.i ], [ 0, %529 ]
+  %.058.i78.i.i = phi i32 [ %534, %.lr.ph.i76.i.i ], [ 0, %529 ]
+  %.067.i79.i.i = phi ptr [ %531, %.lr.ph.i76.i.i ], [ %8, %529 ]
+  %530 = shl i32 %.058.i78.i.i, 8
+  %531 = getelementptr inbounds nuw i8, ptr %.067.i79.i.i, i64 1
+  %532 = load i8, ptr %.067.i79.i.i, align 1, !tbaa !8
+  %533 = zext i8 %532 to i32
+  %534 = or disjoint i32 %530, %533
+  %535 = add nuw nsw i32 %.09.i77.i.i, 1
+  %exitcond.not.i80.i.i = icmp eq i32 %535, %75
   br i1 %exitcond.not.i80.i.i, label %unpack_uint32_.exit83.i.i, label %.lr.ph.i76.i.i, !llvm.loop !32
 
-unpack_uint32_.exit83.i.i:                        ; preds = %.lr.ph.i76.i.i, %528
-  %.05.lcssa.i82.i.i = phi i32 [ 0, %528 ], [ %533, %.lr.ph.i76.i.i ]
-  %535 = getelementptr inbounds nuw i8, ptr %170, i64 48
-  store i32 %.05.lcssa.i82.i.i, ptr %535, align 8, !tbaa !88
-  %536 = call i64 %2(ptr noundef nonnull %8, i64 noundef 1, i64 noundef %79, ptr noundef %1) #33
-  %.not36.i80.i = icmp eq i64 %536, %79
-  br i1 %.not36.i80.i, label %537, label %read_metadata_block_data_picture_cb_.exit.i
+unpack_uint32_.exit83.i.i:                        ; preds = %.lr.ph.i76.i.i, %529
+  %.05.lcssa.i82.i.i = phi i32 [ 0, %529 ], [ %534, %.lr.ph.i76.i.i ]
+  %536 = getelementptr inbounds nuw i8, ptr %170, i64 48
+  store i32 %.05.lcssa.i82.i.i, ptr %536, align 8, !tbaa !88
+  %537 = call i64 %2(ptr noundef nonnull %8, i64 noundef 1, i64 noundef %79, ptr noundef %1) #33
+  %.not36.i80.i = icmp eq i64 %537, %79
+  br i1 %.not36.i80.i, label %538, label %read_metadata_block_data_picture_cb_.exit.i
 
-537:                                              ; preds = %unpack_uint32_.exit83.i.i
+538:                                              ; preds = %unpack_uint32_.exit83.i.i
   br i1 %.not.i84.i.i, label %unpack_uint32_.exit92.i.i, label %.lr.ph.i85.i.i
 
-.lr.ph.i85.i.i:                                   ; preds = %537, %.lr.ph.i85.i.i
-  %.09.i86.i.i = phi i32 [ %543, %.lr.ph.i85.i.i ], [ 0, %537 ]
-  %.058.i87.i.i = phi i32 [ %542, %.lr.ph.i85.i.i ], [ 0, %537 ]
-  %.067.i88.i.i = phi ptr [ %539, %.lr.ph.i85.i.i ], [ %8, %537 ]
-  %538 = shl i32 %.058.i87.i.i, 8
-  %539 = getelementptr inbounds nuw i8, ptr %.067.i88.i.i, i64 1
-  %540 = load i8, ptr %.067.i88.i.i, align 1, !tbaa !8
-  %541 = zext i8 %540 to i32
-  %542 = or disjoint i32 %538, %541
-  %543 = add nuw nsw i32 %.09.i86.i.i, 1
-  %exitcond.not.i89.i.i = icmp eq i32 %543, %78
+.lr.ph.i85.i.i:                                   ; preds = %538, %.lr.ph.i85.i.i
+  %.09.i86.i.i = phi i32 [ %544, %.lr.ph.i85.i.i ], [ 0, %538 ]
+  %.058.i87.i.i = phi i32 [ %543, %.lr.ph.i85.i.i ], [ 0, %538 ]
+  %.067.i88.i.i = phi ptr [ %540, %.lr.ph.i85.i.i ], [ %8, %538 ]
+  %539 = shl i32 %.058.i87.i.i, 8
+  %540 = getelementptr inbounds nuw i8, ptr %.067.i88.i.i, i64 1
+  %541 = load i8, ptr %.067.i88.i.i, align 1, !tbaa !8
+  %542 = zext i8 %541 to i32
+  %543 = or disjoint i32 %539, %542
+  %544 = add nuw nsw i32 %.09.i86.i.i, 1
+  %exitcond.not.i89.i.i = icmp eq i32 %544, %78
   br i1 %exitcond.not.i89.i.i, label %unpack_uint32_.exit92.i.i, label %.lr.ph.i85.i.i, !llvm.loop !32
 
-unpack_uint32_.exit92.i.i:                        ; preds = %.lr.ph.i85.i.i, %537
-  %.05.lcssa.i91.i.i = phi i32 [ 0, %537 ], [ %542, %.lr.ph.i85.i.i ]
-  %544 = getelementptr inbounds nuw i8, ptr %170, i64 52
-  store i32 %.05.lcssa.i91.i.i, ptr %544, align 4, !tbaa !89
-  %545 = getelementptr inbounds nuw i8, ptr %170, i64 64
-  %546 = getelementptr inbounds nuw i8, ptr %170, i64 56
-  %547 = call fastcc i32 @read_metadata_block_data_picture_cstring_cb_(ptr noundef %1, ptr noundef readonly %2, ptr noundef nonnull %545, ptr noundef nonnull %546, i32 noundef %80)
+unpack_uint32_.exit92.i.i:                        ; preds = %.lr.ph.i85.i.i, %538
+  %.05.lcssa.i91.i.i = phi i32 [ 0, %538 ], [ %543, %.lr.ph.i85.i.i ]
+  %545 = getelementptr inbounds nuw i8, ptr %170, i64 52
+  store i32 %.05.lcssa.i91.i.i, ptr %545, align 4, !tbaa !89
+  %546 = getelementptr inbounds nuw i8, ptr %170, i64 64
+  %547 = getelementptr inbounds nuw i8, ptr %170, i64 56
+  %548 = call fastcc i32 @read_metadata_block_data_picture_cstring_cb_(ptr noundef %1, ptr noundef readonly %2, ptr noundef nonnull %546, ptr noundef nonnull %547, i32 noundef %80)
   br label %read_metadata_block_data_picture_cb_.exit.i
 
-read_metadata_block_data_picture_cb_.exit.i:      ; preds = %unpack_uint32_.exit92.i.i, %unpack_uint32_.exit83.i.i, %unpack_uint32_.exit74.i.i, %unpack_uint32_.exit65.i.i, %506, %read_metadata_block_data_picture_cstring_cb_.exit56.thread.i.i, %read_metadata_block_data_picture_cstring_cb_.exit.thread.i.i, %453
-  %.0.i64.i = phi i32 [ 6, %453 ], [ 6, %506 ], [ 6, %unpack_uint32_.exit65.i.i ], [ 6, %unpack_uint32_.exit74.i.i ], [ 6, %unpack_uint32_.exit83.i.i ], [ %547, %unpack_uint32_.exit92.i.i ], [ %.0.i.ph.i.i, %read_metadata_block_data_picture_cstring_cb_.exit.thread.i.i ], [ %.0.i40.ph.i.i, %read_metadata_block_data_picture_cstring_cb_.exit56.thread.i.i ]
+read_metadata_block_data_picture_cb_.exit.i:      ; preds = %unpack_uint32_.exit92.i.i, %unpack_uint32_.exit83.i.i, %unpack_uint32_.exit74.i.i, %unpack_uint32_.exit65.i.i, %507, %read_metadata_block_data_picture_cstring_cb_.exit56.thread.i.i, %read_metadata_block_data_picture_cstring_cb_.exit.thread.i.i, %454
+  %.0.i64.i = phi i32 [ 6, %454 ], [ 6, %507 ], [ 6, %unpack_uint32_.exit65.i.i ], [ 6, %unpack_uint32_.exit74.i.i ], [ 6, %unpack_uint32_.exit83.i.i ], [ %548, %unpack_uint32_.exit92.i.i ], [ %.0.i.ph.i.i, %read_metadata_block_data_picture_cstring_cb_.exit.thread.i.i ], [ %.0.i40.ph.i.i, %read_metadata_block_data_picture_cstring_cb_.exit56.thread.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %read_metadata_block_data_cb_.exit
 
-548:                                              ; preds = %172
-  %549 = getelementptr inbounds nuw i8, ptr %170, i64 16
-  %550 = icmp eq i32 %162, 0
-  br i1 %550, label %551, label %552
+549:                                              ; preds = %172
+  %550 = getelementptr inbounds nuw i8, ptr %170, i64 16
+  %551 = icmp eq i32 %162, 0
+  br i1 %551, label %552, label %553
 
-551:                                              ; preds = %548
-  store ptr null, ptr %549, align 8, !tbaa !90
+552:                                              ; preds = %549
+  store ptr null, ptr %550, align 8, !tbaa !90
   br label %read_metadata_block_data_cb_.exit.thread
 
-552:                                              ; preds = %548
-  %553 = zext i32 %162 to i64
-  %554 = call noalias ptr @malloc(i64 noundef %553) #36
-  store ptr %554, ptr %549, align 8, !tbaa !90
-  %555 = icmp eq ptr %554, null
-  br i1 %555, label %.loopexit, label %556
+553:                                              ; preds = %549
+  %554 = zext i32 %162 to i64
+  %555 = call noalias ptr @malloc(i64 noundef %554) #36
+  store ptr %555, ptr %550, align 8, !tbaa !90
+  %556 = icmp eq ptr %555, null
+  br i1 %556, label %.loopexit, label %557
 
-556:                                              ; preds = %552
-  %557 = call i64 %2(ptr noundef nonnull %554, i64 noundef 1, i64 noundef %553, ptr noundef %1) #33
-  %.not.i81.i = icmp eq i64 %557, %553
+557:                                              ; preds = %553
+  %558 = call i64 %2(ptr noundef nonnull %555, i64 noundef 1, i64 noundef %554, ptr noundef %1) #33
+  %.not.i81.i = icmp eq i64 %558, %554
   br i1 %.not.i81.i, label %read_metadata_block_data_cb_.exit.thread, label %.loopexit
 
 read_metadata_block_data_cb_.exit:                ; preds = %read_metadata_block_data_streaminfo_cb_.exit.i, %read_metadata_block_data_seektable_cb_.exit.i, %read_metadata_block_data_vorbis_comment_cb_.exit.i, %read_metadata_block_data_cuesheet_cb_.exit.i, %read_metadata_block_data_picture_cb_.exit.i
@@ -9388,104 +9390,104 @@ read_metadata_block_data_cb_.exit:                ; preds = %read_metadata_block
   %switch = icmp eq i32 %.0.i62, 0
   br i1 %switch, label %read_metadata_block_data_cb_.exit.thread, label %.loopexit
 
-.loopexit:                                        ; preds = %read_metadata_block_data_cb_.exit, %253, %552, %242, %245, %259, %556
-  %.0.i64.ph = phi i32 [ 11, %253 ], [ 11, %552 ], [ 7, %242 ], [ 6, %245 ], [ 6, %259 ], [ 6, %556 ], [ %.0.i62, %read_metadata_block_data_cb_.exit ]
+.loopexit:                                        ; preds = %read_metadata_block_data_cb_.exit, %253, %553, %242, %245, %259, %557
+  %.0.i64.ph = phi i32 [ 11, %253 ], [ 11, %553 ], [ 7, %242 ], [ 6, %245 ], [ 6, %259 ], [ 6, %557 ], [ %.0.i62, %read_metadata_block_data_cb_.exit ]
   store i32 %.0.i64.ph, ptr %146, align 4, !tbaa !108
-  %558 = load ptr, ptr %151, align 8, !tbaa !105
-  %.not.i65 = icmp eq ptr %558, null
-  br i1 %.not.i65, label %node_delete_.exit66, label %559
+  %559 = load ptr, ptr %151, align 8, !tbaa !105
+  %.not.i65 = icmp eq ptr %559, null
+  br i1 %.not.i65, label %node_delete_.exit66, label %560
 
-559:                                              ; preds = %.loopexit
-  call void @FLAC__metadata_object_delete(ptr noundef nonnull %558) #33
+560:                                              ; preds = %.loopexit
+  call void @FLAC__metadata_object_delete(ptr noundef nonnull %559) #33
   br label %node_delete_.exit66
 
-node_delete_.exit66:                              ; preds = %.loopexit, %559
+node_delete_.exit66:                              ; preds = %.loopexit, %560
   call void @free(ptr noundef nonnull %151) #33
   br label %.critedge
 
-read_metadata_block_data_cb_.exit.thread:         ; preds = %read_metadata_block_data_cb_.exit, %242, %551, %556, %251, %259
+read_metadata_block_data_cb_.exit.thread:         ; preds = %read_metadata_block_data_cb_.exit, %242, %552, %557, %251, %259
   store i32 0, ptr %146, align 4, !tbaa !108
-  %560 = getelementptr inbounds nuw i8, ptr %151, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %560, i8 0, i64 16, i1 false)
-  %561 = load ptr, ptr %151, align 8, !tbaa !105
-  %562 = getelementptr inbounds nuw i8, ptr %561, i64 4
-  store i32 1, ptr %562, align 4, !tbaa !35
-  %563 = load ptr, ptr %147, align 8, !tbaa !114
-  %.not.i67 = icmp eq ptr %563, null
-  br i1 %.not.i67, label %567, label %564
+  %561 = getelementptr inbounds nuw i8, ptr %151, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %561, i8 0, i64 16, i1 false)
+  %562 = load ptr, ptr %151, align 8, !tbaa !105
+  %563 = getelementptr inbounds nuw i8, ptr %562, i64 4
+  store i32 1, ptr %563, align 4, !tbaa !35
+  %564 = load ptr, ptr %147, align 8, !tbaa !114
+  %.not.i67 = icmp eq ptr %564, null
+  br i1 %.not.i67, label %568, label %565
 
-564:                                              ; preds = %read_metadata_block_data_cb_.exit.thread
-  %565 = load ptr, ptr %563, align 8, !tbaa !105
-  %566 = getelementptr inbounds nuw i8, ptr %565, i64 4
-  store i32 0, ptr %566, align 4, !tbaa !35
-  br label %567
+565:                                              ; preds = %read_metadata_block_data_cb_.exit.thread
+  %566 = load ptr, ptr %564, align 8, !tbaa !105
+  %567 = getelementptr inbounds nuw i8, ptr %566, i64 4
+  store i32 0, ptr %567, align 4, !tbaa !35
+  br label %568
 
-567:                                              ; preds = %564, %read_metadata_block_data_cb_.exit.thread
-  %568 = load ptr, ptr %148, align 8, !tbaa !100
-  %569 = icmp eq ptr %568, null
-  br i1 %569, label %570, label %571
+568:                                              ; preds = %565, %read_metadata_block_data_cb_.exit.thread
+  %569 = load ptr, ptr %148, align 8, !tbaa !100
+  %570 = icmp eq ptr %569, null
+  br i1 %570, label %571, label %572
 
-570:                                              ; preds = %567
+571:                                              ; preds = %568
   store ptr %151, ptr %148, align 8, !tbaa !100
   br label %chain_append_node_.exit
 
-571:                                              ; preds = %567
-  %572 = getelementptr inbounds nuw i8, ptr %563, i64 16
-  store ptr %151, ptr %572, align 8, !tbaa !103
-  store ptr %563, ptr %560, align 8, !tbaa !134
+572:                                              ; preds = %568
+  %573 = getelementptr inbounds nuw i8, ptr %564, i64 16
+  store ptr %151, ptr %573, align 8, !tbaa !103
+  store ptr %564, ptr %561, align 8, !tbaa !134
   br label %chain_append_node_.exit
 
-chain_append_node_.exit:                          ; preds = %570, %571
+chain_append_node_.exit:                          ; preds = %571, %572
   store ptr %151, ptr %147, align 8, !tbaa !114
-  %573 = load i32, ptr %149, align 8, !tbaa !133
-  %574 = add i32 %573, 1
-  store i32 %574, ptr %149, align 8, !tbaa !133
+  %574 = load i32, ptr %149, align 8, !tbaa !133
+  %575 = add i32 %574, 1
+  store i32 %575, ptr %149, align 8, !tbaa !133
   %.not56 = icmp sgt i8 %157, -1
-  br i1 %.not56, label %150, label %575, !llvm.loop !158
+  br i1 %.not56, label %150, label %576, !llvm.loop !158
 
-575:                                              ; preds = %chain_append_node_.exit
-  %576 = call i64 %4(ptr noundef %1) #33
-  %577 = icmp sgt i64 %576, -1
-  br i1 %577, label %579, label %578
+576:                                              ; preds = %chain_append_node_.exit
+  %577 = call i64 %4(ptr noundef %1) #33
+  %578 = icmp sgt i64 %577, -1
+  br i1 %578, label %580, label %579
 
-578:                                              ; preds = %575
+579:                                              ; preds = %576
   store i32 6, ptr %146, align 4, !tbaa !108
   br label %.critedge
 
-579:                                              ; preds = %575
-  %580 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i64 %576, ptr %580, align 8, !tbaa !131
-  %581 = load ptr, ptr %148, align 8, !tbaa !100
-  %582 = load ptr, ptr %581, align 8, !tbaa !105
-  %583 = load i32, ptr %582, align 8, !tbaa !38
-  %.not57 = icmp eq i32 %583, 0
-  br i1 %.not57, label %.lr.ph.i, label %584
+580:                                              ; preds = %576
+  %581 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i64 %577, ptr %581, align 8, !tbaa !131
+  %582 = load ptr, ptr %148, align 8, !tbaa !100
+  %583 = load ptr, ptr %582, align 8, !tbaa !105
+  %584 = load i32, ptr %583, align 8, !tbaa !38
+  %.not57 = icmp eq i32 %584, 0
+  br i1 %.not57, label %.lr.ph.i, label %585
 
-584:                                              ; preds = %579
+585:                                              ; preds = %580
   store i32 5, ptr %146, align 4, !tbaa !108
   br label %.critedge
 
-.lr.ph.i:                                         ; preds = %579, %.lr.ph.i
-  %.0510.i = phi ptr [ %.05.i, %.lr.ph.i ], [ %581, %579 ]
-  %.09.i = phi i64 [ %590, %.lr.ph.i ], [ 0, %579 ]
-  %585 = load ptr, ptr %.0510.i, align 8, !tbaa !105
-  %586 = getelementptr inbounds nuw i8, ptr %585, i64 8
-  %587 = load i32, ptr %586, align 8, !tbaa !37
-  %588 = add i32 %587, 4
-  %589 = zext i32 %588 to i64
-  %590 = add nuw nsw i64 %.09.i, %589
+.lr.ph.i:                                         ; preds = %580, %.lr.ph.i
+  %.0510.i = phi ptr [ %.05.i, %.lr.ph.i ], [ %582, %580 ]
+  %.09.i = phi i64 [ %591, %.lr.ph.i ], [ 0, %580 ]
+  %586 = load ptr, ptr %.0510.i, align 8, !tbaa !105
+  %587 = getelementptr inbounds nuw i8, ptr %586, i64 8
+  %588 = load i32, ptr %587, align 8, !tbaa !37
+  %589 = add i32 %588, 4
+  %590 = zext i32 %589 to i64
+  %591 = add nuw nsw i64 %.09.i, %590
   %.05.in.i = getelementptr inbounds nuw i8, ptr %.0510.i, i64 16
   %.05.i = load ptr, ptr %.05.in.i, align 8, !tbaa !112
   %.not.i68 = icmp eq ptr %.05.i, null
   br i1 %.not.i68, label %chain_calculate_length_.exit, label %.lr.ph.i, !llvm.loop !113
 
 chain_calculate_length_.exit:                     ; preds = %.lr.ph.i
-  %591 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i64 %590, ptr %591, align 8, !tbaa !110
+  %592 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i64 %591, ptr %592, align 8, !tbaa !110
   br label %.critedge
 
-.critedge:                                        ; preds = %153, %node_delete_.exit61, %node_delete_.exit66, %node_delete_.exit, %578, %52, %chain_calculate_length_.exit, %584, %47, %45, %.loopexit103
-  %.0 = phi i32 [ 0, %584 ], [ 1, %chain_calculate_length_.exit ], [ 0, %578 ], [ 0, %52 ], [ 0, %.loopexit103 ], [ 0, %45 ], [ 0, %47 ], [ 0, %node_delete_.exit ], [ 0, %node_delete_.exit66 ], [ 0, %node_delete_.exit61 ], [ 0, %153 ]
+.critedge:                                        ; preds = %153, %node_delete_.exit61, %node_delete_.exit66, %node_delete_.exit, %579, %52, %chain_calculate_length_.exit, %585, %47, %45, %.loopexit103
+  %.0 = phi i32 [ 0, %585 ], [ 1, %chain_calculate_length_.exit ], [ 0, %579 ], [ 0, %52 ], [ 0, %.loopexit103 ], [ 0, %45 ], [ 0, %47 ], [ 0, %node_delete_.exit ], [ 0, %node_delete_.exit66 ], [ 0, %node_delete_.exit61 ], [ 0, %153 ]
   ret i32 %.0
 }
 
@@ -10106,7 +10108,7 @@ write_metadata_block_data_padding_cb_.exit.i:     ; preds = %.lr.ph.i.i, %._crit
   br i1 %exitcond.not.i.i38.i, label %pack_uint64_.exit.i.i, label %.lr.ph.i.i34.i, !llvm.loop !119
 
 pack_uint64_.exit.i.i:                            ; preds = %.lr.ph.i.i34.i
-  %120 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_SeekPoint, ptr %113, i64 %indvars.iv.i.i, i32 1
+  %120 = getelementptr inbounds nuw i8, ptr %114, i64 8
   %121 = load i64, ptr %120, align 8, !tbaa !56
   br label %.lr.ph.i12.i.i
 
@@ -10123,7 +10125,7 @@ pack_uint64_.exit.i.i:                            ; preds = %.lr.ph.i.i34.i
   br i1 %exitcond.not.i16.i.i, label %pack_uint64_.exit17.i.i, label %.lr.ph.i12.i.i, !llvm.loop !119
 
 pack_uint64_.exit17.i.i:                          ; preds = %.lr.ph.i12.i.i
-  %126 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_SeekPoint, ptr %113, i64 %indvars.iv.i.i, i32 2
+  %126 = getelementptr inbounds nuw i8, ptr %114, i64 16
   %127 = load i32, ptr %126, align 8, !tbaa !57
   br label %.lr.ph.i18.i.i
 
@@ -11437,7 +11439,7 @@ write_metadata_block_data_padding_cb_.exit:       ; preds = %.lr.ph.i, %._crit_e
   br i1 %exitcond.not.i.i38, label %pack_uint64_.exit.i, label %.lr.ph.i.i34, !llvm.loop !119
 
 pack_uint64_.exit.i:                              ; preds = %.lr.ph.i.i34
-  %120 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_SeekPoint, ptr %113, i64 %indvars.iv.i, i32 1
+  %120 = getelementptr inbounds nuw i8, ptr %114, i64 8
   %121 = load i64, ptr %120, align 8, !tbaa !56
   br label %.lr.ph.i12.i
 
@@ -11454,7 +11456,7 @@ pack_uint64_.exit.i:                              ; preds = %.lr.ph.i.i34
   br i1 %exitcond.not.i16.i, label %pack_uint64_.exit17.i, label %.lr.ph.i12.i, !llvm.loop !119
 
 pack_uint64_.exit17.i:                            ; preds = %.lr.ph.i12.i
-  %126 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_SeekPoint, ptr %113, i64 %indvars.iv.i, i32 2
+  %126 = getelementptr inbounds nuw i8, ptr %114, i64 16
   %127 = load i32, ptr %126, align 8, !tbaa !57
   br label %.lr.ph.i18.i
 

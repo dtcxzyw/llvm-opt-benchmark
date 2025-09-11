@@ -4586,7 +4586,7 @@ declare i32 @Curl_req_send(ptr noundef, ptr noundef, i8 noundef zeroext) local_u
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 57) i32 @Curl_bump_headersize(ptr noundef %0, i64 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = icmp ult i64 %1, 307200
-  br i1 %4, label %5, label %23
+  br i1 %4, label %5, label %24
 
 5:                                                ; preds = %3
   %6 = trunc nuw nsw i64 %1 to i32
@@ -4609,38 +4609,33 @@ define hidden range(i32 0, 57) i32 @Curl_bump_headersize(ptr noundef %0, i64 nou
 
 17:                                               ; preds = %13, %5
   %18 = icmp ugt i32 %12, 307200
-  br i1 %18, label %.thread30, label %20
+  br i1 %18, label %19, label %21
 
-.thread30:                                        ; preds = %17
-  %19 = zext i32 %12 to i64
-  br label %28
-
-20:                                               ; preds = %17
-  %21 = icmp ugt i32 %9, 6144000
-  %22 = zext i32 %9 to i64
-  br i1 %21, label %select.unfold, label %.thread
-
-23:                                               ; preds = %3
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 292
-  %25 = load i32, ptr %24, align 4, !tbaa !211
-  %26 = zext i32 %25 to i64
-  %27 = add i64 %1, %26
-  br label %select.unfold
-
-select.unfold:                                    ; preds = %20, %23
-  %.021 = phi i64 [ %27, %23 ], [ %22, %20 ]
-  %.0 = phi i32 [ 307200, %23 ], [ 6144000, %20 ]
-  %.not = icmp eq i64 %.021, 0
-  br i1 %.not, label %.thread, label %28
-
-28:                                               ; preds = %.thread30, %select.unfold
-  %.035 = phi i32 [ 307200, %.thread30 ], [ %.0, %select.unfold ]
-  %.02134 = phi i64 [ %19, %.thread30 ], [ %.021, %select.unfold ]
-  tail call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %0, ptr noundef nonnull @.str.50, i64 noundef %.02134, i32 noundef %.035) #11
+19:                                               ; preds = %17
+  %20 = zext i32 %12 to i64
   br label %.thread
 
-.thread:                                          ; preds = %20, %select.unfold, %28
-  %.022 = phi i32 [ 56, %28 ], [ 0, %select.unfold ], [ 0, %20 ]
+21:                                               ; preds = %17
+  %22 = icmp ugt i32 %9, 6144000
+  %23 = zext i32 %9 to i64
+  br i1 %22, label %.thread, label %.thread32
+
+24:                                               ; preds = %3
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 292
+  %26 = load i32, ptr %25, align 4, !tbaa !211
+  %27 = zext i32 %26 to i64
+  %28 = add i64 %1, %27
+  %.not = icmp eq i64 %28, 0
+  br i1 %.not, label %.thread32, label %.thread
+
+.thread:                                          ; preds = %21, %19, %24
+  %.031 = phi i32 [ 307200, %24 ], [ 307200, %19 ], [ 6144000, %21 ]
+  %.02130 = phi i64 [ %28, %24 ], [ %20, %19 ], [ %23, %21 ]
+  tail call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %0, ptr noundef nonnull @.str.50, i64 noundef %.02130, i32 noundef %.031) #11
+  br label %.thread32
+
+.thread32:                                        ; preds = %21, %24, %.thread
+  %.022 = phi i32 [ 56, %.thread ], [ 0, %24 ], [ 0, %21 ]
   ret i32 %.022
 }
 
@@ -8004,11 +7999,11 @@ define internal fastcc i32 @http_write_header(ptr noundef %0, ptr noundef nonnul
   %7 = select i1 %6, i32 36, i32 4
   %8 = tail call i32 @Curl_client_write(ptr noundef %0, i32 noundef %7, ptr noundef nonnull %1, i64 noundef %2) #11
   %.not = icmp eq i32 %8, 0
-  br i1 %.not, label %9, label %41
+  br i1 %.not, label %9, label %42
 
 9:                                                ; preds = %3
   %10 = icmp ult i64 %2, 307200
-  br i1 %10, label %11, label %27
+  br i1 %10, label %11, label %28
 
 11:                                               ; preds = %9
   %12 = trunc nuw nsw i64 %2 to i32
@@ -8025,55 +8020,50 @@ define internal fastcc i32 @http_write_header(ptr noundef %0, ptr noundef nonnul
   %21 = add i32 %20, %12
   store i32 %21, ptr %19, align 8, !tbaa !116
   %22 = icmp ugt i32 %18, 307200
-  br i1 %22, label %.thread30.i, label %24
+  br i1 %22, label %23, label %25
 
-.thread30.i:                                      ; preds = %11
-  %23 = zext i32 %18 to i64
+23:                                               ; preds = %11
+  %24 = zext i32 %18 to i64
   br label %Curl_bump_headersize.exit
 
-24:                                               ; preds = %11
-  %25 = icmp ugt i32 %15, 6144000
-  %26 = zext i32 %15 to i64
-  br i1 %25, label %select.unfold.i, label %32
+25:                                               ; preds = %11
+  %26 = icmp ugt i32 %15, 6144000
+  %27 = zext i32 %15 to i64
+  br i1 %26, label %Curl_bump_headersize.exit, label %33
 
-27:                                               ; preds = %9
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 292
-  %29 = load i32, ptr %28, align 4, !tbaa !211
-  %30 = zext i32 %29 to i64
-  %31 = add i64 %2, %30
-  br label %select.unfold.i
+28:                                               ; preds = %9
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 292
+  %30 = load i32, ptr %29, align 4, !tbaa !211
+  %31 = zext i32 %30 to i64
+  %32 = add i64 %2, %31
+  %.not.i = icmp eq i64 %32, 0
+  br i1 %.not.i, label %33, label %Curl_bump_headersize.exit
 
-select.unfold.i:                                  ; preds = %27, %24
-  %.021.i = phi i64 [ %31, %27 ], [ %26, %24 ]
-  %.0.i = phi i32 [ 307200, %27 ], [ 6144000, %24 ]
-  %.not.i = icmp eq i64 %.021.i, 0
-  br i1 %.not.i, label %32, label %Curl_bump_headersize.exit
+Curl_bump_headersize.exit:                        ; preds = %23, %25, %28
+  %.031.i = phi i32 [ 307200, %28 ], [ 307200, %23 ], [ 6144000, %25 ]
+  %.02130.i = phi i64 [ %32, %28 ], [ %24, %23 ], [ %27, %25 ]
+  tail call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %0, ptr noundef nonnull @.str.50, i64 noundef %.02130.i, i32 noundef %.031.i) #11
+  br label %42
 
-Curl_bump_headersize.exit:                        ; preds = %.thread30.i, %select.unfold.i
-  %.035.i = phi i32 [ 307200, %.thread30.i ], [ %.0.i, %select.unfold.i ]
-  %.02134.i = phi i64 [ %23, %.thread30.i ], [ %.021.i, %select.unfold.i ]
-  tail call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %0, ptr noundef nonnull @.str.50, i64 noundef %.02134.i, i32 noundef %.035.i) #11
-  br label %41
+33:                                               ; preds = %28, %25
+  %34 = load i32, ptr %4, align 8, !tbaa !125
+  %35 = add i32 %34, -100
+  %or.cond = icmp ult i32 %35, 100
+  br i1 %or.cond, label %36, label %39
 
-32:                                               ; preds = %select.unfold.i, %24
-  %33 = load i32, ptr %4, align 8, !tbaa !125
-  %34 = add i32 %33, -100
-  %or.cond = icmp ult i32 %34, 100
-  br i1 %or.cond, label %35, label %38
+36:                                               ; preds = %33
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 288
+  %38 = load i32, ptr %37, align 8, !tbaa !116
+  br label %39
 
-35:                                               ; preds = %32
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  %37 = load i32, ptr %36, align 8, !tbaa !116
-  br label %38
+39:                                               ; preds = %33, %36
+  %40 = phi i32 [ %38, %36 ], [ 0, %33 ]
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  store i32 %40, ptr %41, align 8, !tbaa !117
+  br label %42
 
-38:                                               ; preds = %32, %35
-  %39 = phi i32 [ %37, %35 ], [ 0, %32 ]
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  store i32 %39, ptr %40, align 8, !tbaa !117
-  br label %41
-
-41:                                               ; preds = %Curl_bump_headersize.exit, %3, %38
-  %.0 = phi i32 [ 0, %38 ], [ %8, %3 ], [ 56, %Curl_bump_headersize.exit ]
+42:                                               ; preds = %Curl_bump_headersize.exit, %3, %39
+  %.0 = phi i32 [ 0, %39 ], [ %8, %3 ], [ 56, %Curl_bump_headersize.exit ]
   ret i32 %.0
 }
 

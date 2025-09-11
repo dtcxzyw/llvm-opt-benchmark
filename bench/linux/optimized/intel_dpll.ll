@@ -1013,7 +1013,8 @@ define dso_local i32 @intel_dpll_crtc_compute_clock(ptr noundef %0, ptr noundef 
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %8 = load i32, ptr %7, align 8
   %9 = zext i32 %8 to i64
-  %10 = getelementptr %struct.__drm_crtcs_state, ptr %6, i64 %9, i32 3
+  %.split = getelementptr %struct.__drm_crtcs_state, ptr %6, i64 %9
+  %10 = getelementptr i8, ptr %.split, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 10
   %13 = load i8, ptr %12, align 2
@@ -1099,7 +1100,8 @@ define dso_local i32 @intel_dpll_crtc_get_shared_dpll(ptr noundef %0, ptr nounde
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %8 = load i32, ptr %7, align 8
   %9 = zext i32 %8 to i64
-  %10 = getelementptr %struct.__drm_crtcs_state, ptr %6, i64 %9, i32 3
+  %.split = getelementptr %struct.__drm_crtcs_state, ptr %6, i64 %9
+  %10 = getelementptr i8, ptr %.split, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 10
   %13 = load i8, ptr %12, align 2
@@ -2247,7 +2249,8 @@ define internal i32 @mtl_crtc_compute_clock(ptr noundef %0, ptr noundef readonly
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %6 = load i32, ptr %5, align 8
   %7 = zext i32 %6 to i64
-  %8 = getelementptr %struct.__drm_crtcs_state, ptr %4, i64 %7, i32 3
+  %.split = getelementptr %struct.__drm_crtcs_state, ptr %4, i64 %7
+  %8 = getelementptr i8, ptr %.split, i64 24
   %9 = load ptr, ptr %8, align 8
   %10 = tail call ptr @intel_get_crtc_new_encoder(ptr noundef %0, ptr noundef %9) #11
   %11 = tail call i32 @intel_cx0pll_calc_state(ptr noundef %9, ptr noundef %10) #11
@@ -2287,7 +2290,8 @@ define internal i32 @dg2_crtc_compute_clock(ptr noundef %0, ptr noundef readonly
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %6 = load i32, ptr %5, align 8
   %7 = zext i32 %6 to i64
-  %8 = getelementptr %struct.__drm_crtcs_state, ptr %4, i64 %7, i32 3
+  %.split = getelementptr %struct.__drm_crtcs_state, ptr %4, i64 %7
+  %8 = getelementptr i8, ptr %.split, i64 24
   %9 = load ptr, ptr %8, align 8
   %10 = tail call ptr @intel_get_crtc_new_encoder(ptr noundef %0, ptr noundef %9) #11
   %11 = tail call i32 @intel_mpllb_calc_state(ptr noundef %9, ptr noundef %10) #11
@@ -2316,7 +2320,8 @@ define internal i32 @hsw_crtc_compute_clock(ptr noundef %0, ptr noundef %1) #1 a
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %8 = load i32, ptr %7, align 8
   %9 = zext i32 %8 to i64
-  %10 = getelementptr %struct.__drm_crtcs_state, ptr %6, i64 %9, i32 3
+  %.split = getelementptr %struct.__drm_crtcs_state, ptr %6, i64 %9
+  %10 = getelementptr i8, ptr %.split, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = tail call ptr @intel_get_crtc_new_encoder(ptr noundef %0, ptr noundef %11) #11
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 2632
@@ -2369,7 +2374,8 @@ define internal i32 @hsw_crtc_get_shared_dpll(ptr noundef %0, ptr noundef %1) #1
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %8 = load i32, ptr %7, align 8
   %9 = zext i32 %8 to i64
-  %10 = getelementptr %struct.__drm_crtcs_state, ptr %6, i64 %9, i32 3
+  %.split = getelementptr %struct.__drm_crtcs_state, ptr %6, i64 %9
+  %10 = getelementptr i8, ptr %.split, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = tail call ptr @intel_get_crtc_new_encoder(ptr noundef %0, ptr noundef %11) #11
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 2632
@@ -2408,7 +2414,8 @@ define internal i32 @ilk_crtc_compute_clock(ptr noundef %0, ptr noundef %1) #1 a
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %8 = load i32, ptr %7, align 8
   %9 = zext i32 %8 to i64
-  %10 = getelementptr %struct.__drm_crtcs_state, ptr %6, i64 %9, i32 3
+  %.split = getelementptr %struct.__drm_crtcs_state, ptr %6, i64 %9
+  %10 = getelementptr i8, ptr %.split, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 860
   %13 = load i8, ptr %12, align 4, !range !24, !noundef !25
@@ -2668,7 +2675,8 @@ define internal i32 @ilk_crtc_get_shared_dpll(ptr noundef %0, ptr noundef %1) #1
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %6 = load i32, ptr %5, align 8
   %7 = zext i32 %6 to i64
-  %8 = getelementptr %struct.__drm_crtcs_state, ptr %4, i64 %7, i32 3
+  %.split = getelementptr %struct.__drm_crtcs_state, ptr %4, i64 %7
+  %8 = getelementptr i8, ptr %.split, i64 24
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 860
   %11 = load i8, ptr %10, align 4, !range !24, !noundef !25
@@ -3025,7 +3033,8 @@ define internal noundef range(i32 -22, 1) i32 @chv_crtc_compute_clock(ptr nounde
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %6 = load i32, ptr %5, align 8
   %7 = zext i32 %6 to i64
-  %8 = getelementptr %struct.__drm_crtcs_state, ptr %4, i64 %7, i32 3
+  %.split = getelementptr %struct.__drm_crtcs_state, ptr %4, i64 %7
+  %8 = getelementptr i8, ptr %.split, i64 24
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 880
   %11 = load i8, ptr %10, align 8, !range !24, !noundef !25
@@ -3149,7 +3158,8 @@ define internal noundef range(i32 -22, 1) i32 @vlv_crtc_compute_clock(ptr nounde
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %6 = load i32, ptr %5, align 8
   %7 = zext i32 %6 to i64
-  %8 = getelementptr %struct.__drm_crtcs_state, ptr %4, i64 %7, i32 3
+  %.split = getelementptr %struct.__drm_crtcs_state, ptr %4, i64 %7
+  %8 = getelementptr i8, ptr %.split, i64 24
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 880
   %11 = load i8, ptr %10, align 8, !range !24, !noundef !25
@@ -3184,18 +3194,18 @@ define internal noundef range(i32 -22, 1) i32 @vlv_crtc_compute_clock(ptr nounde
   %26 = phi i8 [ 0, %13 ], [ %111, %118 ]
   %27 = phi i32 [ 1000000, %13 ], [ %110, %118 ]
   %28 = mul i32 %.sroa.0.0, %.fr4
-  br label %.split.preheader
+  br label %.split51.preheader
 
-.split.preheader:                                 ; preds = %25, %.split61.us
-  %.sroa.12.0 = phi i32 [ 3, %25 ], [ %116, %.split61.us ]
-  %29 = phi i8 [ %26, %25 ], [ %111, %.split61.us ]
-  %30 = phi i32 [ %27, %25 ], [ %110, %.split61.us ]
-  br label %.split
+.split51.preheader:                               ; preds = %25, %.split62.us
+  %.sroa.12.0 = phi i32 [ 3, %25 ], [ %116, %.split62.us ]
+  %29 = phi i8 [ %26, %25 ], [ %111, %.split62.us ]
+  %30 = phi i32 [ %27, %25 ], [ %110, %.split62.us ]
+  br label %.split51
 
-.split:                                           ; preds = %.split.preheader, %.split52
-  %.sroa.15.0 = phi i32 [ %114, %.split52 ], [ 20, %.split.preheader ]
-  %31 = phi i8 [ %111, %.split52 ], [ %29, %.split.preheader ]
-  %32 = phi i32 [ %110, %.split52 ], [ %30, %.split.preheader ]
+.split51:                                         ; preds = %.split51.preheader, %.split53
+  %.sroa.15.0 = phi i32 [ %114, %.split53 ], [ 20, %.split51.preheader ]
+  %31 = phi i8 [ %111, %.split53 ], [ %29, %.split51.preheader ]
+  %32 = phi i32 [ %110, %.split53 ], [ %30, %.split51.preheader ]
   %33 = mul i32 %.sroa.15.0, %.sroa.12.0
   %34 = mul i32 %33, 5
   %35 = icmp eq i32 %33, 0
@@ -3204,11 +3214,11 @@ define internal noundef range(i32 -22, 1) i32 @vlv_crtc_compute_clock(ptr nounde
   %38 = icmp sgt i32 %37, 0
   br label %39
 
-39:                                               ; preds = %intel_pll_is_valid.exit.thread, %.split
-  %40 = phi i1 [ false, %.split ], [ true, %intel_pll_is_valid.exit.thread ]
-  %.sroa.7.0 = phi i32 [ 2, %.split ], [ 3, %intel_pll_is_valid.exit.thread ]
-  %41 = phi i8 [ %31, %.split ], [ %111, %intel_pll_is_valid.exit.thread ]
-  %42 = phi i32 [ %32, %.split ], [ %110, %intel_pll_is_valid.exit.thread ]
+39:                                               ; preds = %intel_pll_is_valid.exit.thread, %.split51
+  %40 = phi i1 [ false, %.split51 ], [ true, %intel_pll_is_valid.exit.thread ]
+  %.sroa.7.0 = phi i32 [ 2, %.split51 ], [ 3, %intel_pll_is_valid.exit.thread ]
+  %41 = phi i8 [ %31, %.split51 ], [ %111, %intel_pll_is_valid.exit.thread ]
+  %42 = phi i32 [ %32, %.split51 ], [ %110, %intel_pll_is_valid.exit.thread ]
   %43 = mul nuw nsw i32 %.sroa.7.0, 100000
   %44 = lshr exact i32 %43, 1
   %45 = sub nsw i32 0, %44
@@ -3334,21 +3344,21 @@ vlv_PLL_is_optimal.exit.thread22:                 ; preds = %105, %80, %vlv_PLL_
 intel_pll_is_valid.exit.thread:                   ; preds = %66, %.thread.i, %96, %72, %63, %80, %vlv_PLL_is_optimal.exit.thread22, %vlv_PLL_is_optimal.exit
   %110 = phi i32 [ %.024, %vlv_PLL_is_optimal.exit.thread22 ], [ %42, %vlv_PLL_is_optimal.exit ], [ %42, %80 ], [ %42, %63 ], [ %42, %72 ], [ %42, %96 ], [ %42, %.thread.i ], [ %42, %66 ]
   %111 = phi i8 [ 1, %vlv_PLL_is_optimal.exit.thread22 ], [ %41, %vlv_PLL_is_optimal.exit ], [ %41, %80 ], [ %41, %63 ], [ %41, %72 ], [ %41, %96 ], [ %41, %.thread.i ], [ %41, %66 ]
-  br i1 %40, label %.split52, label %39, !llvm.loop !52
+  br i1 %40, label %.split53, label %39, !llvm.loop !52
 
-.split52:                                         ; preds = %intel_pll_is_valid.exit.thread
+.split53:                                         ; preds = %intel_pll_is_valid.exit.thread
   %112 = icmp samesign ugt i32 %.sroa.15.0, 10
   %113 = select i1 %112, i32 -2, i32 -1
   %114 = add nsw i32 %113, %.sroa.15.0
   %115 = icmp sgt i32 %114, 1
-  br i1 %115, label %.split, label %.split61.us, !llvm.loop !53
+  br i1 %115, label %.split51, label %.split62.us, !llvm.loop !53
 
-.split61.us:                                      ; preds = %.split52
+.split62.us:                                      ; preds = %.split53
   %116 = add nsw i32 %.sroa.12.0, -1
   %117 = icmp ugt i32 %.sroa.12.0, 2
-  br i1 %117, label %.split.preheader, label %118, !llvm.loop !54
+  br i1 %117, label %.split51.preheader, label %118, !llvm.loop !54
 
-118:                                              ; preds = %.split61.us
+118:                                              ; preds = %.split62.us
   %119 = add nuw nsw i32 %.sroa.0.0, 1
   %120 = icmp eq i32 %119, 6
   br i1 %120, label %121, label %25, !llvm.loop !55
@@ -3446,9 +3456,9 @@ intel_pll_is_valid.exit.thread:                   ; preds = %66, %.thread.i, %96
   br label %.sink.split
 
 .sink.split:                                      ; preds = %179, %174
-  %.sink74 = phi i64 [ 932, %174 ], [ 636, %179 ]
+  %.sink75 = phi i64 [ 932, %174 ], [ 636, %179 ]
   %.sink = phi i32 [ %178, %174 ], [ %187, %179 ]
-  %188 = getelementptr inbounds nuw i8, ptr %9, i64 %.sink74
+  %188 = getelementptr inbounds nuw i8, ptr %9, i64 %.sink75
   store i32 %.sink, ptr %188, align 4
   br label %189
 
@@ -3466,7 +3476,8 @@ define internal noundef range(i32 -22, 1) i32 @g4x_crtc_compute_clock(ptr nounde
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %8 = load i32, ptr %7, align 8
   %9 = zext i32 %8 to i64
-  %10 = getelementptr %struct.__drm_crtcs_state, ptr %6, i64 %9, i32 3
+  %.split = getelementptr %struct.__drm_crtcs_state, ptr %6, i64 %9
+  %10 = getelementptr i8, ptr %.split, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 872
   %13 = load i32, ptr %12, align 8
@@ -3814,7 +3825,8 @@ define internal noundef range(i32 -22, 1) i32 @pnv_crtc_compute_clock(ptr nounde
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %8 = load i32, ptr %7, align 8
   %9 = zext i32 %8 to i64
-  %10 = getelementptr %struct.__drm_crtcs_state, ptr %6, i64 %9, i32 3
+  %.split = getelementptr %struct.__drm_crtcs_state, ptr %6, i64 %9
+  %10 = getelementptr i8, ptr %.split, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 872
   %13 = load i32, ptr %12, align 8
@@ -3884,8 +3896,8 @@ define internal noundef range(i32 -22, 1) i32 @pnv_crtc_compute_clock(ptr nounde
   %.fr = freeze i32 %56
   %57 = getelementptr inbounds nuw i8, ptr %28, i64 36
   %58 = load i32, ptr %57, align 4
-  %.fr62 = freeze i32 %58
-  %59 = icmp sgt i32 %.fr, %.fr62
+  %.fr63 = freeze i32 %58
+  %59 = icmp sgt i32 %.fr, %.fr63
   br i1 %59, label %.thread, label %60
 
 60:                                               ; preds = %51
@@ -3894,10 +3906,10 @@ define internal noundef range(i32 -22, 1) i32 @pnv_crtc_compute_clock(ptr nounde
   %63 = getelementptr inbounds nuw i8, ptr %28, i64 56
   %64 = getelementptr inbounds nuw i8, ptr %28, i64 60
   %65 = load i32, ptr %61, align 4
-  %.fr64 = freeze i32 %65
+  %.fr65 = freeze i32 %65
   %66 = load i32, ptr %62, align 4
-  %.fr59 = freeze i32 %66
-  %67 = icmp sgt i32 %.fr64, %.fr59
+  %.fr60 = freeze i32 %66
+  %67 = icmp sgt i32 %.fr65, %.fr60
   %68 = getelementptr inbounds nuw i8, ptr %38, i64 7184
   %69 = getelementptr inbounds nuw i8, ptr %38, i64 7168
   %70 = getelementptr inbounds nuw i8, ptr %28, i64 48
@@ -3915,66 +3927,66 @@ define internal noundef range(i32 -22, 1) i32 @pnv_crtc_compute_clock(ptr nounde
   %.sroa.19.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 908
   %.sroa.21.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 912
   %.sroa.23.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 916
-  br i1 %67, label %.thread, label %.split48
+  br i1 %67, label %.thread, label %.split49
 
-.split48:                                         ; preds = %60
+.split49:                                         ; preds = %60
   %77 = getelementptr inbounds nuw i8, ptr %28, i64 20
   %78 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %79 = load i32, ptr %78, align 4
-  %.fr68 = freeze i32 %79
+  %.fr69 = freeze i32 %79
   %80 = load i32, ptr %77, align 4
-  %.fr66 = freeze i32 %80
-  %81 = icmp sgt i32 %.fr68, %.fr66
-  br i1 %81, label %.thread, label %.split48.split
+  %.fr67 = freeze i32 %80
+  %81 = icmp sgt i32 %.fr69, %.fr67
+  br i1 %81, label %.thread, label %.split49.split
 
-.split48.split:                                   ; preds = %.split48
+.split49.split:                                   ; preds = %.split49
   %82 = load i32, ptr %63, align 4
   %83 = load i32, ptr %64, align 4
   %84 = icmp sgt i32 %82, %83
-  br i1 %84, label %.thread, label %.split43
+  br i1 %84, label %.thread, label %.split44
 
-.split43:                                         ; preds = %.split48.split, %.loopexit33.split.split
-  %.sroa.7.0 = phi i32 [ %166, %.loopexit33.split.split ], [ %.fr, %.split48.split ]
-  %85 = phi i32 [ %.us-phi, %.loopexit33.split.split ], [ %35, %.split48.split ]
+.split44:                                         ; preds = %.split49.split, %.loopexit33.split.split
+  %.sroa.7.0 = phi i32 [ %166, %.loopexit33.split.split ], [ %.fr, %.split49.split ]
+  %85 = phi i32 [ %.us-phi, %.loopexit33.split.split ], [ %35, %.split49.split ]
   %86 = icmp slt i32 %.sroa.7.0, %.fr
-  br label %.split40
+  br label %.split41
 
-.split40:                                         ; preds = %.loopexit32.split, %.split43
-  %.sroa.10.0 = phi i32 [ %.fr64, %.split43 ], [ %164, %.loopexit32.split ]
-  %87 = phi i32 [ %85, %.split43 ], [ %.us-phi, %.loopexit32.split ]
+.split41:                                         ; preds = %.loopexit32.split, %.split44
+  %.sroa.10.0 = phi i32 [ %.fr65, %.split44 ], [ %164, %.loopexit32.split ]
+  %87 = phi i32 [ %85, %.split44 ], [ %.us-phi, %.loopexit32.split ]
   %88 = add i32 %.sroa.10.0, 2
   %89 = mul i32 %88, %29
   %90 = icmp sgt i32 %89, 0
-  %91 = icmp slt i32 %.sroa.10.0, %.fr64
+  %91 = icmp slt i32 %.sroa.10.0, %.fr65
   %invariant.op38.reass = or i1 %91, %86
   %92 = icmp sgt i32 %.sroa.7.0, %.sroa.10.0
   br label %93
 
-93:                                               ; preds = %.loopexit, %.split40
-  %.sroa.0.0 = phi i32 [ %.fr68, %.split40 ], [ %162, %.loopexit ]
-  %94 = phi i32 [ %87, %.split40 ], [ %.us-phi, %.loopexit ]
+93:                                               ; preds = %.loopexit, %.split41
+  %.sroa.0.0 = phi i32 [ %.fr69, %.split41 ], [ %162, %.loopexit ]
+  %94 = phi i32 [ %87, %.split41 ], [ %.us-phi, %.loopexit ]
   %95 = icmp eq i32 %.sroa.0.0, 0
   %96 = icmp slt i32 %.sroa.0.0, 1
   %97 = xor i1 %90, %96
   %98 = select i1 %97, i32 2, i32 -2
-  %99 = icmp slt i32 %.sroa.0.0, %.fr68
+  %99 = icmp slt i32 %.sroa.0.0, %.fr69
   %100 = or i1 %invariant.op38.reass, %99
-  br i1 %100, label %.loopexit, label %.split
+  br i1 %100, label %.loopexit, label %.split39
 
-.split:                                           ; preds = %93, %intel_pll_is_valid.exit.thread
+.split39:                                         ; preds = %93, %intel_pll_is_valid.exit.thread
   %.sroa.13.0 = phi i32 [ %160, %intel_pll_is_valid.exit.thread ], [ %82, %93 ]
   %101 = phi i32 [ %159, %intel_pll_is_valid.exit.thread ], [ %94, %93 ]
   %102 = mul i32 %.sroa.13.0, %54
   br i1 %95, label %107, label %103
 
-103:                                              ; preds = %.split
+103:                                              ; preds = %.split39
   %104 = sdiv i32 %.sroa.0.0, %98
   %105 = add i32 %104, %89
   %106 = sdiv i32 %105, %.sroa.0.0
   br label %107
 
-107:                                              ; preds = %103, %.split
-  %108 = phi i32 [ %106, %103 ], [ 0, %.split ]
+107:                                              ; preds = %103, %.split39
+  %108 = phi i32 [ %106, %103 ], [ 0, %.split39 ]
   %109 = icmp eq i32 %102, 0
   br i1 %109, label %118, label %110
 
@@ -4072,29 +4084,29 @@ intel_pll_is_valid.exit.thread:                   ; preds = %121, %150, %144, %1
   %159 = phi i32 [ %101, %intel_pll_is_valid.exit ], [ %156, %158 ], [ %101, %154 ], [ %101, %118 ], [ %101, %135 ], [ %101, %132 ], [ %101, %141 ], [ %101, %138 ], [ %101, %147 ], [ %101, %144 ], [ %101, %150 ], [ %101, %121 ]
   %160 = add i32 %.sroa.13.0, 1
   %161 = icmp sgt i32 %160, %83
-  br i1 %161, label %.loopexit, label %.split, !llvm.loop !65
+  br i1 %161, label %.loopexit, label %.split39, !llvm.loop !65
 
 .loopexit:                                        ; preds = %intel_pll_is_valid.exit.thread, %93
   %.us-phi = phi i32 [ %94, %93 ], [ %159, %intel_pll_is_valid.exit.thread ]
   %162 = add i32 %.sroa.0.0, 1
-  %163 = icmp sgt i32 %162, %.fr66
+  %163 = icmp sgt i32 %162, %.fr67
   br i1 %163, label %.loopexit32.split, label %93, !llvm.loop !66
 
 .loopexit32.split:                                ; preds = %.loopexit
   %164 = add i32 %.sroa.10.0, 1
-  %165 = icmp sgt i32 %164, %.fr59
-  br i1 %165, label %.loopexit33.split.split, label %.split40, !llvm.loop !67
+  %165 = icmp sgt i32 %164, %.fr60
+  br i1 %165, label %.loopexit33.split.split, label %.split41, !llvm.loop !67
 
 .loopexit33.split.split:                          ; preds = %.loopexit32.split
   %166 = add i32 %.sroa.7.0, 1
-  %167 = icmp sgt i32 %166, %.fr62
-  br i1 %167, label %.split50.us, label %.split43, !llvm.loop !68
+  %167 = icmp sgt i32 %166, %.fr63
+  br i1 %167, label %.split51.us, label %.split44, !llvm.loop !68
 
-.split50.us:                                      ; preds = %.loopexit33.split.split
+.split51.us:                                      ; preds = %.loopexit33.split.split
   %168 = icmp eq i32 %.us-phi, %35
   br i1 %168, label %.thread, label %169
 
-169:                                              ; preds = %.split50.us, %27
+169:                                              ; preds = %.split51.us, %27
   %170 = getelementptr inbounds nuw i8, ptr %11, i64 884
   %171 = getelementptr inbounds nuw i8, ptr %11, i64 892
   %172 = load i32, ptr %171, align 4
@@ -4153,8 +4165,8 @@ intel_pll_is_valid.exit.thread:                   ; preds = %121, %150, %144, %1
   store i32 %209, ptr %210, align 4
   br label %.thread
 
-.thread:                                          ; preds = %.split48.split, %.split48, %60, %51, %204, %.split50.us
-  %211 = phi i32 [ 0, %204 ], [ -22, %.split50.us ], [ -22, %51 ], [ -22, %60 ], [ -22, %.split48 ], [ -22, %.split48.split ]
+.thread:                                          ; preds = %.split49.split, %.split49, %60, %51, %204, %.split51.us
+  %211 = phi i32 [ 0, %204 ], [ -22, %.split51.us ], [ -22, %51 ], [ -22, %60 ], [ -22, %.split49 ], [ -22, %.split49.split ]
   ret i32 %211
 }
 
@@ -4167,7 +4179,8 @@ define internal noundef range(i32 -22, 1) i32 @i9xx_crtc_compute_clock(ptr nound
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %8 = load i32, ptr %7, align 8
   %9 = zext i32 %8 to i64
-  %10 = getelementptr %struct.__drm_crtcs_state, ptr %6, i64 %9, i32 3
+  %.split = getelementptr %struct.__drm_crtcs_state, ptr %6, i64 %9
+  %10 = getelementptr i8, ptr %.split, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 872
   %13 = load i32, ptr %12, align 8
@@ -4602,7 +4615,8 @@ define internal noundef range(i32 -22, 1) i32 @i8xx_crtc_compute_clock(ptr nound
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %8 = load i32, ptr %7, align 8
   %9 = zext i32 %8 to i64
-  %10 = getelementptr %struct.__drm_crtcs_state, ptr %6, i64 %9, i32 3
+  %.split = getelementptr %struct.__drm_crtcs_state, ptr %6, i64 %9
+  %10 = getelementptr i8, ptr %.split, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 872
   %13 = load i32, ptr %12, align 8

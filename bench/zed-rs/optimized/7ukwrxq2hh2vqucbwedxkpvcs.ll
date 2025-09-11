@@ -30441,7 +30441,7 @@ define void @_ZN8language8markdown17MarkdownHighlight18to_highlight_style17h0c5d
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 5
   %12 = load i8, ptr %11, align 1, !range !35, !noundef !9
   %13 = trunc nuw i8 %12 to i1
-  br i1 %13, label %27, label %25
+  br i1 %13, label %28, label %26
 
 14:                                               ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6597)
@@ -30461,31 +30461,32 @@ define void @_ZN8language8markdown17MarkdownHighlight18to_highlight_style17h0c5d
 21:                                               ; preds = %14
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %23 = load ptr, ptr %22, align 8, !alias.scope !6602, !noalias !6604, !nonnull !9, !noundef !9
-  %24 = getelementptr inbounds nuw { { { { i64, ptr, {} }, i64 } }, { { i32, [4 x i32] }, { i32, [1 x i32] }, { i32, [4 x i32] }, { i32, [1 x i32] }, { i32, [6 x i32] }, { i32, [5 x i32] }, i8, [3 x i8] } }, ptr %23, i64 %18, i32 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(112) %0, ptr noundef nonnull align 8 dereferenceable(112) %24, i64 112, i1 false), !noalias !6606
+  %24 = getelementptr inbounds nuw { { { { i64, ptr, {} }, i64 } }, { { i32, [4 x i32] }, { i32, [1 x i32] }, { i32, [4 x i32] }, { i32, [1 x i32] }, { i32, [6 x i32] }, { i32, [5 x i32] }, i8, [3 x i8] } }, ptr %23, i64 %18
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(112) %0, ptr noundef nonnull align 8 dereferenceable(112) %25, i64 112, i1 false), !noalias !6606
   br label %_ZN8language13highlight_map11HighlightId5style17he3f914f3fcfe4661E.exit
 
-25:                                               ; preds = %27, %7
-  %.sroa.11.0 = phi float [ %28, %27 ], [ undef, %7 ]
-  %.sroa.9.sroa.0.0 = phi i32 [ 0, %27 ], [ 2, %7 ]
-  %26 = trunc nuw i8 %5 to i1
-  br i1 %26, label %32, label %29
+26:                                               ; preds = %28, %7
+  %.sroa.11.0 = phi float [ %29, %28 ], [ undef, %7 ]
+  %.sroa.9.sroa.0.0 = phi i32 [ 0, %28 ], [ 2, %7 ]
+  %27 = trunc nuw i8 %5 to i1
+  br i1 %27, label %33, label %30
 
-27:                                               ; preds = %7
-  %28 = tail call noundef float @_ZN4gpui8geometry2px17hc2071f8910430f8bE(float noundef 1.000000e+00)
-  br label %25
+28:                                               ; preds = %7
+  %29 = tail call noundef float @_ZN4gpui8geometry2px17hc2071f8910430f8bE(float noundef 1.000000e+00)
+  br label %26
 
-29:                                               ; preds = %32, %25
-  %.sroa.16.0 = phi float [ %33, %32 ], [ undef, %25 ]
-  %.sroa.14.sroa.0.0 = phi i32 [ 0, %32 ], [ 2, %25 ]
-  %30 = load float, ptr %1, align 4, !noundef !9
-  %31 = fcmp une float %30, 4.000000e+02
-  %.sroa.2.0 = zext i1 %31 to i32
+30:                                               ; preds = %33, %26
+  %.sroa.16.0 = phi float [ %34, %33 ], [ undef, %26 ]
+  %.sroa.14.sroa.0.0 = phi i32 [ 0, %33 ], [ 2, %26 ]
+  %31 = load float, ptr %1, align 4, !noundef !9
+  %32 = fcmp une float %31, 4.000000e+02
+  %.sroa.2.0 = zext i1 %32 to i32
   store i32 0, ptr %0, align 4
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %.sroa.2.0, ptr %.sroa.2.0..sroa_idx, align 4
   %.sroa.412.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store float %30, ptr %.sroa.412.0..sroa_idx, align 4
+  store float %31, ptr %.sroa.412.0..sroa_idx, align 4
   %.sroa.613.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 0, ptr %.sroa.613.0..sroa_idx, align 4
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -30504,11 +30505,11 @@ define void @_ZN8language8markdown17MarkdownHighlight18to_highlight_style17h0c5d
   store i8 %spec.select, ptr %.sroa.17.0..sroa_idx, align 4
   br label %_ZN8language13highlight_map11HighlightId5style17he3f914f3fcfe4661E.exit
 
-32:                                               ; preds = %25
-  %33 = tail call noundef float @_ZN4gpui8geometry2px17hc2071f8910430f8bE(float noundef 1.000000e+00)
-  br label %29
+33:                                               ; preds = %26
+  %34 = tail call noundef float @_ZN4gpui8geometry2px17hc2071f8910430f8bE(float noundef 1.000000e+00)
+  br label %30
 
-_ZN8language13highlight_map11HighlightId5style17he3f914f3fcfe4661E.exit: ; preds = %21, %20, %29
+_ZN8language13highlight_map11HighlightId5style17he3f914f3fcfe4661E.exit: ; preds = %21, %20, %30
   ret void
 }
 

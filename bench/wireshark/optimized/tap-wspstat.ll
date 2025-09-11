@@ -93,31 +93,31 @@ define internal void @wspstat_init(ptr noundef %0, ptr readnone captures(none) %
 .lr.ph98:                                         ; preds = %.lr.ph98.preheader, %index2pdut.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph98.preheader ], [ %indvars.iv.next, %index2pdut.exit ]
   %indvars101 = trunc nuw i64 %indvars.iv to i32
-  %30 = getelementptr %struct._wsp_pdu_t, ptr %.pre, i64 %indvars.iv, i32 1
-  store i32 0, ptr %30, align 8
-  %31 = icmp slt i32 %indvars101, 10
-  br i1 %31, label %index2pdut.exit, label %32
+  %30 = getelementptr %struct._wsp_pdu_t, ptr %.pre, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  store i32 0, ptr %31, align 8
+  %32 = icmp slt i32 %indvars101, 10
+  br i1 %32, label %index2pdut.exit, label %33
 
-32:                                               ; preds = %.lr.ph98
-  %33 = icmp samesign ult i64 %indvars.iv, 15
-  br i1 %33, label %34, label %36
+33:                                               ; preds = %.lr.ph98
+  %34 = icmp samesign ult i64 %indvars.iv, 15
+  br i1 %34, label %35, label %37
 
-34:                                               ; preds = %32
-  %35 = add nuw nsw i32 %indvars101, 54
+35:                                               ; preds = %33
+  %36 = add nuw nsw i32 %indvars101, 54
   br label %index2pdut.exit
 
-36:                                               ; preds = %32
-  %37 = icmp samesign ult i64 %indvars.iv, 17
-  %38 = trunc nuw i64 %indvars.iv to i32
-  %39 = add nuw i32 %38, 81
-  %spec.select.i = select i1 %37, i32 %39, i32 0
+37:                                               ; preds = %33
+  %38 = icmp samesign ult i64 %indvars.iv, 17
+  %39 = trunc nuw i64 %indvars.iv to i32
+  %40 = add nuw i32 %39, 81
+  %spec.select.i = select i1 %38, i32 %40, i32 0
   br label %index2pdut.exit
 
-index2pdut.exit:                                  ; preds = %.lr.ph98, %34, %36
-  %.0.i = phi i32 [ %35, %34 ], [ %indvars101, %.lr.ph98 ], [ %spec.select.i, %36 ]
-  %40 = tail call ptr @try_val_to_str_ext(i32 noundef %.0.i, ptr noundef nonnull @wsp_vals_pdu_type_ext)
-  %41 = getelementptr %struct._wsp_pdu_t, ptr %.pre, i64 %indvars.iv
-  store ptr %40, ptr %41, align 8
+index2pdut.exit:                                  ; preds = %.lr.ph98, %35, %37
+  %.0.i = phi i32 [ %36, %35 ], [ %indvars101, %.lr.ph98 ], [ %spec.select.i, %37 ]
+  %41 = tail call ptr @try_val_to_str_ext(i32 noundef %.0.i, ptr noundef nonnull @wsp_vals_pdu_type_ext)
+  store ptr %41, ptr %30, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %42 = icmp samesign ult i64 %indvars.iv.next, %29
   br i1 %42, label %.lr.ph98, label %._crit_edge99, !llvm.loop !9
@@ -186,20 +186,21 @@ define internal void @wspstat_reset(ptr noundef readonly captures(none) %0) #0 {
   br label %5
 
 5:                                                ; preds = %.lr.ph, %5
-  %.07 = phi i32 [ 1, %.lr.ph ], [ %9, %5 ]
+  %.07 = phi i32 [ 1, %.lr.ph ], [ %10, %5 ]
   %6 = load ptr, ptr %4, align 8
   %7 = zext i32 %.07 to i64
-  %8 = getelementptr %struct._wsp_pdu_t, ptr %6, i64 %7, i32 1
-  store i32 0, ptr %8, align 8
-  %9 = add i32 %.07, 1
-  %10 = load i32, ptr %2, align 8
-  %.not = icmp ugt i32 %9, %10
+  %8 = getelementptr %struct._wsp_pdu_t, ptr %6, i64 %7
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store i32 0, ptr %9, align 8
+  %10 = add i32 %.07, 1
+  %11 = load i32, ptr %2, align 8
+  %.not = icmp ugt i32 %10, %11
   br i1 %.not, label %._crit_edge, label %5, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %5, %1
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %12 = load ptr, ptr %11, align 8
-  tail call void @g_hash_table_foreach(ptr noundef %12, ptr noundef nonnull @wsp_reset_hash, ptr noundef null)
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %13 = load ptr, ptr %12, align 8
+  tail call void @g_hash_table_foreach(ptr noundef %13, ptr noundef nonnull @wsp_reset_hash, ptr noundef null)
   ret void
 }
 
@@ -267,19 +268,20 @@ pdut2index.exit:                                  ; preds = %5, %10, %14, %16
 38:                                               ; preds = %26, %34, %pdut2index.exit
   %.0 = phi i32 [ 0, %pdut2index.exit ], [ 1, %34 ], [ 1, %26 ]
   %.not33 = icmp eq i32 %.0.i, 0
-  br i1 %.not33, label %46, label %39
+  br i1 %.not33, label %47, label %39
 
 39:                                               ; preds = %38
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %41 = load ptr, ptr %40, align 8
   %42 = sext i32 %.0.i to i64
-  %43 = getelementptr %struct._wsp_pdu_t, ptr %41, i64 %42, i32 1
-  %44 = load i32, ptr %43, align 8
-  %45 = add i32 %44, 1
-  store i32 %45, ptr %43, align 8
-  br label %46
+  %43 = getelementptr %struct._wsp_pdu_t, ptr %41, i64 %42
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
+  %45 = load i32, ptr %44, align 8
+  %46 = add i32 %45, 1
+  store i32 %46, ptr %44, align 8
+  br label %47
 
-46:                                               ; preds = %39, %38
+47:                                               ; preds = %39, %38
   %.1 = phi i32 [ 1, %39 ], [ %.0, %38 ]
   ret i32 %.1
 }

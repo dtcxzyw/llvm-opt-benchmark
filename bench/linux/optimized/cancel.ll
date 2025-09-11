@@ -530,7 +530,8 @@ define dso_local void @init_hash_table(ptr noundef readonly captures(none) %0, i
   %9 = getelementptr %struct.io_hash_bucket, ptr %8, i64 %7
   store i32 0, ptr %9, align 64
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr %struct.io_hash_bucket, ptr %10, i64 %7, i32 1
+  %.split = getelementptr %struct.io_hash_bucket, ptr %10, i64 %7
+  %11 = getelementptr i8, ptr %.split, i64 8
   store ptr null, ptr %11, align 8
   %12 = add nuw nsw i64 %7, 1
   %13 = icmp eq i64 %12, %5

@@ -982,7 +982,7 @@ next.exit.i.i.i:                                  ; preds = %peek.exit.i33.i.i.i
 
 44:                                               ; preds = %42, %40, %next.exit.i.i.i
   %.sink.i.i.i = phi i64 [ 4294967248, %next.exit.i.i.i ], [ 4294967209, %40 ], [ 4294967267, %42 ]
-  %45 = add nsw i64 %.sink.i.i.i, %38
+  %45 = add nuw nsw i64 %.sink.i.i.i, %38
   %.pn.i.i.i = and i64 %45, 4294967295
   %.129.i.i.i = add i64 %.pn.i.i.i, %37
   %exitcond.not.i.i = icmp eq i64 %36, %15
@@ -1165,7 +1165,7 @@ next.exit.i.i.i96:                                ; preds = %peek.exit.i33.i.i.i
 
 119:                                              ; preds = %117, %115, %next.exit.i.i.i96
   %.sink.i.i.i100 = phi i64 [ 4294967248, %next.exit.i.i.i96 ], [ 4294967209, %115 ], [ 4294967267, %117 ]
-  %120 = add nsw i64 %.sink.i.i.i100, %113
+  %120 = add nuw nsw i64 %.sink.i.i.i100, %113
   %.pn.i.i.i101 = and i64 %120, 4294967295
   %.129.i.i.i102 = add i64 %.pn.i.i.i101, %112
   %exitcond.not.i.i103 = icmp eq i64 %111, %95
@@ -1661,7 +1661,7 @@ next.exit.i149:                                   ; preds = %peek.exit.i33.i146
 
 356:                                              ; preds = %354, %352, %next.exit.i149
   %.sink.i153 = phi i64 [ 4294967248, %next.exit.i149 ], [ 4294967209, %352 ], [ 4294967267, %354 ]
-  %357 = add nsw i64 %.sink.i153, %350
+  %357 = add nuw nsw i64 %.sink.i153, %350
   %.pn.i154 = and i64 %357, 4294967295
   %.129.i155 = add i64 %.pn.i154, %349
   %exitcond197.not = icmp eq i64 %348, %331
@@ -1752,7 +1752,7 @@ next.exit.i:                                      ; preds = %peek.exit.i33.i
 
 389:                                              ; preds = %386, %384, %next.exit.i
   %.sink.i = phi i64 [ 4294967248, %next.exit.i ], [ 4294967209, %384 ], [ 4294967267, %386 ]
-  %390 = add nsw i64 %.sink.i, %382
+  %390 = add nuw nsw i64 %.sink.i, %382
   %.pn.i = and i64 %390, 4294967295
   %.129.i = add i64 %.pn.i, %381
   %exitcond.not = icmp eq i64 %380, %15
@@ -2711,7 +2711,7 @@ next.exit.i:                                      ; preds = %peek.exit.i33.i
 
 71:                                               ; preds = %69, %67, %next.exit.i
   %.sink.i = phi i64 [ 4294967248, %next.exit.i ], [ 4294967209, %67 ], [ 4294967267, %69 ]
-  %72 = add nsw i64 %.sink.i, %65
+  %72 = add nuw nsw i64 %.sink.i, %65
   %.pn.i = and i64 %72, 4294967295
   %.129.i = add i64 %.pn.i, %64
   %exitcond.not = icmp eq i64 %63, %46
@@ -4753,7 +4753,7 @@ next.exit.i:                                      ; preds = %peek.exit.i33.i
 
 443:                                              ; preds = %440, %438, %next.exit.i
   %.sink.i = phi i64 [ 4294967248, %next.exit.i ], [ 4294967209, %438 ], [ 4294967267, %440 ]
-  %444 = add nsw i64 %.sink.i, %436
+  %444 = add nuw nsw i64 %.sink.i, %436
   %.pn.i = and i64 %444, 4294967295
   %.129.i = add i64 %.pn.i, %435
   %exitcond.not = icmp eq i64 %434, %12
@@ -4883,7 +4883,7 @@ next.exit.i.i:                                    ; preds = %peek.exit.i33.i.i
 
 34:                                               ; preds = %32, %30, %next.exit.i.i
   %.sink.i.i = phi i64 [ 4294967248, %next.exit.i.i ], [ 4294967209, %30 ], [ 4294967267, %32 ]
-  %35 = add nsw i64 %.sink.i.i, %28
+  %35 = add nuw nsw i64 %.sink.i.i, %28
   %.pn.i.i = and i64 %35, 4294967295
   %.129.i.i = add i64 %.pn.i.i, %27
   %exitcond.not.i = icmp eq i64 %26, %10
@@ -5789,7 +5789,7 @@ next.exit.i:                                      ; preds = %peek.exit.i33.i
 
 35:                                               ; preds = %32, %30, %next.exit.i
   %.sink.i = phi i64 [ 4294967248, %next.exit.i ], [ 4294967209, %30 ], [ 4294967267, %32 ]
-  %36 = add nsw i64 %.sink.i, %28
+  %36 = add nuw nsw i64 %.sink.i, %28
   %.pn.i = and i64 %36, 4294967295
   %.129.i = add i64 %.pn.i, %27
   %exitcond67.not = icmp eq i64 %26, %10
@@ -5957,7 +5957,7 @@ next.exit.i39:                                    ; preds = %peek.exit.i33.i36
 
 107:                                              ; preds = %105, %103, %next.exit.i39
   %.sink.i43 = phi i64 [ 4294967248, %next.exit.i39 ], [ 4294967209, %103 ], [ 4294967267, %105 ]
-  %108 = add nsw i64 %.sink.i43, %101
+  %108 = add nuw nsw i64 %.sink.i43, %101
   %.pn.i44 = and i64 %108, 4294967295
   %.129.i45 = add i64 %.pn.i44, %100
   %exitcond.not = icmp eq i64 %99, %82

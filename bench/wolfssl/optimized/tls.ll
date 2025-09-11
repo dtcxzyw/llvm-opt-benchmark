@@ -4268,7 +4268,7 @@ TLSX_Find.exit:                                   ; preds = %.lr.ph.i, %16, %22
 54:                                               ; preds = %41
   %55 = zext i16 %52 to i32
   %56 = add nsw i32 %39, -4
-  %57 = icmp slt i32 %56, %55
+  %57 = icmp samesign ult i32 %56, %55
   br i1 %57, label %TLSX_Push.exit, label %58
 
 58:                                               ; preds = %54
@@ -4464,7 +4464,7 @@ TLSX_KeyShare_Find.exit:                          ; preds = %.lr.ph.i
 59:                                               ; preds = %51
   %60 = zext i16 %57 to i32
   %61 = add nsw i32 %10, -4
-  %62 = icmp slt i32 %61, %60
+  %62 = icmp samesign ult i32 %61, %60
   br i1 %62, label %TLSX_KeyShare_Find.exit105, label %63
 
 63:                                               ; preds = %59

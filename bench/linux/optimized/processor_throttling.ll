@@ -1659,7 +1659,8 @@ define internal i32 @acpi_processor_get_throttling_ptc(ptr noundef %0) #0 align 
 61:                                               ; preds = %58, %55
   %62 = phi i32 [ 0, %55 ], [ %59, %58 ]
   %63 = sext i32 %62 to i64
-  %64 = getelementptr %struct.acpi_processor_tx_tss, ptr %57, i64 %63, i32 3
+  %.split = getelementptr %struct.acpi_processor_tx_tss, ptr %57, i64 %63
+  %64 = getelementptr i8, ptr %.split, i64 24
   %65 = load i64, ptr %64, align 8
   %66 = icmp eq i64 %65, %51
   br i1 %66, label %67, label %58
@@ -1731,7 +1732,8 @@ define internal noundef range(i32 -22, 1) i32 @acpi_processor_set_throttling_ptc
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 688
   %30 = load ptr, ptr %29, align 8
   %31 = zext nneg i32 %1 to i64
-  %32 = getelementptr %struct.acpi_processor_tx_tss, ptr %30, i64 %31, i32 3
+  %.split = getelementptr %struct.acpi_processor_tx_tss, ptr %30, i64 %31
+  %32 = getelementptr i8, ptr %.split, i64 24
   %33 = load i64, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 651
   %35 = load i8, ptr %34, align 1

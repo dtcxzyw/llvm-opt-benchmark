@@ -427,7 +427,7 @@ define void @dlarrf_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %256 = select i1 %254, double %253, double %255
   %257 = fcmp oge double %.0378489, %256
   %258 = select i1 %257, double %.0378489, double %256
-  %259 = icmp sgt i64 %indvars.iv518, 2
+  %259 = icmp samesign ugt i64 %indvars.iv518, 2
   br i1 %259, label %.lr.ph493, label %._crit_edge494, !llvm.loop !12
 
 ._crit_edge494:                                   ; preds = %250, %222

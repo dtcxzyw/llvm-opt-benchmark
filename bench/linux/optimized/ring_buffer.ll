@@ -1455,7 +1455,7 @@ define dso_local noundef range(i32 -95, 1) i32 @rb_alloc_aux(ptr noundef %0, ptr
   br label %20
 
 20:                                               ; preds = %12, %6
-  %.fr21 = phi i32 [ %19, %12 ], [ -1, %6 ]
+  %.fr22 = phi i32 [ %19, %12 ], [ -1, %6 ]
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 240
@@ -1503,7 +1503,7 @@ define dso_local noundef range(i32 -95, 1) i32 @rb_alloc_aux(ptr noundef %0, ptr
   br label %178
 
 51:                                               ; preds = %48
-  %52 = tail call noalias align 8 ptr @__kmalloc_node(i64 noundef %42, i32 noundef 3520, i32 noundef %.fr21) #15
+  %52 = tail call noalias align 8 ptr @__kmalloc_node(i64 noundef %42, i32 noundef 3520, i32 noundef %.fr22) #15
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 216
   store ptr %52, ptr %53, align 8
   %54 = icmp eq ptr %52, null
@@ -1517,14 +1517,14 @@ define dso_local noundef range(i32 -95, 1) i32 @rb_alloc_aux(ptr noundef %0, ptr
   store ptr %58, ptr %59, align 8
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store i32 0, ptr %60, align 8
-  %.not20 = icmp eq i32 %3, 0
-  br i1 %.not20, label %._crit_edge, label %.lr.ph
+  %.not21 = icmp eq i32 %3, 0
+  br i1 %.not21, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %55
-  %61 = icmp eq i32 %.fr21, -1
-  br i1 %61, label %.split.us.us, label %.split
+  %61 = icmp eq i32 %.fr22, -1
+  br i1 %61, label %.split17.us.us, label %.split17
 
-.split.us.us:                                     ; preds = %.lr.ph, %.loopexit.us
+.split17.us.us:                                   ; preds = %.lr.ph, %.loopexit.us
   %62 = phi i32 [ %93, %.loopexit.us ], [ 0, %.lr.ph ]
   %63 = sub i32 %3, %62
   %64 = tail call i32 asm "bsrl $1,$0", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i32 %63, i32 -1) #14, !srcloc !44
@@ -1532,7 +1532,7 @@ define dso_local noundef range(i32 -95, 1) i32 @rb_alloc_aux(ptr noundef %0, ptr
   %66 = tail call i32 @llvm.smin.i32(i32 %65, i32 10)
   br label %95
 
-67:                                               ; preds = %.split18.us.us
+67:                                               ; preds = %.split19.us.us
   tail call void @split_page(ptr noundef nonnull %98, i32 noundef %96) #13
   %68 = getelementptr i8, ptr %98, i64 1
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %68, i32 128, ptr elementtype(i8) %68) #13, !srcloc !45
@@ -1541,8 +1541,8 @@ define dso_local noundef range(i32 -95, 1) i32 @rb_alloc_aux(ptr noundef %0, ptr
   store i64 %69, ptr %70, align 8
   br label %71
 
-71:                                               ; preds = %.split18.us.us._crit_edge, %67
-  %72 = phi i32 [ %102, %.split18.us.us._crit_edge ], [ %96, %67 ]
+71:                                               ; preds = %.split19.us.us._crit_edge, %67
+  %72 = phi i32 [ %102, %.split19.us.us._crit_edge ], [ %96, %67 ]
   %73 = load i32, ptr %60, align 8
   %74 = shl nuw i32 1, %72
   %75 = add i32 %74, %73
@@ -1573,31 +1573,31 @@ define dso_local noundef range(i32 -95, 1) i32 @rb_alloc_aux(ptr noundef %0, ptr
 .loopexit.us:                                     ; preds = %.preheader.us, %71
   %93 = phi i32 [ %73, %71 ], [ %91, %.preheader.us ]
   %94 = icmp slt i32 %93, %3
-  br i1 %94, label %.split.us.us, label %._crit_edge
+  br i1 %94, label %.split17.us.us, label %._crit_edge
 
-95:                                               ; preds = %99, %.split.us.us
-  %96 = phi i32 [ %66, %.split.us.us ], [ %100, %99 ]
+95:                                               ; preds = %99, %.split17.us.us
+  %96 = phi i32 [ %66, %.split17.us.us ], [ %100, %99 ]
   %97 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @numa_node) #14, !srcloc !47
   %98 = tail call ptr @__alloc_pages(i32 noundef 77248, i32 noundef %96, i32 noundef %97, ptr noundef null) #13
   %.not.us.us = icmp eq ptr %98, null
-  br i1 %.not.us.us, label %99, label %.split18.us.us
+  br i1 %.not.us.us, label %99, label %.split19.us.us
 
 99:                                               ; preds = %95
   %100 = add i32 %96, -1
   %101 = icmp eq i32 %96, 0
   br i1 %101, label %.loopexit13, label %95, !llvm.loop !48
 
-.split18.us.us:                                   ; preds = %95
+.split19.us.us:                                   ; preds = %95
   %.not12.us = icmp eq i32 %96, 0
-  br i1 %.not12.us, label %.split18.us.us._crit_edge, label %67
+  br i1 %.not12.us, label %.split19.us.us._crit_edge, label %67
 
-.split18.us.us._crit_edge:                        ; preds = %.split18.us.us
-  %.phi.trans.insert31 = getelementptr inbounds nuw i8, ptr %98, i64 40
-  %.pre32 = load i64, ptr %.phi.trans.insert31, align 8
-  %102 = trunc i64 %.pre32 to i32
+.split19.us.us._crit_edge:                        ; preds = %.split19.us.us
+  %.phi.trans.insert32 = getelementptr inbounds nuw i8, ptr %98, i64 40
+  %.pre33 = load i64, ptr %.phi.trans.insert32, align 8
+  %102 = trunc i64 %.pre33 to i32
   br label %71
 
-.split:                                           ; preds = %.lr.ph, %.loopexit
+.split17:                                         ; preds = %.lr.ph, %.loopexit
   %103 = phi i32 [ %141, %.loopexit ], [ 0, %.lr.ph ]
   %104 = sub i32 %3, %103
   %105 = tail call i32 asm "bsrl $1,$0", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i32 %104, i32 -1) #14, !srcloc !44
@@ -1605,28 +1605,28 @@ define dso_local noundef range(i32 -95, 1) i32 @rb_alloc_aux(ptr noundef %0, ptr
   %107 = tail call i32 @llvm.smin.i32(i32 %106, i32 10)
   br label %108
 
-108:                                              ; preds = %111, %.split
-  %109 = phi i32 [ %107, %.split ], [ %112, %111 ]
-  %110 = tail call ptr @__alloc_pages(i32 noundef 77248, i32 noundef %109, i32 noundef %.fr21, ptr noundef null) #13
+108:                                              ; preds = %111, %.split17
+  %109 = phi i32 [ %107, %.split17 ], [ %112, %111 ]
+  %110 = tail call ptr @__alloc_pages(i32 noundef 77248, i32 noundef %109, i32 noundef %.fr22, ptr noundef null) #13
   %.not = icmp eq ptr %110, null
-  br i1 %.not, label %111, label %.split18
+  br i1 %.not, label %111, label %.split19
 
 111:                                              ; preds = %108
   %112 = add i32 %109, -1
   %113 = icmp eq i32 %109, 0
   br i1 %113, label %.loopexit13, label %108, !llvm.loop !48
 
-.split18:                                         ; preds = %108
+.split19:                                         ; preds = %108
   %.not12 = icmp eq i32 %109, 0
-  br i1 %.not12, label %.split18._crit_edge, label %115
+  br i1 %.not12, label %.split19._crit_edge, label %115
 
-.split18._crit_edge:                              ; preds = %.split18
+.split19._crit_edge:                              ; preds = %.split19
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %110, i64 40
   %.pre = load i64, ptr %.phi.trans.insert, align 8
   %114 = trunc i64 %.pre to i32
   br label %119
 
-115:                                              ; preds = %.split18
+115:                                              ; preds = %.split19
   tail call void @split_page(ptr noundef nonnull %110, i32 noundef %109) #13
   %116 = getelementptr i8, ptr %110, i64 1
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %116, i32 128, ptr elementtype(i8) %116) #13, !srcloc !45
@@ -1635,8 +1635,8 @@ define dso_local noundef range(i32 -95, 1) i32 @rb_alloc_aux(ptr noundef %0, ptr
   store i64 %117, ptr %118, align 8
   br label %119
 
-119:                                              ; preds = %.split18._crit_edge, %115
-  %120 = phi i32 [ %114, %.split18._crit_edge ], [ %109, %115 ]
+119:                                              ; preds = %.split19._crit_edge, %115
+  %120 = phi i32 [ %114, %.split19._crit_edge ], [ %109, %115 ]
   %121 = load i32, ptr %60, align 8
   %122 = shl nuw i32 1, %120
   %123 = add i32 %122, %121
@@ -1667,7 +1667,7 @@ define dso_local noundef range(i32 -95, 1) i32 @rb_alloc_aux(ptr noundef %0, ptr
 .loopexit:                                        ; preds = %.preheader, %119
   %141 = phi i32 [ %121, %119 ], [ %139, %.preheader ]
   %142 = icmp slt i32 %141, %3
-  br i1 %142, label %.split, label %._crit_edge
+  br i1 %142, label %.split17, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.loopexit, %.loopexit.us, %55
   %143 = load ptr, ptr %21, align 8
@@ -1676,13 +1676,13 @@ define dso_local noundef range(i32 -95, 1) i32 @rb_alloc_aux(ptr noundef %0, ptr
   %146 = and i32 %145, 4
   %147 = icmp ne i32 %146, 0
   %148 = and i1 %8, %147
-  %.pre33 = load ptr, ptr %53, align 8
+  %.pre34 = load ptr, ptr %53, align 8
   br i1 %148, label %149, label %166
 
 149:                                              ; preds = %._crit_edge
   %150 = load i64, ptr @vmemmap_base, align 8
   %151 = inttoptr i64 %150 to ptr
-  %152 = load ptr, ptr %.pre33, align 8
+  %152 = load ptr, ptr %.pre34, align 8
   %153 = ptrtoint ptr %152 to i64
   %154 = add i64 %153, 2147483648
   %155 = icmp ugt ptr %152, inttoptr (i64 -2147483649 to ptr)
@@ -1692,7 +1692,8 @@ define dso_local noundef range(i32 -95, 1) i32 @rb_alloc_aux(ptr noundef %0, ptr
   %159 = select i1 %155, i64 %156, i64 %158
   %160 = add i64 %154, %159
   %161 = lshr i64 %160, 12
-  %162 = getelementptr %struct.page, ptr %151, i64 %161, i32 1, i32 0, i32 3
+  %.split = getelementptr %struct.page, ptr %151, i64 %161
+  %162 = getelementptr i8, ptr %.split, i64 40
   %163 = load i64, ptr %162, align 8
   %164 = sext i32 %39 to i64
   %165 = icmp eq i64 %163, %164
@@ -1701,7 +1702,7 @@ define dso_local noundef range(i32 -95, 1) i32 @rb_alloc_aux(ptr noundef %0, ptr
 166:                                              ; preds = %149, %._crit_edge
   %167 = getelementptr inbounds nuw i8, ptr %143, i64 240
   %168 = load ptr, ptr %167, align 8
-  %169 = tail call ptr %168(ptr noundef %1, ptr noundef %.pre33, i32 noundef %3, i1 noundef zeroext %8) #13
+  %169 = tail call ptr %168(ptr noundef %1, ptr noundef %.pre34, i32 noundef %3, i1 noundef zeroext %8) #13
   %170 = getelementptr inbounds nuw i8, ptr %0, i64 224
   store ptr %169, ptr %170, align 8
   %171 = icmp eq ptr %169, null

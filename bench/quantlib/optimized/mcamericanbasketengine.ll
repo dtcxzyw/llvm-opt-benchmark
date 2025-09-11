@@ -1346,7 +1346,8 @@ invoke.cont32.lr.ph:                              ; preds = %do.end
 
 invoke.cont32:                                    ; preds = %invoke.cont32.lr.ph, %invoke.cont32
   %i.045 = phi i64 [ 0, %invoke.cont32.lr.ph ], [ %inc, %invoke.cont32 ]
-  %values_.i = getelementptr inbounds nuw %"class.QuantLib::Path", ptr %1, i64 %i.045, i32 1
+  %add.ptr.i.i = getelementptr inbounds nuw %"class.QuantLib::Path", ptr %1, i64 %i.045
+  %values_.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 72
   %28 = load ptr, ptr %values_.i, align 8, !tbaa !49
   %arrayidx.i.i = getelementptr inbounds nuw double, ptr %28, i64 %t
   %29 = load double, ptr %arrayidx.i.i, align 8, !tbaa !76

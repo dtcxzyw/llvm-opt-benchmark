@@ -79,56 +79,57 @@ define i32 @dt_printing_get_image_box(ptr noundef readonly captures(none) %0, i3
   %wide.trip.count = zext nneg i32 %5 to i64
   br label %9
 
-._crit_edge:                                      ; preds = %39, %3
-  %.0.lcssa = phi i32 [ -1, %3 ], [ %.1, %39 ]
+._crit_edge:                                      ; preds = %40, %3
+  %.0.lcssa = phi i32 [ -1, %3 ], [ %.1, %40 ]
   ret i32 %.0.lcssa
 
-9:                                                ; preds = %.lr.ph, %39
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %39 ]
-  %.048 = phi i32 [ -1, %.lr.ph ], [ %.1, %39 ]
-  %.03447 = phi float [ 0x47EFFFFFE0000000, %.lr.ph ], [ %.135, %39 ]
-  %10 = getelementptr inbounds nuw %struct._image_box, ptr %0, i64 %indvars.iv, i32 12
-  %11 = load float, ptr %10, align 8, !tbaa !20
-  %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %13 = load float, ptr %12, align 8, !tbaa !21
-  %14 = fadd reassoc nsz arcp contract afn float %13, %11
-  %15 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  %16 = load float, ptr %15, align 4, !tbaa !22
-  %17 = getelementptr inbounds nuw i8, ptr %10, i64 12
-  %18 = load float, ptr %17, align 4, !tbaa !23
-  %19 = fadd reassoc nsz arcp contract afn float %18, %16
-  %20 = fcmp reassoc nsz arcp contract afn olt float %11, %7
-  %21 = fcmp reassoc nsz arcp contract afn ogt float %14, %7
-  %or.cond = select i1 %20, i1 %21, i1 false
-  br i1 %or.cond, label %22, label %39
+9:                                                ; preds = %.lr.ph, %40
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %40 ]
+  %.048 = phi i32 [ -1, %.lr.ph ], [ %.1, %40 ]
+  %.03447 = phi float [ 0x47EFFFFFE0000000, %.lr.ph ], [ %.135, %40 ]
+  %10 = getelementptr inbounds nuw %struct._image_box, ptr %0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 72
+  %12 = load float, ptr %11, align 8, !tbaa !20
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 80
+  %14 = load float, ptr %13, align 8, !tbaa !21
+  %15 = fadd reassoc nsz arcp contract afn float %14, %12
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 76
+  %17 = load float, ptr %16, align 4, !tbaa !22
+  %18 = getelementptr inbounds nuw i8, ptr %10, i64 84
+  %19 = load float, ptr %18, align 4, !tbaa !23
+  %20 = fadd reassoc nsz arcp contract afn float %19, %17
+  %21 = fcmp reassoc nsz arcp contract afn olt float %12, %7
+  %22 = fcmp reassoc nsz arcp contract afn ogt float %15, %7
+  %or.cond = select i1 %21, i1 %22, i1 false
+  br i1 %or.cond, label %23, label %40
 
-22:                                               ; preds = %9
-  %23 = fcmp reassoc nsz arcp contract afn olt float %16, %8
-  %24 = fcmp reassoc nsz arcp contract afn ogt float %19, %8
-  %or.cond45 = select i1 %23, i1 %24, i1 false
-  br i1 %or.cond45, label %25, label %39
+23:                                               ; preds = %9
+  %24 = fcmp reassoc nsz arcp contract afn olt float %17, %8
+  %25 = fcmp reassoc nsz arcp contract afn ogt float %20, %8
+  %or.cond45 = select i1 %24, i1 %25, i1 false
+  br i1 %or.cond45, label %26, label %40
 
-25:                                               ; preds = %22
-  %26 = fsub reassoc nsz arcp contract afn float %11, %7
-  %27 = fmul reassoc nsz arcp contract afn float %26, %26
-  %28 = fsub reassoc nsz arcp contract afn float %14, %7
-  %29 = fmul reassoc nsz arcp contract afn float %28, %28
-  %30 = tail call reassoc nsz arcp contract afn float @llvm.minnum.f32(float %27, float %29)
-  %31 = fsub reassoc nsz arcp contract afn float %16, %8
-  %32 = fmul reassoc nsz arcp contract afn float %31, %31
-  %33 = tail call reassoc nsz arcp contract afn float @llvm.minnum.f32(float %30, float %32)
-  %34 = fsub reassoc nsz arcp contract afn float %19, %8
-  %35 = fmul reassoc nsz arcp contract afn float %34, %34
-  %36 = tail call reassoc nsz arcp contract afn float @llvm.minnum.f32(float %33, float %35)
-  %37 = fcmp reassoc nsz arcp contract afn olt float %36, %.03447
-  %.236 = select nsz i1 %37, float %36, float %.03447
-  %38 = trunc nuw nsw i64 %indvars.iv to i32
-  %.2 = select i1 %37, i32 %38, i32 %.048
-  br label %39
+26:                                               ; preds = %23
+  %27 = fsub reassoc nsz arcp contract afn float %12, %7
+  %28 = fmul reassoc nsz arcp contract afn float %27, %27
+  %29 = fsub reassoc nsz arcp contract afn float %15, %7
+  %30 = fmul reassoc nsz arcp contract afn float %29, %29
+  %31 = tail call reassoc nsz arcp contract afn float @llvm.minnum.f32(float %28, float %30)
+  %32 = fsub reassoc nsz arcp contract afn float %17, %8
+  %33 = fmul reassoc nsz arcp contract afn float %32, %32
+  %34 = tail call reassoc nsz arcp contract afn float @llvm.minnum.f32(float %31, float %33)
+  %35 = fsub reassoc nsz arcp contract afn float %20, %8
+  %36 = fmul reassoc nsz arcp contract afn float %35, %35
+  %37 = tail call reassoc nsz arcp contract afn float @llvm.minnum.f32(float %34, float %36)
+  %38 = fcmp reassoc nsz arcp contract afn olt float %37, %.03447
+  %.236 = select nsz i1 %38, float %37, float %.03447
+  %39 = trunc nuw nsw i64 %indvars.iv to i32
+  %.2 = select i1 %38, i32 %39, i32 %.048
+  br label %40
 
-39:                                               ; preds = %25, %22, %9
-  %.135 = phi nsz float [ %.236, %25 ], [ %.03447, %22 ], [ %.03447, %9 ]
-  %.1 = phi i32 [ %.2, %25 ], [ %.048, %22 ], [ %.048, %9 ]
+40:                                               ; preds = %26, %23, %9
+  %.135 = phi nsz float [ %.236, %26 ], [ %.03447, %23 ], [ %.03447, %9 ]
+  %.1 = phi i32 [ %.2, %26 ], [ %.048, %23 ], [ %.048, %9 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %9

@@ -1352,14 +1352,14 @@ _ZN14ExceptionTableC2EPK6Method.exit:             ; preds = %3
 20:                                               ; preds = %15
   %21 = add i16 %17, %14
   store i16 %21, ptr %16, align 2
-  %22 = getelementptr inbounds nuw %class.ExceptionTableElement, ptr %11, i64 %indvars.iv, i32 1
+  %22 = getelementptr inbounds nuw i8, ptr %16, i64 2
   %23 = load i16, ptr %22, align 2
   %24 = add i16 %23, %14
   store i16 %24, ptr %22, align 2
   br label %32
 
 25:                                               ; preds = %15
-  %26 = getelementptr inbounds nuw %class.ExceptionTableElement, ptr %11, i64 %indvars.iv, i32 1
+  %26 = getelementptr inbounds nuw i8, ptr %16, i64 2
   %27 = load i16, ptr %26, align 2
   %28 = zext i16 %27 to i32
   %29 = icmp samesign ult i32 %1, %28
@@ -1371,7 +1371,7 @@ _ZN14ExceptionTableC2EPK6Method.exit:             ; preds = %3
   br label %32
 
 32:                                               ; preds = %25, %30, %20
-  %33 = getelementptr inbounds nuw %class.ExceptionTableElement, ptr %11, i64 %indvars.iv, i32 2
+  %33 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %34 = load i16, ptr %33, align 2
   %35 = zext i16 %34 to i32
   %36 = icmp slt i32 %1, %35
@@ -2527,14 +2527,14 @@ _ZN14ExceptionTableC2EPK6Method.exit.i:           ; preds = %44
 73:                                               ; preds = %68
   %74 = add i16 %70, %67
   store i16 %74, ptr %69, align 2
-  %75 = getelementptr inbounds nuw %class.ExceptionTableElement, ptr %64, i64 %indvars.iv.i, i32 1
+  %75 = getelementptr inbounds nuw i8, ptr %69, i64 2
   %76 = load i16, ptr %75, align 2
   %77 = add i16 %76, %67
   store i16 %77, ptr %75, align 2
   br label %85
 
 78:                                               ; preds = %68
-  %79 = getelementptr inbounds nuw %class.ExceptionTableElement, ptr %64, i64 %indvars.iv.i, i32 1
+  %79 = getelementptr inbounds nuw i8, ptr %69, i64 2
   %80 = load i16, ptr %79, align 2
   %81 = zext i16 %80 to i32
   %82 = icmp samesign ult i32 %1, %81
@@ -2546,7 +2546,7 @@ _ZN14ExceptionTableC2EPK6Method.exit.i:           ; preds = %44
   br label %85
 
 85:                                               ; preds = %83, %78, %73
-  %86 = getelementptr inbounds nuw %class.ExceptionTableElement, ptr %64, i64 %indvars.iv.i, i32 2
+  %86 = getelementptr inbounds nuw i8, ptr %69, i64 4
   %87 = load i16, ptr %86, align 2
   %88 = zext i16 %87 to i32
   %89 = icmp slt i32 %1, %88

@@ -4878,7 +4878,7 @@ define hidden noundef align 8 dereferenceable_or_null(120) ptr @_ZN13fluent_bund
   br label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h36a183da958ee33fE.llvm.13158159170862922693.exit"
 
 26:                                               ; preds = %.lr.ph.i.i
-  %27 = getelementptr inbounds { { i64, [2 x i64] }, { i64, [14 x i64] } }, ptr %5, i64 %9, i32 1
+  %27 = getelementptr inbounds nuw i8, ptr %11, i64 24
   br label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h36a183da958ee33fE.llvm.13158159170862922693.exit"
 
 "_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h36a183da958ee33fE.llvm.13158159170862922693.exit": ; preds = %26, %.loopexit

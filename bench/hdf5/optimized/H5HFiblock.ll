@@ -1795,7 +1795,7 @@ define range(i32 -1, 1) i32 @H5HF__man_iblock_root_double(ptr noundef %0, i64 no
   %.1110156 = phi i64 [ %211, %.lr.ph158 ], [ %208, %.lr.ph158.preheader ]
   %209 = getelementptr inbounds nuw %struct.H5HF_indirect_filt_ent_t, ptr %198, i64 %.1110156
   store i64 0, ptr %209, align 8, !tbaa !76
-  %210 = getelementptr inbounds nuw %struct.H5HF_indirect_filt_ent_t, ptr %198, i64 %.1110156, i32 1
+  %210 = getelementptr inbounds nuw i8, ptr %209, i64 8
   store i32 0, ptr %210, align 8, !tbaa !79
   %211 = add nuw nsw i64 %.1110156, 1
   %exitcond162.not = icmp eq i64 %211, %206
@@ -2104,7 +2104,7 @@ define noundef range(i32 -1, 1) i32 @H5HF__man_iblock_detach(ptr noundef %0, i32
   %27 = load ptr, ptr %26, align 8, !tbaa !51
   %28 = getelementptr inbounds nuw %struct.H5HF_indirect_filt_ent_t, ptr %27, i64 %17
   store i64 0, ptr %28, align 8, !tbaa !76
-  %29 = getelementptr inbounds nuw %struct.H5HF_indirect_filt_ent_t, ptr %27, i64 %17, i32 1
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store i32 0, ptr %29, align 8, !tbaa !79
   br label %._crit_edge
 

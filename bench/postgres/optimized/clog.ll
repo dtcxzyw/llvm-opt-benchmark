@@ -284,7 +284,7 @@ define internal fastcc void @TransactionIdSetPageStatus(i32 noundef %0, i32 noun
   %13 = shl nuw nsw i32 %9, 7
   %14 = zext nneg i32 %13 to i64
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 %14
-  br i1 %6, label %16, label %132
+  br i1 %6, label %16, label %133
 
 16:                                               ; preds = %7
   %17 = load ptr, ptr @MyProc, align 8
@@ -293,14 +293,14 @@ define internal fastcc void @TransactionIdSetPageStatus(i32 noundef %0, i32 noun
   %20 = icmp eq i32 %0, %19
   %21 = icmp slt i32 %1, 6
   %or.cond = and i1 %21, %20
-  br i1 %or.cond, label %22, label %132
+  br i1 %or.cond, label %22, label %133
 
 22:                                               ; preds = %16
   %23 = getelementptr inbounds nuw i8, ptr %17, i64 440
   %24 = load i8, ptr %23, align 8
   %25 = zext i8 %24 to i32
   %26 = icmp eq i32 %1, %25
-  br i1 %26, label %27, label %132
+  br i1 %26, label %27, label %133
 
 27:                                               ; preds = %22
   %28 = icmp eq i32 %1, 0
@@ -312,7 +312,7 @@ define internal fastcc void @TransactionIdSetPageStatus(i32 noundef %0, i32 noun
   %32 = shl nuw nsw i64 %31, 2
   %bcmp = tail call i32 @bcmp(ptr %2, ptr nonnull %30, i64 %32)
   %33 = icmp eq i32 %bcmp, 0
-  br i1 %33, label %34, label %132
+  br i1 %33, label %34, label %133
 
 34:                                               ; preds = %29, %27
   %35 = tail call zeroext i1 @LWLockConditionalAcquire(ptr noundef %15, i32 noundef 0) #9
@@ -336,182 +336,183 @@ define internal fastcc void @TransactionIdSetPageStatus(i32 noundef %0, i32 noun
   %46 = getelementptr inbounds nuw i8, ptr %38, i64 720
   br label %47
 
-47:                                               ; preds = %55, %36
-  %.072.i = phi i32 [ %45, %36 ], [ %58, %55 ]
+47:                                               ; preds = %56, %36
+  %.072.i = phi i32 [ %45, %36 ], [ %59, %56 ]
   %.not.i = icmp eq i32 %.072.i, -1
-  br i1 %.not.i, label %55, label %48
+  br i1 %.not.i, label %56, label %48
 
 48:                                               ; preds = %47
   %49 = load ptr, ptr @ProcGlobal, align 8
   %50 = load ptr, ptr %49, align 8
   %51 = zext i32 %.072.i to i64
-  %52 = getelementptr inbounds nuw %struct.PGPROC, ptr %50, i64 %51, i32 40
-  %53 = load i64, ptr %52, align 8
-  %54 = load i64, ptr %42, align 8
-  %.not61.i = icmp eq i64 %53, %54
-  br i1 %.not61.i, label %55, label %TransactionGroupUpdateXidStatus.exit
+  %52 = getelementptr inbounds nuw %struct.PGPROC, ptr %50, i64 %51
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 736
+  %54 = load i64, ptr %53, align 8
+  %55 = load i64, ptr %42, align 8
+  %.not61.i = icmp eq i64 %54, %55
+  br i1 %.not61.i, label %56, label %TransactionGroupUpdateXidStatus.exit
 
-55:                                               ; preds = %48, %47
+56:                                               ; preds = %48, %47
   store volatile i32 %.072.i, ptr %46, align 4
-  %56 = load i32, ptr @MyProcNumber, align 4
-  %57 = tail call { i32, i8 } asm sideeffect "\09lock\09\09\09\09\0A\09cmpxchgl\09$4,$5\09\0A   setz\09\09$2\09\09\0A", "={ax},=*m,=q,{ax},r,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %44, i32 %.072.i, i32 %56, ptr nonnull elementtype(i32) %44) #9, !srcloc !8
-  %58 = extractvalue { i32, i8 } %57, 0
-  %59 = extractvalue { i32, i8 } %57, 1
-  %.not73.i = icmp eq i8 %59, 0
-  br i1 %.not73.i, label %47, label %60
+  %57 = load i32, ptr @MyProcNumber, align 4
+  %58 = tail call { i32, i8 } asm sideeffect "\09lock\09\09\09\09\0A\09cmpxchgl\09$4,$5\09\0A   setz\09\09$2\09\09\0A", "={ax},=*m,=q,{ax},r,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %44, i32 %.072.i, i32 %57, ptr nonnull elementtype(i32) %44) #9, !srcloc !8
+  %59 = extractvalue { i32, i8 } %58, 0
+  %60 = extractvalue { i32, i8 } %58, 1
+  %.not73.i = icmp eq i8 %60, 0
+  br i1 %.not73.i, label %47, label %61
 
-60:                                               ; preds = %55
-  %.not62.i = icmp eq i32 %58, -1
-  br i1 %.not62.i, label %75, label %61
+61:                                               ; preds = %56
+  %.not62.i = icmp eq i32 %59, -1
+  br i1 %.not62.i, label %76, label %62
 
-61:                                               ; preds = %60
-  %62 = load ptr, ptr @my_wait_event_info, align 8
-  store volatile i32 134217784, ptr %62, align 4
-  %63 = getelementptr inbounds nuw i8, ptr %38, i64 24
-  br label %64
+62:                                               ; preds = %61
+  %63 = load ptr, ptr @my_wait_event_info, align 8
+  store volatile i32 134217784, ptr %63, align 4
+  %64 = getelementptr inbounds nuw i8, ptr %38, i64 24
+  br label %65
 
-64:                                               ; preds = %64, %61
-  %.054.i = phi i32 [ 0, %61 ], [ %68, %64 ]
-  %65 = load ptr, ptr %63, align 8
-  tail call void @PGSemaphoreLock(ptr noundef %65) #9
-  %66 = load i8, ptr %39, align 4, !range !9, !noundef !10
-  %67 = trunc nuw i8 %66 to i1
-  %68 = add i32 %.054.i, 1
-  br i1 %67, label %64, label %69
+65:                                               ; preds = %65, %62
+  %.054.i = phi i32 [ 0, %62 ], [ %69, %65 ]
+  %66 = load ptr, ptr %64, align 8
+  tail call void @PGSemaphoreLock(ptr noundef %66) #9
+  %67 = load i8, ptr %39, align 4, !range !9, !noundef !10
+  %68 = trunc nuw i8 %67 to i1
+  %69 = add i32 %.054.i, 1
+  br i1 %68, label %65, label %70
 
-69:                                               ; preds = %64
-  %70 = load ptr, ptr @my_wait_event_info, align 8
-  store volatile i32 0, ptr %70, align 4
-  %71 = icmp sgt i32 %.054.i, 0
-  br i1 %71, label %.lr.ph.i, label %TransactionGroupUpdateXidStatus.exit.thread
+70:                                               ; preds = %65
+  %71 = load ptr, ptr @my_wait_event_info, align 8
+  store volatile i32 0, ptr %71, align 4
+  %72 = icmp sgt i32 %.054.i, 0
+  br i1 %72, label %.lr.ph.i, label %TransactionGroupUpdateXidStatus.exit.thread
 
-.lr.ph.i:                                         ; preds = %69, %.lr.ph.i
-  %.15576.i = phi i32 [ %72, %.lr.ph.i ], [ %.054.i, %69 ]
-  %72 = add nsw i32 %.15576.i, -1
-  %73 = load ptr, ptr %63, align 8
-  tail call void @PGSemaphoreUnlock(ptr noundef %73) #9
-  %74 = icmp samesign ugt i32 %.15576.i, 1
-  br i1 %74, label %.lr.ph.i, label %TransactionGroupUpdateXidStatus.exit.thread, !llvm.loop !11
+.lr.ph.i:                                         ; preds = %70, %.lr.ph.i
+  %.15576.i = phi i32 [ %73, %.lr.ph.i ], [ %.054.i, %70 ]
+  %73 = add nsw i32 %.15576.i, -1
+  %74 = load ptr, ptr %64, align 8
+  tail call void @PGSemaphoreUnlock(ptr noundef %74) #9
+  %75 = icmp samesign ugt i32 %.15576.i, 1
+  br i1 %75, label %.lr.ph.i, label %TransactionGroupUpdateXidStatus.exit.thread, !llvm.loop !11
 
-75:                                               ; preds = %60
-  %76 = load i64, ptr %42, align 8
-  %77 = load i16, ptr getelementptr inbounds nuw (i8, ptr @XactCtlData, i64 8), align 8
-  %78 = zext i16 %77 to i64
-  %79 = srem i64 %76, %78
-  %80 = load ptr, ptr @XactCtlData, align 8
-  %81 = getelementptr inbounds nuw i8, ptr %80, i64 56
-  %82 = load ptr, ptr %81, align 8
-  %83 = shl nsw i64 %79, 7
-  %84 = getelementptr inbounds i8, ptr %82, i64 %83
-  %85 = tail call zeroext i1 @LWLockAcquire(ptr noundef %84, i32 noundef 0) #9
-  %86 = atomicrmw volatile xchg ptr %44, i32 -1 seq_cst, align 4
-  %.not6377.i = icmp eq i32 %86, -1
+76:                                               ; preds = %61
+  %77 = load i64, ptr %42, align 8
+  %78 = load i16, ptr getelementptr inbounds nuw (i8, ptr @XactCtlData, i64 8), align 8
+  %79 = zext i16 %78 to i64
+  %80 = srem i64 %77, %79
+  %81 = load ptr, ptr @XactCtlData, align 8
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 56
+  %83 = load ptr, ptr %82, align 8
+  %84 = shl nsw i64 %80, 7
+  %85 = getelementptr inbounds i8, ptr %83, i64 %84
+  %86 = tail call zeroext i1 @LWLockAcquire(ptr noundef %85, i32 noundef 0) #9
+  %87 = atomicrmw volatile xchg ptr %44, i32 -1 seq_cst, align 4
+  %.not6377.i = icmp eq i32 %87, -1
   br i1 %.not6377.i, label %._crit_edge.i, label %.lr.ph81.i
 
-.lr.ph81.i:                                       ; preds = %75, %104
-  %.05180.i = phi i64 [ %.1.i, %104 ], [ %76, %75 ]
-  %.05279.i = phi ptr [ %.153.i, %104 ], [ %84, %75 ]
-  %storemerge78.i = phi i32 [ %117, %104 ], [ %86, %75 ]
-  %87 = load ptr, ptr @ProcGlobal, align 8
-  %88 = load ptr, ptr %87, align 8
-  %89 = zext i32 %storemerge78.i to i64
-  %90 = getelementptr inbounds nuw %struct.PGPROC, ptr %88, i64 %89
-  %91 = getelementptr inbounds nuw i8, ptr %90, i64 736
-  %92 = load i64, ptr %91, align 8
-  %.not67.i = icmp eq i64 %92, %.05180.i
-  br i1 %.not67.i, label %104, label %93
+.lr.ph81.i:                                       ; preds = %76, %105
+  %.05180.i = phi i64 [ %.1.i, %105 ], [ %77, %76 ]
+  %.05279.i = phi ptr [ %.153.i, %105 ], [ %85, %76 ]
+  %storemerge78.i = phi i32 [ %118, %105 ], [ %87, %76 ]
+  %88 = load ptr, ptr @ProcGlobal, align 8
+  %89 = load ptr, ptr %88, align 8
+  %90 = zext i32 %storemerge78.i to i64
+  %91 = getelementptr inbounds nuw %struct.PGPROC, ptr %89, i64 %90
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 736
+  %93 = load i64, ptr %92, align 8
+  %.not67.i = icmp eq i64 %93, %.05180.i
+  br i1 %.not67.i, label %105, label %94
 
-93:                                               ; preds = %.lr.ph81.i
-  %94 = load i16, ptr getelementptr inbounds nuw (i8, ptr @XactCtlData, i64 8), align 8
-  %95 = zext i16 %94 to i64
-  %96 = srem i64 %92, %95
-  %97 = load ptr, ptr @XactCtlData, align 8
-  %98 = getelementptr inbounds nuw i8, ptr %97, i64 56
-  %99 = load ptr, ptr %98, align 8
-  %100 = shl nsw i64 %96, 7
-  %101 = getelementptr inbounds i8, ptr %99, i64 %100
-  %.not68.i = icmp eq ptr %.05279.i, %101
-  br i1 %.not68.i, label %104, label %102
+94:                                               ; preds = %.lr.ph81.i
+  %95 = load i16, ptr getelementptr inbounds nuw (i8, ptr @XactCtlData, i64 8), align 8
+  %96 = zext i16 %95 to i64
+  %97 = srem i64 %93, %96
+  %98 = load ptr, ptr @XactCtlData, align 8
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 56
+  %100 = load ptr, ptr %99, align 8
+  %101 = shl nsw i64 %97, 7
+  %102 = getelementptr inbounds i8, ptr %100, i64 %101
+  %.not68.i = icmp eq ptr %.05279.i, %102
+  br i1 %.not68.i, label %105, label %103
 
-102:                                              ; preds = %93
+103:                                              ; preds = %94
   tail call void @LWLockRelease(ptr noundef %.05279.i) #9
-  %103 = tail call zeroext i1 @LWLockAcquire(ptr noundef %101, i32 noundef 0) #9
-  %.pre.i = load i64, ptr %91, align 8
-  br label %104
+  %104 = tail call zeroext i1 @LWLockAcquire(ptr noundef %102, i32 noundef 0) #9
+  %.pre.i = load i64, ptr %92, align 8
+  br label %105
 
-104:                                              ; preds = %102, %93, %.lr.ph81.i
-  %105 = phi i64 [ %.05180.i, %.lr.ph81.i ], [ %.pre.i, %102 ], [ %92, %93 ]
-  %.153.i = phi ptr [ %.05279.i, %.lr.ph81.i ], [ %101, %102 ], [ %101, %93 ]
-  %.1.i = phi i64 [ %.05180.i, %.lr.ph81.i ], [ %92, %102 ], [ %92, %93 ]
-  %106 = getelementptr inbounds nuw i8, ptr %90, i64 724
-  %107 = load i32, ptr %106, align 4
-  %108 = getelementptr inbounds nuw i8, ptr %90, i64 440
-  %109 = load i8, ptr %108, align 8
-  %110 = zext i8 %109 to i32
-  %111 = getelementptr inbounds nuw i8, ptr %90, i64 444
-  %112 = getelementptr inbounds nuw i8, ptr %90, i64 728
-  %113 = load i32, ptr %112, align 8
-  %114 = getelementptr inbounds nuw i8, ptr %90, i64 744
-  %115 = load i64, ptr %114, align 8
-  tail call fastcc void @TransactionIdSetPageStatusInternal(i32 noundef %107, i32 noundef %110, ptr noundef nonnull %111, i32 noundef %113, i64 noundef %115, i64 noundef %105)
-  %116 = getelementptr inbounds nuw i8, ptr %90, i64 720
-  %117 = load volatile i32, ptr %116, align 8
-  %.not63.i = icmp eq i32 %117, -1
+105:                                              ; preds = %103, %94, %.lr.ph81.i
+  %106 = phi i64 [ %.05180.i, %.lr.ph81.i ], [ %.pre.i, %103 ], [ %93, %94 ]
+  %.153.i = phi ptr [ %.05279.i, %.lr.ph81.i ], [ %102, %103 ], [ %102, %94 ]
+  %.1.i = phi i64 [ %.05180.i, %.lr.ph81.i ], [ %93, %103 ], [ %93, %94 ]
+  %107 = getelementptr inbounds nuw i8, ptr %91, i64 724
+  %108 = load i32, ptr %107, align 4
+  %109 = getelementptr inbounds nuw i8, ptr %91, i64 440
+  %110 = load i8, ptr %109, align 8
+  %111 = zext i8 %110 to i32
+  %112 = getelementptr inbounds nuw i8, ptr %91, i64 444
+  %113 = getelementptr inbounds nuw i8, ptr %91, i64 728
+  %114 = load i32, ptr %113, align 8
+  %115 = getelementptr inbounds nuw i8, ptr %91, i64 744
+  %116 = load i64, ptr %115, align 8
+  tail call fastcc void @TransactionIdSetPageStatusInternal(i32 noundef %108, i32 noundef %111, ptr noundef nonnull %112, i32 noundef %114, i64 noundef %116, i64 noundef %106)
+  %117 = getelementptr inbounds nuw i8, ptr %91, i64 720
+  %118 = load volatile i32, ptr %117, align 8
+  %.not63.i = icmp eq i32 %118, -1
   br i1 %.not63.i, label %._crit_edge.i, label %.lr.ph81.i, !llvm.loop !12
 
-._crit_edge.i:                                    ; preds = %104, %75
-  %.052.lcssa.i = phi ptr [ %84, %75 ], [ %.153.i, %104 ]
+._crit_edge.i:                                    ; preds = %105, %76
+  %.052.lcssa.i = phi ptr [ %85, %76 ], [ %.153.i, %105 ]
   %.not64.i = icmp eq ptr %.052.lcssa.i, null
-  br i1 %.not64.i, label %119, label %118
+  br i1 %.not64.i, label %120, label %119
 
-118:                                              ; preds = %._crit_edge.i
+119:                                              ; preds = %._crit_edge.i
   tail call void @LWLockRelease(ptr noundef nonnull %.052.lcssa.i) #9
-  br label %119
+  br label %120
 
-119:                                              ; preds = %118, %._crit_edge.i
+120:                                              ; preds = %119, %._crit_edge.i
   br i1 %.not6377.i, label %TransactionGroupUpdateXidStatus.exit.thread, label %.lr.ph85.i
 
-.lr.ph85.i:                                       ; preds = %119, %131
-  %.05083.i = phi i32 [ %125, %131 ], [ %86, %119 ]
-  %120 = load ptr, ptr @ProcGlobal, align 8
-  %121 = load ptr, ptr %120, align 8
-  %122 = zext i32 %.05083.i to i64
-  %123 = getelementptr inbounds nuw %struct.PGPROC, ptr %121, i64 %122
-  %124 = getelementptr inbounds nuw i8, ptr %123, i64 720
-  %125 = load volatile i32, ptr %124, align 4
-  store volatile i32 -1, ptr %124, align 4
+.lr.ph85.i:                                       ; preds = %120, %132
+  %.05083.i = phi i32 [ %126, %132 ], [ %87, %120 ]
+  %121 = load ptr, ptr @ProcGlobal, align 8
+  %122 = load ptr, ptr %121, align 8
+  %123 = zext i32 %.05083.i to i64
+  %124 = getelementptr inbounds nuw %struct.PGPROC, ptr %122, i64 %123
+  %125 = getelementptr inbounds nuw i8, ptr %124, i64 720
+  %126 = load volatile i32, ptr %125, align 4
+  store volatile i32 -1, ptr %125, align 4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !13
-  %126 = getelementptr inbounds nuw i8, ptr %123, i64 716
-  store i8 0, ptr %126, align 4
-  %127 = load ptr, ptr @MyProc, align 8
-  %.not66.i = icmp eq ptr %123, %127
-  br i1 %.not66.i, label %131, label %128
+  %127 = getelementptr inbounds nuw i8, ptr %124, i64 716
+  store i8 0, ptr %127, align 4
+  %128 = load ptr, ptr @MyProc, align 8
+  %.not66.i = icmp eq ptr %124, %128
+  br i1 %.not66.i, label %132, label %129
 
-128:                                              ; preds = %.lr.ph85.i
-  %129 = getelementptr inbounds nuw i8, ptr %123, i64 24
-  %130 = load ptr, ptr %129, align 8
-  tail call void @PGSemaphoreUnlock(ptr noundef %130) #9
-  br label %131
+129:                                              ; preds = %.lr.ph85.i
+  %130 = getelementptr inbounds nuw i8, ptr %124, i64 24
+  %131 = load ptr, ptr %130, align 8
+  tail call void @PGSemaphoreUnlock(ptr noundef %131) #9
+  br label %132
 
-131:                                              ; preds = %128, %.lr.ph85.i
-  %.not65.i = icmp eq i32 %125, -1
+132:                                              ; preds = %129, %.lr.ph85.i
+  %.not65.i = icmp eq i32 %126, -1
   br i1 %.not65.i, label %TransactionGroupUpdateXidStatus.exit.thread, label %.lr.ph85.i, !llvm.loop !14
 
 TransactionGroupUpdateXidStatus.exit:             ; preds = %48
   store i8 0, ptr %39, align 4
   store volatile i32 -1, ptr %46, align 4
-  br label %132
+  br label %133
 
-132:                                              ; preds = %TransactionGroupUpdateXidStatus.exit, %29, %22, %16, %7
-  %133 = tail call zeroext i1 @LWLockAcquire(ptr noundef %15, i32 noundef 0) #9
+133:                                              ; preds = %TransactionGroupUpdateXidStatus.exit, %29, %22, %16, %7
+  %134 = tail call zeroext i1 @LWLockAcquire(ptr noundef %15, i32 noundef 0) #9
   br label %TransactionGroupUpdateXidStatus.exit.thread.sink.split
 
-TransactionGroupUpdateXidStatus.exit.thread.sink.split: ; preds = %34, %132
+TransactionGroupUpdateXidStatus.exit.thread.sink.split: ; preds = %34, %133
   tail call fastcc void @TransactionIdSetPageStatusInternal(i32 noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i64 noundef %4, i64 noundef %5)
   tail call void @LWLockRelease(ptr noundef %15) #9
   br label %TransactionGroupUpdateXidStatus.exit.thread
 
-TransactionGroupUpdateXidStatus.exit.thread:      ; preds = %.lr.ph.i, %131, %TransactionGroupUpdateXidStatus.exit.thread.sink.split, %69, %119
+TransactionGroupUpdateXidStatus.exit.thread:      ; preds = %.lr.ph.i, %132, %TransactionGroupUpdateXidStatus.exit.thread.sink.split, %70, %120
   ret void
 }
 

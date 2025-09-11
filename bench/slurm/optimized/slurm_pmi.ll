@@ -686,61 +686,64 @@ define internal fastcc range(i32 0, -2147483648) i32 @_forward_comm_set(ptr noun
   %wide.trip.count = zext i16 %4 to i64
   br label %8
 
-8:                                                ; preds = %.lr.ph, %32
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %32 ]
-  %.01920 = phi i32 [ 0, %.lr.ph ], [ %.1, %32 ]
+8:                                                ; preds = %.lr.ph, %35
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %35 ]
+  %.01920 = phi i32 [ 0, %.lr.ph ], [ %.1, %35 ]
   %9 = load ptr, ptr %5, align 8
-  %10 = getelementptr inbounds nuw %struct.kvs_hosts, ptr %9, i64 %indvars.iv, i32 1
-  %11 = load i16, ptr %10, align 4
-  %12 = icmp eq i16 %11, 0
-  br i1 %12, label %32, label %13
+  %10 = getelementptr inbounds nuw %struct.kvs_hosts, ptr %9, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %12 = load i16, ptr %11, align 4
+  %13 = icmp eq i16 %12, 0
+  br i1 %13, label %35, label %14
 
-13:                                               ; preds = %8
+14:                                               ; preds = %8
   call void @slurm_msg_t_init(ptr noundef nonnull %2) #10
   call void @slurm_msg_set_r_uid(ptr noundef nonnull %2, i32 noundef -1) #10
   store i16 7204, ptr %6, align 4
   store ptr %0, ptr %7, align 8
-  %14 = load ptr, ptr %5, align 8
-  %15 = getelementptr inbounds nuw %struct.kvs_hosts, ptr %14, i64 %indvars.iv
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
-  %17 = load i16, ptr %16, align 4
-  %18 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %19 = load ptr, ptr %18, align 8
-  call void @slurm_set_addr(ptr noundef nonnull %2, i16 noundef zeroext %17, ptr noundef %19) #10
-  %20 = call i32 @slurm_send_recv_rc_msg_only_one(ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef 0) #10
-  %21 = icmp slt i32 %20, 0
-  br i1 %21, label %22, label %._crit_edge23
+  %15 = load ptr, ptr %5, align 8
+  %16 = getelementptr inbounds nuw %struct.kvs_hosts, ptr %15, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 4
+  %18 = load i16, ptr %17, align 4
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %20 = load ptr, ptr %19, align 8
+  call void @slurm_set_addr(ptr noundef nonnull %2, i16 noundef zeroext %18, ptr noundef %20) #10
+  %21 = call i32 @slurm_send_recv_rc_msg_only_one(ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef 0) #10
+  %22 = icmp slt i32 %21, 0
+  br i1 %22, label %23, label %._crit_edge23
 
-._crit_edge23:                                    ; preds = %13
+._crit_edge23:                                    ; preds = %14
   %.pre = load i32, ptr %3, align 4
-  br label %27
+  br label %29
 
-22:                                               ; preds = %13
-  %23 = load ptr, ptr %5, align 8
-  %24 = getelementptr inbounds nuw %struct.kvs_hosts, ptr %23, i64 %indvars.iv, i32 2
-  %25 = load ptr, ptr %24, align 8
-  %26 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.17, ptr noundef %25) #10
+23:                                               ; preds = %14
+  %24 = load ptr, ptr %5, align 8
+  %25 = getelementptr inbounds nuw %struct.kvs_hosts, ptr %24, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  %27 = load ptr, ptr %26, align 8
+  %28 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.17, ptr noundef %27) #10
   store i32 1, ptr %3, align 4
-  br label %27
+  br label %29
 
-27:                                               ; preds = %._crit_edge23, %22
-  %28 = phi i32 [ %.pre, %._crit_edge23 ], [ 1, %22 ]
-  %29 = call i32 @llvm.smax.i32(i32 %.01920, i32 %28)
-  %30 = load ptr, ptr %5, align 8
-  %31 = getelementptr inbounds nuw %struct.kvs_hosts, ptr %30, i64 %indvars.iv, i32 2
-  call void @slurm_xfree(ptr noundef nonnull %31) #10
-  br label %32
+29:                                               ; preds = %._crit_edge23, %23
+  %30 = phi i32 [ %.pre, %._crit_edge23 ], [ 1, %23 ]
+  %31 = call i32 @llvm.smax.i32(i32 %.01920, i32 %30)
+  %32 = load ptr, ptr %5, align 8
+  %33 = getelementptr inbounds nuw %struct.kvs_hosts, ptr %32, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
+  call void @slurm_xfree(ptr noundef nonnull %34) #10
+  br label %35
 
-32:                                               ; preds = %8, %27
-  %.1 = phi i32 [ %.01920, %8 ], [ %29, %27 ]
+35:                                               ; preds = %8, %29
+  %.1 = phi i32 [ %.01920, %8 ], [ %31, %29 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !13
 
-._crit_edge:                                      ; preds = %32, %1
-  %.019.lcssa = phi i32 [ 0, %1 ], [ %.1, %32 ]
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @slurm_xfree(ptr noundef nonnull %33) #10
+._crit_edge:                                      ; preds = %35, %1
+  %.019.lcssa = phi i32 [ 0, %1 ], [ %.1, %35 ]
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @slurm_xfree(ptr noundef nonnull %36) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.019.lcssa

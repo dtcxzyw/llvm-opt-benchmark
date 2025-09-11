@@ -122,14 +122,15 @@ define dso_local void @_ZN18btSimpleBroadphaseC2EiP22btOverlappingPairCache(ptr 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
+  %34 = getelementptr inbounds nuw %struct.btSimpleBroadphaseProxy, ptr %12, i64 %indvars.iv
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %34 = getelementptr inbounds nuw %struct.btSimpleBroadphaseProxy, ptr %12, i64 %indvars.iv, i32 1
-  %35 = trunc nuw nsw i64 %indvars.iv.next to i32
-  store i32 %35, ptr %34, align 4, !tbaa !27
-  %36 = getelementptr inbounds nuw %struct.btSimpleBroadphaseProxy, ptr %12, i64 %indvars.iv, i32 0, i32 3
-  %37 = trunc i64 %indvars.iv to i32
-  %38 = add i32 %37, 2
-  store i32 %38, ptr %36, align 8, !tbaa !29
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 52
+  %36 = trunc nuw nsw i64 %indvars.iv.next to i32
+  store i32 %36, ptr %35, align 4, !tbaa !27
+  %37 = getelementptr inbounds nuw i8, ptr %34, i64 16
+  %38 = trunc i64 %indvars.iv to i32
+  %39 = add i32 %38, 2
+  store i32 %39, ptr %37, align 8, !tbaa !29
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !30
 }
@@ -243,35 +244,35 @@ define dso_local noundef ptr @_ZN18btSimpleBroadphase11createProxyERK9btVector3S
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %17 = load ptr, ptr %16, align 8, !tbaa !19
   %18 = sext i32 %15 to i64
-  %19 = getelementptr inbounds %struct.btSimpleBroadphaseProxy, ptr %17, i64 %18, i32 1
-  %20 = load i32, ptr %19, align 4, !tbaa !27
-  store i32 %20, ptr %14, align 8, !tbaa !22
-  %21 = add nsw i32 %10, 1
-  store i32 %21, ptr %9, align 8, !tbaa !21
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %23 = load i32, ptr %22, align 8, !tbaa !23
-  %24 = icmp sgt i32 %15, %23
-  br i1 %24, label %25, label %_ZN18btSimpleBroadphase11allocHandleEv.exit
+  %19 = getelementptr inbounds %struct.btSimpleBroadphaseProxy, ptr %17, i64 %18
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 52
+  %21 = load i32, ptr %20, align 4, !tbaa !27
+  store i32 %21, ptr %14, align 8, !tbaa !22
+  %22 = add nsw i32 %10, 1
+  store i32 %22, ptr %9, align 8, !tbaa !21
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %24 = load i32, ptr %23, align 8, !tbaa !23
+  %25 = icmp sgt i32 %15, %24
+  br i1 %25, label %26, label %_ZN18btSimpleBroadphase11allocHandleEv.exit
 
-25:                                               ; preds = %13
-  store i32 %15, ptr %22, align 8, !tbaa !23
+26:                                               ; preds = %13
+  store i32 %15, ptr %23, align 8, !tbaa !23
   br label %_ZN18btSimpleBroadphase11allocHandleEv.exit
 
-_ZN18btSimpleBroadphase11allocHandleEv.exit:      ; preds = %13, %25
-  %26 = getelementptr inbounds %struct.btSimpleBroadphaseProxy, ptr %17, i64 %18
-  store ptr %4, ptr %26, align 8, !tbaa !24
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
+_ZN18btSimpleBroadphase11allocHandleEv.exit:      ; preds = %13, %26
+  store ptr %4, ptr %19, align 8, !tbaa !24
+  %27 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i32 %5, ptr %27, align 8, !tbaa !34
-  %28 = getelementptr inbounds nuw i8, ptr %26, i64 12
+  %28 = getelementptr inbounds nuw i8, ptr %19, i64 12
   store i32 %6, ptr %28, align 4, !tbaa !35
-  %29 = getelementptr inbounds nuw i8, ptr %26, i64 20
+  %29 = getelementptr inbounds nuw i8, ptr %19, i64 20
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %29, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !36
-  %30 = getelementptr inbounds nuw i8, ptr %26, i64 36
+  %30 = getelementptr inbounds nuw i8, ptr %19, i64 36
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %30, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !36
   br label %31
 
 31:                                               ; preds = %_ZN18btSimpleBroadphase11allocHandleEv.exit, %8
-  %.0 = phi ptr [ null, %8 ], [ %26, %_ZN18btSimpleBroadphase11allocHandleEv.exit ]
+  %.0 = phi ptr [ null, %8 ], [ %19, %_ZN18btSimpleBroadphase11allocHandleEv.exit ]
   ret ptr %.0
 }
 

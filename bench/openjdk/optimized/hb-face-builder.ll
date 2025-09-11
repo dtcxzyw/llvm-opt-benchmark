@@ -1031,7 +1031,7 @@ _ZN11hb_vector_tI9hb_pair_tIj17face_table_info_tELb0EED2Ev.exit.i: ; preds = %15
 _ZL36_hb_face_builder_data_reference_blobP22hb_face_builder_data_t.exit: ; preds = %._crit_edge.i, %_ZN11hb_vector_tI9hb_pair_tIj17face_table_info_tELb0EED2Ev.exit93.i
   %.0.i = phi ptr [ %.1193.i, %_ZN11hb_vector_tI9hb_pair_tIj17face_table_info_tELb0EED2Ev.exit93.i ], [ null, %._crit_edge.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %407
+  br label %408
 
 373:                                              ; preds = %3
   %374 = getelementptr inbounds nuw i8, ptr %2, i64 40
@@ -1061,41 +1061,42 @@ _ZL36_hb_face_builder_data_reference_blobP22hb_face_builder_data_t.exit: ; preds
   br i1 %390, label %._crit_edge.i.i.i9, label %.lr.ph.i.i.i7
 
 391:                                              ; preds = %.lr.ph.i.i.i7
-  %392 = load i32, ptr %401, align 4
+  %392 = load i32, ptr %402, align 4
   %393 = icmp eq i32 %392, %1
   br i1 %393, label %._crit_edge.i.i.i9, label %.lr.ph.i.i.i7, !llvm.loop !20
 
 ._crit_edge.i.i.i9:                               ; preds = %391, %.lr.ph.i.i.i.i
-  %.lcssa11.i.i.i = phi i32 [ %385, %.lr.ph.i.i.i.i ], [ %403, %391 ]
-  %394 = phi i64 [ %382, %.lr.ph.i.i.i.i ], [ %400, %391 ]
-  %395 = and i32 %.lcssa11.i.i.i, 1
-  %.not12.i.i.i.i = icmp eq i32 %395, 0
-  %396 = getelementptr inbounds nuw %"struct.hb_hashmap_t<unsigned int, face_table_info_t>::item_t", ptr %375, i64 %394, i32 2
-  %spec.select.i.i.i = select i1 %.not12.i.i.i.i, ptr @_hb_NullPool, ptr %396
+  %.lcssa11.i.i.i = phi i32 [ %385, %.lr.ph.i.i.i.i ], [ %404, %391 ]
+  %394 = phi i64 [ %382, %.lr.ph.i.i.i.i ], [ %401, %391 ]
+  %395 = getelementptr inbounds nuw %"struct.hb_hashmap_t<unsigned int, face_table_info_t>::item_t", ptr %375, i64 %394
+  %396 = and i32 %.lcssa11.i.i.i, 1
+  %.not12.i.i.i.i = icmp eq i32 %396, 0
+  %397 = getelementptr inbounds nuw i8, ptr %395, i64 8
+  %spec.select.i.i.i = select i1 %.not12.i.i.i.i, ptr @_hb_NullPool, ptr %397
   br label %_ZNK12hb_hashmap_tIj17face_table_info_tLb0EEixEj.exit
 
 .lr.ph.i.i.i7:                                    ; preds = %.lr.ph.i.i.i.i, %391
-  %.01017.i14.i.i.i = phi i32 [ %399, %391 ], [ %381, %.lr.ph.i.i.i.i ]
-  %.018.i13.i.i.i = phi i32 [ %397, %391 ], [ 0, %.lr.ph.i.i.i.i ]
-  %397 = add i32 %.018.i13.i.i.i, 1
-  %398 = add i32 %397, %.01017.i14.i.i.i
-  %399 = and i32 %398, %388
-  %400 = zext i32 %399 to i64
-  %401 = getelementptr inbounds nuw %"struct.hb_hashmap_t<unsigned int, face_table_info_t>::item_t", ptr %375, i64 %400
-  %402 = getelementptr inbounds nuw i8, ptr %401, i64 4
-  %403 = load i32, ptr %402, align 4
-  %404 = and i32 %403, 2
-  %.not.i.i.i.i8 = icmp eq i32 %404, 0
+  %.01017.i14.i.i.i = phi i32 [ %400, %391 ], [ %381, %.lr.ph.i.i.i.i ]
+  %.018.i13.i.i.i = phi i32 [ %398, %391 ], [ 0, %.lr.ph.i.i.i.i ]
+  %398 = add i32 %.018.i13.i.i.i, 1
+  %399 = add i32 %398, %.01017.i14.i.i.i
+  %400 = and i32 %399, %388
+  %401 = zext i32 %400 to i64
+  %402 = getelementptr inbounds nuw %"struct.hb_hashmap_t<unsigned int, face_table_info_t>::item_t", ptr %375, i64 %401
+  %403 = getelementptr inbounds nuw i8, ptr %402, i64 4
+  %404 = load i32, ptr %403, align 4
+  %405 = and i32 %404, 2
+  %.not.i.i.i.i8 = icmp eq i32 %405, 0
   br i1 %.not.i.i.i.i8, label %_ZNK12hb_hashmap_tIj17face_table_info_tLb0EEixEj.exit, label %391, !llvm.loop !20
 
 _ZNK12hb_hashmap_tIj17face_table_info_tLb0EEixEj.exit: ; preds = %.lr.ph.i.i.i7, %373, %376, %._crit_edge.i.i.i9
   %.0.i.i = phi ptr [ @_hb_NullPool, %373 ], [ @_hb_NullPool, %376 ], [ %spec.select.i.i.i, %._crit_edge.i.i.i9 ], [ @_hb_NullPool, %.lr.ph.i.i.i7 ]
-  %405 = load ptr, ptr %.0.i.i, align 8
-  %406 = tail call ptr @hb_blob_reference(ptr noundef %405)
-  br label %407
+  %406 = load ptr, ptr %.0.i.i, align 8
+  %407 = tail call ptr @hb_blob_reference(ptr noundef %406)
+  br label %408
 
-407:                                              ; preds = %_ZNK12hb_hashmap_tIj17face_table_info_tLb0EEixEj.exit, %_ZL36_hb_face_builder_data_reference_blobP22hb_face_builder_data_t.exit
-  %.0 = phi ptr [ %406, %_ZNK12hb_hashmap_tIj17face_table_info_tLb0EEixEj.exit ], [ %.0.i, %_ZL36_hb_face_builder_data_reference_blobP22hb_face_builder_data_t.exit ]
+408:                                              ; preds = %_ZNK12hb_hashmap_tIj17face_table_info_tLb0EEixEj.exit, %_ZL36_hb_face_builder_data_reference_blobP22hb_face_builder_data_t.exit
+  %.0 = phi ptr [ %407, %_ZNK12hb_hashmap_tIj17face_table_info_tLb0EEixEj.exit ], [ %.0.i, %_ZL36_hb_face_builder_data_reference_blobP22hb_face_builder_data_t.exit ]
   ret ptr %.0
 }
 
@@ -1219,7 +1220,7 @@ define hidden range(i32 0, 2) i32 @hb_face_builder_add_table(ptr noundef readonl
   %.not = icmp ne ptr %7, @_ZL29_hb_face_builder_data_destroyPv
   %8 = icmp eq i32 %1, -1
   %or.cond = or i1 %8, %.not
-  br i1 %or.cond, label %48, label %9
+  br i1 %or.cond, label %49, label %9
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1251,48 +1252,49 @@ define hidden range(i32 0, 2) i32 @hb_face_builder_add_table(ptr noundef readonl
   br i1 %28, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 29:                                               ; preds = %.lr.ph.i.i
-  %30 = load i32, ptr %39, align 4
+  %30 = load i32, ptr %40, align 4
   %31 = icmp eq i32 %30, %1
   br i1 %31, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !20
 
 ._crit_edge.i.i:                                  ; preds = %29, %.lr.ph.i.i.i
-  %.lcssa11.i.i = phi i32 [ %23, %.lr.ph.i.i.i ], [ %41, %29 ]
-  %32 = phi i64 [ %20, %.lr.ph.i.i.i ], [ %38, %29 ]
-  %33 = and i32 %.lcssa11.i.i, 1
-  %.not12.i.i.i = icmp eq i32 %33, 0
-  %34 = getelementptr inbounds nuw %"struct.hb_hashmap_t<unsigned int, face_table_info_t>::item_t", ptr %13, i64 %32, i32 2
-  %spec.select.i.i = select i1 %.not12.i.i.i, ptr @_hb_NullPool, ptr %34
+  %.lcssa11.i.i = phi i32 [ %23, %.lr.ph.i.i.i ], [ %42, %29 ]
+  %32 = phi i64 [ %20, %.lr.ph.i.i.i ], [ %39, %29 ]
+  %33 = getelementptr inbounds nuw %"struct.hb_hashmap_t<unsigned int, face_table_info_t>::item_t", ptr %13, i64 %32
+  %34 = and i32 %.lcssa11.i.i, 1
+  %.not12.i.i.i = icmp eq i32 %34, 0
+  %35 = getelementptr inbounds nuw i8, ptr %33, i64 8
+  %spec.select.i.i = select i1 %.not12.i.i.i, ptr @_hb_NullPool, ptr %35
   br label %_ZNK12hb_hashmap_tIj17face_table_info_tLb0EE3getERKj.exit
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.i, %29
-  %.01017.i14.i.i = phi i32 [ %37, %29 ], [ %19, %.lr.ph.i.i.i ]
-  %.018.i13.i.i = phi i32 [ %35, %29 ], [ 0, %.lr.ph.i.i.i ]
-  %35 = add i32 %.018.i13.i.i, 1
-  %36 = add i32 %35, %.01017.i14.i.i
-  %37 = and i32 %36, %26
-  %38 = zext i32 %37 to i64
-  %39 = getelementptr inbounds nuw %"struct.hb_hashmap_t<unsigned int, face_table_info_t>::item_t", ptr %13, i64 %38
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 4
-  %41 = load i32, ptr %40, align 4
-  %42 = and i32 %41, 2
-  %.not.i.i.i = icmp eq i32 %42, 0
+  %.01017.i14.i.i = phi i32 [ %38, %29 ], [ %19, %.lr.ph.i.i.i ]
+  %.018.i13.i.i = phi i32 [ %36, %29 ], [ 0, %.lr.ph.i.i.i ]
+  %36 = add i32 %.018.i13.i.i, 1
+  %37 = add i32 %36, %.01017.i14.i.i
+  %38 = and i32 %37, %26
+  %39 = zext i32 %38 to i64
+  %40 = getelementptr inbounds nuw %"struct.hb_hashmap_t<unsigned int, face_table_info_t>::item_t", ptr %13, i64 %39
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 4
+  %42 = load i32, ptr %41, align 4
+  %43 = and i32 %42, 2
+  %.not.i.i.i = icmp eq i32 %43, 0
   br i1 %.not.i.i.i, label %_ZNK12hb_hashmap_tIj17face_table_info_tLb0EE3getERKj.exit, label %29, !llvm.loop !20
 
 _ZNK12hb_hashmap_tIj17face_table_info_tLb0EE3getERKj.exit: ; preds = %.lr.ph.i.i, %9, %14, %._crit_edge.i.i
   %.0.i = phi ptr [ @_hb_NullPool, %9 ], [ @_hb_NullPool, %14 ], [ %spec.select.i.i, %._crit_edge.i.i ], [ @_hb_NullPool, %.lr.ph.i.i ]
-  %43 = load ptr, ptr %.0.i, align 8
-  %44 = tail call ptr @hb_blob_reference(ptr noundef %2)
-  store ptr %44, ptr %5, align 8
-  %45 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 -1, ptr %45, align 8
-  %46 = mul i32 %1, -1640531535
-  %47 = call noundef zeroext i1 @_ZN12hb_hashmap_tIj17face_table_info_tLb0EE13set_with_hashIRKjS0_EEbOT_jOT0_b(ptr noundef nonnull align 8 dereferenceable(48) %11, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %46, ptr noundef nonnull align 8 dereferenceable(16) %5, i1 noundef zeroext true)
-  %. = select i1 %47, ptr %43, ptr %2
-  %.19 = zext i1 %47 to i32
+  %44 = load ptr, ptr %.0.i, align 8
+  %45 = tail call ptr @hb_blob_reference(ptr noundef %2)
+  store ptr %45, ptr %5, align 8
+  %46 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i32 -1, ptr %46, align 8
+  %47 = mul i32 %1, -1640531535
+  %48 = call noundef zeroext i1 @_ZN12hb_hashmap_tIj17face_table_info_tLb0EE13set_with_hashIRKjS0_EEbOT_jOT0_b(ptr noundef nonnull align 8 dereferenceable(48) %11, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %47, ptr noundef nonnull align 8 dereferenceable(16) %5, i1 noundef zeroext true)
+  %. = select i1 %48, ptr %44, ptr %2
+  %.19 = zext i1 %48 to i32
   call void @hb_blob_destroy(ptr noundef %.)
-  br label %48
+  br label %49
 
-48:                                               ; preds = %_ZNK12hb_hashmap_tIj17face_table_info_tLb0EE3getERKj.exit, %3
+49:                                               ; preds = %_ZNK12hb_hashmap_tIj17face_table_info_tLb0EE3getERKj.exit, %3
   %.0 = phi i32 [ 0, %3 ], [ %.19, %_ZNK12hb_hashmap_tIj17face_table_info_tLb0EE3getERKj.exit ]
   ret i32 %.0
 }
@@ -1405,8 +1407,8 @@ _ZNR9hb_iter_tI10hb_array_tIN12hb_hashmap_tIj17face_table_info_tLb0EE6item_tEERS
 
 .lr.ph48.split:                                   ; preds = %.lr.ph48, %.lr.ph48.splitthread-pre-split
   %35 = phi ptr [ %.pr, %.lr.ph48.splitthread-pre-split ], [ %21, %.lr.ph48 ]
-  %36 = phi i32 [ %67, %.lr.ph48.splitthread-pre-split ], [ %19, %.lr.ph48 ]
-  %.047 = phi ptr [ %66, %.lr.ph48.splitthread-pre-split ], [ %1, %.lr.ph48 ]
+  %36 = phi i32 [ %68, %.lr.ph48.splitthread-pre-split ], [ %19, %.lr.ph48 ]
+  %.047 = phi ptr [ %67, %.lr.ph48.splitthread-pre-split ], [ %1, %.lr.ph48 ]
   %.01146 = phi i32 [ %.1, %.lr.ph48.splitthread-pre-split ], [ 0, %.lr.ph48 ]
   %.not.i = icmp eq ptr %35, null
   br i1 %.not.i, label %_ZNK12hb_hashmap_tIj17face_table_info_tLb0EE3hasIS0_EEbRKjPPT_.exit.thread, label %37
@@ -1457,16 +1459,17 @@ _ZNR9hb_iter_tI10hb_array_tIN12hb_hashmap_tIj17face_table_info_tLb0EE6item_tEERS
   br i1 %.not.i.i20, label %_ZNK12hb_hashmap_tIj17face_table_info_tLb0EE3hasIS0_EEbRKjPPT_.exit.thread, label %50, !llvm.loop !20
 
 63:                                               ; preds = %._crit_edge.i
-  %64 = add nsw i32 %.01146, 1
-  %65 = getelementptr inbounds nuw %"struct.hb_hashmap_t<unsigned int, face_table_info_t>::item_t", ptr %35, i64 %53, i32 2, i32 1
-  store i32 %.01146, ptr %65, align 8
+  %64 = getelementptr inbounds nuw %"struct.hb_hashmap_t<unsigned int, face_table_info_t>::item_t", ptr %35, i64 %53
+  %65 = add nsw i32 %.01146, 1
+  %66 = getelementptr inbounds nuw i8, ptr %64, i64 16
+  store i32 %.01146, ptr %66, align 8
   br label %_ZNK12hb_hashmap_tIj17face_table_info_tLb0EE3hasIS0_EEbRKjPPT_.exit.thread
 
 _ZNK12hb_hashmap_tIj17face_table_info_tLb0EE3hasIS0_EEbRKjPPT_.exit.thread: ; preds = %.lr.ph.i, %._crit_edge.i, %37, %.lr.ph48.split, %63
-  %.1 = phi i32 [ %64, %63 ], [ %.01146, %.lr.ph48.split ], [ %.01146, %37 ], [ %.01146, %._crit_edge.i ], [ %.01146, %.lr.ph.i ]
-  %66 = getelementptr inbounds nuw i8, ptr %.047, i64 4
-  %67 = load i32, ptr %66, align 4
-  %.not12 = icmp eq i32 %67, 0
+  %.1 = phi i32 [ %65, %63 ], [ %.01146, %.lr.ph48.split ], [ %.01146, %37 ], [ %.01146, %._crit_edge.i ], [ %.01146, %.lr.ph.i ]
+  %67 = getelementptr inbounds nuw i8, ptr %.047, i64 4
+  %68 = load i32, ptr %67, align 4
+  %.not12 = icmp eq i32 %68, 0
   br i1 %.not12, label %.loopexit, label %.lr.ph48.splitthread-pre-split, !llvm.loop !61
 
 .loopexit:                                        ; preds = %_ZNK12hb_hashmap_tIj17face_table_info_tLb0EE3hasIS0_EEbRKjPPT_.exit.thread, %.lr.ph48, %.preheader, %2

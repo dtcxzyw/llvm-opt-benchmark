@@ -77,14 +77,14 @@ define dso_local void @extstore_get_stats(ptr noundef %0, ptr noundef captures(n
   %32 = getelementptr inbounds nuw %struct.store_io_thread, ptr %31, i64 %indvars.iv
   %33 = tail call i32 @pthread_mutex_lock(ptr noundef %32) #13
   %34 = load ptr, ptr %21, align 8, !tbaa !26
-  %35 = getelementptr inbounds nuw %struct.store_io_thread, ptr %34, i64 %indvars.iv, i32 5
-  %36 = load i32, ptr %35, align 8, !tbaa !27
-  %37 = zext i32 %36 to i64
-  %38 = load i64, ptr %18, align 8, !tbaa !21
-  %39 = add i64 %38, %37
-  store i64 %39, ptr %18, align 8, !tbaa !21
-  %40 = getelementptr inbounds nuw %struct.store_io_thread, ptr %34, i64 %indvars.iv
-  %41 = tail call i32 @pthread_mutex_unlock(ptr noundef %40) #13
+  %35 = getelementptr inbounds nuw %struct.store_io_thread, ptr %34, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 112
+  %37 = load i32, ptr %36, align 8, !tbaa !27
+  %38 = zext i32 %37 to i64
+  %39 = load i64, ptr %18, align 8, !tbaa !21
+  %40 = add i64 %39, %38
+  store i64 %40, ptr %18, align 8, !tbaa !21
+  %41 = tail call i32 @pthread_mutex_unlock(ptr noundef %35) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %42 = load i32, ptr %19, align 8, !tbaa !22
   %43 = zext i32 %42 to i64
@@ -130,16 +130,16 @@ define dso_local void @extstore_get_page_data(ptr noundef %0, ptr noundef readon
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 92
   %18 = load i16, ptr %17, align 4, !tbaa !38
   %19 = zext i16 %18 to i64
-  %20 = getelementptr inbounds nuw %struct.extstore_page_data, ptr %6, i64 %19, i32 3
-  store i32 %16, ptr %20, align 4, !tbaa !39
-  %21 = getelementptr inbounds nuw i8, ptr %13, i64 64
-  %22 = load i32, ptr %21, align 8, !tbaa !41
-  %23 = zext i32 %22 to i64
-  %24 = getelementptr inbounds nuw %struct.extstore_page_data, ptr %6, i64 %19
-  store i64 %23, ptr %24, align 8, !tbaa !42
+  %20 = getelementptr inbounds nuw %struct.extstore_page_data, ptr %6, i64 %19
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 20
+  store i32 %16, ptr %21, align 4, !tbaa !39
+  %22 = getelementptr inbounds nuw i8, ptr %13, i64 64
+  %23 = load i32, ptr %22, align 8, !tbaa !41
+  %24 = zext i32 %23 to i64
+  store i64 %24, ptr %20, align 8, !tbaa !42
   %25 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %26 = load i64, ptr %25, align 8, !tbaa !43
-  %27 = getelementptr inbounds nuw %struct.extstore_page_data, ptr %6, i64 %19, i32 1
+  %27 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store i64 %26, ptr %27, align 8, !tbaa !44
   %28 = getelementptr inbounds nuw i8, ptr %13, i64 94
   %29 = load i8, ptr %28, align 2, !tbaa !45, !range !46, !noundef !47
@@ -147,7 +147,7 @@ define dso_local void @extstore_get_page_data(ptr noundef %0, ptr noundef readon
   br i1 %30, label %.thread, label %32
 
 .thread:                                          ; preds = %11
-  %31 = getelementptr inbounds nuw %struct.extstore_page_data, ptr %6, i64 %19, i32 4
+  %31 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i8 1, ptr %31, align 8, !tbaa !48
   br label %51
 
@@ -172,7 +172,7 @@ define dso_local void @extstore_get_page_data(ptr noundef %0, ptr noundef readon
 43:                                               ; preds = %39
   %44 = getelementptr inbounds nuw i8, ptr %13, i64 80
   %45 = load i32, ptr %44, align 8, !tbaa !52
-  %46 = getelementptr inbounds nuw %struct.extstore_page_data, ptr %6, i64 %19, i32 2
+  %46 = getelementptr inbounds nuw i8, ptr %20, i64 16
   store i32 %45, ptr %46, align 8, !tbaa !53
   br label %51
 
@@ -328,7 +328,7 @@ define dso_local noundef ptr @extstore_init(ptr noundef captures(address) %0, pt
 
 10:                                               ; preds = %3
   store i32 1, ptr %2, align 4, !tbaa !69
-  br label %173
+  br label %174
 
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -340,7 +340,7 @@ define dso_local noundef ptr @extstore_init(ptr noundef captures(address) %0, pt
 
 17:                                               ; preds = %11
   store i32 2, ptr %2, align 4, !tbaa !69
-  br label %173
+  br label %174
 
 18:                                               ; preds = %11
   %19 = icmp eq i32 %13, 0
@@ -348,7 +348,7 @@ define dso_local noundef ptr @extstore_init(ptr noundef captures(address) %0, pt
 
 20:                                               ; preds = %18
   store i32 3, ptr %2, align 4, !tbaa !69
-  br label %173
+  br label %174
 
 21:                                               ; preds = %18
   %22 = or i32 %8, %6
@@ -358,7 +358,7 @@ define dso_local noundef ptr @extstore_init(ptr noundef captures(address) %0, pt
 
 24:                                               ; preds = %21
   store i32 4, ptr %2, align 4, !tbaa !69
-  br label %173
+  br label %174
 
 25:                                               ; preds = %21
   %26 = tail call noalias dereferenceable_or_null(360) ptr @calloc(i64 noundef 1, i64 noundef 360) #14
@@ -367,7 +367,7 @@ define dso_local noundef ptr @extstore_init(ptr noundef captures(address) %0, pt
 
 28:                                               ; preds = %25
   store i32 6, ptr %2, align 4, !tbaa !69
-  br label %173
+  br label %174
 
 29:                                               ; preds = %25
   %30 = zext i32 %6 to i64
@@ -395,7 +395,7 @@ define dso_local noundef ptr @extstore_init(ptr noundef captures(address) %0, pt
 40:                                               ; preds = %34
   store i32 7, ptr %2, align 4, !tbaa !69
   call void @free(ptr noundef %26) #13
-  br label %173
+  br label %174
 
 41:                                               ; preds = %34
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -431,7 +431,7 @@ define dso_local noundef ptr @extstore_init(ptr noundef captures(address) %0, pt
 56:                                               ; preds = %._crit_edge
   store i32 5, ptr %2, align 4, !tbaa !69
   call void @free(ptr noundef %26) #13
-  br label %173
+  br label %174
 
 ._crit_edge.thread:                               ; preds = %29, %._crit_edge
   %.0148.lcssa215 = phi i64 [ %51, %._crit_edge ], [ 0, %29 ]
@@ -451,7 +451,7 @@ define dso_local noundef ptr @extstore_init(ptr noundef captures(address) %0, pt
 62:                                               ; preds = %._crit_edge.thread
   store i32 6, ptr %2, align 4, !tbaa !69
   call void @free(ptr noundef nonnull %26) #13
-  br label %173
+  br label %174
 
 .preheader:                                       ; preds = %.preheader160, %71
   %indvars.iv = phi i64 [ %indvars.iv.next, %71 ], [ 0, %.preheader160 ]
@@ -482,21 +482,21 @@ define dso_local noundef ptr @extstore_init(ptr noundef captures(address) %0, pt
   %73 = getelementptr inbounds nuw %struct._store_page, ptr %59, i64 %indvars.iv
   %74 = call i32 @pthread_mutex_init(ptr noundef nonnull %73, ptr noundef null) #13
   %75 = trunc i64 %indvars.iv to i16
-  %76 = getelementptr inbounds nuw %struct._store_page, ptr %59, i64 %indvars.iv, i32 11
+  %76 = getelementptr inbounds nuw i8, ptr %73, i64 92
   store i16 %75, ptr %76, align 4, !tbaa !38
   %77 = getelementptr inbounds nuw i8, ptr %.3147, i64 16
   %78 = load i32, ptr %77, align 8, !tbaa !76
-  %79 = getelementptr inbounds nuw %struct._store_page, ptr %59, i64 %indvars.iv, i32 10
+  %79 = getelementptr inbounds nuw i8, ptr %73, i64 88
   store i32 %78, ptr %79, align 8, !tbaa !84
   %80 = getelementptr inbounds nuw i8, ptr %.3147, i64 36
   %81 = load i32, ptr %80, align 4, !tbaa !85
-  %82 = getelementptr inbounds nuw %struct._store_page, ptr %59, i64 %indvars.iv, i32 9
+  %82 = getelementptr inbounds nuw i8, ptr %73, i64 84
   store i32 %81, ptr %82, align 4, !tbaa !34
   %83 = getelementptr inbounds nuw i8, ptr %.3147, i64 24
   %84 = load i64, ptr %83, align 8, !tbaa !81
-  %85 = getelementptr inbounds nuw %struct._store_page, ptr %59, i64 %indvars.iv, i32 3
+  %85 = getelementptr inbounds nuw i8, ptr %73, i64 56
   store i64 %84, ptr %85, align 8, !tbaa !86
-  %86 = getelementptr inbounds nuw %struct._store_page, ptr %59, i64 %indvars.iv, i32 14
+  %86 = getelementptr inbounds nuw i8, ptr %73, i64 96
   store i8 1, ptr %86, align 8, !tbaa !49
   %87 = add i64 %84, %30
   store i64 %87, ptr %83, align 8, !tbaa !81
@@ -621,47 +621,48 @@ wbuf_new.exit:                                    ; preds = %.lr.ph180, %wbuf_ne
   %147 = getelementptr inbounds nuw %struct.store_io_thread, ptr %146, i64 %indvars.iv202
   %148 = call i32 @pthread_mutex_init(ptr noundef %147, ptr noundef null) #13
   %149 = load ptr, ptr %145, align 8, !tbaa !26
-  %150 = getelementptr inbounds nuw %struct.store_io_thread, ptr %149, i64 %indvars.iv202, i32 1
-  %151 = call i32 @pthread_cond_init(ptr noundef nonnull %150, ptr noundef null) #13
-  %152 = load ptr, ptr %145, align 8, !tbaa !26
-  %153 = getelementptr inbounds nuw %struct.store_io_thread, ptr %152, i64 %indvars.iv202, i32 4
-  store ptr %26, ptr %153, align 8, !tbaa !110
-  %154 = getelementptr inbounds nuw %struct.store_io_thread, ptr %152, i64 %indvars.iv202
-  %155 = call i32 @pthread_create(ptr noundef nonnull %4, ptr noundef null, ptr noundef nonnull @extstore_io_thread, ptr noundef %154) #13
-  %156 = load i64, ptr %4, align 8, !tbaa !111
-  %157 = call i32 @pthread_setname_np(i64 noundef %156, ptr noundef nonnull @.str.8) #13
+  %150 = getelementptr inbounds nuw %struct.store_io_thread, ptr %149, i64 %indvars.iv202
+  %151 = getelementptr inbounds nuw i8, ptr %150, i64 40
+  %152 = call i32 @pthread_cond_init(ptr noundef nonnull %151, ptr noundef null) #13
+  %153 = load ptr, ptr %145, align 8, !tbaa !26
+  %154 = getelementptr inbounds nuw %struct.store_io_thread, ptr %153, i64 %indvars.iv202
+  %155 = getelementptr inbounds nuw i8, ptr %154, i64 104
+  store ptr %26, ptr %155, align 8, !tbaa !110
+  %156 = call i32 @pthread_create(ptr noundef nonnull %4, ptr noundef null, ptr noundef nonnull @extstore_io_thread, ptr noundef %154) #13
+  %157 = load i64, ptr %4, align 8, !tbaa !111
+  %158 = call i32 @pthread_setname_np(i64 noundef %157, ptr noundef nonnull @.str.8) #13
   %indvars.iv.next203 = add nuw nsw i64 %indvars.iv202, 1
-  %158 = load i32, ptr %141, align 4, !tbaa !109
-  %159 = zext i32 %158 to i64
-  %160 = icmp samesign ult i64 %indvars.iv.next203, %159
-  br i1 %160, label %.lr.ph186, label %._crit_edge187, !llvm.loop !112
+  %159 = load i32, ptr %141, align 4, !tbaa !109
+  %160 = zext i32 %159 to i64
+  %161 = icmp samesign ult i64 %indvars.iv.next203, %160
+  br i1 %161, label %.lr.ph186, label %._crit_edge187, !llvm.loop !112
 
 ._crit_edge187:                                   ; preds = %.lr.ph186, %132
-  %.lcssa = phi i32 [ 0, %132 ], [ %158, %.lr.ph186 ]
-  %161 = getelementptr inbounds nuw i8, ptr %26, i64 112
-  store i32 %.lcssa, ptr %161, align 8, !tbaa !22
-  %162 = call noalias dereferenceable_or_null(120) ptr @calloc(i64 noundef 1, i64 noundef 120) #14
-  %163 = getelementptr inbounds nuw i8, ptr %26, i64 72
-  store ptr %162, ptr %163, align 8, !tbaa !113
-  %164 = getelementptr inbounds nuw i8, ptr %162, i64 104
-  store ptr %26, ptr %164, align 8, !tbaa !110
-  %165 = call i32 @pthread_mutex_init(ptr noundef %162, ptr noundef null) #13
-  %166 = load ptr, ptr %163, align 8, !tbaa !113
-  %167 = getelementptr inbounds nuw i8, ptr %166, i64 40
-  %168 = call i32 @pthread_cond_init(ptr noundef nonnull %167, ptr noundef null) #13
-  %169 = load ptr, ptr %163, align 8, !tbaa !113
-  %170 = call i32 @pthread_create(ptr noundef nonnull %4, ptr noundef null, ptr noundef nonnull @extstore_io_thread, ptr noundef %169) #13
-  %171 = load i64, ptr %4, align 8, !tbaa !111
-  %172 = call i32 @pthread_setname_np(i64 noundef %171, ptr noundef nonnull @.str.9) #13
-  br label %173
+  %.lcssa = phi i32 [ 0, %132 ], [ %159, %.lr.ph186 ]
+  %162 = getelementptr inbounds nuw i8, ptr %26, i64 112
+  store i32 %.lcssa, ptr %162, align 8, !tbaa !22
+  %163 = call noalias dereferenceable_or_null(120) ptr @calloc(i64 noundef 1, i64 noundef 120) #14
+  %164 = getelementptr inbounds nuw i8, ptr %26, i64 72
+  store ptr %163, ptr %164, align 8, !tbaa !113
+  %165 = getelementptr inbounds nuw i8, ptr %163, i64 104
+  store ptr %26, ptr %165, align 8, !tbaa !110
+  %166 = call i32 @pthread_mutex_init(ptr noundef %163, ptr noundef null) #13
+  %167 = load ptr, ptr %164, align 8, !tbaa !113
+  %168 = getelementptr inbounds nuw i8, ptr %167, i64 40
+  %169 = call i32 @pthread_cond_init(ptr noundef nonnull %168, ptr noundef null) #13
+  %170 = load ptr, ptr %164, align 8, !tbaa !113
+  %171 = call i32 @pthread_create(ptr noundef nonnull %4, ptr noundef null, ptr noundef nonnull @extstore_io_thread, ptr noundef %170) #13
+  %172 = load i64, ptr %4, align 8, !tbaa !111
+  %173 = call i32 @pthread_setname_np(i64 noundef %172, ptr noundef nonnull @.str.9) #13
+  br label %174
 
 .critedge:                                        ; preds = %44, %41
   store i32 7, ptr %2, align 4, !tbaa !69
   call void @free(ptr noundef %26) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %173
+  br label %174
 
-173:                                              ; preds = %28, %.critedge, %._crit_edge187, %62, %56, %40, %24, %20, %17, %10
+174:                                              ; preds = %28, %.critedge, %._crit_edge187, %62, %56, %40, %24, %20, %17, %10
   %.0 = phi ptr [ null, %10 ], [ null, %17 ], [ null, %20 ], [ null, %24 ], [ null, %28 ], [ null, %40 ], [ null, %56 ], [ null, %62 ], [ %26, %._crit_edge187 ], [ null, %.critedge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
@@ -1081,21 +1082,21 @@ define dso_local range(i32 -1, 1) i32 @extstore_write_request(ptr noundef %0, i3
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %70 ]
   %.01733.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.1.i, %70 ]
   %.01832.i = phi i64 [ -1, %.lr.ph.preheader.i ], [ %.2.i, %70 ]
-  %58 = getelementptr inbounds nuw %struct.extstore_page_data, ptr %55, i64 %indvars.iv.i, i32 3
-  %59 = load i32, ptr %58, align 4, !tbaa !39
-  %.not.i71 = icmp eq i32 %59, 0
-  %.not22.i = icmp eq i32 %59, %2
+  %58 = getelementptr inbounds nuw %struct.extstore_page_data, ptr %55, i64 %indvars.iv.i
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 20
+  %60 = load i32, ptr %59, align 4, !tbaa !39
+  %.not.i71 = icmp eq i32 %60, 0
+  %.not22.i = icmp eq i32 %60, %2
   %or.cond.i = or i1 %.not.i71, %.not22.i
-  br i1 %or.cond.i, label %60, label %70
+  br i1 %or.cond.i, label %61, label %70
 
-60:                                               ; preds = %.lr.ph.i
-  %61 = getelementptr inbounds nuw %struct.extstore_page_data, ptr %55, i64 %indvars.iv.i
-  %62 = load i64, ptr %61, align 8, !tbaa !42
+61:                                               ; preds = %.lr.ph.i
+  %62 = load i64, ptr %58, align 8, !tbaa !42
   %63 = icmp eq i64 %62, 0
   br i1 %63, label %_evict_page.exit, label %64
 
-64:                                               ; preds = %60
-  %65 = getelementptr inbounds nuw i8, ptr %61, i64 24
+64:                                               ; preds = %61
+  %65 = getelementptr inbounds nuw i8, ptr %58, i64 24
   %66 = load i8, ptr %65, align 8, !tbaa !48, !range !46, !noundef !47
   %67 = trunc nuw i8 %66 to i1
   %68 = icmp uge i64 %62, %.01832.i
@@ -1120,7 +1121,7 @@ define dso_local range(i32 -1, 1) i32 @extstore_write_request(ptr noundef %0, i3
   tail call void @extstore_evict_page(ptr noundef nonnull %0, i32 noundef %.1.i, i64 noundef %.2.i)
   br label %_evict_page.exit
 
-_evict_page.exit:                                 ; preds = %60, %50, %._crit_edge.i, %71
+_evict_page.exit:                                 ; preds = %61, %50, %._crit_edge.i, %71
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %188
 
@@ -1249,21 +1250,21 @@ _allocate_page.exit76:                            ; preds = %104, %109
   %indvars.iv.i81 = phi i64 [ 0, %.lr.ph.preheader.i78 ], [ %indvars.iv.next.i89, %154 ]
   %.01733.i82 = phi i32 [ 0, %.lr.ph.preheader.i78 ], [ %.1.i88, %154 ]
   %.01832.i83 = phi i64 [ -1, %.lr.ph.preheader.i78 ], [ %.2.i87, %154 ]
-  %142 = getelementptr inbounds nuw %struct.extstore_page_data, ptr %139, i64 %indvars.iv.i81, i32 3
-  %143 = load i32, ptr %142, align 4, !tbaa !39
-  %.not.i84 = icmp eq i32 %143, 0
-  %.not22.i85 = icmp eq i32 %143, %2
+  %142 = getelementptr inbounds nuw %struct.extstore_page_data, ptr %139, i64 %indvars.iv.i81
+  %143 = getelementptr inbounds nuw i8, ptr %142, i64 20
+  %144 = load i32, ptr %143, align 4, !tbaa !39
+  %.not.i84 = icmp eq i32 %144, 0
+  %.not22.i85 = icmp eq i32 %144, %2
   %or.cond.i86 = or i1 %.not.i84, %.not22.i85
-  br i1 %or.cond.i86, label %144, label %154
+  br i1 %or.cond.i86, label %145, label %154
 
-144:                                              ; preds = %.lr.ph.i80
-  %145 = getelementptr inbounds nuw %struct.extstore_page_data, ptr %139, i64 %indvars.iv.i81
-  %146 = load i64, ptr %145, align 8, !tbaa !42
+145:                                              ; preds = %.lr.ph.i80
+  %146 = load i64, ptr %142, align 8, !tbaa !42
   %147 = icmp eq i64 %146, 0
   br i1 %147, label %_evict_page.exit96, label %148
 
-148:                                              ; preds = %144
-  %149 = getelementptr inbounds nuw i8, ptr %145, i64 24
+148:                                              ; preds = %145
+  %149 = getelementptr inbounds nuw i8, ptr %142, i64 24
   %150 = load i8, ptr %149, align 8, !tbaa !48, !range !46, !noundef !47
   %151 = trunc nuw i8 %150 to i1
   %152 = icmp uge i64 %146, %.01832.i83
@@ -1288,7 +1289,7 @@ _allocate_page.exit76:                            ; preds = %104, %109
   tail call void @extstore_evict_page(ptr noundef nonnull %0, i32 noundef %.1.i88, i64 noundef %.2.i87)
   br label %_evict_page.exit96
 
-_evict_page.exit96:                               ; preds = %144, %134, %._crit_edge.i91, %155
+_evict_page.exit96:                               ; preds = %145, %134, %._crit_edge.i91, %155
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %188
 
@@ -1567,79 +1568,80 @@ define dso_local noundef i32 @extstore_submit(ptr noundef %0, ptr noundef %1) lo
   %wide.trip.count.i = zext i32 %5 to i64
   br label %8
 
-8:                                                ; preds = %13, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %13 ]
-  %.01522.i = phi i64 [ 9223372036854775807, %.lr.ph.i ], [ %spec.select20.i, %13 ]
-  %.01621.i = phi i32 [ -1, %.lr.ph.i ], [ %spec.select.i, %13 ]
-  %9 = getelementptr inbounds nuw %struct.store_io_thread, ptr %7, i64 %indvars.iv.i, i32 5
-  %10 = load i32, ptr %9, align 8, !tbaa !27
-  %11 = icmp eq i32 %10, 0
-  %12 = trunc nuw nsw i64 %indvars.iv.i to i32
-  br i1 %11, label %._crit_edge.loopexit.i, label %13
+8:                                                ; preds = %14, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %14 ]
+  %.01522.i = phi i64 [ 9223372036854775807, %.lr.ph.i ], [ %spec.select20.i, %14 ]
+  %.01621.i = phi i32 [ -1, %.lr.ph.i ], [ %spec.select.i, %14 ]
+  %9 = getelementptr inbounds nuw %struct.store_io_thread, ptr %7, i64 %indvars.iv.i
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 112
+  %11 = load i32, ptr %10, align 8, !tbaa !27
+  %12 = icmp eq i32 %11, 0
+  %13 = trunc nuw nsw i64 %indvars.iv.i to i32
+  br i1 %12, label %._crit_edge.loopexit.i, label %14
 
-13:                                               ; preds = %8
-  %14 = zext i32 %10 to i64
-  %15 = icmp samesign ugt i64 %.01522.i, %14
-  %spec.select.i = select i1 %15, i32 %12, i32 %.01621.i
-  %spec.select20.i = tail call i64 @llvm.umin.i64(i64 %.01522.i, i64 %14)
+14:                                               ; preds = %8
+  %15 = zext i32 %11 to i64
+  %16 = icmp samesign ugt i64 %.01522.i, %15
+  %spec.select.i = select i1 %16, i32 %13, i32 %.01621.i
+  %spec.select20.i = tail call i64 @llvm.umin.i64(i64 %.01522.i, i64 %15)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %8, !llvm.loop !143
 
-._crit_edge.loopexit.i:                           ; preds = %13, %8
-  %.117.ph.i = phi i32 [ %spec.select.i, %13 ], [ %12, %8 ]
-  %16 = sext i32 %.117.ph.i to i64
+._crit_edge.loopexit.i:                           ; preds = %14, %8
+  %.117.ph.i = phi i32 [ %spec.select.i, %14 ], [ %13, %8 ]
+  %17 = sext i32 %.117.ph.i to i64
   br label %_get_io_thread.exit
 
 _get_io_thread.exit:                              ; preds = %2, %._crit_edge.loopexit.i
-  %.117.i = phi i64 [ -1, %2 ], [ %16, %._crit_edge.loopexit.i ]
-  %17 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #13
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %19 = load ptr, ptr %18, align 8, !tbaa !26
-  %20 = getelementptr inbounds %struct.store_io_thread, ptr %19, i64 %.117.i
+  %.117.i = phi i64 [ -1, %2 ], [ %17, %._crit_edge.loopexit.i ]
+  %18 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #13
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %20 = load ptr, ptr %19, align 8, !tbaa !26
+  %21 = getelementptr inbounds %struct.store_io_thread, ptr %20, i64 %.117.i
   %.not1.i = icmp eq ptr %1, null
   br i1 %.not1.i, label %._crit_edge.i, label %.lr.ph.i5
 
 .lr.ph.i5:                                        ; preds = %_get_io_thread.exit, %.lr.ph.i5
-  %.0183.i = phi ptr [ %23, %.lr.ph.i5 ], [ %1, %_get_io_thread.exit ]
-  %.0192.i = phi i32 [ %21, %.lr.ph.i5 ], [ 0, %_get_io_thread.exit ]
-  %21 = add i32 %.0192.i, 1
-  %22 = getelementptr inbounds nuw i8, ptr %.0183.i, i64 8
-  %23 = load ptr, ptr %22, align 8, !tbaa !101
-  %.not.i6 = icmp eq ptr %23, null
+  %.0183.i = phi ptr [ %24, %.lr.ph.i5 ], [ %1, %_get_io_thread.exit ]
+  %.0192.i = phi i32 [ %22, %.lr.ph.i5 ], [ 0, %_get_io_thread.exit ]
+  %22 = add i32 %.0192.i, 1
+  %23 = getelementptr inbounds nuw i8, ptr %.0183.i, i64 8
+  %24 = load ptr, ptr %23, align 8, !tbaa !101
+  %.not.i6 = icmp eq ptr %24, null
   br i1 %.not.i6, label %._crit_edge.i, label %.lr.ph.i5, !llvm.loop !139
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i5, %_get_io_thread.exit
-  %.019.lcssa.i = phi i32 [ 0, %_get_io_thread.exit ], [ %21, %.lr.ph.i5 ]
+  %.019.lcssa.i = phi i32 [ 0, %_get_io_thread.exit ], [ %22, %.lr.ph.i5 ]
   %.0.lcssa.i = phi ptr [ null, %_get_io_thread.exit ], [ %.0183.i, %.lr.ph.i5 ]
-  %24 = tail call i32 @pthread_mutex_lock(ptr noundef %20) #13
-  %25 = getelementptr inbounds nuw i8, ptr %20, i64 112
-  %26 = load i32, ptr %25, align 8, !tbaa !27
-  %27 = add i32 %26, %.019.lcssa.i
-  store i32 %27, ptr %25, align 8, !tbaa !27
-  %28 = getelementptr inbounds nuw i8, ptr %20, i64 88
-  %29 = load ptr, ptr %28, align 8, !tbaa !114
-  %30 = icmp eq ptr %29, null
-  br i1 %30, label %31, label %33
+  %25 = tail call i32 @pthread_mutex_lock(ptr noundef %21) #13
+  %26 = getelementptr inbounds nuw i8, ptr %21, i64 112
+  %27 = load i32, ptr %26, align 8, !tbaa !27
+  %28 = add i32 %27, %.019.lcssa.i
+  store i32 %28, ptr %26, align 8, !tbaa !27
+  %29 = getelementptr inbounds nuw i8, ptr %21, i64 88
+  %30 = load ptr, ptr %29, align 8, !tbaa !114
+  %31 = icmp eq ptr %30, null
+  br i1 %31, label %32, label %34
 
-31:                                               ; preds = %._crit_edge.i
-  store ptr %1, ptr %28, align 8, !tbaa !114
-  %32 = getelementptr inbounds nuw i8, ptr %20, i64 96
-  store ptr %.0.lcssa.i, ptr %32, align 8, !tbaa !116
+32:                                               ; preds = %._crit_edge.i
+  store ptr %1, ptr %29, align 8, !tbaa !114
+  %33 = getelementptr inbounds nuw i8, ptr %21, i64 96
+  store ptr %.0.lcssa.i, ptr %33, align 8, !tbaa !116
   br label %_extstore_submit.exit
 
-33:                                               ; preds = %._crit_edge.i
-  %34 = getelementptr inbounds nuw i8, ptr %20, i64 96
-  %35 = load ptr, ptr %34, align 8, !tbaa !116
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  store ptr %1, ptr %36, align 8, !tbaa !101
-  store ptr %.0.lcssa.i, ptr %34, align 8, !tbaa !116
+34:                                               ; preds = %._crit_edge.i
+  %35 = getelementptr inbounds nuw i8, ptr %21, i64 96
+  %36 = load ptr, ptr %35, align 8, !tbaa !116
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
+  store ptr %1, ptr %37, align 8, !tbaa !101
+  store ptr %.0.lcssa.i, ptr %35, align 8, !tbaa !116
   br label %_extstore_submit.exit
 
-_extstore_submit.exit:                            ; preds = %31, %33
-  %37 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %20) #13
-  %38 = getelementptr inbounds nuw i8, ptr %20, i64 40
-  %39 = tail call i32 @pthread_cond_signal(ptr noundef nonnull %38) #13
+_extstore_submit.exit:                            ; preds = %32, %34
+  %38 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %21) #13
+  %39 = getelementptr inbounds nuw i8, ptr %21, i64 40
+  %40 = tail call i32 @pthread_cond_signal(ptr noundef nonnull %39) #13
   ret i32 0
 }
 

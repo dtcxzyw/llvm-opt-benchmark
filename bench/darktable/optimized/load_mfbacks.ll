@@ -1578,7 +1578,7 @@ _ZNSt6vectorIjSaIjEE9push_backERKj.exit:          ; preds = %131, %201, %202, %_
   br label %422
 
 328:                                              ; preds = %323
-  %329 = getelementptr inbounds nuw [16 x i16], ptr %indvars.iv977.sroa.phi, i64 %indvars.iv975, i64 15
+  %329 = getelementptr inbounds nuw i8, ptr %320, i64 30
   %330 = load i16, ptr %329, align 2, !tbaa !74
   %331 = icmp eq i16 %330, 0
   %spec.select = select i1 %331, i1 true, i1 %.1254651
@@ -1668,7 +1668,7 @@ _ZNSt6vectorIjSaIjEE9push_backERKj.exit:          ; preds = %131, %201, %202, %_
 360:                                              ; preds = %351
   store i32 0, ptr %10, align 16, !tbaa !6
   store i32 0, ptr %9, align 16, !tbaa !6
-  %361 = getelementptr inbounds nuw [16 x i16], ptr %indvars.iv1019.sroa.phi, i64 %indvars.iv1016, i64 15
+  %361 = getelementptr inbounds nuw i8, ptr %350, i64 30
   %362 = load i16, ptr %361, align 2, !tbaa !74
   %363 = zext i16 %362 to i32
   %364 = udiv i32 %336, %363

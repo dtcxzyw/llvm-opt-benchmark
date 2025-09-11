@@ -2881,7 +2881,8 @@ invoke.cont36:                                    ; preds = %if.then.i76
 
 if.then.i82:                                      ; preds = %invoke.cont36
   %16 = load ptr, ptr %matches, align 8
-  %second = getelementptr inbounds %"struct.std::pair", ptr %16, i64 %mi.0124, i32 1
+  %add.ptr.i79 = getelementptr inbounds %"struct.std::pair", ptr %16, i64 %mi.0124
+  %second = getelementptr inbounds nuw i8, ptr %add.ptr.i79, i64 8
   %17 = load i64, ptr %second, align 8
   %call.i84 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %.pr101, i64 noundef %17)
           to label %invoke.cont39 unwind label %lpad.loopexit

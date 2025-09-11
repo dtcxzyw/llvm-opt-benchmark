@@ -178,25 +178,26 @@ define hidden ptr @av1_get_iqmatrix(ptr noundef readonly captures(none) %0, ptr 
 av1_get_adjusted_tx_size.exit:                    ; preds = %5, %5, %5, %11, %12, %13
   %.0.i = phi i64 [ %14, %13 ], [ 10, %11 ], [ 9, %12 ], [ 3, %5 ], [ 3, %5 ], [ 3, %5 ]
   %15 = icmp ult i8 %4, 9
-  br i1 %15, label %16, label %22
+  br i1 %15, label %16, label %23
 
 16:                                               ; preds = %av1_get_adjusted_tx_size.exit
   %17 = and i16 %10, 7
   %18 = sext i32 %2 to i64
-  %19 = getelementptr %struct.macroblockd_plane, ptr %1, i64 %18, i32 11, i64 0, i64 2
-  %20 = zext nneg i16 %17 to i64
-  %21 = getelementptr inbounds nuw [19 x ptr], ptr %19, i64 %20
-  br label %24
+  %19 = getelementptr %struct.macroblockd_plane, ptr %1, i64 %18
+  %20 = getelementptr i8, ptr %19, i64 192
+  %21 = zext nneg i16 %17 to i64
+  %22 = getelementptr inbounds nuw [19 x ptr], ptr %20, i64 %21
+  br label %25
 
-22:                                               ; preds = %av1_get_adjusted_tx_size.exit
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 6960
-  br label %24
+23:                                               ; preds = %av1_get_adjusted_tx_size.exit
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 6960
+  br label %25
 
-24:                                               ; preds = %22, %16
-  %.pn = phi ptr [ %21, %16 ], [ %23, %22 ]
+25:                                               ; preds = %23, %16
+  %.pn = phi ptr [ %22, %16 ], [ %24, %23 ]
   %.in = getelementptr inbounds nuw ptr, ptr %.pn, i64 %.0.i
-  %25 = load ptr, ptr %.in, align 8
-  ret ptr %25
+  %26 = load ptr, ptr %.in, align 8
+  ret ptr %26
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
@@ -227,25 +228,26 @@ define hidden ptr @av1_get_qmatrix(ptr noundef readonly captures(none) %0, ptr n
 av1_get_adjusted_tx_size.exit:                    ; preds = %5, %5, %5, %11, %12, %13
   %.0.i = phi i64 [ %14, %13 ], [ 10, %11 ], [ 9, %12 ], [ 3, %5 ], [ 3, %5 ], [ 3, %5 ]
   %15 = icmp ult i8 %4, 9
-  br i1 %15, label %16, label %22
+  br i1 %15, label %16, label %23
 
 16:                                               ; preds = %av1_get_adjusted_tx_size.exit
   %17 = and i16 %10, 7
   %18 = sext i32 %2 to i64
-  %19 = getelementptr %struct.macroblockd_plane, ptr %1, i64 %18, i32 12, i64 0, i64 2
-  %20 = zext nneg i16 %17 to i64
-  %21 = getelementptr inbounds nuw [19 x ptr], ptr %19, i64 %20
-  br label %24
+  %19 = getelementptr %struct.macroblockd_plane, ptr %1, i64 %18
+  %20 = getelementptr i8, ptr %19, i64 1408
+  %21 = zext nneg i16 %17 to i64
+  %22 = getelementptr inbounds nuw [19 x ptr], ptr %20, i64 %21
+  br label %25
 
-22:                                               ; preds = %av1_get_adjusted_tx_size.exit
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 14256
-  br label %24
+23:                                               ; preds = %av1_get_adjusted_tx_size.exit
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 14256
+  br label %25
 
-24:                                               ; preds = %22, %16
-  %.pn = phi ptr [ %21, %16 ], [ %23, %22 ]
+25:                                               ; preds = %23, %16
+  %.pn = phi ptr [ %22, %16 ], [ %24, %23 ]
   %.in = getelementptr inbounds nuw ptr, ptr %.pn, i64 %.0.i
-  %25 = load ptr, ptr %.in, align 8
-  ret ptr %25
+  %26 = load ptr, ptr %.in, align 8
+  ret ptr %26
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable

@@ -2079,7 +2079,7 @@ define internal fastcc range(i32 0, 2) i32 @read_name_subst(ptr noundef nonnull 
   %6 = load ptr, ptr %0, align 8, !tbaa !34
   %7 = ptrtoint ptr %6 to i64
   %.not = icmp ult ptr %6, %1
-  br i1 %.not, label %8, label %134
+  br i1 %.not, label %8, label %135
 
 8:                                                ; preds = %4
   %.not67 = icmp eq i32 %2, 0
@@ -2094,9 +2094,9 @@ define internal fastcc range(i32 0, 2) i32 @read_name_subst(ptr noundef nonnull 
   %scevgep = getelementptr i8, ptr %6, i64 %9
   br label %.lr.ph79
 
-.lr.ph:                                           ; preds = %120, %.lr.ph.preheader
-  %10 = phi i8 [ %.pr, %.lr.ph.preheader ], [ %121, %120 ]
-  %.175 = phi ptr [ %6, %.lr.ph.preheader ], [ %.2, %120 ]
+.lr.ph:                                           ; preds = %121, %.lr.ph.preheader
+  %10 = phi i8 [ %.pr, %.lr.ph.preheader ], [ %122, %121 ]
+  %.175 = phi ptr [ %6, %.lr.ph.preheader ], [ %.2, %121 ]
   %11 = zext i8 %10 to i32
   %12 = icmp ugt i8 %10, -65
   br i1 %12, label %13, label %97
@@ -2217,60 +2217,61 @@ define internal fastcc range(i32 0, 2) i32 @read_name_subst(ptr noundef nonnull 
   %107 = getelementptr inbounds nuw i16, ptr @_pcre2_ucd_stage2_8, i64 %106
   %108 = load i16, ptr %107, align 2, !tbaa !43
   %109 = zext i16 %108 to i64
-  %110 = getelementptr inbounds nuw %struct.ucd_record, ptr @_pcre2_ucd_records_8, i64 %109, i32 1
-  %111 = load i8, ptr %110, align 1, !tbaa !44
-  %.not69 = icmp eq i8 %111, 13
-  br i1 %.not69, label %.preheader, label %112
+  %110 = getelementptr inbounds nuw %struct.ucd_record, ptr @_pcre2_ucd_records_8, i64 %109
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 1
+  %112 = load i8, ptr %111, align 1, !tbaa !44
+  %.not69 = icmp eq i8 %112, 13
+  br i1 %.not69, label %.preheader, label %113
 
-112:                                              ; preds = %97
-  %113 = zext i8 %111 to i64
-  %114 = getelementptr inbounds nuw i32, ptr @_pcre2_ucp_gentype_8, i64 %113
-  %115 = load i32, ptr %114, align 4, !tbaa !38
-  %116 = icmp ne i32 %115, 1
-  %117 = icmp ne i32 %.059, 95
-  %or.cond = and i1 %117, %116
+113:                                              ; preds = %97
+  %114 = zext i8 %112 to i64
+  %115 = getelementptr inbounds nuw i32, ptr @_pcre2_ucp_gentype_8, i64 %114
+  %116 = load i32, ptr %115, align 4, !tbaa !38
+  %117 = icmp ne i32 %116, 1
+  %118 = icmp ne i32 %.059, 95
+  %or.cond = and i1 %118, %117
   br i1 %or.cond, label %.critedge3, label %.preheader
 
-.preheader:                                       ; preds = %112, %97
-  br label %118
+.preheader:                                       ; preds = %113, %97
+  br label %119
 
-118:                                              ; preds = %.preheader, %120
-  %.1.pn = phi ptr [ %.2, %120 ], [ %.175, %.preheader ]
+119:                                              ; preds = %.preheader, %121
+  %.1.pn = phi ptr [ %.2, %121 ], [ %.175, %.preheader ]
   %.2 = getelementptr inbounds nuw i8, ptr %.1.pn, i64 1
-  %119 = icmp ult ptr %.2, %1
-  br i1 %119, label %120, label %.critedge3
+  %120 = icmp ult ptr %.2, %1
+  br i1 %120, label %121, label %.critedge3
 
-120:                                              ; preds = %118
-  %121 = load i8, ptr %.2, align 1, !tbaa !31
-  %122 = icmp slt i8 %121, -64
-  br i1 %122, label %118, label %.lr.ph
+121:                                              ; preds = %119
+  %122 = load i8, ptr %.2, align 1, !tbaa !31
+  %123 = icmp slt i8 %122, -64
+  br i1 %123, label %119, label %.lr.ph
 
-.lr.ph79:                                         ; preds = %.lr.ph79.preheader, %128
-  %.478 = phi ptr [ %129, %128 ], [ %6, %.lr.ph79.preheader ]
-  %123 = load i8, ptr %.478, align 1, !tbaa !31
-  %124 = zext i8 %123 to i64
-  %125 = getelementptr inbounds nuw i8, ptr %3, i64 %124
-  %126 = load i8, ptr %125, align 1, !tbaa !31
-  %127 = and i8 %126, 16
-  %.not68 = icmp eq i8 %127, 0
-  br i1 %.not68, label %.critedge3, label %128
+.lr.ph79:                                         ; preds = %.lr.ph79.preheader, %129
+  %.478 = phi ptr [ %130, %129 ], [ %6, %.lr.ph79.preheader ]
+  %124 = load i8, ptr %.478, align 1, !tbaa !31
+  %125 = zext i8 %124 to i64
+  %126 = getelementptr inbounds nuw i8, ptr %3, i64 %125
+  %127 = load i8, ptr %126, align 1, !tbaa !31
+  %128 = and i8 %127, 16
+  %.not68 = icmp eq i8 %128, 0
+  br i1 %.not68, label %.critedge3, label %129
 
-128:                                              ; preds = %.lr.ph79
-  %129 = getelementptr inbounds nuw i8, ptr %.478, i64 1
-  %exitcond.not = icmp eq ptr %129, %1
+129:                                              ; preds = %.lr.ph79
+  %130 = getelementptr inbounds nuw i8, ptr %.478, i64 1
+  %exitcond.not = icmp eq ptr %130, %1
   br i1 %exitcond.not, label %.critedge3, label %.lr.ph79
 
-.critedge3:                                       ; preds = %112, %118, %128, %.lr.ph79
-  %.3 = phi ptr [ %scevgep, %128 ], [ %.478, %.lr.ph79 ], [ %.2, %118 ], [ %.175, %112 ]
-  %130 = ptrtoint ptr %.3 to i64
-  %131 = sub i64 %130, %7
-  %132 = icmp slt i64 %131, 129
-  %133 = icmp ne ptr %.3, %6
-  %or.cond70.not = and i1 %133, %132
+.critedge3:                                       ; preds = %113, %119, %129, %.lr.ph79
+  %.3 = phi ptr [ %scevgep, %129 ], [ %.478, %.lr.ph79 ], [ %.2, %119 ], [ %.175, %113 ]
+  %131 = ptrtoint ptr %.3 to i64
+  %132 = sub i64 %131, %7
+  %133 = icmp slt i64 %132, 129
+  %134 = icmp ne ptr %.3, %6
+  %or.cond70.not = and i1 %134, %133
   %spec.select = zext i1 %or.cond70.not to i32
-  br label %134
+  br label %135
 
-134:                                              ; preds = %.critedge3, %4
+135:                                              ; preds = %.critedge3, %4
   %storemerge = phi ptr [ %6, %4 ], [ %.3, %.critedge3 ]
   %.0 = phi i32 [ 0, %4 ], [ %spec.select, %.critedge3 ]
   store ptr %storemerge, ptr %0, align 8, !tbaa !34

@@ -7506,17 +7506,18 @@ define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..s
   br i1 %15, label %.lr.ph.i.i.i.i.i.i, label %"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17hc5c34e904aaf33b2E.exit"
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h1a9f4d9a269dd838E.exit.i.i.i", %.lr.ph.i.i.i.i.i.i
-  %16 = phi i64 [ %18, %.lr.ph.i.i.i.i.i.i ], [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h1a9f4d9a269dd838E.exit.i.i.i" ]
+  %16 = phi i64 [ %19, %.lr.ph.i.i.i.i.i.i ], [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h1a9f4d9a269dd838E.exit.i.i.i" ]
   %.sroa.0.010.i.i.i.i.i.i = phi i64 [ %17, %.lr.ph.i.i.i.i.i.i ], [ %1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h1a9f4d9a269dd838E.exit.i.i.i" ]
   %17 = add nuw i64 %.sroa.0.010.i.i.i.i.i.i, 1
-  %.sroa.43.0..sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds { { { [9 x i64] } }, { i8 }, [7 x i8] }, ptr %13, i64 %16, i32 1
+  %18 = getelementptr inbounds nuw { { { [9 x i64] } }, { i8 }, [7 x i8] }, ptr %13, i64 %16
+  %.sroa.43.0..sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %18, i64 72
   store i8 0, ptr %.sroa.43.0..sroa_idx.i.i.i.i.i.i.i, align 8, !noalias !519
-  %18 = add nuw i64 %16, 1
+  %19 = add nuw i64 %16, 1
   %exitcond.not.i.i.i.i.i.i = icmp eq i64 %17, %2
   br i1 %exitcond.not.i.i.i.i.i.i, label %"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17hc5c34e904aaf33b2E.exit", label %.lr.ph.i.i.i.i.i.i
 
 "_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17hc5c34e904aaf33b2E.exit": ; preds = %.lr.ph.i.i.i.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h1a9f4d9a269dd838E.exit.i.i.i"
-  %.val4.i.i.i.i.i.i = phi i64 [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h1a9f4d9a269dd838E.exit.i.i.i" ], [ %18, %.lr.ph.i.i.i.i.i.i ]
+  %.val4.i.i.i.i.i.i = phi i64 [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h1a9f4d9a269dd838E.exit.i.i.i" ], [ %19, %.lr.ph.i.i.i.i.i.i ]
   store i64 %9, ptr %0, align 8, !alias.scope !512, !noalias !532
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %13, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !512, !noalias !532

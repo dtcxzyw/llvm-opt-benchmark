@@ -2630,19 +2630,19 @@ define internal fastcc void @list_builtins(ptr noundef nonnull %0, i32 noundef r
 
 .split:                                           ; preds = %2, %14
   %.08 = phi i64 [ %15, %14 ], [ 0, %2 ]
-  %7 = getelementptr inbounds nuw %struct.cmd_struct, ptr @commands, i64 %.08, i32 2
-  %8 = load i32, ptr %7, align 8, !tbaa !45
-  %9 = and i32 %8, %1
-  %.not7 = icmp eq i32 %9, 0
-  br i1 %.not7, label %10, label %14
+  %7 = getelementptr inbounds nuw %struct.cmd_struct, ptr @commands, i64 %.08
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %9 = load i32, ptr %8, align 8, !tbaa !45
+  %10 = and i32 %9, %1
+  %.not7 = icmp eq i32 %10, 0
+  br i1 %.not7, label %11, label %14
 
-10:                                               ; preds = %.split
-  %11 = getelementptr inbounds nuw %struct.cmd_struct, ptr @commands, i64 %.08
-  %12 = load ptr, ptr %11, align 8, !tbaa !11
+11:                                               ; preds = %.split
+  %12 = load ptr, ptr %7, align 8, !tbaa !11
   %13 = tail call ptr @string_list_append(ptr noundef nonnull %0, ptr noundef %12) #16
   br label %14
 
-14:                                               ; preds = %.split, %10
+14:                                               ; preds = %.split, %11
   %15 = add nuw nsw i64 %.08, 1
   %exitcond.not = icmp eq i64 %15, 142
   br i1 %exitcond.not, label %.split10.us, label %.split, !llvm.loop !72

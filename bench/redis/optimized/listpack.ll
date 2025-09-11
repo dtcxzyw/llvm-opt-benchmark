@@ -5622,7 +5622,7 @@ lpNext.exit:                                      ; preds = %lpDecodeBacklen.exi
 lpGetValue.exit:                                  ; preds = %lpNext.exit, %.preheader
   %.133.lcssa = phi i32 [ %.03272, %.preheader ], [ %umax, %lpNext.exit ]
   %.1.lcssa = phi ptr [ %.03074, %.preheader ], [ %.0.i39, %lpNext.exit ]
-  %163 = getelementptr inbounds nuw %struct.pick, ptr %9, i64 %indvars.iv84, i32 1
+  %163 = getelementptr inbounds nuw i8, ptr %45, i64 4
   %164 = load i32, ptr %163, align 4, !tbaa !47
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %165 = call ptr @lpGet(ptr noundef %.1.lcssa, ptr noundef nonnull %4, ptr noundef null)

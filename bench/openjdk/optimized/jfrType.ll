@@ -2105,14 +2105,15 @@ define hidden void @_ZN15NMTTypeConstant9serializeER19JfrCheckpointWriter(ptr no
 3:                                                ; preds = %2, %3
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %3 ]
   tail call void @_ZN19JfrCheckpointWriter9write_keyEm(ptr noundef nonnull align 8 dereferenceable(73) %1, i64 noundef %indvars.iv) #8
-  %4 = getelementptr inbounds nuw %"struct.NMTUtil::S", ptr @_ZN7NMTUtil8_stringsE, i64 %indvars.iv, i32 1
-  %5 = load ptr, ptr %4, align 8
-  tail call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE10write_utf8EPKc(ptr noundef nonnull align 8 dereferenceable(41) %1, ptr noundef %5)
+  %4 = getelementptr inbounds nuw %"struct.NMTUtil::S", ptr @_ZN7NMTUtil8_stringsE, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %6 = load ptr, ptr %5, align 8
+  tail call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE10write_utf8EPKc(ptr noundef nonnull align 8 dereferenceable(41) %1, ptr noundef %6)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 28
-  br i1 %exitcond.not, label %6, label %3, !llvm.loop !19
+  br i1 %exitcond.not, label %7, label %3, !llvm.loop !19
 
-6:                                                ; preds = %3
+7:                                                ; preds = %3
   ret void
 }
 

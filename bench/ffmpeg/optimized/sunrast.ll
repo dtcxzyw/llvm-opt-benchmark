@@ -192,7 +192,7 @@ define internal i32 @sunrast_decode_frame(ptr noundef %0, ptr noundef %1, ptr no
   %88 = lshr i32 %87, 8
   %narrow = add nuw nsw i32 %88, %34
   %89 = zext nneg i32 %narrow to i64
-  %90 = icmp ult i64 %gepdiff, %89
+  %90 = icmp samesign ult i64 %gepdiff, %89
   br i1 %90, label %.loopexit, label %91
 
 91:                                               ; preds = %83

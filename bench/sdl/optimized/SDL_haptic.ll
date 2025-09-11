@@ -758,122 +758,124 @@ SDL_Haptic_Get_Naxes.exit.thread55:               ; preds = %62
 
 SDL_Haptic_Naxes_List_Index.exit.i:               ; preds = %67
   %72 = and i64 %indvars.iv.i.i, 4294967295
-  %73 = getelementptr inbounds nuw %struct.SDL_Haptic_VIDPID_Naxes, ptr %.2.i, i64 %72, i32 2
-  %74 = load i16, ptr %73, align 2
-  %75 = zext i16 %74 to i32
+  %73 = getelementptr inbounds nuw %struct.SDL_Haptic_VIDPID_Naxes, ptr %.2.i, i64 %72
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 4
+  %75 = load i16, ptr %74, align 2
+  %76 = zext i16 %75 to i32
   br label %.lr.ph.preheader.i19.i
 
 .lr.ph.preheader.i19.i:                           ; preds = %71, %SDL_Haptic_Naxes_List_Index.exit.i
-  %.0.i50 = phi i32 [ %75, %SDL_Haptic_Naxes_List_Index.exit.i ], [ -1, %71 ]
+  %.0.i50 = phi i32 [ %76, %SDL_Haptic_Naxes_List_Index.exit.i ], [ -1, %71 ]
   br label %.lr.ph.i21.i
 
-.lr.ph.i21.i:                                     ; preds = %83, %.lr.ph.preheader.i19.i
-  %indvars.iv.i22.i = phi i64 [ 0, %.lr.ph.preheader.i19.i ], [ %indvars.iv.next.i23.i, %83 ]
-  %76 = getelementptr inbounds nuw %struct.SDL_Haptic_VIDPID_Naxes, ptr %.2.i, i64 %indvars.iv.i22.i
-  %77 = load i16, ptr %76, align 2
-  %78 = icmp eq i16 %77, %37
-  br i1 %78, label %79, label %83
+.lr.ph.i21.i:                                     ; preds = %84, %.lr.ph.preheader.i19.i
+  %indvars.iv.i22.i = phi i64 [ 0, %.lr.ph.preheader.i19.i ], [ %indvars.iv.next.i23.i, %84 ]
+  %77 = getelementptr inbounds nuw %struct.SDL_Haptic_VIDPID_Naxes, ptr %.2.i, i64 %indvars.iv.i22.i
+  %78 = load i16, ptr %77, align 2
+  %79 = icmp eq i16 %78, %37
+  br i1 %79, label %80, label %84
 
-79:                                               ; preds = %.lr.ph.i21.i
-  %80 = getelementptr inbounds nuw i8, ptr %76, i64 2
-  %81 = load i16, ptr %80, align 2
-  %82 = icmp eq i16 %81, %38
-  br i1 %82, label %SDL_Haptic_Naxes_List_Index.exit26.i, label %83
+80:                                               ; preds = %.lr.ph.i21.i
+  %81 = getelementptr inbounds nuw i8, ptr %77, i64 2
+  %82 = load i16, ptr %81, align 2
+  %83 = icmp eq i16 %82, %38
+  br i1 %83, label %SDL_Haptic_Naxes_List_Index.exit26.i, label %84
 
-83:                                               ; preds = %79, %.lr.ph.i21.i
+84:                                               ; preds = %80, %.lr.ph.i21.i
   %indvars.iv.next.i23.i = add nuw nsw i64 %indvars.iv.i22.i, 1
   %exitcond.not.i24.i = icmp eq i64 %indvars.iv.next.i23.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i24.i, label %SDL_Haptic_Get_Naxes.exit, label %.lr.ph.i21.i, !llvm.loop !10
 
-SDL_Haptic_Naxes_List_Index.exit26.i:             ; preds = %79
-  %84 = and i64 %indvars.iv.i22.i, 4294967295
-  %85 = getelementptr inbounds nuw %struct.SDL_Haptic_VIDPID_Naxes, ptr %.2.i, i64 %84, i32 2
-  %86 = load i16, ptr %85, align 2
-  %87 = zext i16 %86 to i32
+SDL_Haptic_Naxes_List_Index.exit26.i:             ; preds = %80
+  %85 = and i64 %indvars.iv.i22.i, 4294967295
+  %86 = getelementptr inbounds nuw %struct.SDL_Haptic_VIDPID_Naxes, ptr %.2.i, i64 %85
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 4
+  %88 = load i16, ptr %87, align 2
+  %89 = zext i16 %88 to i32
   br label %SDL_Haptic_Get_Naxes.exit
 
-SDL_Haptic_Get_Naxes.exit:                        ; preds = %83, %SDL_Haptic_Naxes_List_Index.exit26.i
-  %.1.i = phi i32 [ %87, %SDL_Haptic_Naxes_List_Index.exit26.i ], [ %.0.i50, %83 ]
+SDL_Haptic_Get_Naxes.exit:                        ; preds = %84, %SDL_Haptic_Naxes_List_Index.exit26.i
+  %.1.i = phi i32 [ %89, %SDL_Haptic_Naxes_List_Index.exit26.i ], [ %.0.i50, %84 ]
   call void @SDL_free_REAL(ptr noundef nonnull %.2.i) #9
-  %88 = icmp sgt i32 %.1.i, 0
-  br i1 %88, label %89, label %SDL_Haptic_Get_Naxes.exit.thread
+  %90 = icmp sgt i32 %.1.i, 0
+  br i1 %90, label %91, label %SDL_Haptic_Get_Naxes.exit.thread
 
-89:                                               ; preds = %SDL_Haptic_Get_Naxes.exit
-  %90 = getelementptr inbounds nuw i8, ptr %23, i64 36
-  store i32 %.1.i, ptr %90, align 4
+91:                                               ; preds = %SDL_Haptic_Get_Naxes.exit
+  %92 = getelementptr inbounds nuw i8, ptr %23, i64 36
+  store i32 %.1.i, ptr %92, align 4
   br label %SDL_Haptic_Get_Naxes.exit.thread
 
-SDL_Haptic_Get_Naxes.exit.thread:                 ; preds = %SDL_Haptic_Load_Axes_List.exit.thread.i, %SDL_Haptic_Load_Axes_List.exit.i, %SDL_Haptic_Get_Naxes.exit.thread55, %89, %SDL_Haptic_Get_Naxes.exit
-  %.09.i54 = phi i32 [ %.1.i, %89 ], [ %.1.i, %SDL_Haptic_Get_Naxes.exit ], [ -1, %SDL_Haptic_Get_Naxes.exit.thread55 ], [ -1, %SDL_Haptic_Load_Axes_List.exit.i ], [ -1, %SDL_Haptic_Load_Axes_List.exit.thread.i ]
-  %91 = icmp sgt i32 %39, -1
-  %92 = icmp sgt i32 %.09.i54, %39
-  %or.cond = and i1 %91, %92
-  br i1 %or.cond, label %93, label %95
+SDL_Haptic_Get_Naxes.exit.thread:                 ; preds = %SDL_Haptic_Load_Axes_List.exit.thread.i, %SDL_Haptic_Load_Axes_List.exit.i, %SDL_Haptic_Get_Naxes.exit.thread55, %91, %SDL_Haptic_Get_Naxes.exit
+  %.09.i54 = phi i32 [ %.1.i, %91 ], [ %.1.i, %SDL_Haptic_Get_Naxes.exit ], [ -1, %SDL_Haptic_Get_Naxes.exit.thread55 ], [ -1, %SDL_Haptic_Load_Axes_List.exit.i ], [ -1, %SDL_Haptic_Load_Axes_List.exit.thread.i ]
+  %93 = icmp sgt i32 %39, -1
+  %94 = icmp sgt i32 %.09.i54, %39
+  %or.cond = and i1 %93, %94
+  br i1 %or.cond, label %95, label %97
 
-93:                                               ; preds = %SDL_Haptic_Get_Naxes.exit.thread
-  %94 = getelementptr inbounds nuw i8, ptr %23, i64 36
-  store i32 %39, ptr %94, align 4
-  br label %95
+95:                                               ; preds = %SDL_Haptic_Get_Naxes.exit.thread
+  %96 = getelementptr inbounds nuw i8, ptr %23, i64 36
+  store i32 %39, ptr %96, align 4
+  br label %97
 
-95:                                               ; preds = %93, %SDL_Haptic_Get_Naxes.exit.thread
-  %96 = getelementptr inbounds nuw i8, ptr %23, i64 48
-  %97 = load i32, ptr %96, align 8
-  %98 = add nsw i32 %97, 1
-  store i32 %98, ptr %96, align 8
-  %99 = load ptr, ptr @SDL_haptics, align 8
-  %100 = getelementptr inbounds nuw i8, ptr %23, i64 128
-  store ptr %99, ptr %100, align 8
+97:                                               ; preds = %95, %SDL_Haptic_Get_Naxes.exit.thread
+  %98 = getelementptr inbounds nuw i8, ptr %23, i64 48
+  %99 = load i32, ptr %98, align 8
+  %100 = add nsw i32 %99, 1
+  store i32 %100, ptr %98, align 8
+  %101 = load ptr, ptr @SDL_haptics, align 8
+  %102 = getelementptr inbounds nuw i8, ptr %23, i64 128
+  store ptr %101, ptr %102, align 8
   store ptr %23, ptr @SDL_haptics, align 8
   call void @SDL_SetObjectValid(ptr noundef nonnull %23, i32 noundef 6, i1 noundef zeroext true) #9
-  %101 = getelementptr inbounds nuw i8, ptr %23, i64 32
-  %102 = load i32, ptr %101, align 8
-  %103 = and i32 %102, 65536
-  %.not48 = icmp eq i32 %103, 0
-  br i1 %.not48, label %106, label %104
+  %103 = getelementptr inbounds nuw i8, ptr %23, i64 32
+  %104 = load i32, ptr %103, align 8
+  %105 = and i32 %104, 65536
+  %.not48 = icmp eq i32 %105, 0
+  br i1 %.not48, label %108, label %106
 
-104:                                              ; preds = %95
-  %105 = call zeroext i1 @SDL_SetHapticGain_REAL(ptr noundef nonnull %23, i32 noundef 100)
-  %.pre = load i32, ptr %101, align 8
-  br label %106
+106:                                              ; preds = %97
+  %107 = call zeroext i1 @SDL_SetHapticGain_REAL(ptr noundef nonnull %23, i32 noundef 100)
+  %.pre = load i32, ptr %103, align 8
+  br label %108
 
-106:                                              ; preds = %104, %95
-  %107 = phi i32 [ %.pre, %104 ], [ %102, %95 ]
-  %108 = and i32 %107, 131072
-  %.not49 = icmp eq i32 %108, 0
-  br i1 %.not49, label %SDL_SetHapticAutocenter_REAL.exit, label %109
+108:                                              ; preds = %106, %97
+  %109 = phi i32 [ %.pre, %106 ], [ %104, %97 ]
+  %110 = and i32 %109, 131072
+  %.not49 = icmp eq i32 %110, 0
+  br i1 %.not49, label %SDL_SetHapticAutocenter_REAL.exit, label %111
 
-109:                                              ; preds = %106
-  %110 = call zeroext i1 @SDL_ObjectValid(ptr noundef nonnull %23, i32 noundef 6) #9
-  br i1 %110, label %113, label %111
+111:                                              ; preds = %108
+  %112 = call zeroext i1 @SDL_ObjectValid(ptr noundef nonnull %23, i32 noundef 6) #9
+  br i1 %112, label %115, label %113
 
-111:                                              ; preds = %109
-  %112 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
+113:                                              ; preds = %111
+  %114 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
   br label %SDL_SetHapticAutocenter_REAL.exit
 
-113:                                              ; preds = %109
-  %114 = load i32, ptr %101, align 8
-  %115 = and i32 %114, 131072
-  %.not.i = icmp eq i32 %115, 0
-  br i1 %.not.i, label %116, label %118
+115:                                              ; preds = %111
+  %116 = load i32, ptr %103, align 8
+  %117 = and i32 %116, 131072
+  %.not.i = icmp eq i32 %117, 0
+  br i1 %.not.i, label %118, label %120
 
-116:                                              ; preds = %113
-  %117 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.15) #9
+118:                                              ; preds = %115
+  %119 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.15) #9
   br label %SDL_SetHapticAutocenter_REAL.exit
 
-118:                                              ; preds = %113
-  %119 = call zeroext i1 @SDL_HIDAPI_HapticIsHidapi(ptr noundef nonnull %23) #9
-  br i1 %119, label %120, label %122
+120:                                              ; preds = %115
+  %121 = call zeroext i1 @SDL_HIDAPI_HapticIsHidapi(ptr noundef nonnull %23) #9
+  br i1 %121, label %122, label %124
 
-120:                                              ; preds = %118
-  %121 = call zeroext i1 @SDL_HIDAPI_HapticSetAutocenter(ptr noundef nonnull %23, i32 noundef 0) #9
+122:                                              ; preds = %120
+  %123 = call zeroext i1 @SDL_HIDAPI_HapticSetAutocenter(ptr noundef nonnull %23, i32 noundef 0) #9
   br label %SDL_SetHapticAutocenter_REAL.exit
 
-122:                                              ; preds = %118
-  %123 = call zeroext i1 @SDL_SYS_HapticSetAutocenter(ptr noundef nonnull %23, i32 noundef 0) #9
+124:                                              ; preds = %120
+  %125 = call zeroext i1 @SDL_SYS_HapticSetAutocenter(ptr noundef nonnull %23, i32 noundef 0) #9
   br label %SDL_SetHapticAutocenter_REAL.exit
 
-SDL_SetHapticAutocenter_REAL.exit:                ; preds = %122, %120, %116, %111, %106, %34, %30, %24, %17, %12
-  %.0 = phi ptr [ %.04364, %17 ], [ null, %30 ], [ null, %34 ], [ null, %24 ], [ null, %12 ], [ %23, %106 ], [ %23, %111 ], [ %23, %116 ], [ %23, %120 ], [ %23, %122 ]
+SDL_SetHapticAutocenter_REAL.exit:                ; preds = %124, %122, %118, %113, %108, %34, %30, %24, %17, %12
+  %.0 = phi ptr [ %.04364, %17 ], [ null, %30 ], [ null, %34 ], [ null, %24 ], [ null, %12 ], [ %23, %108 ], [ %23, %113 ], [ %23, %118 ], [ %23, %122 ], [ %23, %124 ]
   ret ptr %.0
 }
 
@@ -898,7 +900,7 @@ define hidden void @SDL_CloseHaptic_REAL(ptr noundef %0) local_unnamed_addr #0 {
 
 3:                                                ; preds = %1
   %4 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
-  br label %41
+  br label %42
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -906,7 +908,7 @@ define hidden void @SDL_CloseHaptic_REAL(ptr noundef %0) local_unnamed_addr #0 {
   %8 = add nsw i32 %7, -1
   store i32 %8, ptr %6, align 8
   %9 = icmp sgt i32 %7, 1
-  br i1 %9, label %41, label %10
+  br i1 %9, label %42, label %10
 
 10:                                               ; preds = %5
   %11 = tail call zeroext i1 @SDL_HIDAPI_HapticIsHidapi(ptr noundef nonnull %0) #9
@@ -924,82 +926,83 @@ define hidden void @SDL_CloseHaptic_REAL(ptr noundef %0) local_unnamed_addr #0 {
 
 16:                                               ; preds = %10
   tail call void @SDL_HIDAPI_HapticClose(ptr noundef nonnull %0) #9
-  br label %28
+  br label %29
 
-17:                                               ; preds = %.lr.ph, %24
-  %18 = phi i32 [ %13, %.lr.ph ], [ %25, %24 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %24 ]
+17:                                               ; preds = %.lr.ph, %25
+  %18 = phi i32 [ %13, %.lr.ph ], [ %26, %25 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
   %19 = load ptr, ptr %15, align 8
-  %20 = getelementptr inbounds nuw %struct.haptic_effect, ptr %19, i64 %indvars.iv, i32 1
-  %21 = load ptr, ptr %20, align 8
-  %.not = icmp eq ptr %21, null
-  br i1 %.not, label %24, label %22
+  %20 = getelementptr inbounds nuw %struct.haptic_effect, ptr %19, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 72
+  %22 = load ptr, ptr %21, align 8
+  %.not = icmp eq ptr %22, null
+  br i1 %.not, label %25, label %23
 
-22:                                               ; preds = %17
-  %23 = trunc nuw nsw i64 %indvars.iv to i32
-  tail call void @SDL_DestroyHapticEffect_REAL(ptr noundef nonnull %0, i32 noundef %23)
+23:                                               ; preds = %17
+  %24 = trunc nuw nsw i64 %indvars.iv to i32
+  tail call void @SDL_DestroyHapticEffect_REAL(ptr noundef nonnull %0, i32 noundef %24)
   %.pre = load i32, ptr %12, align 8
-  br label %24
+  br label %25
 
-24:                                               ; preds = %17, %22
-  %25 = phi i32 [ %18, %17 ], [ %.pre, %22 ]
+25:                                               ; preds = %17, %23
+  %26 = phi i32 [ %18, %17 ], [ %.pre, %23 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %26 = sext i32 %25 to i64
-  %27 = icmp slt i64 %indvars.iv.next, %26
-  br i1 %27, label %17, label %._crit_edge, !llvm.loop !11
+  %27 = sext i32 %26 to i64
+  %28 = icmp slt i64 %indvars.iv.next, %27
+  br i1 %28, label %17, label %._crit_edge, !llvm.loop !11
 
-._crit_edge:                                      ; preds = %24, %.preheader
+._crit_edge:                                      ; preds = %25, %.preheader
   tail call void @SDL_SYS_HapticClose(ptr noundef nonnull %0) #9
-  br label %28
+  br label %29
 
-28:                                               ; preds = %._crit_edge, %16
+29:                                               ; preds = %._crit_edge, %16
   tail call void @SDL_SetObjectValid(ptr noundef nonnull %0, i32 noundef 6, i1 noundef zeroext false) #9
   %.02331 = load ptr, ptr @SDL_haptics, align 8
   %.not2632 = icmp eq ptr %.02331, null
   br i1 %.not2632, label %.loopexit, label %.lr.ph36.preheader
 
-.lr.ph36.preheader:                               ; preds = %28
-  %29 = icmp eq ptr %0, %.02331
-  br i1 %29, label %.lr.ph36._crit_edge, label %.lr.ph46
+.lr.ph36.preheader:                               ; preds = %29
+  %30 = icmp eq ptr %0, %.02331
+  br i1 %30, label %.lr.ph36._crit_edge, label %.lr.ph46
 
 .lr.ph36:                                         ; preds = %.lr.ph46
-  %30 = icmp eq ptr %0, %.023
-  br i1 %30, label %.lr.ph36._crit_edge, label %.lr.ph46, !llvm.loop !12
+  %31 = icmp eq ptr %0, %.023
+  br i1 %31, label %.lr.ph36._crit_edge, label %.lr.ph46, !llvm.loop !12
 
 .lr.ph36._crit_edge:                              ; preds = %.lr.ph36, %.lr.ph36.preheader
   %.02334.lcssa = phi ptr [ %.02331, %.lr.ph36.preheader ], [ %.023, %.lr.ph36 ]
   %.033.lcssa = phi ptr [ null, %.lr.ph36.preheader ], [ %.0233445, %.lr.ph36 ]
   %.not27 = icmp eq ptr %.033.lcssa, null
-  br i1 %.not27, label %35, label %31
+  br i1 %.not27, label %36, label %32
 
-31:                                               ; preds = %.lr.ph36._crit_edge
-  %32 = getelementptr inbounds nuw i8, ptr %.02334.lcssa, i64 128
-  %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %.033.lcssa, i64 128
-  store ptr %33, ptr %34, align 8
+32:                                               ; preds = %.lr.ph36._crit_edge
+  %33 = getelementptr inbounds nuw i8, ptr %.02334.lcssa, i64 128
+  %34 = load ptr, ptr %33, align 8
+  %35 = getelementptr inbounds nuw i8, ptr %.033.lcssa, i64 128
+  store ptr %34, ptr %35, align 8
   br label %.loopexit
 
-35:                                               ; preds = %.lr.ph36._crit_edge
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %37 = load ptr, ptr %36, align 8
-  store ptr %37, ptr @SDL_haptics, align 8
+36:                                               ; preds = %.lr.ph36._crit_edge
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %38 = load ptr, ptr %37, align 8
+  store ptr %38, ptr @SDL_haptics, align 8
   br label %.loopexit
 
 .lr.ph46:                                         ; preds = %.lr.ph36.preheader, %.lr.ph36
   %.0233445 = phi ptr [ %.023, %.lr.ph36 ], [ %.02331, %.lr.ph36.preheader ]
-  %38 = getelementptr inbounds nuw i8, ptr %.0233445, i64 128
-  %.023 = load ptr, ptr %38, align 8
+  %39 = getelementptr inbounds nuw i8, ptr %.0233445, i64 128
+  %.023 = load ptr, ptr %39, align 8
   %.not26 = icmp eq ptr %.023, null
   br i1 %.not26, label %.loopexit, label %.lr.ph36, !llvm.loop !12
 
-.loopexit:                                        ; preds = %.lr.ph46, %28, %31, %35
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %40 = load ptr, ptr %39, align 8
-  tail call void @SDL_free_REAL(ptr noundef %40) #9
+.loopexit:                                        ; preds = %.lr.ph46, %29, %32, %36
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %41 = load ptr, ptr %40, align 8
+  tail call void @SDL_free_REAL(ptr noundef %41) #9
   tail call void @SDL_free_REAL(ptr noundef nonnull %0) #9
-  br label %41
+  br label %42
 
-41:                                               ; preds = %5, %.loopexit, %3
+42:                                               ; preds = %5, %.loopexit, %3
   ret void
 }
 

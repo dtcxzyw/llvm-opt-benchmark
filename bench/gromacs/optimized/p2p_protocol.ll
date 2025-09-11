@@ -40,12 +40,13 @@ define noundef range(i32 0, 2) i32 @_Z23tMPI_Free_env_list_initP18free_envelope_
   %14 = getelementptr inbounds nuw %struct.envelope, ptr %5, i64 %indvars.iv
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 184
   %.sink = select i1 %13, ptr %15, ptr null
-  %16 = getelementptr inbounds nuw %struct.envelope, ptr %5, i64 %indvars.iv, i32 11
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 136
   store ptr %.sink, ptr %16, align 8, !tbaa !10
-  %17 = getelementptr inbounds nuw %struct.envelope, ptr %5, i64 %indvars.iv, i32 15
+  %17 = getelementptr inbounds nuw %struct.envelope, ptr %5, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 168
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, i8 0, i64 16, i1 false)
   br i1 %exitcond.not, label %.loopexit, label %12, !llvm.loop !20
 
 .loopexit:                                        ; preds = %12, %8, %2
@@ -95,13 +96,13 @@ define noundef range(i32 0, 2) i32 @_Z23tMPI_Send_env_list_initP18send_envelope_
   %14 = getelementptr inbounds nuw %struct.envelope, ptr %6, i64 %indvars.iv
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 184
   %16 = select i1 %13, ptr %15, ptr null
-  %17 = getelementptr inbounds nuw %struct.envelope, ptr %6, i64 %indvars.iv, i32 11
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 136
   store ptr %16, ptr %17, align 8, !tbaa !10
-  %18 = getelementptr inbounds nuw %struct.envelope, ptr %6, i64 %indvars.iv, i32 10
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 128
   store ptr null, ptr %18, align 8, !tbaa !26
-  %19 = getelementptr inbounds nuw %struct.envelope, ptr %6, i64 %indvars.iv, i32 16
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 176
   store ptr %0, ptr %19, align 8, !tbaa !27
-  %20 = getelementptr inbounds nuw %struct.envelope, ptr %6, i64 %indvars.iv, i32 15
+  %20 = getelementptr inbounds nuw i8, ptr %14, i64 168
   store ptr null, ptr %20, align 8, !tbaa !28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -190,7 +191,7 @@ define noundef range(i32 0, 2) i32 @_Z18tMPI_Req_list_initP8req_listi(ptr nounde
 16:                                               ; preds = %13
   %17 = getelementptr %struct.tmpi_req_, ptr %5, i64 %indvars.iv
   %18 = getelementptr i8, ptr %17, i64 -72
-  %19 = getelementptr inbounds nuw %struct.tmpi_req_, ptr %5, i64 %indvars.iv, i32 9
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 64
   store ptr %18, ptr %19, align 8, !tbaa !40
   br label %20
 
@@ -199,7 +200,7 @@ define noundef range(i32 0, 2) i32 @_Z18tMPI_Req_list_initP8req_listi(ptr nounde
   %21 = getelementptr inbounds nuw %struct.tmpi_req_, ptr %5, i64 %indvars.iv
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 72
   %.sink = select i1 %.not, ptr %22, ptr null
-  %23 = getelementptr inbounds nuw %struct.tmpi_req_, ptr %5, i64 %indvars.iv, i32 8
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 56
   store ptr %.sink, ptr %23, align 8, !tbaa !42
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -368,12 +369,12 @@ _ZL29tMPI_Free_env_list_fetch_recvP18free_envelope_list.exit.thread.i: ; preds =
   store i32 0, ptr %35, align 4, !tbaa !74
   %36 = icmp slt i32 %4, 0
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %33, i8 0, i64 16, i1 false)
-  br i1 %36, label %37, label %76
+  br i1 %36, label %37, label %77
 
 37:                                               ; preds = %18
   %38 = tail call noundef i32 @_Z10tMPI_ErrorP10tmpi_comm_i(ptr noundef %1, i32 noundef 13)
   store i32 13, ptr %35, align 4, !tbaa !74
-  br label %76
+  br label %77
 
 .split33:                                         ; preds = %8
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 208
@@ -445,45 +446,47 @@ _ZL29tMPI_Free_env_list_fetch_recvP18free_envelope_list.exit.thread.i41: ; preds
 72:                                               ; preds = %.lr.ph, %68
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %68 ]
   %73 = load ptr, ptr %67, align 8, !tbaa !77
-  %74 = getelementptr %struct.send_envelope_list, ptr %73, i64 %indvars.iv, i32 3
-  %.val39 = load ptr, ptr %74, align 8, !tbaa !33
-  %75 = tail call fastcc noundef ptr @_ZL29tMPI_Send_env_list_search_oldP18send_envelope_listP8envelope(ptr %.val39, ptr noundef %40)
-  %.not37 = icmp eq ptr %75, null
+  %74 = getelementptr inbounds nuw %struct.send_envelope_list, ptr %73, i64 %indvars.iv
+  %75 = getelementptr i8, ptr %74, i64 136
+  %.val39 = load ptr, ptr %75, align 8, !tbaa !33
+  %76 = tail call fastcc noundef ptr @_ZL29tMPI_Send_env_list_search_oldP18send_envelope_listP8envelope(ptr %.val39, ptr noundef %40)
+  %.not37 = icmp eq ptr %76, null
   br i1 %.not37, label %68, label %.thread55
 
-76:                                               ; preds = %37, %18
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %78 = load ptr, ptr %77, align 8, !tbaa !77
+77:                                               ; preds = %37, %18
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  %79 = load ptr, ptr %78, align 8, !tbaa !77
   %sext = shl i64 %13, 32
-  %79 = ashr exact i64 %sext, 32
-  %80 = getelementptr %struct.send_envelope_list, ptr %78, i64 %79, i32 3
-  %.val = load ptr, ptr %80, align 8, !tbaa !33
-  %81 = tail call fastcc noundef ptr @_ZL29tMPI_Send_env_list_search_oldP18send_envelope_listP8envelope(ptr %.val, ptr noundef %15)
-  %.not38 = icmp eq ptr %81, null
+  %80 = ashr exact i64 %sext, 32
+  %81 = getelementptr inbounds %struct.send_envelope_list, ptr %79, i64 %80
+  %82 = getelementptr i8, ptr %81, i64 136
+  %.val = load ptr, ptr %82, align 8, !tbaa !33
+  %83 = tail call fastcc noundef ptr @_ZL29tMPI_Send_env_list_search_oldP18send_envelope_listP8envelope(ptr %.val, ptr noundef %15)
+  %.not38 = icmp eq ptr %83, null
   br i1 %.not38, label %.thread50, label %.thread55
 
-.thread55:                                        ; preds = %72, %76
-  %.03160 = phi ptr [ %81, %76 ], [ %75, %72 ]
-  %phi.call.ph4759 = phi ptr [ %15, %76 ], [ %40, %72 ]
+.thread55:                                        ; preds = %72, %77
+  %.03160 = phi ptr [ %83, %77 ], [ %76, %72 ]
+  %phi.call.ph4759 = phi ptr [ %15, %77 ], [ %40, %72 ]
   tail call fastcc void @_ZL9tMPI_XferP11tmpi_threadP8envelopeS2_(ptr noundef %.03160, ptr noundef %phi.call.ph4759)
   br label %_ZL23tMPI_Prep_recv_envelopeP11tmpi_threadP10tmpi_comm_S0_S0_PviP14tmpi_datatype_ii.exit
 
-.thread50:                                        ; preds = %68, %64, %76
-  %phi.call.ph4754 = phi ptr [ %15, %76 ], [ %40, %64 ], [ %40, %68 ]
-  %82 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %83 = getelementptr inbounds nuw i8, ptr %phi.call.ph4754, i64 168
-  store ptr %82, ptr %83, align 8, !tbaa !28
-  %84 = load ptr, ptr %82, align 8, !tbaa !34
-  %85 = getelementptr inbounds nuw i8, ptr %phi.call.ph4754, i64 136
-  store ptr %84, ptr %85, align 8, !tbaa !10
-  %86 = getelementptr inbounds nuw i8, ptr %84, i64 128
-  %87 = load ptr, ptr %86, align 8, !tbaa !26
-  %88 = getelementptr inbounds nuw i8, ptr %phi.call.ph4754, i64 128
-  store ptr %87, ptr %88, align 8, !tbaa !26
-  store ptr %phi.call.ph4754, ptr %86, align 8, !tbaa !26
+.thread50:                                        ; preds = %68, %64, %77
+  %phi.call.ph4754 = phi ptr [ %15, %77 ], [ %40, %64 ], [ %40, %68 ]
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %85 = getelementptr inbounds nuw i8, ptr %phi.call.ph4754, i64 168
+  store ptr %84, ptr %85, align 8, !tbaa !28
+  %86 = load ptr, ptr %84, align 8, !tbaa !34
+  %87 = getelementptr inbounds nuw i8, ptr %phi.call.ph4754, i64 136
+  store ptr %86, ptr %87, align 8, !tbaa !10
+  %88 = getelementptr inbounds nuw i8, ptr %86, i64 128
   %89 = load ptr, ptr %88, align 8, !tbaa !26
-  %90 = getelementptr inbounds nuw i8, ptr %89, i64 136
-  store ptr %phi.call.ph4754, ptr %90, align 8, !tbaa !10
+  %90 = getelementptr inbounds nuw i8, ptr %phi.call.ph4754, i64 128
+  store ptr %89, ptr %90, align 8, !tbaa !26
+  store ptr %phi.call.ph4754, ptr %88, align 8, !tbaa !26
+  %91 = load ptr, ptr %90, align 8, !tbaa !26
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 136
+  store ptr %phi.call.ph4754, ptr %92, align 8, !tbaa !10
   br label %_ZL23tMPI_Prep_recv_envelopeP11tmpi_threadP10tmpi_comm_S0_S0_PviP14tmpi_datatype_ii.exit
 
 _ZL23tMPI_Prep_recv_envelopeP11tmpi_threadP10tmpi_comm_S0_S0_PviP14tmpi_datatype_ii.exit: ; preds = %_ZL29tMPI_Free_env_list_fetch_recvP18free_envelope_list.exit.thread.i, %_ZL29tMPI_Free_env_list_fetch_recvP18free_envelope_list.exit.thread.i41, %.thread55, %.thread50
@@ -880,36 +883,37 @@ define noundef ptr @_Z14tMPI_Post_sendP11tmpi_threadP10tmpi_comm_S0_PviP14tmpi_d
 _ZL23tMPI_Prep_send_envelopeP18send_envelope_listP10tmpi_comm_P11tmpi_threadS4_PviP14tmpi_datatype_ii.exit: ; preds = %.loopexit.i.i
   %52 = load ptr, ptr @TMPI_COMM_WORLD, align 8, !tbaa !44
   %53 = tail call noundef i32 @_Z10tMPI_ErrorP10tmpi_comm_i(ptr noundef %52, i32 noundef 20)
-  br label %67
+  br label %68
 
 54:                                               ; preds = %50, %.loopexit.i
   %55 = load ptr, ptr %15, align 8, !tbaa !77
+  %56 = getelementptr inbounds %struct.send_envelope_list, ptr %55, i64 %17
   store ptr null, ptr %33, align 8, !tbaa !26
-  %56 = getelementptr inbounds %struct.send_envelope_list, ptr %55, i64 %17, i32 1
-  %57 = getelementptr inbounds nuw i8, ptr %32, i64 136
-  %58 = ptrtoint ptr %32 to i64
-  br label %59
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %32, i64 136
+  %59 = ptrtoint ptr %32 to i64
+  br label %60
 
-59:                                               ; preds = %59, %54
-  %60 = load ptr, ptr %56, align 8, !tbaa !30
-  store ptr %60, ptr %57, align 8, !tbaa !10
-  %61 = ptrtoint ptr %60 to i64
-  %62 = cmpxchg ptr %56, i64 %61, i64 %58 seq_cst seq_cst, align 8
-  %63 = extractvalue { i64, i1 } %62, 1
-  br i1 %63, label %_ZL26tMPI_Send_env_list_add_newP11tmpi_threadP18send_envelope_listP8envelope.exit, label %59, !llvm.loop !85
+60:                                               ; preds = %60, %54
+  %61 = load ptr, ptr %57, align 8, !tbaa !30
+  store ptr %61, ptr %58, align 8, !tbaa !10
+  %62 = ptrtoint ptr %61 to i64
+  %63 = cmpxchg ptr %57, i64 %62, i64 %59 seq_cst seq_cst, align 8
+  %64 = extractvalue { i64, i1 } %63, 1
+  br i1 %64, label %_ZL26tMPI_Send_env_list_add_newP11tmpi_threadP18send_envelope_listP8envelope.exit, label %60, !llvm.loop !85
 
-_ZL26tMPI_Send_env_list_add_newP11tmpi_threadP18send_envelope_listP8envelope.exit: ; preds = %59
+_ZL26tMPI_Send_env_list_add_newP11tmpi_threadP18send_envelope_listP8envelope.exit: ; preds = %60
   fence seq_cst
-  %64 = load ptr, ptr %39, align 8, !tbaa !64
-  %65 = getelementptr inbounds nuw i8, ptr %64, i64 288
+  %65 = load ptr, ptr %39, align 8, !tbaa !64
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 288
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store volatile i32 1, ptr %9, align 4, !tbaa !75
   %.0..0..0..0..0..0..0..0..i.i = load volatile i32, ptr %9, align 4, !tbaa !75
-  %66 = atomicrmw add ptr %65, i32 %.0..0..0..0..0..0..0..0..i.i seq_cst, align 4
+  %67 = atomicrmw add ptr %66, i32 %.0..0..0..0..0..0..0..0..i.i seq_cst, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %67
+  br label %68
 
-67:                                               ; preds = %_ZL23tMPI_Prep_send_envelopeP18send_envelope_listP10tmpi_comm_P11tmpi_threadS4_PviP14tmpi_datatype_ii.exit, %_ZL26tMPI_Send_env_list_add_newP11tmpi_threadP18send_envelope_listP8envelope.exit
+68:                                               ; preds = %_ZL23tMPI_Prep_send_envelopeP18send_envelope_listP10tmpi_comm_P11tmpi_threadS4_PviP14tmpi_datatype_ii.exit, %_ZL26tMPI_Send_env_list_add_newP11tmpi_threadP18send_envelope_listP8envelope.exit
   %.0 = phi ptr [ %32, %_ZL26tMPI_Send_env_list_add_newP11tmpi_threadP18send_envelope_listP8envelope.exit ], [ null, %_ZL23tMPI_Prep_send_envelopeP18send_envelope_listP10tmpi_comm_P11tmpi_threadS4_PviP14tmpi_datatype_ii.exit ]
   ret ptr %.0
 }
@@ -947,33 +951,34 @@ define void @_Z26tMPI_Wait_process_incomingP11tmpi_thread(ptr noundef %0) local_
 
 16:                                               ; preds = %.preheader52, %16
   %17 = load ptr, ptr %14, align 8, !tbaa !77
-  %18 = getelementptr inbounds nuw %struct.send_envelope_list, ptr %17, i64 %indvars.iv, i32 1
-  %19 = load ptr, ptr %18, align 8, !tbaa !30
-  %20 = ptrtoint ptr %19 to i64
-  %21 = cmpxchg ptr %18, i64 %20, i64 0 seq_cst seq_cst, align 8
-  %22 = extractvalue { i64, i1 } %21, 1
-  br i1 %22, label %23, label %16, !llvm.loop !87
+  %18 = getelementptr inbounds nuw %struct.send_envelope_list, ptr %17, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %20 = load ptr, ptr %19, align 8, !tbaa !30
+  %21 = ptrtoint ptr %20 to i64
+  %22 = cmpxchg ptr %19, i64 %21, i64 0 seq_cst seq_cst, align 8
+  %23 = extractvalue { i64, i1 } %22, 1
+  br i1 %23, label %24, label %16, !llvm.loop !87
 
-23:                                               ; preds = %16
-  %.not40 = icmp eq ptr %19, null
+24:                                               ; preds = %16
+  %.not40 = icmp eq ptr %20, null
   br i1 %.not40, label %.loopexit50, label %.preheader51
 
-.preheader51:                                     ; preds = %23, %.preheader51
-  %.03557 = phi ptr [ %.03656, %.preheader51 ], [ null, %23 ]
-  %.03656 = phi ptr [ %26, %.preheader51 ], [ %19, %23 ]
-  %24 = getelementptr inbounds nuw i8, ptr %.03656, i64 128
-  store ptr %.03557, ptr %24, align 8, !tbaa !26
-  %25 = getelementptr inbounds nuw i8, ptr %.03656, i64 136
-  %26 = load ptr, ptr %25, align 8, !tbaa !10
-  %.not41 = icmp eq ptr %26, null
+.preheader51:                                     ; preds = %24, %.preheader51
+  %.03557 = phi ptr [ %.03656, %.preheader51 ], [ null, %24 ]
+  %.03656 = phi ptr [ %27, %.preheader51 ], [ %20, %24 ]
+  %25 = getelementptr inbounds nuw i8, ptr %.03656, i64 128
+  store ptr %.03557, ptr %25, align 8, !tbaa !26
+  %26 = getelementptr inbounds nuw i8, ptr %.03656, i64 136
+  %27 = load ptr, ptr %26, align 8, !tbaa !10
+  %.not41 = icmp eq ptr %27, null
   br i1 %.not41, label %.preheader, label %.preheader51, !llvm.loop !88
 
 .preheader:                                       ; preds = %.preheader51, %_ZL9tMPI_XferP11tmpi_threadP8envelopeS2_.exit
-  %.359 = phi i32 [ %29, %_ZL9tMPI_XferP11tmpi_threadP8envelopeS2_.exit ], [ %.160, %.preheader51 ]
-  %.13758 = phi ptr [ %28, %_ZL9tMPI_XferP11tmpi_threadP8envelopeS2_.exit ], [ %.03656, %.preheader51 ]
-  %27 = getelementptr inbounds nuw i8, ptr %.13758, i64 128
-  %28 = load ptr, ptr %27, align 8, !tbaa !26
-  %29 = add nsw i32 %.359, 1
+  %.359 = phi i32 [ %30, %_ZL9tMPI_XferP11tmpi_threadP8envelopeS2_.exit ], [ %.160, %.preheader51 ]
+  %.13758 = phi ptr [ %29, %_ZL9tMPI_XferP11tmpi_threadP8envelopeS2_.exit ], [ %.03656, %.preheader51 ]
+  %28 = getelementptr inbounds nuw i8, ptr %.13758, i64 128
+  %29 = load ptr, ptr %28, align 8, !tbaa !26
+  %30 = add nsw i32 %.359, 1
   %.val = load ptr, ptr %15, align 8, !tbaa !34
   %.0.in3.i = getelementptr inbounds nuw i8, ptr %.val, i64 136
   %.04.i = load ptr, ptr %.0.in3.i, align 8, !tbaa !10
@@ -981,228 +986,228 @@ define void @_Z26tMPI_Wait_process_incomingP11tmpi_thread(ptr noundef %0) local_
   br i1 %.not5.i, label %.loopexit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader
-  %30 = getelementptr inbounds nuw i8, ptr %.13758, i64 8
-  %31 = getelementptr inbounds nuw i8, ptr %.13758, i64 16
-  %32 = getelementptr inbounds nuw i8, ptr %.13758, i64 24
-  %33 = getelementptr inbounds nuw i8, ptr %.13758, i64 48
-  %34 = getelementptr inbounds nuw i8, ptr %.13758, i64 60
-  br label %35
+  %31 = getelementptr inbounds nuw i8, ptr %.13758, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %.13758, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %.13758, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %.13758, i64 48
+  %35 = getelementptr inbounds nuw i8, ptr %.13758, i64 60
+  br label %36
 
-35:                                               ; preds = %_ZL21tMPI_Envelope_matchesPK8envelopeS1_.exit.i, %.lr.ph.i
+36:                                               ; preds = %_ZL21tMPI_Envelope_matchesPK8envelopeS1_.exit.i, %.lr.ph.i
   %.06.i = phi ptr [ %.04.i, %.lr.ph.i ], [ %.0.i, %_ZL21tMPI_Envelope_matchesPK8envelopeS1_.exit.i ]
-  %36 = load i32, ptr %.06.i, align 8, !tbaa !62
-  %37 = icmp eq i32 %36, -1
-  br i1 %37, label %41, label %38
+  %37 = load i32, ptr %.06.i, align 8, !tbaa !62
+  %38 = icmp eq i32 %37, -1
+  br i1 %38, label %42, label %39
 
-38:                                               ; preds = %35
-  %39 = load i32, ptr %.13758, align 8, !tbaa !62
-  %40 = icmp eq i32 %36, %39
-  br i1 %40, label %41, label %_ZL21tMPI_Envelope_matchesPK8envelopeS1_.exit.i
+39:                                               ; preds = %36
+  %40 = load i32, ptr %.13758, align 8, !tbaa !62
+  %41 = icmp eq i32 %37, %40
+  br i1 %41, label %42, label %_ZL21tMPI_Envelope_matchesPK8envelopeS1_.exit.i
 
-41:                                               ; preds = %38, %35
-  %42 = load ptr, ptr %30, align 8, !tbaa !49
-  %43 = getelementptr inbounds nuw i8, ptr %.06.i, i64 8
-  %44 = load ptr, ptr %43, align 8, !tbaa !49
-  %45 = icmp eq ptr %42, %44
-  br i1 %45, label %46, label %_ZL21tMPI_Envelope_matchesPK8envelopeS1_.exit.i
+42:                                               ; preds = %39, %36
+  %43 = load ptr, ptr %31, align 8, !tbaa !49
+  %44 = getelementptr inbounds nuw i8, ptr %.06.i, i64 8
+  %45 = load ptr, ptr %44, align 8, !tbaa !49
+  %46 = icmp eq ptr %43, %45
+  br i1 %46, label %47, label %_ZL21tMPI_Envelope_matchesPK8envelopeS1_.exit.i
 
-46:                                               ; preds = %41
-  %47 = getelementptr inbounds nuw i8, ptr %.06.i, i64 16
-  %48 = load ptr, ptr %47, align 8, !tbaa !47
-  %.not.i.i = icmp eq ptr %48, null
-  br i1 %.not.i.i, label %52, label %49
+47:                                               ; preds = %42
+  %48 = getelementptr inbounds nuw i8, ptr %.06.i, i64 16
+  %49 = load ptr, ptr %48, align 8, !tbaa !47
+  %.not.i.i = icmp eq ptr %49, null
+  br i1 %.not.i.i, label %53, label %50
 
-49:                                               ; preds = %46
-  %50 = load ptr, ptr %31, align 8, !tbaa !47
-  %51 = icmp eq ptr %48, %50
-  br i1 %51, label %52, label %_ZL21tMPI_Envelope_matchesPK8envelopeS1_.exit.i
+50:                                               ; preds = %47
+  %51 = load ptr, ptr %32, align 8, !tbaa !47
+  %52 = icmp eq ptr %49, %51
+  br i1 %52, label %53, label %_ZL21tMPI_Envelope_matchesPK8envelopeS1_.exit.i
 
-52:                                               ; preds = %49, %46
-  %53 = load ptr, ptr %32, align 8, !tbaa !64
-  %54 = getelementptr inbounds nuw i8, ptr %.06.i, i64 24
-  %55 = load ptr, ptr %54, align 8, !tbaa !64
-  %56 = icmp eq ptr %53, %55
-  br i1 %56, label %57, label %_ZL21tMPI_Envelope_matchesPK8envelopeS1_.exit.i
+53:                                               ; preds = %50, %47
+  %54 = load ptr, ptr %33, align 8, !tbaa !64
+  %55 = getelementptr inbounds nuw i8, ptr %.06.i, i64 24
+  %56 = load ptr, ptr %55, align 8, !tbaa !64
+  %57 = icmp eq ptr %54, %56
+  br i1 %57, label %58, label %_ZL21tMPI_Envelope_matchesPK8envelopeS1_.exit.i
 
-57:                                               ; preds = %52
-  %58 = load ptr, ptr %33, align 8, !tbaa !71
-  %59 = getelementptr inbounds nuw i8, ptr %.06.i, i64 48
-  %60 = load ptr, ptr %59, align 8, !tbaa !71
-  %61 = icmp eq ptr %58, %60
-  br i1 %61, label %62, label %_ZL21tMPI_Envelope_matchesPK8envelopeS1_.exit.i
+58:                                               ; preds = %53
+  %59 = load ptr, ptr %34, align 8, !tbaa !71
+  %60 = getelementptr inbounds nuw i8, ptr %.06.i, i64 48
+  %61 = load ptr, ptr %60, align 8, !tbaa !71
+  %62 = icmp eq ptr %59, %61
+  br i1 %62, label %63, label %_ZL21tMPI_Envelope_matchesPK8envelopeS1_.exit.i
 
-62:                                               ; preds = %57
-  %63 = load i32, ptr %34, align 4, !tbaa !73
-  %64 = icmp slt i32 %63, 3
-  br i1 %64, label %65, label %_ZL21tMPI_Envelope_matchesPK8envelopeS1_.exit.i
+63:                                               ; preds = %58
+  %64 = load i32, ptr %35, align 4, !tbaa !73
+  %65 = icmp slt i32 %64, 3
+  br i1 %65, label %66, label %_ZL21tMPI_Envelope_matchesPK8envelopeS1_.exit.i
 
-65:                                               ; preds = %62
-  %66 = getelementptr inbounds nuw i8, ptr %.06.i, i64 60
-  %67 = load i32, ptr %66, align 4, !tbaa !73
-  %68 = icmp eq i32 %67, 0
-  br i1 %68, label %_ZL29tMPI_Recv_env_list_search_newP18recv_envelope_listP8envelope.exit, label %_ZL21tMPI_Envelope_matchesPK8envelopeS1_.exit.i
+66:                                               ; preds = %63
+  %67 = getelementptr inbounds nuw i8, ptr %.06.i, i64 60
+  %68 = load i32, ptr %67, align 4, !tbaa !73
+  %69 = icmp eq i32 %68, 0
+  br i1 %69, label %_ZL29tMPI_Recv_env_list_search_newP18recv_envelope_listP8envelope.exit, label %_ZL21tMPI_Envelope_matchesPK8envelopeS1_.exit.i
 
-_ZL21tMPI_Envelope_matchesPK8envelopeS1_.exit.i:  ; preds = %65, %62, %57, %52, %49, %41, %38
+_ZL21tMPI_Envelope_matchesPK8envelopeS1_.exit.i:  ; preds = %66, %63, %58, %53, %50, %42, %39
   %.0.in.i = getelementptr inbounds nuw i8, ptr %.06.i, i64 136
   %.0.i = load ptr, ptr %.0.in.i, align 8, !tbaa !10
   %.not.i = icmp eq ptr %.0.i, %.val
-  br i1 %.not.i, label %.loopexit, label %35, !llvm.loop !89
+  br i1 %.not.i, label %.loopexit, label %36, !llvm.loop !89
 
-_ZL29tMPI_Recv_env_list_search_newP18recv_envelope_listP8envelope.exit: ; preds = %65
-  %69 = getelementptr inbounds nuw i8, ptr %.06.i, i64 16
-  %70 = getelementptr inbounds nuw i8, ptr %.06.i, i64 60
-  %71 = load ptr, ptr %31, align 8, !tbaa !47
-  store ptr %71, ptr %69, align 8, !tbaa !47
-  %72 = load i32, ptr %.13758, align 8, !tbaa !62
-  store i32 %72, ptr %.06.i, align 8, !tbaa !62
-  %73 = getelementptr inbounds nuw i8, ptr %.13758, i64 40
-  %74 = load i64, ptr %73, align 8, !tbaa !70
-  %.not.i44 = icmp eq i64 %74, 0
-  br i1 %.not.i44, label %93, label %75
+_ZL29tMPI_Recv_env_list_search_newP18recv_envelope_listP8envelope.exit: ; preds = %66
+  %70 = getelementptr inbounds nuw i8, ptr %.06.i, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %.06.i, i64 60
+  %72 = load ptr, ptr %32, align 8, !tbaa !47
+  store ptr %72, ptr %70, align 8, !tbaa !47
+  %73 = load i32, ptr %.13758, align 8, !tbaa !62
+  store i32 %73, ptr %.06.i, align 8, !tbaa !62
+  %74 = getelementptr inbounds nuw i8, ptr %.13758, i64 40
+  %75 = load i64, ptr %74, align 8, !tbaa !70
+  %.not.i44 = icmp eq i64 %75, 0
+  br i1 %.not.i44, label %94, label %76
 
-75:                                               ; preds = %_ZL29tMPI_Recv_env_list_search_newP18recv_envelope_listP8envelope.exit
-  %76 = getelementptr inbounds nuw i8, ptr %.13758, i64 32
-  %77 = load ptr, ptr %76, align 8, !tbaa !65
-  %78 = getelementptr inbounds nuw i8, ptr %.06.i, i64 40
-  %79 = load i64, ptr %78, align 8, !tbaa !70
-  %80 = icmp ugt i64 %74, %79
-  br i1 %80, label %81, label %85
+76:                                               ; preds = %_ZL29tMPI_Recv_env_list_search_newP18recv_envelope_listP8envelope.exit
+  %77 = getelementptr inbounds nuw i8, ptr %.13758, i64 32
+  %78 = load ptr, ptr %77, align 8, !tbaa !65
+  %79 = getelementptr inbounds nuw i8, ptr %.06.i, i64 40
+  %80 = load i64, ptr %79, align 8, !tbaa !70
+  %81 = icmp ugt i64 %75, %80
+  br i1 %81, label %82, label %86
 
-81:                                               ; preds = %75
-  %82 = tail call noundef i32 @_Z10tMPI_ErrorP10tmpi_comm_i(ptr noundef %44, i32 noundef 13)
-  store i32 3, ptr %70, align 4, !tbaa !73
-  store i32 3, ptr %34, align 4, !tbaa !73
-  %83 = getelementptr inbounds nuw i8, ptr %.06.i, i64 124
-  store i32 13, ptr %83, align 4, !tbaa !74
-  %84 = getelementptr inbounds nuw i8, ptr %.13758, i64 124
+82:                                               ; preds = %76
+  %83 = tail call noundef i32 @_Z10tMPI_ErrorP10tmpi_comm_i(ptr noundef %45, i32 noundef 13)
+  store i32 3, ptr %71, align 4, !tbaa !73
+  store i32 3, ptr %35, align 4, !tbaa !73
+  %84 = getelementptr inbounds nuw i8, ptr %.06.i, i64 124
   store i32 13, ptr %84, align 4, !tbaa !74
+  %85 = getelementptr inbounds nuw i8, ptr %.13758, i64 124
+  store i32 13, ptr %85, align 4, !tbaa !74
   br label %_ZL9tMPI_XferP11tmpi_threadP8envelopeS2_.exit
 
-85:                                               ; preds = %75
-  %86 = getelementptr inbounds nuw i8, ptr %.06.i, i64 32
-  %87 = load ptr, ptr %86, align 8, !tbaa !65
-  %.not33.i = icmp eq ptr %87, null
-  %.not34.i = icmp eq ptr %77, null
+86:                                               ; preds = %76
+  %87 = getelementptr inbounds nuw i8, ptr %.06.i, i64 32
+  %88 = load ptr, ptr %87, align 8, !tbaa !65
+  %.not33.i = icmp eq ptr %88, null
+  %.not34.i = icmp eq ptr %78, null
   %or.cond.i = select i1 %.not33.i, i1 true, i1 %.not34.i
-  br i1 %or.cond.i, label %88, label %92
+  br i1 %or.cond.i, label %89, label %93
 
-88:                                               ; preds = %85
-  %89 = tail call noundef i32 @_Z10tMPI_ErrorP10tmpi_comm_i(ptr noundef %44, i32 noundef 17)
-  store i32 3, ptr %70, align 4, !tbaa !73
-  store i32 3, ptr %34, align 4, !tbaa !73
-  %90 = getelementptr inbounds nuw i8, ptr %.06.i, i64 124
-  store i32 17, ptr %90, align 4, !tbaa !74
-  %91 = getelementptr inbounds nuw i8, ptr %.13758, i64 124
+89:                                               ; preds = %86
+  %90 = tail call noundef i32 @_Z10tMPI_ErrorP10tmpi_comm_i(ptr noundef %45, i32 noundef 17)
+  store i32 3, ptr %71, align 4, !tbaa !73
+  store i32 3, ptr %35, align 4, !tbaa !73
+  %91 = getelementptr inbounds nuw i8, ptr %.06.i, i64 124
   store i32 17, ptr %91, align 4, !tbaa !74
+  %92 = getelementptr inbounds nuw i8, ptr %.13758, i64 124
+  store i32 17, ptr %92, align 4, !tbaa !74
   br label %_ZL9tMPI_XferP11tmpi_threadP8envelopeS2_.exit
 
-92:                                               ; preds = %85
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %87, ptr nonnull align 1 %77, i64 %74, i1 false)
-  %.pre.i = load i64, ptr %73, align 8, !tbaa !70
-  %.pre3.i = load ptr, ptr %69, align 8, !tbaa !47
-  br label %93
+93:                                               ; preds = %86
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %88, ptr nonnull align 1 %78, i64 %75, i1 false)
+  %.pre.i = load i64, ptr %74, align 8, !tbaa !70
+  %.pre3.i = load ptr, ptr %70, align 8, !tbaa !47
+  br label %94
 
-93:                                               ; preds = %92, %_ZL29tMPI_Recv_env_list_search_newP18recv_envelope_listP8envelope.exit
-  %94 = phi ptr [ %.pre3.i, %92 ], [ %71, %_ZL29tMPI_Recv_env_list_search_newP18recv_envelope_listP8envelope.exit ]
-  %95 = phi i64 [ %.pre.i, %92 ], [ 0, %_ZL29tMPI_Recv_env_list_search_newP18recv_envelope_listP8envelope.exit ]
-  %96 = getelementptr inbounds nuw i8, ptr %.06.i, i64 40
-  store i64 %95, ptr %96, align 8, !tbaa !70
-  store i32 3, ptr %70, align 4, !tbaa !73
-  store i32 3, ptr %34, align 4, !tbaa !73
-  %97 = getelementptr inbounds nuw i8, ptr %94, i64 224
+94:                                               ; preds = %93, %_ZL29tMPI_Recv_env_list_search_newP18recv_envelope_listP8envelope.exit
+  %95 = phi ptr [ %.pre3.i, %93 ], [ %72, %_ZL29tMPI_Recv_env_list_search_newP18recv_envelope_listP8envelope.exit ]
+  %96 = phi i64 [ %.pre.i, %93 ], [ 0, %_ZL29tMPI_Recv_env_list_search_newP18recv_envelope_listP8envelope.exit ]
+  %97 = getelementptr inbounds nuw i8, ptr %.06.i, i64 40
+  store i64 %96, ptr %97, align 8, !tbaa !70
+  store i32 3, ptr %71, align 4, !tbaa !73
+  store i32 3, ptr %35, align 4, !tbaa !73
+  %98 = getelementptr inbounds nuw i8, ptr %95, i64 224
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store volatile i32 1, ptr %3, align 4, !tbaa !75
   %.0..0..0..0..0..0..0..0..i.i = load volatile i32, ptr %3, align 4, !tbaa !75
-  %98 = atomicrmw add ptr %97, i32 %.0..0..0..0..0..0..0..0..i.i seq_cst, align 4
+  %99 = atomicrmw add ptr %98, i32 %.0..0..0..0..0..0..0..0..i.i seq_cst, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   fence seq_cst
-  %99 = load ptr, ptr %69, align 8, !tbaa !47
-  %100 = getelementptr inbounds nuw i8, ptr %99, i64 288
+  %100 = load ptr, ptr %70, align 8, !tbaa !47
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 288
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store volatile i32 1, ptr %2, align 4, !tbaa !75
   %.0..0..0..0..0..0..0..0..i35.i = load volatile i32, ptr %2, align 4, !tbaa !75
-  %101 = atomicrmw add ptr %100, i32 %.0..0..0..0..0..0..0..0..i35.i seq_cst, align 4
+  %102 = atomicrmw add ptr %101, i32 %.0..0..0..0..0..0..0..0..i35.i seq_cst, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %102 = getelementptr inbounds nuw i8, ptr %.06.i, i64 136
-  %103 = load ptr, ptr %102, align 8, !tbaa !10
-  %.not.i.i45 = icmp eq ptr %103, null
+  %103 = getelementptr inbounds nuw i8, ptr %.06.i, i64 136
+  %104 = load ptr, ptr %103, align 8, !tbaa !10
+  %.not.i.i45 = icmp eq ptr %104, null
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %.06.i, i64 128
   %.pre.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8, !tbaa !26
-  br i1 %.not.i.i45, label %._crit_edge.i.i, label %104
+  br i1 %.not.i.i45, label %._crit_edge.i.i, label %105
 
-104:                                              ; preds = %93
-  %105 = getelementptr inbounds nuw i8, ptr %103, i64 128
-  store ptr %.pre.i.i, ptr %105, align 8, !tbaa !26
+105:                                              ; preds = %94
+  %106 = getelementptr inbounds nuw i8, ptr %104, i64 128
+  store ptr %.pre.i.i, ptr %106, align 8, !tbaa !26
   br label %._crit_edge.i.i
 
-._crit_edge.i.i:                                  ; preds = %104, %93
+._crit_edge.i.i:                                  ; preds = %105, %94
   %.not10.i.i = icmp eq ptr %.pre.i.i, null
-  br i1 %.not10.i.i, label %_ZL25tMPI_Recv_env_list_removeP8envelope.exit.i, label %106
+  br i1 %.not10.i.i, label %_ZL25tMPI_Recv_env_list_removeP8envelope.exit.i, label %107
 
-106:                                              ; preds = %._crit_edge.i.i
-  %107 = getelementptr inbounds nuw i8, ptr %.pre.i.i, i64 136
-  store ptr %103, ptr %107, align 8, !tbaa !10
+107:                                              ; preds = %._crit_edge.i.i
+  %108 = getelementptr inbounds nuw i8, ptr %.pre.i.i, i64 136
+  store ptr %104, ptr %108, align 8, !tbaa !10
   br label %_ZL25tMPI_Recv_env_list_removeP8envelope.exit.i
 
-_ZL25tMPI_Recv_env_list_removeP8envelope.exit.i:  ; preds = %106, %._crit_edge.i.i
-  %108 = getelementptr inbounds nuw i8, ptr %.06.i, i64 168
-  store ptr null, ptr %108, align 8, !tbaa !28
+_ZL25tMPI_Recv_env_list_removeP8envelope.exit.i:  ; preds = %107, %._crit_edge.i.i
+  %109 = getelementptr inbounds nuw i8, ptr %.06.i, i64 168
+  store ptr null, ptr %109, align 8, !tbaa !28
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.phi.trans.insert.i.i, i8 0, i64 16, i1 false)
   br label %_ZL9tMPI_XferP11tmpi_threadP8envelopeS2_.exit
 
 .loopexit:                                        ; preds = %_ZL21tMPI_Envelope_matchesPK8envelopeS1_.exit.i, %.preheader
-  %109 = getelementptr inbounds nuw i8, ptr %.13758, i64 176
-  %110 = load ptr, ptr %109, align 8, !tbaa !27
-  %111 = getelementptr inbounds nuw i8, ptr %.13758, i64 136
-  %112 = load ptr, ptr %111, align 8, !tbaa !10
-  %.not.i46 = icmp eq ptr %112, null
-  br i1 %.not.i46, label %._crit_edge.i, label %113
+  %110 = getelementptr inbounds nuw i8, ptr %.13758, i64 176
+  %111 = load ptr, ptr %110, align 8, !tbaa !27
+  %112 = getelementptr inbounds nuw i8, ptr %.13758, i64 136
+  %113 = load ptr, ptr %112, align 8, !tbaa !10
+  %.not.i46 = icmp eq ptr %113, null
+  br i1 %.not.i46, label %._crit_edge.i, label %114
 
-113:                                              ; preds = %.loopexit
-  %114 = getelementptr inbounds nuw i8, ptr %112, i64 128
-  store ptr %28, ptr %114, align 8, !tbaa !26
+114:                                              ; preds = %.loopexit
+  %115 = getelementptr inbounds nuw i8, ptr %113, i64 128
+  store ptr %29, ptr %115, align 8, !tbaa !26
   br label %._crit_edge.i
 
-._crit_edge.i:                                    ; preds = %113, %.loopexit
-  %.not16.i = icmp eq ptr %28, null
-  br i1 %.not16.i, label %_ZL30tMPI_Send_env_list_move_to_oldP8envelope.exit, label %115
+._crit_edge.i:                                    ; preds = %114, %.loopexit
+  %.not16.i = icmp eq ptr %29, null
+  br i1 %.not16.i, label %_ZL30tMPI_Send_env_list_move_to_oldP8envelope.exit, label %116
 
-115:                                              ; preds = %._crit_edge.i
-  %116 = getelementptr inbounds nuw i8, ptr %28, i64 136
-  store ptr %112, ptr %116, align 8, !tbaa !10
+116:                                              ; preds = %._crit_edge.i
+  %117 = getelementptr inbounds nuw i8, ptr %29, i64 136
+  store ptr %113, ptr %117, align 8, !tbaa !10
   br label %_ZL30tMPI_Send_env_list_move_to_oldP8envelope.exit
 
-_ZL30tMPI_Send_env_list_move_to_oldP8envelope.exit: ; preds = %._crit_edge.i, %115
-  %117 = getelementptr inbounds nuw i8, ptr %110, i64 136
-  %118 = load ptr, ptr %117, align 8, !tbaa !33
-  store ptr %118, ptr %111, align 8, !tbaa !10
-  %119 = getelementptr inbounds nuw i8, ptr %118, i64 128
-  %120 = load ptr, ptr %119, align 8, !tbaa !26
-  store ptr %120, ptr %27, align 8, !tbaa !26
-  store ptr %.13758, ptr %119, align 8, !tbaa !26
-  %121 = load ptr, ptr %27, align 8, !tbaa !26
-  %122 = getelementptr inbounds nuw i8, ptr %121, i64 136
-  store ptr %.13758, ptr %122, align 8, !tbaa !10
+_ZL30tMPI_Send_env_list_move_to_oldP8envelope.exit: ; preds = %._crit_edge.i, %116
+  %118 = getelementptr inbounds nuw i8, ptr %111, i64 136
+  %119 = load ptr, ptr %118, align 8, !tbaa !33
+  store ptr %119, ptr %112, align 8, !tbaa !10
+  %120 = getelementptr inbounds nuw i8, ptr %119, i64 128
+  %121 = load ptr, ptr %120, align 8, !tbaa !26
+  store ptr %121, ptr %28, align 8, !tbaa !26
+  store ptr %.13758, ptr %120, align 8, !tbaa !26
+  %122 = load ptr, ptr %28, align 8, !tbaa !26
+  %123 = getelementptr inbounds nuw i8, ptr %122, i64 136
+  store ptr %.13758, ptr %123, align 8, !tbaa !10
   br label %_ZL9tMPI_XferP11tmpi_threadP8envelopeS2_.exit
 
-_ZL9tMPI_XferP11tmpi_threadP8envelopeS2_.exit:    ; preds = %_ZL25tMPI_Recv_env_list_removeP8envelope.exit.i, %88, %81, %_ZL30tMPI_Send_env_list_move_to_oldP8envelope.exit
-  %.not42 = icmp eq ptr %28, null
+_ZL9tMPI_XferP11tmpi_threadP8envelopeS2_.exit:    ; preds = %_ZL25tMPI_Recv_env_list_removeP8envelope.exit.i, %89, %82, %_ZL30tMPI_Send_env_list_move_to_oldP8envelope.exit
+  %.not42 = icmp eq ptr %29, null
   br i1 %.not42, label %.loopexit50, label %.preheader, !llvm.loop !90
 
-.loopexit50:                                      ; preds = %_ZL9tMPI_XferP11tmpi_threadP8envelopeS2_.exit, %23
-  %.2 = phi i32 [ %.160, %23 ], [ %29, %_ZL9tMPI_XferP11tmpi_threadP8envelopeS2_.exit ]
+.loopexit50:                                      ; preds = %_ZL9tMPI_XferP11tmpi_threadP8envelopeS2_.exit, %24
+  %.2 = phi i32 [ %.160, %24 ], [ %30, %_ZL9tMPI_XferP11tmpi_threadP8envelopeS2_.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %123 = load i32, ptr @Nthreads, align 4, !tbaa !75
-  %124 = sext i32 %123 to i64
-  %125 = icmp slt i64 %indvars.iv.next, %124
-  br i1 %125, label %.preheader52, label %.loopexit54, !llvm.loop !91
+  %124 = load i32, ptr @Nthreads, align 4, !tbaa !75
+  %125 = sext i32 %124 to i64
+  %126 = icmp slt i64 %indvars.iv.next, %125
+  br i1 %126, label %.preheader52, label %.loopexit54, !llvm.loop !91
 
 .loopexit54:                                      ; preds = %.loopexit50, %1
   %.034 = phi i32 [ %8, %1 ], [ %.2, %.loopexit50 ]
-  %126 = getelementptr inbounds nuw i8, ptr %0, i64 352
-  %127 = load i32, ptr %126, align 8, !tbaa !92
-  %128 = add nsw i32 %127, %.034
-  store i32 %128, ptr %126, align 8, !tbaa !92
+  %127 = getelementptr inbounds nuw i8, ptr %0, i64 352
+  %128 = load i32, ptr %127, align 8, !tbaa !92
+  %129 = add nsw i32 %128, %.034
+  store i32 %129, ptr %127, align 8, !tbaa !92
   ret void
 }
 

@@ -2105,79 +2105,80 @@ define internal fastcc void @trace_hotside(ptr noundef %0, ptr noundef %1) unnam
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 3020
   %14 = load i32, ptr %13, align 4, !tbaa !95
   %15 = zext i32 %14 to i64
-  %16 = getelementptr inbounds i8, ptr %0, i64 -591
-  %17 = load i8, ptr %16, align 1, !tbaa !71
-  %18 = and i8 %17, 96
-  %.not = icmp eq i8 %18, 0
-  br i1 %.not, label %19, label %lj_trace_ins.exit
+  %16 = getelementptr inbounds nuw %struct.SnapShot, ptr %12, i64 %15
+  %17 = getelementptr inbounds i8, ptr %0, i64 -591
+  %18 = load i8, ptr %17, align 1, !tbaa !71
+  %19 = and i8 %18, 96
+  %.not = icmp eq i8 %19, 0
+  br i1 %.not, label %20, label %lj_trace_ins.exit
 
-19:                                               ; preds = %2
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %21 = load ptr, ptr %20, align 8, !tbaa !7
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 32
-  %23 = load ptr, ptr %22, align 8, !tbaa !84
-  %24 = getelementptr inbounds i8, ptr %23, i64 -16
-  %25 = load i64, ptr %24, align 8, !tbaa !4
-  %26 = and i64 %25, 140737488355327
-  %27 = inttoptr i64 %26 to ptr
-  %28 = getelementptr inbounds nuw i8, ptr %27, i64 10
-  %29 = load i8, ptr %28, align 2, !tbaa !4
-  %30 = icmp eq i8 %29, 0
-  br i1 %30, label %31, label %lj_trace_ins.exit
+20:                                               ; preds = %2
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %22 = load ptr, ptr %21, align 8, !tbaa !7
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 32
+  %24 = load ptr, ptr %23, align 8, !tbaa !84
+  %25 = getelementptr inbounds i8, ptr %24, i64 -16
+  %26 = load i64, ptr %25, align 8, !tbaa !4
+  %27 = and i64 %26, 140737488355327
+  %28 = inttoptr i64 %27 to ptr
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 10
+  %30 = load i8, ptr %29, align 2, !tbaa !4
+  %31 = icmp eq i8 %30, 0
+  br i1 %31, label %32, label %lj_trace_ins.exit
 
-31:                                               ; preds = %19
-  %32 = getelementptr inbounds nuw %struct.SnapShot, ptr %12, i64 %15, i32 6
-  %33 = load i8, ptr %32, align 1, !tbaa !106
-  %.not11 = icmp eq i8 %33, -1
-  br i1 %.not11, label %lj_trace_ins.exit, label %34
+32:                                               ; preds = %20
+  %33 = getelementptr inbounds nuw i8, ptr %16, i64 11
+  %34 = load i8, ptr %33, align 1, !tbaa !106
+  %.not11 = icmp eq i8 %34, -1
+  br i1 %.not11, label %lj_trace_ins.exit, label %35
 
-34:                                               ; preds = %31
-  %35 = add nuw i8 %33, 1
-  store i8 %35, ptr %32, align 1, !tbaa !106
-  %36 = zext i8 %35 to i32
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 1664
-  %38 = load i32, ptr %37, align 4, !tbaa !56
-  %.not12 = icmp sgt i32 %38, %36
-  br i1 %.not12, label %lj_trace_ins.exit, label %39
+35:                                               ; preds = %32
+  %36 = add nuw i8 %34, 1
+  store i8 %36, ptr %33, align 1, !tbaa !106
+  %37 = zext i8 %36 to i32
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 1664
+  %39 = load i32, ptr %38, align 4, !tbaa !56
+  %.not12 = icmp sgt i32 %39, %37
+  br i1 %.not12, label %lj_trace_ins.exit, label %40
 
-39:                                               ; preds = %34
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 236
-  store i32 19, ptr %40, align 4, !tbaa !87
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store ptr %1, ptr %41, align 8, !tbaa !83
-  %42 = load i64, ptr %24, align 8, !tbaa !4
-  %43 = and i64 %42, 140737488355327
-  %44 = inttoptr i64 %43 to ptr
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store ptr %44, ptr %45, align 8, !tbaa !85
-  %46 = getelementptr inbounds nuw i8, ptr %44, i64 10
-  %47 = load i8, ptr %46, align 2, !tbaa !4
-  %48 = icmp eq i8 %47, 0
-  br i1 %48, label %49, label %54
+40:                                               ; preds = %35
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 236
+  store i32 19, ptr %41, align 4, !tbaa !87
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  store ptr %1, ptr %42, align 8, !tbaa !83
+  %43 = load i64, ptr %25, align 8, !tbaa !4
+  %44 = and i64 %43, 140737488355327
+  %45 = inttoptr i64 %44 to ptr
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  store ptr %45, ptr %46, align 8, !tbaa !85
+  %47 = getelementptr inbounds nuw i8, ptr %45, i64 10
+  %48 = load i8, ptr %47, align 2, !tbaa !4
+  %49 = icmp eq i8 %48, 0
+  br i1 %49, label %50, label %55
 
-49:                                               ; preds = %39
-  %50 = getelementptr inbounds nuw i8, ptr %44, i64 32
-  %51 = load i64, ptr %50, align 8, !tbaa !4
-  %52 = inttoptr i64 %51 to ptr
-  %53 = getelementptr inbounds i8, ptr %52, i64 -104
-  br label %54
+50:                                               ; preds = %40
+  %51 = getelementptr inbounds nuw i8, ptr %45, i64 32
+  %52 = load i64, ptr %51, align 8, !tbaa !4
+  %53 = inttoptr i64 %52 to ptr
+  %54 = getelementptr inbounds i8, ptr %53, i64 -104
+  br label %55
 
-54:                                               ; preds = %49, %39
-  %55 = phi ptr [ %53, %49 ], [ null, %39 ]
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  store ptr %55, ptr %56, align 8, !tbaa !86
-  %57 = tail call i32 @lj_vm_cpcall(ptr noundef nonnull %21, ptr noundef null, ptr noundef nonnull %0, ptr noundef nonnull @trace_state) #14
-  %.not10.i = icmp eq i32 %57, 0
+55:                                               ; preds = %50, %40
+  %56 = phi ptr [ %54, %50 ], [ null, %40 ]
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  store ptr %56, ptr %57, align 8, !tbaa !86
+  %58 = tail call i32 @lj_vm_cpcall(ptr noundef nonnull %22, ptr noundef null, ptr noundef nonnull %0, ptr noundef nonnull @trace_state) #14
+  %.not10.i = icmp eq i32 %58, 0
   br i1 %.not10.i, label %lj_trace_ins.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %54, %.lr.ph.i
-  store i32 22, ptr %40, align 4, !tbaa !87
-  %58 = load ptr, ptr %20, align 8, !tbaa !7
-  %59 = tail call i32 @lj_vm_cpcall(ptr noundef %58, ptr noundef null, ptr noundef nonnull %0, ptr noundef nonnull @trace_state) #14
-  %.not.i = icmp eq i32 %59, 0
+.lr.ph.i:                                         ; preds = %55, %.lr.ph.i
+  store i32 22, ptr %41, align 4, !tbaa !87
+  %59 = load ptr, ptr %21, align 8, !tbaa !7
+  %60 = tail call i32 @lj_vm_cpcall(ptr noundef %59, ptr noundef null, ptr noundef nonnull %0, ptr noundef nonnull @trace_state) #14
+  %.not.i = icmp eq i32 %60, 0
   br i1 %.not.i, label %lj_trace_ins.exit, label %.lr.ph.i, !llvm.loop !88
 
-lj_trace_ins.exit:                                ; preds = %.lr.ph.i, %54, %34, %31, %19, %2
+lj_trace_ins.exit:                                ; preds = %.lr.ph.i, %55, %35, %32, %20, %2
   ret void
 }
 
@@ -2192,14 +2193,14 @@ define hidden i64 @lj_trace_unwind(ptr noundef %0, i64 noundef %1, ptr noundef w
   %10 = load i64, ptr %9, align 8, !tbaa !41
   %11 = inttoptr i64 %10 to ptr
   %.not = icmp eq i64 %10, 0
-  br i1 %.not, label %51, label %12
+  br i1 %.not, label %52, label %12
 
 12:                                               ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 88
   %14 = load ptr, ptr %13, align 8, !tbaa !155
   %15 = ptrtoint ptr %14 to i64
   %.not33 = icmp ult i64 %1, %15
-  br i1 %.not33, label %51, label %16
+  br i1 %.not33, label %52, label %16
 
 16:                                               ; preds = %12
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 84
@@ -2207,7 +2208,7 @@ define hidden i64 @lj_trace_unwind(ptr noundef %0, i64 noundef %1, ptr noundef w
   %19 = zext i32 %18 to i64
   %20 = add i64 %19, %15
   %21 = icmp ult i64 %1, %20
-  br i1 %21, label %22, label %51
+  br i1 %21, label %22, label %52
 
 22:                                               ; preds = %16
   %23 = getelementptr inbounds nuw i8, ptr %11, i64 48
@@ -2224,33 +2225,34 @@ define hidden i64 @lj_trace_unwind(ptr noundef %0, i64 noundef %1, ptr noundef w
   %30 = add i32 %.027, %.028
   %31 = lshr i32 %30, 1
   %32 = zext nneg i32 %31 to i64
-  %33 = getelementptr inbounds nuw %struct.SnapShot, ptr %24, i64 %32, i32 2
-  %34 = load i16, ptr %33, align 2, !tbaa !157
-  %35 = zext i16 %34 to i64
-  %36 = icmp ult i64 %28, %35
-  %37 = add nuw i32 %31, 1
-  %.129 = select i1 %36, i32 %31, i32 %.028
-  %.1 = select i1 %36, i32 %.027, i32 %37
-  %38 = icmp ult i32 %.1, %.129
-  br i1 %38, label %29, label %39, !llvm.loop !158
+  %33 = getelementptr inbounds nuw %struct.SnapShot, ptr %24, i64 %32
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 6
+  %35 = load i16, ptr %34, align 2, !tbaa !157
+  %36 = zext i16 %35 to i64
+  %37 = icmp ult i64 %28, %36
+  %38 = add nuw i32 %31, 1
+  %.129 = select i1 %37, i32 %31, i32 %.028
+  %.1 = select i1 %37, i32 %.027, i32 %38
+  %39 = icmp ult i32 %.1, %.129
+  br i1 %39, label %29, label %40, !llvm.loop !158
 
-39:                                               ; preds = %29
-  %40 = add nsw i32 %.129, -1
-  store i32 %40, ptr %2, align 4, !tbaa !56
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 1696
-  %42 = lshr i32 %40, 5
-  %43 = zext nneg i32 %42 to i64
-  %44 = getelementptr inbounds nuw ptr, ptr %41, i64 %43
-  %45 = load ptr, ptr %44, align 8, !tbaa !159
-  %46 = shl i32 %40, 2
-  %47 = and i32 %46, 124
-  %48 = zext nneg i32 %47 to i64
-  %49 = getelementptr inbounds nuw i8, ptr %45, i64 %48
-  %50 = ptrtoint ptr %49 to i64
-  br label %51
+40:                                               ; preds = %29
+  %41 = add nsw i32 %.129, -1
+  store i32 %41, ptr %2, align 4, !tbaa !56
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 1696
+  %43 = lshr i32 %41, 5
+  %44 = zext nneg i32 %43 to i64
+  %45 = getelementptr inbounds nuw ptr, ptr %42, i64 %44
+  %46 = load ptr, ptr %45, align 8, !tbaa !159
+  %47 = shl i32 %41, 2
+  %48 = and i32 %47, 124
+  %49 = zext nneg i32 %48 to i64
+  %50 = getelementptr inbounds nuw i8, ptr %46, i64 %49
+  %51 = ptrtoint ptr %50 to i64
+  br label %52
 
-51:                                               ; preds = %3, %12, %16, %39
-  %.0 = phi i64 [ %50, %39 ], [ 0, %16 ], [ 0, %12 ], [ 0, %3 ]
+52:                                               ; preds = %3, %12, %16, %40
+  %.0 = phi i64 [ %51, %40 ], [ 0, %16 ], [ 0, %12 ], [ 0, %3 ]
   ret i64 %.0
 }
 

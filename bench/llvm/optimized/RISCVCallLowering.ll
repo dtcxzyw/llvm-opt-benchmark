@@ -689,78 +689,79 @@ define dso_local noundef zeroext i1 @_ZNK4llvm17RISCVCallLowering14canLowerRetur
   %31 = load ptr, ptr %30, align 8, !tbaa !262
   %32 = call i16 @_ZN4llvm3MVT5getVTEPNS_4TypeEb(ptr noundef %31, i1 noundef zeroext false) #16
   %33 = load ptr, ptr %3, align 8, !tbaa !224
-  %34 = getelementptr inbounds nuw %"struct.llvm::CallLowering::BaseArgInfo", ptr %33, i64 %indvars.iv, i32 1
-  %35 = load ptr, ptr %34, align 8, !tbaa !224
-  %.sroa.0.0.copyload = load i64, ptr %35, align 4, !tbaa !415
-  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %35, i64 8
+  %34 = getelementptr inbounds nuw %"struct.llvm::CallLowering::BaseArgInfo", ptr %33, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
+  %36 = load ptr, ptr %35, align 8, !tbaa !224
+  %.sroa.0.0.copyload = load i64, ptr %36, align 4, !tbaa !415
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %36, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 4
-  %36 = trunc nuw i64 %indvars.iv to i32
-  %37 = call noundef zeroext i1 @_ZN4llvm8CC_RISCVEjNS_3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateEbbPNS_4TypeE(i32 noundef %36, i16 %32, i16 %32, i32 noundef 0, i64 %.sroa.0.0.copyload, i64 %.sroa.2.0.copyload, ptr noundef nonnull align 8 dereferenceable(420) %7, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef null) #16
+  %37 = trunc nuw i64 %indvars.iv to i32
+  %38 = call noundef zeroext i1 @_ZN4llvm8CC_RISCVEjNS_3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateEbbPNS_4TypeE(i32 noundef %37, i16 %32, i16 %32, i32 noundef 0, i64 %.sroa.0.0.copyload, i64 %.sroa.2.0.copyload, ptr noundef nonnull align 8 dereferenceable(420) %7, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef null) #16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  %or.cond = select i1 %37, i1 true, i1 %exitcond.not
+  %or.cond = select i1 %38, i1 true, i1 %exitcond.not
   br i1 %or.cond, label %.critedge31.loopexit, label %.lr.ph52, !llvm.loop !416
 
 .critedge31.loopexit:                             ; preds = %.lr.ph52
-  %.not.lcssa.ph = xor i1 %37, true
+  %.not.lcssa.ph = xor i1 %38, true
   br label %.critedge31
 
 .critedge31:                                      ; preds = %.critedge31.loopexit, %.loopexit
   %.not.lcssa = phi i1 [ true, %.loopexit ], [ %.not.lcssa.ph, %.critedge31.loopexit ]
-  %38 = getelementptr inbounds nuw i8, ptr %7, i64 368
-  %39 = load ptr, ptr %38, align 8, !tbaa !224
-  %40 = getelementptr inbounds nuw i8, ptr %7, i64 384
-  %41 = icmp eq ptr %39, %40
-  br i1 %41, label %_ZN4llvm11SmallVectorINS_7CCState9ByValInfoELj4EED2Ev.exit.i, label %42
+  %39 = getelementptr inbounds nuw i8, ptr %7, i64 368
+  %40 = load ptr, ptr %39, align 8, !tbaa !224
+  %41 = getelementptr inbounds nuw i8, ptr %7, i64 384
+  %42 = icmp eq ptr %40, %41
+  br i1 %42, label %_ZN4llvm11SmallVectorINS_7CCState9ByValInfoELj4EED2Ev.exit.i, label %43
 
-42:                                               ; preds = %.critedge31
-  call void @free(ptr noundef %39) #16
+43:                                               ; preds = %.critedge31
+  call void @free(ptr noundef %40) #16
   br label %_ZN4llvm11SmallVectorINS_7CCState9ByValInfoELj4EED2Ev.exit.i
 
-_ZN4llvm11SmallVectorINS_7CCState9ByValInfoELj4EED2Ev.exit.i: ; preds = %42, %.critedge31
-  %43 = getelementptr inbounds nuw i8, ptr %7, i64 288
-  %44 = load ptr, ptr %43, align 8, !tbaa !224
-  %45 = getelementptr inbounds nuw i8, ptr %7, i64 304
-  %46 = icmp eq ptr %44, %45
-  br i1 %46, label %_ZN4llvm11SmallVectorINS_3ISD10ArgFlagsTyELj4EED2Ev.exit.i, label %47
+_ZN4llvm11SmallVectorINS_7CCState9ByValInfoELj4EED2Ev.exit.i: ; preds = %43, %.critedge31
+  %44 = getelementptr inbounds nuw i8, ptr %7, i64 288
+  %45 = load ptr, ptr %44, align 8, !tbaa !224
+  %46 = getelementptr inbounds nuw i8, ptr %7, i64 304
+  %47 = icmp eq ptr %45, %46
+  br i1 %47, label %_ZN4llvm11SmallVectorINS_3ISD10ArgFlagsTyELj4EED2Ev.exit.i, label %48
 
-47:                                               ; preds = %_ZN4llvm11SmallVectorINS_7CCState9ByValInfoELj4EED2Ev.exit.i
-  call void @free(ptr noundef %44) #16
+48:                                               ; preds = %_ZN4llvm11SmallVectorINS_7CCState9ByValInfoELj4EED2Ev.exit.i
+  call void @free(ptr noundef %45) #16
   br label %_ZN4llvm11SmallVectorINS_3ISD10ArgFlagsTyELj4EED2Ev.exit.i
 
-_ZN4llvm11SmallVectorINS_3ISD10ArgFlagsTyELj4EED2Ev.exit.i: ; preds = %47, %_ZN4llvm11SmallVectorINS_7CCState9ByValInfoELj4EED2Ev.exit.i
-  %48 = getelementptr inbounds nuw i8, ptr %7, i64 144
-  %49 = load ptr, ptr %48, align 8, !tbaa !224
-  %50 = getelementptr inbounds nuw i8, ptr %7, i64 160
-  %51 = icmp eq ptr %49, %50
-  br i1 %51, label %_ZN4llvm11SmallVectorINS_11CCValAssignELj4EED2Ev.exit.i, label %52
+_ZN4llvm11SmallVectorINS_3ISD10ArgFlagsTyELj4EED2Ev.exit.i: ; preds = %48, %_ZN4llvm11SmallVectorINS_7CCState9ByValInfoELj4EED2Ev.exit.i
+  %49 = getelementptr inbounds nuw i8, ptr %7, i64 144
+  %50 = load ptr, ptr %49, align 8, !tbaa !224
+  %51 = getelementptr inbounds nuw i8, ptr %7, i64 160
+  %52 = icmp eq ptr %50, %51
+  br i1 %52, label %_ZN4llvm11SmallVectorINS_11CCValAssignELj4EED2Ev.exit.i, label %53
 
-52:                                               ; preds = %_ZN4llvm11SmallVectorINS_3ISD10ArgFlagsTyELj4EED2Ev.exit.i
-  call void @free(ptr noundef %49) #16
+53:                                               ; preds = %_ZN4llvm11SmallVectorINS_3ISD10ArgFlagsTyELj4EED2Ev.exit.i
+  call void @free(ptr noundef %50) #16
   br label %_ZN4llvm11SmallVectorINS_11CCValAssignELj4EED2Ev.exit.i
 
-_ZN4llvm11SmallVectorINS_11CCValAssignELj4EED2Ev.exit.i: ; preds = %52, %_ZN4llvm11SmallVectorINS_3ISD10ArgFlagsTyELj4EED2Ev.exit.i
-  %53 = getelementptr inbounds nuw i8, ptr %7, i64 64
-  %54 = load ptr, ptr %53, align 8, !tbaa !224
-  %55 = getelementptr inbounds nuw i8, ptr %7, i64 80
-  %56 = icmp eq ptr %54, %55
-  br i1 %56, label %_ZN4llvm7CCStateD2Ev.exit, label %57
+_ZN4llvm11SmallVectorINS_11CCValAssignELj4EED2Ev.exit.i: ; preds = %53, %_ZN4llvm11SmallVectorINS_3ISD10ArgFlagsTyELj4EED2Ev.exit.i
+  %54 = getelementptr inbounds nuw i8, ptr %7, i64 64
+  %55 = load ptr, ptr %54, align 8, !tbaa !224
+  %56 = getelementptr inbounds nuw i8, ptr %7, i64 80
+  %57 = icmp eq ptr %55, %56
+  br i1 %57, label %_ZN4llvm7CCStateD2Ev.exit, label %58
 
-57:                                               ; preds = %_ZN4llvm11SmallVectorINS_11CCValAssignELj4EED2Ev.exit.i
-  call void @free(ptr noundef %54) #16
+58:                                               ; preds = %_ZN4llvm11SmallVectorINS_11CCValAssignELj4EED2Ev.exit.i
+  call void @free(ptr noundef %55) #16
   br label %_ZN4llvm7CCStateD2Ev.exit
 
-_ZN4llvm7CCStateD2Ev.exit:                        ; preds = %_ZN4llvm11SmallVectorINS_11CCValAssignELj4EED2Ev.exit.i, %57
+_ZN4llvm7CCStateD2Ev.exit:                        ; preds = %_ZN4llvm11SmallVectorINS_11CCValAssignELj4EED2Ev.exit.i, %58
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %58 = load ptr, ptr %6, align 8, !tbaa !224
-  %59 = icmp eq ptr %58, %8
-  br i1 %59, label %_ZN4llvm11SmallVectorINS_11CCValAssignELj16EED2Ev.exit, label %60
+  %59 = load ptr, ptr %6, align 8, !tbaa !224
+  %60 = icmp eq ptr %59, %8
+  br i1 %60, label %_ZN4llvm11SmallVectorINS_11CCValAssignELj16EED2Ev.exit, label %61
 
-60:                                               ; preds = %_ZN4llvm7CCStateD2Ev.exit
-  call void @free(ptr noundef %58) #16
+61:                                               ; preds = %_ZN4llvm7CCStateD2Ev.exit
+  call void @free(ptr noundef %59) #16
   br label %_ZN4llvm11SmallVectorINS_11CCValAssignELj16EED2Ev.exit
 
-_ZN4llvm11SmallVectorINS_11CCValAssignELj16EED2Ev.exit: ; preds = %_ZN4llvm7CCStateD2Ev.exit, %60
+_ZN4llvm11SmallVectorINS_11CCValAssignELj16EED2Ev.exit: ; preds = %_ZN4llvm7CCStateD2Ev.exit, %61
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.not.lcssa
 }

@@ -333,10 +333,10 @@ define void @_ZN11TransTableS4InitEPA15_Ki(ptr noundef nonnull align 8 dereferen
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %.preheader, label %4, !llvm.loop !9
 
-.preheader:                                       ; preds = %4, %35
-  %indvars.iv43 = phi i64 [ %indvars.iv.next44, %35 ], [ 1, %4 ]
-  %.02936 = phi i32 [ %.1, %35 ], [ 2, %4 ]
-  %.03035 = phi i32 [ %.131, %35 ], [ 1, %4 ]
+.preheader:                                       ; preds = %4, %36
+  %indvars.iv43 = phi i64 [ %indvars.iv.next44, %36 ], [ 1, %4 ]
+  %.02936 = phi i32 [ %.1, %36 ], [ 2, %4 ]
+  %.03035 = phi i32 [ %.131, %36 ], [ 1, %4 ]
   %10 = shl i32 %.03035, 1
   %11 = zext i32 %10 to i64
   %.not = icmp samesign uge i64 %indvars.iv43, %11
@@ -367,76 +367,77 @@ define void @_ZN11TransTableS4InitEPA15_Ki(ptr noundef nonnull align 8 dereferen
   %28 = or i32 %27, %25
   store i32 %28, ptr %23, align 4
   %29 = load ptr, ptr %3, align 8
-  %30 = getelementptr inbounds nuw %"struct.TransTableS::ttAggrType", ptr %29, i64 %indvars.iv43, i32 1
-  %31 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv39
-  %32 = load i32, ptr %31, align 4
-  %33 = ashr i32 %32, 2
-  %34 = or i32 %33, 50331648
-  store i32 %34, ptr %31, align 4
+  %30 = getelementptr inbounds nuw %"struct.TransTableS::ttAggrType", ptr %29, i64 %indvars.iv43
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
+  %32 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv39
+  %33 = load i32, ptr %32, align 4
+  %34 = ashr i32 %33, 2
+  %35 = or i32 %34, 50331648
+  store i32 %35, ptr %32, align 4
   %indvars.iv.next40 = add nuw nsw i64 %indvars.iv39, 1
   %exitcond42.not = icmp eq i64 %indvars.iv.next40, 4
-  br i1 %exitcond42.not, label %35, label %20, !llvm.loop !10
+  br i1 %exitcond42.not, label %36, label %20, !llvm.loop !10
 
-35:                                               ; preds = %20
+36:                                               ; preds = %20
   %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
   %exitcond46.not = icmp eq i64 %indvars.iv.next44, 8192
-  br i1 %exitcond46.not, label %36, label %.preheader, !llvm.loop !11
+  br i1 %exitcond46.not, label %37, label %.preheader, !llvm.loop !11
 
-36:                                               ; preds = %35
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 2256
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 2264
-  %39 = load ptr, ptr %38, align 8
-  %40 = load ptr, ptr %37, align 8
-  %41 = ptrtoint ptr %39 to i64
+37:                                               ; preds = %36
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 2256
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 2264
+  %40 = load ptr, ptr %39, align 8
+  %41 = load ptr, ptr %38, align 8
   %42 = ptrtoint ptr %40 to i64
-  %43 = sub i64 %41, %42
-  %44 = ashr exact i64 %43, 5
-  %45 = icmp ult i64 %44, 6
-  br i1 %45, label %46, label %48
+  %43 = ptrtoint ptr %41 to i64
+  %44 = sub i64 %42, %43
+  %45 = ashr exact i64 %44, 5
+  %46 = icmp ult i64 %45, 6
+  br i1 %46, label %47, label %49
 
-46:                                               ; preds = %36
-  %47 = sub nuw nsw i64 6, %44
-  tail call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %37, i64 noundef %47)
+47:                                               ; preds = %37
+  %48 = sub nuw nsw i64 6, %45
+  tail call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %38, i64 noundef %48)
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6resizeEm.exit
 
-48:                                               ; preds = %36
-  %.not32 = icmp eq i64 %43, 192
-  br i1 %.not32, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6resizeEm.exit, label %49
+49:                                               ; preds = %37
+  %.not32 = icmp eq i64 %44, 192
+  br i1 %.not32, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6resizeEm.exit, label %50
 
-49:                                               ; preds = %48
-  %50 = getelementptr inbounds nuw i8, ptr %40, i64 192
-  %.not.i.i = icmp eq ptr %39, %50
+50:                                               ; preds = %49
+  %51 = getelementptr inbounds nuw i8, ptr %41, i64 192
+  %.not.i.i = icmp eq ptr %40, %51
   br i1 %.not.i.i, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6resizeEm.exit, label %.lr.ph.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %49, %.lr.ph.i.i.i.i.i
-  %.05.i.i.i.i.i = phi ptr [ %51, %.lr.ph.i.i.i.i.i ], [ %50, %49 ]
+.lr.ph.i.i.i.i.i:                                 ; preds = %50, %.lr.ph.i.i.i.i.i
+  %.05.i.i.i.i.i = phi ptr [ %52, %.lr.ph.i.i.i.i.i ], [ %51, %50 ]
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i.i) #26
-  %51 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 32
-  %.not.i.i.i.i.i = icmp eq ptr %51, %39
+  %52 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 32
+  %.not.i.i.i.i.i = icmp eq ptr %52, %40
   br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !6
 
 _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i
-  store ptr %50, ptr %38, align 8
+  store ptr %51, ptr %39, align 8
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6resizeEm.exit
 
-_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6resizeEm.exit: ; preds = %46, %48, %49, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i
-  %52 = load ptr, ptr %37, align 8
-  %53 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %52, ptr noundef nonnull @.str)
-  %54 = load ptr, ptr %37, align 8
-  %55 = getelementptr inbounds nuw i8, ptr %54, i64 32
-  %56 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %55, ptr noundef nonnull @.str.1)
-  %57 = load ptr, ptr %37, align 8
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 64
-  %59 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %58, ptr noundef nonnull @.str.2)
-  %60 = load ptr, ptr %37, align 8
-  %61 = getelementptr inbounds nuw i8, ptr %60, i64 96
-  %62 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %61, ptr noundef nonnull @.str.3)
-  %63 = load ptr, ptr %37, align 8
-  %64 = getelementptr inbounds nuw i8, ptr %63, i64 128
-  %65 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %64, ptr noundef nonnull @.str.4)
-  %66 = load ptr, ptr %37, align 8
-  %67 = getelementptr inbounds nuw i8, ptr %66, i64 160
-  %68 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %67, ptr noundef nonnull @.str.5)
+_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6resizeEm.exit: ; preds = %47, %49, %50, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i
+  %53 = load ptr, ptr %38, align 8
+  %54 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %53, ptr noundef nonnull @.str)
+  %55 = load ptr, ptr %38, align 8
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 32
+  %57 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %56, ptr noundef nonnull @.str.1)
+  %58 = load ptr, ptr %38, align 8
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 64
+  %60 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %59, ptr noundef nonnull @.str.2)
+  %61 = load ptr, ptr %38, align 8
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 96
+  %63 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %62, ptr noundef nonnull @.str.3)
+  %64 = load ptr, ptr %38, align 8
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 128
+  %66 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %65, ptr noundef nonnull @.str.4)
+  %67 = load ptr, ptr %38, align 8
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 160
+  %69 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %68, ptr noundef nonnull @.str.5)
   ret void
 }
 
@@ -1621,11 +1622,11 @@ define void @_ZN11TransTableS8BuildSOPEPKtS1_RK13nodeCardsTypexiib(ptr noundef n
   %24 = sub i16 0, %21
   %25 = and i16 %23, %24
   %26 = zext i16 %25 to i64
-  %27 = getelementptr inbounds nuw %"struct.TransTableS::ttAggrType", ptr %14, i64 %26, i32 1
-  %28 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv
-  %29 = load i32, ptr %28, align 4
-  %30 = getelementptr inbounds nuw %"struct.TransTableS::ttAggrType", ptr %14, i64 %26
-  %31 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw %"struct.TransTableS::ttAggrType", ptr %14, i64 %26
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
+  %29 = getelementptr inbounds nuw i32, ptr %28, i64 %indvars.iv
+  %30 = load i32, ptr %29, align 4
+  %31 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv
   %32 = load i32, ptr %31, align 4
   %33 = getelementptr inbounds nuw i32, ptr @_ZL12TTlowestRank, i64 %26
   %34 = load i32, ptr %33, align 4
@@ -1633,7 +1634,7 @@ define void @_ZN11TransTableS8BuildSOPEPKtS1_RK13nodeCardsTypexiib(ptr noundef n
   br label %36
 
 36:                                               ; preds = %15, %19
-  %.sink57 = phi i32 [ %29, %19 ], [ 0, %15 ]
+  %.sink57 = phi i32 [ %30, %19 ], [ 0, %15 ]
   %.sink56 = phi i32 [ %32, %19 ], [ 0, %15 ]
   %.sink = phi i8 [ %35, %19 ], [ 15, %15 ]
   %37 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv

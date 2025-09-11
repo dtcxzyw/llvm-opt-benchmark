@@ -296,112 +296,113 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 define hidden i32 @lj_ir_call(ptr noundef initializes((184, 190)) %0, i32 noundef %1, ...) local_unnamed_addr #5 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %4 = zext i32 %1 to i64
-  %5 = getelementptr inbounds nuw %struct.CCallInfo, ptr @lj_ir_callinfo, i64 %4, i32 1
-  %6 = load i32, ptr %5, align 8, !tbaa !36
-  %7 = and i32 %6, 255
+  %5 = getelementptr inbounds nuw %struct.CCallInfo, ptr @lj_ir_callinfo, i64 %4
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %7 = load i32, ptr %6, align 8, !tbaa !36
+  %8 = and i32 %7, 255
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.va_start.p0(ptr nonnull %3)
-  %8 = shl i32 %6, 23
-  %sext = ashr i32 %8, 31
-  %spec.select = add nsw i32 %sext, %7
+  %9 = shl i32 %7, 23
+  %sext = ashr i32 %9, 31
+  %spec.select = add nsw i32 %sext, %8
   %.not19 = icmp eq i32 %spec.select, 0
-  br i1 %.not19, label %._crit_edge, label %9
+  br i1 %.not19, label %._crit_edge, label %10
 
-9:                                                ; preds = %2
-  %10 = load i32, ptr %3, align 16
-  %11 = icmp ult i32 %10, 41
-  br i1 %11, label %12, label %18
+10:                                               ; preds = %2
+  %11 = load i32, ptr %3, align 16
+  %12 = icmp ult i32 %11, 41
+  br i1 %12, label %13, label %19
 
-12:                                               ; preds = %9
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %14 = load ptr, ptr %13, align 16
-  %15 = zext nneg i32 %10 to i64
-  %16 = getelementptr i8, ptr %14, i64 %15
-  %17 = add nuw nsw i32 %10, 8
-  store i32 %17, ptr %3, align 16
-  br label %22
+13:                                               ; preds = %10
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %15 = load ptr, ptr %14, align 16
+  %16 = zext nneg i32 %11 to i64
+  %17 = getelementptr i8, ptr %15, i64 %16
+  %18 = add nuw nsw i32 %11, 8
+  store i32 %18, ptr %3, align 16
+  br label %23
 
-18:                                               ; preds = %9
-  %19 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr i8, ptr %20, i64 8
-  store ptr %21, ptr %19, align 8
-  br label %22
+19:                                               ; preds = %10
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %21 = load ptr, ptr %20, align 8
+  %22 = getelementptr i8, ptr %21, i64 8
+  store ptr %22, ptr %20, align 8
+  br label %23
 
-22:                                               ; preds = %12, %18
-  %23 = phi ptr [ %16, %12 ], [ %20, %18 ]
-  %24 = load i32, ptr %23, align 4, !tbaa !38
+23:                                               ; preds = %13, %19
+  %24 = phi ptr [ %17, %13 ], [ %21, %19 ]
+  %25 = load i32, ptr %24, align 4, !tbaa !38
   %.not = icmp eq i32 %spec.select, 1
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %22
-  %25 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %26 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 188
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 186
-  br label %30
+.lr.ph:                                           ; preds = %23
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 188
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 186
+  br label %31
 
-30:                                               ; preds = %.lr.ph, %43
-  %.in = phi i32 [ %spec.select, %.lr.ph ], [ %31, %43 ]
-  %.120 = phi i32 [ %24, %.lr.ph ], [ %47, %43 ]
-  %31 = add i32 %.in, -1
-  %32 = trunc i32 %.120 to i16
-  %33 = load i32, ptr %3, align 16
-  %34 = icmp ult i32 %33, 41
-  br i1 %34, label %35, label %40
+31:                                               ; preds = %.lr.ph, %44
+  %.in = phi i32 [ %spec.select, %.lr.ph ], [ %32, %44 ]
+  %.120 = phi i32 [ %25, %.lr.ph ], [ %48, %44 ]
+  %32 = add i32 %.in, -1
+  %33 = trunc i32 %.120 to i16
+  %34 = load i32, ptr %3, align 16
+  %35 = icmp ult i32 %34, 41
+  br i1 %35, label %36, label %41
 
-35:                                               ; preds = %30
-  %36 = load ptr, ptr %26, align 16
-  %37 = zext nneg i32 %33 to i64
-  %38 = getelementptr i8, ptr %36, i64 %37
-  %39 = add nuw nsw i32 %33, 8
-  store i32 %39, ptr %3, align 16
-  br label %43
+36:                                               ; preds = %31
+  %37 = load ptr, ptr %27, align 16
+  %38 = zext nneg i32 %34 to i64
+  %39 = getelementptr i8, ptr %37, i64 %38
+  %40 = add nuw nsw i32 %34, 8
+  store i32 %40, ptr %3, align 16
+  br label %44
 
-40:                                               ; preds = %30
-  %41 = load ptr, ptr %25, align 8
-  %42 = getelementptr i8, ptr %41, i64 8
-  store ptr %42, ptr %25, align 8
-  br label %43
+41:                                               ; preds = %31
+  %42 = load ptr, ptr %26, align 8
+  %43 = getelementptr i8, ptr %42, i64 8
+  store ptr %43, ptr %26, align 8
+  br label %44
 
-43:                                               ; preds = %40, %35
-  %44 = phi ptr [ %38, %35 ], [ %41, %40 ]
-  %45 = load i32, ptr %44, align 4, !tbaa !38
-  %46 = trunc i32 %45 to i16
-  store i16 25600, ptr %28, align 4, !tbaa !33
-  store i16 %32, ptr %27, align 8, !tbaa !33
-  store i16 %46, ptr %29, align 2, !tbaa !33
-  %47 = call i32 @lj_opt_fold(ptr noundef %0) #12
-  %48 = icmp ugt i32 %31, 1
-  br i1 %48, label %30, label %._crit_edge, !llvm.loop !39
+44:                                               ; preds = %41, %36
+  %45 = phi ptr [ %39, %36 ], [ %42, %41 ]
+  %46 = load i32, ptr %45, align 4, !tbaa !38
+  %47 = trunc i32 %46 to i16
+  store i16 25600, ptr %29, align 4, !tbaa !33
+  store i16 %33, ptr %28, align 8, !tbaa !33
+  store i16 %47, ptr %30, align 2, !tbaa !33
+  %48 = call i32 @lj_opt_fold(ptr noundef %0) #12
+  %49 = icmp ugt i32 %32, 1
+  br i1 %49, label %31, label %._crit_edge, !llvm.loop !39
 
-._crit_edge:                                      ; preds = %43, %2, %22
-  %.1.lcssa = phi i32 [ %24, %22 ], [ 32767, %2 ], [ %47, %43 ]
+._crit_edge:                                      ; preds = %44, %2, %23
+  %.1.lcssa = phi i32 [ %25, %23 ], [ 32767, %2 ], [ %48, %44 ]
   call void @llvm.va_end.p0(ptr nonnull %3)
-  %.mask = and i32 %6, -16777216
-  %49 = icmp eq i32 %.mask, 1644167168
-  br i1 %49, label %50, label %52
+  %.mask = and i32 %7, -16777216
+  %50 = icmp eq i32 %.mask, 1644167168
+  br i1 %50, label %51, label %53
 
-50:                                               ; preds = %._crit_edge
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 181
-  store i8 1, ptr %51, align 1, !tbaa !41
-  br label %52
+51:                                               ; preds = %._crit_edge
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 181
+  store i8 1, ptr %52, align 1, !tbaa !41
+  br label %53
 
-52:                                               ; preds = %50, %._crit_edge
-  %53 = lshr i32 %6, 16
-  %54 = trunc nuw i32 %53 to i16
-  %55 = trunc i32 %.1.lcssa to i16
-  %56 = trunc i32 %1 to i16
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 188
-  store i16 %54, ptr %58, align 4, !tbaa !33
-  store i16 %55, ptr %57, align 8, !tbaa !33
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 186
-  store i16 %56, ptr %59, align 2, !tbaa !33
-  %60 = call i32 @lj_opt_fold(ptr noundef %0) #12
+53:                                               ; preds = %51, %._crit_edge
+  %54 = lshr i32 %7, 16
+  %55 = trunc nuw i32 %54 to i16
+  %56 = trunc i32 %.1.lcssa to i16
+  %57 = trunc i32 %1 to i16
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 188
+  store i16 %55, ptr %59, align 4, !tbaa !33
+  store i16 %56, ptr %58, align 8, !tbaa !33
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 186
+  store i16 %57, ptr %60, align 2, !tbaa !33
+  %61 = call i32 @lj_opt_fold(ptr noundef %0) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret i32 %60
+  ret i32 %61
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn

@@ -2168,7 +2168,7 @@ _ZN8aiStringaSERKS_.exit230:                      ; preds = %320, %335
   br i1 %.not200, label %373, label %365
 
 365:                                              ; preds = %357
-  %366 = getelementptr inbounds nuw %struct.aiVertexWeight, ptr %359, i64 %indvars.iv365, i32 1
+  %366 = getelementptr inbounds nuw i8, ptr %360, i64 4
   %367 = load i32, ptr %366, align 4
   %368 = load ptr, ptr %348, align 8
   %369 = load i32, ptr %352, align 4

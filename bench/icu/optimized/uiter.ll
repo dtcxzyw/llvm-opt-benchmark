@@ -1212,7 +1212,7 @@ define internal noundef i32 @_ZL20utf8IteratorGetIndexP13UCharIterator19UCharIte
 
 77:                                               ; preds = %72
   %78 = add nsw i32 %.3165, 1
-  %79 = icmp ult i32 %.1159, 1024
+  %79 = icmp samesign ult i32 %.1159, 1024
   %80 = select i1 %79, i32 1, i32 2
   br label %82
 
@@ -1376,7 +1376,7 @@ define internal noundef i32 @_ZL20utf8IteratorGetIndexP13UCharIterator19UCharIte
 
 172:                                              ; preds = %167
   %173 = add nsw i32 %.3, 1
-  %174 = icmp ult i32 %.1147, 1024
+  %174 = icmp samesign ult i32 %.1147, 1024
   %175 = select i1 %174, i32 1, i32 2
   br label %177
 
@@ -1526,7 +1526,7 @@ define internal noundef i32 @_ZL20utf8IteratorGetIndexP13UCharIterator19UCharIte
 
 257:                                              ; preds = %252
   %258 = add nsw i32 %.10, 1
-  %259 = icmp ult i32 %.5151, 1024
+  %259 = icmp samesign ult i32 %.5151, 1024
   %260 = select i1 %259, i32 1, i32 2
   br label %262
 
@@ -1861,7 +1861,7 @@ define internal noundef i32 @_ZL16utf8IteratorMoveP13UCharIteratori19UCharIterat
 
 167:                                              ; preds = %160
   %168 = add nsw i32 %161, 1
-  %169 = icmp ult i32 %.1146, 1024
+  %169 = icmp samesign ult i32 %.1146, 1024
   br i1 %169, label %.thread, label %170
 
 170:                                              ; preds = %167
@@ -2178,8 +2178,7 @@ define internal noundef range(i32 -1, 65536) i32 @_ZL19utf8IteratorCurrentP13UCh
   %86 = icmp ult i32 %.143.fr, 1024
   %87 = lshr i32 %.143.fr, 4
   %88 = add nuw nsw i32 %87, 55232
-  %89 = and i32 %88, 65535
-  %spec.select = select i1 %86, i32 %85, i32 %89
+  %spec.select = select i1 %86, i32 %85, i32 %88
   br label %.thread
 
 .thread:                                          ; preds = %82, %21, %26, %41, %44, %56, %58, %67, %72, %76, %13, %7, %4
@@ -2201,12 +2200,12 @@ define internal noundef range(i32 -1, 65536) i32 @_ZL16utf8IteratorNextP13UCharI
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i32, ptr %7, align 8, !tbaa !28
   %9 = icmp sgt i32 %8, -1
-  br i1 %9, label %10, label %125
+  br i1 %9, label %10, label %124
 
 10:                                               ; preds = %4
   %11 = add nuw nsw i32 %8, 1
   store i32 %11, ptr %7, align 8, !tbaa !28
-  br label %125
+  br label %124
 
 12:                                               ; preds = %1
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -2214,7 +2213,7 @@ define internal noundef range(i32 -1, 65536) i32 @_ZL16utf8IteratorNextP13UCharI
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %16 = load i32, ptr %15, align 4, !tbaa !13
   %17 = icmp slt i32 %14, %16
-  br i1 %17, label %18, label %125
+  br i1 %17, label %18, label %124
 
 18:                                               ; preds = %12
   %19 = load ptr, ptr %0, align 8, !tbaa !10
@@ -2353,7 +2352,7 @@ define internal noundef range(i32 -1, 65536) i32 @_ZL16utf8IteratorNextP13UCharI
   br i1 %or.cond, label %105, label %119
 
 105:                                              ; preds = %99
-  %106 = icmp slt i32 %.3, 65536
+  %106 = icmp samesign ult i32 %.3, 65536
   %107 = add nuw nsw i32 %97, 2
   %108 = select i1 %106, i32 %100, i32 %107
   store i32 %108, ptr %101, align 8, !tbaa !12
@@ -2370,25 +2369,24 @@ define internal noundef range(i32 -1, 65536) i32 @_ZL16utf8IteratorNextP13UCharI
   br i1 %114, label %115, label %119
 
 115:                                              ; preds = %111
-  %116 = icmp sgt i32 %.3, 65535
+  %116 = icmp samesign ugt i32 %.3, 65535
   %117 = sext i1 %116 to i32
   %118 = add nsw i32 %113, %117
   store i32 %118, ptr %96, align 8, !tbaa !28
   br label %119
 
 119:                                              ; preds = %109, %111, %115, %99, %105
-  %120 = icmp slt i32 %.3, 65536
-  br i1 %120, label %125, label %121
+  %120 = icmp samesign ult i32 %.3, 65536
+  br i1 %120, label %124, label %121
 
 121:                                              ; preds = %119
   store i32 %.3, ptr %2, align 8, !tbaa !39
   %122 = lshr i32 %.3, 10
   %123 = add nuw nsw i32 %122, 55232
-  %124 = and i32 %123, 65535
-  br label %125
+  br label %124
 
-125:                                              ; preds = %12, %121, %119, %4, %10
-  %.065 = phi i32 [ %6, %10 ], [ %6, %4 ], [ %124, %121 ], [ %.3, %119 ], [ -1, %12 ]
+124:                                              ; preds = %12, %121, %119, %4, %10
+  %.065 = phi i32 [ %6, %10 ], [ %6, %4 ], [ %123, %121 ], [ %.3, %119 ], [ -1, %12 ]
   ret i32 %.065
 }
 

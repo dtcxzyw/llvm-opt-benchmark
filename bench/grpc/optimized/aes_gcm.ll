@@ -1294,7 +1294,7 @@ define internal noundef range(i32 0, 14) i32 @_ZL39gsec_aes_gcm_aead_crypter_dec
 
 17:                                               ; preds = %10
   tail call fastcc void @_ZL21aes_gcm_format_errorsPKcPPc(ptr noundef nonnull @.str.4, ptr noundef %9)
-  br label %168
+  br label %169
 
 18:                                               ; preds = %10
   %.not = icmp eq i64 %2, 12
@@ -1302,7 +1302,7 @@ define internal noundef range(i32 0, 14) i32 @_ZL39gsec_aes_gcm_aead_crypter_dec
 
 19:                                               ; preds = %18
   tail call fastcc void @_ZL21aes_gcm_format_errorsPKcPPc(ptr noundef nonnull @.str.5, ptr noundef %9)
-  br label %168
+  br label %169
 
 20:                                               ; preds = %18
   %21 = icmp ne i64 %4, 0
@@ -1312,7 +1312,7 @@ define internal noundef range(i32 0, 14) i32 @_ZL39gsec_aes_gcm_aead_crypter_dec
 
 23:                                               ; preds = %20
   tail call fastcc void @_ZL21aes_gcm_format_errorsPKcPPc(ptr noundef nonnull @.str.6, ptr noundef %9)
-  br label %168
+  br label %169
 
 24:                                               ; preds = %20
   %25 = icmp ne i64 %6, 0
@@ -1326,369 +1326,370 @@ define internal noundef range(i32 0, 14) i32 @_ZL39gsec_aes_gcm_aead_crypter_dec
 
 27:                                               ; preds = %24
   tail call fastcc void @_ZL21aes_gcm_format_errorsPKcPPc(ptr noundef nonnull @.str.7, ptr noundef %9)
-  br label %168
+  br label %169
 
 .lr.ph:                                           ; preds = %.preheader198, %.lr.ph
-  %.0142224 = phi i64 [ %31, %.lr.ph ], [ 0, %.preheader198 ]
-  %.0146223 = phi i64 [ %30, %.lr.ph ], [ 0, %.preheader198 ]
-  %28 = getelementptr inbounds nuw %struct.iovec, ptr %5, i64 %.0142224, i32 1
-  %29 = load i64, ptr %28, align 8, !tbaa !55
-  %30 = add i64 %29, %.0146223
-  %31 = add nuw i64 %.0142224, 1
-  %exitcond.not = icmp eq i64 %31, %6
+  %.0142224 = phi i64 [ %32, %.lr.ph ], [ 0, %.preheader198 ]
+  %.0146223 = phi i64 [ %31, %.lr.ph ], [ 0, %.preheader198 ]
+  %28 = getelementptr inbounds nuw %struct.iovec, ptr %5, i64 %.0142224
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  %30 = load i64, ptr %29, align 8, !tbaa !55
+  %31 = add i64 %30, %.0146223
+  %32 = add nuw i64 %.0142224, 1
+  %exitcond.not = icmp eq i64 %32, %6
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !61
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %32 = icmp ult i64 %30, 16
-  br i1 %32, label %._crit_edge.thread, label %33
+  %33 = icmp ult i64 %31, 16
+  br i1 %33, label %._crit_edge.thread, label %34
 
 ._crit_edge.thread:                               ; preds = %.preheader198, %._crit_edge
   tail call fastcc void @_ZL21aes_gcm_format_errorsPKcPPc(ptr noundef nonnull @.str.19, ptr noundef %9)
-  br label %168
+  br label %169
 
-33:                                               ; preds = %._crit_edge
-  %34 = icmp eq ptr %8, null
-  br i1 %34, label %35, label %36
+34:                                               ; preds = %._crit_edge
+  %35 = icmp eq ptr %8, null
+  br i1 %35, label %36, label %37
 
-35:                                               ; preds = %33
+36:                                               ; preds = %34
   tail call fastcc void @_ZL21aes_gcm_format_errorsPKcPPc(ptr noundef nonnull @.str.8, ptr noundef %9)
-  br label %168
+  br label %169
 
-36:                                               ; preds = %33
+37:                                               ; preds = %34
   store i64 0, ptr %8, align 8, !tbaa !52
-  %37 = tail call fastcc noundef i32 @_ZL25aes_gcm_rekey_if_requiredP25gsec_aes_gcm_aead_crypterPKhPPc(ptr noundef %0, ptr noundef %1, ptr noundef %9)
-  %.not168 = icmp eq i32 %37, 0
-  br i1 %.not168, label %39, label %38
+  %38 = tail call fastcc noundef i32 @_ZL25aes_gcm_rekey_if_requiredP25gsec_aes_gcm_aead_crypterPKhPPc(ptr noundef %0, ptr noundef %1, ptr noundef %9)
+  %.not168 = icmp eq i32 %38, 0
+  br i1 %.not168, label %40, label %39
 
-38:                                               ; preds = %36
+39:                                               ; preds = %37
   tail call fastcc void @_ZL21aes_gcm_format_errorsPKcPPc(ptr noundef nonnull @.str.23, ptr noundef %9)
-  br label %168
+  br label %169
 
-39:                                               ; preds = %36
+40:                                               ; preds = %37
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %41 = load ptr, ptr %40, align 8, !tbaa !44
-  %42 = load ptr, ptr %41, align 8, !tbaa !3
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
-  %44 = load ptr, ptr %43, align 8
-  %45 = tail call noundef zeroext i1 %44(ptr noundef nonnull align 8 dereferenceable(8) %41)
-  br i1 %45, label %46, label %58
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %42 = load ptr, ptr %41, align 8, !tbaa !44
+  %43 = load ptr, ptr %42, align 8, !tbaa !3
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
+  %45 = load ptr, ptr %44, align 8
+  %46 = tail call noundef zeroext i1 %45(ptr noundef nonnull align 8 dereferenceable(8) %42)
+  br i1 %46, label %47, label %59
 
-46:                                               ; preds = %39
-  %47 = load ptr, ptr %40, align 8, !tbaa !44
-  %48 = load ptr, ptr %47, align 8, !tbaa !3
-  %49 = getelementptr inbounds nuw i8, ptr %48, i64 40
-  %50 = load ptr, ptr %49, align 8
-  %51 = tail call { ptr, i64 } %50(ptr noundef nonnull align 8 dereferenceable(8) %47)
-  %52 = extractvalue { ptr, i64 } %51, 0
-  %.val = load i64, ptr %52, align 1
-  %53 = getelementptr i8, ptr %52, i64 8
-  %.val179 = load i32, ptr %53, align 1
+47:                                               ; preds = %40
+  %48 = load ptr, ptr %41, align 8, !tbaa !44
+  %49 = load ptr, ptr %48, align 8, !tbaa !3
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 40
+  %51 = load ptr, ptr %50, align 8
+  %52 = tail call { ptr, i64 } %51(ptr noundef nonnull align 8 dereferenceable(8) %48)
+  %53 = extractvalue { ptr, i64 } %52, 0
+  %.val = load i64, ptr %53, align 1
+  %54 = getelementptr i8, ptr %53, i64 8
+  %.val179 = load i32, ptr %54, align 1
   %.val180 = load i64, ptr %1, align 1
-  %54 = getelementptr i8, ptr %1, i64 8
-  %.val181 = load i32, ptr %54, align 1
-  %55 = xor i64 %.val180, %.val
-  %56 = xor i32 %.val181, %.val179
-  store i64 %55, ptr %11, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store i32 %56, ptr %57, align 8
-  br label %58
+  %55 = getelementptr i8, ptr %1, i64 8
+  %.val181 = load i32, ptr %55, align 1
+  %56 = xor i64 %.val180, %.val
+  %57 = xor i32 %.val181, %.val179
+  store i64 %56, ptr %11, align 8
+  %58 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  store i32 %57, ptr %58, align 8
+  br label %59
 
-58:                                               ; preds = %46, %39
-  %.0141 = phi ptr [ %11, %46 ], [ %1, %39 ]
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %60 = load ptr, ptr %59, align 8, !tbaa !45
-  %61 = call i32 @EVP_DecryptInit_ex(ptr noundef %60, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %.0141)
-  %.not169 = icmp eq i32 %61, 0
-  br i1 %.not169, label %62, label %.preheader197
+59:                                               ; preds = %47, %40
+  %.0141 = phi ptr [ %11, %47 ], [ %1, %40 ]
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %61 = load ptr, ptr %60, align 8, !tbaa !45
+  %62 = call i32 @EVP_DecryptInit_ex(ptr noundef %61, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %.0141)
+  %.not169 = icmp eq i32 %62, 0
+  br i1 %.not169, label %63, label %.preheader197
 
-.preheader197:                                    ; preds = %58
+.preheader197:                                    ; preds = %59
   %.not247 = icmp eq i64 %4, 0
   br i1 %.not247, label %._crit_edge227, label %.lr.ph226
 
-62:                                               ; preds = %58
+63:                                               ; preds = %59
   call fastcc void @_ZL21aes_gcm_format_errorsPKcPPc(ptr noundef nonnull @.str.24, ptr noundef %9)
-  br label %167
+  br label %168
 
 .lr.ph226:                                        ; preds = %.preheader197, %.thread
-  %.1143225 = phi i64 [ %76, %.thread ], [ 0, %.preheader197 ]
-  %63 = getelementptr inbounds nuw %struct.iovec, ptr %3, i64 %.1143225
-  %64 = load ptr, ptr %63, align 8, !tbaa !53
-  %65 = getelementptr inbounds nuw i8, ptr %63, i64 8
-  %66 = load i64, ptr %65, align 8, !tbaa !55
-  %67 = icmp eq i64 %66, 0
-  br i1 %67, label %.thread, label %68
+  %.1143225 = phi i64 [ %77, %.thread ], [ 0, %.preheader197 ]
+  %64 = getelementptr inbounds nuw %struct.iovec, ptr %3, i64 %.1143225
+  %65 = load ptr, ptr %64, align 8, !tbaa !53
+  %66 = getelementptr inbounds nuw i8, ptr %64, i64 8
+  %67 = load i64, ptr %66, align 8, !tbaa !55
+  %68 = icmp eq i64 %67, 0
+  br i1 %68, label %.thread, label %69
 
-68:                                               ; preds = %.lr.ph226
+69:                                               ; preds = %.lr.ph226
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i64 0, ptr %12, align 8, !tbaa !52
-  %69 = icmp eq ptr %64, null
-  br i1 %69, label %.thread185, label %70
+  %70 = icmp eq ptr %65, null
+  br i1 %70, label %.thread185, label %71
 
-70:                                               ; preds = %68
-  %71 = load ptr, ptr %59, align 8, !tbaa !45
-  %72 = trunc i64 %66 to i32
-  %73 = call i32 @EVP_DecryptUpdate(ptr noundef %71, ptr noundef null, ptr noundef nonnull %12, ptr noundef nonnull %64, i32 noundef %72)
-  %.not176 = icmp ne i32 %73, 0
-  %74 = load i64, ptr %12, align 8
-  %.not177 = icmp eq i64 %74, %66
+71:                                               ; preds = %69
+  %72 = load ptr, ptr %60, align 8, !tbaa !45
+  %73 = trunc i64 %67 to i32
+  %74 = call i32 @EVP_DecryptUpdate(ptr noundef %72, ptr noundef null, ptr noundef nonnull %12, ptr noundef nonnull %65, i32 noundef %73)
+  %.not176 = icmp ne i32 %74, 0
+  %75 = load i64, ptr %12, align 8
+  %.not177 = icmp eq i64 %75, %67
   %or.cond178 = select i1 %.not176, i1 %.not177, i1 false
-  br i1 %or.cond178, label %75, label %.thread185
+  br i1 %or.cond178, label %76, label %.thread185
 
-.thread185:                                       ; preds = %70, %68
-  %.str.10.sink = phi ptr [ @.str.10, %68 ], [ @.str.25, %70 ]
-  %.5.ph = phi i32 [ 3, %68 ], [ 13, %70 ]
+.thread185:                                       ; preds = %71, %69
+  %.str.10.sink = phi ptr [ @.str.10, %69 ], [ @.str.25, %71 ]
+  %.5.ph = phi i32 [ 3, %69 ], [ 13, %71 ]
   call fastcc void @_ZL21aes_gcm_format_errorsPKcPPc(ptr noundef nonnull %.str.10.sink, ptr noundef %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br label %167
+  br label %168
 
-75:                                               ; preds = %70
+76:                                               ; preds = %71
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.thread
 
-.thread:                                          ; preds = %.lr.ph226, %75
-  %76 = add nuw i64 %.1143225, 1
-  %exitcond251.not = icmp eq i64 %76, %4
+.thread:                                          ; preds = %.lr.ph226, %76
+  %77 = add nuw i64 %.1143225, 1
+  %exitcond251.not = icmp eq i64 %77, %4
   br i1 %exitcond251.not, label %._crit_edge227, label %.lr.ph226, !llvm.loop !62
 
 ._crit_edge227:                                   ; preds = %.thread, %.preheader197
-  %77 = load ptr, ptr %7, align 8, !tbaa !53
-  %78 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %79 = load i64, ptr %78, align 8, !tbaa !55
-  %80 = icmp ne i64 %79, 0
-  %81 = icmp eq ptr %77, null
-  %or.cond5 = select i1 %80, i1 %81, i1 false
-  br i1 %or.cond5, label %84, label %.preheader
+  %78 = load ptr, ptr %7, align 8, !tbaa !53
+  %79 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %80 = load i64, ptr %79, align 8, !tbaa !55
+  %81 = icmp ne i64 %80, 0
+  %82 = icmp eq ptr %78, null
+  %or.cond5 = select i1 %81, i1 %82, i1 false
+  br i1 %or.cond5, label %85, label %.preheader
 
 .preheader:                                       ; preds = %._crit_edge227
-  %82 = icmp ne i64 %30, 16
-  %83 = and i1 %25, %82
-  br i1 %83, label %.lr.ph232, label %._crit_edge233.thread
+  %83 = icmp ne i64 %31, 16
+  %84 = and i1 %25, %83
+  br i1 %84, label %.lr.ph232, label %._crit_edge233.thread
 
-84:                                               ; preds = %._crit_edge227
+85:                                               ; preds = %._crit_edge227
   call fastcc void @_ZL21aes_gcm_format_errorsPKcPPc(ptr noundef nonnull @.str.26, ptr noundef %9)
-  br label %167
+  br label %168
 
-.lr.ph232:                                        ; preds = %.preheader, %118
-  %.0129231 = phi i64 [ %.1130, %118 ], [ %79, %.preheader ]
-  %.0132230 = phi ptr [ %.1133, %118 ], [ %77, %.preheader ]
-  %.2144229 = phi i64 [ %119, %118 ], [ 0, %.preheader ]
-  %.1147228 = phi i64 [ %.2148, %118 ], [ %30, %.preheader ]
-  %85 = getelementptr inbounds nuw %struct.iovec, ptr %5, i64 %.2144229
-  %86 = load ptr, ptr %85, align 8, !tbaa !53
-  %87 = getelementptr inbounds nuw i8, ptr %85, i64 8
-  %88 = load i64, ptr %87, align 8, !tbaa !55
-  %89 = icmp eq ptr %86, null
-  br i1 %89, label %90, label %95
+.lr.ph232:                                        ; preds = %.preheader, %119
+  %.0129231 = phi i64 [ %.1130, %119 ], [ %80, %.preheader ]
+  %.0132230 = phi ptr [ %.1133, %119 ], [ %78, %.preheader ]
+  %.2144229 = phi i64 [ %120, %119 ], [ 0, %.preheader ]
+  %.1147228 = phi i64 [ %.2148, %119 ], [ %31, %.preheader ]
+  %86 = getelementptr inbounds nuw %struct.iovec, ptr %5, i64 %.2144229
+  %87 = load ptr, ptr %86, align 8, !tbaa !53
+  %88 = getelementptr inbounds nuw i8, ptr %86, i64 8
+  %89 = load i64, ptr %88, align 8, !tbaa !55
+  %90 = icmp eq ptr %87, null
+  br i1 %90, label %91, label %96
 
-90:                                               ; preds = %.lr.ph232
-  %91 = icmp eq i64 %88, 0
-  br i1 %91, label %118, label %92
+91:                                               ; preds = %.lr.ph232
+  %92 = icmp eq i64 %89, 0
+  br i1 %92, label %119, label %93
 
-92:                                               ; preds = %90
+93:                                               ; preds = %91
   call fastcc void @_ZL21aes_gcm_format_errorsPKcPPc(ptr noundef nonnull @.str.12, ptr noundef %9)
-  %93 = load ptr, ptr %7, align 8, !tbaa !53
-  %94 = load i64, ptr %78, align 8, !tbaa !55
-  call void @llvm.memset.p0.i64(ptr align 1 %93, i8 0, i64 %94, i1 false)
-  br label %167
+  %94 = load ptr, ptr %7, align 8, !tbaa !53
+  %95 = load i64, ptr %79, align 8, !tbaa !55
+  call void @llvm.memset.p0.i64(ptr align 1 %94, i8 0, i64 %95, i1 false)
+  br label %168
 
-95:                                               ; preds = %.lr.ph232
+96:                                               ; preds = %.lr.ph232
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i64 0, ptr %13, align 8, !tbaa !52
-  %96 = add i64 %.1147228, -16
-  %spec.select = call i64 @llvm.umin.i64(i64 %88, i64 %96)
-  %97 = icmp ult i64 %.0129231, %spec.select
-  br i1 %97, label %98, label %99
+  %97 = add i64 %.1147228, -16
+  %spec.select = call i64 @llvm.umin.i64(i64 %89, i64 %97)
+  %98 = icmp ult i64 %.0129231, %spec.select
+  br i1 %98, label %99, label %100
 
-98:                                               ; preds = %95
+99:                                               ; preds = %96
   call fastcc void @_ZL21aes_gcm_format_errorsPKcPPc(ptr noundef nonnull @.str.27, ptr noundef %9)
   br label %.thread189
 
-99:                                               ; preds = %95
-  %100 = load ptr, ptr %59, align 8, !tbaa !45
-  %101 = trunc i64 %spec.select to i32
-  %102 = call i32 @EVP_DecryptUpdate(ptr noundef %100, ptr noundef %.0132230, ptr noundef nonnull %13, ptr noundef nonnull %86, i32 noundef %101)
-  %.not175 = icmp eq i32 %102, 0
-  br i1 %.not175, label %103, label %106
+100:                                              ; preds = %96
+  %101 = load ptr, ptr %60, align 8, !tbaa !45
+  %102 = trunc i64 %spec.select to i32
+  %103 = call i32 @EVP_DecryptUpdate(ptr noundef %101, ptr noundef %.0132230, ptr noundef nonnull %13, ptr noundef nonnull %87, i32 noundef %102)
+  %.not175 = icmp eq i32 %103, 0
+  br i1 %.not175, label %104, label %107
 
-103:                                              ; preds = %99
+104:                                              ; preds = %100
   call fastcc void @_ZL21aes_gcm_format_errorsPKcPPc(ptr noundef nonnull @.str.28, ptr noundef %9)
-  %104 = load ptr, ptr %7, align 8, !tbaa !53
-  %105 = load i64, ptr %78, align 8, !tbaa !55
-  call void @llvm.memset.p0.i64(ptr align 1 %104, i8 0, i64 %105, i1 false)
+  %105 = load ptr, ptr %7, align 8, !tbaa !53
+  %106 = load i64, ptr %79, align 8, !tbaa !55
+  call void @llvm.memset.p0.i64(ptr align 1 %105, i8 0, i64 %106, i1 false)
   br label %.thread189
 
-106:                                              ; preds = %99
-  %107 = load i64, ptr %13, align 8, !tbaa !52
-  %108 = icmp ugt i64 %107, %88
-  br i1 %108, label %109, label %112
+107:                                              ; preds = %100
+  %108 = load i64, ptr %13, align 8, !tbaa !52
+  %109 = icmp ugt i64 %108, %89
+  br i1 %109, label %110, label %113
 
-109:                                              ; preds = %106
+110:                                              ; preds = %107
   call fastcc void @_ZL21aes_gcm_format_errorsPKcPPc(ptr noundef nonnull @.str.16, ptr noundef %9)
-  %110 = load ptr, ptr %7, align 8, !tbaa !53
-  %111 = load i64, ptr %78, align 8, !tbaa !55
-  call void @llvm.memset.p0.i64(ptr align 1 %110, i8 0, i64 %111, i1 false)
+  %111 = load ptr, ptr %7, align 8, !tbaa !53
+  %112 = load i64, ptr %79, align 8, !tbaa !55
+  call void @llvm.memset.p0.i64(ptr align 1 %111, i8 0, i64 %112, i1 false)
   br label %.thread189
 
-.thread189:                                       ; preds = %98, %109, %103
-  %.10.ph = phi i32 [ 13, %103 ], [ 13, %109 ], [ 3, %98 ]
+.thread189:                                       ; preds = %99, %110, %104
+  %.10.ph = phi i32 [ 13, %104 ], [ 13, %110 ], [ 3, %99 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  br label %167
+  br label %168
 
-112:                                              ; preds = %106
-  %113 = getelementptr inbounds nuw i8, ptr %86, i64 %107
-  %114 = sub nuw i64 %88, %107
-  %115 = sub i64 %.1147228, %107
-  %116 = getelementptr inbounds nuw i8, ptr %.0132230, i64 %107
-  %117 = sub i64 %.0129231, %107
+113:                                              ; preds = %107
+  %114 = getelementptr inbounds nuw i8, ptr %87, i64 %108
+  %115 = sub nuw i64 %89, %108
+  %116 = sub i64 %.1147228, %108
+  %117 = getelementptr inbounds nuw i8, ptr %.0132230, i64 %108
+  %118 = sub i64 %.0129231, %108
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  br label %118
+  br label %119
 
-118:                                              ; preds = %112, %90
-  %.2148 = phi i64 [ %.1147228, %90 ], [ %115, %112 ]
-  %.1133 = phi ptr [ %.0132230, %90 ], [ %116, %112 ]
-  %.1130 = phi i64 [ %.0129231, %90 ], [ %117, %112 ]
-  %.1127 = phi ptr [ null, %90 ], [ %113, %112 ]
-  %.1124 = phi i64 [ 0, %90 ], [ %114, %112 ]
-  %119 = add nuw i64 %.2144229, 1
-  %120 = icmp ult i64 %119, %6
-  %121 = icmp ugt i64 %.2148, 16
-  %122 = select i1 %120, i1 %121, i1 false
-  br i1 %122, label %.lr.ph232, label %._crit_edge233, !llvm.loop !63
+119:                                              ; preds = %113, %91
+  %.2148 = phi i64 [ %.1147228, %91 ], [ %116, %113 ]
+  %.1133 = phi ptr [ %.0132230, %91 ], [ %117, %113 ]
+  %.1130 = phi i64 [ %.0129231, %91 ], [ %118, %113 ]
+  %.1127 = phi ptr [ null, %91 ], [ %114, %113 ]
+  %.1124 = phi i64 [ 0, %91 ], [ %115, %113 ]
+  %120 = add nuw i64 %.2144229, 1
+  %121 = icmp ult i64 %120, %6
+  %122 = icmp ugt i64 %.2148, 16
+  %123 = select i1 %121, i1 %122, i1 false
+  br i1 %123, label %.lr.ph232, label %._crit_edge233, !llvm.loop !63
 
-._crit_edge233:                                   ; preds = %118
-  br i1 %121, label %123, label %126
+._crit_edge233:                                   ; preds = %119
+  br i1 %122, label %124, label %127
 
 ._crit_edge233.thread:                            ; preds = %.preheader
-  br i1 %82, label %123, label %.thread278
+  br i1 %83, label %124, label %.thread278
 
 .thread278:                                       ; preds = %._crit_edge233.thread
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  br label %129
+  br label %130
 
-123:                                              ; preds = %._crit_edge233.thread, %._crit_edge233
+124:                                              ; preds = %._crit_edge233.thread, %._crit_edge233
   call fastcc void @_ZL21aes_gcm_format_errorsPKcPPc(ptr noundef nonnull @.str.27, ptr noundef %9)
-  %124 = load ptr, ptr %7, align 8, !tbaa !53
-  %125 = load i64, ptr %78, align 8, !tbaa !55
-  call void @llvm.memset.p0.i64(ptr align 1 %124, i8 0, i64 %125, i1 false)
-  br label %167
-
-126:                                              ; preds = %._crit_edge233
-  call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  %.not170 = icmp eq i64 %.1124, 0
-  br i1 %.not170, label %129, label %127
-
-127:                                              ; preds = %126
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %14, ptr align 1 %.1127, i64 %.1124, i1 false)
-  %128 = getelementptr inbounds nuw i8, ptr %14, i64 %.1124
-  br label %129
-
-129:                                              ; preds = %.thread278, %127, %126
-  %.2144.lcssa274285 = phi i64 [ %119, %127 ], [ %119, %126 ], [ 0, %.thread278 ]
-  %.0129.lcssa275284 = phi i64 [ %.1130, %127 ], [ %.1130, %126 ], [ %79, %.thread278 ]
-  %.0 = phi ptr [ %128, %127 ], [ %14, %126 ], [ %14, %.thread278 ]
-  %130 = icmp ult i64 %.2144.lcssa274285, %6
-  br i1 %130, label %.lr.ph244, label %._crit_edge245
-
-.lr.ph244:                                        ; preds = %129, %143
-  %.1242 = phi ptr [ %.2, %143 ], [ %.0, %129 ]
-  %.3145241 = phi i64 [ %144, %143 ], [ %.2144.lcssa274285, %129 ]
-  %131 = getelementptr inbounds nuw %struct.iovec, ptr %5, i64 %.3145241
-  %132 = load ptr, ptr %131, align 8, !tbaa !53
-  %133 = getelementptr inbounds nuw i8, ptr %131, i64 8
-  %134 = load i64, ptr %133, align 8, !tbaa !55
-  %135 = icmp eq ptr %132, null
-  br i1 %135, label %136, label %141
-
-136:                                              ; preds = %.lr.ph244
-  %137 = icmp eq i64 %134, 0
-  br i1 %137, label %143, label %138
-
-138:                                              ; preds = %136
-  call fastcc void @_ZL21aes_gcm_format_errorsPKcPPc(ptr noundef nonnull @.str.12, ptr noundef %9)
-  %139 = load ptr, ptr %7, align 8, !tbaa !53
-  %140 = load i64, ptr %78, align 8, !tbaa !55
-  call void @llvm.memset.p0.i64(ptr align 1 %139, i8 0, i64 %140, i1 false)
-  br label %166
-
-141:                                              ; preds = %.lr.ph244
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.1242, ptr nonnull align 1 %132, i64 %134, i1 false)
-  %142 = getelementptr inbounds nuw i8, ptr %.1242, i64 %134
-  br label %143
-
-143:                                              ; preds = %136, %141
-  %.2 = phi ptr [ %.1242, %136 ], [ %142, %141 ]
-  %144 = add i64 %.3145241, 1
-  %exitcond252.not = icmp eq i64 %144, %6
-  br i1 %exitcond252.not, label %._crit_edge245, label %.lr.ph244, !llvm.loop !64
-
-._crit_edge245:                                   ; preds = %143, %129
-  %145 = load ptr, ptr %59, align 8, !tbaa !45
-  %146 = call i32 @EVP_CIPHER_CTX_ctrl(ptr noundef %145, i32 noundef 17, i32 noundef 16, ptr noundef nonnull %14)
-  %.not171 = icmp eq i32 %146, 0
-  br i1 %.not171, label %147, label %150
-
-147:                                              ; preds = %._crit_edge245
-  call fastcc void @_ZL21aes_gcm_format_errorsPKcPPc(ptr noundef nonnull @.str.29, ptr noundef %9)
-  %148 = load ptr, ptr %7, align 8, !tbaa !53
-  %149 = load i64, ptr %78, align 8, !tbaa !55
-  call void @llvm.memset.p0.i64(ptr align 1 %148, i8 0, i64 %149, i1 false)
-  br label %166
-
-150:                                              ; preds = %._crit_edge245
-  call void @llvm.lifetime.start.p0(ptr nonnull %15)
-  store i32 0, ptr %15, align 4, !tbaa !58
-  %151 = load ptr, ptr %59, align 8, !tbaa !45
-  %152 = call i32 @EVP_DecryptFinal_ex(ptr noundef %151, ptr noundef null, ptr noundef nonnull %15)
-  %.not172 = icmp eq i32 %152, 0
-  br i1 %.not172, label %153, label %157
-
-153:                                              ; preds = %150
-  call fastcc void @_ZL21aes_gcm_format_errorsPKcPPc(ptr noundef nonnull @.str.30, ptr noundef %9)
-  %154 = load ptr, ptr %7, align 8, !tbaa !53
-  %.not173 = icmp eq ptr %154, null
-  br i1 %.not173, label %165, label %155
-
-155:                                              ; preds = %153
-  %156 = load i64, ptr %78, align 8, !tbaa !55
-  call void @llvm.memset.p0.i64(ptr nonnull align 1 %154, i8 0, i64 %156, i1 false)
-  br label %165
-
-157:                                              ; preds = %150
-  %158 = load i32, ptr %15, align 4, !tbaa !58
-  %.not174 = icmp eq i32 %158, 0
-  br i1 %.not174, label %162, label %159
-
-159:                                              ; preds = %157
-  call fastcc void @_ZL21aes_gcm_format_errorsPKcPPc(ptr noundef nonnull @.str.18, ptr noundef %9)
-  %160 = load ptr, ptr %7, align 8, !tbaa !53
-  %161 = load i64, ptr %78, align 8, !tbaa !55
-  call void @llvm.memset.p0.i64(ptr align 1 %160, i8 0, i64 %161, i1 false)
-  br label %165
-
-162:                                              ; preds = %157
-  %163 = load i64, ptr %78, align 8, !tbaa !55
-  %164 = sub i64 %163, %.0129.lcssa275284
-  store i64 %164, ptr %8, align 8, !tbaa !52
-  br label %165
-
-165:                                              ; preds = %153, %155, %162, %159
-  %.12 = phi i32 [ 13, %159 ], [ 0, %162 ], [ 9, %155 ], [ 9, %153 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %15)
-  br label %166
-
-166:                                              ; preds = %165, %147, %138
-  %.11 = phi i32 [ 3, %138 ], [ %.12, %165 ], [ 13, %147 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  br label %167
-
-167:                                              ; preds = %.thread189, %.thread185, %84, %166, %123, %92, %62
-  %.2137 = phi i32 [ 13, %62 ], [ 3, %84 ], [ 3, %92 ], [ 3, %123 ], [ %.11, %166 ], [ %.5.ph, %.thread185 ], [ %.10.ph, %.thread189 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  %125 = load ptr, ptr %7, align 8, !tbaa !53
+  %126 = load i64, ptr %79, align 8, !tbaa !55
+  call void @llvm.memset.p0.i64(ptr align 1 %125, i8 0, i64 %126, i1 false)
   br label %168
 
-168:                                              ; preds = %._crit_edge.thread, %35, %38, %167, %27, %23, %19, %17
-  %.0135 = phi i32 [ 3, %17 ], [ 3, %19 ], [ 3, %23 ], [ 3, %27 ], [ 3, %._crit_edge.thread ], [ 3, %35 ], [ 13, %38 ], [ %.2137, %167 ]
+127:                                              ; preds = %._crit_edge233
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  %.not170 = icmp eq i64 %.1124, 0
+  br i1 %.not170, label %130, label %128
+
+128:                                              ; preds = %127
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %14, ptr align 1 %.1127, i64 %.1124, i1 false)
+  %129 = getelementptr inbounds nuw i8, ptr %14, i64 %.1124
+  br label %130
+
+130:                                              ; preds = %.thread278, %128, %127
+  %.2144.lcssa274285 = phi i64 [ %120, %128 ], [ %120, %127 ], [ 0, %.thread278 ]
+  %.0129.lcssa275284 = phi i64 [ %.1130, %128 ], [ %.1130, %127 ], [ %80, %.thread278 ]
+  %.0 = phi ptr [ %129, %128 ], [ %14, %127 ], [ %14, %.thread278 ]
+  %131 = icmp ult i64 %.2144.lcssa274285, %6
+  br i1 %131, label %.lr.ph244, label %._crit_edge245
+
+.lr.ph244:                                        ; preds = %130, %144
+  %.1242 = phi ptr [ %.2, %144 ], [ %.0, %130 ]
+  %.3145241 = phi i64 [ %145, %144 ], [ %.2144.lcssa274285, %130 ]
+  %132 = getelementptr inbounds nuw %struct.iovec, ptr %5, i64 %.3145241
+  %133 = load ptr, ptr %132, align 8, !tbaa !53
+  %134 = getelementptr inbounds nuw i8, ptr %132, i64 8
+  %135 = load i64, ptr %134, align 8, !tbaa !55
+  %136 = icmp eq ptr %133, null
+  br i1 %136, label %137, label %142
+
+137:                                              ; preds = %.lr.ph244
+  %138 = icmp eq i64 %135, 0
+  br i1 %138, label %144, label %139
+
+139:                                              ; preds = %137
+  call fastcc void @_ZL21aes_gcm_format_errorsPKcPPc(ptr noundef nonnull @.str.12, ptr noundef %9)
+  %140 = load ptr, ptr %7, align 8, !tbaa !53
+  %141 = load i64, ptr %79, align 8, !tbaa !55
+  call void @llvm.memset.p0.i64(ptr align 1 %140, i8 0, i64 %141, i1 false)
+  br label %167
+
+142:                                              ; preds = %.lr.ph244
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.1242, ptr nonnull align 1 %133, i64 %135, i1 false)
+  %143 = getelementptr inbounds nuw i8, ptr %.1242, i64 %135
+  br label %144
+
+144:                                              ; preds = %137, %142
+  %.2 = phi ptr [ %.1242, %137 ], [ %143, %142 ]
+  %145 = add i64 %.3145241, 1
+  %exitcond252.not = icmp eq i64 %145, %6
+  br i1 %exitcond252.not, label %._crit_edge245, label %.lr.ph244, !llvm.loop !64
+
+._crit_edge245:                                   ; preds = %144, %130
+  %146 = load ptr, ptr %60, align 8, !tbaa !45
+  %147 = call i32 @EVP_CIPHER_CTX_ctrl(ptr noundef %146, i32 noundef 17, i32 noundef 16, ptr noundef nonnull %14)
+  %.not171 = icmp eq i32 %147, 0
+  br i1 %.not171, label %148, label %151
+
+148:                                              ; preds = %._crit_edge245
+  call fastcc void @_ZL21aes_gcm_format_errorsPKcPPc(ptr noundef nonnull @.str.29, ptr noundef %9)
+  %149 = load ptr, ptr %7, align 8, !tbaa !53
+  %150 = load i64, ptr %79, align 8, !tbaa !55
+  call void @llvm.memset.p0.i64(ptr align 1 %149, i8 0, i64 %150, i1 false)
+  br label %167
+
+151:                                              ; preds = %._crit_edge245
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  store i32 0, ptr %15, align 4, !tbaa !58
+  %152 = load ptr, ptr %60, align 8, !tbaa !45
+  %153 = call i32 @EVP_DecryptFinal_ex(ptr noundef %152, ptr noundef null, ptr noundef nonnull %15)
+  %.not172 = icmp eq i32 %153, 0
+  br i1 %.not172, label %154, label %158
+
+154:                                              ; preds = %151
+  call fastcc void @_ZL21aes_gcm_format_errorsPKcPPc(ptr noundef nonnull @.str.30, ptr noundef %9)
+  %155 = load ptr, ptr %7, align 8, !tbaa !53
+  %.not173 = icmp eq ptr %155, null
+  br i1 %.not173, label %166, label %156
+
+156:                                              ; preds = %154
+  %157 = load i64, ptr %79, align 8, !tbaa !55
+  call void @llvm.memset.p0.i64(ptr nonnull align 1 %155, i8 0, i64 %157, i1 false)
+  br label %166
+
+158:                                              ; preds = %151
+  %159 = load i32, ptr %15, align 4, !tbaa !58
+  %.not174 = icmp eq i32 %159, 0
+  br i1 %.not174, label %163, label %160
+
+160:                                              ; preds = %158
+  call fastcc void @_ZL21aes_gcm_format_errorsPKcPPc(ptr noundef nonnull @.str.18, ptr noundef %9)
+  %161 = load ptr, ptr %7, align 8, !tbaa !53
+  %162 = load i64, ptr %79, align 8, !tbaa !55
+  call void @llvm.memset.p0.i64(ptr align 1 %161, i8 0, i64 %162, i1 false)
+  br label %166
+
+163:                                              ; preds = %158
+  %164 = load i64, ptr %79, align 8, !tbaa !55
+  %165 = sub i64 %164, %.0129.lcssa275284
+  store i64 %165, ptr %8, align 8, !tbaa !52
+  br label %166
+
+166:                                              ; preds = %154, %156, %163, %160
+  %.12 = phi i32 [ 13, %160 ], [ 0, %163 ], [ 9, %156 ], [ 9, %154 ]
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  br label %167
+
+167:                                              ; preds = %166, %148, %139
+  %.11 = phi i32 [ 3, %139 ], [ %.12, %166 ], [ 13, %148 ]
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  br label %168
+
+168:                                              ; preds = %.thread189, %.thread185, %85, %167, %124, %93, %63
+  %.2137 = phi i32 [ 13, %63 ], [ 3, %85 ], [ 3, %93 ], [ 3, %124 ], [ %.11, %167 ], [ %.5.ph, %.thread185 ], [ %.10.ph, %.thread189 ]
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  br label %169
+
+169:                                              ; preds = %._crit_edge.thread, %36, %39, %168, %27, %23, %19, %17
+  %.0135 = phi i32 [ 3, %17 ], [ 3, %19 ], [ 3, %23 ], [ 3, %27 ], [ 3, %._crit_edge.thread ], [ 3, %36 ], [ 13, %39 ], [ %.2137, %168 ]
   ret i32 %.0135
 }
 

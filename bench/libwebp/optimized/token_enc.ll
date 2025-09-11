@@ -166,10 +166,10 @@ AddToken.exit:                                    ; preds = %TBufferNewPage.exit
   %63 = zext nneg i32 %9 to i64
   br label %64
 
-64:                                               ; preds = %.lr.ph, %714
-  %indvars.iv = phi i64 [ %18, %.lr.ph ], [ %indvars.iv.next, %714 ]
-  %.0120307 = phi i32 [ %15, %.lr.ph ], [ %.1121, %714 ]
-  %.0124306 = phi ptr [ %21, %.lr.ph ], [ %.1125, %714 ]
+64:                                               ; preds = %.lr.ph, %715
+  %indvars.iv = phi i64 [ %18, %.lr.ph ], [ %indvars.iv.next, %715 ]
+  %.0120307 = phi i32 [ %15, %.lr.ph ], [ %.1121, %715 ]
+  %.0124306 = phi ptr [ %21, %.lr.ph ], [ %.1125, %715 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %65 = getelementptr inbounds i16, ptr %5, i64 %indvars.iv
   %66 = load i16, ptr %65, align 2, !tbaa !31
@@ -249,7 +249,7 @@ AddToken.exit146:                                 ; preds = %TBufferNewPage.exit
   %107 = load ptr, ptr %16, align 8, !tbaa !29
   %108 = zext i8 %103 to i64
   %109 = getelementptr inbounds nuw [3 x [11 x i32]], ptr %107, i64 %108
-  br label %714, !llvm.loop !35
+  br label %715, !llvm.loop !35
 
 110:                                              ; preds = %AddToken.exit146
   %111 = icmp ugt i16 %67, 1
@@ -791,7 +791,7 @@ TBufferNewPage.exit.i210:                         ; preds = %359
 
 377:                                              ; preds = %AddToken.exit186
   %378 = add nsw i32 %68, -3
-  %379 = icmp ult i32 %378, 16
+  %379 = icmp samesign ult i32 %378, 16
   br i1 %379, label %380, label %439
 
 380:                                              ; preds = %377
@@ -914,7 +914,7 @@ AddToken.exit230:                                 ; preds = %TBufferNewPage.exit
   br label %621
 
 439:                                              ; preds = %377
-  %440 = icmp ult i32 %378, 32
+  %440 = icmp samesign ult i32 %378, 32
   br i1 %440, label %441, label %501
 
 441:                                              ; preds = %439
@@ -1038,7 +1038,7 @@ AddToken.exit246:                                 ; preds = %TBufferNewPage.exit
   br label %621
 
 501:                                              ; preds = %439
-  %502 = icmp ult i32 %378, 64
+  %502 = icmp samesign ult i32 %378, 64
   %503 = getelementptr inbounds nuw i8, ptr %.0124306, i64 32
   %504 = load i32, ptr %23, align 8, !tbaa !14
   %505 = icmp sgt i32 %504, 0
@@ -1348,140 +1348,140 @@ AddConstantToken.exit285:                         ; preds = %TBufferNewPage.exit
   br i1 %.not137, label %AddConstantToken.exit, label %623, !llvm.loop !36
 
 AddConstantToken.exit:                            ; preds = %AddConstantToken.exit285, %AddToken.exit178, %AddToken.exit170, %TBufferNewPage.exit.thread.i196, %327, %TBufferNewPage.exit.thread.i209, %369, %AddToken.exit154
-  %.sink365 = phi i32 [ 11, %AddToken.exit154 ], [ 22, %369 ], [ 22, %TBufferNewPage.exit.thread.i209 ], [ 22, %327 ], [ 22, %TBufferNewPage.exit.thread.i196 ], [ 22, %AddToken.exit170 ], [ 22, %AddToken.exit178 ], [ 22, %AddConstantToken.exit285 ]
-  %.sink362 = phi i64 [ 1, %AddToken.exit154 ], [ 2, %369 ], [ 2, %TBufferNewPage.exit.thread.i209 ], [ 2, %327 ], [ 2, %TBufferNewPage.exit.thread.i196 ], [ 2, %AddToken.exit170 ], [ 2, %AddToken.exit178 ], [ 2, %AddConstantToken.exit285 ]
+  %.sink366 = phi i32 [ 11, %AddToken.exit154 ], [ 22, %369 ], [ 22, %TBufferNewPage.exit.thread.i209 ], [ 22, %327 ], [ 22, %TBufferNewPage.exit.thread.i196 ], [ 22, %AddToken.exit170 ], [ 22, %AddToken.exit178 ], [ 22, %AddConstantToken.exit285 ]
+  %.sink361 = phi i64 [ 44, %AddToken.exit154 ], [ 88, %369 ], [ 88, %TBufferNewPage.exit.thread.i209 ], [ 88, %327 ], [ 88, %TBufferNewPage.exit.thread.i196 ], [ 88, %AddToken.exit170 ], [ 88, %AddToken.exit178 ], [ 88, %AddConstantToken.exit285 ]
   %651 = getelementptr inbounds i8, ptr @VP8EncBands, i64 %indvars.iv.next
   %652 = load i8, ptr %651, align 1, !tbaa !34
   %653 = zext i8 %652 to i32
   %654 = add nsw i32 %11, %653
   %655 = mul i32 %654, 33
-  %656 = add i32 %655, %.sink365
+  %656 = add i32 %655, %.sink366
   %657 = load ptr, ptr %16, align 8, !tbaa !29
   %658 = zext i8 %652 to i64
-  %.split = getelementptr inbounds nuw [3 x [11 x i32]], ptr %657, i64 %658
-  %659 = getelementptr inbounds nuw [11 x i32], ptr %.split, i64 %.sink362
-  %660 = load i32, ptr %23, align 8, !tbaa !14
-  %661 = icmp sgt i32 %660, 0
-  br i1 %661, label %._crit_edge.i289, label %662
+  %659 = getelementptr inbounds nuw [3 x [11 x i32]], ptr %657, i64 %658
+  %660 = getelementptr inbounds nuw i8, ptr %659, i64 %.sink361
+  %661 = load i32, ptr %23, align 8, !tbaa !14
+  %662 = icmp sgt i32 %661, 0
+  br i1 %662, label %._crit_edge.i289, label %663
 
 ._crit_edge.i289:                                 ; preds = %AddConstantToken.exit
   %.pre.i291 = load ptr, ptr %62, align 8, !tbaa !3
-  br label %674
+  br label %675
 
-662:                                              ; preds = %AddConstantToken.exit
-  %663 = load i32, ptr %59, align 8, !tbaa !16
-  %.not.i.i286 = icmp eq i32 %663, 0
-  br i1 %.not.i.i286, label %664, label %TBufferNewPage.exit.thread.i287
+663:                                              ; preds = %AddConstantToken.exit
+  %664 = load i32, ptr %59, align 8, !tbaa !16
+  %.not.i.i286 = icmp eq i32 %664, 0
+  br i1 %.not.i.i286, label %665, label %TBufferNewPage.exit.thread.i287
 
-664:                                              ; preds = %662
-  %665 = load i32, ptr %60, align 4, !tbaa !15
-  %666 = sext i32 %665 to i64
-  %667 = shl nsw i64 %666, 1
-  %668 = add nsw i64 %667, 8
-  %669 = tail call ptr @WebPSafeMalloc(i64 noundef 1, i64 noundef %668) #5
-  %670 = icmp eq ptr %669, null
-  br i1 %670, label %TBufferNewPage.exit.thread.i287, label %TBufferNewPage.exit.i288
+665:                                              ; preds = %663
+  %666 = load i32, ptr %60, align 4, !tbaa !15
+  %667 = sext i32 %666 to i64
+  %668 = shl nsw i64 %667, 1
+  %669 = add nsw i64 %668, 8
+  %670 = tail call ptr @WebPSafeMalloc(i64 noundef 1, i64 noundef %669) #5
+  %671 = icmp eq ptr %670, null
+  br i1 %671, label %TBufferNewPage.exit.thread.i287, label %TBufferNewPage.exit.i288
 
-TBufferNewPage.exit.thread.i287:                  ; preds = %664, %662
+TBufferNewPage.exit.thread.i287:                  ; preds = %665, %663
   store i32 1, ptr %59, align 8, !tbaa !16
   br label %AddConstantToken.exit292
 
-TBufferNewPage.exit.i288:                         ; preds = %664
-  store ptr null, ptr %669, align 8, !tbaa !17
-  %671 = load ptr, ptr %61, align 8, !tbaa !13
-  store ptr %669, ptr %671, align 8, !tbaa !30
-  store ptr %669, ptr %61, align 8, !tbaa !13
-  %672 = load i32, ptr %60, align 4, !tbaa !15
-  %673 = getelementptr inbounds nuw i8, ptr %669, i64 8
-  store ptr %673, ptr %62, align 8, !tbaa !3
-  br label %674
+TBufferNewPage.exit.i288:                         ; preds = %665
+  store ptr null, ptr %670, align 8, !tbaa !17
+  %672 = load ptr, ptr %61, align 8, !tbaa !13
+  store ptr %670, ptr %672, align 8, !tbaa !30
+  store ptr %670, ptr %61, align 8, !tbaa !13
+  %673 = load i32, ptr %60, align 4, !tbaa !15
+  %674 = getelementptr inbounds nuw i8, ptr %670, i64 8
+  store ptr %674, ptr %62, align 8, !tbaa !3
+  br label %675
 
-674:                                              ; preds = %TBufferNewPage.exit.i288, %._crit_edge.i289
-  %675 = phi ptr [ %673, %TBufferNewPage.exit.i288 ], [ %.pre.i291, %._crit_edge.i289 ]
-  %676 = phi i32 [ %672, %TBufferNewPage.exit.i288 ], [ %660, %._crit_edge.i289 ]
-  %677 = add nsw i32 %676, -1
-  store i32 %677, ptr %23, align 8, !tbaa !14
-  %678 = or disjoint i16 %.lobit, 16512
-  %679 = sext i32 %677 to i64
-  %680 = getelementptr inbounds i16, ptr %675, i64 %679
-  store i16 %678, ptr %680, align 2, !tbaa !31
+675:                                              ; preds = %TBufferNewPage.exit.i288, %._crit_edge.i289
+  %676 = phi ptr [ %674, %TBufferNewPage.exit.i288 ], [ %.pre.i291, %._crit_edge.i289 ]
+  %677 = phi i32 [ %673, %TBufferNewPage.exit.i288 ], [ %661, %._crit_edge.i289 ]
+  %678 = add nsw i32 %677, -1
+  store i32 %678, ptr %23, align 8, !tbaa !14
+  %679 = or disjoint i16 %.lobit, 16512
+  %680 = sext i32 %678 to i64
+  %681 = getelementptr inbounds i16, ptr %676, i64 %680
+  store i16 %679, ptr %681, align 2, !tbaa !31
   br label %AddConstantToken.exit292
 
-AddConstantToken.exit292:                         ; preds = %TBufferNewPage.exit.thread.i287, %674
-  %681 = icmp eq i64 %indvars.iv.next, 16
-  br i1 %681, label %.thread, label %682
+AddConstantToken.exit292:                         ; preds = %TBufferNewPage.exit.thread.i287, %675
+  %682 = icmp eq i64 %indvars.iv.next, 16
+  br i1 %682, label %.thread, label %683
 
-682:                                              ; preds = %AddConstantToken.exit292
-  %683 = icmp slt i64 %indvars.iv, %63
-  %684 = load i32, ptr %23, align 8, !tbaa !14
-  %685 = icmp sgt i32 %684, 0
-  br i1 %685, label %._crit_edge.i297, label %686
+683:                                              ; preds = %AddConstantToken.exit292
+  %684 = icmp slt i64 %indvars.iv, %63
+  %685 = load i32, ptr %23, align 8, !tbaa !14
+  %686 = icmp sgt i32 %685, 0
+  br i1 %686, label %._crit_edge.i297, label %687
 
-._crit_edge.i297:                                 ; preds = %682
+._crit_edge.i297:                                 ; preds = %683
   %.pre.i299 = load ptr, ptr %62, align 8, !tbaa !3
-  br label %698
+  br label %699
 
-686:                                              ; preds = %682
-  %687 = load i32, ptr %59, align 8, !tbaa !16
-  %.not.i.i293 = icmp eq i32 %687, 0
-  br i1 %.not.i.i293, label %688, label %TBufferNewPage.exit.thread.i294
+687:                                              ; preds = %683
+  %688 = load i32, ptr %59, align 8, !tbaa !16
+  %.not.i.i293 = icmp eq i32 %688, 0
+  br i1 %.not.i.i293, label %689, label %TBufferNewPage.exit.thread.i294
 
-688:                                              ; preds = %686
-  %689 = load i32, ptr %60, align 4, !tbaa !15
-  %690 = sext i32 %689 to i64
-  %691 = shl nsw i64 %690, 1
-  %692 = add nsw i64 %691, 8
-  %693 = tail call ptr @WebPSafeMalloc(i64 noundef 1, i64 noundef %692) #5
-  %694 = icmp eq ptr %693, null
-  br i1 %694, label %TBufferNewPage.exit.thread.i294, label %TBufferNewPage.exit.i296
+689:                                              ; preds = %687
+  %690 = load i32, ptr %60, align 4, !tbaa !15
+  %691 = sext i32 %690 to i64
+  %692 = shl nsw i64 %691, 1
+  %693 = add nsw i64 %692, 8
+  %694 = tail call ptr @WebPSafeMalloc(i64 noundef 1, i64 noundef %693) #5
+  %695 = icmp eq ptr %694, null
+  br i1 %695, label %TBufferNewPage.exit.thread.i294, label %TBufferNewPage.exit.i296
 
-TBufferNewPage.exit.thread.i294:                  ; preds = %688, %686
+TBufferNewPage.exit.thread.i294:                  ; preds = %689, %687
   store i32 1, ptr %59, align 8, !tbaa !16
   br label %AddToken.exit300
 
-TBufferNewPage.exit.i296:                         ; preds = %688
-  store ptr null, ptr %693, align 8, !tbaa !17
-  %695 = load ptr, ptr %61, align 8, !tbaa !13
-  store ptr %693, ptr %695, align 8, !tbaa !30
-  store ptr %693, ptr %61, align 8, !tbaa !13
-  %696 = load i32, ptr %60, align 4, !tbaa !15
-  %697 = getelementptr inbounds nuw i8, ptr %693, i64 8
-  store ptr %697, ptr %62, align 8, !tbaa !3
-  br label %698
+TBufferNewPage.exit.i296:                         ; preds = %689
+  store ptr null, ptr %694, align 8, !tbaa !17
+  %696 = load ptr, ptr %61, align 8, !tbaa !13
+  store ptr %694, ptr %696, align 8, !tbaa !30
+  store ptr %694, ptr %61, align 8, !tbaa !13
+  %697 = load i32, ptr %60, align 4, !tbaa !15
+  %698 = getelementptr inbounds nuw i8, ptr %694, i64 8
+  store ptr %698, ptr %62, align 8, !tbaa !3
+  br label %699
 
-698:                                              ; preds = %TBufferNewPage.exit.i296, %._crit_edge.i297
-  %699 = phi ptr [ %697, %TBufferNewPage.exit.i296 ], [ %.pre.i299, %._crit_edge.i297 ]
-  %700 = phi i32 [ %696, %TBufferNewPage.exit.i296 ], [ %684, %._crit_edge.i297 ]
-  %701 = add nsw i32 %700, -1
-  store i32 %701, ptr %23, align 8, !tbaa !14
-  %702 = select i1 %683, i32 32768, i32 0
-  %703 = or i32 %656, %702
-  %704 = trunc i32 %703 to i16
-  %705 = sext i32 %701 to i64
-  %706 = getelementptr inbounds i16, ptr %699, i64 %705
-  store i16 %704, ptr %706, align 2, !tbaa !31
+699:                                              ; preds = %TBufferNewPage.exit.i296, %._crit_edge.i297
+  %700 = phi ptr [ %698, %TBufferNewPage.exit.i296 ], [ %.pre.i299, %._crit_edge.i297 ]
+  %701 = phi i32 [ %697, %TBufferNewPage.exit.i296 ], [ %685, %._crit_edge.i297 ]
+  %702 = add nsw i32 %701, -1
+  store i32 %702, ptr %23, align 8, !tbaa !14
+  %703 = select i1 %684, i32 32768, i32 0
+  %704 = or i32 %656, %703
+  %705 = trunc i32 %704 to i16
+  %706 = sext i32 %702 to i64
+  %707 = getelementptr inbounds i16, ptr %700, i64 %706
+  store i16 %705, ptr %707, align 2, !tbaa !31
   br label %AddToken.exit300
 
-AddToken.exit300:                                 ; preds = %TBufferNewPage.exit.thread.i294, %698
-  %707 = load i32, ptr %659, align 4, !tbaa !33
-  %708 = icmp ugt i32 %707, -131073
-  %709 = add nsw i32 %707, 1
-  %710 = lshr i32 %709, 1
-  %711 = and i32 %710, 2147450879
-  %.0.i9.i295 = select i1 %708, i32 %711, i32 %707
-  %712 = select i1 %683, i32 65537, i32 65536
-  %713 = add nuw i32 %712, %.0.i9.i295
-  store i32 %713, ptr %659, align 4, !tbaa !33
-  br i1 %683, label %714, label %.thread
+AddToken.exit300:                                 ; preds = %TBufferNewPage.exit.thread.i294, %699
+  %708 = load i32, ptr %660, align 4, !tbaa !33
+  %709 = icmp ugt i32 %708, -131073
+  %710 = add nsw i32 %708, 1
+  %711 = lshr i32 %710, 1
+  %712 = and i32 %711, 2147450879
+  %.0.i9.i295 = select i1 %709, i32 %712, i32 %708
+  %713 = select i1 %684, i32 65537, i32 65536
+  %714 = add nuw i32 %713, %.0.i9.i295
+  store i32 %714, ptr %660, align 4, !tbaa !33
+  br i1 %684, label %715, label %.thread
 
-714:                                              ; preds = %AddToken.exit300, %101
-  %.1125 = phi ptr [ %109, %101 ], [ %659, %AddToken.exit300 ]
+715:                                              ; preds = %AddToken.exit300, %101
+  %.1125 = phi ptr [ %109, %101 ], [ %660, %AddToken.exit300 ]
   %.1121 = phi i32 [ %106, %101 ], [ %656, %AddToken.exit300 ]
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
   br i1 %exitcond.not, label %.thread, label %64
 
-.thread:                                          ; preds = %714, %AddConstantToken.exit292, %AddToken.exit300, %.preheader, %AddToken.exit
-  %.0117 = phi i32 [ 0, %AddToken.exit ], [ 1, %.preheader ], [ 1, %AddToken.exit300 ], [ 1, %AddConstantToken.exit292 ], [ 1, %714 ]
+.thread:                                          ; preds = %715, %AddConstantToken.exit292, %AddToken.exit300, %.preheader, %AddToken.exit
+  %.0117 = phi i32 [ 0, %AddToken.exit ], [ 1, %.preheader ], [ 1, %AddToken.exit300 ], [ 1, %AddConstantToken.exit292 ], [ 1, %715 ]
   ret i32 %.0117
 }
 

@@ -7691,7 +7691,8 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   %17 = phi ptr [ %26, %for.inc.us ], [ %13, %for.body.lr.ph ]
   %conv154.us = phi i64 [ %conv.us, %for.inc.us ], [ 0, %for.body.lr.ph ]
   %i.0153.us = phi i32 [ %inc.us, %for.inc.us ], [ 0, %for.body.lr.ph ]
-  %count.i71.us = getelementptr inbounds nuw %struct.ItemStack, ptr %16, i64 %conv154.us, i32 1
+  %count.i71.us.split = getelementptr inbounds nuw %struct.ItemStack, ptr %16, i64 %conv154.us
+  %count.i71.us = getelementptr inbounds nuw i8, ptr %count.i71.us.split, i64 32
   %18 = load i16, ptr %count.i71.us, align 8, !tbaa !17
   %cmp.i72.us = icmp eq i16 %18, 0
   br i1 %cmp.i72.us, label %for.inc.us, label %if.end10.us
@@ -7789,7 +7790,8 @@ for.body28.us:                                    ; preds = %for.body28.lr.ph, %
   %33 = phi ptr [ %42, %for.inc49.us ], [ %30, %for.body28.lr.ph ]
   %conv23162.us = phi i64 [ %conv23.us, %for.inc49.us ], [ 0, %for.body28.lr.ph ]
   %i21.0161.us = phi i32 [ %inc50.us, %for.inc49.us ], [ 0, %for.body28.lr.ph ]
-  %count.i93.us = getelementptr inbounds nuw %struct.ItemStack, ptr %32, i64 %conv23162.us, i32 1
+  %count.i93.us.split = getelementptr inbounds nuw %struct.ItemStack, ptr %32, i64 %conv23162.us
+  %count.i93.us = getelementptr inbounds nuw i8, ptr %count.i93.us.split, i64 32
   %34 = load i16, ptr %count.i93.us, align 8, !tbaa !17
   %cmp.i94.us = icmp eq i16 %34, 0
   br i1 %cmp.i94.us, label %if.end36.us, label %for.inc49.us
@@ -7865,7 +7867,8 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %46 = phi ptr [ %59, %for.inc ], [ %13, %for.body.lr.ph ]
   %conv154 = phi i64 [ %conv, %for.inc ], [ 0, %for.body.lr.ph ]
   %i.0153 = phi i32 [ %inc, %for.inc ], [ 0, %for.body.lr.ph ]
-  %count.i71 = getelementptr inbounds nuw %struct.ItemStack, ptr %45, i64 %conv154, i32 1
+  %count.i71.split = getelementptr inbounds nuw %struct.ItemStack, ptr %45, i64 %conv154
+  %count.i71 = getelementptr inbounds nuw i8, ptr %count.i71.split, i64 32
   %47 = load i16, ptr %count.i71, align 8, !tbaa !17
   %cmp.i72 = icmp eq i16 %47, 0
   br i1 %cmp.i72, label %for.inc, label %if.end10
@@ -7969,7 +7972,8 @@ for.body28:                                       ; preds = %for.body28.lr.ph, %
   %61 = phi ptr [ %74, %for.inc49 ], [ %30, %for.body28.lr.ph ]
   %conv23162 = phi i64 [ %conv23, %for.inc49 ], [ 0, %for.body28.lr.ph ]
   %i21.0161 = phi i32 [ %inc50, %for.inc49 ], [ 0, %for.body28.lr.ph ]
-  %count.i93 = getelementptr inbounds nuw %struct.ItemStack, ptr %60, i64 %conv23162, i32 1
+  %count.i93.split = getelementptr inbounds nuw %struct.ItemStack, ptr %60, i64 %conv23162
+  %count.i93 = getelementptr inbounds nuw i8, ptr %count.i93.split, i64 32
   %62 = load i16, ptr %count.i93, align 8, !tbaa !17
   %cmp.i94 = icmp eq i16 %62, 0
   br i1 %cmp.i94, label %if.end36, label %for.inc49
@@ -9570,7 +9574,8 @@ _ZN9ItemStackD2Ev.exit163:                        ; preds = %if.then.i.i.i159, %
 if.then35:                                        ; preds = %_ZN9ItemStackD2Ev.exit163
   %conv.i166 = zext i32 %i to i64
   %51 = load ptr, ptr %this, align 8, !tbaa !131
-  %count.i168 = getelementptr inbounds nuw %struct.ItemStack, ptr %51, i64 %conv.i166, i32 1
+  %count.i168.split = getelementptr inbounds nuw %struct.ItemStack, ptr %51, i64 %conv.i166
+  %count.i168 = getelementptr inbounds nuw i8, ptr %count.i168.split, i64 32
   %52 = load i16, ptr %count.i168, align 8, !tbaa !17
   %add.i = add i16 %52, %50
   store i16 %add.i, ptr %count.i168, align 8, !tbaa !17
@@ -10031,7 +10036,8 @@ invoke.cont28:                                    ; preds = %call3.i.i.i.i.noexc
   %40 = phi i16 [ %.pre, %call3.i.i.i.i.noexc.invoke.cont28_crit_edge ], [ %37, %if.then26 ]
   %conv.i165 = zext i32 %i to i64
   %41 = load ptr, ptr %this, align 8, !tbaa !131
-  %count31 = getelementptr inbounds nuw %struct.ItemStack, ptr %41, i64 %conv.i165, i32 1
+  %count31.split = getelementptr inbounds nuw %struct.ItemStack, ptr %41, i64 %conv.i165
+  %count31 = getelementptr inbounds nuw i8, ptr %count31.split, i64 32
   %42 = load i16, ptr %count31, align 8, !tbaa !17
   %add.i = add i16 %42, %40
   store i16 %add.i, ptr %count.i156, align 8, !tbaa !17

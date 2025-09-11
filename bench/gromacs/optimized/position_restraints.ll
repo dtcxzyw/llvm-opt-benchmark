@@ -929,14 +929,15 @@ _ZN12_GLOBAL__N_16posresILb0EEEfiPKiPK9t_iparamsPA3_KfPA4_fPN3gmx11BasicVectorIf
   %207 = fadd double %206, %.079.lcssa.i
   store double %207, ptr %205, align 8, !tbaa !170
   %208 = load ptr, ptr %33, align 8, !tbaa !182
-  %209 = getelementptr inbounds nuw %"struct.gmx::EnumerationArray.177", ptr %208, i64 %indvars.iv, i32 0, i64 5
-  %210 = load double, ptr %209, align 8, !tbaa !170
-  %211 = fadd double %210, %.1
-  store double %211, ptr %209, align 8, !tbaa !170
+  %209 = getelementptr inbounds nuw %"struct.gmx::EnumerationArray.177", ptr %208, i64 %indvars.iv
+  %210 = getelementptr inbounds nuw i8, ptr %209, i64 40
+  %211 = load double, ptr %210, align 8, !tbaa !170
+  %212 = fadd double %211, %.1
+  store double %212, ptr %210, align 8, !tbaa !170
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %212 = load i32, ptr %15, align 8, !tbaa !155
-  %213 = sext i32 %212 to i64
-  %.not.not = icmp slt i64 %indvars.iv, %213
+  %213 = load i32, ptr %15, align 8, !tbaa !155
+  %214 = sext i32 %213 to i64
+  %.not.not = icmp slt i64 %indvars.iv, %214
   br i1 %.not.not, label %34, label %._crit_edge, !llvm.loop !183
 }
 

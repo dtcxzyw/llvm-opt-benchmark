@@ -176,53 +176,54 @@ define dso_local i64 @lzma_mt_block_size(ptr noundef readonly captures(address_i
   %.not48 = icmp eq i64 %3, -1
   br i1 %.not48, label %.thread, label %.preheader
 
-.preheader:                                       ; preds = %.preheader40, %17
-  %4 = phi i64 [ %20, %17 ], [ %3, %.preheader40 ]
-  %.01950 = phi i64 [ %.221.ph, %17 ], [ 0, %.preheader40 ]
-  %.02649 = phi i64 [ %18, %17 ], [ 0, %.preheader40 ]
-  br label %7
+.preheader:                                       ; preds = %.preheader40, %18
+  %4 = phi i64 [ %21, %18 ], [ %3, %.preheader40 ]
+  %.01950 = phi i64 [ %.221.ph, %18 ], [ 0, %.preheader40 ]
+  %.02649 = phi i64 [ %19, %18 ], [ 0, %.preheader40 ]
+  %5 = getelementptr inbounds nuw %struct.lzma_filter, ptr %0, i64 %.02649
+  br label %8
 
-5:                                                ; preds = %7
-  %6 = add nuw nsw i64 %.068.i, 1
-  %exitcond.i = icmp eq i64 %6, 10
-  br i1 %exitcond.i, label %.thread, label %7, !llvm.loop !11
+6:                                                ; preds = %8
+  %7 = add nuw nsw i64 %.068.i, 1
+  %exitcond.i = icmp eq i64 %7, 10
+  br i1 %exitcond.i, label %.thread, label %8, !llvm.loop !11
 
-7:                                                ; preds = %.preheader, %5
-  %.068.i = phi i64 [ %6, %5 ], [ 0, %.preheader ]
-  %8 = getelementptr inbounds nuw %struct.lzma_filter_encoder, ptr @encoders, i64 %.068.i
-  %9 = load i64, ptr %8, align 8, !tbaa !4
-  %10 = icmp eq i64 %9, %4
-  br i1 %10, label %encoder_find.exit, label %5
+8:                                                ; preds = %.preheader, %6
+  %.068.i = phi i64 [ %7, %6 ], [ 0, %.preheader ]
+  %9 = getelementptr inbounds nuw %struct.lzma_filter_encoder, ptr @encoders, i64 %.068.i
+  %10 = load i64, ptr %9, align 8, !tbaa !4
+  %11 = icmp eq i64 %10, %4
+  br i1 %11, label %encoder_find.exit, label %6
 
-encoder_find.exit:                                ; preds = %7
+encoder_find.exit:                                ; preds = %8
   %.not32.not = icmp eq i64 %.068.i, 2
-  br i1 %.not32.not, label %11, label %17
+  br i1 %.not32.not, label %12, label %18
 
-11:                                               ; preds = %encoder_find.exit
-  %12 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %13 = load ptr, ptr %12, align 8, !tbaa !31
-  %14 = getelementptr inbounds nuw %struct.lzma_filter, ptr %0, i64 %.02649, i32 1
-  %15 = load ptr, ptr %14, align 8, !tbaa !32
-  %16 = tail call i64 %13(ptr noundef %15) #9
-  %.fr = freeze i64 %16
+12:                                               ; preds = %encoder_find.exit
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %14 = load ptr, ptr %13, align 8, !tbaa !31
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %16 = load ptr, ptr %15, align 8, !tbaa !32
+  %17 = tail call i64 %14(ptr noundef %16) #9
+  %.fr = freeze i64 %17
   %spec.select = tail call i64 @llvm.umax.i64(i64 %.fr, i64 %.01950)
-  br label %17
+  br label %18
 
-17:                                               ; preds = %11, %encoder_find.exit
-  %.221.ph = phi i64 [ %.01950, %encoder_find.exit ], [ %spec.select, %11 ]
-  %18 = add i64 %.02649, 1
-  %19 = getelementptr inbounds nuw %struct.lzma_filter, ptr %0, i64 %18
-  %20 = load i64, ptr %19, align 8, !tbaa !21
-  %.not = icmp eq i64 %20, -1
+18:                                               ; preds = %12, %encoder_find.exit
+  %.221.ph = phi i64 [ %.01950, %encoder_find.exit ], [ %spec.select, %12 ]
+  %19 = add i64 %.02649, 1
+  %20 = getelementptr inbounds nuw %struct.lzma_filter, ptr %0, i64 %19
+  %21 = load i64, ptr %20, align 8, !tbaa !21
+  %.not = icmp eq i64 %21, -1
   br i1 %.not, label %.loopexit, label %.preheader, !llvm.loop !33
 
-.loopexit:                                        ; preds = %17
-  %21 = icmp eq i64 %.221.ph, 0
-  %spec.select78 = select i1 %21, i64 -1, i64 %.221.ph
+.loopexit:                                        ; preds = %18
+  %22 = icmp eq i64 %.221.ph, 0
+  %spec.select78 = select i1 %22, i64 -1, i64 %.221.ph
   br label %.thread
 
-.thread:                                          ; preds = %5, %.loopexit, %.preheader40, %1
-  %.0 = phi i64 [ -1, %1 ], [ -1, %.preheader40 ], [ %spec.select78, %.loopexit ], [ -1, %5 ]
+.thread:                                          ; preds = %6, %.loopexit, %.preheader40, %1
+  %.0 = phi i64 [ -1, %1 ], [ -1, %.preheader40 ], [ %spec.select78, %.loopexit ], [ -1, %6 ]
   ret i64 %.0
 }
 

@@ -424,12 +424,13 @@ _ZNK6vectorIjLb0EjE3getEjRKj.exit.cont:           ; preds = %_ZNK6vectorIjLb0EjE
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8, !tbaa !41
   %15 = zext i32 %.pr.then.val to i64
-  %16 = getelementptr inbounds nuw %"struct.obj_map<expr, unsigned int>::key_data", ptr %14, i64 %15, i32 1
-  %17 = load i32, ptr %16, align 8, !tbaa !51
+  %16 = getelementptr inbounds nuw %"struct.obj_map<expr, unsigned int>::key_data", ptr %14, i64 %15
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %18 = load i32, ptr %17, align 8, !tbaa !51
   br label %_ZNK6vectorIjLb0EjE3getEjRKj.exit.thread
 
 _ZNK6vectorIjLb0EjE3getEjRKj.exit.thread:         ; preds = %_ZNK6vectorIjLb0EjE3getEjRKj.exit, %2, %12, %_ZNK6vectorIjLb0EjE3getEjRKj.exit.cont
-  %.0 = phi i32 [ %17, %12 ], [ -1, %_ZNK6vectorIjLb0EjE3getEjRKj.exit.cont ], [ -1, %2 ], [ -1, %_ZNK6vectorIjLb0EjE3getEjRKj.exit ]
+  %.0 = phi i32 [ %18, %12 ], [ -1, %_ZNK6vectorIjLb0EjE3getEjRKj.exit.cont ], [ -1, %2 ], [ -1, %_ZNK6vectorIjLb0EjE3getEjRKj.exit ]
   ret i32 %.0
 }
 

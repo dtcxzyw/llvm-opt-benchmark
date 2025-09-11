@@ -10377,7 +10377,8 @@ if.then15:                                        ; preds = %if.end.i27
   %agg.tmp16.sroa.0.0.copyload = load ptr, ptr %13, align 8
   %agg.tmp16.sroa.2.0.call18.sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 8
   %agg.tmp16.sroa.2.0.copyload = load i64, ptr %agg.tmp16.sroa.2.0.call18.sroa_idx, align 8
-  %kind = getelementptr inbounds nuw %"struct.hermes::(anonymous namespace)::ResourceCallee", ptr @_ZN6hermes12_GLOBAL__N_116RESOURCE_CALLEESE, i64 %indvars.iv, i32 1
+  %arrayidx20 = getelementptr inbounds nuw %"struct.hermes::(anonymous namespace)::ResourceCallee", ptr @_ZN6hermes12_GLOBAL__N_116RESOURCE_CALLEESE, i64 %indvars.iv
+  %kind = getelementptr inbounds nuw i8, ptr %arrayidx20, i64 16
   %14 = load i32, ptr %kind, align 8
   tail call fastcc void @_ZN6hermes12_GLOBAL__N_119DependencyExtractor13addDependencyEN4llvh9StringRefENS_14DependencyKindE(ptr noundef nonnull align 8 dereferenceable(145) %this, ptr %agg.tmp16.sroa.0.0.copyload, i64 %agg.tmp16.sroa.2.0.copyload, i32 noundef %14)
   br label %if.end58

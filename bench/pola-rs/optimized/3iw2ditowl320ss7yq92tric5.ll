@@ -8324,14 +8324,13 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %42 = zext i32 %41 to i64
   %43 = icmp ugt i64 %37, %42
   tail call void @llvm.assume(i1 %43), !noalias !1413
-  %44 = load i32, ptr %24, align 4, !alias.scope !1420, !noalias !1425, !noundef !10
-  %45 = zext i32 %44 to i64
-  %.idx.i.i.i = mul nuw nsw i64 %42, 24
-  %46 = getelementptr inbounds nuw i8, ptr %36, i64 24
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 %.idx.i.i.i
+  %44 = getelementptr inbounds nuw { ptr, ptr, i64 }, ptr %36, i64 %42
+  %45 = load i32, ptr %24, align 4, !alias.scope !1420, !noalias !1425, !noundef !10
+  %46 = zext i32 %45 to i64
+  %47 = getelementptr inbounds nuw i8, ptr %44, i64 24
   %48 = load ptr, ptr %47, align 8, !alias.scope !1428, !noalias !1431, !noundef !10
   %49 = zext i32 %38 to i64
-  %50 = getelementptr inbounds nuw i8, ptr %48, i64 %45
+  %50 = getelementptr inbounds nuw i8, ptr %48, i64 %46
   invoke void @"_ZN14polars_compute17binview_index_map27BinaryViewIndexMap$LT$V$GT$14entry_long_key17h329e6092d43a3b54E"(ptr noalias noundef nonnull sret([80 x i8]) align 8 captures(none) dereferenceable(80) %3, ptr noalias noundef nonnull align 8 dereferenceable(96) %.sroa.62.0.copyload, i64 noundef %33, ptr noalias noundef nonnull readonly align 1 %50, i64 noundef %49)
           to label %"_ZN14polars_compute17binview_index_map27BinaryViewIndexMap$LT$V$GT$10entry_view17h5c018c7035a9ca39E.exit.i.i.i" unwind label %67, !noalias !1405
 
@@ -20518,14 +20517,13 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %63 = zext i32 %62 to i64
   %64 = icmp ugt i64 %58, %63
   tail call void @llvm.assume(i1 %64), !noalias !3437
-  %65 = load i32, ptr %22, align 4, !alias.scope !3444, !noalias !3449, !noundef !10
-  %66 = zext i32 %65 to i64
-  %.idx.i.i.i = mul nuw nsw i64 %63, 24
-  %67 = getelementptr inbounds nuw i8, ptr %57, i64 24
-  %68 = getelementptr inbounds nuw i8, ptr %67, i64 %.idx.i.i.i
+  %65 = getelementptr inbounds nuw { ptr, ptr, i64 }, ptr %57, i64 %63
+  %66 = load i32, ptr %22, align 4, !alias.scope !3444, !noalias !3449, !noundef !10
+  %67 = zext i32 %66 to i64
+  %68 = getelementptr inbounds nuw i8, ptr %65, i64 24
   %69 = load ptr, ptr %68, align 8, !alias.scope !3452, !noalias !3455, !noundef !10
   %70 = zext i32 %59 to i64
-  %71 = getelementptr inbounds nuw i8, ptr %69, i64 %66
+  %71 = getelementptr inbounds nuw i8, ptr %69, i64 %67
   invoke void @"_ZN14polars_compute17binview_index_map27BinaryViewIndexMap$LT$V$GT$14entry_long_key17h329e6092d43a3b54E"(ptr noalias noundef nonnull sret([80 x i8]) align 8 captures(none) dereferenceable(80) %3, ptr noalias noundef nonnull align 8 dereferenceable(96) %.sroa.7.0.copyload, i64 noundef %54, ptr noalias noundef nonnull readonly align 1 %71, i64 noundef %70)
           to label %"_ZN14polars_compute17binview_index_map27BinaryViewIndexMap$LT$V$GT$10entry_view17h5c018c7035a9ca39E.exit.i.i.i" unwind label %98, !noalias !3429
 
@@ -22332,7 +22330,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   br label %10
 
 10:                                               ; preds = %17, %.lr.ph.i.i
-  %.val12.i.i = phi i64 [ %.sroa.5.0.copyload, %.lr.ph.i.i ], [ %24, %17 ]
+  %.val12.i.i = phi i64 [ %.sroa.5.0.copyload, %.lr.ph.i.i ], [ %25, %17 ]
   %.sroa.0.015.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %18, %17 ]
   %11 = load i64, ptr %6, align 8, !alias.scope !3743, !noalias !3740, !noundef !10
   %12 = add i64 %11, %.sroa.0.015.i.i
@@ -22350,25 +22348,26 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
 17:                                               ; preds = %10
   %18 = add nuw i64 %.sroa.0.015.i.i, 1
   %.val.i.i.i = load ptr, ptr %9, align 8, !alias.scope !3743, !noalias !3740, !nonnull !10, !noundef !10
-  %19 = getelementptr { ptr, i32, i32 }, ptr %.val.i.i.i, i64 %12, i32 1
-  %.val13.i.i = load i32, ptr %19, align 8, !noalias !3740, !noundef !10
-  %20 = zext i32 %.val13.i.i to i64
-  %21 = load i32, ptr %5, align 4, !noalias !3746, !noundef !10
-  %22 = add i32 %21, %.val13.i.i
-  store i32 %22, ptr %5, align 4, !noalias !3746
-  %.sroa.2.0.insert.shift.i.i.i.i = shl nuw i64 %20, 32
-  %.sroa.0.0.insert.ext.i.i.i.i = zext i32 %21 to i64
+  %19 = getelementptr inbounds nuw { ptr, i32, i32 }, ptr %.val.i.i.i, i64 %12
+  %20 = getelementptr i8, ptr %19, i64 8
+  %.val13.i.i = load i32, ptr %20, align 8, !noalias !3740, !noundef !10
+  %21 = zext i32 %.val13.i.i to i64
+  %22 = load i32, ptr %5, align 4, !noalias !3746, !noundef !10
+  %23 = add i32 %22, %.val13.i.i
+  store i32 %23, ptr %5, align 4, !noalias !3746
+  %.sroa.2.0.insert.shift.i.i.i.i = shl nuw i64 %21, 32
+  %.sroa.0.0.insert.ext.i.i.i.i = zext i32 %22 to i64
   %.sroa.0.0.insert.insert.i.i.i.i = or disjoint i64 %.sroa.2.0.insert.shift.i.i.i.i, %.sroa.0.0.insert.ext.i.i.i.i
-  %23 = getelementptr inbounds nuw [2 x i32], ptr %.sroa.8.0.copyload, i64 %.val12.i.i
-  store i64 %.sroa.0.0.insert.insert.i.i.i.i, ptr %23, align 4, !noalias !3749
-  %24 = add i64 %.val12.i.i, 1
+  %24 = getelementptr inbounds nuw [2 x i32], ptr %.sroa.8.0.copyload, i64 %.val12.i.i
+  store i64 %.sroa.0.0.insert.insert.i.i.i.i, ptr %24, align 4, !noalias !3749
+  %25 = add i64 %.val12.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %18, %8
   br i1 %exitcond.not.i.i, label %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17ha1dbd6b584ef5255E.exit", label %10
 
 "_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17ha1dbd6b584ef5255E.exit": ; preds = %17, %2
-  %.val10.i.i = phi i64 [ %.sroa.5.0.copyload, %2 ], [ %24, %17 ]
-  %25 = icmp ne ptr %.sroa.0.0.copyload, null
-  call void @llvm.assume(i1 %25)
+  %.val10.i.i = phi i64 [ %.sroa.5.0.copyload, %2 ], [ %25, %17 ]
+  %26 = icmp ne ptr %.sroa.0.0.copyload, null
+  call void @llvm.assume(i1 %26)
   store i64 %.val10.i.i, ptr %.sroa.0.0.copyload, align 8, !noalias !3740
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void

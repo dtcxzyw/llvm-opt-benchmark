@@ -8724,7 +8724,7 @@ dcm_export_create_tag_str.exit34.i:               ; preds = %339, %dcm_export_cr
 
 dcm_export_create_tag_str.exit37.i:               ; preds = %354
   %357 = getelementptr i8, ptr %348, i64 8
-  %358 = sub nsw i64 504, %347
+  %358 = sub nuw nsw i64 504, %347
   %359 = tail call ptr @__memmove_chk(ptr noundef %357, ptr noundef nonnull @.str.357, i64 noundef range(i64 0, 4294967296) 28, i64 noundef %358) #14
   %360 = icmp samesign ugt i32 %.013.i33.i, 470
   br i1 %360, label %dcm_export_create_header.exit, label %361
@@ -8751,7 +8751,7 @@ dcm_export_create_tag_str.exit37.i:               ; preds = %354
 373:                                              ; preds = %370
   %374 = add nuw nsw i32 %.013.i33.i, 54
   %375 = getelementptr i8, ptr %364, i64 8
-  %376 = sub nsw i64 504, %363
+  %376 = sub nuw nsw i64 504, %363
   %377 = tail call ptr @__memmove_chk(ptr noundef %375, ptr noundef nonnull @.str.358, i64 noundef range(i64 0, 4294967296) 10, i64 noundef %376) #14
   br label %dcm_export_create_header.exit
 

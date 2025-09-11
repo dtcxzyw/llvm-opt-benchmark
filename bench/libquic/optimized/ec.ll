@@ -1500,7 +1500,7 @@ define internal void @built_in_curve_scalar_field_monts_init() #1 {
   %1 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #12
   store ptr %1, ptr @built_in_curve_scalar_field_monts, align 8, !tbaa !31
   %2 = icmp eq ptr %1, null
-  br i1 %2, label %26, label %3
+  br i1 %2, label %27, label %3
 
 3:                                                ; preds = %0
   %4 = tail call ptr @BN_new() #11
@@ -1510,52 +1510,53 @@ define internal void @built_in_curve_scalar_field_monts_init() #1 {
   %or.cond = select i1 %6, i1 true, i1 %7
   br i1 %or.cond, label %.thread, label %.preheader
 
-.preheader:                                       ; preds = %3, %22
-  %indvars.iv = phi i64 [ %indvars.iv.next, %22 ], [ 0, %3 ]
-  %8 = getelementptr inbounds nuw %struct.built_in_curve, ptr @OPENSSL_built_in_curves, i64 %indvars.iv, i32 3
-  %9 = load ptr, ptr %8, align 16, !tbaa !28
-  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %11 = load i8, ptr %10, align 8, !tbaa !29
-  %12 = tail call ptr @BN_MONT_CTX_new() #11
-  %13 = icmp eq ptr %12, null
-  br i1 %13, label %.thread, label %14
+.preheader:                                       ; preds = %3, %23
+  %indvars.iv = phi i64 [ %indvars.iv.next, %23 ], [ 0, %3 ]
+  %8 = getelementptr inbounds nuw %struct.built_in_curve, ptr @OPENSSL_built_in_curves, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %10 = load ptr, ptr %9, align 16, !tbaa !28
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %12 = load i8, ptr %11, align 8, !tbaa !29
+  %13 = tail call ptr @BN_MONT_CTX_new() #11
+  %14 = icmp eq ptr %13, null
+  br i1 %14, label %.thread, label %15
 
-14:                                               ; preds = %.preheader
-  %15 = getelementptr inbounds nuw i8, ptr %9, i64 10
-  %16 = zext i8 %11 to i64
-  %17 = mul nuw nsw i64 %16, 5
-  %18 = getelementptr inbounds nuw i8, ptr %15, i64 %17
-  %19 = tail call ptr @BN_bin2bn(ptr noundef nonnull %18, i64 noundef %16, ptr noundef %4) #11
-  %.not = icmp eq ptr %19, null
-  br i1 %.not, label %.thread, label %20
+15:                                               ; preds = %.preheader
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 10
+  %17 = zext i8 %12 to i64
+  %18 = mul nuw nsw i64 %17, 5
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 %18
+  %20 = tail call ptr @BN_bin2bn(ptr noundef nonnull %19, i64 noundef %17, ptr noundef %4) #11
+  %.not = icmp eq ptr %20, null
+  br i1 %.not, label %.thread, label %21
 
-20:                                               ; preds = %14
-  %21 = tail call i32 @BN_MONT_CTX_set(ptr noundef nonnull %12, ptr noundef %4, ptr noundef %5) #11
-  %.not32 = icmp eq i32 %21, 0
-  br i1 %.not32, label %.thread, label %22
+21:                                               ; preds = %15
+  %22 = tail call i32 @BN_MONT_CTX_set(ptr noundef nonnull %13, ptr noundef %4, ptr noundef %5) #11
+  %.not32 = icmp eq i32 %22, 0
+  br i1 %.not32, label %.thread, label %23
 
-22:                                               ; preds = %20
-  %23 = load ptr, ptr @built_in_curve_scalar_field_monts, align 8, !tbaa !31
-  %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv
-  store ptr %12, ptr %24, align 8, !tbaa !33
+23:                                               ; preds = %21
+  %24 = load ptr, ptr @built_in_curve_scalar_field_monts, align 8, !tbaa !31
+  %25 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv
+  store ptr %13, ptr %25, align 8, !tbaa !33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !48
 
-.thread:                                          ; preds = %14, %20, %.preheader, %3
-  %.026 = phi ptr [ null, %3 ], [ null, %.preheader ], [ %12, %20 ], [ %12, %14 ]
+.thread:                                          ; preds = %15, %21, %.preheader, %3
+  %.026 = phi ptr [ null, %3 ], [ null, %.preheader ], [ %13, %21 ], [ %13, %15 ]
   tail call void @BN_MONT_CTX_free(ptr noundef %.026) #11
-  %25 = load ptr, ptr @built_in_curve_scalar_field_monts, align 8, !tbaa !31
-  tail call void @free(ptr noundef %25) #11
+  %26 = load ptr, ptr @built_in_curve_scalar_field_monts, align 8, !tbaa !31
+  tail call void @free(ptr noundef %26) #11
   store ptr null, ptr @built_in_curve_scalar_field_monts, align 8, !tbaa !31
   br label %.loopexit
 
-.loopexit:                                        ; preds = %22, %.thread
+.loopexit:                                        ; preds = %23, %.thread
   tail call void @BN_free(ptr noundef %4) #11
   tail call void @BN_CTX_free(ptr noundef %5) #11
-  br label %26
+  br label %27
 
-26:                                               ; preds = %0, %.loopexit
+27:                                               ; preds = %0, %.loopexit
   ret void
 }
 

@@ -771,9 +771,9 @@ define hidden noundef i32 @_ZN15JvmtiExtensions13get_functionsEP8JvmtiEnvPiPP26j
   %17 = icmp sgt i32 %16, 0
   br i1 %17, label %.lr.ph94, label %._crit_edge
 
-.lr.ph94:                                         ; preds = %.preheader, %140
-  %indvars.iv99 = phi i64 [ %indvars.iv.next100, %140 ], [ 0, %.preheader ]
-  %18 = phi ptr [ %141, %140 ], [ %15, %.preheader ]
+.lr.ph94:                                         ; preds = %.preheader, %152
+  %indvars.iv99 = phi i64 [ %indvars.iv.next100, %152 ], [ 0, %.preheader ]
+  %18 = phi ptr [ %153, %152 ], [ %15, %.preheader ]
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv99
@@ -792,173 +792,185 @@ define hidden noundef i32 @_ZN15JvmtiExtensions13get_functionsEP8JvmtiEnvPiPP26j
   %33 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %32) #14
   %34 = add i64 %33, 1
   %35 = load ptr, ptr %5, align 8
-  %36 = getelementptr inbounds nuw %struct.jvmtiExtensionFunctionInfo, ptr %35, i64 %indvars.iv99, i32 1
-  %37 = call noundef i32 @_ZN15ResourceTracker8allocateElPPh(ptr noundef nonnull align 8 dereferenceable(17) %4, i64 noundef %34, ptr noundef nonnull %36) #12
-  %.not82 = icmp eq i32 %37, 0
-  br i1 %.not82, label %38, label %.loopexit87
+  %36 = getelementptr inbounds nuw %struct.jvmtiExtensionFunctionInfo, ptr %35, i64 %indvars.iv99
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
+  %38 = call noundef i32 @_ZN15ResourceTracker8allocateElPPh(ptr noundef nonnull align 8 dereferenceable(17) %4, i64 noundef %34, ptr noundef nonnull %37) #12
+  %.not82 = icmp eq i32 %38, 0
+  br i1 %.not82, label %39, label %.loopexit87
 
-38:                                               ; preds = %.lr.ph94
-  %39 = load ptr, ptr %5, align 8
-  %40 = getelementptr inbounds nuw %struct.jvmtiExtensionFunctionInfo, ptr %39, i64 %indvars.iv99, i32 1
-  %41 = load ptr, ptr %40, align 8
-  %42 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %41, ptr noundef nonnull dereferenceable(1) %32) #12
-  %43 = load ptr, ptr @_ZN15JvmtiExtensions14_ext_functionsE, align 8
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds nuw ptr, ptr %45, i64 %indvars.iv99
+39:                                               ; preds = %.lr.ph94
+  %40 = load ptr, ptr %5, align 8
+  %41 = getelementptr inbounds nuw %struct.jvmtiExtensionFunctionInfo, ptr %40, i64 %indvars.iv99
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
+  %43 = load ptr, ptr %42, align 8
+  %44 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %43, ptr noundef nonnull dereferenceable(1) %32) #12
+  %45 = load ptr, ptr @_ZN15JvmtiExtensions14_ext_functionsE, align 8
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
+  %48 = getelementptr inbounds nuw ptr, ptr %47, i64 %indvars.iv99
   %49 = load ptr, ptr %48, align 8
-  %50 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %49) #14
-  %51 = add i64 %50, 1
-  %52 = load ptr, ptr %5, align 8
-  %53 = getelementptr inbounds nuw %struct.jvmtiExtensionFunctionInfo, ptr %52, i64 %indvars.iv99, i32 2
-  %54 = call noundef i32 @_ZN15ResourceTracker8allocateElPPh(ptr noundef nonnull align 8 dereferenceable(17) %4, i64 noundef %51, ptr noundef nonnull %53) #12
-  %.not83 = icmp eq i32 %54, 0
-  br i1 %.not83, label %55, label %.loopexit87
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 16
+  %51 = load ptr, ptr %50, align 8
+  %52 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %51) #14
+  %53 = add i64 %52, 1
+  %54 = load ptr, ptr %5, align 8
+  %55 = getelementptr inbounds nuw %struct.jvmtiExtensionFunctionInfo, ptr %54, i64 %indvars.iv99
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 16
+  %57 = call noundef i32 @_ZN15ResourceTracker8allocateElPPh(ptr noundef nonnull align 8 dereferenceable(17) %4, i64 noundef %53, ptr noundef nonnull %56) #12
+  %.not83 = icmp eq i32 %57, 0
+  br i1 %.not83, label %58, label %.loopexit87
 
-55:                                               ; preds = %38
-  %56 = load ptr, ptr %5, align 8
-  %57 = getelementptr inbounds nuw %struct.jvmtiExtensionFunctionInfo, ptr %56, i64 %indvars.iv99, i32 2
-  %58 = load ptr, ptr %57, align 8
-  %59 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %58, ptr noundef nonnull dereferenceable(1) %49) #12
-  %60 = load ptr, ptr @_ZN15JvmtiExtensions14_ext_functionsE, align 8
-  %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
+58:                                               ; preds = %39
+  %59 = load ptr, ptr %5, align 8
+  %60 = getelementptr inbounds nuw %struct.jvmtiExtensionFunctionInfo, ptr %59, i64 %indvars.iv99
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 16
   %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds nuw ptr, ptr %62, i64 %indvars.iv99
-  %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds nuw i8, ptr %64, i64 24
-  %66 = load i32, ptr %65, align 8
-  %67 = load ptr, ptr %5, align 8
-  %68 = getelementptr inbounds nuw %struct.jvmtiExtensionFunctionInfo, ptr %67, i64 %indvars.iv99, i32 3
-  store i32 %66, ptr %68, align 8
-  %69 = icmp eq i32 %66, 0
-  br i1 %69, label %70, label %73
-
-70:                                               ; preds = %55
+  %63 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %62, ptr noundef nonnull dereferenceable(1) %51) #12
+  %64 = load ptr, ptr @_ZN15JvmtiExtensions14_ext_functionsE, align 8
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
+  %66 = load ptr, ptr %65, align 8
+  %67 = getelementptr inbounds nuw ptr, ptr %66, i64 %indvars.iv99
+  %68 = load ptr, ptr %67, align 8
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 24
+  %70 = load i32, ptr %69, align 8
   %71 = load ptr, ptr %5, align 8
-  %72 = getelementptr inbounds nuw %struct.jvmtiExtensionFunctionInfo, ptr %71, i64 %indvars.iv99, i32 4
-  store ptr null, ptr %72, align 8
+  %72 = getelementptr inbounds nuw %struct.jvmtiExtensionFunctionInfo, ptr %71, i64 %indvars.iv99
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 24
+  store i32 %70, ptr %73, align 8
+  %74 = icmp eq i32 %70, 0
+  br i1 %74, label %75, label %79
+
+75:                                               ; preds = %58
+  %76 = load ptr, ptr %5, align 8
+  %77 = getelementptr inbounds nuw %struct.jvmtiExtensionFunctionInfo, ptr %76, i64 %indvars.iv99
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 32
+  store ptr null, ptr %78, align 8
   br label %.loopexit
 
-73:                                               ; preds = %55
-  %74 = sext i32 %66 to i64
-  %75 = mul nsw i64 %74, 24
-  %76 = load ptr, ptr %5, align 8
-  %77 = getelementptr inbounds nuw %struct.jvmtiExtensionFunctionInfo, ptr %76, i64 %indvars.iv99, i32 4
-  %78 = call noundef i32 @_ZN15ResourceTracker8allocateElPPh(ptr noundef nonnull align 8 dereferenceable(17) %4, i64 noundef %75, ptr noundef nonnull %77) #12
-  %.not84 = icmp eq i32 %78, 0
-  br i1 %.not84, label %79, label %.loopexit87
+79:                                               ; preds = %58
+  %80 = sext i32 %70 to i64
+  %81 = mul nsw i64 %80, 24
+  %82 = load ptr, ptr %5, align 8
+  %83 = getelementptr inbounds nuw %struct.jvmtiExtensionFunctionInfo, ptr %82, i64 %indvars.iv99
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 32
+  %85 = call noundef i32 @_ZN15ResourceTracker8allocateElPPh(ptr noundef nonnull align 8 dereferenceable(17) %4, i64 noundef %81, ptr noundef nonnull %84) #12
+  %.not84 = icmp eq i32 %85, 0
+  br i1 %.not84, label %86, label %.loopexit87
 
-79:                                               ; preds = %73
-  %80 = load ptr, ptr @_ZN15JvmtiExtensions14_ext_functionsE, align 8
-  %81 = getelementptr inbounds nuw i8, ptr %80, i64 8
-  %82 = load ptr, ptr %81, align 8
-  %83 = getelementptr inbounds nuw ptr, ptr %82, i64 %indvars.iv99
-  %84 = load ptr, ptr %83, align 8
-  %85 = getelementptr inbounds nuw i8, ptr %84, i64 32
-  %86 = load ptr, ptr %85, align 8
-  %87 = load ptr, ptr %5, align 8
-  %88 = getelementptr inbounds nuw %struct.jvmtiExtensionFunctionInfo, ptr %87, i64 %indvars.iv99, i32 4
+86:                                               ; preds = %79
+  %87 = load ptr, ptr @_ZN15JvmtiExtensions14_ext_functionsE, align 8
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
   %89 = load ptr, ptr %88, align 8
-  %90 = icmp sgt i32 %66, 0
-  br i1 %90, label %.lr.ph.preheader, label %.loopexit
+  %90 = getelementptr inbounds nuw ptr, ptr %89, i64 %indvars.iv99
+  %91 = load ptr, ptr %90, align 8
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 32
+  %93 = load ptr, ptr %92, align 8
+  %94 = load ptr, ptr %5, align 8
+  %95 = getelementptr inbounds nuw %struct.jvmtiExtensionFunctionInfo, ptr %94, i64 %indvars.iv99
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 32
+  %97 = load ptr, ptr %96, align 8
+  %98 = icmp sgt i32 %70, 0
+  br i1 %98, label %.lr.ph.preheader, label %.loopexit
 
-.lr.ph.preheader:                                 ; preds = %79
-  %wide.trip.count = zext nneg i32 %66 to i64
+.lr.ph.preheader:                                 ; preds = %86
+  %wide.trip.count = zext nneg i32 %70 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %97
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %97 ]
-  %91 = getelementptr inbounds nuw %struct.jvmtiParamInfo, ptr %86, i64 %indvars.iv
-  %92 = load ptr, ptr %91, align 8
-  %93 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %92) #14
-  %94 = add i64 %93, 1
-  %95 = getelementptr inbounds nuw %struct.jvmtiParamInfo, ptr %89, i64 %indvars.iv
-  %96 = call noundef i32 @_ZN15ResourceTracker8allocateElPPh(ptr noundef nonnull align 8 dereferenceable(17) %4, i64 noundef %94, ptr noundef %95) #12
-  %.not85 = icmp eq i32 %96, 0
-  br i1 %.not85, label %97, label %.loopexit87
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %105
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %105 ]
+  %99 = getelementptr inbounds nuw %struct.jvmtiParamInfo, ptr %93, i64 %indvars.iv
+  %100 = load ptr, ptr %99, align 8
+  %101 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %100) #14
+  %102 = add i64 %101, 1
+  %103 = getelementptr inbounds nuw %struct.jvmtiParamInfo, ptr %97, i64 %indvars.iv
+  %104 = call noundef i32 @_ZN15ResourceTracker8allocateElPPh(ptr noundef nonnull align 8 dereferenceable(17) %4, i64 noundef %102, ptr noundef %103) #12
+  %.not85 = icmp eq i32 %104, 0
+  br i1 %.not85, label %105, label %.loopexit87
 
-97:                                               ; preds = %.lr.ph
-  %98 = load ptr, ptr %95, align 8
-  %99 = load ptr, ptr %91, align 8
-  %100 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %98, ptr noundef nonnull dereferenceable(1) %99) #12
-  %101 = getelementptr inbounds nuw i8, ptr %91, i64 8
-  %102 = load i32, ptr %101, align 8
-  %103 = getelementptr inbounds nuw i8, ptr %95, i64 8
-  store i32 %102, ptr %103, align 8
-  %104 = getelementptr inbounds nuw i8, ptr %91, i64 12
-  %105 = load i32, ptr %104, align 4
-  %106 = getelementptr inbounds nuw i8, ptr %95, i64 12
-  store i32 %105, ptr %106, align 4
-  %107 = getelementptr inbounds nuw i8, ptr %91, i64 16
-  %108 = load i8, ptr %107, align 8
-  %109 = getelementptr inbounds nuw i8, ptr %95, i64 16
-  store i8 %108, ptr %109, align 8
+105:                                              ; preds = %.lr.ph
+  %106 = load ptr, ptr %103, align 8
+  %107 = load ptr, ptr %99, align 8
+  %108 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %106, ptr noundef nonnull dereferenceable(1) %107) #12
+  %109 = getelementptr inbounds nuw i8, ptr %99, i64 8
+  %110 = load i32, ptr %109, align 8
+  %111 = getelementptr inbounds nuw i8, ptr %103, i64 8
+  store i32 %110, ptr %111, align 8
+  %112 = getelementptr inbounds nuw i8, ptr %99, i64 12
+  %113 = load i32, ptr %112, align 4
+  %114 = getelementptr inbounds nuw i8, ptr %103, i64 12
+  store i32 %113, ptr %114, align 4
+  %115 = getelementptr inbounds nuw i8, ptr %99, i64 16
+  %116 = load i8, ptr %115, align 8
+  %117 = getelementptr inbounds nuw i8, ptr %103, i64 16
+  store i8 %116, ptr %117, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !8
 
-.loopexit:                                        ; preds = %97, %79, %70
-  %110 = load ptr, ptr @_ZN15JvmtiExtensions14_ext_functionsE, align 8
-  %111 = getelementptr inbounds nuw i8, ptr %110, i64 8
-  %112 = load ptr, ptr %111, align 8
-  %113 = getelementptr inbounds nuw ptr, ptr %112, i64 %indvars.iv99
-  %114 = load ptr, ptr %113, align 8
-  %115 = getelementptr inbounds nuw i8, ptr %114, i64 40
-  %116 = load i32, ptr %115, align 8
-  %117 = load ptr, ptr %5, align 8
-  %118 = getelementptr inbounds nuw %struct.jvmtiExtensionFunctionInfo, ptr %117, i64 %indvars.iv99, i32 5
-  store i32 %116, ptr %118, align 8
-  %119 = icmp eq i32 %116, 0
-  br i1 %119, label %120, label %123
+.loopexit:                                        ; preds = %105, %86, %75
+  %118 = load ptr, ptr @_ZN15JvmtiExtensions14_ext_functionsE, align 8
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 8
+  %120 = load ptr, ptr %119, align 8
+  %121 = getelementptr inbounds nuw ptr, ptr %120, i64 %indvars.iv99
+  %122 = load ptr, ptr %121, align 8
+  %123 = getelementptr inbounds nuw i8, ptr %122, i64 40
+  %124 = load i32, ptr %123, align 8
+  %125 = load ptr, ptr %5, align 8
+  %126 = getelementptr inbounds nuw %struct.jvmtiExtensionFunctionInfo, ptr %125, i64 %indvars.iv99
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 40
+  store i32 %124, ptr %127, align 8
+  %128 = icmp eq i32 %124, 0
+  br i1 %128, label %129, label %133
 
-120:                                              ; preds = %.loopexit
-  %121 = load ptr, ptr %5, align 8
-  %122 = getelementptr inbounds nuw %struct.jvmtiExtensionFunctionInfo, ptr %121, i64 %indvars.iv99, i32 6
-  store ptr null, ptr %122, align 8
-  br label %140
-
-123:                                              ; preds = %.loopexit
-  %124 = sext i32 %116 to i64
-  %125 = shl nsw i64 %124, 2
-  %126 = load ptr, ptr %5, align 8
-  %127 = getelementptr inbounds nuw %struct.jvmtiExtensionFunctionInfo, ptr %126, i64 %indvars.iv99, i32 6
-  %128 = call noundef i32 @_ZN15ResourceTracker8allocateElPPh(ptr noundef nonnull align 8 dereferenceable(17) %4, i64 noundef %125, ptr noundef nonnull %127) #12
-  %.not86 = icmp eq i32 %128, 0
-  br i1 %.not86, label %129, label %.loopexit87
-
-129:                                              ; preds = %123
+129:                                              ; preds = %.loopexit
   %130 = load ptr, ptr %5, align 8
-  %131 = getelementptr inbounds nuw %struct.jvmtiExtensionFunctionInfo, ptr %130, i64 %indvars.iv99, i32 6
-  %132 = load ptr, ptr %131, align 8
-  %133 = load ptr, ptr @_ZN15JvmtiExtensions14_ext_functionsE, align 8
-  %134 = getelementptr inbounds nuw i8, ptr %133, i64 8
-  %135 = load ptr, ptr %134, align 8
-  %136 = getelementptr inbounds nuw ptr, ptr %135, i64 %indvars.iv99
-  %137 = load ptr, ptr %136, align 8
+  %131 = getelementptr inbounds nuw %struct.jvmtiExtensionFunctionInfo, ptr %130, i64 %indvars.iv99
+  %132 = getelementptr inbounds nuw i8, ptr %131, i64 48
+  store ptr null, ptr %132, align 8
+  br label %152
+
+133:                                              ; preds = %.loopexit
+  %134 = sext i32 %124 to i64
+  %135 = shl nsw i64 %134, 2
+  %136 = load ptr, ptr %5, align 8
+  %137 = getelementptr inbounds nuw %struct.jvmtiExtensionFunctionInfo, ptr %136, i64 %indvars.iv99
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 48
-  %139 = load ptr, ptr %138, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %132, ptr align 4 %139, i64 %125, i1 false)
-  br label %140
+  %139 = call noundef i32 @_ZN15ResourceTracker8allocateElPPh(ptr noundef nonnull align 8 dereferenceable(17) %4, i64 noundef %135, ptr noundef nonnull %138) #12
+  %.not86 = icmp eq i32 %139, 0
+  br i1 %.not86, label %140, label %.loopexit87
 
-140:                                              ; preds = %120, %129
+140:                                              ; preds = %133
+  %141 = load ptr, ptr %5, align 8
+  %142 = getelementptr inbounds nuw %struct.jvmtiExtensionFunctionInfo, ptr %141, i64 %indvars.iv99
+  %143 = getelementptr inbounds nuw i8, ptr %142, i64 48
+  %144 = load ptr, ptr %143, align 8
+  %145 = load ptr, ptr @_ZN15JvmtiExtensions14_ext_functionsE, align 8
+  %146 = getelementptr inbounds nuw i8, ptr %145, i64 8
+  %147 = load ptr, ptr %146, align 8
+  %148 = getelementptr inbounds nuw ptr, ptr %147, i64 %indvars.iv99
+  %149 = load ptr, ptr %148, align 8
+  %150 = getelementptr inbounds nuw i8, ptr %149, i64 48
+  %151 = load ptr, ptr %150, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %144, ptr align 4 %151, i64 %135, i1 false)
+  br label %152
+
+152:                                              ; preds = %129, %140
   %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99, 1
-  %141 = load ptr, ptr @_ZN15JvmtiExtensions14_ext_functionsE, align 8
-  %142 = load i32, ptr %141, align 4
-  %143 = sext i32 %142 to i64
-  %144 = icmp slt i64 %indvars.iv.next100, %143
-  br i1 %144, label %.lr.ph94, label %._crit_edge, !llvm.loop !10
+  %153 = load ptr, ptr @_ZN15JvmtiExtensions14_ext_functionsE, align 8
+  %154 = load i32, ptr %153, align 4
+  %155 = sext i32 %154 to i64
+  %156 = icmp slt i64 %indvars.iv.next100, %155
+  br i1 %156, label %.lr.ph94, label %._crit_edge, !llvm.loop !10
 
-._crit_edge:                                      ; preds = %140, %.preheader
-  %.lcssa89 = phi i32 [ %16, %.preheader ], [ %142, %140 ]
+._crit_edge:                                      ; preds = %152, %.preheader
+  %.lcssa89 = phi i32 [ %16, %.preheader ], [ %154, %152 ]
   store i32 %.lcssa89, ptr %1, align 4
-  %145 = load ptr, ptr %5, align 8
-  store ptr %145, ptr %2, align 8
+  %157 = load ptr, ptr %5, align 8
+  store ptr %157, ptr %2, align 8
   br label %.loopexit87
 
-.loopexit87:                                      ; preds = %123, %73, %38, %.lr.ph94, %.lr.ph, %9, %._crit_edge
-  %.0 = phi i32 [ 0, %._crit_edge ], [ %14, %9 ], [ %96, %.lr.ph ], [ %128, %123 ], [ %78, %73 ], [ %54, %38 ], [ %37, %.lr.ph94 ]
+.loopexit87:                                      ; preds = %133, %79, %39, %.lr.ph94, %.lr.ph, %9, %._crit_edge
+  %.0 = phi i32 [ 0, %._crit_edge ], [ %14, %9 ], [ %104, %.lr.ph ], [ %139, %133 ], [ %85, %79 ], [ %57, %39 ], [ %38, %.lr.ph94 ]
   call void @_ZN15ResourceTrackerD1Ev(ptr noundef nonnull align 8 dereferenceable(17) %4) #12
   ret i32 %.0
 }
@@ -1014,7 +1026,7 @@ define hidden noundef i32 @_ZN15JvmtiExtensions10get_eventsEP8JvmtiEnvPiPP23jvmt
 
 .lr.ph79:                                         ; preds = %.preheader, %.loopexit
   %indvars.iv84 = phi i64 [ %indvars.iv.next85, %.loopexit ], [ 0, %.preheader ]
-  %18 = phi ptr [ %110, %.loopexit ], [ %15, %.preheader ]
+  %18 = phi ptr [ %118, %.loopexit ], [ %15, %.preheader ]
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv84
@@ -1033,130 +1045,138 @@ define hidden noundef i32 @_ZN15JvmtiExtensions10get_eventsEP8JvmtiEnvPiPP23jvmt
   %33 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %32) #14
   %34 = add i64 %33, 1
   %35 = load ptr, ptr %5, align 8
-  %36 = getelementptr inbounds nuw %struct.jvmtiExtensionEventInfo, ptr %35, i64 %indvars.iv84, i32 1
-  %37 = call noundef i32 @_ZN15ResourceTracker8allocateElPPh(ptr noundef nonnull align 8 dereferenceable(17) %4, i64 noundef %34, ptr noundef nonnull %36) #12
-  %.not68 = icmp eq i32 %37, 0
-  br i1 %.not68, label %38, label %.loopexit72
+  %36 = getelementptr inbounds nuw %struct.jvmtiExtensionEventInfo, ptr %35, i64 %indvars.iv84
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
+  %38 = call noundef i32 @_ZN15ResourceTracker8allocateElPPh(ptr noundef nonnull align 8 dereferenceable(17) %4, i64 noundef %34, ptr noundef nonnull %37) #12
+  %.not68 = icmp eq i32 %38, 0
+  br i1 %.not68, label %39, label %.loopexit72
 
-38:                                               ; preds = %.lr.ph79
-  %39 = load ptr, ptr %5, align 8
-  %40 = getelementptr inbounds nuw %struct.jvmtiExtensionEventInfo, ptr %39, i64 %indvars.iv84, i32 1
-  %41 = load ptr, ptr %40, align 8
-  %42 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %41, ptr noundef nonnull dereferenceable(1) %32) #12
-  %43 = load ptr, ptr @_ZN15JvmtiExtensions11_ext_eventsE, align 8
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds nuw ptr, ptr %45, i64 %indvars.iv84
+39:                                               ; preds = %.lr.ph79
+  %40 = load ptr, ptr %5, align 8
+  %41 = getelementptr inbounds nuw %struct.jvmtiExtensionEventInfo, ptr %40, i64 %indvars.iv84
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
+  %43 = load ptr, ptr %42, align 8
+  %44 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %43, ptr noundef nonnull dereferenceable(1) %32) #12
+  %45 = load ptr, ptr @_ZN15JvmtiExtensions11_ext_eventsE, align 8
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
+  %48 = getelementptr inbounds nuw ptr, ptr %47, i64 %indvars.iv84
   %49 = load ptr, ptr %48, align 8
-  %50 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %49) #14
-  %51 = add i64 %50, 1
-  %52 = load ptr, ptr %5, align 8
-  %53 = getelementptr inbounds nuw %struct.jvmtiExtensionEventInfo, ptr %52, i64 %indvars.iv84, i32 2
-  %54 = call noundef i32 @_ZN15ResourceTracker8allocateElPPh(ptr noundef nonnull align 8 dereferenceable(17) %4, i64 noundef %51, ptr noundef nonnull %53) #12
-  %.not69 = icmp eq i32 %54, 0
-  br i1 %.not69, label %55, label %.loopexit72
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 16
+  %51 = load ptr, ptr %50, align 8
+  %52 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %51) #14
+  %53 = add i64 %52, 1
+  %54 = load ptr, ptr %5, align 8
+  %55 = getelementptr inbounds nuw %struct.jvmtiExtensionEventInfo, ptr %54, i64 %indvars.iv84
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 16
+  %57 = call noundef i32 @_ZN15ResourceTracker8allocateElPPh(ptr noundef nonnull align 8 dereferenceable(17) %4, i64 noundef %53, ptr noundef nonnull %56) #12
+  %.not69 = icmp eq i32 %57, 0
+  br i1 %.not69, label %58, label %.loopexit72
 
-55:                                               ; preds = %38
-  %56 = load ptr, ptr %5, align 8
-  %57 = getelementptr inbounds nuw %struct.jvmtiExtensionEventInfo, ptr %56, i64 %indvars.iv84, i32 2
-  %58 = load ptr, ptr %57, align 8
-  %59 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %58, ptr noundef nonnull dereferenceable(1) %49) #12
-  %60 = load ptr, ptr @_ZN15JvmtiExtensions11_ext_eventsE, align 8
-  %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
+58:                                               ; preds = %39
+  %59 = load ptr, ptr %5, align 8
+  %60 = getelementptr inbounds nuw %struct.jvmtiExtensionEventInfo, ptr %59, i64 %indvars.iv84
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 16
   %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds nuw ptr, ptr %62, i64 %indvars.iv84
-  %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds nuw i8, ptr %64, i64 24
-  %66 = load i32, ptr %65, align 8
-  %67 = load ptr, ptr %5, align 8
-  %68 = getelementptr inbounds nuw %struct.jvmtiExtensionEventInfo, ptr %67, i64 %indvars.iv84, i32 3
-  store i32 %66, ptr %68, align 8
-  %69 = icmp eq i32 %66, 0
-  br i1 %69, label %70, label %73
-
-70:                                               ; preds = %55
+  %63 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %62, ptr noundef nonnull dereferenceable(1) %51) #12
+  %64 = load ptr, ptr @_ZN15JvmtiExtensions11_ext_eventsE, align 8
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
+  %66 = load ptr, ptr %65, align 8
+  %67 = getelementptr inbounds nuw ptr, ptr %66, i64 %indvars.iv84
+  %68 = load ptr, ptr %67, align 8
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 24
+  %70 = load i32, ptr %69, align 8
   %71 = load ptr, ptr %5, align 8
-  %72 = getelementptr inbounds nuw %struct.jvmtiExtensionEventInfo, ptr %71, i64 %indvars.iv84, i32 4
-  store ptr null, ptr %72, align 8
+  %72 = getelementptr inbounds nuw %struct.jvmtiExtensionEventInfo, ptr %71, i64 %indvars.iv84
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 24
+  store i32 %70, ptr %73, align 8
+  %74 = icmp eq i32 %70, 0
+  br i1 %74, label %75, label %79
+
+75:                                               ; preds = %58
+  %76 = load ptr, ptr %5, align 8
+  %77 = getelementptr inbounds nuw %struct.jvmtiExtensionEventInfo, ptr %76, i64 %indvars.iv84
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 32
+  store ptr null, ptr %78, align 8
   br label %.loopexit
 
-73:                                               ; preds = %55
-  %74 = sext i32 %66 to i64
-  %75 = mul nsw i64 %74, 24
-  %76 = load ptr, ptr %5, align 8
-  %77 = getelementptr inbounds nuw %struct.jvmtiExtensionEventInfo, ptr %76, i64 %indvars.iv84, i32 4
-  %78 = call noundef i32 @_ZN15ResourceTracker8allocateElPPh(ptr noundef nonnull align 8 dereferenceable(17) %4, i64 noundef %75, ptr noundef nonnull %77) #12
-  %.not70 = icmp eq i32 %78, 0
-  br i1 %.not70, label %79, label %.loopexit72
+79:                                               ; preds = %58
+  %80 = sext i32 %70 to i64
+  %81 = mul nsw i64 %80, 24
+  %82 = load ptr, ptr %5, align 8
+  %83 = getelementptr inbounds nuw %struct.jvmtiExtensionEventInfo, ptr %82, i64 %indvars.iv84
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 32
+  %85 = call noundef i32 @_ZN15ResourceTracker8allocateElPPh(ptr noundef nonnull align 8 dereferenceable(17) %4, i64 noundef %81, ptr noundef nonnull %84) #12
+  %.not70 = icmp eq i32 %85, 0
+  br i1 %.not70, label %86, label %.loopexit72
 
-79:                                               ; preds = %73
-  %80 = load ptr, ptr @_ZN15JvmtiExtensions11_ext_eventsE, align 8
-  %81 = getelementptr inbounds nuw i8, ptr %80, i64 8
-  %82 = load ptr, ptr %81, align 8
-  %83 = getelementptr inbounds nuw ptr, ptr %82, i64 %indvars.iv84
-  %84 = load ptr, ptr %83, align 8
-  %85 = getelementptr inbounds nuw i8, ptr %84, i64 32
-  %86 = load ptr, ptr %85, align 8
-  %87 = load ptr, ptr %5, align 8
-  %88 = getelementptr inbounds nuw %struct.jvmtiExtensionEventInfo, ptr %87, i64 %indvars.iv84, i32 4
+86:                                               ; preds = %79
+  %87 = load ptr, ptr @_ZN15JvmtiExtensions11_ext_eventsE, align 8
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
   %89 = load ptr, ptr %88, align 8
-  %90 = icmp sgt i32 %66, 0
-  br i1 %90, label %.lr.ph.preheader, label %.loopexit
+  %90 = getelementptr inbounds nuw ptr, ptr %89, i64 %indvars.iv84
+  %91 = load ptr, ptr %90, align 8
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 32
+  %93 = load ptr, ptr %92, align 8
+  %94 = load ptr, ptr %5, align 8
+  %95 = getelementptr inbounds nuw %struct.jvmtiExtensionEventInfo, ptr %94, i64 %indvars.iv84
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 32
+  %97 = load ptr, ptr %96, align 8
+  %98 = icmp sgt i32 %70, 0
+  br i1 %98, label %.lr.ph.preheader, label %.loopexit
 
-.lr.ph.preheader:                                 ; preds = %79
-  %wide.trip.count = zext nneg i32 %66 to i64
+.lr.ph.preheader:                                 ; preds = %86
+  %wide.trip.count = zext nneg i32 %70 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %97
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %97 ]
-  %91 = getelementptr inbounds nuw %struct.jvmtiParamInfo, ptr %86, i64 %indvars.iv
-  %92 = load ptr, ptr %91, align 8
-  %93 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %92) #14
-  %94 = add i64 %93, 1
-  %95 = getelementptr inbounds nuw %struct.jvmtiParamInfo, ptr %89, i64 %indvars.iv
-  %96 = call noundef i32 @_ZN15ResourceTracker8allocateElPPh(ptr noundef nonnull align 8 dereferenceable(17) %4, i64 noundef %94, ptr noundef %95) #12
-  %.not71 = icmp eq i32 %96, 0
-  br i1 %.not71, label %97, label %.loopexit72
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %105
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %105 ]
+  %99 = getelementptr inbounds nuw %struct.jvmtiParamInfo, ptr %93, i64 %indvars.iv
+  %100 = load ptr, ptr %99, align 8
+  %101 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %100) #14
+  %102 = add i64 %101, 1
+  %103 = getelementptr inbounds nuw %struct.jvmtiParamInfo, ptr %97, i64 %indvars.iv
+  %104 = call noundef i32 @_ZN15ResourceTracker8allocateElPPh(ptr noundef nonnull align 8 dereferenceable(17) %4, i64 noundef %102, ptr noundef %103) #12
+  %.not71 = icmp eq i32 %104, 0
+  br i1 %.not71, label %105, label %.loopexit72
 
-97:                                               ; preds = %.lr.ph
-  %98 = load ptr, ptr %95, align 8
-  %99 = load ptr, ptr %91, align 8
-  %100 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %98, ptr noundef nonnull dereferenceable(1) %99) #12
-  %101 = getelementptr inbounds nuw i8, ptr %91, i64 8
-  %102 = load i32, ptr %101, align 8
-  %103 = getelementptr inbounds nuw i8, ptr %95, i64 8
-  store i32 %102, ptr %103, align 8
-  %104 = getelementptr inbounds nuw i8, ptr %91, i64 12
-  %105 = load i32, ptr %104, align 4
-  %106 = getelementptr inbounds nuw i8, ptr %95, i64 12
-  store i32 %105, ptr %106, align 4
-  %107 = getelementptr inbounds nuw i8, ptr %91, i64 16
-  %108 = load i8, ptr %107, align 8
-  %109 = getelementptr inbounds nuw i8, ptr %95, i64 16
-  store i8 %108, ptr %109, align 8
+105:                                              ; preds = %.lr.ph
+  %106 = load ptr, ptr %103, align 8
+  %107 = load ptr, ptr %99, align 8
+  %108 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %106, ptr noundef nonnull dereferenceable(1) %107) #12
+  %109 = getelementptr inbounds nuw i8, ptr %99, i64 8
+  %110 = load i32, ptr %109, align 8
+  %111 = getelementptr inbounds nuw i8, ptr %103, i64 8
+  store i32 %110, ptr %111, align 8
+  %112 = getelementptr inbounds nuw i8, ptr %99, i64 12
+  %113 = load i32, ptr %112, align 4
+  %114 = getelementptr inbounds nuw i8, ptr %103, i64 12
+  store i32 %113, ptr %114, align 4
+  %115 = getelementptr inbounds nuw i8, ptr %99, i64 16
+  %116 = load i8, ptr %115, align 8
+  %117 = getelementptr inbounds nuw i8, ptr %103, i64 16
+  store i8 %116, ptr %117, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !11
 
-.loopexit:                                        ; preds = %97, %79, %70
+.loopexit:                                        ; preds = %105, %86, %75
   %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
-  %110 = load ptr, ptr @_ZN15JvmtiExtensions11_ext_eventsE, align 8
-  %111 = load i32, ptr %110, align 4
-  %112 = sext i32 %111 to i64
-  %113 = icmp slt i64 %indvars.iv.next85, %112
-  br i1 %113, label %.lr.ph79, label %._crit_edge, !llvm.loop !12
+  %118 = load ptr, ptr @_ZN15JvmtiExtensions11_ext_eventsE, align 8
+  %119 = load i32, ptr %118, align 4
+  %120 = sext i32 %119 to i64
+  %121 = icmp slt i64 %indvars.iv.next85, %120
+  br i1 %121, label %.lr.ph79, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.loopexit, %.preheader
-  %.lcssa74 = phi i32 [ %16, %.preheader ], [ %111, %.loopexit ]
+  %.lcssa74 = phi i32 [ %16, %.preheader ], [ %119, %.loopexit ]
   store i32 %.lcssa74, ptr %1, align 4
-  %114 = load ptr, ptr %5, align 8
-  store ptr %114, ptr %2, align 8
+  %122 = load ptr, ptr %5, align 8
+  store ptr %122, ptr %2, align 8
   br label %.loopexit72
 
-.loopexit72:                                      ; preds = %73, %38, %.lr.ph79, %.lr.ph, %9, %._crit_edge
-  %.059 = phi i32 [ 0, %._crit_edge ], [ %14, %9 ], [ %96, %.lr.ph ], [ %78, %73 ], [ %54, %38 ], [ %37, %.lr.ph79 ]
+.loopexit72:                                      ; preds = %79, %39, %.lr.ph79, %.lr.ph, %9, %._crit_edge
+  %.059 = phi i32 [ 0, %._crit_edge ], [ %14, %9 ], [ %104, %.lr.ph ], [ %85, %79 ], [ %57, %39 ], [ %38, %.lr.ph79 ]
   call void @_ZN15ResourceTrackerD1Ev(ptr noundef nonnull align 8 dereferenceable(17) %4) #12
   ret i32 %.059
 }

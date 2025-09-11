@@ -4749,10 +4749,11 @@ invoke.cont30.i1309:                              ; preds = %invoke.cont30.i1309
   %this.val.i.i.i = load ptr, ptr %visited.i, align 8, !noalias !108, !nonnull !107, !noundef !107
   %474 = load i32, ptr %arrayidx.i.i.i.i.i44.sink.i.i.i.i.i, align 4, !noalias !108
   %idx.ext8.i.i.i.i = zext i32 %474 to i64
-  %second.i.i = getelementptr inbounds nuw %"struct.std::pair.289", ptr %this.val.i.i.i, i64 %idx.ext8.i.i.i.i, i32 1
+  %add.ptr9.i.i.i.i = getelementptr inbounds nuw %"struct.std::pair.289", ptr %this.val.i.i.i, i64 %idx.ext8.i.i.i.i
+  %second.i.i = getelementptr inbounds nuw i8, ptr %add.ptr9.i.i.i.i, i64 8
   %475 = load ptr, ptr %reference.i, align 8, !noalias !90
   store ptr %475, ptr %second.i.i, align 8, !noalias !90
-  %_M_refcount.i.i54.i = getelementptr inbounds nuw i8, ptr %second.i.i, i64 8
+  %_M_refcount.i.i54.i = getelementptr inbounds nuw i8, ptr %add.ptr9.i.i.i.i, i64 16
   %476 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8, !noalias !90
   %477 = load ptr, ptr %_M_refcount.i.i54.i, align 8, !noalias !90
   %cmp.not.i.i.i56.i = icmp eq ptr %476, %477
@@ -7119,10 +7120,11 @@ invoke.cont313.i:                                 ; preds = %invoke.cont313.i.lo
   %this.val.i.i = load ptr, ptr %visited.i, align 8, !noalias !155, !nonnull !107, !noundef !107
   %805 = load i32, ptr %arrayidx.i.i.i.i.i44.sink.i.i.i.i, align 4, !noalias !155
   %idx.ext8.i.i.i = zext i32 %805 to i64
-  %second.i = getelementptr inbounds nuw %"struct.std::pair.289", ptr %this.val.i.i, i64 %idx.ext8.i.i.i, i32 1
+  %add.ptr9.i.i.i = getelementptr inbounds nuw %"struct.std::pair.289", ptr %this.val.i.i, i64 %idx.ext8.i.i.i
+  %second.i = getelementptr inbounds nuw i8, ptr %add.ptr9.i.i.i, i64 8
   %806 = load ptr, ptr %agg.result, align 8
   store ptr %806, ptr %second.i, align 8
-  %_M_refcount.i.i159 = getelementptr inbounds nuw i8, ptr %second.i, i64 8
+  %_M_refcount.i.i159 = getelementptr inbounds nuw i8, ptr %add.ptr9.i.i.i, i64 16
   %_M_refcount3.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   %807 = load ptr, ptr %_M_refcount3.i.i, align 8
   %808 = load ptr, ptr %_M_refcount.i.i159, align 8
@@ -8137,7 +8139,8 @@ if.end.i.i.i.i.i.i:                               ; preds = %_ZNSt6vectorISt10sh
 for.body.i.i.i.i.i.i.i.i:                         ; preds = %if.end.i.i.i.i.i.i, %_ZNSt16allocator_traitsISaISt4pairIKPKN8facebook5velox4core10ITypedExprESt10shared_ptrINS2_4exec4ExprEEEEE7destroyISC_EEvRSD_PT_.exit.i.i.i.i.i.i.i.i
   %i.04.i.i.i.i.i.i.i.i = phi i64 [ %inc.i.i.i.i.i.i.i.i, %_ZNSt16allocator_traitsISaISt4pairIKPKN8facebook5velox4core10ITypedExprESt10shared_ptrINS2_4exec4ExprEEEEE7destroyISC_EEvRSD_PT_.exit.i.i.i.i.i.i.i.i ], [ 0, %if.end.i.i.i.i.i.i ]
   %17 = load ptr, ptr %visited, align 8
-  %_M_refcount.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw %"struct.std::pair.289", ptr %17, i64 %i.04.i.i.i.i.i.i.i.i, i32 1, i32 0, i32 1
+  %arrayidx.i.i.i.i.i.i.i.i = getelementptr inbounds nuw %"struct.std::pair.289", ptr %17, i64 %i.04.i.i.i.i.i.i.i.i
+  %_M_refcount.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i.i.i.i.i.i, i64 16
   %18 = load ptr, ptr %_M_refcount.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %18, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaISt4pairIKPKN8facebook5velox4core10ITypedExprESt10shared_ptrINS2_4exec4ExprEEEEE7destroyISC_EEvRSD_PT_.exit.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -9641,11 +9644,12 @@ cond.false:                                       ; preds = %while.body.i
   %visited.val16 = load ptr, ptr %visited, align 8, !nonnull !107, !noundef !107
   %11 = load i32, ptr %arrayidx.i.i.i.i.le, align 4
   %idx.ext8.i = zext i32 %11 to i64
-  %second = getelementptr inbounds nuw %"struct.std::pair.289", ptr %visited.val16, i64 %idx.ext8.i, i32 1
+  %add.ptr9.i = getelementptr inbounds nuw %"struct.std::pair.289", ptr %visited.val16, i64 %idx.ext8.i
+  %second = getelementptr inbounds nuw i8, ptr %add.ptr9.i, i64 8
   %12 = load ptr, ptr %second, align 8
   store ptr %12, ptr %agg.result, align 8
   %_M_refcount.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
-  %_M_refcount3.i.i = getelementptr inbounds nuw i8, ptr %second, i64 8
+  %_M_refcount3.i.i = getelementptr inbounds nuw i8, ptr %add.ptr9.i, i64 16
   %13 = load ptr, ptr %_M_refcount3.i.i, align 8
   store ptr %13, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %13, null

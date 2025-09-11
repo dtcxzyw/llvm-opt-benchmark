@@ -568,8 +568,8 @@ hybrid_analysis.exit:                             ; preds = %261
   %310 = sext i32 %..i to i64
   %311 = sext i32 %296 to i64
   %312 = add nsw i64 %311, %304
-  %reass.sub60 = sub nsw i64 %310, %312
-  %313 = add nsw i64 %reass.sub60, 2
+  %reass.sub59 = sub nsw i64 %310, %312
+  %313 = add nsw i64 %reass.sub59, 2
   %314 = lshr i64 %313, 2
   %315 = trunc i64 %314 to i32
   %316 = add i32 %296, %315
@@ -1907,12 +1907,12 @@ ipdopd_reset.exit.i:                              ; preds = %ipdopd_reset.exit.s
   br label %.sink.split.i.us
 
 .sink.split.i.us:                                 ; preds = %1149, %1142
-  %.sink69 = phi i32 [ %1150, %1149 ], [ %1141, %1142 ]
-  %.sink68 = phi i32 [ %1153, %1149 ], [ %1144, %1142 ]
+  %.sink68 = phi i32 [ %1150, %1149 ], [ %1141, %1142 ]
+  %.sink67 = phi i32 [ %1153, %1149 ], [ %1144, %1142 ]
   %.sink = phi i32 [ %1156, %1149 ], [ %1146, %1142 ]
   %.sink.i49.us = phi i32 [ %1159, %1149 ], [ %1148, %1142 ]
-  store i32 %.sink69, ptr %946, align 16, !tbaa !12
-  store i32 %.sink68, ptr %947, align 4, !tbaa !12
+  store i32 %.sink68, ptr %946, align 16, !tbaa !12
+  store i32 %.sink67, ptr %947, align 4, !tbaa !12
   store i32 %.sink, ptr %948, align 8, !tbaa !12
   store i32 %.sink.i49.us, ptr %949, align 4, !tbaa !12
   br label %1160
@@ -2016,12 +2016,11 @@ ipdopd_reset.exit.i:                              ; preds = %ipdopd_reset.exit.s
   %1242 = zext i1 %1241 to i64
   %1243 = getelementptr inbounds nuw ptr, ptr %957, i64 %1242
   %1244 = load ptr, ptr %1243, align 8, !tbaa !47
-  %.idx.us = shl nuw nsw i64 %indvars.iv372.i.us, 8
-  %1245 = getelementptr inbounds nuw i8, ptr %53, i64 %.idx.us
+  %1245 = getelementptr inbounds nuw [32 x [2 x i32]], ptr %53, i64 %indvars.iv372.i.us
   %1246 = getelementptr inbounds nuw i8, ptr %1245, i64 8
   %1247 = sext i32 %1117 to i64
   %1248 = getelementptr inbounds [2 x i32], ptr %1246, i64 %1247
-  %1249 = getelementptr inbounds nuw i8, ptr %52, i64 %.idx.us
+  %1249 = getelementptr inbounds nuw [32 x [2 x i32]], ptr %52, i64 %indvars.iv372.i.us
   %1250 = getelementptr inbounds nuw i8, ptr %1249, i64 8
   %1251 = getelementptr inbounds [2 x i32], ptr %1250, i64 %1247
   call void %1244(ptr noundef nonnull %1248, ptr noundef nonnull %1251, ptr noundef nonnull %13, ptr noundef nonnull %14, i32 noundef %1119) #9

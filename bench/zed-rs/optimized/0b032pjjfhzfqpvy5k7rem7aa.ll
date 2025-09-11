@@ -32205,16 +32205,17 @@ define void @_ZN8language13highlight_map11HighlightId5style17he3f914f3fcfe4661E(
 
 9:                                                ; preds = %3
   store i32 2, ptr %0, align 4
-  br label %14
+  br label %15
 
 10:                                               ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %12 = load ptr, ptr %11, align 8, !nonnull !7, !noundef !7
-  %13 = getelementptr inbounds nuw { { { { i64, ptr, {} }, i64 } }, { { i32, [4 x i32] }, { i32, [1 x i32] }, { i32, [4 x i32] }, { i32, [1 x i32] }, { i32, [6 x i32] }, { i32, [5 x i32] }, i8, [3 x i8] } }, ptr %12, i64 %7, i32 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(112) %0, ptr noundef nonnull align 8 dereferenceable(112) %13, i64 112, i1 false)
-  br label %14
+  %13 = getelementptr inbounds nuw { { { { i64, ptr, {} }, i64 } }, { { i32, [4 x i32] }, { i32, [1 x i32] }, { i32, [4 x i32] }, { i32, [1 x i32] }, { i32, [6 x i32] }, { i32, [5 x i32] }, i8, [3 x i8] } }, ptr %12, i64 %7
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(112) %0, ptr noundef nonnull align 8 dereferenceable(112) %14, i64 112, i1 false)
+  br label %15
 
-14:                                               ; preds = %10, %9
+15:                                               ; preds = %10, %9
   ret void
 }
 

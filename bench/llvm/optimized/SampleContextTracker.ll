@@ -3869,9 +3869,10 @@ _ZNK4llvm10sampleprof10FunctionId11getHashCodeEv.exit: ; preds = %9, %13
 
 _ZNK4llvm12DenseMapBaseINS_8DenseMapImNS_9StringRefENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS2_EEEEmS2_S4_S7_E6doFindImEEPKS7_RKT_.exit.i: ; preds = %31, %18
   %39 = phi i64 [ %25, %18 ], [ %35, %31 ]
-  %40 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %14, i64 %39, i32 0, i32 1
-  %.sroa.0.0.copyload.i12 = load ptr, ptr %40, align 8, !tbaa !51
-  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %40, i64 8
+  %40 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %14, i64 %39
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
+  %.sroa.0.0.copyload.i12 = load ptr, ptr %41, align 8, !tbaa !51
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %40, i64 16
   %.sroa.4.0.copyload.i = load i64, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !47
   br label %_ZNK4llvm12DenseMapBaseINS_8DenseMapImNS_9StringRefENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS2_EEEEmS2_S4_S7_E6lookupERKm.exit
 

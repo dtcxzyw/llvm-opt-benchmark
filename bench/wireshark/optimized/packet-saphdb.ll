@@ -864,8 +864,8 @@ define internal noundef i32 @dissect_saphdb_tcp(ptr noundef %0, ptr noundef %1, 
   %101 = call fastcc i32 @dissect_saphdb_segment(ptr noundef %0, ptr noundef %1, ptr noundef %87, i32 noundef %.22.i, i16 noundef signext %61, i16 noundef zeroext %.03.i, i1 noundef zeroext false)
   %102 = add i32 %101, %.22.i
   %103 = add i16 %.03.i, 1
-  %exitcond.not = icmp eq i16 %.03.i, %61
-  br i1 %exitcond.not, label %.critedge.i, label %.lr.ph.i, !llvm.loop !8
+  %.not130.i = icmp ugt i16 %103, %61
+  br i1 %.not130.i, label %.critedge.i, label %.lr.ph.i, !llvm.loop !8
 
 104:                                              ; preds = %79
   %105 = sext i16 %61 to i32

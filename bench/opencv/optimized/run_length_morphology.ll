@@ -3042,16 +3042,16 @@ _ZNSt6vectorIiSaIiEED2Ev.exit166.thread:          ; preds = %31
 
 .lr.ph250:                                        ; preds = %.lr.ph250.preheader, %57
   %indvars.iv287 = phi i64 [ 1, %.lr.ph250.preheader ], [ %indvars.iv.next288, %57 ]
-  %43 = getelementptr inbounds nuw %"struct.cv::ximgproc::rl::rlType", ptr %11, i64 %indvars.iv287, i32 2
-  %44 = load i32, ptr %43, align 4, !tbaa !57
-  %45 = getelementptr %"struct.cv::ximgproc::rl::rlType", ptr %11, i64 %indvars.iv287
-  %46 = getelementptr i8, ptr %45, i64 -4
+  %43 = getelementptr %"struct.cv::ximgproc::rl::rlType", ptr %11, i64 %indvars.iv287
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
+  %45 = load i32, ptr %44, align 4, !tbaa !57
+  %46 = getelementptr i8, ptr %43, i64 -4
   %47 = load i32, ptr %46, align 4, !tbaa !57
-  %.not133 = icmp eq i32 %44, %47
+  %.not133 = icmp eq i32 %45, %47
   br i1 %.not133, label %57, label %48
 
 48:                                               ; preds = %.lr.ph250
-  %49 = sub nsw i32 %44, %19
+  %49 = sub nsw i32 %45, %19
   %50 = sext i32 %49 to i64
   %51 = getelementptr inbounds nuw i32, ptr %.sroa.0210.0221337, i64 %50
   %52 = trunc nuw nsw i64 %indvars.iv287 to i32
@@ -3990,13 +3990,13 @@ _ZNSt6vectorIN2cv8ximgproc2rl6rlTypeESaIS3_EED2Ev.exit: ; preds = %12, %15
 
 .lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %16 = getelementptr inbounds nuw %"struct.cv::ximgproc::rl::rlType", ptr %6, i64 %indvars.iv, i32 2
-  %17 = load i32, ptr %16, align 4, !tbaa !57
-  %18 = getelementptr %"struct.cv::ximgproc::rl::rlType", ptr %6, i64 %indvars.iv
-  %19 = getelementptr i8, ptr %18, i64 -4
+  %16 = getelementptr %"struct.cv::ximgproc::rl::rlType", ptr %6, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %18 = load i32, ptr %17, align 4, !tbaa !57
+  %19 = getelementptr i8, ptr %16, i64 -4
   %20 = load i32, ptr %19, align 4, !tbaa !57
   %21 = add nsw i32 %20, 1
-  %.not = icmp eq i32 %17, %21
+  %.not = icmp eq i32 %18, %21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp ne i64 %indvars.iv.next, %wide.trip.count
   %or.cond.not = select i1 %.not, i1 %exitcond.not, i1 false

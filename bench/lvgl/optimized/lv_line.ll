@@ -104,7 +104,7 @@ define internal void @lv_line_event(ptr readnone captures(none) %0, ptr noundef 
 
 39:                                               ; preds = %28, %35
   %.183 = phi i32 [ %38, %35 ], [ %.082118, %28 ]
-  %40 = getelementptr inbounds nuw %struct.lv_point_precise_t, ptr %27, i64 %indvars.iv124, i32 1
+  %40 = getelementptr inbounds nuw i8, ptr %29, i64 4
   %41 = load float, ptr %40, align 4, !tbaa !21
   %42 = fptosi float %41 to i32
   %43 = and i32 %42, 1610612736
@@ -210,7 +210,7 @@ resolve_point_coord.exit:                         ; preds = %79, %88, %.thread25
   %.0.i = phi float [ %96, %.thread25.i ], [ %84, %88 ], [ %84, %79 ]
   %97 = fadd float %.0.i, %71
   store float %97, ptr %72, align 8, !tbaa !35
-  %98 = getelementptr inbounds nuw %struct.lv_point_precise_t, ptr %82, i64 %indvars.iv, i32 1
+  %98 = getelementptr inbounds nuw i8, ptr %83, i64 4
   %99 = load float, ptr %98, align 4, !tbaa !21
   %100 = fptosi float %99 to i32
   %101 = and i32 %100, 1610612736
@@ -264,7 +264,7 @@ resolve_point_coord.exit109:                      ; preds = %resolve_point_coord
   %.0.i105 = phi float [ %125, %.thread25.i107 ], [ %113, %117 ], [ %113, %resolve_point_coord.exit104 ]
   %126 = fadd float %.0.i105, %71
   store float %126, ptr %74, align 8, !tbaa !37
-  %127 = getelementptr inbounds nuw %struct.lv_point_precise_t, ptr %82, i64 %indvars.iv.next, i32 1
+  %127 = getelementptr inbounds nuw i8, ptr %112, i64 4
   %128 = load float, ptr %127, align 4, !tbaa !21
   %129 = fptosi float %128 to i32
   %130 = and i32 %129, 1610612736

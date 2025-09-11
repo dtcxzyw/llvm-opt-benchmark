@@ -2681,19 +2681,20 @@ _ZN4llvm5ErrorD2Ev.exit53:                        ; preds = %79
   %94 = load ptr, ptr %4, align 8, !tbaa !88, !noalias !226
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !226
   %95 = load ptr, ptr %1, align 8, !tbaa !32
-  %96 = getelementptr inbounds nuw %"struct.std::pair", ptr %95, i64 %81, i32 1
-  %97 = load i32, ptr %94, align 1, !tbaa !45
-  store i32 %97, ptr %96, align 4, !tbaa !45
-  %98 = load i32, ptr %58, align 8, !tbaa !220
-  %99 = add i32 %98, 1
-  store i32 %99, ptr %58, align 8, !tbaa !220
-  %100 = load i64, ptr %59, align 8, !tbaa !222
-  %101 = lshr i64 %100, 1
-  store i64 %101, ptr %59, align 8, !tbaa !222
+  %96 = getelementptr inbounds nuw %"struct.std::pair", ptr %95, i64 %81
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 4
+  %98 = load i32, ptr %94, align 1, !tbaa !45
+  store i32 %98, ptr %97, align 4, !tbaa !45
+  %99 = load i32, ptr %58, align 8, !tbaa !220
+  %100 = add i32 %99, 1
+  store i32 %100, ptr %58, align 8, !tbaa !220
+  %101 = load i64, ptr %59, align 8, !tbaa !222
+  %102 = lshr i64 %101, 1
+  store i64 %102, ptr %59, align 8, !tbaa !222
   call void @_ZN4llvm15SparseBitVectorILj128EE23SparseBitVectorIterator20AdvanceToNextNonZeroEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
-  %102 = load i8, ptr %11, align 8, !tbaa !216, !range !52, !noundef !53
-  %103 = trunc nuw i8 %102 to i1
-  br i1 %103, label %_ZN4llvm5ErrorD2Ev.exit57, label %79
+  %103 = load i8, ptr %11, align 8, !tbaa !216, !range !52, !noundef !53
+  %104 = trunc nuw i8 %103 to i1
+  br i1 %104, label %_ZN4llvm5ErrorD2Ev.exit57, label %79
 
 .critedge42:                                      ; preds = %.critedge41, %_ZN4llvm18BinaryStreamReader11readIntegerIjEENS_5ErrorERT_.exit.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %11)

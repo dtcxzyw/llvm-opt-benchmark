@@ -1251,7 +1251,7 @@ define internal fastcc void @loop_process_work(ptr noundef %0, ptr noundef %1, p
   tail call void @_raw_spin_lock_irq(ptr noundef nonnull %15) #14
   %16 = load volatile ptr, ptr %1, align 8
   %17 = icmp eq ptr %16, %1
-  br i1 %17, label %.loopexit32, label %18
+  br i1 %17, label %.loopexit33, label %18
 
 18:                                               ; preds = %3
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -1292,7 +1292,7 @@ define internal fastcc void @loop_process_work(ptr noundef %0, ptr noundef %1, p
   %45 = load i32, ptr %44, align 8
   %46 = and i32 %45, 1
   %47 = icmp eq i32 %46, 0
-  br i1 %47, label %48, label %.thread25
+  br i1 %47, label %48, label %.thread26
 
 48:                                               ; preds = %43, %23
   %49 = icmp eq ptr %30, null
@@ -1415,7 +1415,7 @@ define internal fastcc void @loop_process_work(ptr noundef %0, ptr noundef %1, p
   %121 = getelementptr i8, ptr %24, i64 -192
   %122 = load ptr, ptr %121, align 8
   %123 = icmp eq ptr %122, null
-  br i1 %123, label %.loopexit30, label %124
+  br i1 %123, label %.loopexit31, label %124
 
 124:                                              ; preds = %120
   %125 = getelementptr inbounds nuw i8, ptr %39, i64 96
@@ -1471,9 +1471,9 @@ define internal fastcc void @loop_process_work(ptr noundef %0, ptr noundef %1, p
   %163 = load i32, ptr %21, align 8
   %164 = zext i32 %163 to i64
   %165 = icmp eq i64 %162, %164
-  br i1 %165, label %.thread20, label %166, !prof !11
+  br i1 %165, label %.thread21, label %166, !prof !11
 
-.thread20:                                        ; preds = %139
+.thread21:                                        ; preds = %139
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %178
 
@@ -1502,8 +1502,8 @@ define internal fastcc void @loop_process_work(ptr noundef %0, ptr noundef %1, p
   %177 = icmp slt i32 %176, 0
   br i1 %177, label %.loopexit, label %178
 
-178:                                              ; preds = %.thread20, %175
-  %179 = phi i32 [ 0, %.thread20 ], [ %176, %175 ]
+178:                                              ; preds = %.thread21, %175
+  %179 = phi i32 [ 0, %.thread21 ], [ %176, %175 ]
   %180 = call i32 @__SCT__cond_resched() #14
   %181 = load i32, ptr %21, align 8
   %182 = load i32, ptr %138, align 8
@@ -1517,7 +1517,8 @@ define internal fastcc void @loop_process_work(ptr noundef %0, ptr noundef %1, p
 184:                                              ; preds = %178
   %185 = load ptr, ptr %137, align 8
   %186 = add i32 %181, %140
-  %187 = getelementptr %struct.bio_vec, ptr %185, i64 %144, i32 1
+  %.split19 = getelementptr %struct.bio_vec, ptr %185, i64 %144
+  %187 = getelementptr i8, ptr %.split19, i64 8
   %188 = load i32, ptr %187, align 8
   %189 = icmp eq i32 %186, %188
   %190 = zext i1 %189 to i32
@@ -1536,9 +1537,9 @@ define internal fastcc void @loop_process_work(ptr noundef %0, ptr noundef %1, p
   %198 = phi i32 [ %127, %126 ], [ -5, %.thread ], [ %179, %193 ], [ %176, %175 ]
   %199 = load ptr, ptr %128, align 8
   %200 = icmp eq ptr %199, null
-  br i1 %200, label %.loopexit30, label %126, !llvm.loop !25
+  br i1 %200, label %.loopexit31, label %126, !llvm.loop !25
 
-.loopexit30:                                      ; preds = %.loopexit, %120
+.loopexit31:                                      ; preds = %.loopexit, %120
   %201 = phi i32 [ 0, %120 ], [ %198, %.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -1551,8 +1552,8 @@ define internal fastcc void @loop_process_work(ptr noundef %0, ptr noundef %1, p
 
 205:                                              ; preds = %202
   %206 = getelementptr i8, ptr %39, i64 96
-  %.val19 = load ptr, ptr %206, align 8
-  %207 = call fastcc i32 @lo_rw_aio(ptr %.val19, ptr noundef %24, i64 noundef %59, i32 noundef 0)
+  %.val20 = load ptr, ptr %206, align 8
+  %207 = call fastcc i32 @lo_rw_aio(ptr %.val20, ptr noundef %24, i64 noundef %59, i32 noundef 0)
   br label %287
 
 208:                                              ; preds = %202
@@ -1565,18 +1566,18 @@ define internal fastcc void @loop_process_work(ptr noundef %0, ptr noundef %1, p
   %209 = getelementptr i8, ptr %24, i64 -192
   %210 = load ptr, ptr %209, align 8
   %211 = icmp eq ptr %210, null
-  br i1 %211, label %.loopexit31, label %212
+  br i1 %211, label %.loopexit32, label %212
 
 212:                                              ; preds = %208
   %213 = getelementptr inbounds nuw i8, ptr %39, i64 96
   br label %214
 
-214:                                              ; preds = %.loopexit28, %212
-  %215 = phi ptr [ %210, %212 ], [ %283, %.loopexit28 ]
+214:                                              ; preds = %.loopexit29, %212
+  %215 = phi ptr [ %210, %212 ], [ %283, %.loopexit29 ]
   %216 = getelementptr inbounds nuw i8, ptr %215, i64 40
   %217 = load i32, ptr %216, align 8
   %218 = icmp eq i32 %217, 0
-  br i1 %218, label %.loopexit28, label %219
+  br i1 %218, label %.loopexit29, label %219
 
 219:                                              ; preds = %214
   %220 = getelementptr inbounds nuw i8, ptr %215, i64 48
@@ -1620,7 +1621,7 @@ define internal fastcc void @loop_process_work(ptr noundef %0, ptr noundef %1, p
 
 251:                                              ; preds = %226
   %252 = trunc i64 %249 to i32
-  br label %.loopexit31
+  br label %.loopexit32
 
 253:                                              ; preds = %226
   %254 = load i32, ptr %19, align 8
@@ -1631,7 +1632,7 @@ define internal fastcc void @loop_process_work(ptr noundef %0, ptr noundef %1, p
 257:                                              ; preds = %253
   %258 = load ptr, ptr %209, align 8
   %259 = icmp eq ptr %258, null
-  br i1 %259, label %.loopexit28, label %.preheader
+  br i1 %259, label %.loopexit29, label %.preheader
 
 .preheader:                                       ; preds = %257, %.preheader
   %260 = phi ptr [ %262, %.preheader ], [ %258, %257 ]
@@ -1639,7 +1640,7 @@ define internal fastcc void @loop_process_work(ptr noundef %0, ptr noundef %1, p
   call void @zero_fill_bio_iter(ptr noundef nonnull %260, ptr noundef nonnull byval(%struct.bvec_iter) align 8 %261) #14
   %262 = load ptr, ptr %260, align 8
   %263 = icmp eq ptr %262, null
-  br i1 %263, label %.loopexit28, label %.preheader, !llvm.loop !26
+  br i1 %263, label %.loopexit29, label %.preheader, !llvm.loop !26
 
 264:                                              ; preds = %253
   %265 = call i32 @__SCT__cond_resched() #14
@@ -1655,7 +1656,8 @@ define internal fastcc void @loop_process_work(ptr noundef %0, ptr noundef %1, p
 269:                                              ; preds = %264
   %270 = load ptr, ptr %224, align 8
   %271 = add i32 %266, %227
-  %272 = getelementptr %struct.bio_vec, ptr %270, i64 %231, i32 1
+  %.split = getelementptr %struct.bio_vec, ptr %270, i64 %231
+  %272 = getelementptr i8, ptr %.split, i64 8
   %273 = load i32, ptr %272, align 8
   %274 = icmp eq i32 %271, %273
   %275 = zext i1 %274 to i32
@@ -1668,15 +1670,15 @@ define internal fastcc void @loop_process_work(ptr noundef %0, ptr noundef %1, p
   %280 = phi i32 [ %277, %269 ], [ %227, %264 ], [ %227, %264 ], [ %227, %264 ]
   %281 = sub i32 %229, %266
   %282 = icmp eq i32 %281, 0
-  br i1 %282, label %.loopexit28, label %226, !llvm.loop !27
+  br i1 %282, label %.loopexit29, label %226, !llvm.loop !27
 
-.loopexit28:                                      ; preds = %278, %.preheader, %257, %214
+.loopexit29:                                      ; preds = %278, %.preheader, %257, %214
   %283 = load ptr, ptr %215, align 8
   %284 = icmp eq ptr %283, null
-  br i1 %284, label %.loopexit31, label %214, !llvm.loop !28
+  br i1 %284, label %.loopexit32, label %214, !llvm.loop !28
 
-.loopexit31:                                      ; preds = %.loopexit28, %251, %208
-  %285 = phi i32 [ %252, %251 ], [ 0, %208 ], [ 0, %.loopexit28 ]
+.loopexit32:                                      ; preds = %.loopexit29, %251, %208
+  %285 = phi i32 [ %252, %251 ], [ 0, %208 ], [ 0, %.loopexit29 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -1688,8 +1690,8 @@ define internal fastcc void @loop_process_work(ptr noundef %0, ptr noundef %1, p
   call void asm sideeffect "457: nop\0A\09.pushsection .discard.instr_end\0A\09.long 457b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 457) #14, !srcloc !31
   br label %287
 
-287:                                              ; preds = %286, %.loopexit31, %205, %.loopexit30, %117, %113, %101, %101, %101, %93, %92, %77, %77, %77, %69, %61
-  %288 = phi i32 [ -5, %286 ], [ %207, %205 ], [ %285, %.loopexit31 ], [ %119, %117 ], [ %201, %.loopexit30 ], [ %68, %61 ], [ -95, %69 ], [ %91, %77 ], [ -5, %92 ], [ %91, %77 ], [ %91, %77 ], [ -95, %93 ], [ %112, %101 ], [ -5, %113 ], [ %112, %101 ], [ %112, %101 ]
+287:                                              ; preds = %286, %.loopexit32, %205, %.loopexit31, %117, %113, %101, %101, %101, %93, %92, %77, %77, %77, %69, %61
+  %288 = phi i32 [ -5, %286 ], [ %207, %205 ], [ %285, %.loopexit32 ], [ %119, %117 ], [ %201, %.loopexit31 ], [ %68, %61 ], [ -95, %69 ], [ %91, %77 ], [ -5, %92 ], [ %91, %77 ], [ %91, %77 ], [ -95, %93 ], [ %112, %101 ], [ -5, %113 ], [ %112, %101 ], [ %112, %101 ]
   %.fr = freeze i32 %288
   br i1 %49, label %290, label %289
 
@@ -1749,27 +1751,27 @@ define internal fastcc void @loop_process_work(ptr noundef %0, ptr noundef %1, p
   %318 = icmp eq i32 %.fr, -95
   %. = select i1 %315, i64 -5, i64 0
   %spec.select = select i1 %318, i64 -95, i64 %.
-  br label %.thread25
+  br label %.thread26
 
-.thread25:                                        ; preds = %317, %43
+.thread26:                                        ; preds = %317, %43
   %319 = phi i64 [ -5, %43 ], [ %spec.select, %317 ]
   %320 = getelementptr inbounds nuw i8, ptr %24, i64 24
   store i64 %319, ptr %320, align 8
   call void @blk_mq_complete_request(ptr noundef %33) #14
   br label %321
 
-321:                                              ; preds = %.thread25, %314
+321:                                              ; preds = %.thread26, %314
   %322 = call i32 @__SCT__cond_resched() #14
   call void @_raw_spin_lock_irq(ptr noundef nonnull %15) #14
   %323 = load volatile ptr, ptr %1, align 8
   %324 = icmp eq ptr %323, %1
-  br i1 %324, label %.loopexit32, label %23, !llvm.loop !32
+  br i1 %324, label %.loopexit33, label %23, !llvm.loop !32
 
-.loopexit32:                                      ; preds = %321, %3
+.loopexit33:                                      ; preds = %321, %3
   %325 = icmp eq ptr %0, null
   br i1 %325, label %343, label %326
 
-326:                                              ; preds = %.loopexit32
+326:                                              ; preds = %.loopexit33
   %327 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %328 = load volatile i64, ptr %327, align 8
   %329 = and i64 %328, 1
@@ -1795,7 +1797,7 @@ define internal fastcc void @loop_process_work(ptr noundef %0, ptr noundef %1, p
   %342 = call i32 @timer_reduce(ptr noundef nonnull %339, i64 noundef %341) #14
   br label %343
 
-343:                                              ; preds = %331, %326, %.loopexit32
+343:                                              ; preds = %331, %326, %.loopexit33
   call void @_raw_spin_unlock_irq(ptr noundef nonnull %15) #14
   store i32 %13, ptr %12, align 4
   ret void
@@ -1836,34 +1838,36 @@ define internal fastcc noundef range(i32 -5, 1) i32 @lo_rw_aio(ptr %.96.val, ptr
   %21 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %22 = load i32, ptr %21, align 8
   %23 = trunc i32 %22 to i8
-  switch i8 %23, label %.split [
-    i8 3, label %.split.us
-    i8 5, label %.split.us
-    i8 9, label %.split.us
+  switch i8 %23, label %.split8 [
+    i8 3, label %.split8.us
+    i8 5, label %.split8.us
+    i8 9, label %.split8.us
   ]
 
-.split.us:                                        ; preds = %14, %14, %14
+.split8.us:                                       ; preds = %14, %14, %14
   %24 = zext i32 %18 to i64
-  %25 = getelementptr %struct.bio_vec, ptr %20, i64 %24, i32 1
+  %.split.us = getelementptr %struct.bio_vec, ptr %20, i64 %24
+  %25 = getelementptr i8, ptr %.split.us, i64 8
   %26 = load i32, ptr %25, align 8
   %27 = sub i32 %26, %16
   br label %28
 
-28:                                               ; preds = %28, %.split.us
-  %29 = phi i32 [ %9, %.split.us ], [ %31, %28 ]
-  %30 = phi i32 [ %12, %.split.us ], [ %32, %28 ]
+28:                                               ; preds = %28, %.split8.us
+  %29 = phi i32 [ %9, %.split8.us ], [ %31, %28 ]
+  %30 = phi i32 [ %12, %.split8.us ], [ %32, %28 ]
   %31 = add i32 %29, 1
   %32 = tail call i32 @llvm.usub.sat.i32(i32 %30, i32 %27)
-  %.not8 = icmp ugt i32 %30, %27
-  br i1 %.not8, label %28, label %.loopexit4, !llvm.loop !33
+  %.not9 = icmp ugt i32 %30, %27
+  br i1 %.not9, label %28, label %.loopexit4, !llvm.loop !33
 
-.split:                                           ; preds = %14, %.split
-  %33 = phi i32 [ %42, %.split ], [ %9, %14 ]
-  %34 = phi i32 [ %47, %.split ], [ %16, %14 ]
-  %35 = phi i32 [ %46, %.split ], [ %18, %14 ]
-  %36 = phi i32 [ %48, %.split ], [ %12, %14 ]
+.split8:                                          ; preds = %14, %.split8
+  %33 = phi i32 [ %42, %.split8 ], [ %9, %14 ]
+  %34 = phi i32 [ %47, %.split8 ], [ %16, %14 ]
+  %35 = phi i32 [ %46, %.split8 ], [ %18, %14 ]
+  %36 = phi i32 [ %48, %.split8 ], [ %12, %14 ]
   %37 = zext i32 %35 to i64
-  %38 = getelementptr %struct.bio_vec, ptr %20, i64 %37, i32 1
+  %.split = getelementptr %struct.bio_vec, ptr %20, i64 %37
+  %38 = getelementptr i8, ptr %.split, i64 8
   %39 = load i32, ptr %38, align 8
   %40 = sub i32 %39, %34
   %41 = tail call i32 @llvm.umin.i32(i32 %36, i32 %40)
@@ -1875,10 +1879,10 @@ define internal fastcc noundef range(i32 -5, 1) i32 @lo_rw_aio(ptr %.96.val, ptr
   %47 = select i1 %44, i32 0, i32 %43
   %48 = sub i32 %36, %41
   %49 = icmp eq i32 %48, 0
-  br i1 %49, label %.loopexit4, label %.split, !llvm.loop !33
+  br i1 %49, label %.loopexit4, label %.split8, !llvm.loop !33
 
-.loopexit4:                                       ; preds = %28, %.split, %.preheader5
-  %50 = phi i32 [ %9, %.preheader5 ], [ %42, %.split ], [ %31, %28 ]
+.loopexit4:                                       ; preds = %28, %.split8, %.preheader5
+  %50 = phi i32 [ %9, %.preheader5 ], [ %42, %.split8 ], [ %31, %28 ]
   %51 = load ptr, ptr %10, align 8
   %52 = icmp eq ptr %51, null
   br i1 %52, label %53, label %.preheader5, !llvm.loop !34
@@ -1964,7 +1968,8 @@ define internal fastcc noundef range(i32 -5, 1) i32 @lo_rw_aio(ptr %.96.val, ptr
 104:                                              ; preds = %83
   %105 = load ptr, ptr %81, align 8
   %106 = add i32 %95, %85
-  %107 = getelementptr %struct.bio_vec, ptr %105, i64 %89, i32 1
+  %.split10 = getelementptr %struct.bio_vec, ptr %105, i64 %89
+  %107 = getelementptr i8, ptr %.split10, i64 8
   %108 = load i32, ptr %107, align 8
   %109 = icmp eq i32 %106, %108
   %110 = zext i1 %109 to i32

@@ -569,46 +569,48 @@ define internal fastcc void @plainnode(ptr noundef nonnull %0, ptr noundef %1) u
   %24 = load i32, ptr %3, align 4
   %25 = add i32 %24, 1
   store i32 %25, ptr %3, align 4
-  br label %50
+  br label %52
 
 26:                                               ; preds = %13
   %27 = getelementptr inbounds nuw i8, ptr %20, i64 1
   %28 = load i8, ptr %27, align 1
   %29 = icmp eq i8 %28, 1
-  br i1 %29, label %30, label %39
+  br i1 %29, label %30, label %40
 
 30:                                               ; preds = %26
   %31 = load ptr, ptr %0, align 8
   %32 = load i32, ptr %3, align 4
   %33 = sext i32 %32 to i64
-  %34 = getelementptr inbounds %union.QueryItem, ptr %31, i64 %33, i32 0, i32 3
-  store i32 1, ptr %34, align 4
-  %35 = load i32, ptr %3, align 4
-  %36 = add i32 %35, 1
-  store i32 %36, ptr %3, align 4
-  %37 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %38 = load ptr, ptr %37, align 8
-  tail call fastcc void @plainnode(ptr noundef %0, ptr noundef %38)
-  br label %50
+  %34 = getelementptr inbounds %union.QueryItem, ptr %31, i64 %33
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 4
+  store i32 1, ptr %35, align 4
+  %36 = load i32, ptr %3, align 4
+  %37 = add i32 %36, 1
+  store i32 %37, ptr %3, align 4
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %39 = load ptr, ptr %38, align 8
+  tail call fastcc void @plainnode(ptr noundef %0, ptr noundef %39)
+  br label %52
 
-39:                                               ; preds = %26
-  %40 = load i32, ptr %3, align 4
-  %41 = add i32 %40, 1
-  store i32 %41, ptr %3, align 4
-  %42 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %43 = load ptr, ptr %42, align 8
-  tail call fastcc void @plainnode(ptr noundef %0, ptr noundef %43)
-  %44 = load i32, ptr %3, align 4
-  %45 = sub i32 %44, %40
-  %46 = load ptr, ptr %0, align 8
-  %47 = sext i32 %40 to i64
-  %48 = getelementptr inbounds %union.QueryItem, ptr %46, i64 %47, i32 0, i32 3
-  store i32 %45, ptr %48, align 4
-  %49 = load ptr, ptr %1, align 8
-  tail call fastcc void @plainnode(ptr noundef %0, ptr noundef %49)
-  br label %50
+40:                                               ; preds = %26
+  %41 = load i32, ptr %3, align 4
+  %42 = add i32 %41, 1
+  store i32 %42, ptr %3, align 4
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %44 = load ptr, ptr %43, align 8
+  tail call fastcc void @plainnode(ptr noundef %0, ptr noundef %44)
+  %45 = load i32, ptr %3, align 4
+  %46 = sub i32 %45, %41
+  %47 = load ptr, ptr %0, align 8
+  %48 = sext i32 %41 to i64
+  %49 = getelementptr inbounds %union.QueryItem, ptr %47, i64 %48
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 4
+  store i32 %46, ptr %50, align 4
+  %51 = load ptr, ptr %1, align 8
+  tail call fastcc void @plainnode(ptr noundef %0, ptr noundef %51)
+  br label %52
 
-50:                                               ; preds = %30, %39, %23
+52:                                               ; preds = %30, %40, %23
   tail call void @pfree(ptr noundef nonnull %1) #7
   ret void
 }

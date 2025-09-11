@@ -1080,12 +1080,13 @@ _ZN3smt6theory12ensure_enodeEP4expr.exit14:       ; preds = %_ZNK3smt7context14e
   %74 = getelementptr inbounds nuw i8, ptr %71, i64 8872
   %75 = load ptr, ptr %74, align 8, !tbaa !85
   %76 = zext nneg i32 %72 to i64
-  %77 = getelementptr inbounds nuw %"struct.smt::bool_var_data", ptr %75, i64 %76, i32 1
-  %78 = load i64, ptr %77, align 8
-  %79 = and i64 %78, -201326593
-  %80 = select i1 %.not.i15, i64 201326592, i64 67108864
-  %81 = or disjoint i64 %79, %80
-  store i64 %81, ptr %77, align 8
+  %77 = getelementptr inbounds nuw %"struct.smt::bool_var_data", ptr %75, i64 %76
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 8
+  %79 = load i64, ptr %78, align 8
+  %80 = and i64 %79, -201326593
+  %81 = select i1 %.not.i15, i64 201326592, i64 67108864
+  %82 = or disjoint i64 %80, %81
+  store i64 %82, ptr %78, align 8
   ret i32 %70
 }
 

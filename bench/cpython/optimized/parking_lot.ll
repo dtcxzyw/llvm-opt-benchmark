@@ -570,13 +570,14 @@ define dso_local void @_PyParkingLot_AfterFork() local_unnamed_addr #5 {
   ret void
 
 2:                                                ; preds = %0, %2
-  %.03 = phi i64 [ 0, %0 ], [ %5, %2 ]
-  %3 = getelementptr %struct.Bucket, ptr @buckets, i64 %.03, i32 1
-  store ptr %3, ptr %3, align 8, !tbaa !24
+  %.03 = phi i64 [ 0, %0 ], [ %6, %2 ]
+  %3 = getelementptr %struct.Bucket, ptr @buckets, i64 %.03
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %3, ptr %4, align 16, !tbaa !23
-  %5 = add nuw nsw i64 %.03, 1
-  %exitcond.not = icmp eq i64 %5, 257
+  store ptr %4, ptr %4, align 8, !tbaa !24
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store ptr %4, ptr %5, align 16, !tbaa !23
+  %6 = add nuw nsw i64 %.03, 1
+  %exitcond.not = icmp eq i64 %6, 257
   br i1 %exitcond.not, label %1, label %2, !llvm.loop !35
 }
 

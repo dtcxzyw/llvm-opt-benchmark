@@ -1695,13 +1695,13 @@ define internal range(i32 0, 111) i32 @socketTransport_setConfiguration(ptr read
 setLastError.exit:                                ; preds = %13, %17
   %18 = load i32, ptr @tlsIndex, align 4
   tail call void @dbgsysTlsPut(i32 noundef %18, ptr noundef %16) #13
-  br label %168
+  br label %166
 
 19:                                               ; preds = %2
   %20 = load ptr, ptr %1, align 8
   store i32 0, ptr @_peers_cnt, align 4
   %.not = icmp eq ptr %20, null
-  br i1 %.not, label %168, label %21
+  br i1 %.not, label %166, label %21
 
 21:                                               ; preds = %19
   %22 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %20) #14
@@ -1737,7 +1737,7 @@ setLastError.exit:                                ; preds = %13, %17
 setLastError.exit22:                              ; preds = %33, %37
   %38 = load i32, ptr @tlsIndex, align 4
   tail call void @dbgsysTlsPut(i32 noundef %38, ptr noundef %36) #13
-  br label %168
+  br label %166
 
 39:                                               ; preds = %21
   %40 = load i8, ptr %20, align 1
@@ -1746,13 +1746,13 @@ setLastError.exit22:                              ; preds = %33, %37
 
 42:                                               ; preds = %39
   %.not18 = icmp eq i64 %22, 1
-  br i1 %.not18, label %168, label %43
+  br i1 %.not18, label %166, label %43
 
 43:                                               ; preds = %42
   %44 = load ptr, ptr @stderr, align 8
   %45 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %44, ptr noundef nonnull @.str.48, ptr noundef nonnull %20) #15
   tail call fastcc void @setLastError(i32 noundef 103, ptr noundef nonnull @.str.50)
-  br label %168
+  br label %166
 
 46:                                               ; preds = %39
   %47 = load ptr, ptr @callback, align 8
@@ -1790,7 +1790,7 @@ setLastError.exit22:                              ; preds = %33, %37
 parseAllowedPeers.exit.thread:                    ; preds = %60, %64
   %65 = load i32, ptr @tlsIndex, align 4
   tail call void @dbgsysTlsPut(i32 noundef %65, ptr noundef %63) #13
-  br label %168
+  br label %166
 
 66:                                               ; preds = %46
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %51, ptr noundef nonnull readonly align 1 dereferenceable(1) %20, i64 range(i64 1, 0) %22, i1 false)
@@ -1890,140 +1890,139 @@ parseAllowedPeers.exit.thread:                    ; preds = %60, %64
   %.not28.i.i = icmp eq ptr %.023.i.i, null
   %110 = load i32, ptr @_peers_cnt, align 4
   %111 = sext i32 %110 to i64
-  %112 = getelementptr inbounds %struct.AllowedPeerInfo, ptr @_peers, i64 %111, i32 1
-  br i1 %.not28.i.i, label %159, label %113
+  %112 = getelementptr inbounds %struct.AllowedPeerInfo, ptr @_peers, i64 %111
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 16
+  br i1 %.not28.i.i, label %157, label %114
 
-113:                                              ; preds = %109
-  %114 = select i1 %89, i32 128, i32 32
+114:                                              ; preds = %109
+  %115 = select i1 %89, i32 128, i32 32
   %.pre.i.i.i = load i8, ptr %.023.i.i, align 1
-  br label %115
+  br label %116
 
-115:                                              ; preds = %123, %113
-  %116 = phi i8 [ %.pre.i.i.i, %113 ], [ %125, %123 ]
-  %.024.i.i.i = phi ptr [ %.023.i.i, %113 ], [ %124, %123 ]
-  %.023.i.i.i = phi i32 [ 0, %113 ], [ %121, %123 ]
-  %117 = add i8 %116, -58
-  %or.cond.i.i.i = icmp ult i8 %117, -10
-  br i1 %or.cond.i.i.i, label %.loopexit41.i.i, label %118
+116:                                              ; preds = %124, %114
+  %117 = phi i8 [ %.pre.i.i.i, %114 ], [ %126, %124 ]
+  %.024.i.i.i = phi ptr [ %.023.i.i, %114 ], [ %125, %124 ]
+  %.023.i.i.i = phi i32 [ 0, %114 ], [ %122, %124 ]
+  %118 = add i8 %117, -58
+  %or.cond.i.i.i = icmp ult i8 %118, -10
+  br i1 %or.cond.i.i.i, label %.loopexit41.i.i, label %119
 
-118:                                              ; preds = %115
-  %119 = mul nuw nsw i32 %.023.i.i.i, 10
-  %narrow.i.i.i = add nsw i8 %116, -48
-  %120 = zext nneg i8 %narrow.i.i.i to i32
-  %121 = add nuw nsw i32 %119, %120
-  %122 = icmp samesign ugt i32 %121, %114
-  br i1 %122, label %.loopexit41.i.i, label %123
+119:                                              ; preds = %116
+  %120 = mul nuw nsw i32 %.023.i.i.i, 10
+  %narrow.i.i.i = add nsw i8 %117, -48
+  %121 = zext nneg i8 %narrow.i.i.i to i32
+  %122 = add nuw nsw i32 %120, %121
+  %123 = icmp samesign ugt i32 %122, %115
+  br i1 %123, label %.loopexit41.i.i, label %124
 
-123:                                              ; preds = %118
-  %124 = getelementptr inbounds nuw i8, ptr %.024.i.i.i, i64 1
-  %125 = load i8, ptr %124, align 1
-  %.not27.i.i.i = icmp eq i8 %125, 0
-  br i1 %.not27.i.i.i, label %126, label %115, !llvm.loop !17
+124:                                              ; preds = %119
+  %125 = getelementptr inbounds nuw i8, ptr %.024.i.i.i, i64 1
+  %126 = load i8, ptr %125, align 1
+  %.not27.i.i.i = icmp eq i8 %126, 0
+  br i1 %.not27.i.i.i, label %127, label %116, !llvm.loop !17
 
-126:                                              ; preds = %123
-  %127 = add nuw nsw i32 %121, 96
-  %spec.select.i.i.i = select i1 %89, i32 %121, i32 %127
-  %128 = icmp eq i32 %spec.select.i.i.i, 0
-  br i1 %128, label %.loopexit41.i.i, label %.lr.ph.preheader.i.i.i
+127:                                              ; preds = %124
+  %128 = add nuw nsw i32 %122, 96
+  %spec.select.i.i.i = select i1 %89, i32 %122, i32 %128
+  %129 = icmp eq i32 %spec.select.i.i.i, 0
+  br i1 %129, label %.loopexit41.i.i, label %.lr.ph.preheader.i.i.i
 
-.lr.ph.preheader.i.i.i:                           ; preds = %126
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %112, i8 0, i64 16, i1 false)
+.lr.ph.preheader.i.i.i:                           ; preds = %127
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %113, i8 0, i64 16, i1 false)
   br label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %134, %.lr.ph.preheader.i.i.i
-  %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %134 ]
-  %.229.i.i.i = phi i32 [ %spec.select.i.i.i, %.lr.ph.preheader.i.i.i ], [ %136, %134 ]
-  %129 = icmp samesign ugt i32 %.229.i.i.i, 7
-  br i1 %129, label %134, label %.thread.i.i.i
+.lr.ph.i.i.i:                                     ; preds = %135, %.lr.ph.preheader.i.i.i
+  %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %135 ]
+  %.229.i.i.i = phi i32 [ %spec.select.i.i.i, %.lr.ph.preheader.i.i.i ], [ %137, %135 ]
+  %130 = icmp samesign ugt i32 %.229.i.i.i, 7
+  br i1 %130, label %135, label %.thread.i.i.i
 
 .thread.i.i.i:                                    ; preds = %.lr.ph.i.i.i
-  %130 = sub nuw nsw i32 8, %.229.i.i.i
-  %131 = shl nuw nsw i32 255, %130
-  %132 = trunc i32 %131 to i8
-  %133 = getelementptr inbounds nuw i8, ptr %112, i64 %indvars.iv.i.i.i
-  store i8 %132, ptr %133, align 1
+  %131 = sub nuw nsw i32 8, %.229.i.i.i
+  %132 = shl nuw nsw i32 255, %131
+  %133 = trunc i32 %132 to i8
+  %134 = getelementptr inbounds nuw i8, ptr %113, i64 %indvars.iv.i.i.i
+  store i8 %133, ptr %134, align 1
+  br label %parseAllowedMask.exit.i.i.preheader
+
+parseAllowedMask.exit.i.i.preheader:              ; preds = %135, %.thread.i.i.i
   br label %parseAllowedMask.exit.i.i
 
-134:                                              ; preds = %.lr.ph.i.i.i
-  %135 = getelementptr inbounds nuw i8, ptr %112, i64 %indvars.iv.i.i.i
-  store i8 -1, ptr %135, align 1
+135:                                              ; preds = %.lr.ph.i.i.i
+  %136 = getelementptr inbounds nuw i8, ptr %113, i64 %indvars.iv.i.i.i
+  store i8 -1, ptr %136, align 1
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
-  %136 = add nsw i32 %.229.i.i.i, -8
+  %137 = add nsw i32 %.229.i.i.i, -8
   %.not39.i.i.i = icmp eq i32 %.229.i.i.i, 8
-  br i1 %.not39.i.i.i, label %parseAllowedMask.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !18
+  br i1 %.not39.i.i.i, label %parseAllowedMask.exit.i.i.preheader, label %.lr.ph.i.i.i, !llvm.loop !18
 
-parseAllowedMask.exit.i.i:                        ; preds = %134, %.thread.i.i.i
-  %137 = getelementptr inbounds %struct.AllowedPeerInfo, ptr @_peers, i64 %111
-  %138 = getelementptr inbounds nuw i8, ptr %137, i64 16
-  br label %152
-
-.loopexit41.i.i:                                  ; preds = %126, %118, %115
+.loopexit41.i.i:                                  ; preds = %127, %119, %116
   store i32 0, ptr @_peers_cnt, align 4
-  %139 = load ptr, ptr @stderr, align 8
-  %140 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %139, ptr noundef nonnull @.str.48, ptr noundef nonnull %.023.i.i) #15
-  %141 = load i32, ptr @tlsIndex, align 4
-  %142 = call ptr @dbgsysTlsGet(i32 noundef %141) #13
-  %.not.i11.i = icmp eq ptr %142, null
-  br i1 %.not.i11.i, label %147, label %143
+  %138 = load ptr, ptr @stderr, align 8
+  %139 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %138, ptr noundef nonnull @.str.48, ptr noundef nonnull %.023.i.i) #15
+  %140 = load i32, ptr @tlsIndex, align 4
+  %141 = call ptr @dbgsysTlsGet(i32 noundef %140) #13
+  %.not.i11.i = icmp eq ptr %141, null
+  br i1 %.not.i11.i, label %146, label %142
 
-143:                                              ; preds = %.loopexit41.i.i
-  %144 = load ptr, ptr @callback, align 8
-  %145 = getelementptr inbounds nuw i8, ptr %144, i64 8
-  %146 = load ptr, ptr %145, align 8
-  call void %146(ptr noundef nonnull %142) #13
-  br label %147
+142:                                              ; preds = %.loopexit41.i.i
+  %143 = load ptr, ptr @callback, align 8
+  %144 = getelementptr inbounds nuw i8, ptr %143, i64 8
+  %145 = load ptr, ptr %144, align 8
+  call void %145(ptr noundef nonnull %141) #13
+  br label %146
 
-147:                                              ; preds = %143, %.loopexit41.i.i
-  %148 = load ptr, ptr @callback, align 8
-  %149 = load ptr, ptr %148, align 8
-  %150 = call ptr %149(i32 noundef 32) #13
-  %.not21.i12.i = icmp eq ptr %150, null
-  br i1 %.not21.i12.i, label %parseAllowedPeers.exit, label %151
+146:                                              ; preds = %142, %.loopexit41.i.i
+  %147 = load ptr, ptr @callback, align 8
+  %148 = load ptr, ptr %147, align 8
+  %149 = call ptr %148(i32 noundef 32) #13
+  %.not21.i12.i = icmp eq ptr %149, null
+  br i1 %.not21.i12.i, label %parseAllowedPeers.exit, label %150
 
-151:                                              ; preds = %147
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %150, ptr noundef nonnull align 1 dereferenceable(32) @.str.53, i64 32, i1 false) #13
+150:                                              ; preds = %146
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %149, ptr noundef nonnull align 1 dereferenceable(32) @.str.53, i64 32, i1 false) #13
   br label %parseAllowedPeers.exit
 
-152:                                              ; preds = %152, %parseAllowedMask.exit.i.i
-  %.053.i.i = phi i64 [ 0, %parseAllowedMask.exit.i.i ], [ %158, %152 ]
-  %153 = getelementptr inbounds nuw i8, ptr %138, i64 %.053.i.i
+parseAllowedMask.exit.i.i:                        ; preds = %parseAllowedMask.exit.i.i.preheader, %parseAllowedMask.exit.i.i
+  %.053.i.i = phi i64 [ %156, %parseAllowedMask.exit.i.i ], [ 0, %parseAllowedMask.exit.i.i.preheader ]
+  %151 = getelementptr inbounds nuw i8, ptr %113, i64 %.053.i.i
+  %152 = load i8, ptr %151, align 1
+  %153 = getelementptr inbounds nuw i8, ptr %112, i64 %.053.i.i
   %154 = load i8, ptr %153, align 1
-  %155 = getelementptr inbounds nuw i8, ptr %137, i64 %.053.i.i
-  %156 = load i8, ptr %155, align 1
-  %157 = and i8 %156, %154
-  store i8 %157, ptr %155, align 1
-  %158 = add nuw nsw i64 %.053.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %158, 16
-  br i1 %exitcond.not.i.i, label %.loopexit.i.i, label %152, !llvm.loop !19
+  %155 = and i8 %154, %152
+  store i8 %155, ptr %153, align 1
+  %156 = add nuw nsw i64 %.053.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %156, 16
+  br i1 %exitcond.not.i.i, label %.loopexit.i.i, label %parseAllowedMask.exit.i.i, !llvm.loop !19
 
-159:                                              ; preds = %109
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %112, i8 -1, i64 16, i1 false)
+157:                                              ; preds = %109
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %113, i8 -1, i64 16, i1 false)
   br label %.loopexit.i.i
 
-.loopexit.i.i:                                    ; preds = %152, %159
-  %160 = add nsw i32 %110, 1
-  store i32 %160, ptr @_peers_cnt, align 4
+.loopexit.i.i:                                    ; preds = %parseAllowedMask.exit.i.i, %157
+  %158 = add nsw i32 %110, 1
+  store i32 %158, ptr @_peers_cnt, align 4
   %.not30.i.i = icmp eq ptr %.024.i.i, null
   br i1 %.not30.i.i, label %parseAllowedPeers.exit.thread64, label %71, !llvm.loop !20
 
 parseAllowedPeers.exit.thread64:                  ; preds = %.loopexit.i.i
-  %161 = load ptr, ptr @callback, align 8
-  %162 = getelementptr inbounds nuw i8, ptr %161, i64 8
-  %163 = load ptr, ptr %162, align 8
-  call void %163(ptr noundef nonnull %51) #13
-  br label %168
+  %159 = load ptr, ptr @callback, align 8
+  %160 = getelementptr inbounds nuw i8, ptr %159, i64 8
+  %161 = load ptr, ptr %160, align 8
+  call void %161(ptr noundef nonnull %51) #13
+  br label %166
 
-parseAllowedPeers.exit:                           ; preds = %104, %108, %147, %151
-  %.sink56.i = phi ptr [ %107, %108 ], [ null, %104 ], [ null, %147 ], [ %150, %151 ]
-  %164 = load i32, ptr @tlsIndex, align 4
-  call void @dbgsysTlsPut(i32 noundef %164, ptr noundef %.sink56.i) #13
-  %165 = load ptr, ptr @callback, align 8
-  %166 = getelementptr inbounds nuw i8, ptr %165, i64 8
-  %167 = load ptr, ptr %166, align 8
-  call void %167(ptr noundef nonnull %51) #13
-  br label %168
+parseAllowedPeers.exit:                           ; preds = %104, %108, %146, %150
+  %.sink56.i = phi ptr [ %107, %108 ], [ null, %104 ], [ null, %146 ], [ %149, %150 ]
+  %162 = load i32, ptr @tlsIndex, align 4
+  call void @dbgsysTlsPut(i32 noundef %162, ptr noundef %.sink56.i) #13
+  %163 = load ptr, ptr @callback, align 8
+  %164 = getelementptr inbounds nuw i8, ptr %163, i64 8
+  %165 = load ptr, ptr %164, align 8
+  call void %165(ptr noundef nonnull %51) #13
+  br label %166
 
-168:                                              ; preds = %19, %42, %parseAllowedPeers.exit.thread64, %parseAllowedPeers.exit, %parseAllowedPeers.exit.thread, %43, %setLastError.exit22, %setLastError.exit
+166:                                              ; preds = %19, %42, %parseAllowedPeers.exit.thread64, %parseAllowedPeers.exit, %parseAllowedPeers.exit.thread, %43, %setLastError.exit22, %setLastError.exit
   %.0 = phi i32 [ 103, %setLastError.exit ], [ 103, %setLastError.exit22 ], [ 103, %43 ], [ 103, %parseAllowedPeers.exit ], [ 110, %parseAllowedPeers.exit.thread ], [ 0, %parseAllowedPeers.exit.thread64 ], [ 0, %42 ], [ 0, %19 ]
   ret i32 %.0
 }
@@ -2117,7 +2116,7 @@ define internal fastcc range(i32 0, 203) i32 @parseAddress(ptr noundef %0, ptr n
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %10 = load i8, ptr %9, align 1
   %11 = icmp eq i8 %10, 0
-  br i1 %11, label %getPortNumber.exit.thread, label %12
+  br i1 %11, label %select.unfold, label %12
 
 12:                                               ; preds = %2
   %13 = call i64 @strtoul(ptr noundef nonnull %9, ptr noundef nonnull %4, i32 noundef 10) #13
@@ -2127,293 +2126,293 @@ define internal fastcc range(i32 0, 203) i32 @parseAddress(ptr noundef %0, ptr n
   %.not.i = icmp ne ptr %14, %16
   %17 = icmp ugt i64 %13, 65535
   %or.cond.i = select i1 %.not.i, i1 true, i1 %17
-  br i1 %or.cond.i, label %getPortNumber.exit.thread, label %getPortNumber.exit
+  br i1 %or.cond.i, label %select.unfold, label %30
 
-getPortNumber.exit.thread:                        ; preds = %2, %12
+select.unfold:                                    ; preds = %12, %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %18 = load i32, ptr @tlsIndex, align 4
   %19 = tail call ptr @dbgsysTlsGet(i32 noundef %18) #13
   %.not.i21 = icmp eq ptr %19, null
-  br i1 %.not.i21, label %35, label %31
+  br i1 %.not.i21, label %24, label %20
 
-getPortNumber.exit:                               ; preds = %12
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %20 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %20, i8 0, i64 32, i1 false)
-  %21 = load i32, ptr @allowOnlyIPv4, align 4
-  %.not = icmp eq i32 %21, 0
-  %22 = select i1 %.not, i32 0, i32 2
-  %23 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store i32 %22, ptr %23, align 4
-  %24 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 1, ptr %24, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  store i32 6, ptr %25, align 4
-  store i32 1024, ptr %5, align 8
-  %26 = ptrtoint ptr %6 to i64
-  %27 = ptrtoint ptr %0 to i64
-  %28 = sub i64 %26, %27
-  %29 = icmp eq i64 %28, 0
-  %30 = or i1 %7, %29
-  br i1 %30, label %.thread.i, label %41
+20:                                               ; preds = %select.unfold
+  %21 = load ptr, ptr @callback, align 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %23 = load ptr, ptr %22, align 8
+  tail call void %23(ptr noundef nonnull %19) #13
+  br label %24
 
-31:                                               ; preds = %getPortNumber.exit.thread
-  %32 = load ptr, ptr @callback, align 8
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  %34 = load ptr, ptr %33, align 8
-  tail call void %34(ptr noundef nonnull %19) #13
-  br label %35
+24:                                               ; preds = %20, %select.unfold
+  %25 = load ptr, ptr @callback, align 8
+  %26 = load ptr, ptr %25, align 8
+  %27 = tail call ptr %26(i32 noundef 30) #13
+  %.not21.i = icmp eq ptr %27, null
+  br i1 %.not21.i, label %setLastError.exit, label %28
 
-35:                                               ; preds = %31, %getPortNumber.exit.thread
-  %36 = load ptr, ptr @callback, align 8
-  %37 = load ptr, ptr %36, align 8
-  %38 = tail call ptr %37(i32 noundef 30) #13
-  %.not21.i = icmp eq ptr %38, null
-  br i1 %.not21.i, label %setLastError.exit, label %39
-
-39:                                               ; preds = %35
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(30) %38, ptr noundef nonnull align 1 dereferenceable(30) @.str.7, i64 30, i1 false) #13
+28:                                               ; preds = %24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(30) %27, ptr noundef nonnull align 1 dereferenceable(30) @.str.7, i64 30, i1 false) #13
   br label %setLastError.exit
 
-setLastError.exit:                                ; preds = %35, %39
-  %40 = load i32, ptr @tlsIndex, align 4
-  tail call void @dbgsysTlsPut(i32 noundef %40, ptr noundef %38) #13
+setLastError.exit:                                ; preds = %24, %28
+  %29 = load i32, ptr @tlsIndex, align 4
+  tail call void @dbgsysTlsPut(i32 noundef %29, ptr noundef %27) #13
   br label %getAddrInfo.exit
 
-41:                                               ; preds = %getPortNumber.exit
-  %42 = load i8, ptr %0, align 1
-  %43 = icmp eq i8 %42, 42
-  %44 = icmp eq i64 %28, 1
-  %or.cond = and i1 %44, %43
-  br i1 %or.cond, label %45, label %48
+30:                                               ; preds = %12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  %31 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %31, i8 0, i64 32, i1 false)
+  %32 = load i32, ptr @allowOnlyIPv4, align 4
+  %.not = icmp eq i32 %32, 0
+  %33 = select i1 %.not, i32 0, i32 2
+  %34 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  store i32 %33, ptr %34, align 4
+  %35 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i32 1, ptr %35, align 8
+  %36 = getelementptr inbounds nuw i8, ptr %5, i64 12
+  store i32 6, ptr %36, align 4
+  store i32 1024, ptr %5, align 8
+  %37 = ptrtoint ptr %6 to i64
+  %38 = ptrtoint ptr %0 to i64
+  %39 = sub i64 %37, %38
+  %40 = icmp eq i64 %39, 0
+  %41 = or i1 %7, %40
+  br i1 %41, label %.thread.i, label %42
 
-45:                                               ; preds = %41
-  %46 = select i1 %.not, i32 10, i32 2
-  store i32 %46, ptr %23, align 4
-  %47 = select i1 %.not, i32 1049, i32 1025
-  store i32 %47, ptr %5, align 8
+42:                                               ; preds = %30
+  %43 = load i8, ptr %0, align 1
+  %44 = icmp eq i8 %43, 42
+  %45 = icmp eq i64 %39, 1
+  %or.cond = and i1 %45, %44
+  br i1 %or.cond, label %46, label %49
+
+46:                                               ; preds = %42
+  %47 = select i1 %.not, i32 10, i32 2
+  store i32 %47, ptr %34, align 4
+  %48 = select i1 %.not, i32 1049, i32 1025
+  store i32 %48, ptr %5, align 8
   br label %.thread.i
 
-48:                                               ; preds = %41
-  %49 = icmp ugt i64 %28, 2
-  %50 = icmp eq i8 %42, 91
-  %or.cond43 = and i1 %49, %50
-  br i1 %or.cond43, label %51, label %59
+49:                                               ; preds = %42
+  %50 = icmp ugt i64 %39, 2
+  %51 = icmp eq i8 %43, 91
+  %or.cond43 = and i1 %50, %51
+  br i1 %or.cond43, label %52, label %60
 
-51:                                               ; preds = %48
-  %52 = getelementptr i8, ptr %0, i64 %28
-  %53 = getelementptr i8, ptr %52, i64 -1
-  %54 = load i8, ptr %53, align 1
-  %55 = icmp eq i8 %54, 93
-  br i1 %55, label %56, label %59
+52:                                               ; preds = %49
+  %53 = getelementptr i8, ptr %0, i64 %39
+  %54 = getelementptr i8, ptr %53, i64 -1
+  %55 = load i8, ptr %54, align 1
+  %56 = icmp eq i8 %55, 93
+  br i1 %56, label %57, label %60
 
-56:                                               ; preds = %51
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %58 = add i64 %28, -2
-  br label %59
+57:                                               ; preds = %52
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %59 = add i64 %39, -2
+  br label %60
 
-59:                                               ; preds = %56, %51, %48
-  %.035.i = phi i64 [ %58, %56 ], [ %28, %51 ], [ %28, %48 ]
-  %.034.i = phi ptr [ %57, %56 ], [ %0, %51 ], [ %0, %48 ]
-  %60 = load ptr, ptr @callback, align 8
-  %61 = load ptr, ptr %60, align 8
-  %62 = trunc i64 %.035.i to i32
-  %63 = add nsw i32 %62, 1
-  %64 = tail call ptr %61(i32 noundef %63) #13
-  %65 = icmp eq ptr %64, null
-  br i1 %65, label %66, label %79
+60:                                               ; preds = %57, %52, %49
+  %.035.i = phi i64 [ %59, %57 ], [ %39, %52 ], [ %39, %49 ]
+  %.034.i = phi ptr [ %58, %57 ], [ %0, %52 ], [ %0, %49 ]
+  %61 = load ptr, ptr @callback, align 8
+  %62 = load ptr, ptr %61, align 8
+  %63 = trunc i64 %.035.i to i32
+  %64 = add nsw i32 %63, 1
+  %65 = tail call ptr %62(i32 noundef %64) #13
+  %66 = icmp eq ptr %65, null
+  br i1 %66, label %67, label %80
 
-66:                                               ; preds = %59
-  %67 = load i32, ptr @tlsIndex, align 4
-  %68 = tail call ptr @dbgsysTlsGet(i32 noundef %67) #13
-  %.not.i.i = icmp eq ptr %68, null
-  br i1 %.not.i.i, label %73, label %69
+67:                                               ; preds = %60
+  %68 = load i32, ptr @tlsIndex, align 4
+  %69 = tail call ptr @dbgsysTlsGet(i32 noundef %68) #13
+  %.not.i.i = icmp eq ptr %69, null
+  br i1 %.not.i.i, label %74, label %70
 
-69:                                               ; preds = %66
-  %70 = load ptr, ptr @callback, align 8
-  %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
-  %72 = load ptr, ptr %71, align 8
-  tail call void %72(ptr noundef nonnull %68) #13
-  br label %73
+70:                                               ; preds = %67
+  %71 = load ptr, ptr @callback, align 8
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
+  %73 = load ptr, ptr %72, align 8
+  tail call void %73(ptr noundef nonnull %69) #13
+  br label %74
 
-73:                                               ; preds = %69, %66
-  %74 = load ptr, ptr @callback, align 8
-  %75 = load ptr, ptr %74, align 8
-  %76 = tail call ptr %75(i32 noundef 14) #13
-  %.not21.i.i = icmp eq ptr %76, null
-  br i1 %.not21.i.i, label %setLastError.exit.i, label %77
+74:                                               ; preds = %70, %67
+  %75 = load ptr, ptr @callback, align 8
+  %76 = load ptr, ptr %75, align 8
+  %77 = tail call ptr %76(i32 noundef 14) #13
+  %.not21.i.i = icmp eq ptr %77, null
+  br i1 %.not21.i.i, label %setLastError.exit.i, label %78
 
-77:                                               ; preds = %73
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(14) %76, ptr noundef nonnull align 1 dereferenceable(14) @.str.8, i64 14, i1 false) #13
+78:                                               ; preds = %74
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(14) %77, ptr noundef nonnull align 1 dereferenceable(14) @.str.8, i64 14, i1 false) #13
   br label %setLastError.exit.i
 
-setLastError.exit.i:                              ; preds = %77, %73
-  %78 = load i32, ptr @tlsIndex, align 4
-  tail call void @dbgsysTlsPut(i32 noundef %78, ptr noundef %76) #13
+setLastError.exit.i:                              ; preds = %78, %74
+  %79 = load i32, ptr @tlsIndex, align 4
+  tail call void @dbgsysTlsPut(i32 noundef %79, ptr noundef %77) #13
   br label %getAddrInfo.exit
 
-79:                                               ; preds = %59
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %64, ptr nonnull align 1 %.034.i, i64 %.035.i, i1 false)
-  %80 = getelementptr inbounds i8, ptr %64, i64 %.035.i
-  store i8 0, ptr %80, align 1
-  %81 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %64, i32 noundef 37) #14
-  %.not42.i = icmp eq ptr %81, null
-  br i1 %.not42.i, label %122, label %82
-
-82:                                               ; preds = %79
+80:                                               ; preds = %60
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %65, ptr nonnull align 1 %.034.i, i64 %.035.i, i1 false)
+  %81 = getelementptr inbounds i8, ptr %65, i64 %.035.i
   store i8 0, ptr %81, align 1
-  %83 = getelementptr inbounds nuw i8, ptr %81, i64 1
+  %82 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %65, i32 noundef 37) #14
+  %.not42.i = icmp eq ptr %82, null
+  br i1 %.not42.i, label %123, label %83
+
+83:                                               ; preds = %80
+  store i8 0, ptr %82, align 1
+  %84 = getelementptr inbounds nuw i8, ptr %82, i64 1
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %84 = tail call i32 @if_nametoindex(ptr noundef nonnull %83) #13
-  %85 = zext i32 %84 to i64
-  %86 = icmp eq i32 %84, 0
-  br i1 %86, label %87, label %parseScopeId.exit.thread.i
+  %85 = tail call i32 @if_nametoindex(ptr noundef nonnull %84) #13
+  %86 = zext i32 %85 to i64
+  %87 = icmp eq i32 %85, 0
+  br i1 %87, label %88, label %parseScopeId.exit.thread.i
 
-87:                                               ; preds = %82
-  %88 = call i64 @strtoul(ptr noundef nonnull %83, ptr noundef nonnull %3, i32 noundef 10) #13
-  %89 = load ptr, ptr %3, align 8
-  %90 = load i8, ptr %89, align 1
-  %.not.i47.i = icmp eq i8 %90, 0
-  br i1 %.not.i47.i, label %103, label %91
+88:                                               ; preds = %83
+  %89 = call i64 @strtoul(ptr noundef nonnull %84, ptr noundef nonnull %3, i32 noundef 10) #13
+  %90 = load ptr, ptr %3, align 8
+  %91 = load i8, ptr %90, align 1
+  %.not.i47.i = icmp eq i8 %91, 0
+  br i1 %.not.i47.i, label %104, label %92
 
-91:                                               ; preds = %87
-  %92 = load i32, ptr @tlsIndex, align 4
-  %93 = tail call ptr @dbgsysTlsGet(i32 noundef %92) #13
-  %.not.i.i.i = icmp eq ptr %93, null
-  br i1 %.not.i.i.i, label %98, label %94
+92:                                               ; preds = %88
+  %93 = load i32, ptr @tlsIndex, align 4
+  %94 = tail call ptr @dbgsysTlsGet(i32 noundef %93) #13
+  %.not.i.i.i = icmp eq ptr %94, null
+  br i1 %.not.i.i.i, label %99, label %95
 
-94:                                               ; preds = %91
-  %95 = load ptr, ptr @callback, align 8
-  %96 = getelementptr inbounds nuw i8, ptr %95, i64 8
-  %97 = load ptr, ptr %96, align 8
-  tail call void %97(ptr noundef nonnull %93) #13
-  br label %98
+95:                                               ; preds = %92
+  %96 = load ptr, ptr @callback, align 8
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 8
+  %98 = load ptr, ptr %97, align 8
+  tail call void %98(ptr noundef nonnull %94) #13
+  br label %99
 
-98:                                               ; preds = %94, %91
-  %99 = load ptr, ptr @callback, align 8
-  %100 = load ptr, ptr %99, align 8
-  %101 = tail call ptr %100(i32 noundef 22) #13
-  %.not21.i.i.i = icmp eq ptr %101, null
-  br i1 %.not21.i.i.i, label %117, label %102
+99:                                               ; preds = %95, %92
+  %100 = load ptr, ptr @callback, align 8
+  %101 = load ptr, ptr %100, align 8
+  %102 = tail call ptr %101(i32 noundef 22) #13
+  %.not21.i.i.i = icmp eq ptr %102, null
+  br i1 %.not21.i.i.i, label %118, label %103
 
-102:                                              ; preds = %98
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(22) %101, ptr noundef nonnull align 1 dereferenceable(22) @.str.11, i64 22, i1 false) #13
-  br label %117
+103:                                              ; preds = %99
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(22) %102, ptr noundef nonnull align 1 dereferenceable(22) @.str.11, i64 22, i1 false) #13
+  br label %118
 
-103:                                              ; preds = %87
-  %104 = icmp ugt i64 %88, 4294967295
-  br i1 %104, label %105, label %parseScopeId.exit.thread.i
+104:                                              ; preds = %88
+  %105 = icmp ugt i64 %89, 4294967295
+  br i1 %105, label %106, label %parseScopeId.exit.thread.i
 
-105:                                              ; preds = %103
-  %106 = load i32, ptr @tlsIndex, align 4
-  %107 = tail call ptr @dbgsysTlsGet(i32 noundef %106) #13
-  %.not.i7.i.i = icmp eq ptr %107, null
-  br i1 %.not.i7.i.i, label %112, label %108
+106:                                              ; preds = %104
+  %107 = load i32, ptr @tlsIndex, align 4
+  %108 = tail call ptr @dbgsysTlsGet(i32 noundef %107) #13
+  %.not.i7.i.i = icmp eq ptr %108, null
+  br i1 %.not.i7.i.i, label %113, label %109
 
-108:                                              ; preds = %105
-  %109 = load ptr, ptr @callback, align 8
-  %110 = getelementptr inbounds nuw i8, ptr %109, i64 8
-  %111 = load ptr, ptr %110, align 8
-  tail call void %111(ptr noundef nonnull %107) #13
-  br label %112
+109:                                              ; preds = %106
+  %110 = load ptr, ptr @callback, align 8
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 8
+  %112 = load ptr, ptr %111, align 8
+  tail call void %112(ptr noundef nonnull %108) #13
+  br label %113
 
-112:                                              ; preds = %108, %105
-  %113 = load ptr, ptr @callback, align 8
-  %114 = load ptr, ptr %113, align 8
-  %115 = tail call ptr %114(i32 noundef 22) #13
-  %.not21.i8.i.i = icmp eq ptr %115, null
-  br i1 %.not21.i8.i.i, label %117, label %116
+113:                                              ; preds = %109, %106
+  %114 = load ptr, ptr @callback, align 8
+  %115 = load ptr, ptr %114, align 8
+  %116 = tail call ptr %115(i32 noundef 22) #13
+  %.not21.i8.i.i = icmp eq ptr %116, null
+  br i1 %.not21.i8.i.i, label %118, label %117
 
-116:                                              ; preds = %112
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(22) %115, ptr noundef nonnull align 1 dereferenceable(22) @.str.12, i64 22, i1 false) #13
-  br label %117
+117:                                              ; preds = %113
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(22) %116, ptr noundef nonnull align 1 dereferenceable(22) @.str.12, i64 22, i1 false) #13
+  br label %118
 
-parseScopeId.exit.thread.i:                       ; preds = %103, %82
-  %.05.i.ph.i = phi i64 [ %85, %82 ], [ %88, %103 ]
+parseScopeId.exit.thread.i:                       ; preds = %104, %83
+  %.05.i.ph.i = phi i64 [ %86, %83 ], [ %89, %104 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %122
+  br label %123
 
-117:                                              ; preds = %116, %112, %102, %98
-  %.sink16.i.i = phi ptr [ null, %98 ], [ %101, %102 ], [ null, %112 ], [ %115, %116 ]
-  %118 = load i32, ptr @tlsIndex, align 4
-  tail call void @dbgsysTlsPut(i32 noundef %118, ptr noundef %.sink16.i.i) #13
+118:                                              ; preds = %117, %113, %103, %99
+  %.sink16.i.i = phi ptr [ null, %99 ], [ %102, %103 ], [ null, %113 ], [ %116, %117 ]
+  %119 = load i32, ptr @tlsIndex, align 4
+  tail call void @dbgsysTlsPut(i32 noundef %119, ptr noundef %.sink16.i.i) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %119 = load ptr, ptr @callback, align 8
-  %120 = getelementptr inbounds nuw i8, ptr %119, i64 8
-  %121 = load ptr, ptr %120, align 8
-  tail call void %121(ptr noundef nonnull %64) #13
+  %120 = load ptr, ptr @callback, align 8
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 8
+  %122 = load ptr, ptr %121, align 8
+  tail call void %122(ptr noundef nonnull %65) #13
   br label %getAddrInfo.exit
 
-122:                                              ; preds = %parseScopeId.exit.thread.i, %79
-  %.0.ph.i = phi i64 [ %.05.i.ph.i, %parseScopeId.exit.thread.i ], [ 0, %79 ]
-  %123 = call i32 @dbgsysGetAddrInfo(ptr noundef nonnull %64, ptr noundef nonnull %8, ptr noundef nonnull %5, ptr noundef nonnull %1) #13
-  %124 = load ptr, ptr @callback, align 8
-  %125 = getelementptr inbounds nuw i8, ptr %124, i64 8
-  %126 = load ptr, ptr %125, align 8
-  call void %126(ptr noundef nonnull %64) #13
-  %.not44.i = icmp eq i32 %123, 0
-  br i1 %.not44.i, label %130, label %128
+123:                                              ; preds = %parseScopeId.exit.thread.i, %80
+  %.0.ph.i = phi i64 [ %.05.i.ph.i, %parseScopeId.exit.thread.i ], [ 0, %80 ]
+  %124 = call i32 @dbgsysGetAddrInfo(ptr noundef nonnull %65, ptr noundef nonnull %8, ptr noundef nonnull %5, ptr noundef nonnull %1) #13
+  %125 = load ptr, ptr @callback, align 8
+  %126 = getelementptr inbounds nuw i8, ptr %125, i64 8
+  %127 = load ptr, ptr %126, align 8
+  call void %127(ptr noundef nonnull %65) #13
+  %.not44.i = icmp eq i32 %124, 0
+  br i1 %.not44.i, label %131, label %129
 
-.thread.i:                                        ; preds = %45, %getPortNumber.exit
-  %127 = call i32 @dbgsysGetAddrInfo(ptr noundef null, ptr noundef nonnull %9, ptr noundef nonnull %5, ptr noundef nonnull %1) #13
-  %.not4473.i = icmp eq i32 %127, 0
-  br i1 %.not4473.i, label %getAddrInfo.exit, label %128
+.thread.i:                                        ; preds = %46, %30
+  %128 = call i32 @dbgsysGetAddrInfo(ptr noundef null, ptr noundef nonnull %9, ptr noundef nonnull %5, ptr noundef nonnull %1) #13
+  %.not4473.i = icmp eq i32 %128, 0
+  br i1 %.not4473.i, label %getAddrInfo.exit, label %129
 
-128:                                              ; preds = %.thread.i, %122
-  %129 = phi i32 [ %127, %.thread.i ], [ %123, %122 ]
-  call fastcc void @setLastError(i32 noundef %129, ptr noundef nonnull @.str.9)
+129:                                              ; preds = %.thread.i, %123
+  %130 = phi i32 [ %128, %.thread.i ], [ %124, %123 ]
+  call fastcc void @setLastError(i32 noundef %130, ptr noundef nonnull @.str.9)
   br label %getAddrInfo.exit
 
-130:                                              ; preds = %122
+131:                                              ; preds = %123
   %.not45.i = icmp eq i64 %.0.ph.i, 0
-  br i1 %.not45.i, label %getAddrInfo.exit, label %131
+  br i1 %.not45.i, label %getAddrInfo.exit, label %132
 
-131:                                              ; preds = %130
-  %132 = load ptr, ptr %1, align 8
-  %133 = getelementptr inbounds nuw i8, ptr %132, i64 4
-  %134 = load i32, ptr %133, align 4
-  %.not46.i = icmp eq i32 %134, 10
-  br i1 %.not46.i, label %148, label %135
+132:                                              ; preds = %131
+  %133 = load ptr, ptr %1, align 8
+  %134 = getelementptr inbounds nuw i8, ptr %133, i64 4
+  %135 = load i32, ptr %134, align 4
+  %.not46.i = icmp eq i32 %135, 10
+  br i1 %.not46.i, label %149, label %136
 
-135:                                              ; preds = %131
-  %136 = load i32, ptr @tlsIndex, align 4
-  %137 = call ptr @dbgsysTlsGet(i32 noundef %136) #13
-  %.not.i48.i = icmp eq ptr %137, null
-  br i1 %.not.i48.i, label %142, label %138
+136:                                              ; preds = %132
+  %137 = load i32, ptr @tlsIndex, align 4
+  %138 = call ptr @dbgsysTlsGet(i32 noundef %137) #13
+  %.not.i48.i = icmp eq ptr %138, null
+  br i1 %.not.i48.i, label %143, label %139
 
-138:                                              ; preds = %135
-  %139 = load ptr, ptr @callback, align 8
-  %140 = getelementptr inbounds nuw i8, ptr %139, i64 8
-  %141 = load ptr, ptr %140, align 8
-  call void %141(ptr noundef nonnull %137) #13
-  br label %142
+139:                                              ; preds = %136
+  %140 = load ptr, ptr @callback, align 8
+  %141 = getelementptr inbounds nuw i8, ptr %140, i64 8
+  %142 = load ptr, ptr %141, align 8
+  call void %142(ptr noundef nonnull %138) #13
+  br label %143
 
-142:                                              ; preds = %138, %135
-  %143 = load ptr, ptr @callback, align 8
-  %144 = load ptr, ptr %143, align 8
-  %145 = call ptr %144(i32 noundef 34) #13
-  %.not21.i49.i = icmp eq ptr %145, null
-  br i1 %.not21.i49.i, label %setLastError.exit51.i, label %146
+143:                                              ; preds = %139, %136
+  %144 = load ptr, ptr @callback, align 8
+  %145 = load ptr, ptr %144, align 8
+  %146 = call ptr %145(i32 noundef 34) #13
+  %.not21.i49.i = icmp eq ptr %146, null
+  br i1 %.not21.i49.i, label %setLastError.exit51.i, label %147
 
-146:                                              ; preds = %142
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(34) %145, ptr noundef nonnull align 1 dereferenceable(34) @.str.10, i64 34, i1 false) #13
+147:                                              ; preds = %143
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(34) %146, ptr noundef nonnull align 1 dereferenceable(34) @.str.10, i64 34, i1 false) #13
   br label %setLastError.exit51.i
 
-setLastError.exit51.i:                            ; preds = %146, %142
-  %147 = load i32, ptr @tlsIndex, align 4
-  call void @dbgsysTlsPut(i32 noundef %147, ptr noundef %145) #13
+setLastError.exit51.i:                            ; preds = %147, %143
+  %148 = load i32, ptr @tlsIndex, align 4
+  call void @dbgsysTlsPut(i32 noundef %148, ptr noundef %146) #13
   br label %getAddrInfo.exit
 
-148:                                              ; preds = %131
-  %149 = trunc nuw i64 %.0.ph.i to i32
-  %150 = getelementptr inbounds nuw i8, ptr %132, i64 24
-  %151 = load ptr, ptr %150, align 8
-  %152 = getelementptr inbounds nuw i8, ptr %151, i64 24
-  store i32 %149, ptr %152, align 4
+149:                                              ; preds = %132
+  %150 = trunc nuw i64 %.0.ph.i to i32
+  %151 = getelementptr inbounds nuw i8, ptr %133, i64 24
+  %152 = load ptr, ptr %151, align 8
+  %153 = getelementptr inbounds nuw i8, ptr %152, i64 24
+  store i32 %150, ptr %153, align 4
   br label %getAddrInfo.exit
 
-getAddrInfo.exit:                                 ; preds = %148, %setLastError.exit51.i, %130, %128, %.thread.i, %117, %setLastError.exit.i, %setLastError.exit
-  %.0 = phi i32 [ 103, %setLastError.exit ], [ 110, %setLastError.exit.i ], [ 103, %117 ], [ 202, %128 ], [ 103, %setLastError.exit51.i ], [ 0, %148 ], [ 0, %130 ], [ 0, %.thread.i ]
+getAddrInfo.exit:                                 ; preds = %149, %setLastError.exit51.i, %131, %129, %.thread.i, %118, %setLastError.exit.i, %setLastError.exit
+  %.0 = phi i32 [ 103, %setLastError.exit ], [ 110, %setLastError.exit.i ], [ 103, %118 ], [ 202, %129 ], [ 103, %setLastError.exit51.i ], [ 0, %149 ], [ 0, %131 ], [ 0, %.thread.i ]
   ret i32 %.0
 }
 

@@ -102,7 +102,7 @@ define dso_local void @on_exit_nicely(ptr noundef %0, ptr noundef %1) local_unna
   %7 = sext i32 %3 to i64
   %8 = getelementptr inbounds %struct.anon, ptr @on_exit_nicely_list, i64 %7
   store ptr %0, ptr %8, align 16
-  %9 = getelementptr inbounds %struct.anon, ptr @on_exit_nicely_list, i64 %7, i32 1
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %1, ptr %9, align 8
   %10 = add nsw i32 %3, 1
   store i32 %10, ptr @on_exit_nicely_index, align 4

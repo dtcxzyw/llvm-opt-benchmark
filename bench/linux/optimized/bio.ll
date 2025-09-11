@@ -1310,7 +1310,8 @@ define dso_local void @zero_fill_bio_iter(ptr noundef readonly captures(none) %0
 46:                                               ; preds = %13
   %47 = load ptr, ptr %11, align 8
   %48 = add i32 %33, %14
-  %49 = getelementptr %struct.bio_vec, ptr %47, i64 %18, i32 1
+  %.split = getelementptr %struct.bio_vec, ptr %47, i64 %18
+  %49 = getelementptr i8, ptr %.split, i64 8
   %50 = load i32, ptr %49, align 8
   %51 = icmp eq i32 %48, %50
   %52 = zext i1 %51 to i32
@@ -1505,7 +1506,8 @@ define internal fastcc void @bio_truncate(ptr noundef captures(none) %0, i32 nou
 95:                                               ; preds = %.loopexit
   %96 = load ptr, ptr %16, align 8
   %97 = add i32 %40, %21
-  %98 = getelementptr %struct.bio_vec, ptr %96, i64 %25, i32 1
+  %.split = getelementptr %struct.bio_vec, ptr %96, i64 %25
+  %98 = getelementptr i8, ptr %.split, i64 8
   %99 = load i32, ptr %98, align 8
   %100 = icmp eq i32 %97, %99
   %101 = zext i1 %100 to i32
@@ -3514,7 +3516,8 @@ define dso_local void @__bio_advance(ptr noundef captures(none) %0, i32 noundef 
   %35 = phi i32 [ %42, %41 ], [ %33, %28 ]
   %36 = phi i32 [ %43, %41 ], [ %15, %28 ]
   %37 = zext i32 %36 to i64
-  %38 = getelementptr %struct.bio_vec, ptr %13, i64 %37, i32 1
+  %.split = getelementptr %struct.bio_vec, ptr %13, i64 %37
+  %38 = getelementptr i8, ptr %.split, i64 8
   %39 = load i32, ptr %38, align 8
   %40 = icmp ult i32 %35, %39
   br i1 %40, label %.loopexit, label %41
@@ -3639,7 +3642,8 @@ define dso_local void @bio_copy_data_iter(ptr noundef readonly captures(none) %0
   %88 = add i32 %87, %61
   %89 = load i32, ptr %11, align 1
   %90 = zext i32 %89 to i64
-  %91 = getelementptr %struct.bio_vec, ptr %86, i64 %90, i32 1
+  %.split6 = getelementptr %struct.bio_vec, ptr %86, i64 %90
+  %91 = getelementptr i8, ptr %.split6, i64 8
   %92 = load i32, ptr %91, align 8
   %93 = icmp eq i32 %88, %92
   br i1 %93, label %94, label %96
@@ -3675,7 +3679,8 @@ define dso_local void @bio_copy_data_iter(ptr noundef readonly captures(none) %0
   %108 = add i32 %107, %61
   %109 = load i32, ptr %14, align 1
   %110 = zext i32 %109 to i64
-  %111 = getelementptr %struct.bio_vec, ptr %106, i64 %110, i32 1
+  %.split7 = getelementptr %struct.bio_vec, ptr %106, i64 %110
+  %111 = getelementptr i8, ptr %.split7, i64 8
   %112 = load i32, ptr %111, align 8
   %113 = icmp eq i32 %108, %112
   br i1 %113, label %114, label %116

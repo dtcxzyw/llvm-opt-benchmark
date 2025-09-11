@@ -1356,103 +1356,104 @@ define internal noundef zeroext i1 @_ZN5folly6detail12_GLOBAL__N_120EventBasePol
 47:                                               ; preds = %.preheader, %_ZNSt6vectorIPN5folly6detail12_GLOBAL__N_119EventBasePollerImpl5EventESaIS5_EE9push_backEOS5_.exit
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %_ZNSt6vectorIPN5folly6detail12_GLOBAL__N_119EventBasePollerImpl5EventESaIS5_EE9push_backEOS5_.exit ]
   %48 = load ptr, ptr %11, align 8, !tbaa !106
-  %49 = getelementptr inbounds nuw %struct.epoll_event, ptr %48, i64 %indvars.iv, i32 1
-  %50 = load ptr, ptr %49, align 1, !tbaa !17
+  %49 = getelementptr inbounds nuw %struct.epoll_event, ptr %48, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 4
+  %51 = load ptr, ptr %50, align 1, !tbaa !17
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %51 = icmp eq ptr %50, null
-  br i1 %51, label %52, label %_ZN6google12CheckNotNullIPN5folly6detail12_GLOBAL__N_119EventBasePollerImpl5EventEEET_PKciS9_OS7_.exit
+  %52 = icmp eq ptr %51, null
+  br i1 %52, label %53, label %_ZN6google12CheckNotNullIPN5folly6detail12_GLOBAL__N_119EventBasePollerImpl5EventEEET_PKciS9_OS7_.exit
 
-52:                                               ; preds = %47
+53:                                               ; preds = %47
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %53 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #37
+  %54 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #37
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %53, ptr noundef nonnull @.str.44, ptr noundef nonnull align 1 dereferenceable(1) %5)
-          to label %54 unwind label %55
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %54, ptr noundef nonnull @.str.44, ptr noundef nonnull align 1 dereferenceable(1) %5)
+          to label %55 unwind label %56
 
-54:                                               ; preds = %52
-  store ptr %53, ptr %4, align 8, !tbaa !150
+55:                                               ; preds = %53
+  store ptr %54, ptr %4, align 8, !tbaa !150
   call void @_ZN6google15LogMessageFatalC1EPKciRKNS_13CheckOpStringE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull @.str.5, i32 noundef 460, ptr noundef nonnull align 8 dereferenceable(8) %4)
   call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #34
   unreachable
 
-55:                                               ; preds = %52
-  %56 = landingpad { ptr, i32 }
+56:                                               ; preds = %53
+  %57 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  call void @_ZdlPvm(ptr noundef nonnull %53, i64 noundef 32) #36
+  call void @_ZdlPvm(ptr noundef nonnull %54, i64 noundef 32) #36
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  resume { ptr, i32 } %56
+  resume { ptr, i32 } %57
 
 _ZN6google12CheckNotNullIPN5folly6detail12_GLOBAL__N_119EventBasePollerImpl5EventEEET_PKciS9_OS7_.exit: ; preds = %47
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %57 = load ptr, ptr %45, align 8, !tbaa !152
-  %58 = load ptr, ptr %46, align 8, !tbaa !153
-  %.not.i.i = icmp eq ptr %57, %58
-  br i1 %.not.i.i, label %61, label %59
+  %58 = load ptr, ptr %45, align 8, !tbaa !152
+  %59 = load ptr, ptr %46, align 8, !tbaa !153
+  %.not.i.i = icmp eq ptr %58, %59
+  br i1 %.not.i.i, label %62, label %60
 
-59:                                               ; preds = %_ZN6google12CheckNotNullIPN5folly6detail12_GLOBAL__N_119EventBasePollerImpl5EventEEET_PKciS9_OS7_.exit
-  store ptr %50, ptr %57, align 8, !tbaa !154
-  %60 = getelementptr inbounds nuw i8, ptr %57, i64 8
-  store ptr %60, ptr %45, align 8, !tbaa !152
+60:                                               ; preds = %_ZN6google12CheckNotNullIPN5folly6detail12_GLOBAL__N_119EventBasePollerImpl5EventEEET_PKciS9_OS7_.exit
+  store ptr %51, ptr %58, align 8, !tbaa !154
+  %61 = getelementptr inbounds nuw i8, ptr %58, i64 8
+  store ptr %61, ptr %45, align 8, !tbaa !152
   br label %_ZNSt6vectorIPN5folly6detail12_GLOBAL__N_119EventBasePollerImpl5EventESaIS5_EE9push_backEOS5_.exit
 
-61:                                               ; preds = %_ZN6google12CheckNotNullIPN5folly6detail12_GLOBAL__N_119EventBasePollerImpl5EventEEET_PKciS9_OS7_.exit
+62:                                               ; preds = %_ZN6google12CheckNotNullIPN5folly6detail12_GLOBAL__N_119EventBasePollerImpl5EventEEET_PKciS9_OS7_.exit
   %.val19.i.i.i = load ptr, ptr %44, align 8, !tbaa !155
-  %62 = ptrtoint ptr %57 to i64
-  %63 = ptrtoint ptr %.val19.i.i.i to i64
-  %64 = sub i64 %62, %63
-  %65 = icmp eq i64 %64, 9223372036854775800
-  br i1 %65, label %66, label %_ZNKSt6vectorIPN5folly6detail12_GLOBAL__N_119EventBasePollerImpl5EventESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i
+  %63 = ptrtoint ptr %58 to i64
+  %64 = ptrtoint ptr %.val19.i.i.i to i64
+  %65 = sub i64 %63, %64
+  %66 = icmp eq i64 %65, 9223372036854775800
+  br i1 %66, label %67, label %_ZNKSt6vectorIPN5folly6detail12_GLOBAL__N_119EventBasePollerImpl5EventESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i
 
-66:                                               ; preds = %61
+67:                                               ; preds = %62
   call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.36) #35
   unreachable
 
-_ZNKSt6vectorIPN5folly6detail12_GLOBAL__N_119EventBasePollerImpl5EventESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %61
-  %67 = ashr exact i64 %64, 3
-  %68 = icmp eq ptr %57, %.val19.i.i.i
-  %.sroa.speculated.i.i.i.i = select i1 %68, i64 1, i64 %67
-  %69 = add nsw i64 %.sroa.speculated.i.i.i.i, %67
-  %70 = icmp ult i64 %69, %67
-  %71 = call i64 @llvm.umin.i64(i64 %69, i64 1152921504606846975)
-  %72 = select i1 %70, i64 1152921504606846975, i64 %71
-  %.not.i.i.i.i = icmp ne i64 %72, 0
+_ZNKSt6vectorIPN5folly6detail12_GLOBAL__N_119EventBasePollerImpl5EventESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %62
+  %68 = ashr exact i64 %65, 3
+  %69 = icmp eq ptr %58, %.val19.i.i.i
+  %.sroa.speculated.i.i.i.i = select i1 %69, i64 1, i64 %68
+  %70 = add nsw i64 %.sroa.speculated.i.i.i.i, %68
+  %71 = icmp ult i64 %70, %68
+  %72 = call i64 @llvm.umin.i64(i64 %70, i64 1152921504606846975)
+  %73 = select i1 %71, i64 1152921504606846975, i64 %72
+  %.not.i.i.i.i = icmp ne i64 %73, 0
   call void @llvm.assume(i1 %.not.i.i.i.i)
-  %73 = shl nuw nsw i64 %72, 3
-  %74 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %73) #37
-  %75 = getelementptr inbounds i8, ptr %74, i64 %64
-  store ptr %50, ptr %75, align 8, !tbaa !154
-  %76 = icmp sgt i64 %64, 0
-  br i1 %76, label %77, label %_ZNSt6vectorIPN5folly6detail12_GLOBAL__N_119EventBasePollerImpl5EventESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit21.i.i.i
+  %74 = shl nuw nsw i64 %73, 3
+  %75 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %74) #37
+  %76 = getelementptr inbounds i8, ptr %75, i64 %65
+  store ptr %51, ptr %76, align 8, !tbaa !154
+  %77 = icmp sgt i64 %65, 0
+  br i1 %77, label %78, label %_ZNSt6vectorIPN5folly6detail12_GLOBAL__N_119EventBasePollerImpl5EventESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit21.i.i.i
 
-77:                                               ; preds = %_ZNKSt6vectorIPN5folly6detail12_GLOBAL__N_119EventBasePollerImpl5EventESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %74, ptr align 8 %.val19.i.i.i, i64 %64, i1 false)
+78:                                               ; preds = %_ZNKSt6vectorIPN5folly6detail12_GLOBAL__N_119EventBasePollerImpl5EventESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %75, ptr align 8 %.val19.i.i.i, i64 %65, i1 false)
   br label %_ZNSt6vectorIPN5folly6detail12_GLOBAL__N_119EventBasePollerImpl5EventESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit21.i.i.i
 
-_ZNSt6vectorIPN5folly6detail12_GLOBAL__N_119EventBasePollerImpl5EventESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit21.i.i.i: ; preds = %77, %_ZNKSt6vectorIPN5folly6detail12_GLOBAL__N_119EventBasePollerImpl5EventESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i
-  %78 = getelementptr inbounds nuw i8, ptr %75, i64 8
+_ZNSt6vectorIPN5folly6detail12_GLOBAL__N_119EventBasePollerImpl5EventESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit21.i.i.i: ; preds = %78, %_ZNKSt6vectorIPN5folly6detail12_GLOBAL__N_119EventBasePollerImpl5EventESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i
+  %79 = getelementptr inbounds nuw i8, ptr %76, i64 8
   %.not.i22.i.i.i = icmp eq ptr %.val19.i.i.i, null
-  br i1 %.not.i22.i.i.i, label %_ZNSt6vectorIPN5folly6detail12_GLOBAL__N_119EventBasePollerImpl5EventESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i, label %79
+  br i1 %.not.i22.i.i.i, label %_ZNSt6vectorIPN5folly6detail12_GLOBAL__N_119EventBasePollerImpl5EventESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i, label %80
 
-79:                                               ; preds = %_ZNSt6vectorIPN5folly6detail12_GLOBAL__N_119EventBasePollerImpl5EventESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit21.i.i.i
-  call void @_ZdlPvm(ptr noundef nonnull %.val19.i.i.i, i64 noundef %64) #36
+80:                                               ; preds = %_ZNSt6vectorIPN5folly6detail12_GLOBAL__N_119EventBasePollerImpl5EventESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit21.i.i.i
+  call void @_ZdlPvm(ptr noundef nonnull %.val19.i.i.i, i64 noundef %65) #36
   br label %_ZNSt6vectorIPN5folly6detail12_GLOBAL__N_119EventBasePollerImpl5EventESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i
 
-_ZNSt6vectorIPN5folly6detail12_GLOBAL__N_119EventBasePollerImpl5EventESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i: ; preds = %79, %_ZNSt6vectorIPN5folly6detail12_GLOBAL__N_119EventBasePollerImpl5EventESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit21.i.i.i
-  store ptr %74, ptr %44, align 8, !tbaa !155
-  store ptr %78, ptr %45, align 8, !tbaa !152
-  %80 = getelementptr inbounds nuw ptr, ptr %74, i64 %72
-  store ptr %80, ptr %46, align 8, !tbaa !153
+_ZNSt6vectorIPN5folly6detail12_GLOBAL__N_119EventBasePollerImpl5EventESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i: ; preds = %80, %_ZNSt6vectorIPN5folly6detail12_GLOBAL__N_119EventBasePollerImpl5EventESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit21.i.i.i
+  store ptr %75, ptr %44, align 8, !tbaa !155
+  store ptr %79, ptr %45, align 8, !tbaa !152
+  %81 = getelementptr inbounds nuw ptr, ptr %75, i64 %73
+  store ptr %81, ptr %46, align 8, !tbaa !153
   br label %_ZNSt6vectorIPN5folly6detail12_GLOBAL__N_119EventBasePollerImpl5EventESaIS5_EE9push_backEOS5_.exit
 
-_ZNSt6vectorIPN5folly6detail12_GLOBAL__N_119EventBasePollerImpl5EventESaIS5_EE9push_backEOS5_.exit: ; preds = %59, %_ZNSt6vectorIPN5folly6detail12_GLOBAL__N_119EventBasePollerImpl5EventESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i
+_ZNSt6vectorIPN5folly6detail12_GLOBAL__N_119EventBasePollerImpl5EventESaIS5_EE9push_backEOS5_.exit: ; preds = %60, %_ZNSt6vectorIPN5folly6detail12_GLOBAL__N_119EventBasePollerImpl5EventESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %47, !llvm.loop !156
 
 .loopexit:                                        ; preds = %_ZNSt6vectorIPN5folly6detail12_GLOBAL__N_119EventBasePollerImpl5EventESaIS5_EE9push_backEOS5_.exit, %.critedge
-  %81 = phi i1 [ false, %.critedge ], [ true, %_ZNSt6vectorIPN5folly6detail12_GLOBAL__N_119EventBasePollerImpl5EventESaIS5_EE9push_backEOS5_.exit ]
-  ret i1 %81
+  %82 = phi i1 [ false, %.critedge ], [ true, %_ZNSt6vectorIPN5folly6detail12_GLOBAL__N_119EventBasePollerImpl5EventESaIS5_EE9push_backEOS5_.exit ]
+  ret i1 %82
 }
 
 ; Function Attrs: nounwind

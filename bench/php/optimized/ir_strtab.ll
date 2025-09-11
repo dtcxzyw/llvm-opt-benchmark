@@ -497,9 +497,10 @@ ir_str_hash.exit:                                 ; preds = %4, %._crit_edge.loo
 define hidden ptr @ir_strtab_str(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #6 {
   %3 = load ptr, ptr %0, align 8, !tbaa !4
   %4 = sext i32 %1 to i64
-  %5 = getelementptr inbounds %struct._ir_strtab_bucket, ptr %3, i64 %4, i32 2
-  %6 = load ptr, ptr %5, align 8, !tbaa !23
-  ret ptr %6
+  %5 = getelementptr inbounds %struct._ir_strtab_bucket, ptr %3, i64 %4
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %7 = load ptr, ptr %6, align 8, !tbaa !23
+  ret ptr %7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable

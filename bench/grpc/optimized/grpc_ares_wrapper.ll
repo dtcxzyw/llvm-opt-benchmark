@@ -2812,162 +2812,163 @@ define void @_Z39grpc_cares_wrapper_address_sorting_sortPK17grpc_ares_requestPSt
 
 ._crit_edge41:                                    ; preds = %_ZNSt6vectorIN9grpc_core17EndpointAddressesESaIS1_EE12emplace_backIJRS1_EEES5_DpOT_.exit, %.preheader
   invoke void @gpr_free(ptr noundef %16)
-          to label %72 unwind label %51
+          to label %73 unwind label %51
 
-51:                                               ; preds = %97, %._crit_edge41, %._crit_edge
+51:                                               ; preds = %98, %._crit_edge41, %._crit_edge
   %52 = landingpad { ptr, i32 }
           cleanup
-  br label %116
+  br label %117
 
 53:                                               ; preds = %.lr.ph40, %_ZNSt6vectorIN9grpc_core17EndpointAddressesESaIS1_EE12emplace_backIJRS1_EEES5_DpOT_.exit
-  %.039 = phi i64 [ 0, %.lr.ph40 ], [ %62, %_ZNSt6vectorIN9grpc_core17EndpointAddressesESaIS1_EE12emplace_backIJRS1_EEES5_DpOT_.exit ]
-  %54 = getelementptr inbounds nuw %struct.address_sorting_sortable, ptr %16, i64 %.039, i32 1
-  %55 = load ptr, ptr %54, align 8, !tbaa !102
-  %56 = load ptr, ptr %27, align 8, !tbaa !98
-  %57 = load ptr, ptr %28, align 8, !tbaa !112
-  %.not.i = icmp eq ptr %56, %57
-  br i1 %.not.i, label %61, label %58
+  %.039 = phi i64 [ 0, %.lr.ph40 ], [ %63, %_ZNSt6vectorIN9grpc_core17EndpointAddressesESaIS1_EE12emplace_backIJRS1_EEES5_DpOT_.exit ]
+  %54 = getelementptr inbounds nuw %struct.address_sorting_sortable, ptr %16, i64 %.039
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 136
+  %56 = load ptr, ptr %55, align 8, !tbaa !102
+  %57 = load ptr, ptr %27, align 8, !tbaa !98
+  %58 = load ptr, ptr %28, align 8, !tbaa !112
+  %.not.i = icmp eq ptr %57, %58
+  br i1 %.not.i, label %62, label %59
 
-58:                                               ; preds = %53
-  invoke void @_ZN9grpc_core17EndpointAddressesC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %56, ptr noundef nonnull align 8 dereferenceable(32) %55)
-          to label %.noexc unwind label %70
+59:                                               ; preds = %53
+  invoke void @_ZN9grpc_core17EndpointAddressesC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull align 8 dereferenceable(32) %56)
+          to label %.noexc unwind label %71
 
-.noexc:                                           ; preds = %58
-  %59 = load ptr, ptr %27, align 8, !tbaa !98
-  %60 = getelementptr inbounds nuw i8, ptr %59, i64 32
-  store ptr %60, ptr %27, align 8, !tbaa !98
+.noexc:                                           ; preds = %59
+  %60 = load ptr, ptr %27, align 8, !tbaa !98
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 32
+  store ptr %61, ptr %27, align 8, !tbaa !98
   br label %_ZNSt6vectorIN9grpc_core17EndpointAddressesESaIS1_EE12emplace_backIJRS1_EEES5_DpOT_.exit
 
-61:                                               ; preds = %53
-  invoke void @_ZNSt6vectorIN9grpc_core17EndpointAddressesESaIS1_EE17_M_realloc_insertIJRS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr %56, ptr noundef nonnull align 8 dereferenceable(32) %55)
-          to label %_ZNSt6vectorIN9grpc_core17EndpointAddressesESaIS1_EE12emplace_backIJRS1_EEES5_DpOT_.exit unwind label %70
+62:                                               ; preds = %53
+  invoke void @_ZNSt6vectorIN9grpc_core17EndpointAddressesESaIS1_EE17_M_realloc_insertIJRS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr %57, ptr noundef nonnull align 8 dereferenceable(32) %56)
+          to label %_ZNSt6vectorIN9grpc_core17EndpointAddressesESaIS1_EE12emplace_backIJRS1_EEES5_DpOT_.exit unwind label %71
 
-_ZNSt6vectorIN9grpc_core17EndpointAddressesESaIS1_EE12emplace_backIJRS1_EEES5_DpOT_.exit: ; preds = %61, %.noexc
-  %62 = add nuw i64 %.039, 1
-  %63 = load ptr, ptr %8, align 8, !tbaa !98
-  %64 = load ptr, ptr %1, align 8, !tbaa !101
-  %65 = ptrtoint ptr %63 to i64
+_ZNSt6vectorIN9grpc_core17EndpointAddressesESaIS1_EE12emplace_backIJRS1_EEES5_DpOT_.exit: ; preds = %62, %.noexc
+  %63 = add nuw i64 %.039, 1
+  %64 = load ptr, ptr %8, align 8, !tbaa !98
+  %65 = load ptr, ptr %1, align 8, !tbaa !101
   %66 = ptrtoint ptr %64 to i64
-  %67 = sub i64 %65, %66
-  %68 = ashr exact i64 %67, 5
-  %69 = icmp ult i64 %62, %68
-  br i1 %69, label %53, label %._crit_edge41, !llvm.loop !113
+  %67 = ptrtoint ptr %65 to i64
+  %68 = sub i64 %66, %67
+  %69 = ashr exact i64 %68, 5
+  %70 = icmp ult i64 %63, %69
+  br i1 %70, label %53, label %._crit_edge41, !llvm.loop !113
 
-70:                                               ; preds = %61, %58
-  %71 = landingpad { ptr, i32 }
+71:                                               ; preds = %62, %59
+  %72 = landingpad { ptr, i32 }
           cleanup
-  br label %116
+  br label %117
 
-72:                                               ; preds = %._crit_edge41
-  %73 = load ptr, ptr %1, align 8, !tbaa !101
-  %74 = load ptr, ptr %8, align 8, !tbaa !98
-  %75 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %76 = load ptr, ptr %75, align 8, !tbaa !112
-  %77 = load ptr, ptr %3, align 8, !tbaa !101
-  store ptr %77, ptr %1, align 8, !tbaa !101
-  %78 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %79 = load ptr, ptr %78, align 8, !tbaa !98
-  store ptr %79, ptr %8, align 8, !tbaa !98
-  %80 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %81 = load ptr, ptr %80, align 8, !tbaa !112
-  store ptr %81, ptr %75, align 8, !tbaa !112
-  %.not4.i.i.i.i.i.i = icmp eq ptr %73, %74
+73:                                               ; preds = %._crit_edge41
+  %74 = load ptr, ptr %1, align 8, !tbaa !101
+  %75 = load ptr, ptr %8, align 8, !tbaa !98
+  %76 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %77 = load ptr, ptr %76, align 8, !tbaa !112
+  %78 = load ptr, ptr %3, align 8, !tbaa !101
+  store ptr %78, ptr %1, align 8, !tbaa !101
+  %79 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %80 = load ptr, ptr %79, align 8, !tbaa !98
+  store ptr %80, ptr %8, align 8, !tbaa !98
+  %81 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %82 = load ptr, ptr %81, align 8, !tbaa !112
+  store ptr %82, ptr %76, align 8, !tbaa !112
+  %.not4.i.i.i.i.i.i = icmp eq ptr %74, %75
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   br i1 %.not4.i.i.i.i.i.i, label %_ZSt8_DestroyIPN9grpc_core17EndpointAddressesES1_EvT_S3_RSaIT0_E.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i:                               ; preds = %72, %_ZSt8_DestroyIN9grpc_core17EndpointAddressesEEvPT_.exit.i.i.i.i.i.i
-  %.05.i.i.i.i.i.i = phi ptr [ %90, %_ZSt8_DestroyIN9grpc_core17EndpointAddressesEEvPT_.exit.i.i.i.i.i.i ], [ %73, %72 ]
-  %82 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i, i64 24
-  call void @_ZN9grpc_core11ChannelArgsD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %82) #31
-  %83 = load ptr, ptr %.05.i.i.i.i.i.i, align 8, !tbaa !105
-  %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %83, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN9grpc_core17EndpointAddressesEEvPT_.exit.i.i.i.i.i.i, label %84
+.lr.ph.i.i.i.i.i.i:                               ; preds = %73, %_ZSt8_DestroyIN9grpc_core17EndpointAddressesEEvPT_.exit.i.i.i.i.i.i
+  %.05.i.i.i.i.i.i = phi ptr [ %91, %_ZSt8_DestroyIN9grpc_core17EndpointAddressesEEvPT_.exit.i.i.i.i.i.i ], [ %74, %73 ]
+  %83 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i, i64 24
+  call void @_ZN9grpc_core11ChannelArgsD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %83) #31
+  %84 = load ptr, ptr %.05.i.i.i.i.i.i, align 8, !tbaa !105
+  %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %84, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN9grpc_core17EndpointAddressesEEvPT_.exit.i.i.i.i.i.i, label %85
 
-84:                                               ; preds = %.lr.ph.i.i.i.i.i.i
-  %85 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i, i64 16
-  %86 = load ptr, ptr %85, align 8, !tbaa !114
-  %87 = ptrtoint ptr %86 to i64
-  %88 = ptrtoint ptr %83 to i64
-  %89 = sub i64 %87, %88
-  call void @_ZdlPvm(ptr noundef nonnull %83, i64 noundef %89) #32
+85:                                               ; preds = %.lr.ph.i.i.i.i.i.i
+  %86 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i, i64 16
+  %87 = load ptr, ptr %86, align 8, !tbaa !114
+  %88 = ptrtoint ptr %87 to i64
+  %89 = ptrtoint ptr %84 to i64
+  %90 = sub i64 %88, %89
+  call void @_ZdlPvm(ptr noundef nonnull %84, i64 noundef %90) #32
   br label %_ZSt8_DestroyIN9grpc_core17EndpointAddressesEEvPT_.exit.i.i.i.i.i.i
 
-_ZSt8_DestroyIN9grpc_core17EndpointAddressesEEvPT_.exit.i.i.i.i.i.i: ; preds = %84, %.lr.ph.i.i.i.i.i.i
-  %90 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i, i64 32
-  %.not.i.i.i.i.i.i = icmp eq ptr %90, %74
+_ZSt8_DestroyIN9grpc_core17EndpointAddressesEEvPT_.exit.i.i.i.i.i.i: ; preds = %85, %.lr.ph.i.i.i.i.i.i
+  %91 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i, i64 32
+  %.not.i.i.i.i.i.i = icmp eq ptr %91, %75
   br i1 %.not.i.i.i.i.i.i, label %_ZSt8_DestroyIPN9grpc_core17EndpointAddressesES1_EvT_S3_RSaIT0_E.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !115
 
-_ZSt8_DestroyIPN9grpc_core17EndpointAddressesES1_EvT_S3_RSaIT0_E.exit.i.i.i: ; preds = %_ZSt8_DestroyIN9grpc_core17EndpointAddressesEEvPT_.exit.i.i.i.i.i.i, %72
-  %.not.i.i.i.i.i = icmp eq ptr %73, null
-  br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIN9grpc_core17EndpointAddressesESaIS1_EEaSEOS3_.exit, label %91
+_ZSt8_DestroyIPN9grpc_core17EndpointAddressesES1_EvT_S3_RSaIT0_E.exit.i.i.i: ; preds = %_ZSt8_DestroyIN9grpc_core17EndpointAddressesEEvPT_.exit.i.i.i.i.i.i, %73
+  %.not.i.i.i.i.i = icmp eq ptr %74, null
+  br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIN9grpc_core17EndpointAddressesESaIS1_EEaSEOS3_.exit, label %92
 
-91:                                               ; preds = %_ZSt8_DestroyIPN9grpc_core17EndpointAddressesES1_EvT_S3_RSaIT0_E.exit.i.i.i
-  %92 = ptrtoint ptr %76 to i64
-  %93 = ptrtoint ptr %73 to i64
-  %94 = sub i64 %92, %93
-  call void @_ZdlPvm(ptr noundef nonnull %73, i64 noundef %94) #32
+92:                                               ; preds = %_ZSt8_DestroyIPN9grpc_core17EndpointAddressesES1_EvT_S3_RSaIT0_E.exit.i.i.i
+  %93 = ptrtoint ptr %77 to i64
+  %94 = ptrtoint ptr %74 to i64
+  %95 = sub i64 %93, %94
+  call void @_ZdlPvm(ptr noundef nonnull %74, i64 noundef %95) #32
   br label %_ZNSt6vectorIN9grpc_core17EndpointAddressesESaIS1_EEaSEOS3_.exit
 
-_ZNSt6vectorIN9grpc_core17EndpointAddressesESaIS1_EEaSEOS3_.exit: ; preds = %_ZSt8_DestroyIPN9grpc_core17EndpointAddressesES1_EvT_S3_RSaIT0_E.exit.i.i.i, %91
-  %95 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN9grpc_core27cares_address_sorting_traceE, i64 16) monotonic, align 8
-  %96 = trunc i8 %95 to i1
-  br i1 %96, label %97, label %98, !prof !29
+_ZNSt6vectorIN9grpc_core17EndpointAddressesESaIS1_EEaSEOS3_.exit: ; preds = %_ZSt8_DestroyIPN9grpc_core17EndpointAddressesES1_EvT_S3_RSaIT0_E.exit.i.i.i, %92
+  %96 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN9grpc_core27cares_address_sorting_traceE, i64 16) monotonic, align 8
+  %97 = trunc i8 %96 to i1
+  br i1 %97, label %98, label %99, !prof !29
 
-97:                                               ; preds = %_ZNSt6vectorIN9grpc_core17EndpointAddressesESaIS1_EEaSEOS3_.exit
+98:                                               ; preds = %_ZNSt6vectorIN9grpc_core17EndpointAddressesESaIS1_EEaSEOS3_.exit
   invoke fastcc void @_ZL24log_address_sorting_listPK17grpc_ares_requestRKSt6vectorIN9grpc_core17EndpointAddressesESaIS4_EEPKc(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull @.str.9)
-          to label %98 unwind label %51
+          to label %99 unwind label %51
 
-98:                                               ; preds = %97, %_ZNSt6vectorIN9grpc_core17EndpointAddressesESaIS1_EEaSEOS3_.exit
-  %99 = load ptr, ptr %3, align 8, !tbaa !101
-  %100 = load ptr, ptr %78, align 8, !tbaa !98
-  %.not4.i.i.i.i = icmp eq ptr %99, %100
+99:                                               ; preds = %98, %_ZNSt6vectorIN9grpc_core17EndpointAddressesESaIS1_EEaSEOS3_.exit
+  %100 = load ptr, ptr %3, align 8, !tbaa !101
+  %101 = load ptr, ptr %79, align 8, !tbaa !98
+  %.not4.i.i.i.i = icmp eq ptr %100, %101
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPN9grpc_core17EndpointAddressesES1_EvT_S3_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %98, %_ZSt8_DestroyIN9grpc_core17EndpointAddressesEEvPT_.exit.i.i.i.i
-  %.05.i.i.i.i = phi ptr [ %109, %_ZSt8_DestroyIN9grpc_core17EndpointAddressesEEvPT_.exit.i.i.i.i ], [ %99, %98 ]
-  %101 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 24
-  call void @_ZN9grpc_core11ChannelArgsD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %101) #31
-  %102 = load ptr, ptr %.05.i.i.i.i, align 8, !tbaa !105
-  %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %102, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN9grpc_core17EndpointAddressesEEvPT_.exit.i.i.i.i, label %103
+.lr.ph.i.i.i.i:                                   ; preds = %99, %_ZSt8_DestroyIN9grpc_core17EndpointAddressesEEvPT_.exit.i.i.i.i
+  %.05.i.i.i.i = phi ptr [ %110, %_ZSt8_DestroyIN9grpc_core17EndpointAddressesEEvPT_.exit.i.i.i.i ], [ %100, %99 ]
+  %102 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 24
+  call void @_ZN9grpc_core11ChannelArgsD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %102) #31
+  %103 = load ptr, ptr %.05.i.i.i.i, align 8, !tbaa !105
+  %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %103, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN9grpc_core17EndpointAddressesEEvPT_.exit.i.i.i.i, label %104
 
-103:                                              ; preds = %.lr.ph.i.i.i.i
-  %104 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 16
-  %105 = load ptr, ptr %104, align 8, !tbaa !114
-  %106 = ptrtoint ptr %105 to i64
-  %107 = ptrtoint ptr %102 to i64
-  %108 = sub i64 %106, %107
-  call void @_ZdlPvm(ptr noundef nonnull %102, i64 noundef %108) #32
+104:                                              ; preds = %.lr.ph.i.i.i.i
+  %105 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 16
+  %106 = load ptr, ptr %105, align 8, !tbaa !114
+  %107 = ptrtoint ptr %106 to i64
+  %108 = ptrtoint ptr %103 to i64
+  %109 = sub i64 %107, %108
+  call void @_ZdlPvm(ptr noundef nonnull %103, i64 noundef %109) #32
   br label %_ZSt8_DestroyIN9grpc_core17EndpointAddressesEEvPT_.exit.i.i.i.i
 
-_ZSt8_DestroyIN9grpc_core17EndpointAddressesEEvPT_.exit.i.i.i.i: ; preds = %103, %.lr.ph.i.i.i.i
-  %109 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 32
-  %.not.i.i.i.i = icmp eq ptr %109, %100
+_ZSt8_DestroyIN9grpc_core17EndpointAddressesEEvPT_.exit.i.i.i.i: ; preds = %104, %.lr.ph.i.i.i.i
+  %110 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 32
+  %.not.i.i.i.i = icmp eq ptr %110, %101
   br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN9grpc_core17EndpointAddressesES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !115
 
 _ZSt8_DestroyIPN9grpc_core17EndpointAddressesES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i: ; preds = %_ZSt8_DestroyIN9grpc_core17EndpointAddressesEEvPT_.exit.i.i.i.i
   %.pr.i = load ptr, ptr %3, align 8, !tbaa !101
   br label %_ZSt8_DestroyIPN9grpc_core17EndpointAddressesES1_EvT_S3_RSaIT0_E.exit.i
 
-_ZSt8_DestroyIPN9grpc_core17EndpointAddressesES1_EvT_S3_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPN9grpc_core17EndpointAddressesES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, %98
-  %110 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPN9grpc_core17EndpointAddressesES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i ], [ %99, %98 ]
-  %.not.i.i.i = icmp eq ptr %110, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIN9grpc_core17EndpointAddressesESaIS1_EED2Ev.exit, label %111
+_ZSt8_DestroyIPN9grpc_core17EndpointAddressesES1_EvT_S3_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPN9grpc_core17EndpointAddressesES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, %99
+  %111 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPN9grpc_core17EndpointAddressesES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i ], [ %100, %99 ]
+  %.not.i.i.i = icmp eq ptr %111, null
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIN9grpc_core17EndpointAddressesESaIS1_EED2Ev.exit, label %112
 
-111:                                              ; preds = %_ZSt8_DestroyIPN9grpc_core17EndpointAddressesES1_EvT_S3_RSaIT0_E.exit.i
-  %112 = load ptr, ptr %80, align 8, !tbaa !112
-  %113 = ptrtoint ptr %112 to i64
-  %114 = ptrtoint ptr %110 to i64
-  %115 = sub i64 %113, %114
-  call void @_ZdlPvm(ptr noundef nonnull %110, i64 noundef %115) #32
+112:                                              ; preds = %_ZSt8_DestroyIPN9grpc_core17EndpointAddressesES1_EvT_S3_RSaIT0_E.exit.i
+  %113 = load ptr, ptr %81, align 8, !tbaa !112
+  %114 = ptrtoint ptr %113 to i64
+  %115 = ptrtoint ptr %111 to i64
+  %116 = sub i64 %114, %115
+  call void @_ZdlPvm(ptr noundef nonnull %111, i64 noundef %116) #32
   br label %_ZNSt6vectorIN9grpc_core17EndpointAddressesESaIS1_EED2Ev.exit
 
-_ZNSt6vectorIN9grpc_core17EndpointAddressesESaIS1_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN9grpc_core17EndpointAddressesES1_EvT_S3_RSaIT0_E.exit.i, %111
+_ZNSt6vectorIN9grpc_core17EndpointAddressesESaIS1_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN9grpc_core17EndpointAddressesES1_EvT_S3_RSaIT0_E.exit.i, %112
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
-116:                                              ; preds = %70, %51
-  %.pn = phi { ptr, i32 } [ %71, %70 ], [ %52, %51 ]
+117:                                              ; preds = %71, %51
+  %.pn = phi { ptr, i32 } [ %72, %71 ], [ %52, %51 ]
   call void @_ZNSt6vectorIN9grpc_core17EndpointAddressesESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn

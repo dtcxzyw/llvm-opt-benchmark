@@ -683,32 +683,30 @@ index_tree_append.exit:                           ; preds = %137, %110, %108, %8
   %140 = load i64, ptr %139, align 8, !tbaa !36
   %141 = getelementptr inbounds nuw %struct.index_record, ptr %138, i64 %140
   store i64 %32, ptr %141, align 8, !tbaa !46
-  %.idx = shl nuw nsw i64 %140, 4
-  %142 = getelementptr inbounds nuw i8, ptr %138, i64 %.idx
-  %143 = getelementptr inbounds nuw i8, ptr %142, i64 8
-  store i64 %35, ptr %143, align 8, !tbaa !37
-  %144 = load i64, ptr %40, align 8, !tbaa !40
-  %145 = add i64 %144, 1
-  store i64 %145, ptr %40, align 8, !tbaa !40
-  %146 = load i64, ptr %41, align 8, !tbaa !39
-  %147 = add i64 %146, %42
-  store i64 %147, ptr %41, align 8, !tbaa !39
-  %148 = add nuw nsw i64 %2, 3
-  %149 = and i64 %148, 9223372036854775804
-  %150 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %151 = load i64, ptr %150, align 8, !tbaa !32
-  %152 = add i64 %151, %149
-  store i64 %152, ptr %150, align 8, !tbaa !32
-  %153 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %154 = load i64, ptr %153, align 8, !tbaa !41
-  %155 = add i64 %154, %3
-  store i64 %155, ptr %153, align 8, !tbaa !41
-  %156 = load i64, ptr %64, align 8, !tbaa !30
-  %157 = add i64 %156, 1
-  store i64 %157, ptr %64, align 8, !tbaa !30
-  %158 = load i64, ptr %67, align 8, !tbaa !31
-  %159 = add i64 %158, %42
-  store i64 %159, ptr %67, align 8, !tbaa !31
+  %142 = getelementptr inbounds nuw i8, ptr %141, i64 8
+  store i64 %35, ptr %142, align 8, !tbaa !37
+  %143 = load i64, ptr %40, align 8, !tbaa !40
+  %144 = add i64 %143, 1
+  store i64 %144, ptr %40, align 8, !tbaa !40
+  %145 = load i64, ptr %41, align 8, !tbaa !39
+  %146 = add i64 %145, %42
+  store i64 %146, ptr %41, align 8, !tbaa !39
+  %147 = add nuw nsw i64 %2, 3
+  %148 = and i64 %147, 9223372036854775804
+  %149 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %150 = load i64, ptr %149, align 8, !tbaa !32
+  %151 = add i64 %150, %148
+  store i64 %151, ptr %149, align 8, !tbaa !32
+  %152 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %153 = load i64, ptr %152, align 8, !tbaa !41
+  %154 = add i64 %153, %3
+  store i64 %154, ptr %152, align 8, !tbaa !41
+  %155 = load i64, ptr %64, align 8, !tbaa !30
+  %156 = add i64 %155, 1
+  store i64 %156, ptr %64, align 8, !tbaa !30
+  %157 = load i64, ptr %67, align 8, !tbaa !31
+  %158 = add i64 %157, %42
+  store i64 %158, ptr %67, align 8, !tbaa !31
   br label %index_file_size.exit.thread
 
 index_file_size.exit.thread:                      ; preds = %37, %index_tree_append.exit, %.thread, %34, %index_file_size.exit, %63, %85, %4
@@ -1894,8 +1892,7 @@ define internal fastcc void @iter_set_info(ptr noundef captures(none) initialize
   %70 = getelementptr inbounds nuw i8, ptr %50, i64 64
   %71 = getelementptr inbounds nuw i8, ptr %50, i64 56
   %72 = load i64, ptr %71, align 8, !tbaa !36
-  %.idx = shl nuw nsw i64 %72, 4
-  %73 = getelementptr inbounds nuw i8, ptr %70, i64 %.idx
+  %73 = getelementptr inbounds nuw %struct.index_record, ptr %70, i64 %72
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 8
   %75 = load i64, ptr %74, align 8, !tbaa !37
   %76 = add i64 %75, 3

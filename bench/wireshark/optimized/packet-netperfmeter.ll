@@ -332,10 +332,11 @@ define internal void @npm_stat_init(ptr noundef %0) #0 {
 
 29:                                               ; preds = %8, %29
   %indvars.iv = phi i64 [ 0, %8 ], [ %indvars.iv.next, %29 ]
-  %30 = getelementptr %struct._value_string, ptr @message_type_values, i64 %indvars.iv, i32 1
+  %30 = getelementptr %struct._value_string, ptr @message_type_values, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store i32 3, ptr %2, align 16
-  %31 = load ptr, ptr %30, align 8
-  store ptr %31, ptr %10, align 8
+  %32 = load ptr, ptr %31, align 8
+  store ptr %32, ptr %10, align 8
   store i32 1, ptr %11, align 8
   store i32 0, ptr %12, align 16
   store i32 0, ptr %13, align 16
@@ -354,8 +355,8 @@ define internal void @npm_stat_init(ptr noundef %0) #0 {
   store double -1.000000e+00, ptr %26, align 8
   store i32 0, ptr %27, align 8
   store double -1.000000e+00, ptr %28, align 16
-  %32 = trunc nuw nsw i64 %indvars.iv to i32
-  call void @stat_tap_init_table_row(ptr noundef %9, i32 noundef %32, i32 noundef 10, ptr noundef nonnull %2)
+  %33 = trunc nuw nsw i64 %indvars.iv to i32
+  call void @stat_tap_init_table_row(ptr noundef %9, i32 noundef %33, i32 noundef 10, ptr noundef nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not17 = icmp eq i64 %indvars.iv.next, 8
   br i1 %.not17, label %.loopexit, label %29, !llvm.loop !6

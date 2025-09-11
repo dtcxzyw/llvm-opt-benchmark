@@ -1016,21 +1016,21 @@ define noundef i32 @_Z15gmx_fft_1d_realP7gmx_fft17gmx_fft_directionPvS2_(ptr nou
   %24 = zext i1 %10 to i64
   %25 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %0, i64 %24
   %26 = zext i1 %11 to i64
-  br i1 %12, label %27, label %30
+  %27 = getelementptr inbounds nuw [2 x ptr], ptr %25, i64 %26
+  br i1 %12, label %28, label %31
 
-27:                                               ; preds = %23
-  %28 = getelementptr inbounds nuw [2 x ptr], ptr %25, i64 %26, i64 1
-  %29 = load ptr, ptr %28, align 8, !tbaa !11
-  tail call void @fftwf_execute_dft_r2c(ptr noundef %29, ptr noundef %2, ptr noundef %3)
+28:                                               ; preds = %23
+  %29 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  %30 = load ptr, ptr %29, align 8, !tbaa !11
+  tail call void @fftwf_execute_dft_r2c(ptr noundef %30, ptr noundef %2, ptr noundef %3)
   br label %33
 
-30:                                               ; preds = %23
-  %31 = getelementptr inbounds nuw [2 x ptr], ptr %25, i64 %26
-  %32 = load ptr, ptr %31, align 8, !tbaa !11
+31:                                               ; preds = %23
+  %32 = load ptr, ptr %27, align 8, !tbaa !11
   tail call void @fftwf_execute_dft_c2r(ptr noundef %32, ptr noundef %2, ptr noundef %3)
   br label %33
 
-33:                                               ; preds = %30, %27
+33:                                               ; preds = %31, %28
   ret i32 0
 }
 
@@ -1088,21 +1088,21 @@ define noundef i32 @_Z15gmx_fft_2d_realP7gmx_fft17gmx_fft_directionPvS2_(ptr nou
   %24 = zext i1 %10 to i64
   %25 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %0, i64 %24
   %26 = zext i1 %11 to i64
-  br i1 %12, label %27, label %30
+  %27 = getelementptr inbounds nuw [2 x ptr], ptr %25, i64 %26
+  br i1 %12, label %28, label %31
 
-27:                                               ; preds = %23
-  %28 = getelementptr inbounds nuw [2 x ptr], ptr %25, i64 %26, i64 1
-  %29 = load ptr, ptr %28, align 8, !tbaa !11
-  tail call void @fftwf_execute_dft_r2c(ptr noundef %29, ptr noundef %2, ptr noundef %3)
+28:                                               ; preds = %23
+  %29 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  %30 = load ptr, ptr %29, align 8, !tbaa !11
+  tail call void @fftwf_execute_dft_r2c(ptr noundef %30, ptr noundef %2, ptr noundef %3)
   br label %33
 
-30:                                               ; preds = %23
-  %31 = getelementptr inbounds nuw [2 x ptr], ptr %25, i64 %26
-  %32 = load ptr, ptr %31, align 8, !tbaa !11
+31:                                               ; preds = %23
+  %32 = load ptr, ptr %27, align 8, !tbaa !11
   tail call void @fftwf_execute_dft_c2r(ptr noundef %32, ptr noundef %2, ptr noundef %3)
   br label %33
 
-33:                                               ; preds = %30, %27
+33:                                               ; preds = %31, %28
   ret i32 0
 }
 

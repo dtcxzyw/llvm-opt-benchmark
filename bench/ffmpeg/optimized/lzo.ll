@@ -40,7 +40,7 @@ define range(i32 0, 16) i32 @av_lzo1x_decode(ptr noundef %0, ptr noundef capture
 select.unfold.i:                                  ; preds = %12
   %21 = add nsw i32 %19, -17
   %22 = zext nneg i32 %21 to i64
-  %.not184 = icmp ule i32 %.pre, %21
+  %.not184 = icmp samesign ule i32 %.pre, %21
   %spec.select39.i = add nsw i64 %13, -1
   %spec.select.i = trunc nuw nsw i64 %spec.select39.i to i32
   %.sroa.64.6 = zext i1 %.not184 to i32

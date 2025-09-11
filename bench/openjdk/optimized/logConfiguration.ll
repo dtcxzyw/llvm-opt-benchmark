@@ -325,7 +325,7 @@ define hidden void @_ZN16LogConfiguration18describe_availableEP12outputStream(pt
   %11 = select i1 %10, ptr @.str.22, ptr @.str.23
   %12 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN13LogDecorators5_nameE, i64 %.01820
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN13LogDecorators5_nameE, i64 %.01820, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %15 = load ptr, ptr %14, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.25, ptr noundef nonnull %11, ptr noundef %13, ptr noundef %15) #11
   %16 = add nuw nsw i64 %.01820, 1
@@ -1560,7 +1560,7 @@ define hidden void @_ZN16LogConfiguration23print_command_line_helpEP12outputStre
   %11 = select i1 %10, ptr @.str.22, ptr @.str.23
   %12 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN13LogDecorators5_nameE, i64 %.08183
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN13LogDecorators5_nameE, i64 %.08183, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %15 = load ptr, ptr %14, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.25, ptr noundef nonnull %11, ptr noundef %13, ptr noundef %15) #11
   %16 = add nuw nsw i64 %.08183, 1

@@ -8701,7 +8701,7 @@ define internal void @_ZN6icu_7712_GLOBAL__N_115UTF8NFDIteratorD0Ev(ptr noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @_ZN6icu_7712_GLOBAL__N_115UTF8NFDIterator16nextRawCodePointEv(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %0) unnamed_addr #11 align 2 {
+define internal noundef range(i32 -1, 4194304) i32 @_ZN6icu_7712_GLOBAL__N_115UTF8NFDIterator16nextRawCodePointEv(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %0) unnamed_addr #11 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i32, ptr %2, align 8, !tbaa !169
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44

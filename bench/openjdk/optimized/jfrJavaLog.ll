@@ -898,37 +898,38 @@ define hidden void @_ZN10JfrJavaLog3logEiiP8_jstringP10JavaThread(i32 noundef %0
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %24 = load ptr, ptr %23, align 8
   %.not = icmp eq ptr %24, null
-  br i1 %.not, label %25, label %29
+  br i1 %.not, label %25, label %30
 
 25:                                               ; preds = %11
   %26 = zext nneg i32 %0 to i64
-  %27 = getelementptr inbounds nuw %struct.jfrLogSubscriber, ptr @_ZL12log_tag_sets, i64 %26, i32 1
-  %28 = load ptr, ptr %27, align 8
-  tail call void @_ZN9LogTagSet3logEN8LogLevel4typeEPKc(ptr noundef nonnull align 8 dereferenceable(112) %28, i32 noundef %1, ptr noundef %22) #6
-  br label %29
+  %27 = getelementptr inbounds nuw %struct.jfrLogSubscriber, ptr @_ZL12log_tag_sets, i64 %26
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  %29 = load ptr, ptr %28, align 8
+  tail call void @_ZN9LogTagSet3logEN8LogLevel4typeEPKc(ptr noundef nonnull align 8 dereferenceable(112) %29, i32 noundef %1, ptr noundef %22) #6
+  br label %30
 
-29:                                               ; preds = %11, %25
-  %30 = load ptr, ptr %15, align 8
-  %.not.i.i.i.i = icmp eq ptr %30, null
-  br i1 %.not.i.i.i.i, label %32, label %31
+30:                                               ; preds = %11, %25
+  %31 = load ptr, ptr %15, align 8
+  %.not.i.i.i.i = icmp eq ptr %31, null
+  br i1 %.not.i.i.i.i, label %33, label %32
 
-31:                                               ; preds = %29
+32:                                               ; preds = %30
   tail call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %13, i64 noundef %21) #6
   tail call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %15) #6
-  br label %32
+  br label %33
 
-32:                                               ; preds = %31, %29
-  %33 = load ptr, ptr %16, align 8
-  %.not8.i.i.i.i = icmp eq ptr %33, %17
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %34
+33:                                               ; preds = %32, %30
+  %34 = load ptr, ptr %16, align 8
+  %.not8.i.i.i.i = icmp eq ptr %34, %17
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %35
 
-34:                                               ; preds = %32
+35:                                               ; preds = %33
   store ptr %15, ptr %14, align 8
   store ptr %17, ptr %16, align 8
   store ptr %19, ptr %18, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %34, %32, %4, %10, %8
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %35, %33, %4, %10, %8
   ret void
 }
 

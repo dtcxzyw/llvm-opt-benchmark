@@ -244,13 +244,13 @@ declare ptr @ff_slice_buffer_load_line(ptr noundef, i32 noundef) local_unnamed_a
 define void @ff_snow_reset_contexts(ptr noundef writeonly captures(none) %0) local_unnamed_addr #2 {
   br label %.preheader
 
-.preheader:                                       ; preds = %1, %9
-  %indvars.iv22 = phi i64 [ 0, %1 ], [ %indvars.iv.next23, %9 ]
-  %2 = getelementptr inbounds nuw %struct.Plane, ptr %0, i64 %indvars.iv22, i32 2, i64 0, i64 0, i32 12, i64 206, i64 16
+.preheader:                                       ; preds = %1, %10
+  %indvars.iv22 = phi i64 [ 0, %1 ], [ %indvars.iv.next23, %10 ]
+  %2 = getelementptr inbounds nuw %struct.Plane, ptr %0, i64 %indvars.iv22
   br label %3
 
-3:                                                ; preds = %.preheader, %8
-  %indvars.iv18 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next19, %8 ]
+3:                                                ; preds = %.preheader, %9
+  %indvars.iv18 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next19, %9 ]
   %.not = icmp ne i64 %indvars.iv18, 0
   %4 = getelementptr inbounds nuw [4 x %struct.SubBand], ptr %2, i64 %indvars.iv18
   %5 = zext i1 %.not to i64
@@ -258,25 +258,26 @@ define void @ff_snow_reset_contexts(ptr noundef writeonly captures(none) %0) loc
 
 6:                                                ; preds = %3, %6
   %indvars.iv = phi i64 [ %5, %3 ], [ %indvars.iv.next, %6 ]
-  %7 = getelementptr inbounds nuw %struct.SubBand, ptr %4, i64 %indvars.iv, i32 12
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16608) %7, i8 -128, i64 16608, i1 false)
+  %7 = getelementptr inbounds nuw %struct.SubBand, ptr %4, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 6760
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16608) %8, i8 -128, i64 16608, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %8, label %6, !llvm.loop !22
+  br i1 %exitcond.not, label %9, label %6, !llvm.loop !22
 
-8:                                                ; preds = %6
+9:                                                ; preds = %6
   %indvars.iv.next19 = add nuw nsw i64 %indvars.iv18, 1
   %exitcond21.not = icmp eq i64 %indvars.iv.next19, 8
-  br i1 %exitcond21.not, label %9, label %3, !llvm.loop !23
-
-9:                                                ; preds = %8
-  %indvars.iv.next23 = add nuw nsw i64 %indvars.iv22, 1
-  %exitcond25.not = icmp eq i64 %indvars.iv.next23, 3
-  br i1 %exitcond25.not, label %10, label %.preheader, !llvm.loop !24
+  br i1 %exitcond21.not, label %10, label %3, !llvm.loop !23
 
 10:                                               ; preds = %9
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(4256) %11, i8 -128, i64 4256, i1 false)
+  %indvars.iv.next23 = add nuw nsw i64 %indvars.iv22, 1
+  %exitcond25.not = icmp eq i64 %indvars.iv.next23, 3
+  br i1 %exitcond25.not, label %11, label %.preheader, !llvm.loop !24
+
+11:                                               ; preds = %10
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 2144
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(4256) %12, i8 -128, i64 4256, i1 false)
   ret void
 }
 
@@ -2232,13 +2233,13 @@ define void @ff_snow_common_end(ptr noundef %0) local_unnamed_addr #5 {
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
   br i1 %exitcond.not, label %.preheader, label %11, !llvm.loop !132
 
-.preheader:                                       ; preds = %11, %20
-  %indvars.iv41 = phi i64 [ %indvars.iv.next42, %20 ], [ 0, %11 ]
-  %13 = getelementptr inbounds nuw %struct.Plane, ptr %0, i64 %indvars.iv41, i32 2, i64 0, i64 0, i32 12, i64 206, i64 16
+.preheader:                                       ; preds = %11, %21
+  %indvars.iv41 = phi i64 [ %indvars.iv.next42, %21 ], [ 0, %11 ]
+  %13 = getelementptr inbounds nuw %struct.Plane, ptr %0, i64 %indvars.iv41
   br label %14
 
-14:                                               ; preds = %.preheader, %19
-  %indvars.iv38 = phi i64 [ 7, %.preheader ], [ %indvars.iv.next39, %19 ]
+14:                                               ; preds = %.preheader, %20
+  %indvars.iv38 = phi i64 [ 7, %.preheader ], [ %indvars.iv.next39, %20 ]
   %.not = icmp ne i64 %indvars.iv38, 0
   %15 = getelementptr inbounds nuw [4 x %struct.SubBand], ptr %13, i64 %indvars.iv38
   %16 = zext i1 %.not to i64
@@ -2246,27 +2247,28 @@ define void @ff_snow_common_end(ptr noundef %0) local_unnamed_addr #5 {
 
 17:                                               ; preds = %14, %17
   %indvars.iv34 = phi i64 [ %16, %14 ], [ %indvars.iv.next35, %17 ]
-  %18 = getelementptr inbounds nuw %struct.SubBand, ptr %15, i64 %indvars.iv34, i32 10
-  tail call void @av_freep(ptr noundef nonnull %18) #10
+  %18 = getelementptr inbounds nuw %struct.SubBand, ptr %15, i64 %indvars.iv34
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 6744
+  tail call void @av_freep(ptr noundef nonnull %19) #10
   %indvars.iv.next35 = add nuw nsw i64 %indvars.iv34, 1
   %exitcond37.not = icmp eq i64 %indvars.iv.next35, 4
-  br i1 %exitcond37.not, label %19, label %17, !llvm.loop !133
+  br i1 %exitcond37.not, label %20, label %17, !llvm.loop !133
 
-19:                                               ; preds = %17
+20:                                               ; preds = %17
   %indvars.iv.next39 = add nsw i64 %indvars.iv38, -1
   %.not45 = icmp eq i64 %indvars.iv38, 0
-  br i1 %.not45, label %20, label %14, !llvm.loop !134
-
-20:                                               ; preds = %19
-  %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
-  %exitcond44.not = icmp eq i64 %indvars.iv.next42, 4
-  br i1 %exitcond44.not, label %21, label %.preheader, !llvm.loop !135
+  br i1 %.not45, label %21, label %14, !llvm.loop !134
 
 21:                                               ; preds = %20
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 2136
-  tail call void @av_frame_free(ptr noundef nonnull %22) #10
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 2064
+  %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
+  %exitcond44.not = icmp eq i64 %indvars.iv.next42, 4
+  br i1 %exitcond44.not, label %22, label %.preheader, !llvm.loop !135
+
+22:                                               ; preds = %21
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 2136
   tail call void @av_frame_free(ptr noundef nonnull %23) #10
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 2064
+  tail call void @av_frame_free(ptr noundef nonnull %24) #10
   ret void
 }
 

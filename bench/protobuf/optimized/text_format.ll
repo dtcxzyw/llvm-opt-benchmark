@@ -714,7 +714,8 @@ for.body.i.i.i.i.i:                               ; preds = %for.inc.i.i.i.i.i, 
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i, label %for.inc.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %for.body.i.i.i.i.i
-  %second.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type.218", ptr %6, i64 %i.05.i.i.i.i.i, i32 0, i32 1
+  %add.ptr.i.i.i.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type.218", ptr %6, i64 %i.05.i.i.i.i.i
+  %second.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i, i64 8
   %8 = load ptr, ptr %second.i.i.i.i.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %8, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN4absl12lts_2023080218container_internal20common_policy_traitsINS1_17FlatHashMapPolicyIPKN6google8protobuf10DescriptorESt10unique_ptrIKNS5_10TextFormat14MessagePrinterESt14default_deleteISC_EEEEvE7destroyISaISt4pairIKS8_SF_EEEEvPT_PNS1_13map_slot_typeIS8_SF_EE.exit.i.i.i.i.i, label %_ZNKSt14default_deleteIKN6google8protobuf10TextFormat14MessagePrinterEEclEPS4_.exit.i.i.i.i.i.i.i.i.i.i.i.i
@@ -737,8 +738,8 @@ for.inc.i.i.i.i.i:                                ; preds = %_ZN4absl12lts_20230
 
 invoke.cont13.i.i.i.i:                            ; preds = %for.inc.i.i.i.i.i
   %10 = load ptr, ptr %custom_message_printers_.i, align 8
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 -8
-  call void @_ZdlPv(ptr noundef nonnull %add.ptr.i.i.i.i.i) #37
+  %add.ptr.i3.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 -8
+  call void @_ZdlPv(ptr noundef nonnull %add.ptr.i3.i.i.i.i) #37
   br label %_ZN4absl12lts_2023080213flat_hash_mapIPKN6google8protobuf10DescriptorESt10unique_ptrIKNS3_10TextFormat14MessagePrinterESt14default_deleteISA_EENS0_18container_internal6HashEqIS6_vE4HashENSG_2EqESaISt4pairIKS6_SD_EEED2Ev.exit.i
 
 _ZN4absl12lts_2023080213flat_hash_mapIPKN6google8protobuf10DescriptorESt10unique_ptrIKNS3_10TextFormat14MessagePrinterESt14default_deleteISA_EENS0_18container_internal6HashEqIS6_vE4HashENSG_2EqESaISt4pairIKS6_SD_EEED2Ev.exit.i: ; preds = %invoke.cont13.i.i.i.i, %invoke.cont6
@@ -762,20 +763,21 @@ for.body.i.i.i.i5.i:                              ; preds = %for.inc.i.i.i.i9.i,
   br i1 %cmp.i.i.i.i.i8.i, label %if.then.i.i.i.i14.i, label %for.inc.i.i.i.i9.i
 
 if.then.i.i.i.i14.i:                              ; preds = %for.body.i.i.i.i5.i
-  %second.i.i.i.i.i.i.i.i.i.i15.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type.223", ptr %13, i64 %i.05.i.i.i.i6.i, i32 0, i32 1
-  %15 = load ptr, ptr %second.i.i.i.i.i.i.i.i.i.i15.i, align 8
-  %cmp.not.i.i.i.i.i.i.i.i.i.i.i16.i = icmp eq ptr %15, null
-  br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i16.i, label %_ZN4absl12lts_2023080218container_internal20common_policy_traitsINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorESt10unique_ptrIKNS5_10TextFormat21FastFieldValuePrinterESt14default_deleteISC_EEEEvE7destroyISaISt4pairIKS8_SF_EEEEvPT_PNS1_13map_slot_typeIS8_SF_EE.exit.i.i.i.i.i, label %_ZNKSt14default_deleteIKN6google8protobuf10TextFormat21FastFieldValuePrinterEEclEPS4_.exit.i.i.i.i.i.i.i.i.i.i.i.i
+  %add.ptr.i.i.i.i15.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type.223", ptr %13, i64 %i.05.i.i.i.i6.i
+  %second.i.i.i.i.i.i.i.i.i.i16.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i15.i, i64 8
+  %15 = load ptr, ptr %second.i.i.i.i.i.i.i.i.i.i16.i, align 8
+  %cmp.not.i.i.i.i.i.i.i.i.i.i.i17.i = icmp eq ptr %15, null
+  br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i17.i, label %_ZN4absl12lts_2023080218container_internal20common_policy_traitsINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorESt10unique_ptrIKNS5_10TextFormat21FastFieldValuePrinterESt14default_deleteISC_EEEEvE7destroyISaISt4pairIKS8_SF_EEEEvPT_PNS1_13map_slot_typeIS8_SF_EE.exit.i.i.i.i.i, label %_ZNKSt14default_deleteIKN6google8protobuf10TextFormat21FastFieldValuePrinterEEclEPS4_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZNKSt14default_deleteIKN6google8protobuf10TextFormat21FastFieldValuePrinterEEclEPS4_.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i14.i
-  %vtable.i.i.i.i.i.i.i.i.i.i.i.i17.i = load ptr, ptr %15, align 8
-  %vfn.i.i.i.i.i.i.i.i.i.i.i.i18.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i.i.i.i.i.i.i.i17.i, i64 8
-  %16 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i.i.i.i18.i, align 8
+  %vtable.i.i.i.i.i.i.i.i.i.i.i.i18.i = load ptr, ptr %15, align 8
+  %vfn.i.i.i.i.i.i.i.i.i.i.i.i19.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i.i.i.i.i.i.i.i18.i, i64 8
+  %16 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i.i.i.i19.i, align 8
   call void %16(ptr noundef nonnull align 8 dereferenceable(8) %15) #36
   br label %_ZN4absl12lts_2023080218container_internal20common_policy_traitsINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorESt10unique_ptrIKNS5_10TextFormat21FastFieldValuePrinterESt14default_deleteISC_EEEEvE7destroyISaISt4pairIKS8_SF_EEEEvPT_PNS1_13map_slot_typeIS8_SF_EE.exit.i.i.i.i.i
 
 _ZN4absl12lts_2023080218container_internal20common_policy_traitsINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorESt10unique_ptrIKNS5_10TextFormat21FastFieldValuePrinterESt14default_deleteISC_EEEEvE7destroyISaISt4pairIKS8_SF_EEEEvPT_PNS1_13map_slot_typeIS8_SF_EE.exit.i.i.i.i.i: ; preds = %_ZNKSt14default_deleteIKN6google8protobuf10TextFormat21FastFieldValuePrinterEEclEPS4_.exit.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i14.i
-  store ptr null, ptr %second.i.i.i.i.i.i.i.i.i.i15.i, align 8
+  store ptr null, ptr %second.i.i.i.i.i.i.i.i.i.i16.i, align 8
   br label %for.inc.i.i.i.i9.i
 
 for.inc.i.i.i.i9.i:                               ; preds = %_ZN4absl12lts_2023080218container_internal20common_policy_traitsINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorESt10unique_ptrIKNS5_10TextFormat21FastFieldValuePrinterESt14default_deleteISC_EEEEvE7destroyISaISt4pairIKS8_SF_EEEEvPT_PNS1_13map_slot_typeIS8_SF_EE.exit.i.i.i.i.i, %for.body.i.i.i.i5.i
@@ -785,8 +787,8 @@ for.inc.i.i.i.i9.i:                               ; preds = %_ZN4absl12lts_20230
 
 invoke.cont13.i.i.i12.i:                          ; preds = %for.inc.i.i.i.i9.i
   %17 = load ptr, ptr %custom_printers_.i, align 8
-  %add.ptr.i.i.i.i13.i = getelementptr inbounds i8, ptr %17, i64 -8
-  call void @_ZdlPv(ptr noundef nonnull %add.ptr.i.i.i.i13.i) #37
+  %add.ptr.i3.i.i.i13.i = getelementptr inbounds i8, ptr %17, i64 -8
+  call void @_ZdlPv(ptr noundef nonnull %add.ptr.i3.i.i.i13.i) #37
   br label %_ZN4absl12lts_2023080213flat_hash_mapIPKN6google8protobuf15FieldDescriptorESt10unique_ptrIKNS3_10TextFormat21FastFieldValuePrinterESt14default_deleteISA_EENS0_18container_internal6HashEqIS6_vE4HashENSG_2EqESaISt4pairIKS6_SD_EEED2Ev.exit.i
 
 _ZN4absl12lts_2023080213flat_hash_mapIPKN6google8protobuf15FieldDescriptorESt10unique_ptrIKNS3_10TextFormat21FastFieldValuePrinterESt14default_deleteISA_EENS0_18container_internal6HashEqIS6_vE4HashENSG_2EqESaISt4pairIKS6_SD_EEED2Ev.exit.i: ; preds = %invoke.cont13.i.i.i12.i, %_ZN4absl12lts_2023080213flat_hash_mapIPKN6google8protobuf10DescriptorESt10unique_ptrIKNS3_10TextFormat14MessagePrinterESt14default_deleteISA_EENS0_18container_internal6HashEqIS6_vE4HashENSG_2EqESaISt4pairIKS6_SD_EEED2Ev.exit.i
@@ -862,7 +864,8 @@ for.body.i.i.i.i:                                 ; preds = %for.inc.i.i.i.i, %i
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i, label %for.inc.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
-  %second.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type.218", ptr %2, i64 %i.05.i.i.i.i, i32 0, i32 1
+  %add.ptr.i.i.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type.218", ptr %2, i64 %i.05.i.i.i.i
+  %second.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i, i64 8
   %4 = load ptr, ptr %second.i.i.i.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %4, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZN4absl12lts_2023080218container_internal20common_policy_traitsINS1_17FlatHashMapPolicyIPKN6google8protobuf10DescriptorESt10unique_ptrIKNS5_10TextFormat14MessagePrinterESt14default_deleteISC_EEEEvE7destroyISaISt4pairIKS8_SF_EEEEvPT_PNS1_13map_slot_typeIS8_SF_EE.exit.i.i.i.i, label %_ZNKSt14default_deleteIKN6google8protobuf10TextFormat14MessagePrinterEEclEPS4_.exit.i.i.i.i.i.i.i.i.i.i.i
@@ -885,8 +888,8 @@ for.inc.i.i.i.i:                                  ; preds = %_ZN4absl12lts_20230
 
 invoke.cont13.i.i.i:                              ; preds = %for.inc.i.i.i.i
   %6 = load ptr, ptr %custom_message_printers_, align 8
-  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 -8
-  tail call void @_ZdlPv(ptr noundef nonnull %add.ptr.i.i.i.i) #37
+  %add.ptr.i3.i.i.i = getelementptr inbounds i8, ptr %6, i64 -8
+  tail call void @_ZdlPv(ptr noundef nonnull %add.ptr.i3.i.i.i) #37
   br label %_ZN4absl12lts_2023080213flat_hash_mapIPKN6google8protobuf10DescriptorESt10unique_ptrIKNS3_10TextFormat14MessagePrinterESt14default_deleteISA_EENS0_18container_internal6HashEqIS6_vE4HashENSG_2EqESaISt4pairIKS6_SD_EEED2Ev.exit
 
 _ZN4absl12lts_2023080213flat_hash_mapIPKN6google8protobuf10DescriptorESt10unique_ptrIKNS3_10TextFormat14MessagePrinterESt14default_deleteISA_EENS0_18container_internal6HashEqIS6_vE4HashENSG_2EqESaISt4pairIKS6_SD_EEED2Ev.exit: ; preds = %entry, %invoke.cont13.i.i.i
@@ -910,20 +913,21 @@ for.body.i.i.i.i5:                                ; preds = %for.inc.i.i.i.i9, %
   br i1 %cmp.i.i.i.i.i8, label %if.then.i.i.i.i14, label %for.inc.i.i.i.i9
 
 if.then.i.i.i.i14:                                ; preds = %for.body.i.i.i.i5
-  %second.i.i.i.i.i.i.i.i.i.i15 = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type.223", ptr %9, i64 %i.05.i.i.i.i6, i32 0, i32 1
-  %11 = load ptr, ptr %second.i.i.i.i.i.i.i.i.i.i15, align 8
-  %cmp.not.i.i.i.i.i.i.i.i.i.i.i16 = icmp eq ptr %11, null
-  br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i16, label %_ZN4absl12lts_2023080218container_internal20common_policy_traitsINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorESt10unique_ptrIKNS5_10TextFormat21FastFieldValuePrinterESt14default_deleteISC_EEEEvE7destroyISaISt4pairIKS8_SF_EEEEvPT_PNS1_13map_slot_typeIS8_SF_EE.exit.i.i.i.i, label %_ZNKSt14default_deleteIKN6google8protobuf10TextFormat21FastFieldValuePrinterEEclEPS4_.exit.i.i.i.i.i.i.i.i.i.i.i
+  %add.ptr.i.i.i.i15 = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type.223", ptr %9, i64 %i.05.i.i.i.i6
+  %second.i.i.i.i.i.i.i.i.i.i16 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i15, i64 8
+  %11 = load ptr, ptr %second.i.i.i.i.i.i.i.i.i.i16, align 8
+  %cmp.not.i.i.i.i.i.i.i.i.i.i.i17 = icmp eq ptr %11, null
+  br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i17, label %_ZN4absl12lts_2023080218container_internal20common_policy_traitsINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorESt10unique_ptrIKNS5_10TextFormat21FastFieldValuePrinterESt14default_deleteISC_EEEEvE7destroyISaISt4pairIKS8_SF_EEEEvPT_PNS1_13map_slot_typeIS8_SF_EE.exit.i.i.i.i, label %_ZNKSt14default_deleteIKN6google8protobuf10TextFormat21FastFieldValuePrinterEEclEPS4_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 _ZNKSt14default_deleteIKN6google8protobuf10TextFormat21FastFieldValuePrinterEEclEPS4_.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i14
-  %vtable.i.i.i.i.i.i.i.i.i.i.i.i17 = load ptr, ptr %11, align 8
-  %vfn.i.i.i.i.i.i.i.i.i.i.i.i18 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i.i.i.i.i.i.i.i17, i64 8
-  %12 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i.i.i.i18, align 8
+  %vtable.i.i.i.i.i.i.i.i.i.i.i.i18 = load ptr, ptr %11, align 8
+  %vfn.i.i.i.i.i.i.i.i.i.i.i.i19 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i.i.i.i.i.i.i.i18, i64 8
+  %12 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i.i.i.i19, align 8
   tail call void %12(ptr noundef nonnull align 8 dereferenceable(8) %11) #36
   br label %_ZN4absl12lts_2023080218container_internal20common_policy_traitsINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorESt10unique_ptrIKNS5_10TextFormat21FastFieldValuePrinterESt14default_deleteISC_EEEEvE7destroyISaISt4pairIKS8_SF_EEEEvPT_PNS1_13map_slot_typeIS8_SF_EE.exit.i.i.i.i
 
 _ZN4absl12lts_2023080218container_internal20common_policy_traitsINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorESt10unique_ptrIKNS5_10TextFormat21FastFieldValuePrinterESt14default_deleteISC_EEEEvE7destroyISaISt4pairIKS8_SF_EEEEvPT_PNS1_13map_slot_typeIS8_SF_EE.exit.i.i.i.i: ; preds = %_ZNKSt14default_deleteIKN6google8protobuf10TextFormat21FastFieldValuePrinterEEclEPS4_.exit.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i14
-  store ptr null, ptr %second.i.i.i.i.i.i.i.i.i.i15, align 8
+  store ptr null, ptr %second.i.i.i.i.i.i.i.i.i.i16, align 8
   br label %for.inc.i.i.i.i9
 
 for.inc.i.i.i.i9:                                 ; preds = %_ZN4absl12lts_2023080218container_internal20common_policy_traitsINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorESt10unique_ptrIKNS5_10TextFormat21FastFieldValuePrinterESt14default_deleteISC_EEEEvE7destroyISaISt4pairIKS8_SF_EEEEvPT_PNS1_13map_slot_typeIS8_SF_EE.exit.i.i.i.i, %for.body.i.i.i.i5
@@ -933,8 +937,8 @@ for.inc.i.i.i.i9:                                 ; preds = %_ZN4absl12lts_20230
 
 invoke.cont13.i.i.i12:                            ; preds = %for.inc.i.i.i.i9
   %13 = load ptr, ptr %custom_printers_, align 8
-  %add.ptr.i.i.i.i13 = getelementptr inbounds i8, ptr %13, i64 -8
-  tail call void @_ZdlPv(ptr noundef nonnull %add.ptr.i.i.i.i13) #37
+  %add.ptr.i3.i.i.i13 = getelementptr inbounds i8, ptr %13, i64 -8
+  tail call void @_ZdlPv(ptr noundef nonnull %add.ptr.i3.i.i.i13) #37
   br label %_ZN4absl12lts_2023080213flat_hash_mapIPKN6google8protobuf15FieldDescriptorESt10unique_ptrIKNS3_10TextFormat21FastFieldValuePrinterESt14default_deleteISA_EENS0_18container_internal6HashEqIS6_vE4HashENSG_2EqESaISt4pairIKS6_SD_EEED2Ev.exit
 
 _ZN4absl12lts_2023080213flat_hash_mapIPKN6google8protobuf15FieldDescriptorESt10unique_ptrIKNS3_10TextFormat21FastFieldValuePrinterESt14default_deleteISA_EENS0_18container_internal6HashEqIS6_vE4HashENSG_2EqESaISt4pairIKS6_SD_EEED2Ev.exit: ; preds = %_ZN4absl12lts_2023080213flat_hash_mapIPKN6google8protobuf10DescriptorESt10unique_ptrIKNS3_10TextFormat14MessagePrinterESt14default_deleteISA_EENS0_18container_internal6HashEqIS6_vE4HashENSG_2EqESaISt4pairIKS6_SD_EEED2Ev.exit, %invoke.cont13.i.i.i12
@@ -1041,7 +1045,8 @@ for.body.i.i.i.i.i:                               ; preds = %for.inc.i.i.i.i.i, 
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i, label %for.inc.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %for.body.i.i.i.i.i
-  %second.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type.218", ptr %7, i64 %i.05.i.i.i.i.i, i32 0, i32 1
+  %add.ptr.i.i.i.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type.218", ptr %7, i64 %i.05.i.i.i.i.i
+  %second.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i, i64 8
   %9 = load ptr, ptr %second.i.i.i.i.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN4absl12lts_2023080218container_internal20common_policy_traitsINS1_17FlatHashMapPolicyIPKN6google8protobuf10DescriptorESt10unique_ptrIKNS5_10TextFormat14MessagePrinterESt14default_deleteISC_EEEEvE7destroyISaISt4pairIKS8_SF_EEEEvPT_PNS1_13map_slot_typeIS8_SF_EE.exit.i.i.i.i.i, label %_ZNKSt14default_deleteIKN6google8protobuf10TextFormat14MessagePrinterEEclEPS4_.exit.i.i.i.i.i.i.i.i.i.i.i.i
@@ -1064,8 +1069,8 @@ for.inc.i.i.i.i.i:                                ; preds = %_ZN4absl12lts_20230
 
 invoke.cont13.i.i.i.i:                            ; preds = %for.inc.i.i.i.i.i
   %11 = load ptr, ptr %custom_message_printers_.i, align 8
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 -8
-  call void @_ZdlPv(ptr noundef nonnull %add.ptr.i.i.i.i.i) #37
+  %add.ptr.i3.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 -8
+  call void @_ZdlPv(ptr noundef nonnull %add.ptr.i3.i.i.i.i) #37
   br label %_ZN4absl12lts_2023080213flat_hash_mapIPKN6google8protobuf10DescriptorESt10unique_ptrIKNS3_10TextFormat14MessagePrinterESt14default_deleteISA_EENS0_18container_internal6HashEqIS6_vE4HashENSG_2EqESaISt4pairIKS6_SD_EEED2Ev.exit.i
 
 _ZN4absl12lts_2023080213flat_hash_mapIPKN6google8protobuf10DescriptorESt10unique_ptrIKNS3_10TextFormat14MessagePrinterESt14default_deleteISA_EENS0_18container_internal6HashEqIS6_vE4HashENSG_2EqESaISt4pairIKS6_SD_EEED2Ev.exit.i: ; preds = %invoke.cont13.i.i.i.i, %_ZN6google8protobuf12_GLOBAL__N_117TrimTrailingSpaceERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
@@ -1089,20 +1094,21 @@ for.body.i.i.i.i5.i:                              ; preds = %for.inc.i.i.i.i9.i,
   br i1 %cmp.i.i.i.i.i8.i, label %if.then.i.i.i.i14.i, label %for.inc.i.i.i.i9.i
 
 if.then.i.i.i.i14.i:                              ; preds = %for.body.i.i.i.i5.i
-  %second.i.i.i.i.i.i.i.i.i.i15.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type.223", ptr %14, i64 %i.05.i.i.i.i6.i, i32 0, i32 1
-  %16 = load ptr, ptr %second.i.i.i.i.i.i.i.i.i.i15.i, align 8
-  %cmp.not.i.i.i.i.i.i.i.i.i.i.i16.i = icmp eq ptr %16, null
-  br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i16.i, label %_ZN4absl12lts_2023080218container_internal20common_policy_traitsINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorESt10unique_ptrIKNS5_10TextFormat21FastFieldValuePrinterESt14default_deleteISC_EEEEvE7destroyISaISt4pairIKS8_SF_EEEEvPT_PNS1_13map_slot_typeIS8_SF_EE.exit.i.i.i.i.i, label %_ZNKSt14default_deleteIKN6google8protobuf10TextFormat21FastFieldValuePrinterEEclEPS4_.exit.i.i.i.i.i.i.i.i.i.i.i.i
+  %add.ptr.i.i.i.i15.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type.223", ptr %14, i64 %i.05.i.i.i.i6.i
+  %second.i.i.i.i.i.i.i.i.i.i16.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i15.i, i64 8
+  %16 = load ptr, ptr %second.i.i.i.i.i.i.i.i.i.i16.i, align 8
+  %cmp.not.i.i.i.i.i.i.i.i.i.i.i17.i = icmp eq ptr %16, null
+  br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i17.i, label %_ZN4absl12lts_2023080218container_internal20common_policy_traitsINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorESt10unique_ptrIKNS5_10TextFormat21FastFieldValuePrinterESt14default_deleteISC_EEEEvE7destroyISaISt4pairIKS8_SF_EEEEvPT_PNS1_13map_slot_typeIS8_SF_EE.exit.i.i.i.i.i, label %_ZNKSt14default_deleteIKN6google8protobuf10TextFormat21FastFieldValuePrinterEEclEPS4_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZNKSt14default_deleteIKN6google8protobuf10TextFormat21FastFieldValuePrinterEEclEPS4_.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i14.i
-  %vtable.i.i.i.i.i.i.i.i.i.i.i.i17.i = load ptr, ptr %16, align 8
-  %vfn.i.i.i.i.i.i.i.i.i.i.i.i18.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i.i.i.i.i.i.i.i17.i, i64 8
-  %17 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i.i.i.i18.i, align 8
+  %vtable.i.i.i.i.i.i.i.i.i.i.i.i18.i = load ptr, ptr %16, align 8
+  %vfn.i.i.i.i.i.i.i.i.i.i.i.i19.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i.i.i.i.i.i.i.i18.i, i64 8
+  %17 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i.i.i.i19.i, align 8
   call void %17(ptr noundef nonnull align 8 dereferenceable(8) %16) #36
   br label %_ZN4absl12lts_2023080218container_internal20common_policy_traitsINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorESt10unique_ptrIKNS5_10TextFormat21FastFieldValuePrinterESt14default_deleteISC_EEEEvE7destroyISaISt4pairIKS8_SF_EEEEvPT_PNS1_13map_slot_typeIS8_SF_EE.exit.i.i.i.i.i
 
 _ZN4absl12lts_2023080218container_internal20common_policy_traitsINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorESt10unique_ptrIKNS5_10TextFormat21FastFieldValuePrinterESt14default_deleteISC_EEEEvE7destroyISaISt4pairIKS8_SF_EEEEvPT_PNS1_13map_slot_typeIS8_SF_EE.exit.i.i.i.i.i: ; preds = %_ZNKSt14default_deleteIKN6google8protobuf10TextFormat21FastFieldValuePrinterEEclEPS4_.exit.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i14.i
-  store ptr null, ptr %second.i.i.i.i.i.i.i.i.i.i15.i, align 8
+  store ptr null, ptr %second.i.i.i.i.i.i.i.i.i.i16.i, align 8
   br label %for.inc.i.i.i.i9.i
 
 for.inc.i.i.i.i9.i:                               ; preds = %_ZN4absl12lts_2023080218container_internal20common_policy_traitsINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorESt10unique_ptrIKNS5_10TextFormat21FastFieldValuePrinterESt14default_deleteISC_EEEEvE7destroyISaISt4pairIKS8_SF_EEEEvPT_PNS1_13map_slot_typeIS8_SF_EE.exit.i.i.i.i.i, %for.body.i.i.i.i5.i
@@ -1112,8 +1118,8 @@ for.inc.i.i.i.i9.i:                               ; preds = %_ZN4absl12lts_20230
 
 invoke.cont13.i.i.i12.i:                          ; preds = %for.inc.i.i.i.i9.i
   %18 = load ptr, ptr %custom_printers_.i, align 8
-  %add.ptr.i.i.i.i13.i = getelementptr inbounds i8, ptr %18, i64 -8
-  call void @_ZdlPv(ptr noundef nonnull %add.ptr.i.i.i.i13.i) #37
+  %add.ptr.i3.i.i.i13.i = getelementptr inbounds i8, ptr %18, i64 -8
+  call void @_ZdlPv(ptr noundef nonnull %add.ptr.i3.i.i.i13.i) #37
   br label %_ZN4absl12lts_2023080213flat_hash_mapIPKN6google8protobuf15FieldDescriptorESt10unique_ptrIKNS3_10TextFormat21FastFieldValuePrinterESt14default_deleteISA_EENS0_18container_internal6HashEqIS6_vE4HashENSG_2EqESaISt4pairIKS6_SD_EEED2Ev.exit.i
 
 _ZN4absl12lts_2023080213flat_hash_mapIPKN6google8protobuf15FieldDescriptorESt10unique_ptrIKNS3_10TextFormat21FastFieldValuePrinterESt14default_deleteISA_EENS0_18container_internal6HashEqIS6_vE4HashENSG_2EqESaISt4pairIKS6_SD_EEED2Ev.exit.i: ; preds = %invoke.cont13.i.i.i12.i, %_ZN4absl12lts_2023080213flat_hash_mapIPKN6google8protobuf10DescriptorESt10unique_ptrIKNS3_10TextFormat14MessagePrinterESt14default_deleteISA_EENS0_18container_internal6HashEqIS6_vE4HashENSG_2EqESaISt4pairIKS6_SD_EEED2Ev.exit.i
@@ -1237,7 +1243,8 @@ for.body.i.i.i.i.i:                               ; preds = %for.inc.i.i.i.i.i, 
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i, label %for.inc.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %for.body.i.i.i.i.i
-  %second.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type.218", ptr %8, i64 %i.05.i.i.i.i.i, i32 0, i32 1
+  %add.ptr.i.i.i.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type.218", ptr %8, i64 %i.05.i.i.i.i.i
+  %second.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i, i64 8
   %10 = load ptr, ptr %second.i.i.i.i.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %10, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN4absl12lts_2023080218container_internal20common_policy_traitsINS1_17FlatHashMapPolicyIPKN6google8protobuf10DescriptorESt10unique_ptrIKNS5_10TextFormat14MessagePrinterESt14default_deleteISC_EEEEvE7destroyISaISt4pairIKS8_SF_EEEEvPT_PNS1_13map_slot_typeIS8_SF_EE.exit.i.i.i.i.i, label %_ZNKSt14default_deleteIKN6google8protobuf10TextFormat14MessagePrinterEEclEPS4_.exit.i.i.i.i.i.i.i.i.i.i.i.i
@@ -1260,8 +1267,8 @@ for.inc.i.i.i.i.i:                                ; preds = %_ZN4absl12lts_20230
 
 invoke.cont13.i.i.i.i:                            ; preds = %for.inc.i.i.i.i.i
   %12 = load ptr, ptr %custom_message_printers_.i, align 8
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 -8
-  call void @_ZdlPv(ptr noundef nonnull %add.ptr.i.i.i.i.i) #37
+  %add.ptr.i3.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 -8
+  call void @_ZdlPv(ptr noundef nonnull %add.ptr.i3.i.i.i.i) #37
   br label %_ZN4absl12lts_2023080213flat_hash_mapIPKN6google8protobuf10DescriptorESt10unique_ptrIKNS3_10TextFormat14MessagePrinterESt14default_deleteISA_EENS0_18container_internal6HashEqIS6_vE4HashENSG_2EqESaISt4pairIKS6_SD_EEED2Ev.exit.i
 
 _ZN4absl12lts_2023080213flat_hash_mapIPKN6google8protobuf10DescriptorESt10unique_ptrIKNS3_10TextFormat14MessagePrinterESt14default_deleteISA_EENS0_18container_internal6HashEqIS6_vE4HashENSG_2EqESaISt4pairIKS6_SD_EEED2Ev.exit.i: ; preds = %invoke.cont13.i.i.i.i, %invoke.cont7
@@ -1285,20 +1292,21 @@ for.body.i.i.i.i5.i:                              ; preds = %for.inc.i.i.i.i9.i,
   br i1 %cmp.i.i.i.i.i8.i, label %if.then.i.i.i.i14.i, label %for.inc.i.i.i.i9.i
 
 if.then.i.i.i.i14.i:                              ; preds = %for.body.i.i.i.i5.i
-  %second.i.i.i.i.i.i.i.i.i.i15.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type.223", ptr %15, i64 %i.05.i.i.i.i6.i, i32 0, i32 1
-  %17 = load ptr, ptr %second.i.i.i.i.i.i.i.i.i.i15.i, align 8
-  %cmp.not.i.i.i.i.i.i.i.i.i.i.i16.i = icmp eq ptr %17, null
-  br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i16.i, label %_ZN4absl12lts_2023080218container_internal20common_policy_traitsINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorESt10unique_ptrIKNS5_10TextFormat21FastFieldValuePrinterESt14default_deleteISC_EEEEvE7destroyISaISt4pairIKS8_SF_EEEEvPT_PNS1_13map_slot_typeIS8_SF_EE.exit.i.i.i.i.i, label %_ZNKSt14default_deleteIKN6google8protobuf10TextFormat21FastFieldValuePrinterEEclEPS4_.exit.i.i.i.i.i.i.i.i.i.i.i.i
+  %add.ptr.i.i.i.i15.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type.223", ptr %15, i64 %i.05.i.i.i.i6.i
+  %second.i.i.i.i.i.i.i.i.i.i16.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i15.i, i64 8
+  %17 = load ptr, ptr %second.i.i.i.i.i.i.i.i.i.i16.i, align 8
+  %cmp.not.i.i.i.i.i.i.i.i.i.i.i17.i = icmp eq ptr %17, null
+  br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i17.i, label %_ZN4absl12lts_2023080218container_internal20common_policy_traitsINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorESt10unique_ptrIKNS5_10TextFormat21FastFieldValuePrinterESt14default_deleteISC_EEEEvE7destroyISaISt4pairIKS8_SF_EEEEvPT_PNS1_13map_slot_typeIS8_SF_EE.exit.i.i.i.i.i, label %_ZNKSt14default_deleteIKN6google8protobuf10TextFormat21FastFieldValuePrinterEEclEPS4_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZNKSt14default_deleteIKN6google8protobuf10TextFormat21FastFieldValuePrinterEEclEPS4_.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i14.i
-  %vtable.i.i.i.i.i.i.i.i.i.i.i.i17.i = load ptr, ptr %17, align 8
-  %vfn.i.i.i.i.i.i.i.i.i.i.i.i18.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i.i.i.i.i.i.i.i17.i, i64 8
-  %18 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i.i.i.i18.i, align 8
+  %vtable.i.i.i.i.i.i.i.i.i.i.i.i18.i = load ptr, ptr %17, align 8
+  %vfn.i.i.i.i.i.i.i.i.i.i.i.i19.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i.i.i.i.i.i.i.i18.i, i64 8
+  %18 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i.i.i.i19.i, align 8
   call void %18(ptr noundef nonnull align 8 dereferenceable(8) %17) #36
   br label %_ZN4absl12lts_2023080218container_internal20common_policy_traitsINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorESt10unique_ptrIKNS5_10TextFormat21FastFieldValuePrinterESt14default_deleteISC_EEEEvE7destroyISaISt4pairIKS8_SF_EEEEvPT_PNS1_13map_slot_typeIS8_SF_EE.exit.i.i.i.i.i
 
 _ZN4absl12lts_2023080218container_internal20common_policy_traitsINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorESt10unique_ptrIKNS5_10TextFormat21FastFieldValuePrinterESt14default_deleteISC_EEEEvE7destroyISaISt4pairIKS8_SF_EEEEvPT_PNS1_13map_slot_typeIS8_SF_EE.exit.i.i.i.i.i: ; preds = %_ZNKSt14default_deleteIKN6google8protobuf10TextFormat21FastFieldValuePrinterEEclEPS4_.exit.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i14.i
-  store ptr null, ptr %second.i.i.i.i.i.i.i.i.i.i15.i, align 8
+  store ptr null, ptr %second.i.i.i.i.i.i.i.i.i.i16.i, align 8
   br label %for.inc.i.i.i.i9.i
 
 for.inc.i.i.i.i9.i:                               ; preds = %_ZN4absl12lts_2023080218container_internal20common_policy_traitsINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorESt10unique_ptrIKNS5_10TextFormat21FastFieldValuePrinterESt14default_deleteISC_EEEEvE7destroyISaISt4pairIKS8_SF_EEEEvPT_PNS1_13map_slot_typeIS8_SF_EE.exit.i.i.i.i.i, %for.body.i.i.i.i5.i
@@ -1308,8 +1316,8 @@ for.inc.i.i.i.i9.i:                               ; preds = %_ZN4absl12lts_20230
 
 invoke.cont13.i.i.i12.i:                          ; preds = %for.inc.i.i.i.i9.i
   %19 = load ptr, ptr %custom_printers_.i, align 8
-  %add.ptr.i.i.i.i13.i = getelementptr inbounds i8, ptr %19, i64 -8
-  call void @_ZdlPv(ptr noundef nonnull %add.ptr.i.i.i.i13.i) #37
+  %add.ptr.i3.i.i.i13.i = getelementptr inbounds i8, ptr %19, i64 -8
+  call void @_ZdlPv(ptr noundef nonnull %add.ptr.i3.i.i.i13.i) #37
   br label %_ZN4absl12lts_2023080213flat_hash_mapIPKN6google8protobuf15FieldDescriptorESt10unique_ptrIKNS3_10TextFormat21FastFieldValuePrinterESt14default_deleteISA_EENS0_18container_internal6HashEqIS6_vE4HashENSG_2EqESaISt4pairIKS6_SD_EEED2Ev.exit.i
 
 _ZN4absl12lts_2023080213flat_hash_mapIPKN6google8protobuf15FieldDescriptorESt10unique_ptrIKNS3_10TextFormat21FastFieldValuePrinterESt14default_deleteISA_EENS0_18container_internal6HashEqIS6_vE4HashENSG_2EqESaISt4pairIKS6_SD_EEED2Ev.exit.i: ; preds = %invoke.cont13.i.i.i12.i, %_ZN4absl12lts_2023080213flat_hash_mapIPKN6google8protobuf10DescriptorESt10unique_ptrIKNS3_10TextFormat14MessagePrinterESt14default_deleteISA_EENS0_18container_internal6HashEqIS6_vE4HashENSG_2EqESaISt4pairIKS6_SD_EEED2Ev.exit.i
@@ -1520,7 +1528,8 @@ for.body.i.i.i.i.i:                               ; preds = %for.inc.i.i.i.i.i, 
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i, label %for.inc.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %for.body.i.i.i.i.i
-  %second.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type.218", ptr %12, i64 %i.05.i.i.i.i.i, i32 0, i32 1
+  %add.ptr.i.i.i.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type.218", ptr %12, i64 %i.05.i.i.i.i.i
+  %second.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i, i64 8
   %14 = load ptr, ptr %second.i.i.i.i.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %14, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN4absl12lts_2023080218container_internal20common_policy_traitsINS1_17FlatHashMapPolicyIPKN6google8protobuf10DescriptorESt10unique_ptrIKNS5_10TextFormat14MessagePrinterESt14default_deleteISC_EEEEvE7destroyISaISt4pairIKS8_SF_EEEEvPT_PNS1_13map_slot_typeIS8_SF_EE.exit.i.i.i.i.i, label %_ZNKSt14default_deleteIKN6google8protobuf10TextFormat14MessagePrinterEEclEPS4_.exit.i.i.i.i.i.i.i.i.i.i.i.i
@@ -1543,8 +1552,8 @@ for.inc.i.i.i.i.i:                                ; preds = %_ZN4absl12lts_20230
 
 invoke.cont13.i.i.i.i:                            ; preds = %for.inc.i.i.i.i.i
   %16 = load ptr, ptr %custom_message_printers_.i, align 8
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %16, i64 -8
-  call void @_ZdlPv(ptr noundef nonnull %add.ptr.i.i.i.i.i) #37
+  %add.ptr.i3.i.i.i.i = getelementptr inbounds i8, ptr %16, i64 -8
+  call void @_ZdlPv(ptr noundef nonnull %add.ptr.i3.i.i.i.i) #37
   br label %_ZN4absl12lts_2023080213flat_hash_mapIPKN6google8protobuf10DescriptorESt10unique_ptrIKNS3_10TextFormat14MessagePrinterESt14default_deleteISA_EENS0_18container_internal6HashEqIS6_vE4HashENSG_2EqESaISt4pairIKS6_SD_EEED2Ev.exit.i
 
 _ZN4absl12lts_2023080213flat_hash_mapIPKN6google8protobuf10DescriptorESt10unique_ptrIKNS3_10TextFormat14MessagePrinterESt14default_deleteISA_EENS0_18container_internal6HashEqIS6_vE4HashENSG_2EqESaISt4pairIKS6_SD_EEED2Ev.exit.i: ; preds = %invoke.cont13.i.i.i.i, %nrvo.skipdtor
@@ -1568,20 +1577,21 @@ for.body.i.i.i.i5.i:                              ; preds = %for.inc.i.i.i.i9.i,
   br i1 %cmp.i.i.i.i.i8.i, label %if.then.i.i.i.i14.i, label %for.inc.i.i.i.i9.i
 
 if.then.i.i.i.i14.i:                              ; preds = %for.body.i.i.i.i5.i
-  %second.i.i.i.i.i.i.i.i.i.i15.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type.223", ptr %19, i64 %i.05.i.i.i.i6.i, i32 0, i32 1
-  %21 = load ptr, ptr %second.i.i.i.i.i.i.i.i.i.i15.i, align 8
-  %cmp.not.i.i.i.i.i.i.i.i.i.i.i16.i = icmp eq ptr %21, null
-  br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i16.i, label %_ZN4absl12lts_2023080218container_internal20common_policy_traitsINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorESt10unique_ptrIKNS5_10TextFormat21FastFieldValuePrinterESt14default_deleteISC_EEEEvE7destroyISaISt4pairIKS8_SF_EEEEvPT_PNS1_13map_slot_typeIS8_SF_EE.exit.i.i.i.i.i, label %_ZNKSt14default_deleteIKN6google8protobuf10TextFormat21FastFieldValuePrinterEEclEPS4_.exit.i.i.i.i.i.i.i.i.i.i.i.i
+  %add.ptr.i.i.i.i15.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type.223", ptr %19, i64 %i.05.i.i.i.i6.i
+  %second.i.i.i.i.i.i.i.i.i.i16.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i15.i, i64 8
+  %21 = load ptr, ptr %second.i.i.i.i.i.i.i.i.i.i16.i, align 8
+  %cmp.not.i.i.i.i.i.i.i.i.i.i.i17.i = icmp eq ptr %21, null
+  br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i17.i, label %_ZN4absl12lts_2023080218container_internal20common_policy_traitsINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorESt10unique_ptrIKNS5_10TextFormat21FastFieldValuePrinterESt14default_deleteISC_EEEEvE7destroyISaISt4pairIKS8_SF_EEEEvPT_PNS1_13map_slot_typeIS8_SF_EE.exit.i.i.i.i.i, label %_ZNKSt14default_deleteIKN6google8protobuf10TextFormat21FastFieldValuePrinterEEclEPS4_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZNKSt14default_deleteIKN6google8protobuf10TextFormat21FastFieldValuePrinterEEclEPS4_.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i14.i
-  %vtable.i.i.i.i.i.i.i.i.i.i.i.i17.i = load ptr, ptr %21, align 8
-  %vfn.i.i.i.i.i.i.i.i.i.i.i.i18.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i.i.i.i.i.i.i.i17.i, i64 8
-  %22 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i.i.i.i18.i, align 8
+  %vtable.i.i.i.i.i.i.i.i.i.i.i.i18.i = load ptr, ptr %21, align 8
+  %vfn.i.i.i.i.i.i.i.i.i.i.i.i19.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i.i.i.i.i.i.i.i18.i, i64 8
+  %22 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i.i.i.i19.i, align 8
   call void %22(ptr noundef nonnull align 8 dereferenceable(8) %21) #36
   br label %_ZN4absl12lts_2023080218container_internal20common_policy_traitsINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorESt10unique_ptrIKNS5_10TextFormat21FastFieldValuePrinterESt14default_deleteISC_EEEEvE7destroyISaISt4pairIKS8_SF_EEEEvPT_PNS1_13map_slot_typeIS8_SF_EE.exit.i.i.i.i.i
 
 _ZN4absl12lts_2023080218container_internal20common_policy_traitsINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorESt10unique_ptrIKNS5_10TextFormat21FastFieldValuePrinterESt14default_deleteISC_EEEEvE7destroyISaISt4pairIKS8_SF_EEEEvPT_PNS1_13map_slot_typeIS8_SF_EE.exit.i.i.i.i.i: ; preds = %_ZNKSt14default_deleteIKN6google8protobuf10TextFormat21FastFieldValuePrinterEEclEPS4_.exit.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i14.i
-  store ptr null, ptr %second.i.i.i.i.i.i.i.i.i.i15.i, align 8
+  store ptr null, ptr %second.i.i.i.i.i.i.i.i.i.i16.i, align 8
   br label %for.inc.i.i.i.i9.i
 
 for.inc.i.i.i.i9.i:                               ; preds = %_ZN4absl12lts_2023080218container_internal20common_policy_traitsINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorESt10unique_ptrIKNS5_10TextFormat21FastFieldValuePrinterESt14default_deleteISC_EEEEvE7destroyISaISt4pairIKS8_SF_EEEEvPT_PNS1_13map_slot_typeIS8_SF_EE.exit.i.i.i.i.i, %for.body.i.i.i.i5.i
@@ -1591,8 +1601,8 @@ for.inc.i.i.i.i9.i:                               ; preds = %_ZN4absl12lts_20230
 
 invoke.cont13.i.i.i12.i:                          ; preds = %for.inc.i.i.i.i9.i
   %23 = load ptr, ptr %custom_printers_.i, align 8
-  %add.ptr.i.i.i.i13.i = getelementptr inbounds i8, ptr %23, i64 -8
-  call void @_ZdlPv(ptr noundef nonnull %add.ptr.i.i.i.i13.i) #37
+  %add.ptr.i3.i.i.i13.i = getelementptr inbounds i8, ptr %23, i64 -8
+  call void @_ZdlPv(ptr noundef nonnull %add.ptr.i3.i.i.i13.i) #37
   br label %_ZN4absl12lts_2023080213flat_hash_mapIPKN6google8protobuf15FieldDescriptorESt10unique_ptrIKNS3_10TextFormat21FastFieldValuePrinterESt14default_deleteISA_EENS0_18container_internal6HashEqIS6_vE4HashENSG_2EqESaISt4pairIKS6_SD_EEED2Ev.exit.i
 
 _ZN4absl12lts_2023080213flat_hash_mapIPKN6google8protobuf15FieldDescriptorESt10unique_ptrIKNS3_10TextFormat21FastFieldValuePrinterESt14default_deleteISA_EENS0_18container_internal6HashEqIS6_vE4HashENSG_2EqESaISt4pairIKS6_SD_EEED2Ev.exit.i: ; preds = %invoke.cont13.i.i.i12.i, %_ZN4absl12lts_2023080213flat_hash_mapIPKN6google8protobuf10DescriptorESt10unique_ptrIKNS3_10TextFormat14MessagePrinterESt14default_deleteISA_EENS0_18container_internal6HashEqIS6_vE4HashENSG_2EqESaISt4pairIKS6_SD_EEED2Ev.exit.i
@@ -1732,10 +1742,11 @@ if.then.i3:                                       ; preds = %for.end.i.i
 _ZN4absl12lts_2023080218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorESt6vectorINS5_10TextFormat18ParseLocationRangeESaISB_EEEENS1_6HashEqIS8_vE4HashENSG_2EqESaISt4pairIKS8_SD_EEE16try_emplace_implIRSK_JEEESJ_INS1_12raw_hash_setISE_SH_SI_SM_E8iteratorEbEOT_DpOT0_.exit: ; preds = %for.body.i.i, %if.then.i3
   %13 = phi ptr [ %.pre20.i, %if.then.i3 ], [ %5, %for.body.i.i ]
   %retval.sroa.0.0.i15.i = phi i64 [ %call38.i.i, %if.then.i3 ], [ %and.i.i.i, %for.body.i.i ]
-  %second.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %13, i64 %retval.sroa.0.0.i15.i, i32 0, i32 1
-  %_M_finish.i = getelementptr inbounds nuw i8, ptr %second.i.i, i64 8
+  %add.ptr3.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %13, i64 %retval.sroa.0.0.i15.i
+  %second.i.i = getelementptr inbounds nuw i8, ptr %add.ptr3.i.i, i64 8
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %add.ptr3.i.i, i64 16
   %14 = load ptr, ptr %_M_finish.i, align 8
-  %_M_end_of_storage.i = getelementptr inbounds nuw i8, ptr %second.i.i, i64 16
+  %_M_end_of_storage.i = getelementptr inbounds nuw i8, ptr %add.ptr3.i.i, i64 24
   %15 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %14, %15
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
@@ -1898,7 +1909,8 @@ if.then.i5:                                       ; preds = %for.end.i.i
 invoke.cont:                                      ; preds = %for.body.i.i, %if.then.i5
   %13 = phi ptr [ %.pre20.i, %if.then.i5 ], [ %5, %for.body.i.i ]
   %retval.sroa.0.0.i15.i = phi i64 [ %call38.i.i, %if.then.i5 ], [ %and.i.i.i, %for.body.i.i ]
-  %second.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type.253", ptr %13, i64 %retval.sroa.0.0.i15.i, i32 0, i32 1
+  %add.ptr3.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type.253", ptr %13, i64 %retval.sroa.0.0.i15.i
+  %second.i.i = getelementptr inbounds nuw i8, ptr %add.ptr3.i.i, i64 8
   %call2 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #38
   store ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16), ptr %call2, align 8
   %slots_.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call2, i64 8
@@ -1907,9 +1919,9 @@ invoke.cont:                                      ; preds = %for.body.i.i, %if.t
   store ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16), ptr %nested_.i, align 8
   %slots_.i.i.i.i.i.i.i1.i = getelementptr inbounds nuw i8, ptr %call2, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %slots_.i.i.i.i.i.i.i1.i, i8 0, i64 24, i1 false)
-  %_M_finish.i = getelementptr inbounds nuw i8, ptr %second.i.i, i64 8
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %add.ptr3.i.i, i64 16
   %14 = load ptr, ptr %_M_finish.i, align 8
-  %_M_end_of_storage.i = getelementptr inbounds nuw i8, ptr %second.i.i, i64 16
+  %_M_end_of_storage.i = getelementptr inbounds nuw i8, ptr %add.ptr3.i.i, i64 24
   %15 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %14, %15
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
@@ -4618,7 +4630,8 @@ for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %if.
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
 
 if.then.i.i.i:                                    ; preds = %for.body.i.i.i
-  %second.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type.218", ptr %2, i64 %i.05.i.i.i, i32 0, i32 1
+  %add.ptr.i.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type.218", ptr %2, i64 %i.05.i.i.i
+  %second.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i, i64 8
   %4 = load ptr, ptr %second.i.i.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %4, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i, label %_ZN4absl12lts_2023080218container_internal20common_policy_traitsINS1_17FlatHashMapPolicyIPKN6google8protobuf10DescriptorESt10unique_ptrIKNS5_10TextFormat14MessagePrinterESt14default_deleteISC_EEEEvE7destroyISaISt4pairIKS8_SF_EEEEvPT_PNS1_13map_slot_typeIS8_SF_EE.exit.i.i.i, label %_ZNKSt14default_deleteIKN6google8protobuf10TextFormat14MessagePrinterEEclEPS4_.exit.i.i.i.i.i.i.i.i.i.i
@@ -4641,8 +4654,8 @@ for.inc.i.i.i:                                    ; preds = %_ZN4absl12lts_20230
 
 invoke.cont13.i.i:                                ; preds = %for.inc.i.i.i
   %6 = load ptr, ptr %this, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %6, i64 -8
-  tail call void @_ZdlPv(ptr noundef nonnull %add.ptr.i.i.i) #37
+  %add.ptr.i3.i.i = getelementptr inbounds i8, ptr %6, i64 -8
+  tail call void @_ZdlPv(ptr noundef nonnull %add.ptr.i3.i.i) #37
   br label %_ZN4absl12lts_2023080218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIPKN6google8protobuf10DescriptorESt10unique_ptrIKNS5_10TextFormat14MessagePrinterESt14default_deleteISC_EEEENS1_6HashEqIS8_vE4HashENSI_2EqESaISt4pairIKS8_SF_EEED2Ev.exit
 
 _ZN4absl12lts_2023080218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIPKN6google8protobuf10DescriptorESt10unique_ptrIKNS5_10TextFormat14MessagePrinterESt14default_deleteISC_EEEENS1_6HashEqIS8_vE4HashENSI_2EqESaISt4pairIKS8_SF_EEED2Ev.exit: ; preds = %entry, %invoke.cont13.i.i
@@ -4671,7 +4684,8 @@ for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %if.
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
 
 if.then.i.i.i:                                    ; preds = %for.body.i.i.i
-  %second.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type.223", ptr %2, i64 %i.05.i.i.i, i32 0, i32 1
+  %add.ptr.i.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type.223", ptr %2, i64 %i.05.i.i.i
+  %second.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i, i64 8
   %4 = load ptr, ptr %second.i.i.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %4, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i, label %_ZN4absl12lts_2023080218container_internal20common_policy_traitsINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorESt10unique_ptrIKNS5_10TextFormat21FastFieldValuePrinterESt14default_deleteISC_EEEEvE7destroyISaISt4pairIKS8_SF_EEEEvPT_PNS1_13map_slot_typeIS8_SF_EE.exit.i.i.i, label %_ZNKSt14default_deleteIKN6google8protobuf10TextFormat21FastFieldValuePrinterEEclEPS4_.exit.i.i.i.i.i.i.i.i.i.i
@@ -4694,8 +4708,8 @@ for.inc.i.i.i:                                    ; preds = %_ZN4absl12lts_20230
 
 invoke.cont13.i.i:                                ; preds = %for.inc.i.i.i
   %6 = load ptr, ptr %this, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %6, i64 -8
-  tail call void @_ZdlPv(ptr noundef nonnull %add.ptr.i.i.i) #37
+  %add.ptr.i3.i.i = getelementptr inbounds i8, ptr %6, i64 -8
+  tail call void @_ZdlPv(ptr noundef nonnull %add.ptr.i3.i.i) #37
   br label %_ZN4absl12lts_2023080218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorESt10unique_ptrIKNS5_10TextFormat21FastFieldValuePrinterESt14default_deleteISC_EEEENS1_6HashEqIS8_vE4HashENSI_2EqESaISt4pairIKS8_SF_EEED2Ev.exit
 
 _ZN4absl12lts_2023080218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorESt10unique_ptrIKNS5_10TextFormat21FastFieldValuePrinterESt14default_deleteISC_EEEENS1_6HashEqIS8_vE4HashENSI_2EqESaISt4pairIKS8_SF_EEED2Ev.exit: ; preds = %entry, %invoke.cont13.i.i
@@ -4843,6 +4857,7 @@ if.then5:                                         ; preds = %if.then.i
   %second.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i2.i, i64 8
   store ptr null, ptr %second.i.i.i.i.i.i.i.i.i, align 8, !noalias !65
   %.pre20.i = load ptr, ptr %slots_.i.i.i.i, align 8, !noalias !65
+  %add.ptr3.i.i17 = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type.223", ptr %.pre20.i, i64 %call38.i.i11
   %13 = load ptr, ptr %delegate_.i, align 8
   store ptr %printer, ptr %delegate_.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %13, null
@@ -4856,7 +4871,7 @@ _ZNKSt14default_deleteIKN6google8protobuf10TextFormat17FieldValuePrinterEEclEPS4
   br label %invoke.cont8
 
 invoke.cont8:                                     ; preds = %_ZNKSt14default_deleteIKN6google8protobuf10TextFormat17FieldValuePrinterEEclEPS4_.exit.i.i.i, %if.then5
-  %second10 = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type.223", ptr %.pre20.i, i64 %call38.i.i11, i32 0, i32 1
+  %second10 = getelementptr inbounds nuw i8, ptr %add.ptr3.i.i17, i64 8
   %15 = load ptr, ptr %second10, align 8
   store ptr %call, ptr %second10, align 8
   %tobool.not.i.i.i3 = icmp eq ptr %15, null
@@ -4977,7 +4992,8 @@ if.then3:                                         ; preds = %for.end.i.i
   %second.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i2.i, i64 8
   store ptr null, ptr %second.i.i.i.i.i.i.i.i.i, align 8, !noalias !72
   %.pre20.i = load ptr, ptr %slots_.i.i.i.i, align 8, !noalias !72
-  %second4 = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type.223", ptr %.pre20.i, i64 %call38.i.i, i32 0, i32 1
+  %add.ptr3.i.i5 = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type.223", ptr %.pre20.i, i64 %call38.i.i
+  %second4 = getelementptr inbounds nuw i8, ptr %add.ptr3.i.i5, i64 8
   %13 = load ptr, ptr %second4, align 8
   store ptr %printer, ptr %second4, align 8
   %tobool.not.i.i = icmp eq ptr %13, null
@@ -5085,7 +5101,8 @@ if.then3:                                         ; preds = %for.end.i.i
   %second.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i2.i, i64 8
   store ptr null, ptr %second.i.i.i.i.i.i.i.i.i, align 8, !noalias !78
   %.pre20.i = load ptr, ptr %slots_.i.i.i.i, align 8, !noalias !78
-  %second4 = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type.218", ptr %.pre20.i, i64 %call38.i.i, i32 0, i32 1
+  %add.ptr3.i.i5 = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type.218", ptr %.pre20.i, i64 %call38.i.i
+  %second4 = getelementptr inbounds nuw i8, ptr %add.ptr3.i.i5, i64 8
   %13 = load ptr, ptr %second4, align 8
   store ptr %printer, ptr %second4, align 8
   %tobool.not.i.i = icmp eq ptr %13, null
@@ -10650,7 +10667,8 @@ for.body.i.i.i.i.i:                               ; preds = %for.inc.i.i.i.i.i, 
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i, label %for.inc.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %for.body.i.i.i.i.i
-  %second.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type.218", ptr %2, i64 %i.05.i.i.i.i.i, i32 0, i32 1
+  %add.ptr.i.i.i.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type.218", ptr %2, i64 %i.05.i.i.i.i.i
+  %second.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i, i64 8
   %4 = load ptr, ptr %second.i.i.i.i.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %4, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN4absl12lts_2023080218container_internal20common_policy_traitsINS1_17FlatHashMapPolicyIPKN6google8protobuf10DescriptorESt10unique_ptrIKNS5_10TextFormat14MessagePrinterESt14default_deleteISC_EEEEvE7destroyISaISt4pairIKS8_SF_EEEEvPT_PNS1_13map_slot_typeIS8_SF_EE.exit.i.i.i.i.i, label %_ZNKSt14default_deleteIKN6google8protobuf10TextFormat14MessagePrinterEEclEPS4_.exit.i.i.i.i.i.i.i.i.i.i.i.i
@@ -10673,8 +10691,8 @@ for.inc.i.i.i.i.i:                                ; preds = %_ZN4absl12lts_20230
 
 invoke.cont13.i.i.i.i:                            ; preds = %for.inc.i.i.i.i.i
   %6 = load ptr, ptr %custom_message_printers_.i, align 8
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 -8
-  call void @_ZdlPv(ptr noundef nonnull %add.ptr.i.i.i.i.i) #37
+  %add.ptr.i3.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 -8
+  call void @_ZdlPv(ptr noundef nonnull %add.ptr.i3.i.i.i.i) #37
   br label %_ZN4absl12lts_2023080213flat_hash_mapIPKN6google8protobuf10DescriptorESt10unique_ptrIKNS3_10TextFormat14MessagePrinterESt14default_deleteISA_EENS0_18container_internal6HashEqIS6_vE4HashENSG_2EqESaISt4pairIKS6_SD_EEED2Ev.exit.i
 
 _ZN4absl12lts_2023080213flat_hash_mapIPKN6google8protobuf10DescriptorESt10unique_ptrIKNS3_10TextFormat14MessagePrinterESt14default_deleteISA_EENS0_18container_internal6HashEqIS6_vE4HashENSG_2EqESaISt4pairIKS6_SD_EEED2Ev.exit.i: ; preds = %invoke.cont13.i.i.i.i, %invoke.cont
@@ -10698,20 +10716,21 @@ for.body.i.i.i.i5.i:                              ; preds = %for.inc.i.i.i.i9.i,
   br i1 %cmp.i.i.i.i.i8.i, label %if.then.i.i.i.i14.i, label %for.inc.i.i.i.i9.i
 
 if.then.i.i.i.i14.i:                              ; preds = %for.body.i.i.i.i5.i
-  %second.i.i.i.i.i.i.i.i.i.i15.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type.223", ptr %9, i64 %i.05.i.i.i.i6.i, i32 0, i32 1
-  %11 = load ptr, ptr %second.i.i.i.i.i.i.i.i.i.i15.i, align 8
-  %cmp.not.i.i.i.i.i.i.i.i.i.i.i16.i = icmp eq ptr %11, null
-  br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i16.i, label %_ZN4absl12lts_2023080218container_internal20common_policy_traitsINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorESt10unique_ptrIKNS5_10TextFormat21FastFieldValuePrinterESt14default_deleteISC_EEEEvE7destroyISaISt4pairIKS8_SF_EEEEvPT_PNS1_13map_slot_typeIS8_SF_EE.exit.i.i.i.i.i, label %_ZNKSt14default_deleteIKN6google8protobuf10TextFormat21FastFieldValuePrinterEEclEPS4_.exit.i.i.i.i.i.i.i.i.i.i.i.i
+  %add.ptr.i.i.i.i15.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type.223", ptr %9, i64 %i.05.i.i.i.i6.i
+  %second.i.i.i.i.i.i.i.i.i.i16.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i15.i, i64 8
+  %11 = load ptr, ptr %second.i.i.i.i.i.i.i.i.i.i16.i, align 8
+  %cmp.not.i.i.i.i.i.i.i.i.i.i.i17.i = icmp eq ptr %11, null
+  br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i17.i, label %_ZN4absl12lts_2023080218container_internal20common_policy_traitsINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorESt10unique_ptrIKNS5_10TextFormat21FastFieldValuePrinterESt14default_deleteISC_EEEEvE7destroyISaISt4pairIKS8_SF_EEEEvPT_PNS1_13map_slot_typeIS8_SF_EE.exit.i.i.i.i.i, label %_ZNKSt14default_deleteIKN6google8protobuf10TextFormat21FastFieldValuePrinterEEclEPS4_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZNKSt14default_deleteIKN6google8protobuf10TextFormat21FastFieldValuePrinterEEclEPS4_.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i14.i
-  %vtable.i.i.i.i.i.i.i.i.i.i.i.i17.i = load ptr, ptr %11, align 8
-  %vfn.i.i.i.i.i.i.i.i.i.i.i.i18.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i.i.i.i.i.i.i.i17.i, i64 8
-  %12 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i.i.i.i18.i, align 8
+  %vtable.i.i.i.i.i.i.i.i.i.i.i.i18.i = load ptr, ptr %11, align 8
+  %vfn.i.i.i.i.i.i.i.i.i.i.i.i19.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i.i.i.i.i.i.i.i18.i, i64 8
+  %12 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i.i.i.i19.i, align 8
   call void %12(ptr noundef nonnull align 8 dereferenceable(8) %11) #36
   br label %_ZN4absl12lts_2023080218container_internal20common_policy_traitsINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorESt10unique_ptrIKNS5_10TextFormat21FastFieldValuePrinterESt14default_deleteISC_EEEEvE7destroyISaISt4pairIKS8_SF_EEEEvPT_PNS1_13map_slot_typeIS8_SF_EE.exit.i.i.i.i.i
 
 _ZN4absl12lts_2023080218container_internal20common_policy_traitsINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorESt10unique_ptrIKNS5_10TextFormat21FastFieldValuePrinterESt14default_deleteISC_EEEEvE7destroyISaISt4pairIKS8_SF_EEEEvPT_PNS1_13map_slot_typeIS8_SF_EE.exit.i.i.i.i.i: ; preds = %_ZNKSt14default_deleteIKN6google8protobuf10TextFormat21FastFieldValuePrinterEEclEPS4_.exit.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i14.i
-  store ptr null, ptr %second.i.i.i.i.i.i.i.i.i.i15.i, align 8
+  store ptr null, ptr %second.i.i.i.i.i.i.i.i.i.i16.i, align 8
   br label %for.inc.i.i.i.i9.i
 
 for.inc.i.i.i.i9.i:                               ; preds = %_ZN4absl12lts_2023080218container_internal20common_policy_traitsINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorESt10unique_ptrIKNS5_10TextFormat21FastFieldValuePrinterESt14default_deleteISC_EEEEvE7destroyISaISt4pairIKS8_SF_EEEEvPT_PNS1_13map_slot_typeIS8_SF_EE.exit.i.i.i.i.i, %for.body.i.i.i.i5.i
@@ -10721,8 +10740,8 @@ for.inc.i.i.i.i9.i:                               ; preds = %_ZN4absl12lts_20230
 
 invoke.cont13.i.i.i12.i:                          ; preds = %for.inc.i.i.i.i9.i
   %13 = load ptr, ptr %custom_printers_.i, align 8
-  %add.ptr.i.i.i.i13.i = getelementptr inbounds i8, ptr %13, i64 -8
-  call void @_ZdlPv(ptr noundef nonnull %add.ptr.i.i.i.i13.i) #37
+  %add.ptr.i3.i.i.i13.i = getelementptr inbounds i8, ptr %13, i64 -8
+  call void @_ZdlPv(ptr noundef nonnull %add.ptr.i3.i.i.i13.i) #37
   br label %_ZN4absl12lts_2023080213flat_hash_mapIPKN6google8protobuf15FieldDescriptorESt10unique_ptrIKNS3_10TextFormat21FastFieldValuePrinterESt14default_deleteISA_EENS0_18container_internal6HashEqIS6_vE4HashENSG_2EqESaISt4pairIKS6_SD_EEED2Ev.exit.i
 
 _ZN4absl12lts_2023080213flat_hash_mapIPKN6google8protobuf15FieldDescriptorESt10unique_ptrIKNS3_10TextFormat21FastFieldValuePrinterESt14default_deleteISA_EENS0_18container_internal6HashEqIS6_vE4HashENSG_2EqESaISt4pairIKS6_SD_EEED2Ev.exit.i: ; preds = %invoke.cont13.i.i.i12.i, %_ZN4absl12lts_2023080213flat_hash_mapIPKN6google8protobuf10DescriptorESt10unique_ptrIKNS3_10TextFormat14MessagePrinterESt14default_deleteISA_EENS0_18container_internal6HashEqIS6_vE4HashENSG_2EqESaISt4pairIKS6_SD_EEED2Ev.exit.i
@@ -10777,7 +10796,8 @@ for.body.i.i.i.i.i:                               ; preds = %for.inc.i.i.i.i.i, 
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i, label %for.inc.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %for.body.i.i.i.i.i
-  %second.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type.218", ptr %2, i64 %i.05.i.i.i.i.i, i32 0, i32 1
+  %add.ptr.i.i.i.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type.218", ptr %2, i64 %i.05.i.i.i.i.i
+  %second.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i, i64 8
   %4 = load ptr, ptr %second.i.i.i.i.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %4, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN4absl12lts_2023080218container_internal20common_policy_traitsINS1_17FlatHashMapPolicyIPKN6google8protobuf10DescriptorESt10unique_ptrIKNS5_10TextFormat14MessagePrinterESt14default_deleteISC_EEEEvE7destroyISaISt4pairIKS8_SF_EEEEvPT_PNS1_13map_slot_typeIS8_SF_EE.exit.i.i.i.i.i, label %_ZNKSt14default_deleteIKN6google8protobuf10TextFormat14MessagePrinterEEclEPS4_.exit.i.i.i.i.i.i.i.i.i.i.i.i
@@ -10800,8 +10820,8 @@ for.inc.i.i.i.i.i:                                ; preds = %_ZN4absl12lts_20230
 
 invoke.cont13.i.i.i.i:                            ; preds = %for.inc.i.i.i.i.i
   %6 = load ptr, ptr %custom_message_printers_.i, align 8
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 -8
-  call void @_ZdlPv(ptr noundef nonnull %add.ptr.i.i.i.i.i) #37
+  %add.ptr.i3.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 -8
+  call void @_ZdlPv(ptr noundef nonnull %add.ptr.i3.i.i.i.i) #37
   br label %_ZN4absl12lts_2023080213flat_hash_mapIPKN6google8protobuf10DescriptorESt10unique_ptrIKNS3_10TextFormat14MessagePrinterESt14default_deleteISA_EENS0_18container_internal6HashEqIS6_vE4HashENSG_2EqESaISt4pairIKS6_SD_EEED2Ev.exit.i
 
 _ZN4absl12lts_2023080213flat_hash_mapIPKN6google8protobuf10DescriptorESt10unique_ptrIKNS3_10TextFormat14MessagePrinterESt14default_deleteISA_EENS0_18container_internal6HashEqIS6_vE4HashENSG_2EqESaISt4pairIKS6_SD_EEED2Ev.exit.i: ; preds = %invoke.cont13.i.i.i.i, %invoke.cont
@@ -10825,20 +10845,21 @@ for.body.i.i.i.i5.i:                              ; preds = %for.inc.i.i.i.i9.i,
   br i1 %cmp.i.i.i.i.i8.i, label %if.then.i.i.i.i14.i, label %for.inc.i.i.i.i9.i
 
 if.then.i.i.i.i14.i:                              ; preds = %for.body.i.i.i.i5.i
-  %second.i.i.i.i.i.i.i.i.i.i15.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type.223", ptr %9, i64 %i.05.i.i.i.i6.i, i32 0, i32 1
-  %11 = load ptr, ptr %second.i.i.i.i.i.i.i.i.i.i15.i, align 8
-  %cmp.not.i.i.i.i.i.i.i.i.i.i.i16.i = icmp eq ptr %11, null
-  br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i16.i, label %_ZN4absl12lts_2023080218container_internal20common_policy_traitsINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorESt10unique_ptrIKNS5_10TextFormat21FastFieldValuePrinterESt14default_deleteISC_EEEEvE7destroyISaISt4pairIKS8_SF_EEEEvPT_PNS1_13map_slot_typeIS8_SF_EE.exit.i.i.i.i.i, label %_ZNKSt14default_deleteIKN6google8protobuf10TextFormat21FastFieldValuePrinterEEclEPS4_.exit.i.i.i.i.i.i.i.i.i.i.i.i
+  %add.ptr.i.i.i.i15.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type.223", ptr %9, i64 %i.05.i.i.i.i6.i
+  %second.i.i.i.i.i.i.i.i.i.i16.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i15.i, i64 8
+  %11 = load ptr, ptr %second.i.i.i.i.i.i.i.i.i.i16.i, align 8
+  %cmp.not.i.i.i.i.i.i.i.i.i.i.i17.i = icmp eq ptr %11, null
+  br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i17.i, label %_ZN4absl12lts_2023080218container_internal20common_policy_traitsINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorESt10unique_ptrIKNS5_10TextFormat21FastFieldValuePrinterESt14default_deleteISC_EEEEvE7destroyISaISt4pairIKS8_SF_EEEEvPT_PNS1_13map_slot_typeIS8_SF_EE.exit.i.i.i.i.i, label %_ZNKSt14default_deleteIKN6google8protobuf10TextFormat21FastFieldValuePrinterEEclEPS4_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZNKSt14default_deleteIKN6google8protobuf10TextFormat21FastFieldValuePrinterEEclEPS4_.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i14.i
-  %vtable.i.i.i.i.i.i.i.i.i.i.i.i17.i = load ptr, ptr %11, align 8
-  %vfn.i.i.i.i.i.i.i.i.i.i.i.i18.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i.i.i.i.i.i.i.i17.i, i64 8
-  %12 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i.i.i.i18.i, align 8
+  %vtable.i.i.i.i.i.i.i.i.i.i.i.i18.i = load ptr, ptr %11, align 8
+  %vfn.i.i.i.i.i.i.i.i.i.i.i.i19.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i.i.i.i.i.i.i.i18.i, i64 8
+  %12 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i.i.i.i19.i, align 8
   call void %12(ptr noundef nonnull align 8 dereferenceable(8) %11) #36
   br label %_ZN4absl12lts_2023080218container_internal20common_policy_traitsINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorESt10unique_ptrIKNS5_10TextFormat21FastFieldValuePrinterESt14default_deleteISC_EEEEvE7destroyISaISt4pairIKS8_SF_EEEEvPT_PNS1_13map_slot_typeIS8_SF_EE.exit.i.i.i.i.i
 
 _ZN4absl12lts_2023080218container_internal20common_policy_traitsINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorESt10unique_ptrIKNS5_10TextFormat21FastFieldValuePrinterESt14default_deleteISC_EEEEvE7destroyISaISt4pairIKS8_SF_EEEEvPT_PNS1_13map_slot_typeIS8_SF_EE.exit.i.i.i.i.i: ; preds = %_ZNKSt14default_deleteIKN6google8protobuf10TextFormat21FastFieldValuePrinterEEclEPS4_.exit.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i14.i
-  store ptr null, ptr %second.i.i.i.i.i.i.i.i.i.i15.i, align 8
+  store ptr null, ptr %second.i.i.i.i.i.i.i.i.i.i16.i, align 8
   br label %for.inc.i.i.i.i9.i
 
 for.inc.i.i.i.i9.i:                               ; preds = %_ZN4absl12lts_2023080218container_internal20common_policy_traitsINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorESt10unique_ptrIKNS5_10TextFormat21FastFieldValuePrinterESt14default_deleteISC_EEEEvE7destroyISaISt4pairIKS8_SF_EEEEvPT_PNS1_13map_slot_typeIS8_SF_EE.exit.i.i.i.i.i, %for.body.i.i.i.i5.i
@@ -10848,8 +10869,8 @@ for.inc.i.i.i.i9.i:                               ; preds = %_ZN4absl12lts_20230
 
 invoke.cont13.i.i.i12.i:                          ; preds = %for.inc.i.i.i.i9.i
   %13 = load ptr, ptr %custom_printers_.i, align 8
-  %add.ptr.i.i.i.i13.i = getelementptr inbounds i8, ptr %13, i64 -8
-  call void @_ZdlPv(ptr noundef nonnull %add.ptr.i.i.i.i13.i) #37
+  %add.ptr.i3.i.i.i13.i = getelementptr inbounds i8, ptr %13, i64 -8
+  call void @_ZdlPv(ptr noundef nonnull %add.ptr.i3.i.i.i13.i) #37
   br label %_ZN4absl12lts_2023080213flat_hash_mapIPKN6google8protobuf15FieldDescriptorESt10unique_ptrIKNS3_10TextFormat21FastFieldValuePrinterESt14default_deleteISA_EENS0_18container_internal6HashEqIS6_vE4HashENSG_2EqESaISt4pairIKS6_SD_EEED2Ev.exit.i
 
 _ZN4absl12lts_2023080213flat_hash_mapIPKN6google8protobuf15FieldDescriptorESt10unique_ptrIKNS3_10TextFormat21FastFieldValuePrinterESt14default_deleteISA_EENS0_18container_internal6HashEqIS6_vE4HashENSG_2EqESaISt4pairIKS6_SD_EEED2Ev.exit.i: ; preds = %invoke.cont13.i.i.i12.i, %_ZN4absl12lts_2023080213flat_hash_mapIPKN6google8protobuf10DescriptorESt10unique_ptrIKNS3_10TextFormat14MessagePrinterESt14default_deleteISA_EENS0_18container_internal6HashEqIS6_vE4HashENSG_2EqESaISt4pairIKS6_SD_EEED2Ev.exit.i
@@ -10912,7 +10933,8 @@ for.body.i.i.i.i.i:                               ; preds = %for.inc.i.i.i.i.i, 
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i, label %for.inc.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %for.body.i.i.i.i.i
-  %second.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type.218", ptr %2, i64 %i.05.i.i.i.i.i, i32 0, i32 1
+  %add.ptr.i.i.i.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type.218", ptr %2, i64 %i.05.i.i.i.i.i
+  %second.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i, i64 8
   %4 = load ptr, ptr %second.i.i.i.i.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %4, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN4absl12lts_2023080218container_internal20common_policy_traitsINS1_17FlatHashMapPolicyIPKN6google8protobuf10DescriptorESt10unique_ptrIKNS5_10TextFormat14MessagePrinterESt14default_deleteISC_EEEEvE7destroyISaISt4pairIKS8_SF_EEEEvPT_PNS1_13map_slot_typeIS8_SF_EE.exit.i.i.i.i.i, label %_ZNKSt14default_deleteIKN6google8protobuf10TextFormat14MessagePrinterEEclEPS4_.exit.i.i.i.i.i.i.i.i.i.i.i.i
@@ -10935,8 +10957,8 @@ for.inc.i.i.i.i.i:                                ; preds = %_ZN4absl12lts_20230
 
 invoke.cont13.i.i.i.i:                            ; preds = %for.inc.i.i.i.i.i
   %6 = load ptr, ptr %custom_message_printers_.i, align 8
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 -8
-  call void @_ZdlPv(ptr noundef nonnull %add.ptr.i.i.i.i.i) #37
+  %add.ptr.i3.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 -8
+  call void @_ZdlPv(ptr noundef nonnull %add.ptr.i3.i.i.i.i) #37
   br label %_ZN4absl12lts_2023080213flat_hash_mapIPKN6google8protobuf10DescriptorESt10unique_ptrIKNS3_10TextFormat14MessagePrinterESt14default_deleteISA_EENS0_18container_internal6HashEqIS6_vE4HashENSG_2EqESaISt4pairIKS6_SD_EEED2Ev.exit.i
 
 _ZN4absl12lts_2023080213flat_hash_mapIPKN6google8protobuf10DescriptorESt10unique_ptrIKNS3_10TextFormat14MessagePrinterESt14default_deleteISA_EENS0_18container_internal6HashEqIS6_vE4HashENSG_2EqESaISt4pairIKS6_SD_EEED2Ev.exit.i: ; preds = %invoke.cont13.i.i.i.i, %invoke.cont
@@ -10960,20 +10982,21 @@ for.body.i.i.i.i5.i:                              ; preds = %for.inc.i.i.i.i9.i,
   br i1 %cmp.i.i.i.i.i8.i, label %if.then.i.i.i.i14.i, label %for.inc.i.i.i.i9.i
 
 if.then.i.i.i.i14.i:                              ; preds = %for.body.i.i.i.i5.i
-  %second.i.i.i.i.i.i.i.i.i.i15.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type.223", ptr %9, i64 %i.05.i.i.i.i6.i, i32 0, i32 1
-  %11 = load ptr, ptr %second.i.i.i.i.i.i.i.i.i.i15.i, align 8
-  %cmp.not.i.i.i.i.i.i.i.i.i.i.i16.i = icmp eq ptr %11, null
-  br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i16.i, label %_ZN4absl12lts_2023080218container_internal20common_policy_traitsINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorESt10unique_ptrIKNS5_10TextFormat21FastFieldValuePrinterESt14default_deleteISC_EEEEvE7destroyISaISt4pairIKS8_SF_EEEEvPT_PNS1_13map_slot_typeIS8_SF_EE.exit.i.i.i.i.i, label %_ZNKSt14default_deleteIKN6google8protobuf10TextFormat21FastFieldValuePrinterEEclEPS4_.exit.i.i.i.i.i.i.i.i.i.i.i.i
+  %add.ptr.i.i.i.i15.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type.223", ptr %9, i64 %i.05.i.i.i.i6.i
+  %second.i.i.i.i.i.i.i.i.i.i16.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i15.i, i64 8
+  %11 = load ptr, ptr %second.i.i.i.i.i.i.i.i.i.i16.i, align 8
+  %cmp.not.i.i.i.i.i.i.i.i.i.i.i17.i = icmp eq ptr %11, null
+  br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i17.i, label %_ZN4absl12lts_2023080218container_internal20common_policy_traitsINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorESt10unique_ptrIKNS5_10TextFormat21FastFieldValuePrinterESt14default_deleteISC_EEEEvE7destroyISaISt4pairIKS8_SF_EEEEvPT_PNS1_13map_slot_typeIS8_SF_EE.exit.i.i.i.i.i, label %_ZNKSt14default_deleteIKN6google8protobuf10TextFormat21FastFieldValuePrinterEEclEPS4_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZNKSt14default_deleteIKN6google8protobuf10TextFormat21FastFieldValuePrinterEEclEPS4_.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i14.i
-  %vtable.i.i.i.i.i.i.i.i.i.i.i.i17.i = load ptr, ptr %11, align 8
-  %vfn.i.i.i.i.i.i.i.i.i.i.i.i18.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i.i.i.i.i.i.i.i17.i, i64 8
-  %12 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i.i.i.i18.i, align 8
+  %vtable.i.i.i.i.i.i.i.i.i.i.i.i18.i = load ptr, ptr %11, align 8
+  %vfn.i.i.i.i.i.i.i.i.i.i.i.i19.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i.i.i.i.i.i.i.i18.i, i64 8
+  %12 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i.i.i.i19.i, align 8
   call void %12(ptr noundef nonnull align 8 dereferenceable(8) %11) #36
   br label %_ZN4absl12lts_2023080218container_internal20common_policy_traitsINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorESt10unique_ptrIKNS5_10TextFormat21FastFieldValuePrinterESt14default_deleteISC_EEEEvE7destroyISaISt4pairIKS8_SF_EEEEvPT_PNS1_13map_slot_typeIS8_SF_EE.exit.i.i.i.i.i
 
 _ZN4absl12lts_2023080218container_internal20common_policy_traitsINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorESt10unique_ptrIKNS5_10TextFormat21FastFieldValuePrinterESt14default_deleteISC_EEEEvE7destroyISaISt4pairIKS8_SF_EEEEvPT_PNS1_13map_slot_typeIS8_SF_EE.exit.i.i.i.i.i: ; preds = %_ZNKSt14default_deleteIKN6google8protobuf10TextFormat21FastFieldValuePrinterEEclEPS4_.exit.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i14.i
-  store ptr null, ptr %second.i.i.i.i.i.i.i.i.i.i15.i, align 8
+  store ptr null, ptr %second.i.i.i.i.i.i.i.i.i.i16.i, align 8
   br label %for.inc.i.i.i.i9.i
 
 for.inc.i.i.i.i9.i:                               ; preds = %_ZN4absl12lts_2023080218container_internal20common_policy_traitsINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorESt10unique_ptrIKNS5_10TextFormat21FastFieldValuePrinterESt14default_deleteISC_EEEEvE7destroyISaISt4pairIKS8_SF_EEEEvPT_PNS1_13map_slot_typeIS8_SF_EE.exit.i.i.i.i.i, %for.body.i.i.i.i5.i
@@ -10983,8 +11006,8 @@ for.inc.i.i.i.i9.i:                               ; preds = %_ZN4absl12lts_20230
 
 invoke.cont13.i.i.i12.i:                          ; preds = %for.inc.i.i.i.i9.i
   %13 = load ptr, ptr %custom_printers_.i, align 8
-  %add.ptr.i.i.i.i13.i = getelementptr inbounds i8, ptr %13, i64 -8
-  call void @_ZdlPv(ptr noundef nonnull %add.ptr.i.i.i.i13.i) #37
+  %add.ptr.i3.i.i.i13.i = getelementptr inbounds i8, ptr %13, i64 -8
+  call void @_ZdlPv(ptr noundef nonnull %add.ptr.i3.i.i.i13.i) #37
   br label %_ZN4absl12lts_2023080213flat_hash_mapIPKN6google8protobuf15FieldDescriptorESt10unique_ptrIKNS3_10TextFormat21FastFieldValuePrinterESt14default_deleteISA_EENS0_18container_internal6HashEqIS6_vE4HashENSG_2EqESaISt4pairIKS6_SD_EEED2Ev.exit.i
 
 _ZN4absl12lts_2023080213flat_hash_mapIPKN6google8protobuf15FieldDescriptorESt10unique_ptrIKNS3_10TextFormat21FastFieldValuePrinterESt14default_deleteISA_EENS0_18container_internal6HashEqIS6_vE4HashENSG_2EqESaISt4pairIKS6_SD_EEED2Ev.exit.i: ; preds = %invoke.cont13.i.i.i12.i, %_ZN4absl12lts_2023080213flat_hash_mapIPKN6google8protobuf10DescriptorESt10unique_ptrIKNS3_10TextFormat14MessagePrinterESt14default_deleteISA_EENS0_18container_internal6HashEqIS6_vE4HashENSG_2EqESaISt4pairIKS6_SD_EEED2Ev.exit.i
@@ -11047,7 +11070,8 @@ for.body.i.i.i.i.i:                               ; preds = %for.inc.i.i.i.i.i, 
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i, label %for.inc.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %for.body.i.i.i.i.i
-  %second.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type.218", ptr %2, i64 %i.05.i.i.i.i.i, i32 0, i32 1
+  %add.ptr.i.i.i.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type.218", ptr %2, i64 %i.05.i.i.i.i.i
+  %second.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i, i64 8
   %4 = load ptr, ptr %second.i.i.i.i.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %4, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN4absl12lts_2023080218container_internal20common_policy_traitsINS1_17FlatHashMapPolicyIPKN6google8protobuf10DescriptorESt10unique_ptrIKNS5_10TextFormat14MessagePrinterESt14default_deleteISC_EEEEvE7destroyISaISt4pairIKS8_SF_EEEEvPT_PNS1_13map_slot_typeIS8_SF_EE.exit.i.i.i.i.i, label %_ZNKSt14default_deleteIKN6google8protobuf10TextFormat14MessagePrinterEEclEPS4_.exit.i.i.i.i.i.i.i.i.i.i.i.i
@@ -11070,8 +11094,8 @@ for.inc.i.i.i.i.i:                                ; preds = %_ZN4absl12lts_20230
 
 invoke.cont13.i.i.i.i:                            ; preds = %for.inc.i.i.i.i.i
   %6 = load ptr, ptr %custom_message_printers_.i, align 8
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 -8
-  call void @_ZdlPv(ptr noundef nonnull %add.ptr.i.i.i.i.i) #37
+  %add.ptr.i3.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 -8
+  call void @_ZdlPv(ptr noundef nonnull %add.ptr.i3.i.i.i.i) #37
   br label %_ZN4absl12lts_2023080213flat_hash_mapIPKN6google8protobuf10DescriptorESt10unique_ptrIKNS3_10TextFormat14MessagePrinterESt14default_deleteISA_EENS0_18container_internal6HashEqIS6_vE4HashENSG_2EqESaISt4pairIKS6_SD_EEED2Ev.exit.i
 
 _ZN4absl12lts_2023080213flat_hash_mapIPKN6google8protobuf10DescriptorESt10unique_ptrIKNS3_10TextFormat14MessagePrinterESt14default_deleteISA_EENS0_18container_internal6HashEqIS6_vE4HashENSG_2EqESaISt4pairIKS6_SD_EEED2Ev.exit.i: ; preds = %invoke.cont13.i.i.i.i, %invoke.cont
@@ -11095,20 +11119,21 @@ for.body.i.i.i.i5.i:                              ; preds = %for.inc.i.i.i.i9.i,
   br i1 %cmp.i.i.i.i.i8.i, label %if.then.i.i.i.i14.i, label %for.inc.i.i.i.i9.i
 
 if.then.i.i.i.i14.i:                              ; preds = %for.body.i.i.i.i5.i
-  %second.i.i.i.i.i.i.i.i.i.i15.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type.223", ptr %9, i64 %i.05.i.i.i.i6.i, i32 0, i32 1
-  %11 = load ptr, ptr %second.i.i.i.i.i.i.i.i.i.i15.i, align 8
-  %cmp.not.i.i.i.i.i.i.i.i.i.i.i16.i = icmp eq ptr %11, null
-  br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i16.i, label %_ZN4absl12lts_2023080218container_internal20common_policy_traitsINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorESt10unique_ptrIKNS5_10TextFormat21FastFieldValuePrinterESt14default_deleteISC_EEEEvE7destroyISaISt4pairIKS8_SF_EEEEvPT_PNS1_13map_slot_typeIS8_SF_EE.exit.i.i.i.i.i, label %_ZNKSt14default_deleteIKN6google8protobuf10TextFormat21FastFieldValuePrinterEEclEPS4_.exit.i.i.i.i.i.i.i.i.i.i.i.i
+  %add.ptr.i.i.i.i15.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type.223", ptr %9, i64 %i.05.i.i.i.i6.i
+  %second.i.i.i.i.i.i.i.i.i.i16.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i15.i, i64 8
+  %11 = load ptr, ptr %second.i.i.i.i.i.i.i.i.i.i16.i, align 8
+  %cmp.not.i.i.i.i.i.i.i.i.i.i.i17.i = icmp eq ptr %11, null
+  br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i17.i, label %_ZN4absl12lts_2023080218container_internal20common_policy_traitsINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorESt10unique_ptrIKNS5_10TextFormat21FastFieldValuePrinterESt14default_deleteISC_EEEEvE7destroyISaISt4pairIKS8_SF_EEEEvPT_PNS1_13map_slot_typeIS8_SF_EE.exit.i.i.i.i.i, label %_ZNKSt14default_deleteIKN6google8protobuf10TextFormat21FastFieldValuePrinterEEclEPS4_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZNKSt14default_deleteIKN6google8protobuf10TextFormat21FastFieldValuePrinterEEclEPS4_.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i14.i
-  %vtable.i.i.i.i.i.i.i.i.i.i.i.i17.i = load ptr, ptr %11, align 8
-  %vfn.i.i.i.i.i.i.i.i.i.i.i.i18.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i.i.i.i.i.i.i.i17.i, i64 8
-  %12 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i.i.i.i18.i, align 8
+  %vtable.i.i.i.i.i.i.i.i.i.i.i.i18.i = load ptr, ptr %11, align 8
+  %vfn.i.i.i.i.i.i.i.i.i.i.i.i19.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i.i.i.i.i.i.i.i18.i, i64 8
+  %12 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i.i.i.i19.i, align 8
   call void %12(ptr noundef nonnull align 8 dereferenceable(8) %11) #36
   br label %_ZN4absl12lts_2023080218container_internal20common_policy_traitsINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorESt10unique_ptrIKNS5_10TextFormat21FastFieldValuePrinterESt14default_deleteISC_EEEEvE7destroyISaISt4pairIKS8_SF_EEEEvPT_PNS1_13map_slot_typeIS8_SF_EE.exit.i.i.i.i.i
 
 _ZN4absl12lts_2023080218container_internal20common_policy_traitsINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorESt10unique_ptrIKNS5_10TextFormat21FastFieldValuePrinterESt14default_deleteISC_EEEEvE7destroyISaISt4pairIKS8_SF_EEEEvPT_PNS1_13map_slot_typeIS8_SF_EE.exit.i.i.i.i.i: ; preds = %_ZNKSt14default_deleteIKN6google8protobuf10TextFormat21FastFieldValuePrinterEEclEPS4_.exit.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i14.i
-  store ptr null, ptr %second.i.i.i.i.i.i.i.i.i.i15.i, align 8
+  store ptr null, ptr %second.i.i.i.i.i.i.i.i.i.i16.i, align 8
   br label %for.inc.i.i.i.i9.i
 
 for.inc.i.i.i.i9.i:                               ; preds = %_ZN4absl12lts_2023080218container_internal20common_policy_traitsINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorESt10unique_ptrIKNS5_10TextFormat21FastFieldValuePrinterESt14default_deleteISC_EEEEvE7destroyISaISt4pairIKS8_SF_EEEEvPT_PNS1_13map_slot_typeIS8_SF_EE.exit.i.i.i.i.i, %for.body.i.i.i.i5.i
@@ -11118,8 +11143,8 @@ for.inc.i.i.i.i9.i:                               ; preds = %_ZN4absl12lts_20230
 
 invoke.cont13.i.i.i12.i:                          ; preds = %for.inc.i.i.i.i9.i
   %13 = load ptr, ptr %custom_printers_.i, align 8
-  %add.ptr.i.i.i.i13.i = getelementptr inbounds i8, ptr %13, i64 -8
-  call void @_ZdlPv(ptr noundef nonnull %add.ptr.i.i.i.i13.i) #37
+  %add.ptr.i3.i.i.i13.i = getelementptr inbounds i8, ptr %13, i64 -8
+  call void @_ZdlPv(ptr noundef nonnull %add.ptr.i3.i.i.i13.i) #37
   br label %_ZN4absl12lts_2023080213flat_hash_mapIPKN6google8protobuf15FieldDescriptorESt10unique_ptrIKNS3_10TextFormat21FastFieldValuePrinterESt14default_deleteISA_EENS0_18container_internal6HashEqIS6_vE4HashENSG_2EqESaISt4pairIKS6_SD_EEED2Ev.exit.i
 
 _ZN4absl12lts_2023080213flat_hash_mapIPKN6google8protobuf15FieldDescriptorESt10unique_ptrIKNS3_10TextFormat21FastFieldValuePrinterESt14default_deleteISA_EENS0_18container_internal6HashEqIS6_vE4HashENSG_2EqESaISt4pairIKS6_SD_EEED2Ev.exit.i: ; preds = %invoke.cont13.i.i.i12.i, %_ZN4absl12lts_2023080213flat_hash_mapIPKN6google8protobuf10DescriptorESt10unique_ptrIKNS3_10TextFormat14MessagePrinterESt14default_deleteISA_EENS0_18container_internal6HashEqIS6_vE4HashENSG_2EqESaISt4pairIKS6_SD_EEED2Ev.exit.i
@@ -11174,7 +11199,8 @@ for.body.i.i.i.i.i:                               ; preds = %for.inc.i.i.i.i.i, 
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i, label %for.inc.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %for.body.i.i.i.i.i
-  %second.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type.218", ptr %2, i64 %i.05.i.i.i.i.i, i32 0, i32 1
+  %add.ptr.i.i.i.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type.218", ptr %2, i64 %i.05.i.i.i.i.i
+  %second.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i, i64 8
   %4 = load ptr, ptr %second.i.i.i.i.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %4, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN4absl12lts_2023080218container_internal20common_policy_traitsINS1_17FlatHashMapPolicyIPKN6google8protobuf10DescriptorESt10unique_ptrIKNS5_10TextFormat14MessagePrinterESt14default_deleteISC_EEEEvE7destroyISaISt4pairIKS8_SF_EEEEvPT_PNS1_13map_slot_typeIS8_SF_EE.exit.i.i.i.i.i, label %_ZNKSt14default_deleteIKN6google8protobuf10TextFormat14MessagePrinterEEclEPS4_.exit.i.i.i.i.i.i.i.i.i.i.i.i
@@ -11197,8 +11223,8 @@ for.inc.i.i.i.i.i:                                ; preds = %_ZN4absl12lts_20230
 
 invoke.cont13.i.i.i.i:                            ; preds = %for.inc.i.i.i.i.i
   %6 = load ptr, ptr %custom_message_printers_.i, align 8
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 -8
-  call void @_ZdlPv(ptr noundef nonnull %add.ptr.i.i.i.i.i) #37
+  %add.ptr.i3.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 -8
+  call void @_ZdlPv(ptr noundef nonnull %add.ptr.i3.i.i.i.i) #37
   br label %_ZN4absl12lts_2023080213flat_hash_mapIPKN6google8protobuf10DescriptorESt10unique_ptrIKNS3_10TextFormat14MessagePrinterESt14default_deleteISA_EENS0_18container_internal6HashEqIS6_vE4HashENSG_2EqESaISt4pairIKS6_SD_EEED2Ev.exit.i
 
 _ZN4absl12lts_2023080213flat_hash_mapIPKN6google8protobuf10DescriptorESt10unique_ptrIKNS3_10TextFormat14MessagePrinterESt14default_deleteISA_EENS0_18container_internal6HashEqIS6_vE4HashENSG_2EqESaISt4pairIKS6_SD_EEED2Ev.exit.i: ; preds = %invoke.cont13.i.i.i.i, %invoke.cont
@@ -11222,20 +11248,21 @@ for.body.i.i.i.i5.i:                              ; preds = %for.inc.i.i.i.i9.i,
   br i1 %cmp.i.i.i.i.i8.i, label %if.then.i.i.i.i14.i, label %for.inc.i.i.i.i9.i
 
 if.then.i.i.i.i14.i:                              ; preds = %for.body.i.i.i.i5.i
-  %second.i.i.i.i.i.i.i.i.i.i15.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type.223", ptr %9, i64 %i.05.i.i.i.i6.i, i32 0, i32 1
-  %11 = load ptr, ptr %second.i.i.i.i.i.i.i.i.i.i15.i, align 8
-  %cmp.not.i.i.i.i.i.i.i.i.i.i.i16.i = icmp eq ptr %11, null
-  br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i16.i, label %_ZN4absl12lts_2023080218container_internal20common_policy_traitsINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorESt10unique_ptrIKNS5_10TextFormat21FastFieldValuePrinterESt14default_deleteISC_EEEEvE7destroyISaISt4pairIKS8_SF_EEEEvPT_PNS1_13map_slot_typeIS8_SF_EE.exit.i.i.i.i.i, label %_ZNKSt14default_deleteIKN6google8protobuf10TextFormat21FastFieldValuePrinterEEclEPS4_.exit.i.i.i.i.i.i.i.i.i.i.i.i
+  %add.ptr.i.i.i.i15.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type.223", ptr %9, i64 %i.05.i.i.i.i6.i
+  %second.i.i.i.i.i.i.i.i.i.i16.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i15.i, i64 8
+  %11 = load ptr, ptr %second.i.i.i.i.i.i.i.i.i.i16.i, align 8
+  %cmp.not.i.i.i.i.i.i.i.i.i.i.i17.i = icmp eq ptr %11, null
+  br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i17.i, label %_ZN4absl12lts_2023080218container_internal20common_policy_traitsINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorESt10unique_ptrIKNS5_10TextFormat21FastFieldValuePrinterESt14default_deleteISC_EEEEvE7destroyISaISt4pairIKS8_SF_EEEEvPT_PNS1_13map_slot_typeIS8_SF_EE.exit.i.i.i.i.i, label %_ZNKSt14default_deleteIKN6google8protobuf10TextFormat21FastFieldValuePrinterEEclEPS4_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZNKSt14default_deleteIKN6google8protobuf10TextFormat21FastFieldValuePrinterEEclEPS4_.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i14.i
-  %vtable.i.i.i.i.i.i.i.i.i.i.i.i17.i = load ptr, ptr %11, align 8
-  %vfn.i.i.i.i.i.i.i.i.i.i.i.i18.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i.i.i.i.i.i.i.i17.i, i64 8
-  %12 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i.i.i.i18.i, align 8
+  %vtable.i.i.i.i.i.i.i.i.i.i.i.i18.i = load ptr, ptr %11, align 8
+  %vfn.i.i.i.i.i.i.i.i.i.i.i.i19.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i.i.i.i.i.i.i.i18.i, i64 8
+  %12 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i.i.i.i19.i, align 8
   call void %12(ptr noundef nonnull align 8 dereferenceable(8) %11) #36
   br label %_ZN4absl12lts_2023080218container_internal20common_policy_traitsINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorESt10unique_ptrIKNS5_10TextFormat21FastFieldValuePrinterESt14default_deleteISC_EEEEvE7destroyISaISt4pairIKS8_SF_EEEEvPT_PNS1_13map_slot_typeIS8_SF_EE.exit.i.i.i.i.i
 
 _ZN4absl12lts_2023080218container_internal20common_policy_traitsINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorESt10unique_ptrIKNS5_10TextFormat21FastFieldValuePrinterESt14default_deleteISC_EEEEvE7destroyISaISt4pairIKS8_SF_EEEEvPT_PNS1_13map_slot_typeIS8_SF_EE.exit.i.i.i.i.i: ; preds = %_ZNKSt14default_deleteIKN6google8protobuf10TextFormat21FastFieldValuePrinterEEclEPS4_.exit.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i14.i
-  store ptr null, ptr %second.i.i.i.i.i.i.i.i.i.i15.i, align 8
+  store ptr null, ptr %second.i.i.i.i.i.i.i.i.i.i16.i, align 8
   br label %for.inc.i.i.i.i9.i
 
 for.inc.i.i.i.i9.i:                               ; preds = %_ZN4absl12lts_2023080218container_internal20common_policy_traitsINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorESt10unique_ptrIKNS5_10TextFormat21FastFieldValuePrinterESt14default_deleteISC_EEEEvE7destroyISaISt4pairIKS8_SF_EEEEvPT_PNS1_13map_slot_typeIS8_SF_EE.exit.i.i.i.i.i, %for.body.i.i.i.i5.i
@@ -11245,8 +11272,8 @@ for.inc.i.i.i.i9.i:                               ; preds = %_ZN4absl12lts_20230
 
 invoke.cont13.i.i.i12.i:                          ; preds = %for.inc.i.i.i.i9.i
   %13 = load ptr, ptr %custom_printers_.i, align 8
-  %add.ptr.i.i.i.i13.i = getelementptr inbounds i8, ptr %13, i64 -8
-  call void @_ZdlPv(ptr noundef nonnull %add.ptr.i.i.i.i13.i) #37
+  %add.ptr.i3.i.i.i13.i = getelementptr inbounds i8, ptr %13, i64 -8
+  call void @_ZdlPv(ptr noundef nonnull %add.ptr.i3.i.i.i13.i) #37
   br label %_ZN4absl12lts_2023080213flat_hash_mapIPKN6google8protobuf15FieldDescriptorESt10unique_ptrIKNS3_10TextFormat21FastFieldValuePrinterESt14default_deleteISA_EENS0_18container_internal6HashEqIS6_vE4HashENSG_2EqESaISt4pairIKS6_SD_EEED2Ev.exit.i
 
 _ZN4absl12lts_2023080213flat_hash_mapIPKN6google8protobuf15FieldDescriptorESt10unique_ptrIKNS3_10TextFormat21FastFieldValuePrinterESt14default_deleteISA_EENS0_18container_internal6HashEqIS6_vE4HashENSG_2EqESaISt4pairIKS6_SD_EEED2Ev.exit.i: ; preds = %invoke.cont13.i.i.i12.i, %_ZN4absl12lts_2023080213flat_hash_mapIPKN6google8protobuf10DescriptorESt10unique_ptrIKNS3_10TextFormat14MessagePrinterESt14default_deleteISA_EENS0_18container_internal6HashEqIS6_vE4HashENSG_2EqESaISt4pairIKS6_SD_EEED2Ev.exit.i

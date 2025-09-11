@@ -1234,23 +1234,24 @@ define internal range(i32 -2147483648, 1) i32 @run_parse(ptr readnone captures(n
   %18 = load i32, ptr %17, align 8, !tbaa !83
   %19 = tail call i32 @ff_vvc_coding_tree_unit(ptr noundef %1, i32 noundef %14, i32 noundef %7, i32 noundef %16, i32 noundef %18) #7
   %20 = icmp slt i32 %19, 0
-  br i1 %20, label %28, label %21
+  br i1 %20, label %29, label %21
 
 21:                                               ; preds = %3
   %22 = sext i32 %7 to i64
-  %23 = getelementptr inbounds %struct.CTU, ptr %9, i64 %22, i32 2
-  %24 = load i32, ptr %23, align 4, !tbaa !180
-  %.not = icmp eq i32 %24, 0
-  br i1 %.not, label %25, label %28
+  %23 = getelementptr inbounds %struct.CTU, ptr %9, i64 %22
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 240
+  %25 = load i32, ptr %24, align 4, !tbaa !180
+  %.not = icmp eq i32 %25, 0
+  br i1 %.not, label %26, label %29
 
-25:                                               ; preds = %21
-  %26 = load ptr, ptr %4, align 8, !tbaa !60
-  %27 = load i32, ptr %17, align 8, !tbaa !83
-  tail call fastcc void @report_frame_progress(ptr noundef %26, i32 noundef %27, i32 noundef 0)
-  br label %28
+26:                                               ; preds = %21
+  %27 = load ptr, ptr %4, align 8, !tbaa !60
+  %28 = load i32, ptr %17, align 8, !tbaa !83
+  tail call fastcc void @report_frame_progress(ptr noundef %27, i32 noundef %28, i32 noundef 0)
+  br label %29
 
-28:                                               ; preds = %21, %25, %3
-  %.0 = phi i32 [ %19, %3 ], [ 0, %25 ], [ 0, %21 ]
+29:                                               ; preds = %21, %26, %3
+  %.0 = phi i32 [ %19, %3 ], [ 0, %26 ], [ 0, %21 ]
   ret i32 %.0
 }
 
@@ -1289,23 +1290,24 @@ define internal range(i32 -2147483648, 1) i32 @run_inter(ptr readnone captures(n
   %9 = load i32, ptr %8, align 4, !tbaa !111
   %10 = tail call i32 @ff_vvc_predict_inter(ptr noundef %1, i32 noundef %9) #7
   %11 = icmp slt i32 %10, 0
-  br i1 %11, label %19, label %12
+  br i1 %11, label %20, label %12
 
 12:                                               ; preds = %3
   %13 = sext i32 %9 to i64
-  %14 = getelementptr inbounds %struct.CTU, ptr %7, i64 %13, i32 2
-  %15 = load i32, ptr %14, align 4, !tbaa !180
-  %.not = icmp eq i32 %15, 0
-  br i1 %.not, label %19, label %16
+  %14 = getelementptr inbounds %struct.CTU, ptr %7, i64 %13
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 240
+  %16 = load i32, ptr %15, align 4, !tbaa !180
+  %.not = icmp eq i32 %16, 0
+  br i1 %.not, label %20, label %17
 
-16:                                               ; preds = %12
-  %17 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %18 = load i32, ptr %17, align 8, !tbaa !83
-  tail call fastcc void @report_frame_progress(ptr noundef nonnull %5, i32 noundef %18, i32 noundef 0)
-  br label %19
+17:                                               ; preds = %12
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %19 = load i32, ptr %18, align 8, !tbaa !83
+  tail call fastcc void @report_frame_progress(ptr noundef nonnull %5, i32 noundef %19, i32 noundef 0)
+  br label %20
 
-19:                                               ; preds = %12, %16, %3
-  %.0 = phi i32 [ %10, %3 ], [ 0, %16 ], [ 0, %12 ]
+20:                                               ; preds = %12, %17, %3
+  %.0 = phi i32 [ %10, %3 ], [ 0, %17 ], [ 0, %12 ]
   ret i32 %.0
 }
 

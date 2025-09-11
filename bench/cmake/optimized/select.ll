@@ -166,44 +166,46 @@ define dso_local range(i32 -2147483648, 16) i32 @Curl_socket_check(i32 noundef %
 50:                                               ; preds = %44, %43
   %.351 = phi i32 [ 1, %44 ], [ 0, %43 ]
   %.0 = phi i32 [ %.2, %44 ], [ 0, %43 ]
-  br i1 %.not58, label %60, label %51
+  br i1 %.not58, label %61, label %51
 
 51:                                               ; preds = %50
   %52 = zext nneg i32 %.351 to i64
-  %53 = getelementptr inbounds nuw %struct.pollfd, ptr %6, i64 %52, i32 2
-  %54 = load i16, ptr %53, align 2, !tbaa !12
-  %55 = and i16 %54, 89
-  %.not62 = icmp eq i16 %55, 0
-  %56 = or i32 %.0, 8
-  %spec.select66 = select i1 %.not62, i32 %.0, i32 %56
-  %57 = and i16 %54, 34
-  %.not63 = icmp eq i16 %57, 0
-  %58 = or i32 %spec.select66, 4
-  %.5 = select i1 %.not63, i32 %spec.select66, i32 %58
-  %59 = add nuw nsw i32 %.351, 1
-  br label %60
+  %53 = getelementptr inbounds nuw %struct.pollfd, ptr %6, i64 %52
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 6
+  %55 = load i16, ptr %54, align 2, !tbaa !12
+  %56 = and i16 %55, 89
+  %.not62 = icmp eq i16 %56, 0
+  %57 = or i32 %.0, 8
+  %spec.select66 = select i1 %.not62, i32 %.0, i32 %57
+  %58 = and i16 %55, 34
+  %.not63 = icmp eq i16 %58, 0
+  %59 = or i32 %spec.select66, 4
+  %.5 = select i1 %.not63, i32 %spec.select66, i32 %59
+  %60 = add nuw nsw i32 %.351, 1
+  br label %61
 
-60:                                               ; preds = %51, %50
-  %.452 = phi i32 [ %59, %51 ], [ %.351, %50 ]
+61:                                               ; preds = %51, %50
+  %.452 = phi i32 [ %60, %51 ], [ %.351, %50 ]
   %.3 = phi i32 [ %.5, %51 ], [ %.0, %50 ]
-  br i1 %.not59, label %Curl_wait_ms.exit, label %61
+  br i1 %.not59, label %Curl_wait_ms.exit, label %62
 
-61:                                               ; preds = %60
-  %62 = zext nneg i32 %.452 to i64
-  %63 = getelementptr inbounds nuw %struct.pollfd, ptr %6, i64 %62, i32 2
-  %64 = load i16, ptr %63, align 2, !tbaa !12
-  %65 = and i16 %64, 260
-  %.not64 = icmp eq i16 %65, 0
-  %66 = or i32 %.3, 2
-  %spec.select67 = select i1 %.not64, i32 %.3, i32 %66
-  %67 = and i16 %64, 58
-  %.not65 = icmp eq i16 %67, 0
-  %68 = or i32 %spec.select67, 4
-  %spec.select68 = select i1 %.not65, i32 %spec.select67, i32 %68
+62:                                               ; preds = %61
+  %63 = zext nneg i32 %.452 to i64
+  %64 = getelementptr inbounds nuw %struct.pollfd, ptr %6, i64 %63
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 6
+  %66 = load i16, ptr %65, align 2, !tbaa !12
+  %67 = and i16 %66, 260
+  %.not64 = icmp eq i16 %67, 0
+  %68 = or i32 %.3, 2
+  %spec.select67 = select i1 %.not64, i32 %.3, i32 %68
+  %69 = and i16 %66, 58
+  %.not65 = icmp eq i16 %69, 0
+  %70 = or i32 %spec.select67, 4
+  %spec.select68 = select i1 %.not65, i32 %spec.select67, i32 %70
   br label %Curl_wait_ms.exit
 
-Curl_wait_ms.exit:                                ; preds = %21, %17, %14, %12, %9, %61, %60, %40
-  %.053 = phi i32 [ %41, %40 ], [ %.3, %60 ], [ %spec.select68, %61 ], [ -1, %12 ], [ 0, %9 ], [ -1, %21 ], [ %16, %14 ], [ 0, %17 ]
+Curl_wait_ms.exit:                                ; preds = %21, %17, %14, %12, %9, %62, %61, %40
+  %.053 = phi i32 [ %41, %40 ], [ %.3, %61 ], [ %spec.select68, %62 ], [ -1, %12 ], [ 0, %9 ], [ -1, %21 ], [ %16, %14 ], [ 0, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.053
 }
@@ -426,7 +428,7 @@ cpfds_increase.exit.thread.i:                     ; preds = %21, %13
   %29 = zext i32 %27 to i64
   %30 = getelementptr inbounds nuw %struct.pollfd, ptr %28, i64 %29
   store i32 %1, ptr %30, align 4, !tbaa !8
-  %31 = getelementptr inbounds nuw %struct.pollfd, ptr %28, i64 %29, i32 1
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 4
   store i16 %2, ptr %31, align 4, !tbaa !11
   %32 = add i32 %27, 1
   store i32 %32, ptr %4, align 8, !tbaa !22
@@ -452,10 +454,10 @@ define dso_local range(i32 0, 28) i32 @Curl_pollfds_add_ps(ptr noundef captures(
   br label %9
 
 9:                                                ; preds = %.lr.ph, %.critedge
-  %.pre28 = phi i32 [ %4, %.lr.ph ], [ %.pre29, %.critedge ]
-  %10 = phi i32 [ %4, %.lr.ph ], [ %57, %.critedge ]
-  %.01625 = phi i64 [ 0, %.lr.ph ], [ %58, %.critedge ]
-  %11 = getelementptr inbounds nuw i8, ptr %5, i64 %.01625
+  %.pre29 = phi i32 [ %4, %.lr.ph ], [ %.pre30, %.critedge ]
+  %10 = phi i32 [ %4, %.lr.ph ], [ %58, %.critedge ]
+  %.01626 = phi i64 [ 0, %.lr.ph ], [ %59, %.critedge ]
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 %.01626
   %12 = load i8, ptr %11, align 1, !tbaa !25
   %13 = and i8 %12, 1
   %14 = shl i8 %12, 1
@@ -466,7 +468,7 @@ define dso_local range(i32 0, 28) i32 @Curl_pollfds_add_ps(ptr noundef captures(
   br i1 %.not20, label %.critedge, label %16
 
 16:                                               ; preds = %9
-  %17 = getelementptr inbounds nuw i32, ptr %1, i64 %.01625
+  %17 = getelementptr inbounds nuw i32, ptr %1, i64 %.01626
   %18 = load i32, ptr %17, align 4, !tbaa !4
   %19 = load i32, ptr %6, align 8, !tbaa !22
   %20 = icmp sgt i32 %19, -1
@@ -490,80 +492,81 @@ define dso_local range(i32 0, 28) i32 @Curl_pollfds_add_ps(ptr noundef captures(
   br i1 %27, label %28, label %.preheader.i, !llvm.loop !26
 
 28:                                               ; preds = %23
-  %29 = getelementptr inbounds nuw %struct.pollfd, ptr %24, i64 %indvars.iv.next.i, i32 1
-  %30 = load i16, ptr %29, align 4, !tbaa !11
-  %31 = or i16 %30, %.1
-  store i16 %31, ptr %29, align 4, !tbaa !11
+  %29 = getelementptr inbounds nuw %struct.pollfd, ptr %24, i64 %indvars.iv.next.i
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 4
+  %31 = load i16, ptr %30, align 4, !tbaa !11
+  %32 = or i16 %31, %.1
+  store i16 %32, ptr %30, align 4, !tbaa !11
   br label %.critedge
 
 .loopexit.i:                                      ; preds = %.preheader.i, %16
-  %32 = load i32, ptr %7, align 4, !tbaa !20
-  %.not.i = icmp ult i32 %19, %32
-  br i1 %.not.i, label %.loopexit._crit_edge.i, label %33
+  %33 = load i32, ptr %7, align 4, !tbaa !20
+  %.not.i = icmp ult i32 %19, %33
+  br i1 %.not.i, label %.loopexit._crit_edge.i, label %34
 
 .loopexit._crit_edge.i:                           ; preds = %.loopexit.i
   %.pre30.i = load ptr, ptr %0, align 8, !tbaa !16
-  br label %50
+  br label %51
 
-33:                                               ; preds = %.loopexit.i
-  %34 = add i32 %32, 100
-  %35 = load ptr, ptr @Curl_ccalloc, align 8, !tbaa !21
-  %36 = zext i32 %34 to i64
-  %37 = tail call ptr %35(i64 noundef %36, i64 noundef 8) #10
-  %.not.i.i = icmp eq ptr %37, null
-  br i1 %.not.i.i, label %cpfds_add_sock.exit, label %38
+34:                                               ; preds = %.loopexit.i
+  %35 = add i32 %33, 100
+  %36 = load ptr, ptr @Curl_ccalloc, align 8, !tbaa !21
+  %37 = zext i32 %35 to i64
+  %38 = tail call ptr %36(i64 noundef %37, i64 noundef 8) #10
+  %.not.i.i = icmp eq ptr %38, null
+  br i1 %.not.i.i, label %cpfds_add_sock.exit, label %39
 
-38:                                               ; preds = %33
-  %39 = load ptr, ptr %0, align 8, !tbaa !16
-  %40 = load i32, ptr %7, align 4, !tbaa !20
-  %41 = zext i32 %40 to i64
-  %42 = shl nuw nsw i64 %41, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %37, ptr align 4 %39, i64 %42, i1 false)
-  %43 = load i8, ptr %8, align 8
-  %44 = and i8 %43, 1
-  %.not15.i.i = icmp eq i8 %44, 0
-  br i1 %.not15.i.i, label %cpfds_increase.exit.thread.i, label %45
+39:                                               ; preds = %34
+  %40 = load ptr, ptr %0, align 8, !tbaa !16
+  %41 = load i32, ptr %7, align 4, !tbaa !20
+  %42 = zext i32 %41 to i64
+  %43 = shl nuw nsw i64 %42, 3
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %38, ptr align 4 %40, i64 %43, i1 false)
+  %44 = load i8, ptr %8, align 8
+  %45 = and i8 %44, 1
+  %.not15.i.i = icmp eq i8 %45, 0
+  br i1 %.not15.i.i, label %cpfds_increase.exit.thread.i, label %46
 
-45:                                               ; preds = %38
-  %46 = load ptr, ptr @Curl_cfree, align 8, !tbaa !21
-  %47 = load ptr, ptr %0, align 8, !tbaa !16
-  tail call void %46(ptr noundef %47) #10
+46:                                               ; preds = %39
+  %47 = load ptr, ptr @Curl_cfree, align 8, !tbaa !21
+  %48 = load ptr, ptr %0, align 8, !tbaa !16
+  tail call void %47(ptr noundef %48) #10
   %.pre.i.i = load i8, ptr %8, align 8
   br label %cpfds_increase.exit.thread.i
 
-cpfds_increase.exit.thread.i:                     ; preds = %45, %38
-  %48 = phi i8 [ %.pre.i.i, %45 ], [ %43, %38 ]
-  store ptr %37, ptr %0, align 8, !tbaa !16
-  store i32 %34, ptr %7, align 4, !tbaa !20
-  %49 = or i8 %48, 1
-  store i8 %49, ptr %8, align 8
+cpfds_increase.exit.thread.i:                     ; preds = %46, %39
+  %49 = phi i8 [ %.pre.i.i, %46 ], [ %44, %39 ]
+  store ptr %38, ptr %0, align 8, !tbaa !16
+  store i32 %35, ptr %7, align 4, !tbaa !20
+  %50 = or i8 %49, 1
+  store i8 %50, ptr %8, align 8
   %.pre31.i = load i32, ptr %6, align 8, !tbaa !22
   %.pre.pre = load i32, ptr %3, align 4, !tbaa !23
-  br label %50
+  br label %51
 
-50:                                               ; preds = %cpfds_increase.exit.thread.i, %.loopexit._crit_edge.i
-  %.pre = phi i32 [ %.pre28, %.loopexit._crit_edge.i ], [ %.pre.pre, %cpfds_increase.exit.thread.i ]
-  %51 = phi i32 [ %19, %.loopexit._crit_edge.i ], [ %.pre31.i, %cpfds_increase.exit.thread.i ]
-  %52 = phi ptr [ %.pre30.i, %.loopexit._crit_edge.i ], [ %37, %cpfds_increase.exit.thread.i ]
-  %53 = zext i32 %51 to i64
-  %54 = getelementptr inbounds nuw %struct.pollfd, ptr %52, i64 %53
-  store i32 %18, ptr %54, align 4, !tbaa !8
-  %55 = getelementptr inbounds nuw %struct.pollfd, ptr %52, i64 %53, i32 1
-  store i16 %.1, ptr %55, align 4, !tbaa !11
-  %56 = add i32 %51, 1
-  store i32 %56, ptr %6, align 8, !tbaa !22
+51:                                               ; preds = %cpfds_increase.exit.thread.i, %.loopexit._crit_edge.i
+  %.pre = phi i32 [ %.pre29, %.loopexit._crit_edge.i ], [ %.pre.pre, %cpfds_increase.exit.thread.i ]
+  %52 = phi i32 [ %19, %.loopexit._crit_edge.i ], [ %.pre31.i, %cpfds_increase.exit.thread.i ]
+  %53 = phi ptr [ %.pre30.i, %.loopexit._crit_edge.i ], [ %38, %cpfds_increase.exit.thread.i ]
+  %54 = zext i32 %52 to i64
+  %55 = getelementptr inbounds nuw %struct.pollfd, ptr %53, i64 %54
+  store i32 %18, ptr %55, align 4, !tbaa !8
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 4
+  store i16 %.1, ptr %56, align 4, !tbaa !11
+  %57 = add i32 %52, 1
+  store i32 %57, ptr %6, align 8, !tbaa !22
   br label %.critedge
 
-.critedge:                                        ; preds = %50, %28, %9
-  %.pre29 = phi i32 [ %.pre, %50 ], [ %.pre28, %28 ], [ %.pre28, %9 ]
-  %57 = phi i32 [ %.pre, %50 ], [ %10, %28 ], [ %10, %9 ]
-  %58 = add nuw nsw i64 %.01625, 1
-  %59 = zext i32 %57 to i64
-  %60 = icmp samesign ult i64 %58, %59
-  br i1 %60, label %9, label %cpfds_add_sock.exit, !llvm.loop !27
+.critedge:                                        ; preds = %51, %28, %9
+  %.pre30 = phi i32 [ %.pre, %51 ], [ %.pre29, %28 ], [ %.pre29, %9 ]
+  %58 = phi i32 [ %.pre, %51 ], [ %10, %28 ], [ %10, %9 ]
+  %59 = add nuw nsw i64 %.01626, 1
+  %60 = zext i32 %58 to i64
+  %61 = icmp samesign ult i64 %59, %60
+  br i1 %61, label %9, label %cpfds_add_sock.exit, !llvm.loop !27
 
-cpfds_add_sock.exit:                              ; preds = %.critedge, %33, %2
-  %.2 = phi i32 [ 0, %2 ], [ 27, %33 ], [ 0, %.critedge ]
+cpfds_add_sock.exit:                              ; preds = %.critedge, %34, %2
+  %.2 = phi i32 [ 0, %2 ], [ 27, %34 ], [ 0, %.critedge ]
   ret i32 %.2
 }
 
@@ -592,8 +595,8 @@ define dso_local range(i32 0, 28) i32 @Curl_waitfds_add_ps(ptr noundef captures(
   br label %9
 
 9:                                                ; preds = %.lr.ph, %.critedge
-  %.01625 = phi i64 [ 0, %.lr.ph ], [ %38, %.critedge ]
-  %10 = getelementptr inbounds nuw i8, ptr %6, i64 %.01625
+  %.01626 = phi i64 [ 0, %.lr.ph ], [ %39, %.critedge ]
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 %.01626
   %11 = load i8, ptr %10, align 1, !tbaa !25
   %12 = and i8 %11, 1
   %13 = shl i8 %11, 1
@@ -604,7 +607,7 @@ define dso_local range(i32 0, 28) i32 @Curl_waitfds_add_ps(ptr noundef captures(
   br i1 %.not20, label %.critedge, label %15
 
 15:                                               ; preds = %9
-  %16 = getelementptr inbounds nuw i32, ptr %1, i64 %.01625
+  %16 = getelementptr inbounds nuw i32, ptr %1, i64 %.01626
   %17 = load i32, ptr %16, align 4, !tbaa !4
   %18 = load i32, ptr %7, align 8, !tbaa !32
   %19 = icmp sgt i32 %18, -1
@@ -628,31 +631,32 @@ define dso_local range(i32 0, 28) i32 @Curl_waitfds_add_ps(ptr noundef captures(
   br i1 %26, label %27, label %.preheader.i, !llvm.loop !35
 
 27:                                               ; preds = %22
-  %28 = getelementptr inbounds nuw %struct.curl_waitfd, ptr %23, i64 %indvars.iv.next.i, i32 1
-  %29 = load i16, ptr %28, align 4, !tbaa !36
-  %30 = or i16 %29, %.1
-  store i16 %30, ptr %28, align 4, !tbaa !36
+  %28 = getelementptr inbounds nuw %struct.curl_waitfd, ptr %23, i64 %indvars.iv.next.i
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 4
+  %30 = load i16, ptr %29, align 4, !tbaa !36
+  %31 = or i16 %30, %.1
+  store i16 %31, ptr %29, align 4, !tbaa !36
   br label %.critedge
 
 .loopexit.i:                                      ; preds = %.preheader.i, %15
-  %31 = load i32, ptr %8, align 4, !tbaa !31
-  %.not.i = icmp ult i32 %18, %31
-  br i1 %.not.i, label %32, label %cwfds_add_sock.exit
+  %32 = load i32, ptr %8, align 4, !tbaa !31
+  %.not.i = icmp ult i32 %18, %32
+  br i1 %.not.i, label %33, label %cwfds_add_sock.exit
 
-32:                                               ; preds = %.loopexit.i
-  %33 = load ptr, ptr %0, align 8, !tbaa !28
-  %34 = zext i32 %18 to i64
-  %35 = getelementptr inbounds nuw %struct.curl_waitfd, ptr %33, i64 %34
-  store i32 %17, ptr %35, align 4, !tbaa !33
-  %36 = getelementptr inbounds nuw %struct.curl_waitfd, ptr %33, i64 %34, i32 1
-  store i16 %.1, ptr %36, align 4, !tbaa !36
-  %37 = add nuw i32 %18, 1
-  store i32 %37, ptr %7, align 8, !tbaa !32
+33:                                               ; preds = %.loopexit.i
+  %34 = load ptr, ptr %0, align 8, !tbaa !28
+  %35 = zext i32 %18 to i64
+  %36 = getelementptr inbounds nuw %struct.curl_waitfd, ptr %34, i64 %35
+  store i32 %17, ptr %36, align 4, !tbaa !33
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 4
+  store i16 %.1, ptr %37, align 4, !tbaa !36
+  %38 = add nuw i32 %18, 1
+  store i32 %38, ptr %7, align 8, !tbaa !32
   br label %.critedge
 
-.critedge:                                        ; preds = %32, %27, %9
-  %38 = add nuw nsw i64 %.01625, 1
-  %exitcond.not = icmp eq i64 %38, %5
+.critedge:                                        ; preds = %33, %27, %9
+  %39 = add nuw nsw i64 %.01626, 1
+  %exitcond.not = icmp eq i64 %39, %5
   br i1 %exitcond.not, label %cwfds_add_sock.exit, label %9, !llvm.loop !37
 
 cwfds_add_sock.exit:                              ; preds = %.critedge, %.loopexit.i, %2

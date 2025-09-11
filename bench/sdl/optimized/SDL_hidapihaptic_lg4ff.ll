@@ -269,23 +269,24 @@ define internal void @SDL_HIDAPI_HapticDriverLg4ff_Close(ptr noundef readonly ca
 
 6:                                                ; preds = %6, %1
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %6 ]
-  %7 = getelementptr inbounds nuw %struct.lg4ff_effect_state, ptr %3, i64 %indvars.iv.i, i32 5
-  store i32 0, ptr %7, align 8
+  %7 = getelementptr inbounds nuw %struct.lg4ff_effect_state, ptr %3, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 104
+  store i32 0, ptr %8, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
   br i1 %exitcond.not.i, label %SDL_HIDAPI_HapticDriverLg4ff_StopEffects.exit, label %6, !llvm.loop !6
 
 SDL_HIDAPI_HapticDriverLg4ff_StopEffects.exit:    ; preds = %6
-  %8 = load ptr, ptr %4, align 8
-  tail call void @SDL_UnlockMutex_REAL(ptr noundef %8) #8
+  %9 = load ptr, ptr %4, align 8
+  tail call void @SDL_UnlockMutex_REAL(ptr noundef %9) #8
   tail call void @SDL_Delay_REAL(i32 noundef 50) #8
-  %9 = getelementptr inbounds nuw i8, ptr %3, i64 2672
-  store i8 1, ptr %9, align 8
-  %10 = getelementptr inbounds nuw i8, ptr %3, i64 2680
-  %11 = load ptr, ptr %10, align 8
-  tail call void @SDL_WaitThread_REAL(ptr noundef %11, ptr noundef null) #8
-  %12 = load ptr, ptr %4, align 8
-  tail call void @SDL_DestroyMutex_REAL(ptr noundef %12) #8
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 2672
+  store i8 1, ptr %10, align 8
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 2680
+  %12 = load ptr, ptr %11, align 8
+  tail call void @SDL_WaitThread_REAL(ptr noundef %12, ptr noundef null) #8
+  %13 = load ptr, ptr %4, align 8
+  tail call void @SDL_DestroyMutex_REAL(ptr noundef %13) #8
   ret void
 }
 
@@ -586,7 +587,7 @@ lg4ff_effect_slot_valid_active.exit.thread.i:     ; preds = %lg4ff_effect_slot_v
 
 14:                                               ; preds = %lg4ff_effect_slot_valid_active.exit.i
   %15 = tail call i64 @SDL_GetTicks_REAL() #8
-  %16 = getelementptr inbounds nuw %struct.lg4ff_effect_state, ptr %4, i64 %7, i32 5
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 104
   %17 = load i32, ptr %16, align 8
   %18 = and i32 %17, 1
   %.not14.i.i = icmp eq i32 %18, 0
@@ -655,14 +656,14 @@ define internal zeroext i1 @SDL_HIDAPI_HapticDriverLg4ff_GetEffectStatus(ptr nou
 
 lg4ff_effect_slot_valid_active.exit:              ; preds = %2
   %7 = zext nneg i32 %1 to i64
-  %8 = getelementptr inbounds nuw %struct.lg4ff_effect_state, ptr %4, i64 %7
+  %8 = getelementptr %struct.lg4ff_effect_state, ptr %4, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 156
   %10 = load i8, ptr %9, align 4, !range !7, !noundef !8
   %11 = trunc nuw i8 %10 to i1
   br i1 %11, label %12, label %lg4ff_effect_slot_valid_active.exit.thread
 
 12:                                               ; preds = %lg4ff_effect_slot_valid_active.exit
-  %13 = getelementptr %struct.lg4ff_effect_state, ptr %4, i64 %7, i32 5
+  %13 = getelementptr i8, ptr %8, i64 104
   %14 = load i32, ptr %13, align 8
   %15 = and i32 %14, 1
   %.not = icmp ne i32 %15, 0
@@ -847,15 +848,16 @@ define internal noundef zeroext i1 @SDL_HIDAPI_HapticDriverLg4ff_StopEffects(ptr
 
 6:                                                ; preds = %1, %6
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %6 ]
-  %7 = getelementptr inbounds nuw %struct.lg4ff_effect_state, ptr %3, i64 %indvars.iv, i32 5
-  store i32 0, ptr %7, align 8
+  %7 = getelementptr inbounds nuw %struct.lg4ff_effect_state, ptr %3, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 104
+  store i32 0, ptr %8, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %8, label %6, !llvm.loop !6
+  br i1 %exitcond.not, label %9, label %6, !llvm.loop !6
 
-8:                                                ; preds = %6
-  %9 = load ptr, ptr %4, align 8
-  tail call void @SDL_UnlockMutex_REAL(ptr noundef %9) #8
+9:                                                ; preds = %6
+  %10 = load ptr, ptr %4, align 8
+  tail call void @SDL_UnlockMutex_REAL(ptr noundef %10) #8
   ret i1 true
 }
 

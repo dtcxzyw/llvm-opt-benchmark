@@ -1063,7 +1063,7 @@ define dso_local void @_ZN6bParse5bFile13parseInternalEiPci(ptr noundef nonnull 
   %7 = load i32, ptr %6, align 8, !tbaa !56
   %8 = and i32 %7, 1
   %9 = icmp eq i32 %8, 0
-  br i1 %9, label %178, label %10
+  br i1 %9, label %180, label %10
 
 10:                                               ; preds = %4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1222,7 +1222,7 @@ define dso_local void @_ZN6bParse5bFile13parseInternalEiPci(ptr noundef nonnull 
 96:                                               ; preds = %75
   %97 = landingpad { ptr, i32 }
           cleanup
-  br label %179
+  br label %181
 
 98:                                               ; preds = %.lr.ph43, %93
   %99 = add nuw nsw i32 %.03042, 1
@@ -1269,7 +1269,7 @@ define dso_local void @_ZN6bParse5bFile13parseInternalEiPci(ptr noundef nonnull 
 120:                                              ; preds = %107
   %121 = landingpad { ptr, i32 }
           cleanup
-  br label %179
+  br label %181
 
 122:                                              ; preds = %117, %109
   %123 = tail call noundef zeroext i1 @_ZN6bParse4bDNA8lessThanEPS0_(ptr noundef nonnull align 8 dereferenceable(420) %111, ptr noundef nonnull %114)
@@ -1308,83 +1308,85 @@ define dso_local void @_ZN6bParse5bFile13parseInternalEiPci(ptr noundef nonnull 
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %.lr.ph.split.us.i
   %indvars.iv10.i = phi i64 [ %indvars.iv.next11.i, %.lr.ph.split.us.i ], [ 0, %.lr.ph.i ]
-  %146 = getelementptr inbounds nuw %"class.bParse::bChunkInd", ptr %133, i64 %indvars.iv10.i, i32 2
-  store ptr null, ptr %146, align 8, !tbaa !66
+  %146 = getelementptr inbounds nuw %"class.bParse::bChunkInd", ptr %133, i64 %indvars.iv10.i
+  %147 = getelementptr inbounds nuw i8, ptr %146, i64 8
+  store ptr null, ptr %147, align 8, !tbaa !66
   %indvars.iv.next11.i = add nuw nsw i64 %indvars.iv10.i, 1
   %exitcond14.not.i = icmp eq i64 %indvars.iv.next11.i, %wide.trip.count13.i
   br i1 %exitcond14.not.i, label %_ZN6bParse5bFile17updateOldPointersEv.exit, label %.lr.ph.split.us.i, !llvm.loop !75
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %_ZN6bParse5bFile14findLibPointerEPv.exit.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZN6bParse5bFile14findLibPointerEPv.exit.i ], [ 0, %.lr.ph.i ]
-  %147 = getelementptr inbounds nuw %"class.bParse::bChunkInd", ptr %133, i64 %indvars.iv.i, i32 2
-  %148 = load ptr, ptr %147, align 8, !tbaa !66
-  %149 = ptrtoint ptr %148 to i64
-  %.sroa.0.0.extract.trunc.i.i = trunc i64 %149 to i32
-  %.sroa.0.4.extract.shift.i.i = lshr i64 %149, 32
+  %148 = getelementptr inbounds nuw %"class.bParse::bChunkInd", ptr %133, i64 %indvars.iv.i
+  %149 = getelementptr inbounds nuw i8, ptr %148, i64 8
+  %150 = load ptr, ptr %149, align 8, !tbaa !66
+  %151 = ptrtoint ptr %150 to i64
+  %.sroa.0.0.extract.trunc.i.i = trunc i64 %151 to i32
+  %.sroa.0.4.extract.shift.i.i = lshr i64 %151, 32
   %.sroa.0.4.extract.trunc.i.i = trunc nuw i64 %.sroa.0.4.extract.shift.i.i to i32
-  %150 = add nsw i32 %.sroa.0.4.extract.trunc.i.i, %.sroa.0.0.extract.trunc.i.i
-  %151 = shl i32 %150, 15
-  %152 = xor i32 %151, -1
-  %153 = add nsw i32 %150, %152
-  %154 = ashr i32 %153, 10
-  %155 = xor i32 %154, %153
-  %156 = mul i32 %155, 9
-  %157 = ashr i32 %156, 6
-  %158 = xor i32 %157, %156
-  %159 = shl i32 %158, 11
-  %160 = xor i32 %159, -1
-  %161 = add nsw i32 %158, %160
-  %162 = ashr i32 %161, 16
-  %163 = xor i32 %162, %161
-  %164 = and i32 %163, %136
-  %.not.i.i.i.i = icmp ult i32 %164, %138
-  br i1 %.not.i.i.i.i, label %165, label %_ZN6bParse5bFile14findLibPointerEPv.exit.i
+  %152 = add nsw i32 %.sroa.0.4.extract.trunc.i.i, %.sroa.0.0.extract.trunc.i.i
+  %153 = shl i32 %152, 15
+  %154 = xor i32 %153, -1
+  %155 = add nsw i32 %152, %154
+  %156 = ashr i32 %155, 10
+  %157 = xor i32 %156, %155
+  %158 = mul i32 %157, 9
+  %159 = ashr i32 %158, 6
+  %160 = xor i32 %159, %158
+  %161 = shl i32 %160, 11
+  %162 = xor i32 %161, -1
+  %163 = add nsw i32 %160, %162
+  %164 = ashr i32 %163, 16
+  %165 = xor i32 %164, %163
+  %166 = and i32 %165, %136
+  %.not.i.i.i.i = icmp ult i32 %166, %138
+  br i1 %.not.i.i.i.i, label %167, label %_ZN6bParse5bFile14findLibPointerEPv.exit.i
 
-165:                                              ; preds = %.lr.ph.split.i
-  %166 = sext i32 %164 to i64
-  %167 = getelementptr inbounds i32, ptr %140, i64 %166
-  %.012.i.i.i.i = load i32, ptr %167, align 4, !tbaa !76
+167:                                              ; preds = %.lr.ph.split.i
+  %168 = sext i32 %166 to i64
+  %169 = getelementptr inbounds i32, ptr %140, i64 %168
+  %.012.i.i.i.i = load i32, ptr %169, align 4, !tbaa !76
   %.not1113.i.i.i.i = icmp eq i32 %.012.i.i.i.i, -1
   br i1 %.not1113.i.i.i.i, label %_ZN6bParse5bFile14findLibPointerEPv.exit.i, label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %165
-  %168 = load ptr, ptr %143, align 8
-  br label %169
+.lr.ph.i.i.i.i:                                   ; preds = %167
+  %170 = load ptr, ptr %143, align 8
+  br label %171
 
-169:                                              ; preds = %174, %.lr.ph.i.i.i.i
-  %.014.i.i.i.i = phi i32 [ %.012.i.i.i.i, %.lr.ph.i.i.i.i ], [ %.0.i.i.i.i, %174 ]
-  %170 = sext i32 %.014.i.i.i.i to i64
-  %171 = getelementptr inbounds %class.b3HashPtr, ptr %142, i64 %170
-  %172 = load ptr, ptr %171, align 8, !tbaa !4
-  %173 = icmp eq ptr %148, %172
-  br i1 %173, label %_ZN9b3HashMapI9b3HashPtrPN6bParse13bStructHandleEE4findERKS0_.exit.i.i, label %174
+171:                                              ; preds = %176, %.lr.ph.i.i.i.i
+  %.014.i.i.i.i = phi i32 [ %.012.i.i.i.i, %.lr.ph.i.i.i.i ], [ %.0.i.i.i.i, %176 ]
+  %172 = sext i32 %.014.i.i.i.i to i64
+  %173 = getelementptr inbounds %class.b3HashPtr, ptr %142, i64 %172
+  %174 = load ptr, ptr %173, align 8, !tbaa !4
+  %175 = icmp eq ptr %150, %174
+  br i1 %175, label %_ZN9b3HashMapI9b3HashPtrPN6bParse13bStructHandleEE4findERKS0_.exit.i.i, label %176
 
-174:                                              ; preds = %169
-  %175 = getelementptr inbounds i32, ptr %168, i64 %170
-  %.0.i.i.i.i = load i32, ptr %175, align 4, !tbaa !76
+176:                                              ; preds = %171
+  %177 = getelementptr inbounds i32, ptr %170, i64 %172
+  %.0.i.i.i.i = load i32, ptr %177, align 4, !tbaa !76
   %.not11.i.i.i.i = icmp eq i32 %.0.i.i.i.i, -1
-  br i1 %.not11.i.i.i.i, label %_ZN6bParse5bFile14findLibPointerEPv.exit.i, label %169, !llvm.loop !77
+  br i1 %.not11.i.i.i.i, label %_ZN6bParse5bFile14findLibPointerEPv.exit.i, label %171, !llvm.loop !77
 
-_ZN9b3HashMapI9b3HashPtrPN6bParse13bStructHandleEE4findERKS0_.exit.i.i: ; preds = %169
-  %176 = getelementptr inbounds ptr, ptr %.fr.i, i64 %170
-  %177 = load ptr, ptr %176, align 8, !tbaa !78
+_ZN9b3HashMapI9b3HashPtrPN6bParse13bStructHandleEE4findERKS0_.exit.i.i: ; preds = %171
+  %178 = getelementptr inbounds ptr, ptr %.fr.i, i64 %172
+  %179 = load ptr, ptr %178, align 8, !tbaa !78
   br label %_ZN6bParse5bFile14findLibPointerEPv.exit.i
 
-_ZN6bParse5bFile14findLibPointerEPv.exit.i:       ; preds = %174, %_ZN9b3HashMapI9b3HashPtrPN6bParse13bStructHandleEE4findERKS0_.exit.i.i, %165, %.lr.ph.split.i
-  %.0.i.i = phi ptr [ %177, %_ZN9b3HashMapI9b3HashPtrPN6bParse13bStructHandleEE4findERKS0_.exit.i.i ], [ null, %.lr.ph.split.i ], [ null, %165 ], [ null, %174 ]
-  store ptr %.0.i.i, ptr %147, align 8, !tbaa !66
+_ZN6bParse5bFile14findLibPointerEPv.exit.i:       ; preds = %176, %_ZN9b3HashMapI9b3HashPtrPN6bParse13bStructHandleEE4findERKS0_.exit.i.i, %167, %.lr.ph.split.i
+  %.0.i.i = phi ptr [ %179, %_ZN9b3HashMapI9b3HashPtrPN6bParse13bStructHandleEE4findERKS0_.exit.i.i ], [ null, %.lr.ph.split.i ], [ null, %167 ], [ null, %176 ]
+  store ptr %.0.i.i, ptr %149, align 8, !tbaa !66
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count13.i
   br i1 %exitcond.not.i, label %_ZN6bParse5bFile17updateOldPointersEv.exit, label %.lr.ph.split.i, !llvm.loop !75
 
 _ZN6bParse5bFile17updateOldPointersEv.exit:       ; preds = %_ZN6bParse5bFile14findLibPointerEPv.exit.i, %.lr.ph.split.us.i, %122, %._crit_edge.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %178
+  br label %180
 
-178:                                              ; preds = %4, %_ZN6bParse5bFile17updateOldPointersEv.exit
+180:                                              ; preds = %4, %_ZN6bParse5bFile17updateOldPointersEv.exit
   ret void
 
-179:                                              ; preds = %120, %96
+181:                                              ; preds = %120, %96
   %.sink = phi ptr [ %108, %120 ], [ %76, %96 ]
   %.pn = phi { ptr, i32 } [ %121, %120 ], [ %97, %96 ]
   tail call void @_ZdlPvm(ptr noundef nonnull %.sink, i64 noundef 424) #34
@@ -1727,71 +1729,73 @@ define dso_local void @_ZN6bParse5bFile17updateOldPointersEv(ptr noundef nonnull
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
   %indvars.iv10 = phi i64 [ %indvars.iv.next11, %.lr.ph.split.us ], [ 0, %.lr.ph ]
-  %19 = getelementptr inbounds nuw %"class.bParse::bChunkInd", ptr %6, i64 %indvars.iv10, i32 2
-  store ptr null, ptr %19, align 8, !tbaa !66
+  %19 = getelementptr inbounds nuw %"class.bParse::bChunkInd", ptr %6, i64 %indvars.iv10
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  store ptr null, ptr %20, align 8, !tbaa !66
   %indvars.iv.next11 = add nuw nsw i64 %indvars.iv10, 1
   %exitcond14.not = icmp eq i64 %indvars.iv.next11, %wide.trip.count13
   br i1 %exitcond14.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !75
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZN6bParse5bFile14findLibPointerEPv.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN6bParse5bFile14findLibPointerEPv.exit ], [ 0, %.lr.ph ]
-  %20 = getelementptr inbounds nuw %"class.bParse::bChunkInd", ptr %6, i64 %indvars.iv, i32 2
-  %21 = load ptr, ptr %20, align 8, !tbaa !66
-  %22 = ptrtoint ptr %21 to i64
-  %.sroa.0.0.extract.trunc.i = trunc i64 %22 to i32
-  %.sroa.0.4.extract.shift.i = lshr i64 %22, 32
+  %21 = getelementptr inbounds nuw %"class.bParse::bChunkInd", ptr %6, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %23 = load ptr, ptr %22, align 8, !tbaa !66
+  %24 = ptrtoint ptr %23 to i64
+  %.sroa.0.0.extract.trunc.i = trunc i64 %24 to i32
+  %.sroa.0.4.extract.shift.i = lshr i64 %24, 32
   %.sroa.0.4.extract.trunc.i = trunc nuw i64 %.sroa.0.4.extract.shift.i to i32
-  %23 = add nsw i32 %.sroa.0.4.extract.trunc.i, %.sroa.0.0.extract.trunc.i
-  %24 = shl i32 %23, 15
-  %25 = xor i32 %24, -1
-  %26 = add nsw i32 %23, %25
-  %27 = ashr i32 %26, 10
-  %28 = xor i32 %27, %26
-  %29 = mul i32 %28, 9
-  %30 = ashr i32 %29, 6
-  %31 = xor i32 %30, %29
-  %32 = shl i32 %31, 11
-  %33 = xor i32 %32, -1
-  %34 = add nsw i32 %31, %33
-  %35 = ashr i32 %34, 16
-  %36 = xor i32 %35, %34
-  %37 = and i32 %36, %9
-  %.not.i.i.i = icmp ult i32 %37, %11
-  br i1 %.not.i.i.i, label %38, label %_ZN6bParse5bFile14findLibPointerEPv.exit
+  %25 = add nsw i32 %.sroa.0.4.extract.trunc.i, %.sroa.0.0.extract.trunc.i
+  %26 = shl i32 %25, 15
+  %27 = xor i32 %26, -1
+  %28 = add nsw i32 %25, %27
+  %29 = ashr i32 %28, 10
+  %30 = xor i32 %29, %28
+  %31 = mul i32 %30, 9
+  %32 = ashr i32 %31, 6
+  %33 = xor i32 %32, %31
+  %34 = shl i32 %33, 11
+  %35 = xor i32 %34, -1
+  %36 = add nsw i32 %33, %35
+  %37 = ashr i32 %36, 16
+  %38 = xor i32 %37, %36
+  %39 = and i32 %38, %9
+  %.not.i.i.i = icmp ult i32 %39, %11
+  br i1 %.not.i.i.i, label %40, label %_ZN6bParse5bFile14findLibPointerEPv.exit
 
-38:                                               ; preds = %.lr.ph.split
-  %39 = sext i32 %37 to i64
-  %40 = getelementptr inbounds i32, ptr %13, i64 %39
-  %.012.i.i.i = load i32, ptr %40, align 4, !tbaa !76
+40:                                               ; preds = %.lr.ph.split
+  %41 = sext i32 %39 to i64
+  %42 = getelementptr inbounds i32, ptr %13, i64 %41
+  %.012.i.i.i = load i32, ptr %42, align 4, !tbaa !76
   %.not1113.i.i.i = icmp eq i32 %.012.i.i.i, -1
   br i1 %.not1113.i.i.i, label %_ZN6bParse5bFile14findLibPointerEPv.exit, label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %38
-  %41 = load ptr, ptr %16, align 8
-  br label %42
+.lr.ph.i.i.i:                                     ; preds = %40
+  %43 = load ptr, ptr %16, align 8
+  br label %44
 
-42:                                               ; preds = %47, %.lr.ph.i.i.i
-  %.014.i.i.i = phi i32 [ %.012.i.i.i, %.lr.ph.i.i.i ], [ %.0.i.i.i, %47 ]
-  %43 = sext i32 %.014.i.i.i to i64
-  %44 = getelementptr inbounds %class.b3HashPtr, ptr %15, i64 %43
-  %45 = load ptr, ptr %44, align 8, !tbaa !4
-  %46 = icmp eq ptr %21, %45
-  br i1 %46, label %_ZN9b3HashMapI9b3HashPtrPN6bParse13bStructHandleEE4findERKS0_.exit.i, label %47
+44:                                               ; preds = %49, %.lr.ph.i.i.i
+  %.014.i.i.i = phi i32 [ %.012.i.i.i, %.lr.ph.i.i.i ], [ %.0.i.i.i, %49 ]
+  %45 = sext i32 %.014.i.i.i to i64
+  %46 = getelementptr inbounds %class.b3HashPtr, ptr %15, i64 %45
+  %47 = load ptr, ptr %46, align 8, !tbaa !4
+  %48 = icmp eq ptr %23, %47
+  br i1 %48, label %_ZN9b3HashMapI9b3HashPtrPN6bParse13bStructHandleEE4findERKS0_.exit.i, label %49
 
-47:                                               ; preds = %42
-  %48 = getelementptr inbounds i32, ptr %41, i64 %43
-  %.0.i.i.i = load i32, ptr %48, align 4, !tbaa !76
+49:                                               ; preds = %44
+  %50 = getelementptr inbounds i32, ptr %43, i64 %45
+  %.0.i.i.i = load i32, ptr %50, align 4, !tbaa !76
   %.not11.i.i.i = icmp eq i32 %.0.i.i.i, -1
-  br i1 %.not11.i.i.i, label %_ZN6bParse5bFile14findLibPointerEPv.exit, label %42, !llvm.loop !77
+  br i1 %.not11.i.i.i, label %_ZN6bParse5bFile14findLibPointerEPv.exit, label %44, !llvm.loop !77
 
-_ZN9b3HashMapI9b3HashPtrPN6bParse13bStructHandleEE4findERKS0_.exit.i: ; preds = %42
-  %49 = getelementptr inbounds ptr, ptr %.fr, i64 %43
-  %50 = load ptr, ptr %49, align 8, !tbaa !78
+_ZN9b3HashMapI9b3HashPtrPN6bParse13bStructHandleEE4findERKS0_.exit.i: ; preds = %44
+  %51 = getelementptr inbounds ptr, ptr %.fr, i64 %45
+  %52 = load ptr, ptr %51, align 8, !tbaa !78
   br label %_ZN6bParse5bFile14findLibPointerEPv.exit
 
-_ZN6bParse5bFile14findLibPointerEPv.exit:         ; preds = %47, %.lr.ph.split, %38, %_ZN9b3HashMapI9b3HashPtrPN6bParse13bStructHandleEE4findERKS0_.exit.i
-  %.0.i = phi ptr [ %50, %_ZN9b3HashMapI9b3HashPtrPN6bParse13bStructHandleEE4findERKS0_.exit.i ], [ null, %.lr.ph.split ], [ null, %38 ], [ null, %47 ]
-  store ptr %.0.i, ptr %20, align 8, !tbaa !66
+_ZN6bParse5bFile14findLibPointerEPv.exit:         ; preds = %49, %.lr.ph.split, %40, %_ZN9b3HashMapI9b3HashPtrPN6bParse13bStructHandleEE4findERKS0_.exit.i
+  %.0.i = phi ptr [ %52, %_ZN9b3HashMapI9b3HashPtrPN6bParse13bStructHandleEE4findERKS0_.exit.i ], [ null, %.lr.ph.split ], [ null, %40 ], [ null, %49 ]
+  store ptr %.0.i, ptr %22, align 8, !tbaa !66
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count13
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !75
@@ -4226,153 +4230,154 @@ _ZN9b3HashMapI9b3HashPtrN6bParse9bChunkIndEE4findERKS0_.exit: ; preds = %102
   br i1 %.not, label %_ZN9b3HashMapI9b3HashPtrN6bParse9bChunkIndEE4findERKS0_.exit.thread, label %110
 
 110:                                              ; preds = %_ZN9b3HashMapI9b3HashPtrN6bParse9bChunkIndEE4findERKS0_.exit
-  %111 = load ptr, ptr %25, align 8, !tbaa !64
-  %112 = tail call noundef i32 @_ZN6bParse4bDNA14getPointerSizeEv(ptr noundef nonnull align 8 dereferenceable(420) %111)
-  %113 = load ptr, ptr %26, align 8, !tbaa !65
-  %114 = tail call noundef i32 @_ZN6bParse4bDNA14getPointerSizeEv(ptr noundef nonnull align 8 dereferenceable(420) %113)
-  %115 = getelementptr inbounds %"class.bParse::bChunkInd", ptr %109, i64 %103, i32 1
-  %116 = load i32, ptr %115, align 4, !tbaa !68
-  %117 = load ptr, ptr %75, align 8, !tbaa !142
-  %118 = ptrtoint ptr %117 to i64
-  %.sroa.0.0.extract.trunc.i47 = trunc i64 %118 to i32
-  %.sroa.0.4.extract.shift.i48 = lshr i64 %118, 32
+  %111 = getelementptr inbounds %"class.bParse::bChunkInd", ptr %109, i64 %103
+  %112 = load ptr, ptr %25, align 8, !tbaa !64
+  %113 = tail call noundef i32 @_ZN6bParse4bDNA14getPointerSizeEv(ptr noundef nonnull align 8 dereferenceable(420) %112)
+  %114 = load ptr, ptr %26, align 8, !tbaa !65
+  %115 = tail call noundef i32 @_ZN6bParse4bDNA14getPointerSizeEv(ptr noundef nonnull align 8 dereferenceable(420) %114)
+  %116 = getelementptr inbounds nuw i8, ptr %111, i64 4
+  %117 = load i32, ptr %116, align 4, !tbaa !68
+  %118 = load ptr, ptr %75, align 8, !tbaa !142
+  %119 = ptrtoint ptr %118 to i64
+  %.sroa.0.0.extract.trunc.i47 = trunc i64 %119 to i32
+  %.sroa.0.4.extract.shift.i48 = lshr i64 %119, 32
   %.sroa.0.4.extract.trunc.i49 = trunc nuw i64 %.sroa.0.4.extract.shift.i48 to i32
-  %119 = add nsw i32 %.sroa.0.4.extract.trunc.i49, %.sroa.0.0.extract.trunc.i47
-  %120 = shl i32 %119, 15
-  %121 = xor i32 %120, -1
-  %122 = add nsw i32 %119, %121
-  %123 = ashr i32 %122, 10
-  %124 = xor i32 %123, %122
-  %125 = mul i32 %124, 9
-  %126 = ashr i32 %125, 6
-  %127 = xor i32 %126, %125
-  %128 = shl i32 %127, 11
-  %129 = xor i32 %128, -1
-  %130 = add nsw i32 %127, %129
-  %131 = ashr i32 %130, 16
-  %132 = xor i32 %131, %130
-  %133 = load i32, ptr %27, align 8, !tbaa !42
-  %134 = add nsw i32 %133, -1
-  %135 = and i32 %132, %134
-  %136 = load i32, ptr %28, align 4, !tbaa !37
-  %.not.i.i.i50 = icmp ult i32 %135, %136
-  br i1 %.not.i.i.i50, label %137, label %_ZN9b3HashMapI9b3HashPtrN6bParse9bChunkIndEE4findERKS0_.exit.thread
+  %120 = add nsw i32 %.sroa.0.4.extract.trunc.i49, %.sroa.0.0.extract.trunc.i47
+  %121 = shl i32 %120, 15
+  %122 = xor i32 %121, -1
+  %123 = add nsw i32 %120, %122
+  %124 = ashr i32 %123, 10
+  %125 = xor i32 %124, %123
+  %126 = mul i32 %125, 9
+  %127 = ashr i32 %126, 6
+  %128 = xor i32 %127, %126
+  %129 = shl i32 %128, 11
+  %130 = xor i32 %129, -1
+  %131 = add nsw i32 %128, %130
+  %132 = ashr i32 %131, 16
+  %133 = xor i32 %132, %131
+  %134 = load i32, ptr %27, align 8, !tbaa !42
+  %135 = add nsw i32 %134, -1
+  %136 = and i32 %133, %135
+  %137 = load i32, ptr %28, align 4, !tbaa !37
+  %.not.i.i.i50 = icmp ult i32 %136, %137
+  br i1 %.not.i.i.i50, label %138, label %_ZN9b3HashMapI9b3HashPtrN6bParse9bChunkIndEE4findERKS0_.exit.thread
 
-137:                                              ; preds = %110
-  %138 = load ptr, ptr %29, align 8, !tbaa !36
-  %139 = sext i32 %135 to i64
-  %140 = getelementptr inbounds i32, ptr %138, i64 %139
-  %.012.i.i.i52 = load i32, ptr %140, align 4, !tbaa !76
+138:                                              ; preds = %110
+  %139 = load ptr, ptr %29, align 8, !tbaa !36
+  %140 = sext i32 %136 to i64
+  %141 = getelementptr inbounds i32, ptr %139, i64 %140
+  %.012.i.i.i52 = load i32, ptr %141, align 4, !tbaa !76
   %.not1113.i.i.i53 = icmp eq i32 %.012.i.i.i52, -1
   br i1 %.not1113.i.i.i53, label %_ZN9b3HashMapI9b3HashPtrN6bParse9bChunkIndEE4findERKS0_.exit.thread, label %.lr.ph.i.i.i54
 
-.lr.ph.i.i.i54:                                   ; preds = %137
-  %141 = load ptr, ptr %30, align 8, !tbaa !44
-  %142 = load ptr, ptr %31, align 8
-  br label %143
+.lr.ph.i.i.i54:                                   ; preds = %138
+  %142 = load ptr, ptr %30, align 8, !tbaa !44
+  %143 = load ptr, ptr %31, align 8
+  br label %144
 
-143:                                              ; preds = %148, %.lr.ph.i.i.i54
-  %.014.i.i.i55 = phi i32 [ %.012.i.i.i52, %.lr.ph.i.i.i54 ], [ %.0.i.i.i56, %148 ]
-  %144 = sext i32 %.014.i.i.i55 to i64
-  %145 = getelementptr inbounds %class.b3HashPtr, ptr %141, i64 %144
-  %146 = load ptr, ptr %145, align 8, !tbaa !4
-  %147 = icmp eq ptr %117, %146
-  br i1 %147, label %_ZN9b3HashMapI9b3HashPtrPN6bParse13bStructHandleEE4findERKS0_.exit.i58, label %148
+144:                                              ; preds = %149, %.lr.ph.i.i.i54
+  %.014.i.i.i55 = phi i32 [ %.012.i.i.i52, %.lr.ph.i.i.i54 ], [ %.0.i.i.i56, %149 ]
+  %145 = sext i32 %.014.i.i.i55 to i64
+  %146 = getelementptr inbounds %class.b3HashPtr, ptr %142, i64 %145
+  %147 = load ptr, ptr %146, align 8, !tbaa !4
+  %148 = icmp eq ptr %118, %147
+  br i1 %148, label %_ZN9b3HashMapI9b3HashPtrPN6bParse13bStructHandleEE4findERKS0_.exit.i58, label %149
 
-148:                                              ; preds = %143
-  %149 = getelementptr inbounds i32, ptr %142, i64 %144
-  %.0.i.i.i56 = load i32, ptr %149, align 4, !tbaa !76
+149:                                              ; preds = %144
+  %150 = getelementptr inbounds i32, ptr %143, i64 %145
+  %.0.i.i.i56 = load i32, ptr %150, align 4, !tbaa !76
   %.not11.i.i.i57 = icmp eq i32 %.0.i.i.i56, -1
-  br i1 %.not11.i.i.i57, label %_ZN9b3HashMapI9b3HashPtrN6bParse9bChunkIndEE4findERKS0_.exit.thread, label %143, !llvm.loop !77
+  br i1 %.not11.i.i.i57, label %_ZN9b3HashMapI9b3HashPtrN6bParse9bChunkIndEE4findERKS0_.exit.thread, label %144, !llvm.loop !77
 
-_ZN9b3HashMapI9b3HashPtrPN6bParse13bStructHandleEE4findERKS0_.exit.i58: ; preds = %143
-  %150 = load ptr, ptr %32, align 8, !tbaa !40
-  %.not.i59 = icmp eq ptr %150, null
+_ZN9b3HashMapI9b3HashPtrPN6bParse13bStructHandleEE4findERKS0_.exit.i58: ; preds = %144
+  %151 = load ptr, ptr %32, align 8, !tbaa !40
+  %.not.i59 = icmp eq ptr %151, null
   br i1 %.not.i59, label %_ZN9b3HashMapI9b3HashPtrN6bParse9bChunkIndEE4findERKS0_.exit.thread, label %_ZN6bParse5bFile14findLibPointerEPv.exit60
 
 _ZN6bParse5bFile14findLibPointerEPv.exit60:       ; preds = %_ZN9b3HashMapI9b3HashPtrPN6bParse13bStructHandleEE4findERKS0_.exit.i58
-  %151 = getelementptr inbounds ptr, ptr %150, i64 %144
-  %152 = load ptr, ptr %151, align 8, !tbaa !78
-  %.not44 = icmp eq ptr %152, null
-  br i1 %.not44, label %_ZN9b3HashMapI9b3HashPtrN6bParse9bChunkIndEE4findERKS0_.exit.thread, label %153
+  %152 = getelementptr inbounds ptr, ptr %151, i64 %145
+  %153 = load ptr, ptr %152, align 8, !tbaa !78
+  %.not44 = icmp eq ptr %153, null
+  br i1 %.not44, label %_ZN9b3HashMapI9b3HashPtrN6bParse9bChunkIndEE4findERKS0_.exit.thread, label %154
 
-153:                                              ; preds = %_ZN6bParse5bFile14findLibPointerEPv.exit60
-  %154 = sdiv i32 %116, %114
-  %155 = mul nsw i32 %154, %112
-  %156 = sext i32 %155 to i64
-  %157 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %156) #35
-  %158 = load ptr, ptr %0, align 8, !tbaa !9
-  %159 = getelementptr inbounds nuw i8, ptr %158, i64 32
-  %160 = load ptr, ptr %159, align 8
-  tail call void %160(ptr noundef nonnull align 8 dereferenceable(540) %0, ptr noundef nonnull %157)
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %157, i8 0, i64 %156, i1 false)
-  %161 = icmp sgt i32 %154, 0
-  br i1 %161, label %.lr.ph96, label %._crit_edge
+154:                                              ; preds = %_ZN6bParse5bFile14findLibPointerEPv.exit60
+  %155 = sdiv i32 %117, %115
+  %156 = mul nsw i32 %155, %113
+  %157 = sext i32 %156 to i64
+  %158 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %157) #35
+  %159 = load ptr, ptr %0, align 8, !tbaa !9
+  %160 = getelementptr inbounds nuw i8, ptr %159, i64 32
+  %161 = load ptr, ptr %160, align 8
+  tail call void %161(ptr noundef nonnull align 8 dereferenceable(540) %0, ptr noundef nonnull %158)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %158, i8 0, i64 %157, i1 false)
+  %162 = icmp sgt i32 %155, 0
+  br i1 %162, label %.lr.ph96, label %._crit_edge
 
-.lr.ph96:                                         ; preds = %153
-  %162 = sext i32 %114 to i64
-  %163 = sext i32 %112 to i64
-  %wide.trip.count112 = zext nneg i32 %154 to i64
-  br label %164
+.lr.ph96:                                         ; preds = %154
+  %163 = sext i32 %115 to i64
+  %164 = sext i32 %113 to i64
+  %wide.trip.count112 = zext nneg i32 %155 to i64
+  br label %165
 
-164:                                              ; preds = %.lr.ph96, %_ZN6bParse5bFile14findLibPointerEPv.exit75
+165:                                              ; preds = %.lr.ph96, %_ZN6bParse5bFile14findLibPointerEPv.exit75
   %indvars.iv109 = phi i64 [ 0, %.lr.ph96 ], [ %indvars.iv.next110, %_ZN6bParse5bFile14findLibPointerEPv.exit75 ]
-  %.03994 = phi ptr [ %152, %.lr.ph96 ], [ %241, %_ZN6bParse5bFile14findLibPointerEPv.exit75 ]
+  %.03994 = phi ptr [ %153, %.lr.ph96 ], [ %242, %_ZN6bParse5bFile14findLibPointerEPv.exit75 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
   store ptr null, ptr %.sroa.0, align 8
-  %165 = load ptr, ptr %26, align 8, !tbaa !65
-  %166 = tail call noundef i32 @_ZN6bParse4bDNA14getPointerSizeEv(ptr noundef nonnull align 8 dereferenceable(420) %165)
-  %167 = load ptr, ptr %25, align 8, !tbaa !64
-  %168 = tail call noundef i32 @_ZN6bParse4bDNA14getPointerSizeEv(ptr noundef nonnull align 8 dereferenceable(420) %167)
-  %169 = icmp eq i32 %166, %168
-  br i1 %169, label %170, label %172
+  %166 = load ptr, ptr %26, align 8, !tbaa !65
+  %167 = tail call noundef i32 @_ZN6bParse4bDNA14getPointerSizeEv(ptr noundef nonnull align 8 dereferenceable(420) %166)
+  %168 = load ptr, ptr %25, align 8, !tbaa !64
+  %169 = tail call noundef i32 @_ZN6bParse4bDNA14getPointerSizeEv(ptr noundef nonnull align 8 dereferenceable(420) %168)
+  %170 = icmp eq i32 %167, %169
+  br i1 %170, label %171, label %173
 
-170:                                              ; preds = %164
-  %171 = sext i32 %166 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %.sroa.0, ptr nonnull readonly align 1 %.03994, i64 %171, i1 false)
+171:                                              ; preds = %165
+  %172 = sext i32 %167 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %.sroa.0, ptr nonnull readonly align 1 %.03994, i64 %172, i1 false)
   br label %_ZN6bParse5bFile11safeSwapPtrEPcPKc.exit
 
-172:                                              ; preds = %164
-  %173 = icmp eq i32 %168, 4
-  %174 = icmp eq i32 %166, 8
-  %or.cond3.i = and i1 %174, %173
-  br i1 %or.cond3.i, label %175, label %189
+173:                                              ; preds = %165
+  %174 = icmp eq i32 %169, 4
+  %175 = icmp eq i32 %167, 8
+  %or.cond3.i = and i1 %175, %174
+  br i1 %or.cond3.i, label %176, label %190
 
-175:                                              ; preds = %172
-  %176 = load i32, ptr %.03994, align 8, !tbaa !4
-  %177 = getelementptr inbounds nuw i8, ptr %.03994, i64 4
-  %178 = load i32, ptr %177, align 4, !tbaa !4
-  %179 = icmp eq i32 %176, %178
-  br i1 %179, label %180, label %181
+176:                                              ; preds = %173
+  %177 = load i32, ptr %.03994, align 8, !tbaa !4
+  %178 = getelementptr inbounds nuw i8, ptr %.03994, i64 4
+  %179 = load i32, ptr %178, align 4, !tbaa !4
+  %180 = icmp eq i32 %177, %179
+  br i1 %180, label %181, label %182
 
-180:                                              ; preds = %175
-  store i32 %176, ptr %.sroa.0, align 8, !tbaa !4
+181:                                              ; preds = %176
+  store i32 %177, ptr %.sroa.0, align 8, !tbaa !4
   br label %_ZN6bParse5bFile11safeSwapPtrEPcPKc.exit
 
-181:                                              ; preds = %175
-  %182 = load i64, ptr %.03994, align 8, !tbaa !135
-  %.sroa.6.0.extract.shift.i = lshr i64 %182, 8
-  %.sroa.8.0.extract.shift.i = lshr i64 %182, 16
-  %.sroa.10.0.extract.shift.i = lshr i64 %182, 24
-  %.sroa.12.0.extract.shift.i = lshr i64 %182, 32
-  %.sroa.18.0.extract.shift.i = lshr i64 %182, 56
-  %183 = load i32, ptr %33, align 8, !tbaa !56
-  %184 = and i32 %183, 4
-  %.not.i61 = icmp eq i32 %184, 0
-  br i1 %.not.i61, label %186, label %185
+182:                                              ; preds = %176
+  %183 = load i64, ptr %.03994, align 8, !tbaa !135
+  %.sroa.6.0.extract.shift.i = lshr i64 %183, 8
+  %.sroa.8.0.extract.shift.i = lshr i64 %183, 16
+  %.sroa.10.0.extract.shift.i = lshr i64 %183, 24
+  %.sroa.12.0.extract.shift.i = lshr i64 %183, 32
+  %.sroa.18.0.extract.shift.i = lshr i64 %183, 56
+  %184 = load i32, ptr %33, align 8, !tbaa !56
+  %185 = and i32 %184, 4
+  %.not.i61 = icmp eq i32 %185, 0
+  br i1 %.not.i61, label %187, label %186
 
-185:                                              ; preds = %181
-  %.sroa.16.0.extract.shift.i = lshr i64 %182, 48
-  %.sroa.14.0.extract.shift.i = lshr i64 %182, 40
-  br label %186
+186:                                              ; preds = %182
+  %.sroa.16.0.extract.shift.i = lshr i64 %183, 48
+  %.sroa.14.0.extract.shift.i = lshr i64 %183, 40
+  br label %187
 
-186:                                              ; preds = %185, %181
-  %.sroa.18.0.i = phi i64 [ 0, %185 ], [ %.sroa.18.0.extract.shift.i, %181 ]
-  %.sroa.12.0.i = phi i64 [ %.sroa.10.0.extract.shift.i, %185 ], [ %.sroa.12.0.extract.shift.i, %181 ]
-  %.sroa.10.0.in.i = phi i64 [ %.sroa.12.0.extract.shift.i, %185 ], [ %.sroa.10.0.extract.shift.i, %181 ]
-  %.sroa.8.0.in.i = phi i64 [ %.sroa.14.0.extract.shift.i, %185 ], [ %.sroa.8.0.extract.shift.i, %181 ]
-  %.sroa.6.0.in.i = phi i64 [ %.sroa.16.0.extract.shift.i, %185 ], [ %.sroa.6.0.extract.shift.i, %181 ]
-  %.sroa.0.0.in.i = phi i64 [ %.sroa.18.0.extract.shift.i, %185 ], [ %182, %181 ]
+187:                                              ; preds = %186, %182
+  %.sroa.18.0.i = phi i64 [ 0, %186 ], [ %.sroa.18.0.extract.shift.i, %182 ]
+  %.sroa.12.0.i = phi i64 [ %.sroa.10.0.extract.shift.i, %186 ], [ %.sroa.12.0.extract.shift.i, %182 ]
+  %.sroa.10.0.in.i = phi i64 [ %.sroa.12.0.extract.shift.i, %186 ], [ %.sroa.10.0.extract.shift.i, %182 ]
+  %.sroa.8.0.in.i = phi i64 [ %.sroa.14.0.extract.shift.i, %186 ], [ %.sroa.8.0.extract.shift.i, %182 ]
+  %.sroa.6.0.in.i = phi i64 [ %.sroa.16.0.extract.shift.i, %186 ], [ %.sroa.6.0.extract.shift.i, %182 ]
+  %.sroa.0.0.in.i = phi i64 [ %.sroa.18.0.extract.shift.i, %186 ], [ %183, %182 ]
   %.sroa.18.0.insert.shift.i = shl nuw i64 %.sroa.18.0.i, 56
   %.sroa.12.0.insert.ext.i = shl i64 %.sroa.12.0.i, 32
   %.sroa.12.0.insert.shift.i = and i64 %.sroa.12.0.insert.ext.i, 1095216660480
@@ -4388,124 +4393,124 @@ _ZN6bParse5bFile14findLibPointerEPv.exit60:       ; preds = %_ZN9b3HashMapI9b3Ha
   %.sroa.0.0.insert.ext.i = and i64 %.sroa.0.0.in.i, 248
   %.sroa.0.0.insert.mask.i = or disjoint i64 %.sroa.6.0.insert.mask.i, %.sroa.6.0.insert.shift.i
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.0.0.insert.mask.i, %.sroa.0.0.insert.ext.i
-  %187 = lshr exact i64 %.sroa.0.0.insert.insert.i, 3
-  %188 = trunc i64 %187 to i32
-  store i32 %188, ptr %.sroa.0, align 8, !tbaa !76
+  %188 = lshr exact i64 %.sroa.0.0.insert.insert.i, 3
+  %189 = trunc i64 %188 to i32
+  store i32 %189, ptr %.sroa.0, align 8, !tbaa !76
   br label %_ZN6bParse5bFile11safeSwapPtrEPcPKc.exit
 
-189:                                              ; preds = %172
-  %190 = icmp eq i32 %168, 8
-  %191 = icmp eq i32 %166, 4
-  %or.cond5.i = and i1 %191, %190
-  br i1 %or.cond5.i, label %192, label %201
+190:                                              ; preds = %173
+  %191 = icmp eq i32 %169, 8
+  %192 = icmp eq i32 %167, 4
+  %or.cond5.i = and i1 %192, %191
+  br i1 %or.cond5.i, label %193, label %202
 
-192:                                              ; preds = %189
-  %193 = load i32, ptr %.03994, align 8, !tbaa !4
-  %194 = getelementptr inbounds nuw i8, ptr %.03994, i64 4
-  %195 = load i32, ptr %194, align 4, !tbaa !4
-  %196 = icmp eq i32 %193, %195
-  br i1 %196, label %197, label %198
+193:                                              ; preds = %190
+  %194 = load i32, ptr %.03994, align 8, !tbaa !4
+  %195 = getelementptr inbounds nuw i8, ptr %.03994, i64 4
+  %196 = load i32, ptr %195, align 4, !tbaa !4
+  %197 = icmp eq i32 %194, %196
+  br i1 %197, label %198, label %199
 
-197:                                              ; preds = %192
-  store i32 %193, ptr %.sroa.0, align 8, !tbaa !4
+198:                                              ; preds = %193
+  store i32 %194, ptr %.sroa.0, align 8, !tbaa !4
   store i32 0, ptr %.sroa.0.4..sroa_idx157, align 4, !tbaa !4
   br label %_ZN6bParse5bFile11safeSwapPtrEPcPKc.exit
 
-198:                                              ; preds = %192
-  %199 = sext i32 %193 to i64
-  %200 = inttoptr i64 %199 to ptr
-  store ptr %200, ptr %.sroa.0, align 8, !tbaa !135
+199:                                              ; preds = %193
+  %200 = sext i32 %194 to i64
+  %201 = inttoptr i64 %200 to ptr
+  store ptr %201, ptr %.sroa.0, align 8, !tbaa !135
   br label %_ZN6bParse5bFile11safeSwapPtrEPcPKc.exit
 
-201:                                              ; preds = %189
-  %202 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, i32 noundef %166, i32 noundef %168)
+202:                                              ; preds = %190
+  %203 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, i32 noundef %167, i32 noundef %169)
   br label %_ZN6bParse5bFile11safeSwapPtrEPcPKc.exit
 
-_ZN6bParse5bFile11safeSwapPtrEPcPKc.exit:         ; preds = %170, %180, %186, %197, %198, %201
-  %203 = mul nsw i64 %indvars.iv109, %163
-  %204 = getelementptr inbounds i8, ptr %157, i64 %203
+_ZN6bParse5bFile11safeSwapPtrEPcPKc.exit:         ; preds = %171, %181, %187, %198, %199, %202
+  %204 = mul nsw i64 %indvars.iv109, %164
+  %205 = getelementptr inbounds i8, ptr %158, i64 %204
   %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0. = load ptr, ptr %.sroa.0, align 8, !tbaa !4
-  %205 = ptrtoint ptr %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0. to i64
-  %.sroa.0.0.extract.trunc.i62 = trunc i64 %205 to i32
-  %.sroa.0.4.extract.shift.i63 = lshr i64 %205, 32
+  %206 = ptrtoint ptr %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0. to i64
+  %.sroa.0.0.extract.trunc.i62 = trunc i64 %206 to i32
+  %.sroa.0.4.extract.shift.i63 = lshr i64 %206, 32
   %.sroa.0.4.extract.trunc.i64 = trunc nuw i64 %.sroa.0.4.extract.shift.i63 to i32
-  %206 = add nsw i32 %.sroa.0.4.extract.trunc.i64, %.sroa.0.0.extract.trunc.i62
-  %207 = shl i32 %206, 15
-  %208 = xor i32 %207, -1
-  %209 = add nsw i32 %206, %208
-  %210 = ashr i32 %209, 10
-  %211 = xor i32 %210, %209
-  %212 = mul i32 %211, 9
-  %213 = ashr i32 %212, 6
-  %214 = xor i32 %213, %212
-  %215 = shl i32 %214, 11
-  %216 = xor i32 %215, -1
-  %217 = add nsw i32 %214, %216
-  %218 = ashr i32 %217, 16
-  %219 = xor i32 %218, %217
-  %220 = load i32, ptr %27, align 8, !tbaa !42
-  %221 = add nsw i32 %220, -1
-  %222 = and i32 %219, %221
-  %223 = load i32, ptr %28, align 4, !tbaa !37
-  %.not.i.i.i65 = icmp ult i32 %222, %223
-  br i1 %.not.i.i.i65, label %224, label %_ZN6bParse5bFile14findLibPointerEPv.exit75
+  %207 = add nsw i32 %.sroa.0.4.extract.trunc.i64, %.sroa.0.0.extract.trunc.i62
+  %208 = shl i32 %207, 15
+  %209 = xor i32 %208, -1
+  %210 = add nsw i32 %207, %209
+  %211 = ashr i32 %210, 10
+  %212 = xor i32 %211, %210
+  %213 = mul i32 %212, 9
+  %214 = ashr i32 %213, 6
+  %215 = xor i32 %214, %213
+  %216 = shl i32 %215, 11
+  %217 = xor i32 %216, -1
+  %218 = add nsw i32 %215, %217
+  %219 = ashr i32 %218, 16
+  %220 = xor i32 %219, %218
+  %221 = load i32, ptr %27, align 8, !tbaa !42
+  %222 = add nsw i32 %221, -1
+  %223 = and i32 %220, %222
+  %224 = load i32, ptr %28, align 4, !tbaa !37
+  %.not.i.i.i65 = icmp ult i32 %223, %224
+  br i1 %.not.i.i.i65, label %225, label %_ZN6bParse5bFile14findLibPointerEPv.exit75
 
-224:                                              ; preds = %_ZN6bParse5bFile11safeSwapPtrEPcPKc.exit
-  %225 = load ptr, ptr %29, align 8, !tbaa !36
-  %226 = sext i32 %222 to i64
-  %227 = getelementptr inbounds i32, ptr %225, i64 %226
-  %.012.i.i.i67 = load i32, ptr %227, align 4, !tbaa !76
+225:                                              ; preds = %_ZN6bParse5bFile11safeSwapPtrEPcPKc.exit
+  %226 = load ptr, ptr %29, align 8, !tbaa !36
+  %227 = sext i32 %223 to i64
+  %228 = getelementptr inbounds i32, ptr %226, i64 %227
+  %.012.i.i.i67 = load i32, ptr %228, align 4, !tbaa !76
   %.not1113.i.i.i68 = icmp eq i32 %.012.i.i.i67, -1
   br i1 %.not1113.i.i.i68, label %_ZN6bParse5bFile14findLibPointerEPv.exit75, label %.lr.ph.i.i.i69
 
-.lr.ph.i.i.i69:                                   ; preds = %224
-  %228 = load ptr, ptr %30, align 8, !tbaa !44
-  %229 = load ptr, ptr %31, align 8
-  br label %230
+.lr.ph.i.i.i69:                                   ; preds = %225
+  %229 = load ptr, ptr %30, align 8, !tbaa !44
+  %230 = load ptr, ptr %31, align 8
+  br label %231
 
-230:                                              ; preds = %235, %.lr.ph.i.i.i69
-  %.014.i.i.i70 = phi i32 [ %.012.i.i.i67, %.lr.ph.i.i.i69 ], [ %.0.i.i.i71, %235 ]
-  %231 = sext i32 %.014.i.i.i70 to i64
-  %232 = getelementptr inbounds %class.b3HashPtr, ptr %228, i64 %231
-  %233 = load ptr, ptr %232, align 8, !tbaa !4
-  %234 = icmp eq ptr %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0., %233
-  br i1 %234, label %_ZN9b3HashMapI9b3HashPtrPN6bParse13bStructHandleEE4findERKS0_.exit.i73, label %235
+231:                                              ; preds = %236, %.lr.ph.i.i.i69
+  %.014.i.i.i70 = phi i32 [ %.012.i.i.i67, %.lr.ph.i.i.i69 ], [ %.0.i.i.i71, %236 ]
+  %232 = sext i32 %.014.i.i.i70 to i64
+  %233 = getelementptr inbounds %class.b3HashPtr, ptr %229, i64 %232
+  %234 = load ptr, ptr %233, align 8, !tbaa !4
+  %235 = icmp eq ptr %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0., %234
+  br i1 %235, label %_ZN9b3HashMapI9b3HashPtrPN6bParse13bStructHandleEE4findERKS0_.exit.i73, label %236
 
-235:                                              ; preds = %230
-  %236 = getelementptr inbounds i32, ptr %229, i64 %231
-  %.0.i.i.i71 = load i32, ptr %236, align 4, !tbaa !76
+236:                                              ; preds = %231
+  %237 = getelementptr inbounds i32, ptr %230, i64 %232
+  %.0.i.i.i71 = load i32, ptr %237, align 4, !tbaa !76
   %.not11.i.i.i72 = icmp eq i32 %.0.i.i.i71, -1
-  br i1 %.not11.i.i.i72, label %_ZN6bParse5bFile14findLibPointerEPv.exit75, label %230, !llvm.loop !77
+  br i1 %.not11.i.i.i72, label %_ZN6bParse5bFile14findLibPointerEPv.exit75, label %231, !llvm.loop !77
 
-_ZN9b3HashMapI9b3HashPtrPN6bParse13bStructHandleEE4findERKS0_.exit.i73: ; preds = %230
-  %237 = load ptr, ptr %32, align 8, !tbaa !40
-  %.not.i74 = icmp eq ptr %237, null
-  br i1 %.not.i74, label %_ZN6bParse5bFile14findLibPointerEPv.exit75, label %238
+_ZN9b3HashMapI9b3HashPtrPN6bParse13bStructHandleEE4findERKS0_.exit.i73: ; preds = %231
+  %238 = load ptr, ptr %32, align 8, !tbaa !40
+  %.not.i74 = icmp eq ptr %238, null
+  br i1 %.not.i74, label %_ZN6bParse5bFile14findLibPointerEPv.exit75, label %239
 
-238:                                              ; preds = %_ZN9b3HashMapI9b3HashPtrPN6bParse13bStructHandleEE4findERKS0_.exit.i73
-  %239 = getelementptr inbounds ptr, ptr %237, i64 %231
-  %240 = load ptr, ptr %239, align 8, !tbaa !78
+239:                                              ; preds = %_ZN9b3HashMapI9b3HashPtrPN6bParse13bStructHandleEE4findERKS0_.exit.i73
+  %240 = getelementptr inbounds ptr, ptr %238, i64 %232
+  %241 = load ptr, ptr %240, align 8, !tbaa !78
   br label %_ZN6bParse5bFile14findLibPointerEPv.exit75
 
-_ZN6bParse5bFile14findLibPointerEPv.exit75:       ; preds = %235, %_ZN6bParse5bFile11safeSwapPtrEPcPKc.exit, %224, %_ZN9b3HashMapI9b3HashPtrPN6bParse13bStructHandleEE4findERKS0_.exit.i73, %238
-  %.0.i66 = phi ptr [ %240, %238 ], [ null, %_ZN9b3HashMapI9b3HashPtrPN6bParse13bStructHandleEE4findERKS0_.exit.i73 ], [ null, %_ZN6bParse5bFile11safeSwapPtrEPcPKc.exit ], [ null, %224 ], [ null, %235 ]
-  store ptr %.0.i66, ptr %204, align 8, !tbaa !142
-  %241 = getelementptr inbounds i8, ptr %.03994, i64 %162
+_ZN6bParse5bFile14findLibPointerEPv.exit75:       ; preds = %236, %_ZN6bParse5bFile11safeSwapPtrEPcPKc.exit, %225, %_ZN9b3HashMapI9b3HashPtrPN6bParse13bStructHandleEE4findERKS0_.exit.i73, %239
+  %.0.i66 = phi ptr [ %241, %239 ], [ null, %_ZN9b3HashMapI9b3HashPtrPN6bParse13bStructHandleEE4findERKS0_.exit.i73 ], [ null, %_ZN6bParse5bFile11safeSwapPtrEPcPKc.exit ], [ null, %225 ], [ null, %236 ]
+  store ptr %.0.i66, ptr %205, align 8, !tbaa !142
+  %242 = getelementptr inbounds i8, ptr %.03994, i64 %163
   %indvars.iv.next110 = add nuw nsw i64 %indvars.iv109, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
   %exitcond113.not = icmp eq i64 %indvars.iv.next110, %wide.trip.count112
-  br i1 %exitcond113.not, label %._crit_edge, label %164, !llvm.loop !145
+  br i1 %exitcond113.not, label %._crit_edge, label %165, !llvm.loop !145
 
-._crit_edge:                                      ; preds = %_ZN6bParse5bFile14findLibPointerEPv.exit75, %153
-  store ptr %157, ptr %75, align 8, !tbaa !142
+._crit_edge:                                      ; preds = %_ZN6bParse5bFile14findLibPointerEPv.exit75, %154
+  store ptr %158, ptr %75, align 8, !tbaa !142
   br label %_ZN9b3HashMapI9b3HashPtrN6bParse9bChunkIndEE4findERKS0_.exit.thread
 
-_ZN9b3HashMapI9b3HashPtrN6bParse9bChunkIndEE4findERKS0_.exit.thread: ; preds = %107, %148, %137, %110, %_ZN9b3HashMapI9b3HashPtrPN6bParse13bStructHandleEE4findERKS0_.exit.i58, %96, %72, %_ZN6bParse5bFile14findLibPointerEPv.exit60, %._crit_edge, %_ZN9b3HashMapI9b3HashPtrN6bParse9bChunkIndEE4findERKS0_.exit
+_ZN9b3HashMapI9b3HashPtrN6bParse9bChunkIndEE4findERKS0_.exit.thread: ; preds = %107, %149, %138, %110, %_ZN9b3HashMapI9b3HashPtrPN6bParse13bStructHandleEE4findERKS0_.exit.i58, %96, %72, %_ZN6bParse5bFile14findLibPointerEPv.exit60, %._crit_edge, %_ZN9b3HashMapI9b3HashPtrN6bParse9bChunkIndEE4findERKS0_.exit
   %indvars.iv.next115 = add nuw nsw i64 %indvars.iv114, 1
-  %242 = load i32, ptr %15, align 4, !tbaa !50
-  %243 = sext i32 %242 to i64
-  %244 = icmp slt i64 %indvars.iv.next115, %243
-  br i1 %244, label %72, label %._crit_edge99, !llvm.loop !146
+  %243 = load i32, ptr %15, align 4, !tbaa !50
+  %244 = sext i32 %243 to i64
+  %245 = icmp slt i64 %indvars.iv.next115, %244
+  br i1 %245, label %72, label %._crit_edge99, !llvm.loop !146
 
 ._crit_edge99:                                    ; preds = %_ZN9b3HashMapI9b3HashPtrN6bParse9bChunkIndEE4findERKS0_.exit.thread, %.preheader
   ret void

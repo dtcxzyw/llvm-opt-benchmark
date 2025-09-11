@@ -294,12 +294,13 @@ define hidden void @"_ZN4core3ptr125drop_in_place$LT$$u5b$$LP$clap_builder..erro
   br i1 %3, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
-  %.07 = phi i64 [ %4, %.lr.ph ], [ 0, %2 ]
-  %4 = add nuw i64 %.07, 1
-  %5 = getelementptr inbounds { i8, [7 x i8], { i8, [31 x i8] } }, ptr %0, i64 %.07, i32 2
-  tail call void @"_ZN4core3ptr63drop_in_place$LT$clap_builder..error..context..ContextValue$GT$17h5547946de119225eE.llvm.12264918056830672218"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %5)
-  %6 = icmp eq i64 %4, %1
-  br i1 %6, label %._crit_edge, label %.lr.ph
+  %.07 = phi i64 [ %5, %.lr.ph ], [ 0, %2 ]
+  %4 = getelementptr inbounds { i8, [7 x i8], { i8, [31 x i8] } }, ptr %0, i64 %.07
+  %5 = add nuw i64 %.07, 1
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  tail call void @"_ZN4core3ptr63drop_in_place$LT$clap_builder..error..context..ContextValue$GT$17h5547946de119225eE.llvm.12264918056830672218"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %6)
+  %7 = icmp eq i64 %5, %1
+  br i1 %7, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
@@ -418,12 +419,13 @@ define hidden void @"_ZN4core3ptr160drop_in_place$LT$core..array..iter..IntoIter
   br i1 %8, label %"_ZN82_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hef25946cb06cc200E.llvm.12264918056830672218.exit", label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %1, %.lr.ph.i.i
-  %.07.i.i = phi i64 [ %9, %.lr.ph.i.i ], [ 0, %1 ]
-  %9 = add nuw i64 %.07.i.i, 1
-  %10 = getelementptr inbounds { i8, [7 x i8], { i8, [31 x i8] } }, ptr %6, i64 %.07.i.i, i32 2
-  tail call void @"_ZN4core3ptr63drop_in_place$LT$clap_builder..error..context..ContextValue$GT$17h5547946de119225eE.llvm.12264918056830672218"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %10)
-  %11 = icmp eq i64 %9, %7
-  br i1 %11, label %"_ZN82_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hef25946cb06cc200E.llvm.12264918056830672218.exit", label %.lr.ph.i.i
+  %.07.i.i = phi i64 [ %10, %.lr.ph.i.i ], [ 0, %1 ]
+  %9 = getelementptr inbounds { i8, [7 x i8], { i8, [31 x i8] } }, ptr %6, i64 %.07.i.i
+  %10 = add nuw i64 %.07.i.i, 1
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  tail call void @"_ZN4core3ptr63drop_in_place$LT$clap_builder..error..context..ContextValue$GT$17h5547946de119225eE.llvm.12264918056830672218"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %11)
+  %12 = icmp eq i64 %10, %7
+  br i1 %12, label %"_ZN82_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hef25946cb06cc200E.llvm.12264918056830672218.exit", label %.lr.ph.i.i
 
 "_ZN82_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hef25946cb06cc200E.llvm.12264918056830672218.exit": ; preds = %.lr.ph.i.i, %1
   ret void
@@ -3503,12 +3505,13 @@ define hidden void @"_ZN82_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u
   br i1 %8, label %"_ZN4core3ptr125drop_in_place$LT$$u5b$$LP$clap_builder..error..context..ContextKind$C$clap_builder..error..context..ContextValue$RP$$u5d$$GT$17h141049167f3ce0b5E.llvm.12264918056830672218.exit", label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %1, %.lr.ph.i
-  %.07.i = phi i64 [ %9, %.lr.ph.i ], [ 0, %1 ]
-  %9 = add nuw i64 %.07.i, 1
-  %10 = getelementptr inbounds { i8, [7 x i8], { i8, [31 x i8] } }, ptr %6, i64 %.07.i, i32 2
-  tail call void @"_ZN4core3ptr63drop_in_place$LT$clap_builder..error..context..ContextValue$GT$17h5547946de119225eE.llvm.12264918056830672218"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %10)
-  %11 = icmp eq i64 %9, %7
-  br i1 %11, label %"_ZN4core3ptr125drop_in_place$LT$$u5b$$LP$clap_builder..error..context..ContextKind$C$clap_builder..error..context..ContextValue$RP$$u5d$$GT$17h141049167f3ce0b5E.llvm.12264918056830672218.exit", label %.lr.ph.i
+  %.07.i = phi i64 [ %10, %.lr.ph.i ], [ 0, %1 ]
+  %9 = getelementptr inbounds { i8, [7 x i8], { i8, [31 x i8] } }, ptr %6, i64 %.07.i
+  %10 = add nuw i64 %.07.i, 1
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  tail call void @"_ZN4core3ptr63drop_in_place$LT$clap_builder..error..context..ContextValue$GT$17h5547946de119225eE.llvm.12264918056830672218"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %11)
+  %12 = icmp eq i64 %10, %7
+  br i1 %12, label %"_ZN4core3ptr125drop_in_place$LT$$u5b$$LP$clap_builder..error..context..ContextKind$C$clap_builder..error..context..ContextValue$RP$$u5d$$GT$17h141049167f3ce0b5E.llvm.12264918056830672218.exit", label %.lr.ph.i
 
 "_ZN4core3ptr125drop_in_place$LT$$u5b$$LP$clap_builder..error..context..ContextKind$C$clap_builder..error..context..ContextValue$RP$$u5d$$GT$17h141049167f3ce0b5E.llvm.12264918056830672218.exit": ; preds = %.lr.ph.i, %1
   ret void

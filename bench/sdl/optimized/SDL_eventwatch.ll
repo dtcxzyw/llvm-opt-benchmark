@@ -145,30 +145,30 @@ define hidden noundef zeroext i1 @SDL_DispatchEventWatchList(ptr noundef capture
   %indvars.iv54 = phi i64 [ %40, %.lr.ph51 ], [ %indvars.iv.next55, %58 ]
   %indvars.iv.next55 = add nsw i64 %indvars.iv54, -1
   %42 = load ptr, ptr %39, align 8
-  %43 = getelementptr inbounds %struct.SDL_EventWatcher, ptr %42, i64 %indvars.iv.next55, i32 2
-  %44 = load i8, ptr %43, align 8, !range !3, !noundef !4
-  %45 = trunc nuw i8 %44 to i1
-  br i1 %45, label %46, label %58
+  %43 = getelementptr inbounds %struct.SDL_EventWatcher, ptr %42, i64 %indvars.iv.next55
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
+  %45 = load i8, ptr %44, align 8, !range !3, !noundef !4
+  %46 = trunc nuw i8 %45 to i1
+  br i1 %46, label %47, label %58
 
-46:                                               ; preds = %41
-  %47 = load i32, ptr %11, align 8
-  %48 = add nsw i32 %47, -1
-  store i32 %48, ptr %11, align 8
-  %49 = sext i32 %47 to i64
-  %50 = icmp slt i64 %indvars.iv54, %49
-  br i1 %50, label %51, label %58
+47:                                               ; preds = %41
+  %48 = load i32, ptr %11, align 8
+  %49 = add nsw i32 %48, -1
+  store i32 %49, ptr %11, align 8
+  %50 = sext i32 %48 to i64
+  %51 = icmp slt i64 %indvars.iv54, %50
+  br i1 %51, label %52, label %58
 
-51:                                               ; preds = %46
-  %52 = getelementptr inbounds %struct.SDL_EventWatcher, ptr %42, i64 %indvars.iv.next55
+52:                                               ; preds = %47
   %53 = getelementptr inbounds %struct.SDL_EventWatcher, ptr %42, i64 %indvars.iv54
   %54 = trunc nsw i64 %indvars.iv54 to i32
-  %55 = sub i32 %47, %54
+  %55 = sub i32 %48, %54
   %56 = sext i32 %55 to i64
   %57 = mul nsw i64 %56, 24
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %52, ptr nonnull align 8 %53, i64 %57, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %43, ptr nonnull align 8 %53, i64 %57, i1 false)
   br label %58
 
-58:                                               ; preds = %46, %51, %41
+58:                                               ; preds = %47, %52, %41
   %.not46 = icmp eq i64 %indvars.iv.next55, 0
   br i1 %.not46, label %._crit_edge52, label %41, !llvm.loop !7
 

@@ -705,24 +705,26 @@ define dso_local void @swiotlb_init_remap(i1 noundef zeroext %0, i32 noundef %1,
   %83 = trunc i64 %82 to i32
   store i32 %83, ptr getelementptr inbounds nuw (i8, ptr @io_tlb_default_mem, i64 40), align 8
   %84 = icmp eq i32 %46, 0
-  br i1 %84, label %.loopexit2.i, label %.preheader1.i
+  br i1 %84, label %.loopexit5.i, label %.preheader4.i
 
-.loopexit2.loopexit.i:                            ; preds = %.preheader1.i
+.loopexit5.loopexit.i:                            ; preds = %.preheader4.i
   %.pre.i = load i64, ptr getelementptr inbounds nuw (i8, ptr @io_tlb_default_mem, i64 24), align 8
-  br label %.loopexit2.i
+  br label %.loopexit5.i
 
-.loopexit2.i:                                     ; preds = %.loopexit2.loopexit.i, %71
-  %85 = phi i64 [ %.pre.i, %.loopexit2.loopexit.i ], [ %47, %71 ]
+.loopexit5.i:                                     ; preds = %.loopexit5.loopexit.i, %71
+  %85 = phi i64 [ %.pre.i, %.loopexit5.loopexit.i ], [ %47, %71 ]
   %86 = icmp eq i64 %85, 0
   br i1 %86, label %swiotlb_init_io_tlb_pool.exit, label %.preheader.i
 
-.preheader1.i:                                    ; preds = %71, %.preheader1.i
-  %87 = phi i64 [ %94, %.preheader1.i ], [ 0, %71 ]
+.preheader4.i:                                    ; preds = %71, %.preheader4.i
+  %87 = phi i64 [ %94, %.preheader4.i ], [ 0, %71 ]
   %88 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @io_tlb_default_mem, i64 48), align 8
-  %89 = getelementptr %struct.io_tlb_area, ptr %88, i64 %87, i32 2
+  %.split.i = getelementptr %struct.io_tlb_area, ptr %88, i64 %87
+  %89 = getelementptr i8, ptr %.split.i, i64 12
   store i32 0, ptr %89, align 4
   %90 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @io_tlb_default_mem, i64 48), align 8
-  %91 = getelementptr %struct.io_tlb_area, ptr %90, i64 %87, i32 1
+  %.split1.i = getelementptr %struct.io_tlb_area, ptr %90, i64 %87
+  %91 = getelementptr i8, ptr %.split1.i, i64 8
   store i32 0, ptr %91, align 8
   %92 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @io_tlb_default_mem, i64 48), align 8
   %93 = getelementptr %struct.io_tlb_area, ptr %92, i64 %87
@@ -731,31 +733,33 @@ define dso_local void @swiotlb_init_remap(i1 noundef zeroext %0, i32 noundef %1,
   %95 = load i32, ptr getelementptr inbounds nuw (i8, ptr @io_tlb_default_mem, i64 36), align 4
   %96 = zext i32 %95 to i64
   %97 = icmp samesign ult i64 %94, %96
-  br i1 %97, label %.preheader1.i, label %.loopexit2.loopexit.i, !llvm.loop !19
+  br i1 %97, label %.preheader4.i, label %.loopexit5.loopexit.i, !llvm.loop !19
 
-.preheader.i:                                     ; preds = %.loopexit2.i, %.preheader.i
-  %98 = phi i64 [ %112, %.preheader.i ], [ %85, %.loopexit2.i ]
-  %99 = phi i64 [ %111, %.preheader.i ], [ 0, %.loopexit2.i ]
+.preheader.i:                                     ; preds = %.loopexit5.i, %.preheader.i
+  %98 = phi i64 [ %112, %.preheader.i ], [ %85, %.loopexit5.i ]
+  %99 = phi i64 [ %111, %.preheader.i ], [ 0, %.loopexit5.i ]
   %100 = and i64 %99, 127
   %101 = sub nuw nsw i64 128, %100
   %102 = sub i64 %98, %99
   %103 = tail call i64 @llvm.umin.i64(i64 %101, i64 %102)
   %104 = trunc nuw nsw i64 %103 to i32
   %105 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @io_tlb_default_mem, i64 56), align 8
-  %106 = getelementptr %struct.io_tlb_slot, ptr %105, i64 %99, i32 2
+  %.split2.i = getelementptr %struct.io_tlb_slot, ptr %105, i64 %99
+  %106 = getelementptr i8, ptr %.split2.i, i64 16
   store i32 %104, ptr %106, align 8
   %107 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @io_tlb_default_mem, i64 56), align 8
   %108 = getelementptr %struct.io_tlb_slot, ptr %107, i64 %99
   store i64 -1, ptr %108, align 8
   %109 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @io_tlb_default_mem, i64 56), align 8
-  %110 = getelementptr %struct.io_tlb_slot, ptr %109, i64 %99, i32 1
+  %.split3.i = getelementptr %struct.io_tlb_slot, ptr %109, i64 %99
+  %110 = getelementptr i8, ptr %.split3.i, i64 8
   store i64 0, ptr %110, align 8
   %111 = add nuw i64 %99, 1
   %112 = load i64, ptr getelementptr inbounds nuw (i8, ptr @io_tlb_default_mem, i64 24), align 8
   %113 = icmp ult i64 %111, %112
   br i1 %113, label %.preheader.i, label %swiotlb_init_io_tlb_pool.exit, !llvm.loop !20
 
-swiotlb_init_io_tlb_pool.exit:                    ; preds = %.preheader.i, %.loopexit2.i
+swiotlb_init_io_tlb_pool.exit:                    ; preds = %.preheader.i, %.loopexit5.i
   %114 = add i64 %79, %76
   %115 = inttoptr i64 %114 to ptr
   tail call void @llvm.memset.p0.i64(ptr align 1 %115, i8 0, i64 %80, i1 false)
@@ -883,11 +887,11 @@ define dso_local i32 @swiotlb_init_late(i64 noundef %0, i32 noundef %1, ptr noun
   %6 = and i64 %5, 18014398509481856
   %7 = load i64, ptr getelementptr inbounds nuw (i8, ptr @io_tlb_default_mem, i64 64), align 8
   %8 = icmp eq i64 %7, 0
-  br i1 %8, label %9, label %.thread15
+  br i1 %8, label %9, label %.thread18
 
 9:                                                ; preds = %3
   %10 = load i1, ptr @swiotlb_force_disable, align 1
-  br i1 %10, label %.thread15, label %11
+  br i1 %10, label %.thread18, label %11
 
 11:                                               ; preds = %9
   %12 = load i1, ptr @swiotlb_force_bounce, align 1
@@ -959,9 +963,9 @@ define dso_local i32 @swiotlb_init_late(i64 noundef %0, i32 noundef %1, ptr noun
 56:                                               ; preds = %46, %43, %32, %11
   %57 = or i32 %1, 8192
   %58 = icmp eq ptr %2, null
-  br i1 %58, label %.split.us, label %.split
+  br i1 %58, label %.split31.us, label %.split31
 
-.split.us:                                        ; preds = %56
+.split31.us:                                      ; preds = %56
   %59 = shl i64 %6, 11
   %60 = add i64 %59, -1
   %61 = lshr i64 %60, 12
@@ -969,36 +973,36 @@ define dso_local i32 @swiotlb_init_late(i64 noundef %0, i32 noundef %1, ptr noun
   %63 = add i32 %62, 1
   %64 = shl i32 2, %63
   %65 = icmp sgt i32 %64, 512
-  br i1 %65, label %66, label %.thread15
+  br i1 %65, label %66, label %.thread18
 
-66:                                               ; preds = %.split.us
+66:                                               ; preds = %.split31.us
   %67 = tail call i64 @__get_free_pages(i32 noundef %57, i32 noundef %63) #21
   %68 = icmp eq i64 %67, 0
-  br i1 %68, label %.preheader18.us, label %.thread.us.thread
+  br i1 %68, label %.preheader21.us, label %.thread.us.thread
 
 .thread.us.thread:                                ; preds = %66
   %69 = zext nneg i32 %64 to i64
   %70 = inttoptr i64 %67 to ptr
   br label %128
 
-.preheader18.us:                                  ; preds = %66, %75
+.preheader21.us:                                  ; preds = %66, %75
   %71 = phi i32 [ %72, %75 ], [ %63, %66 ]
   %72 = add i32 %71, -1
   %73 = shl i32 2, %72
   %74 = icmp sgt i32 %73, 512
-  br i1 %74, label %75, label %.thread15, !llvm.loop !21
+  br i1 %74, label %75, label %.thread18, !llvm.loop !21
 
-75:                                               ; preds = %.preheader18.us
+75:                                               ; preds = %.preheader21.us
   %76 = tail call i64 @__get_free_pages(i32 noundef %57, i32 noundef %72) #21
   %77 = icmp eq i64 %76, 0
-  br i1 %77, label %.preheader18.us, label %.thread.us, !llvm.loop !21
+  br i1 %77, label %.preheader21.us, label %.thread.us, !llvm.loop !21
 
 .thread.us:                                       ; preds = %75
   %78 = zext nneg i32 %73 to i64
   %79 = inttoptr i64 %76 to ptr
   br label %123
 
-.split:                                           ; preds = %56, %117
+.split31:                                         ; preds = %56, %117
   %80 = phi i64 [ %121, %117 ], [ %6, %56 ]
   %81 = phi ptr [ %110, %117 ], [ null, %56 ]
   %82 = phi i1 [ true, %117 ], [ false, %56 ]
@@ -1011,22 +1015,22 @@ define dso_local i32 @swiotlb_init_late(i64 noundef %0, i32 noundef %1, ptr noun
   %89 = icmp sgt i32 %88, 512
   br i1 %89, label %90, label %106
 
-90:                                               ; preds = %.split
+90:                                               ; preds = %.split31
   %91 = tail call i64 @__get_free_pages(i32 noundef %57, i32 noundef %87) #21
   %92 = icmp eq i64 %91, 0
-  br i1 %92, label %.preheader18, label %.thread
+  br i1 %92, label %.preheader21, label %.thread
 
-93:                                               ; preds = %.preheader18
+93:                                               ; preds = %.preheader21
   %94 = tail call i64 @__get_free_pages(i32 noundef %57, i32 noundef %97) #21
   %95 = icmp eq i64 %94, 0
-  br i1 %95, label %.preheader18, label %.thread, !llvm.loop !21
+  br i1 %95, label %.preheader21, label %.thread, !llvm.loop !21
 
-.preheader18:                                     ; preds = %90, %93
+.preheader21:                                     ; preds = %90, %93
   %96 = phi i32 [ %97, %93 ], [ %87, %90 ]
   %97 = add i32 %96, -1
   %98 = shl i32 2, %97
   %99 = icmp sgt i32 %98, 512
-  br i1 %99, label %93, label %.thread15, !llvm.loop !21
+  br i1 %99, label %93, label %.thread18, !llvm.loop !21
 
 .thread:                                          ; preds = %93, %90
   %100 = phi i32 [ %88, %90 ], [ %98, %93 ]
@@ -1037,10 +1041,10 @@ define dso_local i32 @swiotlb_init_late(i64 noundef %0, i32 noundef %1, ptr noun
   %105 = inttoptr i64 %103 to ptr
   br label %109
 
-106:                                              ; preds = %.split
+106:                                              ; preds = %.split31
   %107 = sext i32 %88 to i64
   %108 = icmp eq ptr %81, null
-  br i1 %108, label %.thread15, label %109
+  br i1 %108, label %.thread18, label %109
 
 109:                                              ; preds = %.thread, %106
   %110 = phi ptr [ %105, %.thread ], [ %81, %106 ]
@@ -1050,7 +1054,7 @@ define dso_local i32 @swiotlb_init_late(i64 noundef %0, i32 noundef %1, ptr noun
   %114 = phi i32 [ %102, %.thread ], [ %87, %106 ]
   %115 = tail call i32 %2(ptr noundef nonnull %110, i64 noundef %111) #21
   %116 = icmp eq i32 %115, 0
-  br i1 %116, label %.split29.us, label %117
+  br i1 %116, label %.split33.us, label %117
 
 117:                                              ; preds = %109
   %118 = ptrtoint ptr %110 to i64
@@ -1059,33 +1063,33 @@ define dso_local i32 @swiotlb_init_late(i64 noundef %0, i32 noundef %1, ptr noun
   %120 = add nuw i64 %119, 127
   %121 = and i64 %120, -128
   %122 = icmp ult i64 %111, 770
-  br i1 %122, label %.thread15, label %.split
+  br i1 %122, label %.thread18, label %.split31
 
-.split29.us:                                      ; preds = %109
+.split33.us:                                      ; preds = %109
   br i1 %113, label %123, label %128
 
-123:                                              ; preds = %.thread.us, %.split29.us
-  %.us-phi3471 = phi i32 [ %72, %.thread.us ], [ %114, %.split29.us ]
-  %.us-phi3270 = phi i32 [ %73, %.thread.us ], [ %112, %.split29.us ]
-  %.us-phi3168 = phi i64 [ %78, %.thread.us ], [ %111, %.split29.us ]
-  %.us-phi3066 = phi ptr [ %79, %.thread.us ], [ %110, %.split29.us ]
-  %124 = zext nneg i32 %.us-phi3471 to i64
+123:                                              ; preds = %.thread.us, %.split33.us
+  %.us-phi3875 = phi i32 [ %72, %.thread.us ], [ %114, %.split33.us ]
+  %.us-phi3674 = phi i32 [ %73, %.thread.us ], [ %112, %.split33.us ]
+  %.us-phi3572 = phi i64 [ %78, %.thread.us ], [ %111, %.split33.us ]
+  %.us-phi3470 = phi ptr [ %79, %.thread.us ], [ %110, %.split33.us ]
+  %124 = zext nneg i32 %.us-phi3875 to i64
   %125 = shl i64 4096, %124
   %126 = lshr i64 %125, 20
   %127 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.6, i64 noundef %126) #23
   br label %128
 
-128:                                              ; preds = %.thread.us.thread, %123, %.split29.us
-  %.us-phi3472 = phi i32 [ %.us-phi3471, %123 ], [ %114, %.split29.us ], [ %63, %.thread.us.thread ]
-  %.us-phi3269 = phi i32 [ %.us-phi3270, %123 ], [ %112, %.split29.us ], [ %64, %.thread.us.thread ]
-  %.us-phi3167 = phi i64 [ %.us-phi3168, %123 ], [ %111, %.split29.us ], [ %69, %.thread.us.thread ]
-  %.us-phi3065 = phi ptr [ %.us-phi3066, %123 ], [ %110, %.split29.us ], [ %70, %.thread.us.thread ]
+128:                                              ; preds = %.thread.us.thread, %123, %.split33.us
+  %.us-phi3876 = phi i32 [ %.us-phi3875, %123 ], [ %114, %.split33.us ], [ %63, %.thread.us.thread ]
+  %.us-phi3673 = phi i32 [ %.us-phi3674, %123 ], [ %112, %.split33.us ], [ %64, %.thread.us.thread ]
+  %.us-phi3571 = phi i64 [ %.us-phi3572, %123 ], [ %111, %.split33.us ], [ %69, %.thread.us.thread ]
+  %.us-phi3469 = phi ptr [ %.us-phi3470, %123 ], [ %110, %.split33.us ], [ %70, %.thread.us.thread ]
   %129 = load i64, ptr @default_nareas, align 8
   %130 = trunc nuw i64 %129 to i32
   %131 = shl nuw nsw i64 %129, 7
   %132 = and i64 %131, 4294967168
-  %133 = icmp ugt i64 %132, %.us-phi3167
-  %134 = ashr i32 %.us-phi3269, 7
+  %133 = icmp ugt i64 %132, %.us-phi3571
+  %134 = ashr i32 %.us-phi3673, 7
   %135 = select i1 %133, i32 %134, i32 %130
   %136 = zext i32 %135 to i64
   %137 = shl nuw nsw i64 %136, 4
@@ -1100,7 +1104,7 @@ define dso_local i32 @swiotlb_init_late(i64 noundef %0, i32 noundef %1, ptr noun
   br i1 %144, label %215, label %145
 
 145:                                              ; preds = %128
-  %146 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %.us-phi3167, i64 24)
+  %146 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %.us-phi3571, i64 24)
   %147 = extractvalue { i64, i1 } %146, 0
   %148 = add nsw i64 %147, -1
   %149 = extractvalue { i64, i1 } %146, 1
@@ -1115,45 +1119,47 @@ define dso_local i32 @swiotlb_init_late(i64 noundef %0, i32 noundef %1, ptr noun
   br i1 %156, label %212, label %157
 
 157:                                              ; preds = %145
-  %158 = ptrtoint ptr %.us-phi3065 to i64
-  %159 = ashr exact i32 %.us-phi3269, 1
+  %158 = ptrtoint ptr %.us-phi3469 to i64
+  %159 = ashr exact i32 %.us-phi3673, 1
   %160 = tail call i32 @set_memory_decrypted(i64 noundef %158, i32 noundef %159) #21
   %161 = add i64 %158, 2147483648
-  %162 = icmp ugt ptr %.us-phi3065, inttoptr (i64 -2147483649 to ptr)
+  %162 = icmp ugt ptr %.us-phi3469, inttoptr (i64 -2147483649 to ptr)
   %163 = load i64, ptr @phys_base, align 8
   %164 = load i64, ptr @page_offset_base, align 8
   %165 = sub i64 -2147483648, %164
   %166 = select i1 %162, i64 %163, i64 %165
   %167 = add i64 %161, %166
-  %168 = shl nsw i64 %.us-phi3167, 11
-  store i64 %.us-phi3167, ptr getelementptr inbounds nuw (i8, ptr @io_tlb_default_mem, i64 24), align 8
+  %168 = shl nsw i64 %.us-phi3571, 11
+  store i64 %.us-phi3571, ptr getelementptr inbounds nuw (i8, ptr @io_tlb_default_mem, i64 24), align 8
   store i64 %167, ptr @io_tlb_default_mem, align 8
   %169 = add i64 %167, %168
   store i64 %169, ptr getelementptr inbounds nuw (i8, ptr @io_tlb_default_mem, i64 8), align 8
   store i8 1, ptr getelementptr inbounds nuw (i8, ptr @io_tlb_default_mem, i64 32), align 8
   store i32 %135, ptr getelementptr inbounds nuw (i8, ptr @io_tlb_default_mem, i64 36), align 4
-  %170 = udiv i64 %.us-phi3167, %136
+  %170 = udiv i64 %.us-phi3571, %136
   %171 = trunc i64 %170 to i32
   store i32 %171, ptr getelementptr inbounds nuw (i8, ptr @io_tlb_default_mem, i64 40), align 8
   %172 = icmp eq i32 %135, 0
-  br i1 %172, label %.loopexit17, label %.preheader16
+  br i1 %172, label %.loopexit20, label %.preheader19
 
-.loopexit17.loopexit:                             ; preds = %.preheader16
+.loopexit20.loopexit:                             ; preds = %.preheader19
   %.pre = load i64, ptr getelementptr inbounds nuw (i8, ptr @io_tlb_default_mem, i64 24), align 8
-  br label %.loopexit17
+  br label %.loopexit20
 
-.loopexit17:                                      ; preds = %.loopexit17.loopexit, %157
-  %173 = phi i64 [ %.pre, %.loopexit17.loopexit ], [ %.us-phi3167, %157 ]
+.loopexit20:                                      ; preds = %.loopexit20.loopexit, %157
+  %173 = phi i64 [ %.pre, %.loopexit20.loopexit ], [ %.us-phi3571, %157 ]
   %174 = icmp eq i64 %173, 0
   br i1 %174, label %.loopexit, label %.preheader
 
-.preheader16:                                     ; preds = %157, %.preheader16
-  %175 = phi i64 [ %182, %.preheader16 ], [ 0, %157 ]
+.preheader19:                                     ; preds = %157, %.preheader19
+  %175 = phi i64 [ %182, %.preheader19 ], [ 0, %157 ]
   %176 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @io_tlb_default_mem, i64 48), align 8
-  %177 = getelementptr %struct.io_tlb_area, ptr %176, i64 %175, i32 2
+  %.split = getelementptr %struct.io_tlb_area, ptr %176, i64 %175
+  %177 = getelementptr i8, ptr %.split, i64 12
   store i32 0, ptr %177, align 4
   %178 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @io_tlb_default_mem, i64 48), align 8
-  %179 = getelementptr %struct.io_tlb_area, ptr %178, i64 %175, i32 1
+  %.split15 = getelementptr %struct.io_tlb_area, ptr %178, i64 %175
+  %179 = getelementptr i8, ptr %.split15, i64 8
   store i32 0, ptr %179, align 8
   %180 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @io_tlb_default_mem, i64 48), align 8
   %181 = getelementptr %struct.io_tlb_area, ptr %180, i64 %175
@@ -1162,31 +1168,33 @@ define dso_local i32 @swiotlb_init_late(i64 noundef %0, i32 noundef %1, ptr noun
   %183 = load i32, ptr getelementptr inbounds nuw (i8, ptr @io_tlb_default_mem, i64 36), align 4
   %184 = zext i32 %183 to i64
   %185 = icmp samesign ult i64 %182, %184
-  br i1 %185, label %.preheader16, label %.loopexit17.loopexit, !llvm.loop !19
+  br i1 %185, label %.preheader19, label %.loopexit20.loopexit, !llvm.loop !19
 
-.preheader:                                       ; preds = %.loopexit17, %.preheader
-  %186 = phi i64 [ %200, %.preheader ], [ %173, %.loopexit17 ]
-  %187 = phi i64 [ %199, %.preheader ], [ 0, %.loopexit17 ]
+.preheader:                                       ; preds = %.loopexit20, %.preheader
+  %186 = phi i64 [ %200, %.preheader ], [ %173, %.loopexit20 ]
+  %187 = phi i64 [ %199, %.preheader ], [ 0, %.loopexit20 ]
   %188 = and i64 %187, 127
   %189 = sub nuw nsw i64 128, %188
   %190 = sub i64 %186, %187
   %191 = tail call i64 @llvm.umin.i64(i64 %189, i64 %190)
   %192 = trunc nuw nsw i64 %191 to i32
   %193 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @io_tlb_default_mem, i64 56), align 8
-  %194 = getelementptr %struct.io_tlb_slot, ptr %193, i64 %187, i32 2
+  %.split16 = getelementptr %struct.io_tlb_slot, ptr %193, i64 %187
+  %194 = getelementptr i8, ptr %.split16, i64 16
   store i32 %192, ptr %194, align 8
   %195 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @io_tlb_default_mem, i64 56), align 8
   %196 = getelementptr %struct.io_tlb_slot, ptr %195, i64 %187
   store i64 -1, ptr %196, align 8
   %197 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @io_tlb_default_mem, i64 56), align 8
-  %198 = getelementptr %struct.io_tlb_slot, ptr %197, i64 %187, i32 1
+  %.split17 = getelementptr %struct.io_tlb_slot, ptr %197, i64 %187
+  %198 = getelementptr i8, ptr %.split17, i64 8
   store i64 0, ptr %198, align 8
   %199 = add nuw i64 %187, 1
   %200 = load i64, ptr getelementptr inbounds nuw (i8, ptr @io_tlb_default_mem, i64 24), align 8
   %201 = icmp ult i64 %199, %200
   br i1 %201, label %.preheader, label %.loopexit, !llvm.loop !20
 
-.loopexit:                                        ; preds = %.preheader, %.loopexit17
+.loopexit:                                        ; preds = %.preheader, %.loopexit20
   %202 = add i64 %167, %164
   %203 = inttoptr i64 %202 to ptr
   tail call void @llvm.memset.p0.i64(ptr align 1 %203, i8 0, i64 %168, i1 false)
@@ -1198,13 +1206,13 @@ define dso_local i32 @swiotlb_init_late(i64 noundef %0, i32 noundef %1, ptr noun
 
 206:                                              ; preds = %.loopexit
   %207 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.1) #23
-  br label %.thread15
+  br label %.thread18
 
 208:                                              ; preds = %.loopexit
   %209 = lshr i64 %204, 9
   %210 = and i64 %209, 17592186044415
   %211 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.2, ptr noundef nonnull @io_tlb_default_mem, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @io_tlb_default_mem, i64 8), i64 noundef %210) #23
-  br label %.thread15
+  br label %.thread18
 
 212:                                              ; preds = %145
   %213 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @io_tlb_default_mem, i64 48), align 8
@@ -1213,12 +1221,12 @@ define dso_local i32 @swiotlb_init_late(i64 noundef %0, i32 noundef %1, ptr noun
   br label %215
 
 215:                                              ; preds = %212, %128
-  %216 = ptrtoint ptr %.us-phi3065 to i64
-  tail call void @free_pages(i64 noundef %216, i32 noundef %.us-phi3472) #21
-  br label %.thread15
+  %216 = ptrtoint ptr %.us-phi3469 to i64
+  tail call void @free_pages(i64 noundef %216, i32 noundef %.us-phi3876) #21
+  br label %.thread18
 
-.thread15:                                        ; preds = %106, %117, %.preheader18, %.preheader18.us, %.split.us, %215, %208, %206, %9, %3
-  %217 = phi i32 [ -12, %215 ], [ 0, %3 ], [ 0, %9 ], [ 0, %206 ], [ 0, %208 ], [ -12, %.split.us ], [ -12, %.preheader18.us ], [ -12, %.preheader18 ], [ %115, %117 ], [ -12, %106 ]
+.thread18:                                        ; preds = %106, %117, %.preheader21, %.preheader21.us, %.split31.us, %215, %208, %206, %9, %3
+  %217 = phi i32 [ -12, %215 ], [ 0, %3 ], [ 0, %9 ], [ 0, %206 ], [ 0, %208 ], [ -12, %.split31.us ], [ -12, %.preheader21.us ], [ -12, %.preheader21 ], [ %115, %117 ], [ -12, %106 ]
   ret i32 %217
 }
 
@@ -1405,14 +1413,14 @@ define dso_local noundef i64 @swiotlb_tbl_map_single(ptr noundef %0, i64 noundef
   %51 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %52 = icmp eq i64 %1, 0
   %53 = getelementptr inbounds nuw i8, ptr %9, i64 56
-  br i1 %48, label %.split.us, label %.split, !prof !10
+  br i1 %48, label %.split48.us, label %.split48, !prof !10
 
-.split.us:                                        ; preds = %35
+.split48.us:                                      ; preds = %35
   tail call void asm sideeffect "465: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 465b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 465) #21, !srcloc !23
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.13, i32 993, i32 0, i64 12) #21, !srcloc !24
   unreachable
 
-.split:                                           ; preds = %35, %217
+.split48:                                         ; preds = %35, %217
   %54 = phi i32 [ %219, %217 ], [ %40, %35 ]
   %55 = phi i32 [ %221, %217 ], [ %42, %35 ]
   %56 = load ptr, ptr %43, align 8
@@ -1422,13 +1430,13 @@ define dso_local noundef i64 @swiotlb_tbl_map_single(ptr noundef %0, i64 noundef
   %60 = icmp eq ptr %59, null
   br i1 %60, label %65, label %61
 
-61:                                               ; preds = %.split
+61:                                               ; preds = %.split48
   %62 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %63 = load i64, ptr %62, align 8
   %64 = icmp eq i64 %63, 0
   br i1 %64, label %65, label %66
 
-65:                                               ; preds = %61, %.split
+65:                                               ; preds = %61, %.split48
   br label %66
 
 66:                                               ; preds = %65, %61
@@ -1436,22 +1444,22 @@ define dso_local noundef i64 @swiotlb_tbl_map_single(ptr noundef %0, i64 noundef
   %68 = load i64, ptr %9, align 8
   %69 = load ptr, ptr %44, align 8
   %70 = icmp eq ptr %69, null
-  br i1 %70, label %.loopexit34, label %71
+  br i1 %70, label %.loopexit37, label %71
 
 71:                                               ; preds = %66
   %72 = getelementptr inbounds nuw i8, ptr %69, i64 16
   %73 = load i64, ptr %72, align 8
   %74 = icmp eq i64 %73, 0
-  br i1 %74, label %.loopexit34, label %.preheader33
+  br i1 %74, label %.loopexit37, label %.preheader36
 
-75:                                               ; preds = %.preheader33
+75:                                               ; preds = %.preheader36
   %76 = getelementptr i8, ptr %81, i64 24
   %77 = getelementptr i8, ptr %81, i64 40
   %78 = load i64, ptr %77, align 8
   %79 = icmp eq i64 %78, 0
-  br i1 %79, label %.loopexit34, label %.preheader33, !llvm.loop !25
+  br i1 %79, label %.loopexit37, label %.preheader36, !llvm.loop !25
 
-.preheader33:                                     ; preds = %71, %75
+.preheader36:                                     ; preds = %71, %75
   %80 = phi i64 [ %78, %75 ], [ %73, %71 ]
   %81 = phi ptr [ %76, %75 ], [ %69, %71 ]
   %82 = load i64, ptr %81, align 8
@@ -1461,38 +1469,38 @@ define dso_local noundef i64 @swiotlb_tbl_map_single(ptr noundef %0, i64 noundef
   %86 = or i1 %84, %85
   br i1 %86, label %75, label %87
 
-87:                                               ; preds = %.preheader33
+87:                                               ; preds = %.preheader36
   %88 = getelementptr inbounds nuw i8, ptr %81, i64 8
   %89 = load i64, ptr %88, align 8
   %90 = add i64 %89, %83
-  br label %.loopexit34
+  br label %.loopexit37
 
-.loopexit34:                                      ; preds = %75, %87, %71, %66
+.loopexit37:                                      ; preds = %75, %87, %71, %66
   %91 = phi i64 [ %68, %66 ], [ -1, %71 ], [ %90, %87 ], [ -1, %75 ]
   %92 = and i64 %91, %67
   %93 = lshr i64 %67, 11
   %94 = add nuw nsw i64 %93, 1
-  br i1 %60, label %.thread25, label %95
+  br i1 %60, label %.thread28, label %95
 
-95:                                               ; preds = %.loopexit34
+95:                                               ; preds = %.loopexit37
   %96 = getelementptr inbounds nuw i8, ptr %59, i64 4
   %97 = load i32, ptr %96, align 4
   %98 = or i32 %97, %4
-  br label %.thread25
+  br label %.thread28
 
-.thread25:                                        ; preds = %.loopexit34, %95
-  %99 = phi i32 [ %98, %95 ], [ %4, %.loopexit34 ]
-  %100 = phi i32 [ %97, %95 ], [ 0, %.loopexit34 ]
+.thread28:                                        ; preds = %.loopexit37, %95
+  %99 = phi i32 [ %98, %95 ], [ %4, %.loopexit37 ]
+  %100 = phi i32 [ %97, %95 ], [ 0, %.loopexit37 ]
   %101 = and i32 %100, %19
   %102 = icmp ugt i32 %54, %55
   br i1 %102, label %104, label %103, !prof !9
 
-103:                                              ; preds = %.thread25
+103:                                              ; preds = %.thread28
   tail call void asm sideeffect "466: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 466b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 466) #21, !srcloc !26
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.13, i32 994, i32 0, i64 12) #21, !srcloc !27
   unreachable
 
-104:                                              ; preds = %.thread25
+104:                                              ; preds = %.thread28
   %105 = or i32 %99, 4095
   %106 = select i1 %49, i32 %105, i32 %99
   %107 = and i32 %106, -2048
@@ -1505,13 +1513,13 @@ define dso_local noundef i64 @swiotlb_tbl_map_single(ptr noundef %0, i64 noundef
   %114 = load i64, ptr %58, align 8
   %115 = sub i64 %113, %114
   %116 = icmp ugt i64 %50, %115
-  br i1 %116, label %.thread27, label %117, !prof !10
+  br i1 %116, label %.thread30, label %117, !prof !10
 
 117:                                              ; preds = %104
   %118 = mul i32 %112, %55
   %119 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %120 = icmp eq i32 %112, 0
-  br i1 %120, label %.thread27, label %121
+  br i1 %120, label %.thread30, label %121
 
 121:                                              ; preds = %117
   %122 = load i32, ptr %119, align 8
@@ -1544,7 +1552,7 @@ define dso_local noundef i64 @swiotlb_tbl_map_single(ptr noundef %0, i64 noundef
   %143 = select i1 %142, i32 %141, i32 0
   %144 = add i32 %140, %129
   %145 = icmp ult i32 %144, %112
-  br i1 %145, label %128, label %.thread27, !llvm.loop !28
+  br i1 %145, label %128, label %.thread30, !llvm.loop !28
 
 146:                                              ; preds = %132, %128
   br i1 %125, label %148, label %147, !prof !9
@@ -1564,7 +1572,8 @@ define dso_local noundef i64 @swiotlb_tbl_map_single(ptr noundef %0, i64 noundef
 
 154:                                              ; preds = %148
   %155 = load ptr, ptr %53, align 8
-  %156 = getelementptr %struct.io_tlb_slot, ptr %155, i64 %149, i32 2
+  %.split = getelementptr %struct.io_tlb_slot, ptr %155, i64 %149
+  %156 = getelementptr i8, ptr %.split, i64 16
   %157 = load i32, ptr %156, align 8
   %158 = icmp ult i32 %157, %47
   br i1 %158, label %139, label %159
@@ -1572,27 +1581,28 @@ define dso_local noundef i64 @swiotlb_tbl_map_single(ptr noundef %0, i64 noundef
 159:                                              ; preds = %154
   %160 = add i32 %131, %47
   %161 = icmp ult i32 %131, %160
-  br i1 %161, label %162, label %.loopexit32
+  br i1 %161, label %162, label %.loopexit35
 
 162:                                              ; preds = %159
   %163 = zext i32 %160 to i64
   br label %168
 
-.thread27:                                        ; preds = %139, %104, %117
+.thread30:                                        ; preds = %139, %104, %117
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %110, i64 noundef %111) #21
   br label %217
 
-.loopexit32:                                      ; preds = %168, %159
+.loopexit35:                                      ; preds = %168, %159
   %164 = add i32 %131, -1
   %165 = zext i32 %164 to i64
   %166 = and i64 %165, 127
   %167 = icmp eq i64 %166, 127
-  br i1 %167, label %.loopexit31, label %.preheader30
+  br i1 %167, label %.loopexit34, label %.preheader33
 
 168:                                              ; preds = %168, %162
   %169 = phi i64 [ %149, %162 ], [ %180, %168 ]
   %170 = load ptr, ptr %53, align 8
-  %171 = getelementptr %struct.io_tlb_slot, ptr %170, i64 %169, i32 2
+  %.split25 = getelementptr %struct.io_tlb_slot, ptr %170, i64 %169
+  %171 = getelementptr i8, ptr %.split25, i64 16
   store i32 0, ptr %171, align 8
   %172 = trunc i64 %169 to i32
   %173 = sub i32 %172, %131
@@ -1601,32 +1611,34 @@ define dso_local noundef i64 @swiotlb_tbl_map_single(ptr noundef %0, i64 noundef
   %176 = zext i32 %175 to i64
   %177 = sub i64 %37, %176
   %178 = load ptr, ptr %53, align 8
-  %179 = getelementptr %struct.io_tlb_slot, ptr %178, i64 %169, i32 1
+  %.split26 = getelementptr %struct.io_tlb_slot, ptr %178, i64 %169
+  %179 = getelementptr i8, ptr %.split26, i64 8
   store i64 %177, ptr %179, align 8
   %180 = add nuw nsw i64 %169, 1
   %181 = icmp eq i64 %180, %163
-  br i1 %181, label %.loopexit32, label %168, !llvm.loop !31
+  br i1 %181, label %.loopexit35, label %168, !llvm.loop !31
 
-.preheader30:                                     ; preds = %.loopexit32, %189
-  %182 = phi i64 [ %192, %189 ], [ %165, %.loopexit32 ]
-  %183 = phi i32 [ %191, %189 ], [ %164, %.loopexit32 ]
-  %184 = phi i32 [ %190, %189 ], [ 0, %.loopexit32 ]
+.preheader33:                                     ; preds = %.loopexit35, %189
+  %182 = phi i64 [ %192, %189 ], [ %165, %.loopexit35 ]
+  %183 = phi i32 [ %191, %189 ], [ %164, %.loopexit35 ]
+  %184 = phi i32 [ %190, %189 ], [ 0, %.loopexit35 ]
   %185 = load ptr, ptr %53, align 8
-  %186 = getelementptr %struct.io_tlb_slot, ptr %185, i64 %182, i32 2
+  %.split27 = getelementptr %struct.io_tlb_slot, ptr %185, i64 %182
+  %186 = getelementptr i8, ptr %.split27, i64 16
   %187 = load i32, ptr %186, align 8
   %188 = icmp eq i32 %187, 0
-  br i1 %188, label %.loopexit31, label %189
+  br i1 %188, label %.loopexit34, label %189
 
-189:                                              ; preds = %.preheader30
+189:                                              ; preds = %.preheader33
   %190 = add i32 %184, 1
   store i32 %190, ptr %186, align 8
   %191 = add i32 %183, -1
   %192 = zext i32 %191 to i64
   %193 = and i64 %192, 127
   %194 = icmp eq i64 %193, 127
-  br i1 %194, label %.loopexit31, label %.preheader30, !llvm.loop !32
+  br i1 %194, label %.loopexit34, label %.preheader33, !llvm.loop !32
 
-.loopexit31:                                      ; preds = %189, %.preheader30, %.loopexit32
+.loopexit34:                                      ; preds = %189, %.preheader33, %.loopexit35
   %195 = add i32 %130, %47
   %196 = load i32, ptr %51, align 8
   %197 = icmp ugt i32 %196, %195
@@ -1643,35 +1655,35 @@ define dso_local noundef i64 @swiotlb_tbl_map_single(ptr noundef %0, i64 noundef
   %205 = getelementptr inbounds nuw i8, ptr %201, i64 96
   %206 = load volatile i64, ptr %205, align 8
   %207 = icmp ugt i64 %204, %206
-  br i1 %207, label %.preheader29, label %.thread26
+  br i1 %207, label %.preheader32, label %.thread29
 
-.preheader29:                                     ; preds = %.loopexit31, %213
-  %208 = phi i64 [ %214, %213 ], [ %206, %.loopexit31 ]
+.preheader32:                                     ; preds = %.loopexit34, %213
+  %208 = phi i64 [ %214, %213 ], [ %206, %.loopexit34 ]
   %209 = tail call { i8, i64 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgq $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %205, i64 %204, ptr nonnull elementtype(i64) %205, i64 %208) #21, !srcloc !34
   %210 = extractvalue { i8, i64 } %209, 0
   %211 = icmp ult i8 %210, 2
   tail call void @llvm.assume(i1 %211)
   %212 = icmp eq i8 %210, 0
-  br i1 %212, label %213, label %.thread26, !prof !10
+  br i1 %212, label %213, label %.thread29, !prof !10
 
-213:                                              ; preds = %.preheader29
+213:                                              ; preds = %.preheader32
   %214 = extractvalue { i8, i64 } %209, 1
   %215 = icmp ugt i64 %204, %214
-  br i1 %215, label %.preheader29, label %.thread26, !llvm.loop !35
+  br i1 %215, label %.preheader32, label %.thread29, !llvm.loop !35
 
-.thread26:                                        ; preds = %.preheader29, %213, %.loopexit31
+.thread29:                                        ; preds = %.preheader32, %213, %.loopexit34
   %216 = icmp sgt i32 %131, -1
   br i1 %216, label %223, label %217
 
-217:                                              ; preds = %.thread27, %.thread26
+217:                                              ; preds = %.thread30, %.thread29
   %218 = add i32 %55, 1
   %219 = load i32, ptr %39, align 4
   %220 = icmp ult i32 %218, %219
   %221 = select i1 %220, i32 %218, i32 0
   %222 = icmp eq i32 %221, %42
-  br i1 %222, label %225, label %.split, !llvm.loop !36
+  br i1 %222, label %225, label %.split48, !llvm.loop !36
 
-223:                                              ; preds = %.thread26
+223:                                              ; preds = %.thread29
   %224 = icmp ult i64 %45, 2048
   br i1 %224, label %.loopexit, label %.preheader
 
@@ -1920,7 +1932,8 @@ define dso_local void @swiotlb_tbl_unmap_single(ptr noundef %0, i64 noundef %1, 
   %33 = load ptr, ptr %32, align 8
   %34 = shl i64 %30, 32
   %35 = ashr exact i64 %34, 32
-  %36 = getelementptr %struct.io_tlb_slot, ptr %33, i64 %35, i32 1
+  %.split = getelementptr %struct.io_tlb_slot, ptr %33, i64 %35
+  %36 = getelementptr i8, ptr %.split, i64 8
   %37 = load i64, ptr %36, align 8
   %38 = add nuw nsw i64 %26, 2047
   %39 = add i64 %38, %37
@@ -1955,7 +1968,8 @@ define dso_local void @swiotlb_tbl_unmap_single(ptr noundef %0, i64 noundef %1, 
 60:                                               ; preds = %52
   %61 = load ptr, ptr %32, align 8
   %62 = sext i32 %56 to i64
-  %63 = getelementptr %struct.io_tlb_slot, ptr %61, i64 %62, i32 2
+  %.split3 = getelementptr %struct.io_tlb_slot, ptr %61, i64 %62
+  %63 = getelementptr i8, ptr %.split3, i64 16
   %64 = load i32, ptr %63, align 8
   br label %65
 
@@ -1963,39 +1977,42 @@ define dso_local void @swiotlb_tbl_unmap_single(ptr noundef %0, i64 noundef %1, 
   %66 = phi i32 [ %64, %60 ], [ 0, %52 ]
   %67 = add i32 %56, -1
   %68 = icmp slt i32 %67, %31
-  br i1 %68, label %.loopexit6, label %.preheader5
+  br i1 %68, label %.loopexit10, label %.preheader9
 
-.loopexit6:                                       ; preds = %.preheader5, %65
-  %69 = phi i32 [ %66, %65 ], [ %75, %.preheader5 ]
+.loopexit10:                                      ; preds = %.preheader9, %65
+  %69 = phi i32 [ %66, %65 ], [ %75, %.preheader9 ]
   %70 = add nsw i32 %31, -1
   %71 = and i32 %70, 127
   %72 = icmp eq i32 %71, 127
   br i1 %72, label %.loopexit, label %.preheader
 
-.preheader5:                                      ; preds = %65, %.preheader5
-  %73 = phi i32 [ %83, %.preheader5 ], [ %67, %65 ]
-  %74 = phi i32 [ %75, %.preheader5 ], [ %66, %65 ]
+.preheader9:                                      ; preds = %65, %.preheader9
+  %73 = phi i32 [ %83, %.preheader9 ], [ %67, %65 ]
+  %74 = phi i32 [ %75, %.preheader9 ], [ %66, %65 ]
   %75 = add i32 %74, 1
   %76 = load ptr, ptr %32, align 8
   %77 = sext i32 %73 to i64
-  %78 = getelementptr %struct.io_tlb_slot, ptr %76, i64 %77, i32 2
+  %.split4 = getelementptr %struct.io_tlb_slot, ptr %76, i64 %77
+  %78 = getelementptr i8, ptr %.split4, i64 16
   store i32 %75, ptr %78, align 8
   %79 = load ptr, ptr %32, align 8
   %80 = getelementptr %struct.io_tlb_slot, ptr %79, i64 %77
   store i64 -1, ptr %80, align 8
   %81 = load ptr, ptr %32, align 8
-  %82 = getelementptr %struct.io_tlb_slot, ptr %81, i64 %77, i32 1
+  %.split5 = getelementptr %struct.io_tlb_slot, ptr %81, i64 %77
+  %82 = getelementptr i8, ptr %.split5, i64 8
   store i64 0, ptr %82, align 8
   %83 = add i32 %73, -1
   %84 = icmp slt i32 %83, %31
-  br i1 %84, label %.loopexit6, label %.preheader5, !llvm.loop !55
+  br i1 %84, label %.loopexit10, label %.preheader9, !llvm.loop !55
 
-.preheader:                                       ; preds = %.loopexit6, %92
-  %85 = phi i32 [ %94, %92 ], [ %70, %.loopexit6 ]
-  %86 = phi i32 [ %93, %92 ], [ %69, %.loopexit6 ]
+.preheader:                                       ; preds = %.loopexit10, %92
+  %85 = phi i32 [ %94, %92 ], [ %70, %.loopexit10 ]
+  %86 = phi i32 [ %93, %92 ], [ %69, %.loopexit10 ]
   %87 = sext i32 %85 to i64
   %88 = load ptr, ptr %32, align 8
-  %89 = getelementptr %struct.io_tlb_slot, ptr %88, i64 %87, i32 2
+  %.split6 = getelementptr %struct.io_tlb_slot, ptr %88, i64 %87
+  %89 = getelementptr i8, ptr %.split6, i64 16
   %90 = load i32, ptr %89, align 8
   %91 = icmp eq i32 %90, 0
   br i1 %91, label %.loopexit, label %92
@@ -2008,7 +2025,7 @@ define dso_local void @swiotlb_tbl_unmap_single(ptr noundef %0, i64 noundef %1, 
   %96 = icmp eq i32 %95, 127
   br i1 %96, label %.loopexit, label %.preheader, !llvm.loop !56
 
-.loopexit:                                        ; preds = %92, %.preheader, %.loopexit6
+.loopexit:                                        ; preds = %92, %.preheader, %.loopexit10
   %97 = shl i64 %40, 32
   %98 = ashr exact i64 %97, 32
   %99 = load i64, ptr %47, align 8

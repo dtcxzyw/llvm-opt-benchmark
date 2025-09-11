@@ -2063,11 +2063,11 @@ for.body.preheader1:                              ; preds = %for.body.preheader3
   br label %for.body
 
 for.body.preheader35.loopexit:                    ; preds = %vector.body
-  %1 = shl nsw i64 %n.vec, 2
+  %1 = shl nuw nsw i64 %n.vec, 2
   %ind.end = getelementptr i8, ptr %sP, i64 %1
-  %2 = shl nsw i64 %n.vec, 1
+  %2 = shl nuw nsw i64 %n.vec, 1
   %ind.end22 = getelementptr i8, ptr %dP, i64 %2
-  %ind.end24 = trunc nsw i64 %n.vec to i32
+  %ind.end24 = trunc nuw nsw i64 %n.vec to i32
   br label %for.body.preheader1
 
 vector.memcheck:                                  ; preds = %for.body.preheader
@@ -2088,7 +2088,7 @@ vector.ph:                                        ; preds = %vector.memcheck
   %n.mod.vf = and i64 %0, 7
   %9 = icmp eq i64 %n.mod.vf, 0
   %10 = select i1 %9, i64 8, i64 %n.mod.vf
-  %n.vec = sub nsw i64 %0, %10
+  %n.vec = sub nuw nsw i64 %0, %10
   br label %vector.body
 
 vector.body:                                      ; preds = %vector.body, %vector.ph
@@ -2244,7 +2244,7 @@ vector.ph:                                        ; preds = %vector.main.loop.it
   %n.mod.vf = and i64 %0, 15
   %5 = icmp eq i64 %n.mod.vf, 0
   %6 = select i1 %5, i64 16, i64 %n.mod.vf
-  %n.vec = sub nsw i64 %0, %6
+  %n.vec = sub nuw nsw i64 %0, %6
   br label %vector.body
 
 vector.body:                                      ; preds = %vector.body, %vector.ph
@@ -2407,25 +2407,25 @@ vector.body:                                      ; preds = %vector.body, %vecto
   br i1 %141, label %vec.epilog.iter.check, label %vector.body, !llvm.loop !74
 
 vec.epilog.iter.check:                            ; preds = %vector.body
-  %ind.end54 = trunc nsw i64 %n.vec to i32
+  %ind.end54 = trunc nuw nsw i64 %n.vec to i32
   %ind.end51 = getelementptr i8, ptr %dP, i64 %n.vec
-  %142 = shl nsw i64 %n.vec, 2
+  %142 = shl nuw nsw i64 %n.vec, 2
   %ind.end49 = getelementptr i8, ptr %sP, i64 %142
   %min.epilog.iters.check = icmp samesign ult i64 %6, 9
   br i1 %min.epilog.iters.check, label %for.body.preheader, label %vec.epilog.ph
 
 for.body.preheader.loopexit:                      ; preds = %vec.epilog.vector.body
-  %143 = shl nsw i64 %n.vec48, 2
+  %143 = shl nuw nsw i64 %n.vec48, 2
   %ind.end = getelementptr i8, ptr %sP, i64 %143
   %ind.end50 = getelementptr i8, ptr %dP, i64 %n.vec48
-  %ind.end53 = trunc nsw i64 %n.vec48 to i32
+  %ind.end53 = trunc nuw nsw i64 %n.vec48 to i32
   br label %for.body.preheader
 
 for.body.preheader:                               ; preds = %for.body.preheader.loopexit, %vec.epilog.iter.check, %vector.memcheck, %iter.check
   %sB.028.ph = phi ptr [ %sP, %iter.check ], [ %sP, %vector.memcheck ], [ %ind.end49, %vec.epilog.iter.check ], [ %ind.end, %for.body.preheader.loopexit ]
   %dB.027.ph = phi ptr [ %dP, %iter.check ], [ %dP, %vector.memcheck ], [ %ind.end51, %vec.epilog.iter.check ], [ %ind.end50, %for.body.preheader.loopexit ]
   %x.026.ph = phi i32 [ 0, %iter.check ], [ 0, %vector.memcheck ], [ %ind.end54, %vec.epilog.iter.check ], [ %ind.end53, %for.body.preheader.loopexit ]
-  %144 = sub i32 %sN, %x.026.ph
+  %144 = sub nsw i32 %sN, %x.026.ph
   %xtraiter = and i32 %144, 1
   %lcmp.mod.not = icmp eq i32 %xtraiter, 0
   br i1 %lcmp.mod.not, label %for.body.prol.loopexit, label %for.body.prol
@@ -2461,7 +2461,7 @@ vec.epilog.ph:                                    ; preds = %vec.epilog.iter.che
   %n.mod.vf47 = and i64 %0, 7
   %154 = icmp eq i64 %n.mod.vf47, 0
   %155 = select i1 %154, i64 8, i64 %n.mod.vf47
-  %n.vec48 = sub nsw i64 %0, %155
+  %n.vec48 = sub nuw nsw i64 %0, %155
   br label %vec.epilog.vector.body
 
 vec.epilog.vector.body:                           ; preds = %vec.epilog.vector.body, %vec.epilog.ph
@@ -4418,7 +4418,7 @@ vector.ph298:                                     ; preds = %vector.memcheck289
   %n.mod.vf299 = and i64 %156, 7
   %163 = icmp eq i64 %n.mod.vf299, 0
   %164 = select i1 %163, i64 8, i64 %n.mod.vf299
-  %n.vec300 = sub nsw i64 %156, %164
+  %n.vec300 = sub nuw nsw i64 %156, %164
   br label %vector.body307
 
 vector.body307:                                   ; preds = %vector.body307, %vector.ph298
@@ -4514,11 +4514,11 @@ vector.body307:                                   ; preds = %vector.body307, %ve
   br i1 %239, label %for.body.i150.preheader456.loopexit, label %vector.body307, !llvm.loop !126
 
 for.body.i150.preheader456.loopexit:              ; preds = %vector.body307
-  %240 = shl nsw i64 %n.vec300, 2
+  %240 = shl nuw nsw i64 %n.vec300, 2
   %ind.end301 = getelementptr i8, ptr %sP, i64 %240
-  %241 = shl nsw i64 %n.vec300, 1
+  %241 = shl nuw nsw i64 %n.vec300, 1
   %ind.end303 = getelementptr i8, ptr %dP, i64 %241
-  %ind.end305 = trunc nsw i64 %n.vec300 to i32
+  %ind.end305 = trunc nuw nsw i64 %n.vec300 to i32
   br label %for.body.i150.preheader64
 
 for.body.i150.preheader64:                        ; preds = %for.body.i150.preheader456.loopexit, %vector.memcheck289, %for.body.i150.preheader

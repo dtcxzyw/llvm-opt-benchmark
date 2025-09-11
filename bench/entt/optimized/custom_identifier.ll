@@ -3057,45 +3057,46 @@ _ZNK4entt16basic_sparse_setI9entity_idSaIS1_EE7currentES1_.exit: ; preds = %._cr
   %.010 = phi i64 [ %10, %.lr.ph ], [ %46, %_ZN4entt16basic_sparse_setI9entity_idSaIS1_EE6removeES1_.exit ]
   %45 = load ptr, ptr %3, align 8, !tbaa !62
   %46 = add i64 %.010, -1
-  %47 = getelementptr inbounds %"struct.entt::internal::dense_map_node", ptr %45, i64 %46, i32 1, i32 1
-  %48 = load ptr, ptr %47, align 8, !tbaa !67
-  %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  %50 = getelementptr inbounds nuw i8, ptr %48, i64 16
-  %51 = load ptr, ptr %50, align 8, !tbaa !20
-  %52 = load ptr, ptr %49, align 8, !tbaa !23
-  %53 = ptrtoint ptr %51 to i64
+  %47 = getelementptr inbounds %"struct.entt::internal::dense_map_node", ptr %45, i64 %46
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
+  %49 = load ptr, ptr %48, align 8, !tbaa !67
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %49, i64 16
+  %52 = load ptr, ptr %51, align 8, !tbaa !20
+  %53 = load ptr, ptr %50, align 8, !tbaa !23
   %54 = ptrtoint ptr %52 to i64
-  %55 = sub i64 %53, %54
-  %56 = ashr exact i64 %55, 3
-  %57 = icmp ult i64 %13, %56
-  br i1 %57, label %58, label %_ZN4entt16basic_sparse_setI9entity_idSaIS1_EE6removeES1_.exit
+  %55 = ptrtoint ptr %53 to i64
+  %56 = sub i64 %54, %55
+  %57 = ashr exact i64 %56, 3
+  %58 = icmp ult i64 %13, %57
+  br i1 %58, label %59, label %_ZN4entt16basic_sparse_setI9entity_idSaIS1_EE6removeES1_.exit
 
-58:                                               ; preds = %44
-  %59 = getelementptr inbounds nuw ptr, ptr %52, i64 %13
-  %60 = load ptr, ptr %59, align 8, !tbaa !24
-  %.not.i.i.i = icmp eq ptr %60, null
+59:                                               ; preds = %44
+  %60 = getelementptr inbounds nuw ptr, ptr %53, i64 %13
+  %61 = load ptr, ptr %60, align 8, !tbaa !24
+  %.not.i.i.i = icmp eq ptr %61, null
   br i1 %.not.i.i.i, label %_ZN4entt16basic_sparse_setI9entity_idSaIS1_EE6removeES1_.exit, label %_ZNK4entt16basic_sparse_setI9entity_idSaIS1_EE8containsES1_.exit.i
 
-_ZNK4entt16basic_sparse_setI9entity_idSaIS1_EE8containsES1_.exit.i: ; preds = %58
-  %61 = getelementptr inbounds nuw %struct.entity_id, ptr %60, i64 %14
-  %.sroa.0.0.copyload.i.i = load i32, ptr %61, align 4, !tbaa !26
-  %62 = xor i32 %.sroa.0.0.copyload.i.i, %15
-  %63 = icmp ult i32 %62, 1048575
-  br i1 %63, label %64, label %_ZN4entt16basic_sparse_setI9entity_idSaIS1_EE6removeES1_.exit
+_ZNK4entt16basic_sparse_setI9entity_idSaIS1_EE8containsES1_.exit.i: ; preds = %59
+  %62 = getelementptr inbounds nuw %struct.entity_id, ptr %61, i64 %14
+  %.sroa.0.0.copyload.i.i = load i32, ptr %62, align 4, !tbaa !26
+  %63 = xor i32 %.sroa.0.0.copyload.i.i, %15
+  %64 = icmp ult i32 %63, 1048575
+  br i1 %64, label %65, label %_ZN4entt16basic_sparse_setI9entity_idSaIS1_EE6removeES1_.exit
 
-64:                                               ; preds = %_ZNK4entt16basic_sparse_setI9entity_idSaIS1_EE8containsES1_.exit.i
-  %65 = getelementptr inbounds nuw i8, ptr %48, i64 32
-  %66 = and i32 %.sroa.0.0.copyload.i.i, 1048575
-  %narrow.i.i.i = add nuw nsw i32 %66, 1
-  %67 = zext nneg i32 %narrow.i.i.i to i64
-  %68 = zext nneg i32 %66 to i64
-  %69 = load ptr, ptr %48, align 8, !tbaa !4
-  %70 = getelementptr inbounds nuw i8, ptr %69, i64 16
-  %71 = load ptr, ptr %70, align 8
-  tail call void %71(ptr noundef nonnull align 8 dereferenceable(80) %48, ptr nonnull %65, i64 %67, ptr nonnull %65, i64 %68)
+65:                                               ; preds = %_ZNK4entt16basic_sparse_setI9entity_idSaIS1_EE8containsES1_.exit.i
+  %66 = getelementptr inbounds nuw i8, ptr %49, i64 32
+  %67 = and i32 %.sroa.0.0.copyload.i.i, 1048575
+  %narrow.i.i.i = add nuw nsw i32 %67, 1
+  %68 = zext nneg i32 %narrow.i.i.i to i64
+  %69 = zext nneg i32 %67 to i64
+  %70 = load ptr, ptr %49, align 8, !tbaa !4
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 16
+  %72 = load ptr, ptr %71, align 8
+  tail call void %72(ptr noundef nonnull align 8 dereferenceable(80) %49, ptr nonnull %66, i64 %68, ptr nonnull %66, i64 %69)
   br label %_ZN4entt16basic_sparse_setI9entity_idSaIS1_EE6removeES1_.exit
 
-_ZN4entt16basic_sparse_setI9entity_idSaIS1_EE6removeES1_.exit: ; preds = %44, %58, %_ZNK4entt16basic_sparse_setI9entity_idSaIS1_EE8containsES1_.exit.i, %64
+_ZN4entt16basic_sparse_setI9entity_idSaIS1_EE6removeES1_.exit: ; preds = %44, %59, %_ZNK4entt16basic_sparse_setI9entity_idSaIS1_EE8containsES1_.exit.i, %65
   %.not = icmp eq i64 %46, 0
   br i1 %.not, label %._crit_edge, label %44, !llvm.loop !108
 }

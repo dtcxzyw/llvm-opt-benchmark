@@ -15225,8 +15225,8 @@ for.body232.i:                                    ; preds = %for.body232.i, %for
   store i32 %or236.i, ptr %arrayidx238.i, align 4
   %shl242.i = shl i32 %40, %sub241.i
   %indvars.iv.next169.i = add nsw i64 %indvars.iv168.i, -1
-  %cmp231.i = icmp sgt i64 %indvars.iv168.i, 0
-  br i1 %cmp231.i, label %for.body232.i, label %if.end159, !llvm.loop !323
+  %cmp231.not.i = icmp eq i64 %indvars.iv168.i, 0
+  br i1 %cmp231.not.i, label %if.end159, label %for.body232.i, !llvm.loop !323
 
 for.body253.i:                                    ; preds = %for.cond251.preheader.i, %for.body253.i
   %indvars.iv171.i = phi i64 [ %indvars.iv.next172.i, %for.body253.i ], [ %idxprom.i, %for.cond251.preheader.i ]
@@ -15235,8 +15235,8 @@ for.body253.i:                                    ; preds = %for.cond251.prehead
   %arrayidx257.i = getelementptr inbounds nuw i32, ptr %R.0, i64 %indvars.iv171.i
   store i32 %41, ptr %arrayidx257.i, align 4
   %indvars.iv.next172.i = add nsw i64 %indvars.iv171.i, -1
-  %cmp252.i = icmp sgt i64 %indvars.iv171.i, 0
-  br i1 %cmp252.i, label %for.body253.i, label %if.end159, !llvm.loop !324
+  %cmp252.not.i = icmp eq i64 %indvars.iv171.i, 0
+  br i1 %cmp252.not.i, label %if.end159, label %for.body253.i, !llvm.loop !324
 
 if.end159:                                        ; preds = %for.body232.i, %for.body253.i, %for.cond251.preheader.i, %for.cond230.preheader.i, %do.end219.i, %for.end153, %if.then155
   %tobool160.not = icmp ne ptr %Quotient, null

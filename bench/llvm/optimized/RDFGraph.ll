@@ -3387,140 +3387,141 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3rdfls
   ret ptr %0
 
 _ZN4llvm11raw_ostreamlsEc.exit24:                 ; preds = %_ZN4llvm11raw_ostreamlsEc.exit24.backedge, %.lr.ph
-  %.sroa.630.038 = phi i32 [ %.fca.1.load.i, %.lr.ph ], [ %59, %_ZN4llvm11raw_ostreamlsEc.exit24.backedge ]
+  %.sroa.630.038 = phi i32 [ %.fca.1.load.i, %.lr.ph ], [ %60, %_ZN4llvm11raw_ostreamlsEc.exit24.backedge ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %12 = add i32 %.sroa.630.038, -1
   %13 = zext i32 %12 to i64
   %14 = load ptr, ptr %.fca.0.load.i, align 8, !tbaa !347
-  %15 = getelementptr inbounds nuw %"struct.llvm::rdf::NodeAddr.65", ptr %14, i64 %13, i32 1
-  %16 = load ptr, ptr %8, align 8, !tbaa !349
-  store ptr %15, ptr %5, align 8, !tbaa !59
-  store ptr %16, ptr %9, align 8, !tbaa !60
-  %17 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3rdflsERNS_11raw_ostreamERKNS0_5PrintIjEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(16) %5)
-  %18 = getelementptr inbounds nuw i8, ptr %17, i64 32
-  %19 = load ptr, ptr %18, align 8, !tbaa !24
-  %20 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  %21 = load ptr, ptr %20, align 8, !tbaa !18
-  %.not.i = icmp ult ptr %19, %21
-  br i1 %.not.i, label %24, label %22
+  %15 = getelementptr inbounds nuw %"struct.llvm::rdf::NodeAddr.65", ptr %14, i64 %13
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %17 = load ptr, ptr %8, align 8, !tbaa !349
+  store ptr %16, ptr %5, align 8, !tbaa !59
+  store ptr %17, ptr %9, align 8, !tbaa !60
+  %18 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3rdflsERNS_11raw_ostreamERKNS0_5PrintIjEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(16) %5)
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 32
+  %20 = load ptr, ptr %19, align 8, !tbaa !24
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 24
+  %22 = load ptr, ptr %21, align 8, !tbaa !18
+  %.not.i = icmp ult ptr %20, %22
+  br i1 %.not.i, label %25, label %23
 
-22:                                               ; preds = %_ZN4llvm11raw_ostreamlsEc.exit24
-  %23 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(48) %17, i8 noundef zeroext 60) #24
+23:                                               ; preds = %_ZN4llvm11raw_ostreamlsEc.exit24
+  %24 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(48) %18, i8 noundef zeroext 60) #24
   br label %_ZN4llvm11raw_ostreamlsEc.exit
 
-24:                                               ; preds = %_ZN4llvm11raw_ostreamlsEc.exit24
-  %25 = getelementptr inbounds nuw i8, ptr %19, i64 1
-  store ptr %25, ptr %18, align 8, !tbaa !24
-  store i8 60, ptr %19, align 1, !tbaa !50
+25:                                               ; preds = %_ZN4llvm11raw_ostreamlsEc.exit24
+  %26 = getelementptr inbounds nuw i8, ptr %20, i64 1
+  store ptr %26, ptr %19, align 8, !tbaa !24
+  store i8 60, ptr %20, align 1, !tbaa !50
   br label %_ZN4llvm11raw_ostreamlsEc.exit
 
-_ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %22, %24
-  %.0.i = phi ptr [ %23, %22 ], [ %17, %24 ]
-  %26 = load ptr, ptr %.fca.0.load.i, align 8, !tbaa !347
-  %27 = getelementptr inbounds nuw %"struct.llvm::rdf::NodeAddr.65", ptr %26, i64 %13
-  %28 = load ptr, ptr %27, align 8, !tbaa !54
-  %29 = load ptr, ptr %8, align 8, !tbaa !349
-  %30 = load i16, ptr %28, align 8, !tbaa !47
-  %31 = and i16 %30, 128
-  %.not.i17 = icmp eq i16 %31, 0
-  %32 = getelementptr inbounds nuw i8, ptr %28, i64 24
-  br i1 %.not.i17, label %43, label %33
+_ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %23, %25
+  %.0.i = phi ptr [ %24, %23 ], [ %18, %25 ]
+  %27 = load ptr, ptr %.fca.0.load.i, align 8, !tbaa !347
+  %28 = getelementptr inbounds nuw %"struct.llvm::rdf::NodeAddr.65", ptr %27, i64 %13
+  %29 = load ptr, ptr %28, align 8, !tbaa !54
+  %30 = load ptr, ptr %8, align 8, !tbaa !349
+  %31 = load i16, ptr %29, align 8, !tbaa !47
+  %32 = and i16 %31, 128
+  %.not.i17 = icmp eq i16 %32, 0
+  %33 = getelementptr inbounds nuw i8, ptr %29, i64 24
+  br i1 %.not.i17, label %44, label %34
 
-33:                                               ; preds = %_ZN4llvm11raw_ostreamlsEc.exit
-  %.sroa.0.0.copyload.i = load i64, ptr %32, align 8
-  %34 = icmp ult i64 %.sroa.0.0.copyload.i, 4294967296
-  br i1 %34, label %_ZNK4llvm3rdf13DataFlowGraph6unpackENS0_17PackedRegisterRefE.exit.i, label %35
+34:                                               ; preds = %_ZN4llvm11raw_ostreamlsEc.exit
+  %.sroa.0.0.copyload.i = load i64, ptr %33, align 8
+  %35 = icmp ult i64 %.sroa.0.0.copyload.i, 4294967296
+  br i1 %35, label %_ZNK4llvm3rdf13DataFlowGraph6unpackENS0_17PackedRegisterRefE.exit.i, label %36
 
-35:                                               ; preds = %33
+36:                                               ; preds = %34
   %.sroa.2.0.extract.shift.i.i = lshr i64 %.sroa.0.0.copyload.i, 32
-  %36 = getelementptr inbounds nuw i8, ptr %29, i64 472
-  %37 = add nuw nsw i64 %.sroa.2.0.extract.shift.i.i, 4294967295
-  %38 = and i64 %37, 4294967295
-  %39 = load ptr, ptr %36, align 8, !tbaa !64
-  %40 = getelementptr inbounds nuw %"struct.llvm::LaneBitmask", ptr %39, i64 %38
-  %.sroa.0.0.copyload.i.i.i.i = load i64, ptr %40, align 8, !tbaa !13
+  %37 = getelementptr inbounds nuw i8, ptr %30, i64 472
+  %38 = add nuw nsw i64 %.sroa.2.0.extract.shift.i.i, 4294967295
+  %39 = and i64 %38, 4294967295
+  %40 = load ptr, ptr %37, align 8, !tbaa !64
+  %41 = getelementptr inbounds nuw %"struct.llvm::LaneBitmask", ptr %40, i64 %39
+  %.sroa.0.0.copyload.i.i.i.i = load i64, ptr %41, align 8, !tbaa !13
   br label %_ZNK4llvm3rdf13DataFlowGraph6unpackENS0_17PackedRegisterRefE.exit.i
 
-_ZNK4llvm3rdf13DataFlowGraph6unpackENS0_17PackedRegisterRefE.exit.i: ; preds = %35, %33
-  %.sroa.0.0.i.i.i = phi i64 [ %.sroa.0.0.copyload.i.i.i.i, %35 ], [ -1, %33 ]
+_ZNK4llvm3rdf13DataFlowGraph6unpackENS0_17PackedRegisterRefE.exit.i: ; preds = %36, %34
+  %.sroa.0.0.i.i.i = phi i64 [ %.sroa.0.0.copyload.i.i.i.i, %36 ], [ -1, %34 ]
   %.sroa.01.0.extract.trunc.i.i = trunc i64 %.sroa.0.0.copyload.i to i32
-  %41 = add i32 %.sroa.01.0.extract.trunc.i.i, -1
-  %42 = icmp ult i32 %41, 1073741823
-  %spec.select.i.i.i = select i1 %42, i64 %.sroa.0.0.i.i.i, i64 0
+  %42 = add i32 %.sroa.01.0.extract.trunc.i.i, -1
+  %43 = icmp ult i32 %42, 1073741823
+  %spec.select.i.i.i = select i1 %43, i64 %.sroa.0.0.i.i.i, i64 0
   %.fca.0.insert.i.i = insertvalue { i32, i64 } poison, i32 %.sroa.01.0.extract.trunc.i.i, 0
   %.fca.1.insert.i.i = insertvalue { i32, i64 } %.fca.0.insert.i.i, i64 %spec.select.i.i.i, 1
   br label %_ZNK4llvm3rdf7RefNode9getRegRefERKNS0_13DataFlowGraphE.exit
 
-43:                                               ; preds = %_ZN4llvm11raw_ostreamlsEc.exit
-  %44 = load ptr, ptr %32, align 8, !tbaa !50
-  %45 = call { i32, i64 } @_ZNK4llvm3rdf13DataFlowGraph10makeRegRefERKNS_14MachineOperandE(ptr noundef nonnull readonly align 8 dereferenceable(736) %29, ptr noundef nonnull align 8 dereferenceable(32) %44)
+44:                                               ; preds = %_ZN4llvm11raw_ostreamlsEc.exit
+  %45 = load ptr, ptr %33, align 8, !tbaa !50
+  %46 = call { i32, i64 } @_ZNK4llvm3rdf13DataFlowGraph10makeRegRefERKNS_14MachineOperandE(ptr noundef nonnull readonly align 8 dereferenceable(736) %30, ptr noundef nonnull align 8 dereferenceable(32) %45)
   %.pre = load ptr, ptr %8, align 8, !tbaa !349
   br label %_ZNK4llvm3rdf7RefNode9getRegRefERKNS0_13DataFlowGraphE.exit
 
-_ZNK4llvm3rdf7RefNode9getRegRefERKNS0_13DataFlowGraphE.exit: ; preds = %_ZNK4llvm3rdf13DataFlowGraph6unpackENS0_17PackedRegisterRefE.exit.i, %43
-  %46 = phi ptr [ %29, %_ZNK4llvm3rdf13DataFlowGraph6unpackENS0_17PackedRegisterRefE.exit.i ], [ %.pre, %43 ]
-  %.pn.i = phi { i32, i64 } [ %.fca.1.insert.i.i, %_ZNK4llvm3rdf13DataFlowGraph6unpackENS0_17PackedRegisterRefE.exit.i ], [ %45, %43 ]
-  %47 = extractvalue { i32, i64 } %.pn.i, 0
-  %48 = extractvalue { i32, i64 } %.pn.i, 1
-  %49 = getelementptr inbounds nuw i8, ptr %46, i64 32
-  call void @_ZNK4llvm3rdf20PhysicalRegisterInfo5printERNS_11raw_ostreamENS0_11RegisterRefE(ptr noundef nonnull align 8 dereferenceable(128) %49, ptr noundef nonnull align 8 dereferenceable(48) %.0.i, i32 %47, i64 %48) #24
-  %50 = getelementptr inbounds nuw i8, ptr %.0.i, i64 32
-  %51 = load ptr, ptr %50, align 8, !tbaa !24
-  %52 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
-  %53 = load ptr, ptr %52, align 8, !tbaa !18
-  %.not.i19 = icmp ult ptr %51, %53
-  br i1 %.not.i19, label %56, label %54
+_ZNK4llvm3rdf7RefNode9getRegRefERKNS0_13DataFlowGraphE.exit: ; preds = %_ZNK4llvm3rdf13DataFlowGraph6unpackENS0_17PackedRegisterRefE.exit.i, %44
+  %47 = phi ptr [ %30, %_ZNK4llvm3rdf13DataFlowGraph6unpackENS0_17PackedRegisterRefE.exit.i ], [ %.pre, %44 ]
+  %.pn.i = phi { i32, i64 } [ %.fca.1.insert.i.i, %_ZNK4llvm3rdf13DataFlowGraph6unpackENS0_17PackedRegisterRefE.exit.i ], [ %46, %44 ]
+  %48 = extractvalue { i32, i64 } %.pn.i, 0
+  %49 = extractvalue { i32, i64 } %.pn.i, 1
+  %50 = getelementptr inbounds nuw i8, ptr %47, i64 32
+  call void @_ZNK4llvm3rdf20PhysicalRegisterInfo5printERNS_11raw_ostreamENS0_11RegisterRefE(ptr noundef nonnull align 8 dereferenceable(128) %50, ptr noundef nonnull align 8 dereferenceable(48) %.0.i, i32 %48, i64 %49) #24
+  %51 = getelementptr inbounds nuw i8, ptr %.0.i, i64 32
+  %52 = load ptr, ptr %51, align 8, !tbaa !24
+  %53 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
+  %54 = load ptr, ptr %53, align 8, !tbaa !18
+  %.not.i19 = icmp ult ptr %52, %54
+  br i1 %.not.i19, label %57, label %55
 
-54:                                               ; preds = %_ZNK4llvm3rdf7RefNode9getRegRefERKNS0_13DataFlowGraphE.exit
-  %55 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(48) %.0.i, i8 noundef zeroext 62) #24
+55:                                               ; preds = %_ZNK4llvm3rdf7RefNode9getRegRefERKNS0_13DataFlowGraphE.exit
+  %56 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(48) %.0.i, i8 noundef zeroext 62) #24
   br label %_ZN4llvm11raw_ostreamlsEc.exit21
 
-56:                                               ; preds = %_ZNK4llvm3rdf7RefNode9getRegRefERKNS0_13DataFlowGraphE.exit
-  %57 = getelementptr inbounds nuw i8, ptr %51, i64 1
-  store ptr %57, ptr %50, align 8, !tbaa !24
-  store i8 62, ptr %51, align 1, !tbaa !50
+57:                                               ; preds = %_ZNK4llvm3rdf7RefNode9getRegRefERKNS0_13DataFlowGraphE.exit
+  %58 = getelementptr inbounds nuw i8, ptr %52, i64 1
+  store ptr %58, ptr %51, align 8, !tbaa !24
+  store i8 62, ptr %52, align 1, !tbaa !50
   br label %_ZN4llvm11raw_ostreamlsEc.exit21
 
-_ZN4llvm11raw_ostreamlsEc.exit21:                 ; preds = %54, %56
+_ZN4llvm11raw_ostreamlsEc.exit21:                 ; preds = %55, %57
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %58 = load ptr, ptr %.fca.0.load.i, align 8, !tbaa !347
+  %59 = load ptr, ptr %.fca.0.load.i, align 8, !tbaa !347
   br label %_ZNK4llvm3rdf13DataFlowGraph8DefStack11isDelimiterERKNS0_8NodeAddrIPNS0_7DefNodeEEEj.exit7.i.i
 
-_ZNK4llvm3rdf13DataFlowGraph8DefStack11isDelimiterERKNS0_8NodeAddrIPNS0_7DefNodeEEEj.exit7.i.i: ; preds = %61, %_ZN4llvm11raw_ostreamlsEc.exit21
-  %.0.i.i = phi i32 [ %.sroa.630.038, %_ZN4llvm11raw_ostreamlsEc.exit21 ], [ %59, %61 ]
-  %59 = add i32 %.0.i.i, -1
-  %60 = icmp eq i32 %59, 0
-  br i1 %60, label %_ZN4llvm3rdf13DataFlowGraph8DefStack8Iterator4downEv.exit, label %61
+_ZNK4llvm3rdf13DataFlowGraph8DefStack11isDelimiterERKNS0_8NodeAddrIPNS0_7DefNodeEEEj.exit7.i.i: ; preds = %62, %_ZN4llvm11raw_ostreamlsEc.exit21
+  %.0.i.i = phi i32 [ %.sroa.630.038, %_ZN4llvm11raw_ostreamlsEc.exit21 ], [ %60, %62 ]
+  %60 = add i32 %.0.i.i, -1
+  %61 = icmp eq i32 %60, 0
+  br i1 %61, label %_ZN4llvm3rdf13DataFlowGraph8DefStack8Iterator4downEv.exit, label %62
 
-61:                                               ; preds = %_ZNK4llvm3rdf13DataFlowGraph8DefStack11isDelimiterERKNS0_8NodeAddrIPNS0_7DefNodeEEEj.exit7.i.i
-  %62 = add i32 %.0.i.i, -2
-  %63 = zext i32 %62 to i64
-  %64 = getelementptr inbounds nuw %"struct.llvm::rdf::NodeAddr.65", ptr %58, i64 %63
-  %65 = load ptr, ptr %64, align 8, !tbaa !54
-  %66 = icmp eq ptr %65, null
-  br i1 %66, label %_ZNK4llvm3rdf13DataFlowGraph8DefStack11isDelimiterERKNS0_8NodeAddrIPNS0_7DefNodeEEEj.exit7.i.i, label %_ZN4llvm3rdf13DataFlowGraph8DefStack8Iterator4downEv.exit, !llvm.loop !350
+62:                                               ; preds = %_ZNK4llvm3rdf13DataFlowGraph8DefStack11isDelimiterERKNS0_8NodeAddrIPNS0_7DefNodeEEEj.exit7.i.i
+  %63 = add i32 %.0.i.i, -2
+  %64 = zext i32 %63 to i64
+  %65 = getelementptr inbounds nuw %"struct.llvm::rdf::NodeAddr.65", ptr %59, i64 %64
+  %66 = load ptr, ptr %65, align 8, !tbaa !54
+  %67 = icmp eq ptr %66, null
+  br i1 %67, label %_ZNK4llvm3rdf13DataFlowGraph8DefStack11isDelimiterERKNS0_8NodeAddrIPNS0_7DefNodeEEEj.exit7.i.i, label %_ZN4llvm3rdf13DataFlowGraph8DefStack8Iterator4downEv.exit, !llvm.loop !350
 
-_ZN4llvm3rdf13DataFlowGraph8DefStack8Iterator4downEv.exit: ; preds = %_ZNK4llvm3rdf13DataFlowGraph8DefStack11isDelimiterERKNS0_8NodeAddrIPNS0_7DefNodeEEEj.exit7.i.i, %61
-  %.not36 = icmp eq i32 %59, %.fca.1.load.i15
-  br i1 %.not36, label %._crit_edge, label %67
+_ZN4llvm3rdf13DataFlowGraph8DefStack8Iterator4downEv.exit: ; preds = %_ZNK4llvm3rdf13DataFlowGraph8DefStack11isDelimiterERKNS0_8NodeAddrIPNS0_7DefNodeEEEj.exit7.i.i, %62
+  %.not36 = icmp eq i32 %60, %.fca.1.load.i15
+  br i1 %.not36, label %._crit_edge, label %68
 
-67:                                               ; preds = %_ZN4llvm3rdf13DataFlowGraph8DefStack8Iterator4downEv.exit
-  %68 = load ptr, ptr %10, align 8, !tbaa !24
-  %69 = load ptr, ptr %11, align 8, !tbaa !18
-  %.not.i22 = icmp ult ptr %68, %69
-  br i1 %.not.i22, label %72, label %70
+68:                                               ; preds = %_ZN4llvm3rdf13DataFlowGraph8DefStack8Iterator4downEv.exit
+  %69 = load ptr, ptr %10, align 8, !tbaa !24
+  %70 = load ptr, ptr %11, align 8, !tbaa !18
+  %.not.i22 = icmp ult ptr %69, %70
+  br i1 %.not.i22, label %73, label %71
 
-70:                                               ; preds = %67
-  %71 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 noundef zeroext 32) #24
+71:                                               ; preds = %68
+  %72 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 noundef zeroext 32) #24
   br label %_ZN4llvm11raw_ostreamlsEc.exit24.backedge
 
-72:                                               ; preds = %67
-  %73 = getelementptr inbounds nuw i8, ptr %68, i64 1
-  store ptr %73, ptr %10, align 8, !tbaa !24
-  store i8 32, ptr %68, align 1, !tbaa !50
+73:                                               ; preds = %68
+  %74 = getelementptr inbounds nuw i8, ptr %69, i64 1
+  store ptr %74, ptr %10, align 8, !tbaa !24
+  store i8 32, ptr %69, align 1, !tbaa !50
   br label %_ZN4llvm11raw_ostreamlsEc.exit24.backedge
 
-_ZN4llvm11raw_ostreamlsEc.exit24.backedge:        ; preds = %72, %70
+_ZN4llvm11raw_ostreamlsEc.exit24.backedge:        ; preds = %73, %71
   br label %_ZN4llvm11raw_ostreamlsEc.exit24
 }
 

@@ -1891,7 +1891,8 @@ cond.false.i.i.i:                                 ; preds = %land.lhs.true.i.i.i
   unreachable
 
 _ZN4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyImiEENS0_13hash_internal4HashImEESt8equal_toImESaISt4pairIKmiEEEixImS4_EEDTclsrT0_5valueclL_ZSt9addressofISC_EPT_RSI_EclL_ZSt7declvalIRSC_EDTcl9__declvalISI_ELi0EEEvEEEEERSB_.exit: ; preds = %land.lhs.true.i.i.i
-  %second.i.i = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type", ptr %26, i64 %retval.sroa.0.0.i15.i.i.i, i32 1
+  %add.ptr2.i.i.i.i = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type", ptr %26, i64 %retval.sroa.0.0.i15.i.i.i
+  %second.i.i = getelementptr inbounds nuw i8, ptr %add.ptr2.i.i.i.i, i64 8
   store i32 %call9, ptr %second.i.i, align 4
   br label %return
 
@@ -2365,7 +2366,8 @@ cond.false.i.i.i.i127:                            ; preds = %lor.lhs.false.i.i.i
 if.then66:                                        ; preds = %for.end.i.i.i115, %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyImiEENS0_13hash_internal4HashImEESt8equal_toImESaISt4pairIKmiEEE4findImEENSE_8iteratorERSB_.exit.i122
   store i32 0, ptr %arrayidx.i.i63, align 4
   %58 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i, align 8
-  %59 = getelementptr inbounds %"class.re2::Prog::Inst", ptr %58, i64 %conv.i61, i32 1
+  %arrayidx.i.i134 = getelementptr inbounds %"class.re2::Prog::Inst", ptr %58, i64 %conv.i61
+  %59 = getelementptr inbounds nuw i8, ptr %arrayidx.i.i134, i64 4
   store i32 0, ptr %59, align 4
   %ninst_ = getelementptr inbounds nuw i8, ptr %this, i64 136
   %60 = load i32, ptr %ninst_, align 8

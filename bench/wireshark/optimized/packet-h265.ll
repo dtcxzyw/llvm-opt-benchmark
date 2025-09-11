@@ -3721,7 +3721,7 @@ define internal fastcc range(i32 -268435456, 268435456) i32 @dissect_h265_profil
   br i1 %271, label %276, label %272
 
 272:                                              ; preds = %243
-  %273 = getelementptr [32 x i8], ptr %11, i64 %indvars.iv29, i64 5
+  %273 = getelementptr i8, ptr %185, i64 5
   %274 = load i8, ptr %273, align 1, !range !34, !noundef !36
   %275 = trunc nuw i8 %274 to i1
   br i1 %275, label %276, label %282

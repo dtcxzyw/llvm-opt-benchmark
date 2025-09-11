@@ -6157,39 +6157,40 @@ define hidden void @"_ZN4core3ptr139drop_in_place$LT$crossbeam_queue..array_queu
   br label %30
 
 30:                                               ; preds = %.noexc, %.lr.ph.i
-  %.sroa.0.015.i = phi i64 [ 0, %.lr.ph.i ], [ %35, %.noexc ]
+  %.sroa.0.015.i = phi i64 [ 0, %.lr.ph.i ], [ %36, %.noexc ]
   %31 = add i64 %.sroa.0.015.i, %8
   %32 = icmp ult i64 %31, %27
   %33 = select i1 %32, i64 0, i64 %27
   %.05.i = sub nuw i64 %31, %33
-  %34 = getelementptr inbounds { { i64 }, { { [9 x i64] } } }, ptr %29, i64 %.05.i, i32 1, i32 0, i32 0, i64 1
-  invoke void @"_ZN4core3ptr70drop_in_place$LT$sqlx_sqlite..connection..worker..ConnectionWorker$GT$17hab5869e62232b254E.llvm.6910714394678848989"(ptr noalias noundef nonnull align 8 dereferenceable(24) %34)
-          to label %.noexc unwind label %36
+  %34 = getelementptr inbounds { { i64 }, { { [9 x i64] } } }, ptr %29, i64 %.05.i
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
+  invoke void @"_ZN4core3ptr70drop_in_place$LT$sqlx_sqlite..connection..worker..ConnectionWorker$GT$17hab5869e62232b254E.llvm.6910714394678848989"(ptr noalias noundef nonnull align 8 dereferenceable(24) %35)
+          to label %.noexc unwind label %37
 
 .noexc:                                           ; preds = %30
-  %35 = add nuw i64 %.sroa.0.015.i, 1
-  %exitcond.not.i = icmp eq i64 %35, %.0.i
+  %36 = add nuw i64 %.sroa.0.015.i, 1
+  %exitcond.not.i = icmp eq i64 %36, %.0.i
   br i1 %exitcond.not.i, label %"_ZN91_$LT$crossbeam_queue..array_queue..ArrayQueue$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5381f3d29b00b98cE.llvm.6910714394678848989.exit", label %30
 
-36:                                               ; preds = %30
-  %37 = landingpad { ptr, i32 }
+37:                                               ; preds = %30
+  %38 = landingpad { ptr, i32 }
           cleanup
   tail call void @"_ZN4core3ptr168drop_in_place$LT$alloc..boxed..Box$LT$$u5b$crossbeam_queue..array_queue..Slot$LT$sqlx_core..pool..connection..Idle$LT$sqlx_sqlite..database..Sqlite$GT$$GT$$u5d$$GT$$GT$17h0f41949276032183E.llvm.6910714394678848989"(ptr noalias noundef nonnull align 8 dereferenceable(16) %28) #29
-  resume { ptr, i32 } %37
+  resume { ptr, i32 } %38
 
 "_ZN91_$LT$crossbeam_queue..array_queue..ArrayQueue$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5381f3d29b00b98cE.llvm.6910714394678848989.exit": ; preds = %.noexc, %25, %15
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2041)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2044)
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  %39 = load i64, ptr %38, align 8, !alias.scope !2047, !noundef !4
-  %40 = icmp eq i64 %39, 0
-  br i1 %40, label %"_ZN4core3ptr168drop_in_place$LT$alloc..boxed..Box$LT$$u5b$crossbeam_queue..array_queue..Slot$LT$sqlx_core..pool..connection..Idle$LT$sqlx_sqlite..database..Sqlite$GT$$GT$$u5d$$GT$$GT$17h0f41949276032183E.llvm.6910714394678848989.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.6910714394678848989.exit.i.i"
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 280
+  %40 = load i64, ptr %39, align 8, !alias.scope !2047, !noundef !4
+  %41 = icmp eq i64 %40, 0
+  br i1 %41, label %"_ZN4core3ptr168drop_in_place$LT$alloc..boxed..Box$LT$$u5b$crossbeam_queue..array_queue..Slot$LT$sqlx_core..pool..connection..Idle$LT$sqlx_sqlite..database..Sqlite$GT$$GT$$u5d$$GT$$GT$17h0f41949276032183E.llvm.6910714394678848989.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.6910714394678848989.exit.i.i"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.6910714394678848989.exit.i.i": ; preds = %"_ZN91_$LT$crossbeam_queue..array_queue..ArrayQueue$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5381f3d29b00b98cE.llvm.6910714394678848989.exit"
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  %42 = mul nsw i64 %39, 80
-  %43 = load ptr, ptr %41, align 16, !alias.scope !2047, !nonnull !4, !noundef !4
-  tail call void @__rust_dealloc(ptr noundef nonnull %43, i64 noundef %42, i64 noundef 8) #28, !noalias !2047
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 272
+  %43 = mul nsw i64 %40, 80
+  %44 = load ptr, ptr %42, align 16, !alias.scope !2047, !nonnull !4, !noundef !4
+  tail call void @__rust_dealloc(ptr noundef nonnull %44, i64 noundef %43, i64 noundef 8) #28, !noalias !2047
   br label %"_ZN4core3ptr168drop_in_place$LT$alloc..boxed..Box$LT$$u5b$crossbeam_queue..array_queue..Slot$LT$sqlx_core..pool..connection..Idle$LT$sqlx_sqlite..database..Sqlite$GT$$GT$$u5d$$GT$$GT$17h0f41949276032183E.llvm.6910714394678848989.exit"
 
 "_ZN4core3ptr168drop_in_place$LT$alloc..boxed..Box$LT$$u5b$crossbeam_queue..array_queue..Slot$LT$sqlx_core..pool..connection..Idle$LT$sqlx_sqlite..database..Sqlite$GT$$GT$$u5d$$GT$$GT$17h0f41949276032183E.llvm.6910714394678848989.exit": ; preds = %"_ZN91_$LT$crossbeam_queue..array_queue..ArrayQueue$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5381f3d29b00b98cE.llvm.6910714394678848989.exit", %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.6910714394678848989.exit.i.i"
@@ -39531,8 +39532,9 @@ define hidden void @"_ZN91_$LT$crossbeam_queue..array_queue..ArrayQueue$LT$T$GT$
   %33 = icmp ult i64 %32, %27
   %34 = select i1 %33, i64 0, i64 %27
   %.05 = sub nuw i64 %32, %34
-  %35 = getelementptr inbounds { { i64 }, { { [9 x i64] } } }, ptr %29, i64 %.05, i32 1, i32 0, i32 0, i64 1
-  tail call void @"_ZN4core3ptr70drop_in_place$LT$sqlx_sqlite..connection..worker..ConnectionWorker$GT$17hab5869e62232b254E.llvm.6910714394678848989"(ptr noalias noundef nonnull align 8 dereferenceable(24) %35)
+  %35 = getelementptr inbounds { { i64 }, { { [9 x i64] } } }, ptr %29, i64 %.05
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
+  tail call void @"_ZN4core3ptr70drop_in_place$LT$sqlx_sqlite..connection..worker..ConnectionWorker$GT$17hab5869e62232b254E.llvm.6910714394678848989"(ptr noalias noundef nonnull align 8 dereferenceable(24) %36)
   %exitcond.not = icmp eq i64 %31, %.0
   br i1 %exitcond.not, label %._crit_edge, label %30
 }

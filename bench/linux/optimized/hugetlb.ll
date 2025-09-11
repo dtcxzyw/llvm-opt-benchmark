@@ -2456,7 +2456,8 @@ declare dso_local i32 @hugetlb_vmemmap_restore_folio(ptr noundef, ptr noundef) l
 define dso_local i32 @dissolve_free_huge_pages(i64 noundef %0, i64 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = load i32, ptr @default_hstate_idx, align 4
   %4 = zext i32 %3 to i64
-  %5 = getelementptr %struct.hstate, ptr @hstates, i64 %4, i32 3
+  %.split = getelementptr %struct.hstate, ptr @hstates, i64 %4
+  %5 = getelementptr i8, ptr %.split, i64 40
   %6 = load i32, ptr %5, align 8
   %7 = load i32, ptr @hugetlb_max_hstate, align 4
   %8 = sext i32 %7 to i64
@@ -4398,22 +4399,22 @@ define internal noundef i32 @hugetlb_init() #9 section ".init.text" align 16 {
   %5 = sext i32 %4 to i64
   %6 = getelementptr %struct.hstate, ptr @hstates, i64 %5
   %7 = icmp ugt ptr %6, @hstates
-  br i1 %7, label %.preheader9, label %18
+  br i1 %7, label %.preheader14, label %18
 
-.preheader9:                                      ; preds = %3, %12
+.preheader14:                                     ; preds = %3, %12
   %8 = phi ptr [ %13, %12 ], [ @hstates, %3 ]
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %10 = load i32, ptr %9, align 8
   %11 = icmp eq i32 %10, 9
   br i1 %11, label %15, label %12
 
-12:                                               ; preds = %.preheader9
+12:                                               ; preds = %.preheader14
   %13 = getelementptr i8, ptr %8, i64 6088
   %14 = icmp ult ptr %13, %6
-  br i1 %14, label %.preheader9, label %15, !llvm.loop !27
+  br i1 %14, label %.preheader14, label %15, !llvm.loop !27
 
-15:                                               ; preds = %12, %.preheader9
-  %16 = phi ptr [ null, %12 ], [ %8, %.preheader9 ]
+15:                                               ; preds = %12, %.preheader14
+  %16 = phi ptr [ null, %12 ], [ %8, %.preheader14 ]
   %17 = ptrtoint ptr %16 to i64
   br label %18
 
@@ -4429,7 +4430,8 @@ define internal noundef i32 @hugetlb_init() #9 section ".init.text" align 16 {
 
 25:                                               ; preds = %18
   %26 = and i64 %21, 4294967295
-  %27 = getelementptr %struct.hstate, ptr @hstates, i64 %26, i32 6
+  %.split = getelementptr %struct.hstate, ptr @hstates, i64 %26
+  %27 = getelementptr i8, ptr %.split, i64 56
   %28 = load i64, ptr %27, align 8
   %29 = icmp eq i64 %28, 0
   br i1 %29, label %43, label %30
@@ -4437,28 +4439,30 @@ define internal noundef i32 @hugetlb_init() #9 section ".init.text" align 16 {
 30:                                               ; preds = %25
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %1, i8 0, i64 32, i1 false), !annotation !41
-  %31 = getelementptr %struct.hstate, ptr @hstates, i64 %26, i32 3
+  %31 = getelementptr i8, ptr %.split, i64 40
   %32 = load i32, ptr %31, align 8
   %33 = zext nneg i32 %32 to i64
   %34 = shl i64 4096, %33
   %35 = call i32 @string_get_size(i64 noundef %34, i64 noundef 1, i32 noundef 1, ptr noundef nonnull %1, i32 noundef 32) #22
   %36 = load i32, ptr @default_hstate_idx, align 4
   %37 = zext i32 %36 to i64
-  %38 = getelementptr %struct.hstate, ptr @hstates, i64 %37, i32 6
+  %.split7 = getelementptr %struct.hstate, ptr @hstates, i64 %37
+  %38 = getelementptr i8, ptr %.split7, i64 56
   %39 = load i64, ptr %38, align 8
   %40 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.25, i64 noundef %39, ptr noundef nonnull %1) #25
   %41 = load i64, ptr @default_hstate_max_huge_pages, align 8
   %42 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.26, i64 noundef %41) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %.pre = load i64, ptr @default_hstate_max_huge_pages, align 8
-  %.pre10 = load i32, ptr @default_hstate_idx, align 4
+  %.pre15 = load i32, ptr @default_hstate_idx, align 4
   br label %43
 
 43:                                               ; preds = %30, %25
-  %44 = phi i32 [ %.pre10, %30 ], [ %22, %25 ]
+  %44 = phi i32 [ %.pre15, %30 ], [ %22, %25 ]
   %45 = phi i64 [ %.pre, %30 ], [ %23, %25 ]
   %46 = zext i32 %44 to i64
-  %47 = getelementptr %struct.hstate, ptr @hstates, i64 %46, i32 6
+  %.split8 = getelementptr %struct.hstate, ptr @hstates, i64 %46
+  %47 = getelementptr i8, ptr %.split8, i64 56
   store i64 %45, ptr %47, align 8
   %48 = load i64, ptr getelementptr inbounds nuw (i8, ptr @node_states, i64 8), align 8
   %49 = icmp eq i64 %48, 0
@@ -4468,18 +4472,18 @@ define internal noundef i32 @hugetlb_init() #9 section ".init.text" align 16 {
   %51 = call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %48) #24, !srcloc !14
   %52 = trunc i64 %51 to i32
   %53 = icmp ult i32 %52, 64
-  br i1 %53, label %.preheader8, label %.thread
+  br i1 %53, label %.preheader13, label %.thread
 
-.preheader8:                                      ; preds = %50
-  %.split = getelementptr %struct.hstate, ptr @hstates, i64 %46, i32 14
+.preheader13:                                     ; preds = %50
+  %.split10 = getelementptr i8, ptr %.split8, i64 1144
   br label %54
 
-54:                                               ; preds = %.preheader8, %67
-  %55 = phi i32 [ %69, %67 ], [ %52, %.preheader8 ]
+54:                                               ; preds = %.preheader13, %67
+  %55 = phi i32 [ %69, %67 ], [ %52, %.preheader13 ]
   %56 = zext nneg i32 %55 to i64
   %57 = getelementptr i32, ptr @default_hugepages_in_node, i64 %56
   %58 = load i32, ptr %57, align 4
-  %59 = getelementptr i32, ptr %.split, i64 %56
+  %59 = getelementptr i32, ptr %.split10, i64 %56
   store i32 %58, ptr %59, align 4
   %60 = icmp eq i32 %55, 63
   br i1 %60, label %.thread, label %61, !prof !15
@@ -4518,9 +4522,9 @@ define internal noundef i32 @hugetlb_init() #9 section ".init.text" align 16 {
   store i32 %80, ptr @num_fault_mutexes, align 4
   %81 = shl i64 4294967296, %78
   %82 = icmp slt i64 %81, 0
-  br i1 %82, label %.thread7, label %83, !prof !15
+  br i1 %82, label %.thread12, label %83, !prof !15
 
-.thread7:                                         ; preds = %.thread
+.thread12:                                        ; preds = %.thread
   store ptr null, ptr @hugetlb_fault_mutex_table, align 64
   br label %90
 
@@ -4536,7 +4540,7 @@ define internal noundef i32 @hugetlb_init() #9 section ".init.text" align 16 {
   %89 = icmp sgt i32 %88, 0
   br i1 %89, label %.preheader, label %.loopexit
 
-90:                                               ; preds = %.thread7, %83
+90:                                               ; preds = %.thread12, %83
   call void asm sideeffect "489: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 489b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 489) #22, !srcloc !53
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 4562, i32 0, i64 12) #22, !srcloc !54
   unreachable
@@ -4932,7 +4936,7 @@ define internal noundef i32 @default_hugepagesz_setup(ptr noundef %0) #9 section
 
 3:                                                ; preds = %1
   %4 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.47, ptr noundef %0) #25
-  br label %68
+  br label %67
 
 5:                                                ; preds = %1
   %6 = tail call i64 @memparse(ptr noundef %0, ptr noundef null) #22
@@ -4941,7 +4945,7 @@ define internal noundef i32 @default_hugepagesz_setup(ptr noundef %0) #9 section
 
 8:                                                ; preds = %5
   %9 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.48, ptr noundef %0) #25
-  br label %68
+  br label %67
 
 10:                                               ; preds = %5
   %11 = tail call i32 asm "bsrq $1,${0:q}", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i64 %6, i32 -1) #24, !srcloc !52
@@ -4953,9 +4957,9 @@ define internal noundef i32 @default_hugepagesz_setup(ptr noundef %0) #9 section
   %14 = sext i32 %13 to i64
   %15 = getelementptr %struct.hstate, ptr @hstates, i64 %14
   %16 = icmp ugt ptr %15, @hstates
-  br i1 %16, label %.preheader7, label %29
+  br i1 %16, label %.preheader9, label %29
 
-.preheader7:                                      ; preds = %10, %23
+.preheader9:                                      ; preds = %10, %23
   %17 = phi ptr [ %24, %23 ], [ @hstates, %10 ]
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 40
   %19 = load i32, ptr %18, align 8
@@ -4964,13 +4968,13 @@ define internal noundef i32 @default_hugepagesz_setup(ptr noundef %0) #9 section
   %22 = icmp eq i64 %21, %6
   br i1 %22, label %26, label %23
 
-23:                                               ; preds = %.preheader7
+23:                                               ; preds = %.preheader9
   %24 = getelementptr i8, ptr %17, i64 6088
   %25 = icmp ult ptr %24, %15
-  br i1 %25, label %.preheader7, label %26, !llvm.loop !27
+  br i1 %25, label %.preheader9, label %26, !llvm.loop !27
 
-26:                                               ; preds = %23, %.preheader7
-  %27 = phi ptr [ %17, %.preheader7 ], [ null, %23 ]
+26:                                               ; preds = %23, %.preheader9
+  %27 = phi ptr [ %17, %.preheader9 ], [ null, %23 ]
   %28 = ptrtoint ptr %27 to i64
   br label %29
 
@@ -4982,11 +4986,12 @@ define internal noundef i32 @default_hugepagesz_setup(ptr noundef %0) #9 section
   store i32 %33, ptr @default_hstate_idx, align 4
   %34 = load i64, ptr @default_hstate_max_huge_pages, align 8
   %35 = icmp eq i64 %34, 0
-  br i1 %35, label %68, label %36
+  br i1 %35, label %67, label %36
 
 36:                                               ; preds = %29
   %37 = and i64 %32, 4294967295
-  %38 = getelementptr %struct.hstate, ptr @hstates, i64 %37, i32 6
+  %.split = getelementptr %struct.hstate, ptr @hstates, i64 %37
+  %38 = getelementptr i8, ptr %.split, i64 56
   store i64 %34, ptr %38, align 8
   %39 = load i64, ptr getelementptr inbounds nuw (i8, ptr @node_states, i64 8), align 8
   %40 = icmp eq i64 %39, 0
@@ -4999,7 +5004,7 @@ define internal noundef i32 @default_hugepagesz_setup(ptr noundef %0) #9 section
   br i1 %44, label %.preheader, label %.thread
 
 .preheader:                                       ; preds = %41
-  %.split = getelementptr %struct.hstate, ptr @hstates, i64 %37, i32 14
+  %.split7 = getelementptr i8, ptr %.split, i64 1144
   br label %45
 
 45:                                               ; preds = %.preheader, %58
@@ -5007,7 +5012,7 @@ define internal noundef i32 @default_hugepagesz_setup(ptr noundef %0) #9 section
   %47 = zext nneg i32 %46 to i64
   %48 = getelementptr i32, ptr @default_hugepages_in_node, i64 %47
   %49 = load i32, ptr %48, align 4
-  %50 = getelementptr i32, ptr %.split, i64 %47
+  %50 = getelementptr i32, ptr %.split7, i64 %47
   store i32 %49, ptr %50, align 4
   %51 = icmp eq i32 %46, 63
   br i1 %51, label %.thread, label %52, !prof !15
@@ -5027,21 +5032,20 @@ define internal noundef i32 @default_hugepagesz_setup(ptr noundef %0) #9 section
   br i1 %61, label %45, label %.thread, !llvm.loop !63
 
 .thread:                                          ; preds = %52, %45, %58, %36, %41
-  %62 = getelementptr %struct.hstate, ptr @hstates, i64 %37
-  %63 = getelementptr inbounds nuw i8, ptr %62, i64 40
-  %64 = load i32, ptr %63, align 8
-  %65 = icmp ugt i32 %64, 10
-  br i1 %65, label %66, label %67
+  %62 = getelementptr inbounds nuw i8, ptr %.split, i64 40
+  %63 = load i32, ptr %62, align 8
+  %64 = icmp ugt i32 %63, 10
+  br i1 %64, label %65, label %66
 
-66:                                               ; preds = %.thread
-  tail call fastcc void @hugetlb_hstate_alloc_pages(ptr noundef %62) #26
+65:                                               ; preds = %.thread
+  tail call fastcc void @hugetlb_hstate_alloc_pages(ptr noundef %.split) #26
+  br label %66
+
+66:                                               ; preds = %65, %.thread
+  store i64 0, ptr @default_hstate_max_huge_pages, align 8
   br label %67
 
-67:                                               ; preds = %66, %.thread
-  store i64 0, ptr @default_hstate_max_huge_pages, align 8
-  br label %68
-
-68:                                               ; preds = %67, %29, %8, %3
+67:                                               ; preds = %66, %29, %8, %3
   ret i32 1
 }
 
@@ -5791,7 +5795,7 @@ define dso_local i32 @copy_hugetlb_page_range(ptr noundef %0, ptr noundef %1, pt
   %79 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %80 = load i64, ptr %79, align 8
   %81 = icmp ult i64 %78, %80
-  br i1 %81, label %82, label %.thread25
+  br i1 %81, label %82, label %.thread28
 
 82:                                               ; preds = %72
   %83 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -5804,15 +5808,15 @@ define dso_local i32 @copy_hugetlb_page_range(ptr noundef %0, ptr noundef %1, pt
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 1184
   br label %95
 
-.thread24:                                        ; preds = %.thread, %.loopexit30, %198, %435
-  %91 = phi i64 [ %96, %435 ], [ %152, %.thread ], [ %96, %.loopexit30 ], [ %199, %198 ]
+.thread27:                                        ; preds = %.thread, %.loopexit33, %198, %435
+  %91 = phi i64 [ %96, %435 ], [ %152, %.thread ], [ %96, %.loopexit33 ], [ %199, %198 ]
   %92 = add i64 %91, %32
   %93 = load i64, ptr %79, align 8
   %94 = icmp ult i64 %92, %93
-  br i1 %94, label %95, label %.thread25, !llvm.loop !74
+  br i1 %94, label %95, label %.thread28, !llvm.loop !74
 
-95:                                               ; preds = %.thread24, %82
-  %96 = phi i64 [ %78, %82 ], [ %92, %.thread24 ]
+95:                                               ; preds = %.thread27, %82
+  %96 = phi i64 [ %78, %82 ], [ %92, %.thread27 ]
   %97 = load ptr, ptr %83, align 8
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 128
   %99 = load ptr, ptr %98, align 64
@@ -5890,12 +5894,12 @@ define dso_local i32 @copy_hugetlb_page_range(ptr noundef %0, ptr noundef %1, pt
 
 .thread:                                          ; preds = %135, %122, %106, %149
   %152 = or i64 %96, %77
-  br label %.thread24
+  br label %.thread27
 
 153:                                              ; preds = %149
   %154 = call ptr @huge_pte_alloc(ptr noundef %0, ptr noundef %2, i64 noundef %96, i64 noundef %32)
   %155 = icmp eq ptr %154, null
-  br i1 %155, label %.thread25, label %156
+  br i1 %155, label %.thread28, label %156
 
 156:                                              ; preds = %153
   %157 = load i64, ptr @vmemmap_base, align 8
@@ -5958,7 +5962,7 @@ define dso_local i32 @copy_hugetlb_page_range(ptr noundef %0, ptr noundef %1, pt
 
 198:                                              ; preds = %193
   %199 = or i64 %96, %77
-  br label %.thread24
+  br label %.thread27
 
 200:                                              ; preds = %193
   %201 = load i32, ptr %29, align 8
@@ -5976,7 +5980,8 @@ define dso_local i32 @copy_hugetlb_page_range(ptr noundef %0, ptr noundef %1, pt
   %211 = select i1 %161, i64 %208, i64 %210
   %212 = add i64 %207, %211
   %213 = lshr i64 %212, 12
-  %214 = getelementptr %struct.page, ptr %205, i64 %213, i32 1, i32 0, i32 3
+  %.split = getelementptr %struct.page, ptr %205, i64 %213
+  %214 = getelementptr i8, ptr %.split, i64 40
   br label %215
 
 215:                                              ; preds = %203, %200
@@ -5988,8 +5993,8 @@ define dso_local i32 @copy_hugetlb_page_range(ptr noundef %0, ptr noundef %1, pt
 
 ._crit_edge:                                      ; preds = %215
   %.pre = ptrtoint ptr %150 to i64
-  %.pre142 = and i64 %.pre, -4096
-  %.pre144 = add i64 %.pre142, 2147483648
+  %.pre145 = and i64 %.pre, -4096
+  %.pre147 = add i64 %.pre145, 2147483648
   br label %233
 
 219:                                              ; preds = %215
@@ -6005,11 +6010,12 @@ define dso_local i32 @copy_hugetlb_page_range(ptr noundef %0, ptr noundef %1, pt
   %229 = select i1 %225, i64 %226, i64 %228
   %230 = add i64 %224, %229
   %231 = lshr i64 %230, 12
-  %232 = getelementptr %struct.page, ptr %221, i64 %231, i32 1, i32 0, i32 3
+  %.split15 = getelementptr %struct.page, ptr %221, i64 %231
+  %232 = getelementptr i8, ptr %.split15, i64 40
   br label %233
 
 233:                                              ; preds = %._crit_edge, %219
-  %.pre-phi145 = phi i64 [ %.pre144, %._crit_edge ], [ %224, %219 ]
+  %.pre-phi148 = phi i64 [ %.pre147, %._crit_edge ], [ %224, %219 ]
   %234 = phi ptr [ %86, %._crit_edge ], [ %232, %219 ]
   call void @_raw_spin_lock(ptr noundef %234) #22
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
@@ -6021,7 +6027,7 @@ define dso_local i32 @copy_hugetlb_page_range(ptr noundef %0, ptr noundef %1, pt
   %238 = icmp ugt ptr %150, inttoptr (i64 -2147483649 to ptr)
   %239 = and i64 %235, -97
   %240 = icmp eq i64 %239, 0
-  br i1 %240, label %.loopexit30, label %.lr.ph
+  br i1 %240, label %.loopexit33, label %.lr.ph
 
 .lr.ph:                                           ; preds = %233, %403
   %241 = phi i64 [ %390, %403 ], [ %235, %233 ]
@@ -6060,7 +6066,7 @@ define dso_local i32 @copy_hugetlb_page_range(ptr noundef %0, ptr noundef %1, pt
   %.0..0..0..0.1 = load volatile i64, ptr %11, align 8
   store volatile i64 %.0..0..0..0.1, ptr %154, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %.loopexit30
+  br label %.loopexit33
 
 258:                                              ; preds = %246, %.lr.ph
   %259 = and i64 %241, -576460752303423231
@@ -6070,7 +6076,7 @@ define dso_local i32 @copy_hugetlb_page_range(ptr noundef %0, ptr noundef %1, pt
 261:                                              ; preds = %258
   %262 = and i64 %241, 1024
   %263 = icmp eq i64 %262, 0
-  br i1 %263, label %264, label %.loopexit30
+  br i1 %263, label %264, label %.loopexit33
 
 264:                                              ; preds = %261
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -6078,7 +6084,7 @@ define dso_local i32 @copy_hugetlb_page_range(ptr noundef %0, ptr noundef %1, pt
   %.0..0..0..0.2 = load volatile i64, ptr %10, align 8
   store volatile i64 %.0..0..0..0.2, ptr %154, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %.loopexit30
+  br label %.loopexit33
 
 265:                                              ; preds = %258
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -6155,7 +6161,7 @@ define dso_local i32 @copy_hugetlb_page_range(ptr noundef %0, ptr noundef %1, pt
   %313 = load volatile i64, ptr %303, align 8
   %314 = and i64 %313, 131072
   %315 = icmp eq i64 %314, 0
-  br i1 %315, label %.loopexit31, label %316
+  br i1 %315, label %.loopexit34, label %316
 
 316:                                              ; preds = %312
   %317 = load ptr, ptr %83, align 8
@@ -6185,9 +6191,9 @@ define dso_local i32 @copy_hugetlb_page_range(ptr noundef %0, ptr noundef %1, pt
 333:                                              ; preds = %326, %330, %316
   %334 = getelementptr i8, ptr %303, i64 2
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %334, i32 -3, ptr elementtype(i8) %334) #22, !srcloc !29
-  br label %.loopexit31
+  br label %.loopexit34
 
-.loopexit31:                                      ; preds = %312, %333
+.loopexit34:                                      ; preds = %312, %333
   %335 = getelementptr inbounds nuw i8, ptr %303, i64 88
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %335, ptr nonnull elementtype(i32) %335) #22, !srcloc !76
   br label %406
@@ -6213,7 +6219,7 @@ define dso_local i32 @copy_hugetlb_page_range(ptr noundef %0, ptr noundef %1, pt
 344:                                              ; preds = %343, %339
   %345 = ptrtoint ptr %337 to i64
   %346 = trunc i64 %345 to i32
-  br label %.thread25
+  br label %.thread28
 
 347:                                              ; preds = %336
   %348 = call i32 @copy_user_large_folio(ptr noundef %337, ptr noundef %303, i64 noundef %96, ptr noundef %2) #22
@@ -6237,11 +6243,11 @@ define dso_local i32 @copy_hugetlb_page_range(ptr noundef %0, ptr noundef %1, pt
   %358 = icmp ult i8 %357, 2
   call void @llvm.assume(i1 %358)
   %359 = icmp eq i8 %357, 0
-  br i1 %359, label %.thread25, label %360
+  br i1 %359, label %.thread28, label %360
 
 360:                                              ; preds = %355
   call void @__folio_put(ptr noundef %337) #22
-  br label %.thread25
+  br label %.thread28
 
 361:                                              ; preds = %353
   %362 = load i32, ptr %29, align 8
@@ -6257,7 +6263,8 @@ define dso_local i32 @copy_hugetlb_page_range(ptr noundef %0, ptr noundef %1, pt
   %370 = select i1 %161, i64 %367, i64 %369
   %371 = add i64 %237, %370
   %372 = lshr i64 %371, 12
-  %373 = getelementptr %struct.page, ptr %366, i64 %372, i32 1, i32 0, i32 3
+  %.split16 = getelementptr %struct.page, ptr %366, i64 %372
+  %373 = getelementptr i8, ptr %.split16, i64 40
   br label %374
 
 374:                                              ; preds = %364, %361
@@ -6274,9 +6281,10 @@ define dso_local i32 @copy_hugetlb_page_range(ptr noundef %0, ptr noundef %1, pt
   %382 = load i64, ptr @page_offset_base, align 8
   %383 = sub i64 -2147483648, %382
   %384 = select i1 %238, i64 %381, i64 %383
-  %385 = add i64 %.pre-phi145, %384
+  %385 = add i64 %.pre-phi148, %384
   %386 = lshr i64 %385, 12
-  %387 = getelementptr %struct.page, ptr %380, i64 %386, i32 1, i32 0, i32 3
+  %.split17 = getelementptr %struct.page, ptr %380, i64 %386
+  %387 = getelementptr i8, ptr %.split17, i64 40
   br label %388
 
 388:                                              ; preds = %378, %374
@@ -6317,9 +6325,9 @@ define dso_local i32 @copy_hugetlb_page_range(ptr noundef %0, ptr noundef %1, pt
 403:                                              ; preds = %397, %392
   %404 = and i64 %390, -97
   %405 = icmp eq i64 %404, 0
-  br i1 %405, label %.loopexit30, label %.lr.ph
+  br i1 %405, label %.loopexit33, label %.lr.ph
 
-406:                                              ; preds = %.loopexit31, %310
+406:                                              ; preds = %.loopexit34, %310
   br i1 %18, label %431, label %407
 
 407:                                              ; preds = %406
@@ -6369,14 +6377,14 @@ define dso_local i32 @copy_hugetlb_page_range(ptr noundef %0, ptr noundef %1, pt
   store volatile i64 %.0..0..0..0.4, ptr %154, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; addq $1,$0", "=*m,er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %90, i64 %34, ptr nonnull elementtype(i64) %90) #22, !srcloc !68
-  br label %.loopexit30
+  br label %.loopexit33
 
-.loopexit30:                                      ; preds = %403, %233, %431, %264, %261, %256
+.loopexit33:                                      ; preds = %403, %233, %431, %264, %261, %256
   %433 = phi ptr [ %243, %431 ], [ %243, %264 ], [ %243, %261 ], [ %243, %256 ], [ %216, %233 ], [ %375, %403 ]
   %434 = phi ptr [ %242, %431 ], [ %242, %264 ], [ %242, %261 ], [ %242, %256 ], [ %234, %233 ], [ %389, %403 ]
   call void @_raw_spin_unlock(ptr noundef %434) #22
   call void @_raw_spin_unlock(ptr noundef %433) #22
-  br label %.thread24
+  br label %.thread27
 
 435:                                              ; preds = %398, %402
   %436 = load i64, ptr @vmemmap_base, align 8
@@ -6432,13 +6440,13 @@ define dso_local i32 @copy_hugetlb_page_range(ptr noundef %0, ptr noundef %1, pt
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %476, i32 2, ptr nonnull elementtype(i8) %476) #22, !srcloc !7
   call void @_raw_spin_unlock(ptr noundef %389) #22
   call void @_raw_spin_unlock(ptr noundef %375) #22
-  br label %.thread24
+  br label %.thread27
 
-.thread25:                                        ; preds = %153, %.thread24, %344, %355, %360, %72
-  %477 = phi i32 [ 0, %72 ], [ %346, %344 ], [ %348, %355 ], [ %348, %360 ], [ -12, %153 ], [ 0, %.thread24 ]
+.thread28:                                        ; preds = %153, %.thread27, %344, %355, %360, %72
+  %477 = phi i32 [ 0, %72 ], [ %346, %344 ], [ %348, %355 ], [ %348, %360 ], [ -12, %153 ], [ 0, %.thread27 ]
   br i1 %18, label %494, label %478
 
-478:                                              ; preds = %.thread25
+478:                                              ; preds = %.thread28
   %479 = getelementptr inbounds nuw i8, ptr %1, i64 312
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !86
   %480 = load i32, ptr %479, align 4
@@ -6465,7 +6473,7 @@ define dso_local i32 @copy_hugetlb_page_range(ptr noundef %0, ptr noundef %1, pt
   call void @__mmu_notifier_invalidate_range_end(ptr noundef nonnull %14) #22
   br label %514
 
-494:                                              ; preds = %.thread25
+494:                                              ; preds = %.thread28
   %495 = load i64, ptr %15, align 8
   %496 = and i64 %495, 128
   %497 = icmp eq i64 %496, 0
@@ -6830,9 +6838,9 @@ define dso_local i32 @move_hugetlb_page_tables(ptr noundef readonly captures(non
   %94 = getelementptr inbounds nuw i8, ptr %21, i64 120
   call void @down_write(ptr noundef nonnull %94) #22
   %95 = icmp ugt i64 %28, %2
-  br i1 %95, label %97, label %.thread13
+  br i1 %95, label %97, label %.thread14
 
-.thread13:                                        ; preds = %93
+.thread14:                                        ; preds = %93
   %96 = load ptr, ptr %26, align 8
   br label %264
 
@@ -6977,7 +6985,8 @@ define dso_local i32 @move_hugetlb_page_tables(ptr noundef readonly captures(non
   %197 = select i1 %193, i64 %194, i64 %196
   %198 = add i64 %192, %197
   %199 = lshr i64 %198, 12
-  %200 = getelementptr %struct.page, ptr %189, i64 %199, i32 1, i32 0, i32 3
+  %.split = getelementptr %struct.page, ptr %189, i64 %199
+  %200 = getelementptr i8, ptr %.split, i64 40
   br label %203
 
 201:                                              ; preds = %173
@@ -7004,7 +7013,8 @@ define dso_local i32 @move_hugetlb_page_tables(ptr noundef readonly captures(non
   %217 = select i1 %213, i64 %214, i64 %216
   %218 = add i64 %212, %217
   %219 = lshr i64 %218, 12
-  %220 = getelementptr %struct.page, ptr %209, i64 %219, i32 1, i32 0, i32 3
+  %.split13 = getelementptr %struct.page, ptr %209, i64 %219
+  %220 = getelementptr i8, ptr %.split13, i64 40
   br label %223
 
 221:                                              ; preds = %203
@@ -7084,9 +7094,9 @@ define dso_local i32 @move_hugetlb_page_tables(ptr noundef readonly captures(non
   call void @flush_tlb_mm_range(ptr noundef %242, i64 noundef %244, i64 noundef %245, i32 noundef %263, i1 noundef zeroext false) #22
   br label %285
 
-264:                                              ; preds = %.thread13, %238
-  %265 = phi ptr [ %96, %.thread13 ], [ %242, %238 ]
-  %266 = phi i64 [ %2, %.thread13 ], [ %240, %238 ]
+264:                                              ; preds = %.thread14, %238
+  %265 = phi ptr [ %96, %.thread14 ], [ %242, %238 ]
+  %266 = phi i64 [ %2, %.thread14 ], [ %240, %238 ]
   %267 = load i64, ptr %40, align 8
   %268 = and i64 %267, 4194304
   %269 = icmp eq i64 %268, 0
@@ -7671,7 +7681,8 @@ define dso_local void @__unmap_hugepage_range(ptr noundef %0, ptr noundef captur
   %152 = select i1 %149, i64 %150, i64 %151
   %153 = add i64 %148, %152
   %154 = lshr i64 %153, 12
-  %155 = getelementptr %struct.page, ptr %145, i64 %154, i32 1, i32 0, i32 3
+  %.split = getelementptr %struct.page, ptr %145, i64 %154
+  %155 = getelementptr i8, ptr %.split, i64 40
   br label %156
 
 156:                                              ; preds = %143, %140
@@ -8812,7 +8823,8 @@ define dso_local range(i32 0, 1025) i32 @hugetlb_fault(ptr noundef %0, ptr nound
   %232 = select i1 %228, i64 %229, i64 %231
   %233 = add i64 %227, %232
   %234 = lshr i64 %233, 12
-  %235 = getelementptr %struct.page, ptr %224, i64 %234, i32 1, i32 0, i32 3
+  %.split16 = getelementptr %struct.page, ptr %224, i64 %234
+  %235 = getelementptr i8, ptr %.split16, i64 40
   br label %238
 
 236:                                              ; preds = %220
@@ -8931,7 +8943,7 @@ define dso_local range(i32 0, 1025) i32 @hugetlb_fault(ptr noundef %0, ptr nound
 301:                                              ; preds = %296, %289
   %302 = phi ptr [ %295, %289 ], [ %300, %296 ]
   %303 = icmp eq ptr %302, null
-  br i1 %303, label %.thread22, label %304
+  br i1 %303, label %.thread24, label %304
 
 304:                                              ; preds = %301
   %305 = load i64, ptr %1, align 8
@@ -8953,13 +8965,13 @@ define dso_local range(i32 0, 1025) i32 @hugetlb_fault(ptr noundef %0, ptr nound
 
 320:                                              ; preds = %304
   %321 = icmp sgt i64 %316, 0
-  br i1 %321, label %.thread22, label %322
+  br i1 %321, label %.thread24, label %322
 
 322:                                              ; preds = %320
   %323 = call i64 @llvm.umax.i64(i64 %316, i64 1)
   br label %325
 
-.thread22:                                        ; preds = %301, %320
+.thread24:                                        ; preds = %301, %320
   %324 = phi i64 [ %283, %301 ], [ %317, %320 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %328
@@ -8970,8 +8982,8 @@ define dso_local range(i32 0, 1025) i32 @hugetlb_fault(ptr noundef %0, ptr nound
   %327 = icmp slt i64 %326, 0
   br i1 %327, label %424, label %328
 
-328:                                              ; preds = %.thread22, %325
-  %329 = phi i64 [ %324, %.thread22 ], [ %317, %325 ]
+328:                                              ; preds = %.thread24, %325
+  %329 = phi i64 [ %324, %.thread24 ], [ %317, %325 ]
   %330 = and i64 %329, 128
   %331 = icmp eq i64 %330, 0
   br i1 %331, label %339, label %332
@@ -9025,7 +9037,8 @@ define dso_local range(i32 0, 1025) i32 @hugetlb_fault(ptr noundef %0, ptr nound
   %365 = select i1 %361, i64 %362, i64 %364
   %366 = add i64 %360, %365
   %367 = lshr i64 %366, 12
-  %368 = getelementptr %struct.page, ptr %357, i64 %367, i32 1, i32 0, i32 3
+  %.split = getelementptr %struct.page, ptr %357, i64 %367
+  %368 = getelementptr i8, ptr %.split, i64 40
   br label %371
 
 369:                                              ; preds = %352
@@ -9199,7 +9212,7 @@ define dso_local range(i32 0, 1025) i32 @hugetlb_fault(ptr noundef %0, ptr nound
 458:                                              ; preds = %447
   %459 = and i32 %3, 1025
   %460 = icmp eq i32 %459, 0
-  br i1 %460, label %.critedge17, label %461
+  br i1 %460, label %.critedge19, label %461
 
 461:                                              ; preds = %458
   %462 = load i64, ptr %106, align 8
@@ -9208,25 +9221,25 @@ define dso_local range(i32 0, 1025) i32 @hugetlb_fault(ptr noundef %0, ptr nound
   %465 = and i64 %159, 2
   %466 = icmp eq i64 %465, 0
   %or.cond = select i1 %464, i1 %466, i1 false
-  br i1 %or.cond, label %467, label %.critedge17
+  br i1 %or.cond, label %467, label %.critedge19
 
 467:                                              ; preds = %461
   callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 519, i32 128, ptr nonnull getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 104)) #22
-          to label %468 [label %468, label %.critedge19], !srcloc !75
+          to label %468 [label %468, label %.critedge21], !srcloc !75
 
 468:                                              ; preds = %467, %467
   %469 = and i64 %159, 64
   %470 = icmp eq i64 %469, 0
-  br i1 %470, label %.critedge19, label %.critedge17
+  br i1 %470, label %.critedge21, label %.critedge19
 
-.critedge19:                                      ; preds = %467, %468
+.critedge21:                                      ; preds = %467, %468
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %471 = load i64, ptr %106, align 8
   %472 = and i64 %471, 128
   %473 = icmp eq i64 %472, 0
   br i1 %473, label %481, label %474
 
-474:                                              ; preds = %.critedge19
+474:                                              ; preds = %.critedge21
   %475 = load ptr, ptr %12, align 8
   %476 = getelementptr inbounds nuw i8, ptr %475, i64 216
   %477 = load ptr, ptr %476, align 8
@@ -9235,7 +9248,7 @@ define dso_local range(i32 0, 1025) i32 @hugetlb_fault(ptr noundef %0, ptr nound
   %480 = load ptr, ptr %479, align 8
   br label %486
 
-481:                                              ; preds = %.critedge19
+481:                                              ; preds = %.critedge21
   %482 = load ptr, ptr %110, align 8
   %483 = ptrtoint ptr %482 to i64
   %484 = and i64 %483, -4
@@ -9292,15 +9305,15 @@ vma_needs_reservation.exit:                       ; preds = %489, %507
   %515 = tail call ptr @__filemap_get_folio(ptr noundef %32, i64 noundef %514, i32 noundef 2, i32 noundef 0) #22
   %516 = icmp ugt ptr %515, inttoptr (i64 -4096 to ptr)
   %517 = select i1 %516, ptr null, ptr %515
-  br label %.critedge17
+  br label %.critedge19
 
-.critedge17:                                      ; preds = %511, %468, %461, %458
+.critedge19:                                      ; preds = %511, %468, %461, %458
   %518 = phi ptr [ null, %461 ], [ null, %468 ], [ null, %458 ], [ %517, %511 ]
   %519 = load i32, ptr %35, align 8
   %520 = icmp eq i32 %519, 9
   br i1 %520, label %521, label %535
 
-521:                                              ; preds = %.critedge17
+521:                                              ; preds = %.critedge19
   %522 = load i64, ptr @vmemmap_base, align 8
   %523 = inttoptr i64 %522 to ptr
   %524 = ptrtoint ptr %132 to i64
@@ -9313,10 +9326,11 @@ vma_needs_reservation.exit:                       ; preds = %489, %507
   %531 = select i1 %527, i64 %528, i64 %530
   %532 = add i64 %526, %531
   %533 = lshr i64 %532, 12
-  %534 = getelementptr %struct.page, ptr %523, i64 %533, i32 1, i32 0, i32 3
+  %.split17 = getelementptr %struct.page, ptr %523, i64 %533
+  %534 = getelementptr i8, ptr %.split17, i64 40
   br label %537
 
-535:                                              ; preds = %.critedge17
+535:                                              ; preds = %.critedge19
   %536 = getelementptr inbounds nuw i8, ptr %0, i64 172
   br label %537
 
@@ -10497,7 +10511,8 @@ define dso_local ptr @hugetlb_follow_page_mask(ptr noundef readonly captures(add
   %114 = select i1 %111, i64 %112, i64 %113
   %115 = add i64 %110, %114
   %116 = lshr i64 %115, 12
-  %117 = getelementptr %struct.page, ptr %107, i64 %116, i32 1, i32 0, i32 3
+  %.split = getelementptr %struct.page, ptr %107, i64 %116
+  %117 = getelementptr i8, ptr %.split, i64 40
   br label %120
 
 118:                                              ; preds = %102
@@ -11092,7 +11107,8 @@ define dso_local i64 @hugetlb_change_protection(ptr noundef readonly captures(ad
   %188 = select i1 %184, i64 %185, i64 %187
   %189 = add i64 %183, %188
   %190 = lshr i64 %189, 12
-  %191 = getelementptr %struct.page, ptr %180, i64 %190, i32 1, i32 0, i32 3
+  %.split = getelementptr %struct.page, ptr %180, i64 %190
+  %191 = getelementptr i8, ptr %.split, i64 40
   br label %192
 
 192:                                              ; preds = %178, %174
@@ -13110,7 +13126,8 @@ define internal fastcc void @hugetlb_unshare_pmds(ptr noundef readonly captures(
   %135 = select i1 %132, i64 %133, i64 %134
   %136 = add i64 %131, %135
   %137 = lshr i64 %136, 12
-  %138 = getelementptr %struct.page, ptr %128, i64 %137, i32 1, i32 0, i32 3
+  %.split = getelementptr %struct.page, ptr %128, i64 %137
+  %138 = getelementptr i8, ptr %.split, i64 40
   br label %139
 
 139:                                              ; preds = %126, %123
@@ -14033,42 +14050,44 @@ define internal range(i64 -2147483648, 2147483648) i64 @demote_size_show(ptr nou
 11:                                               ; preds = %4
   %12 = load i32, ptr @nr_node_ids, align 4
   %13 = icmp eq i32 %12, 0
-  br i1 %13, label %.loopexit4, label %.preheader
+  br i1 %13, label %.loopexit5, label %.preheader
 
 .critedge:                                        ; preds = %21
   %14 = add nuw i32 %16, 1
   %15 = icmp eq i32 %14, %12
-  br i1 %15, label %.loopexit4, label %.preheader, !llvm.loop !148
+  br i1 %15, label %.loopexit5, label %.preheader, !llvm.loop !148
 
 .preheader:                                       ; preds = %11, %.critedge
   %16 = phi i32 [ %14, %.critedge ], [ 0, %11 ]
   %17 = sext i32 %16 to i64
-  %18 = getelementptr %struct.node_hstate, ptr @node_hstates, i64 %17, i32 1
+  %.split = getelementptr %struct.node_hstate, ptr @node_hstates, i64 %17
+  %18 = getelementptr i8, ptr %.split, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, %0
   br i1 %20, label %.loopexit, label %21
 
 21:                                               ; preds = %.preheader
-  %22 = getelementptr %struct.node_hstate, ptr @node_hstates, i64 %17, i32 1, i64 1
+  %22 = getelementptr i8, ptr %.split, i64 16
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, %0
   br i1 %24, label %.loopexit, label %.critedge, !llvm.loop !149
 
-.loopexit4:                                       ; preds = %.critedge, %11
+.loopexit5:                                       ; preds = %.critedge, %11
   tail call void asm sideeffect "487: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 487b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 487) #22, !srcloc !150
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 4367, i32 0, i64 12) #22, !srcloc !151
   unreachable
 
 .loopexit:                                        ; preds = %5, %.preheader, %21
   %.pn = phi i64 [ 0, %.preheader ], [ 1, %21 ], [ %7, %5 ]
-  %25 = getelementptr %struct.hstate, ptr @hstates, i64 %.pn, i32 4
-  %26 = load i32, ptr %25, align 4
-  %27 = zext nneg i32 %26 to i64
-  %28 = shl i64 4096, %27
-  %29 = lshr exact i64 %28, 10
-  %30 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.17, i64 noundef %29) #22
-  %31 = sext i32 %30 to i64
-  ret i64 %31
+  %25 = getelementptr %struct.hstate, ptr @hstates, i64 %.pn
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 44
+  %27 = load i32, ptr %26, align 4
+  %28 = zext nneg i32 %27 to i64
+  %29 = shl i64 4096, %28
+  %30 = lshr exact i64 %29, 10
+  %31 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.17, i64 noundef %30) #22
+  %32 = sext i32 %31 to i64
+  ret i64 %32
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -14078,9 +14097,9 @@ define internal noundef i64 @demote_size_store(ptr noundef readnone captures(add
   %7 = sext i32 %6 to i64
   %8 = getelementptr %struct.hstate, ptr @hstates, i64 %7
   %9 = icmp ugt ptr %8, @hstates
-  br i1 %9, label %.preheader11, label %.thread
+  br i1 %9, label %.preheader12, label %.thread
 
-.preheader11:                                     ; preds = %4, %16
+.preheader12:                                     ; preds = %4, %16
   %10 = phi ptr [ %17, %16 ], [ @hstates, %4 ]
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %12 = load i32, ptr %11, align 8
@@ -14089,21 +14108,21 @@ define internal noundef i64 @demote_size_store(ptr noundef readnone captures(add
   %15 = icmp eq i64 %14, %5
   br i1 %15, label %19, label %16
 
-16:                                               ; preds = %.preheader11
+16:                                               ; preds = %.preheader12
   %17 = getelementptr i8, ptr %10, i64 6088
   %18 = icmp ult ptr %17, %8
-  br i1 %18, label %.preheader11, label %.thread, !llvm.loop !27
+  br i1 %18, label %.preheader12, label %.thread, !llvm.loop !27
 
-19:                                               ; preds = %.preheader11
+19:                                               ; preds = %.preheader12
   %20 = icmp eq ptr %10, null
   %21 = icmp ult i32 %12, 9
   %or.cond = or i1 %20, %21
-  br i1 %or.cond, label %.thread, label %.preheader9
+  br i1 %or.cond, label %.thread, label %.preheader10
 
-22:                                               ; preds = %.preheader9
-  br i1 %23, label %.preheader9, label %28, !llvm.loop !147
+22:                                               ; preds = %.preheader10
+  br i1 %23, label %.preheader10, label %28, !llvm.loop !147
 
-.preheader9:                                      ; preds = %19, %22
+.preheader10:                                     ; preds = %19, %22
   %23 = phi i1 [ false, %22 ], [ true, %19 ]
   %24 = phi i64 [ 1, %22 ], [ 0, %19 ]
   %25 = getelementptr ptr, ptr @hstate_kobjs, i64 %24
@@ -14114,34 +14133,35 @@ define internal noundef i64 @demote_size_store(ptr noundef readnone captures(add
 28:                                               ; preds = %22
   %29 = load i32, ptr @nr_node_ids, align 4
   %30 = icmp eq i32 %29, 0
-  br i1 %30, label %.loopexit8, label %.preheader
+  br i1 %30, label %.loopexit9, label %.preheader
 
 .critedge:                                        ; preds = %38
   %31 = add nuw i32 %33, 1
   %32 = icmp eq i32 %31, %29
-  br i1 %32, label %.loopexit8, label %.preheader, !llvm.loop !148
+  br i1 %32, label %.loopexit9, label %.preheader, !llvm.loop !148
 
 .preheader:                                       ; preds = %28, %.critedge
   %33 = phi i32 [ %31, %.critedge ], [ 0, %28 ]
   %34 = sext i32 %33 to i64
-  %35 = getelementptr %struct.node_hstate, ptr @node_hstates, i64 %34, i32 1
+  %.split = getelementptr %struct.node_hstate, ptr @node_hstates, i64 %34
+  %35 = getelementptr i8, ptr %.split, i64 8
   %36 = load ptr, ptr %35, align 8
   %37 = icmp eq ptr %36, %0
   br i1 %37, label %.loopexit, label %38
 
 38:                                               ; preds = %.preheader
-  %39 = getelementptr %struct.node_hstate, ptr @node_hstates, i64 %34, i32 1, i64 1
+  %39 = getelementptr i8, ptr %.split, i64 16
   %40 = load ptr, ptr %39, align 8
   %41 = icmp eq ptr %40, %0
   br i1 %41, label %.loopexit, label %.critedge, !llvm.loop !149
 
-.loopexit8:                                       ; preds = %.critedge, %28
+.loopexit9:                                       ; preds = %.critedge, %28
   tail call void asm sideeffect "487: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 487b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 487) #22, !srcloc !150
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 4367, i32 0, i64 12) #22, !srcloc !151
   unreachable
 
-.loopexit:                                        ; preds = %.preheader9, %.preheader, %38
-  %.pn = phi i64 [ 0, %.preheader ], [ 1, %38 ], [ %24, %.preheader9 ]
+.loopexit:                                        ; preds = %.preheader10, %.preheader, %38
+  %.pn = phi i64 [ 0, %.preheader ], [ 1, %38 ], [ %24, %.preheader10 ]
   %42 = getelementptr %struct.hstate, ptr @hstates, i64 %.pn
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 40
   %44 = load i32, ptr %43, align 8
@@ -14176,75 +14196,76 @@ define internal i64 @demote_store(ptr noundef readnone captures(address) %0, ptr
   store i64 0, ptr %6, align 8, !annotation !41
   %7 = call i32 @kstrtoull(ptr noundef %2, i32 noundef 10, ptr noundef nonnull %5) #22
   %8 = icmp eq i32 %7, 0
-  br i1 %8, label %.preheader40, label %9
+  br i1 %8, label %.preheader41, label %9
 
 9:                                                ; preds = %4
   %10 = sext i32 %7 to i64
   br label %330
 
-11:                                               ; preds = %.preheader40
-  br i1 %12, label %.preheader40, label %17, !llvm.loop !147
+11:                                               ; preds = %.preheader41
+  br i1 %12, label %.preheader41, label %17, !llvm.loop !147
 
-.preheader40:                                     ; preds = %4, %11
+.preheader41:                                     ; preds = %4, %11
   %12 = phi i1 [ false, %11 ], [ true, %4 ]
   %13 = phi i64 [ 1, %11 ], [ 0, %4 ]
   %14 = getelementptr ptr, ptr @hstate_kobjs, i64 %13
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, %0
-  br i1 %16, label %.thread21, label %11
+  br i1 %16, label %.thread22, label %11
 
 17:                                               ; preds = %11
   %18 = load i32, ptr @nr_node_ids, align 4
   %19 = icmp eq i32 %18, 0
-  br i1 %19, label %.loopexit39, label %.preheader37
+  br i1 %19, label %.loopexit40, label %.preheader38
 
 .critedge:                                        ; preds = %27
   %20 = add nuw i32 %22, 1
   %21 = icmp eq i32 %20, %18
-  br i1 %21, label %.loopexit39, label %.preheader37, !llvm.loop !148
+  br i1 %21, label %.loopexit40, label %.preheader38, !llvm.loop !148
 
-.preheader37:                                     ; preds = %17, %.critedge
+.preheader38:                                     ; preds = %17, %.critedge
   %22 = phi i32 [ %20, %.critedge ], [ 0, %17 ]
   %23 = sext i32 %22 to i64
-  %24 = getelementptr %struct.node_hstate, ptr @node_hstates, i64 %23, i32 1
+  %.split = getelementptr %struct.node_hstate, ptr @node_hstates, i64 %23
+  %24 = getelementptr i8, ptr %.split, i64 8
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, %0
-  br i1 %26, label %.loopexit36, label %27
+  br i1 %26, label %.loopexit37, label %27
 
-27:                                               ; preds = %.preheader37
-  %28 = getelementptr %struct.node_hstate, ptr @node_hstates, i64 %23, i32 1, i64 1
+27:                                               ; preds = %.preheader38
+  %28 = getelementptr i8, ptr %.split, i64 16
   %29 = load ptr, ptr %28, align 8
   %30 = icmp eq ptr %29, %0
-  br i1 %30, label %.loopexit36, label %.critedge, !llvm.loop !149
+  br i1 %30, label %.loopexit37, label %.critedge, !llvm.loop !149
 
-.loopexit39:                                      ; preds = %.critedge, %17
+.loopexit40:                                      ; preds = %.critedge, %17
   call void asm sideeffect "487: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 487b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 487) #22, !srcloc !150
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 4367, i32 0, i64 12) #22, !srcloc !151
   unreachable
 
-.loopexit36:                                      ; preds = %.preheader37, %27
-  %31 = phi i64 [ 1, %27 ], [ 0, %.preheader37 ]
+.loopexit37:                                      ; preds = %.preheader38, %27
+  %31 = phi i64 [ 1, %27 ], [ 0, %.preheader38 ]
   %32 = icmp eq i32 %22, -1
-  br i1 %32, label %.thread21, label %33
+  br i1 %32, label %.thread22, label %33
 
-33:                                               ; preds = %.loopexit36
+33:                                               ; preds = %.loopexit37
   store i64 0, ptr %6, align 8
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %6, i64 %23) #22, !srcloc !139
-  br label %.thread21
+  br label %.thread22
 
-.thread21:                                        ; preds = %.preheader40, %33, %.loopexit36
-  %34 = phi i1 [ true, %.loopexit36 ], [ false, %33 ], [ true, %.preheader40 ]
-  %.pn = phi i64 [ %31, %.loopexit36 ], [ %31, %33 ], [ %13, %.preheader40 ]
-  %35 = phi i64 [ -1, %.loopexit36 ], [ %23, %33 ], [ -1, %.preheader40 ]
-  %36 = phi ptr [ getelementptr inbounds nuw (i8, ptr @node_states, i64 24), %.loopexit36 ], [ %6, %33 ], [ getelementptr inbounds nuw (i8, ptr @node_states, i64 24), %.preheader40 ]
+.thread22:                                        ; preds = %.preheader41, %33, %.loopexit37
+  %34 = phi i1 [ true, %.loopexit37 ], [ false, %33 ], [ true, %.preheader41 ]
+  %.pn = phi i64 [ %31, %.loopexit37 ], [ %31, %33 ], [ %13, %.preheader41 ]
+  %35 = phi i64 [ -1, %.loopexit37 ], [ %23, %33 ], [ -1, %.preheader41 ]
+  %36 = phi ptr [ getelementptr inbounds nuw (i8, ptr @node_states, i64 24), %.loopexit37 ], [ %6, %33 ], [ getelementptr inbounds nuw (i8, ptr @node_states, i64 24), %.preheader41 ]
   %37 = getelementptr %struct.hstate, ptr @hstates, i64 %.pn
   call void @mutex_lock(ptr noundef %37) #22
   call void @_raw_spin_lock_irq(ptr noundef nonnull @hugetlb_lock) #22
   %38 = load i64, ptr %5, align 8
   %39 = icmp eq i64 %38, 0
-  br i1 %39, label %.thread28, label %40
+  br i1 %39, label %.thread29, label %40
 
-40:                                               ; preds = %.thread21
+40:                                               ; preds = %.thread22
   %41 = getelementptr inbounds nuw i8, ptr %37, i64 1656
   %42 = getelementptr i32, ptr %41, i64 %35
   %43 = getelementptr inbounds nuw i8, ptr %37, i64 72
@@ -14274,7 +14295,7 @@ define internal i64 @demote_store(ptr noundef readnone captures(address) %0, ptr
   %59 = phi i64 [ %55, %53 ], [ %57, %56 ]
   %60 = load i64, ptr %44, align 8
   %61 = icmp eq i64 %59, %60
-  br i1 %61, label %.thread28, label %62
+  br i1 %61, label %.thread29, label %62
 
 62:                                               ; preds = %58
   %63 = load i32, ptr %45, align 4
@@ -14283,95 +14304,95 @@ define internal i64 @demote_store(ptr noundef readnone captures(address) %0, ptr
 
 65:                                               ; preds = %62
   %66 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.19) #25
-  br label %.thread28
+  br label %.thread29
 
 67:                                               ; preds = %62
   %68 = load i64, ptr %36, align 8
   %69 = call i64 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight64\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntq $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %68) #23, !srcloc !47
   %70 = trunc i64 %69 to i32
   %71 = icmp sgt i32 %70, 0
-  br i1 %71, label %.preheader33.preheader, label %.thread28
+  br i1 %71, label %.preheader34.preheader, label %.thread29
 
-.preheader33.preheader:                           ; preds = %67
+.preheader34.preheader:                           ; preds = %67
   %.pre = load i32, ptr %46, align 4
-  br label %.preheader33
+  br label %.preheader34
 
-72:                                               ; preds = %.thread25.thread
+72:                                               ; preds = %.thread26.thread
   %73 = add nsw i32 %76, -1
   %74 = icmp sgt i32 %76, 1
-  br i1 %74, label %.preheader33, label %.thread28, !llvm.loop !152
+  br i1 %74, label %.preheader34, label %.thread29, !llvm.loop !152
 
-.preheader33:                                     ; preds = %.preheader33.preheader, %72
-  %75 = phi i32 [ %117, %72 ], [ %.pre, %.preheader33.preheader ]
-  %76 = phi i32 [ %73, %72 ], [ %70, %.preheader33.preheader ]
+.preheader34:                                     ; preds = %.preheader34.preheader, %72
+  %75 = phi i32 [ %117, %72 ], [ %.pre, %.preheader34.preheader ]
+  %76 = phi i32 [ %73, %72 ], [ %70, %.preheader34.preheader ]
   %77 = sext i32 %75 to i64
   %78 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %36, i64 %77) #22, !srcloc !17
   %79 = icmp ult i8 %78, 2
   call void @llvm.assume(i1 %79)
   %80 = icmp eq i8 %78, 0
-  %.pr29.pre.pre = load i64, ptr %36, align 8
+  %.pr30.pre.pre = load i64, ptr %36, align 8
   br i1 %80, label %81, label %98
 
-81:                                               ; preds = %.preheader33
+81:                                               ; preds = %.preheader34
   %82 = add i32 %75, 1
   %83 = icmp ugt i32 %82, 63
-  br i1 %83, label %.thread22, label %84, !prof !15
+  br i1 %83, label %.thread23, label %84, !prof !15
 
 84:                                               ; preds = %81
   %85 = zext nneg i32 %82 to i64
   %86 = shl nsw i64 -1, %85
-  %87 = and i64 %.pr29.pre.pre, %86
+  %87 = and i64 %.pr30.pre.pre, %86
   %88 = icmp eq i64 %87, 0
-  br i1 %88, label %.thread22, label %89
+  br i1 %88, label %.thread23, label %89
 
 89:                                               ; preds = %84
   %90 = call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %87) #24, !srcloc !14
   %91 = trunc i64 %90 to i32
   %92 = icmp ugt i32 %91, 63
-  br i1 %92, label %.thread22, label %98
+  br i1 %92, label %.thread23, label %98
 
-.thread22:                                        ; preds = %81, %89, %84
-  %93 = icmp eq i64 %.pr29.pre.pre, 0
-  br i1 %93, label %.thread25.thread, label %94
+.thread23:                                        ; preds = %81, %89, %84
+  %93 = icmp eq i64 %.pr30.pre.pre, 0
+  br i1 %93, label %.thread26.thread, label %94
 
-94:                                               ; preds = %.thread22
-  %95 = call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %.pr29.pre.pre) #24, !srcloc !14
+94:                                               ; preds = %.thread23
+  %95 = call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %.pr30.pre.pre) #24, !srcloc !14
   %96 = trunc i64 %95 to i32
   %97 = call i32 @llvm.umin.i32(i32 %96, i32 64)
   br label %98
 
-98:                                               ; preds = %94, %89, %.preheader33
-  %99 = phi i32 [ %75, %.preheader33 ], [ %91, %89 ], [ %97, %94 ]
+98:                                               ; preds = %94, %89, %.preheader34
+  %99 = phi i32 [ %75, %.preheader34 ], [ %91, %89 ], [ %97, %94 ]
   %100 = add i32 %99, 1
   %101 = icmp ugt i32 %100, 63
-  br i1 %101, label %.thread25, label %102, !prof !48
+  br i1 %101, label %.thread26, label %102, !prof !48
 
 102:                                              ; preds = %98
   %103 = zext nneg i32 %100 to i64
   %104 = shl nsw i64 -1, %103
-  %105 = and i64 %.pr29.pre.pre, %104
+  %105 = and i64 %.pr30.pre.pre, %104
   %106 = icmp eq i64 %105, 0
-  br i1 %106, label %.thread25, label %107
+  br i1 %106, label %.thread26, label %107
 
 107:                                              ; preds = %102
   %108 = call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %105) #24, !srcloc !14
   %109 = trunc i64 %108 to i32
   %110 = icmp ugt i32 %109, 63
-  br i1 %110, label %.thread25, label %.thread25.thread
+  br i1 %110, label %.thread26, label %.thread26.thread
 
-.thread25:                                        ; preds = %98, %107, %102
-  %111 = icmp eq i64 %.pr29.pre.pre, 0
-  br i1 %111, label %.thread25.thread, label %112
+.thread26:                                        ; preds = %98, %107, %102
+  %111 = icmp eq i64 %.pr30.pre.pre, 0
+  br i1 %111, label %.thread26.thread, label %112
 
-112:                                              ; preds = %.thread25
-  %113 = call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %.pr29.pre.pre) #24, !srcloc !14
+112:                                              ; preds = %.thread26
+  %113 = call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %.pr30.pre.pre) #24, !srcloc !14
   %114 = trunc i64 %113 to i32
   %115 = call i32 @llvm.umin.i32(i32 %114, i32 64)
-  br label %.thread25.thread
+  br label %.thread26.thread
 
-.thread25.thread:                                 ; preds = %.thread22, %.thread25, %112, %107
-  %116 = phi i32 [ %99, %107 ], [ %99, %112 ], [ %99, %.thread25 ], [ 64, %.thread22 ]
-  %117 = phi i32 [ %109, %107 ], [ %115, %112 ], [ 64, %.thread25 ], [ 64, %.thread22 ]
+.thread26.thread:                                 ; preds = %.thread23, %.thread26, %112, %107
+  %116 = phi i32 [ %99, %107 ], [ %99, %112 ], [ %99, %.thread26 ], [ 64, %.thread23 ]
+  %117 = phi i32 [ %109, %107 ], [ %115, %112 ], [ 64, %.thread26 ], [ 64, %.thread23 ]
   store i32 %117, ptr %46, align 4
   %118 = sext i32 %116 to i64
   %119 = getelementptr %struct.list_head, ptr %47, i64 %118
@@ -14379,7 +14400,7 @@ define internal i64 @demote_store(ptr noundef readnone captures(address) %0, ptr
   %121 = icmp eq ptr %120, %119
   br i1 %121, label %72, label %122
 
-122:                                              ; preds = %.thread25.thread
+122:                                              ; preds = %.thread26.thread
   %123 = getelementptr i8, ptr %120, i64 -8
   %124 = load i64, ptr %123, align 16
   %125 = lshr i64 %124, 58
@@ -14390,7 +14411,7 @@ define internal i64 @demote_store(ptr noundef readnone captures(address) %0, ptr
   %130 = sext i32 %129 to i64
   %131 = getelementptr %struct.hstate, ptr @hstates, i64 %130
   %132 = icmp ugt ptr %131, @hstates
-  br i1 %132, label %.preheader, label %.loopexit31
+  br i1 %132, label %.preheader, label %.loopexit32
 
 .preheader:                                       ; preds = %122, %139
   %133 = phi ptr [ %140, %139 ], [ @hstates, %122 ]
@@ -14399,14 +14420,14 @@ define internal i64 @demote_store(ptr noundef readnone captures(address) %0, ptr
   %136 = zext nneg i32 %135 to i64
   %137 = shl i64 4096, %136
   %138 = icmp eq i64 %137, %128
-  br i1 %138, label %.loopexit31, label %139
+  br i1 %138, label %.loopexit32, label %139
 
 139:                                              ; preds = %.preheader
   %140 = getelementptr i8, ptr %133, i64 6088
   %141 = icmp ult ptr %140, %131
-  br i1 %141, label %.preheader, label %.loopexit31, !llvm.loop !27
+  br i1 %141, label %.preheader, label %.loopexit32, !llvm.loop !27
 
-.loopexit31:                                      ; preds = %139, %.preheader, %122
+.loopexit32:                                      ; preds = %139, %.preheader, %122
   %142 = phi ptr [ null, %122 ], [ null, %139 ], [ %133, %.preheader ]
   %143 = getelementptr i8, ptr %120, i64 8
   %144 = load ptr, ptr %143, align 8
@@ -14422,7 +14443,7 @@ define internal i64 @demote_store(ptr noundef readnone captures(address) %0, ptr
   %150 = icmp eq i64 %149, 0
   br i1 %150, label %157, label %151
 
-151:                                              ; preds = %.loopexit31
+151:                                              ; preds = %.loopexit32
   %152 = load i64, ptr %43, align 8
   %153 = add i64 %152, -1
   store i64 %153, ptr %43, align 8
@@ -14432,7 +14453,7 @@ define internal i64 @demote_store(ptr noundef readnone captures(address) %0, ptr
   store i32 %156, ptr %154, align 4
   br label %157
 
-157:                                              ; preds = %151, %.loopexit31
+157:                                              ; preds = %151, %.loopexit32
   %158 = load volatile i64, ptr %147, align 8
   %159 = and i64 %158, 16
   %160 = icmp eq i64 %159, 0
@@ -14494,7 +14515,7 @@ define internal i64 @demote_store(ptr noundef readnone captures(address) %0, ptr
   %192 = icmp ult i8 %191, 2
   call void @llvm.assume(i1 %192)
   %193 = icmp eq i8 %191, 0
-  br i1 %193, label %.thread28, label %194, !prof !15
+  br i1 %193, label %.thread29, label %194, !prof !15
 
 194:                                              ; preds = %180
   %195 = load i64, ptr %123, align 16
@@ -14519,7 +14540,7 @@ define internal i64 @demote_store(ptr noundef readnone captures(address) %0, ptr
   %207 = add i32 %206, 1
   store i32 %207, ptr %205, align 4
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %147, i32 8, ptr elementtype(i8) %147) #22, !srcloc !7
-  br label %.thread28
+  br label %.thread29
 
 208:                                              ; preds = %177, %172, %163
   %209 = load i32, ptr %50, align 8
@@ -14531,7 +14552,7 @@ define internal i64 @demote_store(ptr noundef readnone captures(address) %0, ptr
   %213 = getelementptr i8, ptr %120, i64 88
   store volatile i32 0, ptr %213, align 4
   %214 = icmp sgt i32 %210, 1
-  br i1 %214, label %215, label %.loopexit30
+  br i1 %214, label %215, label %.loopexit31
 
 215:                                              ; preds = %208
   %216 = zext nneg i32 %210 to i64
@@ -14549,9 +14570,9 @@ define internal i64 @demote_store(ptr noundef readnone captures(address) %0, ptr
   store volatile i64 0, ptr %223, align 8
   %224 = add nuw nsw i64 %218, 1
   %225 = icmp eq i64 %224, %216
-  br i1 %225, label %.loopexit30, label %217, !llvm.loop !133
+  br i1 %225, label %.loopexit31, label %217, !llvm.loop !133
 
-.loopexit30:                                      ; preds = %217, %208
+.loopexit31:                                      ; preds = %217, %208
   call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %123, i64 6) #22, !srcloc !28
   call void @mutex_lock(ptr noundef %142) #22
   %226 = getelementptr inbounds nuw i8, ptr %142, i64 40
@@ -14560,8 +14581,8 @@ define internal i64 @demote_store(ptr noundef readnone captures(address) %0, ptr
   %229 = getelementptr i32, ptr %228, i64 %125
   br label %230
 
-230:                                              ; preds = %297, %.loopexit30
-  %231 = phi i32 [ 0, %.loopexit30 ], [ %309, %297 ]
+230:                                              ; preds = %297, %.loopexit31
+  %231 = phi i32 [ 0, %.loopexit31 ], [ %309, %297 ]
   %232 = sext i32 %231 to i64
   %233 = getelementptr %struct.page, ptr %123, i64 %232
   %234 = getelementptr inbounds nuw i8, ptr %233, i64 8
@@ -14728,10 +14749,10 @@ define internal i64 @demote_store(ptr noundef readnone captures(address) %0, ptr
   %325 = add i64 %324, -1
   store i64 %325, ptr %5, align 8
   %326 = icmp eq i64 %325, 0
-  br i1 %326, label %.thread28, label %52, !llvm.loop !154
+  br i1 %326, label %.thread29, label %52, !llvm.loop !154
 
-.thread28:                                        ; preds = %67, %313, %58, %72, %194, %180, %65, %.thread21
-  %327 = phi i32 [ 0, %.thread21 ], [ %178, %194 ], [ %178, %180 ], [ -22, %65 ], [ -16, %72 ], [ -16, %67 ], [ 0, %58 ], [ 0, %313 ]
+.thread29:                                        ; preds = %67, %313, %58, %72, %194, %180, %65, %.thread22
+  %327 = phi i32 [ 0, %.thread22 ], [ %178, %194 ], [ %178, %180 ], [ -22, %65 ], [ -16, %72 ], [ -16, %67 ], [ 0, %58 ], [ 0, %313 ]
   %.fr = freeze i32 %327
   call void @_raw_spin_unlock_irq(ptr noundef nonnull @hugetlb_lock) #22
   call void @mutex_unlock(ptr noundef %37) #22
@@ -14740,8 +14761,8 @@ define internal i64 @demote_store(ptr noundef readnone captures(address) %0, ptr
   %spec.select = select i1 %328, i64 %3, i64 %329
   br label %330
 
-330:                                              ; preds = %.thread28, %9
-  %331 = phi i64 [ %10, %9 ], [ %spec.select, %.thread28 ]
+330:                                              ; preds = %.thread29, %9
+  %331 = phi i64 [ %10, %9 ], [ %spec.select, %.thread29 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i64 %331
@@ -14766,33 +14787,34 @@ define internal range(i64 -2147483648, 2147483648) i64 @nr_hugepages_show(ptr no
   %8 = getelementptr ptr, ptr @hstate_kobjs, i64 %7
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, %0
-  br i1 %10, label %.thread4, label %4
+  br i1 %10, label %.thread5, label %4
 
 11:                                               ; preds = %4
   %12 = load i32, ptr @nr_node_ids, align 4
   %13 = icmp eq i32 %12, 0
-  br i1 %13, label %.loopexit6, label %.preheader
+  br i1 %13, label %.loopexit7, label %.preheader
 
 .critedge:                                        ; preds = %21
   %14 = add nuw i32 %16, 1
   %15 = icmp eq i32 %14, %12
-  br i1 %15, label %.loopexit6, label %.preheader, !llvm.loop !148
+  br i1 %15, label %.loopexit7, label %.preheader, !llvm.loop !148
 
 .preheader:                                       ; preds = %11, %.critedge
   %16 = phi i32 [ %14, %.critedge ], [ 0, %11 ]
   %17 = sext i32 %16 to i64
-  %18 = getelementptr %struct.node_hstate, ptr @node_hstates, i64 %17, i32 1
+  %.split = getelementptr %struct.node_hstate, ptr @node_hstates, i64 %17
+  %18 = getelementptr i8, ptr %.split, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, %0
   br i1 %20, label %.loopexit, label %21
 
 21:                                               ; preds = %.preheader
-  %22 = getelementptr %struct.node_hstate, ptr @node_hstates, i64 %17, i32 1, i64 1
+  %22 = getelementptr i8, ptr %.split, i64 16
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, %0
   br i1 %24, label %.loopexit, label %.critedge, !llvm.loop !149
 
-.loopexit6:                                       ; preds = %.critedge, %11
+.loopexit7:                                       ; preds = %.critedge, %11
   tail call void asm sideeffect "487: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 487b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 487) #22, !srcloc !150
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 4367, i32 0, i64 12) #22, !srcloc !151
   unreachable
@@ -14800,26 +14822,28 @@ define internal range(i64 -2147483648, 2147483648) i64 @nr_hugepages_show(ptr no
 .loopexit:                                        ; preds = %.preheader, %21
   %25 = phi i64 [ 1, %21 ], [ 0, %.preheader ]
   %26 = icmp eq i32 %16, -1
-  br i1 %26, label %.thread4, label %30
+  br i1 %26, label %.thread5, label %31
 
-.thread4:                                         ; preds = %5, %.loopexit
+.thread5:                                         ; preds = %5, %.loopexit
   %27 = phi i64 [ %25, %.loopexit ], [ %7, %5 ]
-  %28 = getelementptr %struct.hstate, ptr @hstates, i64 %27, i32 7
-  %29 = load i64, ptr %28, align 8
-  br label %35
+  %28 = getelementptr %struct.hstate, ptr @hstates, i64 %27
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 64
+  %30 = load i64, ptr %29, align 8
+  br label %37
 
-30:                                               ; preds = %.loopexit
-  %31 = getelementptr %struct.hstate, ptr @hstates, i64 %25, i32 15
-  %32 = getelementptr i32, ptr %31, i64 %17
-  %33 = load i32, ptr %32, align 4
-  %34 = zext i32 %33 to i64
-  br label %35
+31:                                               ; preds = %.loopexit
+  %32 = getelementptr %struct.hstate, ptr @hstates, i64 %25
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 1400
+  %34 = getelementptr i32, ptr %33, i64 %17
+  %35 = load i32, ptr %34, align 4
+  %36 = zext i32 %35 to i64
+  br label %37
 
-35:                                               ; preds = %30, %.thread4
-  %36 = phi i64 [ %29, %.thread4 ], [ %34, %30 ]
-  %37 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.21, i64 noundef %36) #22
-  %38 = sext i32 %37 to i64
-  ret i64 %38
+37:                                               ; preds = %31, %.thread5
+  %38 = phi i64 [ %30, %.thread5 ], [ %36, %31 ]
+  %39 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.21, i64 noundef %38) #22
+  %40 = sext i32 %39 to i64
+  ret i64 %40
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -14829,16 +14853,16 @@ define internal i64 @nr_hugepages_store(ptr noundef readnone captures(address) %
   store i64 0, ptr %5, align 8, !annotation !41
   %6 = call i32 @kstrtoull(ptr noundef %2, i32 noundef 10, ptr noundef nonnull %5) #22
   %7 = icmp eq i32 %6, 0
-  br i1 %7, label %.preheader6.i, label %8
+  br i1 %7, label %.preheader7.i, label %8
 
 8:                                                ; preds = %4
   %9 = sext i32 %6 to i64
   br label %nr_hugepages_store_common.exit
 
-10:                                               ; preds = %.preheader6.i
-  br i1 %11, label %.preheader6.i, label %16, !llvm.loop !147
+10:                                               ; preds = %.preheader7.i
+  br i1 %11, label %.preheader7.i, label %16, !llvm.loop !147
 
-.preheader6.i:                                    ; preds = %4, %10
+.preheader7.i:                                    ; preds = %4, %10
   %11 = phi i1 [ false, %10 ], [ true, %4 ]
   %12 = phi i64 [ 1, %10 ], [ 0, %4 ]
   %13 = getelementptr ptr, ptr @hstate_kobjs, i64 %12
@@ -14849,35 +14873,36 @@ define internal i64 @nr_hugepages_store(ptr noundef readnone captures(address) %
 16:                                               ; preds = %10
   %17 = load i32, ptr @nr_node_ids, align 4
   %18 = icmp eq i32 %17, 0
-  br i1 %18, label %.loopexit5.i, label %.preheader.i
+  br i1 %18, label %.loopexit6.i, label %.preheader.i
 
 .critedge:                                        ; preds = %26
   %19 = add nuw i32 %21, 1
   %20 = icmp eq i32 %19, %17
-  br i1 %20, label %.loopexit5.i, label %.preheader.i, !llvm.loop !148
+  br i1 %20, label %.loopexit6.i, label %.preheader.i, !llvm.loop !148
 
 .preheader.i:                                     ; preds = %16, %.critedge
   %21 = phi i32 [ %19, %.critedge ], [ 0, %16 ]
   %22 = sext i32 %21 to i64
-  %23 = getelementptr %struct.node_hstate, ptr @node_hstates, i64 %22, i32 1
+  %.split.i = getelementptr %struct.node_hstate, ptr @node_hstates, i64 %22
+  %23 = getelementptr i8, ptr %.split.i, i64 8
   %24 = load ptr, ptr %23, align 8
   %25 = icmp eq ptr %24, %0
   br i1 %25, label %.loopexit.i, label %26
 
 26:                                               ; preds = %.preheader.i
-  %27 = getelementptr %struct.node_hstate, ptr @node_hstates, i64 %22, i32 1, i64 1
+  %27 = getelementptr i8, ptr %.split.i, i64 16
   %28 = load ptr, ptr %27, align 8
   %29 = icmp eq ptr %28, %0
   br i1 %29, label %.loopexit.i, label %.critedge, !llvm.loop !149
 
-.loopexit5.i:                                     ; preds = %.critedge, %16
+.loopexit6.i:                                     ; preds = %.critedge, %16
   call void asm sideeffect "487: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 487b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 487) #22, !srcloc !150
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 4367, i32 0, i64 12) #22, !srcloc !151
   unreachable
 
-.loopexit.i:                                      ; preds = %.preheader6.i, %.preheader.i, %26
-  %30 = phi i32 [ %21, %26 ], [ %21, %.preheader.i ], [ -1, %.preheader6.i ]
-  %.pn.i = phi i64 [ 0, %.preheader.i ], [ 1, %26 ], [ %12, %.preheader6.i ]
+.loopexit.i:                                      ; preds = %.preheader7.i, %.preheader.i, %26
+  %30 = phi i32 [ %21, %26 ], [ %21, %.preheader.i ], [ -1, %.preheader7.i ]
+  %.pn.i = phi i64 [ 0, %.preheader.i ], [ 1, %26 ], [ %12, %.preheader7.i ]
   %31 = getelementptr %struct.hstate, ptr @hstates, i64 %.pn.i
   %32 = load i64, ptr %5, align 8
   %33 = call fastcc i64 @__nr_hugepages_store_common(i1 noundef zeroext false, ptr noundef %31, i32 noundef %30, i64 noundef %32, i64 noundef %3)
@@ -16113,33 +16138,34 @@ define internal range(i64 -2147483648, 2147483648) i64 @free_hugepages_show(ptr 
   %8 = getelementptr ptr, ptr @hstate_kobjs, i64 %7
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, %0
-  br i1 %10, label %.thread4, label %4
+  br i1 %10, label %.thread5, label %4
 
 11:                                               ; preds = %4
   %12 = load i32, ptr @nr_node_ids, align 4
   %13 = icmp eq i32 %12, 0
-  br i1 %13, label %.loopexit6, label %.preheader
+  br i1 %13, label %.loopexit7, label %.preheader
 
 .critedge:                                        ; preds = %21
   %14 = add nuw i32 %16, 1
   %15 = icmp eq i32 %14, %12
-  br i1 %15, label %.loopexit6, label %.preheader, !llvm.loop !148
+  br i1 %15, label %.loopexit7, label %.preheader, !llvm.loop !148
 
 .preheader:                                       ; preds = %11, %.critedge
   %16 = phi i32 [ %14, %.critedge ], [ 0, %11 ]
   %17 = sext i32 %16 to i64
-  %18 = getelementptr %struct.node_hstate, ptr @node_hstates, i64 %17, i32 1
+  %.split = getelementptr %struct.node_hstate, ptr @node_hstates, i64 %17
+  %18 = getelementptr i8, ptr %.split, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, %0
   br i1 %20, label %.loopexit, label %21
 
 21:                                               ; preds = %.preheader
-  %22 = getelementptr %struct.node_hstate, ptr @node_hstates, i64 %17, i32 1, i64 1
+  %22 = getelementptr i8, ptr %.split, i64 16
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, %0
   br i1 %24, label %.loopexit, label %.critedge, !llvm.loop !149
 
-.loopexit6:                                       ; preds = %.critedge, %11
+.loopexit7:                                       ; preds = %.critedge, %11
   tail call void asm sideeffect "487: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 487b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 487) #22, !srcloc !150
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 4367, i32 0, i64 12) #22, !srcloc !151
   unreachable
@@ -16147,26 +16173,28 @@ define internal range(i64 -2147483648, 2147483648) i64 @free_hugepages_show(ptr 
 .loopexit:                                        ; preds = %.preheader, %21
   %25 = phi i64 [ 1, %21 ], [ 0, %.preheader ]
   %26 = icmp eq i32 %16, -1
-  br i1 %26, label %.thread4, label %30
+  br i1 %26, label %.thread5, label %31
 
-.thread4:                                         ; preds = %5, %.loopexit
+.thread5:                                         ; preds = %5, %.loopexit
   %27 = phi i64 [ %25, %.loopexit ], [ %7, %5 ]
-  %28 = getelementptr %struct.hstate, ptr @hstates, i64 %27, i32 8
-  %29 = load i64, ptr %28, align 8
-  br label %35
+  %28 = getelementptr %struct.hstate, ptr @hstates, i64 %27
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 72
+  %30 = load i64, ptr %29, align 8
+  br label %37
 
-30:                                               ; preds = %.loopexit
-  %31 = getelementptr %struct.hstate, ptr @hstates, i64 %25, i32 16
-  %32 = getelementptr i32, ptr %31, i64 %17
-  %33 = load i32, ptr %32, align 4
-  %34 = zext i32 %33 to i64
-  br label %35
+31:                                               ; preds = %.loopexit
+  %32 = getelementptr %struct.hstate, ptr @hstates, i64 %25
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 1656
+  %34 = getelementptr i32, ptr %33, i64 %17
+  %35 = load i32, ptr %34, align 4
+  %36 = zext i32 %35 to i64
+  br label %37
 
-35:                                               ; preds = %30, %.thread4
-  %36 = phi i64 [ %29, %.thread4 ], [ %34, %30 ]
-  %37 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.21, i64 noundef %36) #22
-  %38 = sext i32 %37 to i64
-  ret i64 %38
+37:                                               ; preds = %31, %.thread5
+  %38 = phi i64 [ %30, %.thread5 ], [ %36, %31 ]
+  %39 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.21, i64 noundef %38) #22
+  %40 = sext i32 %39 to i64
+  ret i64 %40
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -16182,33 +16210,34 @@ define internal range(i64 -2147483648, 2147483648) i64 @surplus_hugepages_show(p
   %8 = getelementptr ptr, ptr @hstate_kobjs, i64 %7
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, %0
-  br i1 %10, label %.thread4, label %4
+  br i1 %10, label %.thread5, label %4
 
 11:                                               ; preds = %4
   %12 = load i32, ptr @nr_node_ids, align 4
   %13 = icmp eq i32 %12, 0
-  br i1 %13, label %.loopexit6, label %.preheader
+  br i1 %13, label %.loopexit7, label %.preheader
 
 .critedge:                                        ; preds = %21
   %14 = add nuw i32 %16, 1
   %15 = icmp eq i32 %14, %12
-  br i1 %15, label %.loopexit6, label %.preheader, !llvm.loop !148
+  br i1 %15, label %.loopexit7, label %.preheader, !llvm.loop !148
 
 .preheader:                                       ; preds = %11, %.critedge
   %16 = phi i32 [ %14, %.critedge ], [ 0, %11 ]
   %17 = sext i32 %16 to i64
-  %18 = getelementptr %struct.node_hstate, ptr @node_hstates, i64 %17, i32 1
+  %.split = getelementptr %struct.node_hstate, ptr @node_hstates, i64 %17
+  %18 = getelementptr i8, ptr %.split, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, %0
   br i1 %20, label %.loopexit, label %21
 
 21:                                               ; preds = %.preheader
-  %22 = getelementptr %struct.node_hstate, ptr @node_hstates, i64 %17, i32 1, i64 1
+  %22 = getelementptr i8, ptr %.split, i64 16
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, %0
   br i1 %24, label %.loopexit, label %.critedge, !llvm.loop !149
 
-.loopexit6:                                       ; preds = %.critedge, %11
+.loopexit7:                                       ; preds = %.critedge, %11
   tail call void asm sideeffect "487: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 487b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 487) #22, !srcloc !150
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 4367, i32 0, i64 12) #22, !srcloc !151
   unreachable
@@ -16216,26 +16245,28 @@ define internal range(i64 -2147483648, 2147483648) i64 @surplus_hugepages_show(p
 .loopexit:                                        ; preds = %.preheader, %21
   %25 = phi i64 [ 1, %21 ], [ 0, %.preheader ]
   %26 = icmp eq i32 %16, -1
-  br i1 %26, label %.thread4, label %30
+  br i1 %26, label %.thread5, label %31
 
-.thread4:                                         ; preds = %5, %.loopexit
+.thread5:                                         ; preds = %5, %.loopexit
   %27 = phi i64 [ %25, %.loopexit ], [ %7, %5 ]
-  %28 = getelementptr %struct.hstate, ptr @hstates, i64 %27, i32 10
-  %29 = load i64, ptr %28, align 8
-  br label %35
+  %28 = getelementptr %struct.hstate, ptr @hstates, i64 %27
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 88
+  %30 = load i64, ptr %29, align 8
+  br label %37
 
-30:                                               ; preds = %.loopexit
-  %31 = getelementptr %struct.hstate, ptr @hstates, i64 %25, i32 17
-  %32 = getelementptr i32, ptr %31, i64 %17
-  %33 = load i32, ptr %32, align 4
-  %34 = zext i32 %33 to i64
-  br label %35
+31:                                               ; preds = %.loopexit
+  %32 = getelementptr %struct.hstate, ptr @hstates, i64 %25
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 1912
+  %34 = getelementptr i32, ptr %33, i64 %17
+  %35 = load i32, ptr %34, align 4
+  %36 = zext i32 %35 to i64
+  br label %37
 
-35:                                               ; preds = %30, %.thread4
-  %36 = phi i64 [ %29, %.thread4 ], [ %34, %30 ]
-  %37 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.21, i64 noundef %36) #22
-  %38 = sext i32 %37 to i64
-  ret i64 %38
+37:                                               ; preds = %31, %.thread5
+  %38 = phi i64 [ %30, %.thread5 ], [ %36, %31 ]
+  %39 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.21, i64 noundef %38) #22
+  %40 = sext i32 %39 to i64
+  ret i64 %40
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -16954,39 +16985,41 @@ define internal range(i64 -2147483648, 2147483648) i64 @nr_overcommit_hugepages_
 11:                                               ; preds = %4
   %12 = load i32, ptr @nr_node_ids, align 4
   %13 = icmp eq i32 %12, 0
-  br i1 %13, label %.loopexit4, label %.preheader
+  br i1 %13, label %.loopexit5, label %.preheader
 
 .critedge:                                        ; preds = %21
   %14 = add nuw i32 %16, 1
   %15 = icmp eq i32 %14, %12
-  br i1 %15, label %.loopexit4, label %.preheader, !llvm.loop !148
+  br i1 %15, label %.loopexit5, label %.preheader, !llvm.loop !148
 
 .preheader:                                       ; preds = %11, %.critedge
   %16 = phi i32 [ %14, %.critedge ], [ 0, %11 ]
   %17 = sext i32 %16 to i64
-  %18 = getelementptr %struct.node_hstate, ptr @node_hstates, i64 %17, i32 1
+  %.split = getelementptr %struct.node_hstate, ptr @node_hstates, i64 %17
+  %18 = getelementptr i8, ptr %.split, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, %0
   br i1 %20, label %.loopexit, label %21
 
 21:                                               ; preds = %.preheader
-  %22 = getelementptr %struct.node_hstate, ptr @node_hstates, i64 %17, i32 1, i64 1
+  %22 = getelementptr i8, ptr %.split, i64 16
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, %0
   br i1 %24, label %.loopexit, label %.critedge, !llvm.loop !149
 
-.loopexit4:                                       ; preds = %.critedge, %11
+.loopexit5:                                       ; preds = %.critedge, %11
   tail call void asm sideeffect "487: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 487b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 487) #22, !srcloc !150
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 4367, i32 0, i64 12) #22, !srcloc !151
   unreachable
 
 .loopexit:                                        ; preds = %5, %.preheader, %21
   %.pn = phi i64 [ 0, %.preheader ], [ 1, %21 ], [ %7, %5 ]
-  %25 = getelementptr %struct.hstate, ptr @hstates, i64 %.pn, i32 11
-  %26 = load i64, ptr %25, align 8
-  %27 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.21, i64 noundef %26) #22
-  %28 = sext i32 %27 to i64
-  ret i64 %28
+  %25 = getelementptr %struct.hstate, ptr @hstates, i64 %.pn
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 96
+  %27 = load i64, ptr %26, align 8
+  %28 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.21, i64 noundef %27) #22
+  %29 = sext i32 %28 to i64
+  ret i64 %29
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -17009,28 +17042,29 @@ define internal i64 @nr_overcommit_hugepages_store(ptr noundef readnone captures
 13:                                               ; preds = %6
   %14 = load i32, ptr @nr_node_ids, align 4
   %15 = icmp eq i32 %14, 0
-  br i1 %15, label %.loopexit5, label %.preheader
+  br i1 %15, label %.loopexit6, label %.preheader
 
 .critedge:                                        ; preds = %23
   %16 = add nuw i32 %18, 1
   %17 = icmp eq i32 %16, %14
-  br i1 %17, label %.loopexit5, label %.preheader, !llvm.loop !148
+  br i1 %17, label %.loopexit6, label %.preheader, !llvm.loop !148
 
 .preheader:                                       ; preds = %13, %.critedge
   %18 = phi i32 [ %16, %.critedge ], [ 0, %13 ]
   %19 = sext i32 %18 to i64
-  %20 = getelementptr %struct.node_hstate, ptr @node_hstates, i64 %19, i32 1
+  %.split = getelementptr %struct.node_hstate, ptr @node_hstates, i64 %19
+  %20 = getelementptr i8, ptr %.split, i64 8
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, %0
   br i1 %22, label %.loopexit, label %23
 
 23:                                               ; preds = %.preheader
-  %24 = getelementptr %struct.node_hstate, ptr @node_hstates, i64 %19, i32 1, i64 1
+  %24 = getelementptr i8, ptr %.split, i64 16
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, %0
   br i1 %26, label %.loopexit, label %.critedge, !llvm.loop !149
 
-.loopexit5:                                       ; preds = %.critedge, %13
+.loopexit6:                                       ; preds = %.critedge, %13
   tail call void asm sideeffect "487: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 487b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 487) #22, !srcloc !150
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 4367, i32 0, i64 12) #22, !srcloc !151
   unreachable
@@ -17085,39 +17119,41 @@ define internal range(i64 -2147483648, 2147483648) i64 @resv_hugepages_show(ptr 
 11:                                               ; preds = %4
   %12 = load i32, ptr @nr_node_ids, align 4
   %13 = icmp eq i32 %12, 0
-  br i1 %13, label %.loopexit4, label %.preheader
+  br i1 %13, label %.loopexit5, label %.preheader
 
 .critedge:                                        ; preds = %21
   %14 = add nuw i32 %16, 1
   %15 = icmp eq i32 %14, %12
-  br i1 %15, label %.loopexit4, label %.preheader, !llvm.loop !148
+  br i1 %15, label %.loopexit5, label %.preheader, !llvm.loop !148
 
 .preheader:                                       ; preds = %11, %.critedge
   %16 = phi i32 [ %14, %.critedge ], [ 0, %11 ]
   %17 = sext i32 %16 to i64
-  %18 = getelementptr %struct.node_hstate, ptr @node_hstates, i64 %17, i32 1
+  %.split = getelementptr %struct.node_hstate, ptr @node_hstates, i64 %17
+  %18 = getelementptr i8, ptr %.split, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, %0
   br i1 %20, label %.loopexit, label %21
 
 21:                                               ; preds = %.preheader
-  %22 = getelementptr %struct.node_hstate, ptr @node_hstates, i64 %17, i32 1, i64 1
+  %22 = getelementptr i8, ptr %.split, i64 16
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, %0
   br i1 %24, label %.loopexit, label %.critedge, !llvm.loop !149
 
-.loopexit4:                                       ; preds = %.critedge, %11
+.loopexit5:                                       ; preds = %.critedge, %11
   tail call void asm sideeffect "487: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 487b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 487) #22, !srcloc !150
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 4367, i32 0, i64 12) #22, !srcloc !151
   unreachable
 
 .loopexit:                                        ; preds = %5, %.preheader, %21
   %.pn = phi i64 [ 0, %.preheader ], [ 1, %21 ], [ %7, %5 ]
-  %25 = getelementptr %struct.hstate, ptr @hstates, i64 %.pn, i32 9
-  %26 = load i64, ptr %25, align 8
-  %27 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.21, i64 noundef %26) #22
-  %28 = sext i32 %27 to i64
-  ret i64 %28
+  %25 = getelementptr %struct.hstate, ptr @hstates, i64 %.pn
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 80
+  %27 = load i64, ptr %26, align 8
+  %28 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.21, i64 noundef %27) #22
+  %29 = sext i32 %28 to i64
+  ret i64 %29
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -17133,33 +17169,34 @@ define internal range(i64 -2147483648, 2147483648) i64 @nr_hugepages_mempolicy_s
   %8 = getelementptr ptr, ptr @hstate_kobjs, i64 %7
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, %0
-  br i1 %10, label %.thread4, label %4
+  br i1 %10, label %.thread5, label %4
 
 11:                                               ; preds = %4
   %12 = load i32, ptr @nr_node_ids, align 4
   %13 = icmp eq i32 %12, 0
-  br i1 %13, label %.loopexit6, label %.preheader
+  br i1 %13, label %.loopexit7, label %.preheader
 
 .critedge:                                        ; preds = %21
   %14 = add nuw i32 %16, 1
   %15 = icmp eq i32 %14, %12
-  br i1 %15, label %.loopexit6, label %.preheader, !llvm.loop !148
+  br i1 %15, label %.loopexit7, label %.preheader, !llvm.loop !148
 
 .preheader:                                       ; preds = %11, %.critedge
   %16 = phi i32 [ %14, %.critedge ], [ 0, %11 ]
   %17 = sext i32 %16 to i64
-  %18 = getelementptr %struct.node_hstate, ptr @node_hstates, i64 %17, i32 1
+  %.split = getelementptr %struct.node_hstate, ptr @node_hstates, i64 %17
+  %18 = getelementptr i8, ptr %.split, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, %0
   br i1 %20, label %.loopexit, label %21
 
 21:                                               ; preds = %.preheader
-  %22 = getelementptr %struct.node_hstate, ptr @node_hstates, i64 %17, i32 1, i64 1
+  %22 = getelementptr i8, ptr %.split, i64 16
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, %0
   br i1 %24, label %.loopexit, label %.critedge, !llvm.loop !149
 
-.loopexit6:                                       ; preds = %.critedge, %11
+.loopexit7:                                       ; preds = %.critedge, %11
   tail call void asm sideeffect "487: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 487b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 487) #22, !srcloc !150
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 4367, i32 0, i64 12) #22, !srcloc !151
   unreachable
@@ -17167,26 +17204,28 @@ define internal range(i64 -2147483648, 2147483648) i64 @nr_hugepages_mempolicy_s
 .loopexit:                                        ; preds = %.preheader, %21
   %25 = phi i64 [ 1, %21 ], [ 0, %.preheader ]
   %26 = icmp eq i32 %16, -1
-  br i1 %26, label %.thread4, label %30
+  br i1 %26, label %.thread5, label %31
 
-.thread4:                                         ; preds = %5, %.loopexit
+.thread5:                                         ; preds = %5, %.loopexit
   %27 = phi i64 [ %25, %.loopexit ], [ %7, %5 ]
-  %28 = getelementptr %struct.hstate, ptr @hstates, i64 %27, i32 7
-  %29 = load i64, ptr %28, align 8
-  br label %35
+  %28 = getelementptr %struct.hstate, ptr @hstates, i64 %27
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 64
+  %30 = load i64, ptr %29, align 8
+  br label %37
 
-30:                                               ; preds = %.loopexit
-  %31 = getelementptr %struct.hstate, ptr @hstates, i64 %25, i32 15
-  %32 = getelementptr i32, ptr %31, i64 %17
-  %33 = load i32, ptr %32, align 4
-  %34 = zext i32 %33 to i64
-  br label %35
+31:                                               ; preds = %.loopexit
+  %32 = getelementptr %struct.hstate, ptr @hstates, i64 %25
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 1400
+  %34 = getelementptr i32, ptr %33, i64 %17
+  %35 = load i32, ptr %34, align 4
+  %36 = zext i32 %35 to i64
+  br label %37
 
-35:                                               ; preds = %30, %.thread4
-  %36 = phi i64 [ %29, %.thread4 ], [ %34, %30 ]
-  %37 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.21, i64 noundef %36) #22
-  %38 = sext i32 %37 to i64
-  ret i64 %38
+37:                                               ; preds = %31, %.thread5
+  %38 = phi i64 [ %30, %.thread5 ], [ %36, %31 ]
+  %39 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.21, i64 noundef %38) #22
+  %40 = sext i32 %39 to i64
+  ret i64 %40
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -17196,16 +17235,16 @@ define internal i64 @nr_hugepages_mempolicy_store(ptr noundef readnone captures(
   store i64 0, ptr %5, align 8, !annotation !41
   %6 = call i32 @kstrtoull(ptr noundef %2, i32 noundef 10, ptr noundef nonnull %5) #22
   %7 = icmp eq i32 %6, 0
-  br i1 %7, label %.preheader6.i, label %8
+  br i1 %7, label %.preheader7.i, label %8
 
 8:                                                ; preds = %4
   %9 = sext i32 %6 to i64
   br label %nr_hugepages_store_common.exit
 
-10:                                               ; preds = %.preheader6.i
-  br i1 %11, label %.preheader6.i, label %16, !llvm.loop !147
+10:                                               ; preds = %.preheader7.i
+  br i1 %11, label %.preheader7.i, label %16, !llvm.loop !147
 
-.preheader6.i:                                    ; preds = %4, %10
+.preheader7.i:                                    ; preds = %4, %10
   %11 = phi i1 [ false, %10 ], [ true, %4 ]
   %12 = phi i64 [ 1, %10 ], [ 0, %4 ]
   %13 = getelementptr ptr, ptr @hstate_kobjs, i64 %12
@@ -17216,35 +17255,36 @@ define internal i64 @nr_hugepages_mempolicy_store(ptr noundef readnone captures(
 16:                                               ; preds = %10
   %17 = load i32, ptr @nr_node_ids, align 4
   %18 = icmp eq i32 %17, 0
-  br i1 %18, label %.loopexit5.i, label %.preheader.i
+  br i1 %18, label %.loopexit6.i, label %.preheader.i
 
 .critedge:                                        ; preds = %26
   %19 = add nuw i32 %21, 1
   %20 = icmp eq i32 %19, %17
-  br i1 %20, label %.loopexit5.i, label %.preheader.i, !llvm.loop !148
+  br i1 %20, label %.loopexit6.i, label %.preheader.i, !llvm.loop !148
 
 .preheader.i:                                     ; preds = %16, %.critedge
   %21 = phi i32 [ %19, %.critedge ], [ 0, %16 ]
   %22 = sext i32 %21 to i64
-  %23 = getelementptr %struct.node_hstate, ptr @node_hstates, i64 %22, i32 1
+  %.split.i = getelementptr %struct.node_hstate, ptr @node_hstates, i64 %22
+  %23 = getelementptr i8, ptr %.split.i, i64 8
   %24 = load ptr, ptr %23, align 8
   %25 = icmp eq ptr %24, %0
   br i1 %25, label %.loopexit.i, label %26
 
 26:                                               ; preds = %.preheader.i
-  %27 = getelementptr %struct.node_hstate, ptr @node_hstates, i64 %22, i32 1, i64 1
+  %27 = getelementptr i8, ptr %.split.i, i64 16
   %28 = load ptr, ptr %27, align 8
   %29 = icmp eq ptr %28, %0
   br i1 %29, label %.loopexit.i, label %.critedge, !llvm.loop !149
 
-.loopexit5.i:                                     ; preds = %.critedge, %16
+.loopexit6.i:                                     ; preds = %.critedge, %16
   call void asm sideeffect "487: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 487b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 487) #22, !srcloc !150
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 4367, i32 0, i64 12) #22, !srcloc !151
   unreachable
 
-.loopexit.i:                                      ; preds = %.preheader6.i, %.preheader.i, %26
-  %30 = phi i32 [ %21, %26 ], [ %21, %.preheader.i ], [ -1, %.preheader6.i ]
-  %.pn.i = phi i64 [ 0, %.preheader.i ], [ 1, %26 ], [ %12, %.preheader6.i ]
+.loopexit.i:                                      ; preds = %.preheader7.i, %.preheader.i, %26
+  %30 = phi i32 [ %21, %26 ], [ %21, %.preheader.i ], [ -1, %.preheader7.i ]
+  %.pn.i = phi i64 [ 0, %.preheader.i ], [ 1, %26 ], [ %12, %.preheader7.i ]
   %31 = getelementptr %struct.hstate, ptr @hstates, i64 %.pn.i
   %32 = load i64, ptr %5, align 8
   %33 = call fastcc i64 @__nr_hugepages_store_common(i1 noundef zeroext true, ptr noundef %31, i32 noundef %30, i64 noundef %32, i64 noundef %3)

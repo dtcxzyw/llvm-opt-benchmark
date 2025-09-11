@@ -1332,7 +1332,8 @@ _ZNK4llvh9SourceMgr23FindBufferContainingLocENS_5SMLocE.exit: ; preds = %if.end.
   %retval.0.i = phi i32 [ %7, %if.then38.i ], [ 0, %_ZNKSt3mapIPKcjSt4lessIS1_ESaISt4pairIKS1_jEEE11lower_boundERS5_.exit.i ], [ 0, %land.rhs26.i ], [ %0, %land.rhs.i ], [ 0, %if.end.i._ZNK4llvh9SourceMgr23FindBufferContainingLocENS_5SMLocE.exit_crit_edge ]
   %sub.i4 = add i32 %retval.0.i, -1
   %conv.i5 = zext i32 %sub.i4 to i64
-  %IncludeLoc6 = getelementptr inbounds nuw %"struct.llvh::SourceMgr::SrcBuffer", ptr %10, i64 %conv.i5, i32 2
+  %add.ptr.i.i6 = getelementptr inbounds nuw %"struct.llvh::SourceMgr::SrcBuffer", ptr %10, i64 %conv.i5
+  %IncludeLoc6 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i6, i64 16
   %agg.tmp4.sroa.0.0.copyload = load ptr, ptr %IncludeLoc6, align 8
   tail call void @_ZNK4llvh9SourceMgr17PrintIncludeStackENS_5SMLocERNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr %agg.tmp4.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(36) %OS)
   %OutBufEnd.i5.i = getelementptr inbounds nuw i8, ptr %OS, i64 16
@@ -1828,7 +1829,8 @@ _ZNK4llvh9SourceMgr23FindBufferContainingLocENS_5SMLocE.exit: ; preds = %if.end.
   %retval.0.i = phi i32 [ %9, %if.then38.i ], [ 0, %_ZNKSt3mapIPKcjSt4lessIS1_ESaISt4pairIKS1_jEEE11lower_boundERS5_.exit.i ], [ 0, %land.rhs26.i ], [ %2, %land.rhs.i ], [ 0, %if.end.i._ZNK4llvh9SourceMgr23FindBufferContainingLocENS_5SMLocE.exit_crit_edge ]
   %sub.i7 = add i32 %retval.0.i, -1
   %conv.i8 = zext i32 %sub.i7 to i64
-  %IncludeLoc = getelementptr inbounds nuw %"struct.llvh::SourceMgr::SrcBuffer", ptr %12, i64 %conv.i8, i32 2
+  %add.ptr.i.i9 = getelementptr inbounds nuw %"struct.llvh::SourceMgr::SrcBuffer", ptr %12, i64 %conv.i8
+  %IncludeLoc = getelementptr inbounds nuw i8, ptr %add.ptr.i.i9, i64 16
   %agg.tmp9.sroa.0.0.copyload = load ptr, ptr %IncludeLoc, align 8
   tail call void @_ZNK4llvh9SourceMgr17PrintIncludeStackENS_5SMLocERNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr %agg.tmp9.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(36) %OS)
   br label %if.end12

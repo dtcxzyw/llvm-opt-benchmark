@@ -212,7 +212,8 @@ module asm ".previous\09\09\09\09\09"
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: none, inaccessiblemem: none)
 define dso_local range(i32 0, 256) i32 @mpc_ioapic_id(i32 noundef %0) local_unnamed_addr #0 align 16 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr %struct.ioapic, ptr @ioapics, i64 %2, i32 2, i32 1
+  %.split = getelementptr %struct.ioapic, ptr @ioapics, i64 %2
+  %3 = getelementptr i8, ptr %.split, i64 17
   %4 = load i8, ptr %3, align 1
   %5 = zext i8 %4 to i32
   ret i32 %5
@@ -221,7 +222,8 @@ define dso_local range(i32 0, 256) i32 @mpc_ioapic_id(i32 noundef %0) local_unna
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: none, inaccessiblemem: none)
 define dso_local i32 @mpc_ioapic_addr(i32 noundef %0) local_unnamed_addr #0 align 16 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr %struct.ioapic, ptr @ioapics, i64 %2, i32 2, i32 4
+  %.split = getelementptr %struct.ioapic, ptr @ioapics, i64 %2
+  %3 = getelementptr i8, ptr %.split, i64 20
   %4 = load i32, ptr %3, align 4
   ret i32 %4
 }
@@ -391,7 +393,8 @@ define dso_local i32 @native_io_apic_read(i32 noundef %0, i32 noundef %1) local_
   %6 = sub nsw i64 -8392704, %5
   %7 = inttoptr i64 %6 to ptr
   %8 = sext i32 %0 to i64
-  %9 = getelementptr %struct.ioapic, ptr @ioapics, i64 %8, i32 2, i32 4
+  %.split = getelementptr %struct.ioapic, ptr @ioapics, i64 %8
+  %9 = getelementptr i8, ptr %.split, i64 20
   %10 = load i32, ptr %9, align 4
   %11 = and i32 %10, 4095
   %12 = zext nneg i32 %11 to i64
@@ -476,7 +479,8 @@ define internal fastcc void @clear_IO_APIC_pin(i32 noundef %0, i32 noundef %1) u
   %26 = sub nsw i64 -8392704, %25
   %27 = inttoptr i64 %26 to ptr
   %28 = sext i32 %0 to i64
-  %29 = getelementptr %struct.ioapic, ptr @ioapics, i64 %28, i32 2, i32 4
+  %.split = getelementptr %struct.ioapic, ptr @ioapics, i64 %28
+  %29 = getelementptr i8, ptr %.split, i64 20
   %30 = load i32, ptr %29, align 4
   %31 = and i32 %30, 4095
   %32 = zext nneg i32 %31 to i64
@@ -529,7 +533,8 @@ define internal fastcc void @clear_IO_APIC_pin(i32 noundef %0, i32 noundef %1) u
   %63 = sub nsw i64 -8392704, %62
   %64 = inttoptr i64 %63 to ptr
   %65 = sext i32 %0 to i64
-  %66 = getelementptr %struct.ioapic, ptr @ioapics, i64 %65, i32 2, i32 4
+  %.split1 = getelementptr %struct.ioapic, ptr @ioapics, i64 %65
+  %66 = getelementptr i8, ptr %.split1, i64 20
   %67 = load i32, ptr %66, align 4
   %68 = and i32 %67, 4095
   %69 = zext nneg i32 %68 to i64
@@ -565,7 +570,8 @@ define internal fastcc void @clear_IO_APIC_pin(i32 noundef %0, i32 noundef %1) u
   %87 = sub nsw i64 -8392704, %86
   %88 = inttoptr i64 %87 to ptr
   %89 = sext i32 %0 to i64
-  %90 = getelementptr %struct.ioapic, ptr @ioapics, i64 %89, i32 2, i32 4
+  %.split2 = getelementptr %struct.ioapic, ptr @ioapics, i64 %89
+  %90 = getelementptr i8, ptr %.split2, i64 20
   %91 = load i32, ptr %90, align 4
   %92 = and i32 %91, 4095
   %93 = zext nneg i32 %92 to i64
@@ -592,7 +598,7 @@ define internal fastcc void @clear_IO_APIC_pin(i32 noundef %0, i32 noundef %1) u
   br i1 %107, label %113, label %108
 
 108:                                              ; preds = %82
-  %109 = getelementptr %struct.ioapic, ptr @ioapics, i64 %89, i32 2, i32 1
+  %109 = getelementptr i8, ptr %.split2, i64 17
   %110 = load i8, ptr %109, align 1
   %111 = zext i8 %110 to i32
   %112 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.29, i32 noundef %111, i32 noundef %1) #22
@@ -714,7 +720,7 @@ define dso_local void @mask_ioapic_entries() local_unnamed_addr #3 align 16 {
   %16 = sext i32 %15 to i64
   %17 = sub nsw i64 -8392704, %16
   %18 = inttoptr i64 %17 to ptr
-  %19 = getelementptr %struct.ioapic, ptr @ioapics, i64 %4, i32 2, i32 4
+  %19 = getelementptr i8, ptr %5, i64 20
   br label %20
 
 20:                                               ; preds = %47, %12
@@ -793,7 +799,8 @@ define internal fastcc void @ioapic_write_entry(i32 noundef range(i32 0, -1) %0,
   %12 = sub nsw i64 -8392704, %11
   %13 = inttoptr i64 %12 to ptr
   %14 = sext i32 %0 to i64
-  %15 = getelementptr %struct.ioapic, ptr @ioapics, i64 %14, i32 2, i32 4
+  %.split = getelementptr %struct.ioapic, ptr @ioapics, i64 %14
+  %15 = getelementptr i8, ptr %.split, i64 20
   %16 = load i32, ptr %15, align 4
   %17 = and i32 %16, 4095
   %18 = zext nneg i32 %17 to i64
@@ -841,7 +848,7 @@ define dso_local noundef i32 @restore_ioapic_entries() local_unnamed_addr #3 ali
   %16 = sext i32 %15 to i64
   %17 = sub nsw i64 -8392704, %16
   %18 = inttoptr i64 %17 to ptr
-  %19 = getelementptr %struct.ioapic, ptr @ioapics, i64 %4, i32 2, i32 4
+  %19 = getelementptr i8, ptr %5, i64 20
   br label %20
 
 20:                                               ; preds = %20, %12
@@ -905,12 +912,12 @@ define dso_local noundef range(i32 -1, 1) i32 @acpi_get_override_irq(i32 noundef
 define internal fastcc noundef range(i32 -1, 1) i32 @__acpi_get_override_irq(i32 noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2) unnamed_addr #3 align 16 {
   %4 = load i8, ptr @ioapic_is_disabled, align 1, !range !20, !noundef !21
   %5 = icmp eq i8 %4, 0
-  br i1 %5, label %6, label %.thread8
+  br i1 %5, label %6, label %.thread10
 
 6:                                                ; preds = %3
   %7 = load i32, ptr @nr_ioapics, align 4
   %8 = icmp eq i32 %7, 0
-  br i1 %8, label %.thread8, label %9
+  br i1 %8, label %.thread10, label %9
 
 9:                                                ; preds = %6
   %10 = icmp sgt i32 %7, 0
@@ -927,53 +934,55 @@ define internal fastcc noundef range(i32 -1, 1) i32 @__acpi_get_override_irq(i32
 
 16:                                               ; preds = %13, %11
   %17 = phi i64 [ 0, %11 ], [ %14, %13 ]
-  %18 = getelementptr %struct.ioapic, ptr @ioapics, i64 %17, i32 3
+  %.split = getelementptr %struct.ioapic, ptr @ioapics, i64 %17
+  %18 = getelementptr i8, ptr %.split, i64 24
   %19 = load i32, ptr %18, align 8
   %20 = icmp ugt i32 %19, %0
   br i1 %20, label %13, label %21
 
 21:                                               ; preds = %16
-  %22 = getelementptr inbounds nuw i8, ptr %18, i64 4
+  %22 = getelementptr i8, ptr %.split, i64 28
   %23 = load i32, ptr %22, align 4
   %24 = icmp ult i32 %23, %0
   br i1 %24, label %13, label %26
 
 .loopexit:                                        ; preds = %13, %9
   %25 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.19, i32 noundef %0) #22
-  br label %.thread8
+  br label %.thread10
 
 26:                                               ; preds = %21
   %27 = and i64 %17, 2147483648
   %.not = icmp eq i64 %27, 0
-  br i1 %.not, label %28, label %.thread8
+  br i1 %.not, label %28, label %.thread10
 
 28:                                               ; preds = %26
   %29 = and i64 %17, 2147483647
-  %30 = getelementptr %struct.ioapic, ptr @ioapics, i64 %29, i32 3
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 4
-  %32 = load i32, ptr %31, align 4
-  %33 = icmp ult i32 %32, %0
-  br i1 %33, label %.thread9, label %34, !prof !23
+  %.split8 = getelementptr %struct.ioapic, ptr @ioapics, i64 %29
+  %30 = getelementptr i8, ptr %.split8, i64 28
+  %31 = load i32, ptr %30, align 4
+  %32 = icmp ult i32 %31, %0
+  br i1 %32, label %.thread11, label %33, !prof !23
 
-.thread9:                                         ; preds = %28
+.thread11:                                        ; preds = %28
   tail call void asm sideeffect "479: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 479b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 479) #25, !srcloc !24
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.15, i32 2785, i32 2305, i64 12) #25, !srcloc !25
   tail call void asm sideeffect "480: nop\0A\09.pushsection .discard.instr_end\0A\09.long 480b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 480) #25, !srcloc !26
-  br label %.thread8
+  br label %.thread10
 
-34:                                               ; preds = %28
-  %35 = load i32, ptr %30, align 8
+33:                                               ; preds = %28
+  %34 = getelementptr i8, ptr %.split8, i64 24
+  %35 = load i32, ptr %34, align 8
   %36 = sub i32 %0, %35
   %37 = icmp slt i32 %36, 0
-  br i1 %37, label %.thread8, label %38
+  br i1 %37, label %.thread10, label %38
 
-38:                                               ; preds = %34
+38:                                               ; preds = %33
   %39 = load i32, ptr @mp_irq_entries, align 4
   %40 = icmp sgt i32 %39, 0
-  br i1 %40, label %41, label %.thread8
+  br i1 %40, label %41, label %.thread10
 
 41:                                               ; preds = %38
-  %42 = getelementptr %struct.ioapic, ptr @ioapics, i64 %29, i32 2, i32 1
+  %42 = getelementptr i8, ptr %.split8, i64 17
   %43 = zext nneg i32 %39 to i64
   br label %44
 
@@ -1004,12 +1013,12 @@ define internal fastcc noundef range(i32 -1, 1) i32 @__acpi_get_override_irq(i32
 62:                                               ; preds = %57, %50, %44
   %63 = add nuw nsw i64 %45, 1
   %64 = icmp eq i64 %63, %43
-  br i1 %64, label %.thread8, label %44, !llvm.loop !27
+  br i1 %64, label %.thread10, label %44, !llvm.loop !27
 
 65:                                               ; preds = %57
   %66 = and i64 %45, 2147483648
-  %.not12 = icmp eq i64 %66, 0
-  br i1 %.not12, label %67, label %.thread8
+  %.not14 = icmp eq i64 %66, 0
+  br i1 %.not14, label %67, label %.thread10
 
 67:                                               ; preds = %65
   %68 = and i64 %45, 2147483647
@@ -1018,7 +1027,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @__acpi_get_override_irq(i32
   %71 = load i16, ptr %70, align 2
   %72 = lshr i16 %71, 2
   %73 = and i16 %72, 3
-  switch i16 %73, label %default.unreachable24 [
+  switch i16 %73, label %default.unreachable26 [
     i16 0, label %74
     i16 1, label %84
     i16 2, label %81
@@ -1039,7 +1048,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @__acpi_get_override_irq(i32
   %82 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.30) #22
   br label %83
 
-default.unreachable24:                            ; preds = %84, %67
+default.unreachable26:                            ; preds = %84, %67
   unreachable
 
 83:                                               ; preds = %81, %67
@@ -1050,7 +1059,7 @@ default.unreachable24:                            ; preds = %84, %67
   store i8 %85, ptr %1, align 1
   %86 = load i16, ptr %70, align 2
   %87 = and i16 %86, 3
-  switch i16 %87, label %default.unreachable24 [
+  switch i16 %87, label %default.unreachable26 [
     i16 0, label %88
     i16 1, label %98
     i16 2, label %95
@@ -1077,10 +1086,10 @@ default.unreachable24:                            ; preds = %84, %67
 98:                                               ; preds = %97, %88, %84
   %99 = phi i8 [ 1, %97 ], [ %94, %88 ], [ 0, %84 ]
   store i8 %99, ptr %2, align 1
-  br label %.thread8
+  br label %.thread10
 
-.thread8:                                         ; preds = %62, %38, %6, %.loopexit, %.thread9, %98, %65, %34, %26, %3
-  %100 = phi i32 [ 0, %98 ], [ -1, %3 ], [ -1, %26 ], [ -1, %34 ], [ -1, %65 ], [ -1, %.thread9 ], [ -1, %.loopexit ], [ -1, %6 ], [ -1, %38 ], [ -1, %62 ]
+.thread10:                                        ; preds = %62, %38, %6, %.loopexit, %.thread11, %98, %65, %33, %26, %3
+  %100 = phi i32 [ 0, %98 ], [ -1, %3 ], [ -1, %26 ], [ -1, %33 ], [ -1, %65 ], [ -1, %.thread11 ], [ -1, %.loopexit ], [ -1, %6 ], [ -1, %38 ], [ -1, %62 ]
   ret i32 %100
 }
 
@@ -1112,11 +1121,11 @@ declare dso_local void @init_irq_alloc_info(ptr noundef, ptr noundef) local_unna
 define dso_local i32 @mp_map_gsi_to_irq(i32 noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #3 align 16 {
   %4 = load i32, ptr @nr_ioapics, align 4
   %5 = icmp eq i32 %4, 0
-  br i1 %5, label %.thread6, label %6
+  br i1 %5, label %.thread8, label %6
 
 6:                                                ; preds = %3
   %7 = icmp sgt i32 %4, 0
-  br i1 %7, label %8, label %.loopexit7
+  br i1 %7, label %8, label %.loopexit9
 
 8:                                                ; preds = %6
   %9 = zext nneg i32 %4 to i64
@@ -1125,57 +1134,59 @@ define dso_local i32 @mp_map_gsi_to_irq(i32 noundef %0, i32 noundef %1, ptr noun
 10:                                               ; preds = %13, %18
   %11 = add nuw nsw i64 %14, 1
   %12 = icmp eq i64 %11, %9
-  br i1 %12, label %.loopexit7, label %13, !llvm.loop !22
+  br i1 %12, label %.loopexit9, label %13, !llvm.loop !22
 
 13:                                               ; preds = %10, %8
   %14 = phi i64 [ 0, %8 ], [ %11, %10 ]
-  %15 = getelementptr %struct.ioapic, ptr @ioapics, i64 %14, i32 3
+  %.split = getelementptr %struct.ioapic, ptr @ioapics, i64 %14
+  %15 = getelementptr i8, ptr %.split, i64 24
   %16 = load i32, ptr %15, align 8
   %17 = icmp ugt i32 %16, %0
   br i1 %17, label %10, label %18
 
 18:                                               ; preds = %13
-  %19 = getelementptr inbounds nuw i8, ptr %15, i64 4
+  %19 = getelementptr i8, ptr %.split, i64 28
   %20 = load i32, ptr %19, align 4
   %21 = icmp ult i32 %20, %0
   br i1 %21, label %10, label %23
 
-.loopexit7:                                       ; preds = %10, %6
+.loopexit9:                                       ; preds = %10, %6
   %22 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.19, i32 noundef %0) #22
-  br label %.thread6
+  br label %.thread8
 
 23:                                               ; preds = %18
   %24 = trunc i64 %14 to i32
   %25 = icmp slt i32 %24, 0
-  br i1 %25, label %.thread6, label %26
+  br i1 %25, label %.thread8, label %26
 
 26:                                               ; preds = %23
   %27 = and i64 %14, 2147483647
-  %28 = getelementptr %struct.ioapic, ptr @ioapics, i64 %27, i32 3
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 4
-  %30 = load i32, ptr %29, align 4
-  %31 = icmp ult i32 %30, %0
-  br i1 %31, label %32, label %33, !prof !23
+  %.split6 = getelementptr %struct.ioapic, ptr @ioapics, i64 %27
+  %28 = getelementptr i8, ptr %.split6, i64 28
+  %29 = load i32, ptr %28, align 4
+  %30 = icmp ult i32 %29, %0
+  br i1 %30, label %31, label %32, !prof !23
 
-32:                                               ; preds = %26
+31:                                               ; preds = %26
   tail call void asm sideeffect "479: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 479b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 479) #25, !srcloc !24
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.15, i32 2785, i32 2305, i64 12) #25, !srcloc !25
   tail call void asm sideeffect "480: nop\0A\09.pushsection .discard.instr_end\0A\09.long 480b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 480) #25, !srcloc !26
   br label %36
 
-33:                                               ; preds = %26
-  %34 = load i32, ptr %28, align 8
+32:                                               ; preds = %26
+  %33 = getelementptr i8, ptr %.split6, i64 24
+  %34 = load i32, ptr %33, align 8
   %35 = sub i32 %0, %34
   br label %36
 
-36:                                               ; preds = %33, %32
-  %37 = phi i32 [ %35, %33 ], [ -1, %32 ]
+36:                                               ; preds = %32, %31
+  %37 = phi i32 [ %35, %32 ], [ -1, %31 ]
   %38 = load i32, ptr @mp_irq_entries, align 4
   %39 = icmp sgt i32 %38, 0
   br i1 %39, label %40, label %.loopexit
 
 40:                                               ; preds = %36
-  %41 = getelementptr %struct.ioapic, ptr @ioapics, i64 %27, i32 2, i32 1
+  %41 = getelementptr i8, ptr %.split6, i64 17
   %42 = zext nneg i32 %38 to i64
   br label %43
 
@@ -1218,14 +1229,14 @@ define dso_local i32 @mp_map_gsi_to_irq(i32 noundef %0, i32 noundef %1, ptr noun
   %68 = icmp ne i32 %67, 0
   %69 = icmp slt i32 %66, 0
   %70 = and i1 %68, %69
-  br i1 %70, label %.thread6, label %71
+  br i1 %70, label %.thread8, label %71
 
 71:                                               ; preds = %.loopexit
   %72 = tail call fastcc i32 @mp_map_pin_to_irq(i32 noundef %0, i32 noundef %66, i32 noundef %24, i32 noundef %37, i32 noundef %1, ptr noundef %2)
-  br label %.thread6
+  br label %.thread8
 
-.thread6:                                         ; preds = %3, %.loopexit7, %71, %.loopexit, %23
-  %73 = phi i32 [ %72, %71 ], [ -19, %23 ], [ -19, %.loopexit ], [ -19, %.loopexit7 ], [ -19, %3 ]
+.thread8:                                         ; preds = %3, %.loopexit9, %71, %.loopexit, %23
+  %73 = phi i32 [ %72, %71 ], [ -19, %23 ], [ -19, %.loopexit ], [ -19, %.loopexit9 ], [ -19, %3 ]
   ret i32 %73
 }
 
@@ -1250,13 +1261,14 @@ define dso_local i32 @mp_find_ioapic(i32 noundef %0) local_unnamed_addr #3 align
 
 11:                                               ; preds = %8, %6
   %12 = phi i64 [ 0, %6 ], [ %9, %8 ]
-  %13 = getelementptr %struct.ioapic, ptr @ioapics, i64 %12, i32 3
+  %.split = getelementptr %struct.ioapic, ptr @ioapics, i64 %12
+  %13 = getelementptr i8, ptr %.split, i64 24
   %14 = load i32, ptr %13, align 8
   %15 = icmp ugt i32 %14, %0
   br i1 %15, label %8, label %16
 
 16:                                               ; preds = %11
-  %17 = getelementptr inbounds nuw i8, ptr %13, i64 4
+  %17 = getelementptr i8, ptr %.split, i64 28
   %18 = load i32, ptr %17, align 4
   %19 = icmp ult i32 %18, %0
   br i1 %19, label %8, label %.loopexit
@@ -1287,25 +1299,26 @@ define dso_local i32 @mp_find_ioapic_pin(i32 noundef %0, i32 noundef %1) local_u
 
 5:                                                ; preds = %2
   %6 = zext nneg i32 %0 to i64
-  %7 = getelementptr %struct.ioapic, ptr @ioapics, i64 %6, i32 3
-  %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %9 = load i32, ptr %8, align 4
-  %10 = icmp ult i32 %9, %1
-  br i1 %10, label %11, label %12, !prof !23
+  %.split = getelementptr %struct.ioapic, ptr @ioapics, i64 %6
+  %7 = getelementptr i8, ptr %.split, i64 28
+  %8 = load i32, ptr %7, align 4
+  %9 = icmp ult i32 %8, %1
+  br i1 %9, label %10, label %11, !prof !23
 
-11:                                               ; preds = %5
+10:                                               ; preds = %5
   tail call void asm sideeffect "479: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 479b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 479) #25, !srcloc !24
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.15, i32 2785, i32 2305, i64 12) #25, !srcloc !25
   tail call void asm sideeffect "480: nop\0A\09.pushsection .discard.instr_end\0A\09.long 480b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 480) #25, !srcloc !26
   br label %15
 
-12:                                               ; preds = %5
-  %13 = load i32, ptr %7, align 8
+11:                                               ; preds = %5
+  %12 = getelementptr i8, ptr %.split, i64 24
+  %13 = load i32, ptr %12, align 8
   %14 = sub i32 %1, %13
   br label %15
 
-15:                                               ; preds = %12, %11, %4
-  %16 = phi i32 [ %14, %12 ], [ -1, %4 ], [ -1, %11 ]
+15:                                               ; preds = %11, %10, %4
+  %16 = phi i32 [ %14, %11 ], [ -1, %4 ], [ -1, %10 ]
   ret i32 %16
 }
 
@@ -1317,7 +1330,8 @@ define internal fastcc i32 @find_irq_entry(i32 noundef %0, i32 noundef %1) unnam
 
 5:                                                ; preds = %2
   %6 = sext i32 %0 to i64
-  %7 = getelementptr %struct.ioapic, ptr @ioapics, i64 %6, i32 2, i32 1
+  %.split = getelementptr %struct.ioapic, ptr @ioapics, i64 %6
+  %7 = getelementptr i8, ptr %.split, i64 17
   %8 = zext nneg i32 %3 to i64
   br label %9
 
@@ -1368,7 +1382,8 @@ define internal fastcc i32 @mp_map_pin_to_irq(i32 noundef %0, i32 noundef %1, i3
   %11 = alloca %struct.irq_alloc_info, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %12 = sext i32 %2 to i64
-  %13 = getelementptr %struct.ioapic, ptr @ioapics, i64 %12, i32 5
+  %.split = getelementptr %struct.ioapic, ptr @ioapics, i64 %12
+  %13 = getelementptr i8, ptr %.split, i64 56
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %140, label %16
@@ -1410,7 +1425,7 @@ define internal fastcc i32 @mp_map_pin_to_irq(i32 noundef %0, i32 noundef %1, i3
   br i1 %40, label %41, label %50
 
 41:                                               ; preds = %36
-  br i1 %38, label %.thread8, label %42
+  br i1 %38, label %.thread10, label %42
 
 42:                                               ; preds = %41
   %43 = sext i32 %3 to i64
@@ -1423,7 +1438,7 @@ define internal fastcc i32 @mp_map_pin_to_irq(i32 noundef %0, i32 noundef %1, i3
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %48 = icmp eq i32 %47, 0
   %49 = select i1 %48, i32 -2, i32 %47
-  br label %.thread8
+  br label %.thread10
 
 50:                                               ; preds = %36
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -1432,7 +1447,7 @@ define internal fastcc i32 @mp_map_pin_to_irq(i32 noundef %0, i32 noundef %1, i3
   store i8 0, ptr %9, align 1, !annotation !32
   call void @copy_irq_alloc_info(ptr noundef nonnull %11, ptr noundef %5) #25
   store i32 1, ptr %11, align 8
-  %51 = getelementptr %struct.ioapic, ptr @ioapics, i64 %12, i32 2, i32 1
+  %51 = getelementptr i8, ptr %.split, i64 17
   %52 = load i8, ptr %51, align 1
   %53 = zext i8 %52 to i32
   %54 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -1509,7 +1524,7 @@ define internal fastcc i32 @mp_map_pin_to_irq(i32 noundef %0, i32 noundef %1, i3
   br i1 %97, label %98, label %124
 
 98:                                               ; preds = %91
-  %99 = getelementptr %struct.ioapic, ptr @ioapics, i64 %12, i32 4
+  %99 = getelementptr i8, ptr %.split, i64 32
   %100 = load i32, ptr %99, align 8
   switch i32 %100, label %114 [
     i32 1, label %101
@@ -1547,7 +1562,7 @@ define internal fastcc i32 @mp_map_pin_to_irq(i32 noundef %0, i32 noundef %1, i3
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.15, i32 970, i32 2313, i64 12) #25, !srcloc !35
   call void asm sideeffect "464: nop\0A\09.pushsection .discard.instr_end\0A\09.long 464b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 464) #25, !srcloc !36
   call void asm sideeffect "465: nop\0A\09.pushsection .discard.instr_end\0A\09.long 465b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 465) #25, !srcloc !37
-  br label %.thread8
+  br label %.thread10
 
 .thread:                                          ; preds = %103, %113, %109, %107, %98
   %115 = phi i32 [ -1, %98 ], [ %0, %113 ], [ %0, %107 ], [ %0, %109 ], [ -1, %103 ]
@@ -1563,12 +1578,12 @@ define internal fastcc i32 @mp_map_pin_to_irq(i32 noundef %0, i32 noundef %1, i3
 
 124:                                              ; preds = %91
   %125 = call fastcc zeroext i1 @mp_check_pin_attr(i32 noundef %95, ptr noundef nonnull %11)
-  br i1 %125, label %select.unfold, label %.thread8
+  br i1 %125, label %select.unfold, label %.thread10
 
 select.unfold:                                    ; preds = %124, %.thread, %89
   %126 = phi i32 [ %90, %89 ], [ %123, %.thread ], [ %95, %124 ]
   %127 = icmp sgt i32 %126, -1
-  br i1 %127, label %128, label %.thread8
+  br i1 %127, label %128, label %.thread10
 
 128:                                              ; preds = %select.unfold
   %129 = call ptr @irq_get_irq_data(i32 noundef %126) #25
@@ -1586,15 +1601,15 @@ select.unfold:                                    ; preds = %124, %.thread, %89
   %137 = load i32, ptr %136, align 4
   %138 = add i32 %137, 1
   store i32 %138, ptr %136, align 4
-  br label %.thread8
+  br label %.thread10
 
-.thread8:                                         ; preds = %114, %124, %134, %select.unfold, %42, %41
+.thread10:                                        ; preds = %114, %124, %134, %select.unfold, %42, %41
   %139 = phi i32 [ %126, %134 ], [ %126, %select.unfold ], [ %37, %41 ], [ %49, %42 ], [ -1, %114 ], [ -16, %124 ]
   call void @mutex_unlock(ptr noundef nonnull @ioapic_mutex) #25
   br label %140
 
-140:                                              ; preds = %.thread8, %27, %6
-  %141 = phi i32 [ %139, %.thread8 ], [ -38, %6 ], [ -22, %27 ]
+140:                                              ; preds = %.thread10, %27, %6
+  %141 = phi i32 [ %139, %.thread10 ], [ -38, %6 ], [ -22, %27 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i32 %141
 }
@@ -1678,20 +1693,20 @@ define dso_local i32 @IO_APIC_get_PCI_irq_vector(i32 noundef %0, i32 noundef %1,
 14:                                               ; preds = %9
   %15 = load i32, ptr @apic_verbosity, align 4
   %16 = icmp sgt i32 %15, 0
-  br i1 %16, label %17, label %.thread8
+  br i1 %16, label %17, label %.thread12
 
 17:                                               ; preds = %14
   %18 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.3, i32 noundef %0) #22
-  br label %.thread8
+  br label %.thread12
 
 19:                                               ; preds = %9
   %20 = load i32, ptr @mp_irq_entries, align 4
   %21 = icmp sgt i32 %20, 0
-  br i1 %21, label %.preheader, label %.thread8
+  br i1 %21, label %.preheader, label %.thread12
 
 .preheader:                                       ; preds = %19, %.loopexit
   %22 = phi i64 [ %105, %.loopexit ], [ 0, %19 ]
-  %23 = phi i32 [ %.ph5, %.loopexit ], [ -1, %19 ]
+  %23 = phi i32 [ %.ph9, %.loopexit ], [ -1, %19 ]
   %24 = phi i32 [ %.ph, %.loopexit ], [ -1, %19 ]
   %25 = getelementptr %struct.mpc_intsrc, ptr @mp_irqs, i64 %22
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 4
@@ -1723,37 +1738,39 @@ define dso_local i32 @IO_APIC_get_PCI_irq_vector(i32 noundef %0, i32 noundef %1,
 44:                                               ; preds = %41
   %45 = getelementptr inbounds nuw i8, ptr %25, i64 6
   %46 = load i8, ptr %45, align 2
-  %.fr15 = freeze i8 %46
-  %47 = icmp eq i8 %.fr15, -1
+  %.fr20 = freeze i8 %46
+  %47 = icmp eq i8 %.fr20, -1
   %48 = zext nneg i32 %42 to i64
-  br i1 %47, label %.loopexit23, label %.split
+  br i1 %47, label %.split17.us, label %.split17
 
-.split:                                           ; preds = %44, %53
+.split17:                                         ; preds = %44, %53
   %49 = phi i64 [ %54, %53 ], [ 0, %44 ]
-  %50 = getelementptr %struct.ioapic, ptr @ioapics, i64 %49, i32 2, i32 1
+  %.split = getelementptr %struct.ioapic, ptr @ioapics, i64 %49
+  %50 = getelementptr i8, ptr %.split, i64 17
   %51 = load i8, ptr %50, align 1
-  %52 = icmp eq i8 %51, %.fr15
-  br i1 %52, label %.loopexit23, label %53
+  %52 = icmp eq i8 %51, %.fr20
+  br i1 %52, label %.split17.us, label %53
 
-53:                                               ; preds = %.split
+53:                                               ; preds = %.split17
   %54 = add nuw nsw i64 %49, 1
   %55 = icmp eq i64 %54, %48
-  br i1 %55, label %.loopexit, label %.split, !llvm.loop !38
+  br i1 %55, label %.loopexit, label %.split17, !llvm.loop !38
 
-.loopexit23:                                      ; preds = %.split, %44
-  %.us-phi = phi i64 [ 0, %44 ], [ %49, %.split ]
+.split17.us:                                      ; preds = %.split17, %44
+  %.us-phi = phi i64 [ 0, %44 ], [ %49, %.split17 ]
   %56 = trunc i64 %.us-phi to i32
   %57 = getelementptr inbounds nuw i8, ptr %25, i64 7
   %58 = load i8, ptr %57, align 1
   %59 = trunc i64 %22 to i32
   %sext = shl i64 %.us-phi, 32
   %60 = ashr exact i64 %sext, 32
-  %61 = getelementptr %struct.ioapic, ptr @ioapics, i64 %60, i32 5
+  %.split.i = getelementptr %struct.ioapic, ptr @ioapics, i64 %60
+  %61 = getelementptr i8, ptr %.split.i, i64 56
   %62 = load ptr, ptr %61, align 8
   %63 = icmp eq ptr %62, null
   br i1 %63, label %mp_map_pin_to_irq.exit.thread, label %64
 
-64:                                               ; preds = %.loopexit23
+64:                                               ; preds = %.split17.us
   %65 = icmp sgt i32 %59, -1
   br i1 %65, label %66, label %.thread
 
@@ -1811,12 +1828,12 @@ mp_map_pin_to_irq.exit:                           ; preds = %79, %80
   %96 = icmp eq i64 %95, 0
   br i1 %96, label %.loopexit, label %mp_map_pin_to_irq.exit.thread
 
-mp_map_pin_to_irq.exit.thread:                    ; preds = %71, %.loopexit23, %91, %mp_map_pin_to_irq.exit
+mp_map_pin_to_irq.exit.thread:                    ; preds = %71, %.split17.us, %91, %mp_map_pin_to_irq.exit
   %97 = load i8, ptr %35, align 1
   %98 = and i8 %97, 3
   %99 = zext nneg i8 %98 to i32
   %100 = icmp eq i32 %2, %99
-  br i1 %100, label %.loopexit9, label %101
+  br i1 %100, label %.loopexit13, label %101
 
 101:                                              ; preds = %mp_map_pin_to_irq.exit.thread
   %102 = icmp slt i32 %23, 0
@@ -1826,7 +1843,7 @@ mp_map_pin_to_irq.exit.thread:                    ; preds = %71, %.loopexit23, %
 
 .loopexit:                                        ; preds = %53, %101, %34, %30, %.preheader, %91, %41
   %.ph = phi i32 [ %24, %41 ], [ %24, %91 ], [ %24, %.preheader ], [ %24, %30 ], [ %24, %34 ], [ %103, %101 ], [ %24, %53 ]
-  %.ph5 = phi i32 [ %23, %41 ], [ %23, %91 ], [ %23, %.preheader ], [ %23, %30 ], [ %23, %34 ], [ %104, %101 ], [ %23, %53 ]
+  %.ph9 = phi i32 [ %23, %41 ], [ %23, %91 ], [ %23, %.preheader ], [ %23, %30 ], [ %23, %34 ], [ %104, %101 ], [ %23, %53 ]
   %105 = add nuw nsw i64 %22, 1
   %106 = load i32, ptr @mp_irq_entries, align 4
   %107 = sext i32 %106 to i64
@@ -1834,25 +1851,27 @@ mp_map_pin_to_irq.exit.thread:                    ; preds = %71, %.loopexit23, %
   br i1 %108, label %.preheader, label %109, !llvm.loop !39
 
 109:                                              ; preds = %.loopexit
-  %110 = icmp slt i32 %.ph5, 0
-  br i1 %110, label %.thread8, label %.loopexit9
+  %110 = icmp slt i32 %.ph9, 0
+  br i1 %110, label %.thread12, label %.loopexit13
 
-.loopexit9:                                       ; preds = %mp_map_pin_to_irq.exit.thread, %109
+.loopexit13:                                      ; preds = %mp_map_pin_to_irq.exit.thread, %109
   %111 = phi i32 [ %.ph, %109 ], [ %56, %mp_map_pin_to_irq.exit.thread ]
-  %112 = phi i32 [ %.ph5, %109 ], [ %59, %mp_map_pin_to_irq.exit.thread ]
+  %112 = phi i32 [ %.ph9, %109 ], [ %59, %mp_map_pin_to_irq.exit.thread ]
   %113 = sext i32 %112 to i64
-  %114 = getelementptr %struct.mpc_intsrc, ptr @mp_irqs, i64 %113, i32 6
+  %.split6 = getelementptr %struct.mpc_intsrc, ptr @mp_irqs, i64 %113
+  %114 = getelementptr i8, ptr %.split6, i64 7
   %115 = load i8, ptr %114, align 1
   %116 = zext i8 %115 to i32
   %117 = sext i32 %111 to i64
-  %118 = getelementptr %struct.ioapic, ptr @ioapics, i64 %117, i32 3
+  %.split7 = getelementptr %struct.ioapic, ptr @ioapics, i64 %117
+  %118 = getelementptr i8, ptr %.split7, i64 24
   %119 = load i32, ptr %118, align 8
   %120 = add i32 %119, %116
   %121 = tail call fastcc i32 @mp_map_pin_to_irq(i32 noundef %120, i32 noundef %112, i32 noundef %111, i32 noundef %116, i32 noundef 1, ptr noundef null)
-  br label %.thread8
+  br label %.thread12
 
-.thread8:                                         ; preds = %19, %.loopexit9, %109, %17, %14
-  %122 = phi i32 [ %121, %.loopexit9 ], [ -1, %17 ], [ -1, %14 ], [ -1, %109 ], [ -1, %19 ]
+.thread12:                                        ; preds = %19, %.loopexit13, %109, %17, %14
+  %122 = phi i32 [ %121, %.loopexit13 ], [ -1, %17 ], [ -1, %14 ], [ -1, %109 ], [ -1, %19 ]
   ret i32 %122
 }
 
@@ -1871,104 +1890,104 @@ define dso_local void @print_IO_APICs() local_unnamed_addr #7 section ".init.tex
   br i1 %4, label %.preheader10, label %.loopexit11
 
 .preheader10:                                     ; preds = %0, %.preheader10
-  %5 = phi i64 [ %12, %.preheader10 ], [ 0, %0 ]
-  %6 = getelementptr %struct.ioapic, ptr @ioapics, i64 %5, i32 2, i32 1
+  %5 = phi i64 [ %11, %.preheader10 ], [ 0, %0 ]
+  %.split = getelementptr %struct.ioapic, ptr @ioapics, i64 %5
+  %6 = getelementptr i8, ptr %.split, i64 17
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i32
-  %9 = getelementptr %struct.ioapic, ptr @ioapics, i64 %5
-  %10 = load i32, ptr %9, align 8
-  %11 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.5, i32 noundef %8, i32 noundef %10) #22
-  %12 = add nuw nsw i64 %5, 1
-  %13 = load i32, ptr @nr_ioapics, align 4
-  %14 = sext i32 %13 to i64
-  %15 = icmp slt i64 %12, %14
-  br i1 %15, label %.preheader10, label %.loopexit11, !llvm.loop !40
+  %9 = load i32, ptr %.split, align 8
+  %10 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.5, i32 noundef %8, i32 noundef %9) #22
+  %11 = add nuw nsw i64 %5, 1
+  %12 = load i32, ptr @nr_ioapics, align 4
+  %13 = sext i32 %12 to i64
+  %14 = icmp slt i64 %11, %13
+  br i1 %14, label %.preheader10, label %.loopexit11, !llvm.loop !40
 
 .loopexit11:                                      ; preds = %.preheader10, %0
-  %16 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.6) #22
-  %17 = load i32, ptr @nr_ioapics, align 4
-  %18 = icmp sgt i32 %17, 0
-  br i1 %18, label %.preheader8, label %.loopexit9
+  %15 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.6) #22
+  %16 = load i32, ptr @nr_ioapics, align 4
+  %17 = icmp sgt i32 %16, 0
+  br i1 %17, label %.preheader8, label %.loopexit9
 
 .preheader8:                                      ; preds = %.loopexit11, %.preheader8
-  %19 = phi i32 [ %20, %.preheader8 ], [ 0, %.loopexit11 ]
-  tail call fastcc void @print_IO_APIC(i32 noundef %19) #26
-  %20 = add nuw nsw i32 %19, 1
-  %21 = load i32, ptr @nr_ioapics, align 4
-  %22 = icmp slt i32 %20, %21
-  br i1 %22, label %.preheader8, label %.loopexit9, !llvm.loop !41
+  %18 = phi i32 [ %19, %.preheader8 ], [ 0, %.loopexit11 ]
+  tail call fastcc void @print_IO_APIC(i32 noundef %18) #26
+  %19 = add nuw nsw i32 %18, 1
+  %20 = load i32, ptr @nr_ioapics, align 4
+  %21 = icmp slt i32 %19, %20
+  br i1 %21, label %.preheader8, label %.loopexit9, !llvm.loop !41
 
 .loopexit9:                                       ; preds = %.preheader8, %.loopexit11
-  %23 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.7) #22
-  %24 = tail call i32 @irq_get_next_irq(i32 noundef 0) #25
-  %25 = load i32, ptr @nr_irqs, align 4
-  %26 = icmp ult i32 %24, %25
-  br i1 %26, label %.preheader6, label %.loopexit7
+  %22 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.7) #22
+  %23 = tail call i32 @irq_get_next_irq(i32 noundef 0) #25
+  %24 = load i32, ptr @nr_irqs, align 4
+  %25 = icmp ult i32 %23, %24
+  br i1 %25, label %.preheader6, label %.loopexit7
 
 .preheader6:                                      ; preds = %.loopexit9, %.thread
-  %27 = phi i32 [ %62, %.thread ], [ %24, %.loopexit9 ]
-  %28 = tail call ptr @irq_get_irq_data(i32 noundef %27) #25
-  %29 = icmp eq ptr %28, null
-  br i1 %29, label %33, label %30
+  %26 = phi i32 [ %61, %.thread ], [ %23, %.loopexit9 ]
+  %27 = tail call ptr @irq_get_irq_data(i32 noundef %26) #25
+  %28 = icmp eq ptr %27, null
+  br i1 %28, label %32, label %29
 
-30:                                               ; preds = %.preheader6
-  %31 = getelementptr inbounds nuw i8, ptr %28, i64 24
-  %32 = load ptr, ptr %31, align 8
-  br label %33
+29:                                               ; preds = %.preheader6
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 24
+  %31 = load ptr, ptr %30, align 8
+  br label %32
 
-33:                                               ; preds = %30, %.preheader6
-  %34 = phi ptr [ %32, %30 ], [ null, %.preheader6 ]
-  %35 = icmp ne ptr %34, @ioapic_chip
-  %36 = icmp ne ptr %34, @ioapic_ir_chip
-  %37 = and i1 %35, %36
-  br i1 %37, label %.thread, label %38
+32:                                               ; preds = %29, %.preheader6
+  %33 = phi ptr [ %31, %29 ], [ null, %.preheader6 ]
+  %34 = icmp ne ptr %33, @ioapic_chip
+  %35 = icmp ne ptr %33, @ioapic_ir_chip
+  %36 = and i1 %34, %35
+  br i1 %36, label %.thread, label %37
 
-38:                                               ; preds = %33
-  %39 = tail call ptr @irq_get_irq_data(i32 noundef %27) #25
-  %40 = icmp eq ptr %39, null
-  br i1 %40, label %.thread, label %41
+37:                                               ; preds = %32
+  %38 = tail call ptr @irq_get_irq_data(i32 noundef %26) #25
+  %39 = icmp eq ptr %38, null
+  br i1 %39, label %.thread, label %40
 
-41:                                               ; preds = %38
-  %42 = getelementptr inbounds nuw i8, ptr %39, i64 48
-  %43 = load ptr, ptr %42, align 8
-  %44 = icmp eq ptr %43, null
-  br i1 %44, label %.thread, label %45
+40:                                               ; preds = %37
+  %41 = getelementptr inbounds nuw i8, ptr %38, i64 48
+  %42 = load ptr, ptr %41, align 8
+  %43 = icmp eq ptr %42, null
+  br i1 %43, label %.thread, label %44
 
-45:                                               ; preds = %41
-  %46 = load volatile ptr, ptr %43, align 8
-  %47 = icmp eq ptr %46, %43
-  br i1 %47, label %.thread, label %48
+44:                                               ; preds = %40
+  %45 = load volatile ptr, ptr %42, align 8
+  %46 = icmp eq ptr %45, %42
+  br i1 %46, label %.thread, label %47
 
-48:                                               ; preds = %45
-  %49 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.8, i32 noundef %27) #22
-  %50 = load ptr, ptr %43, align 8
-  %51 = icmp eq ptr %50, %43
-  br i1 %51, label %.loopexit, label %.preheader
+47:                                               ; preds = %44
+  %48 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.8, i32 noundef %26) #22
+  %49 = load ptr, ptr %42, align 8
+  %50 = icmp eq ptr %49, %42
+  br i1 %50, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %48, %.preheader
-  %52 = phi ptr [ %58, %.preheader ], [ %50, %48 ]
-  %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
-  %54 = load i32, ptr %53, align 8
-  %55 = getelementptr inbounds nuw i8, ptr %52, i64 20
-  %56 = load i32, ptr %55, align 4
-  %57 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.9, i32 noundef %54, i32 noundef %56) #22
-  %58 = load ptr, ptr %52, align 8
-  %59 = icmp eq ptr %58, %43
-  br i1 %59, label %.loopexit, label %.preheader, !llvm.loop !42
+.preheader:                                       ; preds = %47, %.preheader
+  %51 = phi ptr [ %57, %.preheader ], [ %49, %47 ]
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 16
+  %53 = load i32, ptr %52, align 8
+  %54 = getelementptr inbounds nuw i8, ptr %51, i64 20
+  %55 = load i32, ptr %54, align 4
+  %56 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.9, i32 noundef %53, i32 noundef %55) #22
+  %57 = load ptr, ptr %51, align 8
+  %58 = icmp eq ptr %57, %42
+  br i1 %58, label %.loopexit, label %.preheader, !llvm.loop !42
 
-.loopexit:                                        ; preds = %.preheader, %48
-  %60 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.10) #22
+.loopexit:                                        ; preds = %.preheader, %47
+  %59 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.10) #22
   br label %.thread
 
-.thread:                                          ; preds = %38, %.loopexit, %45, %41, %33
-  %61 = add nuw i32 %27, 1
-  %62 = tail call i32 @irq_get_next_irq(i32 noundef %61) #25
-  %63 = load i32, ptr @nr_irqs, align 4
-  %64 = icmp ult i32 %62, %63
-  br i1 %64, label %.preheader6, label %.loopexit7, !llvm.loop !43
+.thread:                                          ; preds = %37, %.loopexit, %44, %40, %32
+  %60 = add nuw i32 %26, 1
+  %61 = tail call i32 @irq_get_next_irq(i32 noundef %60) #25
+  %62 = load i32, ptr @nr_irqs, align 4
+  %63 = icmp ult i32 %61, %62
+  br i1 %63, label %.preheader6, label %.loopexit7, !llvm.loop !43
 
 .loopexit7:                                       ; preds = %.thread, %.loopexit9
-  %65 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.11) #22
+  %64 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.11) #22
   ret void
 }
 
@@ -2001,7 +2020,8 @@ define internal fastcc void @print_IO_APIC(i32 noundef %0) unnamed_addr #7 secti
   %19 = phi i32 [ %16, %14 ], [ 0, %10 ], [ 0, %1 ]
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @ioapic_lock, i64 noundef %3) #25
   %20 = sext i32 %0 to i64
-  %21 = getelementptr %struct.ioapic, ptr @ioapics, i64 %20, i32 2, i32 1
+  %.split = getelementptr %struct.ioapic, ptr @ioapics, i64 %20
+  %21 = getelementptr i8, ptr %.split, i64 17
   %22 = load i8, ptr %21, align 1
   %23 = zext i8 %22 to i32
   %24 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.36, i32 noundef %23) #22
@@ -2311,38 +2331,40 @@ define internal fastcc i32 @find_isa_irq_apic(i32 noundef range(i32 0, 9) %0, i3
 
 ._crit_edge:                                      ; preds = %18
   %.pre.pre = load i32, ptr @mp_irq_entries, align 4
-  br label %.loopexit11
+  br label %.loopexit12
 
 23:                                               ; preds = %18, %13, %.preheader
   %24 = add nuw nsw i64 %5, 1
   %25 = load i32, ptr @mp_irq_entries, align 4
   %26 = sext i32 %25 to i64
   %27 = icmp slt i64 %24, %26
-  br i1 %27, label %.preheader, label %.loopexit11, !llvm.loop !48
+  br i1 %27, label %.preheader, label %.loopexit12, !llvm.loop !48
 
-.loopexit11:                                      ; preds = %23, %._crit_edge
+.loopexit12:                                      ; preds = %23, %._crit_edge
   %.pre = phi i32 [ %.pre.pre, %._crit_edge ], [ %25, %23 ]
   %28 = phi i64 [ %5, %._crit_edge ], [ %24, %23 ]
   %29 = trunc i64 %28 to i32
   %30 = icmp sgt i32 %.pre, %29
   %sext = shl i64 %28, 32
-  %31 = ashr exact i64 %sext, 32
-  br i1 %30, label %32, label %.loopexit
+  br i1 %30, label %31, label %.loopexit
 
-32:                                               ; preds = %.loopexit11
-  %33 = load i32, ptr @nr_ioapics, align 4
-  %34 = icmp sgt i32 %33, 0
-  br i1 %34, label %35, label %.loopexit
+31:                                               ; preds = %.loopexit12
+  %32 = load i32, ptr @nr_ioapics, align 4
+  %33 = icmp sgt i32 %32, 0
+  br i1 %33, label %34, label %.loopexit
 
-35:                                               ; preds = %32
-  %36 = getelementptr %struct.mpc_intsrc, ptr @mp_irqs, i64 %31, i32 5
+34:                                               ; preds = %31
+  %35 = ashr exact i64 %sext, 29
+  %.split = getelementptr i8, ptr @mp_irqs, i64 %35
+  %36 = getelementptr i8, ptr %.split, i64 6
   %37 = load i8, ptr %36, align 2
-  %38 = zext nneg i32 %33 to i64
+  %38 = zext nneg i32 %32 to i64
   br label %39
 
-39:                                               ; preds = %44, %35
-  %40 = phi i64 [ 0, %35 ], [ %45, %44 ]
-  %41 = getelementptr %struct.ioapic, ptr @ioapics, i64 %40, i32 2, i32 1
+39:                                               ; preds = %44, %34
+  %40 = phi i64 [ 0, %34 ], [ %45, %44 ]
+  %.split4 = getelementptr %struct.ioapic, ptr @ioapics, i64 %40
+  %41 = getelementptr i8, ptr %.split4, i64 17
   %42 = load i8, ptr %41, align 1
   %43 = icmp eq i8 %42, %37
   br i1 %43, label %47, label %44
@@ -2356,8 +2378,8 @@ define internal fastcc i32 @find_isa_irq_apic(i32 noundef range(i32 0, 9) %0, i3
   %48 = trunc i64 %40 to i32
   br label %.loopexit
 
-.loopexit:                                        ; preds = %44, %2, %47, %32, %.loopexit11
-  %49 = phi i32 [ -1, %.loopexit11 ], [ -1, %32 ], [ %48, %47 ], [ -1, %2 ], [ -1, %44 ]
+.loopexit:                                        ; preds = %44, %2, %47, %31, %.loopexit12
+  %49 = phi i32 [ -1, %.loopexit12 ], [ -1, %31 ], [ %48, %47 ], [ -1, %2 ], [ -1, %44 ]
   ret i32 %49
 }
 
@@ -2388,7 +2410,8 @@ define dso_local void @native_restore_boot_irq_mode() local_unnamed_addr #3 alig
   %21 = sub nsw i64 -8392704, %20
   %22 = inttoptr i64 %21 to ptr
   %23 = sext i32 %13 to i64
-  %24 = getelementptr %struct.ioapic, ptr @ioapics, i64 %23, i32 2, i32 4
+  %.split = getelementptr %struct.ioapic, ptr @ioapics, i64 %23
+  %24 = getelementptr i8, ptr %.split, i64 20
   %25 = load i32, ptr %24, align 4
   %26 = and i32 %25, 4095
   %27 = zext nneg i32 %26 to i64
@@ -2590,99 +2613,99 @@ define dso_local void @setup_IO_APIC() local_unnamed_addr #7 section ".init.text
 define internal fastcc noundef range(i32 -19, 1) i32 @mp_irqdomain_create(i32 noundef %0) unnamed_addr #3 align 16 {
   %2 = alloca %struct.irq_fwspec, align 8
   %3 = sext i32 %0 to i64
-  %4 = getelementptr %struct.ioapic, ptr @ioapics, i64 %3, i32 3
-  %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %.split = getelementptr %struct.ioapic, ptr @ioapics, i64 %3
+  %4 = getelementptr i8, ptr %.split, i64 24
+  %5 = getelementptr i8, ptr %.split, i64 28
   %6 = load i32, ptr %5, align 4
   %7 = load i32, ptr %4, align 8
   %8 = add i32 %6, 1
   %9 = sub i32 %8, %7
-  %10 = getelementptr %struct.ioapic, ptr @ioapics, i64 %3
-  %11 = getelementptr inbounds nuw i8, ptr %10, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %.split, i64 32
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %12 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %13 = load i32, ptr %11, align 8
-  %14 = icmp eq i32 %13, 0
-  br i1 %14, label %60, label %15
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %12 = load i32, ptr %10, align 8
+  %13 = icmp eq i32 %12, 0
+  br i1 %13, label %59, label %14
 
-15:                                               ; preds = %1
-  %16 = getelementptr inbounds nuw i8, ptr %10, i64 48
-  %17 = load ptr, ptr %16, align 8
-  %18 = icmp eq ptr %17, null
-  br i1 %18, label %21, label %19
+14:                                               ; preds = %1
+  %15 = getelementptr inbounds nuw i8, ptr %.split, i64 48
+  %16 = load ptr, ptr %15, align 8
+  %17 = icmp eq ptr %16, null
+  br i1 %17, label %20, label %18
 
-19:                                               ; preds = %15
-  %20 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  br label %27
+18:                                               ; preds = %14
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 24
+  br label %26
 
-21:                                               ; preds = %15
-  %22 = getelementptr %struct.ioapic, ptr @ioapics, i64 %3, i32 2, i32 1
-  %23 = load i8, ptr %22, align 1
-  %24 = zext i8 %23 to i32
-  %25 = tail call ptr @__irq_domain_alloc_fwnode(i32 noundef 2, i32 noundef %24, ptr noundef nonnull @.str.62, ptr noundef null) #25
-  %26 = icmp eq ptr %25, null
-  br i1 %26, label %60, label %27
+20:                                               ; preds = %14
+  %21 = getelementptr i8, ptr %.split, i64 17
+  %22 = load i8, ptr %21, align 1
+  %23 = zext i8 %22 to i32
+  %24 = tail call ptr @__irq_domain_alloc_fwnode(i32 noundef 2, i32 noundef %23, ptr noundef nonnull @.str.62, ptr noundef null) #25
+  %25 = icmp eq ptr %24, null
+  br i1 %25, label %59, label %26
 
-27:                                               ; preds = %21, %19
-  %28 = phi ptr [ %20, %19 ], [ %25, %21 ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %12, i8 0, i64 64, i1 false), !annotation !32
-  store ptr %28, ptr %2, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i32 1, ptr %29, align 8
-  %30 = getelementptr %struct.ioapic, ptr @ioapics, i64 %3, i32 2, i32 1
-  %31 = load i8, ptr %30, align 1
-  %32 = zext i8 %31 to i32
-  %33 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  store i32 %32, ptr %33, align 4
-  %34 = call ptr @irq_find_matching_fwspec(ptr noundef nonnull %2, i32 noundef 0) #25
-  %35 = icmp eq ptr %34, null
-  br i1 %35, label %36, label %40
+26:                                               ; preds = %20, %18
+  %27 = phi ptr [ %19, %18 ], [ %24, %20 ]
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %11, i8 0, i64 64, i1 false), !annotation !32
+  store ptr %27, ptr %2, align 8
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store i32 1, ptr %28, align 8
+  %29 = getelementptr i8, ptr %.split, i64 17
+  %30 = load i8, ptr %29, align 1
+  %31 = zext i8 %30 to i32
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  store i32 %31, ptr %32, align 4
+  %33 = call ptr @irq_find_matching_fwspec(ptr noundef nonnull %2, i32 noundef 0) #25
+  %34 = icmp eq ptr %33, null
+  br i1 %34, label %35, label %39
 
-36:                                               ; preds = %27
-  %37 = load ptr, ptr %16, align 8
-  %38 = icmp eq ptr %37, null
-  br i1 %38, label %39, label %60
+35:                                               ; preds = %26
+  %36 = load ptr, ptr %15, align 8
+  %37 = icmp eq ptr %36, null
+  br i1 %37, label %38, label %59
 
-39:                                               ; preds = %36
-  call void @irq_domain_free_fwnode(ptr noundef nonnull %28) #25
-  br label %60
+38:                                               ; preds = %35
+  call void @irq_domain_free_fwnode(ptr noundef nonnull %27) #25
+  br label %59
 
-40:                                               ; preds = %27
-  %41 = getelementptr inbounds nuw i8, ptr %10, i64 40
-  %42 = load ptr, ptr %41, align 8
-  %43 = inttoptr i64 %3 to ptr
-  %44 = call ptr @irq_domain_create_hierarchy(ptr noundef nonnull %34, i32 noundef 0, i32 noundef %9, ptr noundef nonnull %28, ptr noundef %42, ptr noundef %43) #25
-  %45 = getelementptr inbounds nuw i8, ptr %10, i64 56
-  store ptr %44, ptr %45, align 8
-  %46 = icmp eq ptr %44, null
-  br i1 %46, label %47, label %51
+39:                                               ; preds = %26
+  %40 = getelementptr inbounds nuw i8, ptr %.split, i64 40
+  %41 = load ptr, ptr %40, align 8
+  %42 = inttoptr i64 %3 to ptr
+  %43 = call ptr @irq_domain_create_hierarchy(ptr noundef nonnull %33, i32 noundef 0, i32 noundef %9, ptr noundef nonnull %27, ptr noundef %41, ptr noundef %42) #25
+  %44 = getelementptr inbounds nuw i8, ptr %.split, i64 56
+  store ptr %43, ptr %44, align 8
+  %45 = icmp eq ptr %43, null
+  br i1 %45, label %46, label %50
 
-47:                                               ; preds = %40
-  %48 = load ptr, ptr %16, align 8
-  %49 = icmp eq ptr %48, null
-  br i1 %49, label %50, label %60
+46:                                               ; preds = %39
+  %47 = load ptr, ptr %15, align 8
+  %48 = icmp eq ptr %47, null
+  br i1 %48, label %49, label %59
 
-50:                                               ; preds = %47
-  call void @irq_domain_free_fwnode(ptr noundef nonnull %28) #25
-  br label %60
+49:                                               ; preds = %46
+  call void @irq_domain_free_fwnode(ptr noundef nonnull %27) #25
+  br label %59
 
-51:                                               ; preds = %40
-  %52 = load i32, ptr %11, align 8
-  %53 = add i32 %52, -1
-  %54 = icmp ult i32 %53, 2
-  br i1 %54, label %55, label %60
+50:                                               ; preds = %39
+  %51 = load i32, ptr %10, align 8
+  %52 = add i32 %51, -1
+  %53 = icmp ult i32 %52, 2
+  br i1 %53, label %54, label %59
 
-55:                                               ; preds = %51
-  %56 = load i32, ptr @ioapic_dynirq_base, align 4
-  %57 = load i32, ptr %5, align 4
-  %58 = add i32 %57, 1
-  %59 = call i32 @llvm.umax.i32(i32 %56, i32 %58)
-  store i32 %59, ptr @ioapic_dynirq_base, align 4
-  br label %60
+54:                                               ; preds = %50
+  %55 = load i32, ptr @ioapic_dynirq_base, align 4
+  %56 = load i32, ptr %5, align 4
+  %57 = add i32 %56, 1
+  %58 = call i32 @llvm.umax.i32(i32 %55, i32 %57)
+  store i32 %58, ptr @ioapic_dynirq_base, align 4
+  br label %59
 
-60:                                               ; preds = %55, %51, %50, %47, %39, %36, %21, %1
-  %61 = phi i32 [ 0, %1 ], [ -12, %21 ], [ -19, %39 ], [ -19, %36 ], [ -12, %50 ], [ -12, %47 ], [ 0, %51 ], [ 0, %55 ]
+59:                                               ; preds = %54, %50, %49, %46, %38, %35, %20, %1
+  %60 = phi i32 [ 0, %1 ], [ -12, %20 ], [ -19, %38 ], [ -19, %35 ], [ -12, %49 ], [ -12, %46 ], [ 0, %50 ], [ 0, %54 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  ret i32 %61
+  ret i32 %60
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -2701,7 +2724,7 @@ define internal fastcc void @setup_IO_APIC_irqs() unnamed_addr #7 section ".init
 5:                                                ; preds = %3, %0
   %6 = load i32, ptr @nr_ioapics, align 4
   %7 = icmp eq i32 %6, 0
-  br i1 %7, label %.loopexit3, label %.preheader
+  br i1 %7, label %.loopexit5, label %.preheader
 
 .preheader:                                       ; preds = %5, %.loopexit
   %8 = phi i32 [ %47, %.loopexit ], [ %6, %5 ]
@@ -2716,8 +2739,9 @@ define internal fastcc void @setup_IO_APIC_irqs() unnamed_addr #7 section ".init
   %15 = icmp eq i32 %9, 0
   %16 = zext i1 %15 to i32
   %17 = sext i32 %9 to i64
-  %18 = getelementptr %struct.ioapic, ptr @ioapics, i64 %17, i32 3
-  %19 = getelementptr %struct.ioapic, ptr @ioapics, i64 %17, i32 2, i32 1
+  %.split = getelementptr %struct.ioapic, ptr @ioapics, i64 %17
+  %18 = getelementptr i8, ptr %.split, i64 24
+  %19 = getelementptr i8, ptr %.split, i64 17
   br label %20
 
 20:                                               ; preds = %43, %14
@@ -2740,7 +2764,8 @@ define internal fastcc void @setup_IO_APIC_irqs() unnamed_addr #7 section ".init
 31:                                               ; preds = %20
   %32 = load i32, ptr %18, align 8
   %33 = zext nneg i32 %22 to i64
-  %34 = getelementptr %struct.mpc_intsrc, ptr @mp_irqs, i64 %33, i32 6
+  %.split4 = getelementptr %struct.mpc_intsrc, ptr @mp_irqs, i64 %33
+  %34 = getelementptr i8, ptr %.split4, i64 7
   %35 = load i8, ptr %34, align 1
   %36 = zext i8 %35 to i32
   %37 = icmp eq i32 %21, %36
@@ -2769,9 +2794,9 @@ define internal fastcc void @setup_IO_APIC_irqs() unnamed_addr #7 section ".init
   %47 = phi i32 [ %.pre, %.loopexit.loopexit ], [ %8, %.preheader ]
   %48 = add nuw i32 %9, 1
   %49 = icmp ult i32 %48, %47
-  br i1 %49, label %.preheader, label %.loopexit3, !llvm.loop !57
+  br i1 %49, label %.preheader, label %.loopexit5, !llvm.loop !57
 
-.loopexit3:                                       ; preds = %.loopexit, %5
+.loopexit5:                                       ; preds = %.loopexit, %5
   ret void
 }
 
@@ -3068,7 +3093,8 @@ define dso_local void @io_apic_init_mappings() local_unnamed_addr #7 section ".i
   br i1 %8, label %13, label %9
 
 9:                                                ; preds = %.preheader
-  %10 = getelementptr %struct.ioapic, ptr @ioapics, i64 %4, i32 2, i32 4
+  %.split = getelementptr %struct.ioapic, ptr @ioapics, i64 %4
+  %10 = getelementptr i8, ptr %.split, i64 20
   %11 = load i32, ptr %10, align 4
   %12 = zext i32 %11 to i64
   br label %26
@@ -3169,7 +3195,8 @@ define internal fastcc ptr @ioapic_setup_resources() unnamed_addr #7 section ".i
   %22 = trunc i64 %17 to i32
   %23 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %18, i64 noundef 11, ptr noundef nonnull @.str.84, i32 noundef %22) #25
   %24 = getelementptr i8, ptr %18, i64 11
-  %25 = getelementptr %struct.ioapic, ptr @ioapics, i64 %17, i32 6
+  %.split = getelementptr %struct.ioapic, ptr @ioapics, i64 %17
+  %25 = getelementptr i8, ptr %.split, i64 64
   store ptr %19, ptr %25, align 8
   %26 = add nuw nsw i64 %17, 1
   %27 = load i32, ptr @nr_ioapics, align 4
@@ -3231,7 +3258,7 @@ define dso_local noundef range(i32 -28, 1) i32 @mp_register_ioapic(i32 noundef %
 8:                                                ; preds = %4
   %9 = load i32, ptr @nr_ioapics, align 4
   %10 = icmp sgt i32 %9, 0
-  br i1 %10, label %11, label %.loopexit11.preheader
+  br i1 %10, label %11, label %.loopexit18.preheader
 
 11:                                               ; preds = %8
   %12 = zext nneg i32 %9 to i64
@@ -3239,11 +3266,12 @@ define dso_local noundef range(i32 -28, 1) i32 @mp_register_ioapic(i32 noundef %
 
 13:                                               ; preds = %4
   %14 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.20) #22
-  br label %203
+  br label %199
 
 15:                                               ; preds = %23, %11
   %16 = phi i64 [ 0, %11 ], [ %24, %23 ]
-  %17 = getelementptr %struct.ioapic, ptr @ioapics, i64 %16, i32 2, i32 4
+  %.split = getelementptr %struct.ioapic, ptr @ioapics, i64 %16
+  %17 = getelementptr i8, ptr %.split, i64 20
   %18 = load i32, ptr %17, align 4
   %19 = icmp eq i32 %18, %1
   br i1 %19, label %20, label %23
@@ -3251,29 +3279,29 @@ define dso_local noundef range(i32 -28, 1) i32 @mp_register_ioapic(i32 noundef %
 20:                                               ; preds = %15
   %21 = trunc i64 %16 to i32
   %22 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.21, i32 noundef %1, i32 noundef %21) #22
-  br label %203
+  br label %199
 
 23:                                               ; preds = %15
   %24 = add nuw nsw i64 %16, 1
   %25 = icmp eq i64 %24, %12
-  br i1 %25, label %.loopexit11.preheader, label %15, !llvm.loop !64
+  br i1 %25, label %.loopexit18.preheader, label %15, !llvm.loop !64
 
-.loopexit11.preheader:                            ; preds = %23, %8
-  br label %.loopexit11
+.loopexit18.preheader:                            ; preds = %23, %8
+  br label %.loopexit18
 
-.loopexit11:                                      ; preds = %.loopexit11.preheader, %30
-  %26 = phi i64 [ %31, %30 ], [ 0, %.loopexit11.preheader ]
+.loopexit18:                                      ; preds = %.loopexit18.preheader, %30
+  %26 = phi i64 [ %31, %30 ], [ 0, %.loopexit18.preheader ]
   %27 = getelementptr %struct.ioapic, ptr @ioapics, i64 %26
   %28 = load i32, ptr %27, align 8
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %33, label %30
 
-30:                                               ; preds = %.loopexit11
+30:                                               ; preds = %.loopexit18
   %31 = add nuw nsw i64 %26, 1
   %32 = icmp eq i64 %31, 128
-  br i1 %32, label %.thread, label %.loopexit11, !llvm.loop !65
+  br i1 %32, label %.thread, label %.loopexit18, !llvm.loop !65
 
-33:                                               ; preds = %.loopexit11
+33:                                               ; preds = %.loopexit18
   %34 = trunc i64 %26 to i32
   %35 = icmp sgt i32 %34, 127
   br i1 %35, label %.thread, label %38
@@ -3281,7 +3309,7 @@ define dso_local noundef range(i32 -28, 1) i32 @mp_register_ioapic(i32 noundef %
 .thread:                                          ; preds = %30, %33
   %36 = phi i32 [ %34, %33 ], [ 128, %30 ]
   %37 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.22, i32 noundef 128, i32 noundef %36) #22
-  br label %203
+  br label %199
 
 38:                                               ; preds = %33
   %sext = shl i64 %26, 32
@@ -3311,280 +3339,279 @@ define dso_local noundef range(i32 -28, 1) i32 @mp_register_ioapic(i32 noundef %
   %58 = select i1 %56, i1 %57, i1 false
   %59 = icmp eq i32 %55, -1
   %60 = select i1 %58, i1 %59, i1 false
-  br i1 %60, label %61, label %65
+  br i1 %60, label %61, label %64
 
 61:                                               ; preds = %38
-  %62 = getelementptr %struct.ioapic, ptr @ioapics, i64 %39, i32 2, i32 4
-  %63 = load i32, ptr %62, align 4
-  %64 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.85, i32 noundef %63) #22
+  %62 = load i32, ptr %43, align 4
+  %63 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.85, i32 noundef %62) #22
   tail call void @native_set_fixmap(i32 noundef %44, i64 noundef 0, i64 0) #25
-  br label %203
+  br label %199
 
-65:                                               ; preds = %38
-  %66 = trunc i32 %0 to i8
+64:                                               ; preds = %38
+  %65 = trunc i32 %0 to i8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %5, i8 0, i64 32, i1 false)
-  %67 = load i32, ptr @nr_ioapics, align 4
-  %68 = icmp sgt i32 %67, 0
-  br i1 %68, label %.preheader, label %.loopexit10
+  %66 = load i32, ptr @nr_ioapics, align 4
+  %67 = icmp sgt i32 %66, 0
+  br i1 %67, label %.preheader, label %.loopexit17
 
-.preheader:                                       ; preds = %65, %.preheader
-  %69 = phi i64 [ %73, %.preheader ], [ 0, %65 ]
-  %70 = getelementptr %struct.ioapic, ptr @ioapics, i64 %69, i32 2, i32 1
-  %71 = load i8, ptr %70, align 1
-  %72 = zext i8 %71 to i64
-  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %5, i64 %72) #25, !srcloc !66
-  %73 = add nuw nsw i64 %69, 1
-  %74 = load i32, ptr @nr_ioapics, align 4
-  %75 = sext i32 %74 to i64
-  %76 = icmp slt i64 %73, %75
-  br i1 %76, label %.preheader, label %.loopexit10, !llvm.loop !67
+.preheader:                                       ; preds = %64, %.preheader
+  %68 = phi i64 [ %72, %.preheader ], [ 0, %64 ]
+  %.split10 = getelementptr %struct.ioapic, ptr @ioapics, i64 %68
+  %69 = getelementptr i8, ptr %.split10, i64 17
+  %70 = load i8, ptr %69, align 1
+  %71 = zext i8 %70 to i64
+  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %5, i64 %71) #25, !srcloc !66
+  %72 = add nuw nsw i64 %68, 1
+  %73 = load i32, ptr @nr_ioapics, align 4
+  %74 = sext i32 %73 to i64
+  %75 = icmp slt i64 %72, %74
+  br i1 %75, label %.preheader, label %.loopexit17, !llvm.loop !67
 
-.loopexit10:                                      ; preds = %.preheader, %65
-  %77 = and i32 %0, 255
-  %78 = zext nneg i32 %77 to i64
-  %79 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %5, i64 %78) #25, !srcloc !28
-  %80 = icmp ult i8 %79, 2
-  call void @llvm.assume(i1 %80)
-  %81 = icmp eq i8 %79, 0
-  br i1 %81, label %123, label %82
+.loopexit17:                                      ; preds = %.preheader, %64
+  %76 = and i32 %0, 255
+  %77 = zext nneg i32 %76 to i64
+  %78 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %5, i64 %77) #25, !srcloc !28
+  %79 = icmp ult i8 %78, 2
+  call void @llvm.assume(i1 %79)
+  %80 = icmp eq i8 %78, 0
+  br i1 %80, label %121, label %81
 
-82:                                               ; preds = %.loopexit10
-  %83 = call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @ioapic_lock) #25
-  %84 = load ptr, ptr @x86_apic_ops, align 8
-  %85 = call i32 %84(i32 noundef %34, i32 noundef 0) #25
-  call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @ioapic_lock, i64 noundef %83) #25
-  %86 = lshr i32 %85, 24
-  %87 = trunc nuw i32 %86 to i8
-  %88 = zext nneg i32 %86 to i64
-  %89 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %5, i64 %88) #25, !srcloc !28
-  %90 = icmp ult i8 %89, 2
-  call void @llvm.assume(i1 %90)
-  %91 = icmp eq i8 %89, 0
-  br i1 %91, label %92, label %97
+81:                                               ; preds = %.loopexit17
+  %82 = call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @ioapic_lock) #25
+  %83 = load ptr, ptr @x86_apic_ops, align 8
+  %84 = call i32 %83(i32 noundef %34, i32 noundef 0) #25
+  call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @ioapic_lock, i64 noundef %82) #25
+  %85 = lshr i32 %84, 24
+  %86 = trunc nuw i32 %85 to i8
+  %87 = zext nneg i32 %85 to i64
+  %88 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %5, i64 %87) #25, !srcloc !28
+  %89 = icmp ult i8 %88, 2
+  call void @llvm.assume(i1 %89)
+  %90 = icmp eq i8 %88, 0
+  br i1 %90, label %91, label %96
 
-92:                                               ; preds = %82
-  %93 = load i32, ptr @apic_verbosity, align 4
-  %94 = icmp sgt i32 %93, 0
-  br i1 %94, label %95, label %123
+91:                                               ; preds = %81
+  %92 = load i32, ptr @apic_verbosity, align 4
+  %93 = icmp sgt i32 %92, 0
+  br i1 %93, label %94, label %121
 
-95:                                               ; preds = %92
-  %96 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.86, i32 noundef %34, i32 noundef %86, i32 noundef %77) #22
-  br label %123
+94:                                               ; preds = %91
+  %95 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.86, i32 noundef %34, i32 noundef %85, i32 noundef %76) #22
+  br label %121
 
-97:                                               ; preds = %82
-  %98 = call i64 @_find_first_zero_bit(ptr noundef nonnull %5, i64 noundef 256) #25
-  %99 = trunc i64 %98 to i32
-  %100 = and i32 %99, 255
-  %101 = shl nuw i32 %100, 24
-  %102 = and i32 %85, 16777215
-  %103 = or disjoint i32 %101, %102
-  %104 = call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @ioapic_lock) #25
-  %105 = shl i32 %34, 12
-  %106 = add i32 %105, 2113536
-  %107 = sext i32 %106 to i64
-  %108 = sub nsw i64 -8392704, %107
-  %109 = inttoptr i64 %108 to ptr
-  %110 = getelementptr %struct.ioapic, ptr @ioapics, i64 %39, i32 2, i32 4
-  %111 = load i32, ptr %110, align 4
-  %112 = and i32 %111, 4095
-  %113 = zext nneg i32 %112 to i64
-  %114 = getelementptr i8, ptr %109, i64 %113
-  call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 0, ptr elementtype(i32) %114) #25, !srcloc !9
-  %115 = getelementptr inbounds nuw i8, ptr %114, i64 16
-  call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %103, ptr nonnull elementtype(i32) %115) #25, !srcloc !9
-  %116 = load ptr, ptr @x86_apic_ops, align 8
-  %117 = call i32 %116(i32 noundef %34, i32 noundef 0) #25
-  call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @ioapic_lock, i64 noundef %104) #25
-  %118 = lshr i32 %117, 24
-  %119 = icmp eq i32 %118, %100
-  br i1 %119, label %121, label %120, !prof !52
+96:                                               ; preds = %81
+  %97 = call i64 @_find_first_zero_bit(ptr noundef nonnull %5, i64 noundef 256) #25
+  %98 = trunc i64 %97 to i32
+  %99 = and i32 %98, 255
+  %100 = shl nuw i32 %99, 24
+  %101 = and i32 %84, 16777215
+  %102 = or disjoint i32 %100, %101
+  %103 = call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @ioapic_lock) #25
+  %104 = shl i32 %34, 12
+  %105 = add i32 %104, 2113536
+  %106 = sext i32 %105 to i64
+  %107 = sub nsw i64 -8392704, %106
+  %108 = inttoptr i64 %107 to ptr
+  %109 = load i32, ptr %43, align 4
+  %110 = and i32 %109, 4095
+  %111 = zext nneg i32 %110 to i64
+  %112 = getelementptr i8, ptr %108, i64 %111
+  call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 0, ptr elementtype(i32) %112) #25, !srcloc !9
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 16
+  call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %102, ptr nonnull elementtype(i32) %113) #25, !srcloc !9
+  %114 = load ptr, ptr @x86_apic_ops, align 8
+  %115 = call i32 %114(i32 noundef %34, i32 noundef 0) #25
+  call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @ioapic_lock, i64 noundef %103) #25
+  %116 = lshr i32 %115, 24
+  %117 = icmp eq i32 %116, %99
+  br i1 %117, label %119, label %118, !prof !52
 
-120:                                              ; preds = %97
+118:                                              ; preds = %96
   call void asm sideeffect "476: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 476b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 476) #25, !srcloc !68
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.15, i32 2620, i32 0, i64 12) #25, !srcloc !69
   unreachable
 
-121:                                              ; preds = %97
-  %122 = trunc i64 %98 to i8
-  br label %123
+119:                                              ; preds = %96
+  %120 = trunc i64 %97 to i8
+  br label %121
 
-123:                                              ; preds = %121, %95, %92, %.loopexit10
-  %124 = phi i8 [ %122, %121 ], [ %66, %.loopexit10 ], [ %87, %95 ], [ %87, %92 ]
+121:                                              ; preds = %119, %94, %91, %.loopexit17
+  %122 = phi i8 [ %120, %119 ], [ %65, %.loopexit17 ], [ %86, %94 ], [ %86, %91 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %125 = getelementptr inbounds nuw i8, ptr %40, i64 17
-  store i8 %124, ptr %125, align 1
-  %126 = call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @ioapic_lock) #25
-  %127 = load ptr, ptr @x86_apic_ops, align 8
-  %128 = call i32 %127(i32 noundef %34, i32 noundef 1) #25
-  call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @ioapic_lock, i64 noundef %126) #25
-  %129 = trunc i32 %128 to i8
-  %130 = getelementptr inbounds nuw i8, ptr %40, i64 18
-  store i8 %129, ptr %130, align 2
-  %131 = call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @ioapic_lock) #25
-  %132 = load ptr, ptr @x86_apic_ops, align 8
-  %133 = call i32 %132(i32 noundef %34, i32 noundef 1) #25
-  call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @ioapic_lock, i64 noundef %131) #25
-  %134 = lshr i32 %133, 16
-  %135 = and i32 %134, 255
-  %136 = add nuw nsw i32 %135, 1
-  %137 = add i32 %135, %2
-  %138 = load i32, ptr @nr_ioapics, align 4
-  %139 = icmp sgt i32 %138, 0
-  br i1 %139, label %140, label %.loopexit
+  %123 = getelementptr inbounds nuw i8, ptr %40, i64 17
+  store i8 %122, ptr %123, align 1
+  %124 = call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @ioapic_lock) #25
+  %125 = load ptr, ptr @x86_apic_ops, align 8
+  %126 = call i32 %125(i32 noundef %34, i32 noundef 1) #25
+  call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @ioapic_lock, i64 noundef %124) #25
+  %127 = trunc i32 %126 to i8
+  %128 = getelementptr inbounds nuw i8, ptr %40, i64 18
+  store i8 %127, ptr %128, align 2
+  %129 = call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @ioapic_lock) #25
+  %130 = load ptr, ptr @x86_apic_ops, align 8
+  %131 = call i32 %130(i32 noundef %34, i32 noundef 1) #25
+  call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @ioapic_lock, i64 noundef %129) #25
+  %132 = lshr i32 %131, 16
+  %133 = and i32 %132, 255
+  %134 = add nuw nsw i32 %133, 1
+  %135 = add i32 %133, %2
+  %136 = load i32, ptr @nr_ioapics, align 4
+  %137 = icmp sgt i32 %136, 0
+  br i1 %137, label %138, label %.loopexit
 
-140:                                              ; preds = %123
-  %141 = zext nneg i32 %138 to i64
-  br label %142
+138:                                              ; preds = %121
+  %139 = zext nneg i32 %136 to i64
+  br label %140
 
-142:                                              ; preds = %160, %140
-  %143 = phi i64 [ 0, %140 ], [ %161, %160 ]
-  %144 = getelementptr %struct.ioapic, ptr @ioapics, i64 %143, i32 3
-  %145 = load i32, ptr %144, align 8
-  %146 = icmp ugt i32 %145, %2
-  br i1 %146, label %151, label %147
+140:                                              ; preds = %158, %138
+  %141 = phi i64 [ 0, %138 ], [ %159, %158 ]
+  %.split12 = getelementptr %struct.ioapic, ptr @ioapics, i64 %141
+  %142 = getelementptr i8, ptr %.split12, i64 24
+  %143 = load i32, ptr %142, align 8
+  %144 = icmp ugt i32 %143, %2
+  br i1 %144, label %149, label %145
 
-147:                                              ; preds = %142
-  %148 = getelementptr inbounds nuw i8, ptr %144, i64 4
-  %149 = load i32, ptr %148, align 4
-  %150 = icmp ult i32 %149, %2
-  br i1 %150, label %151, label %157
+145:                                              ; preds = %140
+  %146 = getelementptr i8, ptr %.split12, i64 28
+  %147 = load i32, ptr %146, align 4
+  %148 = icmp ult i32 %147, %2
+  br i1 %148, label %149, label %155
 
-151:                                              ; preds = %147, %142
-  %152 = icmp ult i32 %137, %145
-  br i1 %152, label %160, label %153
+149:                                              ; preds = %145, %140
+  %150 = icmp ult i32 %135, %143
+  br i1 %150, label %158, label %151
 
-153:                                              ; preds = %151
-  %154 = getelementptr inbounds nuw i8, ptr %144, i64 4
-  %155 = load i32, ptr %154, align 4
-  %156 = icmp ugt i32 %137, %155
-  br i1 %156, label %160, label %157
+151:                                              ; preds = %149
+  %152 = getelementptr i8, ptr %.split12, i64 28
+  %153 = load i32, ptr %152, align 4
+  %154 = icmp ugt i32 %135, %153
+  br i1 %154, label %158, label %155
 
-157:                                              ; preds = %153, %147
-  %158 = phi i32 [ %155, %153 ], [ %149, %147 ]
-  %159 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.23, i32 noundef %2, i32 noundef %137, i32 noundef %145, i32 noundef %158) #22
+155:                                              ; preds = %151, %145
+  %156 = phi i32 [ %153, %151 ], [ %147, %145 ]
+  %157 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.23, i32 noundef %2, i32 noundef %135, i32 noundef %143, i32 noundef %156) #22
   call void @native_set_fixmap(i32 noundef %44, i64 noundef 0, i64 0) #25
-  br label %203
+  br label %199
 
-160:                                              ; preds = %153, %151
-  %161 = add nuw nsw i64 %143, 1
-  %162 = icmp eq i64 %161, %141
-  br i1 %162, label %.loopexit, label %142, !llvm.loop !70
+158:                                              ; preds = %151, %149
+  %159 = add nuw nsw i64 %141, 1
+  %160 = icmp eq i64 %159, %139
+  br i1 %160, label %.loopexit, label %140, !llvm.loop !70
 
-.loopexit:                                        ; preds = %160, %123
-  %163 = getelementptr %struct.ioapic, ptr @ioapics, i64 %39, i32 3
-  store i32 %2, ptr %163, align 8
-  %164 = getelementptr inbounds nuw i8, ptr %163, i64 4
-  store i32 %137, ptr %164, align 4
-  %165 = getelementptr inbounds nuw i8, ptr %40, i64 56
-  store ptr null, ptr %165, align 8
-  %166 = getelementptr inbounds nuw i8, ptr %40, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %166, ptr noundef align 8 dereferenceable(24) %3, i64 24, i1 false)
-  br i1 %6, label %167, label %alloc_ioapic_saved_registers.exit
+.loopexit:                                        ; preds = %158, %121
+  %161 = getelementptr i8, ptr %40, i64 24
+  store i32 %2, ptr %161, align 8
+  %162 = getelementptr i8, ptr %40, i64 28
+  store i32 %135, ptr %162, align 4
+  %163 = getelementptr inbounds nuw i8, ptr %40, i64 56
+  store ptr null, ptr %163, align 8
+  %164 = getelementptr inbounds nuw i8, ptr %40, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %164, ptr noundef align 8 dereferenceable(24) %3, i64 24, i1 false)
+  br i1 %6, label %165, label %alloc_ioapic_saved_registers.exit
 
-167:                                              ; preds = %.loopexit
-  %168 = call fastcc i32 @mp_irqdomain_create(i32 noundef %34), !range !51
-  %169 = icmp eq i32 %168, 0
-  br i1 %169, label %171, label %170
+165:                                              ; preds = %.loopexit
+  %166 = call fastcc i32 @mp_irqdomain_create(i32 noundef %34), !range !51
+  %167 = icmp eq i32 %166, 0
+  br i1 %167, label %169, label %168
 
-170:                                              ; preds = %167
+168:                                              ; preds = %165
   call void @native_set_fixmap(i32 noundef %44, i64 noundef 0, i64 0) #25
-  br label %203
+  br label %199
 
-171:                                              ; preds = %167
-  %172 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  %173 = load ptr, ptr %172, align 8
-  %174 = icmp eq ptr %173, null
-  br i1 %174, label %175, label %alloc_ioapic_saved_registers.exit
+169:                                              ; preds = %165
+  %170 = getelementptr inbounds nuw i8, ptr %40, i64 8
+  %171 = load ptr, ptr %170, align 8
+  %172 = icmp eq ptr %171, null
+  br i1 %172, label %173, label %alloc_ioapic_saved_registers.exit
 
-175:                                              ; preds = %171
-  %176 = load i32, ptr %40, align 8
-  %177 = sext i32 %176 to i64
-  %178 = shl nsw i64 %177, 3
-  %179 = call noalias align 8 ptr @__kmalloc(i64 noundef %178, i32 noundef 3520) #24
-  store ptr %179, ptr %172, align 8
-  %180 = icmp eq ptr %179, null
-  br i1 %180, label %181, label %alloc_ioapic_saved_registers.exit
+173:                                              ; preds = %169
+  %174 = load i32, ptr %40, align 8
+  %175 = sext i32 %174 to i64
+  %176 = shl nsw i64 %175, 3
+  %177 = call noalias align 8 ptr @__kmalloc(i64 noundef %176, i32 noundef 3520) #24
+  store ptr %177, ptr %170, align 8
+  %178 = icmp eq ptr %177, null
+  br i1 %178, label %179, label %alloc_ioapic_saved_registers.exit
 
-181:                                              ; preds = %175
-  %182 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.28, i32 noundef %34) #22
+179:                                              ; preds = %173
+  %180 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.28, i32 noundef %34) #22
   br label %alloc_ioapic_saved_registers.exit
 
-alloc_ioapic_saved_registers.exit:                ; preds = %181, %175, %171, %.loopexit
-  %183 = load i32, ptr %164, align 4
-  %184 = load i32, ptr @gsi_top, align 4
-  %185 = icmp ult i32 %183, %184
-  br i1 %185, label %188, label %186
+alloc_ioapic_saved_registers.exit:                ; preds = %179, %173, %169, %.loopexit
+  %181 = load i32, ptr %162, align 4
+  %182 = load i32, ptr @gsi_top, align 4
+  %183 = icmp ult i32 %181, %182
+  br i1 %183, label %186, label %184
 
-186:                                              ; preds = %alloc_ioapic_saved_registers.exit
-  %187 = add i32 %183, 1
-  store i32 %187, ptr @gsi_top, align 4
-  br label %188
+184:                                              ; preds = %alloc_ioapic_saved_registers.exit
+  %185 = add i32 %181, 1
+  store i32 %185, ptr @gsi_top, align 4
+  br label %186
 
-188:                                              ; preds = %186, %alloc_ioapic_saved_registers.exit
-  %189 = load i32, ptr @nr_ioapics, align 4
-  %190 = icmp sgt i32 %189, %34
-  br i1 %190, label %193, label %191
+186:                                              ; preds = %184, %alloc_ioapic_saved_registers.exit
+  %187 = load i32, ptr @nr_ioapics, align 4
+  %188 = icmp sgt i32 %187, %34
+  br i1 %188, label %191, label %189
 
-191:                                              ; preds = %188
-  %192 = add nsw i32 %34, 1
-  store i32 %192, ptr @nr_ioapics, align 4
-  br label %193
+189:                                              ; preds = %186
+  %190 = add nsw i32 %34, 1
+  store i32 %190, ptr @nr_ioapics, align 4
+  br label %191
 
-193:                                              ; preds = %191, %188
-  store i32 %136, ptr %40, align 8
-  %194 = getelementptr %struct.ioapic, ptr @ioapics, i64 %39, i32 2, i32 1
-  %195 = load i8, ptr %194, align 1
-  %196 = zext i8 %195 to i32
-  %197 = load i8, ptr %130, align 2
-  %198 = zext i8 %197 to i32
-  %199 = getelementptr %struct.ioapic, ptr @ioapics, i64 %39, i32 2, i32 4
-  %200 = load i32, ptr %199, align 4
-  %201 = load i32, ptr %163, align 8
-  %202 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.24, i32 noundef %34, i32 noundef %196, i32 noundef %198, i32 noundef %200, i32 noundef %201, i32 noundef %183) #22
-  br label %203
+191:                                              ; preds = %189, %186
+  store i32 %134, ptr %40, align 8
+  %192 = load i8, ptr %123, align 1
+  %193 = zext i8 %192 to i32
+  %194 = load i8, ptr %128, align 2
+  %195 = zext i8 %194 to i32
+  %196 = load i32, ptr %43, align 4
+  %197 = load i32, ptr %161, align 8
+  %198 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.24, i32 noundef %34, i32 noundef %193, i32 noundef %195, i32 noundef %196, i32 noundef %197, i32 noundef %181) #22
+  br label %199
 
-203:                                              ; preds = %193, %170, %157, %61, %.thread, %20, %13
-  %204 = phi i32 [ -17, %20 ], [ -28, %.thread ], [ -19, %61 ], [ -28, %157 ], [ -12, %170 ], [ 0, %193 ], [ -22, %13 ]
-  ret i32 %204
+199:                                              ; preds = %191, %168, %155, %61, %.thread, %20, %13
+  %200 = phi i32 [ -17, %20 ], [ -28, %.thread ], [ -19, %61 ], [ -28, %155 ], [ -12, %168 ], [ 0, %191 ], [ -22, %13 ]
+  ret i32 %200
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -19, 1) i32 @mp_unregister_ioapic(i32 noundef %0) local_unnamed_addr #3 align 16 {
   %2 = load i32, ptr @nr_ioapics, align 4
   %3 = icmp sgt i32 %2, 0
-  br i1 %3, label %.preheader7.preheader, label %.loopexit8
+  br i1 %3, label %.preheader8.preheader, label %.loopexit9
 
-.preheader7.preheader:                            ; preds = %1
+.preheader8.preheader:                            ; preds = %1
   %4 = zext nneg i32 %2 to i64
-  br label %.preheader7
+  br label %.preheader8
 
-.preheader7:                                      ; preds = %.preheader7.preheader, %13
-  %indvars.iv = phi i64 [ 0, %.preheader7.preheader ], [ %indvars.iv.next, %13 ]
-  %5 = getelementptr %struct.ioapic, ptr @ioapics, i64 %indvars.iv, i32 3
+.preheader8:                                      ; preds = %.preheader8.preheader, %13
+  %indvars.iv = phi i64 [ 0, %.preheader8.preheader ], [ %indvars.iv.next, %13 ]
+  %.split = getelementptr %struct.ioapic, ptr @ioapics, i64 %indvars.iv
+  %5 = getelementptr i8, ptr %.split, i64 24
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, %0
   br i1 %7, label %8, label %13
 
-8:                                                ; preds = %.preheader7
-  %9 = trunc nuw nsw i64 %indvars.iv to i32
-  %10 = getelementptr %struct.ioapic, ptr @ioapics, i64 %indvars.iv
-  %11 = load i32, ptr %10, align 8
+8:                                                ; preds = %.preheader8
+  %9 = getelementptr i8, ptr %.split, i64 24
+  %10 = trunc nuw nsw i64 %indvars.iv to i32
+  %11 = load i32, ptr %.split, align 8
   %12 = icmp sgt i32 %11, 0
   br i1 %12, label %.preheader, label %.loopexit
 
-13:                                               ; preds = %.preheader7
+13:                                               ; preds = %.preheader8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %14 = icmp eq i64 %indvars.iv.next, %4
-  br i1 %14, label %.loopexit8, label %.preheader7, !llvm.loop !71
+  br i1 %14, label %.loopexit9, label %.preheader8, !llvm.loop !71
 
-.loopexit8:                                       ; preds = %13, %1
+.loopexit9:                                       ; preds = %13, %1
   %15 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.25, i32 noundef %0) #22
   br label %58
 
 .preheader:                                       ; preds = %8, %.thread
   %16 = phi i32 [ %34, %.thread ], [ 0, %8 ]
-  %17 = load i32, ptr %5, align 4
+  %17 = load i32, ptr %9, align 4
   %18 = add i32 %17, %16
   %19 = tail call i32 @mp_map_gsi_to_irq(i32 noundef %18, i32 noundef 0, ptr noundef null)
   %20 = icmp sgt i32 %19, -1
@@ -3608,18 +3635,18 @@ define dso_local noundef range(i32 -19, 1) i32 @mp_unregister_ioapic(i32 noundef
   br i1 %31, label %.thread, label %32
 
 32:                                               ; preds = %28
-  %33 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.26, i32 noundef %16, i32 noundef %9) #22
+  %33 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.26, i32 noundef %16, i32 noundef %10) #22
   br label %58
 
 .thread:                                          ; preds = %21, %28, %24, %.preheader
   %34 = add nuw nsw i32 %16, 1
-  %35 = load i32, ptr %10, align 8
+  %35 = load i32, ptr %.split, align 8
   %36 = icmp slt i32 %34, %35
   br i1 %36, label %.preheader, label %.loopexit, !llvm.loop !72
 
 .loopexit:                                        ; preds = %.thread, %8
-  store i32 0, ptr %10, align 8
-  %37 = getelementptr inbounds nuw i8, ptr %10, i64 56
+  store i32 0, ptr %.split, align 8
+  %37 = getelementptr inbounds nuw i8, ptr %.split, i64 56
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 88
   %40 = load ptr, ptr %39, align 8
@@ -3628,7 +3655,7 @@ define dso_local noundef range(i32 -19, 1) i32 @mp_unregister_ioapic(i32 noundef
 
 42:                                               ; preds = %.loopexit
   tail call void @irq_domain_remove(ptr noundef nonnull %38) #25
-  %43 = getelementptr inbounds nuw i8, ptr %10, i64 48
+  %43 = getelementptr inbounds nuw i8, ptr %.split, i64 48
   %44 = load ptr, ptr %43, align 8
   %45 = icmp eq ptr %44, null
   br i1 %45, label %46, label %47
@@ -3642,11 +3669,11 @@ define dso_local noundef range(i32 -19, 1) i32 @mp_unregister_ioapic(i32 noundef
   br label %48
 
 48:                                               ; preds = %47, %.loopexit
-  %49 = getelementptr %struct.ioapic, ptr @ioapics, i64 %indvars.iv, i32 1
+  %49 = getelementptr i8, ptr %.split, i64 8
   %50 = load ptr, ptr %49, align 8
   tail call void @kfree(ptr noundef %50) #25
   store ptr null, ptr %49, align 8
-  %51 = getelementptr inbounds nuw i8, ptr %10, i64 64
+  %51 = getelementptr inbounds nuw i8, ptr %.split, i64 64
   %52 = load ptr, ptr %51, align 8
   %53 = icmp eq ptr %52, null
   br i1 %53, label %56, label %54
@@ -3656,13 +3683,13 @@ define dso_local noundef range(i32 -19, 1) i32 @mp_unregister_ioapic(i32 noundef
   br label %56
 
 56:                                               ; preds = %54, %48
-  %57 = add nuw i32 %9, 516
+  %57 = add nuw i32 %10, 516
   tail call void @native_set_fixmap(i32 noundef %57, i64 noundef 0, i64 0) #25
-  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(72) %10, i8 0, i64 72, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(72) %.split, i8 0, i64 72, i1 false)
   br label %58
 
-58:                                               ; preds = %56, %32, %.loopexit8
-  %59 = phi i32 [ 0, %56 ], [ -19, %.loopexit8 ], [ -16, %32 ]
+58:                                               ; preds = %56, %32, %.loopexit9
+  %59 = phi i32 [ 0, %56 ], [ -19, %.loopexit9 ], [ -16, %32 ]
   ret i32 %59
 }
 
@@ -3686,7 +3713,8 @@ define dso_local noundef range(i32 0, 2) i32 @mp_ioapic_registered(i32 noundef %
 
 .preheader:                                       ; preds = %.preheader.preheader, %5
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %5 ]
-  %7 = getelementptr %struct.ioapic, ptr @ioapics, i64 %indvars.iv, i32 3
+  %.split = getelementptr %struct.ioapic, ptr @ioapics, i64 %indvars.iv
+  %7 = getelementptr i8, ptr %.split, i64 24
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %8, %0
   br i1 %9, label %.loopexit, label %5
@@ -3779,7 +3807,8 @@ define dso_local range(i32 -2147483648, 1) i32 @mp_irqdomain_alloc(ptr noundef %
   br label %67
 
 58:                                               ; preds = %34
-  %59 = getelementptr %struct.ioapic, ptr @ioapics, i64 %47, i32 3
+  %.split = getelementptr %struct.ioapic, ptr @ioapics, i64 %47
+  %59 = getelementptr i8, ptr %.split, i64 24
   %60 = load i32, ptr %59, align 8
   %61 = add i32 %60, %19
   %62 = getelementptr inbounds nuw i8, ptr %28, i64 24
@@ -3808,7 +3837,7 @@ define dso_local range(i32 -2147483648, 1) i32 @mp_irqdomain_alloc(ptr noundef %
   %75 = phi i32 [ %73, %71 ], [ -1, %67 ]
   %76 = load ptr, ptr %28, align 8
   %77 = icmp eq ptr %76, %28
-  br i1 %77, label %.loopexit9, label %.preheader
+  br i1 %77, label %.loopexit10, label %.preheader
 
 .preheader:                                       ; preds = %74, %86
   %78 = phi ptr [ %87, %86 ], [ %76, %74 ]
@@ -3826,20 +3855,20 @@ define dso_local range(i32 -2147483648, 1) i32 @mp_irqdomain_alloc(ptr noundef %
 86:                                               ; preds = %82, %.preheader
   %87 = load ptr, ptr %78, align 8
   %88 = icmp eq ptr %87, %28
-  br i1 %88, label %.loopexit9, label %.preheader, !llvm.loop !74
+  br i1 %88, label %.loopexit10, label %.preheader, !llvm.loop !74
 
-.loopexit9:                                       ; preds = %86, %74
+.loopexit10:                                      ; preds = %86, %74
   %89 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
   %90 = call noalias noundef align 8 dereferenceable_or_null(24) ptr @kmalloc_node_trace(ptr noundef %89, i32 noundef 2336, i32 noundef %75, i64 noundef 24) #28
   %91 = icmp eq ptr %90, null
   br i1 %91, label %92, label %94
 
-92:                                               ; preds = %.loopexit9
+92:                                               ; preds = %.loopexit10
   %93 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.32, i32 noundef %75, i32 noundef %17, i32 noundef %19) #22
   call void (ptr, ...) @panic(ptr noundef nonnull @.str.87) #23
   unreachable
 
-94:                                               ; preds = %.loopexit9
+94:                                               ; preds = %.loopexit10
   %95 = getelementptr inbounds nuw i8, ptr %90, i64 16
   store i32 %17, ptr %95, align 8
   %96 = getelementptr inbounds nuw i8, ptr %90, i64 20
@@ -3913,7 +3942,8 @@ define dso_local range(i32 -2147483648, 1) i32 @mp_irqdomain_alloc(ptr noundef %
   br i1 %130, label %131, label %140
 
 131:                                              ; preds = %128
-  %132 = getelementptr %struct.ioapic, ptr @ioapics, i64 %47, i32 2, i32 1
+  %.split9 = getelementptr %struct.ioapic, ptr @ioapics, i64 %47
+  %132 = getelementptr i8, ptr %.split9, i64 17
   %133 = load i8, ptr %132, align 1
   %134 = zext i8 %133 to i32
   %135 = load i8, ptr %100, align 8, !range !20, !noundef !21
@@ -4094,7 +4124,8 @@ define internal fastcc void @ioapic_configure_entry(ptr noundef %0) unnamed_addr
   %39 = sub nsw i64 -8392704, %38
   %40 = inttoptr i64 %39 to ptr
   %41 = sext i32 %28 to i64
-  %42 = getelementptr %struct.ioapic, ptr @ioapics, i64 %41, i32 2, i32 4
+  %.split = getelementptr %struct.ioapic, ptr @ioapics, i64 %41
+  %42 = getelementptr i8, ptr %.split, i64 20
   %43 = load i32, ptr %42, align 4
   %44 = and i32 %43, 4095
   %45 = zext nneg i32 %44 to i64
@@ -4141,7 +4172,8 @@ define dso_local void @mp_irqdomain_deactivate(ptr noundef readonly captures(non
   %17 = inttoptr i64 %16 to ptr
   %18 = shl i64 %5, 32
   %19 = ashr exact i64 %18, 32
-  %20 = getelementptr %struct.ioapic, ptr @ioapics, i64 %19, i32 2, i32 4
+  %.split = getelementptr %struct.ioapic, ptr @ioapics, i64 %19
+  %20 = getelementptr i8, ptr %.split, i64 20
   %21 = load i32, ptr %20, align 4
   %22 = and i32 %21, 4095
   %23 = zext nneg i32 %22 to i64
@@ -4164,7 +4196,8 @@ define dso_local void @mp_irqdomain_deactivate(ptr noundef readonly captures(non
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @__eoi_ioapic_pin(i32 noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #3 align 16 {
   %4 = sext i32 %0 to i64
-  %5 = getelementptr %struct.ioapic, ptr @ioapics, i64 %4, i32 2, i32 2
+  %.split = getelementptr %struct.ioapic, ptr @ioapics, i64 %4
+  %5 = getelementptr i8, ptr %.split, i64 18
   %6 = load i8, ptr %5, align 2
   %7 = icmp ugt i8 %6, 31
   br i1 %7, label %8, label %20
@@ -4175,7 +4208,7 @@ define internal fastcc void @__eoi_ioapic_pin(i32 noundef %0, i32 noundef %1, i3
   %11 = sext i32 %10 to i64
   %12 = sub nsw i64 -8392704, %11
   %13 = inttoptr i64 %12 to ptr
-  %14 = getelementptr %struct.ioapic, ptr @ioapics, i64 %4, i32 2, i32 4
+  %14 = getelementptr i8, ptr %.split, i64 20
   %15 = load i32, ptr %14, align 4
   %16 = and i32 %15, 4095
   %17 = zext nneg i32 %16 to i64
@@ -4199,7 +4232,7 @@ define internal fastcc void @__eoi_ioapic_pin(i32 noundef %0, i32 noundef %1, i3
   %32 = sext i32 %31 to i64
   %33 = sub nsw i64 -8392704, %32
   %34 = inttoptr i64 %33 to ptr
-  %35 = getelementptr %struct.ioapic, ptr @ioapics, i64 %4, i32 2, i32 4
+  %35 = getelementptr i8, ptr %.split, i64 20
   %36 = load i32, ptr %35, align 4
   %37 = and i32 %36, 4095
   %38 = zext nneg i32 %37 to i64
@@ -4548,7 +4581,8 @@ define internal range(i32 0, 2) i32 @startup_ioapic_irq(ptr noundef readonly cap
   %38 = sub nsw i64 -8392704, %37
   %39 = inttoptr i64 %38 to ptr
   %40 = sext i32 %28 to i64
-  %41 = getelementptr %struct.ioapic, ptr @ioapics, i64 %40, i32 2, i32 4
+  %.split = getelementptr %struct.ioapic, ptr @ioapics, i64 %40
+  %41 = getelementptr i8, ptr %.split, i64 20
   %42 = load i32, ptr %41, align 4
   %43 = and i32 %42, 4095
   %44 = zext nneg i32 %43 to i64
@@ -4597,7 +4631,8 @@ define internal void @mask_ioapic_irq(ptr noundef readonly captures(none) %0) #3
   %22 = sub nsw i64 -8392704, %21
   %23 = inttoptr i64 %22 to ptr
   %24 = sext i32 %12 to i64
-  %25 = getelementptr %struct.ioapic, ptr @ioapics, i64 %24, i32 2, i32 4
+  %.split = getelementptr %struct.ioapic, ptr @ioapics, i64 %24
+  %25 = getelementptr i8, ptr %.split, i64 20
   %26 = load i32, ptr %25, align 4
   %27 = and i32 %26, 4095
   %28 = zext nneg i32 %27 to i64
@@ -4612,7 +4647,8 @@ define internal void @mask_ioapic_irq(ptr noundef readonly captures(none) %0) #3
   %35 = sub nsw i64 -8392704, %34
   %36 = inttoptr i64 %35 to ptr
   %37 = sext i32 %31 to i64
-  %38 = getelementptr %struct.ioapic, ptr @ioapics, i64 %37, i32 2, i32 4
+  %.split1 = getelementptr %struct.ioapic, ptr @ioapics, i64 %37
+  %38 = getelementptr i8, ptr %.split1, i64 20
   %39 = load i32, ptr %38, align 4
   %40 = and i32 %39, 4095
   %41 = zext nneg i32 %40 to i64
@@ -4657,7 +4693,8 @@ define internal void @unmask_ioapic_irq(ptr noundef readonly captures(none) %0) 
   %22 = sub nsw i64 -8392704, %21
   %23 = inttoptr i64 %22 to ptr
   %24 = sext i32 %12 to i64
-  %25 = getelementptr %struct.ioapic, ptr @ioapics, i64 %24, i32 2, i32 4
+  %.split = getelementptr %struct.ioapic, ptr @ioapics, i64 %24
+  %25 = getelementptr i8, ptr %.split, i64 20
   %26 = load i32, ptr %25, align 4
   %27 = and i32 %26, 4095
   %28 = zext nneg i32 %27 to i64
@@ -4937,7 +4974,8 @@ declare dso_local i32 @irq_set_chip(i32 noundef, ptr noundef) local_unnamed_addr
 define internal fastcc void @mp_alloc_timer_irq(i32 noundef %0, i32 noundef range(i32 0, -1) %1) unnamed_addr #3 align 16 {
   %3 = alloca %struct.irq_alloc_info, align 8
   %4 = sext i32 %0 to i64
-  %5 = getelementptr %struct.ioapic, ptr @ioapics, i64 %4, i32 5
+  %.split = getelementptr %struct.ioapic, ptr @ioapics, i64 %4
+  %5 = getelementptr i8, ptr %.split, i64 56
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %20, label %8
@@ -4954,7 +4992,7 @@ define internal fastcc void @mp_alloc_timer_irq(i32 noundef %0, i32 noundef rang
   %12 = and i8 %11, -8
   %13 = or disjoint i8 %12, 4
   store i8 %13, ptr %10, align 8
-  %14 = getelementptr %struct.ioapic, ptr @ioapics, i64 %4, i32 2, i32 1
+  %14 = getelementptr i8, ptr %.split, i64 17
   %15 = load i8, ptr %14, align 1
   %16 = zext i8 %15 to i32
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -5324,7 +5362,8 @@ define internal void @ioapic_resume() #3 align 16 {
   %10 = trunc i64 %7 to i32
   %11 = tail call i32 %9(i32 noundef %10, i32 noundef 0) #25
   %12 = lshr i32 %11, 24
-  %13 = getelementptr %struct.ioapic, ptr @ioapics, i64 %7, i32 2, i32 1
+  %.split = getelementptr %struct.ioapic, ptr @ioapics, i64 %7
+  %13 = getelementptr i8, ptr %.split, i64 17
   %14 = load i8, ptr %13, align 1
   %15 = zext i8 %14 to i32
   %16 = icmp eq i32 %12, %15
@@ -5339,7 +5378,7 @@ define internal void @ioapic_resume() #3 align 16 {
   %23 = sext i32 %22 to i64
   %24 = sub nsw i64 -8392704, %23
   %25 = inttoptr i64 %24 to ptr
-  %26 = getelementptr %struct.ioapic, ptr @ioapics, i64 %7, i32 2, i32 4
+  %26 = getelementptr i8, ptr %.split, i64 20
   %27 = load i32, ptr %26, align 4
   %28 = and i32 %27, 4095
   %29 = zext nneg i32 %28 to i64

@@ -1130,8 +1130,8 @@ define internal i32 @DbObjCmd(ptr noundef %0, ptr noundef %1, i32 noundef %2, pt
   %63 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %64 = load ptr, ptr %63, align 8, !tbaa !15
   %65 = call ptr %62(ptr noundef %64) #14
-  %.not11221635 = icmp eq ptr %65, null
-  br i1 %.not11221635, label %.critedge, label %.lr.ph1639
+  %.not11221637 = icmp eq ptr %65, null
+  br i1 %.not11221637, label %.critedge, label %.lr.ph1641
 
 66:                                               ; preds = %57
   %67 = icmp samesign ugt i32 %2, 3
@@ -1247,10 +1247,10 @@ define internal i32 @DbObjCmd(ptr noundef %0, ptr noundef %1, i32 noundef %2, pt
   br label %.thread1222
 
 127:                                              ; preds = %115, %117
-  %.sink1592 = phi ptr [ %123, %117 ], [ %116, %115 ]
+  %.sink1593 = phi ptr [ %123, %117 ], [ %116, %115 ]
   %.sink = phi i64 [ 24, %117 ], [ 16, %115 ]
   %.0962 = phi ptr [ %122, %117 ], [ @.str.66, %115 ]
-  %128 = getelementptr inbounds nuw i8, ptr %.sink1592, i64 2736
+  %128 = getelementptr inbounds nuw i8, ptr %.sink1593, i64 2736
   %129 = load ptr, ptr %128, align 8, !tbaa !19
   %130 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink
   %131 = load ptr, ptr %130, align 8, !tbaa !15
@@ -1577,11 +1577,11 @@ define internal i32 @DbObjCmd(ptr noundef %0, ptr noundef %1, i32 noundef %2, pt
   br label %314
 
 313:                                              ; preds = %309
-  %spec.select1593 = call i32 @llvm.umin.i32(i32 %310, i32 100)
+  %spec.select1594 = call i32 @llvm.umin.i32(i32 %310, i32 100)
   br label %314
 
 314:                                              ; preds = %313, %312
-  %315 = phi i32 [ 0, %312 ], [ %spec.select1593, %313 ]
+  %315 = phi i32 [ 0, %312 ], [ %spec.select1594, %313 ]
   %316 = getelementptr inbounds nuw i8, ptr %0, i64 184
   store i32 %315, ptr %316, align 8, !tbaa !37
   br label %324
@@ -1975,7 +1975,7 @@ define internal i32 @DbObjCmd(ptr noundef %0, ptr noundef %1, i32 noundef %2, pt
 547:                                              ; preds = %._crit_edge1471, %538
   %548 = phi i32 [ %.pre1472, %._crit_edge1471 ], [ -1, %538 ]
   %549 = load ptr, ptr %0, align 8, !tbaa !26
-  %550 = getelementptr inbounds nuw %struct.DbConfigChoices, ptr @DbObjCmd.aDbConfig, i64 %indvars.iv1462, i32 1
+  %550 = getelementptr inbounds nuw i8, ptr %530, i64 8
   %551 = load i32, ptr %550, align 8, !tbaa !69
   %552 = call i32 (ptr, i32, ...) @sqlite3_db_config(ptr noundef %549, i32 noundef %551, i32 noundef %548, ptr noundef nonnull %17) #14
   %553 = load ptr, ptr @tclStubsPtr, align 8, !tbaa !3
@@ -2751,33 +2751,33 @@ define internal i32 @DbObjCmd(ptr noundef %0, ptr noundef %1, i32 noundef %2, pt
   br label %.critedge1174
 
 .lr.ph1385:                                       ; preds = %964
-  %951 = add nsw i32 %.089113841636, -1
+  %951 = add nsw i32 %.089113841638, -1
   %952 = load ptr, ptr @tclStubsPtr, align 8, !tbaa !3
   %953 = getelementptr inbounds nuw i8, ptr %952, i64 2736
   %954 = load ptr, ptr %953, align 8, !tbaa !19
-  %955 = getelementptr inbounds nuw i8, ptr %.089813831637, i64 24
+  %955 = getelementptr inbounds nuw i8, ptr %.089813831639, i64 24
   %956 = load ptr, ptr %955, align 8, !tbaa !15
   %957 = call ptr %954(ptr noundef %956) #14
   %.not1122 = icmp eq ptr %957, null
-  br i1 %.not1122, label %.critedge, label %.lr.ph1639, !llvm.loop !97
+  br i1 %.not1122, label %.critedge, label %.lr.ph1641, !llvm.loop !97
 
-.lr.ph1639:                                       ; preds = %.lr.ph1385.preheader, %.lr.ph1385
+.lr.ph1641:                                       ; preds = %.lr.ph1385.preheader, %.lr.ph1385
   %958 = phi ptr [ %957, %.lr.ph1385 ], [ %65, %.lr.ph1385.preheader ]
-  %.0100213821638 = phi i32 [ 1, %.lr.ph1385 ], [ 0, %.lr.ph1385.preheader ]
-  %.089813831637 = phi ptr [ %965, %.lr.ph1385 ], [ %3, %.lr.ph1385.preheader ]
-  %.089113841636 = phi i32 [ %951, %.lr.ph1385 ], [ %2, %.lr.ph1385.preheader ]
+  %.0100213821640 = phi i32 [ 1, %.lr.ph1385 ], [ 0, %.lr.ph1385.preheader ]
+  %.089813831639 = phi ptr [ %965, %.lr.ph1385 ], [ %3, %.lr.ph1385.preheader ]
+  %.089113841638 = phi i32 [ %951, %.lr.ph1385 ], [ %2, %.lr.ph1385.preheader ]
   %959 = load i8, ptr %958, align 1, !tbaa !18
   %960 = icmp eq i8 %959, 45
   br i1 %960, label %961, label %.critedge
 
-961:                                              ; preds = %.lr.ph1639
+961:                                              ; preds = %.lr.ph1641
   %962 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %958, ptr noundef nonnull dereferenceable(14) @.str.129) #15
   %963 = icmp eq i32 %962, 0
   br i1 %963, label %964, label %967
 
 964:                                              ; preds = %961
-  %965 = getelementptr inbounds nuw i8, ptr %.089813831637, i64 8
-  %966 = icmp sgt i32 %.089113841636, 4
+  %965 = getelementptr inbounds nuw i8, ptr %.089813831639, i64 8
+  %966 = icmp sgt i32 %.089113841638, 4
   br i1 %966, label %.lr.ph1385, label %.thread1550, !llvm.loop !97
 
 967:                                              ; preds = %961
@@ -2787,10 +2787,10 @@ define internal i32 @DbObjCmd(ptr noundef %0, ptr noundef %1, i32 noundef %2, pt
   call void (ptr, ...) %970(ptr noundef %1, ptr noundef nonnull @.str.130, ptr noundef nonnull %958, ptr noundef nonnull @.str.100, ptr noundef null) #14
   br label %.critedge1174
 
-.critedge:                                        ; preds = %.lr.ph1385, %.lr.ph1639, %.lr.ph1385.preheader, %.preheader1324
-  %.01002.lcssa = phi i32 [ 0, %.preheader1324 ], [ 0, %.lr.ph1385.preheader ], [ %.0100213821638, %.lr.ph1639 ], [ 1, %.lr.ph1385 ]
-  %.0898.lcssa = phi ptr [ %3, %.preheader1324 ], [ %3, %.lr.ph1385.preheader ], [ %.089813831637, %.lr.ph1639 ], [ %965, %.lr.ph1385 ]
-  %.0891.lcssa = phi i32 [ %2, %.preheader1324 ], [ %2, %.lr.ph1385.preheader ], [ %.089113841636, %.lr.ph1639 ], [ %951, %.lr.ph1385 ]
+.critedge:                                        ; preds = %.lr.ph1385, %.lr.ph1641, %.lr.ph1385.preheader, %.preheader1324
+  %.01002.lcssa = phi i32 [ 0, %.preheader1324 ], [ 0, %.lr.ph1385.preheader ], [ %.0100213821640, %.lr.ph1641 ], [ 1, %.lr.ph1385 ]
+  %.0898.lcssa = phi ptr [ %3, %.preheader1324 ], [ %3, %.lr.ph1385.preheader ], [ %.089813831639, %.lr.ph1641 ], [ %965, %.lr.ph1385 ]
+  %.0891.lcssa = phi i32 [ %2, %.preheader1324 ], [ %2, %.lr.ph1385.preheader ], [ %.089113841638, %.lr.ph1641 ], [ %951, %.lr.ph1385 ]
   %971 = add nsw i32 %.0891.lcssa, -6
   %or.cond43 = icmp ult i32 %971, -3
   br i1 %or.cond43, label %972, label %976
@@ -2951,8 +2951,8 @@ define internal i32 @DbObjCmd(ptr noundef %0, ptr noundef %1, i32 noundef %2, pt
 
 .preheader1325:                                   ; preds = %1052
   %1054 = add nsw i32 %2, -1
-  %.not1601 = icmp eq i32 %2, 4
-  br i1 %.not1601, label %._crit_edge, label %.lr.ph1379
+  %.not1602 = icmp eq i32 %2, 4
+  br i1 %.not1602, label %._crit_edge, label %.lr.ph1379
 
 .lr.ph1379:                                       ; preds = %.preheader1325
   %1055 = add nsw i32 %2, -2
@@ -3624,12 +3624,12 @@ safeToUseEvalObjv.exit:                           ; preds = %1162, %1166, %1166,
   br label %.thread1293
 
 1418:                                             ; preds = %1406, %1408
-  %.sink1599 = phi ptr [ %1414, %1408 ], [ %1407, %1406 ]
-  %.sink1597 = phi i64 [ 24, %1408 ], [ 16, %1406 ]
+  %.sink1600 = phi ptr [ %1414, %1408 ], [ %1407, %1406 ]
+  %.sink1598 = phi i64 [ 24, %1408 ], [ 16, %1406 ]
   %.0978 = phi ptr [ %1413, %1408 ], [ @.str.66, %1406 ]
-  %1419 = getelementptr inbounds nuw i8, ptr %.sink1599, i64 2736
+  %1419 = getelementptr inbounds nuw i8, ptr %.sink1600, i64 2736
   %1420 = load ptr, ptr %1419, align 8, !tbaa !19
-  %1421 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink1597
+  %1421 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink1598
   %1422 = load ptr, ptr %1421, align 8, !tbaa !15
   %1423 = call ptr %1420(ptr noundef %1422) #14
   %1424 = getelementptr inbounds nuw i8, ptr %0, i64 220
@@ -3841,8 +3841,8 @@ safeToUseEvalObjv.exit:                           ; preds = %1162, %1166, %1166,
   br label %.critedge1174
 
 1537:                                             ; preds = %1530, %1527, %1524, %1516
-  %.sink1600 = phi i64 [ 200, %1516 ], [ 204, %1524 ], [ 208, %1527 ], [ 212, %1530 ]
-  %1538 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink1600
+  %.sink1601 = phi i64 [ 200, %1516 ], [ 204, %1524 ], [ 208, %1527 ], [ 212, %1530 ]
+  %1538 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink1601
   %.0968 = load i32, ptr %1538, align 4, !tbaa !12
   %1539 = load ptr, ptr @tclStubsPtr, align 8, !tbaa !3
   %1540 = getelementptr inbounds nuw i8, ptr %1539, i64 1896

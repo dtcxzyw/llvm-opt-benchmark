@@ -166,33 +166,34 @@ define i32 @ff_dirac_golomb_read_16bit(ptr noundef readonly captures(none) %0, i
   %55 = load i8, ptr %.0105.lcssa, align 1, !tbaa !4
   %56 = zext i8 %55 to i64
   %57 = getelementptr inbounds nuw %struct.LUTState, ptr @dirac_golomb_lut, i64 %54
-  %.sroa.25.0..sroa_idx83 = getelementptr inbounds nuw %struct.LUTState, ptr %57, i64 %56, i32 9
+  %58 = getelementptr inbounds nuw %struct.LUTState, ptr %57, i64 %56
+  %.sroa.25.0..sroa_idx83 = getelementptr inbounds nuw i8, ptr %58, i64 14
   %.sroa.25.0.copyload84 = load i16, ptr %.sroa.25.0..sroa_idx83, align 2, !tbaa !7
   %.not124 = icmp eq i16 %.sroa.25.0.copyload84, 0
-  br i1 %.not124, label %64, label %58
+  br i1 %.not124, label %65, label %59
 
-58:                                               ; preds = %53
+59:                                               ; preds = %53
   %.not125 = icmp eq i16 %.sroa.25.0.copyload84, 768
-  %59 = shl i16 %spec.select126, 1
-  %60 = or disjoint i16 %59, 1
-  %61 = select i1 %.not125, i16 %spec.select126, i16 %60
-  %62 = sub i16 1, %61
-  %63 = getelementptr inbounds nuw i8, ptr %52, i64 2
-  store i16 %62, ptr %52, align 2, !tbaa !7
-  br label %64
+  %60 = shl i16 %spec.select126, 1
+  %61 = or disjoint i16 %60, 1
+  %62 = select i1 %.not125, i16 %spec.select126, i16 %61
+  %63 = sub i16 1, %62
+  %64 = getelementptr inbounds nuw i8, ptr %52, i64 2
+  store i16 %63, ptr %52, align 2, !tbaa !7
+  br label %65
 
-64:                                               ; preds = %58, %53
-  %.2104 = phi ptr [ %63, %58 ], [ %52, %53 ]
-  %65 = ptrtoint ptr %9 to i64
-  %66 = ptrtoint ptr %.2104 to i64
-  %67 = sub i64 %65, %66
-  %68 = lshr exact i64 %67, 1
-  %69 = trunc i64 %68 to i32
-  %70 = sub nsw i32 %3, %69
+65:                                               ; preds = %59, %53
+  %.2104 = phi ptr [ %64, %59 ], [ %52, %53 ]
+  %66 = ptrtoint ptr %9 to i64
+  %67 = ptrtoint ptr %.2104 to i64
+  %68 = sub i64 %66, %67
+  %69 = lshr exact i64 %68, 1
+  %70 = trunc i64 %69 to i32
+  %71 = sub nsw i32 %3, %70
   br label %.thread
 
-.thread:                                          ; preds = %.lr.ph, %._crit_edge, %64
-  %.1101 = phi i32 [ %70, %64 ], [ %3, %._crit_edge ], [ %3, %.lr.ph ]
+.thread:                                          ; preds = %.lr.ph, %._crit_edge, %65
+  %.1101 = phi i32 [ %71, %65 ], [ %3, %._crit_edge ], [ %3, %.lr.ph ]
   ret i32 %.1101
 }
 
@@ -358,33 +359,34 @@ define i32 @ff_dirac_golomb_read_32bit(ptr noundef readonly captures(none) %0, i
   %61 = load i8, ptr %.0105.lcssa, align 1, !tbaa !4
   %62 = zext i8 %61 to i64
   %63 = getelementptr inbounds nuw %struct.LUTState, ptr @dirac_golomb_lut, i64 %60
-  %.sroa.25.0..sroa_idx83 = getelementptr inbounds nuw %struct.LUTState, ptr %63, i64 %62, i32 9
+  %64 = getelementptr inbounds nuw %struct.LUTState, ptr %63, i64 %62
+  %.sroa.25.0..sroa_idx83 = getelementptr inbounds nuw i8, ptr %64, i64 14
   %.sroa.25.0.copyload84 = load i16, ptr %.sroa.25.0..sroa_idx83, align 2, !tbaa !7
   %.not124 = icmp eq i16 %.sroa.25.0.copyload84, 0
-  br i1 %.not124, label %70, label %64
+  br i1 %.not124, label %71, label %65
 
-64:                                               ; preds = %59
+65:                                               ; preds = %59
   %.not125 = icmp eq i16 %.sroa.25.0.copyload84, 768
-  %65 = shl i32 %spec.select126, 1
-  %66 = or disjoint i32 %65, 1
-  %67 = select i1 %.not125, i32 %spec.select126, i32 %66
-  %68 = sub i32 1, %67
-  %69 = getelementptr inbounds nuw i8, ptr %58, i64 4
-  store i32 %68, ptr %58, align 4, !tbaa !11
-  br label %70
+  %66 = shl i32 %spec.select126, 1
+  %67 = or disjoint i32 %66, 1
+  %68 = select i1 %.not125, i32 %spec.select126, i32 %67
+  %69 = sub i32 1, %68
+  %70 = getelementptr inbounds nuw i8, ptr %58, i64 4
+  store i32 %69, ptr %58, align 4, !tbaa !11
+  br label %71
 
-70:                                               ; preds = %64, %59
-  %.2104 = phi ptr [ %69, %64 ], [ %58, %59 ]
-  %71 = ptrtoint ptr %9 to i64
-  %72 = ptrtoint ptr %.2104 to i64
-  %73 = sub i64 %71, %72
-  %74 = lshr exact i64 %73, 2
-  %75 = trunc i64 %74 to i32
-  %76 = sub nsw i32 %3, %75
+71:                                               ; preds = %65, %59
+  %.2104 = phi ptr [ %70, %65 ], [ %58, %59 ]
+  %72 = ptrtoint ptr %9 to i64
+  %73 = ptrtoint ptr %.2104 to i64
+  %74 = sub i64 %72, %73
+  %75 = lshr exact i64 %74, 2
+  %76 = trunc i64 %75 to i32
+  %77 = sub nsw i32 %3, %76
   br label %.thread
 
-.thread:                                          ; preds = %.lr.ph, %._crit_edge, %70
-  %.1101 = phi i32 [ %76, %70 ], [ %3, %._crit_edge ], [ %3, %.lr.ph ]
+.thread:                                          ; preds = %.lr.ph, %._crit_edge, %71
+  %.1101 = phi i32 [ %77, %71 ], [ %3, %._crit_edge ], [ %3, %.lr.ph ]
   ret i32 %.1101
 }
 

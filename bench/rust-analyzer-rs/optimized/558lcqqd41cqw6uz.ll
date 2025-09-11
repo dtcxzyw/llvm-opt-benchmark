@@ -407,10 +407,10 @@ default.unreachable474:                           ; preds = %155, %67, %2
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %69 = load ptr, ptr %68, align 8, !nonnull !8, !noundef !8
-  %70 = getelementptr inbounds { i64, i64, { { ptr, i64 }, i64, i64, i64, i64, i64, { i8, [1 x i8] }, i8, i8, [4 x i8] }, {} }, ptr %69, i64 %66, i32 2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef nonnull align 8 dereferenceable(64) %70, i64 64, i1 false)
-  %71 = getelementptr inbounds { i64, i64, { { ptr, i64 }, i64, i64, i64, i64, i64, { i8, [1 x i8] }, i8, i8, [4 x i8] }, {} }, ptr %69, i64 %66
-  %72 = load i64, ptr %71, align 8, !noundef !8
+  %70 = getelementptr inbounds { i64, i64, { { ptr, i64 }, i64, i64, i64, i64, i64, { i8, [1 x i8] }, i8, i8, [4 x i8] }, {} }, ptr %69, i64 %66
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef nonnull align 8 dereferenceable(64) %71, i64 64, i1 false)
+  %72 = load i64, ptr %70, align 8, !noundef !8
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5174)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %73 = add i64 %72, -1
@@ -1374,10 +1374,10 @@ default.unreachable535:                           ; preds = %157, %69, %2
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %71 = load ptr, ptr %70, align 8, !nonnull !8, !noundef !8
-  %72 = getelementptr inbounds { i64, i64, i64, { { ptr, i64 }, i64, i64, i64, i64, i64, { i8, [1 x i8] }, i8, i8, [4 x i8] } }, ptr %71, i64 %68, i32 3
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef nonnull align 8 dereferenceable(64) %72, i64 64, i1 false)
-  %73 = getelementptr inbounds { i64, i64, i64, { { ptr, i64 }, i64, i64, i64, i64, i64, { i8, [1 x i8] }, i8, i8, [4 x i8] } }, ptr %71, i64 %68
-  %74 = load i64, ptr %73, align 8, !noundef !8
+  %72 = getelementptr inbounds { i64, i64, i64, { { ptr, i64 }, i64, i64, i64, i64, i64, { i8, [1 x i8] }, i8, i8, [4 x i8] } }, ptr %71, i64 %68
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef nonnull align 8 dereferenceable(64) %73, i64 64, i1 false)
+  %74 = load i64, ptr %72, align 8, !noundef !8
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6186)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %75 = add i64 %74, -1

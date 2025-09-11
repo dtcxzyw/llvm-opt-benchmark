@@ -914,8 +914,8 @@ Map_TimeComputeArrivalMax.exit:                   ; preds = %42, %17
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.preheader, label %137, !llvm.loop !75
 
-146:                                              ; preds = %171, %.lr.ph104.split.split.preheader
-  %indvars.iv109 = phi i64 [ 0, %.lr.ph104.split.split.preheader ], [ %indvars.iv.next110, %171 ]
+146:                                              ; preds = %172, %.lr.ph104.split.split.preheader
+  %indvars.iv109 = phi i64 [ 0, %.lr.ph104.split.split.preheader ], [ %indvars.iv.next110, %172 ]
   %147 = getelementptr inbounds nuw ptr, ptr %122, i64 %indvars.iv109
   %148 = load ptr, ptr %147, align 8, !tbaa !23
   %149 = ptrtoint ptr %148 to i64
@@ -927,39 +927,40 @@ Map_TimeComputeArrivalMax.exit:                   ; preds = %42, %17
   %155 = getelementptr inbounds nuw %struct.Map_TimeStruct_t_, ptr %154, i64 %151
   %156 = getelementptr inbounds nuw i8, ptr %153, i64 96
   %157 = getelementptr inbounds nuw %struct.Map_TimeStruct_t_, ptr %156, i64 %151
-  %158 = getelementptr inbounds nuw %struct.Map_TimeStruct_t_, ptr %120, i64 %indvars.iv109, i32 2
-  %159 = load float, ptr %158, align 4, !tbaa !24
-  %160 = fcmp ogt float %159, 0.000000e+00
-  br i1 %160, label %161, label %169
+  %158 = getelementptr inbounds nuw %struct.Map_TimeStruct_t_, ptr %120, i64 %indvars.iv109
+  %159 = getelementptr inbounds nuw i8, ptr %158, i64 8
+  %160 = load float, ptr %159, align 4, !tbaa !24
+  %161 = fcmp ogt float %160, 0.000000e+00
+  br i1 %161, label %162, label %170
 
-161:                                              ; preds = %146
-  %162 = getelementptr inbounds nuw i8, ptr %157, i64 8
-  %163 = load float, ptr %162, align 4, !tbaa !24
-  %164 = fcmp ugt float %163, %159
-  br i1 %164, label %165, label %171
+162:                                              ; preds = %146
+  %163 = getelementptr inbounds nuw i8, ptr %157, i64 8
+  %164 = load float, ptr %163, align 4, !tbaa !24
+  %165 = fcmp ugt float %164, %160
+  br i1 %165, label %166, label %172
 
-165:                                              ; preds = %161
-  %166 = getelementptr inbounds nuw i8, ptr %157, i64 8
-  %167 = load float, ptr %166, align 4, !tbaa !24
-  %168 = fcmp ogt float %167, %159
-  br i1 %168, label %171, label %169
+166:                                              ; preds = %162
+  %167 = getelementptr inbounds nuw i8, ptr %157, i64 8
+  %168 = load float, ptr %167, align 4, !tbaa !24
+  %169 = fcmp ogt float %168, %160
+  br i1 %169, label %172, label %170
 
-169:                                              ; preds = %146, %165
-  %170 = load float, ptr %46, align 8, !tbaa !68
-  br label %171
+170:                                              ; preds = %146, %166
+  %171 = load float, ptr %46, align 8, !tbaa !68
+  br label %172
 
-171:                                              ; preds = %165, %161, %169
-  %.sink138 = phi float [ %170, %169 ], [ %159, %161 ], [ %167, %165 ]
-  %172 = getelementptr inbounds nuw i8, ptr %155, i64 8
-  store float %.sink138, ptr %172, align 4, !tbaa !24
-  %173 = getelementptr inbounds nuw i8, ptr %155, i64 4
-  store float %.sink138, ptr %173, align 4, !tbaa !39
+172:                                              ; preds = %166, %162, %170
+  %.sink138 = phi float [ %171, %170 ], [ %160, %162 ], [ %168, %166 ]
+  %173 = getelementptr inbounds nuw i8, ptr %155, i64 8
+  store float %.sink138, ptr %173, align 4, !tbaa !24
+  %174 = getelementptr inbounds nuw i8, ptr %155, i64 4
+  store float %.sink138, ptr %174, align 4, !tbaa !39
   store float %.sink138, ptr %155, align 4, !tbaa !40
   %indvars.iv.next110 = add nuw nsw i64 %indvars.iv109, 1
-  %174 = icmp samesign ult i64 %indvars.iv.next110, %123
-  br i1 %174, label %146, label %._crit_edge, !llvm.loop !76
+  %175 = icmp samesign ult i64 %indvars.iv.next110, %123
+  br i1 %175, label %146, label %._crit_edge, !llvm.loop !76
 
-._crit_edge:                                      ; preds = %171, %125, %113, %.preheader
+._crit_edge:                                      ; preds = %172, %125, %113, %.preheader
   tail call void @Map_TimePropagateRequired(ptr noundef nonnull %0)
   ret void
 }

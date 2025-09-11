@@ -919,7 +919,8 @@ define internal fastcc void @____ip_mc_inc_group(ptr noundef %0, i32 noundef %1,
 
 35:                                               ; preds = %31, %.loopexit8
   %36 = phi i64 [ 0, %.loopexit8 ], [ %34, %31 ]
-  %37 = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %36, i64 2
+  %.split = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %36
+  %37 = getelementptr i8, ptr %.split, i64 16
   %38 = load ptr, ptr %37, align 16
   %39 = tail call noalias align 8 dereferenceable_or_null(144) ptr @kmalloc_trace(ptr noundef %38, i32 noundef %28, i64 noundef 144) #17
   %40 = icmp eq ptr %39, null
@@ -6748,7 +6749,8 @@ define internal fastcc void @igmpv3_add_delrec(ptr noundef %0, ptr noundef %1, i
 
 14:                                               ; preds = %10, %3
   %15 = phi i64 [ 0, %3 ], [ %13, %10 ]
-  %16 = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %15, i64 2
+  %.split = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %15
+  %16 = getelementptr i8, ptr %.split, i64 16
   %17 = load ptr, ptr %16, align 16
   %18 = tail call noalias align 8 dereferenceable_or_null(144) ptr @kmalloc_trace(ptr noundef %17, i32 noundef %7, i64 noundef 144) #17
   %19 = icmp eq ptr %18, null

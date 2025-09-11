@@ -32452,7 +32452,7 @@ _ZL18lean_alloc_closurePvjj.exit:                 ; preds = %3
   %26 = shl nuw nsw i64 %25, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %23, ptr align 8 %22, i64 %26, i1 false), !tbaa !15
   %27 = add nsw i32 %6, -1
-  %28 = zext i32 %27 to i64
+  %28 = zext nneg i32 %27 to i64
   %29 = shl nuw nsw i64 %28, 3
   %30 = getelementptr i8, ptr %12, i64 %29
   %scevgep = getelementptr i8, ptr %30, i64 32

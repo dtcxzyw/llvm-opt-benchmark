@@ -5179,7 +5179,7 @@ define internal void @_ZN12_GLOBAL__N_120rel_case_split_queue15next_case_splitER
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 636
   %15 = load i8, ptr %14, align 4, !tbaa !686, !range !44, !noundef !45
   %16 = trunc nuw i8 %15 to i1
-  br i1 %16, label %17, label %50
+  br i1 %16, label %17, label %51
 
 17:                                               ; preds = %11
   %18 = load i32, ptr %1, align 4, !tbaa !57
@@ -5187,7 +5187,7 @@ define internal void @_ZN12_GLOBAL__N_120rel_case_split_queue15next_case_splitER
   %19 = load i32, ptr %2, align 4
   %.not16 = icmp eq i32 %19, -1
   %or.cond = select i1 %.not, i1 true, i1 %.not16
-  br i1 %or.cond, label %50, label %20
+  br i1 %or.cond, label %51, label %20
 
 20:                                               ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5195,42 +5195,43 @@ define internal void @_ZN12_GLOBAL__N_120rel_case_split_queue15next_case_splitER
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8872
   %24 = load ptr, ptr %23, align 8, !tbaa !687
   %25 = zext i32 %18 to i64
-  %26 = getelementptr inbounds nuw %"struct.smt::bool_var_data", ptr %24, i64 %25, i32 1
-  %27 = load i64, ptr %26, align 8
-  %28 = and i64 %27, 1073741824
-  %.not17 = icmp eq i64 %28, 0
-  br i1 %.not17, label %50, label %29
+  %26 = getelementptr inbounds nuw %"struct.smt::bool_var_data", ptr %24, i64 %25
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  %28 = load i64, ptr %27, align 8
+  %29 = and i64 %28, 1073741824
+  %.not17 = icmp eq i64 %29, 0
+  br i1 %.not17, label %51, label %30
 
-29:                                               ; preds = %20
-  %30 = getelementptr inbounds nuw i8, ptr %22, i64 8656
-  %31 = getelementptr inbounds nuw i8, ptr %22, i64 8840
-  %32 = load ptr, ptr %31, align 8, !tbaa !555
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %25
-  %34 = load ptr, ptr %33, align 8, !tbaa !636
-  %35 = load i32, ptr %34, align 4, !tbaa !637
-  %36 = load ptr, ptr %30, align 8, !tbaa !688
-  %37 = zext i32 %35 to i64
-  %38 = getelementptr inbounds nuw ptr, ptr %36, i64 %37
-  %39 = load ptr, ptr %38, align 8, !tbaa !689
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 44
-  %41 = load i16, ptr %40, align 4
-  %42 = and i16 %41, 16
-  %.not18 = icmp eq i16 %42, 0
-  br i1 %.not18, label %50, label %43
+30:                                               ; preds = %20
+  %31 = getelementptr inbounds nuw i8, ptr %22, i64 8656
+  %32 = getelementptr inbounds nuw i8, ptr %22, i64 8840
+  %33 = load ptr, ptr %32, align 8, !tbaa !555
+  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %25
+  %35 = load ptr, ptr %34, align 8, !tbaa !636
+  %36 = load i32, ptr %35, align 4, !tbaa !637
+  %37 = load ptr, ptr %31, align 8, !tbaa !688
+  %38 = zext i32 %36 to i64
+  %39 = getelementptr inbounds nuw ptr, ptr %37, i64 %38
+  %40 = load ptr, ptr %39, align 8, !tbaa !689
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 44
+  %42 = load i16, ptr %41, align 4
+  %43 = and i16 %42, 16
+  %.not18 = icmp eq i16 %43, 0
+  br i1 %.not18, label %51, label %44
 
-43:                                               ; preds = %29
-  %44 = getelementptr inbounds nuw i8, ptr %39, i64 112
-  %45 = load ptr, ptr %44, align 8, !tbaa !689
-  %46 = getelementptr inbounds nuw i8, ptr %39, i64 120
-  %47 = load ptr, ptr %46, align 8, !tbaa !689
-  %48 = tail call noundef zeroext i1 @_ZN3smt7context12is_ext_diseqEPNS_5enodeES2_j(ptr noundef nonnull align 8 dereferenceable(10544) %22, ptr noundef %45, ptr noundef %47, i32 noundef 2)
-  br i1 %48, label %49, label %50
+44:                                               ; preds = %30
+  %45 = getelementptr inbounds nuw i8, ptr %40, i64 112
+  %46 = load ptr, ptr %45, align 8, !tbaa !689
+  %47 = getelementptr inbounds nuw i8, ptr %40, i64 120
+  %48 = load ptr, ptr %47, align 8, !tbaa !689
+  %49 = tail call noundef zeroext i1 @_ZN3smt7context12is_ext_diseqEPNS_5enodeES2_j(ptr noundef nonnull align 8 dereferenceable(10544) %22, ptr noundef %46, ptr noundef %48, i32 noundef 2)
+  br i1 %49, label %50, label %51
 
-49:                                               ; preds = %43
+50:                                               ; preds = %44
   store i32 -1, ptr %2, align 4, !tbaa !639
-  br label %50
+  br label %51
 
-50:                                               ; preds = %29, %49, %43, %20, %17, %11
+51:                                               ; preds = %30, %50, %44, %20, %17, %11
   ret void
 }
 
@@ -7927,7 +7928,7 @@ _ZNK6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue11queue_entryELb0EjE4sizeE
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  br label %157
+  br label %164
 
 45:                                               ; preds = %.lr.ph110, %_ZN4heapIN12_GLOBAL__N_125rel_goal_case_split_queue13generation_ltEE5eraseEi.exit
   %indvars.iv109 = phi i64 [ %40, %.lr.ph110 ], [ %indvars.iv.next, %_ZN4heapIN12_GLOBAL__N_125rel_goal_case_split_queue13generation_ltEE5eraseEi.exit ]
@@ -7988,7 +7989,7 @@ _ZN6vectorIiLb0EjE4backEv.exit.i:                 ; preds = %60, %_ZNK6vectorIiL
   %69 = add i32 %68, -1
   store i32 %69, ptr %36, align 4, !tbaa !57
   %.not.i30 = icmp eq i32 %51, 1
-  br i1 %.not.i30, label %106, label %70
+  br i1 %.not.i30, label %110, label %70
 
 70:                                               ; preds = %_ZN6vectorIiLb0EjE4backEv.exit.i
   %71 = ashr i32 %51, 1
@@ -7996,159 +7997,167 @@ _ZN6vectorIiLb0EjE4backEv.exit.i:                 ; preds = %60, %_ZNK6vectorIiL
   %73 = getelementptr inbounds nuw i32, ptr %34, i64 %72
   %74 = load i32, ptr %73, align 4, !tbaa !57
   %.val.val.i = load ptr, ptr %37, align 8, !tbaa !588
-  %75 = getelementptr inbounds nuw %"struct.(anonymous namespace)::rel_goal_case_split_queue::queue_entry", ptr %.val.val.i, i64 %66, i32 1
-  %76 = load i32, ptr %75, align 8, !tbaa !753
-  %77 = zext i32 %74 to i64
-  %78 = getelementptr inbounds nuw %"struct.(anonymous namespace)::rel_goal_case_split_queue::queue_entry", ptr %.val.val.i, i64 %77, i32 1
-  %79 = load i32, ptr %78, align 8, !tbaa !753
-  %80 = icmp eq i32 %76, %79
-  %81 = icmp slt i32 %63, %74
-  %82 = icmp ult i32 %76, %79
-  %.0.i.i14.i = select i1 %80, i1 %81, i1 %82
-  br i1 %.0.i.i14.i, label %.lr.ph.i.i, label %106
+  %75 = getelementptr inbounds nuw %"struct.(anonymous namespace)::rel_goal_case_split_queue::queue_entry", ptr %.val.val.i, i64 %66
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
+  %77 = load i32, ptr %76, align 8, !tbaa !753
+  %78 = zext i32 %74 to i64
+  %79 = getelementptr inbounds nuw %"struct.(anonymous namespace)::rel_goal_case_split_queue::queue_entry", ptr %.val.val.i, i64 %78
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
+  %81 = load i32, ptr %80, align 8, !tbaa !753
+  %82 = icmp eq i32 %77, %81
+  %83 = icmp slt i32 %63, %74
+  %84 = icmp ult i32 %77, %81
+  %.0.i.i14.i = select i1 %82, i1 %83, i1 %84
+  br i1 %.0.i.i14.i, label %.lr.ph.i.i, label %110
 
 .lr.ph.i.i:                                       ; preds = %70
-  %83 = load i32, ptr %65, align 4, !tbaa !57
-  %84 = zext i32 %83 to i64
-  %85 = getelementptr inbounds nuw %"struct.(anonymous namespace)::rel_goal_case_split_queue::queue_entry", ptr %.val.val.i, i64 %84, i32 1
-  %86 = load ptr, ptr %30, align 8
-  br label %87
+  %85 = load i32, ptr %65, align 4, !tbaa !57
+  %86 = zext i32 %85 to i64
+  %87 = getelementptr inbounds nuw %"struct.(anonymous namespace)::rel_goal_case_split_queue::queue_entry", ptr %.val.val.i, i64 %86
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
+  %89 = load ptr, ptr %30, align 8
+  br label %90
 
-87:                                               ; preds = %100, %.lr.ph.i.i
-  %.01521.i.i = phi i32 [ %51, %.lr.ph.i.i ], [ %88, %100 ]
-  %88 = ashr i32 %.01521.i.i, 1
-  %89 = zext i32 %88 to i64
-  %90 = getelementptr inbounds nuw i32, ptr %34, i64 %89
-  %91 = load i32, ptr %90, align 4, !tbaa !57
-  %92 = load i32, ptr %85, align 8, !tbaa !753
-  %93 = zext i32 %91 to i64
-  %94 = getelementptr inbounds nuw %"struct.(anonymous namespace)::rel_goal_case_split_queue::queue_entry", ptr %.val.val.i, i64 %93, i32 1
-  %95 = load i32, ptr %94, align 8, !tbaa !753
-  %96 = icmp eq i32 %92, %95
-  %97 = icmp slt i32 %83, %91
-  %98 = icmp ult i32 %92, %95
-  %.0.i.i.i.i = select i1 %96, i1 %97, i1 %98
-  %99 = zext i32 %.01521.i.i to i64
-  br i1 %.0.i.i.i.i, label %100, label %_ZN4heapIN12_GLOBAL__N_125rel_goal_case_split_queue13generation_ltEE7move_upEi.exit.i
+90:                                               ; preds = %104, %.lr.ph.i.i
+  %.01521.i.i = phi i32 [ %51, %.lr.ph.i.i ], [ %91, %104 ]
+  %91 = ashr i32 %.01521.i.i, 1
+  %92 = zext i32 %91 to i64
+  %93 = getelementptr inbounds nuw i32, ptr %34, i64 %92
+  %94 = load i32, ptr %93, align 4, !tbaa !57
+  %95 = load i32, ptr %88, align 8, !tbaa !753
+  %96 = zext i32 %94 to i64
+  %97 = getelementptr inbounds nuw %"struct.(anonymous namespace)::rel_goal_case_split_queue::queue_entry", ptr %.val.val.i, i64 %96
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 8
+  %99 = load i32, ptr %98, align 8, !tbaa !753
+  %100 = icmp eq i32 %95, %99
+  %101 = icmp slt i32 %85, %94
+  %102 = icmp ult i32 %95, %99
+  %.0.i.i.i.i = select i1 %100, i1 %101, i1 %102
+  %103 = zext i32 %.01521.i.i to i64
+  br i1 %.0.i.i.i.i, label %104, label %_ZN4heapIN12_GLOBAL__N_125rel_goal_case_split_queue13generation_ltEE7move_upEi.exit.i
 
-100:                                              ; preds = %87
-  %101 = getelementptr inbounds nuw i32, ptr %34, i64 %99
-  store i32 %91, ptr %101, align 4, !tbaa !57
-  %102 = getelementptr inbounds nuw i32, ptr %86, i64 %93
-  store i32 %.01521.i.i, ptr %102, align 4, !tbaa !57
-  %103 = icmp ult i32 %88, 2
-  br i1 %103, label %_ZN4heapIN12_GLOBAL__N_125rel_goal_case_split_queue13generation_ltEE7move_upEi.exit.i, label %87
+104:                                              ; preds = %90
+  %105 = getelementptr inbounds nuw i32, ptr %34, i64 %103
+  store i32 %94, ptr %105, align 4, !tbaa !57
+  %106 = getelementptr inbounds nuw i32, ptr %89, i64 %96
+  store i32 %.01521.i.i, ptr %106, align 4, !tbaa !57
+  %107 = icmp ult i32 %91, 2
+  br i1 %107, label %_ZN4heapIN12_GLOBAL__N_125rel_goal_case_split_queue13generation_ltEE7move_upEi.exit.i, label %90
 
-_ZN4heapIN12_GLOBAL__N_125rel_goal_case_split_queue13generation_ltEE7move_upEi.exit.i: ; preds = %100, %87
-  %.pre-phi.i.i = phi i64 [ %99, %87 ], [ %89, %100 ]
-  %.015.lcssa.i.i = phi i32 [ %.01521.i.i, %87 ], [ %88, %100 ]
-  %104 = getelementptr inbounds nuw i32, ptr %34, i64 %.pre-phi.i.i
-  store i32 %83, ptr %104, align 4, !tbaa !57
-  %105 = getelementptr inbounds nuw i32, ptr %86, i64 %84
-  store i32 %.015.lcssa.i.i, ptr %105, align 4, !tbaa !57
+_ZN4heapIN12_GLOBAL__N_125rel_goal_case_split_queue13generation_ltEE7move_upEi.exit.i: ; preds = %104, %90
+  %.pre-phi.i.i = phi i64 [ %103, %90 ], [ %92, %104 ]
+  %.015.lcssa.i.i = phi i32 [ %.01521.i.i, %90 ], [ %91, %104 ]
+  %108 = getelementptr inbounds nuw i32, ptr %34, i64 %.pre-phi.i.i
+  store i32 %85, ptr %108, align 4, !tbaa !57
+  %109 = getelementptr inbounds nuw i32, ptr %89, i64 %86
+  store i32 %.015.lcssa.i.i, ptr %109, align 4, !tbaa !57
   br label %_ZN4heapIN12_GLOBAL__N_125rel_goal_case_split_queue13generation_ltEE5eraseEi.exit
 
-106:                                              ; preds = %70, %_ZN6vectorIiLb0EjE4backEv.exit.i
-  %107 = load i32, ptr %65, align 4, !tbaa !57
-  %108 = shl i32 %51, 1
-  %.not35.i.i = icmp slt i32 %108, %69
+110:                                              ; preds = %70, %_ZN6vectorIiLb0EjE4backEv.exit.i
+  %111 = load i32, ptr %65, align 4, !tbaa !57
+  %112 = shl i32 %51, 1
+  %.not35.i.i = icmp slt i32 %112, %69
   br i1 %.not35.i.i, label %.lr.ph.i15.i, label %_ZNK6vectorIiLb0EjE4sizeEv.exit.._crit_edge_crit_edge.i.i
 
-_ZNK6vectorIiLb0EjE4sizeEv.exit.._crit_edge_crit_edge.i.i: ; preds = %106
-  %.pre51.i.i = zext i32 %107 to i64
+_ZNK6vectorIiLb0EjE4sizeEv.exit.._crit_edge_crit_edge.i.i: ; preds = %110
+  %.pre52.i.i = zext i32 %111 to i64
   br label %_ZN4heapIN12_GLOBAL__N_125rel_goal_case_split_queue13generation_ltEE9move_downEi.exit.i
 
-.lr.ph.i15.i:                                     ; preds = %106
+.lr.ph.i15.i:                                     ; preds = %110
   %.val29.i.i = load ptr, ptr %29, align 8
-  %109 = getelementptr i8, ptr %.val29.i.i, i64 48
-  %.val.val.i16.i = load ptr, ptr %109, align 8, !tbaa !588
-  %110 = zext i32 %107 to i64
-  %111 = getelementptr inbounds nuw %"struct.(anonymous namespace)::rel_goal_case_split_queue::queue_entry", ptr %.val.val.i16.i, i64 %110, i32 1
-  %112 = load ptr, ptr %30, align 8
-  br label %113
+  %113 = getelementptr i8, ptr %.val29.i.i, i64 48
+  %.val.val.i16.i = load ptr, ptr %113, align 8, !tbaa !588
+  %114 = zext i32 %111 to i64
+  %115 = getelementptr inbounds nuw %"struct.(anonymous namespace)::rel_goal_case_split_queue::queue_entry", ptr %.val.val.i16.i, i64 %114
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 8
+  %117 = load ptr, ptr %30, align 8
+  br label %118
 
-113:                                              ; preds = %142, %.lr.ph.i15.i
-  %114 = phi i32 [ %108, %.lr.ph.i15.i ], [ %146, %142 ]
-  %.036.i.i = phi i32 [ %51, %.lr.ph.i15.i ], [ %137, %142 ]
-  %115 = or disjoint i32 %114, 1
-  %116 = icmp slt i32 %115, %69
-  br i1 %116, label %117, label %._crit_edge45.i.i
+118:                                              ; preds = %149, %.lr.ph.i15.i
+  %119 = phi i32 [ %112, %.lr.ph.i15.i ], [ %153, %149 ]
+  %.036.i.i = phi i32 [ %51, %.lr.ph.i15.i ], [ %144, %149 ]
+  %120 = or disjoint i32 %119, 1
+  %121 = icmp slt i32 %120, %69
+  br i1 %121, label %122, label %._crit_edge46.i.i
 
-._crit_edge45.i.i:                                ; preds = %113
-  %.pre.phi.trans.insert.i.i = zext i32 %114 to i64
+._crit_edge46.i.i:                                ; preds = %118
+  %.pre.phi.trans.insert.i.i = zext i32 %119 to i64
   %.phi.trans.insert.phi.trans.insert.i.i = getelementptr inbounds nuw i32, ptr %34, i64 %.pre.phi.trans.insert.i.i
   %.pre39.pre.i.i = load i32, ptr %.phi.trans.insert.phi.trans.insert.i.i, align 4, !tbaa !57
   %.phi.trans.insert40.phi.trans.insert.i.i = zext i32 %.pre39.pre.i.i to i64
-  %.phi.trans.insert41.phi.trans.insert.i.i = getelementptr inbounds nuw %"struct.(anonymous namespace)::rel_goal_case_split_queue::queue_entry", ptr %.val.val.i16.i, i64 %.phi.trans.insert40.phi.trans.insert.i.i, i32 1
-  %.pre42.pre.i.i = load i32, ptr %.phi.trans.insert41.phi.trans.insert.i.i, align 8, !tbaa !753
-  br label %134
+  %.phi.trans.insert41.phi.trans.insert.i.i = getelementptr inbounds nuw %"struct.(anonymous namespace)::rel_goal_case_split_queue::queue_entry", ptr %.val.val.i16.i, i64 %.phi.trans.insert40.phi.trans.insert.i.i
+  %.phi.trans.insert42.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %.phi.trans.insert41.phi.trans.insert.i.i, i64 8
+  %.pre43.pre.i.i = load i32, ptr %.phi.trans.insert42.phi.trans.insert.i.i, align 8, !tbaa !753
+  br label %141
 
-117:                                              ; preds = %113
-  %118 = zext i32 %115 to i64
-  %119 = getelementptr inbounds nuw i32, ptr %34, i64 %118
-  %120 = load i32, ptr %119, align 4, !tbaa !57
-  %121 = zext i32 %114 to i64
-  %122 = getelementptr inbounds nuw i32, ptr %34, i64 %121
-  %123 = load i32, ptr %122, align 4, !tbaa !57
-  %124 = zext i32 %120 to i64
-  %125 = getelementptr inbounds nuw %"struct.(anonymous namespace)::rel_goal_case_split_queue::queue_entry", ptr %.val.val.i16.i, i64 %124, i32 1
-  %126 = load i32, ptr %125, align 8, !tbaa !753
-  %127 = zext i32 %123 to i64
-  %128 = getelementptr inbounds nuw %"struct.(anonymous namespace)::rel_goal_case_split_queue::queue_entry", ptr %.val.val.i16.i, i64 %127, i32 1
-  %129 = load i32, ptr %128, align 8, !tbaa !753
-  %130 = icmp eq i32 %126, %129
-  %131 = icmp slt i32 %120, %123
-  %132 = icmp ult i32 %126, %129
-  %.0.i.i.i17.i = select i1 %130, i1 %131, i1 %132
-  br i1 %.0.i.i.i17.i, label %134, label %133
+122:                                              ; preds = %118
+  %123 = zext i32 %120 to i64
+  %124 = getelementptr inbounds nuw i32, ptr %34, i64 %123
+  %125 = load i32, ptr %124, align 4, !tbaa !57
+  %126 = zext i32 %119 to i64
+  %127 = getelementptr inbounds nuw i32, ptr %34, i64 %126
+  %128 = load i32, ptr %127, align 4, !tbaa !57
+  %129 = zext i32 %125 to i64
+  %130 = getelementptr inbounds nuw %"struct.(anonymous namespace)::rel_goal_case_split_queue::queue_entry", ptr %.val.val.i16.i, i64 %129
+  %131 = getelementptr inbounds nuw i8, ptr %130, i64 8
+  %132 = load i32, ptr %131, align 8, !tbaa !753
+  %133 = zext i32 %128 to i64
+  %134 = getelementptr inbounds nuw %"struct.(anonymous namespace)::rel_goal_case_split_queue::queue_entry", ptr %.val.val.i16.i, i64 %133
+  %135 = getelementptr inbounds nuw i8, ptr %134, i64 8
+  %136 = load i32, ptr %135, align 8, !tbaa !753
+  %137 = icmp eq i32 %132, %136
+  %138 = icmp slt i32 %125, %128
+  %139 = icmp ult i32 %132, %136
+  %.0.i.i.i17.i = select i1 %137, i1 %138, i1 %139
+  br i1 %.0.i.i.i17.i, label %141, label %140
 
-133:                                              ; preds = %117
-  br label %134
+140:                                              ; preds = %122
+  br label %141
 
-134:                                              ; preds = %133, %117, %._crit_edge45.i.i
-  %.pre-phi48.i.i = phi i64 [ %124, %117 ], [ %.phi.trans.insert40.phi.trans.insert.i.i, %._crit_edge45.i.i ], [ %127, %133 ]
-  %135 = phi i32 [ %126, %117 ], [ %.pre42.pre.i.i, %._crit_edge45.i.i ], [ %129, %133 ]
-  %136 = phi i32 [ %120, %117 ], [ %.pre39.pre.i.i, %._crit_edge45.i.i ], [ %123, %133 ]
-  %137 = phi i32 [ %115, %117 ], [ %114, %._crit_edge45.i.i ], [ %114, %133 ]
-  %138 = load i32, ptr %111, align 8, !tbaa !753
-  %139 = icmp eq i32 %135, %138
-  %140 = icmp slt i32 %136, %107
-  %141 = icmp ult i32 %135, %138
-  %.0.i.i30.i.i = select i1 %139, i1 %140, i1 %141
-  br i1 %.0.i.i30.i.i, label %142, label %._crit_edge.loopexit.i.i
+141:                                              ; preds = %140, %122, %._crit_edge46.i.i
+  %.pre-phi49.i.i = phi i64 [ %129, %122 ], [ %.phi.trans.insert40.phi.trans.insert.i.i, %._crit_edge46.i.i ], [ %133, %140 ]
+  %142 = phi i32 [ %132, %122 ], [ %.pre43.pre.i.i, %._crit_edge46.i.i ], [ %136, %140 ]
+  %143 = phi i32 [ %125, %122 ], [ %.pre39.pre.i.i, %._crit_edge46.i.i ], [ %128, %140 ]
+  %144 = phi i32 [ %120, %122 ], [ %119, %._crit_edge46.i.i ], [ %119, %140 ]
+  %145 = load i32, ptr %116, align 8, !tbaa !753
+  %146 = icmp eq i32 %142, %145
+  %147 = icmp slt i32 %143, %111
+  %148 = icmp ult i32 %142, %145
+  %.0.i.i30.i.i = select i1 %146, i1 %147, i1 %148
+  br i1 %.0.i.i30.i.i, label %149, label %._crit_edge.loopexit.i.i
 
-142:                                              ; preds = %134
-  %143 = zext i32 %.036.i.i to i64
-  %144 = getelementptr inbounds nuw i32, ptr %34, i64 %143
-  store i32 %136, ptr %144, align 4, !tbaa !57
-  %145 = getelementptr inbounds nuw i32, ptr %112, i64 %.pre-phi48.i.i
-  store i32 %.036.i.i, ptr %145, align 4, !tbaa !57
-  %146 = shl i32 %137, 1
-  %.not.i.i = icmp slt i32 %146, %69
-  br i1 %.not.i.i, label %113, label %._crit_edge.loopexit.i.i
+149:                                              ; preds = %141
+  %150 = zext i32 %.036.i.i to i64
+  %151 = getelementptr inbounds nuw i32, ptr %34, i64 %150
+  store i32 %143, ptr %151, align 4, !tbaa !57
+  %152 = getelementptr inbounds nuw i32, ptr %117, i64 %.pre-phi49.i.i
+  store i32 %.036.i.i, ptr %152, align 4, !tbaa !57
+  %153 = shl i32 %144, 1
+  %.not.i.i = icmp slt i32 %153, %69
+  br i1 %.not.i.i, label %118, label %._crit_edge.loopexit.i.i
 
-._crit_edge.loopexit.i.i:                         ; preds = %142, %134
-  %.0.lcssa.ph.i.i = phi i32 [ %.036.i.i, %134 ], [ %137, %142 ]
-  %.pre49.i.i = zext i32 %.0.lcssa.ph.i.i to i64
+._crit_edge.loopexit.i.i:                         ; preds = %149, %141
+  %.0.lcssa.ph.i.i = phi i32 [ %.036.i.i, %141 ], [ %144, %149 ]
+  %.pre50.i.i = zext i32 %.0.lcssa.ph.i.i to i64
   br label %_ZN4heapIN12_GLOBAL__N_125rel_goal_case_split_queue13generation_ltEE9move_downEi.exit.i
 
 _ZN4heapIN12_GLOBAL__N_125rel_goal_case_split_queue13generation_ltEE9move_downEi.exit.i: ; preds = %._crit_edge.loopexit.i.i, %_ZNK6vectorIiLb0EjE4sizeEv.exit.._crit_edge_crit_edge.i.i
-  %.pre-phi52.i.i = phi i64 [ %.pre51.i.i, %_ZNK6vectorIiLb0EjE4sizeEv.exit.._crit_edge_crit_edge.i.i ], [ %110, %._crit_edge.loopexit.i.i ]
-  %.pre-phi50.i.i = phi i64 [ %64, %_ZNK6vectorIiLb0EjE4sizeEv.exit.._crit_edge_crit_edge.i.i ], [ %.pre49.i.i, %._crit_edge.loopexit.i.i ]
-  %147 = phi ptr [ %.val26, %_ZNK6vectorIiLb0EjE4sizeEv.exit.._crit_edge_crit_edge.i.i ], [ %112, %._crit_edge.loopexit.i.i ]
+  %.pre-phi53.i.i = phi i64 [ %.pre52.i.i, %_ZNK6vectorIiLb0EjE4sizeEv.exit.._crit_edge_crit_edge.i.i ], [ %114, %._crit_edge.loopexit.i.i ]
+  %.pre-phi51.i.i = phi i64 [ %64, %_ZNK6vectorIiLb0EjE4sizeEv.exit.._crit_edge_crit_edge.i.i ], [ %.pre50.i.i, %._crit_edge.loopexit.i.i ]
+  %154 = phi ptr [ %.val26, %_ZNK6vectorIiLb0EjE4sizeEv.exit.._crit_edge_crit_edge.i.i ], [ %117, %._crit_edge.loopexit.i.i ]
   %.0.lcssa.i.i = phi i32 [ %51, %_ZNK6vectorIiLb0EjE4sizeEv.exit.._crit_edge_crit_edge.i.i ], [ %.0.lcssa.ph.i.i, %._crit_edge.loopexit.i.i ]
-  %148 = getelementptr inbounds nuw i32, ptr %34, i64 %.pre-phi50.i.i
-  store i32 %107, ptr %148, align 4, !tbaa !57
-  %149 = getelementptr inbounds nuw i32, ptr %147, i64 %.pre-phi52.i.i
-  store i32 %.0.lcssa.i.i, ptr %149, align 4, !tbaa !57
+  %155 = getelementptr inbounds nuw i32, ptr %34, i64 %.pre-phi51.i.i
+  store i32 %111, ptr %155, align 4, !tbaa !57
+  %156 = getelementptr inbounds nuw i32, ptr %154, i64 %.pre-phi53.i.i
+  store i32 %.0.lcssa.i.i, ptr %156, align 4, !tbaa !57
   br label %_ZN4heapIN12_GLOBAL__N_125rel_goal_case_split_queue13generation_ltEE5eraseEi.exit
 
 _ZN4heapIN12_GLOBAL__N_125rel_goal_case_split_queue13generation_ltEE5eraseEi.exit: ; preds = %_ZNK6vectorIiLb0EjE4sizeEv.exit.i, %_ZN4heapIN12_GLOBAL__N_125rel_goal_case_split_queue13generation_ltEE9move_downEi.exit.i, %_ZN4heapIN12_GLOBAL__N_125rel_goal_case_split_queue13generation_ltEE7move_upEi.exit.i, %57, %_ZNK4heapIN12_GLOBAL__N_125rel_goal_case_split_queue13generation_ltEE8containsEi.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv109, 1
-  %150 = load i32, ptr %28, align 4, !tbaa !57
-  %151 = zext i32 %150 to i64
-  %152 = icmp samesign ult i64 %indvars.iv.next, %151
-  br i1 %152, label %45, label %.critedge.preheader.loopexit
+  %157 = load i32, ptr %28, align 4, !tbaa !57
+  %158 = zext i32 %157 to i64
+  %159 = icmp samesign ult i64 %indvars.iv.next, %158
+  br i1 %159, label %45, label %.critedge.preheader.loopexit
 
 .critedge._crit_edge.loopexit:                    ; preds = %.critedge
   %.val27.pre = load ptr, ptr %26, align 8, !tbaa !588
@@ -8156,142 +8165,145 @@ _ZN4heapIN12_GLOBAL__N_125rel_goal_case_split_queue13generation_ltEE5eraseEi.exi
 
 .critedge._crit_edge:                             ; preds = %.critedge._crit_edge.loopexit, %.critedge.preheader
   %.val27 = phi ptr [ %.val25, %.critedge.preheader ], [ %.val27.pre, %.critedge._crit_edge.loopexit ]
-  %.lcssa = phi i32 [ 0, %.critedge.preheader ], [ %211, %.critedge._crit_edge.loopexit ]
+  %.lcssa = phi i32 [ 0, %.critedge.preheader ], [ %221, %.critedge._crit_edge.loopexit ]
   %.not.i32 = icmp eq ptr %.val27, null
-  br i1 %.not.i32, label %_ZN6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue11queue_entryELb0EjE6shrinkEj.exit, label %153
+  br i1 %.not.i32, label %_ZN6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue11queue_entryELb0EjE6shrinkEj.exit, label %160
 
-153:                                              ; preds = %.critedge._crit_edge
-  %154 = getelementptr inbounds i8, ptr %.val27, i64 -4
-  store i32 %.lcssa, ptr %154, align 4, !tbaa !57
+160:                                              ; preds = %.critedge._crit_edge
+  %161 = getelementptr inbounds i8, ptr %.val27, i64 -4
+  store i32 %.lcssa, ptr %161, align 4, !tbaa !57
   br label %_ZN6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue11queue_entryELb0EjE6shrinkEj.exit
 
-_ZN6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue11queue_entryELb0EjE6shrinkEj.exit: ; preds = %.critedge._crit_edge, %153
+_ZN6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue11queue_entryELb0EjE6shrinkEj.exit: ; preds = %.critedge._crit_edge, %160
   %.val28 = load ptr, ptr %3, align 8, !tbaa !587
   %.not.i33 = icmp eq ptr %.val28, null
-  br i1 %.not.i33, label %_ZN6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue5scopeELb0EjE6shrinkEj.exit, label %155
+  br i1 %.not.i33, label %_ZN6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue5scopeELb0EjE6shrinkEj.exit, label %162
 
-155:                                              ; preds = %_ZN6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue11queue_entryELb0EjE6shrinkEj.exit
-  %156 = getelementptr inbounds i8, ptr %.val28, i64 -4
-  store i32 %8, ptr %156, align 4, !tbaa !57
+162:                                              ; preds = %_ZN6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue11queue_entryELb0EjE6shrinkEj.exit
+  %163 = getelementptr inbounds i8, ptr %.val28, i64 -4
+  store i32 %8, ptr %163, align 4, !tbaa !57
   br label %_ZN6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue5scopeELb0EjE6shrinkEj.exit
 
-_ZN6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue5scopeELb0EjE6shrinkEj.exit: ; preds = %_ZN6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue11queue_entryELb0EjE6shrinkEj.exit, %155
+_ZN6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue5scopeELb0EjE6shrinkEj.exit: ; preds = %_ZN6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue11queue_entryELb0EjE6shrinkEj.exit, %162
   ret void
 
-157:                                              ; preds = %.lr.ph, %.critedge
-  %158 = phi i32 [ %41, %.lr.ph ], [ %211, %.critedge ]
+164:                                              ; preds = %.lr.ph, %.critedge
+  %165 = phi i32 [ %41, %.lr.ph ], [ %221, %.critedge ]
   %indvars.iv68 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next69, %.critedge ]
   %.val = load ptr, ptr %26, align 8, !tbaa !588
-  %159 = getelementptr inbounds nuw %"struct.(anonymous namespace)::rel_goal_case_split_queue::queue_entry", ptr %.val, i64 %indvars.iv68, i32 2
-  %160 = load i32, ptr %159, align 4, !tbaa !755
-  %161 = icmp sgt i32 %160, %8
-  br i1 %161, label %162, label %.critedge
+  %166 = getelementptr inbounds nuw %"struct.(anonymous namespace)::rel_goal_case_split_queue::queue_entry", ptr %.val, i64 %indvars.iv68
+  %167 = getelementptr inbounds nuw i8, ptr %166, i64 12
+  %168 = load i32, ptr %167, align 4, !tbaa !755
+  %169 = icmp sgt i32 %168, %8
+  br i1 %169, label %170, label %.critedge
 
-162:                                              ; preds = %157
-  %163 = load ptr, ptr %43, align 8, !tbaa !54
-  %164 = icmp eq ptr %163, null
-  br i1 %164, label %_ZNK6vectorIiLb0EjE4sizeEv.exit.thread.i42, label %167
+170:                                              ; preds = %164
+  %171 = load ptr, ptr %43, align 8, !tbaa !54
+  %172 = icmp eq ptr %171, null
+  br i1 %172, label %_ZNK6vectorIiLb0EjE4sizeEv.exit.thread.i42, label %175
 
-_ZNK6vectorIiLb0EjE4sizeEv.exit.thread.i42:       ; preds = %162
-  %165 = load ptr, ptr %44, align 8, !tbaa !54
-  %166 = getelementptr inbounds nuw i32, ptr %165, i64 %indvars.iv68
-  store i32 0, ptr %166, align 4, !tbaa !57
-  br label %175
+_ZNK6vectorIiLb0EjE4sizeEv.exit.thread.i42:       ; preds = %170
+  %173 = load ptr, ptr %44, align 8, !tbaa !54
+  %174 = getelementptr inbounds nuw i32, ptr %173, i64 %indvars.iv68
+  store i32 0, ptr %174, align 4, !tbaa !57
+  br label %183
 
-167:                                              ; preds = %162
-  %168 = getelementptr inbounds i8, ptr %163, i64 -4
-  %169 = load i32, ptr %168, align 4, !tbaa !57
-  %170 = load ptr, ptr %44, align 8, !tbaa !54
-  %171 = getelementptr inbounds nuw i32, ptr %170, i64 %indvars.iv68
-  store i32 %169, ptr %171, align 4, !tbaa !57
-  %172 = getelementptr inbounds i8, ptr %163, i64 -8
-  %173 = load i32, ptr %172, align 4, !tbaa !57
-  %174 = icmp eq i32 %169, %173
-  br i1 %174, label %175, label %_ZN6vectorIiLb0EjE9push_backERKi.exit.i
+175:                                              ; preds = %170
+  %176 = getelementptr inbounds i8, ptr %171, i64 -4
+  %177 = load i32, ptr %176, align 4, !tbaa !57
+  %178 = load ptr, ptr %44, align 8, !tbaa !54
+  %179 = getelementptr inbounds nuw i32, ptr %178, i64 %indvars.iv68
+  store i32 %177, ptr %179, align 4, !tbaa !57
+  %180 = getelementptr inbounds i8, ptr %171, i64 -8
+  %181 = load i32, ptr %180, align 4, !tbaa !57
+  %182 = icmp eq i32 %177, %181
+  br i1 %182, label %183, label %_ZN6vectorIiLb0EjE9push_backERKi.exit.i
 
-175:                                              ; preds = %167, %_ZNK6vectorIiLb0EjE4sizeEv.exit.thread.i42
-  %.0.i7.i = phi i32 [ 0, %_ZNK6vectorIiLb0EjE4sizeEv.exit.thread.i42 ], [ %169, %167 ]
+183:                                              ; preds = %175, %_ZNK6vectorIiLb0EjE4sizeEv.exit.thread.i42
+  %.0.i7.i = phi i32 [ 0, %_ZNK6vectorIiLb0EjE4sizeEv.exit.thread.i42 ], [ %177, %175 ]
   tail call void @_ZN6vectorIiLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %43)
   %.pre.i.i = load ptr, ptr %43, align 8, !tbaa !54
   %.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %.pre.i.i, i64 -4
   %.pre2.i.i = load i32, ptr %.phi.trans.insert.i.i, align 4, !tbaa !57
   br label %_ZN6vectorIiLb0EjE9push_backERKi.exit.i
 
-_ZN6vectorIiLb0EjE9push_backERKi.exit.i:          ; preds = %175, %167
-  %.0.i6.i = phi i32 [ %.0.i7.i, %175 ], [ %169, %167 ]
-  %176 = phi i32 [ %.pre2.i.i, %175 ], [ %169, %167 ]
-  %177 = phi ptr [ %.pre.i.i, %175 ], [ %163, %167 ]
-  %178 = getelementptr inbounds i8, ptr %177, i64 -4
-  %179 = zext i32 %176 to i64
-  %180 = getelementptr inbounds nuw i32, ptr %177, i64 %179
-  %181 = trunc nuw i64 %indvars.iv68 to i32
-  store i32 %181, ptr %180, align 4, !tbaa !57
-  %182 = add i32 %176, 1
-  store i32 %182, ptr %178, align 4, !tbaa !57
-  %183 = zext i32 %.0.i6.i to i64
-  %184 = getelementptr inbounds nuw i32, ptr %177, i64 %183
-  %185 = load i32, ptr %184, align 4, !tbaa !57
-  %186 = icmp ult i32 %.0.i6.i, 2
-  br i1 %186, label %.._crit_edge_crit_edge.i.i, label %.lr.ph.i.i34
+_ZN6vectorIiLb0EjE9push_backERKi.exit.i:          ; preds = %183, %175
+  %.0.i6.i = phi i32 [ %.0.i7.i, %183 ], [ %177, %175 ]
+  %184 = phi i32 [ %.pre2.i.i, %183 ], [ %177, %175 ]
+  %185 = phi ptr [ %.pre.i.i, %183 ], [ %171, %175 ]
+  %186 = getelementptr inbounds i8, ptr %185, i64 -4
+  %187 = zext i32 %184 to i64
+  %188 = getelementptr inbounds nuw i32, ptr %185, i64 %187
+  %189 = trunc nuw i64 %indvars.iv68 to i32
+  store i32 %189, ptr %188, align 4, !tbaa !57
+  %190 = add i32 %184, 1
+  store i32 %190, ptr %186, align 4, !tbaa !57
+  %191 = zext i32 %.0.i6.i to i64
+  %192 = getelementptr inbounds nuw i32, ptr %185, i64 %191
+  %193 = load i32, ptr %192, align 4, !tbaa !57
+  %194 = icmp ult i32 %.0.i6.i, 2
+  br i1 %194, label %.._crit_edge_crit_edge.i.i, label %.lr.ph.i.i34
 
 .._crit_edge_crit_edge.i.i:                       ; preds = %_ZN6vectorIiLb0EjE9push_backERKi.exit.i
   %.pre.i3.i = load ptr, ptr %44, align 8, !tbaa !54
-  %.pre25.i.i = zext i32 %185 to i64
+  %.pre25.i.i = zext i32 %193 to i64
   br label %_ZN4heapIN12_GLOBAL__N_125rel_goal_case_split_queue13generation_ltEE6insertEi.exit
 
 .lr.ph.i.i34:                                     ; preds = %_ZN6vectorIiLb0EjE9push_backERKi.exit.i
   %.val.i.i = load ptr, ptr %42, align 8, !tbaa !756
-  %187 = getelementptr i8, ptr %.val.i.i, i64 48
-  %.val.val.i.i = load ptr, ptr %187, align 8, !tbaa !588
-  %188 = zext i32 %185 to i64
-  %189 = getelementptr inbounds nuw %"struct.(anonymous namespace)::rel_goal_case_split_queue::queue_entry", ptr %.val.val.i.i, i64 %188, i32 1
-  %190 = load ptr, ptr %44, align 8
-  br label %191
+  %195 = getelementptr i8, ptr %.val.i.i, i64 48
+  %.val.val.i.i = load ptr, ptr %195, align 8, !tbaa !588
+  %196 = zext i32 %193 to i64
+  %197 = getelementptr inbounds nuw %"struct.(anonymous namespace)::rel_goal_case_split_queue::queue_entry", ptr %.val.val.i.i, i64 %196
+  %198 = getelementptr inbounds nuw i8, ptr %197, i64 8
+  %199 = load ptr, ptr %44, align 8
+  br label %200
 
-191:                                              ; preds = %204, %.lr.ph.i.i34
-  %.01521.i.i35 = phi i32 [ %.0.i6.i, %.lr.ph.i.i34 ], [ %192, %204 ]
-  %192 = ashr i32 %.01521.i.i35, 1
-  %193 = zext i32 %192 to i64
-  %194 = getelementptr inbounds nuw i32, ptr %177, i64 %193
-  %195 = load i32, ptr %194, align 4, !tbaa !57
-  %196 = load i32, ptr %189, align 8, !tbaa !753
-  %197 = zext i32 %195 to i64
-  %198 = getelementptr inbounds nuw %"struct.(anonymous namespace)::rel_goal_case_split_queue::queue_entry", ptr %.val.val.i.i, i64 %197, i32 1
-  %199 = load i32, ptr %198, align 8, !tbaa !753
-  %200 = icmp eq i32 %196, %199
-  %201 = icmp slt i32 %185, %195
-  %202 = icmp ult i32 %196, %199
-  %.0.i.i.i.i36 = select i1 %200, i1 %201, i1 %202
-  %203 = zext i32 %.01521.i.i35 to i64
-  br i1 %.0.i.i.i.i36, label %204, label %_ZN4heapIN12_GLOBAL__N_125rel_goal_case_split_queue13generation_ltEE6insertEi.exit
+200:                                              ; preds = %214, %.lr.ph.i.i34
+  %.01521.i.i35 = phi i32 [ %.0.i6.i, %.lr.ph.i.i34 ], [ %201, %214 ]
+  %201 = ashr i32 %.01521.i.i35, 1
+  %202 = zext i32 %201 to i64
+  %203 = getelementptr inbounds nuw i32, ptr %185, i64 %202
+  %204 = load i32, ptr %203, align 4, !tbaa !57
+  %205 = load i32, ptr %198, align 8, !tbaa !753
+  %206 = zext i32 %204 to i64
+  %207 = getelementptr inbounds nuw %"struct.(anonymous namespace)::rel_goal_case_split_queue::queue_entry", ptr %.val.val.i.i, i64 %206
+  %208 = getelementptr inbounds nuw i8, ptr %207, i64 8
+  %209 = load i32, ptr %208, align 8, !tbaa !753
+  %210 = icmp eq i32 %205, %209
+  %211 = icmp slt i32 %193, %204
+  %212 = icmp ult i32 %205, %209
+  %.0.i.i.i.i36 = select i1 %210, i1 %211, i1 %212
+  %213 = zext i32 %.01521.i.i35 to i64
+  br i1 %.0.i.i.i.i36, label %214, label %_ZN4heapIN12_GLOBAL__N_125rel_goal_case_split_queue13generation_ltEE6insertEi.exit
 
-204:                                              ; preds = %191
-  %205 = getelementptr inbounds nuw i32, ptr %177, i64 %203
-  store i32 %195, ptr %205, align 4, !tbaa !57
-  %206 = getelementptr inbounds nuw i32, ptr %190, i64 %197
-  store i32 %.01521.i.i35, ptr %206, align 4, !tbaa !57
-  %207 = icmp ult i32 %192, 2
-  br i1 %207, label %_ZN4heapIN12_GLOBAL__N_125rel_goal_case_split_queue13generation_ltEE6insertEi.exit, label %191
+214:                                              ; preds = %200
+  %215 = getelementptr inbounds nuw i32, ptr %185, i64 %213
+  store i32 %204, ptr %215, align 4, !tbaa !57
+  %216 = getelementptr inbounds nuw i32, ptr %199, i64 %206
+  store i32 %.01521.i.i35, ptr %216, align 4, !tbaa !57
+  %217 = icmp ult i32 %201, 2
+  br i1 %217, label %_ZN4heapIN12_GLOBAL__N_125rel_goal_case_split_queue13generation_ltEE6insertEi.exit, label %200
 
-_ZN4heapIN12_GLOBAL__N_125rel_goal_case_split_queue13generation_ltEE6insertEi.exit: ; preds = %204, %191, %.._crit_edge_crit_edge.i.i
-  %.pre-phi26.i.i = phi i64 [ %.pre25.i.i, %.._crit_edge_crit_edge.i.i ], [ %188, %191 ], [ %188, %204 ]
-  %.pre-phi.i.i40 = phi i64 [ %183, %.._crit_edge_crit_edge.i.i ], [ %193, %204 ], [ %203, %191 ]
-  %208 = phi ptr [ %.pre.i3.i, %.._crit_edge_crit_edge.i.i ], [ %190, %191 ], [ %190, %204 ]
-  %.015.lcssa.i.i41 = phi i32 [ %.0.i6.i, %.._crit_edge_crit_edge.i.i ], [ %192, %204 ], [ %.01521.i.i35, %191 ]
-  %209 = getelementptr inbounds nuw i32, ptr %177, i64 %.pre-phi.i.i40
-  store i32 %185, ptr %209, align 4, !tbaa !57
-  %210 = getelementptr inbounds nuw i32, ptr %208, i64 %.pre-phi26.i.i
-  store i32 %.015.lcssa.i.i41, ptr %210, align 4, !tbaa !57
-  store i32 -1, ptr %159, align 4, !tbaa !755
+_ZN4heapIN12_GLOBAL__N_125rel_goal_case_split_queue13generation_ltEE6insertEi.exit: ; preds = %214, %200, %.._crit_edge_crit_edge.i.i
+  %.pre-phi26.i.i = phi i64 [ %.pre25.i.i, %.._crit_edge_crit_edge.i.i ], [ %196, %200 ], [ %196, %214 ]
+  %.pre-phi.i.i40 = phi i64 [ %191, %.._crit_edge_crit_edge.i.i ], [ %202, %214 ], [ %213, %200 ]
+  %218 = phi ptr [ %.pre.i3.i, %.._crit_edge_crit_edge.i.i ], [ %199, %200 ], [ %199, %214 ]
+  %.015.lcssa.i.i41 = phi i32 [ %.0.i6.i, %.._crit_edge_crit_edge.i.i ], [ %201, %214 ], [ %.01521.i.i35, %200 ]
+  %219 = getelementptr inbounds nuw i32, ptr %185, i64 %.pre-phi.i.i40
+  store i32 %193, ptr %219, align 4, !tbaa !57
+  %220 = getelementptr inbounds nuw i32, ptr %218, i64 %.pre-phi26.i.i
+  store i32 %.015.lcssa.i.i41, ptr %220, align 4, !tbaa !57
+  store i32 -1, ptr %167, align 4, !tbaa !755
   %.pre72 = load i32, ptr %25, align 8, !tbaa !750
   br label %.critedge
 
-.critedge:                                        ; preds = %_ZN4heapIN12_GLOBAL__N_125rel_goal_case_split_queue13generation_ltEE6insertEi.exit, %157
-  %211 = phi i32 [ %.pre72, %_ZN4heapIN12_GLOBAL__N_125rel_goal_case_split_queue13generation_ltEE6insertEi.exit ], [ %158, %157 ]
+.critedge:                                        ; preds = %_ZN4heapIN12_GLOBAL__N_125rel_goal_case_split_queue13generation_ltEE6insertEi.exit, %164
+  %221 = phi i32 [ %.pre72, %_ZN4heapIN12_GLOBAL__N_125rel_goal_case_split_queue13generation_ltEE6insertEi.exit ], [ %165, %164 ]
   %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
-  %212 = zext i32 %211 to i64
-  %213 = icmp samesign ult i64 %indvars.iv.next69, %212
-  br i1 %213, label %157, label %.critedge._crit_edge.loopexit, !llvm.loop !757
+  %222 = zext i32 %221 to i64
+  %223 = icmp samesign ult i64 %indvars.iv.next69, %222
+  br i1 %223, label %164, label %.critedge._crit_edge.loopexit, !llvm.loop !757
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -8391,7 +8403,7 @@ _ZN6vectorIiLb0EjE4backEv.exit.i:                 ; preds = %_ZNK4heapIN12_GLOBA
   br i1 %.not35.i.i, label %.lr.ph.i.i, label %_ZNK6vectorIiLb0EjE4sizeEv.exit.._crit_edge_crit_edge.i.i
 
 _ZNK6vectorIiLb0EjE4sizeEv.exit.._crit_edge_crit_edge.i.i: ; preds = %_ZN6vectorIiLb0EjE4backEv.exit.i
-  %.pre51.i.i = zext i32 %53 to i64
+  %.pre52.i.i = zext i32 %53 to i64
   br label %_ZN4heapIN12_GLOBAL__N_125rel_goal_case_split_queue13generation_ltEE9move_downEi.exit.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN6vectorIiLb0EjE4backEv.exit.i
@@ -8399,205 +8411,211 @@ _ZNK6vectorIiLb0EjE4sizeEv.exit.._crit_edge_crit_edge.i.i: ; preds = %_ZN6vector
   %54 = getelementptr i8, ptr %.val29.i.i, i64 48
   %.val.val.i.i = load ptr, ptr %54, align 8, !tbaa !588
   %55 = zext i32 %53 to i64
-  %56 = getelementptr inbounds nuw %"struct.(anonymous namespace)::rel_goal_case_split_queue::queue_entry", ptr %.val.val.i.i, i64 %55, i32 1
-  %57 = load ptr, ptr %14, align 8
-  br label %58
+  %56 = getelementptr inbounds nuw %"struct.(anonymous namespace)::rel_goal_case_split_queue::queue_entry", ptr %.val.val.i.i, i64 %55
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
+  %58 = load ptr, ptr %14, align 8
+  br label %59
 
-58:                                               ; preds = %87, %.lr.ph.i.i
-  %59 = phi i32 [ 2, %.lr.ph.i.i ], [ %91, %87 ]
-  %.036.i.i = phi i32 [ 1, %.lr.ph.i.i ], [ %82, %87 ]
-  %60 = or disjoint i32 %59, 1
-  %61 = icmp slt i32 %60, %52
-  br i1 %61, label %62, label %._crit_edge45.i.i
+59:                                               ; preds = %90, %.lr.ph.i.i
+  %60 = phi i32 [ 2, %.lr.ph.i.i ], [ %94, %90 ]
+  %.036.i.i = phi i32 [ 1, %.lr.ph.i.i ], [ %85, %90 ]
+  %61 = or disjoint i32 %60, 1
+  %62 = icmp slt i32 %61, %52
+  br i1 %62, label %63, label %._crit_edge46.i.i
 
-._crit_edge45.i.i:                                ; preds = %58
-  %.pre.phi.trans.insert.i.i = zext i32 %59 to i64
+._crit_edge46.i.i:                                ; preds = %59
+  %.pre.phi.trans.insert.i.i = zext i32 %60 to i64
   %.phi.trans.insert.phi.trans.insert.i.i = getelementptr inbounds nuw i32, ptr %.val, i64 %.pre.phi.trans.insert.i.i
   %.pre39.pre.i.i = load i32, ptr %.phi.trans.insert.phi.trans.insert.i.i, align 4, !tbaa !57
   %.phi.trans.insert40.phi.trans.insert.i.i = zext i32 %.pre39.pre.i.i to i64
-  %.phi.trans.insert41.phi.trans.insert.i.i = getelementptr inbounds nuw %"struct.(anonymous namespace)::rel_goal_case_split_queue::queue_entry", ptr %.val.val.i.i, i64 %.phi.trans.insert40.phi.trans.insert.i.i, i32 1
-  %.pre42.pre.i.i = load i32, ptr %.phi.trans.insert41.phi.trans.insert.i.i, align 8, !tbaa !753
-  br label %79
+  %.phi.trans.insert41.phi.trans.insert.i.i = getelementptr inbounds nuw %"struct.(anonymous namespace)::rel_goal_case_split_queue::queue_entry", ptr %.val.val.i.i, i64 %.phi.trans.insert40.phi.trans.insert.i.i
+  %.phi.trans.insert42.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %.phi.trans.insert41.phi.trans.insert.i.i, i64 8
+  %.pre43.pre.i.i = load i32, ptr %.phi.trans.insert42.phi.trans.insert.i.i, align 8, !tbaa !753
+  br label %82
 
-62:                                               ; preds = %58
-  %63 = zext i32 %60 to i64
-  %64 = getelementptr inbounds nuw i32, ptr %.val, i64 %63
-  %65 = load i32, ptr %64, align 4, !tbaa !57
-  %66 = zext i32 %59 to i64
-  %67 = getelementptr inbounds nuw i32, ptr %.val, i64 %66
-  %68 = load i32, ptr %67, align 4, !tbaa !57
-  %69 = zext i32 %65 to i64
-  %70 = getelementptr inbounds nuw %"struct.(anonymous namespace)::rel_goal_case_split_queue::queue_entry", ptr %.val.val.i.i, i64 %69, i32 1
-  %71 = load i32, ptr %70, align 8, !tbaa !753
-  %72 = zext i32 %68 to i64
-  %73 = getelementptr inbounds nuw %"struct.(anonymous namespace)::rel_goal_case_split_queue::queue_entry", ptr %.val.val.i.i, i64 %72, i32 1
-  %74 = load i32, ptr %73, align 8, !tbaa !753
-  %75 = icmp eq i32 %71, %74
-  %76 = icmp slt i32 %65, %68
-  %77 = icmp ult i32 %71, %74
-  %.0.i.i.i.i = select i1 %75, i1 %76, i1 %77
-  br i1 %.0.i.i.i.i, label %79, label %78
+63:                                               ; preds = %59
+  %64 = zext i32 %61 to i64
+  %65 = getelementptr inbounds nuw i32, ptr %.val, i64 %64
+  %66 = load i32, ptr %65, align 4, !tbaa !57
+  %67 = zext i32 %60 to i64
+  %68 = getelementptr inbounds nuw i32, ptr %.val, i64 %67
+  %69 = load i32, ptr %68, align 4, !tbaa !57
+  %70 = zext i32 %66 to i64
+  %71 = getelementptr inbounds nuw %"struct.(anonymous namespace)::rel_goal_case_split_queue::queue_entry", ptr %.val.val.i.i, i64 %70
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
+  %73 = load i32, ptr %72, align 8, !tbaa !753
+  %74 = zext i32 %69 to i64
+  %75 = getelementptr inbounds nuw %"struct.(anonymous namespace)::rel_goal_case_split_queue::queue_entry", ptr %.val.val.i.i, i64 %74
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
+  %77 = load i32, ptr %76, align 8, !tbaa !753
+  %78 = icmp eq i32 %73, %77
+  %79 = icmp slt i32 %66, %69
+  %80 = icmp ult i32 %73, %77
+  %.0.i.i.i.i = select i1 %78, i1 %79, i1 %80
+  br i1 %.0.i.i.i.i, label %82, label %81
 
-78:                                               ; preds = %62
-  br label %79
+81:                                               ; preds = %63
+  br label %82
 
-79:                                               ; preds = %78, %62, %._crit_edge45.i.i
-  %.pre-phi48.i.i = phi i64 [ %69, %62 ], [ %.phi.trans.insert40.phi.trans.insert.i.i, %._crit_edge45.i.i ], [ %72, %78 ]
-  %80 = phi i32 [ %71, %62 ], [ %.pre42.pre.i.i, %._crit_edge45.i.i ], [ %74, %78 ]
-  %81 = phi i32 [ %65, %62 ], [ %.pre39.pre.i.i, %._crit_edge45.i.i ], [ %68, %78 ]
-  %82 = phi i32 [ %60, %62 ], [ %59, %._crit_edge45.i.i ], [ %59, %78 ]
-  %83 = load i32, ptr %56, align 8, !tbaa !753
-  %84 = icmp eq i32 %80, %83
-  %85 = icmp slt i32 %81, %53
-  %86 = icmp ult i32 %80, %83
-  %.0.i.i30.i.i = select i1 %84, i1 %85, i1 %86
-  br i1 %.0.i.i30.i.i, label %87, label %._crit_edge.loopexit.i.i
+82:                                               ; preds = %81, %63, %._crit_edge46.i.i
+  %.pre-phi49.i.i = phi i64 [ %70, %63 ], [ %.phi.trans.insert40.phi.trans.insert.i.i, %._crit_edge46.i.i ], [ %74, %81 ]
+  %83 = phi i32 [ %73, %63 ], [ %.pre43.pre.i.i, %._crit_edge46.i.i ], [ %77, %81 ]
+  %84 = phi i32 [ %66, %63 ], [ %.pre39.pre.i.i, %._crit_edge46.i.i ], [ %69, %81 ]
+  %85 = phi i32 [ %61, %63 ], [ %60, %._crit_edge46.i.i ], [ %60, %81 ]
+  %86 = load i32, ptr %57, align 8, !tbaa !753
+  %87 = icmp eq i32 %83, %86
+  %88 = icmp slt i32 %84, %53
+  %89 = icmp ult i32 %83, %86
+  %.0.i.i30.i.i = select i1 %87, i1 %88, i1 %89
+  br i1 %.0.i.i30.i.i, label %90, label %._crit_edge.loopexit.i.i
 
-87:                                               ; preds = %79
-  %88 = zext i32 %.036.i.i to i64
-  %89 = getelementptr inbounds nuw i32, ptr %.val, i64 %88
-  store i32 %81, ptr %89, align 4, !tbaa !57
-  %90 = getelementptr inbounds nuw i32, ptr %57, i64 %.pre-phi48.i.i
-  store i32 %.036.i.i, ptr %90, align 4, !tbaa !57
-  %91 = shl i32 %82, 1
-  %.not.i.i = icmp slt i32 %91, %52
-  br i1 %.not.i.i, label %58, label %._crit_edge.loopexit.i.i
+90:                                               ; preds = %82
+  %91 = zext i32 %.036.i.i to i64
+  %92 = getelementptr inbounds nuw i32, ptr %.val, i64 %91
+  store i32 %84, ptr %92, align 4, !tbaa !57
+  %93 = getelementptr inbounds nuw i32, ptr %58, i64 %.pre-phi49.i.i
+  store i32 %.036.i.i, ptr %93, align 4, !tbaa !57
+  %94 = shl i32 %85, 1
+  %.not.i.i = icmp slt i32 %94, %52
+  br i1 %.not.i.i, label %59, label %._crit_edge.loopexit.i.i
 
-._crit_edge.loopexit.i.i:                         ; preds = %87, %79
-  %.0.lcssa.ph.i.i = phi i32 [ %.036.i.i, %79 ], [ %82, %87 ]
-  %.pre49.i.i = zext i32 %.0.lcssa.ph.i.i to i64
+._crit_edge.loopexit.i.i:                         ; preds = %90, %82
+  %.0.lcssa.ph.i.i = phi i32 [ %.036.i.i, %82 ], [ %85, %90 ]
+  %.pre50.i.i = zext i32 %.0.lcssa.ph.i.i to i64
   br label %_ZN4heapIN12_GLOBAL__N_125rel_goal_case_split_queue13generation_ltEE9move_downEi.exit.i
 
 _ZN4heapIN12_GLOBAL__N_125rel_goal_case_split_queue13generation_ltEE9move_downEi.exit.i: ; preds = %._crit_edge.loopexit.i.i, %_ZNK6vectorIiLb0EjE4sizeEv.exit.._crit_edge_crit_edge.i.i
-  %.pre-phi52.i.i = phi i64 [ %.pre51.i.i, %_ZNK6vectorIiLb0EjE4sizeEv.exit.._crit_edge_crit_edge.i.i ], [ %55, %._crit_edge.loopexit.i.i ]
-  %.pre-phi50.i.i = phi i64 [ 1, %_ZNK6vectorIiLb0EjE4sizeEv.exit.._crit_edge_crit_edge.i.i ], [ %.pre49.i.i, %._crit_edge.loopexit.i.i ]
-  %92 = phi ptr [ %46, %_ZNK6vectorIiLb0EjE4sizeEv.exit.._crit_edge_crit_edge.i.i ], [ %57, %._crit_edge.loopexit.i.i ]
+  %.pre-phi53.i.i = phi i64 [ %.pre52.i.i, %_ZNK6vectorIiLb0EjE4sizeEv.exit.._crit_edge_crit_edge.i.i ], [ %55, %._crit_edge.loopexit.i.i ]
+  %.pre-phi51.i.i = phi i64 [ 1, %_ZNK6vectorIiLb0EjE4sizeEv.exit.._crit_edge_crit_edge.i.i ], [ %.pre50.i.i, %._crit_edge.loopexit.i.i ]
+  %95 = phi ptr [ %46, %_ZNK6vectorIiLb0EjE4sizeEv.exit.._crit_edge_crit_edge.i.i ], [ %58, %._crit_edge.loopexit.i.i ]
   %.0.lcssa.i.i = phi i32 [ 1, %_ZNK6vectorIiLb0EjE4sizeEv.exit.._crit_edge_crit_edge.i.i ], [ %.0.lcssa.ph.i.i, %._crit_edge.loopexit.i.i ]
-  %93 = getelementptr inbounds nuw i32, ptr %.val, i64 %.pre-phi50.i.i
-  store i32 %53, ptr %93, align 4, !tbaa !57
-  %94 = getelementptr inbounds nuw i32, ptr %92, i64 %.pre-phi52.i.i
-  store i32 %.0.lcssa.i.i, ptr %94, align 4, !tbaa !57
+  %96 = getelementptr inbounds nuw i32, ptr %.val, i64 %.pre-phi51.i.i
+  store i32 %53, ptr %96, align 4, !tbaa !57
+  %97 = getelementptr inbounds nuw i32, ptr %95, i64 %.pre-phi53.i.i
+  store i32 %.0.lcssa.i.i, ptr %97, align 4, !tbaa !57
   br label %_ZN4heapIN12_GLOBAL__N_125rel_goal_case_split_queue13generation_ltEE9erase_minEv.exit
 
 _ZN4heapIN12_GLOBAL__N_125rel_goal_case_split_queue13generation_ltEE9erase_minEv.exit: ; preds = %36, %_ZN4heapIN12_GLOBAL__N_125rel_goal_case_split_queue13generation_ltEE9move_downEi.exit.i
   %.pre-phi = phi i64 [ %38, %36 ], [ %49, %_ZN4heapIN12_GLOBAL__N_125rel_goal_case_split_queue13generation_ltEE9move_downEi.exit.i ]
   %.val20 = load ptr, ptr %15, align 8, !tbaa !588
-  %95 = getelementptr inbounds nuw %"struct.(anonymous namespace)::rel_goal_case_split_queue::queue_entry", ptr %.val20, i64 %.pre-phi
+  %98 = getelementptr inbounds nuw %"struct.(anonymous namespace)::rel_goal_case_split_queue::queue_entry", ptr %.val20, i64 %.pre-phi
   %.val21 = load ptr, ptr %16, align 8, !tbaa !587
-  %96 = icmp eq ptr %.val21, null
-  br i1 %96, label %_ZNK6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue5scopeELb0EjE4sizeEv.exit, label %97
+  %99 = icmp eq ptr %.val21, null
+  br i1 %99, label %_ZNK6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue5scopeELb0EjE4sizeEv.exit, label %100
 
-97:                                               ; preds = %_ZN4heapIN12_GLOBAL__N_125rel_goal_case_split_queue13generation_ltEE9erase_minEv.exit
-  %98 = getelementptr inbounds i8, ptr %.val21, i64 -4
-  %99 = load i32, ptr %98, align 4, !tbaa !57
+100:                                              ; preds = %_ZN4heapIN12_GLOBAL__N_125rel_goal_case_split_queue13generation_ltEE9erase_minEv.exit
+  %101 = getelementptr inbounds i8, ptr %.val21, i64 -4
+  %102 = load i32, ptr %101, align 4, !tbaa !57
   br label %_ZNK6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue5scopeELb0EjE4sizeEv.exit
 
-_ZNK6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue5scopeELb0EjE4sizeEv.exit: ; preds = %_ZN4heapIN12_GLOBAL__N_125rel_goal_case_split_queue13generation_ltEE9erase_minEv.exit, %97
-  %.0.i22 = phi i32 [ %99, %97 ], [ 0, %_ZN4heapIN12_GLOBAL__N_125rel_goal_case_split_queue13generation_ltEE9erase_minEv.exit ]
-  %100 = getelementptr inbounds nuw i8, ptr %95, i64 12
-  store i32 %.0.i22, ptr %100, align 4, !tbaa !755
-  %101 = load ptr, ptr %95, align 8, !tbaa !759
-  tail call fastcc void @_ZN12_GLOBAL__N_125rel_goal_case_split_queue20next_case_split_coreEP4exprRjR5lbool(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef %101, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 4 dereferenceable(4) %2)
-  %102 = load i32, ptr %1, align 4, !tbaa !57
-  %.not = icmp eq i32 %102, 2147483647
-  br i1 %.not, label %.critedge, label %103
+_ZNK6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue5scopeELb0EjE4sizeEv.exit: ; preds = %_ZN4heapIN12_GLOBAL__N_125rel_goal_case_split_queue13generation_ltEE9erase_minEv.exit, %100
+  %.0.i22 = phi i32 [ %102, %100 ], [ 0, %_ZN4heapIN12_GLOBAL__N_125rel_goal_case_split_queue13generation_ltEE9erase_minEv.exit ]
+  %103 = getelementptr inbounds nuw i8, ptr %98, i64 12
+  store i32 %.0.i22, ptr %103, align 4, !tbaa !755
+  %104 = load ptr, ptr %98, align 8, !tbaa !759
+  tail call fastcc void @_ZN12_GLOBAL__N_125rel_goal_case_split_queue20next_case_split_coreEP4exprRjR5lbool(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef %104, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 4 dereferenceable(4) %2)
+  %105 = load i32, ptr %1, align 4, !tbaa !57
+  %.not = icmp eq i32 %105, 2147483647
+  br i1 %.not, label %.critedge, label %106
 
-103:                                              ; preds = %_ZNK6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue5scopeELb0EjE4sizeEv.exit
-  %104 = getelementptr inbounds nuw i8, ptr %95, i64 12
-  %105 = load ptr, ptr %13, align 8, !tbaa !54
-  %106 = icmp eq ptr %105, null
-  br i1 %106, label %_ZNK6vectorIiLb0EjE4sizeEv.exit.thread.i, label %109
+106:                                              ; preds = %_ZNK6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue5scopeELb0EjE4sizeEv.exit
+  %107 = getelementptr inbounds nuw i8, ptr %98, i64 12
+  %108 = load ptr, ptr %13, align 8, !tbaa !54
+  %109 = icmp eq ptr %108, null
+  br i1 %109, label %_ZNK6vectorIiLb0EjE4sizeEv.exit.thread.i, label %112
 
-_ZNK6vectorIiLb0EjE4sizeEv.exit.thread.i:         ; preds = %103
-  %107 = load ptr, ptr %14, align 8, !tbaa !54
-  %108 = getelementptr inbounds nuw i32, ptr %107, i64 %.pre-phi
-  store i32 0, ptr %108, align 4, !tbaa !57
-  br label %117
+_ZNK6vectorIiLb0EjE4sizeEv.exit.thread.i:         ; preds = %106
+  %110 = load ptr, ptr %14, align 8, !tbaa !54
+  %111 = getelementptr inbounds nuw i32, ptr %110, i64 %.pre-phi
+  store i32 0, ptr %111, align 4, !tbaa !57
+  br label %120
 
-109:                                              ; preds = %103
-  %110 = getelementptr inbounds i8, ptr %105, i64 -4
-  %111 = load i32, ptr %110, align 4, !tbaa !57
-  %112 = load ptr, ptr %14, align 8, !tbaa !54
-  %113 = getelementptr inbounds nuw i32, ptr %112, i64 %.pre-phi
-  store i32 %111, ptr %113, align 4, !tbaa !57
-  %114 = getelementptr inbounds i8, ptr %105, i64 -8
-  %115 = load i32, ptr %114, align 4, !tbaa !57
-  %116 = icmp eq i32 %111, %115
-  br i1 %116, label %117, label %_ZN6vectorIiLb0EjE9push_backERKi.exit.i
+112:                                              ; preds = %106
+  %113 = getelementptr inbounds i8, ptr %108, i64 -4
+  %114 = load i32, ptr %113, align 4, !tbaa !57
+  %115 = load ptr, ptr %14, align 8, !tbaa !54
+  %116 = getelementptr inbounds nuw i32, ptr %115, i64 %.pre-phi
+  store i32 %114, ptr %116, align 4, !tbaa !57
+  %117 = getelementptr inbounds i8, ptr %108, i64 -8
+  %118 = load i32, ptr %117, align 4, !tbaa !57
+  %119 = icmp eq i32 %114, %118
+  br i1 %119, label %120, label %_ZN6vectorIiLb0EjE9push_backERKi.exit.i
 
-117:                                              ; preds = %109, %_ZNK6vectorIiLb0EjE4sizeEv.exit.thread.i
-  %.0.i7.i = phi i32 [ 0, %_ZNK6vectorIiLb0EjE4sizeEv.exit.thread.i ], [ %111, %109 ]
+120:                                              ; preds = %112, %_ZNK6vectorIiLb0EjE4sizeEv.exit.thread.i
+  %.0.i7.i = phi i32 [ 0, %_ZNK6vectorIiLb0EjE4sizeEv.exit.thread.i ], [ %114, %112 ]
   tail call void @_ZN6vectorIiLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %13)
   %.pre.i.i = load ptr, ptr %13, align 8, !tbaa !54
   %.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %.pre.i.i, i64 -4
   %.pre2.i.i = load i32, ptr %.phi.trans.insert.i.i, align 4, !tbaa !57
   br label %_ZN6vectorIiLb0EjE9push_backERKi.exit.i
 
-_ZN6vectorIiLb0EjE9push_backERKi.exit.i:          ; preds = %117, %109
-  %.0.i6.i = phi i32 [ %.0.i7.i, %117 ], [ %111, %109 ]
-  %118 = phi i32 [ %.pre2.i.i, %117 ], [ %111, %109 ]
-  %119 = phi ptr [ %.pre.i.i, %117 ], [ %105, %109 ]
-  %120 = getelementptr inbounds i8, ptr %119, i64 -4
-  %121 = zext i32 %118 to i64
-  %122 = getelementptr inbounds nuw i32, ptr %119, i64 %121
-  store i32 %33, ptr %122, align 4, !tbaa !57
-  %123 = add i32 %118, 1
-  store i32 %123, ptr %120, align 4, !tbaa !57
-  %124 = zext i32 %.0.i6.i to i64
-  %125 = getelementptr inbounds nuw i32, ptr %119, i64 %124
-  %126 = load i32, ptr %125, align 4, !tbaa !57
-  %127 = icmp ult i32 %.0.i6.i, 2
-  br i1 %127, label %.._crit_edge_crit_edge.i.i, label %.lr.ph.i.i23
+_ZN6vectorIiLb0EjE9push_backERKi.exit.i:          ; preds = %120, %112
+  %.0.i6.i = phi i32 [ %.0.i7.i, %120 ], [ %114, %112 ]
+  %121 = phi i32 [ %.pre2.i.i, %120 ], [ %114, %112 ]
+  %122 = phi ptr [ %.pre.i.i, %120 ], [ %108, %112 ]
+  %123 = getelementptr inbounds i8, ptr %122, i64 -4
+  %124 = zext i32 %121 to i64
+  %125 = getelementptr inbounds nuw i32, ptr %122, i64 %124
+  store i32 %33, ptr %125, align 4, !tbaa !57
+  %126 = add i32 %121, 1
+  store i32 %126, ptr %123, align 4, !tbaa !57
+  %127 = zext i32 %.0.i6.i to i64
+  %128 = getelementptr inbounds nuw i32, ptr %122, i64 %127
+  %129 = load i32, ptr %128, align 4, !tbaa !57
+  %130 = icmp ult i32 %.0.i6.i, 2
+  br i1 %130, label %.._crit_edge_crit_edge.i.i, label %.lr.ph.i.i23
 
 .._crit_edge_crit_edge.i.i:                       ; preds = %_ZN6vectorIiLb0EjE9push_backERKi.exit.i
   %.pre.i3.i = load ptr, ptr %14, align 8, !tbaa !54
-  %.pre25.i.i = zext i32 %126 to i64
+  %.pre25.i.i = zext i32 %129 to i64
   br label %_ZN4heapIN12_GLOBAL__N_125rel_goal_case_split_queue13generation_ltEE6insertEi.exit
 
 .lr.ph.i.i23:                                     ; preds = %_ZN6vectorIiLb0EjE9push_backERKi.exit.i
   %.val.i.i = load ptr, ptr %12, align 8, !tbaa !756
-  %128 = getelementptr i8, ptr %.val.i.i, i64 48
-  %.val.val.i.i24 = load ptr, ptr %128, align 8, !tbaa !588
-  %129 = zext i32 %126 to i64
-  %130 = getelementptr inbounds nuw %"struct.(anonymous namespace)::rel_goal_case_split_queue::queue_entry", ptr %.val.val.i.i24, i64 %129, i32 1
-  %131 = load ptr, ptr %14, align 8
-  br label %132
+  %131 = getelementptr i8, ptr %.val.i.i, i64 48
+  %.val.val.i.i24 = load ptr, ptr %131, align 8, !tbaa !588
+  %132 = zext i32 %129 to i64
+  %133 = getelementptr inbounds nuw %"struct.(anonymous namespace)::rel_goal_case_split_queue::queue_entry", ptr %.val.val.i.i24, i64 %132
+  %134 = getelementptr inbounds nuw i8, ptr %133, i64 8
+  %135 = load ptr, ptr %14, align 8
+  br label %136
 
-132:                                              ; preds = %145, %.lr.ph.i.i23
-  %.01521.i.i = phi i32 [ %.0.i6.i, %.lr.ph.i.i23 ], [ %133, %145 ]
-  %133 = ashr i32 %.01521.i.i, 1
-  %134 = zext i32 %133 to i64
-  %135 = getelementptr inbounds nuw i32, ptr %119, i64 %134
-  %136 = load i32, ptr %135, align 4, !tbaa !57
-  %137 = load i32, ptr %130, align 8, !tbaa !753
-  %138 = zext i32 %136 to i64
-  %139 = getelementptr inbounds nuw %"struct.(anonymous namespace)::rel_goal_case_split_queue::queue_entry", ptr %.val.val.i.i24, i64 %138, i32 1
-  %140 = load i32, ptr %139, align 8, !tbaa !753
-  %141 = icmp eq i32 %137, %140
-  %142 = icmp slt i32 %126, %136
-  %143 = icmp ult i32 %137, %140
-  %.0.i.i.i.i25 = select i1 %141, i1 %142, i1 %143
-  %144 = zext i32 %.01521.i.i to i64
-  br i1 %.0.i.i.i.i25, label %145, label %_ZN4heapIN12_GLOBAL__N_125rel_goal_case_split_queue13generation_ltEE6insertEi.exit
+136:                                              ; preds = %150, %.lr.ph.i.i23
+  %.01521.i.i = phi i32 [ %.0.i6.i, %.lr.ph.i.i23 ], [ %137, %150 ]
+  %137 = ashr i32 %.01521.i.i, 1
+  %138 = zext i32 %137 to i64
+  %139 = getelementptr inbounds nuw i32, ptr %122, i64 %138
+  %140 = load i32, ptr %139, align 4, !tbaa !57
+  %141 = load i32, ptr %134, align 8, !tbaa !753
+  %142 = zext i32 %140 to i64
+  %143 = getelementptr inbounds nuw %"struct.(anonymous namespace)::rel_goal_case_split_queue::queue_entry", ptr %.val.val.i.i24, i64 %142
+  %144 = getelementptr inbounds nuw i8, ptr %143, i64 8
+  %145 = load i32, ptr %144, align 8, !tbaa !753
+  %146 = icmp eq i32 %141, %145
+  %147 = icmp slt i32 %129, %140
+  %148 = icmp ult i32 %141, %145
+  %.0.i.i.i.i25 = select i1 %146, i1 %147, i1 %148
+  %149 = zext i32 %.01521.i.i to i64
+  br i1 %.0.i.i.i.i25, label %150, label %_ZN4heapIN12_GLOBAL__N_125rel_goal_case_split_queue13generation_ltEE6insertEi.exit
 
-145:                                              ; preds = %132
-  %146 = getelementptr inbounds nuw i32, ptr %119, i64 %144
-  store i32 %136, ptr %146, align 4, !tbaa !57
-  %147 = getelementptr inbounds nuw i32, ptr %131, i64 %138
-  store i32 %.01521.i.i, ptr %147, align 4, !tbaa !57
-  %148 = icmp ult i32 %133, 2
-  br i1 %148, label %_ZN4heapIN12_GLOBAL__N_125rel_goal_case_split_queue13generation_ltEE6insertEi.exit, label %132
+150:                                              ; preds = %136
+  %151 = getelementptr inbounds nuw i32, ptr %122, i64 %149
+  store i32 %140, ptr %151, align 4, !tbaa !57
+  %152 = getelementptr inbounds nuw i32, ptr %135, i64 %142
+  store i32 %.01521.i.i, ptr %152, align 4, !tbaa !57
+  %153 = icmp ult i32 %137, 2
+  br i1 %153, label %_ZN4heapIN12_GLOBAL__N_125rel_goal_case_split_queue13generation_ltEE6insertEi.exit, label %136
 
-_ZN4heapIN12_GLOBAL__N_125rel_goal_case_split_queue13generation_ltEE6insertEi.exit: ; preds = %145, %132, %.._crit_edge_crit_edge.i.i
-  %.pre-phi26.i.i = phi i64 [ %.pre25.i.i, %.._crit_edge_crit_edge.i.i ], [ %129, %132 ], [ %129, %145 ]
-  %.pre-phi.i.i = phi i64 [ %124, %.._crit_edge_crit_edge.i.i ], [ %134, %145 ], [ %144, %132 ]
-  %149 = phi ptr [ %.pre.i3.i, %.._crit_edge_crit_edge.i.i ], [ %131, %132 ], [ %131, %145 ]
-  %.015.lcssa.i.i = phi i32 [ %.0.i6.i, %.._crit_edge_crit_edge.i.i ], [ %133, %145 ], [ %.01521.i.i, %132 ]
-  %150 = getelementptr inbounds nuw i32, ptr %119, i64 %.pre-phi.i.i
-  store i32 %126, ptr %150, align 4, !tbaa !57
-  %151 = getelementptr inbounds nuw i32, ptr %149, i64 %.pre-phi26.i.i
-  store i32 %.015.lcssa.i.i, ptr %151, align 4, !tbaa !57
-  store i32 -1, ptr %104, align 4, !tbaa !755
+_ZN4heapIN12_GLOBAL__N_125rel_goal_case_split_queue13generation_ltEE6insertEi.exit: ; preds = %150, %136, %.._crit_edge_crit_edge.i.i
+  %.pre-phi26.i.i = phi i64 [ %.pre25.i.i, %.._crit_edge_crit_edge.i.i ], [ %132, %136 ], [ %132, %150 ]
+  %.pre-phi.i.i = phi i64 [ %127, %.._crit_edge_crit_edge.i.i ], [ %138, %150 ], [ %149, %136 ]
+  %154 = phi ptr [ %.pre.i3.i, %.._crit_edge_crit_edge.i.i ], [ %135, %136 ], [ %135, %150 ]
+  %.015.lcssa.i.i = phi i32 [ %.0.i6.i, %.._crit_edge_crit_edge.i.i ], [ %137, %150 ], [ %.01521.i.i, %136 ]
+  %155 = getelementptr inbounds nuw i32, ptr %122, i64 %.pre-phi.i.i
+  store i32 %129, ptr %155, align 4, !tbaa !57
+  %156 = getelementptr inbounds nuw i32, ptr %154, i64 %.pre-phi26.i.i
+  store i32 %.015.lcssa.i.i, ptr %156, align 4, !tbaa !57
+  store i32 -1, ptr %107, align 4, !tbaa !755
   br label %.loopexit, !llvm.loop !760
 
 .loopexit:                                        ; preds = %.lr.ph, %_ZNK4heapIN12_GLOBAL__N_125rel_goal_case_split_queue13generation_ltEE5emptyEv.exit, %_ZN4heapIN12_GLOBAL__N_125rel_goal_case_split_queue13generation_ltEE6insertEi.exit
@@ -10048,44 +10066,46 @@ _ZN6vectorIiLb0EjE9push_backERKi.exit.i:          ; preds = %104, %96
   %115 = getelementptr i8, ptr %.val.i.i, i64 48
   %.val.val.i.i = load ptr, ptr %115, align 8, !tbaa !588
   %116 = zext i32 %113 to i64
-  %117 = getelementptr inbounds nuw %"struct.(anonymous namespace)::rel_goal_case_split_queue::queue_entry", ptr %.val.val.i.i, i64 %116, i32 1
-  %118 = load ptr, ptr %71, align 8
-  br label %119
+  %117 = getelementptr inbounds nuw %"struct.(anonymous namespace)::rel_goal_case_split_queue::queue_entry", ptr %.val.val.i.i, i64 %116
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 8
+  %119 = load ptr, ptr %71, align 8
+  br label %120
 
-119:                                              ; preds = %132, %.lr.ph.i.i
-  %.01521.i.i = phi i32 [ %.0.i6.i, %.lr.ph.i.i ], [ %120, %132 ]
-  %120 = ashr i32 %.01521.i.i, 1
-  %121 = zext i32 %120 to i64
-  %122 = getelementptr inbounds nuw i32, ptr %106, i64 %121
-  %123 = load i32, ptr %122, align 4, !tbaa !57
-  %124 = load i32, ptr %117, align 8, !tbaa !753
-  %125 = zext i32 %123 to i64
-  %126 = getelementptr inbounds nuw %"struct.(anonymous namespace)::rel_goal_case_split_queue::queue_entry", ptr %.val.val.i.i, i64 %125, i32 1
-  %127 = load i32, ptr %126, align 8, !tbaa !753
-  %128 = icmp eq i32 %124, %127
-  %129 = icmp slt i32 %113, %123
-  %130 = icmp ult i32 %124, %127
-  %.0.i.i.i.i = select i1 %128, i1 %129, i1 %130
-  %131 = zext i32 %.01521.i.i to i64
-  br i1 %.0.i.i.i.i, label %132, label %_ZN4heapIN12_GLOBAL__N_125rel_goal_case_split_queue13generation_ltEE6insertEi.exit
+120:                                              ; preds = %134, %.lr.ph.i.i
+  %.01521.i.i = phi i32 [ %.0.i6.i, %.lr.ph.i.i ], [ %121, %134 ]
+  %121 = ashr i32 %.01521.i.i, 1
+  %122 = zext i32 %121 to i64
+  %123 = getelementptr inbounds nuw i32, ptr %106, i64 %122
+  %124 = load i32, ptr %123, align 4, !tbaa !57
+  %125 = load i32, ptr %118, align 8, !tbaa !753
+  %126 = zext i32 %124 to i64
+  %127 = getelementptr inbounds nuw %"struct.(anonymous namespace)::rel_goal_case_split_queue::queue_entry", ptr %.val.val.i.i, i64 %126
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 8
+  %129 = load i32, ptr %128, align 8, !tbaa !753
+  %130 = icmp eq i32 %125, %129
+  %131 = icmp slt i32 %113, %124
+  %132 = icmp ult i32 %125, %129
+  %.0.i.i.i.i = select i1 %130, i1 %131, i1 %132
+  %133 = zext i32 %.01521.i.i to i64
+  br i1 %.0.i.i.i.i, label %134, label %_ZN4heapIN12_GLOBAL__N_125rel_goal_case_split_queue13generation_ltEE6insertEi.exit
 
-132:                                              ; preds = %119
-  %133 = getelementptr inbounds nuw i32, ptr %106, i64 %131
-  store i32 %123, ptr %133, align 4, !tbaa !57
-  %134 = getelementptr inbounds nuw i32, ptr %118, i64 %125
-  store i32 %.01521.i.i, ptr %134, align 4, !tbaa !57
-  %135 = icmp ult i32 %120, 2
-  br i1 %135, label %_ZN4heapIN12_GLOBAL__N_125rel_goal_case_split_queue13generation_ltEE6insertEi.exit, label %119
+134:                                              ; preds = %120
+  %135 = getelementptr inbounds nuw i32, ptr %106, i64 %133
+  store i32 %124, ptr %135, align 4, !tbaa !57
+  %136 = getelementptr inbounds nuw i32, ptr %119, i64 %126
+  store i32 %.01521.i.i, ptr %136, align 4, !tbaa !57
+  %137 = icmp ult i32 %121, 2
+  br i1 %137, label %_ZN4heapIN12_GLOBAL__N_125rel_goal_case_split_queue13generation_ltEE6insertEi.exit, label %120
 
-_ZN4heapIN12_GLOBAL__N_125rel_goal_case_split_queue13generation_ltEE6insertEi.exit: ; preds = %132, %119, %.._crit_edge_crit_edge.i.i
-  %.pre-phi26.i.i = phi i64 [ %.pre25.i.i, %.._crit_edge_crit_edge.i.i ], [ %116, %119 ], [ %116, %132 ]
-  %.pre-phi.i.i = phi i64 [ %111, %.._crit_edge_crit_edge.i.i ], [ %121, %132 ], [ %131, %119 ]
-  %136 = phi ptr [ %.pre.i3.i, %.._crit_edge_crit_edge.i.i ], [ %118, %119 ], [ %118, %132 ]
-  %.015.lcssa.i.i = phi i32 [ %.0.i6.i, %.._crit_edge_crit_edge.i.i ], [ %120, %132 ], [ %.01521.i.i, %119 ]
-  %137 = getelementptr inbounds nuw i32, ptr %106, i64 %.pre-phi.i.i
-  store i32 %113, ptr %137, align 4, !tbaa !57
-  %138 = getelementptr inbounds nuw i32, ptr %136, i64 %.pre-phi26.i.i
-  store i32 %.015.lcssa.i.i, ptr %138, align 4, !tbaa !57
+_ZN4heapIN12_GLOBAL__N_125rel_goal_case_split_queue13generation_ltEE6insertEi.exit: ; preds = %134, %120, %.._crit_edge_crit_edge.i.i
+  %.pre-phi26.i.i = phi i64 [ %.pre25.i.i, %.._crit_edge_crit_edge.i.i ], [ %116, %120 ], [ %116, %134 ]
+  %.pre-phi.i.i = phi i64 [ %111, %.._crit_edge_crit_edge.i.i ], [ %122, %134 ], [ %133, %120 ]
+  %138 = phi ptr [ %.pre.i3.i, %.._crit_edge_crit_edge.i.i ], [ %119, %120 ], [ %119, %134 ]
+  %.015.lcssa.i.i = phi i32 [ %.0.i6.i, %.._crit_edge_crit_edge.i.i ], [ %121, %134 ], [ %.01521.i.i, %120 ]
+  %139 = getelementptr inbounds nuw i32, ptr %106, i64 %.pre-phi.i.i
+  store i32 %113, ptr %139, align 4, !tbaa !57
+  %140 = getelementptr inbounds nuw i32, ptr %138, i64 %.pre-phi26.i.i
+  store i32 %.015.lcssa.i.i, ptr %140, align 4, !tbaa !57
   ret void
 }
 

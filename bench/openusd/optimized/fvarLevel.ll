@@ -3005,14 +3005,14 @@ define void @_ZNK10OpenSubdiv6v3_6_03Vtr8internal9FVarLevel16gatherValueSpansEiP
   %wide.trip.count138 = zext nneg i32 %23 to i64
   br label %110
 
-110:                                              ; preds = %.lr.ph127, %159
-  %indvars.iv135 = phi i64 [ 1, %.lr.ph127 ], [ %indvars.iv.next136, %159 ]
+110:                                              ; preds = %.lr.ph127, %163
+  %indvars.iv135 = phi i64 [ 1, %.lr.ph127 ], [ %indvars.iv.next136, %163 ]
   %111 = getelementptr i16, ptr %26, i64 %indvars.iv135
   %112 = load i16, ptr %111, align 2
   %113 = getelementptr i8, ptr %111, i64 -2
   %114 = load i16, ptr %113, align 2
   %115 = icmp eq i16 %112, %114
-  br i1 %115, label %116, label %148
+  br i1 %115, label %116, label %151
 
 116:                                              ; preds = %110
   %117 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv135
@@ -3023,98 +3023,102 @@ define void @_ZNK10OpenSubdiv6v3_6_03Vtr8internal9FVarLevel16gatherValueSpansEiP
   %122 = load i8, ptr %121, align 1
   %123 = and i8 %122, 1
   %.not85 = icmp eq i8 %123, 0
-  br i1 %.not85, label %129, label %124
+  br i1 %.not85, label %130, label %124
 
 124:                                              ; preds = %116
   %125 = zext i16 %112 to i64
-  %126 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Vtr::internal::FVarLevel::ValueSpan", ptr %2, i64 %125, i32 2
-  %127 = load i16, ptr %126, align 2
-  %128 = add i16 %127, 1
-  store i16 %128, ptr %126, align 2
-  br label %159
+  %126 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Vtr::internal::FVarLevel::ValueSpan", ptr %2, i64 %125
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 4
+  %128 = load i16, ptr %127, align 2
+  %129 = add i16 %128, 1
+  store i16 %129, ptr %127, align 2
+  br label %163
 
-129:                                              ; preds = %116
-  %130 = load ptr, ptr %0, align 8
-  %131 = getelementptr inbounds nuw i8, ptr %130, i64 240
-  %132 = load ptr, ptr %131, align 8
-  %133 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Level::ETag", ptr %132, i64 %119
-  %134 = load i8, ptr %133, align 1
-  %135 = and i8 %134, 4
-  %.not86 = icmp eq i8 %135, 0
-  br i1 %.not86, label %141, label %136
+130:                                              ; preds = %116
+  %131 = load ptr, ptr %0, align 8
+  %132 = getelementptr inbounds nuw i8, ptr %131, i64 240
+  %133 = load ptr, ptr %132, align 8
+  %134 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Level::ETag", ptr %133, i64 %119
+  %135 = load i8, ptr %134, align 1
+  %136 = and i8 %135, 4
+  %.not86 = icmp eq i8 %136, 0
+  br i1 %.not86, label %143, label %137
 
-136:                                              ; preds = %129
-  %137 = zext i16 %112 to i64
-  %138 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Vtr::internal::FVarLevel::ValueSpan", ptr %2, i64 %137, i32 4
-  %139 = load i16, ptr %138, align 2
-  %140 = add i16 %139, 1
-  store i16 %140, ptr %138, align 2
-  br label %159
+137:                                              ; preds = %130
+  %138 = zext i16 %112 to i64
+  %139 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Vtr::internal::FVarLevel::ValueSpan", ptr %2, i64 %138
+  %140 = getelementptr inbounds nuw i8, ptr %139, i64 8
+  %141 = load i16, ptr %140, align 2
+  %142 = add i16 %141, 1
+  store i16 %142, ptr %140, align 2
+  br label %163
 
-141:                                              ; preds = %129
-  %142 = and i8 %134, 8
-  %.not87 = icmp eq i8 %142, 0
-  br i1 %.not87, label %159, label %143
+143:                                              ; preds = %130
+  %144 = and i8 %135, 8
+  %.not87 = icmp eq i8 %144, 0
+  br i1 %.not87, label %163, label %145
 
-143:                                              ; preds = %141
-  %144 = zext i16 %112 to i64
-  %145 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Vtr::internal::FVarLevel::ValueSpan", ptr %2, i64 %144, i32 3
-  %146 = load i16, ptr %145, align 2
-  %147 = add i16 %146, 1
-  store i16 %147, ptr %145, align 2
-  br label %159
+145:                                              ; preds = %143
+  %146 = zext i16 %112 to i64
+  %147 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Vtr::internal::FVarLevel::ValueSpan", ptr %2, i64 %146
+  %148 = getelementptr inbounds nuw i8, ptr %147, i64 6
+  %149 = load i16, ptr %148, align 2
+  %150 = add i16 %149, 1
+  store i16 %150, ptr %148, align 2
+  br label %163
 
-148:                                              ; preds = %110
-  %149 = zext i16 %112 to i64
-  %150 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Vtr::internal::FVarLevel::ValueSpan", ptr %2, i64 %149
-  %151 = load i16, ptr %150, align 2
-  %.not84 = icmp eq i16 %151, 0
-  br i1 %.not84, label %156, label %152
-
-152:                                              ; preds = %148
-  %153 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Vtr::internal::FVarLevel::ValueSpan", ptr %2, i64 %149, i32 2
+151:                                              ; preds = %110
+  %152 = zext i16 %112 to i64
+  %153 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Vtr::internal::FVarLevel::ValueSpan", ptr %2, i64 %152
   %154 = load i16, ptr %153, align 2
-  %155 = add i16 %154, 1
-  store i16 %155, ptr %153, align 2
+  %.not84 = icmp eq i16 %154, 0
+  br i1 %.not84, label %159, label %155
+
+155:                                              ; preds = %151
+  %156 = getelementptr inbounds nuw i8, ptr %153, i64 4
+  %157 = load i16, ptr %156, align 2
+  %158 = add i16 %157, 1
+  store i16 %158, ptr %156, align 2
   %.pre = load i16, ptr %111, align 2
   %.pre140 = zext i16 %.pre to i64
-  br label %156
-
-156:                                              ; preds = %152, %148
-  %.pre-phi = phi i64 [ %.pre140, %152 ], [ %149, %148 ]
-  %157 = trunc i64 %indvars.iv135 to i16
-  %158 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Vtr::internal::FVarLevel::ValueSpan", ptr %2, i64 %.pre-phi, i32 1
-  store i16 %157, ptr %158, align 2
   br label %159
 
-159:                                              ; preds = %124, %141, %143, %136, %156
-  %160 = load i16, ptr %111, align 2
-  %161 = zext i16 %160 to i64
-  %162 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Vtr::internal::FVarLevel::ValueSpan", ptr %2, i64 %161
-  %163 = load i16, ptr %162, align 2
-  %164 = add i16 %163, 1
-  store i16 %164, ptr %162, align 2
+159:                                              ; preds = %155, %151
+  %.pre-phi = phi i64 [ %.pre140, %155 ], [ %152, %151 ]
+  %160 = trunc i64 %indvars.iv135 to i16
+  %161 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Vtr::internal::FVarLevel::ValueSpan", ptr %2, i64 %.pre-phi
+  %162 = getelementptr inbounds nuw i8, ptr %161, i64 2
+  store i16 %160, ptr %162, align 2
+  br label %163
+
+163:                                              ; preds = %124, %143, %145, %137, %159
+  %164 = load i16, ptr %111, align 2
+  %165 = zext i16 %164 to i64
+  %166 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Vtr::internal::FVarLevel::ValueSpan", ptr %2, i64 %165
+  %167 = load i16, ptr %166, align 2
+  %168 = add i16 %167, 1
+  store i16 %168, ptr %166, align 2
   %indvars.iv.next136 = add nuw nsw i64 %indvars.iv135, 1
   %exitcond139.not = icmp eq i64 %indvars.iv.next136, %wide.trip.count138
   br i1 %exitcond139.not, label %._crit_edge, label %110, !llvm.loop !24
 
-._crit_edge:                                      ; preds = %159, %107
-  %165 = sext i32 %23 to i64
-  %166 = getelementptr i16, ptr %26, i64 %165
-  %167 = getelementptr i8, ptr %166, i64 -2
-  %168 = load i16, ptr %167, align 2
-  %169 = icmp ne i16 %168, 0
-  %or.cond3 = or i1 %32, %169
-  br i1 %or.cond3, label %.loopexit122, label %170
-
-170:                                              ; preds = %._crit_edge
-  %171 = getelementptr inbounds nuw i8, ptr %2, i64 4
+._crit_edge:                                      ; preds = %163, %107
+  %169 = sext i32 %23 to i64
+  %170 = getelementptr i16, ptr %26, i64 %169
+  %171 = getelementptr i8, ptr %170, i64 -2
   %172 = load i16, ptr %171, align 2
-  %173 = add i16 %172, -1
-  store i16 %173, ptr %171, align 2
+  %173 = icmp ne i16 %172, 0
+  %or.cond3 = or i1 %32, %173
+  br i1 %or.cond3, label %.loopexit122, label %174
+
+174:                                              ; preds = %._crit_edge
+  %175 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %176 = load i16, ptr %175, align 2
+  %177 = add i16 %176, -1
+  store i16 %177, ptr %175, align 2
   br label %.loopexit122
 
-.loopexit122:                                     ; preds = %.lr.ph, %.preheader, %.loopexit, %170, %._crit_edge
+.loopexit122:                                     ; preds = %.lr.ph, %.preheader, %.loopexit, %174, %._crit_edge
   ret void
 }
 

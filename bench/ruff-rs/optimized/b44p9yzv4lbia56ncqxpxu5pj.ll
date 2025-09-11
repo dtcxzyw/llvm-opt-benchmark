@@ -752,7 +752,7 @@ define noundef align 8 dereferenceable_or_null(120) ptr @_ZN20ruff_python_semant
   br label %10
 
 10:                                               ; preds = %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h18885b1dd5a6586bE.exit.i.i", %5
-  %11 = phi i32 [ %18, %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h18885b1dd5a6586bE.exit.i.i" ], [ %4, %5 ]
+  %11 = phi i32 [ %19, %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h18885b1dd5a6586bE.exit.i.i" ], [ %4, %5 ]
   %.not.i.i.i = icmp eq i32 %11, 0
   br i1 %.not.i.i.i, label %22, label %12
 
@@ -767,10 +767,10 @@ define noundef align 8 dereferenceable_or_null(120) ptr @_ZN20ruff_python_semant
   unreachable
 
 "_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h18885b1dd5a6586bE.exit.i.i": ; preds = %12
-  %17 = getelementptr inbounds nuw { { i64, [1 x i64] }, i32, i32 }, ptr %9, i64 %14, i32 1
-  %18 = load i32, ptr %17, align 8, !noalias !43, !noundef !4
-  %19 = getelementptr inbounds nuw { { i64, [1 x i64] }, i32, i32 }, ptr %9, i64 %14
-  %20 = load i64, ptr %19, align 8, !range !46, !alias.scope !47, !noalias !50, !noundef !4
+  %17 = getelementptr inbounds nuw { { i64, [1 x i64] }, i32, i32 }, ptr %9, i64 %14
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %19 = load i32, ptr %18, align 8, !noalias !43, !noundef !4
+  %20 = load i64, ptr %17, align 8, !range !46, !alias.scope !47, !noalias !50, !noundef !4
   %21 = trunc nuw i64 %20 to i1
   br i1 %21, label %10, label %_ZN20ruff_python_semantic5model13SemanticModel9statement17h8f5f2e5f0d3f3b56E.exit
 
@@ -779,7 +779,7 @@ define noundef align 8 dereferenceable_or_null(120) ptr @_ZN20ruff_python_semant
   unreachable
 
 _ZN20ruff_python_semantic5model13SemanticModel9statement17h8f5f2e5f0d3f3b56E.exit: ; preds = %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h18885b1dd5a6586bE.exit.i.i"
-  %23 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %24 = load ptr, ptr %23, align 8, !alias.scope !47, !noalias !50, !nonnull !4, !align !5
   br label %25
 
@@ -811,32 +811,33 @@ define noundef align 8 ptr @_ZN20ruff_python_semantic7binding7Binding10expressio
 12:                                               ; preds = %5
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %14 = load ptr, ptr %13, align 8, !alias.scope !51, !noalias !54, !nonnull !4, !noundef !4
-  %15 = getelementptr inbounds nuw { { i64, [1 x i64] }, i32, i32 }, ptr %14, i64 %9, i32 1
-  %16 = load i32, ptr %15, align 8, !noalias !59, !noundef !4
-  %.not.i.i = icmp eq i32 %16, 0
-  br i1 %.not.i.i, label %_ZN20ruff_python_semantic5model13SemanticModel17parent_expression17h139e0499570817d9E.exit, label %17
+  %15 = getelementptr inbounds nuw { { i64, [1 x i64] }, i32, i32 }, ptr %14, i64 %9
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %17 = load i32, ptr %16, align 8, !noalias !59, !noundef !4
+  %.not.i.i = icmp eq i32 %17, 0
+  br i1 %.not.i.i, label %_ZN20ruff_python_semantic5model13SemanticModel17parent_expression17h139e0499570817d9E.exit, label %18
 
-17:                                               ; preds = %12
-  %18 = add i32 %16, -1
-  %19 = zext i32 %18 to i64
-  %20 = icmp ugt i64 %7, %19
-  br i1 %20, label %22, label %21
+18:                                               ; preds = %12
+  %19 = add i32 %17, -1
+  %20 = zext i32 %19 to i64
+  %21 = icmp ugt i64 %7, %20
+  br i1 %21, label %23, label %22
 
-21:                                               ; preds = %17
-  tail call void @_ZN4core9panicking18panic_bounds_check17h1a9bf3d94de0fc80E(i64 noundef %19, i64 noundef %7, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a2a8d4fbf83d3c18bb62c91ee7342b31.59) #18, !noalias !60
+22:                                               ; preds = %18
+  tail call void @_ZN4core9panicking18panic_bounds_check17h1a9bf3d94de0fc80E(i64 noundef %20, i64 noundef %7, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a2a8d4fbf83d3c18bb62c91ee7342b31.59) #18, !noalias !60
   unreachable
 
-22:                                               ; preds = %17
-  %23 = getelementptr inbounds nuw { { i64, [1 x i64] }, i32, i32 }, ptr %14, i64 %19
-  %24 = load i64, ptr %23, align 8, !range !46, !alias.scope !63, !noalias !51, !noundef !4
-  %25 = trunc nuw i64 %24 to i1
-  %26 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  %27 = load ptr, ptr %26, align 8, !alias.scope !63, !noalias !51, !nonnull !4, !align !5
-  %.sroa.0.0.i6.i = select i1 %25, ptr %27, ptr null
+23:                                               ; preds = %18
+  %24 = getelementptr inbounds nuw { { i64, [1 x i64] }, i32, i32 }, ptr %14, i64 %20
+  %25 = load i64, ptr %24, align 8, !range !46, !alias.scope !63, !noalias !51, !noundef !4
+  %26 = trunc nuw i64 %25 to i1
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %28 = load ptr, ptr %27, align 8, !alias.scope !63, !noalias !51, !nonnull !4, !align !5
+  %.sroa.0.0.i6.i = select i1 %26, ptr %28, ptr null
   br label %_ZN20ruff_python_semantic5model13SemanticModel17parent_expression17h139e0499570817d9E.exit
 
-_ZN20ruff_python_semantic5model13SemanticModel17parent_expression17h139e0499570817d9E.exit: ; preds = %22, %12, %2
-  %.sroa.0.0 = phi ptr [ null, %2 ], [ %.sroa.0.0.i6.i, %22 ], [ null, %12 ]
+_ZN20ruff_python_semantic5model13SemanticModel17parent_expression17h139e0499570817d9E.exit: ; preds = %23, %12, %2
+  %.sroa.0.0 = phi ptr [ null, %2 ], [ %.sroa.0.0.i6.i, %23 ], [ null, %12 ]
   ret ptr %.sroa.0.0
 }
 
@@ -859,7 +860,7 @@ define void @_ZN20ruff_python_semantic7binding7Binding12parent_range17h164afd0f7
   br label %11
 
 11:                                               ; preds = %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h18885b1dd5a6586bE.exit.i.i.i", %6
-  %12 = phi i32 [ %19, %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h18885b1dd5a6586bE.exit.i.i.i" ], [ %5, %6 ]
+  %12 = phi i32 [ %20, %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h18885b1dd5a6586bE.exit.i.i.i" ], [ %5, %6 ]
   %.not.i.i.i.i = icmp eq i32 %12, 0
   br i1 %.not.i.i.i.i, label %23, label %13
 
@@ -874,10 +875,10 @@ define void @_ZN20ruff_python_semantic7binding7Binding12parent_range17h164afd0f7
   unreachable
 
 "_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h18885b1dd5a6586bE.exit.i.i.i": ; preds = %13
-  %18 = getelementptr inbounds nuw { { i64, [1 x i64] }, i32, i32 }, ptr %10, i64 %15, i32 1
-  %19 = load i32, ptr %18, align 8, !noalias !80, !noundef !4
-  %20 = getelementptr inbounds nuw { { i64, [1 x i64] }, i32, i32 }, ptr %10, i64 %15
-  %21 = load i64, ptr %20, align 8, !range !46, !alias.scope !83, !noalias !86, !noundef !4
+  %18 = getelementptr inbounds nuw { { i64, [1 x i64] }, i32, i32 }, ptr %10, i64 %15
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  %20 = load i32, ptr %19, align 8, !noalias !80, !noundef !4
+  %21 = load i64, ptr %18, align 8, !range !46, !alias.scope !83, !noalias !86, !noundef !4
   %22 = trunc nuw i64 %21 to i1
   br i1 %22, label %11, label %24
 
@@ -886,7 +887,7 @@ define void @_ZN20ruff_python_semantic7binding7Binding12parent_range17h164afd0f7
   unreachable
 
 24:                                               ; preds = %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h18885b1dd5a6586bE.exit.i.i.i"
-  %25 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !83, !noalias !86, !nonnull !4, !align !5
   %27 = load i64, ptr %26, align 8, !range !3, !noundef !4
   %28 = icmp eq i64 %27, -9223372036854775792

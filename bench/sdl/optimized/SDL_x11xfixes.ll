@@ -32,14 +32,14 @@ define hidden void @X11_InitXfixes(ptr noundef readonly captures(none) %0) local
   %10 = load i64, ptr %9, align 8
   %11 = load i32, ptr @SDL_X11_HAVE_XFIXES, align 4
   %.not = icmp eq i32 %11, 0
-  br i1 %.not, label %41, label %12
+  br i1 %.not, label %43, label %12
 
 12:                                               ; preds = %1
   %13 = load ptr, ptr @X11_XQueryExtension, align 8
   %14 = load ptr, ptr %8, align 8
   %15 = call i32 %13(ptr noundef %14, ptr noundef nonnull @.str, ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef nonnull %5) #7
   %.not11 = icmp eq i32 %15, 0
-  br i1 %.not11, label %41, label %16
+  br i1 %.not11, label %43, label %16
 
 16:                                               ; preds = %12
   %17 = load i32, ptr %4, align 4
@@ -51,31 +51,33 @@ define hidden void @X11_InitXfixes(ptr noundef readonly captures(none) %0) local
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 224
   %23 = load i32, ptr %22, align 8
   %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds %struct.Screen, ptr %21, i64 %24, i32 2
-  %26 = load i64, ptr %25, align 8
-  %27 = call i32 %18(ptr noundef %19, i64 noundef %26, i64 noundef %10, i64 noundef 1) #7
-  %28 = load ptr, ptr @X11_XFixesSelectSelectionInput, align 8
-  %29 = load ptr, ptr %8, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 232
-  %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %29, i64 224
-  %33 = load i32, ptr %32, align 8
-  %34 = sext i32 %33 to i64
-  %35 = getelementptr inbounds %struct.Screen, ptr %31, i64 %34, i32 2
-  %36 = load i64, ptr %35, align 8
-  %37 = call i32 %28(ptr noundef %29, i64 noundef %36, i64 noundef 1, i64 noundef 1) #7
-  %38 = load ptr, ptr %8, align 8
+  %25 = getelementptr inbounds %struct.Screen, ptr %21, i64 %24
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
+  %27 = load i64, ptr %26, align 8
+  %28 = call i32 %18(ptr noundef %19, i64 noundef %27, i64 noundef %10, i64 noundef 1) #7
+  %29 = load ptr, ptr @X11_XFixesSelectSelectionInput, align 8
+  %30 = load ptr, ptr %8, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 232
+  %32 = load ptr, ptr %31, align 8
+  %33 = getelementptr inbounds nuw i8, ptr %30, i64 224
+  %34 = load i32, ptr %33, align 8
+  %35 = sext i32 %34 to i64
+  %36 = getelementptr inbounds %struct.Screen, ptr %32, i64 %35
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
+  %38 = load i64, ptr %37, align 8
+  %39 = call i32 %29(ptr noundef %30, i64 noundef %38, i64 noundef 1, i64 noundef 1) #7
+  %40 = load ptr, ptr %8, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 5, ptr %2, align 4
   store i32 0, ptr %3, align 4
-  %39 = load ptr, ptr @X11_XFixesQueryVersion, align 8
-  %40 = call i32 %39(ptr noundef %38, ptr noundef nonnull %2, ptr noundef nonnull %3) #7
+  %41 = load ptr, ptr @X11_XFixesQueryVersion, align 8
+  %42 = call i32 %41(ptr noundef %40, ptr noundef nonnull %2, ptr noundef nonnull %3) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %41
+  br label %43
 
-41:                                               ; preds = %16, %1, %12
+43:                                               ; preds = %16, %1, %12
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

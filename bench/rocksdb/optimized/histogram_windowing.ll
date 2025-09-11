@@ -688,25 +688,26 @@ define void @_ZN7rocksdb22HistogramWindowingImpl3AddEm(ptr noundef nonnull align
 17:                                               ; preds = %2
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 984
   %19 = load ptr, ptr %18, align 8, !tbaa !42
-  %20 = getelementptr inbounds nuw %"struct.rocksdb::HistogramStat", ptr %19, i64 %10, i32 2
-  %21 = load atomic i64, ptr %20 monotonic, align 8
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 1024
-  %23 = load i64, ptr %22, align 8, !tbaa !32
-  %.not.i = icmp ult i64 %21, %23
-  br i1 %.not.i, label %_ZN7rocksdb22HistogramWindowingImpl9TimerTickEv.exit, label %24
+  %20 = getelementptr inbounds nuw %"struct.rocksdb::HistogramStat", ptr %19, i64 %10
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
+  %22 = load atomic i64, ptr %21 monotonic, align 8
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 1024
+  %24 = load i64, ptr %23, align 8, !tbaa !32
+  %.not.i = icmp ult i64 %22, %24
+  br i1 %.not.i, label %_ZN7rocksdb22HistogramWindowingImpl9TimerTickEv.exit, label %25
 
-24:                                               ; preds = %17
+25:                                               ; preds = %17
   tail call void @_ZN7rocksdb22HistogramWindowingImpl17SwapHistoryBucketEv(ptr noundef nonnull align 8 dereferenceable(1032) %0)
   br label %_ZN7rocksdb22HistogramWindowingImpl9TimerTickEv.exit
 
-_ZN7rocksdb22HistogramWindowingImpl9TimerTickEv.exit: ; preds = %2, %17, %24
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  tail call void @_ZN7rocksdb13HistogramStat3AddEm(ptr noundef nonnull align 8 dereferenceable(920) %25, i64 noundef %1)
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 984
-  %27 = load atomic i64, ptr %9 monotonic, align 8
-  %28 = load ptr, ptr %26, align 8, !tbaa !42
-  %29 = getelementptr inbounds nuw %"struct.rocksdb::HistogramStat", ptr %28, i64 %27
-  tail call void @_ZN7rocksdb13HistogramStat3AddEm(ptr noundef nonnull align 8 dereferenceable(920) %29, i64 noundef %1)
+_ZN7rocksdb22HistogramWindowingImpl9TimerTickEv.exit: ; preds = %2, %17, %25
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  tail call void @_ZN7rocksdb13HistogramStat3AddEm(ptr noundef nonnull align 8 dereferenceable(920) %26, i64 noundef %1)
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 984
+  %28 = load atomic i64, ptr %9 monotonic, align 8
+  %29 = load ptr, ptr %27, align 8, !tbaa !42
+  %30 = getelementptr inbounds nuw %"struct.rocksdb::HistogramStat", ptr %29, i64 %28
+  tail call void @_ZN7rocksdb13HistogramStat3AddEm(ptr noundef nonnull align 8 dereferenceable(920) %30, i64 noundef %1)
   ret void
 }
 
@@ -726,23 +727,24 @@ define void @_ZN7rocksdb22HistogramWindowingImpl9TimerTickEv(ptr noundef nonnull
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 1016
   %14 = load i64, ptr %13, align 8, !tbaa !31
   %15 = icmp ugt i64 %12, %14
-  br i1 %15, label %16, label %24
+  br i1 %15, label %16, label %25
 
 16:                                               ; preds = %1
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 984
   %18 = load ptr, ptr %17, align 8, !tbaa !42
-  %19 = getelementptr inbounds nuw %"struct.rocksdb::HistogramStat", ptr %18, i64 %9, i32 2
-  %20 = load atomic i64, ptr %19 monotonic, align 8
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 1024
-  %22 = load i64, ptr %21, align 8, !tbaa !32
-  %.not = icmp ult i64 %20, %22
-  br i1 %.not, label %24, label %23
+  %19 = getelementptr inbounds nuw %"struct.rocksdb::HistogramStat", ptr %18, i64 %9
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  %21 = load atomic i64, ptr %20 monotonic, align 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 1024
+  %23 = load i64, ptr %22, align 8, !tbaa !32
+  %.not = icmp ult i64 %21, %23
+  br i1 %.not, label %25, label %24
 
-23:                                               ; preds = %16
+24:                                               ; preds = %16
   tail call void @_ZN7rocksdb22HistogramWindowingImpl17SwapHistoryBucketEv(ptr noundef nonnull align 8 dereferenceable(1032) %0)
-  br label %24
+  br label %25
 
-24:                                               ; preds = %23, %16, %1
+25:                                               ; preds = %24, %16, %1
   ret void
 }
 
@@ -950,7 +952,7 @@ define void @_ZN7rocksdb22HistogramWindowingImpl17SwapHistoryBucketEv(ptr nounde
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = tail call noundef i32 @pthread_mutex_trylock(ptr noundef nonnull align 8 dereferenceable(40) %2) #12
   %.not.i = icmp eq i32 %3, 0
-  br i1 %.not.i, label %4, label %83
+  br i1 %.not.i, label %4, label %84
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1000
@@ -973,7 +975,7 @@ define void @_ZN7rocksdb22HistogramWindowingImpl17SwapHistoryBucketEv(ptr nounde
   %21 = load ptr, ptr %20, align 8, !tbaa !42
   %22 = getelementptr inbounds nuw %"struct.rocksdb::HistogramStat", ptr %21, i64 %19
   %23 = tail call noundef zeroext i1 @_ZNK7rocksdb13HistogramStat5EmptyEv(ptr noundef nonnull align 8 dereferenceable(920) %22)
-  br i1 %23, label %81, label %.preheader47
+  br i1 %23, label %82, label %.preheader47
 
 .preheader47:                                     ; preds = %4
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 976
@@ -1044,7 +1046,7 @@ define void @_ZN7rocksdb22HistogramWindowingImpl17SwapHistoryBucketEv(ptr nounde
   %54 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %55 = load atomic i64, ptr %54 monotonic, align 8
   %56 = icmp eq i64 %53, %55
-  br i1 %56, label %.preheader, label %68
+  br i1 %56, label %.preheader, label %69
 
 .preheader:                                       ; preds = %51
   %57 = load i64, ptr %14, align 8, !tbaa !12
@@ -1055,53 +1057,54 @@ define void @_ZN7rocksdb22HistogramWindowingImpl17SwapHistoryBucketEv(ptr nounde
   %58 = load ptr, ptr %20, align 8
   br label %59
 
-._crit_edge56:                                    ; preds = %64, %.preheader
-  %.035.lcssa = phi i64 [ 0, %.preheader ], [ %.2, %64 ]
+._crit_edge56:                                    ; preds = %65, %.preheader
+  %.035.lcssa = phi i64 [ 0, %.preheader ], [ %.2, %65 ]
   store atomic i64 %.035.lcssa, ptr %52 monotonic, align 8
-  br label %68
+  br label %69
 
-59:                                               ; preds = %.lr.ph55, %64
-  %60 = phi i64 [ 0, %.lr.ph55 ], [ %66, %64 ]
-  %.03454 = phi i32 [ 0, %.lr.ph55 ], [ %65, %64 ]
-  %.03553 = phi i64 [ 0, %.lr.ph55 ], [ %.2, %64 ]
+59:                                               ; preds = %.lr.ph55, %65
+  %60 = phi i64 [ 0, %.lr.ph55 ], [ %67, %65 ]
+  %.03454 = phi i32 [ 0, %.lr.ph55 ], [ %66, %65 ]
+  %.03553 = phi i64 [ 0, %.lr.ph55 ], [ %.2, %65 ]
   %.not = icmp eq i64 %19, %60
-  br i1 %.not, label %64, label %61
+  br i1 %.not, label %65, label %61
 
 61:                                               ; preds = %59
-  %62 = getelementptr inbounds nuw %"struct.rocksdb::HistogramStat", ptr %58, i64 %60, i32 1
-  %63 = load atomic i64, ptr %62 monotonic, align 8
-  %spec.select45 = tail call i64 @llvm.umax.i64(i64 %63, i64 %.03553)
-  br label %64
+  %62 = getelementptr inbounds nuw %"struct.rocksdb::HistogramStat", ptr %58, i64 %60
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %64 = load atomic i64, ptr %63 monotonic, align 8
+  %spec.select45 = tail call i64 @llvm.umax.i64(i64 %64, i64 %.03553)
+  br label %65
 
-64:                                               ; preds = %59, %61
+65:                                               ; preds = %59, %61
   %.2 = phi i64 [ %spec.select45, %61 ], [ %.03553, %59 ]
-  %65 = add i32 %.03454, 1
-  %66 = zext i32 %65 to i64
-  %67 = icmp ugt i64 %57, %66
-  br i1 %67, label %59, label %._crit_edge56, !llvm.loop !51
+  %66 = add i32 %.03454, 1
+  %67 = zext i32 %66 to i64
+  %68 = icmp ugt i64 %57, %67
+  br i1 %68, label %59, label %._crit_edge56, !llvm.loop !51
 
-68:                                               ; preds = %._crit_edge56, %51
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %70 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  %71 = load atomic i64, ptr %70 monotonic, align 8
-  %72 = atomicrmw sub ptr %69, i64 %71 monotonic, align 8
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %74 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  %75 = load atomic i64, ptr %74 monotonic, align 8
-  %76 = atomicrmw sub ptr %73, i64 %75 monotonic, align 8
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %78 = getelementptr inbounds nuw i8, ptr %22, i64 32
-  %79 = load atomic i64, ptr %78 monotonic, align 8
-  %80 = atomicrmw sub ptr %77, i64 %79 monotonic, align 8
+69:                                               ; preds = %._crit_edge56, %51
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %71 = getelementptr inbounds nuw i8, ptr %22, i64 16
+  %72 = load atomic i64, ptr %71 monotonic, align 8
+  %73 = atomicrmw sub ptr %70, i64 %72 monotonic, align 8
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %75 = getelementptr inbounds nuw i8, ptr %22, i64 24
+  %76 = load atomic i64, ptr %75 monotonic, align 8
+  %77 = atomicrmw sub ptr %74, i64 %76 monotonic, align 8
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %79 = getelementptr inbounds nuw i8, ptr %22, i64 32
+  %80 = load atomic i64, ptr %79 monotonic, align 8
+  %81 = atomicrmw sub ptr %78, i64 %80 monotonic, align 8
   tail call void @_ZN7rocksdb13HistogramStat5ClearEv(ptr noundef nonnull align 8 dereferenceable(920) %22)
-  br label %81
+  br label %82
 
-81:                                               ; preds = %68, %4
+82:                                               ; preds = %69, %4
   store atomic i64 %19, ptr %12 monotonic, align 8
-  %82 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %2) #12
-  br label %83
+  %83 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %2) #12
+  br label %84
 
-83:                                               ; preds = %81, %1
+84:                                               ; preds = %82, %1
   ret void
 }
 

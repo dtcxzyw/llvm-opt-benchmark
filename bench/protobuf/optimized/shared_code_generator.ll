@@ -363,7 +363,8 @@ for.body.i.i.i.i.i.i:                             ; preds = %for.inc.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %for.inc.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %for.body.i.i.i.i.i.i
-  %second.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %3, i64 %i.05.i.i.i.i.i.i, i32 0, i32 1
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %3, i64 %i.05.i.i.i.i.i.i
+  %second.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i.i, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i.i.i.i.i.i.i.i.i) #23
   br label %for.inc.i.i.i.i.i.i
 
@@ -374,8 +375,8 @@ for.inc.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i.i.i
 
 invoke.cont15.i.i.i.i.i:                          ; preds = %for.inc.i.i.i.i.i.i
   %5 = load ptr, ptr %file_immutable_outer_class_names_.i.i, align 8
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 -8
-  tail call void @_ZdlPv(ptr noundef nonnull %add.ptr.i.i.i.i.i.i) #24
+  %add.ptr.i3.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 -8
+  tail call void @_ZdlPv(ptr noundef nonnull %add.ptr.i3.i.i.i.i.i) #24
   br label %_ZNKSt14default_deleteIN6google8protobuf8compiler4java17ClassNameResolverEEclEPS4_.exit
 
 _ZNKSt14default_deleteIN6google8protobuf8compiler4java17ClassNameResolverEEclEPS4_.exit: ; preds = %delete.notnull.i, %invoke.cont15.i.i.i.i.i
@@ -423,7 +424,8 @@ for.body.i.i.i.i.i.i.i:                           ; preds = %for.inc.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %for.inc.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %for.body.i.i.i.i.i.i.i
-  %second.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %3, i64 %i.05.i.i.i.i.i.i.i, i32 0, i32 1
+  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %3, i64 %i.05.i.i.i.i.i.i.i
+  %second.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i.i.i, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i.i.i.i.i.i.i.i.i.i) #23
   br label %for.inc.i.i.i.i.i.i.i
 
@@ -434,8 +436,8 @@ for.inc.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i.i
 
 invoke.cont15.i.i.i.i.i.i:                        ; preds = %for.inc.i.i.i.i.i.i.i
   %5 = load ptr, ptr %file_immutable_outer_class_names_.i.i.i, align 8
-  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 -8
-  tail call void @_ZdlPv(ptr noundef nonnull %add.ptr.i.i.i.i.i.i.i) #24
+  %add.ptr.i3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 -8
+  tail call void @_ZdlPv(ptr noundef nonnull %add.ptr.i3.i.i.i.i.i.i) #24
   br label %_ZNKSt14default_deleteIN6google8protobuf8compiler4java17ClassNameResolverEEclEPS4_.exit.i
 
 _ZNKSt14default_deleteIN6google8protobuf8compiler4java17ClassNameResolverEEclEPS4_.exit.i: ; preds = %invoke.cont15.i.i.i.i.i.i, %delete.notnull.i.i
@@ -1967,7 +1969,8 @@ _ZN6google8protobuf2io7Printer5PrintIJEEEvSt17basic_string_viewIcSt11char_traits
 for.body99:                                       ; preds = %_ZN6google8protobuf2io7Printer5PrintIJEEEvSt17basic_string_viewIcSt11char_traitsIcEEDpRKT_.exit130, %for.inc104
   %indvars.iv181 = phi i64 [ %indvars.iv.next182, %for.inc104 ], [ 0, %_ZN6google8protobuf2io7Printer5PrintIJEEEvSt17basic_string_viewIcSt11char_traitsIcEEDpRKT_.exit130 ]
   %70 = phi ptr [ %72, %for.inc104 ], [ %69, %_ZN6google8protobuf2io7Printer5PrintIJEEEvSt17basic_string_viewIcSt11char_traitsIcEEDpRKT_.exit130 ]
-  %second = getelementptr inbounds nuw %"struct.std::pair", ptr %70, i64 %indvars.iv181, i32 1
+  %add.ptr.i = getelementptr inbounds nuw %"struct.std::pair", ptr %70, i64 %indvars.iv181
+  %second = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 32
   invoke void @_ZN6google8protobuf2io7Printer5PrintIJA11_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvSt17basic_string_viewIcS8_EDpRKT_(ptr noundef nonnull align 8 dereferenceable(256) %printer, i64 36, ptr nonnull @.str.21, ptr noundef nonnull align 1 dereferenceable(11) @.str.22, ptr noundef nonnull align 8 dereferenceable(32) %second)
           to label %for.inc104 unwind label %lpad33.loopexit
 

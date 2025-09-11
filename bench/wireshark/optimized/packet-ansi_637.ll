@@ -1451,14 +1451,12 @@ define internal void @tele_param_user_data(ptr noundef %0, ptr noundef %1, ptr n
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %13 = icmp ult i32 %3, 2
-  %.079.sroa.gep = getelementptr inbounds nuw i8, ptr %12, i64 12
-  %.079.sroa.gep95 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  %.079.sroa.gep97 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %.079.sroa.gep = getelementptr inbounds nuw i8, ptr %12, i64 8
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %6
   %15 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_ansi_637_short_data, ptr noundef %0, i32 noundef %4, i32 noundef %3)
-  br label %127
+  br label %129
 
 16:                                               ; preds = %6
   %17 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %4)
@@ -1643,54 +1641,55 @@ define internal void @tele_param_user_data(ptr noundef %0, ptr noundef %1, ptr n
 103:                                              ; preds = %96, %94
   %104 = zext i16 %49 to i32
   %.not94 = icmp eq i16 %.083, %48
-  br i1 %.not94, label %127, label %105
+  br i1 %.not94, label %129, label %105
 
 105:                                              ; preds = %103
-  br i1 %cond, label %106, label %121
+  br i1 %cond, label %106, label %123
 
 106:                                              ; preds = %105
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %107 = icmp ugt i16 %49, 3
   %108 = add i32 %4, %3
   %109 = shl i32 %108, 3
-  br i1 %107, label %110, label %114
+  br i1 %107, label %110, label %115
 
 110:                                              ; preds = %106
   %111 = add i32 %109, -11
   %112 = trunc i16 %49 to i8
   %113 = add i8 %112, -3
-  store i8 %113, ptr %.079.sroa.gep95, align 4
-  store i32 8, ptr %.079.sroa.gep97, align 8
-  br label %116
+  %114 = getelementptr inbounds nuw i8, ptr %12, i64 4
+  store i8 %113, ptr %114, align 4
+  store i32 8, ptr %.079.sroa.gep, align 8
+  br label %117
 
-114:                                              ; preds = %106
-  %115 = add i32 %109, -3
-  br label %116
+115:                                              ; preds = %106
+  %116 = add i32 %109, -3
+  br label %117
 
-116:                                              ; preds = %114, %110
-  %.079.sroa.phi = phi ptr [ %.079.sroa.gep, %110 ], [ %.079.sroa.gep95, %114 ]
-  %.079.sroa.phi96 = phi ptr [ %.079.sroa.gep97, %110 ], [ %12, %114 ]
-  %.0 = phi i32 [ %111, %110 ], [ %115, %114 ]
+117:                                              ; preds = %115, %110
+  %.079.sroa.phi = phi ptr [ %.079.sroa.gep, %110 ], [ %12, %115 ]
+  %.0 = phi i32 [ %111, %110 ], [ %116, %115 ]
   store i32 0, ptr %12, align 16
-  store i8 3, ptr %.079.sroa.phi, align 4
-  %117 = getelementptr i8, ptr %.079.sroa.phi96, i64 8
-  store i32 0, ptr %117, align 8
-  %118 = getelementptr i8, ptr %.079.sroa.phi96, i64 12
-  store i8 0, ptr %118, align 4
-  %119 = load i32, ptr @hf_ansi_637_reserved_bits_16_generic, align 4
-  %120 = call ptr @proto_tree_add_split_bits_item_ret_val(ptr noundef %2, i32 noundef %119, ptr noundef %0, i32 noundef %.0, ptr noundef nonnull %12, ptr noundef null)
+  %118 = getelementptr inbounds nuw i8, ptr %.079.sroa.phi, i64 4
+  store i8 3, ptr %118, align 4
+  %119 = getelementptr i8, ptr %.079.sroa.phi, i64 8
+  store i32 0, ptr %119, align 8
+  %120 = getelementptr i8, ptr %.079.sroa.phi, i64 12
+  store i8 0, ptr %120, align 4
+  %121 = load i32, ptr @hf_ansi_637_reserved_bits_16_generic, align 4
+  %122 = call ptr @proto_tree_add_split_bits_item_ret_val(ptr noundef %2, i32 noundef %121, ptr noundef %0, i32 noundef %.0, ptr noundef nonnull %12, ptr noundef null)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br label %127
+  br label %129
 
-121:                                              ; preds = %105
-  %122 = load i32, ptr @hf_ansi_637_reserved_bits_8_generic, align 4
-  %123 = add i32 %4, %3
-  %124 = shl i32 %123, 3
-  %125 = sub i32 %124, %104
-  %126 = call ptr @proto_tree_add_bits_item(ptr noundef %2, i32 noundef %122, ptr noundef %0, i32 noundef %125, i32 noundef %104, i32 noundef 0)
-  br label %127
+123:                                              ; preds = %105
+  %124 = load i32, ptr @hf_ansi_637_reserved_bits_8_generic, align 4
+  %125 = add i32 %4, %3
+  %126 = shl i32 %125, 3
+  %127 = sub i32 %126, %104
+  %128 = call ptr @proto_tree_add_bits_item(ptr noundef %2, i32 noundef %124, ptr noundef %0, i32 noundef %127, i32 noundef %104, i32 noundef 0)
+  br label %129
 
-127:                                              ; preds = %103, %121, %116, %14
+129:                                              ; preds = %103, %123, %117, %14
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -2122,9 +2121,7 @@ define internal void @tele_param_mult_enc_user_data(ptr noundef %0, ptr noundef 
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %10 = icmp ult i32 %3, 2
-  %.056.sroa.gep = getelementptr inbounds nuw i8, ptr %9, i64 12
-  %.056.sroa.gep70 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  %.056.sroa.gep72 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %.056.sroa.gep = getelementptr inbounds nuw i8, ptr %9, i64 8
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %6
@@ -2215,51 +2212,52 @@ define internal void @tele_param_mult_enc_user_data(ptr noundef %0, ptr noundef 
   br i1 %.not, label %._crit_edge.thread, label %54
 
 54:                                               ; preds = %._crit_edge
-  br i1 %24, label %55, label %70
+  br i1 %24, label %55, label %72
 
 55:                                               ; preds = %54
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %56 = icmp samesign ugt i32 %52, 3
   %57 = add i32 %4, %3
   %58 = shl i32 %57, 3
-  br i1 %56, label %59, label %63
+  br i1 %56, label %59, label %64
 
 59:                                               ; preds = %55
   %60 = add i32 %58, -11
   %61 = trunc i32 %.161 to i8
   %62 = add i8 %61, -3
-  store i8 %62, ptr %.056.sroa.gep70, align 4
-  store i32 8, ptr %.056.sroa.gep72, align 8
-  br label %65
+  %63 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  store i8 %62, ptr %63, align 4
+  store i32 8, ptr %.056.sroa.gep, align 8
+  br label %66
 
-63:                                               ; preds = %55
-  %64 = add i32 %58, -3
-  br label %65
+64:                                               ; preds = %55
+  %65 = add i32 %58, -3
+  br label %66
 
-65:                                               ; preds = %63, %59
-  %.056.sroa.phi = phi ptr [ %.056.sroa.gep, %59 ], [ %.056.sroa.gep70, %63 ]
-  %.056.sroa.phi71 = phi ptr [ %.056.sroa.gep72, %59 ], [ %9, %63 ]
-  %.0 = phi i32 [ %60, %59 ], [ %64, %63 ]
+66:                                               ; preds = %64, %59
+  %.056.sroa.phi = phi ptr [ %.056.sroa.gep, %59 ], [ %9, %64 ]
+  %.0 = phi i32 [ %60, %59 ], [ %65, %64 ]
   store i32 0, ptr %9, align 16
-  store i8 3, ptr %.056.sroa.phi, align 4
-  %66 = getelementptr i8, ptr %.056.sroa.phi71, i64 8
-  store i32 0, ptr %66, align 8
-  %67 = getelementptr i8, ptr %.056.sroa.phi71, i64 12
-  store i8 0, ptr %67, align 4
-  %68 = load i32, ptr @hf_ansi_637_reserved_bits_16_generic, align 4
-  %69 = call ptr @proto_tree_add_split_bits_item_ret_val(ptr noundef %2, i32 noundef %68, ptr noundef %0, i32 noundef %.0, ptr noundef nonnull %9, ptr noundef null)
+  %67 = getelementptr inbounds nuw i8, ptr %.056.sroa.phi, i64 4
+  store i8 3, ptr %67, align 4
+  %68 = getelementptr i8, ptr %.056.sroa.phi, i64 8
+  store i32 0, ptr %68, align 8
+  %69 = getelementptr i8, ptr %.056.sroa.phi, i64 12
+  store i8 0, ptr %69, align 4
+  %70 = load i32, ptr @hf_ansi_637_reserved_bits_16_generic, align 4
+  %71 = call ptr @proto_tree_add_split_bits_item_ret_val(ptr noundef %2, i32 noundef %70, ptr noundef %0, i32 noundef %.0, ptr noundef nonnull %9, ptr noundef null)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %._crit_edge.thread
 
-70:                                               ; preds = %54
-  %71 = load i32, ptr @hf_ansi_637_reserved_bits_8_generic, align 4
-  %72 = add i32 %4, %3
-  %73 = shl i32 %72, 3
-  %74 = sub i32 %73, %52
-  %75 = call ptr @proto_tree_add_bits_item(ptr noundef %2, i32 noundef %71, ptr noundef %0, i32 noundef %74, i32 noundef %52, i32 noundef 0)
+72:                                               ; preds = %54
+  %73 = load i32, ptr @hf_ansi_637_reserved_bits_8_generic, align 4
+  %74 = add i32 %4, %3
+  %75 = shl i32 %74, 3
+  %76 = sub i32 %75, %52
+  %77 = call ptr @proto_tree_add_bits_item(ptr noundef %2, i32 noundef %73, ptr noundef %0, i32 noundef %76, i32 noundef %52, i32 noundef 0)
   br label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %13, %._crit_edge, %70, %65, %11
+._crit_edge.thread:                               ; preds = %13, %._crit_edge, %72, %66, %11
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
@@ -2291,14 +2289,12 @@ define internal void @tele_param_srvc_cat_prog_data(ptr noundef %0, ptr noundef 
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %10 = icmp ult i32 %3, 2
-  %.081.sroa.gep = getelementptr inbounds nuw i8, ptr %9, i64 12
-  %.081.sroa.gep94 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  %.081.sroa.gep96 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %.081.sroa.gep = getelementptr inbounds nuw i8, ptr %9, i64 8
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %6
   %12 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_ansi_637_short_data, ptr noundef %0, i32 noundef %4, i32 noundef %3)
-  br label %91
+  br label %93
 
 13:                                               ; preds = %6
   %14 = shl i32 %4, 3
@@ -2397,56 +2393,57 @@ define internal void @tele_param_srvc_cat_prog_data(ptr noundef %0, ptr noundef 
 
 ._crit_edge:                                      ; preds = %67
   %.not = icmp eq i32 %68, 0
-  br i1 %.not, label %91, label %._crit_edge.thread
+  br i1 %.not, label %93, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %21, %._crit_edge
   %.lcssa111 = phi i32 [ %68, %._crit_edge ], [ %24, %21 ]
   %.084.lcssa110 = phi i32 [ %.185, %._crit_edge ], [ %23, %21 ]
-  br i1 %cond, label %70, label %85
+  br i1 %cond, label %70, label %87
 
 70:                                               ; preds = %._crit_edge.thread
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %71 = icmp samesign ugt i32 %.lcssa111, 3
   %72 = add i32 %4, %3
   %73 = shl i32 %72, 3
-  br i1 %71, label %74, label %78
+  br i1 %71, label %74, label %79
 
 74:                                               ; preds = %70
   %75 = add i32 %73, -11
   %76 = trunc i32 %.084.lcssa110 to i8
   %77 = add i8 %76, -3
-  store i8 %77, ptr %.081.sroa.gep94, align 4
-  store i32 8, ptr %.081.sroa.gep96, align 8
-  br label %80
+  %78 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  store i8 %77, ptr %78, align 4
+  store i32 8, ptr %.081.sroa.gep, align 8
+  br label %81
 
-78:                                               ; preds = %70
-  %79 = add i32 %73, -3
-  br label %80
+79:                                               ; preds = %70
+  %80 = add i32 %73, -3
+  br label %81
 
-80:                                               ; preds = %78, %74
-  %.081.sroa.phi = phi ptr [ %.081.sroa.gep, %74 ], [ %.081.sroa.gep94, %78 ]
-  %.081.sroa.phi95 = phi ptr [ %.081.sroa.gep96, %74 ], [ %9, %78 ]
-  %.0 = phi i32 [ %75, %74 ], [ %79, %78 ]
+81:                                               ; preds = %79, %74
+  %.081.sroa.phi = phi ptr [ %.081.sroa.gep, %74 ], [ %9, %79 ]
+  %.0 = phi i32 [ %75, %74 ], [ %80, %79 ]
   store i32 0, ptr %9, align 16
-  store i8 3, ptr %.081.sroa.phi, align 4
-  %81 = getelementptr i8, ptr %.081.sroa.phi95, i64 8
-  store i32 0, ptr %81, align 8
-  %82 = getelementptr i8, ptr %.081.sroa.phi95, i64 12
-  store i8 0, ptr %82, align 4
-  %83 = load i32, ptr @hf_ansi_637_reserved_bits_16_generic, align 4
-  %84 = call ptr @proto_tree_add_split_bits_item_ret_val(ptr noundef %2, i32 noundef %83, ptr noundef %0, i32 noundef %.0, ptr noundef nonnull %9, ptr noundef null)
+  %82 = getelementptr inbounds nuw i8, ptr %.081.sroa.phi, i64 4
+  store i8 3, ptr %82, align 4
+  %83 = getelementptr i8, ptr %.081.sroa.phi, i64 8
+  store i32 0, ptr %83, align 8
+  %84 = getelementptr i8, ptr %.081.sroa.phi, i64 12
+  store i8 0, ptr %84, align 4
+  %85 = load i32, ptr @hf_ansi_637_reserved_bits_16_generic, align 4
+  %86 = call ptr @proto_tree_add_split_bits_item_ret_val(ptr noundef %2, i32 noundef %85, ptr noundef %0, i32 noundef %.0, ptr noundef nonnull %9, ptr noundef null)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %91
+  br label %93
 
-85:                                               ; preds = %._crit_edge.thread
-  %86 = load i32, ptr @hf_ansi_637_reserved_bits_8_generic, align 4
-  %87 = add i32 %4, %3
-  %88 = shl i32 %87, 3
-  %89 = sub i32 %88, %.lcssa111
-  %90 = call ptr @proto_tree_add_bits_item(ptr noundef %2, i32 noundef %86, ptr noundef %0, i32 noundef %89, i32 noundef %.lcssa111, i32 noundef 0)
-  br label %91
+87:                                               ; preds = %._crit_edge.thread
+  %88 = load i32, ptr @hf_ansi_637_reserved_bits_8_generic, align 4
+  %89 = add i32 %4, %3
+  %90 = shl i32 %89, 3
+  %91 = sub i32 %90, %.lcssa111
+  %92 = call ptr @proto_tree_add_bits_item(ptr noundef %2, i32 noundef %88, ptr noundef %0, i32 noundef %91, i32 noundef %.lcssa111, i32 noundef 0)
+  br label %93
 
-91:                                               ; preds = %._crit_edge, %85, %80, %11
+93:                                               ; preds = %._crit_edge, %87, %81, %11
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void

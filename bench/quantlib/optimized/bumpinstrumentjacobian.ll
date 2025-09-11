@@ -1246,7 +1246,8 @@ for.body:                                         ; preds = %invoke.cont51
 
 invoke.cont56:                                    ; preds = %for.body
   %41 = load ptr, ptr %call57, align 8, !tbaa !8
-  %stepBegin_.i = getelementptr inbounds nuw %"class.QuantLib::VegaBumpCluster", ptr %41, i64 %k.0, i32 4
+  %add.ptr.i126 = getelementptr inbounds nuw %"class.QuantLib::VegaBumpCluster", ptr %41, i64 %k.0
+  %stepBegin_.i = getelementptr inbounds nuw i8, ptr %add.ptr.i126, i64 32
   %42 = load i64, ptr %stepBegin_.i, align 8, !tbaa !84
   br label %for.cond61
 
@@ -1258,7 +1259,8 @@ for.cond61:                                       ; preds = %for.cond.cleanup89,
 
 invoke.cont63:                                    ; preds = %for.cond61
   %43 = load ptr, ptr %call64, align 8, !tbaa !8
-  %stepEnd_.i = getelementptr inbounds nuw %"class.QuantLib::VegaBumpCluster", ptr %43, i64 %k.0, i32 5
+  %add.ptr.i127 = getelementptr inbounds nuw %"class.QuantLib::VegaBumpCluster", ptr %43, i64 %k.0
+  %stepEnd_.i = getelementptr inbounds nuw i8, ptr %add.ptr.i127, i64 40
   %44 = load i64, ptr %stepEnd_.i, align 8, !tbaa !86
   %cmp68 = icmp ult i64 %i.0, %44
   br i1 %cmp68, label %for.body70, label %for.cond.cleanup69
@@ -1306,7 +1308,8 @@ for.cond81:                                       ; preds = %for.cond.cleanup106
 
 invoke.cont83:                                    ; preds = %for.cond81
   %50 = load ptr, ptr %call84, align 8, !tbaa !8
-  %factorEnd_.i = getelementptr inbounds nuw %"class.QuantLib::VegaBumpCluster", ptr %50, i64 %k.0, i32 1
+  %add.ptr.i131 = getelementptr inbounds nuw %"class.QuantLib::VegaBumpCluster", ptr %50, i64 %k.0
+  %factorEnd_.i = getelementptr inbounds nuw i8, ptr %add.ptr.i131, i64 8
   %51 = load i64, ptr %factorEnd_.i, align 8, !tbaa !89
   %cmp88 = icmp ult i64 %f.0, %51
   br i1 %cmp88, label %for.body90, label %for.cond.cleanup89
@@ -1336,7 +1339,8 @@ for.body90:                                       ; preds = %invoke.cont83
 
 invoke.cont93:                                    ; preds = %for.body90
   %53 = load ptr, ptr %call94, align 8, !tbaa !8
-  %rateBegin_.i = getelementptr inbounds nuw %"class.QuantLib::VegaBumpCluster", ptr %53, i64 %k.0, i32 2
+  %add.ptr.i132 = getelementptr inbounds nuw %"class.QuantLib::VegaBumpCluster", ptr %53, i64 %k.0
+  %rateBegin_.i = getelementptr inbounds nuw i8, ptr %add.ptr.i132, i64 16
   %54 = load i64, ptr %rateBegin_.i, align 8, !tbaa !91
   br label %for.cond98
 
@@ -1348,7 +1352,8 @@ for.cond98:                                       ; preds = %invoke.cont108, %in
 
 invoke.cont100:                                   ; preds = %for.cond98
   %55 = load ptr, ptr %call101, align 8, !tbaa !8
-  %rateEnd_.i = getelementptr inbounds nuw %"class.QuantLib::VegaBumpCluster", ptr %55, i64 %k.0, i32 3
+  %add.ptr.i133 = getelementptr inbounds nuw %"class.QuantLib::VegaBumpCluster", ptr %55, i64 %k.0
+  %rateEnd_.i = getelementptr inbounds nuw i8, ptr %add.ptr.i133, i64 24
   %56 = load i64, ptr %rateEnd_.i, align 8, !tbaa !92
   %cmp105 = icmp ult i64 %r.0, %56
   br i1 %cmp105, label %invoke.cont108, label %for.cond.cleanup106
@@ -1424,7 +1429,8 @@ for.body152:                                      ; preds = %invoke.cont148
 
 invoke.cont157:                                   ; preds = %for.body152
   %65 = load ptr, ptr %call158, align 8, !tbaa !8
-  %stepBegin_.i144 = getelementptr inbounds nuw %"class.QuantLib::VegaBumpCluster", ptr %65, i64 %k144.0, i32 4
+  %add.ptr.i143 = getelementptr inbounds nuw %"class.QuantLib::VegaBumpCluster", ptr %65, i64 %k144.0
+  %stepBegin_.i144 = getelementptr inbounds nuw i8, ptr %add.ptr.i143, i64 32
   %66 = load i64, ptr %stepBegin_.i144, align 8, !tbaa !84
   br label %for.cond162
 
@@ -1436,7 +1442,8 @@ for.cond162:                                      ; preds = %for.cond.cleanup192
 
 invoke.cont164:                                   ; preds = %for.cond162
   %67 = load ptr, ptr %call165, align 8, !tbaa !8
-  %stepEnd_.i146 = getelementptr inbounds nuw %"class.QuantLib::VegaBumpCluster", ptr %67, i64 %k144.0, i32 5
+  %add.ptr.i145 = getelementptr inbounds nuw %"class.QuantLib::VegaBumpCluster", ptr %67, i64 %k144.0
+  %stepEnd_.i146 = getelementptr inbounds nuw i8, ptr %add.ptr.i145, i64 40
   %68 = load i64, ptr %stepEnd_.i146, align 8, !tbaa !86
   %cmp169 = icmp ult i64 %i154.0, %68
   br i1 %cmp169, label %for.body171, label %for.cond.cleanup170
@@ -1484,7 +1491,8 @@ for.cond184:                                      ; preds = %for.cond.cleanup210
 
 invoke.cont186:                                   ; preds = %for.cond184
   %74 = load ptr, ptr %call187, align 8, !tbaa !8
-  %factorEnd_.i151 = getelementptr inbounds nuw %"class.QuantLib::VegaBumpCluster", ptr %74, i64 %k144.0, i32 1
+  %add.ptr.i150 = getelementptr inbounds nuw %"class.QuantLib::VegaBumpCluster", ptr %74, i64 %k144.0
+  %factorEnd_.i151 = getelementptr inbounds nuw i8, ptr %add.ptr.i150, i64 8
   %75 = load i64, ptr %factorEnd_.i151, align 8, !tbaa !89
   %cmp191 = icmp ult i64 %f176.0, %75
   br i1 %cmp191, label %for.body193, label %for.cond.cleanup192
@@ -1514,7 +1522,8 @@ for.body193:                                      ; preds = %invoke.cont186
 
 invoke.cont197:                                   ; preds = %for.body193
   %77 = load ptr, ptr %call198, align 8, !tbaa !8
-  %rateBegin_.i153 = getelementptr inbounds nuw %"class.QuantLib::VegaBumpCluster", ptr %77, i64 %k144.0, i32 2
+  %add.ptr.i152 = getelementptr inbounds nuw %"class.QuantLib::VegaBumpCluster", ptr %77, i64 %k144.0
+  %rateBegin_.i153 = getelementptr inbounds nuw i8, ptr %add.ptr.i152, i64 16
   %78 = load i64, ptr %rateBegin_.i153, align 8, !tbaa !91
   br label %for.cond202
 
@@ -1526,7 +1535,8 @@ for.cond202:                                      ; preds = %invoke.cont212, %in
 
 invoke.cont204:                                   ; preds = %for.cond202
   %79 = load ptr, ptr %call205, align 8, !tbaa !8
-  %rateEnd_.i155 = getelementptr inbounds nuw %"class.QuantLib::VegaBumpCluster", ptr %79, i64 %k144.0, i32 3
+  %add.ptr.i154 = getelementptr inbounds nuw %"class.QuantLib::VegaBumpCluster", ptr %79, i64 %k144.0
+  %rateEnd_.i155 = getelementptr inbounds nuw i8, ptr %add.ptr.i154, i64 24
   %80 = load i64, ptr %rateEnd_.i155, align 8, !tbaa !92
   %cmp209 = icmp ult i64 %r194.0, %80
   br i1 %cmp209, label %invoke.cont212, label %for.cond.cleanup210

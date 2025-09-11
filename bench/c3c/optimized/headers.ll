@@ -261,374 +261,375 @@ type_flatten.exit128:                             ; preds = %27
 47:                                               ; preds = %type_flatten.exit128
   %48 = load ptr, ptr @type_info_arena, align 8
   %49 = zext i32 %46 to i64
-  %50 = getelementptr inbounds nuw %struct.TypeInfo_, ptr %48, i64 %49, i32 1
-  %51 = load ptr, ptr %50, align 8
-  %.not87.i = icmp eq ptr %51, null
-  br i1 %.not87.i, label %.critedge.i, label %52
+  %50 = getelementptr inbounds nuw %struct.TypeInfo_, ptr %48, i64 %49
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
+  %52 = load ptr, ptr %51, align 8
+  %.not87.i = icmp eq ptr %52, null
+  br i1 %.not87.i, label %.critedge.i, label %53
 
-52:                                               ; preds = %47
-  %53 = load i32, ptr %51, align 8
-  %54 = icmp eq i32 %53, 31
-  br i1 %54, label %55, label %59
+53:                                               ; preds = %47
+  %54 = load i32, ptr %52, align 8
+  %55 = icmp eq i32 %54, 31
+  br i1 %55, label %56, label %60
 
-55:                                               ; preds = %52
-  %56 = getelementptr inbounds nuw i8, ptr %51, i64 8
-  %57 = load ptr, ptr %56, align 8
-  %58 = load i32, ptr %57, align 8
-  br label %59
+56:                                               ; preds = %53
+  %57 = getelementptr inbounds nuw i8, ptr %52, i64 8
+  %58 = load ptr, ptr %57, align 8
+  %59 = load i32, ptr %58, align 8
+  br label %60
 
-59:                                               ; preds = %55, %52
-  %.073.i = phi i32 [ %58, %55 ], [ %53, %52 ]
-  %60 = icmp eq i32 %.073.i, 40
-  br i1 %60, label %61, label %.critedge.i
+60:                                               ; preds = %56, %53
+  %.073.i = phi i32 [ %59, %56 ], [ %54, %53 ]
+  %61 = icmp eq i32 %.073.i, 40
+  br i1 %61, label %62, label %.critedge.i
 
-61:                                               ; preds = %59
-  %62 = getelementptr inbounds nuw i8, ptr %51, i64 56
-  %63 = load ptr, ptr %62, align 8
-  tail call fastcc void @header_gen_maybe_generate_type(ptr noundef %0, ptr noundef %1, ptr noundef %63)
-  %64 = load ptr, ptr @type_anyfault, align 8
+62:                                               ; preds = %60
+  %63 = getelementptr inbounds nuw i8, ptr %52, i64 56
+  %64 = load ptr, ptr %63, align 8
+  tail call fastcc void @header_gen_maybe_generate_type(ptr noundef %0, ptr noundef %1, ptr noundef %64)
+  %65 = load ptr, ptr @type_anyfault, align 8
   br label %.critedge.i
 
-.critedge.i:                                      ; preds = %type_flatten.exit128, %61, %59, %47
-  %.079.i = phi ptr [ %63, %61 ], [ null, %59 ], [ null, %47 ], [ null, %type_flatten.exit128 ]
-  %.078.i = phi ptr [ %64, %61 ], [ %51, %59 ], [ null, %47 ], [ null, %type_flatten.exit128 ]
+.critedge.i:                                      ; preds = %type_flatten.exit128, %62, %60, %47
+  %.079.i = phi ptr [ %64, %62 ], [ null, %60 ], [ null, %47 ], [ null, %type_flatten.exit128 ]
+  %.078.i = phi ptr [ %65, %62 ], [ %52, %60 ], [ null, %47 ], [ null, %type_flatten.exit128 ]
   tail call fastcc void @header_gen_maybe_generate_type(ptr noundef %0, ptr noundef %1, ptr noundef %.078.i)
-  %65 = getelementptr inbounds nuw i8, ptr %44, i64 16
-  %66 = load ptr, ptr %65, align 8
-  %.not88.i = icmp eq ptr %66, null
-  br i1 %.not88.i, label %._crit_edge, label %67
+  %66 = getelementptr inbounds nuw i8, ptr %44, i64 16
+  %67 = load ptr, ptr %66, align 8
+  %.not88.i = icmp eq ptr %67, null
+  br i1 %.not88.i, label %._crit_edge, label %68
 
-67:                                               ; preds = %.critedge.i
-  %68 = getelementptr inbounds i8, ptr %66, i64 -8
-  %69 = load i32, ptr %68, align 4
-  %.not157 = icmp eq i32 %69, 0
+68:                                               ; preds = %.critedge.i
+  %69 = getelementptr inbounds i8, ptr %67, i64 -8
+  %70 = load i32, ptr %69, align 4
+  %.not157 = icmp eq i32 %70, 0
   br i1 %.not157, label %._crit_edge, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %67
-  %wide.trip.count = zext i32 %69 to i64
+.lr.ph.preheader:                                 ; preds = %68
+  %wide.trip.count = zext i32 %70 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %70 = getelementptr inbounds nuw ptr, ptr %66, i64 %indvars.iv
-  %71 = load ptr, ptr %70, align 8
-  %72 = getelementptr inbounds nuw i8, ptr %71, i64 72
-  %73 = load ptr, ptr %72, align 8
-  tail call fastcc void @header_gen_maybe_generate_type(ptr noundef %0, ptr noundef %1, ptr noundef %73)
+  %71 = getelementptr inbounds nuw ptr, ptr %67, i64 %indvars.iv
+  %72 = load ptr, ptr %71, align 8
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 72
+  %74 = load ptr, ptr %73, align 8
+  tail call fastcc void @header_gen_maybe_generate_type(ptr noundef %0, ptr noundef %1, ptr noundef %74)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
-._crit_edge:                                      ; preds = %.lr.ph, %.critedge.i, %67
-  %74 = tail call i64 @fwrite(ptr nonnull @.str.24, i64 8, i64 1, ptr %0)
+._crit_edge:                                      ; preds = %.lr.ph, %.critedge.i, %68
+  %75 = tail call i64 @fwrite(ptr nonnull @.str.24, i64 8, i64 1, ptr %0)
   tail call fastcc void @header_print_type(ptr noundef %0, ptr noundef %.078.i)
-  %75 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds nuw i8, ptr %76, i64 8
-  %78 = load ptr, ptr %77, align 8
-  %79 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.32, ptr noundef %78) #6
-  %80 = load ptr, ptr %65, align 8
-  %.not89.i = icmp eq ptr %80, null
-  br i1 %.not89.i, label %85, label %81
+  %76 = getelementptr inbounds nuw i8, ptr %2, i64 56
+  %77 = load ptr, ptr %76, align 8
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 8
+  %79 = load ptr, ptr %78, align 8
+  %80 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.32, ptr noundef %79) #6
+  %81 = load ptr, ptr %66, align 8
+  %.not89.i = icmp eq ptr %81, null
+  br i1 %.not89.i, label %86, label %82
 
-81:                                               ; preds = %._crit_edge
-  %82 = getelementptr inbounds i8, ptr %80, i64 -8
-  %83 = load i32, ptr %82, align 4
-  %84 = icmp ne i32 %83, 0
-  br label %85
+82:                                               ; preds = %._crit_edge
+  %83 = getelementptr inbounds i8, ptr %81, i64 -8
+  %84 = load i32, ptr %83, align 4
+  %85 = icmp ne i32 %84, 0
+  br label %86
 
-85:                                               ; preds = %81, %._crit_edge
-  %.075.i = phi i1 [ %84, %81 ], [ false, %._crit_edge ]
-  %86 = icmp ne ptr %.079.i, null
-  %or.cond.i = or i1 %86, %.075.i
-  br i1 %or.cond.i, label %89, label %87
+86:                                               ; preds = %82, %._crit_edge
+  %.075.i = phi i1 [ %85, %82 ], [ false, %._crit_edge ]
+  %87 = icmp ne ptr %.079.i, null
+  %or.cond.i = or i1 %87, %.075.i
+  br i1 %or.cond.i, label %90, label %88
 
-87:                                               ; preds = %85
-  %88 = tail call i64 @fwrite(ptr nonnull @.str.33, i64 7, i64 1, ptr %0)
+88:                                               ; preds = %86
+  %89 = tail call i64 @fwrite(ptr nonnull @.str.33, i64 7, i64 1, ptr %0)
   br label %header_gen_function_ptr.exit
 
-89:                                               ; preds = %85
-  br i1 %86, label %90, label %93
+90:                                               ; preds = %86
+  br i1 %87, label %91, label %94
 
-90:                                               ; preds = %89
-  %91 = tail call ptr @type_get_ptr(ptr noundef nonnull %.079.i) #6
-  tail call fastcc void @header_print_type(ptr noundef %0, ptr noundef %91)
-  %92 = tail call i64 @fwrite(ptr nonnull @.str.34, i64 11, i64 1, ptr %0)
-  %.pre = load ptr, ptr %65, align 8
-  br label %93
+91:                                               ; preds = %90
+  %92 = tail call ptr @type_get_ptr(ptr noundef nonnull %.079.i) #6
+  tail call fastcc void @header_print_type(ptr noundef %0, ptr noundef %92)
+  %93 = tail call i64 @fwrite(ptr nonnull @.str.34, i64 11, i64 1, ptr %0)
+  %.pre = load ptr, ptr %66, align 8
+  br label %94
 
-93:                                               ; preds = %90, %89
-  %94 = phi ptr [ %.pre, %90 ], [ %80, %89 ]
-  %.not90.i = icmp eq ptr %94, null
-  br i1 %.not90.i, label %._crit_edge149, label %95
+94:                                               ; preds = %91, %90
+  %95 = phi ptr [ %.pre, %91 ], [ %81, %90 ]
+  %.not90.i = icmp eq ptr %95, null
+  br i1 %.not90.i, label %._crit_edge149, label %96
 
-95:                                               ; preds = %93
-  %96 = getelementptr inbounds i8, ptr %94, i64 -8
-  %97 = load i32, ptr %96, align 4
-  %.not158 = icmp eq i32 %97, 0
+96:                                               ; preds = %94
+  %97 = getelementptr inbounds i8, ptr %95, i64 -8
+  %98 = load i32, ptr %97, align 4
+  %.not158 = icmp eq i32 %98, 0
   br i1 %.not158, label %._crit_edge149, label %.lr.ph148.preheader
 
-.lr.ph148.preheader:                              ; preds = %95
-  %wide.trip.count180 = zext i32 %97 to i64
+.lr.ph148.preheader:                              ; preds = %96
+  %wide.trip.count180 = zext i32 %98 to i64
   br label %.lr.ph148
 
-.lr.ph148:                                        ; preds = %.lr.ph148.preheader, %109
-  %indvars.iv177 = phi i64 [ 0, %.lr.ph148.preheader ], [ %indvars.iv.next178, %109 ]
-  %98 = getelementptr inbounds nuw ptr, ptr %94, i64 %indvars.iv177
-  %99 = load ptr, ptr %98, align 8
-  %100 = icmp ne i64 %indvars.iv177, 0
-  %or.cond3.i = or i1 %86, %100
-  br i1 %or.cond3.i, label %101, label %103
+.lr.ph148:                                        ; preds = %.lr.ph148.preheader, %110
+  %indvars.iv177 = phi i64 [ 0, %.lr.ph148.preheader ], [ %indvars.iv.next178, %110 ]
+  %99 = getelementptr inbounds nuw ptr, ptr %95, i64 %indvars.iv177
+  %100 = load ptr, ptr %99, align 8
+  %101 = icmp ne i64 %indvars.iv177, 0
+  %or.cond3.i = or i1 %87, %101
+  br i1 %or.cond3.i, label %102, label %104
 
-101:                                              ; preds = %.lr.ph148
-  %102 = tail call i64 @fwrite(ptr nonnull @.str.35, i64 2, i64 1, ptr %0)
-  br label %103
+102:                                              ; preds = %.lr.ph148
+  %103 = tail call i64 @fwrite(ptr nonnull @.str.35, i64 2, i64 1, ptr %0)
+  br label %104
 
-103:                                              ; preds = %101, %.lr.ph148
-  %104 = getelementptr inbounds nuw i8, ptr %99, i64 72
-  %105 = load ptr, ptr %104, align 8
-  tail call fastcc void @header_print_type(ptr noundef %0, ptr noundef %105)
-  %106 = load ptr, ptr %99, align 8
-  %.not91.i = icmp eq ptr %106, null
-  br i1 %.not91.i, label %109, label %107
+104:                                              ; preds = %102, %.lr.ph148
+  %105 = getelementptr inbounds nuw i8, ptr %100, i64 72
+  %106 = load ptr, ptr %105, align 8
+  tail call fastcc void @header_print_type(ptr noundef %0, ptr noundef %106)
+  %107 = load ptr, ptr %100, align 8
+  %.not91.i = icmp eq ptr %107, null
+  br i1 %.not91.i, label %110, label %108
 
-107:                                              ; preds = %103
-  %108 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.36, ptr noundef nonnull %106) #6
-  br label %109
+108:                                              ; preds = %104
+  %109 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.36, ptr noundef nonnull %107) #6
+  br label %110
 
-109:                                              ; preds = %107, %103
+110:                                              ; preds = %108, %104
   %indvars.iv.next178 = add nuw nsw i64 %indvars.iv177, 1
   %exitcond181.not = icmp eq i64 %indvars.iv.next178, %wide.trip.count180
   br i1 %exitcond181.not, label %._crit_edge149, label %.lr.ph148, !llvm.loop !10
 
-._crit_edge149:                                   ; preds = %109, %93, %95
-  %110 = tail call i64 @fwrite(ptr nonnull @.str.37, i64 3, i64 1, ptr %0)
+._crit_edge149:                                   ; preds = %110, %94, %96
+  %111 = tail call i64 @fwrite(ptr nonnull @.str.37, i64 3, i64 1, ptr %0)
   br label %header_gen_function_ptr.exit
 
 .preheader:                                       ; preds = %.preheader.preheader, %.backedge
   %.0112 = phi ptr [ %.0112.be, %.backedge ], [ %2, %.preheader.preheader ]
   %.not = icmp eq ptr %.0112, null
-  br i1 %.not, label %.critedge.preheader, label %111
+  br i1 %.not, label %.critedge.preheader, label %112
 
-111:                                              ; preds = %.preheader
-  %112 = load i32, ptr %.0112, align 8
-  %113 = icmp eq i32 %112, 31
-  br i1 %113, label %114, label %118
+112:                                              ; preds = %.preheader
+  %113 = load i32, ptr %.0112, align 8
+  %114 = icmp eq i32 %113, 31
+  br i1 %114, label %115, label %119
 
-114:                                              ; preds = %111
-  %115 = getelementptr inbounds nuw i8, ptr %.0112, i64 8
-  %116 = load ptr, ptr %115, align 8
-  %117 = load i32, ptr %116, align 8
-  br label %118
+115:                                              ; preds = %112
+  %116 = getelementptr inbounds nuw i8, ptr %.0112, i64 8
+  %117 = load ptr, ptr %116, align 8
+  %118 = load i32, ptr %117, align 8
+  br label %119
 
-118:                                              ; preds = %114, %111
-  %.0108 = phi i32 [ %117, %114 ], [ %112, %111 ]
-  %119 = icmp eq i32 %.0108, 40
-  br i1 %119, label %header_gen_function_ptr.exit, label %.critedge.preheader
+119:                                              ; preds = %115, %112
+  %.0108 = phi i32 [ %118, %115 ], [ %113, %112 ]
+  %120 = icmp eq i32 %.0108, 40
+  br i1 %120, label %header_gen_function_ptr.exit, label %.critedge.preheader
 
-.critedge.preheader:                              ; preds = %.preheader, %118
+.critedge.preheader:                              ; preds = %.preheader, %119
   br label %.critedge
 
-.critedge:                                        ; preds = %.critedge.preheader, %132
-  %.0.i124 = phi ptr [ %.1.i, %132 ], [ %.0112, %.critedge.preheader ]
-  %120 = getelementptr inbounds nuw i8, ptr %.0.i124, i64 8
-  %121 = load ptr, ptr %120, align 8
-  %122 = load i32, ptr %121, align 8
-  switch i32 %122, label %header_gen_function_ptr.exit [
-    i32 32, label %123
-    i32 40, label %129
-    i32 31, label %131
-    i32 25, label %182
-    i32 24, label %134
+.critedge:                                        ; preds = %.critedge.preheader, %133
+  %.0.i124 = phi ptr [ %.1.i, %133 ], [ %.0112, %.critedge.preheader ]
+  %121 = getelementptr inbounds nuw i8, ptr %.0.i124, i64 8
+  %122 = load ptr, ptr %121, align 8
+  %123 = load i32, ptr %122, align 8
+  switch i32 %123, label %header_gen_function_ptr.exit [
+    i32 32, label %124
+    i32 40, label %130
+    i32 31, label %132
+    i32 25, label %183
+    i32 24, label %135
     i32 23, label %.backedge
-    i32 0, label %133
-    i32 36, label %133
-    i32 39, label %133
-    i32 42, label %133
-    i32 43, label %133
-    i32 38, label %133
-    i32 41, label %133
-    i32 28, label %133
-    i32 18, label %133
-    i32 37, label %203
+    i32 0, label %134
+    i32 36, label %134
+    i32 39, label %134
+    i32 42, label %134
+    i32 43, label %134
+    i32 38, label %134
+    i32 41, label %134
+    i32 28, label %134
+    i32 18, label %134
+    i32 37, label %204
     i32 35, label %.backedge
     i32 33, label %.backedge
-    i32 27, label %183
-    i32 26, label %183
+    i32 27, label %184
+    i32 26, label %184
   ]
 
-123:                                              ; preds = %.critedge
-  %124 = getelementptr inbounds nuw i8, ptr %121, i64 56
-  %125 = load ptr, ptr %124, align 8
-  %126 = getelementptr inbounds nuw i8, ptr %125, i64 96
-  %127 = load ptr, ptr %126, align 8
-  %128 = getelementptr inbounds nuw i8, ptr %127, i64 8
-  br label %132
+124:                                              ; preds = %.critedge
+  %125 = getelementptr inbounds nuw i8, ptr %122, i64 56
+  %126 = load ptr, ptr %125, align 8
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 96
+  %128 = load ptr, ptr %127, align 8
+  %129 = getelementptr inbounds nuw i8, ptr %128, i64 8
+  br label %133
 
-129:                                              ; preds = %.critedge
-  %130 = getelementptr inbounds nuw i8, ptr %121, i64 56
-  br label %132
+130:                                              ; preds = %.critedge
+  %131 = getelementptr inbounds nuw i8, ptr %122, i64 56
+  br label %133
 
-131:                                              ; preds = %.critedge
+132:                                              ; preds = %.critedge
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.type_flatten, ptr noundef nonnull @.str.38, i32 noundef 2984) #5
   unreachable
 
-132:                                              ; preds = %129, %123
-  %.1.in.i = phi ptr [ %128, %123 ], [ %130, %129 ]
+133:                                              ; preds = %130, %124
+  %.1.in.i = phi ptr [ %129, %124 ], [ %131, %130 ]
   %.1.i = load ptr, ptr %.1.in.i, align 8
   br label %.critedge
 
-133:                                              ; preds = %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge
+134:                                              ; preds = %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.header_gen_maybe_generate_type, ptr noundef nonnull @.str.2, i32 noundef 375) #5
   unreachable
 
 .backedge:                                        ; preds = %.critedge, %.critedge, %.critedge
-  %.0112.be.in = getelementptr inbounds nuw i8, ptr %121, i64 56
+  %.0112.be.in = getelementptr inbounds nuw i8, ptr %122, i64 56
   %.0112.be = load ptr, ptr %.0112.be.in, align 8
   br label %.preheader
 
-134:                                              ; preds = %.critedge
-  %135 = tail call ptr @htable_get(ptr noundef %1, ptr noundef nonnull %121) #6
-  %.not118 = icmp eq ptr %135, null
-  br i1 %.not118, label %136, label %header_gen_function_ptr.exit
+135:                                              ; preds = %.critedge
+  %136 = tail call ptr @htable_get(ptr noundef %1, ptr noundef nonnull %122) #6
+  %.not118 = icmp eq ptr %136, null
+  br i1 %.not118, label %137, label %header_gen_function_ptr.exit
 
-136:                                              ; preds = %134
-  %137 = getelementptr inbounds nuw i8, ptr %121, i64 56
-  %138 = load ptr, ptr %137, align 8
-  %139 = tail call ptr @htable_set(ptr noundef %1, ptr noundef nonnull %121, ptr noundef nonnull %121) #6
-  %140 = getelementptr inbounds nuw i8, ptr %138, i64 96
-  %141 = getelementptr inbounds nuw i8, ptr %138, i64 112
-  %142 = load ptr, ptr %141, align 8
-  %143 = getelementptr inbounds nuw i8, ptr %142, i64 8
-  %144 = load ptr, ptr %143, align 8
-  %145 = getelementptr inbounds nuw i8, ptr %144, i64 8
-  %146 = load ptr, ptr %145, align 8
-  %147 = load ptr, ptr @type_cint, align 8
-  %148 = getelementptr inbounds nuw i8, ptr %147, i64 8
-  %149 = load ptr, ptr %148, align 8
-  %150 = icmp eq ptr %146, %149
-  br i1 %150, label %151, label %167
+137:                                              ; preds = %135
+  %138 = getelementptr inbounds nuw i8, ptr %122, i64 56
+  %139 = load ptr, ptr %138, align 8
+  %140 = tail call ptr @htable_set(ptr noundef %1, ptr noundef nonnull %122, ptr noundef nonnull %122) #6
+  %141 = getelementptr inbounds nuw i8, ptr %139, i64 96
+  %142 = getelementptr inbounds nuw i8, ptr %139, i64 112
+  %143 = load ptr, ptr %142, align 8
+  %144 = getelementptr inbounds nuw i8, ptr %143, i64 8
+  %145 = load ptr, ptr %144, align 8
+  %146 = getelementptr inbounds nuw i8, ptr %145, i64 8
+  %147 = load ptr, ptr %146, align 8
+  %148 = load ptr, ptr @type_cint, align 8
+  %149 = getelementptr inbounds nuw i8, ptr %148, i64 8
+  %150 = load ptr, ptr %149, align 8
+  %151 = icmp eq ptr %147, %150
+  br i1 %151, label %152, label %168
 
-151:                                              ; preds = %136
-  %152 = getelementptr inbounds nuw i8, ptr %138, i64 8
-  %153 = load ptr, ptr %152, align 8
-  %154 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.20, ptr noundef %153, ptr noundef %153) #6
-  %155 = load ptr, ptr %152, align 8
-  %156 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.21, ptr noundef %155) #6
-  %157 = load ptr, ptr %140, align 8
-  %.not120 = icmp eq ptr %157, null
-  br i1 %.not120, label %._crit_edge156, label %158
+152:                                              ; preds = %137
+  %153 = getelementptr inbounds nuw i8, ptr %139, i64 8
+  %154 = load ptr, ptr %153, align 8
+  %155 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.20, ptr noundef %154, ptr noundef %154) #6
+  %156 = load ptr, ptr %153, align 8
+  %157 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.21, ptr noundef %156) #6
+  %158 = load ptr, ptr %141, align 8
+  %.not120 = icmp eq ptr %158, null
+  br i1 %.not120, label %._crit_edge156, label %159
 
-158:                                              ; preds = %151
-  %159 = getelementptr inbounds i8, ptr %157, i64 -8
-  %160 = load i32, ptr %159, align 4
-  %.not160 = icmp eq i32 %160, 0
+159:                                              ; preds = %152
+  %160 = getelementptr inbounds i8, ptr %158, i64 -8
+  %161 = load i32, ptr %160, align 4
+  %.not160 = icmp eq i32 %161, 0
   br i1 %.not160, label %._crit_edge156, label %.lr.ph155.preheader
 
-.lr.ph155.preheader:                              ; preds = %158
-  %wide.trip.count190 = zext i32 %160 to i64
+.lr.ph155.preheader:                              ; preds = %159
+  %wide.trip.count190 = zext i32 %161 to i64
   br label %.lr.ph155
 
 .lr.ph155:                                        ; preds = %.lr.ph155.preheader, %.lr.ph155
   %indvars.iv187 = phi i64 [ 0, %.lr.ph155.preheader ], [ %indvars.iv.next188, %.lr.ph155 ]
-  %161 = getelementptr inbounds nuw ptr, ptr %157, i64 %indvars.iv187
-  %162 = load ptr, ptr %161, align 8
-  %163 = load ptr, ptr %152, align 8
-  %164 = load ptr, ptr %162, align 8
-  %165 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.22, ptr noundef %163, ptr noundef %164) #6
+  %162 = getelementptr inbounds nuw ptr, ptr %158, i64 %indvars.iv187
+  %163 = load ptr, ptr %162, align 8
+  %164 = load ptr, ptr %153, align 8
+  %165 = load ptr, ptr %163, align 8
+  %166 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.22, ptr noundef %164, ptr noundef %165) #6
   %indvars.iv.next188 = add nuw nsw i64 %indvars.iv187, 1
   %exitcond191.not = icmp eq i64 %indvars.iv.next188, %wide.trip.count190
   br i1 %exitcond191.not, label %._crit_edge156, label %.lr.ph155, !llvm.loop !11
 
-._crit_edge156:                                   ; preds = %.lr.ph155, %151, %158
-  %166 = tail call i64 @fwrite(ptr nonnull @.str.23, i64 3, i64 1, ptr %0)
+._crit_edge156:                                   ; preds = %.lr.ph155, %152, %159
+  %167 = tail call i64 @fwrite(ptr nonnull @.str.23, i64 3, i64 1, ptr %0)
   br label %header_gen_function_ptr.exit
 
-167:                                              ; preds = %136
-  %168 = tail call i64 @fwrite(ptr nonnull @.str.24, i64 8, i64 1, ptr %0)
-  tail call fastcc void @header_print_type(ptr noundef %0, ptr noundef %146)
-  %169 = getelementptr inbounds nuw i8, ptr %138, i64 8
-  %170 = load ptr, ptr %169, align 8
-  %171 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.25, ptr noundef %170) #6
-  %172 = load ptr, ptr %140, align 8
-  %.not119 = icmp eq ptr %172, null
-  br i1 %.not119, label %header_gen_function_ptr.exit, label %173
+168:                                              ; preds = %137
+  %169 = tail call i64 @fwrite(ptr nonnull @.str.24, i64 8, i64 1, ptr %0)
+  tail call fastcc void @header_print_type(ptr noundef %0, ptr noundef %147)
+  %170 = getelementptr inbounds nuw i8, ptr %139, i64 8
+  %171 = load ptr, ptr %170, align 8
+  %172 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.25, ptr noundef %171) #6
+  %173 = load ptr, ptr %141, align 8
+  %.not119 = icmp eq ptr %173, null
+  br i1 %.not119, label %header_gen_function_ptr.exit, label %174
 
-173:                                              ; preds = %167
-  %174 = getelementptr inbounds i8, ptr %172, i64 -8
-  %175 = load i32, ptr %174, align 4
-  %.not159 = icmp eq i32 %175, 0
+174:                                              ; preds = %168
+  %175 = getelementptr inbounds i8, ptr %173, i64 -8
+  %176 = load i32, ptr %175, align 4
+  %.not159 = icmp eq i32 %176, 0
   br i1 %.not159, label %header_gen_function_ptr.exit, label %.lr.ph152.preheader
 
-.lr.ph152.preheader:                              ; preds = %173
-  %wide.trip.count185 = zext i32 %175 to i64
+.lr.ph152.preheader:                              ; preds = %174
+  %wide.trip.count185 = zext i32 %176 to i64
   br label %.lr.ph152
 
 .lr.ph152:                                        ; preds = %.lr.ph152.preheader, %.lr.ph152
   %indvars.iv182 = phi i64 [ 0, %.lr.ph152.preheader ], [ %indvars.iv.next183, %.lr.ph152 ]
-  %176 = getelementptr inbounds nuw ptr, ptr %172, i64 %indvars.iv182
-  %177 = load ptr, ptr %176, align 8
-  %178 = load ptr, ptr %169, align 8
-  %179 = load ptr, ptr %177, align 8
-  %180 = trunc nuw i64 %indvars.iv182 to i32
-  %181 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.26, ptr noundef %178, ptr noundef %178, ptr noundef %179, i32 noundef %180) #6
+  %177 = getelementptr inbounds nuw ptr, ptr %173, i64 %indvars.iv182
+  %178 = load ptr, ptr %177, align 8
+  %179 = load ptr, ptr %170, align 8
+  %180 = load ptr, ptr %178, align 8
+  %181 = trunc nuw i64 %indvars.iv182 to i32
+  %182 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.26, ptr noundef %179, ptr noundef %179, ptr noundef %180, i32 noundef %181) #6
   %indvars.iv.next183 = add nuw nsw i64 %indvars.iv182, 1
   %exitcond186.not = icmp eq i64 %indvars.iv.next183, %wide.trip.count185
   br i1 %exitcond186.not, label %header_gen_function_ptr.exit, label %.lr.ph152, !llvm.loop !12
 
-182:                                              ; preds = %.critedge
+183:                                              ; preds = %.critedge
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.header_gen_maybe_generate_type, ptr noundef nonnull @.str.2, i32 noundef 416) #5
   unreachable
 
-183:                                              ; preds = %.critedge, %.critedge
-  %184 = tail call ptr @htable_get(ptr noundef %1, ptr noundef nonnull %121) #6
-  %.not121 = icmp eq ptr %184, null
-  br i1 %.not121, label %185, label %header_gen_function_ptr.exit
+184:                                              ; preds = %.critedge, %.critedge
+  %185 = tail call ptr @htable_get(ptr noundef %1, ptr noundef nonnull %122) #6
+  %.not121 = icmp eq ptr %185, null
+  br i1 %.not121, label %186, label %header_gen_function_ptr.exit
 
-185:                                              ; preds = %183
-  %186 = getelementptr inbounds nuw i8, ptr %121, i64 56
-  %187 = load ptr, ptr %186, align 8
-  %188 = getelementptr inbounds nuw i8, ptr %187, i64 8
-  %189 = load ptr, ptr %188, align 8
-  %190 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.27, ptr noundef %189, ptr noundef %189) #6
-  %191 = tail call ptr @htable_set(ptr noundef %1, ptr noundef nonnull %121, ptr noundef nonnull %121) #6
-  %192 = getelementptr inbounds nuw i8, ptr %187, i64 104
-  %193 = load ptr, ptr %192, align 8
-  tail call void @header_ensure_member_types_exist(ptr noundef %0, ptr noundef %1, ptr noundef %193)
-  %194 = getelementptr i8, ptr %187, i64 24
-  %.val = load i64, ptr %194, align 8
-  %195 = and i64 %.val, 127
-  %196 = icmp eq i64 %195, 25
-  %197 = select i1 %196, ptr @.str.68, ptr @.str.69
-  %198 = load ptr, ptr %188, align 8
-  %199 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.28, ptr noundef nonnull %197, ptr noundef %198) #6
-  %200 = tail call i64 @fwrite(ptr nonnull @.str.29, i64 2, i64 1, ptr %0)
-  %201 = load ptr, ptr %192, align 8
-  tail call fastcc void @header_gen_members(ptr noundef %0, i32 noundef 1, ptr noundef %201)
-  %202 = tail call i64 @fwrite(ptr nonnull @.str.23, i64 3, i64 1, ptr %0)
+186:                                              ; preds = %184
+  %187 = getelementptr inbounds nuw i8, ptr %122, i64 56
+  %188 = load ptr, ptr %187, align 8
+  %189 = getelementptr inbounds nuw i8, ptr %188, i64 8
+  %190 = load ptr, ptr %189, align 8
+  %191 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.27, ptr noundef %190, ptr noundef %190) #6
+  %192 = tail call ptr @htable_set(ptr noundef %1, ptr noundef nonnull %122, ptr noundef nonnull %122) #6
+  %193 = getelementptr inbounds nuw i8, ptr %188, i64 104
+  %194 = load ptr, ptr %193, align 8
+  tail call void @header_ensure_member_types_exist(ptr noundef %0, ptr noundef %1, ptr noundef %194)
+  %195 = getelementptr i8, ptr %188, i64 24
+  %.val = load i64, ptr %195, align 8
+  %196 = and i64 %.val, 127
+  %197 = icmp eq i64 %196, 25
+  %198 = select i1 %197, ptr @.str.68, ptr @.str.69
+  %199 = load ptr, ptr %189, align 8
+  %200 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.28, ptr noundef nonnull %198, ptr noundef %199) #6
+  %201 = tail call i64 @fwrite(ptr nonnull @.str.29, i64 2, i64 1, ptr %0)
+  %202 = load ptr, ptr %193, align 8
+  tail call fastcc void @header_gen_members(ptr noundef %0, i32 noundef 1, ptr noundef %202)
+  %203 = tail call i64 @fwrite(ptr nonnull @.str.23, i64 3, i64 1, ptr %0)
   br label %header_gen_function_ptr.exit
 
-203:                                              ; preds = %.critedge
-  %204 = tail call ptr @htable_get(ptr noundef %1, ptr noundef nonnull %121) #6
-  %.not122 = icmp eq ptr %204, null
-  br i1 %.not122, label %205, label %header_gen_function_ptr.exit
+204:                                              ; preds = %.critedge
+  %205 = tail call ptr @htable_get(ptr noundef %1, ptr noundef nonnull %122) #6
+  %.not122 = icmp eq ptr %205, null
+  br i1 %.not122, label %206, label %header_gen_function_ptr.exit
 
-205:                                              ; preds = %203
-  %206 = tail call i64 @fwrite(ptr nonnull @.str.24, i64 8, i64 1, ptr %0)
-  %207 = getelementptr inbounds nuw i8, ptr %121, i64 56
-  %208 = load ptr, ptr %207, align 8
-  tail call fastcc void @header_print_type(ptr noundef %0, ptr noundef %208)
+206:                                              ; preds = %204
+  %207 = tail call i64 @fwrite(ptr nonnull @.str.24, i64 8, i64 1, ptr %0)
+  %208 = getelementptr inbounds nuw i8, ptr %122, i64 56
+  %209 = load ptr, ptr %208, align 8
+  tail call fastcc void @header_print_type(ptr noundef %0, ptr noundef %209)
   %fputc = tail call i32 @fputc(i32 32, ptr %0)
-  tail call fastcc void @header_print_type(ptr noundef %0, ptr noundef nonnull %121)
-  %209 = load ptr, ptr %207, align 8
-  %210 = tail call i32 @type_size(ptr noundef %209) #6
-  %211 = getelementptr inbounds nuw i8, ptr %121, i64 64
-  %212 = load i32, ptr %211, align 8
-  %213 = mul i32 %212, %210
-  %214 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.31, i32 noundef %213) #6
+  tail call fastcc void @header_print_type(ptr noundef %0, ptr noundef nonnull %122)
+  %210 = load ptr, ptr %208, align 8
+  %211 = tail call i32 @type_size(ptr noundef %210) #6
+  %212 = getelementptr inbounds nuw i8, ptr %122, i64 64
+  %213 = load i32, ptr %212, align 8
+  %214 = mul i32 %213, %211
+  %215 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.31, i32 noundef %214) #6
   br label %header_gen_function_ptr.exit
 
-header_gen_function_ptr.exit:                     ; preds = %118, %.critedge, %.lr.ph152, %167, %173, %._crit_edge149, %87, %203, %183, %134, %23, %205, %185, %._crit_edge156
+header_gen_function_ptr.exit:                     ; preds = %119, %.critedge, %.lr.ph152, %168, %174, %._crit_edge149, %88, %204, %184, %135, %23, %206, %186, %._crit_edge156
   ret void
 }
 
@@ -1295,7 +1296,7 @@ define internal fastcc void @header_gen_function(ptr noundef %0, ptr noundef %1,
   %6 = load i64, ptr %5, align 8
   %7 = and i64 %6, 268435456
   %.not = icmp eq i64 %7, 0
-  br i1 %.not, label %75, label %8
+  br i1 %.not, label %76, label %8
 
 8:                                                ; preds = %4
   %9 = tail call i64 @fwrite(ptr nonnull @.str.80, i64 7, i64 1, ptr %0)
@@ -1307,146 +1308,147 @@ define internal fastcc void @header_gen_function(ptr noundef %0, ptr noundef %1,
 12:                                               ; preds = %8
   %13 = load ptr, ptr @type_info_arena, align 8
   %14 = zext i32 %11 to i64
-  %15 = getelementptr inbounds nuw %struct.TypeInfo_, ptr %13, i64 %14, i32 1
-  %16 = load ptr, ptr %15, align 8
-  %.not74 = icmp eq ptr %16, null
-  br i1 %.not74, label %.critedge, label %17
+  %15 = getelementptr inbounds nuw %struct.TypeInfo_, ptr %13, i64 %14
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %17 = load ptr, ptr %16, align 8
+  %.not74 = icmp eq ptr %17, null
+  br i1 %.not74, label %.critedge, label %18
 
-17:                                               ; preds = %12
-  %18 = load i32, ptr %16, align 8
-  %19 = icmp eq i32 %18, 31
-  br i1 %19, label %20, label %24
+18:                                               ; preds = %12
+  %19 = load i32, ptr %17, align 8
+  %20 = icmp eq i32 %19, 31
+  br i1 %20, label %21, label %25
 
-20:                                               ; preds = %17
-  %21 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %22 = load ptr, ptr %21, align 8
-  %23 = load i32, ptr %22, align 8
-  br label %24
+21:                                               ; preds = %18
+  %22 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %23 = load ptr, ptr %22, align 8
+  %24 = load i32, ptr %23, align 8
+  br label %25
 
-24:                                               ; preds = %20, %17
-  %.062 = phi i32 [ %23, %20 ], [ %18, %17 ]
-  %25 = icmp eq i32 %.062, 40
-  br i1 %25, label %26, label %.critedge
+25:                                               ; preds = %21, %18
+  %.062 = phi i32 [ %24, %21 ], [ %19, %18 ]
+  %26 = icmp eq i32 %.062, 40
+  br i1 %26, label %27, label %.critedge
 
-26:                                               ; preds = %24
-  %27 = getelementptr inbounds nuw i8, ptr %16, i64 56
-  %28 = load ptr, ptr %27, align 8
-  tail call fastcc void @header_gen_maybe_generate_type(ptr noundef %1, ptr noundef nonnull %2, ptr noundef %28)
-  %29 = load ptr, ptr @type_anyfault, align 8
+27:                                               ; preds = %25
+  %28 = getelementptr inbounds nuw i8, ptr %17, i64 56
+  %29 = load ptr, ptr %28, align 8
+  tail call fastcc void @header_gen_maybe_generate_type(ptr noundef %1, ptr noundef nonnull %2, ptr noundef %29)
+  %30 = load ptr, ptr @type_anyfault, align 8
   br label %.critedge
 
-.critedge:                                        ; preds = %8, %12, %26, %24
-  %.065 = phi ptr [ %29, %26 ], [ %16, %24 ], [ null, %12 ], [ null, %8 ]
-  %.064 = phi ptr [ %28, %26 ], [ null, %24 ], [ null, %12 ], [ null, %8 ]
+.critedge:                                        ; preds = %8, %12, %27, %25
+  %.065 = phi ptr [ %30, %27 ], [ %17, %25 ], [ null, %12 ], [ null, %8 ]
+  %.064 = phi ptr [ %29, %27 ], [ null, %25 ], [ null, %12 ], [ null, %8 ]
   tail call fastcc void @header_gen_maybe_generate_type(ptr noundef %1, ptr noundef nonnull %2, ptr noundef %.065)
   tail call fastcc void @header_print_type(ptr noundef %0, ptr noundef %.065)
-  %30 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %31 = load ptr, ptr %30, align 8
-  %32 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.82, ptr noundef %31) #6
-  %33 = getelementptr inbounds nuw i8, ptr %3, i64 104
-  %34 = load ptr, ptr %33, align 8
-  %.not75 = icmp eq ptr %34, null
-  br i1 %.not75, label %39, label %35
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %32 = load ptr, ptr %31, align 8
+  %33 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.82, ptr noundef %32) #6
+  %34 = getelementptr inbounds nuw i8, ptr %3, i64 104
+  %35 = load ptr, ptr %34, align 8
+  %.not75 = icmp eq ptr %35, null
+  br i1 %.not75, label %40, label %36
 
-35:                                               ; preds = %.critedge
-  %36 = getelementptr inbounds i8, ptr %34, i64 -8
-  %37 = load i32, ptr %36, align 4
-  %38 = icmp ne i32 %37, 0
-  br label %39
+36:                                               ; preds = %.critedge
+  %37 = getelementptr inbounds i8, ptr %35, i64 -8
+  %38 = load i32, ptr %37, align 4
+  %39 = icmp ne i32 %38, 0
+  br label %40
 
-39:                                               ; preds = %.critedge, %35
-  %.063 = phi i1 [ %38, %35 ], [ false, %.critedge ]
-  %40 = icmp ne ptr %.064, null
-  %or.cond = or i1 %40, %.063
-  br i1 %or.cond, label %43, label %41
+40:                                               ; preds = %.critedge, %36
+  %.063 = phi i1 [ %39, %36 ], [ false, %.critedge ]
+  %41 = icmp ne ptr %.064, null
+  %or.cond = or i1 %41, %.063
+  br i1 %or.cond, label %44, label %42
 
-41:                                               ; preds = %39
-  %42 = tail call i64 @fwrite(ptr nonnull @.str.33, i64 7, i64 1, ptr %0)
-  br label %75
+42:                                               ; preds = %40
+  %43 = tail call i64 @fwrite(ptr nonnull @.str.33, i64 7, i64 1, ptr %0)
+  br label %76
 
-43:                                               ; preds = %39
-  br i1 %40, label %44, label %47
+44:                                               ; preds = %40
+  br i1 %41, label %45, label %48
 
-44:                                               ; preds = %43
-  %45 = tail call ptr @type_get_ptr(ptr noundef nonnull %.064) #6
-  tail call fastcc void @header_print_type(ptr noundef %0, ptr noundef %45)
-  %46 = tail call i64 @fwrite(ptr nonnull @.str.34, i64 11, i64 1, ptr %0)
-  %.pre = load ptr, ptr %33, align 8
-  br label %47
+45:                                               ; preds = %44
+  %46 = tail call ptr @type_get_ptr(ptr noundef nonnull %.064) #6
+  tail call fastcc void @header_print_type(ptr noundef %0, ptr noundef %46)
+  %47 = tail call i64 @fwrite(ptr nonnull @.str.34, i64 11, i64 1, ptr %0)
+  %.pre = load ptr, ptr %34, align 8
+  br label %48
 
-47:                                               ; preds = %44, %43
-  %48 = phi ptr [ %.pre, %44 ], [ %34, %43 ]
-  %.not76 = icmp eq ptr %48, null
-  br i1 %.not76, label %._crit_edge, label %49
+48:                                               ; preds = %45, %44
+  %49 = phi ptr [ %.pre, %45 ], [ %35, %44 ]
+  %.not76 = icmp eq ptr %49, null
+  br i1 %.not76, label %._crit_edge, label %50
 
-49:                                               ; preds = %47
-  %50 = getelementptr inbounds i8, ptr %48, i64 -8
-  %51 = load i32, ptr %50, align 4
-  %.not80 = icmp eq i32 %51, 0
+50:                                               ; preds = %48
+  %51 = getelementptr inbounds i8, ptr %49, i64 -8
+  %52 = load i32, ptr %51, align 4
+  %.not80 = icmp eq i32 %52, 0
   br i1 %.not80, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %49
-  %wide.trip.count87 = zext i32 %51 to i64
-  br i1 %40, label %.lr.ph.split.us, label %.lr.ph.split
+.lr.ph:                                           ; preds = %50
+  %wide.trip.count87 = zext i32 %52 to i64
+  br i1 %41, label %.lr.ph.split.us, label %.lr.ph.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %61
-  %indvars.iv84 = phi i64 [ %indvars.iv.next85, %61 ], [ 0, %.lr.ph ]
-  %52 = getelementptr inbounds nuw ptr, ptr %48, i64 %indvars.iv84
-  %53 = load ptr, ptr %52, align 8
-  %54 = tail call i64 @fwrite(ptr nonnull @.str.35, i64 2, i64 1, ptr %0)
-  %55 = getelementptr inbounds nuw i8, ptr %53, i64 72
-  %56 = load ptr, ptr %55, align 8
-  tail call fastcc void @header_print_type(ptr noundef %0, ptr noundef %56)
-  %57 = load ptr, ptr %55, align 8
-  tail call fastcc void @header_gen_maybe_generate_type(ptr noundef %1, ptr noundef nonnull %2, ptr noundef %57)
-  %58 = load ptr, ptr %53, align 8
-  %.not77.us = icmp eq ptr %58, null
-  br i1 %.not77.us, label %61, label %59
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %62
+  %indvars.iv84 = phi i64 [ %indvars.iv.next85, %62 ], [ 0, %.lr.ph ]
+  %53 = getelementptr inbounds nuw ptr, ptr %49, i64 %indvars.iv84
+  %54 = load ptr, ptr %53, align 8
+  %55 = tail call i64 @fwrite(ptr nonnull @.str.35, i64 2, i64 1, ptr %0)
+  %56 = getelementptr inbounds nuw i8, ptr %54, i64 72
+  %57 = load ptr, ptr %56, align 8
+  tail call fastcc void @header_print_type(ptr noundef %0, ptr noundef %57)
+  %58 = load ptr, ptr %56, align 8
+  tail call fastcc void @header_gen_maybe_generate_type(ptr noundef %1, ptr noundef nonnull %2, ptr noundef %58)
+  %59 = load ptr, ptr %54, align 8
+  %.not77.us = icmp eq ptr %59, null
+  br i1 %.not77.us, label %62, label %60
 
-59:                                               ; preds = %.lr.ph.split.us
-  %60 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.36, ptr noundef nonnull %58) #6
-  br label %61
+60:                                               ; preds = %.lr.ph.split.us
+  %61 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.36, ptr noundef nonnull %59) #6
+  br label %62
 
-61:                                               ; preds = %59, %.lr.ph.split.us
+62:                                               ; preds = %60, %.lr.ph.split.us
   %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
   %exitcond88.not = icmp eq i64 %indvars.iv.next85, %wide.trip.count87
   br i1 %exitcond88.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !30
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %73
-  %indvars.iv = phi i64 [ %indvars.iv.next, %73 ], [ 0, %.lr.ph ]
-  %62 = getelementptr inbounds nuw ptr, ptr %48, i64 %indvars.iv
-  %63 = load ptr, ptr %62, align 8
+.lr.ph.split:                                     ; preds = %.lr.ph, %74
+  %indvars.iv = phi i64 [ %indvars.iv.next, %74 ], [ 0, %.lr.ph ]
+  %63 = getelementptr inbounds nuw ptr, ptr %49, i64 %indvars.iv
+  %64 = load ptr, ptr %63, align 8
   %.not81 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not81, label %66, label %64
+  br i1 %.not81, label %67, label %65
 
-64:                                               ; preds = %.lr.ph.split
-  %65 = tail call i64 @fwrite(ptr nonnull @.str.35, i64 2, i64 1, ptr %0)
-  br label %66
+65:                                               ; preds = %.lr.ph.split
+  %66 = tail call i64 @fwrite(ptr nonnull @.str.35, i64 2, i64 1, ptr %0)
+  br label %67
 
-66:                                               ; preds = %.lr.ph.split, %64
-  %67 = getelementptr inbounds nuw i8, ptr %63, i64 72
-  %68 = load ptr, ptr %67, align 8
-  tail call fastcc void @header_print_type(ptr noundef %0, ptr noundef %68)
-  %69 = load ptr, ptr %67, align 8
-  tail call fastcc void @header_gen_maybe_generate_type(ptr noundef %1, ptr noundef nonnull %2, ptr noundef %69)
-  %70 = load ptr, ptr %63, align 8
-  %.not77 = icmp eq ptr %70, null
-  br i1 %.not77, label %73, label %71
+67:                                               ; preds = %.lr.ph.split, %65
+  %68 = getelementptr inbounds nuw i8, ptr %64, i64 72
+  %69 = load ptr, ptr %68, align 8
+  tail call fastcc void @header_print_type(ptr noundef %0, ptr noundef %69)
+  %70 = load ptr, ptr %68, align 8
+  tail call fastcc void @header_gen_maybe_generate_type(ptr noundef %1, ptr noundef nonnull %2, ptr noundef %70)
+  %71 = load ptr, ptr %64, align 8
+  %.not77 = icmp eq ptr %71, null
+  br i1 %.not77, label %74, label %72
 
-71:                                               ; preds = %66
-  %72 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.36, ptr noundef nonnull %70) #6
-  br label %73
+72:                                               ; preds = %67
+  %73 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.36, ptr noundef nonnull %71) #6
+  br label %74
 
-73:                                               ; preds = %66, %71
+74:                                               ; preds = %67, %72
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count87
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !30
 
-._crit_edge:                                      ; preds = %73, %61, %47, %49
-  %74 = tail call i64 @fwrite(ptr nonnull @.str.37, i64 3, i64 1, ptr %0)
-  br label %75
+._crit_edge:                                      ; preds = %74, %62, %48, %50
+  %75 = tail call i64 @fwrite(ptr nonnull @.str.37, i64 3, i64 1, ptr %0)
+  br label %76
 
-75:                                               ; preds = %4, %._crit_edge, %41
+76:                                               ; preds = %4, %._crit_edge, %42
   ret void
 }
 

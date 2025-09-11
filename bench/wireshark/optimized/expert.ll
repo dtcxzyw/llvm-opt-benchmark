@@ -386,8 +386,8 @@ define internal void @uat_expert_post_update_cb() #0 {
   %.not18 = icmp eq i32 %18, 0
   br i1 %.not18, label %._crit_edge16, label %.lr.ph15
 
-.lr.ph15:                                         ; preds = %._crit_edge, %31
-  %indvars.iv20 = phi i64 [ %indvars.iv.next21, %31 ], [ 0, %._crit_edge ]
+.lr.ph15:                                         ; preds = %._crit_edge, %32
+  %indvars.iv20 = phi i64 [ %indvars.iv.next21, %32 ], [ 0, %._crit_edge ]
   %19 = load ptr, ptr @uat_expert_entries, align 8
   %20 = getelementptr %struct.expert_level_entry_t, ptr %19, i64 %indvars.iv20
   %21 = load ptr, ptr %20, align 8
@@ -396,33 +396,34 @@ define internal void @uat_expert_post_update_cb() #0 {
 
 expert_registrar_get_byname.exit.thread:          ; preds = %.lr.ph15
   store ptr null, ptr %1, align 8
-  br label %31
+  br label %32
 
 expert_registrar_get_byname.exit:                 ; preds = %.lr.ph15
   %22 = load ptr, ptr @gpa_name_map, align 8
   %23 = call ptr @g_hash_table_lookup(ptr noundef %22, ptr noundef nonnull %21)
   store ptr %23, ptr %1, align 8
   %.not = icmp eq ptr %23, null
-  br i1 %.not, label %31, label %24
+  br i1 %.not, label %32, label %24
 
 24:                                               ; preds = %expert_registrar_get_byname.exit
   %25 = load ptr, ptr @uat_expert_entries, align 8
-  %26 = getelementptr %struct.expert_level_entry_t, ptr %25, i64 %indvars.iv20, i32 1
-  %27 = load i32, ptr %26, align 8
-  %28 = getelementptr inbounds nuw i8, ptr %23, i64 12
-  store i32 %27, ptr %28, align 4
-  %29 = load ptr, ptr @uat_saved_fields, align 8
-  %30 = call ptr @g_array_append_vals(ptr noundef %29, ptr noundef nonnull %1, i32 noundef 1)
-  br label %31
+  %26 = getelementptr %struct.expert_level_entry_t, ptr %25, i64 %indvars.iv20
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  %28 = load i32, ptr %27, align 8
+  %29 = getelementptr inbounds nuw i8, ptr %23, i64 12
+  store i32 %28, ptr %29, align 4
+  %30 = load ptr, ptr @uat_saved_fields, align 8
+  %31 = call ptr @g_array_append_vals(ptr noundef %30, ptr noundef nonnull %1, i32 noundef 1)
+  br label %32
 
-31:                                               ; preds = %expert_registrar_get_byname.exit.thread, %expert_registrar_get_byname.exit, %24
+32:                                               ; preds = %expert_registrar_get_byname.exit.thread, %expert_registrar_get_byname.exit, %24
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
-  %32 = load i32, ptr @expert_level_entry_count, align 4
-  %33 = zext i32 %32 to i64
-  %34 = icmp samesign ult i64 %indvars.iv.next21, %33
-  br i1 %34, label %.lr.ph15, label %._crit_edge16, !llvm.loop !10
+  %33 = load i32, ptr @expert_level_entry_count, align 4
+  %34 = zext i32 %33 to i64
+  %35 = icmp samesign ult i64 %indvars.iv.next21, %34
+  br i1 %35, label %.lr.ph15, label %._crit_edge16, !llvm.loop !10
 
-._crit_edge16:                                    ; preds = %31, %._crit_edge
+._crit_edge16:                                    ; preds = %32, %._crit_edge
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 }

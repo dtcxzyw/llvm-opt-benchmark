@@ -1304,7 +1304,7 @@ add_multi_line_string_to_tree.exit:               ; preds = %.lr.ph.i, %183
 561:                                              ; preds = %555
   %562 = add nsw i32 %557, -8
   %563 = add i32 %.010271160, 8
-  %564 = icmp ugt i32 %562, 3
+  %564 = icmp samesign ugt i32 %562, 3
   br i1 %564, label %.lr.ph1125, label %._crit_edge1126
 
 .lr.ph1125:                                       ; preds = %561, %.lr.ph1125
@@ -1360,7 +1360,7 @@ add_multi_line_string_to_tree.exit:               ; preds = %.lr.ph.i, %183
 593:                                              ; preds = %587
   %594 = add nsw i32 %589, -8
   %595 = add i32 %.010271160, 8
-  %596 = icmp ugt i32 %594, 3
+  %596 = icmp samesign ugt i32 %594, 3
   br i1 %596, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %593, %.lr.ph

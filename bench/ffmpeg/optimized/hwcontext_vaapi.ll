@@ -629,7 +629,7 @@ vaapi_pix_fmt_from_fourcc.exit:                   ; preds = %28
   %37 = sext i32 %36 to i64
   %38 = getelementptr inbounds %struct.VAAPISurfaceFormat, ptr %35, i64 %37
   store i32 %33, ptr %38, align 4, !tbaa !46
-  %39 = getelementptr inbounds %struct.VAAPISurfaceFormat, ptr %35, i64 %37, i32 1
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %39, ptr noundef nonnull align 4 dereferenceable(48) %25, i64 48, i1 false), !tbaa.struct !48
   %40 = load i32, ptr %22, align 8, !tbaa !39
   %41 = add nsw i32 %40, 1
@@ -2224,13 +2224,13 @@ vaapi_map_to_drm_esh.exit.thread20.i:             ; preds = %25
   %42 = getelementptr inbounds nuw i8, ptr %39, i64 4
   %43 = load i32, ptr %42, align 4, !tbaa !156
   %44 = zext i32 %43 to i64
-  %45 = getelementptr inbounds nuw %struct.AVDRMObjectDescriptor, ptr %32, i64 %indvars.iv.i.i, i32 2
-  store i64 %44, ptr %45, align 8, !tbaa !155
-  %46 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  %47 = load i64, ptr %46, align 8, !tbaa !157
-  %48 = getelementptr inbounds nuw %struct.AVDRMObjectDescriptor, ptr %32, i64 %indvars.iv.i.i
-  %49 = getelementptr inbounds nuw i8, ptr %48, i64 24
-  store i64 %47, ptr %49, align 8, !tbaa !145
+  %45 = getelementptr inbounds nuw %struct.AVDRMObjectDescriptor, ptr %32, i64 %indvars.iv.i.i
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
+  store i64 %44, ptr %46, align 8, !tbaa !155
+  %47 = getelementptr inbounds nuw i8, ptr %39, i64 8
+  %48 = load i64, ptr %47, align 8, !tbaa !157
+  %49 = getelementptr inbounds nuw i8, ptr %45, i64 24
+  store i64 %48, ptr %49, align 8, !tbaa !145
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %38, !llvm.loop !185

@@ -329,76 +329,69 @@ define dso_local ptr @raxAddChild(ptr noundef %0, i8 noundef zeroext %1, ptr nou
   %56 = load i64, ptr %53, align 1
   store i64 %56, ptr %55, align 1
   %.pre = load i32, ptr %39, align 4
-  %.pre98 = lshr i32 %.pre, 3
+  %.pre99 = lshr i32 %.pre, 3
   br label %57
 
 57:                                               ; preds = %51, %._crit_edge
-  %.pre-phi = phi i32 [ %.pre98, %51 ], [ %43, %._crit_edge ]
-  %58 = sub nsw i64 %35, %24
-  %59 = add nsw i64 %58, -8
-  %60 = zext nneg i32 %.pre-phi to i64
-  %61 = getelementptr inbounds nuw i8, ptr %41, i64 %60
-  %62 = xor i32 %.pre-phi, 3
-  %.neg86 = add nuw nsw i32 %62, 1
-  %63 = and i32 %.neg86, 7
-  %64 = zext nneg i32 %63 to i64
-  %65 = getelementptr inbounds nuw i8, ptr %61, i64 %64
-  %66 = zext nneg i32 %.075.lcssa to i64
-  %67 = shl nuw nsw i64 %66, 3
-  %68 = getelementptr inbounds nuw i8, ptr %65, i64 %67
-  %69 = getelementptr inbounds nuw i8, ptr %68, i64 %59
-  %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
+  %.pre-phi = phi i32 [ %.pre99, %51 ], [ %43, %._crit_edge ]
+  %58 = phi i32 [ %.pre, %51 ], [ %42, %._crit_edge ]
+  %59 = sub nsw i64 %35, %24
+  %60 = add nsw i64 %59, -8
+  %61 = zext nneg i32 %.pre-phi to i64
+  %62 = getelementptr inbounds nuw i8, ptr %41, i64 %61
+  %63 = xor i32 %.pre-phi, 3
+  %.neg86 = add nuw nsw i32 %63, 1
+  %64 = and i32 %.neg86, 7
+  %65 = zext nneg i32 %64 to i64
+  %66 = getelementptr inbounds nuw i8, ptr %62, i64 %65
+  %67 = zext nneg i32 %.075.lcssa to i64
+  %68 = shl nuw nsw i64 %67, 3
+  %69 = getelementptr inbounds nuw i8, ptr %66, i64 %68
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 %59
   %71 = sub nsw i32 %.pre-phi, %.075.lcssa
   %72 = sext i32 %71 to i64
   %73 = shl nsw i64 %72, 3
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %70, ptr nonnull align 1 %68, i64 %73, i1 false)
-  %.not87 = icmp eq i64 %59, 0
-  br i1 %.not87, label %84, label %74
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %70, ptr nonnull align 1 %69, i64 %73, i1 false)
+  %.not87 = icmp eq i64 %60, 0
+  br i1 %.not87, label %76, label %74
 
 74:                                               ; preds = %57
-  %75 = load i32, ptr %39, align 4
-  %76 = lshr i32 %75, 3
-  %77 = zext nneg i32 %76 to i64
-  %78 = getelementptr inbounds nuw i8, ptr %41, i64 %77
-  %79 = xor i32 %76, 3
-  %.neg88 = add nuw nsw i32 %79, 1
-  %80 = and i32 %.neg88, 7
-  %81 = zext nneg i32 %80 to i64
-  %82 = getelementptr inbounds nuw i8, ptr %78, i64 %81
-  %83 = getelementptr inbounds nuw i8, ptr %82, i64 %59
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %83, ptr nonnull align 1 %82, i64 %67, i1 false)
-  br label %84
+  %75 = getelementptr inbounds nuw i8, ptr %66, i64 %60
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %75, ptr nonnull align 1 %66, i64 %68, i1 false)
+  %.pre98 = load i32, ptr %39, align 4
+  %.pre100 = lshr i32 %.pre98, 3
+  %.pre102 = sub nsw i32 %.pre100, %.075.lcssa
+  %.pre104 = sext i32 %.pre102 to i64
+  br label %76
 
-84:                                               ; preds = %74, %57
-  %85 = getelementptr inbounds nuw i8, ptr %41, i64 %66
-  %86 = getelementptr inbounds nuw i8, ptr %85, i64 1
-  %87 = load i32, ptr %39, align 4
-  %88 = lshr i32 %87, 3
-  %89 = sub nsw i32 %88, %.075.lcssa
-  %90 = sext i32 %89 to i64
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %86, ptr nonnull align 1 %85, i64 %90, i1 false)
-  store i8 %1, ptr %85, align 1, !tbaa !15
-  %91 = and i32 %87, -8
-  %92 = add i32 %91, 8
-  %93 = and i32 %87, 7
-  %94 = or disjoint i32 %92, %93
-  store i32 %94, ptr %39, align 4
-  %95 = lshr exact i32 %92, 3
-  %96 = zext nneg i32 %95 to i64
-  %97 = getelementptr inbounds nuw i8, ptr %41, i64 %96
-  %98 = xor i32 %95, 3
-  %.neg89 = add nuw nsw i32 %98, 1
-  %99 = and i32 %.neg89, 7
-  %100 = zext nneg i32 %99 to i64
-  %101 = getelementptr inbounds nuw i8, ptr %97, i64 %100
-  %102 = getelementptr inbounds nuw i8, ptr %101, i64 %67
-  store ptr %36, ptr %102, align 8
+76:                                               ; preds = %74, %57
+  %.pre-phi105 = phi i64 [ %.pre104, %74 ], [ %72, %57 ]
+  %77 = phi i32 [ %.pre98, %74 ], [ %58, %57 ]
+  %78 = getelementptr inbounds nuw i8, ptr %41, i64 %67
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 1
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %79, ptr nonnull align 1 %78, i64 %.pre-phi105, i1 false)
+  store i8 %1, ptr %78, align 1, !tbaa !15
+  %80 = and i32 %77, -8
+  %81 = add i32 %80, 8
+  %82 = and i32 %77, 7
+  %83 = or disjoint i32 %81, %82
+  store i32 %83, ptr %39, align 4
+  %84 = lshr exact i32 %81, 3
+  %85 = zext nneg i32 %84 to i64
+  %86 = getelementptr inbounds nuw i8, ptr %41, i64 %85
+  %87 = xor i32 %84, 3
+  %.neg89 = add nuw nsw i32 %87, 1
+  %88 = and i32 %.neg89, 7
+  %89 = zext nneg i32 %88 to i64
+  %90 = getelementptr inbounds nuw i8, ptr %86, i64 %89
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 %68
+  store ptr %36, ptr %91, align 8
   store ptr %36, ptr %2, align 8, !tbaa !11
-  store ptr %102, ptr %3, align 8, !tbaa !18
+  store ptr %91, ptr %3, align 8, !tbaa !18
   br label %raxNewNode.exit.thread
 
-raxNewNode.exit.thread:                           ; preds = %9, %44, %84
-  %.0 = phi ptr [ null, %44 ], [ %39, %84 ], [ null, %9 ]
+raxNewNode.exit.thread:                           ; preds = %9, %44, %76
+  %.0 = phi ptr [ null, %44 ], [ %39, %76 ], [ null, %9 ]
   ret ptr %.0
 }
 

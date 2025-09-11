@@ -2096,13 +2096,13 @@ define void @png_set_unknown_chunk_location(ptr noalias noundef %0, ptr noalias 
   %or.cond = and i1 %5, %6
   %7 = icmp sgt i32 %2, -1
   %or.cond3 = and i1 %or.cond, %7
-  br i1 %or.cond3, label %8, label %37
+  br i1 %or.cond3, label %8, label %38
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 264
   %10 = load i32, ptr %9, align 8, !tbaa !184
   %11 = icmp slt i32 %2, %10
-  br i1 %11, label %12, label %37
+  br i1 %11, label %12, label %38
 
 12:                                               ; preds = %8
   %13 = and i32 %3, 11
@@ -2157,11 +2157,12 @@ check_location.exit:                              ; preds = %.preheader.i
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 256
   %34 = load ptr, ptr %33, align 8, !tbaa !183
   %35 = zext nneg i32 %2 to i64
-  %36 = getelementptr inbounds nuw %struct.png_unknown_chunk_t, ptr %34, i64 %35, i32 3
-  store i8 %32, ptr %36, align 8, !tbaa !185
-  br label %37
+  %36 = getelementptr inbounds nuw %struct.png_unknown_chunk_t, ptr %34, i64 %35
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 24
+  store i8 %32, ptr %37, align 8, !tbaa !185
+  br label %38
 
-37:                                               ; preds = %check_location.exit, %8, %4
+38:                                               ; preds = %check_location.exit, %8, %4
   ret void
 }
 

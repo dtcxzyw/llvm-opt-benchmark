@@ -438,7 +438,7 @@ throwByName.exit:                                 ; preds = %2, %7
 ; Function Attrs: nounwind uwtable
 define hidden void @freeCKAttributeArray(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %8, label %.preheader
+  br i1 %.not, label %9, label %.preheader
 
 .preheader:                                       ; preds = %2
   %3 = icmp sgt i32 %1, 0
@@ -448,27 +448,28 @@ define hidden void @freeCKAttributeArray(ptr noundef captures(address_is_null) %
   %wide.trip.count = zext nneg i32 %1 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %7
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %7 ]
-  %4 = getelementptr inbounds nuw %struct.CK_ATTRIBUTE, ptr %0, i64 %indvars.iv, i32 1
-  %5 = load ptr, ptr %4, align 8
-  %.not10 = icmp eq ptr %5, null
-  br i1 %.not10, label %7, label %6
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %8
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %8 ]
+  %4 = getelementptr inbounds nuw %struct.CK_ATTRIBUTE, ptr %0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %6 = load ptr, ptr %5, align 8
+  %.not10 = icmp eq ptr %6, null
+  br i1 %.not10, label %8, label %7
 
-6:                                                ; preds = %.lr.ph
-  tail call void @free(ptr noundef nonnull %5) #15
-  br label %7
+7:                                                ; preds = %.lr.ph
+  tail call void @free(ptr noundef nonnull %6) #15
+  br label %8
 
-7:                                                ; preds = %.lr.ph, %6
+8:                                                ; preds = %.lr.ph, %7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
-._crit_edge:                                      ; preds = %7, %.preheader
+._crit_edge:                                      ; preds = %8, %.preheader
   tail call void @free(ptr noundef nonnull %0) #15
-  br label %8
+  br label %9
 
-8:                                                ; preds = %._crit_edge, %2
+9:                                                ; preds = %._crit_edge, %2
   ret void
 }
 
@@ -1394,8 +1395,8 @@ define hidden void @jAttributeArrayToCKAttributeArray(ptr noundef %0, ptr nounde
 27:                                               ; preds = %8
   br i1 %.not, label %p11ThrowOutOfMemoryError.exit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %27, %57
-  %.048 = phi i64 [ %58, %57 ], [ 0, %27 ]
+.lr.ph:                                           ; preds = %27, %59
+  %.048 = phi i64 [ %60, %59 ], [ 0, %27 ]
   %28 = load ptr, ptr %0, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 1384
   %30 = load ptr, ptr %29, align 8
@@ -1407,7 +1408,7 @@ define hidden void @jAttributeArrayToCKAttributeArray(ptr noundef %0, ptr nounde
   %36 = call zeroext i8 %35(ptr noundef nonnull %0) #15
   %.not32 = icmp eq i8 %36, 0
   %37 = load ptr, ptr %2, align 8
-  br i1 %.not32, label %44, label %38
+  br i1 %.not32, label %45, label %38
 
 38:                                               ; preds = %.lr.ph
   %.not.i = icmp eq ptr %37, null
@@ -1421,77 +1422,79 @@ define hidden void @jAttributeArrayToCKAttributeArray(ptr noundef %0, ptr nounde
   %wide.trip.count.i = and i64 %.048, 2147483647
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %43, %.lr.ph.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %43 ]
-  %40 = getelementptr inbounds nuw %struct.CK_ATTRIBUTE, ptr %37, i64 %indvars.iv.i, i32 1
-  %41 = load ptr, ptr %40, align 8
-  %.not10.i = icmp eq ptr %41, null
-  br i1 %.not10.i, label %43, label %42
+.lr.ph.i:                                         ; preds = %44, %.lr.ph.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %44 ]
+  %40 = getelementptr inbounds nuw %struct.CK_ATTRIBUTE, ptr %37, i64 %indvars.iv.i
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
+  %42 = load ptr, ptr %41, align 8
+  %.not10.i = icmp eq ptr %42, null
+  br i1 %.not10.i, label %44, label %43
 
-42:                                               ; preds = %.lr.ph.i
-  call void @free(ptr noundef nonnull %41) #15
-  br label %43
+43:                                               ; preds = %.lr.ph.i
+  call void @free(ptr noundef nonnull %42) #15
+  br label %44
 
-43:                                               ; preds = %42, %.lr.ph.i
+44:                                               ; preds = %43, %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !6
 
-._crit_edge.i:                                    ; preds = %43, %.preheader.i
+._crit_edge.i:                                    ; preds = %44, %.preheader.i
   call void @free(ptr noundef nonnull %37) #15
   br label %p11ThrowOutOfMemoryError.exit
 
-44:                                               ; preds = %.lr.ph
-  %45 = getelementptr inbounds %struct.CK_ATTRIBUTE, ptr %37, i64 %.048
+45:                                               ; preds = %.lr.ph
+  %46 = getelementptr inbounds %struct.CK_ATTRIBUTE, ptr %37, i64 %.048
   call void @jAttributeToCKAttribute(ptr dead_on_unwind nonnull writable sret(%struct.CK_ATTRIBUTE) align 8 %5, ptr noundef nonnull %0, ptr noundef %32) #15
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %45, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
-  %46 = load ptr, ptr %0, align 8
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 1824
-  %48 = load ptr, ptr %47, align 8
-  %49 = call zeroext i8 %48(ptr noundef nonnull %0) #15
-  %.not33 = icmp eq i8 %49, 0
-  br i1 %.not33, label %57, label %50
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
+  %47 = load ptr, ptr %0, align 8
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 1824
+  %49 = load ptr, ptr %48, align 8
+  %50 = call zeroext i8 %49(ptr noundef nonnull %0) #15
+  %.not33 = icmp eq i8 %50, 0
+  br i1 %.not33, label %59, label %51
 
-50:                                               ; preds = %44
-  %51 = load ptr, ptr %2, align 8
-  %.not.i34 = icmp eq ptr %51, null
+51:                                               ; preds = %45
+  %52 = load ptr, ptr %2, align 8
+  %.not.i34 = icmp eq ptr %52, null
   br i1 %.not.i34, label %p11ThrowOutOfMemoryError.exit, label %.preheader.i35
 
-.preheader.i35:                                   ; preds = %50
-  %52 = icmp sgt i32 %31, 0
-  br i1 %52, label %.lr.ph.preheader.i37, label %._crit_edge.i36
+.preheader.i35:                                   ; preds = %51
+  %53 = icmp sgt i32 %31, 0
+  br i1 %53, label %.lr.ph.preheader.i37, label %._crit_edge.i36
 
 .lr.ph.preheader.i37:                             ; preds = %.preheader.i35
   %wide.trip.count.i38 = and i64 %.048, 2147483647
   br label %.lr.ph.i39
 
-.lr.ph.i39:                                       ; preds = %56, %.lr.ph.preheader.i37
-  %indvars.iv.i40 = phi i64 [ 0, %.lr.ph.preheader.i37 ], [ %indvars.iv.next.i42, %56 ]
-  %53 = getelementptr inbounds nuw %struct.CK_ATTRIBUTE, ptr %51, i64 %indvars.iv.i40, i32 1
-  %54 = load ptr, ptr %53, align 8
-  %.not10.i41 = icmp eq ptr %54, null
-  br i1 %.not10.i41, label %56, label %55
+.lr.ph.i39:                                       ; preds = %58, %.lr.ph.preheader.i37
+  %indvars.iv.i40 = phi i64 [ 0, %.lr.ph.preheader.i37 ], [ %indvars.iv.next.i42, %58 ]
+  %54 = getelementptr inbounds nuw %struct.CK_ATTRIBUTE, ptr %52, i64 %indvars.iv.i40
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
+  %56 = load ptr, ptr %55, align 8
+  %.not10.i41 = icmp eq ptr %56, null
+  br i1 %.not10.i41, label %58, label %57
 
-55:                                               ; preds = %.lr.ph.i39
-  call void @free(ptr noundef nonnull %54) #15
-  br label %56
+57:                                               ; preds = %.lr.ph.i39
+  call void @free(ptr noundef nonnull %56) #15
+  br label %58
 
-56:                                               ; preds = %55, %.lr.ph.i39
+58:                                               ; preds = %57, %.lr.ph.i39
   %indvars.iv.next.i42 = add nuw nsw i64 %indvars.iv.i40, 1
   %exitcond.not.i43 = icmp eq i64 %indvars.iv.next.i42, %wide.trip.count.i38
   br i1 %exitcond.not.i43, label %._crit_edge.i36, label %.lr.ph.i39, !llvm.loop !6
 
-._crit_edge.i36:                                  ; preds = %56, %.preheader.i35
-  call void @free(ptr noundef nonnull %51) #15
+._crit_edge.i36:                                  ; preds = %58, %.preheader.i35
+  call void @free(ptr noundef nonnull %52) #15
   br label %p11ThrowOutOfMemoryError.exit
 
-57:                                               ; preds = %44
-  %58 = add nuw i64 %.048, 1
-  %59 = load i64, ptr %3, align 8
-  %60 = icmp ult i64 %58, %59
-  br i1 %60, label %.lr.ph, label %p11ThrowOutOfMemoryError.exit, !llvm.loop !12
+59:                                               ; preds = %45
+  %60 = add nuw i64 %.048, 1
+  %61 = load i64, ptr %3, align 8
+  %62 = icmp ult i64 %60, %61
+  br i1 %62, label %.lr.ph, label %p11ThrowOutOfMemoryError.exit, !llvm.loop !12
 
-p11ThrowOutOfMemoryError.exit:                    ; preds = %57, %16, %27, %._crit_edge.i36, %50, %._crit_edge.i, %38, %22, %17, %7
+p11ThrowOutOfMemoryError.exit:                    ; preds = %59, %16, %27, %._crit_edge.i36, %51, %._crit_edge.i, %38, %22, %17, %7
   ret void
 }
 

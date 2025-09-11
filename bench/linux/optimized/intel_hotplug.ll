@@ -157,7 +157,7 @@ define dso_local void @intel_hpd_trigger_irq(ptr noundef readonly captures(none)
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @intel_hpd_irq_handler(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 align 16 {
   %4 = icmp eq i32 %1, 0
-  br i1 %4, label %229, label %5
+  br i1 %4, label %230, label %5
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 7932
@@ -165,8 +165,8 @@ define dso_local void @intel_hpd_irq_handler(ptr noundef %0, i32 noundef %1, i32
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 688
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, %7
-  %.pre45 = zext i32 %1 to i64
-  br i1 %9, label %._crit_edge44, label %10
+  %.pre43 = zext i32 %1 to i64
+  br i1 %9, label %._crit_edge42, label %10
 
 10:                                               ; preds = %5
   %11 = zext i32 %2 to i64
@@ -188,7 +188,7 @@ define dso_local void @intel_hpd_irq_handler(ptr noundef %0, i32 noundef %1, i32
   %24 = zext nneg i32 %23 to i64
   %25 = shl nuw i64 1, %24
   %.fr15.us = freeze i64 %25
-  %26 = and i64 %.fr15.us, %.pre45
+  %26 = and i64 %.fr15.us, %.pre43
   %27 = icmp eq i64 %26, 0
   br i1 %27, label %55, label %28
 
@@ -243,19 +243,19 @@ define dso_local void @intel_hpd_irq_handler(ptr noundef %0, i32 noundef %1, i32
   %58 = phi i8 [ %17, %.split.us ], [ %17, %31 ], [ 1, %47 ], [ 1, %51 ], [ %17, %28 ]
   %59 = load ptr, ptr %16, align 8
   %60 = icmp eq ptr %59, %7
-  br i1 %60, label %.split29.us, label %.split.us, !llvm.loop !12
+  br i1 %60, label %.split26.us, label %.split.us, !llvm.loop !12
 
-.split29.us:                                      ; preds = %115, %55
+.split26.us:                                      ; preds = %115, %55
   %.us-phi = phi i32 [ %56, %55 ], [ %116, %115 ]
-  %.us-phi30 = phi i32 [ %57, %55 ], [ %117, %115 ]
-  %.us-phi31 = phi i8 [ %58, %55 ], [ %118, %115 ]
-  %61 = icmp eq i8 %.us-phi31, 0
-  br label %._crit_edge44
+  %.us-phi27 = phi i32 [ %57, %55 ], [ %117, %115 ]
+  %.us-phi28 = phi i8 [ %58, %55 ], [ %118, %115 ]
+  %61 = icmp eq i8 %.us-phi28, 0
+  br label %._crit_edge42
 
-._crit_edge44:                                    ; preds = %5, %.split29.us
-  %62 = phi i32 [ %.us-phi, %.split29.us ], [ 0, %5 ]
-  %.fr13 = phi i32 [ %.us-phi30, %.split29.us ], [ 0, %5 ]
-  %63 = phi i1 [ %61, %.split29.us ], [ true, %5 ]
+._crit_edge42:                                    ; preds = %5, %.split26.us
+  %62 = phi i32 [ %.us-phi, %.split26.us ], [ 0, %5 ]
+  %.fr13 = phi i32 [ %.us-phi27, %.split26.us ], [ 0, %5 ]
+  %63 = phi i1 [ %61, %.split26.us ], [ true, %5 ]
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 6144
   %65 = or i32 %.fr13, %62
   %66 = zext i32 %65 to i64
@@ -268,10 +268,10 @@ define dso_local void @intel_hpd_irq_handler(ptr noundef %0, i32 noundef %1, i32
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 2624
   br label %.outer
 
-.outer:                                           ; preds = %.thread11, %._crit_edge44
-  %.ph = phi i64 [ %211, %.thread11 ], [ 1, %._crit_edge44 ]
-  %74 = phi i1 [ false, %.thread11 ], [ true, %._crit_edge44 ]
-  %.ph19 = phi i8 [ 1, %.thread11 ], [ 0, %._crit_edge44 ]
+.outer:                                           ; preds = %.thread11, %._crit_edge42
+  %.ph = phi i64 [ %212, %.thread11 ], [ 1, %._crit_edge42 ]
+  %74 = phi i1 [ false, %.thread11 ], [ true, %._crit_edge42 ]
+  %.ph16 = phi i8 [ 1, %.thread11 ], [ 0, %._crit_edge42 ]
   br label %121
 
 .split:                                           ; preds = %10, %115
@@ -286,7 +286,7 @@ define dso_local void @intel_hpd_irq_handler(ptr noundef %0, i32 noundef %1, i32
   %83 = zext nneg i32 %82 to i64
   %84 = shl nuw i64 1, %83
   %.fr15 = freeze i64 %84
-  %85 = and i64 %.fr15, %.pre45
+  %85 = and i64 %.fr15, %.pre43
   %86 = icmp eq i64 %85, 0
   br i1 %86, label %115, label %87
 
@@ -342,23 +342,23 @@ define dso_local void @intel_hpd_irq_handler(ptr noundef %0, i32 noundef %1, i32
   %118 = phi i8 [ %76, %.split ], [ %76, %90 ], [ 1, %107 ], [ 1, %111 ], [ %76, %87 ]
   %119 = load ptr, ptr %75, align 8
   %120 = icmp eq ptr %119, %7
-  br i1 %120, label %.split29.us, label %.split, !llvm.loop !12
+  br i1 %120, label %.split26.us, label %.split, !llvm.loop !12
 
-121:                                              ; preds = %.outer, %201
-  %122 = phi i64 [ %203, %201 ], [ %.ph, %.outer ]
-  %123 = phi i8 [ %202, %201 ], [ %.ph19, %.outer ]
+121:                                              ; preds = %.outer, %202
+  %122 = phi i64 [ %204, %202 ], [ %.ph, %.outer ]
+  %123 = phi i8 [ %203, %202 ], [ %.ph16, %.outer ]
   %124 = shl nuw nsw i64 1, %122
   %.fr = freeze i64 %124
-  %125 = and i64 %.fr, %.pre45
+  %125 = and i64 %.fr, %.pre43
   %126 = icmp eq i64 %125, 0
-  br i1 %126, label %201, label %127
+  br i1 %126, label %202, label %127
 
 127:                                              ; preds = %121
   %.idx = shl i64 %122, 4
   %128 = getelementptr i8, ptr %64, i64 %.idx
   %129 = getelementptr i8, ptr %128, i64 12
   %130 = load i32, ptr %129, align 4
-  switch i32 %130, label %201 [
+  switch i32 %130, label %202 [
     i32 1, label %131
     i32 0, label %151
   ]
@@ -371,7 +371,7 @@ define dso_local void @intel_hpd_irq_handler(ptr noundef %0, i32 noundef %1, i32
   %136 = icmp ne i16 %135, 0
   %137 = load i1, ptr @intel_hpd_irq_handler.__already_done, align 1
   %138 = select i1 %136, i1 true, i1 %137
-  br i1 %138, label %201, label %139, !prof !6
+  br i1 %138, label %202, label %139, !prof !6
 
 139:                                              ; preds = %131
   store i1 true, ptr @intel_hpd_irq_handler.__already_done, align 1
@@ -396,7 +396,7 @@ define dso_local void @intel_hpd_irq_handler(ptr noundef %0, i32 noundef %1, i32
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.4, i32 560, i32 2313, i64 12) #8, !srcloc !17
   tail call void asm sideeffect "595: nop\0A\09.pushsection .discard.instr_end\0A\09.long 595b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 595) #8, !srcloc !18
   tail call void asm sideeffect "596: nop\0A\09.pushsection .discard.instr_end\0A\09.long 596b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 596) #8, !srcloc !19
-  br label %201
+  br label %202
 
 151:                                              ; preds = %127
   %152 = and i64 %.fr, %66
@@ -408,7 +408,7 @@ define dso_local void @intel_hpd_irq_handler(ptr noundef %0, i32 noundef %1, i32
   %156 = load i64, ptr %155, align 8
   %157 = load i32, ptr %69, align 4
   %158 = icmp eq i32 %157, 0
-  br i1 %158, label %201, label %166
+  br i1 %158, label %202, label %166
 
 .thread9:                                         ; preds = %151
   %159 = load i32, ptr %68, align 8
@@ -419,7 +419,7 @@ define dso_local void @intel_hpd_irq_handler(ptr noundef %0, i32 noundef %1, i32
   %163 = load i64, ptr %162, align 8
   %164 = load i32, ptr %69, align 4
   %165 = icmp eq i32 %164, 0
-  br i1 %165, label %201, label %.thread10
+  br i1 %165, label %202, label %.thread10
 
 166:                                              ; preds = %154
   %167 = and i64 %.fr, %67
@@ -429,7 +429,7 @@ define dso_local void @intel_hpd_irq_handler(ptr noundef %0, i32 noundef %1, i32
 168:                                              ; preds = %166
   %169 = load i8, ptr %70, align 8
   %170 = icmp eq i8 %169, 0
-  br i1 %170, label %201, label %.thread10
+  br i1 %170, label %202, label %.thread10
 
 .thread10:                                        ; preds = %.thread9, %168, %166
   %171 = phi i64 [ %156, %168 ], [ %156, %166 ], [ %163, %.thread9 ]
@@ -450,8 +450,9 @@ define dso_local void @intel_hpd_irq_handler(ptr noundef %0, i32 noundef %1, i32
   br i1 %183, label %._crit_edge, label %184
 
 ._crit_edge:                                      ; preds = %179
-  %.phi.trans.insert = getelementptr i8, ptr %128, i64 8
-  %.pre = load i32, ptr %.phi.trans.insert, align 8
+  %.phi.trans.insert = getelementptr %struct.anon.36, ptr %64, i64 %122
+  %.phi.trans.insert41 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert, i64 8
+  %.pre = load i32, ptr %.phi.trans.insert41, align 8
   br label %186
 
 184:                                              ; preds = %179, %.thread10
@@ -461,85 +462,86 @@ define dso_local void @intel_hpd_irq_handler(ptr noundef %0, i32 noundef %1, i32
 
 186:                                              ; preds = %._crit_edge, %184
   %187 = phi i32 [ %.pre, %._crit_edge ], [ 0, %184 ]
-  %188 = getelementptr i8, ptr %128, i64 8
-  %189 = add i32 %187, %174
-  store i32 %189, ptr %188, align 8
-  %190 = icmp sgt i32 %189, %175
-  br i1 %190, label %191, label %195
+  %188 = getelementptr %struct.anon.36, ptr %64, i64 %122
+  %189 = getelementptr inbounds nuw i8, ptr %188, i64 8
+  %190 = add i32 %187, %174
+  store i32 %190, ptr %189, align 8
+  %191 = icmp sgt i32 %190, %175
+  br i1 %191, label %192, label %196
 
-191:                                              ; preds = %186
-  %192 = getelementptr i8, ptr %128, i64 12
-  store i32 2, ptr %192, align 4
-  br i1 %71, label %.thread11, label %193
+192:                                              ; preds = %186
+  %193 = getelementptr inbounds nuw i8, ptr %188, i64 12
+  store i32 2, ptr %193, align 4
+  br i1 %71, label %.thread11, label %194
 
-193:                                              ; preds = %191
-  %194 = load ptr, ptr %72, align 8
+194:                                              ; preds = %192
+  %195 = load ptr, ptr %72, align 8
   br label %.thread11
 
-195:                                              ; preds = %186
-  br i1 %71, label %198, label %196
+196:                                              ; preds = %186
+  br i1 %71, label %199, label %197
 
-196:                                              ; preds = %195
-  %197 = load ptr, ptr %72, align 8
-  br label %198
+197:                                              ; preds = %196
+  %198 = load ptr, ptr %72, align 8
+  br label %199
 
-198:                                              ; preds = %196, %195
-  %199 = phi ptr [ %197, %196 ], [ null, %195 ]
-  %200 = trunc i64 %122 to i32
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %199, i32 noundef 2, ptr noundef nonnull @.str.15, i32 noundef %200, i32 noundef %189) #8
-  br label %201
+199:                                              ; preds = %197, %196
+  %200 = phi ptr [ %198, %197 ], [ null, %196 ]
+  %201 = trunc i64 %122 to i32
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %200, i32 noundef 2, ptr noundef nonnull @.str.15, i32 noundef %201, i32 noundef %190) #8
+  br label %202
 
-201:                                              ; preds = %.thread9, %198, %168, %154, %148, %131, %127, %121
-  %202 = phi i8 [ %123, %121 ], [ %123, %131 ], [ %123, %148 ], [ %123, %127 ], [ %173, %198 ], [ %123, %154 ], [ %123, %168 ], [ 1, %.thread9 ]
-  %203 = add nuw nsw i64 %122, 1
-  %204 = icmp eq i64 %203, 15
-  br i1 %204, label %213, label %121, !llvm.loop !20
+202:                                              ; preds = %.thread9, %199, %168, %154, %148, %131, %127, %121
+  %203 = phi i8 [ %123, %121 ], [ %123, %131 ], [ %123, %148 ], [ %123, %127 ], [ %173, %199 ], [ %123, %154 ], [ %123, %168 ], [ 1, %.thread9 ]
+  %204 = add nuw nsw i64 %122, 1
+  %205 = icmp eq i64 %204, 15
+  br i1 %205, label %214, label %121, !llvm.loop !20
 
-.thread11:                                        ; preds = %191, %193
-  %205 = phi ptr [ %194, %193 ], [ null, %191 ]
-  %206 = trunc i64 %122 to i32
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %205, i32 noundef 2, ptr noundef nonnull @.str.14, i32 noundef %206) #8
-  %207 = load i32, ptr %68, align 8
-  %208 = trunc i64 %.fr to i32
-  %209 = xor i32 %208, -1
-  %210 = and i32 %207, %209
-  store i32 %210, ptr %68, align 8
-  %211 = add nuw nsw i64 %122, 1
-  %212 = icmp eq i64 %211, 15
-  br i1 %212, label %.thread12, label %.outer, !llvm.loop !20
+.thread11:                                        ; preds = %192, %194
+  %206 = phi ptr [ %195, %194 ], [ null, %192 ]
+  %207 = trunc i64 %122 to i32
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %206, i32 noundef 2, ptr noundef nonnull @.str.14, i32 noundef %207) #8
+  %208 = load i32, ptr %68, align 8
+  %209 = trunc i64 %.fr to i32
+  %210 = xor i32 %209, -1
+  %211 = and i32 %208, %210
+  store i32 %211, ptr %68, align 8
+  %212 = add nuw nsw i64 %122, 1
+  %213 = icmp eq i64 %212, 15
+  br i1 %213, label %.thread12, label %.outer, !llvm.loop !20
 
-213:                                              ; preds = %201
-  br i1 %74, label %215, label %.thread12
+214:                                              ; preds = %202
+  br i1 %74, label %216, label %.thread12
 
-.thread12:                                        ; preds = %.thread11, %213
-  %214 = phi i8 [ %202, %213 ], [ 1, %.thread11 ]
+.thread12:                                        ; preds = %.thread11, %214
+  %215 = phi i8 [ %203, %214 ], [ 1, %.thread11 ]
   tail call void @intel_hpd_irq_setup(ptr noundef %0) #8
-  br label %215
+  br label %216
 
-215:                                              ; preds = %.thread12, %213
-  %216 = phi i8 [ %214, %.thread12 ], [ %202, %213 ]
+216:                                              ; preds = %.thread12, %214
+  %217 = phi i8 [ %215, %.thread12 ], [ %203, %214 ]
   tail call void @_raw_spin_unlock(ptr noundef nonnull %6) #8
-  br i1 %63, label %222, label %217
+  br i1 %63, label %223, label %218
 
-217:                                              ; preds = %215
-  %218 = getelementptr inbounds nuw i8, ptr %0, i64 6576
-  %219 = load ptr, ptr %218, align 8
-  %220 = getelementptr inbounds nuw i8, ptr %0, i64 6488
-  %221 = tail call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %219, ptr noundef nonnull %220) #8
-  br label %222
+218:                                              ; preds = %216
+  %219 = getelementptr inbounds nuw i8, ptr %0, i64 6576
+  %220 = load ptr, ptr %219, align 8
+  %221 = getelementptr inbounds nuw i8, ptr %0, i64 6488
+  %222 = tail call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %220, ptr noundef nonnull %221) #8
+  br label %223
 
-222:                                              ; preds = %217, %215
-  %223 = icmp eq i8 %216, 0
-  br i1 %223, label %229, label %224
+223:                                              ; preds = %218, %216
+  %224 = icmp eq i8 %217, 0
+  br i1 %224, label %230, label %225
 
-224:                                              ; preds = %222
-  %225 = getelementptr inbounds nuw i8, ptr %0, i64 8096
-  %226 = load ptr, ptr %225, align 8
-  %227 = getelementptr inbounds nuw i8, ptr %0, i64 6040
-  %228 = tail call zeroext i1 @queue_delayed_work_on(i32 noundef 64, ptr noundef %226, ptr noundef nonnull %227, i64 noundef 0) #8
-  br label %229
+225:                                              ; preds = %223
+  %226 = getelementptr inbounds nuw i8, ptr %0, i64 8096
+  %227 = load ptr, ptr %226, align 8
+  %228 = getelementptr inbounds nuw i8, ptr %0, i64 6040
+  %229 = tail call zeroext i1 @queue_delayed_work_on(i32 noundef 64, ptr noundef %227, ptr noundef nonnull %228, i64 noundef 0) #8
+  br label %230
 
-229:                                              ; preds = %224, %222, %3
+230:                                              ; preds = %225, %223, %3
   ret void
 }
 

@@ -4997,7 +4997,7 @@ define hidden void @_ZNK8rawspeed15VC5Decompressor30createWaveletBandDecodingTas
 3:                                                ; preds = %2, %.critedge28
   %indvars.iv36 = phi i64 [ 3, %2 ], [ %indvars.iv.next37, %.critedge28 ]
   %4 = icmp eq i64 %indvars.iv36, 0
-  %invariant.gep = getelementptr inbounds nuw %"class.rawspeed::VC5Decompressor::Wavelet", ptr %0, i64 %indvars.iv36, i32 4
+  %invariant.gep = getelementptr inbounds nuw %"class.rawspeed::VC5Decompressor::Wavelet", ptr %0, i64 %indvars.iv36
   %5 = select i1 %4, i64 0, i64 3
   br label %.preheader
 
@@ -5013,23 +5013,24 @@ define hidden void @_ZNK8rawspeed15VC5Decompressor30createWaveletBandDecodingTas
 7:                                                ; preds = %.preheader, %6
   %.025.idx31 = phi i64 [ 232, %.preheader ], [ %.025.add, %6 ]
   %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %.025.idx31
-  %8 = load ptr, ptr %gep, align 8, !tbaa !70
-  %9 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %8, i64 %indvars.iv
-  %10 = load ptr, ptr %9, align 8, !tbaa !71
-  %11 = load ptr, ptr %0, align 8, !tbaa !83
-  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %13 = load ptr, ptr %10, align 8, !tbaa !76
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  %15 = load ptr, ptr %14, align 8
-  tail call void %15(ptr noundef nonnull align 8 dereferenceable(88) %10, ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 1 dereferenceable(1) %1) #33
+  %8 = getelementptr inbounds nuw i8, ptr %gep, i64 16
+  %9 = load ptr, ptr %8, align 8, !tbaa !70
+  %10 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %9, i64 %indvars.iv
+  %11 = load ptr, ptr %10, align 8, !tbaa !71
+  %12 = load ptr, ptr %0, align 8, !tbaa !83
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %14 = load ptr, ptr %11, align 8, !tbaa !76
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
+  %16 = load ptr, ptr %15, align 8
+  tail call void %16(ptr noundef nonnull align 8 dereferenceable(88) %11, ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 1 dereferenceable(1) %1) #33
   %.val = load i8, ptr %1, align 1, !tbaa !58, !range !60, !noundef !21
-  %16 = trunc nuw i8 %.val to i1
-  br i1 %16, label %.loopexit, label %6
+  %17 = trunc nuw i8 %.val to i1
+  br i1 %17, label %.loopexit, label %6
 
 .critedge:                                        ; preds = %6
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %17 = icmp slt i64 %indvars.iv, 1
-  br i1 %17, label %.critedge28, label %.preheader, !llvm.loop !336
+  %18 = icmp slt i64 %indvars.iv, 1
+  br i1 %18, label %.critedge28, label %.preheader, !llvm.loop !336
 
 .critedge28:                                      ; preds = %.critedge
   %indvars.iv.next37 = add nsw i64 %indvars.iv36, -1
@@ -5047,7 +5048,7 @@ define hidden void @_ZNK8rawspeed15VC5Decompressor12decodeThreadERb(ptr noundef 
 3:                                                ; preds = %.critedge28.i, %2
   %indvars.iv36.i = phi i64 [ 3, %2 ], [ %indvars.iv.next37.i, %.critedge28.i ]
   %4 = icmp eq i64 %indvars.iv36.i, 0
-  %invariant.gep.i = getelementptr inbounds nuw %"class.rawspeed::VC5Decompressor::Wavelet", ptr %0, i64 %indvars.iv36.i, i32 4
+  %invariant.gep.i = getelementptr inbounds nuw %"class.rawspeed::VC5Decompressor::Wavelet", ptr %0, i64 %indvars.iv36.i
   %5 = select i1 %4, i64 0, i64 3
   br label %.preheader.i
 
@@ -5063,43 +5064,44 @@ define hidden void @_ZNK8rawspeed15VC5Decompressor12decodeThreadERb(ptr noundef 
 7:                                                ; preds = %6, %.preheader.i
   %.025.idx31.i = phi i64 [ 232, %.preheader.i ], [ %.025.add.i, %6 ]
   %gep.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i, i64 %.025.idx31.i
-  %8 = load ptr, ptr %gep.i, align 8, !tbaa !70
-  %9 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %8, i64 %indvars.iv.i
-  %10 = load ptr, ptr %9, align 8, !tbaa !71
-  %11 = load ptr, ptr %0, align 8, !tbaa !83
-  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %13 = load ptr, ptr %10, align 8, !tbaa !76
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  %15 = load ptr, ptr %14, align 8
-  tail call void %15(ptr noundef nonnull align 8 dereferenceable(88) %10, ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 1 dereferenceable(1) %1) #33
+  %8 = getelementptr inbounds nuw i8, ptr %gep.i, i64 16
+  %9 = load ptr, ptr %8, align 8, !tbaa !70
+  %10 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %9, i64 %indvars.iv.i
+  %11 = load ptr, ptr %10, align 8, !tbaa !71
+  %12 = load ptr, ptr %0, align 8, !tbaa !83
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %14 = load ptr, ptr %11, align 8, !tbaa !76
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
+  %16 = load ptr, ptr %15, align 8
+  tail call void %16(ptr noundef nonnull align 8 dereferenceable(88) %11, ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 1 dereferenceable(1) %1) #33
   %.val.i = load i8, ptr %1, align 1, !tbaa !58, !range !60, !noundef !21
-  %16 = trunc nuw i8 %.val.i to i1
-  br i1 %16, label %_ZNK8rawspeed15VC5Decompressor24combineFinalLowpassBandsEv.exit, label %6
+  %17 = trunc nuw i8 %.val.i to i1
+  br i1 %17, label %_ZNK8rawspeed15VC5Decompressor24combineFinalLowpassBandsEv.exit, label %6
 
 .critedge.i:                                      ; preds = %6
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %17 = icmp slt i64 %indvars.iv.i, 1
-  br i1 %17, label %.critedge28.i, label %.preheader.i, !llvm.loop !336
+  %18 = icmp slt i64 %indvars.iv.i, 1
+  br i1 %18, label %.critedge28.i, label %.preheader.i, !llvm.loop !336
 
 .critedge28.i:                                    ; preds = %.critedge.i
   %indvars.iv.next37.i = add nsw i64 %indvars.iv36.i, -1
   br i1 %4, label %_ZNK8rawspeed15VC5Decompressor30createWaveletBandDecodingTasksERb.exit, label %3, !llvm.loop !337
 
 _ZNK8rawspeed15VC5Decompressor30createWaveletBandDecodingTasksERb.exit: ; preds = %.critedge28.i
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %19 = load i8, ptr %18, align 8, !tbaa !185
-  %switch.i = icmp eq i8 %19, 0
-  br i1 %switch.i, label %20, label %21
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %20 = load i8, ptr %19, align 8, !tbaa !185
+  %switch.i = icmp eq i8 %20, 0
+  br i1 %switch.i, label %21, label %22
 
-20:                                               ; preds = %_ZNK8rawspeed15VC5Decompressor30createWaveletBandDecodingTasksERb.exit
+21:                                               ; preds = %_ZNK8rawspeed15VC5Decompressor30createWaveletBandDecodingTasksERb.exit
   tail call void @_ZNK8rawspeed15VC5Decompressor28combineFinalLowpassBandsImplILNS_10BayerPhaseE0EEEvv(ptr noundef nonnull align 8 dereferenceable(1000) %0) #33
   br label %_ZNK8rawspeed15VC5Decompressor24combineFinalLowpassBandsEv.exit
 
-21:                                               ; preds = %_ZNK8rawspeed15VC5Decompressor30createWaveletBandDecodingTasksERb.exit
+22:                                               ; preds = %_ZNK8rawspeed15VC5Decompressor30createWaveletBandDecodingTasksERb.exit
   tail call void @_ZNK8rawspeed15VC5Decompressor28combineFinalLowpassBandsImplILNS_10BayerPhaseE2EEEvv(ptr noundef nonnull align 8 dereferenceable(1000) %0) #33
   br label %_ZNK8rawspeed15VC5Decompressor24combineFinalLowpassBandsEv.exit
 
-_ZNK8rawspeed15VC5Decompressor24combineFinalLowpassBandsEv.exit: ; preds = %7, %21, %20
+_ZNK8rawspeed15VC5Decompressor24combineFinalLowpassBandsEv.exit: ; preds = %7, %22, %21
   ret void
 }
 
@@ -5155,7 +5157,7 @@ define hidden void @_ZN8rawspeed15VC5Decompressor6decodeEjjjj(ptr noundef nonnul
 19:                                               ; preds = %.critedge28.i.i, %18
   %indvars.iv36.i.i = phi i64 [ 3, %18 ], [ %indvars.iv.next37.i.i, %.critedge28.i.i ]
   %20 = icmp eq i64 %indvars.iv36.i.i, 0
-  %invariant.gep.i.i = getelementptr inbounds nuw %"class.rawspeed::VC5Decompressor::Wavelet", ptr %0, i64 %indvars.iv36.i.i, i32 4
+  %invariant.gep.i.i = getelementptr inbounds nuw %"class.rawspeed::VC5Decompressor::Wavelet", ptr %0, i64 %indvars.iv36.i.i
   %21 = select i1 %20, i64 0, i64 3
   br label %.preheader.i.i
 
@@ -5171,103 +5173,104 @@ define hidden void @_ZN8rawspeed15VC5Decompressor6decodeEjjjj(ptr noundef nonnul
 23:                                               ; preds = %22, %.preheader.i.i
   %.025.idx31.i.i = phi i64 [ 232, %.preheader.i.i ], [ %.025.add.i.i, %22 ]
   %gep.i.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i.i, i64 %.025.idx31.i.i
-  %24 = load ptr, ptr %gep.i.i, align 8, !tbaa !70
-  %25 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %24, i64 %indvars.iv.i.i
-  %26 = load ptr, ptr %25, align 8, !tbaa !71
-  %27 = load ptr, ptr %0, align 8, !tbaa !83
-  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %29 = load ptr, ptr %26, align 8, !tbaa !76
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 24
-  %31 = load ptr, ptr %30, align 8
-  call void %31(ptr noundef nonnull align 8 dereferenceable(88) %26, ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 1 dereferenceable(1) %6) #33
+  %24 = getelementptr inbounds nuw i8, ptr %gep.i.i, i64 16
+  %25 = load ptr, ptr %24, align 8, !tbaa !70
+  %26 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %25, i64 %indvars.iv.i.i
+  %27 = load ptr, ptr %26, align 8, !tbaa !71
+  %28 = load ptr, ptr %0, align 8, !tbaa !83
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  %30 = load ptr, ptr %27, align 8, !tbaa !76
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 24
+  %32 = load ptr, ptr %31, align 8
+  call void %32(ptr noundef nonnull align 8 dereferenceable(88) %27, ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef nonnull align 1 dereferenceable(1) %6) #33
   %.val.i.i = load i8, ptr %6, align 64, !tbaa !58, !range !60, !noundef !21
-  %32 = trunc nuw i8 %.val.i.i to i1
-  br i1 %32, label %_ZNK8rawspeed15VC5Decompressor12decodeThreadERb.exit, label %22
+  %33 = trunc nuw i8 %.val.i.i to i1
+  br i1 %33, label %_ZNK8rawspeed15VC5Decompressor12decodeThreadERb.exit, label %22
 
 .critedge.i.i:                                    ; preds = %22
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, -1
-  %33 = icmp slt i64 %indvars.iv.i.i, 1
-  br i1 %33, label %.critedge28.i.i, label %.preheader.i.i, !llvm.loop !336
+  %34 = icmp slt i64 %indvars.iv.i.i, 1
+  br i1 %34, label %.critedge28.i.i, label %.preheader.i.i, !llvm.loop !336
 
 .critedge28.i.i:                                  ; preds = %.critedge.i.i
   %indvars.iv.next37.i.i = add nsw i64 %indvars.iv36.i.i, -1
   br i1 %20, label %_ZNK8rawspeed15VC5Decompressor30createWaveletBandDecodingTasksERb.exit.i, label %19, !llvm.loop !337
 
 _ZNK8rawspeed15VC5Decompressor30createWaveletBandDecodingTasksERb.exit.i: ; preds = %.critedge28.i.i
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %35 = load i8, ptr %34, align 8, !tbaa !185
-  %switch.i.i = icmp eq i8 %35, 0
-  br i1 %switch.i.i, label %36, label %37
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %36 = load i8, ptr %35, align 8, !tbaa !185
+  %switch.i.i = icmp eq i8 %36, 0
+  br i1 %switch.i.i, label %37, label %38
 
-36:                                               ; preds = %_ZNK8rawspeed15VC5Decompressor30createWaveletBandDecodingTasksERb.exit.i
+37:                                               ; preds = %_ZNK8rawspeed15VC5Decompressor30createWaveletBandDecodingTasksERb.exit.i
   call void @_ZNK8rawspeed15VC5Decompressor28combineFinalLowpassBandsImplILNS_10BayerPhaseE0EEEvv(ptr noundef nonnull align 8 dereferenceable(1000) %0) #33
   br label %_ZNK8rawspeed15VC5Decompressor12decodeThreadERb.exit
 
-37:                                               ; preds = %_ZNK8rawspeed15VC5Decompressor30createWaveletBandDecodingTasksERb.exit.i
+38:                                               ; preds = %_ZNK8rawspeed15VC5Decompressor30createWaveletBandDecodingTasksERb.exit.i
   call void @_ZNK8rawspeed15VC5Decompressor28combineFinalLowpassBandsImplILNS_10BayerPhaseE2EEEvv(ptr noundef nonnull align 8 dereferenceable(1000) %0) #33
   br label %_ZNK8rawspeed15VC5Decompressor12decodeThreadERb.exit
 
-_ZNK8rawspeed15VC5Decompressor12decodeThreadERb.exit: ; preds = %23, %36, %37
+_ZNK8rawspeed15VC5Decompressor12decodeThreadERb.exit: ; preds = %23, %37, %38
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %38 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store ptr %38, ptr %7, align 8, !tbaa !300
-  %39 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i64 0, ptr %39, align 8, !tbaa !299
-  store i8 0, ptr %38, align 8, !tbaa !42
-  %40 = load ptr, ptr %0, align 8, !tbaa !83
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  %42 = invoke noundef zeroext i1 @_ZN8rawspeed8ErrorLog15isTooManyErrorsEjPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %41, i32 noundef 1, ptr noundef nonnull %7)
-          to label %43 unwind label %47
+  %39 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  store ptr %39, ptr %7, align 8, !tbaa !300
+  %40 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store i64 0, ptr %40, align 8, !tbaa !299
+  store i8 0, ptr %39, align 8, !tbaa !42
+  %41 = load ptr, ptr %0, align 8, !tbaa !83
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
+  %43 = invoke noundef zeroext i1 @_ZN8rawspeed8ErrorLog15isTooManyErrorsEjPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %42, i32 noundef 1, ptr noundef nonnull %7)
+          to label %44 unwind label %48
 
-43:                                               ; preds = %_ZNK8rawspeed15VC5Decompressor12decodeThreadERb.exit
-  %44 = load ptr, ptr %7, align 8, !tbaa !298
-  br i1 %42, label %45, label %55
+44:                                               ; preds = %_ZNK8rawspeed15VC5Decompressor12decodeThreadERb.exit
+  %45 = load ptr, ptr %7, align 8, !tbaa !298
+  br i1 %43, label %46, label %56
 
-45:                                               ; preds = %43
-  invoke void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_19RawDecoderExceptionEEEvPKcz(ptr noundef nonnull @.str.26, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed15VC5Decompressor6decodeEjjjj, ptr noundef %44) #22
-          to label %46 unwind label %47
+46:                                               ; preds = %44
+  invoke void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_19RawDecoderExceptionEEEvPKcz(ptr noundef nonnull @.str.26, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed15VC5Decompressor6decodeEjjjj, ptr noundef %45) #22
+          to label %47 unwind label %48
 
-46:                                               ; preds = %45
+47:                                               ; preds = %46
   unreachable
 
-47:                                               ; preds = %45, %_ZNK8rawspeed15VC5Decompressor12decodeThreadERb.exit
-  %48 = landingpad { ptr, i32 }
+48:                                               ; preds = %46, %_ZNK8rawspeed15VC5Decompressor12decodeThreadERb.exit
+  %49 = landingpad { ptr, i32 }
           cleanup
-  %49 = load ptr, ptr %7, align 8, !tbaa !298
-  %50 = icmp eq ptr %49, %38
-  br i1 %50, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
+  %50 = load ptr, ptr %7, align 8, !tbaa !298
+  %51 = icmp eq ptr %50, %39
+  br i1 %51, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %47
-  %51 = load i64, ptr %39, align 8, !tbaa !299
-  %52 = icmp ult i64 %51, 16
-  call void @llvm.assume(i1 %52)
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %48
+  %52 = load i64, ptr %40, align 8, !tbaa !299
+  %53 = icmp ult i64 %52, 16
+  call void @llvm.assume(i1 %53)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %47
-  %53 = load i64, ptr %38, align 8, !tbaa !42
-  %54 = add i64 %53, 1
-  call void @_ZdlPvm(ptr noundef %49, i64 noundef %54) #34
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %48
+  %54 = load i64, ptr %39, align 8, !tbaa !42
+  %55 = add i64 %54, 1
+  call void @_ZdlPvm(ptr noundef %50, i64 noundef %55) #34
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  resume { ptr, i32 } %48
+  resume { ptr, i32 } %49
 
-55:                                               ; preds = %43
-  %56 = icmp eq ptr %44, %38
-  br i1 %56, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i8, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i7
+56:                                               ; preds = %44
+  %57 = icmp eq ptr %45, %39
+  br i1 %57, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i8, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i7
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i8: ; preds = %55
-  %57 = load i64, ptr %39, align 8, !tbaa !299
-  %58 = icmp ult i64 %57, 16
-  call void @llvm.assume(i1 %58)
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i8: ; preds = %56
+  %58 = load i64, ptr %40, align 8, !tbaa !299
+  %59 = icmp ult i64 %58, 16
+  call void @llvm.assume(i1 %59)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit9
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i7: ; preds = %55
-  %59 = load i64, ptr %38, align 8, !tbaa !42
-  %60 = add i64 %59, 1
-  call void @_ZdlPvm(ptr noundef %44, i64 noundef %60) #34
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i7: ; preds = %56
+  %60 = load i64, ptr %39, align 8, !tbaa !42
+  %61 = add i64 %60, 1
+  call void @_ZdlPvm(ptr noundef %45, i64 noundef %61) #34
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit9
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit9: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i8, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i7

@@ -1693,7 +1693,7 @@ get_string_parameter.exit98.thread.i:             ; preds = %get_string_paramete
 
 480:                                              ; preds = %477
   %481 = load i32, ptr %3, align 4, !tbaa !4
-  %482 = getelementptr inbounds %struct._descriptorspec_item, ptr %294, i64 %323, i32 2
+  %482 = getelementptr inbounds nuw i8, ptr %324, i64 8
   store i32 %481, ptr %482, align 4, !tbaa !91
   br label %set_proc_descriptor_to_file.exit.i
 

@@ -89,7 +89,7 @@ _ZN4cvc58internal10safe_printILm2EEEviRAT__Kc.exit19: ; preds = %11
   %16 = urem i64 %.121, 10
   %17 = trunc nuw nsw i64 %16 to i8
   %18 = or disjoint i8 %17, 48
-  %19 = getelementptr inbounds nuw i8, ptr %3, i64 %.01620
+  %19 = getelementptr inbounds i8, ptr %3, i64 %.01620
   store i8 %18, ptr %19, align 1, !tbaa !15
   %20 = udiv i64 %.121, 10
   %21 = add nsw i64 %.01620, -1
@@ -99,14 +99,13 @@ _ZN4cvc58internal10safe_printILm2EEEviRAT__Kc.exit19: ; preds = %11
   br i1 %24, label %15, label %25, !llvm.loop !16
 
 25:                                               ; preds = %15
-  %26 = sub i64 20, %.01620
-  %27 = getelementptr inbounds i8, ptr %3, i64 %21
-  %28 = getelementptr inbounds nuw i8, ptr %27, i64 1
-  %29 = call i64 @write(i32 noundef %0, ptr noundef nonnull %28, i64 noundef %26)
-  %.not = icmp eq i64 %29, %26
-  br i1 %.not, label %_ZN4cvc58internal10safe_printILm2EEEviRAT__Kc.exit, label %30
+  %26 = getelementptr inbounds i8, ptr %3, i64 %.01620
+  %27 = sub i64 20, %.01620
+  %28 = call i64 @write(i32 noundef %0, ptr noundef nonnull %26, i64 noundef %27)
+  %.not = icmp eq i64 %28, %27
+  br i1 %.not, label %_ZN4cvc58internal10safe_printILm2EEEviRAT__Kc.exit, label %29
 
-30:                                               ; preds = %25
+29:                                               ; preds = %25
   tail call void @abort() #6
   unreachable
 
@@ -150,7 +149,7 @@ define void @_ZN4cvc58internal10safe_printImEEviRKT_(i32 noundef %0, ptr noundef
   %9 = urem i64 %.016, 10
   %10 = trunc nuw nsw i64 %9 to i8
   %11 = or disjoint i8 %10, 48
-  %12 = getelementptr inbounds nuw i8, ptr %3, i64 %.01315
+  %12 = getelementptr inbounds i8, ptr %3, i64 %.01315
   store i8 %11, ptr %12, align 1, !tbaa !15
   %13 = udiv i64 %.016, 10
   %14 = add nsw i64 %.01315, -1
@@ -160,14 +159,13 @@ define void @_ZN4cvc58internal10safe_printImEEviRKT_(i32 noundef %0, ptr noundef
   br i1 %17, label %.preheader, label %18, !llvm.loop !19
 
 18:                                               ; preds = %.preheader
-  %19 = sub i64 20, %.01315
-  %20 = getelementptr inbounds i8, ptr %3, i64 %14
-  %21 = getelementptr inbounds nuw i8, ptr %20, i64 1
-  %22 = call i64 @write(i32 noundef %0, ptr noundef nonnull %21, i64 noundef %19)
-  %.not = icmp eq i64 %22, %19
-  br i1 %.not, label %_ZN4cvc58internal10safe_printILm2EEEviRAT__Kc.exit, label %23
+  %19 = getelementptr inbounds i8, ptr %3, i64 %.01315
+  %20 = sub i64 20, %.01315
+  %21 = call i64 @write(i32 noundef %0, ptr noundef nonnull %19, i64 noundef %20)
+  %.not = icmp eq i64 %21, %20
+  br i1 %.not, label %_ZN4cvc58internal10safe_printILm2EEEviRAT__Kc.exit, label %22
 
-23:                                               ; preds = %18
+22:                                               ; preds = %18
   tail call void @abort() #6
   unreachable
 
@@ -203,7 +201,7 @@ define void @_ZN4cvc58internal10safe_printIjEEviRKT_(i32 noundef %0, ptr noundef
   %10 = urem i64 %.016.i, 10
   %11 = trunc nuw nsw i64 %10 to i8
   %12 = or disjoint i8 %11, 48
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 %.01315.i
+  %13 = getelementptr inbounds i8, ptr %3, i64 %.01315.i
   store i8 %12, ptr %13, align 1, !tbaa !15
   %14 = udiv i64 %.016.i, 10
   %15 = add nsw i64 %.01315.i, -1
@@ -213,14 +211,13 @@ define void @_ZN4cvc58internal10safe_printIjEEviRKT_(i32 noundef %0, ptr noundef
   br i1 %18, label %.preheader.i, label %19, !llvm.loop !19
 
 19:                                               ; preds = %.preheader.i
-  %20 = sub i64 20, %.01315.i
-  %21 = getelementptr inbounds i8, ptr %3, i64 %15
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 1
-  %23 = call i64 @write(i32 noundef %0, ptr noundef nonnull %22, i64 noundef %20)
-  %.not.i = icmp eq i64 %23, %20
-  br i1 %.not.i, label %_ZN4cvc58internal10safe_printImEEviRKT_.exit, label %24
+  %20 = getelementptr inbounds i8, ptr %3, i64 %.01315.i
+  %21 = sub i64 20, %.01315.i
+  %22 = call i64 @write(i32 noundef %0, ptr noundef nonnull %20, i64 noundef %21)
+  %.not.i = icmp eq i64 %22, %21
+  br i1 %.not.i, label %_ZN4cvc58internal10safe_printImEEviRKT_.exit, label %23
 
-24:                                               ; preds = %19
+23:                                               ; preds = %19
   tail call void @abort() #6
   unreachable
 
@@ -376,7 +373,7 @@ _ZN4cvc58internal10safe_printILm3EEEviRAT__Kc.exit: ; preds = %2
   %14 = or disjoint i8 %13, 48
   %15 = add nuw nsw i8 %13, 87
   %.sink = select i1 %12, i8 %14, i8 %15
-  %16 = getelementptr inbounds nuw i8, ptr %3, i64 %.01822
+  %16 = getelementptr inbounds i8, ptr %3, i64 %.01822
   store i8 %.sink, ptr %16, align 1, !tbaa !15
   %17 = lshr i64 %.023, 4
   %18 = add nsw i64 %.01822, -1
@@ -386,14 +383,13 @@ _ZN4cvc58internal10safe_printILm3EEEviRAT__Kc.exit: ; preds = %2
   br i1 %21, label %.preheader, label %22, !llvm.loop !30
 
 22:                                               ; preds = %.preheader
-  %23 = sub i64 20, %.01822
-  %24 = getelementptr inbounds i8, ptr %3, i64 %18
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 1
-  %26 = call i64 @write(i32 noundef %0, ptr noundef nonnull %25, i64 noundef %23)
-  %.not = icmp eq i64 %26, %23
-  br i1 %.not, label %_ZN4cvc58internal10safe_printILm2EEEviRAT__Kc.exit, label %27
+  %23 = getelementptr inbounds i8, ptr %3, i64 %.01822
+  %24 = sub i64 20, %.01822
+  %25 = call i64 @write(i32 noundef %0, ptr noundef nonnull %23, i64 noundef %24)
+  %.not = icmp eq i64 %25, %24
+  br i1 %.not, label %_ZN4cvc58internal10safe_printILm2EEEviRAT__Kc.exit, label %26
 
-27:                                               ; preds = %22
+26:                                               ; preds = %22
   tail call void @abort() #6
   unreachable
 
@@ -426,7 +422,7 @@ define void @_ZN4cvc58internal10safe_printI8timespecEEviRKT_(i32 noundef %0, ptr
   %10 = urem i64 %.016.i, 10
   %11 = trunc nuw nsw i64 %10 to i8
   %12 = or disjoint i8 %11, 48
-  %13 = getelementptr inbounds nuw i8, ptr %4, i64 %.01315.i
+  %13 = getelementptr inbounds i8, ptr %4, i64 %.01315.i
   store i8 %12, ptr %13, align 1, !tbaa !15
   %14 = udiv i64 %.016.i, 10
   %15 = add nsw i64 %.01315.i, -1
@@ -436,56 +432,55 @@ define void @_ZN4cvc58internal10safe_printI8timespecEEviRKT_(i32 noundef %0, ptr
   br i1 %18, label %.preheader.i, label %19, !llvm.loop !19
 
 19:                                               ; preds = %.preheader.i
-  %20 = sub i64 20, %.01315.i
-  %21 = getelementptr inbounds i8, ptr %4, i64 %15
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 1
-  %23 = call i64 @write(i32 noundef %0, ptr noundef nonnull %22, i64 noundef %20)
-  %.not.i = icmp eq i64 %23, %20
-  br i1 %.not.i, label %_ZN4cvc58internal10safe_printImEEviRKT_.exit, label %24
+  %20 = getelementptr inbounds i8, ptr %4, i64 %.01315.i
+  %21 = sub i64 20, %.01315.i
+  %22 = call i64 @write(i32 noundef %0, ptr noundef nonnull %20, i64 noundef %21)
+  %.not.i = icmp eq i64 %22, %21
+  br i1 %.not.i, label %_ZN4cvc58internal10safe_printImEEviRKT_.exit, label %23
 
-24:                                               ; preds = %19
+23:                                               ; preds = %19
   tail call void @abort() #6
   unreachable
 
 _ZN4cvc58internal10safe_printImEEviRKT_.exit:     ; preds = %7, %19
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %25 = tail call i64 @write(i32 noundef %0, ptr noundef nonnull @.str.2, i64 noundef 1)
-  %.not.i4 = icmp eq i64 %25, 1
-  br i1 %.not.i4, label %_ZN4cvc58internal10safe_printILm2EEEviRAT__Kc.exit, label %26
+  %24 = tail call i64 @write(i32 noundef %0, ptr noundef nonnull @.str.2, i64 noundef 1)
+  %.not.i4 = icmp eq i64 %24, 1
+  br i1 %.not.i4, label %_ZN4cvc58internal10safe_printILm2EEEviRAT__Kc.exit, label %25
 
-26:                                               ; preds = %_ZN4cvc58internal10safe_printImEEviRKT_.exit
+25:                                               ; preds = %_ZN4cvc58internal10safe_printImEEviRKT_.exit
   tail call void @abort() #6
   unreachable
 
 _ZN4cvc58internal10safe_printILm2EEEviRAT__Kc.exit: ; preds = %_ZN4cvc58internal10safe_printImEEviRKT_.exit
-  %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %28 = load i64, ptr %27, align 8, !tbaa !33
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %27 = load i64, ptr %26, align 8, !tbaa !33
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(9) %3, i8 48, i64 9, i1 false), !tbaa !15
-  %.not24.i = icmp eq i64 %28, 0
+  %.not24.i = icmp eq i64 %27, 0
   br i1 %.not24.i, label %._crit_edge.i, label %.lr.ph22.i
 
 .lr.ph22.i:                                       ; preds = %_ZN4cvc58internal10safe_printILm2EEEviRAT__Kc.exit, %.lr.ph22.i
   %.0.in21.i = phi i64 [ %.0.i, %.lr.ph22.i ], [ 9, %_ZN4cvc58internal10safe_printILm2EEEviRAT__Kc.exit ]
-  %.01720.i = phi i64 [ %33, %.lr.ph22.i ], [ %28, %_ZN4cvc58internal10safe_printILm2EEEviRAT__Kc.exit ]
+  %.01720.i = phi i64 [ %32, %.lr.ph22.i ], [ %27, %_ZN4cvc58internal10safe_printILm2EEEviRAT__Kc.exit ]
   %.0.i = add nsw i64 %.0.in21.i, -1
-  %29 = urem i64 %.01720.i, 10
-  %30 = trunc nuw nsw i64 %29 to i8
-  %31 = or disjoint i8 %30, 48
-  %32 = getelementptr inbounds nuw i8, ptr %3, i64 %.0.i
-  store i8 %31, ptr %32, align 1, !tbaa !15
-  %33 = udiv i64 %.01720.i, 10
-  %34 = icmp ugt i64 %.01720.i, 9
-  %35 = icmp samesign ugt i64 %.0.in21.i, 1
-  %36 = and i1 %35, %34
-  br i1 %36, label %.lr.ph22.i, label %._crit_edge.i, !llvm.loop !34
+  %28 = urem i64 %.01720.i, 10
+  %29 = trunc nuw nsw i64 %28 to i8
+  %30 = or disjoint i8 %29, 48
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 %.0.i
+  store i8 %30, ptr %31, align 1, !tbaa !15
+  %32 = udiv i64 %.01720.i, 10
+  %33 = icmp ugt i64 %.01720.i, 9
+  %34 = icmp samesign ugt i64 %.0.in21.i, 1
+  %35 = and i1 %34, %33
+  br i1 %35, label %.lr.ph22.i, label %._crit_edge.i, !llvm.loop !34
 
 ._crit_edge.i:                                    ; preds = %.lr.ph22.i, %_ZN4cvc58internal10safe_printILm2EEEviRAT__Kc.exit
-  %37 = call i64 @write(i32 noundef %0, ptr noundef nonnull %3, i64 noundef 9)
-  %.not.i6 = icmp eq i64 %37, 9
-  br i1 %.not.i6, label %_ZN4cvc58internal24safe_print_right_alignedEiml.exit, label %38
+  %36 = call i64 @write(i32 noundef %0, ptr noundef nonnull %3, i64 noundef 9)
+  %.not.i6 = icmp eq i64 %36, 9
+  br i1 %.not.i6, label %_ZN4cvc58internal24safe_print_right_alignedEiml.exit, label %37
 
-38:                                               ; preds = %._crit_edge.i
+37:                                               ; preds = %._crit_edge.i
   tail call void @abort() #6
   unreachable
 

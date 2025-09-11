@@ -986,104 +986,105 @@ define i32 @ff_rtmp_packet_write(ptr noundef %0, ptr noundef captures(none) %1, 
   %122 = load i32, ptr %121, align 4, !tbaa !21
   %123 = load i32, ptr %1, align 8, !tbaa !27
   %124 = sext i32 %123 to i64
-  %125 = getelementptr inbounds %struct.RTMPPacket, ptr %24, i64 %124, i32 1
-  store i32 %122, ptr %125, align 4, !tbaa !21
-  %126 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %127 = load i32, ptr %126, align 8, !tbaa !19
-  %128 = getelementptr inbounds %struct.RTMPPacket, ptr %24, i64 %124, i32 6
-  store i32 %127, ptr %128, align 8, !tbaa !19
-  %129 = getelementptr inbounds %struct.RTMPPacket, ptr %24, i64 %124, i32 2
-  store i32 %118, ptr %129, align 8, !tbaa !24
-  %130 = getelementptr inbounds %struct.RTMPPacket, ptr %24, i64 %124, i32 3
-  store i32 %117, ptr %130, align 4, !tbaa !23
-  %131 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %132 = load i32, ptr %131, align 8, !tbaa !22
-  %133 = getelementptr inbounds %struct.RTMPPacket, ptr %24, i64 %124, i32 4
-  store i32 %132, ptr %133, align 8, !tbaa !22
-  %134 = ptrtoint ptr %.2156 to i64
-  %135 = ptrtoint ptr %6 to i64
-  %136 = sub i64 %134, %135
-  %137 = trunc i64 %136 to i32
-  %138 = call i32 @ffurl_write2(ptr noundef %0, ptr noundef nonnull %6, i32 noundef %137) #16
-  %139 = icmp slt i32 %138, 0
-  br i1 %139, label %ff_rtmp_check_alloc_array.exit, label %140
+  %125 = getelementptr inbounds %struct.RTMPPacket, ptr %24, i64 %124
+  %126 = getelementptr inbounds nuw i8, ptr %125, i64 4
+  store i32 %122, ptr %126, align 4, !tbaa !21
+  %127 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %128 = load i32, ptr %127, align 8, !tbaa !19
+  %129 = getelementptr inbounds nuw i8, ptr %125, i64 32
+  store i32 %128, ptr %129, align 8, !tbaa !19
+  %130 = getelementptr inbounds nuw i8, ptr %125, i64 8
+  store i32 %118, ptr %130, align 8, !tbaa !24
+  %131 = getelementptr inbounds nuw i8, ptr %125, i64 12
+  store i32 %117, ptr %131, align 4, !tbaa !23
+  %132 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %133 = load i32, ptr %132, align 8, !tbaa !22
+  %134 = getelementptr inbounds nuw i8, ptr %125, i64 16
+  store i32 %133, ptr %134, align 8, !tbaa !22
+  %135 = ptrtoint ptr %.2156 to i64
+  %136 = ptrtoint ptr %6 to i64
+  %137 = sub i64 %135, %136
+  %138 = trunc i64 %137 to i32
+  %139 = call i32 @ffurl_write2(ptr noundef %0, ptr noundef nonnull %6, i32 noundef %138) #16
+  %140 = icmp slt i32 %139, 0
+  br i1 %140, label %ff_rtmp_check_alloc_array.exit, label %141
 
-140:                                              ; preds = %116
-  %141 = load i32, ptr %126, align 8, !tbaa !19
-  %142 = add i32 %141, %137
-  %143 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %144 = call i32 @llvm.bswap.i32(i32 %.0105)
+141:                                              ; preds = %116
+  %142 = load i32, ptr %127, align 8, !tbaa !19
+  %143 = add i32 %142, %138
+  %144 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %145 = call i32 @llvm.bswap.i32(i32 %.0105)
   br label %.outer
 
-.outer:                                           ; preds = %.outer.backedge, %140
-  %.pre179 = phi i32 [ %141, %140 ], [ %.pre179.pre, %.outer.backedge ]
-  %.0109.ph = phi i32 [ %142, %140 ], [ %.0109.ph.be, %.outer.backedge ]
-  %.0107.ph = phi i32 [ 0, %140 ], [ %156, %.outer.backedge ]
-  br label %145
+.outer:                                           ; preds = %.outer.backedge, %141
+  %.pre179 = phi i32 [ %142, %141 ], [ %.pre179.pre, %.outer.backedge ]
+  %.0109.ph = phi i32 [ %143, %141 ], [ %.0109.ph.be, %.outer.backedge ]
+  %.0107.ph = phi i32 [ 0, %141 ], [ %157, %.outer.backedge ]
+  br label %146
 
-145:                                              ; preds = %.outer, %155
-  %146 = phi i32 [ %157, %155 ], [ %.pre179, %.outer ]
-  %.0107 = phi i32 [ %156, %155 ], [ %.0107.ph, %.outer ]
-  %147 = icmp slt i32 %.0107, %146
-  br i1 %147, label %148, label %ff_rtmp_check_alloc_array.exit
+146:                                              ; preds = %.outer, %156
+  %147 = phi i32 [ %158, %156 ], [ %.pre179, %.outer ]
+  %.0107 = phi i32 [ %157, %156 ], [ %.0107.ph, %.outer ]
+  %148 = icmp slt i32 %.0107, %147
+  br i1 %148, label %149, label %ff_rtmp_check_alloc_array.exit
 
-148:                                              ; preds = %145
-  %149 = sub nsw i32 %146, %.0107
-  %. = call i32 @llvm.smin.i32(i32 %2, i32 %149)
-  %150 = load ptr, ptr %143, align 8, !tbaa !26
-  %151 = sext i32 %.0107 to i64
-  %152 = getelementptr inbounds i8, ptr %150, i64 %151
-  %153 = call i32 @ffurl_write2(ptr noundef %0, ptr noundef %152, i32 noundef %.) #16
-  %154 = icmp slt i32 %153, 0
-  br i1 %154, label %ff_rtmp_check_alloc_array.exit, label %155
+149:                                              ; preds = %146
+  %150 = sub nsw i32 %147, %.0107
+  %. = call i32 @llvm.smin.i32(i32 %2, i32 %150)
+  %151 = load ptr, ptr %144, align 8, !tbaa !26
+  %152 = sext i32 %.0107 to i64
+  %153 = getelementptr inbounds i8, ptr %151, i64 %152
+  %154 = call i32 @ffurl_write2(ptr noundef %0, ptr noundef %153, i32 noundef %.) #16
+  %155 = icmp slt i32 %154, 0
+  br i1 %155, label %ff_rtmp_check_alloc_array.exit, label %156
 
-155:                                              ; preds = %148
-  %156 = add nsw i32 %., %.0107
-  %157 = load i32, ptr %126, align 8, !tbaa !19
-  %158 = icmp slt i32 %156, %157
-  br i1 %158, label %159, label %145, !llvm.loop !29
+156:                                              ; preds = %149
+  %157 = add nsw i32 %., %.0107
+  %158 = load i32, ptr %127, align 8, !tbaa !19
+  %159 = icmp slt i32 %157, %158
+  br i1 %159, label %160, label %146, !llvm.loop !29
 
-159:                                              ; preds = %155
+160:                                              ; preds = %156
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %160 = load i32, ptr %1, align 8, !tbaa !27
-  %161 = trunc i32 %160 to i8
-  %162 = or i8 %161, -64
-  store i8 %162, ptr %7, align 1, !tbaa !9
-  %163 = call i32 @ffurl_write2(ptr noundef %0, ptr noundef nonnull %7, i32 noundef 1) #16
-  %164 = icmp slt i32 %163, 0
-  br i1 %164, label %.thread163, label %165
+  %161 = load i32, ptr %1, align 8, !tbaa !27
+  %162 = trunc i32 %161 to i8
+  %163 = or i8 %162, -64
+  store i8 %163, ptr %7, align 1, !tbaa !9
+  %164 = call i32 @ffurl_write2(ptr noundef %0, ptr noundef nonnull %7, i32 noundef 1) #16
+  %165 = icmp slt i32 %164, 0
+  br i1 %165, label %.thread163, label %166
 
-.thread163:                                       ; preds = %159
+.thread163:                                       ; preds = %160
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %ff_rtmp_check_alloc_array.exit
 
-165:                                              ; preds = %159
-  %166 = load i32, ptr %47, align 4, !tbaa !23
-  %167 = icmp eq i32 %166, 16777215
-  br i1 %167, label %168, label %172
+166:                                              ; preds = %160
+  %167 = load i32, ptr %47, align 4, !tbaa !23
+  %168 = icmp eq i32 %167, 16777215
+  br i1 %168, label %169, label %173
 
-168:                                              ; preds = %165
+169:                                              ; preds = %166
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  store i32 %144, ptr %8, align 4, !tbaa !9
-  %169 = call i32 @ffurl_write2(ptr noundef %0, ptr noundef nonnull %8, i32 noundef 4) #16
-  %170 = icmp sgt i32 %169, -1
-  %171 = add nsw i32 %.0109.ph, 5
+  store i32 %145, ptr %8, align 4, !tbaa !9
+  %170 = call i32 @ffurl_write2(ptr noundef %0, ptr noundef nonnull %8, i32 noundef 4) #16
+  %171 = icmp sgt i32 %170, -1
+  %172 = add nsw i32 %.0109.ph, 5
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br i1 %170, label %.outer.backedge, label %ff_rtmp_check_alloc_array.exit
+  br i1 %171, label %.outer.backedge, label %ff_rtmp_check_alloc_array.exit
 
-172:                                              ; preds = %165
-  %173 = add nsw i32 %.0109.ph, 1
+173:                                              ; preds = %166
+  %174 = add nsw i32 %.0109.ph, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.outer.backedge
 
-.outer.backedge:                                  ; preds = %172, %168
-  %.0109.ph.be = phi i32 [ %171, %168 ], [ %173, %172 ]
-  %.pre179.pre = load i32, ptr %126, align 8, !tbaa !19
+.outer.backedge:                                  ; preds = %173, %169
+  %.0109.ph.be = phi i32 [ %172, %169 ], [ %174, %173 ]
+  %.pre179.pre = load i32, ptr %127, align 8, !tbaa !19
   br label %.outer, !llvm.loop !29
 
-ff_rtmp_check_alloc_array.exit:                   ; preds = %168, %148, %145, %.thread163, %12, %116
-  %.0 = phi i32 [ %138, %116 ], [ -12, %12 ], [ %163, %.thread163 ], [ %.0109.ph, %145 ], [ %153, %148 ], [ %169, %168 ]
+ff_rtmp_check_alloc_array.exit:                   ; preds = %169, %149, %146, %.thread163, %12, %116
+  %.0 = phi i32 [ %139, %116 ], [ -12, %12 ], [ %164, %.thread163 ], [ %.0109.ph, %146 ], [ %154, %149 ], [ %170, %169 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }

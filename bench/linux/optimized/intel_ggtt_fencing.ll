@@ -1542,7 +1542,8 @@ define dso_local void @intel_ggtt_fini_fences(ptr noundef readonly captures(none
   %8 = phi i32 [ 0, %5 ], [ %12, %7 ]
   %9 = load ptr, ptr %6, align 8
   %10 = sext i32 %8 to i64
-  %11 = getelementptr %struct.i915_fence_reg, ptr %9, i64 %10, i32 4
+  %.split = getelementptr %struct.i915_fence_reg, ptr %9, i64 %10
+  %11 = getelementptr i8, ptr %.split, i64 40
   tail call void @i915_active_fini(ptr noundef %11) #9
   %12 = add nuw i32 %8, 1
   %13 = load i32, ptr %2, align 4

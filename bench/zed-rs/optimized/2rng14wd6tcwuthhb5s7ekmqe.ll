@@ -1013,36 +1013,37 @@ define internal fastcc void @_ZN9anthropic10get_header17h8ecd7fd9eb231eb8E(ptr d
   %22 = call fastcc noundef nonnull ptr @_ZN6anyhow9__private10format_err17h72a43e378e179026E(ptr noalias noundef align 8 captures(none) dereferenceable(48) %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %30
+  br label %31
 
 23:                                               ; preds = %12
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %25 = load ptr, ptr %24, align 8, !alias.scope !117, !noalias !118, !nonnull !4, !noundef !4
-  %26 = getelementptr inbounds { { i64, [2 x i64] }, { { ptr, ptr, i64, { ptr } }, i8, [7 x i8] }, { { ptr, [3 x i64] } }, i16, [3 x i16] }, ptr %25, i64 %.sroa.52.0.copyload.i.i, i32 1
-  %27 = tail call { ptr, i64 } @_ZN4http6header5value11HeaderValue6to_str17hd9f09d81f3fd9171E(ptr noundef nonnull align 8 %26)
-  %28 = extractvalue { ptr, i64 } %27, 0
-  %29 = icmp eq ptr %28, null
-  br i1 %29, label %35, label %32
+  %26 = getelementptr inbounds { { i64, [2 x i64] }, { { ptr, ptr, i64, { ptr } }, i8, [7 x i8] }, { { ptr, [3 x i64] } }, i16, [3 x i16] }, ptr %25, i64 %.sroa.52.0.copyload.i.i
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 24
+  %28 = tail call { ptr, i64 } @_ZN4http6header5value11HeaderValue6to_str17hd9f09d81f3fd9171E(ptr noundef nonnull align 8 %27)
+  %29 = extractvalue { ptr, i64 } %28, 0
+  %30 = icmp eq ptr %29, null
+  br i1 %30, label %36, label %33
 
-30:                                               ; preds = %35, %17
-  %.sink = phi ptr [ %36, %35 ], [ %22, %17 ]
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink, ptr %31, align 8
+31:                                               ; preds = %36, %17
+  %.sink = phi ptr [ %37, %36 ], [ %22, %17 ]
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.sink, ptr %32, align 8
   store ptr null, ptr %0, align 8
-  br label %37
+  br label %38
 
-32:                                               ; preds = %23
-  %33 = extractvalue { ptr, i64 } %27, 1
-  store ptr %28, ptr %0, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %33, ptr %34, align 8
-  br label %37
+33:                                               ; preds = %23
+  %34 = extractvalue { ptr, i64 } %28, 1
+  store ptr %29, ptr %0, align 8
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %34, ptr %35, align 8
+  br label %38
 
-35:                                               ; preds = %23
-  %36 = tail call noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17h2b2bf3d1d33787f3E"()
-  br label %30
+36:                                               ; preds = %23
+  %37 = tail call noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17h2b2bf3d1d33787f3E"()
+  br label %31
 
-37:                                               ; preds = %32, %30
+38:                                               ; preds = %33, %31
   ret void
 }
 

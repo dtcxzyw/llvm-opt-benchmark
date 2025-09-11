@@ -1356,7 +1356,8 @@ entry:
   %conv.i = trunc i64 %sub.ptr.div.i.i to i32
   %cmp.not = icmp ult i32 %index, %conv.i
   %conv.i5 = zext i32 %index to i64
-  %FullName = getelementptr inbounds nuw %"struct.irr::io::SFileListEntry", ptr %1, i64 %conv.i5, i32 1
+  %FullName.split = getelementptr inbounds nuw %"struct.irr::io::SFileListEntry", ptr %1, i64 %conv.i5
+  %FullName = getelementptr inbounds nuw i8, ptr %FullName.split, i64 32
   %retval.0 = select i1 %cmp.not, ptr %FullName, ptr @_ZN3irr2ioL18emptyFileListEntryE
   ret ptr %retval.0
 }
@@ -2182,7 +2183,8 @@ entry:
 
 cond.true:                                        ; preds = %entry
   %conv.i5 = zext i32 %index to i64
-  %ID = getelementptr inbounds nuw %"struct.irr::io::SFileListEntry", ptr %1, i64 %conv.i5, i32 3
+  %ID.split = getelementptr inbounds nuw %"struct.irr::io::SFileListEntry", ptr %1, i64 %conv.i5
+  %ID = getelementptr inbounds nuw i8, ptr %ID.split, i64 68
   %2 = load i32, ptr %ID, align 4, !tbaa !48
   br label %cond.end
 
@@ -2208,7 +2210,8 @@ entry:
 
 if.then:                                          ; preds = %entry
   %conv.i6 = zext i32 %index to i64
-  %IsDirectory = getelementptr inbounds nuw %"struct.irr::io::SFileListEntry", ptr %1, i64 %conv.i6, i32 5
+  %IsDirectory.split = getelementptr inbounds nuw %"struct.irr::io::SFileListEntry", ptr %1, i64 %conv.i6
+  %IsDirectory = getelementptr inbounds nuw i8, ptr %IsDirectory.split, i64 76
   %2 = load i8, ptr %IsDirectory, align 4, !tbaa !54, !range !43, !noundef !44
   %3 = icmp ne i8 %2, 0
   br label %if.end
@@ -2235,7 +2238,8 @@ entry:
 
 cond.true:                                        ; preds = %entry
   %conv.i5 = zext i32 %index to i64
-  %Size = getelementptr inbounds nuw %"struct.irr::io::SFileListEntry", ptr %1, i64 %conv.i5, i32 2
+  %Size.split = getelementptr inbounds nuw %"struct.irr::io::SFileListEntry", ptr %1, i64 %conv.i5
+  %Size = getelementptr inbounds nuw i8, ptr %Size.split, i64 64
   %2 = load i32, ptr %Size, align 8, !tbaa !51
   br label %cond.end
 
@@ -2261,7 +2265,8 @@ entry:
 
 cond.true:                                        ; preds = %entry
   %conv.i5 = zext i32 %index to i64
-  %Offset = getelementptr inbounds nuw %"struct.irr::io::SFileListEntry", ptr %1, i64 %conv.i5, i32 4
+  %Offset.split = getelementptr inbounds nuw %"struct.irr::io::SFileListEntry", ptr %1, i64 %conv.i5
+  %Offset = getelementptr inbounds nuw i8, ptr %Offset.split, i64 72
   %2 = load i32, ptr %Offset, align 8, !tbaa !50
   br label %cond.end
 

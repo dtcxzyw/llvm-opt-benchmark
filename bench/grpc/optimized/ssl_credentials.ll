@@ -2000,7 +2000,7 @@ define noundef ptr @_Z35grpc_convert_grpc_to_tsi_cert_pairsPK26grpc_ssl_pem_key_
   br i1 %.not.i31, label %19, label %16, !prof !31
 
 16:                                               ; preds = %.lr.ph
-  %17 = getelementptr inbounds nuw %struct.grpc_ssl_pem_key_cert_pair, ptr %0, i64 %.02347, i32 1
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !30
   %.not.i32 = icmp eq ptr %18, null
   br i1 %.not.i32, label %31, label %24, !prof !31
@@ -2095,17 +2095,17 @@ define ptr @grpc_ssl_server_certificate_config_create(ptr noundef %0, ptr nounde
   ret ptr %7
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %30
-  %.051 = phi i64 [ %38, %30 ], [ 0, %.lr.ph.preheader ]
+  %.051 = phi i64 [ %39, %30 ], [ 0, %.lr.ph.preheader ]
   %20 = getelementptr inbounds nuw %struct.grpc_ssl_pem_key_cert_pair, ptr %1, i64 %.051
   %21 = load ptr, ptr %20, align 8, !tbaa !30
   %.not.i35 = icmp eq ptr %21, null
   br i1 %.not.i35, label %25, label %22, !prof !31
 
 22:                                               ; preds = %.lr.ph
-  %23 = getelementptr inbounds nuw %struct.grpc_ssl_pem_key_cert_pair, ptr %1, i64 %.051, i32 1
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %24 = load ptr, ptr %23, align 8, !tbaa !30
   %.not.i36 = icmp eq ptr %24, null
-  br i1 %.not.i36, label %39, label %30, !prof !31
+  br i1 %.not.i36, label %40, label %30, !prof !31
 
 25:                                               ; preds = %.lr.ph
   %26 = tail call noundef nonnull ptr @_ZN4absl12lts_2024072212log_internal17MakeCheckOpStringIPKcPKvEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_T0_S4_(ptr noundef null, ptr noundef null, ptr noundef nonnull @.str.19)
@@ -2120,24 +2120,25 @@ define ptr @grpc_ssl_server_certificate_config_create(ptr noundef %0, ptr nounde
 30:                                               ; preds = %22
   %31 = tail call ptr @gpr_strdup(ptr noundef nonnull %24)
   %32 = load ptr, ptr %7, align 8, !tbaa !126
-  %33 = getelementptr inbounds nuw %struct.grpc_ssl_pem_key_cert_pair, ptr %32, i64 %.051, i32 1
-  store ptr %31, ptr %33, align 8, !tbaa !37
-  %34 = load ptr, ptr %20, align 8, !tbaa !41
-  %35 = tail call ptr @gpr_strdup(ptr noundef %34)
-  %36 = load ptr, ptr %7, align 8, !tbaa !126
-  %37 = getelementptr inbounds nuw %struct.grpc_ssl_pem_key_cert_pair, ptr %36, i64 %.051
-  store ptr %35, ptr %37, align 8, !tbaa !41
-  %38 = add nuw i64 %.051, 1
-  %exitcond.not = icmp eq i64 %38, %2
+  %33 = getelementptr inbounds nuw %struct.grpc_ssl_pem_key_cert_pair, ptr %32, i64 %.051
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
+  store ptr %31, ptr %34, align 8, !tbaa !37
+  %35 = load ptr, ptr %20, align 8, !tbaa !41
+  %36 = tail call ptr @gpr_strdup(ptr noundef %35)
+  %37 = load ptr, ptr %7, align 8, !tbaa !126
+  %38 = getelementptr inbounds nuw %struct.grpc_ssl_pem_key_cert_pair, ptr %37, i64 %.051
+  store ptr %36, ptr %38, align 8, !tbaa !41
+  %39 = add nuw i64 %.051, 1
+  %exitcond.not = icmp eq i64 %39, %2
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !143
 
-39:                                               ; preds = %22
-  %40 = tail call noundef nonnull ptr @_ZN4absl12lts_2024072212log_internal17MakeCheckOpStringIPKcPKvEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_T0_S4_(ptr noundef null, ptr noundef null, ptr noundef nonnull @.str.20)
+40:                                               ; preds = %22
+  %41 = tail call noundef nonnull ptr @_ZN4absl12lts_2024072212log_internal17MakeCheckOpStringIPKcPKvEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_T0_S4_(ptr noundef null, ptr noundef null, ptr noundef nonnull @.str.20)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %41 = load ptr, ptr %40, align 8, !tbaa !32
-  %42 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  %43 = load i64, ptr %42, align 8, !tbaa !35
-  call void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull @.str, i32 noundef 345, i64 %43, ptr %41) #28
+  %42 = load ptr, ptr %41, align 8, !tbaa !32
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 8
+  %44 = load i64, ptr %43, align 8, !tbaa !35
+  call void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull @.str, i32 noundef 345, i64 %44, ptr %42) #28
   call void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #30
   unreachable
 }
@@ -2145,7 +2146,7 @@ define ptr @grpc_ssl_server_certificate_config_create(ptr noundef %0, ptr nounde
 ; Function Attrs: mustprogress uwtable
 define void @grpc_ssl_server_certificate_config_destroy(ptr noundef %0) local_unnamed_addr #3 {
   %2 = icmp eq ptr %0, null
-  br i1 %2, label %17, label %.preheader
+  br i1 %2, label %18, label %.preheader
 
 .preheader:                                       ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2160,24 +2161,25 @@ define void @grpc_ssl_server_certificate_config_destroy(ptr noundef %0) local_un
   %7 = load ptr, ptr %6, align 8, !tbaa !124
   tail call void @gpr_free(ptr noundef %7)
   tail call void @gpr_free(ptr noundef nonnull %0)
-  br label %17
+  br label %18
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %.011 = phi i64 [ %14, %.lr.ph ], [ 0, %.preheader ]
+  %.011 = phi i64 [ %15, %.lr.ph ], [ 0, %.preheader ]
   %8 = load ptr, ptr %0, align 8, !tbaa !126
   %9 = getelementptr inbounds nuw %struct.grpc_ssl_pem_key_cert_pair, ptr %8, i64 %.011
   %10 = load ptr, ptr %9, align 8, !tbaa !41
   tail call void @gpr_free(ptr noundef %10)
   %11 = load ptr, ptr %0, align 8, !tbaa !126
-  %12 = getelementptr inbounds nuw %struct.grpc_ssl_pem_key_cert_pair, ptr %11, i64 %.011, i32 1
-  %13 = load ptr, ptr %12, align 8, !tbaa !37
-  tail call void @gpr_free(ptr noundef %13)
-  %14 = add nuw i64 %.011, 1
-  %15 = load i64, ptr %3, align 8, !tbaa !127
-  %16 = icmp ult i64 %14, %15
-  br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !144
+  %12 = getelementptr inbounds nuw %struct.grpc_ssl_pem_key_cert_pair, ptr %11, i64 %.011
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %14 = load ptr, ptr %13, align 8, !tbaa !37
+  tail call void @gpr_free(ptr noundef %14)
+  %15 = add nuw i64 %.011, 1
+  %16 = load i64, ptr %3, align 8, !tbaa !127
+  %17 = icmp ult i64 %15, %16
+  br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !144
 
-17:                                               ; preds = %1, %._crit_edge
+18:                                               ; preds = %1, %._crit_edge
   ret void
 }
 
@@ -2537,7 +2539,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi54EEERS2_RAT__Kc.exit: ; pr
 ; Function Attrs: mustprogress uwtable
 define void @grpc_ssl_server_credentials_options_destroy(ptr noundef %0) local_unnamed_addr #3 {
   %2 = icmp eq ptr %0, null
-  br i1 %2, label %23, label %3
+  br i1 %2, label %24, label %3
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2564,25 +2566,26 @@ define void @grpc_ssl_server_credentials_options_destroy(ptr noundef %0) local_u
   br label %grpc_ssl_server_certificate_config_destroy.exit
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
-  %.011.i = phi i64 [ %20, %.lr.ph.i ], [ 0, %.preheader.i ]
+  %.011.i = phi i64 [ %21, %.lr.ph.i ], [ 0, %.preheader.i ]
   %14 = load ptr, ptr %7, align 8, !tbaa !126
   %15 = getelementptr inbounds nuw %struct.grpc_ssl_pem_key_cert_pair, ptr %14, i64 %.011.i
   %16 = load ptr, ptr %15, align 8, !tbaa !41
   tail call void @gpr_free(ptr noundef %16)
   %17 = load ptr, ptr %7, align 8, !tbaa !126
-  %18 = getelementptr inbounds nuw %struct.grpc_ssl_pem_key_cert_pair, ptr %17, i64 %.011.i, i32 1
-  %19 = load ptr, ptr %18, align 8, !tbaa !37
-  tail call void @gpr_free(ptr noundef %19)
-  %20 = add nuw i64 %.011.i, 1
-  %21 = load i64, ptr %9, align 8, !tbaa !127
-  %22 = icmp ult i64 %20, %21
-  br i1 %22, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !144
+  %18 = getelementptr inbounds nuw %struct.grpc_ssl_pem_key_cert_pair, ptr %17, i64 %.011.i
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %20 = load ptr, ptr %19, align 8, !tbaa !37
+  tail call void @gpr_free(ptr noundef %20)
+  %21 = add nuw i64 %.011.i, 1
+  %22 = load i64, ptr %9, align 8, !tbaa !127
+  %23 = icmp ult i64 %21, %22
+  br i1 %23, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !144
 
 grpc_ssl_server_certificate_config_destroy.exit:  ; preds = %3, %._crit_edge.i
   tail call void @gpr_free(ptr noundef nonnull %0)
-  br label %23
+  br label %24
 
-23:                                               ; preds = %1, %grpc_ssl_server_certificate_config_destroy.exit
+24:                                               ; preds = %1, %grpc_ssl_server_certificate_config_destroy.exit
   ret void
 }
 

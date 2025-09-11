@@ -6085,7 +6085,7 @@ thread-pre-split:                                 ; preds = %27, %19, %46
   %161 = call zeroext i8 @tvb_get_uint8(ptr noundef %3, i32 noundef %160)
   %162 = sub nuw nsw i32 8, %63
   %163 = lshr i32 255, %162
-  %164 = trunc nuw i32 %163 to i8
+  %164 = trunc nuw nsw i32 %163 to i8
   %165 = and i8 %161, %164
   %.not181 = icmp eq i8 %165, 0
   br i1 %.not181, label %.thread, label %166
@@ -6476,7 +6476,7 @@ define hidden void @proto_reg_handoff_ber() local_unnamed_addr #0 {
   %11 = zext i32 %10 to i64
   %12 = getelementptr %struct._value_string, ptr @syntax_names, i64 %11
   store i32 0, ptr %12, align 16
-  %13 = getelementptr %struct._value_string, ptr @syntax_names, i64 %11, i32 1
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr null, ptr %13, align 8
   %14 = load ptr, ptr @ber_handle, align 8
   call void @dissector_add_for_decode_as_with_preference(ptr noundef nonnull @.str.303, ptr noundef %14)
@@ -6545,7 +6545,7 @@ ber_update_oids.exit:                             ; preds = %register_ber_oid_sy
 define internal void @ber_add_syntax_name(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef captures(none) %2) #7 {
   %4 = load i32, ptr %2, align 4
   %5 = icmp ult i32 %4, 128
-  br i1 %5, label %6, label %14
+  br i1 %5, label %6, label %15
 
 6:                                                ; preds = %3
   %7 = zext nneg i32 %4 to i64
@@ -6553,14 +6553,15 @@ define internal void @ber_add_syntax_name(ptr noundef %0, ptr readnone captures(
   store i32 %4, ptr %8, align 16
   %9 = load i32, ptr %2, align 4
   %10 = zext i32 %9 to i64
-  %11 = getelementptr %struct._value_string, ptr @syntax_names, i64 %10, i32 1
-  store ptr %0, ptr %11, align 8
-  %12 = load i32, ptr %2, align 4
-  %13 = add i32 %12, 1
-  store i32 %13, ptr %2, align 4
-  br label %14
+  %11 = getelementptr %struct._value_string, ptr @syntax_names, i64 %10
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  store ptr %0, ptr %12, align 8
+  %13 = load i32, ptr %2, align 4
+  %14 = add i32 %13, 1
+  store i32 %14, ptr %2, align 4
+  br label %15
 
-14:                                               ; preds = %6, %3
+15:                                               ; preds = %6, %3
   ret void
 }
 
@@ -7048,7 +7049,7 @@ define internal void @oid_users_syntax_set_cb(ptr noundef writeonly captures(non
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr null, ptr %8, align 8
-  %9 = getelementptr i8, ptr %3, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %10 = load ptr, ptr %9, align 8
   %.not15 = icmp eq ptr %10, null
   br i1 %.not15, label %._crit_edge, label %.lr.ph.preheader
@@ -7062,21 +7063,23 @@ define internal void @oid_users_syntax_set_cb(ptr noundef writeonly captures(non
   %.01622 = phi i32 [ %12, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %12 = add i32 %.01622, 1
   %13 = zext i32 %12 to i64
-  %14 = getelementptr %struct._value_string, ptr %3, i64 %13, i32 1
-  %15 = load ptr, ptr %14, align 8
-  %.not = icmp eq ptr %15, null
+  %14 = getelementptr %struct._value_string, ptr %3, i64 %13
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %16 = load ptr, ptr %15, align 8
+  %.not = icmp eq ptr %16, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !30
 
 .lr.ph:                                           ; preds = %.lr.ph23
-  %16 = tail call i32 @g_str_equal(ptr noundef nonnull %15, ptr noundef %7)
-  %.not13 = icmp eq i32 %16, 0
+  %17 = tail call i32 @g_str_equal(ptr noundef nonnull %16, ptr noundef %7)
+  %.not13 = icmp eq i32 %17, 0
   br i1 %.not13, label %.lr.ph23, label %.lr.ph._crit_edge, !llvm.loop !30
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
-  %.lcssa = phi ptr [ %9, %.lr.ph.preheader ], [ %14, %.lr.ph ]
-  %17 = load ptr, ptr %.lcssa, align 8
-  %18 = tail call noalias ptr @g_strdup(ptr noundef %17)
-  store ptr %18, ptr %8, align 8
+  %.lcssa = phi ptr [ %3, %.lr.ph.preheader ], [ %14, %.lr.ph ]
+  %18 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 8
+  %19 = load ptr, ptr %18, align 8
+  %20 = tail call noalias ptr @g_strdup(ptr noundef %19)
+  store ptr %20, ptr %8, align 8
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph23, %5, %.lr.ph._crit_edge

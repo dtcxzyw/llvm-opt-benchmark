@@ -7559,7 +7559,8 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   %4 = load ptr, ptr %arrayidx.i9.i, align 8
   tail call void @_ZN6hermes11Instruction11pushOperandEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(132) %call, ptr noundef %4) #15
   %5 = load ptr, ptr %prop_map, align 8
-  %second.i = getelementptr inbounds nuw %"struct.std::pair.169", ptr %5, i64 %i.08.i, i32 1
+  %arrayidx.i.i = getelementptr inbounds nuw %"struct.std::pair.169", ptr %5, i64 %i.08.i
+  %second.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 8
   %6 = load ptr, ptr %second.i, align 8
   tail call void @_ZN6hermes11Instruction11pushOperandEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(132) %call, ptr noundef %6) #15
   %inc.i = add nuw nsw i64 %i.08.i, 1

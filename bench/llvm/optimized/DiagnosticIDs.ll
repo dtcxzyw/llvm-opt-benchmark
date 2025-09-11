@@ -1582,9 +1582,10 @@ declare noundef zeroext i1 @_ZNK5clang17DiagnosticsEngine22isSuppressedViaMappin
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local { ptr, i64 } @_ZN5clang13DiagnosticIDs29getWarningOptionDocumentationENS_4diag5GroupE(i32 noundef %0) local_unnamed_addr #1 align 2 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds %"struct.(anonymous namespace)::WarningOption", ptr @_ZL11OptionTable, i64 %2, i32 3
-  %.sroa.0.0.copyload = load ptr, ptr %3, align 8, !tbaa !132
-  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %3 = getelementptr inbounds %"struct.(anonymous namespace)::WarningOption", ptr @_ZL11OptionTable, i64 %2
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.sroa.0.0.copyload = load ptr, ptr %4, align 8, !tbaa !132
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !50
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0.copyload, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.2.0.copyload, 1
@@ -2381,25 +2382,26 @@ define dso_local void @_ZN5clang13DiagnosticIDs16setGroupSeverityEN4llvm9StringR
   store i8 %3, ptr %5, align 1, !tbaa !125
   %6 = tail call i64 @_ZN5clang13DiagnosticIDs24getGroupForWarningOptionEN4llvm9StringRefE(ptr %1, i64 %2)
   %.not = icmp samesign ult i64 %6, 4294967296
-  br i1 %.not, label %16, label %7
+  br i1 %.not, label %17, label %7
 
 7:                                                ; preds = %4
   %sext = shl i64 %6, 32
   %8 = ashr exact i64 %sext, 32
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.val.val.i = load ptr, ptr %9, align 8, !tbaa !14
-  %10 = getelementptr inbounds nuw %"struct.clang::DiagnosticIDs::GroupInfo", ptr %.val.val.i, i64 %8
-  %11 = load i8, ptr %10, align 4
-  %12 = and i8 %3, 7
-  %13 = and i8 %11, -8
-  %14 = or disjoint i8 %13, %12
-  store i8 %14, ptr %10, align 4
-  %15 = getelementptr %"struct.(anonymous namespace)::WarningOption", ptr @_ZL11OptionTable, i64 %8, i32 2
-  %.val3.i = load i16, ptr %15, align 4, !tbaa !165
+  %9 = getelementptr inbounds nuw %"struct.(anonymous namespace)::WarningOption", ptr @_ZL11OptionTable, i64 %8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.val.val.i = load ptr, ptr %10, align 8, !tbaa !14
+  %11 = getelementptr inbounds nuw %"struct.clang::DiagnosticIDs::GroupInfo", ptr %.val.val.i, i64 %8
+  %12 = load i8, ptr %11, align 4
+  %13 = and i8 %3, 7
+  %14 = and i8 %12, -8
+  %15 = or disjoint i8 %14, %13
+  store i8 %15, ptr %11, align 4
+  %16 = getelementptr i8, ptr %9, i64 4
+  %.val3.i = load i16, ptr %16, align 4, !tbaa !165
   call fastcc void @"_ZL19forEachSubGroupImplIZN5clang13DiagnosticIDs16setGroupSeverityEN4llvm9StringRefENS0_4diag8SeverityEE3$_0EvPKN12_GLOBAL__N_113WarningOptionET_"(i16 %.val3.i, ptr nonnull readonly %0, ptr nonnull readonly %5)
-  br label %16
+  br label %17
 
-16:                                               ; preds = %7, %4
+17:                                               ; preds = %7, %4
   ret void
 }
 
@@ -2414,7 +2416,7 @@ define dso_local void @_ZN5clang13DiagnosticIDs25setGroupNoWarningsAsErrorEN4llv
   %9 = tail call i64 @_ZN5clang13DiagnosticIDs24getGroupForWarningOptionEN4llvm9StringRefE(ptr %1, i64 %2)
   store i64 %9, ptr %7, align 8
   %.not = icmp samesign ult i64 %9, 4294967296
-  br i1 %.not, label %20, label %10
+  br i1 %.not, label %21, label %10
 
 10:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -2425,21 +2427,22 @@ define dso_local void @_ZN5clang13DiagnosticIDs25setGroupNoWarningsAsErrorEN4llv
   store ptr %6, ptr %.sroa.3.0..sroa_idx, align 8
   %sext = shl i64 %9, 32
   %11 = ashr exact i64 %sext, 32
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %13 = load ptr, ptr %12, align 8, !tbaa !14
-  %14 = getelementptr inbounds nuw %"struct.clang::DiagnosticIDs::GroupInfo", ptr %13, i64 %11
-  %15 = load i8, ptr %14, align 4
-  %16 = select i1 %3, i8 8, i8 0
-  %17 = and i8 %15, -9
-  %18 = or disjoint i8 %17, %16
-  store i8 %18, ptr %14, align 4
-  %19 = getelementptr %"struct.(anonymous namespace)::WarningOption", ptr @_ZL11OptionTable, i64 %11, i32 2
-  %.val.i = load i16, ptr %19, align 4, !tbaa !165
+  %12 = getelementptr inbounds nuw %"struct.(anonymous namespace)::WarningOption", ptr @_ZL11OptionTable, i64 %11
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %14 = load ptr, ptr %13, align 8, !tbaa !14
+  %15 = getelementptr inbounds nuw %"struct.clang::DiagnosticIDs::GroupInfo", ptr %14, i64 %11
+  %16 = load i8, ptr %15, align 4
+  %17 = select i1 %3, i8 8, i8 0
+  %18 = and i8 %16, -9
+  %19 = or disjoint i8 %18, %17
+  store i8 %19, ptr %15, align 4
+  %20 = getelementptr i8, ptr %12, i64 4
+  %.val.i = load i16, ptr %20, align 4, !tbaa !165
   call fastcc void @"_ZL19forEachSubGroupImplIZN5clang13DiagnosticIDs25setGroupNoWarningsAsErrorEN4llvm9StringRefEbE3$_0EvPKN12_GLOBAL__N_113WarningOptionET_"(i16 %.val.i, ptr noundef nonnull byval(%class.anon.157) align 8 %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %20
+  br label %21
 
-20:                                               ; preds = %10, %4
+21:                                               ; preds = %10, %4
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }
@@ -4593,8 +4596,8 @@ define internal fastcc void @"_ZL19forEachSubGroupImplIZN5clang13DiagnosticIDs16
   ret void
 
 7:                                                ; preds = %.lr.ph, %7
-  %8 = phi i16 [ %5, %.lr.ph ], [ %17, %7 ]
-  %.02 = phi ptr [ %4, %.lr.ph ], [ %16, %7 ]
+  %8 = phi i16 [ %5, %.lr.ph ], [ %18, %7 ]
+  %.02 = phi ptr [ %4, %.lr.ph ], [ %17, %7 ]
   %9 = sext i16 %8 to i64
   %.val.val = load ptr, ptr %6, align 8, !tbaa !14
   %.val5.val = load i8, ptr %1, align 1, !tbaa !125
@@ -4604,12 +4607,13 @@ define internal fastcc void @"_ZL19forEachSubGroupImplIZN5clang13DiagnosticIDs16
   %13 = and i8 %11, -8
   %14 = or disjoint i8 %13, %12
   store i8 %14, ptr %10, align 4
-  %15 = getelementptr %"struct.(anonymous namespace)::WarningOption", ptr @_ZL11OptionTable, i64 %9, i32 2
-  %.val6 = load i16, ptr %15, align 4, !tbaa !165
+  %15 = getelementptr inbounds %"struct.(anonymous namespace)::WarningOption", ptr @_ZL11OptionTable, i64 %9
+  %16 = getelementptr i8, ptr %15, i64 4
+  %.val6 = load i16, ptr %16, align 4, !tbaa !165
   tail call fastcc void @"_ZL19forEachSubGroupImplIZN5clang13DiagnosticIDs16setGroupSeverityEN4llvm9StringRefENS0_4diag8SeverityEE3$_0EvPKN12_GLOBAL__N_113WarningOptionET_"(i16 %.val6, ptr %0, ptr nonnull %1)
-  %16 = getelementptr inbounds nuw i8, ptr %.02, i64 2
-  %17 = load i16, ptr %16, align 2, !tbaa !166
-  %.not = icmp eq i16 %17, -1
+  %17 = getelementptr inbounds nuw i8, ptr %.02, i64 2
+  %18 = load i16, ptr %17, align 2, !tbaa !166
+  %.not = icmp eq i16 %18, -1
   br i1 %.not, label %._crit_edge, label %7, !llvm.loop !248
 }
 
@@ -4634,8 +4638,8 @@ define internal fastcc void @"_ZL19forEachSubGroupImplIZN5clang13DiagnosticIDs25
   ret void
 
 11:                                               ; preds = %.lr.ph, %11
-  %12 = phi i16 [ %4, %.lr.ph ], [ %25, %11 ]
-  %.02 = phi ptr [ %3, %.lr.ph ], [ %24, %11 ]
+  %12 = phi i16 [ %4, %.lr.ph ], [ %26, %11 ]
+  %.02 = phi ptr [ %3, %.lr.ph ], [ %25, %11 ]
   %13 = load i8, ptr %7, align 1, !tbaa !79, !range !127, !noundef !181
   %14 = load i32, ptr %10, align 4, !tbaa !56
   %15 = sext i32 %14 to i64
@@ -4647,12 +4651,13 @@ define internal fastcc void @"_ZL19forEachSubGroupImplIZN5clang13DiagnosticIDs25
   %21 = or disjoint i8 %20, %19
   store i8 %21, ptr %17, align 4
   %22 = sext i16 %12 to i64
-  %23 = getelementptr %"struct.(anonymous namespace)::WarningOption", ptr @_ZL11OptionTable, i64 %22, i32 2
-  %.val = load i16, ptr %23, align 4, !tbaa !165
+  %23 = getelementptr inbounds %"struct.(anonymous namespace)::WarningOption", ptr @_ZL11OptionTable, i64 %22
+  %24 = getelementptr i8, ptr %23, i64 4
+  %.val = load i16, ptr %24, align 4, !tbaa !165
   tail call fastcc void @"_ZL19forEachSubGroupImplIZN5clang13DiagnosticIDs25setGroupNoWarningsAsErrorEN4llvm9StringRefEbE3$_0EvPKN12_GLOBAL__N_113WarningOptionET_"(i16 %.val, ptr noundef nonnull byval(%class.anon.157) align 8 %0)
-  %24 = getelementptr inbounds nuw i8, ptr %.02, i64 2
-  %25 = load i16, ptr %24, align 2, !tbaa !166
-  %.not = icmp eq i16 %25, -1
+  %25 = getelementptr inbounds nuw i8, ptr %.02, i64 2
+  %26 = load i16, ptr %25, align 2, !tbaa !166
+  %.not = icmp eq i16 %26, -1
   br i1 %.not, label %._crit_edge, label %11, !llvm.loop !255
 }
 

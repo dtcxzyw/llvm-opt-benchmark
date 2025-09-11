@@ -1885,7 +1885,8 @@ define dso_local i32 @tcp_sendmsg_fastopen(ptr noundef %0, ptr noundef %1, ptr n
 35:                                               ; preds = %31, %26
   %36 = phi i64 [ 0, %26 ], [ %34, %31 ]
   %37 = or i32 %28, 256
-  %38 = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %36, i64 6
+  %.split = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %36
+  %38 = getelementptr i8, ptr %.split, i64 48
   %39 = load ptr, ptr %38, align 16
   %40 = tail call noalias noundef align 8 dereferenceable_or_null(56) ptr @kmalloc_trace(ptr noundef %39, i32 noundef %37, i64 noundef 56) #24
   store ptr %40, ptr %23, align 64
@@ -13128,13 +13129,15 @@ define dso_local void @tcp_init() local_unnamed_addr #14 section ".init.text" al
   %39 = getelementptr %struct.inet_bind_hashbucket, ptr %38, i64 %37
   store i32 0, ptr %39, align 8
   %40 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @tcp_hashinfo, i64 32), align 32
-  %41 = getelementptr %struct.inet_bind_hashbucket, ptr %40, i64 %37, i32 1
+  %.split = getelementptr %struct.inet_bind_hashbucket, ptr %40, i64 %37
+  %41 = getelementptr i8, ptr %.split, i64 8
   store ptr null, ptr %41, align 8
   %42 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @tcp_hashinfo, i64 48), align 16
   %43 = getelementptr %struct.inet_bind_hashbucket, ptr %42, i64 %37
   store i32 0, ptr %43, align 8
   %44 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @tcp_hashinfo, i64 48), align 16
-  %45 = getelementptr %struct.inet_bind_hashbucket, ptr %44, i64 %37, i32 1
+  %.split1 = getelementptr %struct.inet_bind_hashbucket, ptr %44, i64 %37
+  %45 = getelementptr i8, ptr %.split1, i64 8
   store ptr null, ptr %45, align 8
   %46 = add nuw nsw i64 %37, 1
   %47 = load i32, ptr getelementptr inbounds nuw (i8, ptr @tcp_hashinfo, i64 56), align 8

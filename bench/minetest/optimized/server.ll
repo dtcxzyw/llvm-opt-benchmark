@@ -24455,7 +24455,8 @@ invoke.cont:                                      ; preds = %_ZN13NetworkPacketC
 cond.true:                                        ; preds = %invoke.cont
   %3 = load i16, ptr %m_command.i, align 8, !tbaa !144
   %idxprom = zext i16 %3 to i64
-  %channel = getelementptr inbounds nuw %struct.ClientCommandFactory, ptr @clientCommandFactoryTable, i64 %idxprom, i32 1
+  %channel.split = getelementptr inbounds nuw %struct.ClientCommandFactory, ptr @clientCommandFactoryTable, i64 %idxprom
+  %channel = getelementptr inbounds nuw i8, ptr %channel.split, i64 8
   %4 = load i8, ptr %channel, align 8, !tbaa !793
   br label %cond.end
 
@@ -25912,15 +25913,16 @@ lpad17:                                           ; preds = %call1.i.noexc, %_ZN
 
 if.end:                                           ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %idxprom = zext nneg i16 %6 to i64
-  %state = getelementptr inbounds nuw %struct.ToServerCommandHandler, ptr @toServerCommandTable, i64 %idxprom, i32 1
+  %state.split = getelementptr inbounds nuw %struct.ToServerCommandHandler, ptr @toServerCommandTable, i64 %idxprom
+  %state = getelementptr inbounds nuw i8, ptr %state.split, i64 8
   %22 = load i32, ptr %state, align 8, !tbaa !815
   %cmp23 = icmp eq i32 %22, 0
   br i1 %cmp23, label %if.then24, label %if.end26
 
 if.then24:                                        ; preds = %if.end
-  %handler.i = getelementptr inbounds nuw %struct.ToServerCommandHandler, ptr @toServerCommandTable, i64 %idxprom, i32 2
+  %handler.i = getelementptr inbounds nuw i8, ptr %state.split, i64 16
   %.unpack.i = load i64, ptr %handler.i, align 16, !tbaa !818
-  %.elt3.i = getelementptr inbounds nuw i8, ptr %handler.i, i64 8
+  %.elt3.i = getelementptr inbounds nuw i8, ptr %state.split, i64 24
   %.unpack4.i = load i64, ptr %.elt3.i, align 8, !tbaa !818
   %23 = getelementptr inbounds i8, ptr %this, i64 %.unpack4.i
   %24 = and i64 %.unpack.i, 1
@@ -26089,9 +26091,10 @@ if.end44:                                         ; preds = %invoke.cont29
 if.then49:                                        ; preds = %if.end44
   %42 = load i16, ptr %m_command.i, align 8, !tbaa !144
   %idxprom.i207 = zext i16 %42 to i64
-  %handler.i208 = getelementptr inbounds nuw %struct.ToServerCommandHandler, ptr @toServerCommandTable, i64 %idxprom.i207, i32 2
+  %handler.i208.split = getelementptr inbounds nuw %struct.ToServerCommandHandler, ptr @toServerCommandTable, i64 %idxprom.i207
+  %handler.i208 = getelementptr inbounds nuw i8, ptr %handler.i208.split, i64 16
   %.unpack.i209 = load i64, ptr %handler.i208, align 16, !tbaa !818
-  %.elt3.i210 = getelementptr inbounds nuw i8, ptr %handler.i208, i64 8
+  %.elt3.i210 = getelementptr inbounds nuw i8, ptr %handler.i208.split, i64 24
   %.unpack4.i211 = load i64, ptr %.elt3.i210, align 8, !tbaa !818
   %43 = getelementptr inbounds i8, ptr %this, i64 %.unpack4.i211
   %44 = and i64 %.unpack.i209, 1
@@ -26204,9 +26207,10 @@ lpad65:                                           ; preds = %if.then.i252, %if.t
 if.end77:                                         ; preds = %invoke.cont53
   %53 = load i16, ptr %m_command.i, align 8, !tbaa !144
   %idxprom.i257 = zext i16 %53 to i64
-  %handler.i258 = getelementptr inbounds nuw %struct.ToServerCommandHandler, ptr @toServerCommandTable, i64 %idxprom.i257, i32 2
+  %handler.i258.split = getelementptr inbounds nuw %struct.ToServerCommandHandler, ptr @toServerCommandTable, i64 %idxprom.i257
+  %handler.i258 = getelementptr inbounds nuw i8, ptr %handler.i258.split, i64 16
   %.unpack.i259 = load i64, ptr %handler.i258, align 16, !tbaa !818
-  %.elt3.i260 = getelementptr inbounds nuw i8, ptr %handler.i258, i64 8
+  %.elt3.i260 = getelementptr inbounds nuw i8, ptr %handler.i258.split, i64 24
   %.unpack4.i261 = load i64, ptr %.elt3.i260, align 8, !tbaa !818
   %54 = getelementptr inbounds i8, ptr %this, i64 %.unpack4.i261
   %55 = and i64 %.unpack.i259, 1

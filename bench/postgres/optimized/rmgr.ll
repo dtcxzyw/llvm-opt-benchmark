@@ -237,7 +237,7 @@ define dso_local void @RmgrStartup() local_unnamed_addr #1 {
   br i1 %.not6, label %9, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds nuw %struct.RmgrData, ptr @RmgrTable, i64 %indvars.iv, i32 4
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %7 = load ptr, ptr %6, align 16
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %9, label %8
@@ -267,7 +267,7 @@ define dso_local void @RmgrCleanup() local_unnamed_addr #1 {
   br i1 %.not6, label %9, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds nuw %struct.RmgrData, ptr @RmgrTable, i64 %indvars.iv, i32 5
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %9, label %8

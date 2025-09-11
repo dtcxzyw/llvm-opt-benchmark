@@ -197,33 +197,35 @@ define { double, double } @PQ_min(ptr noundef captures(none) %0) local_unnamed_a
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.promoted = load i32, ptr %3, align 8, !tbaa !22
   %4 = sext i32 %.promoted to i64
-  %5 = getelementptr inbounds %struct.Halfedge, ptr %2, i64 %4, i32 7
-  %6 = load ptr, ptr %5, align 8, !tbaa !23
-  %7 = icmp eq ptr %6, null
-  br i1 %7, label %.lr.ph, label %12
+  %5 = getelementptr inbounds %struct.Halfedge, ptr %2, i64 %4
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 48
+  %7 = load ptr, ptr %6, align 8, !tbaa !23
+  %8 = icmp eq ptr %7, null
+  br i1 %8, label %.lr.ph, label %14
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ %4, %1 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %8 = getelementptr inbounds %struct.Halfedge, ptr %2, i64 %indvars.iv.next, i32 7
-  %9 = load ptr, ptr %8, align 8, !tbaa !23
-  %10 = icmp eq ptr %9, null
-  br i1 %10, label %.lr.ph, label %._crit_edge, !llvm.loop !29
+  %9 = getelementptr inbounds %struct.Halfedge, ptr %2, i64 %indvars.iv.next
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 48
+  %11 = load ptr, ptr %10, align 8, !tbaa !23
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %.lr.ph, label %._crit_edge, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %11 = trunc nsw i64 %indvars.iv.next to i32
-  store i32 %11, ptr %3, align 8, !tbaa !22
-  br label %12
+  %13 = trunc nsw i64 %indvars.iv.next to i32
+  store i32 %13, ptr %3, align 8, !tbaa !22
+  br label %14
 
-12:                                               ; preds = %._crit_edge, %1
-  %.lcssa = phi ptr [ %9, %._crit_edge ], [ %6, %1 ]
-  %13 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 32
-  %14 = load ptr, ptr %13, align 8, !tbaa !3
-  %15 = load double, ptr %14, align 8, !tbaa !24
-  %16 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 40
-  %17 = load double, ptr %16, align 8, !tbaa !17
-  %.fca.0.insert = insertvalue { double, double } poison, double %15, 0
-  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %17, 1
+14:                                               ; preds = %._crit_edge, %1
+  %.lcssa = phi ptr [ %11, %._crit_edge ], [ %7, %1 ]
+  %15 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 32
+  %16 = load ptr, ptr %15, align 8, !tbaa !3
+  %17 = load double, ptr %16, align 8, !tbaa !24
+  %18 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 40
+  %19 = load double, ptr %18, align 8, !tbaa !17
+  %.fca.0.insert = insertvalue { double, double } poison, double %17, 0
+  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %19, 1
   ret { double, double } %.fca.1.insert
 }
 
@@ -233,16 +235,17 @@ define ptr @PQextractmin(ptr noundef captures(none) %0) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8, !tbaa !22
   %5 = sext i32 %4 to i64
-  %6 = getelementptr inbounds %struct.Halfedge, ptr %2, i64 %5, i32 7
-  %7 = load ptr, ptr %6, align 8, !tbaa !23
-  %8 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  %9 = load ptr, ptr %8, align 8, !tbaa !23
-  store ptr %9, ptr %6, align 8, !tbaa !23
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %11 = load i32, ptr %10, align 4, !tbaa !27
-  %12 = add nsw i32 %11, -1
-  store i32 %12, ptr %10, align 4, !tbaa !27
-  ret ptr %7
+  %6 = getelementptr inbounds %struct.Halfedge, ptr %2, i64 %5
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 48
+  %8 = load ptr, ptr %7, align 8, !tbaa !23
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 48
+  %10 = load ptr, ptr %9, align 8, !tbaa !23
+  store ptr %10, ptr %7, align 8, !tbaa !23
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %12 = load i32, ptr %11, align 4, !tbaa !27
+  %13 = add nsw i32 %12, -1
+  store i32 %13, ptr %11, align 4, !tbaa !27
+  ret ptr %8
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable

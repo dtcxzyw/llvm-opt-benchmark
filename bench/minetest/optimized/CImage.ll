@@ -1860,7 +1860,7 @@ while.body.i.prol.loopexit:                       ; preds = %while.body.i.prol.l
   %add.ptr.i.lcssa.unr = phi ptr [ undef, %while.body.preheader.i ], [ %add.ptr.i.prol, %while.body.i.prol.loopexit.loopexit ]
   %i.040.i.unr = phi i64 [ %shr.i46, %while.body.preheader.i ], [ %17, %while.body.i.prol.loopexit.loopexit ]
   %d.039.i.unr = phi ptr [ %10, %while.body.preheader.i ], [ %add.ptr.i.prol, %while.body.i.prol.loopexit.loopexit ]
-  %18 = icmp ult i64 %15, 7
+  %18 = icmp samesign ult i64 %15, 7
   br i1 %18, label %while.end.i, label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i.prol.loopexit, %while.body.i

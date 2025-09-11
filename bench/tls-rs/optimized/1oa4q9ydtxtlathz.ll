@@ -11192,7 +11192,7 @@ _ZN6rustls4msgs9handshake15ServerExtension8ext_type17hceb8a800d7240357E.exit.i.i
   invoke void @"_ZN4core3ptr58drop_in_place$LT$rustls..msgs..message..MessagePayload$GT$17h6de0f8096c3e035fE.llvm.4248407042397360440"(ptr noalias noundef nonnull align 8 dereferenceable(192) %3)
           to label %"_ZN4core3ptr51drop_in_place$LT$rustls..msgs..message..Message$GT$17he5c98e835734cfb6E.exit187" unwind label %355
 
-333:                                              ; preds = %399, %.body, %408, %407, %405, %402, %401, %.body194, %.body126
+333:                                              ; preds = %399, %.body, %407, %406, %404, %402, %401, %.body194, %.body126
   %334 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #35
@@ -11354,8 +11354,8 @@ _ZN6rustls4msgs9handshake15ServerExtension8ext_type17hceb8a800d7240357E.exit.i.i
   call void @__rust_dealloc(ptr noundef nonnull %1, i64 noundef 496, i64 noundef 8) #36
   ret void
 
-common.resume:                                    ; preds = %.body194, %385, %407, %388
-  %common.resume.op = phi { ptr, i32 } [ %389, %388 ], [ %.pn117, %407 ], [ %386, %385 ], [ %eh.lpad-body195, %.body194 ]
+common.resume:                                    ; preds = %.body194, %385, %406, %388
+  %common.resume.op = phi { ptr, i32 } [ %389, %388 ], [ %.pn117, %406 ], [ %386, %385 ], [ %eh.lpad-body195, %.body194 ]
   call void @__rust_dealloc(ptr noundef nonnull %1, i64 noundef 496, i64 noundef 8) #36
   resume { ptr, i32 } %common.resume.op
 
@@ -11392,7 +11392,7 @@ common.resume:                                    ; preds = %.body194, %385, %40
 
 400:                                              ; preds = %401, %"_ZN4core3ptr86drop_in_place$LT$alloc..sync..Arc$LT$rustls..client..client_conn..ClientConfig$GT$$GT$17h3c6b5bff9fd8b4ceE.exit"
   %cond = icmp eq i8 %.2, 0
-  br i1 %cond, label %407, label %402
+  br i1 %cond, label %406, label %402
 
 401:                                              ; preds = %"_ZN4core3ptr86drop_in_place$LT$alloc..sync..Arc$LT$rustls..client..client_conn..ClientConfig$GT$$GT$17h3c6b5bff9fd8b4ceE.exit"
   invoke void @"_ZN4core3ptr67drop_in_place$LT$rustls..msgs..persist..Tls13ClientSessionValue$GT$17hcf665a54d9a22210E"(ptr noalias noundef nonnull align 8 dereferenceable(128) %390) #34
@@ -11401,24 +11401,21 @@ common.resume:                                    ; preds = %.body194, %385, %40
 402:                                              ; preds = %400
   %403 = getelementptr inbounds nuw i8, ptr %1, i64 216
   invoke fastcc void @"_ZN4core3ptr62drop_in_place$LT$rustls_pki_types..server_name..ServerName$GT$17hc92ca74284c0307fE"(ptr noalias noundef align 8 dereferenceable(32) %403) #34
-          to label %405 unwind label %333
-
-404:                                              ; preds = %405
-  br i1 %354, label %408, label %407
-
-405:                                              ; preds = %402
-  %406 = getelementptr inbounds nuw i8, ptr %1, i64 160
-  invoke void @"_ZN4core3ptr51drop_in_place$LT$rustls..hash_hs..HandshakeHash$GT$17h2bff710c7bc62226E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %406) #34
           to label %404 unwind label %333
 
-407:                                              ; preds = %400, %408, %404
+404:                                              ; preds = %402
+  %405 = getelementptr inbounds nuw i8, ptr %1, i64 160
+  invoke void @"_ZN4core3ptr51drop_in_place$LT$rustls..hash_hs..HandshakeHash$GT$17h2bff710c7bc62226E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %405) #34
+          to label %407 unwind label %333
+
+406:                                              ; preds = %400, %407
   invoke void @"_ZN4core3ptr63drop_in_place$LT$rustls..client..common..ClientHelloDetails$GT$17hdbbbe99d025e0835E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1) #34
           to label %common.resume unwind label %333
 
-408:                                              ; preds = %404
-  %409 = getelementptr inbounds nuw i8, ptr %1, i64 264
-  invoke void @"_ZN4core3ptr70drop_in_place$LT$rustls..tls13..key_schedule..KeyScheduleHandshake$GT$17h688a3408f5bb4a3fE"(ptr noalias noundef nonnull align 8 dereferenceable(168) %409) #34
-          to label %407 unwind label %333
+407:                                              ; preds = %404
+  %408 = getelementptr inbounds nuw i8, ptr %1, i64 264
+  invoke void @"_ZN4core3ptr70drop_in_place$LT$rustls..tls13..key_schedule..KeyScheduleHandshake$GT$17h688a3408f5bb4a3fE"(ptr noalias noundef nonnull align 8 dereferenceable(168) %408) #34
+          to label %406 unwind label %333
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable

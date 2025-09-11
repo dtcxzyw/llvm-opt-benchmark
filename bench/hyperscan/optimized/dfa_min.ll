@@ -189,7 +189,7 @@ define hidden void @_ZN3ue217minimize_hopcroftERNS_7raw_dfaERKNS_4GreyE(ptr noun
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 55
   %15 = load i8, ptr %14, align 1, !range !5, !noundef !6
   %16 = trunc nuw i8 %15 to i1
-  br i1 %16, label %17, label %802
+  br i1 %16, label %17, label %803
 
 17:                                               ; preds = %2
   %18 = tail call noundef zeroext i1 @_ZN3ue27is_deadERKNS_7raw_dfaE(ptr noundef nonnull align 8 dereferenceable(560) %0)
@@ -1807,7 +1807,7 @@ _ZN3ue211flat_detail9flat_baseItSt4lessItESaItEED2Ev.exit49.i: ; preds = %617, %
 
 .noexc.i42:                                       ; preds = %631
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #20
-          to label %.noexc unwind label %803
+          to label %.noexc unwind label %804
 
 .noexc:                                           ; preds = %.noexc.i42
   unreachable
@@ -1819,7 +1819,7 @@ _ZNSt6vectorItSaItEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %631
 .noexc13.i:                                       ; preds = %_ZNSt6vectorItSaItEE17_S_check_init_lenEmRKS0_.exit.i.i
   %633 = shl nuw nsw i64 %629, 1
   %634 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %633) #21
-          to label %.noexc43 unwind label %803
+          to label %.noexc43 unwind label %804
 
 .noexc43:                                         ; preds = %.noexc13.i
   store i16 0, ptr %634, align 2
@@ -2202,7 +2202,7 @@ _ZNSt6vectorItSaItEED2Ev.exit46.i.i:              ; preds = %761, %760, %652
   call void @_ZNSt3mapItmSt4lessItESaISt4pairIKtmEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %3) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not.i.i.i19.i = icmp eq ptr %.sroa.021.0.i, null
-  br i1 %.not.i.i.i19.i, label %.body, label %801
+  br i1 %.not.i.i.i19.i, label %.body, label %802
 
 762:                                              ; preds = %_ZNSt6vectorItSaItEED2Ev.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -2212,80 +2212,81 @@ _ZNSt6vectorItSaItEED2Ev.exit46.i.i:              ; preds = %761, %760, %652
   br i1 %.not.i15.i, label %_ZNSt6vectorItSaItEED2Ev.exit.i, label %.preheader.i16.i
 
 .preheader.i16.i:                                 ; preds = %762, %._crit_edge.i18.i
-  %.027.i.i = phi i64 [ %772, %._crit_edge.i18.i ], [ 0, %762 ]
+  %.027.i.i = phi i64 [ %773, %._crit_edge.i18.i ], [ 0, %762 ]
   %765 = load i64, ptr %13, align 8
   %.not29.i.i = icmp eq i64 %765, 0
   br i1 %.not29.i.i, label %._crit_edge.i18.i, label %.lr.ph.i17.i
 
 ._crit_edge.i18.i:                                ; preds = %.lr.ph.i17.i, %.preheader.i16.i
   %766 = load ptr, ptr %19, align 8
-  %767 = getelementptr inbounds nuw %"struct.ue2::dstate", ptr %766, i64 %.027.i.i, i32 1
-  %768 = load i16, ptr %767, align 8
-  %769 = zext i16 %768 to i64
-  %770 = getelementptr inbounds nuw i16, ptr %.sroa.021.0.i, i64 %769
-  %771 = load i16, ptr %770, align 2
-  store i16 %771, ptr %767, align 8
-  %772 = add nuw i64 %.027.i.i, 1
-  %773 = load ptr, ptr %620, align 8
-  %774 = load ptr, ptr %619, align 8
-  %775 = ptrtoint ptr %773 to i64
+  %767 = getelementptr inbounds nuw %"struct.ue2::dstate", ptr %766, i64 %.027.i.i
+  %768 = getelementptr inbounds nuw i8, ptr %767, i64 24
+  %769 = load i16, ptr %768, align 8
+  %770 = zext i16 %769 to i64
+  %771 = getelementptr inbounds nuw i16, ptr %.sroa.021.0.i, i64 %770
+  %772 = load i16, ptr %771, align 2
+  store i16 %772, ptr %768, align 8
+  %773 = add nuw i64 %.027.i.i, 1
+  %774 = load ptr, ptr %620, align 8
+  %775 = load ptr, ptr %619, align 8
   %776 = ptrtoint ptr %774 to i64
-  %777 = sub i64 %775, %776
-  %778 = sdiv exact i64 %777, 24
-  %779 = icmp ult i64 %772, %778
-  br i1 %779, label %.preheader.i16.i, label %_ZNSt6vectorItSaItEED2Ev.exit.i, !llvm.loop !85
+  %777 = ptrtoint ptr %775 to i64
+  %778 = sub i64 %776, %777
+  %779 = sdiv exact i64 %778, 24
+  %780 = icmp ult i64 %773, %779
+  br i1 %780, label %.preheader.i16.i, label %_ZNSt6vectorItSaItEED2Ev.exit.i, !llvm.loop !85
 
 .lr.ph.i17.i:                                     ; preds = %.preheader.i16.i, %.lr.ph.i17.i
-  %.02526.i.i = phi i64 [ %788, %.lr.ph.i17.i ], [ 0, %.preheader.i16.i ]
-  %780 = load ptr, ptr %19, align 8
-  %781 = getelementptr inbounds nuw %"struct.ue2::dstate", ptr %780, i64 %.027.i.i
-  %782 = load ptr, ptr %781, align 8
-  %783 = getelementptr inbounds nuw i16, ptr %782, i64 %.02526.i.i
-  %784 = load i16, ptr %783, align 2
-  %785 = zext i16 %784 to i64
-  %786 = getelementptr inbounds nuw i16, ptr %.sroa.021.0.i, i64 %785
-  %787 = load i16, ptr %786, align 2
-  store i16 %787, ptr %783, align 2
-  %788 = add nuw i64 %.02526.i.i, 1
-  %789 = load i64, ptr %13, align 8
-  %790 = icmp ult i64 %788, %789
-  br i1 %790, label %.lr.ph.i17.i, label %._crit_edge.i18.i, !llvm.loop !86
+  %.02526.i.i = phi i64 [ %789, %.lr.ph.i17.i ], [ 0, %.preheader.i16.i ]
+  %781 = load ptr, ptr %19, align 8
+  %782 = getelementptr inbounds nuw %"struct.ue2::dstate", ptr %781, i64 %.027.i.i
+  %783 = load ptr, ptr %782, align 8
+  %784 = getelementptr inbounds nuw i16, ptr %783, i64 %.02526.i.i
+  %785 = load i16, ptr %784, align 2
+  %786 = zext i16 %785 to i64
+  %787 = getelementptr inbounds nuw i16, ptr %.sroa.021.0.i, i64 %786
+  %788 = load i16, ptr %787, align 2
+  store i16 %788, ptr %784, align 2
+  %789 = add nuw i64 %.02526.i.i, 1
+  %790 = load i64, ptr %13, align 8
+  %791 = icmp ult i64 %789, %790
+  br i1 %791, label %.lr.ph.i17.i, label %._crit_edge.i18.i, !llvm.loop !86
 
 _ZNSt6vectorItSaItEED2Ev.exit.i:                  ; preds = %._crit_edge.i18.i, %762
-  %791 = getelementptr inbounds nuw i8, ptr %0, i64 42
-  %792 = load i16, ptr %791, align 2
-  %793 = zext i16 %792 to i64
-  %794 = getelementptr inbounds nuw i16, ptr %.sroa.021.0.i, i64 %793
-  %795 = load i16, ptr %794, align 2
-  store i16 %795, ptr %791, align 2
-  %796 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %797 = load i16, ptr %796, align 8
-  %798 = zext i16 %797 to i64
-  %799 = getelementptr inbounds nuw i16, ptr %.sroa.021.0.i, i64 %798
-  %800 = load i16, ptr %799, align 2
-  store i16 %800, ptr %796, align 8
+  %792 = getelementptr inbounds nuw i8, ptr %0, i64 42
+  %793 = load i16, ptr %792, align 2
+  %794 = zext i16 %793 to i64
+  %795 = getelementptr inbounds nuw i16, ptr %.sroa.021.0.i, i64 %794
+  %796 = load i16, ptr %795, align 2
+  store i16 %796, ptr %792, align 2
+  %797 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %798 = load i16, ptr %797, align 8
+  %799 = zext i16 %798 to i64
+  %800 = getelementptr inbounds nuw i16, ptr %.sroa.021.0.i, i64 %799
+  %801 = load i16, ptr %800, align 2
+  store i16 %801, ptr %797, align 8
   call void @_ZdlPv(ptr noundef nonnull %.sroa.021.0.i) #23
   br label %_ZN3ue2L7new_dfaERNS_7raw_dfaERKNS_12_GLOBAL__N_112HopcroftInfoE.exit
 
-801:                                              ; preds = %_ZNSt6vectorItSaItEED2Ev.exit46.i.i
+802:                                              ; preds = %_ZNSt6vectorItSaItEED2Ev.exit46.i.i
   call void @_ZdlPv(ptr noundef nonnull %.sroa.021.0.i) #23
   br label %.body
 
 _ZN3ue2L7new_dfaERNS_7raw_dfaERKNS_12_GLOBAL__N_112HopcroftInfoE.exit: ; preds = %_ZNSt6vectorItSaItEED2Ev.exit.i, %618
   call fastcc void @_ZN3ue212_GLOBAL__N_112HopcroftInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %13) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  br label %802
+  br label %803
 
-802:                                              ; preds = %2, %_ZN3ue2L7new_dfaERNS_7raw_dfaERKNS_12_GLOBAL__N_112HopcroftInfoE.exit
+803:                                              ; preds = %2, %_ZN3ue2L7new_dfaERNS_7raw_dfaERKNS_12_GLOBAL__N_112HopcroftInfoE.exit
   ret void
 
-803:                                              ; preds = %.noexc13.i, %.noexc.i42
-  %804 = landingpad { ptr, i32 }
+804:                                              ; preds = %.noexc13.i, %.noexc.i42
+  %805 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.body:                                            ; preds = %803, %801, %_ZNSt6vectorItSaItEED2Ev.exit46.i.i, %_ZN3ue211flat_detail9flat_baseItSt4lessItESaItEED2Ev.exit49.i
-  %eh.lpad-body = phi { ptr, i32 } [ %.pn.pn.pn.pn.i, %_ZN3ue211flat_detail9flat_baseItSt4lessItESaItEED2Ev.exit49.i ], [ %804, %803 ], [ %.pn37.pn.i.i, %801 ], [ %.pn37.pn.i.i, %_ZNSt6vectorItSaItEED2Ev.exit46.i.i ]
+.body:                                            ; preds = %804, %802, %_ZNSt6vectorItSaItEED2Ev.exit46.i.i, %_ZN3ue211flat_detail9flat_baseItSt4lessItESaItEED2Ev.exit49.i
+  %eh.lpad-body = phi { ptr, i32 } [ %.pn.pn.pn.pn.i, %_ZN3ue211flat_detail9flat_baseItSt4lessItESaItEED2Ev.exit49.i ], [ %805, %804 ], [ %.pn37.pn.i.i, %802 ], [ %.pn37.pn.i.i, %_ZNSt6vectorItSaItEED2Ev.exit46.i.i ]
   call fastcc void @_ZN3ue212_GLOBAL__N_112HopcroftInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %13) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %common.resume

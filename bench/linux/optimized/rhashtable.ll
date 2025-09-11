@@ -1771,7 +1771,8 @@ define internal fastcc noundef ptr @bucket_table_alloc(i64 noundef range(i64 0, 
 
 19:                                               ; preds = %15, %12
   %20 = phi i64 [ 0, %12 ], [ %18, %15 ]
-  %21 = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %20, i64 1
+  %.split = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %20
+  %21 = getelementptr i8, ptr %.split, i64 8
   %22 = load ptr, ptr %21, align 8
   %23 = tail call noalias align 8 dereferenceable_or_null(72) ptr @kmalloc_trace(ptr noundef %22, i32 noundef %5, i64 noundef 72) #18
   %24 = icmp eq ptr %23, null

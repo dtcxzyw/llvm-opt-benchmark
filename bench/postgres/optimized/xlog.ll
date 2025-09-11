@@ -579,7 +579,7 @@ WALInsertLockRelease.exit:                        ; preds = %77, %78
   %84 = load volatile i32, ptr @CritSectionCount, align 4
   %85 = add i32 %84, -1
   store volatile i32 %85, ptr @CritSectionCount, align 4
-  br label %379
+  br label %380
 
 86:                                               ; preds = %70, %65
   %87 = load i32, ptr %10, align 8
@@ -741,7 +741,7 @@ ReserveXLogInsertLocation.exit55:                 ; preds = %156, %161
 
 ._crit_edge:                                      ; preds = %175
   %.b4.i61.pre = load i1, ptr @holdingAllLocks, align 1
-  br i1 %.b4.i61.pre, label %.preheader.i62.preheader, label %321
+  br i1 %.b4.i61.pre, label %.preheader.i62.preheader, label %322
 
 ..thread_crit_edge:                               ; preds = %175
   %.pre = load i64, ptr %6, align 8
@@ -993,164 +993,165 @@ CopyXLogRecordToWAL.exit:                         ; preds = %.loopexit88.i
   %308 = and i8 %2, 2
   %309 = icmp eq i8 %308, 0
   %.b4.i61.pre99 = load i1, ptr @holdingAllLocks, align 1
-  br i1 %309, label %310, label %316
+  br i1 %309, label %310, label %317
 
 310:                                              ; preds = %CopyXLogRecordToWAL.exit
   %311 = load i32, ptr @MyLockNo, align 4
   %312 = load ptr, ptr @WALInsertLocks, align 8
   %313 = sext i32 %311 to i64
   %314 = select i1 %.b4.i61.pre99, i64 0, i64 %313
-  %315 = getelementptr inbounds %union.WALInsertLockPadded, ptr %312, i64 %314, i32 0, i32 2
-  store i64 %179, ptr %315, align 8
-  br i1 %.b4.i61.pre99, label %.preheader.i62.preheader, label %321
+  %315 = getelementptr inbounds %union.WALInsertLockPadded, ptr %312, i64 %314
+  %316 = getelementptr inbounds nuw i8, ptr %315, i64 24
+  store i64 %179, ptr %316, align 8
+  br i1 %.b4.i61.pre99, label %.preheader.i62.preheader, label %322
 
-316:                                              ; preds = %CopyXLogRecordToWAL.exit
-  br i1 %.b4.i61.pre99, label %.preheader.i62.preheader, label %321
+317:                                              ; preds = %CopyXLogRecordToWAL.exit
+  br i1 %.b4.i61.pre99, label %.preheader.i62.preheader, label %322
 
-.preheader.i62.preheader:                         ; preds = %310, %._crit_edge, %316
-  %.04071127 = phi i1 [ false, %._crit_edge ], [ true, %316 ], [ true, %310 ]
+.preheader.i62.preheader:                         ; preds = %310, %._crit_edge, %317
+  %.04071127 = phi i1 [ false, %._crit_edge ], [ true, %317 ], [ true, %310 ]
   br label %.preheader.i62
 
 .preheader.i62:                                   ; preds = %.preheader.i62.preheader, %.preheader.i62
   %indvars.iv.i63 = phi i64 [ %indvars.iv.next.i64, %.preheader.i62 ], [ 0, %.preheader.i62.preheader ]
-  %317 = load ptr, ptr @WALInsertLocks, align 8
-  %318 = getelementptr inbounds nuw %union.WALInsertLockPadded, ptr %317, i64 %indvars.iv.i63
-  %319 = getelementptr inbounds nuw i8, ptr %318, i64 16
-  tail call void @LWLockReleaseClearVar(ptr noundef %318, ptr noundef nonnull %319, i64 noundef 0) #27
+  %318 = load ptr, ptr @WALInsertLocks, align 8
+  %319 = getelementptr inbounds nuw %union.WALInsertLockPadded, ptr %318, i64 %indvars.iv.i63
+  %320 = getelementptr inbounds nuw i8, ptr %319, i64 16
+  tail call void @LWLockReleaseClearVar(ptr noundef %319, ptr noundef nonnull %320, i64 noundef 0) #27
   %indvars.iv.next.i64 = add nuw nsw i64 %indvars.iv.i63, 1
   %exitcond.not.i65 = icmp eq i64 %indvars.iv.next.i64, 8
-  br i1 %exitcond.not.i65, label %320, label %.preheader.i62, !llvm.loop !8
+  br i1 %exitcond.not.i65, label %321, label %.preheader.i62, !llvm.loop !8
 
-320:                                              ; preds = %.preheader.i62
+321:                                              ; preds = %.preheader.i62
   store i1 false, ptr @holdingAllLocks, align 1
   br label %WALInsertLockRelease.exit66
 
-321:                                              ; preds = %310, %._crit_edge, %316
-  %.04071126 = phi i1 [ false, %._crit_edge ], [ true, %316 ], [ true, %310 ]
-  %322 = load ptr, ptr @WALInsertLocks, align 8
-  %323 = load i32, ptr @MyLockNo, align 4
-  %324 = sext i32 %323 to i64
-  %325 = getelementptr inbounds %union.WALInsertLockPadded, ptr %322, i64 %324
-  %326 = getelementptr inbounds nuw i8, ptr %325, i64 16
-  tail call void @LWLockReleaseClearVar(ptr noundef %325, ptr noundef nonnull %326, i64 noundef 0) #27
+322:                                              ; preds = %310, %._crit_edge, %317
+  %.04071126 = phi i1 [ false, %._crit_edge ], [ true, %317 ], [ true, %310 ]
+  %323 = load ptr, ptr @WALInsertLocks, align 8
+  %324 = load i32, ptr @MyLockNo, align 4
+  %325 = sext i32 %324 to i64
+  %326 = getelementptr inbounds %union.WALInsertLockPadded, ptr %323, i64 %325
+  %327 = getelementptr inbounds nuw i8, ptr %326, i64 16
+  tail call void @LWLockReleaseClearVar(ptr noundef %326, ptr noundef nonnull %327, i64 noundef 0) #27
   br label %WALInsertLockRelease.exit66
 
-WALInsertLockRelease.exit66:                      ; preds = %320, %321
-  %.04071125 = phi i1 [ %.04071127, %320 ], [ %.04071126, %321 ]
-  %327 = load volatile i32, ptr @CritSectionCount, align 4
-  %328 = add i32 %327, -1
-  store volatile i32 %328, ptr @CritSectionCount, align 4
+WALInsertLockRelease.exit66:                      ; preds = %321, %322
+  %.04071125 = phi i1 [ %.04071127, %321 ], [ %.04071126, %322 ]
+  %328 = load volatile i32, ptr @CritSectionCount, align 4
+  %329 = add i32 %328, -1
+  store volatile i32 %329, ptr @CritSectionCount, align 4
   tail call void @MarkCurrentTransactionIdLoggedIfAny() #27
-  br i1 %4, label %329, label %330
+  br i1 %4, label %330, label %331
 
-329:                                              ; preds = %WALInsertLockRelease.exit66
+330:                                              ; preds = %WALInsertLockRelease.exit66
   tail call void @MarkSubxactTopXidLogged() #27
-  br label %330
+  br label %331
 
-330:                                              ; preds = %329, %WALInsertLockRelease.exit66
-  %331 = load i64, ptr %6, align 8
-  %332 = load i64, ptr %7, align 8
-  %.not49.unshifted = xor i64 %332, %331
+331:                                              ; preds = %330, %WALInsertLockRelease.exit66
+  %332 = load i64, ptr %6, align 8
+  %333 = load i64, ptr %7, align 8
+  %.not49.unshifted = xor i64 %333, %332
   %.not49 = icmp ult i64 %.not49.unshifted, 8192
-  br i1 %.not49, label %355, label %333
+  br i1 %.not49, label %356, label %334
 
-333:                                              ; preds = %330
-  %334 = load ptr, ptr @XLogCtl, align 8
-  %335 = getelementptr inbounds nuw i8, ptr %334, i64 448
-  %336 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %335, i8 1, ptr nonnull elementtype(i8) %335) #27, !srcloc !10
-  %.not50 = icmp eq i8 %336, 0
-  br i1 %.not50, label %341, label %337
+334:                                              ; preds = %331
+  %335 = load ptr, ptr @XLogCtl, align 8
+  %336 = getelementptr inbounds nuw i8, ptr %335, i64 448
+  %337 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %336, i8 1, ptr nonnull elementtype(i8) %336) #27, !srcloc !10
+  %.not50 = icmp eq i8 %337, 0
+  br i1 %.not50, label %342, label %338
 
-337:                                              ; preds = %333
-  %338 = load ptr, ptr @XLogCtl, align 8
-  %339 = getelementptr inbounds nuw i8, ptr %338, i64 448
-  %340 = tail call i32 @s_lock(ptr noundef nonnull %339, ptr noundef nonnull @.str.14, i32 noundef 968, ptr noundef nonnull @__func__.XLogInsertRecord) #27
-  br label %341
+338:                                              ; preds = %334
+  %339 = load ptr, ptr @XLogCtl, align 8
+  %340 = getelementptr inbounds nuw i8, ptr %339, i64 448
+  %341 = tail call i32 @s_lock(ptr noundef nonnull %340, ptr noundef nonnull @.str.14, i32 noundef 968, ptr noundef nonnull @__func__.XLogInsertRecord) #27
+  br label %342
 
-341:                                              ; preds = %333, %337
-  %342 = load ptr, ptr @XLogCtl, align 8
-  %343 = getelementptr inbounds nuw i8, ptr %342, i64 184
-  %344 = load i64, ptr %343, align 8
-  %345 = icmp ult i64 %344, %332
-  br i1 %345, label %346, label %347
+342:                                              ; preds = %334, %338
+  %343 = load ptr, ptr @XLogCtl, align 8
+  %344 = getelementptr inbounds nuw i8, ptr %343, i64 184
+  %345 = load i64, ptr %344, align 8
+  %346 = icmp ult i64 %345, %333
+  br i1 %346, label %347, label %348
 
-346:                                              ; preds = %341
-  store i64 %332, ptr %343, align 8
-  br label %347
+347:                                              ; preds = %342
+  store i64 %333, ptr %344, align 8
+  br label %348
 
-347:                                              ; preds = %341, %346
+348:                                              ; preds = %342, %347
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !16
-  %348 = load ptr, ptr @XLogCtl, align 8
-  %349 = getelementptr inbounds nuw i8, ptr %348, i64 448
-  store i8 0, ptr %349, align 8
-  %350 = getelementptr inbounds nuw i8, ptr %348, i64 280
-  %351 = load volatile i64, ptr %350, align 8
-  store i64 %351, ptr @LogwrtResult.1, align 8
+  %349 = load ptr, ptr @XLogCtl, align 8
+  %350 = getelementptr inbounds nuw i8, ptr %349, i64 448
+  store i8 0, ptr %350, align 8
+  %351 = getelementptr inbounds nuw i8, ptr %349, i64 280
+  %352 = load volatile i64, ptr %351, align 8
+  store i64 %352, ptr @LogwrtResult.1, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !17
-  %352 = load ptr, ptr @XLogCtl, align 8
-  %353 = getelementptr inbounds nuw i8, ptr %352, i64 272
-  %354 = load volatile i64, ptr %353, align 8
-  store i64 %354, ptr @LogwrtResult.0, align 8
-  br label %355
+  %353 = load ptr, ptr @XLogCtl, align 8
+  %354 = getelementptr inbounds nuw i8, ptr %353, i64 272
+  %355 = load volatile i64, ptr %354, align 8
+  store i64 %355, ptr @LogwrtResult.0, align 8
+  br label %356
 
-355:                                              ; preds = %347, %330
-  br i1 %23, label %356, label %367
-
-356:                                              ; preds = %355
-  tail call void @XLogFlush(i64 noundef %332)
-  br i1 %.04071125, label %357, label %.critedge53
+356:                                              ; preds = %348, %331
+  br i1 %23, label %357, label %368
 
 357:                                              ; preds = %356
-  %358 = add i64 %331, 24
-  %.not51.unshifted = xor i64 %358, %331
-  %.not51 = icmp ult i64 %.not51.unshifted, 8192
-  br i1 %.not51, label %.thread74, label %359
+  tail call void @XLogFlush(i64 noundef %333)
+  br i1 %.04071125, label %358, label %.critedge53
 
-359:                                              ; preds = %357
-  %360 = load i32, ptr @wal_segment_size, align 4
-  %361 = add i32 %360, -1
-  %362 = xor i32 %361, 8191
-  %363 = sext i32 %362 to i64
-  %364 = and i64 %358, %363
-  %365 = icmp eq i64 %364, 0
-  %storemerge.v = select i1 %365, i64 64, i64 48
-  %storemerge = add i64 %storemerge.v, %331
+358:                                              ; preds = %357
+  %359 = add i64 %332, 24
+  %.not51.unshifted = xor i64 %359, %332
+  %.not51 = icmp ult i64 %.not51.unshifted, 8192
+  br i1 %.not51, label %.thread74, label %360
+
+360:                                              ; preds = %358
+  %361 = load i32, ptr @wal_segment_size, align 4
+  %362 = add i32 %361, -1
+  %363 = xor i32 %362, 8191
+  %364 = sext i32 %363 to i64
+  %365 = and i64 %359, %364
+  %366 = icmp eq i64 %365, 0
+  %storemerge.v = select i1 %366, i64 64, i64 48
+  %storemerge = add i64 %storemerge.v, %332
   br label %.thread74
 
-.thread74:                                        ; preds = %359, %357
-  %366 = phi i64 [ %storemerge, %359 ], [ %358, %357 ]
-  store i64 %331, ptr @ProcLastRecPtr, align 8
-  store i64 %366, ptr @XactLastRecEnd, align 8
-  br label %368
+.thread74:                                        ; preds = %360, %358
+  %367 = phi i64 [ %storemerge, %360 ], [ %359, %358 ]
+  store i64 %332, ptr @ProcLastRecPtr, align 8
+  store i64 %367, ptr @XactLastRecEnd, align 8
+  br label %369
 
-367:                                              ; preds = %355
-  store i64 %331, ptr @ProcLastRecPtr, align 8
-  store i64 %332, ptr @XactLastRecEnd, align 8
-  br i1 %.04071125, label %368, label %379
+368:                                              ; preds = %356
+  store i64 %332, ptr @ProcLastRecPtr, align 8
+  store i64 %333, ptr @XactLastRecEnd, align 8
+  br i1 %.04071125, label %369, label %380
 
-368:                                              ; preds = %.thread74, %367
-  %369 = phi i64 [ %366, %.thread74 ], [ %332, %367 ]
-  %370 = load i32, ptr %10, align 8
-  %371 = zext i32 %370 to i64
-  %372 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pgWalUsage, i64 16), align 8
-  %373 = add i64 %372, %371
-  store i64 %373, ptr getelementptr inbounds nuw (i8, ptr @pgWalUsage, i64 16), align 8
-  %374 = load i64, ptr @pgWalUsage, align 8
-  %375 = add i64 %374, 1
-  store i64 %375, ptr @pgWalUsage, align 8
-  %376 = sext i32 %3 to i64
-  %377 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pgWalUsage, i64 8), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds nuw (i8, ptr @pgWalUsage, i64 8), align 8
-  br label %379
+369:                                              ; preds = %.thread74, %368
+  %370 = phi i64 [ %367, %.thread74 ], [ %333, %368 ]
+  %371 = load i32, ptr %10, align 8
+  %372 = zext i32 %371 to i64
+  %373 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pgWalUsage, i64 16), align 8
+  %374 = add i64 %373, %372
+  store i64 %374, ptr getelementptr inbounds nuw (i8, ptr @pgWalUsage, i64 16), align 8
+  %375 = load i64, ptr @pgWalUsage, align 8
+  %376 = add i64 %375, 1
+  store i64 %376, ptr @pgWalUsage, align 8
+  %377 = sext i32 %3 to i64
+  %378 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pgWalUsage, i64 8), align 8
+  %379 = add i64 %378, %377
+  store i64 %379, ptr getelementptr inbounds nuw (i8, ptr @pgWalUsage, i64 8), align 8
+  br label %380
 
-.critedge53:                                      ; preds = %356
-  store i64 %331, ptr @ProcLastRecPtr, align 8
-  store i64 %332, ptr @XactLastRecEnd, align 8
-  br label %379
+.critedge53:                                      ; preds = %357
+  store i64 %332, ptr @ProcLastRecPtr, align 8
+  store i64 %333, ptr @XactLastRecEnd, align 8
+  br label %380
 
-379:                                              ; preds = %367, %368, %.critedge53, %WALInsertLockRelease.exit
-  %.0 = phi i64 [ 0, %WALInsertLockRelease.exit ], [ %332, %.critedge53 ], [ %369, %368 ], [ %332, %367 ]
+380:                                              ; preds = %368, %369, %.critedge53, %WALInsertLockRelease.exit
+  %.0 = phi i64 [ 0, %WALInsertLockRelease.exit ], [ %333, %.critedge53 ], [ %370, %369 ], [ %333, %368 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i64 %.0
@@ -1893,7 +1894,7 @@ define dso_local void @XLogSetAsyncXactLSN(i64 noundef %0) local_unnamed_addr #0
   %15 = load ptr, ptr @XLogCtl, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 448
   store i8 0, ptr %16, align 8
-  br label %44
+  br label %45
 
 17:                                               ; preds = %9
   %18 = getelementptr inbounds nuw i8, ptr %10, i64 329
@@ -1926,23 +1927,24 @@ define dso_local void @XLogSetAsyncXactLSN(i64 noundef %0) local_unnamed_addr #0
   %35 = sub nsw i64 %32, %34
   %36 = trunc i64 %35 to i32
   %.not16 = icmp sgt i32 %29, %36
-  br i1 %.not16, label %44, label %.critedge
+  br i1 %.not16, label %45, label %.critedge
 
 .critedge:                                        ; preds = %23, %31, %17
   %37 = load ptr, ptr @ProcGlobal, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 112
   %39 = load volatile i32, ptr %38, align 8
   %.not17 = icmp eq i32 %39, -1
-  br i1 %.not17, label %44, label %40
+  br i1 %.not17, label %45, label %40
 
 40:                                               ; preds = %.critedge
   %41 = load ptr, ptr %37, align 8
   %42 = sext i32 %39 to i64
-  %43 = getelementptr inbounds %struct.PGPROC, ptr %41, i64 %42, i32 4
-  tail call void @SetLatch(ptr noundef nonnull %43) #27
-  br label %44
+  %43 = getelementptr inbounds %struct.PGPROC, ptr %41, i64 %42
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 36
+  tail call void @SetLatch(ptr noundef nonnull %44) #27
+  br label %45
 
-44:                                               ; preds = %14, %31, %40, %.critedge
+45:                                               ; preds = %14, %31, %40, %.critedge
   ret void
 }
 
@@ -4721,11 +4723,11 @@ define dso_local void @XLOGShmemInit() local_unnamed_addr #0 {
   %14 = load ptr, ptr %13, align 8
   store ptr %14, ptr @WALInsertLocks, align 8
   %.not23 = icmp eq ptr %5, null
-  br i1 %.not23, label %65, label %15
+  br i1 %.not23, label %66, label %15
 
 15:                                               ; preds = %12
   call void @pfree(ptr noundef nonnull %5) #27
-  br label %65
+  br label %66
 
 16:                                               ; preds = %0
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(456) %11, i8 0, i64 456, i1 false)
@@ -4779,56 +4781,57 @@ define dso_local void @XLOGShmemInit() local_unnamed_addr #0 {
   %36 = getelementptr inbounds nuw %union.WALInsertLockPadded, ptr %35, i64 %indvars.iv27
   call void @LWLockInitialize(ptr noundef %36, i32 noundef 60) #27
   %37 = load ptr, ptr @WALInsertLocks, align 8
-  %38 = getelementptr inbounds nuw %union.WALInsertLockPadded, ptr %37, i64 %indvars.iv27, i32 0, i32 1
-  store volatile i64 0, ptr %38, align 8
-  %39 = getelementptr inbounds nuw %union.WALInsertLockPadded, ptr %37, i64 %indvars.iv27, i32 0, i32 2
-  store i64 0, ptr %39, align 8
+  %38 = getelementptr inbounds nuw %union.WALInsertLockPadded, ptr %37, i64 %indvars.iv27
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
+  store volatile i64 0, ptr %39, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %38, i64 24
+  store i64 0, ptr %40, align 8
   %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, 1
   %exitcond30.not = icmp eq i64 %indvars.iv.next28, 8
-  br i1 %exitcond30.not, label %40, label %34, !llvm.loop !59
+  br i1 %exitcond30.not, label %41, label %34, !llvm.loop !59
 
-40:                                               ; preds = %34
-  %41 = getelementptr inbounds nuw i8, ptr %32, i64 1024
-  %42 = ptrtoint ptr %41 to i64
-  %43 = add i64 %42, 8191
-  %44 = and i64 %43, -8192
-  %45 = inttoptr i64 %44 to ptr
-  %46 = load ptr, ptr @XLogCtl, align 8
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 296
-  store ptr %45, ptr %47, align 8
-  %48 = load i32, ptr @XLOGbuffers, align 4
-  %49 = sext i32 %48 to i64
-  %50 = shl nsw i64 %49, 13
-  call void @llvm.memset.p0.i64(ptr align 8192 %45, i8 0, i64 %50, i1 false)
-  %51 = load i32, ptr @XLOGbuffers, align 4
-  %52 = add i32 %51, -1
-  %53 = load ptr, ptr @XLogCtl, align 8
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 312
-  store i32 %52, ptr %54, align 8
-  %55 = getelementptr inbounds nuw i8, ptr %53, i64 324
-  store i32 0, ptr %55, align 4
-  %56 = getelementptr inbounds nuw i8, ptr %53, i64 328
-  store i8 0, ptr %56, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %53, i64 329
-  store i8 0, ptr %57, align 1
+41:                                               ; preds = %34
+  %42 = getelementptr inbounds nuw i8, ptr %32, i64 1024
+  %43 = ptrtoint ptr %42 to i64
+  %44 = add i64 %43, 8191
+  %45 = and i64 %44, -8192
+  %46 = inttoptr i64 %45 to ptr
+  %47 = load ptr, ptr @XLogCtl, align 8
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 296
+  store ptr %46, ptr %48, align 8
+  %49 = load i32, ptr @XLOGbuffers, align 4
+  %50 = sext i32 %49 to i64
+  %51 = shl nsw i64 %50, 13
+  call void @llvm.memset.p0.i64(ptr align 8192 %46, i8 0, i64 %51, i1 false)
+  %52 = load i32, ptr @XLOGbuffers, align 4
+  %53 = add i32 %52, -1
+  %54 = load ptr, ptr @XLogCtl, align 8
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 312
+  store i32 %53, ptr %55, align 8
+  %56 = getelementptr inbounds nuw i8, ptr %54, i64 324
+  store i32 0, ptr %56, align 4
+  %57 = getelementptr inbounds nuw i8, ptr %54, i64 328
+  store i8 0, ptr %57, align 8
+  %58 = getelementptr inbounds nuw i8, ptr %54, i64 329
+  store i8 0, ptr %58, align 1
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !60
-  %58 = load ptr, ptr @XLogCtl, align 8
-  store i8 0, ptr %58, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !61
   %59 = load ptr, ptr @XLogCtl, align 8
-  %60 = getelementptr inbounds nuw i8, ptr %59, i64 448
-  store i8 0, ptr %60, align 8
-  %61 = getelementptr inbounds nuw i8, ptr %59, i64 264
-  store volatile i64 0, ptr %61, align 8
-  %62 = getelementptr inbounds nuw i8, ptr %59, i64 272
+  store i8 0, ptr %59, align 8
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !61
+  %60 = load ptr, ptr @XLogCtl, align 8
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 448
+  store i8 0, ptr %61, align 8
+  %62 = getelementptr inbounds nuw i8, ptr %60, i64 264
   store volatile i64 0, ptr %62, align 8
-  %63 = getelementptr inbounds nuw i8, ptr %59, i64 280
+  %63 = getelementptr inbounds nuw i8, ptr %60, i64 272
   store volatile i64 0, ptr %63, align 8
-  %64 = getelementptr inbounds nuw i8, ptr %59, i64 240
+  %64 = getelementptr inbounds nuw i8, ptr %60, i64 280
   store volatile i64 0, ptr %64, align 8
-  br label %65
+  %65 = getelementptr inbounds nuw i8, ptr %60, i64 240
+  store volatile i64 0, ptr %65, align 8
+  br label %66
 
-65:                                               ; preds = %12, %15, %40
+66:                                               ; preds = %12, %15, %41
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void

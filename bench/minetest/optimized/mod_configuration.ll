@@ -1771,9 +1771,10 @@ invoke.cont58:                                    ; preds = %if.then.i314
   br i1 %tobool.not.i318, label %invoke.cont67.thread, label %if.then.i319
 
 if.then.i319:                                     ; preds = %invoke.cont58
-  %path = getelementptr inbounds nuw %struct.ModSpec, ptr %87, i64 %conv46, i32 2
+  %path.split = getelementptr inbounds nuw %struct.ModSpec, ptr %87, i64 %conv46
+  %path = getelementptr inbounds nuw i8, ptr %path.split, i64 64
   %98 = load ptr, ptr %path, align 8, !tbaa !25
-  %_M_string_length.i.i.i320 = getelementptr inbounds nuw i8, ptr %path, i64 8
+  %_M_string_length.i.i.i320 = getelementptr inbounds nuw i8, ptr %path.split, i64 72
   %99 = load i64, ptr %_M_string_length.i.i.i320, align 8, !tbaa !28
   %call2.i.i322 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %.pr852.pr.pr, ptr noundef %98, i64 noundef %99)
           to label %invoke.cont60 unwind label %lpad48.loopexit
@@ -2273,9 +2274,10 @@ invoke.cont99:                                    ; preds = %if.then.i447
   br i1 %tobool.not.i452, label %invoke.cont109.thread, label %if.then.i453
 
 if.then.i453:                                     ; preds = %invoke.cont99
-  %path101 = getelementptr inbounds nuw %struct.ModSpec, ptr %131, i64 %conv87, i32 2
+  %path101.split = getelementptr inbounds nuw %struct.ModSpec, ptr %131, i64 %conv87
+  %path101 = getelementptr inbounds nuw i8, ptr %path101.split, i64 64
   %142 = load ptr, ptr %path101, align 8, !tbaa !25
-  %_M_string_length.i.i.i454 = getelementptr inbounds nuw i8, ptr %path101, i64 8
+  %_M_string_length.i.i.i454 = getelementptr inbounds nuw i8, ptr %path101.split, i64 72
   %143 = load i64, ptr %_M_string_length.i.i.i454, align 8, !tbaa !28
   %call2.i.i456 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %.pr875.pr.pr, ptr noundef %142, i64 noundef %143)
           to label %invoke.cont102 unwind label %lpad89.loopexit

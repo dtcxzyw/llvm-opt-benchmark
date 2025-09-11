@@ -844,7 +844,7 @@ Vec_IntPush.exit61:                               ; preds = %Vec_IntPush.exit61.
   %97 = load ptr, ptr %96, align 8, !tbaa !36
   %98 = tail call ptr @Aig_Or(ptr noundef %0, ptr noundef %97, ptr noundef %.03969) #11
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %99 = icmp sgt i64 %indvars.iv, 1
+  %99 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %99, label %.lr.ph72, label %._crit_edge73, !llvm.loop !44
 
 ._crit_edge73:                                    ; preds = %.lr.ph72, %82

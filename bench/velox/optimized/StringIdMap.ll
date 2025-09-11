@@ -264,7 +264,8 @@ if.then:                                          ; preds = %land.rhs.i.i.i, %ca
   %23 = load ptr, ptr %stringToId_, align 8, !nonnull !7, !noundef !7
   %24 = load i32, ptr %arrayidx.i.i.i.i.le, align 4
   %idx.ext8.i = zext i32 %24 to i64
-  %second = getelementptr inbounds nuw %"struct.std::pair", ptr %23, i64 %idx.ext8.i, i32 1
+  %add.ptr9.i = getelementptr inbounds nuw %"struct.std::pair", ptr %23, i64 %idx.ext8.i
+  %second = getelementptr inbounds nuw i8, ptr %add.ptr9.i, i64 32
   %25 = load i64, ptr %second, align 8
   br label %cleanup
 
@@ -727,7 +728,7 @@ if.then:                                          ; preds = %if.end20.i, %while.
   unreachable
 
 if.end:                                           ; preds = %call11.i.noexc
-  %numInUse = getelementptr inbounds nuw %"struct.std::pair.21", ptr %3, i64 %idxprom.i, i32 1, i32 2
+  %numInUse = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 48
   %11 = load i32, ptr %numInUse, align 8
   %inc = add i32 %11, 1
   store i32 %inc, ptr %numInUse, align 8
@@ -905,8 +906,9 @@ call2.i.noexc:                                    ; preds = %land.rhs.i.i.i, %ca
   %23 = load ptr, ptr %stringToId_, align 8, !nonnull !7, !noundef !7
   %24 = load i32, ptr %arrayidx.i.i.i.i.le, align 4
   %idx.ext8.i = zext i32 %24 to i64
+  %add.ptr9.i = getelementptr inbounds nuw %"struct.std::pair", ptr %23, i64 %idx.ext8.i
   %idToString_ = getelementptr inbounds nuw i8, ptr %this, i64 64
-  %second = getelementptr inbounds nuw %"struct.std::pair", ptr %23, i64 %idx.ext8.i, i32 1
+  %second = getelementptr inbounds nuw i8, ptr %add.ptr9.i, i64 32
   %25 = load i64, ptr %second, align 8
   %26 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 0, i64 %25)
   %shr.i69 = lshr i64 %26, 24
@@ -1116,12 +1118,13 @@ invoke.cont61:                                    ; preds = %do.end
   %62 = load ptr, ptr %idToString_42, align 8, !noalias !20, !nonnull !7, !noundef !7
   %63 = load i32, ptr %61, align 4, !noalias !20
   %idx.ext8.i.i.i = zext i32 %63 to i64
+  %add.ptr9.i.i.i = getelementptr inbounds nuw %"struct.std::pair.21", ptr %62, i64 %idx.ext8.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %rv.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp2.i.i)
-  %second.i = getelementptr inbounds nuw %"struct.std::pair.21", ptr %62, i64 %idx.ext8.i.i.i, i32 1
+  %second.i = getelementptr inbounds nuw i8, ptr %add.ptr9.i.i.i, i64 8
   %call.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(44) %second.i, ptr noundef nonnull align 8 dereferenceable(44) %entry33) #24
-  %id.i = getelementptr inbounds nuw i8, ptr %second.i, i64 32
+  %id.i = getelementptr inbounds nuw i8, ptr %add.ptr9.i.i.i, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %id.i, ptr noundef nonnull align 8 dereferenceable(12) %id, i64 12, i1 false)
   %64 = load i64, ptr %id, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i141)

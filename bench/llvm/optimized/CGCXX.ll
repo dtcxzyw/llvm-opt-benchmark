@@ -1233,90 +1233,91 @@ define internal fastcc void @_ZL25BuildAppleKextVirtualCallRN5clang7CodeGen15Cod
 
 _ZNK4llvm12DenseMapBaseINS_8DenseMapIN5clang13BaseSubobjectENS2_12VTableLayout20AddressPointLocationENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E6doFindIS3_EEPKSA_RKT_.exit.i.i: ; preds = %57, %35
   %69 = phi i64 [ %44, %35 ], [ %61, %57 ]
-  %70 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.1169", ptr %31, i64 %69, i32 0, i32 1
-  %.sroa.0.0.copyload.i.i = load i64, ptr %70, align 4
+  %70 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.1169", ptr %31, i64 %69
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 16
+  %.sroa.0.0.copyload.i.i = load i64, ptr %71, align 4
   br label %_ZNK5clang12VTableLayout15getAddressPointENS_13BaseSubobjectE.exit
 
 _ZNK5clang12VTableLayout15getAddressPointENS_13BaseSubobjectE.exit: ; preds = %.lr.ph.i.i.i.i, %5, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIN5clang13BaseSubobjectENS2_12VTableLayout20AddressPointLocationENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E6doFindIS3_EEPKSA_RKT_.exit.i.i
-  %71 = phi i64 [ %.sroa.0.0.copyload.i.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIN5clang13BaseSubobjectENS2_12VTableLayout20AddressPointLocationENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E6doFindIS3_EEPKSA_RKT_.exit.i.i ], [ 0, %5 ], [ 0, %.lr.ph.i.i.i.i ]
-  %.sroa.421.0.extract.shift = lshr i64 %71, 32
-  %72 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  %73 = load i64, ptr %72, align 8, !tbaa !719
-  %74 = icmp eq i64 %73, 0
-  br i1 %74, label %_ZNK5clang12VTableLayout15getVTableOffsetEm.exit, label %75
+  %72 = phi i64 [ %.sroa.0.0.copyload.i.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIN5clang13BaseSubobjectENS2_12VTableLayout20AddressPointLocationENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E6doFindIS3_EEPKSA_RKT_.exit.i.i ], [ 0, %5 ], [ 0, %.lr.ph.i.i.i.i ]
+  %.sroa.421.0.extract.shift = lshr i64 %72, 32
+  %73 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  %74 = load i64, ptr %73, align 8, !tbaa !719
+  %75 = icmp eq i64 %74, 0
+  br i1 %75, label %_ZNK5clang12VTableLayout15getVTableOffsetEm.exit, label %76
 
-75:                                               ; preds = %_ZNK5clang12VTableLayout15getAddressPointENS_13BaseSubobjectE.exit
-  %76 = and i64 %71, 4294967295
-  %77 = load ptr, ptr %29, align 8, !tbaa !721
-  %78 = getelementptr inbounds nuw i64, ptr %77, i64 %76
-  %79 = load i64, ptr %78, align 8, !tbaa !424
+76:                                               ; preds = %_ZNK5clang12VTableLayout15getAddressPointENS_13BaseSubobjectE.exit
+  %77 = and i64 %72, 4294967295
+  %78 = load ptr, ptr %29, align 8, !tbaa !721
+  %79 = getelementptr inbounds nuw i64, ptr %78, i64 %77
+  %80 = load i64, ptr %79, align 8, !tbaa !424
   br label %_ZNK5clang12VTableLayout15getVTableOffsetEm.exit
 
-_ZNK5clang12VTableLayout15getVTableOffsetEm.exit: ; preds = %_ZNK5clang12VTableLayout15getAddressPointENS_13BaseSubobjectE.exit, %75
-  %.0.i = phi i64 [ %79, %75 ], [ 0, %_ZNK5clang12VTableLayout15getAddressPointENS_13BaseSubobjectE.exit ]
-  %80 = add i64 %.sroa.421.0.extract.shift, %22
-  %81 = add i64 %80, %.0.i
-  %82 = getelementptr inbounds nuw i8, ptr %1, i64 280
+_ZNK5clang12VTableLayout15getVTableOffsetEm.exit: ; preds = %_ZNK5clang12VTableLayout15getAddressPointENS_13BaseSubobjectE.exit, %76
+  %.0.i = phi i64 [ %80, %76 ], [ 0, %_ZNK5clang12VTableLayout15getAddressPointENS_13BaseSubobjectE.exit ]
+  %81 = add i64 %.sroa.421.0.extract.shift, %22
+  %82 = add i64 %81, %.0.i
+  %83 = getelementptr inbounds nuw i8, ptr %1, i64 280
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %83 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %84 = getelementptr inbounds nuw i8, ptr %7, i64 33
-  store i8 1, ptr %84, align 1, !tbaa !430
+  %84 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %85 = getelementptr inbounds nuw i8, ptr %7, i64 33
+  store i8 1, ptr %85, align 1, !tbaa !430
   store ptr @.str.1, ptr %7, align 8, !tbaa !411
-  store i8 3, ptr %83, align 8, !tbaa !427
-  %85 = call noundef ptr @_ZN4llvm13IRBuilderBase26CreateConstInBoundsGEP1_64EPNS_4TypeEPNS_5ValueEmRKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %82, ptr noundef %19, ptr noundef %16, i64 noundef %81, ptr noundef nonnull align 8 dereferenceable(34) %7)
+  store i8 3, ptr %84, align 8, !tbaa !427
+  %86 = call noundef ptr @_ZN4llvm13IRBuilderBase26CreateConstInBoundsGEP1_64EPNS_4TypeEPNS_5ValueEmRKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %83, ptr noundef %19, ptr noundef %16, i64 noundef %82, ptr noundef nonnull align 8 dereferenceable(34) %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %86 = getelementptr inbounds nuw i8, ptr %1, i64 130
-  %87 = load i8, ptr %86, align 2, !tbaa !411
-  %88 = call range(i8 0, 9) i8 @llvm.ctlz.i8(i8 %87, i1 false)
-  %89 = sub nsw i8 7, %88
+  %87 = getelementptr inbounds nuw i8, ptr %1, i64 130
+  %88 = load i8, ptr %87, align 2, !tbaa !411
+  %89 = call range(i8 0, 9) i8 @llvm.ctlz.i8(i8 %88, i1 false)
+  %90 = sub nsw i8 7, %89
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %90 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %.sroa.07.0.insert.ext = zext i8 %89 to i16
+  %91 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %.sroa.07.0.insert.ext = zext i8 %90 to i16
   %.sroa.07.0.insert.insert = or disjoint i16 %.sroa.07.0.insert.ext, 256
-  store i16 257, ptr %90, align 8
-  %91 = call noundef ptr @_ZN4llvm13IRBuilderBase17CreateAlignedLoadEPNS_4TypeEPNS_5ValueENS_10MaybeAlignEbRKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %82, ptr noundef %19, ptr noundef %85, i16 %.sroa.07.0.insert.insert, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(34) %8)
+  store i16 257, ptr %91, align 8
+  %92 = call noundef ptr @_ZN4llvm13IRBuilderBase17CreateAlignedLoadEPNS_4TypeEPNS_5ValueENS_10MaybeAlignEbRKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %83, ptr noundef %19, ptr noundef %86, i16 %.sroa.07.0.insert.insert, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(34) %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %92 = getelementptr inbounds nuw i8, ptr %10, i64 184
-  %93 = load ptr, ptr %92, align 8, !tbaa !3
-  %94 = getelementptr inbounds nuw i8, ptr %93, i64 1716
-  %95 = load i32, ptr %94, align 4
-  %96 = and i32 %95, 3
-  %.not = icmp eq i32 %96, 0
-  br i1 %.not, label %113, label %97
+  %93 = getelementptr inbounds nuw i8, ptr %10, i64 184
+  %94 = load ptr, ptr %93, align 8, !tbaa !3
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 1716
+  %96 = load i32, ptr %95, align 4
+  %97 = and i32 %96, 3
+  %.not = icmp eq i32 %97, 0
+  br i1 %.not, label %114, label %98
 
-97:                                               ; preds = %_ZNK5clang12VTableLayout15getVTableOffsetEm.exit
-  %98 = load ptr, ptr %20, align 8, !tbaa !706
-  %99 = and i64 %2, -8
-  %100 = inttoptr i64 %99 to ptr
-  %101 = load ptr, ptr %100, align 8, !tbaa !703
-  %102 = getelementptr inbounds nuw i8, ptr %101, i64 32
-  %103 = load ptr, ptr %102, align 8
-  %104 = call noundef ptr %103(ptr noundef nonnull align 8 dereferenceable(33) %100) #10
-  %105 = ptrtoint ptr %104 to i64
-  %106 = and i64 %2, 7
-  %107 = and i64 %105, -8
-  %108 = or disjoint i64 %107, %106
-  %109 = call { i64, i32 } @_ZN5clang20ItaniumVTableContext18findOriginalMethodENS_10GlobalDeclE(ptr noundef nonnull align 8 dereferenceable(140) %98, i64 %108, i32 %3) #10
-  %.fca.0.extract = extractvalue { i64, i32 } %109, 0
-  %.fca.1.extract = extractvalue { i64, i32 } %109, 1
-  %110 = call { i64, ptr } @_ZN5clang7CodeGen15CodeGenFunction19EmitPointerAuthInfoERKNS_17PointerAuthSchemaEPN4llvm5ValueENS_10GlobalDeclENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(6496) %1, ptr noundef nonnull align 4 dereferenceable(4) %94, ptr noundef %85, i64 %.fca.0.extract, i32 %.fca.1.extract, i64 0) #10
-  %111 = extractvalue { i64, ptr } %110, 0
-  %112 = extractvalue { i64, ptr } %110, 1
-  br label %113
+98:                                               ; preds = %_ZNK5clang12VTableLayout15getVTableOffsetEm.exit
+  %99 = load ptr, ptr %20, align 8, !tbaa !706
+  %100 = and i64 %2, -8
+  %101 = inttoptr i64 %100 to ptr
+  %102 = load ptr, ptr %101, align 8, !tbaa !703
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 32
+  %104 = load ptr, ptr %103, align 8
+  %105 = call noundef ptr %104(ptr noundef nonnull align 8 dereferenceable(33) %101) #10
+  %106 = ptrtoint ptr %105 to i64
+  %107 = and i64 %2, 7
+  %108 = and i64 %106, -8
+  %109 = or disjoint i64 %108, %107
+  %110 = call { i64, i32 } @_ZN5clang20ItaniumVTableContext18findOriginalMethodENS_10GlobalDeclE(ptr noundef nonnull align 8 dereferenceable(140) %99, i64 %109, i32 %3) #10
+  %.fca.0.extract = extractvalue { i64, i32 } %110, 0
+  %.fca.1.extract = extractvalue { i64, i32 } %110, 1
+  %111 = call { i64, ptr } @_ZN5clang7CodeGen15CodeGenFunction19EmitPointerAuthInfoERKNS_17PointerAuthSchemaEPN4llvm5ValueENS_10GlobalDeclENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(6496) %1, ptr noundef nonnull align 4 dereferenceable(4) %95, ptr noundef %86, i64 %.fca.0.extract, i32 %.fca.1.extract, i64 0) #10
+  %112 = extractvalue { i64, ptr } %111, 0
+  %113 = extractvalue { i64, ptr } %111, 1
+  br label %114
 
-113:                                              ; preds = %97, %_ZNK5clang12VTableLayout15getVTableOffsetEm.exit
-  %.sroa.65.0 = phi ptr [ %112, %97 ], [ null, %_ZNK5clang12VTableLayout15getVTableOffsetEm.exit ]
-  %.sroa.04.sroa.0.0.insert.insert = phi i64 [ %111, %97 ], [ 0, %_ZNK5clang12VTableLayout15getVTableOffsetEm.exit ]
-  %114 = ptrtoint ptr %91 to i64
-  store i64 %114, ptr %0, align 8, !tbaa !722
-  %115 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr null, ptr %115, align 8, !tbaa !725
+114:                                              ; preds = %98, %_ZNK5clang12VTableLayout15getVTableOffsetEm.exit
+  %.sroa.65.0 = phi ptr [ %113, %98 ], [ null, %_ZNK5clang12VTableLayout15getVTableOffsetEm.exit ]
+  %.sroa.04.sroa.0.0.insert.insert = phi i64 [ %112, %98 ], [ 0, %_ZNK5clang12VTableLayout15getVTableOffsetEm.exit ]
+  %115 = ptrtoint ptr %92 to i64
+  store i64 %115, ptr %0, align 8, !tbaa !722
+  %116 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr null, ptr %116, align 8, !tbaa !725
   %.sroa.4.0..sroa_idx2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %2, ptr %.sroa.4.0..sroa_idx2, align 8, !tbaa !411
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %3, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !727
-  %116 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 %.sroa.04.sroa.0.0.insert.insert, ptr %116, align 8
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i64 %.sroa.04.sroa.0.0.insert.insert, ptr %117, align 8
   %.sroa.65.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.sroa.65.0, ptr %.sroa.65.0..sroa_idx, align 8, !tbaa !728
   ret void

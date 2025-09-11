@@ -1835,7 +1835,8 @@ define internal void @sysvipc_proc_stop(ptr noundef readonly captures(none) %0, 
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %12 = load i32, ptr %11, align 8
   %13 = sext i32 %12 to i64
-  %14 = getelementptr %struct.ipc_ids, ptr %10, i64 %13, i32 2
+  %.split = getelementptr %struct.ipc_ids, ptr %10, i64 %13
+  %14 = getelementptr i8, ptr %.split, i64 8
   tail call void @up_read(ptr noundef %14) #15
   ret void
 }
@@ -1867,7 +1868,8 @@ define internal ptr @sysvipc_proc_next(ptr noundef readonly captures(none) %0, p
   %18 = trunc i64 %13 to i32
   %19 = add i32 %18, -1
   store i32 %19, ptr %4, align 4
-  %20 = getelementptr %struct.ipc_ids, ptr %14, i64 %17, i32 3
+  %.split = getelementptr %struct.ipc_ids, ptr %14, i64 %17
+  %20 = getelementptr i8, ptr %.split, i64 48
   %21 = call ptr @idr_get_next(ptr noundef %20, ptr noundef nonnull %4) #15
   %22 = icmp eq ptr %21, null
   br i1 %22, label %27, label %23

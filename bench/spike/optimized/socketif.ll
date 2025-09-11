@@ -30808,7 +30808,7 @@ _ZN5boost16re_detail_10740018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_reg
   %255 = and i32 %142, 8388608
   %.not25 = icmp eq i32 %255, 0
   %or.cond58 = select i1 %.not24, i1 true, i1 %.not25
-  br i1 %or.cond58, label %274, label %256
+  br i1 %or.cond58, label %275, label %256
 
 256:                                              ; preds = %254
   %257 = getelementptr inbounds nuw i8, ptr %207, i64 376
@@ -30834,163 +30834,164 @@ _ZNSt6vectorISt4pairImmESaIS1_EE2atEm.exit:       ; preds = %256
   %270 = load ptr, ptr %269, align 8, !tbaa !1030
   %271 = ptrtoint ptr %270 to i64
   %272 = sub i64 %268, %271
-  %273 = getelementptr inbounds nuw %"struct.std::pair.202", ptr %262, i64 %259, i32 1
-  store i64 %272, ptr %273, align 8, !tbaa !1113
-  br label %274
+  %273 = getelementptr inbounds nuw %"struct.std::pair.202", ptr %262, i64 %259
+  %274 = getelementptr inbounds nuw i8, ptr %273, i64 8
+  store i64 %272, ptr %274, align 8, !tbaa !1113
+  br label %275
 
-274:                                              ; preds = %_ZNSt6vectorISt4pairImmESaIS1_EE2atEm.exit, %254
-  %275 = getelementptr inbounds nuw i8, ptr %214, i64 1
-  store ptr %275, ptr %4, align 8, !tbaa !1031
-  %276 = getelementptr inbounds nuw i8, ptr %207, i64 352
-  %277 = load ptr, ptr %276, align 8, !tbaa !1017
-  %278 = getelementptr inbounds nuw i8, ptr %207, i64 360
-  %279 = load ptr, ptr %278, align 8, !tbaa !1037
-  %280 = ptrtoint ptr %279 to i64
-  %281 = ptrtoint ptr %277 to i64
-  %reass.sub72 = sub i64 %280, %281
-  %282 = add i64 %reass.sub72, 7
-  %283 = and i64 %282, -8
-  %284 = getelementptr inbounds i8, ptr %277, i64 %283
-  store ptr %284, ptr %278, align 8, !tbaa !1037
-  %285 = load ptr, ptr %113, align 8, !tbaa !1038
-  %.not.i45 = icmp eq ptr %285, null
-  br i1 %.not.i45, label %290, label %286
+275:                                              ; preds = %_ZNSt6vectorISt4pairImmESaIS1_EE2atEm.exit, %254
+  %276 = getelementptr inbounds nuw i8, ptr %214, i64 1
+  store ptr %276, ptr %4, align 8, !tbaa !1031
+  %277 = getelementptr inbounds nuw i8, ptr %207, i64 352
+  %278 = load ptr, ptr %277, align 8, !tbaa !1017
+  %279 = getelementptr inbounds nuw i8, ptr %207, i64 360
+  %280 = load ptr, ptr %279, align 8, !tbaa !1037
+  %281 = ptrtoint ptr %280 to i64
+  %282 = ptrtoint ptr %278 to i64
+  %reass.sub72 = sub i64 %281, %282
+  %283 = add i64 %reass.sub72, 7
+  %284 = and i64 %283, -8
+  %285 = getelementptr inbounds i8, ptr %278, i64 %284
+  store ptr %285, ptr %279, align 8, !tbaa !1037
+  %286 = load ptr, ptr %113, align 8, !tbaa !1038
+  %.not.i45 = icmp eq ptr %286, null
+  br i1 %.not.i45, label %291, label %287
 
-286:                                              ; preds = %274
-  %287 = ptrtoint ptr %285 to i64
-  %.neg.i46 = sub i64 %281, %287
-  %288 = add i64 %.neg.i46, %283
-  %289 = getelementptr inbounds nuw i8, ptr %285, i64 8
-  store i64 %288, ptr %289, align 8, !tbaa !18
+287:                                              ; preds = %275
+  %288 = ptrtoint ptr %286 to i64
+  %.neg.i46 = sub i64 %282, %288
+  %289 = add i64 %.neg.i46, %284
+  %290 = getelementptr inbounds nuw i8, ptr %286, i64 8
+  store i64 %289, ptr %290, align 8, !tbaa !18
   %.pre.i47 = load ptr, ptr %0, align 8, !tbaa !1019
   %.phi.trans.insert.i48 = getelementptr inbounds nuw i8, ptr %.pre.i47, i64 360
   %.pre6.i49 = load ptr, ptr %.phi.trans.insert.i48, align 8, !tbaa !1037
-  br label %290
+  br label %291
 
-290:                                              ; preds = %286, %274
-  %291 = phi ptr [ %.pre6.i49, %286 ], [ %284, %274 ]
-  %292 = phi ptr [ %.pre.i47, %286 ], [ %207, %274 ]
-  %293 = getelementptr inbounds nuw i8, ptr %292, i64 344
-  %294 = load ptr, ptr %293, align 8, !tbaa !1039
-  %295 = getelementptr inbounds nuw i8, ptr %292, i64 360
-  %296 = ptrtoint ptr %294 to i64
-  %297 = ptrtoint ptr %291 to i64
-  %298 = sub i64 %296, %297
-  %299 = icmp ult i64 %298, 24
-  br i1 %299, label %300, label %_ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE12append_stateENS0_19syntax_element_typeEm.exit51
+291:                                              ; preds = %287, %275
+  %292 = phi ptr [ %.pre6.i49, %287 ], [ %285, %275 ]
+  %293 = phi ptr [ %.pre.i47, %287 ], [ %207, %275 ]
+  %294 = getelementptr inbounds nuw i8, ptr %293, i64 344
+  %295 = load ptr, ptr %294, align 8, !tbaa !1039
+  %296 = getelementptr inbounds nuw i8, ptr %293, i64 360
+  %297 = ptrtoint ptr %295 to i64
+  %298 = ptrtoint ptr %292 to i64
+  %299 = sub i64 %297, %298
+  %300 = icmp ult i64 %299, 24
+  br i1 %300, label %301, label %_ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE12append_stateENS0_19syntax_element_typeEm.exit51
 
-300:                                              ; preds = %290
-  %301 = getelementptr inbounds nuw i8, ptr %292, i64 352
-  %302 = load ptr, ptr %301, align 8, !tbaa !1017
-  %303 = ptrtoint ptr %302 to i64
-  %304 = add i64 %297, 24
-  %305 = sub i64 %304, %303
-  tail call void @_ZN5boost16re_detail_10740011raw_storage6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %293, i64 noundef %305)
-  %.pre.i.i50 = load ptr, ptr %295, align 8, !tbaa !1037
+301:                                              ; preds = %291
+  %302 = getelementptr inbounds nuw i8, ptr %293, i64 352
+  %303 = load ptr, ptr %302, align 8, !tbaa !1017
+  %304 = ptrtoint ptr %303 to i64
+  %305 = add i64 %298, 24
+  %306 = sub i64 %305, %304
+  tail call void @_ZN5boost16re_detail_10740011raw_storage6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %294, i64 noundef %306)
+  %.pre.i.i50 = load ptr, ptr %296, align 8, !tbaa !1037
   br label %_ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE12append_stateENS0_19syntax_element_typeEm.exit51
 
-_ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE12append_stateENS0_19syntax_element_typeEm.exit51: ; preds = %290, %300
-  %306 = phi ptr [ %.pre.i.i50, %300 ], [ %291, %290 ]
-  %307 = getelementptr inbounds nuw i8, ptr %306, i64 24
-  store ptr %307, ptr %295, align 8, !tbaa !1037
-  store ptr %306, ptr %113, align 8, !tbaa !1038
-  %308 = getelementptr inbounds nuw i8, ptr %306, i64 8
-  store i64 0, ptr %308, align 8, !tbaa !18
-  %309 = load ptr, ptr %113, align 8, !tbaa !1038
-  store i32 1, ptr %309, align 8, !tbaa !1040
-  %310 = getelementptr inbounds nuw i8, ptr %309, i64 16
-  store i32 %.019, ptr %310, align 8, !tbaa !1043
-  %311 = load ptr, ptr %0, align 8, !tbaa !1019
-  %312 = getelementptr inbounds nuw i8, ptr %311, i64 40
-  %313 = load i32, ptr %312, align 8, !tbaa !1020
-  %314 = getelementptr inbounds nuw i8, ptr %309, i64 20
-  %315 = lshr i32 %313, 20
-  %316 = trunc i32 %315 to i8
-  %317 = and i8 %316, 1
-  store i8 %317, ptr %314, align 4, !tbaa !1045
-  %318 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  store i64 %151, ptr %318, align 8, !tbaa !1115
+_ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE12append_stateENS0_19syntax_element_typeEm.exit51: ; preds = %291, %301
+  %307 = phi ptr [ %.pre.i.i50, %301 ], [ %292, %291 ]
+  %308 = getelementptr inbounds nuw i8, ptr %307, i64 24
+  store ptr %308, ptr %296, align 8, !tbaa !1037
+  store ptr %307, ptr %113, align 8, !tbaa !1038
+  %309 = getelementptr inbounds nuw i8, ptr %307, i64 8
+  store i64 0, ptr %309, align 8, !tbaa !18
+  %310 = load ptr, ptr %113, align 8, !tbaa !1038
+  store i32 1, ptr %310, align 8, !tbaa !1040
+  %311 = getelementptr inbounds nuw i8, ptr %310, i64 16
+  store i32 %.019, ptr %311, align 8, !tbaa !1043
+  %312 = load ptr, ptr %0, align 8, !tbaa !1019
+  %313 = getelementptr inbounds nuw i8, ptr %312, i64 40
+  %314 = load i32, ptr %313, align 8, !tbaa !1020
+  %315 = getelementptr inbounds nuw i8, ptr %310, i64 20
+  %316 = lshr i32 %314, 20
+  %317 = trunc i32 %316 to i8
+  %318 = and i8 %317, 1
+  store i8 %318, ptr %315, align 4, !tbaa !1045
+  %319 = getelementptr inbounds nuw i8, ptr %0, i64 216
+  store i64 %151, ptr %319, align 8, !tbaa !1115
   store i64 %153, ptr %152, align 8, !tbaa !1077
-  br i1 %.not24, label %_ZN5boost16re_detail_10740016indexed_bit_flag3setEm.exit, label %319
+  br i1 %.not24, label %_ZN5boost16re_detail_10740016indexed_bit_flag3setEm.exit, label %320
 
-319:                                              ; preds = %_ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE12append_stateENS0_19syntax_element_typeEm.exit51
-  %320 = zext i32 %.019 to i64
-  %321 = icmp ult i32 %.019, 63
-  br i1 %321, label %322, label %327
+320:                                              ; preds = %_ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE12append_stateENS0_19syntax_element_typeEm.exit51
+  %321 = zext i32 %.019 to i64
+  %322 = icmp ult i32 %.019, 63
+  br i1 %322, label %323, label %328
 
-322:                                              ; preds = %319
-  %323 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %324 = shl nuw nsw i64 1, %320
-  %325 = load i64, ptr %323, align 8, !tbaa !1052
-  %326 = or i64 %325, %324
-  store i64 %326, ptr %323, align 8, !tbaa !1052
+323:                                              ; preds = %320
+  %324 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %325 = shl nuw nsw i64 1, %321
+  %326 = load i64, ptr %324, align 8, !tbaa !1052
+  %327 = or i64 %326, %325
+  store i64 %327, ptr %324, align 8, !tbaa !1052
   br label %_ZN5boost16re_detail_10740016indexed_bit_flag3setEm.exit
 
-327:                                              ; preds = %319
-  %328 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %329 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %.02022.i.i.i.i = load ptr, ptr %328, align 8, !tbaa !916
+328:                                              ; preds = %320
+  %329 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %330 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %.02022.i.i.i.i = load ptr, ptr %329, align 8, !tbaa !916
   %.not23.i.i.i.i = icmp eq ptr %.02022.i.i.i.i, null
   br i1 %.not23.i.i.i.i, label %._crit_edge.thread.i.i.i.i, label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %327, %.lr.ph.i.i.i.i
-  %.02024.i.i.i.i = phi ptr [ %.020.i.i.i.i, %.lr.ph.i.i.i.i ], [ %.02022.i.i.i.i, %327 ]
-  %330 = getelementptr inbounds nuw i8, ptr %.02024.i.i.i.i, i64 32
-  %331 = load i64, ptr %330, align 8, !tbaa !286
-  %332 = icmp ugt i64 %331, %320
-  %.in.v.i.i.i.i = select i1 %332, i64 16, i64 24
+.lr.ph.i.i.i.i:                                   ; preds = %328, %.lr.ph.i.i.i.i
+  %.02024.i.i.i.i = phi ptr [ %.020.i.i.i.i, %.lr.ph.i.i.i.i ], [ %.02022.i.i.i.i, %328 ]
+  %331 = getelementptr inbounds nuw i8, ptr %.02024.i.i.i.i, i64 32
+  %332 = load i64, ptr %331, align 8, !tbaa !286
+  %333 = icmp ugt i64 %332, %321
+  %.in.v.i.i.i.i = select i1 %333, i64 16, i64 24
   %.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.02024.i.i.i.i, i64 %.in.v.i.i.i.i
   %.020.i.i.i.i = load ptr, ptr %.in.i.i.i.i, align 8, !tbaa !916
   %.not.i.i.i.i52 = icmp eq ptr %.020.i.i.i.i, null
   br i1 %.not.i.i.i.i52, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !1116
 
 ._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i
-  br i1 %332, label %._crit_edge.thread.i.i.i.i, label %338
+  br i1 %333, label %._crit_edge.thread.i.i.i.i, label %339
 
-._crit_edge.thread.i.i.i.i:                       ; preds = %._crit_edge.i.i.i.i, %327
-  %.019.lcssa29.i.i.i.i = phi ptr [ %.02024.i.i.i.i, %._crit_edge.i.i.i.i ], [ %329, %327 ]
-  %333 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %334 = load ptr, ptr %333, align 8, !tbaa !913
-  %335 = icmp eq ptr %.019.lcssa29.i.i.i.i, %334
-  br i1 %335, label %select.unfold.i.i.i, label %336
+._crit_edge.thread.i.i.i.i:                       ; preds = %._crit_edge.i.i.i.i, %328
+  %.019.lcssa29.i.i.i.i = phi ptr [ %.02024.i.i.i.i, %._crit_edge.i.i.i.i ], [ %330, %328 ]
+  %334 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %335 = load ptr, ptr %334, align 8, !tbaa !913
+  %336 = icmp eq ptr %.019.lcssa29.i.i.i.i, %335
+  br i1 %336, label %select.unfold.i.i.i, label %337
 
-336:                                              ; preds = %._crit_edge.thread.i.i.i.i
-  %337 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa29.i.i.i.i) #41
-  %.phi.trans.insert.i.i.i = getelementptr inbounds nuw i8, ptr %337, i64 32
+337:                                              ; preds = %._crit_edge.thread.i.i.i.i
+  %338 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa29.i.i.i.i) #41
+  %.phi.trans.insert.i.i.i = getelementptr inbounds nuw i8, ptr %338, i64 32
   %.pre.i.i.i = load i64, ptr %.phi.trans.insert.i.i.i, align 8, !tbaa !286
-  br label %338
+  br label %339
 
-338:                                              ; preds = %336, %._crit_edge.i.i.i.i
-  %339 = phi i64 [ %.pre.i.i.i, %336 ], [ %331, %._crit_edge.i.i.i.i ]
-  %.019.lcssa28.i.i.i.i = phi ptr [ %.019.lcssa29.i.i.i.i, %336 ], [ %.02024.i.i.i.i, %._crit_edge.i.i.i.i ]
-  %340 = icmp ult i64 %339, %320
-  br i1 %340, label %select.unfold.i.i.i, label %_ZN5boost16re_detail_10740016indexed_bit_flag3setEm.exit
+339:                                              ; preds = %337, %._crit_edge.i.i.i.i
+  %340 = phi i64 [ %.pre.i.i.i, %337 ], [ %332, %._crit_edge.i.i.i.i ]
+  %.019.lcssa28.i.i.i.i = phi ptr [ %.019.lcssa29.i.i.i.i, %337 ], [ %.02024.i.i.i.i, %._crit_edge.i.i.i.i ]
+  %341 = icmp ult i64 %340, %321
+  br i1 %341, label %select.unfold.i.i.i, label %_ZN5boost16re_detail_10740016indexed_bit_flag3setEm.exit
 
-select.unfold.i.i.i:                              ; preds = %338, %._crit_edge.thread.i.i.i.i
-  %.sroa.4.0.i.ph.i.i.i = phi ptr [ %.019.lcssa29.i.i.i.i, %._crit_edge.thread.i.i.i.i ], [ %.019.lcssa28.i.i.i.i, %338 ]
-  %341 = icmp eq ptr %.sroa.4.0.i.ph.i.i.i, %329
-  br i1 %341, label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_IRKmNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i.i, label %342
+select.unfold.i.i.i:                              ; preds = %339, %._crit_edge.thread.i.i.i.i
+  %.sroa.4.0.i.ph.i.i.i = phi ptr [ %.019.lcssa29.i.i.i.i, %._crit_edge.thread.i.i.i.i ], [ %.019.lcssa28.i.i.i.i, %339 ]
+  %342 = icmp eq ptr %.sroa.4.0.i.ph.i.i.i, %330
+  br i1 %342, label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_IRKmNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i.i, label %343
 
-342:                                              ; preds = %select.unfold.i.i.i
-  %343 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.i.ph.i.i.i, i64 32
-  %344 = load i64, ptr %343, align 8, !tbaa !286
-  %345 = icmp ugt i64 %344, %320
+343:                                              ; preds = %select.unfold.i.i.i
+  %344 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.i.ph.i.i.i, i64 32
+  %345 = load i64, ptr %344, align 8, !tbaa !286
+  %346 = icmp ugt i64 %345, %321
   br label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_IRKmNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i.i
 
-_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_IRKmNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i.i: ; preds = %342, %select.unfold.i.i.i
-  %346 = phi i1 [ true, %select.unfold.i.i.i ], [ %345, %342 ]
-  %347 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #35
-  %348 = getelementptr inbounds nuw i8, ptr %347, i64 32
-  store i64 %320, ptr %348, align 8, !tbaa !286
-  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %346, ptr noundef nonnull %347, ptr noundef nonnull %.sroa.4.0.i.ph.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %329) #33
-  %349 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %350 = load i64, ptr %349, align 8, !tbaa !915
-  %351 = add i64 %350, 1
-  store i64 %351, ptr %349, align 8, !tbaa !915
+_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_IRKmNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i.i: ; preds = %343, %select.unfold.i.i.i
+  %347 = phi i1 [ true, %select.unfold.i.i.i ], [ %346, %343 ]
+  %348 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #35
+  %349 = getelementptr inbounds nuw i8, ptr %348, i64 32
+  store i64 %321, ptr %349, align 8, !tbaa !286
+  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %347, ptr noundef nonnull %348, ptr noundef nonnull %.sroa.4.0.i.ph.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %330) #33
+  %350 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %351 = load i64, ptr %350, align 8, !tbaa !915
+  %352 = add i64 %351, 1
+  store i64 %352, ptr %350, align 8, !tbaa !915
   br label %_ZN5boost16re_detail_10740016indexed_bit_flag3setEm.exit
 
-_ZN5boost16re_detail_10740016indexed_bit_flag3setEm.exit: ; preds = %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_IRKmNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i.i, %338, %322, %_ZN5boost16re_detail_10740018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE4failENS_15regex_constants10error_typeEl.exit42, %_ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE12append_stateENS0_19syntax_element_typeEm.exit, %245, %_ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE12append_stateENS0_19syntax_element_typeEm.exit51, %58, %56, %_ZN5boost16re_detail_10740018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE4failENS_15regex_constants10error_typeEl.exit
-  %.0 = phi i1 [ false, %_ZN5boost16re_detail_10740018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE4failENS_15regex_constants10error_typeEl.exit ], [ %57, %56 ], [ %59, %58 ], [ false, %_ZN5boost16re_detail_10740018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE4failENS_15regex_constants10error_typeEl.exit42 ], [ false, %_ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE12append_stateENS0_19syntax_element_typeEm.exit ], [ false, %245 ], [ true, %_ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE12append_stateENS0_19syntax_element_typeEm.exit51 ], [ true, %322 ], [ true, %338 ], [ true, %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_IRKmNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i.i ]
+_ZN5boost16re_detail_10740016indexed_bit_flag3setEm.exit: ; preds = %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_IRKmNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i.i, %339, %323, %_ZN5boost16re_detail_10740018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE4failENS_15regex_constants10error_typeEl.exit42, %_ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE12append_stateENS0_19syntax_element_typeEm.exit, %245, %_ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE12append_stateENS0_19syntax_element_typeEm.exit51, %58, %56, %_ZN5boost16re_detail_10740018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE4failENS_15regex_constants10error_typeEl.exit
+  %.0 = phi i1 [ false, %_ZN5boost16re_detail_10740018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE4failENS_15regex_constants10error_typeEl.exit ], [ %57, %56 ], [ %59, %58 ], [ false, %_ZN5boost16re_detail_10740018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE4failENS_15regex_constants10error_typeEl.exit42 ], [ false, %_ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE12append_stateENS0_19syntax_element_typeEm.exit ], [ false, %245 ], [ true, %_ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE12append_stateENS0_19syntax_element_typeEm.exit51 ], [ true, %323 ], [ true, %339 ], [ true, %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_IRKmNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i.i ]
   ret i1 %.0
 }
 
@@ -39314,7 +39315,7 @@ _ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_re
 
 ._crit_edge:                                      ; preds = %1590
   %.pre813 = zext nneg i32 %.0129 to i64
-  br label %1612
+  br label %1613
 
 1592:                                             ; preds = %1590
   %1593 = getelementptr inbounds nuw i8, ptr %1576, i64 376
@@ -39342,88 +39343,89 @@ _ZNSt6vectorISt4pairImmESaIS1_EE2atEm.exit:       ; preds = %1592
   %1608 = ptrtoint ptr %1607 to i64
   %1609 = xor i64 %1606, -1
   %1610 = add i64 %1608, %1609
-  %1611 = getelementptr inbounds nuw %"struct.std::pair.202", ptr %1598, i64 %1595, i32 1
-  store i64 %1610, ptr %1611, align 8, !tbaa !1113
-  br label %1612
+  %1611 = getelementptr inbounds nuw %"struct.std::pair.202", ptr %1598, i64 %1595
+  %1612 = getelementptr inbounds nuw i8, ptr %1611, i64 8
+  store i64 %1610, ptr %1612, align 8, !tbaa !1113
+  br label %1613
 
-1612:                                             ; preds = %._crit_edge, %_ZNSt6vectorISt4pairImmESaIS1_EE2atEm.exit
+1613:                                             ; preds = %._crit_edge, %_ZNSt6vectorISt4pairImmESaIS1_EE2atEm.exit
   %.pre-phi = phi i64 [ %.pre813, %._crit_edge ], [ %1594, %_ZNSt6vectorISt4pairImmESaIS1_EE2atEm.exit ]
-  %1613 = icmp samesign ult i32 %.0129, 63
-  br i1 %1613, label %1614, label %1619
+  %1614 = icmp samesign ult i32 %.0129, 63
+  br i1 %1614, label %1615, label %1620
 
-1614:                                             ; preds = %1612
-  %1615 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %1616 = shl nuw nsw i64 1, %.pre-phi
-  %1617 = load i64, ptr %1615, align 8, !tbaa !1052
-  %1618 = or i64 %1617, %1616
-  store i64 %1618, ptr %1615, align 8, !tbaa !1052
+1615:                                             ; preds = %1613
+  %1616 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %1617 = shl nuw nsw i64 1, %.pre-phi
+  %1618 = load i64, ptr %1616, align 8, !tbaa !1052
+  %1619 = or i64 %1618, %1617
+  store i64 %1619, ptr %1616, align 8, !tbaa !1052
   br label %.critedge
 
-1619:                                             ; preds = %1612
-  %1620 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %1621 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %.02022.i.i.i.i = load ptr, ptr %1620, align 8, !tbaa !916
+1620:                                             ; preds = %1613
+  %1621 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %1622 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %.02022.i.i.i.i = load ptr, ptr %1621, align 8, !tbaa !916
   %.not23.i.i.i.i = icmp eq ptr %.02022.i.i.i.i, null
   br i1 %.not23.i.i.i.i, label %._crit_edge.thread.i.i.i.i, label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %1619, %.lr.ph.i.i.i.i
-  %.02024.i.i.i.i = phi ptr [ %.020.i.i.i.i, %.lr.ph.i.i.i.i ], [ %.02022.i.i.i.i, %1619 ]
-  %1622 = getelementptr inbounds nuw i8, ptr %.02024.i.i.i.i, i64 32
-  %1623 = load i64, ptr %1622, align 8, !tbaa !286
-  %1624 = icmp ugt i64 %1623, %.pre-phi
-  %.in.v.i.i.i.i = select i1 %1624, i64 16, i64 24
+.lr.ph.i.i.i.i:                                   ; preds = %1620, %.lr.ph.i.i.i.i
+  %.02024.i.i.i.i = phi ptr [ %.020.i.i.i.i, %.lr.ph.i.i.i.i ], [ %.02022.i.i.i.i, %1620 ]
+  %1623 = getelementptr inbounds nuw i8, ptr %.02024.i.i.i.i, i64 32
+  %1624 = load i64, ptr %1623, align 8, !tbaa !286
+  %1625 = icmp ugt i64 %1624, %.pre-phi
+  %.in.v.i.i.i.i = select i1 %1625, i64 16, i64 24
   %.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.02024.i.i.i.i, i64 %.in.v.i.i.i.i
   %.020.i.i.i.i = load ptr, ptr %.in.i.i.i.i, align 8, !tbaa !916
   %.not.i.i.i.i = icmp eq ptr %.020.i.i.i.i, null
   br i1 %.not.i.i.i.i, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !1116
 
 ._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i
-  br i1 %1624, label %._crit_edge.thread.i.i.i.i, label %1630
+  br i1 %1625, label %._crit_edge.thread.i.i.i.i, label %1631
 
-._crit_edge.thread.i.i.i.i:                       ; preds = %._crit_edge.i.i.i.i, %1619
-  %.019.lcssa29.i.i.i.i = phi ptr [ %.02024.i.i.i.i, %._crit_edge.i.i.i.i ], [ %1621, %1619 ]
-  %1625 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %1626 = load ptr, ptr %1625, align 8, !tbaa !913
-  %1627 = icmp eq ptr %.019.lcssa29.i.i.i.i, %1626
-  br i1 %1627, label %select.unfold.i.i.i, label %1628
+._crit_edge.thread.i.i.i.i:                       ; preds = %._crit_edge.i.i.i.i, %1620
+  %.019.lcssa29.i.i.i.i = phi ptr [ %.02024.i.i.i.i, %._crit_edge.i.i.i.i ], [ %1622, %1620 ]
+  %1626 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %1627 = load ptr, ptr %1626, align 8, !tbaa !913
+  %1628 = icmp eq ptr %.019.lcssa29.i.i.i.i, %1627
+  br i1 %1628, label %select.unfold.i.i.i, label %1629
 
-1628:                                             ; preds = %._crit_edge.thread.i.i.i.i
-  %1629 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa29.i.i.i.i) #41
-  %.phi.trans.insert.i.i.i = getelementptr inbounds nuw i8, ptr %1629, i64 32
+1629:                                             ; preds = %._crit_edge.thread.i.i.i.i
+  %1630 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa29.i.i.i.i) #41
+  %.phi.trans.insert.i.i.i = getelementptr inbounds nuw i8, ptr %1630, i64 32
   %.pre.i.i.i = load i64, ptr %.phi.trans.insert.i.i.i, align 8, !tbaa !286
-  br label %1630
+  br label %1631
 
-1630:                                             ; preds = %1628, %._crit_edge.i.i.i.i
-  %1631 = phi i64 [ %.pre.i.i.i, %1628 ], [ %1623, %._crit_edge.i.i.i.i ]
-  %.019.lcssa28.i.i.i.i = phi ptr [ %.019.lcssa29.i.i.i.i, %1628 ], [ %.02024.i.i.i.i, %._crit_edge.i.i.i.i ]
-  %1632 = icmp ult i64 %1631, %.pre-phi
-  br i1 %1632, label %select.unfold.i.i.i, label %.critedge
+1631:                                             ; preds = %1629, %._crit_edge.i.i.i.i
+  %1632 = phi i64 [ %.pre.i.i.i, %1629 ], [ %1624, %._crit_edge.i.i.i.i ]
+  %.019.lcssa28.i.i.i.i = phi ptr [ %.019.lcssa29.i.i.i.i, %1629 ], [ %.02024.i.i.i.i, %._crit_edge.i.i.i.i ]
+  %1633 = icmp ult i64 %1632, %.pre-phi
+  br i1 %1633, label %select.unfold.i.i.i, label %.critedge
 
-select.unfold.i.i.i:                              ; preds = %1630, %._crit_edge.thread.i.i.i.i
-  %.sroa.4.0.i.ph.i.i.i = phi ptr [ %.019.lcssa29.i.i.i.i, %._crit_edge.thread.i.i.i.i ], [ %.019.lcssa28.i.i.i.i, %1630 ]
-  %1633 = icmp eq ptr %.sroa.4.0.i.ph.i.i.i, %1621
-  br i1 %1633, label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_IRKmNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i.i, label %1634
+select.unfold.i.i.i:                              ; preds = %1631, %._crit_edge.thread.i.i.i.i
+  %.sroa.4.0.i.ph.i.i.i = phi ptr [ %.019.lcssa29.i.i.i.i, %._crit_edge.thread.i.i.i.i ], [ %.019.lcssa28.i.i.i.i, %1631 ]
+  %1634 = icmp eq ptr %.sroa.4.0.i.ph.i.i.i, %1622
+  br i1 %1634, label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_IRKmNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i.i, label %1635
 
-1634:                                             ; preds = %select.unfold.i.i.i
-  %1635 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.i.ph.i.i.i, i64 32
-  %1636 = load i64, ptr %1635, align 8, !tbaa !286
-  %1637 = icmp ugt i64 %1636, %.pre-phi
+1635:                                             ; preds = %select.unfold.i.i.i
+  %1636 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.i.ph.i.i.i, i64 32
+  %1637 = load i64, ptr %1636, align 8, !tbaa !286
+  %1638 = icmp ugt i64 %1637, %.pre-phi
   br label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_IRKmNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i.i
 
-_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_IRKmNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i.i: ; preds = %1634, %select.unfold.i.i.i
-  %1638 = phi i1 [ true, %select.unfold.i.i.i ], [ %1637, %1634 ]
-  %1639 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #35
-  %1640 = getelementptr inbounds nuw i8, ptr %1639, i64 32
-  store i64 %.pre-phi, ptr %1640, align 8, !tbaa !286
-  call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %1638, ptr noundef nonnull %1639, ptr noundef nonnull %.sroa.4.0.i.ph.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %1621) #33
-  %1641 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %1642 = load i64, ptr %1641, align 8, !tbaa !915
-  %1643 = add i64 %1642, 1
-  store i64 %1643, ptr %1641, align 8, !tbaa !915
+_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_IRKmNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i.i: ; preds = %1635, %select.unfold.i.i.i
+  %1639 = phi i1 [ true, %select.unfold.i.i.i ], [ %1638, %1635 ]
+  %1640 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #35
+  %1641 = getelementptr inbounds nuw i8, ptr %1640, i64 32
+  store i64 %.pre-phi, ptr %1641, align 8, !tbaa !286
+  call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %1639, ptr noundef nonnull %1640, ptr noundef nonnull %.sroa.4.0.i.ph.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %1622) #33
+  %1642 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %1643 = load i64, ptr %1642, align 8, !tbaa !915
+  %1644 = add i64 %1643, 1
+  store i64 %1644, ptr %1642, align 8, !tbaa !915
   br label %.critedge
 
-.critedge:                                        ; preds = %79, %.preheader638, %1120, %1169, %653, %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_IRKmNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i.i, %1630, %1614, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit560, %1188, %1233, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit456, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit462, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit468, %496, %574, %595, %615, %919, %933, %952, %967, %979, %_ZN5boost16re_detail_10740018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE4failENS_15regex_constants10error_typeEl.exit519, %1088, %1136, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit544, %_ZN5boost16re_detail_10740018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE4failENS_15regex_constants10error_typeEl.exit553, %1588, %697, %682, %805, %791, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit510, %714, %863, %848, %828, %902, %887, %1067, %1049, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit572, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit566, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit578, %_ZN5boost16re_detail_10740018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE4failENS_15regex_constants10error_typeEl.exit
-  %.0 = phi i1 [ false, %_ZN5boost16re_detail_10740018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE4failENS_15regex_constants10error_typeEl.exit ], [ false, %1088 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit544 ], [ false, %_ZN5boost16re_detail_10740018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE4failENS_15regex_constants10error_typeEl.exit553 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit560 ], [ false, %1120 ], [ false, %1136 ], [ false, %1169 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit456 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit462 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit468 ], [ false, %496 ], [ false, %574 ], [ false, %595 ], [ false, %615 ], [ false, %653 ], [ false, %919 ], [ false, %933 ], [ false, %952 ], [ false, %967 ], [ false, %979 ], [ false, %_ZN5boost16re_detail_10740018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE4failENS_15regex_constants10error_typeEl.exit519 ], [ true, %1588 ], [ false, %697 ], [ false, %682 ], [ false, %805 ], [ false, %791 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit510 ], [ false, %714 ], [ false, %863 ], [ false, %848 ], [ false, %828 ], [ false, %902 ], [ false, %887 ], [ false, %1067 ], [ false, %1049 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit572 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit566 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit578 ], [ false, %1233 ], [ false, %1188 ], [ true, %1614 ], [ true, %1630 ], [ true, %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_IRKmNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i.i ], [ true, %.preheader638 ], [ true, %79 ]
+.critedge:                                        ; preds = %79, %.preheader638, %1120, %1169, %653, %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_IRKmNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i.i, %1631, %1615, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit560, %1188, %1233, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit456, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit462, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit468, %496, %574, %595, %615, %919, %933, %952, %967, %979, %_ZN5boost16re_detail_10740018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE4failENS_15regex_constants10error_typeEl.exit519, %1088, %1136, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit544, %_ZN5boost16re_detail_10740018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE4failENS_15regex_constants10error_typeEl.exit553, %1588, %697, %682, %805, %791, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit510, %714, %863, %848, %828, %902, %887, %1067, %1049, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit572, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit566, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit578, %_ZN5boost16re_detail_10740018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE4failENS_15regex_constants10error_typeEl.exit
+  %.0 = phi i1 [ false, %_ZN5boost16re_detail_10740018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE4failENS_15regex_constants10error_typeEl.exit ], [ false, %1088 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit544 ], [ false, %_ZN5boost16re_detail_10740018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE4failENS_15regex_constants10error_typeEl.exit553 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit560 ], [ false, %1120 ], [ false, %1136 ], [ false, %1169 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit456 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit462 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit468 ], [ false, %496 ], [ false, %574 ], [ false, %595 ], [ false, %615 ], [ false, %653 ], [ false, %919 ], [ false, %933 ], [ false, %952 ], [ false, %967 ], [ false, %979 ], [ false, %_ZN5boost16re_detail_10740018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE4failENS_15regex_constants10error_typeEl.exit519 ], [ true, %1588 ], [ false, %697 ], [ false, %682 ], [ false, %805 ], [ false, %791 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit510 ], [ false, %714 ], [ false, %863 ], [ false, %848 ], [ false, %828 ], [ false, %902 ], [ false, %887 ], [ false, %1067 ], [ false, %1049 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit572 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit566 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit578 ], [ false, %1233 ], [ false, %1188 ], [ true, %1615 ], [ true, %1631 ], [ true, %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_IRKmNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i.i ], [ true, %.preheader638 ], [ true, %79 ]
   ret i1 %.0
 }
 

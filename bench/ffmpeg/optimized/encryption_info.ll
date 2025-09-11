@@ -210,7 +210,7 @@ define ptr @av_encryption_info_get_side_data(ptr noundef readonly captures(addre
   %51 = getelementptr inbounds nuw i8, ptr %.04246, i64 4
   %52 = load i32, ptr %51, align 1, !tbaa !20
   %53 = tail call i32 @llvm.bswap.i32(i32 %52)
-  %54 = getelementptr inbounds nuw %struct.AVSubsampleEncryptionInfo, ptr %46, i64 %.047, i32 1
+  %54 = getelementptr inbounds nuw i8, ptr %50, i64 4
   store i32 %53, ptr %54, align 4, !tbaa !23
   %55 = getelementptr inbounds nuw i8, ptr %.04246, i64 8
   %56 = add nuw nsw i64 %.047, 1
@@ -308,7 +308,7 @@ define noalias ptr @av_encryption_info_add_side_data(ptr noundef readonly captur
   %57 = load i32, ptr %56, align 4, !tbaa !21
   %58 = tail call i32 @llvm.bswap.i32(i32 %57)
   store i32 %58, ptr %.04653, align 1, !tbaa !20
-  %59 = getelementptr inbounds nuw %struct.AVSubsampleEncryptionInfo, ptr %54, i64 %indvars.iv, i32 1
+  %59 = getelementptr inbounds nuw i8, ptr %56, i64 4
   %60 = load i32, ptr %59, align 4, !tbaa !23
   %61 = tail call i32 @llvm.bswap.i32(i32 %60)
   %62 = getelementptr inbounds nuw i8, ptr %.04653, i64 4

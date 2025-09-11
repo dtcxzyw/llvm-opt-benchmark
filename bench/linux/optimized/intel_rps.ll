@@ -7969,7 +7969,7 @@ define dso_local i64 @i915_read_mch_val() #0 align 16 {
   %153 = select i1 %151, i32 %93, i32 %152
   %154 = zext nneg i32 %153 to i64
   %155 = mul nuw nsw i64 %154, 150142
-  %156 = mul i64 %155, %125
+  %156 = mul nuw i64 %155, %125
   %157 = udiv i64 %156, 10000
   %158 = add nsw i64 %157, -78642
   %159 = udiv i64 %158, 100000

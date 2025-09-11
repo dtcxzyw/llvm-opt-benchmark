@@ -924,7 +924,7 @@ for.body106:                                      ; preds = %for.cond98.preheade
   store ptr %q.285, ptr %prev.i60, align 8
   %inc115 = add nuw nsw i64 %i.184, 1
   %q.2 = load ptr, ptr %write_queue, align 8
-  %cmp99 = icmp ult i64 %inc115, %conv51.le
+  %cmp99 = icmp samesign ult i64 %inc115, %conv51.le
   %cmp103 = icmp ne ptr %q.2, %write_queue
   %22 = select i1 %cmp99, i1 %cmp103, i1 false
   br i1 %22, label %for.body106, label %for.end118

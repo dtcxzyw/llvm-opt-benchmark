@@ -136,7 +136,8 @@ define dso_local ptr @lookup_power_well(ptr noundef readonly captures(none) %0, 
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 29
   %16 = load i8, ptr %15, align 1
   %17 = zext i8 %16 to i64
-  %18 = getelementptr %struct.i915_power_well_instance, ptr %14, i64 %17, i32 2
+  %.split = getelementptr %struct.i915_power_well_instance, ptr %14, i64 %17
+  %18 = getelementptr i8, ptr %.split, i64 16
   %19 = load i32, ptr %18, align 8
   %20 = icmp eq i32 %19, %1
   br i1 %20, label %.loopexit, label %21
@@ -447,7 +448,8 @@ define dso_local zeroext i1 @intel_display_power_well_is_enabled(ptr noundef %0,
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 29
   %16 = load i8, ptr %15, align 1
   %17 = zext i8 %16 to i64
-  %18 = getelementptr %struct.i915_power_well_instance, ptr %14, i64 %17, i32 2
+  %.split.i = getelementptr %struct.i915_power_well_instance, ptr %14, i64 %17
+  %18 = getelementptr i8, ptr %.split.i, i64 16
   %19 = load i32, ptr %18, align 8
   %20 = icmp eq i32 %19, %1
   br i1 %20, label %lookup_power_well.exit, label %21
@@ -788,7 +790,8 @@ define dso_local void @gen9_enable_dc5(ptr noundef %0) local_unnamed_addr #0 ali
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 29
   %19 = load i8, ptr %18, align 1
   %20 = zext i8 %19 to i64
-  %21 = getelementptr %struct.i915_power_well_instance, ptr %17, i64 %20, i32 2
+  %.split.i = getelementptr %struct.i915_power_well_instance, ptr %17, i64 %20
+  %21 = getelementptr i8, ptr %.split.i, i64 16
   %22 = load i32, ptr %21, align 8
   %23 = icmp eq i32 %22, %5
   br i1 %23, label %lookup_power_well.exit, label %24
@@ -1495,7 +1498,8 @@ define dso_local void @gen9_disable_dc_states(ptr noundef %0) local_unnamed_addr
   %77 = getelementptr inbounds nuw i8, ptr %72, i64 29
   %78 = load i8, ptr %77, align 1
   %79 = zext i8 %78 to i64
-  %80 = getelementptr %struct.i915_power_well_instance, ptr %76, i64 %79, i32 2
+  %.split.i = getelementptr %struct.i915_power_well_instance, ptr %76, i64 %79
+  %80 = getelementptr i8, ptr %.split.i, i64 16
   %81 = load i32, ptr %80, align 8
   %82 = icmp eq i32 %81, 2
   br i1 %82, label %lookup_power_well.exit, label %83
@@ -1549,7 +1553,8 @@ lookup_power_well.exit:                           ; preds = %.preheader.i, %98
   %111 = getelementptr inbounds nuw i8, ptr %102, i64 29
   %112 = load i8, ptr %111, align 1
   %113 = zext i8 %112 to i64
-  %114 = getelementptr %struct.i915_power_well_instance, ptr %110, i64 %113, i32 3
+  %.split = getelementptr %struct.i915_power_well_instance, ptr %110, i64 %113
+  %114 = getelementptr i8, ptr %.split, i64 20
   %115 = load i32, ptr %114, align 4
   %116 = call zeroext i1 @bxt_ddi_phy_verify_state(ptr noundef %0, i32 noundef %115) #9
   %.pre = load ptr, ptr %65, align 8
@@ -1561,9 +1566,9 @@ lookup_power_well.exit:                           ; preds = %.preheader.i, %98
   %120 = load i32, ptr %68, align 4
   %121 = sext i32 %120 to i64
   %122 = icmp sgt i32 %120, 0
-  br i1 %122, label %.preheader.i6, label %.loopexit1.i5
+  br i1 %122, label %.preheader.i8, label %.loopexit1.i7
 
-.preheader.i6:                                    ; preds = %117, %134
+.preheader.i8:                                    ; preds = %117, %134
   %123 = phi ptr [ %135, %134 ], [ %118, %117 ]
   %124 = load ptr, ptr %123, align 8
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 8
@@ -1572,20 +1577,21 @@ lookup_power_well.exit:                           ; preds = %.preheader.i, %98
   %128 = getelementptr inbounds nuw i8, ptr %123, i64 29
   %129 = load i8, ptr %128, align 1
   %130 = zext i8 %129 to i64
-  %131 = getelementptr %struct.i915_power_well_instance, ptr %127, i64 %130, i32 2
+  %.split.i9 = getelementptr %struct.i915_power_well_instance, ptr %127, i64 %130
+  %131 = getelementptr i8, ptr %.split.i9, i64 16
   %132 = load i32, ptr %131, align 8
   %133 = icmp eq i32 %132, 3
-  br i1 %133, label %lookup_power_well.exit7, label %134
+  br i1 %133, label %lookup_power_well.exit10, label %134
 
-134:                                              ; preds = %.preheader.i6
+134:                                              ; preds = %.preheader.i8
   %135 = getelementptr i8, ptr %123, i64 32
   %136 = ptrtoint ptr %135 to i64
   %137 = sub i64 %136, %119
   %138 = ashr exact i64 %137, 5
   %139 = icmp slt i64 %138, %121
-  br i1 %139, label %.preheader.i6, label %.loopexit1.i5, !llvm.loop !5
+  br i1 %139, label %.preheader.i8, label %.loopexit1.i7, !llvm.loop !5
 
-.loopexit1.i5:                                    ; preds = %134, %117
+.loopexit1.i7:                                    ; preds = %134, %117
   call void asm sideeffect "897: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 897b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 897) #9, !srcloc !8
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %141 = load ptr, ptr %140, align 8
@@ -1596,28 +1602,28 @@ lookup_power_well.exit:                           ; preds = %.preheader.i, %98
   %146 = icmp eq ptr %145, null
   br i1 %146, label %147, label %149
 
-147:                                              ; preds = %.loopexit1.i5
+147:                                              ; preds = %.loopexit1.i7
   %148 = load ptr, ptr %143, align 8
   br label %149
 
-149:                                              ; preds = %147, %.loopexit1.i5
-  %150 = phi ptr [ %148, %147 ], [ %145, %.loopexit1.i5 ]
+149:                                              ; preds = %147, %.loopexit1.i7
+  %150 = phi ptr [ %148, %147 ], [ %145, %.loopexit1.i7 ]
   call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str, ptr noundef %142, ptr noundef %150, i32 noundef 3) #9
   call void asm sideeffect "898: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 898b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 898) #9, !srcloc !9
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 92, i32 2313, i64 12) #9, !srcloc !10
   call void asm sideeffect "899: nop\0A\09.pushsection .discard.instr_end\0A\09.long 899b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 899) #9, !srcloc !11
   call void asm sideeffect "900: nop\0A\09.pushsection .discard.instr_end\0A\09.long 900b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 900) #9, !srcloc !12
   %151 = load ptr, ptr %65, align 8
-  br label %lookup_power_well.exit7
+  br label %lookup_power_well.exit10
 
-lookup_power_well.exit7:                          ; preds = %.preheader.i6, %149
-  %152 = phi ptr [ %151, %149 ], [ %123, %.preheader.i6 ]
+lookup_power_well.exit10:                         ; preds = %.preheader.i8, %149
+  %152 = phi ptr [ %151, %149 ], [ %123, %.preheader.i8 ]
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 24
   %154 = load i32, ptr %153, align 8
   %155 = icmp sgt i32 %154, 0
   br i1 %155, label %156, label %167
 
-156:                                              ; preds = %lookup_power_well.exit7
+156:                                              ; preds = %lookup_power_well.exit10
   %157 = load ptr, ptr %152, align 8
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 8
   %159 = load ptr, ptr %158, align 8
@@ -1625,12 +1631,13 @@ lookup_power_well.exit7:                          ; preds = %.preheader.i6, %149
   %161 = getelementptr inbounds nuw i8, ptr %152, i64 29
   %162 = load i8, ptr %161, align 1
   %163 = zext i8 %162 to i64
-  %164 = getelementptr %struct.i915_power_well_instance, ptr %160, i64 %163, i32 3
+  %.split5 = getelementptr %struct.i915_power_well_instance, ptr %160, i64 %163
+  %164 = getelementptr i8, ptr %.split5, i64 20
   %165 = load i32, ptr %164, align 4
   %166 = call zeroext i1 @bxt_ddi_phy_verify_state(ptr noundef %0, i32 noundef %165) #9
   br label %167
 
-167:                                              ; preds = %156, %lookup_power_well.exit7
+167:                                              ; preds = %156, %lookup_power_well.exit10
   %168 = load i32, ptr %60, align 4
   %169 = and i32 %168, 268435456
   %170 = icmp eq i32 %169, 0
@@ -1642,9 +1649,9 @@ lookup_power_well.exit7:                          ; preds = %.preheader.i6, %149
   %174 = load i32, ptr %68, align 4
   %175 = sext i32 %174 to i64
   %176 = icmp sgt i32 %174, 0
-  br i1 %176, label %.preheader.i9, label %.loopexit1.i8
+  br i1 %176, label %.preheader.i12, label %.loopexit1.i11
 
-.preheader.i9:                                    ; preds = %171, %188
+.preheader.i12:                                   ; preds = %171, %188
   %177 = phi ptr [ %189, %188 ], [ %172, %171 ]
   %178 = load ptr, ptr %177, align 8
   %179 = getelementptr inbounds nuw i8, ptr %178, i64 8
@@ -1653,20 +1660,21 @@ lookup_power_well.exit7:                          ; preds = %.preheader.i6, %149
   %182 = getelementptr inbounds nuw i8, ptr %177, i64 29
   %183 = load i8, ptr %182, align 1
   %184 = zext i8 %183 to i64
-  %185 = getelementptr %struct.i915_power_well_instance, ptr %181, i64 %184, i32 2
+  %.split.i13 = getelementptr %struct.i915_power_well_instance, ptr %181, i64 %184
+  %185 = getelementptr i8, ptr %.split.i13, i64 16
   %186 = load i32, ptr %185, align 8
   %187 = icmp eq i32 %186, 4
-  br i1 %187, label %lookup_power_well.exit10, label %188
+  br i1 %187, label %lookup_power_well.exit14, label %188
 
-188:                                              ; preds = %.preheader.i9
+188:                                              ; preds = %.preheader.i12
   %189 = getelementptr i8, ptr %177, i64 32
   %190 = ptrtoint ptr %189 to i64
   %191 = sub i64 %190, %173
   %192 = ashr exact i64 %191, 5
   %193 = icmp slt i64 %192, %175
-  br i1 %193, label %.preheader.i9, label %.loopexit1.i8, !llvm.loop !5
+  br i1 %193, label %.preheader.i12, label %.loopexit1.i11, !llvm.loop !5
 
-.loopexit1.i8:                                    ; preds = %188, %171
+.loopexit1.i11:                                   ; preds = %188, %171
   call void asm sideeffect "897: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 897b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 897) #9, !srcloc !8
   %194 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %195 = load ptr, ptr %194, align 8
@@ -1677,28 +1685,28 @@ lookup_power_well.exit7:                          ; preds = %.preheader.i6, %149
   %200 = icmp eq ptr %199, null
   br i1 %200, label %201, label %203
 
-201:                                              ; preds = %.loopexit1.i8
+201:                                              ; preds = %.loopexit1.i11
   %202 = load ptr, ptr %197, align 8
   br label %203
 
-203:                                              ; preds = %201, %.loopexit1.i8
-  %204 = phi ptr [ %202, %201 ], [ %199, %.loopexit1.i8 ]
+203:                                              ; preds = %201, %.loopexit1.i11
+  %204 = phi ptr [ %202, %201 ], [ %199, %.loopexit1.i11 ]
   call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str, ptr noundef %196, ptr noundef %204, i32 noundef 4) #9
   call void asm sideeffect "898: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 898b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 898) #9, !srcloc !9
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 92, i32 2313, i64 12) #9, !srcloc !10
   call void asm sideeffect "899: nop\0A\09.pushsection .discard.instr_end\0A\09.long 899b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 899) #9, !srcloc !11
   call void asm sideeffect "900: nop\0A\09.pushsection .discard.instr_end\0A\09.long 900b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 900) #9, !srcloc !12
   %205 = load ptr, ptr %65, align 8
-  br label %lookup_power_well.exit10
+  br label %lookup_power_well.exit14
 
-lookup_power_well.exit10:                         ; preds = %.preheader.i9, %203
-  %206 = phi ptr [ %205, %203 ], [ %177, %.preheader.i9 ]
+lookup_power_well.exit14:                         ; preds = %.preheader.i12, %203
+  %206 = phi ptr [ %205, %203 ], [ %177, %.preheader.i12 ]
   %207 = getelementptr inbounds nuw i8, ptr %206, i64 24
   %208 = load i32, ptr %207, align 8
   %209 = icmp sgt i32 %208, 0
   br i1 %209, label %210, label %221
 
-210:                                              ; preds = %lookup_power_well.exit10
+210:                                              ; preds = %lookup_power_well.exit14
   %211 = load ptr, ptr %206, align 8
   %212 = getelementptr inbounds nuw i8, ptr %211, i64 8
   %213 = load ptr, ptr %212, align 8
@@ -1706,12 +1714,13 @@ lookup_power_well.exit10:                         ; preds = %.preheader.i9, %203
   %215 = getelementptr inbounds nuw i8, ptr %206, i64 29
   %216 = load i8, ptr %215, align 1
   %217 = zext i8 %216 to i64
-  %218 = getelementptr %struct.i915_power_well_instance, ptr %214, i64 %217, i32 3
+  %.split6 = getelementptr %struct.i915_power_well_instance, ptr %214, i64 %217
+  %218 = getelementptr i8, ptr %.split6, i64 20
   %219 = load i32, ptr %218, align 4
   %220 = call zeroext i1 @bxt_ddi_phy_verify_state(ptr noundef %0, i32 noundef %219) #9
   br label %221
 
-221:                                              ; preds = %210, %lookup_power_well.exit10, %167, %59
+221:                                              ; preds = %210, %lookup_power_well.exit14, %167, %59
   %222 = load i16, ptr %21, align 8
   %223 = icmp ugt i16 %222, 10
   br i1 %223, label %224, label %225
@@ -1805,7 +1814,8 @@ define internal fastcc void @assert_chv_phy_status(ptr noundef %0) unnamed_addr 
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 29
   %15 = load i8, ptr %14, align 1
   %16 = zext i8 %15 to i64
-  %17 = getelementptr %struct.i915_power_well_instance, ptr %13, i64 %16, i32 2
+  %.split.i = getelementptr %struct.i915_power_well_instance, ptr %13, i64 %16
+  %17 = getelementptr i8, ptr %.split.i, i64 16
   %18 = load i32, ptr %17, align 8
   %19 = icmp eq i32 %18, 3
   br i1 %19, label %.preheader.i2.preheader, label %20
@@ -1842,16 +1852,16 @@ lookup_power_well.exit:                           ; preds = %.loopexit1.i, %33
   tail call void asm sideeffect "900: nop\0A\09.pushsection .discard.instr_end\0A\09.long 900b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 900) #9, !srcloc !12
   %36 = load ptr, ptr %2, align 8
   %.pre = load i32, ptr %5, align 4
-  %.pre10 = ptrtoint ptr %36 to i64
-  %.pre11 = zext nneg i32 %.pre to i64
+  %.pre11 = ptrtoint ptr %36 to i64
+  %.pre12 = zext nneg i32 %.pre to i64
   %37 = icmp sgt i32 %.pre, 0
   br i1 %37, label %.preheader.i2.preheader, label %.loopexit1.i1
 
 .preheader.i2.preheader:                          ; preds = %.preheader.i, %lookup_power_well.exit
   %38 = phi ptr [ %36, %lookup_power_well.exit ], [ %9, %.preheader.i ]
   %39 = phi ptr [ %36, %lookup_power_well.exit ], [ %3, %.preheader.i ]
-  %.pre-phi19 = phi i64 [ %.pre10, %lookup_power_well.exit ], [ %4, %.preheader.i ]
-  %.pre-phi1218 = phi i64 [ %.pre11, %lookup_power_well.exit ], [ %7, %.preheader.i ]
+  %.pre-phi20 = phi i64 [ %.pre11, %lookup_power_well.exit ], [ %4, %.preheader.i ]
+  %.pre-phi1319 = phi i64 [ %.pre12, %lookup_power_well.exit ], [ %7, %.preheader.i ]
   br label %.preheader.i2
 
 .preheader.i2:                                    ; preds = %.preheader.i2.preheader, %51
@@ -1863,17 +1873,18 @@ lookup_power_well.exit:                           ; preds = %.loopexit1.i, %33
   %45 = getelementptr inbounds nuw i8, ptr %40, i64 29
   %46 = load i8, ptr %45, align 1
   %47 = zext i8 %46 to i64
-  %48 = getelementptr %struct.i915_power_well_instance, ptr %44, i64 %47, i32 2
+  %.split.i3 = getelementptr %struct.i915_power_well_instance, ptr %44, i64 %47
+  %48 = getelementptr i8, ptr %.split.i3, i64 16
   %49 = load i32, ptr %48, align 8
   %50 = icmp eq i32 %49, 5
-  br i1 %50, label %lookup_power_well.exit3, label %51
+  br i1 %50, label %lookup_power_well.exit4, label %51
 
 51:                                               ; preds = %.preheader.i2
   %52 = getelementptr i8, ptr %40, i64 32
   %53 = ptrtoint ptr %52 to i64
-  %54 = sub i64 %53, %.pre-phi19
+  %54 = sub i64 %53, %.pre-phi20
   %55 = ashr exact i64 %54, 5
-  %56 = icmp slt i64 %55, %.pre-phi1218
+  %56 = icmp slt i64 %55, %.pre-phi1319
   br i1 %56, label %.preheader.i2, label %.loopexit1.i1, !llvm.loop !5
 
 .loopexit1.i1:                                    ; preds = %51, %lookup_power_well.exit
@@ -1900,9 +1911,9 @@ lookup_power_well.exit:                           ; preds = %.loopexit1.i, %33
   tail call void asm sideeffect "899: nop\0A\09.pushsection .discard.instr_end\0A\09.long 899b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 899) #9, !srcloc !11
   tail call void asm sideeffect "900: nop\0A\09.pushsection .discard.instr_end\0A\09.long 900b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 900) #9, !srcloc !12
   %69 = load ptr, ptr %2, align 8
-  br label %lookup_power_well.exit3
+  br label %lookup_power_well.exit4
 
-lookup_power_well.exit3:                          ; preds = %.preheader.i2, %67
+lookup_power_well.exit4:                          ; preds = %.preheader.i2, %67
   %70 = phi ptr [ %57, %67 ], [ %38, %.preheader.i2 ]
   %71 = phi ptr [ %69, %67 ], [ %40, %.preheader.i2 ]
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 3272
@@ -1923,7 +1934,7 @@ lookup_power_well.exit3:                          ; preds = %.preheader.i2, %67
   %87 = tail call zeroext i1 %86(ptr noundef %0, ptr noundef %70) #9
   br i1 %87, label %88, label %133
 
-88:                                               ; preds = %lookup_power_well.exit3
+88:                                               ; preds = %lookup_power_well.exit4
   %89 = and i32 %73, 134217728
   %90 = icmp eq i32 %89, 0
   %91 = or i32 %73, 30720
@@ -1974,9 +1985,9 @@ lookup_power_well.exit3:                          ; preds = %.preheader.i2, %67
   %132 = select i1 %130, i32 %131, i32 %128
   br label %133
 
-133:                                              ; preds = %115, %lookup_power_well.exit3
-  %134 = phi i32 [ 0, %lookup_power_well.exit3 ], [ %132, %115 ]
-  %135 = phi i32 [ %73, %lookup_power_well.exit3 ], [ %96, %115 ]
+133:                                              ; preds = %115, %lookup_power_well.exit4
+  %134 = phi i32 [ 0, %lookup_power_well.exit4 ], [ %132, %115 ]
+  %135 = phi i32 [ %73, %lookup_power_well.exit4 ], [ %96, %115 ]
   %136 = load ptr, ptr %71, align 8
   %137 = load ptr, ptr %136, align 8
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 32
@@ -2334,7 +2345,8 @@ define internal void @chv_dpio_cmn_power_well_enable(ptr noundef %0, ptr noundef
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 29
   %8 = load i8, ptr %7, align 1
   %9 = zext i8 %8 to i64
-  %10 = getelementptr %struct.i915_power_well_instance, ptr %6, i64 %9, i32 2
+  %.split = getelementptr %struct.i915_power_well_instance, ptr %6, i64 %9
+  %10 = getelementptr i8, ptr %.split, i64 16
   %11 = load i32, ptr %10, align 8
   %12 = load i1, ptr @chv_dpio_cmn_power_well_enable.__already_done, align 1
   %13 = freeze i1 %12
@@ -2445,7 +2457,8 @@ define internal void @chv_dpio_cmn_power_well_disable(ptr noundef %0, ptr nounde
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 29
   %8 = load i8, ptr %7, align 1
   %9 = zext i8 %8 to i64
-  %10 = getelementptr %struct.i915_power_well_instance, ptr %6, i64 %9, i32 2
+  %.split = getelementptr %struct.i915_power_well_instance, ptr %6, i64 %9
+  %10 = getelementptr i8, ptr %.split, i64 16
   %11 = load i32, ptr %10, align 8
   %12 = load i1, ptr @chv_dpio_cmn_power_well_disable.__already_done, align 1
   %13 = freeze i1 %12
@@ -2539,7 +2552,8 @@ define internal zeroext i1 @vlv_power_well_enabled(ptr noundef %0, ptr noundef r
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 29
   %8 = load i8, ptr %7, align 1
   %9 = zext i8 %8 to i64
-  %10 = getelementptr %struct.i915_power_well_instance, ptr %6, i64 %9, i32 3
+  %.split = getelementptr %struct.i915_power_well_instance, ptr %6, i64 %9
+  %10 = getelementptr i8, ptr %.split, i64 20
   %11 = load i8, ptr %10, align 4
   %12 = zext i8 %11 to i32
   %13 = shl nuw nsw i32 %12, 1
@@ -2759,7 +2773,8 @@ define internal void @hsw_power_well_sync_hw(ptr noundef %0, ptr noundef readonl
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 29
   %10 = load i8, ptr %9, align 1
   %11 = zext i8 %10 to i64
-  %12 = getelementptr %struct.i915_power_well_instance, ptr %8, i64 %11, i32 3
+  %.split = getelementptr %struct.i915_power_well_instance, ptr %8, i64 %11
+  %12 = getelementptr i8, ptr %.split, i64 20
   %13 = load i8, ptr %12, align 4
   %14 = zext i8 %13 to i32
   %15 = shl nuw nsw i32 %14, 1
@@ -2814,7 +2829,8 @@ define internal void @hsw_power_well_enable(ptr noundef %0, ptr noundef readonly
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 29
   %10 = load i8, ptr %9, align 1
   %11 = zext i8 %10 to i64
-  %12 = getelementptr %struct.i915_power_well_instance, ptr %8, i64 %11, i32 3
+  %.split = getelementptr %struct.i915_power_well_instance, ptr %8, i64 %11
+  %12 = getelementptr i8, ptr %.split, i64 20
   %13 = load i8, ptr %12, align 4
   %14 = zext i8 %13 to i32
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -2975,7 +2991,8 @@ define internal void @hsw_power_well_disable(ptr noundef %0, ptr noundef readonl
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 29
   %10 = load i8, ptr %9, align 1
   %11 = zext i8 %10 to i64
-  %12 = getelementptr %struct.i915_power_well_instance, ptr %8, i64 %11, i32 3
+  %.split = getelementptr %struct.i915_power_well_instance, ptr %8, i64 %11
+  %12 = getelementptr i8, ptr %.split, i64 20
   %13 = load i8, ptr %12, align 4
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %15 = load i16, ptr %14, align 8
@@ -3139,7 +3156,8 @@ define internal void @bxt_dpio_cmn_power_well_enable(ptr noundef %0, ptr noundef
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 29
   %8 = load i8, ptr %7, align 1
   %9 = zext i8 %8 to i64
-  %10 = getelementptr %struct.i915_power_well_instance, ptr %6, i64 %9, i32 3
+  %.split = getelementptr %struct.i915_power_well_instance, ptr %6, i64 %9
+  %10 = getelementptr i8, ptr %.split, i64 20
   %11 = load i32, ptr %10, align 4
   tail call void @bxt_ddi_phy_init(ptr noundef %0, i32 noundef %11) #9
   ret void
@@ -3154,7 +3172,8 @@ define internal void @bxt_dpio_cmn_power_well_disable(ptr noundef %0, ptr nounde
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 29
   %8 = load i8, ptr %7, align 1
   %9 = zext i8 %8 to i64
-  %10 = getelementptr %struct.i915_power_well_instance, ptr %6, i64 %9, i32 3
+  %.split = getelementptr %struct.i915_power_well_instance, ptr %6, i64 %9
+  %10 = getelementptr i8, ptr %.split, i64 20
   %11 = load i32, ptr %10, align 4
   tail call void @bxt_ddi_phy_uninit(ptr noundef %0, i32 noundef %11) #9
   ret void
@@ -3169,7 +3188,8 @@ define internal zeroext i1 @bxt_dpio_cmn_power_well_enabled(ptr noundef %0, ptr 
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 29
   %8 = load i8, ptr %7, align 1
   %9 = zext i8 %8 to i64
-  %10 = getelementptr %struct.i915_power_well_instance, ptr %6, i64 %9, i32 3
+  %.split = getelementptr %struct.i915_power_well_instance, ptr %6, i64 %9
+  %10 = getelementptr i8, ptr %.split, i64 20
   %11 = load i32, ptr %10, align 4
   %12 = tail call zeroext i1 @bxt_ddi_phy_is_enabled(ptr noundef %0, i32 noundef %11) #9
   ret i1 %12
@@ -3317,7 +3337,8 @@ define internal void @icl_aux_power_well_enable(ptr noundef %0, ptr noundef read
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 29
   %9 = load i8, ptr %8, align 1
   %10 = zext i8 %9 to i64
-  %11 = getelementptr %struct.i915_power_well_instance, ptr %7, i64 %10, i32 3
+  %.split = getelementptr %struct.i915_power_well_instance, ptr %7, i64 %10
+  %11 = getelementptr i8, ptr %.split, i64 20
   %12 = load i8, ptr %11, align 4
   %13 = zext i8 %12 to i32
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -3329,16 +3350,16 @@ define internal void @icl_aux_power_well_enable(ptr noundef %0, ptr noundef read
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 688
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, %20
-  br i1 %22, label %.loopexit37, label %.preheader36
+  br i1 %22, label %.loopexit41, label %.preheader40
 
-.preheader36:                                     ; preds = %2, %.thread
+.preheader40:                                     ; preds = %2, %.thread
   %23 = phi ptr [ %35, %.thread ], [ %21, %2 ]
   %24 = getelementptr i8, ptr %23, i64 120
   %25 = load i32, ptr %24, align 8
   %26 = icmp eq i32 %25, 11
   br i1 %26, label %.thread, label %27
 
-27:                                               ; preds = %.preheader36
+27:                                               ; preds = %.preheader40
   %28 = getelementptr i8, ptr %23, i64 -8
   switch i32 %25, label %.thread [
     i32 10, label %29
@@ -3355,14 +3376,14 @@ define internal void @icl_aux_power_well_enable(ptr noundef %0, ptr noundef read
   %32 = getelementptr i8, ptr %23, i64 3900
   %33 = load i32, ptr %32, align 4
   %34 = icmp eq i32 %33, %19
-  br i1 %34, label %.loopexit37, label %.thread
+  br i1 %34, label %.loopexit41, label %.thread
 
-.thread:                                          ; preds = %27, %31, %29, %.preheader36
+.thread:                                          ; preds = %27, %31, %29, %.preheader40
   %35 = load ptr, ptr %23, align 8
   %36 = icmp eq ptr %35, %20
-  br i1 %36, label %.loopexit37, label %.preheader36, !llvm.loop !145
+  br i1 %36, label %.loopexit41, label %.preheader40, !llvm.loop !145
 
-.loopexit37:                                      ; preds = %.thread, %31, %2
+.loopexit41:                                      ; preds = %.thread, %31, %2
   %37 = phi ptr [ null, %2 ], [ %28, %31 ], [ null, %.thread ]
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 132
   %39 = load i32, ptr %38, align 4
@@ -3370,14 +3391,15 @@ define internal void @icl_aux_power_well_enable(ptr noundef %0, ptr noundef read
   %41 = tail call zeroext i1 @intel_phy_is_tc(ptr noundef %0, i32 noundef %40) #9
   br i1 %41, label %42, label %175
 
-42:                                               ; preds = %.loopexit37
+42:                                               ; preds = %.loopexit41
   %43 = load ptr, ptr %1, align 8
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %45 = load ptr, ptr %44, align 8
   %46 = load ptr, ptr %45, align 8
   %47 = load i8, ptr %8, align 1
   %48 = zext i8 %47 to i64
-  %49 = getelementptr %struct.i915_power_well_instance, ptr %46, i64 %48, i32 3
+  %.split26 = getelementptr %struct.i915_power_well_instance, ptr %46, i64 %48
+  %49 = getelementptr i8, ptr %.split26, i64 20
   %50 = load i8, ptr %49, align 4
   %51 = zext i8 %50 to i32
   %52 = getelementptr inbounds nuw i8, ptr %43, i64 16
@@ -3388,18 +3410,18 @@ define internal void @icl_aux_power_well_enable(ptr noundef %0, ptr noundef read
   %57 = select i1 %55, i32 %56, i32 %51
   %58 = load ptr, ptr %20, align 8
   %59 = icmp eq ptr %58, %20
-  br i1 %59, label %.loopexit30, label %.preheader29
+  br i1 %59, label %.loopexit34, label %.preheader33
 
-.preheader29:                                     ; preds = %42, %.thread25
-  %60 = phi ptr [ %72, %.thread25 ], [ %58, %42 ]
+.preheader33:                                     ; preds = %42, %.thread29
+  %60 = phi ptr [ %72, %.thread29 ], [ %58, %42 ]
   %61 = getelementptr i8, ptr %60, i64 120
   %62 = load i32, ptr %61, align 8
   %63 = icmp eq i32 %62, 11
-  br i1 %63, label %.thread25, label %64
+  br i1 %63, label %.thread29, label %64
 
-64:                                               ; preds = %.preheader29
+64:                                               ; preds = %.preheader33
   %65 = getelementptr i8, ptr %60, i64 -8
-  switch i32 %62, label %.thread25 [
+  switch i32 %62, label %.thread29 [
     i32 10, label %66
     i32 7, label %66
     i32 8, label %66
@@ -3408,21 +3430,21 @@ define internal void @icl_aux_power_well_enable(ptr noundef %0, ptr noundef read
 
 66:                                               ; preds = %64, %64, %64, %64
   %67 = icmp eq ptr %65, null
-  br i1 %67, label %.thread25, label %68
+  br i1 %67, label %.thread29, label %68
 
 68:                                               ; preds = %66
   %69 = getelementptr i8, ptr %60, i64 3900
   %70 = load i32, ptr %69, align 4
   %71 = icmp eq i32 %70, %57
-  br i1 %71, label %.loopexit30, label %.thread25
+  br i1 %71, label %.loopexit34, label %.thread29
 
-.thread25:                                        ; preds = %64, %68, %66, %.preheader29
+.thread29:                                        ; preds = %64, %68, %66, %.preheader33
   %72 = load ptr, ptr %60, align 8
   %73 = icmp eq ptr %72, %20
-  br i1 %73, label %.loopexit30, label %.preheader29, !llvm.loop !145
+  br i1 %73, label %.loopexit34, label %.preheader33, !llvm.loop !145
 
-.loopexit30:                                      ; preds = %.thread25, %68, %42
-  %74 = phi ptr [ null, %42 ], [ %65, %68 ], [ null, %.thread25 ]
+.loopexit34:                                      ; preds = %.thread29, %68, %42
+  %74 = phi ptr [ null, %42 ], [ %65, %68 ], [ null, %.thread29 ]
   %75 = load ptr, ptr %43, align 8
   %76 = load ptr, ptr %75, align 8
   %77 = shl nsw i32 %57, 8
@@ -3445,7 +3467,8 @@ define internal void @icl_aux_power_well_enable(ptr noundef %0, ptr noundef read
   %93 = load ptr, ptr %92, align 8
   %94 = load i8, ptr %8, align 1
   %95 = zext i8 %94 to i64
-  %96 = getelementptr %struct.i915_power_well_instance, ptr %93, i64 %95, i32 3
+  %.split27 = getelementptr %struct.i915_power_well_instance, ptr %93, i64 %95
+  %96 = getelementptr i8, ptr %.split27, i64 20
   %97 = load i8, ptr %96, align 4
   %98 = zext i8 %97 to i32
   %99 = shl nuw nsw i32 %98, 1
@@ -3458,12 +3481,12 @@ define internal void @icl_aux_power_well_enable(ptr noundef %0, ptr noundef read
   tail call void %105(ptr noundef nonnull %81, i32 %101, i32 noundef %104, i1 noundef zeroext true) #9
   br i1 %55, label %108, label %106
 
-106:                                              ; preds = %.loopexit30
+106:                                              ; preds = %.loopexit34
   %107 = tail call zeroext i1 @intel_tc_cold_requires_aux_pw(ptr noundef %74) #9
   br label %108
 
-108:                                              ; preds = %106, %.loopexit30
-  %109 = phi i1 [ true, %.loopexit30 ], [ %107, %106 ]
+108:                                              ; preds = %106, %.loopexit34
+  %109 = phi i1 [ true, %.loopexit34 ], [ %107, %106 ]
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 2632
   %111 = load i16, ptr %110, align 8
   %112 = icmp eq i16 %111, 11
@@ -3482,7 +3505,7 @@ define internal void @icl_aux_power_well_enable(ptr noundef %0, ptr noundef read
   %118 = phi i32 [ %119, %121 ], [ 0, %115 ]
   %119 = add nuw nsw i32 %118, 1
   %120 = icmp eq i32 %119, 3
-  br i1 %120, label %.thread26, label %121
+  br i1 %120, label %.thread30, label %121
 
 121:                                              ; preds = %.preheader
   tail call void @msleep(i32 noundef 1) #9
@@ -3493,24 +3516,24 @@ define internal void @icl_aux_power_well_enable(ptr noundef %0, ptr noundef read
 .loopexit:                                        ; preds = %121, %115
   %124 = phi i32 [ %116, %115 ], [ %122, %121 ]
   %125 = icmp eq i32 %124, 0
-  br i1 %125, label %126, label %.thread26
+  br i1 %125, label %126, label %.thread30
 
 126:                                              ; preds = %.loopexit
   tail call void @msleep(i32 noundef 1) #9
-  br label %.thread26
+  br label %.thread30
 
-.thread26:                                        ; preds = %.preheader, %126, %.loopexit
+.thread30:                                        ; preds = %.preheader, %126, %.loopexit
   %127 = phi ptr [ @.str.60, %126 ], [ @.str.59, %.loopexit ], [ @.str.59, %.preheader ]
   %128 = icmp eq ptr %0, null
   br i1 %128, label %132, label %129
 
-129:                                              ; preds = %.thread26
+129:                                              ; preds = %.thread30
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %131 = load ptr, ptr %130, align 8
   br label %132
 
-132:                                              ; preds = %129, %.thread26
-  %133 = phi ptr [ %131, %129 ], [ null, %.thread26 ]
+132:                                              ; preds = %129, %.thread30
+  %133 = phi ptr [ %131, %129 ], [ null, %.thread30 ]
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %133, i32 noundef 2, ptr noundef nonnull @.str.58, ptr noundef nonnull %127) #9
   br label %134
 
@@ -3528,7 +3551,8 @@ define internal void @icl_aux_power_well_enable(ptr noundef %0, ptr noundef read
   %142 = load ptr, ptr %141, align 8
   %143 = load i8, ptr %8, align 1
   %144 = zext i8 %143 to i64
-  %145 = getelementptr %struct.i915_power_well_instance, ptr %142, i64 %144, i32 3
+  %.split28 = getelementptr %struct.i915_power_well_instance, ptr %142, i64 %144
+  %145 = getelementptr i8, ptr %.split28, i64 20
   %146 = load i8, ptr %145, align 4
   %147 = zext i8 %146 to i32
   %148 = tail call i64 @ktime_get_raw() #9
@@ -3578,7 +3602,7 @@ define internal void @icl_aux_power_well_enable(ptr noundef %0, ptr noundef read
   tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %174, ptr noundef nonnull @.str.57) #10
   br label %278
 
-175:                                              ; preds = %.loopexit37
+175:                                              ; preds = %.loopexit41
   %176 = getelementptr inbounds nuw i8, ptr %0, i64 7184
   %177 = load i32, ptr %176, align 4
   %178 = icmp sgt i32 %177, -1
@@ -3594,7 +3618,8 @@ define internal void @icl_aux_power_well_enable(ptr noundef %0, ptr noundef read
   %185 = load ptr, ptr %184, align 8
   %186 = load i8, ptr %8, align 1
   %187 = zext i8 %186 to i64
-  %188 = getelementptr %struct.i915_power_well_instance, ptr %185, i64 %187, i32 3
+  %.split24 = getelementptr %struct.i915_power_well_instance, ptr %185, i64 %187
+  %188 = getelementptr i8, ptr %.split24, i64 20
   %189 = load i8, ptr %188, align 4
   %190 = zext i8 %189 to i32
   %191 = getelementptr inbounds nuw i8, ptr %180, i64 16
@@ -3605,18 +3630,18 @@ define internal void @icl_aux_power_well_enable(ptr noundef %0, ptr noundef read
   %196 = select i1 %194, i32 %190, i32 %195
   %197 = load ptr, ptr %20, align 8
   %198 = icmp eq ptr %197, %20
-  br i1 %198, label %.loopexit34, label %.preheader33
+  br i1 %198, label %.loopexit38, label %.preheader37
 
-.preheader33:                                     ; preds = %179, %.thread28
-  %199 = phi ptr [ %211, %.thread28 ], [ %197, %179 ]
+.preheader37:                                     ; preds = %179, %.thread32
+  %199 = phi ptr [ %211, %.thread32 ], [ %197, %179 ]
   %200 = getelementptr i8, ptr %199, i64 120
   %201 = load i32, ptr %200, align 8
   %202 = icmp eq i32 %201, 11
-  br i1 %202, label %.thread28, label %203
+  br i1 %202, label %.thread32, label %203
 
-203:                                              ; preds = %.preheader33
+203:                                              ; preds = %.preheader37
   %204 = getelementptr i8, ptr %199, i64 -8
-  switch i32 %201, label %.thread28 [
+  switch i32 %201, label %.thread32 [
     i32 10, label %205
     i32 7, label %205
     i32 8, label %205
@@ -3625,21 +3650,21 @@ define internal void @icl_aux_power_well_enable(ptr noundef %0, ptr noundef read
 
 205:                                              ; preds = %203, %203, %203, %203
   %206 = icmp eq ptr %204, null
-  br i1 %206, label %.thread28, label %207
+  br i1 %206, label %.thread32, label %207
 
 207:                                              ; preds = %205
   %208 = getelementptr i8, ptr %199, i64 3900
   %209 = load i32, ptr %208, align 4
   %210 = icmp eq i32 %209, %196
-  br i1 %210, label %.loopexit34, label %.thread28
+  br i1 %210, label %.loopexit38, label %.thread32
 
-.thread28:                                        ; preds = %203, %207, %205, %.preheader33
+.thread32:                                        ; preds = %203, %207, %205, %.preheader37
   %211 = load ptr, ptr %199, align 8
   %212 = icmp eq ptr %211, %20
-  br i1 %212, label %.loopexit34, label %.preheader33, !llvm.loop !145
+  br i1 %212, label %.loopexit38, label %.preheader37, !llvm.loop !145
 
-.loopexit34:                                      ; preds = %.thread28, %207, %179
-  %213 = phi ptr [ null, %179 ], [ %204, %207 ], [ null, %.thread28 ]
+.loopexit38:                                      ; preds = %.thread32, %207, %179
+  %213 = phi ptr [ null, %179 ], [ %204, %207 ], [ null, %.thread32 ]
   %214 = getelementptr inbounds nuw i8, ptr %213, i64 132
   %215 = load i32, ptr %214, align 4
   %216 = tail call i32 @intel_port_to_phy(ptr noundef %0, i32 noundef %215) #9
@@ -3647,7 +3672,7 @@ define internal void @icl_aux_power_well_enable(ptr noundef %0, ptr noundef read
   %218 = icmp sgt i32 %217, -1
   br i1 %218, label %219, label %231, !prof !13
 
-219:                                              ; preds = %.loopexit34
+219:                                              ; preds = %.loopexit38
   tail call void asm sideeffect "913: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 913b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 913) #9, !srcloc !148
   %220 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %221 = load ptr, ptr %220, align 8
@@ -3671,7 +3696,7 @@ define internal void @icl_aux_power_well_enable(ptr noundef %0, ptr noundef read
   tail call void asm sideeffect "916: nop\0A\09.pushsection .discard.instr_end\0A\09.long 916b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 916) #9, !srcloc !152
   br label %231
 
-231:                                              ; preds = %229, %.loopexit34
+231:                                              ; preds = %229, %.loopexit38
   %232 = getelementptr inbounds nuw i8, ptr %182, i64 4
   %233 = shl nuw nsw i32 %190, 1
   %234 = shl i32 2, %233
@@ -3704,30 +3729,30 @@ define internal void @icl_aux_power_well_enable(ptr noundef %0, ptr noundef read
 255:                                              ; preds = %246, %231
   tail call fastcc void @hsw_wait_for_power_well_enable(ptr noundef %0, ptr noundef %1, i1 noundef zeroext false)
   %256 = icmp ult i8 %189, 2
-  br i1 %256, label %257, label %.loopexit32
+  br i1 %256, label %257, label %.loopexit36
 
 257:                                              ; preds = %255
   %258 = load ptr, ptr %20, align 8
   %.not = icmp eq ptr %258, %20
-  br i1 %.not, label %.critedge, label %.preheader31
+  br i1 %.not, label %.critedge, label %.preheader35
 
-.preheader31:                                     ; preds = %257, %267
+.preheader35:                                     ; preds = %257, %267
   %259 = phi ptr [ %268, %267 ], [ %258, %257 ]
   %260 = getelementptr i8, ptr %259, i64 120
   %261 = load i32, ptr %260, align 8
   %262 = icmp eq i32 %261, 8
   br i1 %262, label %263, label %267
 
-263:                                              ; preds = %.preheader31
+263:                                              ; preds = %.preheader35
   %264 = getelementptr i8, ptr %259, i64 124
   %265 = load i32, ptr %264, align 4
   %266 = icmp eq i32 %265, %216
-  br i1 %266, label %.loopexit32, label %267
+  br i1 %266, label %.loopexit36, label %267
 
-267:                                              ; preds = %263, %.preheader31
+267:                                              ; preds = %263, %.preheader35
   %268 = load ptr, ptr %259, align 8
-  %.not24 = icmp eq ptr %268, %20
-  br i1 %.not24, label %.critedge, label %.preheader31, !llvm.loop !153
+  %.not25 = icmp eq ptr %268, %20
+  br i1 %.not25, label %.critedge, label %.preheader35, !llvm.loop !153
 
 .critedge:                                        ; preds = %267, %257
   store i32 1450904, ptr %3, align 4
@@ -3741,9 +3766,9 @@ define internal void @icl_aux_power_well_enable(ptr noundef %0, ptr noundef read
   %275 = or i32 %274, 129
   %276 = load ptr, ptr %241, align 8
   tail call void %276(ptr noundef nonnull %236, i32 %272, i32 noundef %275, i1 noundef zeroext true) #9
-  br label %.loopexit32
+  br label %.loopexit36
 
-.loopexit32:                                      ; preds = %263, %.critedge, %255
+.loopexit36:                                      ; preds = %263, %.critedge, %255
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %278
 
@@ -3751,7 +3776,7 @@ define internal void @icl_aux_power_well_enable(ptr noundef %0, ptr noundef read
   tail call void @hsw_power_well_enable(ptr noundef %0, ptr noundef %1)
   br label %278
 
-278:                                              ; preds = %277, %.loopexit32, %173, %._crit_edge, %134
+278:                                              ; preds = %277, %.loopexit36, %173, %._crit_edge, %134
   ret void
 }
 
@@ -3764,7 +3789,8 @@ define internal void @icl_aux_power_well_disable(ptr noundef %0, ptr noundef rea
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 29
   %8 = load i8, ptr %7, align 1
   %9 = zext i8 %8 to i64
-  %10 = getelementptr %struct.i915_power_well_instance, ptr %6, i64 %9, i32 3
+  %.split = getelementptr %struct.i915_power_well_instance, ptr %6, i64 %9
+  %10 = getelementptr i8, ptr %.split, i64 20
   %11 = load i8, ptr %10, align 4
   %12 = zext i8 %11 to i32
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -3776,16 +3802,16 @@ define internal void @icl_aux_power_well_disable(ptr noundef %0, ptr noundef rea
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 688
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, %19
-  br i1 %21, label %.loopexit13, label %.preheader12
+  br i1 %21, label %.loopexit15, label %.preheader14
 
-.preheader12:                                     ; preds = %2, %.thread
+.preheader14:                                     ; preds = %2, %.thread
   %22 = phi ptr [ %34, %.thread ], [ %20, %2 ]
   %23 = getelementptr i8, ptr %22, i64 120
   %24 = load i32, ptr %23, align 8
   %25 = icmp eq i32 %24, 11
   br i1 %25, label %.thread, label %26
 
-26:                                               ; preds = %.preheader12
+26:                                               ; preds = %.preheader14
   %27 = getelementptr i8, ptr %22, i64 -8
   switch i32 %24, label %.thread [
     i32 10, label %28
@@ -3802,14 +3828,14 @@ define internal void @icl_aux_power_well_disable(ptr noundef %0, ptr noundef rea
   %31 = getelementptr i8, ptr %22, i64 3900
   %32 = load i32, ptr %31, align 4
   %33 = icmp eq i32 %32, %18
-  br i1 %33, label %.loopexit13, label %.thread
+  br i1 %33, label %.loopexit15, label %.thread
 
-.thread:                                          ; preds = %26, %30, %28, %.preheader12
+.thread:                                          ; preds = %26, %30, %28, %.preheader14
   %34 = load ptr, ptr %22, align 8
   %35 = icmp eq ptr %34, %19
-  br i1 %35, label %.loopexit13, label %.preheader12, !llvm.loop !145
+  br i1 %35, label %.loopexit15, label %.preheader14, !llvm.loop !145
 
-.loopexit13:                                      ; preds = %.thread, %30, %2
+.loopexit15:                                      ; preds = %.thread, %30, %2
   %36 = phi ptr [ null, %2 ], [ %27, %30 ], [ null, %.thread ]
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 132
   %38 = load i32, ptr %37, align 4
@@ -3817,7 +3843,7 @@ define internal void @icl_aux_power_well_disable(ptr noundef %0, ptr noundef rea
   %40 = tail call zeroext i1 @intel_phy_is_tc(ptr noundef %0, i32 noundef %39) #9
   br i1 %40, label %41, label %72
 
-41:                                               ; preds = %.loopexit13
+41:                                               ; preds = %.loopexit15
   %42 = load ptr, ptr %1, align 8
   %43 = load ptr, ptr %42, align 8
   %44 = load ptr, ptr %43, align 8
@@ -3826,7 +3852,8 @@ define internal void @icl_aux_power_well_disable(ptr noundef %0, ptr noundef rea
   %47 = load ptr, ptr %46, align 8
   %48 = load i8, ptr %7, align 1
   %49 = zext i8 %48 to i64
-  %50 = getelementptr %struct.i915_power_well_instance, ptr %47, i64 %49, i32 3
+  %.split12 = getelementptr %struct.i915_power_well_instance, ptr %47, i64 %49
+  %50 = getelementptr i8, ptr %.split12, i64 20
   %51 = load i8, ptr %50, align 4
   %52 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %53 = load i16, ptr %52, align 8
@@ -3856,7 +3883,7 @@ define internal void @icl_aux_power_well_disable(ptr noundef %0, ptr noundef rea
   tail call void %71(ptr noundef nonnull %64, i32 %63, i32 noundef %69, i1 noundef zeroext true) #9
   br label %170
 
-72:                                               ; preds = %.loopexit13
+72:                                               ; preds = %.loopexit15
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 7184
   %74 = load i32, ptr %73, align 4
   %75 = icmp sgt i32 %74, -1
@@ -3868,7 +3895,8 @@ define internal void @icl_aux_power_well_disable(ptr noundef %0, ptr noundef rea
   %81 = load ptr, ptr %80, align 8
   %82 = load i8, ptr %7, align 1
   %83 = zext i8 %82 to i64
-  %84 = getelementptr %struct.i915_power_well_instance, ptr %81, i64 %83, i32 3
+  %.split11 = getelementptr %struct.i915_power_well_instance, ptr %81, i64 %83
+  %84 = getelementptr i8, ptr %.split11, i64 20
   %85 = load i8, ptr %84, align 4
   br i1 %75, label %149, label %86
 
@@ -3884,16 +3912,16 @@ define internal void @icl_aux_power_well_disable(ptr noundef %0, ptr noundef rea
   %95 = icmp eq ptr %94, %19
   br i1 %95, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %86, %.thread11
-  %96 = phi ptr [ %108, %.thread11 ], [ %94, %86 ]
+.preheader:                                       ; preds = %86, %.thread13
+  %96 = phi ptr [ %108, %.thread13 ], [ %94, %86 ]
   %97 = getelementptr i8, ptr %96, i64 120
   %98 = load i32, ptr %97, align 8
   %99 = icmp eq i32 %98, 11
-  br i1 %99, label %.thread11, label %100
+  br i1 %99, label %.thread13, label %100
 
 100:                                              ; preds = %.preheader
   %101 = getelementptr i8, ptr %96, i64 -8
-  switch i32 %98, label %.thread11 [
+  switch i32 %98, label %.thread13 [
     i32 10, label %102
     i32 7, label %102
     i32 8, label %102
@@ -3902,21 +3930,21 @@ define internal void @icl_aux_power_well_disable(ptr noundef %0, ptr noundef rea
 
 102:                                              ; preds = %100, %100, %100, %100
   %103 = icmp eq ptr %101, null
-  br i1 %103, label %.thread11, label %104
+  br i1 %103, label %.thread13, label %104
 
 104:                                              ; preds = %102
   %105 = getelementptr i8, ptr %96, i64 3900
   %106 = load i32, ptr %105, align 4
   %107 = icmp eq i32 %106, %93
-  br i1 %107, label %.loopexit, label %.thread11
+  br i1 %107, label %.loopexit, label %.thread13
 
-.thread11:                                        ; preds = %100, %104, %102, %.preheader
+.thread13:                                        ; preds = %100, %104, %102, %.preheader
   %108 = load ptr, ptr %96, align 8
   %109 = icmp eq ptr %108, %19
   br i1 %109, label %.loopexit, label %.preheader, !llvm.loop !145
 
-.loopexit:                                        ; preds = %.thread11, %104, %86
-  %110 = phi ptr [ null, %86 ], [ %101, %104 ], [ null, %.thread11 ]
+.loopexit:                                        ; preds = %.thread13, %104, %86
+  %110 = phi ptr [ null, %86 ], [ %101, %104 ], [ null, %.thread13 ]
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 132
   %112 = load i32, ptr %111, align 4
   %113 = tail call i32 @intel_port_to_phy(ptr noundef %0, i32 noundef %112) #9
@@ -4109,7 +4137,8 @@ define internal void @xelpdp_aux_power_well_enable(ptr noundef %0, ptr noundef r
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 29
   %8 = load i8, ptr %7, align 1
   %9 = zext i8 %8 to i64
-  %10 = getelementptr %struct.i915_power_well_instance, ptr %6, i64 %9, i32 3
+  %.split = getelementptr %struct.i915_power_well_instance, ptr %6, i64 %9
+  %10 = getelementptr i8, ptr %.split, i64 20
   %11 = load i8, ptr %10, align 4
   %12 = zext i8 %11 to i32
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -4205,7 +4234,8 @@ define internal void @xelpdp_aux_power_well_disable(ptr noundef %0, ptr noundef 
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 29
   %8 = load i8, ptr %7, align 1
   %9 = zext i8 %8 to i64
-  %10 = getelementptr %struct.i915_power_well_instance, ptr %6, i64 %9, i32 3
+  %.split = getelementptr %struct.i915_power_well_instance, ptr %6, i64 %9
+  %10 = getelementptr i8, ptr %.split, i64 20
   %11 = load i8, ptr %10, align 4
   %12 = zext i8 %11 to i32
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 2632
@@ -4253,7 +4283,8 @@ define internal zeroext i1 @xelpdp_aux_power_well_enabled(ptr noundef %0, ptr no
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 29
   %8 = load i8, ptr %7, align 1
   %9 = zext i8 %8 to i64
-  %10 = getelementptr %struct.i915_power_well_instance, ptr %6, i64 %9, i32 3
+  %.split = getelementptr %struct.i915_power_well_instance, ptr %6, i64 %9
+  %10 = getelementptr i8, ptr %.split, i64 20
   %11 = load i8, ptr %10, align 4
   %12 = zext i8 %11 to i32
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 2632
@@ -4678,7 +4709,8 @@ declare dso_local void @__const_udelay(i64 noundef) local_unnamed_addr #1
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @vlv_set_power_well(ptr noundef %0, ptr readonly captures(none) %.0.val.8.val.0.val, i8 %.29.val, i1 noundef zeroext %1) unnamed_addr #0 align 16 {
   %3 = zext i8 %.29.val to i64
-  %4 = getelementptr %struct.i915_power_well_instance, ptr %.0.val.8.val.0.val, i64 %3, i32 3
+  %.split = getelementptr %struct.i915_power_well_instance, ptr %.0.val.8.val.0.val, i64 %3
+  %4 = getelementptr i8, ptr %.split, i64 20
   %5 = load i8, ptr %4, align 4
   %6 = zext i8 %5 to i32
   %7 = shl nuw nsw i32 %6, 1
@@ -4770,7 +4802,8 @@ define internal fastcc void @hsw_wait_for_power_well_enable(ptr noundef %0, ptr 
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 29
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i64
-  %13 = getelementptr %struct.i915_power_well_instance, ptr %9, i64 %12, i32 3
+  %.split = getelementptr %struct.i915_power_well_instance, ptr %9, i64 %12
+  %13 = getelementptr i8, ptr %.split, i64 20
   %14 = load i8, ptr %13, align 4
   %15 = zext i8 %14 to i32
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 18
@@ -4871,7 +4904,8 @@ define internal fastcc void @hsw_wait_for_power_well_disable(ptr noundef %0, ptr
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 29
   %10 = load i8, ptr %9, align 1
   %11 = zext i8 %10 to i64
-  %12 = getelementptr %struct.i915_power_well_instance, ptr %8, i64 %11, i32 3
+  %.split = getelementptr %struct.i915_power_well_instance, ptr %8, i64 %11
+  %12 = getelementptr i8, ptr %.split, i64 20
   %13 = load i8, ptr %12, align 4
   %14 = zext i8 %13 to i32
   %15 = tail call i64 @ktime_get_raw() #9

@@ -53,12 +53,12 @@ define dso_local noundef zeroext i1 @_ZN4llvm3X8626optimizeInstFromVEX3ToVEX2ERN
   %15 = load i32, ptr %14, align 8
   %.not37 = icmp eq i32 %15, 3
   %or.cond = select i1 %or.cond43.not48, i1 %.not37, i1 false
-  br i1 %or.cond, label %16, label %53
+  br i1 %or.cond, label %16, label %55
 
 16:                                               ; preds = %5
   switch i32 %4, label %.critedge [
-    i32 22407, label %53
-    i32 14219, label %53
+    i32 22407, label %55
+    i32 14219, label %55
   ]
 
 17:                                               ; preds = %2, %2, %2, %2, %2, %2
@@ -67,7 +67,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm3X8626optimizeInstFromVEX3ToVEX2ERN
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 56
   %21 = load i64, ptr %20, align 8, !tbaa !23
   %22 = and i64 %21, 7
-  switch i64 %22, label %53 [
+  switch i64 %22, label %55 [
     i64 0, label %.critedge
     i64 3, label %.critedge
     i64 4, label %.critedge
@@ -123,38 +123,40 @@ define dso_local noundef zeroext i1 @_ZN4llvm3X8626optimizeInstFromVEX3ToVEX2ERN
   %.128 = phi i64 [ 0, %23 ], [ 0, %24 ], [ 0, %25 ], [ 0, %26 ], [ 0, %27 ], [ 0, %28 ], [ 0, %29 ], [ 0, %30 ], [ 0, %31 ], [ 0, %32 ], [ 0, %33 ], [ 0, %34 ], [ 0, %35 ], [ 0, %36 ], [ 1, %17 ], [ 1, %17 ], [ 1, %17 ], [ 1, %17 ], [ 0, %2 ], [ 1, %16 ]
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %38 = load ptr, ptr %37, align 8, !tbaa !22
-  %39 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %38, i64 %.128, i32 1
-  %40 = load i32, ptr %39, align 8, !tbaa !23
-  %41 = tail call noundef zeroext i1 @_ZN4llvm5X86II19isX86_64ExtendedRegENS_10MCRegisterE(i32 %40)
-  br i1 %41, label %53, label %42
+  %39 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %38, i64 %.128
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
+  %41 = load i32, ptr %40, align 8, !tbaa !23
+  %42 = tail call noundef zeroext i1 @_ZN4llvm5X86II19isX86_64ExtendedRegENS_10MCRegisterE(i32 %41)
+  br i1 %42, label %55, label %43
 
-42:                                               ; preds = %.critedge
-  %43 = load ptr, ptr %37, align 8, !tbaa !22
-  %44 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %43, i64 %.131, i32 1
-  %45 = load i32, ptr %44, align 8, !tbaa !23
-  %46 = tail call noundef zeroext i1 @_ZN4llvm5X86II19isX86_64ExtendedRegENS_10MCRegisterE(i32 %45)
-  br i1 %46, label %47, label %53
+43:                                               ; preds = %.critedge
+  %44 = load ptr, ptr %37, align 8, !tbaa !22
+  %45 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %44, i64 %.131
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
+  %47 = load i32, ptr %46, align 8, !tbaa !23
+  %48 = tail call noundef zeroext i1 @_ZN4llvm5X86II19isX86_64ExtendedRegENS_10MCRegisterE(i32 %47)
+  br i1 %48, label %49, label %55
 
-47:                                               ; preds = %42
-  br i1 %.not38, label %49, label %48
+49:                                               ; preds = %43
+  br i1 %.not38, label %51, label %50
 
-48:                                               ; preds = %47
+50:                                               ; preds = %49
   store i32 %.032, ptr %0, align 8, !tbaa !3
-  br label %53
+  br label %55
 
-49:                                               ; preds = %47
-  %50 = load ptr, ptr %37, align 8, !tbaa !22
-  %51 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %50, i64 %.128
-  %52 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %50, i64 %.131
+51:                                               ; preds = %49
+  %52 = load ptr, ptr %37, align 8, !tbaa !22
+  %53 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %52, i64 %.128
+  %54 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %52, i64 %.131
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %51, i64 16, i1 false), !tbaa.struct !24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %51, ptr noundef nonnull align 8 dereferenceable(16) %52, i64 16, i1 false), !tbaa.struct !24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %52, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %53, i64 16, i1 false), !tbaa.struct !24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %53, ptr noundef nonnull align 8 dereferenceable(16) %54, i64 16, i1 false), !tbaa.struct !24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %54, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !24
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %53
+  br label %55
 
-53:                                               ; preds = %48, %49, %.critedge, %42, %17, %5, %16, %16
-  %.1 = phi i1 [ false, %16 ], [ false, %16 ], [ false, %5 ], [ false, %17 ], [ false, %42 ], [ false, %.critedge ], [ true, %49 ], [ true, %48 ]
+55:                                               ; preds = %50, %51, %.critedge, %43, %17, %5, %16, %16
+  %.1 = phi i1 [ false, %16 ], [ false, %16 ], [ false, %5 ], [ false, %17 ], [ false, %43 ], [ false, %.critedge ], [ true, %51 ], [ true, %50 ]
   ret i1 %.1
 }
 
@@ -1734,122 +1736,126 @@ define dso_local noundef zeroext i1 @_ZN4llvm3X8611optimizeMOVERNS_6MCInstEb(ptr
   %20 = phi i64 [ 5, %10 ], [ 0, %15 ], [ 5, %19 ]
   %.shrunk = phi i1 [ false, %10 ], [ true, %15 ], [ false, %19 ]
   %21 = phi i64 [ 3, %10 ], [ 4, %15 ], [ 3, %19 ]
-  %22 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %12, i64 %20, i32 1
-  %23 = load i32, ptr %22, align 8, !tbaa !23
-  switch i32 %23, label %_ZL11isARegisterN4llvm10MCRegisterE.exit [
-    i32 2, label %24
-    i32 3, label %24
-    i32 22, label %24
-    i32 51, label %24
+  %22 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %12, i64 %20
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %24 = load i32, ptr %23, align 8, !tbaa !23
+  switch i32 %24, label %_ZL11isARegisterN4llvm10MCRegisterE.exit [
+    i32 2, label %25
+    i32 3, label %25
+    i32 22, label %25
+    i32 51, label %25
   ]
 
-24:                                               ; preds = %.thread60, %.thread60, %.thread60, %.thread60
-  %25 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %12, i64 %21
-  %26 = load i8, ptr %25, align 8, !tbaa !28
-  %27 = icmp eq i8 %26, 5
-  br i1 %27, label %28, label %.critedge52
+25:                                               ; preds = %.thread60, %.thread60, %.thread60, %.thread60
+  %26 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %12, i64 %21
+  %27 = load i8, ptr %26, align 8, !tbaa !28
+  %28 = icmp eq i8 %27, 5
+  br i1 %28, label %29, label %.critedge52
 
-28:                                               ; preds = %24
-  %29 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  %30 = load ptr, ptr %29, align 8
-  %31 = load i8, ptr %30, align 8, !tbaa !30
-  %.not = icmp eq i8 %31, 2
-  br i1 %.not, label %32, label %.critedge52
+29:                                               ; preds = %25
+  %30 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  %31 = load ptr, ptr %30, align 8
+  %32 = load i8, ptr %31, align 8, !tbaa !30
+  %.not = icmp eq i8 %32, 2
+  br i1 %.not, label %33, label %.critedge52
 
-32:                                               ; preds = %28
-  %33 = ptrtoint ptr %30 to i64
-  %34 = getelementptr inbounds nuw i8, ptr %30, i64 1
-  %35 = load i32, ptr %34, align 1
-  %36 = and i32 %35, 65535
-  %.not65 = icmp eq i32 %36, 21
+33:                                               ; preds = %29
+  %34 = ptrtoint ptr %31 to i64
+  %35 = getelementptr inbounds nuw i8, ptr %31, i64 1
+  %36 = load i32, ptr %35, align 1
+  %37 = and i32 %36, 65535
+  %.not65 = icmp eq i32 %37, 21
   br i1 %.not65, label %.critedge, label %.critedge52
 
-.critedge52:                                      ; preds = %24, %28, %32
-  %37 = zext i1 %.shrunk to i64
-  %38 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %12, i64 %37, i32 1
-  %39 = load i32, ptr %38, align 8, !tbaa !23
-  %.not48 = icmp eq i32 %39, 0
-  br i1 %.not48, label %40, label %_ZL11isARegisterN4llvm10MCRegisterE.exit
+.critedge52:                                      ; preds = %25, %29, %33
+  %38 = zext i1 %.shrunk to i64
+  %39 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %12, i64 %38
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
+  %41 = load i32, ptr %40, align 8, !tbaa !23
+  %.not48 = icmp eq i32 %41, 0
+  br i1 %.not48, label %42, label %_ZL11isARegisterN4llvm10MCRegisterE.exit
 
-40:                                               ; preds = %.critedge52
-  %41 = select i1 %.shrunk, i64 2, i64 1
-  %42 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %12, i64 %41, i32 1
-  %43 = load i64, ptr %42, align 8, !tbaa !23
-  %.not49 = icmp eq i64 %43, 1
-  br i1 %.not49, label %44, label %_ZL11isARegisterN4llvm10MCRegisterE.exit
+42:                                               ; preds = %.critedge52
+  %43 = select i1 %.shrunk, i64 2, i64 1
+  %44 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %12, i64 %43
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
+  %46 = load i64, ptr %45, align 8, !tbaa !23
+  %.not49 = icmp eq i64 %46, 1
+  br i1 %.not49, label %47, label %_ZL11isARegisterN4llvm10MCRegisterE.exit
 
-44:                                               ; preds = %40
-  %45 = select i1 %.shrunk, i64 3, i64 2
-  %46 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %12, i64 %45, i32 1
-  %47 = load i32, ptr %46, align 8, !tbaa !23
-  %.not50 = icmp eq i32 %47, 0
+47:                                               ; preds = %42
+  %48 = select i1 %.shrunk, i64 3, i64 2
+  %49 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %12, i64 %48
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
+  %51 = load i32, ptr %50, align 8, !tbaa !23
+  %.not50 = icmp eq i32 %51, 0
   br i1 %.not50, label %..critedge_crit_edge, label %_ZL11isARegisterN4llvm10MCRegisterE.exit
 
-..critedge_crit_edge:                             ; preds = %44
-  %.sroa.510.0..sroa_idx.phi.trans.insert = getelementptr inbounds nuw i8, ptr %25, i64 8
+..critedge_crit_edge:                             ; preds = %47
+  %.sroa.510.0..sroa_idx.phi.trans.insert = getelementptr inbounds nuw i8, ptr %26, i64 8
   %.sroa.510.0.copyload.pre = load i64, ptr %.sroa.510.0..sroa_idx.phi.trans.insert, align 8, !tbaa !23
   br label %.critedge
 
-.critedge:                                        ; preds = %..critedge_crit_edge, %32
-  %.sroa.510.0.copyload = phi i64 [ %.sroa.510.0.copyload.pre, %..critedge_crit_edge ], [ %33, %32 ]
-  %48 = select i1 %.shrunk, i64 5, i64 4
-  %49 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %12, i64 %48
-  %.sroa.07.0.copyload = load i8, ptr %49, align 8, !tbaa !25
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %49, i64 8
+.critedge:                                        ; preds = %..critedge_crit_edge, %33
+  %.sroa.510.0.copyload = phi i64 [ %.sroa.510.0.copyload.pre, %..critedge_crit_edge ], [ %34, %33 ]
+  %52 = select i1 %.shrunk, i64 5, i64 4
+  %53 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %12, i64 %52
+  %.sroa.07.0.copyload = load i8, ptr %53, align 8, !tbaa !25
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %53, i64 8
   %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !23
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 0, ptr %50, align 8, !tbaa !27
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i32 0, ptr %54, align 8, !tbaa !27
   store i32 %.044, ptr %0, align 8, !tbaa !3
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %52 = load i32, ptr %51, align 4, !tbaa !33
-  %.not.i.i.not.i.i.not = icmp eq i32 %52, 0
-  br i1 %.not.i.i.not.i.i.not, label %53, label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit, !prof !34
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %56 = load i32, ptr %55, align 4, !tbaa !33
+  %.not.i.i.not.i.i.not = icmp eq i32 %56, 0
+  br i1 %.not.i.i.not.i.i.not, label %57, label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit, !prof !34
 
-53:                                               ; preds = %.critedge
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull %54, i64 noundef 1, i64 noundef 16) #9
-  %.pre.i.i = load i32, ptr %50, align 8, !tbaa !27
-  %55 = zext i32 %.pre.i.i to i64
+57:                                               ; preds = %.critedge
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull %58, i64 noundef 1, i64 noundef 16) #9
+  %.pre.i.i = load i32, ptr %54, align 8, !tbaa !27
+  %59 = zext i32 %.pre.i.i to i64
   %.pre = load ptr, ptr %11, align 8, !tbaa !22
   br label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit
 
-_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %.critedge, %53
-  %56 = phi ptr [ %12, %.critedge ], [ %.pre, %53 ]
-  %57 = phi i64 [ 0, %.critedge ], [ %55, %53 ]
-  %58 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %56, i64 %57
-  store i8 %26, ptr %58, align 1
-  %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %58, i64 8
+_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %.critedge, %57
+  %60 = phi ptr [ %12, %.critedge ], [ %.pre, %57 ]
+  %61 = phi i64 [ 0, %.critedge ], [ %59, %57 ]
+  %62 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %60, i64 %61
+  store i8 %27, ptr %62, align 1
+  %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %62, i64 8
   store i64 %.sroa.510.0.copyload, ptr %.sroa.22.0..sroa_idx.i.i, align 1
-  %59 = load i32, ptr %50, align 8, !tbaa !27
-  %60 = add i32 %59, 1
-  store i32 %60, ptr %50, align 8, !tbaa !27
-  %61 = load i32, ptr %51, align 4, !tbaa !33
-  %.not.i.i.not.i.i53 = icmp ult i32 %60, %61
-  br i1 %.not.i.i.not.i.i53, label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit56, label %62, !prof !35
+  %63 = load i32, ptr %54, align 8, !tbaa !27
+  %64 = add i32 %63, 1
+  store i32 %64, ptr %54, align 8, !tbaa !27
+  %65 = load i32, ptr %55, align 4, !tbaa !33
+  %.not.i.i.not.i.i53 = icmp ult i32 %64, %65
+  br i1 %.not.i.i.not.i.i53, label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit56, label %66, !prof !35
 
-62:                                               ; preds = %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit
-  %63 = zext i32 %60 to i64
-  %64 = add nuw nsw i64 %63, 1
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull %65, i64 noundef %64, i64 noundef 16) #9
-  %.pre.i.i54 = load i32, ptr %50, align 8, !tbaa !27
+66:                                               ; preds = %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit
+  %67 = zext i32 %64 to i64
+  %68 = add nuw nsw i64 %67, 1
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull %69, i64 noundef %68, i64 noundef 16) #9
+  %.pre.i.i54 = load i32, ptr %54, align 8, !tbaa !27
   br label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit56
 
-_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit56: ; preds = %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit, %62
-  %66 = phi i32 [ %60, %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit ], [ %.pre.i.i54, %62 ]
-  %67 = load ptr, ptr %11, align 8, !tbaa !22
-  %68 = zext i32 %66 to i64
-  %69 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %67, i64 %68
-  store i8 %.sroa.07.0.copyload, ptr %69, align 1
-  %.sroa.22.0..sroa_idx.i.i55 = getelementptr inbounds nuw i8, ptr %69, i64 8
+_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit56: ; preds = %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit, %66
+  %70 = phi i32 [ %64, %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit ], [ %.pre.i.i54, %66 ]
+  %71 = load ptr, ptr %11, align 8, !tbaa !22
+  %72 = zext i32 %70 to i64
+  %73 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %71, i64 %72
+  store i8 %.sroa.07.0.copyload, ptr %73, align 1
+  %.sroa.22.0..sroa_idx.i.i55 = getelementptr inbounds nuw i8, ptr %73, i64 8
   store i64 %.sroa.5.0.copyload, ptr %.sroa.22.0..sroa_idx.i.i55, align 1
-  %70 = load i32, ptr %50, align 8, !tbaa !27
-  %71 = add i32 %70, 1
-  store i32 %71, ptr %50, align 8, !tbaa !27
+  %74 = load i32, ptr %54, align 8, !tbaa !27
+  %75 = add i32 %74, 1
+  store i32 %75, ptr %54, align 8, !tbaa !27
   br label %_ZL11isARegisterN4llvm10MCRegisterE.exit
 
-_ZL11isARegisterN4llvm10MCRegisterE.exit:         ; preds = %40, %.critedge52, %.thread60, %3, %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit56, %44, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %3 ], [ true, %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit56 ], [ false, %44 ], [ false, %.thread60 ], [ false, %.critedge52 ], [ false, %40 ]
+_ZL11isARegisterN4llvm10MCRegisterE.exit:         ; preds = %42, %.critedge52, %.thread60, %3, %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit56, %47, %2
+  %.0 = phi i1 [ false, %2 ], [ false, %3 ], [ true, %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit56 ], [ false, %47 ], [ false, %.thread60 ], [ false, %.critedge52 ], [ false, %42 ]
   ret i1 %.0
 }
 

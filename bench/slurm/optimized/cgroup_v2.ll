@@ -3057,7 +3057,7 @@ define dso_local i32 @cgroup_p_constrain_apply(i32 noundef %0, i32 noundef %1, i
   %4 = alloca i32, align 4
   store i32 %2, ptr %4, align 4
   %5 = icmp eq i32 %1, 2
-  br i1 %5, label %44, label %6
+  br i1 %5, label %43, label %6
 
 6:                                                ; preds = %3
   %7 = icmp eq i32 %1, 1
@@ -3065,10 +3065,10 @@ define dso_local i32 @cgroup_p_constrain_apply(i32 noundef %0, i32 noundef %1, i
   %8 = icmp eq i32 %spec.store.select, 4
   %spec.store.select2 = select i1 %8, i32 6, i32 %spec.store.select
   %cond = icmp eq i32 %0, 3
-  br i1 %cond, label %9, label %42
+  br i1 %cond, label %9, label %41
 
 9:                                                ; preds = %6
-  switch i32 %spec.store.select2, label %22 [
+  switch i32 %spec.store.select2, label %21 [
     i32 6, label %.thread
     i32 3, label %.thread
     i32 7, label %13
@@ -3077,8 +3077,8 @@ define dso_local i32 @cgroup_p_constrain_apply(i32 noundef %0, i32 noundef %1, i
 .thread:                                          ; preds = %9, %9
   %10 = zext nneg i32 %spec.store.select2 to i64
   %11 = getelementptr inbounds nuw %struct.bpf_program, ptr @p, i64 %10
-  %12 = getelementptr inbounds nuw %struct.xcgroup_t, ptr @int_cg, i64 %10, i32 2
-  br label %24
+  %12 = getelementptr inbounds nuw %struct.xcgroup_t, ptr @int_cg, i64 %10
+  br label %23
 
 13:                                               ; preds = %9
   %14 = load ptr, ptr @task_list, align 8
@@ -3089,64 +3089,64 @@ define dso_local i32 @cgroup_p_constrain_apply(i32 noundef %0, i32 noundef %1, i
 16:                                               ; preds = %13
   %17 = load i32, ptr %4, align 4
   %18 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.43, i32 noundef %17) #17
-  br label %44
+  br label %43
 
 19:                                               ; preds = %13
   %20 = getelementptr inbounds nuw i8, ptr %15, i64 48
-  %21 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  br label %24
+  br label %23
 
-22:                                               ; preds = %9
-  %23 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.49, i32 noundef %2) #17
-  br label %44
+21:                                               ; preds = %9
+  %22 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.49, i32 noundef %2) #17
+  br label %43
 
-24:                                               ; preds = %19, %.thread
+23:                                               ; preds = %19, %.thread
   %.124.ph = phi ptr [ %11, %.thread ], [ %20, %19 ]
-  %.1.ph.in = phi ptr [ %12, %.thread ], [ %21, %19 ]
+  %.pn = phi ptr [ %12, %.thread ], [ %15, %19 ]
+  %.1.ph.in = getelementptr inbounds nuw i8, ptr %.pn, i64 16
   %.1.ph = load ptr, ptr %.1.ph.in, align 8
-  %25 = load i64, ptr %.124.ph, align 8
-  %26 = icmp ugt i64 %25, 6
-  %27 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
-  %28 = and i64 %27, 36028797018963968
-  %.not30 = icmp eq i64 %28, 0
-  br i1 %26, label %29, label %37
+  %24 = load i64, ptr %.124.ph, align 8
+  %25 = icmp ugt i64 %24, 6
+  %26 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
+  %27 = and i64 %26, 36028797018963968
+  %.not30 = icmp eq i64 %27, 0
+  br i1 %25, label %28, label %36
 
-29:                                               ; preds = %24
-  br i1 %.not30, label %34, label %30
+28:                                               ; preds = %23
+  br i1 %.not30, label %33, label %29
 
-30:                                               ; preds = %29
-  %31 = call i32 @get_log_level() #17
-  %32 = icmp sgt i32 %31, 3
-  br i1 %32, label %33, label %34
+29:                                               ; preds = %28
+  %30 = call i32 @get_log_level() #17
+  %31 = icmp sgt i32 %30, 3
+  br i1 %31, label %32, label %33
 
-33:                                               ; preds = %30
+32:                                               ; preds = %29
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.50, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.cgroup_p_constrain_apply, ptr noundef %.1.ph) #17
-  br label %34
+  br label %33
 
-34:                                               ; preds = %30, %33, %29
+33:                                               ; preds = %29, %32, %28
   call void @close_ebpf_prog(ptr noundef nonnull %.124.ph, i1 noundef zeroext true) #17
-  %35 = icmp ne i32 %spec.store.select2, 7
-  %36 = call i32 @load_ebpf_prog(ptr noundef nonnull %.124.ph, ptr noundef %.1.ph, i1 noundef zeroext %35) #17
-  br label %44
+  %34 = icmp ne i32 %spec.store.select2, 7
+  %35 = call i32 @load_ebpf_prog(ptr noundef nonnull %.124.ph, ptr noundef %.1.ph, i1 noundef zeroext %34) #17
+  br label %43
 
-37:                                               ; preds = %24
-  br i1 %.not30, label %44, label %38
+36:                                               ; preds = %23
+  br i1 %.not30, label %43, label %37
 
-38:                                               ; preds = %37
-  %39 = call i32 @get_log_level() #17
-  %40 = icmp sgt i32 %39, 3
-  br i1 %40, label %41, label %44
+37:                                               ; preds = %36
+  %38 = call i32 @get_log_level() #17
+  %39 = icmp sgt i32 %38, 3
+  br i1 %39, label %40, label %43
 
-41:                                               ; preds = %38
+40:                                               ; preds = %37
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.51, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.cgroup_p_constrain_apply, ptr noundef %.1.ph) #17
-  br label %44
+  br label %43
 
-42:                                               ; preds = %6
-  %43 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.48, i32 noundef %0) #17
-  br label %44
+41:                                               ; preds = %6
+  %42 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.48, i32 noundef %0) #17
+  br label %43
 
-44:                                               ; preds = %37, %41, %38, %3, %42, %34, %22, %16
-  %.022 = phi i32 [ %36, %34 ], [ -1, %22 ], [ -1, %16 ], [ -1, %42 ], [ 0, %3 ], [ 0, %38 ], [ 0, %41 ], [ 0, %37 ]
+43:                                               ; preds = %36, %40, %37, %3, %41, %33, %21, %16
+  %.022 = phi i32 [ %35, %33 ], [ -1, %21 ], [ -1, %16 ], [ -1, %41 ], [ 0, %3 ], [ 0, %37 ], [ 0, %40 ], [ 0, %36 ]
   ret i32 %.022
 }
 

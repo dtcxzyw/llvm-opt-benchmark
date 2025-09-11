@@ -3501,36 +3501,36 @@ define dso_local void @_ZN27btGImpactCollisionAlgorithm24gimpact_vs_compoundshap
   %indvars.iv = phi i64 [ %28, %.lr.ph ], [ %indvars.iv.next, %119 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %31 = load ptr, ptr %16, align 8, !tbaa !160
-  %32 = getelementptr inbounds %struct.btCompoundShapeChild, ptr %31, i64 %indvars.iv.next, i32 1
-  %33 = load ptr, ptr %32, align 8, !tbaa !161
+  %32 = getelementptr inbounds %struct.btCompoundShapeChild, ptr %31, i64 %indvars.iv.next
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 64
+  %34 = load ptr, ptr %33, align 8, !tbaa !161
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %34 = getelementptr inbounds %struct.btCompoundShapeChild, ptr %31, i64 %indvars.iv.next
   call void @llvm.experimental.noalias.scope.decl(metadata !166)
-  %35 = load float, ptr %34, align 4, !tbaa !55, !noalias !169
-  %36 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  %37 = load float, ptr %36, align 4, !tbaa !55, !noalias !169
+  %35 = load float, ptr %32, align 8, !tbaa !55, !noalias !169
+  %36 = getelementptr inbounds nuw i8, ptr %32, i64 16
+  %37 = load float, ptr %36, align 8, !tbaa !55, !noalias !169
   %38 = fmul float %.sroa.4.0.copyload, %37
   %39 = call float @llvm.fmuladd.f32(float %35, float %.sroa.0.0.copyload, float %38)
-  %40 = getelementptr inbounds nuw i8, ptr %34, i64 32
-  %41 = load float, ptr %40, align 4, !tbaa !55, !noalias !169
+  %40 = getelementptr inbounds nuw i8, ptr %32, i64 32
+  %41 = load float, ptr %40, align 8, !tbaa !55, !noalias !169
   %42 = call noundef float @llvm.fmuladd.f32(float %41, float %.sroa.5.0.copyload, float %39)
-  %43 = getelementptr inbounds nuw i8, ptr %34, i64 4
+  %43 = getelementptr inbounds nuw i8, ptr %32, i64 4
   %44 = load float, ptr %43, align 4, !tbaa !55, !noalias !169
-  %45 = getelementptr inbounds nuw i8, ptr %34, i64 20
+  %45 = getelementptr inbounds nuw i8, ptr %32, i64 20
   %46 = load float, ptr %45, align 4, !tbaa !55, !noalias !169
   %47 = fmul float %.sroa.4.0.copyload, %46
   %48 = call float @llvm.fmuladd.f32(float %44, float %.sroa.0.0.copyload, float %47)
-  %49 = getelementptr inbounds nuw i8, ptr %34, i64 36
+  %49 = getelementptr inbounds nuw i8, ptr %32, i64 36
   %50 = load float, ptr %49, align 4, !tbaa !55, !noalias !169
   %51 = call noundef float @llvm.fmuladd.f32(float %50, float %.sroa.5.0.copyload, float %48)
-  %52 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  %53 = load float, ptr %52, align 4, !tbaa !55, !noalias !169
-  %54 = getelementptr inbounds nuw i8, ptr %34, i64 24
-  %55 = load float, ptr %54, align 4, !tbaa !55, !noalias !169
+  %52 = getelementptr inbounds nuw i8, ptr %32, i64 8
+  %53 = load float, ptr %52, align 8, !tbaa !55, !noalias !169
+  %54 = getelementptr inbounds nuw i8, ptr %32, i64 24
+  %55 = load float, ptr %54, align 8, !tbaa !55, !noalias !169
   %56 = fmul float %.sroa.4.0.copyload, %55
   %57 = call float @llvm.fmuladd.f32(float %53, float %.sroa.0.0.copyload, float %56)
-  %58 = getelementptr inbounds nuw i8, ptr %34, i64 40
-  %59 = load float, ptr %58, align 4, !tbaa !55, !noalias !169
+  %58 = getelementptr inbounds nuw i8, ptr %32, i64 40
+  %59 = load float, ptr %58, align 8, !tbaa !55, !noalias !169
   %60 = call noundef float @llvm.fmuladd.f32(float %59, float %.sroa.5.0.copyload, float %57)
   %61 = fmul float %.sroa.8.16.copyload, %37
   %62 = call float @llvm.fmuladd.f32(float %35, float %.sroa.618.16.copyload, float %61)
@@ -3550,14 +3550,14 @@ define dso_local void @_ZN27btGImpactCollisionAlgorithm24gimpact_vs_compoundshap
   %76 = fmul float %.sroa.12.32.copyload, %55
   %77 = call float @llvm.fmuladd.f32(float %53, float %.sroa.1019.32.copyload, float %76)
   %78 = call noundef float @llvm.fmuladd.f32(float %59, float %.sroa.13.32.copyload, float %77)
-  %79 = getelementptr inbounds nuw i8, ptr %34, i64 48
-  %80 = load float, ptr %79, align 4, !tbaa !55, !noalias !166
-  %81 = getelementptr inbounds nuw i8, ptr %34, i64 52
+  %79 = getelementptr inbounds nuw i8, ptr %32, i64 48
+  %80 = load float, ptr %79, align 8, !tbaa !55, !noalias !166
+  %81 = getelementptr inbounds nuw i8, ptr %32, i64 52
   %82 = load float, ptr %81, align 4, !tbaa !55, !noalias !166
   %83 = fmul float %.sroa.4.0.copyload, %82
   %84 = call float @llvm.fmuladd.f32(float %80, float %.sroa.0.0.copyload, float %83)
-  %85 = getelementptr inbounds nuw i8, ptr %34, i64 56
-  %86 = load float, ptr %85, align 4, !tbaa !55, !noalias !166
+  %85 = getelementptr inbounds nuw i8, ptr %32, i64 56
+  %86 = load float, ptr %85, align 8, !tbaa !55, !noalias !166
   %87 = call noundef float @llvm.fmuladd.f32(float %86, float %.sroa.5.0.copyload, float %84)
   %88 = fmul float %.sroa.8.16.copyload, %82
   %89 = call float @llvm.fmuladd.f32(float %80, float %.sroa.618.16.copyload, float %88)
@@ -3588,7 +3588,7 @@ define dso_local void @_ZN27btGImpactCollisionAlgorithm24gimpact_vs_compoundshap
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %97 = load ptr, ptr %20, align 8, !tbaa !26
   store ptr %2, ptr %8, align 8, !tbaa !38
-  store ptr %33, ptr %21, align 8, !tbaa !39
+  store ptr %34, ptr %21, align 8, !tbaa !39
   store ptr %97, ptr %22, align 8, !tbaa !26
   store ptr %7, ptr %23, align 8, !tbaa !40
   store ptr null, ptr %24, align 8, !tbaa !41
@@ -3614,7 +3614,7 @@ define dso_local void @_ZN27btGImpactCollisionAlgorithm24gimpact_vs_compoundshap
 
 108:                                              ; preds = %105, %104
   %.0 = phi ptr [ %100, %104 ], [ %107, %105 ]
-  call void @_ZN27btGImpactCollisionAlgorithm16gimpact_vs_shapeEPK24btCollisionObjectWrapperS2_PK23btGImpactShapeInterfacePK16btCollisionShapeb(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1, ptr noundef nonnull %8, ptr noundef %3, ptr noundef %33, i1 noundef zeroext %5)
+  call void @_ZN27btGImpactCollisionAlgorithm16gimpact_vs_shapeEPK24btCollisionObjectWrapperS2_PK23btGImpactShapeInterfacePK16btCollisionShapeb(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1, ptr noundef nonnull %8, ptr noundef %3, ptr noundef %34, i1 noundef zeroext %5)
   %109 = load ptr, ptr %27, align 8, !tbaa !21
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 16
   %111 = load ptr, ptr %110, align 8, !tbaa !141

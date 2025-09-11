@@ -2478,7 +2478,7 @@ define linkonce_odr void @_ZN5folly6detail11LifoSemBaseINS_19SaturatingSemaphore
 9:                                                ; preds = %.split.i
   %10 = and i64 %5, 4294967296
   %.not44.i = icmp eq i64 %10, 0
-  br i1 %.not44.i, label %32, label %11
+  br i1 %.not44.i, label %33, label %11
 
 11:                                               ; preds = %9
   %12 = load atomic i64, ptr @_ZZN5folly6detail30StaticSingletonManagerWithRtti6globalINS0_14LifoSemRawNodeISt6atomicE8PoolImplEvNS1_9ArgCreateILb0EEEEERT1_vE3arg acquire, align 8
@@ -2495,81 +2495,82 @@ _ZN5folly6detail11LifoSemBaseINS_19SaturatingSemaphoreILb1ESt6atomicEES3_E9idxTo
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 64
   %17 = load ptr, ptr %16, align 64, !tbaa !187
   %18 = and i64 %5, 4294967295
-  %19 = getelementptr inbounds nuw %"struct.folly::IndexedMemPool<folly::detail::LifoSemRawNode<std::atomic>, 32, 200, std::atomic, folly::IndexedMemPoolTraits<folly::detail::LifoSemRawNode<std::atomic>, false, false>>::Slot", ptr %17, i64 %18, i32 0, i32 0, i64 8
-  %20 = load atomic i32, ptr %19 monotonic, align 4
-  %21 = icmp eq i32 %20, 0
-  br i1 %21, label %22, label %25
+  %19 = getelementptr inbounds nuw %"struct.folly::IndexedMemPool<folly::detail::LifoSemRawNode<std::atomic>, 32, 200, std::atomic, folly::IndexedMemPoolTraits<folly::detail::LifoSemRawNode<std::atomic>, false, false>>::Slot", ptr %17, i64 %18
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %21 = load atomic i32, ptr %20 monotonic, align 4
+  %22 = icmp eq i32 %21, 0
+  br i1 %22, label %23, label %26
 
-22:                                               ; preds = %_ZN5folly6detail11LifoSemBaseINS_19SaturatingSemaphoreILb1ESt6atomicEES3_E9idxToNodeEj.exit.i
-  %23 = and i64 %5, -25769803776
-  %24 = add i64 %23, 34359738368
+23:                                               ; preds = %_ZN5folly6detail11LifoSemBaseINS_19SaturatingSemaphoreILb1ESt6atomicEES3_E9idxToNodeEj.exit.i
+  %24 = and i64 %5, -25769803776
+  %25 = add i64 %24, 34359738368
   br label %_ZNK5folly6detail11LifoSemHead7withPopEj.exit.i
 
-25:                                               ; preds = %_ZN5folly6detail11LifoSemBaseINS_19SaturatingSemaphoreILb1ESt6atomicEES3_E9idxToNodeEj.exit.i
-  %26 = and i64 %5, -21474836480
-  %27 = add i64 %26, 34359738368
-  %28 = zext i32 %20 to i64
-  %29 = or disjoint i64 %27, %28
+26:                                               ; preds = %_ZN5folly6detail11LifoSemBaseINS_19SaturatingSemaphoreILb1ESt6atomicEES3_E9idxToNodeEj.exit.i
+  %27 = and i64 %5, -21474836480
+  %28 = add i64 %27, 34359738368
+  %29 = zext i32 %21 to i64
+  %30 = or disjoint i64 %28, %29
   br label %_ZNK5folly6detail11LifoSemHead7withPopEj.exit.i
 
-_ZNK5folly6detail11LifoSemHead7withPopEj.exit.i:  ; preds = %25, %22
-  %.sroa.0.0.i.i = phi i64 [ %24, %22 ], [ %29, %25 ]
-  %30 = cmpxchg ptr %0, i64 %5, i64 %.sroa.0.0.i.i seq_cst seq_cst, align 8
-  %31 = extractvalue { i64, i1 } %30, 1
-  br i1 %31, label %_ZN5folly6detail11LifoSemBaseINS_19SaturatingSemaphoreILb1ESt6atomicEES3_E9incrOrPopEjb.exit, label %.split.i.backedge
+_ZNK5folly6detail11LifoSemHead7withPopEj.exit.i:  ; preds = %26, %23
+  %.sroa.0.0.i.i = phi i64 [ %25, %23 ], [ %30, %26 ]
+  %31 = cmpxchg ptr %0, i64 %5, i64 %.sroa.0.0.i.i seq_cst seq_cst, align 8
+  %32 = extractvalue { i64, i1 } %31, 1
+  br i1 %32, label %_ZN5folly6detail11LifoSemBaseINS_19SaturatingSemaphoreILb1ESt6atomicEES3_E9incrOrPopEjb.exit, label %.split.i.backedge
 
-32:                                               ; preds = %9
-  %33 = add i64 %5, %4
-  %34 = and i64 %33, 4294967296
-  %.not.i.i = icmp eq i64 %34, 0
-  br i1 %.not.i.i, label %_ZNK5folly6detail11LifoSemHead13withValueIncrEj.exit.i, label %35, !prof !120
+33:                                               ; preds = %9
+  %34 = add i64 %5, %4
+  %35 = and i64 %34, 4294967296
+  %.not.i.i = icmp eq i64 %35, 0
+  br i1 %.not.i.i, label %_ZNK5folly6detail11LifoSemHead13withValueIncrEj.exit.i, label %36, !prof !120
 
-35:                                               ; preds = %32
-  %36 = and i64 %33, -25769803776
-  %37 = or disjoint i64 %36, 4294967295
+36:                                               ; preds = %33
+  %37 = and i64 %34, -25769803776
+  %38 = or disjoint i64 %37, 4294967295
   br label %_ZNK5folly6detail11LifoSemHead13withValueIncrEj.exit.i
 
-_ZNK5folly6detail11LifoSemHead13withValueIncrEj.exit.i: ; preds = %35, %32
-  %.sroa.0.0.i13.i = phi i64 [ %37, %35 ], [ %33, %32 ]
-  %38 = cmpxchg ptr %0, i64 %5, i64 %.sroa.0.0.i13.i seq_cst seq_cst, align 8
-  %39 = extractvalue { i64, i1 } %38, 1
-  br i1 %39, label %.critedge, label %.split.i.backedge
+_ZNK5folly6detail11LifoSemHead13withValueIncrEj.exit.i: ; preds = %36, %33
+  %.sroa.0.0.i13.i = phi i64 [ %38, %36 ], [ %34, %33 ]
+  %39 = cmpxchg ptr %0, i64 %5, i64 %.sroa.0.0.i13.i seq_cst seq_cst, align 8
+  %40 = extractvalue { i64, i1 } %39, 1
+  br i1 %40, label %.critedge, label %.split.i.backedge
 
 .split.i.backedge:                                ; preds = %_ZNK5folly6detail11LifoSemHead13withValueIncrEj.exit.i, %_ZNK5folly6detail11LifoSemHead7withPopEj.exit.i, %7
   br label %.split.i, !llvm.loop !191
 
 _ZN5folly6detail11LifoSemBaseINS_19SaturatingSemaphoreILb1ESt6atomicEES3_E9incrOrPopEjb.exit: ; preds = %_ZNK5folly6detail11LifoSemHead7withPopEj.exit.i
   %.not5 = icmp eq i64 %18, 0
-  br i1 %.not5, label %.critedge, label %40
+  br i1 %.not5, label %.critedge, label %41
 
-40:                                               ; preds = %_ZN5folly6detail11LifoSemBaseINS_19SaturatingSemaphoreILb1ESt6atomicEES3_E9incrOrPopEjb.exit
-  %41 = load atomic i64, ptr @_ZZN5folly6detail30StaticSingletonManagerWithRtti6globalINS0_14LifoSemRawNodeISt6atomicE8PoolImplEvNS1_9ArgCreateILb0EEEEERT1_vE3arg acquire, align 8
-  %.0.i.i.i.i = inttoptr i64 %41 to ptr
-  %.not.i.i.i = icmp eq i64 %41, 0
-  br i1 %.not.i.i.i, label %42, label %_ZN5folly6detail11LifoSemBaseINS_19SaturatingSemaphoreILb1ESt6atomicEES3_E9idxToNodeEj.exit, !prof !52
+41:                                               ; preds = %_ZN5folly6detail11LifoSemBaseINS_19SaturatingSemaphoreILb1ESt6atomicEES3_E9incrOrPopEjb.exit
+  %42 = load atomic i64, ptr @_ZZN5folly6detail30StaticSingletonManagerWithRtti6globalINS0_14LifoSemRawNodeISt6atomicE8PoolImplEvNS1_9ArgCreateILb0EEEEERT1_vE3arg acquire, align 8
+  %.0.i.i.i.i = inttoptr i64 %42 to ptr
+  %.not.i.i.i = icmp eq i64 %42, 0
+  br i1 %.not.i.i.i, label %43, label %_ZN5folly6detail11LifoSemBaseINS_19SaturatingSemaphoreILb1ESt6atomicEES3_E9idxToNodeEj.exit, !prof !52
 
-42:                                               ; preds = %40
-  %43 = tail call noundef ptr @_ZN5folly6detail30StaticSingletonManagerWithRtti7create_ILb0EEEPvRNS1_3ArgE(ptr noundef nonnull align 8 dereferenceable(32) @_ZZN5folly6detail30StaticSingletonManagerWithRtti6globalINS0_14LifoSemRawNodeISt6atomicE8PoolImplEvNS1_9ArgCreateILb0EEEEERT1_vE3arg)
+43:                                               ; preds = %41
+  %44 = tail call noundef ptr @_ZN5folly6detail30StaticSingletonManagerWithRtti7create_ILb0EEEPvRNS1_3ArgE(ptr noundef nonnull align 8 dereferenceable(32) @_ZZN5folly6detail30StaticSingletonManagerWithRtti6globalINS0_14LifoSemRawNodeISt6atomicE8PoolImplEvNS1_9ArgCreateILb0EEEEERT1_vE3arg)
   br label %_ZN5folly6detail11LifoSemBaseINS_19SaturatingSemaphoreILb1ESt6atomicEES3_E9idxToNodeEj.exit
 
-_ZN5folly6detail11LifoSemBaseINS_19SaturatingSemaphoreILb1ESt6atomicEES3_E9idxToNodeEj.exit: ; preds = %40, %42
-  %44 = phi ptr [ %43, %42 ], [ %.0.i.i.i.i, %40 ]
-  %45 = getelementptr inbounds nuw i8, ptr %44, i64 64
-  %46 = load ptr, ptr %45, align 64, !tbaa !187
-  %47 = getelementptr inbounds nuw %"struct.folly::IndexedMemPool<folly::detail::LifoSemRawNode<std::atomic>, 32, 200, std::atomic, folly::IndexedMemPoolTraits<folly::detail::LifoSemRawNode<std::atomic>, false, false>>::Slot", ptr %46, i64 %18
-  %48 = cmpxchg ptr %47, i32 0, i32 1 release monotonic, align 4
-  %49 = extractvalue { i32, i1 } %48, 1
-  br i1 %49, label %_ZN5folly19SaturatingSemaphoreILb1ESt6atomicE22postFastWaiterMayBlockEv.exit, label %50
+_ZN5folly6detail11LifoSemBaseINS_19SaturatingSemaphoreILb1ESt6atomicEES3_E9idxToNodeEj.exit: ; preds = %41, %43
+  %45 = phi ptr [ %44, %43 ], [ %.0.i.i.i.i, %41 ]
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 64
+  %47 = load ptr, ptr %46, align 64, !tbaa !187
+  %48 = getelementptr inbounds nuw %"struct.folly::IndexedMemPool<folly::detail::LifoSemRawNode<std::atomic>, 32, 200, std::atomic, folly::IndexedMemPoolTraits<folly::detail::LifoSemRawNode<std::atomic>, false, false>>::Slot", ptr %47, i64 %18
+  %49 = cmpxchg ptr %48, i32 0, i32 1 release monotonic, align 4
+  %50 = extractvalue { i32, i1 } %49, 1
+  br i1 %50, label %_ZN5folly19SaturatingSemaphoreILb1ESt6atomicE22postFastWaiterMayBlockEv.exit, label %51
 
-50:                                               ; preds = %_ZN5folly6detail11LifoSemBaseINS_19SaturatingSemaphoreILb1ESt6atomicEES3_E9idxToNodeEj.exit
-  %51 = extractvalue { i32, i1 } %48, 0
-  tail call void @_ZN5folly19SaturatingSemaphoreILb1ESt6atomicE22postSlowWaiterMayBlockEj(ptr noundef nonnull align 4 dereferenceable(4) %47, i32 noundef %51) #19
+51:                                               ; preds = %_ZN5folly6detail11LifoSemBaseINS_19SaturatingSemaphoreILb1ESt6atomicEES3_E9idxToNodeEj.exit
+  %52 = extractvalue { i32, i1 } %49, 0
+  tail call void @_ZN5folly19SaturatingSemaphoreILb1ESt6atomicE22postSlowWaiterMayBlockEj(ptr noundef nonnull align 4 dereferenceable(4) %48, i32 noundef %52) #19
   br label %_ZN5folly19SaturatingSemaphoreILb1ESt6atomicE22postFastWaiterMayBlockEv.exit
 
-_ZN5folly19SaturatingSemaphoreILb1ESt6atomicE22postFastWaiterMayBlockEv.exit: ; preds = %_ZN5folly6detail11LifoSemBaseINS_19SaturatingSemaphoreILb1ESt6atomicEES3_E9idxToNodeEj.exit, %50
+_ZN5folly19SaturatingSemaphoreILb1ESt6atomicE22postFastWaiterMayBlockEv.exit: ; preds = %_ZN5folly6detail11LifoSemBaseINS_19SaturatingSemaphoreILb1ESt6atomicEES3_E9idxToNodeEj.exit, %51
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %52 = and i64 %indvars.iv.next, 4294967295
-  %.not = icmp eq i64 %52, 0
+  %53 = and i64 %indvars.iv.next, 4294967295
+  %.not = icmp eq i64 %53, 0
   br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !192
 
 .critedge:                                        ; preds = %_ZN5folly6detail11LifoSemBaseINS_19SaturatingSemaphoreILb1ESt6atomicEES3_E9incrOrPopEjb.exit, %_ZN5folly19SaturatingSemaphoreILb1ESt6atomicE22postFastWaiterMayBlockEv.exit, %_ZNK5folly6detail11LifoSemHead13withValueIncrEj.exit.i, %2
@@ -3247,15 +3248,16 @@ _ZN5folly6detail11LifoSemBaseINS_19SaturatingSemaphoreILb1ESt6atomicEES3_E9idxTo
   %42 = phi ptr [ %41, %40 ], [ %.0.i.i.i.i, %38 ]
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 64
   %44 = load ptr, ptr %43, align 64, !tbaa !187
-  %45 = getelementptr inbounds nuw %"struct.folly::IndexedMemPool<folly::detail::LifoSemRawNode<std::atomic>, 32, 200, std::atomic, folly::IndexedMemPoolTraits<folly::detail::LifoSemRawNode<std::atomic>, false, false>>::Slot", ptr %44, i64 %5, i32 0, i32 0, i64 8
-  %46 = trunc i64 %20 to i32
-  %spec.select = select i1 %.not52, i32 0, i32 %46
-  store atomic i32 %spec.select, ptr %45 monotonic, align 4
-  %47 = and i64 %20, -34359738368
-  %.reass = or disjoint i64 %47, %invariant.op
-  %48 = cmpxchg ptr %0, i64 %20, i64 %.reass seq_cst seq_cst, align 8
-  %49 = extractvalue { i64, i1 } %48, 1
-  br i1 %49, label %_ZN5folly12AtomicStructINS_6detail11LifoSemHeadESt6atomicE23compare_exchange_strongERS2_S2_St12memory_orderS6_.exit22.thread43, label %.split.backedge
+  %45 = getelementptr inbounds nuw %"struct.folly::IndexedMemPool<folly::detail::LifoSemRawNode<std::atomic>, 32, 200, std::atomic, folly::IndexedMemPoolTraits<folly::detail::LifoSemRawNode<std::atomic>, false, false>>::Slot", ptr %44, i64 %5
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
+  %47 = trunc i64 %20 to i32
+  %spec.select = select i1 %.not52, i32 0, i32 %47
+  store atomic i32 %spec.select, ptr %46 monotonic, align 4
+  %48 = and i64 %20, -34359738368
+  %.reass = or disjoint i64 %48, %invariant.op
+  %49 = cmpxchg ptr %0, i64 %20, i64 %.reass seq_cst seq_cst, align 8
+  %50 = extractvalue { i64, i1 } %49, 1
+  br i1 %50, label %_ZN5folly12AtomicStructINS_6detail11LifoSemHeadESt6atomicE23compare_exchange_strongERS2_S2_St12memory_orderS6_.exit22.thread43, label %.split.backedge
 
 _ZN5folly12AtomicStructINS_6detail11LifoSemHeadESt6atomicE23compare_exchange_strongERS2_S2_St12memory_orderS6_.exit22.thread43: ; preds = %36, %_ZN5folly6detail11LifoSemBaseINS_19SaturatingSemaphoreILb1ESt6atomicEES3_E9idxToNodeEj.exit, %10, %12, %_ZN5folly12AtomicStructINS_6detail11LifoSemHeadESt6atomicE23compare_exchange_strongERS2_S2_St12memory_orderS6_.exit.thread37
   %.1.ph = phi i32 [ 1, %_ZN5folly12AtomicStructINS_6detail11LifoSemHeadESt6atomicE23compare_exchange_strongERS2_S2_St12memory_orderS6_.exit.thread37 ], [ 0, %12 ], [ 0, %10 ], [ 0, %_ZN5folly6detail11LifoSemBaseINS_19SaturatingSemaphoreILb1ESt6atomicEES3_E9idxToNodeEj.exit ], [ 2, %36 ]
@@ -3302,86 +3304,88 @@ _ZN5folly14IndexedMemPoolINS_6detail14LifoSemRawNodeISt6atomicEELj32ELj200ES3_NS
 19:                                               ; preds = %_ZN5folly14IndexedMemPoolINS_6detail14LifoSemRawNodeISt6atomicEELj32ELj200ES3_NS_20IndexedMemPoolTraitsIS4_Lb0ELb0EEEE10globalPushERNS7_4SlotEj.exit.i
   %20 = load ptr, ptr %16, align 64, !tbaa !187
   %21 = and i64 %18, 4294967295
-  %22 = getelementptr inbounds nuw %"struct.folly::IndexedMemPool<folly::detail::LifoSemRawNode<std::atomic>, 32, 200, std::atomic, folly::IndexedMemPoolTraits<folly::detail::LifoSemRawNode<std::atomic>, false, false>>::Slot", ptr %20, i64 %21, i32 1
-  %23 = load atomic i32, ptr %22 monotonic, align 4
+  %22 = getelementptr inbounds nuw %"struct.folly::IndexedMemPool<folly::detail::LifoSemRawNode<std::atomic>, 32, 200, std::atomic, folly::IndexedMemPoolTraits<folly::detail::LifoSemRawNode<std::atomic>, false, false>>::Slot", ptr %20, i64 %21
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
+  %24 = load atomic i32, ptr %23 monotonic, align 4
   %.sroa.2.0.insert.shift.i27.i = add i64 %.sroa.9.0.extract.shift.i, 1095216660480
-  %.sroa.0.0.insert.ext.i28.i = zext i32 %23 to i64
+  %.sroa.0.0.insert.ext.i28.i = zext i32 %24 to i64
   %.sroa.0.0.insert.insert.i29.i = or disjoint i64 %.sroa.2.0.insert.shift.i27.i, %.sroa.0.0.insert.ext.i28.i
-  %24 = cmpxchg ptr %15, i64 %18, i64 %.sroa.0.0.insert.insert.i29.i seq_cst seq_cst, align 8
-  %25 = extractvalue { i64, i1 } %24, 1
-  br i1 %25, label %_ZN5folly14IndexedMemPoolINS_6detail14LifoSemRawNodeISt6atomicEELj32ELj200ES3_NS_20IndexedMemPoolTraitsIS4_Lb0ELb0EEEE8localPopERNS_12AtomicStructINS7_9TaggedPtrES3_EE.exit.thread9.loopexit, label %_ZN5folly14IndexedMemPoolINS_6detail14LifoSemRawNodeISt6atomicEELj32ELj200ES3_NS_20IndexedMemPoolTraitsIS4_Lb0ELb0EEEE10globalPushERNS7_4SlotEj.exit.i.backedge
+  %25 = cmpxchg ptr %15, i64 %18, i64 %.sroa.0.0.insert.insert.i29.i seq_cst seq_cst, align 8
+  %26 = extractvalue { i64, i1 } %25, 1
+  br i1 %26, label %_ZN5folly14IndexedMemPoolINS_6detail14LifoSemRawNodeISt6atomicEELj32ELj200ES3_NS_20IndexedMemPoolTraitsIS4_Lb0ELb0EEEE8localPopERNS_12AtomicStructINS7_9TaggedPtrES3_EE.exit.thread9.loopexit, label %_ZN5folly14IndexedMemPoolINS_6detail14LifoSemRawNodeISt6atomicEELj32ELj200ES3_NS_20IndexedMemPoolTraitsIS4_Lb0ELb0EEEE10globalPushERNS7_4SlotEj.exit.i.backedge
 
 _ZN5folly14IndexedMemPoolINS_6detail14LifoSemRawNodeISt6atomicEELj32ELj200ES3_NS_20IndexedMemPoolTraitsIS4_Lb0ELb0EEEE10globalPushERNS7_4SlotEj.exit.i.backedge: ; preds = %_ZN5folly12AtomicStructINS_14IndexedMemPoolINS_6detail14LifoSemRawNodeISt6atomicEELj32ELj200ES4_NS_20IndexedMemPoolTraitsIS5_Lb0ELb0EEEE9TaggedPtrES4_E23compare_exchange_strongERS9_S9_St12memory_orderSC_.exit.i.i, %19
   br label %_ZN5folly14IndexedMemPoolINS_6detail14LifoSemRawNodeISt6atomicEELj32ELj200ES3_NS_20IndexedMemPoolTraitsIS4_Lb0ELb0EEEE10globalPushERNS7_4SlotEj.exit.i
 
-.preheader.i:                                     ; preds = %_ZN5folly14IndexedMemPoolINS_6detail14LifoSemRawNodeISt6atomicEELj32ELj200ES3_NS_20IndexedMemPoolTraitsIS4_Lb0ELb0EEEE10globalPushERNS7_4SlotEj.exit.i, %28
-  %26 = load atomic i64, ptr %17 acquire, align 64
-  %.sroa.0.0.extract.trunc.i.i = trunc i64 %26 to i32
-  %27 = icmp eq i32 %.sroa.0.0.extract.trunc.i.i, 0
-  br i1 %27, label %36, label %28
+.preheader.i:                                     ; preds = %_ZN5folly14IndexedMemPoolINS_6detail14LifoSemRawNodeISt6atomicEELj32ELj200ES3_NS_20IndexedMemPoolTraitsIS4_Lb0ELb0EEEE10globalPushERNS7_4SlotEj.exit.i, %29
+  %27 = load atomic i64, ptr %17 acquire, align 64
+  %.sroa.0.0.extract.trunc.i.i = trunc i64 %27 to i32
+  %28 = icmp eq i32 %.sroa.0.0.extract.trunc.i.i, 0
+  br i1 %28, label %38, label %29
 
-28:                                               ; preds = %.preheader.i
-  %29 = load ptr, ptr %16, align 64, !tbaa !187
-  %30 = and i64 %26, 4294967295
-  %31 = getelementptr inbounds nuw %"struct.folly::IndexedMemPool<folly::detail::LifoSemRawNode<std::atomic>, 32, 200, std::atomic, folly::IndexedMemPoolTraits<folly::detail::LifoSemRawNode<std::atomic>, false, false>>::Slot", ptr %29, i64 %30, i32 2
-  %32 = load atomic i32, ptr %31 monotonic, align 4
-  %33 = and i64 %26, -4294967296
-  %.sroa.2.0.insert.shift.i.i.i = add i64 %33, 1099511627776
-  %.sroa.0.0.insert.ext.i.i.i = zext i32 %32 to i64
+29:                                               ; preds = %.preheader.i
+  %30 = load ptr, ptr %16, align 64, !tbaa !187
+  %31 = and i64 %27, 4294967295
+  %32 = getelementptr inbounds nuw %"struct.folly::IndexedMemPool<folly::detail::LifoSemRawNode<std::atomic>, 32, 200, std::atomic, folly::IndexedMemPoolTraits<folly::detail::LifoSemRawNode<std::atomic>, false, false>>::Slot", ptr %30, i64 %31
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 20
+  %34 = load atomic i32, ptr %33 monotonic, align 4
+  %35 = and i64 %27, -4294967296
+  %.sroa.2.0.insert.shift.i.i.i = add i64 %35, 1099511627776
+  %.sroa.0.0.insert.ext.i.i.i = zext i32 %34 to i64
   %.sroa.0.0.insert.insert.i.i.i = or disjoint i64 %.sroa.2.0.insert.shift.i.i.i, %.sroa.0.0.insert.ext.i.i.i
-  %34 = cmpxchg ptr %17, i64 %26, i64 %.sroa.0.0.insert.insert.i.i.i seq_cst seq_cst, align 8
-  %35 = extractvalue { i64, i1 } %34, 1
-  br i1 %35, label %_ZN5folly14IndexedMemPoolINS_6detail14LifoSemRawNodeISt6atomicEELj32ELj200ES3_NS_20IndexedMemPoolTraitsIS4_Lb0ELb0EEEE9globalPopEv.exit.i, label %.preheader.i
+  %36 = cmpxchg ptr %17, i64 %27, i64 %.sroa.0.0.insert.insert.i.i.i seq_cst seq_cst, align 8
+  %37 = extractvalue { i64, i1 } %36, 1
+  br i1 %37, label %_ZN5folly14IndexedMemPoolINS_6detail14LifoSemRawNodeISt6atomicEELj32ELj200ES3_NS_20IndexedMemPoolTraitsIS4_Lb0ELb0EEEE9globalPopEv.exit.i, label %.preheader.i
 
-36:                                               ; preds = %.preheader.i
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %38 = load atomic i32, ptr %37 monotonic, align 4
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %40 = load i32, ptr %39, align 8, !tbaa !193
-  %.not25.i = icmp ult i32 %38, %40
-  br i1 %.not25.i, label %41, label %_ZN5folly14IndexedMemPoolINS_6detail14LifoSemRawNodeISt6atomicEELj32ELj200ES3_NS_20IndexedMemPoolTraitsIS4_Lb0ELb0EEEE8localPopERNS_12AtomicStructINS7_9TaggedPtrES3_EE.exit.thread
+38:                                               ; preds = %.preheader.i
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %40 = load atomic i32, ptr %39 monotonic, align 4
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %42 = load i32, ptr %41, align 8, !tbaa !193
+  %.not25.i = icmp ult i32 %40, %42
+  br i1 %.not25.i, label %43, label %_ZN5folly14IndexedMemPoolINS_6detail14LifoSemRawNodeISt6atomicEELj32ELj200ES3_NS_20IndexedMemPoolTraitsIS4_Lb0ELb0EEEE8localPopERNS_12AtomicStructINS7_9TaggedPtrES3_EE.exit.thread
 
-41:                                               ; preds = %36
-  %42 = atomicrmw add ptr %37, i32 1 seq_cst, align 4
-  %43 = add i32 %42, 1
-  %44 = load i32, ptr %39, align 8, !tbaa !193
-  %45 = icmp ugt i32 %43, %44
-  br i1 %45, label %_ZN5folly14IndexedMemPoolINS_6detail14LifoSemRawNodeISt6atomicEELj32ELj200ES3_NS_20IndexedMemPoolTraitsIS4_Lb0ELb0EEEE8localPopERNS_12AtomicStructINS7_9TaggedPtrES3_EE.exit.thread, label %_ZN5folly14IndexedMemPoolINS_6detail14LifoSemRawNodeISt6atomicEELj32ELj200ES3_NS_20IndexedMemPoolTraitsIS4_Lb0ELb0EEEE8localPopERNS_12AtomicStructINS7_9TaggedPtrES3_EE.exit
+43:                                               ; preds = %38
+  %44 = atomicrmw add ptr %39, i32 1 seq_cst, align 4
+  %45 = add i32 %44, 1
+  %46 = load i32, ptr %41, align 8, !tbaa !193
+  %47 = icmp ugt i32 %45, %46
+  br i1 %47, label %_ZN5folly14IndexedMemPoolINS_6detail14LifoSemRawNodeISt6atomicEELj32ELj200ES3_NS_20IndexedMemPoolTraitsIS4_Lb0ELb0EEEE8localPopERNS_12AtomicStructINS7_9TaggedPtrES3_EE.exit.thread, label %_ZN5folly14IndexedMemPoolINS_6detail14LifoSemRawNodeISt6atomicEELj32ELj200ES3_NS_20IndexedMemPoolTraitsIS4_Lb0ELb0EEEE8localPopERNS_12AtomicStructINS7_9TaggedPtrES3_EE.exit
 
-_ZN5folly14IndexedMemPoolINS_6detail14LifoSemRawNodeISt6atomicEELj32ELj200ES3_NS_20IndexedMemPoolTraitsIS4_Lb0ELb0EEEE9globalPopEv.exit.i: ; preds = %28
-  %46 = load ptr, ptr %16, align 64, !tbaa !187
-  %47 = getelementptr inbounds nuw %"struct.folly::IndexedMemPool<folly::detail::LifoSemRawNode<std::atomic>, 32, 200, std::atomic, folly::IndexedMemPoolTraits<folly::detail::LifoSemRawNode<std::atomic>, false, false>>::Slot", ptr %46, i64 %30
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
-  %49 = load atomic i32, ptr %48 monotonic, align 4
-  %50 = and i64 %18, -1099511627776
-  %.sroa.2.0.insert.ext.i34.i = add i64 %50, 1958505086976
-  %.sroa.0.0.insert.ext.i36.i = zext i32 %49 to i64
+_ZN5folly14IndexedMemPoolINS_6detail14LifoSemRawNodeISt6atomicEELj32ELj200ES3_NS_20IndexedMemPoolTraitsIS4_Lb0ELb0EEEE9globalPopEv.exit.i: ; preds = %29
+  %48 = load ptr, ptr %16, align 64, !tbaa !187
+  %49 = getelementptr inbounds nuw %"struct.folly::IndexedMemPool<folly::detail::LifoSemRawNode<std::atomic>, 32, 200, std::atomic, folly::IndexedMemPoolTraits<folly::detail::LifoSemRawNode<std::atomic>, false, false>>::Slot", ptr %48, i64 %31
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 16
+  %51 = load atomic i32, ptr %50 monotonic, align 4
+  %52 = and i64 %18, -1099511627776
+  %.sroa.2.0.insert.ext.i34.i = add i64 %52, 1958505086976
+  %.sroa.0.0.insert.ext.i36.i = zext i32 %51 to i64
   %.sroa.0.0.insert.insert.i37.i = or disjoint i64 %.sroa.2.0.insert.ext.i34.i, %.sroa.0.0.insert.ext.i36.i
-  %51 = cmpxchg ptr %15, i64 %.sroa.9.0.extract.shift.i, i64 %.sroa.0.0.insert.insert.i37.i seq_cst seq_cst, align 8
-  %52 = extractvalue { i64, i1 } %51, 1
-  br i1 %52, label %_ZN5folly14IndexedMemPoolINS_6detail14LifoSemRawNodeISt6atomicEELj32ELj200ES3_NS_20IndexedMemPoolTraitsIS4_Lb0ELb0EEEE8localPopERNS_12AtomicStructINS7_9TaggedPtrES3_EE.exit.thread9.loopexit, label %53
+  %53 = cmpxchg ptr %15, i64 %.sroa.9.0.extract.shift.i, i64 %.sroa.0.0.insert.insert.i37.i seq_cst seq_cst, align 8
+  %54 = extractvalue { i64, i1 } %53, 1
+  br i1 %54, label %_ZN5folly14IndexedMemPoolINS_6detail14LifoSemRawNodeISt6atomicEELj32ELj200ES3_NS_20IndexedMemPoolTraitsIS4_Lb0ELb0EEEE8localPopERNS_12AtomicStructINS7_9TaggedPtrES3_EE.exit.thread9.loopexit, label %55
 
-53:                                               ; preds = %_ZN5folly14IndexedMemPoolINS_6detail14LifoSemRawNodeISt6atomicEELj32ELj200ES3_NS_20IndexedMemPoolTraitsIS4_Lb0ELb0EEEE9globalPopEv.exit.i
-  %54 = getelementptr inbounds nuw i8, ptr %47, i64 20
-  %invariant.op.i.i = or disjoint i64 %30, 1099511627776
+55:                                               ; preds = %_ZN5folly14IndexedMemPoolINS_6detail14LifoSemRawNodeISt6atomicEELj32ELj200ES3_NS_20IndexedMemPoolTraitsIS4_Lb0ELb0EEEE9globalPopEv.exit.i
+  %56 = getelementptr inbounds nuw i8, ptr %49, i64 20
+  %invariant.op.i.i = or disjoint i64 %31, 1099511627776
   br label %_ZN5folly12AtomicStructINS_14IndexedMemPoolINS_6detail14LifoSemRawNodeISt6atomicEELj32ELj200ES4_NS_20IndexedMemPoolTraitsIS5_Lb0ELb0EEEE9TaggedPtrES4_E23compare_exchange_strongERS9_S9_St12memory_orderSC_.exit.i.i
 
-_ZN5folly12AtomicStructINS_14IndexedMemPoolINS_6detail14LifoSemRawNodeISt6atomicEELj32ELj200ES4_NS_20IndexedMemPoolTraitsIS5_Lb0ELb0EEEE9TaggedPtrES4_E23compare_exchange_strongERS9_S9_St12memory_orderSC_.exit.i.i: ; preds = %_ZN5folly12AtomicStructINS_14IndexedMemPoolINS_6detail14LifoSemRawNodeISt6atomicEELj32ELj200ES4_NS_20IndexedMemPoolTraitsIS5_Lb0ELb0EEEE9TaggedPtrES4_E23compare_exchange_strongERS9_S9_St12memory_orderSC_.exit.i.i, %53
-  %55 = load atomic i64, ptr %17 acquire, align 64
-  %.sroa.0.0.extract.trunc.i39.i = trunc i64 %55 to i32
-  store atomic i32 %.sroa.0.0.extract.trunc.i39.i, ptr %54 monotonic, align 4
-  %56 = and i64 %55, -4294967296
-  %.sroa.0.0.insert.insert.i.reass.i.i = add i64 %invariant.op.i.i, %56
-  %57 = cmpxchg ptr %17, i64 %55, i64 %.sroa.0.0.insert.insert.i.reass.i.i seq_cst seq_cst, align 8
-  %58 = extractvalue { i64, i1 } %57, 1
-  br i1 %58, label %_ZN5folly14IndexedMemPoolINS_6detail14LifoSemRawNodeISt6atomicEELj32ELj200ES3_NS_20IndexedMemPoolTraitsIS4_Lb0ELb0EEEE10globalPushERNS7_4SlotEj.exit.i.backedge, label %_ZN5folly12AtomicStructINS_14IndexedMemPoolINS_6detail14LifoSemRawNodeISt6atomicEELj32ELj200ES4_NS_20IndexedMemPoolTraitsIS5_Lb0ELb0EEEE9TaggedPtrES4_E23compare_exchange_strongERS9_S9_St12memory_orderSC_.exit.i.i
+_ZN5folly12AtomicStructINS_14IndexedMemPoolINS_6detail14LifoSemRawNodeISt6atomicEELj32ELj200ES4_NS_20IndexedMemPoolTraitsIS5_Lb0ELb0EEEE9TaggedPtrES4_E23compare_exchange_strongERS9_S9_St12memory_orderSC_.exit.i.i: ; preds = %_ZN5folly12AtomicStructINS_14IndexedMemPoolINS_6detail14LifoSemRawNodeISt6atomicEELj32ELj200ES4_NS_20IndexedMemPoolTraitsIS5_Lb0ELb0EEEE9TaggedPtrES4_E23compare_exchange_strongERS9_S9_St12memory_orderSC_.exit.i.i, %55
+  %57 = load atomic i64, ptr %17 acquire, align 64
+  %.sroa.0.0.extract.trunc.i39.i = trunc i64 %57 to i32
+  store atomic i32 %.sroa.0.0.extract.trunc.i39.i, ptr %56 monotonic, align 4
+  %58 = and i64 %57, -4294967296
+  %.sroa.0.0.insert.insert.i.reass.i.i = add i64 %invariant.op.i.i, %58
+  %59 = cmpxchg ptr %17, i64 %57, i64 %.sroa.0.0.insert.insert.i.reass.i.i seq_cst seq_cst, align 8
+  %60 = extractvalue { i64, i1 } %59, 1
+  br i1 %60, label %_ZN5folly14IndexedMemPoolINS_6detail14LifoSemRawNodeISt6atomicEELj32ELj200ES3_NS_20IndexedMemPoolTraitsIS4_Lb0ELb0EEEE10globalPushERNS7_4SlotEj.exit.i.backedge, label %_ZN5folly12AtomicStructINS_14IndexedMemPoolINS_6detail14LifoSemRawNodeISt6atomicEELj32ELj200ES4_NS_20IndexedMemPoolTraitsIS5_Lb0ELb0EEEE9TaggedPtrES4_E23compare_exchange_strongERS9_S9_St12memory_orderSC_.exit.i.i
 
-_ZN5folly14IndexedMemPoolINS_6detail14LifoSemRawNodeISt6atomicEELj32ELj200ES3_NS_20IndexedMemPoolTraitsIS4_Lb0ELb0EEEE8localPopERNS_12AtomicStructINS7_9TaggedPtrES3_EE.exit: ; preds = %41
-  %59 = load ptr, ptr %16, align 64, !tbaa !187
-  %60 = zext i32 %43 to i64
-  %61 = getelementptr inbounds nuw %"struct.folly::IndexedMemPool<folly::detail::LifoSemRawNode<std::atomic>, 32, 200, std::atomic, folly::IndexedMemPoolTraits<folly::detail::LifoSemRawNode<std::atomic>, false, false>>::Slot", ptr %59, i64 %60
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %61, i8 0, i64 16, i1 false)
-  %.not = icmp eq i32 %43, 0
+_ZN5folly14IndexedMemPoolINS_6detail14LifoSemRawNodeISt6atomicEELj32ELj200ES3_NS_20IndexedMemPoolTraitsIS4_Lb0ELb0EEEE8localPopERNS_12AtomicStructINS7_9TaggedPtrES3_EE.exit: ; preds = %43
+  %61 = load ptr, ptr %16, align 64, !tbaa !187
+  %62 = zext i32 %45 to i64
+  %63 = getelementptr inbounds nuw %"struct.folly::IndexedMemPool<folly::detail::LifoSemRawNode<std::atomic>, 32, 200, std::atomic, folly::IndexedMemPoolTraits<folly::detail::LifoSemRawNode<std::atomic>, false, false>>::Slot", ptr %61, i64 %62
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %63, i8 0, i64 16, i1 false)
+  %.not = icmp eq i32 %45, 0
   br i1 %.not, label %_ZN5folly14IndexedMemPoolINS_6detail14LifoSemRawNodeISt6atomicEELj32ELj200ES3_NS_20IndexedMemPoolTraitsIS4_Lb0ELb0EEEE8localPopERNS_12AtomicStructINS7_9TaggedPtrES3_EE.exit.thread, label %_ZN5folly14IndexedMemPoolINS_6detail14LifoSemRawNodeISt6atomicEELj32ELj200ES3_NS_20IndexedMemPoolTraitsIS4_Lb0ELb0EEEE8localPopERNS_12AtomicStructINS7_9TaggedPtrES3_EE.exit.thread9
 
 _ZN5folly14IndexedMemPoolINS_6detail14LifoSemRawNodeISt6atomicEELj32ELj200ES3_NS_20IndexedMemPoolTraitsIS4_Lb0ELb0EEEE8localPopERNS_12AtomicStructINS7_9TaggedPtrES3_EE.exit.thread9.loopexit: ; preds = %_ZN5folly14IndexedMemPoolINS_6detail14LifoSemRawNodeISt6atomicEELj32ELj200ES3_NS_20IndexedMemPoolTraitsIS4_Lb0ELb0EEEE9globalPopEv.exit.i, %19
@@ -3390,15 +3394,16 @@ _ZN5folly14IndexedMemPoolINS_6detail14LifoSemRawNodeISt6atomicEELj32ELj200ES3_NS
   br label %_ZN5folly14IndexedMemPoolINS_6detail14LifoSemRawNodeISt6atomicEELj32ELj200ES3_NS_20IndexedMemPoolTraitsIS4_Lb0ELb0EEEE8localPopERNS_12AtomicStructINS7_9TaggedPtrES3_EE.exit.thread9
 
 _ZN5folly14IndexedMemPoolINS_6detail14LifoSemRawNodeISt6atomicEELj32ELj200ES3_NS_20IndexedMemPoolTraitsIS4_Lb0ELb0EEEE8localPopERNS_12AtomicStructINS7_9TaggedPtrES3_EE.exit.thread9: ; preds = %_ZN5folly14IndexedMemPoolINS_6detail14LifoSemRawNodeISt6atomicEELj32ELj200ES3_NS_20IndexedMemPoolTraitsIS4_Lb0ELb0EEEE8localPopERNS_12AtomicStructINS7_9TaggedPtrES3_EE.exit.thread9.loopexit, %_ZN5folly14IndexedMemPoolINS_6detail14LifoSemRawNodeISt6atomicEELj32ELj200ES3_NS_20IndexedMemPoolTraitsIS4_Lb0ELb0EEEE8localPopERNS_12AtomicStructINS7_9TaggedPtrES3_EE.exit
-  %.pre-phi = phi i64 [ %.pre, %_ZN5folly14IndexedMemPoolINS_6detail14LifoSemRawNodeISt6atomicEELj32ELj200ES3_NS_20IndexedMemPoolTraitsIS4_Lb0ELb0EEEE8localPopERNS_12AtomicStructINS7_9TaggedPtrES3_EE.exit.thread9.loopexit ], [ %60, %_ZN5folly14IndexedMemPoolINS_6detail14LifoSemRawNodeISt6atomicEELj32ELj200ES3_NS_20IndexedMemPoolTraitsIS4_Lb0ELb0EEEE8localPopERNS_12AtomicStructINS7_9TaggedPtrES3_EE.exit ]
-  %.2.ph.i12 = phi i32 [ %.2.ph.i12.ph, %_ZN5folly14IndexedMemPoolINS_6detail14LifoSemRawNodeISt6atomicEELj32ELj200ES3_NS_20IndexedMemPoolTraitsIS4_Lb0ELb0EEEE8localPopERNS_12AtomicStructINS7_9TaggedPtrES3_EE.exit.thread9.loopexit ], [ %43, %_ZN5folly14IndexedMemPoolINS_6detail14LifoSemRawNodeISt6atomicEELj32ELj200ES3_NS_20IndexedMemPoolTraitsIS4_Lb0ELb0EEEE8localPopERNS_12AtomicStructINS7_9TaggedPtrES3_EE.exit ]
-  %62 = load ptr, ptr %16, align 64, !tbaa !187
-  %63 = getelementptr inbounds nuw %"struct.folly::IndexedMemPool<folly::detail::LifoSemRawNode<std::atomic>, 32, 200, std::atomic, folly::IndexedMemPoolTraits<folly::detail::LifoSemRawNode<std::atomic>, false, false>>::Slot", ptr %62, i64 %.pre-phi, i32 1
-  store atomic i32 -1, ptr %63 release, align 4
+  %.pre-phi = phi i64 [ %.pre, %_ZN5folly14IndexedMemPoolINS_6detail14LifoSemRawNodeISt6atomicEELj32ELj200ES3_NS_20IndexedMemPoolTraitsIS4_Lb0ELb0EEEE8localPopERNS_12AtomicStructINS7_9TaggedPtrES3_EE.exit.thread9.loopexit ], [ %62, %_ZN5folly14IndexedMemPoolINS_6detail14LifoSemRawNodeISt6atomicEELj32ELj200ES3_NS_20IndexedMemPoolTraitsIS4_Lb0ELb0EEEE8localPopERNS_12AtomicStructINS7_9TaggedPtrES3_EE.exit ]
+  %.2.ph.i12 = phi i32 [ %.2.ph.i12.ph, %_ZN5folly14IndexedMemPoolINS_6detail14LifoSemRawNodeISt6atomicEELj32ELj200ES3_NS_20IndexedMemPoolTraitsIS4_Lb0ELb0EEEE8localPopERNS_12AtomicStructINS7_9TaggedPtrES3_EE.exit.thread9.loopexit ], [ %45, %_ZN5folly14IndexedMemPoolINS_6detail14LifoSemRawNodeISt6atomicEELj32ELj200ES3_NS_20IndexedMemPoolTraitsIS4_Lb0ELb0EEEE8localPopERNS_12AtomicStructINS7_9TaggedPtrES3_EE.exit ]
+  %64 = load ptr, ptr %16, align 64, !tbaa !187
+  %65 = getelementptr inbounds nuw %"struct.folly::IndexedMemPool<folly::detail::LifoSemRawNode<std::atomic>, 32, 200, std::atomic, folly::IndexedMemPoolTraits<folly::detail::LifoSemRawNode<std::atomic>, false, false>>::Slot", ptr %64, i64 %.pre-phi
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 16
+  store atomic i32 -1, ptr %66 release, align 4
   br label %_ZN5folly14IndexedMemPoolINS_6detail14LifoSemRawNodeISt6atomicEELj32ELj200ES3_NS_20IndexedMemPoolTraitsIS4_Lb0ELb0EEEE8localPopERNS_12AtomicStructINS7_9TaggedPtrES3_EE.exit.thread
 
-_ZN5folly14IndexedMemPoolINS_6detail14LifoSemRawNodeISt6atomicEELj32ELj200ES3_NS_20IndexedMemPoolTraitsIS4_Lb0ELb0EEEE8localPopERNS_12AtomicStructINS7_9TaggedPtrES3_EE.exit.thread: ; preds = %41, %36, %_ZN5folly14IndexedMemPoolINS_6detail14LifoSemRawNodeISt6atomicEELj32ELj200ES3_NS_20IndexedMemPoolTraitsIS4_Lb0ELb0EEEE8localPopERNS_12AtomicStructINS7_9TaggedPtrES3_EE.exit.thread9, %_ZN5folly14IndexedMemPoolINS_6detail14LifoSemRawNodeISt6atomicEELj32ELj200ES3_NS_20IndexedMemPoolTraitsIS4_Lb0ELb0EEEE8localPopERNS_12AtomicStructINS7_9TaggedPtrES3_EE.exit
-  %.2.ph.i7 = phi i32 [ %.2.ph.i12, %_ZN5folly14IndexedMemPoolINS_6detail14LifoSemRawNodeISt6atomicEELj32ELj200ES3_NS_20IndexedMemPoolTraitsIS4_Lb0ELb0EEEE8localPopERNS_12AtomicStructINS7_9TaggedPtrES3_EE.exit.thread9 ], [ 0, %_ZN5folly14IndexedMemPoolINS_6detail14LifoSemRawNodeISt6atomicEELj32ELj200ES3_NS_20IndexedMemPoolTraitsIS4_Lb0ELb0EEEE8localPopERNS_12AtomicStructINS7_9TaggedPtrES3_EE.exit ], [ 0, %36 ], [ 0, %41 ]
+_ZN5folly14IndexedMemPoolINS_6detail14LifoSemRawNodeISt6atomicEELj32ELj200ES3_NS_20IndexedMemPoolTraitsIS4_Lb0ELb0EEEE8localPopERNS_12AtomicStructINS7_9TaggedPtrES3_EE.exit.thread: ; preds = %43, %38, %_ZN5folly14IndexedMemPoolINS_6detail14LifoSemRawNodeISt6atomicEELj32ELj200ES3_NS_20IndexedMemPoolTraitsIS4_Lb0ELb0EEEE8localPopERNS_12AtomicStructINS7_9TaggedPtrES3_EE.exit.thread9, %_ZN5folly14IndexedMemPoolINS_6detail14LifoSemRawNodeISt6atomicEELj32ELj200ES3_NS_20IndexedMemPoolTraitsIS4_Lb0ELb0EEEE8localPopERNS_12AtomicStructINS7_9TaggedPtrES3_EE.exit
+  %.2.ph.i7 = phi i32 [ %.2.ph.i12, %_ZN5folly14IndexedMemPoolINS_6detail14LifoSemRawNodeISt6atomicEELj32ELj200ES3_NS_20IndexedMemPoolTraitsIS4_Lb0ELb0EEEE8localPopERNS_12AtomicStructINS7_9TaggedPtrES3_EE.exit.thread9 ], [ 0, %_ZN5folly14IndexedMemPoolINS_6detail14LifoSemRawNodeISt6atomicEELj32ELj200ES3_NS_20IndexedMemPoolTraitsIS4_Lb0ELb0EEEE8localPopERNS_12AtomicStructINS7_9TaggedPtrES3_EE.exit ], [ 0, %38 ], [ 0, %43 ]
   ret i32 %.2.ph.i7
 }
 

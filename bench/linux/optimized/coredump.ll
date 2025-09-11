@@ -1701,7 +1701,8 @@ define internal fastcc void @free_vma_snapshot(ptr noundef captures(none) %0) un
   %9 = phi i32 [ %17, %16 ], [ %7, %5 ]
   %10 = phi i64 [ %18, %16 ], [ 0, %5 ]
   %11 = load ptr, ptr %2, align 8
-  %12 = getelementptr %struct.core_vma_metadata, ptr %11, i64 %10, i32 5
+  %.split = getelementptr %struct.core_vma_metadata, ptr %11, i64 %10
+  %12 = getelementptr i8, ptr %.split, i64 40
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %16, label %15

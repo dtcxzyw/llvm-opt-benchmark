@@ -7389,14 +7389,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit701: ; preds = %_Z
 
 .lr.ph770:                                        ; preds = %.lr.ph770.preheader, %.lr.ph770
   %indvars.iv888 = phi i64 [ 0, %.lr.ph770.preheader ], [ %indvars.iv.next889, %.lr.ph770 ]
-  %255 = getelementptr inbounds nuw %"class.cv::Complex.13", ptr %2, i64 %indvars.iv888, i32 1
-  %256 = load float, ptr %255, align 4, !tbaa !209
-  %257 = fneg float %256
-  %258 = getelementptr inbounds nuw %"class.cv::Complex.13", ptr %2, i64 %indvars.iv888
-  %259 = getelementptr inbounds nuw i8, ptr %258, i64 12
+  %255 = getelementptr inbounds nuw %"class.cv::Complex.13", ptr %2, i64 %indvars.iv888
+  %256 = getelementptr inbounds nuw i8, ptr %255, i64 4
+  %257 = load float, ptr %256, align 4, !tbaa !209
+  %258 = fneg float %257
+  %259 = getelementptr inbounds nuw i8, ptr %255, i64 12
   %260 = load float, ptr %259, align 4, !tbaa !209
   %261 = fneg float %260
-  store float %257, ptr %255, align 4, !tbaa !209
+  store float %258, ptr %256, align 4, !tbaa !209
   store float %261, ptr %259, align 4, !tbaa !209
   %indvars.iv.next889 = add nuw nsw i64 %indvars.iv888, 2
   %.not666 = icmp samesign ugt i64 %indvars.iv.next889, %254
@@ -8050,14 +8050,14 @@ _ZN2cv10AutoBufferINS_7ComplexIfEELm136EED2Ev.exit: ; preds = %._crit_edge840, %
 
 .lr.ph849:                                        ; preds = %.lr.ph849.preheader, %.lr.ph849
   %indvars.iv954 = phi i64 [ 0, %.lr.ph849.preheader ], [ %indvars.iv.next955, %.lr.ph849 ]
-  %602 = getelementptr inbounds nuw %"class.cv::Complex.13", ptr %2, i64 %indvars.iv954, i32 1
-  %603 = load float, ptr %602, align 4, !tbaa !209
-  %604 = fneg float %603
-  %605 = getelementptr inbounds nuw %"class.cv::Complex.13", ptr %2, i64 %indvars.iv954
-  %606 = getelementptr inbounds nuw i8, ptr %605, i64 12
+  %602 = getelementptr inbounds nuw %"class.cv::Complex.13", ptr %2, i64 %indvars.iv954
+  %603 = getelementptr inbounds nuw i8, ptr %602, i64 4
+  %604 = load float, ptr %603, align 4, !tbaa !209
+  %605 = fneg float %604
+  %606 = getelementptr inbounds nuw i8, ptr %602, i64 12
   %607 = load float, ptr %606, align 4, !tbaa !209
   %608 = fneg float %607
-  store float %604, ptr %602, align 4, !tbaa !209
+  store float %605, ptr %603, align 4, !tbaa !209
   store float %608, ptr %606, align 4, !tbaa !209
   %indvars.iv.next955 = add nuw nsw i64 %indvars.iv954, 2
   %.not673 = icmp samesign ugt i64 %indvars.iv.next955, %601
@@ -9842,14 +9842,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit701: ; preds = %_Z
 
 .lr.ph783:                                        ; preds = %.lr.ph783.preheader, %.lr.ph783
   %indvars.iv901 = phi i64 [ 0, %.lr.ph783.preheader ], [ %indvars.iv.next902, %.lr.ph783 ]
-  %243 = getelementptr inbounds nuw %"class.cv::Complex", ptr %2, i64 %indvars.iv901, i32 1
-  %244 = load double, ptr %243, align 8, !tbaa !205
-  %245 = fneg double %244
-  %246 = getelementptr inbounds nuw %"class.cv::Complex", ptr %2, i64 %indvars.iv901
-  %247 = getelementptr inbounds nuw i8, ptr %246, i64 24
+  %243 = getelementptr inbounds nuw %"class.cv::Complex", ptr %2, i64 %indvars.iv901
+  %244 = getelementptr inbounds nuw i8, ptr %243, i64 8
+  %245 = load double, ptr %244, align 8, !tbaa !205
+  %246 = fneg double %245
+  %247 = getelementptr inbounds nuw i8, ptr %243, i64 24
   %248 = load double, ptr %247, align 8, !tbaa !205
   %249 = fneg double %248
-  store double %245, ptr %243, align 8, !tbaa !205
+  store double %246, ptr %244, align 8, !tbaa !205
   store double %249, ptr %247, align 8, !tbaa !205
   %indvars.iv.next902 = add nuw nsw i64 %indvars.iv901, 2
   %.not666 = icmp samesign ugt i64 %indvars.iv.next902, %242
@@ -10503,14 +10503,14 @@ _ZN2cv10AutoBufferINS_7ComplexIdEELm72EED2Ev.exit: ; preds = %._crit_edge853, %5
 
 .lr.ph862:                                        ; preds = %.lr.ph862.preheader, %.lr.ph862
   %indvars.iv967 = phi i64 [ 0, %.lr.ph862.preheader ], [ %indvars.iv.next968, %.lr.ph862 ]
-  %590 = getelementptr inbounds nuw %"class.cv::Complex", ptr %2, i64 %indvars.iv967, i32 1
-  %591 = load double, ptr %590, align 8, !tbaa !205
-  %592 = fneg double %591
-  %593 = getelementptr inbounds nuw %"class.cv::Complex", ptr %2, i64 %indvars.iv967
-  %594 = getelementptr inbounds nuw i8, ptr %593, i64 24
+  %590 = getelementptr inbounds nuw %"class.cv::Complex", ptr %2, i64 %indvars.iv967
+  %591 = getelementptr inbounds nuw i8, ptr %590, i64 8
+  %592 = load double, ptr %591, align 8, !tbaa !205
+  %593 = fneg double %592
+  %594 = getelementptr inbounds nuw i8, ptr %590, i64 24
   %595 = load double, ptr %594, align 8, !tbaa !205
   %596 = fneg double %595
-  store double %592, ptr %590, align 8, !tbaa !205
+  store double %593, ptr %591, align 8, !tbaa !205
   store double %596, ptr %594, align 8, !tbaa !205
   %indvars.iv.next968 = add nuw nsw i64 %indvars.iv967, 2
   %.not673 = icmp samesign ugt i64 %indvars.iv.next968, %589

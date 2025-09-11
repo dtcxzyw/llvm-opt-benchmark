@@ -858,45 +858,45 @@ _Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit.thread.i: ; preds = %3
   %397 = zext i32 %395 to i64
   %398 = shl nuw i64 %397, 32
   %399 = or disjoint i64 %398, %396
-  %400 = getelementptr inbounds nuw i8, ptr %11, i64 232
-  store i64 %399, ptr %400, align 8, !tbaa !225
-  %401 = load ptr, ptr %373, align 8, !tbaa !228
-  %402 = load ptr, ptr %375, align 8, !tbaa !228
-  %403 = icmp eq ptr %401, %402
-  br i1 %403, label %424, label %404
+  %400 = getelementptr inbounds nuw i8, ptr %11, i64 216
+  %401 = getelementptr inbounds nuw i8, ptr %11, i64 232
+  store i64 %399, ptr %401, align 8, !tbaa !225
+  %402 = load ptr, ptr %373, align 8, !tbaa !228
+  %403 = load ptr, ptr %375, align 8, !tbaa !228
+  %404 = icmp eq ptr %402, %403
+  br i1 %404, label %425, label %405
 
-404:                                              ; preds = %392
-  %405 = getelementptr inbounds nuw i8, ptr %11, i64 2608
-  %406 = load i32, ptr %405, align 8, !tbaa !230
-  %407 = add nsw i32 %406, 1
-  store i32 %407, ptr %405, align 8, !tbaa !230
-  %408 = icmp eq i32 %407, 3
-  br i1 %408, label %409, label %424
+405:                                              ; preds = %392
+  %406 = getelementptr inbounds nuw i8, ptr %11, i64 2608
+  %407 = load i32, ptr %406, align 8, !tbaa !230
+  %408 = add nsw i32 %407, 1
+  store i32 %408, ptr %406, align 8, !tbaa !230
+  %409 = icmp eq i32 %408, 3
+  br i1 %409, label %410, label %425
 
-409:                                              ; preds = %404
-  %410 = getelementptr inbounds nuw i8, ptr %11, i64 2612
-  %411 = load i32, ptr %410, align 4, !tbaa !247
-  %412 = mul nsw i32 %411, 60
-  %413 = sext i32 %412 to i64
-  %414 = getelementptr %struct.wallcc_t, ptr %401, i64 %413
-  %415 = getelementptr i8, ptr %414, i64 216
-  %416 = load i32, ptr %415, align 8, !tbaa !248
-  %417 = add nsw i32 %416, 1
-  store i32 %417, ptr %415, align 8, !tbaa !248
-  %418 = getelementptr inbounds nuw i8, ptr %11, i64 2616
-  %419 = load i64, ptr %418, align 8, !tbaa !249
-  %420 = sub i64 %399, %419
-  %421 = getelementptr i8, ptr %414, i64 224
-  %422 = load i64, ptr %421, align 8, !tbaa !250
-  %423 = add i64 %420, %422
-  store i64 %423, ptr %421, align 8, !tbaa !250
-  br label %424
+410:                                              ; preds = %405
+  %411 = getelementptr inbounds nuw i8, ptr %11, i64 2612
+  %412 = load i32, ptr %411, align 4, !tbaa !247
+  %413 = mul nsw i32 %412, 60
+  %414 = sext i32 %413 to i64
+  %415 = getelementptr %struct.wallcc_t, ptr %402, i64 %414
+  %416 = getelementptr i8, ptr %415, i64 216
+  %417 = load i32, ptr %416, align 8, !tbaa !248
+  %418 = add nsw i32 %417, 1
+  store i32 %418, ptr %416, align 8, !tbaa !248
+  %419 = getelementptr inbounds nuw i8, ptr %11, i64 2616
+  %420 = load i64, ptr %419, align 8, !tbaa !249
+  %421 = sub i64 %399, %420
+  %422 = getelementptr i8, ptr %415, i64 224
+  %423 = load i64, ptr %422, align 8, !tbaa !250
+  %424 = add i64 %421, %423
+  store i64 %424, ptr %422, align 8, !tbaa !250
+  br label %425
 
-424:                                              ; preds = %409, %404, %392
-  %425 = getelementptr inbounds nuw i8, ptr %11, i64 216
-  %426 = load i32, ptr %425, align 8, !tbaa !248
+425:                                              ; preds = %410, %405, %392
+  %426 = load i32, ptr %400, align 8, !tbaa !248
   %427 = add nsw i32 %426, -1
-  store i32 %427, ptr %425, align 8, !tbaa !248
+  store i32 %427, ptr %400, align 8, !tbaa !248
   call void @_Z16wallcycleBarrierP13gmx_wallcycle(ptr noundef nonnull %11)
   %428 = call { i32, i32 } asm sideeffect "rdtscp", "={ax},={dx},~{ecx},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !224
   %429 = extractvalue { i32, i32 } %428, 0
@@ -905,15 +905,15 @@ _Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit.thread.i: ; preds = %3
   %432 = zext i32 %430 to i64
   %433 = shl nuw i64 %432, 32
   %434 = or disjoint i64 %433, %431
-  %435 = load i64, ptr %400, align 8, !tbaa !225
+  %435 = load i64, ptr %401, align 8, !tbaa !225
   %.not.i142.i = icmp ult i64 %434, %435
   br i1 %.not.i142.i, label %438, label %436
 
-436:                                              ; preds = %424
+436:                                              ; preds = %425
   %437 = sub nuw i64 %434, %435
   br label %440
 
-438:                                              ; preds = %424
+438:                                              ; preds = %425
   %439 = getelementptr inbounds nuw i8, ptr %11, i64 2624
   store i8 1, ptr %439, align 8, !tbaa !256
   br label %440
@@ -924,9 +924,9 @@ _Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit.thread.i: ; preds = %3
   %442 = load i64, ptr %441, align 8, !tbaa !250
   %443 = add i64 %442, %.0.i143.i
   store i64 %443, ptr %441, align 8, !tbaa !250
-  %444 = load i32, ptr %425, align 8, !tbaa !248
+  %444 = load i32, ptr %400, align 8, !tbaa !248
   %445 = add nsw i32 %444, 1
-  store i32 %445, ptr %425, align 8, !tbaa !248
+  store i32 %445, ptr %400, align 8, !tbaa !248
   %446 = load ptr, ptr %373, align 8, !tbaa !228
   %447 = load ptr, ptr %375, align 8, !tbaa !228
   %448 = icmp eq ptr %446, %447
@@ -972,47 +972,47 @@ _Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit145.i: ; preds = %454, 
   %468 = zext i32 %466 to i64
   %469 = shl nuw i64 %468, 32
   %470 = or disjoint i64 %469, %467
-  %471 = getelementptr inbounds nuw i8, ptr %11, i64 208
-  store i64 %470, ptr %471, align 8, !tbaa !225
-  %472 = getelementptr inbounds nuw i8, ptr %11, i64 2584
-  %473 = load ptr, ptr %472, align 8, !tbaa !228
-  %474 = getelementptr inbounds nuw i8, ptr %11, i64 2592
-  %475 = load ptr, ptr %474, align 8, !tbaa !228
-  %476 = icmp eq ptr %473, %475
-  br i1 %476, label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit.i146.i, label %477
+  %471 = getelementptr inbounds nuw i8, ptr %11, i64 192
+  %472 = getelementptr inbounds nuw i8, ptr %11, i64 208
+  store i64 %470, ptr %472, align 8, !tbaa !225
+  %473 = getelementptr inbounds nuw i8, ptr %11, i64 2584
+  %474 = load ptr, ptr %473, align 8, !tbaa !228
+  %475 = getelementptr inbounds nuw i8, ptr %11, i64 2592
+  %476 = load ptr, ptr %475, align 8, !tbaa !228
+  %477 = icmp eq ptr %474, %476
+  br i1 %477, label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit.i146.i, label %478
 
-477:                                              ; preds = %.thread.i
-  %478 = getelementptr inbounds nuw i8, ptr %11, i64 2608
-  %479 = load i32, ptr %478, align 8, !tbaa !230
-  %480 = add nsw i32 %479, 1
-  store i32 %480, ptr %478, align 8, !tbaa !230
-  %481 = icmp eq i32 %480, 3
-  br i1 %481, label %482, label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit.i146.i
+478:                                              ; preds = %.thread.i
+  %479 = getelementptr inbounds nuw i8, ptr %11, i64 2608
+  %480 = load i32, ptr %479, align 8, !tbaa !230
+  %481 = add nsw i32 %480, 1
+  store i32 %481, ptr %479, align 8, !tbaa !230
+  %482 = icmp eq i32 %481, 3
+  br i1 %482, label %483, label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit.i146.i
 
-482:                                              ; preds = %477
-  %483 = getelementptr inbounds nuw i8, ptr %11, i64 2612
-  %484 = load i32, ptr %483, align 4, !tbaa !247
-  %485 = mul nsw i32 %484, 60
-  %486 = sext i32 %485 to i64
-  %487 = getelementptr %struct.wallcc_t, ptr %473, i64 %486
-  %488 = getelementptr i8, ptr %487, i64 192
-  %489 = load i32, ptr %488, align 8, !tbaa !248
-  %490 = add nsw i32 %489, 1
-  store i32 %490, ptr %488, align 8, !tbaa !248
-  %491 = getelementptr inbounds nuw i8, ptr %11, i64 2616
-  %492 = load i64, ptr %491, align 8, !tbaa !249
-  %493 = sub i64 %470, %492
-  %494 = getelementptr i8, ptr %487, i64 200
-  %495 = load i64, ptr %494, align 8, !tbaa !250
-  %496 = add i64 %493, %495
-  store i64 %496, ptr %494, align 8, !tbaa !250
+483:                                              ; preds = %478
+  %484 = getelementptr inbounds nuw i8, ptr %11, i64 2612
+  %485 = load i32, ptr %484, align 4, !tbaa !247
+  %486 = mul nsw i32 %485, 60
+  %487 = sext i32 %486 to i64
+  %488 = getelementptr %struct.wallcc_t, ptr %474, i64 %487
+  %489 = getelementptr i8, ptr %488, i64 192
+  %490 = load i32, ptr %489, align 8, !tbaa !248
+  %491 = add nsw i32 %490, 1
+  store i32 %491, ptr %489, align 8, !tbaa !248
+  %492 = getelementptr inbounds nuw i8, ptr %11, i64 2616
+  %493 = load i64, ptr %492, align 8, !tbaa !249
+  %494 = sub i64 %470, %493
+  %495 = getelementptr i8, ptr %488, i64 200
+  %496 = load i64, ptr %495, align 8, !tbaa !250
+  %497 = add i64 %494, %496
+  store i64 %497, ptr %495, align 8, !tbaa !250
   br label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit.i146.i
 
-_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit.i146.i: ; preds = %482, %477, %.thread.i
-  %497 = getelementptr inbounds nuw i8, ptr %11, i64 192
-  %498 = load i32, ptr %497, align 8, !tbaa !248
+_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit.i146.i: ; preds = %483, %478, %.thread.i
+  %498 = load i32, ptr %471, align 8, !tbaa !248
   %499 = add nsw i32 %498, -1
-  store i32 %499, ptr %497, align 8, !tbaa !248
+  store i32 %499, ptr %471, align 8, !tbaa !248
   br label %_Z23wallcycle_start_nocountP13gmx_wallcycle16WallCycleCounter.exit147.i
 
 _Z23wallcycle_start_nocountP13gmx_wallcycle16WallCycleCounter.exit147.i: ; preds = %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit.i146.i, %463, %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit.thread.i
@@ -1155,47 +1155,47 @@ _ZN3gmxL30setupNonLocalGpuForceReductionERKNS_21MdrunScheduleWorkloadEPNS_18nonb
   %583 = zext i32 %581 to i64
   %584 = shl nuw i64 %583, 32
   %585 = or disjoint i64 %584, %582
-  %586 = getelementptr inbounds nuw i8, ptr %11, i64 208
-  store i64 %585, ptr %586, align 8, !tbaa !225
-  %587 = getelementptr inbounds nuw i8, ptr %11, i64 2584
-  %588 = load ptr, ptr %587, align 8, !tbaa !228
-  %589 = getelementptr inbounds nuw i8, ptr %11, i64 2592
-  %590 = load ptr, ptr %589, align 8, !tbaa !228
-  %591 = icmp eq ptr %588, %590
-  br i1 %591, label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit.i152.i, label %592
+  %586 = getelementptr inbounds nuw i8, ptr %11, i64 192
+  %587 = getelementptr inbounds nuw i8, ptr %11, i64 208
+  store i64 %585, ptr %587, align 8, !tbaa !225
+  %588 = getelementptr inbounds nuw i8, ptr %11, i64 2584
+  %589 = load ptr, ptr %588, align 8, !tbaa !228
+  %590 = getelementptr inbounds nuw i8, ptr %11, i64 2592
+  %591 = load ptr, ptr %590, align 8, !tbaa !228
+  %592 = icmp eq ptr %589, %591
+  br i1 %592, label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit.i152.i, label %593
 
-592:                                              ; preds = %578
-  %593 = getelementptr inbounds nuw i8, ptr %11, i64 2608
-  %594 = load i32, ptr %593, align 8, !tbaa !230
-  %595 = add nsw i32 %594, 1
-  store i32 %595, ptr %593, align 8, !tbaa !230
-  %596 = icmp eq i32 %595, 3
-  br i1 %596, label %597, label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit.i152.i
+593:                                              ; preds = %578
+  %594 = getelementptr inbounds nuw i8, ptr %11, i64 2608
+  %595 = load i32, ptr %594, align 8, !tbaa !230
+  %596 = add nsw i32 %595, 1
+  store i32 %596, ptr %594, align 8, !tbaa !230
+  %597 = icmp eq i32 %596, 3
+  br i1 %597, label %598, label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit.i152.i
 
-597:                                              ; preds = %592
-  %598 = getelementptr inbounds nuw i8, ptr %11, i64 2612
-  %599 = load i32, ptr %598, align 4, !tbaa !247
-  %600 = mul nsw i32 %599, 60
-  %601 = sext i32 %600 to i64
-  %602 = getelementptr %struct.wallcc_t, ptr %588, i64 %601
-  %603 = getelementptr i8, ptr %602, i64 192
-  %604 = load i32, ptr %603, align 8, !tbaa !248
-  %605 = add nsw i32 %604, 1
-  store i32 %605, ptr %603, align 8, !tbaa !248
-  %606 = getelementptr inbounds nuw i8, ptr %11, i64 2616
-  %607 = load i64, ptr %606, align 8, !tbaa !249
-  %608 = sub i64 %585, %607
-  %609 = getelementptr i8, ptr %602, i64 200
-  %610 = load i64, ptr %609, align 8, !tbaa !250
-  %611 = add i64 %608, %610
-  store i64 %611, ptr %609, align 8, !tbaa !250
+598:                                              ; preds = %593
+  %599 = getelementptr inbounds nuw i8, ptr %11, i64 2612
+  %600 = load i32, ptr %599, align 4, !tbaa !247
+  %601 = mul nsw i32 %600, 60
+  %602 = sext i32 %601 to i64
+  %603 = getelementptr %struct.wallcc_t, ptr %589, i64 %602
+  %604 = getelementptr i8, ptr %603, i64 192
+  %605 = load i32, ptr %604, align 8, !tbaa !248
+  %606 = add nsw i32 %605, 1
+  store i32 %606, ptr %604, align 8, !tbaa !248
+  %607 = getelementptr inbounds nuw i8, ptr %11, i64 2616
+  %608 = load i64, ptr %607, align 8, !tbaa !249
+  %609 = sub i64 %585, %608
+  %610 = getelementptr i8, ptr %603, i64 200
+  %611 = load i64, ptr %610, align 8, !tbaa !250
+  %612 = add i64 %609, %611
+  store i64 %612, ptr %610, align 8, !tbaa !250
   br label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit.i152.i
 
-_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit.i152.i: ; preds = %597, %592, %578
-  %612 = getelementptr inbounds nuw i8, ptr %11, i64 192
-  %613 = load i32, ptr %612, align 8, !tbaa !248
+_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit.i152.i: ; preds = %598, %593, %578
+  %613 = load i32, ptr %586, align 8, !tbaa !248
   %614 = add nsw i32 %613, -1
-  store i32 %614, ptr %612, align 8, !tbaa !248
+  store i32 %614, ptr %586, align 8, !tbaa !248
   call void @_ZNK3gmx18nonbonded_verlet_t17constructPairlistENS_19InteractionLocalityERKNS_11ListOfListsIiEElP6t_nrnb(ptr noundef nonnull align 8 dereferenceable(64) %150, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(48) %500, i64 noundef %9, ptr noundef %10)
   %615 = load ptr, ptr %501, align 8, !tbaa !258
   call void @_ZNK3gmx18nonbonded_verlet_t22setupGpuShortRangeWorkEPKNS_15ListedForcesGpuENS_19InteractionLocalityE(ptr noundef nonnull align 8 dereferenceable(64) %150, ptr noundef %615, i32 noundef 1)
@@ -1207,7 +1207,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit.i152.i: ; preds = %59
   %620 = zext i32 %618 to i64
   %621 = shl nuw i64 %620, 32
   %622 = or disjoint i64 %621, %619
-  %623 = load i64, ptr %586, align 8, !tbaa !225
+  %623 = load i64, ptr %587, align 8, !tbaa !225
   %.not.i154.i = icmp ult i64 %622, %623
   br i1 %.not.i154.i, label %626, label %624
 
@@ -1226,11 +1226,11 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit.i152.i: ; preds = %59
   %630 = load i64, ptr %629, align 8, !tbaa !250
   %631 = add i64 %630, %.0.i155.i
   store i64 %631, ptr %629, align 8, !tbaa !250
-  %632 = load i32, ptr %612, align 8, !tbaa !248
+  %632 = load i32, ptr %586, align 8, !tbaa !248
   %633 = add nsw i32 %632, 1
-  store i32 %633, ptr %612, align 8, !tbaa !248
-  %634 = load ptr, ptr %587, align 8, !tbaa !228
-  %635 = load ptr, ptr %589, align 8, !tbaa !228
+  store i32 %633, ptr %586, align 8, !tbaa !248
+  %634 = load ptr, ptr %588, align 8, !tbaa !228
+  %635 = load ptr, ptr %590, align 8, !tbaa !228
   %636 = icmp eq ptr %634, %635
   br i1 %636, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit157.i, label %637
 
@@ -1871,47 +1871,47 @@ _Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %_ZNK22DDBa
   %1024 = zext i32 %1022 to i64
   %1025 = shl nuw i64 %1024, 32
   %1026 = or disjoint i64 %1025, %1023
-  %1027 = getelementptr inbounds nuw i8, ptr %11, i64 232
-  store i64 %1026, ptr %1027, align 8, !tbaa !225
-  %1028 = getelementptr inbounds nuw i8, ptr %11, i64 2584
-  %1029 = load ptr, ptr %1028, align 8, !tbaa !228
-  %1030 = getelementptr inbounds nuw i8, ptr %11, i64 2592
-  %1031 = load ptr, ptr %1030, align 8, !tbaa !228
-  %1032 = icmp eq ptr %1029, %1031
-  br i1 %1032, label %1053, label %1033
+  %1027 = getelementptr inbounds nuw i8, ptr %11, i64 216
+  %1028 = getelementptr inbounds nuw i8, ptr %11, i64 232
+  store i64 %1026, ptr %1028, align 8, !tbaa !225
+  %1029 = getelementptr inbounds nuw i8, ptr %11, i64 2584
+  %1030 = load ptr, ptr %1029, align 8, !tbaa !228
+  %1031 = getelementptr inbounds nuw i8, ptr %11, i64 2592
+  %1032 = load ptr, ptr %1031, align 8, !tbaa !228
+  %1033 = icmp eq ptr %1030, %1032
+  br i1 %1033, label %1054, label %1034
 
-1033:                                             ; preds = %1019
-  %1034 = getelementptr inbounds nuw i8, ptr %11, i64 2608
-  %1035 = load i32, ptr %1034, align 8, !tbaa !230
-  %1036 = add nsw i32 %1035, 1
-  store i32 %1036, ptr %1034, align 8, !tbaa !230
-  %1037 = icmp eq i32 %1036, 3
-  br i1 %1037, label %1038, label %1053
+1034:                                             ; preds = %1019
+  %1035 = getelementptr inbounds nuw i8, ptr %11, i64 2608
+  %1036 = load i32, ptr %1035, align 8, !tbaa !230
+  %1037 = add nsw i32 %1036, 1
+  store i32 %1037, ptr %1035, align 8, !tbaa !230
+  %1038 = icmp eq i32 %1037, 3
+  br i1 %1038, label %1039, label %1054
 
-1038:                                             ; preds = %1033
-  %1039 = getelementptr inbounds nuw i8, ptr %11, i64 2612
-  %1040 = load i32, ptr %1039, align 4, !tbaa !247
-  %1041 = mul nsw i32 %1040, 60
-  %1042 = sext i32 %1041 to i64
-  %1043 = getelementptr %struct.wallcc_t, ptr %1029, i64 %1042
-  %1044 = getelementptr i8, ptr %1043, i64 216
-  %1045 = load i32, ptr %1044, align 8, !tbaa !248
-  %1046 = add nsw i32 %1045, 1
-  store i32 %1046, ptr %1044, align 8, !tbaa !248
-  %1047 = getelementptr inbounds nuw i8, ptr %11, i64 2616
-  %1048 = load i64, ptr %1047, align 8, !tbaa !249
-  %1049 = sub i64 %1026, %1048
-  %1050 = getelementptr i8, ptr %1043, i64 224
-  %1051 = load i64, ptr %1050, align 8, !tbaa !250
-  %1052 = add i64 %1049, %1051
-  store i64 %1052, ptr %1050, align 8, !tbaa !250
-  br label %1053
+1039:                                             ; preds = %1034
+  %1040 = getelementptr inbounds nuw i8, ptr %11, i64 2612
+  %1041 = load i32, ptr %1040, align 4, !tbaa !247
+  %1042 = mul nsw i32 %1041, 60
+  %1043 = sext i32 %1042 to i64
+  %1044 = getelementptr %struct.wallcc_t, ptr %1030, i64 %1043
+  %1045 = getelementptr i8, ptr %1044, i64 216
+  %1046 = load i32, ptr %1045, align 8, !tbaa !248
+  %1047 = add nsw i32 %1046, 1
+  store i32 %1047, ptr %1045, align 8, !tbaa !248
+  %1048 = getelementptr inbounds nuw i8, ptr %11, i64 2616
+  %1049 = load i64, ptr %1048, align 8, !tbaa !249
+  %1050 = sub i64 %1026, %1049
+  %1051 = getelementptr i8, ptr %1044, i64 224
+  %1052 = load i64, ptr %1051, align 8, !tbaa !250
+  %1053 = add i64 %1050, %1052
+  store i64 %1053, ptr %1051, align 8, !tbaa !250
+  br label %1054
 
-1053:                                             ; preds = %1038, %1033, %1019
-  %1054 = getelementptr inbounds nuw i8, ptr %11, i64 216
-  %1055 = load i32, ptr %1054, align 8, !tbaa !248
+1054:                                             ; preds = %1039, %1034, %1019
+  %1055 = load i32, ptr %1027, align 8, !tbaa !248
   %1056 = add nsw i32 %1055, -1
-  store i32 %1056, ptr %1054, align 8, !tbaa !248
+  store i32 %1056, ptr %1027, align 8, !tbaa !248
   call fastcc void @_ZN3gmxL12do_nb_verletEP10t_forcerecPK19interaction_const_tP14gmx_enerdata_tRKNS_12StepWorkloadENS_19InteractionLocalityEilP6t_nrnbP13gmx_wallcycle(ptr noundef nonnull %22, ptr noundef %96, ptr noundef %20, ptr noundef nonnull align 1 dereferenceable(20) %100, i32 noundef 0, i32 noundef 0, i64 noundef %9, ptr noundef %10)
   call void @_Z16wallcycleBarrierP13gmx_wallcycle(ptr noundef nonnull %11)
   %1057 = call { i32, i32 } asm sideeffect "rdtscp", "={ax},={dx},~{ecx},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !224
@@ -1921,15 +1921,15 @@ _Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %_ZNK22DDBa
   %1061 = zext i32 %1059 to i64
   %1062 = shl nuw i64 %1061, 32
   %1063 = or disjoint i64 %1062, %1060
-  %1064 = load i64, ptr %1027, align 8, !tbaa !225
+  %1064 = load i64, ptr %1028, align 8, !tbaa !225
   %.not.i985 = icmp ult i64 %1063, %1064
   br i1 %.not.i985, label %1067, label %1065
 
-1065:                                             ; preds = %1053
+1065:                                             ; preds = %1054
   %1066 = sub nuw i64 %1063, %1064
   br label %1069
 
-1067:                                             ; preds = %1053
+1067:                                             ; preds = %1054
   %1068 = getelementptr inbounds nuw i8, ptr %11, i64 2624
   store i8 1, ptr %1068, align 8, !tbaa !256
   br label %1069
@@ -1940,11 +1940,11 @@ _Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %_ZNK22DDBa
   %1071 = load i64, ptr %1070, align 8, !tbaa !250
   %1072 = add i64 %1071, %.0.i986
   store i64 %1072, ptr %1070, align 8, !tbaa !250
-  %1073 = load i32, ptr %1054, align 8, !tbaa !248
+  %1073 = load i32, ptr %1027, align 8, !tbaa !248
   %1074 = add nsw i32 %1073, 1
-  store i32 %1074, ptr %1054, align 8, !tbaa !248
-  %1075 = load ptr, ptr %1028, align 8, !tbaa !228
-  %1076 = load ptr, ptr %1030, align 8, !tbaa !228
+  store i32 %1074, ptr %1027, align 8, !tbaa !248
+  %1075 = load ptr, ptr %1029, align 8, !tbaa !228
+  %1076 = load ptr, ptr %1031, align 8, !tbaa !228
   %1077 = icmp eq ptr %1075, %1076
   br i1 %1077, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit988, label %1078
 
@@ -1982,47 +1982,47 @@ _Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit988.thread: ; preds = %
   %1093 = zext i32 %1091 to i64
   %1094 = shl nuw i64 %1093, 32
   %1095 = or disjoint i64 %1094, %1092
-  %1096 = getelementptr inbounds nuw i8, ptr %11, i64 472
-  store i64 %1095, ptr %1096, align 8, !tbaa !225
-  %1097 = getelementptr inbounds nuw i8, ptr %11, i64 2584
-  %1098 = load ptr, ptr %1097, align 8, !tbaa !228
-  %1099 = getelementptr inbounds nuw i8, ptr %11, i64 2592
-  %1100 = load ptr, ptr %1099, align 8, !tbaa !228
-  %1101 = icmp eq ptr %1098, %1100
-  br i1 %1101, label %1122, label %1102
+  %1096 = getelementptr inbounds nuw i8, ptr %11, i64 456
+  %1097 = getelementptr inbounds nuw i8, ptr %11, i64 472
+  store i64 %1095, ptr %1097, align 8, !tbaa !225
+  %1098 = getelementptr inbounds nuw i8, ptr %11, i64 2584
+  %1099 = load ptr, ptr %1098, align 8, !tbaa !228
+  %1100 = getelementptr inbounds nuw i8, ptr %11, i64 2592
+  %1101 = load ptr, ptr %1100, align 8, !tbaa !228
+  %1102 = icmp eq ptr %1099, %1101
+  br i1 %1102, label %1123, label %1103
 
-1102:                                             ; preds = %1088
-  %1103 = getelementptr inbounds nuw i8, ptr %11, i64 2608
-  %1104 = load i32, ptr %1103, align 8, !tbaa !230
-  %1105 = add nsw i32 %1104, 1
-  store i32 %1105, ptr %1103, align 8, !tbaa !230
-  %1106 = icmp eq i32 %1105, 3
-  br i1 %1106, label %1107, label %1122
+1103:                                             ; preds = %1088
+  %1104 = getelementptr inbounds nuw i8, ptr %11, i64 2608
+  %1105 = load i32, ptr %1104, align 8, !tbaa !230
+  %1106 = add nsw i32 %1105, 1
+  store i32 %1106, ptr %1104, align 8, !tbaa !230
+  %1107 = icmp eq i32 %1106, 3
+  br i1 %1107, label %1108, label %1123
 
-1107:                                             ; preds = %1102
-  %1108 = getelementptr inbounds nuw i8, ptr %11, i64 2612
-  %1109 = load i32, ptr %1108, align 4, !tbaa !247
-  %1110 = mul nsw i32 %1109, 60
-  %1111 = sext i32 %1110 to i64
-  %1112 = getelementptr %struct.wallcc_t, ptr %1098, i64 %1111
-  %1113 = getelementptr i8, ptr %1112, i64 456
-  %1114 = load i32, ptr %1113, align 8, !tbaa !248
-  %1115 = add nsw i32 %1114, 1
-  store i32 %1115, ptr %1113, align 8, !tbaa !248
-  %1116 = getelementptr inbounds nuw i8, ptr %11, i64 2616
-  %1117 = load i64, ptr %1116, align 8, !tbaa !249
-  %1118 = sub i64 %1095, %1117
-  %1119 = getelementptr i8, ptr %1112, i64 464
-  %1120 = load i64, ptr %1119, align 8, !tbaa !250
-  %1121 = add i64 %1118, %1120
-  store i64 %1121, ptr %1119, align 8, !tbaa !250
-  br label %1122
+1108:                                             ; preds = %1103
+  %1109 = getelementptr inbounds nuw i8, ptr %11, i64 2612
+  %1110 = load i32, ptr %1109, align 4, !tbaa !247
+  %1111 = mul nsw i32 %1110, 60
+  %1112 = sext i32 %1111 to i64
+  %1113 = getelementptr %struct.wallcc_t, ptr %1099, i64 %1112
+  %1114 = getelementptr i8, ptr %1113, i64 456
+  %1115 = load i32, ptr %1114, align 8, !tbaa !248
+  %1116 = add nsw i32 %1115, 1
+  store i32 %1116, ptr %1114, align 8, !tbaa !248
+  %1117 = getelementptr inbounds nuw i8, ptr %11, i64 2616
+  %1118 = load i64, ptr %1117, align 8, !tbaa !249
+  %1119 = sub i64 %1095, %1118
+  %1120 = getelementptr i8, ptr %1113, i64 464
+  %1121 = load i64, ptr %1120, align 8, !tbaa !250
+  %1122 = add i64 %1119, %1121
+  store i64 %1122, ptr %1120, align 8, !tbaa !250
+  br label %1123
 
-1122:                                             ; preds = %1107, %1102, %1088
-  %1123 = getelementptr inbounds nuw i8, ptr %11, i64 456
-  %1124 = load i32, ptr %1123, align 8, !tbaa !248
+1123:                                             ; preds = %1108, %1103, %1088
+  %1124 = load i32, ptr %1096, align 8, !tbaa !248
   %1125 = add nsw i32 %1124, -1
-  store i32 %1125, ptr %1123, align 8, !tbaa !248
+  store i32 %1125, ptr %1096, align 8, !tbaa !248
   call void @_Z16wallcycleBarrierP13gmx_wallcycle(ptr noundef nonnull %11)
   %1126 = call { i32, i32 } asm sideeffect "rdtscp", "={ax},={dx},~{ecx},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !224
   %1127 = extractvalue { i32, i32 } %1126, 0
@@ -2031,15 +2031,15 @@ _Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit988.thread: ; preds = %
   %1130 = zext i32 %1128 to i64
   %1131 = shl nuw i64 %1130, 32
   %1132 = or disjoint i64 %1131, %1129
-  %1133 = load i64, ptr %1096, align 8, !tbaa !225
+  %1133 = load i64, ptr %1097, align 8, !tbaa !225
   %.not.i.i989 = icmp ult i64 %1132, %1133
   br i1 %.not.i.i989, label %1136, label %1134
 
-1134:                                             ; preds = %1122
+1134:                                             ; preds = %1123
   %1135 = sub nuw i64 %1132, %1133
   br label %1138
 
-1136:                                             ; preds = %1122
+1136:                                             ; preds = %1123
   %1137 = getelementptr inbounds nuw i8, ptr %11, i64 2624
   store i8 1, ptr %1137, align 8, !tbaa !256
   br label %1138
@@ -2050,11 +2050,11 @@ _Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit988.thread: ; preds = %
   %1140 = load i64, ptr %1139, align 8, !tbaa !250
   %1141 = add i64 %1140, %.0.i.i990
   store i64 %1141, ptr %1139, align 8, !tbaa !250
-  %1142 = load i32, ptr %1123, align 8, !tbaa !248
+  %1142 = load i32, ptr %1096, align 8, !tbaa !248
   %1143 = add nsw i32 %1142, 1
-  store i32 %1143, ptr %1123, align 8, !tbaa !248
-  %1144 = load ptr, ptr %1097, align 8, !tbaa !228
-  %1145 = load ptr, ptr %1099, align 8, !tbaa !228
+  store i32 %1143, ptr %1096, align 8, !tbaa !248
+  %1144 = load ptr, ptr %1098, align 8, !tbaa !228
+  %1145 = load ptr, ptr %1100, align 8, !tbaa !228
   %1146 = icmp eq ptr %1144, %1145
   br i1 %1146, label %_ZN3gmxL24launchPmeGpuFftAndGatherEP9gmx_pme_tfP13gmx_wallcycleRKNS_12StepWorkloadE.exit, label %1147
 
@@ -2438,47 +2438,47 @@ _Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit1011: ; preds = %1368, 
   %1386 = zext i32 %1384 to i64
   %1387 = shl nuw i64 %1386, 32
   %1388 = or disjoint i64 %1387, %1385
-  %1389 = getelementptr inbounds nuw i8, ptr %11, i64 232
-  store i64 %1388, ptr %1389, align 8, !tbaa !225
-  %1390 = getelementptr inbounds nuw i8, ptr %11, i64 2584
-  %1391 = load ptr, ptr %1390, align 8, !tbaa !228
-  %1392 = getelementptr inbounds nuw i8, ptr %11, i64 2592
-  %1393 = load ptr, ptr %1392, align 8, !tbaa !228
-  %1394 = icmp eq ptr %1391, %1393
-  br i1 %1394, label %1415, label %1395
+  %1389 = getelementptr inbounds nuw i8, ptr %11, i64 216
+  %1390 = getelementptr inbounds nuw i8, ptr %11, i64 232
+  store i64 %1388, ptr %1390, align 8, !tbaa !225
+  %1391 = getelementptr inbounds nuw i8, ptr %11, i64 2584
+  %1392 = load ptr, ptr %1391, align 8, !tbaa !228
+  %1393 = getelementptr inbounds nuw i8, ptr %11, i64 2592
+  %1394 = load ptr, ptr %1393, align 8, !tbaa !228
+  %1395 = icmp eq ptr %1392, %1394
+  br i1 %1395, label %1416, label %1396
 
-1395:                                             ; preds = %1381
-  %1396 = getelementptr inbounds nuw i8, ptr %11, i64 2608
-  %1397 = load i32, ptr %1396, align 8, !tbaa !230
-  %1398 = add nsw i32 %1397, 1
-  store i32 %1398, ptr %1396, align 8, !tbaa !230
-  %1399 = icmp eq i32 %1398, 3
-  br i1 %1399, label %1400, label %1415
+1396:                                             ; preds = %1381
+  %1397 = getelementptr inbounds nuw i8, ptr %11, i64 2608
+  %1398 = load i32, ptr %1397, align 8, !tbaa !230
+  %1399 = add nsw i32 %1398, 1
+  store i32 %1399, ptr %1397, align 8, !tbaa !230
+  %1400 = icmp eq i32 %1399, 3
+  br i1 %1400, label %1401, label %1416
 
-1400:                                             ; preds = %1395
-  %1401 = getelementptr inbounds nuw i8, ptr %11, i64 2612
-  %1402 = load i32, ptr %1401, align 4, !tbaa !247
-  %1403 = mul nsw i32 %1402, 60
-  %1404 = sext i32 %1403 to i64
-  %1405 = getelementptr %struct.wallcc_t, ptr %1391, i64 %1404
-  %1406 = getelementptr i8, ptr %1405, i64 216
-  %1407 = load i32, ptr %1406, align 8, !tbaa !248
-  %1408 = add nsw i32 %1407, 1
-  store i32 %1408, ptr %1406, align 8, !tbaa !248
-  %1409 = getelementptr inbounds nuw i8, ptr %11, i64 2616
-  %1410 = load i64, ptr %1409, align 8, !tbaa !249
-  %1411 = sub i64 %1388, %1410
-  %1412 = getelementptr i8, ptr %1405, i64 224
-  %1413 = load i64, ptr %1412, align 8, !tbaa !250
-  %1414 = add i64 %1411, %1413
-  store i64 %1414, ptr %1412, align 8, !tbaa !250
-  br label %1415
+1401:                                             ; preds = %1396
+  %1402 = getelementptr inbounds nuw i8, ptr %11, i64 2612
+  %1403 = load i32, ptr %1402, align 4, !tbaa !247
+  %1404 = mul nsw i32 %1403, 60
+  %1405 = sext i32 %1404 to i64
+  %1406 = getelementptr %struct.wallcc_t, ptr %1392, i64 %1405
+  %1407 = getelementptr i8, ptr %1406, i64 216
+  %1408 = load i32, ptr %1407, align 8, !tbaa !248
+  %1409 = add nsw i32 %1408, 1
+  store i32 %1409, ptr %1407, align 8, !tbaa !248
+  %1410 = getelementptr inbounds nuw i8, ptr %11, i64 2616
+  %1411 = load i64, ptr %1410, align 8, !tbaa !249
+  %1412 = sub i64 %1388, %1411
+  %1413 = getelementptr i8, ptr %1406, i64 224
+  %1414 = load i64, ptr %1413, align 8, !tbaa !250
+  %1415 = add i64 %1412, %1414
+  store i64 %1415, ptr %1413, align 8, !tbaa !250
+  br label %1416
 
-1415:                                             ; preds = %1400, %1395, %1381
-  %1416 = getelementptr inbounds nuw i8, ptr %11, i64 216
-  %1417 = load i32, ptr %1416, align 8, !tbaa !248
+1416:                                             ; preds = %1401, %1396, %1381
+  %1417 = load i32, ptr %1389, align 8, !tbaa !248
   %1418 = add nsw i32 %1417, -1
-  store i32 %1418, ptr %1416, align 8, !tbaa !248
+  store i32 %1418, ptr %1389, align 8, !tbaa !248
   call fastcc void @_ZN3gmxL12do_nb_verletEP10t_forcerecPK19interaction_const_tP14gmx_enerdata_tRKNS_12StepWorkloadENS_19InteractionLocalityEilP6t_nrnbP13gmx_wallcycle(ptr noundef nonnull %22, ptr noundef %96, ptr noundef %20, ptr noundef nonnull align 1 dereferenceable(20) %100, i32 noundef 1, i32 noundef 0, i64 noundef %9, ptr noundef %10)
   call void @_Z16wallcycleBarrierP13gmx_wallcycle(ptr noundef nonnull %11)
   %1419 = call { i32, i32 } asm sideeffect "rdtscp", "={ax},={dx},~{ecx},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !224
@@ -2488,15 +2488,15 @@ _Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit1011: ; preds = %1368, 
   %1423 = zext i32 %1421 to i64
   %1424 = shl nuw i64 %1423, 32
   %1425 = or disjoint i64 %1424, %1422
-  %1426 = load i64, ptr %1389, align 8, !tbaa !225
+  %1426 = load i64, ptr %1390, align 8, !tbaa !225
   %.not.i1014 = icmp ult i64 %1425, %1426
   br i1 %.not.i1014, label %1429, label %1427
 
-1427:                                             ; preds = %1415
+1427:                                             ; preds = %1416
   %1428 = sub nuw i64 %1425, %1426
   br label %1431
 
-1429:                                             ; preds = %1415
+1429:                                             ; preds = %1416
   %1430 = getelementptr inbounds nuw i8, ptr %11, i64 2624
   store i8 1, ptr %1430, align 8, !tbaa !256
   br label %1431
@@ -2507,11 +2507,11 @@ _Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit1011: ; preds = %1368, 
   %1433 = load i64, ptr %1432, align 8, !tbaa !250
   %1434 = add i64 %1433, %.0.i1015
   store i64 %1434, ptr %1432, align 8, !tbaa !250
-  %1435 = load i32, ptr %1416, align 8, !tbaa !248
+  %1435 = load i32, ptr %1389, align 8, !tbaa !248
   %1436 = add nsw i32 %1435, 1
-  store i32 %1436, ptr %1416, align 8, !tbaa !248
-  %1437 = load ptr, ptr %1390, align 8, !tbaa !228
-  %1438 = load ptr, ptr %1392, align 8, !tbaa !228
+  store i32 %1436, ptr %1389, align 8, !tbaa !248
+  %1437 = load ptr, ptr %1391, align 8, !tbaa !228
+  %1438 = load ptr, ptr %1393, align 8, !tbaa !228
   %1439 = icmp eq ptr %1437, %1438
   br i1 %1439, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit1017, label %1440
 
@@ -2562,47 +2562,47 @@ _Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit1017.thread: ; preds = 
   %1465 = zext i32 %1463 to i64
   %1466 = shl nuw i64 %1465, 32
   %1467 = or disjoint i64 %1466, %1464
-  %1468 = getelementptr inbounds nuw i8, ptr %11, i64 232
-  store i64 %1467, ptr %1468, align 8, !tbaa !225
-  %1469 = getelementptr inbounds nuw i8, ptr %11, i64 2584
-  %1470 = load ptr, ptr %1469, align 8, !tbaa !228
-  %1471 = getelementptr inbounds nuw i8, ptr %11, i64 2592
-  %1472 = load ptr, ptr %1471, align 8, !tbaa !228
-  %1473 = icmp eq ptr %1470, %1472
-  br i1 %1473, label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit.i1018, label %1474
+  %1468 = getelementptr inbounds nuw i8, ptr %11, i64 216
+  %1469 = getelementptr inbounds nuw i8, ptr %11, i64 232
+  store i64 %1467, ptr %1469, align 8, !tbaa !225
+  %1470 = getelementptr inbounds nuw i8, ptr %11, i64 2584
+  %1471 = load ptr, ptr %1470, align 8, !tbaa !228
+  %1472 = getelementptr inbounds nuw i8, ptr %11, i64 2592
+  %1473 = load ptr, ptr %1472, align 8, !tbaa !228
+  %1474 = icmp eq ptr %1471, %1473
+  br i1 %1474, label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit.i1018, label %1475
 
-1474:                                             ; preds = %1460
-  %1475 = getelementptr inbounds nuw i8, ptr %11, i64 2608
-  %1476 = load i32, ptr %1475, align 8, !tbaa !230
-  %1477 = add nsw i32 %1476, 1
-  store i32 %1477, ptr %1475, align 8, !tbaa !230
-  %1478 = icmp eq i32 %1477, 3
-  br i1 %1478, label %1479, label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit.i1018
+1475:                                             ; preds = %1460
+  %1476 = getelementptr inbounds nuw i8, ptr %11, i64 2608
+  %1477 = load i32, ptr %1476, align 8, !tbaa !230
+  %1478 = add nsw i32 %1477, 1
+  store i32 %1478, ptr %1476, align 8, !tbaa !230
+  %1479 = icmp eq i32 %1478, 3
+  br i1 %1479, label %1480, label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit.i1018
 
-1479:                                             ; preds = %1474
-  %1480 = getelementptr inbounds nuw i8, ptr %11, i64 2612
-  %1481 = load i32, ptr %1480, align 4, !tbaa !247
-  %1482 = mul nsw i32 %1481, 60
-  %1483 = sext i32 %1482 to i64
-  %1484 = getelementptr %struct.wallcc_t, ptr %1470, i64 %1483
-  %1485 = getelementptr i8, ptr %1484, i64 216
-  %1486 = load i32, ptr %1485, align 8, !tbaa !248
-  %1487 = add nsw i32 %1486, 1
-  store i32 %1487, ptr %1485, align 8, !tbaa !248
-  %1488 = getelementptr inbounds nuw i8, ptr %11, i64 2616
-  %1489 = load i64, ptr %1488, align 8, !tbaa !249
-  %1490 = sub i64 %1467, %1489
-  %1491 = getelementptr i8, ptr %1484, i64 224
-  %1492 = load i64, ptr %1491, align 8, !tbaa !250
-  %1493 = add i64 %1490, %1492
-  store i64 %1493, ptr %1491, align 8, !tbaa !250
+1480:                                             ; preds = %1475
+  %1481 = getelementptr inbounds nuw i8, ptr %11, i64 2612
+  %1482 = load i32, ptr %1481, align 4, !tbaa !247
+  %1483 = mul nsw i32 %1482, 60
+  %1484 = sext i32 %1483 to i64
+  %1485 = getelementptr %struct.wallcc_t, ptr %1471, i64 %1484
+  %1486 = getelementptr i8, ptr %1485, i64 216
+  %1487 = load i32, ptr %1486, align 8, !tbaa !248
+  %1488 = add nsw i32 %1487, 1
+  store i32 %1488, ptr %1486, align 8, !tbaa !248
+  %1489 = getelementptr inbounds nuw i8, ptr %11, i64 2616
+  %1490 = load i64, ptr %1489, align 8, !tbaa !249
+  %1491 = sub i64 %1467, %1490
+  %1492 = getelementptr i8, ptr %1485, i64 224
+  %1493 = load i64, ptr %1492, align 8, !tbaa !250
+  %1494 = add i64 %1491, %1493
+  store i64 %1494, ptr %1492, align 8, !tbaa !250
   br label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit.i1018
 
-_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit.i1018: ; preds = %1479, %1474, %1460
-  %1494 = getelementptr inbounds nuw i8, ptr %11, i64 216
-  %1495 = load i32, ptr %1494, align 8, !tbaa !248
+_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit.i1018: ; preds = %1480, %1475, %1460
+  %1495 = load i32, ptr %1468, align 8, !tbaa !248
   %1496 = add nsw i32 %1495, -1
-  store i32 %1496, ptr %1494, align 8, !tbaa !248
+  store i32 %1496, ptr %1468, align 8, !tbaa !248
   br label %_Z23wallcycle_start_nocountP13gmx_wallcycle16WallCycleCounter.exit1019
 
 _Z23wallcycle_start_nocountP13gmx_wallcycle16WallCycleCounter.exit1019: ; preds = %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit1017.thread, %1458, %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit.i1018
@@ -3338,47 +3338,47 @@ _Z23wallcycle_start_nocountP13gmx_wallcycle16WallCycleCounter.exit1042.thread: ;
   %1940 = zext i32 %1938 to i64
   %1941 = shl nuw i64 %1940, 32
   %1942 = or disjoint i64 %1941, %1939
-  %1943 = getelementptr inbounds nuw i8, ptr %11, i64 280
-  store i64 %1942, ptr %1943, align 8, !tbaa !225
-  %1944 = getelementptr inbounds nuw i8, ptr %11, i64 2584
-  %1945 = load ptr, ptr %1944, align 8, !tbaa !228
-  %1946 = getelementptr inbounds nuw i8, ptr %11, i64 2592
-  %1947 = load ptr, ptr %1946, align 8, !tbaa !228
-  %1948 = icmp eq ptr %1945, %1947
-  br i1 %1948, label %1969, label %1949
+  %1943 = getelementptr inbounds nuw i8, ptr %11, i64 264
+  %1944 = getelementptr inbounds nuw i8, ptr %11, i64 280
+  store i64 %1942, ptr %1944, align 8, !tbaa !225
+  %1945 = getelementptr inbounds nuw i8, ptr %11, i64 2584
+  %1946 = load ptr, ptr %1945, align 8, !tbaa !228
+  %1947 = getelementptr inbounds nuw i8, ptr %11, i64 2592
+  %1948 = load ptr, ptr %1947, align 8, !tbaa !228
+  %1949 = icmp eq ptr %1946, %1948
+  br i1 %1949, label %1970, label %1950
 
-1949:                                             ; preds = %1935
-  %1950 = getelementptr inbounds nuw i8, ptr %11, i64 2608
-  %1951 = load i32, ptr %1950, align 8, !tbaa !230
-  %1952 = add nsw i32 %1951, 1
-  store i32 %1952, ptr %1950, align 8, !tbaa !230
-  %1953 = icmp eq i32 %1952, 3
-  br i1 %1953, label %1954, label %1969
+1950:                                             ; preds = %1935
+  %1951 = getelementptr inbounds nuw i8, ptr %11, i64 2608
+  %1952 = load i32, ptr %1951, align 8, !tbaa !230
+  %1953 = add nsw i32 %1952, 1
+  store i32 %1953, ptr %1951, align 8, !tbaa !230
+  %1954 = icmp eq i32 %1953, 3
+  br i1 %1954, label %1955, label %1970
 
-1954:                                             ; preds = %1949
-  %1955 = getelementptr inbounds nuw i8, ptr %11, i64 2612
-  %1956 = load i32, ptr %1955, align 4, !tbaa !247
-  %1957 = mul nsw i32 %1956, 60
-  %1958 = sext i32 %1957 to i64
-  %1959 = getelementptr %struct.wallcc_t, ptr %1945, i64 %1958
-  %1960 = getelementptr i8, ptr %1959, i64 264
-  %1961 = load i32, ptr %1960, align 8, !tbaa !248
-  %1962 = add nsw i32 %1961, 1
-  store i32 %1962, ptr %1960, align 8, !tbaa !248
-  %1963 = getelementptr inbounds nuw i8, ptr %11, i64 2616
-  %1964 = load i64, ptr %1963, align 8, !tbaa !249
-  %1965 = sub i64 %1942, %1964
-  %1966 = getelementptr i8, ptr %1959, i64 272
-  %1967 = load i64, ptr %1966, align 8, !tbaa !250
-  %1968 = add i64 %1965, %1967
-  store i64 %1968, ptr %1966, align 8, !tbaa !250
-  br label %1969
+1955:                                             ; preds = %1950
+  %1956 = getelementptr inbounds nuw i8, ptr %11, i64 2612
+  %1957 = load i32, ptr %1956, align 4, !tbaa !247
+  %1958 = mul nsw i32 %1957, 60
+  %1959 = sext i32 %1958 to i64
+  %1960 = getelementptr %struct.wallcc_t, ptr %1946, i64 %1959
+  %1961 = getelementptr i8, ptr %1960, i64 264
+  %1962 = load i32, ptr %1961, align 8, !tbaa !248
+  %1963 = add nsw i32 %1962, 1
+  store i32 %1963, ptr %1961, align 8, !tbaa !248
+  %1964 = getelementptr inbounds nuw i8, ptr %11, i64 2616
+  %1965 = load i64, ptr %1964, align 8, !tbaa !249
+  %1966 = sub i64 %1942, %1965
+  %1967 = getelementptr i8, ptr %1960, i64 272
+  %1968 = load i64, ptr %1967, align 8, !tbaa !250
+  %1969 = add i64 %1966, %1968
+  store i64 %1969, ptr %1967, align 8, !tbaa !250
+  br label %1970
 
-1969:                                             ; preds = %1954, %1949, %1935
-  %1970 = getelementptr inbounds nuw i8, ptr %11, i64 264
-  %1971 = load i32, ptr %1970, align 8, !tbaa !248
+1970:                                             ; preds = %1955, %1950, %1935
+  %1971 = load i32, ptr %1943, align 8, !tbaa !248
   %1972 = add nsw i32 %1971, -1
-  store i32 %1972, ptr %1970, align 8, !tbaa !248
+  store i32 %1972, ptr %1943, align 8, !tbaa !248
   call fastcc void @_ZN3gmxL12do_nb_verletEP10t_forcerecPK19interaction_const_tP14gmx_enerdata_tRKNS_12StepWorkloadENS_19InteractionLocalityEilP6t_nrnbP13gmx_wallcycle(ptr noundef nonnull %22, ptr noundef %96, ptr noundef %20, ptr noundef nonnull align 1 dereferenceable(20) %100, i32 noundef 0, i32 noundef 1, i64 noundef %9, ptr noundef %10)
   call void @_Z16wallcycleBarrierP13gmx_wallcycle(ptr noundef nonnull %11)
   %1973 = call { i32, i32 } asm sideeffect "rdtscp", "={ax},={dx},~{ecx},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !224
@@ -3388,15 +3388,15 @@ _Z23wallcycle_start_nocountP13gmx_wallcycle16WallCycleCounter.exit1042.thread: ;
   %1977 = zext i32 %1975 to i64
   %1978 = shl nuw i64 %1977, 32
   %1979 = or disjoint i64 %1978, %1976
-  %1980 = load i64, ptr %1943, align 8, !tbaa !225
+  %1980 = load i64, ptr %1944, align 8, !tbaa !225
   %.not.i1043 = icmp ult i64 %1979, %1980
   br i1 %.not.i1043, label %1983, label %1981
 
-1981:                                             ; preds = %1969
+1981:                                             ; preds = %1970
   %1982 = sub nuw i64 %1979, %1980
   br label %1985
 
-1983:                                             ; preds = %1969
+1983:                                             ; preds = %1970
   %1984 = getelementptr inbounds nuw i8, ptr %11, i64 2624
   store i8 1, ptr %1984, align 8, !tbaa !256
   br label %1985
@@ -3407,11 +3407,11 @@ _Z23wallcycle_start_nocountP13gmx_wallcycle16WallCycleCounter.exit1042.thread: ;
   %1987 = load i64, ptr %1986, align 8, !tbaa !250
   %1988 = add i64 %1987, %.0.i1044
   store i64 %1988, ptr %1986, align 8, !tbaa !250
-  %1989 = load i32, ptr %1970, align 8, !tbaa !248
+  %1989 = load i32, ptr %1943, align 8, !tbaa !248
   %1990 = add nsw i32 %1989, 1
-  store i32 %1990, ptr %1970, align 8, !tbaa !248
-  %1991 = load ptr, ptr %1944, align 8, !tbaa !228
-  %1992 = load ptr, ptr %1946, align 8, !tbaa !228
+  store i32 %1990, ptr %1943, align 8, !tbaa !248
+  %1991 = load ptr, ptr %1945, align 8, !tbaa !228
+  %1992 = load ptr, ptr %1947, align 8, !tbaa !228
   %1993 = icmp eq ptr %1991, %1992
   br i1 %1993, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit1046, label %1994
 
@@ -3457,47 +3457,47 @@ _Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit1046: ; preds = %_Z14wa
   %2016 = zext i32 %2014 to i64
   %2017 = shl nuw i64 %2016, 32
   %2018 = or disjoint i64 %2017, %2015
-  %2019 = getelementptr inbounds nuw i8, ptr %11, i64 280
-  store i64 %2018, ptr %2019, align 8, !tbaa !225
-  %2020 = getelementptr inbounds nuw i8, ptr %11, i64 2584
-  %2021 = load ptr, ptr %2020, align 8, !tbaa !228
-  %2022 = getelementptr inbounds nuw i8, ptr %11, i64 2592
-  %2023 = load ptr, ptr %2022, align 8, !tbaa !228
-  %2024 = icmp eq ptr %2021, %2023
-  br i1 %2024, label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit.i1047, label %2025
+  %2019 = getelementptr inbounds nuw i8, ptr %11, i64 264
+  %2020 = getelementptr inbounds nuw i8, ptr %11, i64 280
+  store i64 %2018, ptr %2020, align 8, !tbaa !225
+  %2021 = getelementptr inbounds nuw i8, ptr %11, i64 2584
+  %2022 = load ptr, ptr %2021, align 8, !tbaa !228
+  %2023 = getelementptr inbounds nuw i8, ptr %11, i64 2592
+  %2024 = load ptr, ptr %2023, align 8, !tbaa !228
+  %2025 = icmp eq ptr %2022, %2024
+  br i1 %2025, label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit.i1047, label %2026
 
-2025:                                             ; preds = %2011
-  %2026 = getelementptr inbounds nuw i8, ptr %11, i64 2608
-  %2027 = load i32, ptr %2026, align 8, !tbaa !230
-  %2028 = add nsw i32 %2027, 1
-  store i32 %2028, ptr %2026, align 8, !tbaa !230
-  %2029 = icmp eq i32 %2028, 3
-  br i1 %2029, label %2030, label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit.i1047
+2026:                                             ; preds = %2011
+  %2027 = getelementptr inbounds nuw i8, ptr %11, i64 2608
+  %2028 = load i32, ptr %2027, align 8, !tbaa !230
+  %2029 = add nsw i32 %2028, 1
+  store i32 %2029, ptr %2027, align 8, !tbaa !230
+  %2030 = icmp eq i32 %2029, 3
+  br i1 %2030, label %2031, label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit.i1047
 
-2030:                                             ; preds = %2025
-  %2031 = getelementptr inbounds nuw i8, ptr %11, i64 2612
-  %2032 = load i32, ptr %2031, align 4, !tbaa !247
-  %2033 = mul nsw i32 %2032, 60
-  %2034 = sext i32 %2033 to i64
-  %2035 = getelementptr %struct.wallcc_t, ptr %2021, i64 %2034
-  %2036 = getelementptr i8, ptr %2035, i64 264
-  %2037 = load i32, ptr %2036, align 8, !tbaa !248
-  %2038 = add nsw i32 %2037, 1
-  store i32 %2038, ptr %2036, align 8, !tbaa !248
-  %2039 = getelementptr inbounds nuw i8, ptr %11, i64 2616
-  %2040 = load i64, ptr %2039, align 8, !tbaa !249
-  %2041 = sub i64 %2018, %2040
-  %2042 = getelementptr i8, ptr %2035, i64 272
-  %2043 = load i64, ptr %2042, align 8, !tbaa !250
-  %2044 = add i64 %2041, %2043
-  store i64 %2044, ptr %2042, align 8, !tbaa !250
+2031:                                             ; preds = %2026
+  %2032 = getelementptr inbounds nuw i8, ptr %11, i64 2612
+  %2033 = load i32, ptr %2032, align 4, !tbaa !247
+  %2034 = mul nsw i32 %2033, 60
+  %2035 = sext i32 %2034 to i64
+  %2036 = getelementptr %struct.wallcc_t, ptr %2022, i64 %2035
+  %2037 = getelementptr i8, ptr %2036, i64 264
+  %2038 = load i32, ptr %2037, align 8, !tbaa !248
+  %2039 = add nsw i32 %2038, 1
+  store i32 %2039, ptr %2037, align 8, !tbaa !248
+  %2040 = getelementptr inbounds nuw i8, ptr %11, i64 2616
+  %2041 = load i64, ptr %2040, align 8, !tbaa !249
+  %2042 = sub i64 %2018, %2041
+  %2043 = getelementptr i8, ptr %2036, i64 272
+  %2044 = load i64, ptr %2043, align 8, !tbaa !250
+  %2045 = add i64 %2042, %2044
+  store i64 %2045, ptr %2043, align 8, !tbaa !250
   br label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit.i1047
 
-_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit.i1047: ; preds = %2030, %2025, %2011
-  %2045 = getelementptr inbounds nuw i8, ptr %11, i64 264
-  %2046 = load i32, ptr %2045, align 8, !tbaa !248
+_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit.i1047: ; preds = %2031, %2026, %2011
+  %2046 = load i32, ptr %2019, align 8, !tbaa !248
   %2047 = add nsw i32 %2046, -1
-  store i32 %2047, ptr %2045, align 8, !tbaa !248
+  store i32 %2047, ptr %2019, align 8, !tbaa !248
   br label %_Z23wallcycle_start_nocountP13gmx_wallcycle16WallCycleCounter.exit1048
 
 _Z23wallcycle_start_nocountP13gmx_wallcycle16WallCycleCounter.exit1048: ; preds = %2010, %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit.i1047
@@ -4628,47 +4628,47 @@ _ZNSt6vectorIdSaIdEED2Ev.exit95.i:                ; preds = %2729, %_ZNSt6vector
   %2743 = zext i32 %2741 to i64
   %2744 = shl nuw i64 %2743, 32
   %2745 = or disjoint i64 %2744, %2742
-  %2746 = getelementptr inbounds nuw i8, ptr %11, i64 1096
-  store i64 %2745, ptr %2746, align 8, !tbaa !225
-  %2747 = getelementptr inbounds nuw i8, ptr %11, i64 2584
-  %2748 = load ptr, ptr %2747, align 8, !tbaa !228
-  %2749 = getelementptr inbounds nuw i8, ptr %11, i64 2592
-  %2750 = load ptr, ptr %2749, align 8, !tbaa !228
-  %2751 = icmp eq ptr %2748, %2750
-  br i1 %2751, label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit.i100.i, label %2752
+  %2746 = getelementptr inbounds nuw i8, ptr %11, i64 1080
+  %2747 = getelementptr inbounds nuw i8, ptr %11, i64 1096
+  store i64 %2745, ptr %2747, align 8, !tbaa !225
+  %2748 = getelementptr inbounds nuw i8, ptr %11, i64 2584
+  %2749 = load ptr, ptr %2748, align 8, !tbaa !228
+  %2750 = getelementptr inbounds nuw i8, ptr %11, i64 2592
+  %2751 = load ptr, ptr %2750, align 8, !tbaa !228
+  %2752 = icmp eq ptr %2749, %2751
+  br i1 %2752, label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit.i100.i, label %2753
 
-2752:                                             ; preds = %2738
-  %2753 = getelementptr inbounds nuw i8, ptr %11, i64 2608
-  %2754 = load i32, ptr %2753, align 8, !tbaa !230
-  %2755 = add nsw i32 %2754, 1
-  store i32 %2755, ptr %2753, align 8, !tbaa !230
-  %2756 = icmp eq i32 %2755, 3
-  br i1 %2756, label %2757, label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit.i100.i
+2753:                                             ; preds = %2738
+  %2754 = getelementptr inbounds nuw i8, ptr %11, i64 2608
+  %2755 = load i32, ptr %2754, align 8, !tbaa !230
+  %2756 = add nsw i32 %2755, 1
+  store i32 %2756, ptr %2754, align 8, !tbaa !230
+  %2757 = icmp eq i32 %2756, 3
+  br i1 %2757, label %2758, label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit.i100.i
 
-2757:                                             ; preds = %2752
-  %2758 = getelementptr inbounds nuw i8, ptr %11, i64 2612
-  %2759 = load i32, ptr %2758, align 4, !tbaa !247
-  %2760 = mul nsw i32 %2759, 60
-  %2761 = sext i32 %2760 to i64
-  %2762 = getelementptr %struct.wallcc_t, ptr %2748, i64 %2761
-  %2763 = getelementptr i8, ptr %2762, i64 1080
-  %2764 = load i32, ptr %2763, align 8, !tbaa !248
-  %2765 = add nsw i32 %2764, 1
-  store i32 %2765, ptr %2763, align 8, !tbaa !248
-  %2766 = getelementptr inbounds nuw i8, ptr %11, i64 2616
-  %2767 = load i64, ptr %2766, align 8, !tbaa !249
-  %2768 = sub i64 %2745, %2767
-  %2769 = getelementptr i8, ptr %2762, i64 1088
-  %2770 = load i64, ptr %2769, align 8, !tbaa !250
-  %2771 = add i64 %2768, %2770
-  store i64 %2771, ptr %2769, align 8, !tbaa !250
+2758:                                             ; preds = %2753
+  %2759 = getelementptr inbounds nuw i8, ptr %11, i64 2612
+  %2760 = load i32, ptr %2759, align 4, !tbaa !247
+  %2761 = mul nsw i32 %2760, 60
+  %2762 = sext i32 %2761 to i64
+  %2763 = getelementptr %struct.wallcc_t, ptr %2749, i64 %2762
+  %2764 = getelementptr i8, ptr %2763, i64 1080
+  %2765 = load i32, ptr %2764, align 8, !tbaa !248
+  %2766 = add nsw i32 %2765, 1
+  store i32 %2766, ptr %2764, align 8, !tbaa !248
+  %2767 = getelementptr inbounds nuw i8, ptr %11, i64 2616
+  %2768 = load i64, ptr %2767, align 8, !tbaa !249
+  %2769 = sub i64 %2745, %2768
+  %2770 = getelementptr i8, ptr %2763, i64 1088
+  %2771 = load i64, ptr %2770, align 8, !tbaa !250
+  %2772 = add i64 %2769, %2771
+  store i64 %2772, ptr %2770, align 8, !tbaa !250
   br label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit.i100.i
 
-_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit.i100.i: ; preds = %2757, %2752, %2738
-  %2772 = getelementptr inbounds nuw i8, ptr %11, i64 1080
-  %2773 = load i32, ptr %2772, align 8, !tbaa !248
+_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit.i100.i: ; preds = %2758, %2753, %2738
+  %2773 = load i32, ptr %2746, align 8, !tbaa !248
   %2774 = add nsw i32 %2773, -1
-  store i32 %2774, ptr %2772, align 8, !tbaa !248
+  store i32 %2774, ptr %2746, align 8, !tbaa !248
   %2775 = getelementptr inbounds nuw i8, ptr %19, i64 96
   %2776 = load ptr, ptr %2775, align 8, !tbaa !444
   %2777 = getelementptr inbounds nuw i8, ptr %19, i64 104
@@ -4687,7 +4687,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit.i100.i: ; preds = %27
   %2788 = zext i32 %2786 to i64
   %2789 = shl nuw i64 %2788, 32
   %2790 = or disjoint i64 %2789, %2787
-  %2791 = load i64, ptr %2746, align 8, !tbaa !225
+  %2791 = load i64, ptr %2747, align 8, !tbaa !225
   %.not.i101.i = icmp ult i64 %2790, %2791
   br i1 %.not.i101.i, label %2794, label %2792
 
@@ -4706,11 +4706,11 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit.i100.i: ; preds = %27
   %2798 = load i64, ptr %2797, align 8, !tbaa !250
   %2799 = add i64 %2798, %.0.i.i1078
   store i64 %2799, ptr %2797, align 8, !tbaa !250
-  %2800 = load i32, ptr %2772, align 8, !tbaa !248
+  %2800 = load i32, ptr %2746, align 8, !tbaa !248
   %2801 = add nsw i32 %2800, 1
-  store i32 %2801, ptr %2772, align 8, !tbaa !248
-  %2802 = load ptr, ptr %2747, align 8, !tbaa !228
-  %2803 = load ptr, ptr %2749, align 8, !tbaa !228
+  store i32 %2801, ptr %2746, align 8, !tbaa !248
+  %2802 = load ptr, ptr %2748, align 8, !tbaa !228
+  %2803 = load ptr, ptr %2750, align 8, !tbaa !228
   %2804 = icmp eq ptr %2802, %2803
   br i1 %2804, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit.i1074, label %2805
 
@@ -4954,47 +4954,47 @@ _Z23wallcycle_start_nocountP13gmx_wallcycle16WallCycleCounter.exit1086.thread: ;
   %2940 = zext i32 %2938 to i64
   %2941 = shl nuw i64 %2940, 32
   %2942 = or disjoint i64 %2941, %2939
-  %2943 = getelementptr inbounds nuw i8, ptr %11, i64 280
-  store i64 %2942, ptr %2943, align 8, !tbaa !225
-  %2944 = getelementptr inbounds nuw i8, ptr %11, i64 2584
-  %2945 = load ptr, ptr %2944, align 8, !tbaa !228
-  %2946 = getelementptr inbounds nuw i8, ptr %11, i64 2592
-  %2947 = load ptr, ptr %2946, align 8, !tbaa !228
-  %2948 = icmp eq ptr %2945, %2947
-  br i1 %2948, label %2969, label %2949
+  %2943 = getelementptr inbounds nuw i8, ptr %11, i64 264
+  %2944 = getelementptr inbounds nuw i8, ptr %11, i64 280
+  store i64 %2942, ptr %2944, align 8, !tbaa !225
+  %2945 = getelementptr inbounds nuw i8, ptr %11, i64 2584
+  %2946 = load ptr, ptr %2945, align 8, !tbaa !228
+  %2947 = getelementptr inbounds nuw i8, ptr %11, i64 2592
+  %2948 = load ptr, ptr %2947, align 8, !tbaa !228
+  %2949 = icmp eq ptr %2946, %2948
+  br i1 %2949, label %2970, label %2950
 
-2949:                                             ; preds = %2935
-  %2950 = getelementptr inbounds nuw i8, ptr %11, i64 2608
-  %2951 = load i32, ptr %2950, align 8, !tbaa !230
-  %2952 = add nsw i32 %2951, 1
-  store i32 %2952, ptr %2950, align 8, !tbaa !230
-  %2953 = icmp eq i32 %2952, 3
-  br i1 %2953, label %2954, label %2969
+2950:                                             ; preds = %2935
+  %2951 = getelementptr inbounds nuw i8, ptr %11, i64 2608
+  %2952 = load i32, ptr %2951, align 8, !tbaa !230
+  %2953 = add nsw i32 %2952, 1
+  store i32 %2953, ptr %2951, align 8, !tbaa !230
+  %2954 = icmp eq i32 %2953, 3
+  br i1 %2954, label %2955, label %2970
 
-2954:                                             ; preds = %2949
-  %2955 = getelementptr inbounds nuw i8, ptr %11, i64 2612
-  %2956 = load i32, ptr %2955, align 4, !tbaa !247
-  %2957 = mul nsw i32 %2956, 60
-  %2958 = sext i32 %2957 to i64
-  %2959 = getelementptr %struct.wallcc_t, ptr %2945, i64 %2958
-  %2960 = getelementptr i8, ptr %2959, i64 264
-  %2961 = load i32, ptr %2960, align 8, !tbaa !248
-  %2962 = add nsw i32 %2961, 1
-  store i32 %2962, ptr %2960, align 8, !tbaa !248
-  %2963 = getelementptr inbounds nuw i8, ptr %11, i64 2616
-  %2964 = load i64, ptr %2963, align 8, !tbaa !249
-  %2965 = sub i64 %2942, %2964
-  %2966 = getelementptr i8, ptr %2959, i64 272
-  %2967 = load i64, ptr %2966, align 8, !tbaa !250
-  %2968 = add i64 %2965, %2967
-  store i64 %2968, ptr %2966, align 8, !tbaa !250
-  br label %2969
+2955:                                             ; preds = %2950
+  %2956 = getelementptr inbounds nuw i8, ptr %11, i64 2612
+  %2957 = load i32, ptr %2956, align 4, !tbaa !247
+  %2958 = mul nsw i32 %2957, 60
+  %2959 = sext i32 %2958 to i64
+  %2960 = getelementptr %struct.wallcc_t, ptr %2946, i64 %2959
+  %2961 = getelementptr i8, ptr %2960, i64 264
+  %2962 = load i32, ptr %2961, align 8, !tbaa !248
+  %2963 = add nsw i32 %2962, 1
+  store i32 %2963, ptr %2961, align 8, !tbaa !248
+  %2964 = getelementptr inbounds nuw i8, ptr %11, i64 2616
+  %2965 = load i64, ptr %2964, align 8, !tbaa !249
+  %2966 = sub i64 %2942, %2965
+  %2967 = getelementptr i8, ptr %2960, i64 272
+  %2968 = load i64, ptr %2967, align 8, !tbaa !250
+  %2969 = add i64 %2966, %2968
+  store i64 %2969, ptr %2967, align 8, !tbaa !250
+  br label %2970
 
-2969:                                             ; preds = %2954, %2949, %2935
-  %2970 = getelementptr inbounds nuw i8, ptr %11, i64 264
-  %2971 = load i32, ptr %2970, align 8, !tbaa !248
+2970:                                             ; preds = %2955, %2950, %2935
+  %2971 = load i32, ptr %2943, align 8, !tbaa !248
   %2972 = add nsw i32 %2971, -1
-  store i32 %2972, ptr %2970, align 8, !tbaa !248
+  store i32 %2972, ptr %2943, align 8, !tbaa !248
   call fastcc void @_ZN3gmxL12do_nb_verletEP10t_forcerecPK19interaction_const_tP14gmx_enerdata_tRKNS_12StepWorkloadENS_19InteractionLocalityEilP6t_nrnbP13gmx_wallcycle(ptr noundef nonnull %22, ptr noundef %96, ptr noundef %20, ptr noundef nonnull align 1 dereferenceable(20) %100, i32 noundef 1, i32 noundef 1, i64 noundef %9, ptr noundef %10)
   call void @_Z16wallcycleBarrierP13gmx_wallcycle(ptr noundef nonnull %11)
   %2973 = call { i32, i32 } asm sideeffect "rdtscp", "={ax},={dx},~{ecx},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !224
@@ -5004,15 +5004,15 @@ _Z23wallcycle_start_nocountP13gmx_wallcycle16WallCycleCounter.exit1086.thread: ;
   %2977 = zext i32 %2975 to i64
   %2978 = shl nuw i64 %2977, 32
   %2979 = or disjoint i64 %2978, %2976
-  %2980 = load i64, ptr %2943, align 8, !tbaa !225
+  %2980 = load i64, ptr %2944, align 8, !tbaa !225
   %.not.i1087 = icmp ult i64 %2979, %2980
   br i1 %.not.i1087, label %2983, label %2981
 
-2981:                                             ; preds = %2969
+2981:                                             ; preds = %2970
   %2982 = sub nuw i64 %2979, %2980
   br label %2985
 
-2983:                                             ; preds = %2969
+2983:                                             ; preds = %2970
   %2984 = getelementptr inbounds nuw i8, ptr %11, i64 2624
   store i8 1, ptr %2984, align 8, !tbaa !256
   br label %2985
@@ -5023,11 +5023,11 @@ _Z23wallcycle_start_nocountP13gmx_wallcycle16WallCycleCounter.exit1086.thread: ;
   %2987 = load i64, ptr %2986, align 8, !tbaa !250
   %2988 = add i64 %2987, %.0.i1088
   store i64 %2988, ptr %2986, align 8, !tbaa !250
-  %2989 = load i32, ptr %2970, align 8, !tbaa !248
+  %2989 = load i32, ptr %2943, align 8, !tbaa !248
   %2990 = add nsw i32 %2989, 1
-  store i32 %2990, ptr %2970, align 8, !tbaa !248
-  %2991 = load ptr, ptr %2944, align 8, !tbaa !228
-  %2992 = load ptr, ptr %2946, align 8, !tbaa !228
+  store i32 %2990, ptr %2943, align 8, !tbaa !248
+  %2991 = load ptr, ptr %2945, align 8, !tbaa !228
+  %2992 = load ptr, ptr %2947, align 8, !tbaa !228
   %2993 = icmp eq ptr %2991, %2992
   br i1 %2993, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit1090, label %2994
 
@@ -5131,47 +5131,47 @@ _Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit1090: ; preds = %2931, 
   %3052 = zext i32 %3050 to i64
   %3053 = shl nuw i64 %3052, 32
   %3054 = or disjoint i64 %3053, %3051
-  %3055 = getelementptr inbounds nuw i8, ptr %11, i64 280
-  store i64 %3054, ptr %3055, align 8, !tbaa !225
-  %3056 = getelementptr inbounds nuw i8, ptr %11, i64 2584
-  %3057 = load ptr, ptr %3056, align 8, !tbaa !228
-  %3058 = getelementptr inbounds nuw i8, ptr %11, i64 2592
-  %3059 = load ptr, ptr %3058, align 8, !tbaa !228
-  %3060 = icmp eq ptr %3057, %3059
-  br i1 %3060, label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit.i1099, label %3061
+  %3055 = getelementptr inbounds nuw i8, ptr %11, i64 264
+  %3056 = getelementptr inbounds nuw i8, ptr %11, i64 280
+  store i64 %3054, ptr %3056, align 8, !tbaa !225
+  %3057 = getelementptr inbounds nuw i8, ptr %11, i64 2584
+  %3058 = load ptr, ptr %3057, align 8, !tbaa !228
+  %3059 = getelementptr inbounds nuw i8, ptr %11, i64 2592
+  %3060 = load ptr, ptr %3059, align 8, !tbaa !228
+  %3061 = icmp eq ptr %3058, %3060
+  br i1 %3061, label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit.i1099, label %3062
 
-3061:                                             ; preds = %3047
-  %3062 = getelementptr inbounds nuw i8, ptr %11, i64 2608
-  %3063 = load i32, ptr %3062, align 8, !tbaa !230
-  %3064 = add nsw i32 %3063, 1
-  store i32 %3064, ptr %3062, align 8, !tbaa !230
-  %3065 = icmp eq i32 %3064, 3
-  br i1 %3065, label %3066, label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit.i1099
+3062:                                             ; preds = %3047
+  %3063 = getelementptr inbounds nuw i8, ptr %11, i64 2608
+  %3064 = load i32, ptr %3063, align 8, !tbaa !230
+  %3065 = add nsw i32 %3064, 1
+  store i32 %3065, ptr %3063, align 8, !tbaa !230
+  %3066 = icmp eq i32 %3065, 3
+  br i1 %3066, label %3067, label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit.i1099
 
-3066:                                             ; preds = %3061
-  %3067 = getelementptr inbounds nuw i8, ptr %11, i64 2612
-  %3068 = load i32, ptr %3067, align 4, !tbaa !247
-  %3069 = mul nsw i32 %3068, 60
-  %3070 = sext i32 %3069 to i64
-  %3071 = getelementptr %struct.wallcc_t, ptr %3057, i64 %3070
-  %3072 = getelementptr i8, ptr %3071, i64 264
-  %3073 = load i32, ptr %3072, align 8, !tbaa !248
-  %3074 = add nsw i32 %3073, 1
-  store i32 %3074, ptr %3072, align 8, !tbaa !248
-  %3075 = getelementptr inbounds nuw i8, ptr %11, i64 2616
-  %3076 = load i64, ptr %3075, align 8, !tbaa !249
-  %3077 = sub i64 %3054, %3076
-  %3078 = getelementptr i8, ptr %3071, i64 272
-  %3079 = load i64, ptr %3078, align 8, !tbaa !250
-  %3080 = add i64 %3077, %3079
-  store i64 %3080, ptr %3078, align 8, !tbaa !250
+3067:                                             ; preds = %3062
+  %3068 = getelementptr inbounds nuw i8, ptr %11, i64 2612
+  %3069 = load i32, ptr %3068, align 4, !tbaa !247
+  %3070 = mul nsw i32 %3069, 60
+  %3071 = sext i32 %3070 to i64
+  %3072 = getelementptr %struct.wallcc_t, ptr %3058, i64 %3071
+  %3073 = getelementptr i8, ptr %3072, i64 264
+  %3074 = load i32, ptr %3073, align 8, !tbaa !248
+  %3075 = add nsw i32 %3074, 1
+  store i32 %3075, ptr %3073, align 8, !tbaa !248
+  %3076 = getelementptr inbounds nuw i8, ptr %11, i64 2616
+  %3077 = load i64, ptr %3076, align 8, !tbaa !249
+  %3078 = sub i64 %3054, %3077
+  %3079 = getelementptr i8, ptr %3072, i64 272
+  %3080 = load i64, ptr %3079, align 8, !tbaa !250
+  %3081 = add i64 %3078, %3080
+  store i64 %3081, ptr %3079, align 8, !tbaa !250
   br label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit.i1099
 
-_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit.i1099: ; preds = %3066, %3061, %3047
-  %3081 = getelementptr inbounds nuw i8, ptr %11, i64 264
-  %3082 = load i32, ptr %3081, align 8, !tbaa !248
+_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit.i1099: ; preds = %3067, %3062, %3047
+  %3082 = load i32, ptr %3055, align 8, !tbaa !248
   %3083 = add nsw i32 %3082, -1
-  store i32 %3083, ptr %3081, align 8, !tbaa !248
+  store i32 %3083, ptr %3055, align 8, !tbaa !248
   br label %_Z23wallcycle_start_nocountP13gmx_wallcycle16WallCycleCounter.exit1100
 
 _Z23wallcycle_start_nocountP13gmx_wallcycle16WallCycleCounter.exit1100: ; preds = %3046, %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit.i1099
@@ -5430,17 +5430,17 @@ _ZNK22DDBalanceRegionHandler29closeAfterForceComputationCpuEv.exit1112: ; preds 
   br i1 %.demorgan, label %.critedge924, label %3210
 
 3210:                                             ; preds = %3209
-  %3211 = getelementptr inbounds nuw i8, ptr %11, i64 472
-  %3212 = getelementptr inbounds nuw i8, ptr %11, i64 2584
-  %3213 = getelementptr inbounds nuw i8, ptr %11, i64 2592
-  %3214 = getelementptr inbounds nuw i8, ptr %11, i64 2608
-  %3215 = getelementptr inbounds nuw i8, ptr %11, i64 2612
-  %3216 = getelementptr inbounds nuw i8, ptr %11, i64 2616
-  %3217 = getelementptr inbounds nuw i8, ptr %11, i64 456
+  %3211 = getelementptr inbounds nuw i8, ptr %11, i64 456
+  %3212 = getelementptr inbounds nuw i8, ptr %11, i64 472
+  %3213 = getelementptr inbounds nuw i8, ptr %11, i64 2584
+  %3214 = getelementptr inbounds nuw i8, ptr %11, i64 2592
+  %3215 = getelementptr inbounds nuw i8, ptr %11, i64 2608
+  %3216 = getelementptr inbounds nuw i8, ptr %11, i64 2612
+  %3217 = getelementptr inbounds nuw i8, ptr %11, i64 2616
   %3218 = getelementptr inbounds nuw i8, ptr %11, i64 2624
   %3219 = getelementptr inbounds nuw i8, ptr %11, i64 464
-  %3220 = getelementptr inbounds nuw i8, ptr %11, i64 1000
-  %3221 = getelementptr inbounds nuw i8, ptr %11, i64 984
+  %3220 = getelementptr inbounds nuw i8, ptr %11, i64 984
+  %3221 = getelementptr inbounds nuw i8, ptr %11, i64 1000
   %3222 = getelementptr inbounds nuw i8, ptr %11, i64 992
   call void @llvm.assume(i1 %835)
   br label %.split.i
@@ -5454,21 +5454,21 @@ _ZNK22DDBalanceRegionHandler29closeAfterForceComputationCpuEv.exit1112: ; preds 
   %3227 = zext i32 %3225 to i64
   %3228 = shl nuw i64 %3227, 32
   %3229 = or disjoint i64 %3228, %3226
-  store i64 %3229, ptr %3211, align 8, !tbaa !225
-  %3230 = load ptr, ptr %3212, align 8, !tbaa !228
-  %3231 = load ptr, ptr %3213, align 8, !tbaa !228
+  store i64 %3229, ptr %3212, align 8, !tbaa !225
+  %3230 = load ptr, ptr %3213, align 8, !tbaa !228
+  %3231 = load ptr, ptr %3214, align 8, !tbaa !228
   %3232 = icmp eq ptr %3230, %3231
   br i1 %3232, label %3250, label %3233
 
 3233:                                             ; preds = %.split.i
-  %3234 = load i32, ptr %3214, align 8, !tbaa !230
+  %3234 = load i32, ptr %3215, align 8, !tbaa !230
   %3235 = add nsw i32 %3234, 1
-  store i32 %3235, ptr %3214, align 8, !tbaa !230
+  store i32 %3235, ptr %3215, align 8, !tbaa !230
   %3236 = icmp eq i32 %3235, 3
   br i1 %3236, label %3237, label %3250
 
 3237:                                             ; preds = %3233
-  %3238 = load i32, ptr %3215, align 4, !tbaa !247
+  %3238 = load i32, ptr %3216, align 4, !tbaa !247
   %3239 = mul nsw i32 %3238, 60
   %3240 = sext i32 %3239 to i64
   %3241 = getelementptr %struct.wallcc_t, ptr %3230, i64 %3240
@@ -5476,7 +5476,7 @@ _ZNK22DDBalanceRegionHandler29closeAfterForceComputationCpuEv.exit1112: ; preds 
   %3243 = load i32, ptr %3242, align 8, !tbaa !248
   %3244 = add nsw i32 %3243, 1
   store i32 %3244, ptr %3242, align 8, !tbaa !248
-  %3245 = load i64, ptr %3216, align 8, !tbaa !249
+  %3245 = load i64, ptr %3217, align 8, !tbaa !249
   %3246 = sub i64 %3229, %3245
   %3247 = getelementptr i8, ptr %3241, i64 464
   %3248 = load i64, ptr %3247, align 8, !tbaa !250
@@ -5485,9 +5485,9 @@ _ZNK22DDBalanceRegionHandler29closeAfterForceComputationCpuEv.exit1112: ; preds 
   br label %3250
 
 3250:                                             ; preds = %3237, %3233, %.split.i
-  %3251 = load i32, ptr %3217, align 8, !tbaa !248
+  %3251 = load i32, ptr %3211, align 8, !tbaa !248
   %3252 = add nsw i32 %3251, -1
-  store i32 %3252, ptr %3217, align 8, !tbaa !248
+  store i32 %3252, ptr %3211, align 8, !tbaa !248
   call void @_Z16wallcycleBarrierP13gmx_wallcycle(ptr noundef nonnull %11)
   %3253 = call { i32, i32 } asm sideeffect "rdtscp", "={ax},={dx},~{ecx},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !224
   %3254 = extractvalue { i32, i32 } %3253, 0
@@ -5496,7 +5496,7 @@ _ZNK22DDBalanceRegionHandler29closeAfterForceComputationCpuEv.exit1112: ; preds 
   %3257 = zext i32 %3255 to i64
   %3258 = shl nuw i64 %3257, 32
   %3259 = or disjoint i64 %3258, %3256
-  %3260 = load i64, ptr %3211, align 8, !tbaa !225
+  %3260 = load i64, ptr %3212, align 8, !tbaa !225
   %.not.i.i1113 = icmp ult i64 %3259, %3260
   br i1 %.not.i.i1113, label %3263, label %3261
 
@@ -5513,24 +5513,24 @@ _ZNK22DDBalanceRegionHandler29closeAfterForceComputationCpuEv.exit1112: ; preds 
   %3265 = load i64, ptr %3219, align 8, !tbaa !250
   %3266 = add i64 %3265, %.0.i.i1114
   store i64 %3266, ptr %3219, align 8, !tbaa !250
-  %3267 = load i32, ptr %3217, align 8, !tbaa !248
+  %3267 = load i32, ptr %3211, align 8, !tbaa !248
   %3268 = add nsw i32 %3267, 1
-  store i32 %3268, ptr %3217, align 8, !tbaa !248
-  %3269 = load ptr, ptr %3212, align 8, !tbaa !228
-  %3270 = load ptr, ptr %3213, align 8, !tbaa !228
+  store i32 %3268, ptr %3211, align 8, !tbaa !248
+  %3269 = load ptr, ptr %3213, align 8, !tbaa !228
+  %3270 = load ptr, ptr %3214, align 8, !tbaa !228
   %3271 = icmp eq ptr %3269, %3270
   br i1 %3271, label %3277, label %3272
 
 3272:                                             ; preds = %3264
-  %3273 = load i32, ptr %3214, align 8, !tbaa !230
+  %3273 = load i32, ptr %3215, align 8, !tbaa !230
   %3274 = add nsw i32 %3273, -1
-  store i32 %3274, ptr %3214, align 8, !tbaa !230
+  store i32 %3274, ptr %3215, align 8, !tbaa !230
   %3275 = icmp eq i32 %3274, 2
   br i1 %3275, label %3276, label %3277
 
 3276:                                             ; preds = %3272
-  store i32 19, ptr %3215, align 4, !tbaa !247
-  store i64 %3259, ptr %3216, align 8, !tbaa !249
+  store i32 19, ptr %3216, align 4, !tbaa !247
+  store i64 %3259, ptr %3217, align 8, !tbaa !249
   br label %3277
 
 3277:                                             ; preds = %3276, %3272, %3264
@@ -5542,21 +5542,21 @@ _ZNK22DDBalanceRegionHandler29closeAfterForceComputationCpuEv.exit1112: ; preds 
   %3282 = zext i32 %3280 to i64
   %3283 = shl nuw i64 %3282, 32
   %3284 = or disjoint i64 %3283, %3281
-  store i64 %3284, ptr %3220, align 8, !tbaa !225
-  %3285 = load ptr, ptr %3212, align 8, !tbaa !228
-  %3286 = load ptr, ptr %3213, align 8, !tbaa !228
+  store i64 %3284, ptr %3221, align 8, !tbaa !225
+  %3285 = load ptr, ptr %3213, align 8, !tbaa !228
+  %3286 = load ptr, ptr %3214, align 8, !tbaa !228
   %3287 = icmp eq ptr %3285, %3286
   br i1 %3287, label %3305, label %3288
 
 3288:                                             ; preds = %3277
-  %3289 = load i32, ptr %3214, align 8, !tbaa !230
+  %3289 = load i32, ptr %3215, align 8, !tbaa !230
   %3290 = add nsw i32 %3289, 1
-  store i32 %3290, ptr %3214, align 8, !tbaa !230
+  store i32 %3290, ptr %3215, align 8, !tbaa !230
   %3291 = icmp eq i32 %3290, 3
   br i1 %3291, label %3292, label %3305
 
 3292:                                             ; preds = %3288
-  %3293 = load i32, ptr %3215, align 4, !tbaa !247
+  %3293 = load i32, ptr %3216, align 4, !tbaa !247
   %3294 = mul nsw i32 %3293, 60
   %3295 = sext i32 %3294 to i64
   %3296 = getelementptr %struct.wallcc_t, ptr %3285, i64 %3295
@@ -5564,7 +5564,7 @@ _ZNK22DDBalanceRegionHandler29closeAfterForceComputationCpuEv.exit1112: ; preds 
   %3298 = load i32, ptr %3297, align 8, !tbaa !248
   %3299 = add nsw i32 %3298, 1
   store i32 %3299, ptr %3297, align 8, !tbaa !248
-  %3300 = load i64, ptr %3216, align 8, !tbaa !249
+  %3300 = load i64, ptr %3217, align 8, !tbaa !249
   %3301 = sub i64 %3284, %3300
   %3302 = getelementptr i8, ptr %3296, i64 992
   %3303 = load i64, ptr %3302, align 8, !tbaa !250
@@ -5573,9 +5573,9 @@ _ZNK22DDBalanceRegionHandler29closeAfterForceComputationCpuEv.exit1112: ; preds 
   br label %3305
 
 3305:                                             ; preds = %3292, %3288, %3277
-  %3306 = load i32, ptr %3221, align 8, !tbaa !248
+  %3306 = load i32, ptr %3220, align 8, !tbaa !248
   %3307 = add nsw i32 %3306, -1
-  store i32 %3307, ptr %3221, align 8, !tbaa !248
+  store i32 %3307, ptr %3220, align 8, !tbaa !248
   call void @_Z16wallcycleBarrierP13gmx_wallcycle(ptr noundef nonnull %11)
   %3308 = call { i32, i32 } asm sideeffect "rdtscp", "={ax},={dx},~{ecx},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !224
   %3309 = extractvalue { i32, i32 } %3308, 0
@@ -5584,7 +5584,7 @@ _ZNK22DDBalanceRegionHandler29closeAfterForceComputationCpuEv.exit1112: ; preds 
   %3312 = zext i32 %3310 to i64
   %3313 = shl nuw i64 %3312, 32
   %3314 = or disjoint i64 %3313, %3311
-  %3315 = load i64, ptr %3220, align 8, !tbaa !225
+  %3315 = load i64, ptr %3221, align 8, !tbaa !225
   %.not.i31.i = icmp ult i64 %3314, %3315
   br i1 %.not.i31.i, label %3318, label %3316
 
@@ -5601,24 +5601,24 @@ _ZNK22DDBalanceRegionHandler29closeAfterForceComputationCpuEv.exit1112: ; preds 
   %3320 = load i64, ptr %3222, align 8, !tbaa !250
   %3321 = add i64 %3320, %.0.i32.i
   store i64 %3321, ptr %3222, align 8, !tbaa !250
-  %3322 = load i32, ptr %3221, align 8, !tbaa !248
+  %3322 = load i32, ptr %3220, align 8, !tbaa !248
   %3323 = add nsw i32 %3322, 1
-  store i32 %3323, ptr %3221, align 8, !tbaa !248
-  %3324 = load ptr, ptr %3212, align 8, !tbaa !228
-  %3325 = load ptr, ptr %3213, align 8, !tbaa !228
+  store i32 %3323, ptr %3220, align 8, !tbaa !248
+  %3324 = load ptr, ptr %3213, align 8, !tbaa !228
+  %3325 = load ptr, ptr %3214, align 8, !tbaa !228
   %3326 = icmp eq ptr %3324, %3325
   br i1 %3326, label %.split.i.backedge, label %3327
 
 3327:                                             ; preds = %3319
-  %3328 = load i32, ptr %3214, align 8, !tbaa !230
+  %3328 = load i32, ptr %3215, align 8, !tbaa !230
   %3329 = add nsw i32 %3328, -1
-  store i32 %3329, ptr %3214, align 8, !tbaa !230
+  store i32 %3329, ptr %3215, align 8, !tbaa !230
   %3330 = icmp eq i32 %3329, 2
   br i1 %3330, label %3331, label %.split.i.backedge
 
 3331:                                             ; preds = %3327
-  store i32 41, ptr %3215, align 4, !tbaa !247
-  store i64 %3314, ptr %3216, align 8, !tbaa !249
+  store i32 41, ptr %3216, align 4, !tbaa !247
+  store i64 %3314, ptr %3217, align 8, !tbaa !249
   br label %.split.i.backedge
 
 .split.i.backedge:                                ; preds = %3331, %3327, %3319
@@ -5672,47 +5672,47 @@ _ZNK22DDBalanceRegionHandler29closeAfterForceComputationGpuEf27DdBalanceRegionWa
   %3354 = zext i32 %3352 to i64
   %3355 = shl nuw i64 %3354, 32
   %3356 = or disjoint i64 %3355, %3353
-  %3357 = getelementptr inbounds nuw i8, ptr %11, i64 280
-  store i64 %3356, ptr %3357, align 8, !tbaa !225
-  %3358 = getelementptr inbounds nuw i8, ptr %11, i64 2584
-  %3359 = load ptr, ptr %3358, align 8, !tbaa !228
-  %3360 = getelementptr inbounds nuw i8, ptr %11, i64 2592
-  %3361 = load ptr, ptr %3360, align 8, !tbaa !228
-  %3362 = icmp eq ptr %3359, %3361
-  br i1 %3362, label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit.i1117, label %3363
+  %3357 = getelementptr inbounds nuw i8, ptr %11, i64 264
+  %3358 = getelementptr inbounds nuw i8, ptr %11, i64 280
+  store i64 %3356, ptr %3358, align 8, !tbaa !225
+  %3359 = getelementptr inbounds nuw i8, ptr %11, i64 2584
+  %3360 = load ptr, ptr %3359, align 8, !tbaa !228
+  %3361 = getelementptr inbounds nuw i8, ptr %11, i64 2592
+  %3362 = load ptr, ptr %3361, align 8, !tbaa !228
+  %3363 = icmp eq ptr %3360, %3362
+  br i1 %3363, label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit.i1117, label %3364
 
-3363:                                             ; preds = %3349
-  %3364 = getelementptr inbounds nuw i8, ptr %11, i64 2608
-  %3365 = load i32, ptr %3364, align 8, !tbaa !230
-  %3366 = add nsw i32 %3365, 1
-  store i32 %3366, ptr %3364, align 8, !tbaa !230
-  %3367 = icmp eq i32 %3366, 3
-  br i1 %3367, label %3368, label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit.i1117
+3364:                                             ; preds = %3349
+  %3365 = getelementptr inbounds nuw i8, ptr %11, i64 2608
+  %3366 = load i32, ptr %3365, align 8, !tbaa !230
+  %3367 = add nsw i32 %3366, 1
+  store i32 %3367, ptr %3365, align 8, !tbaa !230
+  %3368 = icmp eq i32 %3367, 3
+  br i1 %3368, label %3369, label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit.i1117
 
-3368:                                             ; preds = %3363
-  %3369 = getelementptr inbounds nuw i8, ptr %11, i64 2612
-  %3370 = load i32, ptr %3369, align 4, !tbaa !247
-  %3371 = mul nsw i32 %3370, 60
-  %3372 = sext i32 %3371 to i64
-  %3373 = getelementptr %struct.wallcc_t, ptr %3359, i64 %3372
-  %3374 = getelementptr i8, ptr %3373, i64 264
-  %3375 = load i32, ptr %3374, align 8, !tbaa !248
-  %3376 = add nsw i32 %3375, 1
-  store i32 %3376, ptr %3374, align 8, !tbaa !248
-  %3377 = getelementptr inbounds nuw i8, ptr %11, i64 2616
-  %3378 = load i64, ptr %3377, align 8, !tbaa !249
-  %3379 = sub i64 %3356, %3378
-  %3380 = getelementptr i8, ptr %3373, i64 272
-  %3381 = load i64, ptr %3380, align 8, !tbaa !250
-  %3382 = add i64 %3379, %3381
-  store i64 %3382, ptr %3380, align 8, !tbaa !250
+3369:                                             ; preds = %3364
+  %3370 = getelementptr inbounds nuw i8, ptr %11, i64 2612
+  %3371 = load i32, ptr %3370, align 4, !tbaa !247
+  %3372 = mul nsw i32 %3371, 60
+  %3373 = sext i32 %3372 to i64
+  %3374 = getelementptr %struct.wallcc_t, ptr %3360, i64 %3373
+  %3375 = getelementptr i8, ptr %3374, i64 264
+  %3376 = load i32, ptr %3375, align 8, !tbaa !248
+  %3377 = add nsw i32 %3376, 1
+  store i32 %3377, ptr %3375, align 8, !tbaa !248
+  %3378 = getelementptr inbounds nuw i8, ptr %11, i64 2616
+  %3379 = load i64, ptr %3378, align 8, !tbaa !249
+  %3380 = sub i64 %3356, %3379
+  %3381 = getelementptr i8, ptr %3374, i64 272
+  %3382 = load i64, ptr %3381, align 8, !tbaa !250
+  %3383 = add i64 %3380, %3382
+  store i64 %3383, ptr %3381, align 8, !tbaa !250
   br label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit.i1117
 
-_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit.i1117: ; preds = %3368, %3363, %3349
-  %3383 = getelementptr inbounds nuw i8, ptr %11, i64 264
-  %3384 = load i32, ptr %3383, align 8, !tbaa !248
+_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit.i1117: ; preds = %3369, %3364, %3349
+  %3384 = load i32, ptr %3357, align 8, !tbaa !248
   %3385 = add nsw i32 %3384, -1
-  store i32 %3385, ptr %3383, align 8, !tbaa !248
+  store i32 %3385, ptr %3357, align 8, !tbaa !248
   %.val950 = load ptr, ptr %1805, align 8, !tbaa !179
   %.not1382 = icmp eq ptr %.val950, null
   %3386 = zext i1 %.not1382 to i32
@@ -5725,7 +5725,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit.i1117: ; preds = %336
   %3391 = zext i32 %3389 to i64
   %3392 = shl nuw i64 %3391, 32
   %3393 = or disjoint i64 %3392, %3390
-  %3394 = load i64, ptr %3357, align 8, !tbaa !225
+  %3394 = load i64, ptr %3358, align 8, !tbaa !225
   %.not.i1119 = icmp ult i64 %3393, %3394
   br i1 %.not.i1119, label %3397, label %3395
 
@@ -5744,11 +5744,11 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit.i1117: ; preds = %336
   %3401 = load i64, ptr %3400, align 8, !tbaa !250
   %3402 = add i64 %3401, %.0.i1120
   store i64 %3402, ptr %3400, align 8, !tbaa !250
-  %3403 = load i32, ptr %3383, align 8, !tbaa !248
+  %3403 = load i32, ptr %3357, align 8, !tbaa !248
   %3404 = add nsw i32 %3403, 1
-  store i32 %3404, ptr %3383, align 8, !tbaa !248
-  %3405 = load ptr, ptr %3358, align 8, !tbaa !228
-  %3406 = load ptr, ptr %3360, align 8, !tbaa !228
+  store i32 %3404, ptr %3357, align 8, !tbaa !248
+  %3405 = load ptr, ptr %3359, align 8, !tbaa !228
+  %3406 = load ptr, ptr %3361, align 8, !tbaa !228
   %3407 = icmp eq ptr %3405, %3406
   br i1 %3407, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit1122, label %3408
 
@@ -5924,47 +5924,47 @@ _Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit1122: ; preds = %_Z14wa
   %3494 = zext i32 %3492 to i64
   %3495 = shl nuw i64 %3494, 32
   %3496 = or disjoint i64 %3495, %3493
-  %3497 = getelementptr inbounds nuw i8, ptr %11, i64 232
-  store i64 %3496, ptr %3497, align 8, !tbaa !225
-  %3498 = getelementptr inbounds nuw i8, ptr %11, i64 2584
-  %3499 = load ptr, ptr %3498, align 8, !tbaa !228
-  %3500 = getelementptr inbounds nuw i8, ptr %11, i64 2592
-  %3501 = load ptr, ptr %3500, align 8, !tbaa !228
-  %3502 = icmp eq ptr %3499, %3501
-  br i1 %3502, label %3523, label %3503
+  %3497 = getelementptr inbounds nuw i8, ptr %11, i64 216
+  %3498 = getelementptr inbounds nuw i8, ptr %11, i64 232
+  store i64 %3496, ptr %3498, align 8, !tbaa !225
+  %3499 = getelementptr inbounds nuw i8, ptr %11, i64 2584
+  %3500 = load ptr, ptr %3499, align 8, !tbaa !228
+  %3501 = getelementptr inbounds nuw i8, ptr %11, i64 2592
+  %3502 = load ptr, ptr %3501, align 8, !tbaa !228
+  %3503 = icmp eq ptr %3500, %3502
+  br i1 %3503, label %3524, label %3504
 
-3503:                                             ; preds = %3489
-  %3504 = getelementptr inbounds nuw i8, ptr %11, i64 2608
-  %3505 = load i32, ptr %3504, align 8, !tbaa !230
-  %3506 = add nsw i32 %3505, 1
-  store i32 %3506, ptr %3504, align 8, !tbaa !230
-  %3507 = icmp eq i32 %3506, 3
-  br i1 %3507, label %3508, label %3523
+3504:                                             ; preds = %3489
+  %3505 = getelementptr inbounds nuw i8, ptr %11, i64 2608
+  %3506 = load i32, ptr %3505, align 8, !tbaa !230
+  %3507 = add nsw i32 %3506, 1
+  store i32 %3507, ptr %3505, align 8, !tbaa !230
+  %3508 = icmp eq i32 %3507, 3
+  br i1 %3508, label %3509, label %3524
 
-3508:                                             ; preds = %3503
-  %3509 = getelementptr inbounds nuw i8, ptr %11, i64 2612
-  %3510 = load i32, ptr %3509, align 4, !tbaa !247
-  %3511 = mul nsw i32 %3510, 60
-  %3512 = sext i32 %3511 to i64
-  %3513 = getelementptr %struct.wallcc_t, ptr %3499, i64 %3512
-  %3514 = getelementptr i8, ptr %3513, i64 216
-  %3515 = load i32, ptr %3514, align 8, !tbaa !248
-  %3516 = add nsw i32 %3515, 1
-  store i32 %3516, ptr %3514, align 8, !tbaa !248
-  %3517 = getelementptr inbounds nuw i8, ptr %11, i64 2616
-  %3518 = load i64, ptr %3517, align 8, !tbaa !249
-  %3519 = sub i64 %3496, %3518
-  %3520 = getelementptr i8, ptr %3513, i64 224
-  %3521 = load i64, ptr %3520, align 8, !tbaa !250
-  %3522 = add i64 %3519, %3521
-  store i64 %3522, ptr %3520, align 8, !tbaa !250
-  br label %3523
+3509:                                             ; preds = %3504
+  %3510 = getelementptr inbounds nuw i8, ptr %11, i64 2612
+  %3511 = load i32, ptr %3510, align 4, !tbaa !247
+  %3512 = mul nsw i32 %3511, 60
+  %3513 = sext i32 %3512 to i64
+  %3514 = getelementptr %struct.wallcc_t, ptr %3500, i64 %3513
+  %3515 = getelementptr i8, ptr %3514, i64 216
+  %3516 = load i32, ptr %3515, align 8, !tbaa !248
+  %3517 = add nsw i32 %3516, 1
+  store i32 %3517, ptr %3515, align 8, !tbaa !248
+  %3518 = getelementptr inbounds nuw i8, ptr %11, i64 2616
+  %3519 = load i64, ptr %3518, align 8, !tbaa !249
+  %3520 = sub i64 %3496, %3519
+  %3521 = getelementptr i8, ptr %3514, i64 224
+  %3522 = load i64, ptr %3521, align 8, !tbaa !250
+  %3523 = add i64 %3520, %3522
+  store i64 %3523, ptr %3521, align 8, !tbaa !250
+  br label %3524
 
-3523:                                             ; preds = %3508, %3503, %3489
-  %3524 = getelementptr inbounds nuw i8, ptr %11, i64 216
-  %3525 = load i32, ptr %3524, align 8, !tbaa !248
+3524:                                             ; preds = %3509, %3504, %3489
+  %3525 = load i32, ptr %3497, align 8, !tbaa !248
   %3526 = add nsw i32 %3525, -1
-  store i32 %3526, ptr %3524, align 8, !tbaa !248
+  store i32 %3526, ptr %3497, align 8, !tbaa !248
   call void @_Z16wallcycleBarrierP13gmx_wallcycle(ptr noundef nonnull %11)
   %3527 = call { i32, i32 } asm sideeffect "rdtscp", "={ax},={dx},~{ecx},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !224
   %3528 = extractvalue { i32, i32 } %3527, 0
@@ -5973,15 +5973,15 @@ _Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit1122: ; preds = %_Z14wa
   %3531 = zext i32 %3529 to i64
   %3532 = shl nuw i64 %3531, 32
   %3533 = or disjoint i64 %3532, %3530
-  %3534 = load i64, ptr %3497, align 8, !tbaa !225
+  %3534 = load i64, ptr %3498, align 8, !tbaa !225
   %.not.i.i1129 = icmp ult i64 %3533, %3534
   br i1 %.not.i.i1129, label %3537, label %3535
 
-3535:                                             ; preds = %3523
+3535:                                             ; preds = %3524
   %3536 = sub nuw i64 %3533, %3534
   br label %3539
 
-3537:                                             ; preds = %3523
+3537:                                             ; preds = %3524
   %3538 = getelementptr inbounds nuw i8, ptr %11, i64 2624
   store i8 1, ptr %3538, align 8, !tbaa !256
   br label %3539
@@ -5992,11 +5992,11 @@ _Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit1122: ; preds = %_Z14wa
   %3541 = load i64, ptr %3540, align 8, !tbaa !250
   %3542 = add i64 %3541, %.0.i.i1130
   store i64 %3542, ptr %3540, align 8, !tbaa !250
-  %3543 = load i32, ptr %3524, align 8, !tbaa !248
+  %3543 = load i32, ptr %3497, align 8, !tbaa !248
   %3544 = add nsw i32 %3543, 1
-  store i32 %3544, ptr %3524, align 8, !tbaa !248
-  %3545 = load ptr, ptr %3498, align 8, !tbaa !228
-  %3546 = load ptr, ptr %3500, align 8, !tbaa !228
+  store i32 %3544, ptr %3497, align 8, !tbaa !248
+  %3545 = load ptr, ptr %3499, align 8, !tbaa !228
+  %3546 = load ptr, ptr %3501, align 8, !tbaa !228
   %3547 = icmp eq ptr %3545, %3546
   br i1 %3547, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit.i1128, label %3548
 
@@ -6030,47 +6030,47 @@ _Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit.i1128: ; preds = %3553
   %3563 = zext i32 %3561 to i64
   %3564 = shl nuw i64 %3563, 32
   %3565 = or disjoint i64 %3564, %3562
-  %3566 = getelementptr inbounds nuw i8, ptr %11, i64 472
-  store i64 %3565, ptr %3566, align 8, !tbaa !225
-  %3567 = getelementptr inbounds nuw i8, ptr %11, i64 2584
-  %3568 = load ptr, ptr %3567, align 8, !tbaa !228
-  %3569 = getelementptr inbounds nuw i8, ptr %11, i64 2592
-  %3570 = load ptr, ptr %3569, align 8, !tbaa !228
-  %3571 = icmp eq ptr %3568, %3570
-  br i1 %3571, label %3592, label %3572
+  %3566 = getelementptr inbounds nuw i8, ptr %11, i64 456
+  %3567 = getelementptr inbounds nuw i8, ptr %11, i64 472
+  store i64 %3565, ptr %3567, align 8, !tbaa !225
+  %3568 = getelementptr inbounds nuw i8, ptr %11, i64 2584
+  %3569 = load ptr, ptr %3568, align 8, !tbaa !228
+  %3570 = getelementptr inbounds nuw i8, ptr %11, i64 2592
+  %3571 = load ptr, ptr %3570, align 8, !tbaa !228
+  %3572 = icmp eq ptr %3569, %3571
+  br i1 %3572, label %3593, label %3573
 
-3572:                                             ; preds = %3558
-  %3573 = getelementptr inbounds nuw i8, ptr %11, i64 2608
-  %3574 = load i32, ptr %3573, align 8, !tbaa !230
-  %3575 = add nsw i32 %3574, 1
-  store i32 %3575, ptr %3573, align 8, !tbaa !230
-  %3576 = icmp eq i32 %3575, 3
-  br i1 %3576, label %3577, label %3592
+3573:                                             ; preds = %3558
+  %3574 = getelementptr inbounds nuw i8, ptr %11, i64 2608
+  %3575 = load i32, ptr %3574, align 8, !tbaa !230
+  %3576 = add nsw i32 %3575, 1
+  store i32 %3576, ptr %3574, align 8, !tbaa !230
+  %3577 = icmp eq i32 %3576, 3
+  br i1 %3577, label %3578, label %3593
 
-3577:                                             ; preds = %3572
-  %3578 = getelementptr inbounds nuw i8, ptr %11, i64 2612
-  %3579 = load i32, ptr %3578, align 4, !tbaa !247
-  %3580 = mul nsw i32 %3579, 60
-  %3581 = sext i32 %3580 to i64
-  %3582 = getelementptr %struct.wallcc_t, ptr %3568, i64 %3581
-  %3583 = getelementptr i8, ptr %3582, i64 456
-  %3584 = load i32, ptr %3583, align 8, !tbaa !248
-  %3585 = add nsw i32 %3584, 1
-  store i32 %3585, ptr %3583, align 8, !tbaa !248
-  %3586 = getelementptr inbounds nuw i8, ptr %11, i64 2616
-  %3587 = load i64, ptr %3586, align 8, !tbaa !249
-  %3588 = sub i64 %3565, %3587
-  %3589 = getelementptr i8, ptr %3582, i64 464
-  %3590 = load i64, ptr %3589, align 8, !tbaa !250
-  %3591 = add i64 %3588, %3590
-  store i64 %3591, ptr %3589, align 8, !tbaa !250
-  br label %3592
+3578:                                             ; preds = %3573
+  %3579 = getelementptr inbounds nuw i8, ptr %11, i64 2612
+  %3580 = load i32, ptr %3579, align 4, !tbaa !247
+  %3581 = mul nsw i32 %3580, 60
+  %3582 = sext i32 %3581 to i64
+  %3583 = getelementptr %struct.wallcc_t, ptr %3569, i64 %3582
+  %3584 = getelementptr i8, ptr %3583, i64 456
+  %3585 = load i32, ptr %3584, align 8, !tbaa !248
+  %3586 = add nsw i32 %3585, 1
+  store i32 %3586, ptr %3584, align 8, !tbaa !248
+  %3587 = getelementptr inbounds nuw i8, ptr %11, i64 2616
+  %3588 = load i64, ptr %3587, align 8, !tbaa !249
+  %3589 = sub i64 %3565, %3588
+  %3590 = getelementptr i8, ptr %3583, i64 464
+  %3591 = load i64, ptr %3590, align 8, !tbaa !250
+  %3592 = add i64 %3589, %3591
+  store i64 %3592, ptr %3590, align 8, !tbaa !250
+  br label %3593
 
-3592:                                             ; preds = %3577, %3572, %3558
-  %3593 = getelementptr inbounds nuw i8, ptr %11, i64 456
-  %3594 = load i32, ptr %3593, align 8, !tbaa !248
+3593:                                             ; preds = %3578, %3573, %3558
+  %3594 = load i32, ptr %3566, align 8, !tbaa !248
   %3595 = add nsw i32 %3594, -1
-  store i32 %3595, ptr %3593, align 8, !tbaa !248
+  store i32 %3595, ptr %3566, align 8, !tbaa !248
   call void @_Z16wallcycleBarrierP13gmx_wallcycle(ptr noundef nonnull %11)
   %3596 = call { i32, i32 } asm sideeffect "rdtscp", "={ax},={dx},~{ecx},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !224
   %3597 = extractvalue { i32, i32 } %3596, 0
@@ -6079,15 +6079,15 @@ _Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit.i1128: ; preds = %3553
   %3600 = zext i32 %3598 to i64
   %3601 = shl nuw i64 %3600, 32
   %3602 = or disjoint i64 %3601, %3599
-  %3603 = load i64, ptr %3566, align 8, !tbaa !225
+  %3603 = load i64, ptr %3567, align 8, !tbaa !225
   %.not.i29.i = icmp ult i64 %3602, %3603
   br i1 %.not.i29.i, label %3606, label %3604
 
-3604:                                             ; preds = %3592
+3604:                                             ; preds = %3593
   %3605 = sub nuw i64 %3602, %3603
   br label %3608
 
-3606:                                             ; preds = %3592
+3606:                                             ; preds = %3593
   %3607 = getelementptr inbounds nuw i8, ptr %11, i64 2624
   store i8 1, ptr %3607, align 8, !tbaa !256
   br label %3608
@@ -6098,11 +6098,11 @@ _Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit.i1128: ; preds = %3553
   %3610 = load i64, ptr %3609, align 8, !tbaa !250
   %3611 = add i64 %3610, %.0.i30.i
   store i64 %3611, ptr %3609, align 8, !tbaa !250
-  %3612 = load i32, ptr %3593, align 8, !tbaa !248
+  %3612 = load i32, ptr %3566, align 8, !tbaa !248
   %3613 = add nsw i32 %3612, 1
-  store i32 %3613, ptr %3593, align 8, !tbaa !248
-  %3614 = load ptr, ptr %3567, align 8, !tbaa !228
-  %3615 = load ptr, ptr %3569, align 8, !tbaa !228
+  store i32 %3613, ptr %3566, align 8, !tbaa !248
+  %3614 = load ptr, ptr %3568, align 8, !tbaa !228
+  %3615 = load ptr, ptr %3570, align 8, !tbaa !228
   %3616 = icmp eq ptr %3614, %3615
   br i1 %3616, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit32.i, label %3617
 
@@ -7017,47 +7017,47 @@ define internal fastcc void @_ZN3gmxL19pmeGpuWaitAndReduceEP9gmx_pme_tRKNS_12Ste
   %8 = zext i32 %6 to i64
   %9 = shl nuw i64 %8, 32
   %10 = or disjoint i64 %9, %7
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 472
-  store i64 %10, ptr %11, align 8, !tbaa !225
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 2584
-  %13 = load ptr, ptr %12, align 8, !tbaa !228
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 2592
-  %15 = load ptr, ptr %14, align 8, !tbaa !228
-  %16 = icmp eq ptr %13, %15
-  br i1 %16, label %37, label %17
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 456
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 472
+  store i64 %10, ptr %12, align 8, !tbaa !225
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 2584
+  %14 = load ptr, ptr %13, align 8, !tbaa !228
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 2592
+  %16 = load ptr, ptr %15, align 8, !tbaa !228
+  %17 = icmp eq ptr %14, %16
+  br i1 %17, label %38, label %18
 
-17:                                               ; preds = %3
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 2608
-  %19 = load i32, ptr %18, align 8, !tbaa !230
-  %20 = add nsw i32 %19, 1
-  store i32 %20, ptr %18, align 8, !tbaa !230
-  %21 = icmp eq i32 %20, 3
-  br i1 %21, label %22, label %37
+18:                                               ; preds = %3
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 2608
+  %20 = load i32, ptr %19, align 8, !tbaa !230
+  %21 = add nsw i32 %20, 1
+  store i32 %21, ptr %19, align 8, !tbaa !230
+  %22 = icmp eq i32 %21, 3
+  br i1 %22, label %23, label %38
 
-22:                                               ; preds = %17
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 2612
-  %24 = load i32, ptr %23, align 4, !tbaa !247
-  %25 = mul nsw i32 %24, 60
-  %26 = sext i32 %25 to i64
-  %27 = getelementptr %struct.wallcc_t, ptr %13, i64 %26
-  %28 = getelementptr i8, ptr %27, i64 456
-  %29 = load i32, ptr %28, align 8, !tbaa !248
-  %30 = add nsw i32 %29, 1
-  store i32 %30, ptr %28, align 8, !tbaa !248
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 2616
-  %32 = load i64, ptr %31, align 8, !tbaa !249
-  %33 = sub i64 %10, %32
-  %34 = getelementptr i8, ptr %27, i64 464
-  %35 = load i64, ptr %34, align 8, !tbaa !250
-  %36 = add i64 %33, %35
-  store i64 %36, ptr %34, align 8, !tbaa !250
-  br label %37
+23:                                               ; preds = %18
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 2612
+  %25 = load i32, ptr %24, align 4, !tbaa !247
+  %26 = mul nsw i32 %25, 60
+  %27 = sext i32 %26 to i64
+  %28 = getelementptr %struct.wallcc_t, ptr %14, i64 %27
+  %29 = getelementptr i8, ptr %28, i64 456
+  %30 = load i32, ptr %29, align 8, !tbaa !248
+  %31 = add nsw i32 %30, 1
+  store i32 %31, ptr %29, align 8, !tbaa !248
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 2616
+  %33 = load i64, ptr %32, align 8, !tbaa !249
+  %34 = sub i64 %10, %33
+  %35 = getelementptr i8, ptr %28, i64 464
+  %36 = load i64, ptr %35, align 8, !tbaa !250
+  %37 = add i64 %34, %36
+  store i64 %37, ptr %35, align 8, !tbaa !250
+  br label %38
 
-37:                                               ; preds = %22, %17, %3
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 456
-  %39 = load i32, ptr %38, align 8, !tbaa !248
+38:                                               ; preds = %23, %18, %3
+  %39 = load i32, ptr %11, align 8, !tbaa !248
   %40 = add nsw i32 %39, -1
-  store i32 %40, ptr %38, align 8, !tbaa !248
+  store i32 %40, ptr %11, align 8, !tbaa !248
   tail call void @_Z16wallcycleBarrierP13gmx_wallcycle(ptr noundef nonnull %0)
   %41 = tail call { i32, i32 } asm sideeffect "rdtscp", "={ax},={dx},~{ecx},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !224
   %42 = extractvalue { i32, i32 } %41, 0
@@ -7066,15 +7066,15 @@ define internal fastcc void @_ZN3gmxL19pmeGpuWaitAndReduceEP9gmx_pme_tRKNS_12Ste
   %45 = zext i32 %43 to i64
   %46 = shl nuw i64 %45, 32
   %47 = or disjoint i64 %46, %44
-  %48 = load i64, ptr %11, align 8, !tbaa !225
+  %48 = load i64, ptr %12, align 8, !tbaa !225
   %.not.i = icmp ult i64 %47, %48
   br i1 %.not.i, label %51, label %49
 
-49:                                               ; preds = %37
+49:                                               ; preds = %38
   %50 = sub nuw i64 %47, %48
   br label %53
 
-51:                                               ; preds = %37
+51:                                               ; preds = %38
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 2624
   store i8 1, ptr %52, align 8, !tbaa !256
   br label %53
@@ -7085,11 +7085,11 @@ define internal fastcc void @_ZN3gmxL19pmeGpuWaitAndReduceEP9gmx_pme_tRKNS_12Ste
   %55 = load i64, ptr %54, align 8, !tbaa !250
   %56 = add i64 %55, %.0.i
   store i64 %56, ptr %54, align 8, !tbaa !250
-  %57 = load i32, ptr %38, align 8, !tbaa !248
+  %57 = load i32, ptr %11, align 8, !tbaa !248
   %58 = add nsw i32 %57, 1
-  store i32 %58, ptr %38, align 8, !tbaa !248
-  %59 = load ptr, ptr %12, align 8, !tbaa !228
-  %60 = load ptr, ptr %14, align 8, !tbaa !228
+  store i32 %58, ptr %11, align 8, !tbaa !248
+  %59 = load ptr, ptr %13, align 8, !tbaa !228
+  %60 = load ptr, ptr %15, align 8, !tbaa !228
   %61 = icmp eq ptr %59, %60
   br i1 %61, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit, label %62
 

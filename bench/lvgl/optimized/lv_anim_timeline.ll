@@ -88,8 +88,9 @@ define void @lv_anim_timeline_add(ptr noundef captures(address_is_null) %0, i32 
   %18 = load i32, ptr %5, align 8, !tbaa !10
   %19 = add i32 %18, -1
   %20 = zext i32 %19 to i64
-  %21 = getelementptr inbounds nuw %struct.lv_anim_timeline_dsc_t, ptr %17, i64 %20, i32 1
-  store i32 %1, ptr %21, align 8, !tbaa !15
+  %21 = getelementptr inbounds nuw %struct.lv_anim_timeline_dsc_t, ptr %17, i64 %20
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 136
+  store i32 %1, ptr %22, align 8, !tbaa !15
   ret void
 }
 
@@ -128,76 +129,79 @@ define i32 @lv_anim_timeline_start(ptr noundef %0) local_unnamed_addr #0 {
 
 8:                                                ; preds = %.lr.ph.i
   %9 = load ptr, ptr %0, align 8, !tbaa !3
-  %10 = getelementptr inbounds nuw %struct.lv_anim_timeline_dsc_t, ptr %9, i64 %indvars.iv.i, i32 1
-  %11 = load i32, ptr %10, align 8, !tbaa !15
-  %12 = add i32 %11, %7
-  %spec.select.i = tail call i32 @llvm.umax.i32(i32 %12, i32 %.01935.i)
+  %10 = getelementptr inbounds nuw %struct.lv_anim_timeline_dsc_t, ptr %9, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 136
+  %12 = load i32, ptr %11, align 8, !tbaa !15
+  %13 = add i32 %12, %7
+  %spec.select.i = tail call i32 @llvm.umax.i32(i32 %13, i32 %.01935.i)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %13 = load i32, ptr %3, align 8, !tbaa !10
-  %14 = zext i32 %13 to i64
-  %.not30.i = icmp samesign ult i64 %indvars.iv.next.i, %14
+  %14 = load i32, ptr %3, align 8, !tbaa !10
+  %15 = zext i32 %14 to i64
+  %.not30.i = icmp samesign ult i64 %indvars.iv.next.i, %15
   br i1 %.not30.i, label %.lr.ph.i, label %lv_anim_timeline_get_playtime.exit, !llvm.loop !18
 
 lv_anim_timeline_get_playtime.exit:               ; preds = %.lr.ph.i, %8, %.preheader33.i
   %spec.select31.i = phi i32 [ 0, %.preheader33.i ], [ %spec.select.i, %8 ], [ -1, %.lr.ph.i ]
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %16 = load i32, ptr %15, align 4, !tbaa !20
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %18 = load i32, ptr %17, align 8, !tbaa !21
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %20 = load i32, ptr %19, align 4, !tbaa !22
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %22 = load i8, ptr %21, align 8, !tbaa !23, !range !24, !noundef !25
-  %23 = trunc nuw i8 %22 to i1
-  br i1 %23, label %26, label %24
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %17 = load i32, ptr %16, align 4, !tbaa !20
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %19 = load i32, ptr %18, align 8, !tbaa !21
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %21 = load i32, ptr %20, align 4, !tbaa !22
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %23 = load i8, ptr %22, align 8, !tbaa !23, !range !24, !noundef !25
+  %24 = trunc nuw i8 %23 to i1
+  br i1 %24, label %27, label %25
 
-24:                                               ; preds = %lv_anim_timeline_get_playtime.exit
-  %25 = icmp eq i32 %20, 0
-  br i1 %25, label %28, label %.loopexit
+25:                                               ; preds = %lv_anim_timeline_get_playtime.exit
+  %26 = icmp eq i32 %21, 0
+  br i1 %26, label %29, label %.loopexit
 
-26:                                               ; preds = %lv_anim_timeline_get_playtime.exit
-  %27 = icmp eq i32 %20, %spec.select31.i
-  br i1 %27, label %28, label %.loopexit
+27:                                               ; preds = %lv_anim_timeline_get_playtime.exit
+  %28 = icmp eq i32 %21, %spec.select31.i
+  br i1 %28, label %29, label %.loopexit
 
-28:                                               ; preds = %26, %24
-  %29 = load i32, ptr %3, align 8, !tbaa !10
-  %.not36 = icmp eq i32 %29, 0
+29:                                               ; preds = %27, %25
+  %30 = load i32, ptr %3, align 8, !tbaa !10
+  %.not36 = icmp eq i32 %30, 0
   br i1 %.not36, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %28, %.lr.ph
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %28 ]
-  %30 = load ptr, ptr %0, align 8, !tbaa !3
-  %31 = getelementptr inbounds nuw %struct.lv_anim_timeline_dsc_t, ptr %30, i64 %indvars.iv, i32 2
-  %32 = load i8, ptr %31, align 4
-  %33 = and i8 %32, -2
-  store i8 %33, ptr %31, align 4
-  %34 = load ptr, ptr %0, align 8, !tbaa !3
-  %35 = getelementptr inbounds nuw %struct.lv_anim_timeline_dsc_t, ptr %34, i64 %indvars.iv, i32 2
-  %36 = load i8, ptr %35, align 4
-  %37 = and i8 %36, -3
-  store i8 %37, ptr %35, align 4
+.lr.ph:                                           ; preds = %29, %.lr.ph
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %29 ]
+  %31 = load ptr, ptr %0, align 8, !tbaa !3
+  %32 = getelementptr inbounds nuw %struct.lv_anim_timeline_dsc_t, ptr %31, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 140
+  %34 = load i8, ptr %33, align 4
+  %35 = and i8 %34, -2
+  store i8 %35, ptr %33, align 4
+  %36 = load ptr, ptr %0, align 8, !tbaa !3
+  %37 = getelementptr inbounds nuw %struct.lv_anim_timeline_dsc_t, ptr %36, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 140
+  %39 = load i8, ptr %38, align 4
+  %40 = and i8 %39, -3
+  store i8 %40, ptr %38, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %38 = load i32, ptr %3, align 8, !tbaa !10
-  %39 = zext i32 %38 to i64
-  %40 = icmp samesign ult i64 %indvars.iv.next, %39
-  br i1 %40, label %.lr.ph, label %.loopexit, !llvm.loop !26
+  %41 = load i32, ptr %3, align 8, !tbaa !10
+  %42 = zext i32 %41 to i64
+  %43 = icmp samesign ult i64 %indvars.iv.next, %42
+  br i1 %43, label %.lr.ph, label %.loopexit, !llvm.loop !26
 
-.loopexit:                                        ; preds = %.lr.ph, %28, %24, %26
-  %41 = select i1 %23, i32 0, i32 %spec.select31.i
-  %42 = icmp ugt i32 %41, %20
-  %43 = sub nuw i32 %41, %20
-  %44 = sub nuw i32 %20, %41
-  %45 = select i1 %42, i32 %43, i32 %44
+.loopexit:                                        ; preds = %.lr.ph, %29, %25, %27
+  %44 = select i1 %24, i32 0, i32 %spec.select31.i
+  %45 = icmp ugt i32 %44, %21
+  %46 = sub nuw i32 %44, %21
+  %47 = sub nuw i32 %21, %44
+  %48 = select i1 %45, i32 %46, i32 %47
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @lv_anim_init(ptr noundef nonnull %2) #7
   call void @lv_anim_set_var(ptr noundef nonnull %2, ptr noundef nonnull %0) #7
   call void @lv_anim_set_exec_cb(ptr noundef nonnull %2, ptr noundef nonnull @anim_timeline_exec_cb) #7
-  call void @lv_anim_set_values(ptr noundef nonnull %2, i32 noundef %20, i32 noundef %41) #7
-  call void @lv_anim_set_duration(ptr noundef nonnull %2, i32 noundef %45) #7
+  call void @lv_anim_set_values(ptr noundef nonnull %2, i32 noundef %21, i32 noundef %44) #7
+  call void @lv_anim_set_duration(ptr noundef nonnull %2, i32 noundef %48) #7
   call void @lv_anim_set_path_cb(ptr noundef nonnull %2, ptr noundef nonnull @anim_timeline_path_cb) #7
-  call void @lv_anim_set_repeat_count(ptr noundef nonnull %2, i32 noundef %16) #7
-  call void @lv_anim_set_repeat_delay(ptr noundef nonnull %2, i32 noundef %18) #7
-  %46 = call ptr @lv_anim_start(ptr noundef nonnull %2) #7
+  call void @lv_anim_set_repeat_count(ptr noundef nonnull %2, i32 noundef %17) #7
+  call void @lv_anim_set_repeat_delay(ptr noundef nonnull %2, i32 noundef %19) #7
+  %49 = call ptr @lv_anim_start(ptr noundef nonnull %2) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %spec.select31.i
 }
@@ -231,14 +235,15 @@ define i32 @lv_anim_timeline_get_playtime(ptr noundef readonly captures(address_
 
 7:                                                ; preds = %.lr.ph
   %8 = load ptr, ptr %0, align 8, !tbaa !3
-  %9 = getelementptr inbounds nuw %struct.lv_anim_timeline_dsc_t, ptr %8, i64 %indvars.iv, i32 1
-  %10 = load i32, ptr %9, align 8, !tbaa !15
-  %11 = add i32 %10, %6
-  %spec.select = tail call i32 @llvm.umax.i32(i32 %11, i32 %.01935)
+  %9 = getelementptr inbounds nuw %struct.lv_anim_timeline_dsc_t, ptr %8, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 136
+  %11 = load i32, ptr %10, align 8, !tbaa !15
+  %12 = add i32 %11, %6
+  %spec.select = tail call i32 @llvm.umax.i32(i32 %12, i32 %.01935)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %12 = load i32, ptr %2, align 8, !tbaa !10
-  %13 = zext i32 %12 to i64
-  %.not30 = icmp samesign ult i64 %indvars.iv.next, %13
+  %13 = load i32, ptr %2, align 8, !tbaa !10
+  %14 = zext i32 %13 to i64
+  %.not30 = icmp samesign ult i64 %indvars.iv.next, %14
   br i1 %.not30, label %.lr.ph, label %.thread, !llvm.loop !18
 
 .thread:                                          ; preds = %7, %.lr.ph, %.preheader33
@@ -358,21 +363,22 @@ define void @lv_anim_timeline_set_progress(ptr noundef %0, i16 noundef zeroext %
 
 8:                                                ; preds = %.lr.ph.i
   %9 = load ptr, ptr %0, align 8, !tbaa !3
-  %10 = getelementptr inbounds nuw %struct.lv_anim_timeline_dsc_t, ptr %9, i64 %indvars.iv.i, i32 1
-  %11 = load i32, ptr %10, align 8, !tbaa !15
-  %12 = add i32 %11, %7
-  %spec.select.i = tail call i32 @llvm.umax.i32(i32 %12, i32 %.01935.i)
+  %10 = getelementptr inbounds nuw %struct.lv_anim_timeline_dsc_t, ptr %9, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 136
+  %12 = load i32, ptr %11, align 8, !tbaa !15
+  %13 = add i32 %12, %7
+  %spec.select.i = tail call i32 @llvm.umax.i32(i32 %13, i32 %.01935.i)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %13 = load i32, ptr %3, align 8, !tbaa !10
-  %14 = zext i32 %13 to i64
-  %.not30.i = icmp samesign ult i64 %indvars.iv.next.i, %14
+  %14 = load i32, ptr %3, align 8, !tbaa !10
+  %15 = zext i32 %14 to i64
+  %.not30.i = icmp samesign ult i64 %indvars.iv.next.i, %15
   br i1 %.not30.i, label %.lr.ph.i, label %lv_anim_timeline_get_playtime.exit, !llvm.loop !18
 
 lv_anim_timeline_get_playtime.exit:               ; preds = %.lr.ph.i, %8, %.preheader33.i
   %spec.select31.i = phi i32 [ 0, %.preheader33.i ], [ %spec.select.i, %8 ], [ -1, %.lr.ph.i ]
-  %15 = zext i16 %1 to i32
-  %16 = tail call i32 @lv_map(i32 noundef %15, i32 noundef 0, i32 noundef 65535, i32 noundef 0, i32 noundef %spec.select31.i) #7
-  tail call fastcc void @anim_timeline_set_act_time(ptr noundef nonnull %0, i32 noundef %16)
+  %16 = zext i16 %1 to i32
+  %17 = tail call i32 @lv_map(i32 noundef %16, i32 noundef 0, i32 noundef 65535, i32 noundef 0, i32 noundef %spec.select31.i) #7
+  tail call fastcc void @anim_timeline_set_act_time(ptr noundef nonnull %0, i32 noundef %17)
   ret void
 }
 
@@ -810,23 +816,24 @@ define zeroext i16 @lv_anim_timeline_get_progress(ptr noundef readonly captures(
 
 7:                                                ; preds = %.lr.ph.i
   %8 = load ptr, ptr %0, align 8, !tbaa !3
-  %9 = getelementptr inbounds nuw %struct.lv_anim_timeline_dsc_t, ptr %8, i64 %indvars.iv.i, i32 1
-  %10 = load i32, ptr %9, align 8, !tbaa !15
-  %11 = add i32 %10, %6
-  %spec.select.i = tail call i32 @llvm.umax.i32(i32 %11, i32 %.01935.i)
+  %9 = getelementptr inbounds nuw %struct.lv_anim_timeline_dsc_t, ptr %8, i64 %indvars.iv.i
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 136
+  %11 = load i32, ptr %10, align 8, !tbaa !15
+  %12 = add i32 %11, %6
+  %spec.select.i = tail call i32 @llvm.umax.i32(i32 %12, i32 %.01935.i)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %12 = load i32, ptr %2, align 8, !tbaa !10
-  %13 = zext i32 %12 to i64
-  %.not30.i = icmp samesign ult i64 %indvars.iv.next.i, %13
+  %13 = load i32, ptr %2, align 8, !tbaa !10
+  %14 = zext i32 %13 to i64
+  %.not30.i = icmp samesign ult i64 %indvars.iv.next.i, %14
   br i1 %.not30.i, label %.lr.ph.i, label %lv_anim_timeline_get_playtime.exit, !llvm.loop !18
 
 lv_anim_timeline_get_playtime.exit:               ; preds = %.lr.ph.i, %7, %.preheader33.i
   %spec.select31.i = phi i32 [ 0, %.preheader33.i ], [ %spec.select.i, %7 ], [ -1, %.lr.ph.i ]
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %15 = load i32, ptr %14, align 4, !tbaa !22
-  %16 = tail call i32 @lv_map(i32 noundef %15, i32 noundef 0, i32 noundef %spec.select31.i, i32 noundef 0, i32 noundef 65535) #7
-  %17 = trunc i32 %16 to i16
-  ret i16 %17
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %16 = load i32, ptr %15, align 4, !tbaa !22
+  %17 = tail call i32 @lv_map(i32 noundef %16, i32 noundef 0, i32 noundef %spec.select31.i, i32 noundef 0, i32 noundef 65535) #7
+  %18 = trunc i32 %17 to i16
+  ret i16 %18
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable

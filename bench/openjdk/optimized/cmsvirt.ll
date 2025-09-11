@@ -1310,17 +1310,17 @@ define hidden ptr @cmsTransform2DeviceLink(ptr noundef %0, double noundef %1, i3
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
-  br i1 %12, label %244, label %13
+  br i1 %12, label %245, label %13
 
 13:                                               ; preds = %3
   %14 = tail call ptr @cmsPipelineGetPtrToFirstStage(ptr noundef nonnull %11) #7
   %.not = icmp eq ptr %14, null
-  br i1 %.not, label %59, label %15
+  br i1 %.not, label %60, label %15
 
 15:                                               ; preds = %13
   %16 = tail call i32 @cmsStageType(ptr noundef nonnull %14) #7
   %17 = icmp eq i32 %16, 1852009504
-  br i1 %17, label %18, label %59
+  br i1 %17, label %18, label %60
 
 18:                                               ; preds = %15
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -1338,18 +1338,18 @@ define hidden ptr @cmsTransform2DeviceLink(ptr noundef %0, double noundef %1, i3
   tail call void @cmsSetPCS(ptr noundef nonnull %21, i32 noundef 1281450528) #7
   %26 = tail call fastcc i32 @SetTextTags(ptr noundef %21, ptr noundef nonnull @.str.19)
   %.not.i = icmp eq i32 %26, 0
-  br i1 %.not.i, label %57, label %27
+  br i1 %.not.i, label %58, label %27
 
 27:                                               ; preds = %23
   %28 = tail call ptr @cmsGetNamedColorList(ptr noundef nonnull %0) #7
   %29 = icmp eq ptr %28, null
-  br i1 %29, label %57, label %30
+  br i1 %29, label %58, label %30
 
 30:                                               ; preds = %27
   %31 = tail call i32 @cmsNamedColorCount(ptr noundef nonnull %28) #7
   %32 = tail call ptr @cmsDupNamedColorList(ptr noundef nonnull %28) #7
   %33 = icmp eq ptr %32, null
-  br i1 %33, label %57, label %34
+  br i1 %33, label %58, label %34
 
 34:                                               ; preds = %30
   %35 = load ptr, ptr %10, align 8
@@ -1374,518 +1374,519 @@ define hidden ptr @cmsTransform2DeviceLink(ptr noundef %0, double noundef %1, i3
   br label %48
 
 48:                                               ; preds = %48, %.lr.ph.i
-  %storemerge32.i = phi i32 [ 0, %.lr.ph.i ], [ %53, %48 ]
+  %storemerge32.i = phi i32 [ 0, %.lr.ph.i ], [ %54, %48 ]
   %49 = load ptr, ptr %47, align 8
   %50 = zext i32 %storemerge32.i to i64
-  %51 = getelementptr inbounds nuw %struct._cmsNAMEDCOLOR, ptr %49, i64 %50, i32 2
-  call void @cmsDoTransform(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef nonnull %51, i32 noundef 1) #7
-  %52 = load i32, ptr %4, align 4
-  %53 = add i32 %52, 1
-  store i32 %53, ptr %4, align 4
-  %54 = icmp ult i32 %53, %31
-  br i1 %54, label %48, label %._crit_edge.i, !llvm.loop !8
+  %51 = getelementptr inbounds nuw %struct._cmsNAMEDCOLOR, ptr %49, i64 %50
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 262
+  call void @cmsDoTransform(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef nonnull %52, i32 noundef 1) #7
+  %53 = load i32, ptr %4, align 4
+  %54 = add i32 %53, 1
+  store i32 %54, ptr %4, align 4
+  %55 = icmp ult i32 %54, %31
+  br i1 %55, label %48, label %._crit_edge.i, !llvm.loop !8
 
 ._crit_edge.i:                                    ; preds = %48, %34
-  %55 = call i32 @cmsWriteTag(ptr noundef nonnull %21, i32 noundef 1852009522, ptr noundef nonnull %32) #7
-  %.not31.i = icmp eq i32 %55, 0
-  br i1 %.not31.i, label %57, label %56
+  %56 = call i32 @cmsWriteTag(ptr noundef nonnull %21, i32 noundef 1852009522, ptr noundef nonnull %32) #7
+  %.not31.i = icmp eq i32 %56, 0
+  br i1 %.not31.i, label %58, label %57
 
-56:                                               ; preds = %._crit_edge.i
+57:                                               ; preds = %._crit_edge.i
   call void @cmsFreeNamedColorList(ptr noundef nonnull %32) #7
   br label %CreateNamedColorDevicelink.exit
 
-57:                                               ; preds = %._crit_edge.i, %30, %27, %23
-  %58 = call i32 @cmsCloseProfile(ptr noundef nonnull %21) #7
+58:                                               ; preds = %._crit_edge.i, %30, %27, %23
+  %59 = call i32 @cmsCloseProfile(ptr noundef nonnull %21) #7
   br label %CreateNamedColorDevicelink.exit
 
-CreateNamedColorDevicelink.exit:                  ; preds = %18, %56, %57
-  %.0.i = phi ptr [ null, %57 ], [ %21, %56 ], [ null, %18 ]
+CreateNamedColorDevicelink.exit:                  ; preds = %18, %57, %58
+  %.0.i = phi ptr [ null, %58 ], [ %21, %57 ], [ null, %18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %244
+  br label %245
 
-59:                                               ; preds = %15, %13
-  %60 = load ptr, ptr %10, align 8
-  %61 = tail call ptr @cmsPipelineDup(ptr noundef %60) #7
-  store ptr %61, ptr %8, align 8
-  %62 = icmp eq ptr %61, null
-  br i1 %62, label %244, label %63
+60:                                               ; preds = %15, %13
+  %61 = load ptr, ptr %10, align 8
+  %62 = tail call ptr @cmsPipelineDup(ptr noundef %61) #7
+  store ptr %62, ptr %8, align 8
+  %63 = icmp eq ptr %62, null
+  br i1 %63, label %245, label %64
 
-63:                                               ; preds = %59
-  %64 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %65 = load i32, ptr %64, align 8
-  %66 = icmp eq i32 %65, 1281450528
-  %67 = fcmp olt double %1, 4.000000e+00
-  %or.cond = and i1 %67, %66
-  br i1 %or.cond, label %68, label %71
+64:                                               ; preds = %60
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %66 = load i32, ptr %65, align 8
+  %67 = icmp eq i32 %66, 1281450528
+  %68 = fcmp olt double %1, 4.000000e+00
+  %or.cond = and i1 %68, %67
+  br i1 %or.cond, label %69, label %72
 
-68:                                               ; preds = %63
-  %69 = tail call ptr @_cmsStageAllocLabV2ToV4curves(ptr noundef %9) #7
-  %70 = tail call i32 @cmsPipelineInsertStage(ptr noundef nonnull %61, i32 noundef 0, ptr noundef %69) #7
-  %.not91 = icmp eq i32 %70, 0
-  br i1 %.not91, label %FindCombination.exit172.thread, label %71
+69:                                               ; preds = %64
+  %70 = tail call ptr @_cmsStageAllocLabV2ToV4curves(ptr noundef %9) #7
+  %71 = tail call i32 @cmsPipelineInsertStage(ptr noundef nonnull %62, i32 noundef 0, ptr noundef %70) #7
+  %.not91 = icmp eq i32 %71, 0
+  br i1 %.not91, label %FindCombination.exit172.thread, label %72
 
-71:                                               ; preds = %68, %63
-  %72 = getelementptr inbounds nuw i8, ptr %0, i64 148
-  %73 = load i32, ptr %72, align 4
-  %74 = icmp eq i32 %73, 1281450528
-  %or.cond3 = and i1 %67, %74
-  br i1 %or.cond3, label %75, label %79
+72:                                               ; preds = %69, %64
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 148
+  %74 = load i32, ptr %73, align 4
+  %75 = icmp eq i32 %74, 1281450528
+  %or.cond3 = and i1 %68, %75
+  br i1 %or.cond3, label %76, label %80
 
-75:                                               ; preds = %71
-  %76 = or i32 %2, 4
-  store i32 %76, ptr %5, align 4
-  %77 = tail call ptr @_cmsStageAllocLabV4ToV2(ptr noundef %9) #7
-  %78 = tail call i32 @cmsPipelineInsertStage(ptr noundef nonnull %61, i32 noundef 1, ptr noundef %77) #7
-  %.not92 = icmp eq i32 %78, 0
-  br i1 %.not92, label %FindCombination.exit172.thread, label %79
+76:                                               ; preds = %72
+  %77 = or i32 %2, 4
+  store i32 %77, ptr %5, align 4
+  %78 = tail call ptr @_cmsStageAllocLabV4ToV2(ptr noundef %9) #7
+  %79 = tail call i32 @cmsPipelineInsertStage(ptr noundef nonnull %62, i32 noundef 1, ptr noundef %78) #7
+  %.not92 = icmp eq i32 %79, 0
+  br i1 %.not92, label %FindCombination.exit172.thread, label %80
 
-79:                                               ; preds = %75, %71
-  %80 = phi i32 [ %76, %75 ], [ %2, %71 ]
-  %81 = tail call ptr @cmsCreateProfilePlaceholder(ptr noundef %9) #7
-  %.not93 = icmp eq ptr %81, null
-  br i1 %.not93, label %FindCombination.exit172.thread, label %82
+80:                                               ; preds = %76, %72
+  %81 = phi i32 [ %77, %76 ], [ %2, %72 ]
+  %82 = tail call ptr @cmsCreateProfilePlaceholder(ptr noundef %9) #7
+  %.not93 = icmp eq ptr %82, null
+  br i1 %.not93, label %FindCombination.exit172.thread, label %83
 
-82:                                               ; preds = %79
-  tail call void @cmsSetProfileVersion(ptr noundef nonnull %81, double noundef %1) #7
-  %83 = load i32, ptr %64, align 8
-  %84 = load i32, ptr %72, align 4
-  %85 = and i32 %80, 32
-  %.not.i116 = icmp eq i32 %85, 0
-  br i1 %.not.i116, label %.thread34.i, label %86
+83:                                               ; preds = %80
+  tail call void @cmsSetProfileVersion(ptr noundef nonnull %82, double noundef %1) #7
+  %84 = load i32, ptr %65, align 8
+  %85 = load i32, ptr %73, align 4
+  %86 = and i32 %81, 32
+  %.not.i116 = icmp eq i32 %86, 0
+  br i1 %.not.i116, label %.thread34.i, label %87
 
-86:                                               ; preds = %82
-  switch i32 %83, label %.thread.i [
-    i32 1482250784, label %87
-    i32 1281450528, label %87
-  ]
-
-87:                                               ; preds = %86, %86
-  switch i32 %84, label %89 [
+87:                                               ; preds = %83
+  switch i32 %84, label %.thread.i [
     i32 1482250784, label %88
     i32 1281450528, label %88
   ]
 
 88:                                               ; preds = %87, %87
-  tail call void @cmsSetDeviceClass(ptr noundef nonnull %81, i32 noundef 1633842036) #7
-  tail call void @cmsSetColorSpace(ptr noundef nonnull %81, i32 noundef %83) #7
-  tail call void @cmsSetPCS(ptr noundef nonnull %81, i32 noundef %84) #7
-  br label %FixColorSpaces.exit
-
-89:                                               ; preds = %87
-  tail call void @cmsSetDeviceClass(ptr noundef nonnull %81, i32 noundef 1886549106) #7
-  tail call void @cmsSetPCS(ptr noundef nonnull %81, i32 noundef %83) #7
-  tail call void @cmsSetColorSpace(ptr noundef nonnull %81, i32 noundef %84) #7
-  br label %FixColorSpaces.exit
-
-.thread.i:                                        ; preds = %86
-  switch i32 %84, label %.thread34.i [
-    i32 1482250784, label %90
-    i32 1281450528, label %90
+  switch i32 %85, label %90 [
+    i32 1482250784, label %89
+    i32 1281450528, label %89
   ]
 
-90:                                               ; preds = %.thread.i, %.thread.i
-  tail call void @cmsSetDeviceClass(ptr noundef nonnull %81, i32 noundef 1935896178) #7
-  tail call void @cmsSetColorSpace(ptr noundef nonnull %81, i32 noundef %83) #7
-  tail call void @cmsSetPCS(ptr noundef nonnull %81, i32 noundef %84) #7
+89:                                               ; preds = %88, %88
+  tail call void @cmsSetDeviceClass(ptr noundef nonnull %82, i32 noundef 1633842036) #7
+  tail call void @cmsSetColorSpace(ptr noundef nonnull %82, i32 noundef %84) #7
+  tail call void @cmsSetPCS(ptr noundef nonnull %82, i32 noundef %85) #7
   br label %FixColorSpaces.exit
 
-.thread34.i:                                      ; preds = %.thread.i, %82
-  tail call void @cmsSetDeviceClass(ptr noundef nonnull %81, i32 noundef 1818848875) #7
-  tail call void @cmsSetColorSpace(ptr noundef nonnull %81, i32 noundef %83) #7
-  tail call void @cmsSetPCS(ptr noundef nonnull %81, i32 noundef %84) #7
+90:                                               ; preds = %88
+  tail call void @cmsSetDeviceClass(ptr noundef nonnull %82, i32 noundef 1886549106) #7
+  tail call void @cmsSetPCS(ptr noundef nonnull %82, i32 noundef %84) #7
+  tail call void @cmsSetColorSpace(ptr noundef nonnull %82, i32 noundef %85) #7
   br label %FixColorSpaces.exit
 
-FixColorSpaces.exit:                              ; preds = %88, %89, %90, %.thread34.i
-  %91 = load i32, ptr %64, align 8
-  %92 = tail call i32 @cmsChannelsOfColorSpace(i32 noundef %91) #7
-  %93 = load i32, ptr %72, align 4
-  %94 = tail call i32 @cmsChannelsOfColorSpace(i32 noundef %93) #7
-  %95 = load i32, ptr %64, align 8
-  %96 = tail call i32 @_cmsLCMScolorSpace(i32 noundef %95) #7
-  %97 = load i32, ptr %72, align 4
-  %98 = tail call i32 @_cmsLCMScolorSpace(i32 noundef %97) #7
-  %99 = shl i32 %96, 16
-  %100 = shl i32 %92, 3
-  %101 = or i32 %100, %99
-  %102 = or disjoint i32 %101, 2
-  store i32 %102, ptr %6, align 4
-  %103 = shl i32 %98, 16
-  %104 = shl i32 %94, 3
-  %105 = or i32 %104, %103
-  %106 = or disjoint i32 %105, 2
-  store i32 %106, ptr %7, align 4
-  %107 = tail call i32 @cmsGetDeviceClass(ptr noundef nonnull %81) #7
-  %108 = icmp eq i32 %107, 1886549106
-  %. = select i1 %108, i32 1110589744, i32 1093812784
-  %109 = and i32 %80, 2
-  %.not94 = icmp eq i32 %109, 0
-  br i1 %.not94, label %110, label %.critedge
+.thread.i:                                        ; preds = %87
+  switch i32 %85, label %.thread34.i [
+    i32 1482250784, label %91
+    i32 1281450528, label %91
+  ]
 
-110:                                              ; preds = %FixColorSpaces.exit
-  %111 = fcmp oge double %1, 4.000000e+00
-  %112 = zext i1 %111 to i32
-  br label %113
+91:                                               ; preds = %.thread.i, %.thread.i
+  tail call void @cmsSetDeviceClass(ptr noundef nonnull %82, i32 noundef 1935896178) #7
+  tail call void @cmsSetColorSpace(ptr noundef nonnull %82, i32 noundef %84) #7
+  tail call void @cmsSetPCS(ptr noundef nonnull %82, i32 noundef %85) #7
+  br label %FixColorSpaces.exit
 
-113:                                              ; preds = %CheckOne.exit.thread.i, %110
-  %indvars.iv.i = phi i64 [ 0, %110 ], [ %indvars.iv.next.i, %CheckOne.exit.thread.i ]
-  %114 = getelementptr inbounds nuw %struct.cmsAllowedLUT, ptr @AllowedLUTTypes, i64 %indvars.iv.i
-  %115 = load i32, ptr %114, align 4
-  %.not.i117 = icmp eq i32 %115, %112
-  br i1 %.not.i117, label %116, label %CheckOne.exit.thread.i
+.thread34.i:                                      ; preds = %.thread.i, %83
+  tail call void @cmsSetDeviceClass(ptr noundef nonnull %82, i32 noundef 1818848875) #7
+  tail call void @cmsSetColorSpace(ptr noundef nonnull %82, i32 noundef %84) #7
+  tail call void @cmsSetPCS(ptr noundef nonnull %82, i32 noundef %85) #7
+  br label %FixColorSpaces.exit
 
-116:                                              ; preds = %113
+FixColorSpaces.exit:                              ; preds = %89, %90, %91, %.thread34.i
+  %92 = load i32, ptr %65, align 8
+  %93 = tail call i32 @cmsChannelsOfColorSpace(i32 noundef %92) #7
+  %94 = load i32, ptr %73, align 4
+  %95 = tail call i32 @cmsChannelsOfColorSpace(i32 noundef %94) #7
+  %96 = load i32, ptr %65, align 8
+  %97 = tail call i32 @_cmsLCMScolorSpace(i32 noundef %96) #7
+  %98 = load i32, ptr %73, align 4
+  %99 = tail call i32 @_cmsLCMScolorSpace(i32 noundef %98) #7
+  %100 = shl i32 %97, 16
+  %101 = shl i32 %93, 3
+  %102 = or i32 %101, %100
+  %103 = or disjoint i32 %102, 2
+  store i32 %103, ptr %6, align 4
+  %104 = shl i32 %99, 16
+  %105 = shl i32 %95, 3
+  %106 = or i32 %105, %104
+  %107 = or disjoint i32 %106, 2
+  store i32 %107, ptr %7, align 4
+  %108 = tail call i32 @cmsGetDeviceClass(ptr noundef nonnull %82) #7
+  %109 = icmp eq i32 %108, 1886549106
+  %. = select i1 %109, i32 1110589744, i32 1093812784
+  %110 = and i32 %81, 2
+  %.not94 = icmp eq i32 %110, 0
+  br i1 %.not94, label %111, label %.critedge
+
+111:                                              ; preds = %FixColorSpaces.exit
+  %112 = fcmp oge double %1, 4.000000e+00
+  %113 = zext i1 %112 to i32
+  br label %114
+
+114:                                              ; preds = %CheckOne.exit.thread.i, %111
+  %indvars.iv.i = phi i64 [ 0, %111 ], [ %indvars.iv.next.i, %CheckOne.exit.thread.i ]
+  %115 = getelementptr inbounds nuw %struct.cmsAllowedLUT, ptr @AllowedLUTTypes, i64 %indvars.iv.i
+  %116 = load i32, ptr %115, align 4
+  %.not.i117 = icmp eq i32 %116, %113
+  br i1 %.not.i117, label %117, label %CheckOne.exit.thread.i
+
+117:                                              ; preds = %114
   %.not14.i = icmp samesign ult i64 %indvars.iv.i, 4
-  br i1 %.not14.i, label %120, label %117
+  br i1 %.not14.i, label %121, label %118
 
-117:                                              ; preds = %116
-  %118 = getelementptr inbounds nuw i8, ptr %114, i64 4
-  %119 = load i32, ptr %118, align 4
-  %.not15.i = icmp eq i32 %119, %.
-  br i1 %.not15.i, label %120, label %CheckOne.exit.thread.i
+118:                                              ; preds = %117
+  %119 = getelementptr inbounds nuw i8, ptr %115, i64 4
+  %120 = load i32, ptr %119, align 4
+  %.not15.i = icmp eq i32 %120, %.
+  br i1 %.not15.i, label %121, label %CheckOne.exit.thread.i
 
-120:                                              ; preds = %117, %116
-  %.01116.i.i = load ptr, ptr %61, align 8
+121:                                              ; preds = %118, %117
+  %.01116.i.i = load ptr, ptr %62, align 8
   %.not17.i.i = icmp eq ptr %.01116.i.i, null
-  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %114, i64 12
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %115, i64 12
   br i1 %.not17.i.i, label %.CheckOne.exit_crit_edge.i, label %.lr.ph.i.i
 
-.CheckOne.exit_crit_edge.i:                       ; preds = %120
+.CheckOne.exit_crit_edge.i:                       ; preds = %121
   %.pre.i = load i32, ptr %.phi.trans.insert.i, align 4
   br label %CheckOne.exit.i
 
-.lr.ph.i.i:                                       ; preds = %120
-  %121 = getelementptr inbounds nuw i8, ptr %114, i64 16
-  %122 = load i32, ptr %.phi.trans.insert.i, align 4
-  %123 = tail call i32 @llvm.smax.i32(i32 %122, i32 0)
-  %smax.i = zext nneg i32 %123 to i64
-  br label %124
+.lr.ph.i.i:                                       ; preds = %121
+  %122 = getelementptr inbounds nuw i8, ptr %115, i64 16
+  %123 = load i32, ptr %.phi.trans.insert.i, align 4
+  %124 = tail call i32 @llvm.smax.i32(i32 %123, i32 0)
+  %smax.i = zext nneg i32 %124 to i64
+  br label %125
 
-124:                                              ; preds = %129, %.lr.ph.i.i
-  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %129 ]
-  %.01119.i.i = phi ptr [ %.01116.i.i, %.lr.ph.i.i ], [ %.011.i.i, %129 ]
+125:                                              ; preds = %130, %.lr.ph.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %130 ]
+  %.01119.i.i = phi ptr [ %.01116.i.i, %.lr.ph.i.i ], [ %.011.i.i, %130 ]
   %exitcond.not.i = icmp eq i64 %indvars.iv.i.i, %smax.i
-  br i1 %exitcond.not.i, label %CheckOne.exit.thread.i, label %125
+  br i1 %exitcond.not.i, label %CheckOne.exit.thread.i, label %126
 
-125:                                              ; preds = %124
-  %126 = tail call i32 @cmsStageType(ptr noundef nonnull %.01119.i.i) #7
-  %127 = getelementptr inbounds nuw i32, ptr %121, i64 %indvars.iv.i.i
-  %128 = load i32, ptr %127, align 4
-  %.not14.i.i = icmp eq i32 %126, %128
-  br i1 %.not14.i.i, label %129, label %CheckOne.exit.thread.i
+126:                                              ; preds = %125
+  %127 = tail call i32 @cmsStageType(ptr noundef nonnull %.01119.i.i) #7
+  %128 = getelementptr inbounds nuw i32, ptr %122, i64 %indvars.iv.i.i
+  %129 = load i32, ptr %128, align 4
+  %.not14.i.i = icmp eq i32 %127, %129
+  br i1 %.not14.i.i, label %130, label %CheckOne.exit.thread.i
 
-129:                                              ; preds = %125
-  %130 = getelementptr inbounds nuw i8, ptr %.01119.i.i, i64 56
+130:                                              ; preds = %126
+  %131 = getelementptr inbounds nuw i8, ptr %.01119.i.i, i64 56
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %.011.i.i = load ptr, ptr %130, align 8
+  %.011.i.i = load ptr, ptr %131, align 8
   %.not.i.i = icmp eq ptr %.011.i.i, null
-  br i1 %.not.i.i, label %._crit_edge.loopexit.i.i, label %124, !llvm.loop !9
+  br i1 %.not.i.i, label %._crit_edge.loopexit.i.i, label %125, !llvm.loop !9
 
-._crit_edge.loopexit.i.i:                         ; preds = %129
-  %131 = trunc nuw i64 %indvars.iv.next.i.i to i32
+._crit_edge.loopexit.i.i:                         ; preds = %130
+  %132 = trunc nuw i64 %indvars.iv.next.i.i to i32
   br label %CheckOne.exit.i
 
 CheckOne.exit.i:                                  ; preds = %._crit_edge.loopexit.i.i, %.CheckOne.exit_crit_edge.i
-  %132 = phi i32 [ %.pre.i, %.CheckOne.exit_crit_edge.i ], [ %122, %._crit_edge.loopexit.i.i ]
-  %.0.lcssa.i.i = phi i32 [ 0, %.CheckOne.exit_crit_edge.i ], [ %131, %._crit_edge.loopexit.i.i ]
-  %.not19.i = icmp eq i32 %.0.lcssa.i.i, %132
+  %133 = phi i32 [ %.pre.i, %.CheckOne.exit_crit_edge.i ], [ %123, %._crit_edge.loopexit.i.i ]
+  %.0.lcssa.i.i = phi i32 [ 0, %.CheckOne.exit_crit_edge.i ], [ %132, %._crit_edge.loopexit.i.i ]
+  %.not19.i = icmp eq i32 %.0.lcssa.i.i, %133
   br i1 %.not19.i, label %.critedge115, label %CheckOne.exit.thread.i
 
-CheckOne.exit.thread.i:                           ; preds = %125, %124, %CheckOne.exit.i, %117, %113
+CheckOne.exit.thread.i:                           ; preds = %126, %125, %CheckOne.exit.i, %118, %114
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond22.not.i = icmp eq i64 %indvars.iv.next.i, 11
-  br i1 %exitcond22.not.i, label %.critedge, label %113, !llvm.loop !10
+  br i1 %exitcond22.not.i, label %.critedge, label %114, !llvm.loop !10
 
 .critedge:                                        ; preds = %CheckOne.exit.thread.i, %FixColorSpaces.exit
-  %133 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  %134 = load i32, ptr %133, align 8
-  %135 = call i32 @_cmsOptimizePipeline(ptr noundef %9, ptr noundef nonnull %8, i32 noundef %134, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %5) #7
-  %136 = load ptr, ptr %8, align 8
-  %137 = fcmp oge double %1, 4.000000e+00
-  %138 = zext i1 %137 to i32
-  br label %139
+  %134 = getelementptr inbounds nuw i8, ptr %0, i64 224
+  %135 = load i32, ptr %134, align 8
+  %136 = call i32 @_cmsOptimizePipeline(ptr noundef %9, ptr noundef nonnull %8, i32 noundef %135, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %5) #7
+  %137 = load ptr, ptr %8, align 8
+  %138 = fcmp oge double %1, 4.000000e+00
+  %139 = zext i1 %138 to i32
+  br label %140
 
-139:                                              ; preds = %CheckOne.exit.thread.i121, %.critedge
+140:                                              ; preds = %CheckOne.exit.thread.i121, %.critedge
   %indvars.iv.i119 = phi i64 [ 0, %.critedge ], [ %indvars.iv.next.i122, %CheckOne.exit.thread.i121 ]
-  %140 = getelementptr inbounds nuw %struct.cmsAllowedLUT, ptr @AllowedLUTTypes, i64 %indvars.iv.i119
-  %141 = load i32, ptr %140, align 4
-  %.not.i120 = icmp eq i32 %141, %138
-  br i1 %.not.i120, label %142, label %CheckOne.exit.thread.i121
+  %141 = getelementptr inbounds nuw %struct.cmsAllowedLUT, ptr @AllowedLUTTypes, i64 %indvars.iv.i119
+  %142 = load i32, ptr %141, align 4
+  %.not.i120 = icmp eq i32 %142, %139
+  br i1 %.not.i120, label %143, label %CheckOne.exit.thread.i121
 
-142:                                              ; preds = %139
+143:                                              ; preds = %140
   %.not14.i125 = icmp samesign ult i64 %indvars.iv.i119, 4
-  br i1 %.not14.i125, label %146, label %143
+  br i1 %.not14.i125, label %147, label %144
 
-143:                                              ; preds = %142
-  %144 = getelementptr inbounds nuw i8, ptr %140, i64 4
-  %145 = load i32, ptr %144, align 4
-  %.not15.i126 = icmp eq i32 %145, %.
-  br i1 %.not15.i126, label %146, label %CheckOne.exit.thread.i121
+144:                                              ; preds = %143
+  %145 = getelementptr inbounds nuw i8, ptr %141, i64 4
+  %146 = load i32, ptr %145, align 4
+  %.not15.i126 = icmp eq i32 %146, %.
+  br i1 %.not15.i126, label %147, label %CheckOne.exit.thread.i121
 
-146:                                              ; preds = %143, %142
-  %.01116.i.i127 = load ptr, ptr %136, align 8
+147:                                              ; preds = %144, %143
+  %.01116.i.i127 = load ptr, ptr %137, align 8
   %.not17.i.i128 = icmp eq ptr %.01116.i.i127, null
-  %.phi.trans.insert.i129 = getelementptr inbounds nuw i8, ptr %140, i64 12
+  %.phi.trans.insert.i129 = getelementptr inbounds nuw i8, ptr %141, i64 12
   br i1 %.not17.i.i128, label %.CheckOne.exit_crit_edge.i143, label %.lr.ph.i.i130
 
-.CheckOne.exit_crit_edge.i143:                    ; preds = %146
+.CheckOne.exit_crit_edge.i143:                    ; preds = %147
   %.pre.i144 = load i32, ptr %.phi.trans.insert.i129, align 4
   br label %CheckOne.exit.i140
 
-.lr.ph.i.i130:                                    ; preds = %146
-  %147 = getelementptr inbounds nuw i8, ptr %140, i64 16
-  %148 = load i32, ptr %.phi.trans.insert.i129, align 4
-  %149 = call i32 @llvm.smax.i32(i32 %148, i32 0)
-  %smax.i131 = zext nneg i32 %149 to i64
-  br label %150
+.lr.ph.i.i130:                                    ; preds = %147
+  %148 = getelementptr inbounds nuw i8, ptr %141, i64 16
+  %149 = load i32, ptr %.phi.trans.insert.i129, align 4
+  %150 = call i32 @llvm.smax.i32(i32 %149, i32 0)
+  %smax.i131 = zext nneg i32 %150 to i64
+  br label %151
 
-150:                                              ; preds = %155, %.lr.ph.i.i130
-  %indvars.iv.i.i132 = phi i64 [ 0, %.lr.ph.i.i130 ], [ %indvars.iv.next.i.i136, %155 ]
-  %.01119.i.i133 = phi ptr [ %.01116.i.i127, %.lr.ph.i.i130 ], [ %.011.i.i137, %155 ]
+151:                                              ; preds = %156, %.lr.ph.i.i130
+  %indvars.iv.i.i132 = phi i64 [ 0, %.lr.ph.i.i130 ], [ %indvars.iv.next.i.i136, %156 ]
+  %.01119.i.i133 = phi ptr [ %.01116.i.i127, %.lr.ph.i.i130 ], [ %.011.i.i137, %156 ]
   %exitcond.not.i134 = icmp eq i64 %indvars.iv.i.i132, %smax.i131
-  br i1 %exitcond.not.i134, label %CheckOne.exit.thread.i121, label %151
+  br i1 %exitcond.not.i134, label %CheckOne.exit.thread.i121, label %152
 
-151:                                              ; preds = %150
-  %152 = call i32 @cmsStageType(ptr noundef nonnull %.01119.i.i133) #7
-  %153 = getelementptr inbounds nuw i32, ptr %147, i64 %indvars.iv.i.i132
-  %154 = load i32, ptr %153, align 4
-  %.not14.i.i135 = icmp eq i32 %152, %154
-  br i1 %.not14.i.i135, label %155, label %CheckOne.exit.thread.i121
+152:                                              ; preds = %151
+  %153 = call i32 @cmsStageType(ptr noundef nonnull %.01119.i.i133) #7
+  %154 = getelementptr inbounds nuw i32, ptr %148, i64 %indvars.iv.i.i132
+  %155 = load i32, ptr %154, align 4
+  %.not14.i.i135 = icmp eq i32 %153, %155
+  br i1 %.not14.i.i135, label %156, label %CheckOne.exit.thread.i121
 
-155:                                              ; preds = %151
-  %156 = getelementptr inbounds nuw i8, ptr %.01119.i.i133, i64 56
+156:                                              ; preds = %152
+  %157 = getelementptr inbounds nuw i8, ptr %.01119.i.i133, i64 56
   %indvars.iv.next.i.i136 = add nuw nsw i64 %indvars.iv.i.i132, 1
-  %.011.i.i137 = load ptr, ptr %156, align 8
+  %.011.i.i137 = load ptr, ptr %157, align 8
   %.not.i.i138 = icmp eq ptr %.011.i.i137, null
-  br i1 %.not.i.i138, label %._crit_edge.loopexit.i.i139, label %150, !llvm.loop !9
+  br i1 %.not.i.i138, label %._crit_edge.loopexit.i.i139, label %151, !llvm.loop !9
 
-._crit_edge.loopexit.i.i139:                      ; preds = %155
-  %157 = trunc nuw i64 %indvars.iv.next.i.i136 to i32
+._crit_edge.loopexit.i.i139:                      ; preds = %156
+  %158 = trunc nuw i64 %indvars.iv.next.i.i136 to i32
   br label %CheckOne.exit.i140
 
 CheckOne.exit.i140:                               ; preds = %._crit_edge.loopexit.i.i139, %.CheckOne.exit_crit_edge.i143
-  %158 = phi i32 [ %.pre.i144, %.CheckOne.exit_crit_edge.i143 ], [ %148, %._crit_edge.loopexit.i.i139 ]
-  %.0.lcssa.i.i141 = phi i32 [ 0, %.CheckOne.exit_crit_edge.i143 ], [ %157, %._crit_edge.loopexit.i.i139 ]
-  %.not19.i142 = icmp eq i32 %.0.lcssa.i.i141, %158
+  %159 = phi i32 [ %.pre.i144, %.CheckOne.exit_crit_edge.i143 ], [ %149, %._crit_edge.loopexit.i.i139 ]
+  %.0.lcssa.i.i141 = phi i32 [ 0, %.CheckOne.exit_crit_edge.i143 ], [ %158, %._crit_edge.loopexit.i.i139 ]
+  %.not19.i142 = icmp eq i32 %.0.lcssa.i.i141, %159
   br i1 %.not19.i142, label %.critedge115, label %CheckOne.exit.thread.i121
 
-CheckOne.exit.thread.i121:                        ; preds = %151, %150, %CheckOne.exit.i140, %143, %139
+CheckOne.exit.thread.i121:                        ; preds = %152, %151, %CheckOne.exit.i140, %144, %140
   %indvars.iv.next.i122 = add nuw nsw i64 %indvars.iv.i119, 1
   %exitcond22.not.i123 = icmp eq i64 %indvars.iv.next.i122, 11
-  br i1 %exitcond22.not.i123, label %159, label %139, !llvm.loop !10
+  br i1 %exitcond22.not.i123, label %160, label %140, !llvm.loop !10
 
-159:                                              ; preds = %CheckOne.exit.thread.i121
-  %160 = load i32, ptr %5, align 4
-  %161 = or i32 %160, 2
-  store i32 %161, ptr %5, align 4
-  %162 = load i32, ptr %133, align 8
-  %163 = call i32 @_cmsOptimizePipeline(ptr noundef %9, ptr noundef nonnull %8, i32 noundef %162, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %5) #7
-  %164 = load ptr, ptr %8, align 8
-  %165 = call ptr @cmsPipelineGetPtrToFirstStage(ptr noundef %164) #7
-  %.not95 = icmp eq ptr %165, null
-  br i1 %.not95, label %173, label %166
+160:                                              ; preds = %CheckOne.exit.thread.i121
+  %161 = load i32, ptr %5, align 4
+  %162 = or i32 %161, 2
+  store i32 %162, ptr %5, align 4
+  %163 = load i32, ptr %134, align 8
+  %164 = call i32 @_cmsOptimizePipeline(ptr noundef %9, ptr noundef nonnull %8, i32 noundef %163, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %5) #7
+  %165 = load ptr, ptr %8, align 8
+  %166 = call ptr @cmsPipelineGetPtrToFirstStage(ptr noundef %165) #7
+  %.not95 = icmp eq ptr %166, null
+  br i1 %.not95, label %174, label %167
 
-166:                                              ; preds = %159
-  %167 = getelementptr inbounds nuw i8, ptr %165, i64 8
-  %168 = load i32, ptr %167, align 8
-  %.not96 = icmp eq i32 %168, 1668707188
-  br i1 %.not96, label %173, label %169
+167:                                              ; preds = %160
+  %168 = getelementptr inbounds nuw i8, ptr %166, i64 8
+  %169 = load i32, ptr %168, align 8
+  %.not96 = icmp eq i32 %169, 1668707188
+  br i1 %.not96, label %174, label %170
 
-169:                                              ; preds = %166
-  %170 = load ptr, ptr %8, align 8
-  %171 = call ptr @_cmsStageAllocIdentityCurves(ptr noundef %9, i32 noundef %92) #7
-  %172 = call i32 @cmsPipelineInsertStage(ptr noundef %170, i32 noundef 0, ptr noundef %171) #7
-  %.not97 = icmp eq i32 %172, 0
-  br i1 %.not97, label %FindCombination.exit172.thread, label %173
+170:                                              ; preds = %167
+  %171 = load ptr, ptr %8, align 8
+  %172 = call ptr @_cmsStageAllocIdentityCurves(ptr noundef %9, i32 noundef %93) #7
+  %173 = call i32 @cmsPipelineInsertStage(ptr noundef %171, i32 noundef 0, ptr noundef %172) #7
+  %.not97 = icmp eq i32 %173, 0
+  br i1 %.not97, label %FindCombination.exit172.thread, label %174
 
-173:                                              ; preds = %169, %166, %159
-  %174 = load ptr, ptr %8, align 8
-  %175 = call ptr @cmsPipelineGetPtrToLastStage(ptr noundef %174) #7
-  %.not98 = icmp eq ptr %175, null
-  br i1 %.not98, label %.critedge114, label %176
+174:                                              ; preds = %170, %167, %160
+  %175 = load ptr, ptr %8, align 8
+  %176 = call ptr @cmsPipelineGetPtrToLastStage(ptr noundef %175) #7
+  %.not98 = icmp eq ptr %176, null
+  br i1 %.not98, label %.critedge114, label %177
 
-176:                                              ; preds = %173
-  %177 = getelementptr inbounds nuw i8, ptr %175, i64 8
-  %178 = load i32, ptr %177, align 8
-  %.not99 = icmp eq i32 %178, 1668707188
-  br i1 %.not99, label %.critedge114, label %179
+177:                                              ; preds = %174
+  %178 = getelementptr inbounds nuw i8, ptr %176, i64 8
+  %179 = load i32, ptr %178, align 8
+  %.not99 = icmp eq i32 %179, 1668707188
+  br i1 %.not99, label %.critedge114, label %180
 
-179:                                              ; preds = %176
-  %180 = load ptr, ptr %8, align 8
-  %181 = call ptr @_cmsStageAllocIdentityCurves(ptr noundef %9, i32 noundef %94) #7
-  %182 = call i32 @cmsPipelineInsertStage(ptr noundef %180, i32 noundef 1, ptr noundef %181) #7
-  %.not100 = icmp eq i32 %182, 0
+180:                                              ; preds = %177
+  %181 = load ptr, ptr %8, align 8
+  %182 = call ptr @_cmsStageAllocIdentityCurves(ptr noundef %9, i32 noundef %95) #7
+  %183 = call i32 @cmsPipelineInsertStage(ptr noundef %181, i32 noundef 1, ptr noundef %182) #7
+  %.not100 = icmp eq i32 %183, 0
   br i1 %.not100, label %FindCombination.exit172.thread, label %.critedge114
 
-.critedge114:                                     ; preds = %179, %176, %173
-  %183 = load ptr, ptr %8, align 8
-  br label %184
+.critedge114:                                     ; preds = %180, %177, %174
+  %184 = load ptr, ptr %8, align 8
+  br label %185
 
-184:                                              ; preds = %CheckOne.exit.thread.i148, %.critedge114
+185:                                              ; preds = %CheckOne.exit.thread.i148, %.critedge114
   %indvars.iv.i146 = phi i64 [ 0, %.critedge114 ], [ %indvars.iv.next.i149, %CheckOne.exit.thread.i148 ]
-  %185 = getelementptr inbounds nuw %struct.cmsAllowedLUT, ptr @AllowedLUTTypes, i64 %indvars.iv.i146
-  %186 = load i32, ptr %185, align 4
-  %.not.i147 = icmp eq i32 %186, %138
-  br i1 %.not.i147, label %187, label %CheckOne.exit.thread.i148
+  %186 = getelementptr inbounds nuw %struct.cmsAllowedLUT, ptr @AllowedLUTTypes, i64 %indvars.iv.i146
+  %187 = load i32, ptr %186, align 4
+  %.not.i147 = icmp eq i32 %187, %139
+  br i1 %.not.i147, label %188, label %CheckOne.exit.thread.i148
 
-187:                                              ; preds = %184
+188:                                              ; preds = %185
   %.not14.i152 = icmp samesign ult i64 %indvars.iv.i146, 4
-  br i1 %.not14.i152, label %191, label %188
+  br i1 %.not14.i152, label %192, label %189
 
-188:                                              ; preds = %187
-  %189 = getelementptr inbounds nuw i8, ptr %185, i64 4
-  %190 = load i32, ptr %189, align 4
-  %.not15.i153 = icmp eq i32 %190, %.
-  br i1 %.not15.i153, label %191, label %CheckOne.exit.thread.i148
+189:                                              ; preds = %188
+  %190 = getelementptr inbounds nuw i8, ptr %186, i64 4
+  %191 = load i32, ptr %190, align 4
+  %.not15.i153 = icmp eq i32 %191, %.
+  br i1 %.not15.i153, label %192, label %CheckOne.exit.thread.i148
 
-191:                                              ; preds = %188, %187
-  %.01116.i.i154 = load ptr, ptr %183, align 8
+192:                                              ; preds = %189, %188
+  %.01116.i.i154 = load ptr, ptr %184, align 8
   %.not17.i.i155 = icmp eq ptr %.01116.i.i154, null
-  %.phi.trans.insert.i156 = getelementptr inbounds nuw i8, ptr %185, i64 12
+  %.phi.trans.insert.i156 = getelementptr inbounds nuw i8, ptr %186, i64 12
   br i1 %.not17.i.i155, label %.CheckOne.exit_crit_edge.i170, label %.lr.ph.i.i157
 
-.CheckOne.exit_crit_edge.i170:                    ; preds = %191
+.CheckOne.exit_crit_edge.i170:                    ; preds = %192
   %.pre.i171 = load i32, ptr %.phi.trans.insert.i156, align 4
   br label %CheckOne.exit.i167
 
-.lr.ph.i.i157:                                    ; preds = %191
-  %192 = getelementptr inbounds nuw i8, ptr %185, i64 16
-  %193 = load i32, ptr %.phi.trans.insert.i156, align 4
-  %194 = call i32 @llvm.smax.i32(i32 %193, i32 0)
-  %smax.i158 = zext nneg i32 %194 to i64
-  br label %195
+.lr.ph.i.i157:                                    ; preds = %192
+  %193 = getelementptr inbounds nuw i8, ptr %186, i64 16
+  %194 = load i32, ptr %.phi.trans.insert.i156, align 4
+  %195 = call i32 @llvm.smax.i32(i32 %194, i32 0)
+  %smax.i158 = zext nneg i32 %195 to i64
+  br label %196
 
-195:                                              ; preds = %200, %.lr.ph.i.i157
-  %indvars.iv.i.i159 = phi i64 [ 0, %.lr.ph.i.i157 ], [ %indvars.iv.next.i.i163, %200 ]
-  %.01119.i.i160 = phi ptr [ %.01116.i.i154, %.lr.ph.i.i157 ], [ %.011.i.i164, %200 ]
+196:                                              ; preds = %201, %.lr.ph.i.i157
+  %indvars.iv.i.i159 = phi i64 [ 0, %.lr.ph.i.i157 ], [ %indvars.iv.next.i.i163, %201 ]
+  %.01119.i.i160 = phi ptr [ %.01116.i.i154, %.lr.ph.i.i157 ], [ %.011.i.i164, %201 ]
   %exitcond.not.i161 = icmp eq i64 %indvars.iv.i.i159, %smax.i158
-  br i1 %exitcond.not.i161, label %CheckOne.exit.thread.i148, label %196
+  br i1 %exitcond.not.i161, label %CheckOne.exit.thread.i148, label %197
 
-196:                                              ; preds = %195
-  %197 = call i32 @cmsStageType(ptr noundef nonnull %.01119.i.i160) #7
-  %198 = getelementptr inbounds nuw i32, ptr %192, i64 %indvars.iv.i.i159
-  %199 = load i32, ptr %198, align 4
-  %.not14.i.i162 = icmp eq i32 %197, %199
-  br i1 %.not14.i.i162, label %200, label %CheckOne.exit.thread.i148
+197:                                              ; preds = %196
+  %198 = call i32 @cmsStageType(ptr noundef nonnull %.01119.i.i160) #7
+  %199 = getelementptr inbounds nuw i32, ptr %193, i64 %indvars.iv.i.i159
+  %200 = load i32, ptr %199, align 4
+  %.not14.i.i162 = icmp eq i32 %198, %200
+  br i1 %.not14.i.i162, label %201, label %CheckOne.exit.thread.i148
 
-200:                                              ; preds = %196
-  %201 = getelementptr inbounds nuw i8, ptr %.01119.i.i160, i64 56
+201:                                              ; preds = %197
+  %202 = getelementptr inbounds nuw i8, ptr %.01119.i.i160, i64 56
   %indvars.iv.next.i.i163 = add nuw nsw i64 %indvars.iv.i.i159, 1
-  %.011.i.i164 = load ptr, ptr %201, align 8
+  %.011.i.i164 = load ptr, ptr %202, align 8
   %.not.i.i165 = icmp eq ptr %.011.i.i164, null
-  br i1 %.not.i.i165, label %._crit_edge.loopexit.i.i166, label %195, !llvm.loop !9
+  br i1 %.not.i.i165, label %._crit_edge.loopexit.i.i166, label %196, !llvm.loop !9
 
-._crit_edge.loopexit.i.i166:                      ; preds = %200
-  %202 = trunc nuw i64 %indvars.iv.next.i.i163 to i32
+._crit_edge.loopexit.i.i166:                      ; preds = %201
+  %203 = trunc nuw i64 %indvars.iv.next.i.i163 to i32
   br label %CheckOne.exit.i167
 
 CheckOne.exit.i167:                               ; preds = %._crit_edge.loopexit.i.i166, %.CheckOne.exit_crit_edge.i170
-  %203 = phi i32 [ %.pre.i171, %.CheckOne.exit_crit_edge.i170 ], [ %193, %._crit_edge.loopexit.i.i166 ]
-  %.0.lcssa.i.i168 = phi i32 [ 0, %.CheckOne.exit_crit_edge.i170 ], [ %202, %._crit_edge.loopexit.i.i166 ]
-  %.not19.i169 = icmp eq i32 %.0.lcssa.i.i168, %203
+  %204 = phi i32 [ %.pre.i171, %.CheckOne.exit_crit_edge.i170 ], [ %194, %._crit_edge.loopexit.i.i166 ]
+  %.0.lcssa.i.i168 = phi i32 [ 0, %.CheckOne.exit_crit_edge.i170 ], [ %203, %._crit_edge.loopexit.i.i166 ]
+  %.not19.i169 = icmp eq i32 %.0.lcssa.i.i168, %204
   br i1 %.not19.i169, label %.critedge115, label %CheckOne.exit.thread.i148
 
-CheckOne.exit.thread.i148:                        ; preds = %196, %195, %CheckOne.exit.i167, %188, %184
+CheckOne.exit.thread.i148:                        ; preds = %197, %196, %CheckOne.exit.i167, %189, %185
   %indvars.iv.next.i149 = add nuw nsw i64 %indvars.iv.i146, 1
   %exitcond22.not.i150 = icmp eq i64 %indvars.iv.next.i149, 11
-  br i1 %exitcond22.not.i150, label %FindCombination.exit172.thread, label %184, !llvm.loop !10
+  br i1 %exitcond22.not.i150, label %FindCombination.exit172.thread, label %185, !llvm.loop !10
 
 .critedge115:                                     ; preds = %CheckOne.exit.i, %CheckOne.exit.i140, %CheckOne.exit.i167
-  %204 = load i32, ptr %5, align 4
-  %205 = and i32 %204, 8
-  %.not101 = icmp eq i32 %205, 0
-  br i1 %.not101, label %209, label %206
+  %205 = load i32, ptr %5, align 4
+  %206 = and i32 %205, 8
+  %.not101 = icmp eq i32 %206, 0
+  br i1 %.not101, label %210, label %207
 
-206:                                              ; preds = %.critedge115
-  %207 = load ptr, ptr %8, align 8
-  %208 = call i32 @cmsPipelineSetSaveAs8bitsFlag(ptr noundef %207, i32 noundef 1) #7
-  br label %209
+207:                                              ; preds = %.critedge115
+  %208 = load ptr, ptr %8, align 8
+  %209 = call i32 @cmsPipelineSetSaveAs8bitsFlag(ptr noundef %208, i32 noundef 1) #7
+  br label %210
 
-209:                                              ; preds = %206, %.critedge115
-  %210 = call fastcc i32 @SetTextTags(ptr noundef %81, ptr noundef nonnull @.str.13)
-  %.not102 = icmp eq i32 %210, 0
-  br i1 %.not102, label %FindCombination.exit172.thread, label %211
+210:                                              ; preds = %207, %.critedge115
+  %211 = call fastcc i32 @SetTextTags(ptr noundef %82, ptr noundef nonnull @.str.13)
+  %.not102 = icmp eq i32 %211, 0
+  br i1 %.not102, label %FindCombination.exit172.thread, label %212
 
-211:                                              ; preds = %209
-  %212 = load ptr, ptr %8, align 8
-  %213 = call i32 @cmsWriteTag(ptr noundef nonnull %81, i32 noundef %., ptr noundef %212) #7
-  %.not103 = icmp eq i32 %213, 0
-  br i1 %.not103, label %FindCombination.exit172.thread, label %214
+212:                                              ; preds = %210
+  %213 = load ptr, ptr %8, align 8
+  %214 = call i32 @cmsWriteTag(ptr noundef nonnull %82, i32 noundef %., ptr noundef %213) #7
+  %.not103 = icmp eq i32 %214, 0
+  br i1 %.not103, label %FindCombination.exit172.thread, label %215
 
-214:                                              ; preds = %211
-  %215 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %216 = load ptr, ptr %215, align 8
-  %.not104 = icmp eq ptr %216, null
-  br i1 %.not104, label %219, label %217
+215:                                              ; preds = %212
+  %216 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %217 = load ptr, ptr %216, align 8
+  %.not104 = icmp eq ptr %217, null
+  br i1 %.not104, label %220, label %218
 
-217:                                              ; preds = %214
-  %218 = call i32 @cmsWriteTag(ptr noundef nonnull %81, i32 noundef 1668051572, ptr noundef nonnull %216) #7
-  %.not105 = icmp eq i32 %218, 0
-  br i1 %.not105, label %FindCombination.exit172.thread, label %219
+218:                                              ; preds = %215
+  %219 = call i32 @cmsWriteTag(ptr noundef nonnull %82, i32 noundef 1668051572, ptr noundef nonnull %217) #7
+  %.not105 = icmp eq i32 %219, 0
+  br i1 %.not105, label %FindCombination.exit172.thread, label %220
 
-219:                                              ; preds = %217, %214
-  %220 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %221 = load ptr, ptr %220, align 8
-  %.not106 = icmp eq ptr %221, null
-  br i1 %.not106, label %224, label %222
+220:                                              ; preds = %218, %215
+  %221 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %222 = load ptr, ptr %221, align 8
+  %.not106 = icmp eq ptr %222, null
+  br i1 %.not106, label %225, label %223
 
-222:                                              ; preds = %219
-  %223 = call i32 @cmsWriteTag(ptr noundef nonnull %81, i32 noundef 1668050804, ptr noundef nonnull %221) #7
-  %.not107 = icmp eq i32 %223, 0
-  br i1 %.not107, label %FindCombination.exit172.thread, label %224
+223:                                              ; preds = %220
+  %224 = call i32 @cmsWriteTag(ptr noundef nonnull %82, i32 noundef 1668050804, ptr noundef nonnull %222) #7
+  %.not107 = icmp eq i32 %224, 0
+  br i1 %.not107, label %FindCombination.exit172.thread, label %225
 
-224:                                              ; preds = %222, %219
-  switch i32 %107, label %233 [
-    i32 1818848875, label %225
-    i32 1935896178, label %230
+225:                                              ; preds = %223, %220
+  switch i32 %108, label %234 [
+    i32 1818848875, label %226
+    i32 1935896178, label %231
   ]
 
-225:                                              ; preds = %224
-  %226 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %227 = load ptr, ptr %226, align 8
-  %.not108 = icmp eq ptr %227, null
-  br i1 %.not108, label %233, label %228
+226:                                              ; preds = %225
+  %227 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  %228 = load ptr, ptr %227, align 8
+  %.not108 = icmp eq ptr %228, null
+  br i1 %.not108, label %234, label %229
 
-228:                                              ; preds = %225
-  %229 = call i32 @_cmsWriteProfileSequence(ptr noundef nonnull %81, ptr noundef nonnull %227) #7
-  %.not109 = icmp eq i32 %229, 0
-  br i1 %.not109, label %FindCombination.exit172.thread, label %233
+229:                                              ; preds = %226
+  %230 = call i32 @_cmsWriteProfileSequence(ptr noundef nonnull %82, ptr noundef nonnull %228) #7
+  %.not109 = icmp eq i32 %230, 0
+  br i1 %.not109, label %FindCombination.exit172.thread, label %234
 
-230:                                              ; preds = %224
-  %231 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %232 = call i32 @cmsWriteTag(ptr noundef nonnull %81, i32 noundef 2004119668, ptr noundef nonnull %231) #7
-  %.not111 = icmp eq i32 %232, 0
-  br i1 %.not111, label %FindCombination.exit172.thread, label %236
+231:                                              ; preds = %225
+  %232 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %233 = call i32 @cmsWriteTag(ptr noundef nonnull %82, i32 noundef 2004119668, ptr noundef nonnull %232) #7
+  %.not111 = icmp eq i32 %233, 0
+  br i1 %.not111, label %FindCombination.exit172.thread, label %237
 
-233:                                              ; preds = %225, %228, %224
-  %234 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %235 = call i32 @cmsWriteTag(ptr noundef nonnull %81, i32 noundef 2004119668, ptr noundef nonnull %234) #7
-  %.not110 = icmp eq i32 %235, 0
-  br i1 %.not110, label %FindCombination.exit172.thread, label %236
+234:                                              ; preds = %226, %229, %225
+  %235 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %236 = call i32 @cmsWriteTag(ptr noundef nonnull %82, i32 noundef 2004119668, ptr noundef nonnull %235) #7
+  %.not110 = icmp eq i32 %236, 0
+  br i1 %.not110, label %FindCombination.exit172.thread, label %237
 
-236:                                              ; preds = %233, %230
-  %237 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  %238 = load i32, ptr %237, align 8
-  call void @cmsSetHeaderRenderingIntent(ptr noundef nonnull %81, i32 noundef %238) #7
-  %239 = load ptr, ptr %8, align 8
-  call void @cmsPipelineFree(ptr noundef %239) #7
-  br label %244
-
-FindCombination.exit172.thread:                   ; preds = %CheckOne.exit.thread.i148, %233, %230, %228, %222, %217, %211, %209, %179, %169, %79, %75, %68
-  %.077 = phi ptr [ %81, %230 ], [ %81, %233 ], [ %81, %228 ], [ %81, %222 ], [ %81, %217 ], [ %81, %211 ], [ %81, %209 ], [ %81, %179 ], [ %81, %169 ], [ null, %79 ], [ null, %75 ], [ null, %68 ], [ %81, %CheckOne.exit.thread.i148 ]
+237:                                              ; preds = %234, %231
+  %238 = getelementptr inbounds nuw i8, ptr %0, i64 224
+  %239 = load i32, ptr %238, align 8
+  call void @cmsSetHeaderRenderingIntent(ptr noundef nonnull %82, i32 noundef %239) #7
   %240 = load ptr, ptr %8, align 8
-  %.not112 = icmp eq ptr %240, null
-  br i1 %.not112, label %242, label %241
+  call void @cmsPipelineFree(ptr noundef %240) #7
+  br label %245
 
-241:                                              ; preds = %FindCombination.exit172.thread
-  call void @cmsPipelineFree(ptr noundef nonnull %240) #7
-  br label %242
+FindCombination.exit172.thread:                   ; preds = %CheckOne.exit.thread.i148, %234, %231, %229, %223, %218, %212, %210, %180, %170, %80, %76, %69
+  %.077 = phi ptr [ %82, %231 ], [ %82, %234 ], [ %82, %229 ], [ %82, %223 ], [ %82, %218 ], [ %82, %212 ], [ %82, %210 ], [ %82, %180 ], [ %82, %170 ], [ null, %80 ], [ null, %76 ], [ null, %69 ], [ %82, %CheckOne.exit.thread.i148 ]
+  %241 = load ptr, ptr %8, align 8
+  %.not112 = icmp eq ptr %241, null
+  br i1 %.not112, label %243, label %242
 
-242:                                              ; preds = %241, %FindCombination.exit172.thread
-  %243 = call i32 @cmsCloseProfile(ptr noundef %.077) #7
-  br label %244
+242:                                              ; preds = %FindCombination.exit172.thread
+  call void @cmsPipelineFree(ptr noundef nonnull %241) #7
+  br label %243
 
-244:                                              ; preds = %59, %3, %242, %236, %CreateNamedColorDevicelink.exit
-  %.0 = phi ptr [ %.0.i, %CreateNamedColorDevicelink.exit ], [ null, %242 ], [ %81, %236 ], [ null, %3 ], [ null, %59 ]
+243:                                              ; preds = %242, %FindCombination.exit172.thread
+  %244 = call i32 @cmsCloseProfile(ptr noundef %.077) #7
+  br label %245
+
+245:                                              ; preds = %60, %3, %243, %237, %CreateNamedColorDevicelink.exit
+  %.0 = phi ptr [ %.0.i, %CreateNamedColorDevicelink.exit ], [ null, %243 ], [ %82, %237 ], [ null, %3 ], [ null, %60 ]
   ret ptr %.0
 }
 

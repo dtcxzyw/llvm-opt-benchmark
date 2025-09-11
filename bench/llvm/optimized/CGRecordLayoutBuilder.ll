@@ -4687,26 +4687,27 @@ _ZNSt6vectorISt4pairIjPKN5clang7CodeGen14CGBitFieldInfoEESaIS6_EED2Ev.exit: ; pr
 .lr.ph89:                                         ; preds = %.lr.ph89.preheader, %_ZN4llvm11raw_ostreamlsEPKc.exit44
   %indvars.iv = phi i64 [ 0, %.lr.ph89.preheader ], [ %indvars.iv.next, %_ZN4llvm11raw_ostreamlsEPKc.exit44 ]
   %184 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream6indentEj(ptr noundef nonnull align 8 dereferenceable(48) %1, i32 noundef 4) #20
-  %185 = getelementptr inbounds nuw %"struct.std::pair.457", ptr %.sroa.060.0.lcssa, i64 %indvars.iv, i32 1
-  %186 = load ptr, ptr %185, align 8, !tbaa !726
-  tail call void @_ZNK5clang7CodeGen14CGBitFieldInfo5printERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(32) %186, ptr noundef nonnull align 8 dereferenceable(48) %1)
-  %187 = load ptr, ptr %3, align 8, !tbaa !541
-  %188 = load ptr, ptr %5, align 8, !tbaa !545
-  %189 = icmp eq ptr %187, %188
-  br i1 %189, label %190, label %192
+  %185 = getelementptr inbounds nuw %"struct.std::pair.457", ptr %.sroa.060.0.lcssa, i64 %indvars.iv
+  %186 = getelementptr inbounds nuw i8, ptr %185, i64 8
+  %187 = load ptr, ptr %186, align 8, !tbaa !726
+  tail call void @_ZNK5clang7CodeGen14CGBitFieldInfo5printERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(32) %187, ptr noundef nonnull align 8 dereferenceable(48) %1)
+  %188 = load ptr, ptr %3, align 8, !tbaa !541
+  %189 = load ptr, ptr %5, align 8, !tbaa !545
+  %190 = icmp eq ptr %188, %189
+  br i1 %190, label %191, label %193
 
-190:                                              ; preds = %.lr.ph89
-  %191 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.7, i64 noundef 1) #20
+191:                                              ; preds = %.lr.ph89
+  %192 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.7, i64 noundef 1) #20
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit44
 
-192:                                              ; preds = %.lr.ph89
-  store i8 10, ptr %188, align 1
-  %193 = load ptr, ptr %5, align 8, !tbaa !545
-  %194 = getelementptr inbounds nuw i8, ptr %193, i64 1
-  store ptr %194, ptr %5, align 8, !tbaa !545
+193:                                              ; preds = %.lr.ph89
+  store i8 10, ptr %189, align 1
+  %194 = load ptr, ptr %5, align 8, !tbaa !545
+  %195 = getelementptr inbounds nuw i8, ptr %194, i64 1
+  store ptr %195, ptr %5, align 8, !tbaa !545
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit44
 
-_ZN4llvm11raw_ostreamlsEPKc.exit44:               ; preds = %190, %192
+_ZN4llvm11raw_ostreamlsEPKc.exit44:               ; preds = %191, %193
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not15 = icmp eq i64 %indvars.iv.next, %123
   br i1 %.not15, label %._crit_edge90, label %.lr.ph89, !llvm.loop !729

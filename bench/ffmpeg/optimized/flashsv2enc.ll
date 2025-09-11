@@ -1520,8 +1520,8 @@ write_bitstream.exit:                             ; preds = %591, %597, %encode_
   %791 = load ptr, ptr %790, align 8, !tbaa !84
   %792 = getelementptr inbounds i8, ptr %791, i64 %787
   store ptr %792, ptr %790, align 8, !tbaa !84
-  %793 = getelementptr inbounds nuw %struct.Block, ptr %788, i64 %indvars.iv.i, i32 1
-  %794 = getelementptr inbounds nuw %struct.Block, ptr %788, i64 %indvars.iv.i, i32 4
+  %793 = getelementptr inbounds nuw i8, ptr %790, i64 8
+  %794 = getelementptr inbounds nuw i8, ptr %790, i64 32
   store ptr null, ptr %794, align 8, !tbaa !95
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i

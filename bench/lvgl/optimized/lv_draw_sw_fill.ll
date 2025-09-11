@@ -9,6 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._lv_draw_sw_mask_radius_param_t = type { %struct._lv_draw_sw_mask_common_dsc_t, %struct.anon, ptr }
 %struct._lv_draw_sw_mask_common_dsc_t = type { ptr, i32 }
 %struct.anon = type { %struct.lv_area_t, i32, i8 }
+%struct.lv_grad_stop_t = type { %struct.lv_color_t, i8, i8 }
 
 ; Function Attrs: nounwind uwtable
 define void @lv_draw_sw_fill(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
@@ -148,8 +149,7 @@ define void @lv_draw_sw_fill(ptr noundef %0, ptr noundef %1, ptr noundef readonl
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %79
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %79 ]
-  %.idx = mul nuw nsw i64 %indvars.iv, 5
-  %80 = getelementptr inbounds nuw i8, ptr %28, i64 %.idx
+  %80 = getelementptr inbounds nuw %struct.lv_grad_stop_t, ptr %28, i64 %indvars.iv
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 3
   %82 = load i8, ptr %81, align 1, !tbaa !37
   %.not = icmp eq i8 %82, -1

@@ -1961,7 +1961,7 @@ thread-pre-split.i:                               ; preds = %10
   br label %_ZN4absl16strings_internal11BigUnsignedILi4EE6DivModILj10EEEjv.exit, !llvm.loop !41
 
 _ZN4absl16strings_internal11BigUnsignedILi4EE6DivModILj10EEEjv.exit: ; preds = %.lr.ph13.i, %.lr.ph13.i.preheader, %._ZN4absl16strings_internal11BigUnsignedILi4EE6DivModILj10EEEjv.exit.loopexit_crit_edge, %thread-pre-split.i
-  %30 = phi i32 [ %.pr.pre.i, %thread-pre-split.i ], [ %28, %._ZN4absl16strings_internal11BigUnsignedILi4EE6DivModILj10EEEjv.exit.loopexit_crit_edge ], [ %.pr.pre.i, %.lr.ph13.i.preheader ], [ %28, %.lr.ph13.i ]
+  %30 = phi i32 [ %.pr.pre.i, %thread-pre-split.i ], [ 0, %._ZN4absl16strings_internal11BigUnsignedILi4EE6DivModILj10EEEjv.exit.loopexit_crit_edge ], [ %.pr.pre.i, %.lr.ph13.i.preheader ], [ %28, %.lr.ph13.i ]
   %31 = trunc nuw nsw i64 %18 to i8
   %32 = or disjoint i8 %31, 48
   %33 = load i64, ptr %5, align 8, !tbaa !38
@@ -4268,7 +4268,7 @@ thread-pre-split.i:                               ; preds = %10
   br label %_ZN4absl16strings_internal11BigUnsignedILi84EE6DivModILj10EEEjv.exit, !llvm.loop !59
 
 _ZN4absl16strings_internal11BigUnsignedILi84EE6DivModILj10EEEjv.exit: ; preds = %.lr.ph13.i, %.lr.ph13.i.preheader, %._ZN4absl16strings_internal11BigUnsignedILi84EE6DivModILj10EEEjv.exit.loopexit_crit_edge, %thread-pre-split.i
-  %30 = phi i32 [ %.pr.pre.i, %thread-pre-split.i ], [ %28, %._ZN4absl16strings_internal11BigUnsignedILi84EE6DivModILj10EEEjv.exit.loopexit_crit_edge ], [ %.pr.pre.i, %.lr.ph13.i.preheader ], [ %28, %.lr.ph13.i ]
+  %30 = phi i32 [ %.pr.pre.i, %thread-pre-split.i ], [ 0, %._ZN4absl16strings_internal11BigUnsignedILi84EE6DivModILj10EEEjv.exit.loopexit_crit_edge ], [ %.pr.pre.i, %.lr.ph13.i.preheader ], [ %28, %.lr.ph13.i ]
   %31 = trunc nuw nsw i64 %18 to i8
   %32 = or disjoint i8 %31, 48
   %33 = load i64, ptr %5, align 8, !tbaa !38

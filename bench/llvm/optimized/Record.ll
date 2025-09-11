@@ -811,12 +811,13 @@ define dso_local noundef ptr @_ZNK5clang6interp6Record7getBaseENS_8QualTypeE(ptr
 
 _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang10RecordDeclEPKNS2_6interp6Record4BaseENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_SA_EEEES5_SA_SC_SF_E6doFindIS5_EEPKSF_RKT_.exit.i: ; preds = %33, %20
   %40 = phi i64 [ %27, %20 ], [ %36, %33 ]
-  %41 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.388", ptr %16, i64 %40, i32 0, i32 1
-  %42 = load ptr, ptr %41, align 8, !tbaa !46
+  %41 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.388", ptr %16, i64 %40
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
+  %43 = load ptr, ptr %42, align 8, !tbaa !46
   br label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang10RecordDeclEPKNS2_6interp6Record4BaseENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_SA_EEEES5_SA_SC_SF_E6lookupES5_.exit
 
 _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang10RecordDeclEPKNS2_6interp6Record4BaseENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_SA_EEEES5_SA_SC_SF_E6lookupES5_.exit: ; preds = %.lr.ph.i.i.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang10RecordDeclEPKNS2_6interp6Record4BaseENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_SA_EEEES5_SA_SC_SF_E6doFindIS5_EEPKSF_RKT_.exit.i, %13, %2
-  %spec.select = phi ptr [ null, %2 ], [ %42, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang10RecordDeclEPKNS2_6interp6Record4BaseENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_SA_EEEES5_SA_SC_SF_E6doFindIS5_EEPKSF_RKT_.exit.i ], [ null, %13 ], [ null, %.lr.ph.i.i.i ]
+  %spec.select = phi ptr [ null, %2 ], [ %43, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang10RecordDeclEPKNS2_6interp6Record4BaseENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_SA_EEEES5_SA_SC_SF_E6doFindIS5_EEPKSF_RKT_.exit.i ], [ null, %13 ], [ null, %.lr.ph.i.i.i ]
   ret ptr %spec.select
 }
 

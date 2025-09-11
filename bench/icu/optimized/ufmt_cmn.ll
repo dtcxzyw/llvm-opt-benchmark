@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon = type { ptr }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef range(i32 -87, 65488) i32 @_Z18ufmt_digitvalue_77Ds(i16 noundef zeroext %0) local_unnamed_addr #0 {
+define noundef range(i32 -39, 75) i32 @_Z18ufmt_digitvalue_77Ds(i16 noundef zeroext %0) local_unnamed_addr #0 {
   %2 = add i16 %0, -48
   %or.cond = icmp ult i16 %2, 10
   %3 = and i16 %0, -33

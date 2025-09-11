@@ -435,26 +435,26 @@ define hidden void @rf4ce_addr_table_add_addrs(ptr noundef readonly captures(add
   br i1 %exitcond.not, label %.preheader, label %.preheader17, !llvm.loop !24
 
 15:                                               ; preds = %.preheader
-  %indvars.iv.next25 = add nuw nsw i64 %indvars.iv24, 1
-  %exitcond27.not = icmp eq i64 %indvars.iv.next25, 128
-  br i1 %exitcond27.not, label %.critedge16, label %.preheader, !llvm.loop !25
+  %indvars.iv.next30 = add nuw nsw i64 %indvars.iv29, 1
+  %exitcond32.not = icmp eq i64 %indvars.iv.next30, 128
+  br i1 %exitcond32.not, label %.critedge16, label %.preheader, !llvm.loop !25
 
 .preheader:                                       ; preds = %14, %15
-  %indvars.iv24 = phi i64 [ %indvars.iv.next25, %15 ], [ 0, %14 ]
-  %16 = getelementptr %struct.addr_entry_s, ptr @addr_table, i64 %indvars.iv24, i32 2
-  %17 = load i8, ptr %16, align 2, !range !8, !noundef !9
-  %18 = trunc nuw i8 %17 to i1
-  br i1 %18, label %15, label %.critedge
+  %indvars.iv29 = phi i64 [ %indvars.iv.next30, %15 ], [ 0, %14 ]
+  %16 = getelementptr %struct.addr_entry_s, ptr @addr_table, i64 %indvars.iv29
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 10
+  %18 = load i8, ptr %17, align 2, !range !8, !noundef !9
+  %19 = trunc nuw i8 %18 to i1
+  br i1 %19, label %15, label %.critedge
 
 .critedge:                                        ; preds = %.preheader
-  %.idx.neg = mul nsw i64 %indvars.iv24, -12
-  %19 = getelementptr %struct.addr_entry_s, ptr @addr_table, i64 %indvars.iv24
-  %20 = add nsw i64 %.idx.neg, 1536
-  %21 = tail call ptr @__memcpy_chk(ptr noundef %19, ptr noundef nonnull %0, i64 noundef 8, i64 noundef %20) #17, !alias.scope !26
-  %22 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  store i16 %1, ptr %22, align 4
-  %23 = getelementptr inbounds nuw i8, ptr %19, i64 10
-  store i8 1, ptr %23, align 2
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 10
+  %.idx.neg = mul nsw i64 %indvars.iv29, -12
+  %21 = add nsw i64 %.idx.neg, 1536
+  %22 = tail call ptr @__memcpy_chk(ptr noundef %16, ptr noundef nonnull %0, i64 noundef 8, i64 noundef %21) #17, !alias.scope !26
+  %23 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  store i16 %1, ptr %23, align 4
+  store i8 1, ptr %20, align 2
   br label %.critedge16
 
 .critedge16:                                      ; preds = %10, %15, %.critedge, %2
@@ -1052,20 +1052,20 @@ vendor_secret_storage_get_entry.exit:             ; preds = %7
 
 .preheader:                                       ; preds = %.preheader.preheader, %10
   %indvars.iv = phi i64 [ %indvars.iv.next, %10 ], [ 0, %.preheader.preheader ]
-  %11 = getelementptr %struct.vendor_secret_entry_s, ptr @vendor_secret_storage, i64 %indvars.iv, i32 1
-  %12 = load i8, ptr %11, align 1, !range !8, !noundef !9
-  %13 = trunc nuw i8 %12 to i1
-  br i1 %13, label %10, label %.critedge
+  %11 = getelementptr %struct.vendor_secret_entry_s, ptr @vendor_secret_storage, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %13 = load i8, ptr %12, align 1, !range !8, !noundef !9
+  %14 = trunc nuw i8 %13 to i1
+  br i1 %14, label %10, label %.critedge
 
 .critedge:                                        ; preds = %.preheader
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %.idx.neg = mul nsw i64 %indvars.iv, -17
-  %14 = getelementptr %struct.vendor_secret_entry_s, ptr @vendor_secret_storage, i64 %indvars.iv
-  %15 = add nsw i64 %.idx.neg, 1088
-  %16 = icmp ne i64 %15, -1
-  tail call void @llvm.assume(i1 %16)
-  %17 = tail call ptr @__memcpy_chk(ptr noundef %14, ptr noundef %0, i64 noundef 16, i64 noundef %15) #17, !alias.scope !40
-  %18 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  store i8 1, ptr %18, align 1
+  %16 = add nsw i64 %.idx.neg, 1088
+  %17 = icmp ne i64 %16, -1
+  tail call void @llvm.assume(i1 %17)
+  %18 = tail call ptr @__memcpy_chk(ptr noundef %11, ptr noundef %0, i64 noundef 16, i64 noundef %16) #17, !alias.scope !40
+  store i8 1, ptr %15, align 1
   br label %.critedge8
 
 .critedge8:                                       ; preds = %10, %.critedge, %vendor_secret_storage_get_entry.exit

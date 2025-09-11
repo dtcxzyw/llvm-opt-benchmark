@@ -363,54 +363,55 @@ define void @ff_vorbis_floor1_render_list(ptr noundef readonly captures(none) %0
   %wide.trip.count = zext nneg i32 %1 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %28, %.lr.ph.preheader
-  %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %28 ]
-  %.03545 = phi i32 [ 0, %.lr.ph.preheader ], [ %.2, %28 ]
-  %.03644 = phi i32 [ %10, %.lr.ph.preheader ], [ %.238, %28 ]
-  %12 = getelementptr inbounds nuw %struct.vorbis_floor1_entry, ptr %0, i64 %indvars.iv, i32 1
-  %13 = load i16, ptr %12, align 2, !tbaa !19
-  %14 = zext i16 %13 to i64
-  %15 = getelementptr inbounds nuw i32, ptr %3, i64 %14
-  %16 = load i32, ptr %15, align 4, !tbaa !11
-  %.not = icmp eq i32 %16, 0
-  br i1 %.not, label %28, label %17
+.lr.ph:                                           ; preds = %29, %.lr.ph.preheader
+  %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %29 ]
+  %.03545 = phi i32 [ 0, %.lr.ph.preheader ], [ %.2, %29 ]
+  %.03644 = phi i32 [ %10, %.lr.ph.preheader ], [ %.238, %29 ]
+  %12 = getelementptr inbounds nuw %struct.vorbis_floor1_entry, ptr %0, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 2
+  %14 = load i16, ptr %13, align 2, !tbaa !19
+  %15 = zext i16 %14 to i64
+  %16 = getelementptr inbounds nuw i32, ptr %3, i64 %15
+  %17 = load i32, ptr %16, align 4, !tbaa !11
+  %.not = icmp eq i32 %17, 0
+  br i1 %.not, label %29, label %18
 
-17:                                               ; preds = %.lr.ph
-  %18 = getelementptr inbounds nuw %struct.vorbis_floor1_entry, ptr %0, i64 %14
-  %19 = load i16, ptr %18, align 2, !tbaa !24
-  %20 = zext i16 %19 to i32
-  %21 = getelementptr inbounds nuw i16, ptr %2, i64 %14
-  %22 = load i16, ptr %21, align 2, !tbaa !29
-  %23 = zext i16 %22 to i32
-  %24 = mul nsw i32 %4, %23
-  %25 = icmp slt i32 %.03545, %6
-  br i1 %25, label %26, label %28
+18:                                               ; preds = %.lr.ph
+  %19 = getelementptr inbounds nuw %struct.vorbis_floor1_entry, ptr %0, i64 %15
+  %20 = load i16, ptr %19, align 2, !tbaa !24
+  %21 = zext i16 %20 to i32
+  %22 = getelementptr inbounds nuw i16, ptr %2, i64 %15
+  %23 = load i16, ptr %22, align 2, !tbaa !29
+  %24 = zext i16 %23 to i32
+  %25 = mul nsw i32 %4, %24
+  %26 = icmp slt i32 %.03545, %6
+  br i1 %26, label %27, label %29
 
-26:                                               ; preds = %17
-  %27 = tail call i32 @llvm.smin.i32(i32 %6, i32 %20)
-  tail call fastcc void @render_line(i32 noundef %.03545, i32 noundef %.03644, i32 noundef %27, i32 noundef %24, ptr noundef %5)
-  br label %28
+27:                                               ; preds = %18
+  %28 = tail call i32 @llvm.smin.i32(i32 %6, i32 %21)
+  tail call fastcc void @render_line(i32 noundef %.03545, i32 noundef %.03644, i32 noundef %28, i32 noundef %25, ptr noundef %5)
+  br label %29
 
-28:                                               ; preds = %17, %26, %.lr.ph
-  %.238 = phi i32 [ %.03644, %.lr.ph ], [ %24, %26 ], [ %24, %17 ]
-  %.2 = phi i32 [ %.03545, %.lr.ph ], [ %20, %26 ], [ %20, %17 ]
+29:                                               ; preds = %18, %27, %.lr.ph
+  %.238 = phi i32 [ %.03644, %.lr.ph ], [ %25, %27 ], [ %25, %18 ]
+  %.2 = phi i32 [ %.03545, %.lr.ph ], [ %21, %27 ], [ %21, %18 ]
   %.not42 = icmp sge i32 %.2, %6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   %or.cond = select i1 %.not42, i1 true, i1 %exitcond.not
   br i1 %or.cond, label %._crit_edge, label %.lr.ph, !llvm.loop !30
 
-._crit_edge:                                      ; preds = %28, %7
-  %.137 = phi i32 [ %10, %7 ], [ %.238, %28 ]
-  %.1 = phi i32 [ 0, %7 ], [ %.2, %28 ]
-  %29 = icmp slt i32 %.1, %6
-  br i1 %29, label %30, label %31
+._crit_edge:                                      ; preds = %29, %7
+  %.137 = phi i32 [ %10, %7 ], [ %.238, %29 ]
+  %.1 = phi i32 [ 0, %7 ], [ %.2, %29 ]
+  %30 = icmp slt i32 %.1, %6
+  br i1 %30, label %31, label %32
 
-30:                                               ; preds = %._crit_edge
+31:                                               ; preds = %._crit_edge
   tail call fastcc void @render_line(i32 noundef %.1, i32 noundef %.137, i32 noundef %6, i32 noundef %.137, ptr noundef %5)
-  br label %31
+  br label %32
 
-31:                                               ; preds = %30, %._crit_edge
+32:                                               ; preds = %31, %._crit_edge
   ret void
 }
 

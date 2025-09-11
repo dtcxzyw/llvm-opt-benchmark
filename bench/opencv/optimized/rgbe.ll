@@ -2250,7 +2250,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
   %98 = add nsw i32 %.0155, -1
   %99 = getelementptr inbounds nuw i8, ptr %.2154, i64 1
   store i8 %.pre, ptr %.2154, align 1, !tbaa !17
-  %100 = icmp sgt i32 %.0155, 1
+  %100 = icmp samesign ugt i32 %.0155, 1
   br i1 %100, label %.lr.ph, label %.loopexit, !llvm.loop !42
 
 101:                                              ; preds = %87

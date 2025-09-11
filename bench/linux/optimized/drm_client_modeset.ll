@@ -93,7 +93,8 @@ define dso_local noundef range(i32 -12, 1) i32 @drm_client_modeset_create(ptr no
   %19 = load ptr, ptr %9, align 8
   %20 = add i32 %17, 1
   %21 = zext i32 %17 to i64
-  %22 = getelementptr %struct.drm_mode_set, ptr %19, i64 %21, i32 1
+  %.split = getelementptr %struct.drm_mode_set, ptr %19, i64 %21
+  %22 = getelementptr i8, ptr %.split, i64 8
   store ptr %18, ptr %22, align 8
   %23 = load ptr, ptr %16, align 8
   %24 = icmp eq ptr %23, %13
@@ -1961,7 +1962,7 @@ define internal fastcc range(i32 -34, -35) i32 @drm_client_modeset_commit_atomic
   call void @drm_modeset_acquire_init(ptr noundef nonnull %4, i32 noundef 0) #11
   %6 = call ptr @drm_atomic_state_alloc(ptr noundef %5) #11
   %7 = icmp eq ptr %6, null
-  br i1 %7, label %.thread12, label %8
+  br i1 %7, label %.thread13, label %8
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 72
@@ -1975,21 +1976,21 @@ define internal fastcc range(i32 -34, -35) i32 @drm_client_modeset_commit_atomic
 14:                                               ; preds = %142, %8
   %15 = load ptr, ptr %10, align 8
   %16 = icmp eq ptr %15, %10
-  br i1 %16, label %.loopexit16, label %.preheader14
+  br i1 %16, label %.loopexit17, label %.preheader15
 
-.preheader14:                                     ; preds = %14, %select.unfold
+.preheader15:                                     ; preds = %14, %select.unfold
   %17 = phi ptr [ %32, %select.unfold ], [ %15, %14 ]
   %18 = getelementptr i8, ptr %17, i64 -8
   %19 = call ptr @drm_atomic_get_plane_state(ptr noundef nonnull %6, ptr noundef %18) #11
   %20 = icmp ugt ptr %19, inttoptr (i64 -4096 to ptr)
   br i1 %20, label %21, label %24
 
-21:                                               ; preds = %.preheader14
+21:                                               ; preds = %.preheader15
   %22 = ptrtoint ptr %19 to i64
   %23 = trunc i64 %22 to i32
   br label %.loopexit
 
-24:                                               ; preds = %.preheader14
+24:                                               ; preds = %.preheader15
   %25 = getelementptr inbounds nuw i8, ptr %19, i64 76
   store i32 1, ptr %25, align 4
   %26 = getelementptr i8, ptr %17, i64 1216
@@ -2005,19 +2006,19 @@ define internal fastcc range(i32 -34, -35) i32 @drm_client_modeset_commit_atomic
 select.unfold:                                    ; preds = %29, %24
   %32 = load ptr, ptr %17, align 8
   %33 = icmp eq ptr %32, %10
-  br i1 %33, label %.loopexit16, label %.preheader14, !llvm.loop !50
+  br i1 %33, label %.loopexit17, label %.preheader15, !llvm.loop !50
 
-.loopexit16:                                      ; preds = %select.unfold, %14
+.loopexit17:                                      ; preds = %select.unfold, %14
   %34 = load ptr, ptr %11, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load ptr, ptr %35, align 8
   %37 = icmp eq ptr %36, null
-  br i1 %37, label %.loopexit13, label %.preheader
+  br i1 %37, label %.loopexit14, label %.preheader
 
-.preheader:                                       ; preds = %.loopexit16, %123
-  %38 = phi ptr [ %126, %123 ], [ %36, %.loopexit16 ]
-  %39 = phi ptr [ %125, %123 ], [ %35, %.loopexit16 ]
-  %40 = phi ptr [ %124, %123 ], [ %34, %.loopexit16 ]
+.preheader:                                       ; preds = %.loopexit17, %123
+  %38 = phi ptr [ %126, %123 ], [ %36, %.loopexit17 ]
+  %39 = phi ptr [ %125, %123 ], [ %35, %.loopexit17 ]
+  %40 = phi ptr [ %124, %123 ], [ %34, %.loopexit17 ]
   %41 = getelementptr inbounds nuw i8, ptr %38, i64 128
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr inbounds nuw i8, ptr %40, i64 32
@@ -2123,7 +2124,8 @@ drm_client_rotation.exit:                         ; preds = %91, %83
   %105 = getelementptr inbounds nuw i8, ptr %42, i64 1228
   %106 = load i32, ptr %105, align 4
   %107 = zext i32 %106 to i64
-  %108 = getelementptr %struct.__drm_planes_state, ptr %104, i64 %107, i32 3
+  %.split = getelementptr %struct.__drm_planes_state, ptr %104, i64 %107
+  %108 = getelementptr i8, ptr %.split, i64 24
   %109 = load ptr, ptr %108, align 8
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 76
   store i32 %.0, ptr %110, align 4
@@ -2133,15 +2135,16 @@ drm_client_rotation.exit.thread:                  ; preds = %79, %77, %.preheade
   %111 = call i32 @__drm_atomic_helper_set_config(ptr noundef %40, ptr noundef nonnull %6) #11
   %112 = icmp ne i32 %111, 0
   %113 = or i1 %1, %112
-  br i1 %113, label %122, label %.thread10
+  br i1 %113, label %122, label %.thread11
 
-.thread10:                                        ; preds = %drm_client_rotation.exit.thread
+.thread11:                                        ; preds = %drm_client_rotation.exit.thread
   %114 = load ptr, ptr %39, align 8
   %115 = load ptr, ptr %13, align 8
   %116 = getelementptr inbounds nuw i8, ptr %114, i64 144
   %117 = load i32, ptr %116, align 8
   %118 = zext i32 %117 to i64
-  %119 = getelementptr %struct.__drm_crtcs_state, ptr %115, i64 %118, i32 3
+  %.split8 = getelementptr %struct.__drm_crtcs_state, ptr %115, i64 %118
+  %119 = getelementptr i8, ptr %.split8, i64 24
   %120 = load ptr, ptr %119, align 8
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 9
   store i8 0, ptr %121, align 1
@@ -2150,21 +2153,21 @@ drm_client_rotation.exit.thread:                  ; preds = %79, %77, %.preheade
 122:                                              ; preds = %drm_client_rotation.exit.thread
   br i1 %112, label %.loopexit, label %123
 
-123:                                              ; preds = %122, %.thread10
+123:                                              ; preds = %122, %.thread11
   %124 = getelementptr i8, ptr %40, i64 48
   %125 = getelementptr i8, ptr %40, i64 56
   %126 = load ptr, ptr %125, align 8
   %127 = icmp eq ptr %126, null
-  br i1 %127, label %.loopexit13, label %.preheader, !llvm.loop !51
+  br i1 %127, label %.loopexit14, label %.preheader, !llvm.loop !51
 
-.loopexit13:                                      ; preds = %123, %.loopexit16
+.loopexit14:                                      ; preds = %123, %.loopexit17
   br i1 %2, label %128, label %130
 
-128:                                              ; preds = %.loopexit13
+128:                                              ; preds = %.loopexit14
   %129 = call i32 @drm_atomic_check_only(ptr noundef nonnull %6) #11
   br label %.loopexit
 
-130:                                              ; preds = %.loopexit13
+130:                                              ; preds = %.loopexit14
   %131 = call i32 @drm_atomic_commit(ptr noundef nonnull %6) #11
   br label %.loopexit
 
@@ -2180,18 +2183,18 @@ drm_client_rotation.exit.thread:                  ; preds = %79, %77, %.preheade
 
 137:                                              ; preds = %134
   %138 = icmp sgt i32 %135, 0
-  br i1 %138, label %.thread12, label %139, !prof !53
+  br i1 %138, label %.thread13, label %139, !prof !53
 
 139:                                              ; preds = %137
   call void @refcount_warn_saturate(ptr noundef nonnull %6, i32 noundef 3) #11
-  br label %.thread12
+  br label %.thread13
 
 140:                                              ; preds = %134
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !54
   call void @__drm_atomic_state_free(ptr noundef nonnull %6) #11
-  br label %.thread12
+  br label %.thread13
 
-.thread12:                                        ; preds = %137, %139, %140, %3
+.thread13:                                        ; preds = %137, %139, %140, %3
   %141 = phi i32 [ -12, %3 ], [ %132, %140 ], [ %132, %139 ], [ %132, %137 ]
   call void @drm_modeset_drop_locks(ptr noundef nonnull %4) #11
   call void @drm_modeset_acquire_fini(ptr noundef nonnull %4) #11

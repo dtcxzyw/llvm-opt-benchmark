@@ -68,7 +68,7 @@ define hidden ptr @SDL_LoadBMP_IO_REAL(ptr noundef %0, i1 noundef zeroext %1) lo
 
 .thread222:                                       ; preds = %2
   %19 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #4
-  br label %319
+  br label %326
 
 20:                                               ; preds = %2
   %21 = tail call i64 @SDL_TellIO_REAL(ptr noundef nonnull %0) #4
@@ -445,7 +445,7 @@ thread-pre-split:                                 ; preds = %56, %.thread276, %1
 
 .lr.ph:                                           ; preds = %.preheader232
   %193 = getelementptr inbounds nuw i8, ptr %157, i64 8
-  br label %213
+  br label %216
 
 .preheader229:                                    ; preds = %188
   br i1 %192, label %.lr.ph237, label %.loopexit230
@@ -454,264 +454,271 @@ thread-pre-split:                                 ; preds = %56, %.thread276, %1
   %194 = getelementptr inbounds nuw i8, ptr %157, i64 8
   br label %195
 
-195:                                              ; preds = %.lr.ph237, %207
-  %indvars.iv249 = phi i64 [ 0, %.lr.ph237 ], [ %indvars.iv.next250, %207 ]
+195:                                              ; preds = %.lr.ph237, %209
+  %indvars.iv249 = phi i64 [ 0, %.lr.ph237 ], [ %indvars.iv.next250, %209 ]
   %196 = load ptr, ptr %194, align 8
-  %197 = getelementptr inbounds nuw %struct.SDL_Color, ptr %196, i64 %indvars.iv249, i32 2
-  %198 = call zeroext i1 @SDL_ReadU8_REAL(ptr noundef nonnull %0, ptr noundef nonnull %197) #4
-  br i1 %198, label %199, label %.thread216
+  %197 = getelementptr inbounds nuw %struct.SDL_Color, ptr %196, i64 %indvars.iv249
+  %198 = getelementptr inbounds nuw i8, ptr %197, i64 2
+  %199 = call zeroext i1 @SDL_ReadU8_REAL(ptr noundef nonnull %0, ptr noundef nonnull %198) #4
+  br i1 %199, label %200, label %.thread216
 
-199:                                              ; preds = %195
-  %200 = load ptr, ptr %194, align 8
-  %201 = getelementptr inbounds nuw %struct.SDL_Color, ptr %200, i64 %indvars.iv249, i32 1
-  %202 = call zeroext i1 @SDL_ReadU8_REAL(ptr noundef nonnull %0, ptr noundef nonnull %201) #4
-  br i1 %202, label %203, label %.thread216
+200:                                              ; preds = %195
+  %201 = load ptr, ptr %194, align 8
+  %202 = getelementptr inbounds nuw %struct.SDL_Color, ptr %201, i64 %indvars.iv249
+  %203 = getelementptr inbounds nuw i8, ptr %202, i64 1
+  %204 = call zeroext i1 @SDL_ReadU8_REAL(ptr noundef nonnull %0, ptr noundef nonnull %203) #4
+  br i1 %204, label %205, label %.thread216
 
-203:                                              ; preds = %199
-  %204 = load ptr, ptr %194, align 8
-  %205 = getelementptr inbounds nuw %struct.SDL_Color, ptr %204, i64 %indvars.iv249
-  %206 = call zeroext i1 @SDL_ReadU8_REAL(ptr noundef nonnull %0, ptr noundef %205) #4
-  br i1 %206, label %207, label %.thread216
+205:                                              ; preds = %200
+  %206 = load ptr, ptr %194, align 8
+  %207 = getelementptr inbounds nuw %struct.SDL_Color, ptr %206, i64 %indvars.iv249
+  %208 = call zeroext i1 @SDL_ReadU8_REAL(ptr noundef nonnull %0, ptr noundef %207) #4
+  br i1 %208, label %209, label %.thread216
 
-207:                                              ; preds = %203
-  %208 = load ptr, ptr %194, align 8
-  %209 = getelementptr inbounds nuw %struct.SDL_Color, ptr %208, i64 %indvars.iv249, i32 3
-  store i8 -1, ptr %209, align 1
+209:                                              ; preds = %205
+  %210 = load ptr, ptr %194, align 8
+  %211 = getelementptr inbounds nuw %struct.SDL_Color, ptr %210, i64 %indvars.iv249
+  %212 = getelementptr inbounds nuw i8, ptr %211, i64 3
+  store i8 -1, ptr %212, align 1
   %indvars.iv.next250 = add nuw nsw i64 %indvars.iv249, 1
-  %210 = load i32, ptr %157, align 8
-  %211 = sext i32 %210 to i64
-  %212 = icmp slt i64 %indvars.iv.next250, %211
-  br i1 %212, label %195, label %.loopexit230, !llvm.loop !3
+  %213 = load i32, ptr %157, align 8
+  %214 = sext i32 %213 to i64
+  %215 = icmp slt i64 %indvars.iv.next250, %214
+  br i1 %215, label %195, label %.loopexit230, !llvm.loop !3
 
-213:                                              ; preds = %.lr.ph, %229
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %229 ]
-  %214 = load ptr, ptr %193, align 8
-  %215 = getelementptr inbounds nuw %struct.SDL_Color, ptr %214, i64 %indvars.iv, i32 2
-  %216 = call zeroext i1 @SDL_ReadU8_REAL(ptr noundef nonnull %0, ptr noundef nonnull %215) #4
-  br i1 %216, label %217, label %.thread216
-
-217:                                              ; preds = %213
-  %218 = load ptr, ptr %193, align 8
-  %219 = getelementptr inbounds nuw %struct.SDL_Color, ptr %218, i64 %indvars.iv, i32 1
+216:                                              ; preds = %.lr.ph, %235
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %235 ]
+  %217 = load ptr, ptr %193, align 8
+  %218 = getelementptr inbounds nuw %struct.SDL_Color, ptr %217, i64 %indvars.iv
+  %219 = getelementptr inbounds nuw i8, ptr %218, i64 2
   %220 = call zeroext i1 @SDL_ReadU8_REAL(ptr noundef nonnull %0, ptr noundef nonnull %219) #4
   br i1 %220, label %221, label %.thread216
 
-221:                                              ; preds = %217
+221:                                              ; preds = %216
   %222 = load ptr, ptr %193, align 8
   %223 = getelementptr inbounds nuw %struct.SDL_Color, ptr %222, i64 %indvars.iv
-  %224 = call zeroext i1 @SDL_ReadU8_REAL(ptr noundef nonnull %0, ptr noundef %223) #4
-  br i1 %224, label %225, label %.thread216
+  %224 = getelementptr inbounds nuw i8, ptr %223, i64 1
+  %225 = call zeroext i1 @SDL_ReadU8_REAL(ptr noundef nonnull %0, ptr noundef nonnull %224) #4
+  br i1 %225, label %226, label %.thread216
 
-225:                                              ; preds = %221
-  %226 = load ptr, ptr %193, align 8
-  %227 = getelementptr inbounds nuw %struct.SDL_Color, ptr %226, i64 %indvars.iv, i32 3
-  %228 = call zeroext i1 @SDL_ReadU8_REAL(ptr noundef nonnull %0, ptr noundef nonnull %227) #4
-  br i1 %228, label %229, label %.thread216
+226:                                              ; preds = %221
+  %227 = load ptr, ptr %193, align 8
+  %228 = getelementptr inbounds nuw %struct.SDL_Color, ptr %227, i64 %indvars.iv
+  %229 = call zeroext i1 @SDL_ReadU8_REAL(ptr noundef nonnull %0, ptr noundef %228) #4
+  br i1 %229, label %230, label %.thread216
 
-229:                                              ; preds = %225
-  %230 = load ptr, ptr %193, align 8
-  %231 = getelementptr inbounds nuw %struct.SDL_Color, ptr %230, i64 %indvars.iv, i32 3
-  store i8 -1, ptr %231, align 1
+230:                                              ; preds = %226
+  %231 = load ptr, ptr %193, align 8
+  %232 = getelementptr inbounds nuw %struct.SDL_Color, ptr %231, i64 %indvars.iv
+  %233 = getelementptr inbounds nuw i8, ptr %232, i64 3
+  %234 = call zeroext i1 @SDL_ReadU8_REAL(ptr noundef nonnull %0, ptr noundef nonnull %233) #4
+  br i1 %234, label %235, label %.thread216
+
+235:                                              ; preds = %230
+  %236 = load ptr, ptr %193, align 8
+  %237 = getelementptr inbounds nuw %struct.SDL_Color, ptr %236, i64 %indvars.iv
+  %238 = getelementptr inbounds nuw i8, ptr %237, i64 3
+  store i8 -1, ptr %238, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %232 = load i32, ptr %157, align 8
-  %233 = sext i32 %232 to i64
-  %234 = icmp slt i64 %indvars.iv.next, %233
-  br i1 %234, label %213, label %.loopexit230, !llvm.loop !5
+  %239 = load i32, ptr %157, align 8
+  %240 = sext i32 %239 to i64
+  %241 = icmp slt i64 %indvars.iv.next, %240
+  br i1 %241, label %216, label %.loopexit230, !llvm.loop !5
 
-.loopexit230:                                     ; preds = %229, %207, %.preheader232, %.preheader229, %153, %150
-  %235 = load i32, ptr %8, align 4
-  %236 = zext i32 %235 to i64
-  %237 = add nuw nsw i64 %21, %236
-  %238 = call i64 @SDL_SeekIO_REAL(ptr noundef nonnull %0, i64 noundef %237, i32 noundef 0) #4
-  %239 = icmp slt i64 %238, 0
-  br i1 %239, label %240, label %242
+.loopexit230:                                     ; preds = %235, %209, %.preheader232, %.preheader229, %153, %150
+  %242 = load i32, ptr %8, align 4
+  %243 = zext i32 %242 to i64
+  %244 = add nuw nsw i64 %21, %243
+  %245 = call i64 @SDL_SeekIO_REAL(ptr noundef nonnull %0, i64 noundef %244, i32 noundef 0) #4
+  %246 = icmp slt i64 %245, 0
+  br i1 %246, label %247, label %249
 
-240:                                              ; preds = %.loopexit230
-  %241 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.7) #4
+247:                                              ; preds = %.loopexit230
+  %248 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.7) #4
   br label %.thread216
 
-242:                                              ; preds = %.loopexit230
-  %243 = load i32, ptr %13, align 4
-  %244 = add i32 %243, -1
-  %or.cond3 = icmp ult i32 %244, 2
-  br i1 %or.cond3, label %245, label %251
+249:                                              ; preds = %.loopexit230
+  %250 = load i32, ptr %13, align 4
+  %251 = add i32 %250, -1
+  %or.cond3 = icmp ult i32 %251, 2
+  br i1 %or.cond3, label %252, label %258
 
-245:                                              ; preds = %242
-  %246 = icmp eq i32 %243, 1
-  %247 = zext i1 %246 to i32
-  %248 = call fastcc zeroext i1 @readRlePixels(ptr noundef %149, ptr noundef %0, i32 noundef %247)
-  br i1 %248, label %CorrectAlphaChannel.exit, label %249
+252:                                              ; preds = %249
+  %253 = icmp eq i32 %250, 1
+  %254 = zext i1 %253 to i32
+  %255 = call fastcc zeroext i1 @readRlePixels(ptr noundef %149, ptr noundef %0, i32 noundef %254)
+  br i1 %255, label %CorrectAlphaChannel.exit, label %256
 
-249:                                              ; preds = %245
-  %250 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.10) #4
+256:                                              ; preds = %252
+  %257 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.10) #4
   br label %.thread216
 
-251:                                              ; preds = %242
-  %252 = getelementptr inbounds nuw i8, ptr %149, i64 24
-  %253 = load ptr, ptr %252, align 8
-  %254 = getelementptr inbounds nuw i8, ptr %149, i64 12
-  %255 = load i32, ptr %254, align 4
-  %256 = getelementptr inbounds nuw i8, ptr %149, i64 16
-  %257 = load i32, ptr %256, align 8
-  %258 = mul nsw i32 %257, %255
-  %259 = sext i32 %258 to i64
-  %260 = getelementptr inbounds i8, ptr %253, i64 %259
-  %261 = srem i32 %257, 4
-  %.not179 = icmp eq i32 %261, 0
-  %262 = sub nsw i32 4, %261
-  %spec.select = select i1 %.not179, i32 0, i32 %262
-  %263 = sext i32 %257 to i64
-  %264 = sub nsw i64 0, %263
-  %265 = getelementptr inbounds i8, ptr %260, i64 %264
-  %.0152 = select i1 %124, ptr %253, ptr %265
-  %266 = icmp uge ptr %.0152, %253
-  %267 = icmp ult ptr %.0152, %260
-  %268 = select i1 %266, i1 %267, i1 false
-  br i1 %268, label %.lr.ph243, label %._crit_edge
+258:                                              ; preds = %249
+  %259 = getelementptr inbounds nuw i8, ptr %149, i64 24
+  %260 = load ptr, ptr %259, align 8
+  %261 = getelementptr inbounds nuw i8, ptr %149, i64 12
+  %262 = load i32, ptr %261, align 4
+  %263 = getelementptr inbounds nuw i8, ptr %149, i64 16
+  %264 = load i32, ptr %263, align 8
+  %265 = mul nsw i32 %264, %262
+  %266 = sext i32 %265 to i64
+  %267 = getelementptr inbounds i8, ptr %260, i64 %266
+  %268 = srem i32 %264, 4
+  %.not179 = icmp eq i32 %268, 0
+  %269 = sub nsw i32 4, %268
+  %spec.select = select i1 %.not179, i32 0, i32 %269
+  %270 = sext i32 %264 to i64
+  %271 = sub nsw i64 0, %270
+  %272 = getelementptr inbounds i8, ptr %267, i64 %271
+  %.0152 = select i1 %124, ptr %260, ptr %272
+  %273 = icmp uge ptr %.0152, %260
+  %274 = icmp ult ptr %.0152, %267
+  %275 = select i1 %273, i1 %274, i1 false
+  br i1 %275, label %.lr.ph243, label %._crit_edge
 
-.lr.ph243:                                        ; preds = %251
-  %269 = getelementptr inbounds nuw i8, ptr %149, i64 72
-  %270 = getelementptr inbounds nuw i8, ptr %149, i64 8
+.lr.ph243:                                        ; preds = %258
+  %276 = getelementptr inbounds nuw i8, ptr %149, i64 72
+  %277 = getelementptr inbounds nuw i8, ptr %149, i64 8
   %.not182 = icmp eq i32 %spec.select, 0
-  br label %271
+  br label %278
 
-271:                                              ; preds = %.lr.ph243, %296
-  %272 = phi i32 [ %257, %.lr.ph243 ], [ %297, %296 ]
-  %.1153242 = phi ptr [ %.0152, %.lr.ph243 ], [ %.2154, %296 ]
-  %273 = sext i32 %272 to i64
-  %274 = call i64 @SDL_ReadIO_REAL(ptr noundef nonnull %0, ptr noundef %.1153242, i64 noundef %273) #4
-  %275 = load i32, ptr %256, align 8
-  %276 = sext i32 %275 to i64
-  %.not180 = icmp eq i64 %274, %276
-  br i1 %.not180, label %277, label %.thread216
+278:                                              ; preds = %.lr.ph243, %303
+  %279 = phi i32 [ %264, %.lr.ph243 ], [ %304, %303 ]
+  %.1153242 = phi ptr [ %.0152, %.lr.ph243 ], [ %.2154, %303 ]
+  %280 = sext i32 %279 to i64
+  %281 = call i64 @SDL_ReadIO_REAL(ptr noundef nonnull %0, ptr noundef %.1153242, i64 noundef %280) #4
+  %282 = load i32, ptr %263, align 8
+  %283 = sext i32 %282 to i64
+  %.not180 = icmp eq i64 %281, %283
+  br i1 %.not180, label %284, label %.thread216
 
-277:                                              ; preds = %271
-  %278 = load i16, ptr %12, align 2
-  %279 = icmp eq i16 %278, 8
-  br i1 %279, label %280, label %.loopexit
+284:                                              ; preds = %278
+  %285 = load i16, ptr %12, align 2
+  %286 = icmp eq i16 %285, 8
+  br i1 %286, label %287, label %.loopexit
 
-280:                                              ; preds = %277
-  %281 = load ptr, ptr %269, align 8
-  %.not181 = icmp ne ptr %281, null
-  %282 = load i32, ptr %14, align 4
-  %283 = icmp ult i32 %282, 256
-  %or.cond193 = select i1 %.not181, i1 %283, i1 false
+287:                                              ; preds = %284
+  %288 = load ptr, ptr %276, align 8
+  %.not181 = icmp ne ptr %288, null
+  %289 = load i32, ptr %14, align 4
+  %290 = icmp ult i32 %289, 256
+  %or.cond193 = select i1 %.not181, i1 %290, i1 false
   br i1 %or.cond193, label %.preheader, label %.loopexit
 
-.preheader:                                       ; preds = %280
-  %284 = load i32, ptr %270, align 8
-  %285 = icmp sgt i32 %284, 0
-  br i1 %285, label %.lr.ph239.preheader, label %.loopexit
+.preheader:                                       ; preds = %287
+  %291 = load i32, ptr %277, align 8
+  %292 = icmp sgt i32 %291, 0
+  br i1 %292, label %.lr.ph239.preheader, label %.loopexit
 
 .lr.ph239.preheader:                              ; preds = %.preheader
-  %286 = trunc nuw i32 %282 to i8
-  %wide.trip.count = zext nneg i32 %284 to i64
+  %293 = trunc nuw i32 %289 to i8
+  %wide.trip.count = zext nneg i32 %291 to i64
   br label %.lr.ph239
 
-287:                                              ; preds = %.lr.ph239
+294:                                              ; preds = %.lr.ph239
   %indvars.iv.next253 = add nuw nsw i64 %indvars.iv252, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next253, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph239, !llvm.loop !6
 
-.lr.ph239:                                        ; preds = %.lr.ph239.preheader, %287
-  %indvars.iv252 = phi i64 [ 0, %.lr.ph239.preheader ], [ %indvars.iv.next253, %287 ]
-  %288 = getelementptr inbounds nuw i8, ptr %.1153242, i64 %indvars.iv252
-  %289 = load i8, ptr %288, align 1
-  %.not183 = icmp ult i8 %289, %286
-  br i1 %.not183, label %287, label %290
+.lr.ph239:                                        ; preds = %.lr.ph239.preheader, %294
+  %indvars.iv252 = phi i64 [ 0, %.lr.ph239.preheader ], [ %indvars.iv.next253, %294 ]
+  %295 = getelementptr inbounds nuw i8, ptr %.1153242, i64 %indvars.iv252
+  %296 = load i8, ptr %295, align 1
+  %.not183 = icmp ult i8 %296, %293
+  br i1 %.not183, label %294, label %297
 
-290:                                              ; preds = %.lr.ph239
-  %291 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.11) #4
+297:                                              ; preds = %.lr.ph239
+  %298 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.11) #4
   br label %.thread216
 
-.loopexit:                                        ; preds = %287, %.preheader, %280, %277
-  br i1 %.not182, label %296, label %.lr.ph241.preheader
+.loopexit:                                        ; preds = %294, %.preheader, %287, %284
+  br i1 %.not182, label %303, label %.lr.ph241.preheader
 
 .lr.ph241.preheader:                              ; preds = %.loopexit
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   br label %.lr.ph241
 
-292:                                              ; preds = %.lr.ph241
-  %293 = add nuw nsw i32 %.3149240, 1
-  %exitcond255.not = icmp eq i32 %293, %spec.select
+299:                                              ; preds = %.lr.ph241
+  %300 = add nuw nsw i32 %.3149240, 1
+  %exitcond255.not = icmp eq i32 %300, %spec.select
   br i1 %exitcond255.not, label %.thread207, label %.lr.ph241, !llvm.loop !7
 
-.thread207:                                       ; preds = %292
+.thread207:                                       ; preds = %299
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
-  br label %296
+  br label %303
 
-.lr.ph241:                                        ; preds = %.lr.ph241.preheader, %292
-  %.3149240 = phi i32 [ %293, %292 ], [ 0, %.lr.ph241.preheader ]
-  %294 = call zeroext i1 @SDL_ReadU8_REAL(ptr noundef nonnull %0, ptr noundef nonnull %17) #4
-  br i1 %294, label %292, label %295
+.lr.ph241:                                        ; preds = %.lr.ph241.preheader, %299
+  %.3149240 = phi i32 [ %300, %299 ], [ 0, %.lr.ph241.preheader ]
+  %301 = call zeroext i1 @SDL_ReadU8_REAL(ptr noundef nonnull %0, ptr noundef nonnull %17) #4
+  br i1 %301, label %299, label %302
 
-295:                                              ; preds = %.lr.ph241
+302:                                              ; preds = %.lr.ph241
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %.thread216
 
-296:                                              ; preds = %.thread207, %.loopexit
-  %297 = load i32, ptr %256, align 8
-  %298 = sext i32 %297 to i64
-  %299 = sub nsw i64 0, %298
-  %.pn = select i1 %124, i64 %298, i64 %299
+303:                                              ; preds = %.thread207, %.loopexit
+  %304 = load i32, ptr %263, align 8
+  %305 = sext i32 %304 to i64
+  %306 = sub nsw i64 0, %305
+  %.pn = select i1 %124, i64 %305, i64 %306
   %.2154 = getelementptr inbounds i8, ptr %.1153242, i64 %.pn
-  %300 = icmp uge ptr %.2154, %253
-  %301 = icmp ult ptr %.2154, %260
-  %302 = select i1 %300, i1 %301, i1 false
-  br i1 %302, label %271, label %._crit_edge, !llvm.loop !8
+  %307 = icmp uge ptr %.2154, %260
+  %308 = icmp ult ptr %.2154, %267
+  %309 = select i1 %307, i1 %308, i1 false
+  br i1 %309, label %278, label %._crit_edge, !llvm.loop !8
 
-._crit_edge:                                      ; preds = %296, %251
-  %303 = phi i32 [ %257, %251 ], [ %297, %296 ]
-  br i1 %.0144, label %304, label %CorrectAlphaChannel.exit
+._crit_edge:                                      ; preds = %303, %258
+  %310 = phi i32 [ %264, %258 ], [ %304, %303 ]
+  br i1 %.0144, label %311, label %CorrectAlphaChannel.exit
 
-304:                                              ; preds = %._crit_edge
-  %305 = load ptr, ptr %252, align 8
-  %306 = getelementptr inbounds nuw i8, ptr %305, i64 3
-  %307 = load i32, ptr %254, align 4
-  %308 = mul nsw i32 %303, %307
-  %309 = sext i32 %308 to i64
-  %310 = getelementptr inbounds i8, ptr %306, i64 %309
-  %311 = icmp sgt i32 %308, 0
-  br i1 %311, label %.lr.ph.i, label %CorrectAlphaChannel.exit
+311:                                              ; preds = %._crit_edge
+  %312 = load ptr, ptr %259, align 8
+  %313 = getelementptr inbounds nuw i8, ptr %312, i64 3
+  %314 = load i32, ptr %261, align 4
+  %315 = mul nsw i32 %310, %314
+  %316 = sext i32 %315 to i64
+  %317 = getelementptr inbounds i8, ptr %313, i64 %316
+  %318 = icmp sgt i32 %315, 0
+  br i1 %318, label %.lr.ph.i, label %CorrectAlphaChannel.exit
 
-312:                                              ; preds = %.lr.ph.i
-  %313 = getelementptr inbounds nuw i8, ptr %.01517.i, i64 4
-  %314 = icmp ult ptr %313, %310
-  br i1 %314, label %.lr.ph.i, label %.critedge.i, !llvm.loop !9
+319:                                              ; preds = %.lr.ph.i
+  %320 = getelementptr inbounds nuw i8, ptr %.01517.i, i64 4
+  %321 = icmp ult ptr %320, %317
+  br i1 %321, label %.lr.ph.i, label %.critedge.i, !llvm.loop !9
 
-.lr.ph.i:                                         ; preds = %304, %312
-  %.01517.i = phi ptr [ %313, %312 ], [ %306, %304 ]
-  %315 = load i8, ptr %.01517.i, align 1
-  %.not.i = icmp eq i8 %315, 0
-  br i1 %.not.i, label %312, label %CorrectAlphaChannel.exit
+.lr.ph.i:                                         ; preds = %311, %319
+  %.01517.i = phi ptr [ %320, %319 ], [ %313, %311 ]
+  %322 = load i8, ptr %.01517.i, align 1
+  %.not.i = icmp eq i8 %322, 0
+  br i1 %.not.i, label %319, label %CorrectAlphaChannel.exit
 
-.critedge.i:                                      ; preds = %312, %.critedge.i
-  %.118.i = phi ptr [ %316, %.critedge.i ], [ %306, %312 ]
+.critedge.i:                                      ; preds = %319, %.critedge.i
+  %.118.i = phi ptr [ %323, %.critedge.i ], [ %313, %319 ]
   store i8 -1, ptr %.118.i, align 1
-  %316 = getelementptr inbounds nuw i8, ptr %.118.i, i64 4
-  %317 = icmp ult ptr %316, %310
-  br i1 %317, label %.critedge.i, label %CorrectAlphaChannel.exit, !llvm.loop !10
+  %323 = getelementptr inbounds nuw i8, ptr %.118.i, i64 4
+  %324 = icmp ult ptr %323, %317
+  br i1 %324, label %.critedge.i, label %CorrectAlphaChannel.exit, !llvm.loop !10
 
-.thread216:                                       ; preds = %225, %221, %217, %213, %203, %199, %195, %271, %295, %290, %240, %165, %171, %186, %156, %111, %104, %96, %98, %100, %92, %83, %85, %87, %58, %60, %62, %64, %66, %68, %70, %72, %74, %76, %.thread, %30, %32, %34, %36, %38, %132, %140, %249, %127, %121, %28, %23, %20
-  %.0150.ph220 = phi ptr [ null, %20 ], [ null, %23 ], [ null, %28 ], [ null, %121 ], [ null, %127 ], [ %149, %249 ], [ null, %140 ], [ null, %132 ], [ null, %38 ], [ null, %36 ], [ null, %34 ], [ null, %32 ], [ null, %30 ], [ null, %.thread ], [ null, %76 ], [ null, %74 ], [ null, %72 ], [ null, %70 ], [ null, %68 ], [ null, %66 ], [ null, %64 ], [ null, %62 ], [ null, %60 ], [ null, %58 ], [ null, %87 ], [ null, %85 ], [ null, %83 ], [ null, %92 ], [ null, %100 ], [ null, %98 ], [ null, %96 ], [ null, %104 ], [ null, %111 ], [ %149, %156 ], [ %149, %186 ], [ %149, %171 ], [ %149, %165 ], [ %149, %240 ], [ %149, %290 ], [ %149, %295 ], [ %149, %271 ], [ %149, %195 ], [ %149, %199 ], [ %149, %203 ], [ %149, %213 ], [ %149, %217 ], [ %149, %221 ], [ %149, %225 ]
-  %318 = call i64 @SDL_SeekIO_REAL(ptr noundef nonnull %0, i64 noundef %21, i32 noundef 0) #4
-  br label %319
+.thread216:                                       ; preds = %230, %226, %221, %216, %205, %200, %195, %278, %302, %297, %247, %165, %171, %186, %156, %111, %104, %96, %98, %100, %92, %83, %85, %87, %58, %60, %62, %64, %66, %68, %70, %72, %74, %76, %.thread, %30, %32, %34, %36, %38, %132, %140, %256, %127, %121, %28, %23, %20
+  %.0150.ph220 = phi ptr [ null, %20 ], [ null, %23 ], [ null, %28 ], [ null, %121 ], [ null, %127 ], [ %149, %256 ], [ null, %140 ], [ null, %132 ], [ null, %38 ], [ null, %36 ], [ null, %34 ], [ null, %32 ], [ null, %30 ], [ null, %.thread ], [ null, %76 ], [ null, %74 ], [ null, %72 ], [ null, %70 ], [ null, %68 ], [ null, %66 ], [ null, %64 ], [ null, %62 ], [ null, %60 ], [ null, %58 ], [ null, %87 ], [ null, %85 ], [ null, %83 ], [ null, %92 ], [ null, %100 ], [ null, %98 ], [ null, %96 ], [ null, %104 ], [ null, %111 ], [ %149, %156 ], [ %149, %186 ], [ %149, %171 ], [ %149, %165 ], [ %149, %247 ], [ %149, %297 ], [ %149, %302 ], [ %149, %278 ], [ %149, %195 ], [ %149, %200 ], [ %149, %205 ], [ %149, %216 ], [ %149, %221 ], [ %149, %226 ], [ %149, %230 ]
+  %325 = call i64 @SDL_SeekIO_REAL(ptr noundef nonnull %0, i64 noundef %21, i32 noundef 0) #4
+  br label %326
 
-319:                                              ; preds = %.thread222, %.thread216
+326:                                              ; preds = %.thread222, %.thread216
   %.0150.ph219 = phi ptr [ %.0150.ph220, %.thread216 ], [ null, %.thread222 ]
   call void @SDL_DestroySurface_REAL(ptr noundef %.0150.ph219) #4
   br label %CorrectAlphaChannel.exit
 
-CorrectAlphaChannel.exit:                         ; preds = %.lr.ph.i, %.critedge.i, %245, %._crit_edge, %304, %319
-  %.1151 = phi ptr [ null, %319 ], [ %149, %245 ], [ %149, %._crit_edge ], [ %149, %304 ], [ %149, %.critedge.i ], [ %149, %.lr.ph.i ]
+CorrectAlphaChannel.exit:                         ; preds = %.lr.ph.i, %.critedge.i, %252, %._crit_edge, %311, %326
+  %.1151 = phi ptr [ null, %326 ], [ %149, %252 ], [ %149, %._crit_edge ], [ %149, %311 ], [ %149, %.critedge.i ], [ %149, %.lr.ph.i ]
   %or.cond5 = and i1 %1, %18
-  br i1 %or.cond5, label %320, label %322
+  br i1 %or.cond5, label %327, label %329
 
-320:                                              ; preds = %CorrectAlphaChannel.exit
-  %321 = call zeroext i1 @SDL_CloseIO_REAL(ptr noundef nonnull %0) #4
-  br label %322
+327:                                              ; preds = %CorrectAlphaChannel.exit
+  %328 = call zeroext i1 @SDL_CloseIO_REAL(ptr noundef nonnull %0) #4
+  br label %329
 
-322:                                              ; preds = %CorrectAlphaChannel.exit, %320
+329:                                              ; preds = %CorrectAlphaChannel.exit, %327
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)

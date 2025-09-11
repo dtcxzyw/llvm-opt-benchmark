@@ -4390,7 +4390,7 @@ define internal fastcc void @pmu_set_mapping(ptr noundef %0, ptr noundef writeon
 17:                                               ; preds = %12
   %18 = load i32, ptr @__uncore_max_dies, align 4
   %19 = icmp sgt i32 %18, 0
-  br i1 %19, label %20, label %.loopexit30
+  br i1 %19, label %20, label %.loopexit33
 
 20:                                               ; preds = %17
   %21 = zext nneg i32 %3 to i64
@@ -4398,16 +4398,16 @@ define internal fastcc void @pmu_set_mapping(ptr noundef %0, ptr noundef writeon
   %.pre = load i32, ptr %6, align 4
   br label %23
 
-23:                                               ; preds = %.loopexit28, %20
-  %24 = phi i32 [ %.pre, %20 ], [ %62, %.loopexit28 ]
-  %25 = phi i64 [ 0, %20 ], [ %63, %.loopexit28 ]
+23:                                               ; preds = %.loopexit31, %20
+  %24 = phi i32 [ %.pre, %20 ], [ %62, %.loopexit31 ]
+  %25 = phi i64 [ 0, %20 ], [ %63, %.loopexit31 ]
   %26 = icmp slt i32 %24, 0
-  br i1 %26, label %.thread13, label %28, !prof !10
+  br i1 %26, label %.thread16, label %28, !prof !10
 
-.thread13:                                        ; preds = %23
+.thread16:                                        ; preds = %23
   %27 = getelementptr ptr, ptr %15, i64 %25
   store ptr null, ptr %27, align 8
-  br label %.loopexit27
+  br label %.loopexit30
 
 28:                                               ; preds = %23
   %29 = zext nneg i32 %24 to i64
@@ -4416,12 +4416,12 @@ define internal fastcc void @pmu_set_mapping(ptr noundef %0, ptr noundef writeon
   %32 = getelementptr ptr, ptr %15, i64 %25
   store ptr %31, ptr %32, align 8
   %33 = icmp eq ptr %31, null
-  br i1 %33, label %.loopexit27, label %34
+  br i1 %33, label %.loopexit30, label %34
 
 34:                                               ; preds = %28
   %35 = load i32, ptr %6, align 4
   %36 = icmp sgt i32 %35, 0
-  br i1 %36, label %37, label %.loopexit28
+  br i1 %36, label %37, label %.loopexit31
 
 37:                                               ; preds = %34
   %38 = load i64, ptr %22, align 8
@@ -4432,7 +4432,7 @@ define internal fastcc void @pmu_set_mapping(ptr noundef %0, ptr noundef writeon
   %41 = load i32, ptr %6, align 4
   %42 = sext i32 %41 to i64
   %43 = icmp slt i64 %40, %42
-  br i1 %43, label %44, label %.loopexit28, !llvm.loop !49
+  br i1 %43, label %44, label %.loopexit31, !llvm.loop !49
 
 44:                                               ; preds = %39, %37
   %45 = phi ptr [ %58, %39 ], [ %31, %37 ]
@@ -4446,51 +4446,53 @@ define internal fastcc void @pmu_set_mapping(ptr noundef %0, ptr noundef writeon
 51:                                               ; preds = %44
   %52 = extractvalue { i64, i1 } %49, 0
   %53 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %52, i32 noundef 3520) #22
-  %.pre60 = load ptr, ptr %32, align 8
+  %.pre63 = load ptr, ptr %32, align 8
   br label %54
 
 54:                                               ; preds = %51, %44
-  %55 = phi ptr [ %.pre60, %51 ], [ %45, %44 ]
+  %55 = phi ptr [ %.pre63, %51 ], [ %45, %44 ]
   %56 = phi ptr [ %53, %51 ], [ null, %44 ]
-  %57 = getelementptr %struct.intel_uncore_topology, ptr %55, i64 %46, i32 1
+  %.split = getelementptr %struct.intel_uncore_topology, ptr %55, i64 %46
+  %57 = getelementptr i8, ptr %.split, i64 8
   store ptr %56, ptr %57, align 8
   %58 = load ptr, ptr %32, align 8
-  %59 = getelementptr %struct.intel_uncore_topology, ptr %58, i64 %46, i32 1
+  %.split13 = getelementptr %struct.intel_uncore_topology, ptr %58, i64 %46
+  %59 = getelementptr i8, ptr %.split13, i64 8
   %60 = load ptr, ptr %59, align 8
   %61 = icmp eq ptr %60, null
-  br i1 %61, label %.loopexit27, label %39
+  br i1 %61, label %.loopexit30, label %39
 
-.loopexit28:                                      ; preds = %39, %34
+.loopexit31:                                      ; preds = %39, %34
   %62 = phi i32 [ %35, %34 ], [ %41, %39 ]
   %63 = add nuw nsw i64 %25, 1
   %64 = load i32, ptr @__uncore_max_dies, align 4
   %65 = sext i32 %64 to i64
   %66 = icmp slt i64 %63, %65
-  br i1 %66, label %23, label %.loopexit30, !llvm.loop !50
+  br i1 %66, label %23, label %.loopexit33, !llvm.loop !50
 
-.loopexit30:                                      ; preds = %.loopexit28, %17
+.loopexit33:                                      ; preds = %.loopexit31, %17
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 232
   store ptr %15, ptr %67, align 8
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %69 = load ptr, ptr %68, align 8
   %70 = tail call i32 %69(ptr noundef %0) #20
   %71 = icmp slt i32 %70, 0
-  br i1 %71, label %.thread14, label %95
+  br i1 %71, label %.thread17, label %95
 
-.loopexit27:                                      ; preds = %28, %54, %.thread13
+.loopexit30:                                      ; preds = %28, %54, %.thread16
   %72 = and i64 %25, 2147483648
   %73 = icmp eq i64 %72, 0
-  br i1 %73, label %74, label %.loopexit19
+  br i1 %73, label %74, label %.loopexit22
 
-74:                                               ; preds = %.loopexit27
+74:                                               ; preds = %.loopexit30
   %75 = and i64 %25, 2147483647
   br label %76
 
-76:                                               ; preds = %.loopexit18, %74
-  %77 = phi i64 [ %75, %74 ], [ %93, %.loopexit18 ]
+76:                                               ; preds = %.loopexit21, %74
+  %77 = phi i64 [ %75, %74 ], [ %93, %.loopexit21 ]
   %78 = load i32, ptr %6, align 4
   %79 = icmp sgt i32 %78, 0
-  br i1 %79, label %80, label %.loopexit18
+  br i1 %79, label %80, label %.loopexit21
 
 80:                                               ; preds = %76
   %81 = getelementptr ptr, ptr %15, i64 %77
@@ -4499,68 +4501,69 @@ define internal fastcc void @pmu_set_mapping(ptr noundef %0, ptr noundef writeon
 82:                                               ; preds = %82, %80
   %83 = phi i64 [ 0, %80 ], [ %87, %82 ]
   %84 = load ptr, ptr %81, align 8
-  %85 = getelementptr %struct.intel_uncore_topology, ptr %84, i64 %83, i32 1
+  %.split15 = getelementptr %struct.intel_uncore_topology, ptr %84, i64 %83
+  %85 = getelementptr i8, ptr %.split15, i64 8
   %86 = load ptr, ptr %85, align 8
   tail call void @kfree(ptr noundef %86) #20
   %87 = add nuw nsw i64 %83, 1
   %88 = load i32, ptr %6, align 4
   %89 = sext i32 %88 to i64
   %90 = icmp slt i64 %87, %89
-  br i1 %90, label %82, label %.loopexit18, !llvm.loop !51
+  br i1 %90, label %82, label %.loopexit21, !llvm.loop !51
 
-.loopexit18:                                      ; preds = %82, %76
+.loopexit21:                                      ; preds = %82, %76
   %91 = getelementptr ptr, ptr %15, i64 %77
   %92 = load ptr, ptr %91, align 8
   tail call void @kfree(ptr noundef %92) #20
   %93 = add nsw i64 %77, -1
   %94 = icmp sgt i64 %77, 0
-  br i1 %94, label %76, label %.loopexit19, !llvm.loop !52
+  br i1 %94, label %76, label %.loopexit22, !llvm.loop !52
 
-.loopexit19:                                      ; preds = %.loopexit18, %.loopexit27
+.loopexit22:                                      ; preds = %.loopexit21, %.loopexit30
   tail call void @kfree(ptr noundef nonnull %15) #20
   br label %.thread
 
-95:                                               ; preds = %.loopexit30
+95:                                               ; preds = %.loopexit33
   %96 = load i32, ptr @__uncore_max_dies, align 4
   %97 = add i32 %96, 1
   %98 = icmp slt i32 %97, 0
-  br i1 %98, label %.thread14, label %99, !prof !10
+  br i1 %98, label %.thread17, label %99, !prof !10
 
 99:                                               ; preds = %95
   %100 = zext nneg i32 %97 to i64
   %101 = shl nuw nsw i64 %100, 3
   %102 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %101, i32 noundef 3520) #22
   %103 = icmp eq ptr %102, null
-  br i1 %103, label %.thread14, label %104
+  br i1 %103, label %.thread17, label %104
 
 104:                                              ; preds = %99
   %105 = load i32, ptr @__uncore_max_dies, align 4
   %106 = sext i32 %105 to i64
   %107 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %106, i64 40)
   %108 = extractvalue { i64, i1 } %107, 1
-  br i1 %108, label %.thread15, label %109, !prof !10
+  br i1 %108, label %.thread18, label %109, !prof !10
 
 109:                                              ; preds = %104
   %110 = extractvalue { i64, i1 } %107, 0
   %111 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %110, i32 noundef 3520) #22
   %112 = icmp eq ptr %111, null
-  br i1 %112, label %.thread15, label %113
+  br i1 %112, label %.thread18, label %113
 
 113:                                              ; preds = %109
   %114 = load i32, ptr @__uncore_max_dies, align 4
   %115 = icmp sgt i32 %114, 0
-  br i1 %115, label %.preheader25, label %.loopexit26
+  br i1 %115, label %.preheader28, label %.loopexit29
 
-.preheader25:                                     ; preds = %113, %121
+.preheader28:                                     ; preds = %113, %121
   %116 = phi i64 [ %128, %121 ], [ 0, %113 ]
   %117 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 64, ptr noundef nonnull @.str.227, i64 noundef %116) #20
   %118 = call noalias ptr @kstrdup(ptr noundef nonnull %5, i32 noundef 3264) #20
   %119 = getelementptr %struct.dev_ext_attribute, ptr %111, i64 %116
   store ptr %118, ptr %119, align 8
   %120 = icmp eq ptr %118, null
-  br i1 %120, label %.preheader24, label %121
+  br i1 %120, label %.preheader27, label %121
 
-121:                                              ; preds = %.preheader25
+121:                                              ; preds = %.preheader28
   %122 = getelementptr inbounds nuw i8, ptr %119, i64 8
   store i16 292, ptr %122, align 8
   %123 = getelementptr inbounds nuw i8, ptr %119, i64 16
@@ -4576,61 +4579,62 @@ define internal fastcc void @pmu_set_mapping(ptr noundef %0, ptr noundef writeon
   %129 = load i32, ptr @__uncore_max_dies, align 4
   %130 = sext i32 %129 to i64
   %131 = icmp slt i64 %128, %130
-  br i1 %131, label %.preheader25, label %.loopexit26, !llvm.loop !53
+  br i1 %131, label %.preheader28, label %.loopexit29, !llvm.loop !53
 
-.loopexit26:                                      ; preds = %121, %113
+.loopexit29:                                      ; preds = %121, %113
   %132 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store ptr %102, ptr %132, align 8
-  br label %.loopexit17
+  br label %.loopexit20
 
-.preheader24:                                     ; preds = %.preheader25, %.preheader24
-  %133 = phi i64 [ %136, %.preheader24 ], [ %116, %.preheader25 ]
+.preheader27:                                     ; preds = %.preheader28, %.preheader27
+  %133 = phi i64 [ %136, %.preheader27 ], [ %116, %.preheader28 ]
   %134 = getelementptr %struct.dev_ext_attribute, ptr %111, i64 %133
   %135 = load ptr, ptr %134, align 8
   call void @kfree(ptr noundef %135) #20
   %136 = add nsw i64 %133, -1
   %137 = icmp sgt i64 %133, 0
-  br i1 %137, label %.preheader24, label %138, !llvm.loop !54
+  br i1 %137, label %.preheader27, label %138, !llvm.loop !54
 
-138:                                              ; preds = %.preheader24
+138:                                              ; preds = %.preheader27
   call void @kfree(ptr noundef nonnull %111) #20
-  br label %.thread15
+  br label %.thread18
 
-.thread15:                                        ; preds = %104, %138, %109
+.thread18:                                        ; preds = %104, %138, %109
   call void @kfree(ptr noundef nonnull %102) #20
-  br label %.thread14
+  br label %.thread17
 
-.thread14:                                        ; preds = %95, %.thread15, %99, %.loopexit30
+.thread17:                                        ; preds = %95, %.thread18, %99, %.loopexit33
   %139 = load ptr, ptr %67, align 8
   %140 = icmp eq ptr %139, null
   br i1 %140, label %.thread, label %141
 
-141:                                              ; preds = %.thread14
+141:                                              ; preds = %.thread17
   %142 = load i32, ptr @__uncore_max_dies, align 4
   %143 = icmp sgt i32 %142, 0
-  br i1 %143, label %.preheader22, label %.loopexit23
+  br i1 %143, label %.preheader25, label %.loopexit26
 
-.preheader22:                                     ; preds = %141, %.loopexit21
-  %144 = phi i64 [ %160, %.loopexit21 ], [ 0, %141 ]
+.preheader25:                                     ; preds = %141, %.loopexit24
+  %144 = phi i64 [ %160, %.loopexit24 ], [ 0, %141 ]
   %145 = load i32, ptr %6, align 4
   %146 = icmp sgt i32 %145, 0
-  br i1 %146, label %.preheader20, label %.loopexit21
+  br i1 %146, label %.preheader23, label %.loopexit24
 
-.preheader20:                                     ; preds = %.preheader22, %.preheader20
-  %147 = phi i64 [ %153, %.preheader20 ], [ 0, %.preheader22 ]
+.preheader23:                                     ; preds = %.preheader25, %.preheader23
+  %147 = phi i64 [ %153, %.preheader23 ], [ 0, %.preheader25 ]
   %148 = load ptr, ptr %67, align 8
   %149 = getelementptr ptr, ptr %148, i64 %144
   %150 = load ptr, ptr %149, align 8
-  %151 = getelementptr %struct.intel_uncore_topology, ptr %150, i64 %147, i32 1
+  %.split14 = getelementptr %struct.intel_uncore_topology, ptr %150, i64 %147
+  %151 = getelementptr i8, ptr %.split14, i64 8
   %152 = load ptr, ptr %151, align 8
   call void @kfree(ptr noundef %152) #20
   %153 = add nuw nsw i64 %147, 1
   %154 = load i32, ptr %6, align 4
   %155 = sext i32 %154 to i64
   %156 = icmp slt i64 %153, %155
-  br i1 %156, label %.preheader20, label %.loopexit21, !llvm.loop !55
+  br i1 %156, label %.preheader23, label %.loopexit24, !llvm.loop !55
 
-.loopexit21:                                      ; preds = %.preheader20, %.preheader22
+.loopexit24:                                      ; preds = %.preheader23, %.preheader25
   %157 = load ptr, ptr %67, align 8
   %158 = getelementptr ptr, ptr %157, i64 %144
   %159 = load ptr, ptr %158, align 8
@@ -4639,26 +4643,26 @@ define internal fastcc void @pmu_set_mapping(ptr noundef %0, ptr noundef writeon
   %161 = load i32, ptr @__uncore_max_dies, align 4
   %162 = sext i32 %161 to i64
   %163 = icmp slt i64 %160, %162
-  br i1 %163, label %.preheader22, label %.loopexit23.loopexit, !llvm.loop !56
+  br i1 %163, label %.preheader25, label %.loopexit26.loopexit, !llvm.loop !56
 
-.loopexit23.loopexit:                             ; preds = %.loopexit21
-  %.pre61 = load ptr, ptr %67, align 8
-  br label %.loopexit23
+.loopexit26.loopexit:                             ; preds = %.loopexit24
+  %.pre64 = load ptr, ptr %67, align 8
+  br label %.loopexit26
 
-.loopexit23:                                      ; preds = %.loopexit23.loopexit, %141
-  %164 = phi ptr [ %.pre61, %.loopexit23.loopexit ], [ %139, %141 ]
+.loopexit26:                                      ; preds = %.loopexit26.loopexit, %141
+  %164 = phi ptr [ %.pre64, %.loopexit26.loopexit ], [ %139, %141 ]
   call void @kfree(ptr noundef %164) #20
   store ptr null, ptr %67, align 8
   br label %.thread
 
-.thread:                                          ; preds = %9, %.loopexit23, %.thread14, %.loopexit19, %12, %4
+.thread:                                          ; preds = %9, %.loopexit26, %.thread17, %.loopexit22, %12, %4
   %165 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %166 = load ptr, ptr %165, align 8
   %167 = load ptr, ptr %166, align 8
   %168 = icmp eq ptr %167, null
-  br i1 %168, label %.loopexit17, label %.preheader16
+  br i1 %168, label %.loopexit20, label %.preheader19
 
-.preheader16:                                     ; preds = %.thread, %191
+.preheader19:                                     ; preds = %.thread, %191
   %169 = phi ptr [ %175, %191 ], [ %167, %.thread ]
   %170 = phi i32 [ %172, %191 ], [ 0, %.thread ]
   %171 = icmp eq ptr %169, %1
@@ -4669,7 +4673,7 @@ define internal fastcc void @pmu_set_mapping(ptr noundef %0, ptr noundef writeon
   %176 = icmp eq ptr %175, null
   br i1 %171, label %177, label %191
 
-177:                                              ; preds = %.preheader16
+177:                                              ; preds = %.preheader19
   br i1 %176, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %177, %.preheader
@@ -4691,12 +4695,12 @@ define internal fastcc void @pmu_set_mapping(ptr noundef %0, ptr noundef writeon
   %189 = sext i32 %188 to i64
   %190 = getelementptr ptr, ptr %166, i64 %189
   store ptr null, ptr %190, align 8
-  br label %.loopexit17
+  br label %.loopexit20
 
-191:                                              ; preds = %.preheader16
-  br i1 %176, label %.loopexit17, label %.preheader16, !llvm.loop !58
+191:                                              ; preds = %.preheader19
+  br i1 %176, label %.loopexit20, label %.preheader19, !llvm.loop !58
 
-.loopexit17:                                      ; preds = %191, %.loopexit, %.thread, %.loopexit26
+.loopexit20:                                      ; preds = %191, %.loopexit, %.thread, %.loopexit29
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
@@ -4835,7 +4839,8 @@ define internal fastcc void @pmu_cleanup_mapping(ptr noundef captures(none) %0, 
   %30 = load ptr, ptr %17, align 8
   %31 = getelementptr ptr, ptr %30, i64 %26
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr %struct.intel_uncore_topology, ptr %32, i64 %29, i32 1
+  %.split = getelementptr %struct.intel_uncore_topology, ptr %32, i64 %29
+  %33 = getelementptr i8, ptr %.split, i64 8
   %34 = load ptr, ptr %33, align 8
   tail call void @kfree(ptr noundef %34) #20
   %35 = add nuw nsw i64 %29, 1
@@ -4949,7 +4954,8 @@ define internal zeroext i16 @skx_upi_mapping_visible(ptr noundef readonly captur
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 336
   %14 = load i32, ptr %13, align 8
   %15 = sext i32 %14 to i64
-  %16 = getelementptr %struct.intel_uncore_topology, ptr %12, i64 %15, i32 1
+  %.split = getelementptr %struct.intel_uncore_topology, ptr %12, i64 %15
+  %16 = getelementptr i8, ptr %.split, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load i32, ptr %18, align 4
@@ -5139,7 +5145,8 @@ define internal range(i64 -2147483648, 2147483648) i64 @skx_upi_mapping_show(ptr
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 336
   %16 = load i32, ptr %15, align 8
   %17 = sext i32 %16 to i64
-  %18 = getelementptr %struct.intel_uncore_topology, ptr %14, i64 %17, i32 1
+  %.split = getelementptr %struct.intel_uncore_topology, ptr %14, i64 %17
+  %18 = getelementptr i8, ptr %.split, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %21 = load i32, ptr %20, align 4
@@ -5401,7 +5408,8 @@ define internal fastcc range(i32 -2147483648, 1) i32 @sad_cfg_iio_topology(ptr n
   %44 = getelementptr ptr, ptr %42, i64 %43
   %45 = load ptr, ptr %44, align 8
   %46 = zext i8 %36 to i64
-  %47 = getelementptr %struct.intel_uncore_topology, ptr %45, i64 %46, i32 1
+  %.split = getelementptr %struct.intel_uncore_topology, ptr %45, i64 %46
+  %47 = getelementptr i8, ptr %.split, i64 8
   %48 = load ptr, ptr %47, align 8
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 4
   store i32 %41, ptr %49, align 4
@@ -5417,7 +5425,8 @@ define internal fastcc range(i32 -2147483648, 1) i32 @sad_cfg_iio_topology(ptr n
   %58 = load ptr, ptr %8, align 8
   %59 = getelementptr ptr, ptr %58, i64 %43
   %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr %struct.intel_uncore_topology, ptr %60, i64 %46, i32 1
+  %.split6 = getelementptr %struct.intel_uncore_topology, ptr %60, i64 %46
+  %61 = getelementptr i8, ptr %.split6, i64 8
   %62 = load ptr, ptr %61, align 8
   store i32 %57, ptr %62, align 4
   %63 = call ptr @pci_get_device(i32 noundef 32902, i32 noundef 2466, ptr noundef nonnull %10) #20

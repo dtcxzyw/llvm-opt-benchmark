@@ -26583,9 +26583,10 @@ _ZL9cos_anglePKfS0_.exit:                         ; preds = %92, %95
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef i32 @_Z9nrnbIndexi(i32 noundef %0) local_unnamed_addr #19 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds nuw %"struct.(anonymous namespace)::BondedInteractions", ptr @_ZN12_GLOBAL__N_128c_bondedInteractionFunctionsIL18BondedKernelFlavor2EEE, i64 %2, i32 1
-  %4 = load i32, ptr %3, align 8, !tbaa !263
-  ret i32 %4
+  %3 = getelementptr inbounds nuw %"struct.(anonymous namespace)::BondedInteractions", ptr @_ZN12_GLOBAL__N_128c_bondedInteractionFunctionsIL18BondedKernelFlavor2EEE, i64 %2
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load i32, ptr %4, align 8, !tbaa !263
+  ret i32 %5
 }
 
 ; Function Attrs: uwtable

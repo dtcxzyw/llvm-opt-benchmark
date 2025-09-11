@@ -498,14 +498,14 @@ bits_peek_be.exit._crit_edge.i.us:                ; preds = %bits_peek_be.exit.i
   %247 = load i32, ptr %244, align 1, !tbaa !31
   %248 = tail call i32 @llvm.bswap.i32(i32 %247)
   %249 = zext i32 %248 to i64
-  %250 = sub i32 32, %240
+  %250 = sub nsw i32 32, %240
   %251 = zext nneg i32 %250 to i64
   %252 = shl i64 %249, %251
   %253 = or i64 %252, %238
   store i64 %253, ptr %8, align 8, !tbaa !52
   %254 = getelementptr inbounds nuw i8, ptr %244, i64 4
   store ptr %254, ptr %77, align 8, !tbaa !49
-  %255 = add i32 %240, 32
+  %255 = add nuw nsw i32 %240, 32
   store i32 %255, ptr %79, align 8, !tbaa !51
   br label %bits_priv_set_idx_be.exit.i.us
 
@@ -779,14 +779,14 @@ define internal fastcc i32 @build_vlc(ptr noundef %0, ptr noundef %1) unnamed_ad
 .preheader.preheader:                             ; preds = %15, %2
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader.preheader, %65
-  %indvars.iv92 = phi i64 [ %indvars.iv.next93, %65 ], [ 0, %.preheader.preheader ]
-  %.062 = phi i32 [ %31, %65 ], [ %11, %.preheader.preheader ]
+.preheader:                                       ; preds = %.preheader.preheader, %70
+  %indvars.iv92 = phi i64 [ %indvars.iv.next93, %70 ], [ 0, %.preheader.preheader ]
+  %.062 = phi i32 [ %31, %70 ], [ %11, %.preheader.preheader ]
   %27 = sext i32 %.062 to i64
   br label %28
 
-28:                                               ; preds = %57, %.preheader
-  %indvars.iv97 = phi i64 [ %indvars.iv.next98, %57 ], [ %27, %.preheader ]
+28:                                               ; preds = %62, %.preheader
+  %indvars.iv97 = phi i64 [ %indvars.iv.next98, %62 ], [ %27, %.preheader ]
   %29 = getelementptr inbounds %struct.Node, ptr %3, i64 %indvars.iv97
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store i32 -1, ptr %30, align 4, !tbaa !69
@@ -794,92 +794,97 @@ define internal fastcc i32 @build_vlc(ptr noundef %0, ptr noundef %1) unnamed_ad
   %32 = and i64 %indvars.iv97, 4294967295
   br label %33
 
-33:                                               ; preds = %46, %28
-  %indvars.iv94 = phi i64 [ %indvars.iv.next95, %46 ], [ %indvars.iv92, %28 ]
-  %.069 = phi i32 [ %.170, %46 ], [ %31, %28 ]
-  %.067 = phi i32 [ %.168, %46 ], [ %31, %28 ]
-  %34 = getelementptr inbounds nuw %struct.Node, ptr %3, i64 %indvars.iv94, i32 4
-  %35 = load i32, ptr %34, align 4, !tbaa !69
-  %.not = icmp eq i32 %35, 0
-  br i1 %.not, label %46, label %36
+33:                                               ; preds = %49, %28
+  %indvars.iv94 = phi i64 [ %indvars.iv.next95, %49 ], [ %indvars.iv92, %28 ]
+  %.069 = phi i32 [ %.170, %49 ], [ %31, %28 ]
+  %.067 = phi i32 [ %.168, %49 ], [ %31, %28 ]
+  %34 = getelementptr inbounds nuw %struct.Node, ptr %3, i64 %indvars.iv94
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
+  %36 = load i32, ptr %35, align 4, !tbaa !69
+  %.not = icmp eq i32 %36, 0
+  br i1 %.not, label %49, label %37
 
-36:                                               ; preds = %33
-  %37 = sext i32 %.069 to i64
-  %38 = getelementptr inbounds %struct.Node, ptr %3, i64 %37, i32 4
-  %39 = load i32, ptr %38, align 4, !tbaa !69
-  %40 = icmp ult i32 %35, %39
-  br i1 %40, label %41, label %46
+37:                                               ; preds = %33
+  %38 = sext i32 %.069 to i64
+  %39 = getelementptr inbounds %struct.Node, ptr %3, i64 %38
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
+  %41 = load i32, ptr %40, align 4, !tbaa !69
+  %42 = icmp ult i32 %36, %41
+  br i1 %42, label %43, label %49
 
-41:                                               ; preds = %36
-  %42 = sext i32 %.067 to i64
-  %43 = getelementptr inbounds %struct.Node, ptr %3, i64 %42, i32 4
-  %44 = load i32, ptr %43, align 4, !tbaa !69
-  %.not78 = icmp ult i32 %35, %44
-  %45 = trunc nuw nsw i64 %indvars.iv94 to i32
-  %.067..071 = select i1 %.not78, i32 %.067, i32 %45
-  %.071..067 = select i1 %.not78, i32 %45, i32 %.067
-  br label %46
+43:                                               ; preds = %37
+  %44 = sext i32 %.067 to i64
+  %45 = getelementptr inbounds %struct.Node, ptr %3, i64 %44
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
+  %47 = load i32, ptr %46, align 4, !tbaa !69
+  %.not78 = icmp ult i32 %36, %47
+  %48 = trunc nuw nsw i64 %indvars.iv94 to i32
+  %.067..071 = select i1 %.not78, i32 %.067, i32 %48
+  %.071..067 = select i1 %.not78, i32 %48, i32 %.067
+  br label %49
 
-46:                                               ; preds = %41, %36, %33
-  %.170 = phi i32 [ %.069, %36 ], [ %.069, %33 ], [ %.067..071, %41 ]
-  %.168 = phi i32 [ %.067, %36 ], [ %.067, %33 ], [ %.071..067, %41 ]
+49:                                               ; preds = %43, %37, %33
+  %.170 = phi i32 [ %.069, %37 ], [ %.069, %33 ], [ %.067..071, %43 ]
+  %.168 = phi i32 [ %.067, %37 ], [ %.067, %33 ], [ %.071..067, %43 ]
   %indvars.iv.next95 = add nuw nsw i64 %indvars.iv94, 1
   %.not79 = icmp eq i64 %indvars.iv.next95, %32
-  br i1 %.not79, label %47, label %33, !llvm.loop !77
+  br i1 %.not79, label %50, label %33, !llvm.loop !77
 
-47:                                               ; preds = %46
-  %48 = icmp eq i32 %.170, %31
-  br i1 %48, label %65, label %49
+50:                                               ; preds = %49
+  %51 = icmp eq i32 %.170, %31
+  br i1 %51, label %70, label %52
 
-49:                                               ; preds = %47
-  %50 = sext i32 %.168 to i64
-  %51 = getelementptr inbounds %struct.Node, ptr %3, i64 %50, i32 4
-  %52 = load i32, ptr %51, align 4, !tbaa !69
-  %53 = sext i32 %.170 to i64
-  %54 = getelementptr inbounds %struct.Node, ptr %3, i64 %53, i32 4
-  %55 = load i32, ptr %54, align 4, !tbaa !69
-  store i32 0, ptr %51, align 4, !tbaa !69
-  store i32 0, ptr %54, align 4, !tbaa !69
-  %56 = xor i32 %55, -1
-  %.not80 = icmp ult i32 %52, %56
-  br i1 %.not80, label %57, label %.thread
+52:                                               ; preds = %50
+  %53 = sext i32 %.168 to i64
+  %54 = getelementptr inbounds %struct.Node, ptr %3, i64 %53
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
+  %56 = load i32, ptr %55, align 4, !tbaa !69
+  %57 = sext i32 %.170 to i64
+  %58 = getelementptr inbounds %struct.Node, ptr %3, i64 %57
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
+  %60 = load i32, ptr %59, align 4, !tbaa !69
+  store i32 0, ptr %55, align 4, !tbaa !69
+  store i32 0, ptr %59, align 4, !tbaa !69
+  %61 = xor i32 %60, -1
+  %.not80 = icmp ult i32 %56, %61
+  br i1 %.not80, label %62, label %.thread
 
-.thread:                                          ; preds = %49
+.thread:                                          ; preds = %52
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.4) #7
-  br label %72
+  br label %77
 
-57:                                               ; preds = %49
-  %58 = add i32 %55, %52
-  store i32 %58, ptr %30, align 4, !tbaa !69
+62:                                               ; preds = %52
+  %63 = add i32 %60, %56
+  store i32 %63, ptr %30, align 4, !tbaa !69
   store i16 -1, ptr %29, align 4, !tbaa !72
-  %59 = trunc i64 %indvars.iv97 to i16
-  %60 = getelementptr inbounds nuw i8, ptr %29, i64 2
-  store i16 %59, ptr %60, align 2, !tbaa !73
-  %61 = trunc i32 %.170 to i16
-  %62 = getelementptr inbounds nuw i8, ptr %29, i64 4
-  store i16 %61, ptr %62, align 4, !tbaa !74
-  %63 = trunc i32 %.168 to i16
-  %64 = getelementptr inbounds nuw i8, ptr %29, i64 6
-  store i16 %63, ptr %64, align 2, !tbaa !75
+  %64 = trunc i64 %indvars.iv97 to i16
+  %65 = getelementptr inbounds nuw i8, ptr %29, i64 2
+  store i16 %64, ptr %65, align 2, !tbaa !73
+  %66 = trunc i32 %.170 to i16
+  %67 = getelementptr inbounds nuw i8, ptr %29, i64 4
+  store i16 %66, ptr %67, align 4, !tbaa !74
+  %68 = trunc i32 %.168 to i16
+  %69 = getelementptr inbounds nuw i8, ptr %29, i64 6
+  store i16 %68, ptr %69, align 2, !tbaa !75
   %indvars.iv.next98 = add nsw i64 %indvars.iv97, 1
   br label %28
 
-65:                                               ; preds = %47
+70:                                               ; preds = %50
   %indvars.iv.next93 = add nuw i64 %indvars.iv92, 1
   %indvars = trunc i64 %indvars.iv.next93 to i32
-  %66 = sub nsw i32 %31, %11
-  %67 = icmp eq i32 %66, %indvars
-  br i1 %67, label %.preheader, label %68, !llvm.loop !78
+  %71 = sub nsw i32 %31, %11
+  %72 = icmp eq i32 %71, %indvars
+  br i1 %72, label %.preheader, label %73, !llvm.loop !78
 
-68:                                               ; preds = %65
-  %69 = add nsw i32 %31, -1
-  call fastcc void @get_tree_codes(ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %3, i32 noundef %69, i32 noundef 0, i32 noundef 0, ptr noundef %7)
-  %70 = load i32, ptr %7, align 4, !tbaa !38
-  %71 = call i32 @ff_vlc_init_sparse(ptr noundef %1, i32 noundef 12, i32 noundef %70, ptr noundef nonnull %5, i32 noundef 2, i32 noundef 2, ptr noundef nonnull %4, i32 noundef 4, i32 noundef 4, ptr noundef nonnull %6, i32 noundef 1, i32 noundef 1, i32 noundef 0) #7
-  br label %72
+73:                                               ; preds = %70
+  %74 = add nsw i32 %31, -1
+  call fastcc void @get_tree_codes(ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %3, i32 noundef %74, i32 noundef 0, i32 noundef 0, ptr noundef %7)
+  %75 = load i32, ptr %7, align 4, !tbaa !38
+  %76 = call i32 @ff_vlc_init_sparse(ptr noundef %1, i32 noundef 12, i32 noundef %75, ptr noundef nonnull %5, i32 noundef 2, i32 noundef 2, ptr noundef nonnull %4, i32 noundef 4, i32 noundef 4, ptr noundef nonnull %6, i32 noundef 1, i32 noundef 1, i32 noundef 0) #7
+  br label %77
 
-72:                                               ; preds = %.thread, %68
-  %.3 = phi i32 [ %71, %68 ], [ -1094995529, %.thread ]
+77:                                               ; preds = %.thread, %73
+  %.3 = phi i32 [ %76, %73 ], [ -1094995529, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

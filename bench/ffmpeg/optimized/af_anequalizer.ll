@@ -180,16 +180,16 @@ define internal range(i32 -38, 1) i32 @process_command(ptr noundef %0, ptr nound
   %35 = getelementptr inbounds nuw i8, ptr %12, i64 64
   %36 = load ptr, ptr %35, align 8, !tbaa !43
   %37 = zext nneg i32 %20 to i64
-  %38 = getelementptr inbounds nuw %struct.EqualizatorFilter, ptr %36, i64 %37, i32 3
-  store double %26, ptr %38, align 8, !tbaa !44
-  %39 = load double, ptr %8, align 8, !tbaa !33
-  %40 = getelementptr inbounds nuw %struct.EqualizatorFilter, ptr %36, i64 %37, i32 5
-  store double %39, ptr %40, align 8, !tbaa !46
-  %41 = load double, ptr %9, align 8, !tbaa !33
-  %42 = getelementptr inbounds nuw %struct.EqualizatorFilter, ptr %36, i64 %37, i32 4
-  store double %41, ptr %42, align 8, !tbaa !47
-  %43 = getelementptr inbounds nuw %struct.EqualizatorFilter, ptr %36, i64 %37
-  call fastcc void @equalizer(ptr noundef %43, double noundef %31)
+  %38 = getelementptr inbounds nuw %struct.EqualizatorFilter, ptr %36, i64 %37
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
+  store double %26, ptr %39, align 8, !tbaa !44
+  %40 = load double, ptr %8, align 8, !tbaa !33
+  %41 = getelementptr inbounds nuw i8, ptr %38, i64 32
+  store double %40, ptr %41, align 8, !tbaa !46
+  %42 = load double, ptr %9, align 8, !tbaa !33
+  %43 = getelementptr inbounds nuw i8, ptr %38, i64 24
+  store double %42, ptr %43, align 8, !tbaa !47
+  call fastcc void @equalizer(ptr noundef %38, double noundef %31)
   %44 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %45 = load i32, ptr %44, align 8, !tbaa !22
   %.not24 = icmp eq i32 %45, 0
@@ -295,7 +295,7 @@ define internal range(i32 -22, 1) i32 @config_input(ptr noundef readonly capture
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8, !tbaa !20
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %95, label %10
+  br i1 %.not, label %92, label %10
 
 10:                                               ; preds = %1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 76
@@ -326,131 +326,128 @@ define internal range(i32 -22, 1) i32 @config_input(ptr noundef readonly capture
 24:                                               ; preds = %10
   store i32 0, ptr %14, align 8, !tbaa !29
   tail call void @av_free(ptr noundef nonnull %9) #15
-  br label %95
+  br label %92
 
-25:                                               ; preds = %.lr.ph, %89
-  %26 = phi ptr [ %22, %.lr.ph ], [ %94, %89 ]
+25:                                               ; preds = %.lr.ph, %86
+  %26 = phi ptr [ %22, %.lr.ph ], [ %91, %86 ]
   %27 = load ptr, ptr %17, align 8, !tbaa !43
   %28 = load i32, ptr %18, align 4, !tbaa !28
   %29 = sext i32 %28 to i64
-  %30 = getelementptr inbounds %struct.EqualizatorFilter, ptr %27, i64 %29, i32 2
-  store i32 0, ptr %30, align 8, !tbaa !61
-  %31 = getelementptr inbounds %struct.EqualizatorFilter, ptr %27, i64 %29
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 4
-  %33 = getelementptr inbounds nuw i8, ptr %31, i64 16
-  %34 = getelementptr inbounds nuw i8, ptr %31, i64 32
-  %35 = getelementptr inbounds nuw i8, ptr %31, i64 24
-  %36 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  %37 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %26, ptr noundef nonnull @.str.4, ptr noundef nonnull %32, ptr noundef nonnull %33, ptr noundef nonnull %34, ptr noundef nonnull %35, ptr noundef nonnull %36) #15
-  %.not72 = icmp eq i32 %37, 5
-  br i1 %.not72, label %48, label %38
+  %30 = getelementptr inbounds %struct.EqualizatorFilter, ptr %27, i64 %29
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  store i32 0, ptr %31, align 8, !tbaa !61
+  %32 = getelementptr inbounds nuw i8, ptr %30, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %30, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %30, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %30, i64 24
+  %36 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %26, ptr noundef nonnull @.str.4, ptr noundef nonnull %32, ptr noundef nonnull %33, ptr noundef nonnull %34, ptr noundef nonnull %35, ptr noundef nonnull %31) #15
+  %.not72 = icmp eq i32 %36, 5
+  br i1 %.not72, label %47, label %37
 
-38:                                               ; preds = %25
-  %39 = load ptr, ptr %17, align 8, !tbaa !43
-  %40 = load i32, ptr %18, align 4, !tbaa !28
-  %41 = sext i32 %40 to i64
-  %42 = getelementptr inbounds %struct.EqualizatorFilter, ptr %39, i64 %41
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 4
-  %44 = getelementptr inbounds nuw i8, ptr %42, i64 16
-  %45 = getelementptr inbounds nuw i8, ptr %42, i64 32
-  %46 = getelementptr inbounds nuw i8, ptr %42, i64 24
-  %47 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %26, ptr noundef nonnull @.str.5, ptr noundef nonnull %43, ptr noundef nonnull %44, ptr noundef nonnull %45, ptr noundef nonnull %46) #15
-  %.not73 = icmp eq i32 %47, 4
-  br i1 %.not73, label %48, label %.thread81
+37:                                               ; preds = %25
+  %38 = load ptr, ptr %17, align 8, !tbaa !43
+  %39 = load i32, ptr %18, align 4, !tbaa !28
+  %40 = sext i32 %39 to i64
+  %41 = getelementptr inbounds %struct.EqualizatorFilter, ptr %38, i64 %40
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 4
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %41, i64 32
+  %45 = getelementptr inbounds nuw i8, ptr %41, i64 24
+  %46 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %26, ptr noundef nonnull @.str.5, ptr noundef nonnull %42, ptr noundef nonnull %43, ptr noundef nonnull %44, ptr noundef nonnull %45) #15
+  %.not73 = icmp eq i32 %46, 4
+  br i1 %.not73, label %47, label %.thread81
 
-.thread81:                                        ; preds = %38
+.thread81:                                        ; preds = %37
   call void @av_free(ptr noundef nonnull %9) #15
-  br label %95
+  br label %92
 
-48:                                               ; preds = %38, %25
-  %49 = load ptr, ptr %17, align 8, !tbaa !43
-  %50 = load i32, ptr %18, align 4, !tbaa !28
-  %51 = sext i32 %50 to i64
-  %52 = getelementptr inbounds %struct.EqualizatorFilter, ptr %49, i64 %51, i32 3
+47:                                               ; preds = %37, %25
+  %48 = load ptr, ptr %17, align 8, !tbaa !43
+  %49 = load i32, ptr %18, align 4, !tbaa !28
+  %50 = sext i32 %49 to i64
+  %51 = getelementptr inbounds %struct.EqualizatorFilter, ptr %48, i64 %50
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %53 = load double, ptr %52, align 8, !tbaa !44
   %54 = fcmp nsz olt double %53, 0.000000e+00
   br i1 %54, label %60, label %55
 
-55:                                               ; preds = %48
+55:                                               ; preds = %47
   %56 = load i32, ptr %23, align 8, !tbaa !34
   %57 = sitofp i32 %56 to double
   %58 = fmul nsz double %57, 5.000000e-01
   %59 = fcmp nsz ogt double %53, %58
-  br i1 %59, label %60, label %62
+  br i1 %59, label %60, label %61
 
-60:                                               ; preds = %55, %48
-  %61 = getelementptr inbounds %struct.EqualizatorFilter, ptr %49, i64 %51
-  store i32 1, ptr %61, align 8, !tbaa !62
-  br label %62
+60:                                               ; preds = %55, %47
+  store i32 1, ptr %51, align 8, !tbaa !62
+  br label %61
 
-62:                                               ; preds = %60, %55
-  %63 = getelementptr inbounds %struct.EqualizatorFilter, ptr %49, i64 %51, i32 1
-  %64 = load i32, ptr %63, align 4, !tbaa !63
-  %65 = icmp slt i32 %64, 0
-  br i1 %65, label %68, label %66
+61:                                               ; preds = %60, %55
+  %62 = getelementptr inbounds nuw i8, ptr %51, i64 4
+  %63 = load i32, ptr %62, align 4, !tbaa !63
+  %64 = icmp slt i32 %63, 0
+  br i1 %64, label %67, label %65
 
-66:                                               ; preds = %62
-  %67 = load i32, ptr %11, align 4, !tbaa !52
-  %.not74 = icmp slt i32 %64, %67
-  br i1 %.not74, label %70, label %68
+65:                                               ; preds = %61
+  %66 = load i32, ptr %11, align 4, !tbaa !52
+  %.not74 = icmp slt i32 %63, %66
+  br i1 %.not74, label %68, label %67
 
-68:                                               ; preds = %66, %62
-  %69 = getelementptr inbounds %struct.EqualizatorFilter, ptr %49, i64 %51
-  store i32 1, ptr %69, align 8, !tbaa !62
-  br label %70
+67:                                               ; preds = %65, %61
+  store i32 1, ptr %51, align 8, !tbaa !62
+  br label %68
 
-70:                                               ; preds = %68, %66
-  %71 = getelementptr inbounds %struct.EqualizatorFilter, ptr %49, i64 %51, i32 2
-  %72 = load i32, ptr %71, align 8, !tbaa !61
-  %73 = call i32 @llvm.smax.i32(i32 %72, i32 0)
-  %74 = call i32 @llvm.umin.i32(i32 %73, i32 2)
-  store i32 %74, ptr %71, align 8, !tbaa !61
+68:                                               ; preds = %67, %65
+  %69 = getelementptr inbounds nuw i8, ptr %51, i64 8
+  %70 = load i32, ptr %69, align 8, !tbaa !61
+  %71 = call i32 @llvm.smax.i32(i32 %70, i32 0)
+  %72 = call i32 @llvm.umin.i32(i32 %71, i32 2)
+  store i32 %72, ptr %69, align 8, !tbaa !61
   %.val = load i32, ptr %23, align 8, !tbaa !34
-  %75 = getelementptr inbounds %struct.EqualizatorFilter, ptr %49, i64 %51
-  %76 = sitofp i32 %.val to double
-  call fastcc void @equalizer(ptr noundef %75, double noundef %76)
-  %77 = load i32, ptr %18, align 4, !tbaa !28
-  %78 = load i32, ptr %14, align 8, !tbaa !29
-  %79 = add nsw i32 %78, -1
-  %.not.i = icmp slt i32 %77, %79
-  br i1 %.not.i, label %89, label %80
+  %73 = sitofp i32 %.val to double
+  call fastcc void @equalizer(ptr noundef nonnull %51, double noundef %73)
+  %74 = load i32, ptr %18, align 4, !tbaa !28
+  %75 = load i32, ptr %14, align 8, !tbaa !29
+  %76 = add nsw i32 %75, -1
+  %.not.i = icmp slt i32 %74, %76
+  br i1 %.not.i, label %86, label %77
 
-80:                                               ; preds = %70
-  %81 = sext i32 %78 to i64
-  %82 = call noalias ptr @av_calloc(i64 noundef %81, i64 noundef 656) #15
-  %.not18.i = icmp eq ptr %82, null
+77:                                               ; preds = %68
+  %78 = sext i32 %75 to i64
+  %79 = call noalias ptr @av_calloc(i64 noundef %78, i64 noundef 656) #15
+  %.not18.i = icmp eq ptr %79, null
   br i1 %.not18.i, label %._crit_edge, label %.thread.i
 
-.thread.i:                                        ; preds = %80
-  %83 = load ptr, ptr %17, align 8, !tbaa !43
+.thread.i:                                        ; preds = %77
+  %80 = load ptr, ptr %17, align 8, !tbaa !43
+  %81 = load i32, ptr %14, align 8, !tbaa !29
+  %82 = sext i32 %81 to i64
+  %83 = mul nsw i64 %82, 328
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %79, ptr align 8 %80, i64 %83, i1 false)
+  call void @av_free(ptr noundef %80) #15
+  store ptr %79, ptr %17, align 8, !tbaa !43
   %84 = load i32, ptr %14, align 8, !tbaa !29
-  %85 = sext i32 %84 to i64
-  %86 = mul nsw i64 %85, 328
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %82, ptr align 8 %83, i64 %86, i1 false)
-  call void @av_free(ptr noundef %83) #15
-  store ptr %82, ptr %17, align 8, !tbaa !43
-  %87 = load i32, ptr %14, align 8, !tbaa !29
-  %88 = shl nsw i32 %87, 1
-  store i32 %88, ptr %14, align 8, !tbaa !29
+  %85 = shl nsw i32 %84, 1
+  store i32 %85, ptr %14, align 8, !tbaa !29
   %.pre.i = load i32, ptr %18, align 4, !tbaa !28
-  br label %89
+  br label %86
 
-89:                                               ; preds = %.thread.i, %70
-  %90 = phi i32 [ %.pre.i, %.thread.i ], [ %77, %70 ]
-  %91 = add nsw i32 %90, 1
-  store i32 %91, ptr %18, align 4, !tbaa !28
-  %92 = icmp eq i32 %91, 0
-  %93 = select i1 %92, ptr %9, ptr null
-  %94 = call ptr @av_strtok(ptr noundef %93, ptr noundef nonnull @.str.3, ptr noundef nonnull %2) #15
-  %.not71 = icmp eq ptr %94, null
+86:                                               ; preds = %.thread.i, %68
+  %87 = phi i32 [ %.pre.i, %.thread.i ], [ %74, %68 ]
+  %88 = add nsw i32 %87, 1
+  store i32 %88, ptr %18, align 4, !tbaa !28
+  %89 = icmp eq i32 %88, 0
+  %90 = select i1 %89, ptr %9, ptr null
+  %91 = call ptr @av_strtok(ptr noundef %90, ptr noundef nonnull @.str.3, ptr noundef nonnull %2) #15
+  %.not71 = icmp eq ptr %91, null
   br i1 %.not71, label %._crit_edge, label %25
 
-._crit_edge:                                      ; preds = %80, %89, %.preheader
-  %.163.ph = phi i32 [ 0, %.preheader ], [ 0, %89 ], [ -12, %80 ]
+._crit_edge:                                      ; preds = %77, %86, %.preheader
+  %.163.ph = phi i32 [ 0, %.preheader ], [ 0, %86 ], [ -12, %77 ]
   call void @av_free(ptr noundef nonnull %9) #15
-  br label %95
+  br label %92
 
-95:                                               ; preds = %.thread81, %1, %._crit_edge, %24
+92:                                               ; preds = %.thread81, %1, %._crit_edge, %24
   %.0 = phi i32 [ %.163.ph, %._crit_edge ], [ -12, %24 ], [ -12, %1 ], [ -22, %.thread81 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
@@ -1482,7 +1479,7 @@ define internal fastcc void @draw_curves(ptr noundef %0, ptr noundef readonly ca
   br i1 %.not137, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %65
-  %67 = getelementptr inbounds nuw %struct.EqualizatorFilter, ptr %53, i64 %indvars.iv159, i32 6
+  %67 = getelementptr inbounds nuw i8, ptr %62, i64 40
   br label %68
 
 68:                                               ; preds = %.preheader, %68

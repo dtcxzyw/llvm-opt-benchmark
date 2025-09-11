@@ -14109,8 +14109,8 @@ _ZN18wasmtime_cranelift5debug9transform8simulate28autogenerate_dwarf_wasm_path17
   call void @llvm.lifetime.end.p0(ptr nonnull %69)
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %102, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
-  %.phi.trans.insert560 = getelementptr inbounds nuw i8, ptr %102, i64 16
-  %.pre561 = load i64, ptr %.phi.trans.insert560, align 8
+  %.phi.trans.insert562 = getelementptr inbounds nuw i8, ptr %102, i64 16
+  %.pre563 = load i64, ptr %.phi.trans.insert562, align 8
   br label %217
 
 216:                                              ; preds = %176
@@ -14122,7 +14122,7 @@ _ZN18wasmtime_cranelift5debug9transform8simulate28autogenerate_dwarf_wasm_path17
   br label %217
 
 217:                                              ; preds = %216, %_ZN18wasmtime_cranelift5debug9transform8simulate28autogenerate_dwarf_wasm_path17h981389d1222d0d05E.exit
-  %218 = phi i64 [ %110, %216 ], [ %.pre561, %_ZN18wasmtime_cranelift5debug9transform8simulate28autogenerate_dwarf_wasm_path17h981389d1222d0d05E.exit ]
+  %218 = phi i64 [ %110, %216 ], [ %.pre563, %_ZN18wasmtime_cranelift5debug9transform8simulate28autogenerate_dwarf_wasm_path17h981389d1222d0d05E.exit ]
   %219 = phi ptr [ %113, %216 ], [ %.pre, %_ZN18wasmtime_cranelift5debug9transform8simulate28autogenerate_dwarf_wasm_path17h981389d1222d0d05E.exit ]
   %220 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %221 = load i32, ptr %220, align 8, !noundef !34
@@ -15318,7 +15318,7 @@ _ZN18wasmtime_cranelift5debug9transform5utils23get_function_frame_info17h0d4451c
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.outer.i, %.lr.ph.lr.ph.i
-  %.sroa.5.0..sroa_idx.promoted198.i = phi ptr [ %632, %.lr.ph.lr.ph.i ], [ %.sroa.5.0..sroa_idx.promoted.i, %.outer.i ]
+  %.sroa.5.0..sroa_idx.promoted200.i = phi ptr [ %632, %.lr.ph.lr.ph.i ], [ %.sroa.5.0..sroa_idx.promoted.i, %.outer.i ]
   %649 = phi ptr [ %635, %.lr.ph.lr.ph.i ], [ %853, %.outer.i ]
   br label %655
 
@@ -15373,7 +15373,7 @@ _ZN18wasmtime_cranelift5debug9transform5utils23get_function_frame_info17h0d4451c
   br label %868
 
 655:                                              ; preds = %.thread124.i, %.lr.ph.i
-  %656 = phi ptr [ %.sroa.5.0..sroa_idx.promoted198.i, %.lr.ph.i ], [ %657, %.thread124.i ]
+  %656 = phi ptr [ %.sroa.5.0..sroa_idx.promoted200.i, %.lr.ph.i ], [ %657, %.thread124.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !2760)
   %657 = getelementptr inbounds nuw i8, ptr %656, i64 8
   store ptr %657, ptr %.sroa.5.0..sroa_idx.i197, align 8, !alias.scope !2760, !noalias !2729
@@ -15405,7 +15405,7 @@ _ZN18wasmtime_cranelift5debug9transform5utils23get_function_frame_info17h0d4451c
   br i1 %.not.i.i, label %.thread.i.i203, label %671
 
 .thread.i.i203:                                   ; preds = %.lr.ph.i.i
-  %668 = getelementptr inbounds { i32, { i32, [2 x i32] } }, ptr %640, i64 %.02233.i.i, i32 1
+  %668 = getelementptr inbounds nuw i8, ptr %666, i64 4
   br label %669
 
 669:                                              ; preds = %674, %.thread.i.i203
@@ -15415,9 +15415,9 @@ _ZN18wasmtime_cranelift5debug9transform5utils23get_function_frame_info17h0d4451c
   %narrow.i.i = call i32 @llvm.umin.i32(i32 %670, i32 5)
   switch i32 %narrow.i.i, label %.thread124.i [
     i32 0, label %.loopexit157.i
-    i32 1, label %.loopexit157.i.loopexit637
-    i32 2, label %.loopexit157.i.loopexit761
-    i32 3, label %.loopexit157.i.loopexit797
+    i32 1, label %.loopexit157.i.loopexit639
+    i32 2, label %.loopexit157.i.loopexit764
+    i32 3, label %.loopexit157.i.loopexit801
   ]
 
 671:                                              ; preds = %.lr.ph.i.i
@@ -15434,17 +15434,17 @@ _ZN18wasmtime_cranelift5debug9transform5utils23get_function_frame_info17h0d4451c
   %677 = invoke noundef ptr @_ZN18wasmtime_cranelift5debug9transform5utils17append_vmctx_info17h1939f4d6822ead87E(ptr noalias noundef nonnull align 8 dereferenceable(552) %378, i64 noundef %500, i64 noundef %434, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) dereferenceable_or_null(16) %86, ptr noalias noundef nonnull readonly align 8 %85, i64 noundef 1, ptr noalias noundef nonnull align 8 dereferenceable(72) %7, ptr noundef nonnull align 1 %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
           to label %863 unwind label %.loopexit149.i, !noalias !2754
 
-.loopexit157.i.loopexit637:                       ; preds = %669
+.loopexit157.i.loopexit639:                       ; preds = %669
   br label %.loopexit157.i
 
-.loopexit157.i.loopexit761:                       ; preds = %669
+.loopexit157.i.loopexit764:                       ; preds = %669
   br label %.loopexit157.i
 
-.loopexit157.i.loopexit797:                       ; preds = %669
+.loopexit157.i.loopexit801:                       ; preds = %669
   br label %.loopexit157.i
 
-.loopexit157.i:                                   ; preds = %669, %.loopexit157.i.loopexit797, %.loopexit157.i.loopexit761, %.loopexit157.i.loopexit637
-  %.sink.i.i.sroa.phi.sroa.speculated = phi i64 [ %411, %.loopexit157.i.loopexit637 ], [ %420, %.loopexit157.i.loopexit761 ], [ %429, %.loopexit157.i.loopexit797 ], [ %401, %669 ]
+.loopexit157.i:                                   ; preds = %669, %.loopexit157.i.loopexit801, %.loopexit157.i.loopexit764, %.loopexit157.i.loopexit639
+  %.sink.i.i.sroa.phi.sroa.speculated = phi i64 [ %411, %.loopexit157.i.loopexit639 ], [ %420, %.loopexit157.i.loopexit764 ], [ %429, %.loopexit157.i.loopexit801 ], [ %401, %669 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %32), !noalias !2729
   call void @llvm.lifetime.start.p0(ptr nonnull %31), !noalias !2729
   call void @llvm.lifetime.start.p0(ptr nonnull %30), !noalias !2729

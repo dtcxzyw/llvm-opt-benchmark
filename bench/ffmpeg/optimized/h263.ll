@@ -84,7 +84,7 @@ define void @ff_h263_update_motion_val(ptr noundef readonly captures(none) %0) l
   %43 = getelementptr inbounds nuw i8, ptr %37, i64 4
   %44 = load i32, ptr %43, align 4, !tbaa !39
   %45 = trunc i32 %44 to i16
-  %46 = getelementptr inbounds [2 x i16], ptr %41, i64 %34, i64 1
+  %46 = getelementptr inbounds nuw i8, ptr %42, i64 2
   store i16 %45, ptr %46, align 2, !tbaa !43
   br i1 %36, label %35, label %47, !llvm.loop !44
 
@@ -130,25 +130,25 @@ define void @ff_h263_update_motion_val(ptr noundef readonly captures(none) %0) l
   %78 = getelementptr inbounds [2 x i16], ptr %76, i64 %77
   store i16 %74, ptr %78, align 2, !tbaa !43
   %79 = trunc i32 %.065 to i16
-  %80 = getelementptr inbounds [2 x i16], ptr %76, i64 %77, i64 1
+  %80 = getelementptr inbounds nuw i8, ptr %78, i64 2
   store i16 %79, ptr %80, align 2, !tbaa !43
   %81 = add nsw i32 %13, 1
   %82 = sext i32 %81 to i64
   %83 = getelementptr inbounds [2 x i16], ptr %76, i64 %82
   store i16 %74, ptr %83, align 2, !tbaa !43
-  %84 = getelementptr inbounds [2 x i16], ptr %76, i64 %82, i64 1
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 2
   store i16 %79, ptr %84, align 2, !tbaa !43
   %85 = add nsw i32 %13, %11
   %86 = sext i32 %85 to i64
   %87 = getelementptr inbounds [2 x i16], ptr %76, i64 %86
   store i16 %74, ptr %87, align 2, !tbaa !43
-  %88 = getelementptr inbounds [2 x i16], ptr %76, i64 %86, i64 1
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 2
   store i16 %79, ptr %88, align 2, !tbaa !43
   %89 = add nsw i32 %81, %11
   %90 = sext i32 %89 to i64
   %91 = getelementptr inbounds [2 x i16], ptr %76, i64 %90
   store i16 %74, ptr %91, align 2, !tbaa !43
-  %92 = getelementptr inbounds [2 x i16], ptr %76, i64 %90, i64 1
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 2
   store i16 %79, ptr %92, align 2, !tbaa !43
   br label %93
 

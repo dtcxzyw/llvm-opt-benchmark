@@ -5649,13 +5649,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit33: ; preds = %_ZN
   %108 = load ptr, ptr %107, align 8, !tbaa !237
   %109 = getelementptr inbounds nuw double, ptr %108, i64 %10
   store double %17, ptr %109, align 8, !tbaa !238
-  %110 = getelementptr inbounds %struct.t_atom, ptr %106, i64 %.pre-phi, i32 1
-  %111 = load float, ptr %110, align 4, !tbaa !239
-  %112 = fpext float %111 to double
-  %113 = getelementptr inbounds nuw i8, ptr %0, i64 336
-  %114 = load ptr, ptr %113, align 8, !tbaa !237
-  %115 = getelementptr inbounds nuw double, ptr %114, i64 %10
-  store double %112, ptr %115, align 8, !tbaa !238
+  %110 = getelementptr inbounds %struct.t_atom, ptr %106, i64 %.pre-phi
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 4
+  %112 = load float, ptr %111, align 4, !tbaa !239
+  %113 = fpext float %112 to double
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 336
+  %115 = load ptr, ptr %114, align 8, !tbaa !237
+  %116 = getelementptr inbounds nuw double, ptr %115, i64 %10
+  store double %113, ptr %116, align 8, !tbaa !238
   ret void
 }
 

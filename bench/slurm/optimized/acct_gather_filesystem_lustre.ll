@@ -427,11 +427,11 @@ define dso_local range(i32 -1, 1) i32 @acct_gather_filesystem_p_get_data(ptr nou
 5:                                                ; preds = %1
   %6 = tail call i32 @slurm_get_log_level() #11
   %7 = icmp sgt i32 %6, 5
-  br i1 %7, label %8, label %62
+  br i1 %7, label %8, label %63
 
 8:                                                ; preds = %5
   tail call void (i32, ptr, ...) @slurm_log_var(i32 noundef 6, ptr noundef nonnull @.str.4, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.acct_gather_filesystem_p_get_data, ptr noundef nonnull @__func__.acct_gather_filesystem_p_get_data) #11
-  br label %62
+  br label %63
 
 9:                                                ; preds = %1
   %10 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @lustre_lock) #11
@@ -467,7 +467,7 @@ define dso_local range(i32 -1, 1) i32 @acct_gather_filesystem_p_get_data(ptr nou
   store i32 %23, ptr @acct_gather_filesystem_p_get_data.errors, align 4
   %24 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @lustre_lock) #11
   %.not21 = icmp eq i32 %24, 0
-  br i1 %.not21, label %62, label %25
+  br i1 %.not21, label %63, label %25
 
 25:                                               ; preds = %21
   %26 = tail call ptr @__errno_location() #12
@@ -498,41 +498,42 @@ define dso_local range(i32 -1, 1) i32 @acct_gather_filesystem_p_get_data(ptr nou
   %37 = sub i64 %35, %36
   %38 = load i32, ptr @tres_pos, align 4
   %39 = sext i32 %38 to i64
-  %40 = getelementptr inbounds %struct.acct_gather_data, ptr %0, i64 %39, i32 1
-  store i64 %37, ptr %40, align 8
-  %41 = load i64, ptr getelementptr inbounds nuw (i8, ptr @lstats, i64 8), align 8
-  %42 = load i64, ptr getelementptr inbounds nuw (i8, ptr @lstats_prev, i64 8), align 8
-  %43 = sub i64 %41, %42
-  %44 = getelementptr inbounds %struct.acct_gather_data, ptr %0, i64 %39, i32 2
-  store i64 %43, ptr %44, align 8
-  %45 = load i64, ptr getelementptr inbounds nuw (i8, ptr @lstats, i64 32), align 8
-  %46 = load i64, ptr getelementptr inbounds nuw (i8, ptr @lstats_prev, i64 32), align 8
-  %47 = sub i64 %45, %46
-  %48 = uitofp i64 %47 to double
-  %49 = fmul double %48, 0x3EB0000000000000
-  %50 = fptoui double %49 to i64
-  %51 = getelementptr inbounds %struct.acct_gather_data, ptr %0, i64 %39, i32 3
-  store i64 %50, ptr %51, align 8
-  %52 = load i64, ptr getelementptr inbounds nuw (i8, ptr @lstats, i64 24), align 8
-  %53 = load i64, ptr getelementptr inbounds nuw (i8, ptr @lstats_prev, i64 24), align 8
-  %54 = sub i64 %52, %53
-  %55 = uitofp i64 %54 to double
-  %56 = fmul double %55, 0x3EB0000000000000
-  %57 = fptoui double %56 to i64
-  %58 = getelementptr inbounds %struct.acct_gather_data, ptr %0, i64 %39, i32 4
-  store i64 %57, ptr %58, align 8
+  %40 = getelementptr inbounds %struct.acct_gather_data, ptr %0, i64 %39
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
+  store i64 %37, ptr %41, align 8
+  %42 = load i64, ptr getelementptr inbounds nuw (i8, ptr @lstats, i64 8), align 8
+  %43 = load i64, ptr getelementptr inbounds nuw (i8, ptr @lstats_prev, i64 8), align 8
+  %44 = sub i64 %42, %43
+  %45 = getelementptr inbounds nuw i8, ptr %40, i64 16
+  store i64 %44, ptr %45, align 8
+  %46 = load i64, ptr getelementptr inbounds nuw (i8, ptr @lstats, i64 32), align 8
+  %47 = load i64, ptr getelementptr inbounds nuw (i8, ptr @lstats_prev, i64 32), align 8
+  %48 = sub i64 %46, %47
+  %49 = uitofp i64 %48 to double
+  %50 = fmul double %49, 0x3EB0000000000000
+  %51 = fptoui double %50 to i64
+  %52 = getelementptr inbounds nuw i8, ptr %40, i64 24
+  store i64 %51, ptr %52, align 8
+  %53 = load i64, ptr getelementptr inbounds nuw (i8, ptr @lstats, i64 24), align 8
+  %54 = load i64, ptr getelementptr inbounds nuw (i8, ptr @lstats_prev, i64 24), align 8
+  %55 = sub i64 %53, %54
+  %56 = uitofp i64 %55 to double
+  %57 = fmul double %56, 0x3EB0000000000000
+  %58 = fptoui double %57 to i64
+  %59 = getelementptr inbounds nuw i8, ptr %40, i64 32
+  store i64 %58, ptr %59, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) @lstats_prev, ptr noundef nonnull align 8 dereferenceable(40) @lstats, i64 40, i1 false)
-  %59 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @lustre_lock) #11
-  %.not19 = icmp eq i32 %59, 0
-  br i1 %.not19, label %62, label %60
+  %60 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @lustre_lock) #11
+  %.not19 = icmp eq i32 %60, 0
+  br i1 %.not19, label %63, label %61
 
-60:                                               ; preds = %34
-  %61 = tail call ptr @__errno_location() #12
-  store i32 %59, ptr %61, align 4
+61:                                               ; preds = %34
+  %62 = tail call ptr @__errno_location() #12
+  store i32 %60, ptr %62, align 4
   tail call void (ptr, ...) @slurm_fatal_abort(ptr noundef nonnull @.str.7, ptr noundef nonnull @__func__.acct_gather_filesystem_p_get_data) #13
   unreachable
 
-62:                                               ; preds = %34, %21, %5, %8
+63:                                               ; preds = %34, %21, %5, %8
   %.0 = phi i32 [ 0, %8 ], [ 0, %5 ], [ -1, %21 ], [ 0, %34 ]
   ret i32 %.0
 }

@@ -149,11 +149,11 @@ thread-pre-split.thread:                          ; preds = %10, %thread-pre-spl
   br i1 %60, label %.critedge, label %61
 
 61:                                               ; preds = %56
-  %62 = getelementptr inbounds nuw %struct.SliceContext, ptr %37, i64 %indvars.iv127, i32 2
-  store i32 %54, ptr %62, align 8, !tbaa !47
-  %63 = getelementptr inbounds nuw i8, ptr %53, i64 4
-  %64 = getelementptr inbounds nuw %struct.SliceContext, ptr %37, i64 %indvars.iv127
-  store ptr %63, ptr %64, align 8, !tbaa !49
+  %62 = getelementptr inbounds nuw %struct.SliceContext, ptr %37, i64 %indvars.iv127
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
+  store i32 %54, ptr %63, align 8, !tbaa !47
+  %64 = getelementptr inbounds nuw i8, ptr %53, i64 4
+  store ptr %64, ptr %62, align 8, !tbaa !49
   %65 = add i32 %48, %54
   %indvars.iv.next128 = add nuw nsw i64 %indvars.iv127, 1
   %exitcond130.not = icmp eq i64 %indvars.iv.next128, %wide.trip.count
@@ -161,7 +161,7 @@ thread-pre-split.thread:                          ; preds = %10, %thread-pre-spl
 
 66:                                               ; preds = %.lr.ph124, %80
   %indvars.iv131 = phi i64 [ 0, %.lr.ph124 ], [ %indvars.iv.next132, %80 ]
-  %.388122 = phi i32 [ %65, %.lr.ph124 ], [ %84, %80 ]
+  %.388122 = phi i32 [ %65, %.lr.ph124 ], [ %85, %80 ]
   %67 = add i32 %.388122, 4
   %68 = icmp ugt i32 %67, %46
   br i1 %68, label %.critedge, label %69
@@ -182,32 +182,33 @@ thread-pre-split.thread:                          ; preds = %10, %thread-pre-spl
   br i1 %79, label %.critedge, label %80
 
 80:                                               ; preds = %75
-  %81 = getelementptr inbounds nuw %struct.SliceContext, ptr %37, i64 %indvars.iv131, i32 3
-  store i32 %73, ptr %81, align 4, !tbaa !51
-  %82 = getelementptr inbounds nuw i8, ptr %72, i64 4
-  %83 = getelementptr inbounds nuw %struct.SliceContext, ptr %37, i64 %indvars.iv131, i32 1
-  store ptr %82, ptr %83, align 8, !tbaa !52
-  %84 = add i32 %67, %73
+  %81 = getelementptr inbounds nuw %struct.SliceContext, ptr %37, i64 %indvars.iv131
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 20
+  store i32 %73, ptr %82, align 4, !tbaa !51
+  %83 = getelementptr inbounds nuw i8, ptr %72, i64 4
+  %84 = getelementptr inbounds nuw i8, ptr %81, i64 8
+  store ptr %83, ptr %84, align 8, !tbaa !52
+  %85 = add i32 %67, %73
   %indvars.iv.next132 = add nuw nsw i64 %indvars.iv131, 1
   %exitcond135.not = icmp eq i64 %indvars.iv.next132, %wide.trip.count134
   br i1 %exitcond135.not, label %.critedge108, label %66, !llvm.loop !53
 
 .critedge108:                                     ; preds = %80, %.preheader112
-  %85 = tail call i32 @ff_thread_get_buffer(ptr noundef %0, ptr noundef %1, i32 noundef 0) #6
-  %86 = icmp slt i32 %85, 0
-  br i1 %86, label %.critedge, label %87
+  %86 = tail call i32 @ff_thread_get_buffer(ptr noundef %0, ptr noundef %1, i32 noundef 0) #6
+  %87 = icmp slt i32 %86, 0
+  br i1 %87, label %.critedge, label %88
 
-87:                                               ; preds = %.critedge108
-  %88 = getelementptr inbounds nuw i8, ptr %0, i64 680
-  %89 = load ptr, ptr %88, align 8, !tbaa !54
-  %90 = load i32, ptr %6, align 8, !tbaa !41
-  %91 = tail call i32 %89(ptr noundef %0, ptr noundef nonnull @decode_slices, ptr noundef %1, ptr noundef null, i32 noundef %90) #6
+88:                                               ; preds = %.critedge108
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 680
+  %90 = load ptr, ptr %89, align 8, !tbaa !54
+  %91 = load i32, ptr %6, align 8, !tbaa !41
+  %92 = tail call i32 %90(ptr noundef %0, ptr noundef nonnull @decode_slices, ptr noundef %1, ptr noundef null, i32 noundef %91) #6
   store i32 1, ptr %2, align 4, !tbaa !55
-  %92 = load i32, ptr %7, align 8, !tbaa !33
+  %93 = load i32, ptr %7, align 8, !tbaa !33
   br label %.critedge
 
-.critedge:                                        ; preds = %47, %50, %56, %75, %69, %66, %.critedge108, %28, %thread-pre-split, %10, %4, %87
-  %.0 = phi i32 [ %92, %87 ], [ -1094995529, %4 ], [ -1094995529, %10 ], [ -1094995529, %thread-pre-split ], [ -12, %28 ], [ %85, %.critedge108 ], [ -1094995529, %66 ], [ -1094995529, %69 ], [ -1094995529, %75 ], [ -1094995529, %56 ], [ -1094995529, %50 ], [ -1094995529, %47 ]
+.critedge:                                        ; preds = %47, %50, %56, %75, %69, %66, %.critedge108, %28, %thread-pre-split, %10, %4, %88
+  %.0 = phi i32 [ %93, %88 ], [ -1094995529, %4 ], [ -1094995529, %10 ], [ -1094995529, %thread-pre-split ], [ -12, %28 ], [ %86, %.critedge108 ], [ -1094995529, %66 ], [ -1094995529, %69 ], [ -1094995529, %75 ], [ -1094995529, %56 ], [ -1094995529, %50 ], [ -1094995529, %47 ]
   ret i32 %.0
 }
 

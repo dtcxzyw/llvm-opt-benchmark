@@ -2739,7 +2739,7 @@ conv_method_index.exit.i:                         ; preds = %44
   br i1 %49, label %50, label %conv_method_index.exit.thread.i
 
 50:                                               ; preds = %conv_method_index.exit.i
-  %51 = getelementptr %struct.conv_method_tbl, ptr @conv_method_names, i64 %indvars.iv.i.i, i32 1
+  %51 = getelementptr inbounds nuw i8, ptr %41, i64 6
   %52 = load i16, ptr %51, align 2, !tbaa !55
   %53 = zext i16 %52 to i64
   br label %convert_type.exit
@@ -2769,11 +2769,11 @@ convert_type.exit:                                ; preds = %50, %conv_method_in
 66:                                               ; preds = %convert_type.exit
   %67 = tail call i64 @llvm.fshl.i64(i64 %56, i64 %56, i64 62)
   %68 = icmp ult i64 %67, 10
-  %switch.maskindex27 = trunc i64 %67 to i16
-  %switch.shifted28 = lshr i16 547, %switch.maskindex27
-  %switch.lobit29 = trunc i16 %switch.shifted28 to i1
-  %or.cond32 = select i1 %68, i1 %switch.lobit29, i1 false
-  br i1 %or.cond32, label %switch.lookup26, label %69
+  %switch.maskindex31 = trunc i64 %67 to i16
+  %switch.shifted32 = lshr i16 547, %switch.maskindex31
+  %switch.lobit33 = trunc i16 %switch.shifted32 to i1
+  %or.cond36 = select i1 %68, i1 %switch.lobit33, i1 false
+  br i1 %or.cond36, label %switch.lookup30, label %69
 
 69:                                               ; preds = %66
   %70 = and i64 %56, 1
@@ -2786,13 +2786,13 @@ convert_type.exit:                                ; preds = %50, %conv_method_in
   %spec.select.i16 = select i1 %73, i32 20, i32 4
   br label %rb_type.exit17
 
-switch.lookup26:                                  ; preds = %66
-  %switch.gep30 = getelementptr inbounds nuw i32, ptr @switch.table.rb_check_convert_type_with_id.7, i64 %67
-  %switch.load31 = load i32, ptr %switch.gep30, align 4
+switch.lookup30:                                  ; preds = %66
+  %switch.gep34 = getelementptr inbounds nuw i32, ptr @switch.table.rb_check_convert_type_with_id.7, i64 %67
+  %switch.load35 = load i32, ptr %switch.gep34, align 4
   br label %rb_type.exit17
 
-rb_type.exit17:                                   ; preds = %switch.lookup26, %61, %69, %71
-  %.0.i14 = phi i32 [ %65, %61 ], [ 21, %69 ], [ %spec.select.i16, %71 ], [ %switch.load31, %switch.lookup26 ]
+rb_type.exit17:                                   ; preds = %switch.lookup30, %61, %69, %71
+  %.0.i14 = phi i32 [ %65, %61 ], [ 21, %69 ], [ %spec.select.i16, %71 ], [ %switch.load35, %switch.lookup30 ]
   %.not = icmp eq i32 %.0.i14, %1
   br i1 %.not, label %75, label %74
 
@@ -2997,8 +2997,8 @@ define dso_local noundef i64 @rb_check_convert_type(i64 noundef %0, i32 noundef 
   %switch.maskindex = trunc i64 %15 to i16
   %switch.shifted = lshr i16 547, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
-  %or.cond28 = select i1 %16, i1 %switch.lobit, i1 false
-  br i1 %or.cond28, label %switch.lookup, label %17
+  %or.cond32 = select i1 %16, i1 %switch.lobit, i1 false
+  br i1 %or.cond32, label %switch.lookup, label %17
 
 17:                                               ; preds = %14
   %18 = and i64 %0, 1
@@ -3077,7 +3077,7 @@ conv_method_index.exit.i:                         ; preds = %45
   br i1 %49, label %50, label %conv_method_index.exit.thread.i
 
 50:                                               ; preds = %conv_method_index.exit.i
-  %51 = getelementptr %struct.conv_method_tbl, ptr @conv_method_names, i64 %indvars.iv.i.i, i32 1
+  %51 = getelementptr inbounds nuw i8, ptr %42, i64 6
   %52 = load i16, ptr %51, align 2, !tbaa !55
   %53 = zext i16 %52 to i64
   br label %convert_type.exit
@@ -3111,11 +3111,11 @@ convert_type.exit:                                ; preds = %50, %conv_method_in
 67:                                               ; preds = %57
   %68 = tail call i64 @llvm.fshl.i64(i64 %56, i64 %56, i64 62)
   %69 = icmp ult i64 %68, 10
-  %switch.maskindex31 = trunc i64 %68 to i16
-  %switch.shifted32 = lshr i16 547, %switch.maskindex31
-  %switch.lobit33 = trunc i16 %switch.shifted32 to i1
-  %or.cond36 = select i1 %69, i1 %switch.lobit33, i1 false
-  br i1 %or.cond36, label %switch.lookup30, label %70
+  %switch.maskindex35 = trunc i64 %68 to i16
+  %switch.shifted36 = lshr i16 547, %switch.maskindex35
+  %switch.lobit37 = trunc i16 %switch.shifted36 to i1
+  %or.cond40 = select i1 %69, i1 %switch.lobit37, i1 false
+  br i1 %or.cond40, label %switch.lookup34, label %70
 
 70:                                               ; preds = %67
   %71 = and i64 %56, 1
@@ -3128,13 +3128,13 @@ convert_type.exit:                                ; preds = %50, %conv_method_in
   %spec.select.i18 = select i1 %74, i32 20, i32 4
   br label %rb_type.exit19
 
-switch.lookup30:                                  ; preds = %67
-  %switch.gep34 = getelementptr inbounds nuw i32, ptr @switch.table.rb_check_convert_type_with_id.7, i64 %68
-  %switch.load35 = load i32, ptr %switch.gep34, align 4
+switch.lookup34:                                  ; preds = %67
+  %switch.gep38 = getelementptr inbounds nuw i32, ptr @switch.table.rb_check_convert_type_with_id.7, i64 %68
+  %switch.load39 = load i32, ptr %switch.gep38, align 4
   br label %rb_type.exit19
 
-rb_type.exit19:                                   ; preds = %switch.lookup30, %62, %70, %72
-  %.0.i16 = phi i32 [ %66, %62 ], [ 21, %70 ], [ %spec.select.i18, %72 ], [ %switch.load35, %switch.lookup30 ]
+rb_type.exit19:                                   ; preds = %switch.lookup34, %62, %70, %72
+  %.0.i16 = phi i32 [ %66, %62 ], [ 21, %70 ], [ %spec.select.i18, %72 ], [ %switch.load39, %switch.lookup34 ]
   %.not = icmp eq i32 %.0.i16, %1
   br i1 %.not, label %convert_type_with_id.exit.thread, label %75
 
@@ -3342,7 +3342,7 @@ conv_method_index.exit.i:                         ; preds = %33
   br i1 %37, label %38, label %conv_method_index.exit.thread.i
 
 38:                                               ; preds = %conv_method_index.exit.i
-  %39 = getelementptr %struct.conv_method_tbl, ptr @conv_method_names, i64 %indvars.iv.i.i, i32 1
+  %39 = getelementptr inbounds nuw i8, ptr %30, i64 6
   %40 = load i16, ptr %39, align 2, !tbaa !55
   %41 = zext i16 %40 to i64
   br label %convert_type.exit

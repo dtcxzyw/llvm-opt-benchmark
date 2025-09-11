@@ -3900,7 +3900,8 @@ for.body29:                                       ; preds = %_ZNK3irr4core10quat
   %21 = load ptr, ptr %add.ptr.i.i, align 8, !tbaa !94
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp32)
   %22 = load ptr, ptr %PretransitingSave, align 8, !tbaa !72
-  %arrayidx.i = getelementptr inbounds nuw %"class.irr::core::CMatrix4", ptr %22, i64 %indvars.iv, i32 0, i64 12
+  %arrayidx.i.split = getelementptr inbounds nuw %"class.irr::core::CMatrix4", ptr %22, i64 %indvars.iv
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.split, i64 48
   %23 = load <4 x float>, ptr %arrayidx.i, align 4
   %24 = extractelement <4 x float> %23, i64 2
   %vtable39 = load ptr, ptr %21, align 8, !tbaa !3

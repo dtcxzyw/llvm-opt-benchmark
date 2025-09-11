@@ -387,17 +387,18 @@ define internal fastcc void @finish_stream(ptr noundef captures(none) %0, i32 no
 
 81:                                               ; preds = %.lr.ph66, %80
   %indvars.iv69 = phi i64 [ 0, %.lr.ph66 ], [ %indvars.iv.next70, %80 ]
-  %82 = getelementptr inbounds nuw %struct.SyncQueueStream, ptr %79, i64 %indvars.iv69, i32 5
-  %83 = load i32, ptr %82, align 4, !tbaa !14
-  %.not55 = icmp eq i32 %83, 0
+  %82 = getelementptr inbounds nuw %struct.SyncQueueStream, ptr %79, i64 %indvars.iv69
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 36
+  %84 = load i32, ptr %83, align 4, !tbaa !14
+  %.not55 = icmp eq i32 %84, 0
   br i1 %.not55, label %.loopexit, label %80
 
 .critedge:                                        ; preds = %80, %.loopexit61
-  %84 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 1, ptr %84, align 8, !tbaa !46
-  %85 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %86 = load ptr, ptr %85, align 8, !tbaa !13
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %86, i32 noundef 48, ptr noundef nonnull @.str.10) #7
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 1, ptr %85, align 8, !tbaa !46
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %87 = load ptr, ptr %86, align 8, !tbaa !13
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %87, i32 noundef 48, ptr noundef nonnull @.str.10) #7
   br label %.loopexit
 
 .loopexit:                                        ; preds = %81, %.critedge
@@ -635,7 +636,7 @@ receive_internal.exit.thread25:                   ; preds = %._crit_edge.loopexi
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %24 = icmp slt i32 %1, 0
-  br i1 %24, label %.preheader.i10, label %51
+  br i1 %24, label %.preheader.i10, label %52
 
 .preheader.i10:                                   ; preds = %receive_internal.exit.thread25
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -647,231 +648,232 @@ receive_internal.exit.thread25:                   ; preds = %._crit_edge.loopexi
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %29
 
-._crit_edge.i:                                    ; preds = %47
+._crit_edge.i:                                    ; preds = %48
   %28 = icmp sgt i32 %.2.i, -1
-  br i1 %28, label %51, label %overflow_heartbeat.exit.thread
+  br i1 %28, label %52, label %overflow_heartbeat.exit.thread
 
-29:                                               ; preds = %47, %.lr.ph.i11
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i11 ], [ %indvars.iv.next.i, %47 ]
-  %.16592.i = phi i32 [ %1, %.lr.ph.i11 ], [ %.2.i, %47 ]
-  %.06990.i = phi i64 [ -9223372036854775808, %.lr.ph.i11 ], [ %.170.i, %47 ]
+29:                                               ; preds = %48, %.lr.ph.i11
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i11 ], [ %indvars.iv.next.i, %48 ]
+  %.16592.i = phi i32 [ %1, %.lr.ph.i11 ], [ %.2.i, %48 ]
+  %.06990.i = phi i64 [ -9223372036854775808, %.lr.ph.i11 ], [ %.170.i, %48 ]
   %30 = load ptr, ptr %27, align 8, !tbaa !12
   %31 = getelementptr inbounds nuw %struct.SyncQueueStream, ptr %30, i64 %indvars.iv.i
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 24
   %33 = load i64, ptr %32, align 8, !tbaa !23
   %.not85.i = icmp eq i64 %33, -9223372036854775808
-  br i1 %.not85.i, label %47, label %34
+  br i1 %.not85.i, label %48, label %34
 
 34:                                               ; preds = %29
   %35 = icmp eq i64 %.06990.i, -9223372036854775808
-  br i1 %35, label %44, label %36
+  br i1 %35, label %45, label %36
 
 36:                                               ; preds = %34
   %37 = sext i32 %.16592.i to i64
-  %38 = getelementptr inbounds %struct.SyncQueueStream, ptr %30, i64 %37, i32 1
-  %39 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  %40 = load i64, ptr %38, align 8
+  %38 = getelementptr inbounds %struct.SyncQueueStream, ptr %30, i64 %37
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %41 = load i64, ptr %39, align 8
-  %42 = tail call i32 @av_compare_ts(i64 noundef %.06990.i, i64 %40, i64 noundef %33, i64 %41) #7
-  %43 = icmp slt i32 %42, 0
-  br i1 %43, label %._crit_edge104.i, label %47
+  %42 = load i64, ptr %40, align 8
+  %43 = tail call i32 @av_compare_ts(i64 noundef %.06990.i, i64 %41, i64 noundef %33, i64 %42) #7
+  %44 = icmp slt i32 %43, 0
+  br i1 %44, label %._crit_edge104.i, label %48
 
 ._crit_edge104.i:                                 ; preds = %36
   %.pre.i = load i64, ptr %32, align 8, !tbaa !23
-  br label %44
+  br label %45
 
-44:                                               ; preds = %._crit_edge104.i, %34
-  %45 = phi i64 [ %.pre.i, %._crit_edge104.i ], [ %33, %34 ]
-  %46 = trunc nuw nsw i64 %indvars.iv.i to i32
-  br label %47
+45:                                               ; preds = %._crit_edge104.i, %34
+  %46 = phi i64 [ %.pre.i, %._crit_edge104.i ], [ %33, %34 ]
+  %47 = trunc nuw nsw i64 %indvars.iv.i to i32
+  br label %48
 
-47:                                               ; preds = %44, %36, %29
-  %.170.i = phi i64 [ %45, %44 ], [ %.06990.i, %36 ], [ %.06990.i, %29 ]
-  %.2.i = phi i32 [ %46, %44 ], [ %.16592.i, %36 ], [ %.16592.i, %29 ]
+48:                                               ; preds = %45, %36, %29
+  %.170.i = phi i64 [ %46, %45 ], [ %.06990.i, %36 ], [ %.06990.i, %29 ]
+  %.2.i = phi i32 [ %47, %45 ], [ %.16592.i, %36 ], [ %.16592.i, %29 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %48 = load i32, ptr %25, align 8, !tbaa !4
-  %49 = zext i32 %48 to i64
-  %50 = icmp samesign ult i64 %indvars.iv.next.i, %49
-  br i1 %50, label %29, label %._crit_edge.i, !llvm.loop !52
+  %49 = load i32, ptr %25, align 8, !tbaa !4
+  %50 = zext i32 %49 to i64
+  %51 = icmp samesign ult i64 %indvars.iv.next.i, %50
+  br i1 %51, label %29, label %._crit_edge.i, !llvm.loop !52
 
-51:                                               ; preds = %._crit_edge.i, %receive_internal.exit.thread25
+52:                                               ; preds = %._crit_edge.i, %receive_internal.exit.thread25
   %.064.i = phi i32 [ %.2.i, %._crit_edge.i ], [ %1, %receive_internal.exit.thread25 ]
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %53 = load ptr, ptr %52, align 8, !tbaa !12
-  %54 = zext nneg i32 %.064.i to i64
-  %55 = getelementptr inbounds nuw %struct.SyncQueueStream, ptr %53, i64 %54
-  br label %56
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %54 = load ptr, ptr %53, align 8, !tbaa !12
+  %55 = zext nneg i32 %.064.i to i64
+  %56 = getelementptr inbounds nuw %struct.SyncQueueStream, ptr %54, i64 %55
+  br label %57
 
-56:                                               ; preds = %frame_end.exit.i, %51
-  %.06693.i = phi i64 [ 0, %51 ], [ %66, %frame_end.exit.i ]
-  %57 = load ptr, ptr %55, align 8, !tbaa !22
-  %58 = call i32 @av_container_fifo_peek(ptr noundef %57, ptr noundef nonnull %4, i64 noundef %.06693.i) #7
-  %59 = icmp sgt i32 %58, -1
-  br i1 %59, label %frame_end.exit.i, label %overflow_heartbeat.exit.thread
+57:                                               ; preds = %frame_end.exit.i, %52
+  %.06693.i = phi i64 [ 0, %52 ], [ %67, %frame_end.exit.i ]
+  %58 = load ptr, ptr %56, align 8, !tbaa !22
+  %59 = call i32 @av_container_fifo_peek(ptr noundef %58, ptr noundef nonnull %4, i64 noundef %.06693.i) #7
+  %60 = icmp sgt i32 %59, -1
+  br i1 %60, label %frame_end.exit.i, label %overflow_heartbeat.exit.thread
 
-frame_end.exit.i:                                 ; preds = %56
-  %60 = load ptr, ptr %4, align 8
-  %61 = load i32, ptr %0, align 8, !tbaa !18
-  %62 = icmp eq i32 %61, 0
-  %.sink.i.i = select i1 %62, i64 64, i64 408
-  %.sink13.i.in.v.i = select i1 %62, i64 8, i64 136
-  %.sink13.i.in.i = getelementptr inbounds nuw i8, ptr %60, i64 %.sink13.i.in.v.i
+frame_end.exit.i:                                 ; preds = %57
+  %61 = load ptr, ptr %4, align 8
+  %62 = load i32, ptr %0, align 8, !tbaa !18
+  %63 = icmp eq i32 %62, 0
+  %.sink.i.i = select i1 %63, i64 64, i64 408
+  %.sink13.i.in.v.i = select i1 %63, i64 8, i64 136
+  %.sink13.i.in.i = getelementptr inbounds nuw i8, ptr %61, i64 %.sink13.i.in.v.i
   %.sink13.i.i = load i64, ptr %.sink13.i.in.i, align 8, !tbaa !35
-  %63 = getelementptr inbounds nuw i8, ptr %60, i64 %.sink.i.i
-  %64 = load i64, ptr %63, align 8, !tbaa !35
-  %65 = add nsw i64 %64, %.sink13.i.i
-  %66 = add i64 %.06693.i, 1
-  %67 = icmp eq i64 %65, -9223372036854775808
-  br i1 %67, label %56, label %.critedge86.i, !llvm.loop !53
+  %64 = getelementptr inbounds nuw i8, ptr %61, i64 %.sink.i.i
+  %65 = load i64, ptr %64, align 8, !tbaa !35
+  %66 = add nsw i64 %65, %.sink13.i.i
+  %67 = add i64 %.06693.i, 1
+  %68 = icmp eq i64 %66, -9223372036854775808
+  br i1 %68, label %57, label %.critedge86.i, !llvm.loop !53
 
 .critedge86.i:                                    ; preds = %frame_end.exit.i
-  %68 = getelementptr inbounds nuw i8, ptr %55, i64 24
-  %69 = load i64, ptr %68, align 8, !tbaa !23
-  %.not.i9 = icmp slt i64 %65, %69
-  br i1 %.not.i9, label %70, label %overflow_heartbeat.exit.thread
+  %69 = getelementptr inbounds nuw i8, ptr %56, i64 24
+  %70 = load i64, ptr %69, align 8, !tbaa !23
+  %.not.i9 = icmp slt i64 %66, %70
+  br i1 %.not.i9, label %71, label %overflow_heartbeat.exit.thread
 
-70:                                               ; preds = %.critedge86.i
-  %71 = sub nsw i64 %69, %65
-  %72 = getelementptr inbounds nuw i8, ptr %55, i64 8
-  %73 = load i64, ptr %72, align 8
-  %74 = call i64 @av_rescale_q(i64 noundef %71, i64 %73, i64 4294967296000001) #9
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %76 = load i64, ptr %75, align 8, !tbaa !54
-  %77 = icmp slt i64 %74, %76
-  br i1 %77, label %overflow_heartbeat.exit.thread, label %78
+71:                                               ; preds = %.critedge86.i
+  %72 = sub nsw i64 %70, %66
+  %73 = getelementptr inbounds nuw i8, ptr %56, i64 8
+  %74 = load i64, ptr %73, align 8
+  %75 = call i64 @av_rescale_q(i64 noundef %72, i64 %74, i64 4294967296000001) #9
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %77 = load i64, ptr %76, align 8, !tbaa !54
+  %78 = icmp slt i64 %75, %77
+  br i1 %78, label %overflow_heartbeat.exit.thread, label %79
 
-78:                                               ; preds = %70
-  %79 = add nsw i64 %65, 1
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %81 = load i32, ptr %80, align 8, !tbaa !4
-  %.not98.i = icmp eq i32 %81, 0
+79:                                               ; preds = %71
+  %80 = add nsw i64 %66, 1
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %82 = load i32, ptr %81, align 8, !tbaa !4
+  %.not98.i = icmp eq i32 %82, 0
   br i1 %.not98.i, label %.loopexit.thread, label %.lr.ph96.i
 
-.lr.ph96.i:                                       ; preds = %78
-  %82 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br label %83
+.lr.ph96.i:                                       ; preds = %79
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  br label %84
 
-83:                                               ; preds = %111, %.lr.ph96.i
-  %indvars.iv101.i = phi i64 [ 0, %.lr.ph96.i ], [ %indvars.iv.next102.i, %111 ]
-  %84 = load ptr, ptr %52, align 8, !tbaa !12
-  %85 = getelementptr inbounds nuw %struct.SyncQueueStream, ptr %84, i64 %indvars.iv101.i
-  %86 = icmp eq ptr %55, %85
-  br i1 %86, label %111, label %87
+84:                                               ; preds = %112, %.lr.ph96.i
+  %indvars.iv101.i = phi i64 [ 0, %.lr.ph96.i ], [ %indvars.iv.next102.i, %112 ]
+  %85 = load ptr, ptr %53, align 8, !tbaa !12
+  %86 = getelementptr inbounds nuw %struct.SyncQueueStream, ptr %85, i64 %indvars.iv101.i
+  %87 = icmp eq ptr %56, %86
+  br i1 %87, label %112, label %88
 
-87:                                               ; preds = %83
-  %88 = getelementptr inbounds nuw i8, ptr %85, i64 36
-  %89 = load i32, ptr %88, align 4, !tbaa !14
-  %.not81.i = icmp eq i32 %89, 0
-  br i1 %.not81.i, label %90, label %111
+88:                                               ; preds = %84
+  %89 = getelementptr inbounds nuw i8, ptr %86, i64 36
+  %90 = load i32, ptr %89, align 4, !tbaa !14
+  %.not81.i = icmp eq i32 %90, 0
+  br i1 %.not81.i, label %91, label %112
 
-90:                                               ; preds = %87
-  %91 = getelementptr inbounds nuw i8, ptr %85, i64 24
-  %92 = load i64, ptr %91, align 8, !tbaa !23
-  %.not82.i = icmp eq i64 %92, -9223372036854775808
-  %.pre107.i = load i64, ptr %72, align 8
-  br i1 %.not82.i, label %99, label %93
+91:                                               ; preds = %88
+  %92 = getelementptr inbounds nuw i8, ptr %86, i64 24
+  %93 = load i64, ptr %92, align 8, !tbaa !23
+  %.not82.i = icmp eq i64 %93, -9223372036854775808
+  %.pre107.i = load i64, ptr %73, align 8
+  br i1 %.not82.i, label %100, label %94
 
-93:                                               ; preds = %90
-  %94 = getelementptr inbounds nuw i8, ptr %85, i64 8
-  %95 = load i64, ptr %94, align 8
-  %96 = call i32 @av_compare_ts(i64 noundef %79, i64 %.pre107.i, i64 noundef %92, i64 %95) #7
-  %97 = icmp slt i32 %96, 1
-  br i1 %97, label %111, label %._crit_edge105.i
+94:                                               ; preds = %91
+  %95 = getelementptr inbounds nuw i8, ptr %86, i64 8
+  %96 = load i64, ptr %95, align 8
+  %97 = call i32 @av_compare_ts(i64 noundef %80, i64 %.pre107.i, i64 noundef %93, i64 %96) #7
+  %98 = icmp slt i32 %97, 1
+  br i1 %98, label %112, label %._crit_edge105.i
 
-._crit_edge105.i:                                 ; preds = %93
-  %.pre106.i = load i64, ptr %72, align 8
-  %.pre108.i = load i64, ptr %91, align 8, !tbaa !23
-  %98 = freeze i64 %.pre108.i
-  br label %99
+._crit_edge105.i:                                 ; preds = %94
+  %.pre106.i = load i64, ptr %73, align 8
+  %.pre108.i = load i64, ptr %92, align 8, !tbaa !23
+  %99 = freeze i64 %.pre108.i
+  br label %100
 
-99:                                               ; preds = %._crit_edge105.i, %90
-  %.fr.i = phi i64 [ %98, %._crit_edge105.i ], [ -9223372036854775808, %90 ]
-  %100 = phi i64 [ %.pre106.i, %._crit_edge105.i ], [ %.pre107.i, %90 ]
-  %101 = getelementptr inbounds nuw i8, ptr %85, i64 8
-  %102 = load i64, ptr %101, align 8
-  %103 = call i64 @av_rescale_q(i64 noundef %79, i64 %100, i64 %102) #9
+100:                                              ; preds = %._crit_edge105.i, %91
+  %.fr.i = phi i64 [ %99, %._crit_edge105.i ], [ -9223372036854775808, %91 ]
+  %101 = phi i64 [ %.pre106.i, %._crit_edge105.i ], [ %.pre107.i, %91 ]
+  %102 = getelementptr inbounds nuw i8, ptr %86, i64 8
+  %103 = load i64, ptr %102, align 8
+  %104 = call i64 @av_rescale_q(i64 noundef %80, i64 %101, i64 %103) #9
   %.not83.i = icmp eq i64 %.fr.i, -9223372036854775808
-  %104 = add nsw i64 %.fr.i, 1
-  %105 = call i64 @llvm.smax.i64(i64 %103, i64 %104)
-  %spec.select = select i1 %.not83.i, i64 %103, i64 %105
-  %106 = load ptr, ptr %82, align 8, !tbaa !13
+  %105 = add nsw i64 %.fr.i, 1
+  %106 = call i64 @llvm.smax.i64(i64 %104, i64 %105)
+  %spec.select = select i1 %.not83.i, i64 %104, i64 %106
+  %107 = load ptr, ptr %83, align 8, !tbaa !13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %5, i8 0, i64 32, i1 false)
-  %107 = load i64, ptr %91, align 8, !tbaa !23
-  %.val87.i = load i64, ptr %101, align 8
-  %108 = call ptr @av_ts_make_time_string2(ptr noundef nonnull %5, i64 noundef %107, i64 %.val87.i) #7
+  %108 = load i64, ptr %92, align 8, !tbaa !23
+  %.val87.i = load i64, ptr %102, align 8
+  %109 = call ptr @av_ts_make_time_string2(ptr noundef nonnull %5, i64 noundef %108, i64 %.val87.i) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %6, i8 0, i64 32, i1 false)
-  %.val.i = load i64, ptr %101, align 8
-  %109 = call ptr @av_ts_make_time_string2(ptr noundef nonnull %6, i64 noundef %spec.select, i64 %.val.i) #7
-  %110 = trunc nuw i64 %indvars.iv101.i to i32
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %106, i32 noundef 48, ptr noundef nonnull @.str.24, i32 noundef %110, ptr noundef %108, ptr noundef %109) #7
-  call fastcc void @stream_update_ts(ptr noundef nonnull %0, i32 noundef %110, i64 noundef %spec.select)
-  br label %111
+  %.val.i = load i64, ptr %102, align 8
+  %110 = call ptr @av_ts_make_time_string2(ptr noundef nonnull %6, i64 noundef %spec.select, i64 %.val.i) #7
+  %111 = trunc nuw i64 %indvars.iv101.i to i32
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %107, i32 noundef 48, ptr noundef nonnull @.str.24, i32 noundef %111, ptr noundef %109, ptr noundef %110) #7
+  call fastcc void @stream_update_ts(ptr noundef nonnull %0, i32 noundef %111, i64 noundef %spec.select)
+  br label %112
 
-111:                                              ; preds = %99, %93, %87, %83
+112:                                              ; preds = %100, %94, %88, %84
   %indvars.iv.next102.i = add nuw nsw i64 %indvars.iv101.i, 1
-  %112 = load i32, ptr %80, align 8, !tbaa !4
-  %113 = zext i32 %112 to i64
-  %114 = icmp samesign ult i64 %indvars.iv.next102.i, %113
-  br i1 %114, label %83, label %.loopexit, !llvm.loop !55
+  %113 = load i32, ptr %81, align 8, !tbaa !4
+  %114 = zext i32 %113 to i64
+  %115 = icmp samesign ult i64 %indvars.iv.next102.i, %114
+  br i1 %115, label %84, label %.loopexit, !llvm.loop !55
 
-overflow_heartbeat.exit.thread:                   ; preds = %56, %._crit_edge.i, %70, %.critedge86.i, %.preheader.i10
+overflow_heartbeat.exit.thread:                   ; preds = %57, %._crit_edge.i, %71, %.critedge86.i, %.preheader.i10
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %receive_internal.exit22
 
-.loopexit:                                        ; preds = %111
+.loopexit:                                        ; preds = %112
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br i1 %7, label %116, label %.preheader.i12
+  br i1 %7, label %117, label %.preheader.i12
 
-.loopexit.thread:                                 ; preds = %78
+.loopexit.thread:                                 ; preds = %79
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br i1 %7, label %116, label %receive_internal.exit22
+  br i1 %7, label %117, label %receive_internal.exit22
 
 .preheader.i12:                                   ; preds = %.loopexit
-  %115 = icmp eq i32 %112, 0
-  br i1 %115, label %receive_internal.exit22, label %.lr.ph.i14
+  %116 = icmp eq i32 %113, 0
+  br i1 %116, label %receive_internal.exit22, label %.lr.ph.i14
 
-116:                                              ; preds = %.loopexit.thread, %.loopexit
-  %117 = call fastcc i32 @receive_for_stream(ptr noundef nonnull readonly %0, i32 noundef %1, ptr %2)
-  %118 = icmp slt i32 %117, 0
-  %119 = select i1 %118, i32 %117, i32 %1
+117:                                              ; preds = %.loopexit.thread, %.loopexit
+  %118 = call fastcc i32 @receive_for_stream(ptr noundef nonnull readonly %0, i32 noundef %1, ptr %2)
+  %119 = icmp slt i32 %118, 0
+  %120 = select i1 %119, i32 %118, i32 %1
   br label %receive_internal.exit22
 
-.lr.ph.i14:                                       ; preds = %.preheader.i12, %121
-  %.035.i15 = phi i32 [ %125, %121 ], [ 0, %.preheader.i12 ]
-  %.02434.i16 = phi i32 [ %124, %121 ], [ 0, %.preheader.i12 ]
-  %120 = call fastcc i32 @receive_for_stream(ptr noundef nonnull readonly %0, i32 noundef %.035.i15, ptr %2)
-  switch i32 %120, label %.thread.i21 [
-    i32 -11, label %121
-    i32 -541478725, label %121
+.lr.ph.i14:                                       ; preds = %.preheader.i12, %122
+  %.035.i15 = phi i32 [ %126, %122 ], [ 0, %.preheader.i12 ]
+  %.02434.i16 = phi i32 [ %125, %122 ], [ 0, %.preheader.i12 ]
+  %121 = call fastcc i32 @receive_for_stream(ptr noundef nonnull readonly %0, i32 noundef %.035.i15, ptr %2)
+  switch i32 %121, label %.thread.i21 [
+    i32 -11, label %122
+    i32 -541478725, label %122
   ]
 
-121:                                              ; preds = %.lr.ph.i14, %.lr.ph.i14
-  %122 = icmp eq i32 %120, -541478725
-  %123 = zext i1 %122 to i32
-  %124 = add nuw nsw i32 %.02434.i16, %123
-  %125 = add nuw i32 %.035.i15, 1
-  %126 = load i32, ptr %80, align 8, !tbaa !4
-  %.not.i17 = icmp ult i32 %125, %126
+122:                                              ; preds = %.lr.ph.i14, %.lr.ph.i14
+  %123 = icmp eq i32 %121, -541478725
+  %124 = zext i1 %123 to i32
+  %125 = add nuw nsw i32 %.02434.i16, %124
+  %126 = add nuw i32 %.035.i15, 1
+  %127 = load i32, ptr %81, align 8, !tbaa !4
+  %.not.i17 = icmp ult i32 %126, %127
   br i1 %.not.i17, label %.lr.ph.i14, label %._crit_edge.loopexit.i18, !llvm.loop !51
 
 .thread.i21:                                      ; preds = %.lr.ph.i14
-  %127 = icmp slt i32 %120, 0
-  %128 = select i1 %127, i32 %120, i32 %.035.i15
+  %128 = icmp slt i32 %121, 0
+  %129 = select i1 %128, i32 %121, i32 %.035.i15
   br label %receive_internal.exit22
 
-._crit_edge.loopexit.i18:                         ; preds = %121
-  %129 = icmp eq i32 %124, %126
-  %130 = select i1 %129, i32 -541478725, i32 -11
+._crit_edge.loopexit.i18:                         ; preds = %122
+  %130 = icmp eq i32 %125, %127
+  %131 = select i1 %130, i32 -541478725, i32 -11
   br label %receive_internal.exit22
 
-receive_internal.exit22:                          ; preds = %.loopexit.thread, %._crit_edge.loopexit.i, %.preheader.i, %10, %._crit_edge.loopexit.i18, %.thread.i21, %116, %.preheader.i12, %overflow_heartbeat.exit.thread, %receive_internal.exit
-  %.0 = phi i32 [ %.025.i, %receive_internal.exit ], [ -11, %overflow_heartbeat.exit.thread ], [ %119, %116 ], [ %128, %.thread.i21 ], [ -541478725, %.preheader.i12 ], [ %130, %._crit_edge.loopexit.i18 ], [ -541478725, %.preheader.i ], [ %1, %10 ], [ -541478725, %._crit_edge.loopexit.i ], [ -541478725, %.loopexit.thread ]
+receive_internal.exit22:                          ; preds = %.loopexit.thread, %._crit_edge.loopexit.i, %.preheader.i, %10, %._crit_edge.loopexit.i18, %.thread.i21, %117, %.preheader.i12, %overflow_heartbeat.exit.thread, %receive_internal.exit
+  %.0 = phi i32 [ %.025.i, %receive_internal.exit ], [ -11, %overflow_heartbeat.exit.thread ], [ %120, %117 ], [ %129, %.thread.i21 ], [ -541478725, %.preheader.i12 ], [ %131, %._crit_edge.loopexit.i18 ], [ -541478725, %.preheader.i ], [ %1, %10 ], [ -541478725, %._crit_edge.loopexit.i ], [ -541478725, %.loopexit.thread ]
   ret i32 %.0
 }
 
@@ -1000,12 +1002,13 @@ define void @sq_frame_samples(ptr noundef captures(none) %0, i32 noundef %1, i32
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %14 = load ptr, ptr %13, align 8, !tbaa !12
   %15 = zext i32 %1 to i64
-  %16 = getelementptr inbounds nuw %struct.SyncQueueStream, ptr %14, i64 %15, i32 9
-  store i32 %2, ptr %16, align 8, !tbaa !38
-  %17 = tail call i64 @av_cpu_max_align() #7
-  %18 = add i64 %17, -1
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i64 %18, ptr %19, align 8, !tbaa !56
+  %16 = getelementptr inbounds nuw %struct.SyncQueueStream, ptr %14, i64 %15
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 64
+  store i32 %2, ptr %17, align 8, !tbaa !38
+  %18 = tail call i64 @av_cpu_max_align() #7
+  %19 = add i64 %18, -1
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i64 %19, ptr %20, align 8, !tbaa !56
   ret void
 }
 

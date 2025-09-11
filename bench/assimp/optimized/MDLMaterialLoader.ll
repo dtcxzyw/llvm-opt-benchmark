@@ -389,19 +389,19 @@ _ZN6Assimp11MDLImporter11FreePaletteEPKh.exit:    ; preds = %._crit_edge, %31
   %47 = zext i8 %46 to i64
   %48 = mul nuw nsw i64 %47, 3
   %49 = getelementptr inbounds nuw i8, ptr %.pre, i64 %48
-  %50 = getelementptr inbounds nuw %struct.aiTexel, ptr %29, i64 %indvars.iv, i32 3
-  store i8 -1, ptr %50, align 1
-  %51 = getelementptr inbounds nuw i8, ptr %49, i64 1
-  %52 = load i8, ptr %49, align 1
-  %53 = getelementptr inbounds nuw %struct.aiTexel, ptr %29, i64 %indvars.iv, i32 2
-  store i8 %52, ptr %53, align 1
-  %54 = getelementptr inbounds nuw i8, ptr %49, i64 2
-  %55 = load i8, ptr %51, align 1
-  %56 = getelementptr inbounds nuw %struct.aiTexel, ptr %29, i64 %indvars.iv, i32 1
-  store i8 %55, ptr %56, align 1
-  %57 = load i8, ptr %54, align 1
-  %58 = getelementptr inbounds nuw %struct.aiTexel, ptr %29, i64 %indvars.iv
-  store i8 %57, ptr %58, align 1
+  %50 = getelementptr inbounds nuw %struct.aiTexel, ptr %29, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 3
+  store i8 -1, ptr %51, align 1
+  %52 = getelementptr inbounds nuw i8, ptr %49, i64 1
+  %53 = load i8, ptr %49, align 1
+  %54 = getelementptr inbounds nuw i8, ptr %50, i64 2
+  store i8 %53, ptr %54, align 1
+  %55 = getelementptr inbounds nuw i8, ptr %49, i64 2
+  %56 = load i8, ptr %52, align 1
+  %57 = getelementptr inbounds nuw i8, ptr %50, i64 1
+  store i8 %56, ptr %57, align 1
+  %58 = load i8, ptr %55, align 1
+  store i8 %58, ptr %50, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %59 = icmp samesign ult i64 %indvars.iv.next, %27
   br i1 %59, label %.lr.ph, label %._crit_edge, !llvm.loop !5
@@ -683,7 +683,7 @@ define hidden void @_ZN6Assimp11MDLImporter21ParseTextureColorDataEPKhjPjP9aiTex
 
 21:                                               ; preds = %._crit_edge231, %5
   %22 = icmp eq i32 %2, 10
-  switch i32 %2, label %67 [
+  switch i32 %2, label %70 [
     i32 10, label %23
     i32 2, label %23
   ]
@@ -711,382 +711,397 @@ define hidden void @_ZN6Assimp11MDLImporter21ParseTextureColorDataEPKhjPjP9aiTex
   %34 = getelementptr inbounds nuw %"struct.Assimp::MDL::RGB565", ptr %1, i64 %indvars.iv
   %.sroa.061.0.copyload = load i16, ptr %34, align 1
   %35 = load ptr, ptr %7, align 8
-  %36 = getelementptr inbounds nuw %struct.aiTexel, ptr %35, i64 %indvars.iv, i32 3
-  store i8 -1, ptr %36, align 1
-  %37 = lshr i16 %.sroa.061.0.copyload, 8
-  %38 = trunc nuw i16 %37 to i8
-  %39 = and i8 %38, -8
-  %40 = load ptr, ptr %7, align 8
-  %41 = getelementptr inbounds nuw %struct.aiTexel, ptr %40, i64 %indvars.iv, i32 2
-  store i8 %39, ptr %41, align 1
-  %42 = lshr i16 %.sroa.061.0.copyload, 3
-  %43 = trunc i16 %42 to i8
-  %44 = and i8 %43, -4
-  %45 = load ptr, ptr %7, align 8
-  %46 = getelementptr inbounds nuw %struct.aiTexel, ptr %45, i64 %indvars.iv, i32 1
-  store i8 %44, ptr %46, align 1
+  %36 = getelementptr inbounds nuw %struct.aiTexel, ptr %35, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 3
+  store i8 -1, ptr %37, align 1
+  %38 = lshr i16 %.sroa.061.0.copyload, 8
+  %39 = trunc nuw i16 %38 to i8
+  %40 = and i8 %39, -8
+  %41 = load ptr, ptr %7, align 8
+  %42 = getelementptr inbounds nuw %struct.aiTexel, ptr %41, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 2
+  store i8 %40, ptr %43, align 1
+  %44 = lshr i16 %.sroa.061.0.copyload, 3
+  %45 = trunc i16 %44 to i8
+  %46 = and i8 %45, -4
+  %47 = load ptr, ptr %7, align 8
+  %48 = getelementptr inbounds nuw %struct.aiTexel, ptr %47, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 1
+  store i8 %46, ptr %49, align 1
   %.sroa.061.0.copyload.tr = trunc i16 %.sroa.061.0.copyload to i8
-  %47 = shl i8 %.sroa.061.0.copyload.tr, 3
-  %48 = load ptr, ptr %7, align 8
-  %49 = getelementptr inbounds nuw %struct.aiTexel, ptr %48, i64 %indvars.iv
-  store i8 %47, ptr %49, align 1
+  %50 = shl i8 %.sroa.061.0.copyload.tr, 3
+  %51 = load ptr, ptr %7, align 8
+  %52 = getelementptr inbounds nuw %struct.aiTexel, ptr %51, i64 %indvars.iv
+  store i8 %50, ptr %52, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %50 = load i32, ptr %4, align 8
-  %51 = load i32, ptr %25, align 4
-  %52 = mul i32 %51, %50
-  %53 = zext i32 %52 to i64
-  %54 = icmp samesign ult i64 %indvars.iv.next, %53
-  br i1 %54, label %.lr.ph, label %.loopexit195.loopexit, !llvm.loop !8
+  %53 = load i32, ptr %4, align 8
+  %54 = load i32, ptr %25, align 4
+  %55 = mul i32 %54, %53
+  %56 = zext i32 %55 to i64
+  %57 = icmp samesign ult i64 %indvars.iv.next, %56
+  br i1 %57, label %.lr.ph, label %.loopexit195.loopexit, !llvm.loop !8
 
 .loopexit195.loopexit:                            ; preds = %.lr.ph
-  %55 = trunc nuw i64 %indvars.iv.next to i32
+  %58 = trunc nuw i64 %indvars.iv.next to i32
   br label %.loopexit195
 
 .loopexit195:                                     ; preds = %23, %.loopexit195.loopexit, %.preheader194
-  %.1 = phi i32 [ 0, %.preheader194 ], [ %55, %.loopexit195.loopexit ], [ %33, %23 ]
-  %56 = shl i32 %.1, 1
-  store i32 %56, ptr %3, align 4
-  br i1 %22, label %57, label %247
+  %.1 = phi i32 [ 0, %.preheader194 ], [ %58, %.loopexit195.loopexit ], [ %33, %23 ]
+  %59 = shl i32 %.1, 1
+  store i32 %59, ptr %3, align 4
+  br i1 %22, label %60, label %262
 
-57:                                               ; preds = %.loopexit195
-  %58 = lshr i32 %.1, 2
-  %59 = lshr i32 %.1, 4
-  %60 = lshr i32 %.1, 6
-  %61 = add i32 %59, %.1
-  %62 = add i32 %61, %58
-  %63 = add i32 %62, %60
-  %64 = shl i32 %63, 1
-  store i32 %64, ptr %3, align 4
-  %65 = zext i32 %64 to i64
-  %66 = getelementptr inbounds nuw i8, ptr %1, i64 %65
-  tail call void @_ZN6Assimp11MDLImporter9SizeCheckEPKv(ptr noundef nonnull align 8 dereferenceable(159) %0, ptr noundef %66)
-  br label %247
+60:                                               ; preds = %.loopexit195
+  %61 = lshr i32 %.1, 2
+  %62 = lshr i32 %.1, 4
+  %63 = lshr i32 %.1, 6
+  %64 = add i32 %62, %.1
+  %65 = add i32 %64, %61
+  %66 = add i32 %65, %63
+  %67 = shl i32 %66, 1
+  store i32 %67, ptr %3, align 4
+  %68 = zext i32 %67 to i64
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 %68
+  tail call void @_ZN6Assimp11MDLImporter9SizeCheckEPKv(ptr noundef nonnull align 8 dereferenceable(159) %0, ptr noundef %69)
+  br label %262
 
-67:                                               ; preds = %21
-  %68 = icmp eq i32 %2, 11
-  switch i32 %2, label %114 [
-    i32 11, label %69
-    i32 3, label %69
+70:                                               ; preds = %21
+  %71 = icmp eq i32 %2, 11
+  switch i32 %2, label %120 [
+    i32 11, label %72
+    i32 3, label %72
   ]
 
-69:                                               ; preds = %67, %67
-  %70 = load i32, ptr %4, align 8
-  %71 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %72 = load i32, ptr %71, align 4
-  %73 = shl i32 %70, 2
-  %74 = mul i32 %73, %72
-  %75 = zext i32 %74 to i64
-  %76 = getelementptr inbounds nuw i8, ptr %1, i64 %75
-  tail call void @_ZN6Assimp11MDLImporter9SizeCheckEPKv(ptr noundef nonnull align 8 dereferenceable(159) %0, ptr noundef %76)
-  %77 = load i32, ptr %4, align 8
-  %78 = load i32, ptr %71, align 4
-  %79 = mul i32 %78, %77
+72:                                               ; preds = %70, %70
+  %73 = load i32, ptr %4, align 8
+  %74 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %75 = load i32, ptr %74, align 4
+  %76 = shl i32 %73, 2
+  %77 = mul i32 %76, %75
+  %78 = zext i32 %77 to i64
+  %79 = getelementptr inbounds nuw i8, ptr %1, i64 %78
+  tail call void @_ZN6Assimp11MDLImporter9SizeCheckEPKv(ptr noundef nonnull align 8 dereferenceable(159) %0, ptr noundef %79)
+  %80 = load i32, ptr %4, align 8
+  %81 = load i32, ptr %74, align 4
+  %82 = mul i32 %81, %80
   br i1 %.not, label %.loopexit193, label %.preheader192
 
-.preheader192:                                    ; preds = %69
-  %.not210 = icmp eq i32 %79, 0
+.preheader192:                                    ; preds = %72
+  %.not210 = icmp eq i32 %82, 0
   br i1 %.not210, label %.loopexit193, label %.lr.ph198
 
 .lr.ph198:                                        ; preds = %.preheader192, %.lr.ph198
   %indvars.iv219 = phi i64 [ %indvars.iv.next220, %.lr.ph198 ], [ 0, %.preheader192 ]
-  %80 = getelementptr inbounds nuw %"struct.Assimp::MDL::ARGB4", ptr %1, i64 %indvars.iv219
-  %.sroa.0.0.copyload = load i16, ptr %80, align 2
+  %83 = getelementptr inbounds nuw %"struct.Assimp::MDL::ARGB4", ptr %1, i64 %indvars.iv219
+  %.sroa.0.0.copyload = load i16, ptr %83, align 2
   %.sroa.0.0.copyload.tr = trunc i16 %.sroa.0.0.copyload to i8
-  %81 = shl i8 %.sroa.0.0.copyload.tr, 4
-  %82 = load ptr, ptr %7, align 8
-  %83 = getelementptr inbounds nuw %struct.aiTexel, ptr %82, i64 %indvars.iv219, i32 3
-  store i8 %81, ptr %83, align 1
-  %84 = and i8 %.sroa.0.0.copyload.tr, -16
+  %84 = shl i8 %.sroa.0.0.copyload.tr, 4
   %85 = load ptr, ptr %7, align 8
-  %86 = getelementptr inbounds nuw %struct.aiTexel, ptr %85, i64 %indvars.iv219, i32 2
-  store i8 %84, ptr %86, align 1
-  %87 = lshr i16 %.sroa.0.0.copyload, 4
-  %88 = trunc i16 %87 to i8
-  %89 = and i8 %88, -16
-  %90 = load ptr, ptr %7, align 8
-  %91 = getelementptr inbounds nuw %struct.aiTexel, ptr %90, i64 %indvars.iv219, i32 1
-  store i8 %89, ptr %91, align 1
-  %92 = lshr i16 %.sroa.0.0.copyload, 8
-  %93 = trunc nuw i16 %92 to i8
+  %86 = getelementptr inbounds nuw %struct.aiTexel, ptr %85, i64 %indvars.iv219
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 3
+  store i8 %84, ptr %87, align 1
+  %88 = and i8 %.sroa.0.0.copyload.tr, -16
+  %89 = load ptr, ptr %7, align 8
+  %90 = getelementptr inbounds nuw %struct.aiTexel, ptr %89, i64 %indvars.iv219
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 2
+  store i8 %88, ptr %91, align 1
+  %92 = lshr i16 %.sroa.0.0.copyload, 4
+  %93 = trunc i16 %92 to i8
   %94 = and i8 %93, -16
   %95 = load ptr, ptr %7, align 8
   %96 = getelementptr inbounds nuw %struct.aiTexel, ptr %95, i64 %indvars.iv219
-  store i8 %94, ptr %96, align 1
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 1
+  store i8 %94, ptr %97, align 1
+  %98 = lshr i16 %.sroa.0.0.copyload, 8
+  %99 = trunc nuw i16 %98 to i8
+  %100 = and i8 %99, -16
+  %101 = load ptr, ptr %7, align 8
+  %102 = getelementptr inbounds nuw %struct.aiTexel, ptr %101, i64 %indvars.iv219
+  store i8 %100, ptr %102, align 1
   %indvars.iv.next220 = add nuw nsw i64 %indvars.iv219, 1
-  %97 = load i32, ptr %4, align 8
-  %98 = load i32, ptr %71, align 4
-  %99 = mul i32 %98, %97
-  %100 = zext i32 %99 to i64
-  %101 = icmp samesign ult i64 %indvars.iv.next220, %100
-  br i1 %101, label %.lr.ph198, label %.loopexit193.loopexit, !llvm.loop !9
+  %103 = load i32, ptr %4, align 8
+  %104 = load i32, ptr %74, align 4
+  %105 = mul i32 %104, %103
+  %106 = zext i32 %105 to i64
+  %107 = icmp samesign ult i64 %indvars.iv.next220, %106
+  br i1 %107, label %.lr.ph198, label %.loopexit193.loopexit, !llvm.loop !9
 
 .loopexit193.loopexit:                            ; preds = %.lr.ph198
-  %102 = trunc nuw i64 %indvars.iv.next220 to i32
+  %108 = trunc nuw i64 %indvars.iv.next220 to i32
   br label %.loopexit193
 
-.loopexit193:                                     ; preds = %69, %.loopexit193.loopexit, %.preheader192
-  %.1180 = phi i32 [ 0, %.preheader192 ], [ %102, %.loopexit193.loopexit ], [ %79, %69 ]
-  %103 = shl i32 %.1180, 1
-  store i32 %103, ptr %3, align 4
-  br i1 %68, label %104, label %247
+.loopexit193:                                     ; preds = %72, %.loopexit193.loopexit, %.preheader192
+  %.1180 = phi i32 [ 0, %.preheader192 ], [ %108, %.loopexit193.loopexit ], [ %82, %72 ]
+  %109 = shl i32 %.1180, 1
+  store i32 %109, ptr %3, align 4
+  br i1 %71, label %110, label %262
 
-104:                                              ; preds = %.loopexit193
-  %105 = lshr i32 %.1180, 2
-  %106 = lshr i32 %.1180, 4
-  %107 = lshr i32 %.1180, 6
-  %108 = add i32 %106, %.1180
-  %109 = add i32 %108, %105
-  %110 = add i32 %109, %107
-  %111 = shl i32 %110, 1
-  store i32 %111, ptr %3, align 4
-  %112 = zext i32 %111 to i64
-  %113 = getelementptr inbounds nuw i8, ptr %1, i64 %112
-  tail call void @_ZN6Assimp11MDLImporter9SizeCheckEPKv(ptr noundef nonnull align 8 dereferenceable(159) %0, ptr noundef %113)
-  br label %247
+110:                                              ; preds = %.loopexit193
+  %111 = lshr i32 %.1180, 2
+  %112 = lshr i32 %.1180, 4
+  %113 = lshr i32 %.1180, 6
+  %114 = add i32 %112, %.1180
+  %115 = add i32 %114, %111
+  %116 = add i32 %115, %113
+  %117 = shl i32 %116, 1
+  store i32 %117, ptr %3, align 4
+  %118 = zext i32 %117 to i64
+  %119 = getelementptr inbounds nuw i8, ptr %1, i64 %118
+  tail call void @_ZN6Assimp11MDLImporter9SizeCheckEPKv(ptr noundef nonnull align 8 dereferenceable(159) %0, ptr noundef %119)
+  br label %262
 
-114:                                              ; preds = %67
-  %115 = icmp eq i32 %2, 12
-  switch i32 %2, label %160 [
-    i32 12, label %116
-    i32 4, label %116
+120:                                              ; preds = %70
+  %121 = icmp eq i32 %2, 12
+  switch i32 %2, label %169 [
+    i32 12, label %122
+    i32 4, label %122
   ]
 
-116:                                              ; preds = %114, %114
-  %117 = load i32, ptr %4, align 8
-  %118 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %119 = load i32, ptr %118, align 4
-  %120 = mul i32 %117, 3
-  %121 = mul i32 %120, %119
-  %122 = zext i32 %121 to i64
-  %123 = getelementptr inbounds nuw i8, ptr %1, i64 %122
-  tail call void @_ZN6Assimp11MDLImporter9SizeCheckEPKv(ptr noundef nonnull align 8 dereferenceable(159) %0, ptr noundef %123)
-  %124 = load i32, ptr %4, align 8
-  %125 = load i32, ptr %118, align 4
-  %126 = mul i32 %125, %124
+122:                                              ; preds = %120, %120
+  %123 = load i32, ptr %4, align 8
+  %124 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %125 = load i32, ptr %124, align 4
+  %126 = mul i32 %123, 3
+  %127 = mul i32 %126, %125
+  %128 = zext i32 %127 to i64
+  %129 = getelementptr inbounds nuw i8, ptr %1, i64 %128
+  tail call void @_ZN6Assimp11MDLImporter9SizeCheckEPKv(ptr noundef nonnull align 8 dereferenceable(159) %0, ptr noundef %129)
+  %130 = load i32, ptr %4, align 8
+  %131 = load i32, ptr %124, align 4
+  %132 = mul i32 %131, %130
   br i1 %.not, label %.loopexit191, label %.preheader190
 
-.preheader190:                                    ; preds = %116
-  %.not211 = icmp eq i32 %126, 0
+.preheader190:                                    ; preds = %122
+  %.not211 = icmp eq i32 %132, 0
   br i1 %.not211, label %.loopexit191, label %.lr.ph201
 
 .lr.ph201:                                        ; preds = %.preheader190, %.lr.ph201
   %indvars.iv222 = phi i64 [ %indvars.iv.next223, %.lr.ph201 ], [ 0, %.preheader190 ]
-  %127 = mul nuw nsw i64 %indvars.iv222, 3
-  %128 = and i64 %127, 4294967295
-  %129 = getelementptr inbounds nuw i8, ptr %1, i64 %128
-  %130 = load ptr, ptr %7, align 8
-  %131 = getelementptr inbounds nuw %struct.aiTexel, ptr %130, i64 %indvars.iv222, i32 3
-  store i8 -1, ptr %131, align 1
-  %132 = getelementptr inbounds nuw i8, ptr %129, i64 1
-  %133 = load i8, ptr %129, align 1
-  %134 = load ptr, ptr %7, align 8
-  %135 = getelementptr inbounds nuw %struct.aiTexel, ptr %134, i64 %indvars.iv222
-  store i8 %133, ptr %135, align 1
-  %136 = getelementptr inbounds nuw i8, ptr %129, i64 2
-  %137 = load i8, ptr %132, align 1
-  %138 = load ptr, ptr %7, align 8
-  %139 = getelementptr inbounds nuw %struct.aiTexel, ptr %138, i64 %indvars.iv222, i32 1
-  store i8 %137, ptr %139, align 1
-  %140 = load i8, ptr %136, align 1
+  %133 = mul nuw nsw i64 %indvars.iv222, 3
+  %134 = and i64 %133, 4294967295
+  %135 = getelementptr inbounds nuw i8, ptr %1, i64 %134
+  %136 = load ptr, ptr %7, align 8
+  %137 = getelementptr inbounds nuw %struct.aiTexel, ptr %136, i64 %indvars.iv222
+  %138 = getelementptr inbounds nuw i8, ptr %137, i64 3
+  store i8 -1, ptr %138, align 1
+  %139 = getelementptr inbounds nuw i8, ptr %135, i64 1
+  %140 = load i8, ptr %135, align 1
   %141 = load ptr, ptr %7, align 8
-  %142 = getelementptr inbounds nuw %struct.aiTexel, ptr %141, i64 %indvars.iv222, i32 2
+  %142 = getelementptr inbounds nuw %struct.aiTexel, ptr %141, i64 %indvars.iv222
   store i8 %140, ptr %142, align 1
+  %143 = getelementptr inbounds nuw i8, ptr %135, i64 2
+  %144 = load i8, ptr %139, align 1
+  %145 = load ptr, ptr %7, align 8
+  %146 = getelementptr inbounds nuw %struct.aiTexel, ptr %145, i64 %indvars.iv222
+  %147 = getelementptr inbounds nuw i8, ptr %146, i64 1
+  store i8 %144, ptr %147, align 1
+  %148 = load i8, ptr %143, align 1
+  %149 = load ptr, ptr %7, align 8
+  %150 = getelementptr inbounds nuw %struct.aiTexel, ptr %149, i64 %indvars.iv222
+  %151 = getelementptr inbounds nuw i8, ptr %150, i64 2
+  store i8 %148, ptr %151, align 1
   %indvars.iv.next223 = add nuw nsw i64 %indvars.iv222, 1
-  %143 = load i32, ptr %4, align 8
-  %144 = load i32, ptr %118, align 4
-  %145 = mul i32 %144, %143
-  %146 = zext i32 %145 to i64
-  %147 = icmp samesign ult i64 %indvars.iv.next223, %146
-  br i1 %147, label %.lr.ph201, label %.loopexit191.loopexit, !llvm.loop !10
+  %152 = load i32, ptr %4, align 8
+  %153 = load i32, ptr %124, align 4
+  %154 = mul i32 %153, %152
+  %155 = zext i32 %154 to i64
+  %156 = icmp samesign ult i64 %indvars.iv.next223, %155
+  br i1 %156, label %.lr.ph201, label %.loopexit191.loopexit, !llvm.loop !10
 
 .loopexit191.loopexit:                            ; preds = %.lr.ph201
-  %148 = trunc nuw i64 %indvars.iv.next223 to i32
+  %157 = trunc nuw i64 %indvars.iv.next223 to i32
   br label %.loopexit191
 
-.loopexit191:                                     ; preds = %116, %.loopexit191.loopexit, %.preheader190
-  %.1184 = phi i32 [ 0, %.preheader190 ], [ %148, %.loopexit191.loopexit ], [ %126, %116 ]
-  %149 = mul i32 %.1184, 3
-  store i32 %149, ptr %3, align 4
-  br i1 %115, label %150, label %247
+.loopexit191:                                     ; preds = %122, %.loopexit191.loopexit, %.preheader190
+  %.1184 = phi i32 [ 0, %.preheader190 ], [ %157, %.loopexit191.loopexit ], [ %132, %122 ]
+  %158 = mul i32 %.1184, 3
+  store i32 %158, ptr %3, align 4
+  br i1 %121, label %159, label %262
 
-150:                                              ; preds = %.loopexit191
-  %151 = lshr i32 %.1184, 2
-  %152 = lshr i32 %.1184, 4
-  %153 = lshr i32 %.1184, 6
-  %154 = add i32 %152, %.1184
-  %155 = add i32 %154, %151
-  %156 = add i32 %155, %153
-  %157 = mul i32 %156, 3
-  store i32 %157, ptr %3, align 4
-  %158 = zext i32 %157 to i64
-  %159 = getelementptr inbounds nuw i8, ptr %1, i64 %158
-  tail call void @_ZN6Assimp11MDLImporter9SizeCheckEPKv(ptr noundef nonnull align 8 dereferenceable(159) %0, ptr noundef %159)
-  br label %247
+159:                                              ; preds = %.loopexit191
+  %160 = lshr i32 %.1184, 2
+  %161 = lshr i32 %.1184, 4
+  %162 = lshr i32 %.1184, 6
+  %163 = add i32 %161, %.1184
+  %164 = add i32 %163, %160
+  %165 = add i32 %164, %162
+  %166 = mul i32 %165, 3
+  store i32 %166, ptr %3, align 4
+  %167 = zext i32 %166 to i64
+  %168 = getelementptr inbounds nuw i8, ptr %1, i64 %167
+  tail call void @_ZN6Assimp11MDLImporter9SizeCheckEPKv(ptr noundef nonnull align 8 dereferenceable(159) %0, ptr noundef %168)
+  br label %262
 
-160:                                              ; preds = %114
-  %161 = icmp eq i32 %2, 13
-  switch i32 %2, label %247 [
-    i32 13, label %162
-    i32 5, label %162
-    i32 0, label %205
+169:                                              ; preds = %120
+  %170 = icmp eq i32 %2, 13
+  switch i32 %2, label %262 [
+    i32 13, label %171
+    i32 5, label %171
+    i32 0, label %217
   ]
 
-162:                                              ; preds = %160, %160
-  %163 = load i32, ptr %4, align 8
-  %164 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %165 = load i32, ptr %164, align 4
-  %166 = shl i32 %163, 2
-  %167 = mul i32 %166, %165
-  %168 = zext i32 %167 to i64
-  %169 = getelementptr inbounds nuw i8, ptr %1, i64 %168
-  tail call void @_ZN6Assimp11MDLImporter9SizeCheckEPKv(ptr noundef nonnull align 8 dereferenceable(159) %0, ptr noundef %169)
-  %170 = load i32, ptr %4, align 8
-  %171 = load i32, ptr %164, align 4
-  %172 = mul i32 %171, %170
+171:                                              ; preds = %169, %169
+  %172 = load i32, ptr %4, align 8
+  %173 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %174 = load i32, ptr %173, align 4
+  %175 = shl i32 %172, 2
+  %176 = mul i32 %175, %174
+  %177 = zext i32 %176 to i64
+  %178 = getelementptr inbounds nuw i8, ptr %1, i64 %177
+  tail call void @_ZN6Assimp11MDLImporter9SizeCheckEPKv(ptr noundef nonnull align 8 dereferenceable(159) %0, ptr noundef %178)
+  %179 = load i32, ptr %4, align 8
+  %180 = load i32, ptr %173, align 4
+  %181 = mul i32 %180, %179
   br i1 %.not, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %162
-  %.not213 = icmp eq i32 %172, 0
+.preheader:                                       ; preds = %171
+  %.not213 = icmp eq i32 %181, 0
   br i1 %.not213, label %.loopexit, label %.lr.ph207
 
 .lr.ph207:                                        ; preds = %.preheader, %.lr.ph207
   %indvars.iv228 = phi i64 [ %indvars.iv.next229, %.lr.ph207 ], [ 0, %.preheader ]
-  %173 = shl nuw nsw i64 %indvars.iv228, 2
-  %174 = and i64 %173, 4294967292
-  %175 = getelementptr inbounds nuw i8, ptr %1, i64 %174
-  %176 = getelementptr inbounds nuw i8, ptr %175, i64 1
-  %177 = load i8, ptr %175, align 1
-  %178 = load ptr, ptr %7, align 8
-  %179 = getelementptr inbounds nuw %struct.aiTexel, ptr %178, i64 %indvars.iv228
-  store i8 %177, ptr %179, align 1
-  %180 = getelementptr inbounds nuw i8, ptr %175, i64 2
-  %181 = load i8, ptr %176, align 1
-  %182 = load ptr, ptr %7, align 8
-  %183 = getelementptr inbounds nuw %struct.aiTexel, ptr %182, i64 %indvars.iv228, i32 1
-  store i8 %181, ptr %183, align 1
-  %184 = getelementptr inbounds nuw i8, ptr %175, i64 3
-  %185 = load i8, ptr %180, align 1
-  %186 = load ptr, ptr %7, align 8
-  %187 = getelementptr inbounds nuw %struct.aiTexel, ptr %186, i64 %indvars.iv228, i32 2
-  store i8 %185, ptr %187, align 1
-  %188 = load i8, ptr %184, align 1
-  %189 = load ptr, ptr %7, align 8
-  %190 = getelementptr inbounds nuw %struct.aiTexel, ptr %189, i64 %indvars.iv228, i32 3
-  store i8 %188, ptr %190, align 1
+  %182 = shl nuw nsw i64 %indvars.iv228, 2
+  %183 = and i64 %182, 4294967292
+  %184 = getelementptr inbounds nuw i8, ptr %1, i64 %183
+  %185 = getelementptr inbounds nuw i8, ptr %184, i64 1
+  %186 = load i8, ptr %184, align 1
+  %187 = load ptr, ptr %7, align 8
+  %188 = getelementptr inbounds nuw %struct.aiTexel, ptr %187, i64 %indvars.iv228
+  store i8 %186, ptr %188, align 1
+  %189 = getelementptr inbounds nuw i8, ptr %184, i64 2
+  %190 = load i8, ptr %185, align 1
+  %191 = load ptr, ptr %7, align 8
+  %192 = getelementptr inbounds nuw %struct.aiTexel, ptr %191, i64 %indvars.iv228
+  %193 = getelementptr inbounds nuw i8, ptr %192, i64 1
+  store i8 %190, ptr %193, align 1
+  %194 = getelementptr inbounds nuw i8, ptr %184, i64 3
+  %195 = load i8, ptr %189, align 1
+  %196 = load ptr, ptr %7, align 8
+  %197 = getelementptr inbounds nuw %struct.aiTexel, ptr %196, i64 %indvars.iv228
+  %198 = getelementptr inbounds nuw i8, ptr %197, i64 2
+  store i8 %195, ptr %198, align 1
+  %199 = load i8, ptr %194, align 1
+  %200 = load ptr, ptr %7, align 8
+  %201 = getelementptr inbounds nuw %struct.aiTexel, ptr %200, i64 %indvars.iv228
+  %202 = getelementptr inbounds nuw i8, ptr %201, i64 3
+  store i8 %199, ptr %202, align 1
   %indvars.iv.next229 = add nuw nsw i64 %indvars.iv228, 1
-  %191 = load i32, ptr %4, align 8
-  %192 = load i32, ptr %164, align 4
-  %193 = mul i32 %192, %191
-  %194 = zext i32 %193 to i64
-  %195 = icmp samesign ult i64 %indvars.iv.next229, %194
-  br i1 %195, label %.lr.ph207, label %.loopexit.loopexit, !llvm.loop !11
+  %203 = load i32, ptr %4, align 8
+  %204 = load i32, ptr %173, align 4
+  %205 = mul i32 %204, %203
+  %206 = zext i32 %205 to i64
+  %207 = icmp samesign ult i64 %indvars.iv.next229, %206
+  br i1 %207, label %.lr.ph207, label %.loopexit.loopexit, !llvm.loop !11
 
 .loopexit.loopexit:                               ; preds = %.lr.ph207
-  %196 = trunc nuw i64 %indvars.iv.next229 to i32
+  %208 = trunc nuw i64 %indvars.iv.next229 to i32
   br label %.loopexit
 
-.loopexit:                                        ; preds = %162, %.loopexit.loopexit, %.preheader
-  %.1186 = phi i32 [ 0, %.preheader ], [ %196, %.loopexit.loopexit ], [ %172, %162 ]
-  br i1 %161, label %197, label %204
+.loopexit:                                        ; preds = %171, %.loopexit.loopexit, %.preheader
+  %.1186 = phi i32 [ 0, %.preheader ], [ %208, %.loopexit.loopexit ], [ %181, %171 ]
+  br i1 %170, label %209, label %216
 
-197:                                              ; preds = %.loopexit
-  %198 = lshr i32 %.1186, 2
-  %199 = lshr i32 %.1186, 4
-  %200 = lshr i32 %.1186, 6
-  %201 = add i32 %199, %.1186
-  %202 = add i32 %201, %198
-  %203 = add i32 %202, %200
-  br label %204
+209:                                              ; preds = %.loopexit
+  %210 = lshr i32 %.1186, 2
+  %211 = lshr i32 %.1186, 4
+  %212 = lshr i32 %.1186, 6
+  %213 = add i32 %211, %.1186
+  %214 = add i32 %213, %210
+  %215 = add i32 %214, %212
+  br label %216
 
-204:                                              ; preds = %197, %.loopexit
-  %storemerge.in = phi i32 [ %203, %197 ], [ %.1186, %.loopexit ]
+216:                                              ; preds = %209, %.loopexit
+  %storemerge.in = phi i32 [ %215, %209 ], [ %.1186, %.loopexit ]
   %storemerge = shl i32 %storemerge.in, 2
   store i32 %storemerge, ptr %3, align 4
-  br label %247
+  br label %262
 
-205:                                              ; preds = %160
-  %206 = load i32, ptr %4, align 8
-  %207 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %208 = load i32, ptr %207, align 4
-  %209 = mul i32 %208, %206
-  %210 = zext i32 %209 to i64
-  %211 = getelementptr inbounds nuw i8, ptr %1, i64 %210
-  tail call void @_ZN6Assimp11MDLImporter9SizeCheckEPKv(ptr noundef nonnull align 8 dereferenceable(159) %0, ptr noundef %211)
-  br i1 %.not, label %242, label %212
+217:                                              ; preds = %169
+  %218 = load i32, ptr %4, align 8
+  %219 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %220 = load i32, ptr %219, align 4
+  %221 = mul i32 %220, %218
+  %222 = zext i32 %221 to i64
+  %223 = getelementptr inbounds nuw i8, ptr %1, i64 %222
+  tail call void @_ZN6Assimp11MDLImporter9SizeCheckEPKv(ptr noundef nonnull align 8 dereferenceable(159) %0, ptr noundef %223)
+  br i1 %.not, label %257, label %224
 
-212:                                              ; preds = %205
+224:                                              ; preds = %217
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN6Assimp11MDLImporter13SearchPaletteEPPKh(ptr noundef nonnull align 8 dereferenceable(159) %0, ptr noundef nonnull %6)
-  %213 = load i32, ptr %4, align 8
-  %214 = load i32, ptr %207, align 4
-  %215 = mul i32 %214, %213
-  %.not212 = icmp eq i32 %215, 0
+  %225 = load i32, ptr %4, align 8
+  %226 = load i32, ptr %219, align 4
+  %227 = mul i32 %226, %225
+  %.not212 = icmp eq i32 %227, 0
   %.pre232 = load ptr, ptr %6, align 8
   br i1 %.not212, label %._crit_edge, label %.lr.ph204
 
-.lr.ph204:                                        ; preds = %212, %.lr.ph204
-  %indvars.iv225 = phi i64 [ %indvars.iv.next226, %.lr.ph204 ], [ 0, %212 ]
-  %216 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv225
-  %217 = load i8, ptr %216, align 1
-  %218 = zext i8 %217 to i64
-  %219 = mul nuw nsw i64 %218, 3
-  %220 = getelementptr inbounds nuw i8, ptr %.pre232, i64 %219
-  %221 = load ptr, ptr %7, align 8
-  %222 = getelementptr inbounds nuw %struct.aiTexel, ptr %221, i64 %indvars.iv225, i32 3
-  store i8 -1, ptr %222, align 1
-  %223 = getelementptr inbounds nuw i8, ptr %220, i64 1
-  %224 = load i8, ptr %220, align 1
-  %225 = load ptr, ptr %7, align 8
-  %226 = getelementptr inbounds nuw %struct.aiTexel, ptr %225, i64 %indvars.iv225, i32 2
-  store i8 %224, ptr %226, align 1
-  %227 = getelementptr inbounds nuw i8, ptr %220, i64 2
-  %228 = load i8, ptr %223, align 1
-  %229 = load ptr, ptr %7, align 8
-  %230 = getelementptr inbounds nuw %struct.aiTexel, ptr %229, i64 %indvars.iv225, i32 1
-  store i8 %228, ptr %230, align 1
-  %231 = load i8, ptr %227, align 1
-  %232 = load ptr, ptr %7, align 8
-  %233 = getelementptr inbounds nuw %struct.aiTexel, ptr %232, i64 %indvars.iv225
-  store i8 %231, ptr %233, align 1
+.lr.ph204:                                        ; preds = %224, %.lr.ph204
+  %indvars.iv225 = phi i64 [ %indvars.iv.next226, %.lr.ph204 ], [ 0, %224 ]
+  %228 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv225
+  %229 = load i8, ptr %228, align 1
+  %230 = zext i8 %229 to i64
+  %231 = mul nuw nsw i64 %230, 3
+  %232 = getelementptr inbounds nuw i8, ptr %.pre232, i64 %231
+  %233 = load ptr, ptr %7, align 8
+  %234 = getelementptr inbounds nuw %struct.aiTexel, ptr %233, i64 %indvars.iv225
+  %235 = getelementptr inbounds nuw i8, ptr %234, i64 3
+  store i8 -1, ptr %235, align 1
+  %236 = getelementptr inbounds nuw i8, ptr %232, i64 1
+  %237 = load i8, ptr %232, align 1
+  %238 = load ptr, ptr %7, align 8
+  %239 = getelementptr inbounds nuw %struct.aiTexel, ptr %238, i64 %indvars.iv225
+  %240 = getelementptr inbounds nuw i8, ptr %239, i64 2
+  store i8 %237, ptr %240, align 1
+  %241 = getelementptr inbounds nuw i8, ptr %232, i64 2
+  %242 = load i8, ptr %236, align 1
+  %243 = load ptr, ptr %7, align 8
+  %244 = getelementptr inbounds nuw %struct.aiTexel, ptr %243, i64 %indvars.iv225
+  %245 = getelementptr inbounds nuw i8, ptr %244, i64 1
+  store i8 %242, ptr %245, align 1
+  %246 = load i8, ptr %241, align 1
+  %247 = load ptr, ptr %7, align 8
+  %248 = getelementptr inbounds nuw %struct.aiTexel, ptr %247, i64 %indvars.iv225
+  store i8 %246, ptr %248, align 1
   %indvars.iv.next226 = add nuw nsw i64 %indvars.iv225, 1
-  %234 = load i32, ptr %4, align 8
-  %235 = load i32, ptr %207, align 4
-  %236 = mul i32 %235, %234
-  %237 = zext i32 %236 to i64
-  %238 = icmp samesign ult i64 %indvars.iv.next226, %237
-  br i1 %238, label %.lr.ph204, label %._crit_edge.loopexit, !llvm.loop !12
+  %249 = load i32, ptr %4, align 8
+  %250 = load i32, ptr %219, align 4
+  %251 = mul i32 %250, %249
+  %252 = zext i32 %251 to i64
+  %253 = icmp samesign ult i64 %indvars.iv.next226, %252
+  br i1 %253, label %.lr.ph204, label %._crit_edge.loopexit, !llvm.loop !12
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph204
-  %239 = trunc nuw i64 %indvars.iv.next226 to i32
+  %254 = trunc nuw i64 %indvars.iv.next226 to i32
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %212
-  %.0181.lcssa = phi i32 [ 0, %212 ], [ %239, %._crit_edge.loopexit ]
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %224
+  %.0181.lcssa = phi i32 [ 0, %224 ], [ %254, %._crit_edge.loopexit ]
   %.not.i = icmp eq ptr %.pre232, @_ZL21g_aclrDefaultColorMap
-  %240 = icmp eq ptr %.pre232, null
-  %or.cond.i = or i1 %.not.i, %240
-  br i1 %or.cond.i, label %_ZN6Assimp11MDLImporter11FreePaletteEPKh.exit, label %241
+  %255 = icmp eq ptr %.pre232, null
+  %or.cond.i = or i1 %.not.i, %255
+  br i1 %or.cond.i, label %_ZN6Assimp11MDLImporter11FreePaletteEPKh.exit, label %256
 
-241:                                              ; preds = %._crit_edge
+256:                                              ; preds = %._crit_edge
   tail call void @_ZdaPv(ptr noundef %.pre232) #21
   br label %_ZN6Assimp11MDLImporter11FreePaletteEPKh.exit
 
-_ZN6Assimp11MDLImporter11FreePaletteEPKh.exit:    ; preds = %._crit_edge, %241
+_ZN6Assimp11MDLImporter11FreePaletteEPKh.exit:    ; preds = %._crit_edge, %256
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %246
+  br label %261
 
-242:                                              ; preds = %205
-  %243 = load i32, ptr %4, align 8
-  %244 = load i32, ptr %207, align 4
-  %245 = mul i32 %244, %243
-  br label %246
+257:                                              ; preds = %217
+  %258 = load i32, ptr %4, align 8
+  %259 = load i32, ptr %219, align 4
+  %260 = mul i32 %259, %258
+  br label %261
 
-246:                                              ; preds = %242, %_ZN6Assimp11MDLImporter11FreePaletteEPKh.exit
-  %.1182 = phi i32 [ %.0181.lcssa, %_ZN6Assimp11MDLImporter11FreePaletteEPKh.exit ], [ %245, %242 ]
+261:                                              ; preds = %257, %_ZN6Assimp11MDLImporter11FreePaletteEPKh.exit
+  %.1182 = phi i32 [ %.0181.lcssa, %_ZN6Assimp11MDLImporter11FreePaletteEPKh.exit ], [ %260, %257 ]
   store i32 %.1182, ptr %3, align 4
-  br label %247
+  br label %262
 
-247:                                              ; preds = %160, %.loopexit191, %150, %.loopexit193, %104, %.loopexit195, %57, %204, %246
+262:                                              ; preds = %169, %.loopexit191, %159, %.loopexit193, %110, %.loopexit195, %60, %216, %261
   ret void
 }
 

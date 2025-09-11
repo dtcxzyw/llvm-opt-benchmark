@@ -543,8 +543,6 @@ $_ZN3fmt3v106detail15do_parse_arg_idIcRNS1_23dynamic_spec_id_handlerIcEEEEPKT_S8
 
 $_ZN3fmt3v106detail16get_dynamic_specINS1_13width_checkerENS0_16basic_format_argINS0_20basic_format_contextINS0_8appenderEcEEEEEEiT0_ = comdat any
 
-$_ZNK3fmt3v1017basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE3getIcEENS0_16basic_format_argIS4_EENS0_17basic_string_viewIT_EE = comdat any
-
 $_ZN3fmt3v106detail16get_dynamic_specINS1_17precision_checkerENS0_16basic_format_argINS0_20basic_format_contextINS0_8appenderEcEEEEEEiT0_ = comdat any
 
 $_ZN3fmt3v106detail18write_int_noinlineIcNS0_8appenderEmEET0_S4_NS1_13write_int_argIT1_EERKNS0_12format_specsIT_EENS1_10locale_refE = comdat any
@@ -25107,7 +25105,7 @@ _ZN3fmt3v106detail6bufferIjE9push_backERKj.exit.i.i225: ; preds = %.noexc230, %3
   store i32 %309, ptr %328, align 4, !tbaa !16
   br label %_ZN3fmt3v106detail6bigintmLIiEERS2_T_.exit231
 
-329:                                              ; preds = %666, %598, %339, %323, %300, %277
+329:                                              ; preds = %665, %597, %339, %323, %300, %277
   %330 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -25151,7 +25149,7 @@ _ZN3fmt3v106detail16adjust_precisionERii.exit:    ; preds = %332
 
 344:                                              ; preds = %_ZN3fmt3v106detail16adjust_precisionERii.exit, %_ZN3fmt3v106detail6bigintmLIiEERS2_T_.exit231, %193
   %.0453 = phi i32 [ %2, %193 ], [ %2, %_ZN3fmt3v106detail6bigintmLIiEERS2_T_.exit231 ], [ %343, %_ZN3fmt3v106detail16adjust_precisionERii.exit ]
-  br i1 %196, label %345, label %576
+  br i1 %196, label %345, label %575
 
 345:                                              ; preds = %344
   %346 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -25340,7 +25338,7 @@ _ZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_.exit253: ; preds = %431, %.
   %441 = getelementptr inbounds nuw i8, ptr %347, i64 %indvars.iv571
   store i8 %440, ptr %441, align 1, !tbaa !15
   %or.cond.not = select i1 %383, i1 %438, i1 false
-  br i1 %or.cond.not, label %508, label %442
+  br i1 %or.cond.not, label %507, label %442
 
 442:                                              ; preds = %_ZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_.exit253
   br i1 %383, label %.thread.sink.split, label %450
@@ -25358,7 +25356,7 @@ _ZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_.exit253: ; preds = %431, %.
           cleanup
   br label %.body
 
-448:                                              ; preds = %570, %547, %525, %500
+448:                                              ; preds = %569, %546, %524, %499
   %449 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -25456,792 +25454,791 @@ _ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i
   br i1 %or.cond, label %.thread, label %.thread.sink.split
 
 .thread.sink.split:                               ; preds = %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i268, %494, %462, %442, %.thread679
-  %indvars.iv.next572676686691.sink = phi i64 [ %indvars.iv.next572673, %.thread679 ], [ %indvars.iv.next572, %442 ], [ %indvars.iv.next572676686691, %462 ], [ %indvars.iv.next572676686691, %494 ], [ %indvars.iv.next572676686691, %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i268 ]
   %.sink737 = phi i8 [ %443, %.thread679 ], [ %439, %442 ], [ %451, %462 ], [ %451, %494 ], [ %451, %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i268 ]
+  %indvars.iv.next572676685.ph = phi i64 [ %indvars.iv.next572673, %.thread679 ], [ %indvars.iv.next572, %442 ], [ %indvars.iv.next572676686691, %462 ], [ %indvars.iv.next572676686691, %494 ], [ %indvars.iv.next572676686691, %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i268 ]
   %or.cond.not678682.ph = phi i1 [ false, %.thread679 ], [ %438, %442 ], [ false, %462 ], [ false, %494 ], [ false, %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i268 ]
-  %496 = getelementptr i8, ptr %347, i64 %indvars.iv.next572676686691.sink
-  %497 = getelementptr i8, ptr %496, i64 -1
-  %498 = add i8 %.sink737, 49
-  store i8 %498, ptr %497, align 1, !tbaa !15
+  %496 = getelementptr i8, ptr %347, i64 %indvars.iv571
+  %497 = add i8 %.sink737, 49
+  store i8 %497, ptr %496, align 1, !tbaa !15
   br label %.thread
 
 .thread:                                          ; preds = %488, %.thread.sink.split, %.thread688, %494, %450
-  %indvars.iv.next572676685 = phi i64 [ %indvars.iv.next572676686691, %.thread688 ], [ %indvars.iv.next572676686691, %494 ], [ %indvars.iv.next572, %450 ], [ %indvars.iv.next572676686691.sink, %.thread.sink.split ], [ %indvars.iv.next572676686691, %488 ]
+  %indvars.iv.next572676685 = phi i64 [ %indvars.iv.next572676686691, %.thread688 ], [ %indvars.iv.next572676686691, %494 ], [ %indvars.iv.next572, %450 ], [ %indvars.iv.next572676685.ph, %.thread.sink.split ], [ %indvars.iv.next572676686691, %488 ]
   %or.cond.not678682 = phi i1 [ false, %.thread688 ], [ false, %494 ], [ false, %450 ], [ %or.cond.not678682.ph, %.thread.sink.split ], [ false, %488 ]
-  %499 = load i64, ptr %348, align 8, !tbaa !304
-  %.not671 = icmp ugt i64 %499, %indvars.iv571
-  br i1 %.not671, label %503, label %500
+  %498 = load i64, ptr %348, align 8, !tbaa !304
+  %.not671 = icmp ugt i64 %498, %indvars.iv571
+  br i1 %.not671, label %502, label %499
 
-500:                                              ; preds = %.thread
-  %501 = load ptr, ptr %3, align 8, !tbaa !4
-  %502 = load ptr, ptr %501, align 8
-  invoke void %502(ptr noundef nonnull align 8 dereferenceable(32) %3, i64 noundef %indvars.iv.next572676685)
+499:                                              ; preds = %.thread
+  %500 = load ptr, ptr %3, align 8, !tbaa !4
+  %501 = load ptr, ptr %500, align 8
+  invoke void %501(ptr noundef nonnull align 8 dereferenceable(32) %3, i64 noundef %indvars.iv.next572676685)
           to label %.noexc273 unwind label %448
 
-.noexc273:                                        ; preds = %500
+.noexc273:                                        ; preds = %499
   %.pre.i272 = load i64, ptr %348, align 8, !tbaa !304
-  br label %503
+  br label %502
 
-503:                                              ; preds = %.noexc273, %.thread
-  %504 = phi i64 [ %499, %.thread ], [ %.pre.i272, %.noexc273 ]
-  %..i = call i64 @llvm.umin.i64(i64 %indvars.iv.next572676685, i64 %504)
+502:                                              ; preds = %.noexc273, %.thread
+  %503 = phi i64 [ %498, %.thread ], [ %.pre.i272, %.noexc273 ]
+  %..i = call i64 @llvm.umin.i64(i64 %indvars.iv.next572676685, i64 %503)
   store i64 %..i, ptr %349, align 8, !tbaa !308
-  %505 = load i32, ptr %4, align 4, !tbaa !16
-  %506 = trunc nuw nsw i64 %indvars.iv571 to i32
-  %507 = sub nsw i32 %505, %506
-  store i32 %507, ptr %4, align 4, !tbaa !16
+  %504 = load i32, ptr %4, align 4, !tbaa !16
+  %505 = trunc nuw nsw i64 %indvars.iv571 to i32
+  %506 = sub nsw i32 %504, %505
+  store i32 %506, ptr %4, align 4, !tbaa !16
   br i1 %or.cond.not678682, label %.backedge.backedge, label %.loopexit
 
-508:                                              ; preds = %_ZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_.exit253
-  %509 = load i64, ptr %12, align 8, !tbaa !571
-  %.not14.i.i274 = icmp eq i64 %509, 0
+507:                                              ; preds = %_ZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_.exit253
+  %508 = load i64, ptr %12, align 8, !tbaa !571
+  %.not14.i.i274 = icmp eq i64 %508, 0
   br i1 %.not14.i.i274, label %_ZN3fmt3v106detail6bigintmLIiEERS2_T_.exit287, label %.lr.ph.i.i275
 
-.lr.ph.i.i275:                                    ; preds = %508
-  %510 = load ptr, ptr %10, align 8, !tbaa !560
-  br label %512
+.lr.ph.i.i275:                                    ; preds = %507
+  %509 = load ptr, ptr %10, align 8, !tbaa !560
+  br label %511
 
-._crit_edge.i.i279:                               ; preds = %512
-  %511 = trunc nuw nsw i64 %519 to i32
-  %.not.i.i280 = icmp samesign ult i64 %517, 4294967296
-  br i1 %.not.i.i280, label %_ZN3fmt3v106detail6bigintmLIiEERS2_T_.exit287, label %521
+._crit_edge.i.i279:                               ; preds = %511
+  %510 = trunc nuw nsw i64 %518 to i32
+  %.not.i.i280 = icmp samesign ult i64 %516, 4294967296
+  br i1 %.not.i.i280, label %_ZN3fmt3v106detail6bigintmLIiEERS2_T_.exit287, label %520
 
-512:                                              ; preds = %512, %.lr.ph.i.i275
-  %.013.i.i276 = phi i64 [ 0, %.lr.ph.i.i275 ], [ %520, %512 ]
-  %.01112.i.i277 = phi i64 [ 0, %.lr.ph.i.i275 ], [ %519, %512 ]
-  %513 = getelementptr inbounds nuw i32, ptr %510, i64 %.013.i.i276
-  %514 = load i32, ptr %513, align 4, !tbaa !16
-  %515 = zext i32 %514 to i64
-  %516 = mul nuw nsw i64 %515, 10
-  %517 = add nuw nsw i64 %516, %.01112.i.i277
-  %518 = trunc i64 %517 to i32
-  store i32 %518, ptr %513, align 4, !tbaa !16
-  %519 = lshr i64 %517, 32
-  %520 = add nuw i64 %.013.i.i276, 1
-  %exitcond.not.i.i278 = icmp eq i64 %520, %509
-  br i1 %exitcond.not.i.i278, label %._crit_edge.i.i279, label %512, !llvm.loop !576
+511:                                              ; preds = %511, %.lr.ph.i.i275
+  %.013.i.i276 = phi i64 [ 0, %.lr.ph.i.i275 ], [ %519, %511 ]
+  %.01112.i.i277 = phi i64 [ 0, %.lr.ph.i.i275 ], [ %518, %511 ]
+  %512 = getelementptr inbounds nuw i32, ptr %509, i64 %.013.i.i276
+  %513 = load i32, ptr %512, align 4, !tbaa !16
+  %514 = zext i32 %513 to i64
+  %515 = mul nuw nsw i64 %514, 10
+  %516 = add nuw nsw i64 %515, %.01112.i.i277
+  %517 = trunc i64 %516 to i32
+  store i32 %517, ptr %512, align 4, !tbaa !16
+  %518 = lshr i64 %516, 32
+  %519 = add nuw i64 %.013.i.i276, 1
+  %exitcond.not.i.i278 = icmp eq i64 %519, %508
+  br i1 %exitcond.not.i.i278, label %._crit_edge.i.i279, label %511, !llvm.loop !576
 
-521:                                              ; preds = %._crit_edge.i.i279
-  %522 = add i64 %509, 1
-  %523 = load i64, ptr %11, align 8, !tbaa !562
-  %524 = icmp ugt i64 %522, %523
-  br i1 %524, label %525, label %_ZN3fmt3v106detail6bufferIjE9push_backERKj.exit.i.i281
+520:                                              ; preds = %._crit_edge.i.i279
+  %521 = add i64 %508, 1
+  %522 = load i64, ptr %11, align 8, !tbaa !562
+  %523 = icmp ugt i64 %521, %522
+  br i1 %523, label %524, label %_ZN3fmt3v106detail6bufferIjE9push_backERKj.exit.i.i281
 
-525:                                              ; preds = %521
-  %526 = load ptr, ptr %6, align 8, !tbaa !4
-  %527 = load ptr, ptr %526, align 8
-  invoke void %527(ptr noundef nonnull align 8 dereferenceable(172) %6, i64 noundef %522)
+524:                                              ; preds = %520
+  %525 = load ptr, ptr %6, align 8, !tbaa !4
+  %526 = load ptr, ptr %525, align 8
+  invoke void %526(ptr noundef nonnull align 8 dereferenceable(172) %6, i64 noundef %521)
           to label %.noexc286 unwind label %448
 
-.noexc286:                                        ; preds = %525
+.noexc286:                                        ; preds = %524
   %.pre.i.i.i283 = load i64, ptr %12, align 8, !tbaa !571
   %.pre2.i.i.i284 = add i64 %.pre.i.i.i283, 1
   %.pre.i285 = load ptr, ptr %10, align 8, !tbaa !560
   br label %_ZN3fmt3v106detail6bufferIjE9push_backERKj.exit.i.i281
 
-_ZN3fmt3v106detail6bufferIjE9push_backERKj.exit.i.i281: ; preds = %.noexc286, %521
-  %528 = phi ptr [ %510, %521 ], [ %.pre.i285, %.noexc286 ]
-  %.pre-phi.i.i.i282 = phi i64 [ %522, %521 ], [ %.pre2.i.i.i284, %.noexc286 ]
-  %529 = phi i64 [ %509, %521 ], [ %.pre.i.i.i283, %.noexc286 ]
+_ZN3fmt3v106detail6bufferIjE9push_backERKj.exit.i.i281: ; preds = %.noexc286, %520
+  %527 = phi ptr [ %509, %520 ], [ %.pre.i285, %.noexc286 ]
+  %.pre-phi.i.i.i282 = phi i64 [ %521, %520 ], [ %.pre2.i.i.i284, %.noexc286 ]
+  %528 = phi i64 [ %508, %520 ], [ %.pre.i.i.i283, %.noexc286 ]
   store i64 %.pre-phi.i.i.i282, ptr %12, align 8, !tbaa !571
-  %530 = getelementptr inbounds nuw i32, ptr %528, i64 %529
-  store i32 %511, ptr %530, align 4, !tbaa !16
+  %529 = getelementptr inbounds nuw i32, ptr %527, i64 %528
+  store i32 %510, ptr %529, align 4, !tbaa !16
   br label %_ZN3fmt3v106detail6bigintmLIiEERS2_T_.exit287
 
-_ZN3fmt3v106detail6bigintmLIiEERS2_T_.exit287:    ; preds = %_ZN3fmt3v106detail6bufferIjE9push_backERKj.exit.i.i281, %._crit_edge.i.i279, %508
-  %531 = load i64, ptr %22, align 8, !tbaa !571
-  %.not14.i.i288 = icmp eq i64 %531, 0
+_ZN3fmt3v106detail6bigintmLIiEERS2_T_.exit287:    ; preds = %_ZN3fmt3v106detail6bufferIjE9push_backERKj.exit.i.i281, %._crit_edge.i.i279, %507
+  %530 = load i64, ptr %22, align 8, !tbaa !571
+  %.not14.i.i288 = icmp eq i64 %530, 0
   br i1 %.not14.i.i288, label %_ZN3fmt3v106detail6bigintmLIiEERS2_T_.exit301, label %.lr.ph.i.i289
 
 .lr.ph.i.i289:                                    ; preds = %_ZN3fmt3v106detail6bigintmLIiEERS2_T_.exit287
-  %532 = load ptr, ptr %20, align 8, !tbaa !560
-  br label %534
+  %531 = load ptr, ptr %20, align 8, !tbaa !560
+  br label %533
 
-._crit_edge.i.i293:                               ; preds = %534
-  %533 = trunc nuw nsw i64 %541 to i32
-  %.not.i.i294 = icmp samesign ult i64 %539, 4294967296
-  br i1 %.not.i.i294, label %_ZN3fmt3v106detail6bigintmLIiEERS2_T_.exit301, label %543
+._crit_edge.i.i293:                               ; preds = %533
+  %532 = trunc nuw nsw i64 %540 to i32
+  %.not.i.i294 = icmp samesign ult i64 %538, 4294967296
+  br i1 %.not.i.i294, label %_ZN3fmt3v106detail6bigintmLIiEERS2_T_.exit301, label %542
 
-534:                                              ; preds = %534, %.lr.ph.i.i289
-  %.013.i.i290 = phi i64 [ 0, %.lr.ph.i.i289 ], [ %542, %534 ]
-  %.01112.i.i291 = phi i64 [ 0, %.lr.ph.i.i289 ], [ %541, %534 ]
-  %535 = getelementptr inbounds nuw i32, ptr %532, i64 %.013.i.i290
-  %536 = load i32, ptr %535, align 4, !tbaa !16
-  %537 = zext i32 %536 to i64
-  %538 = mul nuw nsw i64 %537, 10
-  %539 = add nuw nsw i64 %538, %.01112.i.i291
-  %540 = trunc i64 %539 to i32
-  store i32 %540, ptr %535, align 4, !tbaa !16
-  %541 = lshr i64 %539, 32
-  %542 = add nuw i64 %.013.i.i290, 1
-  %exitcond.not.i.i292 = icmp eq i64 %542, %531
-  br i1 %exitcond.not.i.i292, label %._crit_edge.i.i293, label %534, !llvm.loop !576
+533:                                              ; preds = %533, %.lr.ph.i.i289
+  %.013.i.i290 = phi i64 [ 0, %.lr.ph.i.i289 ], [ %541, %533 ]
+  %.01112.i.i291 = phi i64 [ 0, %.lr.ph.i.i289 ], [ %540, %533 ]
+  %534 = getelementptr inbounds nuw i32, ptr %531, i64 %.013.i.i290
+  %535 = load i32, ptr %534, align 4, !tbaa !16
+  %536 = zext i32 %535 to i64
+  %537 = mul nuw nsw i64 %536, 10
+  %538 = add nuw nsw i64 %537, %.01112.i.i291
+  %539 = trunc i64 %538 to i32
+  store i32 %539, ptr %534, align 4, !tbaa !16
+  %540 = lshr i64 %538, 32
+  %541 = add nuw i64 %.013.i.i290, 1
+  %exitcond.not.i.i292 = icmp eq i64 %541, %530
+  br i1 %exitcond.not.i.i292, label %._crit_edge.i.i293, label %533, !llvm.loop !576
 
-543:                                              ; preds = %._crit_edge.i.i293
-  %544 = add i64 %531, 1
-  %545 = load i64, ptr %21, align 8, !tbaa !562
-  %546 = icmp ugt i64 %544, %545
-  br i1 %546, label %547, label %_ZN3fmt3v106detail6bufferIjE9push_backERKj.exit.i.i295
+542:                                              ; preds = %._crit_edge.i.i293
+  %543 = add i64 %530, 1
+  %544 = load i64, ptr %21, align 8, !tbaa !562
+  %545 = icmp ugt i64 %543, %544
+  br i1 %545, label %546, label %_ZN3fmt3v106detail6bufferIjE9push_backERKj.exit.i.i295
 
-547:                                              ; preds = %543
-  %548 = load ptr, ptr %8, align 8, !tbaa !4
-  %549 = load ptr, ptr %548, align 8
-  invoke void %549(ptr noundef nonnull align 8 dereferenceable(172) %8, i64 noundef %544)
+546:                                              ; preds = %542
+  %547 = load ptr, ptr %8, align 8, !tbaa !4
+  %548 = load ptr, ptr %547, align 8
+  invoke void %548(ptr noundef nonnull align 8 dereferenceable(172) %8, i64 noundef %543)
           to label %.noexc300 unwind label %448
 
-.noexc300:                                        ; preds = %547
+.noexc300:                                        ; preds = %546
   %.pre.i.i.i297 = load i64, ptr %22, align 8, !tbaa !571
   %.pre2.i.i.i298 = add i64 %.pre.i.i.i297, 1
   %.pre.i299 = load ptr, ptr %20, align 8, !tbaa !560
   br label %_ZN3fmt3v106detail6bufferIjE9push_backERKj.exit.i.i295
 
-_ZN3fmt3v106detail6bufferIjE9push_backERKj.exit.i.i295: ; preds = %.noexc300, %543
-  %550 = phi ptr [ %532, %543 ], [ %.pre.i299, %.noexc300 ]
-  %.pre-phi.i.i.i296 = phi i64 [ %544, %543 ], [ %.pre2.i.i.i298, %.noexc300 ]
-  %551 = phi i64 [ %531, %543 ], [ %.pre.i.i.i297, %.noexc300 ]
+_ZN3fmt3v106detail6bufferIjE9push_backERKj.exit.i.i295: ; preds = %.noexc300, %542
+  %549 = phi ptr [ %531, %542 ], [ %.pre.i299, %.noexc300 ]
+  %.pre-phi.i.i.i296 = phi i64 [ %543, %542 ], [ %.pre2.i.i.i298, %.noexc300 ]
+  %550 = phi i64 [ %530, %542 ], [ %.pre.i.i.i297, %.noexc300 ]
   store i64 %.pre-phi.i.i.i296, ptr %22, align 8, !tbaa !571
-  %552 = getelementptr inbounds nuw i32, ptr %550, i64 %551
-  store i32 %533, ptr %552, align 4, !tbaa !16
+  %551 = getelementptr inbounds nuw i32, ptr %549, i64 %550
+  store i32 %532, ptr %551, align 4, !tbaa !16
   br label %_ZN3fmt3v106detail6bigintmLIiEERS2_T_.exit301
 
 _ZN3fmt3v106detail6bigintmLIiEERS2_T_.exit301:    ; preds = %_ZN3fmt3v106detail6bufferIjE9push_backERKj.exit.i.i295, %._crit_edge.i.i293, %_ZN3fmt3v106detail6bigintmLIiEERS2_T_.exit287
-  br i1 %.not102, label %.backedge.backedge, label %553
+  br i1 %.not102, label %.backedge.backedge, label %552
 
-.backedge.backedge:                               ; preds = %_ZN3fmt3v106detail6bigintmLIiEERS2_T_.exit301, %553, %._crit_edge.i.i307, %503, %_ZN3fmt3v106detail6bufferIjE9push_backERKj.exit.i.i309
-  %indvars.iv571.be = phi i64 [ %indvars.iv.next572, %_ZN3fmt3v106detail6bufferIjE9push_backERKj.exit.i.i309 ], [ %indvars.iv.next572676685, %503 ], [ %indvars.iv.next572, %._crit_edge.i.i307 ], [ %indvars.iv.next572, %553 ], [ %indvars.iv.next572, %_ZN3fmt3v106detail6bigintmLIiEERS2_T_.exit301 ]
+.backedge.backedge:                               ; preds = %_ZN3fmt3v106detail6bigintmLIiEERS2_T_.exit301, %552, %._crit_edge.i.i307, %502, %_ZN3fmt3v106detail6bufferIjE9push_backERKj.exit.i.i309
+  %indvars.iv571.be = phi i64 [ %indvars.iv.next572, %_ZN3fmt3v106detail6bufferIjE9push_backERKj.exit.i.i309 ], [ %indvars.iv.next572676685, %502 ], [ %indvars.iv.next572, %._crit_edge.i.i307 ], [ %indvars.iv.next572, %552 ], [ %indvars.iv.next572, %_ZN3fmt3v106detail6bigintmLIiEERS2_T_.exit301 ]
   br label %.backedge, !llvm.loop !578
 
-553:                                              ; preds = %_ZN3fmt3v106detail6bigintmLIiEERS2_T_.exit301
-  %554 = load i64, ptr %.193.sroa.gep423, align 8, !tbaa !571
-  %.not14.i.i302 = icmp eq i64 %554, 0
+552:                                              ; preds = %_ZN3fmt3v106detail6bigintmLIiEERS2_T_.exit301
+  %553 = load i64, ptr %.193.sroa.gep423, align 8, !tbaa !571
+  %.not14.i.i302 = icmp eq i64 %553, 0
   br i1 %.not14.i.i302, label %.backedge.backedge, label %.lr.ph.i.i303
 
-.lr.ph.i.i303:                                    ; preds = %553
-  %555 = load ptr, ptr %.193.sroa.gep429, align 8, !tbaa !560
-  br label %557
+.lr.ph.i.i303:                                    ; preds = %552
+  %554 = load ptr, ptr %.193.sroa.gep429, align 8, !tbaa !560
+  br label %556
 
-._crit_edge.i.i307:                               ; preds = %557
-  %556 = trunc nuw nsw i64 %564 to i32
-  %.not.i.i308 = icmp samesign ult i64 %562, 4294967296
-  br i1 %.not.i.i308, label %.backedge.backedge, label %566
+._crit_edge.i.i307:                               ; preds = %556
+  %555 = trunc nuw nsw i64 %563 to i32
+  %.not.i.i308 = icmp samesign ult i64 %561, 4294967296
+  br i1 %.not.i.i308, label %.backedge.backedge, label %565
 
-557:                                              ; preds = %557, %.lr.ph.i.i303
-  %.013.i.i304 = phi i64 [ 0, %.lr.ph.i.i303 ], [ %565, %557 ]
-  %.01112.i.i305 = phi i64 [ 0, %.lr.ph.i.i303 ], [ %564, %557 ]
-  %558 = getelementptr inbounds nuw i32, ptr %555, i64 %.013.i.i304
-  %559 = load i32, ptr %558, align 4, !tbaa !16
-  %560 = zext i32 %559 to i64
-  %561 = mul nuw nsw i64 %560, 10
-  %562 = add nuw nsw i64 %561, %.01112.i.i305
-  %563 = trunc i64 %562 to i32
-  store i32 %563, ptr %558, align 4, !tbaa !16
-  %564 = lshr i64 %562, 32
-  %565 = add nuw i64 %.013.i.i304, 1
-  %exitcond.not.i.i306 = icmp eq i64 %565, %554
-  br i1 %exitcond.not.i.i306, label %._crit_edge.i.i307, label %557, !llvm.loop !576
+556:                                              ; preds = %556, %.lr.ph.i.i303
+  %.013.i.i304 = phi i64 [ 0, %.lr.ph.i.i303 ], [ %564, %556 ]
+  %.01112.i.i305 = phi i64 [ 0, %.lr.ph.i.i303 ], [ %563, %556 ]
+  %557 = getelementptr inbounds nuw i32, ptr %554, i64 %.013.i.i304
+  %558 = load i32, ptr %557, align 4, !tbaa !16
+  %559 = zext i32 %558 to i64
+  %560 = mul nuw nsw i64 %559, 10
+  %561 = add nuw nsw i64 %560, %.01112.i.i305
+  %562 = trunc i64 %561 to i32
+  store i32 %562, ptr %557, align 4, !tbaa !16
+  %563 = lshr i64 %561, 32
+  %564 = add nuw i64 %.013.i.i304, 1
+  %exitcond.not.i.i306 = icmp eq i64 %564, %553
+  br i1 %exitcond.not.i.i306, label %._crit_edge.i.i307, label %556, !llvm.loop !576
 
-566:                                              ; preds = %._crit_edge.i.i307
-  %567 = add i64 %554, 1
-  %568 = load i64, ptr %.193.sroa.gep438, align 8, !tbaa !562
-  %569 = icmp ugt i64 %567, %568
-  br i1 %569, label %570, label %_ZN3fmt3v106detail6bufferIjE9push_backERKj.exit.i.i309
+565:                                              ; preds = %._crit_edge.i.i307
+  %566 = add i64 %553, 1
+  %567 = load i64, ptr %.193.sroa.gep438, align 8, !tbaa !562
+  %568 = icmp ugt i64 %566, %567
+  br i1 %568, label %569, label %_ZN3fmt3v106detail6bufferIjE9push_backERKj.exit.i.i309
 
-570:                                              ; preds = %566
-  %571 = load ptr, ptr %.193, align 8, !tbaa !4
-  %572 = load ptr, ptr %571, align 8
-  invoke void %572(ptr noundef nonnull align 8 dereferenceable(172) %.193, i64 noundef %567)
+569:                                              ; preds = %565
+  %570 = load ptr, ptr %.193, align 8, !tbaa !4
+  %571 = load ptr, ptr %570, align 8
+  invoke void %571(ptr noundef nonnull align 8 dereferenceable(172) %.193, i64 noundef %566)
           to label %.noexc314 unwind label %448
 
-.noexc314:                                        ; preds = %570
+.noexc314:                                        ; preds = %569
   %.pre.i.i.i311 = load i64, ptr %.193.sroa.gep423, align 8, !tbaa !571
   %.pre2.i.i.i312 = add i64 %.pre.i.i.i311, 1
   %.pre.i313 = load ptr, ptr %.193.sroa.gep429, align 8, !tbaa !560
   br label %_ZN3fmt3v106detail6bufferIjE9push_backERKj.exit.i.i309
 
-_ZN3fmt3v106detail6bufferIjE9push_backERKj.exit.i.i309: ; preds = %.noexc314, %566
-  %573 = phi ptr [ %555, %566 ], [ %.pre.i313, %.noexc314 ]
-  %.pre-phi.i.i.i310 = phi i64 [ %567, %566 ], [ %.pre2.i.i.i312, %.noexc314 ]
-  %574 = phi i64 [ %554, %566 ], [ %.pre.i.i.i311, %.noexc314 ]
+_ZN3fmt3v106detail6bufferIjE9push_backERKj.exit.i.i309: ; preds = %.noexc314, %565
+  %572 = phi ptr [ %554, %565 ], [ %.pre.i313, %.noexc314 ]
+  %.pre-phi.i.i.i310 = phi i64 [ %566, %565 ], [ %.pre2.i.i.i312, %.noexc314 ]
+  %573 = phi i64 [ %553, %565 ], [ %.pre.i.i.i311, %.noexc314 ]
   store i64 %.pre-phi.i.i.i310, ptr %.193.sroa.gep423, align 8, !tbaa !571
-  %575 = getelementptr inbounds nuw i32, ptr %573, i64 %574
-  store i32 %556, ptr %575, align 4, !tbaa !16
+  %574 = getelementptr inbounds nuw i32, ptr %572, i64 %573
+  store i32 %555, ptr %574, align 4, !tbaa !16
   br label %.backedge.backedge
 
-576:                                              ; preds = %344
-  %577 = add i32 %.0453, -1
-  %578 = load i32, ptr %4, align 4, !tbaa !16
-  %579 = sub nsw i32 %578, %577
-  store i32 %579, ptr %4, align 4, !tbaa !16
-  %580 = icmp slt i32 %.0453, 1
-  br i1 %580, label %581, label %661
+575:                                              ; preds = %344
+  %576 = add i32 %.0453, -1
+  %577 = load i32, ptr %4, align 4, !tbaa !16
+  %578 = sub nsw i32 %577, %576
+  store i32 %578, ptr %4, align 4, !tbaa !16
+  %579 = icmp slt i32 %.0453, 1
+  br i1 %579, label %580, label %660
 
-581:                                              ; preds = %576
-  %582 = load i64, ptr %17, align 8, !tbaa !571
-  %.not14.i.i316 = icmp eq i64 %582, 0
+580:                                              ; preds = %575
+  %581 = load i64, ptr %17, align 8, !tbaa !571
+  %.not14.i.i316 = icmp eq i64 %581, 0
   br i1 %.not14.i.i316, label %_ZN3fmt3v106detail6bigintmLIiEERS2_T_.exit329, label %.lr.ph.i.i317
 
-.lr.ph.i.i317:                                    ; preds = %581
-  %583 = load ptr, ptr %15, align 8, !tbaa !560
-  br label %585
+.lr.ph.i.i317:                                    ; preds = %580
+  %582 = load ptr, ptr %15, align 8, !tbaa !560
+  br label %584
 
-._crit_edge.i.i321:                               ; preds = %585
-  %584 = trunc nuw nsw i64 %592 to i32
-  %.not.i.i322 = icmp samesign ult i64 %590, 4294967296
-  br i1 %.not.i.i322, label %_ZN3fmt3v106detail6bigintmLIiEERS2_T_.exit329, label %594
+._crit_edge.i.i321:                               ; preds = %584
+  %583 = trunc nuw nsw i64 %591 to i32
+  %.not.i.i322 = icmp samesign ult i64 %589, 4294967296
+  br i1 %.not.i.i322, label %_ZN3fmt3v106detail6bigintmLIiEERS2_T_.exit329, label %593
 
-585:                                              ; preds = %585, %.lr.ph.i.i317
-  %.013.i.i318 = phi i64 [ 0, %.lr.ph.i.i317 ], [ %593, %585 ]
-  %.01112.i.i319 = phi i64 [ 0, %.lr.ph.i.i317 ], [ %592, %585 ]
-  %586 = getelementptr inbounds nuw i32, ptr %583, i64 %.013.i.i318
-  %587 = load i32, ptr %586, align 4, !tbaa !16
-  %588 = zext i32 %587 to i64
-  %589 = mul nuw nsw i64 %588, 10
-  %590 = add nuw nsw i64 %589, %.01112.i.i319
-  %591 = trunc i64 %590 to i32
-  store i32 %591, ptr %586, align 4, !tbaa !16
-  %592 = lshr i64 %590, 32
-  %593 = add nuw i64 %.013.i.i318, 1
-  %exitcond.not.i.i320 = icmp eq i64 %593, %582
-  br i1 %exitcond.not.i.i320, label %._crit_edge.i.i321, label %585, !llvm.loop !576
+584:                                              ; preds = %584, %.lr.ph.i.i317
+  %.013.i.i318 = phi i64 [ 0, %.lr.ph.i.i317 ], [ %592, %584 ]
+  %.01112.i.i319 = phi i64 [ 0, %.lr.ph.i.i317 ], [ %591, %584 ]
+  %585 = getelementptr inbounds nuw i32, ptr %582, i64 %.013.i.i318
+  %586 = load i32, ptr %585, align 4, !tbaa !16
+  %587 = zext i32 %586 to i64
+  %588 = mul nuw nsw i64 %587, 10
+  %589 = add nuw nsw i64 %588, %.01112.i.i319
+  %590 = trunc i64 %589 to i32
+  store i32 %590, ptr %585, align 4, !tbaa !16
+  %591 = lshr i64 %589, 32
+  %592 = add nuw i64 %.013.i.i318, 1
+  %exitcond.not.i.i320 = icmp eq i64 %592, %581
+  br i1 %exitcond.not.i.i320, label %._crit_edge.i.i321, label %584, !llvm.loop !576
 
-594:                                              ; preds = %._crit_edge.i.i321
-  %595 = add i64 %582, 1
-  %596 = load i64, ptr %16, align 8, !tbaa !562
-  %597 = icmp ugt i64 %595, %596
-  br i1 %597, label %598, label %_ZN3fmt3v106detail6bufferIjE9push_backERKj.exit.i.i323
+593:                                              ; preds = %._crit_edge.i.i321
+  %594 = add i64 %581, 1
+  %595 = load i64, ptr %16, align 8, !tbaa !562
+  %596 = icmp ugt i64 %594, %595
+  br i1 %596, label %597, label %_ZN3fmt3v106detail6bufferIjE9push_backERKj.exit.i.i323
 
-598:                                              ; preds = %594
-  %599 = load ptr, ptr %7, align 8, !tbaa !4
-  %600 = load ptr, ptr %599, align 8
-  invoke void %600(ptr noundef nonnull align 8 dereferenceable(172) %7, i64 noundef %595)
+597:                                              ; preds = %593
+  %598 = load ptr, ptr %7, align 8, !tbaa !4
+  %599 = load ptr, ptr %598, align 8
+  invoke void %599(ptr noundef nonnull align 8 dereferenceable(172) %7, i64 noundef %594)
           to label %.noexc328 unwind label %329
 
-.noexc328:                                        ; preds = %598
+.noexc328:                                        ; preds = %597
   %.pre.i.i.i325 = load i64, ptr %17, align 8, !tbaa !571
   %.pre2.i.i.i326 = add i64 %.pre.i.i.i325, 1
   %.pre.i327 = load ptr, ptr %15, align 8, !tbaa !560
   br label %_ZN3fmt3v106detail6bufferIjE9push_backERKj.exit.i.i323
 
-_ZN3fmt3v106detail6bufferIjE9push_backERKj.exit.i.i323: ; preds = %.noexc328, %594
-  %601 = phi ptr [ %583, %594 ], [ %.pre.i327, %.noexc328 ]
-  %.pre-phi.i.i.i324 = phi i64 [ %595, %594 ], [ %.pre2.i.i.i326, %.noexc328 ]
-  %602 = phi i64 [ %582, %594 ], [ %.pre.i.i.i325, %.noexc328 ]
+_ZN3fmt3v106detail6bufferIjE9push_backERKj.exit.i.i323: ; preds = %.noexc328, %593
+  %600 = phi ptr [ %582, %593 ], [ %.pre.i327, %.noexc328 ]
+  %.pre-phi.i.i.i324 = phi i64 [ %594, %593 ], [ %.pre2.i.i.i326, %.noexc328 ]
+  %601 = phi i64 [ %581, %593 ], [ %.pre.i.i.i325, %.noexc328 ]
   store i64 %.pre-phi.i.i.i324, ptr %17, align 8, !tbaa !571
-  %603 = getelementptr inbounds nuw i32, ptr %601, i64 %602
-  store i32 %584, ptr %603, align 4, !tbaa !16
+  %602 = getelementptr inbounds nuw i32, ptr %600, i64 %601
+  store i32 %583, ptr %602, align 4, !tbaa !16
   br label %_ZN3fmt3v106detail6bigintmLIiEERS2_T_.exit329
 
-_ZN3fmt3v106detail6bigintmLIiEERS2_T_.exit329:    ; preds = %_ZN3fmt3v106detail6bufferIjE9push_backERKj.exit.i.i323, %._crit_edge.i.i321, %581
-  %604 = phi i64 [ %.pre-phi.i.i.i324, %_ZN3fmt3v106detail6bufferIjE9push_backERKj.exit.i.i323 ], [ %582, %._crit_edge.i.i321 ], [ 0, %581 ]
-  %605 = load i64, ptr %12, align 8, !tbaa !571
-  %606 = trunc i64 %605 to i32
-  %607 = load i32, ptr %14, align 8, !tbaa !563
-  %608 = add nsw i32 %607, %606
-  %609 = trunc i64 %604 to i32
-  %610 = load i32, ptr %19, align 8, !tbaa !563
-  %611 = add nsw i32 %610, %609
-  %612 = add nsw i32 %608, 1
-  %613 = icmp slt i32 %612, %611
-  br i1 %613, label %_ZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_.exit347, label %614
+_ZN3fmt3v106detail6bigintmLIiEERS2_T_.exit329:    ; preds = %_ZN3fmt3v106detail6bufferIjE9push_backERKj.exit.i.i323, %._crit_edge.i.i321, %580
+  %603 = phi i64 [ %.pre-phi.i.i.i324, %_ZN3fmt3v106detail6bufferIjE9push_backERKj.exit.i.i323 ], [ %581, %._crit_edge.i.i321 ], [ 0, %580 ]
+  %604 = load i64, ptr %12, align 8, !tbaa !571
+  %605 = trunc i64 %604 to i32
+  %606 = load i32, ptr %14, align 8, !tbaa !563
+  %607 = add nsw i32 %606, %605
+  %608 = trunc i64 %603 to i32
+  %609 = load i32, ptr %19, align 8, !tbaa !563
+  %610 = add nsw i32 %609, %608
+  %611 = add nsw i32 %607, 1
+  %612 = icmp slt i32 %611, %610
+  br i1 %612, label %_ZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_.exit347, label %613
 
-614:                                              ; preds = %_ZN3fmt3v106detail6bigintmLIiEERS2_T_.exit329
-  %615 = icmp sgt i32 %608, %611
-  br i1 %615, label %_ZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_.exit347, label %616
+613:                                              ; preds = %_ZN3fmt3v106detail6bigintmLIiEERS2_T_.exit329
+  %614 = icmp sgt i32 %607, %610
+  br i1 %614, label %_ZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_.exit347, label %615
 
-616:                                              ; preds = %614
-  %617 = call noundef i32 @llvm.smin.i32(i32 %607, i32 %610)
-  %.not.not.not55.i330 = icmp sgt i32 %611, %617
+615:                                              ; preds = %613
+  %616 = call noundef i32 @llvm.smin.i32(i32 %606, i32 %609)
+  %.not.not.not55.i330 = icmp sgt i32 %610, %616
   br i1 %.not.not.not55.i330, label %.lr.ph.i332, label %_ZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_.exit347
 
-.lr.ph.i332:                                      ; preds = %616
-  %618 = load ptr, ptr %10, align 8
-  %619 = load ptr, ptr %15, align 8
-  br label %620
+.lr.ph.i332:                                      ; preds = %615
+  %617 = load ptr, ptr %10, align 8
+  %618 = load ptr, ptr %15, align 8
+  br label %619
 
-620:                                              ; preds = %640, %.lr.ph.i332
-  %.034.in57.i333 = phi i32 [ %611, %.lr.ph.i332 ], [ %.03458.i335, %640 ]
-  %.03556.i334 = phi i64 [ 0, %.lr.ph.i332 ], [ %643, %640 ]
+619:                                              ; preds = %639, %.lr.ph.i332
+  %.034.in57.i333 = phi i32 [ %610, %.lr.ph.i332 ], [ %.03458.i335, %639 ]
+  %.03556.i334 = phi i64 [ 0, %.lr.ph.i332 ], [ %642, %639 ]
   %.03458.i335 = add nsw i32 %.034.in57.i333, -1
-  %.not.i.i336 = icmp sgt i32 %.034.in57.i333, %607
-  %621 = icmp sle i32 %.034.in57.i333, %608
-  %or.cond.i337 = and i1 %.not.i.i336, %621
-  br i1 %or.cond.i337, label %622, label %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i341
+  %.not.i.i336 = icmp sgt i32 %.034.in57.i333, %606
+  %620 = icmp sle i32 %.034.in57.i333, %607
+  %or.cond.i337 = and i1 %.not.i.i336, %620
+  br i1 %or.cond.i337, label %621, label %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i341
 
-622:                                              ; preds = %620
-  %623 = sub nsw i32 %.03458.i335, %607
-  %624 = zext i32 %623 to i64
-  %625 = getelementptr inbounds nuw i32, ptr %618, i64 %624
-  %626 = load i32, ptr %625, align 4, !tbaa !16
-  %627 = zext i32 %626 to i64
-  %628 = shl nuw nsw i64 %627, 1
+621:                                              ; preds = %619
+  %622 = sub nsw i32 %.03458.i335, %606
+  %623 = zext i32 %622 to i64
+  %624 = getelementptr inbounds nuw i32, ptr %617, i64 %623
+  %625 = load i32, ptr %624, align 4, !tbaa !16
+  %626 = zext i32 %625 to i64
+  %627 = shl nuw nsw i64 %626, 1
   br label %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i341
 
-_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i341: ; preds = %620, %622
-  %629 = phi i64 [ %628, %622 ], [ 0, %620 ]
-  %.not.i45.i342 = icmp sgt i32 %.034.in57.i333, %610
-  %630 = icmp sle i32 %.034.in57.i333, %611
-  %or.cond53.i343 = and i1 %.not.i45.i342, %630
-  br i1 %or.cond53.i343, label %631, label %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i344
+_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i341: ; preds = %619, %621
+  %628 = phi i64 [ %627, %621 ], [ 0, %619 ]
+  %.not.i45.i342 = icmp sgt i32 %.034.in57.i333, %609
+  %629 = icmp sle i32 %.034.in57.i333, %610
+  %or.cond53.i343 = and i1 %.not.i45.i342, %629
+  br i1 %or.cond53.i343, label %630, label %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i344
 
-631:                                              ; preds = %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i341
-  %632 = sub nsw i32 %.03458.i335, %610
-  %633 = zext i32 %632 to i64
-  %634 = getelementptr inbounds nuw i32, ptr %619, i64 %633
-  %635 = load i32, ptr %634, align 4, !tbaa !16
-  %636 = zext i32 %635 to i64
+630:                                              ; preds = %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i341
+  %631 = sub nsw i32 %.03458.i335, %609
+  %632 = zext i32 %631 to i64
+  %633 = getelementptr inbounds nuw i32, ptr %618, i64 %632
+  %634 = load i32, ptr %633, align 4, !tbaa !16
+  %635 = zext i32 %634 to i64
   br label %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i344
 
-_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i344: ; preds = %631, %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i341
-  %637 = phi i64 [ %636, %631 ], [ 0, %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i341 ]
-  %638 = or disjoint i64 %637, %.03556.i334
-  %639 = icmp samesign ugt i64 %629, %638
-  br i1 %639, label %_ZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_.exit347, label %640
+_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i344: ; preds = %630, %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i341
+  %636 = phi i64 [ %635, %630 ], [ 0, %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i341 ]
+  %637 = or disjoint i64 %636, %.03556.i334
+  %638 = icmp samesign ugt i64 %628, %637
+  br i1 %638, label %_ZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_.exit347, label %639
 
-640:                                              ; preds = %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i344
-  %641 = sub nuw nsw i64 %638, %629
-  %642 = icmp samesign ult i64 %641, 2
-  %643 = shl nuw nsw i64 %641, 32
-  %.not.not.not.i345 = icmp sgt i32 %.03458.i335, %617
-  %or.cond468 = select i1 %642, i1 %.not.not.not.i345, i1 false
-  br i1 %or.cond468, label %620, label %_ZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_.exit347, !llvm.loop !575
+639:                                              ; preds = %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i344
+  %640 = sub nuw nsw i64 %637, %628
+  %641 = icmp samesign ult i64 %640, 2
+  %642 = shl nuw nsw i64 %640, 32
+  %.not.not.not.i345 = icmp sgt i32 %.03458.i335, %616
+  %or.cond468 = select i1 %641, i1 %.not.not.not.i345, i1 false
+  br i1 %or.cond468, label %619, label %_ZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_.exit347, !llvm.loop !575
 
-_ZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_.exit347: ; preds = %640, %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i344, %616, %_ZN3fmt3v106detail6bigintmLIiEERS2_T_.exit329, %614
-  %644 = phi i8 [ 49, %614 ], [ 48, %_ZN3fmt3v106detail6bigintmLIiEERS2_T_.exit329 ], [ 48, %616 ], [ 49, %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i344 ], [ 48, %640 ]
-  %645 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %646 = load i64, ptr %645, align 8, !tbaa !308
-  %647 = add i64 %646, 1
-  %648 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %649 = load i64, ptr %648, align 8, !tbaa !304
-  %650 = icmp ugt i64 %647, %649
-  br i1 %650, label %651, label %654
+_ZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_.exit347: ; preds = %639, %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i344, %615, %_ZN3fmt3v106detail6bigintmLIiEERS2_T_.exit329, %613
+  %643 = phi i8 [ 49, %613 ], [ 48, %_ZN3fmt3v106detail6bigintmLIiEERS2_T_.exit329 ], [ 48, %615 ], [ 49, %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i344 ], [ 48, %639 ]
+  %644 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %645 = load i64, ptr %644, align 8, !tbaa !308
+  %646 = add i64 %645, 1
+  %647 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %648 = load i64, ptr %647, align 8, !tbaa !304
+  %649 = icmp ugt i64 %646, %648
+  br i1 %649, label %650, label %653
 
-651:                                              ; preds = %_ZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_.exit347
-  %652 = load ptr, ptr %3, align 8, !tbaa !4
-  %653 = load ptr, ptr %652, align 8
-  invoke void %653(ptr noundef nonnull align 8 dereferenceable(32) %3, i64 noundef %647)
-          to label %.noexc349 unwind label %659
+650:                                              ; preds = %_ZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_.exit347
+  %651 = load ptr, ptr %3, align 8, !tbaa !4
+  %652 = load ptr, ptr %651, align 8
+  invoke void %652(ptr noundef nonnull align 8 dereferenceable(32) %3, i64 noundef %646)
+          to label %.noexc349 unwind label %658
 
-.noexc349:                                        ; preds = %651
-  %.pre.i348 = load i64, ptr %645, align 8, !tbaa !308
+.noexc349:                                        ; preds = %650
+  %.pre.i348 = load i64, ptr %644, align 8, !tbaa !308
   %.pre2.i = add i64 %.pre.i348, 1
-  br label %654
+  br label %653
 
-654:                                              ; preds = %.noexc349, %_ZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_.exit347
-  %.pre-phi.i = phi i64 [ %647, %_ZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_.exit347 ], [ %.pre2.i, %.noexc349 ]
-  %655 = phi i64 [ %646, %_ZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_.exit347 ], [ %.pre.i348, %.noexc349 ]
-  %656 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %657 = load ptr, ptr %656, align 8, !tbaa !302
-  store i64 %.pre-phi.i, ptr %645, align 8, !tbaa !308
-  %658 = getelementptr inbounds nuw i8, ptr %657, i64 %655
-  store i8 %644, ptr %658, align 1, !tbaa !15
+653:                                              ; preds = %.noexc349, %_ZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_.exit347
+  %.pre-phi.i = phi i64 [ %646, %_ZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_.exit347 ], [ %.pre2.i, %.noexc349 ]
+  %654 = phi i64 [ %645, %_ZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_.exit347 ], [ %.pre.i348, %.noexc349 ]
+  %655 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %656 = load ptr, ptr %655, align 8, !tbaa !302
+  store i64 %.pre-phi.i, ptr %644, align 8, !tbaa !308
+  %657 = getelementptr inbounds nuw i8, ptr %656, i64 %654
+  store i8 %643, ptr %657, align 1, !tbaa !15
   br label %.loopexit
 
-659:                                              ; preds = %651
-  %660 = landingpad { ptr, i32 }
+658:                                              ; preds = %650
+  %659 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-661:                                              ; preds = %576
-  %662 = zext nneg i32 %.0453 to i64
-  %663 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %664 = load i64, ptr %663, align 8, !tbaa !304
-  %665 = icmp ult i64 %664, %662
-  br i1 %665, label %666, label %_ZN3fmt3v106detail6bufferIcE10try_resizeEm.exit353
+660:                                              ; preds = %575
+  %661 = zext nneg i32 %.0453 to i64
+  %662 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %663 = load i64, ptr %662, align 8, !tbaa !304
+  %664 = icmp ult i64 %663, %661
+  br i1 %664, label %665, label %_ZN3fmt3v106detail6bufferIcE10try_resizeEm.exit353
 
-666:                                              ; preds = %661
-  %667 = load ptr, ptr %3, align 8, !tbaa !4
-  %668 = load ptr, ptr %667, align 8
-  invoke void %668(ptr noundef nonnull align 8 dereferenceable(32) %3, i64 noundef %662)
+665:                                              ; preds = %660
+  %666 = load ptr, ptr %3, align 8, !tbaa !4
+  %667 = load ptr, ptr %666, align 8
+  invoke void %667(ptr noundef nonnull align 8 dereferenceable(32) %3, i64 noundef %661)
           to label %.noexc352 unwind label %329
 
-.noexc352:                                        ; preds = %666
-  %.pre.i351 = load i64, ptr %663, align 8, !tbaa !304
+.noexc352:                                        ; preds = %665
+  %.pre.i351 = load i64, ptr %662, align 8, !tbaa !304
   br label %_ZN3fmt3v106detail6bufferIcE10try_resizeEm.exit353
 
-_ZN3fmt3v106detail6bufferIcE10try_resizeEm.exit353: ; preds = %661, %.noexc352
-  %669 = phi i64 [ %664, %661 ], [ %.pre.i351, %.noexc352 ]
-  %..i350 = call i64 @llvm.umin.i64(i64 %662, i64 %669)
-  %670 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i64 %..i350, ptr %670, align 8, !tbaa !308
+_ZN3fmt3v106detail6bufferIcE10try_resizeEm.exit353: ; preds = %660, %.noexc352
+  %668 = phi i64 [ %663, %660 ], [ %.pre.i351, %.noexc352 ]
+  %..i350 = call i64 @llvm.umin.i64(i64 %661, i64 %668)
+  %669 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store i64 %..i350, ptr %669, align 8, !tbaa !308
   %.not522 = icmp eq i32 %.0453, 1
   br i1 %.not522, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN3fmt3v106detail6bufferIcE10try_resizeEm.exit353
-  %671 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %wide.trip.count = zext nneg i32 %577 to i64
-  br label %673
+  %670 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %wide.trip.count = zext nneg i32 %576 to i64
+  br label %672
 
 ._crit_edge:                                      ; preds = %_ZN3fmt3v106detail6bigintmLIiEERS2_T_.exit367, %_ZN3fmt3v106detail6bufferIcE10try_resizeEm.exit353
-  %672 = invoke noundef i32 @_ZN3fmt3v106detail6bigint13divmod_assignERKS2_(ptr noundef nonnull align 8 dereferenceable(172) %6, ptr noundef nonnull align 8 dereferenceable(172) %7)
-          to label %704 unwind label %763
+  %671 = invoke noundef i32 @_ZN3fmt3v106detail6bigint13divmod_assignERKS2_(ptr noundef nonnull align 8 dereferenceable(172) %6, ptr noundef nonnull align 8 dereferenceable(172) %7)
+          to label %703 unwind label %762
 
-673:                                              ; preds = %.lr.ph, %_ZN3fmt3v106detail6bigintmLIiEERS2_T_.exit367
+672:                                              ; preds = %.lr.ph, %_ZN3fmt3v106detail6bigintmLIiEERS2_T_.exit367
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN3fmt3v106detail6bigintmLIiEERS2_T_.exit367 ]
-  %674 = invoke noundef i32 @_ZN3fmt3v106detail6bigint13divmod_assignERKS2_(ptr noundef nonnull align 8 dereferenceable(172) %6, ptr noundef nonnull align 8 dereferenceable(172) %7)
-          to label %675 unwind label %702
+  %673 = invoke noundef i32 @_ZN3fmt3v106detail6bigint13divmod_assignERKS2_(ptr noundef nonnull align 8 dereferenceable(172) %6, ptr noundef nonnull align 8 dereferenceable(172) %7)
+          to label %674 unwind label %701
 
-675:                                              ; preds = %673
-  %676 = trunc i32 %674 to i8
-  %677 = add i8 %676, 48
-  %678 = load ptr, ptr %671, align 8, !tbaa !302
-  %679 = getelementptr inbounds nuw i8, ptr %678, i64 %indvars.iv
-  store i8 %677, ptr %679, align 1, !tbaa !15
-  %680 = load i64, ptr %12, align 8, !tbaa !571
-  %.not14.i.i354 = icmp eq i64 %680, 0
+674:                                              ; preds = %672
+  %675 = trunc i32 %673 to i8
+  %676 = add i8 %675, 48
+  %677 = load ptr, ptr %670, align 8, !tbaa !302
+  %678 = getelementptr inbounds nuw i8, ptr %677, i64 %indvars.iv
+  store i8 %676, ptr %678, align 1, !tbaa !15
+  %679 = load i64, ptr %12, align 8, !tbaa !571
+  %.not14.i.i354 = icmp eq i64 %679, 0
   br i1 %.not14.i.i354, label %_ZN3fmt3v106detail6bigintmLIiEERS2_T_.exit367, label %.lr.ph.i.i355
 
-.lr.ph.i.i355:                                    ; preds = %675
-  %681 = load ptr, ptr %10, align 8, !tbaa !560
-  br label %683
+.lr.ph.i.i355:                                    ; preds = %674
+  %680 = load ptr, ptr %10, align 8, !tbaa !560
+  br label %682
 
-._crit_edge.i.i359:                               ; preds = %683
-  %682 = trunc nuw nsw i64 %690 to i32
-  %.not.i.i360 = icmp samesign ult i64 %688, 4294967296
-  br i1 %.not.i.i360, label %_ZN3fmt3v106detail6bigintmLIiEERS2_T_.exit367, label %692
+._crit_edge.i.i359:                               ; preds = %682
+  %681 = trunc nuw nsw i64 %689 to i32
+  %.not.i.i360 = icmp samesign ult i64 %687, 4294967296
+  br i1 %.not.i.i360, label %_ZN3fmt3v106detail6bigintmLIiEERS2_T_.exit367, label %691
 
-683:                                              ; preds = %683, %.lr.ph.i.i355
-  %.013.i.i356 = phi i64 [ 0, %.lr.ph.i.i355 ], [ %691, %683 ]
-  %.01112.i.i357 = phi i64 [ 0, %.lr.ph.i.i355 ], [ %690, %683 ]
-  %684 = getelementptr inbounds nuw i32, ptr %681, i64 %.013.i.i356
-  %685 = load i32, ptr %684, align 4, !tbaa !16
-  %686 = zext i32 %685 to i64
-  %687 = mul nuw nsw i64 %686, 10
-  %688 = add nuw nsw i64 %687, %.01112.i.i357
-  %689 = trunc i64 %688 to i32
-  store i32 %689, ptr %684, align 4, !tbaa !16
-  %690 = lshr i64 %688, 32
-  %691 = add nuw i64 %.013.i.i356, 1
-  %exitcond.not.i.i358 = icmp eq i64 %691, %680
-  br i1 %exitcond.not.i.i358, label %._crit_edge.i.i359, label %683, !llvm.loop !576
+682:                                              ; preds = %682, %.lr.ph.i.i355
+  %.013.i.i356 = phi i64 [ 0, %.lr.ph.i.i355 ], [ %690, %682 ]
+  %.01112.i.i357 = phi i64 [ 0, %.lr.ph.i.i355 ], [ %689, %682 ]
+  %683 = getelementptr inbounds nuw i32, ptr %680, i64 %.013.i.i356
+  %684 = load i32, ptr %683, align 4, !tbaa !16
+  %685 = zext i32 %684 to i64
+  %686 = mul nuw nsw i64 %685, 10
+  %687 = add nuw nsw i64 %686, %.01112.i.i357
+  %688 = trunc i64 %687 to i32
+  store i32 %688, ptr %683, align 4, !tbaa !16
+  %689 = lshr i64 %687, 32
+  %690 = add nuw i64 %.013.i.i356, 1
+  %exitcond.not.i.i358 = icmp eq i64 %690, %679
+  br i1 %exitcond.not.i.i358, label %._crit_edge.i.i359, label %682, !llvm.loop !576
 
-692:                                              ; preds = %._crit_edge.i.i359
-  %693 = add i64 %680, 1
-  %694 = load i64, ptr %11, align 8, !tbaa !562
-  %695 = icmp ugt i64 %693, %694
-  br i1 %695, label %696, label %_ZN3fmt3v106detail6bufferIjE9push_backERKj.exit.i.i361
+691:                                              ; preds = %._crit_edge.i.i359
+  %692 = add i64 %679, 1
+  %693 = load i64, ptr %11, align 8, !tbaa !562
+  %694 = icmp ugt i64 %692, %693
+  br i1 %694, label %695, label %_ZN3fmt3v106detail6bufferIjE9push_backERKj.exit.i.i361
 
-696:                                              ; preds = %692
-  %697 = load ptr, ptr %6, align 8, !tbaa !4
-  %698 = load ptr, ptr %697, align 8
-  invoke void %698(ptr noundef nonnull align 8 dereferenceable(172) %6, i64 noundef %693)
-          to label %.noexc366 unwind label %702
+695:                                              ; preds = %691
+  %696 = load ptr, ptr %6, align 8, !tbaa !4
+  %697 = load ptr, ptr %696, align 8
+  invoke void %697(ptr noundef nonnull align 8 dereferenceable(172) %6, i64 noundef %692)
+          to label %.noexc366 unwind label %701
 
-.noexc366:                                        ; preds = %696
+.noexc366:                                        ; preds = %695
   %.pre.i.i.i363 = load i64, ptr %12, align 8, !tbaa !571
   %.pre2.i.i.i364 = add i64 %.pre.i.i.i363, 1
   %.pre.i365 = load ptr, ptr %10, align 8, !tbaa !560
   br label %_ZN3fmt3v106detail6bufferIjE9push_backERKj.exit.i.i361
 
-_ZN3fmt3v106detail6bufferIjE9push_backERKj.exit.i.i361: ; preds = %.noexc366, %692
-  %699 = phi ptr [ %681, %692 ], [ %.pre.i365, %.noexc366 ]
-  %.pre-phi.i.i.i362 = phi i64 [ %693, %692 ], [ %.pre2.i.i.i364, %.noexc366 ]
-  %700 = phi i64 [ %680, %692 ], [ %.pre.i.i.i363, %.noexc366 ]
+_ZN3fmt3v106detail6bufferIjE9push_backERKj.exit.i.i361: ; preds = %.noexc366, %691
+  %698 = phi ptr [ %680, %691 ], [ %.pre.i365, %.noexc366 ]
+  %.pre-phi.i.i.i362 = phi i64 [ %692, %691 ], [ %.pre2.i.i.i364, %.noexc366 ]
+  %699 = phi i64 [ %679, %691 ], [ %.pre.i.i.i363, %.noexc366 ]
   store i64 %.pre-phi.i.i.i362, ptr %12, align 8, !tbaa !571
-  %701 = getelementptr inbounds nuw i32, ptr %699, i64 %700
-  store i32 %682, ptr %701, align 4, !tbaa !16
+  %700 = getelementptr inbounds nuw i32, ptr %698, i64 %699
+  store i32 %681, ptr %700, align 4, !tbaa !16
   br label %_ZN3fmt3v106detail6bigintmLIiEERS2_T_.exit367
 
-_ZN3fmt3v106detail6bigintmLIiEERS2_T_.exit367:    ; preds = %_ZN3fmt3v106detail6bufferIjE9push_backERKj.exit.i.i361, %._crit_edge.i.i359, %675
+_ZN3fmt3v106detail6bigintmLIiEERS2_T_.exit367:    ; preds = %_ZN3fmt3v106detail6bufferIjE9push_backERKj.exit.i.i361, %._crit_edge.i.i359, %674
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %673, !llvm.loop !579
+  br i1 %exitcond.not, label %._crit_edge, label %672, !llvm.loop !579
 
-702:                                              ; preds = %696, %673
-  %703 = landingpad { ptr, i32 }
+701:                                              ; preds = %695, %672
+  %702 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-704:                                              ; preds = %._crit_edge
-  %705 = load i64, ptr %12, align 8, !tbaa !571
-  %706 = trunc i64 %705 to i32
-  %707 = load i32, ptr %14, align 8, !tbaa !563
-  %708 = add nsw i32 %707, %706
-  %709 = load i64, ptr %17, align 8, !tbaa !571
-  %710 = trunc i64 %709 to i32
-  %711 = load i32, ptr %19, align 8, !tbaa !563
-  %712 = add nsw i32 %711, %710
-  %713 = add nsw i32 %708, 1
-  %714 = icmp slt i32 %713, %712
-  br i1 %714, label %.thread464, label %715
+703:                                              ; preds = %._crit_edge
+  %704 = load i64, ptr %12, align 8, !tbaa !571
+  %705 = trunc i64 %704 to i32
+  %706 = load i32, ptr %14, align 8, !tbaa !563
+  %707 = add nsw i32 %706, %705
+  %708 = load i64, ptr %17, align 8, !tbaa !571
+  %709 = trunc i64 %708 to i32
+  %710 = load i32, ptr %19, align 8, !tbaa !563
+  %711 = add nsw i32 %710, %709
+  %712 = add nsw i32 %707, 1
+  %713 = icmp slt i32 %712, %711
+  br i1 %713, label %.thread464, label %714
 
-715:                                              ; preds = %704
-  %716 = icmp sgt i32 %708, %712
-  br i1 %716, label %_ZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_.exit385, label %717
+714:                                              ; preds = %703
+  %715 = icmp sgt i32 %707, %711
+  br i1 %715, label %_ZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_.exit385, label %716
 
-717:                                              ; preds = %715
-  %718 = call noundef i32 @llvm.smin.i32(i32 %707, i32 %711)
-  %.not.not.not55.i368 = icmp sgt i32 %712, %718
-  br i1 %.not.not.not55.i368, label %.lr.ph.i370, label %747
+716:                                              ; preds = %714
+  %717 = call noundef i32 @llvm.smin.i32(i32 %706, i32 %710)
+  %.not.not.not55.i368 = icmp sgt i32 %711, %717
+  br i1 %.not.not.not55.i368, label %.lr.ph.i370, label %746
 
-.lr.ph.i370:                                      ; preds = %717
-  %719 = load ptr, ptr %10, align 8
-  %720 = load ptr, ptr %15, align 8
-  br label %721
+.lr.ph.i370:                                      ; preds = %716
+  %718 = load ptr, ptr %10, align 8
+  %719 = load ptr, ptr %15, align 8
+  br label %720
 
-721:                                              ; preds = %744, %.lr.ph.i370
-  %.034.in57.i371 = phi i32 [ %712, %.lr.ph.i370 ], [ %.03458.i373, %744 ]
-  %.03556.i372 = phi i64 [ 0, %.lr.ph.i370 ], [ %745, %744 ]
+720:                                              ; preds = %743, %.lr.ph.i370
+  %.034.in57.i371 = phi i32 [ %711, %.lr.ph.i370 ], [ %.03458.i373, %743 ]
+  %.03556.i372 = phi i64 [ 0, %.lr.ph.i370 ], [ %744, %743 ]
   %.03458.i373 = add nsw i32 %.034.in57.i371, -1
-  %.not.i.i374 = icmp sgt i32 %.034.in57.i371, %707
-  %722 = icmp sle i32 %.034.in57.i371, %708
-  %or.cond.i375 = and i1 %.not.i.i374, %722
-  br i1 %or.cond.i375, label %723, label %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i379
+  %.not.i.i374 = icmp sgt i32 %.034.in57.i371, %706
+  %721 = icmp sle i32 %.034.in57.i371, %707
+  %or.cond.i375 = and i1 %.not.i.i374, %721
+  br i1 %or.cond.i375, label %722, label %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i379
 
-723:                                              ; preds = %721
-  %724 = sub nsw i32 %.03458.i373, %707
-  %725 = zext i32 %724 to i64
-  %726 = getelementptr inbounds nuw i32, ptr %719, i64 %725
-  %727 = load i32, ptr %726, align 4, !tbaa !16
-  %728 = zext i32 %727 to i64
-  %729 = shl nuw nsw i64 %728, 1
+722:                                              ; preds = %720
+  %723 = sub nsw i32 %.03458.i373, %706
+  %724 = zext i32 %723 to i64
+  %725 = getelementptr inbounds nuw i32, ptr %718, i64 %724
+  %726 = load i32, ptr %725, align 4, !tbaa !16
+  %727 = zext i32 %726 to i64
+  %728 = shl nuw nsw i64 %727, 1
   br label %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i379
 
-_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i379: ; preds = %721, %723
-  %730 = phi i64 [ %729, %723 ], [ 0, %721 ]
-  %.not.i45.i380 = icmp sgt i32 %.034.in57.i371, %711
-  %731 = icmp sle i32 %.034.in57.i371, %712
-  %or.cond53.i381 = and i1 %.not.i45.i380, %731
-  br i1 %or.cond53.i381, label %732, label %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i382
+_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i379: ; preds = %720, %722
+  %729 = phi i64 [ %728, %722 ], [ 0, %720 ]
+  %.not.i45.i380 = icmp sgt i32 %.034.in57.i371, %710
+  %730 = icmp sle i32 %.034.in57.i371, %711
+  %or.cond53.i381 = and i1 %.not.i45.i380, %730
+  br i1 %or.cond53.i381, label %731, label %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i382
 
-732:                                              ; preds = %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i379
-  %733 = sub nsw i32 %.03458.i373, %711
-  %734 = zext i32 %733 to i64
-  %735 = getelementptr inbounds nuw i32, ptr %720, i64 %734
-  %736 = load i32, ptr %735, align 4, !tbaa !16
-  %737 = zext i32 %736 to i64
+731:                                              ; preds = %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i379
+  %732 = sub nsw i32 %.03458.i373, %710
+  %733 = zext i32 %732 to i64
+  %734 = getelementptr inbounds nuw i32, ptr %719, i64 %733
+  %735 = load i32, ptr %734, align 4, !tbaa !16
+  %736 = zext i32 %735 to i64
   br label %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i382
 
-_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i382: ; preds = %732, %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i379
-  %738 = phi i64 [ %737, %732 ], [ 0, %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i379 ]
-  %739 = or disjoint i64 %738, %.03556.i372
-  %740 = icmp samesign ugt i64 %730, %739
-  br i1 %740, label %_ZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_.exit385, label %741
+_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i382: ; preds = %731, %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i379
+  %737 = phi i64 [ %736, %731 ], [ 0, %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i379 ]
+  %738 = or disjoint i64 %737, %.03556.i372
+  %739 = icmp samesign ugt i64 %729, %738
+  br i1 %739, label %_ZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_.exit385, label %740
 
-741:                                              ; preds = %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i382
-  %742 = sub nuw nsw i64 %739, %730
-  %743 = icmp samesign ugt i64 %742, 1
-  br i1 %743, label %.thread464, label %744
+740:                                              ; preds = %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i382
+  %741 = sub nuw nsw i64 %738, %729
+  %742 = icmp samesign ugt i64 %741, 1
+  br i1 %742, label %.thread464, label %743
 
-744:                                              ; preds = %741
-  %745 = shl nuw nsw i64 %742, 32
-  %.not.not.not.i383 = icmp sgt i32 %.03458.i373, %718
-  br i1 %.not.not.not.i383, label %721, label %.thread.loopexit.i384, !llvm.loop !575
+743:                                              ; preds = %740
+  %744 = shl nuw nsw i64 %741, 32
+  %.not.not.not.i383 = icmp sgt i32 %.03458.i373, %717
+  br i1 %.not.not.not.i383, label %720, label %.thread.loopexit.i384, !llvm.loop !575
 
-.thread.loopexit.i384:                            ; preds = %744
-  %746 = icmp ne i64 %739, %730
-  br label %747
+.thread.loopexit.i384:                            ; preds = %743
+  %745 = icmp ne i64 %738, %729
+  br label %746
 
-747:                                              ; preds = %717, %.thread.loopexit.i384
-  %.0.i369.ph = phi i1 [ %746, %.thread.loopexit.i384 ], [ false, %717 ]
-  %748 = and i32 %672, 1
-  %.not105 = icmp eq i32 %748, 0
+746:                                              ; preds = %716, %.thread.loopexit.i384
+  %.0.i369.ph = phi i1 [ %745, %.thread.loopexit.i384 ], [ false, %716 ]
+  %747 = and i32 %671, 1
+  %.not105 = icmp eq i32 %747, 0
   %or.cond121 = or i1 %.not105, %.0.i369.ph
   br i1 %or.cond121, label %.thread464, label %_ZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_.exit385
 
-_ZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_.exit385: ; preds = %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i382, %715, %747
-  %749 = icmp eq i32 %672, 9
-  br i1 %749, label %750, label %792
+_ZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_.exit385: ; preds = %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i382, %714, %746
+  %748 = icmp eq i32 %671, 9
+  br i1 %748, label %749, label %791
 
-750:                                              ; preds = %_ZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_.exit385
-  %751 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %752 = load ptr, ptr %751, align 8, !tbaa !302
-  %753 = sext i32 %577 to i64
-  %754 = getelementptr inbounds i8, ptr %752, i64 %753
-  store i8 58, ptr %754, align 1, !tbaa !15
+749:                                              ; preds = %_ZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_.exit385
+  %750 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %751 = load ptr, ptr %750, align 8, !tbaa !302
+  %752 = sext i32 %576 to i64
+  %753 = getelementptr inbounds i8, ptr %751, i64 %752
+  store i8 58, ptr %753, align 1, !tbaa !15
   br i1 %.not522, label %.critedge, label %.lr.ph520
 
-.lr.ph520:                                        ; preds = %750, %765
-  %indvars.iv568 = phi i64 [ %indvars.iv.next569, %765 ], [ %662, %750 ]
+.lr.ph520:                                        ; preds = %749, %764
+  %indvars.iv568 = phi i64 [ %indvars.iv.next569, %764 ], [ %661, %749 ]
   %indvars.iv.next569 = add nsw i64 %indvars.iv568, -1
-  %755 = load ptr, ptr %751, align 8, !tbaa !302
-  %756 = and i64 %indvars.iv.next569, 4294967295
-  %757 = getelementptr inbounds nuw i8, ptr %755, i64 %756
-  %758 = load i8, ptr %757, align 1, !tbaa !15
-  %759 = icmp eq i8 %758, 58
-  br i1 %759, label %765, label %.critedge
+  %754 = load ptr, ptr %750, align 8, !tbaa !302
+  %755 = and i64 %indvars.iv.next569, 4294967295
+  %756 = getelementptr inbounds nuw i8, ptr %754, i64 %755
+  %757 = load i8, ptr %756, align 1, !tbaa !15
+  %758 = icmp eq i8 %757, 58
+  br i1 %758, label %764, label %.critedge
 
-.critedge:                                        ; preds = %.lr.ph520, %765, %750
-  %760 = load ptr, ptr %751, align 8, !tbaa !302
-  %761 = load i8, ptr %760, align 1, !tbaa !15
-  %762 = icmp eq i8 %761, 58
-  br i1 %762, label %773, label %.loopexit
+.critedge:                                        ; preds = %.lr.ph520, %764, %749
+  %759 = load ptr, ptr %750, align 8, !tbaa !302
+  %760 = load i8, ptr %759, align 1, !tbaa !15
+  %761 = icmp eq i8 %760, 58
+  br i1 %761, label %772, label %.loopexit
 
-763:                                              ; preds = %._crit_edge
-  %764 = landingpad { ptr, i32 }
+762:                                              ; preds = %._crit_edge
+  %763 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-765:                                              ; preds = %.lr.ph520
-  store i8 48, ptr %757, align 1, !tbaa !15
-  %766 = load ptr, ptr %751, align 8, !tbaa !302
-  %767 = getelementptr i8, ptr %766, i64 %indvars.iv568
-  %768 = getelementptr i8, ptr %767, i64 -2
-  %769 = load i8, ptr %768, align 1, !tbaa !15
-  %770 = add i8 %769, 1
-  store i8 %770, ptr %768, align 1, !tbaa !15
-  %771 = trunc nuw i64 %indvars.iv568 to i32
-  %772 = icmp sgt i32 %771, 2
-  br i1 %772, label %.lr.ph520, label %.critedge, !llvm.loop !580
+764:                                              ; preds = %.lr.ph520
+  store i8 48, ptr %756, align 1, !tbaa !15
+  %765 = load ptr, ptr %750, align 8, !tbaa !302
+  %766 = getelementptr i8, ptr %765, i64 %indvars.iv568
+  %767 = getelementptr i8, ptr %766, i64 -2
+  %768 = load i8, ptr %767, align 1, !tbaa !15
+  %769 = add i8 %768, 1
+  store i8 %769, ptr %767, align 1, !tbaa !15
+  %770 = trunc nuw i64 %indvars.iv568 to i32
+  %771 = icmp sgt i32 %770, 2
+  br i1 %771, label %.lr.ph520, label %.critedge, !llvm.loop !580
 
-773:                                              ; preds = %.critedge
-  store i8 49, ptr %760, align 1, !tbaa !15
-  %774 = and i32 %1, 4
-  %.not106 = icmp eq i32 %774, 0
-  br i1 %.not106, label %789, label %775
+772:                                              ; preds = %.critedge
+  store i8 49, ptr %759, align 1, !tbaa !15
+  %773 = and i32 %1, 4
+  %.not106 = icmp eq i32 %773, 0
+  br i1 %.not106, label %788, label %774
 
-775:                                              ; preds = %773
-  %776 = load i64, ptr %670, align 8, !tbaa !308
-  %777 = add i64 %776, 1
-  %778 = load i64, ptr %663, align 8, !tbaa !304
-  %779 = icmp ugt i64 %777, %778
-  br i1 %779, label %780, label %783
+774:                                              ; preds = %772
+  %775 = load i64, ptr %669, align 8, !tbaa !308
+  %776 = add i64 %775, 1
+  %777 = load i64, ptr %662, align 8, !tbaa !304
+  %778 = icmp ugt i64 %776, %777
+  br i1 %778, label %779, label %782
 
-780:                                              ; preds = %775
-  %781 = load ptr, ptr %3, align 8, !tbaa !4
-  %782 = load ptr, ptr %781, align 8
-  invoke void %782(ptr noundef nonnull align 8 dereferenceable(32) %3, i64 noundef %777)
-          to label %.noexc389 unwind label %787
+779:                                              ; preds = %774
+  %780 = load ptr, ptr %3, align 8, !tbaa !4
+  %781 = load ptr, ptr %780, align 8
+  invoke void %781(ptr noundef nonnull align 8 dereferenceable(32) %3, i64 noundef %776)
+          to label %.noexc389 unwind label %786
 
-.noexc389:                                        ; preds = %780
-  %.pre.i387 = load i64, ptr %670, align 8, !tbaa !308
+.noexc389:                                        ; preds = %779
+  %.pre.i387 = load i64, ptr %669, align 8, !tbaa !308
   %.pre2.i388 = add i64 %.pre.i387, 1
-  br label %783
+  br label %782
 
-783:                                              ; preds = %.noexc389, %775
-  %.pre-phi.i386 = phi i64 [ %777, %775 ], [ %.pre2.i388, %.noexc389 ]
-  %784 = phi i64 [ %776, %775 ], [ %.pre.i387, %.noexc389 ]
-  %785 = load ptr, ptr %751, align 8, !tbaa !302
-  store i64 %.pre-phi.i386, ptr %670, align 8, !tbaa !308
-  %786 = getelementptr inbounds nuw i8, ptr %785, i64 %784
-  store i8 48, ptr %786, align 1, !tbaa !15
+782:                                              ; preds = %.noexc389, %774
+  %.pre-phi.i386 = phi i64 [ %776, %774 ], [ %.pre2.i388, %.noexc389 ]
+  %783 = phi i64 [ %775, %774 ], [ %.pre.i387, %.noexc389 ]
+  %784 = load ptr, ptr %750, align 8, !tbaa !302
+  store i64 %.pre-phi.i386, ptr %669, align 8, !tbaa !308
+  %785 = getelementptr inbounds nuw i8, ptr %784, i64 %783
+  store i8 48, ptr %785, align 1, !tbaa !15
   br label %.loopexit
 
-787:                                              ; preds = %780
-  %788 = landingpad { ptr, i32 }
+786:                                              ; preds = %779
+  %787 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-789:                                              ; preds = %773
-  %790 = load i32, ptr %4, align 4, !tbaa !16
-  %791 = add nsw i32 %790, 1
-  store i32 %791, ptr %4, align 4, !tbaa !16
+788:                                              ; preds = %772
+  %789 = load i32, ptr %4, align 4, !tbaa !16
+  %790 = add nsw i32 %789, 1
+  store i32 %790, ptr %4, align 4, !tbaa !16
   br label %.loopexit
 
-792:                                              ; preds = %_ZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_.exit385
-  %793 = add nsw i32 %672, 1
+791:                                              ; preds = %_ZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_.exit385
+  %792 = add nsw i32 %671, 1
   br label %.thread464
 
-.thread464:                                       ; preds = %741, %704, %792, %747
-  %.091 = phi i32 [ %793, %792 ], [ %672, %747 ], [ %672, %704 ], [ %672, %741 ]
-  %794 = trunc i32 %.091 to i8
-  %795 = add i8 %794, 48
-  %796 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %797 = load ptr, ptr %796, align 8, !tbaa !302
-  %798 = sext i32 %577 to i64
-  %799 = getelementptr inbounds i8, ptr %797, i64 %798
-  store i8 %795, ptr %799, align 1, !tbaa !15
+.thread464:                                       ; preds = %740, %703, %791, %746
+  %.091 = phi i32 [ %792, %791 ], [ %671, %746 ], [ %671, %703 ], [ %671, %740 ]
+  %793 = trunc i32 %.091 to i8
+  %794 = add i8 %793, 48
+  %795 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %796 = load ptr, ptr %795, align 8, !tbaa !302
+  %797 = sext i32 %576 to i64
+  %798 = getelementptr inbounds i8, ptr %796, i64 %797
+  store i8 %794, ptr %798, align 1, !tbaa !15
   br label %.loopexit
 
-.loopexit:                                        ; preds = %503, %.thread464, %783, %789, %.critedge, %654
-  %800 = load ptr, ptr %25, align 8, !tbaa !560
-  %.not.i.i.i = icmp eq ptr %800, %28
-  br i1 %.not.i.i.i, label %_ZN3fmt3v106detail6bigintD2Ev.exit, label %801
+.loopexit:                                        ; preds = %502, %.thread464, %782, %788, %.critedge, %653
+  %799 = load ptr, ptr %25, align 8, !tbaa !560
+  %.not.i.i.i = icmp eq ptr %799, %28
+  br i1 %.not.i.i.i, label %_ZN3fmt3v106detail6bigintD2Ev.exit, label %800
 
-801:                                              ; preds = %.loopexit
-  %802 = load i64, ptr %26, align 8, !tbaa !562
-  %803 = shl i64 %802, 2
-  call void @_ZdlPvm(ptr noundef %800, i64 noundef %803) #32
+800:                                              ; preds = %.loopexit
+  %801 = load i64, ptr %26, align 8, !tbaa !562
+  %802 = shl i64 %801, 2
+  call void @_ZdlPvm(ptr noundef %799, i64 noundef %802) #32
   br label %_ZN3fmt3v106detail6bigintD2Ev.exit
 
-_ZN3fmt3v106detail6bigintD2Ev.exit:               ; preds = %.loopexit, %801
+_ZN3fmt3v106detail6bigintD2Ev.exit:               ; preds = %.loopexit, %800
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %804 = load ptr, ptr %20, align 8, !tbaa !560
-  %.not.i.i.i391 = icmp eq ptr %804, %23
-  br i1 %.not.i.i.i391, label %_ZN3fmt3v106detail6bigintD2Ev.exit392, label %805
+  %803 = load ptr, ptr %20, align 8, !tbaa !560
+  %.not.i.i.i391 = icmp eq ptr %803, %23
+  br i1 %.not.i.i.i391, label %_ZN3fmt3v106detail6bigintD2Ev.exit392, label %804
 
-805:                                              ; preds = %_ZN3fmt3v106detail6bigintD2Ev.exit
-  %806 = load i64, ptr %21, align 8, !tbaa !562
-  %807 = shl i64 %806, 2
-  call void @_ZdlPvm(ptr noundef %804, i64 noundef %807) #32
+804:                                              ; preds = %_ZN3fmt3v106detail6bigintD2Ev.exit
+  %805 = load i64, ptr %21, align 8, !tbaa !562
+  %806 = shl i64 %805, 2
+  call void @_ZdlPvm(ptr noundef %803, i64 noundef %806) #32
   br label %_ZN3fmt3v106detail6bigintD2Ev.exit392
 
-_ZN3fmt3v106detail6bigintD2Ev.exit392:            ; preds = %_ZN3fmt3v106detail6bigintD2Ev.exit, %805
+_ZN3fmt3v106detail6bigintD2Ev.exit392:            ; preds = %_ZN3fmt3v106detail6bigintD2Ev.exit, %804
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %808 = load ptr, ptr %15, align 8, !tbaa !560
-  %.not.i.i.i393 = icmp eq ptr %808, %18
-  br i1 %.not.i.i.i393, label %_ZN3fmt3v106detail6bigintD2Ev.exit394, label %809
+  %807 = load ptr, ptr %15, align 8, !tbaa !560
+  %.not.i.i.i393 = icmp eq ptr %807, %18
+  br i1 %.not.i.i.i393, label %_ZN3fmt3v106detail6bigintD2Ev.exit394, label %808
 
-809:                                              ; preds = %_ZN3fmt3v106detail6bigintD2Ev.exit392
-  %810 = load i64, ptr %16, align 8, !tbaa !562
-  %811 = shl i64 %810, 2
-  call void @_ZdlPvm(ptr noundef %808, i64 noundef %811) #32
+808:                                              ; preds = %_ZN3fmt3v106detail6bigintD2Ev.exit392
+  %809 = load i64, ptr %16, align 8, !tbaa !562
+  %810 = shl i64 %809, 2
+  call void @_ZdlPvm(ptr noundef %807, i64 noundef %810) #32
   br label %_ZN3fmt3v106detail6bigintD2Ev.exit394
 
-_ZN3fmt3v106detail6bigintD2Ev.exit394:            ; preds = %_ZN3fmt3v106detail6bigintD2Ev.exit392, %809
+_ZN3fmt3v106detail6bigintD2Ev.exit394:            ; preds = %_ZN3fmt3v106detail6bigintD2Ev.exit392, %808
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %812 = load ptr, ptr %10, align 8, !tbaa !560
-  %.not.i.i.i395 = icmp eq ptr %812, %13
-  br i1 %.not.i.i.i395, label %_ZN3fmt3v106detail6bigintD2Ev.exit396, label %813
+  %811 = load ptr, ptr %10, align 8, !tbaa !560
+  %.not.i.i.i395 = icmp eq ptr %811, %13
+  br i1 %.not.i.i.i395, label %_ZN3fmt3v106detail6bigintD2Ev.exit396, label %812
 
-813:                                              ; preds = %_ZN3fmt3v106detail6bigintD2Ev.exit394
-  %814 = load i64, ptr %11, align 8, !tbaa !562
-  %815 = shl i64 %814, 2
-  call void @_ZdlPvm(ptr noundef %812, i64 noundef %815) #32
+812:                                              ; preds = %_ZN3fmt3v106detail6bigintD2Ev.exit394
+  %813 = load i64, ptr %11, align 8, !tbaa !562
+  %814 = shl i64 %813, 2
+  call void @_ZdlPvm(ptr noundef %811, i64 noundef %814) #32
   br label %_ZN3fmt3v106detail6bigintD2Ev.exit396
 
-_ZN3fmt3v106detail6bigintD2Ev.exit396:            ; preds = %_ZN3fmt3v106detail6bigintD2Ev.exit394, %813
+_ZN3fmt3v106detail6bigintD2Ev.exit396:            ; preds = %_ZN3fmt3v106detail6bigintD2Ev.exit394, %812
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 
-.body:                                            ; preds = %.loopexit469, %.loopexit.split-lp, %329, %340, %659, %702, %448, %446, %787, %763
-  %.pn110.pn.pn.pn.pn = phi { ptr, i32 } [ %660, %659 ], [ %703, %702 ], [ %447, %446 ], [ %449, %448 ], [ %764, %763 ], [ %788, %787 ], [ %330, %329 ], [ %341, %340 ], [ %lpad.loopexit, %.loopexit469 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %816 = load ptr, ptr %25, align 8, !tbaa !560
-  %.not.i.i.i397 = icmp eq ptr %816, %28
-  br i1 %.not.i.i.i397, label %_ZN3fmt3v106detail6bigintD2Ev.exit398, label %817
+.body:                                            ; preds = %.loopexit469, %.loopexit.split-lp, %329, %340, %658, %701, %448, %446, %786, %762
+  %.pn110.pn.pn.pn.pn = phi { ptr, i32 } [ %659, %658 ], [ %702, %701 ], [ %447, %446 ], [ %449, %448 ], [ %763, %762 ], [ %787, %786 ], [ %330, %329 ], [ %341, %340 ], [ %lpad.loopexit, %.loopexit469 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %815 = load ptr, ptr %25, align 8, !tbaa !560
+  %.not.i.i.i397 = icmp eq ptr %815, %28
+  br i1 %.not.i.i.i397, label %_ZN3fmt3v106detail6bigintD2Ev.exit398, label %816
 
-817:                                              ; preds = %.body
-  %818 = load i64, ptr %26, align 8, !tbaa !562
-  %819 = shl i64 %818, 2
-  call void @_ZdlPvm(ptr noundef %816, i64 noundef %819) #32
+816:                                              ; preds = %.body
+  %817 = load i64, ptr %26, align 8, !tbaa !562
+  %818 = shl i64 %817, 2
+  call void @_ZdlPvm(ptr noundef %815, i64 noundef %818) #32
   br label %_ZN3fmt3v106detail6bigintD2Ev.exit398
 
-_ZN3fmt3v106detail6bigintD2Ev.exit398:            ; preds = %817, %.body
+_ZN3fmt3v106detail6bigintD2Ev.exit398:            ; preds = %816, %.body
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %820 = load ptr, ptr %20, align 8, !tbaa !560
-  %.not.i.i.i399 = icmp eq ptr %820, %23
-  br i1 %.not.i.i.i399, label %_ZN3fmt3v106detail6bigintD2Ev.exit400, label %821
+  %819 = load ptr, ptr %20, align 8, !tbaa !560
+  %.not.i.i.i399 = icmp eq ptr %819, %23
+  br i1 %.not.i.i.i399, label %_ZN3fmt3v106detail6bigintD2Ev.exit400, label %820
 
-821:                                              ; preds = %_ZN3fmt3v106detail6bigintD2Ev.exit398
-  %822 = load i64, ptr %21, align 8, !tbaa !562
-  %823 = shl i64 %822, 2
-  call void @_ZdlPvm(ptr noundef %820, i64 noundef %823) #32
+820:                                              ; preds = %_ZN3fmt3v106detail6bigintD2Ev.exit398
+  %821 = load i64, ptr %21, align 8, !tbaa !562
+  %822 = shl i64 %821, 2
+  call void @_ZdlPvm(ptr noundef %819, i64 noundef %822) #32
   br label %_ZN3fmt3v106detail6bigintD2Ev.exit400
 
-_ZN3fmt3v106detail6bigintD2Ev.exit400:            ; preds = %821, %_ZN3fmt3v106detail6bigintD2Ev.exit398
+_ZN3fmt3v106detail6bigintD2Ev.exit400:            ; preds = %820, %_ZN3fmt3v106detail6bigintD2Ev.exit398
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %824 = load ptr, ptr %15, align 8, !tbaa !560
-  %.not.i.i.i401 = icmp eq ptr %824, %18
-  br i1 %.not.i.i.i401, label %_ZN3fmt3v106detail6bigintD2Ev.exit402, label %825
+  %823 = load ptr, ptr %15, align 8, !tbaa !560
+  %.not.i.i.i401 = icmp eq ptr %823, %18
+  br i1 %.not.i.i.i401, label %_ZN3fmt3v106detail6bigintD2Ev.exit402, label %824
 
-825:                                              ; preds = %_ZN3fmt3v106detail6bigintD2Ev.exit400
-  %826 = load i64, ptr %16, align 8, !tbaa !562
-  %827 = shl i64 %826, 2
-  call void @_ZdlPvm(ptr noundef %824, i64 noundef %827) #32
+824:                                              ; preds = %_ZN3fmt3v106detail6bigintD2Ev.exit400
+  %825 = load i64, ptr %16, align 8, !tbaa !562
+  %826 = shl i64 %825, 2
+  call void @_ZdlPvm(ptr noundef %823, i64 noundef %826) #32
   br label %_ZN3fmt3v106detail6bigintD2Ev.exit402
 
-_ZN3fmt3v106detail6bigintD2Ev.exit402:            ; preds = %825, %_ZN3fmt3v106detail6bigintD2Ev.exit400
+_ZN3fmt3v106detail6bigintD2Ev.exit402:            ; preds = %824, %_ZN3fmt3v106detail6bigintD2Ev.exit400
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %828 = load ptr, ptr %10, align 8, !tbaa !560
-  %.not.i.i.i403 = icmp eq ptr %828, %13
-  br i1 %.not.i.i.i403, label %_ZN3fmt3v106detail6bigintD2Ev.exit404, label %829
+  %827 = load ptr, ptr %10, align 8, !tbaa !560
+  %.not.i.i.i403 = icmp eq ptr %827, %13
+  br i1 %.not.i.i.i403, label %_ZN3fmt3v106detail6bigintD2Ev.exit404, label %828
 
-829:                                              ; preds = %_ZN3fmt3v106detail6bigintD2Ev.exit402
-  %830 = load i64, ptr %11, align 8, !tbaa !562
-  %831 = shl i64 %830, 2
-  call void @_ZdlPvm(ptr noundef %828, i64 noundef %831) #32
+828:                                              ; preds = %_ZN3fmt3v106detail6bigintD2Ev.exit402
+  %829 = load i64, ptr %11, align 8, !tbaa !562
+  %830 = shl i64 %829, 2
+  call void @_ZdlPvm(ptr noundef %827, i64 noundef %830) #32
   br label %_ZN3fmt3v106detail6bigintD2Ev.exit404
 
-_ZN3fmt3v106detail6bigintD2Ev.exit404:            ; preds = %_ZN3fmt3v106detail6bigintD2Ev.exit402, %829
+_ZN3fmt3v106detail6bigintD2Ev.exit404:            ; preds = %_ZN3fmt3v106detail6bigintD2Ev.exit402, %828
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %.pn110.pn.pn.pn.pn
 }
@@ -31405,8 +31402,8 @@ _ZZN3fmt3v106detail23parse_replacement_fieldIcRZNS1_10vformat_toIcEEvRNS1_6buffe
   br i1 %or.cond39, label %.critedge4, label %.critedge, !llvm.loop !706
 
 .critedge:                                        ; preds = %55, %.critedge4
-  %.lcssa43 = phi ptr [ %54, %55 ], [ %scevgep, %.critedge4 ]
-  %61 = ptrtoint ptr %.lcssa43 to i64
+  %.lcssa45 = phi ptr [ %54, %55 ], [ %scevgep, %.critedge4 ]
+  %61 = ptrtoint ptr %.lcssa45 to i64
   %62 = sub i64 %61, %4
   %63 = load ptr, ptr %2, align 8, !tbaa !705
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 32
@@ -31423,17 +31420,17 @@ _ZZN3fmt3v106detail23parse_replacement_fieldIcRZNS1_10vformat_toIcEEvRNS1_6buffe
   %71 = getelementptr inbounds i8, ptr %69, i64 %.v.i.i.i.i
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %73 = load i64, ptr %72, align 8, !tbaa !707
-  %.not16.not.i.i.i.i = icmp eq i64 %73, 0
-  br i1 %.not16.not.i.i.i.i, label %_ZN3fmt3v1020basic_format_contextINS0_8appenderEcE6arg_idENS0_17basic_string_viewIcEE.exit.thread.i.i, label %.lr.ph.i.i.i.i
+  %.not15.not.i.i.i.i = icmp eq i64 %73, 0
+  br i1 %.not15.not.i.i.i.i, label %_ZN3fmt3v1020basic_format_contextINS0_8appenderEcE6arg_idENS0_17basic_string_viewIcEE.exit.thread.i.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %67
   %74 = load ptr, ptr %71, align 8, !tbaa !710
-  %.old.i.i.i.i = icmp eq ptr %.lcssa43, %0
+  %.old.i.i.i.i = icmp eq ptr %.lcssa45, %0
   br label %75
 
 75:                                               ; preds = %_ZN3fmt3v10eqENS0_17basic_string_viewIcEES2_.exit.thread.i.i.i.i, %.lr.ph.i.i.i.i
-  %.01117.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i ], [ %82, %_ZN3fmt3v10eqENS0_17basic_string_viewIcEES2_.exit.thread.i.i.i.i ]
-  %76 = getelementptr inbounds nuw %"struct.fmt::v10::detail::named_arg_info", ptr %74, i64 %.01117.i.i.i.i
+  %.01116.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i ], [ %82, %_ZN3fmt3v10eqENS0_17basic_string_viewIcEES2_.exit.thread.i.i.i.i ]
+  %76 = getelementptr inbounds nuw %"struct.fmt::v10::detail::named_arg_info", ptr %74, i64 %.01116.i.i.i.i
   %77 = load ptr, ptr %76, align 8, !tbaa !711
   %78 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %77) #15
   %79 = icmp eq i64 %78, 0
@@ -31451,12 +31448,12 @@ _ZN3fmt3v10eqENS0_17basic_string_viewIcEES2_.exit.i.i.i.i: ; preds = %75
   br i1 %.old.i.i.i.i, label %_ZN3fmt3v1020basic_format_contextINS0_8appenderEcE6arg_idENS0_17basic_string_viewIcEE.exit.i.i, label %_ZN3fmt3v10eqENS0_17basic_string_viewIcEES2_.exit.thread.i.i.i.i
 
 _ZN3fmt3v10eqENS0_17basic_string_viewIcEES2_.exit.thread.i.i.i.i: ; preds = %_ZN3fmt3v10eqENS0_17basic_string_viewIcEES2_.exit.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i
-  %82 = add nuw i64 %.01117.i.i.i.i, 1
+  %82 = add nuw i64 %.01116.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %82, %73
   br i1 %exitcond.not.i.i.i.i, label %_ZN3fmt3v1020basic_format_contextINS0_8appenderEcE6arg_idENS0_17basic_string_viewIcEE.exit.thread.i.i, label %75, !llvm.loop !713
 
 _ZN3fmt3v1020basic_format_contextINS0_8appenderEcE6arg_idENS0_17basic_string_viewIcEE.exit.i.i: ; preds = %_ZN3fmt3v10eqENS0_17basic_string_viewIcEES2_.exit.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i
-  %83 = getelementptr inbounds nuw %"struct.fmt::v10::detail::named_arg_info", ptr %74, i64 %.01117.i.i.i.i, i32 1
+  %83 = getelementptr inbounds nuw i8, ptr %76, i64 8
   %84 = load i32, ptr %83, align 8, !tbaa !714
   %85 = icmp slt i32 %84, 0
   br i1 %85, label %_ZN3fmt3v1020basic_format_contextINS0_8appenderEcE6arg_idENS0_17basic_string_viewIcEE.exit.thread.i.i, label %_ZZN3fmt3v106detail23parse_replacement_fieldIcRZNS1_10vformat_toIcEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS5_EENS1_12vformat_argsIS5_E4typeENS1_10locale_refEE14format_handlerEEPKS5_SH_SH_OT0_EN10id_adapter7on_nameENS8_IcEE.exit
@@ -31467,7 +31464,7 @@ _ZN3fmt3v1020basic_format_contextINS0_8appenderEcE6arg_idENS0_17basic_string_vie
 
 _ZZN3fmt3v106detail23parse_replacement_fieldIcRZNS1_10vformat_toIcEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS5_EENS1_12vformat_argsIS5_E4typeENS1_10locale_refEE14format_handlerEEPKS5_SH_SH_OT0_EN10id_adapter7on_nameENS8_IcEE.exit: ; preds = %_ZN3fmt3v1020basic_format_contextINS0_8appenderEcE6arg_idENS0_17basic_string_viewIcEE.exit.i.i, %_ZZN3fmt3v106detail23parse_replacement_fieldIcRZNS1_10vformat_toIcEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS5_EENS1_12vformat_argsIS5_E4typeENS1_10locale_refEE14format_handlerEEPKS5_SH_SH_OT0_EN10id_adapter8on_indexEi.exit
   %.sink = phi i32 [ %.022, %_ZZN3fmt3v106detail23parse_replacement_fieldIcRZNS1_10vformat_toIcEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS5_EENS1_12vformat_argsIS5_E4typeENS1_10locale_refEE14format_handlerEEPKS5_SH_SH_OT0_EN10id_adapter8on_indexEi.exit ], [ %84, %_ZN3fmt3v1020basic_format_contextINS0_8appenderEcE6arg_idENS0_17basic_string_viewIcEE.exit.i.i ]
-  %.021 = phi ptr [ %.038, %_ZZN3fmt3v106detail23parse_replacement_fieldIcRZNS1_10vformat_toIcEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS5_EENS1_12vformat_argsIS5_E4typeENS1_10locale_refEE14format_handlerEEPKS5_SH_SH_OT0_EN10id_adapter8on_indexEi.exit ], [ %.lcssa43, %_ZN3fmt3v1020basic_format_contextINS0_8appenderEcE6arg_idENS0_17basic_string_viewIcEE.exit.i.i ]
+  %.021 = phi ptr [ %.038, %_ZZN3fmt3v106detail23parse_replacement_fieldIcRZNS1_10vformat_toIcEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS5_EENS1_12vformat_argsIS5_E4typeENS1_10locale_refEE14format_handlerEEPKS5_SH_SH_OT0_EN10id_adapter8on_indexEi.exit ], [ %.lcssa45, %_ZN3fmt3v1020basic_format_contextINS0_8appenderEcE6arg_idENS0_17basic_string_viewIcEE.exit.i.i ]
   %86 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %.sink, ptr %86, align 8, !tbaa !642
   ret ptr %.021
@@ -31478,8 +31475,8 @@ define linkonce_odr hidden void @_ZN3fmt3v106detail19handle_dynamic_specINS1_13w
   %4 = alloca %"class.fmt::v10::basic_format_arg", align 16
   %5 = alloca %"class.fmt::v10::basic_format_arg", align 16
   %6 = load i32, ptr %1, align 8, !tbaa !715
-  switch i32 %6, label %43 [
-    i32 2, label %36
+  switch i32 %6, label %80 [
+    i32 2, label %35
     i32 1, label %7
   ]
 
@@ -31520,7 +31517,7 @@ _ZNK3fmt3v1020basic_format_contextINS0_8appenderEcE3argEi.exit.thread8.i: ; pred
   %28 = sext i32 %9 to i64
   %29 = getelementptr inbounds %"class.fmt::v10::detail::value", ptr %27, i64 %28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %4, ptr noundef nonnull align 16 dereferenceable(16) %29, i64 16, i1 false), !tbaa.struct !728
-  br label %_ZN3fmt3v106detail7get_argINS0_20basic_format_contextINS0_8appenderEcEEiEEDTcldtfp_3argfp0_EERT_T0_.exit
+  br label %.sink.split
 
 _ZNK3fmt3v1020basic_format_contextINS0_8appenderEcE3argEi.exit.i: ; preds = %14
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -31530,42 +31527,119 @@ _ZNK3fmt3v1020basic_format_contextINS0_8appenderEcE3argEi.exit.i: ; preds = %14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %4, ptr noundef nonnull align 16 dereferenceable(20) %33, i64 20, i1 false), !tbaa.struct !729
   %.pr.pre.i = load i32, ptr %11, align 16, !tbaa !381, !alias.scope !718
   %34 = icmp eq i32 %.pr.pre.i, 0
-  br i1 %34, label %_ZNK3fmt3v1020basic_format_contextINS0_8appenderEcE3argEi.exit.thread.i, label %_ZN3fmt3v106detail7get_argINS0_20basic_format_contextINS0_8appenderEcEEiEEDTcldtfp_3argfp0_EERT_T0_.exit
+  br i1 %34, label %_ZNK3fmt3v1020basic_format_contextINS0_8appenderEcE3argEi.exit.thread.i, label %.sink.split
 
 _ZNK3fmt3v1020basic_format_contextINS0_8appenderEcE3argEi.exit.thread.i: ; preds = %_ZNK3fmt3v1020basic_format_contextINS0_8appenderEcE3argEi.exit.i, %19, %17, %14
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.15) #33, !noalias !718
   unreachable
 
-_ZN3fmt3v106detail7get_argINS0_20basic_format_contextINS0_8appenderEcEEiEEDTcldtfp_3argfp0_EERT_T0_.exit: ; preds = %_ZNK3fmt3v1020basic_format_contextINS0_8appenderEcE3argEi.exit.thread8.i, %_ZNK3fmt3v1020basic_format_contextINS0_8appenderEcE3argEi.exit.i
-  %35 = tail call noundef i32 @_ZN3fmt3v106detail16get_dynamic_specINS1_13width_checkerENS0_16basic_format_argINS0_20basic_format_contextINS0_8appenderEcEEEEEEiT0_(ptr noundef nonnull byval(%"class.fmt::v10::basic_format_arg") align 16 %4)
-  br label %.sink.split
-
-36:                                               ; preds = %3
-  %37 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.0.0.copyload = load ptr, ptr %37, align 8, !tbaa !103
+35:                                               ; preds = %3
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.0.0.copyload = load ptr, ptr %36, align 8, !tbaa !103
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !36
-  %38 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  call void @_ZNK3fmt3v1017basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE3getIcEENS0_16basic_format_argIS4_EENS0_17basic_string_viewIT_EE(ptr dead_on_unwind nonnull writable sret(%"class.fmt::v10::basic_format_arg") align 16 %5, ptr noundef nonnull align 8 dereferenceable(16) %38, ptr %.sroa.0.0.copyload, i64 %.sroa.2.0.copyload)
-  %39 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %40 = load i32, ptr %39, align 16, !tbaa !381, !alias.scope !730
-  %.not.i = icmp eq i32 %40, 0
-  br i1 %.not.i, label %41, label %_ZN3fmt3v106detail7get_argINS0_20basic_format_contextINS0_8appenderEcEENS0_17basic_string_viewIcEEEEDTcldtfp_3argfp0_EERT_T0_.exit
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !730)
+  %38 = load i64, ptr %37, align 8, !tbaa !632, !noalias !730
+  %39 = and i64 %38, 4611686018427387904
+  %.not14.i.i = icmp eq i64 %39, 0
+  br i1 %.not14.i.i, label %_ZNK3fmt3v1017basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE3getIcEENS0_16basic_format_argIS4_EENS0_17basic_string_viewIT_EE.exit.thread, label %40
 
-41:                                               ; preds = %36
-  call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.15) #33
-  unreachable
+40:                                               ; preds = %35
+  %41 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %42 = load ptr, ptr %41, align 8, !noalias !730
+  %43 = icmp slt i64 %38, 0
+  %.v.i.i = select i1 %43, i64 -32, i64 -16
+  %44 = getelementptr inbounds i8, ptr %42, i64 %.v.i.i
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
+  %46 = load i64, ptr %45, align 8, !tbaa !707, !noalias !730
+  %.not15.not.i.i = icmp eq i64 %46, 0
+  br i1 %.not15.not.i.i, label %_ZNK3fmt3v1017basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE3getIcEENS0_16basic_format_argIS4_EENS0_17basic_string_viewIT_EE.exit.thread, label %.lr.ph.i.i
 
-_ZN3fmt3v106detail7get_argINS0_20basic_format_contextINS0_8appenderEcEENS0_17basic_string_viewIcEEEEDTcldtfp_3argfp0_EERT_T0_.exit: ; preds = %36
-  %42 = call noundef i32 @_ZN3fmt3v106detail16get_dynamic_specINS1_13width_checkerENS0_16basic_format_argINS0_20basic_format_contextINS0_8appenderEcEEEEEEiT0_(ptr noundef nonnull byval(%"class.fmt::v10::basic_format_arg") align 16 %5)
+.lr.ph.i.i:                                       ; preds = %40
+  %47 = load ptr, ptr %44, align 8, !tbaa !710, !noalias !730
+  br label %48
+
+48:                                               ; preds = %_ZN3fmt3v10eqENS0_17basic_string_viewIcEES2_.exit.thread.i.i, %.lr.ph.i.i
+  %.01116.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %55, %_ZN3fmt3v10eqENS0_17basic_string_viewIcEES2_.exit.thread.i.i ]
+  %49 = getelementptr inbounds nuw %"struct.fmt::v10::detail::named_arg_info", ptr %47, i64 %.01116.i.i
+  %50 = load ptr, ptr %49, align 8, !tbaa !711, !noalias !730
+  %51 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %50) #15, !noalias !730
+  %..i.i.i.i = tail call i64 @llvm.umin.i64(i64 %51, i64 %.sroa.2.0.copyload)
+  %52 = icmp eq i64 %..i.i.i.i, 0
+  br i1 %52, label %_ZN3fmt3v10eqENS0_17basic_string_viewIcEES2_.exit.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
+
+_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %48
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull %50, ptr %.sroa.0.0.copyload, i64 %..i.i.i.i), !noalias !730
+  %53 = icmp eq i32 %bcmp.i.i.i, 0
+  %54 = icmp eq i64 %51, %.sroa.2.0.copyload
+  %or.cond.i.i = select i1 %53, i1 %54, i1 false
+  br i1 %or.cond.i.i, label %_ZNK3fmt3v1017basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE6get_idIcEEiNS0_17basic_string_viewIT_EE.exit.i, label %_ZN3fmt3v10eqENS0_17basic_string_viewIcEES2_.exit.thread.i.i
+
+_ZN3fmt3v10eqENS0_17basic_string_viewIcEES2_.exit.i.i: ; preds = %48
+  %.old.i.i = icmp eq i64 %51, %.sroa.2.0.copyload
+  br i1 %.old.i.i, label %_ZNK3fmt3v1017basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE6get_idIcEEiNS0_17basic_string_viewIT_EE.exit.i, label %_ZN3fmt3v10eqENS0_17basic_string_viewIcEES2_.exit.thread.i.i
+
+_ZN3fmt3v10eqENS0_17basic_string_viewIcEES2_.exit.thread.i.i: ; preds = %_ZN3fmt3v10eqENS0_17basic_string_viewIcEES2_.exit.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
+  %55 = add nuw i64 %.01116.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %55, %46
+  br i1 %exitcond.not.i.i, label %_ZNK3fmt3v1017basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE3getIcEENS0_16basic_format_argIS4_EENS0_17basic_string_viewIT_EE.exit.thread, label %48, !llvm.loop !713
+
+_ZNK3fmt3v1017basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE6get_idIcEEiNS0_17basic_string_viewIT_EE.exit.i: ; preds = %_ZN3fmt3v10eqENS0_17basic_string_viewIcEES2_.exit.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
+  %56 = getelementptr inbounds nuw i8, ptr %49, i64 8
+  %57 = load i32, ptr %56, align 8, !tbaa !714, !noalias !730
+  %58 = icmp sgt i32 %57, -1
+  br i1 %58, label %59, label %_ZNK3fmt3v1017basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE3getIcEENS0_16basic_format_argIS4_EENS0_17basic_string_viewIT_EE.exit.thread
+
+59:                                               ; preds = %_ZNK3fmt3v1017basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE6get_idIcEEiNS0_17basic_string_viewIT_EE.exit.i
+  %60 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %61 = icmp sgt i64 %38, -1
+  br i1 %61, label %65, label %62
+
+62:                                               ; preds = %59
+  %63 = trunc i64 %38 to i32
+  %64 = icmp slt i32 %57, %63
+  br i1 %64, label %_ZNK3fmt3v1017basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE3getIcEENS0_16basic_format_argIS4_EENS0_17basic_string_viewIT_EE.exit, label %_ZNK3fmt3v1017basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE3getIcEENS0_16basic_format_argIS4_EENS0_17basic_string_viewIT_EE.exit.thread
+
+65:                                               ; preds = %59
+  %66 = icmp samesign ugt i32 %57, 14
+  br i1 %66, label %_ZNK3fmt3v1017basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE3getIcEENS0_16basic_format_argIS4_EENS0_17basic_string_viewIT_EE.exit.thread, label %67
+
+67:                                               ; preds = %65
+  %68 = shl nuw nsw i32 %57, 2
+  %69 = zext nneg i32 %68 to i64
+  %70 = lshr i64 %38, %69
+  %71 = trunc i64 %70 to i32
+  %72 = and i32 %71, 15
+  store i32 %72, ptr %60, align 16, !tbaa !381, !alias.scope !733
+  %73 = icmp eq i32 %72, 0
+  br i1 %73, label %_ZNK3fmt3v1017basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE3getIcEENS0_16basic_format_argIS4_EENS0_17basic_string_viewIT_EE.exit.thread, label %_ZNK3fmt3v1017basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE3getIcEENS0_16basic_format_argIS4_EENS0_17basic_string_viewIT_EE.exit.thread15
+
+_ZNK3fmt3v1017basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE3getIcEENS0_16basic_format_argIS4_EENS0_17basic_string_viewIT_EE.exit.thread15: ; preds = %67
+  %74 = zext nneg i32 %57 to i64
+  %75 = getelementptr inbounds nuw %"class.fmt::v10::detail::value", ptr %42, i64 %74
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, ptr noundef nonnull align 16 dereferenceable(16) %75, i64 16, i1 false), !tbaa.struct !728
   br label %.sink.split
 
-.sink.split:                                      ; preds = %_ZN3fmt3v106detail7get_argINS0_20basic_format_contextINS0_8appenderEcEEiEEDTcldtfp_3argfp0_EERT_T0_.exit, %_ZN3fmt3v106detail7get_argINS0_20basic_format_contextINS0_8appenderEcEENS0_17basic_string_viewIcEEEEDTcldtfp_3argfp0_EERT_T0_.exit
-  %.sink = phi i32 [ %42, %_ZN3fmt3v106detail7get_argINS0_20basic_format_contextINS0_8appenderEcEENS0_17basic_string_viewIcEEEEDTcldtfp_3argfp0_EERT_T0_.exit ], [ %35, %_ZN3fmt3v106detail7get_argINS0_20basic_format_contextINS0_8appenderEcEEiEEDTcldtfp_3argfp0_EERT_T0_.exit ]
-  store i32 %.sink, ptr %0, align 4, !tbaa !16
-  br label %43
+_ZNK3fmt3v1017basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE3getIcEENS0_16basic_format_argIS4_EENS0_17basic_string_viewIT_EE.exit: ; preds = %62
+  %76 = zext nneg i32 %57 to i64
+  %77 = getelementptr inbounds nuw %"class.fmt::v10::basic_format_arg", ptr %42, i64 %76
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %5, ptr noundef nonnull align 16 dereferenceable(20) %77, i64 20, i1 false), !tbaa.struct !729
+  %.pre = load i32, ptr %60, align 16, !tbaa !381, !alias.scope !736
+  %78 = icmp eq i32 %.pre, 0
+  br i1 %78, label %_ZNK3fmt3v1017basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE3getIcEENS0_16basic_format_argIS4_EENS0_17basic_string_viewIT_EE.exit.thread, label %.sink.split
 
-43:                                               ; preds = %.sink.split, %3
+_ZNK3fmt3v1017basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE3getIcEENS0_16basic_format_argIS4_EENS0_17basic_string_viewIT_EE.exit.thread: ; preds = %_ZN3fmt3v10eqENS0_17basic_string_viewIcEES2_.exit.thread.i.i, %35, %40, %_ZNK3fmt3v1017basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE6get_idIcEEiNS0_17basic_string_viewIT_EE.exit.i, %67, %65, %62, %_ZNK3fmt3v1017basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE3getIcEENS0_16basic_format_argIS4_EENS0_17basic_string_viewIT_EE.exit
+  tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.15) #33
+  unreachable
+
+.sink.split:                                      ; preds = %_ZNK3fmt3v1017basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE3getIcEENS0_16basic_format_argIS4_EENS0_17basic_string_viewIT_EE.exit, %_ZNK3fmt3v1017basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE3getIcEENS0_16basic_format_argIS4_EENS0_17basic_string_viewIT_EE.exit.thread15, %_ZNK3fmt3v1020basic_format_contextINS0_8appenderEcE3argEi.exit.i, %_ZNK3fmt3v1020basic_format_contextINS0_8appenderEcE3argEi.exit.thread8.i
+  %.sink18 = phi ptr [ %4, %_ZNK3fmt3v1020basic_format_contextINS0_8appenderEcE3argEi.exit.thread8.i ], [ %4, %_ZNK3fmt3v1020basic_format_contextINS0_8appenderEcE3argEi.exit.i ], [ %5, %_ZNK3fmt3v1017basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE3getIcEENS0_16basic_format_argIS4_EENS0_17basic_string_viewIT_EE.exit.thread15 ], [ %5, %_ZNK3fmt3v1017basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE3getIcEENS0_16basic_format_argIS4_EENS0_17basic_string_viewIT_EE.exit ]
+  %79 = tail call noundef i32 @_ZN3fmt3v106detail16get_dynamic_specINS1_13width_checkerENS0_16basic_format_argINS0_20basic_format_contextINS0_8appenderEcEEEEEEiT0_(ptr noundef nonnull byval(%"class.fmt::v10::basic_format_arg") align 16 %.sink18)
+  store i32 %79, ptr %0, align 4, !tbaa !16
+  br label %80
+
+80:                                               ; preds = %.sink.split, %3
   ret void
 }
 
@@ -31574,20 +31648,20 @@ define linkonce_odr hidden void @_ZN3fmt3v106detail19handle_dynamic_specINS1_17p
   %4 = alloca %"class.fmt::v10::basic_format_arg", align 16
   %5 = alloca %"class.fmt::v10::basic_format_arg", align 16
   %6 = load i32, ptr %1, align 8, !tbaa !715
-  switch i32 %6, label %43 [
-    i32 2, label %36
+  switch i32 %6, label %80 [
+    i32 2, label %35
     i32 1, label %7
   ]
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load i32, ptr %8, align 8, !tbaa !15
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !733)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !736)
-  %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !739)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !742)
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !745)
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %12 = load i64, ptr %10, align 8, !tbaa !632, !noalias !742
+  %12 = load i64, ptr %10, align 8, !tbaa !632, !noalias !748
   %13 = icmp sgt i64 %12, -1
   br i1 %13, label %17, label %14
 
@@ -31606,62 +31680,139 @@ define linkonce_odr hidden void @_ZN3fmt3v106detail19handle_dynamic_specINS1_17p
   %22 = lshr i64 %12, %21
   %23 = trunc i64 %22 to i32
   %24 = and i32 %23, 15
-  store i32 %24, ptr %11, align 16, !tbaa !381, !alias.scope !742
+  store i32 %24, ptr %11, align 16, !tbaa !381, !alias.scope !748
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %_ZNK3fmt3v1020basic_format_contextINS0_8appenderEcE3argEi.exit.thread.i, label %_ZNK3fmt3v1020basic_format_contextINS0_8appenderEcE3argEi.exit.thread8.i
 
 _ZNK3fmt3v1020basic_format_contextINS0_8appenderEcE3argEi.exit.thread8.i: ; preds = %19
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %27 = load ptr, ptr %26, align 8, !tbaa !15, !noalias !742
+  %27 = load ptr, ptr %26, align 8, !tbaa !15, !noalias !748
   %28 = sext i32 %9 to i64
   %29 = getelementptr inbounds %"class.fmt::v10::detail::value", ptr %27, i64 %28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %4, ptr noundef nonnull align 16 dereferenceable(16) %29, i64 16, i1 false), !tbaa.struct !728
-  br label %_ZN3fmt3v106detail7get_argINS0_20basic_format_contextINS0_8appenderEcEEiEEDTcldtfp_3argfp0_EERT_T0_.exit
+  br label %.sink.split
 
 _ZNK3fmt3v1020basic_format_contextINS0_8appenderEcE3argEi.exit.i: ; preds = %14
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %31 = load ptr, ptr %30, align 8, !tbaa !15, !noalias !742
+  %31 = load ptr, ptr %30, align 8, !tbaa !15, !noalias !748
   %32 = sext i32 %9 to i64
   %33 = getelementptr inbounds %"class.fmt::v10::basic_format_arg", ptr %31, i64 %32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %4, ptr noundef nonnull align 16 dereferenceable(20) %33, i64 20, i1 false), !tbaa.struct !729
-  %.pr.pre.i = load i32, ptr %11, align 16, !tbaa !381, !alias.scope !733
+  %.pr.pre.i = load i32, ptr %11, align 16, !tbaa !381, !alias.scope !739
   %34 = icmp eq i32 %.pr.pre.i, 0
-  br i1 %34, label %_ZNK3fmt3v1020basic_format_contextINS0_8appenderEcE3argEi.exit.thread.i, label %_ZN3fmt3v106detail7get_argINS0_20basic_format_contextINS0_8appenderEcEEiEEDTcldtfp_3argfp0_EERT_T0_.exit
+  br i1 %34, label %_ZNK3fmt3v1020basic_format_contextINS0_8appenderEcE3argEi.exit.thread.i, label %.sink.split
 
 _ZNK3fmt3v1020basic_format_contextINS0_8appenderEcE3argEi.exit.thread.i: ; preds = %_ZNK3fmt3v1020basic_format_contextINS0_8appenderEcE3argEi.exit.i, %19, %17, %14
-  tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.15) #33, !noalias !733
+  tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.15) #33, !noalias !739
   unreachable
 
-_ZN3fmt3v106detail7get_argINS0_20basic_format_contextINS0_8appenderEcEEiEEDTcldtfp_3argfp0_EERT_T0_.exit: ; preds = %_ZNK3fmt3v1020basic_format_contextINS0_8appenderEcE3argEi.exit.thread8.i, %_ZNK3fmt3v1020basic_format_contextINS0_8appenderEcE3argEi.exit.i
-  %35 = tail call noundef i32 @_ZN3fmt3v106detail16get_dynamic_specINS1_17precision_checkerENS0_16basic_format_argINS0_20basic_format_contextINS0_8appenderEcEEEEEEiT0_(ptr noundef nonnull byval(%"class.fmt::v10::basic_format_arg") align 16 %4)
-  br label %.sink.split
-
-36:                                               ; preds = %3
-  %37 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.0.0.copyload = load ptr, ptr %37, align 8, !tbaa !103
+35:                                               ; preds = %3
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.0.0.copyload = load ptr, ptr %36, align 8, !tbaa !103
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !36
-  %38 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  call void @_ZNK3fmt3v1017basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE3getIcEENS0_16basic_format_argIS4_EENS0_17basic_string_viewIT_EE(ptr dead_on_unwind nonnull writable sret(%"class.fmt::v10::basic_format_arg") align 16 %5, ptr noundef nonnull align 8 dereferenceable(16) %38, ptr %.sroa.0.0.copyload, i64 %.sroa.2.0.copyload)
-  %39 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %40 = load i32, ptr %39, align 16, !tbaa !381, !alias.scope !743
-  %.not.i = icmp eq i32 %40, 0
-  br i1 %.not.i, label %41, label %_ZN3fmt3v106detail7get_argINS0_20basic_format_contextINS0_8appenderEcEENS0_17basic_string_viewIcEEEEDTcldtfp_3argfp0_EERT_T0_.exit
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !749)
+  %38 = load i64, ptr %37, align 8, !tbaa !632, !noalias !749
+  %39 = and i64 %38, 4611686018427387904
+  %.not14.i.i = icmp eq i64 %39, 0
+  br i1 %.not14.i.i, label %_ZNK3fmt3v1017basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE3getIcEENS0_16basic_format_argIS4_EENS0_17basic_string_viewIT_EE.exit.thread, label %40
 
-41:                                               ; preds = %36
-  call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.15) #33
-  unreachable
+40:                                               ; preds = %35
+  %41 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %42 = load ptr, ptr %41, align 8, !noalias !749
+  %43 = icmp slt i64 %38, 0
+  %.v.i.i = select i1 %43, i64 -32, i64 -16
+  %44 = getelementptr inbounds i8, ptr %42, i64 %.v.i.i
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
+  %46 = load i64, ptr %45, align 8, !tbaa !707, !noalias !749
+  %.not15.not.i.i = icmp eq i64 %46, 0
+  br i1 %.not15.not.i.i, label %_ZNK3fmt3v1017basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE3getIcEENS0_16basic_format_argIS4_EENS0_17basic_string_viewIT_EE.exit.thread, label %.lr.ph.i.i
 
-_ZN3fmt3v106detail7get_argINS0_20basic_format_contextINS0_8appenderEcEENS0_17basic_string_viewIcEEEEDTcldtfp_3argfp0_EERT_T0_.exit: ; preds = %36
-  %42 = call noundef i32 @_ZN3fmt3v106detail16get_dynamic_specINS1_17precision_checkerENS0_16basic_format_argINS0_20basic_format_contextINS0_8appenderEcEEEEEEiT0_(ptr noundef nonnull byval(%"class.fmt::v10::basic_format_arg") align 16 %5)
+.lr.ph.i.i:                                       ; preds = %40
+  %47 = load ptr, ptr %44, align 8, !tbaa !710, !noalias !749
+  br label %48
+
+48:                                               ; preds = %_ZN3fmt3v10eqENS0_17basic_string_viewIcEES2_.exit.thread.i.i, %.lr.ph.i.i
+  %.01116.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %55, %_ZN3fmt3v10eqENS0_17basic_string_viewIcEES2_.exit.thread.i.i ]
+  %49 = getelementptr inbounds nuw %"struct.fmt::v10::detail::named_arg_info", ptr %47, i64 %.01116.i.i
+  %50 = load ptr, ptr %49, align 8, !tbaa !711, !noalias !749
+  %51 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %50) #15, !noalias !749
+  %..i.i.i.i = tail call i64 @llvm.umin.i64(i64 %51, i64 %.sroa.2.0.copyload)
+  %52 = icmp eq i64 %..i.i.i.i, 0
+  br i1 %52, label %_ZN3fmt3v10eqENS0_17basic_string_viewIcEES2_.exit.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
+
+_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %48
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull %50, ptr %.sroa.0.0.copyload, i64 %..i.i.i.i), !noalias !749
+  %53 = icmp eq i32 %bcmp.i.i.i, 0
+  %54 = icmp eq i64 %51, %.sroa.2.0.copyload
+  %or.cond.i.i = select i1 %53, i1 %54, i1 false
+  br i1 %or.cond.i.i, label %_ZNK3fmt3v1017basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE6get_idIcEEiNS0_17basic_string_viewIT_EE.exit.i, label %_ZN3fmt3v10eqENS0_17basic_string_viewIcEES2_.exit.thread.i.i
+
+_ZN3fmt3v10eqENS0_17basic_string_viewIcEES2_.exit.i.i: ; preds = %48
+  %.old.i.i = icmp eq i64 %51, %.sroa.2.0.copyload
+  br i1 %.old.i.i, label %_ZNK3fmt3v1017basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE6get_idIcEEiNS0_17basic_string_viewIT_EE.exit.i, label %_ZN3fmt3v10eqENS0_17basic_string_viewIcEES2_.exit.thread.i.i
+
+_ZN3fmt3v10eqENS0_17basic_string_viewIcEES2_.exit.thread.i.i: ; preds = %_ZN3fmt3v10eqENS0_17basic_string_viewIcEES2_.exit.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
+  %55 = add nuw i64 %.01116.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %55, %46
+  br i1 %exitcond.not.i.i, label %_ZNK3fmt3v1017basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE3getIcEENS0_16basic_format_argIS4_EENS0_17basic_string_viewIT_EE.exit.thread, label %48, !llvm.loop !713
+
+_ZNK3fmt3v1017basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE6get_idIcEEiNS0_17basic_string_viewIT_EE.exit.i: ; preds = %_ZN3fmt3v10eqENS0_17basic_string_viewIcEES2_.exit.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
+  %56 = getelementptr inbounds nuw i8, ptr %49, i64 8
+  %57 = load i32, ptr %56, align 8, !tbaa !714, !noalias !749
+  %58 = icmp sgt i32 %57, -1
+  br i1 %58, label %59, label %_ZNK3fmt3v1017basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE3getIcEENS0_16basic_format_argIS4_EENS0_17basic_string_viewIT_EE.exit.thread
+
+59:                                               ; preds = %_ZNK3fmt3v1017basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE6get_idIcEEiNS0_17basic_string_viewIT_EE.exit.i
+  %60 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %61 = icmp sgt i64 %38, -1
+  br i1 %61, label %65, label %62
+
+62:                                               ; preds = %59
+  %63 = trunc i64 %38 to i32
+  %64 = icmp slt i32 %57, %63
+  br i1 %64, label %_ZNK3fmt3v1017basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE3getIcEENS0_16basic_format_argIS4_EENS0_17basic_string_viewIT_EE.exit, label %_ZNK3fmt3v1017basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE3getIcEENS0_16basic_format_argIS4_EENS0_17basic_string_viewIT_EE.exit.thread
+
+65:                                               ; preds = %59
+  %66 = icmp samesign ugt i32 %57, 14
+  br i1 %66, label %_ZNK3fmt3v1017basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE3getIcEENS0_16basic_format_argIS4_EENS0_17basic_string_viewIT_EE.exit.thread, label %67
+
+67:                                               ; preds = %65
+  %68 = shl nuw nsw i32 %57, 2
+  %69 = zext nneg i32 %68 to i64
+  %70 = lshr i64 %38, %69
+  %71 = trunc i64 %70 to i32
+  %72 = and i32 %71, 15
+  store i32 %72, ptr %60, align 16, !tbaa !381, !alias.scope !752
+  %73 = icmp eq i32 %72, 0
+  br i1 %73, label %_ZNK3fmt3v1017basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE3getIcEENS0_16basic_format_argIS4_EENS0_17basic_string_viewIT_EE.exit.thread, label %_ZNK3fmt3v1017basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE3getIcEENS0_16basic_format_argIS4_EENS0_17basic_string_viewIT_EE.exit.thread15
+
+_ZNK3fmt3v1017basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE3getIcEENS0_16basic_format_argIS4_EENS0_17basic_string_viewIT_EE.exit.thread15: ; preds = %67
+  %74 = zext nneg i32 %57 to i64
+  %75 = getelementptr inbounds nuw %"class.fmt::v10::detail::value", ptr %42, i64 %74
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, ptr noundef nonnull align 16 dereferenceable(16) %75, i64 16, i1 false), !tbaa.struct !728
   br label %.sink.split
 
-.sink.split:                                      ; preds = %_ZN3fmt3v106detail7get_argINS0_20basic_format_contextINS0_8appenderEcEEiEEDTcldtfp_3argfp0_EERT_T0_.exit, %_ZN3fmt3v106detail7get_argINS0_20basic_format_contextINS0_8appenderEcEENS0_17basic_string_viewIcEEEEDTcldtfp_3argfp0_EERT_T0_.exit
-  %.sink = phi i32 [ %42, %_ZN3fmt3v106detail7get_argINS0_20basic_format_contextINS0_8appenderEcEENS0_17basic_string_viewIcEEEEDTcldtfp_3argfp0_EERT_T0_.exit ], [ %35, %_ZN3fmt3v106detail7get_argINS0_20basic_format_contextINS0_8appenderEcEEiEEDTcldtfp_3argfp0_EERT_T0_.exit ]
-  store i32 %.sink, ptr %0, align 4, !tbaa !16
-  br label %43
+_ZNK3fmt3v1017basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE3getIcEENS0_16basic_format_argIS4_EENS0_17basic_string_viewIT_EE.exit: ; preds = %62
+  %76 = zext nneg i32 %57 to i64
+  %77 = getelementptr inbounds nuw %"class.fmt::v10::basic_format_arg", ptr %42, i64 %76
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %5, ptr noundef nonnull align 16 dereferenceable(20) %77, i64 20, i1 false), !tbaa.struct !729
+  %.pre = load i32, ptr %60, align 16, !tbaa !381, !alias.scope !755
+  %78 = icmp eq i32 %.pre, 0
+  br i1 %78, label %_ZNK3fmt3v1017basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE3getIcEENS0_16basic_format_argIS4_EENS0_17basic_string_viewIT_EE.exit.thread, label %.sink.split
 
-43:                                               ; preds = %.sink.split, %3
+_ZNK3fmt3v1017basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE3getIcEENS0_16basic_format_argIS4_EENS0_17basic_string_viewIT_EE.exit.thread: ; preds = %_ZN3fmt3v10eqENS0_17basic_string_viewIcEES2_.exit.thread.i.i, %35, %40, %_ZNK3fmt3v1017basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE6get_idIcEEiNS0_17basic_string_viewIT_EE.exit.i, %67, %65, %62, %_ZNK3fmt3v1017basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE3getIcEENS0_16basic_format_argIS4_EENS0_17basic_string_viewIT_EE.exit
+  tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.15) #33
+  unreachable
+
+.sink.split:                                      ; preds = %_ZNK3fmt3v1017basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE3getIcEENS0_16basic_format_argIS4_EENS0_17basic_string_viewIT_EE.exit, %_ZNK3fmt3v1017basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE3getIcEENS0_16basic_format_argIS4_EENS0_17basic_string_viewIT_EE.exit.thread15, %_ZNK3fmt3v1020basic_format_contextINS0_8appenderEcE3argEi.exit.i, %_ZNK3fmt3v1020basic_format_contextINS0_8appenderEcE3argEi.exit.thread8.i
+  %.sink18 = phi ptr [ %4, %_ZNK3fmt3v1020basic_format_contextINS0_8appenderEcE3argEi.exit.thread8.i ], [ %4, %_ZNK3fmt3v1020basic_format_contextINS0_8appenderEcE3argEi.exit.i ], [ %5, %_ZNK3fmt3v1017basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE3getIcEENS0_16basic_format_argIS4_EENS0_17basic_string_viewIT_EE.exit.thread15 ], [ %5, %_ZNK3fmt3v1017basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE3getIcEENS0_16basic_format_argIS4_EENS0_17basic_string_viewIT_EE.exit ]
+  %79 = tail call noundef i32 @_ZN3fmt3v106detail16get_dynamic_specINS1_17precision_checkerENS0_16basic_format_argINS0_20basic_format_contextINS0_8appenderEcEEEEEEiT0_(ptr noundef nonnull byval(%"class.fmt::v10::basic_format_arg") align 16 %.sink18)
+  store i32 %79, ptr %0, align 4, !tbaa !16
+  br label %80
+
+80:                                               ; preds = %.sink.split, %3
   ret void
 }
 
@@ -31741,9 +31892,9 @@ _ZN3fmt3v106detail21parse_nonnegative_intIcEEiRPKT_S5_i.exit.thread: ; preds = %
 40:                                               ; preds = %38
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  store ptr %4, ptr %6, align 8, !tbaa !746
+  store ptr %4, ptr %6, align 8, !tbaa !758
   %42 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %3, ptr %42, align 8, !tbaa !748
+  store ptr %3, ptr %42, align 8, !tbaa !760
   %.not = icmp eq ptr %41, %1
   br i1 %.not, label %_ZN3fmt3v106detail12parse_arg_idIcRNS1_23dynamic_spec_id_handlerIcEEEEPKT_S8_S8_OT0_.exit, label %43
 
@@ -31771,7 +31922,7 @@ _ZN3fmt3v106detail21parse_nonnegative_intIcEEiRPKT_S5_i.exit.thread: ; preds = %
 _ZN3fmt3v106detail23dynamic_spec_id_handlerIcE7on_autoEv.exit: ; preds = %47
   %52 = add nuw nsw i32 %49, 1
   store i32 %52, ptr %48, align 8, !tbaa !314
-  store i32 1, ptr %3, align 8, !tbaa !750
+  store i32 1, ptr %3, align 8, !tbaa !762
   %.sroa.42.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %49, ptr %.sroa.42.0..sroa_idx.i, align 8
   br label %_ZN3fmt3v106detail12parse_arg_idIcRNS1_23dynamic_spec_id_handlerIcEEEEPKT_S8_S8_OT0_.exit
@@ -31884,11 +32035,11 @@ _ZN3fmt3v106detail21parse_nonnegative_intIcEEiRPKT_S5_i.exit: ; preds = %35, %26
 
 42:                                               ; preds = %39, %39
   %43 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %44 = load ptr, ptr %43, align 8, !tbaa !751
-  store i32 1, ptr %44, align 8, !tbaa !750
+  %44 = load ptr, ptr %43, align 8, !tbaa !763
+  store i32 1, ptr %44, align 8, !tbaa !762
   %.sroa.43.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %44, i64 8
   store i32 %.022, ptr %.sroa.43.0..sroa_idx.i, align 8
-  %45 = load ptr, ptr %2, align 8, !tbaa !753
+  %45 = load ptr, ptr %2, align 8, !tbaa !765
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %47 = load i32, ptr %46, align 8, !tbaa !314
   %48 = icmp sgt i32 %47, 0
@@ -31935,15 +32086,15 @@ _ZN3fmt3v106detail23dynamic_spec_id_handlerIcE8on_indexEi.exit: ; preds = %42
   %62 = add i8 %58, -48
   %or.cond31 = icmp ult i8 %62, 10
   %or.cond39 = or i1 %or.cond31, %spec.select.i33
-  br i1 %or.cond39, label %.critedge4, label %.critedge, !llvm.loop !754
+  br i1 %or.cond39, label %.critedge4, label %.critedge, !llvm.loop !766
 
 .critedge:                                        ; preds = %57, %.critedge4
   %.lcssa41 = phi ptr [ %56, %57 ], [ %scevgep, %.critedge4 ]
   %63 = ptrtoint ptr %.lcssa41 to i64
   %64 = sub i64 %63, %4
   %65 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %66 = load ptr, ptr %65, align 8, !tbaa !751
-  store i32 2, ptr %66, align 8, !tbaa !750
+  %66 = load ptr, ptr %65, align 8, !tbaa !763
+  store i32 2, ptr %66, align 8, !tbaa !762
   %.sroa.45.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %66, i64 8
   store ptr %0, ptr %.sroa.45.0..sroa_idx.i, align 8
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %66, i64 16
@@ -32076,105 +32227,6 @@ _ZN3fmt3v1016visit_format_argINS0_6detail13width_checkerENS0_20basic_format_cont
   %.0.i10 = phi i64 [ %8, %_ZN3fmt3v1016visit_format_argINS0_6detail13width_checkerENS0_20basic_format_contextINS0_8appenderEcEEEEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit.thread ], [ %.0.i, %_ZN3fmt3v1016visit_format_argINS0_6detail13width_checkerENS0_20basic_format_contextINS0_8appenderEcEEEEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit ]
   %36 = trunc nuw nsw i64 %.0.i10 to i32
   ret i32 %36
-}
-
-; Function Attrs: mustprogress ssp uwtable
-define linkonce_odr hidden void @_ZNK3fmt3v1017basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE3getIcEENS0_16basic_format_argIS4_EENS0_17basic_string_viewIT_EE(ptr dead_on_unwind noalias writable sret(%"class.fmt::v10::basic_format_arg") align 16 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr %2, i64 %3) local_unnamed_addr #0 comdat align 2 {
-  %5 = load i64, ptr %1, align 8, !tbaa !632
-  %6 = and i64 %5, 4611686018427387904
-  %.not14.i = icmp eq i64 %6, 0
-  br i1 %.not14.i, label %_ZNK3fmt3v1017basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE6get_idIcEEiNS0_17basic_string_viewIT_EE.exit.thread, label %7
-
-7:                                                ; preds = %4
-  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %9 = load ptr, ptr %8, align 8
-  %10 = icmp slt i64 %5, 0
-  %.v.i = select i1 %10, i64 -32, i64 -16
-  %11 = getelementptr inbounds i8, ptr %9, i64 %.v.i
-  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %13 = load i64, ptr %12, align 8, !tbaa !707
-  %.not16.not.i = icmp eq i64 %13, 0
-  br i1 %.not16.not.i, label %_ZNK3fmt3v1017basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE6get_idIcEEiNS0_17basic_string_viewIT_EE.exit.thread, label %.lr.ph.i
-
-.lr.ph.i:                                         ; preds = %7
-  %14 = load ptr, ptr %11, align 8, !tbaa !710
-  br label %15
-
-15:                                               ; preds = %_ZN3fmt3v10eqENS0_17basic_string_viewIcEES2_.exit.thread.i, %.lr.ph.i
-  %.01117.i = phi i64 [ 0, %.lr.ph.i ], [ %22, %_ZN3fmt3v10eqENS0_17basic_string_viewIcEES2_.exit.thread.i ]
-  %16 = getelementptr inbounds nuw %"struct.fmt::v10::detail::named_arg_info", ptr %14, i64 %.01117.i
-  %17 = load ptr, ptr %16, align 8, !tbaa !711
-  %18 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %17) #15
-  %..i.i.i = tail call i64 @llvm.umin.i64(i64 %18, i64 %3)
-  %19 = icmp eq i64 %..i.i.i, 0
-  br i1 %19, label %_ZN3fmt3v10eqENS0_17basic_string_viewIcEES2_.exit.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
-
-_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i: ; preds = %15
-  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull %17, ptr %2, i64 %..i.i.i)
-  %20 = icmp eq i32 %bcmp.i.i, 0
-  %21 = icmp eq i64 %18, %3
-  %or.cond.i = select i1 %20, i1 %21, i1 false
-  br i1 %or.cond.i, label %_ZNK3fmt3v1017basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE6get_idIcEEiNS0_17basic_string_viewIT_EE.exit, label %_ZN3fmt3v10eqENS0_17basic_string_viewIcEES2_.exit.thread.i
-
-_ZN3fmt3v10eqENS0_17basic_string_viewIcEES2_.exit.i: ; preds = %15
-  %.old.i = icmp eq i64 %18, %3
-  br i1 %.old.i, label %_ZNK3fmt3v1017basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE6get_idIcEEiNS0_17basic_string_viewIT_EE.exit, label %_ZN3fmt3v10eqENS0_17basic_string_viewIcEES2_.exit.thread.i
-
-_ZN3fmt3v10eqENS0_17basic_string_viewIcEES2_.exit.thread.i: ; preds = %_ZN3fmt3v10eqENS0_17basic_string_viewIcEES2_.exit.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
-  %22 = add nuw i64 %.01117.i, 1
-  %exitcond.not.i = icmp eq i64 %22, %13
-  br i1 %exitcond.not.i, label %_ZNK3fmt3v1017basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE6get_idIcEEiNS0_17basic_string_viewIT_EE.exit.thread, label %15, !llvm.loop !713
-
-_ZNK3fmt3v1017basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE6get_idIcEEiNS0_17basic_string_viewIT_EE.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i, %_ZN3fmt3v10eqENS0_17basic_string_viewIcEES2_.exit.i
-  %23 = getelementptr inbounds nuw %"struct.fmt::v10::detail::named_arg_info", ptr %14, i64 %.01117.i, i32 1
-  %24 = load i32, ptr %23, align 8, !tbaa !714
-  %25 = icmp sgt i32 %24, -1
-  br i1 %25, label %26, label %_ZNK3fmt3v1017basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE6get_idIcEEiNS0_17basic_string_viewIT_EE.exit.thread
-
-26:                                               ; preds = %_ZNK3fmt3v1017basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE6get_idIcEEiNS0_17basic_string_viewIT_EE.exit
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 0, ptr %27, align 16, !tbaa !381, !alias.scope !755
-  %28 = icmp sgt i64 %5, -1
-  br i1 %28, label %35, label %29
-
-29:                                               ; preds = %26
-  %30 = trunc i64 %5 to i32
-  %31 = icmp slt i32 %24, %30
-  br i1 %31, label %32, label %_ZNK3fmt3v1017basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE3getEi.exit
-
-32:                                               ; preds = %29
-  %33 = zext nneg i32 %24 to i64
-  %34 = getelementptr inbounds nuw %"class.fmt::v10::basic_format_arg", ptr %9, i64 %33
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %0, ptr noundef nonnull align 16 dereferenceable(20) %34, i64 20, i1 false), !tbaa.struct !729
-  br label %_ZNK3fmt3v1017basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE3getEi.exit
-
-35:                                               ; preds = %26
-  %36 = icmp samesign ugt i32 %24, 14
-  br i1 %36, label %_ZNK3fmt3v1017basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE3getEi.exit, label %37
-
-37:                                               ; preds = %35
-  %38 = shl nuw nsw i32 %24, 2
-  %39 = zext nneg i32 %38 to i64
-  %40 = lshr i64 %5, %39
-  %41 = trunc i64 %40 to i32
-  %42 = and i32 %41, 15
-  store i32 %42, ptr %27, align 16, !tbaa !381, !alias.scope !755
-  %43 = icmp eq i32 %42, 0
-  br i1 %43, label %_ZNK3fmt3v1017basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE3getEi.exit, label %44
-
-44:                                               ; preds = %37
-  %45 = zext nneg i32 %24 to i64
-  %46 = getelementptr inbounds nuw %"class.fmt::v10::detail::value", ptr %9, i64 %45
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %0, ptr noundef nonnull align 16 dereferenceable(16) %46, i64 16, i1 false), !tbaa.struct !728
-  br label %_ZNK3fmt3v1017basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE3getEi.exit
-
-_ZNK3fmt3v1017basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE6get_idIcEEiNS0_17basic_string_viewIT_EE.exit.thread: ; preds = %_ZN3fmt3v10eqENS0_17basic_string_viewIcEES2_.exit.thread.i, %7, %4, %_ZNK3fmt3v1017basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE6get_idIcEEiNS0_17basic_string_viewIT_EE.exit
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 0, ptr %47, align 16, !tbaa !381
-  br label %_ZNK3fmt3v1017basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE3getEi.exit
-
-_ZNK3fmt3v1017basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE3getEi.exit: ; preds = %44, %37, %35, %32, %29, %_ZNK3fmt3v1017basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE6get_idIcEEiNS0_17basic_string_viewIT_EE.exit.thread
-  ret void
 }
 
 ; Function Attrs: mustprogress ssp uwtable
@@ -32385,7 +32437,7 @@ _ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit: ; preds = %4
   store i8 %41, ptr %51, align 1, !tbaa !15
   %52 = lshr i32 %.0.i140, 8
   %.not18.i = icmp samesign ult i32 %.0.i140, 256
-  br i1 %.not18.i, label %.loopexit, label %40, !llvm.loop !758
+  br i1 %.not18.i, label %.loopexit, label %40, !llvm.loop !767
 
 .loopexit:                                        ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit, %35, %34
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -32468,7 +32520,7 @@ _ZN3fmt3v106detail14write_int_dataIcEC2EijRKNS0_12format_specsIcEE.exit: ; preds
   %.sroa.7.0 = phi i64 [ %86, %84 ], [ 0, %82 ], [ %93, %89 ], [ 0, %87 ]
   %.sroa.0.0 = phi i64 [ %85, %84 ], [ %77, %82 ], [ %91, %89 ], [ %77, %87 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  store i32 %2, ptr %13, align 8, !tbaa !759
+  store i32 %2, ptr %13, align 8, !tbaa !768
   %94 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i64 %.sroa.0.0, ptr %94, align 8, !tbaa !36
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 16
@@ -32563,7 +32615,7 @@ _ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit36: ; preds = 
   store i8 %125, ptr %135, align 1, !tbaa !15
   %136 = lshr i32 %.0.i12137, 8
   %.not18.i13 = icmp samesign ult i32 %.0.i12137, 256
-  br i1 %.not18.i13, label %.loopexit122, label %124, !llvm.loop !762
+  br i1 %.not18.i13, label %.loopexit122, label %124, !llvm.loop !771
 
 .loopexit122:                                     ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit36, %119, %118
   %137 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -32655,7 +32707,7 @@ _ZN3fmt3v106detail14write_int_dataIcEC2EijRKNS0_12format_specsIcEE.exit37: ; pre
   %.sroa.096.0 = phi i64 [ %171, %170 ], [ %165, %168 ], [ %177, %175 ], [ %165, %173 ]
   %.sroa.797.0 = phi i64 [ %172, %170 ], [ 0, %168 ], [ %179, %175 ], [ 0, %173 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  store i32 %.2, ptr %12, align 8, !tbaa !763
+  store i32 %.2, ptr %12, align 8, !tbaa !772
   %180 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i64 %.sroa.096.0, ptr %180, align 8, !tbaa !36
   %.sroa.797.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 16
@@ -32776,7 +32828,7 @@ _ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit47: ; preds = 
   store i8 %226, ptr %236, align 1, !tbaa !15
   %237 = lshr i32 %.0.i19134, 8
   %.not18.i20 = icmp samesign ult i32 %.0.i19134, 256
-  br i1 %.not18.i20, label %.loopexit124, label %225, !llvm.loop !766
+  br i1 %.not18.i20, label %.loopexit124, label %225, !llvm.loop !775
 
 .loopexit124:                                     ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit47, %220, %219
   %238 = zext nneg i32 %211 to i64
@@ -32867,7 +32919,7 @@ _ZN3fmt3v106detail14write_int_dataIcEC2EijRKNS0_12format_specsIcEE.exit54: ; pre
   %.sroa.0104.0 = phi i64 [ %273, %272 ], [ %267, %270 ], [ %279, %277 ], [ %267, %275 ]
   %.sroa.7105.0 = phi i64 [ %274, %272 ], [ 0, %270 ], [ %281, %277 ], [ 0, %275 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  store i32 %.1, ptr %11, align 8, !tbaa !767
+  store i32 %.1, ptr %11, align 8, !tbaa !776
   %282 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 %.sroa.0104.0, ptr %282, align 8, !tbaa !36
   %.sroa.7105.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -32987,7 +33039,7 @@ _ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit67: ; preds = 
   store i8 %323, ptr %333, align 1, !tbaa !15
   %334 = lshr i32 %.0.i26132, 8
   %.not18.i27 = icmp samesign ult i32 %.0.i26132, 256
-  br i1 %.not18.i27, label %.loopexit126, label %322, !llvm.loop !770
+  br i1 %.not18.i27, label %.loopexit126, label %322, !llvm.loop !779
 
 .loopexit126:                                     ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit67, %317, %316
   %335 = zext nneg i32 %300 to i64
@@ -33078,7 +33130,7 @@ _ZN3fmt3v106detail14write_int_dataIcEC2EijRKNS0_12format_specsIcEE.exit78: ; pre
   %.sroa.0113.0 = phi i64 [ %370, %369 ], [ %364, %367 ], [ %376, %374 ], [ %364, %372 ]
   %.sroa.7114.0 = phi i64 [ %371, %369 ], [ 0, %367 ], [ %378, %374 ], [ 0, %372 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  store i32 %.0, ptr %10, align 8, !tbaa !771
+  store i32 %.0, ptr %10, align 8, !tbaa !780
   %379 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 %.sroa.0113.0, ptr %379, align 8, !tbaa !36
   %.sroa.7114.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 16
@@ -33210,7 +33262,7 @@ define linkonce_odr hidden ptr @_ZN3fmt3v106detail12write_paddedILNS0_5align4typ
 
 23:                                               ; preds = %21, %5
   %.sroa.08.0 = phi ptr [ %22, %21 ], [ %0, %5 ]
-  %24 = load i32, ptr %4, align 8, !tbaa !759
+  %24 = load i32, ptr %4, align 8, !tbaa !768
   %25 = and i32 %24, 16777215
   %.not9.i = icmp eq i32 %25, 0
   br i1 %.not9.i, label %._crit_edge.i, label %.lr.ph.i
@@ -33223,7 +33275,7 @@ define linkonce_odr hidden ptr @_ZN3fmt3v106detail12write_paddedILNS0_5align4typ
 
 ._crit_edge.i:                                    ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit.i, %23
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %30 = load i64, ptr %29, align 8, !tbaa !774
+  %30 = load i64, ptr %29, align 8, !tbaa !783
   %.not.i.i = icmp eq i64 %30, 0
   br i1 %.not.i.i, label %_ZN3fmt3v106detail6fill_nINS0_8appenderEmcEET_S4_T0_RKT1_.exit.i, label %.lr.ph.i.i
 
@@ -33262,9 +33314,9 @@ _ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSERKc.exit.i.i: ; preds
 
 _ZN3fmt3v106detail6fill_nINS0_8appenderEmcEET_S4_T0_RKT1_.exit.i: ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSERKc.exit.i.i, %._crit_edge.i
   %46 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %47 = load i64, ptr %46, align 8, !tbaa !775
+  %47 = load i64, ptr %46, align 8, !tbaa !784
   %48 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %49 = load i32, ptr %48, align 8, !tbaa !776
+  %49 = load i32, ptr %48, align 8, !tbaa !785
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %6, i8 0, i64 20, i1 false)
   %50 = sext i32 %49 to i64
@@ -33332,7 +33384,7 @@ _ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit.i: ; preds = 
   store i8 %71, ptr %81, align 1, !tbaa !15
   %82 = lshr i32 %.010.i, 8
   %.not.i = icmp samesign ult i32 %.010.i, 256
-  br i1 %.not.i, label %._crit_edge.i, label %70, !llvm.loop !777
+  br i1 %.not.i, label %._crit_edge.i, label %70, !llvm.loop !786
 
 _ZZN3fmt3v106detail9write_intINS0_8appenderEcZNS1_9write_intIcS3_mEET0_S5_NS1_13write_int_argIT1_EERKNS0_12format_specsIT_EENS1_10locale_refEEUlS3_E_EESA_SA_ijRKNS9_IS5_EES7_ENKUlS3_E_clES3_.exit: ; preds = %61, %65
   %83 = call ptr @_ZN3fmt3v106detail17copy_str_noinlineIcPcNS0_8appenderEEET1_T0_S6_S5_(ptr noundef nonnull %6, ptr noundef nonnull %51, ptr %.sroa.08.0)
@@ -33352,7 +33404,7 @@ _ZZN3fmt3v106detail9write_intINS0_8appenderEcZNS1_9write_intIcS3_mEET0_S5_NS1_13
 ; Function Attrs: inlinehint mustprogress ssp uwtable
 define linkonce_odr hidden ptr @_ZZN3fmt3v106detail9write_intINS0_8appenderEcZNS1_9write_intIcS3_mEET0_S5_NS1_13write_int_argIT1_EERKNS0_12format_specsIT_EENS1_10locale_refEEUlS3_E0_EESA_SA_ijRKNS9_IS5_EES7_ENKUlS3_E_clES3_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr %1) local_unnamed_addr #5 comdat align 2 {
   %3 = alloca [17 x i8], align 16
-  %4 = load i32, ptr %0, align 8, !tbaa !763
+  %4 = load i32, ptr %0, align 8, !tbaa !772
   %5 = and i32 %4, 16777215
   %.not8 = icmp eq i32 %5, 0
   br i1 %.not8, label %._crit_edge, label %.lr.ph
@@ -33365,7 +33417,7 @@ define linkonce_odr hidden ptr @_ZZN3fmt3v106detail9write_intINS0_8appenderEcZNS
 
 ._crit_edge:                                      ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit, %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %10 = load i64, ptr %9, align 8, !tbaa !778
+  %10 = load i64, ptr %9, align 8, !tbaa !787
   %.not.i = icmp eq i64 %10, 0
   br i1 %.not.i, label %_ZN3fmt3v106detail6fill_nINS0_8appenderEmcEET_S4_T0_RKT1_.exit, label %.lr.ph.i
 
@@ -33404,11 +33456,11 @@ _ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSERKc.exit.i: ; preds =
 
 _ZN3fmt3v106detail6fill_nINS0_8appenderEmcEET_S4_T0_RKT1_.exit: ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSERKc.exit.i, %._crit_edge
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %27 = load i64, ptr %26, align 8, !tbaa !779
+  %27 = load i64, ptr %26, align 8, !tbaa !788
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %29 = load i32, ptr %28, align 8, !tbaa !780
+  %29 = load i32, ptr %28, align 8, !tbaa !789
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %31 = load i8, ptr %30, align 4, !tbaa !781, !range !297, !noundef !298
+  %31 = load i8, ptr %30, align 4, !tbaa !790, !range !297, !noundef !298
   %32 = trunc nuw i8 %31 to i1
   %33 = zext i32 %29 to i64
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -33500,13 +33552,13 @@ _ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit: ; preds = %6
   store i8 %62, ptr %72, align 1, !tbaa !15
   %73 = lshr i32 %.09, 8
   %.not = icmp samesign ult i32 %.09, 256
-  br i1 %.not, label %._crit_edge, label %61, !llvm.loop !782
+  br i1 %.not, label %._crit_edge, label %61, !llvm.loop !791
 }
 
 ; Function Attrs: inlinehint mustprogress ssp uwtable
 define linkonce_odr hidden ptr @_ZZN3fmt3v106detail9write_intINS0_8appenderEcZNS1_9write_intIcS3_mEET0_S5_NS1_13write_int_argIT1_EERKNS0_12format_specsIT_EENS1_10locale_refEEUlS3_E1_EESA_SA_ijRKNS9_IS5_EES7_ENKUlS3_E_clES3_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr %1) local_unnamed_addr #5 comdat align 2 {
   %3 = alloca [65 x i8], align 16
-  %4 = load i32, ptr %0, align 8, !tbaa !767
+  %4 = load i32, ptr %0, align 8, !tbaa !776
   %5 = and i32 %4, 16777215
   %.not8 = icmp eq i32 %5, 0
   br i1 %.not8, label %._crit_edge, label %.lr.ph
@@ -33519,7 +33571,7 @@ define linkonce_odr hidden ptr @_ZZN3fmt3v106detail9write_intINS0_8appenderEcZNS
 
 ._crit_edge:                                      ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit, %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %10 = load i64, ptr %9, align 8, !tbaa !783
+  %10 = load i64, ptr %9, align 8, !tbaa !792
   %.not.i = icmp eq i64 %10, 0
   br i1 %.not.i, label %_ZN3fmt3v106detail6fill_nINS0_8appenderEmcEET_S4_T0_RKT1_.exit, label %.lr.ph.i
 
@@ -33558,9 +33610,9 @@ _ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSERKc.exit.i: ; preds =
 
 _ZN3fmt3v106detail6fill_nINS0_8appenderEmcEET_S4_T0_RKT1_.exit: ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSERKc.exit.i, %._crit_edge
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %27 = load i64, ptr %26, align 8, !tbaa !784
+  %27 = load i64, ptr %26, align 8, !tbaa !793
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %29 = load i32, ptr %28, align 8, !tbaa !785
+  %29 = load i32, ptr %28, align 8, !tbaa !794
   %30 = zext i32 %29 to i64
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %32 = load i64, ptr %31, align 8, !tbaa !308
@@ -33649,13 +33701,13 @@ _ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit: ; preds = %5
   store i8 %59, ptr %69, align 1, !tbaa !15
   %70 = lshr i32 %.09, 8
   %.not = icmp samesign ult i32 %.09, 256
-  br i1 %.not, label %._crit_edge, label %58, !llvm.loop !786
+  br i1 %.not, label %._crit_edge, label %58, !llvm.loop !795
 }
 
 ; Function Attrs: inlinehint mustprogress ssp uwtable
 define linkonce_odr hidden ptr @_ZZN3fmt3v106detail9write_intINS0_8appenderEcZNS1_9write_intIcS3_mEET0_S5_NS1_13write_int_argIT1_EERKNS0_12format_specsIT_EENS1_10locale_refEEUlS3_E2_EESA_SA_ijRKNS9_IS5_EES7_ENKUlS3_E_clES3_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr %1) local_unnamed_addr #5 comdat align 2 {
   %3 = alloca [22 x i8], align 16
-  %4 = load i32, ptr %0, align 8, !tbaa !771
+  %4 = load i32, ptr %0, align 8, !tbaa !780
   %5 = and i32 %4, 16777215
   %.not8 = icmp eq i32 %5, 0
   br i1 %.not8, label %._crit_edge, label %.lr.ph
@@ -33668,7 +33720,7 @@ define linkonce_odr hidden ptr @_ZZN3fmt3v106detail9write_intINS0_8appenderEcZNS
 
 ._crit_edge:                                      ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit, %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %10 = load i64, ptr %9, align 8, !tbaa !787
+  %10 = load i64, ptr %9, align 8, !tbaa !796
   %.not.i = icmp eq i64 %10, 0
   br i1 %.not.i, label %_ZN3fmt3v106detail6fill_nINS0_8appenderEmcEET_S4_T0_RKT1_.exit, label %.lr.ph.i
 
@@ -33707,9 +33759,9 @@ _ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSERKc.exit.i: ; preds =
 
 _ZN3fmt3v106detail6fill_nINS0_8appenderEmcEET_S4_T0_RKT1_.exit: ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSERKc.exit.i, %._crit_edge
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %27 = load i64, ptr %26, align 8, !tbaa !788
+  %27 = load i64, ptr %26, align 8, !tbaa !797
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %29 = load i32, ptr %28, align 8, !tbaa !789
+  %29 = load i32, ptr %28, align 8, !tbaa !798
   %30 = zext i32 %29 to i64
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %32 = load i64, ptr %31, align 8, !tbaa !308
@@ -33798,7 +33850,7 @@ _ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit: ; preds = %5
   store i8 %59, ptr %69, align 1, !tbaa !15
   %70 = lshr i32 %.09, 8
   %.not = icmp samesign ult i32 %.09, 256
-  br i1 %.not, label %._crit_edge, label %58, !llvm.loop !790
+  br i1 %.not, label %._crit_edge, label %58, !llvm.loop !799
 }
 
 ; Function Attrs: mustprogress noinline ssp uwtable
@@ -33914,7 +33966,7 @@ _ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit: ; preds = %4
   store i8 %45, ptr %55, align 1, !tbaa !15
   %56 = lshr i32 %.0.i169, 8
   %.not18.i = icmp samesign ult i32 %.0.i169, 256
-  br i1 %.not18.i, label %.loopexit, label %44, !llvm.loop !791
+  br i1 %.not18.i, label %.loopexit, label %44, !llvm.loop !800
 
 .loopexit:                                        ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit, %39, %38
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -34001,7 +34053,7 @@ _ZN3fmt3v106detail14write_int_dataIcEC2EijRKNS0_12format_specsIcEE.exit: ; preds
   %.sroa.0114.0 = phi i64 [ %91, %90 ], [ %83, %88 ], [ %97, %95 ], [ %83, %93 ]
   %.sroa.7115.0 = phi i64 [ %92, %90 ], [ 0, %88 ], [ %99, %95 ], [ 0, %93 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  store i32 %.sroa.2.0.copyload, ptr %12, align 16, !tbaa !792
+  store i32 %.sroa.2.0.copyload, ptr %12, align 16, !tbaa !801
   %100 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i64 %.sroa.0114.0, ptr %100, align 8, !tbaa !36
   %.sroa.7115.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 16
@@ -34094,7 +34146,7 @@ _ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit37: ; preds = 
   store i8 %132, ptr %142, align 1, !tbaa !15
   %143 = lshr i32 %.0.i9166, 8
   %.not18.i10 = icmp samesign ult i32 %.0.i9166, 256
-  br i1 %.not18.i10, label %.loopexit147, label %131, !llvm.loop !795
+  br i1 %.not18.i10, label %.loopexit147, label %131, !llvm.loop !804
 
 .loopexit147:                                     ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit37, %126, %125
   %144 = zext nneg i32 %117 to i64
@@ -34189,7 +34241,7 @@ _ZN3fmt3v106detail14write_int_dataIcEC2EijRKNS0_12format_specsIcEE.exit38: ; pre
   %.sroa.0123.0 = phi i64 [ %181, %180 ], [ %175, %178 ], [ %187, %185 ], [ %175, %183 ]
   %.sroa.7124.0 = phi i64 [ %182, %180 ], [ 0, %178 ], [ %189, %185 ], [ 0, %183 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  store i32 %.2, ptr %11, align 16, !tbaa !796
+  store i32 %.2, ptr %11, align 16, !tbaa !805
   %190 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 %.sroa.0123.0, ptr %190, align 8, !tbaa !36
   %.sroa.7124.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -34311,7 +34363,7 @@ _ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit52: ; preds = 
   store i8 %236, ptr %246, align 1, !tbaa !15
   %247 = lshr i32 %.0.i16163, 8
   %.not18.i17 = icmp samesign ult i32 %.0.i16163, 256
-  br i1 %.not18.i17, label %.loopexit149, label %235, !llvm.loop !799
+  br i1 %.not18.i17, label %.loopexit149, label %235, !llvm.loop !808
 
 .loopexit149:                                     ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit52, %230, %229
   %248 = zext nneg i32 %221 to i64
@@ -34402,7 +34454,7 @@ _ZN3fmt3v106detail14write_int_dataIcEC2EijRKNS0_12format_specsIcEE.exit59: ; pre
   %.sroa.0132.0 = phi i64 [ %283, %282 ], [ %277, %280 ], [ %289, %287 ], [ %277, %285 ]
   %.sroa.7133.0 = phi i64 [ %284, %282 ], [ 0, %280 ], [ %291, %287 ], [ 0, %285 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  store i32 %.1, ptr %10, align 16, !tbaa !800
+  store i32 %.1, ptr %10, align 16, !tbaa !809
   %292 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 %.sroa.0132.0, ptr %292, align 8, !tbaa !36
   %.sroa.7133.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 16
@@ -34522,7 +34574,7 @@ _ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit76: ; preds = 
   store i8 %333, ptr %343, align 1, !tbaa !15
   %344 = lshr i32 %.0.i23161, 8
   %.not18.i24 = icmp samesign ult i32 %.0.i23161, 256
-  br i1 %.not18.i24, label %.loopexit151, label %332, !llvm.loop !803
+  br i1 %.not18.i24, label %.loopexit151, label %332, !llvm.loop !812
 
 .loopexit151:                                     ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit76, %327, %326
   %345 = zext nneg i32 %310 to i64
@@ -34613,7 +34665,7 @@ _ZN3fmt3v106detail14write_int_dataIcEC2EijRKNS0_12format_specsIcEE.exit87: ; pre
   %.sroa.0141.0 = phi i64 [ %380, %379 ], [ %374, %377 ], [ %386, %384 ], [ %374, %382 ]
   %.sroa.7142.0 = phi i64 [ %381, %379 ], [ 0, %377 ], [ %388, %384 ], [ 0, %382 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  store i32 %.0, ptr %9, align 16, !tbaa !804
+  store i32 %.0, ptr %9, align 16, !tbaa !813
   %389 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 %.sroa.0141.0, ptr %389, align 8, !tbaa !36
   %.sroa.7142.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -34745,7 +34797,7 @@ define linkonce_odr hidden ptr @_ZN3fmt3v106detail12write_paddedILNS0_5align4typ
 
 23:                                               ; preds = %21, %5
   %.sroa.08.0 = phi ptr [ %22, %21 ], [ %0, %5 ]
-  %24 = load i32, ptr %4, align 16, !tbaa !792
+  %24 = load i32, ptr %4, align 16, !tbaa !801
   %25 = and i32 %24, 16777215
   %.not9.i = icmp eq i32 %25, 0
   br i1 %.not9.i, label %._crit_edge.i, label %.lr.ph.i
@@ -34758,7 +34810,7 @@ define linkonce_odr hidden ptr @_ZN3fmt3v106detail12write_paddedILNS0_5align4typ
 
 ._crit_edge.i:                                    ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit.i, %23
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %30 = load i64, ptr %29, align 16, !tbaa !807
+  %30 = load i64, ptr %29, align 16, !tbaa !816
   %.not.i.i = icmp eq i64 %30, 0
   br i1 %.not.i.i, label %_ZN3fmt3v106detail6fill_nINS0_8appenderEmcEET_S4_T0_RKT1_.exit.i, label %.lr.ph.i.i
 
@@ -34797,9 +34849,9 @@ _ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSERKc.exit.i.i: ; preds
 
 _ZN3fmt3v106detail6fill_nINS0_8appenderEmcEET_S4_T0_RKT1_.exit.i: ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSERKc.exit.i.i, %._crit_edge.i
   %46 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %47 = load i128, ptr %46, align 16, !tbaa !808
+  %47 = load i128, ptr %46, align 16, !tbaa !817
   %48 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  %49 = load i32, ptr %48, align 16, !tbaa !809
+  %49 = load i32, ptr %48, align 16, !tbaa !818
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(39) %6, i8 0, i64 39, i1 false)
   %50 = sext i32 %49 to i64
@@ -34871,7 +34923,7 @@ _ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit.i: ; preds = 
   store i8 %73, ptr %83, align 1, !tbaa !15
   %84 = lshr i32 %.010.i, 8
   %.not.i = icmp samesign ult i32 %.010.i, 256
-  br i1 %.not.i, label %._crit_edge.i, label %72, !llvm.loop !810
+  br i1 %.not.i, label %._crit_edge.i, label %72, !llvm.loop !819
 
 _ZZN3fmt3v106detail9write_intINS0_8appenderEcZNS1_9write_intIcS3_oEET0_S5_NS1_13write_int_argIT1_EERKNS0_12format_specsIT_EENS1_10locale_refEEUlS3_E_EESA_SA_ijRKNS9_IS5_EES7_ENKUlS3_E_clES3_.exit: ; preds = %62, %66
   %85 = call ptr @_ZN3fmt3v106detail17copy_str_noinlineIcPcNS0_8appenderEEET1_T0_S6_S5_(ptr noundef nonnull %6, ptr noundef nonnull %51, ptr %.sroa.08.0)
@@ -34891,7 +34943,7 @@ _ZZN3fmt3v106detail9write_intINS0_8appenderEcZNS1_9write_intIcS3_oEET0_S5_NS1_13
 ; Function Attrs: inlinehint mustprogress ssp uwtable
 define linkonce_odr hidden ptr @_ZZN3fmt3v106detail9write_intINS0_8appenderEcZNS1_9write_intIcS3_oEET0_S5_NS1_13write_int_argIT1_EERKNS0_12format_specsIT_EENS1_10locale_refEEUlS3_E0_EESA_SA_ijRKNS9_IS5_EES7_ENKUlS3_E_clES3_(ptr noundef nonnull align 16 dereferenceable(64) %0, ptr %1) local_unnamed_addr #5 comdat align 2 {
   %3 = alloca [33 x i8], align 16
-  %4 = load i32, ptr %0, align 16, !tbaa !796
+  %4 = load i32, ptr %0, align 16, !tbaa !805
   %5 = and i32 %4, 16777215
   %.not8 = icmp eq i32 %5, 0
   br i1 %.not8, label %._crit_edge, label %.lr.ph
@@ -34904,7 +34956,7 @@ define linkonce_odr hidden ptr @_ZZN3fmt3v106detail9write_intINS0_8appenderEcZNS
 
 ._crit_edge:                                      ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit, %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %10 = load i64, ptr %9, align 16, !tbaa !811
+  %10 = load i64, ptr %9, align 16, !tbaa !820
   %.not.i = icmp eq i64 %10, 0
   br i1 %.not.i, label %_ZN3fmt3v106detail6fill_nINS0_8appenderEmcEET_S4_T0_RKT1_.exit, label %.lr.ph.i
 
@@ -34943,11 +34995,11 @@ _ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSERKc.exit.i: ; preds =
 
 _ZN3fmt3v106detail6fill_nINS0_8appenderEmcEET_S4_T0_RKT1_.exit: ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSERKc.exit.i, %._crit_edge
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %27 = load i128, ptr %26, align 16, !tbaa !812
+  %27 = load i128, ptr %26, align 16, !tbaa !821
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %29 = load i32, ptr %28, align 16, !tbaa !813
+  %29 = load i32, ptr %28, align 16, !tbaa !822
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  %31 = load i8, ptr %30, align 4, !tbaa !814, !range !297, !noundef !298
+  %31 = load i8, ptr %30, align 4, !tbaa !823, !range !297, !noundef !298
   %32 = trunc nuw i8 %31 to i1
   %33 = zext i32 %29 to i64
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -35041,13 +35093,13 @@ _ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit: ; preds = %6
   store i8 %64, ptr %74, align 1, !tbaa !15
   %75 = lshr i32 %.09, 8
   %.not = icmp samesign ult i32 %.09, 256
-  br i1 %.not, label %._crit_edge, label %63, !llvm.loop !815
+  br i1 %.not, label %._crit_edge, label %63, !llvm.loop !824
 }
 
 ; Function Attrs: inlinehint mustprogress ssp uwtable
 define linkonce_odr hidden ptr @_ZZN3fmt3v106detail9write_intINS0_8appenderEcZNS1_9write_intIcS3_oEET0_S5_NS1_13write_int_argIT1_EERKNS0_12format_specsIT_EENS1_10locale_refEEUlS3_E1_EESA_SA_ijRKNS9_IS5_EES7_ENKUlS3_E_clES3_(ptr noundef nonnull align 16 dereferenceable(64) %0, ptr %1) local_unnamed_addr #5 comdat align 2 {
   %3 = alloca [129 x i8], align 16
-  %4 = load i32, ptr %0, align 16, !tbaa !800
+  %4 = load i32, ptr %0, align 16, !tbaa !809
   %5 = and i32 %4, 16777215
   %.not8 = icmp eq i32 %5, 0
   br i1 %.not8, label %._crit_edge, label %.lr.ph
@@ -35060,7 +35112,7 @@ define linkonce_odr hidden ptr @_ZZN3fmt3v106detail9write_intINS0_8appenderEcZNS
 
 ._crit_edge:                                      ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit, %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %10 = load i64, ptr %9, align 16, !tbaa !816
+  %10 = load i64, ptr %9, align 16, !tbaa !825
   %.not.i = icmp eq i64 %10, 0
   br i1 %.not.i, label %_ZN3fmt3v106detail6fill_nINS0_8appenderEmcEET_S4_T0_RKT1_.exit, label %.lr.ph.i
 
@@ -35099,9 +35151,9 @@ _ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSERKc.exit.i: ; preds =
 
 _ZN3fmt3v106detail6fill_nINS0_8appenderEmcEET_S4_T0_RKT1_.exit: ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSERKc.exit.i, %._crit_edge
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %27 = load i128, ptr %26, align 16, !tbaa !817
+  %27 = load i128, ptr %26, align 16, !tbaa !826
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %29 = load i32, ptr %28, align 16, !tbaa !818
+  %29 = load i32, ptr %28, align 16, !tbaa !827
   %30 = zext i32 %29 to i64
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %32 = load i64, ptr %31, align 8, !tbaa !308
@@ -35190,13 +35242,13 @@ _ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit: ; preds = %5
   store i8 %59, ptr %69, align 1, !tbaa !15
   %70 = lshr i32 %.09, 8
   %.not = icmp samesign ult i32 %.09, 256
-  br i1 %.not, label %._crit_edge, label %58, !llvm.loop !819
+  br i1 %.not, label %._crit_edge, label %58, !llvm.loop !828
 }
 
 ; Function Attrs: inlinehint mustprogress ssp uwtable
 define linkonce_odr hidden ptr @_ZZN3fmt3v106detail9write_intINS0_8appenderEcZNS1_9write_intIcS3_oEET0_S5_NS1_13write_int_argIT1_EERKNS0_12format_specsIT_EENS1_10locale_refEEUlS3_E2_EESA_SA_ijRKNS9_IS5_EES7_ENKUlS3_E_clES3_(ptr noundef nonnull align 16 dereferenceable(64) %0, ptr %1) local_unnamed_addr #5 comdat align 2 {
   %3 = alloca [43 x i8], align 16
-  %4 = load i32, ptr %0, align 16, !tbaa !804
+  %4 = load i32, ptr %0, align 16, !tbaa !813
   %5 = and i32 %4, 16777215
   %.not8 = icmp eq i32 %5, 0
   br i1 %.not8, label %._crit_edge, label %.lr.ph
@@ -35209,7 +35261,7 @@ define linkonce_odr hidden ptr @_ZZN3fmt3v106detail9write_intINS0_8appenderEcZNS
 
 ._crit_edge:                                      ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit, %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %10 = load i64, ptr %9, align 16, !tbaa !820
+  %10 = load i64, ptr %9, align 16, !tbaa !829
   %.not.i = icmp eq i64 %10, 0
   br i1 %.not.i, label %_ZN3fmt3v106detail6fill_nINS0_8appenderEmcEET_S4_T0_RKT1_.exit, label %.lr.ph.i
 
@@ -35248,9 +35300,9 @@ _ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSERKc.exit.i: ; preds =
 
 _ZN3fmt3v106detail6fill_nINS0_8appenderEmcEET_S4_T0_RKT1_.exit: ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSERKc.exit.i, %._crit_edge
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %27 = load i128, ptr %26, align 16, !tbaa !821
+  %27 = load i128, ptr %26, align 16, !tbaa !830
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %29 = load i32, ptr %28, align 16, !tbaa !822
+  %29 = load i32, ptr %28, align 16, !tbaa !831
   %30 = zext i32 %29 to i64
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %32 = load i64, ptr %31, align 8, !tbaa !308
@@ -35339,7 +35391,7 @@ _ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit: ; preds = %5
   store i8 %59, ptr %69, align 1, !tbaa !15
   %70 = lshr i32 %.09, 8
   %.not = icmp samesign ult i32 %.09, 256
-  br i1 %.not, label %._crit_edge, label %58, !llvm.loop !823
+  br i1 %.not, label %._crit_edge, label %58, !llvm.loop !832
 }
 
 ; Function Attrs: mustprogress ssp uwtable
@@ -35445,9 +35497,9 @@ _ZN3fmt3v106detail16check_char_specsIcEEbRKNS0_12format_specsIT_EE.exit._crit_ed
 
 53:                                               ; preds = %_ZN3fmt3v106detail16check_char_specsIcEEbRKNS0_12format_specsIT_EE.exit
   %54 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i32 2, ptr %54, align 16, !tbaa !381, !alias.scope !824
+  store i32 2, ptr %54, align 16, !tbaa !381, !alias.scope !833
   %.sroa.01.0.insert.ext.i.i = zext i8 %1 to i64
-  store i64 %.sroa.01.0.insert.ext.i.i, ptr %5, align 16, !alias.scope !824
+  store i64 %.sroa.01.0.insert.ext.i.i, ptr %5, align 16, !alias.scope !833
   %55 = tail call noundef zeroext i1 @_ZN3fmt3v106detail9write_locENS0_8appenderENS0_9loc_valueERKNS0_12format_specsIcEENS1_10locale_refE(ptr %0, ptr noundef nonnull byval(%"class.fmt::v10::loc_value") align 16 %5, ptr noundef nonnull align 4 dereferenceable(16) %2, ptr %3)
   br i1 %55, label %_ZN3fmt3v106detail5writeIcNS0_8appenderEhTnNSt9enable_ifIXaaaasr11is_integralIT1_EE5valuentsr3std7is_sameIS5_bEE5valuesr3std7is_sameIT0_NSt11conditionalIXsr3std7is_sameIT_cEE5valueES3_St20back_insert_iteratorINS1_6bufferIS8_EEEE4typeEEE5valueEiE4typeELi0EEES6_S6_S5_RKNS0_12format_specsIS8_EENS1_10locale_refE.exit, label %._crit_edge
 
@@ -35853,7 +35905,7 @@ _ZN3fmt3v106detail11format_uintILj4EcmEEPT0_S4_T1_ib.exit.preheader: ; preds = %
 _ZN3fmt3v106detail11format_uintILj4EcmEEPT0_S4_T1_ib.exit: ; preds = %.lr.ph
   %42 = add nsw i32 %.199, -1
   %.not96 = icmp eq i32 %42, 0
-  br i1 %.not96, label %.critedge, label %.lr.ph, !llvm.loop !827
+  br i1 %.not96, label %.critedge, label %.lr.ph, !llvm.loop !836
 
 .critedge:                                        ; preds = %.lr.ph, %_ZN3fmt3v106detail11format_uintILj4EcmEEPT0_S4_T1_ib.exit, %_ZN3fmt3v106detail11format_uintILj4EcmEEPT0_S4_T1_ib.exit.preheader
   %.1.lcssa = phi i32 [ 0, %_ZN3fmt3v106detail11format_uintILj4EcmEEPT0_S4_T1_ib.exit.preheader ], [ 0, %_ZN3fmt3v106detail11format_uintILj4EcmEEPT0_S4_T1_ib.exit ], [ %.199, %.lr.ph ]
@@ -36046,7 +36098,7 @@ _ZN3fmt3v106detail6bufferIcE9push_backERKc.exit66: ; preds = %.lr.ph102, %126
   store i8 48, ptr %131, align 1, !tbaa !15
   %132 = add i32 %.2101, 1
   %exitcond.not = icmp eq i32 %132, %1
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph102, !llvm.loop !828
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph102, !llvm.loop !837
 
 ._crit_edge:                                      ; preds = %_ZN3fmt3v106detail6bufferIcE9push_backERKc.exit66, %_ZN3fmt3v106detail6bufferIcE6appendIcEEvPKT_S7_.exit
   %133 = select i1 %.not95, i8 112, i8 80
@@ -36749,7 +36801,7 @@ _ZN3fmt3v106detail6bufferIcE10try_resizeEm.exit176: ; preds = %276, %280
   store i16 %328, ptr %325, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %329 = icmp samesign ult i64 %indvars.iv.next.i, %zext
-  br i1 %329, label %321, label %_ZZN3fmt3v106detail12format_floatIdEEiT_iNS1_11float_specsERNS1_6bufferIcEEENKUljPcE_clEjS8_.exit, !llvm.loop !829
+  br i1 %329, label %321, label %_ZZN3fmt3v106detail12format_floatIdEEiT_iNS1_11float_specsERNS1_6bufferIcEEENKUljPcE_clEjS8_.exit, !llvm.loop !838
 
 _ZZN3fmt3v106detail12format_floatIdEEiT_iNS1_11float_specsERNS1_6bufferIcEEENKUljPcE_clEjS8_.exit: ; preds = %321
   %.1246 = trunc nuw nsw i64 %324 to i32
@@ -36767,7 +36819,7 @@ _ZZN3fmt3v106detail12format_floatIdEEiT_iNS1_11float_specsERNS1_6bufferIcEEENKUl
   %334 = sub nsw i32 8, %299
   %335 = sext i32 %334 to i64
   %336 = getelementptr inbounds i32, ptr @.str.57, i64 %335
-  %337 = load i32, ptr %336, align 4, !tbaa !830
+  %337 = load i32, ptr %336, align 4, !tbaa !839
   %.not142 = icmp ugt i32 %337, %333
   br i1 %.not142, label %338, label %.critedge149
 
@@ -36859,7 +36911,7 @@ _ZZN3fmt3v106detail12format_floatIdEEiT_iNS1_11float_specsERNS1_6bufferIcEEENKUl
   %indvars.iv.next.i182 = add nuw nsw i64 %indvars.iv.i181, 2
   %393 = trunc nuw i64 %indvars.iv.next.i182 to i32
   %394 = icmp sgt i32 %361, %393
-  br i1 %394, label %385, label %_ZZN3fmt3v106detail12format_floatIdEEiT_iNS1_11float_specsERNS1_6bufferIcEEENKUljPcE_clEjS8_.exit183, !llvm.loop !829
+  br i1 %394, label %385, label %_ZZN3fmt3v106detail12format_floatIdEEiT_iNS1_11float_specsERNS1_6bufferIcEEENKUljPcE_clEjS8_.exit183, !llvm.loop !838
 
 _ZZN3fmt3v106detail12format_floatIdEEiT_iNS1_11float_specsERNS1_6bufferIcEEENKUljPcE_clEjS8_.exit183: ; preds = %385
   %395 = trunc nuw nsw i64 %388 to i32
@@ -36873,7 +36925,7 @@ _ZZN3fmt3v106detail12format_floatIdEEiT_iNS1_11float_specsERNS1_6bufferIcEEENKUl
   %398 = sub nuw nsw i32 17, %.0228
   %399 = zext nneg i32 %398 to i64
   %400 = getelementptr inbounds nuw i32, ptr @.str.57, i64 %399
-  %401 = load i32, ptr %400, align 4, !tbaa !830
+  %401 = load i32, ptr %400, align 4, !tbaa !839
   %.not140 = icmp ugt i32 %401, %397
   br i1 %.not140, label %402, label %.critedge149.thread
 
@@ -36953,7 +37005,7 @@ _ZZN3fmt3v106detail12format_floatIdEEiT_iNS1_11float_specsERNS1_6bufferIcEEENKUl
   store i8 %445, ptr %443, align 1, !tbaa !15
   %446 = trunc nuw i64 %indvars.iv to i32
   %447 = icmp sgt i32 %446, 2
-  br i1 %447, label %.lr.ph, label %.critedge, !llvm.loop !832
+  br i1 %447, label %.lr.ph, label %.critedge, !llvm.loop !841
 
 448:                                              ; preds = %.critedge
   store i8 49, ptr %437, align 1, !tbaa !15
@@ -37074,7 +37126,7 @@ _ZZN3fmt3v106detail12format_floatIdEEiT_iNS1_11float_specsERNS1_6bufferIcEEENKUl
   %505 = add nsw i32 %499, 1
   store i32 %505, ptr %7, align 4, !tbaa !16
   %.not146 = icmp eq i64 %500, 0
-  br i1 %.not146, label %.critedge3.thread, label %498, !llvm.loop !833
+  br i1 %.not146, label %.critedge3.thread, label %498, !llvm.loop !842
 
 .critedge3.thread:                                ; preds = %504, %493
   %506 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -37437,7 +37489,7 @@ define linkonce_odr hidden ptr @_ZN3fmt3v106detail5writeIcNS0_8appenderEEET0_S4_
   store i64 %17, ptr %9, align 8, !tbaa !36
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i64 %2, ptr %10, align 8, !tbaa !36
-  store ptr %1, ptr %11, align 8, !tbaa !834
+  store ptr %1, ptr %11, align 8, !tbaa !843
   %20 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %9, ptr %20, align 8, !tbaa !140
   %21 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -37472,9 +37524,9 @@ define linkonce_odr hidden ptr @_ZN3fmt3v106detail5writeIcNS0_8appenderEEET0_S4_
   %.sroa.019.0.i = phi i64 [ 1, %29 ], [ %43, %42 ]
   %.0.i = phi ptr [ %1, %29 ], [ %41, %42 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  store ptr %30, ptr %8, align 8, !tbaa !411, !alias.scope !836
-  store ptr null, ptr %31, align 8, !tbaa !413, !alias.scope !836
-  store i32 0, ptr %32, align 8, !tbaa !414, !alias.scope !836
+  store ptr %30, ptr %8, align 8, !tbaa !411, !alias.scope !845
+  store ptr null, ptr %31, align 8, !tbaa !413, !alias.scope !845
+  store i32 0, ptr %32, align 8, !tbaa !414, !alias.scope !845
   %35 = ptrtoint ptr %.0.i to i64
   %36 = sub i64 %33, %35
   call void @_ZN3fmt3v106detail18for_each_codepointIZNS1_11find_escapeEPKcS4_EUljNS0_17basic_string_viewIcEEE_EEvS6_T_(ptr %.0.i, i64 %36, ptr nonnull align 8 %8)
@@ -37496,7 +37548,7 @@ define linkonce_odr hidden ptr @_ZN3fmt3v106detail5writeIcNS0_8appenderEEET0_S4_
   %43 = call i64 @_ZN3fmt3v106detail16write_escaped_cpINS1_17counting_iteratorEcEET_S4_RKNS1_18find_escape_resultIT0_EE(i64 %.sroa.04.0.lcssa.i.i, ptr noundef nonnull align 8 dereferenceable(24) %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.not12.i = icmp eq ptr %41, %30
-  br i1 %.not12.i, label %_ZN3fmt3v106detail20write_escaped_stringIcNS1_17counting_iteratorEEET0_S4_NS0_17basic_string_viewIT_EE.exit, label %34, !llvm.loop !839
+  br i1 %.not12.i, label %_ZN3fmt3v106detail20write_escaped_stringIcNS1_17counting_iteratorEEET0_S4_NS0_17basic_string_viewIT_EE.exit, label %34, !llvm.loop !848
 
 _ZN3fmt3v106detail20write_escaped_stringIcNS1_17counting_iteratorEEET0_S4_NS0_17basic_string_viewIT_EE.exit: ; preds = %42, %.thread.i
   %.sroa.019.128.i = phi i64 [ %.sroa.04.0.lcssa.i.i, %.thread.i ], [ %43, %42 ]
@@ -37524,7 +37576,7 @@ _ZN3fmt3v106detail20write_escaped_stringIcNS1_17counting_iteratorEEET0_S4_NS0_17
 51:                                               ; preds = %50
   %52 = call noundef ptr @_ZZN3fmt3v106detail18for_each_codepointIZNS1_13compute_widthENS0_17basic_string_viewIcEEE17count_code_pointsEEvS4_T_ENKUlPKcS8_E_clES8_S8_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %.1.i.i, ptr noundef %.1.i.i)
   %.not.i.i = icmp eq ptr %52, null
-  br i1 %.not.i.i, label %_ZN3fmt3v106detail13compute_widthENS0_17basic_string_viewIcEE.exit, label %50, !llvm.loop !840
+  br i1 %.not.i.i, label %_ZN3fmt3v106detail13compute_widthENS0_17basic_string_viewIcEE.exit, label %50, !llvm.loop !849
 
 .loopexit.i.i:                                    ; preds = %50, %45
   %.0.i.i = phi ptr [ %1, %45 ], [ %.1.i.i, %50 ]
@@ -37538,7 +37590,7 @@ _ZN3fmt3v106detail20write_escaped_stringIcNS1_17counting_iteratorEEET0_S4_NS0_17
 _ZN3fmt3v106detail8copy_strIcKccTnNSt9enable_ifIXaasr3std7is_sameINSt12remove_constIT0_E4typeET1_EE5valuesr7is_charIS9_EE5valueEiE4typeELi0EEEPS9_PS6_SD_SC_.exit.i.i: ; preds = %.loopexit.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %6, i8 0, i64 7, i1 false)
-  %57 = call ptr @__memcpy_chk(ptr noundef nonnull %6, ptr noundef nonnull %.0.i.i, i64 noundef range(i64 1, 0) %56, i64 noundef 7) #15, !alias.scope !841
+  %57 = call ptr @__memcpy_chk(ptr noundef nonnull %6, ptr noundef nonnull %.0.i.i, i64 noundef range(i64 1, 0) %56, i64 noundef 7) #15, !alias.scope !850
   %58 = ptrtoint ptr %6 to i64
   br label %59
 
@@ -37556,7 +37608,7 @@ _ZN3fmt3v106detail8copy_strIcKccTnNSt9enable_ifIXaasr3std7is_sameINSt12remove_co
   %65 = getelementptr inbounds i8, ptr %.3.i.i, i64 %64
   %66 = sub i64 %62, %58
   %67 = icmp slt i64 %66, %56
-  br i1 %67, label %59, label %.thread.sink.split.i.i, !llvm.loop !845
+  br i1 %67, label %59, label %.thread.sink.split.i.i, !llvm.loop !854
 
 .thread.sink.split.i.i:                           ; preds = %61, %59
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -37572,15 +37624,15 @@ _ZN3fmt3v106detail13compute_widthENS0_17basic_string_viewIcEE.exit: ; preds = %5
   %.019 = phi i64 [ %44, %_ZN3fmt3v106detail20write_escaped_stringIcNS1_17counting_iteratorEEET0_S4_NS0_17basic_string_viewIT_EE.exit ], [ %68, %_ZN3fmt3v106detail13compute_widthENS0_17basic_string_viewIcEE.exit ], [ 0, %23 ]
   %70 = zext i1 %26 to i8
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  store i8 %70, ptr %12, align 8, !tbaa !846
+  store i8 %70, ptr %12, align 8, !tbaa !855
   %71 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %1, ptr %71, align 8, !tbaa !103
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i64 %2, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !36
   %72 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  store ptr %1, ptr %72, align 8, !tbaa !848
+  store ptr %1, ptr %72, align 8, !tbaa !857
   %73 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  store i64 %.0, ptr %73, align 8, !tbaa !849
+  store i64 %.0, ptr %73, align 8, !tbaa !858
   %74 = call ptr @_ZN3fmt3v106detail12write_paddedILNS0_5align4typeE1ENS0_8appenderEcZNS1_5writeIcS5_EET0_S7_NS0_17basic_string_viewIT_EERKNS0_12format_specsIS9_EEEUlS5_E_EES7_S7_RKNSB_IT1_EEmmOT2_(ptr %0, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 noundef %.0, i64 noundef %.019, ptr noundef nonnull align 8 dereferenceable(40) %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret ptr %74
@@ -37611,7 +37663,7 @@ define linkonce_odr hidden ptr @_ZN3fmt3v106detail12write_paddedILNS0_5align4typ
 
 22:                                               ; preds = %20, %5
   %.sroa.08.0 = phi ptr [ %21, %20 ], [ %0, %5 ]
-  %23 = load i8, ptr %4, align 8, !tbaa !846, !range !297, !noundef !298
+  %23 = load i8, ptr %4, align 8, !tbaa !855, !range !297, !noundef !298
   %24 = trunc nuw i8 %23 to i1
   br i1 %24, label %25, label %28
 
@@ -37625,9 +37677,9 @@ define linkonce_odr hidden ptr @_ZN3fmt3v106detail12write_paddedILNS0_5align4typ
 
 28:                                               ; preds = %22
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %30 = load ptr, ptr %29, align 8, !tbaa !848
+  %30 = load ptr, ptr %29, align 8, !tbaa !857
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %32 = load i64, ptr %31, align 8, !tbaa !849
+  %32 = load i64, ptr %31, align 8, !tbaa !858
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 %32
   %.not17.i.i.i = icmp samesign eq i64 %32, 0
   br i1 %.not17.i.i.i, label %_ZZN3fmt3v106detail5writeIcNS0_8appenderEEET0_S4_NS0_17basic_string_viewIT_EERKNS0_12format_specsIS6_EEENKUlS3_E_clES3_.exit, label %.lr.ph.i.i.i
@@ -37804,7 +37856,7 @@ _ZZN3fmt3v106detail18for_each_codepointIZNS1_16code_point_indexENS0_17basic_stri
   %75 = zext nneg i32 %74 to i64
   %76 = getelementptr inbounds nuw i8, ptr %72, i64 %75
   %77 = select i1 %.not.i, ptr %76, ptr %21
-  br i1 %.not.i.not.i, label %.thread, label %10, !llvm.loop !850
+  br i1 %.not.i.not.i, label %.thread, label %10, !llvm.loop !859
 
 .loopexit:                                        ; preds = %10, %3
   %.0 = phi ptr [ %0, %3 ], [ %.1, %10 ]
@@ -37818,7 +37870,7 @@ _ZZN3fmt3v106detail18for_each_codepointIZNS1_16code_point_indexENS0_17basic_stri
 _ZN3fmt3v106detail8copy_strIcKccTnNSt9enable_ifIXaasr3std7is_sameINSt12remove_constIT0_E4typeET1_EE5valuesr7is_charIS9_EE5valueEiE4typeELi0EEEPS9_PS6_SD_SC_.exit: ; preds = %.loopexit
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %4, i8 0, i64 7, i1 false)
-  %82 = call ptr @__memcpy_chk(ptr noundef nonnull %4, ptr noundef nonnull %.0, i64 noundef range(i64 1, 0) %81, i64 noundef 7) #15, !alias.scope !851
+  %82 = call ptr @__memcpy_chk(ptr noundef nonnull %4, ptr noundef nonnull %.0, i64 noundef range(i64 1, 0) %81, i64 noundef 7) #15, !alias.scope !860
   %83 = ptrtoint ptr %.sroa.0.0.copyload to i64
   %84 = ptrtoint ptr %4 to i64
   %.sroa.5.0.copyload.promoted = load i64, ptr %.sroa.5.0.copyload, align 8, !tbaa !36
@@ -37902,7 +37954,7 @@ _ZN3fmt3v106detail8copy_strIcKccTnNSt9enable_ifIXaasr3std7is_sameINSt12remove_co
   %152 = getelementptr inbounds i8, ptr %.3, i64 %151
   %153 = sub i64 %149, %84
   %154 = icmp slt i64 %153, %81
-  br i1 %154, label %85, label %.thread.sink.split, !llvm.loop !855
+  br i1 %154, label %85, label %.thread.sink.split, !llvm.loop !864
 
 .critedge:                                        ; preds = %85
   %155 = ptrtoint ptr %.3 to i64
@@ -38180,7 +38232,7 @@ _ZZN3fmt3v106detail18for_each_codepointIZNS1_11find_escapeEPKcS4_EUljNS0_17basic
 _ZZN3fmt3v106detail18for_each_codepointIZNS1_11find_escapeEPKcS4_EUljNS0_17basic_string_viewIcEEE_EEvS6_T_ENKUlS4_S4_E_clES4_S4_.exit: ; preds = %_ZN3fmt3v106detail12needs_escapeEj.exit.i.i
   %74 = select i1 %.not.i, ptr %20, ptr %25
   %.not36 = icmp ult ptr %74, %8
-  br i1 %.not36, label %.lr.ph, label %.loopexit, !llvm.loop !856
+  br i1 %.not36, label %.lr.ph, label %.loopexit, !llvm.loop !865
 
 .loopexit:                                        ; preds = %_ZZN3fmt3v106detail18for_each_codepointIZNS1_11find_escapeEPKcS4_EUljNS0_17basic_string_viewIcEEE_EEvS6_T_ENKUlS4_S4_E_clES4_S4_.exit, %6, %3
   %.0 = phi ptr [ %0, %3 ], [ %0, %6 ], [ %74, %_ZZN3fmt3v106detail18for_each_codepointIZNS1_11find_escapeEPKcS4_EUljNS0_17basic_string_viewIcEEE_EEvS6_T_ENKUlS4_S4_E_clES4_S4_.exit ]
@@ -38194,7 +38246,7 @@ _ZZN3fmt3v106detail18for_each_codepointIZNS1_11find_escapeEPKcS4_EUljNS0_17basic
 _ZN3fmt3v106detail8copy_strIcKccTnNSt9enable_ifIXaasr3std7is_sameINSt12remove_constIT0_E4typeET1_EE5valuesr7is_charIS9_EE5valueEiE4typeELi0EEEPS9_PS6_SD_SC_.exit: ; preds = %.loopexit
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %4, i8 0, i64 7, i1 false)
-  %79 = call ptr @__memcpy_chk(ptr noundef nonnull %4, ptr noundef nonnull %.0, i64 noundef range(i64 1, 0) %78, i64 noundef 7) #15, !alias.scope !857
+  %79 = call ptr @__memcpy_chk(ptr noundef nonnull %4, ptr noundef nonnull %.0, i64 noundef range(i64 1, 0) %78, i64 noundef 7) #15, !alias.scope !866
   %80 = ptrtoint ptr %4 to i64
   br label %81
 
@@ -38297,7 +38349,7 @@ _ZZN3fmt3v106detail18for_each_codepointIZNS1_11find_escapeEPKcS4_EUljNS0_17basic
   %151 = getelementptr inbounds i8, ptr %.3, i64 %150
   %152 = sub i64 %148, %80
   %153 = icmp slt i64 %152, %78
-  br i1 %153, label %81, label %154, !llvm.loop !861
+  br i1 %153, label %81, label %154, !llvm.loop !870
 
 154:                                              ; preds = %_ZZN3fmt3v106detail18for_each_codepointIZNS1_11find_escapeEPKcS4_EUljNS0_17basic_string_viewIcEEE_EEvS6_T_ENKUlS4_S4_E_clES4_S4_.exit47
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -38421,7 +38473,7 @@ _ZZN3fmt3v106detail13compute_widthENS0_17basic_string_viewIcEEENK17count_code_po
   %84 = and i32 %83, 1
   %85 = zext nneg i32 %84 to i64
   %86 = getelementptr inbounds nuw i8, ptr %82, i64 %85
-  %87 = load ptr, ptr %0, align 8, !tbaa !862
+  %87 = load ptr, ptr %0, align 8, !tbaa !871
   %88 = load i64, ptr %87, align 8, !tbaa !36
   %89 = add i64 %88, %81
   store i64 %89, ptr %87, align 8, !tbaa !36
@@ -38466,9 +38518,9 @@ _ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit: ; preds = %3
   %.sroa.023.0 = phi ptr [ %0, %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit ], [ %56, %55 ]
   %.0 = phi ptr [ %1, %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit ], [ %54, %55 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  store ptr %18, ptr %4, align 8, !tbaa !411, !alias.scope !864
-  store ptr null, ptr %19, align 8, !tbaa !413, !alias.scope !864
-  store i32 0, ptr %20, align 8, !tbaa !414, !alias.scope !864
+  store ptr %18, ptr %4, align 8, !tbaa !411, !alias.scope !873
+  store ptr null, ptr %19, align 8, !tbaa !413, !alias.scope !873
+  store i32 0, ptr %20, align 8, !tbaa !414, !alias.scope !873
   %23 = ptrtoint ptr %.0 to i64
   %24 = sub i64 %21, %23
   call void @_ZN3fmt3v106detail18for_each_codepointIZNS1_11find_escapeEPKcS4_EUljNS0_17basic_string_viewIcEEE_EEvS6_T_(ptr %.0, i64 %24, ptr nonnull align 8 %4)
@@ -38546,7 +38598,7 @@ _ZN3fmt3v106detail8copy_strIcPKcEENS0_8appenderET0_S6_S5_.exit: ; preds = %_ZSt2
   %56 = call ptr @_ZN3fmt3v106detail16write_escaped_cpINS0_8appenderEcEET_S4_RKNS1_18find_escape_resultIT0_EE(ptr %.sroa.023.0, ptr noundef nonnull align 8 dereferenceable(24) %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not12 = icmp eq ptr %54, %18
-  br i1 %.not12, label %.loopexit, label %22, !llvm.loop !867
+  br i1 %.not12, label %.loopexit, label %22, !llvm.loop !876
 
 .loopexit:                                        ; preds = %55, %.thread
   %.sroa.023.129 = phi ptr [ %.sroa.023.0, %.thread ], [ %56, %55 ]
@@ -38729,7 +38781,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %73 = srem i64 %.01720.i.i.i.us.us, %67
   %74 = add nuw nsw i64 %.022.i.i.i.us.us, 1
   %exitcond.not.i.i.i.us.us = icmp eq i64 %74, %.fr
-  br i1 %exitcond.not.i.i.i.us.us, label %._crit_edge.i.i.i.us.loopexit.us, label %.lr.ph.i.i.i.us.us, !llvm.loop !868
+  br i1 %exitcond.not.i.i.i.us.us, label %._crit_edge.i.i.i.us.loopexit.us, label %.lr.ph.i.i.i.us.us, !llvm.loop !877
 
 ._crit_edge.i.i.i.us.loopexit.us:                 ; preds = %.lr.ph.i.i.i.us.us
   %75 = getelementptr inbounds i8, ptr %26, i64 %72
@@ -38809,7 +38861,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %114 = srem i64 %.01720.i.i.i.us32, %108
   %115 = add nuw nsw i64 %.022.i.i.i.us30, 1
   %exitcond.not.i.i.i.us33 = icmp eq i64 %115, %.fr
-  br i1 %exitcond.not.i.i.i.us33, label %._crit_edge.i.i.i.loopexit.us49, label %.preheader.i.i.i.us28, !llvm.loop !868
+  br i1 %exitcond.not.i.i.i.us33, label %._crit_edge.i.i.i.loopexit.us49, label %.preheader.i.i.i.us28, !llvm.loop !877
 
 _ZNK6open3d4core7Indexer11GetInputPtrIdEEPT_ll.exit.thread.i.us36: ; preds = %.lr.ph.split.split.split.us, %._crit_edge.i.i.i.loopexit.us49
   %.0.i21.i.us37 = phi ptr [ %137, %._crit_edge.i.i.i.loopexit.us49 ], [ null, %.lr.ph.split.split.split.us ]
@@ -39000,7 +39052,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %62 = srem i64 %.01720.i.i.i.us, %56
   %63 = add nuw nsw i64 %.022.i.i.i.us, 1
   %exitcond.not.i.i.i.us = icmp eq i64 %63, %.fr
-  br i1 %exitcond.not.i.i.i.us, label %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.thread20.i.us, label %.lr.ph.i.i.i.us, !llvm.loop !869
+  br i1 %exitcond.not.i.i.i.us, label %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.thread20.i.us, label %.lr.ph.i.i.i.us, !llvm.loop !878
 
 _ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.thread20.i.us: ; preds = %.lr.ph.i.i.i.us
   %64 = getelementptr inbounds i8, ptr %26, i64 %61
@@ -39096,7 +39148,7 @@ _ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.thread20.i.us: ; preds = %.l
   %111 = srem i64 %.01720.i.i.i.us32, %105
   %112 = add nuw nsw i64 %.022.i.i.i.us30, 1
   %exitcond.not.i.i.i.us33 = icmp eq i64 %112, %.fr
-  br i1 %exitcond.not.i.i.i.us33, label %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.thread20.i.loopexit.us49, label %.preheader.i.i.i.us28, !llvm.loop !869
+  br i1 %exitcond.not.i.i.i.us33, label %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.thread20.i.loopexit.us49, label %.preheader.i.i.i.us28, !llvm.loop !878
 
 .preheader.i.i12.i.us36:                          ; preds = %.lr.ph.split.split.split.us, %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.thread20.i.loopexit.us49
   %.0.i22.i.us37 = phi ptr [ %134, %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.thread20.i.loopexit.us49 ], [ null, %.lr.ph.split.split.split.us ]
@@ -39323,7 +39375,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %73 = srem i64 %.01720.i.i.i.us.us, %67
   %74 = add nuw nsw i64 %.022.i.i.i.us.us, 1
   %exitcond.not.i.i.i.us.us = icmp eq i64 %74, %.fr
-  br i1 %exitcond.not.i.i.i.us.us, label %._crit_edge.i.i.i.us.loopexit.us, label %.lr.ph.i.i.i.us.us, !llvm.loop !870
+  br i1 %exitcond.not.i.i.i.us.us, label %._crit_edge.i.i.i.us.loopexit.us, label %.lr.ph.i.i.i.us.us, !llvm.loop !879
 
 ._crit_edge.i.i.i.us.loopexit.us:                 ; preds = %.lr.ph.i.i.i.us.us
   %75 = getelementptr inbounds i8, ptr %26, i64 %72
@@ -39403,7 +39455,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %114 = srem i64 %.01720.i.i.i.us32, %108
   %115 = add nuw nsw i64 %.022.i.i.i.us30, 1
   %exitcond.not.i.i.i.us33 = icmp eq i64 %115, %.fr
-  br i1 %exitcond.not.i.i.i.us33, label %._crit_edge.i.i.i.loopexit.us49, label %.preheader.i.i.i.us28, !llvm.loop !870
+  br i1 %exitcond.not.i.i.i.us33, label %._crit_edge.i.i.i.loopexit.us49, label %.preheader.i.i.i.us28, !llvm.loop !879
 
 _ZNK6open3d4core7Indexer11GetInputPtrIsEEPT_ll.exit.thread.i.us36: ; preds = %.lr.ph.split.split.split.us, %._crit_edge.i.i.i.loopexit.us49
   %.0.i21.i.us37 = phi ptr [ %137, %._crit_edge.i.i.i.loopexit.us49 ], [ null, %.lr.ph.split.split.split.us ]
@@ -39628,7 +39680,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %73 = srem i64 %.01720.i.i.i.us.us, %67
   %74 = add nuw nsw i64 %.022.i.i.i.us.us, 1
   %exitcond.not.i.i.i.us.us = icmp eq i64 %74, %.fr
-  br i1 %exitcond.not.i.i.i.us.us, label %._crit_edge.i.i.i.us.loopexit.us, label %.lr.ph.i.i.i.us.us, !llvm.loop !871
+  br i1 %exitcond.not.i.i.i.us.us, label %._crit_edge.i.i.i.us.loopexit.us, label %.lr.ph.i.i.i.us.us, !llvm.loop !880
 
 ._crit_edge.i.i.i.us.loopexit.us:                 ; preds = %.lr.ph.i.i.i.us.us
   %75 = getelementptr inbounds i8, ptr %26, i64 %72
@@ -39708,7 +39760,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %114 = srem i64 %.01720.i.i.i.us32, %108
   %115 = add nuw nsw i64 %.022.i.i.i.us30, 1
   %exitcond.not.i.i.i.us33 = icmp eq i64 %115, %.fr
-  br i1 %exitcond.not.i.i.i.us33, label %._crit_edge.i.i.i.loopexit.us49, label %.preheader.i.i.i.us28, !llvm.loop !871
+  br i1 %exitcond.not.i.i.i.us33, label %._crit_edge.i.i.i.loopexit.us49, label %.preheader.i.i.i.us28, !llvm.loop !880
 
 _ZNK6open3d4core7Indexer11GetInputPtrIiEEPT_ll.exit.thread.i.us36: ; preds = %.lr.ph.split.split.split.us, %._crit_edge.i.i.i.loopexit.us49
   %.0.i21.i.us37 = phi ptr [ %137, %._crit_edge.i.i.i.loopexit.us49 ], [ null, %.lr.ph.split.split.split.us ]
@@ -39933,7 +39985,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %73 = srem i64 %.01720.i.i.i.us.us, %67
   %74 = add nuw nsw i64 %.022.i.i.i.us.us, 1
   %exitcond.not.i.i.i.us.us = icmp eq i64 %74, %.fr
-  br i1 %exitcond.not.i.i.i.us.us, label %._crit_edge.i.i.i.us.loopexit.us, label %.lr.ph.i.i.i.us.us, !llvm.loop !872
+  br i1 %exitcond.not.i.i.i.us.us, label %._crit_edge.i.i.i.us.loopexit.us, label %.lr.ph.i.i.i.us.us, !llvm.loop !881
 
 ._crit_edge.i.i.i.us.loopexit.us:                 ; preds = %.lr.ph.i.i.i.us.us
   %75 = getelementptr inbounds i8, ptr %26, i64 %72
@@ -40013,7 +40065,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %114 = srem i64 %.01720.i.i.i.us32, %108
   %115 = add nuw nsw i64 %.022.i.i.i.us30, 1
   %exitcond.not.i.i.i.us33 = icmp eq i64 %115, %.fr
-  br i1 %exitcond.not.i.i.i.us33, label %._crit_edge.i.i.i.loopexit.us49, label %.preheader.i.i.i.us28, !llvm.loop !872
+  br i1 %exitcond.not.i.i.i.us33, label %._crit_edge.i.i.i.loopexit.us49, label %.preheader.i.i.i.us28, !llvm.loop !881
 
 _ZNK6open3d4core7Indexer11GetInputPtrIlEEPT_ll.exit.thread.i.us36: ; preds = %.lr.ph.split.split.split.us, %._crit_edge.i.i.i.loopexit.us49
   %.0.i21.i.us37 = phi ptr [ %137, %._crit_edge.i.i.i.loopexit.us49 ], [ null, %.lr.ph.split.split.split.us ]
@@ -40204,7 +40256,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %62 = srem i64 %.01720.i.i.i.us, %56
   %63 = add nuw nsw i64 %.022.i.i.i.us, 1
   %exitcond.not.i.i.i.us = icmp eq i64 %63, %.fr
-  br i1 %exitcond.not.i.i.i.us, label %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.thread20.i.us, label %.lr.ph.i.i.i.us, !llvm.loop !873
+  br i1 %exitcond.not.i.i.i.us, label %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.thread20.i.us, label %.lr.ph.i.i.i.us, !llvm.loop !882
 
 _ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.thread20.i.us: ; preds = %.lr.ph.i.i.i.us
   %64 = getelementptr inbounds i8, ptr %26, i64 %61
@@ -40300,7 +40352,7 @@ _ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.thread20.i.us: ; preds = %.l
   %111 = srem i64 %.01720.i.i.i.us32, %105
   %112 = add nuw nsw i64 %.022.i.i.i.us30, 1
   %exitcond.not.i.i.i.us33 = icmp eq i64 %112, %.fr
-  br i1 %exitcond.not.i.i.i.us33, label %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.thread20.i.loopexit.us49, label %.preheader.i.i.i.us28, !llvm.loop !873
+  br i1 %exitcond.not.i.i.i.us33, label %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.thread20.i.loopexit.us49, label %.preheader.i.i.i.us28, !llvm.loop !882
 
 .preheader.i.i12.i.us36:                          ; preds = %.lr.ph.split.split.split.us, %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.thread20.i.loopexit.us49
   %.0.i22.i.us37 = phi ptr [ %134, %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.thread20.i.loopexit.us49 ], [ null, %.lr.ph.split.split.split.us ]
@@ -40527,7 +40579,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %73 = srem i64 %.01720.i.i.i.us.us, %67
   %74 = add nuw nsw i64 %.022.i.i.i.us.us, 1
   %exitcond.not.i.i.i.us.us = icmp eq i64 %74, %.fr
-  br i1 %exitcond.not.i.i.i.us.us, label %._crit_edge.i.i.i.us.loopexit.us, label %.lr.ph.i.i.i.us.us, !llvm.loop !874
+  br i1 %exitcond.not.i.i.i.us.us, label %._crit_edge.i.i.i.us.loopexit.us, label %.lr.ph.i.i.i.us.us, !llvm.loop !883
 
 ._crit_edge.i.i.i.us.loopexit.us:                 ; preds = %.lr.ph.i.i.i.us.us
   %75 = getelementptr inbounds i8, ptr %26, i64 %72
@@ -40607,7 +40659,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %114 = srem i64 %.01720.i.i.i.us32, %108
   %115 = add nuw nsw i64 %.022.i.i.i.us30, 1
   %exitcond.not.i.i.i.us33 = icmp eq i64 %115, %.fr
-  br i1 %exitcond.not.i.i.i.us33, label %._crit_edge.i.i.i.loopexit.us49, label %.preheader.i.i.i.us28, !llvm.loop !874
+  br i1 %exitcond.not.i.i.i.us33, label %._crit_edge.i.i.i.loopexit.us49, label %.preheader.i.i.i.us28, !llvm.loop !883
 
 _ZNK6open3d4core7Indexer11GetInputPtrItEEPT_ll.exit.thread.i.us36: ; preds = %.lr.ph.split.split.split.us, %._crit_edge.i.i.i.loopexit.us49
   %.0.i21.i.us37 = phi ptr [ %137, %._crit_edge.i.i.i.loopexit.us49 ], [ null, %.lr.ph.split.split.split.us ]
@@ -40832,7 +40884,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %73 = srem i64 %.01720.i.i.i.us.us, %67
   %74 = add nuw nsw i64 %.022.i.i.i.us.us, 1
   %exitcond.not.i.i.i.us.us = icmp eq i64 %74, %.fr
-  br i1 %exitcond.not.i.i.i.us.us, label %._crit_edge.i.i.i.us.loopexit.us, label %.lr.ph.i.i.i.us.us, !llvm.loop !875
+  br i1 %exitcond.not.i.i.i.us.us, label %._crit_edge.i.i.i.us.loopexit.us, label %.lr.ph.i.i.i.us.us, !llvm.loop !884
 
 ._crit_edge.i.i.i.us.loopexit.us:                 ; preds = %.lr.ph.i.i.i.us.us
   %75 = getelementptr inbounds i8, ptr %26, i64 %72
@@ -40912,7 +40964,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %114 = srem i64 %.01720.i.i.i.us32, %108
   %115 = add nuw nsw i64 %.022.i.i.i.us30, 1
   %exitcond.not.i.i.i.us33 = icmp eq i64 %115, %.fr
-  br i1 %exitcond.not.i.i.i.us33, label %._crit_edge.i.i.i.loopexit.us49, label %.preheader.i.i.i.us28, !llvm.loop !875
+  br i1 %exitcond.not.i.i.i.us33, label %._crit_edge.i.i.i.loopexit.us49, label %.preheader.i.i.i.us28, !llvm.loop !884
 
 _ZNK6open3d4core7Indexer11GetInputPtrIjEEPT_ll.exit.thread.i.us36: ; preds = %.lr.ph.split.split.split.us, %._crit_edge.i.i.i.loopexit.us49
   %.0.i21.i.us37 = phi ptr [ %137, %._crit_edge.i.i.i.loopexit.us49 ], [ null, %.lr.ph.split.split.split.us ]
@@ -41137,7 +41189,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %73 = srem i64 %.01720.i.i.i.us.us, %67
   %74 = add nuw nsw i64 %.022.i.i.i.us.us, 1
   %exitcond.not.i.i.i.us.us = icmp eq i64 %74, %.fr
-  br i1 %exitcond.not.i.i.i.us.us, label %._crit_edge.i.i.i.us.loopexit.us, label %.lr.ph.i.i.i.us.us, !llvm.loop !876
+  br i1 %exitcond.not.i.i.i.us.us, label %._crit_edge.i.i.i.us.loopexit.us, label %.lr.ph.i.i.i.us.us, !llvm.loop !885
 
 ._crit_edge.i.i.i.us.loopexit.us:                 ; preds = %.lr.ph.i.i.i.us.us
   %75 = getelementptr inbounds i8, ptr %26, i64 %72
@@ -41217,7 +41269,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %114 = srem i64 %.01720.i.i.i.us32, %108
   %115 = add nuw nsw i64 %.022.i.i.i.us30, 1
   %exitcond.not.i.i.i.us33 = icmp eq i64 %115, %.fr
-  br i1 %exitcond.not.i.i.i.us33, label %._crit_edge.i.i.i.loopexit.us49, label %.preheader.i.i.i.us28, !llvm.loop !876
+  br i1 %exitcond.not.i.i.i.us33, label %._crit_edge.i.i.i.loopexit.us49, label %.preheader.i.i.i.us28, !llvm.loop !885
 
 _ZNK6open3d4core7Indexer11GetInputPtrImEEPT_ll.exit.thread.i.us36: ; preds = %.lr.ph.split.split.split.us, %._crit_edge.i.i.i.loopexit.us49
   %.0.i21.i.us37 = phi ptr [ %137, %._crit_edge.i.i.i.loopexit.us49 ], [ null, %.lr.ph.split.split.split.us ]
@@ -41309,109 +41361,6 @@ define internal fastcc void @"_ZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4c
   %4 = alloca %"class.open3d::core::Device", align 8
   %5 = alloca %class.anon.156, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %6 = load ptr, ptr %0, align 8, !tbaa !877
-  %7 = load ptr, ptr %6, align 8, !tbaa !4
-  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %9 = load ptr, ptr %8, align 8
-  %10 = tail call i64 %9(ptr noundef nonnull align 8 dereferenceable(160) %6)
-  store i64 %10, ptr %4, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !879
-  %13 = tail call noundef i64 @_ZNK6open3d4core7Indexer12NumWorkloadsEv(ptr noundef nonnull align 8 dereferenceable(842) %12)
-  call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %14 = load ptr, ptr %11, align 8, !tbaa !879
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(842) %5, ptr noundef nonnull align 8 dereferenceable(842) %14, i64 842, i1 false), !tbaa.struct !40
-  %15 = getelementptr inbounds nuw i8, ptr %5, i64 848
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %17 = load ptr, ptr %16, align 8, !tbaa !880
-  %18 = load double, ptr %17, align 8, !tbaa !69
-  store double %18, ptr %15, align 8, !tbaa !881
-  %19 = getelementptr inbounds nuw i8, ptr %5, i64 856
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %21 = load ptr, ptr %20, align 8, !tbaa !883
-  %22 = load double, ptr %21, align 8, !tbaa !69
-  store double %22, ptr %19, align 8, !tbaa !884
-  %23 = getelementptr inbounds nuw i8, ptr %5, i64 864
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %25 = load ptr, ptr %24, align 8, !tbaa !885
-  br label %26
-
-26:                                               ; preds = %26, %1
-  %27 = phi i64 [ 0, %1 ], [ %31, %26 ]
-  %28 = getelementptr inbounds nuw double, ptr %23, i64 %27
-  %29 = getelementptr inbounds nuw double, ptr %25, i64 %27
-  %30 = load double, ptr %29, align 8, !tbaa !69
-  store double %30, ptr %28, align 8, !tbaa !69
-  %31 = add nuw nsw i64 %27, 1
-  %32 = icmp eq i64 %31, 2
-  br i1 %32, label %33, label %26
-
-33:                                               ; preds = %26
-  call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %34 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @2)
-  store i64 %13, ptr %2, align 8, !tbaa !36
-  %35 = and i64 %10, 4294967295
-  %36 = icmp eq i64 %35, 0
-  br i1 %36, label %49, label %37
-
-37:                                               ; preds = %33
-  call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  call void @_ZNK6open3d4core6Device8ToStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr noundef nonnull align 4 dereferenceable(8) %4)
-  invoke void @_ZN6open3d7utility6Logger9LogError_IJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvPKciSA_SA_DpOT_(ptr noundef nonnull @.str.12, i32 noundef 76, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_1clEvENKUlvE_clEvEUllE_EEvRKNS0_6DeviceElRKT_", ptr noundef nonnull @.str.13, ptr noundef nonnull align 8 dereferenceable(32) %3) #33
-          to label %38 unwind label %39
-
-38:                                               ; preds = %37
-  unreachable
-
-39:                                               ; preds = %37
-  %40 = landingpad { ptr, i32 }
-          cleanup
-  %41 = load ptr, ptr %3, align 8, !tbaa !47
-  %42 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %43 = icmp eq ptr %41, %42
-  br i1 %43, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i: ; preds = %39
-  %44 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %45 = load i64, ptr %44, align 8, !tbaa !51
-  %46 = icmp ult i64 %45, 16
-  call void @llvm.assume(i1 %46)
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i: ; preds = %39
-  %47 = load i64, ptr %42, align 8, !tbaa !15
-  %48 = add i64 %47, 1
-  call void @_ZdlPvm(ptr noundef %41, i64 noundef %48) #32
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i
-
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i
-  call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  resume { ptr, i32 } %40
-
-49:                                               ; preds = %33
-  %50 = icmp eq i64 %13, 0
-  br i1 %50, label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_1clEvENKUlvE4_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit", label %51
-
-51:                                               ; preds = %49
-  %52 = tail call noundef i32 @_ZN6open3d7utility18EstimateMaxThreadsEv()
-  tail call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %34, i32 %52)
-  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 2, ptr nonnull @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_1clEvENKUlvE4_clEvEUllE_EEvRKNS0_6DeviceElRKT_.omp_outlined", ptr nonnull %2, ptr nonnull align 8 dereferenceable(880) %5)
-  br label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_1clEvENKUlvE4_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit"
-
-"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_1clEvENKUlvE4_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit": ; preds = %49, %51
-  call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret void
-}
-
-; Function Attrs: inlinehint mustprogress ssp uwtable
-define internal fastcc void @"_ZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_1clEvENKUlvE5_clEv"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = alloca i64, align 8
-  %3 = alloca %"class.std::__cxx11::basic_string", align 8
-  %4 = alloca %"class.open3d::core::Device", align 8
-  %5 = alloca %class.anon.157, align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = load ptr, ptr %0, align 8, !tbaa !886
   %7 = load ptr, ptr %6, align 8, !tbaa !4
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -41493,15 +41442,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %_
 
 49:                                               ; preds = %33
   %50 = icmp eq i64 %13, 0
-  br i1 %50, label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_1clEvENKUlvE5_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit", label %51
+  br i1 %50, label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_1clEvENKUlvE4_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit", label %51
 
 51:                                               ; preds = %49
   %52 = tail call noundef i32 @_ZN6open3d7utility18EstimateMaxThreadsEv()
   tail call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %34, i32 %52)
-  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 2, ptr nonnull @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_1clEvENKUlvE5_clEvEUllE_EEvRKNS0_6DeviceElRKT_.omp_outlined", ptr nonnull %2, ptr nonnull align 8 dereferenceable(880) %5)
-  br label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_1clEvENKUlvE5_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit"
+  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 2, ptr nonnull @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_1clEvENKUlvE4_clEvEUllE_EEvRKNS0_6DeviceElRKT_.omp_outlined", ptr nonnull %2, ptr nonnull align 8 dereferenceable(880) %5)
+  br label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_1clEvENKUlvE4_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit"
 
-"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_1clEvENKUlvE5_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit": ; preds = %49, %51
+"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_1clEvENKUlvE4_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit": ; preds = %49, %51
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -41509,11 +41458,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %_
 }
 
 ; Function Attrs: inlinehint mustprogress ssp uwtable
-define internal fastcc void @"_ZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_1clEvENKUlvE6_clEv"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_1clEvENKUlvE5_clEv"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca i64, align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.open3d::core::Device", align 8
-  %5 = alloca %class.anon.158, align 8
+  %5 = alloca %class.anon.157, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = load ptr, ptr %0, align 8, !tbaa !895
   %7 = load ptr, ptr %6, align 8, !tbaa !4
@@ -41596,15 +41545,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %_
 
 49:                                               ; preds = %33
   %50 = icmp eq i64 %13, 0
-  br i1 %50, label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_1clEvENKUlvE6_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit", label %51
+  br i1 %50, label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_1clEvENKUlvE5_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit", label %51
 
 51:                                               ; preds = %49
   %52 = tail call noundef i32 @_ZN6open3d7utility18EstimateMaxThreadsEv()
   tail call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %34, i32 %52)
-  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 2, ptr nonnull @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_1clEvENKUlvE6_clEvEUllE_EEvRKNS0_6DeviceElRKT_.omp_outlined", ptr nonnull %2, ptr nonnull align 8 dereferenceable(880) %5)
-  br label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_1clEvENKUlvE6_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit"
+  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 2, ptr nonnull @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_1clEvENKUlvE5_clEvEUllE_EEvRKNS0_6DeviceElRKT_.omp_outlined", ptr nonnull %2, ptr nonnull align 8 dereferenceable(880) %5)
+  br label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_1clEvENKUlvE5_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit"
 
-"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_1clEvENKUlvE6_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit": ; preds = %49, %51
+"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_1clEvENKUlvE5_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit": ; preds = %49, %51
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -41612,11 +41561,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %_
 }
 
 ; Function Attrs: inlinehint mustprogress ssp uwtable
-define internal fastcc void @"_ZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_1clEvENKUlvE7_clEv"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_1clEvENKUlvE6_clEv"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca i64, align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.open3d::core::Device", align 8
-  %5 = alloca %class.anon.159, align 8
+  %5 = alloca %class.anon.158, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = load ptr, ptr %0, align 8, !tbaa !904
   %7 = load ptr, ptr %6, align 8, !tbaa !4
@@ -41699,15 +41648,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %_
 
 49:                                               ; preds = %33
   %50 = icmp eq i64 %13, 0
-  br i1 %50, label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_1clEvENKUlvE7_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit", label %51
+  br i1 %50, label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_1clEvENKUlvE6_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit", label %51
 
 51:                                               ; preds = %49
   %52 = tail call noundef i32 @_ZN6open3d7utility18EstimateMaxThreadsEv()
   tail call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %34, i32 %52)
-  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 2, ptr nonnull @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_1clEvENKUlvE7_clEvEUllE_EEvRKNS0_6DeviceElRKT_.omp_outlined", ptr nonnull %2, ptr nonnull align 8 dereferenceable(880) %5)
-  br label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_1clEvENKUlvE7_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit"
+  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 2, ptr nonnull @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_1clEvENKUlvE6_clEvEUllE_EEvRKNS0_6DeviceElRKT_.omp_outlined", ptr nonnull %2, ptr nonnull align 8 dereferenceable(880) %5)
+  br label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_1clEvENKUlvE6_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit"
 
-"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_1clEvENKUlvE7_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit": ; preds = %49, %51
+"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_1clEvENKUlvE6_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit": ; preds = %49, %51
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -41715,11 +41664,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %_
 }
 
 ; Function Attrs: inlinehint mustprogress ssp uwtable
-define internal fastcc void @"_ZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_1clEvENKUlvE8_clEv"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_1clEvENKUlvE7_clEv"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca i64, align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.open3d::core::Device", align 8
-  %5 = alloca %class.anon.160, align 8
+  %5 = alloca %class.anon.159, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = load ptr, ptr %0, align 8, !tbaa !913
   %7 = load ptr, ptr %6, align 8, !tbaa !4
@@ -41746,6 +41695,109 @@ define internal fastcc void @"_ZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4c
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 864
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %25 = load ptr, ptr %24, align 8, !tbaa !921
+  br label %26
+
+26:                                               ; preds = %26, %1
+  %27 = phi i64 [ 0, %1 ], [ %31, %26 ]
+  %28 = getelementptr inbounds nuw double, ptr %23, i64 %27
+  %29 = getelementptr inbounds nuw double, ptr %25, i64 %27
+  %30 = load double, ptr %29, align 8, !tbaa !69
+  store double %30, ptr %28, align 8, !tbaa !69
+  %31 = add nuw nsw i64 %27, 1
+  %32 = icmp eq i64 %31, 2
+  br i1 %32, label %33, label %26
+
+33:                                               ; preds = %26
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  %34 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @2)
+  store i64 %13, ptr %2, align 8, !tbaa !36
+  %35 = and i64 %10, 4294967295
+  %36 = icmp eq i64 %35, 0
+  br i1 %36, label %49, label %37
+
+37:                                               ; preds = %33
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @_ZNK6open3d4core6Device8ToStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr noundef nonnull align 4 dereferenceable(8) %4)
+  invoke void @_ZN6open3d7utility6Logger9LogError_IJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvPKciSA_SA_DpOT_(ptr noundef nonnull @.str.12, i32 noundef 76, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_1clEvENKUlvE_clEvEUllE_EEvRKNS0_6DeviceElRKT_", ptr noundef nonnull @.str.13, ptr noundef nonnull align 8 dereferenceable(32) %3) #33
+          to label %38 unwind label %39
+
+38:                                               ; preds = %37
+  unreachable
+
+39:                                               ; preds = %37
+  %40 = landingpad { ptr, i32 }
+          cleanup
+  %41 = load ptr, ptr %3, align 8, !tbaa !47
+  %42 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %43 = icmp eq ptr %41, %42
+  br i1 %43, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i
+
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i: ; preds = %39
+  %44 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %45 = load i64, ptr %44, align 8, !tbaa !51
+  %46 = icmp ult i64 %45, 16
+  call void @llvm.assume(i1 %46)
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i
+
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i: ; preds = %39
+  %47 = load i64, ptr %42, align 8, !tbaa !15
+  %48 = add i64 %47, 1
+  call void @_ZdlPvm(ptr noundef %41, i64 noundef %48) #32
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i
+
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  resume { ptr, i32 } %40
+
+49:                                               ; preds = %33
+  %50 = icmp eq i64 %13, 0
+  br i1 %50, label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_1clEvENKUlvE7_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit", label %51
+
+51:                                               ; preds = %49
+  %52 = tail call noundef i32 @_ZN6open3d7utility18EstimateMaxThreadsEv()
+  tail call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %34, i32 %52)
+  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 2, ptr nonnull @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_1clEvENKUlvE7_clEvEUllE_EEvRKNS0_6DeviceElRKT_.omp_outlined", ptr nonnull %2, ptr nonnull align 8 dereferenceable(880) %5)
+  br label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_1clEvENKUlvE7_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit"
+
+"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_1clEvENKUlvE7_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit": ; preds = %49, %51
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress ssp uwtable
+define internal fastcc void @"_ZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_1clEvENKUlvE8_clEv"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca i64, align 8
+  %3 = alloca %"class.std::__cxx11::basic_string", align 8
+  %4 = alloca %"class.open3d::core::Device", align 8
+  %5 = alloca %class.anon.160, align 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  %6 = load ptr, ptr %0, align 8, !tbaa !922
+  %7 = load ptr, ptr %6, align 8, !tbaa !4
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %9 = load ptr, ptr %8, align 8
+  %10 = tail call i64 %9(ptr noundef nonnull align 8 dereferenceable(160) %6)
+  store i64 %10, ptr %4, align 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %12 = load ptr, ptr %11, align 8, !tbaa !924
+  %13 = tail call noundef i64 @_ZNK6open3d4core7Indexer12NumWorkloadsEv(ptr noundef nonnull align 8 dereferenceable(842) %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  %14 = load ptr, ptr %11, align 8, !tbaa !924
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(842) %5, ptr noundef nonnull align 8 dereferenceable(842) %14, i64 842, i1 false), !tbaa.struct !40
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 848
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %17 = load ptr, ptr %16, align 8, !tbaa !925
+  %18 = load double, ptr %17, align 8, !tbaa !69
+  store double %18, ptr %15, align 8, !tbaa !926
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 856
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %21 = load ptr, ptr %20, align 8, !tbaa !928
+  %22 = load double, ptr %21, align 8, !tbaa !69
+  store double %22, ptr %19, align 8, !tbaa !929
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 864
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %25 = load ptr, ptr %24, align 8, !tbaa !930
   br label %26
 
 26:                                               ; preds = %26, %1
@@ -41896,7 +41948,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %47 = srem i64 %.01720.i.i18.i.us, %41
   %48 = add nuw nsw i64 %.022.i.i16.i.us, 1
   %exitcond.not.i.i19.i.us = icmp eq i64 %48, %.fr
-  br i1 %exitcond.not.i.i19.i.us, label %._crit_edge.i.i13.i.us, label %.lr.ph.i.i15.i.us, !llvm.loop !868
+  br i1 %exitcond.not.i.i19.i.us, label %._crit_edge.i.i13.i.us, label %.lr.ph.i.i15.i.us, !llvm.loop !877
 
 ._crit_edge.i.i13.i.us:                           ; preds = %.lr.ph.i.i15.i.us, %.preheader.i.i12.i.us
   %.016.lcssa.i.i14.i.us = phi i64 [ 0, %.preheader.i.i12.i.us ], [ %46, %.lr.ph.i.i15.i.us ]
@@ -42057,7 +42109,7 @@ _ZNK6open3d4core7Indexer11GetInputPtrIfEEPT_ll.exit.thread.i.us36: ; preds = %.l
   %123 = srem i64 %.01720.i.i18.i.us41, %117
   %124 = add nuw nsw i64 %.022.i.i16.i.us39, 1
   %exitcond.not.i.i19.i.us42 = icmp eq i64 %124, %.fr
-  br i1 %exitcond.not.i.i19.i.us42, label %._crit_edge.i.i13.i.us43, label %.lr.ph.i.i15.i.us38, !llvm.loop !868
+  br i1 %exitcond.not.i.i19.i.us42, label %._crit_edge.i.i13.i.us43, label %.lr.ph.i.i15.i.us38, !llvm.loop !877
 
 ._crit_edge.i.i13.i.us43:                         ; preds = %.lr.ph.i.i15.i.us38, %_ZNK6open3d4core7Indexer11GetInputPtrIfEEPT_ll.exit.thread.i.us36
   %.016.lcssa.i.i14.i.us44 = phi i64 [ 0, %_ZNK6open3d4core7Indexer11GetInputPtrIfEEPT_ll.exit.thread.i.us36 ], [ %122, %.lr.ph.i.i15.i.us38 ]
@@ -42201,7 +42253,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %47 = srem i64 %.01720.i.i18.i.us, %41
   %48 = add nuw nsw i64 %.022.i.i16.i.us, 1
   %exitcond.not.i.i19.i.us = icmp eq i64 %48, %.fr
-  br i1 %exitcond.not.i.i19.i.us, label %._crit_edge.i.i13.i.us, label %.lr.ph.i.i15.i.us, !llvm.loop !868
+  br i1 %exitcond.not.i.i19.i.us, label %._crit_edge.i.i13.i.us, label %.lr.ph.i.i15.i.us, !llvm.loop !877
 
 ._crit_edge.i.i13.i.us:                           ; preds = %.lr.ph.i.i15.i.us, %.preheader.i.i12.i.us
   %.016.lcssa.i.i14.i.us = phi i64 [ 0, %.preheader.i.i12.i.us ], [ %46, %.lr.ph.i.i15.i.us ]
@@ -42258,7 +42310,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %72 = srem i64 %.01720.i.i.i.us.us, %66
   %73 = add nuw nsw i64 %.022.i.i.i.us.us, 1
   %exitcond.not.i.i.i.us.us = icmp eq i64 %73, %.fr
-  br i1 %exitcond.not.i.i.i.us.us, label %._crit_edge.i.i.i.us.loopexit.us, label %.lr.ph.i.i.i.us.us, !llvm.loop !868
+  br i1 %exitcond.not.i.i.i.us.us, label %._crit_edge.i.i.i.us.loopexit.us, label %.lr.ph.i.i.i.us.us, !llvm.loop !877
 
 ._crit_edge.i.i.i.us.loopexit.us:                 ; preds = %.lr.ph.i.i.i.us.us
   %74 = getelementptr inbounds i8, ptr %26, i64 %71
@@ -42329,7 +42381,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %109 = srem i64 %.01720.i.i.i.us32, %103
   %110 = add nuw nsw i64 %.022.i.i.i.us30, 1
   %exitcond.not.i.i.i.us33 = icmp eq i64 %110, %.fr
-  br i1 %exitcond.not.i.i.i.us33, label %._crit_edge.i.i.i.loopexit.us49, label %.preheader.i.i.i.us28, !llvm.loop !868
+  br i1 %exitcond.not.i.i.i.us33, label %._crit_edge.i.i.i.loopexit.us49, label %.preheader.i.i.i.us28, !llvm.loop !877
 
 _ZNK6open3d4core7Indexer11GetInputPtrIdEEPT_ll.exit.thread.i.us36: ; preds = %.lr.ph.split.split.split.us, %._crit_edge.i.i.i.loopexit.us49
   %.0.i21.i.us37 = phi ptr [ %131, %._crit_edge.i.i.i.loopexit.us49 ], [ null, %.lr.ph.split.split.split.us ]
@@ -42349,7 +42401,7 @@ _ZNK6open3d4core7Indexer11GetInputPtrIdEEPT_ll.exit.thread.i.us36: ; preds = %.l
   %118 = srem i64 %.01720.i.i18.i.us41, %112
   %119 = add nuw nsw i64 %.022.i.i16.i.us39, 1
   %exitcond.not.i.i19.i.us42 = icmp eq i64 %119, %.fr
-  br i1 %exitcond.not.i.i19.i.us42, label %._crit_edge.i.i13.i.us43, label %.lr.ph.i.i15.i.us38, !llvm.loop !868
+  br i1 %exitcond.not.i.i19.i.us42, label %._crit_edge.i.i13.i.us43, label %.lr.ph.i.i15.i.us38, !llvm.loop !877
 
 ._crit_edge.i.i13.i.us43:                         ; preds = %.lr.ph.i.i15.i.us38, %_ZNK6open3d4core7Indexer11GetInputPtrIdEEPT_ll.exit.thread.i.us36
   %.016.lcssa.i.i14.i.us44 = phi i64 [ 0, %_ZNK6open3d4core7Indexer11GetInputPtrIdEEPT_ll.exit.thread.i.us36 ], [ %117, %.lr.ph.i.i15.i.us38 ]
@@ -42520,7 +42572,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %62 = srem i64 %.01720.i.i.i.us, %56
   %63 = add nuw nsw i64 %.022.i.i.i.us, 1
   %exitcond.not.i.i.i.us = icmp eq i64 %63, %.fr
-  br i1 %exitcond.not.i.i.i.us, label %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.thread20.i.us, label %.lr.ph.i.i.i.us, !llvm.loop !869
+  br i1 %exitcond.not.i.i.i.us, label %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.thread20.i.us, label %.lr.ph.i.i.i.us, !llvm.loop !878
 
 _ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.thread20.i.us: ; preds = %.lr.ph.i.i.i.us
   %64 = getelementptr inbounds i8, ptr %26, i64 %61
@@ -42565,7 +42617,7 @@ _ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.thread20.i.us: ; preds = %.l
   %86 = srem i64 %.01720.i.i16.i.us, %80
   %87 = add nuw nsw i64 %.022.i.i14.i.us, 1
   %exitcond.not.i.i17.i.us = icmp eq i64 %87, %.fr
-  br i1 %exitcond.not.i.i17.i.us, label %._crit_edge.i.i.i.us, label %.lr.ph.i.i13.i.us, !llvm.loop !868
+  br i1 %exitcond.not.i.i17.i.us, label %._crit_edge.i.i.i.us, label %.lr.ph.i.i13.i.us, !llvm.loop !877
 
 ._crit_edge.i.i.i.us:                             ; preds = %.lr.ph.i.i13.i.us, %.lr.ph.split.split.us
   %.016.lcssa.i.i.i.us = phi i64 [ 0, %.lr.ph.split.split.us ], [ %85, %.lr.ph.i.i13.i.us ]
@@ -42616,7 +42668,7 @@ _ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.thread20.i.us: ; preds = %.l
   %111 = srem i64 %.01720.i.i.i.us32, %105
   %112 = add nuw nsw i64 %.022.i.i.i.us30, 1
   %exitcond.not.i.i.i.us33 = icmp eq i64 %112, %.fr
-  br i1 %exitcond.not.i.i.i.us33, label %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.thread20.i.loopexit.us49, label %.preheader.i.i.i.us28, !llvm.loop !869
+  br i1 %exitcond.not.i.i.i.us33, label %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.thread20.i.loopexit.us49, label %.preheader.i.i.i.us28, !llvm.loop !878
 
 .preheader.i.i12.i.us36:                          ; preds = %.lr.ph.split.split.split.us, %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.thread20.i.loopexit.us49
   %.0.i22.i.us37 = phi ptr [ %134, %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.thread20.i.loopexit.us49 ], [ null, %.lr.ph.split.split.split.us ]
@@ -42636,7 +42688,7 @@ _ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.thread20.i.us: ; preds = %.l
   %120 = srem i64 %.01720.i.i16.i.us41, %114
   %121 = add nuw nsw i64 %.022.i.i14.i.us39, 1
   %exitcond.not.i.i17.i.us42 = icmp eq i64 %121, %.fr
-  br i1 %exitcond.not.i.i17.i.us42, label %._crit_edge.i.i.i.us43, label %.lr.ph.i.i13.i.us38, !llvm.loop !868
+  br i1 %exitcond.not.i.i17.i.us42, label %._crit_edge.i.i.i.us43, label %.lr.ph.i.i13.i.us38, !llvm.loop !877
 
 ._crit_edge.i.i.i.us43:                           ; preds = %.lr.ph.i.i13.i.us38, %.preheader.i.i12.i.us36
   %.016.lcssa.i.i.i.us44 = phi i64 [ 0, %.preheader.i.i12.i.us36 ], [ %119, %.lr.ph.i.i13.i.us38 ]
@@ -42782,7 +42834,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %47 = srem i64 %.01720.i.i18.i.us, %41
   %48 = add nuw nsw i64 %.022.i.i16.i.us, 1
   %exitcond.not.i.i19.i.us = icmp eq i64 %48, %.fr
-  br i1 %exitcond.not.i.i19.i.us, label %._crit_edge.i.i13.i.us, label %.lr.ph.i.i15.i.us, !llvm.loop !868
+  br i1 %exitcond.not.i.i19.i.us, label %._crit_edge.i.i13.i.us, label %.lr.ph.i.i15.i.us, !llvm.loop !877
 
 ._crit_edge.i.i13.i.us:                           ; preds = %.lr.ph.i.i15.i.us, %.preheader.i.i12.i.us
   %.016.lcssa.i.i14.i.us = phi i64 [ 0, %.preheader.i.i12.i.us ], [ %46, %.lr.ph.i.i15.i.us ]
@@ -42843,7 +42895,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %73 = srem i64 %.01720.i.i.i.us.us, %67
   %74 = add nuw nsw i64 %.022.i.i.i.us.us, 1
   %exitcond.not.i.i.i.us.us = icmp eq i64 %74, %.fr
-  br i1 %exitcond.not.i.i.i.us.us, label %._crit_edge.i.i.i.us.loopexit.us, label %.lr.ph.i.i.i.us.us, !llvm.loop !870
+  br i1 %exitcond.not.i.i.i.us.us, label %._crit_edge.i.i.i.us.loopexit.us, label %.lr.ph.i.i.i.us.us, !llvm.loop !879
 
 ._crit_edge.i.i.i.us.loopexit.us:                 ; preds = %.lr.ph.i.i.i.us.us
   %75 = getelementptr inbounds i8, ptr %26, i64 %72
@@ -42923,7 +42975,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %114 = srem i64 %.01720.i.i.i.us32, %108
   %115 = add nuw nsw i64 %.022.i.i.i.us30, 1
   %exitcond.not.i.i.i.us33 = icmp eq i64 %115, %.fr
-  br i1 %exitcond.not.i.i.i.us33, label %._crit_edge.i.i.i.loopexit.us49, label %.preheader.i.i.i.us28, !llvm.loop !870
+  br i1 %exitcond.not.i.i.i.us33, label %._crit_edge.i.i.i.loopexit.us49, label %.preheader.i.i.i.us28, !llvm.loop !879
 
 _ZNK6open3d4core7Indexer11GetInputPtrIsEEPT_ll.exit.thread.i.us36: ; preds = %.lr.ph.split.split.split.us, %._crit_edge.i.i.i.loopexit.us49
   %.0.i21.i.us37 = phi ptr [ %137, %._crit_edge.i.i.i.loopexit.us49 ], [ null, %.lr.ph.split.split.split.us ]
@@ -42943,7 +42995,7 @@ _ZNK6open3d4core7Indexer11GetInputPtrIsEEPT_ll.exit.thread.i.us36: ; preds = %.l
   %123 = srem i64 %.01720.i.i18.i.us41, %117
   %124 = add nuw nsw i64 %.022.i.i16.i.us39, 1
   %exitcond.not.i.i19.i.us42 = icmp eq i64 %124, %.fr
-  br i1 %exitcond.not.i.i19.i.us42, label %._crit_edge.i.i13.i.us43, label %.lr.ph.i.i15.i.us38, !llvm.loop !868
+  br i1 %exitcond.not.i.i19.i.us42, label %._crit_edge.i.i13.i.us43, label %.lr.ph.i.i15.i.us38, !llvm.loop !877
 
 ._crit_edge.i.i13.i.us43:                         ; preds = %.lr.ph.i.i15.i.us38, %_ZNK6open3d4core7Indexer11GetInputPtrIsEEPT_ll.exit.thread.i.us36
   %.016.lcssa.i.i14.i.us44 = phi i64 [ 0, %_ZNK6open3d4core7Indexer11GetInputPtrIsEEPT_ll.exit.thread.i.us36 ], [ %122, %.lr.ph.i.i15.i.us38 ]
@@ -43087,7 +43139,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %47 = srem i64 %.01720.i.i18.i.us, %41
   %48 = add nuw nsw i64 %.022.i.i16.i.us, 1
   %exitcond.not.i.i19.i.us = icmp eq i64 %48, %.fr
-  br i1 %exitcond.not.i.i19.i.us, label %._crit_edge.i.i13.i.us, label %.lr.ph.i.i15.i.us, !llvm.loop !868
+  br i1 %exitcond.not.i.i19.i.us, label %._crit_edge.i.i13.i.us, label %.lr.ph.i.i15.i.us, !llvm.loop !877
 
 ._crit_edge.i.i13.i.us:                           ; preds = %.lr.ph.i.i15.i.us, %.preheader.i.i12.i.us
   %.016.lcssa.i.i14.i.us = phi i64 [ 0, %.preheader.i.i12.i.us ], [ %46, %.lr.ph.i.i15.i.us ]
@@ -43148,7 +43200,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %73 = srem i64 %.01720.i.i.i.us.us, %67
   %74 = add nuw nsw i64 %.022.i.i.i.us.us, 1
   %exitcond.not.i.i.i.us.us = icmp eq i64 %74, %.fr
-  br i1 %exitcond.not.i.i.i.us.us, label %._crit_edge.i.i.i.us.loopexit.us, label %.lr.ph.i.i.i.us.us, !llvm.loop !871
+  br i1 %exitcond.not.i.i.i.us.us, label %._crit_edge.i.i.i.us.loopexit.us, label %.lr.ph.i.i.i.us.us, !llvm.loop !880
 
 ._crit_edge.i.i.i.us.loopexit.us:                 ; preds = %.lr.ph.i.i.i.us.us
   %75 = getelementptr inbounds i8, ptr %26, i64 %72
@@ -43228,7 +43280,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %114 = srem i64 %.01720.i.i.i.us32, %108
   %115 = add nuw nsw i64 %.022.i.i.i.us30, 1
   %exitcond.not.i.i.i.us33 = icmp eq i64 %115, %.fr
-  br i1 %exitcond.not.i.i.i.us33, label %._crit_edge.i.i.i.loopexit.us49, label %.preheader.i.i.i.us28, !llvm.loop !871
+  br i1 %exitcond.not.i.i.i.us33, label %._crit_edge.i.i.i.loopexit.us49, label %.preheader.i.i.i.us28, !llvm.loop !880
 
 _ZNK6open3d4core7Indexer11GetInputPtrIiEEPT_ll.exit.thread.i.us36: ; preds = %.lr.ph.split.split.split.us, %._crit_edge.i.i.i.loopexit.us49
   %.0.i21.i.us37 = phi ptr [ %137, %._crit_edge.i.i.i.loopexit.us49 ], [ null, %.lr.ph.split.split.split.us ]
@@ -43248,7 +43300,7 @@ _ZNK6open3d4core7Indexer11GetInputPtrIiEEPT_ll.exit.thread.i.us36: ; preds = %.l
   %123 = srem i64 %.01720.i.i18.i.us41, %117
   %124 = add nuw nsw i64 %.022.i.i16.i.us39, 1
   %exitcond.not.i.i19.i.us42 = icmp eq i64 %124, %.fr
-  br i1 %exitcond.not.i.i19.i.us42, label %._crit_edge.i.i13.i.us43, label %.lr.ph.i.i15.i.us38, !llvm.loop !868
+  br i1 %exitcond.not.i.i19.i.us42, label %._crit_edge.i.i13.i.us43, label %.lr.ph.i.i15.i.us38, !llvm.loop !877
 
 ._crit_edge.i.i13.i.us43:                         ; preds = %.lr.ph.i.i15.i.us38, %_ZNK6open3d4core7Indexer11GetInputPtrIiEEPT_ll.exit.thread.i.us36
   %.016.lcssa.i.i14.i.us44 = phi i64 [ 0, %_ZNK6open3d4core7Indexer11GetInputPtrIiEEPT_ll.exit.thread.i.us36 ], [ %122, %.lr.ph.i.i15.i.us38 ]
@@ -43392,7 +43444,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %47 = srem i64 %.01720.i.i18.i.us, %41
   %48 = add nuw nsw i64 %.022.i.i16.i.us, 1
   %exitcond.not.i.i19.i.us = icmp eq i64 %48, %.fr
-  br i1 %exitcond.not.i.i19.i.us, label %._crit_edge.i.i13.i.us, label %.lr.ph.i.i15.i.us, !llvm.loop !868
+  br i1 %exitcond.not.i.i19.i.us, label %._crit_edge.i.i13.i.us, label %.lr.ph.i.i15.i.us, !llvm.loop !877
 
 ._crit_edge.i.i13.i.us:                           ; preds = %.lr.ph.i.i15.i.us, %.preheader.i.i12.i.us
   %.016.lcssa.i.i14.i.us = phi i64 [ 0, %.preheader.i.i12.i.us ], [ %46, %.lr.ph.i.i15.i.us ]
@@ -43407,8 +43459,8 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %.018.i.i.i.us = phi ptr [ %51, %50 ], [ %49, %._crit_edge.i.i13.i.us ]
   %53 = load i64, ptr %39, align 8, !tbaa !36
   %54 = sitofp i64 %53 to double
-  %55 = load double, ptr %34, align 8, !tbaa !881
-  %56 = load double, ptr %35, align 8, !tbaa !884
+  %55 = load double, ptr %34, align 8, !tbaa !890
+  %56 = load double, ptr %35, align 8, !tbaa !893
   %57 = call double @llvm.fmuladd.f64(double %54, double %55, double %56)
   %58 = load double, ptr %36, align 8, !tbaa !69
   %59 = fcmp olt double %57, %58
@@ -43453,15 +43505,15 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %73 = srem i64 %.01720.i.i.i.us.us, %67
   %74 = add nuw nsw i64 %.022.i.i.i.us.us, 1
   %exitcond.not.i.i.i.us.us = icmp eq i64 %74, %.fr
-  br i1 %exitcond.not.i.i.i.us.us, label %._crit_edge.i.i.i.us.loopexit.us, label %.lr.ph.i.i.i.us.us, !llvm.loop !872
+  br i1 %exitcond.not.i.i.i.us.us, label %._crit_edge.i.i.i.us.loopexit.us, label %.lr.ph.i.i.i.us.us, !llvm.loop !881
 
 ._crit_edge.i.i.i.us.loopexit.us:                 ; preds = %.lr.ph.i.i.i.us.us
   %75 = getelementptr inbounds i8, ptr %26, i64 %72
   %76 = getelementptr inbounds nuw double, ptr %33, i64 %.015.us17.us
   %77 = load i64, ptr %75, align 8, !tbaa !36
   %78 = sitofp i64 %77 to double
-  %79 = load double, ptr %34, align 8, !tbaa !881
-  %80 = load double, ptr %35, align 8, !tbaa !884
+  %79 = load double, ptr %34, align 8, !tbaa !890
+  %80 = load double, ptr %35, align 8, !tbaa !893
   %81 = call double @llvm.fmuladd.f64(double %78, double %79, double %80)
   %82 = load double, ptr %36, align 8, !tbaa !69
   %83 = fcmp olt double %81, %82
@@ -43487,8 +43539,8 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %.not.i.i.us18 = icmp sgt i64 %90, 0
   call void @llvm.assume(i1 %.not.i.i.us18)
   %91 = getelementptr inbounds nuw double, ptr %33, i64 %.015.us17
-  %92 = load double, ptr %34, align 8, !tbaa !881
-  %93 = load double, ptr %35, align 8, !tbaa !884
+  %92 = load double, ptr %34, align 8, !tbaa !890
+  %93 = load double, ptr %35, align 8, !tbaa !893
   %94 = call double @llvm.fmuladd.f64(double %89, double %92, double %93)
   %95 = load double, ptr %36, align 8, !tbaa !69
   %96 = fcmp olt double %94, %95
@@ -43533,7 +43585,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %114 = srem i64 %.01720.i.i.i.us32, %108
   %115 = add nuw nsw i64 %.022.i.i.i.us30, 1
   %exitcond.not.i.i.i.us33 = icmp eq i64 %115, %.fr
-  br i1 %exitcond.not.i.i.i.us33, label %._crit_edge.i.i.i.loopexit.us49, label %.preheader.i.i.i.us28, !llvm.loop !872
+  br i1 %exitcond.not.i.i.i.us33, label %._crit_edge.i.i.i.loopexit.us49, label %.preheader.i.i.i.us28, !llvm.loop !881
 
 _ZNK6open3d4core7Indexer11GetInputPtrIlEEPT_ll.exit.thread.i.us36: ; preds = %.lr.ph.split.split.split.us, %._crit_edge.i.i.i.loopexit.us49
   %.0.i21.i.us37 = phi ptr [ %137, %._crit_edge.i.i.i.loopexit.us49 ], [ null, %.lr.ph.split.split.split.us ]
@@ -43553,15 +43605,15 @@ _ZNK6open3d4core7Indexer11GetInputPtrIlEEPT_ll.exit.thread.i.us36: ; preds = %.l
   %123 = srem i64 %.01720.i.i18.i.us41, %117
   %124 = add nuw nsw i64 %.022.i.i16.i.us39, 1
   %exitcond.not.i.i19.i.us42 = icmp eq i64 %124, %.fr
-  br i1 %exitcond.not.i.i19.i.us42, label %._crit_edge.i.i13.i.us43, label %.lr.ph.i.i15.i.us38, !llvm.loop !868
+  br i1 %exitcond.not.i.i19.i.us42, label %._crit_edge.i.i13.i.us43, label %.lr.ph.i.i15.i.us38, !llvm.loop !877
 
 ._crit_edge.i.i13.i.us43:                         ; preds = %.lr.ph.i.i15.i.us38, %_ZNK6open3d4core7Indexer11GetInputPtrIlEEPT_ll.exit.thread.i.us36
   %.016.lcssa.i.i14.i.us44 = phi i64 [ 0, %_ZNK6open3d4core7Indexer11GetInputPtrIlEEPT_ll.exit.thread.i.us36 ], [ %122, %.lr.ph.i.i15.i.us38 ]
   %125 = getelementptr inbounds i8, ptr %33, i64 %.016.lcssa.i.i14.i.us44
   %126 = load i64, ptr %.0.i21.i.us37, align 8, !tbaa !36
   %127 = sitofp i64 %126 to double
-  %128 = load double, ptr %34, align 8, !tbaa !881
-  %129 = load double, ptr %35, align 8, !tbaa !884
+  %128 = load double, ptr %34, align 8, !tbaa !890
+  %129 = load double, ptr %35, align 8, !tbaa !893
   %130 = call double @llvm.fmuladd.f64(double %127, double %128, double %129)
   %131 = load double, ptr %36, align 8, !tbaa !69
   %132 = fcmp olt double %130, %131
@@ -43587,8 +43639,8 @@ _ZNK6open3d4core7Indexer11GetInputPtrIlEEPT_ll.exit.thread.i.us36: ; preds = %.l
 ._crit_edge.i.i13.i:                              ; preds = %.lr.ph.i.i15.i, %.lr.ph.split.split.split
   %.016.lcssa.i.i14.i = phi i64 [ 0, %.lr.ph.split.split.split ], [ %150, %.lr.ph.i.i15.i ]
   %139 = getelementptr inbounds i8, ptr %33, i64 %.016.lcssa.i.i14.i
-  %140 = load double, ptr %34, align 8, !tbaa !881
-  %141 = load double, ptr %35, align 8, !tbaa !884
+  %140 = load double, ptr %34, align 8, !tbaa !890
+  %141 = load double, ptr %35, align 8, !tbaa !893
   %142 = call double @llvm.fmuladd.f64(double %104, double %140, double %141)
   %143 = load double, ptr %36, align 8, !tbaa !69
   %144 = fcmp olt double %142, %143
@@ -43689,8 +43741,8 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %42 = getelementptr inbounds nuw double, ptr %33, i64 %.015.us.us
   %43 = load i8, ptr %41, align 1, !tbaa !15
   %44 = uitofp i8 %43 to double
-  %45 = load double, ptr %34, align 8, !tbaa !890
-  %46 = load double, ptr %35, align 8, !tbaa !893
+  %45 = load double, ptr %34, align 8, !tbaa !899
+  %46 = load double, ptr %35, align 8, !tbaa !902
   %47 = call double @llvm.fmuladd.f64(double %44, double %45, double %46)
   %48 = load double, ptr %36, align 8, !tbaa !69
   %49 = fcmp olt double %47, %48
@@ -43724,15 +43776,15 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %62 = srem i64 %.01720.i.i.i.us, %56
   %63 = add nuw nsw i64 %.022.i.i.i.us, 1
   %exitcond.not.i.i.i.us = icmp eq i64 %63, %.fr
-  br i1 %exitcond.not.i.i.i.us, label %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.thread20.i.us, label %.lr.ph.i.i.i.us, !llvm.loop !873
+  br i1 %exitcond.not.i.i.i.us, label %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.thread20.i.us, label %.lr.ph.i.i.i.us, !llvm.loop !882
 
 _ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.thread20.i.us: ; preds = %.lr.ph.i.i.i.us
   %64 = getelementptr inbounds i8, ptr %26, i64 %61
   %65 = getelementptr inbounds nuw double, ptr %33, i64 %.015.us
   %66 = load i8, ptr %64, align 1, !tbaa !15
   %67 = uitofp i8 %66 to double
-  %68 = load double, ptr %34, align 8, !tbaa !890
-  %69 = load double, ptr %35, align 8, !tbaa !893
+  %68 = load double, ptr %34, align 8, !tbaa !899
+  %69 = load double, ptr %35, align 8, !tbaa !902
   %70 = call double @llvm.fmuladd.f64(double %67, double %68, double %69)
   %71 = load double, ptr %36, align 8, !tbaa !69
   %72 = fcmp olt double %70, %71
@@ -43769,15 +43821,15 @@ _ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.thread20.i.us: ; preds = %.l
   %86 = srem i64 %.01720.i.i16.i.us, %80
   %87 = add nuw nsw i64 %.022.i.i14.i.us, 1
   %exitcond.not.i.i17.i.us = icmp eq i64 %87, %.fr
-  br i1 %exitcond.not.i.i17.i.us, label %._crit_edge.i.i.i.us, label %.lr.ph.i.i13.i.us, !llvm.loop !868
+  br i1 %exitcond.not.i.i17.i.us, label %._crit_edge.i.i.i.us, label %.lr.ph.i.i13.i.us, !llvm.loop !877
 
 ._crit_edge.i.i.i.us:                             ; preds = %.lr.ph.i.i13.i.us, %.lr.ph.split.split.us
   %.016.lcssa.i.i.i.us = phi i64 [ 0, %.lr.ph.split.split.us ], [ %85, %.lr.ph.i.i13.i.us ]
   %88 = getelementptr inbounds i8, ptr %33, i64 %.016.lcssa.i.i.i.us
   %89 = load i8, ptr %78, align 1, !tbaa !15
   %90 = uitofp i8 %89 to double
-  %91 = load double, ptr %34, align 8, !tbaa !890
-  %92 = load double, ptr %35, align 8, !tbaa !893
+  %91 = load double, ptr %34, align 8, !tbaa !899
+  %92 = load double, ptr %35, align 8, !tbaa !902
   %93 = call double @llvm.fmuladd.f64(double %90, double %91, double %92)
   %94 = load double, ptr %36, align 8, !tbaa !69
   %95 = fcmp olt double %93, %94
@@ -43820,7 +43872,7 @@ _ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.thread20.i.us: ; preds = %.l
   %111 = srem i64 %.01720.i.i.i.us32, %105
   %112 = add nuw nsw i64 %.022.i.i.i.us30, 1
   %exitcond.not.i.i.i.us33 = icmp eq i64 %112, %.fr
-  br i1 %exitcond.not.i.i.i.us33, label %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.thread20.i.loopexit.us49, label %.preheader.i.i.i.us28, !llvm.loop !873
+  br i1 %exitcond.not.i.i.i.us33, label %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.thread20.i.loopexit.us49, label %.preheader.i.i.i.us28, !llvm.loop !882
 
 .preheader.i.i12.i.us36:                          ; preds = %.lr.ph.split.split.split.us, %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.thread20.i.loopexit.us49
   %.0.i22.i.us37 = phi ptr [ %134, %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.thread20.i.loopexit.us49 ], [ null, %.lr.ph.split.split.split.us ]
@@ -43840,15 +43892,15 @@ _ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.thread20.i.us: ; preds = %.l
   %120 = srem i64 %.01720.i.i16.i.us41, %114
   %121 = add nuw nsw i64 %.022.i.i14.i.us39, 1
   %exitcond.not.i.i17.i.us42 = icmp eq i64 %121, %.fr
-  br i1 %exitcond.not.i.i17.i.us42, label %._crit_edge.i.i.i.us43, label %.lr.ph.i.i13.i.us38, !llvm.loop !868
+  br i1 %exitcond.not.i.i17.i.us42, label %._crit_edge.i.i.i.us43, label %.lr.ph.i.i13.i.us38, !llvm.loop !877
 
 ._crit_edge.i.i.i.us43:                           ; preds = %.lr.ph.i.i13.i.us38, %.preheader.i.i12.i.us36
   %.016.lcssa.i.i.i.us44 = phi i64 [ 0, %.preheader.i.i12.i.us36 ], [ %119, %.lr.ph.i.i13.i.us38 ]
   %122 = getelementptr inbounds i8, ptr %33, i64 %.016.lcssa.i.i.i.us44
   %123 = load i8, ptr %.0.i22.i.us37, align 1, !tbaa !15
   %124 = uitofp i8 %123 to double
-  %125 = load double, ptr %34, align 8, !tbaa !890
-  %126 = load double, ptr %35, align 8, !tbaa !893
+  %125 = load double, ptr %34, align 8, !tbaa !899
+  %126 = load double, ptr %35, align 8, !tbaa !902
   %127 = call double @llvm.fmuladd.f64(double %124, double %125, double %126)
   %128 = load double, ptr %36, align 8, !tbaa !69
   %129 = fcmp olt double %127, %128
@@ -43876,8 +43928,8 @@ _ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.thread20.i.loopexit.us49: ; 
   %136 = getelementptr inbounds i8, ptr %33, i64 %.016.lcssa.i.i.i
   %137 = load i8, ptr %26, align 1, !tbaa !15
   %138 = uitofp i8 %137 to double
-  %139 = load double, ptr %34, align 8, !tbaa !890
-  %140 = load double, ptr %35, align 8, !tbaa !893
+  %139 = load double, ptr %34, align 8, !tbaa !899
+  %140 = load double, ptr %35, align 8, !tbaa !902
   %141 = call double @llvm.fmuladd.f64(double %138, double %139, double %140)
   %142 = load double, ptr %36, align 8, !tbaa !69
   %143 = fcmp olt double %141, %142
@@ -43986,7 +44038,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %47 = srem i64 %.01720.i.i18.i.us, %41
   %48 = add nuw nsw i64 %.022.i.i16.i.us, 1
   %exitcond.not.i.i19.i.us = icmp eq i64 %48, %.fr
-  br i1 %exitcond.not.i.i19.i.us, label %._crit_edge.i.i13.i.us, label %.lr.ph.i.i15.i.us, !llvm.loop !868
+  br i1 %exitcond.not.i.i19.i.us, label %._crit_edge.i.i13.i.us, label %.lr.ph.i.i15.i.us, !llvm.loop !877
 
 ._crit_edge.i.i13.i.us:                           ; preds = %.lr.ph.i.i15.i.us, %.preheader.i.i12.i.us
   %.016.lcssa.i.i14.i.us = phi i64 [ 0, %.preheader.i.i12.i.us ], [ %46, %.lr.ph.i.i15.i.us ]
@@ -44001,8 +44053,8 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %.018.i.i.i.us = phi ptr [ %51, %50 ], [ %49, %._crit_edge.i.i13.i.us ]
   %53 = load i16, ptr %39, align 2, !tbaa !122
   %54 = uitofp i16 %53 to double
-  %55 = load double, ptr %34, align 8, !tbaa !899
-  %56 = load double, ptr %35, align 8, !tbaa !902
+  %55 = load double, ptr %34, align 8, !tbaa !908
+  %56 = load double, ptr %35, align 8, !tbaa !911
   %57 = call double @llvm.fmuladd.f64(double %54, double %55, double %56)
   %58 = load double, ptr %36, align 8, !tbaa !69
   %59 = fcmp olt double %57, %58
@@ -44047,15 +44099,15 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %73 = srem i64 %.01720.i.i.i.us.us, %67
   %74 = add nuw nsw i64 %.022.i.i.i.us.us, 1
   %exitcond.not.i.i.i.us.us = icmp eq i64 %74, %.fr
-  br i1 %exitcond.not.i.i.i.us.us, label %._crit_edge.i.i.i.us.loopexit.us, label %.lr.ph.i.i.i.us.us, !llvm.loop !874
+  br i1 %exitcond.not.i.i.i.us.us, label %._crit_edge.i.i.i.us.loopexit.us, label %.lr.ph.i.i.i.us.us, !llvm.loop !883
 
 ._crit_edge.i.i.i.us.loopexit.us:                 ; preds = %.lr.ph.i.i.i.us.us
   %75 = getelementptr inbounds i8, ptr %26, i64 %72
   %76 = getelementptr inbounds nuw double, ptr %33, i64 %.015.us17.us
   %77 = load i16, ptr %75, align 2, !tbaa !122
   %78 = uitofp i16 %77 to double
-  %79 = load double, ptr %34, align 8, !tbaa !899
-  %80 = load double, ptr %35, align 8, !tbaa !902
+  %79 = load double, ptr %34, align 8, !tbaa !908
+  %80 = load double, ptr %35, align 8, !tbaa !911
   %81 = call double @llvm.fmuladd.f64(double %78, double %79, double %80)
   %82 = load double, ptr %36, align 8, !tbaa !69
   %83 = fcmp olt double %81, %82
@@ -44081,8 +44133,8 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %.not.i.i.us18 = icmp sgt i64 %90, 0
   call void @llvm.assume(i1 %.not.i.i.us18)
   %91 = getelementptr inbounds nuw double, ptr %33, i64 %.015.us17
-  %92 = load double, ptr %34, align 8, !tbaa !899
-  %93 = load double, ptr %35, align 8, !tbaa !902
+  %92 = load double, ptr %34, align 8, !tbaa !908
+  %93 = load double, ptr %35, align 8, !tbaa !911
   %94 = call double @llvm.fmuladd.f64(double %89, double %92, double %93)
   %95 = load double, ptr %36, align 8, !tbaa !69
   %96 = fcmp olt double %94, %95
@@ -44127,7 +44179,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %114 = srem i64 %.01720.i.i.i.us32, %108
   %115 = add nuw nsw i64 %.022.i.i.i.us30, 1
   %exitcond.not.i.i.i.us33 = icmp eq i64 %115, %.fr
-  br i1 %exitcond.not.i.i.i.us33, label %._crit_edge.i.i.i.loopexit.us49, label %.preheader.i.i.i.us28, !llvm.loop !874
+  br i1 %exitcond.not.i.i.i.us33, label %._crit_edge.i.i.i.loopexit.us49, label %.preheader.i.i.i.us28, !llvm.loop !883
 
 _ZNK6open3d4core7Indexer11GetInputPtrItEEPT_ll.exit.thread.i.us36: ; preds = %.lr.ph.split.split.split.us, %._crit_edge.i.i.i.loopexit.us49
   %.0.i21.i.us37 = phi ptr [ %137, %._crit_edge.i.i.i.loopexit.us49 ], [ null, %.lr.ph.split.split.split.us ]
@@ -44147,15 +44199,15 @@ _ZNK6open3d4core7Indexer11GetInputPtrItEEPT_ll.exit.thread.i.us36: ; preds = %.l
   %123 = srem i64 %.01720.i.i18.i.us41, %117
   %124 = add nuw nsw i64 %.022.i.i16.i.us39, 1
   %exitcond.not.i.i19.i.us42 = icmp eq i64 %124, %.fr
-  br i1 %exitcond.not.i.i19.i.us42, label %._crit_edge.i.i13.i.us43, label %.lr.ph.i.i15.i.us38, !llvm.loop !868
+  br i1 %exitcond.not.i.i19.i.us42, label %._crit_edge.i.i13.i.us43, label %.lr.ph.i.i15.i.us38, !llvm.loop !877
 
 ._crit_edge.i.i13.i.us43:                         ; preds = %.lr.ph.i.i15.i.us38, %_ZNK6open3d4core7Indexer11GetInputPtrItEEPT_ll.exit.thread.i.us36
   %.016.lcssa.i.i14.i.us44 = phi i64 [ 0, %_ZNK6open3d4core7Indexer11GetInputPtrItEEPT_ll.exit.thread.i.us36 ], [ %122, %.lr.ph.i.i15.i.us38 ]
   %125 = getelementptr inbounds i8, ptr %33, i64 %.016.lcssa.i.i14.i.us44
   %126 = load i16, ptr %.0.i21.i.us37, align 2, !tbaa !122
   %127 = uitofp i16 %126 to double
-  %128 = load double, ptr %34, align 8, !tbaa !899
-  %129 = load double, ptr %35, align 8, !tbaa !902
+  %128 = load double, ptr %34, align 8, !tbaa !908
+  %129 = load double, ptr %35, align 8, !tbaa !911
   %130 = call double @llvm.fmuladd.f64(double %127, double %128, double %129)
   %131 = load double, ptr %36, align 8, !tbaa !69
   %132 = fcmp olt double %130, %131
@@ -44181,8 +44233,8 @@ _ZNK6open3d4core7Indexer11GetInputPtrItEEPT_ll.exit.thread.i.us36: ; preds = %.l
 ._crit_edge.i.i13.i:                              ; preds = %.lr.ph.i.i15.i, %.lr.ph.split.split.split
   %.016.lcssa.i.i14.i = phi i64 [ 0, %.lr.ph.split.split.split ], [ %150, %.lr.ph.i.i15.i ]
   %139 = getelementptr inbounds i8, ptr %33, i64 %.016.lcssa.i.i14.i
-  %140 = load double, ptr %34, align 8, !tbaa !899
-  %141 = load double, ptr %35, align 8, !tbaa !902
+  %140 = load double, ptr %34, align 8, !tbaa !908
+  %141 = load double, ptr %35, align 8, !tbaa !911
   %142 = call double @llvm.fmuladd.f64(double %104, double %140, double %141)
   %143 = load double, ptr %36, align 8, !tbaa !69
   %144 = fcmp olt double %142, %143
@@ -44291,7 +44343,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %47 = srem i64 %.01720.i.i18.i.us, %41
   %48 = add nuw nsw i64 %.022.i.i16.i.us, 1
   %exitcond.not.i.i19.i.us = icmp eq i64 %48, %.fr
-  br i1 %exitcond.not.i.i19.i.us, label %._crit_edge.i.i13.i.us, label %.lr.ph.i.i15.i.us, !llvm.loop !868
+  br i1 %exitcond.not.i.i19.i.us, label %._crit_edge.i.i13.i.us, label %.lr.ph.i.i15.i.us, !llvm.loop !877
 
 ._crit_edge.i.i13.i.us:                           ; preds = %.lr.ph.i.i15.i.us, %.preheader.i.i12.i.us
   %.016.lcssa.i.i14.i.us = phi i64 [ 0, %.preheader.i.i12.i.us ], [ %46, %.lr.ph.i.i15.i.us ]
@@ -44306,8 +44358,8 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %.018.i.i.i.us = phi ptr [ %51, %50 ], [ %49, %._crit_edge.i.i13.i.us ]
   %53 = load i32, ptr %39, align 4, !tbaa !16
   %54 = uitofp i32 %53 to double
-  %55 = load double, ptr %34, align 8, !tbaa !908
-  %56 = load double, ptr %35, align 8, !tbaa !911
+  %55 = load double, ptr %34, align 8, !tbaa !917
+  %56 = load double, ptr %35, align 8, !tbaa !920
   %57 = call double @llvm.fmuladd.f64(double %54, double %55, double %56)
   %58 = load double, ptr %36, align 8, !tbaa !69
   %59 = fcmp olt double %57, %58
@@ -44352,15 +44404,15 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %73 = srem i64 %.01720.i.i.i.us.us, %67
   %74 = add nuw nsw i64 %.022.i.i.i.us.us, 1
   %exitcond.not.i.i.i.us.us = icmp eq i64 %74, %.fr
-  br i1 %exitcond.not.i.i.i.us.us, label %._crit_edge.i.i.i.us.loopexit.us, label %.lr.ph.i.i.i.us.us, !llvm.loop !875
+  br i1 %exitcond.not.i.i.i.us.us, label %._crit_edge.i.i.i.us.loopexit.us, label %.lr.ph.i.i.i.us.us, !llvm.loop !884
 
 ._crit_edge.i.i.i.us.loopexit.us:                 ; preds = %.lr.ph.i.i.i.us.us
   %75 = getelementptr inbounds i8, ptr %26, i64 %72
   %76 = getelementptr inbounds nuw double, ptr %33, i64 %.015.us17.us
   %77 = load i32, ptr %75, align 4, !tbaa !16
   %78 = uitofp i32 %77 to double
-  %79 = load double, ptr %34, align 8, !tbaa !908
-  %80 = load double, ptr %35, align 8, !tbaa !911
+  %79 = load double, ptr %34, align 8, !tbaa !917
+  %80 = load double, ptr %35, align 8, !tbaa !920
   %81 = call double @llvm.fmuladd.f64(double %78, double %79, double %80)
   %82 = load double, ptr %36, align 8, !tbaa !69
   %83 = fcmp olt double %81, %82
@@ -44386,8 +44438,8 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %.not.i.i.us18 = icmp sgt i64 %90, 0
   call void @llvm.assume(i1 %.not.i.i.us18)
   %91 = getelementptr inbounds nuw double, ptr %33, i64 %.015.us17
-  %92 = load double, ptr %34, align 8, !tbaa !908
-  %93 = load double, ptr %35, align 8, !tbaa !911
+  %92 = load double, ptr %34, align 8, !tbaa !917
+  %93 = load double, ptr %35, align 8, !tbaa !920
   %94 = call double @llvm.fmuladd.f64(double %89, double %92, double %93)
   %95 = load double, ptr %36, align 8, !tbaa !69
   %96 = fcmp olt double %94, %95
@@ -44432,7 +44484,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %114 = srem i64 %.01720.i.i.i.us32, %108
   %115 = add nuw nsw i64 %.022.i.i.i.us30, 1
   %exitcond.not.i.i.i.us33 = icmp eq i64 %115, %.fr
-  br i1 %exitcond.not.i.i.i.us33, label %._crit_edge.i.i.i.loopexit.us49, label %.preheader.i.i.i.us28, !llvm.loop !875
+  br i1 %exitcond.not.i.i.i.us33, label %._crit_edge.i.i.i.loopexit.us49, label %.preheader.i.i.i.us28, !llvm.loop !884
 
 _ZNK6open3d4core7Indexer11GetInputPtrIjEEPT_ll.exit.thread.i.us36: ; preds = %.lr.ph.split.split.split.us, %._crit_edge.i.i.i.loopexit.us49
   %.0.i21.i.us37 = phi ptr [ %137, %._crit_edge.i.i.i.loopexit.us49 ], [ null, %.lr.ph.split.split.split.us ]
@@ -44452,15 +44504,15 @@ _ZNK6open3d4core7Indexer11GetInputPtrIjEEPT_ll.exit.thread.i.us36: ; preds = %.l
   %123 = srem i64 %.01720.i.i18.i.us41, %117
   %124 = add nuw nsw i64 %.022.i.i16.i.us39, 1
   %exitcond.not.i.i19.i.us42 = icmp eq i64 %124, %.fr
-  br i1 %exitcond.not.i.i19.i.us42, label %._crit_edge.i.i13.i.us43, label %.lr.ph.i.i15.i.us38, !llvm.loop !868
+  br i1 %exitcond.not.i.i19.i.us42, label %._crit_edge.i.i13.i.us43, label %.lr.ph.i.i15.i.us38, !llvm.loop !877
 
 ._crit_edge.i.i13.i.us43:                         ; preds = %.lr.ph.i.i15.i.us38, %_ZNK6open3d4core7Indexer11GetInputPtrIjEEPT_ll.exit.thread.i.us36
   %.016.lcssa.i.i14.i.us44 = phi i64 [ 0, %_ZNK6open3d4core7Indexer11GetInputPtrIjEEPT_ll.exit.thread.i.us36 ], [ %122, %.lr.ph.i.i15.i.us38 ]
   %125 = getelementptr inbounds i8, ptr %33, i64 %.016.lcssa.i.i14.i.us44
   %126 = load i32, ptr %.0.i21.i.us37, align 4, !tbaa !16
   %127 = uitofp i32 %126 to double
-  %128 = load double, ptr %34, align 8, !tbaa !908
-  %129 = load double, ptr %35, align 8, !tbaa !911
+  %128 = load double, ptr %34, align 8, !tbaa !917
+  %129 = load double, ptr %35, align 8, !tbaa !920
   %130 = call double @llvm.fmuladd.f64(double %127, double %128, double %129)
   %131 = load double, ptr %36, align 8, !tbaa !69
   %132 = fcmp olt double %130, %131
@@ -44486,8 +44538,8 @@ _ZNK6open3d4core7Indexer11GetInputPtrIjEEPT_ll.exit.thread.i.us36: ; preds = %.l
 ._crit_edge.i.i13.i:                              ; preds = %.lr.ph.i.i15.i, %.lr.ph.split.split.split
   %.016.lcssa.i.i14.i = phi i64 [ 0, %.lr.ph.split.split.split ], [ %150, %.lr.ph.i.i15.i ]
   %139 = getelementptr inbounds i8, ptr %33, i64 %.016.lcssa.i.i14.i
-  %140 = load double, ptr %34, align 8, !tbaa !908
-  %141 = load double, ptr %35, align 8, !tbaa !911
+  %140 = load double, ptr %34, align 8, !tbaa !917
+  %141 = load double, ptr %35, align 8, !tbaa !920
   %142 = call double @llvm.fmuladd.f64(double %104, double %140, double %141)
   %143 = load double, ptr %36, align 8, !tbaa !69
   %144 = fcmp olt double %142, %143
@@ -44596,7 +44648,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %47 = srem i64 %.01720.i.i18.i.us, %41
   %48 = add nuw nsw i64 %.022.i.i16.i.us, 1
   %exitcond.not.i.i19.i.us = icmp eq i64 %48, %.fr
-  br i1 %exitcond.not.i.i19.i.us, label %._crit_edge.i.i13.i.us, label %.lr.ph.i.i15.i.us, !llvm.loop !868
+  br i1 %exitcond.not.i.i19.i.us, label %._crit_edge.i.i13.i.us, label %.lr.ph.i.i15.i.us, !llvm.loop !877
 
 ._crit_edge.i.i13.i.us:                           ; preds = %.lr.ph.i.i15.i.us, %.preheader.i.i12.i.us
   %.016.lcssa.i.i14.i.us = phi i64 [ 0, %.preheader.i.i12.i.us ], [ %46, %.lr.ph.i.i15.i.us ]
@@ -44611,8 +44663,8 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %.018.i.i.i.us = phi ptr [ %51, %50 ], [ %49, %._crit_edge.i.i13.i.us ]
   %53 = load i64, ptr %39, align 8, !tbaa !36
   %54 = uitofp i64 %53 to double
-  %55 = load double, ptr %34, align 8, !tbaa !917
-  %56 = load double, ptr %35, align 8, !tbaa !920
+  %55 = load double, ptr %34, align 8, !tbaa !926
+  %56 = load double, ptr %35, align 8, !tbaa !929
   %57 = call double @llvm.fmuladd.f64(double %54, double %55, double %56)
   %58 = load double, ptr %36, align 8, !tbaa !69
   %59 = fcmp olt double %57, %58
@@ -44657,15 +44709,15 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %73 = srem i64 %.01720.i.i.i.us.us, %67
   %74 = add nuw nsw i64 %.022.i.i.i.us.us, 1
   %exitcond.not.i.i.i.us.us = icmp eq i64 %74, %.fr
-  br i1 %exitcond.not.i.i.i.us.us, label %._crit_edge.i.i.i.us.loopexit.us, label %.lr.ph.i.i.i.us.us, !llvm.loop !876
+  br i1 %exitcond.not.i.i.i.us.us, label %._crit_edge.i.i.i.us.loopexit.us, label %.lr.ph.i.i.i.us.us, !llvm.loop !885
 
 ._crit_edge.i.i.i.us.loopexit.us:                 ; preds = %.lr.ph.i.i.i.us.us
   %75 = getelementptr inbounds i8, ptr %26, i64 %72
   %76 = getelementptr inbounds nuw double, ptr %33, i64 %.015.us17.us
   %77 = load i64, ptr %75, align 8, !tbaa !36
   %78 = uitofp i64 %77 to double
-  %79 = load double, ptr %34, align 8, !tbaa !917
-  %80 = load double, ptr %35, align 8, !tbaa !920
+  %79 = load double, ptr %34, align 8, !tbaa !926
+  %80 = load double, ptr %35, align 8, !tbaa !929
   %81 = call double @llvm.fmuladd.f64(double %78, double %79, double %80)
   %82 = load double, ptr %36, align 8, !tbaa !69
   %83 = fcmp olt double %81, %82
@@ -44691,8 +44743,8 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %.not.i.i.us18 = icmp sgt i64 %90, 0
   call void @llvm.assume(i1 %.not.i.i.us18)
   %91 = getelementptr inbounds nuw double, ptr %33, i64 %.015.us17
-  %92 = load double, ptr %34, align 8, !tbaa !917
-  %93 = load double, ptr %35, align 8, !tbaa !920
+  %92 = load double, ptr %34, align 8, !tbaa !926
+  %93 = load double, ptr %35, align 8, !tbaa !929
   %94 = call double @llvm.fmuladd.f64(double %89, double %92, double %93)
   %95 = load double, ptr %36, align 8, !tbaa !69
   %96 = fcmp olt double %94, %95
@@ -44737,7 +44789,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %114 = srem i64 %.01720.i.i.i.us32, %108
   %115 = add nuw nsw i64 %.022.i.i.i.us30, 1
   %exitcond.not.i.i.i.us33 = icmp eq i64 %115, %.fr
-  br i1 %exitcond.not.i.i.i.us33, label %._crit_edge.i.i.i.loopexit.us49, label %.preheader.i.i.i.us28, !llvm.loop !876
+  br i1 %exitcond.not.i.i.i.us33, label %._crit_edge.i.i.i.loopexit.us49, label %.preheader.i.i.i.us28, !llvm.loop !885
 
 _ZNK6open3d4core7Indexer11GetInputPtrImEEPT_ll.exit.thread.i.us36: ; preds = %.lr.ph.split.split.split.us, %._crit_edge.i.i.i.loopexit.us49
   %.0.i21.i.us37 = phi ptr [ %137, %._crit_edge.i.i.i.loopexit.us49 ], [ null, %.lr.ph.split.split.split.us ]
@@ -44757,15 +44809,15 @@ _ZNK6open3d4core7Indexer11GetInputPtrImEEPT_ll.exit.thread.i.us36: ; preds = %.l
   %123 = srem i64 %.01720.i.i18.i.us41, %117
   %124 = add nuw nsw i64 %.022.i.i16.i.us39, 1
   %exitcond.not.i.i19.i.us42 = icmp eq i64 %124, %.fr
-  br i1 %exitcond.not.i.i19.i.us42, label %._crit_edge.i.i13.i.us43, label %.lr.ph.i.i15.i.us38, !llvm.loop !868
+  br i1 %exitcond.not.i.i19.i.us42, label %._crit_edge.i.i13.i.us43, label %.lr.ph.i.i15.i.us38, !llvm.loop !877
 
 ._crit_edge.i.i13.i.us43:                         ; preds = %.lr.ph.i.i15.i.us38, %_ZNK6open3d4core7Indexer11GetInputPtrImEEPT_ll.exit.thread.i.us36
   %.016.lcssa.i.i14.i.us44 = phi i64 [ 0, %_ZNK6open3d4core7Indexer11GetInputPtrImEEPT_ll.exit.thread.i.us36 ], [ %122, %.lr.ph.i.i15.i.us38 ]
   %125 = getelementptr inbounds i8, ptr %33, i64 %.016.lcssa.i.i14.i.us44
   %126 = load i64, ptr %.0.i21.i.us37, align 8, !tbaa !36
   %127 = uitofp i64 %126 to double
-  %128 = load double, ptr %34, align 8, !tbaa !917
-  %129 = load double, ptr %35, align 8, !tbaa !920
+  %128 = load double, ptr %34, align 8, !tbaa !926
+  %129 = load double, ptr %35, align 8, !tbaa !929
   %130 = call double @llvm.fmuladd.f64(double %127, double %128, double %129)
   %131 = load double, ptr %36, align 8, !tbaa !69
   %132 = fcmp olt double %130, %131
@@ -44791,8 +44843,8 @@ _ZNK6open3d4core7Indexer11GetInputPtrImEEPT_ll.exit.thread.i.us36: ; preds = %.l
 ._crit_edge.i.i13.i:                              ; preds = %.lr.ph.i.i15.i, %.lr.ph.split.split.split
   %.016.lcssa.i.i14.i = phi i64 [ 0, %.lr.ph.split.split.split ], [ %150, %.lr.ph.i.i15.i ]
   %139 = getelementptr inbounds i8, ptr %33, i64 %.016.lcssa.i.i14.i
-  %140 = load double, ptr %34, align 8, !tbaa !917
-  %141 = load double, ptr %35, align 8, !tbaa !920
+  %140 = load double, ptr %34, align 8, !tbaa !926
+  %141 = load double, ptr %35, align 8, !tbaa !929
   %142 = call double @llvm.fmuladd.f64(double %104, double %140, double %141)
   %143 = load double, ptr %36, align 8, !tbaa !69
   %144 = fcmp olt double %142, %143
@@ -44828,109 +44880,6 @@ define internal fastcc void @"_ZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4c
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.open3d::core::Device", align 8
   %5 = alloca %class.anon.181, align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %6 = load ptr, ptr %0, align 8, !tbaa !922
-  %7 = load ptr, ptr %6, align 8, !tbaa !4
-  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %9 = load ptr, ptr %8, align 8
-  %10 = tail call i64 %9(ptr noundef nonnull align 8 dereferenceable(160) %6)
-  store i64 %10, ptr %4, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !924
-  %13 = tail call noundef i64 @_ZNK6open3d4core7Indexer12NumWorkloadsEv(ptr noundef nonnull align 8 dereferenceable(842) %12)
-  call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %14 = load ptr, ptr %11, align 8, !tbaa !924
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(842) %5, ptr noundef nonnull align 8 dereferenceable(842) %14, i64 842, i1 false), !tbaa.struct !40
-  %15 = getelementptr inbounds nuw i8, ptr %5, i64 848
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %17 = load ptr, ptr %16, align 8, !tbaa !925
-  %18 = load float, ptr %17, align 4, !tbaa !38
-  store float %18, ptr %15, align 8, !tbaa !926
-  %19 = getelementptr inbounds nuw i8, ptr %5, i64 852
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %21 = load ptr, ptr %20, align 8, !tbaa !928
-  %22 = load float, ptr %21, align 4, !tbaa !38
-  store float %22, ptr %19, align 4, !tbaa !929
-  %23 = getelementptr inbounds nuw i8, ptr %5, i64 856
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %25 = load ptr, ptr %24, align 8, !tbaa !930
-  br label %26
-
-26:                                               ; preds = %26, %1
-  %27 = phi i64 [ 0, %1 ], [ %31, %26 ]
-  %28 = getelementptr inbounds nuw i8, ptr %23, i64 %27
-  %29 = getelementptr inbounds nuw i8, ptr %25, i64 %27
-  %30 = load i8, ptr %29, align 1, !tbaa !15
-  store i8 %30, ptr %28, align 1, !tbaa !15
-  %31 = add nuw nsw i64 %27, 1
-  %32 = icmp eq i64 %31, 2
-  br i1 %32, label %33, label %26
-
-33:                                               ; preds = %26
-  call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %34 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @2)
-  store i64 %13, ptr %2, align 8, !tbaa !36
-  %35 = and i64 %10, 4294967295
-  %36 = icmp eq i64 %35, 0
-  br i1 %36, label %49, label %37
-
-37:                                               ; preds = %33
-  call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  call void @_ZNK6open3d4core6Device8ToStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr noundef nonnull align 4 dereferenceable(8) %4)
-  invoke void @_ZN6open3d7utility6Logger9LogError_IJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvPKciSA_SA_DpOT_(ptr noundef nonnull @.str.12, i32 noundef 76, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_2clEvENKUlvE_clEvEUllE_EEvRKNS0_6DeviceElRKT_", ptr noundef nonnull @.str.13, ptr noundef nonnull align 8 dereferenceable(32) %3) #33
-          to label %38 unwind label %39
-
-38:                                               ; preds = %37
-  unreachable
-
-39:                                               ; preds = %37
-  %40 = landingpad { ptr, i32 }
-          cleanup
-  %41 = load ptr, ptr %3, align 8, !tbaa !47
-  %42 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %43 = icmp eq ptr %41, %42
-  br i1 %43, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i: ; preds = %39
-  %44 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %45 = load i64, ptr %44, align 8, !tbaa !51
-  %46 = icmp ult i64 %45, 16
-  call void @llvm.assume(i1 %46)
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i: ; preds = %39
-  %47 = load i64, ptr %42, align 8, !tbaa !15
-  %48 = add i64 %47, 1
-  call void @_ZdlPvm(ptr noundef %41, i64 noundef %48) #32
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i
-
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i
-  call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  resume { ptr, i32 } %40
-
-49:                                               ; preds = %33
-  %50 = icmp eq i64 %13, 0
-  br i1 %50, label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_2clEvENKUlvE4_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit", label %51
-
-51:                                               ; preds = %49
-  %52 = tail call noundef i32 @_ZN6open3d7utility18EstimateMaxThreadsEv()
-  tail call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %34, i32 %52)
-  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 2, ptr nonnull @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_2clEvENKUlvE4_clEvEUllE_EEvRKNS0_6DeviceElRKT_.omp_outlined", ptr nonnull %2, ptr nonnull align 8 dereferenceable(858) %5)
-  br label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_2clEvENKUlvE4_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit"
-
-"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_2clEvENKUlvE4_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit": ; preds = %49, %51
-  call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret void
-}
-
-; Function Attrs: inlinehint mustprogress ssp uwtable
-define internal fastcc void @"_ZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_2clEvENKUlvE5_clEv"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = alloca i64, align 8
-  %3 = alloca %"class.std::__cxx11::basic_string", align 8
-  %4 = alloca %"class.open3d::core::Device", align 8
-  %5 = alloca %class.anon.183, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = load ptr, ptr %0, align 8, !tbaa !931
   %7 = load ptr, ptr %6, align 8, !tbaa !4
@@ -45013,15 +44962,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %_
 
 49:                                               ; preds = %33
   %50 = icmp eq i64 %13, 0
-  br i1 %50, label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_2clEvENKUlvE5_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit", label %51
+  br i1 %50, label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_2clEvENKUlvE4_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit", label %51
 
 51:                                               ; preds = %49
   %52 = tail call noundef i32 @_ZN6open3d7utility18EstimateMaxThreadsEv()
   tail call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %34, i32 %52)
-  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 2, ptr nonnull @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_2clEvENKUlvE5_clEvEUllE_EEvRKNS0_6DeviceElRKT_.omp_outlined", ptr nonnull %2, ptr nonnull align 8 dereferenceable(858) %5)
-  br label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_2clEvENKUlvE5_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit"
+  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 2, ptr nonnull @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_2clEvENKUlvE4_clEvEUllE_EEvRKNS0_6DeviceElRKT_.omp_outlined", ptr nonnull %2, ptr nonnull align 8 dereferenceable(858) %5)
+  br label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_2clEvENKUlvE4_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit"
 
-"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_2clEvENKUlvE5_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit": ; preds = %49, %51
+"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_2clEvENKUlvE4_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit": ; preds = %49, %51
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -45029,11 +44978,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %_
 }
 
 ; Function Attrs: inlinehint mustprogress ssp uwtable
-define internal fastcc void @"_ZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_2clEvENKUlvE6_clEv"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_2clEvENKUlvE5_clEv"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca i64, align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.open3d::core::Device", align 8
-  %5 = alloca %class.anon.185, align 8
+  %5 = alloca %class.anon.183, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = load ptr, ptr %0, align 8, !tbaa !940
   %7 = load ptr, ptr %6, align 8, !tbaa !4
@@ -45116,15 +45065,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %_
 
 49:                                               ; preds = %33
   %50 = icmp eq i64 %13, 0
-  br i1 %50, label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_2clEvENKUlvE6_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit", label %51
+  br i1 %50, label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_2clEvENKUlvE5_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit", label %51
 
 51:                                               ; preds = %49
   %52 = tail call noundef i32 @_ZN6open3d7utility18EstimateMaxThreadsEv()
   tail call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %34, i32 %52)
-  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 2, ptr nonnull @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_2clEvENKUlvE6_clEvEUllE_EEvRKNS0_6DeviceElRKT_.omp_outlined", ptr nonnull %2, ptr nonnull align 8 dereferenceable(858) %5)
-  br label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_2clEvENKUlvE6_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit"
+  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 2, ptr nonnull @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_2clEvENKUlvE5_clEvEUllE_EEvRKNS0_6DeviceElRKT_.omp_outlined", ptr nonnull %2, ptr nonnull align 8 dereferenceable(858) %5)
+  br label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_2clEvENKUlvE5_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit"
 
-"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_2clEvENKUlvE6_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit": ; preds = %49, %51
+"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_2clEvENKUlvE5_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit": ; preds = %49, %51
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -45132,11 +45081,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %_
 }
 
 ; Function Attrs: inlinehint mustprogress ssp uwtable
-define internal fastcc void @"_ZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_2clEvENKUlvE7_clEv"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_2clEvENKUlvE6_clEv"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca i64, align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.open3d::core::Device", align 8
-  %5 = alloca %class.anon.187, align 8
+  %5 = alloca %class.anon.185, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = load ptr, ptr %0, align 8, !tbaa !949
   %7 = load ptr, ptr %6, align 8, !tbaa !4
@@ -45219,15 +45168,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %_
 
 49:                                               ; preds = %33
   %50 = icmp eq i64 %13, 0
-  br i1 %50, label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_2clEvENKUlvE7_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit", label %51
+  br i1 %50, label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_2clEvENKUlvE6_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit", label %51
 
 51:                                               ; preds = %49
   %52 = tail call noundef i32 @_ZN6open3d7utility18EstimateMaxThreadsEv()
   tail call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %34, i32 %52)
-  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 2, ptr nonnull @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_2clEvENKUlvE7_clEvEUllE_EEvRKNS0_6DeviceElRKT_.omp_outlined", ptr nonnull %2, ptr nonnull align 8 dereferenceable(858) %5)
-  br label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_2clEvENKUlvE7_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit"
+  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 2, ptr nonnull @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_2clEvENKUlvE6_clEvEUllE_EEvRKNS0_6DeviceElRKT_.omp_outlined", ptr nonnull %2, ptr nonnull align 8 dereferenceable(858) %5)
+  br label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_2clEvENKUlvE6_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit"
 
-"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_2clEvENKUlvE7_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit": ; preds = %49, %51
+"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_2clEvENKUlvE6_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit": ; preds = %49, %51
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -45235,11 +45184,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %_
 }
 
 ; Function Attrs: inlinehint mustprogress ssp uwtable
-define internal fastcc void @"_ZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_2clEvENKUlvE8_clEv"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_2clEvENKUlvE7_clEv"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca i64, align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.open3d::core::Device", align 8
-  %5 = alloca %class.anon.189, align 8
+  %5 = alloca %class.anon.187, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = load ptr, ptr %0, align 8, !tbaa !958
   %7 = load ptr, ptr %6, align 8, !tbaa !4
@@ -45266,6 +45215,109 @@ define internal fastcc void @"_ZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4c
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 856
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %25 = load ptr, ptr %24, align 8, !tbaa !966
+  br label %26
+
+26:                                               ; preds = %26, %1
+  %27 = phi i64 [ 0, %1 ], [ %31, %26 ]
+  %28 = getelementptr inbounds nuw i8, ptr %23, i64 %27
+  %29 = getelementptr inbounds nuw i8, ptr %25, i64 %27
+  %30 = load i8, ptr %29, align 1, !tbaa !15
+  store i8 %30, ptr %28, align 1, !tbaa !15
+  %31 = add nuw nsw i64 %27, 1
+  %32 = icmp eq i64 %31, 2
+  br i1 %32, label %33, label %26
+
+33:                                               ; preds = %26
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  %34 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @2)
+  store i64 %13, ptr %2, align 8, !tbaa !36
+  %35 = and i64 %10, 4294967295
+  %36 = icmp eq i64 %35, 0
+  br i1 %36, label %49, label %37
+
+37:                                               ; preds = %33
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @_ZNK6open3d4core6Device8ToStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr noundef nonnull align 4 dereferenceable(8) %4)
+  invoke void @_ZN6open3d7utility6Logger9LogError_IJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvPKciSA_SA_DpOT_(ptr noundef nonnull @.str.12, i32 noundef 76, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_2clEvENKUlvE_clEvEUllE_EEvRKNS0_6DeviceElRKT_", ptr noundef nonnull @.str.13, ptr noundef nonnull align 8 dereferenceable(32) %3) #33
+          to label %38 unwind label %39
+
+38:                                               ; preds = %37
+  unreachable
+
+39:                                               ; preds = %37
+  %40 = landingpad { ptr, i32 }
+          cleanup
+  %41 = load ptr, ptr %3, align 8, !tbaa !47
+  %42 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %43 = icmp eq ptr %41, %42
+  br i1 %43, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i
+
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i: ; preds = %39
+  %44 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %45 = load i64, ptr %44, align 8, !tbaa !51
+  %46 = icmp ult i64 %45, 16
+  call void @llvm.assume(i1 %46)
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i
+
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i: ; preds = %39
+  %47 = load i64, ptr %42, align 8, !tbaa !15
+  %48 = add i64 %47, 1
+  call void @_ZdlPvm(ptr noundef %41, i64 noundef %48) #32
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i
+
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  resume { ptr, i32 } %40
+
+49:                                               ; preds = %33
+  %50 = icmp eq i64 %13, 0
+  br i1 %50, label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_2clEvENKUlvE7_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit", label %51
+
+51:                                               ; preds = %49
+  %52 = tail call noundef i32 @_ZN6open3d7utility18EstimateMaxThreadsEv()
+  tail call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %34, i32 %52)
+  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 2, ptr nonnull @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_2clEvENKUlvE7_clEvEUllE_EEvRKNS0_6DeviceElRKT_.omp_outlined", ptr nonnull %2, ptr nonnull align 8 dereferenceable(858) %5)
+  br label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_2clEvENKUlvE7_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit"
+
+"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_2clEvENKUlvE7_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit": ; preds = %49, %51
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress ssp uwtable
+define internal fastcc void @"_ZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_2clEvENKUlvE8_clEv"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca i64, align 8
+  %3 = alloca %"class.std::__cxx11::basic_string", align 8
+  %4 = alloca %"class.open3d::core::Device", align 8
+  %5 = alloca %class.anon.189, align 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  %6 = load ptr, ptr %0, align 8, !tbaa !967
+  %7 = load ptr, ptr %6, align 8, !tbaa !4
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %9 = load ptr, ptr %8, align 8
+  %10 = tail call i64 %9(ptr noundef nonnull align 8 dereferenceable(160) %6)
+  store i64 %10, ptr %4, align 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %12 = load ptr, ptr %11, align 8, !tbaa !969
+  %13 = tail call noundef i64 @_ZNK6open3d4core7Indexer12NumWorkloadsEv(ptr noundef nonnull align 8 dereferenceable(842) %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  %14 = load ptr, ptr %11, align 8, !tbaa !969
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(842) %5, ptr noundef nonnull align 8 dereferenceable(842) %14, i64 842, i1 false), !tbaa.struct !40
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 848
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %17 = load ptr, ptr %16, align 8, !tbaa !970
+  %18 = load float, ptr %17, align 4, !tbaa !38
+  store float %18, ptr %15, align 8, !tbaa !971
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 852
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %21 = load ptr, ptr %20, align 8, !tbaa !973
+  %22 = load float, ptr %21, align 4, !tbaa !38
+  store float %22, ptr %19, align 4, !tbaa !974
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 856
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %25 = load ptr, ptr %24, align 8, !tbaa !975
   br label %26
 
 26:                                               ; preds = %26, %1
@@ -45395,18 +45447,18 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   br i1 %34, label %37, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %32
-  %35 = load i64, ptr %19, align 8, !tbaa !967
+  %35 = load i64, ptr %19, align 8, !tbaa !976
   %36 = icmp sgt i64 %35, 0
   br i1 %36, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
 
 37:                                               ; preds = %32
-  %38 = load ptr, ptr %17, align 8, !tbaa !968
+  %38 = load ptr, ptr %17, align 8, !tbaa !977
   %39 = getelementptr inbounds nuw float, ptr %38, i64 %.015
   br label %_ZNK6open3d4core7Indexer11GetInputPtrIfEEPT_ll.exit.thread.i
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i, %.preheader.i.i.i
   %.016.lcssa.i.i.i = phi i64 [ 0, %.preheader.i.i.i ], [ %48, %.lr.ph.i.i.i ]
-  %40 = load ptr, ptr %17, align 8, !tbaa !968
+  %40 = load ptr, ptr %17, align 8, !tbaa !977
   %41 = getelementptr inbounds i8, ptr %40, i64 %.016.lcssa.i.i.i
   br label %_ZNK6open3d4core7Indexer11GetInputPtrIfEEPT_ll.exit.thread.i
 
@@ -45433,7 +45485,7 @@ _ZNK6open3d4core7Indexer11GetInputPtrIfEEPT_ll.exit.thread.i: ; preds = %29, %._
   br i1 %52, label %.loopexit, label %.preheader.i.i12.i
 
 .preheader.i.i12.i:                               ; preds = %_ZNK6open3d4core7Indexer11GetInputPtrIfEEPT_ll.exit.thread.i
-  %53 = load i64, ptr %19, align 8, !tbaa !967
+  %53 = load i64, ptr %19, align 8, !tbaa !976
   %54 = icmp sgt i64 %53, 0
   br i1 %54, label %.lr.ph.i.i15.i, label %.loopexit
 
@@ -45451,11 +45503,11 @@ _ZNK6open3d4core7Indexer11GetInputPtrIfEEPT_ll.exit.thread.i: ; preds = %29, %._
   %62 = srem i64 %.01720.i.i18.i, %56
   %63 = add nuw nsw i64 %.022.i.i16.i, 1
   %exitcond.not.i.i19.i = icmp eq i64 %63, %53
-  br i1 %exitcond.not.i.i19.i, label %.loopexit, label %.lr.ph.i.i15.i, !llvm.loop !869
+  br i1 %exitcond.not.i.i19.i, label %.loopexit, label %.lr.ph.i.i15.i, !llvm.loop !878
 
 .loopexit:                                        ; preds = %.lr.ph.i.i15.i, %.preheader.i.i12.i, %_ZNK6open3d4core7Indexer11GetInputPtrIfEEPT_ll.exit.thread.i
   %.sink29.i = phi i64 [ %.015, %_ZNK6open3d4core7Indexer11GetInputPtrIfEEPT_ll.exit.thread.i ], [ 0, %.preheader.i.i12.i ], [ %61, %.lr.ph.i.i15.i ]
-  %64 = load ptr, ptr %24, align 8, !tbaa !968
+  %64 = load ptr, ptr %24, align 8, !tbaa !977
   %65 = getelementptr inbounds i8, ptr %64, i64 %.sink29.i
   %66 = load float, ptr %.0.i21.i, align 4, !tbaa !38
   %67 = load float, ptr %25, align 8, !tbaa !88
@@ -45546,18 +45598,18 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   br i1 %34, label %37, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %32
-  %35 = load i64, ptr %19, align 8, !tbaa !967
+  %35 = load i64, ptr %19, align 8, !tbaa !976
   %36 = icmp sgt i64 %35, 0
   br i1 %36, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
 
 37:                                               ; preds = %32
-  %38 = load ptr, ptr %17, align 8, !tbaa !968
+  %38 = load ptr, ptr %17, align 8, !tbaa !977
   %39 = getelementptr inbounds nuw double, ptr %38, i64 %.015
   br label %_ZNK6open3d4core7Indexer11GetInputPtrIdEEPT_ll.exit.thread.i
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i, %.preheader.i.i.i
   %.016.lcssa.i.i.i = phi i64 [ 0, %.preheader.i.i.i ], [ %48, %.lr.ph.i.i.i ]
-  %40 = load ptr, ptr %17, align 8, !tbaa !968
+  %40 = load ptr, ptr %17, align 8, !tbaa !977
   %41 = getelementptr inbounds i8, ptr %40, i64 %.016.lcssa.i.i.i
   br label %_ZNK6open3d4core7Indexer11GetInputPtrIdEEPT_ll.exit.thread.i
 
@@ -45575,7 +45627,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %49 = srem i64 %.01720.i.i.i, %43
   %50 = add nuw nsw i64 %.022.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %50, %35
-  br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !868
+  br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !877
 
 _ZNK6open3d4core7Indexer11GetInputPtrIdEEPT_ll.exit.thread.i: ; preds = %29, %._crit_edge.i.i.i, %37
   %.0.i21.i = phi ptr [ %41, %._crit_edge.i.i.i ], [ %39, %37 ], [ null, %29 ]
@@ -45584,7 +45636,7 @@ _ZNK6open3d4core7Indexer11GetInputPtrIdEEPT_ll.exit.thread.i: ; preds = %29, %._
   br i1 %52, label %.loopexit, label %.preheader.i.i12.i
 
 .preheader.i.i12.i:                               ; preds = %_ZNK6open3d4core7Indexer11GetInputPtrIdEEPT_ll.exit.thread.i
-  %53 = load i64, ptr %19, align 8, !tbaa !967
+  %53 = load i64, ptr %19, align 8, !tbaa !976
   %54 = icmp sgt i64 %53, 0
   br i1 %54, label %.lr.ph.i.i15.i, label %.loopexit
 
@@ -45602,11 +45654,11 @@ _ZNK6open3d4core7Indexer11GetInputPtrIdEEPT_ll.exit.thread.i: ; preds = %29, %._
   %62 = srem i64 %.01720.i.i18.i, %56
   %63 = add nuw nsw i64 %.022.i.i16.i, 1
   %exitcond.not.i.i19.i = icmp eq i64 %63, %53
-  br i1 %exitcond.not.i.i19.i, label %.loopexit, label %.lr.ph.i.i15.i, !llvm.loop !869
+  br i1 %exitcond.not.i.i19.i, label %.loopexit, label %.lr.ph.i.i15.i, !llvm.loop !878
 
 .loopexit:                                        ; preds = %.lr.ph.i.i15.i, %.preheader.i.i12.i, %_ZNK6open3d4core7Indexer11GetInputPtrIdEEPT_ll.exit.thread.i
   %.sink29.i = phi i64 [ %.015, %_ZNK6open3d4core7Indexer11GetInputPtrIdEEPT_ll.exit.thread.i ], [ 0, %.preheader.i.i12.i ], [ %61, %.lr.ph.i.i15.i ]
-  %64 = load ptr, ptr %24, align 8, !tbaa !968
+  %64 = load ptr, ptr %24, align 8, !tbaa !977
   %65 = getelementptr inbounds i8, ptr %64, i64 %.sink29.i
   %66 = load double, ptr %.0.i21.i, align 8, !tbaa !69
   %67 = fptrunc double %66 to float
@@ -45698,7 +45750,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   br i1 %34, label %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.thread20.i, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %32
-  %35 = load i64, ptr %19, align 8, !tbaa !967
+  %35 = load i64, ptr %19, align 8, !tbaa !976
   %36 = icmp sgt i64 %35, 0
   br i1 %36, label %.lr.ph.i.i.i, label %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.thread20.i
 
@@ -45716,11 +45768,11 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %44 = srem i64 %.01720.i.i.i, %38
   %45 = add nuw nsw i64 %.022.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %45, %35
-  br i1 %exitcond.not.i.i.i, label %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.thread20.i, label %.lr.ph.i.i.i, !llvm.loop !869
+  br i1 %exitcond.not.i.i.i, label %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.thread20.i, label %.lr.ph.i.i.i, !llvm.loop !878
 
 _ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.thread20.i: ; preds = %.lr.ph.i.i.i, %.preheader.i.i.i, %32
   %.016.lcssa.i.sink.i.i = phi i64 [ %.015, %32 ], [ 0, %.preheader.i.i.i ], [ %43, %.lr.ph.i.i.i ]
-  %46 = load ptr, ptr %17, align 8, !tbaa !968
+  %46 = load ptr, ptr %17, align 8, !tbaa !977
   %47 = getelementptr inbounds i8, ptr %46, i64 %.016.lcssa.i.sink.i.i
   br label %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.i
 
@@ -45731,7 +45783,7 @@ _ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.i: ; preds = %29, %_ZNK6open
   br i1 %49, label %.loopexit, label %.preheader.i.i12.i
 
 .preheader.i.i12.i:                               ; preds = %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.i
-  %50 = load i64, ptr %19, align 8, !tbaa !967
+  %50 = load i64, ptr %19, align 8, !tbaa !976
   %51 = icmp sgt i64 %50, 0
   br i1 %51, label %.lr.ph.i.i13.i, label %.loopexit
 
@@ -45749,11 +45801,11 @@ _ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.i: ; preds = %29, %_ZNK6open
   %59 = srem i64 %.01720.i.i16.i, %53
   %60 = add nuw nsw i64 %.022.i.i14.i, 1
   %exitcond.not.i.i17.i = icmp eq i64 %60, %50
-  br i1 %exitcond.not.i.i17.i, label %.loopexit, label %.lr.ph.i.i13.i, !llvm.loop !869
+  br i1 %exitcond.not.i.i17.i, label %.loopexit, label %.lr.ph.i.i13.i, !llvm.loop !878
 
 .loopexit:                                        ; preds = %.lr.ph.i.i13.i, %.preheader.i.i12.i, %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.i
   %.sink27.i = phi i64 [ %.015, %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.i ], [ 0, %.preheader.i.i12.i ], [ %58, %.lr.ph.i.i13.i ]
-  %61 = load ptr, ptr %24, align 8, !tbaa !968
+  %61 = load ptr, ptr %24, align 8, !tbaa !977
   %62 = getelementptr inbounds i8, ptr %61, i64 %.sink27.i
   %63 = load i8, ptr %.0.i22.i, align 1, !tbaa !15
   %64 = sitofp i8 %63 to float
@@ -45845,18 +45897,18 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   br i1 %34, label %37, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %32
-  %35 = load i64, ptr %19, align 8, !tbaa !967
+  %35 = load i64, ptr %19, align 8, !tbaa !976
   %36 = icmp sgt i64 %35, 0
   br i1 %36, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
 
 37:                                               ; preds = %32
-  %38 = load ptr, ptr %17, align 8, !tbaa !968
+  %38 = load ptr, ptr %17, align 8, !tbaa !977
   %39 = getelementptr inbounds nuw i16, ptr %38, i64 %.015
   br label %_ZNK6open3d4core7Indexer11GetInputPtrIsEEPT_ll.exit.thread.i
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i, %.preheader.i.i.i
   %.016.lcssa.i.i.i = phi i64 [ 0, %.preheader.i.i.i ], [ %48, %.lr.ph.i.i.i ]
-  %40 = load ptr, ptr %17, align 8, !tbaa !968
+  %40 = load ptr, ptr %17, align 8, !tbaa !977
   %41 = getelementptr inbounds i8, ptr %40, i64 %.016.lcssa.i.i.i
   br label %_ZNK6open3d4core7Indexer11GetInputPtrIsEEPT_ll.exit.thread.i
 
@@ -45874,7 +45926,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %49 = srem i64 %.01720.i.i.i, %43
   %50 = add nuw nsw i64 %.022.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %50, %35
-  br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !870
+  br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !879
 
 _ZNK6open3d4core7Indexer11GetInputPtrIsEEPT_ll.exit.thread.i: ; preds = %29, %._crit_edge.i.i.i, %37
   %.0.i21.i = phi ptr [ %41, %._crit_edge.i.i.i ], [ %39, %37 ], [ null, %29 ]
@@ -45883,7 +45935,7 @@ _ZNK6open3d4core7Indexer11GetInputPtrIsEEPT_ll.exit.thread.i: ; preds = %29, %._
   br i1 %52, label %.loopexit, label %.preheader.i.i12.i
 
 .preheader.i.i12.i:                               ; preds = %_ZNK6open3d4core7Indexer11GetInputPtrIsEEPT_ll.exit.thread.i
-  %53 = load i64, ptr %19, align 8, !tbaa !967
+  %53 = load i64, ptr %19, align 8, !tbaa !976
   %54 = icmp sgt i64 %53, 0
   br i1 %54, label %.lr.ph.i.i15.i, label %.loopexit
 
@@ -45901,11 +45953,11 @@ _ZNK6open3d4core7Indexer11GetInputPtrIsEEPT_ll.exit.thread.i: ; preds = %29, %._
   %62 = srem i64 %.01720.i.i18.i, %56
   %63 = add nuw nsw i64 %.022.i.i16.i, 1
   %exitcond.not.i.i19.i = icmp eq i64 %63, %53
-  br i1 %exitcond.not.i.i19.i, label %.loopexit, label %.lr.ph.i.i15.i, !llvm.loop !869
+  br i1 %exitcond.not.i.i19.i, label %.loopexit, label %.lr.ph.i.i15.i, !llvm.loop !878
 
 .loopexit:                                        ; preds = %.lr.ph.i.i15.i, %.preheader.i.i12.i, %_ZNK6open3d4core7Indexer11GetInputPtrIsEEPT_ll.exit.thread.i
   %.sink29.i = phi i64 [ %.015, %_ZNK6open3d4core7Indexer11GetInputPtrIsEEPT_ll.exit.thread.i ], [ 0, %.preheader.i.i12.i ], [ %61, %.lr.ph.i.i15.i ]
-  %64 = load ptr, ptr %24, align 8, !tbaa !968
+  %64 = load ptr, ptr %24, align 8, !tbaa !977
   %65 = getelementptr inbounds i8, ptr %64, i64 %.sink29.i
   %66 = load i16, ptr %.0.i21.i, align 2, !tbaa !122
   %67 = sitofp i16 %66 to float
@@ -45997,18 +46049,18 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   br i1 %34, label %37, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %32
-  %35 = load i64, ptr %19, align 8, !tbaa !967
+  %35 = load i64, ptr %19, align 8, !tbaa !976
   %36 = icmp sgt i64 %35, 0
   br i1 %36, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
 
 37:                                               ; preds = %32
-  %38 = load ptr, ptr %17, align 8, !tbaa !968
+  %38 = load ptr, ptr %17, align 8, !tbaa !977
   %39 = getelementptr inbounds nuw i32, ptr %38, i64 %.015
   br label %_ZNK6open3d4core7Indexer11GetInputPtrIiEEPT_ll.exit.thread.i
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i, %.preheader.i.i.i
   %.016.lcssa.i.i.i = phi i64 [ 0, %.preheader.i.i.i ], [ %48, %.lr.ph.i.i.i ]
-  %40 = load ptr, ptr %17, align 8, !tbaa !968
+  %40 = load ptr, ptr %17, align 8, !tbaa !977
   %41 = getelementptr inbounds i8, ptr %40, i64 %.016.lcssa.i.i.i
   br label %_ZNK6open3d4core7Indexer11GetInputPtrIiEEPT_ll.exit.thread.i
 
@@ -46026,7 +46078,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %49 = srem i64 %.01720.i.i.i, %43
   %50 = add nuw nsw i64 %.022.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %50, %35
-  br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !871
+  br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !880
 
 _ZNK6open3d4core7Indexer11GetInputPtrIiEEPT_ll.exit.thread.i: ; preds = %29, %._crit_edge.i.i.i, %37
   %.0.i21.i = phi ptr [ %41, %._crit_edge.i.i.i ], [ %39, %37 ], [ null, %29 ]
@@ -46035,7 +46087,7 @@ _ZNK6open3d4core7Indexer11GetInputPtrIiEEPT_ll.exit.thread.i: ; preds = %29, %._
   br i1 %52, label %.loopexit, label %.preheader.i.i12.i
 
 .preheader.i.i12.i:                               ; preds = %_ZNK6open3d4core7Indexer11GetInputPtrIiEEPT_ll.exit.thread.i
-  %53 = load i64, ptr %19, align 8, !tbaa !967
+  %53 = load i64, ptr %19, align 8, !tbaa !976
   %54 = icmp sgt i64 %53, 0
   br i1 %54, label %.lr.ph.i.i15.i, label %.loopexit
 
@@ -46053,11 +46105,11 @@ _ZNK6open3d4core7Indexer11GetInputPtrIiEEPT_ll.exit.thread.i: ; preds = %29, %._
   %62 = srem i64 %.01720.i.i18.i, %56
   %63 = add nuw nsw i64 %.022.i.i16.i, 1
   %exitcond.not.i.i19.i = icmp eq i64 %63, %53
-  br i1 %exitcond.not.i.i19.i, label %.loopexit, label %.lr.ph.i.i15.i, !llvm.loop !869
+  br i1 %exitcond.not.i.i19.i, label %.loopexit, label %.lr.ph.i.i15.i, !llvm.loop !878
 
 .loopexit:                                        ; preds = %.lr.ph.i.i15.i, %.preheader.i.i12.i, %_ZNK6open3d4core7Indexer11GetInputPtrIiEEPT_ll.exit.thread.i
   %.sink29.i = phi i64 [ %.015, %_ZNK6open3d4core7Indexer11GetInputPtrIiEEPT_ll.exit.thread.i ], [ 0, %.preheader.i.i12.i ], [ %61, %.lr.ph.i.i15.i ]
-  %64 = load ptr, ptr %24, align 8, !tbaa !968
+  %64 = load ptr, ptr %24, align 8, !tbaa !977
   %65 = getelementptr inbounds i8, ptr %64, i64 %.sink29.i
   %66 = load i32, ptr %.0.i21.i, align 4, !tbaa !16
   %67 = sitofp i32 %66 to float
@@ -46149,18 +46201,18 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   br i1 %34, label %37, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %32
-  %35 = load i64, ptr %19, align 8, !tbaa !967
+  %35 = load i64, ptr %19, align 8, !tbaa !976
   %36 = icmp sgt i64 %35, 0
   br i1 %36, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
 
 37:                                               ; preds = %32
-  %38 = load ptr, ptr %17, align 8, !tbaa !968
+  %38 = load ptr, ptr %17, align 8, !tbaa !977
   %39 = getelementptr inbounds nuw i64, ptr %38, i64 %.015
   br label %_ZNK6open3d4core7Indexer11GetInputPtrIlEEPT_ll.exit.thread.i
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i, %.preheader.i.i.i
   %.016.lcssa.i.i.i = phi i64 [ 0, %.preheader.i.i.i ], [ %48, %.lr.ph.i.i.i ]
-  %40 = load ptr, ptr %17, align 8, !tbaa !968
+  %40 = load ptr, ptr %17, align 8, !tbaa !977
   %41 = getelementptr inbounds i8, ptr %40, i64 %.016.lcssa.i.i.i
   br label %_ZNK6open3d4core7Indexer11GetInputPtrIlEEPT_ll.exit.thread.i
 
@@ -46178,7 +46230,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %49 = srem i64 %.01720.i.i.i, %43
   %50 = add nuw nsw i64 %.022.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %50, %35
-  br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !872
+  br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !881
 
 _ZNK6open3d4core7Indexer11GetInputPtrIlEEPT_ll.exit.thread.i: ; preds = %29, %._crit_edge.i.i.i, %37
   %.0.i21.i = phi ptr [ %41, %._crit_edge.i.i.i ], [ %39, %37 ], [ null, %29 ]
@@ -46187,7 +46239,7 @@ _ZNK6open3d4core7Indexer11GetInputPtrIlEEPT_ll.exit.thread.i: ; preds = %29, %._
   br i1 %52, label %.loopexit, label %.preheader.i.i12.i
 
 .preheader.i.i12.i:                               ; preds = %_ZNK6open3d4core7Indexer11GetInputPtrIlEEPT_ll.exit.thread.i
-  %53 = load i64, ptr %19, align 8, !tbaa !967
+  %53 = load i64, ptr %19, align 8, !tbaa !976
   %54 = icmp sgt i64 %53, 0
   br i1 %54, label %.lr.ph.i.i15.i, label %.loopexit
 
@@ -46205,16 +46257,16 @@ _ZNK6open3d4core7Indexer11GetInputPtrIlEEPT_ll.exit.thread.i: ; preds = %29, %._
   %62 = srem i64 %.01720.i.i18.i, %56
   %63 = add nuw nsw i64 %.022.i.i16.i, 1
   %exitcond.not.i.i19.i = icmp eq i64 %63, %53
-  br i1 %exitcond.not.i.i19.i, label %.loopexit, label %.lr.ph.i.i15.i, !llvm.loop !869
+  br i1 %exitcond.not.i.i19.i, label %.loopexit, label %.lr.ph.i.i15.i, !llvm.loop !878
 
 .loopexit:                                        ; preds = %.lr.ph.i.i15.i, %.preheader.i.i12.i, %_ZNK6open3d4core7Indexer11GetInputPtrIlEEPT_ll.exit.thread.i
   %.sink29.i = phi i64 [ %.015, %_ZNK6open3d4core7Indexer11GetInputPtrIlEEPT_ll.exit.thread.i ], [ 0, %.preheader.i.i12.i ], [ %61, %.lr.ph.i.i15.i ]
-  %64 = load ptr, ptr %24, align 8, !tbaa !968
+  %64 = load ptr, ptr %24, align 8, !tbaa !977
   %65 = getelementptr inbounds i8, ptr %64, i64 %.sink29.i
   %66 = load i64, ptr %.0.i21.i, align 8, !tbaa !36
   %67 = sitofp i64 %66 to float
-  %68 = load float, ptr %25, align 8, !tbaa !926
-  %69 = load float, ptr %26, align 4, !tbaa !929
+  %68 = load float, ptr %25, align 8, !tbaa !935
+  %69 = load float, ptr %26, align 4, !tbaa !938
   %70 = call float @llvm.fmuladd.f32(float %67, float %68, float %69)
   %71 = load i8, ptr %27, align 8, !tbaa !15
   %72 = sitofp i8 %71 to float
@@ -46301,7 +46353,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   br i1 %34, label %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.thread20.i, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %32
-  %35 = load i64, ptr %19, align 8, !tbaa !967
+  %35 = load i64, ptr %19, align 8, !tbaa !976
   %36 = icmp sgt i64 %35, 0
   br i1 %36, label %.lr.ph.i.i.i, label %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.thread20.i
 
@@ -46319,11 +46371,11 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %44 = srem i64 %.01720.i.i.i, %38
   %45 = add nuw nsw i64 %.022.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %45, %35
-  br i1 %exitcond.not.i.i.i, label %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.thread20.i, label %.lr.ph.i.i.i, !llvm.loop !873
+  br i1 %exitcond.not.i.i.i, label %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.thread20.i, label %.lr.ph.i.i.i, !llvm.loop !882
 
 _ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.thread20.i: ; preds = %.lr.ph.i.i.i, %.preheader.i.i.i, %32
   %.016.lcssa.i.sink.i.i = phi i64 [ %.015, %32 ], [ 0, %.preheader.i.i.i ], [ %43, %.lr.ph.i.i.i ]
-  %46 = load ptr, ptr %17, align 8, !tbaa !968
+  %46 = load ptr, ptr %17, align 8, !tbaa !977
   %47 = getelementptr inbounds i8, ptr %46, i64 %.016.lcssa.i.sink.i.i
   br label %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.i
 
@@ -46334,7 +46386,7 @@ _ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.i: ; preds = %29, %_ZNK6open
   br i1 %49, label %.loopexit, label %.preheader.i.i12.i
 
 .preheader.i.i12.i:                               ; preds = %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.i
-  %50 = load i64, ptr %19, align 8, !tbaa !967
+  %50 = load i64, ptr %19, align 8, !tbaa !976
   %51 = icmp sgt i64 %50, 0
   br i1 %51, label %.lr.ph.i.i13.i, label %.loopexit
 
@@ -46352,16 +46404,16 @@ _ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.i: ; preds = %29, %_ZNK6open
   %59 = srem i64 %.01720.i.i16.i, %53
   %60 = add nuw nsw i64 %.022.i.i14.i, 1
   %exitcond.not.i.i17.i = icmp eq i64 %60, %50
-  br i1 %exitcond.not.i.i17.i, label %.loopexit, label %.lr.ph.i.i13.i, !llvm.loop !869
+  br i1 %exitcond.not.i.i17.i, label %.loopexit, label %.lr.ph.i.i13.i, !llvm.loop !878
 
 .loopexit:                                        ; preds = %.lr.ph.i.i13.i, %.preheader.i.i12.i, %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.i
   %.sink27.i = phi i64 [ %.015, %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.i ], [ 0, %.preheader.i.i12.i ], [ %58, %.lr.ph.i.i13.i ]
-  %61 = load ptr, ptr %24, align 8, !tbaa !968
+  %61 = load ptr, ptr %24, align 8, !tbaa !977
   %62 = getelementptr inbounds i8, ptr %61, i64 %.sink27.i
   %63 = load i8, ptr %.0.i22.i, align 1, !tbaa !15
   %64 = uitofp i8 %63 to float
-  %65 = load float, ptr %25, align 8, !tbaa !935
-  %66 = load float, ptr %26, align 4, !tbaa !938
+  %65 = load float, ptr %25, align 8, !tbaa !944
+  %66 = load float, ptr %26, align 4, !tbaa !947
   %67 = call float @llvm.fmuladd.f32(float %64, float %65, float %66)
   %68 = load i8, ptr %27, align 8, !tbaa !15
   %69 = sitofp i8 %68 to float
@@ -46448,18 +46500,18 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   br i1 %34, label %37, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %32
-  %35 = load i64, ptr %19, align 8, !tbaa !967
+  %35 = load i64, ptr %19, align 8, !tbaa !976
   %36 = icmp sgt i64 %35, 0
   br i1 %36, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
 
 37:                                               ; preds = %32
-  %38 = load ptr, ptr %17, align 8, !tbaa !968
+  %38 = load ptr, ptr %17, align 8, !tbaa !977
   %39 = getelementptr inbounds nuw i16, ptr %38, i64 %.015
   br label %_ZNK6open3d4core7Indexer11GetInputPtrItEEPT_ll.exit.thread.i
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i, %.preheader.i.i.i
   %.016.lcssa.i.i.i = phi i64 [ 0, %.preheader.i.i.i ], [ %48, %.lr.ph.i.i.i ]
-  %40 = load ptr, ptr %17, align 8, !tbaa !968
+  %40 = load ptr, ptr %17, align 8, !tbaa !977
   %41 = getelementptr inbounds i8, ptr %40, i64 %.016.lcssa.i.i.i
   br label %_ZNK6open3d4core7Indexer11GetInputPtrItEEPT_ll.exit.thread.i
 
@@ -46477,7 +46529,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %49 = srem i64 %.01720.i.i.i, %43
   %50 = add nuw nsw i64 %.022.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %50, %35
-  br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !874
+  br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !883
 
 _ZNK6open3d4core7Indexer11GetInputPtrItEEPT_ll.exit.thread.i: ; preds = %29, %._crit_edge.i.i.i, %37
   %.0.i21.i = phi ptr [ %41, %._crit_edge.i.i.i ], [ %39, %37 ], [ null, %29 ]
@@ -46486,7 +46538,7 @@ _ZNK6open3d4core7Indexer11GetInputPtrItEEPT_ll.exit.thread.i: ; preds = %29, %._
   br i1 %52, label %.loopexit, label %.preheader.i.i12.i
 
 .preheader.i.i12.i:                               ; preds = %_ZNK6open3d4core7Indexer11GetInputPtrItEEPT_ll.exit.thread.i
-  %53 = load i64, ptr %19, align 8, !tbaa !967
+  %53 = load i64, ptr %19, align 8, !tbaa !976
   %54 = icmp sgt i64 %53, 0
   br i1 %54, label %.lr.ph.i.i15.i, label %.loopexit
 
@@ -46504,16 +46556,16 @@ _ZNK6open3d4core7Indexer11GetInputPtrItEEPT_ll.exit.thread.i: ; preds = %29, %._
   %62 = srem i64 %.01720.i.i18.i, %56
   %63 = add nuw nsw i64 %.022.i.i16.i, 1
   %exitcond.not.i.i19.i = icmp eq i64 %63, %53
-  br i1 %exitcond.not.i.i19.i, label %.loopexit, label %.lr.ph.i.i15.i, !llvm.loop !869
+  br i1 %exitcond.not.i.i19.i, label %.loopexit, label %.lr.ph.i.i15.i, !llvm.loop !878
 
 .loopexit:                                        ; preds = %.lr.ph.i.i15.i, %.preheader.i.i12.i, %_ZNK6open3d4core7Indexer11GetInputPtrItEEPT_ll.exit.thread.i
   %.sink29.i = phi i64 [ %.015, %_ZNK6open3d4core7Indexer11GetInputPtrItEEPT_ll.exit.thread.i ], [ 0, %.preheader.i.i12.i ], [ %61, %.lr.ph.i.i15.i ]
-  %64 = load ptr, ptr %24, align 8, !tbaa !968
+  %64 = load ptr, ptr %24, align 8, !tbaa !977
   %65 = getelementptr inbounds i8, ptr %64, i64 %.sink29.i
   %66 = load i16, ptr %.0.i21.i, align 2, !tbaa !122
   %67 = uitofp i16 %66 to float
-  %68 = load float, ptr %25, align 8, !tbaa !944
-  %69 = load float, ptr %26, align 4, !tbaa !947
+  %68 = load float, ptr %25, align 8, !tbaa !953
+  %69 = load float, ptr %26, align 4, !tbaa !956
   %70 = call float @llvm.fmuladd.f32(float %67, float %68, float %69)
   %71 = load i8, ptr %27, align 8, !tbaa !15
   %72 = sitofp i8 %71 to float
@@ -46600,18 +46652,18 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   br i1 %34, label %37, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %32
-  %35 = load i64, ptr %19, align 8, !tbaa !967
+  %35 = load i64, ptr %19, align 8, !tbaa !976
   %36 = icmp sgt i64 %35, 0
   br i1 %36, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
 
 37:                                               ; preds = %32
-  %38 = load ptr, ptr %17, align 8, !tbaa !968
+  %38 = load ptr, ptr %17, align 8, !tbaa !977
   %39 = getelementptr inbounds nuw i32, ptr %38, i64 %.015
   br label %_ZNK6open3d4core7Indexer11GetInputPtrIjEEPT_ll.exit.thread.i
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i, %.preheader.i.i.i
   %.016.lcssa.i.i.i = phi i64 [ 0, %.preheader.i.i.i ], [ %48, %.lr.ph.i.i.i ]
-  %40 = load ptr, ptr %17, align 8, !tbaa !968
+  %40 = load ptr, ptr %17, align 8, !tbaa !977
   %41 = getelementptr inbounds i8, ptr %40, i64 %.016.lcssa.i.i.i
   br label %_ZNK6open3d4core7Indexer11GetInputPtrIjEEPT_ll.exit.thread.i
 
@@ -46629,7 +46681,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %49 = srem i64 %.01720.i.i.i, %43
   %50 = add nuw nsw i64 %.022.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %50, %35
-  br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !875
+  br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !884
 
 _ZNK6open3d4core7Indexer11GetInputPtrIjEEPT_ll.exit.thread.i: ; preds = %29, %._crit_edge.i.i.i, %37
   %.0.i21.i = phi ptr [ %41, %._crit_edge.i.i.i ], [ %39, %37 ], [ null, %29 ]
@@ -46638,7 +46690,7 @@ _ZNK6open3d4core7Indexer11GetInputPtrIjEEPT_ll.exit.thread.i: ; preds = %29, %._
   br i1 %52, label %.loopexit, label %.preheader.i.i12.i
 
 .preheader.i.i12.i:                               ; preds = %_ZNK6open3d4core7Indexer11GetInputPtrIjEEPT_ll.exit.thread.i
-  %53 = load i64, ptr %19, align 8, !tbaa !967
+  %53 = load i64, ptr %19, align 8, !tbaa !976
   %54 = icmp sgt i64 %53, 0
   br i1 %54, label %.lr.ph.i.i15.i, label %.loopexit
 
@@ -46656,16 +46708,16 @@ _ZNK6open3d4core7Indexer11GetInputPtrIjEEPT_ll.exit.thread.i: ; preds = %29, %._
   %62 = srem i64 %.01720.i.i18.i, %56
   %63 = add nuw nsw i64 %.022.i.i16.i, 1
   %exitcond.not.i.i19.i = icmp eq i64 %63, %53
-  br i1 %exitcond.not.i.i19.i, label %.loopexit, label %.lr.ph.i.i15.i, !llvm.loop !869
+  br i1 %exitcond.not.i.i19.i, label %.loopexit, label %.lr.ph.i.i15.i, !llvm.loop !878
 
 .loopexit:                                        ; preds = %.lr.ph.i.i15.i, %.preheader.i.i12.i, %_ZNK6open3d4core7Indexer11GetInputPtrIjEEPT_ll.exit.thread.i
   %.sink29.i = phi i64 [ %.015, %_ZNK6open3d4core7Indexer11GetInputPtrIjEEPT_ll.exit.thread.i ], [ 0, %.preheader.i.i12.i ], [ %61, %.lr.ph.i.i15.i ]
-  %64 = load ptr, ptr %24, align 8, !tbaa !968
+  %64 = load ptr, ptr %24, align 8, !tbaa !977
   %65 = getelementptr inbounds i8, ptr %64, i64 %.sink29.i
   %66 = load i32, ptr %.0.i21.i, align 4, !tbaa !16
   %67 = uitofp i32 %66 to float
-  %68 = load float, ptr %25, align 8, !tbaa !953
-  %69 = load float, ptr %26, align 4, !tbaa !956
+  %68 = load float, ptr %25, align 8, !tbaa !962
+  %69 = load float, ptr %26, align 4, !tbaa !965
   %70 = call float @llvm.fmuladd.f32(float %67, float %68, float %69)
   %71 = load i8, ptr %27, align 8, !tbaa !15
   %72 = sitofp i8 %71 to float
@@ -46752,18 +46804,18 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   br i1 %34, label %37, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %32
-  %35 = load i64, ptr %19, align 8, !tbaa !967
+  %35 = load i64, ptr %19, align 8, !tbaa !976
   %36 = icmp sgt i64 %35, 0
   br i1 %36, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
 
 37:                                               ; preds = %32
-  %38 = load ptr, ptr %17, align 8, !tbaa !968
+  %38 = load ptr, ptr %17, align 8, !tbaa !977
   %39 = getelementptr inbounds nuw i64, ptr %38, i64 %.015
   br label %_ZNK6open3d4core7Indexer11GetInputPtrImEEPT_ll.exit.thread.i
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i, %.preheader.i.i.i
   %.016.lcssa.i.i.i = phi i64 [ 0, %.preheader.i.i.i ], [ %48, %.lr.ph.i.i.i ]
-  %40 = load ptr, ptr %17, align 8, !tbaa !968
+  %40 = load ptr, ptr %17, align 8, !tbaa !977
   %41 = getelementptr inbounds i8, ptr %40, i64 %.016.lcssa.i.i.i
   br label %_ZNK6open3d4core7Indexer11GetInputPtrImEEPT_ll.exit.thread.i
 
@@ -46781,7 +46833,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %49 = srem i64 %.01720.i.i.i, %43
   %50 = add nuw nsw i64 %.022.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %50, %35
-  br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !876
+  br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !885
 
 _ZNK6open3d4core7Indexer11GetInputPtrImEEPT_ll.exit.thread.i: ; preds = %29, %._crit_edge.i.i.i, %37
   %.0.i21.i = phi ptr [ %41, %._crit_edge.i.i.i ], [ %39, %37 ], [ null, %29 ]
@@ -46790,7 +46842,7 @@ _ZNK6open3d4core7Indexer11GetInputPtrImEEPT_ll.exit.thread.i: ; preds = %29, %._
   br i1 %52, label %.loopexit, label %.preheader.i.i12.i
 
 .preheader.i.i12.i:                               ; preds = %_ZNK6open3d4core7Indexer11GetInputPtrImEEPT_ll.exit.thread.i
-  %53 = load i64, ptr %19, align 8, !tbaa !967
+  %53 = load i64, ptr %19, align 8, !tbaa !976
   %54 = icmp sgt i64 %53, 0
   br i1 %54, label %.lr.ph.i.i15.i, label %.loopexit
 
@@ -46808,16 +46860,16 @@ _ZNK6open3d4core7Indexer11GetInputPtrImEEPT_ll.exit.thread.i: ; preds = %29, %._
   %62 = srem i64 %.01720.i.i18.i, %56
   %63 = add nuw nsw i64 %.022.i.i16.i, 1
   %exitcond.not.i.i19.i = icmp eq i64 %63, %53
-  br i1 %exitcond.not.i.i19.i, label %.loopexit, label %.lr.ph.i.i15.i, !llvm.loop !869
+  br i1 %exitcond.not.i.i19.i, label %.loopexit, label %.lr.ph.i.i15.i, !llvm.loop !878
 
 .loopexit:                                        ; preds = %.lr.ph.i.i15.i, %.preheader.i.i12.i, %_ZNK6open3d4core7Indexer11GetInputPtrImEEPT_ll.exit.thread.i
   %.sink29.i = phi i64 [ %.015, %_ZNK6open3d4core7Indexer11GetInputPtrImEEPT_ll.exit.thread.i ], [ 0, %.preheader.i.i12.i ], [ %61, %.lr.ph.i.i15.i ]
-  %64 = load ptr, ptr %24, align 8, !tbaa !968
+  %64 = load ptr, ptr %24, align 8, !tbaa !977
   %65 = getelementptr inbounds i8, ptr %64, i64 %.sink29.i
   %66 = load i64, ptr %.0.i21.i, align 8, !tbaa !36
   %67 = uitofp i64 %66 to float
-  %68 = load float, ptr %25, align 8, !tbaa !962
-  %69 = load float, ptr %26, align 4, !tbaa !965
+  %68 = load float, ptr %25, align 8, !tbaa !971
+  %69 = load float, ptr %26, align 4, !tbaa !974
   %70 = call float @llvm.fmuladd.f32(float %67, float %68, float %69)
   %71 = load i8, ptr %27, align 8, !tbaa !15
   %72 = sitofp i8 %71 to float
@@ -46852,109 +46904,6 @@ define internal fastcc void @"_ZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4c
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.open3d::core::Device", align 8
   %5 = alloca %class.anon.211, align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %6 = load ptr, ptr %0, align 8, !tbaa !970
-  %7 = load ptr, ptr %6, align 8, !tbaa !4
-  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %9 = load ptr, ptr %8, align 8
-  %10 = tail call i64 %9(ptr noundef nonnull align 8 dereferenceable(160) %6)
-  store i64 %10, ptr %4, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !972
-  %13 = tail call noundef i64 @_ZNK6open3d4core7Indexer12NumWorkloadsEv(ptr noundef nonnull align 8 dereferenceable(842) %12)
-  call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %14 = load ptr, ptr %11, align 8, !tbaa !972
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(842) %5, ptr noundef nonnull align 8 dereferenceable(842) %14, i64 842, i1 false), !tbaa.struct !40
-  %15 = getelementptr inbounds nuw i8, ptr %5, i64 848
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %17 = load ptr, ptr %16, align 8, !tbaa !973
-  %18 = load float, ptr %17, align 4, !tbaa !38
-  store float %18, ptr %15, align 8, !tbaa !974
-  %19 = getelementptr inbounds nuw i8, ptr %5, i64 852
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %21 = load ptr, ptr %20, align 8, !tbaa !976
-  %22 = load float, ptr %21, align 4, !tbaa !38
-  store float %22, ptr %19, align 4, !tbaa !977
-  %23 = getelementptr inbounds nuw i8, ptr %5, i64 856
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %25 = load ptr, ptr %24, align 8, !tbaa !978
-  br label %26
-
-26:                                               ; preds = %26, %1
-  %27 = phi i64 [ 0, %1 ], [ %31, %26 ]
-  %28 = getelementptr inbounds nuw i8, ptr %23, i64 %27
-  %29 = getelementptr inbounds nuw i8, ptr %25, i64 %27
-  %30 = load i8, ptr %29, align 1, !tbaa !15
-  store i8 %30, ptr %28, align 1, !tbaa !15
-  %31 = add nuw nsw i64 %27, 1
-  %32 = icmp eq i64 %31, 2
-  br i1 %32, label %33, label %26
-
-33:                                               ; preds = %26
-  call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %34 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @2)
-  store i64 %13, ptr %2, align 8, !tbaa !36
-  %35 = and i64 %10, 4294967295
-  %36 = icmp eq i64 %35, 0
-  br i1 %36, label %49, label %37
-
-37:                                               ; preds = %33
-  call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  call void @_ZNK6open3d4core6Device8ToStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr noundef nonnull align 4 dereferenceable(8) %4)
-  invoke void @_ZN6open3d7utility6Logger9LogError_IJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvPKciSA_SA_DpOT_(ptr noundef nonnull @.str.12, i32 noundef 76, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_3clEvENKUlvE_clEvEUllE_EEvRKNS0_6DeviceElRKT_", ptr noundef nonnull @.str.13, ptr noundef nonnull align 8 dereferenceable(32) %3) #33
-          to label %38 unwind label %39
-
-38:                                               ; preds = %37
-  unreachable
-
-39:                                               ; preds = %37
-  %40 = landingpad { ptr, i32 }
-          cleanup
-  %41 = load ptr, ptr %3, align 8, !tbaa !47
-  %42 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %43 = icmp eq ptr %41, %42
-  br i1 %43, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i: ; preds = %39
-  %44 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %45 = load i64, ptr %44, align 8, !tbaa !51
-  %46 = icmp ult i64 %45, 16
-  call void @llvm.assume(i1 %46)
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i: ; preds = %39
-  %47 = load i64, ptr %42, align 8, !tbaa !15
-  %48 = add i64 %47, 1
-  call void @_ZdlPvm(ptr noundef %41, i64 noundef %48) #32
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i
-
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i
-  call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  resume { ptr, i32 } %40
-
-49:                                               ; preds = %33
-  %50 = icmp eq i64 %13, 0
-  br i1 %50, label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_3clEvENKUlvE4_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit", label %51
-
-51:                                               ; preds = %49
-  %52 = tail call noundef i32 @_ZN6open3d7utility18EstimateMaxThreadsEv()
-  tail call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %34, i32 %52)
-  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 2, ptr nonnull @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_3clEvENKUlvE4_clEvEUllE_EEvRKNS0_6DeviceElRKT_.omp_outlined", ptr nonnull %2, ptr nonnull align 8 dereferenceable(858) %5)
-  br label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_3clEvENKUlvE4_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit"
-
-"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_3clEvENKUlvE4_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit": ; preds = %49, %51
-  call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret void
-}
-
-; Function Attrs: inlinehint mustprogress ssp uwtable
-define internal fastcc void @"_ZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_3clEvENKUlvE5_clEv"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = alloca i64, align 8
-  %3 = alloca %"class.std::__cxx11::basic_string", align 8
-  %4 = alloca %"class.open3d::core::Device", align 8
-  %5 = alloca %class.anon.213, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = load ptr, ptr %0, align 8, !tbaa !979
   %7 = load ptr, ptr %6, align 8, !tbaa !4
@@ -47037,15 +46986,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %_
 
 49:                                               ; preds = %33
   %50 = icmp eq i64 %13, 0
-  br i1 %50, label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_3clEvENKUlvE5_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit", label %51
+  br i1 %50, label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_3clEvENKUlvE4_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit", label %51
 
 51:                                               ; preds = %49
   %52 = tail call noundef i32 @_ZN6open3d7utility18EstimateMaxThreadsEv()
   tail call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %34, i32 %52)
-  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 2, ptr nonnull @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_3clEvENKUlvE5_clEvEUllE_EEvRKNS0_6DeviceElRKT_.omp_outlined", ptr nonnull %2, ptr nonnull align 8 dereferenceable(858) %5)
-  br label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_3clEvENKUlvE5_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit"
+  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 2, ptr nonnull @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_3clEvENKUlvE4_clEvEUllE_EEvRKNS0_6DeviceElRKT_.omp_outlined", ptr nonnull %2, ptr nonnull align 8 dereferenceable(858) %5)
+  br label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_3clEvENKUlvE4_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit"
 
-"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_3clEvENKUlvE5_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit": ; preds = %49, %51
+"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_3clEvENKUlvE4_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit": ; preds = %49, %51
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -47053,11 +47002,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %_
 }
 
 ; Function Attrs: inlinehint mustprogress ssp uwtable
-define internal fastcc void @"_ZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_3clEvENKUlvE6_clEv"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_3clEvENKUlvE5_clEv"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca i64, align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.open3d::core::Device", align 8
-  %5 = alloca %class.anon.215, align 8
+  %5 = alloca %class.anon.213, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = load ptr, ptr %0, align 8, !tbaa !988
   %7 = load ptr, ptr %6, align 8, !tbaa !4
@@ -47140,15 +47089,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %_
 
 49:                                               ; preds = %33
   %50 = icmp eq i64 %13, 0
-  br i1 %50, label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_3clEvENKUlvE6_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit", label %51
+  br i1 %50, label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_3clEvENKUlvE5_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit", label %51
 
 51:                                               ; preds = %49
   %52 = tail call noundef i32 @_ZN6open3d7utility18EstimateMaxThreadsEv()
   tail call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %34, i32 %52)
-  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 2, ptr nonnull @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_3clEvENKUlvE6_clEvEUllE_EEvRKNS0_6DeviceElRKT_.omp_outlined", ptr nonnull %2, ptr nonnull align 8 dereferenceable(858) %5)
-  br label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_3clEvENKUlvE6_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit"
+  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 2, ptr nonnull @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_3clEvENKUlvE5_clEvEUllE_EEvRKNS0_6DeviceElRKT_.omp_outlined", ptr nonnull %2, ptr nonnull align 8 dereferenceable(858) %5)
+  br label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_3clEvENKUlvE5_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit"
 
-"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_3clEvENKUlvE6_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit": ; preds = %49, %51
+"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_3clEvENKUlvE5_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit": ; preds = %49, %51
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -47156,11 +47105,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %_
 }
 
 ; Function Attrs: inlinehint mustprogress ssp uwtable
-define internal fastcc void @"_ZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_3clEvENKUlvE7_clEv"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_3clEvENKUlvE6_clEv"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca i64, align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.open3d::core::Device", align 8
-  %5 = alloca %class.anon.217, align 8
+  %5 = alloca %class.anon.215, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = load ptr, ptr %0, align 8, !tbaa !997
   %7 = load ptr, ptr %6, align 8, !tbaa !4
@@ -47243,15 +47192,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %_
 
 49:                                               ; preds = %33
   %50 = icmp eq i64 %13, 0
-  br i1 %50, label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_3clEvENKUlvE7_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit", label %51
+  br i1 %50, label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_3clEvENKUlvE6_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit", label %51
 
 51:                                               ; preds = %49
   %52 = tail call noundef i32 @_ZN6open3d7utility18EstimateMaxThreadsEv()
   tail call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %34, i32 %52)
-  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 2, ptr nonnull @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_3clEvENKUlvE7_clEvEUllE_EEvRKNS0_6DeviceElRKT_.omp_outlined", ptr nonnull %2, ptr nonnull align 8 dereferenceable(858) %5)
-  br label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_3clEvENKUlvE7_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit"
+  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 2, ptr nonnull @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_3clEvENKUlvE6_clEvEUllE_EEvRKNS0_6DeviceElRKT_.omp_outlined", ptr nonnull %2, ptr nonnull align 8 dereferenceable(858) %5)
+  br label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_3clEvENKUlvE6_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit"
 
-"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_3clEvENKUlvE7_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit": ; preds = %49, %51
+"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_3clEvENKUlvE6_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit": ; preds = %49, %51
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -47259,11 +47208,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %_
 }
 
 ; Function Attrs: inlinehint mustprogress ssp uwtable
-define internal fastcc void @"_ZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_3clEvENKUlvE8_clEv"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_3clEvENKUlvE7_clEv"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca i64, align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.open3d::core::Device", align 8
-  %5 = alloca %class.anon.219, align 8
+  %5 = alloca %class.anon.217, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = load ptr, ptr %0, align 8, !tbaa !1006
   %7 = load ptr, ptr %6, align 8, !tbaa !4
@@ -47290,6 +47239,109 @@ define internal fastcc void @"_ZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4c
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 856
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %25 = load ptr, ptr %24, align 8, !tbaa !1014
+  br label %26
+
+26:                                               ; preds = %26, %1
+  %27 = phi i64 [ 0, %1 ], [ %31, %26 ]
+  %28 = getelementptr inbounds nuw i8, ptr %23, i64 %27
+  %29 = getelementptr inbounds nuw i8, ptr %25, i64 %27
+  %30 = load i8, ptr %29, align 1, !tbaa !15
+  store i8 %30, ptr %28, align 1, !tbaa !15
+  %31 = add nuw nsw i64 %27, 1
+  %32 = icmp eq i64 %31, 2
+  br i1 %32, label %33, label %26
+
+33:                                               ; preds = %26
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  %34 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @2)
+  store i64 %13, ptr %2, align 8, !tbaa !36
+  %35 = and i64 %10, 4294967295
+  %36 = icmp eq i64 %35, 0
+  br i1 %36, label %49, label %37
+
+37:                                               ; preds = %33
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @_ZNK6open3d4core6Device8ToStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr noundef nonnull align 4 dereferenceable(8) %4)
+  invoke void @_ZN6open3d7utility6Logger9LogError_IJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvPKciSA_SA_DpOT_(ptr noundef nonnull @.str.12, i32 noundef 76, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_3clEvENKUlvE_clEvEUllE_EEvRKNS0_6DeviceElRKT_", ptr noundef nonnull @.str.13, ptr noundef nonnull align 8 dereferenceable(32) %3) #33
+          to label %38 unwind label %39
+
+38:                                               ; preds = %37
+  unreachable
+
+39:                                               ; preds = %37
+  %40 = landingpad { ptr, i32 }
+          cleanup
+  %41 = load ptr, ptr %3, align 8, !tbaa !47
+  %42 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %43 = icmp eq ptr %41, %42
+  br i1 %43, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i
+
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i: ; preds = %39
+  %44 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %45 = load i64, ptr %44, align 8, !tbaa !51
+  %46 = icmp ult i64 %45, 16
+  call void @llvm.assume(i1 %46)
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i
+
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i: ; preds = %39
+  %47 = load i64, ptr %42, align 8, !tbaa !15
+  %48 = add i64 %47, 1
+  call void @_ZdlPvm(ptr noundef %41, i64 noundef %48) #32
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i
+
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  resume { ptr, i32 } %40
+
+49:                                               ; preds = %33
+  %50 = icmp eq i64 %13, 0
+  br i1 %50, label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_3clEvENKUlvE7_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit", label %51
+
+51:                                               ; preds = %49
+  %52 = tail call noundef i32 @_ZN6open3d7utility18EstimateMaxThreadsEv()
+  tail call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %34, i32 %52)
+  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 2, ptr nonnull @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_3clEvENKUlvE7_clEvEUllE_EEvRKNS0_6DeviceElRKT_.omp_outlined", ptr nonnull %2, ptr nonnull align 8 dereferenceable(858) %5)
+  br label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_3clEvENKUlvE7_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit"
+
+"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_3clEvENKUlvE7_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit": ; preds = %49, %51
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress ssp uwtable
+define internal fastcc void @"_ZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_3clEvENKUlvE8_clEv"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca i64, align 8
+  %3 = alloca %"class.std::__cxx11::basic_string", align 8
+  %4 = alloca %"class.open3d::core::Device", align 8
+  %5 = alloca %class.anon.219, align 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  %6 = load ptr, ptr %0, align 8, !tbaa !1015
+  %7 = load ptr, ptr %6, align 8, !tbaa !4
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %9 = load ptr, ptr %8, align 8
+  %10 = tail call i64 %9(ptr noundef nonnull align 8 dereferenceable(160) %6)
+  store i64 %10, ptr %4, align 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %12 = load ptr, ptr %11, align 8, !tbaa !1017
+  %13 = tail call noundef i64 @_ZNK6open3d4core7Indexer12NumWorkloadsEv(ptr noundef nonnull align 8 dereferenceable(842) %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  %14 = load ptr, ptr %11, align 8, !tbaa !1017
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(842) %5, ptr noundef nonnull align 8 dereferenceable(842) %14, i64 842, i1 false), !tbaa.struct !40
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 848
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %17 = load ptr, ptr %16, align 8, !tbaa !1018
+  %18 = load float, ptr %17, align 4, !tbaa !38
+  store float %18, ptr %15, align 8, !tbaa !1019
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 852
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %21 = load ptr, ptr %20, align 8, !tbaa !1021
+  %22 = load float, ptr %21, align 4, !tbaa !38
+  store float %22, ptr %19, align 4, !tbaa !1022
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 856
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %25 = load ptr, ptr %24, align 8, !tbaa !1023
   br label %26
 
 26:                                               ; preds = %26, %1
@@ -47419,18 +47471,18 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   br i1 %34, label %37, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %32
-  %35 = load i64, ptr %19, align 8, !tbaa !967
+  %35 = load i64, ptr %19, align 8, !tbaa !976
   %36 = icmp sgt i64 %35, 0
   br i1 %36, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
 
 37:                                               ; preds = %32
-  %38 = load ptr, ptr %17, align 8, !tbaa !968
+  %38 = load ptr, ptr %17, align 8, !tbaa !977
   %39 = getelementptr inbounds nuw float, ptr %38, i64 %.015
   br label %_ZNK6open3d4core7Indexer11GetInputPtrIfEEPT_ll.exit.thread.i
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i, %.preheader.i.i.i
   %.016.lcssa.i.i.i = phi i64 [ 0, %.preheader.i.i.i ], [ %48, %.lr.ph.i.i.i ]
-  %40 = load ptr, ptr %17, align 8, !tbaa !968
+  %40 = load ptr, ptr %17, align 8, !tbaa !977
   %41 = getelementptr inbounds i8, ptr %40, i64 %.016.lcssa.i.i.i
   br label %_ZNK6open3d4core7Indexer11GetInputPtrIfEEPT_ll.exit.thread.i
 
@@ -47457,7 +47509,7 @@ _ZNK6open3d4core7Indexer11GetInputPtrIfEEPT_ll.exit.thread.i: ; preds = %29, %._
   br i1 %52, label %.loopexit, label %.preheader.i.i12.i
 
 .preheader.i.i12.i:                               ; preds = %_ZNK6open3d4core7Indexer11GetInputPtrIfEEPT_ll.exit.thread.i
-  %53 = load i64, ptr %19, align 8, !tbaa !967
+  %53 = load i64, ptr %19, align 8, !tbaa !976
   %54 = icmp sgt i64 %53, 0
   br i1 %54, label %.lr.ph.i.i15.i, label %.loopexit
 
@@ -47475,11 +47527,11 @@ _ZNK6open3d4core7Indexer11GetInputPtrIfEEPT_ll.exit.thread.i: ; preds = %29, %._
   %62 = srem i64 %.01720.i.i18.i, %56
   %63 = add nuw nsw i64 %.022.i.i16.i, 1
   %exitcond.not.i.i19.i = icmp eq i64 %63, %53
-  br i1 %exitcond.not.i.i19.i, label %.loopexit, label %.lr.ph.i.i15.i, !llvm.loop !873
+  br i1 %exitcond.not.i.i19.i, label %.loopexit, label %.lr.ph.i.i15.i, !llvm.loop !882
 
 .loopexit:                                        ; preds = %.lr.ph.i.i15.i, %.preheader.i.i12.i, %_ZNK6open3d4core7Indexer11GetInputPtrIfEEPT_ll.exit.thread.i
   %.sink29.i = phi i64 [ %.015, %_ZNK6open3d4core7Indexer11GetInputPtrIfEEPT_ll.exit.thread.i ], [ 0, %.preheader.i.i12.i ], [ %61, %.lr.ph.i.i15.i ]
-  %64 = load ptr, ptr %24, align 8, !tbaa !968
+  %64 = load ptr, ptr %24, align 8, !tbaa !977
   %65 = getelementptr inbounds i8, ptr %64, i64 %.sink29.i
   %66 = load float, ptr %.0.i21.i, align 4, !tbaa !38
   %67 = load float, ptr %25, align 8, !tbaa !104
@@ -47570,18 +47622,18 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   br i1 %34, label %37, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %32
-  %35 = load i64, ptr %19, align 8, !tbaa !967
+  %35 = load i64, ptr %19, align 8, !tbaa !976
   %36 = icmp sgt i64 %35, 0
   br i1 %36, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
 
 37:                                               ; preds = %32
-  %38 = load ptr, ptr %17, align 8, !tbaa !968
+  %38 = load ptr, ptr %17, align 8, !tbaa !977
   %39 = getelementptr inbounds nuw double, ptr %38, i64 %.015
   br label %_ZNK6open3d4core7Indexer11GetInputPtrIdEEPT_ll.exit.thread.i
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i, %.preheader.i.i.i
   %.016.lcssa.i.i.i = phi i64 [ 0, %.preheader.i.i.i ], [ %48, %.lr.ph.i.i.i ]
-  %40 = load ptr, ptr %17, align 8, !tbaa !968
+  %40 = load ptr, ptr %17, align 8, !tbaa !977
   %41 = getelementptr inbounds i8, ptr %40, i64 %.016.lcssa.i.i.i
   br label %_ZNK6open3d4core7Indexer11GetInputPtrIdEEPT_ll.exit.thread.i
 
@@ -47599,7 +47651,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %49 = srem i64 %.01720.i.i.i, %43
   %50 = add nuw nsw i64 %.022.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %50, %35
-  br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !868
+  br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !877
 
 _ZNK6open3d4core7Indexer11GetInputPtrIdEEPT_ll.exit.thread.i: ; preds = %29, %._crit_edge.i.i.i, %37
   %.0.i21.i = phi ptr [ %41, %._crit_edge.i.i.i ], [ %39, %37 ], [ null, %29 ]
@@ -47608,7 +47660,7 @@ _ZNK6open3d4core7Indexer11GetInputPtrIdEEPT_ll.exit.thread.i: ; preds = %29, %._
   br i1 %52, label %.loopexit, label %.preheader.i.i12.i
 
 .preheader.i.i12.i:                               ; preds = %_ZNK6open3d4core7Indexer11GetInputPtrIdEEPT_ll.exit.thread.i
-  %53 = load i64, ptr %19, align 8, !tbaa !967
+  %53 = load i64, ptr %19, align 8, !tbaa !976
   %54 = icmp sgt i64 %53, 0
   br i1 %54, label %.lr.ph.i.i15.i, label %.loopexit
 
@@ -47626,11 +47678,11 @@ _ZNK6open3d4core7Indexer11GetInputPtrIdEEPT_ll.exit.thread.i: ; preds = %29, %._
   %62 = srem i64 %.01720.i.i18.i, %56
   %63 = add nuw nsw i64 %.022.i.i16.i, 1
   %exitcond.not.i.i19.i = icmp eq i64 %63, %53
-  br i1 %exitcond.not.i.i19.i, label %.loopexit, label %.lr.ph.i.i15.i, !llvm.loop !873
+  br i1 %exitcond.not.i.i19.i, label %.loopexit, label %.lr.ph.i.i15.i, !llvm.loop !882
 
 .loopexit:                                        ; preds = %.lr.ph.i.i15.i, %.preheader.i.i12.i, %_ZNK6open3d4core7Indexer11GetInputPtrIdEEPT_ll.exit.thread.i
   %.sink29.i = phi i64 [ %.015, %_ZNK6open3d4core7Indexer11GetInputPtrIdEEPT_ll.exit.thread.i ], [ 0, %.preheader.i.i12.i ], [ %61, %.lr.ph.i.i15.i ]
-  %64 = load ptr, ptr %24, align 8, !tbaa !968
+  %64 = load ptr, ptr %24, align 8, !tbaa !977
   %65 = getelementptr inbounds i8, ptr %64, i64 %.sink29.i
   %66 = load double, ptr %.0.i21.i, align 8, !tbaa !69
   %67 = fptrunc double %66 to float
@@ -47722,7 +47774,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   br i1 %34, label %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.thread20.i, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %32
-  %35 = load i64, ptr %19, align 8, !tbaa !967
+  %35 = load i64, ptr %19, align 8, !tbaa !976
   %36 = icmp sgt i64 %35, 0
   br i1 %36, label %.lr.ph.i.i.i, label %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.thread20.i
 
@@ -47740,11 +47792,11 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %44 = srem i64 %.01720.i.i.i, %38
   %45 = add nuw nsw i64 %.022.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %45, %35
-  br i1 %exitcond.not.i.i.i, label %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.thread20.i, label %.lr.ph.i.i.i, !llvm.loop !869
+  br i1 %exitcond.not.i.i.i, label %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.thread20.i, label %.lr.ph.i.i.i, !llvm.loop !878
 
 _ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.thread20.i: ; preds = %.lr.ph.i.i.i, %.preheader.i.i.i, %32
   %.016.lcssa.i.sink.i.i = phi i64 [ %.015, %32 ], [ 0, %.preheader.i.i.i ], [ %43, %.lr.ph.i.i.i ]
-  %46 = load ptr, ptr %17, align 8, !tbaa !968
+  %46 = load ptr, ptr %17, align 8, !tbaa !977
   %47 = getelementptr inbounds i8, ptr %46, i64 %.016.lcssa.i.sink.i.i
   br label %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.i
 
@@ -47755,7 +47807,7 @@ _ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.i: ; preds = %29, %_ZNK6open
   br i1 %49, label %.loopexit, label %.preheader.i.i12.i
 
 .preheader.i.i12.i:                               ; preds = %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.i
-  %50 = load i64, ptr %19, align 8, !tbaa !967
+  %50 = load i64, ptr %19, align 8, !tbaa !976
   %51 = icmp sgt i64 %50, 0
   br i1 %51, label %.lr.ph.i.i13.i, label %.loopexit
 
@@ -47773,11 +47825,11 @@ _ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.i: ; preds = %29, %_ZNK6open
   %59 = srem i64 %.01720.i.i16.i, %53
   %60 = add nuw nsw i64 %.022.i.i14.i, 1
   %exitcond.not.i.i17.i = icmp eq i64 %60, %50
-  br i1 %exitcond.not.i.i17.i, label %.loopexit, label %.lr.ph.i.i13.i, !llvm.loop !873
+  br i1 %exitcond.not.i.i17.i, label %.loopexit, label %.lr.ph.i.i13.i, !llvm.loop !882
 
 .loopexit:                                        ; preds = %.lr.ph.i.i13.i, %.preheader.i.i12.i, %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.i
   %.sink27.i = phi i64 [ %.015, %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.i ], [ 0, %.preheader.i.i12.i ], [ %58, %.lr.ph.i.i13.i ]
-  %61 = load ptr, ptr %24, align 8, !tbaa !968
+  %61 = load ptr, ptr %24, align 8, !tbaa !977
   %62 = getelementptr inbounds i8, ptr %61, i64 %.sink27.i
   %63 = load i8, ptr %.0.i22.i, align 1, !tbaa !15
   %64 = sitofp i8 %63 to float
@@ -47869,18 +47921,18 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   br i1 %34, label %37, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %32
-  %35 = load i64, ptr %19, align 8, !tbaa !967
+  %35 = load i64, ptr %19, align 8, !tbaa !976
   %36 = icmp sgt i64 %35, 0
   br i1 %36, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
 
 37:                                               ; preds = %32
-  %38 = load ptr, ptr %17, align 8, !tbaa !968
+  %38 = load ptr, ptr %17, align 8, !tbaa !977
   %39 = getelementptr inbounds nuw i16, ptr %38, i64 %.015
   br label %_ZNK6open3d4core7Indexer11GetInputPtrIsEEPT_ll.exit.thread.i
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i, %.preheader.i.i.i
   %.016.lcssa.i.i.i = phi i64 [ 0, %.preheader.i.i.i ], [ %48, %.lr.ph.i.i.i ]
-  %40 = load ptr, ptr %17, align 8, !tbaa !968
+  %40 = load ptr, ptr %17, align 8, !tbaa !977
   %41 = getelementptr inbounds i8, ptr %40, i64 %.016.lcssa.i.i.i
   br label %_ZNK6open3d4core7Indexer11GetInputPtrIsEEPT_ll.exit.thread.i
 
@@ -47898,7 +47950,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %49 = srem i64 %.01720.i.i.i, %43
   %50 = add nuw nsw i64 %.022.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %50, %35
-  br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !870
+  br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !879
 
 _ZNK6open3d4core7Indexer11GetInputPtrIsEEPT_ll.exit.thread.i: ; preds = %29, %._crit_edge.i.i.i, %37
   %.0.i21.i = phi ptr [ %41, %._crit_edge.i.i.i ], [ %39, %37 ], [ null, %29 ]
@@ -47907,7 +47959,7 @@ _ZNK6open3d4core7Indexer11GetInputPtrIsEEPT_ll.exit.thread.i: ; preds = %29, %._
   br i1 %52, label %.loopexit, label %.preheader.i.i12.i
 
 .preheader.i.i12.i:                               ; preds = %_ZNK6open3d4core7Indexer11GetInputPtrIsEEPT_ll.exit.thread.i
-  %53 = load i64, ptr %19, align 8, !tbaa !967
+  %53 = load i64, ptr %19, align 8, !tbaa !976
   %54 = icmp sgt i64 %53, 0
   br i1 %54, label %.lr.ph.i.i15.i, label %.loopexit
 
@@ -47925,11 +47977,11 @@ _ZNK6open3d4core7Indexer11GetInputPtrIsEEPT_ll.exit.thread.i: ; preds = %29, %._
   %62 = srem i64 %.01720.i.i18.i, %56
   %63 = add nuw nsw i64 %.022.i.i16.i, 1
   %exitcond.not.i.i19.i = icmp eq i64 %63, %53
-  br i1 %exitcond.not.i.i19.i, label %.loopexit, label %.lr.ph.i.i15.i, !llvm.loop !873
+  br i1 %exitcond.not.i.i19.i, label %.loopexit, label %.lr.ph.i.i15.i, !llvm.loop !882
 
 .loopexit:                                        ; preds = %.lr.ph.i.i15.i, %.preheader.i.i12.i, %_ZNK6open3d4core7Indexer11GetInputPtrIsEEPT_ll.exit.thread.i
   %.sink29.i = phi i64 [ %.015, %_ZNK6open3d4core7Indexer11GetInputPtrIsEEPT_ll.exit.thread.i ], [ 0, %.preheader.i.i12.i ], [ %61, %.lr.ph.i.i15.i ]
-  %64 = load ptr, ptr %24, align 8, !tbaa !968
+  %64 = load ptr, ptr %24, align 8, !tbaa !977
   %65 = getelementptr inbounds i8, ptr %64, i64 %.sink29.i
   %66 = load i16, ptr %.0.i21.i, align 2, !tbaa !122
   %67 = sitofp i16 %66 to float
@@ -48021,18 +48073,18 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   br i1 %34, label %37, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %32
-  %35 = load i64, ptr %19, align 8, !tbaa !967
+  %35 = load i64, ptr %19, align 8, !tbaa !976
   %36 = icmp sgt i64 %35, 0
   br i1 %36, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
 
 37:                                               ; preds = %32
-  %38 = load ptr, ptr %17, align 8, !tbaa !968
+  %38 = load ptr, ptr %17, align 8, !tbaa !977
   %39 = getelementptr inbounds nuw i32, ptr %38, i64 %.015
   br label %_ZNK6open3d4core7Indexer11GetInputPtrIiEEPT_ll.exit.thread.i
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i, %.preheader.i.i.i
   %.016.lcssa.i.i.i = phi i64 [ 0, %.preheader.i.i.i ], [ %48, %.lr.ph.i.i.i ]
-  %40 = load ptr, ptr %17, align 8, !tbaa !968
+  %40 = load ptr, ptr %17, align 8, !tbaa !977
   %41 = getelementptr inbounds i8, ptr %40, i64 %.016.lcssa.i.i.i
   br label %_ZNK6open3d4core7Indexer11GetInputPtrIiEEPT_ll.exit.thread.i
 
@@ -48050,7 +48102,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %49 = srem i64 %.01720.i.i.i, %43
   %50 = add nuw nsw i64 %.022.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %50, %35
-  br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !871
+  br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !880
 
 _ZNK6open3d4core7Indexer11GetInputPtrIiEEPT_ll.exit.thread.i: ; preds = %29, %._crit_edge.i.i.i, %37
   %.0.i21.i = phi ptr [ %41, %._crit_edge.i.i.i ], [ %39, %37 ], [ null, %29 ]
@@ -48059,7 +48111,7 @@ _ZNK6open3d4core7Indexer11GetInputPtrIiEEPT_ll.exit.thread.i: ; preds = %29, %._
   br i1 %52, label %.loopexit, label %.preheader.i.i12.i
 
 .preheader.i.i12.i:                               ; preds = %_ZNK6open3d4core7Indexer11GetInputPtrIiEEPT_ll.exit.thread.i
-  %53 = load i64, ptr %19, align 8, !tbaa !967
+  %53 = load i64, ptr %19, align 8, !tbaa !976
   %54 = icmp sgt i64 %53, 0
   br i1 %54, label %.lr.ph.i.i15.i, label %.loopexit
 
@@ -48077,11 +48129,11 @@ _ZNK6open3d4core7Indexer11GetInputPtrIiEEPT_ll.exit.thread.i: ; preds = %29, %._
   %62 = srem i64 %.01720.i.i18.i, %56
   %63 = add nuw nsw i64 %.022.i.i16.i, 1
   %exitcond.not.i.i19.i = icmp eq i64 %63, %53
-  br i1 %exitcond.not.i.i19.i, label %.loopexit, label %.lr.ph.i.i15.i, !llvm.loop !873
+  br i1 %exitcond.not.i.i19.i, label %.loopexit, label %.lr.ph.i.i15.i, !llvm.loop !882
 
 .loopexit:                                        ; preds = %.lr.ph.i.i15.i, %.preheader.i.i12.i, %_ZNK6open3d4core7Indexer11GetInputPtrIiEEPT_ll.exit.thread.i
   %.sink29.i = phi i64 [ %.015, %_ZNK6open3d4core7Indexer11GetInputPtrIiEEPT_ll.exit.thread.i ], [ 0, %.preheader.i.i12.i ], [ %61, %.lr.ph.i.i15.i ]
-  %64 = load ptr, ptr %24, align 8, !tbaa !968
+  %64 = load ptr, ptr %24, align 8, !tbaa !977
   %65 = getelementptr inbounds i8, ptr %64, i64 %.sink29.i
   %66 = load i32, ptr %.0.i21.i, align 4, !tbaa !16
   %67 = sitofp i32 %66 to float
@@ -48173,18 +48225,18 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   br i1 %34, label %37, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %32
-  %35 = load i64, ptr %19, align 8, !tbaa !967
+  %35 = load i64, ptr %19, align 8, !tbaa !976
   %36 = icmp sgt i64 %35, 0
   br i1 %36, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
 
 37:                                               ; preds = %32
-  %38 = load ptr, ptr %17, align 8, !tbaa !968
+  %38 = load ptr, ptr %17, align 8, !tbaa !977
   %39 = getelementptr inbounds nuw i64, ptr %38, i64 %.015
   br label %_ZNK6open3d4core7Indexer11GetInputPtrIlEEPT_ll.exit.thread.i
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i, %.preheader.i.i.i
   %.016.lcssa.i.i.i = phi i64 [ 0, %.preheader.i.i.i ], [ %48, %.lr.ph.i.i.i ]
-  %40 = load ptr, ptr %17, align 8, !tbaa !968
+  %40 = load ptr, ptr %17, align 8, !tbaa !977
   %41 = getelementptr inbounds i8, ptr %40, i64 %.016.lcssa.i.i.i
   br label %_ZNK6open3d4core7Indexer11GetInputPtrIlEEPT_ll.exit.thread.i
 
@@ -48202,7 +48254,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %49 = srem i64 %.01720.i.i.i, %43
   %50 = add nuw nsw i64 %.022.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %50, %35
-  br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !872
+  br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !881
 
 _ZNK6open3d4core7Indexer11GetInputPtrIlEEPT_ll.exit.thread.i: ; preds = %29, %._crit_edge.i.i.i, %37
   %.0.i21.i = phi ptr [ %41, %._crit_edge.i.i.i ], [ %39, %37 ], [ null, %29 ]
@@ -48211,7 +48263,7 @@ _ZNK6open3d4core7Indexer11GetInputPtrIlEEPT_ll.exit.thread.i: ; preds = %29, %._
   br i1 %52, label %.loopexit, label %.preheader.i.i12.i
 
 .preheader.i.i12.i:                               ; preds = %_ZNK6open3d4core7Indexer11GetInputPtrIlEEPT_ll.exit.thread.i
-  %53 = load i64, ptr %19, align 8, !tbaa !967
+  %53 = load i64, ptr %19, align 8, !tbaa !976
   %54 = icmp sgt i64 %53, 0
   br i1 %54, label %.lr.ph.i.i15.i, label %.loopexit
 
@@ -48229,16 +48281,16 @@ _ZNK6open3d4core7Indexer11GetInputPtrIlEEPT_ll.exit.thread.i: ; preds = %29, %._
   %62 = srem i64 %.01720.i.i18.i, %56
   %63 = add nuw nsw i64 %.022.i.i16.i, 1
   %exitcond.not.i.i19.i = icmp eq i64 %63, %53
-  br i1 %exitcond.not.i.i19.i, label %.loopexit, label %.lr.ph.i.i15.i, !llvm.loop !873
+  br i1 %exitcond.not.i.i19.i, label %.loopexit, label %.lr.ph.i.i15.i, !llvm.loop !882
 
 .loopexit:                                        ; preds = %.lr.ph.i.i15.i, %.preheader.i.i12.i, %_ZNK6open3d4core7Indexer11GetInputPtrIlEEPT_ll.exit.thread.i
   %.sink29.i = phi i64 [ %.015, %_ZNK6open3d4core7Indexer11GetInputPtrIlEEPT_ll.exit.thread.i ], [ 0, %.preheader.i.i12.i ], [ %61, %.lr.ph.i.i15.i ]
-  %64 = load ptr, ptr %24, align 8, !tbaa !968
+  %64 = load ptr, ptr %24, align 8, !tbaa !977
   %65 = getelementptr inbounds i8, ptr %64, i64 %.sink29.i
   %66 = load i64, ptr %.0.i21.i, align 8, !tbaa !36
   %67 = sitofp i64 %66 to float
-  %68 = load float, ptr %25, align 8, !tbaa !974
-  %69 = load float, ptr %26, align 4, !tbaa !977
+  %68 = load float, ptr %25, align 8, !tbaa !983
+  %69 = load float, ptr %26, align 4, !tbaa !986
   %70 = call float @llvm.fmuladd.f32(float %67, float %68, float %69)
   %71 = load i8, ptr %27, align 8, !tbaa !15
   %72 = uitofp i8 %71 to float
@@ -48325,7 +48377,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   br i1 %34, label %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.thread20.i, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %32
-  %35 = load i64, ptr %19, align 8, !tbaa !967
+  %35 = load i64, ptr %19, align 8, !tbaa !976
   %36 = icmp sgt i64 %35, 0
   br i1 %36, label %.lr.ph.i.i.i, label %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.thread20.i
 
@@ -48343,11 +48395,11 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %44 = srem i64 %.01720.i.i.i, %38
   %45 = add nuw nsw i64 %.022.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %45, %35
-  br i1 %exitcond.not.i.i.i, label %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.thread20.i, label %.lr.ph.i.i.i, !llvm.loop !873
+  br i1 %exitcond.not.i.i.i, label %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.thread20.i, label %.lr.ph.i.i.i, !llvm.loop !882
 
 _ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.thread20.i: ; preds = %.lr.ph.i.i.i, %.preheader.i.i.i, %32
   %.016.lcssa.i.sink.i.i = phi i64 [ %.015, %32 ], [ 0, %.preheader.i.i.i ], [ %43, %.lr.ph.i.i.i ]
-  %46 = load ptr, ptr %17, align 8, !tbaa !968
+  %46 = load ptr, ptr %17, align 8, !tbaa !977
   %47 = getelementptr inbounds i8, ptr %46, i64 %.016.lcssa.i.sink.i.i
   br label %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.i
 
@@ -48358,7 +48410,7 @@ _ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.i: ; preds = %29, %_ZNK6open
   br i1 %49, label %.loopexit, label %.preheader.i.i12.i
 
 .preheader.i.i12.i:                               ; preds = %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.i
-  %50 = load i64, ptr %19, align 8, !tbaa !967
+  %50 = load i64, ptr %19, align 8, !tbaa !976
   %51 = icmp sgt i64 %50, 0
   br i1 %51, label %.lr.ph.i.i13.i, label %.loopexit
 
@@ -48376,16 +48428,16 @@ _ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.i: ; preds = %29, %_ZNK6open
   %59 = srem i64 %.01720.i.i16.i, %53
   %60 = add nuw nsw i64 %.022.i.i14.i, 1
   %exitcond.not.i.i17.i = icmp eq i64 %60, %50
-  br i1 %exitcond.not.i.i17.i, label %.loopexit, label %.lr.ph.i.i13.i, !llvm.loop !873
+  br i1 %exitcond.not.i.i17.i, label %.loopexit, label %.lr.ph.i.i13.i, !llvm.loop !882
 
 .loopexit:                                        ; preds = %.lr.ph.i.i13.i, %.preheader.i.i12.i, %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.i
   %.sink27.i = phi i64 [ %.015, %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.i ], [ 0, %.preheader.i.i12.i ], [ %58, %.lr.ph.i.i13.i ]
-  %61 = load ptr, ptr %24, align 8, !tbaa !968
+  %61 = load ptr, ptr %24, align 8, !tbaa !977
   %62 = getelementptr inbounds i8, ptr %61, i64 %.sink27.i
   %63 = load i8, ptr %.0.i22.i, align 1, !tbaa !15
   %64 = uitofp i8 %63 to float
-  %65 = load float, ptr %25, align 8, !tbaa !983
-  %66 = load float, ptr %26, align 4, !tbaa !986
+  %65 = load float, ptr %25, align 8, !tbaa !992
+  %66 = load float, ptr %26, align 4, !tbaa !995
   %67 = call float @llvm.fmuladd.f32(float %64, float %65, float %66)
   %68 = load i8, ptr %27, align 8, !tbaa !15
   %69 = uitofp i8 %68 to float
@@ -48472,18 +48524,18 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   br i1 %34, label %37, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %32
-  %35 = load i64, ptr %19, align 8, !tbaa !967
+  %35 = load i64, ptr %19, align 8, !tbaa !976
   %36 = icmp sgt i64 %35, 0
   br i1 %36, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
 
 37:                                               ; preds = %32
-  %38 = load ptr, ptr %17, align 8, !tbaa !968
+  %38 = load ptr, ptr %17, align 8, !tbaa !977
   %39 = getelementptr inbounds nuw i16, ptr %38, i64 %.015
   br label %_ZNK6open3d4core7Indexer11GetInputPtrItEEPT_ll.exit.thread.i
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i, %.preheader.i.i.i
   %.016.lcssa.i.i.i = phi i64 [ 0, %.preheader.i.i.i ], [ %48, %.lr.ph.i.i.i ]
-  %40 = load ptr, ptr %17, align 8, !tbaa !968
+  %40 = load ptr, ptr %17, align 8, !tbaa !977
   %41 = getelementptr inbounds i8, ptr %40, i64 %.016.lcssa.i.i.i
   br label %_ZNK6open3d4core7Indexer11GetInputPtrItEEPT_ll.exit.thread.i
 
@@ -48501,7 +48553,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %49 = srem i64 %.01720.i.i.i, %43
   %50 = add nuw nsw i64 %.022.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %50, %35
-  br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !874
+  br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !883
 
 _ZNK6open3d4core7Indexer11GetInputPtrItEEPT_ll.exit.thread.i: ; preds = %29, %._crit_edge.i.i.i, %37
   %.0.i21.i = phi ptr [ %41, %._crit_edge.i.i.i ], [ %39, %37 ], [ null, %29 ]
@@ -48510,7 +48562,7 @@ _ZNK6open3d4core7Indexer11GetInputPtrItEEPT_ll.exit.thread.i: ; preds = %29, %._
   br i1 %52, label %.loopexit, label %.preheader.i.i12.i
 
 .preheader.i.i12.i:                               ; preds = %_ZNK6open3d4core7Indexer11GetInputPtrItEEPT_ll.exit.thread.i
-  %53 = load i64, ptr %19, align 8, !tbaa !967
+  %53 = load i64, ptr %19, align 8, !tbaa !976
   %54 = icmp sgt i64 %53, 0
   br i1 %54, label %.lr.ph.i.i15.i, label %.loopexit
 
@@ -48528,16 +48580,16 @@ _ZNK6open3d4core7Indexer11GetInputPtrItEEPT_ll.exit.thread.i: ; preds = %29, %._
   %62 = srem i64 %.01720.i.i18.i, %56
   %63 = add nuw nsw i64 %.022.i.i16.i, 1
   %exitcond.not.i.i19.i = icmp eq i64 %63, %53
-  br i1 %exitcond.not.i.i19.i, label %.loopexit, label %.lr.ph.i.i15.i, !llvm.loop !873
+  br i1 %exitcond.not.i.i19.i, label %.loopexit, label %.lr.ph.i.i15.i, !llvm.loop !882
 
 .loopexit:                                        ; preds = %.lr.ph.i.i15.i, %.preheader.i.i12.i, %_ZNK6open3d4core7Indexer11GetInputPtrItEEPT_ll.exit.thread.i
   %.sink29.i = phi i64 [ %.015, %_ZNK6open3d4core7Indexer11GetInputPtrItEEPT_ll.exit.thread.i ], [ 0, %.preheader.i.i12.i ], [ %61, %.lr.ph.i.i15.i ]
-  %64 = load ptr, ptr %24, align 8, !tbaa !968
+  %64 = load ptr, ptr %24, align 8, !tbaa !977
   %65 = getelementptr inbounds i8, ptr %64, i64 %.sink29.i
   %66 = load i16, ptr %.0.i21.i, align 2, !tbaa !122
   %67 = uitofp i16 %66 to float
-  %68 = load float, ptr %25, align 8, !tbaa !992
-  %69 = load float, ptr %26, align 4, !tbaa !995
+  %68 = load float, ptr %25, align 8, !tbaa !1001
+  %69 = load float, ptr %26, align 4, !tbaa !1004
   %70 = call float @llvm.fmuladd.f32(float %67, float %68, float %69)
   %71 = load i8, ptr %27, align 8, !tbaa !15
   %72 = uitofp i8 %71 to float
@@ -48624,18 +48676,18 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   br i1 %34, label %37, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %32
-  %35 = load i64, ptr %19, align 8, !tbaa !967
+  %35 = load i64, ptr %19, align 8, !tbaa !976
   %36 = icmp sgt i64 %35, 0
   br i1 %36, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
 
 37:                                               ; preds = %32
-  %38 = load ptr, ptr %17, align 8, !tbaa !968
+  %38 = load ptr, ptr %17, align 8, !tbaa !977
   %39 = getelementptr inbounds nuw i32, ptr %38, i64 %.015
   br label %_ZNK6open3d4core7Indexer11GetInputPtrIjEEPT_ll.exit.thread.i
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i, %.preheader.i.i.i
   %.016.lcssa.i.i.i = phi i64 [ 0, %.preheader.i.i.i ], [ %48, %.lr.ph.i.i.i ]
-  %40 = load ptr, ptr %17, align 8, !tbaa !968
+  %40 = load ptr, ptr %17, align 8, !tbaa !977
   %41 = getelementptr inbounds i8, ptr %40, i64 %.016.lcssa.i.i.i
   br label %_ZNK6open3d4core7Indexer11GetInputPtrIjEEPT_ll.exit.thread.i
 
@@ -48653,7 +48705,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %49 = srem i64 %.01720.i.i.i, %43
   %50 = add nuw nsw i64 %.022.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %50, %35
-  br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !875
+  br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !884
 
 _ZNK6open3d4core7Indexer11GetInputPtrIjEEPT_ll.exit.thread.i: ; preds = %29, %._crit_edge.i.i.i, %37
   %.0.i21.i = phi ptr [ %41, %._crit_edge.i.i.i ], [ %39, %37 ], [ null, %29 ]
@@ -48662,7 +48714,7 @@ _ZNK6open3d4core7Indexer11GetInputPtrIjEEPT_ll.exit.thread.i: ; preds = %29, %._
   br i1 %52, label %.loopexit, label %.preheader.i.i12.i
 
 .preheader.i.i12.i:                               ; preds = %_ZNK6open3d4core7Indexer11GetInputPtrIjEEPT_ll.exit.thread.i
-  %53 = load i64, ptr %19, align 8, !tbaa !967
+  %53 = load i64, ptr %19, align 8, !tbaa !976
   %54 = icmp sgt i64 %53, 0
   br i1 %54, label %.lr.ph.i.i15.i, label %.loopexit
 
@@ -48680,16 +48732,16 @@ _ZNK6open3d4core7Indexer11GetInputPtrIjEEPT_ll.exit.thread.i: ; preds = %29, %._
   %62 = srem i64 %.01720.i.i18.i, %56
   %63 = add nuw nsw i64 %.022.i.i16.i, 1
   %exitcond.not.i.i19.i = icmp eq i64 %63, %53
-  br i1 %exitcond.not.i.i19.i, label %.loopexit, label %.lr.ph.i.i15.i, !llvm.loop !873
+  br i1 %exitcond.not.i.i19.i, label %.loopexit, label %.lr.ph.i.i15.i, !llvm.loop !882
 
 .loopexit:                                        ; preds = %.lr.ph.i.i15.i, %.preheader.i.i12.i, %_ZNK6open3d4core7Indexer11GetInputPtrIjEEPT_ll.exit.thread.i
   %.sink29.i = phi i64 [ %.015, %_ZNK6open3d4core7Indexer11GetInputPtrIjEEPT_ll.exit.thread.i ], [ 0, %.preheader.i.i12.i ], [ %61, %.lr.ph.i.i15.i ]
-  %64 = load ptr, ptr %24, align 8, !tbaa !968
+  %64 = load ptr, ptr %24, align 8, !tbaa !977
   %65 = getelementptr inbounds i8, ptr %64, i64 %.sink29.i
   %66 = load i32, ptr %.0.i21.i, align 4, !tbaa !16
   %67 = uitofp i32 %66 to float
-  %68 = load float, ptr %25, align 8, !tbaa !1001
-  %69 = load float, ptr %26, align 4, !tbaa !1004
+  %68 = load float, ptr %25, align 8, !tbaa !1010
+  %69 = load float, ptr %26, align 4, !tbaa !1013
   %70 = call float @llvm.fmuladd.f32(float %67, float %68, float %69)
   %71 = load i8, ptr %27, align 8, !tbaa !15
   %72 = uitofp i8 %71 to float
@@ -48776,18 +48828,18 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   br i1 %34, label %37, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %32
-  %35 = load i64, ptr %19, align 8, !tbaa !967
+  %35 = load i64, ptr %19, align 8, !tbaa !976
   %36 = icmp sgt i64 %35, 0
   br i1 %36, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
 
 37:                                               ; preds = %32
-  %38 = load ptr, ptr %17, align 8, !tbaa !968
+  %38 = load ptr, ptr %17, align 8, !tbaa !977
   %39 = getelementptr inbounds nuw i64, ptr %38, i64 %.015
   br label %_ZNK6open3d4core7Indexer11GetInputPtrImEEPT_ll.exit.thread.i
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i, %.preheader.i.i.i
   %.016.lcssa.i.i.i = phi i64 [ 0, %.preheader.i.i.i ], [ %48, %.lr.ph.i.i.i ]
-  %40 = load ptr, ptr %17, align 8, !tbaa !968
+  %40 = load ptr, ptr %17, align 8, !tbaa !977
   %41 = getelementptr inbounds i8, ptr %40, i64 %.016.lcssa.i.i.i
   br label %_ZNK6open3d4core7Indexer11GetInputPtrImEEPT_ll.exit.thread.i
 
@@ -48805,7 +48857,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %49 = srem i64 %.01720.i.i.i, %43
   %50 = add nuw nsw i64 %.022.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %50, %35
-  br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !876
+  br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !885
 
 _ZNK6open3d4core7Indexer11GetInputPtrImEEPT_ll.exit.thread.i: ; preds = %29, %._crit_edge.i.i.i, %37
   %.0.i21.i = phi ptr [ %41, %._crit_edge.i.i.i ], [ %39, %37 ], [ null, %29 ]
@@ -48814,7 +48866,7 @@ _ZNK6open3d4core7Indexer11GetInputPtrImEEPT_ll.exit.thread.i: ; preds = %29, %._
   br i1 %52, label %.loopexit, label %.preheader.i.i12.i
 
 .preheader.i.i12.i:                               ; preds = %_ZNK6open3d4core7Indexer11GetInputPtrImEEPT_ll.exit.thread.i
-  %53 = load i64, ptr %19, align 8, !tbaa !967
+  %53 = load i64, ptr %19, align 8, !tbaa !976
   %54 = icmp sgt i64 %53, 0
   br i1 %54, label %.lr.ph.i.i15.i, label %.loopexit
 
@@ -48832,16 +48884,16 @@ _ZNK6open3d4core7Indexer11GetInputPtrImEEPT_ll.exit.thread.i: ; preds = %29, %._
   %62 = srem i64 %.01720.i.i18.i, %56
   %63 = add nuw nsw i64 %.022.i.i16.i, 1
   %exitcond.not.i.i19.i = icmp eq i64 %63, %53
-  br i1 %exitcond.not.i.i19.i, label %.loopexit, label %.lr.ph.i.i15.i, !llvm.loop !873
+  br i1 %exitcond.not.i.i19.i, label %.loopexit, label %.lr.ph.i.i15.i, !llvm.loop !882
 
 .loopexit:                                        ; preds = %.lr.ph.i.i15.i, %.preheader.i.i12.i, %_ZNK6open3d4core7Indexer11GetInputPtrImEEPT_ll.exit.thread.i
   %.sink29.i = phi i64 [ %.015, %_ZNK6open3d4core7Indexer11GetInputPtrImEEPT_ll.exit.thread.i ], [ 0, %.preheader.i.i12.i ], [ %61, %.lr.ph.i.i15.i ]
-  %64 = load ptr, ptr %24, align 8, !tbaa !968
+  %64 = load ptr, ptr %24, align 8, !tbaa !977
   %65 = getelementptr inbounds i8, ptr %64, i64 %.sink29.i
   %66 = load i64, ptr %.0.i21.i, align 8, !tbaa !36
   %67 = uitofp i64 %66 to float
-  %68 = load float, ptr %25, align 8, !tbaa !1010
-  %69 = load float, ptr %26, align 4, !tbaa !1013
+  %68 = load float, ptr %25, align 8, !tbaa !1019
+  %69 = load float, ptr %26, align 4, !tbaa !1022
   %70 = call float @llvm.fmuladd.f32(float %67, float %68, float %69)
   %71 = load i8, ptr %27, align 8, !tbaa !15
   %72 = uitofp i8 %71 to float
@@ -48876,109 +48928,6 @@ define internal fastcc void @"_ZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4c
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.open3d::core::Device", align 8
   %5 = alloca %class.anon.241, align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %6 = load ptr, ptr %0, align 8, !tbaa !1015
-  %7 = load ptr, ptr %6, align 8, !tbaa !4
-  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %9 = load ptr, ptr %8, align 8
-  %10 = tail call i64 %9(ptr noundef nonnull align 8 dereferenceable(160) %6)
-  store i64 %10, ptr %4, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !1017
-  %13 = tail call noundef i64 @_ZNK6open3d4core7Indexer12NumWorkloadsEv(ptr noundef nonnull align 8 dereferenceable(842) %12)
-  call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %14 = load ptr, ptr %11, align 8, !tbaa !1017
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(842) %5, ptr noundef nonnull align 8 dereferenceable(842) %14, i64 842, i1 false), !tbaa.struct !40
-  %15 = getelementptr inbounds nuw i8, ptr %5, i64 848
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %17 = load ptr, ptr %16, align 8, !tbaa !1018
-  %18 = load float, ptr %17, align 4, !tbaa !38
-  store float %18, ptr %15, align 8, !tbaa !1019
-  %19 = getelementptr inbounds nuw i8, ptr %5, i64 852
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %21 = load ptr, ptr %20, align 8, !tbaa !1021
-  %22 = load float, ptr %21, align 4, !tbaa !38
-  store float %22, ptr %19, align 4, !tbaa !1022
-  %23 = getelementptr inbounds nuw i8, ptr %5, i64 856
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %25 = load ptr, ptr %24, align 8, !tbaa !1023
-  br label %26
-
-26:                                               ; preds = %26, %1
-  %27 = phi i64 [ 0, %1 ], [ %31, %26 ]
-  %28 = getelementptr inbounds nuw i16, ptr %23, i64 %27
-  %29 = getelementptr inbounds nuw i16, ptr %25, i64 %27
-  %30 = load i16, ptr %29, align 2, !tbaa !122
-  store i16 %30, ptr %28, align 2, !tbaa !122
-  %31 = add nuw nsw i64 %27, 1
-  %32 = icmp eq i64 %31, 2
-  br i1 %32, label %33, label %26
-
-33:                                               ; preds = %26
-  call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %34 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @2)
-  store i64 %13, ptr %2, align 8, !tbaa !36
-  %35 = and i64 %10, 4294967295
-  %36 = icmp eq i64 %35, 0
-  br i1 %36, label %49, label %37
-
-37:                                               ; preds = %33
-  call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  call void @_ZNK6open3d4core6Device8ToStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr noundef nonnull align 4 dereferenceable(8) %4)
-  invoke void @_ZN6open3d7utility6Logger9LogError_IJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvPKciSA_SA_DpOT_(ptr noundef nonnull @.str.12, i32 noundef 76, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_4clEvENKUlvE_clEvEUllE_EEvRKNS0_6DeviceElRKT_", ptr noundef nonnull @.str.13, ptr noundef nonnull align 8 dereferenceable(32) %3) #33
-          to label %38 unwind label %39
-
-38:                                               ; preds = %37
-  unreachable
-
-39:                                               ; preds = %37
-  %40 = landingpad { ptr, i32 }
-          cleanup
-  %41 = load ptr, ptr %3, align 8, !tbaa !47
-  %42 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %43 = icmp eq ptr %41, %42
-  br i1 %43, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i: ; preds = %39
-  %44 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %45 = load i64, ptr %44, align 8, !tbaa !51
-  %46 = icmp ult i64 %45, 16
-  call void @llvm.assume(i1 %46)
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i: ; preds = %39
-  %47 = load i64, ptr %42, align 8, !tbaa !15
-  %48 = add i64 %47, 1
-  call void @_ZdlPvm(ptr noundef %41, i64 noundef %48) #32
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i
-
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i
-  call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  resume { ptr, i32 } %40
-
-49:                                               ; preds = %33
-  %50 = icmp eq i64 %13, 0
-  br i1 %50, label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_4clEvENKUlvE4_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit", label %51
-
-51:                                               ; preds = %49
-  %52 = tail call noundef i32 @_ZN6open3d7utility18EstimateMaxThreadsEv()
-  tail call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %34, i32 %52)
-  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 2, ptr nonnull @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_4clEvENKUlvE4_clEvEUllE_EEvRKNS0_6DeviceElRKT_.omp_outlined", ptr nonnull %2, ptr nonnull align 8 dereferenceable(860) %5)
-  br label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_4clEvENKUlvE4_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit"
-
-"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_4clEvENKUlvE4_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit": ; preds = %49, %51
-  call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret void
-}
-
-; Function Attrs: inlinehint mustprogress ssp uwtable
-define internal fastcc void @"_ZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_4clEvENKUlvE5_clEv"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = alloca i64, align 8
-  %3 = alloca %"class.std::__cxx11::basic_string", align 8
-  %4 = alloca %"class.open3d::core::Device", align 8
-  %5 = alloca %class.anon.243, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = load ptr, ptr %0, align 8, !tbaa !1024
   %7 = load ptr, ptr %6, align 8, !tbaa !4
@@ -49061,15 +49010,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %_
 
 49:                                               ; preds = %33
   %50 = icmp eq i64 %13, 0
-  br i1 %50, label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_4clEvENKUlvE5_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit", label %51
+  br i1 %50, label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_4clEvENKUlvE4_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit", label %51
 
 51:                                               ; preds = %49
   %52 = tail call noundef i32 @_ZN6open3d7utility18EstimateMaxThreadsEv()
   tail call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %34, i32 %52)
-  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 2, ptr nonnull @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_4clEvENKUlvE5_clEvEUllE_EEvRKNS0_6DeviceElRKT_.omp_outlined", ptr nonnull %2, ptr nonnull align 8 dereferenceable(860) %5)
-  br label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_4clEvENKUlvE5_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit"
+  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 2, ptr nonnull @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_4clEvENKUlvE4_clEvEUllE_EEvRKNS0_6DeviceElRKT_.omp_outlined", ptr nonnull %2, ptr nonnull align 8 dereferenceable(860) %5)
+  br label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_4clEvENKUlvE4_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit"
 
-"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_4clEvENKUlvE5_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit": ; preds = %49, %51
+"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_4clEvENKUlvE4_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit": ; preds = %49, %51
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -49077,11 +49026,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %_
 }
 
 ; Function Attrs: inlinehint mustprogress ssp uwtable
-define internal fastcc void @"_ZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_4clEvENKUlvE6_clEv"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_4clEvENKUlvE5_clEv"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca i64, align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.open3d::core::Device", align 8
-  %5 = alloca %class.anon.245, align 8
+  %5 = alloca %class.anon.243, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = load ptr, ptr %0, align 8, !tbaa !1033
   %7 = load ptr, ptr %6, align 8, !tbaa !4
@@ -49164,15 +49113,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %_
 
 49:                                               ; preds = %33
   %50 = icmp eq i64 %13, 0
-  br i1 %50, label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_4clEvENKUlvE6_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit", label %51
+  br i1 %50, label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_4clEvENKUlvE5_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit", label %51
 
 51:                                               ; preds = %49
   %52 = tail call noundef i32 @_ZN6open3d7utility18EstimateMaxThreadsEv()
   tail call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %34, i32 %52)
-  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 2, ptr nonnull @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_4clEvENKUlvE6_clEvEUllE_EEvRKNS0_6DeviceElRKT_.omp_outlined", ptr nonnull %2, ptr nonnull align 8 dereferenceable(860) %5)
-  br label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_4clEvENKUlvE6_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit"
+  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 2, ptr nonnull @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_4clEvENKUlvE5_clEvEUllE_EEvRKNS0_6DeviceElRKT_.omp_outlined", ptr nonnull %2, ptr nonnull align 8 dereferenceable(860) %5)
+  br label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_4clEvENKUlvE5_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit"
 
-"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_4clEvENKUlvE6_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit": ; preds = %49, %51
+"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_4clEvENKUlvE5_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit": ; preds = %49, %51
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -49180,11 +49129,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %_
 }
 
 ; Function Attrs: inlinehint mustprogress ssp uwtable
-define internal fastcc void @"_ZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_4clEvENKUlvE7_clEv"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_4clEvENKUlvE6_clEv"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca i64, align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.open3d::core::Device", align 8
-  %5 = alloca %class.anon.247, align 8
+  %5 = alloca %class.anon.245, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = load ptr, ptr %0, align 8, !tbaa !1042
   %7 = load ptr, ptr %6, align 8, !tbaa !4
@@ -49267,15 +49216,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %_
 
 49:                                               ; preds = %33
   %50 = icmp eq i64 %13, 0
-  br i1 %50, label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_4clEvENKUlvE7_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit", label %51
+  br i1 %50, label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_4clEvENKUlvE6_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit", label %51
 
 51:                                               ; preds = %49
   %52 = tail call noundef i32 @_ZN6open3d7utility18EstimateMaxThreadsEv()
   tail call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %34, i32 %52)
-  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 2, ptr nonnull @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_4clEvENKUlvE7_clEvEUllE_EEvRKNS0_6DeviceElRKT_.omp_outlined", ptr nonnull %2, ptr nonnull align 8 dereferenceable(860) %5)
-  br label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_4clEvENKUlvE7_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit"
+  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 2, ptr nonnull @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_4clEvENKUlvE6_clEvEUllE_EEvRKNS0_6DeviceElRKT_.omp_outlined", ptr nonnull %2, ptr nonnull align 8 dereferenceable(860) %5)
+  br label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_4clEvENKUlvE6_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit"
 
-"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_4clEvENKUlvE7_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit": ; preds = %49, %51
+"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_4clEvENKUlvE6_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit": ; preds = %49, %51
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -49283,11 +49232,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %_
 }
 
 ; Function Attrs: inlinehint mustprogress ssp uwtable
-define internal fastcc void @"_ZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_4clEvENKUlvE8_clEv"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_4clEvENKUlvE7_clEv"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca i64, align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.open3d::core::Device", align 8
-  %5 = alloca %class.anon.249, align 8
+  %5 = alloca %class.anon.247, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = load ptr, ptr %0, align 8, !tbaa !1051
   %7 = load ptr, ptr %6, align 8, !tbaa !4
@@ -49314,6 +49263,109 @@ define internal fastcc void @"_ZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4c
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 856
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %25 = load ptr, ptr %24, align 8, !tbaa !1059
+  br label %26
+
+26:                                               ; preds = %26, %1
+  %27 = phi i64 [ 0, %1 ], [ %31, %26 ]
+  %28 = getelementptr inbounds nuw i16, ptr %23, i64 %27
+  %29 = getelementptr inbounds nuw i16, ptr %25, i64 %27
+  %30 = load i16, ptr %29, align 2, !tbaa !122
+  store i16 %30, ptr %28, align 2, !tbaa !122
+  %31 = add nuw nsw i64 %27, 1
+  %32 = icmp eq i64 %31, 2
+  br i1 %32, label %33, label %26
+
+33:                                               ; preds = %26
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  %34 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @2)
+  store i64 %13, ptr %2, align 8, !tbaa !36
+  %35 = and i64 %10, 4294967295
+  %36 = icmp eq i64 %35, 0
+  br i1 %36, label %49, label %37
+
+37:                                               ; preds = %33
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @_ZNK6open3d4core6Device8ToStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr noundef nonnull align 4 dereferenceable(8) %4)
+  invoke void @_ZN6open3d7utility6Logger9LogError_IJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvPKciSA_SA_DpOT_(ptr noundef nonnull @.str.12, i32 noundef 76, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_4clEvENKUlvE_clEvEUllE_EEvRKNS0_6DeviceElRKT_", ptr noundef nonnull @.str.13, ptr noundef nonnull align 8 dereferenceable(32) %3) #33
+          to label %38 unwind label %39
+
+38:                                               ; preds = %37
+  unreachable
+
+39:                                               ; preds = %37
+  %40 = landingpad { ptr, i32 }
+          cleanup
+  %41 = load ptr, ptr %3, align 8, !tbaa !47
+  %42 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %43 = icmp eq ptr %41, %42
+  br i1 %43, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i
+
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i: ; preds = %39
+  %44 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %45 = load i64, ptr %44, align 8, !tbaa !51
+  %46 = icmp ult i64 %45, 16
+  call void @llvm.assume(i1 %46)
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i
+
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i: ; preds = %39
+  %47 = load i64, ptr %42, align 8, !tbaa !15
+  %48 = add i64 %47, 1
+  call void @_ZdlPvm(ptr noundef %41, i64 noundef %48) #32
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i
+
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  resume { ptr, i32 } %40
+
+49:                                               ; preds = %33
+  %50 = icmp eq i64 %13, 0
+  br i1 %50, label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_4clEvENKUlvE7_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit", label %51
+
+51:                                               ; preds = %49
+  %52 = tail call noundef i32 @_ZN6open3d7utility18EstimateMaxThreadsEv()
+  tail call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %34, i32 %52)
+  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 2, ptr nonnull @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_4clEvENKUlvE7_clEvEUllE_EEvRKNS0_6DeviceElRKT_.omp_outlined", ptr nonnull %2, ptr nonnull align 8 dereferenceable(860) %5)
+  br label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_4clEvENKUlvE7_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit"
+
+"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_4clEvENKUlvE7_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit": ; preds = %49, %51
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress ssp uwtable
+define internal fastcc void @"_ZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_4clEvENKUlvE8_clEv"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca i64, align 8
+  %3 = alloca %"class.std::__cxx11::basic_string", align 8
+  %4 = alloca %"class.open3d::core::Device", align 8
+  %5 = alloca %class.anon.249, align 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  %6 = load ptr, ptr %0, align 8, !tbaa !1060
+  %7 = load ptr, ptr %6, align 8, !tbaa !4
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %9 = load ptr, ptr %8, align 8
+  %10 = tail call i64 %9(ptr noundef nonnull align 8 dereferenceable(160) %6)
+  store i64 %10, ptr %4, align 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %12 = load ptr, ptr %11, align 8, !tbaa !1062
+  %13 = tail call noundef i64 @_ZNK6open3d4core7Indexer12NumWorkloadsEv(ptr noundef nonnull align 8 dereferenceable(842) %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  %14 = load ptr, ptr %11, align 8, !tbaa !1062
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(842) %5, ptr noundef nonnull align 8 dereferenceable(842) %14, i64 842, i1 false), !tbaa.struct !40
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 848
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %17 = load ptr, ptr %16, align 8, !tbaa !1063
+  %18 = load float, ptr %17, align 4, !tbaa !38
+  store float %18, ptr %15, align 8, !tbaa !1064
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 852
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %21 = load ptr, ptr %20, align 8, !tbaa !1066
+  %22 = load float, ptr %21, align 4, !tbaa !38
+  store float %22, ptr %19, align 4, !tbaa !1067
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 856
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %25 = load ptr, ptr %24, align 8, !tbaa !1068
   br label %26
 
 26:                                               ; preds = %26, %1
@@ -49466,7 +49518,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %49 = srem i64 %.01720.i.i18.i.us, %43
   %50 = add nuw nsw i64 %.022.i.i16.i.us, 1
   %exitcond.not.i.i19.i.us = icmp eq i64 %50, %.fr
-  br i1 %exitcond.not.i.i19.i.us, label %._crit_edge.i.i13.i.us, label %.lr.ph.i.i15.i.us, !llvm.loop !870
+  br i1 %exitcond.not.i.i19.i.us, label %._crit_edge.i.i13.i.us, label %.lr.ph.i.i15.i.us, !llvm.loop !879
 
 ._crit_edge.i.i13.i.us:                           ; preds = %.lr.ph.i.i15.i.us, %.preheader.i.i12.i.us
   %.016.lcssa.i.i14.i.us = phi i64 [ 0, %.preheader.i.i12.i.us ], [ %48, %.lr.ph.i.i15.i.us ]
@@ -49627,7 +49679,7 @@ _ZNK6open3d4core7Indexer11GetInputPtrIfEEPT_ll.exit.thread.i.us36: ; preds = %.l
   %125 = srem i64 %.01720.i.i18.i.us41, %119
   %126 = add nuw nsw i64 %.022.i.i16.i.us39, 1
   %exitcond.not.i.i19.i.us42 = icmp eq i64 %126, %.fr
-  br i1 %exitcond.not.i.i19.i.us42, label %._crit_edge.i.i13.i.us43, label %.lr.ph.i.i15.i.us38, !llvm.loop !870
+  br i1 %exitcond.not.i.i19.i.us42, label %._crit_edge.i.i13.i.us43, label %.lr.ph.i.i15.i.us38, !llvm.loop !879
 
 ._crit_edge.i.i13.i.us43:                         ; preds = %.lr.ph.i.i15.i.us38, %_ZNK6open3d4core7Indexer11GetInputPtrIfEEPT_ll.exit.thread.i.us36
   %.016.lcssa.i.i14.i.us44 = phi i64 [ 0, %_ZNK6open3d4core7Indexer11GetInputPtrIfEEPT_ll.exit.thread.i.us36 ], [ %124, %.lr.ph.i.i15.i.us38 ]
@@ -49773,7 +49825,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %49 = srem i64 %.01720.i.i18.i.us, %43
   %50 = add nuw nsw i64 %.022.i.i16.i.us, 1
   %exitcond.not.i.i19.i.us = icmp eq i64 %50, %.fr
-  br i1 %exitcond.not.i.i19.i.us, label %._crit_edge.i.i13.i.us, label %.lr.ph.i.i15.i.us, !llvm.loop !870
+  br i1 %exitcond.not.i.i19.i.us, label %._crit_edge.i.i13.i.us, label %.lr.ph.i.i15.i.us, !llvm.loop !879
 
 ._crit_edge.i.i13.i.us:                           ; preds = %.lr.ph.i.i15.i.us, %.preheader.i.i12.i.us
   %.016.lcssa.i.i14.i.us = phi i64 [ 0, %.preheader.i.i12.i.us ], [ %48, %.lr.ph.i.i15.i.us ]
@@ -49835,7 +49887,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %76 = srem i64 %.01720.i.i.i.us.us, %70
   %77 = add nuw nsw i64 %.022.i.i.i.us.us, 1
   %exitcond.not.i.i.i.us.us = icmp eq i64 %77, %.fr
-  br i1 %exitcond.not.i.i.i.us.us, label %._crit_edge.i.i.i.us.loopexit.us, label %.lr.ph.i.i.i.us.us, !llvm.loop !868
+  br i1 %exitcond.not.i.i.i.us.us, label %._crit_edge.i.i.i.us.loopexit.us, label %.lr.ph.i.i.i.us.us, !llvm.loop !877
 
 ._crit_edge.i.i.i.us.loopexit.us:                 ; preds = %.lr.ph.i.i.i.us.us
   %78 = getelementptr inbounds i8, ptr %26, i64 %75
@@ -49918,7 +49970,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %120 = srem i64 %.01720.i.i.i.us32, %114
   %121 = add nuw nsw i64 %.022.i.i.i.us30, 1
   %exitcond.not.i.i.i.us33 = icmp eq i64 %121, %.fr
-  br i1 %exitcond.not.i.i.i.us33, label %._crit_edge.i.i.i.loopexit.us49, label %.preheader.i.i.i.us28, !llvm.loop !868
+  br i1 %exitcond.not.i.i.i.us33, label %._crit_edge.i.i.i.loopexit.us49, label %.preheader.i.i.i.us28, !llvm.loop !877
 
 _ZNK6open3d4core7Indexer11GetInputPtrIdEEPT_ll.exit.thread.i.us36: ; preds = %.lr.ph.split.split.split.us, %._crit_edge.i.i.i.loopexit.us49
   %.0.i21.i.us37 = phi ptr [ %144, %._crit_edge.i.i.i.loopexit.us49 ], [ null, %.lr.ph.split.split.split.us ]
@@ -49938,7 +49990,7 @@ _ZNK6open3d4core7Indexer11GetInputPtrIdEEPT_ll.exit.thread.i.us36: ; preds = %.l
   %129 = srem i64 %.01720.i.i18.i.us41, %123
   %130 = add nuw nsw i64 %.022.i.i16.i.us39, 1
   %exitcond.not.i.i19.i.us42 = icmp eq i64 %130, %.fr
-  br i1 %exitcond.not.i.i19.i.us42, label %._crit_edge.i.i13.i.us43, label %.lr.ph.i.i15.i.us38, !llvm.loop !870
+  br i1 %exitcond.not.i.i19.i.us42, label %._crit_edge.i.i13.i.us43, label %.lr.ph.i.i15.i.us38, !llvm.loop !879
 
 ._crit_edge.i.i13.i.us43:                         ; preds = %.lr.ph.i.i15.i.us38, %_ZNK6open3d4core7Indexer11GetInputPtrIdEEPT_ll.exit.thread.i.us36
   %.016.lcssa.i.i14.i.us44 = phi i64 [ 0, %_ZNK6open3d4core7Indexer11GetInputPtrIdEEPT_ll.exit.thread.i.us36 ], [ %128, %.lr.ph.i.i15.i.us38 ]
@@ -50089,7 +50141,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %49 = srem i64 %.01720.i.i.i.us, %43
   %50 = add nuw nsw i64 %.022.i.i.i.us, 1
   %exitcond.not.i.i.i.us = icmp eq i64 %50, %.fr
-  br i1 %exitcond.not.i.i.i.us, label %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.thread20.i.us, label %.lr.ph.i.i.i.us, !llvm.loop !869
+  br i1 %exitcond.not.i.i.i.us, label %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.thread20.i.us, label %.lr.ph.i.i.i.us, !llvm.loop !878
 
 _ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.thread20.i.us: ; preds = %.lr.ph.i.i.i.us, %.lr.ph.split.us
   %.016.lcssa.i.sink.i.i.us = phi i64 [ %.015.us.mux, %.lr.ph.split.us ], [ %48, %.lr.ph.i.i.i.us ]
@@ -50136,7 +50188,7 @@ _ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.thread20.i.us: ; preds = %.l
   %74 = srem i64 %.01720.i.i16.i.us, %68
   %75 = add nuw nsw i64 %.022.i.i14.i.us, 1
   %exitcond.not.i.i17.i.us = icmp eq i64 %75, %.fr
-  br i1 %exitcond.not.i.i17.i.us, label %._crit_edge.i.i.i.us, label %.lr.ph.i.i13.i.us, !llvm.loop !870
+  br i1 %exitcond.not.i.i17.i.us, label %._crit_edge.i.i.i.us, label %.lr.ph.i.i13.i.us, !llvm.loop !879
 
 ._crit_edge.i.i.i.us:                             ; preds = %.lr.ph.i.i13.i.us, %.lr.ph.split.split.us
   %.016.lcssa.i.i.i.us = phi i64 [ 0, %.lr.ph.split.split.us ], [ %73, %.lr.ph.i.i13.i.us ]
@@ -50188,7 +50240,7 @@ _ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.thread20.i.us: ; preds = %.l
   %100 = srem i64 %.01720.i.i.i.us32, %94
   %101 = add nuw nsw i64 %.022.i.i.i.us30, 1
   %exitcond.not.i.i.i.us33 = icmp eq i64 %101, %.fr
-  br i1 %exitcond.not.i.i.i.us33, label %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.thread20.i.loopexit.us49, label %.preheader.i.i.i.us28, !llvm.loop !869
+  br i1 %exitcond.not.i.i.i.us33, label %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.thread20.i.loopexit.us49, label %.preheader.i.i.i.us28, !llvm.loop !878
 
 .preheader.i.i12.i.us36:                          ; preds = %.lr.ph.split.split.split.us, %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.thread20.i.loopexit.us49
   %.0.i22.i.us37 = phi ptr [ %124, %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.thread20.i.loopexit.us49 ], [ null, %.lr.ph.split.split.split.us ]
@@ -50208,7 +50260,7 @@ _ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.thread20.i.us: ; preds = %.l
   %109 = srem i64 %.01720.i.i16.i.us41, %103
   %110 = add nuw nsw i64 %.022.i.i14.i.us39, 1
   %exitcond.not.i.i17.i.us42 = icmp eq i64 %110, %.fr
-  br i1 %exitcond.not.i.i17.i.us42, label %._crit_edge.i.i.i.us43, label %.lr.ph.i.i13.i.us38, !llvm.loop !870
+  br i1 %exitcond.not.i.i17.i.us42, label %._crit_edge.i.i.i.us43, label %.lr.ph.i.i13.i.us38, !llvm.loop !879
 
 ._crit_edge.i.i.i.us43:                           ; preds = %.lr.ph.i.i13.i.us38, %.preheader.i.i12.i.us36
   %.016.lcssa.i.i.i.us44 = phi i64 [ 0, %.preheader.i.i12.i.us36 ], [ %108, %.lr.ph.i.i13.i.us38 ]
@@ -50358,7 +50410,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %49 = srem i64 %.01720.i.i18.i.us, %43
   %50 = add nuw nsw i64 %.022.i.i16.i.us, 1
   %exitcond.not.i.i19.i.us = icmp eq i64 %50, %.fr
-  br i1 %exitcond.not.i.i19.i.us, label %._crit_edge.i.i13.i.us, label %.lr.ph.i.i15.i.us, !llvm.loop !870
+  br i1 %exitcond.not.i.i19.i.us, label %._crit_edge.i.i13.i.us, label %.lr.ph.i.i15.i.us, !llvm.loop !879
 
 ._crit_edge.i.i13.i.us:                           ; preds = %.lr.ph.i.i15.i.us, %.preheader.i.i12.i.us
   %.016.lcssa.i.i14.i.us = phi i64 [ 0, %.preheader.i.i12.i.us ], [ %48, %.lr.ph.i.i15.i.us ]
@@ -50417,7 +50469,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %76 = srem i64 %.01720.i.i.i.us.us, %70
   %77 = add nuw nsw i64 %.022.i.i.i.us.us, 1
   %exitcond.not.i.i.i.us.us = icmp eq i64 %77, %.fr
-  br i1 %exitcond.not.i.i.i.us.us, label %._crit_edge.i.i.i.us.loopexit.us, label %.lr.ph.i.i.i.us.us, !llvm.loop !870
+  br i1 %exitcond.not.i.i.i.us.us, label %._crit_edge.i.i.i.us.loopexit.us, label %.lr.ph.i.i.i.us.us, !llvm.loop !879
 
 ._crit_edge.i.i.i.us.loopexit.us:                 ; preds = %.lr.ph.i.i.i.us.us
   %78 = getelementptr inbounds i8, ptr %26, i64 %75
@@ -50492,7 +50544,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %117 = srem i64 %.01720.i.i.i.us32, %111
   %118 = add nuw nsw i64 %.022.i.i.i.us30, 1
   %exitcond.not.i.i.i.us33 = icmp eq i64 %118, %.fr
-  br i1 %exitcond.not.i.i.i.us33, label %._crit_edge.i.i.i.loopexit.us49, label %.preheader.i.i.i.us28, !llvm.loop !870
+  br i1 %exitcond.not.i.i.i.us33, label %._crit_edge.i.i.i.loopexit.us49, label %.preheader.i.i.i.us28, !llvm.loop !879
 
 _ZNK6open3d4core7Indexer11GetInputPtrIsEEPT_ll.exit.thread.i.us36: ; preds = %.lr.ph.split.split.split.us, %._crit_edge.i.i.i.loopexit.us49
   %.0.i21.i.us37 = phi ptr [ %141, %._crit_edge.i.i.i.loopexit.us49 ], [ null, %.lr.ph.split.split.split.us ]
@@ -50512,7 +50564,7 @@ _ZNK6open3d4core7Indexer11GetInputPtrIsEEPT_ll.exit.thread.i.us36: ; preds = %.l
   %126 = srem i64 %.01720.i.i18.i.us41, %120
   %127 = add nuw nsw i64 %.022.i.i16.i.us39, 1
   %exitcond.not.i.i19.i.us42 = icmp eq i64 %127, %.fr
-  br i1 %exitcond.not.i.i19.i.us42, label %._crit_edge.i.i13.i.us43, label %.lr.ph.i.i15.i.us38, !llvm.loop !870
+  br i1 %exitcond.not.i.i19.i.us42, label %._crit_edge.i.i13.i.us43, label %.lr.ph.i.i15.i.us38, !llvm.loop !879
 
 ._crit_edge.i.i13.i.us43:                         ; preds = %.lr.ph.i.i15.i.us38, %_ZNK6open3d4core7Indexer11GetInputPtrIsEEPT_ll.exit.thread.i.us36
   %.016.lcssa.i.i14.i.us44 = phi i64 [ 0, %_ZNK6open3d4core7Indexer11GetInputPtrIsEEPT_ll.exit.thread.i.us36 ], [ %125, %.lr.ph.i.i15.i.us38 ]
@@ -50662,7 +50714,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %49 = srem i64 %.01720.i.i18.i.us, %43
   %50 = add nuw nsw i64 %.022.i.i16.i.us, 1
   %exitcond.not.i.i19.i.us = icmp eq i64 %50, %.fr
-  br i1 %exitcond.not.i.i19.i.us, label %._crit_edge.i.i13.i.us, label %.lr.ph.i.i15.i.us, !llvm.loop !870
+  br i1 %exitcond.not.i.i19.i.us, label %._crit_edge.i.i13.i.us, label %.lr.ph.i.i15.i.us, !llvm.loop !879
 
 ._crit_edge.i.i13.i.us:                           ; preds = %.lr.ph.i.i15.i.us, %.preheader.i.i12.i.us
   %.016.lcssa.i.i14.i.us = phi i64 [ 0, %.preheader.i.i12.i.us ], [ %48, %.lr.ph.i.i15.i.us ]
@@ -50724,7 +50776,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %76 = srem i64 %.01720.i.i.i.us.us, %70
   %77 = add nuw nsw i64 %.022.i.i.i.us.us, 1
   %exitcond.not.i.i.i.us.us = icmp eq i64 %77, %.fr
-  br i1 %exitcond.not.i.i.i.us.us, label %._crit_edge.i.i.i.us.loopexit.us, label %.lr.ph.i.i.i.us.us, !llvm.loop !871
+  br i1 %exitcond.not.i.i.i.us.us, label %._crit_edge.i.i.i.us.loopexit.us, label %.lr.ph.i.i.i.us.us, !llvm.loop !880
 
 ._crit_edge.i.i.i.us.loopexit.us:                 ; preds = %.lr.ph.i.i.i.us.us
   %78 = getelementptr inbounds i8, ptr %26, i64 %75
@@ -50807,7 +50859,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %120 = srem i64 %.01720.i.i.i.us32, %114
   %121 = add nuw nsw i64 %.022.i.i.i.us30, 1
   %exitcond.not.i.i.i.us33 = icmp eq i64 %121, %.fr
-  br i1 %exitcond.not.i.i.i.us33, label %._crit_edge.i.i.i.loopexit.us49, label %.preheader.i.i.i.us28, !llvm.loop !871
+  br i1 %exitcond.not.i.i.i.us33, label %._crit_edge.i.i.i.loopexit.us49, label %.preheader.i.i.i.us28, !llvm.loop !880
 
 _ZNK6open3d4core7Indexer11GetInputPtrIiEEPT_ll.exit.thread.i.us36: ; preds = %.lr.ph.split.split.split.us, %._crit_edge.i.i.i.loopexit.us49
   %.0.i21.i.us37 = phi ptr [ %144, %._crit_edge.i.i.i.loopexit.us49 ], [ null, %.lr.ph.split.split.split.us ]
@@ -50827,7 +50879,7 @@ _ZNK6open3d4core7Indexer11GetInputPtrIiEEPT_ll.exit.thread.i.us36: ; preds = %.l
   %129 = srem i64 %.01720.i.i18.i.us41, %123
   %130 = add nuw nsw i64 %.022.i.i16.i.us39, 1
   %exitcond.not.i.i19.i.us42 = icmp eq i64 %130, %.fr
-  br i1 %exitcond.not.i.i19.i.us42, label %._crit_edge.i.i13.i.us43, label %.lr.ph.i.i15.i.us38, !llvm.loop !870
+  br i1 %exitcond.not.i.i19.i.us42, label %._crit_edge.i.i13.i.us43, label %.lr.ph.i.i15.i.us38, !llvm.loop !879
 
 ._crit_edge.i.i13.i.us43:                         ; preds = %.lr.ph.i.i15.i.us38, %_ZNK6open3d4core7Indexer11GetInputPtrIiEEPT_ll.exit.thread.i.us36
   %.016.lcssa.i.i14.i.us44 = phi i64 [ 0, %_ZNK6open3d4core7Indexer11GetInputPtrIiEEPT_ll.exit.thread.i.us36 ], [ %128, %.lr.ph.i.i15.i.us38 ]
@@ -50943,9 +50995,9 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 600
   %33 = load ptr, ptr %27, align 8
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 848
-  %35 = load float, ptr %34, align 8, !tbaa !1019
+  %35 = load float, ptr %34, align 8, !tbaa !1028
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 852
-  %37 = load float, ptr %36, align 4, !tbaa !1022
+  %37 = load float, ptr %36, align 4, !tbaa !1031
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 856
   %39 = getelementptr inbounds nuw i8, ptr %3, i64 858
   br i1 %20, label %.lr.ph.split.us, label %.lr.ph.split
@@ -50974,7 +51026,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %49 = srem i64 %.01720.i.i18.i.us, %43
   %50 = add nuw nsw i64 %.022.i.i16.i.us, 1
   %exitcond.not.i.i19.i.us = icmp eq i64 %50, %.fr
-  br i1 %exitcond.not.i.i19.i.us, label %._crit_edge.i.i13.i.us, label %.lr.ph.i.i15.i.us, !llvm.loop !870
+  br i1 %exitcond.not.i.i19.i.us, label %._crit_edge.i.i13.i.us, label %.lr.ph.i.i15.i.us, !llvm.loop !879
 
 ._crit_edge.i.i13.i.us:                           ; preds = %.lr.ph.i.i15.i.us, %.preheader.i.i12.i.us
   %.016.lcssa.i.i14.i.us = phi i64 [ 0, %.preheader.i.i12.i.us ], [ %48, %.lr.ph.i.i15.i.us ]
@@ -51036,7 +51088,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %76 = srem i64 %.01720.i.i.i.us.us, %70
   %77 = add nuw nsw i64 %.022.i.i.i.us.us, 1
   %exitcond.not.i.i.i.us.us = icmp eq i64 %77, %.fr
-  br i1 %exitcond.not.i.i.i.us.us, label %._crit_edge.i.i.i.us.loopexit.us, label %.lr.ph.i.i.i.us.us, !llvm.loop !872
+  br i1 %exitcond.not.i.i.i.us.us, label %._crit_edge.i.i.i.us.loopexit.us, label %.lr.ph.i.i.i.us.us, !llvm.loop !881
 
 ._crit_edge.i.i.i.us.loopexit.us:                 ; preds = %.lr.ph.i.i.i.us.us
   %78 = getelementptr inbounds i8, ptr %26, i64 %75
@@ -51119,7 +51171,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %120 = srem i64 %.01720.i.i.i.us32, %114
   %121 = add nuw nsw i64 %.022.i.i.i.us30, 1
   %exitcond.not.i.i.i.us33 = icmp eq i64 %121, %.fr
-  br i1 %exitcond.not.i.i.i.us33, label %._crit_edge.i.i.i.loopexit.us49, label %.preheader.i.i.i.us28, !llvm.loop !872
+  br i1 %exitcond.not.i.i.i.us33, label %._crit_edge.i.i.i.loopexit.us49, label %.preheader.i.i.i.us28, !llvm.loop !881
 
 _ZNK6open3d4core7Indexer11GetInputPtrIlEEPT_ll.exit.thread.i.us36: ; preds = %.lr.ph.split.split.split.us, %._crit_edge.i.i.i.loopexit.us49
   %.0.i21.i.us37 = phi ptr [ %144, %._crit_edge.i.i.i.loopexit.us49 ], [ null, %.lr.ph.split.split.split.us ]
@@ -51139,7 +51191,7 @@ _ZNK6open3d4core7Indexer11GetInputPtrIlEEPT_ll.exit.thread.i.us36: ; preds = %.l
   %129 = srem i64 %.01720.i.i18.i.us41, %123
   %130 = add nuw nsw i64 %.022.i.i16.i.us39, 1
   %exitcond.not.i.i19.i.us42 = icmp eq i64 %130, %.fr
-  br i1 %exitcond.not.i.i19.i.us42, label %._crit_edge.i.i13.i.us43, label %.lr.ph.i.i15.i.us38, !llvm.loop !870
+  br i1 %exitcond.not.i.i19.i.us42, label %._crit_edge.i.i13.i.us43, label %.lr.ph.i.i15.i.us38, !llvm.loop !879
 
 ._crit_edge.i.i13.i.us43:                         ; preds = %.lr.ph.i.i15.i.us38, %_ZNK6open3d4core7Indexer11GetInputPtrIlEEPT_ll.exit.thread.i.us36
   %.016.lcssa.i.i14.i.us44 = phi i64 [ 0, %_ZNK6open3d4core7Indexer11GetInputPtrIlEEPT_ll.exit.thread.i.us36 ], [ %128, %.lr.ph.i.i15.i.us38 ]
@@ -51255,9 +51307,9 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 600
   %33 = load ptr, ptr %27, align 8
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 848
-  %35 = load float, ptr %34, align 8, !tbaa !1028
+  %35 = load float, ptr %34, align 8, !tbaa !1037
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 852
-  %37 = load float, ptr %36, align 4, !tbaa !1031
+  %37 = load float, ptr %36, align 4, !tbaa !1040
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 856
   %39 = getelementptr inbounds nuw i8, ptr %3, i64 858
   br i1 %30, label %.lr.ph.split.us.preheader, label %.lr.ph.split
@@ -51290,7 +51342,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %49 = srem i64 %.01720.i.i.i.us, %43
   %50 = add nuw nsw i64 %.022.i.i.i.us, 1
   %exitcond.not.i.i.i.us = icmp eq i64 %50, %.fr
-  br i1 %exitcond.not.i.i.i.us, label %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.thread20.i.us, label %.lr.ph.i.i.i.us, !llvm.loop !873
+  br i1 %exitcond.not.i.i.i.us, label %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.thread20.i.us, label %.lr.ph.i.i.i.us, !llvm.loop !882
 
 _ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.thread20.i.us: ; preds = %.lr.ph.i.i.i.us, %.lr.ph.split.us
   %.016.lcssa.i.sink.i.i.us = phi i64 [ %.015.us.mux, %.lr.ph.split.us ], [ %48, %.lr.ph.i.i.i.us ]
@@ -51337,7 +51389,7 @@ _ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.thread20.i.us: ; preds = %.l
   %74 = srem i64 %.01720.i.i16.i.us, %68
   %75 = add nuw nsw i64 %.022.i.i14.i.us, 1
   %exitcond.not.i.i17.i.us = icmp eq i64 %75, %.fr
-  br i1 %exitcond.not.i.i17.i.us, label %._crit_edge.i.i.i.us, label %.lr.ph.i.i13.i.us, !llvm.loop !870
+  br i1 %exitcond.not.i.i17.i.us, label %._crit_edge.i.i.i.us, label %.lr.ph.i.i13.i.us, !llvm.loop !879
 
 ._crit_edge.i.i.i.us:                             ; preds = %.lr.ph.i.i13.i.us, %.lr.ph.split.split.us
   %.016.lcssa.i.i.i.us = phi i64 [ 0, %.lr.ph.split.split.us ], [ %73, %.lr.ph.i.i13.i.us ]
@@ -51389,7 +51441,7 @@ _ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.thread20.i.us: ; preds = %.l
   %100 = srem i64 %.01720.i.i.i.us32, %94
   %101 = add nuw nsw i64 %.022.i.i.i.us30, 1
   %exitcond.not.i.i.i.us33 = icmp eq i64 %101, %.fr
-  br i1 %exitcond.not.i.i.i.us33, label %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.thread20.i.loopexit.us49, label %.preheader.i.i.i.us28, !llvm.loop !873
+  br i1 %exitcond.not.i.i.i.us33, label %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.thread20.i.loopexit.us49, label %.preheader.i.i.i.us28, !llvm.loop !882
 
 .preheader.i.i12.i.us36:                          ; preds = %.lr.ph.split.split.split.us, %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.thread20.i.loopexit.us49
   %.0.i22.i.us37 = phi ptr [ %124, %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.thread20.i.loopexit.us49 ], [ null, %.lr.ph.split.split.split.us ]
@@ -51409,7 +51461,7 @@ _ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.thread20.i.us: ; preds = %.l
   %109 = srem i64 %.01720.i.i16.i.us41, %103
   %110 = add nuw nsw i64 %.022.i.i14.i.us39, 1
   %exitcond.not.i.i17.i.us42 = icmp eq i64 %110, %.fr
-  br i1 %exitcond.not.i.i17.i.us42, label %._crit_edge.i.i.i.us43, label %.lr.ph.i.i13.i.us38, !llvm.loop !870
+  br i1 %exitcond.not.i.i17.i.us42, label %._crit_edge.i.i.i.us43, label %.lr.ph.i.i13.i.us38, !llvm.loop !879
 
 ._crit_edge.i.i.i.us43:                           ; preds = %.lr.ph.i.i13.i.us38, %.preheader.i.i12.i.us36
   %.016.lcssa.i.i.i.us44 = phi i64 [ 0, %.preheader.i.i12.i.us36 ], [ %108, %.lr.ph.i.i13.i.us38 ]
@@ -51528,9 +51580,9 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 600
   %33 = load ptr, ptr %27, align 8
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 848
-  %35 = load float, ptr %34, align 8, !tbaa !1037
+  %35 = load float, ptr %34, align 8, !tbaa !1046
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 852
-  %37 = load float, ptr %36, align 4, !tbaa !1040
+  %37 = load float, ptr %36, align 4, !tbaa !1049
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 856
   %39 = getelementptr inbounds nuw i8, ptr %3, i64 858
   br i1 %20, label %.lr.ph.split.us, label %.lr.ph.split
@@ -51559,7 +51611,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %49 = srem i64 %.01720.i.i18.i.us, %43
   %50 = add nuw nsw i64 %.022.i.i16.i.us, 1
   %exitcond.not.i.i19.i.us = icmp eq i64 %50, %.fr
-  br i1 %exitcond.not.i.i19.i.us, label %._crit_edge.i.i13.i.us, label %.lr.ph.i.i15.i.us, !llvm.loop !870
+  br i1 %exitcond.not.i.i19.i.us, label %._crit_edge.i.i13.i.us, label %.lr.ph.i.i15.i.us, !llvm.loop !879
 
 ._crit_edge.i.i13.i.us:                           ; preds = %.lr.ph.i.i15.i.us, %.preheader.i.i12.i.us
   %.016.lcssa.i.i14.i.us = phi i64 [ 0, %.preheader.i.i12.i.us ], [ %48, %.lr.ph.i.i15.i.us ]
@@ -51618,7 +51670,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %76 = srem i64 %.01720.i.i.i.us.us, %70
   %77 = add nuw nsw i64 %.022.i.i.i.us.us, 1
   %exitcond.not.i.i.i.us.us = icmp eq i64 %77, %.fr
-  br i1 %exitcond.not.i.i.i.us.us, label %._crit_edge.i.i.i.us.loopexit.us, label %.lr.ph.i.i.i.us.us, !llvm.loop !874
+  br i1 %exitcond.not.i.i.i.us.us, label %._crit_edge.i.i.i.us.loopexit.us, label %.lr.ph.i.i.i.us.us, !llvm.loop !883
 
 ._crit_edge.i.i.i.us.loopexit.us:                 ; preds = %.lr.ph.i.i.i.us.us
   %78 = getelementptr inbounds i8, ptr %26, i64 %75
@@ -51693,7 +51745,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %117 = srem i64 %.01720.i.i.i.us32, %111
   %118 = add nuw nsw i64 %.022.i.i.i.us30, 1
   %exitcond.not.i.i.i.us33 = icmp eq i64 %118, %.fr
-  br i1 %exitcond.not.i.i.i.us33, label %._crit_edge.i.i.i.loopexit.us49, label %.preheader.i.i.i.us28, !llvm.loop !874
+  br i1 %exitcond.not.i.i.i.us33, label %._crit_edge.i.i.i.loopexit.us49, label %.preheader.i.i.i.us28, !llvm.loop !883
 
 _ZNK6open3d4core7Indexer11GetInputPtrItEEPT_ll.exit.thread.i.us36: ; preds = %.lr.ph.split.split.split.us, %._crit_edge.i.i.i.loopexit.us49
   %.0.i21.i.us37 = phi ptr [ %141, %._crit_edge.i.i.i.loopexit.us49 ], [ null, %.lr.ph.split.split.split.us ]
@@ -51713,7 +51765,7 @@ _ZNK6open3d4core7Indexer11GetInputPtrItEEPT_ll.exit.thread.i.us36: ; preds = %.l
   %126 = srem i64 %.01720.i.i18.i.us41, %120
   %127 = add nuw nsw i64 %.022.i.i16.i.us39, 1
   %exitcond.not.i.i19.i.us42 = icmp eq i64 %127, %.fr
-  br i1 %exitcond.not.i.i19.i.us42, label %._crit_edge.i.i13.i.us43, label %.lr.ph.i.i15.i.us38, !llvm.loop !870
+  br i1 %exitcond.not.i.i19.i.us42, label %._crit_edge.i.i13.i.us43, label %.lr.ph.i.i15.i.us38, !llvm.loop !879
 
 ._crit_edge.i.i13.i.us43:                         ; preds = %.lr.ph.i.i15.i.us38, %_ZNK6open3d4core7Indexer11GetInputPtrItEEPT_ll.exit.thread.i.us36
   %.016.lcssa.i.i14.i.us44 = phi i64 [ 0, %_ZNK6open3d4core7Indexer11GetInputPtrItEEPT_ll.exit.thread.i.us36 ], [ %125, %.lr.ph.i.i15.i.us38 ]
@@ -51832,9 +51884,9 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 600
   %33 = load ptr, ptr %27, align 8
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 848
-  %35 = load float, ptr %34, align 8, !tbaa !1046
+  %35 = load float, ptr %34, align 8, !tbaa !1055
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 852
-  %37 = load float, ptr %36, align 4, !tbaa !1049
+  %37 = load float, ptr %36, align 4, !tbaa !1058
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 856
   %39 = getelementptr inbounds nuw i8, ptr %3, i64 858
   br i1 %20, label %.lr.ph.split.us, label %.lr.ph.split
@@ -51863,7 +51915,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %49 = srem i64 %.01720.i.i18.i.us, %43
   %50 = add nuw nsw i64 %.022.i.i16.i.us, 1
   %exitcond.not.i.i19.i.us = icmp eq i64 %50, %.fr
-  br i1 %exitcond.not.i.i19.i.us, label %._crit_edge.i.i13.i.us, label %.lr.ph.i.i15.i.us, !llvm.loop !870
+  br i1 %exitcond.not.i.i19.i.us, label %._crit_edge.i.i13.i.us, label %.lr.ph.i.i15.i.us, !llvm.loop !879
 
 ._crit_edge.i.i13.i.us:                           ; preds = %.lr.ph.i.i15.i.us, %.preheader.i.i12.i.us
   %.016.lcssa.i.i14.i.us = phi i64 [ 0, %.preheader.i.i12.i.us ], [ %48, %.lr.ph.i.i15.i.us ]
@@ -51925,7 +51977,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %76 = srem i64 %.01720.i.i.i.us.us, %70
   %77 = add nuw nsw i64 %.022.i.i.i.us.us, 1
   %exitcond.not.i.i.i.us.us = icmp eq i64 %77, %.fr
-  br i1 %exitcond.not.i.i.i.us.us, label %._crit_edge.i.i.i.us.loopexit.us, label %.lr.ph.i.i.i.us.us, !llvm.loop !875
+  br i1 %exitcond.not.i.i.i.us.us, label %._crit_edge.i.i.i.us.loopexit.us, label %.lr.ph.i.i.i.us.us, !llvm.loop !884
 
 ._crit_edge.i.i.i.us.loopexit.us:                 ; preds = %.lr.ph.i.i.i.us.us
   %78 = getelementptr inbounds i8, ptr %26, i64 %75
@@ -52008,7 +52060,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %120 = srem i64 %.01720.i.i.i.us32, %114
   %121 = add nuw nsw i64 %.022.i.i.i.us30, 1
   %exitcond.not.i.i.i.us33 = icmp eq i64 %121, %.fr
-  br i1 %exitcond.not.i.i.i.us33, label %._crit_edge.i.i.i.loopexit.us49, label %.preheader.i.i.i.us28, !llvm.loop !875
+  br i1 %exitcond.not.i.i.i.us33, label %._crit_edge.i.i.i.loopexit.us49, label %.preheader.i.i.i.us28, !llvm.loop !884
 
 _ZNK6open3d4core7Indexer11GetInputPtrIjEEPT_ll.exit.thread.i.us36: ; preds = %.lr.ph.split.split.split.us, %._crit_edge.i.i.i.loopexit.us49
   %.0.i21.i.us37 = phi ptr [ %144, %._crit_edge.i.i.i.loopexit.us49 ], [ null, %.lr.ph.split.split.split.us ]
@@ -52028,7 +52080,7 @@ _ZNK6open3d4core7Indexer11GetInputPtrIjEEPT_ll.exit.thread.i.us36: ; preds = %.l
   %129 = srem i64 %.01720.i.i18.i.us41, %123
   %130 = add nuw nsw i64 %.022.i.i16.i.us39, 1
   %exitcond.not.i.i19.i.us42 = icmp eq i64 %130, %.fr
-  br i1 %exitcond.not.i.i19.i.us42, label %._crit_edge.i.i13.i.us43, label %.lr.ph.i.i15.i.us38, !llvm.loop !870
+  br i1 %exitcond.not.i.i19.i.us42, label %._crit_edge.i.i13.i.us43, label %.lr.ph.i.i15.i.us38, !llvm.loop !879
 
 ._crit_edge.i.i13.i.us43:                         ; preds = %.lr.ph.i.i15.i.us38, %_ZNK6open3d4core7Indexer11GetInputPtrIjEEPT_ll.exit.thread.i.us36
   %.016.lcssa.i.i14.i.us44 = phi i64 [ 0, %_ZNK6open3d4core7Indexer11GetInputPtrIjEEPT_ll.exit.thread.i.us36 ], [ %128, %.lr.ph.i.i15.i.us38 ]
@@ -52144,9 +52196,9 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 600
   %33 = load ptr, ptr %27, align 8
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 848
-  %35 = load float, ptr %34, align 8, !tbaa !1055
+  %35 = load float, ptr %34, align 8, !tbaa !1064
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 852
-  %37 = load float, ptr %36, align 4, !tbaa !1058
+  %37 = load float, ptr %36, align 4, !tbaa !1067
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 856
   %39 = getelementptr inbounds nuw i8, ptr %3, i64 858
   br i1 %20, label %.lr.ph.split.us, label %.lr.ph.split
@@ -52175,7 +52227,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %49 = srem i64 %.01720.i.i18.i.us, %43
   %50 = add nuw nsw i64 %.022.i.i16.i.us, 1
   %exitcond.not.i.i19.i.us = icmp eq i64 %50, %.fr
-  br i1 %exitcond.not.i.i19.i.us, label %._crit_edge.i.i13.i.us, label %.lr.ph.i.i15.i.us, !llvm.loop !870
+  br i1 %exitcond.not.i.i19.i.us, label %._crit_edge.i.i13.i.us, label %.lr.ph.i.i15.i.us, !llvm.loop !879
 
 ._crit_edge.i.i13.i.us:                           ; preds = %.lr.ph.i.i15.i.us, %.preheader.i.i12.i.us
   %.016.lcssa.i.i14.i.us = phi i64 [ 0, %.preheader.i.i12.i.us ], [ %48, %.lr.ph.i.i15.i.us ]
@@ -52237,7 +52289,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %76 = srem i64 %.01720.i.i.i.us.us, %70
   %77 = add nuw nsw i64 %.022.i.i.i.us.us, 1
   %exitcond.not.i.i.i.us.us = icmp eq i64 %77, %.fr
-  br i1 %exitcond.not.i.i.i.us.us, label %._crit_edge.i.i.i.us.loopexit.us, label %.lr.ph.i.i.i.us.us, !llvm.loop !876
+  br i1 %exitcond.not.i.i.i.us.us, label %._crit_edge.i.i.i.us.loopexit.us, label %.lr.ph.i.i.i.us.us, !llvm.loop !885
 
 ._crit_edge.i.i.i.us.loopexit.us:                 ; preds = %.lr.ph.i.i.i.us.us
   %78 = getelementptr inbounds i8, ptr %26, i64 %75
@@ -52320,7 +52372,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %120 = srem i64 %.01720.i.i.i.us32, %114
   %121 = add nuw nsw i64 %.022.i.i.i.us30, 1
   %exitcond.not.i.i.i.us33 = icmp eq i64 %121, %.fr
-  br i1 %exitcond.not.i.i.i.us33, label %._crit_edge.i.i.i.loopexit.us49, label %.preheader.i.i.i.us28, !llvm.loop !876
+  br i1 %exitcond.not.i.i.i.us33, label %._crit_edge.i.i.i.loopexit.us49, label %.preheader.i.i.i.us28, !llvm.loop !885
 
 _ZNK6open3d4core7Indexer11GetInputPtrImEEPT_ll.exit.thread.i.us36: ; preds = %.lr.ph.split.split.split.us, %._crit_edge.i.i.i.loopexit.us49
   %.0.i21.i.us37 = phi ptr [ %144, %._crit_edge.i.i.i.loopexit.us49 ], [ null, %.lr.ph.split.split.split.us ]
@@ -52340,7 +52392,7 @@ _ZNK6open3d4core7Indexer11GetInputPtrImEEPT_ll.exit.thread.i.us36: ; preds = %.l
   %129 = srem i64 %.01720.i.i18.i.us41, %123
   %130 = add nuw nsw i64 %.022.i.i16.i.us39, 1
   %exitcond.not.i.i19.i.us42 = icmp eq i64 %130, %.fr
-  br i1 %exitcond.not.i.i19.i.us42, label %._crit_edge.i.i13.i.us43, label %.lr.ph.i.i15.i.us38, !llvm.loop !870
+  br i1 %exitcond.not.i.i19.i.us42, label %._crit_edge.i.i13.i.us43, label %.lr.ph.i.i15.i.us38, !llvm.loop !879
 
 ._crit_edge.i.i13.i.us43:                         ; preds = %.lr.ph.i.i15.i.us38, %_ZNK6open3d4core7Indexer11GetInputPtrImEEPT_ll.exit.thread.i.us36
   %.016.lcssa.i.i14.i.us44 = phi i64 [ 0, %_ZNK6open3d4core7Indexer11GetInputPtrImEEPT_ll.exit.thread.i.us36 ], [ %128, %.lr.ph.i.i15.i.us38 ]
@@ -52412,109 +52464,6 @@ define internal fastcc void @"_ZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4c
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.open3d::core::Device", align 8
   %5 = alloca %class.anon.271, align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %6 = load ptr, ptr %0, align 8, !tbaa !1060
-  %7 = load ptr, ptr %6, align 8, !tbaa !4
-  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %9 = load ptr, ptr %8, align 8
-  %10 = tail call i64 %9(ptr noundef nonnull align 8 dereferenceable(160) %6)
-  store i64 %10, ptr %4, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !1062
-  %13 = tail call noundef i64 @_ZNK6open3d4core7Indexer12NumWorkloadsEv(ptr noundef nonnull align 8 dereferenceable(842) %12)
-  call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %14 = load ptr, ptr %11, align 8, !tbaa !1062
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(842) %5, ptr noundef nonnull align 8 dereferenceable(842) %14, i64 842, i1 false), !tbaa.struct !40
-  %15 = getelementptr inbounds nuw i8, ptr %5, i64 848
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %17 = load ptr, ptr %16, align 8, !tbaa !1063
-  %18 = load float, ptr %17, align 4, !tbaa !38
-  store float %18, ptr %15, align 8, !tbaa !1064
-  %19 = getelementptr inbounds nuw i8, ptr %5, i64 852
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %21 = load ptr, ptr %20, align 8, !tbaa !1066
-  %22 = load float, ptr %21, align 4, !tbaa !38
-  store float %22, ptr %19, align 4, !tbaa !1067
-  %23 = getelementptr inbounds nuw i8, ptr %5, i64 856
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %25 = load ptr, ptr %24, align 8, !tbaa !1068
-  br label %26
-
-26:                                               ; preds = %26, %1
-  %27 = phi i64 [ 0, %1 ], [ %31, %26 ]
-  %28 = getelementptr inbounds nuw i16, ptr %23, i64 %27
-  %29 = getelementptr inbounds nuw i16, ptr %25, i64 %27
-  %30 = load i16, ptr %29, align 2, !tbaa !122
-  store i16 %30, ptr %28, align 2, !tbaa !122
-  %31 = add nuw nsw i64 %27, 1
-  %32 = icmp eq i64 %31, 2
-  br i1 %32, label %33, label %26
-
-33:                                               ; preds = %26
-  call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %34 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @2)
-  store i64 %13, ptr %2, align 8, !tbaa !36
-  %35 = and i64 %10, 4294967295
-  %36 = icmp eq i64 %35, 0
-  br i1 %36, label %49, label %37
-
-37:                                               ; preds = %33
-  call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  call void @_ZNK6open3d4core6Device8ToStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr noundef nonnull align 4 dereferenceable(8) %4)
-  invoke void @_ZN6open3d7utility6Logger9LogError_IJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvPKciSA_SA_DpOT_(ptr noundef nonnull @.str.12, i32 noundef 76, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_5clEvENKUlvE_clEvEUllE_EEvRKNS0_6DeviceElRKT_", ptr noundef nonnull @.str.13, ptr noundef nonnull align 8 dereferenceable(32) %3) #33
-          to label %38 unwind label %39
-
-38:                                               ; preds = %37
-  unreachable
-
-39:                                               ; preds = %37
-  %40 = landingpad { ptr, i32 }
-          cleanup
-  %41 = load ptr, ptr %3, align 8, !tbaa !47
-  %42 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %43 = icmp eq ptr %41, %42
-  br i1 %43, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i: ; preds = %39
-  %44 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %45 = load i64, ptr %44, align 8, !tbaa !51
-  %46 = icmp ult i64 %45, 16
-  call void @llvm.assume(i1 %46)
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i: ; preds = %39
-  %47 = load i64, ptr %42, align 8, !tbaa !15
-  %48 = add i64 %47, 1
-  call void @_ZdlPvm(ptr noundef %41, i64 noundef %48) #32
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i
-
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i
-  call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  resume { ptr, i32 } %40
-
-49:                                               ; preds = %33
-  %50 = icmp eq i64 %13, 0
-  br i1 %50, label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_5clEvENKUlvE4_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit", label %51
-
-51:                                               ; preds = %49
-  %52 = tail call noundef i32 @_ZN6open3d7utility18EstimateMaxThreadsEv()
-  tail call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %34, i32 %52)
-  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 2, ptr nonnull @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_5clEvENKUlvE4_clEvEUllE_EEvRKNS0_6DeviceElRKT_.omp_outlined", ptr nonnull %2, ptr nonnull align 8 dereferenceable(860) %5)
-  br label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_5clEvENKUlvE4_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit"
-
-"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_5clEvENKUlvE4_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit": ; preds = %49, %51
-  call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret void
-}
-
-; Function Attrs: inlinehint mustprogress ssp uwtable
-define internal fastcc void @"_ZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_5clEvENKUlvE5_clEv"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = alloca i64, align 8
-  %3 = alloca %"class.std::__cxx11::basic_string", align 8
-  %4 = alloca %"class.open3d::core::Device", align 8
-  %5 = alloca %class.anon.273, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = load ptr, ptr %0, align 8, !tbaa !1069
   %7 = load ptr, ptr %6, align 8, !tbaa !4
@@ -52597,15 +52546,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %_
 
 49:                                               ; preds = %33
   %50 = icmp eq i64 %13, 0
-  br i1 %50, label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_5clEvENKUlvE5_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit", label %51
+  br i1 %50, label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_5clEvENKUlvE4_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit", label %51
 
 51:                                               ; preds = %49
   %52 = tail call noundef i32 @_ZN6open3d7utility18EstimateMaxThreadsEv()
   tail call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %34, i32 %52)
-  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 2, ptr nonnull @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_5clEvENKUlvE5_clEvEUllE_EEvRKNS0_6DeviceElRKT_.omp_outlined", ptr nonnull %2, ptr nonnull align 8 dereferenceable(860) %5)
-  br label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_5clEvENKUlvE5_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit"
+  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 2, ptr nonnull @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_5clEvENKUlvE4_clEvEUllE_EEvRKNS0_6DeviceElRKT_.omp_outlined", ptr nonnull %2, ptr nonnull align 8 dereferenceable(860) %5)
+  br label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_5clEvENKUlvE4_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit"
 
-"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_5clEvENKUlvE5_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit": ; preds = %49, %51
+"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_5clEvENKUlvE4_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit": ; preds = %49, %51
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -52613,11 +52562,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %_
 }
 
 ; Function Attrs: inlinehint mustprogress ssp uwtable
-define internal fastcc void @"_ZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_5clEvENKUlvE6_clEv"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_5clEvENKUlvE5_clEv"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca i64, align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.open3d::core::Device", align 8
-  %5 = alloca %class.anon.275, align 8
+  %5 = alloca %class.anon.273, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = load ptr, ptr %0, align 8, !tbaa !1078
   %7 = load ptr, ptr %6, align 8, !tbaa !4
@@ -52700,15 +52649,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %_
 
 49:                                               ; preds = %33
   %50 = icmp eq i64 %13, 0
-  br i1 %50, label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_5clEvENKUlvE6_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit", label %51
+  br i1 %50, label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_5clEvENKUlvE5_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit", label %51
 
 51:                                               ; preds = %49
   %52 = tail call noundef i32 @_ZN6open3d7utility18EstimateMaxThreadsEv()
   tail call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %34, i32 %52)
-  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 2, ptr nonnull @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_5clEvENKUlvE6_clEvEUllE_EEvRKNS0_6DeviceElRKT_.omp_outlined", ptr nonnull %2, ptr nonnull align 8 dereferenceable(860) %5)
-  br label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_5clEvENKUlvE6_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit"
+  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 2, ptr nonnull @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_5clEvENKUlvE5_clEvEUllE_EEvRKNS0_6DeviceElRKT_.omp_outlined", ptr nonnull %2, ptr nonnull align 8 dereferenceable(860) %5)
+  br label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_5clEvENKUlvE5_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit"
 
-"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_5clEvENKUlvE6_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit": ; preds = %49, %51
+"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_5clEvENKUlvE5_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit": ; preds = %49, %51
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -52716,11 +52665,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %_
 }
 
 ; Function Attrs: inlinehint mustprogress ssp uwtable
-define internal fastcc void @"_ZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_5clEvENKUlvE7_clEv"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_5clEvENKUlvE6_clEv"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca i64, align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.open3d::core::Device", align 8
-  %5 = alloca %class.anon.277, align 8
+  %5 = alloca %class.anon.275, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = load ptr, ptr %0, align 8, !tbaa !1087
   %7 = load ptr, ptr %6, align 8, !tbaa !4
@@ -52803,15 +52752,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %_
 
 49:                                               ; preds = %33
   %50 = icmp eq i64 %13, 0
-  br i1 %50, label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_5clEvENKUlvE7_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit", label %51
+  br i1 %50, label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_5clEvENKUlvE6_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit", label %51
 
 51:                                               ; preds = %49
   %52 = tail call noundef i32 @_ZN6open3d7utility18EstimateMaxThreadsEv()
   tail call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %34, i32 %52)
-  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 2, ptr nonnull @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_5clEvENKUlvE7_clEvEUllE_EEvRKNS0_6DeviceElRKT_.omp_outlined", ptr nonnull %2, ptr nonnull align 8 dereferenceable(860) %5)
-  br label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_5clEvENKUlvE7_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit"
+  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 2, ptr nonnull @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_5clEvENKUlvE6_clEvEUllE_EEvRKNS0_6DeviceElRKT_.omp_outlined", ptr nonnull %2, ptr nonnull align 8 dereferenceable(860) %5)
+  br label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_5clEvENKUlvE6_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit"
 
-"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_5clEvENKUlvE7_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit": ; preds = %49, %51
+"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_5clEvENKUlvE6_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit": ; preds = %49, %51
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -52819,11 +52768,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %_
 }
 
 ; Function Attrs: inlinehint mustprogress ssp uwtable
-define internal fastcc void @"_ZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_5clEvENKUlvE8_clEv"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_5clEvENKUlvE7_clEv"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca i64, align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.open3d::core::Device", align 8
-  %5 = alloca %class.anon.279, align 8
+  %5 = alloca %class.anon.277, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = load ptr, ptr %0, align 8, !tbaa !1096
   %7 = load ptr, ptr %6, align 8, !tbaa !4
@@ -52850,6 +52799,109 @@ define internal fastcc void @"_ZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4c
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 856
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %25 = load ptr, ptr %24, align 8, !tbaa !1104
+  br label %26
+
+26:                                               ; preds = %26, %1
+  %27 = phi i64 [ 0, %1 ], [ %31, %26 ]
+  %28 = getelementptr inbounds nuw i16, ptr %23, i64 %27
+  %29 = getelementptr inbounds nuw i16, ptr %25, i64 %27
+  %30 = load i16, ptr %29, align 2, !tbaa !122
+  store i16 %30, ptr %28, align 2, !tbaa !122
+  %31 = add nuw nsw i64 %27, 1
+  %32 = icmp eq i64 %31, 2
+  br i1 %32, label %33, label %26
+
+33:                                               ; preds = %26
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  %34 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @2)
+  store i64 %13, ptr %2, align 8, !tbaa !36
+  %35 = and i64 %10, 4294967295
+  %36 = icmp eq i64 %35, 0
+  br i1 %36, label %49, label %37
+
+37:                                               ; preds = %33
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @_ZNK6open3d4core6Device8ToStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr noundef nonnull align 4 dereferenceable(8) %4)
+  invoke void @_ZN6open3d7utility6Logger9LogError_IJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvPKciSA_SA_DpOT_(ptr noundef nonnull @.str.12, i32 noundef 76, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_5clEvENKUlvE_clEvEUllE_EEvRKNS0_6DeviceElRKT_", ptr noundef nonnull @.str.13, ptr noundef nonnull align 8 dereferenceable(32) %3) #33
+          to label %38 unwind label %39
+
+38:                                               ; preds = %37
+  unreachable
+
+39:                                               ; preds = %37
+  %40 = landingpad { ptr, i32 }
+          cleanup
+  %41 = load ptr, ptr %3, align 8, !tbaa !47
+  %42 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %43 = icmp eq ptr %41, %42
+  br i1 %43, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i
+
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i: ; preds = %39
+  %44 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %45 = load i64, ptr %44, align 8, !tbaa !51
+  %46 = icmp ult i64 %45, 16
+  call void @llvm.assume(i1 %46)
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i
+
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i: ; preds = %39
+  %47 = load i64, ptr %42, align 8, !tbaa !15
+  %48 = add i64 %47, 1
+  call void @_ZdlPvm(ptr noundef %41, i64 noundef %48) #32
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i
+
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  resume { ptr, i32 } %40
+
+49:                                               ; preds = %33
+  %50 = icmp eq i64 %13, 0
+  br i1 %50, label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_5clEvENKUlvE7_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit", label %51
+
+51:                                               ; preds = %49
+  %52 = tail call noundef i32 @_ZN6open3d7utility18EstimateMaxThreadsEv()
+  tail call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %34, i32 %52)
+  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 2, ptr nonnull @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_5clEvENKUlvE7_clEvEUllE_EEvRKNS0_6DeviceElRKT_.omp_outlined", ptr nonnull %2, ptr nonnull align 8 dereferenceable(860) %5)
+  br label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_5clEvENKUlvE7_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit"
+
+"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_5clEvENKUlvE7_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit": ; preds = %49, %51
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress ssp uwtable
+define internal fastcc void @"_ZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_5clEvENKUlvE8_clEv"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca i64, align 8
+  %3 = alloca %"class.std::__cxx11::basic_string", align 8
+  %4 = alloca %"class.open3d::core::Device", align 8
+  %5 = alloca %class.anon.279, align 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  %6 = load ptr, ptr %0, align 8, !tbaa !1105
+  %7 = load ptr, ptr %6, align 8, !tbaa !4
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %9 = load ptr, ptr %8, align 8
+  %10 = tail call i64 %9(ptr noundef nonnull align 8 dereferenceable(160) %6)
+  store i64 %10, ptr %4, align 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %12 = load ptr, ptr %11, align 8, !tbaa !1107
+  %13 = tail call noundef i64 @_ZNK6open3d4core7Indexer12NumWorkloadsEv(ptr noundef nonnull align 8 dereferenceable(842) %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  %14 = load ptr, ptr %11, align 8, !tbaa !1107
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(842) %5, ptr noundef nonnull align 8 dereferenceable(842) %14, i64 842, i1 false), !tbaa.struct !40
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 848
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %17 = load ptr, ptr %16, align 8, !tbaa !1108
+  %18 = load float, ptr %17, align 4, !tbaa !38
+  store float %18, ptr %15, align 8, !tbaa !1109
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 852
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %21 = load ptr, ptr %20, align 8, !tbaa !1111
+  %22 = load float, ptr %21, align 4, !tbaa !38
+  store float %22, ptr %19, align 4, !tbaa !1112
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 856
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %25 = load ptr, ptr %24, align 8, !tbaa !1113
   br label %26
 
 26:                                               ; preds = %26, %1
@@ -53002,7 +53054,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %49 = srem i64 %.01720.i.i18.i.us, %43
   %50 = add nuw nsw i64 %.022.i.i16.i.us, 1
   %exitcond.not.i.i19.i.us = icmp eq i64 %50, %.fr
-  br i1 %exitcond.not.i.i19.i.us, label %._crit_edge.i.i13.i.us, label %.lr.ph.i.i15.i.us, !llvm.loop !874
+  br i1 %exitcond.not.i.i19.i.us, label %._crit_edge.i.i13.i.us, label %.lr.ph.i.i15.i.us, !llvm.loop !883
 
 ._crit_edge.i.i13.i.us:                           ; preds = %.lr.ph.i.i15.i.us, %.preheader.i.i12.i.us
   %.016.lcssa.i.i14.i.us = phi i64 [ 0, %.preheader.i.i12.i.us ], [ %48, %.lr.ph.i.i15.i.us ]
@@ -53163,7 +53215,7 @@ _ZNK6open3d4core7Indexer11GetInputPtrIfEEPT_ll.exit.thread.i.us36: ; preds = %.l
   %125 = srem i64 %.01720.i.i18.i.us41, %119
   %126 = add nuw nsw i64 %.022.i.i16.i.us39, 1
   %exitcond.not.i.i19.i.us42 = icmp eq i64 %126, %.fr
-  br i1 %exitcond.not.i.i19.i.us42, label %._crit_edge.i.i13.i.us43, label %.lr.ph.i.i15.i.us38, !llvm.loop !874
+  br i1 %exitcond.not.i.i19.i.us42, label %._crit_edge.i.i13.i.us43, label %.lr.ph.i.i15.i.us38, !llvm.loop !883
 
 ._crit_edge.i.i13.i.us43:                         ; preds = %.lr.ph.i.i15.i.us38, %_ZNK6open3d4core7Indexer11GetInputPtrIfEEPT_ll.exit.thread.i.us36
   %.016.lcssa.i.i14.i.us44 = phi i64 [ 0, %_ZNK6open3d4core7Indexer11GetInputPtrIfEEPT_ll.exit.thread.i.us36 ], [ %124, %.lr.ph.i.i15.i.us38 ]
@@ -53309,7 +53361,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %49 = srem i64 %.01720.i.i18.i.us, %43
   %50 = add nuw nsw i64 %.022.i.i16.i.us, 1
   %exitcond.not.i.i19.i.us = icmp eq i64 %50, %.fr
-  br i1 %exitcond.not.i.i19.i.us, label %._crit_edge.i.i13.i.us, label %.lr.ph.i.i15.i.us, !llvm.loop !874
+  br i1 %exitcond.not.i.i19.i.us, label %._crit_edge.i.i13.i.us, label %.lr.ph.i.i15.i.us, !llvm.loop !883
 
 ._crit_edge.i.i13.i.us:                           ; preds = %.lr.ph.i.i15.i.us, %.preheader.i.i12.i.us
   %.016.lcssa.i.i14.i.us = phi i64 [ 0, %.preheader.i.i12.i.us ], [ %48, %.lr.ph.i.i15.i.us ]
@@ -53371,7 +53423,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %76 = srem i64 %.01720.i.i.i.us.us, %70
   %77 = add nuw nsw i64 %.022.i.i.i.us.us, 1
   %exitcond.not.i.i.i.us.us = icmp eq i64 %77, %.fr
-  br i1 %exitcond.not.i.i.i.us.us, label %._crit_edge.i.i.i.us.loopexit.us, label %.lr.ph.i.i.i.us.us, !llvm.loop !868
+  br i1 %exitcond.not.i.i.i.us.us, label %._crit_edge.i.i.i.us.loopexit.us, label %.lr.ph.i.i.i.us.us, !llvm.loop !877
 
 ._crit_edge.i.i.i.us.loopexit.us:                 ; preds = %.lr.ph.i.i.i.us.us
   %78 = getelementptr inbounds i8, ptr %26, i64 %75
@@ -53454,7 +53506,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %120 = srem i64 %.01720.i.i.i.us32, %114
   %121 = add nuw nsw i64 %.022.i.i.i.us30, 1
   %exitcond.not.i.i.i.us33 = icmp eq i64 %121, %.fr
-  br i1 %exitcond.not.i.i.i.us33, label %._crit_edge.i.i.i.loopexit.us49, label %.preheader.i.i.i.us28, !llvm.loop !868
+  br i1 %exitcond.not.i.i.i.us33, label %._crit_edge.i.i.i.loopexit.us49, label %.preheader.i.i.i.us28, !llvm.loop !877
 
 _ZNK6open3d4core7Indexer11GetInputPtrIdEEPT_ll.exit.thread.i.us36: ; preds = %.lr.ph.split.split.split.us, %._crit_edge.i.i.i.loopexit.us49
   %.0.i21.i.us37 = phi ptr [ %144, %._crit_edge.i.i.i.loopexit.us49 ], [ null, %.lr.ph.split.split.split.us ]
@@ -53474,7 +53526,7 @@ _ZNK6open3d4core7Indexer11GetInputPtrIdEEPT_ll.exit.thread.i.us36: ; preds = %.l
   %129 = srem i64 %.01720.i.i18.i.us41, %123
   %130 = add nuw nsw i64 %.022.i.i16.i.us39, 1
   %exitcond.not.i.i19.i.us42 = icmp eq i64 %130, %.fr
-  br i1 %exitcond.not.i.i19.i.us42, label %._crit_edge.i.i13.i.us43, label %.lr.ph.i.i15.i.us38, !llvm.loop !874
+  br i1 %exitcond.not.i.i19.i.us42, label %._crit_edge.i.i13.i.us43, label %.lr.ph.i.i15.i.us38, !llvm.loop !883
 
 ._crit_edge.i.i13.i.us43:                         ; preds = %.lr.ph.i.i15.i.us38, %_ZNK6open3d4core7Indexer11GetInputPtrIdEEPT_ll.exit.thread.i.us36
   %.016.lcssa.i.i14.i.us44 = phi i64 [ 0, %_ZNK6open3d4core7Indexer11GetInputPtrIdEEPT_ll.exit.thread.i.us36 ], [ %128, %.lr.ph.i.i15.i.us38 ]
@@ -53625,7 +53677,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %49 = srem i64 %.01720.i.i.i.us, %43
   %50 = add nuw nsw i64 %.022.i.i.i.us, 1
   %exitcond.not.i.i.i.us = icmp eq i64 %50, %.fr
-  br i1 %exitcond.not.i.i.i.us, label %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.thread20.i.us, label %.lr.ph.i.i.i.us, !llvm.loop !869
+  br i1 %exitcond.not.i.i.i.us, label %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.thread20.i.us, label %.lr.ph.i.i.i.us, !llvm.loop !878
 
 _ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.thread20.i.us: ; preds = %.lr.ph.i.i.i.us, %.lr.ph.split.us
   %.016.lcssa.i.sink.i.i.us = phi i64 [ %.015.us.mux, %.lr.ph.split.us ], [ %48, %.lr.ph.i.i.i.us ]
@@ -53672,7 +53724,7 @@ _ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.thread20.i.us: ; preds = %.l
   %74 = srem i64 %.01720.i.i16.i.us, %68
   %75 = add nuw nsw i64 %.022.i.i14.i.us, 1
   %exitcond.not.i.i17.i.us = icmp eq i64 %75, %.fr
-  br i1 %exitcond.not.i.i17.i.us, label %._crit_edge.i.i.i.us, label %.lr.ph.i.i13.i.us, !llvm.loop !874
+  br i1 %exitcond.not.i.i17.i.us, label %._crit_edge.i.i.i.us, label %.lr.ph.i.i13.i.us, !llvm.loop !883
 
 ._crit_edge.i.i.i.us:                             ; preds = %.lr.ph.i.i13.i.us, %.lr.ph.split.split.us
   %.016.lcssa.i.i.i.us = phi i64 [ 0, %.lr.ph.split.split.us ], [ %73, %.lr.ph.i.i13.i.us ]
@@ -53724,7 +53776,7 @@ _ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.thread20.i.us: ; preds = %.l
   %100 = srem i64 %.01720.i.i.i.us32, %94
   %101 = add nuw nsw i64 %.022.i.i.i.us30, 1
   %exitcond.not.i.i.i.us33 = icmp eq i64 %101, %.fr
-  br i1 %exitcond.not.i.i.i.us33, label %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.thread20.i.loopexit.us49, label %.preheader.i.i.i.us28, !llvm.loop !869
+  br i1 %exitcond.not.i.i.i.us33, label %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.thread20.i.loopexit.us49, label %.preheader.i.i.i.us28, !llvm.loop !878
 
 .preheader.i.i12.i.us36:                          ; preds = %.lr.ph.split.split.split.us, %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.thread20.i.loopexit.us49
   %.0.i22.i.us37 = phi ptr [ %124, %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.thread20.i.loopexit.us49 ], [ null, %.lr.ph.split.split.split.us ]
@@ -53744,7 +53796,7 @@ _ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.thread20.i.us: ; preds = %.l
   %109 = srem i64 %.01720.i.i16.i.us41, %103
   %110 = add nuw nsw i64 %.022.i.i14.i.us39, 1
   %exitcond.not.i.i17.i.us42 = icmp eq i64 %110, %.fr
-  br i1 %exitcond.not.i.i17.i.us42, label %._crit_edge.i.i.i.us43, label %.lr.ph.i.i13.i.us38, !llvm.loop !874
+  br i1 %exitcond.not.i.i17.i.us42, label %._crit_edge.i.i.i.us43, label %.lr.ph.i.i13.i.us38, !llvm.loop !883
 
 ._crit_edge.i.i.i.us43:                           ; preds = %.lr.ph.i.i13.i.us38, %.preheader.i.i12.i.us36
   %.016.lcssa.i.i.i.us44 = phi i64 [ 0, %.preheader.i.i12.i.us36 ], [ %108, %.lr.ph.i.i13.i.us38 ]
@@ -53894,7 +53946,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %49 = srem i64 %.01720.i.i18.i.us, %43
   %50 = add nuw nsw i64 %.022.i.i16.i.us, 1
   %exitcond.not.i.i19.i.us = icmp eq i64 %50, %.fr
-  br i1 %exitcond.not.i.i19.i.us, label %._crit_edge.i.i13.i.us, label %.lr.ph.i.i15.i.us, !llvm.loop !874
+  br i1 %exitcond.not.i.i19.i.us, label %._crit_edge.i.i13.i.us, label %.lr.ph.i.i15.i.us, !llvm.loop !883
 
 ._crit_edge.i.i13.i.us:                           ; preds = %.lr.ph.i.i15.i.us, %.preheader.i.i12.i.us
   %.016.lcssa.i.i14.i.us = phi i64 [ 0, %.preheader.i.i12.i.us ], [ %48, %.lr.ph.i.i15.i.us ]
@@ -53953,7 +54005,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %76 = srem i64 %.01720.i.i.i.us.us, %70
   %77 = add nuw nsw i64 %.022.i.i.i.us.us, 1
   %exitcond.not.i.i.i.us.us = icmp eq i64 %77, %.fr
-  br i1 %exitcond.not.i.i.i.us.us, label %._crit_edge.i.i.i.us.loopexit.us, label %.lr.ph.i.i.i.us.us, !llvm.loop !870
+  br i1 %exitcond.not.i.i.i.us.us, label %._crit_edge.i.i.i.us.loopexit.us, label %.lr.ph.i.i.i.us.us, !llvm.loop !879
 
 ._crit_edge.i.i.i.us.loopexit.us:                 ; preds = %.lr.ph.i.i.i.us.us
   %78 = getelementptr inbounds i8, ptr %26, i64 %75
@@ -54028,7 +54080,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %117 = srem i64 %.01720.i.i.i.us32, %111
   %118 = add nuw nsw i64 %.022.i.i.i.us30, 1
   %exitcond.not.i.i.i.us33 = icmp eq i64 %118, %.fr
-  br i1 %exitcond.not.i.i.i.us33, label %._crit_edge.i.i.i.loopexit.us49, label %.preheader.i.i.i.us28, !llvm.loop !870
+  br i1 %exitcond.not.i.i.i.us33, label %._crit_edge.i.i.i.loopexit.us49, label %.preheader.i.i.i.us28, !llvm.loop !879
 
 _ZNK6open3d4core7Indexer11GetInputPtrIsEEPT_ll.exit.thread.i.us36: ; preds = %.lr.ph.split.split.split.us, %._crit_edge.i.i.i.loopexit.us49
   %.0.i21.i.us37 = phi ptr [ %141, %._crit_edge.i.i.i.loopexit.us49 ], [ null, %.lr.ph.split.split.split.us ]
@@ -54048,7 +54100,7 @@ _ZNK6open3d4core7Indexer11GetInputPtrIsEEPT_ll.exit.thread.i.us36: ; preds = %.l
   %126 = srem i64 %.01720.i.i18.i.us41, %120
   %127 = add nuw nsw i64 %.022.i.i16.i.us39, 1
   %exitcond.not.i.i19.i.us42 = icmp eq i64 %127, %.fr
-  br i1 %exitcond.not.i.i19.i.us42, label %._crit_edge.i.i13.i.us43, label %.lr.ph.i.i15.i.us38, !llvm.loop !874
+  br i1 %exitcond.not.i.i19.i.us42, label %._crit_edge.i.i13.i.us43, label %.lr.ph.i.i15.i.us38, !llvm.loop !883
 
 ._crit_edge.i.i13.i.us43:                         ; preds = %.lr.ph.i.i15.i.us38, %_ZNK6open3d4core7Indexer11GetInputPtrIsEEPT_ll.exit.thread.i.us36
   %.016.lcssa.i.i14.i.us44 = phi i64 [ 0, %_ZNK6open3d4core7Indexer11GetInputPtrIsEEPT_ll.exit.thread.i.us36 ], [ %125, %.lr.ph.i.i15.i.us38 ]
@@ -54198,7 +54250,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %49 = srem i64 %.01720.i.i18.i.us, %43
   %50 = add nuw nsw i64 %.022.i.i16.i.us, 1
   %exitcond.not.i.i19.i.us = icmp eq i64 %50, %.fr
-  br i1 %exitcond.not.i.i19.i.us, label %._crit_edge.i.i13.i.us, label %.lr.ph.i.i15.i.us, !llvm.loop !874
+  br i1 %exitcond.not.i.i19.i.us, label %._crit_edge.i.i13.i.us, label %.lr.ph.i.i15.i.us, !llvm.loop !883
 
 ._crit_edge.i.i13.i.us:                           ; preds = %.lr.ph.i.i15.i.us, %.preheader.i.i12.i.us
   %.016.lcssa.i.i14.i.us = phi i64 [ 0, %.preheader.i.i12.i.us ], [ %48, %.lr.ph.i.i15.i.us ]
@@ -54260,7 +54312,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %76 = srem i64 %.01720.i.i.i.us.us, %70
   %77 = add nuw nsw i64 %.022.i.i.i.us.us, 1
   %exitcond.not.i.i.i.us.us = icmp eq i64 %77, %.fr
-  br i1 %exitcond.not.i.i.i.us.us, label %._crit_edge.i.i.i.us.loopexit.us, label %.lr.ph.i.i.i.us.us, !llvm.loop !871
+  br i1 %exitcond.not.i.i.i.us.us, label %._crit_edge.i.i.i.us.loopexit.us, label %.lr.ph.i.i.i.us.us, !llvm.loop !880
 
 ._crit_edge.i.i.i.us.loopexit.us:                 ; preds = %.lr.ph.i.i.i.us.us
   %78 = getelementptr inbounds i8, ptr %26, i64 %75
@@ -54343,7 +54395,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %120 = srem i64 %.01720.i.i.i.us32, %114
   %121 = add nuw nsw i64 %.022.i.i.i.us30, 1
   %exitcond.not.i.i.i.us33 = icmp eq i64 %121, %.fr
-  br i1 %exitcond.not.i.i.i.us33, label %._crit_edge.i.i.i.loopexit.us49, label %.preheader.i.i.i.us28, !llvm.loop !871
+  br i1 %exitcond.not.i.i.i.us33, label %._crit_edge.i.i.i.loopexit.us49, label %.preheader.i.i.i.us28, !llvm.loop !880
 
 _ZNK6open3d4core7Indexer11GetInputPtrIiEEPT_ll.exit.thread.i.us36: ; preds = %.lr.ph.split.split.split.us, %._crit_edge.i.i.i.loopexit.us49
   %.0.i21.i.us37 = phi ptr [ %144, %._crit_edge.i.i.i.loopexit.us49 ], [ null, %.lr.ph.split.split.split.us ]
@@ -54363,7 +54415,7 @@ _ZNK6open3d4core7Indexer11GetInputPtrIiEEPT_ll.exit.thread.i.us36: ; preds = %.l
   %129 = srem i64 %.01720.i.i18.i.us41, %123
   %130 = add nuw nsw i64 %.022.i.i16.i.us39, 1
   %exitcond.not.i.i19.i.us42 = icmp eq i64 %130, %.fr
-  br i1 %exitcond.not.i.i19.i.us42, label %._crit_edge.i.i13.i.us43, label %.lr.ph.i.i15.i.us38, !llvm.loop !874
+  br i1 %exitcond.not.i.i19.i.us42, label %._crit_edge.i.i13.i.us43, label %.lr.ph.i.i15.i.us38, !llvm.loop !883
 
 ._crit_edge.i.i13.i.us43:                         ; preds = %.lr.ph.i.i15.i.us38, %_ZNK6open3d4core7Indexer11GetInputPtrIiEEPT_ll.exit.thread.i.us36
   %.016.lcssa.i.i14.i.us44 = phi i64 [ 0, %_ZNK6open3d4core7Indexer11GetInputPtrIiEEPT_ll.exit.thread.i.us36 ], [ %128, %.lr.ph.i.i15.i.us38 ]
@@ -54479,9 +54531,9 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 600
   %33 = load ptr, ptr %27, align 8
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 848
-  %35 = load float, ptr %34, align 8, !tbaa !1064
+  %35 = load float, ptr %34, align 8, !tbaa !1073
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 852
-  %37 = load float, ptr %36, align 4, !tbaa !1067
+  %37 = load float, ptr %36, align 4, !tbaa !1076
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 856
   %39 = getelementptr inbounds nuw i8, ptr %3, i64 858
   br i1 %20, label %.lr.ph.split.us, label %.lr.ph.split
@@ -54510,7 +54562,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %49 = srem i64 %.01720.i.i18.i.us, %43
   %50 = add nuw nsw i64 %.022.i.i16.i.us, 1
   %exitcond.not.i.i19.i.us = icmp eq i64 %50, %.fr
-  br i1 %exitcond.not.i.i19.i.us, label %._crit_edge.i.i13.i.us, label %.lr.ph.i.i15.i.us, !llvm.loop !874
+  br i1 %exitcond.not.i.i19.i.us, label %._crit_edge.i.i13.i.us, label %.lr.ph.i.i15.i.us, !llvm.loop !883
 
 ._crit_edge.i.i13.i.us:                           ; preds = %.lr.ph.i.i15.i.us, %.preheader.i.i12.i.us
   %.016.lcssa.i.i14.i.us = phi i64 [ 0, %.preheader.i.i12.i.us ], [ %48, %.lr.ph.i.i15.i.us ]
@@ -54572,7 +54624,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %76 = srem i64 %.01720.i.i.i.us.us, %70
   %77 = add nuw nsw i64 %.022.i.i.i.us.us, 1
   %exitcond.not.i.i.i.us.us = icmp eq i64 %77, %.fr
-  br i1 %exitcond.not.i.i.i.us.us, label %._crit_edge.i.i.i.us.loopexit.us, label %.lr.ph.i.i.i.us.us, !llvm.loop !872
+  br i1 %exitcond.not.i.i.i.us.us, label %._crit_edge.i.i.i.us.loopexit.us, label %.lr.ph.i.i.i.us.us, !llvm.loop !881
 
 ._crit_edge.i.i.i.us.loopexit.us:                 ; preds = %.lr.ph.i.i.i.us.us
   %78 = getelementptr inbounds i8, ptr %26, i64 %75
@@ -54655,7 +54707,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %120 = srem i64 %.01720.i.i.i.us32, %114
   %121 = add nuw nsw i64 %.022.i.i.i.us30, 1
   %exitcond.not.i.i.i.us33 = icmp eq i64 %121, %.fr
-  br i1 %exitcond.not.i.i.i.us33, label %._crit_edge.i.i.i.loopexit.us49, label %.preheader.i.i.i.us28, !llvm.loop !872
+  br i1 %exitcond.not.i.i.i.us33, label %._crit_edge.i.i.i.loopexit.us49, label %.preheader.i.i.i.us28, !llvm.loop !881
 
 _ZNK6open3d4core7Indexer11GetInputPtrIlEEPT_ll.exit.thread.i.us36: ; preds = %.lr.ph.split.split.split.us, %._crit_edge.i.i.i.loopexit.us49
   %.0.i21.i.us37 = phi ptr [ %144, %._crit_edge.i.i.i.loopexit.us49 ], [ null, %.lr.ph.split.split.split.us ]
@@ -54675,7 +54727,7 @@ _ZNK6open3d4core7Indexer11GetInputPtrIlEEPT_ll.exit.thread.i.us36: ; preds = %.l
   %129 = srem i64 %.01720.i.i18.i.us41, %123
   %130 = add nuw nsw i64 %.022.i.i16.i.us39, 1
   %exitcond.not.i.i19.i.us42 = icmp eq i64 %130, %.fr
-  br i1 %exitcond.not.i.i19.i.us42, label %._crit_edge.i.i13.i.us43, label %.lr.ph.i.i15.i.us38, !llvm.loop !874
+  br i1 %exitcond.not.i.i19.i.us42, label %._crit_edge.i.i13.i.us43, label %.lr.ph.i.i15.i.us38, !llvm.loop !883
 
 ._crit_edge.i.i13.i.us43:                         ; preds = %.lr.ph.i.i15.i.us38, %_ZNK6open3d4core7Indexer11GetInputPtrIlEEPT_ll.exit.thread.i.us36
   %.016.lcssa.i.i14.i.us44 = phi i64 [ 0, %_ZNK6open3d4core7Indexer11GetInputPtrIlEEPT_ll.exit.thread.i.us36 ], [ %128, %.lr.ph.i.i15.i.us38 ]
@@ -54791,9 +54843,9 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 600
   %33 = load ptr, ptr %27, align 8
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 848
-  %35 = load float, ptr %34, align 8, !tbaa !1073
+  %35 = load float, ptr %34, align 8, !tbaa !1082
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 852
-  %37 = load float, ptr %36, align 4, !tbaa !1076
+  %37 = load float, ptr %36, align 4, !tbaa !1085
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 856
   %39 = getelementptr inbounds nuw i8, ptr %3, i64 858
   br i1 %30, label %.lr.ph.split.us.preheader, label %.lr.ph.split
@@ -54826,7 +54878,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %49 = srem i64 %.01720.i.i.i.us, %43
   %50 = add nuw nsw i64 %.022.i.i.i.us, 1
   %exitcond.not.i.i.i.us = icmp eq i64 %50, %.fr
-  br i1 %exitcond.not.i.i.i.us, label %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.thread20.i.us, label %.lr.ph.i.i.i.us, !llvm.loop !873
+  br i1 %exitcond.not.i.i.i.us, label %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.thread20.i.us, label %.lr.ph.i.i.i.us, !llvm.loop !882
 
 _ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.thread20.i.us: ; preds = %.lr.ph.i.i.i.us, %.lr.ph.split.us
   %.016.lcssa.i.sink.i.i.us = phi i64 [ %.015.us.mux, %.lr.ph.split.us ], [ %48, %.lr.ph.i.i.i.us ]
@@ -54873,7 +54925,7 @@ _ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.thread20.i.us: ; preds = %.l
   %74 = srem i64 %.01720.i.i16.i.us, %68
   %75 = add nuw nsw i64 %.022.i.i14.i.us, 1
   %exitcond.not.i.i17.i.us = icmp eq i64 %75, %.fr
-  br i1 %exitcond.not.i.i17.i.us, label %._crit_edge.i.i.i.us, label %.lr.ph.i.i13.i.us, !llvm.loop !874
+  br i1 %exitcond.not.i.i17.i.us, label %._crit_edge.i.i.i.us, label %.lr.ph.i.i13.i.us, !llvm.loop !883
 
 ._crit_edge.i.i.i.us:                             ; preds = %.lr.ph.i.i13.i.us, %.lr.ph.split.split.us
   %.016.lcssa.i.i.i.us = phi i64 [ 0, %.lr.ph.split.split.us ], [ %73, %.lr.ph.i.i13.i.us ]
@@ -54925,7 +54977,7 @@ _ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.thread20.i.us: ; preds = %.l
   %100 = srem i64 %.01720.i.i.i.us32, %94
   %101 = add nuw nsw i64 %.022.i.i.i.us30, 1
   %exitcond.not.i.i.i.us33 = icmp eq i64 %101, %.fr
-  br i1 %exitcond.not.i.i.i.us33, label %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.thread20.i.loopexit.us49, label %.preheader.i.i.i.us28, !llvm.loop !873
+  br i1 %exitcond.not.i.i.i.us33, label %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.thread20.i.loopexit.us49, label %.preheader.i.i.i.us28, !llvm.loop !882
 
 .preheader.i.i12.i.us36:                          ; preds = %.lr.ph.split.split.split.us, %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.thread20.i.loopexit.us49
   %.0.i22.i.us37 = phi ptr [ %124, %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.thread20.i.loopexit.us49 ], [ null, %.lr.ph.split.split.split.us ]
@@ -54945,7 +54997,7 @@ _ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.thread20.i.us: ; preds = %.l
   %109 = srem i64 %.01720.i.i16.i.us41, %103
   %110 = add nuw nsw i64 %.022.i.i14.i.us39, 1
   %exitcond.not.i.i17.i.us42 = icmp eq i64 %110, %.fr
-  br i1 %exitcond.not.i.i17.i.us42, label %._crit_edge.i.i.i.us43, label %.lr.ph.i.i13.i.us38, !llvm.loop !874
+  br i1 %exitcond.not.i.i17.i.us42, label %._crit_edge.i.i.i.us43, label %.lr.ph.i.i13.i.us38, !llvm.loop !883
 
 ._crit_edge.i.i.i.us43:                           ; preds = %.lr.ph.i.i13.i.us38, %.preheader.i.i12.i.us36
   %.016.lcssa.i.i.i.us44 = phi i64 [ 0, %.preheader.i.i12.i.us36 ], [ %108, %.lr.ph.i.i13.i.us38 ]
@@ -55064,9 +55116,9 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 600
   %33 = load ptr, ptr %27, align 8
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 848
-  %35 = load float, ptr %34, align 8, !tbaa !1082
+  %35 = load float, ptr %34, align 8, !tbaa !1091
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 852
-  %37 = load float, ptr %36, align 4, !tbaa !1085
+  %37 = load float, ptr %36, align 4, !tbaa !1094
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 856
   %39 = getelementptr inbounds nuw i8, ptr %3, i64 858
   br i1 %20, label %.lr.ph.split.us, label %.lr.ph.split
@@ -55095,7 +55147,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %49 = srem i64 %.01720.i.i18.i.us, %43
   %50 = add nuw nsw i64 %.022.i.i16.i.us, 1
   %exitcond.not.i.i19.i.us = icmp eq i64 %50, %.fr
-  br i1 %exitcond.not.i.i19.i.us, label %._crit_edge.i.i13.i.us, label %.lr.ph.i.i15.i.us, !llvm.loop !874
+  br i1 %exitcond.not.i.i19.i.us, label %._crit_edge.i.i13.i.us, label %.lr.ph.i.i15.i.us, !llvm.loop !883
 
 ._crit_edge.i.i13.i.us:                           ; preds = %.lr.ph.i.i15.i.us, %.preheader.i.i12.i.us
   %.016.lcssa.i.i14.i.us = phi i64 [ 0, %.preheader.i.i12.i.us ], [ %48, %.lr.ph.i.i15.i.us ]
@@ -55154,7 +55206,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %76 = srem i64 %.01720.i.i.i.us.us, %70
   %77 = add nuw nsw i64 %.022.i.i.i.us.us, 1
   %exitcond.not.i.i.i.us.us = icmp eq i64 %77, %.fr
-  br i1 %exitcond.not.i.i.i.us.us, label %._crit_edge.i.i.i.us.loopexit.us, label %.lr.ph.i.i.i.us.us, !llvm.loop !874
+  br i1 %exitcond.not.i.i.i.us.us, label %._crit_edge.i.i.i.us.loopexit.us, label %.lr.ph.i.i.i.us.us, !llvm.loop !883
 
 ._crit_edge.i.i.i.us.loopexit.us:                 ; preds = %.lr.ph.i.i.i.us.us
   %78 = getelementptr inbounds i8, ptr %26, i64 %75
@@ -55229,7 +55281,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %117 = srem i64 %.01720.i.i.i.us32, %111
   %118 = add nuw nsw i64 %.022.i.i.i.us30, 1
   %exitcond.not.i.i.i.us33 = icmp eq i64 %118, %.fr
-  br i1 %exitcond.not.i.i.i.us33, label %._crit_edge.i.i.i.loopexit.us49, label %.preheader.i.i.i.us28, !llvm.loop !874
+  br i1 %exitcond.not.i.i.i.us33, label %._crit_edge.i.i.i.loopexit.us49, label %.preheader.i.i.i.us28, !llvm.loop !883
 
 _ZNK6open3d4core7Indexer11GetInputPtrItEEPT_ll.exit.thread.i.us36: ; preds = %.lr.ph.split.split.split.us, %._crit_edge.i.i.i.loopexit.us49
   %.0.i21.i.us37 = phi ptr [ %141, %._crit_edge.i.i.i.loopexit.us49 ], [ null, %.lr.ph.split.split.split.us ]
@@ -55249,7 +55301,7 @@ _ZNK6open3d4core7Indexer11GetInputPtrItEEPT_ll.exit.thread.i.us36: ; preds = %.l
   %126 = srem i64 %.01720.i.i18.i.us41, %120
   %127 = add nuw nsw i64 %.022.i.i16.i.us39, 1
   %exitcond.not.i.i19.i.us42 = icmp eq i64 %127, %.fr
-  br i1 %exitcond.not.i.i19.i.us42, label %._crit_edge.i.i13.i.us43, label %.lr.ph.i.i15.i.us38, !llvm.loop !874
+  br i1 %exitcond.not.i.i19.i.us42, label %._crit_edge.i.i13.i.us43, label %.lr.ph.i.i15.i.us38, !llvm.loop !883
 
 ._crit_edge.i.i13.i.us43:                         ; preds = %.lr.ph.i.i15.i.us38, %_ZNK6open3d4core7Indexer11GetInputPtrItEEPT_ll.exit.thread.i.us36
   %.016.lcssa.i.i14.i.us44 = phi i64 [ 0, %_ZNK6open3d4core7Indexer11GetInputPtrItEEPT_ll.exit.thread.i.us36 ], [ %125, %.lr.ph.i.i15.i.us38 ]
@@ -55368,9 +55420,9 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 600
   %33 = load ptr, ptr %27, align 8
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 848
-  %35 = load float, ptr %34, align 8, !tbaa !1091
+  %35 = load float, ptr %34, align 8, !tbaa !1100
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 852
-  %37 = load float, ptr %36, align 4, !tbaa !1094
+  %37 = load float, ptr %36, align 4, !tbaa !1103
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 856
   %39 = getelementptr inbounds nuw i8, ptr %3, i64 858
   br i1 %20, label %.lr.ph.split.us, label %.lr.ph.split
@@ -55399,7 +55451,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %49 = srem i64 %.01720.i.i18.i.us, %43
   %50 = add nuw nsw i64 %.022.i.i16.i.us, 1
   %exitcond.not.i.i19.i.us = icmp eq i64 %50, %.fr
-  br i1 %exitcond.not.i.i19.i.us, label %._crit_edge.i.i13.i.us, label %.lr.ph.i.i15.i.us, !llvm.loop !874
+  br i1 %exitcond.not.i.i19.i.us, label %._crit_edge.i.i13.i.us, label %.lr.ph.i.i15.i.us, !llvm.loop !883
 
 ._crit_edge.i.i13.i.us:                           ; preds = %.lr.ph.i.i15.i.us, %.preheader.i.i12.i.us
   %.016.lcssa.i.i14.i.us = phi i64 [ 0, %.preheader.i.i12.i.us ], [ %48, %.lr.ph.i.i15.i.us ]
@@ -55461,7 +55513,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %76 = srem i64 %.01720.i.i.i.us.us, %70
   %77 = add nuw nsw i64 %.022.i.i.i.us.us, 1
   %exitcond.not.i.i.i.us.us = icmp eq i64 %77, %.fr
-  br i1 %exitcond.not.i.i.i.us.us, label %._crit_edge.i.i.i.us.loopexit.us, label %.lr.ph.i.i.i.us.us, !llvm.loop !875
+  br i1 %exitcond.not.i.i.i.us.us, label %._crit_edge.i.i.i.us.loopexit.us, label %.lr.ph.i.i.i.us.us, !llvm.loop !884
 
 ._crit_edge.i.i.i.us.loopexit.us:                 ; preds = %.lr.ph.i.i.i.us.us
   %78 = getelementptr inbounds i8, ptr %26, i64 %75
@@ -55544,7 +55596,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %120 = srem i64 %.01720.i.i.i.us32, %114
   %121 = add nuw nsw i64 %.022.i.i.i.us30, 1
   %exitcond.not.i.i.i.us33 = icmp eq i64 %121, %.fr
-  br i1 %exitcond.not.i.i.i.us33, label %._crit_edge.i.i.i.loopexit.us49, label %.preheader.i.i.i.us28, !llvm.loop !875
+  br i1 %exitcond.not.i.i.i.us33, label %._crit_edge.i.i.i.loopexit.us49, label %.preheader.i.i.i.us28, !llvm.loop !884
 
 _ZNK6open3d4core7Indexer11GetInputPtrIjEEPT_ll.exit.thread.i.us36: ; preds = %.lr.ph.split.split.split.us, %._crit_edge.i.i.i.loopexit.us49
   %.0.i21.i.us37 = phi ptr [ %144, %._crit_edge.i.i.i.loopexit.us49 ], [ null, %.lr.ph.split.split.split.us ]
@@ -55564,7 +55616,7 @@ _ZNK6open3d4core7Indexer11GetInputPtrIjEEPT_ll.exit.thread.i.us36: ; preds = %.l
   %129 = srem i64 %.01720.i.i18.i.us41, %123
   %130 = add nuw nsw i64 %.022.i.i16.i.us39, 1
   %exitcond.not.i.i19.i.us42 = icmp eq i64 %130, %.fr
-  br i1 %exitcond.not.i.i19.i.us42, label %._crit_edge.i.i13.i.us43, label %.lr.ph.i.i15.i.us38, !llvm.loop !874
+  br i1 %exitcond.not.i.i19.i.us42, label %._crit_edge.i.i13.i.us43, label %.lr.ph.i.i15.i.us38, !llvm.loop !883
 
 ._crit_edge.i.i13.i.us43:                         ; preds = %.lr.ph.i.i15.i.us38, %_ZNK6open3d4core7Indexer11GetInputPtrIjEEPT_ll.exit.thread.i.us36
   %.016.lcssa.i.i14.i.us44 = phi i64 [ 0, %_ZNK6open3d4core7Indexer11GetInputPtrIjEEPT_ll.exit.thread.i.us36 ], [ %128, %.lr.ph.i.i15.i.us38 ]
@@ -55680,9 +55732,9 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 600
   %33 = load ptr, ptr %27, align 8
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 848
-  %35 = load float, ptr %34, align 8, !tbaa !1100
+  %35 = load float, ptr %34, align 8, !tbaa !1109
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 852
-  %37 = load float, ptr %36, align 4, !tbaa !1103
+  %37 = load float, ptr %36, align 4, !tbaa !1112
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 856
   %39 = getelementptr inbounds nuw i8, ptr %3, i64 858
   br i1 %20, label %.lr.ph.split.us, label %.lr.ph.split
@@ -55711,7 +55763,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %49 = srem i64 %.01720.i.i18.i.us, %43
   %50 = add nuw nsw i64 %.022.i.i16.i.us, 1
   %exitcond.not.i.i19.i.us = icmp eq i64 %50, %.fr
-  br i1 %exitcond.not.i.i19.i.us, label %._crit_edge.i.i13.i.us, label %.lr.ph.i.i15.i.us, !llvm.loop !874
+  br i1 %exitcond.not.i.i19.i.us, label %._crit_edge.i.i13.i.us, label %.lr.ph.i.i15.i.us, !llvm.loop !883
 
 ._crit_edge.i.i13.i.us:                           ; preds = %.lr.ph.i.i15.i.us, %.preheader.i.i12.i.us
   %.016.lcssa.i.i14.i.us = phi i64 [ 0, %.preheader.i.i12.i.us ], [ %48, %.lr.ph.i.i15.i.us ]
@@ -55773,7 +55825,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %76 = srem i64 %.01720.i.i.i.us.us, %70
   %77 = add nuw nsw i64 %.022.i.i.i.us.us, 1
   %exitcond.not.i.i.i.us.us = icmp eq i64 %77, %.fr
-  br i1 %exitcond.not.i.i.i.us.us, label %._crit_edge.i.i.i.us.loopexit.us, label %.lr.ph.i.i.i.us.us, !llvm.loop !876
+  br i1 %exitcond.not.i.i.i.us.us, label %._crit_edge.i.i.i.us.loopexit.us, label %.lr.ph.i.i.i.us.us, !llvm.loop !885
 
 ._crit_edge.i.i.i.us.loopexit.us:                 ; preds = %.lr.ph.i.i.i.us.us
   %78 = getelementptr inbounds i8, ptr %26, i64 %75
@@ -55856,7 +55908,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %120 = srem i64 %.01720.i.i.i.us32, %114
   %121 = add nuw nsw i64 %.022.i.i.i.us30, 1
   %exitcond.not.i.i.i.us33 = icmp eq i64 %121, %.fr
-  br i1 %exitcond.not.i.i.i.us33, label %._crit_edge.i.i.i.loopexit.us49, label %.preheader.i.i.i.us28, !llvm.loop !876
+  br i1 %exitcond.not.i.i.i.us33, label %._crit_edge.i.i.i.loopexit.us49, label %.preheader.i.i.i.us28, !llvm.loop !885
 
 _ZNK6open3d4core7Indexer11GetInputPtrImEEPT_ll.exit.thread.i.us36: ; preds = %.lr.ph.split.split.split.us, %._crit_edge.i.i.i.loopexit.us49
   %.0.i21.i.us37 = phi ptr [ %144, %._crit_edge.i.i.i.loopexit.us49 ], [ null, %.lr.ph.split.split.split.us ]
@@ -55876,7 +55928,7 @@ _ZNK6open3d4core7Indexer11GetInputPtrImEEPT_ll.exit.thread.i.us36: ; preds = %.l
   %129 = srem i64 %.01720.i.i18.i.us41, %123
   %130 = add nuw nsw i64 %.022.i.i16.i.us39, 1
   %exitcond.not.i.i19.i.us42 = icmp eq i64 %130, %.fr
-  br i1 %exitcond.not.i.i19.i.us42, label %._crit_edge.i.i13.i.us43, label %.lr.ph.i.i15.i.us38, !llvm.loop !874
+  br i1 %exitcond.not.i.i19.i.us42, label %._crit_edge.i.i13.i.us43, label %.lr.ph.i.i15.i.us38, !llvm.loop !883
 
 ._crit_edge.i.i13.i.us43:                         ; preds = %.lr.ph.i.i15.i.us38, %_ZNK6open3d4core7Indexer11GetInputPtrImEEPT_ll.exit.thread.i.us36
   %.016.lcssa.i.i14.i.us44 = phi i64 [ 0, %_ZNK6open3d4core7Indexer11GetInputPtrImEEPT_ll.exit.thread.i.us36 ], [ %128, %.lr.ph.i.i15.i.us38 ]
@@ -55948,109 +56000,6 @@ define internal fastcc void @"_ZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4c
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.open3d::core::Device", align 8
   %5 = alloca %class.anon.296, align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %6 = load ptr, ptr %0, align 8, !tbaa !1105
-  %7 = load ptr, ptr %6, align 8, !tbaa !4
-  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %9 = load ptr, ptr %8, align 8
-  %10 = tail call i64 %9(ptr noundef nonnull align 8 dereferenceable(160) %6)
-  store i64 %10, ptr %4, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !1107
-  %13 = tail call noundef i64 @_ZNK6open3d4core7Indexer12NumWorkloadsEv(ptr noundef nonnull align 8 dereferenceable(842) %12)
-  call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %14 = load ptr, ptr %11, align 8, !tbaa !1107
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(842) %5, ptr noundef nonnull align 8 dereferenceable(842) %14, i64 842, i1 false), !tbaa.struct !40
-  %15 = getelementptr inbounds nuw i8, ptr %5, i64 848
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %17 = load ptr, ptr %16, align 8, !tbaa !1108
-  %18 = load double, ptr %17, align 8, !tbaa !69
-  store double %18, ptr %15, align 8, !tbaa !1109
-  %19 = getelementptr inbounds nuw i8, ptr %5, i64 856
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %21 = load ptr, ptr %20, align 8, !tbaa !1111
-  %22 = load double, ptr %21, align 8, !tbaa !69
-  store double %22, ptr %19, align 8, !tbaa !1112
-  %23 = getelementptr inbounds nuw i8, ptr %5, i64 864
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %25 = load ptr, ptr %24, align 8, !tbaa !1113
-  br label %26
-
-26:                                               ; preds = %26, %1
-  %27 = phi i64 [ 0, %1 ], [ %31, %26 ]
-  %28 = getelementptr inbounds nuw i32, ptr %23, i64 %27
-  %29 = getelementptr inbounds nuw i32, ptr %25, i64 %27
-  %30 = load i32, ptr %29, align 4, !tbaa !16
-  store i32 %30, ptr %28, align 4, !tbaa !16
-  %31 = add nuw nsw i64 %27, 1
-  %32 = icmp eq i64 %31, 2
-  br i1 %32, label %33, label %26
-
-33:                                               ; preds = %26
-  call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %34 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @2)
-  store i64 %13, ptr %2, align 8, !tbaa !36
-  %35 = and i64 %10, 4294967295
-  %36 = icmp eq i64 %35, 0
-  br i1 %36, label %49, label %37
-
-37:                                               ; preds = %33
-  call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  call void @_ZNK6open3d4core6Device8ToStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr noundef nonnull align 4 dereferenceable(8) %4)
-  invoke void @_ZN6open3d7utility6Logger9LogError_IJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvPKciSA_SA_DpOT_(ptr noundef nonnull @.str.12, i32 noundef 76, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_6clEvENKUlvE_clEvEUllE_EEvRKNS0_6DeviceElRKT_", ptr noundef nonnull @.str.13, ptr noundef nonnull align 8 dereferenceable(32) %3) #33
-          to label %38 unwind label %39
-
-38:                                               ; preds = %37
-  unreachable
-
-39:                                               ; preds = %37
-  %40 = landingpad { ptr, i32 }
-          cleanup
-  %41 = load ptr, ptr %3, align 8, !tbaa !47
-  %42 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %43 = icmp eq ptr %41, %42
-  br i1 %43, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i: ; preds = %39
-  %44 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %45 = load i64, ptr %44, align 8, !tbaa !51
-  %46 = icmp ult i64 %45, 16
-  call void @llvm.assume(i1 %46)
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i: ; preds = %39
-  %47 = load i64, ptr %42, align 8, !tbaa !15
-  %48 = add i64 %47, 1
-  call void @_ZdlPvm(ptr noundef %41, i64 noundef %48) #32
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i
-
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i
-  call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  resume { ptr, i32 } %40
-
-49:                                               ; preds = %33
-  %50 = icmp eq i64 %13, 0
-  br i1 %50, label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_6clEvENKUlvE4_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit", label %51
-
-51:                                               ; preds = %49
-  %52 = tail call noundef i32 @_ZN6open3d7utility18EstimateMaxThreadsEv()
-  tail call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %34, i32 %52)
-  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 2, ptr nonnull @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_6clEvENKUlvE4_clEvEUllE_EEvRKNS0_6DeviceElRKT_.omp_outlined", ptr nonnull %2, ptr nonnull align 8 dereferenceable(872) %5)
-  br label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_6clEvENKUlvE4_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit"
-
-"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_6clEvENKUlvE4_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit": ; preds = %49, %51
-  call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret void
-}
-
-; Function Attrs: inlinehint mustprogress ssp uwtable
-define internal fastcc void @"_ZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_6clEvENKUlvE5_clEv"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = alloca i64, align 8
-  %3 = alloca %"class.std::__cxx11::basic_string", align 8
-  %4 = alloca %"class.open3d::core::Device", align 8
-  %5 = alloca %class.anon.297, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = load ptr, ptr %0, align 8, !tbaa !1114
   %7 = load ptr, ptr %6, align 8, !tbaa !4
@@ -56133,15 +56082,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %_
 
 49:                                               ; preds = %33
   %50 = icmp eq i64 %13, 0
-  br i1 %50, label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_6clEvENKUlvE5_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit", label %51
+  br i1 %50, label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_6clEvENKUlvE4_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit", label %51
 
 51:                                               ; preds = %49
   %52 = tail call noundef i32 @_ZN6open3d7utility18EstimateMaxThreadsEv()
   tail call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %34, i32 %52)
-  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 2, ptr nonnull @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_6clEvENKUlvE5_clEvEUllE_EEvRKNS0_6DeviceElRKT_.omp_outlined", ptr nonnull %2, ptr nonnull align 8 dereferenceable(872) %5)
-  br label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_6clEvENKUlvE5_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit"
+  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 2, ptr nonnull @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_6clEvENKUlvE4_clEvEUllE_EEvRKNS0_6DeviceElRKT_.omp_outlined", ptr nonnull %2, ptr nonnull align 8 dereferenceable(872) %5)
+  br label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_6clEvENKUlvE4_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit"
 
-"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_6clEvENKUlvE5_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit": ; preds = %49, %51
+"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_6clEvENKUlvE4_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit": ; preds = %49, %51
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -56149,11 +56098,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %_
 }
 
 ; Function Attrs: inlinehint mustprogress ssp uwtable
-define internal fastcc void @"_ZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_6clEvENKUlvE6_clEv"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_6clEvENKUlvE5_clEv"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca i64, align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.open3d::core::Device", align 8
-  %5 = alloca %class.anon.298, align 8
+  %5 = alloca %class.anon.297, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = load ptr, ptr %0, align 8, !tbaa !1123
   %7 = load ptr, ptr %6, align 8, !tbaa !4
@@ -56236,15 +56185,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %_
 
 49:                                               ; preds = %33
   %50 = icmp eq i64 %13, 0
-  br i1 %50, label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_6clEvENKUlvE6_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit", label %51
+  br i1 %50, label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_6clEvENKUlvE5_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit", label %51
 
 51:                                               ; preds = %49
   %52 = tail call noundef i32 @_ZN6open3d7utility18EstimateMaxThreadsEv()
   tail call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %34, i32 %52)
-  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 2, ptr nonnull @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_6clEvENKUlvE6_clEvEUllE_EEvRKNS0_6DeviceElRKT_.omp_outlined", ptr nonnull %2, ptr nonnull align 8 dereferenceable(872) %5)
-  br label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_6clEvENKUlvE6_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit"
+  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 2, ptr nonnull @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_6clEvENKUlvE5_clEvEUllE_EEvRKNS0_6DeviceElRKT_.omp_outlined", ptr nonnull %2, ptr nonnull align 8 dereferenceable(872) %5)
+  br label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_6clEvENKUlvE5_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit"
 
-"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_6clEvENKUlvE6_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit": ; preds = %49, %51
+"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_6clEvENKUlvE5_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit": ; preds = %49, %51
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -56252,11 +56201,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %_
 }
 
 ; Function Attrs: inlinehint mustprogress ssp uwtable
-define internal fastcc void @"_ZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_6clEvENKUlvE7_clEv"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_6clEvENKUlvE6_clEv"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca i64, align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.open3d::core::Device", align 8
-  %5 = alloca %class.anon.299, align 8
+  %5 = alloca %class.anon.298, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = load ptr, ptr %0, align 8, !tbaa !1132
   %7 = load ptr, ptr %6, align 8, !tbaa !4
@@ -56339,15 +56288,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %_
 
 49:                                               ; preds = %33
   %50 = icmp eq i64 %13, 0
-  br i1 %50, label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_6clEvENKUlvE7_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit", label %51
+  br i1 %50, label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_6clEvENKUlvE6_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit", label %51
 
 51:                                               ; preds = %49
   %52 = tail call noundef i32 @_ZN6open3d7utility18EstimateMaxThreadsEv()
   tail call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %34, i32 %52)
-  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 2, ptr nonnull @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_6clEvENKUlvE7_clEvEUllE_EEvRKNS0_6DeviceElRKT_.omp_outlined", ptr nonnull %2, ptr nonnull align 8 dereferenceable(872) %5)
-  br label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_6clEvENKUlvE7_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit"
+  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 2, ptr nonnull @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_6clEvENKUlvE6_clEvEUllE_EEvRKNS0_6DeviceElRKT_.omp_outlined", ptr nonnull %2, ptr nonnull align 8 dereferenceable(872) %5)
+  br label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_6clEvENKUlvE6_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit"
 
-"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_6clEvENKUlvE7_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit": ; preds = %49, %51
+"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_6clEvENKUlvE6_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit": ; preds = %49, %51
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -56355,11 +56304,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %_
 }
 
 ; Function Attrs: inlinehint mustprogress ssp uwtable
-define internal fastcc void @"_ZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_6clEvENKUlvE8_clEv"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_6clEvENKUlvE7_clEv"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca i64, align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.open3d::core::Device", align 8
-  %5 = alloca %class.anon.300, align 8
+  %5 = alloca %class.anon.299, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = load ptr, ptr %0, align 8, !tbaa !1141
   %7 = load ptr, ptr %6, align 8, !tbaa !4
@@ -56386,6 +56335,109 @@ define internal fastcc void @"_ZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4c
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 864
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %25 = load ptr, ptr %24, align 8, !tbaa !1149
+  br label %26
+
+26:                                               ; preds = %26, %1
+  %27 = phi i64 [ 0, %1 ], [ %31, %26 ]
+  %28 = getelementptr inbounds nuw i32, ptr %23, i64 %27
+  %29 = getelementptr inbounds nuw i32, ptr %25, i64 %27
+  %30 = load i32, ptr %29, align 4, !tbaa !16
+  store i32 %30, ptr %28, align 4, !tbaa !16
+  %31 = add nuw nsw i64 %27, 1
+  %32 = icmp eq i64 %31, 2
+  br i1 %32, label %33, label %26
+
+33:                                               ; preds = %26
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  %34 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @2)
+  store i64 %13, ptr %2, align 8, !tbaa !36
+  %35 = and i64 %10, 4294967295
+  %36 = icmp eq i64 %35, 0
+  br i1 %36, label %49, label %37
+
+37:                                               ; preds = %33
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @_ZNK6open3d4core6Device8ToStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr noundef nonnull align 4 dereferenceable(8) %4)
+  invoke void @_ZN6open3d7utility6Logger9LogError_IJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvPKciSA_SA_DpOT_(ptr noundef nonnull @.str.12, i32 noundef 76, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_6clEvENKUlvE_clEvEUllE_EEvRKNS0_6DeviceElRKT_", ptr noundef nonnull @.str.13, ptr noundef nonnull align 8 dereferenceable(32) %3) #33
+          to label %38 unwind label %39
+
+38:                                               ; preds = %37
+  unreachable
+
+39:                                               ; preds = %37
+  %40 = landingpad { ptr, i32 }
+          cleanup
+  %41 = load ptr, ptr %3, align 8, !tbaa !47
+  %42 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %43 = icmp eq ptr %41, %42
+  br i1 %43, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i
+
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i: ; preds = %39
+  %44 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %45 = load i64, ptr %44, align 8, !tbaa !51
+  %46 = icmp ult i64 %45, 16
+  call void @llvm.assume(i1 %46)
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i
+
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i: ; preds = %39
+  %47 = load i64, ptr %42, align 8, !tbaa !15
+  %48 = add i64 %47, 1
+  call void @_ZdlPvm(ptr noundef %41, i64 noundef %48) #32
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i
+
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  resume { ptr, i32 } %40
+
+49:                                               ; preds = %33
+  %50 = icmp eq i64 %13, 0
+  br i1 %50, label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_6clEvENKUlvE7_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit", label %51
+
+51:                                               ; preds = %49
+  %52 = tail call noundef i32 @_ZN6open3d7utility18EstimateMaxThreadsEv()
+  tail call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %34, i32 %52)
+  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 2, ptr nonnull @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_6clEvENKUlvE7_clEvEUllE_EEvRKNS0_6DeviceElRKT_.omp_outlined", ptr nonnull %2, ptr nonnull align 8 dereferenceable(872) %5)
+  br label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_6clEvENKUlvE7_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit"
+
+"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_6clEvENKUlvE7_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit": ; preds = %49, %51
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress ssp uwtable
+define internal fastcc void @"_ZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_6clEvENKUlvE8_clEv"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca i64, align 8
+  %3 = alloca %"class.std::__cxx11::basic_string", align 8
+  %4 = alloca %"class.open3d::core::Device", align 8
+  %5 = alloca %class.anon.300, align 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  %6 = load ptr, ptr %0, align 8, !tbaa !1150
+  %7 = load ptr, ptr %6, align 8, !tbaa !4
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %9 = load ptr, ptr %8, align 8
+  %10 = tail call i64 %9(ptr noundef nonnull align 8 dereferenceable(160) %6)
+  store i64 %10, ptr %4, align 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %12 = load ptr, ptr %11, align 8, !tbaa !1152
+  %13 = tail call noundef i64 @_ZNK6open3d4core7Indexer12NumWorkloadsEv(ptr noundef nonnull align 8 dereferenceable(842) %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  %14 = load ptr, ptr %11, align 8, !tbaa !1152
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(842) %5, ptr noundef nonnull align 8 dereferenceable(842) %14, i64 842, i1 false), !tbaa.struct !40
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 848
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %17 = load ptr, ptr %16, align 8, !tbaa !1153
+  %18 = load double, ptr %17, align 8, !tbaa !69
+  store double %18, ptr %15, align 8, !tbaa !1154
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 856
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %21 = load ptr, ptr %20, align 8, !tbaa !1156
+  %22 = load double, ptr %21, align 8, !tbaa !69
+  store double %22, ptr %19, align 8, !tbaa !1157
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 864
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %25 = load ptr, ptr %24, align 8, !tbaa !1158
   br label %26
 
 26:                                               ; preds = %26, %1
@@ -56538,7 +56590,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %49 = srem i64 %.01720.i.i18.i.us, %43
   %50 = add nuw nsw i64 %.022.i.i16.i.us, 1
   %exitcond.not.i.i19.i.us = icmp eq i64 %50, %.fr
-  br i1 %exitcond.not.i.i19.i.us, label %._crit_edge.i.i13.i.us, label %.lr.ph.i.i15.i.us, !llvm.loop !871
+  br i1 %exitcond.not.i.i19.i.us, label %._crit_edge.i.i13.i.us, label %.lr.ph.i.i15.i.us, !llvm.loop !880
 
 ._crit_edge.i.i13.i.us:                           ; preds = %.lr.ph.i.i15.i.us, %.preheader.i.i12.i.us
   %.016.lcssa.i.i14.i.us = phi i64 [ 0, %.preheader.i.i12.i.us ], [ %48, %.lr.ph.i.i15.i.us ]
@@ -56703,7 +56755,7 @@ _ZNK6open3d4core7Indexer11GetInputPtrIfEEPT_ll.exit.thread.i.us36: ; preds = %.l
   %129 = srem i64 %.01720.i.i18.i.us41, %123
   %130 = add nuw nsw i64 %.022.i.i16.i.us39, 1
   %exitcond.not.i.i19.i.us42 = icmp eq i64 %130, %.fr
-  br i1 %exitcond.not.i.i19.i.us42, label %._crit_edge.i.i13.i.us43, label %.lr.ph.i.i15.i.us38, !llvm.loop !871
+  br i1 %exitcond.not.i.i19.i.us42, label %._crit_edge.i.i13.i.us43, label %.lr.ph.i.i15.i.us38, !llvm.loop !880
 
 ._crit_edge.i.i13.i.us43:                         ; preds = %.lr.ph.i.i15.i.us38, %_ZNK6open3d4core7Indexer11GetInputPtrIfEEPT_ll.exit.thread.i.us36
   %.016.lcssa.i.i14.i.us44 = phi i64 [ 0, %_ZNK6open3d4core7Indexer11GetInputPtrIfEEPT_ll.exit.thread.i.us36 ], [ %128, %.lr.ph.i.i15.i.us38 ]
@@ -56850,7 +56902,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %49 = srem i64 %.01720.i.i18.i.us, %43
   %50 = add nuw nsw i64 %.022.i.i16.i.us, 1
   %exitcond.not.i.i19.i.us = icmp eq i64 %50, %.fr
-  br i1 %exitcond.not.i.i19.i.us, label %._crit_edge.i.i13.i.us, label %.lr.ph.i.i15.i.us, !llvm.loop !871
+  br i1 %exitcond.not.i.i19.i.us, label %._crit_edge.i.i13.i.us, label %.lr.ph.i.i15.i.us, !llvm.loop !880
 
 ._crit_edge.i.i13.i.us:                           ; preds = %.lr.ph.i.i15.i.us, %.preheader.i.i12.i.us
   %.016.lcssa.i.i14.i.us = phi i64 [ 0, %.preheader.i.i12.i.us ], [ %48, %.lr.ph.i.i15.i.us ]
@@ -56911,7 +56963,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %75 = srem i64 %.01720.i.i.i.us.us, %69
   %76 = add nuw nsw i64 %.022.i.i.i.us.us, 1
   %exitcond.not.i.i.i.us.us = icmp eq i64 %76, %.fr
-  br i1 %exitcond.not.i.i.i.us.us, label %._crit_edge.i.i.i.us.loopexit.us, label %.lr.ph.i.i.i.us.us, !llvm.loop !868
+  br i1 %exitcond.not.i.i.i.us.us, label %._crit_edge.i.i.i.us.loopexit.us, label %.lr.ph.i.i.i.us.us, !llvm.loop !877
 
 ._crit_edge.i.i.i.us.loopexit.us:                 ; preds = %.lr.ph.i.i.i.us.us
   %77 = getelementptr inbounds i8, ptr %26, i64 %74
@@ -56991,7 +57043,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %116 = srem i64 %.01720.i.i.i.us32, %110
   %117 = add nuw nsw i64 %.022.i.i.i.us30, 1
   %exitcond.not.i.i.i.us33 = icmp eq i64 %117, %.fr
-  br i1 %exitcond.not.i.i.i.us33, label %._crit_edge.i.i.i.loopexit.us49, label %.preheader.i.i.i.us28, !llvm.loop !868
+  br i1 %exitcond.not.i.i.i.us33, label %._crit_edge.i.i.i.loopexit.us49, label %.preheader.i.i.i.us28, !llvm.loop !877
 
 _ZNK6open3d4core7Indexer11GetInputPtrIdEEPT_ll.exit.thread.i.us36: ; preds = %.lr.ph.split.split.split.us, %._crit_edge.i.i.i.loopexit.us49
   %.0.i21.i.us37 = phi ptr [ %139, %._crit_edge.i.i.i.loopexit.us49 ], [ null, %.lr.ph.split.split.split.us ]
@@ -57011,7 +57063,7 @@ _ZNK6open3d4core7Indexer11GetInputPtrIdEEPT_ll.exit.thread.i.us36: ; preds = %.l
   %125 = srem i64 %.01720.i.i18.i.us41, %119
   %126 = add nuw nsw i64 %.022.i.i16.i.us39, 1
   %exitcond.not.i.i19.i.us42 = icmp eq i64 %126, %.fr
-  br i1 %exitcond.not.i.i19.i.us42, label %._crit_edge.i.i13.i.us43, label %.lr.ph.i.i15.i.us38, !llvm.loop !871
+  br i1 %exitcond.not.i.i19.i.us42, label %._crit_edge.i.i13.i.us43, label %.lr.ph.i.i15.i.us38, !llvm.loop !880
 
 ._crit_edge.i.i13.i.us43:                         ; preds = %.lr.ph.i.i15.i.us38, %_ZNK6open3d4core7Indexer11GetInputPtrIdEEPT_ll.exit.thread.i.us36
   %.016.lcssa.i.i14.i.us44 = phi i64 [ 0, %_ZNK6open3d4core7Indexer11GetInputPtrIdEEPT_ll.exit.thread.i.us36 ], [ %124, %.lr.ph.i.i15.i.us38 ]
@@ -57161,7 +57213,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %49 = srem i64 %.01720.i.i.i.us, %43
   %50 = add nuw nsw i64 %.022.i.i.i.us, 1
   %exitcond.not.i.i.i.us = icmp eq i64 %50, %.fr
-  br i1 %exitcond.not.i.i.i.us, label %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.thread20.i.us, label %.lr.ph.i.i.i.us, !llvm.loop !869
+  br i1 %exitcond.not.i.i.i.us, label %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.thread20.i.us, label %.lr.ph.i.i.i.us, !llvm.loop !878
 
 _ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.thread20.i.us: ; preds = %.lr.ph.i.i.i.us, %.lr.ph.split.us
   %.016.lcssa.i.sink.i.i.us = phi i64 [ %.015.us.mux, %.lr.ph.split.us ], [ %48, %.lr.ph.i.i.i.us ]
@@ -57208,7 +57260,7 @@ _ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.thread20.i.us: ; preds = %.l
   %74 = srem i64 %.01720.i.i16.i.us, %68
   %75 = add nuw nsw i64 %.022.i.i14.i.us, 1
   %exitcond.not.i.i17.i.us = icmp eq i64 %75, %.fr
-  br i1 %exitcond.not.i.i17.i.us, label %._crit_edge.i.i.i.us, label %.lr.ph.i.i13.i.us, !llvm.loop !871
+  br i1 %exitcond.not.i.i17.i.us, label %._crit_edge.i.i.i.us, label %.lr.ph.i.i13.i.us, !llvm.loop !880
 
 ._crit_edge.i.i.i.us:                             ; preds = %.lr.ph.i.i13.i.us, %.lr.ph.split.split.us
   %.016.lcssa.i.i.i.us = phi i64 [ 0, %.lr.ph.split.split.us ], [ %73, %.lr.ph.i.i13.i.us ]
@@ -57260,7 +57312,7 @@ _ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.thread20.i.us: ; preds = %.l
   %100 = srem i64 %.01720.i.i.i.us32, %94
   %101 = add nuw nsw i64 %.022.i.i.i.us30, 1
   %exitcond.not.i.i.i.us33 = icmp eq i64 %101, %.fr
-  br i1 %exitcond.not.i.i.i.us33, label %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.thread20.i.loopexit.us49, label %.preheader.i.i.i.us28, !llvm.loop !869
+  br i1 %exitcond.not.i.i.i.us33, label %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.thread20.i.loopexit.us49, label %.preheader.i.i.i.us28, !llvm.loop !878
 
 .preheader.i.i12.i.us36:                          ; preds = %.lr.ph.split.split.split.us, %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.thread20.i.loopexit.us49
   %.0.i22.i.us37 = phi ptr [ %124, %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.thread20.i.loopexit.us49 ], [ null, %.lr.ph.split.split.split.us ]
@@ -57280,7 +57332,7 @@ _ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.thread20.i.us: ; preds = %.l
   %109 = srem i64 %.01720.i.i16.i.us41, %103
   %110 = add nuw nsw i64 %.022.i.i14.i.us39, 1
   %exitcond.not.i.i17.i.us42 = icmp eq i64 %110, %.fr
-  br i1 %exitcond.not.i.i17.i.us42, label %._crit_edge.i.i.i.us43, label %.lr.ph.i.i13.i.us38, !llvm.loop !871
+  br i1 %exitcond.not.i.i17.i.us42, label %._crit_edge.i.i.i.us43, label %.lr.ph.i.i13.i.us38, !llvm.loop !880
 
 ._crit_edge.i.i.i.us43:                           ; preds = %.lr.ph.i.i13.i.us38, %.preheader.i.i12.i.us36
   %.016.lcssa.i.i.i.us44 = phi i64 [ 0, %.preheader.i.i12.i.us36 ], [ %108, %.lr.ph.i.i13.i.us38 ]
@@ -57430,7 +57482,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %49 = srem i64 %.01720.i.i18.i.us, %43
   %50 = add nuw nsw i64 %.022.i.i16.i.us, 1
   %exitcond.not.i.i19.i.us = icmp eq i64 %50, %.fr
-  br i1 %exitcond.not.i.i19.i.us, label %._crit_edge.i.i13.i.us, label %.lr.ph.i.i15.i.us, !llvm.loop !871
+  br i1 %exitcond.not.i.i19.i.us, label %._crit_edge.i.i13.i.us, label %.lr.ph.i.i15.i.us, !llvm.loop !880
 
 ._crit_edge.i.i13.i.us:                           ; preds = %.lr.ph.i.i15.i.us, %.preheader.i.i12.i.us
   %.016.lcssa.i.i14.i.us = phi i64 [ 0, %.preheader.i.i12.i.us ], [ %48, %.lr.ph.i.i15.i.us ]
@@ -57492,7 +57544,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %76 = srem i64 %.01720.i.i.i.us.us, %70
   %77 = add nuw nsw i64 %.022.i.i.i.us.us, 1
   %exitcond.not.i.i.i.us.us = icmp eq i64 %77, %.fr
-  br i1 %exitcond.not.i.i.i.us.us, label %._crit_edge.i.i.i.us.loopexit.us, label %.lr.ph.i.i.i.us.us, !llvm.loop !870
+  br i1 %exitcond.not.i.i.i.us.us, label %._crit_edge.i.i.i.us.loopexit.us, label %.lr.ph.i.i.i.us.us, !llvm.loop !879
 
 ._crit_edge.i.i.i.us.loopexit.us:                 ; preds = %.lr.ph.i.i.i.us.us
   %78 = getelementptr inbounds i8, ptr %26, i64 %75
@@ -57575,7 +57627,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %120 = srem i64 %.01720.i.i.i.us32, %114
   %121 = add nuw nsw i64 %.022.i.i.i.us30, 1
   %exitcond.not.i.i.i.us33 = icmp eq i64 %121, %.fr
-  br i1 %exitcond.not.i.i.i.us33, label %._crit_edge.i.i.i.loopexit.us49, label %.preheader.i.i.i.us28, !llvm.loop !870
+  br i1 %exitcond.not.i.i.i.us33, label %._crit_edge.i.i.i.loopexit.us49, label %.preheader.i.i.i.us28, !llvm.loop !879
 
 _ZNK6open3d4core7Indexer11GetInputPtrIsEEPT_ll.exit.thread.i.us36: ; preds = %.lr.ph.split.split.split.us, %._crit_edge.i.i.i.loopexit.us49
   %.0.i21.i.us37 = phi ptr [ %144, %._crit_edge.i.i.i.loopexit.us49 ], [ null, %.lr.ph.split.split.split.us ]
@@ -57595,7 +57647,7 @@ _ZNK6open3d4core7Indexer11GetInputPtrIsEEPT_ll.exit.thread.i.us36: ; preds = %.l
   %129 = srem i64 %.01720.i.i18.i.us41, %123
   %130 = add nuw nsw i64 %.022.i.i16.i.us39, 1
   %exitcond.not.i.i19.i.us42 = icmp eq i64 %130, %.fr
-  br i1 %exitcond.not.i.i19.i.us42, label %._crit_edge.i.i13.i.us43, label %.lr.ph.i.i15.i.us38, !llvm.loop !871
+  br i1 %exitcond.not.i.i19.i.us42, label %._crit_edge.i.i13.i.us43, label %.lr.ph.i.i15.i.us38, !llvm.loop !880
 
 ._crit_edge.i.i13.i.us43:                         ; preds = %.lr.ph.i.i15.i.us38, %_ZNK6open3d4core7Indexer11GetInputPtrIsEEPT_ll.exit.thread.i.us36
   %.016.lcssa.i.i14.i.us44 = phi i64 [ 0, %_ZNK6open3d4core7Indexer11GetInputPtrIsEEPT_ll.exit.thread.i.us36 ], [ %128, %.lr.ph.i.i15.i.us38 ]
@@ -57742,7 +57794,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %49 = srem i64 %.01720.i.i18.i.us, %43
   %50 = add nuw nsw i64 %.022.i.i16.i.us, 1
   %exitcond.not.i.i19.i.us = icmp eq i64 %50, %.fr
-  br i1 %exitcond.not.i.i19.i.us, label %._crit_edge.i.i13.i.us, label %.lr.ph.i.i15.i.us, !llvm.loop !871
+  br i1 %exitcond.not.i.i19.i.us, label %._crit_edge.i.i13.i.us, label %.lr.ph.i.i15.i.us, !llvm.loop !880
 
 ._crit_edge.i.i13.i.us:                           ; preds = %.lr.ph.i.i15.i.us, %.preheader.i.i12.i.us
   %.016.lcssa.i.i14.i.us = phi i64 [ 0, %.preheader.i.i12.i.us ], [ %48, %.lr.ph.i.i15.i.us ]
@@ -57801,7 +57853,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %76 = srem i64 %.01720.i.i.i.us.us, %70
   %77 = add nuw nsw i64 %.022.i.i.i.us.us, 1
   %exitcond.not.i.i.i.us.us = icmp eq i64 %77, %.fr
-  br i1 %exitcond.not.i.i.i.us.us, label %._crit_edge.i.i.i.us.loopexit.us, label %.lr.ph.i.i.i.us.us, !llvm.loop !871
+  br i1 %exitcond.not.i.i.i.us.us, label %._crit_edge.i.i.i.us.loopexit.us, label %.lr.ph.i.i.i.us.us, !llvm.loop !880
 
 ._crit_edge.i.i.i.us.loopexit.us:                 ; preds = %.lr.ph.i.i.i.us.us
   %78 = getelementptr inbounds i8, ptr %26, i64 %75
@@ -57876,7 +57928,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %117 = srem i64 %.01720.i.i.i.us32, %111
   %118 = add nuw nsw i64 %.022.i.i.i.us30, 1
   %exitcond.not.i.i.i.us33 = icmp eq i64 %118, %.fr
-  br i1 %exitcond.not.i.i.i.us33, label %._crit_edge.i.i.i.loopexit.us49, label %.preheader.i.i.i.us28, !llvm.loop !871
+  br i1 %exitcond.not.i.i.i.us33, label %._crit_edge.i.i.i.loopexit.us49, label %.preheader.i.i.i.us28, !llvm.loop !880
 
 _ZNK6open3d4core7Indexer11GetInputPtrIiEEPT_ll.exit.thread.i.us36: ; preds = %.lr.ph.split.split.split.us, %._crit_edge.i.i.i.loopexit.us49
   %.0.i21.i.us37 = phi ptr [ %141, %._crit_edge.i.i.i.loopexit.us49 ], [ null, %.lr.ph.split.split.split.us ]
@@ -57896,7 +57948,7 @@ _ZNK6open3d4core7Indexer11GetInputPtrIiEEPT_ll.exit.thread.i.us36: ; preds = %.l
   %126 = srem i64 %.01720.i.i18.i.us41, %120
   %127 = add nuw nsw i64 %.022.i.i16.i.us39, 1
   %exitcond.not.i.i19.i.us42 = icmp eq i64 %127, %.fr
-  br i1 %exitcond.not.i.i19.i.us42, label %._crit_edge.i.i13.i.us43, label %.lr.ph.i.i15.i.us38, !llvm.loop !871
+  br i1 %exitcond.not.i.i19.i.us42, label %._crit_edge.i.i13.i.us43, label %.lr.ph.i.i15.i.us38, !llvm.loop !880
 
 ._crit_edge.i.i13.i.us43:                         ; preds = %.lr.ph.i.i15.i.us38, %_ZNK6open3d4core7Indexer11GetInputPtrIiEEPT_ll.exit.thread.i.us36
   %.016.lcssa.i.i14.i.us44 = phi i64 [ 0, %_ZNK6open3d4core7Indexer11GetInputPtrIiEEPT_ll.exit.thread.i.us36 ], [ %125, %.lr.ph.i.i15.i.us38 ]
@@ -58015,9 +58067,9 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 600
   %33 = load ptr, ptr %27, align 8
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 848
-  %35 = load double, ptr %34, align 8, !tbaa !1109
+  %35 = load double, ptr %34, align 8, !tbaa !1118
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 856
-  %37 = load double, ptr %36, align 8, !tbaa !1112
+  %37 = load double, ptr %36, align 8, !tbaa !1121
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 864
   %39 = getelementptr inbounds nuw i8, ptr %3, i64 868
   br i1 %20, label %.lr.ph.split.us, label %.lr.ph.split
@@ -58046,7 +58098,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %49 = srem i64 %.01720.i.i18.i.us, %43
   %50 = add nuw nsw i64 %.022.i.i16.i.us, 1
   %exitcond.not.i.i19.i.us = icmp eq i64 %50, %.fr
-  br i1 %exitcond.not.i.i19.i.us, label %._crit_edge.i.i13.i.us, label %.lr.ph.i.i15.i.us, !llvm.loop !871
+  br i1 %exitcond.not.i.i19.i.us, label %._crit_edge.i.i13.i.us, label %.lr.ph.i.i15.i.us, !llvm.loop !880
 
 ._crit_edge.i.i13.i.us:                           ; preds = %.lr.ph.i.i15.i.us, %.preheader.i.i12.i.us
   %.016.lcssa.i.i14.i.us = phi i64 [ 0, %.preheader.i.i12.i.us ], [ %48, %.lr.ph.i.i15.i.us ]
@@ -58108,7 +58160,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %76 = srem i64 %.01720.i.i.i.us.us, %70
   %77 = add nuw nsw i64 %.022.i.i.i.us.us, 1
   %exitcond.not.i.i.i.us.us = icmp eq i64 %77, %.fr
-  br i1 %exitcond.not.i.i.i.us.us, label %._crit_edge.i.i.i.us.loopexit.us, label %.lr.ph.i.i.i.us.us, !llvm.loop !872
+  br i1 %exitcond.not.i.i.i.us.us, label %._crit_edge.i.i.i.us.loopexit.us, label %.lr.ph.i.i.i.us.us, !llvm.loop !881
 
 ._crit_edge.i.i.i.us.loopexit.us:                 ; preds = %.lr.ph.i.i.i.us.us
   %78 = getelementptr inbounds i8, ptr %26, i64 %75
@@ -58191,7 +58243,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %120 = srem i64 %.01720.i.i.i.us32, %114
   %121 = add nuw nsw i64 %.022.i.i.i.us30, 1
   %exitcond.not.i.i.i.us33 = icmp eq i64 %121, %.fr
-  br i1 %exitcond.not.i.i.i.us33, label %._crit_edge.i.i.i.loopexit.us49, label %.preheader.i.i.i.us28, !llvm.loop !872
+  br i1 %exitcond.not.i.i.i.us33, label %._crit_edge.i.i.i.loopexit.us49, label %.preheader.i.i.i.us28, !llvm.loop !881
 
 _ZNK6open3d4core7Indexer11GetInputPtrIlEEPT_ll.exit.thread.i.us36: ; preds = %.lr.ph.split.split.split.us, %._crit_edge.i.i.i.loopexit.us49
   %.0.i21.i.us37 = phi ptr [ %144, %._crit_edge.i.i.i.loopexit.us49 ], [ null, %.lr.ph.split.split.split.us ]
@@ -58211,7 +58263,7 @@ _ZNK6open3d4core7Indexer11GetInputPtrIlEEPT_ll.exit.thread.i.us36: ; preds = %.l
   %129 = srem i64 %.01720.i.i18.i.us41, %123
   %130 = add nuw nsw i64 %.022.i.i16.i.us39, 1
   %exitcond.not.i.i19.i.us42 = icmp eq i64 %130, %.fr
-  br i1 %exitcond.not.i.i19.i.us42, label %._crit_edge.i.i13.i.us43, label %.lr.ph.i.i15.i.us38, !llvm.loop !871
+  br i1 %exitcond.not.i.i19.i.us42, label %._crit_edge.i.i13.i.us43, label %.lr.ph.i.i15.i.us38, !llvm.loop !880
 
 ._crit_edge.i.i13.i.us43:                         ; preds = %.lr.ph.i.i15.i.us38, %_ZNK6open3d4core7Indexer11GetInputPtrIlEEPT_ll.exit.thread.i.us36
   %.016.lcssa.i.i14.i.us44 = phi i64 [ 0, %_ZNK6open3d4core7Indexer11GetInputPtrIlEEPT_ll.exit.thread.i.us36 ], [ %128, %.lr.ph.i.i15.i.us38 ]
@@ -58327,9 +58379,9 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 600
   %33 = load ptr, ptr %27, align 8
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 848
-  %35 = load double, ptr %34, align 8, !tbaa !1118
+  %35 = load double, ptr %34, align 8, !tbaa !1127
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 856
-  %37 = load double, ptr %36, align 8, !tbaa !1121
+  %37 = load double, ptr %36, align 8, !tbaa !1130
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 864
   %39 = getelementptr inbounds nuw i8, ptr %3, i64 868
   br i1 %30, label %.lr.ph.split.us.preheader, label %.lr.ph.split
@@ -58362,7 +58414,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %49 = srem i64 %.01720.i.i.i.us, %43
   %50 = add nuw nsw i64 %.022.i.i.i.us, 1
   %exitcond.not.i.i.i.us = icmp eq i64 %50, %.fr
-  br i1 %exitcond.not.i.i.i.us, label %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.thread20.i.us, label %.lr.ph.i.i.i.us, !llvm.loop !873
+  br i1 %exitcond.not.i.i.i.us, label %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.thread20.i.us, label %.lr.ph.i.i.i.us, !llvm.loop !882
 
 _ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.thread20.i.us: ; preds = %.lr.ph.i.i.i.us, %.lr.ph.split.us
   %.016.lcssa.i.sink.i.i.us = phi i64 [ %.015.us.mux, %.lr.ph.split.us ], [ %48, %.lr.ph.i.i.i.us ]
@@ -58409,7 +58461,7 @@ _ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.thread20.i.us: ; preds = %.l
   %74 = srem i64 %.01720.i.i16.i.us, %68
   %75 = add nuw nsw i64 %.022.i.i14.i.us, 1
   %exitcond.not.i.i17.i.us = icmp eq i64 %75, %.fr
-  br i1 %exitcond.not.i.i17.i.us, label %._crit_edge.i.i.i.us, label %.lr.ph.i.i13.i.us, !llvm.loop !871
+  br i1 %exitcond.not.i.i17.i.us, label %._crit_edge.i.i.i.us, label %.lr.ph.i.i13.i.us, !llvm.loop !880
 
 ._crit_edge.i.i.i.us:                             ; preds = %.lr.ph.i.i13.i.us, %.lr.ph.split.split.us
   %.016.lcssa.i.i.i.us = phi i64 [ 0, %.lr.ph.split.split.us ], [ %73, %.lr.ph.i.i13.i.us ]
@@ -58461,7 +58513,7 @@ _ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.thread20.i.us: ; preds = %.l
   %100 = srem i64 %.01720.i.i.i.us32, %94
   %101 = add nuw nsw i64 %.022.i.i.i.us30, 1
   %exitcond.not.i.i.i.us33 = icmp eq i64 %101, %.fr
-  br i1 %exitcond.not.i.i.i.us33, label %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.thread20.i.loopexit.us49, label %.preheader.i.i.i.us28, !llvm.loop !873
+  br i1 %exitcond.not.i.i.i.us33, label %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.thread20.i.loopexit.us49, label %.preheader.i.i.i.us28, !llvm.loop !882
 
 .preheader.i.i12.i.us36:                          ; preds = %.lr.ph.split.split.split.us, %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.thread20.i.loopexit.us49
   %.0.i22.i.us37 = phi ptr [ %124, %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.thread20.i.loopexit.us49 ], [ null, %.lr.ph.split.split.split.us ]
@@ -58481,7 +58533,7 @@ _ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.thread20.i.us: ; preds = %.l
   %109 = srem i64 %.01720.i.i16.i.us41, %103
   %110 = add nuw nsw i64 %.022.i.i14.i.us39, 1
   %exitcond.not.i.i17.i.us42 = icmp eq i64 %110, %.fr
-  br i1 %exitcond.not.i.i17.i.us42, label %._crit_edge.i.i.i.us43, label %.lr.ph.i.i13.i.us38, !llvm.loop !871
+  br i1 %exitcond.not.i.i17.i.us42, label %._crit_edge.i.i.i.us43, label %.lr.ph.i.i13.i.us38, !llvm.loop !880
 
 ._crit_edge.i.i.i.us43:                           ; preds = %.lr.ph.i.i13.i.us38, %.preheader.i.i12.i.us36
   %.016.lcssa.i.i.i.us44 = phi i64 [ 0, %.preheader.i.i12.i.us36 ], [ %108, %.lr.ph.i.i13.i.us38 ]
@@ -58600,9 +58652,9 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 600
   %33 = load ptr, ptr %27, align 8
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 848
-  %35 = load double, ptr %34, align 8, !tbaa !1127
+  %35 = load double, ptr %34, align 8, !tbaa !1136
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 856
-  %37 = load double, ptr %36, align 8, !tbaa !1130
+  %37 = load double, ptr %36, align 8, !tbaa !1139
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 864
   %39 = getelementptr inbounds nuw i8, ptr %3, i64 868
   br i1 %20, label %.lr.ph.split.us, label %.lr.ph.split
@@ -58631,7 +58683,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %49 = srem i64 %.01720.i.i18.i.us, %43
   %50 = add nuw nsw i64 %.022.i.i16.i.us, 1
   %exitcond.not.i.i19.i.us = icmp eq i64 %50, %.fr
-  br i1 %exitcond.not.i.i19.i.us, label %._crit_edge.i.i13.i.us, label %.lr.ph.i.i15.i.us, !llvm.loop !871
+  br i1 %exitcond.not.i.i19.i.us, label %._crit_edge.i.i13.i.us, label %.lr.ph.i.i15.i.us, !llvm.loop !880
 
 ._crit_edge.i.i13.i.us:                           ; preds = %.lr.ph.i.i15.i.us, %.preheader.i.i12.i.us
   %.016.lcssa.i.i14.i.us = phi i64 [ 0, %.preheader.i.i12.i.us ], [ %48, %.lr.ph.i.i15.i.us ]
@@ -58693,7 +58745,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %76 = srem i64 %.01720.i.i.i.us.us, %70
   %77 = add nuw nsw i64 %.022.i.i.i.us.us, 1
   %exitcond.not.i.i.i.us.us = icmp eq i64 %77, %.fr
-  br i1 %exitcond.not.i.i.i.us.us, label %._crit_edge.i.i.i.us.loopexit.us, label %.lr.ph.i.i.i.us.us, !llvm.loop !874
+  br i1 %exitcond.not.i.i.i.us.us, label %._crit_edge.i.i.i.us.loopexit.us, label %.lr.ph.i.i.i.us.us, !llvm.loop !883
 
 ._crit_edge.i.i.i.us.loopexit.us:                 ; preds = %.lr.ph.i.i.i.us.us
   %78 = getelementptr inbounds i8, ptr %26, i64 %75
@@ -58776,7 +58828,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %120 = srem i64 %.01720.i.i.i.us32, %114
   %121 = add nuw nsw i64 %.022.i.i.i.us30, 1
   %exitcond.not.i.i.i.us33 = icmp eq i64 %121, %.fr
-  br i1 %exitcond.not.i.i.i.us33, label %._crit_edge.i.i.i.loopexit.us49, label %.preheader.i.i.i.us28, !llvm.loop !874
+  br i1 %exitcond.not.i.i.i.us33, label %._crit_edge.i.i.i.loopexit.us49, label %.preheader.i.i.i.us28, !llvm.loop !883
 
 _ZNK6open3d4core7Indexer11GetInputPtrItEEPT_ll.exit.thread.i.us36: ; preds = %.lr.ph.split.split.split.us, %._crit_edge.i.i.i.loopexit.us49
   %.0.i21.i.us37 = phi ptr [ %144, %._crit_edge.i.i.i.loopexit.us49 ], [ null, %.lr.ph.split.split.split.us ]
@@ -58796,7 +58848,7 @@ _ZNK6open3d4core7Indexer11GetInputPtrItEEPT_ll.exit.thread.i.us36: ; preds = %.l
   %129 = srem i64 %.01720.i.i18.i.us41, %123
   %130 = add nuw nsw i64 %.022.i.i16.i.us39, 1
   %exitcond.not.i.i19.i.us42 = icmp eq i64 %130, %.fr
-  br i1 %exitcond.not.i.i19.i.us42, label %._crit_edge.i.i13.i.us43, label %.lr.ph.i.i15.i.us38, !llvm.loop !871
+  br i1 %exitcond.not.i.i19.i.us42, label %._crit_edge.i.i13.i.us43, label %.lr.ph.i.i15.i.us38, !llvm.loop !880
 
 ._crit_edge.i.i13.i.us43:                         ; preds = %.lr.ph.i.i15.i.us38, %_ZNK6open3d4core7Indexer11GetInputPtrItEEPT_ll.exit.thread.i.us36
   %.016.lcssa.i.i14.i.us44 = phi i64 [ 0, %_ZNK6open3d4core7Indexer11GetInputPtrItEEPT_ll.exit.thread.i.us36 ], [ %128, %.lr.ph.i.i15.i.us38 ]
@@ -58912,9 +58964,9 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 600
   %33 = load ptr, ptr %27, align 8
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 848
-  %35 = load double, ptr %34, align 8, !tbaa !1136
+  %35 = load double, ptr %34, align 8, !tbaa !1145
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 856
-  %37 = load double, ptr %36, align 8, !tbaa !1139
+  %37 = load double, ptr %36, align 8, !tbaa !1148
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 864
   %39 = getelementptr inbounds nuw i8, ptr %3, i64 868
   br i1 %20, label %.lr.ph.split.us, label %.lr.ph.split
@@ -58943,7 +58995,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %49 = srem i64 %.01720.i.i18.i.us, %43
   %50 = add nuw nsw i64 %.022.i.i16.i.us, 1
   %exitcond.not.i.i19.i.us = icmp eq i64 %50, %.fr
-  br i1 %exitcond.not.i.i19.i.us, label %._crit_edge.i.i13.i.us, label %.lr.ph.i.i15.i.us, !llvm.loop !871
+  br i1 %exitcond.not.i.i19.i.us, label %._crit_edge.i.i13.i.us, label %.lr.ph.i.i15.i.us, !llvm.loop !880
 
 ._crit_edge.i.i13.i.us:                           ; preds = %.lr.ph.i.i15.i.us, %.preheader.i.i12.i.us
   %.016.lcssa.i.i14.i.us = phi i64 [ 0, %.preheader.i.i12.i.us ], [ %48, %.lr.ph.i.i15.i.us ]
@@ -59002,7 +59054,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %76 = srem i64 %.01720.i.i.i.us.us, %70
   %77 = add nuw nsw i64 %.022.i.i.i.us.us, 1
   %exitcond.not.i.i.i.us.us = icmp eq i64 %77, %.fr
-  br i1 %exitcond.not.i.i.i.us.us, label %._crit_edge.i.i.i.us.loopexit.us, label %.lr.ph.i.i.i.us.us, !llvm.loop !875
+  br i1 %exitcond.not.i.i.i.us.us, label %._crit_edge.i.i.i.us.loopexit.us, label %.lr.ph.i.i.i.us.us, !llvm.loop !884
 
 ._crit_edge.i.i.i.us.loopexit.us:                 ; preds = %.lr.ph.i.i.i.us.us
   %78 = getelementptr inbounds i8, ptr %26, i64 %75
@@ -59077,7 +59129,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %117 = srem i64 %.01720.i.i.i.us32, %111
   %118 = add nuw nsw i64 %.022.i.i.i.us30, 1
   %exitcond.not.i.i.i.us33 = icmp eq i64 %118, %.fr
-  br i1 %exitcond.not.i.i.i.us33, label %._crit_edge.i.i.i.loopexit.us49, label %.preheader.i.i.i.us28, !llvm.loop !875
+  br i1 %exitcond.not.i.i.i.us33, label %._crit_edge.i.i.i.loopexit.us49, label %.preheader.i.i.i.us28, !llvm.loop !884
 
 _ZNK6open3d4core7Indexer11GetInputPtrIjEEPT_ll.exit.thread.i.us36: ; preds = %.lr.ph.split.split.split.us, %._crit_edge.i.i.i.loopexit.us49
   %.0.i21.i.us37 = phi ptr [ %141, %._crit_edge.i.i.i.loopexit.us49 ], [ null, %.lr.ph.split.split.split.us ]
@@ -59097,7 +59149,7 @@ _ZNK6open3d4core7Indexer11GetInputPtrIjEEPT_ll.exit.thread.i.us36: ; preds = %.l
   %126 = srem i64 %.01720.i.i18.i.us41, %120
   %127 = add nuw nsw i64 %.022.i.i16.i.us39, 1
   %exitcond.not.i.i19.i.us42 = icmp eq i64 %127, %.fr
-  br i1 %exitcond.not.i.i19.i.us42, label %._crit_edge.i.i13.i.us43, label %.lr.ph.i.i15.i.us38, !llvm.loop !871
+  br i1 %exitcond.not.i.i19.i.us42, label %._crit_edge.i.i13.i.us43, label %.lr.ph.i.i15.i.us38, !llvm.loop !880
 
 ._crit_edge.i.i13.i.us43:                         ; preds = %.lr.ph.i.i15.i.us38, %_ZNK6open3d4core7Indexer11GetInputPtrIjEEPT_ll.exit.thread.i.us36
   %.016.lcssa.i.i14.i.us44 = phi i64 [ 0, %_ZNK6open3d4core7Indexer11GetInputPtrIjEEPT_ll.exit.thread.i.us36 ], [ %125, %.lr.ph.i.i15.i.us38 ]
@@ -59216,9 +59268,9 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 600
   %33 = load ptr, ptr %27, align 8
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 848
-  %35 = load double, ptr %34, align 8, !tbaa !1145
+  %35 = load double, ptr %34, align 8, !tbaa !1154
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 856
-  %37 = load double, ptr %36, align 8, !tbaa !1148
+  %37 = load double, ptr %36, align 8, !tbaa !1157
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 864
   %39 = getelementptr inbounds nuw i8, ptr %3, i64 868
   br i1 %20, label %.lr.ph.split.us, label %.lr.ph.split
@@ -59247,7 +59299,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %49 = srem i64 %.01720.i.i18.i.us, %43
   %50 = add nuw nsw i64 %.022.i.i16.i.us, 1
   %exitcond.not.i.i19.i.us = icmp eq i64 %50, %.fr
-  br i1 %exitcond.not.i.i19.i.us, label %._crit_edge.i.i13.i.us, label %.lr.ph.i.i15.i.us, !llvm.loop !871
+  br i1 %exitcond.not.i.i19.i.us, label %._crit_edge.i.i13.i.us, label %.lr.ph.i.i15.i.us, !llvm.loop !880
 
 ._crit_edge.i.i13.i.us:                           ; preds = %.lr.ph.i.i15.i.us, %.preheader.i.i12.i.us
   %.016.lcssa.i.i14.i.us = phi i64 [ 0, %.preheader.i.i12.i.us ], [ %48, %.lr.ph.i.i15.i.us ]
@@ -59309,7 +59361,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %76 = srem i64 %.01720.i.i.i.us.us, %70
   %77 = add nuw nsw i64 %.022.i.i.i.us.us, 1
   %exitcond.not.i.i.i.us.us = icmp eq i64 %77, %.fr
-  br i1 %exitcond.not.i.i.i.us.us, label %._crit_edge.i.i.i.us.loopexit.us, label %.lr.ph.i.i.i.us.us, !llvm.loop !876
+  br i1 %exitcond.not.i.i.i.us.us, label %._crit_edge.i.i.i.us.loopexit.us, label %.lr.ph.i.i.i.us.us, !llvm.loop !885
 
 ._crit_edge.i.i.i.us.loopexit.us:                 ; preds = %.lr.ph.i.i.i.us.us
   %78 = getelementptr inbounds i8, ptr %26, i64 %75
@@ -59392,7 +59444,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %120 = srem i64 %.01720.i.i.i.us32, %114
   %121 = add nuw nsw i64 %.022.i.i.i.us30, 1
   %exitcond.not.i.i.i.us33 = icmp eq i64 %121, %.fr
-  br i1 %exitcond.not.i.i.i.us33, label %._crit_edge.i.i.i.loopexit.us49, label %.preheader.i.i.i.us28, !llvm.loop !876
+  br i1 %exitcond.not.i.i.i.us33, label %._crit_edge.i.i.i.loopexit.us49, label %.preheader.i.i.i.us28, !llvm.loop !885
 
 _ZNK6open3d4core7Indexer11GetInputPtrImEEPT_ll.exit.thread.i.us36: ; preds = %.lr.ph.split.split.split.us, %._crit_edge.i.i.i.loopexit.us49
   %.0.i21.i.us37 = phi ptr [ %144, %._crit_edge.i.i.i.loopexit.us49 ], [ null, %.lr.ph.split.split.split.us ]
@@ -59412,7 +59464,7 @@ _ZNK6open3d4core7Indexer11GetInputPtrImEEPT_ll.exit.thread.i.us36: ; preds = %.l
   %129 = srem i64 %.01720.i.i18.i.us41, %123
   %130 = add nuw nsw i64 %.022.i.i16.i.us39, 1
   %exitcond.not.i.i19.i.us42 = icmp eq i64 %130, %.fr
-  br i1 %exitcond.not.i.i19.i.us42, label %._crit_edge.i.i13.i.us43, label %.lr.ph.i.i15.i.us38, !llvm.loop !871
+  br i1 %exitcond.not.i.i19.i.us42, label %._crit_edge.i.i13.i.us43, label %.lr.ph.i.i15.i.us38, !llvm.loop !880
 
 ._crit_edge.i.i13.i.us43:                         ; preds = %.lr.ph.i.i15.i.us38, %_ZNK6open3d4core7Indexer11GetInputPtrImEEPT_ll.exit.thread.i.us36
   %.016.lcssa.i.i14.i.us44 = phi i64 [ 0, %_ZNK6open3d4core7Indexer11GetInputPtrImEEPT_ll.exit.thread.i.us36 ], [ %128, %.lr.ph.i.i15.i.us38 ]
@@ -59484,109 +59536,6 @@ define internal fastcc void @"_ZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4c
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.open3d::core::Device", align 8
   %5 = alloca %class.anon.316, align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %6 = load ptr, ptr %0, align 8, !tbaa !1150
-  %7 = load ptr, ptr %6, align 8, !tbaa !4
-  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %9 = load ptr, ptr %8, align 8
-  %10 = tail call i64 %9(ptr noundef nonnull align 8 dereferenceable(160) %6)
-  store i64 %10, ptr %4, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !1152
-  %13 = tail call noundef i64 @_ZNK6open3d4core7Indexer12NumWorkloadsEv(ptr noundef nonnull align 8 dereferenceable(842) %12)
-  call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %14 = load ptr, ptr %11, align 8, !tbaa !1152
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(842) %5, ptr noundef nonnull align 8 dereferenceable(842) %14, i64 842, i1 false), !tbaa.struct !40
-  %15 = getelementptr inbounds nuw i8, ptr %5, i64 848
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %17 = load ptr, ptr %16, align 8, !tbaa !1153
-  %18 = load double, ptr %17, align 8, !tbaa !69
-  store double %18, ptr %15, align 8, !tbaa !1154
-  %19 = getelementptr inbounds nuw i8, ptr %5, i64 856
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %21 = load ptr, ptr %20, align 8, !tbaa !1156
-  %22 = load double, ptr %21, align 8, !tbaa !69
-  store double %22, ptr %19, align 8, !tbaa !1157
-  %23 = getelementptr inbounds nuw i8, ptr %5, i64 864
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %25 = load ptr, ptr %24, align 8, !tbaa !1158
-  br label %26
-
-26:                                               ; preds = %26, %1
-  %27 = phi i64 [ 0, %1 ], [ %31, %26 ]
-  %28 = getelementptr inbounds nuw i32, ptr %23, i64 %27
-  %29 = getelementptr inbounds nuw i32, ptr %25, i64 %27
-  %30 = load i32, ptr %29, align 4, !tbaa !16
-  store i32 %30, ptr %28, align 4, !tbaa !16
-  %31 = add nuw nsw i64 %27, 1
-  %32 = icmp eq i64 %31, 2
-  br i1 %32, label %33, label %26
-
-33:                                               ; preds = %26
-  call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %34 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @2)
-  store i64 %13, ptr %2, align 8, !tbaa !36
-  %35 = and i64 %10, 4294967295
-  %36 = icmp eq i64 %35, 0
-  br i1 %36, label %49, label %37
-
-37:                                               ; preds = %33
-  call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  call void @_ZNK6open3d4core6Device8ToStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr noundef nonnull align 4 dereferenceable(8) %4)
-  invoke void @_ZN6open3d7utility6Logger9LogError_IJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvPKciSA_SA_DpOT_(ptr noundef nonnull @.str.12, i32 noundef 76, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_7clEvENKUlvE_clEvEUllE_EEvRKNS0_6DeviceElRKT_", ptr noundef nonnull @.str.13, ptr noundef nonnull align 8 dereferenceable(32) %3) #33
-          to label %38 unwind label %39
-
-38:                                               ; preds = %37
-  unreachable
-
-39:                                               ; preds = %37
-  %40 = landingpad { ptr, i32 }
-          cleanup
-  %41 = load ptr, ptr %3, align 8, !tbaa !47
-  %42 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %43 = icmp eq ptr %41, %42
-  br i1 %43, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i: ; preds = %39
-  %44 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %45 = load i64, ptr %44, align 8, !tbaa !51
-  %46 = icmp ult i64 %45, 16
-  call void @llvm.assume(i1 %46)
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i: ; preds = %39
-  %47 = load i64, ptr %42, align 8, !tbaa !15
-  %48 = add i64 %47, 1
-  call void @_ZdlPvm(ptr noundef %41, i64 noundef %48) #32
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i
-
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i
-  call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  resume { ptr, i32 } %40
-
-49:                                               ; preds = %33
-  %50 = icmp eq i64 %13, 0
-  br i1 %50, label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_7clEvENKUlvE4_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit", label %51
-
-51:                                               ; preds = %49
-  %52 = tail call noundef i32 @_ZN6open3d7utility18EstimateMaxThreadsEv()
-  tail call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %34, i32 %52)
-  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 2, ptr nonnull @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_7clEvENKUlvE4_clEvEUllE_EEvRKNS0_6DeviceElRKT_.omp_outlined", ptr nonnull %2, ptr nonnull align 8 dereferenceable(872) %5)
-  br label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_7clEvENKUlvE4_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit"
-
-"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_7clEvENKUlvE4_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit": ; preds = %49, %51
-  call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret void
-}
-
-; Function Attrs: inlinehint mustprogress ssp uwtable
-define internal fastcc void @"_ZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_7clEvENKUlvE5_clEv"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = alloca i64, align 8
-  %3 = alloca %"class.std::__cxx11::basic_string", align 8
-  %4 = alloca %"class.open3d::core::Device", align 8
-  %5 = alloca %class.anon.317, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = load ptr, ptr %0, align 8, !tbaa !1159
   %7 = load ptr, ptr %6, align 8, !tbaa !4
@@ -59669,15 +59618,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %_
 
 49:                                               ; preds = %33
   %50 = icmp eq i64 %13, 0
-  br i1 %50, label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_7clEvENKUlvE5_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit", label %51
+  br i1 %50, label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_7clEvENKUlvE4_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit", label %51
 
 51:                                               ; preds = %49
   %52 = tail call noundef i32 @_ZN6open3d7utility18EstimateMaxThreadsEv()
   tail call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %34, i32 %52)
-  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 2, ptr nonnull @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_7clEvENKUlvE5_clEvEUllE_EEvRKNS0_6DeviceElRKT_.omp_outlined", ptr nonnull %2, ptr nonnull align 8 dereferenceable(872) %5)
-  br label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_7clEvENKUlvE5_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit"
+  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 2, ptr nonnull @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_7clEvENKUlvE4_clEvEUllE_EEvRKNS0_6DeviceElRKT_.omp_outlined", ptr nonnull %2, ptr nonnull align 8 dereferenceable(872) %5)
+  br label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_7clEvENKUlvE4_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit"
 
-"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_7clEvENKUlvE5_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit": ; preds = %49, %51
+"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_7clEvENKUlvE4_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit": ; preds = %49, %51
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -59685,11 +59634,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %_
 }
 
 ; Function Attrs: inlinehint mustprogress ssp uwtable
-define internal fastcc void @"_ZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_7clEvENKUlvE6_clEv"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_7clEvENKUlvE5_clEv"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca i64, align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.open3d::core::Device", align 8
-  %5 = alloca %class.anon.318, align 8
+  %5 = alloca %class.anon.317, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = load ptr, ptr %0, align 8, !tbaa !1168
   %7 = load ptr, ptr %6, align 8, !tbaa !4
@@ -59772,15 +59721,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %_
 
 49:                                               ; preds = %33
   %50 = icmp eq i64 %13, 0
-  br i1 %50, label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_7clEvENKUlvE6_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit", label %51
+  br i1 %50, label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_7clEvENKUlvE5_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit", label %51
 
 51:                                               ; preds = %49
   %52 = tail call noundef i32 @_ZN6open3d7utility18EstimateMaxThreadsEv()
   tail call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %34, i32 %52)
-  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 2, ptr nonnull @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_7clEvENKUlvE6_clEvEUllE_EEvRKNS0_6DeviceElRKT_.omp_outlined", ptr nonnull %2, ptr nonnull align 8 dereferenceable(872) %5)
-  br label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_7clEvENKUlvE6_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit"
+  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 2, ptr nonnull @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_7clEvENKUlvE5_clEvEUllE_EEvRKNS0_6DeviceElRKT_.omp_outlined", ptr nonnull %2, ptr nonnull align 8 dereferenceable(872) %5)
+  br label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_7clEvENKUlvE5_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit"
 
-"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_7clEvENKUlvE6_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit": ; preds = %49, %51
+"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_7clEvENKUlvE5_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit": ; preds = %49, %51
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -59788,11 +59737,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %_
 }
 
 ; Function Attrs: inlinehint mustprogress ssp uwtable
-define internal fastcc void @"_ZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_7clEvENKUlvE7_clEv"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_7clEvENKUlvE6_clEv"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca i64, align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.open3d::core::Device", align 8
-  %5 = alloca %class.anon.319, align 8
+  %5 = alloca %class.anon.318, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = load ptr, ptr %0, align 8, !tbaa !1177
   %7 = load ptr, ptr %6, align 8, !tbaa !4
@@ -59875,15 +59824,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %_
 
 49:                                               ; preds = %33
   %50 = icmp eq i64 %13, 0
-  br i1 %50, label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_7clEvENKUlvE7_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit", label %51
+  br i1 %50, label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_7clEvENKUlvE6_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit", label %51
 
 51:                                               ; preds = %49
   %52 = tail call noundef i32 @_ZN6open3d7utility18EstimateMaxThreadsEv()
   tail call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %34, i32 %52)
-  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 2, ptr nonnull @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_7clEvENKUlvE7_clEvEUllE_EEvRKNS0_6DeviceElRKT_.omp_outlined", ptr nonnull %2, ptr nonnull align 8 dereferenceable(872) %5)
-  br label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_7clEvENKUlvE7_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit"
+  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 2, ptr nonnull @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_7clEvENKUlvE6_clEvEUllE_EEvRKNS0_6DeviceElRKT_.omp_outlined", ptr nonnull %2, ptr nonnull align 8 dereferenceable(872) %5)
+  br label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_7clEvENKUlvE6_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit"
 
-"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_7clEvENKUlvE7_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit": ; preds = %49, %51
+"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_7clEvENKUlvE6_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit": ; preds = %49, %51
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -59891,11 +59840,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %_
 }
 
 ; Function Attrs: inlinehint mustprogress ssp uwtable
-define internal fastcc void @"_ZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_7clEvENKUlvE8_clEv"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_7clEvENKUlvE7_clEv"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca i64, align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.open3d::core::Device", align 8
-  %5 = alloca %class.anon.320, align 8
+  %5 = alloca %class.anon.319, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = load ptr, ptr %0, align 8, !tbaa !1186
   %7 = load ptr, ptr %6, align 8, !tbaa !4
@@ -59922,6 +59871,109 @@ define internal fastcc void @"_ZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4c
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 864
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %25 = load ptr, ptr %24, align 8, !tbaa !1194
+  br label %26
+
+26:                                               ; preds = %26, %1
+  %27 = phi i64 [ 0, %1 ], [ %31, %26 ]
+  %28 = getelementptr inbounds nuw i32, ptr %23, i64 %27
+  %29 = getelementptr inbounds nuw i32, ptr %25, i64 %27
+  %30 = load i32, ptr %29, align 4, !tbaa !16
+  store i32 %30, ptr %28, align 4, !tbaa !16
+  %31 = add nuw nsw i64 %27, 1
+  %32 = icmp eq i64 %31, 2
+  br i1 %32, label %33, label %26
+
+33:                                               ; preds = %26
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  %34 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @2)
+  store i64 %13, ptr %2, align 8, !tbaa !36
+  %35 = and i64 %10, 4294967295
+  %36 = icmp eq i64 %35, 0
+  br i1 %36, label %49, label %37
+
+37:                                               ; preds = %33
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @_ZNK6open3d4core6Device8ToStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr noundef nonnull align 4 dereferenceable(8) %4)
+  invoke void @_ZN6open3d7utility6Logger9LogError_IJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvPKciSA_SA_DpOT_(ptr noundef nonnull @.str.12, i32 noundef 76, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_7clEvENKUlvE_clEvEUllE_EEvRKNS0_6DeviceElRKT_", ptr noundef nonnull @.str.13, ptr noundef nonnull align 8 dereferenceable(32) %3) #33
+          to label %38 unwind label %39
+
+38:                                               ; preds = %37
+  unreachable
+
+39:                                               ; preds = %37
+  %40 = landingpad { ptr, i32 }
+          cleanup
+  %41 = load ptr, ptr %3, align 8, !tbaa !47
+  %42 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %43 = icmp eq ptr %41, %42
+  br i1 %43, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i
+
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i: ; preds = %39
+  %44 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %45 = load i64, ptr %44, align 8, !tbaa !51
+  %46 = icmp ult i64 %45, 16
+  call void @llvm.assume(i1 %46)
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i
+
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i: ; preds = %39
+  %47 = load i64, ptr %42, align 8, !tbaa !15
+  %48 = add i64 %47, 1
+  call void @_ZdlPvm(ptr noundef %41, i64 noundef %48) #32
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i
+
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  resume { ptr, i32 } %40
+
+49:                                               ; preds = %33
+  %50 = icmp eq i64 %13, 0
+  br i1 %50, label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_7clEvENKUlvE7_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit", label %51
+
+51:                                               ; preds = %49
+  %52 = tail call noundef i32 @_ZN6open3d7utility18EstimateMaxThreadsEv()
+  tail call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %34, i32 %52)
+  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 2, ptr nonnull @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_7clEvENKUlvE7_clEvEUllE_EEvRKNS0_6DeviceElRKT_.omp_outlined", ptr nonnull %2, ptr nonnull align 8 dereferenceable(872) %5)
+  br label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_7clEvENKUlvE7_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit"
+
+"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_7clEvENKUlvE7_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit": ; preds = %49, %51
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress ssp uwtable
+define internal fastcc void @"_ZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_7clEvENKUlvE8_clEv"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca i64, align 8
+  %3 = alloca %"class.std::__cxx11::basic_string", align 8
+  %4 = alloca %"class.open3d::core::Device", align 8
+  %5 = alloca %class.anon.320, align 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  %6 = load ptr, ptr %0, align 8, !tbaa !1195
+  %7 = load ptr, ptr %6, align 8, !tbaa !4
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %9 = load ptr, ptr %8, align 8
+  %10 = tail call i64 %9(ptr noundef nonnull align 8 dereferenceable(160) %6)
+  store i64 %10, ptr %4, align 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %12 = load ptr, ptr %11, align 8, !tbaa !1197
+  %13 = tail call noundef i64 @_ZNK6open3d4core7Indexer12NumWorkloadsEv(ptr noundef nonnull align 8 dereferenceable(842) %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  %14 = load ptr, ptr %11, align 8, !tbaa !1197
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(842) %5, ptr noundef nonnull align 8 dereferenceable(842) %14, i64 842, i1 false), !tbaa.struct !40
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 848
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %17 = load ptr, ptr %16, align 8, !tbaa !1198
+  %18 = load double, ptr %17, align 8, !tbaa !69
+  store double %18, ptr %15, align 8, !tbaa !1199
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 856
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %21 = load ptr, ptr %20, align 8, !tbaa !1201
+  %22 = load double, ptr %21, align 8, !tbaa !69
+  store double %22, ptr %19, align 8, !tbaa !1202
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 864
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %25 = load ptr, ptr %24, align 8, !tbaa !1203
   br label %26
 
 26:                                               ; preds = %26, %1
@@ -60074,7 +60126,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %49 = srem i64 %.01720.i.i18.i.us, %43
   %50 = add nuw nsw i64 %.022.i.i16.i.us, 1
   %exitcond.not.i.i19.i.us = icmp eq i64 %50, %.fr
-  br i1 %exitcond.not.i.i19.i.us, label %._crit_edge.i.i13.i.us, label %.lr.ph.i.i15.i.us, !llvm.loop !875
+  br i1 %exitcond.not.i.i19.i.us, label %._crit_edge.i.i13.i.us, label %.lr.ph.i.i15.i.us, !llvm.loop !884
 
 ._crit_edge.i.i13.i.us:                           ; preds = %.lr.ph.i.i15.i.us, %.preheader.i.i12.i.us
   %.016.lcssa.i.i14.i.us = phi i64 [ 0, %.preheader.i.i12.i.us ], [ %48, %.lr.ph.i.i15.i.us ]
@@ -60239,7 +60291,7 @@ _ZNK6open3d4core7Indexer11GetInputPtrIfEEPT_ll.exit.thread.i.us36: ; preds = %.l
   %129 = srem i64 %.01720.i.i18.i.us41, %123
   %130 = add nuw nsw i64 %.022.i.i16.i.us39, 1
   %exitcond.not.i.i19.i.us42 = icmp eq i64 %130, %.fr
-  br i1 %exitcond.not.i.i19.i.us42, label %._crit_edge.i.i13.i.us43, label %.lr.ph.i.i15.i.us38, !llvm.loop !875
+  br i1 %exitcond.not.i.i19.i.us42, label %._crit_edge.i.i13.i.us43, label %.lr.ph.i.i15.i.us38, !llvm.loop !884
 
 ._crit_edge.i.i13.i.us43:                         ; preds = %.lr.ph.i.i15.i.us38, %_ZNK6open3d4core7Indexer11GetInputPtrIfEEPT_ll.exit.thread.i.us36
   %.016.lcssa.i.i14.i.us44 = phi i64 [ 0, %_ZNK6open3d4core7Indexer11GetInputPtrIfEEPT_ll.exit.thread.i.us36 ], [ %128, %.lr.ph.i.i15.i.us38 ]
@@ -60386,7 +60438,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %49 = srem i64 %.01720.i.i18.i.us, %43
   %50 = add nuw nsw i64 %.022.i.i16.i.us, 1
   %exitcond.not.i.i19.i.us = icmp eq i64 %50, %.fr
-  br i1 %exitcond.not.i.i19.i.us, label %._crit_edge.i.i13.i.us, label %.lr.ph.i.i15.i.us, !llvm.loop !875
+  br i1 %exitcond.not.i.i19.i.us, label %._crit_edge.i.i13.i.us, label %.lr.ph.i.i15.i.us, !llvm.loop !884
 
 ._crit_edge.i.i13.i.us:                           ; preds = %.lr.ph.i.i15.i.us, %.preheader.i.i12.i.us
   %.016.lcssa.i.i14.i.us = phi i64 [ 0, %.preheader.i.i12.i.us ], [ %48, %.lr.ph.i.i15.i.us ]
@@ -60447,7 +60499,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %75 = srem i64 %.01720.i.i.i.us.us, %69
   %76 = add nuw nsw i64 %.022.i.i.i.us.us, 1
   %exitcond.not.i.i.i.us.us = icmp eq i64 %76, %.fr
-  br i1 %exitcond.not.i.i.i.us.us, label %._crit_edge.i.i.i.us.loopexit.us, label %.lr.ph.i.i.i.us.us, !llvm.loop !868
+  br i1 %exitcond.not.i.i.i.us.us, label %._crit_edge.i.i.i.us.loopexit.us, label %.lr.ph.i.i.i.us.us, !llvm.loop !877
 
 ._crit_edge.i.i.i.us.loopexit.us:                 ; preds = %.lr.ph.i.i.i.us.us
   %77 = getelementptr inbounds i8, ptr %26, i64 %74
@@ -60527,7 +60579,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %116 = srem i64 %.01720.i.i.i.us32, %110
   %117 = add nuw nsw i64 %.022.i.i.i.us30, 1
   %exitcond.not.i.i.i.us33 = icmp eq i64 %117, %.fr
-  br i1 %exitcond.not.i.i.i.us33, label %._crit_edge.i.i.i.loopexit.us49, label %.preheader.i.i.i.us28, !llvm.loop !868
+  br i1 %exitcond.not.i.i.i.us33, label %._crit_edge.i.i.i.loopexit.us49, label %.preheader.i.i.i.us28, !llvm.loop !877
 
 _ZNK6open3d4core7Indexer11GetInputPtrIdEEPT_ll.exit.thread.i.us36: ; preds = %.lr.ph.split.split.split.us, %._crit_edge.i.i.i.loopexit.us49
   %.0.i21.i.us37 = phi ptr [ %139, %._crit_edge.i.i.i.loopexit.us49 ], [ null, %.lr.ph.split.split.split.us ]
@@ -60547,7 +60599,7 @@ _ZNK6open3d4core7Indexer11GetInputPtrIdEEPT_ll.exit.thread.i.us36: ; preds = %.l
   %125 = srem i64 %.01720.i.i18.i.us41, %119
   %126 = add nuw nsw i64 %.022.i.i16.i.us39, 1
   %exitcond.not.i.i19.i.us42 = icmp eq i64 %126, %.fr
-  br i1 %exitcond.not.i.i19.i.us42, label %._crit_edge.i.i13.i.us43, label %.lr.ph.i.i15.i.us38, !llvm.loop !875
+  br i1 %exitcond.not.i.i19.i.us42, label %._crit_edge.i.i13.i.us43, label %.lr.ph.i.i15.i.us38, !llvm.loop !884
 
 ._crit_edge.i.i13.i.us43:                         ; preds = %.lr.ph.i.i15.i.us38, %_ZNK6open3d4core7Indexer11GetInputPtrIdEEPT_ll.exit.thread.i.us36
   %.016.lcssa.i.i14.i.us44 = phi i64 [ 0, %_ZNK6open3d4core7Indexer11GetInputPtrIdEEPT_ll.exit.thread.i.us36 ], [ %124, %.lr.ph.i.i15.i.us38 ]
@@ -60697,7 +60749,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %49 = srem i64 %.01720.i.i.i.us, %43
   %50 = add nuw nsw i64 %.022.i.i.i.us, 1
   %exitcond.not.i.i.i.us = icmp eq i64 %50, %.fr
-  br i1 %exitcond.not.i.i.i.us, label %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.thread20.i.us, label %.lr.ph.i.i.i.us, !llvm.loop !869
+  br i1 %exitcond.not.i.i.i.us, label %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.thread20.i.us, label %.lr.ph.i.i.i.us, !llvm.loop !878
 
 _ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.thread20.i.us: ; preds = %.lr.ph.i.i.i.us, %.lr.ph.split.us
   %.016.lcssa.i.sink.i.i.us = phi i64 [ %.015.us.mux, %.lr.ph.split.us ], [ %48, %.lr.ph.i.i.i.us ]
@@ -60744,7 +60796,7 @@ _ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.thread20.i.us: ; preds = %.l
   %74 = srem i64 %.01720.i.i16.i.us, %68
   %75 = add nuw nsw i64 %.022.i.i14.i.us, 1
   %exitcond.not.i.i17.i.us = icmp eq i64 %75, %.fr
-  br i1 %exitcond.not.i.i17.i.us, label %._crit_edge.i.i.i.us, label %.lr.ph.i.i13.i.us, !llvm.loop !875
+  br i1 %exitcond.not.i.i17.i.us, label %._crit_edge.i.i.i.us, label %.lr.ph.i.i13.i.us, !llvm.loop !884
 
 ._crit_edge.i.i.i.us:                             ; preds = %.lr.ph.i.i13.i.us, %.lr.ph.split.split.us
   %.016.lcssa.i.i.i.us = phi i64 [ 0, %.lr.ph.split.split.us ], [ %73, %.lr.ph.i.i13.i.us ]
@@ -60796,7 +60848,7 @@ _ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.thread20.i.us: ; preds = %.l
   %100 = srem i64 %.01720.i.i.i.us32, %94
   %101 = add nuw nsw i64 %.022.i.i.i.us30, 1
   %exitcond.not.i.i.i.us33 = icmp eq i64 %101, %.fr
-  br i1 %exitcond.not.i.i.i.us33, label %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.thread20.i.loopexit.us49, label %.preheader.i.i.i.us28, !llvm.loop !869
+  br i1 %exitcond.not.i.i.i.us33, label %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.thread20.i.loopexit.us49, label %.preheader.i.i.i.us28, !llvm.loop !878
 
 .preheader.i.i12.i.us36:                          ; preds = %.lr.ph.split.split.split.us, %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.thread20.i.loopexit.us49
   %.0.i22.i.us37 = phi ptr [ %124, %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.thread20.i.loopexit.us49 ], [ null, %.lr.ph.split.split.split.us ]
@@ -60816,7 +60868,7 @@ _ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.thread20.i.us: ; preds = %.l
   %109 = srem i64 %.01720.i.i16.i.us41, %103
   %110 = add nuw nsw i64 %.022.i.i14.i.us39, 1
   %exitcond.not.i.i17.i.us42 = icmp eq i64 %110, %.fr
-  br i1 %exitcond.not.i.i17.i.us42, label %._crit_edge.i.i.i.us43, label %.lr.ph.i.i13.i.us38, !llvm.loop !875
+  br i1 %exitcond.not.i.i17.i.us42, label %._crit_edge.i.i.i.us43, label %.lr.ph.i.i13.i.us38, !llvm.loop !884
 
 ._crit_edge.i.i.i.us43:                           ; preds = %.lr.ph.i.i13.i.us38, %.preheader.i.i12.i.us36
   %.016.lcssa.i.i.i.us44 = phi i64 [ 0, %.preheader.i.i12.i.us36 ], [ %108, %.lr.ph.i.i13.i.us38 ]
@@ -60966,7 +61018,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %49 = srem i64 %.01720.i.i18.i.us, %43
   %50 = add nuw nsw i64 %.022.i.i16.i.us, 1
   %exitcond.not.i.i19.i.us = icmp eq i64 %50, %.fr
-  br i1 %exitcond.not.i.i19.i.us, label %._crit_edge.i.i13.i.us, label %.lr.ph.i.i15.i.us, !llvm.loop !875
+  br i1 %exitcond.not.i.i19.i.us, label %._crit_edge.i.i13.i.us, label %.lr.ph.i.i15.i.us, !llvm.loop !884
 
 ._crit_edge.i.i13.i.us:                           ; preds = %.lr.ph.i.i15.i.us, %.preheader.i.i12.i.us
   %.016.lcssa.i.i14.i.us = phi i64 [ 0, %.preheader.i.i12.i.us ], [ %48, %.lr.ph.i.i15.i.us ]
@@ -61028,7 +61080,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %76 = srem i64 %.01720.i.i.i.us.us, %70
   %77 = add nuw nsw i64 %.022.i.i.i.us.us, 1
   %exitcond.not.i.i.i.us.us = icmp eq i64 %77, %.fr
-  br i1 %exitcond.not.i.i.i.us.us, label %._crit_edge.i.i.i.us.loopexit.us, label %.lr.ph.i.i.i.us.us, !llvm.loop !870
+  br i1 %exitcond.not.i.i.i.us.us, label %._crit_edge.i.i.i.us.loopexit.us, label %.lr.ph.i.i.i.us.us, !llvm.loop !879
 
 ._crit_edge.i.i.i.us.loopexit.us:                 ; preds = %.lr.ph.i.i.i.us.us
   %78 = getelementptr inbounds i8, ptr %26, i64 %75
@@ -61111,7 +61163,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %120 = srem i64 %.01720.i.i.i.us32, %114
   %121 = add nuw nsw i64 %.022.i.i.i.us30, 1
   %exitcond.not.i.i.i.us33 = icmp eq i64 %121, %.fr
-  br i1 %exitcond.not.i.i.i.us33, label %._crit_edge.i.i.i.loopexit.us49, label %.preheader.i.i.i.us28, !llvm.loop !870
+  br i1 %exitcond.not.i.i.i.us33, label %._crit_edge.i.i.i.loopexit.us49, label %.preheader.i.i.i.us28, !llvm.loop !879
 
 _ZNK6open3d4core7Indexer11GetInputPtrIsEEPT_ll.exit.thread.i.us36: ; preds = %.lr.ph.split.split.split.us, %._crit_edge.i.i.i.loopexit.us49
   %.0.i21.i.us37 = phi ptr [ %144, %._crit_edge.i.i.i.loopexit.us49 ], [ null, %.lr.ph.split.split.split.us ]
@@ -61131,7 +61183,7 @@ _ZNK6open3d4core7Indexer11GetInputPtrIsEEPT_ll.exit.thread.i.us36: ; preds = %.l
   %129 = srem i64 %.01720.i.i18.i.us41, %123
   %130 = add nuw nsw i64 %.022.i.i16.i.us39, 1
   %exitcond.not.i.i19.i.us42 = icmp eq i64 %130, %.fr
-  br i1 %exitcond.not.i.i19.i.us42, label %._crit_edge.i.i13.i.us43, label %.lr.ph.i.i15.i.us38, !llvm.loop !875
+  br i1 %exitcond.not.i.i19.i.us42, label %._crit_edge.i.i13.i.us43, label %.lr.ph.i.i15.i.us38, !llvm.loop !884
 
 ._crit_edge.i.i13.i.us43:                         ; preds = %.lr.ph.i.i15.i.us38, %_ZNK6open3d4core7Indexer11GetInputPtrIsEEPT_ll.exit.thread.i.us36
   %.016.lcssa.i.i14.i.us44 = phi i64 [ 0, %_ZNK6open3d4core7Indexer11GetInputPtrIsEEPT_ll.exit.thread.i.us36 ], [ %128, %.lr.ph.i.i15.i.us38 ]
@@ -61278,7 +61330,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %49 = srem i64 %.01720.i.i18.i.us, %43
   %50 = add nuw nsw i64 %.022.i.i16.i.us, 1
   %exitcond.not.i.i19.i.us = icmp eq i64 %50, %.fr
-  br i1 %exitcond.not.i.i19.i.us, label %._crit_edge.i.i13.i.us, label %.lr.ph.i.i15.i.us, !llvm.loop !875
+  br i1 %exitcond.not.i.i19.i.us, label %._crit_edge.i.i13.i.us, label %.lr.ph.i.i15.i.us, !llvm.loop !884
 
 ._crit_edge.i.i13.i.us:                           ; preds = %.lr.ph.i.i15.i.us, %.preheader.i.i12.i.us
   %.016.lcssa.i.i14.i.us = phi i64 [ 0, %.preheader.i.i12.i.us ], [ %48, %.lr.ph.i.i15.i.us ]
@@ -61337,7 +61389,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %76 = srem i64 %.01720.i.i.i.us.us, %70
   %77 = add nuw nsw i64 %.022.i.i.i.us.us, 1
   %exitcond.not.i.i.i.us.us = icmp eq i64 %77, %.fr
-  br i1 %exitcond.not.i.i.i.us.us, label %._crit_edge.i.i.i.us.loopexit.us, label %.lr.ph.i.i.i.us.us, !llvm.loop !871
+  br i1 %exitcond.not.i.i.i.us.us, label %._crit_edge.i.i.i.us.loopexit.us, label %.lr.ph.i.i.i.us.us, !llvm.loop !880
 
 ._crit_edge.i.i.i.us.loopexit.us:                 ; preds = %.lr.ph.i.i.i.us.us
   %78 = getelementptr inbounds i8, ptr %26, i64 %75
@@ -61412,7 +61464,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %117 = srem i64 %.01720.i.i.i.us32, %111
   %118 = add nuw nsw i64 %.022.i.i.i.us30, 1
   %exitcond.not.i.i.i.us33 = icmp eq i64 %118, %.fr
-  br i1 %exitcond.not.i.i.i.us33, label %._crit_edge.i.i.i.loopexit.us49, label %.preheader.i.i.i.us28, !llvm.loop !871
+  br i1 %exitcond.not.i.i.i.us33, label %._crit_edge.i.i.i.loopexit.us49, label %.preheader.i.i.i.us28, !llvm.loop !880
 
 _ZNK6open3d4core7Indexer11GetInputPtrIiEEPT_ll.exit.thread.i.us36: ; preds = %.lr.ph.split.split.split.us, %._crit_edge.i.i.i.loopexit.us49
   %.0.i21.i.us37 = phi ptr [ %141, %._crit_edge.i.i.i.loopexit.us49 ], [ null, %.lr.ph.split.split.split.us ]
@@ -61432,7 +61484,7 @@ _ZNK6open3d4core7Indexer11GetInputPtrIiEEPT_ll.exit.thread.i.us36: ; preds = %.l
   %126 = srem i64 %.01720.i.i18.i.us41, %120
   %127 = add nuw nsw i64 %.022.i.i16.i.us39, 1
   %exitcond.not.i.i19.i.us42 = icmp eq i64 %127, %.fr
-  br i1 %exitcond.not.i.i19.i.us42, label %._crit_edge.i.i13.i.us43, label %.lr.ph.i.i15.i.us38, !llvm.loop !875
+  br i1 %exitcond.not.i.i19.i.us42, label %._crit_edge.i.i13.i.us43, label %.lr.ph.i.i15.i.us38, !llvm.loop !884
 
 ._crit_edge.i.i13.i.us43:                         ; preds = %.lr.ph.i.i15.i.us38, %_ZNK6open3d4core7Indexer11GetInputPtrIiEEPT_ll.exit.thread.i.us36
   %.016.lcssa.i.i14.i.us44 = phi i64 [ 0, %_ZNK6open3d4core7Indexer11GetInputPtrIiEEPT_ll.exit.thread.i.us36 ], [ %125, %.lr.ph.i.i15.i.us38 ]
@@ -61551,9 +61603,9 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 600
   %33 = load ptr, ptr %27, align 8
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 848
-  %35 = load double, ptr %34, align 8, !tbaa !1154
+  %35 = load double, ptr %34, align 8, !tbaa !1163
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 856
-  %37 = load double, ptr %36, align 8, !tbaa !1157
+  %37 = load double, ptr %36, align 8, !tbaa !1166
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 864
   %39 = getelementptr inbounds nuw i8, ptr %3, i64 868
   br i1 %20, label %.lr.ph.split.us, label %.lr.ph.split
@@ -61582,7 +61634,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %49 = srem i64 %.01720.i.i18.i.us, %43
   %50 = add nuw nsw i64 %.022.i.i16.i.us, 1
   %exitcond.not.i.i19.i.us = icmp eq i64 %50, %.fr
-  br i1 %exitcond.not.i.i19.i.us, label %._crit_edge.i.i13.i.us, label %.lr.ph.i.i15.i.us, !llvm.loop !875
+  br i1 %exitcond.not.i.i19.i.us, label %._crit_edge.i.i13.i.us, label %.lr.ph.i.i15.i.us, !llvm.loop !884
 
 ._crit_edge.i.i13.i.us:                           ; preds = %.lr.ph.i.i15.i.us, %.preheader.i.i12.i.us
   %.016.lcssa.i.i14.i.us = phi i64 [ 0, %.preheader.i.i12.i.us ], [ %48, %.lr.ph.i.i15.i.us ]
@@ -61644,7 +61696,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %76 = srem i64 %.01720.i.i.i.us.us, %70
   %77 = add nuw nsw i64 %.022.i.i.i.us.us, 1
   %exitcond.not.i.i.i.us.us = icmp eq i64 %77, %.fr
-  br i1 %exitcond.not.i.i.i.us.us, label %._crit_edge.i.i.i.us.loopexit.us, label %.lr.ph.i.i.i.us.us, !llvm.loop !872
+  br i1 %exitcond.not.i.i.i.us.us, label %._crit_edge.i.i.i.us.loopexit.us, label %.lr.ph.i.i.i.us.us, !llvm.loop !881
 
 ._crit_edge.i.i.i.us.loopexit.us:                 ; preds = %.lr.ph.i.i.i.us.us
   %78 = getelementptr inbounds i8, ptr %26, i64 %75
@@ -61727,7 +61779,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %120 = srem i64 %.01720.i.i.i.us32, %114
   %121 = add nuw nsw i64 %.022.i.i.i.us30, 1
   %exitcond.not.i.i.i.us33 = icmp eq i64 %121, %.fr
-  br i1 %exitcond.not.i.i.i.us33, label %._crit_edge.i.i.i.loopexit.us49, label %.preheader.i.i.i.us28, !llvm.loop !872
+  br i1 %exitcond.not.i.i.i.us33, label %._crit_edge.i.i.i.loopexit.us49, label %.preheader.i.i.i.us28, !llvm.loop !881
 
 _ZNK6open3d4core7Indexer11GetInputPtrIlEEPT_ll.exit.thread.i.us36: ; preds = %.lr.ph.split.split.split.us, %._crit_edge.i.i.i.loopexit.us49
   %.0.i21.i.us37 = phi ptr [ %144, %._crit_edge.i.i.i.loopexit.us49 ], [ null, %.lr.ph.split.split.split.us ]
@@ -61747,7 +61799,7 @@ _ZNK6open3d4core7Indexer11GetInputPtrIlEEPT_ll.exit.thread.i.us36: ; preds = %.l
   %129 = srem i64 %.01720.i.i18.i.us41, %123
   %130 = add nuw nsw i64 %.022.i.i16.i.us39, 1
   %exitcond.not.i.i19.i.us42 = icmp eq i64 %130, %.fr
-  br i1 %exitcond.not.i.i19.i.us42, label %._crit_edge.i.i13.i.us43, label %.lr.ph.i.i15.i.us38, !llvm.loop !875
+  br i1 %exitcond.not.i.i19.i.us42, label %._crit_edge.i.i13.i.us43, label %.lr.ph.i.i15.i.us38, !llvm.loop !884
 
 ._crit_edge.i.i13.i.us43:                         ; preds = %.lr.ph.i.i15.i.us38, %_ZNK6open3d4core7Indexer11GetInputPtrIlEEPT_ll.exit.thread.i.us36
   %.016.lcssa.i.i14.i.us44 = phi i64 [ 0, %_ZNK6open3d4core7Indexer11GetInputPtrIlEEPT_ll.exit.thread.i.us36 ], [ %128, %.lr.ph.i.i15.i.us38 ]
@@ -61863,9 +61915,9 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 600
   %33 = load ptr, ptr %27, align 8
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 848
-  %35 = load double, ptr %34, align 8, !tbaa !1163
+  %35 = load double, ptr %34, align 8, !tbaa !1172
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 856
-  %37 = load double, ptr %36, align 8, !tbaa !1166
+  %37 = load double, ptr %36, align 8, !tbaa !1175
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 864
   %39 = getelementptr inbounds nuw i8, ptr %3, i64 868
   br i1 %30, label %.lr.ph.split.us.preheader, label %.lr.ph.split
@@ -61898,7 +61950,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %49 = srem i64 %.01720.i.i.i.us, %43
   %50 = add nuw nsw i64 %.022.i.i.i.us, 1
   %exitcond.not.i.i.i.us = icmp eq i64 %50, %.fr
-  br i1 %exitcond.not.i.i.i.us, label %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.thread20.i.us, label %.lr.ph.i.i.i.us, !llvm.loop !873
+  br i1 %exitcond.not.i.i.i.us, label %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.thread20.i.us, label %.lr.ph.i.i.i.us, !llvm.loop !882
 
 _ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.thread20.i.us: ; preds = %.lr.ph.i.i.i.us, %.lr.ph.split.us
   %.016.lcssa.i.sink.i.i.us = phi i64 [ %.015.us.mux, %.lr.ph.split.us ], [ %48, %.lr.ph.i.i.i.us ]
@@ -61945,7 +61997,7 @@ _ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.thread20.i.us: ; preds = %.l
   %74 = srem i64 %.01720.i.i16.i.us, %68
   %75 = add nuw nsw i64 %.022.i.i14.i.us, 1
   %exitcond.not.i.i17.i.us = icmp eq i64 %75, %.fr
-  br i1 %exitcond.not.i.i17.i.us, label %._crit_edge.i.i.i.us, label %.lr.ph.i.i13.i.us, !llvm.loop !875
+  br i1 %exitcond.not.i.i17.i.us, label %._crit_edge.i.i.i.us, label %.lr.ph.i.i13.i.us, !llvm.loop !884
 
 ._crit_edge.i.i.i.us:                             ; preds = %.lr.ph.i.i13.i.us, %.lr.ph.split.split.us
   %.016.lcssa.i.i.i.us = phi i64 [ 0, %.lr.ph.split.split.us ], [ %73, %.lr.ph.i.i13.i.us ]
@@ -61997,7 +62049,7 @@ _ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.thread20.i.us: ; preds = %.l
   %100 = srem i64 %.01720.i.i.i.us32, %94
   %101 = add nuw nsw i64 %.022.i.i.i.us30, 1
   %exitcond.not.i.i.i.us33 = icmp eq i64 %101, %.fr
-  br i1 %exitcond.not.i.i.i.us33, label %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.thread20.i.loopexit.us49, label %.preheader.i.i.i.us28, !llvm.loop !873
+  br i1 %exitcond.not.i.i.i.us33, label %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.thread20.i.loopexit.us49, label %.preheader.i.i.i.us28, !llvm.loop !882
 
 .preheader.i.i12.i.us36:                          ; preds = %.lr.ph.split.split.split.us, %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.thread20.i.loopexit.us49
   %.0.i22.i.us37 = phi ptr [ %124, %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.thread20.i.loopexit.us49 ], [ null, %.lr.ph.split.split.split.us ]
@@ -62017,7 +62069,7 @@ _ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.thread20.i.us: ; preds = %.l
   %109 = srem i64 %.01720.i.i16.i.us41, %103
   %110 = add nuw nsw i64 %.022.i.i14.i.us39, 1
   %exitcond.not.i.i17.i.us42 = icmp eq i64 %110, %.fr
-  br i1 %exitcond.not.i.i17.i.us42, label %._crit_edge.i.i.i.us43, label %.lr.ph.i.i13.i.us38, !llvm.loop !875
+  br i1 %exitcond.not.i.i17.i.us42, label %._crit_edge.i.i.i.us43, label %.lr.ph.i.i13.i.us38, !llvm.loop !884
 
 ._crit_edge.i.i.i.us43:                           ; preds = %.lr.ph.i.i13.i.us38, %.preheader.i.i12.i.us36
   %.016.lcssa.i.i.i.us44 = phi i64 [ 0, %.preheader.i.i12.i.us36 ], [ %108, %.lr.ph.i.i13.i.us38 ]
@@ -62136,9 +62188,9 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 600
   %33 = load ptr, ptr %27, align 8
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 848
-  %35 = load double, ptr %34, align 8, !tbaa !1172
+  %35 = load double, ptr %34, align 8, !tbaa !1181
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 856
-  %37 = load double, ptr %36, align 8, !tbaa !1175
+  %37 = load double, ptr %36, align 8, !tbaa !1184
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 864
   %39 = getelementptr inbounds nuw i8, ptr %3, i64 868
   br i1 %20, label %.lr.ph.split.us, label %.lr.ph.split
@@ -62167,7 +62219,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %49 = srem i64 %.01720.i.i18.i.us, %43
   %50 = add nuw nsw i64 %.022.i.i16.i.us, 1
   %exitcond.not.i.i19.i.us = icmp eq i64 %50, %.fr
-  br i1 %exitcond.not.i.i19.i.us, label %._crit_edge.i.i13.i.us, label %.lr.ph.i.i15.i.us, !llvm.loop !875
+  br i1 %exitcond.not.i.i19.i.us, label %._crit_edge.i.i13.i.us, label %.lr.ph.i.i15.i.us, !llvm.loop !884
 
 ._crit_edge.i.i13.i.us:                           ; preds = %.lr.ph.i.i15.i.us, %.preheader.i.i12.i.us
   %.016.lcssa.i.i14.i.us = phi i64 [ 0, %.preheader.i.i12.i.us ], [ %48, %.lr.ph.i.i15.i.us ]
@@ -62229,7 +62281,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %76 = srem i64 %.01720.i.i.i.us.us, %70
   %77 = add nuw nsw i64 %.022.i.i.i.us.us, 1
   %exitcond.not.i.i.i.us.us = icmp eq i64 %77, %.fr
-  br i1 %exitcond.not.i.i.i.us.us, label %._crit_edge.i.i.i.us.loopexit.us, label %.lr.ph.i.i.i.us.us, !llvm.loop !874
+  br i1 %exitcond.not.i.i.i.us.us, label %._crit_edge.i.i.i.us.loopexit.us, label %.lr.ph.i.i.i.us.us, !llvm.loop !883
 
 ._crit_edge.i.i.i.us.loopexit.us:                 ; preds = %.lr.ph.i.i.i.us.us
   %78 = getelementptr inbounds i8, ptr %26, i64 %75
@@ -62312,7 +62364,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %120 = srem i64 %.01720.i.i.i.us32, %114
   %121 = add nuw nsw i64 %.022.i.i.i.us30, 1
   %exitcond.not.i.i.i.us33 = icmp eq i64 %121, %.fr
-  br i1 %exitcond.not.i.i.i.us33, label %._crit_edge.i.i.i.loopexit.us49, label %.preheader.i.i.i.us28, !llvm.loop !874
+  br i1 %exitcond.not.i.i.i.us33, label %._crit_edge.i.i.i.loopexit.us49, label %.preheader.i.i.i.us28, !llvm.loop !883
 
 _ZNK6open3d4core7Indexer11GetInputPtrItEEPT_ll.exit.thread.i.us36: ; preds = %.lr.ph.split.split.split.us, %._crit_edge.i.i.i.loopexit.us49
   %.0.i21.i.us37 = phi ptr [ %144, %._crit_edge.i.i.i.loopexit.us49 ], [ null, %.lr.ph.split.split.split.us ]
@@ -62332,7 +62384,7 @@ _ZNK6open3d4core7Indexer11GetInputPtrItEEPT_ll.exit.thread.i.us36: ; preds = %.l
   %129 = srem i64 %.01720.i.i18.i.us41, %123
   %130 = add nuw nsw i64 %.022.i.i16.i.us39, 1
   %exitcond.not.i.i19.i.us42 = icmp eq i64 %130, %.fr
-  br i1 %exitcond.not.i.i19.i.us42, label %._crit_edge.i.i13.i.us43, label %.lr.ph.i.i15.i.us38, !llvm.loop !875
+  br i1 %exitcond.not.i.i19.i.us42, label %._crit_edge.i.i13.i.us43, label %.lr.ph.i.i15.i.us38, !llvm.loop !884
 
 ._crit_edge.i.i13.i.us43:                         ; preds = %.lr.ph.i.i15.i.us38, %_ZNK6open3d4core7Indexer11GetInputPtrItEEPT_ll.exit.thread.i.us36
   %.016.lcssa.i.i14.i.us44 = phi i64 [ 0, %_ZNK6open3d4core7Indexer11GetInputPtrItEEPT_ll.exit.thread.i.us36 ], [ %128, %.lr.ph.i.i15.i.us38 ]
@@ -62448,9 +62500,9 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 600
   %33 = load ptr, ptr %27, align 8
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 848
-  %35 = load double, ptr %34, align 8, !tbaa !1181
+  %35 = load double, ptr %34, align 8, !tbaa !1190
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 856
-  %37 = load double, ptr %36, align 8, !tbaa !1184
+  %37 = load double, ptr %36, align 8, !tbaa !1193
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 864
   %39 = getelementptr inbounds nuw i8, ptr %3, i64 868
   br i1 %20, label %.lr.ph.split.us, label %.lr.ph.split
@@ -62479,7 +62531,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %49 = srem i64 %.01720.i.i18.i.us, %43
   %50 = add nuw nsw i64 %.022.i.i16.i.us, 1
   %exitcond.not.i.i19.i.us = icmp eq i64 %50, %.fr
-  br i1 %exitcond.not.i.i19.i.us, label %._crit_edge.i.i13.i.us, label %.lr.ph.i.i15.i.us, !llvm.loop !875
+  br i1 %exitcond.not.i.i19.i.us, label %._crit_edge.i.i13.i.us, label %.lr.ph.i.i15.i.us, !llvm.loop !884
 
 ._crit_edge.i.i13.i.us:                           ; preds = %.lr.ph.i.i15.i.us, %.preheader.i.i12.i.us
   %.016.lcssa.i.i14.i.us = phi i64 [ 0, %.preheader.i.i12.i.us ], [ %48, %.lr.ph.i.i15.i.us ]
@@ -62538,7 +62590,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %76 = srem i64 %.01720.i.i.i.us.us, %70
   %77 = add nuw nsw i64 %.022.i.i.i.us.us, 1
   %exitcond.not.i.i.i.us.us = icmp eq i64 %77, %.fr
-  br i1 %exitcond.not.i.i.i.us.us, label %._crit_edge.i.i.i.us.loopexit.us, label %.lr.ph.i.i.i.us.us, !llvm.loop !875
+  br i1 %exitcond.not.i.i.i.us.us, label %._crit_edge.i.i.i.us.loopexit.us, label %.lr.ph.i.i.i.us.us, !llvm.loop !884
 
 ._crit_edge.i.i.i.us.loopexit.us:                 ; preds = %.lr.ph.i.i.i.us.us
   %78 = getelementptr inbounds i8, ptr %26, i64 %75
@@ -62613,7 +62665,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %117 = srem i64 %.01720.i.i.i.us32, %111
   %118 = add nuw nsw i64 %.022.i.i.i.us30, 1
   %exitcond.not.i.i.i.us33 = icmp eq i64 %118, %.fr
-  br i1 %exitcond.not.i.i.i.us33, label %._crit_edge.i.i.i.loopexit.us49, label %.preheader.i.i.i.us28, !llvm.loop !875
+  br i1 %exitcond.not.i.i.i.us33, label %._crit_edge.i.i.i.loopexit.us49, label %.preheader.i.i.i.us28, !llvm.loop !884
 
 _ZNK6open3d4core7Indexer11GetInputPtrIjEEPT_ll.exit.thread.i.us36: ; preds = %.lr.ph.split.split.split.us, %._crit_edge.i.i.i.loopexit.us49
   %.0.i21.i.us37 = phi ptr [ %141, %._crit_edge.i.i.i.loopexit.us49 ], [ null, %.lr.ph.split.split.split.us ]
@@ -62633,7 +62685,7 @@ _ZNK6open3d4core7Indexer11GetInputPtrIjEEPT_ll.exit.thread.i.us36: ; preds = %.l
   %126 = srem i64 %.01720.i.i18.i.us41, %120
   %127 = add nuw nsw i64 %.022.i.i16.i.us39, 1
   %exitcond.not.i.i19.i.us42 = icmp eq i64 %127, %.fr
-  br i1 %exitcond.not.i.i19.i.us42, label %._crit_edge.i.i13.i.us43, label %.lr.ph.i.i15.i.us38, !llvm.loop !875
+  br i1 %exitcond.not.i.i19.i.us42, label %._crit_edge.i.i13.i.us43, label %.lr.ph.i.i15.i.us38, !llvm.loop !884
 
 ._crit_edge.i.i13.i.us43:                         ; preds = %.lr.ph.i.i15.i.us38, %_ZNK6open3d4core7Indexer11GetInputPtrIjEEPT_ll.exit.thread.i.us36
   %.016.lcssa.i.i14.i.us44 = phi i64 [ 0, %_ZNK6open3d4core7Indexer11GetInputPtrIjEEPT_ll.exit.thread.i.us36 ], [ %125, %.lr.ph.i.i15.i.us38 ]
@@ -62752,9 +62804,9 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 600
   %33 = load ptr, ptr %27, align 8
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 848
-  %35 = load double, ptr %34, align 8, !tbaa !1190
+  %35 = load double, ptr %34, align 8, !tbaa !1199
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 856
-  %37 = load double, ptr %36, align 8, !tbaa !1193
+  %37 = load double, ptr %36, align 8, !tbaa !1202
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 864
   %39 = getelementptr inbounds nuw i8, ptr %3, i64 868
   br i1 %20, label %.lr.ph.split.us, label %.lr.ph.split
@@ -62783,7 +62835,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %49 = srem i64 %.01720.i.i18.i.us, %43
   %50 = add nuw nsw i64 %.022.i.i16.i.us, 1
   %exitcond.not.i.i19.i.us = icmp eq i64 %50, %.fr
-  br i1 %exitcond.not.i.i19.i.us, label %._crit_edge.i.i13.i.us, label %.lr.ph.i.i15.i.us, !llvm.loop !875
+  br i1 %exitcond.not.i.i19.i.us, label %._crit_edge.i.i13.i.us, label %.lr.ph.i.i15.i.us, !llvm.loop !884
 
 ._crit_edge.i.i13.i.us:                           ; preds = %.lr.ph.i.i15.i.us, %.preheader.i.i12.i.us
   %.016.lcssa.i.i14.i.us = phi i64 [ 0, %.preheader.i.i12.i.us ], [ %48, %.lr.ph.i.i15.i.us ]
@@ -62845,7 +62897,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %76 = srem i64 %.01720.i.i.i.us.us, %70
   %77 = add nuw nsw i64 %.022.i.i.i.us.us, 1
   %exitcond.not.i.i.i.us.us = icmp eq i64 %77, %.fr
-  br i1 %exitcond.not.i.i.i.us.us, label %._crit_edge.i.i.i.us.loopexit.us, label %.lr.ph.i.i.i.us.us, !llvm.loop !876
+  br i1 %exitcond.not.i.i.i.us.us, label %._crit_edge.i.i.i.us.loopexit.us, label %.lr.ph.i.i.i.us.us, !llvm.loop !885
 
 ._crit_edge.i.i.i.us.loopexit.us:                 ; preds = %.lr.ph.i.i.i.us.us
   %78 = getelementptr inbounds i8, ptr %26, i64 %75
@@ -62928,7 +62980,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %120 = srem i64 %.01720.i.i.i.us32, %114
   %121 = add nuw nsw i64 %.022.i.i.i.us30, 1
   %exitcond.not.i.i.i.us33 = icmp eq i64 %121, %.fr
-  br i1 %exitcond.not.i.i.i.us33, label %._crit_edge.i.i.i.loopexit.us49, label %.preheader.i.i.i.us28, !llvm.loop !876
+  br i1 %exitcond.not.i.i.i.us33, label %._crit_edge.i.i.i.loopexit.us49, label %.preheader.i.i.i.us28, !llvm.loop !885
 
 _ZNK6open3d4core7Indexer11GetInputPtrImEEPT_ll.exit.thread.i.us36: ; preds = %.lr.ph.split.split.split.us, %._crit_edge.i.i.i.loopexit.us49
   %.0.i21.i.us37 = phi ptr [ %144, %._crit_edge.i.i.i.loopexit.us49 ], [ null, %.lr.ph.split.split.split.us ]
@@ -62948,7 +63000,7 @@ _ZNK6open3d4core7Indexer11GetInputPtrImEEPT_ll.exit.thread.i.us36: ; preds = %.l
   %129 = srem i64 %.01720.i.i18.i.us41, %123
   %130 = add nuw nsw i64 %.022.i.i16.i.us39, 1
   %exitcond.not.i.i19.i.us42 = icmp eq i64 %130, %.fr
-  br i1 %exitcond.not.i.i19.i.us42, label %._crit_edge.i.i13.i.us43, label %.lr.ph.i.i15.i.us38, !llvm.loop !875
+  br i1 %exitcond.not.i.i19.i.us42, label %._crit_edge.i.i13.i.us43, label %.lr.ph.i.i15.i.us38, !llvm.loop !884
 
 ._crit_edge.i.i13.i.us43:                         ; preds = %.lr.ph.i.i15.i.us38, %_ZNK6open3d4core7Indexer11GetInputPtrImEEPT_ll.exit.thread.i.us36
   %.016.lcssa.i.i14.i.us44 = phi i64 [ 0, %_ZNK6open3d4core7Indexer11GetInputPtrImEEPT_ll.exit.thread.i.us36 ], [ %128, %.lr.ph.i.i15.i.us38 ]
@@ -63020,109 +63072,6 @@ define internal fastcc void @"_ZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4c
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.open3d::core::Device", align 8
   %5 = alloca %class.anon.336, align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %6 = load ptr, ptr %0, align 8, !tbaa !1195
-  %7 = load ptr, ptr %6, align 8, !tbaa !4
-  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %9 = load ptr, ptr %8, align 8
-  %10 = tail call i64 %9(ptr noundef nonnull align 8 dereferenceable(160) %6)
-  store i64 %10, ptr %4, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !1197
-  %13 = tail call noundef i64 @_ZNK6open3d4core7Indexer12NumWorkloadsEv(ptr noundef nonnull align 8 dereferenceable(842) %12)
-  call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %14 = load ptr, ptr %11, align 8, !tbaa !1197
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(842) %5, ptr noundef nonnull align 8 dereferenceable(842) %14, i64 842, i1 false), !tbaa.struct !40
-  %15 = getelementptr inbounds nuw i8, ptr %5, i64 848
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %17 = load ptr, ptr %16, align 8, !tbaa !1198
-  %18 = load double, ptr %17, align 8, !tbaa !69
-  store double %18, ptr %15, align 8, !tbaa !1199
-  %19 = getelementptr inbounds nuw i8, ptr %5, i64 856
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %21 = load ptr, ptr %20, align 8, !tbaa !1201
-  %22 = load double, ptr %21, align 8, !tbaa !69
-  store double %22, ptr %19, align 8, !tbaa !1202
-  %23 = getelementptr inbounds nuw i8, ptr %5, i64 864
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %25 = load ptr, ptr %24, align 8, !tbaa !1203
-  br label %26
-
-26:                                               ; preds = %26, %1
-  %27 = phi i64 [ 0, %1 ], [ %31, %26 ]
-  %28 = getelementptr inbounds nuw i64, ptr %23, i64 %27
-  %29 = getelementptr inbounds nuw i64, ptr %25, i64 %27
-  %30 = load i64, ptr %29, align 8, !tbaa !36
-  store i64 %30, ptr %28, align 8, !tbaa !36
-  %31 = add nuw nsw i64 %27, 1
-  %32 = icmp eq i64 %31, 2
-  br i1 %32, label %33, label %26
-
-33:                                               ; preds = %26
-  call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %34 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @2)
-  store i64 %13, ptr %2, align 8, !tbaa !36
-  %35 = and i64 %10, 4294967295
-  %36 = icmp eq i64 %35, 0
-  br i1 %36, label %49, label %37
-
-37:                                               ; preds = %33
-  call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  call void @_ZNK6open3d4core6Device8ToStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr noundef nonnull align 4 dereferenceable(8) %4)
-  invoke void @_ZN6open3d7utility6Logger9LogError_IJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvPKciSA_SA_DpOT_(ptr noundef nonnull @.str.12, i32 noundef 76, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_8clEvENKUlvE_clEvEUllE_EEvRKNS0_6DeviceElRKT_", ptr noundef nonnull @.str.13, ptr noundef nonnull align 8 dereferenceable(32) %3) #33
-          to label %38 unwind label %39
-
-38:                                               ; preds = %37
-  unreachable
-
-39:                                               ; preds = %37
-  %40 = landingpad { ptr, i32 }
-          cleanup
-  %41 = load ptr, ptr %3, align 8, !tbaa !47
-  %42 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %43 = icmp eq ptr %41, %42
-  br i1 %43, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i: ; preds = %39
-  %44 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %45 = load i64, ptr %44, align 8, !tbaa !51
-  %46 = icmp ult i64 %45, 16
-  call void @llvm.assume(i1 %46)
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i: ; preds = %39
-  %47 = load i64, ptr %42, align 8, !tbaa !15
-  %48 = add i64 %47, 1
-  call void @_ZdlPvm(ptr noundef %41, i64 noundef %48) #32
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i
-
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i
-  call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  resume { ptr, i32 } %40
-
-49:                                               ; preds = %33
-  %50 = icmp eq i64 %13, 0
-  br i1 %50, label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_8clEvENKUlvE4_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit", label %51
-
-51:                                               ; preds = %49
-  %52 = tail call noundef i32 @_ZN6open3d7utility18EstimateMaxThreadsEv()
-  tail call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %34, i32 %52)
-  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 2, ptr nonnull @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_8clEvENKUlvE4_clEvEUllE_EEvRKNS0_6DeviceElRKT_.omp_outlined", ptr nonnull %2, ptr nonnull align 8 dereferenceable(880) %5)
-  br label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_8clEvENKUlvE4_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit"
-
-"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_8clEvENKUlvE4_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit": ; preds = %49, %51
-  call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret void
-}
-
-; Function Attrs: inlinehint mustprogress ssp uwtable
-define internal fastcc void @"_ZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_8clEvENKUlvE5_clEv"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = alloca i64, align 8
-  %3 = alloca %"class.std::__cxx11::basic_string", align 8
-  %4 = alloca %"class.open3d::core::Device", align 8
-  %5 = alloca %class.anon.337, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = load ptr, ptr %0, align 8, !tbaa !1204
   %7 = load ptr, ptr %6, align 8, !tbaa !4
@@ -63205,15 +63154,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %_
 
 49:                                               ; preds = %33
   %50 = icmp eq i64 %13, 0
-  br i1 %50, label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_8clEvENKUlvE5_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit", label %51
+  br i1 %50, label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_8clEvENKUlvE4_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit", label %51
 
 51:                                               ; preds = %49
   %52 = tail call noundef i32 @_ZN6open3d7utility18EstimateMaxThreadsEv()
   tail call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %34, i32 %52)
-  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 2, ptr nonnull @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_8clEvENKUlvE5_clEvEUllE_EEvRKNS0_6DeviceElRKT_.omp_outlined", ptr nonnull %2, ptr nonnull align 8 dereferenceable(880) %5)
-  br label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_8clEvENKUlvE5_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit"
+  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 2, ptr nonnull @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_8clEvENKUlvE4_clEvEUllE_EEvRKNS0_6DeviceElRKT_.omp_outlined", ptr nonnull %2, ptr nonnull align 8 dereferenceable(880) %5)
+  br label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_8clEvENKUlvE4_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit"
 
-"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_8clEvENKUlvE5_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit": ; preds = %49, %51
+"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_8clEvENKUlvE4_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit": ; preds = %49, %51
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -63221,11 +63170,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %_
 }
 
 ; Function Attrs: inlinehint mustprogress ssp uwtable
-define internal fastcc void @"_ZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_8clEvENKUlvE6_clEv"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_8clEvENKUlvE5_clEv"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca i64, align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.open3d::core::Device", align 8
-  %5 = alloca %class.anon.338, align 8
+  %5 = alloca %class.anon.337, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = load ptr, ptr %0, align 8, !tbaa !1213
   %7 = load ptr, ptr %6, align 8, !tbaa !4
@@ -63308,15 +63257,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %_
 
 49:                                               ; preds = %33
   %50 = icmp eq i64 %13, 0
-  br i1 %50, label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_8clEvENKUlvE6_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit", label %51
+  br i1 %50, label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_8clEvENKUlvE5_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit", label %51
 
 51:                                               ; preds = %49
   %52 = tail call noundef i32 @_ZN6open3d7utility18EstimateMaxThreadsEv()
   tail call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %34, i32 %52)
-  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 2, ptr nonnull @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_8clEvENKUlvE6_clEvEUllE_EEvRKNS0_6DeviceElRKT_.omp_outlined", ptr nonnull %2, ptr nonnull align 8 dereferenceable(880) %5)
-  br label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_8clEvENKUlvE6_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit"
+  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 2, ptr nonnull @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_8clEvENKUlvE5_clEvEUllE_EEvRKNS0_6DeviceElRKT_.omp_outlined", ptr nonnull %2, ptr nonnull align 8 dereferenceable(880) %5)
+  br label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_8clEvENKUlvE5_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit"
 
-"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_8clEvENKUlvE6_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit": ; preds = %49, %51
+"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_8clEvENKUlvE5_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit": ; preds = %49, %51
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -63324,11 +63273,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %_
 }
 
 ; Function Attrs: inlinehint mustprogress ssp uwtable
-define internal fastcc void @"_ZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_8clEvENKUlvE7_clEv"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_8clEvENKUlvE6_clEv"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca i64, align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.open3d::core::Device", align 8
-  %5 = alloca %class.anon.339, align 8
+  %5 = alloca %class.anon.338, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = load ptr, ptr %0, align 8, !tbaa !1222
   %7 = load ptr, ptr %6, align 8, !tbaa !4
@@ -63411,15 +63360,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %_
 
 49:                                               ; preds = %33
   %50 = icmp eq i64 %13, 0
-  br i1 %50, label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_8clEvENKUlvE7_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit", label %51
+  br i1 %50, label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_8clEvENKUlvE6_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit", label %51
 
 51:                                               ; preds = %49
   %52 = tail call noundef i32 @_ZN6open3d7utility18EstimateMaxThreadsEv()
   tail call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %34, i32 %52)
-  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 2, ptr nonnull @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_8clEvENKUlvE7_clEvEUllE_EEvRKNS0_6DeviceElRKT_.omp_outlined", ptr nonnull %2, ptr nonnull align 8 dereferenceable(880) %5)
-  br label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_8clEvENKUlvE7_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit"
+  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 2, ptr nonnull @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_8clEvENKUlvE6_clEvEUllE_EEvRKNS0_6DeviceElRKT_.omp_outlined", ptr nonnull %2, ptr nonnull align 8 dereferenceable(880) %5)
+  br label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_8clEvENKUlvE6_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit"
 
-"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_8clEvENKUlvE7_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit": ; preds = %49, %51
+"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_8clEvENKUlvE6_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit": ; preds = %49, %51
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -63427,11 +63376,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %_
 }
 
 ; Function Attrs: inlinehint mustprogress ssp uwtable
-define internal fastcc void @"_ZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_8clEvENKUlvE8_clEv"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_8clEvENKUlvE7_clEv"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca i64, align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.open3d::core::Device", align 8
-  %5 = alloca %class.anon.340, align 8
+  %5 = alloca %class.anon.339, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = load ptr, ptr %0, align 8, !tbaa !1231
   %7 = load ptr, ptr %6, align 8, !tbaa !4
@@ -63458,6 +63407,109 @@ define internal fastcc void @"_ZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4c
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 864
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %25 = load ptr, ptr %24, align 8, !tbaa !1239
+  br label %26
+
+26:                                               ; preds = %26, %1
+  %27 = phi i64 [ 0, %1 ], [ %31, %26 ]
+  %28 = getelementptr inbounds nuw i64, ptr %23, i64 %27
+  %29 = getelementptr inbounds nuw i64, ptr %25, i64 %27
+  %30 = load i64, ptr %29, align 8, !tbaa !36
+  store i64 %30, ptr %28, align 8, !tbaa !36
+  %31 = add nuw nsw i64 %27, 1
+  %32 = icmp eq i64 %31, 2
+  br i1 %32, label %33, label %26
+
+33:                                               ; preds = %26
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  %34 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @2)
+  store i64 %13, ptr %2, align 8, !tbaa !36
+  %35 = and i64 %10, 4294967295
+  %36 = icmp eq i64 %35, 0
+  br i1 %36, label %49, label %37
+
+37:                                               ; preds = %33
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @_ZNK6open3d4core6Device8ToStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr noundef nonnull align 4 dereferenceable(8) %4)
+  invoke void @_ZN6open3d7utility6Logger9LogError_IJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvPKciSA_SA_DpOT_(ptr noundef nonnull @.str.12, i32 noundef 76, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_8clEvENKUlvE_clEvEUllE_EEvRKNS0_6DeviceElRKT_", ptr noundef nonnull @.str.13, ptr noundef nonnull align 8 dereferenceable(32) %3) #33
+          to label %38 unwind label %39
+
+38:                                               ; preds = %37
+  unreachable
+
+39:                                               ; preds = %37
+  %40 = landingpad { ptr, i32 }
+          cleanup
+  %41 = load ptr, ptr %3, align 8, !tbaa !47
+  %42 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %43 = icmp eq ptr %41, %42
+  br i1 %43, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i
+
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i: ; preds = %39
+  %44 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %45 = load i64, ptr %44, align 8, !tbaa !51
+  %46 = icmp ult i64 %45, 16
+  call void @llvm.assume(i1 %46)
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i
+
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i: ; preds = %39
+  %47 = load i64, ptr %42, align 8, !tbaa !15
+  %48 = add i64 %47, 1
+  call void @_ZdlPvm(ptr noundef %41, i64 noundef %48) #32
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i
+
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  resume { ptr, i32 } %40
+
+49:                                               ; preds = %33
+  %50 = icmp eq i64 %13, 0
+  br i1 %50, label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_8clEvENKUlvE7_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit", label %51
+
+51:                                               ; preds = %49
+  %52 = tail call noundef i32 @_ZN6open3d7utility18EstimateMaxThreadsEv()
+  tail call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %34, i32 %52)
+  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 2, ptr nonnull @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_8clEvENKUlvE7_clEvEUllE_EEvRKNS0_6DeviceElRKT_.omp_outlined", ptr nonnull %2, ptr nonnull align 8 dereferenceable(880) %5)
+  br label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_8clEvENKUlvE7_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit"
+
+"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_8clEvENKUlvE7_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit": ; preds = %49, %51
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress ssp uwtable
+define internal fastcc void @"_ZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_8clEvENKUlvE8_clEv"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca i64, align 8
+  %3 = alloca %"class.std::__cxx11::basic_string", align 8
+  %4 = alloca %"class.open3d::core::Device", align 8
+  %5 = alloca %class.anon.340, align 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  %6 = load ptr, ptr %0, align 8, !tbaa !1240
+  %7 = load ptr, ptr %6, align 8, !tbaa !4
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %9 = load ptr, ptr %8, align 8
+  %10 = tail call i64 %9(ptr noundef nonnull align 8 dereferenceable(160) %6)
+  store i64 %10, ptr %4, align 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %12 = load ptr, ptr %11, align 8, !tbaa !1242
+  %13 = tail call noundef i64 @_ZNK6open3d4core7Indexer12NumWorkloadsEv(ptr noundef nonnull align 8 dereferenceable(842) %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  %14 = load ptr, ptr %11, align 8, !tbaa !1242
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(842) %5, ptr noundef nonnull align 8 dereferenceable(842) %14, i64 842, i1 false), !tbaa.struct !40
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 848
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %17 = load ptr, ptr %16, align 8, !tbaa !1243
+  %18 = load double, ptr %17, align 8, !tbaa !69
+  store double %18, ptr %15, align 8, !tbaa !1244
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 856
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %21 = load ptr, ptr %20, align 8, !tbaa !1246
+  %22 = load double, ptr %21, align 8, !tbaa !69
+  store double %22, ptr %19, align 8, !tbaa !1247
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 864
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %25 = load ptr, ptr %24, align 8, !tbaa !1248
   br label %26
 
 26:                                               ; preds = %26, %1
@@ -63593,7 +63645,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   br i1 %20, label %43, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %40
-  %41 = load i64, ptr %21, align 8, !tbaa !967
+  %41 = load i64, ptr %21, align 8, !tbaa !976
   %42 = icmp sgt i64 %41, 0
   br i1 %42, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
 
@@ -63627,7 +63679,7 @@ _ZNK6open3d4core7Indexer11GetInputPtrIfEEPT_ll.exit.thread.i: ; preds = %37, %._
   br i1 %28, label %57, label %.preheader.i.i12.i
 
 .preheader.i.i12.i:                               ; preds = %_ZNK6open3d4core7Indexer11GetInputPtrIfEEPT_ll.exit.thread.i
-  %55 = load i64, ptr %21, align 8, !tbaa !967
+  %55 = load i64, ptr %21, align 8, !tbaa !976
   %56 = icmp sgt i64 %55, 0
   br i1 %56, label %.lr.ph.i.i15.i, label %._crit_edge.i.i13.i
 
@@ -63654,7 +63706,7 @@ _ZNK6open3d4core7Indexer11GetInputPtrIfEEPT_ll.exit.thread.i: ; preds = %37, %._
   %67 = srem i64 %.01720.i.i18.i, %61
   %68 = add nuw nsw i64 %.022.i.i16.i, 1
   %exitcond.not.i.i19.i = icmp eq i64 %68, %55
-  br i1 %exitcond.not.i.i19.i, label %._crit_edge.i.i13.i, label %.lr.ph.i.i15.i, !llvm.loop !872
+  br i1 %exitcond.not.i.i19.i, label %._crit_edge.i.i13.i, label %.lr.ph.i.i15.i, !llvm.loop !881
 
 69:                                               ; preds = %._crit_edge.i.i13.i, %57
   %.018.i.i.i = phi ptr [ %58, %57 ], [ %59, %._crit_edge.i.i13.i ]
@@ -63752,7 +63804,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   br i1 %20, label %43, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %40
-  %41 = load i64, ptr %21, align 8, !tbaa !967
+  %41 = load i64, ptr %21, align 8, !tbaa !976
   %42 = icmp sgt i64 %41, 0
   br i1 %42, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
 
@@ -63779,14 +63831,14 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %53 = srem i64 %.01720.i.i.i, %47
   %54 = add nuw nsw i64 %.022.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %54, %41
-  br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !868
+  br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !877
 
 _ZNK6open3d4core7Indexer11GetInputPtrIdEEPT_ll.exit.thread.i: ; preds = %37, %._crit_edge.i.i.i, %43
   %.0.i21.i = phi ptr [ %45, %._crit_edge.i.i.i ], [ %44, %43 ], [ null, %37 ]
   br i1 %28, label %57, label %.preheader.i.i12.i
 
 .preheader.i.i12.i:                               ; preds = %_ZNK6open3d4core7Indexer11GetInputPtrIdEEPT_ll.exit.thread.i
-  %55 = load i64, ptr %21, align 8, !tbaa !967
+  %55 = load i64, ptr %21, align 8, !tbaa !976
   %56 = icmp sgt i64 %55, 0
   br i1 %56, label %.lr.ph.i.i15.i, label %._crit_edge.i.i13.i
 
@@ -63813,7 +63865,7 @@ _ZNK6open3d4core7Indexer11GetInputPtrIdEEPT_ll.exit.thread.i: ; preds = %37, %._
   %67 = srem i64 %.01720.i.i18.i, %61
   %68 = add nuw nsw i64 %.022.i.i16.i, 1
   %exitcond.not.i.i19.i = icmp eq i64 %68, %55
-  br i1 %exitcond.not.i.i19.i, label %._crit_edge.i.i13.i, label %.lr.ph.i.i15.i, !llvm.loop !872
+  br i1 %exitcond.not.i.i19.i, label %._crit_edge.i.i13.i, label %.lr.ph.i.i15.i, !llvm.loop !881
 
 69:                                               ; preds = %._crit_edge.i.i13.i, %57
   %.018.i.i.i = phi ptr [ %58, %57 ], [ %59, %._crit_edge.i.i13.i ]
@@ -63910,7 +63962,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   br i1 %20, label %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.thread20.i, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %40
-  %41 = load i64, ptr %21, align 8, !tbaa !967
+  %41 = load i64, ptr %21, align 8, !tbaa !976
   %42 = icmp sgt i64 %41, 0
   br i1 %42, label %.lr.ph.i.i.i, label %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.thread20.i
 
@@ -63928,7 +63980,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %50 = srem i64 %.01720.i.i.i, %44
   %51 = add nuw nsw i64 %.022.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %51, %41
-  br i1 %exitcond.not.i.i.i, label %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.thread20.i, label %.lr.ph.i.i.i, !llvm.loop !869
+  br i1 %exitcond.not.i.i.i, label %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.thread20.i, label %.lr.ph.i.i.i, !llvm.loop !878
 
 _ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.thread20.i: ; preds = %.lr.ph.i.i.i, %.preheader.i.i.i, %40
   %.016.lcssa.i.sink.i.i = phi i64 [ %.015, %40 ], [ 0, %.preheader.i.i.i ], [ %49, %.lr.ph.i.i.i ]
@@ -63940,7 +63992,7 @@ _ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.i: ; preds = %37, %_ZNK6open
   br i1 %28, label %55, label %.preheader.i.i12.i
 
 .preheader.i.i12.i:                               ; preds = %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.i
-  %53 = load i64, ptr %21, align 8, !tbaa !967
+  %53 = load i64, ptr %21, align 8, !tbaa !976
   %54 = icmp sgt i64 %53, 0
   br i1 %54, label %.lr.ph.i.i13.i, label %._crit_edge.i.i.i
 
@@ -63967,7 +64019,7 @@ _ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.i: ; preds = %37, %_ZNK6open
   %65 = srem i64 %.01720.i.i16.i, %59
   %66 = add nuw nsw i64 %.022.i.i14.i, 1
   %exitcond.not.i.i17.i = icmp eq i64 %66, %53
-  br i1 %exitcond.not.i.i17.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i13.i, !llvm.loop !872
+  br i1 %exitcond.not.i.i17.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i13.i, !llvm.loop !881
 
 67:                                               ; preds = %._crit_edge.i.i.i, %55
   %.018.i.i.i = phi ptr [ %56, %55 ], [ %57, %._crit_edge.i.i.i ]
@@ -64065,7 +64117,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   br i1 %20, label %43, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %40
-  %41 = load i64, ptr %21, align 8, !tbaa !967
+  %41 = load i64, ptr %21, align 8, !tbaa !976
   %42 = icmp sgt i64 %41, 0
   br i1 %42, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
 
@@ -64092,14 +64144,14 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %53 = srem i64 %.01720.i.i.i, %47
   %54 = add nuw nsw i64 %.022.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %54, %41
-  br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !870
+  br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !879
 
 _ZNK6open3d4core7Indexer11GetInputPtrIsEEPT_ll.exit.thread.i: ; preds = %37, %._crit_edge.i.i.i, %43
   %.0.i21.i = phi ptr [ %45, %._crit_edge.i.i.i ], [ %44, %43 ], [ null, %37 ]
   br i1 %28, label %57, label %.preheader.i.i12.i
 
 .preheader.i.i12.i:                               ; preds = %_ZNK6open3d4core7Indexer11GetInputPtrIsEEPT_ll.exit.thread.i
-  %55 = load i64, ptr %21, align 8, !tbaa !967
+  %55 = load i64, ptr %21, align 8, !tbaa !976
   %56 = icmp sgt i64 %55, 0
   br i1 %56, label %.lr.ph.i.i15.i, label %._crit_edge.i.i13.i
 
@@ -64126,7 +64178,7 @@ _ZNK6open3d4core7Indexer11GetInputPtrIsEEPT_ll.exit.thread.i: ; preds = %37, %._
   %67 = srem i64 %.01720.i.i18.i, %61
   %68 = add nuw nsw i64 %.022.i.i16.i, 1
   %exitcond.not.i.i19.i = icmp eq i64 %68, %55
-  br i1 %exitcond.not.i.i19.i, label %._crit_edge.i.i13.i, label %.lr.ph.i.i15.i, !llvm.loop !872
+  br i1 %exitcond.not.i.i19.i, label %._crit_edge.i.i13.i, label %.lr.ph.i.i15.i, !llvm.loop !881
 
 69:                                               ; preds = %._crit_edge.i.i13.i, %57
   %.018.i.i.i = phi ptr [ %58, %57 ], [ %59, %._crit_edge.i.i13.i ]
@@ -64224,7 +64276,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   br i1 %20, label %43, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %40
-  %41 = load i64, ptr %21, align 8, !tbaa !967
+  %41 = load i64, ptr %21, align 8, !tbaa !976
   %42 = icmp sgt i64 %41, 0
   br i1 %42, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
 
@@ -64251,14 +64303,14 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %53 = srem i64 %.01720.i.i.i, %47
   %54 = add nuw nsw i64 %.022.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %54, %41
-  br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !871
+  br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !880
 
 _ZNK6open3d4core7Indexer11GetInputPtrIiEEPT_ll.exit.thread.i: ; preds = %37, %._crit_edge.i.i.i, %43
   %.0.i21.i = phi ptr [ %45, %._crit_edge.i.i.i ], [ %44, %43 ], [ null, %37 ]
   br i1 %28, label %57, label %.preheader.i.i12.i
 
 .preheader.i.i12.i:                               ; preds = %_ZNK6open3d4core7Indexer11GetInputPtrIiEEPT_ll.exit.thread.i
-  %55 = load i64, ptr %21, align 8, !tbaa !967
+  %55 = load i64, ptr %21, align 8, !tbaa !976
   %56 = icmp sgt i64 %55, 0
   br i1 %56, label %.lr.ph.i.i15.i, label %._crit_edge.i.i13.i
 
@@ -64285,7 +64337,7 @@ _ZNK6open3d4core7Indexer11GetInputPtrIiEEPT_ll.exit.thread.i: ; preds = %37, %._
   %67 = srem i64 %.01720.i.i18.i, %61
   %68 = add nuw nsw i64 %.022.i.i16.i, 1
   %exitcond.not.i.i19.i = icmp eq i64 %68, %55
-  br i1 %exitcond.not.i.i19.i, label %._crit_edge.i.i13.i, label %.lr.ph.i.i15.i, !llvm.loop !872
+  br i1 %exitcond.not.i.i19.i, label %._crit_edge.i.i13.i, label %.lr.ph.i.i15.i, !llvm.loop !881
 
 69:                                               ; preds = %._crit_edge.i.i13.i, %57
   %.018.i.i.i = phi ptr [ %58, %57 ], [ %59, %._crit_edge.i.i13.i ]
@@ -64364,9 +64416,9 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 600
   %30 = load ptr, ptr %25, align 8
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 848
-  %32 = load double, ptr %31, align 8, !tbaa !1199
+  %32 = load double, ptr %31, align 8, !tbaa !1208
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 856
-  %34 = load double, ptr %33, align 8, !tbaa !1202
+  %34 = load double, ptr %33, align 8, !tbaa !1211
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 864
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 872
   br label %37
@@ -64383,7 +64435,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   br i1 %20, label %43, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %40
-  %41 = load i64, ptr %21, align 8, !tbaa !967
+  %41 = load i64, ptr %21, align 8, !tbaa !976
   %42 = icmp sgt i64 %41, 0
   br i1 %42, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
 
@@ -64410,14 +64462,14 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %53 = srem i64 %.01720.i.i.i, %47
   %54 = add nuw nsw i64 %.022.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %54, %41
-  br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !872
+  br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !881
 
 _ZNK6open3d4core7Indexer11GetInputPtrIlEEPT_ll.exit.thread.i: ; preds = %37, %._crit_edge.i.i.i, %43
   %.0.i21.i = phi ptr [ %45, %._crit_edge.i.i.i ], [ %44, %43 ], [ null, %37 ]
   br i1 %28, label %57, label %.preheader.i.i12.i
 
 .preheader.i.i12.i:                               ; preds = %_ZNK6open3d4core7Indexer11GetInputPtrIlEEPT_ll.exit.thread.i
-  %55 = load i64, ptr %21, align 8, !tbaa !967
+  %55 = load i64, ptr %21, align 8, !tbaa !976
   %56 = icmp sgt i64 %55, 0
   br i1 %56, label %.lr.ph.i.i15.i, label %._crit_edge.i.i13.i
 
@@ -64444,7 +64496,7 @@ _ZNK6open3d4core7Indexer11GetInputPtrIlEEPT_ll.exit.thread.i: ; preds = %37, %._
   %67 = srem i64 %.01720.i.i18.i, %61
   %68 = add nuw nsw i64 %.022.i.i16.i, 1
   %exitcond.not.i.i19.i = icmp eq i64 %68, %55
-  br i1 %exitcond.not.i.i19.i, label %._crit_edge.i.i13.i, label %.lr.ph.i.i15.i, !llvm.loop !872
+  br i1 %exitcond.not.i.i19.i, label %._crit_edge.i.i13.i, label %.lr.ph.i.i15.i, !llvm.loop !881
 
 69:                                               ; preds = %._crit_edge.i.i13.i, %57
   %.018.i.i.i = phi ptr [ %58, %57 ], [ %59, %._crit_edge.i.i13.i ]
@@ -64523,9 +64575,9 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 600
   %30 = load ptr, ptr %25, align 8
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 848
-  %32 = load double, ptr %31, align 8, !tbaa !1208
+  %32 = load double, ptr %31, align 8, !tbaa !1217
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 856
-  %34 = load double, ptr %33, align 8, !tbaa !1211
+  %34 = load double, ptr %33, align 8, !tbaa !1220
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 864
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 872
   br label %37
@@ -64542,7 +64594,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   br i1 %20, label %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.thread20.i, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %40
-  %41 = load i64, ptr %21, align 8, !tbaa !967
+  %41 = load i64, ptr %21, align 8, !tbaa !976
   %42 = icmp sgt i64 %41, 0
   br i1 %42, label %.lr.ph.i.i.i, label %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.thread20.i
 
@@ -64560,7 +64612,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %50 = srem i64 %.01720.i.i.i, %44
   %51 = add nuw nsw i64 %.022.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %51, %41
-  br i1 %exitcond.not.i.i.i, label %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.thread20.i, label %.lr.ph.i.i.i, !llvm.loop !873
+  br i1 %exitcond.not.i.i.i, label %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.thread20.i, label %.lr.ph.i.i.i, !llvm.loop !882
 
 _ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.thread20.i: ; preds = %.lr.ph.i.i.i, %.preheader.i.i.i, %40
   %.016.lcssa.i.sink.i.i = phi i64 [ %.015, %40 ], [ 0, %.preheader.i.i.i ], [ %49, %.lr.ph.i.i.i ]
@@ -64572,7 +64624,7 @@ _ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.i: ; preds = %37, %_ZNK6open
   br i1 %28, label %55, label %.preheader.i.i12.i
 
 .preheader.i.i12.i:                               ; preds = %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.i
-  %53 = load i64, ptr %21, align 8, !tbaa !967
+  %53 = load i64, ptr %21, align 8, !tbaa !976
   %54 = icmp sgt i64 %53, 0
   br i1 %54, label %.lr.ph.i.i13.i, label %._crit_edge.i.i.i
 
@@ -64599,7 +64651,7 @@ _ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.i: ; preds = %37, %_ZNK6open
   %65 = srem i64 %.01720.i.i16.i, %59
   %66 = add nuw nsw i64 %.022.i.i14.i, 1
   %exitcond.not.i.i17.i = icmp eq i64 %66, %53
-  br i1 %exitcond.not.i.i17.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i13.i, !llvm.loop !872
+  br i1 %exitcond.not.i.i17.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i13.i, !llvm.loop !881
 
 67:                                               ; preds = %._crit_edge.i.i.i, %55
   %.018.i.i.i = phi ptr [ %56, %55 ], [ %57, %._crit_edge.i.i.i ]
@@ -64678,9 +64730,9 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 600
   %30 = load ptr, ptr %25, align 8
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 848
-  %32 = load double, ptr %31, align 8, !tbaa !1217
+  %32 = load double, ptr %31, align 8, !tbaa !1226
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 856
-  %34 = load double, ptr %33, align 8, !tbaa !1220
+  %34 = load double, ptr %33, align 8, !tbaa !1229
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 864
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 872
   br label %37
@@ -64697,7 +64749,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   br i1 %20, label %43, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %40
-  %41 = load i64, ptr %21, align 8, !tbaa !967
+  %41 = load i64, ptr %21, align 8, !tbaa !976
   %42 = icmp sgt i64 %41, 0
   br i1 %42, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
 
@@ -64724,14 +64776,14 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %53 = srem i64 %.01720.i.i.i, %47
   %54 = add nuw nsw i64 %.022.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %54, %41
-  br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !874
+  br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !883
 
 _ZNK6open3d4core7Indexer11GetInputPtrItEEPT_ll.exit.thread.i: ; preds = %37, %._crit_edge.i.i.i, %43
   %.0.i21.i = phi ptr [ %45, %._crit_edge.i.i.i ], [ %44, %43 ], [ null, %37 ]
   br i1 %28, label %57, label %.preheader.i.i12.i
 
 .preheader.i.i12.i:                               ; preds = %_ZNK6open3d4core7Indexer11GetInputPtrItEEPT_ll.exit.thread.i
-  %55 = load i64, ptr %21, align 8, !tbaa !967
+  %55 = load i64, ptr %21, align 8, !tbaa !976
   %56 = icmp sgt i64 %55, 0
   br i1 %56, label %.lr.ph.i.i15.i, label %._crit_edge.i.i13.i
 
@@ -64758,7 +64810,7 @@ _ZNK6open3d4core7Indexer11GetInputPtrItEEPT_ll.exit.thread.i: ; preds = %37, %._
   %67 = srem i64 %.01720.i.i18.i, %61
   %68 = add nuw nsw i64 %.022.i.i16.i, 1
   %exitcond.not.i.i19.i = icmp eq i64 %68, %55
-  br i1 %exitcond.not.i.i19.i, label %._crit_edge.i.i13.i, label %.lr.ph.i.i15.i, !llvm.loop !872
+  br i1 %exitcond.not.i.i19.i, label %._crit_edge.i.i13.i, label %.lr.ph.i.i15.i, !llvm.loop !881
 
 69:                                               ; preds = %._crit_edge.i.i13.i, %57
   %.018.i.i.i = phi ptr [ %58, %57 ], [ %59, %._crit_edge.i.i13.i ]
@@ -64837,9 +64889,9 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 600
   %30 = load ptr, ptr %25, align 8
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 848
-  %32 = load double, ptr %31, align 8, !tbaa !1226
+  %32 = load double, ptr %31, align 8, !tbaa !1235
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 856
-  %34 = load double, ptr %33, align 8, !tbaa !1229
+  %34 = load double, ptr %33, align 8, !tbaa !1238
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 864
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 872
   br label %37
@@ -64856,7 +64908,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   br i1 %20, label %43, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %40
-  %41 = load i64, ptr %21, align 8, !tbaa !967
+  %41 = load i64, ptr %21, align 8, !tbaa !976
   %42 = icmp sgt i64 %41, 0
   br i1 %42, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
 
@@ -64883,14 +64935,14 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %53 = srem i64 %.01720.i.i.i, %47
   %54 = add nuw nsw i64 %.022.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %54, %41
-  br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !875
+  br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !884
 
 _ZNK6open3d4core7Indexer11GetInputPtrIjEEPT_ll.exit.thread.i: ; preds = %37, %._crit_edge.i.i.i, %43
   %.0.i21.i = phi ptr [ %45, %._crit_edge.i.i.i ], [ %44, %43 ], [ null, %37 ]
   br i1 %28, label %57, label %.preheader.i.i12.i
 
 .preheader.i.i12.i:                               ; preds = %_ZNK6open3d4core7Indexer11GetInputPtrIjEEPT_ll.exit.thread.i
-  %55 = load i64, ptr %21, align 8, !tbaa !967
+  %55 = load i64, ptr %21, align 8, !tbaa !976
   %56 = icmp sgt i64 %55, 0
   br i1 %56, label %.lr.ph.i.i15.i, label %._crit_edge.i.i13.i
 
@@ -64917,7 +64969,7 @@ _ZNK6open3d4core7Indexer11GetInputPtrIjEEPT_ll.exit.thread.i: ; preds = %37, %._
   %67 = srem i64 %.01720.i.i18.i, %61
   %68 = add nuw nsw i64 %.022.i.i16.i, 1
   %exitcond.not.i.i19.i = icmp eq i64 %68, %55
-  br i1 %exitcond.not.i.i19.i, label %._crit_edge.i.i13.i, label %.lr.ph.i.i15.i, !llvm.loop !872
+  br i1 %exitcond.not.i.i19.i, label %._crit_edge.i.i13.i, label %.lr.ph.i.i15.i, !llvm.loop !881
 
 69:                                               ; preds = %._crit_edge.i.i13.i, %57
   %.018.i.i.i = phi ptr [ %58, %57 ], [ %59, %._crit_edge.i.i13.i ]
@@ -64996,9 +65048,9 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 600
   %30 = load ptr, ptr %25, align 8
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 848
-  %32 = load double, ptr %31, align 8, !tbaa !1235
+  %32 = load double, ptr %31, align 8, !tbaa !1244
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 856
-  %34 = load double, ptr %33, align 8, !tbaa !1238
+  %34 = load double, ptr %33, align 8, !tbaa !1247
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 864
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 872
   br label %37
@@ -65015,7 +65067,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   br i1 %20, label %43, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %40
-  %41 = load i64, ptr %21, align 8, !tbaa !967
+  %41 = load i64, ptr %21, align 8, !tbaa !976
   %42 = icmp sgt i64 %41, 0
   br i1 %42, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
 
@@ -65042,14 +65094,14 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %53 = srem i64 %.01720.i.i.i, %47
   %54 = add nuw nsw i64 %.022.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %54, %41
-  br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !876
+  br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !885
 
 _ZNK6open3d4core7Indexer11GetInputPtrImEEPT_ll.exit.thread.i: ; preds = %37, %._crit_edge.i.i.i, %43
   %.0.i21.i = phi ptr [ %45, %._crit_edge.i.i.i ], [ %44, %43 ], [ null, %37 ]
   br i1 %28, label %57, label %.preheader.i.i12.i
 
 .preheader.i.i12.i:                               ; preds = %_ZNK6open3d4core7Indexer11GetInputPtrImEEPT_ll.exit.thread.i
-  %55 = load i64, ptr %21, align 8, !tbaa !967
+  %55 = load i64, ptr %21, align 8, !tbaa !976
   %56 = icmp sgt i64 %55, 0
   br i1 %56, label %.lr.ph.i.i15.i, label %._crit_edge.i.i13.i
 
@@ -65076,7 +65128,7 @@ _ZNK6open3d4core7Indexer11GetInputPtrImEEPT_ll.exit.thread.i: ; preds = %37, %._
   %67 = srem i64 %.01720.i.i18.i, %61
   %68 = add nuw nsw i64 %.022.i.i16.i, 1
   %exitcond.not.i.i19.i = icmp eq i64 %68, %55
-  br i1 %exitcond.not.i.i19.i, label %._crit_edge.i.i13.i, label %.lr.ph.i.i15.i, !llvm.loop !872
+  br i1 %exitcond.not.i.i19.i, label %._crit_edge.i.i13.i, label %.lr.ph.i.i15.i, !llvm.loop !881
 
 69:                                               ; preds = %._crit_edge.i.i13.i, %57
   %.018.i.i.i = phi ptr [ %58, %57 ], [ %59, %._crit_edge.i.i13.i ]
@@ -65116,109 +65168,6 @@ define internal fastcc void @"_ZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4c
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.open3d::core::Device", align 8
   %5 = alloca %class.anon.356, align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %6 = load ptr, ptr %0, align 8, !tbaa !1240
-  %7 = load ptr, ptr %6, align 8, !tbaa !4
-  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %9 = load ptr, ptr %8, align 8
-  %10 = tail call i64 %9(ptr noundef nonnull align 8 dereferenceable(160) %6)
-  store i64 %10, ptr %4, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !1242
-  %13 = tail call noundef i64 @_ZNK6open3d4core7Indexer12NumWorkloadsEv(ptr noundef nonnull align 8 dereferenceable(842) %12)
-  call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %14 = load ptr, ptr %11, align 8, !tbaa !1242
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(842) %5, ptr noundef nonnull align 8 dereferenceable(842) %14, i64 842, i1 false), !tbaa.struct !40
-  %15 = getelementptr inbounds nuw i8, ptr %5, i64 848
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %17 = load ptr, ptr %16, align 8, !tbaa !1243
-  %18 = load double, ptr %17, align 8, !tbaa !69
-  store double %18, ptr %15, align 8, !tbaa !1244
-  %19 = getelementptr inbounds nuw i8, ptr %5, i64 856
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %21 = load ptr, ptr %20, align 8, !tbaa !1246
-  %22 = load double, ptr %21, align 8, !tbaa !69
-  store double %22, ptr %19, align 8, !tbaa !1247
-  %23 = getelementptr inbounds nuw i8, ptr %5, i64 864
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %25 = load ptr, ptr %24, align 8, !tbaa !1248
-  br label %26
-
-26:                                               ; preds = %26, %1
-  %27 = phi i64 [ 0, %1 ], [ %31, %26 ]
-  %28 = getelementptr inbounds nuw i64, ptr %23, i64 %27
-  %29 = getelementptr inbounds nuw i64, ptr %25, i64 %27
-  %30 = load i64, ptr %29, align 8, !tbaa !36
-  store i64 %30, ptr %28, align 8, !tbaa !36
-  %31 = add nuw nsw i64 %27, 1
-  %32 = icmp eq i64 %31, 2
-  br i1 %32, label %33, label %26
-
-33:                                               ; preds = %26
-  call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %34 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @2)
-  store i64 %13, ptr %2, align 8, !tbaa !36
-  %35 = and i64 %10, 4294967295
-  %36 = icmp eq i64 %35, 0
-  br i1 %36, label %49, label %37
-
-37:                                               ; preds = %33
-  call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  call void @_ZNK6open3d4core6Device8ToStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr noundef nonnull align 4 dereferenceable(8) %4)
-  invoke void @_ZN6open3d7utility6Logger9LogError_IJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvPKciSA_SA_DpOT_(ptr noundef nonnull @.str.12, i32 noundef 76, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_9clEvENKUlvE_clEvEUllE_EEvRKNS0_6DeviceElRKT_", ptr noundef nonnull @.str.13, ptr noundef nonnull align 8 dereferenceable(32) %3) #33
-          to label %38 unwind label %39
-
-38:                                               ; preds = %37
-  unreachable
-
-39:                                               ; preds = %37
-  %40 = landingpad { ptr, i32 }
-          cleanup
-  %41 = load ptr, ptr %3, align 8, !tbaa !47
-  %42 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %43 = icmp eq ptr %41, %42
-  br i1 %43, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i: ; preds = %39
-  %44 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %45 = load i64, ptr %44, align 8, !tbaa !51
-  %46 = icmp ult i64 %45, 16
-  call void @llvm.assume(i1 %46)
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i: ; preds = %39
-  %47 = load i64, ptr %42, align 8, !tbaa !15
-  %48 = add i64 %47, 1
-  call void @_ZdlPvm(ptr noundef %41, i64 noundef %48) #32
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i
-
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i
-  call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  resume { ptr, i32 } %40
-
-49:                                               ; preds = %33
-  %50 = icmp eq i64 %13, 0
-  br i1 %50, label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_9clEvENKUlvE4_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit", label %51
-
-51:                                               ; preds = %49
-  %52 = tail call noundef i32 @_ZN6open3d7utility18EstimateMaxThreadsEv()
-  tail call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %34, i32 %52)
-  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 2, ptr nonnull @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_9clEvENKUlvE4_clEvEUllE_EEvRKNS0_6DeviceElRKT_.omp_outlined", ptr nonnull %2, ptr nonnull align 8 dereferenceable(880) %5)
-  br label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_9clEvENKUlvE4_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit"
-
-"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_9clEvENKUlvE4_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit": ; preds = %49, %51
-  call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret void
-}
-
-; Function Attrs: inlinehint mustprogress ssp uwtable
-define internal fastcc void @"_ZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_9clEvENKUlvE5_clEv"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = alloca i64, align 8
-  %3 = alloca %"class.std::__cxx11::basic_string", align 8
-  %4 = alloca %"class.open3d::core::Device", align 8
-  %5 = alloca %class.anon.357, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = load ptr, ptr %0, align 8, !tbaa !1249
   %7 = load ptr, ptr %6, align 8, !tbaa !4
@@ -65301,15 +65250,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %_
 
 49:                                               ; preds = %33
   %50 = icmp eq i64 %13, 0
-  br i1 %50, label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_9clEvENKUlvE5_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit", label %51
+  br i1 %50, label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_9clEvENKUlvE4_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit", label %51
 
 51:                                               ; preds = %49
   %52 = tail call noundef i32 @_ZN6open3d7utility18EstimateMaxThreadsEv()
   tail call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %34, i32 %52)
-  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 2, ptr nonnull @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_9clEvENKUlvE5_clEvEUllE_EEvRKNS0_6DeviceElRKT_.omp_outlined", ptr nonnull %2, ptr nonnull align 8 dereferenceable(880) %5)
-  br label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_9clEvENKUlvE5_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit"
+  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 2, ptr nonnull @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_9clEvENKUlvE4_clEvEUllE_EEvRKNS0_6DeviceElRKT_.omp_outlined", ptr nonnull %2, ptr nonnull align 8 dereferenceable(880) %5)
+  br label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_9clEvENKUlvE4_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit"
 
-"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_9clEvENKUlvE5_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit": ; preds = %49, %51
+"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_9clEvENKUlvE4_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit": ; preds = %49, %51
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -65317,11 +65266,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %_
 }
 
 ; Function Attrs: inlinehint mustprogress ssp uwtable
-define internal fastcc void @"_ZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_9clEvENKUlvE6_clEv"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_9clEvENKUlvE5_clEv"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca i64, align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.open3d::core::Device", align 8
-  %5 = alloca %class.anon.358, align 8
+  %5 = alloca %class.anon.357, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = load ptr, ptr %0, align 8, !tbaa !1258
   %7 = load ptr, ptr %6, align 8, !tbaa !4
@@ -65404,15 +65353,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %_
 
 49:                                               ; preds = %33
   %50 = icmp eq i64 %13, 0
-  br i1 %50, label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_9clEvENKUlvE6_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit", label %51
+  br i1 %50, label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_9clEvENKUlvE5_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit", label %51
 
 51:                                               ; preds = %49
   %52 = tail call noundef i32 @_ZN6open3d7utility18EstimateMaxThreadsEv()
   tail call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %34, i32 %52)
-  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 2, ptr nonnull @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_9clEvENKUlvE6_clEvEUllE_EEvRKNS0_6DeviceElRKT_.omp_outlined", ptr nonnull %2, ptr nonnull align 8 dereferenceable(880) %5)
-  br label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_9clEvENKUlvE6_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit"
+  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 2, ptr nonnull @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_9clEvENKUlvE5_clEvEUllE_EEvRKNS0_6DeviceElRKT_.omp_outlined", ptr nonnull %2, ptr nonnull align 8 dereferenceable(880) %5)
+  br label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_9clEvENKUlvE5_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit"
 
-"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_9clEvENKUlvE6_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit": ; preds = %49, %51
+"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_9clEvENKUlvE5_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit": ; preds = %49, %51
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -65420,11 +65369,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %_
 }
 
 ; Function Attrs: inlinehint mustprogress ssp uwtable
-define internal fastcc void @"_ZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_9clEvENKUlvE7_clEv"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_9clEvENKUlvE6_clEv"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca i64, align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.open3d::core::Device", align 8
-  %5 = alloca %class.anon.359, align 8
+  %5 = alloca %class.anon.358, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = load ptr, ptr %0, align 8, !tbaa !1267
   %7 = load ptr, ptr %6, align 8, !tbaa !4
@@ -65507,15 +65456,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %_
 
 49:                                               ; preds = %33
   %50 = icmp eq i64 %13, 0
-  br i1 %50, label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_9clEvENKUlvE7_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit", label %51
+  br i1 %50, label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_9clEvENKUlvE6_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit", label %51
 
 51:                                               ; preds = %49
   %52 = tail call noundef i32 @_ZN6open3d7utility18EstimateMaxThreadsEv()
   tail call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %34, i32 %52)
-  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 2, ptr nonnull @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_9clEvENKUlvE7_clEvEUllE_EEvRKNS0_6DeviceElRKT_.omp_outlined", ptr nonnull %2, ptr nonnull align 8 dereferenceable(880) %5)
-  br label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_9clEvENKUlvE7_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit"
+  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 2, ptr nonnull @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_9clEvENKUlvE6_clEvEUllE_EEvRKNS0_6DeviceElRKT_.omp_outlined", ptr nonnull %2, ptr nonnull align 8 dereferenceable(880) %5)
+  br label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_9clEvENKUlvE6_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit"
 
-"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_9clEvENKUlvE7_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit": ; preds = %49, %51
+"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_9clEvENKUlvE6_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit": ; preds = %49, %51
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -65523,11 +65472,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %_
 }
 
 ; Function Attrs: inlinehint mustprogress ssp uwtable
-define internal fastcc void @"_ZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_9clEvENKUlvE8_clEv"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_9clEvENKUlvE7_clEv"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca i64, align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.open3d::core::Device", align 8
-  %5 = alloca %class.anon.360, align 8
+  %5 = alloca %class.anon.359, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = load ptr, ptr %0, align 8, !tbaa !1276
   %7 = load ptr, ptr %6, align 8, !tbaa !4
@@ -65554,6 +65503,109 @@ define internal fastcc void @"_ZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4c
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 864
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %25 = load ptr, ptr %24, align 8, !tbaa !1284
+  br label %26
+
+26:                                               ; preds = %26, %1
+  %27 = phi i64 [ 0, %1 ], [ %31, %26 ]
+  %28 = getelementptr inbounds nuw i64, ptr %23, i64 %27
+  %29 = getelementptr inbounds nuw i64, ptr %25, i64 %27
+  %30 = load i64, ptr %29, align 8, !tbaa !36
+  store i64 %30, ptr %28, align 8, !tbaa !36
+  %31 = add nuw nsw i64 %27, 1
+  %32 = icmp eq i64 %31, 2
+  br i1 %32, label %33, label %26
+
+33:                                               ; preds = %26
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  %34 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @2)
+  store i64 %13, ptr %2, align 8, !tbaa !36
+  %35 = and i64 %10, 4294967295
+  %36 = icmp eq i64 %35, 0
+  br i1 %36, label %49, label %37
+
+37:                                               ; preds = %33
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @_ZNK6open3d4core6Device8ToStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr noundef nonnull align 4 dereferenceable(8) %4)
+  invoke void @_ZN6open3d7utility6Logger9LogError_IJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvPKciSA_SA_DpOT_(ptr noundef nonnull @.str.12, i32 noundef 76, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_9clEvENKUlvE_clEvEUllE_EEvRKNS0_6DeviceElRKT_", ptr noundef nonnull @.str.13, ptr noundef nonnull align 8 dereferenceable(32) %3) #33
+          to label %38 unwind label %39
+
+38:                                               ; preds = %37
+  unreachable
+
+39:                                               ; preds = %37
+  %40 = landingpad { ptr, i32 }
+          cleanup
+  %41 = load ptr, ptr %3, align 8, !tbaa !47
+  %42 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %43 = icmp eq ptr %41, %42
+  br i1 %43, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i
+
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i: ; preds = %39
+  %44 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %45 = load i64, ptr %44, align 8, !tbaa !51
+  %46 = icmp ult i64 %45, 16
+  call void @llvm.assume(i1 %46)
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i
+
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i: ; preds = %39
+  %47 = load i64, ptr %42, align 8, !tbaa !15
+  %48 = add i64 %47, 1
+  call void @_ZdlPvm(ptr noundef %41, i64 noundef %48) #32
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i
+
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  resume { ptr, i32 } %40
+
+49:                                               ; preds = %33
+  %50 = icmp eq i64 %13, 0
+  br i1 %50, label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_9clEvENKUlvE7_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit", label %51
+
+51:                                               ; preds = %49
+  %52 = tail call noundef i32 @_ZN6open3d7utility18EstimateMaxThreadsEv()
+  tail call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %34, i32 %52)
+  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 2, ptr nonnull @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_9clEvENKUlvE7_clEvEUllE_EEvRKNS0_6DeviceElRKT_.omp_outlined", ptr nonnull %2, ptr nonnull align 8 dereferenceable(880) %5)
+  br label %"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_9clEvENKUlvE7_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit"
+
+"_ZN6open3d4core11ParallelForIZZZNS_1t8geometry6kernel5image5ToCPUERKNS0_6TensorERS6_ddENK3$_9clEvENKUlvE7_clEvEUllE_EEvRKNS0_6DeviceElRKT_.exit": ; preds = %49, %51
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress ssp uwtable
+define internal fastcc void @"_ZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_9clEvENKUlvE8_clEv"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca i64, align 8
+  %3 = alloca %"class.std::__cxx11::basic_string", align 8
+  %4 = alloca %"class.open3d::core::Device", align 8
+  %5 = alloca %class.anon.360, align 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  %6 = load ptr, ptr %0, align 8, !tbaa !1285
+  %7 = load ptr, ptr %6, align 8, !tbaa !4
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %9 = load ptr, ptr %8, align 8
+  %10 = tail call i64 %9(ptr noundef nonnull align 8 dereferenceable(160) %6)
+  store i64 %10, ptr %4, align 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %12 = load ptr, ptr %11, align 8, !tbaa !1287
+  %13 = tail call noundef i64 @_ZNK6open3d4core7Indexer12NumWorkloadsEv(ptr noundef nonnull align 8 dereferenceable(842) %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  %14 = load ptr, ptr %11, align 8, !tbaa !1287
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(842) %5, ptr noundef nonnull align 8 dereferenceable(842) %14, i64 842, i1 false), !tbaa.struct !40
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 848
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %17 = load ptr, ptr %16, align 8, !tbaa !1288
+  %18 = load double, ptr %17, align 8, !tbaa !69
+  store double %18, ptr %15, align 8, !tbaa !1289
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 856
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %21 = load ptr, ptr %20, align 8, !tbaa !1291
+  %22 = load double, ptr %21, align 8, !tbaa !69
+  store double %22, ptr %19, align 8, !tbaa !1292
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 864
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %25 = load ptr, ptr %24, align 8, !tbaa !1293
   br label %26
 
 26:                                               ; preds = %26, %1
@@ -65689,7 +65741,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   br i1 %20, label %43, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %40
-  %41 = load i64, ptr %21, align 8, !tbaa !967
+  %41 = load i64, ptr %21, align 8, !tbaa !976
   %42 = icmp sgt i64 %41, 0
   br i1 %42, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
 
@@ -65723,7 +65775,7 @@ _ZNK6open3d4core7Indexer11GetInputPtrIfEEPT_ll.exit.thread.i: ; preds = %37, %._
   br i1 %28, label %57, label %.preheader.i.i12.i
 
 .preheader.i.i12.i:                               ; preds = %_ZNK6open3d4core7Indexer11GetInputPtrIfEEPT_ll.exit.thread.i
-  %55 = load i64, ptr %21, align 8, !tbaa !967
+  %55 = load i64, ptr %21, align 8, !tbaa !976
   %56 = icmp sgt i64 %55, 0
   br i1 %56, label %.lr.ph.i.i15.i, label %._crit_edge.i.i13.i
 
@@ -65750,7 +65802,7 @@ _ZNK6open3d4core7Indexer11GetInputPtrIfEEPT_ll.exit.thread.i: ; preds = %37, %._
   %67 = srem i64 %.01720.i.i18.i, %61
   %68 = add nuw nsw i64 %.022.i.i16.i, 1
   %exitcond.not.i.i19.i = icmp eq i64 %68, %55
-  br i1 %exitcond.not.i.i19.i, label %._crit_edge.i.i13.i, label %.lr.ph.i.i15.i, !llvm.loop !876
+  br i1 %exitcond.not.i.i19.i, label %._crit_edge.i.i13.i, label %.lr.ph.i.i15.i, !llvm.loop !885
 
 69:                                               ; preds = %._crit_edge.i.i13.i, %57
   %.018.i.i.i = phi ptr [ %58, %57 ], [ %59, %._crit_edge.i.i13.i ]
@@ -65848,7 +65900,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   br i1 %20, label %43, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %40
-  %41 = load i64, ptr %21, align 8, !tbaa !967
+  %41 = load i64, ptr %21, align 8, !tbaa !976
   %42 = icmp sgt i64 %41, 0
   br i1 %42, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
 
@@ -65875,14 +65927,14 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %53 = srem i64 %.01720.i.i.i, %47
   %54 = add nuw nsw i64 %.022.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %54, %41
-  br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !868
+  br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !877
 
 _ZNK6open3d4core7Indexer11GetInputPtrIdEEPT_ll.exit.thread.i: ; preds = %37, %._crit_edge.i.i.i, %43
   %.0.i21.i = phi ptr [ %45, %._crit_edge.i.i.i ], [ %44, %43 ], [ null, %37 ]
   br i1 %28, label %57, label %.preheader.i.i12.i
 
 .preheader.i.i12.i:                               ; preds = %_ZNK6open3d4core7Indexer11GetInputPtrIdEEPT_ll.exit.thread.i
-  %55 = load i64, ptr %21, align 8, !tbaa !967
+  %55 = load i64, ptr %21, align 8, !tbaa !976
   %56 = icmp sgt i64 %55, 0
   br i1 %56, label %.lr.ph.i.i15.i, label %._crit_edge.i.i13.i
 
@@ -65909,7 +65961,7 @@ _ZNK6open3d4core7Indexer11GetInputPtrIdEEPT_ll.exit.thread.i: ; preds = %37, %._
   %67 = srem i64 %.01720.i.i18.i, %61
   %68 = add nuw nsw i64 %.022.i.i16.i, 1
   %exitcond.not.i.i19.i = icmp eq i64 %68, %55
-  br i1 %exitcond.not.i.i19.i, label %._crit_edge.i.i13.i, label %.lr.ph.i.i15.i, !llvm.loop !876
+  br i1 %exitcond.not.i.i19.i, label %._crit_edge.i.i13.i, label %.lr.ph.i.i15.i, !llvm.loop !885
 
 69:                                               ; preds = %._crit_edge.i.i13.i, %57
   %.018.i.i.i = phi ptr [ %58, %57 ], [ %59, %._crit_edge.i.i13.i ]
@@ -66006,7 +66058,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   br i1 %20, label %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.thread20.i, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %40
-  %41 = load i64, ptr %21, align 8, !tbaa !967
+  %41 = load i64, ptr %21, align 8, !tbaa !976
   %42 = icmp sgt i64 %41, 0
   br i1 %42, label %.lr.ph.i.i.i, label %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.thread20.i
 
@@ -66024,7 +66076,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %50 = srem i64 %.01720.i.i.i, %44
   %51 = add nuw nsw i64 %.022.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %51, %41
-  br i1 %exitcond.not.i.i.i, label %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.thread20.i, label %.lr.ph.i.i.i, !llvm.loop !869
+  br i1 %exitcond.not.i.i.i, label %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.thread20.i, label %.lr.ph.i.i.i, !llvm.loop !878
 
 _ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.thread20.i: ; preds = %.lr.ph.i.i.i, %.preheader.i.i.i, %40
   %.016.lcssa.i.sink.i.i = phi i64 [ %.015, %40 ], [ 0, %.preheader.i.i.i ], [ %49, %.lr.ph.i.i.i ]
@@ -66036,7 +66088,7 @@ _ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.i: ; preds = %37, %_ZNK6open
   br i1 %28, label %55, label %.preheader.i.i12.i
 
 .preheader.i.i12.i:                               ; preds = %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.i
-  %53 = load i64, ptr %21, align 8, !tbaa !967
+  %53 = load i64, ptr %21, align 8, !tbaa !976
   %54 = icmp sgt i64 %53, 0
   br i1 %54, label %.lr.ph.i.i13.i, label %._crit_edge.i.i.i
 
@@ -66063,7 +66115,7 @@ _ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.i: ; preds = %37, %_ZNK6open
   %65 = srem i64 %.01720.i.i16.i, %59
   %66 = add nuw nsw i64 %.022.i.i14.i, 1
   %exitcond.not.i.i17.i = icmp eq i64 %66, %53
-  br i1 %exitcond.not.i.i17.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i13.i, !llvm.loop !876
+  br i1 %exitcond.not.i.i17.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i13.i, !llvm.loop !885
 
 67:                                               ; preds = %._crit_edge.i.i.i, %55
   %.018.i.i.i = phi ptr [ %56, %55 ], [ %57, %._crit_edge.i.i.i ]
@@ -66161,7 +66213,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   br i1 %20, label %43, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %40
-  %41 = load i64, ptr %21, align 8, !tbaa !967
+  %41 = load i64, ptr %21, align 8, !tbaa !976
   %42 = icmp sgt i64 %41, 0
   br i1 %42, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
 
@@ -66188,14 +66240,14 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %53 = srem i64 %.01720.i.i.i, %47
   %54 = add nuw nsw i64 %.022.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %54, %41
-  br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !870
+  br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !879
 
 _ZNK6open3d4core7Indexer11GetInputPtrIsEEPT_ll.exit.thread.i: ; preds = %37, %._crit_edge.i.i.i, %43
   %.0.i21.i = phi ptr [ %45, %._crit_edge.i.i.i ], [ %44, %43 ], [ null, %37 ]
   br i1 %28, label %57, label %.preheader.i.i12.i
 
 .preheader.i.i12.i:                               ; preds = %_ZNK6open3d4core7Indexer11GetInputPtrIsEEPT_ll.exit.thread.i
-  %55 = load i64, ptr %21, align 8, !tbaa !967
+  %55 = load i64, ptr %21, align 8, !tbaa !976
   %56 = icmp sgt i64 %55, 0
   br i1 %56, label %.lr.ph.i.i15.i, label %._crit_edge.i.i13.i
 
@@ -66222,7 +66274,7 @@ _ZNK6open3d4core7Indexer11GetInputPtrIsEEPT_ll.exit.thread.i: ; preds = %37, %._
   %67 = srem i64 %.01720.i.i18.i, %61
   %68 = add nuw nsw i64 %.022.i.i16.i, 1
   %exitcond.not.i.i19.i = icmp eq i64 %68, %55
-  br i1 %exitcond.not.i.i19.i, label %._crit_edge.i.i13.i, label %.lr.ph.i.i15.i, !llvm.loop !876
+  br i1 %exitcond.not.i.i19.i, label %._crit_edge.i.i13.i, label %.lr.ph.i.i15.i, !llvm.loop !885
 
 69:                                               ; preds = %._crit_edge.i.i13.i, %57
   %.018.i.i.i = phi ptr [ %58, %57 ], [ %59, %._crit_edge.i.i13.i ]
@@ -66320,7 +66372,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   br i1 %20, label %43, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %40
-  %41 = load i64, ptr %21, align 8, !tbaa !967
+  %41 = load i64, ptr %21, align 8, !tbaa !976
   %42 = icmp sgt i64 %41, 0
   br i1 %42, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
 
@@ -66347,14 +66399,14 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %53 = srem i64 %.01720.i.i.i, %47
   %54 = add nuw nsw i64 %.022.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %54, %41
-  br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !871
+  br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !880
 
 _ZNK6open3d4core7Indexer11GetInputPtrIiEEPT_ll.exit.thread.i: ; preds = %37, %._crit_edge.i.i.i, %43
   %.0.i21.i = phi ptr [ %45, %._crit_edge.i.i.i ], [ %44, %43 ], [ null, %37 ]
   br i1 %28, label %57, label %.preheader.i.i12.i
 
 .preheader.i.i12.i:                               ; preds = %_ZNK6open3d4core7Indexer11GetInputPtrIiEEPT_ll.exit.thread.i
-  %55 = load i64, ptr %21, align 8, !tbaa !967
+  %55 = load i64, ptr %21, align 8, !tbaa !976
   %56 = icmp sgt i64 %55, 0
   br i1 %56, label %.lr.ph.i.i15.i, label %._crit_edge.i.i13.i
 
@@ -66381,7 +66433,7 @@ _ZNK6open3d4core7Indexer11GetInputPtrIiEEPT_ll.exit.thread.i: ; preds = %37, %._
   %67 = srem i64 %.01720.i.i18.i, %61
   %68 = add nuw nsw i64 %.022.i.i16.i, 1
   %exitcond.not.i.i19.i = icmp eq i64 %68, %55
-  br i1 %exitcond.not.i.i19.i, label %._crit_edge.i.i13.i, label %.lr.ph.i.i15.i, !llvm.loop !876
+  br i1 %exitcond.not.i.i19.i, label %._crit_edge.i.i13.i, label %.lr.ph.i.i15.i, !llvm.loop !885
 
 69:                                               ; preds = %._crit_edge.i.i13.i, %57
   %.018.i.i.i = phi ptr [ %58, %57 ], [ %59, %._crit_edge.i.i13.i ]
@@ -66460,9 +66512,9 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 600
   %30 = load ptr, ptr %25, align 8
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 848
-  %32 = load double, ptr %31, align 8, !tbaa !1244
+  %32 = load double, ptr %31, align 8, !tbaa !1253
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 856
-  %34 = load double, ptr %33, align 8, !tbaa !1247
+  %34 = load double, ptr %33, align 8, !tbaa !1256
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 864
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 872
   br label %37
@@ -66479,7 +66531,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   br i1 %20, label %43, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %40
-  %41 = load i64, ptr %21, align 8, !tbaa !967
+  %41 = load i64, ptr %21, align 8, !tbaa !976
   %42 = icmp sgt i64 %41, 0
   br i1 %42, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
 
@@ -66506,14 +66558,14 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %53 = srem i64 %.01720.i.i.i, %47
   %54 = add nuw nsw i64 %.022.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %54, %41
-  br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !872
+  br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !881
 
 _ZNK6open3d4core7Indexer11GetInputPtrIlEEPT_ll.exit.thread.i: ; preds = %37, %._crit_edge.i.i.i, %43
   %.0.i21.i = phi ptr [ %45, %._crit_edge.i.i.i ], [ %44, %43 ], [ null, %37 ]
   br i1 %28, label %57, label %.preheader.i.i12.i
 
 .preheader.i.i12.i:                               ; preds = %_ZNK6open3d4core7Indexer11GetInputPtrIlEEPT_ll.exit.thread.i
-  %55 = load i64, ptr %21, align 8, !tbaa !967
+  %55 = load i64, ptr %21, align 8, !tbaa !976
   %56 = icmp sgt i64 %55, 0
   br i1 %56, label %.lr.ph.i.i15.i, label %._crit_edge.i.i13.i
 
@@ -66540,7 +66592,7 @@ _ZNK6open3d4core7Indexer11GetInputPtrIlEEPT_ll.exit.thread.i: ; preds = %37, %._
   %67 = srem i64 %.01720.i.i18.i, %61
   %68 = add nuw nsw i64 %.022.i.i16.i, 1
   %exitcond.not.i.i19.i = icmp eq i64 %68, %55
-  br i1 %exitcond.not.i.i19.i, label %._crit_edge.i.i13.i, label %.lr.ph.i.i15.i, !llvm.loop !876
+  br i1 %exitcond.not.i.i19.i, label %._crit_edge.i.i13.i, label %.lr.ph.i.i15.i, !llvm.loop !885
 
 69:                                               ; preds = %._crit_edge.i.i13.i, %57
   %.018.i.i.i = phi ptr [ %58, %57 ], [ %59, %._crit_edge.i.i13.i ]
@@ -66619,9 +66671,9 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 600
   %30 = load ptr, ptr %25, align 8
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 848
-  %32 = load double, ptr %31, align 8, !tbaa !1253
+  %32 = load double, ptr %31, align 8, !tbaa !1262
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 856
-  %34 = load double, ptr %33, align 8, !tbaa !1256
+  %34 = load double, ptr %33, align 8, !tbaa !1265
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 864
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 872
   br label %37
@@ -66638,7 +66690,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   br i1 %20, label %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.thread20.i, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %40
-  %41 = load i64, ptr %21, align 8, !tbaa !967
+  %41 = load i64, ptr %21, align 8, !tbaa !976
   %42 = icmp sgt i64 %41, 0
   br i1 %42, label %.lr.ph.i.i.i, label %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.thread20.i
 
@@ -66656,7 +66708,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %50 = srem i64 %.01720.i.i.i, %44
   %51 = add nuw nsw i64 %.022.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %51, %41
-  br i1 %exitcond.not.i.i.i, label %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.thread20.i, label %.lr.ph.i.i.i, !llvm.loop !873
+  br i1 %exitcond.not.i.i.i, label %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.thread20.i, label %.lr.ph.i.i.i, !llvm.loop !882
 
 _ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.thread20.i: ; preds = %.lr.ph.i.i.i, %.preheader.i.i.i, %40
   %.016.lcssa.i.sink.i.i = phi i64 [ %.015, %40 ], [ 0, %.preheader.i.i.i ], [ %49, %.lr.ph.i.i.i ]
@@ -66668,7 +66720,7 @@ _ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.i: ; preds = %37, %_ZNK6open
   br i1 %28, label %55, label %.preheader.i.i12.i
 
 .preheader.i.i12.i:                               ; preds = %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.i
-  %53 = load i64, ptr %21, align 8, !tbaa !967
+  %53 = load i64, ptr %21, align 8, !tbaa !976
   %54 = icmp sgt i64 %53, 0
   br i1 %54, label %.lr.ph.i.i13.i, label %._crit_edge.i.i.i
 
@@ -66695,7 +66747,7 @@ _ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.i: ; preds = %37, %_ZNK6open
   %65 = srem i64 %.01720.i.i16.i, %59
   %66 = add nuw nsw i64 %.022.i.i14.i, 1
   %exitcond.not.i.i17.i = icmp eq i64 %66, %53
-  br i1 %exitcond.not.i.i17.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i13.i, !llvm.loop !876
+  br i1 %exitcond.not.i.i17.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i13.i, !llvm.loop !885
 
 67:                                               ; preds = %._crit_edge.i.i.i, %55
   %.018.i.i.i = phi ptr [ %56, %55 ], [ %57, %._crit_edge.i.i.i ]
@@ -66774,9 +66826,9 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 600
   %30 = load ptr, ptr %25, align 8
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 848
-  %32 = load double, ptr %31, align 8, !tbaa !1262
+  %32 = load double, ptr %31, align 8, !tbaa !1271
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 856
-  %34 = load double, ptr %33, align 8, !tbaa !1265
+  %34 = load double, ptr %33, align 8, !tbaa !1274
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 864
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 872
   br label %37
@@ -66793,7 +66845,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   br i1 %20, label %43, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %40
-  %41 = load i64, ptr %21, align 8, !tbaa !967
+  %41 = load i64, ptr %21, align 8, !tbaa !976
   %42 = icmp sgt i64 %41, 0
   br i1 %42, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
 
@@ -66820,14 +66872,14 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %53 = srem i64 %.01720.i.i.i, %47
   %54 = add nuw nsw i64 %.022.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %54, %41
-  br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !874
+  br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !883
 
 _ZNK6open3d4core7Indexer11GetInputPtrItEEPT_ll.exit.thread.i: ; preds = %37, %._crit_edge.i.i.i, %43
   %.0.i21.i = phi ptr [ %45, %._crit_edge.i.i.i ], [ %44, %43 ], [ null, %37 ]
   br i1 %28, label %57, label %.preheader.i.i12.i
 
 .preheader.i.i12.i:                               ; preds = %_ZNK6open3d4core7Indexer11GetInputPtrItEEPT_ll.exit.thread.i
-  %55 = load i64, ptr %21, align 8, !tbaa !967
+  %55 = load i64, ptr %21, align 8, !tbaa !976
   %56 = icmp sgt i64 %55, 0
   br i1 %56, label %.lr.ph.i.i15.i, label %._crit_edge.i.i13.i
 
@@ -66854,7 +66906,7 @@ _ZNK6open3d4core7Indexer11GetInputPtrItEEPT_ll.exit.thread.i: ; preds = %37, %._
   %67 = srem i64 %.01720.i.i18.i, %61
   %68 = add nuw nsw i64 %.022.i.i16.i, 1
   %exitcond.not.i.i19.i = icmp eq i64 %68, %55
-  br i1 %exitcond.not.i.i19.i, label %._crit_edge.i.i13.i, label %.lr.ph.i.i15.i, !llvm.loop !876
+  br i1 %exitcond.not.i.i19.i, label %._crit_edge.i.i13.i, label %.lr.ph.i.i15.i, !llvm.loop !885
 
 69:                                               ; preds = %._crit_edge.i.i13.i, %57
   %.018.i.i.i = phi ptr [ %58, %57 ], [ %59, %._crit_edge.i.i13.i ]
@@ -66933,9 +66985,9 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 600
   %30 = load ptr, ptr %25, align 8
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 848
-  %32 = load double, ptr %31, align 8, !tbaa !1271
+  %32 = load double, ptr %31, align 8, !tbaa !1280
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 856
-  %34 = load double, ptr %33, align 8, !tbaa !1274
+  %34 = load double, ptr %33, align 8, !tbaa !1283
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 864
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 872
   br label %37
@@ -66952,7 +67004,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   br i1 %20, label %43, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %40
-  %41 = load i64, ptr %21, align 8, !tbaa !967
+  %41 = load i64, ptr %21, align 8, !tbaa !976
   %42 = icmp sgt i64 %41, 0
   br i1 %42, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
 
@@ -66979,14 +67031,14 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %53 = srem i64 %.01720.i.i.i, %47
   %54 = add nuw nsw i64 %.022.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %54, %41
-  br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !875
+  br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !884
 
 _ZNK6open3d4core7Indexer11GetInputPtrIjEEPT_ll.exit.thread.i: ; preds = %37, %._crit_edge.i.i.i, %43
   %.0.i21.i = phi ptr [ %45, %._crit_edge.i.i.i ], [ %44, %43 ], [ null, %37 ]
   br i1 %28, label %57, label %.preheader.i.i12.i
 
 .preheader.i.i12.i:                               ; preds = %_ZNK6open3d4core7Indexer11GetInputPtrIjEEPT_ll.exit.thread.i
-  %55 = load i64, ptr %21, align 8, !tbaa !967
+  %55 = load i64, ptr %21, align 8, !tbaa !976
   %56 = icmp sgt i64 %55, 0
   br i1 %56, label %.lr.ph.i.i15.i, label %._crit_edge.i.i13.i
 
@@ -67013,7 +67065,7 @@ _ZNK6open3d4core7Indexer11GetInputPtrIjEEPT_ll.exit.thread.i: ; preds = %37, %._
   %67 = srem i64 %.01720.i.i18.i, %61
   %68 = add nuw nsw i64 %.022.i.i16.i, 1
   %exitcond.not.i.i19.i = icmp eq i64 %68, %55
-  br i1 %exitcond.not.i.i19.i, label %._crit_edge.i.i13.i, label %.lr.ph.i.i15.i, !llvm.loop !876
+  br i1 %exitcond.not.i.i19.i, label %._crit_edge.i.i13.i, label %.lr.ph.i.i15.i, !llvm.loop !885
 
 69:                                               ; preds = %._crit_edge.i.i13.i, %57
   %.018.i.i.i = phi ptr [ %58, %57 ], [ %59, %._crit_edge.i.i13.i ]
@@ -67092,9 +67144,9 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 600
   %30 = load ptr, ptr %25, align 8
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 848
-  %32 = load double, ptr %31, align 8, !tbaa !1280
+  %32 = load double, ptr %31, align 8, !tbaa !1289
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 856
-  %34 = load double, ptr %33, align 8, !tbaa !1283
+  %34 = load double, ptr %33, align 8, !tbaa !1292
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 864
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 872
   br label %37
@@ -67111,7 +67163,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   br i1 %20, label %43, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %40
-  %41 = load i64, ptr %21, align 8, !tbaa !967
+  %41 = load i64, ptr %21, align 8, !tbaa !976
   %42 = icmp sgt i64 %41, 0
   br i1 %42, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
 
@@ -67138,14 +67190,14 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %53 = srem i64 %.01720.i.i.i, %47
   %54 = add nuw nsw i64 %.022.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %54, %41
-  br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !876
+  br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !885
 
 _ZNK6open3d4core7Indexer11GetInputPtrImEEPT_ll.exit.thread.i: ; preds = %37, %._crit_edge.i.i.i, %43
   %.0.i21.i = phi ptr [ %45, %._crit_edge.i.i.i ], [ %44, %43 ], [ null, %37 ]
   br i1 %28, label %57, label %.preheader.i.i12.i
 
 .preheader.i.i12.i:                               ; preds = %_ZNK6open3d4core7Indexer11GetInputPtrImEEPT_ll.exit.thread.i
-  %55 = load i64, ptr %21, align 8, !tbaa !967
+  %55 = load i64, ptr %21, align 8, !tbaa !976
   %56 = icmp sgt i64 %55, 0
   br i1 %56, label %.lr.ph.i.i15.i, label %._crit_edge.i.i13.i
 
@@ -67172,7 +67224,7 @@ _ZNK6open3d4core7Indexer11GetInputPtrImEEPT_ll.exit.thread.i: ; preds = %37, %._
   %67 = srem i64 %.01720.i.i18.i, %61
   %68 = add nuw nsw i64 %.022.i.i16.i, 1
   %exitcond.not.i.i19.i = icmp eq i64 %68, %55
-  br i1 %exitcond.not.i.i19.i, label %._crit_edge.i.i13.i, label %.lr.ph.i.i15.i, !llvm.loop !876
+  br i1 %exitcond.not.i.i19.i, label %._crit_edge.i.i13.i, label %.lr.ph.i.i15.i, !llvm.loop !885
 
 69:                                               ; preds = %._crit_edge.i.i13.i, %57
   %.018.i.i.i = phi ptr [ %58, %57 ], [ %59, %._crit_edge.i.i13.i ]
@@ -67296,19 +67348,19 @@ define hidden void @_ZN6open3d1t8geometry6kernel5image16ClipTransformCPUERKNS_4c
   %74 = call i64 %73(ptr noundef nonnull align 8 dereferenceable(160) %0)
   store i64 %74, ptr %25, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
-  store i64 %65, ptr %26, align 8, !tbaa !1285
+  store i64 %65, ptr %26, align 8, !tbaa !1294
   %75 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %75, ptr noundef nonnull align 8 dereferenceable(56) %46, i64 56, i1 false), !tbaa.struct !1288
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %75, ptr noundef nonnull align 8 dereferenceable(56) %46, i64 56, i1 false), !tbaa.struct !1297
   %76 = getelementptr inbounds nuw i8, ptr %26, i64 64
-  store float %2, ptr %76, align 8, !tbaa !1289
+  store float %2, ptr %76, align 8, !tbaa !1298
   %77 = getelementptr inbounds nuw i8, ptr %26, i64 68
-  store float %3, ptr %77, align 4, !tbaa !1290
+  store float %3, ptr %77, align 4, !tbaa !1299
   %78 = getelementptr inbounds nuw i8, ptr %26, i64 72
-  store float %5, ptr %78, align 8, !tbaa !1291
+  store float %5, ptr %78, align 8, !tbaa !1300
   %79 = getelementptr inbounds nuw i8, ptr %26, i64 76
-  store float %4, ptr %79, align 4, !tbaa !1292
+  store float %4, ptr %79, align 4, !tbaa !1301
   %80 = getelementptr inbounds nuw i8, ptr %26, i64 80
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %80, ptr noundef nonnull align 8 dereferenceable(56) %47, i64 56, i1 false), !tbaa.struct !1288
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %80, ptr noundef nonnull align 8 dereferenceable(56) %47, i64 56, i1 false), !tbaa.struct !1297
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store i64 %66, ptr %23, align 8, !tbaa !36
   %81 = and i64 %74, 4294967295
@@ -67384,19 +67436,19 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i.i: ; preds 
   %105 = call i64 %104(ptr noundef nonnull align 8 dereferenceable(160) %0)
   store i64 %105, ptr %21, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
-  store i64 %65, ptr %22, align 8, !tbaa !1293
+  store i64 %65, ptr %22, align 8, !tbaa !1302
   %106 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %106, ptr noundef nonnull align 8 dereferenceable(56) %46, i64 56, i1 false), !tbaa.struct !1288
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %106, ptr noundef nonnull align 8 dereferenceable(56) %46, i64 56, i1 false), !tbaa.struct !1297
   %107 = getelementptr inbounds nuw i8, ptr %22, i64 64
-  store float %2, ptr %107, align 8, !tbaa !1295
+  store float %2, ptr %107, align 8, !tbaa !1304
   %108 = getelementptr inbounds nuw i8, ptr %22, i64 68
-  store float %3, ptr %108, align 4, !tbaa !1296
+  store float %3, ptr %108, align 4, !tbaa !1305
   %109 = getelementptr inbounds nuw i8, ptr %22, i64 72
-  store float %5, ptr %109, align 8, !tbaa !1297
+  store float %5, ptr %109, align 8, !tbaa !1306
   %110 = getelementptr inbounds nuw i8, ptr %22, i64 76
-  store float %4, ptr %110, align 4, !tbaa !1298
+  store float %4, ptr %110, align 4, !tbaa !1307
   %111 = getelementptr inbounds nuw i8, ptr %22, i64 80
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %111, ptr noundef nonnull align 8 dereferenceable(56) %47, i64 56, i1 false), !tbaa.struct !1288
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %111, ptr noundef nonnull align 8 dereferenceable(56) %47, i64 56, i1 false), !tbaa.struct !1297
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store i64 %66, ptr %19, align 8, !tbaa !36
   %112 = and i64 %105, 4294967295
@@ -67468,19 +67520,19 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i2.i: ; preds
   %136 = call i64 %135(ptr noundef nonnull align 8 dereferenceable(160) %0)
   store i64 %136, ptr %17, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
-  store i64 %65, ptr %18, align 8, !tbaa !1299
+  store i64 %65, ptr %18, align 8, !tbaa !1308
   %137 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %137, ptr noundef nonnull align 8 dereferenceable(56) %46, i64 56, i1 false), !tbaa.struct !1288
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %137, ptr noundef nonnull align 8 dereferenceable(56) %46, i64 56, i1 false), !tbaa.struct !1297
   %138 = getelementptr inbounds nuw i8, ptr %18, i64 64
-  store float %2, ptr %138, align 8, !tbaa !1301
+  store float %2, ptr %138, align 8, !tbaa !1310
   %139 = getelementptr inbounds nuw i8, ptr %18, i64 68
-  store float %3, ptr %139, align 4, !tbaa !1302
+  store float %3, ptr %139, align 4, !tbaa !1311
   %140 = getelementptr inbounds nuw i8, ptr %18, i64 72
-  store float %5, ptr %140, align 8, !tbaa !1303
+  store float %5, ptr %140, align 8, !tbaa !1312
   %141 = getelementptr inbounds nuw i8, ptr %18, i64 76
-  store float %4, ptr %141, align 4, !tbaa !1304
+  store float %4, ptr %141, align 4, !tbaa !1313
   %142 = getelementptr inbounds nuw i8, ptr %18, i64 80
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %142, ptr noundef nonnull align 8 dereferenceable(56) %47, i64 56, i1 false), !tbaa.struct !1288
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %142, ptr noundef nonnull align 8 dereferenceable(56) %47, i64 56, i1 false), !tbaa.struct !1297
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i64 %66, ptr %15, align 8, !tbaa !36
   %143 = and i64 %136, 4294967295
@@ -67552,19 +67604,19 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i5.i: ; preds
   %167 = call i64 %166(ptr noundef nonnull align 8 dereferenceable(160) %0)
   store i64 %167, ptr %13, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  store i64 %65, ptr %14, align 8, !tbaa !1305
+  store i64 %65, ptr %14, align 8, !tbaa !1314
   %168 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %168, ptr noundef nonnull align 8 dereferenceable(56) %46, i64 56, i1 false), !tbaa.struct !1288
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %168, ptr noundef nonnull align 8 dereferenceable(56) %46, i64 56, i1 false), !tbaa.struct !1297
   %169 = getelementptr inbounds nuw i8, ptr %14, i64 64
-  store float %2, ptr %169, align 8, !tbaa !1307
+  store float %2, ptr %169, align 8, !tbaa !1316
   %170 = getelementptr inbounds nuw i8, ptr %14, i64 68
-  store float %3, ptr %170, align 4, !tbaa !1308
+  store float %3, ptr %170, align 4, !tbaa !1317
   %171 = getelementptr inbounds nuw i8, ptr %14, i64 72
-  store float %5, ptr %171, align 8, !tbaa !1309
+  store float %5, ptr %171, align 8, !tbaa !1318
   %172 = getelementptr inbounds nuw i8, ptr %14, i64 76
-  store float %4, ptr %172, align 4, !tbaa !1310
+  store float %4, ptr %172, align 4, !tbaa !1319
   %173 = getelementptr inbounds nuw i8, ptr %14, i64 80
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %173, ptr noundef nonnull align 8 dereferenceable(56) %47, i64 56, i1 false), !tbaa.struct !1288
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %173, ptr noundef nonnull align 8 dereferenceable(56) %47, i64 56, i1 false), !tbaa.struct !1297
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i64 %66, ptr %11, align 8, !tbaa !36
   %174 = and i64 %167, 4294967295
@@ -67636,19 +67688,19 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i8.i: ; preds
   %198 = call i64 %197(ptr noundef nonnull align 8 dereferenceable(160) %0)
   store i64 %198, ptr %9, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  store i64 %65, ptr %10, align 8, !tbaa !1311
+  store i64 %65, ptr %10, align 8, !tbaa !1320
   %199 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %199, ptr noundef nonnull align 8 dereferenceable(56) %46, i64 56, i1 false), !tbaa.struct !1288
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %199, ptr noundef nonnull align 8 dereferenceable(56) %46, i64 56, i1 false), !tbaa.struct !1297
   %200 = getelementptr inbounds nuw i8, ptr %10, i64 64
-  store float %2, ptr %200, align 8, !tbaa !1313
+  store float %2, ptr %200, align 8, !tbaa !1322
   %201 = getelementptr inbounds nuw i8, ptr %10, i64 68
-  store float %3, ptr %201, align 4, !tbaa !1314
+  store float %3, ptr %201, align 4, !tbaa !1323
   %202 = getelementptr inbounds nuw i8, ptr %10, i64 72
-  store float %5, ptr %202, align 8, !tbaa !1315
+  store float %5, ptr %202, align 8, !tbaa !1324
   %203 = getelementptr inbounds nuw i8, ptr %10, i64 76
-  store float %4, ptr %203, align 4, !tbaa !1316
+  store float %4, ptr %203, align 4, !tbaa !1325
   %204 = getelementptr inbounds nuw i8, ptr %10, i64 80
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %204, ptr noundef nonnull align 8 dereferenceable(56) %47, i64 56, i1 false), !tbaa.struct !1288
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %204, ptr noundef nonnull align 8 dereferenceable(56) %47, i64 56, i1 false), !tbaa.struct !1297
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %66, ptr %7, align 8, !tbaa !36
   %205 = and i64 %198, 4294967295
@@ -67720,7 +67772,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i11.i: ; pred
   %227 = getelementptr inbounds nuw i8, ptr %33, i64 16
   store ptr %48, ptr %227, align 8, !tbaa !140
   %228 = getelementptr inbounds nuw i8, ptr %33, i64 24
-  store ptr %46, ptr %228, align 8, !tbaa !1317
+  store ptr %46, ptr %228, align 8, !tbaa !1326
   %229 = getelementptr inbounds nuw i8, ptr %33, i64 32
   store ptr %42, ptr %229, align 8, !tbaa !67
   %230 = getelementptr inbounds nuw i8, ptr %33, i64 40
@@ -67730,7 +67782,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i11.i: ; pred
   %232 = getelementptr inbounds nuw i8, ptr %33, i64 56
   store ptr %44, ptr %232, align 8, !tbaa !67
   %233 = getelementptr inbounds nuw i8, ptr %33, i64 64
-  store ptr %47, ptr %233, align 8, !tbaa !1317
+  store ptr %47, ptr %233, align 8, !tbaa !1326
   call fastcc void @"_ZZZN6open3d1t8geometry6kernel5image16ClipTransformCPUERKNS_4core6TensorERS5_ffffENK3$_0clEvENKUlvE4_clEv"(ptr noundef nonnull align 8 dereferenceable(72) %33)
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
   br label %"_ZZN6open3d1t8geometry6kernel5image16ClipTransformCPUERKNS_4core6TensorERS5_ffffENK3$_0clEv.exit"
@@ -67750,7 +67802,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i11.i: ; pred
   %238 = getelementptr inbounds nuw i8, ptr %35, i64 16
   store ptr %48, ptr %238, align 8, !tbaa !140
   %239 = getelementptr inbounds nuw i8, ptr %35, i64 24
-  store ptr %46, ptr %239, align 8, !tbaa !1317
+  store ptr %46, ptr %239, align 8, !tbaa !1326
   %240 = getelementptr inbounds nuw i8, ptr %35, i64 32
   store ptr %42, ptr %240, align 8, !tbaa !67
   %241 = getelementptr inbounds nuw i8, ptr %35, i64 40
@@ -67760,7 +67812,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i11.i: ; pred
   %243 = getelementptr inbounds nuw i8, ptr %35, i64 56
   store ptr %44, ptr %243, align 8, !tbaa !67
   %244 = getelementptr inbounds nuw i8, ptr %35, i64 64
-  store ptr %47, ptr %244, align 8, !tbaa !1317
+  store ptr %47, ptr %244, align 8, !tbaa !1326
   call fastcc void @"_ZZZN6open3d1t8geometry6kernel5image16ClipTransformCPUERKNS_4core6TensorERS5_ffffENK3$_0clEvENKUlvE5_clEv"(ptr noundef nonnull align 8 dereferenceable(72) %35)
   call void @llvm.lifetime.end.p0(ptr nonnull %35)
   br label %"_ZZN6open3d1t8geometry6kernel5image16ClipTransformCPUERKNS_4core6TensorERS5_ffffENK3$_0clEv.exit"
@@ -67780,7 +67832,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i11.i: ; pred
   %249 = getelementptr inbounds nuw i8, ptr %37, i64 16
   store ptr %48, ptr %249, align 8, !tbaa !140
   %250 = getelementptr inbounds nuw i8, ptr %37, i64 24
-  store ptr %46, ptr %250, align 8, !tbaa !1317
+  store ptr %46, ptr %250, align 8, !tbaa !1326
   %251 = getelementptr inbounds nuw i8, ptr %37, i64 32
   store ptr %42, ptr %251, align 8, !tbaa !67
   %252 = getelementptr inbounds nuw i8, ptr %37, i64 40
@@ -67790,7 +67842,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i11.i: ; pred
   %254 = getelementptr inbounds nuw i8, ptr %37, i64 56
   store ptr %44, ptr %254, align 8, !tbaa !67
   %255 = getelementptr inbounds nuw i8, ptr %37, i64 64
-  store ptr %47, ptr %255, align 8, !tbaa !1317
+  store ptr %47, ptr %255, align 8, !tbaa !1326
   call fastcc void @"_ZZZN6open3d1t8geometry6kernel5image16ClipTransformCPUERKNS_4core6TensorERS5_ffffENK3$_0clEvENKUlvE6_clEv"(ptr noundef nonnull align 8 dereferenceable(72) %37)
   call void @llvm.lifetime.end.p0(ptr nonnull %37)
   br label %"_ZZN6open3d1t8geometry6kernel5image16ClipTransformCPUERKNS_4core6TensorERS5_ffffENK3$_0clEv.exit"
@@ -67810,7 +67862,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i11.i: ; pred
   %260 = getelementptr inbounds nuw i8, ptr %39, i64 16
   store ptr %48, ptr %260, align 8, !tbaa !140
   %261 = getelementptr inbounds nuw i8, ptr %39, i64 24
-  store ptr %46, ptr %261, align 8, !tbaa !1317
+  store ptr %46, ptr %261, align 8, !tbaa !1326
   %262 = getelementptr inbounds nuw i8, ptr %39, i64 32
   store ptr %42, ptr %262, align 8, !tbaa !67
   %263 = getelementptr inbounds nuw i8, ptr %39, i64 40
@@ -67820,7 +67872,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i11.i: ; pred
   %265 = getelementptr inbounds nuw i8, ptr %39, i64 56
   store ptr %44, ptr %265, align 8, !tbaa !67
   %266 = getelementptr inbounds nuw i8, ptr %39, i64 64
-  store ptr %47, ptr %266, align 8, !tbaa !1317
+  store ptr %47, ptr %266, align 8, !tbaa !1326
   call fastcc void @"_ZZZN6open3d1t8geometry6kernel5image16ClipTransformCPUERKNS_4core6TensorERS5_ffffENK3$_0clEvENKUlvE7_clEv"(ptr noundef nonnull align 8 dereferenceable(72) %39)
   call void @llvm.lifetime.end.p0(ptr nonnull %39)
   br label %"_ZZN6open3d1t8geometry6kernel5image16ClipTransformCPUERKNS_4core6TensorERS5_ffffENK3$_0clEv.exit"
@@ -67840,7 +67892,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i11.i: ; pred
   %271 = getelementptr inbounds nuw i8, ptr %41, i64 16
   store ptr %48, ptr %271, align 8, !tbaa !140
   %272 = getelementptr inbounds nuw i8, ptr %41, i64 24
-  store ptr %46, ptr %272, align 8, !tbaa !1317
+  store ptr %46, ptr %272, align 8, !tbaa !1326
   %273 = getelementptr inbounds nuw i8, ptr %41, i64 32
   store ptr %42, ptr %273, align 8, !tbaa !67
   %274 = getelementptr inbounds nuw i8, ptr %41, i64 40
@@ -67850,7 +67902,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i11.i: ; pred
   %276 = getelementptr inbounds nuw i8, ptr %41, i64 56
   store ptr %44, ptr %276, align 8, !tbaa !67
   %277 = getelementptr inbounds nuw i8, ptr %41, i64 64
-  store ptr %47, ptr %277, align 8, !tbaa !1317
+  store ptr %47, ptr %277, align 8, !tbaa !1326
   call fastcc void @"_ZZZN6open3d1t8geometry6kernel5image16ClipTransformCPUERKNS_4core6TensorERS5_ffffENK3$_0clEvENKUlvE8_clEv"(ptr noundef nonnull align 8 dereferenceable(72) %41)
   call void @llvm.lifetime.end.p0(ptr nonnull %41)
   br label %"_ZZN6open3d1t8geometry6kernel5image16ClipTransformCPUERKNS_4core6TensorERS5_ffffENK3$_0clEv.exit"
@@ -67960,7 +68012,7 @@ _ZN6open3d4core11SmallVectorIlLj4EED2Ev.exit:     ; preds = %31, %36
 
 37:                                               ; preds = %23
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %2, ptr %38, align 8, !tbaa !1319
+  store i64 %2, ptr %38, align 8, !tbaa !1328
   %39 = icmp sgt i64 %2, 0
   br i1 %39, label %.lr.ph, label %._crit_edge
 
@@ -67973,7 +68025,7 @@ _ZN6open3d4core11SmallVectorIlLj4EED2Ev.exit:     ; preds = %31, %36
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 120
   %.sroa.3.0.copyload = load i64, ptr %.sroa.3.0..sroa_idx, align 8, !tbaa !36
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.3.0.copyload, ptr %42, align 8, !tbaa !1320
+  store i64 %.sroa.3.0.copyload, ptr %42, align 8, !tbaa !1329
   %43 = icmp slt i64 %2, %26
   br i1 %43, label %.lr.ph24, label %.preheader
 
@@ -67989,7 +68041,7 @@ _ZN6open3d4core11SmallVectorIlLj4EED2Ev.exit:     ; preds = %31, %36
   store i64 %47, ptr %48, align 8, !tbaa !36
   %49 = add nuw nsw i64 %.01821, 1
   %exitcond.not = icmp eq i64 %49, %2
-  br i1 %exitcond.not, label %._crit_edge, label %45, !llvm.loop !1321
+  br i1 %exitcond.not, label %._crit_edge, label %45, !llvm.loop !1330
 
 .preheader:                                       ; preds = %54, %._crit_edge
   %50 = icmp slt i64 %2, 4
@@ -68009,15 +68061,15 @@ _ZN6open3d4core11SmallVectorIlLj4EED2Ev.exit:     ; preds = %31, %36
   %56 = getelementptr inbounds nuw i64, ptr %44, i64 %.01722
   %57 = load i64, ptr %56, align 8, !tbaa !36
   %58 = mul nsw i64 %55, %57
-  store i64 %58, ptr %42, align 8, !tbaa !1320
+  store i64 %58, ptr %42, align 8, !tbaa !1329
   %59 = add nsw i64 %.01722, 1
   %exitcond28.not = icmp eq i64 %59, %26
-  br i1 %exitcond28.not, label %.preheader, label %54, !llvm.loop !1322
+  br i1 %exitcond28.not, label %.preheader, label %54, !llvm.loop !1331
 
 ._crit_edge27:                                    ; preds = %.lr.ph26, %.preheader
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %61 = load ptr, ptr %60, align 8, !tbaa !1323
-  store ptr %61, ptr %0, align 8, !tbaa !1334
+  %61 = load ptr, ptr %60, align 8, !tbaa !1332
+  store ptr %61, ptr %0, align 8, !tbaa !1343
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %62 = load ptr, ptr %6, align 8, !tbaa !18
   %63 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -68040,16 +68092,16 @@ define linkonce_odr hidden void @_ZN6open3d7utility6Logger9LogError_IJRKlRlS5_EE
   %10 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN6open3d7utility6Logger11GetInstanceEv()
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !1335)
-  %11 = load i64, ptr %4, align 8, !tbaa !36, !noalias !1335
-  %12 = load i64, ptr %5, align 8, !tbaa !36, !noalias !1335
-  %13 = load i64, ptr %6, align 8, !tbaa !36, !noalias !1335
-  store i64 %11, ptr %9, align 16, !alias.scope !1335
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !1344)
+  %11 = load i64, ptr %4, align 8, !tbaa !36, !noalias !1344
+  %12 = load i64, ptr %5, align 8, !tbaa !36, !noalias !1344
+  %13 = load i64, ptr %6, align 8, !tbaa !36, !noalias !1344
+  store i64 %11, ptr %9, align 16, !alias.scope !1344
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store i64 %12, ptr %14, align 16, !alias.scope !1335
+  store i64 %12, ptr %14, align 16, !alias.scope !1344
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  store i64 %13, ptr %15, align 16, !alias.scope !1335
-  %16 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #15, !noalias !1338
+  store i64 %13, ptr %15, align 16, !alias.scope !1344
+  %16 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #15, !noalias !1347
   call void @_ZN3fmt3v107vformatB5cxx11ENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %8, ptr nonnull %3, i64 %16, i64 819, ptr nonnull %9)
   invoke void @_ZNK6open3d7utility6Logger6VErrorEPKciS3_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %8) #33
           to label %17 unwind label %18
@@ -68095,48 +68147,48 @@ define internal fastcc void @"_ZZZN6open3d1t8geometry6kernel5image16ClipTransfor
   %4 = alloca %"class.open3d::core::Device", align 8
   %5 = alloca %class.anon.379, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %6 = load ptr, ptr %0, align 8, !tbaa !1341
+  %6 = load ptr, ptr %0, align 8, !tbaa !1350
   %7 = load ptr, ptr %6, align 8, !tbaa !4
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i64 %9(ptr noundef nonnull align 8 dereferenceable(160) %6)
   store i64 %10, ptr %4, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !1343
+  %12 = load ptr, ptr %11, align 8, !tbaa !1352
   %13 = load i64, ptr %12, align 8, !tbaa !36
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %15 = load ptr, ptr %14, align 8, !tbaa !1344
+  %15 = load ptr, ptr %14, align 8, !tbaa !1353
   %16 = load i64, ptr %15, align 8, !tbaa !36
-  store i64 %16, ptr %5, align 8, !tbaa !1345
+  store i64 %16, ptr %5, align 8, !tbaa !1354
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %19 = load ptr, ptr %18, align 8, !tbaa !1347
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %17, ptr noundef nonnull align 8 dereferenceable(56) %19, i64 56, i1 false), !tbaa.struct !1288
+  %19 = load ptr, ptr %18, align 8, !tbaa !1356
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %17, ptr noundef nonnull align 8 dereferenceable(56) %19, i64 56, i1 false), !tbaa.struct !1297
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %22 = load ptr, ptr %21, align 8, !tbaa !1348
+  %22 = load ptr, ptr %21, align 8, !tbaa !1357
   %23 = load float, ptr %22, align 4, !tbaa !38
-  store float %23, ptr %20, align 8, !tbaa !1349
+  store float %23, ptr %20, align 8, !tbaa !1358
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 68
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %26 = load ptr, ptr %25, align 8, !tbaa !1350
+  %26 = load ptr, ptr %25, align 8, !tbaa !1359
   %27 = load float, ptr %26, align 4, !tbaa !38
-  store float %27, ptr %24, align 4, !tbaa !1351
+  store float %27, ptr %24, align 4, !tbaa !1360
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %30 = load ptr, ptr %29, align 8, !tbaa !1352
+  %30 = load ptr, ptr %29, align 8, !tbaa !1361
   %31 = load float, ptr %30, align 4, !tbaa !38
-  store float %31, ptr %28, align 8, !tbaa !1353
+  store float %31, ptr %28, align 8, !tbaa !1362
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 76
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %34 = load ptr, ptr %33, align 8, !tbaa !1354
+  %34 = load ptr, ptr %33, align 8, !tbaa !1363
   %35 = load float, ptr %34, align 4, !tbaa !38
-  store float %35, ptr %32, align 4, !tbaa !1355
+  store float %35, ptr %32, align 4, !tbaa !1364
   %36 = getelementptr inbounds nuw i8, ptr %5, i64 80
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %38 = load ptr, ptr %37, align 8, !tbaa !1356
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %36, ptr noundef nonnull align 8 dereferenceable(56) %38, i64 56, i1 false), !tbaa.struct !1288
+  %38 = load ptr, ptr %37, align 8, !tbaa !1365
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %36, ptr noundef nonnull align 8 dereferenceable(56) %38, i64 56, i1 false), !tbaa.struct !1297
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %39 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @2)
   store i64 %13, ptr %2, align 8, !tbaa !36
@@ -68202,48 +68254,48 @@ define internal fastcc void @"_ZZZN6open3d1t8geometry6kernel5image16ClipTransfor
   %4 = alloca %"class.open3d::core::Device", align 8
   %5 = alloca %class.anon.380, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %6 = load ptr, ptr %0, align 8, !tbaa !1357
+  %6 = load ptr, ptr %0, align 8, !tbaa !1366
   %7 = load ptr, ptr %6, align 8, !tbaa !4
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i64 %9(ptr noundef nonnull align 8 dereferenceable(160) %6)
   store i64 %10, ptr %4, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !1359
+  %12 = load ptr, ptr %11, align 8, !tbaa !1368
   %13 = load i64, ptr %12, align 8, !tbaa !36
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %15 = load ptr, ptr %14, align 8, !tbaa !1360
+  %15 = load ptr, ptr %14, align 8, !tbaa !1369
   %16 = load i64, ptr %15, align 8, !tbaa !36
-  store i64 %16, ptr %5, align 8, !tbaa !1361
+  store i64 %16, ptr %5, align 8, !tbaa !1370
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %19 = load ptr, ptr %18, align 8, !tbaa !1363
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %17, ptr noundef nonnull align 8 dereferenceable(56) %19, i64 56, i1 false), !tbaa.struct !1288
+  %19 = load ptr, ptr %18, align 8, !tbaa !1372
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %17, ptr noundef nonnull align 8 dereferenceable(56) %19, i64 56, i1 false), !tbaa.struct !1297
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %22 = load ptr, ptr %21, align 8, !tbaa !1364
+  %22 = load ptr, ptr %21, align 8, !tbaa !1373
   %23 = load float, ptr %22, align 4, !tbaa !38
-  store float %23, ptr %20, align 8, !tbaa !1365
+  store float %23, ptr %20, align 8, !tbaa !1374
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 68
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %26 = load ptr, ptr %25, align 8, !tbaa !1366
+  %26 = load ptr, ptr %25, align 8, !tbaa !1375
   %27 = load float, ptr %26, align 4, !tbaa !38
-  store float %27, ptr %24, align 4, !tbaa !1367
+  store float %27, ptr %24, align 4, !tbaa !1376
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %30 = load ptr, ptr %29, align 8, !tbaa !1368
+  %30 = load ptr, ptr %29, align 8, !tbaa !1377
   %31 = load float, ptr %30, align 4, !tbaa !38
-  store float %31, ptr %28, align 8, !tbaa !1369
+  store float %31, ptr %28, align 8, !tbaa !1378
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 76
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %34 = load ptr, ptr %33, align 8, !tbaa !1370
+  %34 = load ptr, ptr %33, align 8, !tbaa !1379
   %35 = load float, ptr %34, align 4, !tbaa !38
-  store float %35, ptr %32, align 4, !tbaa !1371
+  store float %35, ptr %32, align 4, !tbaa !1380
   %36 = getelementptr inbounds nuw i8, ptr %5, i64 80
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %38 = load ptr, ptr %37, align 8, !tbaa !1372
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %36, ptr noundef nonnull align 8 dereferenceable(56) %38, i64 56, i1 false), !tbaa.struct !1288
+  %38 = load ptr, ptr %37, align 8, !tbaa !1381
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %36, ptr noundef nonnull align 8 dereferenceable(56) %38, i64 56, i1 false), !tbaa.struct !1297
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %39 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @2)
   store i64 %13, ptr %2, align 8, !tbaa !36
@@ -68309,48 +68361,48 @@ define internal fastcc void @"_ZZZN6open3d1t8geometry6kernel5image16ClipTransfor
   %4 = alloca %"class.open3d::core::Device", align 8
   %5 = alloca %class.anon.381, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %6 = load ptr, ptr %0, align 8, !tbaa !1373
+  %6 = load ptr, ptr %0, align 8, !tbaa !1382
   %7 = load ptr, ptr %6, align 8, !tbaa !4
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i64 %9(ptr noundef nonnull align 8 dereferenceable(160) %6)
   store i64 %10, ptr %4, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !1375
+  %12 = load ptr, ptr %11, align 8, !tbaa !1384
   %13 = load i64, ptr %12, align 8, !tbaa !36
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %15 = load ptr, ptr %14, align 8, !tbaa !1376
+  %15 = load ptr, ptr %14, align 8, !tbaa !1385
   %16 = load i64, ptr %15, align 8, !tbaa !36
-  store i64 %16, ptr %5, align 8, !tbaa !1377
+  store i64 %16, ptr %5, align 8, !tbaa !1386
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %19 = load ptr, ptr %18, align 8, !tbaa !1379
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %17, ptr noundef nonnull align 8 dereferenceable(56) %19, i64 56, i1 false), !tbaa.struct !1288
+  %19 = load ptr, ptr %18, align 8, !tbaa !1388
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %17, ptr noundef nonnull align 8 dereferenceable(56) %19, i64 56, i1 false), !tbaa.struct !1297
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %22 = load ptr, ptr %21, align 8, !tbaa !1380
+  %22 = load ptr, ptr %21, align 8, !tbaa !1389
   %23 = load float, ptr %22, align 4, !tbaa !38
-  store float %23, ptr %20, align 8, !tbaa !1381
+  store float %23, ptr %20, align 8, !tbaa !1390
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 68
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %26 = load ptr, ptr %25, align 8, !tbaa !1382
+  %26 = load ptr, ptr %25, align 8, !tbaa !1391
   %27 = load float, ptr %26, align 4, !tbaa !38
-  store float %27, ptr %24, align 4, !tbaa !1383
+  store float %27, ptr %24, align 4, !tbaa !1392
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %30 = load ptr, ptr %29, align 8, !tbaa !1384
+  %30 = load ptr, ptr %29, align 8, !tbaa !1393
   %31 = load float, ptr %30, align 4, !tbaa !38
-  store float %31, ptr %28, align 8, !tbaa !1385
+  store float %31, ptr %28, align 8, !tbaa !1394
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 76
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %34 = load ptr, ptr %33, align 8, !tbaa !1386
+  %34 = load ptr, ptr %33, align 8, !tbaa !1395
   %35 = load float, ptr %34, align 4, !tbaa !38
-  store float %35, ptr %32, align 4, !tbaa !1387
+  store float %35, ptr %32, align 4, !tbaa !1396
   %36 = getelementptr inbounds nuw i8, ptr %5, i64 80
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %38 = load ptr, ptr %37, align 8, !tbaa !1388
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %36, ptr noundef nonnull align 8 dereferenceable(56) %38, i64 56, i1 false), !tbaa.struct !1288
+  %38 = load ptr, ptr %37, align 8, !tbaa !1397
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %36, ptr noundef nonnull align 8 dereferenceable(56) %38, i64 56, i1 false), !tbaa.struct !1297
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %39 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @2)
   store i64 %13, ptr %2, align 8, !tbaa !36
@@ -68416,48 +68468,48 @@ define internal fastcc void @"_ZZZN6open3d1t8geometry6kernel5image16ClipTransfor
   %4 = alloca %"class.open3d::core::Device", align 8
   %5 = alloca %class.anon.382, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %6 = load ptr, ptr %0, align 8, !tbaa !1389
+  %6 = load ptr, ptr %0, align 8, !tbaa !1398
   %7 = load ptr, ptr %6, align 8, !tbaa !4
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i64 %9(ptr noundef nonnull align 8 dereferenceable(160) %6)
   store i64 %10, ptr %4, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !1391
+  %12 = load ptr, ptr %11, align 8, !tbaa !1400
   %13 = load i64, ptr %12, align 8, !tbaa !36
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %15 = load ptr, ptr %14, align 8, !tbaa !1392
+  %15 = load ptr, ptr %14, align 8, !tbaa !1401
   %16 = load i64, ptr %15, align 8, !tbaa !36
-  store i64 %16, ptr %5, align 8, !tbaa !1393
+  store i64 %16, ptr %5, align 8, !tbaa !1402
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %19 = load ptr, ptr %18, align 8, !tbaa !1395
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %17, ptr noundef nonnull align 8 dereferenceable(56) %19, i64 56, i1 false), !tbaa.struct !1288
+  %19 = load ptr, ptr %18, align 8, !tbaa !1404
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %17, ptr noundef nonnull align 8 dereferenceable(56) %19, i64 56, i1 false), !tbaa.struct !1297
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %22 = load ptr, ptr %21, align 8, !tbaa !1396
+  %22 = load ptr, ptr %21, align 8, !tbaa !1405
   %23 = load float, ptr %22, align 4, !tbaa !38
-  store float %23, ptr %20, align 8, !tbaa !1397
+  store float %23, ptr %20, align 8, !tbaa !1406
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 68
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %26 = load ptr, ptr %25, align 8, !tbaa !1398
+  %26 = load ptr, ptr %25, align 8, !tbaa !1407
   %27 = load float, ptr %26, align 4, !tbaa !38
-  store float %27, ptr %24, align 4, !tbaa !1399
+  store float %27, ptr %24, align 4, !tbaa !1408
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %30 = load ptr, ptr %29, align 8, !tbaa !1400
+  %30 = load ptr, ptr %29, align 8, !tbaa !1409
   %31 = load float, ptr %30, align 4, !tbaa !38
-  store float %31, ptr %28, align 8, !tbaa !1401
+  store float %31, ptr %28, align 8, !tbaa !1410
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 76
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %34 = load ptr, ptr %33, align 8, !tbaa !1402
+  %34 = load ptr, ptr %33, align 8, !tbaa !1411
   %35 = load float, ptr %34, align 4, !tbaa !38
-  store float %35, ptr %32, align 4, !tbaa !1403
+  store float %35, ptr %32, align 4, !tbaa !1412
   %36 = getelementptr inbounds nuw i8, ptr %5, i64 80
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %38 = load ptr, ptr %37, align 8, !tbaa !1404
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %36, ptr noundef nonnull align 8 dereferenceable(56) %38, i64 56, i1 false), !tbaa.struct !1288
+  %38 = load ptr, ptr %37, align 8, !tbaa !1413
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %36, ptr noundef nonnull align 8 dereferenceable(56) %38, i64 56, i1 false), !tbaa.struct !1297
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %39 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @2)
   store i64 %13, ptr %2, align 8, !tbaa !36
@@ -68523,48 +68575,48 @@ define internal fastcc void @"_ZZZN6open3d1t8geometry6kernel5image16ClipTransfor
   %4 = alloca %"class.open3d::core::Device", align 8
   %5 = alloca %class.anon.383, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %6 = load ptr, ptr %0, align 8, !tbaa !1405
+  %6 = load ptr, ptr %0, align 8, !tbaa !1414
   %7 = load ptr, ptr %6, align 8, !tbaa !4
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i64 %9(ptr noundef nonnull align 8 dereferenceable(160) %6)
   store i64 %10, ptr %4, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !1407
+  %12 = load ptr, ptr %11, align 8, !tbaa !1416
   %13 = load i64, ptr %12, align 8, !tbaa !36
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %15 = load ptr, ptr %14, align 8, !tbaa !1408
+  %15 = load ptr, ptr %14, align 8, !tbaa !1417
   %16 = load i64, ptr %15, align 8, !tbaa !36
-  store i64 %16, ptr %5, align 8, !tbaa !1409
+  store i64 %16, ptr %5, align 8, !tbaa !1418
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %19 = load ptr, ptr %18, align 8, !tbaa !1411
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %17, ptr noundef nonnull align 8 dereferenceable(56) %19, i64 56, i1 false), !tbaa.struct !1288
+  %19 = load ptr, ptr %18, align 8, !tbaa !1420
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %17, ptr noundef nonnull align 8 dereferenceable(56) %19, i64 56, i1 false), !tbaa.struct !1297
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %22 = load ptr, ptr %21, align 8, !tbaa !1412
+  %22 = load ptr, ptr %21, align 8, !tbaa !1421
   %23 = load float, ptr %22, align 4, !tbaa !38
-  store float %23, ptr %20, align 8, !tbaa !1413
+  store float %23, ptr %20, align 8, !tbaa !1422
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 68
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %26 = load ptr, ptr %25, align 8, !tbaa !1414
+  %26 = load ptr, ptr %25, align 8, !tbaa !1423
   %27 = load float, ptr %26, align 4, !tbaa !38
-  store float %27, ptr %24, align 4, !tbaa !1415
+  store float %27, ptr %24, align 4, !tbaa !1424
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %30 = load ptr, ptr %29, align 8, !tbaa !1416
+  %30 = load ptr, ptr %29, align 8, !tbaa !1425
   %31 = load float, ptr %30, align 4, !tbaa !38
-  store float %31, ptr %28, align 8, !tbaa !1417
+  store float %31, ptr %28, align 8, !tbaa !1426
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 76
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %34 = load ptr, ptr %33, align 8, !tbaa !1418
+  %34 = load ptr, ptr %33, align 8, !tbaa !1427
   %35 = load float, ptr %34, align 4, !tbaa !38
-  store float %35, ptr %32, align 4, !tbaa !1419
+  store float %35, ptr %32, align 4, !tbaa !1428
   %36 = getelementptr inbounds nuw i8, ptr %5, i64 80
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %38 = load ptr, ptr %37, align 8, !tbaa !1420
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %36, ptr noundef nonnull align 8 dereferenceable(56) %38, i64 56, i1 false), !tbaa.struct !1288
+  %38 = load ptr, ptr %37, align 8, !tbaa !1429
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %36, ptr noundef nonnull align 8 dereferenceable(56) %38, i64 56, i1 false), !tbaa.struct !1297
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %39 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @2)
   store i64 %13, ptr %2, align 8, !tbaa !36
@@ -68653,13 +68705,13 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   br i1 %.not13, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %11
-  %17 = load i64, ptr %3, align 8, !tbaa !1285
+  %17 = load i64, ptr %3, align 8, !tbaa !1294
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %20 = load i64, ptr %19, align 8, !tbaa !36
-  %21 = load ptr, ptr %18, align 8, !tbaa !1334
+  %21 = load ptr, ptr %18, align 8, !tbaa !1343
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %23 = load i64, ptr %22, align 8, !tbaa !1320
+  %23 = load i64, ptr %22, align 8, !tbaa !1329
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 68
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 72
@@ -68667,9 +68719,9 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 112
   %30 = load i64, ptr %29, align 8, !tbaa !36
-  %31 = load ptr, ptr %28, align 8, !tbaa !1334
+  %31 = load ptr, ptr %28, align 8, !tbaa !1343
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 88
-  %33 = load i64, ptr %32, align 8, !tbaa !1320
+  %33 = load i64, ptr %32, align 8, !tbaa !1329
   br label %34
 
 34:                                               ; preds = %.lr.ph, %34
@@ -68681,13 +68733,13 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %39 = mul nsw i64 %38, %23
   %40 = getelementptr inbounds i8, ptr %21, i64 %39
   %41 = load float, ptr %40, align 4, !tbaa !38
-  %42 = load float, ptr %24, align 8, !tbaa !1289
+  %42 = load float, ptr %24, align 8, !tbaa !1298
   %43 = fdiv float %41, %42
-  %44 = load float, ptr %25, align 4, !tbaa !1290
+  %44 = load float, ptr %25, align 4, !tbaa !1299
   %45 = fcmp ugt float %43, %44
   %46 = load float, ptr %26, align 8
   %47 = select i1 %45, float %43, float %46
-  %48 = load float, ptr %27, align 4, !tbaa !1292
+  %48 = load float, ptr %27, align 4, !tbaa !1301
   %49 = fcmp ult float %47, %48
   %50 = select i1 %49, float %47, float %46
   %51 = mul nsw i64 %30, %35
@@ -68741,13 +68793,13 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   br i1 %.not13, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %11
-  %17 = load i64, ptr %3, align 8, !tbaa !1293
+  %17 = load i64, ptr %3, align 8, !tbaa !1302
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %20 = load i64, ptr %19, align 8, !tbaa !36
-  %21 = load ptr, ptr %18, align 8, !tbaa !1334
+  %21 = load ptr, ptr %18, align 8, !tbaa !1343
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %23 = load i64, ptr %22, align 8, !tbaa !1320
+  %23 = load i64, ptr %22, align 8, !tbaa !1329
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 68
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 72
@@ -68755,9 +68807,9 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 112
   %30 = load i64, ptr %29, align 8, !tbaa !36
-  %31 = load ptr, ptr %28, align 8, !tbaa !1334
+  %31 = load ptr, ptr %28, align 8, !tbaa !1343
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 88
-  %33 = load i64, ptr %32, align 8, !tbaa !1320
+  %33 = load i64, ptr %32, align 8, !tbaa !1329
   br label %34
 
 34:                                               ; preds = %.lr.ph, %34
@@ -68770,13 +68822,13 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %40 = getelementptr inbounds i8, ptr %21, i64 %39
   %41 = load double, ptr %40, align 8, !tbaa !69
   %42 = fptrunc double %41 to float
-  %43 = load float, ptr %24, align 8, !tbaa !1295
+  %43 = load float, ptr %24, align 8, !tbaa !1304
   %44 = fdiv float %42, %43
-  %45 = load float, ptr %25, align 4, !tbaa !1296
+  %45 = load float, ptr %25, align 4, !tbaa !1305
   %46 = fcmp ugt float %44, %45
   %47 = load float, ptr %26, align 8
   %48 = select i1 %46, float %44, float %47
-  %49 = load float, ptr %27, align 4, !tbaa !1298
+  %49 = load float, ptr %27, align 4, !tbaa !1307
   %50 = fcmp ult float %48, %49
   %51 = select i1 %50, float %48, float %47
   %52 = mul nsw i64 %30, %35
@@ -68830,13 +68882,13 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   br i1 %.not13, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %11
-  %17 = load i64, ptr %3, align 8, !tbaa !1299
+  %17 = load i64, ptr %3, align 8, !tbaa !1308
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %20 = load i64, ptr %19, align 8, !tbaa !36
-  %21 = load ptr, ptr %18, align 8, !tbaa !1334
+  %21 = load ptr, ptr %18, align 8, !tbaa !1343
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %23 = load i64, ptr %22, align 8, !tbaa !1320
+  %23 = load i64, ptr %22, align 8, !tbaa !1329
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 68
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 72
@@ -68844,9 +68896,9 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 112
   %30 = load i64, ptr %29, align 8, !tbaa !36
-  %31 = load ptr, ptr %28, align 8, !tbaa !1334
+  %31 = load ptr, ptr %28, align 8, !tbaa !1343
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 88
-  %33 = load i64, ptr %32, align 8, !tbaa !1320
+  %33 = load i64, ptr %32, align 8, !tbaa !1329
   br label %34
 
 34:                                               ; preds = %.lr.ph, %34
@@ -68859,13 +68911,13 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %40 = getelementptr inbounds i8, ptr %21, i64 %39
   %41 = load i8, ptr %40, align 1, !tbaa !15
   %42 = sitofp i8 %41 to float
-  %43 = load float, ptr %24, align 8, !tbaa !1301
+  %43 = load float, ptr %24, align 8, !tbaa !1310
   %44 = fdiv float %42, %43
-  %45 = load float, ptr %25, align 4, !tbaa !1302
+  %45 = load float, ptr %25, align 4, !tbaa !1311
   %46 = fcmp ugt float %44, %45
   %47 = load float, ptr %26, align 8
   %48 = select i1 %46, float %44, float %47
-  %49 = load float, ptr %27, align 4, !tbaa !1304
+  %49 = load float, ptr %27, align 4, !tbaa !1313
   %50 = fcmp ult float %48, %49
   %51 = select i1 %50, float %48, float %47
   %52 = mul nsw i64 %30, %35
@@ -68919,13 +68971,13 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   br i1 %.not13, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %11
-  %17 = load i64, ptr %3, align 8, !tbaa !1305
+  %17 = load i64, ptr %3, align 8, !tbaa !1314
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %20 = load i64, ptr %19, align 8, !tbaa !36
-  %21 = load ptr, ptr %18, align 8, !tbaa !1334
+  %21 = load ptr, ptr %18, align 8, !tbaa !1343
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %23 = load i64, ptr %22, align 8, !tbaa !1320
+  %23 = load i64, ptr %22, align 8, !tbaa !1329
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 68
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 72
@@ -68933,9 +68985,9 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 112
   %30 = load i64, ptr %29, align 8, !tbaa !36
-  %31 = load ptr, ptr %28, align 8, !tbaa !1334
+  %31 = load ptr, ptr %28, align 8, !tbaa !1343
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 88
-  %33 = load i64, ptr %32, align 8, !tbaa !1320
+  %33 = load i64, ptr %32, align 8, !tbaa !1329
   br label %34
 
 34:                                               ; preds = %.lr.ph, %34
@@ -68948,13 +69000,13 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %40 = getelementptr inbounds i8, ptr %21, i64 %39
   %41 = load i16, ptr %40, align 2, !tbaa !122
   %42 = sitofp i16 %41 to float
-  %43 = load float, ptr %24, align 8, !tbaa !1307
+  %43 = load float, ptr %24, align 8, !tbaa !1316
   %44 = fdiv float %42, %43
-  %45 = load float, ptr %25, align 4, !tbaa !1308
+  %45 = load float, ptr %25, align 4, !tbaa !1317
   %46 = fcmp ugt float %44, %45
   %47 = load float, ptr %26, align 8
   %48 = select i1 %46, float %44, float %47
-  %49 = load float, ptr %27, align 4, !tbaa !1310
+  %49 = load float, ptr %27, align 4, !tbaa !1319
   %50 = fcmp ult float %48, %49
   %51 = select i1 %50, float %48, float %47
   %52 = mul nsw i64 %30, %35
@@ -69008,13 +69060,13 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   br i1 %.not13, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %11
-  %17 = load i64, ptr %3, align 8, !tbaa !1311
+  %17 = load i64, ptr %3, align 8, !tbaa !1320
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %20 = load i64, ptr %19, align 8, !tbaa !36
-  %21 = load ptr, ptr %18, align 8, !tbaa !1334
+  %21 = load ptr, ptr %18, align 8, !tbaa !1343
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %23 = load i64, ptr %22, align 8, !tbaa !1320
+  %23 = load i64, ptr %22, align 8, !tbaa !1329
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 68
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 72
@@ -69022,9 +69074,9 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 112
   %30 = load i64, ptr %29, align 8, !tbaa !36
-  %31 = load ptr, ptr %28, align 8, !tbaa !1334
+  %31 = load ptr, ptr %28, align 8, !tbaa !1343
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 88
-  %33 = load i64, ptr %32, align 8, !tbaa !1320
+  %33 = load i64, ptr %32, align 8, !tbaa !1329
   br label %34
 
 34:                                               ; preds = %.lr.ph, %34
@@ -69037,13 +69089,13 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %40 = getelementptr inbounds i8, ptr %21, i64 %39
   %41 = load i32, ptr %40, align 4, !tbaa !16
   %42 = sitofp i32 %41 to float
-  %43 = load float, ptr %24, align 8, !tbaa !1313
+  %43 = load float, ptr %24, align 8, !tbaa !1322
   %44 = fdiv float %42, %43
-  %45 = load float, ptr %25, align 4, !tbaa !1314
+  %45 = load float, ptr %25, align 4, !tbaa !1323
   %46 = fcmp ugt float %44, %45
   %47 = load float, ptr %26, align 8
   %48 = select i1 %46, float %44, float %47
-  %49 = load float, ptr %27, align 4, !tbaa !1316
+  %49 = load float, ptr %27, align 4, !tbaa !1325
   %50 = fcmp ult float %48, %49
   %51 = select i1 %50, float %48, float %47
   %52 = mul nsw i64 %30, %35
@@ -69097,13 +69149,13 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   br i1 %.not13, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %11
-  %17 = load i64, ptr %3, align 8, !tbaa !1345
+  %17 = load i64, ptr %3, align 8, !tbaa !1354
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %20 = load i64, ptr %19, align 8, !tbaa !36
-  %21 = load ptr, ptr %18, align 8, !tbaa !1334
+  %21 = load ptr, ptr %18, align 8, !tbaa !1343
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %23 = load i64, ptr %22, align 8, !tbaa !1320
+  %23 = load i64, ptr %22, align 8, !tbaa !1329
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 68
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 72
@@ -69111,9 +69163,9 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 112
   %30 = load i64, ptr %29, align 8, !tbaa !36
-  %31 = load ptr, ptr %28, align 8, !tbaa !1334
+  %31 = load ptr, ptr %28, align 8, !tbaa !1343
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 88
-  %33 = load i64, ptr %32, align 8, !tbaa !1320
+  %33 = load i64, ptr %32, align 8, !tbaa !1329
   br label %34
 
 34:                                               ; preds = %.lr.ph, %34
@@ -69126,13 +69178,13 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %40 = getelementptr inbounds i8, ptr %21, i64 %39
   %41 = load i64, ptr %40, align 8, !tbaa !36
   %42 = sitofp i64 %41 to float
-  %43 = load float, ptr %24, align 8, !tbaa !1349
+  %43 = load float, ptr %24, align 8, !tbaa !1358
   %44 = fdiv float %42, %43
-  %45 = load float, ptr %25, align 4, !tbaa !1351
+  %45 = load float, ptr %25, align 4, !tbaa !1360
   %46 = fcmp ugt float %44, %45
   %47 = load float, ptr %26, align 8
   %48 = select i1 %46, float %44, float %47
-  %49 = load float, ptr %27, align 4, !tbaa !1355
+  %49 = load float, ptr %27, align 4, !tbaa !1364
   %50 = fcmp ult float %48, %49
   %51 = select i1 %50, float %48, float %47
   %52 = mul nsw i64 %30, %35
@@ -69186,13 +69238,13 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   br i1 %.not13, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %11
-  %17 = load i64, ptr %3, align 8, !tbaa !1361
+  %17 = load i64, ptr %3, align 8, !tbaa !1370
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %20 = load i64, ptr %19, align 8, !tbaa !36
-  %21 = load ptr, ptr %18, align 8, !tbaa !1334
+  %21 = load ptr, ptr %18, align 8, !tbaa !1343
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %23 = load i64, ptr %22, align 8, !tbaa !1320
+  %23 = load i64, ptr %22, align 8, !tbaa !1329
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 68
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 72
@@ -69200,9 +69252,9 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 112
   %30 = load i64, ptr %29, align 8, !tbaa !36
-  %31 = load ptr, ptr %28, align 8, !tbaa !1334
+  %31 = load ptr, ptr %28, align 8, !tbaa !1343
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 88
-  %33 = load i64, ptr %32, align 8, !tbaa !1320
+  %33 = load i64, ptr %32, align 8, !tbaa !1329
   br label %34
 
 34:                                               ; preds = %.lr.ph, %34
@@ -69215,13 +69267,13 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %40 = getelementptr inbounds i8, ptr %21, i64 %39
   %41 = load i8, ptr %40, align 1, !tbaa !15
   %42 = uitofp i8 %41 to float
-  %43 = load float, ptr %24, align 8, !tbaa !1365
+  %43 = load float, ptr %24, align 8, !tbaa !1374
   %44 = fdiv float %42, %43
-  %45 = load float, ptr %25, align 4, !tbaa !1367
+  %45 = load float, ptr %25, align 4, !tbaa !1376
   %46 = fcmp ugt float %44, %45
   %47 = load float, ptr %26, align 8
   %48 = select i1 %46, float %44, float %47
-  %49 = load float, ptr %27, align 4, !tbaa !1371
+  %49 = load float, ptr %27, align 4, !tbaa !1380
   %50 = fcmp ult float %48, %49
   %51 = select i1 %50, float %48, float %47
   %52 = mul nsw i64 %30, %35
@@ -69275,13 +69327,13 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   br i1 %.not13, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %11
-  %17 = load i64, ptr %3, align 8, !tbaa !1377
+  %17 = load i64, ptr %3, align 8, !tbaa !1386
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %20 = load i64, ptr %19, align 8, !tbaa !36
-  %21 = load ptr, ptr %18, align 8, !tbaa !1334
+  %21 = load ptr, ptr %18, align 8, !tbaa !1343
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %23 = load i64, ptr %22, align 8, !tbaa !1320
+  %23 = load i64, ptr %22, align 8, !tbaa !1329
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 68
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 72
@@ -69289,9 +69341,9 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 112
   %30 = load i64, ptr %29, align 8, !tbaa !36
-  %31 = load ptr, ptr %28, align 8, !tbaa !1334
+  %31 = load ptr, ptr %28, align 8, !tbaa !1343
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 88
-  %33 = load i64, ptr %32, align 8, !tbaa !1320
+  %33 = load i64, ptr %32, align 8, !tbaa !1329
   br label %34
 
 34:                                               ; preds = %.lr.ph, %34
@@ -69304,13 +69356,13 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %40 = getelementptr inbounds i8, ptr %21, i64 %39
   %41 = load i16, ptr %40, align 2, !tbaa !122
   %42 = uitofp i16 %41 to float
-  %43 = load float, ptr %24, align 8, !tbaa !1381
+  %43 = load float, ptr %24, align 8, !tbaa !1390
   %44 = fdiv float %42, %43
-  %45 = load float, ptr %25, align 4, !tbaa !1383
+  %45 = load float, ptr %25, align 4, !tbaa !1392
   %46 = fcmp ugt float %44, %45
   %47 = load float, ptr %26, align 8
   %48 = select i1 %46, float %44, float %47
-  %49 = load float, ptr %27, align 4, !tbaa !1387
+  %49 = load float, ptr %27, align 4, !tbaa !1396
   %50 = fcmp ult float %48, %49
   %51 = select i1 %50, float %48, float %47
   %52 = mul nsw i64 %30, %35
@@ -69364,13 +69416,13 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   br i1 %.not13, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %11
-  %17 = load i64, ptr %3, align 8, !tbaa !1393
+  %17 = load i64, ptr %3, align 8, !tbaa !1402
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %20 = load i64, ptr %19, align 8, !tbaa !36
-  %21 = load ptr, ptr %18, align 8, !tbaa !1334
+  %21 = load ptr, ptr %18, align 8, !tbaa !1343
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %23 = load i64, ptr %22, align 8, !tbaa !1320
+  %23 = load i64, ptr %22, align 8, !tbaa !1329
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 68
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 72
@@ -69378,9 +69430,9 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 112
   %30 = load i64, ptr %29, align 8, !tbaa !36
-  %31 = load ptr, ptr %28, align 8, !tbaa !1334
+  %31 = load ptr, ptr %28, align 8, !tbaa !1343
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 88
-  %33 = load i64, ptr %32, align 8, !tbaa !1320
+  %33 = load i64, ptr %32, align 8, !tbaa !1329
   br label %34
 
 34:                                               ; preds = %.lr.ph, %34
@@ -69393,13 +69445,13 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %40 = getelementptr inbounds i8, ptr %21, i64 %39
   %41 = load i32, ptr %40, align 4, !tbaa !16
   %42 = uitofp i32 %41 to float
-  %43 = load float, ptr %24, align 8, !tbaa !1397
+  %43 = load float, ptr %24, align 8, !tbaa !1406
   %44 = fdiv float %42, %43
-  %45 = load float, ptr %25, align 4, !tbaa !1399
+  %45 = load float, ptr %25, align 4, !tbaa !1408
   %46 = fcmp ugt float %44, %45
   %47 = load float, ptr %26, align 8
   %48 = select i1 %46, float %44, float %47
-  %49 = load float, ptr %27, align 4, !tbaa !1403
+  %49 = load float, ptr %27, align 4, !tbaa !1412
   %50 = fcmp ult float %48, %49
   %51 = select i1 %50, float %48, float %47
   %52 = mul nsw i64 %30, %35
@@ -69453,13 +69505,13 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   br i1 %.not13, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %11
-  %17 = load i64, ptr %3, align 8, !tbaa !1409
+  %17 = load i64, ptr %3, align 8, !tbaa !1418
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %20 = load i64, ptr %19, align 8, !tbaa !36
-  %21 = load ptr, ptr %18, align 8, !tbaa !1334
+  %21 = load ptr, ptr %18, align 8, !tbaa !1343
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %23 = load i64, ptr %22, align 8, !tbaa !1320
+  %23 = load i64, ptr %22, align 8, !tbaa !1329
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 68
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 72
@@ -69467,9 +69519,9 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 112
   %30 = load i64, ptr %29, align 8, !tbaa !36
-  %31 = load ptr, ptr %28, align 8, !tbaa !1334
+  %31 = load ptr, ptr %28, align 8, !tbaa !1343
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 88
-  %33 = load i64, ptr %32, align 8, !tbaa !1320
+  %33 = load i64, ptr %32, align 8, !tbaa !1329
   br label %34
 
 34:                                               ; preds = %.lr.ph, %34
@@ -69482,13 +69534,13 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %40 = getelementptr inbounds i8, ptr %21, i64 %39
   %41 = load i64, ptr %40, align 8, !tbaa !36
   %42 = uitofp i64 %41 to float
-  %43 = load float, ptr %24, align 8, !tbaa !1413
+  %43 = load float, ptr %24, align 8, !tbaa !1422
   %44 = fdiv float %42, %43
-  %45 = load float, ptr %25, align 4, !tbaa !1415
+  %45 = load float, ptr %25, align 4, !tbaa !1424
   %46 = fcmp ugt float %44, %45
   %47 = load float, ptr %26, align 8
   %48 = select i1 %46, float %44, float %47
-  %49 = load float, ptr %27, align 4, !tbaa !1419
+  %49 = load float, ptr %27, align 4, !tbaa !1428
   %50 = fcmp ult float %48, %49
   %51 = select i1 %50, float %48, float %47
   %52 = mul nsw i64 %30, %35
@@ -69542,19 +69594,19 @@ define hidden void @_ZN6open3d1t8geometry6kernel5image15PyrDownDepthCPUERKNS_4co
   %25 = call i64 %24(ptr noundef nonnull align 8 dereferenceable(160) %0)
   store i64 %25, ptr %9, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  store i32 %21, ptr %10, align 8, !tbaa !1421
+  store i32 %21, ptr %10, align 8, !tbaa !1430
   %26 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %26, ptr noundef nonnull align 8 dereferenceable(56) %7, i64 56, i1 false), !tbaa.struct !1288
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %26, ptr noundef nonnull align 8 dereferenceable(56) %7, i64 56, i1 false), !tbaa.struct !1297
   %27 = getelementptr inbounds nuw i8, ptr %10, i64 64
-  store float %3, ptr %27, align 8, !tbaa !1423
+  store float %3, ptr %27, align 8, !tbaa !1432
   %28 = getelementptr inbounds nuw i8, ptr %10, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %28, ptr noundef nonnull align 8 dereferenceable(56) %8, i64 56, i1 false), !tbaa.struct !1288
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %28, ptr noundef nonnull align 8 dereferenceable(56) %8, i64 56, i1 false), !tbaa.struct !1297
   %29 = getelementptr inbounds nuw i8, ptr %10, i64 128
-  store i32 %16, ptr %29, align 8, !tbaa !1424
+  store i32 %16, ptr %29, align 8, !tbaa !1433
   %30 = getelementptr inbounds nuw i8, ptr %10, i64 132
-  store i32 %13, ptr %30, align 4, !tbaa !1425
+  store i32 %13, ptr %30, align 4, !tbaa !1434
   %31 = getelementptr inbounds nuw i8, ptr %10, i64 136
-  store float %2, ptr %31, align 8, !tbaa !1426
+  store float %2, ptr %31, align 8, !tbaa !1435
   %32 = getelementptr inbounds nuw i8, ptr %10, i64 140
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %32, ptr noundef nonnull align 4 dereferenceable(12) @__const._ZN6open3d1t8geometry6kernel5image15PyrDownDepthCPUERKNS_4core6TensorERS5_ff.gweights, i64 12, i1 false), !tbaa !38
   %33 = shl i64 %18, 32
@@ -69650,14 +69702,14 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZNS_1t8geometry6kernel5i
   br i1 %.not13, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %11
-  %17 = load i32, ptr %3, align 8, !tbaa !1421
+  %17 = load i32, ptr %3, align 8, !tbaa !1430
   %18 = sext i32 %17 to i64
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %21 = load i64, ptr %20, align 8, !tbaa !36
-  %22 = load ptr, ptr %19, align 8, !tbaa !1334
+  %22 = load ptr, ptr %19, align 8, !tbaa !1343
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %24 = load i64, ptr %23, align 8, !tbaa !1320
+  %24 = load i64, ptr %23, align 8, !tbaa !1329
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 128
   %27 = load i32, ptr %26, align 8
@@ -69670,9 +69722,9 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZNS_1t8geometry6kernel5i
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 104
   %36 = load i64, ptr %35, align 8, !tbaa !36
-  %37 = load ptr, ptr %34, align 8, !tbaa !1334
+  %37 = load ptr, ptr %34, align 8, !tbaa !1343
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 80
-  %39 = load i64, ptr %38, align 8, !tbaa !1320
+  %39 = load i64, ptr %38, align 8, !tbaa !1329
   br label %40
 
 40:                                               ; preds = %.lr.ph, %99
@@ -69690,7 +69742,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZNS_1t8geometry6kernel5i
   %51 = mul nsw i64 %50, %24
   %52 = getelementptr inbounds i8, ptr %22, i64 %51
   %53 = load float, ptr %52, align 4, !tbaa !38
-  %54 = load float, ptr %25, align 8, !tbaa !1423
+  %54 = load float, ptr %25, align 8, !tbaa !1432
   %55 = fcmp oeq float %53, %54
   br i1 %55, label %99, label %56
 
@@ -69743,7 +69795,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZNS_1t8geometry6kernel5i
 ._crit_edge.i:                                    ; preds = %98
   %indvars.iv.next91.i = add nuw nsw i64 %indvars.iv90.i, 1
   %.not.not.i = icmp samesign ult i64 %indvars.iv90.i, %67
-  br i1 %.not.not.i, label %.preheader.i, label %._crit_edge84.i, !llvm.loop !1427
+  br i1 %.not.not.i, label %.preheader.i, label %._crit_edge84.i, !llvm.loop !1436
 
 77:                                               ; preds = %98, %.preheader.i
   %indvars.iv.i = phi i64 [ %63, %.preheader.i ], [ %indvars.iv.next.i, %98 ]
@@ -69780,7 +69832,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZNS_1t8geometry6kernel5i
   %.2.i = phi float [ %96, %90 ], [ %.178.i, %86 ], [ %.178.i, %77 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %.not51.not.i = icmp samesign ult i64 %indvars.iv.i, %64
-  br i1 %.not51.not.i, label %77, label %._crit_edge.i, !llvm.loop !1428
+  br i1 %.not51.not.i, label %77, label %._crit_edge.i, !llvm.loop !1437
 
 99:                                               ; preds = %._crit_edge84.i, %40
   %.sink.i = phi float [ %76, %._crit_edge84.i ], [ %54, %40 ]
@@ -69970,15 +70022,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %78 = call i64 %77(ptr noundef nonnull align 8 dereferenceable(160) %0)
   store i64 %78, ptr %13, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  store float %3, ptr %14, align 8, !tbaa !1429
+  store float %3, ptr %14, align 8, !tbaa !1438
   %79 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store i64 %73, ptr %79, align 8, !tbaa !1432
+  store i64 %73, ptr %79, align 8, !tbaa !1441
   %80 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %80, ptr noundef nonnull align 8 dereferenceable(56) %6, i64 56, i1 false), !tbaa.struct !1288
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %80, ptr noundef nonnull align 8 dereferenceable(56) %6, i64 56, i1 false), !tbaa.struct !1297
   %81 = getelementptr inbounds nuw i8, ptr %14, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %81, ptr noundef nonnull align 8 dereferenceable(56) %7, i64 56, i1 false), !tbaa.struct !1288
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %81, ptr noundef nonnull align 8 dereferenceable(56) %7, i64 56, i1 false), !tbaa.struct !1297
   %82 = getelementptr inbounds nuw i8, ptr %14, i64 128
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(68) %82, ptr noundef nonnull align 4 dereferenceable(68) %8, i64 68, i1 false), !tbaa.struct !1433
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(68) %82, ptr noundef nonnull align 4 dereferenceable(68) %8, i64 68, i1 false), !tbaa.struct !1442
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %83 = call i32 @__kmpc_global_thread_num(ptr nonnull @2)
   store i64 %74, ptr %4, align 8, !tbaa !36
@@ -70103,16 +70155,16 @@ define linkonce_odr hidden void @_ZN6open3d1t8geometry6kernel16TransformIndexerC
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  store i8 1, ptr %9, align 8, !tbaa !1434
+  store i8 1, ptr %9, align 8, !tbaa !1443
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 3, ptr %17, align 8, !tbaa !15
   %18 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store i8 1, ptr %18, align 8, !tbaa !1434
+  store i8 1, ptr %18, align 8, !tbaa !1443
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i64 3, ptr %19, align 8, !tbaa !15
-  store ptr %9, ptr %8, align 8, !tbaa !1436
+  store ptr %9, ptr %8, align 8, !tbaa !1445
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i64 2, ptr %20, align 8, !tbaa !1439
+  store i64 2, ptr %20, align 8, !tbaa !1448
   call void @_ZN6open3d4core17DynamicSizeVectorC1ERKSt16initializer_listINS_7utility8optionalIlEEE(ptr noundef nonnull align 8 dereferenceable(80) %7, ptr noundef nonnull align 8 dereferenceable(16) %8)
   invoke void @_ZN6open3d4core12tensor_check18AssertTensorShape_EPKciS3_RKNS0_6TensorERKNS0_17DynamicSizeVectorE(ptr noundef nonnull @.str.60, i32 noundef 32, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN6open3d1t8geometry6kernel16TransformIndexerC2ERKNS_4core6TensorES7_f, ptr noundef nonnull align 8 dereferenceable(160) %1, ptr noundef nonnull align 8 dereferenceable(80) %7)
           to label %21 unwind label %52
@@ -70261,16 +70313,16 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit38: ; preds = %_ZN
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  store i8 1, ptr %14, align 8, !tbaa !1434
+  store i8 1, ptr %14, align 8, !tbaa !1443
   %67 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i64 4, ptr %67, align 8, !tbaa !15
   %68 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  store i8 1, ptr %68, align 8, !tbaa !1434
+  store i8 1, ptr %68, align 8, !tbaa !1443
   %69 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store i64 4, ptr %69, align 8, !tbaa !15
-  store ptr %14, ptr %13, align 8, !tbaa !1436
+  store ptr %14, ptr %13, align 8, !tbaa !1445
   %70 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store i64 2, ptr %70, align 8, !tbaa !1439
+  store i64 2, ptr %70, align 8, !tbaa !1448
   call void @_ZN6open3d4core17DynamicSizeVectorC1ERKSt16initializer_listINS_7utility8optionalIlEEE(ptr noundef nonnull align 8 dereferenceable(80) %12, ptr noundef nonnull align 8 dereferenceable(16) %13)
   invoke void @_ZN6open3d4core12tensor_check18AssertTensorShape_EPKciS3_RKNS0_6TensorERKNS0_17DynamicSizeVectorE(ptr noundef nonnull @.str.60, i32 noundef 39, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN6open3d1t8geometry6kernel16TransformIndexerC2ERKNS_4core6TensorES7_f, ptr noundef nonnull align 8 dereferenceable(160) %2, ptr noundef nonnull align 8 dereferenceable(80) %12)
           to label %71 unwind label %102
@@ -70431,30 +70483,30 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit61: ; preds = %_ZN
   %121 = load double, ptr %117, align 8, !tbaa !69
   %122 = fptrunc double %121 to float
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store float %122, ptr %123, align 4, !tbaa !1440
+  store float %122, ptr %123, align 4, !tbaa !1449
   %124 = getelementptr inbounds nuw i8, ptr %117, i64 32
   %125 = load double, ptr %124, align 8, !tbaa !69
   %126 = fptrunc double %125 to float
   %127 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  store float %126, ptr %127, align 4, !tbaa !1441
+  store float %126, ptr %127, align 4, !tbaa !1450
   %128 = getelementptr inbounds nuw i8, ptr %117, i64 16
   %129 = load double, ptr %128, align 8, !tbaa !69
   %130 = fptrunc double %129 to float
   %131 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store float %130, ptr %131, align 4, !tbaa !1442
+  store float %130, ptr %131, align 4, !tbaa !1451
   %132 = getelementptr inbounds nuw i8, ptr %117, i64 40
   %133 = load double, ptr %132, align 8, !tbaa !69
   %134 = fptrunc double %133 to float
   %135 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store float %134, ptr %135, align 4, !tbaa !1443
+  store float %134, ptr %135, align 4, !tbaa !1452
   %136 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store float %3, ptr %136, align 4, !tbaa !1444
+  store float %3, ptr %136, align 4, !tbaa !1453
   ret void
 
 137:                                              ; preds = %138
   %indvars.iv.next70 = add nuw nsw i64 %indvars.iv69, 1
   %exitcond72.not = icmp eq i64 %indvars.iv.next70, 3
-  br i1 %exitcond72.not, label %120, label %.preheader, !llvm.loop !1445
+  br i1 %exitcond72.not, label %120, label %.preheader, !llvm.loop !1454
 
 138:                                              ; preds = %.preheader, %138
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %138 ]
@@ -70465,7 +70517,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit61: ; preds = %_ZN
   store float %140, ptr %141, align 4, !tbaa !38
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %137, label %138, !llvm.loop !1446
+  br i1 %exitcond.not, label %137, label %138, !llvm.loop !1455
 
 142:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit61, %_ZN6open3d4core11SmallVectorINS_7utility8optionalIlEELj4EED2Ev.exit58, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit38, %_ZN6open3d4core11SmallVectorINS_7utility8optionalIlEELj4EED2Ev.exit35
   %.pn32.pn = phi { ptr, i32 } [ %109, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit61 ], [ %103, %_ZN6open3d4core11SmallVectorINS_7utility8optionalIlEELj4EED2Ev.exit58 ], [ %59, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit38 ], [ %53, %_ZN6open3d4core11SmallVectorINS_7utility8optionalIlEELj4EED2Ev.exit35 ]
@@ -70487,7 +70539,7 @@ define linkonce_odr hidden noundef ptr @_ZNK6open3d4core6Tensor10GetDataPtrIdEEP
   %4 = alloca %"class.open3d::core::Dtype", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %7 = load i32, ptr %6, align 8, !tbaa !1447
+  %7 = load i32, ptr %6, align 8, !tbaa !1456
   %8 = icmp eq i32 %7, 5
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   br i1 %8, label %.critedge, label %9
@@ -70572,7 +70624,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6: ; preds = %_ZNK
 
 34:                                               ; preds = %.critedge, %9
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %36 = load ptr, ptr %35, align 8, !tbaa !1323
+  %36 = load ptr, ptr %35, align 8, !tbaa !1332
   ret ptr %36
 }
 
@@ -70585,23 +70637,23 @@ define linkonce_odr hidden void @_ZN6open3d7utility6Logger9LogError_IJNSt7__cxx1
   %9 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN6open3d7utility6Logger11GetInstanceEv()
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !1448)
-  %10 = load ptr, ptr %4, align 8, !tbaa !47, !noalias !1448
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !1457)
+  %10 = load ptr, ptr %4, align 8, !tbaa !47, !noalias !1457
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %12 = load i64, ptr %11, align 8, !tbaa !51, !noalias !1448
+  %12 = load i64, ptr %11, align 8, !tbaa !51, !noalias !1457
   %13 = ptrtoint ptr %10 to i64
-  %14 = load ptr, ptr %5, align 8, !tbaa !47, !noalias !1448
+  %14 = load ptr, ptr %5, align 8, !tbaa !47, !noalias !1457
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %16 = load i64, ptr %15, align 8, !tbaa !51, !noalias !1448
+  %16 = load i64, ptr %15, align 8, !tbaa !51, !noalias !1457
   %17 = ptrtoint ptr %14 to i64
-  store i64 %13, ptr %8, align 16, !alias.scope !1448
+  store i64 %13, ptr %8, align 16, !alias.scope !1457
   %.sroa.45.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i64 %12, ptr %.sroa.45.0..sroa_idx.i, align 8, !tbaa !15, !alias.scope !1448
+  store i64 %12, ptr %.sroa.45.0..sroa_idx.i, align 8, !tbaa !15, !alias.scope !1457
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store i64 %17, ptr %18, align 16, !alias.scope !1448
+  store i64 %17, ptr %18, align 16, !alias.scope !1457
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store i64 %16, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !15, !alias.scope !1448
-  %19 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #15, !noalias !1451
+  store i64 %16, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !15, !alias.scope !1457
+  %19 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #15, !noalias !1460
   call void @_ZN3fmt3v107vformatB5cxx11ENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %7, ptr nonnull %3, i64 %19, i64 221, ptr nonnull %8)
   invoke void @_ZNK6open3d7utility6Logger6VErrorEPKciS3_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %7) #33
           to label %20 unwind label %21
@@ -70713,19 +70765,19 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZNS_1t8geometry6kernel5i
 
 .lr.ph:                                           ; preds = %11
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %18 = load i64, ptr %17, align 8, !tbaa !1432
+  %18 = load i64, ptr %17, align 8, !tbaa !1441
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %21 = load i64, ptr %20, align 8, !tbaa !36
-  %22 = load ptr, ptr %19, align 8, !tbaa !1334
+  %22 = load ptr, ptr %19, align 8, !tbaa !1343
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %24 = load i64, ptr %23, align 8, !tbaa !1320
+  %24 = load i64, ptr %23, align 8, !tbaa !1329
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 104
   %27 = load i64, ptr %26, align 8, !tbaa !36
-  %28 = load ptr, ptr %25, align 8, !tbaa !1334
+  %28 = load ptr, ptr %25, align 8, !tbaa !1343
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 80
-  %30 = load i64, ptr %29, align 8, !tbaa !1320
+  %30 = load i64, ptr %29, align 8, !tbaa !1329
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 184
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 176
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 188
@@ -70734,7 +70786,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZNS_1t8geometry6kernel5i
 
 35:                                               ; preds = %.lr.ph, %"_ZZN6open3d1t8geometry6kernel5image18CreateVertexMapCPUERKNS_4core6TensorERS5_S7_fENK3$_0clEl.exit"
   %.014 = phi i64 [ %16, %.lr.ph ], [ %77, %"_ZZN6open3d1t8geometry6kernel5image18CreateVertexMapCPUERKNS_4core6TensorERS5_S7_fENK3$_0clEl.exit" ]
-  %36 = load float, ptr %3, align 8, !tbaa !1429
+  %36 = load float, ptr %3, align 8, !tbaa !1438
   %37 = sdiv i64 %.014, %18
   %38 = srem i64 %.014, %18
   %39 = mul nsw i64 %21, %37
@@ -70772,16 +70824,16 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZNS_1t8geometry6kernel5i
   %60 = sitofp i64 %37 to float
   %61 = getelementptr inbounds nuw i8, ptr %47, i64 4
   %62 = getelementptr inbounds nuw i8, ptr %47, i64 8
-  %63 = load float, ptr %31, align 8, !tbaa !1442
+  %63 = load float, ptr %31, align 8, !tbaa !1451
   %64 = fsub float %59, %63
   %65 = fmul float %43, %64
-  %66 = load float, ptr %32, align 8, !tbaa !1440
+  %66 = load float, ptr %32, align 8, !tbaa !1449
   %67 = fdiv float %65, %66
   store float %67, ptr %47, align 4, !tbaa !38
-  %68 = load float, ptr %33, align 4, !tbaa !1443
+  %68 = load float, ptr %33, align 4, !tbaa !1452
   %69 = fsub float %60, %68
   %70 = fmul float %43, %69
-  %71 = load float, ptr %34, align 4, !tbaa !1441
+  %71 = load float, ptr %34, align 4, !tbaa !1450
   %72 = fdiv float %70, %71
   store float %72, ptr %61, align 4, !tbaa !38
   store float %43, ptr %62, align 4, !tbaa !38
@@ -70789,7 +70841,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZNS_1t8geometry6kernel5i
 
 73:                                               ; preds = %"_ZZZN6open3d1t8geometry6kernel5image18CreateVertexMapCPUERKNS_4core6TensorERS5_S7_fENK3$_0clElENKUlfE_clEf.exit.i", %55, %50
   store float %36, ptr %47, align 4, !tbaa !38
-  %74 = load float, ptr %3, align 8, !tbaa !1429
+  %74 = load float, ptr %3, align 8, !tbaa !1438
   %75 = getelementptr inbounds nuw i8, ptr %47, i64 4
   store float %74, ptr %75, align 4, !tbaa !38
   %76 = getelementptr inbounds nuw i8, ptr %47, i64 8
@@ -70837,15 +70889,15 @@ define hidden void @_ZN6open3d1t8geometry6kernel5image18CreateNormalMapCPUERKNS_
   %18 = call i64 %17(ptr noundef nonnull align 8 dereferenceable(160) %0)
   store i64 %18, ptr %8, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  store i64 %13, ptr %9, align 8, !tbaa !1454
+  store i64 %13, ptr %9, align 8, !tbaa !1463
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %19, ptr noundef nonnull align 8 dereferenceable(56) %7, i64 56, i1 false), !tbaa.struct !1288
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %19, ptr noundef nonnull align 8 dereferenceable(56) %7, i64 56, i1 false), !tbaa.struct !1297
   %20 = getelementptr inbounds nuw i8, ptr %9, i64 64
-  store i64 %11, ptr %20, align 8, !tbaa !1456
+  store i64 %11, ptr %20, align 8, !tbaa !1465
   %21 = getelementptr inbounds nuw i8, ptr %9, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %21, ptr noundef nonnull align 8 dereferenceable(56) %6, i64 56, i1 false), !tbaa.struct !1288
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %21, ptr noundef nonnull align 8 dereferenceable(56) %6, i64 56, i1 false), !tbaa.struct !1297
   %22 = getelementptr inbounds nuw i8, ptr %9, i64 128
-  store float %2, ptr %22, align 8, !tbaa !1457
+  store float %2, ptr %22, align 8, !tbaa !1466
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %23 = call i32 @__kmpc_global_thread_num(ptr nonnull @2)
   store i64 %14, ptr %4, align 8, !tbaa !36
@@ -70936,15 +70988,15 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZNS_1t8geometry6kernel5i
   br i1 %.not13, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %11
-  %17 = load i64, ptr %3, align 8, !tbaa !1454
+  %17 = load i64, ptr %3, align 8, !tbaa !1463
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %20 = load i64, ptr %19, align 8, !tbaa !36
-  %21 = load ptr, ptr %18, align 8, !tbaa !1334
+  %21 = load ptr, ptr %18, align 8, !tbaa !1343
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %23 = load i64, ptr %22, align 8, !tbaa !1320
+  %23 = load i64, ptr %22, align 8, !tbaa !1329
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  %25 = load i64, ptr %24, align 8, !tbaa !1456
+  %25 = load i64, ptr %24, align 8, !tbaa !1465
   %26 = add nsw i64 %25, -1
   %27 = add nsw i64 %17, -1
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 128
@@ -70984,7 +71036,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZNS_1t8geometry6kernel5i
   %56 = mul nsw i64 %55, %34
   %57 = getelementptr inbounds i8, ptr %32, i64 %56
   %58 = load float, ptr %48, align 4, !tbaa !38
-  %59 = load float, ptr %28, align 8, !tbaa !1457
+  %59 = load float, ptr %28, align 8, !tbaa !1466
   %60 = fcmp oeq float %58, %59
   br i1 %60, label %61, label %69
 
@@ -71032,7 +71084,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZNS_1t8geometry6kernel5i
 
 .critedge.i:                                      ; preds = %80, %76, %65
   store float %59, ptr %41, align 4, !tbaa !38
-  %89 = load float, ptr %28, align 8, !tbaa !1457
+  %89 = load float, ptr %28, align 8, !tbaa !1466
   %90 = getelementptr inbounds nuw i8, ptr %41, i64 4
   store float %89, ptr %90, align 4, !tbaa !38
   %91 = getelementptr inbounds nuw i8, ptr %41, i64 8
@@ -71080,11 +71132,11 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZNS_1t8geometry6kernel5i
   br label %"_ZZN6open3d1t8geometry6kernel5image18CreateNormalMapCPUERKNS_4core6TensorERS5_fENK3$_0clEl.exit"
 
 124:                                              ; preds = %35
-  %125 = load float, ptr %28, align 8, !tbaa !1457
+  %125 = load float, ptr %28, align 8, !tbaa !1466
   store float %125, ptr %41, align 4, !tbaa !38
   %126 = getelementptr inbounds nuw i8, ptr %41, i64 4
   store float %125, ptr %126, align 4, !tbaa !38
-  %127 = load float, ptr %28, align 8, !tbaa !1457
+  %127 = load float, ptr %28, align 8, !tbaa !1466
   %128 = getelementptr inbounds nuw i8, ptr %41, i64 8
   store float %127, ptr %128, align 4, !tbaa !38
   br label %"_ZZN6open3d1t8geometry6kernel5image18CreateNormalMapCPUERKNS_4core6TensorERS5_fENK3$_0clEl.exit"
@@ -71199,19 +71251,19 @@ define hidden void @_ZN6open3d1t8geometry6kernel5image16ColorizeDepthCPUERKNS_4c
   %75 = call i64 %74(ptr noundef nonnull align 8 dereferenceable(160) %0)
   store i64 %75, ptr %24, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
-  store i64 %64, ptr %25, align 8, !tbaa !1458
+  store i64 %64, ptr %25, align 8, !tbaa !1467
   %76 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %76, ptr noundef nonnull align 8 dereferenceable(56) %44, i64 56, i1 false), !tbaa.struct !1288
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %76, ptr noundef nonnull align 8 dereferenceable(56) %44, i64 56, i1 false), !tbaa.struct !1297
   %77 = getelementptr inbounds nuw i8, ptr %25, i64 64
-  store float %2, ptr %77, align 8, !tbaa !1460
+  store float %2, ptr %77, align 8, !tbaa !1469
   %78 = getelementptr inbounds nuw i8, ptr %25, i64 68
-  store float %3, ptr %78, align 4, !tbaa !1461
+  store float %3, ptr %78, align 4, !tbaa !1470
   %79 = getelementptr inbounds nuw i8, ptr %25, i64 72
-  store float %4, ptr %79, align 8, !tbaa !1462
+  store float %4, ptr %79, align 8, !tbaa !1471
   %80 = getelementptr inbounds nuw i8, ptr %25, i64 76
-  store float %67, ptr %80, align 4, !tbaa !1463
+  store float %67, ptr %80, align 4, !tbaa !1472
   %81 = getelementptr inbounds nuw i8, ptr %25, i64 80
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %81, ptr noundef nonnull align 8 dereferenceable(56) %45, i64 56, i1 false), !tbaa.struct !1288
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %81, ptr noundef nonnull align 8 dereferenceable(56) %45, i64 56, i1 false), !tbaa.struct !1297
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   store i64 %65, ptr %22, align 8, !tbaa !36
   %82 = and i64 %75, 4294967295
@@ -71287,19 +71339,19 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i.i: ; preds 
   %106 = call i64 %105(ptr noundef nonnull align 8 dereferenceable(160) %0)
   store i64 %106, ptr %20, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
-  store i64 %64, ptr %21, align 8, !tbaa !1464
+  store i64 %64, ptr %21, align 8, !tbaa !1473
   %107 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %107, ptr noundef nonnull align 8 dereferenceable(56) %44, i64 56, i1 false), !tbaa.struct !1288
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %107, ptr noundef nonnull align 8 dereferenceable(56) %44, i64 56, i1 false), !tbaa.struct !1297
   %108 = getelementptr inbounds nuw i8, ptr %21, i64 64
-  store float %2, ptr %108, align 8, !tbaa !1466
+  store float %2, ptr %108, align 8, !tbaa !1475
   %109 = getelementptr inbounds nuw i8, ptr %21, i64 68
-  store float %3, ptr %109, align 4, !tbaa !1467
+  store float %3, ptr %109, align 4, !tbaa !1476
   %110 = getelementptr inbounds nuw i8, ptr %21, i64 72
-  store float %4, ptr %110, align 8, !tbaa !1468
+  store float %4, ptr %110, align 8, !tbaa !1477
   %111 = getelementptr inbounds nuw i8, ptr %21, i64 76
-  store float %67, ptr %111, align 4, !tbaa !1469
+  store float %67, ptr %111, align 4, !tbaa !1478
   %112 = getelementptr inbounds nuw i8, ptr %21, i64 80
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %112, ptr noundef nonnull align 8 dereferenceable(56) %45, i64 56, i1 false), !tbaa.struct !1288
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %112, ptr noundef nonnull align 8 dereferenceable(56) %45, i64 56, i1 false), !tbaa.struct !1297
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store i64 %65, ptr %18, align 8, !tbaa !36
   %113 = and i64 %106, 4294967295
@@ -71371,19 +71423,19 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i2.i: ; preds
   %137 = call i64 %136(ptr noundef nonnull align 8 dereferenceable(160) %0)
   store i64 %137, ptr %16, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
-  store i64 %64, ptr %17, align 8, !tbaa !1470
+  store i64 %64, ptr %17, align 8, !tbaa !1479
   %138 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %138, ptr noundef nonnull align 8 dereferenceable(56) %44, i64 56, i1 false), !tbaa.struct !1288
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %138, ptr noundef nonnull align 8 dereferenceable(56) %44, i64 56, i1 false), !tbaa.struct !1297
   %139 = getelementptr inbounds nuw i8, ptr %17, i64 64
-  store float %2, ptr %139, align 8, !tbaa !1472
+  store float %2, ptr %139, align 8, !tbaa !1481
   %140 = getelementptr inbounds nuw i8, ptr %17, i64 68
-  store float %3, ptr %140, align 4, !tbaa !1473
+  store float %3, ptr %140, align 4, !tbaa !1482
   %141 = getelementptr inbounds nuw i8, ptr %17, i64 72
-  store float %4, ptr %141, align 8, !tbaa !1474
+  store float %4, ptr %141, align 8, !tbaa !1483
   %142 = getelementptr inbounds nuw i8, ptr %17, i64 76
-  store float %67, ptr %142, align 4, !tbaa !1475
+  store float %67, ptr %142, align 4, !tbaa !1484
   %143 = getelementptr inbounds nuw i8, ptr %17, i64 80
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %143, ptr noundef nonnull align 8 dereferenceable(56) %45, i64 56, i1 false), !tbaa.struct !1288
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %143, ptr noundef nonnull align 8 dereferenceable(56) %45, i64 56, i1 false), !tbaa.struct !1297
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i64 %65, ptr %14, align 8, !tbaa !36
   %144 = and i64 %137, 4294967295
@@ -71455,19 +71507,19 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i5.i: ; preds
   %168 = call i64 %167(ptr noundef nonnull align 8 dereferenceable(160) %0)
   store i64 %168, ptr %12, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  store i64 %64, ptr %13, align 8, !tbaa !1476
+  store i64 %64, ptr %13, align 8, !tbaa !1485
   %169 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %169, ptr noundef nonnull align 8 dereferenceable(56) %44, i64 56, i1 false), !tbaa.struct !1288
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %169, ptr noundef nonnull align 8 dereferenceable(56) %44, i64 56, i1 false), !tbaa.struct !1297
   %170 = getelementptr inbounds nuw i8, ptr %13, i64 64
-  store float %2, ptr %170, align 8, !tbaa !1478
+  store float %2, ptr %170, align 8, !tbaa !1487
   %171 = getelementptr inbounds nuw i8, ptr %13, i64 68
-  store float %3, ptr %171, align 4, !tbaa !1479
+  store float %3, ptr %171, align 4, !tbaa !1488
   %172 = getelementptr inbounds nuw i8, ptr %13, i64 72
-  store float %4, ptr %172, align 8, !tbaa !1480
+  store float %4, ptr %172, align 8, !tbaa !1489
   %173 = getelementptr inbounds nuw i8, ptr %13, i64 76
-  store float %67, ptr %173, align 4, !tbaa !1481
+  store float %67, ptr %173, align 4, !tbaa !1490
   %174 = getelementptr inbounds nuw i8, ptr %13, i64 80
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %174, ptr noundef nonnull align 8 dereferenceable(56) %45, i64 56, i1 false), !tbaa.struct !1288
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %174, ptr noundef nonnull align 8 dereferenceable(56) %45, i64 56, i1 false), !tbaa.struct !1297
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i64 %65, ptr %10, align 8, !tbaa !36
   %175 = and i64 %168, 4294967295
@@ -71539,19 +71591,19 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i8.i: ; preds
   %199 = call i64 %198(ptr noundef nonnull align 8 dereferenceable(160) %0)
   store i64 %199, ptr %8, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  store i64 %64, ptr %9, align 8, !tbaa !1482
+  store i64 %64, ptr %9, align 8, !tbaa !1491
   %200 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %200, ptr noundef nonnull align 8 dereferenceable(56) %44, i64 56, i1 false), !tbaa.struct !1288
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %200, ptr noundef nonnull align 8 dereferenceable(56) %44, i64 56, i1 false), !tbaa.struct !1297
   %201 = getelementptr inbounds nuw i8, ptr %9, i64 64
-  store float %2, ptr %201, align 8, !tbaa !1484
+  store float %2, ptr %201, align 8, !tbaa !1493
   %202 = getelementptr inbounds nuw i8, ptr %9, i64 68
-  store float %3, ptr %202, align 4, !tbaa !1485
+  store float %3, ptr %202, align 4, !tbaa !1494
   %203 = getelementptr inbounds nuw i8, ptr %9, i64 72
-  store float %4, ptr %203, align 8, !tbaa !1486
+  store float %4, ptr %203, align 8, !tbaa !1495
   %204 = getelementptr inbounds nuw i8, ptr %9, i64 76
-  store float %67, ptr %204, align 4, !tbaa !1487
+  store float %67, ptr %204, align 4, !tbaa !1496
   %205 = getelementptr inbounds nuw i8, ptr %9, i64 80
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %205, ptr noundef nonnull align 8 dereferenceable(56) %45, i64 56, i1 false), !tbaa.struct !1288
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %205, ptr noundef nonnull align 8 dereferenceable(56) %45, i64 56, i1 false), !tbaa.struct !1297
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 %65, ptr %6, align 8, !tbaa !36
   %206 = and i64 %199, 4294967295
@@ -71623,7 +71675,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i11.i: ; pred
   %228 = getelementptr inbounds nuw i8, ptr %32, i64 16
   store ptr %46, ptr %228, align 8, !tbaa !140
   %229 = getelementptr inbounds nuw i8, ptr %32, i64 24
-  store ptr %44, ptr %229, align 8, !tbaa !1317
+  store ptr %44, ptr %229, align 8, !tbaa !1326
   %230 = getelementptr inbounds nuw i8, ptr %32, i64 32
   store ptr %41, ptr %230, align 8, !tbaa !67
   %231 = getelementptr inbounds nuw i8, ptr %32, i64 40
@@ -71633,7 +71685,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i11.i: ; pred
   %233 = getelementptr inbounds nuw i8, ptr %32, i64 56
   store ptr %48, ptr %233, align 8, !tbaa !67
   %234 = getelementptr inbounds nuw i8, ptr %32, i64 64
-  store ptr %45, ptr %234, align 8, !tbaa !1317
+  store ptr %45, ptr %234, align 8, !tbaa !1326
   call fastcc void @"_ZZZN6open3d1t8geometry6kernel5image16ColorizeDepthCPUERKNS_4core6TensorERS5_fffENK3$_0clEvENKUlvE4_clEv"(ptr noundef nonnull align 8 dereferenceable(72) %32)
   call void @llvm.lifetime.end.p0(ptr nonnull %32)
   br label %"_ZZN6open3d1t8geometry6kernel5image16ColorizeDepthCPUERKNS_4core6TensorERS5_fffENK3$_0clEv.exit"
@@ -71653,7 +71705,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i11.i: ; pred
   %239 = getelementptr inbounds nuw i8, ptr %34, i64 16
   store ptr %46, ptr %239, align 8, !tbaa !140
   %240 = getelementptr inbounds nuw i8, ptr %34, i64 24
-  store ptr %44, ptr %240, align 8, !tbaa !1317
+  store ptr %44, ptr %240, align 8, !tbaa !1326
   %241 = getelementptr inbounds nuw i8, ptr %34, i64 32
   store ptr %41, ptr %241, align 8, !tbaa !67
   %242 = getelementptr inbounds nuw i8, ptr %34, i64 40
@@ -71663,7 +71715,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i11.i: ; pred
   %244 = getelementptr inbounds nuw i8, ptr %34, i64 56
   store ptr %48, ptr %244, align 8, !tbaa !67
   %245 = getelementptr inbounds nuw i8, ptr %34, i64 64
-  store ptr %45, ptr %245, align 8, !tbaa !1317
+  store ptr %45, ptr %245, align 8, !tbaa !1326
   call fastcc void @"_ZZZN6open3d1t8geometry6kernel5image16ColorizeDepthCPUERKNS_4core6TensorERS5_fffENK3$_0clEvENKUlvE5_clEv"(ptr noundef nonnull align 8 dereferenceable(72) %34)
   call void @llvm.lifetime.end.p0(ptr nonnull %34)
   br label %"_ZZN6open3d1t8geometry6kernel5image16ColorizeDepthCPUERKNS_4core6TensorERS5_fffENK3$_0clEv.exit"
@@ -71683,7 +71735,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i11.i: ; pred
   %250 = getelementptr inbounds nuw i8, ptr %36, i64 16
   store ptr %46, ptr %250, align 8, !tbaa !140
   %251 = getelementptr inbounds nuw i8, ptr %36, i64 24
-  store ptr %44, ptr %251, align 8, !tbaa !1317
+  store ptr %44, ptr %251, align 8, !tbaa !1326
   %252 = getelementptr inbounds nuw i8, ptr %36, i64 32
   store ptr %41, ptr %252, align 8, !tbaa !67
   %253 = getelementptr inbounds nuw i8, ptr %36, i64 40
@@ -71693,7 +71745,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i11.i: ; pred
   %255 = getelementptr inbounds nuw i8, ptr %36, i64 56
   store ptr %48, ptr %255, align 8, !tbaa !67
   %256 = getelementptr inbounds nuw i8, ptr %36, i64 64
-  store ptr %45, ptr %256, align 8, !tbaa !1317
+  store ptr %45, ptr %256, align 8, !tbaa !1326
   call fastcc void @"_ZZZN6open3d1t8geometry6kernel5image16ColorizeDepthCPUERKNS_4core6TensorERS5_fffENK3$_0clEvENKUlvE6_clEv"(ptr noundef nonnull align 8 dereferenceable(72) %36)
   call void @llvm.lifetime.end.p0(ptr nonnull %36)
   br label %"_ZZN6open3d1t8geometry6kernel5image16ColorizeDepthCPUERKNS_4core6TensorERS5_fffENK3$_0clEv.exit"
@@ -71713,7 +71765,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i11.i: ; pred
   %261 = getelementptr inbounds nuw i8, ptr %38, i64 16
   store ptr %46, ptr %261, align 8, !tbaa !140
   %262 = getelementptr inbounds nuw i8, ptr %38, i64 24
-  store ptr %44, ptr %262, align 8, !tbaa !1317
+  store ptr %44, ptr %262, align 8, !tbaa !1326
   %263 = getelementptr inbounds nuw i8, ptr %38, i64 32
   store ptr %41, ptr %263, align 8, !tbaa !67
   %264 = getelementptr inbounds nuw i8, ptr %38, i64 40
@@ -71723,7 +71775,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i11.i: ; pred
   %266 = getelementptr inbounds nuw i8, ptr %38, i64 56
   store ptr %48, ptr %266, align 8, !tbaa !67
   %267 = getelementptr inbounds nuw i8, ptr %38, i64 64
-  store ptr %45, ptr %267, align 8, !tbaa !1317
+  store ptr %45, ptr %267, align 8, !tbaa !1326
   call fastcc void @"_ZZZN6open3d1t8geometry6kernel5image16ColorizeDepthCPUERKNS_4core6TensorERS5_fffENK3$_0clEvENKUlvE7_clEv"(ptr noundef nonnull align 8 dereferenceable(72) %38)
   call void @llvm.lifetime.end.p0(ptr nonnull %38)
   br label %"_ZZN6open3d1t8geometry6kernel5image16ColorizeDepthCPUERKNS_4core6TensorERS5_fffENK3$_0clEv.exit"
@@ -71743,7 +71795,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i11.i: ; pred
   %272 = getelementptr inbounds nuw i8, ptr %40, i64 16
   store ptr %46, ptr %272, align 8, !tbaa !140
   %273 = getelementptr inbounds nuw i8, ptr %40, i64 24
-  store ptr %44, ptr %273, align 8, !tbaa !1317
+  store ptr %44, ptr %273, align 8, !tbaa !1326
   %274 = getelementptr inbounds nuw i8, ptr %40, i64 32
   store ptr %41, ptr %274, align 8, !tbaa !67
   %275 = getelementptr inbounds nuw i8, ptr %40, i64 40
@@ -71753,7 +71805,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i11.i: ; pred
   %277 = getelementptr inbounds nuw i8, ptr %40, i64 56
   store ptr %48, ptr %277, align 8, !tbaa !67
   %278 = getelementptr inbounds nuw i8, ptr %40, i64 64
-  store ptr %45, ptr %278, align 8, !tbaa !1317
+  store ptr %45, ptr %278, align 8, !tbaa !1326
   call fastcc void @"_ZZZN6open3d1t8geometry6kernel5image16ColorizeDepthCPUERKNS_4core6TensorERS5_fffENK3$_0clEvENKUlvE8_clEv"(ptr noundef nonnull align 8 dereferenceable(72) %40)
   call void @llvm.lifetime.end.p0(ptr nonnull %40)
   br label %"_ZZN6open3d1t8geometry6kernel5image16ColorizeDepthCPUERKNS_4core6TensorERS5_fffENK3$_0clEv.exit"
@@ -71778,48 +71830,48 @@ define internal fastcc void @"_ZZZN6open3d1t8geometry6kernel5image16ColorizeDept
   %4 = alloca %"class.open3d::core::Device", align 8
   %5 = alloca %class.anon.414, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %6 = load ptr, ptr %0, align 8, !tbaa !1488
+  %6 = load ptr, ptr %0, align 8, !tbaa !1497
   %7 = load ptr, ptr %6, align 8, !tbaa !4
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i64 %9(ptr noundef nonnull align 8 dereferenceable(160) %6)
   store i64 %10, ptr %4, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !1490
+  %12 = load ptr, ptr %11, align 8, !tbaa !1499
   %13 = load i64, ptr %12, align 8, !tbaa !36
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %15 = load ptr, ptr %14, align 8, !tbaa !1491
+  %15 = load ptr, ptr %14, align 8, !tbaa !1500
   %16 = load i64, ptr %15, align 8, !tbaa !36
-  store i64 %16, ptr %5, align 8, !tbaa !1492
+  store i64 %16, ptr %5, align 8, !tbaa !1501
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %19 = load ptr, ptr %18, align 8, !tbaa !1494
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %17, ptr noundef nonnull align 8 dereferenceable(56) %19, i64 56, i1 false), !tbaa.struct !1288
+  %19 = load ptr, ptr %18, align 8, !tbaa !1503
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %17, ptr noundef nonnull align 8 dereferenceable(56) %19, i64 56, i1 false), !tbaa.struct !1297
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %22 = load ptr, ptr %21, align 8, !tbaa !1495
+  %22 = load ptr, ptr %21, align 8, !tbaa !1504
   %23 = load float, ptr %22, align 4, !tbaa !38
-  store float %23, ptr %20, align 8, !tbaa !1496
+  store float %23, ptr %20, align 8, !tbaa !1505
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 68
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %26 = load ptr, ptr %25, align 8, !tbaa !1497
+  %26 = load ptr, ptr %25, align 8, !tbaa !1506
   %27 = load float, ptr %26, align 4, !tbaa !38
-  store float %27, ptr %24, align 4, !tbaa !1498
+  store float %27, ptr %24, align 4, !tbaa !1507
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %30 = load ptr, ptr %29, align 8, !tbaa !1499
+  %30 = load ptr, ptr %29, align 8, !tbaa !1508
   %31 = load float, ptr %30, align 4, !tbaa !38
-  store float %31, ptr %28, align 8, !tbaa !1500
+  store float %31, ptr %28, align 8, !tbaa !1509
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 76
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %34 = load ptr, ptr %33, align 8, !tbaa !1501
+  %34 = load ptr, ptr %33, align 8, !tbaa !1510
   %35 = load float, ptr %34, align 4, !tbaa !38
-  store float %35, ptr %32, align 4, !tbaa !1502
+  store float %35, ptr %32, align 4, !tbaa !1511
   %36 = getelementptr inbounds nuw i8, ptr %5, i64 80
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %38 = load ptr, ptr %37, align 8, !tbaa !1503
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %36, ptr noundef nonnull align 8 dereferenceable(56) %38, i64 56, i1 false), !tbaa.struct !1288
+  %38 = load ptr, ptr %37, align 8, !tbaa !1512
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %36, ptr noundef nonnull align 8 dereferenceable(56) %38, i64 56, i1 false), !tbaa.struct !1297
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %39 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @2)
   store i64 %13, ptr %2, align 8, !tbaa !36
@@ -71885,48 +71937,48 @@ define internal fastcc void @"_ZZZN6open3d1t8geometry6kernel5image16ColorizeDept
   %4 = alloca %"class.open3d::core::Device", align 8
   %5 = alloca %class.anon.415, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %6 = load ptr, ptr %0, align 8, !tbaa !1504
+  %6 = load ptr, ptr %0, align 8, !tbaa !1513
   %7 = load ptr, ptr %6, align 8, !tbaa !4
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i64 %9(ptr noundef nonnull align 8 dereferenceable(160) %6)
   store i64 %10, ptr %4, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !1506
+  %12 = load ptr, ptr %11, align 8, !tbaa !1515
   %13 = load i64, ptr %12, align 8, !tbaa !36
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %15 = load ptr, ptr %14, align 8, !tbaa !1507
+  %15 = load ptr, ptr %14, align 8, !tbaa !1516
   %16 = load i64, ptr %15, align 8, !tbaa !36
-  store i64 %16, ptr %5, align 8, !tbaa !1508
+  store i64 %16, ptr %5, align 8, !tbaa !1517
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %19 = load ptr, ptr %18, align 8, !tbaa !1510
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %17, ptr noundef nonnull align 8 dereferenceable(56) %19, i64 56, i1 false), !tbaa.struct !1288
+  %19 = load ptr, ptr %18, align 8, !tbaa !1519
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %17, ptr noundef nonnull align 8 dereferenceable(56) %19, i64 56, i1 false), !tbaa.struct !1297
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %22 = load ptr, ptr %21, align 8, !tbaa !1511
+  %22 = load ptr, ptr %21, align 8, !tbaa !1520
   %23 = load float, ptr %22, align 4, !tbaa !38
-  store float %23, ptr %20, align 8, !tbaa !1512
+  store float %23, ptr %20, align 8, !tbaa !1521
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 68
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %26 = load ptr, ptr %25, align 8, !tbaa !1513
+  %26 = load ptr, ptr %25, align 8, !tbaa !1522
   %27 = load float, ptr %26, align 4, !tbaa !38
-  store float %27, ptr %24, align 4, !tbaa !1514
+  store float %27, ptr %24, align 4, !tbaa !1523
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %30 = load ptr, ptr %29, align 8, !tbaa !1515
+  %30 = load ptr, ptr %29, align 8, !tbaa !1524
   %31 = load float, ptr %30, align 4, !tbaa !38
-  store float %31, ptr %28, align 8, !tbaa !1516
+  store float %31, ptr %28, align 8, !tbaa !1525
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 76
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %34 = load ptr, ptr %33, align 8, !tbaa !1517
+  %34 = load ptr, ptr %33, align 8, !tbaa !1526
   %35 = load float, ptr %34, align 4, !tbaa !38
-  store float %35, ptr %32, align 4, !tbaa !1518
+  store float %35, ptr %32, align 4, !tbaa !1527
   %36 = getelementptr inbounds nuw i8, ptr %5, i64 80
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %38 = load ptr, ptr %37, align 8, !tbaa !1519
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %36, ptr noundef nonnull align 8 dereferenceable(56) %38, i64 56, i1 false), !tbaa.struct !1288
+  %38 = load ptr, ptr %37, align 8, !tbaa !1528
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %36, ptr noundef nonnull align 8 dereferenceable(56) %38, i64 56, i1 false), !tbaa.struct !1297
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %39 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @2)
   store i64 %13, ptr %2, align 8, !tbaa !36
@@ -71992,48 +72044,48 @@ define internal fastcc void @"_ZZZN6open3d1t8geometry6kernel5image16ColorizeDept
   %4 = alloca %"class.open3d::core::Device", align 8
   %5 = alloca %class.anon.416, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %6 = load ptr, ptr %0, align 8, !tbaa !1520
+  %6 = load ptr, ptr %0, align 8, !tbaa !1529
   %7 = load ptr, ptr %6, align 8, !tbaa !4
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i64 %9(ptr noundef nonnull align 8 dereferenceable(160) %6)
   store i64 %10, ptr %4, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !1522
+  %12 = load ptr, ptr %11, align 8, !tbaa !1531
   %13 = load i64, ptr %12, align 8, !tbaa !36
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %15 = load ptr, ptr %14, align 8, !tbaa !1523
+  %15 = load ptr, ptr %14, align 8, !tbaa !1532
   %16 = load i64, ptr %15, align 8, !tbaa !36
-  store i64 %16, ptr %5, align 8, !tbaa !1524
+  store i64 %16, ptr %5, align 8, !tbaa !1533
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %19 = load ptr, ptr %18, align 8, !tbaa !1526
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %17, ptr noundef nonnull align 8 dereferenceable(56) %19, i64 56, i1 false), !tbaa.struct !1288
+  %19 = load ptr, ptr %18, align 8, !tbaa !1535
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %17, ptr noundef nonnull align 8 dereferenceable(56) %19, i64 56, i1 false), !tbaa.struct !1297
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %22 = load ptr, ptr %21, align 8, !tbaa !1527
+  %22 = load ptr, ptr %21, align 8, !tbaa !1536
   %23 = load float, ptr %22, align 4, !tbaa !38
-  store float %23, ptr %20, align 8, !tbaa !1528
+  store float %23, ptr %20, align 8, !tbaa !1537
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 68
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %26 = load ptr, ptr %25, align 8, !tbaa !1529
+  %26 = load ptr, ptr %25, align 8, !tbaa !1538
   %27 = load float, ptr %26, align 4, !tbaa !38
-  store float %27, ptr %24, align 4, !tbaa !1530
+  store float %27, ptr %24, align 4, !tbaa !1539
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %30 = load ptr, ptr %29, align 8, !tbaa !1531
+  %30 = load ptr, ptr %29, align 8, !tbaa !1540
   %31 = load float, ptr %30, align 4, !tbaa !38
-  store float %31, ptr %28, align 8, !tbaa !1532
+  store float %31, ptr %28, align 8, !tbaa !1541
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 76
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %34 = load ptr, ptr %33, align 8, !tbaa !1533
+  %34 = load ptr, ptr %33, align 8, !tbaa !1542
   %35 = load float, ptr %34, align 4, !tbaa !38
-  store float %35, ptr %32, align 4, !tbaa !1534
+  store float %35, ptr %32, align 4, !tbaa !1543
   %36 = getelementptr inbounds nuw i8, ptr %5, i64 80
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %38 = load ptr, ptr %37, align 8, !tbaa !1535
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %36, ptr noundef nonnull align 8 dereferenceable(56) %38, i64 56, i1 false), !tbaa.struct !1288
+  %38 = load ptr, ptr %37, align 8, !tbaa !1544
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %36, ptr noundef nonnull align 8 dereferenceable(56) %38, i64 56, i1 false), !tbaa.struct !1297
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %39 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @2)
   store i64 %13, ptr %2, align 8, !tbaa !36
@@ -72099,48 +72151,48 @@ define internal fastcc void @"_ZZZN6open3d1t8geometry6kernel5image16ColorizeDept
   %4 = alloca %"class.open3d::core::Device", align 8
   %5 = alloca %class.anon.417, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %6 = load ptr, ptr %0, align 8, !tbaa !1536
+  %6 = load ptr, ptr %0, align 8, !tbaa !1545
   %7 = load ptr, ptr %6, align 8, !tbaa !4
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i64 %9(ptr noundef nonnull align 8 dereferenceable(160) %6)
   store i64 %10, ptr %4, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !1538
+  %12 = load ptr, ptr %11, align 8, !tbaa !1547
   %13 = load i64, ptr %12, align 8, !tbaa !36
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %15 = load ptr, ptr %14, align 8, !tbaa !1539
+  %15 = load ptr, ptr %14, align 8, !tbaa !1548
   %16 = load i64, ptr %15, align 8, !tbaa !36
-  store i64 %16, ptr %5, align 8, !tbaa !1540
+  store i64 %16, ptr %5, align 8, !tbaa !1549
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %19 = load ptr, ptr %18, align 8, !tbaa !1542
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %17, ptr noundef nonnull align 8 dereferenceable(56) %19, i64 56, i1 false), !tbaa.struct !1288
+  %19 = load ptr, ptr %18, align 8, !tbaa !1551
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %17, ptr noundef nonnull align 8 dereferenceable(56) %19, i64 56, i1 false), !tbaa.struct !1297
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %22 = load ptr, ptr %21, align 8, !tbaa !1543
+  %22 = load ptr, ptr %21, align 8, !tbaa !1552
   %23 = load float, ptr %22, align 4, !tbaa !38
-  store float %23, ptr %20, align 8, !tbaa !1544
+  store float %23, ptr %20, align 8, !tbaa !1553
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 68
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %26 = load ptr, ptr %25, align 8, !tbaa !1545
+  %26 = load ptr, ptr %25, align 8, !tbaa !1554
   %27 = load float, ptr %26, align 4, !tbaa !38
-  store float %27, ptr %24, align 4, !tbaa !1546
+  store float %27, ptr %24, align 4, !tbaa !1555
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %30 = load ptr, ptr %29, align 8, !tbaa !1547
+  %30 = load ptr, ptr %29, align 8, !tbaa !1556
   %31 = load float, ptr %30, align 4, !tbaa !38
-  store float %31, ptr %28, align 8, !tbaa !1548
+  store float %31, ptr %28, align 8, !tbaa !1557
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 76
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %34 = load ptr, ptr %33, align 8, !tbaa !1549
+  %34 = load ptr, ptr %33, align 8, !tbaa !1558
   %35 = load float, ptr %34, align 4, !tbaa !38
-  store float %35, ptr %32, align 4, !tbaa !1550
+  store float %35, ptr %32, align 4, !tbaa !1559
   %36 = getelementptr inbounds nuw i8, ptr %5, i64 80
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %38 = load ptr, ptr %37, align 8, !tbaa !1551
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %36, ptr noundef nonnull align 8 dereferenceable(56) %38, i64 56, i1 false), !tbaa.struct !1288
+  %38 = load ptr, ptr %37, align 8, !tbaa !1560
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %36, ptr noundef nonnull align 8 dereferenceable(56) %38, i64 56, i1 false), !tbaa.struct !1297
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %39 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @2)
   store i64 %13, ptr %2, align 8, !tbaa !36
@@ -72206,48 +72258,48 @@ define internal fastcc void @"_ZZZN6open3d1t8geometry6kernel5image16ColorizeDept
   %4 = alloca %"class.open3d::core::Device", align 8
   %5 = alloca %class.anon.418, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %6 = load ptr, ptr %0, align 8, !tbaa !1552
+  %6 = load ptr, ptr %0, align 8, !tbaa !1561
   %7 = load ptr, ptr %6, align 8, !tbaa !4
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i64 %9(ptr noundef nonnull align 8 dereferenceable(160) %6)
   store i64 %10, ptr %4, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !1554
+  %12 = load ptr, ptr %11, align 8, !tbaa !1563
   %13 = load i64, ptr %12, align 8, !tbaa !36
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %15 = load ptr, ptr %14, align 8, !tbaa !1555
+  %15 = load ptr, ptr %14, align 8, !tbaa !1564
   %16 = load i64, ptr %15, align 8, !tbaa !36
-  store i64 %16, ptr %5, align 8, !tbaa !1556
+  store i64 %16, ptr %5, align 8, !tbaa !1565
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %19 = load ptr, ptr %18, align 8, !tbaa !1558
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %17, ptr noundef nonnull align 8 dereferenceable(56) %19, i64 56, i1 false), !tbaa.struct !1288
+  %19 = load ptr, ptr %18, align 8, !tbaa !1567
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %17, ptr noundef nonnull align 8 dereferenceable(56) %19, i64 56, i1 false), !tbaa.struct !1297
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %22 = load ptr, ptr %21, align 8, !tbaa !1559
+  %22 = load ptr, ptr %21, align 8, !tbaa !1568
   %23 = load float, ptr %22, align 4, !tbaa !38
-  store float %23, ptr %20, align 8, !tbaa !1560
+  store float %23, ptr %20, align 8, !tbaa !1569
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 68
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %26 = load ptr, ptr %25, align 8, !tbaa !1561
+  %26 = load ptr, ptr %25, align 8, !tbaa !1570
   %27 = load float, ptr %26, align 4, !tbaa !38
-  store float %27, ptr %24, align 4, !tbaa !1562
+  store float %27, ptr %24, align 4, !tbaa !1571
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %30 = load ptr, ptr %29, align 8, !tbaa !1563
+  %30 = load ptr, ptr %29, align 8, !tbaa !1572
   %31 = load float, ptr %30, align 4, !tbaa !38
-  store float %31, ptr %28, align 8, !tbaa !1564
+  store float %31, ptr %28, align 8, !tbaa !1573
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 76
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %34 = load ptr, ptr %33, align 8, !tbaa !1565
+  %34 = load ptr, ptr %33, align 8, !tbaa !1574
   %35 = load float, ptr %34, align 4, !tbaa !38
-  store float %35, ptr %32, align 4, !tbaa !1566
+  store float %35, ptr %32, align 4, !tbaa !1575
   %36 = getelementptr inbounds nuw i8, ptr %5, i64 80
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %38 = load ptr, ptr %37, align 8, !tbaa !1567
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %36, ptr noundef nonnull align 8 dereferenceable(56) %38, i64 56, i1 false), !tbaa.struct !1288
+  %38 = load ptr, ptr %37, align 8, !tbaa !1576
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %36, ptr noundef nonnull align 8 dereferenceable(56) %38, i64 56, i1 false), !tbaa.struct !1297
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %39 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @2)
   store i64 %13, ptr %2, align 8, !tbaa !36
@@ -72350,34 +72402,34 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
 
 27:                                               ; preds = %.lr.ph, %27
   %.014 = phi i64 [ %16, %.lr.ph ], [ %64, %27 ]
-  %28 = load i64, ptr %3, align 8, !tbaa !1458
+  %28 = load i64, ptr %3, align 8, !tbaa !1467
   %29 = sdiv i64 %.014, %28
   %30 = srem i64 %.014, %28
   %31 = load i64, ptr %18, align 8, !tbaa !36
   %32 = mul nsw i64 %31, %29
   %33 = add nsw i64 %32, %30
-  %34 = load ptr, ptr %17, align 8, !tbaa !1334
-  %35 = load i64, ptr %19, align 8, !tbaa !1320
+  %34 = load ptr, ptr %17, align 8, !tbaa !1343
+  %35 = load i64, ptr %19, align 8, !tbaa !1329
   %36 = mul nsw i64 %33, %35
   %37 = getelementptr inbounds i8, ptr %34, i64 %36
   %38 = load float, ptr %37, align 4, !tbaa !38
-  %39 = load float, ptr %20, align 8, !tbaa !1460
+  %39 = load float, ptr %20, align 8, !tbaa !1469
   %40 = fdiv float %38, %39
-  %41 = load float, ptr %21, align 4, !tbaa !1461
+  %41 = load float, ptr %21, align 4, !tbaa !1470
   %.inv.i = fcmp ole float %40, %41
   %..i = select i1 %.inv.i, float %41, float %40
-  %42 = load float, ptr %22, align 8, !tbaa !1462
+  %42 = load float, ptr %22, align 8, !tbaa !1471
   %.inv21.i = fcmp oge float %..i, %42
   %43 = select i1 %.inv21.i, float %42, float %..i
-  %44 = load float, ptr %23, align 4, !tbaa !1463
+  %44 = load float, ptr %23, align 4, !tbaa !1472
   %45 = fsub float %43, %41
   %46 = fmul float %44, %45
   %47 = fptosi float %46 to i32
   %48 = load i64, ptr %25, align 8, !tbaa !36
   %49 = mul nsw i64 %48, %29
   %50 = add nsw i64 %49, %30
-  %51 = load ptr, ptr %24, align 8, !tbaa !1334
-  %52 = load i64, ptr %26, align 8, !tbaa !1320
+  %51 = load ptr, ptr %24, align 8, !tbaa !1343
+  %52 = load i64, ptr %26, align 8, !tbaa !1329
   %53 = mul nsw i64 %50, %52
   %54 = getelementptr inbounds i8, ptr %51, i64 %53
   %55 = sext i32 %47 to i64
@@ -72453,35 +72505,35 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
 
 27:                                               ; preds = %.lr.ph, %27
   %.014 = phi i64 [ %16, %.lr.ph ], [ %65, %27 ]
-  %28 = load i64, ptr %3, align 8, !tbaa !1464
+  %28 = load i64, ptr %3, align 8, !tbaa !1473
   %29 = sdiv i64 %.014, %28
   %30 = srem i64 %.014, %28
   %31 = load i64, ptr %18, align 8, !tbaa !36
   %32 = mul nsw i64 %31, %29
   %33 = add nsw i64 %32, %30
-  %34 = load ptr, ptr %17, align 8, !tbaa !1334
-  %35 = load i64, ptr %19, align 8, !tbaa !1320
+  %34 = load ptr, ptr %17, align 8, !tbaa !1343
+  %35 = load i64, ptr %19, align 8, !tbaa !1329
   %36 = mul nsw i64 %33, %35
   %37 = getelementptr inbounds i8, ptr %34, i64 %36
   %38 = load double, ptr %37, align 8, !tbaa !69
   %39 = fptrunc double %38 to float
-  %40 = load float, ptr %20, align 8, !tbaa !1466
+  %40 = load float, ptr %20, align 8, !tbaa !1475
   %41 = fdiv float %39, %40
-  %42 = load float, ptr %21, align 4, !tbaa !1467
+  %42 = load float, ptr %21, align 4, !tbaa !1476
   %.inv.i = fcmp ole float %41, %42
   %..i = select i1 %.inv.i, float %42, float %41
-  %43 = load float, ptr %22, align 8, !tbaa !1468
+  %43 = load float, ptr %22, align 8, !tbaa !1477
   %.inv21.i = fcmp oge float %..i, %43
   %44 = select i1 %.inv21.i, float %43, float %..i
-  %45 = load float, ptr %23, align 4, !tbaa !1469
+  %45 = load float, ptr %23, align 4, !tbaa !1478
   %46 = fsub float %44, %42
   %47 = fmul float %45, %46
   %48 = fptosi float %47 to i32
   %49 = load i64, ptr %25, align 8, !tbaa !36
   %50 = mul nsw i64 %49, %29
   %51 = add nsw i64 %50, %30
-  %52 = load ptr, ptr %24, align 8, !tbaa !1334
-  %53 = load i64, ptr %26, align 8, !tbaa !1320
+  %52 = load ptr, ptr %24, align 8, !tbaa !1343
+  %53 = load i64, ptr %26, align 8, !tbaa !1329
   %54 = mul nsw i64 %51, %53
   %55 = getelementptr inbounds i8, ptr %52, i64 %54
   %56 = sext i32 %48 to i64
@@ -72557,35 +72609,35 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
 
 27:                                               ; preds = %.lr.ph, %27
   %.014 = phi i64 [ %16, %.lr.ph ], [ %65, %27 ]
-  %28 = load i64, ptr %3, align 8, !tbaa !1470
+  %28 = load i64, ptr %3, align 8, !tbaa !1479
   %29 = sdiv i64 %.014, %28
   %30 = srem i64 %.014, %28
   %31 = load i64, ptr %18, align 8, !tbaa !36
   %32 = mul nsw i64 %31, %29
   %33 = add nsw i64 %32, %30
-  %34 = load ptr, ptr %17, align 8, !tbaa !1334
-  %35 = load i64, ptr %19, align 8, !tbaa !1320
+  %34 = load ptr, ptr %17, align 8, !tbaa !1343
+  %35 = load i64, ptr %19, align 8, !tbaa !1329
   %36 = mul nsw i64 %33, %35
   %37 = getelementptr inbounds i8, ptr %34, i64 %36
   %38 = load i8, ptr %37, align 1, !tbaa !15
   %39 = sitofp i8 %38 to float
-  %40 = load float, ptr %20, align 8, !tbaa !1472
+  %40 = load float, ptr %20, align 8, !tbaa !1481
   %41 = fdiv float %39, %40
-  %42 = load float, ptr %21, align 4, !tbaa !1473
+  %42 = load float, ptr %21, align 4, !tbaa !1482
   %.inv.i = fcmp ole float %41, %42
   %..i = select i1 %.inv.i, float %42, float %41
-  %43 = load float, ptr %22, align 8, !tbaa !1474
+  %43 = load float, ptr %22, align 8, !tbaa !1483
   %.inv21.i = fcmp oge float %..i, %43
   %44 = select i1 %.inv21.i, float %43, float %..i
-  %45 = load float, ptr %23, align 4, !tbaa !1475
+  %45 = load float, ptr %23, align 4, !tbaa !1484
   %46 = fsub float %44, %42
   %47 = fmul float %45, %46
   %48 = fptosi float %47 to i32
   %49 = load i64, ptr %25, align 8, !tbaa !36
   %50 = mul nsw i64 %49, %29
   %51 = add nsw i64 %50, %30
-  %52 = load ptr, ptr %24, align 8, !tbaa !1334
-  %53 = load i64, ptr %26, align 8, !tbaa !1320
+  %52 = load ptr, ptr %24, align 8, !tbaa !1343
+  %53 = load i64, ptr %26, align 8, !tbaa !1329
   %54 = mul nsw i64 %51, %53
   %55 = getelementptr inbounds i8, ptr %52, i64 %54
   %56 = sext i32 %48 to i64
@@ -72661,35 +72713,35 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
 
 27:                                               ; preds = %.lr.ph, %27
   %.014 = phi i64 [ %16, %.lr.ph ], [ %65, %27 ]
-  %28 = load i64, ptr %3, align 8, !tbaa !1476
+  %28 = load i64, ptr %3, align 8, !tbaa !1485
   %29 = sdiv i64 %.014, %28
   %30 = srem i64 %.014, %28
   %31 = load i64, ptr %18, align 8, !tbaa !36
   %32 = mul nsw i64 %31, %29
   %33 = add nsw i64 %32, %30
-  %34 = load ptr, ptr %17, align 8, !tbaa !1334
-  %35 = load i64, ptr %19, align 8, !tbaa !1320
+  %34 = load ptr, ptr %17, align 8, !tbaa !1343
+  %35 = load i64, ptr %19, align 8, !tbaa !1329
   %36 = mul nsw i64 %33, %35
   %37 = getelementptr inbounds i8, ptr %34, i64 %36
   %38 = load i16, ptr %37, align 2, !tbaa !122
   %39 = sitofp i16 %38 to float
-  %40 = load float, ptr %20, align 8, !tbaa !1478
+  %40 = load float, ptr %20, align 8, !tbaa !1487
   %41 = fdiv float %39, %40
-  %42 = load float, ptr %21, align 4, !tbaa !1479
+  %42 = load float, ptr %21, align 4, !tbaa !1488
   %.inv.i = fcmp ole float %41, %42
   %..i = select i1 %.inv.i, float %42, float %41
-  %43 = load float, ptr %22, align 8, !tbaa !1480
+  %43 = load float, ptr %22, align 8, !tbaa !1489
   %.inv21.i = fcmp oge float %..i, %43
   %44 = select i1 %.inv21.i, float %43, float %..i
-  %45 = load float, ptr %23, align 4, !tbaa !1481
+  %45 = load float, ptr %23, align 4, !tbaa !1490
   %46 = fsub float %44, %42
   %47 = fmul float %45, %46
   %48 = fptosi float %47 to i32
   %49 = load i64, ptr %25, align 8, !tbaa !36
   %50 = mul nsw i64 %49, %29
   %51 = add nsw i64 %50, %30
-  %52 = load ptr, ptr %24, align 8, !tbaa !1334
-  %53 = load i64, ptr %26, align 8, !tbaa !1320
+  %52 = load ptr, ptr %24, align 8, !tbaa !1343
+  %53 = load i64, ptr %26, align 8, !tbaa !1329
   %54 = mul nsw i64 %51, %53
   %55 = getelementptr inbounds i8, ptr %52, i64 %54
   %56 = sext i32 %48 to i64
@@ -72765,35 +72817,35 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
 
 27:                                               ; preds = %.lr.ph, %27
   %.014 = phi i64 [ %16, %.lr.ph ], [ %65, %27 ]
-  %28 = load i64, ptr %3, align 8, !tbaa !1482
+  %28 = load i64, ptr %3, align 8, !tbaa !1491
   %29 = sdiv i64 %.014, %28
   %30 = srem i64 %.014, %28
   %31 = load i64, ptr %18, align 8, !tbaa !36
   %32 = mul nsw i64 %31, %29
   %33 = add nsw i64 %32, %30
-  %34 = load ptr, ptr %17, align 8, !tbaa !1334
-  %35 = load i64, ptr %19, align 8, !tbaa !1320
+  %34 = load ptr, ptr %17, align 8, !tbaa !1343
+  %35 = load i64, ptr %19, align 8, !tbaa !1329
   %36 = mul nsw i64 %33, %35
   %37 = getelementptr inbounds i8, ptr %34, i64 %36
   %38 = load i32, ptr %37, align 4, !tbaa !16
   %39 = sitofp i32 %38 to float
-  %40 = load float, ptr %20, align 8, !tbaa !1484
+  %40 = load float, ptr %20, align 8, !tbaa !1493
   %41 = fdiv float %39, %40
-  %42 = load float, ptr %21, align 4, !tbaa !1485
+  %42 = load float, ptr %21, align 4, !tbaa !1494
   %.inv.i = fcmp ole float %41, %42
   %..i = select i1 %.inv.i, float %42, float %41
-  %43 = load float, ptr %22, align 8, !tbaa !1486
+  %43 = load float, ptr %22, align 8, !tbaa !1495
   %.inv21.i = fcmp oge float %..i, %43
   %44 = select i1 %.inv21.i, float %43, float %..i
-  %45 = load float, ptr %23, align 4, !tbaa !1487
+  %45 = load float, ptr %23, align 4, !tbaa !1496
   %46 = fsub float %44, %42
   %47 = fmul float %45, %46
   %48 = fptosi float %47 to i32
   %49 = load i64, ptr %25, align 8, !tbaa !36
   %50 = mul nsw i64 %49, %29
   %51 = add nsw i64 %50, %30
-  %52 = load ptr, ptr %24, align 8, !tbaa !1334
-  %53 = load i64, ptr %26, align 8, !tbaa !1320
+  %52 = load ptr, ptr %24, align 8, !tbaa !1343
+  %53 = load i64, ptr %26, align 8, !tbaa !1329
   %54 = mul nsw i64 %51, %53
   %55 = getelementptr inbounds i8, ptr %52, i64 %54
   %56 = sext i32 %48 to i64
@@ -72869,35 +72921,35 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
 
 27:                                               ; preds = %.lr.ph, %27
   %.014 = phi i64 [ %16, %.lr.ph ], [ %65, %27 ]
-  %28 = load i64, ptr %3, align 8, !tbaa !1492
+  %28 = load i64, ptr %3, align 8, !tbaa !1501
   %29 = sdiv i64 %.014, %28
   %30 = srem i64 %.014, %28
   %31 = load i64, ptr %18, align 8, !tbaa !36
   %32 = mul nsw i64 %31, %29
   %33 = add nsw i64 %32, %30
-  %34 = load ptr, ptr %17, align 8, !tbaa !1334
-  %35 = load i64, ptr %19, align 8, !tbaa !1320
+  %34 = load ptr, ptr %17, align 8, !tbaa !1343
+  %35 = load i64, ptr %19, align 8, !tbaa !1329
   %36 = mul nsw i64 %33, %35
   %37 = getelementptr inbounds i8, ptr %34, i64 %36
   %38 = load i64, ptr %37, align 8, !tbaa !36
   %39 = sitofp i64 %38 to float
-  %40 = load float, ptr %20, align 8, !tbaa !1496
+  %40 = load float, ptr %20, align 8, !tbaa !1505
   %41 = fdiv float %39, %40
-  %42 = load float, ptr %21, align 4, !tbaa !1498
+  %42 = load float, ptr %21, align 4, !tbaa !1507
   %.inv.i = fcmp ole float %41, %42
   %..i = select i1 %.inv.i, float %42, float %41
-  %43 = load float, ptr %22, align 8, !tbaa !1500
+  %43 = load float, ptr %22, align 8, !tbaa !1509
   %.inv21.i = fcmp oge float %..i, %43
   %44 = select i1 %.inv21.i, float %43, float %..i
-  %45 = load float, ptr %23, align 4, !tbaa !1502
+  %45 = load float, ptr %23, align 4, !tbaa !1511
   %46 = fsub float %44, %42
   %47 = fmul float %45, %46
   %48 = fptosi float %47 to i32
   %49 = load i64, ptr %25, align 8, !tbaa !36
   %50 = mul nsw i64 %49, %29
   %51 = add nsw i64 %50, %30
-  %52 = load ptr, ptr %24, align 8, !tbaa !1334
-  %53 = load i64, ptr %26, align 8, !tbaa !1320
+  %52 = load ptr, ptr %24, align 8, !tbaa !1343
+  %53 = load i64, ptr %26, align 8, !tbaa !1329
   %54 = mul nsw i64 %51, %53
   %55 = getelementptr inbounds i8, ptr %52, i64 %54
   %56 = sext i32 %48 to i64
@@ -72973,35 +73025,35 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
 
 27:                                               ; preds = %.lr.ph, %27
   %.014 = phi i64 [ %16, %.lr.ph ], [ %65, %27 ]
-  %28 = load i64, ptr %3, align 8, !tbaa !1508
+  %28 = load i64, ptr %3, align 8, !tbaa !1517
   %29 = sdiv i64 %.014, %28
   %30 = srem i64 %.014, %28
   %31 = load i64, ptr %18, align 8, !tbaa !36
   %32 = mul nsw i64 %31, %29
   %33 = add nsw i64 %32, %30
-  %34 = load ptr, ptr %17, align 8, !tbaa !1334
-  %35 = load i64, ptr %19, align 8, !tbaa !1320
+  %34 = load ptr, ptr %17, align 8, !tbaa !1343
+  %35 = load i64, ptr %19, align 8, !tbaa !1329
   %36 = mul nsw i64 %33, %35
   %37 = getelementptr inbounds i8, ptr %34, i64 %36
   %38 = load i8, ptr %37, align 1, !tbaa !15
   %39 = uitofp i8 %38 to float
-  %40 = load float, ptr %20, align 8, !tbaa !1512
+  %40 = load float, ptr %20, align 8, !tbaa !1521
   %41 = fdiv float %39, %40
-  %42 = load float, ptr %21, align 4, !tbaa !1514
+  %42 = load float, ptr %21, align 4, !tbaa !1523
   %.inv.i = fcmp ole float %41, %42
   %..i = select i1 %.inv.i, float %42, float %41
-  %43 = load float, ptr %22, align 8, !tbaa !1516
+  %43 = load float, ptr %22, align 8, !tbaa !1525
   %.inv21.i = fcmp oge float %..i, %43
   %44 = select i1 %.inv21.i, float %43, float %..i
-  %45 = load float, ptr %23, align 4, !tbaa !1518
+  %45 = load float, ptr %23, align 4, !tbaa !1527
   %46 = fsub float %44, %42
   %47 = fmul float %45, %46
   %48 = fptosi float %47 to i32
   %49 = load i64, ptr %25, align 8, !tbaa !36
   %50 = mul nsw i64 %49, %29
   %51 = add nsw i64 %50, %30
-  %52 = load ptr, ptr %24, align 8, !tbaa !1334
-  %53 = load i64, ptr %26, align 8, !tbaa !1320
+  %52 = load ptr, ptr %24, align 8, !tbaa !1343
+  %53 = load i64, ptr %26, align 8, !tbaa !1329
   %54 = mul nsw i64 %51, %53
   %55 = getelementptr inbounds i8, ptr %52, i64 %54
   %56 = sext i32 %48 to i64
@@ -73077,35 +73129,35 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
 
 27:                                               ; preds = %.lr.ph, %27
   %.014 = phi i64 [ %16, %.lr.ph ], [ %65, %27 ]
-  %28 = load i64, ptr %3, align 8, !tbaa !1524
+  %28 = load i64, ptr %3, align 8, !tbaa !1533
   %29 = sdiv i64 %.014, %28
   %30 = srem i64 %.014, %28
   %31 = load i64, ptr %18, align 8, !tbaa !36
   %32 = mul nsw i64 %31, %29
   %33 = add nsw i64 %32, %30
-  %34 = load ptr, ptr %17, align 8, !tbaa !1334
-  %35 = load i64, ptr %19, align 8, !tbaa !1320
+  %34 = load ptr, ptr %17, align 8, !tbaa !1343
+  %35 = load i64, ptr %19, align 8, !tbaa !1329
   %36 = mul nsw i64 %33, %35
   %37 = getelementptr inbounds i8, ptr %34, i64 %36
   %38 = load i16, ptr %37, align 2, !tbaa !122
   %39 = uitofp i16 %38 to float
-  %40 = load float, ptr %20, align 8, !tbaa !1528
+  %40 = load float, ptr %20, align 8, !tbaa !1537
   %41 = fdiv float %39, %40
-  %42 = load float, ptr %21, align 4, !tbaa !1530
+  %42 = load float, ptr %21, align 4, !tbaa !1539
   %.inv.i = fcmp ole float %41, %42
   %..i = select i1 %.inv.i, float %42, float %41
-  %43 = load float, ptr %22, align 8, !tbaa !1532
+  %43 = load float, ptr %22, align 8, !tbaa !1541
   %.inv21.i = fcmp oge float %..i, %43
   %44 = select i1 %.inv21.i, float %43, float %..i
-  %45 = load float, ptr %23, align 4, !tbaa !1534
+  %45 = load float, ptr %23, align 4, !tbaa !1543
   %46 = fsub float %44, %42
   %47 = fmul float %45, %46
   %48 = fptosi float %47 to i32
   %49 = load i64, ptr %25, align 8, !tbaa !36
   %50 = mul nsw i64 %49, %29
   %51 = add nsw i64 %50, %30
-  %52 = load ptr, ptr %24, align 8, !tbaa !1334
-  %53 = load i64, ptr %26, align 8, !tbaa !1320
+  %52 = load ptr, ptr %24, align 8, !tbaa !1343
+  %53 = load i64, ptr %26, align 8, !tbaa !1329
   %54 = mul nsw i64 %51, %53
   %55 = getelementptr inbounds i8, ptr %52, i64 %54
   %56 = sext i32 %48 to i64
@@ -73181,35 +73233,35 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
 
 27:                                               ; preds = %.lr.ph, %27
   %.014 = phi i64 [ %16, %.lr.ph ], [ %65, %27 ]
-  %28 = load i64, ptr %3, align 8, !tbaa !1540
+  %28 = load i64, ptr %3, align 8, !tbaa !1549
   %29 = sdiv i64 %.014, %28
   %30 = srem i64 %.014, %28
   %31 = load i64, ptr %18, align 8, !tbaa !36
   %32 = mul nsw i64 %31, %29
   %33 = add nsw i64 %32, %30
-  %34 = load ptr, ptr %17, align 8, !tbaa !1334
-  %35 = load i64, ptr %19, align 8, !tbaa !1320
+  %34 = load ptr, ptr %17, align 8, !tbaa !1343
+  %35 = load i64, ptr %19, align 8, !tbaa !1329
   %36 = mul nsw i64 %33, %35
   %37 = getelementptr inbounds i8, ptr %34, i64 %36
   %38 = load i32, ptr %37, align 4, !tbaa !16
   %39 = uitofp i32 %38 to float
-  %40 = load float, ptr %20, align 8, !tbaa !1544
+  %40 = load float, ptr %20, align 8, !tbaa !1553
   %41 = fdiv float %39, %40
-  %42 = load float, ptr %21, align 4, !tbaa !1546
+  %42 = load float, ptr %21, align 4, !tbaa !1555
   %.inv.i = fcmp ole float %41, %42
   %..i = select i1 %.inv.i, float %42, float %41
-  %43 = load float, ptr %22, align 8, !tbaa !1548
+  %43 = load float, ptr %22, align 8, !tbaa !1557
   %.inv21.i = fcmp oge float %..i, %43
   %44 = select i1 %.inv21.i, float %43, float %..i
-  %45 = load float, ptr %23, align 4, !tbaa !1550
+  %45 = load float, ptr %23, align 4, !tbaa !1559
   %46 = fsub float %44, %42
   %47 = fmul float %45, %46
   %48 = fptosi float %47 to i32
   %49 = load i64, ptr %25, align 8, !tbaa !36
   %50 = mul nsw i64 %49, %29
   %51 = add nsw i64 %50, %30
-  %52 = load ptr, ptr %24, align 8, !tbaa !1334
-  %53 = load i64, ptr %26, align 8, !tbaa !1320
+  %52 = load ptr, ptr %24, align 8, !tbaa !1343
+  %53 = load i64, ptr %26, align 8, !tbaa !1329
   %54 = mul nsw i64 %51, %53
   %55 = getelementptr inbounds i8, ptr %52, i64 %54
   %56 = sext i32 %48 to i64
@@ -73285,35 +73337,35 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
 
 27:                                               ; preds = %.lr.ph, %27
   %.014 = phi i64 [ %16, %.lr.ph ], [ %65, %27 ]
-  %28 = load i64, ptr %3, align 8, !tbaa !1556
+  %28 = load i64, ptr %3, align 8, !tbaa !1565
   %29 = sdiv i64 %.014, %28
   %30 = srem i64 %.014, %28
   %31 = load i64, ptr %18, align 8, !tbaa !36
   %32 = mul nsw i64 %31, %29
   %33 = add nsw i64 %32, %30
-  %34 = load ptr, ptr %17, align 8, !tbaa !1334
-  %35 = load i64, ptr %19, align 8, !tbaa !1320
+  %34 = load ptr, ptr %17, align 8, !tbaa !1343
+  %35 = load i64, ptr %19, align 8, !tbaa !1329
   %36 = mul nsw i64 %33, %35
   %37 = getelementptr inbounds i8, ptr %34, i64 %36
   %38 = load i64, ptr %37, align 8, !tbaa !36
   %39 = uitofp i64 %38 to float
-  %40 = load float, ptr %20, align 8, !tbaa !1560
+  %40 = load float, ptr %20, align 8, !tbaa !1569
   %41 = fdiv float %39, %40
-  %42 = load float, ptr %21, align 4, !tbaa !1562
+  %42 = load float, ptr %21, align 4, !tbaa !1571
   %.inv.i = fcmp ole float %41, %42
   %..i = select i1 %.inv.i, float %42, float %41
-  %43 = load float, ptr %22, align 8, !tbaa !1564
+  %43 = load float, ptr %22, align 8, !tbaa !1573
   %.inv21.i = fcmp oge float %..i, %43
   %44 = select i1 %.inv21.i, float %43, float %..i
-  %45 = load float, ptr %23, align 4, !tbaa !1566
+  %45 = load float, ptr %23, align 4, !tbaa !1575
   %46 = fsub float %44, %42
   %47 = fmul float %45, %46
   %48 = fptosi float %47 to i32
   %49 = load i64, ptr %25, align 8, !tbaa !36
   %50 = mul nsw i64 %49, %29
   %51 = add nsw i64 %50, %30
-  %52 = load ptr, ptr %24, align 8, !tbaa !1334
-  %53 = load i64, ptr %26, align 8, !tbaa !1320
+  %52 = load ptr, ptr %24, align 8, !tbaa !1343
+  %53 = load i64, ptr %26, align 8, !tbaa !1329
   %54 = mul nsw i64 %51, %53
   %55 = getelementptr inbounds i8, ptr %52, i64 %54
   %56 = sext i32 %48 to i64
@@ -74183,840 +74235,849 @@ attributes #35 = { nounwind willreturn memory(read) }
 !728 = !{i64 0, i64 16, !15}
 !729 = !{i64 0, i64 16, !15, i64 16, i64 4, !309}
 !730 = !{!731}
-!731 = distinct !{!731, !732, !"_ZN3fmt3v106detail7get_argINS0_20basic_format_contextINS0_8appenderEcEENS0_17basic_string_viewIcEEEEDTcldtfp_3argfp0_EERT_T0_: argument 0"}
-!732 = distinct !{!732, !"_ZN3fmt3v106detail7get_argINS0_20basic_format_contextINS0_8appenderEcEENS0_17basic_string_viewIcEEEEDTcldtfp_3argfp0_EERT_T0_"}
-!733 = !{!734}
-!734 = distinct !{!734, !735, !"_ZN3fmt3v106detail7get_argINS0_20basic_format_contextINS0_8appenderEcEEiEEDTcldtfp_3argfp0_EERT_T0_: argument 0"}
-!735 = distinct !{!735, !"_ZN3fmt3v106detail7get_argINS0_20basic_format_contextINS0_8appenderEcEEiEEDTcldtfp_3argfp0_EERT_T0_"}
+!731 = distinct !{!731, !732, !"_ZNK3fmt3v1017basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE3getIcEENS0_16basic_format_argIS4_EENS0_17basic_string_viewIT_EE: argument 0"}
+!732 = distinct !{!732, !"_ZNK3fmt3v1017basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE3getIcEENS0_16basic_format_argIS4_EENS0_17basic_string_viewIT_EE"}
+!733 = !{!734, !731}
+!734 = distinct !{!734, !735, !"_ZNK3fmt3v1017basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE3getEi: argument 0"}
+!735 = distinct !{!735, !"_ZNK3fmt3v1017basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE3getEi"}
 !736 = !{!737}
-!737 = distinct !{!737, !738, !"_ZNK3fmt3v1020basic_format_contextINS0_8appenderEcE3argEi: argument 0"}
-!738 = distinct !{!738, !"_ZNK3fmt3v1020basic_format_contextINS0_8appenderEcE3argEi"}
+!737 = distinct !{!737, !738, !"_ZN3fmt3v106detail7get_argINS0_20basic_format_contextINS0_8appenderEcEENS0_17basic_string_viewIcEEEEDTcldtfp_3argfp0_EERT_T0_: argument 0"}
+!738 = distinct !{!738, !"_ZN3fmt3v106detail7get_argINS0_20basic_format_contextINS0_8appenderEcEENS0_17basic_string_viewIcEEEEDTcldtfp_3argfp0_EERT_T0_"}
 !739 = !{!740}
-!740 = distinct !{!740, !741, !"_ZNK3fmt3v1017basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE3getEi: argument 0"}
-!741 = distinct !{!741, !"_ZNK3fmt3v1017basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE3getEi"}
-!742 = !{!740, !737, !734}
-!743 = !{!744}
-!744 = distinct !{!744, !745, !"_ZN3fmt3v106detail7get_argINS0_20basic_format_contextINS0_8appenderEcEENS0_17basic_string_viewIcEEEEDTcldtfp_3argfp0_EERT_T0_: argument 0"}
-!745 = distinct !{!745, !"_ZN3fmt3v106detail7get_argINS0_20basic_format_contextINS0_8appenderEcEENS0_17basic_string_viewIcEEEEDTcldtfp_3argfp0_EERT_T0_"}
-!746 = !{!747, !747, i64 0}
-!747 = !{!"p1 _ZTSN3fmt3v1026basic_format_parse_contextIcEE", !10, i64 0}
-!748 = !{!749, !749, i64 0}
-!749 = !{!"p1 _ZTSN3fmt3v106detail7arg_refIcEE", !10, i64 0}
-!750 = !{!717, !717, i64 0}
-!751 = !{!752, !749, i64 8}
-!752 = !{!"_ZTSN3fmt3v106detail23dynamic_spec_id_handlerIcEE", !747, i64 0, !749, i64 8}
-!753 = !{!752, !747, i64 0}
-!754 = distinct !{!754, !28}
+!740 = distinct !{!740, !741, !"_ZN3fmt3v106detail7get_argINS0_20basic_format_contextINS0_8appenderEcEEiEEDTcldtfp_3argfp0_EERT_T0_: argument 0"}
+!741 = distinct !{!741, !"_ZN3fmt3v106detail7get_argINS0_20basic_format_contextINS0_8appenderEcEEiEEDTcldtfp_3argfp0_EERT_T0_"}
+!742 = !{!743}
+!743 = distinct !{!743, !744, !"_ZNK3fmt3v1020basic_format_contextINS0_8appenderEcE3argEi: argument 0"}
+!744 = distinct !{!744, !"_ZNK3fmt3v1020basic_format_contextINS0_8appenderEcE3argEi"}
+!745 = !{!746}
+!746 = distinct !{!746, !747, !"_ZNK3fmt3v1017basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE3getEi: argument 0"}
+!747 = distinct !{!747, !"_ZNK3fmt3v1017basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE3getEi"}
+!748 = !{!746, !743, !740}
+!749 = !{!750}
+!750 = distinct !{!750, !751, !"_ZNK3fmt3v1017basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE3getIcEENS0_16basic_format_argIS4_EENS0_17basic_string_viewIT_EE: argument 0"}
+!751 = distinct !{!751, !"_ZNK3fmt3v1017basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE3getIcEENS0_16basic_format_argIS4_EENS0_17basic_string_viewIT_EE"}
+!752 = !{!753, !750}
+!753 = distinct !{!753, !754, !"_ZNK3fmt3v1017basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE3getEi: argument 0"}
+!754 = distinct !{!754, !"_ZNK3fmt3v1017basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE3getEi"}
 !755 = !{!756}
-!756 = distinct !{!756, !757, !"_ZNK3fmt3v1017basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE3getEi: argument 0"}
-!757 = distinct !{!757, !"_ZNK3fmt3v1017basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE3getEi"}
-!758 = distinct !{!758, !28}
-!759 = !{!760, !17, i64 0}
-!760 = !{!"_ZTSZN3fmt3v106detail9write_intINS0_8appenderEcZNS1_9write_intIcS3_mEET0_S5_NS1_13write_int_argIT1_EERKNS0_12format_specsIT_EENS1_10locale_refEEUlS3_E_EESA_SA_ijRKNS9_IS5_EES7_EUlS3_E_", !17, i64 0, !357, i64 8, !761, i64 24}
-!761 = !{!"_ZTSZN3fmt3v106detail9write_intIcNS0_8appenderEmEET0_S4_NS1_13write_int_argIT1_EERKNS0_12format_specsIT_EENS1_10locale_refEEUlS3_E_", !37, i64 0, !17, i64 8}
-!762 = distinct !{!762, !28}
-!763 = !{!764, !17, i64 0}
-!764 = !{!"_ZTSZN3fmt3v106detail9write_intINS0_8appenderEcZNS1_9write_intIcS3_mEET0_S5_NS1_13write_int_argIT1_EERKNS0_12format_specsIT_EENS1_10locale_refEEUlS3_E0_EESA_SA_ijRKNS9_IS5_EES7_EUlS3_E_", !17, i64 0, !357, i64 8, !765, i64 24}
-!765 = !{!"_ZTSZN3fmt3v106detail9write_intIcNS0_8appenderEmEET0_S4_NS1_13write_int_argIT1_EERKNS0_12format_specsIT_EENS1_10locale_refEEUlS3_E0_", !37, i64 0, !17, i64 8, !42, i64 12}
+!756 = distinct !{!756, !757, !"_ZN3fmt3v106detail7get_argINS0_20basic_format_contextINS0_8appenderEcEENS0_17basic_string_viewIcEEEEDTcldtfp_3argfp0_EERT_T0_: argument 0"}
+!757 = distinct !{!757, !"_ZN3fmt3v106detail7get_argINS0_20basic_format_contextINS0_8appenderEcEENS0_17basic_string_viewIcEEEEDTcldtfp_3argfp0_EERT_T0_"}
+!758 = !{!759, !759, i64 0}
+!759 = !{!"p1 _ZTSN3fmt3v1026basic_format_parse_contextIcEE", !10, i64 0}
+!760 = !{!761, !761, i64 0}
+!761 = !{!"p1 _ZTSN3fmt3v106detail7arg_refIcEE", !10, i64 0}
+!762 = !{!717, !717, i64 0}
+!763 = !{!764, !761, i64 8}
+!764 = !{!"_ZTSN3fmt3v106detail23dynamic_spec_id_handlerIcEE", !759, i64 0, !761, i64 8}
+!765 = !{!764, !759, i64 0}
 !766 = distinct !{!766, !28}
-!767 = !{!768, !17, i64 0}
-!768 = !{!"_ZTSZN3fmt3v106detail9write_intINS0_8appenderEcZNS1_9write_intIcS3_mEET0_S5_NS1_13write_int_argIT1_EERKNS0_12format_specsIT_EENS1_10locale_refEEUlS3_E1_EESA_SA_ijRKNS9_IS5_EES7_EUlS3_E_", !17, i64 0, !357, i64 8, !769, i64 24}
-!769 = !{!"_ZTSZN3fmt3v106detail9write_intIcNS0_8appenderEmEET0_S4_NS1_13write_int_argIT1_EERKNS0_12format_specsIT_EENS1_10locale_refEEUlS3_E1_", !37, i64 0, !17, i64 8}
-!770 = distinct !{!770, !28}
-!771 = !{!772, !17, i64 0}
-!772 = !{!"_ZTSZN3fmt3v106detail9write_intINS0_8appenderEcZNS1_9write_intIcS3_mEET0_S5_NS1_13write_int_argIT1_EERKNS0_12format_specsIT_EENS1_10locale_refEEUlS3_E2_EESA_SA_ijRKNS9_IS5_EES7_EUlS3_E_", !17, i64 0, !357, i64 8, !773, i64 24}
-!773 = !{!"_ZTSZN3fmt3v106detail9write_intIcNS0_8appenderEmEET0_S4_NS1_13write_int_argIT1_EERKNS0_12format_specsIT_EENS1_10locale_refEEUlS3_E2_", !37, i64 0, !17, i64 8}
-!774 = !{!760, !37, i64 16}
-!775 = !{!761, !37, i64 0}
-!776 = !{!761, !17, i64 8}
-!777 = distinct !{!777, !28}
-!778 = !{!764, !37, i64 16}
-!779 = !{!765, !37, i64 0}
-!780 = !{!765, !17, i64 8}
-!781 = !{!765, !42, i64 12}
-!782 = distinct !{!782, !28}
-!783 = !{!768, !37, i64 16}
-!784 = !{!769, !37, i64 0}
-!785 = !{!769, !17, i64 8}
+!767 = distinct !{!767, !28}
+!768 = !{!769, !17, i64 0}
+!769 = !{!"_ZTSZN3fmt3v106detail9write_intINS0_8appenderEcZNS1_9write_intIcS3_mEET0_S5_NS1_13write_int_argIT1_EERKNS0_12format_specsIT_EENS1_10locale_refEEUlS3_E_EESA_SA_ijRKNS9_IS5_EES7_EUlS3_E_", !17, i64 0, !357, i64 8, !770, i64 24}
+!770 = !{!"_ZTSZN3fmt3v106detail9write_intIcNS0_8appenderEmEET0_S4_NS1_13write_int_argIT1_EERKNS0_12format_specsIT_EENS1_10locale_refEEUlS3_E_", !37, i64 0, !17, i64 8}
+!771 = distinct !{!771, !28}
+!772 = !{!773, !17, i64 0}
+!773 = !{!"_ZTSZN3fmt3v106detail9write_intINS0_8appenderEcZNS1_9write_intIcS3_mEET0_S5_NS1_13write_int_argIT1_EERKNS0_12format_specsIT_EENS1_10locale_refEEUlS3_E0_EESA_SA_ijRKNS9_IS5_EES7_EUlS3_E_", !17, i64 0, !357, i64 8, !774, i64 24}
+!774 = !{!"_ZTSZN3fmt3v106detail9write_intIcNS0_8appenderEmEET0_S4_NS1_13write_int_argIT1_EERKNS0_12format_specsIT_EENS1_10locale_refEEUlS3_E0_", !37, i64 0, !17, i64 8, !42, i64 12}
+!775 = distinct !{!775, !28}
+!776 = !{!777, !17, i64 0}
+!777 = !{!"_ZTSZN3fmt3v106detail9write_intINS0_8appenderEcZNS1_9write_intIcS3_mEET0_S5_NS1_13write_int_argIT1_EERKNS0_12format_specsIT_EENS1_10locale_refEEUlS3_E1_EESA_SA_ijRKNS9_IS5_EES7_EUlS3_E_", !17, i64 0, !357, i64 8, !778, i64 24}
+!778 = !{!"_ZTSZN3fmt3v106detail9write_intIcNS0_8appenderEmEET0_S4_NS1_13write_int_argIT1_EERKNS0_12format_specsIT_EENS1_10locale_refEEUlS3_E1_", !37, i64 0, !17, i64 8}
+!779 = distinct !{!779, !28}
+!780 = !{!781, !17, i64 0}
+!781 = !{!"_ZTSZN3fmt3v106detail9write_intINS0_8appenderEcZNS1_9write_intIcS3_mEET0_S5_NS1_13write_int_argIT1_EERKNS0_12format_specsIT_EENS1_10locale_refEEUlS3_E2_EESA_SA_ijRKNS9_IS5_EES7_EUlS3_E_", !17, i64 0, !357, i64 8, !782, i64 24}
+!782 = !{!"_ZTSZN3fmt3v106detail9write_intIcNS0_8appenderEmEET0_S4_NS1_13write_int_argIT1_EERKNS0_12format_specsIT_EENS1_10locale_refEEUlS3_E2_", !37, i64 0, !17, i64 8}
+!783 = !{!769, !37, i64 16}
+!784 = !{!770, !37, i64 0}
+!785 = !{!770, !17, i64 8}
 !786 = distinct !{!786, !28}
-!787 = !{!772, !37, i64 16}
-!788 = !{!773, !37, i64 0}
-!789 = !{!773, !17, i64 8}
-!790 = distinct !{!790, !28}
+!787 = !{!773, !37, i64 16}
+!788 = !{!774, !37, i64 0}
+!789 = !{!774, !17, i64 8}
+!790 = !{!774, !42, i64 12}
 !791 = distinct !{!791, !28}
-!792 = !{!793, !17, i64 0}
-!793 = !{!"_ZTSZN3fmt3v106detail9write_intINS0_8appenderEcZNS1_9write_intIcS3_oEET0_S5_NS1_13write_int_argIT1_EERKNS0_12format_specsIT_EENS1_10locale_refEEUlS3_E_EESA_SA_ijRKNS9_IS5_EES7_EUlS3_E_", !17, i64 0, !357, i64 8, !794, i64 32}
-!794 = !{!"_ZTSZN3fmt3v106detail9write_intIcNS0_8appenderEoEET0_S4_NS1_13write_int_argIT1_EERKNS0_12format_specsIT_EENS1_10locale_refEEUlS3_E_", !558, i64 0, !17, i64 16}
+!792 = !{!777, !37, i64 16}
+!793 = !{!778, !37, i64 0}
+!794 = !{!778, !17, i64 8}
 !795 = distinct !{!795, !28}
-!796 = !{!797, !17, i64 0}
-!797 = !{!"_ZTSZN3fmt3v106detail9write_intINS0_8appenderEcZNS1_9write_intIcS3_oEET0_S5_NS1_13write_int_argIT1_EERKNS0_12format_specsIT_EENS1_10locale_refEEUlS3_E0_EESA_SA_ijRKNS9_IS5_EES7_EUlS3_E_", !17, i64 0, !357, i64 8, !798, i64 32}
-!798 = !{!"_ZTSZN3fmt3v106detail9write_intIcNS0_8appenderEoEET0_S4_NS1_13write_int_argIT1_EERKNS0_12format_specsIT_EENS1_10locale_refEEUlS3_E0_", !558, i64 0, !17, i64 16, !42, i64 20}
+!796 = !{!781, !37, i64 16}
+!797 = !{!782, !37, i64 0}
+!798 = !{!782, !17, i64 8}
 !799 = distinct !{!799, !28}
-!800 = !{!801, !17, i64 0}
-!801 = !{!"_ZTSZN3fmt3v106detail9write_intINS0_8appenderEcZNS1_9write_intIcS3_oEET0_S5_NS1_13write_int_argIT1_EERKNS0_12format_specsIT_EENS1_10locale_refEEUlS3_E1_EESA_SA_ijRKNS9_IS5_EES7_EUlS3_E_", !17, i64 0, !357, i64 8, !802, i64 32}
-!802 = !{!"_ZTSZN3fmt3v106detail9write_intIcNS0_8appenderEoEET0_S4_NS1_13write_int_argIT1_EERKNS0_12format_specsIT_EENS1_10locale_refEEUlS3_E1_", !558, i64 0, !17, i64 16}
-!803 = distinct !{!803, !28}
-!804 = !{!805, !17, i64 0}
-!805 = !{!"_ZTSZN3fmt3v106detail9write_intINS0_8appenderEcZNS1_9write_intIcS3_oEET0_S5_NS1_13write_int_argIT1_EERKNS0_12format_specsIT_EENS1_10locale_refEEUlS3_E2_EESA_SA_ijRKNS9_IS5_EES7_EUlS3_E_", !17, i64 0, !357, i64 8, !806, i64 32}
-!806 = !{!"_ZTSZN3fmt3v106detail9write_intIcNS0_8appenderEoEET0_S4_NS1_13write_int_argIT1_EERKNS0_12format_specsIT_EENS1_10locale_refEEUlS3_E2_", !558, i64 0, !17, i64 16}
-!807 = !{!793, !37, i64 16}
-!808 = !{!794, !558, i64 0}
-!809 = !{!794, !17, i64 16}
-!810 = distinct !{!810, !28}
-!811 = !{!797, !37, i64 16}
-!812 = !{!798, !558, i64 0}
-!813 = !{!798, !17, i64 16}
-!814 = !{!798, !42, i64 20}
-!815 = distinct !{!815, !28}
-!816 = !{!801, !37, i64 16}
-!817 = !{!802, !558, i64 0}
-!818 = !{!802, !17, i64 16}
+!800 = distinct !{!800, !28}
+!801 = !{!802, !17, i64 0}
+!802 = !{!"_ZTSZN3fmt3v106detail9write_intINS0_8appenderEcZNS1_9write_intIcS3_oEET0_S5_NS1_13write_int_argIT1_EERKNS0_12format_specsIT_EENS1_10locale_refEEUlS3_E_EESA_SA_ijRKNS9_IS5_EES7_EUlS3_E_", !17, i64 0, !357, i64 8, !803, i64 32}
+!803 = !{!"_ZTSZN3fmt3v106detail9write_intIcNS0_8appenderEoEET0_S4_NS1_13write_int_argIT1_EERKNS0_12format_specsIT_EENS1_10locale_refEEUlS3_E_", !558, i64 0, !17, i64 16}
+!804 = distinct !{!804, !28}
+!805 = !{!806, !17, i64 0}
+!806 = !{!"_ZTSZN3fmt3v106detail9write_intINS0_8appenderEcZNS1_9write_intIcS3_oEET0_S5_NS1_13write_int_argIT1_EERKNS0_12format_specsIT_EENS1_10locale_refEEUlS3_E0_EESA_SA_ijRKNS9_IS5_EES7_EUlS3_E_", !17, i64 0, !357, i64 8, !807, i64 32}
+!807 = !{!"_ZTSZN3fmt3v106detail9write_intIcNS0_8appenderEoEET0_S4_NS1_13write_int_argIT1_EERKNS0_12format_specsIT_EENS1_10locale_refEEUlS3_E0_", !558, i64 0, !17, i64 16, !42, i64 20}
+!808 = distinct !{!808, !28}
+!809 = !{!810, !17, i64 0}
+!810 = !{!"_ZTSZN3fmt3v106detail9write_intINS0_8appenderEcZNS1_9write_intIcS3_oEET0_S5_NS1_13write_int_argIT1_EERKNS0_12format_specsIT_EENS1_10locale_refEEUlS3_E1_EESA_SA_ijRKNS9_IS5_EES7_EUlS3_E_", !17, i64 0, !357, i64 8, !811, i64 32}
+!811 = !{!"_ZTSZN3fmt3v106detail9write_intIcNS0_8appenderEoEET0_S4_NS1_13write_int_argIT1_EERKNS0_12format_specsIT_EENS1_10locale_refEEUlS3_E1_", !558, i64 0, !17, i64 16}
+!812 = distinct !{!812, !28}
+!813 = !{!814, !17, i64 0}
+!814 = !{!"_ZTSZN3fmt3v106detail9write_intINS0_8appenderEcZNS1_9write_intIcS3_oEET0_S5_NS1_13write_int_argIT1_EERKNS0_12format_specsIT_EENS1_10locale_refEEUlS3_E2_EESA_SA_ijRKNS9_IS5_EES7_EUlS3_E_", !17, i64 0, !357, i64 8, !815, i64 32}
+!815 = !{!"_ZTSZN3fmt3v106detail9write_intIcNS0_8appenderEoEET0_S4_NS1_13write_int_argIT1_EERKNS0_12format_specsIT_EENS1_10locale_refEEUlS3_E2_", !558, i64 0, !17, i64 16}
+!816 = !{!802, !37, i64 16}
+!817 = !{!803, !558, i64 0}
+!818 = !{!803, !17, i64 16}
 !819 = distinct !{!819, !28}
-!820 = !{!805, !37, i64 16}
-!821 = !{!806, !558, i64 0}
-!822 = !{!806, !17, i64 16}
-!823 = distinct !{!823, !28}
-!824 = !{!825}
-!825 = distinct !{!825, !826, !"_ZN3fmt3v106detail8make_argINS0_20basic_format_contextINS0_8appenderEcEEhEENS0_16basic_format_argIT_EERT0_: argument 0"}
-!826 = distinct !{!826, !"_ZN3fmt3v106detail8make_argINS0_20basic_format_contextINS0_8appenderEcEEhEENS0_16basic_format_argIT_EERT0_"}
-!827 = distinct !{!827, !28}
+!820 = !{!806, !37, i64 16}
+!821 = !{!807, !558, i64 0}
+!822 = !{!807, !17, i64 16}
+!823 = !{!807, !42, i64 20}
+!824 = distinct !{!824, !28}
+!825 = !{!810, !37, i64 16}
+!826 = !{!811, !558, i64 0}
+!827 = !{!811, !17, i64 16}
 !828 = distinct !{!828, !28}
-!829 = distinct !{!829, !28}
-!830 = !{!831, !831, i64 0}
-!831 = !{!"char32_t", !11, i64 0}
+!829 = !{!814, !37, i64 16}
+!830 = !{!815, !558, i64 0}
+!831 = !{!815, !17, i64 16}
 !832 = distinct !{!832, !28}
-!833 = distinct !{!833, !28}
-!834 = !{!835, !50, i64 0}
-!835 = !{!"_ZTSZN3fmt3v106detail16code_point_indexENS0_17basic_string_viewIcEEmEUljS3_E_", !50, i64 0, !141, i64 8, !141, i64 16}
-!836 = !{!837}
-!837 = distinct !{!837, !838, !"_ZN3fmt3v106detail11find_escapeEPKcS3_: argument 0"}
-!838 = distinct !{!838, !"_ZN3fmt3v106detail11find_escapeEPKcS3_"}
-!839 = distinct !{!839, !28}
-!840 = distinct !{!840, !28}
-!841 = !{!842, !844}
-!842 = distinct !{!842, !843, !"memcpy.inline: argument 0"}
-!843 = distinct !{!843, !"memcpy.inline"}
-!844 = distinct !{!844, !843, !"memcpy.inline: argument 1"}
-!845 = distinct !{!845, !28}
-!846 = !{!847, !42, i64 0}
-!847 = !{!"_ZTSZN3fmt3v106detail5writeIcNS0_8appenderEEET0_S4_NS0_17basic_string_viewIT_EERKNS0_12format_specsIS6_EEEUlS3_E_", !42, i64 0, !316, i64 8, !50, i64 24, !37, i64 32}
-!848 = !{!847, !50, i64 24}
-!849 = !{!847, !37, i64 32}
-!850 = distinct !{!850, !28}
-!851 = !{!852, !854}
-!852 = distinct !{!852, !853, !"memcpy.inline: argument 0"}
-!853 = distinct !{!853, !"memcpy.inline"}
-!854 = distinct !{!854, !853, !"memcpy.inline: argument 1"}
-!855 = distinct !{!855, !28}
-!856 = distinct !{!856, !28}
-!857 = !{!858, !860}
-!858 = distinct !{!858, !859, !"memcpy.inline: argument 0"}
-!859 = distinct !{!859, !"memcpy.inline"}
-!860 = distinct !{!860, !859, !"memcpy.inline: argument 1"}
-!861 = distinct !{!861, !28}
-!862 = !{!863, !141, i64 0}
-!863 = !{!"_ZTSZN3fmt3v106detail13compute_widthENS0_17basic_string_viewIcEEE17count_code_points", !141, i64 0}
-!864 = !{!865}
-!865 = distinct !{!865, !866, !"_ZN3fmt3v106detail11find_escapeEPKcS3_: argument 0"}
-!866 = distinct !{!866, !"_ZN3fmt3v106detail11find_escapeEPKcS3_"}
-!867 = distinct !{!867, !28}
-!868 = distinct !{!868, !28}
-!869 = distinct !{!869, !28}
+!833 = !{!834}
+!834 = distinct !{!834, !835, !"_ZN3fmt3v106detail8make_argINS0_20basic_format_contextINS0_8appenderEcEEhEENS0_16basic_format_argIT_EERT0_: argument 0"}
+!835 = distinct !{!835, !"_ZN3fmt3v106detail8make_argINS0_20basic_format_contextINS0_8appenderEcEEhEENS0_16basic_format_argIT_EERT0_"}
+!836 = distinct !{!836, !28}
+!837 = distinct !{!837, !28}
+!838 = distinct !{!838, !28}
+!839 = !{!840, !840, i64 0}
+!840 = !{!"char32_t", !11, i64 0}
+!841 = distinct !{!841, !28}
+!842 = distinct !{!842, !28}
+!843 = !{!844, !50, i64 0}
+!844 = !{!"_ZTSZN3fmt3v106detail16code_point_indexENS0_17basic_string_viewIcEEmEUljS3_E_", !50, i64 0, !141, i64 8, !141, i64 16}
+!845 = !{!846}
+!846 = distinct !{!846, !847, !"_ZN3fmt3v106detail11find_escapeEPKcS3_: argument 0"}
+!847 = distinct !{!847, !"_ZN3fmt3v106detail11find_escapeEPKcS3_"}
+!848 = distinct !{!848, !28}
+!849 = distinct !{!849, !28}
+!850 = !{!851, !853}
+!851 = distinct !{!851, !852, !"memcpy.inline: argument 0"}
+!852 = distinct !{!852, !"memcpy.inline"}
+!853 = distinct !{!853, !852, !"memcpy.inline: argument 1"}
+!854 = distinct !{!854, !28}
+!855 = !{!856, !42, i64 0}
+!856 = !{!"_ZTSZN3fmt3v106detail5writeIcNS0_8appenderEEET0_S4_NS0_17basic_string_viewIT_EERKNS0_12format_specsIS6_EEEUlS3_E_", !42, i64 0, !316, i64 8, !50, i64 24, !37, i64 32}
+!857 = !{!856, !50, i64 24}
+!858 = !{!856, !37, i64 32}
+!859 = distinct !{!859, !28}
+!860 = !{!861, !863}
+!861 = distinct !{!861, !862, !"memcpy.inline: argument 0"}
+!862 = distinct !{!862, !"memcpy.inline"}
+!863 = distinct !{!863, !862, !"memcpy.inline: argument 1"}
+!864 = distinct !{!864, !28}
+!865 = distinct !{!865, !28}
+!866 = !{!867, !869}
+!867 = distinct !{!867, !868, !"memcpy.inline: argument 0"}
+!868 = distinct !{!868, !"memcpy.inline"}
+!869 = distinct !{!869, !868, !"memcpy.inline: argument 1"}
 !870 = distinct !{!870, !28}
-!871 = distinct !{!871, !28}
-!872 = distinct !{!872, !28}
-!873 = distinct !{!873, !28}
-!874 = distinct !{!874, !28}
-!875 = distinct !{!875, !28}
+!871 = !{!872, !141, i64 0}
+!872 = !{!"_ZTSZN3fmt3v106detail13compute_widthENS0_17basic_string_viewIcEEE17count_code_points", !141, i64 0}
+!873 = !{!874}
+!874 = distinct !{!874, !875, !"_ZN3fmt3v106detail11find_escapeEPKcS3_: argument 0"}
+!875 = distinct !{!875, !"_ZN3fmt3v106detail11find_escapeEPKcS3_"}
 !876 = distinct !{!876, !28}
-!877 = !{!878, !22, i64 0}
-!878 = !{!"_ZTSZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_1clEvEUlvE4_", !22, i64 0, !66, i64 8, !87, i64 16, !87, i64 24, !87, i64 32}
-!879 = !{!878, !66, i64 8}
-!880 = !{!878, !87, i64 16}
-!881 = !{!882, !70, i64 848}
-!882 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_1clEvENKUlvE4_clEvEUllE_", !45, i64 0, !70, i64 848, !70, i64 856, !11, i64 864}
-!883 = !{!878, !87, i64 24}
-!884 = !{!882, !70, i64 856}
-!885 = !{!878, !87, i64 32}
+!877 = distinct !{!877, !28}
+!878 = distinct !{!878, !28}
+!879 = distinct !{!879, !28}
+!880 = distinct !{!880, !28}
+!881 = distinct !{!881, !28}
+!882 = distinct !{!882, !28}
+!883 = distinct !{!883, !28}
+!884 = distinct !{!884, !28}
+!885 = distinct !{!885, !28}
 !886 = !{!887, !22, i64 0}
-!887 = !{!"_ZTSZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_1clEvEUlvE5_", !22, i64 0, !66, i64 8, !87, i64 16, !87, i64 24, !87, i64 32}
+!887 = !{!"_ZTSZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_1clEvEUlvE4_", !22, i64 0, !66, i64 8, !87, i64 16, !87, i64 24, !87, i64 32}
 !888 = !{!887, !66, i64 8}
 !889 = !{!887, !87, i64 16}
 !890 = !{!891, !70, i64 848}
-!891 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_1clEvENKUlvE5_clEvEUllE_", !45, i64 0, !70, i64 848, !70, i64 856, !11, i64 864}
+!891 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_1clEvENKUlvE4_clEvEUllE_", !45, i64 0, !70, i64 848, !70, i64 856, !11, i64 864}
 !892 = !{!887, !87, i64 24}
 !893 = !{!891, !70, i64 856}
 !894 = !{!887, !87, i64 32}
 !895 = !{!896, !22, i64 0}
-!896 = !{!"_ZTSZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_1clEvEUlvE6_", !22, i64 0, !66, i64 8, !87, i64 16, !87, i64 24, !87, i64 32}
+!896 = !{!"_ZTSZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_1clEvEUlvE5_", !22, i64 0, !66, i64 8, !87, i64 16, !87, i64 24, !87, i64 32}
 !897 = !{!896, !66, i64 8}
 !898 = !{!896, !87, i64 16}
 !899 = !{!900, !70, i64 848}
-!900 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_1clEvENKUlvE6_clEvEUllE_", !45, i64 0, !70, i64 848, !70, i64 856, !11, i64 864}
+!900 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_1clEvENKUlvE5_clEvEUllE_", !45, i64 0, !70, i64 848, !70, i64 856, !11, i64 864}
 !901 = !{!896, !87, i64 24}
 !902 = !{!900, !70, i64 856}
 !903 = !{!896, !87, i64 32}
 !904 = !{!905, !22, i64 0}
-!905 = !{!"_ZTSZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_1clEvEUlvE7_", !22, i64 0, !66, i64 8, !87, i64 16, !87, i64 24, !87, i64 32}
+!905 = !{!"_ZTSZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_1clEvEUlvE6_", !22, i64 0, !66, i64 8, !87, i64 16, !87, i64 24, !87, i64 32}
 !906 = !{!905, !66, i64 8}
 !907 = !{!905, !87, i64 16}
 !908 = !{!909, !70, i64 848}
-!909 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_1clEvENKUlvE7_clEvEUllE_", !45, i64 0, !70, i64 848, !70, i64 856, !11, i64 864}
+!909 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_1clEvENKUlvE6_clEvEUllE_", !45, i64 0, !70, i64 848, !70, i64 856, !11, i64 864}
 !910 = !{!905, !87, i64 24}
 !911 = !{!909, !70, i64 856}
 !912 = !{!905, !87, i64 32}
 !913 = !{!914, !22, i64 0}
-!914 = !{!"_ZTSZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_1clEvEUlvE8_", !22, i64 0, !66, i64 8, !87, i64 16, !87, i64 24, !87, i64 32}
+!914 = !{!"_ZTSZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_1clEvEUlvE7_", !22, i64 0, !66, i64 8, !87, i64 16, !87, i64 24, !87, i64 32}
 !915 = !{!914, !66, i64 8}
 !916 = !{!914, !87, i64 16}
 !917 = !{!918, !70, i64 848}
-!918 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_1clEvENKUlvE8_clEvEUllE_", !45, i64 0, !70, i64 848, !70, i64 856, !11, i64 864}
+!918 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_1clEvENKUlvE7_clEvEUllE_", !45, i64 0, !70, i64 848, !70, i64 856, !11, i64 864}
 !919 = !{!914, !87, i64 24}
 !920 = !{!918, !70, i64 856}
 !921 = !{!914, !87, i64 32}
 !922 = !{!923, !22, i64 0}
-!923 = !{!"_ZTSZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_2clEvEUlvE4_", !22, i64 0, !66, i64 8, !68, i64 16, !68, i64 24, !50, i64 32}
+!923 = !{!"_ZTSZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_1clEvEUlvE8_", !22, i64 0, !66, i64 8, !87, i64 16, !87, i64 24, !87, i64 32}
 !924 = !{!923, !66, i64 8}
-!925 = !{!923, !68, i64 16}
-!926 = !{!927, !39, i64 848}
-!927 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_2clEvENKUlvE4_clEvEUllE_", !45, i64 0, !39, i64 848, !39, i64 852, !11, i64 856}
-!928 = !{!923, !68, i64 24}
-!929 = !{!927, !39, i64 852}
-!930 = !{!923, !50, i64 32}
+!925 = !{!923, !87, i64 16}
+!926 = !{!927, !70, i64 848}
+!927 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_1clEvENKUlvE8_clEvEUllE_", !45, i64 0, !70, i64 848, !70, i64 856, !11, i64 864}
+!928 = !{!923, !87, i64 24}
+!929 = !{!927, !70, i64 856}
+!930 = !{!923, !87, i64 32}
 !931 = !{!932, !22, i64 0}
-!932 = !{!"_ZTSZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_2clEvEUlvE5_", !22, i64 0, !66, i64 8, !68, i64 16, !68, i64 24, !50, i64 32}
+!932 = !{!"_ZTSZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_2clEvEUlvE4_", !22, i64 0, !66, i64 8, !68, i64 16, !68, i64 24, !50, i64 32}
 !933 = !{!932, !66, i64 8}
 !934 = !{!932, !68, i64 16}
 !935 = !{!936, !39, i64 848}
-!936 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_2clEvENKUlvE5_clEvEUllE_", !45, i64 0, !39, i64 848, !39, i64 852, !11, i64 856}
+!936 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_2clEvENKUlvE4_clEvEUllE_", !45, i64 0, !39, i64 848, !39, i64 852, !11, i64 856}
 !937 = !{!932, !68, i64 24}
 !938 = !{!936, !39, i64 852}
 !939 = !{!932, !50, i64 32}
 !940 = !{!941, !22, i64 0}
-!941 = !{!"_ZTSZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_2clEvEUlvE6_", !22, i64 0, !66, i64 8, !68, i64 16, !68, i64 24, !50, i64 32}
+!941 = !{!"_ZTSZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_2clEvEUlvE5_", !22, i64 0, !66, i64 8, !68, i64 16, !68, i64 24, !50, i64 32}
 !942 = !{!941, !66, i64 8}
 !943 = !{!941, !68, i64 16}
 !944 = !{!945, !39, i64 848}
-!945 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_2clEvENKUlvE6_clEvEUllE_", !45, i64 0, !39, i64 848, !39, i64 852, !11, i64 856}
+!945 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_2clEvENKUlvE5_clEvEUllE_", !45, i64 0, !39, i64 848, !39, i64 852, !11, i64 856}
 !946 = !{!941, !68, i64 24}
 !947 = !{!945, !39, i64 852}
 !948 = !{!941, !50, i64 32}
 !949 = !{!950, !22, i64 0}
-!950 = !{!"_ZTSZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_2clEvEUlvE7_", !22, i64 0, !66, i64 8, !68, i64 16, !68, i64 24, !50, i64 32}
+!950 = !{!"_ZTSZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_2clEvEUlvE6_", !22, i64 0, !66, i64 8, !68, i64 16, !68, i64 24, !50, i64 32}
 !951 = !{!950, !66, i64 8}
 !952 = !{!950, !68, i64 16}
 !953 = !{!954, !39, i64 848}
-!954 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_2clEvENKUlvE7_clEvEUllE_", !45, i64 0, !39, i64 848, !39, i64 852, !11, i64 856}
+!954 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_2clEvENKUlvE6_clEvEUllE_", !45, i64 0, !39, i64 848, !39, i64 852, !11, i64 856}
 !955 = !{!950, !68, i64 24}
 !956 = !{!954, !39, i64 852}
 !957 = !{!950, !50, i64 32}
 !958 = !{!959, !22, i64 0}
-!959 = !{!"_ZTSZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_2clEvEUlvE8_", !22, i64 0, !66, i64 8, !68, i64 16, !68, i64 24, !50, i64 32}
+!959 = !{!"_ZTSZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_2clEvEUlvE7_", !22, i64 0, !66, i64 8, !68, i64 16, !68, i64 24, !50, i64 32}
 !960 = !{!959, !66, i64 8}
 !961 = !{!959, !68, i64 16}
 !962 = !{!963, !39, i64 848}
-!963 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_2clEvENKUlvE8_clEvEUllE_", !45, i64 0, !39, i64 848, !39, i64 852, !11, i64 856}
+!963 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_2clEvENKUlvE7_clEvEUllE_", !45, i64 0, !39, i64 848, !39, i64 852, !11, i64 856}
 !964 = !{!959, !68, i64 24}
 !965 = !{!963, !39, i64 852}
 !966 = !{!959, !50, i64 32}
-!967 = !{!45, !37, i64 832}
-!968 = !{!969, !10, i64 0}
-!969 = !{!"_ZTSN6open3d4core9TensorRefE", !10, i64 0, !37, i64 8, !37, i64 16, !11, i64 24, !11, i64 64}
-!970 = !{!971, !22, i64 0}
-!971 = !{!"_ZTSZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_3clEvEUlvE4_", !22, i64 0, !66, i64 8, !68, i64 16, !68, i64 24, !50, i64 32}
-!972 = !{!971, !66, i64 8}
-!973 = !{!971, !68, i64 16}
-!974 = !{!975, !39, i64 848}
-!975 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_3clEvENKUlvE4_clEvEUllE_", !45, i64 0, !39, i64 848, !39, i64 852, !11, i64 856}
-!976 = !{!971, !68, i64 24}
-!977 = !{!975, !39, i64 852}
-!978 = !{!971, !50, i64 32}
+!967 = !{!968, !22, i64 0}
+!968 = !{!"_ZTSZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_2clEvEUlvE8_", !22, i64 0, !66, i64 8, !68, i64 16, !68, i64 24, !50, i64 32}
+!969 = !{!968, !66, i64 8}
+!970 = !{!968, !68, i64 16}
+!971 = !{!972, !39, i64 848}
+!972 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_2clEvENKUlvE8_clEvEUllE_", !45, i64 0, !39, i64 848, !39, i64 852, !11, i64 856}
+!973 = !{!968, !68, i64 24}
+!974 = !{!972, !39, i64 852}
+!975 = !{!968, !50, i64 32}
+!976 = !{!45, !37, i64 832}
+!977 = !{!978, !10, i64 0}
+!978 = !{!"_ZTSN6open3d4core9TensorRefE", !10, i64 0, !37, i64 8, !37, i64 16, !11, i64 24, !11, i64 64}
 !979 = !{!980, !22, i64 0}
-!980 = !{!"_ZTSZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_3clEvEUlvE5_", !22, i64 0, !66, i64 8, !68, i64 16, !68, i64 24, !50, i64 32}
+!980 = !{!"_ZTSZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_3clEvEUlvE4_", !22, i64 0, !66, i64 8, !68, i64 16, !68, i64 24, !50, i64 32}
 !981 = !{!980, !66, i64 8}
 !982 = !{!980, !68, i64 16}
 !983 = !{!984, !39, i64 848}
-!984 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_3clEvENKUlvE5_clEvEUllE_", !45, i64 0, !39, i64 848, !39, i64 852, !11, i64 856}
+!984 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_3clEvENKUlvE4_clEvEUllE_", !45, i64 0, !39, i64 848, !39, i64 852, !11, i64 856}
 !985 = !{!980, !68, i64 24}
 !986 = !{!984, !39, i64 852}
 !987 = !{!980, !50, i64 32}
 !988 = !{!989, !22, i64 0}
-!989 = !{!"_ZTSZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_3clEvEUlvE6_", !22, i64 0, !66, i64 8, !68, i64 16, !68, i64 24, !50, i64 32}
+!989 = !{!"_ZTSZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_3clEvEUlvE5_", !22, i64 0, !66, i64 8, !68, i64 16, !68, i64 24, !50, i64 32}
 !990 = !{!989, !66, i64 8}
 !991 = !{!989, !68, i64 16}
 !992 = !{!993, !39, i64 848}
-!993 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_3clEvENKUlvE6_clEvEUllE_", !45, i64 0, !39, i64 848, !39, i64 852, !11, i64 856}
+!993 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_3clEvENKUlvE5_clEvEUllE_", !45, i64 0, !39, i64 848, !39, i64 852, !11, i64 856}
 !994 = !{!989, !68, i64 24}
 !995 = !{!993, !39, i64 852}
 !996 = !{!989, !50, i64 32}
 !997 = !{!998, !22, i64 0}
-!998 = !{!"_ZTSZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_3clEvEUlvE7_", !22, i64 0, !66, i64 8, !68, i64 16, !68, i64 24, !50, i64 32}
+!998 = !{!"_ZTSZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_3clEvEUlvE6_", !22, i64 0, !66, i64 8, !68, i64 16, !68, i64 24, !50, i64 32}
 !999 = !{!998, !66, i64 8}
 !1000 = !{!998, !68, i64 16}
 !1001 = !{!1002, !39, i64 848}
-!1002 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_3clEvENKUlvE7_clEvEUllE_", !45, i64 0, !39, i64 848, !39, i64 852, !11, i64 856}
+!1002 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_3clEvENKUlvE6_clEvEUllE_", !45, i64 0, !39, i64 848, !39, i64 852, !11, i64 856}
 !1003 = !{!998, !68, i64 24}
 !1004 = !{!1002, !39, i64 852}
 !1005 = !{!998, !50, i64 32}
 !1006 = !{!1007, !22, i64 0}
-!1007 = !{!"_ZTSZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_3clEvEUlvE8_", !22, i64 0, !66, i64 8, !68, i64 16, !68, i64 24, !50, i64 32}
+!1007 = !{!"_ZTSZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_3clEvEUlvE7_", !22, i64 0, !66, i64 8, !68, i64 16, !68, i64 24, !50, i64 32}
 !1008 = !{!1007, !66, i64 8}
 !1009 = !{!1007, !68, i64 16}
 !1010 = !{!1011, !39, i64 848}
-!1011 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_3clEvENKUlvE8_clEvEUllE_", !45, i64 0, !39, i64 848, !39, i64 852, !11, i64 856}
+!1011 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_3clEvENKUlvE7_clEvEUllE_", !45, i64 0, !39, i64 848, !39, i64 852, !11, i64 856}
 !1012 = !{!1007, !68, i64 24}
 !1013 = !{!1011, !39, i64 852}
 !1014 = !{!1007, !50, i64 32}
 !1015 = !{!1016, !22, i64 0}
-!1016 = !{!"_ZTSZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_4clEvEUlvE4_", !22, i64 0, !66, i64 8, !68, i64 16, !68, i64 24, !137, i64 32}
+!1016 = !{!"_ZTSZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_3clEvEUlvE8_", !22, i64 0, !66, i64 8, !68, i64 16, !68, i64 24, !50, i64 32}
 !1017 = !{!1016, !66, i64 8}
 !1018 = !{!1016, !68, i64 16}
 !1019 = !{!1020, !39, i64 848}
-!1020 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_4clEvENKUlvE4_clEvEUllE_", !45, i64 0, !39, i64 848, !39, i64 852, !11, i64 856}
+!1020 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_3clEvENKUlvE8_clEvEUllE_", !45, i64 0, !39, i64 848, !39, i64 852, !11, i64 856}
 !1021 = !{!1016, !68, i64 24}
 !1022 = !{!1020, !39, i64 852}
-!1023 = !{!1016, !137, i64 32}
+!1023 = !{!1016, !50, i64 32}
 !1024 = !{!1025, !22, i64 0}
-!1025 = !{!"_ZTSZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_4clEvEUlvE5_", !22, i64 0, !66, i64 8, !68, i64 16, !68, i64 24, !137, i64 32}
+!1025 = !{!"_ZTSZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_4clEvEUlvE4_", !22, i64 0, !66, i64 8, !68, i64 16, !68, i64 24, !137, i64 32}
 !1026 = !{!1025, !66, i64 8}
 !1027 = !{!1025, !68, i64 16}
 !1028 = !{!1029, !39, i64 848}
-!1029 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_4clEvENKUlvE5_clEvEUllE_", !45, i64 0, !39, i64 848, !39, i64 852, !11, i64 856}
+!1029 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_4clEvENKUlvE4_clEvEUllE_", !45, i64 0, !39, i64 848, !39, i64 852, !11, i64 856}
 !1030 = !{!1025, !68, i64 24}
 !1031 = !{!1029, !39, i64 852}
 !1032 = !{!1025, !137, i64 32}
 !1033 = !{!1034, !22, i64 0}
-!1034 = !{!"_ZTSZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_4clEvEUlvE6_", !22, i64 0, !66, i64 8, !68, i64 16, !68, i64 24, !137, i64 32}
+!1034 = !{!"_ZTSZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_4clEvEUlvE5_", !22, i64 0, !66, i64 8, !68, i64 16, !68, i64 24, !137, i64 32}
 !1035 = !{!1034, !66, i64 8}
 !1036 = !{!1034, !68, i64 16}
 !1037 = !{!1038, !39, i64 848}
-!1038 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_4clEvENKUlvE6_clEvEUllE_", !45, i64 0, !39, i64 848, !39, i64 852, !11, i64 856}
+!1038 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_4clEvENKUlvE5_clEvEUllE_", !45, i64 0, !39, i64 848, !39, i64 852, !11, i64 856}
 !1039 = !{!1034, !68, i64 24}
 !1040 = !{!1038, !39, i64 852}
 !1041 = !{!1034, !137, i64 32}
 !1042 = !{!1043, !22, i64 0}
-!1043 = !{!"_ZTSZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_4clEvEUlvE7_", !22, i64 0, !66, i64 8, !68, i64 16, !68, i64 24, !137, i64 32}
+!1043 = !{!"_ZTSZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_4clEvEUlvE6_", !22, i64 0, !66, i64 8, !68, i64 16, !68, i64 24, !137, i64 32}
 !1044 = !{!1043, !66, i64 8}
 !1045 = !{!1043, !68, i64 16}
 !1046 = !{!1047, !39, i64 848}
-!1047 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_4clEvENKUlvE7_clEvEUllE_", !45, i64 0, !39, i64 848, !39, i64 852, !11, i64 856}
+!1047 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_4clEvENKUlvE6_clEvEUllE_", !45, i64 0, !39, i64 848, !39, i64 852, !11, i64 856}
 !1048 = !{!1043, !68, i64 24}
 !1049 = !{!1047, !39, i64 852}
 !1050 = !{!1043, !137, i64 32}
 !1051 = !{!1052, !22, i64 0}
-!1052 = !{!"_ZTSZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_4clEvEUlvE8_", !22, i64 0, !66, i64 8, !68, i64 16, !68, i64 24, !137, i64 32}
+!1052 = !{!"_ZTSZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_4clEvEUlvE7_", !22, i64 0, !66, i64 8, !68, i64 16, !68, i64 24, !137, i64 32}
 !1053 = !{!1052, !66, i64 8}
 !1054 = !{!1052, !68, i64 16}
 !1055 = !{!1056, !39, i64 848}
-!1056 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_4clEvENKUlvE8_clEvEUllE_", !45, i64 0, !39, i64 848, !39, i64 852, !11, i64 856}
+!1056 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_4clEvENKUlvE7_clEvEUllE_", !45, i64 0, !39, i64 848, !39, i64 852, !11, i64 856}
 !1057 = !{!1052, !68, i64 24}
 !1058 = !{!1056, !39, i64 852}
 !1059 = !{!1052, !137, i64 32}
 !1060 = !{!1061, !22, i64 0}
-!1061 = !{!"_ZTSZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_5clEvEUlvE4_", !22, i64 0, !66, i64 8, !68, i64 16, !68, i64 24, !137, i64 32}
+!1061 = !{!"_ZTSZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_4clEvEUlvE8_", !22, i64 0, !66, i64 8, !68, i64 16, !68, i64 24, !137, i64 32}
 !1062 = !{!1061, !66, i64 8}
 !1063 = !{!1061, !68, i64 16}
 !1064 = !{!1065, !39, i64 848}
-!1065 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_5clEvENKUlvE4_clEvEUllE_", !45, i64 0, !39, i64 848, !39, i64 852, !11, i64 856}
+!1065 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_4clEvENKUlvE8_clEvEUllE_", !45, i64 0, !39, i64 848, !39, i64 852, !11, i64 856}
 !1066 = !{!1061, !68, i64 24}
 !1067 = !{!1065, !39, i64 852}
 !1068 = !{!1061, !137, i64 32}
 !1069 = !{!1070, !22, i64 0}
-!1070 = !{!"_ZTSZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_5clEvEUlvE5_", !22, i64 0, !66, i64 8, !68, i64 16, !68, i64 24, !137, i64 32}
+!1070 = !{!"_ZTSZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_5clEvEUlvE4_", !22, i64 0, !66, i64 8, !68, i64 16, !68, i64 24, !137, i64 32}
 !1071 = !{!1070, !66, i64 8}
 !1072 = !{!1070, !68, i64 16}
 !1073 = !{!1074, !39, i64 848}
-!1074 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_5clEvENKUlvE5_clEvEUllE_", !45, i64 0, !39, i64 848, !39, i64 852, !11, i64 856}
+!1074 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_5clEvENKUlvE4_clEvEUllE_", !45, i64 0, !39, i64 848, !39, i64 852, !11, i64 856}
 !1075 = !{!1070, !68, i64 24}
 !1076 = !{!1074, !39, i64 852}
 !1077 = !{!1070, !137, i64 32}
 !1078 = !{!1079, !22, i64 0}
-!1079 = !{!"_ZTSZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_5clEvEUlvE6_", !22, i64 0, !66, i64 8, !68, i64 16, !68, i64 24, !137, i64 32}
+!1079 = !{!"_ZTSZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_5clEvEUlvE5_", !22, i64 0, !66, i64 8, !68, i64 16, !68, i64 24, !137, i64 32}
 !1080 = !{!1079, !66, i64 8}
 !1081 = !{!1079, !68, i64 16}
 !1082 = !{!1083, !39, i64 848}
-!1083 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_5clEvENKUlvE6_clEvEUllE_", !45, i64 0, !39, i64 848, !39, i64 852, !11, i64 856}
+!1083 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_5clEvENKUlvE5_clEvEUllE_", !45, i64 0, !39, i64 848, !39, i64 852, !11, i64 856}
 !1084 = !{!1079, !68, i64 24}
 !1085 = !{!1083, !39, i64 852}
 !1086 = !{!1079, !137, i64 32}
 !1087 = !{!1088, !22, i64 0}
-!1088 = !{!"_ZTSZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_5clEvEUlvE7_", !22, i64 0, !66, i64 8, !68, i64 16, !68, i64 24, !137, i64 32}
+!1088 = !{!"_ZTSZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_5clEvEUlvE6_", !22, i64 0, !66, i64 8, !68, i64 16, !68, i64 24, !137, i64 32}
 !1089 = !{!1088, !66, i64 8}
 !1090 = !{!1088, !68, i64 16}
 !1091 = !{!1092, !39, i64 848}
-!1092 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_5clEvENKUlvE7_clEvEUllE_", !45, i64 0, !39, i64 848, !39, i64 852, !11, i64 856}
+!1092 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_5clEvENKUlvE6_clEvEUllE_", !45, i64 0, !39, i64 848, !39, i64 852, !11, i64 856}
 !1093 = !{!1088, !68, i64 24}
 !1094 = !{!1092, !39, i64 852}
 !1095 = !{!1088, !137, i64 32}
 !1096 = !{!1097, !22, i64 0}
-!1097 = !{!"_ZTSZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_5clEvEUlvE8_", !22, i64 0, !66, i64 8, !68, i64 16, !68, i64 24, !137, i64 32}
+!1097 = !{!"_ZTSZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_5clEvEUlvE7_", !22, i64 0, !66, i64 8, !68, i64 16, !68, i64 24, !137, i64 32}
 !1098 = !{!1097, !66, i64 8}
 !1099 = !{!1097, !68, i64 16}
 !1100 = !{!1101, !39, i64 848}
-!1101 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_5clEvENKUlvE8_clEvEUllE_", !45, i64 0, !39, i64 848, !39, i64 852, !11, i64 856}
+!1101 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_5clEvENKUlvE7_clEvEUllE_", !45, i64 0, !39, i64 848, !39, i64 852, !11, i64 856}
 !1102 = !{!1097, !68, i64 24}
 !1103 = !{!1101, !39, i64 852}
 !1104 = !{!1097, !137, i64 32}
 !1105 = !{!1106, !22, i64 0}
-!1106 = !{!"_ZTSZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_6clEvEUlvE4_", !22, i64 0, !66, i64 8, !87, i64 16, !87, i64 24, !139, i64 32}
+!1106 = !{!"_ZTSZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_5clEvEUlvE8_", !22, i64 0, !66, i64 8, !68, i64 16, !68, i64 24, !137, i64 32}
 !1107 = !{!1106, !66, i64 8}
-!1108 = !{!1106, !87, i64 16}
-!1109 = !{!1110, !70, i64 848}
-!1110 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_6clEvENKUlvE4_clEvEUllE_", !45, i64 0, !70, i64 848, !70, i64 856, !11, i64 864}
-!1111 = !{!1106, !87, i64 24}
-!1112 = !{!1110, !70, i64 856}
-!1113 = !{!1106, !139, i64 32}
+!1108 = !{!1106, !68, i64 16}
+!1109 = !{!1110, !39, i64 848}
+!1110 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_5clEvENKUlvE8_clEvEUllE_", !45, i64 0, !39, i64 848, !39, i64 852, !11, i64 856}
+!1111 = !{!1106, !68, i64 24}
+!1112 = !{!1110, !39, i64 852}
+!1113 = !{!1106, !137, i64 32}
 !1114 = !{!1115, !22, i64 0}
-!1115 = !{!"_ZTSZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_6clEvEUlvE5_", !22, i64 0, !66, i64 8, !87, i64 16, !87, i64 24, !139, i64 32}
+!1115 = !{!"_ZTSZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_6clEvEUlvE4_", !22, i64 0, !66, i64 8, !87, i64 16, !87, i64 24, !139, i64 32}
 !1116 = !{!1115, !66, i64 8}
 !1117 = !{!1115, !87, i64 16}
 !1118 = !{!1119, !70, i64 848}
-!1119 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_6clEvENKUlvE5_clEvEUllE_", !45, i64 0, !70, i64 848, !70, i64 856, !11, i64 864}
+!1119 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_6clEvENKUlvE4_clEvEUllE_", !45, i64 0, !70, i64 848, !70, i64 856, !11, i64 864}
 !1120 = !{!1115, !87, i64 24}
 !1121 = !{!1119, !70, i64 856}
 !1122 = !{!1115, !139, i64 32}
 !1123 = !{!1124, !22, i64 0}
-!1124 = !{!"_ZTSZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_6clEvEUlvE6_", !22, i64 0, !66, i64 8, !87, i64 16, !87, i64 24, !139, i64 32}
+!1124 = !{!"_ZTSZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_6clEvEUlvE5_", !22, i64 0, !66, i64 8, !87, i64 16, !87, i64 24, !139, i64 32}
 !1125 = !{!1124, !66, i64 8}
 !1126 = !{!1124, !87, i64 16}
 !1127 = !{!1128, !70, i64 848}
-!1128 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_6clEvENKUlvE6_clEvEUllE_", !45, i64 0, !70, i64 848, !70, i64 856, !11, i64 864}
+!1128 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_6clEvENKUlvE5_clEvEUllE_", !45, i64 0, !70, i64 848, !70, i64 856, !11, i64 864}
 !1129 = !{!1124, !87, i64 24}
 !1130 = !{!1128, !70, i64 856}
 !1131 = !{!1124, !139, i64 32}
 !1132 = !{!1133, !22, i64 0}
-!1133 = !{!"_ZTSZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_6clEvEUlvE7_", !22, i64 0, !66, i64 8, !87, i64 16, !87, i64 24, !139, i64 32}
+!1133 = !{!"_ZTSZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_6clEvEUlvE6_", !22, i64 0, !66, i64 8, !87, i64 16, !87, i64 24, !139, i64 32}
 !1134 = !{!1133, !66, i64 8}
 !1135 = !{!1133, !87, i64 16}
 !1136 = !{!1137, !70, i64 848}
-!1137 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_6clEvENKUlvE7_clEvEUllE_", !45, i64 0, !70, i64 848, !70, i64 856, !11, i64 864}
+!1137 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_6clEvENKUlvE6_clEvEUllE_", !45, i64 0, !70, i64 848, !70, i64 856, !11, i64 864}
 !1138 = !{!1133, !87, i64 24}
 !1139 = !{!1137, !70, i64 856}
 !1140 = !{!1133, !139, i64 32}
 !1141 = !{!1142, !22, i64 0}
-!1142 = !{!"_ZTSZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_6clEvEUlvE8_", !22, i64 0, !66, i64 8, !87, i64 16, !87, i64 24, !139, i64 32}
+!1142 = !{!"_ZTSZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_6clEvEUlvE7_", !22, i64 0, !66, i64 8, !87, i64 16, !87, i64 24, !139, i64 32}
 !1143 = !{!1142, !66, i64 8}
 !1144 = !{!1142, !87, i64 16}
 !1145 = !{!1146, !70, i64 848}
-!1146 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_6clEvENKUlvE8_clEvEUllE_", !45, i64 0, !70, i64 848, !70, i64 856, !11, i64 864}
+!1146 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_6clEvENKUlvE7_clEvEUllE_", !45, i64 0, !70, i64 848, !70, i64 856, !11, i64 864}
 !1147 = !{!1142, !87, i64 24}
 !1148 = !{!1146, !70, i64 856}
 !1149 = !{!1142, !139, i64 32}
 !1150 = !{!1151, !22, i64 0}
-!1151 = !{!"_ZTSZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_7clEvEUlvE4_", !22, i64 0, !66, i64 8, !87, i64 16, !87, i64 24, !139, i64 32}
+!1151 = !{!"_ZTSZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_6clEvEUlvE8_", !22, i64 0, !66, i64 8, !87, i64 16, !87, i64 24, !139, i64 32}
 !1152 = !{!1151, !66, i64 8}
 !1153 = !{!1151, !87, i64 16}
 !1154 = !{!1155, !70, i64 848}
-!1155 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_7clEvENKUlvE4_clEvEUllE_", !45, i64 0, !70, i64 848, !70, i64 856, !11, i64 864}
+!1155 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_6clEvENKUlvE8_clEvEUllE_", !45, i64 0, !70, i64 848, !70, i64 856, !11, i64 864}
 !1156 = !{!1151, !87, i64 24}
 !1157 = !{!1155, !70, i64 856}
 !1158 = !{!1151, !139, i64 32}
 !1159 = !{!1160, !22, i64 0}
-!1160 = !{!"_ZTSZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_7clEvEUlvE5_", !22, i64 0, !66, i64 8, !87, i64 16, !87, i64 24, !139, i64 32}
+!1160 = !{!"_ZTSZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_7clEvEUlvE4_", !22, i64 0, !66, i64 8, !87, i64 16, !87, i64 24, !139, i64 32}
 !1161 = !{!1160, !66, i64 8}
 !1162 = !{!1160, !87, i64 16}
 !1163 = !{!1164, !70, i64 848}
-!1164 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_7clEvENKUlvE5_clEvEUllE_", !45, i64 0, !70, i64 848, !70, i64 856, !11, i64 864}
+!1164 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_7clEvENKUlvE4_clEvEUllE_", !45, i64 0, !70, i64 848, !70, i64 856, !11, i64 864}
 !1165 = !{!1160, !87, i64 24}
 !1166 = !{!1164, !70, i64 856}
 !1167 = !{!1160, !139, i64 32}
 !1168 = !{!1169, !22, i64 0}
-!1169 = !{!"_ZTSZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_7clEvEUlvE6_", !22, i64 0, !66, i64 8, !87, i64 16, !87, i64 24, !139, i64 32}
+!1169 = !{!"_ZTSZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_7clEvEUlvE5_", !22, i64 0, !66, i64 8, !87, i64 16, !87, i64 24, !139, i64 32}
 !1170 = !{!1169, !66, i64 8}
 !1171 = !{!1169, !87, i64 16}
 !1172 = !{!1173, !70, i64 848}
-!1173 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_7clEvENKUlvE6_clEvEUllE_", !45, i64 0, !70, i64 848, !70, i64 856, !11, i64 864}
+!1173 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_7clEvENKUlvE5_clEvEUllE_", !45, i64 0, !70, i64 848, !70, i64 856, !11, i64 864}
 !1174 = !{!1169, !87, i64 24}
 !1175 = !{!1173, !70, i64 856}
 !1176 = !{!1169, !139, i64 32}
 !1177 = !{!1178, !22, i64 0}
-!1178 = !{!"_ZTSZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_7clEvEUlvE7_", !22, i64 0, !66, i64 8, !87, i64 16, !87, i64 24, !139, i64 32}
+!1178 = !{!"_ZTSZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_7clEvEUlvE6_", !22, i64 0, !66, i64 8, !87, i64 16, !87, i64 24, !139, i64 32}
 !1179 = !{!1178, !66, i64 8}
 !1180 = !{!1178, !87, i64 16}
 !1181 = !{!1182, !70, i64 848}
-!1182 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_7clEvENKUlvE7_clEvEUllE_", !45, i64 0, !70, i64 848, !70, i64 856, !11, i64 864}
+!1182 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_7clEvENKUlvE6_clEvEUllE_", !45, i64 0, !70, i64 848, !70, i64 856, !11, i64 864}
 !1183 = !{!1178, !87, i64 24}
 !1184 = !{!1182, !70, i64 856}
 !1185 = !{!1178, !139, i64 32}
 !1186 = !{!1187, !22, i64 0}
-!1187 = !{!"_ZTSZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_7clEvEUlvE8_", !22, i64 0, !66, i64 8, !87, i64 16, !87, i64 24, !139, i64 32}
+!1187 = !{!"_ZTSZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_7clEvEUlvE7_", !22, i64 0, !66, i64 8, !87, i64 16, !87, i64 24, !139, i64 32}
 !1188 = !{!1187, !66, i64 8}
 !1189 = !{!1187, !87, i64 16}
 !1190 = !{!1191, !70, i64 848}
-!1191 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_7clEvENKUlvE8_clEvEUllE_", !45, i64 0, !70, i64 848, !70, i64 856, !11, i64 864}
+!1191 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_7clEvENKUlvE7_clEvEUllE_", !45, i64 0, !70, i64 848, !70, i64 856, !11, i64 864}
 !1192 = !{!1187, !87, i64 24}
 !1193 = !{!1191, !70, i64 856}
 !1194 = !{!1187, !139, i64 32}
 !1195 = !{!1196, !22, i64 0}
-!1196 = !{!"_ZTSZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_8clEvEUlvE4_", !22, i64 0, !66, i64 8, !87, i64 16, !87, i64 24, !141, i64 32}
+!1196 = !{!"_ZTSZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_7clEvEUlvE8_", !22, i64 0, !66, i64 8, !87, i64 16, !87, i64 24, !139, i64 32}
 !1197 = !{!1196, !66, i64 8}
 !1198 = !{!1196, !87, i64 16}
 !1199 = !{!1200, !70, i64 848}
-!1200 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_8clEvENKUlvE4_clEvEUllE_", !45, i64 0, !70, i64 848, !70, i64 856, !11, i64 864}
+!1200 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_7clEvENKUlvE8_clEvEUllE_", !45, i64 0, !70, i64 848, !70, i64 856, !11, i64 864}
 !1201 = !{!1196, !87, i64 24}
 !1202 = !{!1200, !70, i64 856}
-!1203 = !{!1196, !141, i64 32}
+!1203 = !{!1196, !139, i64 32}
 !1204 = !{!1205, !22, i64 0}
-!1205 = !{!"_ZTSZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_8clEvEUlvE5_", !22, i64 0, !66, i64 8, !87, i64 16, !87, i64 24, !141, i64 32}
+!1205 = !{!"_ZTSZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_8clEvEUlvE4_", !22, i64 0, !66, i64 8, !87, i64 16, !87, i64 24, !141, i64 32}
 !1206 = !{!1205, !66, i64 8}
 !1207 = !{!1205, !87, i64 16}
 !1208 = !{!1209, !70, i64 848}
-!1209 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_8clEvENKUlvE5_clEvEUllE_", !45, i64 0, !70, i64 848, !70, i64 856, !11, i64 864}
+!1209 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_8clEvENKUlvE4_clEvEUllE_", !45, i64 0, !70, i64 848, !70, i64 856, !11, i64 864}
 !1210 = !{!1205, !87, i64 24}
 !1211 = !{!1209, !70, i64 856}
 !1212 = !{!1205, !141, i64 32}
 !1213 = !{!1214, !22, i64 0}
-!1214 = !{!"_ZTSZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_8clEvEUlvE6_", !22, i64 0, !66, i64 8, !87, i64 16, !87, i64 24, !141, i64 32}
+!1214 = !{!"_ZTSZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_8clEvEUlvE5_", !22, i64 0, !66, i64 8, !87, i64 16, !87, i64 24, !141, i64 32}
 !1215 = !{!1214, !66, i64 8}
 !1216 = !{!1214, !87, i64 16}
 !1217 = !{!1218, !70, i64 848}
-!1218 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_8clEvENKUlvE6_clEvEUllE_", !45, i64 0, !70, i64 848, !70, i64 856, !11, i64 864}
+!1218 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_8clEvENKUlvE5_clEvEUllE_", !45, i64 0, !70, i64 848, !70, i64 856, !11, i64 864}
 !1219 = !{!1214, !87, i64 24}
 !1220 = !{!1218, !70, i64 856}
 !1221 = !{!1214, !141, i64 32}
 !1222 = !{!1223, !22, i64 0}
-!1223 = !{!"_ZTSZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_8clEvEUlvE7_", !22, i64 0, !66, i64 8, !87, i64 16, !87, i64 24, !141, i64 32}
+!1223 = !{!"_ZTSZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_8clEvEUlvE6_", !22, i64 0, !66, i64 8, !87, i64 16, !87, i64 24, !141, i64 32}
 !1224 = !{!1223, !66, i64 8}
 !1225 = !{!1223, !87, i64 16}
 !1226 = !{!1227, !70, i64 848}
-!1227 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_8clEvENKUlvE7_clEvEUllE_", !45, i64 0, !70, i64 848, !70, i64 856, !11, i64 864}
+!1227 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_8clEvENKUlvE6_clEvEUllE_", !45, i64 0, !70, i64 848, !70, i64 856, !11, i64 864}
 !1228 = !{!1223, !87, i64 24}
 !1229 = !{!1227, !70, i64 856}
 !1230 = !{!1223, !141, i64 32}
 !1231 = !{!1232, !22, i64 0}
-!1232 = !{!"_ZTSZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_8clEvEUlvE8_", !22, i64 0, !66, i64 8, !87, i64 16, !87, i64 24, !141, i64 32}
+!1232 = !{!"_ZTSZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_8clEvEUlvE7_", !22, i64 0, !66, i64 8, !87, i64 16, !87, i64 24, !141, i64 32}
 !1233 = !{!1232, !66, i64 8}
 !1234 = !{!1232, !87, i64 16}
 !1235 = !{!1236, !70, i64 848}
-!1236 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_8clEvENKUlvE8_clEvEUllE_", !45, i64 0, !70, i64 848, !70, i64 856, !11, i64 864}
+!1236 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_8clEvENKUlvE7_clEvEUllE_", !45, i64 0, !70, i64 848, !70, i64 856, !11, i64 864}
 !1237 = !{!1232, !87, i64 24}
 !1238 = !{!1236, !70, i64 856}
 !1239 = !{!1232, !141, i64 32}
 !1240 = !{!1241, !22, i64 0}
-!1241 = !{!"_ZTSZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_9clEvEUlvE4_", !22, i64 0, !66, i64 8, !87, i64 16, !87, i64 24, !141, i64 32}
+!1241 = !{!"_ZTSZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_8clEvEUlvE8_", !22, i64 0, !66, i64 8, !87, i64 16, !87, i64 24, !141, i64 32}
 !1242 = !{!1241, !66, i64 8}
 !1243 = !{!1241, !87, i64 16}
 !1244 = !{!1245, !70, i64 848}
-!1245 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_9clEvENKUlvE4_clEvEUllE_", !45, i64 0, !70, i64 848, !70, i64 856, !11, i64 864}
+!1245 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_8clEvENKUlvE8_clEvEUllE_", !45, i64 0, !70, i64 848, !70, i64 856, !11, i64 864}
 !1246 = !{!1241, !87, i64 24}
 !1247 = !{!1245, !70, i64 856}
 !1248 = !{!1241, !141, i64 32}
 !1249 = !{!1250, !22, i64 0}
-!1250 = !{!"_ZTSZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_9clEvEUlvE5_", !22, i64 0, !66, i64 8, !87, i64 16, !87, i64 24, !141, i64 32}
+!1250 = !{!"_ZTSZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_9clEvEUlvE4_", !22, i64 0, !66, i64 8, !87, i64 16, !87, i64 24, !141, i64 32}
 !1251 = !{!1250, !66, i64 8}
 !1252 = !{!1250, !87, i64 16}
 !1253 = !{!1254, !70, i64 848}
-!1254 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_9clEvENKUlvE5_clEvEUllE_", !45, i64 0, !70, i64 848, !70, i64 856, !11, i64 864}
+!1254 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_9clEvENKUlvE4_clEvEUllE_", !45, i64 0, !70, i64 848, !70, i64 856, !11, i64 864}
 !1255 = !{!1250, !87, i64 24}
 !1256 = !{!1254, !70, i64 856}
 !1257 = !{!1250, !141, i64 32}
 !1258 = !{!1259, !22, i64 0}
-!1259 = !{!"_ZTSZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_9clEvEUlvE6_", !22, i64 0, !66, i64 8, !87, i64 16, !87, i64 24, !141, i64 32}
+!1259 = !{!"_ZTSZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_9clEvEUlvE5_", !22, i64 0, !66, i64 8, !87, i64 16, !87, i64 24, !141, i64 32}
 !1260 = !{!1259, !66, i64 8}
 !1261 = !{!1259, !87, i64 16}
 !1262 = !{!1263, !70, i64 848}
-!1263 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_9clEvENKUlvE6_clEvEUllE_", !45, i64 0, !70, i64 848, !70, i64 856, !11, i64 864}
+!1263 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_9clEvENKUlvE5_clEvEUllE_", !45, i64 0, !70, i64 848, !70, i64 856, !11, i64 864}
 !1264 = !{!1259, !87, i64 24}
 !1265 = !{!1263, !70, i64 856}
 !1266 = !{!1259, !141, i64 32}
 !1267 = !{!1268, !22, i64 0}
-!1268 = !{!"_ZTSZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_9clEvEUlvE7_", !22, i64 0, !66, i64 8, !87, i64 16, !87, i64 24, !141, i64 32}
+!1268 = !{!"_ZTSZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_9clEvEUlvE6_", !22, i64 0, !66, i64 8, !87, i64 16, !87, i64 24, !141, i64 32}
 !1269 = !{!1268, !66, i64 8}
 !1270 = !{!1268, !87, i64 16}
 !1271 = !{!1272, !70, i64 848}
-!1272 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_9clEvENKUlvE7_clEvEUllE_", !45, i64 0, !70, i64 848, !70, i64 856, !11, i64 864}
+!1272 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_9clEvENKUlvE6_clEvEUllE_", !45, i64 0, !70, i64 848, !70, i64 856, !11, i64 864}
 !1273 = !{!1268, !87, i64 24}
 !1274 = !{!1272, !70, i64 856}
 !1275 = !{!1268, !141, i64 32}
 !1276 = !{!1277, !22, i64 0}
-!1277 = !{!"_ZTSZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_9clEvEUlvE8_", !22, i64 0, !66, i64 8, !87, i64 16, !87, i64 24, !141, i64 32}
+!1277 = !{!"_ZTSZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_9clEvEUlvE7_", !22, i64 0, !66, i64 8, !87, i64 16, !87, i64 24, !141, i64 32}
 !1278 = !{!1277, !66, i64 8}
 !1279 = !{!1277, !87, i64 16}
 !1280 = !{!1281, !70, i64 848}
-!1281 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_9clEvENKUlvE8_clEvEUllE_", !45, i64 0, !70, i64 848, !70, i64 856, !11, i64 864}
+!1281 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_9clEvENKUlvE7_clEvEUllE_", !45, i64 0, !70, i64 848, !70, i64 856, !11, i64 864}
 !1282 = !{!1277, !87, i64 24}
 !1283 = !{!1281, !70, i64 856}
 !1284 = !{!1277, !141, i64 32}
-!1285 = !{!1286, !37, i64 0}
-!1286 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image16ClipTransformCPUERKNS_4core6TensorERS5_ffffENK3$_0clEvENKUlvE_clEvEUllE_", !37, i64 0, !1287, i64 8, !39, i64 64, !39, i64 68, !39, i64 72, !39, i64 76, !1287, i64 80}
-!1287 = !{!"_ZTSN6open3d1t8geometry6kernel13TArrayIndexerIlEE", !10, i64 0, !37, i64 8, !37, i64 16, !11, i64 24}
-!1288 = !{i64 0, i64 8, !313, i64 8, i64 8, !36, i64 16, i64 8, !36, i64 24, i64 32, !15}
-!1289 = !{!1286, !39, i64 64}
-!1290 = !{!1286, !39, i64 68}
-!1291 = !{!1286, !39, i64 72}
-!1292 = !{!1286, !39, i64 76}
-!1293 = !{!1294, !37, i64 0}
-!1294 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image16ClipTransformCPUERKNS_4core6TensorERS5_ffffENK3$_0clEvENKUlvE0_clEvEUllE_", !37, i64 0, !1287, i64 8, !39, i64 64, !39, i64 68, !39, i64 72, !39, i64 76, !1287, i64 80}
-!1295 = !{!1294, !39, i64 64}
-!1296 = !{!1294, !39, i64 68}
-!1297 = !{!1294, !39, i64 72}
-!1298 = !{!1294, !39, i64 76}
-!1299 = !{!1300, !37, i64 0}
-!1300 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image16ClipTransformCPUERKNS_4core6TensorERS5_ffffENK3$_0clEvENKUlvE1_clEvEUllE_", !37, i64 0, !1287, i64 8, !39, i64 64, !39, i64 68, !39, i64 72, !39, i64 76, !1287, i64 80}
-!1301 = !{!1300, !39, i64 64}
-!1302 = !{!1300, !39, i64 68}
-!1303 = !{!1300, !39, i64 72}
-!1304 = !{!1300, !39, i64 76}
-!1305 = !{!1306, !37, i64 0}
-!1306 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image16ClipTransformCPUERKNS_4core6TensorERS5_ffffENK3$_0clEvENKUlvE2_clEvEUllE_", !37, i64 0, !1287, i64 8, !39, i64 64, !39, i64 68, !39, i64 72, !39, i64 76, !1287, i64 80}
-!1307 = !{!1306, !39, i64 64}
-!1308 = !{!1306, !39, i64 68}
-!1309 = !{!1306, !39, i64 72}
-!1310 = !{!1306, !39, i64 76}
-!1311 = !{!1312, !37, i64 0}
-!1312 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image16ClipTransformCPUERKNS_4core6TensorERS5_ffffENK3$_0clEvENKUlvE3_clEvEUllE_", !37, i64 0, !1287, i64 8, !39, i64 64, !39, i64 68, !39, i64 72, !39, i64 76, !1287, i64 80}
-!1313 = !{!1312, !39, i64 64}
-!1314 = !{!1312, !39, i64 68}
-!1315 = !{!1312, !39, i64 72}
-!1316 = !{!1312, !39, i64 76}
-!1317 = !{!1318, !1318, i64 0}
-!1318 = !{!"p1 _ZTSN6open3d1t8geometry6kernel13TArrayIndexerIlEE", !10, i64 0}
-!1319 = !{!1287, !37, i64 16}
-!1320 = !{!1287, !37, i64 8}
-!1321 = distinct !{!1321, !28}
-!1322 = distinct !{!1322, !28}
-!1323 = !{!1324, !10, i64 104}
-!1324 = !{!"_ZTSN6open3d4core6TensorE", !1325, i64 0, !1326, i64 8, !1326, i64 56, !10, i64 104, !1332, i64 112, !1333, i64 144}
-!1325 = !{!"_ZTSN6open3d4core8IsDeviceE"}
-!1326 = !{!"_ZTSN6open3d4core10SizeVectorE", !1327, i64 0}
-!1327 = !{!"_ZTSN6open3d4core11SmallVectorIlLj4EEE", !1328, i64 0, !1331, i64 16}
-!1328 = !{!"_ZTSN6open3d4core15SmallVectorImplIlEE", !1329, i64 0}
-!1329 = !{!"_ZTSN6open3d4core23SmallVectorTemplateBaseIlLb1EEE", !1330, i64 0}
-!1330 = !{!"_ZTSN6open3d4core25SmallVectorTemplateCommonIlvEE", !19, i64 0}
-!1331 = !{!"_ZTSN6open3d4core18SmallVectorStorageIlLj4EEE", !11, i64 0}
-!1332 = !{!"_ZTSN6open3d4core5DtypeE", !35, i64 0, !37, i64 8, !11, i64 16}
-!1333 = !{!"_ZTSSt10shared_ptrIN6open3d4core4BlobEE", !8, i64 0}
-!1334 = !{!1287, !10, i64 0}
-!1335 = !{!1336}
-!1336 = distinct !{!1336, !1337, !"_ZN3fmt3v1016make_format_argsINS0_20basic_format_contextINS0_8appenderEcEEJKlllEEENS0_16format_arg_storeIT_JDpNSt9remove_cvINSt16remove_referenceIT0_E4typeEE4typeEEEEDpRSA_: argument 0"}
-!1337 = distinct !{!1337, !"_ZN3fmt3v1016make_format_argsINS0_20basic_format_contextINS0_8appenderEcEEJKlllEEENS0_16format_arg_storeIT_JDpNSt9remove_cvINSt16remove_referenceIT0_E4typeEE4typeEEEEDpRSA_"}
-!1338 = !{!1339}
-!1339 = distinct !{!1339, !1340, !"_ZN6open3d7utility6Logger10FormatArgsB5cxx11EPKcN3fmt3v1017basic_format_argsINS5_20basic_format_contextINS5_8appenderEcEEEE: argument 0"}
-!1340 = distinct !{!1340, !"_ZN6open3d7utility6Logger10FormatArgsB5cxx11EPKcN3fmt3v1017basic_format_argsINS5_20basic_format_contextINS5_8appenderEcEEEE"}
-!1341 = !{!1342, !22, i64 0}
-!1342 = !{!"_ZTSZZN6open3d1t8geometry6kernel5image16ClipTransformCPUERKNS_4core6TensorERS5_ffffENK3$_0clEvEUlvE4_", !22, i64 0, !141, i64 8, !141, i64 16, !1318, i64 24, !68, i64 32, !68, i64 40, !68, i64 48, !68, i64 56, !1318, i64 64}
-!1343 = !{!1342, !141, i64 8}
-!1344 = !{!1342, !141, i64 16}
-!1345 = !{!1346, !37, i64 0}
-!1346 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image16ClipTransformCPUERKNS_4core6TensorERS5_ffffENK3$_0clEvENKUlvE4_clEvEUllE_", !37, i64 0, !1287, i64 8, !39, i64 64, !39, i64 68, !39, i64 72, !39, i64 76, !1287, i64 80}
-!1347 = !{!1342, !1318, i64 24}
-!1348 = !{!1342, !68, i64 32}
-!1349 = !{!1346, !39, i64 64}
-!1350 = !{!1342, !68, i64 40}
-!1351 = !{!1346, !39, i64 68}
-!1352 = !{!1342, !68, i64 48}
-!1353 = !{!1346, !39, i64 72}
-!1354 = !{!1342, !68, i64 56}
-!1355 = !{!1346, !39, i64 76}
-!1356 = !{!1342, !1318, i64 64}
-!1357 = !{!1358, !22, i64 0}
-!1358 = !{!"_ZTSZZN6open3d1t8geometry6kernel5image16ClipTransformCPUERKNS_4core6TensorERS5_ffffENK3$_0clEvEUlvE5_", !22, i64 0, !141, i64 8, !141, i64 16, !1318, i64 24, !68, i64 32, !68, i64 40, !68, i64 48, !68, i64 56, !1318, i64 64}
-!1359 = !{!1358, !141, i64 8}
-!1360 = !{!1358, !141, i64 16}
-!1361 = !{!1362, !37, i64 0}
-!1362 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image16ClipTransformCPUERKNS_4core6TensorERS5_ffffENK3$_0clEvENKUlvE5_clEvEUllE_", !37, i64 0, !1287, i64 8, !39, i64 64, !39, i64 68, !39, i64 72, !39, i64 76, !1287, i64 80}
-!1363 = !{!1358, !1318, i64 24}
-!1364 = !{!1358, !68, i64 32}
-!1365 = !{!1362, !39, i64 64}
-!1366 = !{!1358, !68, i64 40}
-!1367 = !{!1362, !39, i64 68}
-!1368 = !{!1358, !68, i64 48}
-!1369 = !{!1362, !39, i64 72}
-!1370 = !{!1358, !68, i64 56}
-!1371 = !{!1362, !39, i64 76}
-!1372 = !{!1358, !1318, i64 64}
-!1373 = !{!1374, !22, i64 0}
-!1374 = !{!"_ZTSZZN6open3d1t8geometry6kernel5image16ClipTransformCPUERKNS_4core6TensorERS5_ffffENK3$_0clEvEUlvE6_", !22, i64 0, !141, i64 8, !141, i64 16, !1318, i64 24, !68, i64 32, !68, i64 40, !68, i64 48, !68, i64 56, !1318, i64 64}
-!1375 = !{!1374, !141, i64 8}
-!1376 = !{!1374, !141, i64 16}
-!1377 = !{!1378, !37, i64 0}
-!1378 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image16ClipTransformCPUERKNS_4core6TensorERS5_ffffENK3$_0clEvENKUlvE6_clEvEUllE_", !37, i64 0, !1287, i64 8, !39, i64 64, !39, i64 68, !39, i64 72, !39, i64 76, !1287, i64 80}
-!1379 = !{!1374, !1318, i64 24}
-!1380 = !{!1374, !68, i64 32}
-!1381 = !{!1378, !39, i64 64}
-!1382 = !{!1374, !68, i64 40}
-!1383 = !{!1378, !39, i64 68}
-!1384 = !{!1374, !68, i64 48}
-!1385 = !{!1378, !39, i64 72}
-!1386 = !{!1374, !68, i64 56}
-!1387 = !{!1378, !39, i64 76}
-!1388 = !{!1374, !1318, i64 64}
-!1389 = !{!1390, !22, i64 0}
-!1390 = !{!"_ZTSZZN6open3d1t8geometry6kernel5image16ClipTransformCPUERKNS_4core6TensorERS5_ffffENK3$_0clEvEUlvE7_", !22, i64 0, !141, i64 8, !141, i64 16, !1318, i64 24, !68, i64 32, !68, i64 40, !68, i64 48, !68, i64 56, !1318, i64 64}
-!1391 = !{!1390, !141, i64 8}
-!1392 = !{!1390, !141, i64 16}
-!1393 = !{!1394, !37, i64 0}
-!1394 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image16ClipTransformCPUERKNS_4core6TensorERS5_ffffENK3$_0clEvENKUlvE7_clEvEUllE_", !37, i64 0, !1287, i64 8, !39, i64 64, !39, i64 68, !39, i64 72, !39, i64 76, !1287, i64 80}
-!1395 = !{!1390, !1318, i64 24}
-!1396 = !{!1390, !68, i64 32}
-!1397 = !{!1394, !39, i64 64}
-!1398 = !{!1390, !68, i64 40}
-!1399 = !{!1394, !39, i64 68}
-!1400 = !{!1390, !68, i64 48}
-!1401 = !{!1394, !39, i64 72}
-!1402 = !{!1390, !68, i64 56}
-!1403 = !{!1394, !39, i64 76}
-!1404 = !{!1390, !1318, i64 64}
-!1405 = !{!1406, !22, i64 0}
-!1406 = !{!"_ZTSZZN6open3d1t8geometry6kernel5image16ClipTransformCPUERKNS_4core6TensorERS5_ffffENK3$_0clEvEUlvE8_", !22, i64 0, !141, i64 8, !141, i64 16, !1318, i64 24, !68, i64 32, !68, i64 40, !68, i64 48, !68, i64 56, !1318, i64 64}
-!1407 = !{!1406, !141, i64 8}
-!1408 = !{!1406, !141, i64 16}
-!1409 = !{!1410, !37, i64 0}
-!1410 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image16ClipTransformCPUERKNS_4core6TensorERS5_ffffENK3$_0clEvENKUlvE8_clEvEUllE_", !37, i64 0, !1287, i64 8, !39, i64 64, !39, i64 68, !39, i64 72, !39, i64 76, !1287, i64 80}
-!1411 = !{!1406, !1318, i64 24}
-!1412 = !{!1406, !68, i64 32}
-!1413 = !{!1410, !39, i64 64}
-!1414 = !{!1406, !68, i64 40}
-!1415 = !{!1410, !39, i64 68}
-!1416 = !{!1406, !68, i64 48}
-!1417 = !{!1410, !39, i64 72}
-!1418 = !{!1406, !68, i64 56}
-!1419 = !{!1410, !39, i64 76}
-!1420 = !{!1406, !1318, i64 64}
-!1421 = !{!1422, !17, i64 0}
-!1422 = !{!"_ZTSZN6open3d1t8geometry6kernel5image15PyrDownDepthCPUERKNS_4core6TensorERS5_ffE3$_0", !17, i64 0, !1287, i64 8, !39, i64 64, !1287, i64 72, !17, i64 128, !17, i64 132, !39, i64 136, !11, i64 140}
-!1423 = !{!1422, !39, i64 64}
-!1424 = !{!1422, !17, i64 128}
-!1425 = !{!1422, !17, i64 132}
-!1426 = !{!1422, !39, i64 136}
-!1427 = distinct !{!1427, !28}
-!1428 = distinct !{!1428, !28}
-!1429 = !{!1430, !39, i64 0}
-!1430 = !{!"_ZTSZN6open3d1t8geometry6kernel5image18CreateVertexMapCPUERKNS_4core6TensorERS5_S7_fE3$_0", !39, i64 0, !37, i64 8, !1287, i64 16, !1287, i64 72, !1431, i64 128}
-!1431 = !{!"_ZTSN6open3d1t8geometry6kernel16TransformIndexerE", !11, i64 0, !39, i64 48, !39, i64 52, !39, i64 56, !39, i64 60, !39, i64 64}
-!1432 = !{!1430, !37, i64 8}
-!1433 = !{i64 0, i64 48, !15, i64 48, i64 4, !38, i64 52, i64 4, !38, i64 56, i64 4, !38, i64 60, i64 4, !38, i64 64, i64 4, !38}
-!1434 = !{!1435, !42, i64 0}
-!1435 = !{!"_ZTSN6open3d7utility23constexpr_optional_baseIlEE", !42, i64 0, !11, i64 8}
-!1436 = !{!1437, !1438, i64 0}
-!1437 = !{!"_ZTSSt16initializer_listIN6open3d7utility8optionalIlEEE", !1438, i64 0, !37, i64 8}
-!1438 = !{!"p1 _ZTSN6open3d7utility8optionalIlEE", !10, i64 0}
-!1439 = !{!1437, !37, i64 8}
-!1440 = !{!1431, !39, i64 48}
-!1441 = !{!1431, !39, i64 52}
-!1442 = !{!1431, !39, i64 56}
-!1443 = !{!1431, !39, i64 60}
-!1444 = !{!1431, !39, i64 64}
-!1445 = distinct !{!1445, !28}
-!1446 = distinct !{!1446, !28}
-!1447 = !{!1332, !35, i64 0}
-!1448 = !{!1449}
-!1449 = distinct !{!1449, !1450, !"_ZN3fmt3v1016make_format_argsINS0_20basic_format_contextINS0_8appenderEcEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_EEENS0_16format_arg_storeIT_JDpNSt9remove_cvINSt16remove_referenceIT0_E4typeEE4typeEEEEDpRSF_: argument 0"}
-!1450 = distinct !{!1450, !"_ZN3fmt3v1016make_format_argsINS0_20basic_format_contextINS0_8appenderEcEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_EEENS0_16format_arg_storeIT_JDpNSt9remove_cvINSt16remove_referenceIT0_E4typeEE4typeEEEEDpRSF_"}
-!1451 = !{!1452}
-!1452 = distinct !{!1452, !1453, !"_ZN6open3d7utility6Logger10FormatArgsB5cxx11EPKcN3fmt3v1017basic_format_argsINS5_20basic_format_contextINS5_8appenderEcEEEE: argument 0"}
-!1453 = distinct !{!1453, !"_ZN6open3d7utility6Logger10FormatArgsB5cxx11EPKcN3fmt3v1017basic_format_argsINS5_20basic_format_contextINS5_8appenderEcEEEE"}
-!1454 = !{!1455, !37, i64 0}
-!1455 = !{!"_ZTSZN6open3d1t8geometry6kernel5image18CreateNormalMapCPUERKNS_4core6TensorERS5_fE3$_0", !37, i64 0, !1287, i64 8, !37, i64 64, !1287, i64 72, !39, i64 128}
-!1456 = !{!1455, !37, i64 64}
-!1457 = !{!1455, !39, i64 128}
-!1458 = !{!1459, !37, i64 0}
-!1459 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image16ColorizeDepthCPUERKNS_4core6TensorERS5_fffENK3$_0clEvENKUlvE_clEvEUllE_", !37, i64 0, !1287, i64 8, !39, i64 64, !39, i64 68, !39, i64 72, !39, i64 76, !1287, i64 80}
-!1460 = !{!1459, !39, i64 64}
-!1461 = !{!1459, !39, i64 68}
-!1462 = !{!1459, !39, i64 72}
-!1463 = !{!1459, !39, i64 76}
-!1464 = !{!1465, !37, i64 0}
-!1465 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image16ColorizeDepthCPUERKNS_4core6TensorERS5_fffENK3$_0clEvENKUlvE0_clEvEUllE_", !37, i64 0, !1287, i64 8, !39, i64 64, !39, i64 68, !39, i64 72, !39, i64 76, !1287, i64 80}
-!1466 = !{!1465, !39, i64 64}
-!1467 = !{!1465, !39, i64 68}
-!1468 = !{!1465, !39, i64 72}
-!1469 = !{!1465, !39, i64 76}
-!1470 = !{!1471, !37, i64 0}
-!1471 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image16ColorizeDepthCPUERKNS_4core6TensorERS5_fffENK3$_0clEvENKUlvE1_clEvEUllE_", !37, i64 0, !1287, i64 8, !39, i64 64, !39, i64 68, !39, i64 72, !39, i64 76, !1287, i64 80}
-!1472 = !{!1471, !39, i64 64}
-!1473 = !{!1471, !39, i64 68}
-!1474 = !{!1471, !39, i64 72}
-!1475 = !{!1471, !39, i64 76}
-!1476 = !{!1477, !37, i64 0}
-!1477 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image16ColorizeDepthCPUERKNS_4core6TensorERS5_fffENK3$_0clEvENKUlvE2_clEvEUllE_", !37, i64 0, !1287, i64 8, !39, i64 64, !39, i64 68, !39, i64 72, !39, i64 76, !1287, i64 80}
-!1478 = !{!1477, !39, i64 64}
-!1479 = !{!1477, !39, i64 68}
-!1480 = !{!1477, !39, i64 72}
-!1481 = !{!1477, !39, i64 76}
-!1482 = !{!1483, !37, i64 0}
-!1483 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image16ColorizeDepthCPUERKNS_4core6TensorERS5_fffENK3$_0clEvENKUlvE3_clEvEUllE_", !37, i64 0, !1287, i64 8, !39, i64 64, !39, i64 68, !39, i64 72, !39, i64 76, !1287, i64 80}
-!1484 = !{!1483, !39, i64 64}
-!1485 = !{!1483, !39, i64 68}
-!1486 = !{!1483, !39, i64 72}
-!1487 = !{!1483, !39, i64 76}
-!1488 = !{!1489, !22, i64 0}
-!1489 = !{!"_ZTSZZN6open3d1t8geometry6kernel5image16ColorizeDepthCPUERKNS_4core6TensorERS5_fffENK3$_0clEvEUlvE4_", !22, i64 0, !141, i64 8, !141, i64 16, !1318, i64 24, !68, i64 32, !68, i64 40, !68, i64 48, !68, i64 56, !1318, i64 64}
-!1490 = !{!1489, !141, i64 8}
-!1491 = !{!1489, !141, i64 16}
-!1492 = !{!1493, !37, i64 0}
-!1493 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image16ColorizeDepthCPUERKNS_4core6TensorERS5_fffENK3$_0clEvENKUlvE4_clEvEUllE_", !37, i64 0, !1287, i64 8, !39, i64 64, !39, i64 68, !39, i64 72, !39, i64 76, !1287, i64 80}
-!1494 = !{!1489, !1318, i64 24}
-!1495 = !{!1489, !68, i64 32}
-!1496 = !{!1493, !39, i64 64}
-!1497 = !{!1489, !68, i64 40}
-!1498 = !{!1493, !39, i64 68}
-!1499 = !{!1489, !68, i64 48}
-!1500 = !{!1493, !39, i64 72}
-!1501 = !{!1489, !68, i64 56}
-!1502 = !{!1493, !39, i64 76}
-!1503 = !{!1489, !1318, i64 64}
-!1504 = !{!1505, !22, i64 0}
-!1505 = !{!"_ZTSZZN6open3d1t8geometry6kernel5image16ColorizeDepthCPUERKNS_4core6TensorERS5_fffENK3$_0clEvEUlvE5_", !22, i64 0, !141, i64 8, !141, i64 16, !1318, i64 24, !68, i64 32, !68, i64 40, !68, i64 48, !68, i64 56, !1318, i64 64}
-!1506 = !{!1505, !141, i64 8}
-!1507 = !{!1505, !141, i64 16}
-!1508 = !{!1509, !37, i64 0}
-!1509 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image16ColorizeDepthCPUERKNS_4core6TensorERS5_fffENK3$_0clEvENKUlvE5_clEvEUllE_", !37, i64 0, !1287, i64 8, !39, i64 64, !39, i64 68, !39, i64 72, !39, i64 76, !1287, i64 80}
-!1510 = !{!1505, !1318, i64 24}
-!1511 = !{!1505, !68, i64 32}
-!1512 = !{!1509, !39, i64 64}
-!1513 = !{!1505, !68, i64 40}
-!1514 = !{!1509, !39, i64 68}
-!1515 = !{!1505, !68, i64 48}
-!1516 = !{!1509, !39, i64 72}
-!1517 = !{!1505, !68, i64 56}
-!1518 = !{!1509, !39, i64 76}
-!1519 = !{!1505, !1318, i64 64}
-!1520 = !{!1521, !22, i64 0}
-!1521 = !{!"_ZTSZZN6open3d1t8geometry6kernel5image16ColorizeDepthCPUERKNS_4core6TensorERS5_fffENK3$_0clEvEUlvE6_", !22, i64 0, !141, i64 8, !141, i64 16, !1318, i64 24, !68, i64 32, !68, i64 40, !68, i64 48, !68, i64 56, !1318, i64 64}
-!1522 = !{!1521, !141, i64 8}
-!1523 = !{!1521, !141, i64 16}
-!1524 = !{!1525, !37, i64 0}
-!1525 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image16ColorizeDepthCPUERKNS_4core6TensorERS5_fffENK3$_0clEvENKUlvE6_clEvEUllE_", !37, i64 0, !1287, i64 8, !39, i64 64, !39, i64 68, !39, i64 72, !39, i64 76, !1287, i64 80}
-!1526 = !{!1521, !1318, i64 24}
-!1527 = !{!1521, !68, i64 32}
-!1528 = !{!1525, !39, i64 64}
-!1529 = !{!1521, !68, i64 40}
-!1530 = !{!1525, !39, i64 68}
-!1531 = !{!1521, !68, i64 48}
-!1532 = !{!1525, !39, i64 72}
-!1533 = !{!1521, !68, i64 56}
-!1534 = !{!1525, !39, i64 76}
-!1535 = !{!1521, !1318, i64 64}
-!1536 = !{!1537, !22, i64 0}
-!1537 = !{!"_ZTSZZN6open3d1t8geometry6kernel5image16ColorizeDepthCPUERKNS_4core6TensorERS5_fffENK3$_0clEvEUlvE7_", !22, i64 0, !141, i64 8, !141, i64 16, !1318, i64 24, !68, i64 32, !68, i64 40, !68, i64 48, !68, i64 56, !1318, i64 64}
-!1538 = !{!1537, !141, i64 8}
-!1539 = !{!1537, !141, i64 16}
-!1540 = !{!1541, !37, i64 0}
-!1541 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image16ColorizeDepthCPUERKNS_4core6TensorERS5_fffENK3$_0clEvENKUlvE7_clEvEUllE_", !37, i64 0, !1287, i64 8, !39, i64 64, !39, i64 68, !39, i64 72, !39, i64 76, !1287, i64 80}
-!1542 = !{!1537, !1318, i64 24}
-!1543 = !{!1537, !68, i64 32}
-!1544 = !{!1541, !39, i64 64}
-!1545 = !{!1537, !68, i64 40}
-!1546 = !{!1541, !39, i64 68}
-!1547 = !{!1537, !68, i64 48}
-!1548 = !{!1541, !39, i64 72}
-!1549 = !{!1537, !68, i64 56}
-!1550 = !{!1541, !39, i64 76}
-!1551 = !{!1537, !1318, i64 64}
-!1552 = !{!1553, !22, i64 0}
-!1553 = !{!"_ZTSZZN6open3d1t8geometry6kernel5image16ColorizeDepthCPUERKNS_4core6TensorERS5_fffENK3$_0clEvEUlvE8_", !22, i64 0, !141, i64 8, !141, i64 16, !1318, i64 24, !68, i64 32, !68, i64 40, !68, i64 48, !68, i64 56, !1318, i64 64}
-!1554 = !{!1553, !141, i64 8}
-!1555 = !{!1553, !141, i64 16}
-!1556 = !{!1557, !37, i64 0}
-!1557 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image16ColorizeDepthCPUERKNS_4core6TensorERS5_fffENK3$_0clEvENKUlvE8_clEvEUllE_", !37, i64 0, !1287, i64 8, !39, i64 64, !39, i64 68, !39, i64 72, !39, i64 76, !1287, i64 80}
-!1558 = !{!1553, !1318, i64 24}
-!1559 = !{!1553, !68, i64 32}
-!1560 = !{!1557, !39, i64 64}
-!1561 = !{!1553, !68, i64 40}
-!1562 = !{!1557, !39, i64 68}
-!1563 = !{!1553, !68, i64 48}
-!1564 = !{!1557, !39, i64 72}
-!1565 = !{!1553, !68, i64 56}
-!1566 = !{!1557, !39, i64 76}
-!1567 = !{!1553, !1318, i64 64}
+!1285 = !{!1286, !22, i64 0}
+!1286 = !{!"_ZTSZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_9clEvEUlvE8_", !22, i64 0, !66, i64 8, !87, i64 16, !87, i64 24, !141, i64 32}
+!1287 = !{!1286, !66, i64 8}
+!1288 = !{!1286, !87, i64 16}
+!1289 = !{!1290, !70, i64 848}
+!1290 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image5ToCPUERKNS_4core6TensorERS5_ddENK3$_9clEvENKUlvE8_clEvEUllE_", !45, i64 0, !70, i64 848, !70, i64 856, !11, i64 864}
+!1291 = !{!1286, !87, i64 24}
+!1292 = !{!1290, !70, i64 856}
+!1293 = !{!1286, !141, i64 32}
+!1294 = !{!1295, !37, i64 0}
+!1295 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image16ClipTransformCPUERKNS_4core6TensorERS5_ffffENK3$_0clEvENKUlvE_clEvEUllE_", !37, i64 0, !1296, i64 8, !39, i64 64, !39, i64 68, !39, i64 72, !39, i64 76, !1296, i64 80}
+!1296 = !{!"_ZTSN6open3d1t8geometry6kernel13TArrayIndexerIlEE", !10, i64 0, !37, i64 8, !37, i64 16, !11, i64 24}
+!1297 = !{i64 0, i64 8, !313, i64 8, i64 8, !36, i64 16, i64 8, !36, i64 24, i64 32, !15}
+!1298 = !{!1295, !39, i64 64}
+!1299 = !{!1295, !39, i64 68}
+!1300 = !{!1295, !39, i64 72}
+!1301 = !{!1295, !39, i64 76}
+!1302 = !{!1303, !37, i64 0}
+!1303 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image16ClipTransformCPUERKNS_4core6TensorERS5_ffffENK3$_0clEvENKUlvE0_clEvEUllE_", !37, i64 0, !1296, i64 8, !39, i64 64, !39, i64 68, !39, i64 72, !39, i64 76, !1296, i64 80}
+!1304 = !{!1303, !39, i64 64}
+!1305 = !{!1303, !39, i64 68}
+!1306 = !{!1303, !39, i64 72}
+!1307 = !{!1303, !39, i64 76}
+!1308 = !{!1309, !37, i64 0}
+!1309 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image16ClipTransformCPUERKNS_4core6TensorERS5_ffffENK3$_0clEvENKUlvE1_clEvEUllE_", !37, i64 0, !1296, i64 8, !39, i64 64, !39, i64 68, !39, i64 72, !39, i64 76, !1296, i64 80}
+!1310 = !{!1309, !39, i64 64}
+!1311 = !{!1309, !39, i64 68}
+!1312 = !{!1309, !39, i64 72}
+!1313 = !{!1309, !39, i64 76}
+!1314 = !{!1315, !37, i64 0}
+!1315 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image16ClipTransformCPUERKNS_4core6TensorERS5_ffffENK3$_0clEvENKUlvE2_clEvEUllE_", !37, i64 0, !1296, i64 8, !39, i64 64, !39, i64 68, !39, i64 72, !39, i64 76, !1296, i64 80}
+!1316 = !{!1315, !39, i64 64}
+!1317 = !{!1315, !39, i64 68}
+!1318 = !{!1315, !39, i64 72}
+!1319 = !{!1315, !39, i64 76}
+!1320 = !{!1321, !37, i64 0}
+!1321 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image16ClipTransformCPUERKNS_4core6TensorERS5_ffffENK3$_0clEvENKUlvE3_clEvEUllE_", !37, i64 0, !1296, i64 8, !39, i64 64, !39, i64 68, !39, i64 72, !39, i64 76, !1296, i64 80}
+!1322 = !{!1321, !39, i64 64}
+!1323 = !{!1321, !39, i64 68}
+!1324 = !{!1321, !39, i64 72}
+!1325 = !{!1321, !39, i64 76}
+!1326 = !{!1327, !1327, i64 0}
+!1327 = !{!"p1 _ZTSN6open3d1t8geometry6kernel13TArrayIndexerIlEE", !10, i64 0}
+!1328 = !{!1296, !37, i64 16}
+!1329 = !{!1296, !37, i64 8}
+!1330 = distinct !{!1330, !28}
+!1331 = distinct !{!1331, !28}
+!1332 = !{!1333, !10, i64 104}
+!1333 = !{!"_ZTSN6open3d4core6TensorE", !1334, i64 0, !1335, i64 8, !1335, i64 56, !10, i64 104, !1341, i64 112, !1342, i64 144}
+!1334 = !{!"_ZTSN6open3d4core8IsDeviceE"}
+!1335 = !{!"_ZTSN6open3d4core10SizeVectorE", !1336, i64 0}
+!1336 = !{!"_ZTSN6open3d4core11SmallVectorIlLj4EEE", !1337, i64 0, !1340, i64 16}
+!1337 = !{!"_ZTSN6open3d4core15SmallVectorImplIlEE", !1338, i64 0}
+!1338 = !{!"_ZTSN6open3d4core23SmallVectorTemplateBaseIlLb1EEE", !1339, i64 0}
+!1339 = !{!"_ZTSN6open3d4core25SmallVectorTemplateCommonIlvEE", !19, i64 0}
+!1340 = !{!"_ZTSN6open3d4core18SmallVectorStorageIlLj4EEE", !11, i64 0}
+!1341 = !{!"_ZTSN6open3d4core5DtypeE", !35, i64 0, !37, i64 8, !11, i64 16}
+!1342 = !{!"_ZTSSt10shared_ptrIN6open3d4core4BlobEE", !8, i64 0}
+!1343 = !{!1296, !10, i64 0}
+!1344 = !{!1345}
+!1345 = distinct !{!1345, !1346, !"_ZN3fmt3v1016make_format_argsINS0_20basic_format_contextINS0_8appenderEcEEJKlllEEENS0_16format_arg_storeIT_JDpNSt9remove_cvINSt16remove_referenceIT0_E4typeEE4typeEEEEDpRSA_: argument 0"}
+!1346 = distinct !{!1346, !"_ZN3fmt3v1016make_format_argsINS0_20basic_format_contextINS0_8appenderEcEEJKlllEEENS0_16format_arg_storeIT_JDpNSt9remove_cvINSt16remove_referenceIT0_E4typeEE4typeEEEEDpRSA_"}
+!1347 = !{!1348}
+!1348 = distinct !{!1348, !1349, !"_ZN6open3d7utility6Logger10FormatArgsB5cxx11EPKcN3fmt3v1017basic_format_argsINS5_20basic_format_contextINS5_8appenderEcEEEE: argument 0"}
+!1349 = distinct !{!1349, !"_ZN6open3d7utility6Logger10FormatArgsB5cxx11EPKcN3fmt3v1017basic_format_argsINS5_20basic_format_contextINS5_8appenderEcEEEE"}
+!1350 = !{!1351, !22, i64 0}
+!1351 = !{!"_ZTSZZN6open3d1t8geometry6kernel5image16ClipTransformCPUERKNS_4core6TensorERS5_ffffENK3$_0clEvEUlvE4_", !22, i64 0, !141, i64 8, !141, i64 16, !1327, i64 24, !68, i64 32, !68, i64 40, !68, i64 48, !68, i64 56, !1327, i64 64}
+!1352 = !{!1351, !141, i64 8}
+!1353 = !{!1351, !141, i64 16}
+!1354 = !{!1355, !37, i64 0}
+!1355 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image16ClipTransformCPUERKNS_4core6TensorERS5_ffffENK3$_0clEvENKUlvE4_clEvEUllE_", !37, i64 0, !1296, i64 8, !39, i64 64, !39, i64 68, !39, i64 72, !39, i64 76, !1296, i64 80}
+!1356 = !{!1351, !1327, i64 24}
+!1357 = !{!1351, !68, i64 32}
+!1358 = !{!1355, !39, i64 64}
+!1359 = !{!1351, !68, i64 40}
+!1360 = !{!1355, !39, i64 68}
+!1361 = !{!1351, !68, i64 48}
+!1362 = !{!1355, !39, i64 72}
+!1363 = !{!1351, !68, i64 56}
+!1364 = !{!1355, !39, i64 76}
+!1365 = !{!1351, !1327, i64 64}
+!1366 = !{!1367, !22, i64 0}
+!1367 = !{!"_ZTSZZN6open3d1t8geometry6kernel5image16ClipTransformCPUERKNS_4core6TensorERS5_ffffENK3$_0clEvEUlvE5_", !22, i64 0, !141, i64 8, !141, i64 16, !1327, i64 24, !68, i64 32, !68, i64 40, !68, i64 48, !68, i64 56, !1327, i64 64}
+!1368 = !{!1367, !141, i64 8}
+!1369 = !{!1367, !141, i64 16}
+!1370 = !{!1371, !37, i64 0}
+!1371 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image16ClipTransformCPUERKNS_4core6TensorERS5_ffffENK3$_0clEvENKUlvE5_clEvEUllE_", !37, i64 0, !1296, i64 8, !39, i64 64, !39, i64 68, !39, i64 72, !39, i64 76, !1296, i64 80}
+!1372 = !{!1367, !1327, i64 24}
+!1373 = !{!1367, !68, i64 32}
+!1374 = !{!1371, !39, i64 64}
+!1375 = !{!1367, !68, i64 40}
+!1376 = !{!1371, !39, i64 68}
+!1377 = !{!1367, !68, i64 48}
+!1378 = !{!1371, !39, i64 72}
+!1379 = !{!1367, !68, i64 56}
+!1380 = !{!1371, !39, i64 76}
+!1381 = !{!1367, !1327, i64 64}
+!1382 = !{!1383, !22, i64 0}
+!1383 = !{!"_ZTSZZN6open3d1t8geometry6kernel5image16ClipTransformCPUERKNS_4core6TensorERS5_ffffENK3$_0clEvEUlvE6_", !22, i64 0, !141, i64 8, !141, i64 16, !1327, i64 24, !68, i64 32, !68, i64 40, !68, i64 48, !68, i64 56, !1327, i64 64}
+!1384 = !{!1383, !141, i64 8}
+!1385 = !{!1383, !141, i64 16}
+!1386 = !{!1387, !37, i64 0}
+!1387 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image16ClipTransformCPUERKNS_4core6TensorERS5_ffffENK3$_0clEvENKUlvE6_clEvEUllE_", !37, i64 0, !1296, i64 8, !39, i64 64, !39, i64 68, !39, i64 72, !39, i64 76, !1296, i64 80}
+!1388 = !{!1383, !1327, i64 24}
+!1389 = !{!1383, !68, i64 32}
+!1390 = !{!1387, !39, i64 64}
+!1391 = !{!1383, !68, i64 40}
+!1392 = !{!1387, !39, i64 68}
+!1393 = !{!1383, !68, i64 48}
+!1394 = !{!1387, !39, i64 72}
+!1395 = !{!1383, !68, i64 56}
+!1396 = !{!1387, !39, i64 76}
+!1397 = !{!1383, !1327, i64 64}
+!1398 = !{!1399, !22, i64 0}
+!1399 = !{!"_ZTSZZN6open3d1t8geometry6kernel5image16ClipTransformCPUERKNS_4core6TensorERS5_ffffENK3$_0clEvEUlvE7_", !22, i64 0, !141, i64 8, !141, i64 16, !1327, i64 24, !68, i64 32, !68, i64 40, !68, i64 48, !68, i64 56, !1327, i64 64}
+!1400 = !{!1399, !141, i64 8}
+!1401 = !{!1399, !141, i64 16}
+!1402 = !{!1403, !37, i64 0}
+!1403 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image16ClipTransformCPUERKNS_4core6TensorERS5_ffffENK3$_0clEvENKUlvE7_clEvEUllE_", !37, i64 0, !1296, i64 8, !39, i64 64, !39, i64 68, !39, i64 72, !39, i64 76, !1296, i64 80}
+!1404 = !{!1399, !1327, i64 24}
+!1405 = !{!1399, !68, i64 32}
+!1406 = !{!1403, !39, i64 64}
+!1407 = !{!1399, !68, i64 40}
+!1408 = !{!1403, !39, i64 68}
+!1409 = !{!1399, !68, i64 48}
+!1410 = !{!1403, !39, i64 72}
+!1411 = !{!1399, !68, i64 56}
+!1412 = !{!1403, !39, i64 76}
+!1413 = !{!1399, !1327, i64 64}
+!1414 = !{!1415, !22, i64 0}
+!1415 = !{!"_ZTSZZN6open3d1t8geometry6kernel5image16ClipTransformCPUERKNS_4core6TensorERS5_ffffENK3$_0clEvEUlvE8_", !22, i64 0, !141, i64 8, !141, i64 16, !1327, i64 24, !68, i64 32, !68, i64 40, !68, i64 48, !68, i64 56, !1327, i64 64}
+!1416 = !{!1415, !141, i64 8}
+!1417 = !{!1415, !141, i64 16}
+!1418 = !{!1419, !37, i64 0}
+!1419 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image16ClipTransformCPUERKNS_4core6TensorERS5_ffffENK3$_0clEvENKUlvE8_clEvEUllE_", !37, i64 0, !1296, i64 8, !39, i64 64, !39, i64 68, !39, i64 72, !39, i64 76, !1296, i64 80}
+!1420 = !{!1415, !1327, i64 24}
+!1421 = !{!1415, !68, i64 32}
+!1422 = !{!1419, !39, i64 64}
+!1423 = !{!1415, !68, i64 40}
+!1424 = !{!1419, !39, i64 68}
+!1425 = !{!1415, !68, i64 48}
+!1426 = !{!1419, !39, i64 72}
+!1427 = !{!1415, !68, i64 56}
+!1428 = !{!1419, !39, i64 76}
+!1429 = !{!1415, !1327, i64 64}
+!1430 = !{!1431, !17, i64 0}
+!1431 = !{!"_ZTSZN6open3d1t8geometry6kernel5image15PyrDownDepthCPUERKNS_4core6TensorERS5_ffE3$_0", !17, i64 0, !1296, i64 8, !39, i64 64, !1296, i64 72, !17, i64 128, !17, i64 132, !39, i64 136, !11, i64 140}
+!1432 = !{!1431, !39, i64 64}
+!1433 = !{!1431, !17, i64 128}
+!1434 = !{!1431, !17, i64 132}
+!1435 = !{!1431, !39, i64 136}
+!1436 = distinct !{!1436, !28}
+!1437 = distinct !{!1437, !28}
+!1438 = !{!1439, !39, i64 0}
+!1439 = !{!"_ZTSZN6open3d1t8geometry6kernel5image18CreateVertexMapCPUERKNS_4core6TensorERS5_S7_fE3$_0", !39, i64 0, !37, i64 8, !1296, i64 16, !1296, i64 72, !1440, i64 128}
+!1440 = !{!"_ZTSN6open3d1t8geometry6kernel16TransformIndexerE", !11, i64 0, !39, i64 48, !39, i64 52, !39, i64 56, !39, i64 60, !39, i64 64}
+!1441 = !{!1439, !37, i64 8}
+!1442 = !{i64 0, i64 48, !15, i64 48, i64 4, !38, i64 52, i64 4, !38, i64 56, i64 4, !38, i64 60, i64 4, !38, i64 64, i64 4, !38}
+!1443 = !{!1444, !42, i64 0}
+!1444 = !{!"_ZTSN6open3d7utility23constexpr_optional_baseIlEE", !42, i64 0, !11, i64 8}
+!1445 = !{!1446, !1447, i64 0}
+!1446 = !{!"_ZTSSt16initializer_listIN6open3d7utility8optionalIlEEE", !1447, i64 0, !37, i64 8}
+!1447 = !{!"p1 _ZTSN6open3d7utility8optionalIlEE", !10, i64 0}
+!1448 = !{!1446, !37, i64 8}
+!1449 = !{!1440, !39, i64 48}
+!1450 = !{!1440, !39, i64 52}
+!1451 = !{!1440, !39, i64 56}
+!1452 = !{!1440, !39, i64 60}
+!1453 = !{!1440, !39, i64 64}
+!1454 = distinct !{!1454, !28}
+!1455 = distinct !{!1455, !28}
+!1456 = !{!1341, !35, i64 0}
+!1457 = !{!1458}
+!1458 = distinct !{!1458, !1459, !"_ZN3fmt3v1016make_format_argsINS0_20basic_format_contextINS0_8appenderEcEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_EEENS0_16format_arg_storeIT_JDpNSt9remove_cvINSt16remove_referenceIT0_E4typeEE4typeEEEEDpRSF_: argument 0"}
+!1459 = distinct !{!1459, !"_ZN3fmt3v1016make_format_argsINS0_20basic_format_contextINS0_8appenderEcEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_EEENS0_16format_arg_storeIT_JDpNSt9remove_cvINSt16remove_referenceIT0_E4typeEE4typeEEEEDpRSF_"}
+!1460 = !{!1461}
+!1461 = distinct !{!1461, !1462, !"_ZN6open3d7utility6Logger10FormatArgsB5cxx11EPKcN3fmt3v1017basic_format_argsINS5_20basic_format_contextINS5_8appenderEcEEEE: argument 0"}
+!1462 = distinct !{!1462, !"_ZN6open3d7utility6Logger10FormatArgsB5cxx11EPKcN3fmt3v1017basic_format_argsINS5_20basic_format_contextINS5_8appenderEcEEEE"}
+!1463 = !{!1464, !37, i64 0}
+!1464 = !{!"_ZTSZN6open3d1t8geometry6kernel5image18CreateNormalMapCPUERKNS_4core6TensorERS5_fE3$_0", !37, i64 0, !1296, i64 8, !37, i64 64, !1296, i64 72, !39, i64 128}
+!1465 = !{!1464, !37, i64 64}
+!1466 = !{!1464, !39, i64 128}
+!1467 = !{!1468, !37, i64 0}
+!1468 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image16ColorizeDepthCPUERKNS_4core6TensorERS5_fffENK3$_0clEvENKUlvE_clEvEUllE_", !37, i64 0, !1296, i64 8, !39, i64 64, !39, i64 68, !39, i64 72, !39, i64 76, !1296, i64 80}
+!1469 = !{!1468, !39, i64 64}
+!1470 = !{!1468, !39, i64 68}
+!1471 = !{!1468, !39, i64 72}
+!1472 = !{!1468, !39, i64 76}
+!1473 = !{!1474, !37, i64 0}
+!1474 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image16ColorizeDepthCPUERKNS_4core6TensorERS5_fffENK3$_0clEvENKUlvE0_clEvEUllE_", !37, i64 0, !1296, i64 8, !39, i64 64, !39, i64 68, !39, i64 72, !39, i64 76, !1296, i64 80}
+!1475 = !{!1474, !39, i64 64}
+!1476 = !{!1474, !39, i64 68}
+!1477 = !{!1474, !39, i64 72}
+!1478 = !{!1474, !39, i64 76}
+!1479 = !{!1480, !37, i64 0}
+!1480 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image16ColorizeDepthCPUERKNS_4core6TensorERS5_fffENK3$_0clEvENKUlvE1_clEvEUllE_", !37, i64 0, !1296, i64 8, !39, i64 64, !39, i64 68, !39, i64 72, !39, i64 76, !1296, i64 80}
+!1481 = !{!1480, !39, i64 64}
+!1482 = !{!1480, !39, i64 68}
+!1483 = !{!1480, !39, i64 72}
+!1484 = !{!1480, !39, i64 76}
+!1485 = !{!1486, !37, i64 0}
+!1486 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image16ColorizeDepthCPUERKNS_4core6TensorERS5_fffENK3$_0clEvENKUlvE2_clEvEUllE_", !37, i64 0, !1296, i64 8, !39, i64 64, !39, i64 68, !39, i64 72, !39, i64 76, !1296, i64 80}
+!1487 = !{!1486, !39, i64 64}
+!1488 = !{!1486, !39, i64 68}
+!1489 = !{!1486, !39, i64 72}
+!1490 = !{!1486, !39, i64 76}
+!1491 = !{!1492, !37, i64 0}
+!1492 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image16ColorizeDepthCPUERKNS_4core6TensorERS5_fffENK3$_0clEvENKUlvE3_clEvEUllE_", !37, i64 0, !1296, i64 8, !39, i64 64, !39, i64 68, !39, i64 72, !39, i64 76, !1296, i64 80}
+!1493 = !{!1492, !39, i64 64}
+!1494 = !{!1492, !39, i64 68}
+!1495 = !{!1492, !39, i64 72}
+!1496 = !{!1492, !39, i64 76}
+!1497 = !{!1498, !22, i64 0}
+!1498 = !{!"_ZTSZZN6open3d1t8geometry6kernel5image16ColorizeDepthCPUERKNS_4core6TensorERS5_fffENK3$_0clEvEUlvE4_", !22, i64 0, !141, i64 8, !141, i64 16, !1327, i64 24, !68, i64 32, !68, i64 40, !68, i64 48, !68, i64 56, !1327, i64 64}
+!1499 = !{!1498, !141, i64 8}
+!1500 = !{!1498, !141, i64 16}
+!1501 = !{!1502, !37, i64 0}
+!1502 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image16ColorizeDepthCPUERKNS_4core6TensorERS5_fffENK3$_0clEvENKUlvE4_clEvEUllE_", !37, i64 0, !1296, i64 8, !39, i64 64, !39, i64 68, !39, i64 72, !39, i64 76, !1296, i64 80}
+!1503 = !{!1498, !1327, i64 24}
+!1504 = !{!1498, !68, i64 32}
+!1505 = !{!1502, !39, i64 64}
+!1506 = !{!1498, !68, i64 40}
+!1507 = !{!1502, !39, i64 68}
+!1508 = !{!1498, !68, i64 48}
+!1509 = !{!1502, !39, i64 72}
+!1510 = !{!1498, !68, i64 56}
+!1511 = !{!1502, !39, i64 76}
+!1512 = !{!1498, !1327, i64 64}
+!1513 = !{!1514, !22, i64 0}
+!1514 = !{!"_ZTSZZN6open3d1t8geometry6kernel5image16ColorizeDepthCPUERKNS_4core6TensorERS5_fffENK3$_0clEvEUlvE5_", !22, i64 0, !141, i64 8, !141, i64 16, !1327, i64 24, !68, i64 32, !68, i64 40, !68, i64 48, !68, i64 56, !1327, i64 64}
+!1515 = !{!1514, !141, i64 8}
+!1516 = !{!1514, !141, i64 16}
+!1517 = !{!1518, !37, i64 0}
+!1518 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image16ColorizeDepthCPUERKNS_4core6TensorERS5_fffENK3$_0clEvENKUlvE5_clEvEUllE_", !37, i64 0, !1296, i64 8, !39, i64 64, !39, i64 68, !39, i64 72, !39, i64 76, !1296, i64 80}
+!1519 = !{!1514, !1327, i64 24}
+!1520 = !{!1514, !68, i64 32}
+!1521 = !{!1518, !39, i64 64}
+!1522 = !{!1514, !68, i64 40}
+!1523 = !{!1518, !39, i64 68}
+!1524 = !{!1514, !68, i64 48}
+!1525 = !{!1518, !39, i64 72}
+!1526 = !{!1514, !68, i64 56}
+!1527 = !{!1518, !39, i64 76}
+!1528 = !{!1514, !1327, i64 64}
+!1529 = !{!1530, !22, i64 0}
+!1530 = !{!"_ZTSZZN6open3d1t8geometry6kernel5image16ColorizeDepthCPUERKNS_4core6TensorERS5_fffENK3$_0clEvEUlvE6_", !22, i64 0, !141, i64 8, !141, i64 16, !1327, i64 24, !68, i64 32, !68, i64 40, !68, i64 48, !68, i64 56, !1327, i64 64}
+!1531 = !{!1530, !141, i64 8}
+!1532 = !{!1530, !141, i64 16}
+!1533 = !{!1534, !37, i64 0}
+!1534 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image16ColorizeDepthCPUERKNS_4core6TensorERS5_fffENK3$_0clEvENKUlvE6_clEvEUllE_", !37, i64 0, !1296, i64 8, !39, i64 64, !39, i64 68, !39, i64 72, !39, i64 76, !1296, i64 80}
+!1535 = !{!1530, !1327, i64 24}
+!1536 = !{!1530, !68, i64 32}
+!1537 = !{!1534, !39, i64 64}
+!1538 = !{!1530, !68, i64 40}
+!1539 = !{!1534, !39, i64 68}
+!1540 = !{!1530, !68, i64 48}
+!1541 = !{!1534, !39, i64 72}
+!1542 = !{!1530, !68, i64 56}
+!1543 = !{!1534, !39, i64 76}
+!1544 = !{!1530, !1327, i64 64}
+!1545 = !{!1546, !22, i64 0}
+!1546 = !{!"_ZTSZZN6open3d1t8geometry6kernel5image16ColorizeDepthCPUERKNS_4core6TensorERS5_fffENK3$_0clEvEUlvE7_", !22, i64 0, !141, i64 8, !141, i64 16, !1327, i64 24, !68, i64 32, !68, i64 40, !68, i64 48, !68, i64 56, !1327, i64 64}
+!1547 = !{!1546, !141, i64 8}
+!1548 = !{!1546, !141, i64 16}
+!1549 = !{!1550, !37, i64 0}
+!1550 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image16ColorizeDepthCPUERKNS_4core6TensorERS5_fffENK3$_0clEvENKUlvE7_clEvEUllE_", !37, i64 0, !1296, i64 8, !39, i64 64, !39, i64 68, !39, i64 72, !39, i64 76, !1296, i64 80}
+!1551 = !{!1546, !1327, i64 24}
+!1552 = !{!1546, !68, i64 32}
+!1553 = !{!1550, !39, i64 64}
+!1554 = !{!1546, !68, i64 40}
+!1555 = !{!1550, !39, i64 68}
+!1556 = !{!1546, !68, i64 48}
+!1557 = !{!1550, !39, i64 72}
+!1558 = !{!1546, !68, i64 56}
+!1559 = !{!1550, !39, i64 76}
+!1560 = !{!1546, !1327, i64 64}
+!1561 = !{!1562, !22, i64 0}
+!1562 = !{!"_ZTSZZN6open3d1t8geometry6kernel5image16ColorizeDepthCPUERKNS_4core6TensorERS5_fffENK3$_0clEvEUlvE8_", !22, i64 0, !141, i64 8, !141, i64 16, !1327, i64 24, !68, i64 32, !68, i64 40, !68, i64 48, !68, i64 56, !1327, i64 64}
+!1563 = !{!1562, !141, i64 8}
+!1564 = !{!1562, !141, i64 16}
+!1565 = !{!1566, !37, i64 0}
+!1566 = !{!"_ZTSZZZN6open3d1t8geometry6kernel5image16ColorizeDepthCPUERKNS_4core6TensorERS5_fffENK3$_0clEvENKUlvE8_clEvEUllE_", !37, i64 0, !1296, i64 8, !39, i64 64, !39, i64 68, !39, i64 72, !39, i64 76, !1296, i64 80}
+!1567 = !{!1562, !1327, i64 24}
+!1568 = !{!1562, !68, i64 32}
+!1569 = !{!1566, !39, i64 64}
+!1570 = !{!1562, !68, i64 40}
+!1571 = !{!1566, !39, i64 68}
+!1572 = !{!1562, !68, i64 48}
+!1573 = !{!1566, !39, i64 72}
+!1574 = !{!1562, !68, i64 56}
+!1575 = !{!1566, !39, i64 76}
+!1576 = !{!1562, !1327, i64 64}

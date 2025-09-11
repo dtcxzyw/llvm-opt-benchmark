@@ -2290,9 +2290,10 @@ define linkonce_odr hidden noundef double @_ZN3sls10smt_solver10solver_ctx6rewar
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 88
   %6 = load ptr, ptr %5, align 8, !tbaa !189
   %7 = zext i32 %1 to i64
-  %8 = getelementptr inbounds nuw %"struct.sat::ddfw::var_info", ptr %6, i64 %7, i32 1
-  %9 = load double, ptr %8, align 8, !tbaa !207
-  ret double %9
+  %8 = getelementptr inbounds nuw %"struct.sat::ddfw::var_info", ptr %6, i64 %7
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %10 = load double, ptr %9, align 8, !tbaa !207
+  ret double %10
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2544,9 +2545,10 @@ define linkonce_odr hidden noundef double @_ZThn8_N3sls10smt_solver10solver_ctx6
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 88
   %6 = load ptr, ptr %5, align 8, !tbaa !189
   %7 = zext i32 %1 to i64
-  %8 = getelementptr inbounds nuw %"struct.sat::ddfw::var_info", ptr %6, i64 %7, i32 1
-  %9 = load double, ptr %8, align 8, !tbaa !207
-  ret double %9
+  %8 = getelementptr inbounds nuw %"struct.sat::ddfw::var_info", ptr %6, i64 %7
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %10 = load double, ptr %9, align 8, !tbaa !207
+  ret double %10
 }
 
 ; Function Attrs: uwtable

@@ -384,22 +384,23 @@ define void @ff_nal_units_write_list(ptr noundef readonly captures(none) %0, ptr
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %3 ]
   %6 = load ptr, ptr %0, align 8, !tbaa !17
-  %7 = getelementptr inbounds nuw %struct.NALU, ptr %6, i64 %indvars.iv, i32 1
-  %8 = load i32, ptr %7, align 4, !tbaa !19
-  tail call void @avio_wb32(ptr noundef %1, i32 noundef %8) #8
-  %9 = load ptr, ptr %0, align 8, !tbaa !17
-  %10 = getelementptr inbounds nuw %struct.NALU, ptr %9, i64 %indvars.iv
-  %11 = load i32, ptr %10, align 4, !tbaa !21
-  %12 = sext i32 %11 to i64
-  %13 = getelementptr inbounds i8, ptr %2, i64 %12
-  %14 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  %15 = load i32, ptr %14, align 4, !tbaa !19
-  tail call void @avio_write(ptr noundef %1, ptr noundef %13, i32 noundef %15) #8
+  %7 = getelementptr inbounds nuw %struct.NALU, ptr %6, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %9 = load i32, ptr %8, align 4, !tbaa !19
+  tail call void @avio_wb32(ptr noundef %1, i32 noundef %9) #8
+  %10 = load ptr, ptr %0, align 8, !tbaa !17
+  %11 = getelementptr inbounds nuw %struct.NALU, ptr %10, i64 %indvars.iv
+  %12 = load i32, ptr %11, align 4, !tbaa !21
+  %13 = sext i32 %12 to i64
+  %14 = getelementptr inbounds i8, ptr %2, i64 %13
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 4
+  %16 = load i32, ptr %15, align 4, !tbaa !19
+  tail call void @avio_write(ptr noundef %1, ptr noundef %14, i32 noundef %16) #8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %16 = load i32, ptr %4, align 4, !tbaa !12
-  %17 = zext i32 %16 to i64
-  %18 = icmp samesign ult i64 %indvars.iv.next, %17
-  br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !22
+  %17 = load i32, ptr %4, align 4, !tbaa !12
+  %18 = zext i32 %17 to i64
+  %19 = icmp samesign ult i64 %indvars.iv.next, %18
+  br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !22
 }
 
 declare void @avio_wb32(ptr noundef, i32 noundef) local_unnamed_addr #2

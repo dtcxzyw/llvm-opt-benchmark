@@ -182,7 +182,7 @@ define void @_ZN7rocksdb15DecodeSessionIdERKNSt7__cxx1112basic_stringIcSt11char_
 
 43:                                               ; preds = %41, %39, %33
   %.sink42.i = phi i64 [ 4294967248, %33 ], [ 4294967241, %39 ], [ 4294967209, %41 ]
-  %44 = add nsw i64 %.sink42.i, %37
+  %44 = add nuw nsw i64 %.sink42.i, %37
   %45 = and i64 %44, 4294967295
   %46 = add i64 %45, %36
   %47 = add nsw i64 %.02735.i, -1
@@ -227,7 +227,7 @@ _ZN7rocksdb14ParseBaseCharsILi36EEEbPPKcmPm.exit: ; preds = %41
 
 61:                                               ; preds = %59, %57, %.preheader
   %.sink42.i17 = phi i64 [ 4294967248, %.preheader ], [ 4294967241, %57 ], [ 4294967209, %59 ]
-  %62 = add nsw i64 %.sink42.i17, %55
+  %62 = add nuw nsw i64 %.sink42.i17, %55
   %63 = and i64 %62, 4294967295
   %64 = add i64 %63, %54
   %65 = add nsw i64 %.02735.i12, -1

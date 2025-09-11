@@ -94,9 +94,9 @@ define i32 @ff_mlz_decompression(ptr noundef captures(none) %0, ptr noundef capt
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %15
 
-15:                                               ; preds = %.lr.ph, %135
-  %.087152 = phi i32 [ -1, %.lr.ph ], [ %.188, %135 ]
-  %.089151 = phi i64 [ 0, %.lr.ph ], [ %.190, %135 ]
+15:                                               ; preds = %.lr.ph, %137
+  %.087152 = phi i32 [ -1, %.lr.ph ], [ %.188, %137 ]
+  %.089151 = phi i64 [ 0, %.lr.ph ], [ %.190, %137 ]
   %16 = load i32, ptr %0, align 8, !tbaa !13
   %17 = icmp sgt i32 %16, 0
   br i1 %17, label %.lr.ph.i, label %input_code.exit.thread
@@ -160,11 +160,11 @@ ff_mlz_flush_dict.exit:                           ; preds = %37
   store i32 258, ptr %14, align 8, !tbaa !15
   store i32 0, ptr %11, align 4, !tbaa !16
   store i32 -1, ptr %5, align 4, !tbaa !24
-  br label %135
+  br label %137
 
 41:                                               ; preds = %input_code.exit
   store i32 1, ptr %11, align 4, !tbaa !16
-  br label %135
+  br label %137
 
 input_code.exit.thread:                           ; preds = %15, %input_code.exit
   %.06.lcssa.i114 = phi i32 [ %33, %input_code.exit ], [ 0, %15 ]
@@ -190,14 +190,14 @@ input_code.exit.thread:                           ; preds = %15, %input_code.exi
   store i32 %52, ptr %12, align 4, !tbaa !12
   %53 = add nsw i32 %52, -1
   store i32 %53, ptr %13, align 8, !tbaa !14
-  br label %135
+  br label %137
 
 54:                                               ; preds = %47
   %55 = load i32, ptr %14, align 8, !tbaa !15
   %.not = icmp slt i32 %.06.lcssa.i114, %55
   %56 = getelementptr inbounds nuw i8, ptr %3, i64 %.089151
   %57 = sub i64 %8, %.089151
-  br i1 %.not, label %101, label %58
+  br i1 %.not, label %102, label %58
 
 58:                                               ; preds = %54
   %59 = call fastcc i32 @decode_string(ptr noundef nonnull %0, ptr noundef %56, i32 noundef %.087152, ptr noundef %5, i64 noundef %57)
@@ -251,105 +251,107 @@ input_code.exit.thread:                           ; preds = %15, %input_code.exi
 
 89:                                               ; preds = %80
   %90 = zext nneg i32 %.087152 to i64
-  %91 = getelementptr inbounds nuw %struct.MLZDict, ptr %7, i64 %90, i32 3
-  %92 = load i32, ptr %91, align 4, !tbaa !21
-  %93 = add nsw i32 %92, 1
+  %91 = getelementptr inbounds nuw %struct.MLZDict, ptr %7, i64 %90
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 12
+  %93 = load i32, ptr %92, align 4, !tbaa !21
+  %94 = add nsw i32 %93, 1
   br label %set_new_entry_dict.exit
 
 set_new_entry_dict.exit:                          ; preds = %80, %89
-  %.sink.i = phi i32 [ %93, %89 ], [ 2, %80 ]
-  %94 = getelementptr inbounds nuw i8, ptr %85, i64 12
-  store i32 %.sink.i, ptr %94, align 4, !tbaa !21
-  %95 = icmp sgt i32 %82, 35021
-  br i1 %95, label %96, label %99
+  %.sink.i = phi i32 [ %94, %89 ], [ 2, %80 ]
+  %95 = getelementptr inbounds nuw i8, ptr %85, i64 12
+  store i32 %.sink.i, ptr %95, align 4, !tbaa !21
+  %96 = icmp sgt i32 %82, 35021
+  br i1 %96, label %97, label %100
 
-96:                                               ; preds = %set_new_entry_dict.exit
-  %97 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %98 = load ptr, ptr %97, align 8, !tbaa !17
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %98, i32 noundef 16, ptr noundef nonnull @.str.2) #5
+97:                                               ; preds = %set_new_entry_dict.exit
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %99 = load ptr, ptr %98, align 8, !tbaa !17
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %99, i32 noundef 16, ptr noundef nonnull @.str.2) #5
   br label %.thread
 
-99:                                               ; preds = %set_new_entry_dict.exit
-  %100 = add nsw i32 %82, 1
-  store i32 %100, ptr %14, align 8, !tbaa !15
-  br label %135
+100:                                              ; preds = %set_new_entry_dict.exit
+  %101 = add nsw i32 %82, 1
+  store i32 %101, ptr %14, align 8, !tbaa !15
+  br label %137
 
-101:                                              ; preds = %54
-  %102 = call fastcc i32 @decode_string(ptr noundef nonnull %0, ptr noundef %56, i32 noundef %.06.lcssa.i114, ptr noundef %5, i64 noundef %57)
-  %103 = icmp slt i32 %102, 0
-  br i1 %103, label %107, label %104
+102:                                              ; preds = %54
+  %103 = call fastcc i32 @decode_string(ptr noundef nonnull %0, ptr noundef %56, i32 noundef %.06.lcssa.i114, ptr noundef %5, i64 noundef %57)
+  %104 = icmp slt i32 %103, 0
+  br i1 %104, label %108, label %105
 
-104:                                              ; preds = %101
-  %105 = zext nneg i32 %102 to i64
-  %106 = icmp ult i64 %57, %105
-  br i1 %106, label %107, label %110
+105:                                              ; preds = %102
+  %106 = zext nneg i32 %103 to i64
+  %107 = icmp ult i64 %57, %106
+  br i1 %107, label %108, label %111
 
-107:                                              ; preds = %104, %101
-  %108 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %109 = load ptr, ptr %108, align 8, !tbaa !17
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %109, i32 noundef 16, ptr noundef nonnull @.str.1) #5
+108:                                              ; preds = %105, %102
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %110 = load ptr, ptr %109, align 8, !tbaa !17
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %110, i32 noundef 16, ptr noundef nonnull @.str.1) #5
   br label %.thread
 
-110:                                              ; preds = %104
-  %111 = add i64 %.089151, %105
-  %.not107 = icmp ugt i64 %111, %8
-  br i1 %.not107, label %135, label %112
+111:                                              ; preds = %105
+  %112 = add i64 %.089151, %106
+  %.not107 = icmp ugt i64 %112, %8
+  br i1 %.not107, label %137, label %113
 
-112:                                              ; preds = %110
-  %113 = load i32, ptr %11, align 4, !tbaa !16
-  %.not108 = icmp eq i32 %113, 0
-  br i1 %.not108, label %114, label %135
+113:                                              ; preds = %111
+  %114 = load i32, ptr %11, align 4, !tbaa !16
+  %.not108 = icmp eq i32 %114, 0
+  br i1 %.not108, label %115, label %137
 
-114:                                              ; preds = %112
+115:                                              ; preds = %113
   %.not109 = icmp eq i32 %.087152, -1
-  br i1 %.not109, label %135, label %115
+  br i1 %.not109, label %137, label %116
 
-115:                                              ; preds = %114
-  %116 = load i32, ptr %14, align 8, !tbaa !15
-  %117 = load i32, ptr %5, align 4, !tbaa !24
-  %118 = sext i32 %116 to i64
-  %119 = getelementptr inbounds %struct.MLZDict, ptr %7, i64 %118
-  %120 = getelementptr inbounds nuw i8, ptr %119, i64 4
-  store i32 %.087152, ptr %120, align 4, !tbaa !20
-  store i32 %116, ptr %119, align 4, !tbaa !18
-  %121 = getelementptr inbounds nuw i8, ptr %119, i64 8
-  store i32 %117, ptr %121, align 4, !tbaa !32
-  %122 = icmp slt i32 %.087152, 258
-  br i1 %122, label %set_new_entry_dict.exit112, label %123
+116:                                              ; preds = %115
+  %117 = load i32, ptr %14, align 8, !tbaa !15
+  %118 = load i32, ptr %5, align 4, !tbaa !24
+  %119 = sext i32 %117 to i64
+  %120 = getelementptr inbounds %struct.MLZDict, ptr %7, i64 %119
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 4
+  store i32 %.087152, ptr %121, align 4, !tbaa !20
+  store i32 %117, ptr %120, align 4, !tbaa !18
+  %122 = getelementptr inbounds nuw i8, ptr %120, i64 8
+  store i32 %118, ptr %122, align 4, !tbaa !32
+  %123 = icmp slt i32 %.087152, 258
+  br i1 %123, label %set_new_entry_dict.exit112, label %124
 
-123:                                              ; preds = %115
-  %124 = zext nneg i32 %.087152 to i64
-  %125 = getelementptr inbounds nuw %struct.MLZDict, ptr %7, i64 %124, i32 3
-  %126 = load i32, ptr %125, align 4, !tbaa !21
-  %127 = add nsw i32 %126, 1
+124:                                              ; preds = %116
+  %125 = zext nneg i32 %.087152 to i64
+  %126 = getelementptr inbounds nuw %struct.MLZDict, ptr %7, i64 %125
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 12
+  %128 = load i32, ptr %127, align 4, !tbaa !21
+  %129 = add nsw i32 %128, 1
   br label %set_new_entry_dict.exit112
 
-set_new_entry_dict.exit112:                       ; preds = %115, %123
-  %.sink.i111 = phi i32 [ %127, %123 ], [ 2, %115 ]
-  %128 = getelementptr inbounds nuw i8, ptr %119, i64 12
-  store i32 %.sink.i111, ptr %128, align 4, !tbaa !21
-  %129 = icmp sgt i32 %116, 35021
-  br i1 %129, label %130, label %133
+set_new_entry_dict.exit112:                       ; preds = %116, %124
+  %.sink.i111 = phi i32 [ %129, %124 ], [ 2, %116 ]
+  %130 = getelementptr inbounds nuw i8, ptr %120, i64 12
+  store i32 %.sink.i111, ptr %130, align 4, !tbaa !21
+  %131 = icmp sgt i32 %117, 35021
+  br i1 %131, label %132, label %135
 
-130:                                              ; preds = %set_new_entry_dict.exit112
-  %131 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %132 = load ptr, ptr %131, align 8, !tbaa !17
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %132, i32 noundef 16, ptr noundef nonnull @.str.2) #5
+132:                                              ; preds = %set_new_entry_dict.exit112
+  %133 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %134 = load ptr, ptr %133, align 8, !tbaa !17
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %134, i32 noundef 16, ptr noundef nonnull @.str.2) #5
   br label %.thread
 
-133:                                              ; preds = %set_new_entry_dict.exit112
-  %134 = add nsw i32 %116, 1
-  store i32 %134, ptr %14, align 8, !tbaa !15
-  br label %135
+135:                                              ; preds = %set_new_entry_dict.exit112
+  %136 = add nsw i32 %117, 1
+  store i32 %136, ptr %14, align 8, !tbaa !15
+  br label %137
 
-135:                                              ; preds = %133, %114, %112, %110, %99, %50, %41, %ff_mlz_flush_dict.exit
-  %.190 = phi i64 [ %.089151, %50 ], [ %.089151, %ff_mlz_flush_dict.exit ], [ %.089151, %41 ], [ %81, %99 ], [ %111, %112 ], [ %111, %110 ], [ %111, %114 ], [ %111, %133 ]
-  %.188 = phi i32 [ %.087152, %50 ], [ -1, %ff_mlz_flush_dict.exit ], [ %.087152, %41 ], [ %.06.lcssa.i114, %99 ], [ %.087152, %112 ], [ %.087152, %110 ], [ %.06.lcssa.i114, %114 ], [ %.06.lcssa.i114, %133 ]
-  %136 = icmp ult i64 %.190, %8
-  br i1 %136, label %15, label %.thread, !llvm.loop !33
+137:                                              ; preds = %135, %115, %113, %111, %100, %50, %41, %ff_mlz_flush_dict.exit
+  %.190 = phi i64 [ %.089151, %50 ], [ %.089151, %ff_mlz_flush_dict.exit ], [ %.089151, %41 ], [ %81, %100 ], [ %112, %113 ], [ %112, %111 ], [ %112, %115 ], [ %112, %135 ]
+  %.188 = phi i32 [ %.087152, %50 ], [ -1, %ff_mlz_flush_dict.exit ], [ %.087152, %41 ], [ %.06.lcssa.i114, %100 ], [ %.087152, %113 ], [ %.087152, %111 ], [ %.06.lcssa.i114, %115 ], [ %.06.lcssa.i114, %135 ]
+  %138 = icmp ult i64 %.190, %8
+  br i1 %138, label %15, label %.thread, !llvm.loop !33
 
-.thread:                                          ; preds = %135, %4, %130, %107, %96, %77, %64, %44
-  %.2.in = phi i64 [ %.089151, %44 ], [ %81, %96 ], [ %68, %77 ], [ %.089151, %64 ], [ %111, %130 ], [ %.089151, %107 ], [ 0, %4 ], [ %.190, %135 ]
+.thread:                                          ; preds = %137, %4, %132, %108, %97, %77, %64, %44
+  %.2.in = phi i64 [ %.089151, %44 ], [ %81, %97 ], [ %68, %77 ], [ %.089151, %64 ], [ %112, %132 ], [ %.089151, %108 ], [ 0, %4 ], [ %.190, %137 ]
   %.2 = trunc i64 %.2.in to i32
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.2

@@ -21608,8 +21608,7 @@ define weak_odr noundef zeroext i1 @_ZN5clang6interp8CompilerINS0_15ByteCodeEmit
 
 15:                                               ; preds = %.preheader, %.thread38
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %.thread38 ]
-  %.idx = shl nuw nsw i64 %indvars.iv, 4
-  %16 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx
+  %16 = getelementptr inbounds nuw %"class.clang::OffsetOfNode", ptr %8, i64 %indvars.iv
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load i64, ptr %17, align 8, !tbaa !865
   %19 = and i64 %18, 3
@@ -54255,8 +54254,7 @@ define weak_odr noundef zeroext i1 @_ZN5clang6interp8CompilerINS0_11EvalEmitterE
 
 15:                                               ; preds = %.preheader, %.thread38
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %.thread38 ]
-  %.idx = shl nuw nsw i64 %indvars.iv, 4
-  %16 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx
+  %16 = getelementptr inbounds nuw %"class.clang::OffsetOfNode", ptr %8, i64 %indvars.iv
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load i64, ptr %17, align 8, !tbaa !865
   %19 = and i64 %18, 3

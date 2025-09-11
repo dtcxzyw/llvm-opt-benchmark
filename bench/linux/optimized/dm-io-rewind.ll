@@ -71,13 +71,15 @@ define dso_local void @dm_io_rewind(ptr noundef captures(none) %0, ptr noundef %
 
 43:                                               ; preds = %37
   %44 = zext nneg i32 %41 to i64
-  %45 = getelementptr %struct.bio_vec, ptr %24, i64 %44, i32 1
+  %.split = getelementptr %struct.bio_vec, ptr %24, i64 %44
+  %45 = getelementptr i8, ptr %.split, i64 8
   %46 = load i32, ptr %45, align 8
   %47 = icmp ugt i32 %38, %46
   br i1 %47, label %.preheader, label %.thread
 
 48:                                               ; preds = %.preheader
-  %49 = getelementptr %struct.bio_vec, ptr %24, i64 %56, i32 1
+  %.split8 = getelementptr %struct.bio_vec, ptr %24, i64 %56
+  %49 = getelementptr i8, ptr %.split8, i64 8
   %50 = load i32, ptr %49, align 8
   %51 = icmp ugt i32 %55, %50
   br i1 %51, label %.preheader, label %60, !llvm.loop !5
@@ -136,7 +138,8 @@ define dso_local void @dm_io_rewind(ptr noundef captures(none) %0, ptr noundef %
   %77 = phi i32 [ %65, %72 ], [ %41, %43 ]
   store i32 %77, ptr %39, align 1
   %78 = sext i32 %77 to i64
-  %79 = getelementptr %struct.bio_vec, ptr %24, i64 %78, i32 1
+  %.split9 = getelementptr %struct.bio_vec, ptr %24, i64 %78
+  %79 = getelementptr i8, ptr %.split9, i64 8
   %80 = load i32, ptr %79, align 8
   %81 = sub i32 %80, %76
   store i32 %81, ptr %28, align 1

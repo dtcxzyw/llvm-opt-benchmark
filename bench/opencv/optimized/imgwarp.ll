@@ -6367,7 +6367,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %537 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx646
   %538 = load i16, ptr %537, align 2, !tbaa !72
   %539 = sext i16 %538 to i32
-  %540 = icmp sgt i32 %31, %525
+  %540 = icmp samesign ugt i32 %31, %525
   br i1 %540, label %541, label %.thread726
 
 541:                                              ; preds = %533
@@ -7585,7 +7585,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %476 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx646
   %477 = load float, ptr %476, align 4, !tbaa !103
   %478 = fadd float %477, 0.000000e+00
-  %479 = icmp sgt i32 %32, %464
+  %479 = icmp samesign ugt i32 %32, %464
   br i1 %479, label %480, label %.thread725
 
 480:                                              ; preds = %472
@@ -8755,7 +8755,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %476 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx646
   %477 = load float, ptr %476, align 4, !tbaa !103
   %478 = fadd float %477, 0.000000e+00
-  %479 = icmp sgt i32 %32, %464
+  %479 = icmp samesign ugt i32 %32, %464
   br i1 %479, label %480, label %.thread725
 
 480:                                              ; preds = %472
@@ -9826,7 +9826,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %377 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx646
   %378 = load float, ptr %377, align 4, !tbaa !103
   %379 = fadd float %378, 0.000000e+00
-  %380 = icmp sgt i32 %32, %365
+  %380 = icmp samesign ugt i32 %32, %365
   br i1 %380, label %381, label %.thread725
 
 381:                                              ; preds = %373
@@ -10880,7 +10880,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %393 = load float, ptr %392, align 4, !tbaa !103
   %394 = fpext float %393 to double
   %395 = fadd double %394, 0.000000e+00
-  %396 = icmp sgt i32 %32, %380
+  %396 = icmp samesign ugt i32 %32, %380
   br i1 %396, label %397, label %.thread725
 
 397:                                              ; preds = %388

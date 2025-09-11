@@ -984,7 +984,7 @@ define internal fastcc range(i32 -38, 1) i32 @vaapi_decode_find_best_format(ptr 
 12:                                               ; preds = %9
   %13 = call ptr @vaErrorStr(i32 noundef %11) #4
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.33, i32 noundef %11, ptr noundef %13) #4
-  br label %62
+  br label %63
 
 14:                                               ; preds = %9
   %15 = load i32, ptr %5, align 4, !tbaa !49
@@ -992,7 +992,7 @@ define internal fastcc range(i32 -38, 1) i32 @vaapi_decode_find_best_format(ptr 
   %17 = call ptr @av_malloc_array(i64 noundef %16, i64 noundef 24) #4
   store ptr %17, ptr %4, align 8, !tbaa !111
   %.not67 = icmp eq ptr %17, null
-  br i1 %.not67, label %62, label %18
+  br i1 %.not67, label %63, label %18
 
 18:                                               ; preds = %14
   %19 = load ptr, ptr %.16.val, align 8, !tbaa !46
@@ -1007,23 +1007,23 @@ define internal fastcc range(i32 -38, 1) i32 @vaapi_decode_find_best_format(ptr 
 
 ._crit_edge.thread:                               ; preds = %.preheader
   call void @av_freep(ptr noundef nonnull %4) #4
-  br label %48
+  br label %49
 
 23:                                               ; preds = %18
   %24 = call ptr @vaErrorStr(i32 noundef %20) #4
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.33, i32 noundef %20, ptr noundef %24) #4
   call void @av_freep(ptr noundef nonnull %4) #4
-  br label %62
+  br label %63
 
-.lr.ph:                                           ; preds = %.preheader, %43
-  %indvars.iv9 = phi i64 [ %indvars.iv.next10, %43 ], [ 0, %.preheader ]
-  %.0525 = phi i32 [ %.1, %43 ], [ -1, %.preheader ]
-  %.0534 = phi i32 [ %.154, %43 ], [ undef, %.preheader ]
+.lr.ph:                                           ; preds = %.preheader, %44
+  %indvars.iv9 = phi i64 [ %indvars.iv.next10, %44 ], [ 0, %.preheader ]
+  %.0525 = phi i32 [ %.1, %44 ], [ -1, %.preheader ]
+  %.0534 = phi i32 [ %.154, %44 ], [ undef, %.preheader ]
   %25 = load ptr, ptr %4, align 8, !tbaa !111
   %26 = getelementptr inbounds nuw %struct._VASurfaceAttrib, ptr %25, i64 %indvars.iv9
   %27 = load i32, ptr %26, align 8, !tbaa !112
   %.not70 = icmp eq i32 %27, 1
-  br i1 %.not70, label %28, label %43
+  br i1 %.not70, label %28, label %44
 
 28:                                               ; preds = %.lr.ph
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
@@ -1044,71 +1044,72 @@ define internal fastcc range(i32 -38, 1) i32 @vaapi_decode_find_best_format(ptr 
 
 36:                                               ; preds = %31
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 48, ptr noundef nonnull @.str.34, i32 noundef %30) #4
-  br label %43
+  br label %44
 
 37:                                               ; preds = %32
-  %38 = getelementptr inbounds nuw %struct.anon.1, ptr @vaapi_format_map, i64 %indvars.iv, i32 1
-  %39 = load i32, ptr %38, align 4, !tbaa !117
-  %40 = call ptr @av_get_pix_fmt_name(i32 noundef %39) #4
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 48, ptr noundef nonnull @.str.35, i32 noundef %30, ptr noundef %40) #4
-  %41 = call i32 @av_find_best_pix_fmt_of_2(i32 noundef %39, i32 noundef %.0525, i32 noundef %7, i32 noundef 0, ptr noundef null) #4
-  %42 = icmp eq i32 %39, %41
-  %spec.select = select i1 %42, i32 %30, i32 %.0534
-  br label %43
+  %38 = getelementptr inbounds nuw %struct.anon.1, ptr @vaapi_format_map, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 4
+  %40 = load i32, ptr %39, align 4, !tbaa !117
+  %41 = call ptr @av_get_pix_fmt_name(i32 noundef %40) #4
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 48, ptr noundef nonnull @.str.35, i32 noundef %30, ptr noundef %41) #4
+  %42 = call i32 @av_find_best_pix_fmt_of_2(i32 noundef %40, i32 noundef %.0525, i32 noundef %7, i32 noundef 0, ptr noundef null) #4
+  %43 = icmp eq i32 %40, %42
+  %spec.select = select i1 %43, i32 %30, i32 %.0534
+  br label %44
 
-43:                                               ; preds = %37, %.lr.ph, %36
+44:                                               ; preds = %37, %.lr.ph, %36
   %.154 = phi i32 [ %.0534, %.lr.ph ], [ %.0534, %36 ], [ %spec.select, %37 ]
-  %.1 = phi i32 [ %.0525, %.lr.ph ], [ %.0525, %36 ], [ %41, %37 ]
+  %.1 = phi i32 [ %.0525, %.lr.ph ], [ %.0525, %36 ], [ %42, %37 ]
   %indvars.iv.next10 = add nuw nsw i64 %indvars.iv9, 1
-  %44 = load i32, ptr %5, align 4, !tbaa !49
-  %45 = sext i32 %44 to i64
-  %46 = icmp slt i64 %indvars.iv.next10, %45
-  br i1 %46, label %.lr.ph, label %._crit_edge, !llvm.loop !118
+  %45 = load i32, ptr %5, align 4, !tbaa !49
+  %46 = sext i32 %45 to i64
+  %47 = icmp slt i64 %indvars.iv.next10, %46
+  br i1 %47, label %.lr.ph, label %._crit_edge, !llvm.loop !118
 
-._crit_edge:                                      ; preds = %43
+._crit_edge:                                      ; preds = %44
   call void @av_freep(ptr noundef nonnull %4) #4
-  %47 = icmp eq i32 %.1, -1
-  br i1 %47, label %48, label %49
+  %48 = icmp eq i32 %.1, -1
+  br i1 %48, label %49, label %50
 
-48:                                               ; preds = %._crit_edge.thread, %._crit_edge
+49:                                               ; preds = %._crit_edge.thread, %._crit_edge
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.36) #4
-  br label %62
+  br label %63
 
-49:                                               ; preds = %._crit_edge
-  %50 = call ptr @av_get_pix_fmt_name(i32 noundef %.1) #4
-  %51 = call ptr @av_get_pix_fmt_name(i32 noundef %7) #4
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 48, ptr noundef nonnull @.str.37, ptr noundef %50, i32 noundef %.154, ptr noundef %51) #4
-  %52 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  store i32 %.1, ptr %52, align 8, !tbaa !119
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %54 = load ptr, ptr %53, align 8, !tbaa !4
-  %55 = getelementptr inbounds nuw i8, ptr %54, i64 112
-  %56 = load ptr, ptr %55, align 8, !tbaa !27
-  %.not69 = icmp eq ptr %56, null
-  br i1 %.not69, label %62, label %57
+50:                                               ; preds = %._crit_edge
+  %51 = call ptr @av_get_pix_fmt_name(i32 noundef %.1) #4
+  %52 = call ptr @av_get_pix_fmt_name(i32 noundef %7) #4
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 48, ptr noundef nonnull @.str.37, ptr noundef %51, i32 noundef %.154, ptr noundef %52) #4
+  %53 = getelementptr inbounds nuw i8, ptr %2, i64 64
+  store i32 %.1, ptr %53, align 8, !tbaa !119
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %55 = load ptr, ptr %54, align 8, !tbaa !4
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 112
+  %57 = load ptr, ptr %56, align 8, !tbaa !27
+  %.not69 = icmp eq ptr %57, null
+  br i1 %.not69, label %63, label %58
 
-57:                                               ; preds = %49
-  %58 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %59 = load ptr, ptr %58, align 8, !tbaa !103
-  %60 = getelementptr inbounds nuw i8, ptr %56, i64 48
-  store i32 1, ptr %60, align 8, !tbaa !49
-  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %56, i64 52
+58:                                               ; preds = %50
+  %59 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %60 = load ptr, ptr %59, align 8, !tbaa !103
+  %61 = getelementptr inbounds nuw i8, ptr %57, i64 48
+  store i32 1, ptr %61, align 8, !tbaa !49
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %57, i64 52
   store i32 2, ptr %.sroa.2.0..sroa_idx, align 4, !tbaa !49
-  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %56, i64 56
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %57, i64 56
   store i32 1, ptr %.sroa.3.0..sroa_idx, align 8, !tbaa !49
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %56, i64 60
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %57, i64 60
   store i32 0, ptr %.sroa.4.0..sroa_idx, align 4
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %56, i64 64
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %57, i64 64
   store i32 %.154, ptr %.sroa.5.0..sroa_idx, align 8
-  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %56, i64 68
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %57, i64 68
   store i32 0, ptr %.sroa.6.0..sroa_idx, align 4, !tbaa !113
-  store ptr %60, ptr %59, align 8, !tbaa !120
-  %61 = getelementptr inbounds nuw i8, ptr %59, i64 8
-  store i32 1, ptr %61, align 8, !tbaa !121
-  br label %62
+  store ptr %61, ptr %60, align 8, !tbaa !120
+  %62 = getelementptr inbounds nuw i8, ptr %60, i64 8
+  store i32 1, ptr %62, align 8, !tbaa !121
+  br label %63
 
-62:                                               ; preds = %49, %57, %14, %48, %23, %12
-  %.0 = phi i32 [ -38, %12 ], [ -38, %23 ], [ -22, %48 ], [ -12, %14 ], [ 0, %57 ], [ 0, %49 ]
+63:                                               ; preds = %50, %58, %14, %49, %23, %12
+  %.0 = phi i32 [ -38, %12 ], [ -38, %23 ], [ -22, %49 ], [ -12, %14 ], [ 0, %58 ], [ 0, %50 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
