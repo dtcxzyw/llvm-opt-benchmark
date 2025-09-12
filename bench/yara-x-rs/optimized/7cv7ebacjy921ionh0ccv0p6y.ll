@@ -60740,11 +60740,10 @@ define noundef range(i32 1, 4) i32 @"_ZN82_$LT$yara_x..modules..protos..pe..Impo
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define noundef range(i8 0, 4) i8 @"_ZN82_$LT$yara_x..modules..protos..pe..ImportFlags$u20$as$u20$protobuf..enums..Enum$GT$8from_i3217h1f33e36b8a4b80d9E"(i32 noundef %0) unnamed_addr #1 {
-switch.lookup:
-  %1 = icmp ult i32 %0, 4
-  %switch.idx.cast = trunc i32 %0 to i8
-  %spec.select = select i1 %1, i8 %switch.idx.cast, i8 0
-  ret i8 %spec.select
+  %2 = icmp ult i32 %0, 4
+  %switch.idx.cast = trunc nuw nsw i32 %0 to i8
+  %.sroa.0.0 = select i1 %2, i8 %switch.idx.cast, i8 0
+  ret i8 %.sroa.0.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -60829,7 +60828,7 @@ switch.lookup:
   %2 = alloca [24 x i8], align 8
   %3 = load i8, ptr %1, align 1, !range !4024, !noundef !4
   %switch.tableidx = add nsw i8 %3, -1
-  %switch.idx.cast = zext i8 %switch.tableidx to i64
+  %switch.idx.cast = zext nneg i8 %switch.tableidx to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4037)
   %4 = load atomic ptr, ptr @"_ZN90_$LT$yara_x..modules..protos..pe..ImportFlags$u20$as$u20$protobuf..enum_full..EnumFull$GT$15enum_descriptor10descriptor17h4d96738254fae2c3E" acquire, align 8, !noalias !4037
@@ -61424,10 +61423,9 @@ define noundef range(i32 0, 16) i32 @"_ZN85_$LT$yara_x..modules..protos..pe..Dir
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define noundef range(i8 0, 17) i8 @"_ZN85_$LT$yara_x..modules..protos..pe..DirectoryEntry$u20$as$u20$protobuf..enums..Enum$GT$8from_i3217h58be2ea1b0960e24E"(i32 noundef %0) unnamed_addr #1 {
-switch.lookup:
-  %spec.select1 = tail call i32 @llvm.umin.i32(i32 %0, i32 16)
-  %spec.select = trunc nuw nsw i32 %spec.select1 to i8
-  ret i8 %spec.select
+  %.sroa.0.01 = tail call i32 @llvm.umin.i32(i32 %0, i32 16)
+  %.sroa.0.0 = trunc nuw nsw i32 %.sroa.0.01 to i8
+  ret i8 %.sroa.0.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -61675,7 +61673,7 @@ define noundef range(i32 1, 35) i32 @"_ZN93_$LT$yara_x..modules..protos..pe..Sec
 define noundef range(i8 0, 35) i8 @"_ZN93_$LT$yara_x..modules..protos..pe..SectionCharacteristics$u20$as$u20$protobuf..enums..Enum$GT$8from_i3217h0b9430e27f658a89E"(i32 noundef %0) unnamed_addr #1 {
   %switch.tableidx = add i32 %0, -1
   %2 = icmp ult i32 %switch.tableidx, 34
-  %switch.idx.cast = trunc i32 %switch.tableidx to i8
+  %switch.idx.cast = trunc nuw nsw i32 %switch.tableidx to i8
   %switch.offset = add nsw i8 %switch.idx.cast, 1
   %.sroa.0.0 = select i1 %2, i8 %switch.offset, i8 0
   ret i8 %.sroa.0.0
@@ -61942,7 +61940,7 @@ switch.lookup:
   %2 = alloca [24 x i8], align 8
   %3 = load i8, ptr %1, align 1, !range !4188, !noundef !4
   %switch.tableidx = add nsw i8 %3, -1
-  %switch.idx.cast = zext i8 %switch.tableidx to i64
+  %switch.idx.cast = zext nneg i8 %switch.tableidx to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4325)
   %4 = load atomic ptr, ptr @"_ZN101_$LT$yara_x..modules..protos..pe..SectionCharacteristics$u20$as$u20$protobuf..enum_full..EnumFull$GT$15enum_descriptor10descriptor17hc525628fbac454acE" acquire, align 8, !noalias !4325
@@ -78793,11 +78791,10 @@ define noundef range(i32 1, 5) i32 @"_ZN81_$LT$yara_x..modules..protos..text..La
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define noundef range(i8 0, 5) i8 @"_ZN81_$LT$yara_x..modules..protos..text..Language$u20$as$u20$protobuf..enums..Enum$GT$8from_i3217h7e8d63a3494aaf83E"(i32 noundef %0) unnamed_addr #1 {
-switch.lookup:
-  %1 = icmp ult i32 %0, 5
-  %switch.idx.cast = trunc i32 %0 to i8
-  %spec.select = select i1 %1, i8 %switch.idx.cast, i8 0
-  ret i8 %spec.select
+  %2 = icmp ult i32 %0, 5
+  %switch.idx.cast = trunc nuw nsw i32 %0 to i8
+  %.sroa.0.0 = select i1 %2, i8 %switch.idx.cast, i8 0
+  ret i8 %.sroa.0.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -78885,7 +78882,7 @@ switch.lookup:
   %2 = alloca [24 x i8], align 8
   %3 = load i8, ptr %1, align 1, !range !5302, !noundef !4
   %switch.tableidx = add nsw i8 %3, -1
-  %switch.idx.cast = zext i8 %switch.tableidx to i64
+  %switch.idx.cast = zext nneg i8 %switch.tableidx to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5319)
   %4 = load atomic ptr, ptr @"_ZN89_$LT$yara_x..modules..protos..text..Language$u20$as$u20$protobuf..enum_full..EnumFull$GT$15enum_descriptor10descriptor17h326cdcbbb4eb20d2E" acquire, align 8, !noalias !5319

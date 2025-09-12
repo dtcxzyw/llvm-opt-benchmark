@@ -1470,11 +1470,11 @@ _ZN4llvm11safe_mallocEm.exit:                     ; preds = %2
   br i1 %12, label %._crit_edge, label %.lr.ph
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %19 = zext i32 %42 to i64
+  %19 = zext i32 %41 to i64
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %14, %._crit_edge.loopexit, %_ZN4llvm11safe_mallocEm.exit
-  %.0.i29 = phi ptr [ %10, %_ZN4llvm11safe_mallocEm.exit ], [ %10, %._crit_edge.loopexit ], [ %15, %14 ]
+  %.0.i26 = phi ptr [ %10, %_ZN4llvm11safe_mallocEm.exit ], [ %10, %._crit_edge.loopexit ], [ %15, %14 ]
   %.lcssa = phi i64 [ 0, %_ZN4llvm11safe_mallocEm.exit ], [ %19, %._crit_edge.loopexit ], [ 0, %14 ]
   store i64 %.lcssa, ptr %1, align 8, !tbaa !37
   %20 = load ptr, ptr %3, align 8, !tbaa !39
@@ -1487,17 +1487,17 @@ _ZN4llvm11safe_mallocEm.exit:                     ; preds = %2
 
 _ZN4llvm11SmallVectorINS_6Module15ModuleFlagEntryELj8EED2Ev.exit: ; preds = %._crit_edge, %22
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret ptr %.0.i29
+  ret ptr %.0.i26
 
 .lr.ph:                                           ; preds = %_ZN4llvm11safe_mallocEm.exit, %.lr.ph
-  %23 = phi i64 [ %41, %.lr.ph ], [ 0, %_ZN4llvm11safe_mallocEm.exit ]
-  %.021 = phi i32 [ %40, %.lr.ph ], [ 0, %_ZN4llvm11safe_mallocEm.exit ]
+  %.019 = phi i32 [ %40, %.lr.ph ], [ 0, %_ZN4llvm11safe_mallocEm.exit ]
+  %23 = zext i32 %.019 to i64
   %24 = load ptr, ptr %3, align 8, !tbaa !39
   %25 = getelementptr inbounds nuw %"struct.llvm::Module::ModuleFlagEntry", ptr %24, i64 %23
   %26 = load i32, ptr %25, align 8, !tbaa !43
-  %switch.tableidx = add nsw i32 %26, -1
+  %switch.tableidx.i = add nsw i32 %26, -1
   %27 = getelementptr inbounds nuw %struct.LLVMOpaqueModuleFlagEntry, ptr %10, i64 %23
-  store i32 %switch.tableidx, ptr %27, align 8, !tbaa !48
+  store i32 %switch.tableidx.i, ptr %27, align 8, !tbaa !48
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %29 = load ptr, ptr %28, align 8, !tbaa !52
   %30 = call { ptr, i64 } @_ZNK4llvm8MDString9getStringEv(ptr noundef nonnull align 8 dereferenceable(16) %29) #35
@@ -1513,11 +1513,10 @@ _ZN4llvm11SmallVectorINS_6Module15ModuleFlagEntryELj8EED2Ev.exit: ; preds = %._c
   %38 = load ptr, ptr %37, align 8, !tbaa !55
   %39 = getelementptr inbounds nuw i8, ptr %27, i64 24
   store ptr %38, ptr %39, align 8, !tbaa !56
-  %40 = add nuw i32 %.021, 1
-  %41 = zext i32 %40 to i64
-  %42 = load i32, ptr %5, align 8, !tbaa !41
-  %43 = icmp ugt i32 %42, %40
-  br i1 %43, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !57
+  %40 = add nuw i32 %.019, 1
+  %41 = load i32, ptr %5, align 8, !tbaa !41
+  %42 = icmp ugt i32 %41, %40
+  br i1 %42, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !57
 }
 
 declare void @_ZNK4llvm6Module22getModuleFlagsMetadataERNS_15SmallVectorImplINS0_15ModuleFlagEntryEEE(ptr noundef nonnull align 8 dereferenceable(841), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
@@ -1571,10 +1570,9 @@ define dso_local noundef ptr @LLVMGetModuleFlag(ptr noundef nonnull %0, ptr noun
 declare noundef ptr @_ZNK4llvm6Module13getModuleFlagENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(841), ptr, i64) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @LLVMAddModuleFlag(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
-switch.lookup:
-  %switch.offset = add nsw i32 %1, 1
-  tail call void @_ZN4llvm6Module13addModuleFlagENS0_15ModFlagBehaviorENS_9StringRefEPNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(841) %0, i32 noundef %switch.offset, ptr %2, i64 %3, ptr noundef %4) #35
+define dso_local void @LLVMAddModuleFlag(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+  %switch.offset.i = add nsw i32 %1, 1
+  tail call void @_ZN4llvm6Module13addModuleFlagENS0_15ModFlagBehaviorENS_9StringRefEPNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(841) %0, i32 noundef %switch.offset.i, ptr %2, i64 %3, ptr noundef %4) #35
   ret void
 }
 

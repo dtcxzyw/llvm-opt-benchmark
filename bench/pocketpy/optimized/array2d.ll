@@ -4986,17 +4986,17 @@ _ZN4pkpy2VM10ValueErrorERKNS_3StrE.exit85:        ; preds = %.noexc83
   %133 = getelementptr inbounds nuw i8, ptr %4, i64 10
   %134 = select i1 %132, ptr @_ZN4pkpy2VM6tp_intE, ptr %133
   %.sroa.0.0.copyload.i = load i16, ptr %134, align 2
-  %.off = add i16 %.sroa.0.0.copyload.i, -2
-  %switch = icmp ult i16 %.off, 4
-  br i1 %switch, label %.critedge, label %135
+  %switch.tableidx = add i16 %.sroa.0.0.copyload.i, -2
+  %135 = icmp ult i16 %switch.tableidx, 4
+  br i1 %135, label %.critedge, label %switch.lookup
 
-135:                                              ; preds = %129
+switch.lookup:                                    ; preds = %129
   %136 = getelementptr inbounds nuw i8, ptr %1, i64 264520
   %137 = load ptr, ptr %136, align 8
   %138 = icmp eq ptr %4, %137
   br i1 %138, label %.critedge, label %154
 
-.critedge:                                        ; preds = %129, %135
+.critedge:                                        ; preds = %129, %switch.lookup
   %139 = icmp sgt i32 %122, 0
   br i1 %139, label %.preheader.lr.ph, label %.loopexit
 
@@ -5030,7 +5030,7 @@ _ZN4pkpy2VM10ValueErrorERKNS_3StrE.exit85:        ; preds = %.noexc83
   %exitcond108.not = icmp eq i32 %153, %122
   br i1 %exitcond108.not, label %.loopexit, label %.preheader.us, !llvm.loop !29
 
-154:                                              ; preds = %135
+154:                                              ; preds = %switch.lookup
   %155 = call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_7Array2dEEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %1)
   %156 = icmp eq i16 %.sroa.0.0.copyload.i, %155
   br i1 %156, label %174, label %157

@@ -167889,7 +167889,7 @@ _ZN5boost10posix_time13time_durationC2Ellll.exit: ; preds = %46, %50
   %58 = zext i32 %.sroa.01.0.copyload to i64
   %59 = mul nuw nsw i64 %58, 86400000000
   %60 = add nsw i64 %59, %.0.i.i.i
-  %switch.idx.cast = zext i32 %switch.tableidx to i64
+  %switch.idx.cast = zext nneg i32 %switch.tableidx to i64
   %switch.offset = add nuw i64 %switch.idx.cast, 9223372036854775806
   %storemerge.i.i.i.i = select i1 %57, i64 %switch.offset, i64 %60
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

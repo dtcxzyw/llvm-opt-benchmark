@@ -1452,16 +1452,16 @@ switch.lookup:                                    ; preds = %._crit_edge
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 48
   %.128 = load ptr, ptr %18, align 8, !tbaa !25
   %.not2129 = icmp eq ptr %.128, null
-  br i1 %.not2129, label %._crit_edge33, label %.lr.ph32
+  br i1 %.not2129, label %._crit_edge32, label %.lr.ph31
 
-.lr.ph32:                                         ; preds = %switch.lookup, %51
+.lr.ph31:                                         ; preds = %switch.lookup, %51
   %19 = phi ptr [ %52, %51 ], [ %17, %switch.lookup ]
   %.130 = phi ptr [ %.1, %51 ], [ %.128, %switch.lookup ]
   %20 = load i32, ptr %.130, align 8, !tbaa !26
   %21 = icmp eq i32 %20, 267
   br i1 %21, label %51, label %22
 
-22:                                               ; preds = %.lr.ph32
+22:                                               ; preds = %.lr.ph31
   %23 = getelementptr inbounds nuw i8, ptr %.130, i64 8
   %24 = load ptr, ptr %23, align 8, !tbaa !7
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 37
@@ -1509,21 +1509,21 @@ switch.lookup:                                    ; preds = %._crit_edge
   store i8 1, ptr %50, align 2, !tbaa !50
   br label %51
 
-51:                                               ; preds = %44, %49, %.lr.ph32
-  %52 = phi ptr [ %45, %44 ], [ %45, %49 ], [ %19, %.lr.ph32 ]
+51:                                               ; preds = %44, %49, %.lr.ph31
+  %52 = phi ptr [ %45, %44 ], [ %45, %49 ], [ %19, %.lr.ph31 ]
   %53 = getelementptr inbounds nuw i8, ptr %.130, i64 24
   %.1 = load ptr, ptr %53, align 8, !tbaa !25
   %.not21 = icmp eq ptr %.1, null
-  br i1 %.not21, label %._crit_edge33.loopexit, label %.lr.ph32, !llvm.loop !51
+  br i1 %.not21, label %._crit_edge32.loopexit, label %.lr.ph31, !llvm.loop !51
 
-._crit_edge33.loopexit:                           ; preds = %51
+._crit_edge32.loopexit:                           ; preds = %51
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %52, i64 48
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !11
-  br label %._crit_edge33
+  br label %._crit_edge32
 
-._crit_edge33:                                    ; preds = %._crit_edge33.loopexit, %switch.lookup
-  %54 = phi ptr [ %.pre, %._crit_edge33.loopexit ], [ null, %switch.lookup ]
-  %55 = phi ptr [ %52, %._crit_edge33.loopexit ], [ %17, %switch.lookup ]
+._crit_edge32:                                    ; preds = %._crit_edge32.loopexit, %switch.lookup
+  %54 = phi ptr [ %.pre, %._crit_edge32.loopexit ], [ null, %switch.lookup ]
+  %55 = phi ptr [ %52, %._crit_edge32.loopexit ], [ %17, %switch.lookup ]
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 48
   tail call fastcc void @delete_items(ptr noundef %54)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %56, i8 0, i64 16, i1 false)

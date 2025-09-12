@@ -42386,7 +42386,7 @@ default.unreachable1:                             ; preds = %1
   br label %12
 
 switch.lookup:                                    ; preds = %6
-  %switch.idx.cast = trunc nuw i64 %switch.tableidx to i8
+  %switch.idx.cast = trunc nuw nsw i64 %switch.tableidx to i8
   %switch.offset = add nuw nsw i8 %switch.idx.cast, 3
   br label %12
 
@@ -57796,10 +57796,9 @@ define noundef zeroext i1 @"_ZN80_$LT$ruff_linter..rule_selector..SpecificityIte
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define noundef range(i8 0, 9) i8 @_ZN11ruff_linter13rule_selector15SpecificityIter3get17h7a67c8dafc4486c8E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, i64 noundef %1) unnamed_addr #4 {
-switch.lookup:
-  %spec.select1 = tail call i64 @llvm.umin.i64(i64 %1, i64 8)
-  %spec.select = trunc nuw nsw i64 %spec.select1 to i8
-  ret i8 %spec.select
+  %.sroa.0.01 = tail call i64 @llvm.umin.i64(i64 %1, i64 8)
+  %.sroa.0.0 = trunc nuw nsw i64 %.sroa.0.01 to i8
+  ret i8 %.sroa.0.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -58436,35 +58435,34 @@ define { ptr, i64 } @"_ZN135_$LT$ruff_linter..rules..flake8_pyi..rules..type_ali
 
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN111_$LT$ruff_linter..rules..flake8_pytest_style..settings..Settings$u20$as$u20$ruff_cache..cache_key..CacheKey$GT$9cache_key17h7f0a57cf48536a24E"(ptr noalias noundef readonly align 8 dereferenceable(104) %0, ptr noalias noundef align 8 dereferenceable(56) %1) unnamed_addr #2 {
-switch.lookup:
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %3 = load i8, ptr %2, align 8, !range !172, !noundef !4
-  tail call void @"_ZN65_$LT$seahash..stream..SeaHasher$u20$as$u20$core..hash..Hasher$GT$8write_u817h595c86ff6f14b4e5E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %1, i8 noundef %3)
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 100
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %4 = load i8, ptr %3, align 8, !range !172, !noundef !4
+  tail call void @"_ZN65_$LT$seahash..stream..SeaHasher$u20$as$u20$core..hash..Hasher$GT$8write_u817h595c86ff6f14b4e5E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %1, i8 noundef %4)
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 100
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7016)
-  %5 = load i8, ptr %4, align 4, !range !215, !alias.scope !7016, !noalias !7019, !noundef !4
-  %switch.idx.cast = zext nneg i8 %5 to i64
-  tail call void @"_ZN65_$LT$seahash..stream..SeaHasher$u20$as$u20$core..hash..Hasher$GT$11write_usize17hdefb683ec0e47286E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %1, i64 noundef %switch.idx.cast), !noalias !7016
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 97
+  %6 = load i8, ptr %5, align 4, !range !215, !alias.scope !7016, !noalias !7019, !noundef !4
+  %switch.idx.cast.i = zext nneg i8 %6 to i64
+  tail call void @"_ZN65_$LT$seahash..stream..SeaHasher$u20$as$u20$core..hash..Hasher$GT$11write_usize17hdefb683ec0e47286E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %1, i64 noundef %switch.idx.cast.i), !noalias !7016
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 97
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7021)
-  %7 = load i8, ptr %6, align 1, !range !172, !alias.scope !7021, !noalias !7024, !noundef !4
-  %..i = zext nneg i8 %7 to i64
+  %8 = load i8, ptr %7, align 1, !range !172, !alias.scope !7021, !noalias !7024, !noundef !4
+  %..i = zext nneg i8 %8 to i64
   tail call void @"_ZN65_$LT$seahash..stream..SeaHasher$u20$as$u20$core..hash..Hasher$GT$11write_usize17hdefb683ec0e47286E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %1, i64 noundef %..i), !noalias !7021
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 98
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 98
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7026)
-  %9 = load i8, ptr %8, align 2, !range !172, !alias.scope !7026, !noalias !7029, !noundef !4
-  %..i1 = zext nneg i8 %9 to i64
+  %10 = load i8, ptr %9, align 2, !range !172, !alias.scope !7026, !noalias !7029, !noundef !4
+  %..i1 = zext nneg i8 %10 to i64
   tail call void @"_ZN65_$LT$seahash..stream..SeaHasher$u20$as$u20$core..hash..Hasher$GT$11write_usize17hdefb683ec0e47286E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %1, i64 noundef %..i1), !noalias !7026
   tail call void @"_ZN76_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$ruff_cache..cache_key..CacheKey$GT$9cache_key17h5bb96e1465504e88E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noalias noundef nonnull align 8 dereferenceable(56) %1)
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  tail call void @"_ZN76_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$ruff_cache..cache_key..CacheKey$GT$9cache_key17h5bb96e1465504e88E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %10, ptr noalias noundef nonnull align 8 dereferenceable(56) %1)
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 99
-  %12 = load i8, ptr %11, align 1, !range !172, !noundef !4
-  tail call void @"_ZN65_$LT$seahash..stream..SeaHasher$u20$as$u20$core..hash..Hasher$GT$8write_u817h595c86ff6f14b4e5E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %1, i8 noundef %12)
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  tail call void @"_ZN76_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$ruff_cache..cache_key..CacheKey$GT$9cache_key17h5bb96e1465504e88E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %13, ptr noalias noundef nonnull align 8 dereferenceable(56) %1)
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  tail call void @"_ZN76_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$ruff_cache..cache_key..CacheKey$GT$9cache_key17h5bb96e1465504e88E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %11, ptr noalias noundef nonnull align 8 dereferenceable(56) %1)
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 99
+  %13 = load i8, ptr %12, align 1, !range !172, !noundef !4
+  tail call void @"_ZN65_$LT$seahash..stream..SeaHasher$u20$as$u20$core..hash..Hasher$GT$8write_u817h595c86ff6f14b4e5E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %1, i8 noundef %13)
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
   tail call void @"_ZN76_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$ruff_cache..cache_key..CacheKey$GT$9cache_key17h5bb96e1465504e88E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %14, ptr noalias noundef nonnull align 8 dereferenceable(56) %1)
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  tail call void @"_ZN76_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$ruff_cache..cache_key..CacheKey$GT$9cache_key17h5bb96e1465504e88E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %15, ptr noalias noundef nonnull align 8 dereferenceable(56) %1)
   ret void
 }
 

@@ -2109,15 +2109,14 @@ define hidden noundef zeroext i1 @"_ZN95_$LT$core..ops..control_flow..ControlFlo
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define noundef zeroext i1 @_ZN15live_kit_server5proto11stream_info6Status8is_valid17he11040c0ab83dfabE(i32 noundef %0) unnamed_addr #4 {
-  %switch = icmp ult i32 %0, 3
-  ret i1 %switch
+  %2 = icmp ult i32 %0, 3
+  ret i1 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define noundef range(i32 0, 4) i32 @_ZN15live_kit_server5proto11stream_info6Status8from_i3217h2874a57a4ac8914fE(i32 noundef %0) unnamed_addr #4 {
-switch.lookup:
-  %spec.select = tail call i32 @llvm.umin.i32(i32 %0, i32 3)
-  ret i32 %spec.select
+  %. = tail call i32 @llvm.umin.i32(i32 %0, i32 3)
+  ret i32 %.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -2134,15 +2133,14 @@ define noundef range(i32 0, 3) i32 @"_ZN15live_kit_server5proto11stream_info104_
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define noundef zeroext i1 @_ZN15live_kit_server5proto11client_info3Sdk8is_valid17hc0d52c150a7efd66E(i32 noundef %0) unnamed_addr #4 {
-  %switch = icmp ult i32 %0, 7
-  ret i1 %switch
+  %2 = icmp ult i32 %0, 7
+  ret i1 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define noundef range(i32 0, 8) i32 @_ZN15live_kit_server5proto11client_info3Sdk8from_i3217h5d652839fedc9171E(i32 noundef %0) unnamed_addr #4 {
-switch.lookup:
-  %spec.select = tail call i32 @llvm.umin.i32(i32 %0, i32 7)
-  ret i32 %spec.select
+  %. = tail call i32 @llvm.umin.i32(i32 %0, i32 7)
+  ret i32 %.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable

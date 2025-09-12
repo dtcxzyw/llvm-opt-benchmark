@@ -1040,6 +1040,7 @@ define dso_local i64 @mipi_dsi_generic_write(ptr noundef readonly captures(none)
   store i8 %7, ptr %4, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 2
+  store i16 0, ptr %9, align 2
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %2, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -1108,7 +1109,7 @@ define dso_local i64 @mipi_dsi_generic_read(ptr noundef readonly captures(none) 
 
 switch.lookup:                                    ; preds = %5
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  %switch.idx.cast = trunc nuw i64 %2 to i8
+  %switch.idx.cast = trunc nuw nsw i64 %2 to i8
   %switch.idx.mult = shl nuw nsw i8 %switch.idx.cast, 4
   %switch.offset = or disjoint i8 %switch.idx.mult, 4
   store i8 %switch.offset, ptr %16, align 1

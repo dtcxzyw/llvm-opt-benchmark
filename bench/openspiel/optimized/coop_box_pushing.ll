@@ -1814,7 +1814,7 @@ define void @_ZN10open_spiel16coop_box_pushing19CoopBoxPushingState14DoApplyActi
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %39 = icmp ult i64 %38, 4
-  br i1 %39, label %switch.lookup, label %_ZN4absl7debian28AlphaNumC2EPKc.exit.i
+  br i1 %39, label %_ZN10open_spiel16coop_box_pushing12_GLOBAL__N_18ToActionEl.exit, label %_ZN4absl7debian28AlphaNumC2EPKc.exit.i
 
 _ZN4absl7debian28AlphaNumC2EPKc.exit.i:           ; preds = %37
   store ptr @.str.60, ptr %7, align 8
@@ -1854,13 +1854,13 @@ common.resume:                                    ; preds = %27, %35, %67, %50
           cleanup
   br label %common.resume
 
-switch.lookup:                                    ; preds = %37
-  %switch.idx.cast = trunc nuw i64 %38 to i32
+_ZN10open_spiel16coop_box_pushing12_GLOBAL__N_18ToActionEl.exit: ; preds = %37
+  %switch.idx.cast.i = trunc nuw nsw i64 %38 to i32
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  store i32 %switch.idx.cast, ptr %52, align 8
+  store i32 %switch.idx.cast.i, ptr %52, align 8
   %53 = load ptr, ptr %1, align 8
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %55 = load i64, ptr %54, align 8
@@ -1868,9 +1868,9 @@ switch.lookup:                                    ; preds = %37
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %56 = icmp ult i64 %55, 4
-  br i1 %56, label %switch.lookup12, label %_ZN4absl7debian28AlphaNumC2EPKc.exit.i8
+  br i1 %56, label %_ZN10open_spiel16coop_box_pushing12_GLOBAL__N_18ToActionEl.exit10, label %_ZN4absl7debian28AlphaNumC2EPKc.exit.i7
 
-_ZN4absl7debian28AlphaNumC2EPKc.exit.i8:          ; preds = %switch.lookup
+_ZN4absl7debian28AlphaNumC2EPKc.exit.i7:          ; preds = %_ZN10open_spiel16coop_box_pushing12_GLOBAL__N_18ToActionEl.exit
   store ptr @.str.60, ptr %4, align 8
   %57 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 16, ptr %57, align 8
@@ -1881,34 +1881,34 @@ _ZN4absl7debian28AlphaNumC2EPKc.exit.i8:          ; preds = %switch.lookup
   %62 = sub i64 %60, %61
   store ptr %58, ptr %5, align 8
   %63 = icmp sgt i64 %62, -1
-  br i1 %63, label %_ZN4absl7debian28AlphaNumC2El.exit.i9, label %64
+  br i1 %63, label %_ZN4absl7debian28AlphaNumC2El.exit.i8, label %64
 
-64:                                               ; preds = %_ZN4absl7debian28AlphaNumC2EPKc.exit.i8
+64:                                               ; preds = %_ZN4absl7debian28AlphaNumC2EPKc.exit.i7
   call void @llvm.trap()
   unreachable
 
-_ZN4absl7debian28AlphaNumC2El.exit.i9:            ; preds = %_ZN4absl7debian28AlphaNumC2EPKc.exit.i8
+_ZN4absl7debian28AlphaNumC2El.exit.i8:            ; preds = %_ZN4absl7debian28AlphaNumC2EPKc.exit.i7
   %65 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %62, ptr %65, align 8
   call void @_ZN4absl7debian26StrCatB5cxx11ERKNS0_8AlphaNumES3_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(48) %5)
   invoke void @_ZN10open_spiel15SpielFatalErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %3) #27
           to label %66 unwind label %67
 
-66:                                               ; preds = %_ZN4absl7debian28AlphaNumC2El.exit.i9
+66:                                               ; preds = %_ZN4absl7debian28AlphaNumC2El.exit.i8
   unreachable
 
-67:                                               ; preds = %_ZN4absl7debian28AlphaNumC2El.exit.i9
+67:                                               ; preds = %_ZN4absl7debian28AlphaNumC2El.exit.i8
   %68 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-switch.lookup12:                                  ; preds = %switch.lookup
-  %switch.idx.cast13 = trunc nuw i64 %55 to i32
+_ZN10open_spiel16coop_box_pushing12_GLOBAL__N_18ToActionEl.exit10: ; preds = %_ZN10open_spiel16coop_box_pushing12_GLOBAL__N_18ToActionEl.exit
+  %switch.idx.cast.i9 = trunc nuw nsw i64 %55 to i32
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 132
-  store i32 %switch.idx.cast13, ptr %69, align 4
+  store i32 %switch.idx.cast.i9, ptr %69, align 4
   store i32 -1, ptr %30, align 4
   ret void
 }

@@ -197,26 +197,26 @@ if.end:                                           ; preds = %if.then5
 if.then18:                                        ; preds = %if.end
   %format_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %8 = load i32, ptr %format_, align 8
-  %switch.selectcmp.i = icmp eq i32 %8, 0
-  %switch.select.i = select i1 %switch.selectcmp.i, i32 47, i32 15
-  %switch.selectcmp1.i = icmp eq i32 %8, 1
-  %switch.select2.i = select i1 %switch.selectcmp1.i, i32 31, i32 %switch.select.i
-  %call.i = call noundef i32 @inflateInit2_(ptr noundef nonnull %zcontext_3, i32 noundef %switch.select2.i, ptr noundef nonnull @.str.3, i32 noundef 112)
+  %9 = icmp ult i32 %8, 3
+  %10 = shl nuw nsw i32 %8, 4
+  %switch.offset.i = sub nsw i32 47, %10
+  %windowBitsFormat.0.i = select i1 %9, i32 %switch.offset.i, i32 15
+  %call.i = call noundef i32 @inflateInit2_(ptr noundef nonnull %zcontext_3, i32 noundef %windowBitsFormat.0.i, ptr noundef nonnull @.str.3, i32 noundef 112)
   %cmp21.not = icmp eq i32 %call.i, 0
   br i1 %cmp21.not, label %if.end26, label %return
 
 if.end26:                                         ; preds = %entry, %if.else, %if.then18, %if.end
   %output_buffer_ = getelementptr inbounds nuw i8, ptr %this, i64 144
-  %9 = load ptr, ptr %output_buffer_, align 8
+  %11 = load ptr, ptr %output_buffer_, align 8
   %zcontext_27 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %next_out28 = getelementptr inbounds nuw i8, ptr %this, i64 48
-  store ptr %9, ptr %next_out28, align 8
+  store ptr %11, ptr %next_out28, align 8
   %output_buffer_length_ = getelementptr inbounds nuw i8, ptr %this, i64 160
-  %10 = load i64, ptr %output_buffer_length_, align 8
-  %conv = trunc i64 %10 to i32
+  %12 = load i64, ptr %output_buffer_length_, align 8
+  %conv = trunc i64 %12 to i32
   store i32 %conv, ptr %avail_out, align 8
   %output_position_ = getelementptr inbounds nuw i8, ptr %this, i64 152
-  store ptr %9, ptr %output_position_, align 8
+  store ptr %11, ptr %output_position_, align 8
   %call34 = call i32 @inflate(ptr noundef nonnull %zcontext_27, i32 noundef %flush)
   br label %return
 
@@ -288,11 +288,11 @@ if.then19:                                        ; preds = %if.end12
 if.end26:                                         ; preds = %if.then19
   %format_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %5 = load i32, ptr %format_, align 8
-  %switch.selectcmp.i = icmp eq i32 %5, 0
-  %switch.select.i = select i1 %switch.selectcmp.i, i32 47, i32 15
-  %switch.selectcmp1.i = icmp eq i32 %5, 1
-  %switch.select2.i = select i1 %switch.selectcmp1.i, i32 31, i32 %switch.select.i
-  %call.i = tail call noundef i32 @inflateInit2_(ptr noundef nonnull %zcontext_, i32 noundef %switch.select2.i, ptr noundef nonnull @.str.3, i32 noundef 112)
+  %6 = icmp ult i32 %5, 3
+  %7 = shl nuw nsw i32 %5, 4
+  %switch.offset.i = sub nsw i32 47, %7
+  %windowBitsFormat.0.i = select i1 %6, i32 %switch.offset.i, i32 15
+  %call.i = tail call noundef i32 @inflateInit2_(ptr noundef nonnull %zcontext_, i32 noundef %windowBitsFormat.0.i, ptr noundef nonnull @.str.3, i32 noundef 112)
   store i32 %call.i, ptr %zerror_, align 8
   %cmp31.not = icmp eq i32 %call.i, 0
   br i1 %cmp31.not, label %if.end35, label %return
@@ -301,8 +301,8 @@ if.end35:                                         ; preds = %if.end26, %if.end12
   %call36 = tail call noundef i32 @_ZN6google8protobuf2io15GzipInputStream7InflateEi(ptr noundef nonnull align 8 dereferenceable(176) %this, i32 noundef 0)
   store i32 %call36, ptr %zerror_, align 8
   %cmp39 = icmp eq i32 %call36, 1
-  %6 = load ptr, ptr %next_out, align 8
-  %cmp42 = icmp eq ptr %6, null
+  %8 = load ptr, ptr %next_out, align 8
+  %cmp42 = icmp eq ptr %8, null
   %or.cond = select i1 %cmp39, i1 %cmp42, i1 false
   br i1 %or.cond, label %return, label %if.end44
 
@@ -314,20 +314,20 @@ if.end44:                                         ; preds = %if.end35
   ]
 
 if.end57:                                         ; preds = %if.end44, %if.end44, %if.end44
-  %7 = load ptr, ptr %output_position_, align 8
+  %9 = load ptr, ptr %output_position_, align 8
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %if.end, %if.end57
-  %.sink = phi ptr [ %7, %if.end57 ], [ %2, %if.end ]
+  %.sink = phi ptr [ %9, %if.end57 ], [ %2, %if.end ]
   store ptr %.sink, ptr %data, align 8
-  %8 = load ptr, ptr %next_out, align 8
-  %9 = ptrtoint ptr %8 to i64
-  %10 = ptrtoint ptr %.sink to i64
-  %sub.i11 = sub i64 %9, %10
+  %10 = load ptr, ptr %next_out, align 8
+  %11 = ptrtoint ptr %10 to i64
+  %12 = ptrtoint ptr %.sink to i64
+  %sub.i11 = sub i64 %11, %12
   %conv.i12 = trunc i64 %sub.i11 to i32
   store i32 %conv.i12, ptr %size, align 4
-  %11 = load ptr, ptr %next_out, align 8
-  store ptr %11, ptr %output_position_, align 8
+  %13 = load ptr, ptr %next_out, align 8
+  store ptr %13, ptr %output_position_, align 8
   br label %return
 
 return:                                           ; preds = %return.sink.split, %if.end44, %entry, %if.end35, %if.end26, %if.then19, %lor.lhs.false6.critedge

@@ -4997,67 +4997,105 @@ define noundef range(i8 0, 11) i8 @_ZN12tokio_quiche4quic6router25initial_packet
   %.val.i.i = load ptr, ptr %0, align 8, !alias.scope !510, !nonnull !8, !noundef !8
   %2 = ptrtoint ptr %.val.i.i to i64
   %3 = and i64 %2, 3
-  %switch27 = icmp eq i64 %3, 1
-  br i1 %switch27, label %"_ZN12tokio_quiche4quic6router25initial_packet_error_type28_$u7b$$u7b$closure$u7d$$u7d$17hff8ff814f02ee8a1E.exit.i", label %"_ZN4core6option15Option$LT$T$GT$6map_or17h83838a172b0276d1E.exit", !prof !513
+  switch i64 %3, label %default.unreachable [
+    i64 2, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h83838a172b0276d1E.exit"
+    i64 3, label %4
+    i64 0, label %8
+    i64 1, label %11
+  ], !prof !513
 
-"_ZN12tokio_quiche4quic6router25initial_packet_error_type28_$u7b$$u7b$closure$u7d$$u7d$17hff8ff814f02ee8a1E.exit.i": ; preds = %1
-  %4 = getelementptr i8, ptr %.val.i.i, i64 -1
-  %5 = icmp ne ptr %4, null
-  tail call void @llvm.assume(i1 %5)
-  %6 = getelementptr i8, ptr %.val.i.i, i64 15
-  %.sroa.0.0.i.i.i = load i8, ptr %6, align 8, !range !514, !noalias !510, !noundef !8
-  %7 = icmp eq i8 %.sroa.0.0.i.i.i, 40
-  br i1 %7, label %8, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h83838a172b0276d1E.exit", !prof !515
-
-8:                                                ; preds = %"_ZN12tokio_quiche4quic6router25initial_packet_error_type28_$u7b$$u7b$closure$u7d$$u7d$17hff8ff814f02ee8a1E.exit.i"
-  %9 = getelementptr i8, ptr %.val.i.i, i64 -1
-  %10 = icmp ne ptr %9, null
-  tail call void @llvm.assume(i1 %10)
-  %11 = load ptr, ptr %9, align 8, !nonnull !8, !noundef !8
-  %12 = getelementptr i8, ptr %.val.i.i, i64 7
-  %13 = load ptr, ptr %12, align 8, !nonnull !8, !align !9, !noundef !8
-  %14 = getelementptr i8, ptr %13, i64 56
-  %.val = load ptr, ptr %14, align 8
-  %15 = tail call { i64, i64 } %.val(ptr noundef nonnull align 1 %11)
-  %16 = extractvalue { i64, i64 } %15, 0
-  %17 = icmp eq i64 %16, -1603434527661885140
-  %18 = extractvalue { i64, i64 } %15, 1
-  %19 = icmp eq i64 %18, -4100064447034176871
-  %.sroa.0.0.i = select i1 %17, i1 %19, i1 false
-  br i1 %.sroa.0.0.i, label %20, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h83838a172b0276d1E.exit"
-
-20:                                               ; preds = %8
-  %.val.i = load i8, ptr %11, align 1, !range !516, !alias.scope !517, !noundef !8
-  %21 = add nsw i8 %.val.i, -6
-  %22 = icmp ult i8 %21, 5
-  %23 = icmp ne i8 %21, 2
-  tail call void @llvm.assume(i1 %23)
-  %narrow.i.i.i = select i1 %22, i8 %21, i8 2
-  switch i8 %narrow.i.i.i, label %24 [
-    i8 0, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h83838a172b0276d1E.exit"
-    i8 1, label %25
-    i8 2, label %26
-    i8 3, label %27
-    i8 4, label %28
-  ]
-
-24:                                               ; preds = %20
+default.unreachable:                              ; preds = %"_ZN4core6option15Option$LT$T$GT$6filter17h687c1914685e469fE.exit", %1
   unreachable
 
-25:                                               ; preds = %20
+4:                                                ; preds = %1
+  %5 = lshr i64 %2, 32
+  %6 = trunc nuw i64 %5 to i32
+  %spec.select43.i.i.i.i.i = tail call i32 @llvm.umin.i32(i32 %6, i32 42)
+  %spec.select.i.i.i.i.i = trunc nuw nsw i32 %spec.select43.i.i.i.i.i to i8
+  %7 = icmp ult ptr %.val.i.i, inttoptr (i64 180388626432 to ptr)
+  tail call void @llvm.assume(i1 %7)
+  br label %"_ZN12tokio_quiche4quic6router25initial_packet_error_type28_$u7b$$u7b$closure$u7d$$u7d$17hff8ff814f02ee8a1E.exit.i"
+
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 16
+  %10 = load i8, ptr %9, align 8, !range !514, !noalias !510, !noundef !8
+  br label %"_ZN12tokio_quiche4quic6router25initial_packet_error_type28_$u7b$$u7b$closure$u7d$$u7d$17hff8ff814f02ee8a1E.exit.i"
+
+11:                                               ; preds = %1
+  %12 = getelementptr i8, ptr %.val.i.i, i64 -1
+  %13 = icmp ne ptr %12, null
+  tail call void @llvm.assume(i1 %13)
+  %14 = getelementptr i8, ptr %.val.i.i, i64 15
+  %15 = load i8, ptr %14, align 8, !range !514, !noalias !510, !noundef !8
+  br label %"_ZN12tokio_quiche4quic6router25initial_packet_error_type28_$u7b$$u7b$closure$u7d$$u7d$17hff8ff814f02ee8a1E.exit.i"
+
+"_ZN12tokio_quiche4quic6router25initial_packet_error_type28_$u7b$$u7b$closure$u7d$$u7d$17hff8ff814f02ee8a1E.exit.i": ; preds = %11, %8, %4
+  %.sroa.0.0.i.i.i = phi i8 [ %spec.select.i.i.i.i.i, %4 ], [ %10, %8 ], [ %15, %11 ]
+  %16 = icmp eq i8 %.sroa.0.0.i.i.i, 40
+  br i1 %16, label %"_ZN4core6option15Option$LT$T$GT$6filter17h687c1914685e469fE.exit", label %"_ZN4core6option15Option$LT$T$GT$6map_or17h83838a172b0276d1E.exit"
+
+"_ZN4core6option15Option$LT$T$GT$6filter17h687c1914685e469fE.exit": ; preds = %"_ZN12tokio_quiche4quic6router25initial_packet_error_type28_$u7b$$u7b$closure$u7d$$u7d$17hff8ff814f02ee8a1E.exit.i"
+  switch i64 %3, label %default.unreachable [
+    i64 2, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h83838a172b0276d1E.exit"
+    i64 3, label %17
+    i64 0, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h83838a172b0276d1E.exit"
+    i64 1, label %19
+  ], !prof !513
+
+17:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$6filter17h687c1914685e469fE.exit"
+  %18 = icmp ult ptr %.val.i.i, inttoptr (i64 180388626432 to ptr)
+  tail call void @llvm.assume(i1 %18)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h83838a172b0276d1E.exit"
 
-26:                                               ; preds = %20
+19:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$6filter17h687c1914685e469fE.exit"
+  %20 = getelementptr i8, ptr %.val.i.i, i64 -1
+  %21 = icmp ne ptr %20, null
+  tail call void @llvm.assume(i1 %21)
+  %22 = load ptr, ptr %20, align 8, !nonnull !8, !noundef !8
+  %23 = getelementptr i8, ptr %.val.i.i, i64 7
+  %24 = load ptr, ptr %23, align 8, !nonnull !8, !align !9, !noundef !8
+  %25 = getelementptr i8, ptr %24, i64 56
+  %.val = load ptr, ptr %25, align 8
+  %26 = tail call { i64, i64 } %.val(ptr noundef nonnull align 1 %22)
+  %27 = extractvalue { i64, i64 } %26, 0
+  %28 = icmp eq i64 %27, -1603434527661885140
+  %29 = extractvalue { i64, i64 } %26, 1
+  %30 = icmp eq i64 %29, -4100064447034176871
+  %.sroa.0.0.i = select i1 %28, i1 %30, i1 false
+  br i1 %.sroa.0.0.i, label %31, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h83838a172b0276d1E.exit"
+
+31:                                               ; preds = %19
+  %.val.i = load i8, ptr %22, align 1, !range !515, !alias.scope !516, !noundef !8
+  %32 = add nsw i8 %.val.i, -6
+  %33 = icmp ult i8 %32, 5
+  %34 = icmp ne i8 %32, 2
+  tail call void @llvm.assume(i1 %34)
+  %narrow.i.i.i = select i1 %33, i8 %32, i8 2
+  switch i8 %narrow.i.i.i, label %35 [
+    i8 0, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h83838a172b0276d1E.exit"
+    i8 1, label %36
+    i8 2, label %37
+    i8 3, label %38
+    i8 4, label %39
+  ]
+
+35:                                               ; preds = %31
+  unreachable
+
+36:                                               ; preds = %31
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h83838a172b0276d1E.exit"
 
-27:                                               ; preds = %20
+37:                                               ; preds = %31
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h83838a172b0276d1E.exit"
 
-28:                                               ; preds = %20
+38:                                               ; preds = %31
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h83838a172b0276d1E.exit"
 
-"_ZN4core6option15Option$LT$T$GT$6map_or17h83838a172b0276d1E.exit": ; preds = %1, %"_ZN12tokio_quiche4quic6router25initial_packet_error_type28_$u7b$$u7b$closure$u7d$$u7d$17hff8ff814f02ee8a1E.exit.i", %8, %20, %25, %26, %27, %28
-  %.sroa.02.0.i = phi i8 [ 7, %25 ], [ %.val.i, %26 ], [ 9, %27 ], [ 10, %28 ], [ 6, %20 ], [ 10, %8 ], [ 10, %"_ZN12tokio_quiche4quic6router25initial_packet_error_type28_$u7b$$u7b$closure$u7d$$u7d$17hff8ff814f02ee8a1E.exit.i" ], [ 10, %1 ]
+39:                                               ; preds = %31
+  br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h83838a172b0276d1E.exit"
+
+"_ZN4core6option15Option$LT$T$GT$6map_or17h83838a172b0276d1E.exit": ; preds = %"_ZN12tokio_quiche4quic6router25initial_packet_error_type28_$u7b$$u7b$closure$u7d$$u7d$17hff8ff814f02ee8a1E.exit.i", %1, %"_ZN4core6option15Option$LT$T$GT$6filter17h687c1914685e469fE.exit", %19, %17, %"_ZN4core6option15Option$LT$T$GT$6filter17h687c1914685e469fE.exit", %31, %36, %37, %38, %39
+  %.sroa.02.0.i = phi i8 [ 7, %36 ], [ %.val.i, %37 ], [ 9, %38 ], [ 10, %39 ], [ 6, %31 ], [ 10, %"_ZN4core6option15Option$LT$T$GT$6filter17h687c1914685e469fE.exit" ], [ 10, %17 ], [ 10, %19 ], [ 10, %"_ZN4core6option15Option$LT$T$GT$6filter17h687c1914685e469fE.exit" ], [ 10, %1 ], [ 10, %"_ZN12tokio_quiche4quic6router25initial_packet_error_type28_$u7b$$u7b$closure$u7d$$u7d$17hff8ff814f02ee8a1E.exit.i" ]
   ret i8 %.sroa.02.0.i
 }
 
@@ -5531,6 +5569,9 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #21
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #21
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
@@ -6075,10 +6116,9 @@ attributes #25 = { cold }
 !510 = !{!511}
 !511 = distinct !{!511, !512, !"_ZN4core6option15Option$LT$T$GT$6filter17h687c1914685e469fE: argument 0"}
 !512 = distinct !{!512, !"_ZN4core6option15Option$LT$T$GT$6filter17h687c1914685e469fE"}
-!513 = !{!"branch_weights", i32 2000, i32 6001}
+!513 = !{!"branch_weights", i32 1, i32 2000, i32 2000, i32 2000, i32 2000}
 !514 = !{i8 0, i8 42}
-!515 = !{!"branch_weights", i32 1610411437, i32 -1610411437}
-!516 = !{i8 0, i8 11}
-!517 = !{!518}
-!518 = distinct !{!518, !519, !"_ZN4core6option15Option$LT$T$GT$6map_or17h83838a172b0276d1E: argument 0"}
-!519 = distinct !{!519, !"_ZN4core6option15Option$LT$T$GT$6map_or17h83838a172b0276d1E"}
+!515 = !{i8 0, i8 11}
+!516 = !{!517}
+!517 = distinct !{!517, !518, !"_ZN4core6option15Option$LT$T$GT$6map_or17h83838a172b0276d1E: argument 0"}
+!518 = distinct !{!518, !"_ZN4core6option15Option$LT$T$GT$6map_or17h83838a172b0276d1E"}

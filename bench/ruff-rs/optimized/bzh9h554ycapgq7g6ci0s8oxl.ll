@@ -66196,7 +66196,7 @@ switch.lookup:                                    ; preds = %2
   %4 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %4)
   %5 = load i64, ptr %1, align 8, !range !8, !noundef !9
-  %switch.idx.cast = trunc nuw i64 %5 to i8
+  %switch.idx.cast = trunc nuw nsw i64 %5 to i8
   %switch.offset = xor i8 %switch.idx.cast, 3
   br label %7
 
@@ -83310,10 +83310,9 @@ define noundef zeroext i1 @"_ZN70_$LT$ruff_linter..registry..LinterIter$u20$as$u
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define noundef range(i8 0, 60) i8 @_ZN11ruff_linter8registry10LinterIter3get17h1c722d38716206f6E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, i64 noundef %1) unnamed_addr #6 {
-switch.lookup:
-  %spec.select1 = tail call i64 @llvm.umin.i64(i64 %1, i64 59)
-  %spec.select = trunc nuw nsw i64 %spec.select1 to i8
-  ret i8 %spec.select
+  %.sroa.0.01 = tail call i64 @llvm.umin.i64(i64 %1, i64 59)
+  %.sroa.0.0 = trunc nuw nsw i64 %.sroa.0.01 to i8
+  ret i8 %.sroa.0.0
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -86959,22 +86958,22 @@ define void @"_ZN102_$LT$ruff_linter..rules..pydocstyle..settings..Settings$u20$
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i8, ptr %3, align 8, !range !1823, !noundef !9
   %.not = icmp eq i8 %4, 3
-  br i1 %.not, label %"_ZN104_$LT$ruff_linter..rules..pydocstyle..settings..Convention$u20$as$u20$ruff_cache..cache_key..CacheKey$GT$9cache_key17h9ae117ec0a440151E.exit", label %switch.lookup
+  br i1 %.not, label %6, label %5
 
-switch.lookup:                                    ; preds = %2
+5:                                                ; preds = %2
   tail call void @"_ZN65_$LT$seahash..stream..SeaHasher$u20$as$u20$core..hash..Hasher$GT$11write_usize17hdefb683ec0e47286E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %1, i64 noundef 1)
-  %switch.idx.cast = zext nneg i8 %4 to i64
-  br label %"_ZN104_$LT$ruff_linter..rules..pydocstyle..settings..Convention$u20$as$u20$ruff_cache..cache_key..CacheKey$GT$9cache_key17h9ae117ec0a440151E.exit"
+  %switch.idx.cast.i = zext nneg i8 %4 to i64
+  br label %6
 
-"_ZN104_$LT$ruff_linter..rules..pydocstyle..settings..Convention$u20$as$u20$ruff_cache..cache_key..CacheKey$GT$9cache_key17h9ae117ec0a440151E.exit": ; preds = %switch.lookup, %2
-  %.sink = phi i64 [ 0, %2 ], [ %switch.idx.cast, %switch.lookup ]
+6:                                                ; preds = %2, %5
+  %.sink = phi i64 [ %switch.idx.cast.i, %5 ], [ 0, %2 ]
   tail call void @"_ZN65_$LT$seahash..stream..SeaHasher$u20$as$u20$core..hash..Hasher$GT$11write_usize17hdefb683ec0e47286E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %1, i64 noundef %.sink)
   tail call void @"_ZN101_$LT$alloc..collections..btree..set..BTreeSet$LT$V$GT$$u20$as$u20$ruff_cache..cache_key..CacheKey$GT$9cache_key17h4f36da6db94fa6e7E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noalias noundef nonnull align 8 dereferenceable(56) %1)
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  tail call void @"_ZN101_$LT$alloc..collections..btree..set..BTreeSet$LT$V$GT$$u20$as$u20$ruff_cache..cache_key..CacheKey$GT$9cache_key17h4f36da6db94fa6e7E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5, ptr noalias noundef nonnull align 8 dereferenceable(56) %1)
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 49
-  %7 = load i8, ptr %6, align 1, !range !150, !noundef !9
-  tail call void @"_ZN65_$LT$seahash..stream..SeaHasher$u20$as$u20$core..hash..Hasher$GT$8write_u817h595c86ff6f14b4e5E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %1, i8 noundef %7)
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  tail call void @"_ZN101_$LT$alloc..collections..btree..set..BTreeSet$LT$V$GT$$u20$as$u20$ruff_cache..cache_key..CacheKey$GT$9cache_key17h4f36da6db94fa6e7E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7, ptr noalias noundef nonnull align 8 dereferenceable(56) %1)
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 49
+  %9 = load i8, ptr %8, align 1, !range !150, !noundef !9
+  tail call void @"_ZN65_$LT$seahash..stream..SeaHasher$u20$as$u20$core..hash..Hasher$GT$8write_u817h595c86ff6f14b4e5E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %1, i8 noundef %9)
   ret void
 }
 
