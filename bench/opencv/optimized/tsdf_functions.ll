@@ -3009,11 +3009,11 @@ _ZN2cv3VecIfLi4EEC2ERKS1_.exit.i.i.i:             ; preds = %229
   store i16 %289, ptr %288, align 2, !tbaa !195
   %290 = fptosi float %.sroa.4.0.copyload.i.i.i to i16
   store i16 %290, ptr %287, align 2, !tbaa !195
-  %291 = fptosi float %.sroa.5.0.copyload.i.i.i to i16
-  store i16 %291, ptr %286, align 2, !tbaa !195
+  %292 = fptosi float %.sroa.5.0.copyload.i.i.i to i16
+  store i16 %292, ptr %286, align 2, !tbaa !195
   br label %292
 
-292:                                              ; preds = %285, %264
+292:; preds = %285, %264
   %293 = load i8, ptr %281, align 1, !tbaa !58
   %294 = sitofp i8 %293 to float
   %295 = fmul float %294, -7.812500e-03
@@ -3039,7 +3039,7 @@ _ZN2cv3VecIfLi4EEC2ERKS1_.exit.i.i.i:             ; preds = %229
   store i8 %311, ptr %282, align 1, !tbaa !58
   br label %312
 
-312:                                              ; preds = %292, %_ZN2cv3VecIfLi4EEC2ERKS1_.exit.i.i.i, %229, %223, %218, %213, %_ZN2cv5kinfu13bilinearDepthERKNS_4Mat_IfEENS_6Point_IfEE.exit.thread.i.i.i, %_ZN2cv5kinfu13bilinearDepthERKNS_4Mat_IfEENS_6Point_IfEE.exit.i.i.i, %.lr.ph.i.i.i
+312:; preds = %292, %_ZN2cv3VecIfLi4EEC2ERKS1_.exit.i.i.i, %229, %223, %218, %213, %_ZN2cv5kinfu13bilinearDepthERKNS_4Mat_IfEENS_6Point_IfEE.exit.thread.i.i.i, %_ZN2cv5kinfu13bilinearDepthERKNS_4Mat_IfEENS_6Point_IfEE.exit.i.i.i, %.lr.ph.i.i.i
   %313 = add nuw nsw i32 %.087160.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i32 %313, %.sroa.speculated115.i.i.i
   br i1 %exitcond.not.i.i.i, label %._crit_edge.loopexit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !198
