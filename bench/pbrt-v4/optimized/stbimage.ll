@@ -13174,17 +13174,17 @@ _ZL17stbi__malloc_mad3iiii.exit:                  ; preds = %16, %_ZL21stbi__mul
   %or.cond256 = select i1 %27, i1 %switch.lobit, i1 false
   br i1 %or.cond256, label %switch.lookup.preheader, label %159
 
-switch.lookup.preheader:                          ; preds = %.lr.ph255
+switch.lookup.preheader:; preds = %.lr.ph255
   %wide.trip.count = zext nneg i32 %4 to i64
-  br label %switch.lookup
+  br label %28
 
 _ZL17stbi__malloc_mad3iiii.exit.thread:           ; preds = %_ZL21stbi__mul2sizes_validii.exit.thread15.i.i, %9, %_ZL21stbi__mul2sizes_validii.exit.i.i, %_ZL21stbi__mul2sizes_validii.exit12.i.i, %_ZL17stbi__malloc_mad3iiii.exit
   tail call void @free(ptr noundef %0) #40
-  %28 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZL22stbi__g_failure_reason)
-  store ptr @.str.8, ptr %28, align 8, !tbaa !4
+  %27 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZL22stbi__g_failure_reason)
+  store ptr @.str.8, ptr %27, align 8, !tbaa !4
   br label %160
 
-switch.lookup:                                    ; preds = %switch.lookup.preheader, %.loopexit
+28:                                               ; preds = %switch.lookup.preheader, %.loopexit
   %indvars.iv = phi i64 [ 0, %switch.lookup.preheader ], [ %indvars.iv.next, %.loopexit ]
   %29 = trunc nuw nsw i64 %indvars.iv to i32
   %30 = mul i32 %3, %29
@@ -13208,40 +13208,40 @@ switch.lookup:                                    ; preds = %switch.lookup.prehe
     i32 34, label %.preheader190
   ]
 
-.preheader192:                                    ; preds = %switch.lookup
+.preheader192:                                    ; preds = %28
   br i1 %26, label %.lr.ph, label %.loopexit
 
-.preheader190:                                    ; preds = %switch.lookup
+.preheader190:                                    ; preds = %28
   br i1 %26, label %.lr.ph203, label %.loopexit
 
-.preheader188:                                    ; preds = %switch.lookup
+.preheader188:                                    ; preds = %28
   br i1 %26, label %.lr.ph208, label %.loopexit
 
-.preheader186:                                    ; preds = %switch.lookup
+.preheader186:                                    ; preds = %28
   br i1 %26, label %.lr.ph213, label %.loopexit
 
-.preheader184:                                    ; preds = %switch.lookup
+.preheader184:                                    ; preds = %28
   br i1 %26, label %.lr.ph218, label %.loopexit
 
-.preheader182:                                    ; preds = %switch.lookup
+.preheader182:                                    ; preds = %28
   br i1 %26, label %.lr.ph223, label %.loopexit
 
-.preheader180:                                    ; preds = %switch.lookup
+.preheader180:                                    ; preds = %28
   br i1 %26, label %.lr.ph228, label %.loopexit
 
-.preheader178:                                    ; preds = %switch.lookup
+.preheader178:                                    ; preds = %28
   br i1 %26, label %.lr.ph233, label %.loopexit
 
-.preheader176:                                    ; preds = %switch.lookup
+.preheader176:                                    ; preds = %28
   br i1 %26, label %.lr.ph238, label %.loopexit
 
-.preheader174:                                    ; preds = %switch.lookup
+.preheader174:                                    ; preds = %28
   br i1 %26, label %.lr.ph243, label %.loopexit
 
-.preheader172:                                    ; preds = %switch.lookup
+.preheader172:                                    ; preds = %28
   br i1 %26, label %.lr.ph248, label %.loopexit
 
-.preheader:                                       ; preds = %switch.lookup
+.preheader:                                       ; preds = %28
   br i1 %26, label %.lr.ph253, label %.loopexit
 
 .lr.ph253:                                        ; preds = %.preheader, %.lr.ph253
@@ -13255,8 +13255,8 @@ switch.lookup:                                    ; preds = %switch.lookup.prehe
   %39 = getelementptr inbounds nuw i8, ptr %.0142250, i64 1
   %40 = getelementptr inbounds nuw i8, ptr %.0251, i64 2
   %.0156 = add nsw i32 %.0156252, -1
-  %.not293 = icmp eq i32 %.0156252, 0
-  br i1 %.not293, label %.loopexit, label %.lr.ph253, !llvm.loop !211
+  %.not292 = icmp eq i32 %.0156252, 0
+  br i1 %.not292, label %.loopexit, label %.lr.ph253, !llvm.loop !211
 
 .lr.ph248:                                        ; preds = %.preheader172, %.lr.ph248
   %.1157247 = phi i32 [ %.1157, %.lr.ph248 ], [ %.11167195, %.preheader172 ]
@@ -13271,8 +13271,8 @@ switch.lookup:                                    ; preds = %switch.lookup.prehe
   %44 = getelementptr inbounds nuw i8, ptr %.1143245, i64 1
   %45 = getelementptr inbounds nuw i8, ptr %.1246, i64 3
   %.1157 = add nsw i32 %.1157247, -1
-  %.not292 = icmp eq i32 %.1157247, 0
-  br i1 %.not292, label %.loopexit, label %.lr.ph248, !llvm.loop !212
+  %.not291 = icmp eq i32 %.1157247, 0
+  br i1 %.not291, label %.loopexit, label %.lr.ph248, !llvm.loop !212
 
 .lr.ph243:                                        ; preds = %.preheader174, %.lr.ph243
   %.2158242 = phi i32 [ %.2158, %.lr.ph243 ], [ %.11167195, %.preheader174 ]
@@ -13289,8 +13289,8 @@ switch.lookup:                                    ; preds = %switch.lookup.prehe
   %50 = getelementptr inbounds nuw i8, ptr %.2144240, i64 1
   %51 = getelementptr inbounds nuw i8, ptr %.2241, i64 4
   %.2158 = add nsw i32 %.2158242, -1
-  %.not291 = icmp eq i32 %.2158242, 0
-  br i1 %.not291, label %.loopexit, label %.lr.ph243, !llvm.loop !213
+  %.not290 = icmp eq i32 %.2158242, 0
+  br i1 %.not290, label %.loopexit, label %.lr.ph243, !llvm.loop !213
 
 .lr.ph238:                                        ; preds = %.preheader176, %.lr.ph238
   %.3159237 = phi i32 [ %.3159, %.lr.ph238 ], [ %.11167195, %.preheader176 ]
@@ -13301,8 +13301,8 @@ switch.lookup:                                    ; preds = %switch.lookup.prehe
   %53 = getelementptr inbounds nuw i8, ptr %.3145235, i64 2
   %54 = getelementptr inbounds nuw i8, ptr %.3236, i64 1
   %.3159 = add nsw i32 %.3159237, -1
-  %.not290 = icmp eq i32 %.3159237, 0
-  br i1 %.not290, label %.loopexit, label %.lr.ph238, !llvm.loop !214
+  %.not289 = icmp eq i32 %.3159237, 0
+  br i1 %.not289, label %.loopexit, label %.lr.ph238, !llvm.loop !214
 
 .lr.ph233:                                        ; preds = %.preheader178, %.lr.ph233
   %.4160232 = phi i32 [ %.4160, %.lr.ph233 ], [ %.11167195, %.preheader178 ]
@@ -13317,8 +13317,8 @@ switch.lookup:                                    ; preds = %switch.lookup.prehe
   %58 = getelementptr inbounds nuw i8, ptr %.4146230, i64 2
   %59 = getelementptr inbounds nuw i8, ptr %.4231, i64 3
   %.4160 = add nsw i32 %.4160232, -1
-  %.not289 = icmp eq i32 %.4160232, 0
-  br i1 %.not289, label %.loopexit, label %.lr.ph233, !llvm.loop !215
+  %.not288 = icmp eq i32 %.4160232, 0
+  br i1 %.not288, label %.loopexit, label %.lr.ph233, !llvm.loop !215
 
 .lr.ph228:                                        ; preds = %.preheader180, %.lr.ph228
   %.5161227 = phi i32 [ %.5161, %.lr.ph228 ], [ %.11167195, %.preheader180 ]
@@ -13337,8 +13337,8 @@ switch.lookup:                                    ; preds = %switch.lookup.prehe
   %66 = getelementptr inbounds nuw i8, ptr %.5147225, i64 2
   %67 = getelementptr inbounds nuw i8, ptr %.5226, i64 4
   %.5161 = add nsw i32 %.5161227, -1
-  %.not288 = icmp eq i32 %.5161227, 0
-  br i1 %.not288, label %.loopexit, label %.lr.ph228, !llvm.loop !216
+  %.not287 = icmp eq i32 %.5161227, 0
+  br i1 %.not287, label %.loopexit, label %.lr.ph228, !llvm.loop !216
 
 .lr.ph223:                                        ; preds = %.preheader182, %.lr.ph223
   %.6162222 = phi i32 [ %.6162, %.lr.ph223 ], [ %.11167195, %.preheader182 ]
@@ -13359,8 +13359,8 @@ switch.lookup:                                    ; preds = %switch.lookup.prehe
   %76 = getelementptr inbounds nuw i8, ptr %.6148220, i64 3
   %77 = getelementptr inbounds nuw i8, ptr %.6221, i64 4
   %.6162 = add nsw i32 %.6162222, -1
-  %.not287 = icmp eq i32 %.6162222, 0
-  br i1 %.not287, label %.loopexit, label %.lr.ph223, !llvm.loop !217
+  %.not286 = icmp eq i32 %.6162222, 0
+  br i1 %.not286, label %.loopexit, label %.lr.ph223, !llvm.loop !217
 
 .lr.ph218:                                        ; preds = %.preheader184, %.lr.ph218
   %.7163217 = phi i32 [ %.7163, %.lr.ph218 ], [ %.11167195, %.preheader184 ]
@@ -13385,8 +13385,8 @@ switch.lookup:                                    ; preds = %switch.lookup.prehe
   %93 = getelementptr inbounds nuw i8, ptr %.7149215, i64 3
   %94 = getelementptr inbounds nuw i8, ptr %.7216, i64 1
   %.7163 = add nsw i32 %.7163217, -1
-  %.not286 = icmp eq i32 %.7163217, 0
-  br i1 %.not286, label %.loopexit, label %.lr.ph218, !llvm.loop !218
+  %.not285 = icmp eq i32 %.7163217, 0
+  br i1 %.not285, label %.loopexit, label %.lr.ph218, !llvm.loop !218
 
 .lr.ph213:                                        ; preds = %.preheader186, %.lr.ph213
   %.8164212 = phi i32 [ %.8164, %.lr.ph213 ], [ %.11167195, %.preheader186 ]
@@ -13413,8 +13413,8 @@ switch.lookup:                                    ; preds = %switch.lookup.prehe
   %111 = getelementptr inbounds nuw i8, ptr %.8150210, i64 3
   %112 = getelementptr inbounds nuw i8, ptr %.8211, i64 2
   %.8164 = add nsw i32 %.8164212, -1
-  %.not285 = icmp eq i32 %.8164212, 0
-  br i1 %.not285, label %.loopexit, label %.lr.ph213, !llvm.loop !219
+  %.not284 = icmp eq i32 %.8164212, 0
+  br i1 %.not284, label %.loopexit, label %.lr.ph213, !llvm.loop !219
 
 .lr.ph208:                                        ; preds = %.preheader188, %.lr.ph208
   %.9165207 = phi i32 [ %.9165, %.lr.ph208 ], [ %.11167195, %.preheader188 ]
@@ -13439,8 +13439,8 @@ switch.lookup:                                    ; preds = %switch.lookup.prehe
   %128 = getelementptr inbounds nuw i8, ptr %.9151205, i64 4
   %129 = getelementptr inbounds nuw i8, ptr %.9206, i64 1
   %.9165 = add nsw i32 %.9165207, -1
-  %.not284 = icmp eq i32 %.9165207, 0
-  br i1 %.not284, label %.loopexit, label %.lr.ph208, !llvm.loop !220
+  %.not283 = icmp eq i32 %.9165207, 0
+  br i1 %.not283, label %.loopexit, label %.lr.ph208, !llvm.loop !220
 
 .lr.ph203:                                        ; preds = %.preheader190, %.lr.ph203
   %.10166202 = phi i32 [ %.10166, %.lr.ph203 ], [ %.11167195, %.preheader190 ]
@@ -13489,8 +13489,8 @@ switch.lookup:                                    ; preds = %switch.lookup.prehe
   %157 = getelementptr inbounds nuw i8, ptr %.11153196, i64 4
   %158 = getelementptr inbounds nuw i8, ptr %.11197, i64 3
   %.11167 = add nsw i32 %.11167198, -1
-  %.not294 = icmp eq i32 %.11167198, 0
-  br i1 %.not294, label %.loopexit, label %.lr.ph, !llvm.loop !222
+  %.not293 = icmp eq i32 %.11167198, 0
+  br i1 %.not293, label %.loopexit, label %.lr.ph, !llvm.loop !222
 
 159:                                              ; preds = %.lr.ph255
   tail call void @_ZN4pbrt8LogFatalIJRA2_KcEEEvNS_8LogLevelEPS1_iS5_DpOT_(i32 noundef 2, ptr noundef nonnull @.str.2, i32 noundef 1770, ptr noundef nonnull @.str.3, ptr noundef nonnull align 1 dereferenceable(2) @.str.27) #41
@@ -13499,7 +13499,7 @@ switch.lookup:                                    ; preds = %switch.lookup.prehe
 .loopexit:                                        ; preds = %.lr.ph203, %.lr.ph208, %.lr.ph213, %.lr.ph218, %.lr.ph223, %.lr.ph228, %.lr.ph233, %.lr.ph238, %.lr.ph243, %.lr.ph248, %.lr.ph253, %.lr.ph, %.preheader192, %.preheader190, %.preheader188, %.preheader186, %.preheader184, %.preheader182, %.preheader180, %.preheader178, %.preheader176, %.preheader174, %.preheader172, %.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %switch.lookup, !llvm.loop !223
+  br i1 %exitcond.not, label %._crit_edge, label %28, !llvm.loop !223
 
 ._crit_edge:                                      ; preds = %.loopexit, %.preheader194
   tail call void @free(ptr noundef %0) #40

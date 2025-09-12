@@ -4817,15 +4817,15 @@ for.inc.us.i:                                     ; preds = %sw.default.us.i
 for.body.i:                                       ; preds = %for.body.lr.ph.i, %for.inc.i
   %i.09.i = phi i64 [ %inc.i, %for.inc.i ], [ 0, %for.body.lr.ph.i ]
   %arrayidx.i = getelementptr inbounds i8, ptr %name, i64 %i.09.i
-  %2 = load i8, ptr %arrayidx.i, align 1
-  %switch.tableidx30.i = add i8 %2, -34
+  %1 = load i8, ptr %arrayidx.i, align 1
+  %switch.tableidx30.i = add i8 %1, -34
   %3 = icmp ult i8 %switch.tableidx30.i, 59
   br i1 %3, label %switch.hole_check32.i, label %sw.default.i
 
 sw.default.i:                                     ; preds = %for.body.i
-  %.old.i = add i8 %2, -127
-  %or.cond1.old.i = icmp ult i8 %.old.i, -95
-  br i1 %or.cond1.old.i, label %if.else, label %for.inc.i
+  %2 = add i8 %1, -127
+  %or.cond1.i = icmp ult i8 %2, -95
+  br i1 %or.cond1.i, label %if.else, label %for.inc.i
 
 for.inc.i:                                        ; preds = %switch.hole_check32.i, %sw.default.i
   %inc.i = add nuw i64 %i.09.i, 1
@@ -4849,25 +4849,25 @@ if.then:                                          ; preds = %for.inc.i, %for.inc
   br i1 %cmp.not, label %if.end, label %if.then1
 
 if.then1:                                         ; preds = %if.then
-  %4 = load ptr, ptr %out, align 8
-  %call3 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %4, ptr noundef nonnull @.str.95, ptr noundef nonnull %safe_prefix) #16
+  %3 = load ptr, ptr %out, align 8
+  %call3 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %3, ptr noundef nonnull @.str.95, ptr noundef nonnull %safe_prefix) #16
   br label %if.end
 
 if.end:                                           ; preds = %if.then1, %if.then
-  %5 = load ptr, ptr %out, align 8
+  %4 = load ptr, ptr %out, align 8
   %conv = trunc i64 %length to i32
-  %call5 = tail call i32 @BIO_write(ptr noundef %5, ptr noundef %name, i32 noundef %conv) #16
+  %call5 = tail call i32 @BIO_write(ptr noundef %4, ptr noundef %name, i32 noundef %conv) #16
   br label %if.end59
 
 if.else:                                          ; preds = %sw.default.i, %switch.hole_check32.i, %sw.default.us.i, %switch.hole_check.i
-  %6 = load ptr, ptr %out, align 8
-  %call7 = tail call i32 @BIO_write(ptr noundef %6, ptr noundef nonnull @.str.96, i32 noundef 1) #16
+  %5 = load ptr, ptr %out, align 8
+  %call7 = tail call i32 @BIO_write(ptr noundef %5, ptr noundef nonnull @.str.96, i32 noundef 1) #16
   %cmp8.not = icmp eq ptr %safe_prefix, null
   br i1 %cmp8.not, label %if.end12, label %if.then9
 
 if.then9:                                         ; preds = %if.else
-  %7 = load ptr, ptr %out, align 8
-  %call11 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %7, ptr noundef nonnull @.str.95, ptr noundef nonnull %safe_prefix) #16
+  %6 = load ptr, ptr %out, align 8
+  %call11 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %6, ptr noundef nonnull @.str.95, ptr noundef nonnull %safe_prefix) #16
   br label %if.end12
 
 if.end12:                                         ; preds = %if.then9, %if.else
@@ -4881,36 +4881,36 @@ if.end12:                                         ; preds = %if.then9, %if.else
 for.body:                                         ; preds = %if.end12, %for.inc
   %j.023 = phi i64 [ 0, %if.end12 ], [ %inc, %for.inc ]
   %arrayidx = getelementptr inbounds i8, ptr %name, i64 %j.023
-  %8 = load i8, ptr %arrayidx, align 1
-  store i8 %8, ptr %c, align 1
-  switch i8 %8, label %if.else25 [
+  %7 = load i8, ptr %arrayidx, align 1
+  store i8 %7, ptr %c, align 1
+  switch i8 %7, label %if.else25 [
     i8 92, label %if.then16
     i8 34, label %if.then22
   ]
 
 if.then16:                                        ; preds = %for.body
-  %9 = load ptr, ptr %out, align 8
-  %call18 = call i32 @BIO_write(ptr noundef %9, ptr noundef nonnull @.str.97, i32 noundef 2) #16
+  %8 = load ptr, ptr %out, align 8
+  %call18 = call i32 @BIO_write(ptr noundef %8, ptr noundef nonnull @.str.97, i32 noundef 2) #16
   br label %for.inc
 
 if.then22:                                        ; preds = %for.body
-  %10 = load ptr, ptr %out, align 8
-  %call24 = call i32 @BIO_write(ptr noundef %10, ptr noundef nonnull @.str.98, i32 noundef 2) #16
+  %9 = load ptr, ptr %out, align 8
+  %call24 = call i32 @BIO_write(ptr noundef %9, ptr noundef nonnull @.str.98, i32 noundef 2) #16
   br label %for.inc
 
 if.else25:                                        ; preds = %for.body
-  %cmp29 = icmp ne i8 %8, 44
-  %11 = add i8 %8, -32
-  %12 = icmp ult i8 %11, 95
-  %or.cond1 = and i1 %cmp29, %12
-  %tobool36.not = icmp slt i8 %8, 0
+  %cmp29 = icmp ne i8 %7, 44
+  %10 = add i8 %7, -32
+  %11 = icmp ult i8 %10, 95
+  %or.cond1 = and i1 %cmp29, %11
+  %tobool36.not = icmp slt i8 %7, 0
   %or.cond.not = and i1 %utf8, %tobool36.not
   %or.cond = or i1 %or.cond.not, %or.cond1
   br i1 %or.cond, label %if.then37, label %if.else40
 
 if.then37:                                        ; preds = %if.else25
-  %13 = load ptr, ptr %out, align 8
-  %call39 = call i32 @BIO_write(ptr noundef %13, ptr noundef nonnull %c, i32 noundef 1) #16
+  %12 = load ptr, ptr %out, align 8
+  %call39 = call i32 @BIO_write(ptr noundef %12, ptr noundef nonnull %c, i32 noundef 1) #16
   br label %for.inc
 
 if.else40:                                        ; preds = %if.else25
@@ -4918,18 +4918,18 @@ if.else40:                                        ; preds = %if.else25
   store i8 117, ptr %arrayinit.element, align 1
   store i8 48, ptr %arrayinit.element41, align 1
   store i8 48, ptr %arrayinit.element42, align 1
-  %14 = lshr i8 %8, 4
-  %idxprom = zext nneg i8 %14 to i64
+  %13 = lshr i8 %7, 4
+  %idxprom = zext nneg i8 %13 to i64
   %arrayidx46 = getelementptr inbounds nuw i8, ptr @__const._ZN4node6cryptoL12PrintAltNameERKSt10unique_ptrI6bio_stNS_15FunctionDeleterIS2_XadL_Z12BIO_free_allEEEEEPKcmbS9_.hex, i64 %idxprom
-  %15 = load i8, ptr %arrayidx46, align 1
-  store i8 %15, ptr %arrayinit.element43, align 1
-  %16 = and i8 %8, 15
-  %idxprom50 = zext nneg i8 %16 to i64
+  %14 = load i8, ptr %arrayidx46, align 1
+  store i8 %14, ptr %arrayinit.element43, align 1
+  %15 = and i8 %7, 15
+  %idxprom50 = zext nneg i8 %15 to i64
   %arrayidx51 = getelementptr inbounds nuw i8, ptr @__const._ZN4node6cryptoL12PrintAltNameERKSt10unique_ptrI6bio_stNS_15FunctionDeleterIS2_XadL_Z12BIO_free_allEEEEEPKcmbS9_.hex, i64 %idxprom50
-  %17 = load i8, ptr %arrayidx51, align 1
-  store i8 %17, ptr %arrayinit.element47, align 1
-  %18 = load ptr, ptr %out, align 8
-  %call53 = call i32 @BIO_write(ptr noundef %18, ptr noundef nonnull %u, i32 noundef 6) #16
+  %16 = load i8, ptr %arrayidx51, align 1
+  store i8 %16, ptr %arrayinit.element47, align 1
+  %17 = load ptr, ptr %out, align 8
+  %call53 = call i32 @BIO_write(ptr noundef %17, ptr noundef nonnull %u, i32 noundef 6) #16
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then16, %if.then37, %if.else40, %if.then22
@@ -4938,8 +4938,8 @@ for.inc:                                          ; preds = %if.then16, %if.then
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !31
 
 for.end:                                          ; preds = %for.inc
-  %19 = load ptr, ptr %out, align 8
-  %call58 = call i32 @BIO_write(ptr noundef %19, ptr noundef nonnull @.str.96, i32 noundef 1) #16
+  %18 = load ptr, ptr %out, align 8
+  %call58 = call i32 @BIO_write(ptr noundef %18, ptr noundef nonnull @.str.96, i32 noundef 1) #16
   br label %if.end59
 
 if.end59:                                         ; preds = %for.end, %if.end

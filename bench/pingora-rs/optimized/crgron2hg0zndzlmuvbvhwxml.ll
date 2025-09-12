@@ -1098,7 +1098,7 @@ define hidden void @_ZN3rmp6decode4uint9read_pfix17h83a255bcd6ab2a1eE(ptr dead_o
 
 12:                                               ; preds = %6
   %13 = icmp samesign ugt i8 %10, -33
-  br i1 %13, label %27, label %14
+  br i1 %13, label %switch.lookup, label %14
 
 14:                                               ; preds = %12
   %15 = icmp samesign ult i8 %10, -112
@@ -1110,41 +1110,41 @@ define hidden void @_ZN3rmp6decode4uint9read_pfix17h83a255bcd6ab2a1eE(ptr dead_o
 
 18:                                               ; preds = %14
   %19 = and i8 %10, 15
-  br label %27
+  br label %switch.lookup
 
 20:                                               ; preds = %16
   %21 = icmp samesign ult i8 %10, -64
   %22 = and i8 %10, 31
-  %spec.select4.i.i = select i1 %21, i8 -96, i8 %10
-  br label %27
+  %spec.select = select i1 %21, i8 -96, i8 %10
+  br label %switch.lookup
 
 23:                                               ; preds = %16
   %24 = and i8 %10, 15
-  br label %27
+  br label %switch.lookup
 
 _ZN3rmp6decode11read_marker17h8b6e48375ee9758eE.exit: ; preds = %2
   store i8 0, ptr %0, align 8
   %.sroa.412.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @anon.b062b34719e4811dae0e51130238e6b5.55, ptr %.sroa.412.0..sroa_idx, align 8
-  br label %28
+  br label %27
 
 25:                                               ; preds = %6
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %10, ptr %26, align 1
   store i8 3, ptr %0, align 8
-  br label %28
+  br label %27
 
-27:                                               ; preds = %20, %12, %23, %18
-  %.sroa.5.0.ph.ph = phi i8 [ -128, %18 ], [ -112, %23 ], [ -32, %12 ], [ %spec.select4.i.i, %20 ]
+switch.lookup:                                    ; preds = %20, %12, %23, %18
+  %.sroa.5.0.ph.ph = phi i8 [ -128, %18 ], [ -112, %23 ], [ -32, %12 ], [ %spec.select, %20 ]
   %.sroa.7.0.ph.ph = phi i8 [ %19, %18 ], [ %24, %23 ], [ %10, %12 ], [ %22, %20 ]
   store i8 2, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %.sroa.5.0.ph.ph, ptr %.sroa.4.0..sroa_idx, align 1
   %.sroa.57.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 2
   store i8 %.sroa.7.0.ph.ph, ptr %.sroa.57.0..sroa_idx, align 2
-  br label %28
+  br label %27
 
-28:                                               ; preds = %25, %27, %_ZN3rmp6decode11read_marker17h8b6e48375ee9758eE.exit
+27:                                               ; preds = %25, %switch.lookup, %_ZN3rmp6decode11read_marker17h8b6e48375ee9758eE.exit
   ret void
 }
 

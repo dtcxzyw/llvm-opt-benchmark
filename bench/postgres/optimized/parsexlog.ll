@@ -123,23 +123,23 @@ define dso_local void @extractPageMap(ptr noundef %0, i64 noundef %1, i32 nounde
   %40 = icmp eq i8 %35, 4
   %41 = icmp eq i8 %39, 0
   %or.cond.i = select i1 %40, i1 %41, i1 false
-  br i1 %or.cond.i, label %switch.lookup.preheader.i, label %42
+  br i1 %or.cond.i, label %75, label %42
 
 42:                                               ; preds = %32
   %43 = icmp eq i8 %39, 16
   %or.cond5.i = select i1 %40, i1 %43, i1 false
-  br i1 %or.cond5.i, label %switch.lookup.preheader.i, label %44
+  br i1 %or.cond5.i, label %75, label %44
 
 44:                                               ; preds = %42
   %45 = icmp eq i8 %39, 32
   %or.cond8.i = select i1 %40, i1 %45, i1 false
-  br i1 %or.cond8.i, label %switch.lookup.preheader.i, label %46
+  br i1 %or.cond8.i, label %75, label %46
 
 46:                                               ; preds = %44
   %47 = icmp eq i8 %35, 2
   %48 = or i1 %43, %45
   %or.cond47.i = select i1 %47, i1 %48, i1 false
-  br i1 %or.cond47.i, label %switch.lookup.preheader.i, label %49
+  br i1 %or.cond47.i, label %75, label %49
 
 49:                                               ; preds = %46
   %50 = icmp eq i8 %35, 1
@@ -153,34 +153,34 @@ define dso_local void @extractPageMap(ptr noundef %0, i64 noundef %1, i32 nounde
   %switch.lobit.i = trunc i8 %switch.shifted.i to i1
   %or.cond48.i = select i1 %54, i1 %switch.lobit.i, i1 false
   %55 = and i32 %38, 1
-  %.not50.i = icmp eq i32 %55, 0
-  %or.cond54.i = select i1 %or.cond48.i, i1 true, i1 %.not50.i
+  %.not.i = icmp eq i32 %55, 0
+  %or.cond54.i = select i1 %or.cond48.i, i1 true, i1 %.not.i
   br i1 %or.cond54.i, label %switch.lookup.preheader.i, label %.thread51.i
 
-56:                                               ; preds = %49
+56:; preds = %49
   %57 = and i32 %38, 1
   %.not.i = icmp eq i32 %57, 0
   br i1 %.not.i, label %switch.lookup.preheader.i, label %60
 
-.thread51.i:                                      ; preds = %51
+.thread51.i:; preds = %51
   %58 = getelementptr inbounds nuw i8, ptr %15, i64 40
   %59 = load i64, ptr %58, align 8
   br label %64
 
-60:                                               ; preds = %56
+60: ; preds = %56
   %61 = getelementptr inbounds nuw i8, ptr %15, i64 40
   %62 = load i64, ptr %61, align 8
   %63 = icmp ult i8 %35, 22
   br i1 %63, label %64, label %69
 
-64:                                               ; preds = %60, %.thread51.i
+64:; preds = %60, %.thread51.i
   %65 = phi i64 [ %59, %.thread51.i ], [ %62, %60 ]
   %66 = zext nneg i8 %35 to i64
   %67 = getelementptr inbounds nuw ptr, ptr @RmgrNames, i64 %66
   %68 = load ptr, ptr %67, align 8
   br label %69
 
-69:                                               ; preds = %64, %60
+69: ; preds = %64, %60
   %70 = phi i64 [ %65, %64 ], [ %62, %60 ]
   %71 = phi ptr [ %68, %64 ], [ @.str.15, %60 ]
   %72 = zext i8 %35 to i32
@@ -191,74 +191,74 @@ define dso_local void @extractPageMap(ptr noundef %0, i64 noundef %1, i32 nounde
   call void @exit(i32 noundef 1) #8
   unreachable
 
-switch.lookup.preheader.i:                        ; preds = %56, %51, %46, %44, %42, %32
+75:                                               ; preds = %56, %51, %46, %44, %42, %32
   %76 = getelementptr inbounds nuw i8, ptr %33, i64 84
   %77 = load i32, ptr %76, align 4
-  %.not4552.i = icmp slt i32 %77, 0
-  br i1 %.not4552.i, label %extractPageInfo.exit, label %.lr.ph.i
+  %.not4551.i = icmp slt i32 %77, 0
+  br i1 %.not4551.i, label %extractPageInfo.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %switch.lookup.preheader.i, %switch.lookup.i
-  %.053.i = phi i32 [ %83, %switch.lookup.i ], [ 0, %switch.lookup.preheader.i ]
+.lr.ph.i:                                         ; preds = %75, %83
+  %.052.i = phi i32 [ %84, %switch.lookup.i ], [ 0, %switch.lookup.preheader.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %78 = trunc i32 %.053.i to i8
+  %78 = trunc i32 %.052.i to i8
   %79 = call zeroext i1 @XLogRecGetBlockTagExtended(ptr noundef nonnull %15, i8 noundef zeroext %78, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef null) #7
   %80 = load i32, ptr %7, align 4
   %.not46.i = icmp eq i32 %80, 0
-  %or.cond49.i = select i1 %79, i1 %.not46.i, i1 false
-  br i1 %or.cond49.i, label %81, label %switch.lookup.i
+  %or.cond48.i = select i1 %79, i1 %.not46.i, i1 false
+  br i1 %or.cond48.i, label %81, label %83
 
 81:                                               ; preds = %.lr.ph.i
   %82 = load i32, ptr %8, align 4
   %.sroa.0.0.copyload.i = load i64, ptr %6, align 8
   %.sroa.2.0.copyload.i = load i32, ptr %.sroa.2.0..sroa_idx.i, align 8
   call void @process_target_wal_block_change(i32 noundef 0, i64 %.sroa.0.0.copyload.i, i32 %.sroa.2.0.copyload.i, i32 noundef %82) #7
-  br label %switch.lookup.i
+  br label %83
 
-switch.lookup.i:                                  ; preds = %81, %.lr.ph.i
+83:                                               ; preds = %81, %.lr.ph.i
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %83 = add i32 %.053.i, 1
-  %84 = load ptr, ptr %19, align 8
-  %85 = getelementptr inbounds nuw i8, ptr %84, i64 84
-  %86 = load i32, ptr %85, align 4
-  %.not45.i = icmp sgt i32 %83, %86
+  %84 = add i32 %.052.i, 1
+  %85 = load ptr, ptr %19, align 8
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 84
+  %87 = load i32, ptr %86, align 4
+  %.not45.i = icmp sgt i32 %84, %87
   br i1 %.not45.i, label %extractPageInfo.exit, label %.lr.ph.i, !llvm.loop !4
 
-extractPageInfo.exit:                             ; preds = %switch.lookup.i, %switch.lookup.preheader.i
-  %87 = load i64, ptr %20, align 8
-  %88 = icmp ult i64 %87, %3
-  br i1 %88, label %21, label %89, !llvm.loop !6
+extractPageInfo.exit:                             ; preds = %83, %75
+  %88 = load i64, ptr %20, align 8
+  %89 = icmp ult i64 %88, %3
+  br i1 %89, label %21, label %90, !llvm.loop !6
 
-89:                                               ; preds = %extractPageInfo.exit
-  %.not = icmp eq i64 %87, %3
-  br i1 %.not, label %97, label %90
+90:                                               ; preds = %extractPageInfo.exit
+  %.not = icmp eq i64 %88, %3
+  br i1 %.not, label %98, label %91
 
-90:                                               ; preds = %89
-  %91 = lshr i64 %3, 32
-  %92 = trunc nuw i64 %91 to i32
-  %93 = trunc i64 %3 to i32
-  %94 = lshr i64 %87, 32
-  %95 = trunc nuw i64 %94 to i32
-  %96 = trunc i64 %87 to i32
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.3, i32 noundef %92, i32 noundef %93, i32 noundef %95, i32 noundef %96) #7
+91:                                               ; preds = %90
+  %92 = lshr i64 %3, 32
+  %93 = trunc nuw i64 %92 to i32
+  %94 = trunc i64 %3 to i32
+  %95 = lshr i64 %88, 32
+  %96 = trunc nuw i64 %95 to i32
+  %97 = trunc i64 %88 to i32
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.3, i32 noundef %93, i32 noundef %94, i32 noundef %96, i32 noundef %97) #7
   call void @exit(i32 noundef 1) #8
   unreachable
 
-97:                                               ; preds = %89
+98:                                               ; preds = %90
   call void @XLogReaderFree(ptr noundef nonnull %15) #7
-  %98 = load i32, ptr @xlogreadfd, align 4
-  %.not26 = icmp eq i32 %98, -1
-  br i1 %.not26, label %101, label %99
+  %99 = load i32, ptr @xlogreadfd, align 4
+  %.not26 = icmp eq i32 %99, -1
+  br i1 %.not26, label %102, label %100
 
-99:                                               ; preds = %97
-  %100 = call i32 @close(i32 noundef %98) #7
+100:                                              ; preds = %98
+  %101 = call i32 @close(i32 noundef %99) #7
   store i32 -1, ptr @xlogreadfd, align 4
-  br label %101
+  br label %102
 
-101:                                              ; preds = %99, %97
+102:                                              ; preds = %100, %98
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void

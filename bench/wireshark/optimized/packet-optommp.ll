@@ -240,34 +240,34 @@ switch.early.test:                                ; preds = %4
   %or.cond = select i1 %9, i1 %switch.lobit, i1 false
   br i1 %or.cond, label %switch.lookup, label %10
 
-10:                                               ; preds = %switch.early.test
+10:   ; preds = %switch.early.test
   %11 = add nsw i8 %7, -2
   %switch.and = and i8 %11, -3
   %switch.selectcmp = icmp eq i8 %switch.and, 0
   %12 = select i1 %switch.selectcmp, i32 12, i32 8
   br label %switch.lookup
 
-switch.lookup:                                    ; preds = %switch.early.test, %10, %4
+switch.lookup:; preds = %switch.early.test, %10, %4
   %.0 = phi i32 [ 16, %4 ], [ %12, %10 ], [ 16, %switch.early.test ]
   switch i8 %7, label %21 [
     i8 7, label %13
     i8 1, label %13
   ]
 
-13:                                               ; preds = %switch.lookup, %switch.lookup
-  %14 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %2)
-  %15 = icmp sgt i32 %14, 13
-  br i1 %15, label %16, label %21
+11:                                               ; preds = %switch.lookup, %switch.lookup
+  %12 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %2)
+  %13 = icmp sgt i32 %12, 13
+  br i1 %13, label %14, label %19
 
-16:                                               ; preds = %13
-  %17 = add i32 %2, 12
-  %18 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef %17)
-  %19 = zext i16 %18 to i32
-  %20 = add nuw nsw i32 %.0, %19
-  br label %21
+14:                                               ; preds = %11
+  %15 = add i32 %2, 12
+  %16 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef %15)
+  %17 = zext i16 %16 to i32
+  %18 = add nuw nsw i32 %.0, %17
+  br label %19
 
-21:                                               ; preds = %switch.lookup, %16, %13
-  %.1 = phi i32 [ %20, %16 ], [ %.0, %13 ], [ %.0, %switch.lookup ]
+19:                                               ; preds = %switch.lookup, %14, %11
+  %.1 = phi i32 [ %18, %16 ], [ %.0, %13 ], [ %.0, %switch.lookup ]
   ret i32 %.1
 }
 

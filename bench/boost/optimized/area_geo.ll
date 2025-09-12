@@ -148263,8 +148263,8 @@ define linkonce_odr hidden noundef double @_ZN5boost12lexical_castIdNSt7__cxx111
 
 27:                                               ; preds = %24
   %.neg = select i1 %or.cond.i.i, i64 -4, i64 -3
-  %gepdiff5 = add i64 %.neg, %7
-  %28 = icmp slt i64 %gepdiff5, 2
+  %gepdiff6 = add i64 %.neg, %7
+  %28 = icmp slt i64 %gepdiff6, 2
   br i1 %28, label %.loopexit, label %29
 
 29:                                               ; preds = %27
@@ -148280,7 +148280,7 @@ define linkonce_odr hidden noundef double @_ZN5boost12lexical_castIdNSt7__cxx111
 
 34:                                               ; preds = %31, %24
   %storemerge45.i.i = select i1 %13, double 0xFFF8000000000000, double 0x7FF8000000000000
-  br label %_ZN5boost6detail13parse_inf_nanIcdEEbPKT_S4_RT0_.exit
+  br label %_ZN5boost10conversion6detail19try_lexical_convertIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKT0_RT_.exit.thread
 
 _ZN5boost6detail9lc_iequalIcEEbPKT_S4_S4_j.exit.i.i: ; preds = %20
   switch i64 %gepdiff, label %.loopexit [
@@ -148330,9 +148330,9 @@ _ZN5boost6detail9lc_iequalIcEEbPKT_S4_S4_j.exit.i.i: ; preds = %20
 
 _ZN5boost6detail9lc_iequalIcEEbPKT_S4_S4_j.exit53.thread.i.i: ; preds = %50, %42
   %storemerge.i.i = select i1 %13, double 0xFFF0000000000000, double 0x7FF0000000000000
-  br label %_ZN5boost6detail13parse_inf_nanIcdEEbPKT_S4_RT0_.exit
+  br label %_ZN5boost10conversion6detail19try_lexical_convertIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKT0_RT_.exit.thread
 
-_ZN5boost6detail13parse_inf_nanIcdEEbPKT_S4_RT0_.exit: ; preds = %34, %_ZN5boost6detail9lc_iequalIcEEbPKT_S4_S4_j.exit53.thread.i.i
+_ZN5boost10conversion6detail19try_lexical_convertIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKT0_RT_.exit.thread: ; preds = %34, %_ZN5boost6detail9lc_iequalIcEEbPKT_S4_S4_j.exit53.thread.i.i
   %storemerge45.sink.i.i = phi double [ %storemerge45.i.i, %34 ], [ %storemerge.i.i, %_ZN5boost6detail9lc_iequalIcEEbPKT_S4_S4_j.exit53.thread.i.i ]
   store double %storemerge45.sink.i.i, ptr %4, align 8, !tbaa !1478
   br label %_ZN5boost10conversion6detail19try_lexical_convertIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKT0_RT_.exit.thread
@@ -148353,11 +148353,11 @@ _ZN5boost10conversion6detail19try_lexical_convertIdNSt7__cxx1112basic_stringIcSt
   %56 = icmp ult i8 %switch.tableidx.i.i.i.i, 59
   br i1 %56, label %_ZN5boost10conversion6detail19try_lexical_convertIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKT0_RT_.exit, label %_ZN5boost10conversion6detail19try_lexical_convertIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKT0_RT_.exit.thread
 
-_ZN5boost10conversion6detail19try_lexical_convertIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKT0_RT_.exit.thread: ; preds = %_ZN5boost6detail13parse_inf_nanIcdEEbPKT_S4_RT0_.exit, %52
+_ZN5boost10conversion6detail19try_lexical_convertIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKT0_RT_.exit.thread5: ; preds = %_ZN5boost6detail13parse_inf_nanIcdEEbPKT_S4_RT0_.exit, %52
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %63
+  br label %61
 
-_ZN5boost10conversion6detail19try_lexical_convertIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKT0_RT_.exit: ; preds = %52
+_ZN5boost10conversion6detail19try_lexical_convertIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKT0_RT_.exit.thread3: ; preds = %52
   %switch.maskindex.i.i.i.i = zext nneg i8 %switch.tableidx.i.i.i.i to i64
   %switch.shifted.i.i.i.i = lshr i64 288230376218820613, %switch.maskindex.i.i.i.i
   %switch.lobit.i.i.i.i = trunc i64 %switch.shifted.i.i.i.i to i1
@@ -148367,24 +148367,24 @@ _ZN5boost10conversion6detail19try_lexical_convertIdNSt7__cxx1112basic_stringIcSt
 57:                                               ; preds = %_ZN5boost10conversion6detail19try_lexical_convertIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKT0_RT_.exit.thread3, %_ZN5boost10conversion6detail19try_lexical_convertIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKT0_RT_.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost16bad_lexical_castE, i64 16), ptr %2, align 8, !tbaa !25
-  %58 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr @_ZTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr %58, align 8, !tbaa !2579
-  %59 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store ptr @_ZTId, ptr %59, align 8, !tbaa !2583
+  %56 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store ptr @_ZTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr %56, align 8, !tbaa !2579
+  %57 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  store ptr @_ZTId, ptr %57, align 8, !tbaa !2583
   invoke void @_ZN5boost15throw_exceptionINS_16bad_lexical_castEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(24) %2) #56
-          to label %60 unwind label %61
+          to label %60 unwind label %59
 
-60:                                               ; preds = %57
+58:                                               ; preds = %57
   unreachable
 
-61:                                               ; preds = %57
-  %62 = landingpad { ptr, i32 }
+59:                                               ; preds = %57
+  %60 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt8bad_castD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #57
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  resume { ptr, i32 } %62
+  resume { ptr, i32 } %60
 
-63:                                               ; preds = %_ZN5boost10conversion6detail19try_lexical_convertIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKT0_RT_.exit.thread, %_ZN5boost10conversion6detail19try_lexical_convertIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKT0_RT_.exit
+61:                                               ; preds = %_ZN5boost10conversion6detail19try_lexical_convertIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKT0_RT_.exit.thread5, %_ZN5boost10conversion6detail19try_lexical_convertIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKT0_RT_.exit.thread3
   %64 = load double, ptr %4, align 8, !tbaa !1478
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret double %64

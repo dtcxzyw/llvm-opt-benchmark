@@ -1384,17 +1384,17 @@ define internal fastcc i64 @do_fcntl(i32 noundef %0, i32 noundef %1, i64 noundef
 168:                                              ; preds = %164, %156
   tail call void @__rcu_read_unlock() #6
   %169 = load i32, ptr %160, align 8
-  %170 = icmp ult i32 %169, 3
-  br i1 %170, label %switch.lookup, label %171
+  %switch19 = icmp ult i32 %169, 3
+  br i1 %switch19, label %171, label %170
 
-171:                                              ; preds = %168
+170:                                              ; preds = %168
   tail call void asm sideeffect "393: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 393b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 393) #6, !srcloc !21
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 232, i32 2305, i64 12) #6, !srcloc !22
   tail call void asm sideeffect "394: nop\0A\09.pushsection .discard.instr_end\0A\09.long 394b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 394) #6, !srcloc !23
   tail call void @_raw_read_unlock_irq(ptr noundef nonnull %157) #6
   br label %176
 
-switch.lookup:                                    ; preds = %168
+171:                                              ; preds = %168
   store i32 %169, ptr %7, align 8
   tail call void @_raw_read_unlock_irq(ptr noundef nonnull %157) #6
   %172 = call i64 @_copy_to_user(ptr noundef %9, ptr noundef nonnull %7, i64 noundef 8) #6
@@ -1403,7 +1403,7 @@ switch.lookup:                                    ; preds = %168
   %175 = select i1 %174, i64 0, i64 -14
   br label %176
 
-176:                                              ; preds = %171, %switch.lookup
+176:                                              ; preds = %170, %171
   %177 = phi i64 [ -22, %171 ], [ %175, %switch.lookup ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %242
@@ -1597,7 +1597,7 @@ define internal fastcc i64 @do_compat_fcntl64(i32 noundef %0, i32 noundef %1, i3
   %11 = inttoptr i64 %10 to ptr
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %12 = icmp eq i64 %10, 0
-  br i1 %12, label %139, label %13
+  br i1 %12, label %141, label %13
 
 13:                                               ; preds = %3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, i8 0, i64 32, i1 false), !annotation !19
@@ -1818,24 +1818,24 @@ define internal fastcc i64 @do_compat_fcntl64(i32 noundef %0, i32 noundef %1, i3
   %131 = sext i32 %130 to i64
   br label %134
 
-132:                                              ; preds = %24
+129:                                              ; preds = %24
   %133 = tail call fastcc i64 @do_fcntl(i32 noundef %0, i32 noundef %1, i64 noundef %20, ptr noundef nonnull %11)
   br label %134
 
-134:                                              ; preds = %113, %90, %63, %49, %29, %132, %114, %91, %83, %64, %56, %30, %19, %18
+134:; preds = %113, %90, %63, %49, %29, %129, %114, %91, %83, %64, %56, %30, %19, %18
   %135 = phi i64 [ %22, %19 ], [ %133, %132 ], [ -14, %113 ], [ %131, %114 ], [ -14, %90 ], [ %108, %91 ], [ -14, %63 ], [ %81, %64 ], [ %85, %83 ], [ -14, %29 ], [ %47, %30 ], [ %58, %56 ], [ -9, %18 ], [ -75, %49 ]
   %136 = and i64 %9, 1
   %137 = icmp eq i64 %136, 0
   br i1 %137, label %139, label %138
 
-138:                                              ; preds = %134
+138:; preds = %134
   call void @fput(ptr noundef nonnull %11) #6
-  br label %139
+  br label %141
 
-139:                                              ; preds = %138, %134, %3
-  %140 = phi i64 [ -9, %3 ], [ %135, %134 ], [ %135, %138 ]
+141:                                              ; preds = %138, %134, %3
+  %142 = phi i64 [ -9, %3 ], [ %135, %134 ], [ %135, %138 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  ret i64 %140
+  ret i64 %142
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
