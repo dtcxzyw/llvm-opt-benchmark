@@ -1858,9 +1858,7 @@ ehcleanup24:                                      ; preds = %_ZNKSt7__cxx1112bas
   resume { ptr, i32 } %.pn.pn.pn.pn
 
 switch.lookup:                                    ; preds = %entry
-  %switch.cast = trunc nuw i32 %p.4.val to i4
-  %switch.downshift = lshr i4 -4, %switch.cast
-  %switch.masked = trunc i4 %switch.downshift to i1
+  %switch.masked = icmp ugt i32 %p.4.val, 1
   ret i1 %switch.masked
 
 unreachable:                                      ; preds = %invoke.cont14

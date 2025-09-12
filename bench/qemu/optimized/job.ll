@@ -430,9 +430,7 @@ define dso_local noundef zeroext i1 @job_is_completed_locked(ptr noundef readonl
   unreachable
 
 switch.lookup:                                    ; preds = %1
-  %switch.cast = trunc nuw i32 %3 to i11
-  %switch.downshift = lshr i11 -64, %switch.cast
-  %switch.masked = trunc i11 %switch.downshift to i1
+  %switch.masked = icmp ugt i32 %3, 5
   ret i1 %switch.masked
 }
 

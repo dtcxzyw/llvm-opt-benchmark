@@ -228,9 +228,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   resume { ptr, i32 } %.pn
 
 switch.lookup:                                    ; preds = %1
-  %switch.cast = trunc nuw i32 %switch.tableidx to i8
-  %switch.downshift = lshr i8 -64, %switch.cast
-  %switch.masked = trunc i8 %switch.downshift to i1
+  %switch.masked = icmp ugt i32 %switch.tableidx, 5
   ret i1 %switch.masked
 
 28:                                               ; preds = %14

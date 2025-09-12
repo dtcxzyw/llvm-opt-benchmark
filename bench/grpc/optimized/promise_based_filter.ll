@@ -11934,9 +11934,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit195: ; preds = %_Z
   unreachable
 
 switch.lookup:                                    ; preds = %115
-  %switch.cast = trunc nuw i32 %116 to i10
-  %switch.downshift = lshr i10 -256, %switch.cast
-  %switch.masked = trunc i10 %switch.downshift to i1
+  %switch.masked = icmp ugt i32 %116, 7
   br label %_ZNK9grpc_core21promise_filter_detail14ClientCallData19RecvInitialMetadata16AllowRecvMessageEv.exit
 
 _ZNK9grpc_core21promise_filter_detail14ClientCallData19RecvInitialMetadata16AllowRecvMessageEv.exit: ; preds = %switch.lookup, %109

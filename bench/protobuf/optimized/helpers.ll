@@ -7911,9 +7911,7 @@ lpad:                                             ; preds = %sw.epilog
   unreachable
 
 switch.lookup:                                    ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit
-  %switch.cast = trunc nuw i32 %switch.tableidx to i10
-  %switch.downshift = lshr i10 -256, %switch.cast
-  %switch.masked = trunc i10 %switch.downshift to i1
+  %switch.masked = icmp ugt i32 %switch.tableidx, 7
   ret i1 %switch.masked
 }
 

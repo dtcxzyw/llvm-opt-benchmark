@@ -58642,12 +58642,8 @@ _ZN9hayagriva3csl9rendering16render_date_part17h7920b33967244e96E.exit: ; preds 
 switch.lookup599:                                 ; preds = %96
   %865 = getelementptr inbounds nuw i8, ptr %0, i64 102
   %866 = load i8, ptr %865, align 2, !range !569, !noundef !4
-  %switch.cast600 = trunc nuw i8 %866 to i4
-  %switch.downshift602 = lshr i4 -2, %switch.cast600
-  %switch.masked603 = trunc i4 %switch.downshift602 to i1
-  %switch.cast604 = trunc nuw i8 %866 to i4
-  %switch.downshift606 = lshr i4 -4, %switch.cast604
-  %switch.masked607 = trunc i4 %switch.downshift606 to i1
+  %switch.masked603 = icmp ne i8 %866, 0
+  %switch.masked607 = icmp samesign ugt i8 %866, 1
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h1ead2a024765bf27E.exit.thread"
 
 867:                                              ; preds = %96

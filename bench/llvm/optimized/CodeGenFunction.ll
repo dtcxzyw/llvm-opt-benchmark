@@ -8549,9 +8549,7 @@ _ZNK5clang4Decl7hasAttrINS_12StrictFPAttrEEEbv.exit: ; preds = %.lr.ph.i.i.i.i.i
   br i1 %.not2516, label %.critedge1003, label %.critedge1003.sink.split
 
 .critedge1001:                                    ; preds = %_ZNK5clang4Decl7hasAttrINS_14CUDAGlobalAttrEEEbv.exit.thread2451
-  %switch.cast = trunc nuw nsw i32 %..i to i3
-  %switch.downshift = lshr i3 -2, %switch.cast
-  %switch.masked = trunc i3 %switch.downshift to i1
+  %switch.masked = icmp ne i32 %..i, 0
   %or.cond5 = or i1 %.not.i1855, %switch.masked
   br i1 %or.cond5, label %.thread2457, label %.critedge1005.thread
 

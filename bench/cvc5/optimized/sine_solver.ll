@@ -18865,11 +18865,10 @@ _ZNK4cvc58internal6theory5arith2nl14transcendental10SineSolver17regionToConvexit
   %switch.downshift = lshr i5 -7, %switch.cast
   %switch.masked = trunc i5 %switch.downshift to i1
   %switch.cast576 = trunc i32 %4 to i5
-  %switch.downshift578 = lshr i5 -8, %switch.cast576
-  %switch.masked579 = trunc i5 %switch.downshift578 to i1
+  %switch.masked579 = icmp ugt i5 %switch.cast576, 2
   %not. = xor i1 %49, true
   %50 = select i1 %not., i1 true, i1 %switch.masked
-  %51 = select i1 %49, i1 %switch.masked579, i1 false
+  %51 = and i1 %49, %switch.masked579
   %52 = and i32 %4, -2
   %switch = icmp eq i32 %52, 2
   %53 = xor i1 %switch, %50

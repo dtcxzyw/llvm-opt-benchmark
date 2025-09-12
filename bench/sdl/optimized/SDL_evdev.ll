@@ -1022,9 +1022,7 @@ SDL_EVDEV_GetEventTimestamp.exit237:              ; preds = %94, %108
 
 switch.lookup:                                    ; preds = %SDL_EVDEV_GetEventTimestamp.exit237
   %.0.i235 = tail call i64 @llvm.umin.i64(i64 %105, i64 %95)
-  %switch.cast = trunc nuw i32 %112 to i3
-  %switch.downshift = lshr i3 -2, %switch.cast
-  %switch.masked = trunc i3 %switch.downshift to i1
+  %switch.masked = icmp ne i32 %112, 0
   %114 = load i32, ptr %11, align 8
   %115 = tail call zeroext i1 @SDL_SendKeyboardKey(i64 noundef %.0.i235, i32 noundef %114, i32 noundef %109, i32 noundef %110, i1 noundef zeroext %switch.masked) #10
   br label %116

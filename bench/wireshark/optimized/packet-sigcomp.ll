@@ -1853,12 +1853,8 @@ define internal fastcc noundef ptr @decompress_sigcomp_message(ptr noundef %0, p
   br i1 %63, label %switch.lookup, label %64
 
 switch.lookup:                                    ; preds = %11
-  %switch.cast = trunc nuw i32 %5 to i4
-  %switch.downshift = lshr i4 -2, %switch.cast
-  %switch.masked = trunc i4 %switch.downshift to i1
-  %switch.cast4669 = trunc nuw i32 %5 to i4
-  %switch.downshift4671 = lshr i4 -4, %switch.cast4669
-  %switch.masked4672 = trunc i4 %switch.downshift4671 to i1
+  %switch.masked = icmp ne i32 %5, 0
+  %switch.masked4672 = icmp ugt i32 %5, 1
   %switch.masked4676 = icmp eq i32 %5, 3
   %switch.cast4677 = trunc nuw i32 %5 to i4
   %switch.downshift4679 = lshr i4 6, %switch.cast4677

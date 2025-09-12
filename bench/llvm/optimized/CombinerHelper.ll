@@ -35626,9 +35626,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm14CombinerHelper22matchCombineFMin
   br i1 %or.cond, label %switch.lookup, label %"_ZZNK4llvm14CombinerHelper22matchCombineFMinMaxNaNERNS_12MachineInstrERjENK3$_0clEj.exit9"
 
 switch.lookup:                                    ; preds = %3
-  %switch.cast = trunc nuw i16 %switch.tableidx to i6
-  %switch.downshift = lshr i6 -16, %switch.cast
-  %switch.masked = trunc i6 %switch.downshift to i1
+  %switch.masked = icmp ugt i16 %switch.tableidx, 3
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %8 = load ptr, ptr %7, align 8, !tbaa !241
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 36

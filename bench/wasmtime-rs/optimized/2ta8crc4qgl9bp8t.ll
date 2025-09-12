@@ -2443,9 +2443,7 @@ _ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h327c6ae1c93244d3E.e
   br label %388
 
 switch.lookup:                                    ; preds = %353
-  %switch.cast = trunc nuw i8 %344 to i4
-  %switch.downshift = lshr i4 -4, %switch.cast
-  %switch.masked = trunc i4 %switch.downshift to i1
+  %switch.masked = icmp ugt i8 %344, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   call void @"_ZN94_$LT$wasmparser..readers..core..types..HeapType$u20$as$u20$wasmparser..readers..FromReader$GT$11from_reader17h923a31fc25878b42E"(ptr noalias noundef nonnull sret({ i32, [3 x i32] }) align 8 captures(none) dereferenceable(16) %18, ptr noalias noundef nonnull align 8 dereferenceable(40) %0)
   %363 = load i32, ptr %18, align 8, !range !313, !noundef !5
@@ -2588,9 +2586,7 @@ switch.lookup:                                    ; preds = %353
   br label %436
 
 switch.lookup677:                                 ; preds = %401
-  %switch.cast679 = trunc nuw i8 %392 to i4
-  %switch.downshift681 = lshr i4 -4, %switch.cast679
-  %switch.masked682 = trunc i4 %switch.downshift681 to i1
+  %switch.masked682 = icmp ugt i8 %392, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @"_ZN94_$LT$wasmparser..readers..core..types..HeapType$u20$as$u20$wasmparser..readers..FromReader$GT$11from_reader17h923a31fc25878b42E"(ptr noalias noundef nonnull sret({ i32, [3 x i32] }) align 8 captures(none) dereferenceable(16) %11, ptr noalias noundef nonnull align 8 dereferenceable(40) %0)
   %411 = load i32, ptr %11, align 8, !range !313, !noundef !5
