@@ -1500,10 +1500,10 @@ define internal fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span
   store i64 1, ptr %30, align 8, !alias.scope !246, !noalias !249
   call void @llvm.experimental.noalias.scope.decl(metadata !252)
   %31 = load i64, ptr %19, align 8, !range !255, !noalias !256, !noundef !13
-  %switch.tableidx.i = add nsw i64 %31, -1
-  %32 = icmp ult i64 %switch.tableidx.i, 4
-  %switch.offset.i = sub nuw nsw i64 5, %31
-  %.0.i6 = select i1 %32, i64 %switch.offset.i, i64 5
+  %switch.tableidx = add nsw i64 %31, -1
+  %32 = icmp ult i64 %switch.tableidx, 4
+  %switch.offset = sub nuw nsw i64 5, %31
+  %.0.i6 = select i1 %32, i64 %switch.offset, i64 5
   %33 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h8181aaeb9cdead2fE monotonic, align 8, !noalias !256
   %34 = icmp ult i64 %33, 6
   call void @llvm.assume(i1 %34)

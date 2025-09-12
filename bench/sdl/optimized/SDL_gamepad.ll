@@ -5320,13 +5320,13 @@ define hidden range(i32 0, 9) i32 @SDL_GetGamepadButtonLabelForType_REAL(i32 nou
 
 3:                                                ; preds = %2
   %4 = icmp ult i32 %1, 4
-  %switch.offset.i = add nuw nsw i32 %1, 1
-  %spec.select.i = select i1 %4, i32 %switch.offset.i, i32 0
+  %switch.offset = add nuw nsw i32 %1, 1
+  %spec.select = select i1 %4, i32 %switch.offset, i32 0
   br label %SDL_GetGamepadButtonLabelForFaceStyle.exit
 
 5:                                                ; preds = %2
   %6 = icmp ult i32 %1, 4
-  br i1 %6, label %switch.lookup, label %SDL_GetGamepadButtonLabelForFaceStyle.exit
+  br i1 %6, label %SDL_GetGamepadButtonLabelForFaceStyle.exit.sink.split, label %SDL_GetGamepadButtonLabelForFaceStyle.exit
 
 7:                                                ; preds = %2, %2, %2, %2
   %8 = icmp ult i32 %1, 4
@@ -5334,14 +5334,14 @@ define hidden range(i32 0, 9) i32 @SDL_GetGamepadButtonLabelForType_REAL(i32 nou
 
 SDL_GetGamepadFaceStyleForGamepadType.exit:       ; preds = %2, %2, %2
   %9 = icmp ult i32 %1, 4
-  %switch.offset7.i = add nuw nsw i32 %1, 5
-  %spec.select8.i = select i1 %9, i32 %switch.offset7.i, i32 0
+  %switch.offset13 = add nuw nsw i32 %1, 5
+  %spec.select14 = select i1 %9, i32 %switch.offset13, i32 0
   br label %SDL_GetGamepadButtonLabelForFaceStyle.exit
 
-switch.lookup:                                    ; preds = %5
+SDL_GetGamepadButtonLabelForFaceStyle.exit.sink.split: ; preds = %5
   %10 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.SDL_GetGamepadButtonLabel_REAL, i64 %10
-  %switch.load = load i32, ptr %switch.gep, align 4
+  %switch.gep10 = getelementptr inbounds nuw i32, ptr @switch.table.SDL_GetGamepadButtonLabel_REAL, i64 %10
+  %switch.load11 = load i32, ptr %switch.gep10, align 4
   br label %SDL_GetGamepadButtonLabelForFaceStyle.exit
 
 switch.lookup8:                                   ; preds = %7
@@ -5350,8 +5350,8 @@ switch.lookup8:                                   ; preds = %7
   %switch.load10 = load i32, ptr %switch.gep9, align 4
   br label %SDL_GetGamepadButtonLabelForFaceStyle.exit
 
-SDL_GetGamepadButtonLabelForFaceStyle.exit:       ; preds = %switch.lookup8, %7, %switch.lookup, %5, %3, %SDL_GetGamepadFaceStyleForGamepadType.exit
-  %.0.i2 = phi i32 [ 0, %5 ], [ 0, %7 ], [ %spec.select.i, %3 ], [ %spec.select8.i, %SDL_GetGamepadFaceStyleForGamepadType.exit ], [ %switch.load, %switch.lookup ], [ %switch.load10, %switch.lookup8 ]
+SDL_GetGamepadButtonLabelForFaceStyle.exit:       ; preds = %switch.lookup8, %7, %SDL_GetGamepadButtonLabelForFaceStyle.exit.sink.split, %5, %3, %SDL_GetGamepadFaceStyleForGamepadType.exit
+  %.0.i2 = phi i32 [ 0, %5 ], [ 0, %7 ], [ %spec.select, %3 ], [ %spec.select14, %SDL_GetGamepadFaceStyleForGamepadType.exit ], [ %switch.load11, %switch.lookup ], [ %switch.load10, %switch.lookup8 ]
   ret i32 %.0.i2
 }
 
@@ -5384,38 +5384,38 @@ define hidden range(i32 0, 9) i32 @SDL_GetGamepadButtonLabel_REAL(ptr noundef %0
 
 12:                                               ; preds = %9
   %13 = icmp ult i32 %1, 4
-  %switch.offset.i = add nuw nsw i32 %1, 1
-  %spec.select.i = select i1 %13, i32 %switch.offset.i, i32 0
+  %switch.offset = add nuw nsw i32 %1, 1
+  %spec.select = select i1 %13, i32 %switch.offset, i32 0
   br label %SDL_GetGamepadButtonLabelForFaceStyle.exit
 
 14:                                               ; preds = %9
   %15 = icmp ult i32 %1, 4
-  br i1 %15, label %switch.lookup, label %SDL_GetGamepadButtonLabelForFaceStyle.exit
+  br i1 %15, label %switch.lookup5, label %SDL_GetGamepadButtonLabelForFaceStyle.exit
 
 16:                                               ; preds = %9
   %17 = icmp ult i32 %1, 4
-  br i1 %17, label %switch.lookup5, label %SDL_GetGamepadButtonLabelForFaceStyle.exit
+  br i1 %17, label %switch.lookup6, label %SDL_GetGamepadButtonLabelForFaceStyle.exit
 
 18:                                               ; preds = %9
   %19 = icmp ult i32 %1, 4
-  %switch.offset7.i = add nuw nsw i32 %1, 5
-  %spec.select8.i = select i1 %19, i32 %switch.offset7.i, i32 0
+  %switch.offset10 = add nuw nsw i32 %1, 5
+  %spec.select11 = select i1 %19, i32 %switch.offset10, i32 0
   br label %SDL_GetGamepadButtonLabelForFaceStyle.exit
 
-switch.lookup:                                    ; preds = %14
+switch.lookup5:                                   ; preds = %14
   %20 = zext nneg i32 %1 to i64
   %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.SDL_GetGamepadButtonLabel_REAL, i64 %20
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %SDL_GetGamepadButtonLabelForFaceStyle.exit
 
-switch.lookup5:                                   ; preds = %16
+switch.lookup6:                                   ; preds = %16
   %21 = zext nneg i32 %1 to i64
-  %switch.gep6 = getelementptr inbounds nuw i32, ptr @switch.table.SDL_GetGamepadButtonLabel_REAL.2, i64 %21
-  %switch.load7 = load i32, ptr %switch.gep6, align 4
+  %switch.gep7 = getelementptr inbounds nuw i32, ptr @switch.table.SDL_GetGamepadButtonLabel_REAL.2, i64 %21
+  %switch.load8 = load i32, ptr %switch.gep7, align 4
   br label %SDL_GetGamepadButtonLabelForFaceStyle.exit
 
-SDL_GetGamepadButtonLabelForFaceStyle.exit:       ; preds = %switch.lookup5, %16, %switch.lookup, %14, %18, %12, %9, %7
-  %.0 = phi i32 [ 0, %7 ], [ 0, %9 ], [ 0, %14 ], [ 0, %16 ], [ %spec.select.i, %12 ], [ %spec.select8.i, %18 ], [ %switch.load, %switch.lookup ], [ %switch.load7, %switch.lookup5 ]
+SDL_GetGamepadButtonLabelForFaceStyle.exit:       ; preds = %switch.lookup6, %16, %switch.lookup5, %14, %18, %12, %9, %7
+  %.0 = phi i32 [ 0, %7 ], [ 0, %9 ], [ 0, %14 ], [ 0, %16 ], [ %spec.select, %12 ], [ %spec.select14, %18 ], [ %switch.load, %switch.lookup ], [ %switch.load8, %switch.lookup5 ]
   ret i32 %.0
 }
 

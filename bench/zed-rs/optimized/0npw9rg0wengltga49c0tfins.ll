@@ -16343,8 +16343,8 @@ define hidden void @"_ZN144_$LT$ollama.._..$LT$impl$u20$serde..de..Deserialize$u
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @"_ZN144_$LT$ollama.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ollama..Model$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h3b9b0ae7dbb63a0eE"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 8 captures(none) dereferenceable(16) initializes((0, 2)) %0, i64 noundef %1) unnamed_addr #25 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %.sink1 = tail call i64 @llvm.umin.i64(i64 %1, i64 4)
-  %.sink = trunc nuw nsw i64 %.sink1 to i8
+  %spec.select1 = tail call i64 @llvm.umin.i64(i64 %1, i64 4)
+  %spec.select = trunc nuw nsw i64 %spec.select1 to i8
   store i8 %.sink, ptr %3, align 1
   store i8 0, ptr %0, align 8
   ret void
@@ -62138,7 +62138,7 @@ define hidden void @_ZN5serde2de7Visitor8visit_u817h75fef5e07336b4ecE(ptr dead_o
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN5serde2de7Visitor8visit_u817h869b5cb216280128E(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 8 captures(none) dereferenceable(16) initializes((0, 2)) %0, i8 noundef %1) unnamed_addr #25 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %4 = tail call i8 @llvm.umin.i8(i8 %1, i8 4)
+  %spec.select = tail call i8 @llvm.umin.i8(i8 %1, i8 4)
   store i8 %4, ptr %3, align 1, !alias.scope !18657
   store i8 0, ptr %0, align 8, !alias.scope !18657
   ret void
@@ -102443,8 +102443,8 @@ define hidden { i64, ptr } @"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$a
 
 "_ZN4core4iter6traits8iterator8Iterator6min_by4fold28_$u7b$$u7b$closure$u7d$$u7d$17hc8af8e0792ef1f35E.exit.i.i.i": ; preds = %96, %94
   %.sroa.0.1.i.i.i.i.i.i.i = phi i8 [ %101, %96 ], [ %.sroa.0.0.i.i.i.i.i.i.i, %94 ]
-  %switch.offset.i.i.i.i.i.i.i = sub nsw i8 0, %.sroa.0.1.i.i.i.i.i.i.i
-  %.sroa.0.2.i.i.i.i.i.i.i = select i1 %18, i8 %switch.offset.i.i.i.i.i.i.i, i8 %.sroa.0.1.i.i.i.i.i.i.i
+  %switch.offset = sub nsw i8 0, %.sroa.0.1.i.i.i.i.i.i.i
+  %.sroa.0.2.i.i.i.i.i.i.i = select i1 %18, i8 %switch.offset, i8 %.sroa.0.1.i.i.i.i.i.i.i
   %switch.i.i.i.i.i = icmp eq i8 %.sroa.0.2.i.i.i.i.i.i.i, 1
   %.sroa.3.0.i.i.i.i.i = select i1 %switch.i.i.i.i.i, ptr %20, ptr %.sroa.6.0
   %.sroa.0.0.sroa.speculated.i.i.i.i.i = select i1 %switch.i.i.i.i.i, i64 %.sroa.2.0, i64 %.sroa.07.0
@@ -103010,8 +103010,8 @@ define hidden { i64, ptr } @"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$a
 
 "_ZN4core4iter6traits8iterator8Iterator6min_by4fold28_$u7b$$u7b$closure$u7d$$u7d$17he16e6de89325ca13E.exit.i.i.i": ; preds = %96, %94
   %.sroa.0.1.i.i.i.i.i.i.i = phi i8 [ %101, %96 ], [ %.sroa.0.0.i.i.i.i.i.i.i, %94 ]
-  %switch.offset.i.i.i.i.i.i.i = sub nsw i8 0, %.sroa.0.1.i.i.i.i.i.i.i
-  %.sroa.0.2.i.i.i.i.i.i.i = select i1 %18, i8 %switch.offset.i.i.i.i.i.i.i, i8 %.sroa.0.1.i.i.i.i.i.i.i
+  %switch.offset = sub nsw i8 0, %.sroa.0.1.i.i.i.i.i.i.i
+  %.sroa.0.2.i.i.i.i.i.i.i = select i1 %18, i8 %switch.offset, i8 %.sroa.0.1.i.i.i.i.i.i.i
   %switch.i.i.i.i.i = icmp eq i8 %.sroa.0.2.i.i.i.i.i.i.i, 1
   %.sroa.3.0.i.i.i.i.i = select i1 %switch.i.i.i.i.i, ptr %20, ptr %.sroa.6.0
   %.sroa.0.0.sroa.speculated.i.i.i.i.i = select i1 %switch.i.i.i.i.i, i64 %.sroa.2.0, i64 %.sroa.07.0

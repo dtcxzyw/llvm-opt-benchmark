@@ -14266,8 +14266,8 @@ define hidden void @"_ZN157_$LT$lsp_types.._..$LT$impl$u20$serde..de..Deserializ
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @"_ZN157_$LT$lsp_types.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$lsp_types..LocationLink$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417hf6032e91ea0f259cE.llvm.5846128800800072799"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 8 captures(none) dereferenceable(16) initializes((0, 2)) %0, i64 noundef %1) unnamed_addr #8 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %.sink1 = tail call i64 @llvm.umin.i64(i64 %1, i64 4)
-  %.sink = trunc nuw nsw i64 %.sink1 to i8
+  %spec.select1 = tail call i64 @llvm.umin.i64(i64 %1, i64 4)
+  %spec.select = trunc nuw nsw i64 %spec.select1 to i8
   store i8 %.sink, ptr %3, align 1
   store i8 0, ptr %0, align 8
   ret void
@@ -36689,7 +36689,7 @@ define hidden void @_ZN5serde2de7Visitor11visit_bytes17h0793d0ae94870e53E(ptr de
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN5serde2de7Visitor8visit_u817h1e4ce4998069b5f5E(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 8 captures(none) dereferenceable(16) initializes((0, 2)) %0, i8 noundef %1) unnamed_addr #8 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %4 = tail call i8 @llvm.umin.i8(i8 %1, i8 4)
+  %spec.select = tail call i8 @llvm.umin.i8(i8 %1, i8 4)
   store i8 %4, ptr %3, align 1, !alias.scope !9205
   store i8 0, ptr %0, align 8, !alias.scope !9205
   ret void

@@ -3287,14 +3287,14 @@ define linkonce_odr void @_ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char
   switch i32 %..i, label %default.unreachable [
     i32 0, label %.invoke
     i32 1, label %21
-    i32 2, label %26
+    i32 2, label %_ZN5folly6detail7convertENS_8DtoaModeE.exit
     i32 3, label %28
   ]
 
-19:                                               ; preds = %.invoke, %28, %26
+19:                                               ; preds = %.invoke, %28, %_ZN5folly6detail7convertENS_8DtoaModeE.exit
   %20 = landingpad { ptr, i32 }
           cleanup
-  br label %49
+  br label %48
 
 21:                                               ; preds = %5
   %22 = fptrunc double %0 to float
@@ -3306,78 +3306,78 @@ define linkonce_odr void @_ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char
   %25 = invoke noundef zeroext i1 @_ZNK17double_conversion23DoubleToStringConverter20ToShortestIeeeNumberEdPNS_13StringBuilderENS0_8DtoaModeE(ptr noundef nonnull align 8 dereferenceable(48) %6, double noundef %24, ptr noundef nonnull %8, i32 noundef %..i)
           to label %30 unwind label %19
 
-26:                                               ; preds = %5
-  %27 = invoke noundef zeroext i1 @_ZNK17double_conversion23DoubleToStringConverter7ToFixedEdiPNS_13StringBuilderE(ptr noundef nonnull align 8 dereferenceable(48) %6, double noundef %0, i32 noundef %3, ptr noundef nonnull %8)
+_ZN5folly6detail7convertENS_8DtoaModeE.exit:      ; preds = %5
+  %26 = invoke noundef zeroext i1 @_ZNK17double_conversion23DoubleToStringConverter7ToFixedEdiPNS_13StringBuilderE(ptr noundef nonnull align 8 dereferenceable(48) %6, double noundef %0, i32 noundef %3, ptr noundef nonnull %8)
           to label %30 unwind label %19
 
-default.unreachable:                              ; preds = %5
+27:                                               ; preds = %5
   unreachable
 
 28:                                               ; preds = %5
   %29 = invoke noundef zeroext i1 @_ZNK17double_conversion23DoubleToStringConverter11ToPrecisionEdiPNS_13StringBuilderE(ptr noundef nonnull align 8 dereferenceable(48) %6, double noundef %0, i32 noundef %3, ptr noundef nonnull %8)
           to label %30 unwind label %19
 
-30:                                               ; preds = %.invoke, %26, %28
+30:; preds = %.invoke, %26, %28
   %31 = load i32, ptr %18, align 8, !tbaa !215
   %32 = load ptr, ptr %8, align 8, !tbaa !212
   %33 = sext i32 %31 to i64
   %34 = getelementptr inbounds i8, ptr %32, i64 %33
   store i8 0, ptr %34, align 1, !tbaa !39
   store i32 -1, ptr %18, align 8, !tbaa !215
-  %35 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %36 = load i64, ptr %35, align 8, !tbaa !38
-  %37 = sub i64 4611686018427387903, %36
-  %38 = icmp ult i64 %37, %33
-  br i1 %38, label %39, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %35 = load i64, ptr %34, align 8, !tbaa !38
+  %36 = sub i64 4611686018427387903, %35
+  %37 = icmp ult i64 %36, %33
+  br i1 %37, label %38, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i
 
-39:                                               ; preds = %30
+38:                                               ; preds = %30
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.9) #29
-          to label %.noexc unwind label %47
+          to label %.noexc unwind label %46
 
-.noexc:                                           ; preds = %39
+.noexc:                                           ; preds = %38
   unreachable
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i: ; preds = %30
-  %40 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %7, i64 noundef %33)
-          to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit unwind label %47
+  %39 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %7, i64 noundef %33)
+          to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit unwind label %46
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i
-  %41 = load i32, ptr %18, align 8, !tbaa !215
-  %42 = icmp slt i32 %41, 0
-  br i1 %42, label %_ZN17double_conversion13StringBuilderD2Ev.exit, label %43
+  %40 = load i32, ptr %18, align 8, !tbaa !215
+  %41 = icmp slt i32 %40, 0
+  br i1 %41, label %_ZN17double_conversion13StringBuilderD2Ev.exit, label %42
 
-43:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit
-  %44 = load ptr, ptr %8, align 8, !tbaa !212
-  %45 = zext nneg i32 %41 to i64
-  %46 = getelementptr inbounds nuw i8, ptr %44, i64 %45
-  store i8 0, ptr %46, align 1, !tbaa !39
+42:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit
+  %43 = load ptr, ptr %8, align 8, !tbaa !212
+  %44 = zext nneg i32 %40 to i64
+  %45 = getelementptr inbounds nuw i8, ptr %43, i64 %44
+  store i8 0, ptr %45, align 1, !tbaa !39
   br label %_ZN17double_conversion13StringBuilderD2Ev.exit
 
-_ZN17double_conversion13StringBuilderD2Ev.exit:   ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit, %43
+_ZN17double_conversion13StringBuilderD2Ev.exit:   ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit, %42
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 
-47:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i, %39
-  %48 = landingpad { ptr, i32 }
+46:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i, %38
+  %47 = landingpad { ptr, i32 }
           cleanup
-  br label %49
+  br label %48
 
-49:                                               ; preds = %47, %19
-  %.pn = phi { ptr, i32 } [ %48, %47 ], [ %20, %19 ]
-  %50 = load i32, ptr %18, align 8, !tbaa !215
-  %51 = icmp slt i32 %50, 0
-  br i1 %51, label %_ZN17double_conversion13StringBuilderD2Ev.exit16, label %52
+48:                                               ; preds = %46, %19
+  %.pn = phi { ptr, i32 } [ %47, %47 ], [ %20, %19 ]
+  %49 = load i32, ptr %18, align 8, !tbaa !215
+  %50 = icmp slt i32 %49, 0
+  br i1 %50, label %_ZN17double_conversion13StringBuilderD2Ev.exit16, label %51
 
-52:                                               ; preds = %49
-  %53 = load ptr, ptr %8, align 8, !tbaa !212
-  %54 = zext nneg i32 %50 to i64
-  %55 = getelementptr inbounds nuw i8, ptr %53, i64 %54
-  store i8 0, ptr %55, align 1, !tbaa !39
+51:                                               ; preds = %48
+  %52 = load ptr, ptr %8, align 8, !tbaa !212
+  %53 = zext nneg i32 %49 to i64
+  %54 = getelementptr inbounds nuw i8, ptr %52, i64 %53
+  store i8 0, ptr %54, align 1, !tbaa !39
   br label %_ZN17double_conversion13StringBuilderD2Ev.exit16
 
-_ZN17double_conversion13StringBuilderD2Ev.exit16: ; preds = %49, %52
+_ZN17double_conversion13StringBuilderD2Ev.exit16: ; preds = %48, %51
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

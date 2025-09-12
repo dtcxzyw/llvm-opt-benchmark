@@ -522,8 +522,8 @@ lean_box_uint64.exit:                             ; preds = %lean_dec.exit
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 4
   store i32 1, ptr %11, align 4, !tbaa !4
   store i32 16, ptr %16, align 4
-  %17 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store i64 %.0.i, ptr %17, align 8, !tbaa !15
+  %18 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  store i64 %.0.i, ptr %18, align 8, !tbaa !15
   ret ptr %11
 }
 

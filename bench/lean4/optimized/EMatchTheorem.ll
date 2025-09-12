@@ -8656,8 +8656,8 @@ lean_box_uint64.exit:                             ; preds = %lean_dec.exit
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 4
   store i32 1, ptr %11, align 4, !tbaa !4
   store i32 16, ptr %16, align 4
-  %17 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store i64 %.0.i, ptr %17, align 8, !tbaa !12
+  %18 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  store i64 %.0.i, ptr %18, align 8, !tbaa !12
   ret ptr %11
 }
 
@@ -243929,7 +243929,7 @@ lean_alloc_ctor.exit:                             ; preds = %0
 declare i64 @l_Lean_Meta_TransparencyMode_toUInt64(i8 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.umin.i8(i8, i8) #7
+declare i8 @llvm.umin.i8(i8, i8) #8
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8

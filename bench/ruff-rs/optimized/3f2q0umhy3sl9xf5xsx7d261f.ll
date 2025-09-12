@@ -13728,16 +13728,16 @@ define hidden void @"_ZN206_$LT$ruff_linter..rules..pylint..settings.._..$LT$imp
   %.not.i.i = icmp eq i64 %14, 2
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %16 = load i8, ptr %15, align 8, !noalias !1364
-  br i1 %.not.i.i, label %switch.lookup, label %18
+  br i1 %.not.i.i, label %17, label %19
 
-switch.lookup:                                    ; preds = %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h34bde941bba73d4aE.exit.i.i"
+17:                                               ; preds = %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h34bde941bba73d4aE.exit.i.i"
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !1340
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %16, ptr %17, align 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 %16, ptr %18, align 8
   store i64 2, ptr %0, align 8
-  br label %19
+  br label %20
 
-18:                                               ; preds = %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h34bde941bba73d4aE.exit.i.i"
+19:                                               ; preds = %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h34bde941bba73d4aE.exit.i.i"
   %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 9
   %.sroa.312.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(87) %.sroa.312.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(87) %.sroa.9.0..sroa_idx, i64 87, i1 false)
@@ -13745,9 +13745,9 @@ switch.lookup:                                    ; preds = %"_ZN81_$LT$core..ma
   store i64 %14, ptr %0, align 8
   %.sroa.211.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %16, ptr %.sroa.211.0..sroa_idx, align 8
-  br label %19
+  br label %20
 
-19:                                               ; preds = %18, %switch.lookup
+20:                                               ; preds = %19, %17
   ret void
 }
 
@@ -17497,7 +17497,7 @@ define hidden void @_ZN5serde2de7Visitor8visit_u817hdf5dc0b0448f8536E(ptr dead_o
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN5serde2de7Visitor8visit_u817hf156f0e943db3174E(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 8 captures(none) dereferenceable(16) initializes((0, 2)) %0, i8 noundef %1) unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %4 = tail call i8 @llvm.umin.i8(i8 %1, i8 5)
+  %spec.select = tail call i8 @llvm.umin.i8(i8 %1, i8 5)
   store i8 %4, ptr %3, align 1, !alias.scope !1592
   store i8 0, ptr %0, align 8, !alias.scope !1592
   ret void
@@ -48444,8 +48444,8 @@ define hidden void @"_ZN11ruff_server7session8settings1_96_$LT$impl$u20$serde..d
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @"_ZN198_$LT$ruff_server..session..settings.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_server..session..settings..LintOptions$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417heb44b0dc511be075E"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 8 captures(none) dereferenceable(16) initializes((0, 2)) %0, i64 noundef %1) unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %.sink1 = tail call i64 @llvm.umin.i64(i64 %1, i64 5)
-  %.sink = trunc nuw nsw i64 %.sink1 to i8
+  %spec.select1 = tail call i64 @llvm.umin.i64(i64 %1, i64 5)
+  %spec.select = trunc nuw nsw i64 %spec.select1 to i8
   store i8 %.sink, ptr %3, align 1
   store i8 0, ptr %0, align 8
   ret void
