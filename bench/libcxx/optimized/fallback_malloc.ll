@@ -21,8 +21,7 @@ define hidden noundef ptr @_ZN10__cxxabiv130__aligned_malloc_with_fallbackEm(i64
   %2 = add i64 %spec.store.select, 15
   %3 = and i64 %2, -16
   %4 = tail call i64 @llvm.umax.i64(i64 %spec.store.select, i64 %3)
-  %5 = tail call noalias noundef align 16 ptr @aligned_alloc(i64 noundef 16, i64 noundef %4) #10
-  call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 16) ]
+  %5 = tail call noalias noundef align 16 ptr @aligned_alloc(i64 noundef 16, i64 noundef %4) #9
   %.not.not = icmp eq ptr %5, null
   br i1 %.not.not, label %6, label %8
 
@@ -40,7 +39,7 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_115fallback_mallocEm(i64 nou
   %2 = add i64 %0, 3
   %3 = lshr i64 %2, 2
   %4 = add nuw nsw i64 %3, 1
-  %5 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull @_ZN12_GLOBAL__N_110heap_mutexE) #11
+  %5 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull @_ZN12_GLOBAL__N_110heap_mutexE) #10
   %6 = load ptr, ptr @_ZN12_GLOBAL__N_18freelistE, align 8, !tbaa !5
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.thread91, label %8
@@ -70,7 +69,7 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_115fallback_mallocEm(i64 nou
   br i1 %15, label %20, label %16
 
 16:                                               ; preds = %11
-  invoke void (ptr, ...) @__abort_message(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 146, ptr noundef nonnull @.str) #12
+  invoke void (ptr, ...) @__abort_message(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 146, ptr noundef nonnull @.str) #11
           to label %17 unwind label %18
 
 17:                                               ; preds = %16
@@ -111,7 +110,7 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_115fallback_mallocEm(i64 nou
   br i1 %40, label %.thread, label %41
 
 41:                                               ; preds = %30
-  invoke void (ptr, ...) @__abort_message(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 167, ptr noundef nonnull @.str) #12
+  invoke void (ptr, ...) @__abort_message(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 167, ptr noundef nonnull @.str) #11
           to label %42 unwind label %43
 
 42:                                               ; preds = %41
@@ -156,18 +155,18 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_115fallback_mallocEm(i64 nou
 
 .thread:                                          ; preds = %55, %8, %30, %54
   %.2 = phi ptr [ %37, %30 ], [ %12, %54 ], [ null, %8 ], [ null, %55 ]
-  %60 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZN12_GLOBAL__N_110heap_mutexE) #11
+  %60 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZN12_GLOBAL__N_110heap_mutexE) #10
   ret ptr %.2
 
 61:                                               ; preds = %43, %18
   %.pn = phi { ptr, i32 } [ %44, %43 ], [ %19, %18 ]
-  %62 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZN12_GLOBAL__N_110heap_mutexE) #11
+  %62 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZN12_GLOBAL__N_110heap_mutexE) #10
   resume { ptr, i32 } %.pn
 }
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_ZN10__cxxabiv122__calloc_with_fallbackEmm(i64 noundef %0, i64 noundef %1) local_unnamed_addr #0 {
-  %3 = tail call noalias ptr @calloc(i64 noundef %0, i64 noundef %1) #13
+  %3 = tail call noalias ptr @calloc(i64 noundef %0, i64 noundef %1) #12
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %8
 
@@ -201,7 +200,7 @@ define hidden void @_ZN10__cxxabiv128__aligned_free_with_fallbackEPv(ptr noundef
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 -4
-  %7 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull @_ZN12_GLOBAL__N_110heap_mutexE) #11
+  %7 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull @_ZN12_GLOBAL__N_110heap_mutexE) #10
   %8 = load ptr, ptr @_ZN12_GLOBAL__N_18freelistE, align 8, !tbaa !5
   %9 = icmp ne ptr %8, null
   %10 = icmp ne ptr %8, getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_14heapE, i64 512)
@@ -274,11 +273,11 @@ define hidden void @_ZN10__cxxabiv128__aligned_free_with_fallbackEPv(ptr noundef
   br label %_ZN12_GLOBAL__N_113fallback_freeEPv.exit
 
 _ZN12_GLOBAL__N_113fallback_freeEPv.exit:         ; preds = %19, %31, %33, %._crit_edge.i
-  %47 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZN12_GLOBAL__N_110heap_mutexE) #11
+  %47 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZN12_GLOBAL__N_110heap_mutexE) #10
   br label %49
 
 48:                                               ; preds = %1
-  tail call void @free(ptr noundef %0) #11
+  tail call void @free(ptr noundef %0) #10
   br label %49
 
 49:                                               ; preds = %48, %_ZN12_GLOBAL__N_113fallback_freeEPv.exit
@@ -294,7 +293,7 @@ define hidden void @_ZN10__cxxabiv120__free_with_fallbackEPv(ptr noundef %0) loc
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 -4
-  %7 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull @_ZN12_GLOBAL__N_110heap_mutexE) #11
+  %7 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull @_ZN12_GLOBAL__N_110heap_mutexE) #10
   %8 = load ptr, ptr @_ZN12_GLOBAL__N_18freelistE, align 8, !tbaa !5
   %9 = icmp ne ptr %8, null
   %10 = icmp ne ptr %8, getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_14heapE, i64 512)
@@ -367,11 +366,11 @@ define hidden void @_ZN10__cxxabiv120__free_with_fallbackEPv(ptr noundef %0) loc
   br label %_ZN12_GLOBAL__N_113fallback_freeEPv.exit
 
 _ZN12_GLOBAL__N_113fallback_freeEPv.exit:         ; preds = %19, %31, %33, %._crit_edge.i
-  %47 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZN12_GLOBAL__N_110heap_mutexE) #11
+  %47 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZN12_GLOBAL__N_110heap_mutexE) #10
   br label %49
 
 48:                                               ; preds = %1
-  tail call void @free(ptr noundef %0) #11
+  tail call void @free(ptr noundef %0) #10
   br label %49
 
 49:                                               ; preds = %48, %_ZN12_GLOBAL__N_113fallback_freeEPv.exit
@@ -384,22 +383,19 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized,aligned") allocsize(1) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @aligned_alloc(i64 allocalign noundef, i64 noundef) local_unnamed_addr #5
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #6
-
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: noreturn
-declare hidden void @__abort_message(ptr noundef, ...) local_unnamed_addr #7
+declare hidden void @__abort_message(ptr noundef, ...) local_unnamed_addr #6
 
 ; Function Attrs: nounwind
-declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #8
+declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind
-declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #8
+declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #9
+declare i64 @llvm.umax.i64(i64, i64) #8
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -407,14 +403,13 @@ attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #3 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized,aligned") allocsize(1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #7 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { nounwind allocsize(1) }
-attributes #11 = { nounwind }
-attributes #12 = { noreturn }
-attributes #13 = { nounwind allocsize(0,1) }
+attributes #6 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nounwind allocsize(1) }
+attributes #10 = { nounwind }
+attributes #11 = { noreturn }
+attributes #12 = { nounwind allocsize(0,1) }
 
 !llvm.linker.options = !{}
 !llvm.dependent-libraries = !{!0}

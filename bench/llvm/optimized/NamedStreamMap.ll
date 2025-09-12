@@ -371,7 +371,6 @@ _ZN4llvm5ErrorD2Ev.exit12:                        ; preds = %3
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %39 = load ptr, ptr %38, align 8
   %40 = call noundef i32 %39(ptr noundef nonnull align 8 dereferenceable(8) %36) #19
-  call void @llvm.assume(i1 true) [ "align"(ptr %34, i64 1) ]
   %.0.copyload.i.i = load i32, ptr %34, align 1
   %.not.i.i.i = icmp eq i32 %40, 1
   %41 = call i32 @llvm.bswap.i32(i32 %.0.copyload.i.i)
@@ -432,7 +431,6 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3
   %13 = load ptr, ptr %9, align 8, !tbaa !42, !noalias !59
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !59
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  call void @llvm.assume(i1 true) [ "align"(ptr %14, i64 1) ]
   %.0.copyload.i.i.i = load i32, ptr %14, align 1
   %15 = icmp eq i32 %.0.copyload.i.i.i, 0
   br i1 %15, label %16, label %21
@@ -454,9 +452,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3
   br label %.critedge
 
 21:                                               ; preds = %_ZN4llvm5ErrorD2Ev.exit
-  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 1) ]
   %.0.copyload.i.i.i44 = load i32, ptr %13, align 1
-  call void @llvm.assume(i1 true) [ "align"(ptr %14, i64 1) ]
   %22 = shl i32 %.0.copyload.i.i.i, 1
   %23 = udiv i32 %22, 3
   %24 = add nuw nsw i32 %23, 1
@@ -480,7 +476,6 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3
   br label %.critedge
 
 31:                                               ; preds = %21
-  call void @llvm.assume(i1 true) [ "align"(ptr %14, i64 1) ]
   %32 = zext i32 %.0.copyload.i.i.i to i64
   call void @_ZNSt6vectorISt4pairIjN4llvm7support6detail31packed_endian_specific_integralIjLNS1_10endiannessE1ELm1ELm1EEEESaIS7_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %32)
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -519,7 +514,6 @@ _ZNK4llvm22SparseBitVectorElementILj128EE5countEv.exit.i: ; preds = %36
 
 _ZNK4llvm15SparseBitVectorILj128EE5countEv.exit:  ; preds = %_ZNK4llvm22SparseBitVectorElementILj128EE5countEv.exit.i, %_ZN4llvm5ErrorD2Ev.exit47
   %.0.lcssa.i = phi i32 [ 0, %_ZN4llvm5ErrorD2Ev.exit47 ], [ %43, %_ZNK4llvm22SparseBitVectorElementILj128EE5countEv.exit.i ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 1) ]
   %.0.copyload.i.i.i49 = load i32, ptr %13, align 1
   %.not = icmp eq i32 %.0.lcssa.i, %.0.copyload.i.i.i49
   br i1 %.not, label %49, label %44
@@ -628,7 +622,6 @@ _ZN4llvm5ErrorD2Ev.exit53:                        ; preds = %79
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 16
   %89 = load ptr, ptr %88, align 8
   %90 = call noundef i32 %89(ptr noundef nonnull align 8 dereferenceable(8) %86) #19
-  call void @llvm.assume(i1 true) [ "align"(ptr %85, i64 1) ]
   %.0.copyload.i.i = load i32, ptr %85, align 1
   %.not.i.i.i = icmp eq i32 %90, 1
   %91 = call i32 @llvm.bswap.i32(i32 %.0.copyload.i.i)
@@ -702,7 +695,6 @@ _ZN4llvm5ErrorD2Ev.exit:
   %.not.i.i.i = icmp eq i32 %17, 1
   %18 = tail call i32 @llvm.bswap.i32(i32 %11)
   %spec.select.i.i.i = select i1 %.not.i.i.i, i32 %11, i32 %18
-  call void @llvm.assume(i1 true) [ "align"(ptr %3, i64 1) ]
   store i32 %spec.select.i.i.i, ptr %3, align 4, !noalias !114
   call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %2, ptr nonnull %3, i64 4) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !114
@@ -767,7 +759,6 @@ _ZNK4llvm22SparseBitVectorElementILj128EE5countEv.exit.i.i: ; preds = %8
 
 _ZNK4llvm3pdb9HashTableINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEE4sizeEv.exit: ; preds = %_ZNK4llvm22SparseBitVectorElementILj128EE5countEv.exit.i.i, %3
   %.0.lcssa.i.i = phi i32 [ 0, %3 ], [ %15, %_ZNK4llvm22SparseBitVectorElementILj128EE5countEv.exit.i.i ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 1) ]
   store i32 %.0.lcssa.i.i, ptr %5, align 4
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !122
@@ -778,7 +769,6 @@ _ZNK4llvm3pdb9HashTableINS_7support6detail31packed_endian_specific_integralIjLNS
   %22 = lshr exact i64 %21, 3
   %23 = trunc i64 %22 to i32
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 1) ]
   store i32 %23, ptr %24, align 4
   call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %2, ptr nonnull align 1 dereferenceable(8) %5, i64 8) #19
   %25 = load ptr, ptr %0, align 8, !tbaa !25
@@ -854,7 +844,6 @@ _ZNK4llvm3pdb9HashTableINS_7support6detail31packed_endian_specific_integralIjLNS
   %.not.i.i.i = icmp eq i32 %58, 1
   %59 = call i32 @llvm.bswap.i32(i32 %53)
   %spec.select.i.i.i = select i1 %.not.i.i.i, i32 %53, i32 %59
-  call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 1) ]
   store i32 %spec.select.i.i.i, ptr %4, align 4, !noalias !127
   call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %2, ptr nonnull %4, i64 4) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !127
@@ -1236,7 +1225,6 @@ _ZNK4llvm3pdb17HashTableIteratorINS_7support6detail31packed_endian_specific_inte
   %11 = load ptr, ptr %.fca.0.extract1, align 8, !tbaa !102
   %12 = getelementptr inbounds nuw %"struct.std::pair", ptr %11, i64 %10
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 1) ]
   %.0.copyload.i.i.i = load i32, ptr %13, align 1
   store i32 %.0.copyload.i.i.i, ptr %3, align 4, !tbaa !108
   br label %_ZNK4llvm3pdb17HashTableIteratorINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEEeqERKS7_.exit.thread

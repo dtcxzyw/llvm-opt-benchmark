@@ -9428,7 +9428,6 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit:
 14:                                               ; preds = %.preheader, %54
   %15 = phi i32 [ %55, %54 ], [ 1, %.preheader ]
   %.1 = phi ptr [ %.2, %54 ], [ %7, %.preheader ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %.1, i64 1) ]
   %.0.copyload.i.i = load i64, ptr %.1, align 1
   %16 = add i64 %.0.copyload.i.i, -1012762419733073422
   %17 = and i64 %.0.copyload.i.i, 9187201950435737470

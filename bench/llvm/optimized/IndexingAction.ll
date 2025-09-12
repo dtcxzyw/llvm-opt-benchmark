@@ -1436,7 +1436,6 @@ _ZN5clang5index15IndexingContextD2Ev.exit:        ; preds = %._crit_edge, %146
 
 .lr.ph:                                           ; preds = %_ZL29indexPreprocessorModuleMacrosRN5clang12PreprocessorERNS_13serialization10ModuleFileERNS_5index17IndexDataConsumerE.exit, %.lr.ph
   %.sroa.015.024 = phi ptr [ %152, %.lr.ph ], [ %.sroa.015.0.copyload, %_ZL29indexPreprocessorModuleMacrosRN5clang12PreprocessorERNS_13serialization10ModuleFileERNS_5index17IndexDataConsumerE.exit ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.015.024, i64 1) ]
   %.0.copyload.i.i.i.i = load i64, ptr %.sroa.015.024, align 1
   %148 = call i64 @_ZN5clang11LocalDeclID3getERNS_9ASTReaderERNS_13serialization10ModuleFileEm(ptr noundef nonnull align 8 dereferenceable(16272) %.sroa.7.0.copyload, ptr noundef nonnull align 8 dereferenceable(3464) %.sroa.9.0.copyload, i64 noundef %.0.copyload.i.i.i.i) #16
   %149 = call i64 @_ZNK5clang9ASTReader15getGlobalDeclIDERNS_13serialization10ModuleFileENS_11LocalDeclIDE(ptr noundef nonnull align 8 dereferenceable(16272) %.sroa.7.0.copyload, ptr noundef nonnull align 8 dereferenceable(3464) %.sroa.9.0.copyload, i64 %148) #16

@@ -584,44 +584,33 @@ _ZN4llvm5ErrorD2Ev.exit26:                        ; preds = %21, %19
   %.0.i.i.i.i = phi ptr [ %11, %19 ], [ %22, %21 ]
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %24 = load i32, ptr %23, align 8, !tbaa !54
-  call void @llvm.assume(i1 true) [ "align"(ptr %.0.i.i.i.i, i64 1) ]
   store i32 %24, ptr %.0.i.i.i.i, align 1
   %25 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 4
-  call void @llvm.assume(i1 true) [ "align"(ptr %25, i64 1) ]
   store i32 56, ptr %25, align 1
   %26 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
-  call void @llvm.assume(i1 true) [ "align"(ptr %26, i64 1) ]
   store i32 4096, ptr %26, align 1
-  call void @llvm.assume(i1 true) [ "align"(ptr %26, i64 1) ]
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %28 = load i32, ptr %27, align 8, !tbaa !31
   %29 = add i32 %28, 4096
   %30 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
-  call void @llvm.assume(i1 true) [ "align"(ptr %30, i64 1) ]
   store i32 %29, ptr %30, align 1
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %32 = load i64, ptr %31, align 8, !tbaa !53
   %33 = trunc i64 %32 to i32
   %34 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
-  call void @llvm.assume(i1 true) [ "align"(ptr %34, i64 1) ]
   store i32 %33, ptr %34, align 1
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %36 = load i32, ptr %35, align 8, !tbaa !55
   %37 = trunc i32 %36 to i16
   %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 20
-  call void @llvm.assume(i1 true) [ "align"(ptr %38, i64 1) ]
   store i16 %37, ptr %38, align 1
   %39 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 22
-  call void @llvm.assume(i1 true) [ "align"(ptr %39, i64 1) ]
   store i16 -1, ptr %39, align 1
   %40 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
-  call void @llvm.assume(i1 true) [ "align"(ptr %40, i64 1) ]
   store i32 4, ptr %40, align 1
   %41 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 28
-  call void @llvm.assume(i1 true) [ "align"(ptr %41, i64 1) ]
   store i32 262143, ptr %41, align 1
   %42 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
-  call void @llvm.assume(i1 true) [ "align"(ptr %42, i64 1) ]
   store i32 0, ptr %42, align 1
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 72
@@ -633,20 +622,12 @@ _ZN4llvm5ErrorD2Ev.exit26:                        ; preds = %21, %19
   %50 = trunc i64 %49 to i32
   %51 = and i32 %50, -4
   %52 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 36
-  call void @llvm.assume(i1 true) [ "align"(ptr %52, i64 1) ]
   store i32 %51, ptr %52, align 1
-  call void @llvm.assume(i1 true) [ "align"(ptr %42, i64 1) ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %52, i64 1) ]
   %53 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
-  call void @llvm.assume(i1 true) [ "align"(ptr %53, i64 1) ]
   store i32 %51, ptr %53, align 1
   %54 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 52
-  call void @llvm.assume(i1 true) [ "align"(ptr %54, i64 1) ]
   store i32 0, ptr %54, align 1
-  call void @llvm.assume(i1 true) [ "align"(ptr %53, i64 1) ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %54, i64 1) ]
   %55 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
-  call void @llvm.assume(i1 true) [ "align"(ptr %55, i64 1) ]
   store i32 %51, ptr %55, align 1
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 96
@@ -658,7 +639,6 @@ _ZN4llvm5ErrorD2Ev.exit26:                        ; preds = %21, %19
   %63 = trunc i64 %62 to i32
   %64 = and i32 %63, -8
   %65 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 44
-  call void @llvm.assume(i1 true) [ "align"(ptr %65, i64 1) ]
   store i32 %64, ptr %65, align 1
   store ptr %.0.i.i.i.i, ptr %3, align 8, !tbaa !96
   br label %_ZN4llvm5ErrorD2Ev.exit
@@ -846,7 +826,6 @@ _ZNKSt14default_deleteIN4llvm16BinaryByteStreamEEclEPS1_.exit.i.i.i.i: ; preds =
   %81 = load i32, ptr %80, align 4, !tbaa !87
   %82 = urem i32 %81, 262143
   %83 = getelementptr inbounds nuw %"struct.llvm::support::detail::packed_endian_specific_integral", ptr %.0.i.i.i.i, i64 %79
-  call void @llvm.assume(i1 true) [ "align"(ptr %83, i64 1) ]
   store i32 %82, ptr %83, align 1
   %84 = add i32 %.026, 1
   %85 = zext i32 %84 to i64
@@ -937,44 +916,33 @@ _ZN4llvm5ErrorD2Ev.exit26.i:                      ; preds = %31, %29
   %.0.i.i.i.i.i = phi ptr [ %21, %29 ], [ %32, %31 ]
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %34 = load i32, ptr %33, align 8, !tbaa !54, !noalias !129
-  call void @llvm.assume(i1 true) [ "align"(ptr %.0.i.i.i.i.i, i64 1) ]
   store i32 %34, ptr %.0.i.i.i.i.i, align 1, !noalias !129
   %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 4
-  call void @llvm.assume(i1 true) [ "align"(ptr %35, i64 1) ]
   store i32 56, ptr %35, align 1, !noalias !129
   %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 8
-  call void @llvm.assume(i1 true) [ "align"(ptr %36, i64 1) ]
   store i32 4096, ptr %36, align 1, !noalias !129
-  call void @llvm.assume(i1 true) [ "align"(ptr %36, i64 1) ]
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %38 = load i32, ptr %37, align 8, !tbaa !31, !noalias !129
   %39 = add i32 %38, 4096
   %40 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 12
-  call void @llvm.assume(i1 true) [ "align"(ptr %40, i64 1) ]
   store i32 %39, ptr %40, align 1, !noalias !129
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %42 = load i64, ptr %41, align 8, !tbaa !53, !noalias !129
   %43 = trunc i64 %42 to i32
   %44 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 16
-  call void @llvm.assume(i1 true) [ "align"(ptr %44, i64 1) ]
   store i32 %43, ptr %44, align 1, !noalias !129
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %46 = load i32, ptr %45, align 8, !tbaa !55, !noalias !129
   %47 = trunc i32 %46 to i16
   %48 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 20
-  call void @llvm.assume(i1 true) [ "align"(ptr %48, i64 1) ]
   store i16 %47, ptr %48, align 1, !noalias !129
   %49 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 22
-  call void @llvm.assume(i1 true) [ "align"(ptr %49, i64 1) ]
   store i16 -1, ptr %49, align 1, !noalias !129
   %50 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 24
-  call void @llvm.assume(i1 true) [ "align"(ptr %50, i64 1) ]
   store i32 4, ptr %50, align 1, !noalias !129
   %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 28
-  call void @llvm.assume(i1 true) [ "align"(ptr %51, i64 1) ]
   store i32 262143, ptr %51, align 1, !noalias !129
   %52 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 32
-  call void @llvm.assume(i1 true) [ "align"(ptr %52, i64 1) ]
   store i32 0, ptr %52, align 1, !noalias !129
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 72
@@ -986,20 +954,12 @@ _ZN4llvm5ErrorD2Ev.exit26.i:                      ; preds = %31, %29
   %60 = trunc i64 %59 to i32
   %61 = and i32 %60, -4
   %62 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 36
-  call void @llvm.assume(i1 true) [ "align"(ptr %62, i64 1) ]
   store i32 %61, ptr %62, align 1, !noalias !129
-  call void @llvm.assume(i1 true) [ "align"(ptr %52, i64 1) ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %62, i64 1) ]
   %63 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 48
-  call void @llvm.assume(i1 true) [ "align"(ptr %63, i64 1) ]
   store i32 %61, ptr %63, align 1, !noalias !129
   %64 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 52
-  call void @llvm.assume(i1 true) [ "align"(ptr %64, i64 1) ]
   store i32 0, ptr %64, align 1, !noalias !129
-  call void @llvm.assume(i1 true) [ "align"(ptr %63, i64 1) ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %64, i64 1) ]
   %65 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 40
-  call void @llvm.assume(i1 true) [ "align"(ptr %65, i64 1) ]
   store i32 %61, ptr %65, align 1, !noalias !129
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %67 = getelementptr inbounds nuw i8, ptr %1, i64 96
@@ -1011,7 +971,6 @@ _ZN4llvm5ErrorD2Ev.exit26.i:                      ; preds = %31, %29
   %73 = trunc i64 %72 to i32
   %74 = and i32 %73, -8
   %75 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 44
-  call void @llvm.assume(i1 true) [ "align"(ptr %75, i64 1) ]
   store i32 %74, ptr %75, align 1, !noalias !129
   store ptr %.0.i.i.i.i.i, ptr %13, align 8, !tbaa !96, !noalias !129
   br label %_ZN4llvm5ErrorD2Ev.exit

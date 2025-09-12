@@ -62474,7 +62474,6 @@ _ZN4llvm13MCInstBuilder6addImmEl.exit:            ; preds = %72
   %88 = load ptr, ptr %87, align 8
   call void %88(ptr noundef nonnull align 8 dereferenceable(8) %53, ptr noundef nonnull align 8 dereferenceable(128) %21, ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(304) %71) #35
   %89 = load ptr, ptr %16, align 8, !tbaa !1195
-  call void @llvm.assume(i1 true) [ "align"(ptr %89, i64 1) ]
   %.0.copyload.i.i.i.i.i.i.i = load i32, ptr %89, align 1
   %90 = load ptr, ptr %17, align 8, !tbaa !27
   %91 = icmp eq ptr %90, %83
@@ -62539,7 +62538,6 @@ _ZN4llvm13MCInstBuilder6addImmEl.exit151:         ; preds = %95, %_ZN4llvm11Smal
   %111 = load ptr, ptr %110, align 8
   call void %111(ptr noundef nonnull align 8 dereferenceable(8) %53, ptr noundef nonnull align 8 dereferenceable(128) %22, ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(304) %71) #35
   %112 = load ptr, ptr %14, align 8, !tbaa !1195
-  call void @llvm.assume(i1 true) [ "align"(ptr %112, i64 1) ]
   %.0.copyload.i.i.i.i.i.i.i152 = load i32, ptr %112, align 1
   %113 = load ptr, ptr %15, align 8, !tbaa !27
   %114 = icmp eq ptr %113, %106
@@ -62604,7 +62602,6 @@ _ZN4llvm13MCInstBuilder6addImmEl.exit169:         ; preds = %118, %_ZN4llvm11Sma
   %134 = load ptr, ptr %133, align 8
   call void %134(ptr noundef nonnull align 8 dereferenceable(8) %53, ptr noundef nonnull align 8 dereferenceable(128) %23, ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(304) %71) #35
   %135 = load ptr, ptr %12, align 8, !tbaa !1195
-  call void @llvm.assume(i1 true) [ "align"(ptr %135, i64 1) ]
   %.0.copyload.i.i.i.i.i.i.i170 = load i32, ptr %135, align 1
   %136 = load ptr, ptr %13, align 8, !tbaa !27
   %137 = icmp eq ptr %136, %129
@@ -62669,7 +62666,6 @@ _ZN4llvm13MCInstBuilder6addImmEl.exit187:         ; preds = %141, %_ZN4llvm11Sma
   %157 = load ptr, ptr %156, align 8
   call void %157(ptr noundef nonnull align 8 dereferenceable(8) %53, ptr noundef nonnull align 8 dereferenceable(128) %24, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(304) %71) #35
   %158 = load ptr, ptr %10, align 8, !tbaa !1195
-  call void @llvm.assume(i1 true) [ "align"(ptr %158, i64 1) ]
   %.0.copyload.i.i.i.i.i.i.i188 = load i32, ptr %158, align 1
   %159 = load ptr, ptr %11, align 8, !tbaa !27
   %160 = icmp eq ptr %159, %152

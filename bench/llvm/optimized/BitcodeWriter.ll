@@ -10333,7 +10333,6 @@ _ZN4llvm15BitstreamWriter32getMarkedBufferAndResumeFlushingEv.exit: ; preds = %_
 3565:                                             ; preds = %3565, %3552
   %indvars.iv.i167 = phi i64 [ 0, %3552 ], [ %indvars.iv.next.i168, %3565 ]
   %3566 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv.i167
-  call void @llvm.assume(i1 true) [ "align"(ptr %3566, i64 1) ]
   %.0.copyload.i.i.i.i.i.i.i = load i32, ptr %3566, align 1
   %3567 = call noundef i32 @llvm.bswap.i32(i32 %.0.copyload.i.i.i.i.i.i.i)
   %3568 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.i167
@@ -15572,21 +15571,16 @@ _ZNK4llvm6Triple10isOSDarwinEv.exit.thread:       ; preds = %6, %18, %18, %18, %
   %34 = trunc i64 %33 to i32
   %35 = add i32 %34, -20
   %.val.i = load ptr, ptr %9, align 8, !tbaa !69
-  call void @llvm.assume(i1 true) [ "align"(ptr %.val.i, i64 1) ]
   store i32 186106078, ptr %.val.i, align 1
   %.val19.i = load ptr, ptr %9, align 8, !tbaa !69
   %36 = getelementptr inbounds nuw i8, ptr %.val19.i, i64 4
-  call void @llvm.assume(i1 true) [ "align"(ptr %36, i64 1) ]
   store i32 0, ptr %36, align 1
   %.val20.i = load ptr, ptr %9, align 8, !tbaa !69
   %37 = getelementptr inbounds nuw i8, ptr %.val20.i, i64 8
-  call void @llvm.assume(i1 true) [ "align"(ptr %37, i64 1) ]
   store i32 20, ptr %37, align 1
   %38 = getelementptr inbounds nuw i8, ptr %.val20.i, i64 12
-  call void @llvm.assume(i1 true) [ "align"(ptr %38, i64 1) ]
   store i32 %35, ptr %38, align 1
   %39 = getelementptr inbounds nuw i8, ptr %.val20.i, i64 16
-  call void @llvm.assume(i1 true) [ "align"(ptr %39, i64 1) ]
   store i32 %.0.i, ptr %39, align 1
   %40 = load i64, ptr %23, align 8, !tbaa !135
   %41 = and i64 %40, 15
@@ -19283,7 +19277,6 @@ _ZNK4llvm15BitstreamWriter20GetNumOfFlushedBytesEv.exit.thread: ; preds = %3, %9
   %30 = load ptr, ptr %28, align 8, !tbaa !69
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 %29
   %32 = icmp eq i64 %6, 0
-  call void @llvm.assume(i1 true) [ "align"(ptr %31, i64 1) ]
   br i1 %32, label %_ZN4llvm7support6endian19writeAtBitAlignmentIhLNS_10endiannessE1ELm1EEEvPvT_m.exit, label %33
 
 33:                                               ; preds = %_ZNK4llvm15BitstreamWriter20GetNumOfFlushedBytesEv.exit.thread
@@ -19311,7 +19304,6 @@ _ZNK4llvm15BitstreamWriter20GetNumOfFlushedBytesEv.exit.thread: ; preds = %3, %9
   %50 = and i32 %49, %35
   %51 = trunc nuw nsw i32 %50 to i8
   %52 = or i8 %47, %51
-  call void @llvm.assume(i1 true) [ "align"(ptr %31, i64 1) ]
   store i8 %52, ptr %.sroa.12.0..sroa_idx.i, align 1
   br label %_ZN4llvm7support6endian19writeAtBitAlignmentIhLNS_10endiannessE1ELm1EEEvPvT_m.exit
 
@@ -19350,11 +19342,7 @@ _ZN4llvm15BitstreamWriter8fdStreamEv.exit:        ; preds = %53, %55
   %70 = sub i64 %25, %5
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %70, i64 %69)
   %71 = sub nsw i64 %69, %.sroa.speculated
-  br i1 %.not41, label %.split, label %_ZN4llvm15BitstreamWriter8fdStreamEv.exit46
-
-.split:                                           ; preds = %_ZN4llvm15BitstreamWriter8fdStreamEv.exit
-  call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 1) ]
-  br label %_ZN4llvm15BitstreamWriter8fdStreamEv.exit61
+  br i1 %.not41, label %_ZN4llvm15BitstreamWriter8fdStreamEv.exit61, label %_ZN4llvm15BitstreamWriter8fdStreamEv.exit46
 
 _ZN4llvm15BitstreamWriter8fdStreamEv.exit46:      ; preds = %_ZN4llvm15BitstreamWriter8fdStreamEv.exit
   %72 = load ptr, ptr %7, align 8, !tbaa !143, !nonnull !55, !noundef !55
@@ -19374,7 +19362,6 @@ _ZN4llvm15BitstreamWriter8fdStreamEv.exit46:      ; preds = %_ZN4llvm15Bitstream
   br label %100
 
 _ZN4llvm7support6endian19writeAtBitAlignmentIhLNS_10endiannessE1ELm1EEEvPvT_m.exit57: ; preds = %100, %_ZN4llvm15BitstreamWriter8fdStreamEv.exit46
-  call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 1) ]
   %.sroa.0.0.copyload.i51 = load i8, ptr %4, align 1
   %.sroa.12.0..sroa_idx.i52 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %.sroa.12.0.copyload.i53 = load i8, ptr %.sroa.12.0..sroa_idx.i52, align 1
@@ -19399,7 +19386,6 @@ _ZN4llvm7support6endian19writeAtBitAlignmentIhLNS_10endiannessE1ELm1EEEvPvT_m.ex
   %97 = and i32 %96, %82
   %98 = trunc nuw nsw i32 %97 to i8
   %99 = or i8 %94, %98
-  call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 1) ]
   store i8 %99, ptr %.sroa.12.0..sroa_idx.i52, align 1
   br label %_ZN4llvm15BitstreamWriter8fdStreamEv.exit61
 
@@ -19413,8 +19399,8 @@ _ZN4llvm7support6endian19writeAtBitAlignmentIhLNS_10endiannessE1ELm1EEEvPvT_m.ex
   %exitcond.not = icmp eq i64 %104, %71
   br i1 %exitcond.not, label %_ZN4llvm7support6endian19writeAtBitAlignmentIhLNS_10endiannessE1ELm1EEEvPvT_m.exit57, label %100, !llvm.loop !1016
 
-_ZN4llvm15BitstreamWriter8fdStreamEv.exit61:      ; preds = %.split, %_ZN4llvm7support6endian19writeAtBitAlignmentIhLNS_10endiannessE1ELm1EEEvPvT_m.exit57
-  %storemerge = phi i8 [ %92, %_ZN4llvm7support6endian19writeAtBitAlignmentIhLNS_10endiannessE1ELm1EEEvPvT_m.exit57 ], [ %2, %.split ]
+_ZN4llvm15BitstreamWriter8fdStreamEv.exit61:      ; preds = %_ZN4llvm15BitstreamWriter8fdStreamEv.exit, %_ZN4llvm7support6endian19writeAtBitAlignmentIhLNS_10endiannessE1ELm1EEEvPvT_m.exit57
+  %storemerge = phi i8 [ %92, %_ZN4llvm7support6endian19writeAtBitAlignmentIhLNS_10endiannessE1ELm1EEEvPvT_m.exit57 ], [ %2, %_ZN4llvm15BitstreamWriter8fdStreamEv.exit ]
   store i8 %storemerge, ptr %4, align 1
   %105 = load ptr, ptr %7, align 8, !tbaa !143, !nonnull !55, !noundef !55
   %106 = call noundef zeroext i1 @_ZN4llvm13raw_fd_stream7classofEPKNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(48) %105) #28

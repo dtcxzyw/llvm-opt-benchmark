@@ -387,231 +387,225 @@ define dso_local { ptr, i64 } @_ZN4llvm8codeview13getSymbolNameENS0_8CVRecordINS
 
 _ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit: ; preds = %2
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  call void @llvm.assume(i1 true) [ "align"(ptr %14, i64 1) ]
   %.0.copyload.i.i.i.i = load i16, ptr %14, align 1
-  %15 = icmp eq i16 %.0.copyload.i.i.i.i, 4359
-  br i1 %15, label %_ZN4llvm5ErrorD2Ev.exit9, label %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit.i
-
-_ZN4llvm5ErrorD2Ev.exit9:                         ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
-  call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %16 = add i64 %1, -4
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  call void @_ZN4llvm18BinaryStreamReaderC1ENS_8ArrayRefIhEENS_10endiannessE(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr nonnull %17, i64 %16, i32 noundef 1) #19
-  call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  store ptr getelementptr inbounds nuw inrange(-16, 376) (i8, ptr @_ZTVN4llvm8codeview19SymbolRecordMappingE, i64 16), ptr %6, align 8, !tbaa !3
-  %18 = getelementptr inbounds nuw i8, ptr %6, i64 10
-  store i8 0, ptr %18, align 2, !tbaa !26
-  %19 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %20 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store ptr %20, ptr %19, align 8, !tbaa !29
-  %21 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store i32 0, ptr %21, align 8, !tbaa !32
-  %22 = getelementptr inbounds nuw i8, ptr %6, i64 28
-  store i32 2, ptr %22, align 4, !tbaa !33
-  %23 = getelementptr inbounds nuw i8, ptr %6, i64 56
-  store ptr %5, ptr %23, align 8, !tbaa !34
-  %24 = getelementptr inbounds nuw i8, ptr %6, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %24, i8 0, i64 28, i1 false)
-  call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  store i16 4359, ptr %7, align 8, !tbaa !44
-  %25 = getelementptr inbounds nuw i8, ptr %7, i64 2
-  call void @llvm.assume(i1 true) [ "align"(ptr %25, i64 1) ]
-  store i32 0, ptr %25, align 2
-  %26 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %27 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store i32 1, ptr %27, align 8, !tbaa !47
-  store i64 0, ptr %26, align 8, !tbaa !23
-  %28 = getelementptr inbounds nuw i8, ptr %7, i64 20
-  store i8 0, ptr %28, align 4, !tbaa !49
-  %29 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, i8 0, i64 16, i1 false)
-  %30 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  store i32 4359, ptr %30, align 8, !tbaa !51
-  call void @_ZN4llvm8codeview19SymbolRecordMapping16visitSymbolBeginERNS0_8CVRecordINS0_10SymbolKindEEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %8, ptr noundef nonnull align 8 dereferenceable(92) %6, ptr noundef nonnull align 8 dereferenceable(16) %4) #19
-  %31 = load ptr, ptr %8, align 8, !tbaa !15
-  %.not.i = icmp eq ptr %31, null
-  call void @llvm.assume(i1 %.not.i)
-  call void @_ZN4llvm8codeview19SymbolRecordMapping16visitKnownRecordERNS0_8CVRecordINS0_10SymbolKindEEERNS0_11ConstantSymE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %9, ptr noundef nonnull align 8 dereferenceable(92) %6, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(44) %7) #19
-  %32 = load ptr, ptr %9, align 8, !tbaa !15
-  %.not.i6 = icmp eq ptr %32, null
-  call void @llvm.assume(i1 %.not.i6)
-  call void @_ZN4llvm8codeview19SymbolRecordMapping14visitSymbolEndERNS0_8CVRecordINS0_10SymbolKindEEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %10, ptr noundef nonnull align 8 dereferenceable(92) %6, ptr noundef nonnull align 8 dereferenceable(16) %4) #19
-  %33 = load ptr, ptr %10, align 8, !tbaa !15
-  %.not.i8 = icmp eq ptr %33, null
-  call void @llvm.assume(i1 %.not.i8)
-  %.sroa.017.0.copyload = load ptr, ptr %29, align 8, !tbaa !57
-  %.sroa.518.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %.sroa.518.0.copyload = load i64, ptr %.sroa.518.0..sroa_idx, align 8, !tbaa !24
-  %34 = load i32, ptr %27, align 8, !tbaa !47
-  %35 = icmp ugt i32 %34, 64
-  br i1 %35, label %36, label %_ZN4llvm8codeview11ConstantSymD2Ev.exit
-
-36:                                               ; preds = %_ZN4llvm5ErrorD2Ev.exit9
-  %37 = load ptr, ptr %26, align 8, !tbaa !23
-  %38 = icmp eq ptr %37, null
-  br i1 %38, label %_ZN4llvm8codeview11ConstantSymD2Ev.exit, label %39
-
-39:                                               ; preds = %36
-  call void @_ZdaPv(ptr noundef nonnull %37) #21
-  br label %_ZN4llvm8codeview11ConstantSymD2Ev.exit
-
-_ZN4llvm8codeview11ConstantSymD2Ev.exit:          ; preds = %_ZN4llvm5ErrorD2Ev.exit9, %36, %39
-  call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  store ptr getelementptr inbounds nuw inrange(-16, 376) (i8, ptr @_ZTVN4llvm8codeview19SymbolRecordMappingE, i64 16), ptr %6, align 8, !tbaa !3
-  %40 = load ptr, ptr %19, align 8, !tbaa !29
-  %41 = icmp eq ptr %40, %20
-  br i1 %41, label %_ZN4llvm8codeview19SymbolRecordMappingD2Ev.exit, label %42
-
-42:                                               ; preds = %_ZN4llvm8codeview11ConstantSymD2Ev.exit
-  call void @free(ptr noundef %40) #19
-  br label %_ZN4llvm8codeview19SymbolRecordMappingD2Ev.exit
-
-_ZN4llvm8codeview19SymbolRecordMappingD2Ev.exit:  ; preds = %_ZN4llvm8codeview11ConstantSymD2Ev.exit, %42
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm18BinaryStreamReaderE, i64 16), ptr %5, align 8, !tbaa !3
-  %43 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %44 = load ptr, ptr %43, align 8, !tbaa !58
-  %.not.i.i.i.i = icmp eq ptr %44, null
-  br i1 %.not.i.i.i.i, label %_ZN4llvm18BinaryStreamReaderD2Ev.exit, label %45
-
-45:                                               ; preds = %_ZN4llvm8codeview19SymbolRecordMappingD2Ev.exit
-  %46 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  %47 = load atomic i64, ptr %46 acquire, align 8
-  %48 = icmp eq i64 %47, 4294967297
-  %49 = trunc i64 %47 to i32
-  br i1 %48, label %50, label %58
-
-50:                                               ; preds = %45
-  store i32 0, ptr %46, align 8, !tbaa !61
-  %51 = getelementptr inbounds nuw i8, ptr %44, i64 12
-  store i32 0, ptr %51, align 4, !tbaa !63
-  %52 = load ptr, ptr %44, align 8, !tbaa !3
-  %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
-  %54 = load ptr, ptr %53, align 8
-  call void %54(ptr noundef nonnull align 8 dereferenceable(16) %44) #19
-  %55 = load ptr, ptr %44, align 8, !tbaa !3
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 24
-  %57 = load ptr, ptr %56, align 8
-  call void %57(ptr noundef nonnull align 8 dereferenceable(16) %44) #19
-  br label %_ZN4llvm18BinaryStreamReaderD2Ev.exit
-
-58:                                               ; preds = %45
-  %59 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !23
-  %.not.i.i.i.i.i = icmp eq i8 %59, 0
-  br i1 %.not.i.i.i.i.i, label %62, label %60
-
-60:                                               ; preds = %58
-  %61 = add nsw i32 %49, -1
-  store i32 %61, ptr %46, align 4, !tbaa !64
-  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
-
-62:                                               ; preds = %58
-  %63 = atomicrmw volatile add ptr %46, i32 -1 acq_rel, align 4
-  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
-
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %62, %60
-  %.0.i.i.i.i.i.i = phi i32 [ %49, %60 ], [ %63, %62 ]
-  %64 = icmp eq i32 %.0.i.i.i.i.i.i, 1
-  br i1 %64, label %65, label %_ZN4llvm18BinaryStreamReaderD2Ev.exit, !prof !65
-
-65:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %44) #19
-  br label %_ZN4llvm18BinaryStreamReaderD2Ev.exit
-
-_ZN4llvm18BinaryStreamReaderD2Ev.exit:            ; preds = %_ZN4llvm8codeview19SymbolRecordMappingD2Ev.exit, %50, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %65
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %_ZL19getSymbolNameOffsetN4llvm8codeview8CVRecordINS0_10SymbolKindEEE.exit
-
-_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit.i: ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
-  call void @llvm.assume(i1 true) [ "align"(ptr %14, i64 1) ]
   switch i16 %.0.copyload.i.i.i.i, label %_ZL19getSymbolNameOffsetN4llvm8codeview8CVRecordINS0_10SymbolKindEEE.exit [
+    i16 4359, label %_ZN4llvm5ErrorD2Ev.exit9
     i16 4368, label %_ZNK4llvm9StringRef5splitEc.exit
     i16 4367, label %_ZNK4llvm9StringRef5splitEc.exit
     i16 4423, label %_ZNK4llvm9StringRef5splitEc.exit
     i16 4422, label %_ZNK4llvm9StringRef5splitEc.exit
     i16 4437, label %_ZNK4llvm9StringRef5splitEc.exit
     i16 4438, label %_ZNK4llvm9StringRef5splitEc.exit
-    i16 4354, label %66
-    i16 4406, label %67
-    i16 4407, label %68
-    i16 4366, label %69
-    i16 4435, label %69
-    i16 4369, label %69
-    i16 4365, label %69
-    i16 4364, label %69
-    i16 4380, label %69
-    i16 4381, label %69
-    i16 4370, label %69
-    i16 4371, label %69
-    i16 4389, label %69
-    i16 4391, label %69
-    i16 4358, label %70
-    i16 4414, label %70
-    i16 4355, label %71
-    i16 4357, label %72
-    i16 4353, label %73
-    i16 4408, label %73
-    i16 4360, label %73
-    i16 4363, label %74
-    i16 4388, label %75
+    i16 4354, label %65
+    i16 4406, label %66
+    i16 4407, label %67
+    i16 4366, label %68
+    i16 4435, label %68
+    i16 4369, label %68
+    i16 4365, label %68
+    i16 4364, label %68
+    i16 4380, label %68
+    i16 4381, label %68
+    i16 4370, label %68
+    i16 4371, label %68
+    i16 4389, label %68
+    i16 4391, label %68
+    i16 4358, label %69
+    i16 4414, label %69
+    i16 4355, label %70
+    i16 4357, label %71
+    i16 4353, label %72
+    i16 4408, label %72
+    i16 4360, label %72
+    i16 4363, label %73
+    i16 4388, label %74
   ]
 
-66:                                               ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit.i
+_ZN4llvm5ErrorD2Ev.exit9:                         ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  %15 = add i64 %1, -4
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  call void @_ZN4llvm18BinaryStreamReaderC1ENS_8ArrayRefIhEENS_10endiannessE(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr nonnull %16, i64 %15, i32 noundef 1) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  store ptr getelementptr inbounds nuw inrange(-16, 376) (i8, ptr @_ZTVN4llvm8codeview19SymbolRecordMappingE, i64 16), ptr %6, align 8, !tbaa !3
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 10
+  store i8 0, ptr %17, align 2, !tbaa !26
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  store ptr %19, ptr %18, align 8, !tbaa !29
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  store i32 0, ptr %20, align 8, !tbaa !32
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 28
+  store i32 2, ptr %21, align 4, !tbaa !33
+  %22 = getelementptr inbounds nuw i8, ptr %6, i64 56
+  store ptr %5, ptr %22, align 8, !tbaa !34
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 64
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %23, i8 0, i64 28, i1 false)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  store i16 4359, ptr %7, align 8, !tbaa !44
+  %24 = getelementptr inbounds nuw i8, ptr %7, i64 2
+  store i32 0, ptr %24, align 2
+  %25 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  store i32 1, ptr %26, align 8, !tbaa !47
+  store i64 0, ptr %25, align 8, !tbaa !23
+  %27 = getelementptr inbounds nuw i8, ptr %7, i64 20
+  store i8 0, ptr %27, align 4, !tbaa !49
+  %28 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %28, i8 0, i64 16, i1 false)
+  %29 = getelementptr inbounds nuw i8, ptr %7, i64 40
+  store i32 4359, ptr %29, align 8, !tbaa !51
+  call void @_ZN4llvm8codeview19SymbolRecordMapping16visitSymbolBeginERNS0_8CVRecordINS0_10SymbolKindEEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %8, ptr noundef nonnull align 8 dereferenceable(92) %6, ptr noundef nonnull align 8 dereferenceable(16) %4) #19
+  %30 = load ptr, ptr %8, align 8, !tbaa !15
+  %.not.i = icmp eq ptr %30, null
+  call void @llvm.assume(i1 %.not.i)
+  call void @_ZN4llvm8codeview19SymbolRecordMapping16visitKnownRecordERNS0_8CVRecordINS0_10SymbolKindEEERNS0_11ConstantSymE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %9, ptr noundef nonnull align 8 dereferenceable(92) %6, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(44) %7) #19
+  %31 = load ptr, ptr %9, align 8, !tbaa !15
+  %.not.i6 = icmp eq ptr %31, null
+  call void @llvm.assume(i1 %.not.i6)
+  call void @_ZN4llvm8codeview19SymbolRecordMapping14visitSymbolEndERNS0_8CVRecordINS0_10SymbolKindEEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %10, ptr noundef nonnull align 8 dereferenceable(92) %6, ptr noundef nonnull align 8 dereferenceable(16) %4) #19
+  %32 = load ptr, ptr %10, align 8, !tbaa !15
+  %.not.i8 = icmp eq ptr %32, null
+  call void @llvm.assume(i1 %.not.i8)
+  %.sroa.017.0.copyload = load ptr, ptr %28, align 8, !tbaa !57
+  %.sroa.518.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %.sroa.518.0.copyload = load i64, ptr %.sroa.518.0..sroa_idx, align 8, !tbaa !24
+  %33 = load i32, ptr %26, align 8, !tbaa !47
+  %34 = icmp ugt i32 %33, 64
+  br i1 %34, label %35, label %_ZN4llvm8codeview11ConstantSymD2Ev.exit
+
+35:                                               ; preds = %_ZN4llvm5ErrorD2Ev.exit9
+  %36 = load ptr, ptr %25, align 8, !tbaa !23
+  %37 = icmp eq ptr %36, null
+  br i1 %37, label %_ZN4llvm8codeview11ConstantSymD2Ev.exit, label %38
+
+38:                                               ; preds = %35
+  call void @_ZdaPv(ptr noundef nonnull %36) #21
+  br label %_ZN4llvm8codeview11ConstantSymD2Ev.exit
+
+_ZN4llvm8codeview11ConstantSymD2Ev.exit:          ; preds = %_ZN4llvm5ErrorD2Ev.exit9, %35, %38
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  store ptr getelementptr inbounds nuw inrange(-16, 376) (i8, ptr @_ZTVN4llvm8codeview19SymbolRecordMappingE, i64 16), ptr %6, align 8, !tbaa !3
+  %39 = load ptr, ptr %18, align 8, !tbaa !29
+  %40 = icmp eq ptr %39, %19
+  br i1 %40, label %_ZN4llvm8codeview19SymbolRecordMappingD2Ev.exit, label %41
+
+41:                                               ; preds = %_ZN4llvm8codeview11ConstantSymD2Ev.exit
+  call void @free(ptr noundef %39) #19
+  br label %_ZN4llvm8codeview19SymbolRecordMappingD2Ev.exit
+
+_ZN4llvm8codeview19SymbolRecordMappingD2Ev.exit:  ; preds = %_ZN4llvm8codeview11ConstantSymD2Ev.exit, %41
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm18BinaryStreamReaderE, i64 16), ptr %5, align 8, !tbaa !3
+  %42 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %43 = load ptr, ptr %42, align 8, !tbaa !58
+  %.not.i.i.i.i = icmp eq ptr %43, null
+  br i1 %.not.i.i.i.i, label %_ZN4llvm18BinaryStreamReaderD2Ev.exit, label %44
+
+44:                                               ; preds = %_ZN4llvm8codeview19SymbolRecordMappingD2Ev.exit
+  %45 = getelementptr inbounds nuw i8, ptr %43, i64 8
+  %46 = load atomic i64, ptr %45 acquire, align 8
+  %47 = icmp eq i64 %46, 4294967297
+  %48 = trunc i64 %46 to i32
+  br i1 %47, label %49, label %57
+
+49:                                               ; preds = %44
+  store i32 0, ptr %45, align 8, !tbaa !61
+  %50 = getelementptr inbounds nuw i8, ptr %43, i64 12
+  store i32 0, ptr %50, align 4, !tbaa !63
+  %51 = load ptr, ptr %43, align 8, !tbaa !3
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 16
+  %53 = load ptr, ptr %52, align 8
+  call void %53(ptr noundef nonnull align 8 dereferenceable(16) %43) #19
+  %54 = load ptr, ptr %43, align 8, !tbaa !3
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 24
+  %56 = load ptr, ptr %55, align 8
+  call void %56(ptr noundef nonnull align 8 dereferenceable(16) %43) #19
+  br label %_ZN4llvm18BinaryStreamReaderD2Ev.exit
+
+57:                                               ; preds = %44
+  %58 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !23
+  %.not.i.i.i.i.i = icmp eq i8 %58, 0
+  br i1 %.not.i.i.i.i.i, label %61, label %59
+
+59:                                               ; preds = %57
+  %60 = add nsw i32 %48, -1
+  store i32 %60, ptr %45, align 4, !tbaa !64
+  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
+
+61:                                               ; preds = %57
+  %62 = atomicrmw volatile add ptr %45, i32 -1 acq_rel, align 4
+  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
+
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %61, %59
+  %.0.i.i.i.i.i.i = phi i32 [ %48, %59 ], [ %62, %61 ]
+  %63 = icmp eq i32 %.0.i.i.i.i.i.i, 1
+  br i1 %63, label %64, label %_ZN4llvm18BinaryStreamReaderD2Ev.exit, !prof !65
+
+64:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %43) #19
+  br label %_ZN4llvm18BinaryStreamReaderD2Ev.exit
+
+_ZN4llvm18BinaryStreamReaderD2Ev.exit:            ; preds = %_ZN4llvm8codeview19SymbolRecordMappingD2Ev.exit, %49, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %64
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  br label %_ZL19getSymbolNameOffsetN4llvm8codeview8CVRecordINS0_10SymbolKindEEE.exit
+
+65:                                               ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
   br label %_ZNK4llvm9StringRef5splitEc.exit
 
-67:                                               ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit.i
+66:                                               ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
   br label %_ZNK4llvm9StringRef5splitEc.exit
 
-68:                                               ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit.i
+67:                                               ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
   br label %_ZNK4llvm9StringRef5splitEc.exit
 
-69:                                               ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit.i, %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit.i, %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit.i, %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit.i, %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit.i, %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit.i, %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit.i, %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit.i, %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit.i, %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit.i, %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit.i
+68:                                               ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit, %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit, %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit, %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit, %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit, %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit, %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit, %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit, %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit, %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit, %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
   br label %_ZNK4llvm9StringRef5splitEc.exit
 
-70:                                               ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit.i, %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit.i
+69:                                               ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit, %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
   br label %_ZNK4llvm9StringRef5splitEc.exit
 
-71:                                               ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit.i
+70:                                               ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
   br label %_ZNK4llvm9StringRef5splitEc.exit
 
-72:                                               ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit.i
+71:                                               ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
   br label %_ZNK4llvm9StringRef5splitEc.exit
 
-73:                                               ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit.i, %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit.i, %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit.i
+72:                                               ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit, %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit, %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
   br label %_ZNK4llvm9StringRef5splitEc.exit
 
-74:                                               ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit.i
+73:                                               ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
   br label %_ZNK4llvm9StringRef5splitEc.exit
 
-75:                                               ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit.i
+74:                                               ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
   br label %_ZNK4llvm9StringRef5splitEc.exit
 
-_ZNK4llvm9StringRef5splitEc.exit:                 ; preds = %66, %67, %68, %69, %70, %71, %72, %73, %74, %75, %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit.i, %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit.i, %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit.i, %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit.i, %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit.i, %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit.i
-  %.0.i10.ph = phi i64 [ 35, %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit.i ], [ 35, %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit.i ], [ 35, %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit.i ], [ 35, %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit.i ], [ 35, %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit.i ], [ 35, %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit.i ], [ 0, %75 ], [ 8, %74 ], [ 4, %73 ], [ 7, %72 ], [ 18, %71 ], [ 6, %70 ], [ 10, %69 ], [ 14, %68 ], [ 16, %67 ], [ 21, %66 ]
+_ZNK4llvm9StringRef5splitEc.exit:                 ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit, %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit, %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit, %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit, %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit, %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit, %65, %66, %67, %68, %69, %70, %71, %72, %73, %74
+  %.0.i10.ph = phi i64 [ 0, %74 ], [ 8, %73 ], [ 4, %72 ], [ 7, %71 ], [ 18, %70 ], [ 6, %69 ], [ 10, %68 ], [ 14, %67 ], [ 16, %66 ], [ 21, %65 ], [ 35, %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit ], [ 35, %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit ], [ 35, %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit ], [ 35, %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit ], [ 35, %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit ], [ 35, %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %76 = add i64 %1, -4
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %.sroa.speculated4.i.i = tail call i64 @llvm.umin.i64(i64 %76, i64 %.0.i10.ph)
-  %78 = getelementptr inbounds nuw i8, ptr %77, i64 %.sroa.speculated4.i.i
-  %79 = sub i64 %76, %.sroa.speculated4.i.i
-  store ptr %78, ptr %11, align 8
-  %80 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store i64 %79, ptr %80, align 8
+  %75 = add i64 %1, -4
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %.sroa.speculated4.i.i = tail call i64 @llvm.umin.i64(i64 %75, i64 %.0.i10.ph)
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 %.sroa.speculated4.i.i
+  %78 = sub i64 %75, %.sroa.speculated4.i.i
+  store ptr %77, ptr %11, align 8
+  %79 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  store i64 %78, ptr %79, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 0, ptr %3, align 1, !tbaa !23, !noalias !66
-  %81 = call noundef i64 @_ZNK4llvm9StringRef4findES0_m(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr nonnull %3, i64 1, i64 noundef 0) #19, !noalias !69
-  %82 = icmp eq i64 %81, -1
-  %.sroa.5.0.copyload15 = load i64, ptr %80, align 8, !tbaa !24
-  %.sroa.speculated.i.i.i = call i64 @llvm.umin.i64(i64 %81, i64 %.sroa.5.0.copyload15)
-  %.sroa.5.0 = select i1 %82, i64 %.sroa.5.0.copyload15, i64 %.sroa.speculated.i.i.i
+  %80 = call noundef i64 @_ZNK4llvm9StringRef4findES0_m(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr nonnull %3, i64 1, i64 noundef 0) #19, !noalias !69
+  %81 = icmp eq i64 %80, -1
+  %.sroa.5.0.copyload15 = load i64, ptr %79, align 8, !tbaa !24
+  %.sroa.speculated.i.i.i = call i64 @llvm.umin.i64(i64 %80, i64 %.sroa.5.0.copyload15)
+  %.sroa.5.0 = select i1 %81, i64 %.sroa.5.0.copyload15, i64 %.sroa.speculated.i.i.i
   %.sroa.0.0 = load ptr, ptr %11, align 8, !tbaa !57
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %_ZL19getSymbolNameOffsetN4llvm8codeview8CVRecordINS0_10SymbolKindEEE.exit
 
-_ZL19getSymbolNameOffsetN4llvm8codeview8CVRecordINS0_10SymbolKindEEE.exit: ; preds = %2, %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit.i, %_ZNK4llvm9StringRef5splitEc.exit, %_ZN4llvm18BinaryStreamReaderD2Ev.exit
-  %.sroa.518.0 = phi i64 [ %.sroa.518.0.copyload, %_ZN4llvm18BinaryStreamReaderD2Ev.exit ], [ %.sroa.5.0, %_ZNK4llvm9StringRef5splitEc.exit ], [ 0, %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit.i ], [ 0, %2 ]
-  %.sroa.017.0 = phi ptr [ %.sroa.017.0.copyload, %_ZN4llvm18BinaryStreamReaderD2Ev.exit ], [ %.sroa.0.0, %_ZNK4llvm9StringRef5splitEc.exit ], [ null, %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit.i ], [ null, %2 ]
+_ZL19getSymbolNameOffsetN4llvm8codeview8CVRecordINS0_10SymbolKindEEE.exit: ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit, %2, %_ZNK4llvm9StringRef5splitEc.exit, %_ZN4llvm18BinaryStreamReaderD2Ev.exit
+  %.sroa.518.0 = phi i64 [ %.sroa.518.0.copyload, %_ZN4llvm18BinaryStreamReaderD2Ev.exit ], [ %.sroa.5.0, %_ZNK4llvm9StringRef5splitEc.exit ], [ 0, %2 ], [ 0, %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit ]
+  %.sroa.017.0 = phi ptr [ %.sroa.017.0.copyload, %_ZN4llvm18BinaryStreamReaderD2Ev.exit ], [ %.sroa.0.0, %_ZNK4llvm9StringRef5splitEc.exit ], [ null, %2 ], [ null, %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.017.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.518.0, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -1838,7 +1832,6 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %44, %._crit_edge
 51:                                               ; preds = %.lr.ph, %162
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %162 ]
   %52 = getelementptr inbounds nuw %"class.llvm::codeview::TypeIndex", ptr %11, i64 %indvars.iv
-  call void @llvm.assume(i1 true) [ "align"(ptr %52, i64 1) ]
   %.0.copyload.i.i.i.i.i = load i32, ptr %52, align 1
   %.0.copyload.i.i.i.i2.i = load i32, ptr %28, align 8
   %53 = icmp ult i32 %.0.copyload.i.i.i.i.i, %.0.copyload.i.i.i.i2.i
@@ -1885,7 +1878,6 @@ _ZN4llvm11SmallStringILj256EE6appendENS_9StringRefE.exit: ; preds = %_ZN4llvm15S
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  call void @llvm.assume(i1 true) [ "align"(ptr %52, i64 1) ]
   call void @llvm.experimental.noalias.scope.decl(metadata !139)
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !139
   %73 = icmp eq i32 %.0.copyload.i.i.i.i.i, 0

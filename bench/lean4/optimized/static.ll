@@ -6979,7 +6979,6 @@ _ZL22mi_arena_static_zallocmmP10mi_memid_s.exit:  ; preds = %14
   %21 = add i64 %15, 15
   %22 = and i64 %21, -16
   %23 = getelementptr inbounds nuw i8, ptr @_ZL15mi_arena_static, i64 %22
-  call void @llvm.assume(i1 true) [ "align"(ptr %23, i64 8) ]
   tail call void @llvm.memset.p0.i64(ptr nonnull align 16 %23, i8 0, i64 %0, i1 false)
   br label %_Z12_mi_os_allocmP10mi_memid_s.exit.thread
 
@@ -12845,7 +12844,6 @@ mi_heap_get_default.exit:                         ; preds = %2, %.loopexit.i
 define hidden void @_Z13_mi_heap_initP9mi_heap_sP8mi_tld_sibh(ptr noundef %0, ptr noundef %1, i32 noundef %2, i1 noundef zeroext %3, i8 noundef zeroext %4) local_unnamed_addr #5 {
   %6 = zext i1 %3 to i8
   call void @llvm.assume(i1 true) [ "align"(ptr %0, i64 8) ]
-  call void @llvm.assume(i1 true) [ "align"(ptr @_mi_heap_empty, i64 8) ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3080) %0, ptr noundef nonnull readonly align 64 dereferenceable(3080) @_mi_heap_empty, i64 3080, i1 false)
   store ptr %1, ptr %0, align 8, !tbaa !187
   %7 = tail call ptr @llvm.thread.pointer.p0()
@@ -13369,7 +13367,6 @@ _ZL19mi_heap_visit_pagesP9mi_heap_sPFbS0_P15mi_page_queue_sP9mi_page_sPvS5_ES5_S
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1032) %45, i8 0, i64 1032, i1 false)
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 1280
   call void @llvm.assume(i1 true) [ "align"(ptr %46, i64 8) ]
-  call void @llvm.assume(i1 true) [ "align"(ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_empty, i64 1280), i64 8) ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1800) %46, ptr noundef nonnull readonly align 64 dereferenceable(1800) getelementptr inbounds nuw (i8, ptr @_mi_heap_empty, i64 1280), i64 1800, i1 false)
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store atomic i64 0, ptr %47 seq_cst, align 8
@@ -13507,7 +13504,6 @@ _Z29_mi_heap_delayed_free_partialP9mi_heap_s.exit.i: ; preds = %.loopexit.i.i, %
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 248
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1032) %47, i8 0, i64 1032, i1 false)
   call void @llvm.assume(i1 true) [ "align"(ptr %44, i64 8) ]
-  call void @llvm.assume(i1 true) [ "align"(ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_empty, i64 1280), i64 8) ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1800) %44, ptr noundef nonnull readonly align 64 dereferenceable(1800) getelementptr inbounds nuw (i8, ptr @_mi_heap_empty, i64 1280), i64 1800, i1 false)
   store atomic i64 0, ptr %24 seq_cst, align 8
   store i64 0, ptr %20, align 8, !tbaa !201
@@ -14744,29 +14740,32 @@ _Z22_mi_os_good_alloc_sizem.exit.i.i:             ; preds = %22, %19, %.thread19
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %29 = trunc nuw i8 %27 to i1
-  br i1 %29, label %30, label %.sink.split
+  br i1 %29, label %31, label %30
+
+30:                                               ; preds = %26
+  call void @llvm.assume(i1 true) [ "align"(ptr %25, i64 8) ]
+  br label %.sink.split
 
 _Z21_mi_arena_meta_zallocmP10mi_memid_s.exit:     ; preds = %_Z22_mi_os_good_alloc_sizem.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
-  br label %37
+  br label %38
 
-.sink.split:                                      ; preds = %26, %_ZL22mi_arena_static_zallocmmP10mi_memid_s.exit.i
-  %.sink36 = phi ptr [ %13, %_ZL22mi_arena_static_zallocmmP10mi_memid_s.exit.i ], [ %25, %26 ]
-  %.sroa.8.0.ph.ph = phi i8 [ 0, %_ZL22mi_arena_static_zallocmmP10mi_memid_s.exit.i ], [ %28, %26 ]
-  %.sroa.9.0.ph.ph = phi i8 [ 0, %_ZL22mi_arena_static_zallocmmP10mi_memid_s.exit.i ], [ 1, %26 ]
-  %.sroa.14.0.ph.ph = phi i32 [ 2, %_ZL22mi_arena_static_zallocmmP10mi_memid_s.exit.i ], [ 3, %26 ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sink36, i64 8) ]
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %.sink36, i8 0, i64 136, i1 false)
-  br label %30
+.sink.split:                                      ; preds = %30, %_ZL22mi_arena_static_zallocmmP10mi_memid_s.exit.i
+  %.sink = phi ptr [ %13, %_ZL22mi_arena_static_zallocmmP10mi_memid_s.exit.i ], [ %25, %30 ]
+  %.sroa.8.0.ph.ph = phi i8 [ 0, %_ZL22mi_arena_static_zallocmmP10mi_memid_s.exit.i ], [ %28, %30 ]
+  %.sroa.9.0.ph.ph = phi i8 [ 0, %_ZL22mi_arena_static_zallocmmP10mi_memid_s.exit.i ], [ 1, %30 ]
+  %.sroa.14.0.ph.ph = phi i32 [ 2, %_ZL22mi_arena_static_zallocmmP10mi_memid_s.exit.i ], [ 3, %30 ]
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %.sink, i8 0, i64 136, i1 false)
+  br label %31
 
-30:                                               ; preds = %.sink.split, %26
+31:                                               ; preds = %.sink.split, %26
   %.sroa.8.0.ph = phi i8 [ %28, %26 ], [ %.sroa.8.0.ph.ph, %.sink.split ]
   %.sroa.9.0.ph = phi i8 [ 1, %26 ], [ %.sroa.9.0.ph.ph, %.sink.split ]
   %.sroa.14.0.ph = phi i32 [ 3, %26 ], [ %.sroa.14.0.ph.ph, %.sink.split ]
-  %.0.i.ph = phi ptr [ %25, %26 ], [ %.sink36, %.sink.split ]
-  %31 = getelementptr inbounds nuw i8, ptr %.0.i.ph, i64 112
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %31, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0, i64 16, i1 false), !tbaa.struct !166
+  %.0.i.ph = phi ptr [ %25, %26 ], [ %.sink, %.sink.split ]
+  %32 = getelementptr inbounds nuw i8, ptr %.0.i.ph, i64 112
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0, i64 16, i1 false), !tbaa.struct !166
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.0.i.ph, i64 128
   store i8 %.sroa.8.0.ph, ptr %.sroa.8.0..sroa_idx, align 8, !tbaa !88
   %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.0.i.ph, i64 129
@@ -14777,16 +14776,16 @@ _Z21_mi_arena_meta_zallocmP10mi_memid_s.exit:     ; preds = %_Z22_mi_os_good_all
   store i8 0, ptr %.sroa.13.0..sroa_idx, align 1
   %.sroa.14.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.0.i.ph, i64 132
   store i32 %.sroa.14.0.ph, ptr %.sroa.14.0..sroa_idx, align 4, !tbaa !129
-  %32 = getelementptr inbounds nuw i8, ptr %.0.i.ph, i64 96
-  store ptr null, ptr %32, align 8, !tbaa !83
-  %33 = getelementptr inbounds nuw i8, ptr %.0.i.ph, i64 16
-  %34 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %33, ptr noundef null) #55
-  %35 = getelementptr inbounds nuw i8, ptr %.0.i.ph, i64 56
-  %36 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %35, ptr noundef null) #55
-  br label %37
+  %33 = getelementptr inbounds nuw i8, ptr %.0.i.ph, i64 96
+  store ptr null, ptr %33, align 8, !tbaa !83
+  %34 = getelementptr inbounds nuw i8, ptr %.0.i.ph, i64 16
+  %35 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %34, ptr noundef null) #55
+  %36 = getelementptr inbounds nuw i8, ptr %.0.i.ph, i64 56
+  %37 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %36, ptr noundef null) #55
+  br label %38
 
-37:                                               ; preds = %_Z21_mi_arena_meta_zallocmP10mi_memid_s.exit, %30
-  %.0 = phi ptr [ %.0.i.ph, %30 ], [ null, %_Z21_mi_arena_meta_zallocmP10mi_memid_s.exit ]
+38:                                               ; preds = %_Z21_mi_arena_meta_zallocmP10mi_memid_s.exit, %31
+  %.0 = phi ptr [ %.0.i.ph, %31 ], [ null, %_Z21_mi_arena_meta_zallocmP10mi_memid_s.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
   ret ptr %.0
 }
@@ -14940,7 +14939,6 @@ define hidden void @_Z23_mi_thread_data_collectv() local_unnamed_addr #5 {
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: write) uwtable
 define hidden void @_Z12_mi_tld_initP8mi_tld_sP9mi_heap_s(ptr noundef %0, ptr noundef %1) local_unnamed_addr #27 {
   call void @llvm.assume(i1 true) [ "align"(ptr %0, i64 8) ]
-  call void @llvm.assume(i1 true) [ "align"(ptr @_ZL9tld_empty, i64 8) ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5136) %0, ptr noundef nonnull readonly align 64 dereferenceable(5136) @_ZL9tld_empty, i64 5136, i1 false)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %1, ptr %3, align 8, !tbaa !197
@@ -15490,7 +15488,6 @@ _ZL21mi_thread_data_zallocv.exit:                 ; preds = %59
 61:                                               ; preds = %_ZL21mi_thread_data_zallocv.exit.thread, %_ZL21mi_thread_data_zallocv.exit
   %62 = getelementptr inbounds nuw i8, ptr %.3.i, i64 3080
   call void @llvm.assume(i1 true) [ "align"(ptr %62, i64 8) ]
-  call void @llvm.assume(i1 true) [ "align"(ptr @_ZL9tld_empty, i64 8) ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5136) %62, ptr noundef nonnull readonly align 64 dereferenceable(5136) @_ZL9tld_empty, i64 5136, i1 false)
   %63 = getelementptr inbounds nuw i8, ptr %.3.i, i64 3096
   store ptr %.3.i, ptr %63, align 8, !tbaa !197

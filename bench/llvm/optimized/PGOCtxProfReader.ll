@@ -4050,7 +4050,6 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br i1 %.not11.i, label %65, label %64
 
 64:                                               ; preds = %60
-  call void @llvm.assume(i1 true) [ "align"(ptr %62, i64 1) ]
   %.0.copyload.i.i.i.i.i = load i64, ptr %62, align 1, !noalias !349
   store i64 %.0.copyload.i.i.i.i.i, ptr %29, align 8, !tbaa !90, !noalias !349
   br label %_ZN4llvm5ErrorD2Ev.exit11

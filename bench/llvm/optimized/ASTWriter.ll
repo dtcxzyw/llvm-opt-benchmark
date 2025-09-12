@@ -67012,7 +67012,6 @@ _ZN5clang13serialization29MultiOnDiskHashTableGeneratorINS0_6reader33LazySpecial
   %407 = add i64 %331, %327
   %408 = trunc i64 %407 to i32
   %409 = load ptr, ptr %3, align 8, !tbaa !291
-  call void @llvm.assume(i1 true) [ "align"(ptr %409, i64 1) ]
   store i32 %408, ptr %409, align 1
   call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %18) #35
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
@@ -67924,7 +67923,6 @@ _ZN5clang13serialization20MultiOnDiskHashTableINS0_6reader33LazySpecializationIn
   %135 = load ptr, ptr %134, align 8, !tbaa !2675, !noalias !2671
   %136 = zext i32 %.0.copyload.i.i.i.i to i64
   %137 = getelementptr inbounds nuw i8, ptr %135, i64 %136
-  call void @llvm.assume(i1 true) [ "align"(ptr %137, i64 1) ]
   %.0.copyload.i.i.i36.i = load i16, ptr %137, align 1, !noalias !2671
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 2
   store ptr %138, ptr %4, align 8, !tbaa !1094, !noalias !2671
@@ -67935,7 +67933,6 @@ _ZN5clang13serialization20MultiOnDiskHashTableINS0_6reader33LazySpecializationIn
 .lr.ph.i:                                         ; preds = %133, %.critedge.i
   %140 = phi ptr [ %150, %.critedge.i ], [ %138, %133 ]
   %.02641.i = phi i32 [ %151, %.critedge.i ], [ 0, %133 ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %140, i64 1) ]
   %.0.copyload.i.i.i37.i = load i32, ptr %140, align 1, !noalias !2671
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 4
   store ptr %141, ptr %4, align 8, !tbaa !1094, !noalias !2671
@@ -70659,7 +70656,6 @@ _ZN5clang13serialization29MultiOnDiskHashTableGeneratorINS0_6reader29ASTDeclCont
   %1186 = add i64 %1112, %1108
   %1187 = trunc i64 %1186 to i32
   %1188 = load ptr, ptr %3, align 8, !tbaa !291
-  call void @llvm.assume(i1 true) [ "align"(ptr %1188, i64 1) ]
   store i32 %1187, ptr %1188, align 1
   call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %47) #35
   call void @llvm.lifetime.end.p0(ptr nonnull %47)
@@ -71507,7 +71503,6 @@ _ZN5clang13serialization29MultiOnDiskHashTableGeneratorINS0_6reader26ModuleLocal
   %1580 = add i64 %1505, %1501
   %1581 = trunc i64 %1580 to i32
   %1582 = load ptr, ptr %4, align 8, !tbaa !291
-  call void @llvm.assume(i1 true) [ "align"(ptr %1582, i64 1) ]
   store i32 %1581, ptr %1582, align 1
   call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %33) #35
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
@@ -72304,7 +72299,6 @@ _ZN5clang13serialization29MultiOnDiskHashTableGeneratorINS0_6reader29ASTDeclCont
   %1910 = add i64 %1836, %1832
   %1911 = trunc i64 %1910 to i32
   %1912 = load ptr, ptr %5, align 8, !tbaa !291
-  call void @llvm.assume(i1 true) [ "align"(ptr %1912, i64 1) ]
   store i32 %1911, ptr %1912, align 1
   call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %19) #35
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
@@ -116915,7 +116909,6 @@ _ZNK4llvm15BitstreamWriter20GetNumOfFlushedBytesEv.exit.thread: ; preds = %3, %9
   %30 = load ptr, ptr %28, align 8, !tbaa !291
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 %29
   %32 = icmp eq i64 %6, 0
-  call void @llvm.assume(i1 true) [ "align"(ptr %31, i64 1) ]
   br i1 %32, label %_ZN4llvm7support6endian19writeAtBitAlignmentIhLNS_10endiannessE1ELm1EEEvPvT_m.exit, label %33
 
 33:                                               ; preds = %_ZNK4llvm15BitstreamWriter20GetNumOfFlushedBytesEv.exit.thread
@@ -116943,7 +116936,6 @@ _ZNK4llvm15BitstreamWriter20GetNumOfFlushedBytesEv.exit.thread: ; preds = %3, %9
   %50 = and i32 %49, %35
   %51 = trunc nuw nsw i32 %50 to i8
   %52 = or i8 %47, %51
-  call void @llvm.assume(i1 true) [ "align"(ptr %31, i64 1) ]
   store i8 %52, ptr %.sroa.12.0..sroa_idx.i, align 1
   br label %_ZN4llvm7support6endian19writeAtBitAlignmentIhLNS_10endiannessE1ELm1EEEvPvT_m.exit
 
@@ -116982,11 +116974,7 @@ _ZN4llvm15BitstreamWriter8fdStreamEv.exit:        ; preds = %53, %55
   %70 = sub i64 %25, %5
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %70, i64 %69)
   %71 = sub nsw i64 %69, %.sroa.speculated
-  br i1 %.not41, label %.split, label %_ZN4llvm15BitstreamWriter8fdStreamEv.exit46
-
-.split:                                           ; preds = %_ZN4llvm15BitstreamWriter8fdStreamEv.exit
-  call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 1) ]
-  br label %_ZN4llvm15BitstreamWriter8fdStreamEv.exit61
+  br i1 %.not41, label %_ZN4llvm15BitstreamWriter8fdStreamEv.exit61, label %_ZN4llvm15BitstreamWriter8fdStreamEv.exit46
 
 _ZN4llvm15BitstreamWriter8fdStreamEv.exit46:      ; preds = %_ZN4llvm15BitstreamWriter8fdStreamEv.exit
   %72 = load ptr, ptr %7, align 8, !tbaa !292, !nonnull !677, !noundef !677
@@ -117006,7 +116994,6 @@ _ZN4llvm15BitstreamWriter8fdStreamEv.exit46:      ; preds = %_ZN4llvm15Bitstream
   br label %100
 
 _ZN4llvm7support6endian19writeAtBitAlignmentIhLNS_10endiannessE1ELm1EEEvPvT_m.exit57: ; preds = %100, %_ZN4llvm15BitstreamWriter8fdStreamEv.exit46
-  call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 1) ]
   %.sroa.0.0.copyload.i51 = load i8, ptr %4, align 1
   %.sroa.12.0..sroa_idx.i52 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %.sroa.12.0.copyload.i53 = load i8, ptr %.sroa.12.0..sroa_idx.i52, align 1
@@ -117031,7 +117018,6 @@ _ZN4llvm7support6endian19writeAtBitAlignmentIhLNS_10endiannessE1ELm1EEEvPvT_m.ex
   %97 = and i32 %96, %82
   %98 = trunc nuw nsw i32 %97 to i8
   %99 = or i8 %94, %98
-  call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 1) ]
   store i8 %99, ptr %.sroa.12.0..sroa_idx.i52, align 1
   br label %_ZN4llvm15BitstreamWriter8fdStreamEv.exit61
 
@@ -117045,8 +117031,8 @@ _ZN4llvm7support6endian19writeAtBitAlignmentIhLNS_10endiannessE1ELm1EEEvPvT_m.ex
   %exitcond.not = icmp eq i64 %104, %71
   br i1 %exitcond.not, label %_ZN4llvm7support6endian19writeAtBitAlignmentIhLNS_10endiannessE1ELm1EEEvPvT_m.exit57, label %100, !llvm.loop !4816
 
-_ZN4llvm15BitstreamWriter8fdStreamEv.exit61:      ; preds = %.split, %_ZN4llvm7support6endian19writeAtBitAlignmentIhLNS_10endiannessE1ELm1EEEvPvT_m.exit57
-  %storemerge = phi i8 [ %92, %_ZN4llvm7support6endian19writeAtBitAlignmentIhLNS_10endiannessE1ELm1EEEvPvT_m.exit57 ], [ %2, %.split ]
+_ZN4llvm15BitstreamWriter8fdStreamEv.exit61:      ; preds = %_ZN4llvm15BitstreamWriter8fdStreamEv.exit, %_ZN4llvm7support6endian19writeAtBitAlignmentIhLNS_10endiannessE1ELm1EEEvPvT_m.exit57
+  %storemerge = phi i8 [ %92, %_ZN4llvm7support6endian19writeAtBitAlignmentIhLNS_10endiannessE1ELm1EEEvPvT_m.exit57 ], [ %2, %_ZN4llvm15BitstreamWriter8fdStreamEv.exit ]
   store i8 %storemerge, ptr %4, align 1
   %105 = load ptr, ptr %7, align 8, !tbaa !292, !nonnull !677, !noundef !677
   %106 = call noundef zeroext i1 @_ZN4llvm13raw_fd_stream7classofEPKNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(48) %105) #35
@@ -152725,7 +152711,6 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_11SmallVectorIN5clang12GlobalDeclIDELj4E
   br i1 %.not.i.i36, label %207, label %_ZN4llvm30OnDiskIterableChainedHashTableIN5clang13serialization6reader33LazySpecializationInfoLookupTraitEE13data_iteratorppEv.exit
 
 207:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_11SmallVectorIN5clang12GlobalDeclIDELj4EEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS5_EEEEjS5_S7_SA_EixERKj.exit
-  call void @llvm.assume(i1 true) [ "align"(ptr %.pre.i.i37, i64 1) ]
   %.0.copyload.i.i.i.i.i = load i16, ptr %.pre.i.i37, align 1
   %208 = getelementptr inbounds nuw i8, ptr %.pre.i.i37, i64 2
   %209 = zext i16 %.0.copyload.i.i.i.i.i to i32

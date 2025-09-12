@@ -1243,7 +1243,6 @@ define linkonce_odr void @_ZN5folly18ThreadPoolExecutor10makeThreadEv(ptr dead_o
   store ptr null, ptr %0, align 8, !tbaa !18, !alias.scope !15
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = tail call noalias noundef nonnull align 64 dereferenceable(128) ptr @_ZnwmSt11align_val_t(i64 noundef 128, i64 noundef 64) #40, !noalias !15
-  call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 64) ]
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 1, ptr %5, align 8, !tbaa !21, !noalias !15
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 12
@@ -12280,7 +12279,6 @@ define linkonce_odr noundef ptr @_ZN5folly17atomic_grow_arrayINS_12SynchronizedI
   %21 = and i64 %20, -16
   %22 = add i64 %21, %15
   %23 = tail call noalias noundef nonnull align 16 ptr @_ZnwmSt11align_val_t(i64 noundef %22, i64 noundef 16) #40
-  call void @llvm.assume(i1 true) [ "align"(ptr %23, i64 16) ]
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store i64 %1, ptr %24, align 8, !tbaa !190
   store ptr %4, ptr %23, align 16, !tbaa !499
@@ -24643,7 +24641,6 @@ _ZNSt12_Vector_baseIN5folly9MPMCQueueINS0_21CPUThreadPoolExecutor7CPUTaskESt6ato
   %17 = sub i64 %16, %10
   %18 = mul nuw nsw i64 %1, 320
   %19 = tail call noalias noundef nonnull align 64 ptr @_ZnwmSt11align_val_t(i64 noundef %18, i64 noundef 64) #40
-  call void @llvm.assume(i1 true) [ "align"(ptr %19, i64 64) ]
   %.not10.i.i.i = icmp eq ptr %8, %15
   br i1 %.not10.i.i.i, label %_ZNSt6vectorIN5folly9MPMCQueueINS0_21CPUThreadPoolExecutor7CPUTaskESt6atomicLb0ESaIS3_EEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit, label %.lr.ph.i.i.i
 
@@ -25667,7 +25664,6 @@ _ZNKSt6vectorIN5folly9MPMCQueueINS0_21CPUThreadPoolExecutor7CPUTaskESt6atomicLb0
   tail call void @llvm.assume(i1 %.not.i)
   %19 = mul nuw nsw i64 %16, 320
   %20 = tail call noalias noundef nonnull align 64 ptr @_ZnwmSt11align_val_t(i64 noundef %19, i64 noundef 64) #40
-  call void @llvm.assume(i1 true) [ "align"(ptr %20, i64 64) ]
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 %18
   %22 = load i64, ptr %2, align 8, !tbaa !190
   invoke void @_ZN5folly9MPMCQueueINS_21CPUThreadPoolExecutor7CPUTaskESt6atomicLb0ESaIS2_EEC2Em(ptr noundef nonnull align 64 dereferenceable(320) %21, i64 noundef %22)

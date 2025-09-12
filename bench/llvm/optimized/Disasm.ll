@@ -2225,7 +2225,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1750:             ; preds = %156, %158
   %173 = sub i64 %172, %.cast
   %sext = shl i64 %173, 32
   %174 = ashr exact i64 %sext, 32
-  call void @llvm.assume(i1 true) [ "align"(ptr %171, i64 1) ]
   %.0.copyload.i.i.i.i.i = load i32, ptr %171, align 1
   %175 = getelementptr inbounds nuw i8, ptr %171, i64 8
   store ptr %175, ptr %5, align 8, !tbaa !73
@@ -4120,7 +4119,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.32)
   %260 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %261 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %261, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1754 = load i32, ptr %261, align 1
   %262 = getelementptr inbounds nuw i8, ptr %261, i64 8
   store ptr %262, ptr %5, align 8, !tbaa !73
@@ -4135,7 +4133,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %268 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %269 = load ptr, ptr %0, align 8, !tbaa !84
   %270 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %270, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1755 = load i32, ptr %270, align 1
   %271 = getelementptr inbounds nuw i8, ptr %270, i64 8
   store ptr %271, ptr %5, align 8, !tbaa !73
@@ -4150,7 +4147,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %277 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %278 = load ptr, ptr %0, align 8, !tbaa !84
   %279 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %279, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1756 = load i32, ptr %279, align 1
   %280 = getelementptr inbounds nuw i8, ptr %279, i64 8
   store ptr %280, ptr %5, align 8, !tbaa !73
@@ -4158,7 +4154,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %282 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %277, ptr noundef %281) #18
   %283 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %282, ptr noundef nonnull @.str)
   %284 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %284, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1757 = load i8, ptr %284, align 1
   %285 = getelementptr inbounds nuw i8, ptr %284, i64 8
   store ptr %285, ptr %5, align 8, !tbaa !73
@@ -4174,7 +4169,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %292 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %293 = load ptr, ptr %0, align 8, !tbaa !84
   %294 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %294, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1758 = load i32, ptr %294, align 1
   %295 = getelementptr inbounds nuw i8, ptr %294, i64 8
   store ptr %295, ptr %5, align 8, !tbaa !73
@@ -4182,7 +4176,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %297 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %292, ptr noundef %296) #18
   %298 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %297, ptr noundef nonnull @.str)
   %299 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %299, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1759 = load i8, ptr %299, align 1
   %300 = getelementptr inbounds nuw i8, ptr %299, i64 8
   store ptr %300, ptr %5, align 8, !tbaa !73
@@ -4198,7 +4191,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %307 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %308 = load ptr, ptr %0, align 8, !tbaa !84
   %309 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %309, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1760 = load i32, ptr %309, align 1
   %310 = getelementptr inbounds nuw i8, ptr %309, i64 8
   store ptr %310, ptr %5, align 8, !tbaa !73
@@ -4206,7 +4198,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %312 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %307, ptr noundef %311) #18
   %313 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %312, ptr noundef nonnull @.str)
   %314 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %314, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1761 = load i8, ptr %314, align 1
   %315 = getelementptr inbounds nuw i8, ptr %314, i64 8
   store ptr %315, ptr %5, align 8, !tbaa !73
@@ -4222,7 +4213,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %322 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %323 = load ptr, ptr %0, align 8, !tbaa !84
   %324 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %324, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1762 = load i32, ptr %324, align 1
   %325 = getelementptr inbounds nuw i8, ptr %324, i64 8
   store ptr %325, ptr %5, align 8, !tbaa !73
@@ -4230,7 +4220,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %327 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %322, ptr noundef %326) #18
   %328 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %327, ptr noundef nonnull @.str)
   %329 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %329, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1763 = load i8, ptr %329, align 1
   %330 = getelementptr inbounds nuw i8, ptr %329, i64 8
   store ptr %330, ptr %5, align 8, !tbaa !73
@@ -4246,7 +4235,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %337 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %338 = load ptr, ptr %0, align 8, !tbaa !84
   %339 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %339, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1764 = load i32, ptr %339, align 1
   %340 = getelementptr inbounds nuw i8, ptr %339, i64 8
   store ptr %340, ptr %5, align 8, !tbaa !73
@@ -4254,7 +4242,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %342 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %337, ptr noundef %341) #18
   %343 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %342, ptr noundef nonnull @.str)
   %344 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %344, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1765 = load i8, ptr %344, align 1
   %345 = getelementptr inbounds nuw i8, ptr %344, i64 8
   store ptr %345, ptr %5, align 8, !tbaa !73
@@ -4270,7 +4257,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %352 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %353 = load ptr, ptr %0, align 8, !tbaa !84
   %354 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %354, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1766 = load i32, ptr %354, align 1
   %355 = getelementptr inbounds nuw i8, ptr %354, i64 8
   store ptr %355, ptr %5, align 8, !tbaa !73
@@ -4278,7 +4264,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %357 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %352, ptr noundef %356) #18
   %358 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %357, ptr noundef nonnull @.str)
   %359 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %359, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1767 = load i8, ptr %359, align 1
   %360 = getelementptr inbounds nuw i8, ptr %359, i64 8
   store ptr %360, ptr %5, align 8, !tbaa !73
@@ -4294,7 +4279,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %367 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %368 = load ptr, ptr %0, align 8, !tbaa !84
   %369 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %369, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1768 = load i32, ptr %369, align 1
   %370 = getelementptr inbounds nuw i8, ptr %369, i64 8
   store ptr %370, ptr %5, align 8, !tbaa !73
@@ -4302,7 +4286,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %372 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %367, ptr noundef %371) #18
   %373 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %372, ptr noundef nonnull @.str)
   %374 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %374, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1769 = load i8, ptr %374, align 1
   %375 = getelementptr inbounds nuw i8, ptr %374, i64 8
   store ptr %375, ptr %5, align 8, !tbaa !73
@@ -4318,7 +4301,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %382 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %383 = load ptr, ptr %0, align 8, !tbaa !84
   %384 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %384, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1770 = load i32, ptr %384, align 1
   %385 = getelementptr inbounds nuw i8, ptr %384, i64 8
   store ptr %385, ptr %5, align 8, !tbaa !73
@@ -4326,7 +4308,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %387 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %382, ptr noundef %386) #18
   %388 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %387, ptr noundef nonnull @.str)
   %389 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %389, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1771 = load i8, ptr %389, align 1
   %390 = getelementptr inbounds nuw i8, ptr %389, i64 8
   store ptr %390, ptr %5, align 8, !tbaa !73
@@ -4342,7 +4323,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %397 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %398 = load ptr, ptr %0, align 8, !tbaa !84
   %399 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %399, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1772 = load i32, ptr %399, align 1
   %400 = getelementptr inbounds nuw i8, ptr %399, i64 8
   store ptr %400, ptr %5, align 8, !tbaa !73
@@ -4350,7 +4330,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %402 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %397, ptr noundef %401) #18
   %403 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %402, ptr noundef nonnull @.str)
   %404 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %404, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1773 = load i8, ptr %404, align 1
   %405 = getelementptr inbounds nuw i8, ptr %404, i64 8
   store ptr %405, ptr %5, align 8, !tbaa !73
@@ -4366,7 +4345,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %412 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %413 = load ptr, ptr %0, align 8, !tbaa !84
   %414 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %414, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1774 = load i32, ptr %414, align 1
   %415 = getelementptr inbounds nuw i8, ptr %414, i64 8
   store ptr %415, ptr %5, align 8, !tbaa !73
@@ -4374,7 +4352,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %417 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %412, ptr noundef %416) #18
   %418 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %417, ptr noundef nonnull @.str)
   %419 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %419, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1775 = load i8, ptr %419, align 1
   %420 = getelementptr inbounds nuw i8, ptr %419, i64 8
   store ptr %420, ptr %5, align 8, !tbaa !73
@@ -4389,7 +4366,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.44)
   %427 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %428 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %428, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1776 = load i32, ptr %428, align 1
   %429 = getelementptr inbounds nuw i8, ptr %428, i64 8
   store ptr %429, ptr %5, align 8, !tbaa !73
@@ -4398,7 +4374,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %432 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %431, ptr noundef nonnull @.str)
   %433 = load ptr, ptr %0, align 8, !tbaa !84
   %434 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %434, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1777 = load i32, ptr %434, align 1
   %435 = getelementptr inbounds nuw i8, ptr %434, i64 8
   store ptr %435, ptr %5, align 8, !tbaa !73
@@ -4406,7 +4381,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %437 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %432, ptr noundef %436) #18
   %438 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %437, ptr noundef nonnull @.str)
   %439 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %439, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1778 = load i8, ptr %439, align 1
   %440 = getelementptr inbounds nuw i8, ptr %439, i64 8
   store ptr %440, ptr %5, align 8, !tbaa !73
@@ -4421,7 +4395,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.45)
   %447 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %448 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %448, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1779 = load i32, ptr %448, align 1
   %449 = getelementptr inbounds nuw i8, ptr %448, i64 8
   store ptr %449, ptr %5, align 8, !tbaa !73
@@ -4430,7 +4403,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %452 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %451, ptr noundef nonnull @.str)
   %453 = load ptr, ptr %0, align 8, !tbaa !84
   %454 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %454, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1780 = load i32, ptr %454, align 1
   %455 = getelementptr inbounds nuw i8, ptr %454, i64 8
   store ptr %455, ptr %5, align 8, !tbaa !73
@@ -4438,7 +4410,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %457 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %452, ptr noundef %456) #18
   %458 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %457, ptr noundef nonnull @.str)
   %459 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %459, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1781 = load i8, ptr %459, align 1
   %460 = getelementptr inbounds nuw i8, ptr %459, i64 8
   store ptr %460, ptr %5, align 8, !tbaa !73
@@ -4453,7 +4424,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.46)
   %467 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %468 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %468, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1782 = load i32, ptr %468, align 1
   %469 = getelementptr inbounds nuw i8, ptr %468, i64 8
   store ptr %469, ptr %5, align 8, !tbaa !73
@@ -4462,7 +4432,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %472 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %471, ptr noundef nonnull @.str)
   %473 = load ptr, ptr %0, align 8, !tbaa !84
   %474 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %474, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1783 = load i32, ptr %474, align 1
   %475 = getelementptr inbounds nuw i8, ptr %474, i64 8
   store ptr %475, ptr %5, align 8, !tbaa !73
@@ -4470,7 +4439,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %477 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %472, ptr noundef %476) #18
   %478 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %477, ptr noundef nonnull @.str)
   %479 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %479, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1784 = load i8, ptr %479, align 1
   %480 = getelementptr inbounds nuw i8, ptr %479, i64 8
   store ptr %480, ptr %5, align 8, !tbaa !73
@@ -4485,7 +4453,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.47)
   %487 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %488 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %488, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1785 = load i32, ptr %488, align 1
   %489 = getelementptr inbounds nuw i8, ptr %488, i64 8
   store ptr %489, ptr %5, align 8, !tbaa !73
@@ -4494,7 +4461,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %492 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %491, ptr noundef nonnull @.str)
   %493 = load ptr, ptr %0, align 8, !tbaa !84
   %494 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %494, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1786 = load i32, ptr %494, align 1
   %495 = getelementptr inbounds nuw i8, ptr %494, i64 8
   store ptr %495, ptr %5, align 8, !tbaa !73
@@ -4502,7 +4468,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %497 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %492, ptr noundef %496) #18
   %498 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %497, ptr noundef nonnull @.str)
   %499 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %499, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1787 = load i8, ptr %499, align 1
   %500 = getelementptr inbounds nuw i8, ptr %499, i64 8
   store ptr %500, ptr %5, align 8, !tbaa !73
@@ -4517,7 +4482,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.48)
   %507 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %508 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %508, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1788 = load i32, ptr %508, align 1
   %509 = getelementptr inbounds nuw i8, ptr %508, i64 8
   store ptr %509, ptr %5, align 8, !tbaa !73
@@ -4526,7 +4490,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %512 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %511, ptr noundef nonnull @.str)
   %513 = load ptr, ptr %0, align 8, !tbaa !84
   %514 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %514, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1789 = load i32, ptr %514, align 1
   %515 = getelementptr inbounds nuw i8, ptr %514, i64 8
   store ptr %515, ptr %5, align 8, !tbaa !73
@@ -4534,7 +4497,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %517 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %512, ptr noundef %516) #18
   %518 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %517, ptr noundef nonnull @.str)
   %519 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %519, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1790 = load i8, ptr %519, align 1
   %520 = getelementptr inbounds nuw i8, ptr %519, i64 8
   store ptr %520, ptr %5, align 8, !tbaa !73
@@ -4549,7 +4511,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.49)
   %527 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %528 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %528, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1791 = load i32, ptr %528, align 1
   %529 = getelementptr inbounds nuw i8, ptr %528, i64 8
   store ptr %529, ptr %5, align 8, !tbaa !73
@@ -4558,7 +4519,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %532 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %531, ptr noundef nonnull @.str)
   %533 = load ptr, ptr %0, align 8, !tbaa !84
   %534 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %534, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1792 = load i32, ptr %534, align 1
   %535 = getelementptr inbounds nuw i8, ptr %534, i64 8
   store ptr %535, ptr %5, align 8, !tbaa !73
@@ -4566,7 +4526,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %537 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %532, ptr noundef %536) #18
   %538 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %537, ptr noundef nonnull @.str)
   %539 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %539, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1793 = load i8, ptr %539, align 1
   %540 = getelementptr inbounds nuw i8, ptr %539, i64 8
   store ptr %540, ptr %5, align 8, !tbaa !73
@@ -4581,7 +4540,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.50)
   %547 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %548 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %548, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1794 = load i32, ptr %548, align 1
   %549 = getelementptr inbounds nuw i8, ptr %548, i64 8
   store ptr %549, ptr %5, align 8, !tbaa !73
@@ -4590,7 +4548,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %552 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %551, ptr noundef nonnull @.str)
   %553 = load ptr, ptr %0, align 8, !tbaa !84
   %554 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %554, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1795 = load i32, ptr %554, align 1
   %555 = getelementptr inbounds nuw i8, ptr %554, i64 8
   store ptr %555, ptr %5, align 8, !tbaa !73
@@ -4598,7 +4555,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %557 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %552, ptr noundef %556) #18
   %558 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %557, ptr noundef nonnull @.str)
   %559 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %559, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1796 = load i8, ptr %559, align 1
   %560 = getelementptr inbounds nuw i8, ptr %559, i64 8
   store ptr %560, ptr %5, align 8, !tbaa !73
@@ -4613,7 +4569,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.51)
   %567 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %568 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %568, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1797 = load i32, ptr %568, align 1
   %569 = getelementptr inbounds nuw i8, ptr %568, i64 8
   store ptr %569, ptr %5, align 8, !tbaa !73
@@ -4622,7 +4577,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %572 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %571, ptr noundef nonnull @.str)
   %573 = load ptr, ptr %0, align 8, !tbaa !84
   %574 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %574, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1798 = load i32, ptr %574, align 1
   %575 = getelementptr inbounds nuw i8, ptr %574, i64 8
   store ptr %575, ptr %5, align 8, !tbaa !73
@@ -4630,7 +4584,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %577 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %572, ptr noundef %576) #18
   %578 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %577, ptr noundef nonnull @.str)
   %579 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %579, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1799 = load i8, ptr %579, align 1
   %580 = getelementptr inbounds nuw i8, ptr %579, i64 8
   store ptr %580, ptr %5, align 8, !tbaa !73
@@ -4645,7 +4598,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.52)
   %587 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %588 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %588, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1800 = load i32, ptr %588, align 1
   %589 = getelementptr inbounds nuw i8, ptr %588, i64 8
   store ptr %589, ptr %5, align 8, !tbaa !73
@@ -4654,7 +4606,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %592 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %591, ptr noundef nonnull @.str)
   %593 = load ptr, ptr %0, align 8, !tbaa !84
   %594 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %594, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1801 = load i32, ptr %594, align 1
   %595 = getelementptr inbounds nuw i8, ptr %594, i64 8
   store ptr %595, ptr %5, align 8, !tbaa !73
@@ -4662,7 +4613,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %597 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %592, ptr noundef %596) #18
   %598 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %597, ptr noundef nonnull @.str)
   %599 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %599, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1802 = load i8, ptr %599, align 1
   %600 = getelementptr inbounds nuw i8, ptr %599, i64 8
   store ptr %600, ptr %5, align 8, !tbaa !73
@@ -4677,7 +4627,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.53)
   %607 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %608 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %608, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1803 = load i32, ptr %608, align 1
   %609 = getelementptr inbounds nuw i8, ptr %608, i64 8
   store ptr %609, ptr %5, align 8, !tbaa !73
@@ -4686,7 +4635,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %612 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %611, ptr noundef nonnull @.str)
   %613 = load ptr, ptr %0, align 8, !tbaa !84
   %614 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %614, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1804 = load i32, ptr %614, align 1
   %615 = getelementptr inbounds nuw i8, ptr %614, i64 8
   store ptr %615, ptr %5, align 8, !tbaa !73
@@ -4694,7 +4642,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %617 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %612, ptr noundef %616) #18
   %618 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %617, ptr noundef nonnull @.str)
   %619 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %619, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1805 = load i8, ptr %619, align 1
   %620 = getelementptr inbounds nuw i8, ptr %619, i64 8
   store ptr %620, ptr %5, align 8, !tbaa !73
@@ -4715,7 +4662,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.55)
   %630 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %631 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %631, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1806 = load i32, ptr %631, align 1
   %632 = getelementptr inbounds nuw i8, ptr %631, i64 8
   store ptr %632, ptr %5, align 8, !tbaa !73
@@ -4729,7 +4675,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.56)
   %638 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %639 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %639, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1807 = load i32, ptr %639, align 1
   %640 = getelementptr inbounds nuw i8, ptr %639, i64 8
   store ptr %640, ptr %5, align 8, !tbaa !73
@@ -4743,7 +4688,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.57)
   %646 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %647 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %647, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1808 = load i32, ptr %647, align 1
   %648 = getelementptr inbounds nuw i8, ptr %647, i64 8
   store ptr %648, ptr %5, align 8, !tbaa !73
@@ -4757,7 +4701,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.58)
   %654 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %655 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %655, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1809 = load i32, ptr %655, align 1
   %656 = getelementptr inbounds nuw i8, ptr %655, i64 8
   store ptr %656, ptr %5, align 8, !tbaa !73
@@ -4771,7 +4714,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.59)
   %662 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %663 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %663, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1810 = load i32, ptr %663, align 1
   %664 = getelementptr inbounds nuw i8, ptr %663, i64 8
   store ptr %664, ptr %5, align 8, !tbaa !73
@@ -4785,7 +4727,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.60)
   %670 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %671 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %671, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1811 = load i32, ptr %671, align 1
   %672 = getelementptr inbounds nuw i8, ptr %671, i64 8
   store ptr %672, ptr %5, align 8, !tbaa !73
@@ -4799,7 +4740,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.61)
   %678 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %679 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %679, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1812 = load i32, ptr %679, align 1
   %680 = getelementptr inbounds nuw i8, ptr %679, i64 8
   store ptr %680, ptr %5, align 8, !tbaa !73
@@ -4813,7 +4753,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.62)
   %686 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %687 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %687, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1813 = load i32, ptr %687, align 1
   %688 = getelementptr inbounds nuw i8, ptr %687, i64 8
   store ptr %688, ptr %5, align 8, !tbaa !73
@@ -4827,7 +4766,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.63)
   %694 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %695 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %695, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1814 = load i32, ptr %695, align 1
   %696 = getelementptr inbounds nuw i8, ptr %695, i64 8
   store ptr %696, ptr %5, align 8, !tbaa !73
@@ -4841,7 +4779,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.64)
   %702 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %703 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %703, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1815 = load i32, ptr %703, align 1
   %704 = getelementptr inbounds nuw i8, ptr %703, i64 8
   store ptr %704, ptr %5, align 8, !tbaa !73
@@ -4855,7 +4792,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.65)
   %710 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %711 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %711, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1816 = load i32, ptr %711, align 1
   %712 = getelementptr inbounds nuw i8, ptr %711, i64 8
   store ptr %712, ptr %5, align 8, !tbaa !73
@@ -4869,7 +4805,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.66)
   %718 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %719 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %719, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1817 = load i32, ptr %719, align 1
   %720 = getelementptr inbounds nuw i8, ptr %719, i64 8
   store ptr %720, ptr %5, align 8, !tbaa !73
@@ -4883,7 +4818,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.67)
   %726 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %727 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %727, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1818 = load i32, ptr %727, align 1
   %728 = getelementptr inbounds nuw i8, ptr %727, i64 8
   store ptr %728, ptr %5, align 8, !tbaa !73
@@ -4897,7 +4831,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.68)
   %734 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %735 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %735, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1819 = load i32, ptr %735, align 1
   %736 = getelementptr inbounds nuw i8, ptr %735, i64 8
   store ptr %736, ptr %5, align 8, !tbaa !73
@@ -4911,7 +4844,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.69)
   %742 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %743 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %743, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1820 = load i32, ptr %743, align 1
   %744 = getelementptr inbounds nuw i8, ptr %743, i64 8
   store ptr %744, ptr %5, align 8, !tbaa !73
@@ -4925,7 +4857,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.70)
   %750 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %751 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %751, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1821 = load i32, ptr %751, align 1
   %752 = getelementptr inbounds nuw i8, ptr %751, i64 8
   store ptr %752, ptr %5, align 8, !tbaa !73
@@ -4939,7 +4870,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.71)
   %758 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %759 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %759, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1822 = load i32, ptr %759, align 1
   %760 = getelementptr inbounds nuw i8, ptr %759, i64 8
   store ptr %760, ptr %5, align 8, !tbaa !73
@@ -4953,7 +4883,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.72)
   %766 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %767 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %767, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1823 = load i32, ptr %767, align 1
   %768 = getelementptr inbounds nuw i8, ptr %767, i64 8
   store ptr %768, ptr %5, align 8, !tbaa !73
@@ -4967,7 +4896,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.73)
   %774 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %775 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %775, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1824 = load i32, ptr %775, align 1
   %776 = getelementptr inbounds nuw i8, ptr %775, i64 8
   store ptr %776, ptr %5, align 8, !tbaa !73
@@ -4981,7 +4909,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.74)
   %782 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %783 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %783, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1825 = load i32, ptr %783, align 1
   %784 = getelementptr inbounds nuw i8, ptr %783, i64 8
   store ptr %784, ptr %5, align 8, !tbaa !73
@@ -4995,7 +4922,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.75)
   %790 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %791 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %791, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1826 = load i32, ptr %791, align 1
   %792 = getelementptr inbounds nuw i8, ptr %791, i64 8
   store ptr %792, ptr %5, align 8, !tbaa !73
@@ -5009,7 +4935,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.76)
   %798 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %799 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %799, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1827 = load i32, ptr %799, align 1
   %800 = getelementptr inbounds nuw i8, ptr %799, i64 8
   store ptr %800, ptr %5, align 8, !tbaa !73
@@ -5023,7 +4948,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.77)
   %806 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %807 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %807, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1828 = load i32, ptr %807, align 1
   %808 = getelementptr inbounds nuw i8, ptr %807, i64 8
   store ptr %808, ptr %5, align 8, !tbaa !73
@@ -5037,7 +4961,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.78)
   %814 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %815 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %815, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1829 = load i32, ptr %815, align 1
   %816 = getelementptr inbounds nuw i8, ptr %815, i64 8
   store ptr %816, ptr %5, align 8, !tbaa !73
@@ -5051,7 +4974,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.79)
   %822 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %823 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %823, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1830 = load i32, ptr %823, align 1
   %824 = getelementptr inbounds nuw i8, ptr %823, i64 8
   store ptr %824, ptr %5, align 8, !tbaa !73
@@ -5065,7 +4987,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.80)
   %830 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %831 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %831, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1831 = load i32, ptr %831, align 1
   %832 = getelementptr inbounds nuw i8, ptr %831, i64 8
   store ptr %832, ptr %5, align 8, !tbaa !73
@@ -5079,7 +5000,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.81)
   %838 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %839 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %839, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1832 = load i32, ptr %839, align 1
   %840 = getelementptr inbounds nuw i8, ptr %839, i64 8
   store ptr %840, ptr %5, align 8, !tbaa !73
@@ -5093,7 +5013,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.82)
   %846 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %847 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %847, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1833 = load i32, ptr %847, align 1
   %848 = getelementptr inbounds nuw i8, ptr %847, i64 8
   store ptr %848, ptr %5, align 8, !tbaa !73
@@ -5107,7 +5026,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.83)
   %854 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %855 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %855, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1834 = load i32, ptr %855, align 1
   %856 = getelementptr inbounds nuw i8, ptr %855, i64 8
   store ptr %856, ptr %5, align 8, !tbaa !73
@@ -5121,7 +5039,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.84)
   %862 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %863 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %863, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1835 = load i32, ptr %863, align 1
   %864 = getelementptr inbounds nuw i8, ptr %863, i64 8
   store ptr %864, ptr %5, align 8, !tbaa !73
@@ -5135,7 +5052,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.85)
   %870 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %871 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %871, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1836 = load i32, ptr %871, align 1
   %872 = getelementptr inbounds nuw i8, ptr %871, i64 8
   store ptr %872, ptr %5, align 8, !tbaa !73
@@ -5149,7 +5065,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.86)
   %878 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %879 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %879, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1837 = load i32, ptr %879, align 1
   %880 = getelementptr inbounds nuw i8, ptr %879, i64 8
   store ptr %880, ptr %5, align 8, !tbaa !73
@@ -5385,7 +5300,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.124)
   %997 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %998 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %998, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1838 = load i8, ptr %998, align 1
   %999 = getelementptr inbounds nuw i8, ptr %998, i64 8
   store ptr %999, ptr %5, align 8, !tbaa !73
@@ -5394,7 +5308,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %1002 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEl(ptr noundef nonnull align 8 dereferenceable(48) %997, i64 noundef %1001) #18
   %1003 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1002, ptr noundef nonnull @.str)
   %1004 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %1004, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1839 = load i32, ptr %1004, align 1
   %1005 = getelementptr inbounds nuw i8, ptr %1004, i64 8
   store ptr %1005, ptr %5, align 8, !tbaa !73
@@ -5403,7 +5316,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %1008 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1007, ptr noundef nonnull @.str)
   %1009 = load ptr, ptr %0, align 8, !tbaa !84
   %1010 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %1010, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1840 = load i32, ptr %1010, align 1
   %1011 = getelementptr inbounds nuw i8, ptr %1010, i64 8
   store ptr %1011, ptr %5, align 8, !tbaa !73
@@ -5417,7 +5329,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.125)
   %1017 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %1018 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %1018, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1841 = load i8, ptr %1018, align 1
   %1019 = getelementptr inbounds nuw i8, ptr %1018, i64 8
   store ptr %1019, ptr %5, align 8, !tbaa !73
@@ -5426,7 +5337,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %1022 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEl(ptr noundef nonnull align 8 dereferenceable(48) %1017, i64 noundef %1021) #18
   %1023 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1022, ptr noundef nonnull @.str)
   %1024 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %1024, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1842 = load i32, ptr %1024, align 1
   %1025 = getelementptr inbounds nuw i8, ptr %1024, i64 8
   store ptr %1025, ptr %5, align 8, !tbaa !73
@@ -5435,7 +5345,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %1028 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1027, ptr noundef nonnull @.str)
   %1029 = load ptr, ptr %0, align 8, !tbaa !84
   %1030 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %1030, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1843 = load i32, ptr %1030, align 1
   %1031 = getelementptr inbounds nuw i8, ptr %1030, i64 8
   store ptr %1031, ptr %5, align 8, !tbaa !73
@@ -5449,7 +5358,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.126)
   %1037 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %1038 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %1038, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1844 = load i8, ptr %1038, align 1
   %1039 = getelementptr inbounds nuw i8, ptr %1038, i64 8
   store ptr %1039, ptr %5, align 8, !tbaa !73
@@ -5458,7 +5366,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %1042 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEl(ptr noundef nonnull align 8 dereferenceable(48) %1037, i64 noundef %1041) #18
   %1043 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1042, ptr noundef nonnull @.str)
   %1044 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %1044, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1845 = load i32, ptr %1044, align 1
   %1045 = getelementptr inbounds nuw i8, ptr %1044, i64 8
   store ptr %1045, ptr %5, align 8, !tbaa !73
@@ -5467,7 +5374,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %1048 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1047, ptr noundef nonnull @.str)
   %1049 = load ptr, ptr %0, align 8, !tbaa !84
   %1050 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %1050, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1846 = load i32, ptr %1050, align 1
   %1051 = getelementptr inbounds nuw i8, ptr %1050, i64 8
   store ptr %1051, ptr %5, align 8, !tbaa !73
@@ -5481,7 +5387,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.127)
   %1057 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %1058 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %1058, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1847 = load i8, ptr %1058, align 1
   %1059 = getelementptr inbounds nuw i8, ptr %1058, i64 8
   store ptr %1059, ptr %5, align 8, !tbaa !73
@@ -5490,7 +5395,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %1062 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEl(ptr noundef nonnull align 8 dereferenceable(48) %1057, i64 noundef %1061) #18
   %1063 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1062, ptr noundef nonnull @.str)
   %1064 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %1064, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1848 = load i32, ptr %1064, align 1
   %1065 = getelementptr inbounds nuw i8, ptr %1064, i64 8
   store ptr %1065, ptr %5, align 8, !tbaa !73
@@ -5499,7 +5403,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %1068 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1067, ptr noundef nonnull @.str)
   %1069 = load ptr, ptr %0, align 8, !tbaa !84
   %1070 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %1070, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1849 = load i32, ptr %1070, align 1
   %1071 = getelementptr inbounds nuw i8, ptr %1070, i64 8
   store ptr %1071, ptr %5, align 8, !tbaa !73
@@ -5513,7 +5416,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.128)
   %1077 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %1078 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %1078, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1850 = load i8, ptr %1078, align 1
   %1079 = getelementptr inbounds nuw i8, ptr %1078, i64 8
   store ptr %1079, ptr %5, align 8, !tbaa !73
@@ -5522,7 +5424,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %1082 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEl(ptr noundef nonnull align 8 dereferenceable(48) %1077, i64 noundef %1081) #18
   %1083 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1082, ptr noundef nonnull @.str)
   %1084 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %1084, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1851 = load i32, ptr %1084, align 1
   %1085 = getelementptr inbounds nuw i8, ptr %1084, i64 8
   store ptr %1085, ptr %5, align 8, !tbaa !73
@@ -5531,7 +5432,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %1088 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1087, ptr noundef nonnull @.str)
   %1089 = load ptr, ptr %0, align 8, !tbaa !84
   %1090 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %1090, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1852 = load i32, ptr %1090, align 1
   %1091 = getelementptr inbounds nuw i8, ptr %1090, i64 8
   store ptr %1091, ptr %5, align 8, !tbaa !73
@@ -5545,7 +5445,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.129)
   %1097 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %1098 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %1098, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1853 = load i8, ptr %1098, align 1
   %1099 = getelementptr inbounds nuw i8, ptr %1098, i64 8
   store ptr %1099, ptr %5, align 8, !tbaa !73
@@ -5554,7 +5453,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %1102 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEl(ptr noundef nonnull align 8 dereferenceable(48) %1097, i64 noundef %1101) #18
   %1103 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1102, ptr noundef nonnull @.str)
   %1104 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %1104, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1854 = load i32, ptr %1104, align 1
   %1105 = getelementptr inbounds nuw i8, ptr %1104, i64 8
   store ptr %1105, ptr %5, align 8, !tbaa !73
@@ -5563,7 +5461,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %1108 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1107, ptr noundef nonnull @.str)
   %1109 = load ptr, ptr %0, align 8, !tbaa !84
   %1110 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %1110, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1855 = load i32, ptr %1110, align 1
   %1111 = getelementptr inbounds nuw i8, ptr %1110, i64 8
   store ptr %1111, ptr %5, align 8, !tbaa !73
@@ -5577,7 +5474,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.130)
   %1117 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %1118 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %1118, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1856 = load i8, ptr %1118, align 1
   %1119 = getelementptr inbounds nuw i8, ptr %1118, i64 8
   store ptr %1119, ptr %5, align 8, !tbaa !73
@@ -5586,7 +5482,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %1122 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEl(ptr noundef nonnull align 8 dereferenceable(48) %1117, i64 noundef %1121) #18
   %1123 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1122, ptr noundef nonnull @.str)
   %1124 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %1124, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1857 = load i32, ptr %1124, align 1
   %1125 = getelementptr inbounds nuw i8, ptr %1124, i64 8
   store ptr %1125, ptr %5, align 8, !tbaa !73
@@ -5595,7 +5490,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %1128 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1127, ptr noundef nonnull @.str)
   %1129 = load ptr, ptr %0, align 8, !tbaa !84
   %1130 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %1130, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1858 = load i32, ptr %1130, align 1
   %1131 = getelementptr inbounds nuw i8, ptr %1130, i64 8
   store ptr %1131, ptr %5, align 8, !tbaa !73
@@ -5609,7 +5503,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.131)
   %1137 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %1138 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %1138, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1859 = load i8, ptr %1138, align 1
   %1139 = getelementptr inbounds nuw i8, ptr %1138, i64 8
   store ptr %1139, ptr %5, align 8, !tbaa !73
@@ -5618,7 +5511,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %1142 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEl(ptr noundef nonnull align 8 dereferenceable(48) %1137, i64 noundef %1141) #18
   %1143 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1142, ptr noundef nonnull @.str)
   %1144 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %1144, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1860 = load i32, ptr %1144, align 1
   %1145 = getelementptr inbounds nuw i8, ptr %1144, i64 8
   store ptr %1145, ptr %5, align 8, !tbaa !73
@@ -5627,7 +5519,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %1148 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1147, ptr noundef nonnull @.str)
   %1149 = load ptr, ptr %0, align 8, !tbaa !84
   %1150 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %1150, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1861 = load i32, ptr %1150, align 1
   %1151 = getelementptr inbounds nuw i8, ptr %1150, i64 8
   store ptr %1151, ptr %5, align 8, !tbaa !73
@@ -5641,7 +5532,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.132)
   %1157 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %1158 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %1158, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1862 = load i8, ptr %1158, align 1
   %1159 = getelementptr inbounds nuw i8, ptr %1158, i64 8
   store ptr %1159, ptr %5, align 8, !tbaa !73
@@ -5650,7 +5540,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %1162 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEl(ptr noundef nonnull align 8 dereferenceable(48) %1157, i64 noundef %1161) #18
   %1163 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1162, ptr noundef nonnull @.str)
   %1164 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %1164, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1863 = load i32, ptr %1164, align 1
   %1165 = getelementptr inbounds nuw i8, ptr %1164, i64 8
   store ptr %1165, ptr %5, align 8, !tbaa !73
@@ -5659,7 +5548,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %1168 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1167, ptr noundef nonnull @.str)
   %1169 = load ptr, ptr %0, align 8, !tbaa !84
   %1170 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %1170, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1864 = load i32, ptr %1170, align 1
   %1171 = getelementptr inbounds nuw i8, ptr %1170, i64 8
   store ptr %1171, ptr %5, align 8, !tbaa !73
@@ -5673,7 +5561,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.133)
   %1177 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %1178 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %1178, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1865 = load i8, ptr %1178, align 1
   %1179 = getelementptr inbounds nuw i8, ptr %1178, i64 8
   store ptr %1179, ptr %5, align 8, !tbaa !73
@@ -5682,7 +5569,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %1182 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEl(ptr noundef nonnull align 8 dereferenceable(48) %1177, i64 noundef %1181) #18
   %1183 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1182, ptr noundef nonnull @.str)
   %1184 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %1184, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1866 = load i32, ptr %1184, align 1
   %1185 = getelementptr inbounds nuw i8, ptr %1184, i64 8
   store ptr %1185, ptr %5, align 8, !tbaa !73
@@ -5691,7 +5577,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %1188 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1187, ptr noundef nonnull @.str)
   %1189 = load ptr, ptr %0, align 8, !tbaa !84
   %1190 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %1190, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1867 = load i32, ptr %1190, align 1
   %1191 = getelementptr inbounds nuw i8, ptr %1190, i64 8
   store ptr %1191, ptr %5, align 8, !tbaa !73
@@ -5705,7 +5590,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.134)
   %1197 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %1198 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %1198, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1868 = load i8, ptr %1198, align 1
   %1199 = getelementptr inbounds nuw i8, ptr %1198, i64 8
   store ptr %1199, ptr %5, align 8, !tbaa !73
@@ -5714,7 +5598,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %1202 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEl(ptr noundef nonnull align 8 dereferenceable(48) %1197, i64 noundef %1201) #18
   %1203 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1202, ptr noundef nonnull @.str)
   %1204 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %1204, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1869 = load i32, ptr %1204, align 1
   %1205 = getelementptr inbounds nuw i8, ptr %1204, i64 8
   store ptr %1205, ptr %5, align 8, !tbaa !73
@@ -5723,7 +5606,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %1208 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1207, ptr noundef nonnull @.str)
   %1209 = load ptr, ptr %0, align 8, !tbaa !84
   %1210 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %1210, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1870 = load i32, ptr %1210, align 1
   %1211 = getelementptr inbounds nuw i8, ptr %1210, i64 8
   store ptr %1211, ptr %5, align 8, !tbaa !73
@@ -5737,7 +5619,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.135)
   %1217 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %1218 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %1218, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1871 = load i8, ptr %1218, align 1
   %1219 = getelementptr inbounds nuw i8, ptr %1218, i64 8
   store ptr %1219, ptr %5, align 8, !tbaa !73
@@ -5746,7 +5627,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %1222 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEl(ptr noundef nonnull align 8 dereferenceable(48) %1217, i64 noundef %1221) #18
   %1223 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1222, ptr noundef nonnull @.str)
   %1224 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %1224, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1872 = load i32, ptr %1224, align 1
   %1225 = getelementptr inbounds nuw i8, ptr %1224, i64 8
   store ptr %1225, ptr %5, align 8, !tbaa !73
@@ -5755,7 +5635,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %1228 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1227, ptr noundef nonnull @.str)
   %1229 = load ptr, ptr %0, align 8, !tbaa !84
   %1230 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %1230, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1873 = load i32, ptr %1230, align 1
   %1231 = getelementptr inbounds nuw i8, ptr %1230, i64 8
   store ptr %1231, ptr %5, align 8, !tbaa !73
@@ -5769,7 +5648,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.136)
   %1237 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %1238 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %1238, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1874 = load i8, ptr %1238, align 1
   %1239 = getelementptr inbounds nuw i8, ptr %1238, i64 8
   store ptr %1239, ptr %5, align 8, !tbaa !73
@@ -5778,7 +5656,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %1242 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEl(ptr noundef nonnull align 8 dereferenceable(48) %1237, i64 noundef %1241) #18
   %1243 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1242, ptr noundef nonnull @.str)
   %1244 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %1244, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1875 = load i32, ptr %1244, align 1
   %1245 = getelementptr inbounds nuw i8, ptr %1244, i64 8
   store ptr %1245, ptr %5, align 8, !tbaa !73
@@ -5787,7 +5664,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %1248 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1247, ptr noundef nonnull @.str)
   %1249 = load ptr, ptr %0, align 8, !tbaa !84
   %1250 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %1250, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1876 = load i32, ptr %1250, align 1
   %1251 = getelementptr inbounds nuw i8, ptr %1250, i64 8
   store ptr %1251, ptr %5, align 8, !tbaa !73
@@ -5934,7 +5810,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %1323 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %1324 = load ptr, ptr %0, align 8, !tbaa !84
   %1325 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %1325, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1877 = load i32, ptr %1325, align 1
   %1326 = getelementptr inbounds nuw i8, ptr %1325, i64 8
   store ptr %1326, ptr %5, align 8, !tbaa !73
@@ -5949,7 +5824,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %1332 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %1333 = load ptr, ptr %0, align 8, !tbaa !84
   %1334 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %1334, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1878 = load i32, ptr %1334, align 1
   %1335 = getelementptr inbounds nuw i8, ptr %1334, i64 8
   store ptr %1335, ptr %5, align 8, !tbaa !73
@@ -5964,7 +5838,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %1341 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %1342 = load ptr, ptr %0, align 8, !tbaa !84
   %1343 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %1343, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1879 = load i32, ptr %1343, align 1
   %1344 = getelementptr inbounds nuw i8, ptr %1343, i64 8
   store ptr %1344, ptr %5, align 8, !tbaa !73
@@ -5979,7 +5852,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %1350 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %1351 = load ptr, ptr %0, align 8, !tbaa !84
   %1352 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %1352, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1880 = load i32, ptr %1352, align 1
   %1353 = getelementptr inbounds nuw i8, ptr %1352, i64 8
   store ptr %1353, ptr %5, align 8, !tbaa !73
@@ -5994,7 +5866,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %1359 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %1360 = load ptr, ptr %0, align 8, !tbaa !84
   %1361 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %1361, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1881 = load i32, ptr %1361, align 1
   %1362 = getelementptr inbounds nuw i8, ptr %1361, i64 8
   store ptr %1362, ptr %5, align 8, !tbaa !73
@@ -6009,7 +5880,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %1368 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %1369 = load ptr, ptr %0, align 8, !tbaa !84
   %1370 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %1370, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1882 = load i32, ptr %1370, align 1
   %1371 = getelementptr inbounds nuw i8, ptr %1370, i64 8
   store ptr %1371, ptr %5, align 8, !tbaa !73
@@ -6024,7 +5894,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %1377 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %1378 = load ptr, ptr %0, align 8, !tbaa !84
   %1379 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %1379, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1883 = load i32, ptr %1379, align 1
   %1380 = getelementptr inbounds nuw i8, ptr %1379, i64 8
   store ptr %1380, ptr %5, align 8, !tbaa !73
@@ -6039,7 +5908,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %1386 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %1387 = load ptr, ptr %0, align 8, !tbaa !84
   %1388 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %1388, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1884 = load i32, ptr %1388, align 1
   %1389 = getelementptr inbounds nuw i8, ptr %1388, i64 8
   store ptr %1389, ptr %5, align 8, !tbaa !73
@@ -6054,7 +5922,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %1395 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %1396 = load ptr, ptr %0, align 8, !tbaa !84
   %1397 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %1397, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1885 = load i32, ptr %1397, align 1
   %1398 = getelementptr inbounds nuw i8, ptr %1397, i64 8
   store ptr %1398, ptr %5, align 8, !tbaa !73
@@ -6069,7 +5936,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %1404 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %1405 = load ptr, ptr %0, align 8, !tbaa !84
   %1406 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %1406, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1886 = load i32, ptr %1406, align 1
   %1407 = getelementptr inbounds nuw i8, ptr %1406, i64 8
   store ptr %1407, ptr %5, align 8, !tbaa !73
@@ -6084,7 +5950,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %1413 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %1414 = load ptr, ptr %0, align 8, !tbaa !84
   %1415 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %1415, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1887 = load i32, ptr %1415, align 1
   %1416 = getelementptr inbounds nuw i8, ptr %1415, i64 8
   store ptr %1416, ptr %5, align 8, !tbaa !73
@@ -6099,7 +5964,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %1422 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %1423 = load ptr, ptr %0, align 8, !tbaa !84
   %1424 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %1424, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1888 = load i32, ptr %1424, align 1
   %1425 = getelementptr inbounds nuw i8, ptr %1424, i64 8
   store ptr %1425, ptr %5, align 8, !tbaa !73
@@ -6114,7 +5978,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %1431 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %1432 = load ptr, ptr %0, align 8, !tbaa !84
   %1433 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %1433, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1889 = load i32, ptr %1433, align 1
   %1434 = getelementptr inbounds nuw i8, ptr %1433, i64 8
   store ptr %1434, ptr %5, align 8, !tbaa !73
@@ -6129,7 +5992,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %1440 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %1441 = load ptr, ptr %0, align 8, !tbaa !84
   %1442 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %1442, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1890 = load i32, ptr %1442, align 1
   %1443 = getelementptr inbounds nuw i8, ptr %1442, i64 8
   store ptr %1443, ptr %5, align 8, !tbaa !73
@@ -6144,7 +6006,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %1449 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %1450 = load ptr, ptr %0, align 8, !tbaa !84
   %1451 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %1451, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1891 = load i32, ptr %1451, align 1
   %1452 = getelementptr inbounds nuw i8, ptr %1451, i64 8
   store ptr %1452, ptr %5, align 8, !tbaa !73
@@ -6159,7 +6020,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %1458 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %1459 = load ptr, ptr %0, align 8, !tbaa !84
   %1460 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %1460, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1892 = load i32, ptr %1460, align 1
   %1461 = getelementptr inbounds nuw i8, ptr %1460, i64 8
   store ptr %1461, ptr %5, align 8, !tbaa !73
@@ -6167,7 +6027,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %1463 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %1458, ptr noundef %1462) #18
   %1464 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1463, ptr noundef nonnull @.str)
   %1465 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %1465, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1893 = load i32, ptr %1465, align 1
   %1466 = getelementptr inbounds nuw i8, ptr %1465, i64 8
   store ptr %1466, ptr %5, align 8, !tbaa !73
@@ -6182,7 +6041,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %1472 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %1473 = load ptr, ptr %0, align 8, !tbaa !84
   %1474 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %1474, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1894 = load i32, ptr %1474, align 1
   %1475 = getelementptr inbounds nuw i8, ptr %1474, i64 8
   store ptr %1475, ptr %5, align 8, !tbaa !73
@@ -6191,7 +6049,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %1478 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1477, ptr noundef nonnull @.str)
   %1479 = load ptr, ptr %0, align 8, !tbaa !84
   %1480 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %1480, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1895 = load i32, ptr %1480, align 1
   %1481 = getelementptr inbounds nuw i8, ptr %1480, i64 8
   store ptr %1481, ptr %5, align 8, !tbaa !73
@@ -6199,7 +6056,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %1483 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %1478, ptr noundef %1482) #18
   %1484 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1483, ptr noundef nonnull @.str)
   %1485 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %1485, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1896 = load i32, ptr %1485, align 1
   %1486 = getelementptr inbounds nuw i8, ptr %1485, i64 8
   store ptr %1486, ptr %5, align 8, !tbaa !73
@@ -6213,7 +6069,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.176)
   %1492 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %1493 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %1493, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1897 = load i32, ptr %1493, align 1
   %1494 = getelementptr inbounds nuw i8, ptr %1493, i64 8
   store ptr %1494, ptr %5, align 8, !tbaa !73
@@ -6222,7 +6077,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %1497 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1496, ptr noundef nonnull @.str)
   %1498 = load ptr, ptr %0, align 8, !tbaa !84
   %1499 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %1499, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1898 = load i32, ptr %1499, align 1
   %1500 = getelementptr inbounds nuw i8, ptr %1499, i64 8
   store ptr %1500, ptr %5, align 8, !tbaa !73
@@ -6237,7 +6091,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %1506 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %1507 = load ptr, ptr %0, align 8, !tbaa !84
   %1508 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %1508, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1899 = load i32, ptr %1508, align 1
   %1509 = getelementptr inbounds nuw i8, ptr %1508, i64 8
   store ptr %1509, ptr %5, align 8, !tbaa !73
@@ -6245,7 +6098,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %1511 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %1506, ptr noundef %1510) #18
   %1512 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1511, ptr noundef nonnull @.str)
   %1513 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %1513, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1900 = load i32, ptr %1513, align 1
   %1514 = getelementptr inbounds nuw i8, ptr %1513, i64 8
   store ptr %1514, ptr %5, align 8, !tbaa !73
@@ -6260,7 +6112,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %1520 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %1521 = load ptr, ptr %0, align 8, !tbaa !84
   %1522 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %1522, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1901 = load i32, ptr %1522, align 1
   %1523 = getelementptr inbounds nuw i8, ptr %1522, i64 8
   store ptr %1523, ptr %5, align 8, !tbaa !73
@@ -6268,7 +6119,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %1525 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %1520, ptr noundef %1524) #18
   %1526 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1525, ptr noundef nonnull @.str)
   %1527 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %1527, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1902 = load i32, ptr %1527, align 1
   %1528 = getelementptr inbounds nuw i8, ptr %1527, i64 8
   store ptr %1528, ptr %5, align 8, !tbaa !73
@@ -6930,7 +6780,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.287)
   %1858 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %1859 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %1859, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1903 = load i32, ptr %1859, align 1
   %1860 = getelementptr inbounds nuw i8, ptr %1859, i64 8
   store ptr %1860, ptr %5, align 8, !tbaa !73
@@ -6944,7 +6793,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.288)
   %1866 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %1867 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %1867, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1904 = load i32, ptr %1867, align 1
   %1868 = getelementptr inbounds nuw i8, ptr %1867, i64 8
   store ptr %1868, ptr %5, align 8, !tbaa !73
@@ -6958,7 +6806,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.289)
   %1874 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %1875 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %1875, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1905 = load i32, ptr %1875, align 1
   %1876 = getelementptr inbounds nuw i8, ptr %1875, i64 8
   store ptr %1876, ptr %5, align 8, !tbaa !73
@@ -6972,7 +6819,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.290)
   %1882 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %1883 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %1883, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1906 = load i32, ptr %1883, align 1
   %1884 = getelementptr inbounds nuw i8, ptr %1883, i64 8
   store ptr %1884, ptr %5, align 8, !tbaa !73
@@ -6986,7 +6832,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.291)
   %1890 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %1891 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %1891, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1907 = load i32, ptr %1891, align 1
   %1892 = getelementptr inbounds nuw i8, ptr %1891, i64 8
   store ptr %1892, ptr %5, align 8, !tbaa !73
@@ -7000,7 +6845,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.292)
   %1898 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %1899 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %1899, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1908 = load i32, ptr %1899, align 1
   %1900 = getelementptr inbounds nuw i8, ptr %1899, i64 8
   store ptr %1900, ptr %5, align 8, !tbaa !73
@@ -7014,7 +6858,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.293)
   %1906 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %1907 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %1907, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1909 = load i32, ptr %1907, align 1
   %1908 = getelementptr inbounds nuw i8, ptr %1907, i64 8
   store ptr %1908, ptr %5, align 8, !tbaa !73
@@ -7028,7 +6871,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.294)
   %1914 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %1915 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %1915, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1910 = load i32, ptr %1915, align 1
   %1916 = getelementptr inbounds nuw i8, ptr %1915, i64 8
   store ptr %1916, ptr %5, align 8, !tbaa !73
@@ -7042,7 +6884,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.295)
   %1922 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %1923 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %1923, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1911 = load i32, ptr %1923, align 1
   %1924 = getelementptr inbounds nuw i8, ptr %1923, i64 8
   store ptr %1924, ptr %5, align 8, !tbaa !73
@@ -7056,7 +6897,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.296)
   %1930 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %1931 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %1931, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1912 = load i32, ptr %1931, align 1
   %1932 = getelementptr inbounds nuw i8, ptr %1931, i64 8
   store ptr %1932, ptr %5, align 8, !tbaa !73
@@ -7070,7 +6910,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.297)
   %1938 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %1939 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %1939, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1913 = load i32, ptr %1939, align 1
   %1940 = getelementptr inbounds nuw i8, ptr %1939, i64 8
   store ptr %1940, ptr %5, align 8, !tbaa !73
@@ -7084,7 +6923,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.298)
   %1946 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %1947 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %1947, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1914 = load i32, ptr %1947, align 1
   %1948 = getelementptr inbounds nuw i8, ptr %1947, i64 8
   store ptr %1948, ptr %5, align 8, !tbaa !73
@@ -7098,7 +6936,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.299)
   %1954 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %1955 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %1955, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1915 = load i32, ptr %1955, align 1
   %1956 = getelementptr inbounds nuw i8, ptr %1955, i64 8
   store ptr %1956, ptr %5, align 8, !tbaa !73
@@ -7112,7 +6949,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.300)
   %1962 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %1963 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %1963, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1916 = load i32, ptr %1963, align 1
   %1964 = getelementptr inbounds nuw i8, ptr %1963, i64 8
   store ptr %1964, ptr %5, align 8, !tbaa !73
@@ -7126,7 +6962,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.301)
   %1970 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %1971 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %1971, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1917 = load i32, ptr %1971, align 1
   %1972 = getelementptr inbounds nuw i8, ptr %1971, i64 8
   store ptr %1972, ptr %5, align 8, !tbaa !73
@@ -7140,7 +6975,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.302)
   %1978 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %1979 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %1979, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1918 = load i32, ptr %1979, align 1
   %1980 = getelementptr inbounds nuw i8, ptr %1979, i64 8
   store ptr %1980, ptr %5, align 8, !tbaa !73
@@ -7154,7 +6988,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.303)
   %1986 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %1987 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %1987, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1919 = load i32, ptr %1987, align 1
   %1988 = getelementptr inbounds nuw i8, ptr %1987, i64 8
   store ptr %1988, ptr %5, align 8, !tbaa !73
@@ -7168,7 +7001,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.304)
   %1994 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %1995 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %1995, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1920 = load i32, ptr %1995, align 1
   %1996 = getelementptr inbounds nuw i8, ptr %1995, i64 8
   store ptr %1996, ptr %5, align 8, !tbaa !73
@@ -7182,7 +7014,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.305)
   %2002 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %2003 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %2003, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1921 = load i32, ptr %2003, align 1
   %2004 = getelementptr inbounds nuw i8, ptr %2003, i64 8
   store ptr %2004, ptr %5, align 8, !tbaa !73
@@ -7196,7 +7027,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.306)
   %2010 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %2011 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %2011, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1922 = load i32, ptr %2011, align 1
   %2012 = getelementptr inbounds nuw i8, ptr %2011, i64 8
   store ptr %2012, ptr %5, align 8, !tbaa !73
@@ -7210,7 +7040,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.307)
   %2018 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %2019 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %2019, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1923 = load i32, ptr %2019, align 1
   %2020 = getelementptr inbounds nuw i8, ptr %2019, i64 8
   store ptr %2020, ptr %5, align 8, !tbaa !73
@@ -7224,7 +7053,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.308)
   %2026 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %2027 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %2027, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1924 = load i32, ptr %2027, align 1
   %2028 = getelementptr inbounds nuw i8, ptr %2027, i64 8
   store ptr %2028, ptr %5, align 8, !tbaa !73
@@ -7238,7 +7066,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.309)
   %2034 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %2035 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %2035, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1925 = load i32, ptr %2035, align 1
   %2036 = getelementptr inbounds nuw i8, ptr %2035, i64 8
   store ptr %2036, ptr %5, align 8, !tbaa !73
@@ -7252,7 +7079,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.310)
   %2042 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %2043 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %2043, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1926 = load i32, ptr %2043, align 1
   %2044 = getelementptr inbounds nuw i8, ptr %2043, i64 8
   store ptr %2044, ptr %5, align 8, !tbaa !73
@@ -7267,7 +7093,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %2050 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %2051 = load ptr, ptr %0, align 8, !tbaa !84
   %2052 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %2052, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1927 = load i32, ptr %2052, align 1
   %2053 = getelementptr inbounds nuw i8, ptr %2052, i64 8
   store ptr %2053, ptr %5, align 8, !tbaa !73
@@ -7275,7 +7100,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %2055 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %2050, ptr noundef %2054) #18
   %2056 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2055, ptr noundef nonnull @.str)
   %2057 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %2057, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1928 = load i8, ptr %2057, align 1
   %2058 = getelementptr inbounds nuw i8, ptr %2057, i64 8
   store ptr %2058, ptr %5, align 8, !tbaa !73
@@ -7288,7 +7112,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.312)
   %2063 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %2064 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %2064, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1929 = load i32, ptr %2064, align 1
   %2065 = getelementptr inbounds nuw i8, ptr %2064, i64 8
   store ptr %2065, ptr %5, align 8, !tbaa !73
@@ -7303,7 +7126,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %2071 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %2072 = load ptr, ptr %0, align 8, !tbaa !84
   %2073 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %2073, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1930 = load i32, ptr %2073, align 1
   %2074 = getelementptr inbounds nuw i8, ptr %2073, i64 8
   store ptr %2074, ptr %5, align 8, !tbaa !73
@@ -7371,7 +7193,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.323)
   %2107 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %2108 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %2108, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1931 = load i32, ptr %2108, align 1
   %2109 = getelementptr inbounds nuw i8, ptr %2108, i64 8
   store ptr %2109, ptr %5, align 8, !tbaa !73
@@ -7385,7 +7206,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.324)
   %2115 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %2116 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %2116, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1932 = load i32, ptr %2116, align 1
   %2117 = getelementptr inbounds nuw i8, ptr %2116, i64 8
   store ptr %2117, ptr %5, align 8, !tbaa !73
@@ -7399,7 +7219,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.325)
   %2123 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %2124 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %2124, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1933 = load i32, ptr %2124, align 1
   %2125 = getelementptr inbounds nuw i8, ptr %2124, i64 8
   store ptr %2125, ptr %5, align 8, !tbaa !73
@@ -7413,7 +7232,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.326)
   %2131 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %2132 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %2132, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1934 = load i32, ptr %2132, align 1
   %2133 = getelementptr inbounds nuw i8, ptr %2132, i64 8
   store ptr %2133, ptr %5, align 8, !tbaa !73
@@ -7427,7 +7245,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.327)
   %2139 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %2140 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %2140, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1935 = load i32, ptr %2140, align 1
   %2141 = getelementptr inbounds nuw i8, ptr %2140, i64 8
   store ptr %2141, ptr %5, align 8, !tbaa !73
@@ -7441,7 +7258,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.328)
   %2147 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %2148 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %2148, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1936 = load i32, ptr %2148, align 1
   %2149 = getelementptr inbounds nuw i8, ptr %2148, i64 8
   store ptr %2149, ptr %5, align 8, !tbaa !73
@@ -7455,7 +7271,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.329)
   %2155 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %2156 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %2156, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1937 = load i32, ptr %2156, align 1
   %2157 = getelementptr inbounds nuw i8, ptr %2156, i64 8
   store ptr %2157, ptr %5, align 8, !tbaa !73
@@ -7469,7 +7284,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.330)
   %2163 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %2164 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %2164, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1938 = load i32, ptr %2164, align 1
   %2165 = getelementptr inbounds nuw i8, ptr %2164, i64 8
   store ptr %2165, ptr %5, align 8, !tbaa !73
@@ -7483,7 +7297,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.331)
   %2171 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %2172 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %2172, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1939 = load i32, ptr %2172, align 1
   %2173 = getelementptr inbounds nuw i8, ptr %2172, i64 8
   store ptr %2173, ptr %5, align 8, !tbaa !73
@@ -7497,7 +7310,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.332)
   %2179 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %2180 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %2180, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1940 = load i32, ptr %2180, align 1
   %2181 = getelementptr inbounds nuw i8, ptr %2180, i64 8
   store ptr %2181, ptr %5, align 8, !tbaa !73
@@ -7511,7 +7323,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.333)
   %2187 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %2188 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %2188, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1941 = load i32, ptr %2188, align 1
   %2189 = getelementptr inbounds nuw i8, ptr %2188, i64 8
   store ptr %2189, ptr %5, align 8, !tbaa !73
@@ -7519,7 +7330,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %2191 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %2187, i64 noundef %2190) #18
   %2192 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2191, ptr noundef nonnull @.str)
   %2193 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %2193, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1942 = load i32, ptr %2193, align 1
   %2194 = getelementptr inbounds nuw i8, ptr %2193, i64 8
   store ptr %2194, ptr %5, align 8, !tbaa !73
@@ -7533,7 +7343,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.334)
   %2200 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %2201 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %2201, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1943 = load i32, ptr %2201, align 1
   %2202 = getelementptr inbounds nuw i8, ptr %2201, i64 8
   store ptr %2202, ptr %5, align 8, !tbaa !73
@@ -7541,7 +7350,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %2204 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %2200, i64 noundef %2203) #18
   %2205 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2204, ptr noundef nonnull @.str)
   %2206 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %2206, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1944 = load i32, ptr %2206, align 1
   %2207 = getelementptr inbounds nuw i8, ptr %2206, i64 8
   store ptr %2207, ptr %5, align 8, !tbaa !73
@@ -7555,7 +7363,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.335)
   %2213 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %2214 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %2214, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1945 = load i32, ptr %2214, align 1
   %2215 = getelementptr inbounds nuw i8, ptr %2214, i64 8
   store ptr %2215, ptr %5, align 8, !tbaa !73
@@ -7569,7 +7376,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.336)
   %2221 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %2222 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %2222, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1946 = load i32, ptr %2222, align 1
   %2223 = getelementptr inbounds nuw i8, ptr %2222, i64 8
   store ptr %2223, ptr %5, align 8, !tbaa !73
@@ -7583,7 +7389,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.337)
   %2229 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %2230 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %2230, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1947 = load i32, ptr %2230, align 1
   %2231 = getelementptr inbounds nuw i8, ptr %2230, i64 8
   store ptr %2231, ptr %5, align 8, !tbaa !73
@@ -7597,7 +7402,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.338)
   %2237 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %2238 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %2238, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1948 = load i32, ptr %2238, align 1
   %2239 = getelementptr inbounds nuw i8, ptr %2238, i64 8
   store ptr %2239, ptr %5, align 8, !tbaa !73
@@ -7611,7 +7415,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.339)
   %2245 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %2246 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %2246, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1949 = load i32, ptr %2246, align 1
   %2247 = getelementptr inbounds nuw i8, ptr %2246, i64 8
   store ptr %2247, ptr %5, align 8, !tbaa !73
@@ -7625,7 +7428,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.340)
   %2253 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %2254 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %2254, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1950 = load i32, ptr %2254, align 1
   %2255 = getelementptr inbounds nuw i8, ptr %2254, i64 8
   store ptr %2255, ptr %5, align 8, !tbaa !73
@@ -7639,7 +7441,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.341)
   %2261 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %2262 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %2262, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1951 = load i32, ptr %2262, align 1
   %2263 = getelementptr inbounds nuw i8, ptr %2262, i64 8
   store ptr %2263, ptr %5, align 8, !tbaa !73
@@ -7653,7 +7454,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.342)
   %2269 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %2270 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %2270, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1952 = load i32, ptr %2270, align 1
   %2271 = getelementptr inbounds nuw i8, ptr %2270, i64 8
   store ptr %2271, ptr %5, align 8, !tbaa !73
@@ -7667,7 +7467,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.343)
   %2277 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %2278 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %2278, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1953 = load i32, ptr %2278, align 1
   %2279 = getelementptr inbounds nuw i8, ptr %2278, i64 8
   store ptr %2279, ptr %5, align 8, !tbaa !73
@@ -7682,7 +7481,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %2285 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %2286 = load ptr, ptr %0, align 8, !tbaa !84
   %2287 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %2287, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1954 = load i32, ptr %2287, align 1
   %2288 = getelementptr inbounds nuw i8, ptr %2287, i64 8
   store ptr %2288, ptr %5, align 8, !tbaa !73
@@ -7690,7 +7488,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %2290 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %2285, ptr noundef %2289) #18
   %2291 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2290, ptr noundef nonnull @.str)
   %2292 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %2292, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1955 = load i32, ptr %2292, align 1
   %2293 = getelementptr inbounds nuw i8, ptr %2292, i64 8
   store ptr %2293, ptr %5, align 8, !tbaa !73
@@ -7705,7 +7502,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %2299 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %2300 = load ptr, ptr %0, align 8, !tbaa !84
   %2301 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %2301, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1956 = load i32, ptr %2301, align 1
   %2302 = getelementptr inbounds nuw i8, ptr %2301, i64 8
   store ptr %2302, ptr %5, align 8, !tbaa !73
@@ -7713,7 +7509,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %2304 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %2299, ptr noundef %2303) #18
   %2305 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2304, ptr noundef nonnull @.str)
   %2306 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %2306, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1957 = load i32, ptr %2306, align 1
   %2307 = getelementptr inbounds nuw i8, ptr %2306, i64 8
   store ptr %2307, ptr %5, align 8, !tbaa !73
@@ -7728,7 +7523,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %2313 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %2314 = load ptr, ptr %0, align 8, !tbaa !84
   %2315 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %2315, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1958 = load i32, ptr %2315, align 1
   %2316 = getelementptr inbounds nuw i8, ptr %2315, i64 8
   store ptr %2316, ptr %5, align 8, !tbaa !73
@@ -7736,7 +7530,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %2318 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %2313, ptr noundef %2317) #18
   %2319 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2318, ptr noundef nonnull @.str)
   %2320 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %2320, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1959 = load i32, ptr %2320, align 1
   %2321 = getelementptr inbounds nuw i8, ptr %2320, i64 8
   store ptr %2321, ptr %5, align 8, !tbaa !73
@@ -7751,7 +7544,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %2327 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %2328 = load ptr, ptr %0, align 8, !tbaa !84
   %2329 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %2329, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1960 = load i32, ptr %2329, align 1
   %2330 = getelementptr inbounds nuw i8, ptr %2329, i64 8
   store ptr %2330, ptr %5, align 8, !tbaa !73
@@ -7759,7 +7551,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %2332 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %2327, ptr noundef %2331) #18
   %2333 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2332, ptr noundef nonnull @.str)
   %2334 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %2334, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1961 = load i32, ptr %2334, align 1
   %2335 = getelementptr inbounds nuw i8, ptr %2334, i64 8
   store ptr %2335, ptr %5, align 8, !tbaa !73
@@ -7774,7 +7565,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %2341 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %2342 = load ptr, ptr %0, align 8, !tbaa !84
   %2343 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %2343, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1962 = load i32, ptr %2343, align 1
   %2344 = getelementptr inbounds nuw i8, ptr %2343, i64 8
   store ptr %2344, ptr %5, align 8, !tbaa !73
@@ -7782,7 +7572,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %2346 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %2341, ptr noundef %2345) #18
   %2347 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2346, ptr noundef nonnull @.str)
   %2348 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %2348, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1963 = load i32, ptr %2348, align 1
   %2349 = getelementptr inbounds nuw i8, ptr %2348, i64 8
   store ptr %2349, ptr %5, align 8, !tbaa !73
@@ -7797,7 +7586,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %2355 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %2356 = load ptr, ptr %0, align 8, !tbaa !84
   %2357 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %2357, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1964 = load i32, ptr %2357, align 1
   %2358 = getelementptr inbounds nuw i8, ptr %2357, i64 8
   store ptr %2358, ptr %5, align 8, !tbaa !73
@@ -7805,7 +7593,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %2360 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %2355, ptr noundef %2359) #18
   %2361 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2360, ptr noundef nonnull @.str)
   %2362 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %2362, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1965 = load i32, ptr %2362, align 1
   %2363 = getelementptr inbounds nuw i8, ptr %2362, i64 8
   store ptr %2363, ptr %5, align 8, !tbaa !73
@@ -7820,7 +7607,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %2369 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %2370 = load ptr, ptr %0, align 8, !tbaa !84
   %2371 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %2371, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1966 = load i32, ptr %2371, align 1
   %2372 = getelementptr inbounds nuw i8, ptr %2371, i64 8
   store ptr %2372, ptr %5, align 8, !tbaa !73
@@ -7828,7 +7614,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %2374 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %2369, ptr noundef %2373) #18
   %2375 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2374, ptr noundef nonnull @.str)
   %2376 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %2376, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1967 = load i32, ptr %2376, align 1
   %2377 = getelementptr inbounds nuw i8, ptr %2376, i64 8
   store ptr %2377, ptr %5, align 8, !tbaa !73
@@ -7843,7 +7628,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %2383 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %2384 = load ptr, ptr %0, align 8, !tbaa !84
   %2385 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %2385, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1968 = load i32, ptr %2385, align 1
   %2386 = getelementptr inbounds nuw i8, ptr %2385, i64 8
   store ptr %2386, ptr %5, align 8, !tbaa !73
@@ -7851,7 +7635,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %2388 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %2383, ptr noundef %2387) #18
   %2389 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2388, ptr noundef nonnull @.str)
   %2390 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %2390, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1969 = load i32, ptr %2390, align 1
   %2391 = getelementptr inbounds nuw i8, ptr %2390, i64 8
   store ptr %2391, ptr %5, align 8, !tbaa !73
@@ -7866,7 +7649,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %2397 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %2398 = load ptr, ptr %0, align 8, !tbaa !84
   %2399 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %2399, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1970 = load i32, ptr %2399, align 1
   %2400 = getelementptr inbounds nuw i8, ptr %2399, i64 8
   store ptr %2400, ptr %5, align 8, !tbaa !73
@@ -7874,7 +7656,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %2402 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %2397, ptr noundef %2401) #18
   %2403 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2402, ptr noundef nonnull @.str)
   %2404 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %2404, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1971 = load i32, ptr %2404, align 1
   %2405 = getelementptr inbounds nuw i8, ptr %2404, i64 8
   store ptr %2405, ptr %5, align 8, !tbaa !73
@@ -7889,7 +7670,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %2411 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %2412 = load ptr, ptr %0, align 8, !tbaa !84
   %2413 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %2413, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1972 = load i32, ptr %2413, align 1
   %2414 = getelementptr inbounds nuw i8, ptr %2413, i64 8
   store ptr %2414, ptr %5, align 8, !tbaa !73
@@ -7897,7 +7677,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %2416 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %2411, ptr noundef %2415) #18
   %2417 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2416, ptr noundef nonnull @.str)
   %2418 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %2418, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1973 = load i32, ptr %2418, align 1
   %2419 = getelementptr inbounds nuw i8, ptr %2418, i64 8
   store ptr %2419, ptr %5, align 8, !tbaa !73
@@ -7912,7 +7691,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %2425 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %2426 = load ptr, ptr %0, align 8, !tbaa !84
   %2427 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %2427, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1974 = load i32, ptr %2427, align 1
   %2428 = getelementptr inbounds nuw i8, ptr %2427, i64 8
   store ptr %2428, ptr %5, align 8, !tbaa !73
@@ -7920,7 +7698,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %2430 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %2425, ptr noundef %2429) #18
   %2431 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2430, ptr noundef nonnull @.str)
   %2432 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %2432, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1975 = load i32, ptr %2432, align 1
   %2433 = getelementptr inbounds nuw i8, ptr %2432, i64 8
   store ptr %2433, ptr %5, align 8, !tbaa !73
@@ -7935,7 +7712,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %2439 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %2440 = load ptr, ptr %0, align 8, !tbaa !84
   %2441 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %2441, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1976 = load i32, ptr %2441, align 1
   %2442 = getelementptr inbounds nuw i8, ptr %2441, i64 8
   store ptr %2442, ptr %5, align 8, !tbaa !73
@@ -7943,7 +7719,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %2444 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %2439, ptr noundef %2443) #18
   %2445 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2444, ptr noundef nonnull @.str)
   %2446 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %2446, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1977 = load i32, ptr %2446, align 1
   %2447 = getelementptr inbounds nuw i8, ptr %2446, i64 8
   store ptr %2447, ptr %5, align 8, !tbaa !73
@@ -8017,7 +7792,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.366)
   %2483 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %2484 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %2484, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1978 = load i32, ptr %2484, align 1
   %2485 = getelementptr inbounds nuw i8, ptr %2484, i64 8
   store ptr %2485, ptr %5, align 8, !tbaa !73
@@ -8031,7 +7805,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.367)
   %2491 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %2492 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %2492, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1979 = load i32, ptr %2492, align 1
   %2493 = getelementptr inbounds nuw i8, ptr %2492, i64 8
   store ptr %2493, ptr %5, align 8, !tbaa !73
@@ -8052,7 +7825,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %2502 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %2503 = load ptr, ptr %0, align 8, !tbaa !84
   %2504 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %2504, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1980 = load i32, ptr %2504, align 1
   %2505 = getelementptr inbounds nuw i8, ptr %2504, i64 8
   store ptr %2505, ptr %5, align 8, !tbaa !73
@@ -8067,7 +7839,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %2511 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %2512 = load ptr, ptr %0, align 8, !tbaa !84
   %2513 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %2513, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1981 = load i32, ptr %2513, align 1
   %2514 = getelementptr inbounds nuw i8, ptr %2513, i64 8
   store ptr %2514, ptr %5, align 8, !tbaa !73
@@ -8082,7 +7853,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %2520 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %2521 = load ptr, ptr %0, align 8, !tbaa !84
   %2522 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %2522, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1982 = load i32, ptr %2522, align 1
   %2523 = getelementptr inbounds nuw i8, ptr %2522, i64 8
   store ptr %2523, ptr %5, align 8, !tbaa !73
@@ -8097,7 +7867,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %2529 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %2530 = load ptr, ptr %0, align 8, !tbaa !84
   %2531 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %2531, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1983 = load i32, ptr %2531, align 1
   %2532 = getelementptr inbounds nuw i8, ptr %2531, i64 8
   store ptr %2532, ptr %5, align 8, !tbaa !73
@@ -8112,7 +7881,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %2538 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %2539 = load ptr, ptr %0, align 8, !tbaa !84
   %2540 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %2540, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1984 = load i32, ptr %2540, align 1
   %2541 = getelementptr inbounds nuw i8, ptr %2540, i64 8
   store ptr %2541, ptr %5, align 8, !tbaa !73
@@ -8127,7 +7895,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %2547 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %2548 = load ptr, ptr %0, align 8, !tbaa !84
   %2549 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %2549, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1985 = load i32, ptr %2549, align 1
   %2550 = getelementptr inbounds nuw i8, ptr %2549, i64 8
   store ptr %2550, ptr %5, align 8, !tbaa !73
@@ -8142,7 +7909,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %2556 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %2557 = load ptr, ptr %0, align 8, !tbaa !84
   %2558 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %2558, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1986 = load i32, ptr %2558, align 1
   %2559 = getelementptr inbounds nuw i8, ptr %2558, i64 8
   store ptr %2559, ptr %5, align 8, !tbaa !73
@@ -8157,7 +7923,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %2565 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %2566 = load ptr, ptr %0, align 8, !tbaa !84
   %2567 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %2567, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1987 = load i32, ptr %2567, align 1
   %2568 = getelementptr inbounds nuw i8, ptr %2567, i64 8
   store ptr %2568, ptr %5, align 8, !tbaa !73
@@ -8172,7 +7937,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %2574 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %2575 = load ptr, ptr %0, align 8, !tbaa !84
   %2576 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %2576, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1988 = load i32, ptr %2576, align 1
   %2577 = getelementptr inbounds nuw i8, ptr %2576, i64 8
   store ptr %2577, ptr %5, align 8, !tbaa !73
@@ -8187,7 +7951,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %2583 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %2584 = load ptr, ptr %0, align 8, !tbaa !84
   %2585 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %2585, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1989 = load i32, ptr %2585, align 1
   %2586 = getelementptr inbounds nuw i8, ptr %2585, i64 8
   store ptr %2586, ptr %5, align 8, !tbaa !73
@@ -8202,7 +7965,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %2592 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %2593 = load ptr, ptr %0, align 8, !tbaa !84
   %2594 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %2594, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1990 = load i32, ptr %2594, align 1
   %2595 = getelementptr inbounds nuw i8, ptr %2594, i64 8
   store ptr %2595, ptr %5, align 8, !tbaa !73
@@ -8217,7 +7979,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %2601 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %2602 = load ptr, ptr %0, align 8, !tbaa !84
   %2603 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %2603, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1991 = load i32, ptr %2603, align 1
   %2604 = getelementptr inbounds nuw i8, ptr %2603, i64 8
   store ptr %2604, ptr %5, align 8, !tbaa !73
@@ -8232,7 +7993,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %2610 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %2611 = load ptr, ptr %0, align 8, !tbaa !84
   %2612 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %2612, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1992 = load i32, ptr %2612, align 1
   %2613 = getelementptr inbounds nuw i8, ptr %2612, i64 8
   store ptr %2613, ptr %5, align 8, !tbaa !73
@@ -8247,7 +8007,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %2619 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %2620 = load ptr, ptr %0, align 8, !tbaa !84
   %2621 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %2621, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1993 = load i32, ptr %2621, align 1
   %2622 = getelementptr inbounds nuw i8, ptr %2621, i64 8
   store ptr %2622, ptr %5, align 8, !tbaa !73
@@ -8262,7 +8021,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %2628 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %2629 = load ptr, ptr %0, align 8, !tbaa !84
   %2630 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %2630, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1994 = load i32, ptr %2630, align 1
   %2631 = getelementptr inbounds nuw i8, ptr %2630, i64 8
   store ptr %2631, ptr %5, align 8, !tbaa !73
@@ -8277,7 +8035,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %2637 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %2638 = load ptr, ptr %0, align 8, !tbaa !84
   %2639 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %2639, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1995 = load i32, ptr %2639, align 1
   %2640 = getelementptr inbounds nuw i8, ptr %2639, i64 8
   store ptr %2640, ptr %5, align 8, !tbaa !73
@@ -8292,7 +8049,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %2646 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %2647 = load ptr, ptr %0, align 8, !tbaa !84
   %2648 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %2648, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1996 = load i32, ptr %2648, align 1
   %2649 = getelementptr inbounds nuw i8, ptr %2648, i64 8
   store ptr %2649, ptr %5, align 8, !tbaa !73
@@ -8307,7 +8063,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %2655 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %2656 = load ptr, ptr %0, align 8, !tbaa !84
   %2657 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %2657, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1997 = load i32, ptr %2657, align 1
   %2658 = getelementptr inbounds nuw i8, ptr %2657, i64 8
   store ptr %2658, ptr %5, align 8, !tbaa !73
@@ -8322,7 +8077,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %2664 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %2665 = load ptr, ptr %0, align 8, !tbaa !84
   %2666 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %2666, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1998 = load i32, ptr %2666, align 1
   %2667 = getelementptr inbounds nuw i8, ptr %2666, i64 8
   store ptr %2667, ptr %5, align 8, !tbaa !73
@@ -8337,7 +8091,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %2673 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %2674 = load ptr, ptr %0, align 8, !tbaa !84
   %2675 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %2675, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1999 = load i32, ptr %2675, align 1
   %2676 = getelementptr inbounds nuw i8, ptr %2675, i64 8
   store ptr %2676, ptr %5, align 8, !tbaa !73
@@ -8352,7 +8105,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %2682 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %2683 = load ptr, ptr %0, align 8, !tbaa !84
   %2684 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %2684, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2000 = load i32, ptr %2684, align 1
   %2685 = getelementptr inbounds nuw i8, ptr %2684, i64 8
   store ptr %2685, ptr %5, align 8, !tbaa !73
@@ -8367,7 +8119,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   %2691 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %2692 = load ptr, ptr %0, align 8, !tbaa !84
   %2693 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %2693, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2001 = load i32, ptr %2693, align 1
   %2694 = getelementptr inbounds nuw i8, ptr %2693, i64 8
   store ptr %2694, ptr %5, align 8, !tbaa !73
@@ -8459,7 +8210,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.404)
   %2739 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %2740 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %2740, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2002 = load i8, ptr %2740, align 1
   %2741 = getelementptr inbounds nuw i8, ptr %2740, i64 8
   store ptr %2741, ptr %5, align 8, !tbaa !73
@@ -8504,7 +8254,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1753:             ; preds = %182, %184
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.407)
   %2764 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %2765 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %2765, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2003 = load i8, ptr %2765, align 1
   %2766 = getelementptr inbounds nuw i8, ptr %2765, i64 8
   store ptr %2766, ptr %5, align 8, !tbaa !73
@@ -8535,7 +8284,6 @@ _ZN4llvm11raw_ostreamlsEa.exit:                   ; preds = %2771, %2773
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.408)
   %2778 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %2779 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %2779, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2005 = load i16, ptr %2779, align 1
   %2780 = getelementptr inbounds nuw i8, ptr %2779, i64 8
   store ptr %2780, ptr %5, align 8, !tbaa !73
@@ -8549,7 +8297,6 @@ _ZN4llvm11raw_ostreamlsEa.exit:                   ; preds = %2771, %2773
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.409)
   %2786 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %2787 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %2787, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2006 = load i32, ptr %2787, align 1
   %2788 = getelementptr inbounds nuw i8, ptr %2787, i64 8
   store ptr %2788, ptr %5, align 8, !tbaa !73
@@ -8563,7 +8310,6 @@ _ZN4llvm11raw_ostreamlsEa.exit:                   ; preds = %2771, %2773
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.410)
   %2794 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %2795 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %2795, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2007 = load i64, ptr %2795, align 1
   %2796 = getelementptr inbounds nuw i8, ptr %2795, i64 8
   store ptr %2796, ptr %5, align 8, !tbaa !73
@@ -8576,7 +8322,6 @@ _ZN4llvm11raw_ostreamlsEa.exit:                   ; preds = %2771, %2773
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.411)
   %2801 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %2802 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %2802, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2008 = load i8, ptr %2802, align 1
   %2803 = getelementptr inbounds nuw i8, ptr %2802, i64 8
   store ptr %2803, ptr %5, align 8, !tbaa !73
@@ -8607,7 +8352,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.412)
   %2815 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %2816 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %2816, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2011 = load i16, ptr %2816, align 1
   %2817 = getelementptr inbounds nuw i8, ptr %2816, i64 8
   store ptr %2817, ptr %5, align 8, !tbaa !73
@@ -8621,7 +8365,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.413)
   %2823 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %2824 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %2824, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2012 = load i32, ptr %2824, align 1
   %2825 = getelementptr inbounds nuw i8, ptr %2824, i64 8
   store ptr %2825, ptr %5, align 8, !tbaa !73
@@ -8635,7 +8378,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.414)
   %2831 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %2832 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %2832, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2013 = load i64, ptr %2832, align 1
   %2833 = getelementptr inbounds nuw i8, ptr %2832, i64 8
   store ptr %2833, ptr %5, align 8, !tbaa !73
@@ -8648,7 +8390,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.415)
   %2838 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %2839 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %2839, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2014 = load i32, ptr %2839, align 1
   %2840 = getelementptr inbounds nuw i8, ptr %2839, i64 8
   store ptr %2840, ptr %5, align 8, !tbaa !73
@@ -8656,7 +8397,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   %2842 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %2838, i64 noundef %2841) #18
   %2843 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2842, ptr noundef nonnull @.str)
   %2844 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %2844, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2015 = load i32, ptr %2844, align 1
   %2845 = getelementptr inbounds nuw i8, ptr %2844, i64 8
   store ptr %2845, ptr %5, align 8, !tbaa !73
@@ -8664,7 +8404,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   %2847 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %2843, i64 noundef %2846) #18
   %2848 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2847, ptr noundef nonnull @.str)
   %2849 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %2849, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2016 = load i32, ptr %2849, align 1
   %2850 = getelementptr inbounds nuw i8, ptr %2849, i64 8
   store ptr %2850, ptr %5, align 8, !tbaa !73
@@ -8678,7 +8417,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.416)
   %2856 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %2857 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %2857, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2017 = load i32, ptr %2857, align 1
   %2858 = getelementptr inbounds nuw i8, ptr %2857, i64 8
   store ptr %2858, ptr %5, align 8, !tbaa !73
@@ -8686,7 +8424,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   %2860 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %2856, i64 noundef %2859) #18
   %2861 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2860, ptr noundef nonnull @.str)
   %2862 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %2862, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2018 = load i32, ptr %2862, align 1
   %2863 = getelementptr inbounds nuw i8, ptr %2862, i64 8
   store ptr %2863, ptr %5, align 8, !tbaa !73
@@ -8694,7 +8431,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   %2865 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %2861, i64 noundef %2864) #18
   %2866 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2865, ptr noundef nonnull @.str)
   %2867 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %2867, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2019 = load i32, ptr %2867, align 1
   %2868 = getelementptr inbounds nuw i8, ptr %2867, i64 8
   store ptr %2868, ptr %5, align 8, !tbaa !73
@@ -8708,7 +8444,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.417)
   %2874 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %2875 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %2875, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2020 = load i32, ptr %2875, align 1
   %2876 = getelementptr inbounds nuw i8, ptr %2875, i64 8
   store ptr %2876, ptr %5, align 8, !tbaa !73
@@ -8716,7 +8451,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   %2878 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %2874, i64 noundef %2877) #18
   %2879 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2878, ptr noundef nonnull @.str)
   %2880 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %2880, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2021 = load i32, ptr %2880, align 1
   %2881 = getelementptr inbounds nuw i8, ptr %2880, i64 8
   store ptr %2881, ptr %5, align 8, !tbaa !73
@@ -8724,7 +8458,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   %2883 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %2879, i64 noundef %2882) #18
   %2884 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2883, ptr noundef nonnull @.str)
   %2885 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %2885, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2022 = load i32, ptr %2885, align 1
   %2886 = getelementptr inbounds nuw i8, ptr %2885, i64 8
   store ptr %2886, ptr %5, align 8, !tbaa !73
@@ -8738,7 +8471,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.418)
   %2892 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %2893 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %2893, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2023 = load i32, ptr %2893, align 1
   %2894 = getelementptr inbounds nuw i8, ptr %2893, i64 8
   store ptr %2894, ptr %5, align 8, !tbaa !73
@@ -8746,7 +8478,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   %2896 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %2892, i64 noundef %2895) #18
   %2897 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2896, ptr noundef nonnull @.str)
   %2898 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %2898, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2024 = load i32, ptr %2898, align 1
   %2899 = getelementptr inbounds nuw i8, ptr %2898, i64 8
   store ptr %2899, ptr %5, align 8, !tbaa !73
@@ -8754,7 +8485,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   %2901 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %2897, i64 noundef %2900) #18
   %2902 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2901, ptr noundef nonnull @.str)
   %2903 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %2903, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2025 = load i32, ptr %2903, align 1
   %2904 = getelementptr inbounds nuw i8, ptr %2903, i64 8
   store ptr %2904, ptr %5, align 8, !tbaa !73
@@ -8768,7 +8498,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.419)
   %2910 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %2911 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %2911, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2026 = load i32, ptr %2911, align 1
   %2912 = getelementptr inbounds nuw i8, ptr %2911, i64 8
   store ptr %2912, ptr %5, align 8, !tbaa !73
@@ -8776,7 +8505,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   %2914 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %2910, i64 noundef %2913) #18
   %2915 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2914, ptr noundef nonnull @.str)
   %2916 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %2916, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2027 = load i32, ptr %2916, align 1
   %2917 = getelementptr inbounds nuw i8, ptr %2916, i64 8
   store ptr %2917, ptr %5, align 8, !tbaa !73
@@ -8784,7 +8512,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   %2919 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %2915, i64 noundef %2918) #18
   %2920 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2919, ptr noundef nonnull @.str)
   %2921 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %2921, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2028 = load i32, ptr %2921, align 1
   %2922 = getelementptr inbounds nuw i8, ptr %2921, i64 8
   store ptr %2922, ptr %5, align 8, !tbaa !73
@@ -8798,7 +8525,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.420)
   %2928 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %2929 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %2929, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2029 = load i32, ptr %2929, align 1
   %2930 = getelementptr inbounds nuw i8, ptr %2929, i64 8
   store ptr %2930, ptr %5, align 8, !tbaa !73
@@ -8806,7 +8532,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   %2932 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %2928, i64 noundef %2931) #18
   %2933 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2932, ptr noundef nonnull @.str)
   %2934 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %2934, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2030 = load i32, ptr %2934, align 1
   %2935 = getelementptr inbounds nuw i8, ptr %2934, i64 8
   store ptr %2935, ptr %5, align 8, !tbaa !73
@@ -8814,7 +8539,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   %2937 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %2933, i64 noundef %2936) #18
   %2938 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2937, ptr noundef nonnull @.str)
   %2939 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %2939, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2031 = load i32, ptr %2939, align 1
   %2940 = getelementptr inbounds nuw i8, ptr %2939, i64 8
   store ptr %2940, ptr %5, align 8, !tbaa !73
@@ -8828,7 +8552,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.421)
   %2946 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %2947 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %2947, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2032 = load i32, ptr %2947, align 1
   %2948 = getelementptr inbounds nuw i8, ptr %2947, i64 8
   store ptr %2948, ptr %5, align 8, !tbaa !73
@@ -8836,7 +8559,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   %2950 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %2946, i64 noundef %2949) #18
   %2951 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2950, ptr noundef nonnull @.str)
   %2952 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %2952, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2033 = load i32, ptr %2952, align 1
   %2953 = getelementptr inbounds nuw i8, ptr %2952, i64 8
   store ptr %2953, ptr %5, align 8, !tbaa !73
@@ -8844,7 +8566,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   %2955 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %2951, i64 noundef %2954) #18
   %2956 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2955, ptr noundef nonnull @.str)
   %2957 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %2957, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2034 = load i32, ptr %2957, align 1
   %2958 = getelementptr inbounds nuw i8, ptr %2957, i64 8
   store ptr %2958, ptr %5, align 8, !tbaa !73
@@ -8858,7 +8579,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.422)
   %2964 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %2965 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %2965, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2035 = load i32, ptr %2965, align 1
   %2966 = getelementptr inbounds nuw i8, ptr %2965, i64 8
   store ptr %2966, ptr %5, align 8, !tbaa !73
@@ -8866,7 +8586,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   %2968 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %2964, i64 noundef %2967) #18
   %2969 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2968, ptr noundef nonnull @.str)
   %2970 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %2970, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2036 = load i32, ptr %2970, align 1
   %2971 = getelementptr inbounds nuw i8, ptr %2970, i64 8
   store ptr %2971, ptr %5, align 8, !tbaa !73
@@ -8874,7 +8593,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   %2973 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %2969, i64 noundef %2972) #18
   %2974 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2973, ptr noundef nonnull @.str)
   %2975 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %2975, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2037 = load i32, ptr %2975, align 1
   %2976 = getelementptr inbounds nuw i8, ptr %2975, i64 8
   store ptr %2976, ptr %5, align 8, !tbaa !73
@@ -8888,7 +8606,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.423)
   %2982 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %2983 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %2983, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2038 = load i32, ptr %2983, align 1
   %2984 = getelementptr inbounds nuw i8, ptr %2983, i64 8
   store ptr %2984, ptr %5, align 8, !tbaa !73
@@ -8896,7 +8613,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   %2986 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %2982, i64 noundef %2985) #18
   %2987 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2986, ptr noundef nonnull @.str)
   %2988 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %2988, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2039 = load i32, ptr %2988, align 1
   %2989 = getelementptr inbounds nuw i8, ptr %2988, i64 8
   store ptr %2989, ptr %5, align 8, !tbaa !73
@@ -8904,7 +8620,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   %2991 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %2987, i64 noundef %2990) #18
   %2992 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2991, ptr noundef nonnull @.str)
   %2993 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %2993, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2040 = load i32, ptr %2993, align 1
   %2994 = getelementptr inbounds nuw i8, ptr %2993, i64 8
   store ptr %2994, ptr %5, align 8, !tbaa !73
@@ -8918,7 +8633,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.424)
   %3000 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %3001 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %3001, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2041 = load i32, ptr %3001, align 1
   %3002 = getelementptr inbounds nuw i8, ptr %3001, i64 8
   store ptr %3002, ptr %5, align 8, !tbaa !73
@@ -8926,7 +8640,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   %3004 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %3000, i64 noundef %3003) #18
   %3005 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %3004, ptr noundef nonnull @.str)
   %3006 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %3006, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2042 = load i32, ptr %3006, align 1
   %3007 = getelementptr inbounds nuw i8, ptr %3006, i64 8
   store ptr %3007, ptr %5, align 8, !tbaa !73
@@ -8934,7 +8647,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   %3009 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %3005, i64 noundef %3008) #18
   %3010 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %3009, ptr noundef nonnull @.str)
   %3011 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %3011, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2043 = load i32, ptr %3011, align 1
   %3012 = getelementptr inbounds nuw i8, ptr %3011, i64 8
   store ptr %3012, ptr %5, align 8, !tbaa !73
@@ -8948,7 +8660,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.425)
   %3018 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %3019 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %3019, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2044 = load i32, ptr %3019, align 1
   %3020 = getelementptr inbounds nuw i8, ptr %3019, i64 8
   store ptr %3020, ptr %5, align 8, !tbaa !73
@@ -8956,7 +8667,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   %3022 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %3018, i64 noundef %3021) #18
   %3023 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %3022, ptr noundef nonnull @.str)
   %3024 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %3024, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2045 = load i32, ptr %3024, align 1
   %3025 = getelementptr inbounds nuw i8, ptr %3024, i64 8
   store ptr %3025, ptr %5, align 8, !tbaa !73
@@ -8964,7 +8674,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   %3027 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %3023, i64 noundef %3026) #18
   %3028 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %3027, ptr noundef nonnull @.str)
   %3029 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %3029, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2046 = load i32, ptr %3029, align 1
   %3030 = getelementptr inbounds nuw i8, ptr %3029, i64 8
   store ptr %3030, ptr %5, align 8, !tbaa !73
@@ -8978,7 +8687,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.426)
   %3036 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %3037 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %3037, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2047 = load i32, ptr %3037, align 1
   %3038 = getelementptr inbounds nuw i8, ptr %3037, i64 8
   store ptr %3038, ptr %5, align 8, !tbaa !73
@@ -8986,7 +8694,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   %3040 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %3036, i64 noundef %3039) #18
   %3041 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %3040, ptr noundef nonnull @.str)
   %3042 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %3042, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2048 = load i32, ptr %3042, align 1
   %3043 = getelementptr inbounds nuw i8, ptr %3042, i64 8
   store ptr %3043, ptr %5, align 8, !tbaa !73
@@ -8994,7 +8701,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   %3045 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %3041, i64 noundef %3044) #18
   %3046 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %3045, ptr noundef nonnull @.str)
   %3047 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %3047, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2049 = load i32, ptr %3047, align 1
   %3048 = getelementptr inbounds nuw i8, ptr %3047, i64 8
   store ptr %3048, ptr %5, align 8, !tbaa !73
@@ -9008,7 +8714,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.427)
   %3054 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %3055 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %3055, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2050 = load i32, ptr %3055, align 1
   %3056 = getelementptr inbounds nuw i8, ptr %3055, i64 8
   store ptr %3056, ptr %5, align 8, !tbaa !73
@@ -9016,7 +8721,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   %3058 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %3054, i64 noundef %3057) #18
   %3059 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %3058, ptr noundef nonnull @.str)
   %3060 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %3060, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2051 = load i32, ptr %3060, align 1
   %3061 = getelementptr inbounds nuw i8, ptr %3060, i64 8
   store ptr %3061, ptr %5, align 8, !tbaa !73
@@ -9024,7 +8728,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   %3063 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %3059, i64 noundef %3062) #18
   %3064 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %3063, ptr noundef nonnull @.str)
   %3065 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %3065, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2052 = load i32, ptr %3065, align 1
   %3066 = getelementptr inbounds nuw i8, ptr %3065, i64 8
   store ptr %3066, ptr %5, align 8, !tbaa !73
@@ -9038,7 +8741,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.428)
   %3072 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %3073 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %3073, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2053 = load i32, ptr %3073, align 1
   %3074 = getelementptr inbounds nuw i8, ptr %3073, i64 8
   store ptr %3074, ptr %5, align 8, !tbaa !73
@@ -9046,7 +8748,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   %3076 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %3072, i64 noundef %3075) #18
   %3077 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %3076, ptr noundef nonnull @.str)
   %3078 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %3078, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2054 = load i32, ptr %3078, align 1
   %3079 = getelementptr inbounds nuw i8, ptr %3078, i64 8
   store ptr %3079, ptr %5, align 8, !tbaa !73
@@ -9054,7 +8755,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   %3081 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %3077, i64 noundef %3080) #18
   %3082 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %3081, ptr noundef nonnull @.str)
   %3083 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %3083, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2055 = load i32, ptr %3083, align 1
   %3084 = getelementptr inbounds nuw i8, ptr %3083, i64 8
   store ptr %3084, ptr %5, align 8, !tbaa !73
@@ -9068,7 +8768,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.429)
   %3090 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %3091 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %3091, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2056 = load i32, ptr %3091, align 1
   %3092 = getelementptr inbounds nuw i8, ptr %3091, i64 8
   store ptr %3092, ptr %5, align 8, !tbaa !73
@@ -9076,7 +8775,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   %3094 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %3090, i64 noundef %3093) #18
   %3095 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %3094, ptr noundef nonnull @.str)
   %3096 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %3096, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2057 = load i32, ptr %3096, align 1
   %3097 = getelementptr inbounds nuw i8, ptr %3096, i64 8
   store ptr %3097, ptr %5, align 8, !tbaa !73
@@ -9084,7 +8782,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   %3099 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %3095, i64 noundef %3098) #18
   %3100 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %3099, ptr noundef nonnull @.str)
   %3101 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %3101, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2058 = load i32, ptr %3101, align 1
   %3102 = getelementptr inbounds nuw i8, ptr %3101, i64 8
   store ptr %3102, ptr %5, align 8, !tbaa !73
@@ -9098,7 +8795,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.430)
   %3108 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %3109 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %3109, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2059 = load i32, ptr %3109, align 1
   %3110 = getelementptr inbounds nuw i8, ptr %3109, i64 8
   store ptr %3110, ptr %5, align 8, !tbaa !73
@@ -9106,7 +8802,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   %3112 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %3108, i64 noundef %3111) #18
   %3113 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %3112, ptr noundef nonnull @.str)
   %3114 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %3114, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2060 = load i32, ptr %3114, align 1
   %3115 = getelementptr inbounds nuw i8, ptr %3114, i64 8
   store ptr %3115, ptr %5, align 8, !tbaa !73
@@ -9114,7 +8809,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   %3117 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %3113, i64 noundef %3116) #18
   %3118 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %3117, ptr noundef nonnull @.str)
   %3119 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %3119, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2061 = load i32, ptr %3119, align 1
   %3120 = getelementptr inbounds nuw i8, ptr %3119, i64 8
   store ptr %3120, ptr %5, align 8, !tbaa !73
@@ -9332,7 +9026,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.465)
   %3228 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %3229 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %3229, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2062 = load i32, ptr %3229, align 1
   %3230 = getelementptr inbounds nuw i8, ptr %3229, i64 8
   store ptr %3230, ptr %5, align 8, !tbaa !73
@@ -9346,7 +9039,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.466)
   %3236 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %3237 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %3237, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2063 = load i32, ptr %3237, align 1
   %3238 = getelementptr inbounds nuw i8, ptr %3237, i64 8
   store ptr %3238, ptr %5, align 8, !tbaa !73
@@ -9360,7 +9052,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.467)
   %3244 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %3245 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %3245, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2064 = load i32, ptr %3245, align 1
   %3246 = getelementptr inbounds nuw i8, ptr %3245, i64 8
   store ptr %3246, ptr %5, align 8, !tbaa !73
@@ -9512,7 +9203,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.491)
   %3321 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %3322 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %3322, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2065 = load i32, ptr %3322, align 1
   %3323 = getelementptr inbounds nuw i8, ptr %3322, i64 8
   store ptr %3323, ptr %5, align 8, !tbaa !73
@@ -11284,7 +10974,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.785)
   %4208 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %4209 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %4209, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2066 = load i8, ptr %4209, align 1
   %4210 = getelementptr inbounds nuw i8, ptr %4209, i64 8
   store ptr %4210, ptr %5, align 8, !tbaa !73
@@ -11293,7 +10982,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   %4213 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEl(ptr noundef nonnull align 8 dereferenceable(48) %4208, i64 noundef %4212) #18
   %4214 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %4213, ptr noundef nonnull @.str)
   %4215 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %4215, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2067 = load i8, ptr %4215, align 1
   %4216 = getelementptr inbounds nuw i8, ptr %4215, i64 8
   store ptr %4216, ptr %5, align 8, !tbaa !73
@@ -11488,7 +11176,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.816)
   %4313 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %4314 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %4314, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2068 = load i32, ptr %4314, align 1
   %4315 = getelementptr inbounds nuw i8, ptr %4314, i64 8
   store ptr %4315, ptr %5, align 8, !tbaa !73
@@ -11502,7 +11189,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.817)
   %4321 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %4322 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %4322, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2069 = load i32, ptr %4322, align 1
   %4323 = getelementptr inbounds nuw i8, ptr %4322, i64 8
   store ptr %4323, ptr %5, align 8, !tbaa !73
@@ -11516,7 +11202,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.818)
   %4329 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %4330 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %4330, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2070 = load i32, ptr %4330, align 1
   %4331 = getelementptr inbounds nuw i8, ptr %4330, i64 8
   store ptr %4331, ptr %5, align 8, !tbaa !73
@@ -11530,7 +11215,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.819)
   %4337 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %4338 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %4338, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2071 = load i32, ptr %4338, align 1
   %4339 = getelementptr inbounds nuw i8, ptr %4338, i64 8
   store ptr %4339, ptr %5, align 8, !tbaa !73
@@ -11544,7 +11228,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.820)
   %4345 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %4346 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %4346, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2072 = load i32, ptr %4346, align 1
   %4347 = getelementptr inbounds nuw i8, ptr %4346, i64 8
   store ptr %4347, ptr %5, align 8, !tbaa !73
@@ -11558,7 +11241,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.821)
   %4353 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %4354 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %4354, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2073 = load i32, ptr %4354, align 1
   %4355 = getelementptr inbounds nuw i8, ptr %4354, i64 8
   store ptr %4355, ptr %5, align 8, !tbaa !73
@@ -11572,7 +11254,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.822)
   %4361 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %4362 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %4362, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2074 = load i32, ptr %4362, align 1
   %4363 = getelementptr inbounds nuw i8, ptr %4362, i64 8
   store ptr %4363, ptr %5, align 8, !tbaa !73
@@ -11586,7 +11267,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.823)
   %4369 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %4370 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %4370, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2075 = load i32, ptr %4370, align 1
   %4371 = getelementptr inbounds nuw i8, ptr %4370, i64 8
   store ptr %4371, ptr %5, align 8, !tbaa !73
@@ -11600,7 +11280,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.824)
   %4377 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %4378 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %4378, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2076 = load i32, ptr %4378, align 1
   %4379 = getelementptr inbounds nuw i8, ptr %4378, i64 8
   store ptr %4379, ptr %5, align 8, !tbaa !73
@@ -11614,7 +11293,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.825)
   %4385 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %4386 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %4386, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2077 = load i32, ptr %4386, align 1
   %4387 = getelementptr inbounds nuw i8, ptr %4386, i64 8
   store ptr %4387, ptr %5, align 8, !tbaa !73
@@ -11628,7 +11306,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.826)
   %4393 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %4394 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %4394, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2078 = load i32, ptr %4394, align 1
   %4395 = getelementptr inbounds nuw i8, ptr %4394, i64 8
   store ptr %4395, ptr %5, align 8, !tbaa !73
@@ -11642,7 +11319,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.827)
   %4401 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %4402 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %4402, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2079 = load i32, ptr %4402, align 1
   %4403 = getelementptr inbounds nuw i8, ptr %4402, i64 8
   store ptr %4403, ptr %5, align 8, !tbaa !73
@@ -11656,7 +11332,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.828)
   %4409 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %4410 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %4410, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2080 = load i32, ptr %4410, align 1
   %4411 = getelementptr inbounds nuw i8, ptr %4410, i64 8
   store ptr %4411, ptr %5, align 8, !tbaa !73
@@ -11670,7 +11345,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.829)
   %4417 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %4418 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %4418, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2081 = load i32, ptr %4418, align 1
   %4419 = getelementptr inbounds nuw i8, ptr %4418, i64 8
   store ptr %4419, ptr %5, align 8, !tbaa !73
@@ -11684,7 +11358,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.830)
   %4425 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %4426 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %4426, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2082 = load i32, ptr %4426, align 1
   %4427 = getelementptr inbounds nuw i8, ptr %4426, i64 8
   store ptr %4427, ptr %5, align 8, !tbaa !73
@@ -11698,7 +11371,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.831)
   %4433 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %4434 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %4434, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2083 = load i32, ptr %4434, align 1
   %4435 = getelementptr inbounds nuw i8, ptr %4434, i64 8
   store ptr %4435, ptr %5, align 8, !tbaa !73
@@ -11712,7 +11384,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.832)
   %4441 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %4442 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %4442, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2084 = load i32, ptr %4442, align 1
   %4443 = getelementptr inbounds nuw i8, ptr %4442, i64 8
   store ptr %4443, ptr %5, align 8, !tbaa !73
@@ -11726,7 +11397,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.833)
   %4449 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %4450 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %4450, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2085 = load i32, ptr %4450, align 1
   %4451 = getelementptr inbounds nuw i8, ptr %4450, i64 8
   store ptr %4451, ptr %5, align 8, !tbaa !73
@@ -11740,7 +11410,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.834)
   %4457 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %4458 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %4458, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2086 = load i32, ptr %4458, align 1
   %4459 = getelementptr inbounds nuw i8, ptr %4458, i64 8
   store ptr %4459, ptr %5, align 8, !tbaa !73
@@ -11754,7 +11423,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.835)
   %4465 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %4466 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %4466, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2087 = load i32, ptr %4466, align 1
   %4467 = getelementptr inbounds nuw i8, ptr %4466, i64 8
   store ptr %4467, ptr %5, align 8, !tbaa !73
@@ -11768,7 +11436,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.836)
   %4473 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %4474 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %4474, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2088 = load i32, ptr %4474, align 1
   %4475 = getelementptr inbounds nuw i8, ptr %4474, i64 8
   store ptr %4475, ptr %5, align 8, !tbaa !73
@@ -11782,7 +11449,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.837)
   %4481 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %4482 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %4482, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2089 = load i32, ptr %4482, align 1
   %4483 = getelementptr inbounds nuw i8, ptr %4482, i64 8
   store ptr %4483, ptr %5, align 8, !tbaa !73
@@ -11796,7 +11462,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.838)
   %4489 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %4490 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %4490, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2090 = load i32, ptr %4490, align 1
   %4491 = getelementptr inbounds nuw i8, ptr %4490, i64 8
   store ptr %4491, ptr %5, align 8, !tbaa !73
@@ -11810,7 +11475,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.839)
   %4497 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %4498 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %4498, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2091 = load i32, ptr %4498, align 1
   %4499 = getelementptr inbounds nuw i8, ptr %4498, i64 8
   store ptr %4499, ptr %5, align 8, !tbaa !73
@@ -11824,7 +11488,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.840)
   %4505 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %4506 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %4506, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2092 = load i32, ptr %4506, align 1
   %4507 = getelementptr inbounds nuw i8, ptr %4506, i64 8
   store ptr %4507, ptr %5, align 8, !tbaa !73
@@ -11838,7 +11501,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.841)
   %4513 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %4514 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %4514, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2093 = load i32, ptr %4514, align 1
   %4515 = getelementptr inbounds nuw i8, ptr %4514, i64 8
   store ptr %4515, ptr %5, align 8, !tbaa !73
@@ -11852,7 +11514,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.842)
   %4521 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %4522 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %4522, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2094 = load i32, ptr %4522, align 1
   %4523 = getelementptr inbounds nuw i8, ptr %4522, i64 8
   store ptr %4523, ptr %5, align 8, !tbaa !73
@@ -11866,7 +11527,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.843)
   %4529 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %4530 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %4530, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2095 = load i32, ptr %4530, align 1
   %4531 = getelementptr inbounds nuw i8, ptr %4530, i64 8
   store ptr %4531, ptr %5, align 8, !tbaa !73
@@ -11880,7 +11540,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.844)
   %4537 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %4538 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %4538, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2096 = load i32, ptr %4538, align 1
   %4539 = getelementptr inbounds nuw i8, ptr %4538, i64 8
   store ptr %4539, ptr %5, align 8, !tbaa !73
@@ -11894,7 +11553,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.845)
   %4545 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %4546 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %4546, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2097 = load i32, ptr %4546, align 1
   %4547 = getelementptr inbounds nuw i8, ptr %4546, i64 8
   store ptr %4547, ptr %5, align 8, !tbaa !73
@@ -11908,7 +11566,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.846)
   %4553 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %4554 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %4554, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2098 = load i32, ptr %4554, align 1
   %4555 = getelementptr inbounds nuw i8, ptr %4554, i64 8
   store ptr %4555, ptr %5, align 8, !tbaa !73
@@ -11922,7 +11579,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.847)
   %4561 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %4562 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %4562, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2099 = load i32, ptr %4562, align 1
   %4563 = getelementptr inbounds nuw i8, ptr %4562, i64 8
   store ptr %4563, ptr %5, align 8, !tbaa !73
@@ -11937,7 +11593,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   %4569 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %4570 = load ptr, ptr %0, align 8, !tbaa !84
   %4571 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %4571, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2100 = load i32, ptr %4571, align 1
   %4572 = getelementptr inbounds nuw i8, ptr %4571, i64 8
   store ptr %4572, ptr %5, align 8, !tbaa !73
@@ -11951,7 +11606,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.849)
   %4578 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %4579 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %4579, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2101 = load i32, ptr %4579, align 1
   %4580 = getelementptr inbounds nuw i8, ptr %4579, i64 8
   store ptr %4580, ptr %5, align 8, !tbaa !73
@@ -11965,7 +11619,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.850)
   %4586 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %4587 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %4587, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2102 = load i32, ptr %4587, align 1
   %4588 = getelementptr inbounds nuw i8, ptr %4587, i64 8
   store ptr %4588, ptr %5, align 8, !tbaa !73
@@ -11979,7 +11632,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.851)
   %4594 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %4595 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %4595, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2103 = load i32, ptr %4595, align 1
   %4596 = getelementptr inbounds nuw i8, ptr %4595, i64 8
   store ptr %4596, ptr %5, align 8, !tbaa !73
@@ -11993,7 +11645,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.852)
   %4602 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %4603 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %4603, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2104 = load i32, ptr %4603, align 1
   %4604 = getelementptr inbounds nuw i8, ptr %4603, i64 8
   store ptr %4604, ptr %5, align 8, !tbaa !73
@@ -12007,7 +11658,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.853)
   %4610 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %4611 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %4611, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2105 = load i32, ptr %4611, align 1
   %4612 = getelementptr inbounds nuw i8, ptr %4611, i64 8
   store ptr %4612, ptr %5, align 8, !tbaa !73
@@ -12021,7 +11671,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.854)
   %4618 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %4619 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %4619, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2106 = load i32, ptr %4619, align 1
   %4620 = getelementptr inbounds nuw i8, ptr %4619, i64 8
   store ptr %4620, ptr %5, align 8, !tbaa !73
@@ -12035,7 +11684,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.855)
   %4626 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %4627 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %4627, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2107 = load i32, ptr %4627, align 1
   %4628 = getelementptr inbounds nuw i8, ptr %4627, i64 8
   store ptr %4628, ptr %5, align 8, !tbaa !73
@@ -12049,7 +11697,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.856)
   %4634 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %4635 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %4635, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2108 = load i32, ptr %4635, align 1
   %4636 = getelementptr inbounds nuw i8, ptr %4635, i64 8
   store ptr %4636, ptr %5, align 8, !tbaa !73
@@ -12063,7 +11710,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.857)
   %4642 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %4643 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %4643, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2109 = load i32, ptr %4643, align 1
   %4644 = getelementptr inbounds nuw i8, ptr %4643, i64 8
   store ptr %4644, ptr %5, align 8, !tbaa !73
@@ -12077,7 +11723,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.858)
   %4650 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %4651 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %4651, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2110 = load i32, ptr %4651, align 1
   %4652 = getelementptr inbounds nuw i8, ptr %4651, i64 8
   store ptr %4652, ptr %5, align 8, !tbaa !73
@@ -12091,7 +11736,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.859)
   %4658 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %4659 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %4659, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2111 = load i32, ptr %4659, align 1
   %4660 = getelementptr inbounds nuw i8, ptr %4659, i64 8
   store ptr %4660, ptr %5, align 8, !tbaa !73
@@ -12105,7 +11749,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.860)
   %4666 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %4667 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %4667, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2112 = load i32, ptr %4667, align 1
   %4668 = getelementptr inbounds nuw i8, ptr %4667, i64 8
   store ptr %4668, ptr %5, align 8, !tbaa !73
@@ -12119,7 +11762,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.861)
   %4674 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %4675 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %4675, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2113 = load i32, ptr %4675, align 1
   %4676 = getelementptr inbounds nuw i8, ptr %4675, i64 8
   store ptr %4676, ptr %5, align 8, !tbaa !73
@@ -12133,7 +11775,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.862)
   %4682 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %4683 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %4683, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2114 = load i32, ptr %4683, align 1
   %4684 = getelementptr inbounds nuw i8, ptr %4683, i64 8
   store ptr %4684, ptr %5, align 8, !tbaa !73
@@ -12147,7 +11788,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.863)
   %4690 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %4691 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %4691, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2115 = load i32, ptr %4691, align 1
   %4692 = getelementptr inbounds nuw i8, ptr %4691, i64 8
   store ptr %4692, ptr %5, align 8, !tbaa !73
@@ -12161,7 +11801,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.864)
   %4698 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %4699 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %4699, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2116 = load i32, ptr %4699, align 1
   %4700 = getelementptr inbounds nuw i8, ptr %4699, i64 8
   store ptr %4700, ptr %5, align 8, !tbaa !73
@@ -12175,7 +11814,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.865)
   %4706 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %4707 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %4707, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2117 = load i32, ptr %4707, align 1
   %4708 = getelementptr inbounds nuw i8, ptr %4707, i64 8
   store ptr %4708, ptr %5, align 8, !tbaa !73
@@ -12189,7 +11827,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.866)
   %4714 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %4715 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %4715, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2118 = load i32, ptr %4715, align 1
   %4716 = getelementptr inbounds nuw i8, ptr %4715, i64 8
   store ptr %4716, ptr %5, align 8, !tbaa !73
@@ -12203,7 +11840,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.867)
   %4722 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %4723 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %4723, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2119 = load i32, ptr %4723, align 1
   %4724 = getelementptr inbounds nuw i8, ptr %4723, i64 8
   store ptr %4724, ptr %5, align 8, !tbaa !73
@@ -12217,7 +11853,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.868)
   %4730 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %4731 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %4731, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2120 = load i32, ptr %4731, align 1
   %4732 = getelementptr inbounds nuw i8, ptr %4731, i64 8
   store ptr %4732, ptr %5, align 8, !tbaa !73
@@ -12231,7 +11866,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.869)
   %4738 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %4739 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %4739, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2121 = load i32, ptr %4739, align 1
   %4740 = getelementptr inbounds nuw i8, ptr %4739, i64 8
   store ptr %4740, ptr %5, align 8, !tbaa !73
@@ -12245,7 +11879,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.870)
   %4746 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %4747 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %4747, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2122 = load i32, ptr %4747, align 1
   %4748 = getelementptr inbounds nuw i8, ptr %4747, i64 8
   store ptr %4748, ptr %5, align 8, !tbaa !73
@@ -12259,7 +11892,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.871)
   %4754 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %4755 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %4755, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2123 = load i32, ptr %4755, align 1
   %4756 = getelementptr inbounds nuw i8, ptr %4755, i64 8
   store ptr %4756, ptr %5, align 8, !tbaa !73
@@ -12273,7 +11905,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.872)
   %4762 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %4763 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %4763, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2124 = load i32, ptr %4763, align 1
   %4764 = getelementptr inbounds nuw i8, ptr %4763, i64 8
   store ptr %4764, ptr %5, align 8, !tbaa !73
@@ -12287,7 +11918,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.873)
   %4770 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %4771 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %4771, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2125 = load i32, ptr %4771, align 1
   %4772 = getelementptr inbounds nuw i8, ptr %4771, i64 8
   store ptr %4772, ptr %5, align 8, !tbaa !73
@@ -12301,7 +11931,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.874)
   %4778 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %4779 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %4779, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2126 = load i32, ptr %4779, align 1
   %4780 = getelementptr inbounds nuw i8, ptr %4779, i64 8
   store ptr %4780, ptr %5, align 8, !tbaa !73
@@ -12315,7 +11944,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.875)
   %4786 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %4787 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %4787, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2127 = load i32, ptr %4787, align 1
   %4788 = getelementptr inbounds nuw i8, ptr %4787, i64 8
   store ptr %4788, ptr %5, align 8, !tbaa !73
@@ -12329,7 +11957,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.876)
   %4794 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %4795 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %4795, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2128 = load i32, ptr %4795, align 1
   %4796 = getelementptr inbounds nuw i8, ptr %4795, i64 8
   store ptr %4796, ptr %5, align 8, !tbaa !73
@@ -12343,7 +11970,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.877)
   %4802 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %4803 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %4803, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2129 = load i32, ptr %4803, align 1
   %4804 = getelementptr inbounds nuw i8, ptr %4803, i64 8
   store ptr %4804, ptr %5, align 8, !tbaa !73
@@ -12357,7 +11983,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.878)
   %4810 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %4811 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %4811, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2130 = load i32, ptr %4811, align 1
   %4812 = getelementptr inbounds nuw i8, ptr %4811, i64 8
   store ptr %4812, ptr %5, align 8, !tbaa !73
@@ -12371,7 +11996,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.879)
   %4818 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %4819 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %4819, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2131 = load i32, ptr %4819, align 1
   %4820 = getelementptr inbounds nuw i8, ptr %4819, i64 8
   store ptr %4820, ptr %5, align 8, !tbaa !73
@@ -12385,7 +12009,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.880)
   %4826 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %4827 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %4827, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2132 = load i32, ptr %4827, align 1
   %4828 = getelementptr inbounds nuw i8, ptr %4827, i64 8
   store ptr %4828, ptr %5, align 8, !tbaa !73
@@ -12400,7 +12023,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   %4834 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %4835 = load ptr, ptr %0, align 8, !tbaa !84
   %4836 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %4836, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2133 = load i32, ptr %4836, align 1
   %4837 = getelementptr inbounds nuw i8, ptr %4836, i64 8
   store ptr %4837, ptr %5, align 8, !tbaa !73
@@ -12415,7 +12037,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   %4843 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %4844 = load ptr, ptr %0, align 8, !tbaa !84
   %4845 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %4845, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2134 = load i32, ptr %4845, align 1
   %4846 = getelementptr inbounds nuw i8, ptr %4845, i64 8
   store ptr %4846, ptr %5, align 8, !tbaa !73
@@ -12430,7 +12051,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   %4852 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %4853 = load ptr, ptr %0, align 8, !tbaa !84
   %4854 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %4854, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2135 = load i32, ptr %4854, align 1
   %4855 = getelementptr inbounds nuw i8, ptr %4854, i64 8
   store ptr %4855, ptr %5, align 8, !tbaa !73
@@ -12445,7 +12065,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   %4861 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %4862 = load ptr, ptr %0, align 8, !tbaa !84
   %4863 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %4863, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2136 = load i32, ptr %4863, align 1
   %4864 = getelementptr inbounds nuw i8, ptr %4863, i64 8
   store ptr %4864, ptr %5, align 8, !tbaa !73
@@ -12460,7 +12079,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   %4870 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %4871 = load ptr, ptr %0, align 8, !tbaa !84
   %4872 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %4872, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2137 = load i32, ptr %4872, align 1
   %4873 = getelementptr inbounds nuw i8, ptr %4872, i64 8
   store ptr %4873, ptr %5, align 8, !tbaa !73
@@ -12475,7 +12093,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   %4879 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %4880 = load ptr, ptr %0, align 8, !tbaa !84
   %4881 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %4881, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2138 = load i32, ptr %4881, align 1
   %4882 = getelementptr inbounds nuw i8, ptr %4881, i64 8
   store ptr %4882, ptr %5, align 8, !tbaa !73
@@ -12490,7 +12107,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   %4888 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %4889 = load ptr, ptr %0, align 8, !tbaa !84
   %4890 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %4890, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2139 = load i32, ptr %4890, align 1
   %4891 = getelementptr inbounds nuw i8, ptr %4890, i64 8
   store ptr %4891, ptr %5, align 8, !tbaa !73
@@ -12505,7 +12121,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   %4897 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %4898 = load ptr, ptr %0, align 8, !tbaa !84
   %4899 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %4899, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2140 = load i32, ptr %4899, align 1
   %4900 = getelementptr inbounds nuw i8, ptr %4899, i64 8
   store ptr %4900, ptr %5, align 8, !tbaa !73
@@ -12520,7 +12135,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   %4906 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %4907 = load ptr, ptr %0, align 8, !tbaa !84
   %4908 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %4908, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2141 = load i32, ptr %4908, align 1
   %4909 = getelementptr inbounds nuw i8, ptr %4908, i64 8
   store ptr %4909, ptr %5, align 8, !tbaa !73
@@ -12535,7 +12149,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   %4915 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %4916 = load ptr, ptr %0, align 8, !tbaa !84
   %4917 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %4917, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2142 = load i32, ptr %4917, align 1
   %4918 = getelementptr inbounds nuw i8, ptr %4917, i64 8
   store ptr %4918, ptr %5, align 8, !tbaa !73
@@ -12550,7 +12163,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   %4924 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %4925 = load ptr, ptr %0, align 8, !tbaa !84
   %4926 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %4926, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2143 = load i32, ptr %4926, align 1
   %4927 = getelementptr inbounds nuw i8, ptr %4926, i64 8
   store ptr %4927, ptr %5, align 8, !tbaa !73
@@ -12565,7 +12177,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   %4933 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %4934 = load ptr, ptr %0, align 8, !tbaa !84
   %4935 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %4935, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2144 = load i32, ptr %4935, align 1
   %4936 = getelementptr inbounds nuw i8, ptr %4935, i64 8
   store ptr %4936, ptr %5, align 8, !tbaa !73
@@ -12579,7 +12190,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.893)
   %4942 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %4943 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %4943, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2145 = load i32, ptr %4943, align 1
   %4944 = getelementptr inbounds nuw i8, ptr %4943, i64 8
   store ptr %4944, ptr %5, align 8, !tbaa !73
@@ -12593,7 +12203,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.894)
   %4950 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %4951 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %4951, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2146 = load i32, ptr %4951, align 1
   %4952 = getelementptr inbounds nuw i8, ptr %4951, i64 8
   store ptr %4952, ptr %5, align 8, !tbaa !73
@@ -12607,7 +12216,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.895)
   %4958 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %4959 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %4959, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2147 = load i32, ptr %4959, align 1
   %4960 = getelementptr inbounds nuw i8, ptr %4959, i64 8
   store ptr %4960, ptr %5, align 8, !tbaa !73
@@ -12621,7 +12229,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.896)
   %4966 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %4967 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %4967, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2148 = load i32, ptr %4967, align 1
   %4968 = getelementptr inbounds nuw i8, ptr %4967, i64 8
   store ptr %4968, ptr %5, align 8, !tbaa !73
@@ -12635,7 +12242,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.897)
   %4974 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %4975 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %4975, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2149 = load i32, ptr %4975, align 1
   %4976 = getelementptr inbounds nuw i8, ptr %4975, i64 8
   store ptr %4976, ptr %5, align 8, !tbaa !73
@@ -12649,7 +12255,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.898)
   %4982 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %4983 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %4983, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2150 = load i32, ptr %4983, align 1
   %4984 = getelementptr inbounds nuw i8, ptr %4983, i64 8
   store ptr %4984, ptr %5, align 8, !tbaa !73
@@ -12663,7 +12268,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.899)
   %4990 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %4991 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %4991, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2151 = load i32, ptr %4991, align 1
   %4992 = getelementptr inbounds nuw i8, ptr %4991, i64 8
   store ptr %4992, ptr %5, align 8, !tbaa !73
@@ -12677,7 +12281,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.900)
   %4998 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %4999 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %4999, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2152 = load i32, ptr %4999, align 1
   %5000 = getelementptr inbounds nuw i8, ptr %4999, i64 8
   store ptr %5000, ptr %5, align 8, !tbaa !73
@@ -12691,7 +12294,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.901)
   %5006 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %5007 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %5007, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2153 = load i32, ptr %5007, align 1
   %5008 = getelementptr inbounds nuw i8, ptr %5007, i64 8
   store ptr %5008, ptr %5, align 8, !tbaa !73
@@ -12705,7 +12307,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.902)
   %5014 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %5015 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %5015, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2154 = load i32, ptr %5015, align 1
   %5016 = getelementptr inbounds nuw i8, ptr %5015, i64 8
   store ptr %5016, ptr %5, align 8, !tbaa !73
@@ -12719,7 +12320,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.903)
   %5022 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %5023 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %5023, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2155 = load i32, ptr %5023, align 1
   %5024 = getelementptr inbounds nuw i8, ptr %5023, i64 8
   store ptr %5024, ptr %5, align 8, !tbaa !73
@@ -12733,7 +12333,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.904)
   %5030 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %5031 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %5031, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2156 = load i32, ptr %5031, align 1
   %5032 = getelementptr inbounds nuw i8, ptr %5031, i64 8
   store ptr %5032, ptr %5, align 8, !tbaa !73
@@ -12747,7 +12346,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.905)
   %5038 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %5039 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %5039, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2157 = load i32, ptr %5039, align 1
   %5040 = getelementptr inbounds nuw i8, ptr %5039, i64 8
   store ptr %5040, ptr %5, align 8, !tbaa !73
@@ -12761,7 +12359,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.906)
   %5046 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %5047 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %5047, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2158 = load i32, ptr %5047, align 1
   %5048 = getelementptr inbounds nuw i8, ptr %5047, i64 8
   store ptr %5048, ptr %5, align 8, !tbaa !73
@@ -12775,7 +12372,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.907)
   %5054 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %5055 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %5055, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2159 = load i32, ptr %5055, align 1
   %5056 = getelementptr inbounds nuw i8, ptr %5055, i64 8
   store ptr %5056, ptr %5, align 8, !tbaa !73
@@ -12789,7 +12385,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.908)
   %5062 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %5063 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %5063, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2160 = load i32, ptr %5063, align 1
   %5064 = getelementptr inbounds nuw i8, ptr %5063, i64 8
   store ptr %5064, ptr %5, align 8, !tbaa !73
@@ -12804,7 +12399,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   %5070 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %5071 = load ptr, ptr %0, align 8, !tbaa !84
   %5072 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %5072, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2161 = load i32, ptr %5072, align 1
   %5073 = getelementptr inbounds nuw i8, ptr %5072, i64 8
   store ptr %5073, ptr %5, align 8, !tbaa !73
@@ -12824,7 +12418,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.911)
   %5082 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %5083 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %5083, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2162 = load i32, ptr %5083, align 1
   %5084 = getelementptr inbounds nuw i8, ptr %5083, i64 8
   store ptr %5084, ptr %5, align 8, !tbaa !73
@@ -12844,7 +12437,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.913)
   %5093 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %5094 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %5094, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2163 = load i32, ptr %5094, align 1
   %5095 = getelementptr inbounds nuw i8, ptr %5094, i64 8
   store ptr %5095, ptr %5, align 8, !tbaa !73
@@ -12858,7 +12450,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.914)
   %5101 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %5102 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %5102, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2164 = load i32, ptr %5102, align 1
   %5103 = getelementptr inbounds nuw i8, ptr %5102, i64 8
   store ptr %5103, ptr %5, align 8, !tbaa !73
@@ -12872,7 +12463,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.915)
   %5109 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %5110 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %5110, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2165 = load i32, ptr %5110, align 1
   %5111 = getelementptr inbounds nuw i8, ptr %5110, i64 8
   store ptr %5111, ptr %5, align 8, !tbaa !73
@@ -12886,7 +12476,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.916)
   %5117 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %5118 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %5118, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2166 = load i32, ptr %5118, align 1
   %5119 = getelementptr inbounds nuw i8, ptr %5118, i64 8
   store ptr %5119, ptr %5, align 8, !tbaa !73
@@ -12900,7 +12489,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.917)
   %5125 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %5126 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %5126, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2167 = load i32, ptr %5126, align 1
   %5127 = getelementptr inbounds nuw i8, ptr %5126, i64 8
   store ptr %5127, ptr %5, align 8, !tbaa !73
@@ -12914,7 +12502,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.918)
   %5133 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %5134 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %5134, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2168 = load i32, ptr %5134, align 1
   %5135 = getelementptr inbounds nuw i8, ptr %5134, i64 8
   store ptr %5135, ptr %5, align 8, !tbaa !73
@@ -12928,7 +12515,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.919)
   %5141 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %5142 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %5142, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2169 = load i32, ptr %5142, align 1
   %5143 = getelementptr inbounds nuw i8, ptr %5142, i64 8
   store ptr %5143, ptr %5, align 8, !tbaa !73
@@ -12942,7 +12528,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.920)
   %5149 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %5150 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %5150, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2170 = load i32, ptr %5150, align 1
   %5151 = getelementptr inbounds nuw i8, ptr %5150, i64 8
   store ptr %5151, ptr %5, align 8, !tbaa !73
@@ -12956,7 +12541,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.921)
   %5157 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %5158 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %5158, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2171 = load i32, ptr %5158, align 1
   %5159 = getelementptr inbounds nuw i8, ptr %5158, i64 8
   store ptr %5159, ptr %5, align 8, !tbaa !73
@@ -12970,7 +12554,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.922)
   %5165 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %5166 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %5166, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2172 = load i32, ptr %5166, align 1
   %5167 = getelementptr inbounds nuw i8, ptr %5166, i64 8
   store ptr %5167, ptr %5, align 8, !tbaa !73
@@ -12984,7 +12567,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.923)
   %5173 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %5174 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %5174, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2173 = load i32, ptr %5174, align 1
   %5175 = getelementptr inbounds nuw i8, ptr %5174, i64 8
   store ptr %5175, ptr %5, align 8, !tbaa !73
@@ -12998,7 +12580,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.924)
   %5181 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %5182 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %5182, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2174 = load i32, ptr %5182, align 1
   %5183 = getelementptr inbounds nuw i8, ptr %5182, i64 8
   store ptr %5183, ptr %5, align 8, !tbaa !73
@@ -13012,7 +12593,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.925)
   %5189 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %5190 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %5190, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2175 = load i32, ptr %5190, align 1
   %5191 = getelementptr inbounds nuw i8, ptr %5190, i64 8
   store ptr %5191, ptr %5, align 8, !tbaa !73
@@ -13026,7 +12606,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.926)
   %5197 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %5198 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %5198, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2176 = load i32, ptr %5198, align 1
   %5199 = getelementptr inbounds nuw i8, ptr %5198, i64 8
   store ptr %5199, ptr %5, align 8, !tbaa !73
@@ -13040,7 +12619,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.927)
   %5205 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %5206 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %5206, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2177 = load i32, ptr %5206, align 1
   %5207 = getelementptr inbounds nuw i8, ptr %5206, i64 8
   store ptr %5207, ptr %5, align 8, !tbaa !73
@@ -13054,7 +12632,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.928)
   %5213 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %5214 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %5214, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2178 = load i32, ptr %5214, align 1
   %5215 = getelementptr inbounds nuw i8, ptr %5214, i64 8
   store ptr %5215, ptr %5, align 8, !tbaa !73
@@ -13068,7 +12645,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.929)
   %5221 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %5222 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %5222, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2179 = load i32, ptr %5222, align 1
   %5223 = getelementptr inbounds nuw i8, ptr %5222, i64 8
   store ptr %5223, ptr %5, align 8, !tbaa !73
@@ -13082,7 +12658,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.930)
   %5229 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %5230 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %5230, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2180 = load i32, ptr %5230, align 1
   %5231 = getelementptr inbounds nuw i8, ptr %5230, i64 8
   store ptr %5231, ptr %5, align 8, !tbaa !73
@@ -13096,7 +12671,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.931)
   %5237 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %5238 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %5238, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2181 = load i32, ptr %5238, align 1
   %5239 = getelementptr inbounds nuw i8, ptr %5238, i64 8
   store ptr %5239, ptr %5, align 8, !tbaa !73
@@ -13110,7 +12684,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.932)
   %5245 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %5246 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %5246, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2182 = load i32, ptr %5246, align 1
   %5247 = getelementptr inbounds nuw i8, ptr %5246, i64 8
   store ptr %5247, ptr %5, align 8, !tbaa !73
@@ -13124,7 +12697,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.933)
   %5253 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %5254 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %5254, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2183 = load i32, ptr %5254, align 1
   %5255 = getelementptr inbounds nuw i8, ptr %5254, i64 8
   store ptr %5255, ptr %5, align 8, !tbaa !73
@@ -13138,7 +12710,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.934)
   %5261 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %5262 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %5262, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2184 = load i32, ptr %5262, align 1
   %5263 = getelementptr inbounds nuw i8, ptr %5262, i64 8
   store ptr %5263, ptr %5, align 8, !tbaa !73
@@ -13152,7 +12723,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.935)
   %5269 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %5270 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %5270, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2185 = load i32, ptr %5270, align 1
   %5271 = getelementptr inbounds nuw i8, ptr %5270, i64 8
   store ptr %5271, ptr %5, align 8, !tbaa !73
@@ -13166,7 +12736,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.936)
   %5277 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %5278 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %5278, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2186 = load i32, ptr %5278, align 1
   %5279 = getelementptr inbounds nuw i8, ptr %5278, i64 8
   store ptr %5279, ptr %5, align 8, !tbaa !73
@@ -13180,7 +12749,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.937)
   %5285 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %5286 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %5286, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2187 = load i32, ptr %5286, align 1
   %5287 = getelementptr inbounds nuw i8, ptr %5286, i64 8
   store ptr %5287, ptr %5, align 8, !tbaa !73
@@ -13194,7 +12762,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.938)
   %5293 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %5294 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %5294, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2188 = load i32, ptr %5294, align 1
   %5295 = getelementptr inbounds nuw i8, ptr %5294, i64 8
   store ptr %5295, ptr %5, align 8, !tbaa !73
@@ -13208,7 +12775,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.939)
   %5301 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %5302 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %5302, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2189 = load i32, ptr %5302, align 1
   %5303 = getelementptr inbounds nuw i8, ptr %5302, i64 8
   store ptr %5303, ptr %5, align 8, !tbaa !73
@@ -13222,7 +12788,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.940)
   %5309 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %5310 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %5310, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2190 = load i32, ptr %5310, align 1
   %5311 = getelementptr inbounds nuw i8, ptr %5310, i64 8
   store ptr %5311, ptr %5, align 8, !tbaa !73
@@ -13237,7 +12802,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   %5317 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %5318 = load ptr, ptr %0, align 8, !tbaa !84
   %5319 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %5319, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2191 = load i32, ptr %5319, align 1
   %5320 = getelementptr inbounds nuw i8, ptr %5319, i64 8
   store ptr %5320, ptr %5, align 8, !tbaa !73
@@ -13252,7 +12816,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   %5326 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %5327 = load ptr, ptr %0, align 8, !tbaa !84
   %5328 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %5328, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2192 = load i32, ptr %5328, align 1
   %5329 = getelementptr inbounds nuw i8, ptr %5328, i64 8
   store ptr %5329, ptr %5, align 8, !tbaa !73
@@ -13266,7 +12829,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.943)
   %5335 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %5336 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %5336, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2193 = load i32, ptr %5336, align 1
   %5337 = getelementptr inbounds nuw i8, ptr %5336, i64 8
   store ptr %5337, ptr %5, align 8, !tbaa !73
@@ -13280,7 +12842,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.944)
   %5343 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %5344 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %5344, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2194 = load i32, ptr %5344, align 1
   %5345 = getelementptr inbounds nuw i8, ptr %5344, i64 8
   store ptr %5345, ptr %5, align 8, !tbaa !73
@@ -13294,7 +12855,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.945)
   %5351 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %5352 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %5352, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2195 = load i32, ptr %5352, align 1
   %5353 = getelementptr inbounds nuw i8, ptr %5352, i64 8
   store ptr %5353, ptr %5, align 8, !tbaa !73
@@ -13308,7 +12868,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.946)
   %5359 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %5360 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %5360, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2196 = load i32, ptr %5360, align 1
   %5361 = getelementptr inbounds nuw i8, ptr %5360, i64 8
   store ptr %5361, ptr %5, align 8, !tbaa !73
@@ -13322,7 +12881,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.947)
   %5367 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %5368 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %5368, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2197 = load i32, ptr %5368, align 1
   %5369 = getelementptr inbounds nuw i8, ptr %5368, i64 8
   store ptr %5369, ptr %5, align 8, !tbaa !73
@@ -13336,7 +12894,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.948)
   %5375 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %5376 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %5376, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2198 = load i32, ptr %5376, align 1
   %5377 = getelementptr inbounds nuw i8, ptr %5376, i64 8
   store ptr %5377, ptr %5, align 8, !tbaa !73
@@ -13350,7 +12907,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.949)
   %5383 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %5384 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %5384, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2199 = load i32, ptr %5384, align 1
   %5385 = getelementptr inbounds nuw i8, ptr %5384, i64 8
   store ptr %5385, ptr %5, align 8, !tbaa !73
@@ -13364,7 +12920,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.950)
   %5391 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %5392 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %5392, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2200 = load i32, ptr %5392, align 1
   %5393 = getelementptr inbounds nuw i8, ptr %5392, i64 8
   store ptr %5393, ptr %5, align 8, !tbaa !73
@@ -13378,7 +12933,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.951)
   %5399 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %5400 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %5400, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2201 = load i32, ptr %5400, align 1
   %5401 = getelementptr inbounds nuw i8, ptr %5400, i64 8
   store ptr %5401, ptr %5, align 8, !tbaa !73
@@ -13392,7 +12946,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.952)
   %5407 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %5408 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %5408, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2202 = load i32, ptr %5408, align 1
   %5409 = getelementptr inbounds nuw i8, ptr %5408, i64 8
   store ptr %5409, ptr %5, align 8, !tbaa !73
@@ -13406,7 +12959,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.953)
   %5415 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %5416 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %5416, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2203 = load i32, ptr %5416, align 1
   %5417 = getelementptr inbounds nuw i8, ptr %5416, i64 8
   store ptr %5417, ptr %5, align 8, !tbaa !73
@@ -13420,7 +12972,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.954)
   %5423 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %5424 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %5424, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2204 = load i32, ptr %5424, align 1
   %5425 = getelementptr inbounds nuw i8, ptr %5424, i64 8
   store ptr %5425, ptr %5, align 8, !tbaa !73
@@ -13434,7 +12985,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.955)
   %5431 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %5432 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %5432, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2205 = load i32, ptr %5432, align 1
   %5433 = getelementptr inbounds nuw i8, ptr %5432, i64 8
   store ptr %5433, ptr %5, align 8, !tbaa !73
@@ -13448,7 +12998,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.956)
   %5439 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %5440 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %5440, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2206 = load i32, ptr %5440, align 1
   %5441 = getelementptr inbounds nuw i8, ptr %5440, i64 8
   store ptr %5441, ptr %5, align 8, !tbaa !73
@@ -13462,7 +13011,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.957)
   %5447 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %5448 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %5448, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2207 = load i32, ptr %5448, align 1
   %5449 = getelementptr inbounds nuw i8, ptr %5448, i64 8
   store ptr %5449, ptr %5, align 8, !tbaa !73
@@ -13476,7 +13024,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.958)
   %5455 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %5456 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %5456, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2208 = load i32, ptr %5456, align 1
   %5457 = getelementptr inbounds nuw i8, ptr %5456, i64 8
   store ptr %5457, ptr %5, align 8, !tbaa !73
@@ -13491,7 +13038,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   %5463 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %5464 = load ptr, ptr %0, align 8, !tbaa !84
   %5465 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %5465, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2209 = load i32, ptr %5465, align 1
   %5466 = getelementptr inbounds nuw i8, ptr %5465, i64 8
   store ptr %5466, ptr %5, align 8, !tbaa !73
@@ -13500,7 +13046,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   %5469 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %5468, ptr noundef nonnull @.str)
   %5470 = load ptr, ptr %0, align 8, !tbaa !84
   %5471 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %5471, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2210 = load i32, ptr %5471, align 1
   %5472 = getelementptr inbounds nuw i8, ptr %5471, i64 8
   store ptr %5472, ptr %5, align 8, !tbaa !73
@@ -13515,7 +13060,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   %5478 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %5479 = load ptr, ptr %0, align 8, !tbaa !84
   %5480 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %5480, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2211 = load i32, ptr %5480, align 1
   %5481 = getelementptr inbounds nuw i8, ptr %5480, i64 8
   store ptr %5481, ptr %5, align 8, !tbaa !73
@@ -13679,7 +13223,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.986)
   %5562 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %5563 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %5563, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2212 = load i32, ptr %5563, align 1
   %5564 = getelementptr inbounds nuw i8, ptr %5563, i64 8
   store ptr %5564, ptr %5, align 8, !tbaa !73
@@ -13693,7 +13236,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.987)
   %5570 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %5571 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %5571, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2213 = load i32, ptr %5571, align 1
   %5572 = getelementptr inbounds nuw i8, ptr %5571, i64 8
   store ptr %5572, ptr %5, align 8, !tbaa !73
@@ -13804,7 +13346,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   %5626 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %5627 = load ptr, ptr %0, align 8, !tbaa !84
   %5628 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %5628, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2214 = load i32, ptr %5628, align 1
   %5629 = getelementptr inbounds nuw i8, ptr %5628, i64 8
   store ptr %5629, ptr %5, align 8, !tbaa !73
@@ -13819,7 +13360,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   %5635 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %5636 = load ptr, ptr %0, align 8, !tbaa !84
   %5637 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %5637, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2215 = load i32, ptr %5637, align 1
   %5638 = getelementptr inbounds nuw i8, ptr %5637, i64 8
   store ptr %5638, ptr %5, align 8, !tbaa !73
@@ -13834,7 +13374,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   %5644 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %5645 = load ptr, ptr %0, align 8, !tbaa !84
   %5646 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %5646, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2216 = load i32, ptr %5646, align 1
   %5647 = getelementptr inbounds nuw i8, ptr %5646, i64 8
   store ptr %5647, ptr %5, align 8, !tbaa !73
@@ -13849,7 +13388,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   %5653 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %5654 = load ptr, ptr %0, align 8, !tbaa !84
   %5655 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %5655, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2217 = load i32, ptr %5655, align 1
   %5656 = getelementptr inbounds nuw i8, ptr %5655, i64 8
   store ptr %5656, ptr %5, align 8, !tbaa !73
@@ -13864,7 +13402,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   %5662 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %5663 = load ptr, ptr %0, align 8, !tbaa !84
   %5664 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %5664, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2218 = load i32, ptr %5664, align 1
   %5665 = getelementptr inbounds nuw i8, ptr %5664, i64 8
   store ptr %5665, ptr %5, align 8, !tbaa !73
@@ -13879,7 +13416,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   %5671 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %5672 = load ptr, ptr %0, align 8, !tbaa !84
   %5673 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %5673, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2219 = load i32, ptr %5673, align 1
   %5674 = getelementptr inbounds nuw i8, ptr %5673, i64 8
   store ptr %5674, ptr %5, align 8, !tbaa !73
@@ -13894,7 +13430,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   %5680 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %5681 = load ptr, ptr %0, align 8, !tbaa !84
   %5682 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %5682, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2220 = load i32, ptr %5682, align 1
   %5683 = getelementptr inbounds nuw i8, ptr %5682, i64 8
   store ptr %5683, ptr %5, align 8, !tbaa !73
@@ -13909,7 +13444,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   %5689 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %5690 = load ptr, ptr %0, align 8, !tbaa !84
   %5691 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %5691, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2221 = load i32, ptr %5691, align 1
   %5692 = getelementptr inbounds nuw i8, ptr %5691, i64 8
   store ptr %5692, ptr %5, align 8, !tbaa !73
@@ -13924,7 +13458,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   %5698 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %5699 = load ptr, ptr %0, align 8, !tbaa !84
   %5700 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %5700, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2222 = load i32, ptr %5700, align 1
   %5701 = getelementptr inbounds nuw i8, ptr %5700, i64 8
   store ptr %5701, ptr %5, align 8, !tbaa !73
@@ -13939,7 +13472,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   %5707 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %5708 = load ptr, ptr %0, align 8, !tbaa !84
   %5709 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %5709, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2223 = load i32, ptr %5709, align 1
   %5710 = getelementptr inbounds nuw i8, ptr %5709, i64 8
   store ptr %5710, ptr %5, align 8, !tbaa !73
@@ -13954,7 +13486,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   %5716 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %5717 = load ptr, ptr %0, align 8, !tbaa !84
   %5718 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %5718, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2224 = load i32, ptr %5718, align 1
   %5719 = getelementptr inbounds nuw i8, ptr %5718, i64 8
   store ptr %5719, ptr %5, align 8, !tbaa !73
@@ -13969,7 +13500,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   %5725 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %5726 = load ptr, ptr %0, align 8, !tbaa !84
   %5727 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %5727, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2225 = load i32, ptr %5727, align 1
   %5728 = getelementptr inbounds nuw i8, ptr %5727, i64 8
   store ptr %5728, ptr %5, align 8, !tbaa !73
@@ -13983,7 +13513,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1016)
   %5734 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %5735 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %5735, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2226 = load i32, ptr %5735, align 1
   %5736 = getelementptr inbounds nuw i8, ptr %5735, i64 8
   store ptr %5736, ptr %5, align 8, !tbaa !73
@@ -13997,7 +13526,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1017)
   %5742 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %5743 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %5743, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2227 = load i32, ptr %5743, align 1
   %5744 = getelementptr inbounds nuw i8, ptr %5743, i64 8
   store ptr %5744, ptr %5, align 8, !tbaa !73
@@ -14011,7 +13539,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1018)
   %5750 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %5751 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %5751, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2228 = load i32, ptr %5751, align 1
   %5752 = getelementptr inbounds nuw i8, ptr %5751, i64 8
   store ptr %5752, ptr %5, align 8, !tbaa !73
@@ -14025,7 +13552,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1019)
   %5758 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %5759 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %5759, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2229 = load i32, ptr %5759, align 1
   %5760 = getelementptr inbounds nuw i8, ptr %5759, i64 8
   store ptr %5760, ptr %5, align 8, !tbaa !73
@@ -14039,7 +13565,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1020)
   %5766 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %5767 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %5767, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2230 = load i32, ptr %5767, align 1
   %5768 = getelementptr inbounds nuw i8, ptr %5767, i64 8
   store ptr %5768, ptr %5, align 8, !tbaa !73
@@ -14053,7 +13578,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1021)
   %5774 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %5775 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %5775, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2231 = load i32, ptr %5775, align 1
   %5776 = getelementptr inbounds nuw i8, ptr %5775, i64 8
   store ptr %5776, ptr %5, align 8, !tbaa !73
@@ -14067,7 +13591,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1022)
   %5782 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %5783 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %5783, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2232 = load i32, ptr %5783, align 1
   %5784 = getelementptr inbounds nuw i8, ptr %5783, i64 8
   store ptr %5784, ptr %5, align 8, !tbaa !73
@@ -14081,7 +13604,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1023)
   %5790 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %5791 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %5791, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2233 = load i32, ptr %5791, align 1
   %5792 = getelementptr inbounds nuw i8, ptr %5791, i64 8
   store ptr %5792, ptr %5, align 8, !tbaa !73
@@ -14095,7 +13617,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1024)
   %5798 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %5799 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %5799, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2234 = load i32, ptr %5799, align 1
   %5800 = getelementptr inbounds nuw i8, ptr %5799, i64 8
   store ptr %5800, ptr %5, align 8, !tbaa !73
@@ -14109,7 +13630,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1025)
   %5806 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %5807 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %5807, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2235 = load i32, ptr %5807, align 1
   %5808 = getelementptr inbounds nuw i8, ptr %5807, i64 8
   store ptr %5808, ptr %5, align 8, !tbaa !73
@@ -14123,7 +13643,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1026)
   %5814 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %5815 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %5815, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2236 = load i32, ptr %5815, align 1
   %5816 = getelementptr inbounds nuw i8, ptr %5815, i64 8
   store ptr %5816, ptr %5, align 8, !tbaa !73
@@ -14137,7 +13656,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1027)
   %5822 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %5823 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %5823, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2237 = load i32, ptr %5823, align 1
   %5824 = getelementptr inbounds nuw i8, ptr %5823, i64 8
   store ptr %5824, ptr %5, align 8, !tbaa !73
@@ -14151,7 +13669,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1028)
   %5830 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %5831 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %5831, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2238 = load i32, ptr %5831, align 1
   %5832 = getelementptr inbounds nuw i8, ptr %5831, i64 8
   store ptr %5832, ptr %5, align 8, !tbaa !73
@@ -14165,7 +13682,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1029)
   %5838 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %5839 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %5839, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2239 = load i32, ptr %5839, align 1
   %5840 = getelementptr inbounds nuw i8, ptr %5839, i64 8
   store ptr %5840, ptr %5, align 8, !tbaa !73
@@ -14179,7 +13695,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1030)
   %5846 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %5847 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %5847, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2240 = load i32, ptr %5847, align 1
   %5848 = getelementptr inbounds nuw i8, ptr %5847, i64 8
   store ptr %5848, ptr %5, align 8, !tbaa !73
@@ -14193,7 +13708,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1031)
   %5854 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %5855 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %5855, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2241 = load i32, ptr %5855, align 1
   %5856 = getelementptr inbounds nuw i8, ptr %5855, i64 8
   store ptr %5856, ptr %5, align 8, !tbaa !73
@@ -14207,7 +13721,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1032)
   %5862 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %5863 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %5863, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2242 = load i32, ptr %5863, align 1
   %5864 = getelementptr inbounds nuw i8, ptr %5863, i64 8
   store ptr %5864, ptr %5, align 8, !tbaa !73
@@ -14221,7 +13734,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1033)
   %5870 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %5871 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %5871, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2243 = load i32, ptr %5871, align 1
   %5872 = getelementptr inbounds nuw i8, ptr %5871, i64 8
   store ptr %5872, ptr %5, align 8, !tbaa !73
@@ -14235,7 +13747,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1034)
   %5878 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %5879 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %5879, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2244 = load i32, ptr %5879, align 1
   %5880 = getelementptr inbounds nuw i8, ptr %5879, i64 8
   store ptr %5880, ptr %5, align 8, !tbaa !73
@@ -14249,7 +13760,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1035)
   %5886 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %5887 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %5887, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2245 = load i32, ptr %5887, align 1
   %5888 = getelementptr inbounds nuw i8, ptr %5887, i64 8
   store ptr %5888, ptr %5, align 8, !tbaa !73
@@ -14263,7 +13773,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1036)
   %5894 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %5895 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %5895, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2246 = load i32, ptr %5895, align 1
   %5896 = getelementptr inbounds nuw i8, ptr %5895, i64 8
   store ptr %5896, ptr %5, align 8, !tbaa !73
@@ -14277,7 +13786,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1037)
   %5902 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %5903 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %5903, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2247 = load i32, ptr %5903, align 1
   %5904 = getelementptr inbounds nuw i8, ptr %5903, i64 8
   store ptr %5904, ptr %5, align 8, !tbaa !73
@@ -14291,7 +13799,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1038)
   %5910 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %5911 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %5911, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2248 = load i32, ptr %5911, align 1
   %5912 = getelementptr inbounds nuw i8, ptr %5911, i64 8
   store ptr %5912, ptr %5, align 8, !tbaa !73
@@ -14305,7 +13812,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1039)
   %5918 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %5919 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %5919, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2249 = load i32, ptr %5919, align 1
   %5920 = getelementptr inbounds nuw i8, ptr %5919, i64 8
   store ptr %5920, ptr %5, align 8, !tbaa !73
@@ -14319,7 +13825,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1040)
   %5926 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %5927 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %5927, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2250 = load i32, ptr %5927, align 1
   %5928 = getelementptr inbounds nuw i8, ptr %5927, i64 8
   store ptr %5928, ptr %5, align 8, !tbaa !73
@@ -14333,7 +13838,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1041)
   %5934 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %5935 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %5935, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2251 = load i32, ptr %5935, align 1
   %5936 = getelementptr inbounds nuw i8, ptr %5935, i64 8
   store ptr %5936, ptr %5, align 8, !tbaa !73
@@ -14347,7 +13851,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1042)
   %5942 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %5943 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %5943, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2252 = load i32, ptr %5943, align 1
   %5944 = getelementptr inbounds nuw i8, ptr %5943, i64 8
   store ptr %5944, ptr %5, align 8, !tbaa !73
@@ -14361,7 +13864,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1043)
   %5950 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %5951 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %5951, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2253 = load i32, ptr %5951, align 1
   %5952 = getelementptr inbounds nuw i8, ptr %5951, i64 8
   store ptr %5952, ptr %5, align 8, !tbaa !73
@@ -14375,7 +13877,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1044)
   %5958 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %5959 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %5959, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2254 = load i32, ptr %5959, align 1
   %5960 = getelementptr inbounds nuw i8, ptr %5959, i64 8
   store ptr %5960, ptr %5, align 8, !tbaa !73
@@ -14389,7 +13890,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1045)
   %5966 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %5967 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %5967, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2255 = load i32, ptr %5967, align 1
   %5968 = getelementptr inbounds nuw i8, ptr %5967, i64 8
   store ptr %5968, ptr %5, align 8, !tbaa !73
@@ -14403,7 +13903,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1046)
   %5974 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %5975 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %5975, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2256 = load i32, ptr %5975, align 1
   %5976 = getelementptr inbounds nuw i8, ptr %5975, i64 8
   store ptr %5976, ptr %5, align 8, !tbaa !73
@@ -14417,7 +13916,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1047)
   %5982 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %5983 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %5983, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2257 = load i32, ptr %5983, align 1
   %5984 = getelementptr inbounds nuw i8, ptr %5983, i64 8
   store ptr %5984, ptr %5, align 8, !tbaa !73
@@ -14431,7 +13929,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1048)
   %5990 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %5991 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %5991, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2258 = load i32, ptr %5991, align 1
   %5992 = getelementptr inbounds nuw i8, ptr %5991, i64 8
   store ptr %5992, ptr %5, align 8, !tbaa !73
@@ -14445,7 +13942,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1049)
   %5998 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %5999 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %5999, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2259 = load i32, ptr %5999, align 1
   %6000 = getelementptr inbounds nuw i8, ptr %5999, i64 8
   store ptr %6000, ptr %5, align 8, !tbaa !73
@@ -14459,7 +13955,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1050)
   %6006 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %6007 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %6007, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2260 = load i32, ptr %6007, align 1
   %6008 = getelementptr inbounds nuw i8, ptr %6007, i64 8
   store ptr %6008, ptr %5, align 8, !tbaa !73
@@ -14473,7 +13968,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1051)
   %6014 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %6015 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %6015, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2261 = load i32, ptr %6015, align 1
   %6016 = getelementptr inbounds nuw i8, ptr %6015, i64 8
   store ptr %6016, ptr %5, align 8, !tbaa !73
@@ -14487,7 +13981,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1052)
   %6022 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %6023 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %6023, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2262 = load i32, ptr %6023, align 1
   %6024 = getelementptr inbounds nuw i8, ptr %6023, i64 8
   store ptr %6024, ptr %5, align 8, !tbaa !73
@@ -14501,7 +13994,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1053)
   %6030 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %6031 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %6031, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2263 = load i32, ptr %6031, align 1
   %6032 = getelementptr inbounds nuw i8, ptr %6031, i64 8
   store ptr %6032, ptr %5, align 8, !tbaa !73
@@ -14515,7 +14007,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1054)
   %6038 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %6039 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %6039, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2264 = load i32, ptr %6039, align 1
   %6040 = getelementptr inbounds nuw i8, ptr %6039, i64 8
   store ptr %6040, ptr %5, align 8, !tbaa !73
@@ -14529,7 +14020,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1055)
   %6046 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %6047 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %6047, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2265 = load i32, ptr %6047, align 1
   %6048 = getelementptr inbounds nuw i8, ptr %6047, i64 8
   store ptr %6048, ptr %5, align 8, !tbaa !73
@@ -14543,7 +14033,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1056)
   %6054 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %6055 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %6055, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2266 = load i32, ptr %6055, align 1
   %6056 = getelementptr inbounds nuw i8, ptr %6055, i64 8
   store ptr %6056, ptr %5, align 8, !tbaa !73
@@ -14557,7 +14046,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1057)
   %6062 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %6063 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %6063, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2267 = load i32, ptr %6063, align 1
   %6064 = getelementptr inbounds nuw i8, ptr %6063, i64 8
   store ptr %6064, ptr %5, align 8, !tbaa !73
@@ -14571,7 +14059,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1058)
   %6070 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %6071 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %6071, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2268 = load i32, ptr %6071, align 1
   %6072 = getelementptr inbounds nuw i8, ptr %6071, i64 8
   store ptr %6072, ptr %5, align 8, !tbaa !73
@@ -14585,7 +14072,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1059)
   %6078 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %6079 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %6079, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2269 = load i32, ptr %6079, align 1
   %6080 = getelementptr inbounds nuw i8, ptr %6079, i64 8
   store ptr %6080, ptr %5, align 8, !tbaa !73
@@ -14599,7 +14085,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1060)
   %6086 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %6087 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %6087, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2270 = load i32, ptr %6087, align 1
   %6088 = getelementptr inbounds nuw i8, ptr %6087, i64 8
   store ptr %6088, ptr %5, align 8, !tbaa !73
@@ -14613,7 +14098,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1061)
   %6094 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %6095 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %6095, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2271 = load i32, ptr %6095, align 1
   %6096 = getelementptr inbounds nuw i8, ptr %6095, i64 8
   store ptr %6096, ptr %5, align 8, !tbaa !73
@@ -14627,7 +14111,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1062)
   %6102 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %6103 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %6103, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2272 = load i32, ptr %6103, align 1
   %6104 = getelementptr inbounds nuw i8, ptr %6103, i64 8
   store ptr %6104, ptr %5, align 8, !tbaa !73
@@ -14641,7 +14124,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1063)
   %6110 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %6111 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %6111, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2273 = load i32, ptr %6111, align 1
   %6112 = getelementptr inbounds nuw i8, ptr %6111, i64 8
   store ptr %6112, ptr %5, align 8, !tbaa !73
@@ -14655,7 +14137,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1064)
   %6118 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %6119 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %6119, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2274 = load i32, ptr %6119, align 1
   %6120 = getelementptr inbounds nuw i8, ptr %6119, i64 8
   store ptr %6120, ptr %5, align 8, !tbaa !73
@@ -14669,7 +14150,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1065)
   %6126 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %6127 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %6127, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2275 = load i32, ptr %6127, align 1
   %6128 = getelementptr inbounds nuw i8, ptr %6127, i64 8
   store ptr %6128, ptr %5, align 8, !tbaa !73
@@ -14683,7 +14163,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1066)
   %6134 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %6135 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %6135, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2276 = load i32, ptr %6135, align 1
   %6136 = getelementptr inbounds nuw i8, ptr %6135, i64 8
   store ptr %6136, ptr %5, align 8, !tbaa !73
@@ -14697,7 +14176,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1067)
   %6142 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %6143 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %6143, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2277 = load i32, ptr %6143, align 1
   %6144 = getelementptr inbounds nuw i8, ptr %6143, i64 8
   store ptr %6144, ptr %5, align 8, !tbaa !73
@@ -14711,7 +14189,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1068)
   %6150 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %6151 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %6151, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2278 = load i32, ptr %6151, align 1
   %6152 = getelementptr inbounds nuw i8, ptr %6151, i64 8
   store ptr %6152, ptr %5, align 8, !tbaa !73
@@ -14725,7 +14202,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1069)
   %6158 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %6159 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %6159, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2279 = load i32, ptr %6159, align 1
   %6160 = getelementptr inbounds nuw i8, ptr %6159, i64 8
   store ptr %6160, ptr %5, align 8, !tbaa !73
@@ -14739,7 +14215,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1070)
   %6166 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %6167 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %6167, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2280 = load i32, ptr %6167, align 1
   %6168 = getelementptr inbounds nuw i8, ptr %6167, i64 8
   store ptr %6168, ptr %5, align 8, !tbaa !73
@@ -14753,7 +14228,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1071)
   %6174 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %6175 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %6175, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2281 = load i32, ptr %6175, align 1
   %6176 = getelementptr inbounds nuw i8, ptr %6175, i64 8
   store ptr %6176, ptr %5, align 8, !tbaa !73
@@ -14767,7 +14241,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1072)
   %6182 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %6183 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %6183, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2282 = load i32, ptr %6183, align 1
   %6184 = getelementptr inbounds nuw i8, ptr %6183, i64 8
   store ptr %6184, ptr %5, align 8, !tbaa !73
@@ -14781,7 +14254,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1073)
   %6190 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %6191 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %6191, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2283 = load i32, ptr %6191, align 1
   %6192 = getelementptr inbounds nuw i8, ptr %6191, i64 8
   store ptr %6192, ptr %5, align 8, !tbaa !73
@@ -14795,7 +14267,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1074)
   %6198 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %6199 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %6199, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2284 = load i32, ptr %6199, align 1
   %6200 = getelementptr inbounds nuw i8, ptr %6199, i64 8
   store ptr %6200, ptr %5, align 8, !tbaa !73
@@ -14809,7 +14280,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1075)
   %6206 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %6207 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %6207, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2285 = load i32, ptr %6207, align 1
   %6208 = getelementptr inbounds nuw i8, ptr %6207, i64 8
   store ptr %6208, ptr %5, align 8, !tbaa !73
@@ -14823,7 +14293,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1076)
   %6214 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %6215 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %6215, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2286 = load i32, ptr %6215, align 1
   %6216 = getelementptr inbounds nuw i8, ptr %6215, i64 8
   store ptr %6216, ptr %5, align 8, !tbaa !73
@@ -14837,7 +14306,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1077)
   %6222 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %6223 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %6223, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2287 = load i32, ptr %6223, align 1
   %6224 = getelementptr inbounds nuw i8, ptr %6223, i64 8
   store ptr %6224, ptr %5, align 8, !tbaa !73
@@ -14851,7 +14319,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1078)
   %6230 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %6231 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %6231, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2288 = load i32, ptr %6231, align 1
   %6232 = getelementptr inbounds nuw i8, ptr %6231, i64 8
   store ptr %6232, ptr %5, align 8, !tbaa !73
@@ -14865,7 +14332,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1079)
   %6238 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %6239 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %6239, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2289 = load i32, ptr %6239, align 1
   %6240 = getelementptr inbounds nuw i8, ptr %6239, i64 8
   store ptr %6240, ptr %5, align 8, !tbaa !73
@@ -14879,7 +14345,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1080)
   %6246 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %6247 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %6247, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2290 = load i32, ptr %6247, align 1
   %6248 = getelementptr inbounds nuw i8, ptr %6247, i64 8
   store ptr %6248, ptr %5, align 8, !tbaa !73
@@ -14888,7 +14353,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   %6251 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %6250, ptr noundef nonnull @.str)
   %6252 = load ptr, ptr %0, align 8, !tbaa !84
   %6253 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %6253, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2291 = load i32, ptr %6253, align 1
   %6254 = getelementptr inbounds nuw i8, ptr %6253, i64 8
   store ptr %6254, ptr %5, align 8, !tbaa !73
@@ -14902,7 +14366,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1081)
   %6260 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %6261 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %6261, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2292 = load i32, ptr %6261, align 1
   %6262 = getelementptr inbounds nuw i8, ptr %6261, i64 8
   store ptr %6262, ptr %5, align 8, !tbaa !73
@@ -14911,7 +14374,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   %6265 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %6264, ptr noundef nonnull @.str)
   %6266 = load ptr, ptr %0, align 8, !tbaa !84
   %6267 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %6267, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2293 = load i32, ptr %6267, align 1
   %6268 = getelementptr inbounds nuw i8, ptr %6267, i64 8
   store ptr %6268, ptr %5, align 8, !tbaa !73
@@ -14925,7 +14387,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1082)
   %6274 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %6275 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %6275, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2294 = load i32, ptr %6275, align 1
   %6276 = getelementptr inbounds nuw i8, ptr %6275, i64 8
   store ptr %6276, ptr %5, align 8, !tbaa !73
@@ -14934,7 +14395,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   %6279 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %6278, ptr noundef nonnull @.str)
   %6280 = load ptr, ptr %0, align 8, !tbaa !84
   %6281 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %6281, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2295 = load i32, ptr %6281, align 1
   %6282 = getelementptr inbounds nuw i8, ptr %6281, i64 8
   store ptr %6282, ptr %5, align 8, !tbaa !73
@@ -14948,7 +14408,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1083)
   %6288 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %6289 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %6289, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2296 = load i32, ptr %6289, align 1
   %6290 = getelementptr inbounds nuw i8, ptr %6289, i64 8
   store ptr %6290, ptr %5, align 8, !tbaa !73
@@ -14957,7 +14416,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   %6293 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %6292, ptr noundef nonnull @.str)
   %6294 = load ptr, ptr %0, align 8, !tbaa !84
   %6295 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %6295, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2297 = load i32, ptr %6295, align 1
   %6296 = getelementptr inbounds nuw i8, ptr %6295, i64 8
   store ptr %6296, ptr %5, align 8, !tbaa !73
@@ -14971,7 +14429,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1084)
   %6302 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %6303 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %6303, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2298 = load i32, ptr %6303, align 1
   %6304 = getelementptr inbounds nuw i8, ptr %6303, i64 8
   store ptr %6304, ptr %5, align 8, !tbaa !73
@@ -14980,7 +14437,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   %6307 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %6306, ptr noundef nonnull @.str)
   %6308 = load ptr, ptr %0, align 8, !tbaa !84
   %6309 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %6309, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2299 = load i32, ptr %6309, align 1
   %6310 = getelementptr inbounds nuw i8, ptr %6309, i64 8
   store ptr %6310, ptr %5, align 8, !tbaa !73
@@ -14994,7 +14450,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1085)
   %6316 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %6317 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %6317, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2300 = load i32, ptr %6317, align 1
   %6318 = getelementptr inbounds nuw i8, ptr %6317, i64 8
   store ptr %6318, ptr %5, align 8, !tbaa !73
@@ -15003,7 +14458,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   %6321 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %6320, ptr noundef nonnull @.str)
   %6322 = load ptr, ptr %0, align 8, !tbaa !84
   %6323 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %6323, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2301 = load i32, ptr %6323, align 1
   %6324 = getelementptr inbounds nuw i8, ptr %6323, i64 8
   store ptr %6324, ptr %5, align 8, !tbaa !73
@@ -15017,7 +14471,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1086)
   %6330 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %6331 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %6331, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2302 = load i32, ptr %6331, align 1
   %6332 = getelementptr inbounds nuw i8, ptr %6331, i64 8
   store ptr %6332, ptr %5, align 8, !tbaa !73
@@ -15026,7 +14479,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   %6335 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %6334, ptr noundef nonnull @.str)
   %6336 = load ptr, ptr %0, align 8, !tbaa !84
   %6337 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %6337, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2303 = load i32, ptr %6337, align 1
   %6338 = getelementptr inbounds nuw i8, ptr %6337, i64 8
   store ptr %6338, ptr %5, align 8, !tbaa !73
@@ -15040,7 +14492,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1087)
   %6344 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %6345 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %6345, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2304 = load i32, ptr %6345, align 1
   %6346 = getelementptr inbounds nuw i8, ptr %6345, i64 8
   store ptr %6346, ptr %5, align 8, !tbaa !73
@@ -15049,7 +14500,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   %6349 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %6348, ptr noundef nonnull @.str)
   %6350 = load ptr, ptr %0, align 8, !tbaa !84
   %6351 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %6351, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2305 = load i32, ptr %6351, align 1
   %6352 = getelementptr inbounds nuw i8, ptr %6351, i64 8
   store ptr %6352, ptr %5, align 8, !tbaa !73
@@ -15063,7 +14513,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1088)
   %6358 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %6359 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %6359, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2306 = load i32, ptr %6359, align 1
   %6360 = getelementptr inbounds nuw i8, ptr %6359, i64 8
   store ptr %6360, ptr %5, align 8, !tbaa !73
@@ -15072,7 +14521,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   %6363 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %6362, ptr noundef nonnull @.str)
   %6364 = load ptr, ptr %0, align 8, !tbaa !84
   %6365 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %6365, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2307 = load i32, ptr %6365, align 1
   %6366 = getelementptr inbounds nuw i8, ptr %6365, i64 8
   store ptr %6366, ptr %5, align 8, !tbaa !73
@@ -15086,7 +14534,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1089)
   %6372 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %6373 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %6373, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2308 = load i32, ptr %6373, align 1
   %6374 = getelementptr inbounds nuw i8, ptr %6373, i64 8
   store ptr %6374, ptr %5, align 8, !tbaa !73
@@ -15095,7 +14542,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   %6377 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %6376, ptr noundef nonnull @.str)
   %6378 = load ptr, ptr %0, align 8, !tbaa !84
   %6379 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %6379, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2309 = load i32, ptr %6379, align 1
   %6380 = getelementptr inbounds nuw i8, ptr %6379, i64 8
   store ptr %6380, ptr %5, align 8, !tbaa !73
@@ -15109,7 +14555,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1090)
   %6386 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %6387 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %6387, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2310 = load i32, ptr %6387, align 1
   %6388 = getelementptr inbounds nuw i8, ptr %6387, i64 8
   store ptr %6388, ptr %5, align 8, !tbaa !73
@@ -15118,7 +14563,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   %6391 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %6390, ptr noundef nonnull @.str)
   %6392 = load ptr, ptr %0, align 8, !tbaa !84
   %6393 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %6393, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2311 = load i32, ptr %6393, align 1
   %6394 = getelementptr inbounds nuw i8, ptr %6393, i64 8
   store ptr %6394, ptr %5, align 8, !tbaa !73
@@ -15132,7 +14576,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1091)
   %6400 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %6401 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %6401, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2312 = load i32, ptr %6401, align 1
   %6402 = getelementptr inbounds nuw i8, ptr %6401, i64 8
   store ptr %6402, ptr %5, align 8, !tbaa !73
@@ -15141,7 +14584,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   %6405 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %6404, ptr noundef nonnull @.str)
   %6406 = load ptr, ptr %0, align 8, !tbaa !84
   %6407 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %6407, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2313 = load i32, ptr %6407, align 1
   %6408 = getelementptr inbounds nuw i8, ptr %6407, i64 8
   store ptr %6408, ptr %5, align 8, !tbaa !73
@@ -15155,7 +14597,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1092)
   %6414 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %6415 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %6415, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2314 = load i32, ptr %6415, align 1
   %6416 = getelementptr inbounds nuw i8, ptr %6415, i64 8
   store ptr %6416, ptr %5, align 8, !tbaa !73
@@ -15164,7 +14605,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   %6419 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %6418, ptr noundef nonnull @.str)
   %6420 = load ptr, ptr %0, align 8, !tbaa !84
   %6421 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %6421, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2315 = load i32, ptr %6421, align 1
   %6422 = getelementptr inbounds nuw i8, ptr %6421, i64 8
   store ptr %6422, ptr %5, align 8, !tbaa !73
@@ -15178,7 +14618,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1093)
   %6428 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %6429 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %6429, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2316 = load i32, ptr %6429, align 1
   %6430 = getelementptr inbounds nuw i8, ptr %6429, i64 8
   store ptr %6430, ptr %5, align 8, !tbaa !73
@@ -15187,7 +14626,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   %6433 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %6432, ptr noundef nonnull @.str)
   %6434 = load ptr, ptr %0, align 8, !tbaa !84
   %6435 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %6435, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2317 = load i32, ptr %6435, align 1
   %6436 = getelementptr inbounds nuw i8, ptr %6435, i64 8
   store ptr %6436, ptr %5, align 8, !tbaa !73
@@ -15201,7 +14639,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1094)
   %6442 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %6443 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %6443, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2318 = load i32, ptr %6443, align 1
   %6444 = getelementptr inbounds nuw i8, ptr %6443, i64 8
   store ptr %6444, ptr %5, align 8, !tbaa !73
@@ -15210,7 +14647,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   %6447 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %6446, ptr noundef nonnull @.str)
   %6448 = load ptr, ptr %0, align 8, !tbaa !84
   %6449 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %6449, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2319 = load i32, ptr %6449, align 1
   %6450 = getelementptr inbounds nuw i8, ptr %6449, i64 8
   store ptr %6450, ptr %5, align 8, !tbaa !73
@@ -15224,7 +14660,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1095)
   %6456 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %6457 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %6457, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2320 = load i32, ptr %6457, align 1
   %6458 = getelementptr inbounds nuw i8, ptr %6457, i64 8
   store ptr %6458, ptr %5, align 8, !tbaa !73
@@ -15233,7 +14668,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   %6461 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %6460, ptr noundef nonnull @.str)
   %6462 = load ptr, ptr %0, align 8, !tbaa !84
   %6463 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %6463, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2321 = load i32, ptr %6463, align 1
   %6464 = getelementptr inbounds nuw i8, ptr %6463, i64 8
   store ptr %6464, ptr %5, align 8, !tbaa !73
@@ -15248,7 +14682,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   %6470 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %6471 = load ptr, ptr %0, align 8, !tbaa !84
   %6472 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %6472, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2322 = load i32, ptr %6472, align 1
   %6473 = getelementptr inbounds nuw i8, ptr %6472, i64 8
   store ptr %6473, ptr %5, align 8, !tbaa !73
@@ -15358,7 +14791,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1113)
   %6527 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %6528 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %6528, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2323 = load i32, ptr %6528, align 1
   %6529 = getelementptr inbounds nuw i8, ptr %6528, i64 8
   store ptr %6529, ptr %5, align 8, !tbaa !73
@@ -15373,7 +14805,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   %6535 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %6536 = load ptr, ptr %0, align 8, !tbaa !84
   %6537 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %6537, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2324 = load i32, ptr %6537, align 1
   %6538 = getelementptr inbounds nuw i8, ptr %6537, i64 8
   store ptr %6538, ptr %5, align 8, !tbaa !73
@@ -15381,7 +14812,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   %6540 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %6535, ptr noundef %6539) #18
   %6541 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %6540, ptr noundef nonnull @.str)
   %6542 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %6542, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2325 = load i32, ptr %6542, align 1
   %6543 = getelementptr inbounds nuw i8, ptr %6542, i64 8
   store ptr %6543, ptr %5, align 8, !tbaa !73
@@ -15396,7 +14826,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   %6549 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %6550 = load ptr, ptr %0, align 8, !tbaa !84
   %6551 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %6551, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2326 = load i32, ptr %6551, align 1
   %6552 = getelementptr inbounds nuw i8, ptr %6551, i64 8
   store ptr %6552, ptr %5, align 8, !tbaa !73
@@ -15404,7 +14833,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   %6554 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %6549, ptr noundef %6553) #18
   %6555 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %6554, ptr noundef nonnull @.str)
   %6556 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %6556, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2327 = load i32, ptr %6556, align 1
   %6557 = getelementptr inbounds nuw i8, ptr %6556, i64 8
   store ptr %6557, ptr %5, align 8, !tbaa !73
@@ -15419,7 +14847,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   %6563 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %6564 = load ptr, ptr %0, align 8, !tbaa !84
   %6565 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %6565, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2328 = load i32, ptr %6565, align 1
   %6566 = getelementptr inbounds nuw i8, ptr %6565, i64 8
   store ptr %6566, ptr %5, align 8, !tbaa !73
@@ -15427,7 +14854,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   %6568 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %6563, ptr noundef %6567) #18
   %6569 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %6568, ptr noundef nonnull @.str)
   %6570 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %6570, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2329 = load i32, ptr %6570, align 1
   %6571 = getelementptr inbounds nuw i8, ptr %6570, i64 8
   store ptr %6571, ptr %5, align 8, !tbaa !73
@@ -15442,7 +14868,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   %6577 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %6578 = load ptr, ptr %0, align 8, !tbaa !84
   %6579 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %6579, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2330 = load i32, ptr %6579, align 1
   %6580 = getelementptr inbounds nuw i8, ptr %6579, i64 8
   store ptr %6580, ptr %5, align 8, !tbaa !73
@@ -15450,7 +14875,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   %6582 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %6577, ptr noundef %6581) #18
   %6583 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %6582, ptr noundef nonnull @.str)
   %6584 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %6584, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2331 = load i32, ptr %6584, align 1
   %6585 = getelementptr inbounds nuw i8, ptr %6584, i64 8
   store ptr %6585, ptr %5, align 8, !tbaa !73
@@ -15465,7 +14889,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   %6591 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %6592 = load ptr, ptr %0, align 8, !tbaa !84
   %6593 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %6593, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2332 = load i32, ptr %6593, align 1
   %6594 = getelementptr inbounds nuw i8, ptr %6593, i64 8
   store ptr %6594, ptr %5, align 8, !tbaa !73
@@ -15473,7 +14896,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   %6596 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %6591, ptr noundef %6595) #18
   %6597 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %6596, ptr noundef nonnull @.str)
   %6598 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %6598, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2333 = load i32, ptr %6598, align 1
   %6599 = getelementptr inbounds nuw i8, ptr %6598, i64 8
   store ptr %6599, ptr %5, align 8, !tbaa !73
@@ -15488,7 +14910,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   %6605 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %6606 = load ptr, ptr %0, align 8, !tbaa !84
   %6607 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %6607, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2334 = load i32, ptr %6607, align 1
   %6608 = getelementptr inbounds nuw i8, ptr %6607, i64 8
   store ptr %6608, ptr %5, align 8, !tbaa !73
@@ -15496,7 +14917,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   %6610 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %6605, ptr noundef %6609) #18
   %6611 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %6610, ptr noundef nonnull @.str)
   %6612 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %6612, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2335 = load i32, ptr %6612, align 1
   %6613 = getelementptr inbounds nuw i8, ptr %6612, i64 8
   store ptr %6613, ptr %5, align 8, !tbaa !73
@@ -15511,7 +14931,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   %6619 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %6620 = load ptr, ptr %0, align 8, !tbaa !84
   %6621 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %6621, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2336 = load i32, ptr %6621, align 1
   %6622 = getelementptr inbounds nuw i8, ptr %6621, i64 8
   store ptr %6622, ptr %5, align 8, !tbaa !73
@@ -15519,7 +14938,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   %6624 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %6619, ptr noundef %6623) #18
   %6625 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %6624, ptr noundef nonnull @.str)
   %6626 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %6626, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2337 = load i32, ptr %6626, align 1
   %6627 = getelementptr inbounds nuw i8, ptr %6626, i64 8
   store ptr %6627, ptr %5, align 8, !tbaa !73
@@ -15534,7 +14952,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   %6633 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %6634 = load ptr, ptr %0, align 8, !tbaa !84
   %6635 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %6635, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2338 = load i32, ptr %6635, align 1
   %6636 = getelementptr inbounds nuw i8, ptr %6635, i64 8
   store ptr %6636, ptr %5, align 8, !tbaa !73
@@ -15542,7 +14959,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   %6638 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %6633, ptr noundef %6637) #18
   %6639 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %6638, ptr noundef nonnull @.str)
   %6640 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %6640, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2339 = load i32, ptr %6640, align 1
   %6641 = getelementptr inbounds nuw i8, ptr %6640, i64 8
   store ptr %6641, ptr %5, align 8, !tbaa !73
@@ -15557,7 +14973,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   %6647 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %6648 = load ptr, ptr %0, align 8, !tbaa !84
   %6649 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %6649, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2340 = load i32, ptr %6649, align 1
   %6650 = getelementptr inbounds nuw i8, ptr %6649, i64 8
   store ptr %6650, ptr %5, align 8, !tbaa !73
@@ -15565,7 +14980,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   %6652 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %6647, ptr noundef %6651) #18
   %6653 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %6652, ptr noundef nonnull @.str)
   %6654 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %6654, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2341 = load i32, ptr %6654, align 1
   %6655 = getelementptr inbounds nuw i8, ptr %6654, i64 8
   store ptr %6655, ptr %5, align 8, !tbaa !73
@@ -15580,7 +14994,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   %6661 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %6662 = load ptr, ptr %0, align 8, !tbaa !84
   %6663 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %6663, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2342 = load i32, ptr %6663, align 1
   %6664 = getelementptr inbounds nuw i8, ptr %6663, i64 8
   store ptr %6664, ptr %5, align 8, !tbaa !73
@@ -15588,7 +15001,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   %6666 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %6661, ptr noundef %6665) #18
   %6667 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %6666, ptr noundef nonnull @.str)
   %6668 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %6668, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2343 = load i32, ptr %6668, align 1
   %6669 = getelementptr inbounds nuw i8, ptr %6668, i64 8
   store ptr %6669, ptr %5, align 8, !tbaa !73
@@ -15603,7 +15015,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   %6675 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %6676 = load ptr, ptr %0, align 8, !tbaa !84
   %6677 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %6677, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2344 = load i32, ptr %6677, align 1
   %6678 = getelementptr inbounds nuw i8, ptr %6677, i64 8
   store ptr %6678, ptr %5, align 8, !tbaa !73
@@ -15611,7 +15022,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   %6680 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %6675, ptr noundef %6679) #18
   %6681 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %6680, ptr noundef nonnull @.str)
   %6682 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %6682, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2345 = load i32, ptr %6682, align 1
   %6683 = getelementptr inbounds nuw i8, ptr %6682, i64 8
   store ptr %6683, ptr %5, align 8, !tbaa !73
@@ -15626,7 +15036,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   %6689 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %6690 = load ptr, ptr %0, align 8, !tbaa !84
   %6691 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %6691, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2346 = load i32, ptr %6691, align 1
   %6692 = getelementptr inbounds nuw i8, ptr %6691, i64 8
   store ptr %6692, ptr %5, align 8, !tbaa !73
@@ -15634,7 +15043,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   %6694 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %6689, ptr noundef %6693) #18
   %6695 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %6694, ptr noundef nonnull @.str)
   %6696 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %6696, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2347 = load i32, ptr %6696, align 1
   %6697 = getelementptr inbounds nuw i8, ptr %6696, i64 8
   store ptr %6697, ptr %5, align 8, !tbaa !73
@@ -15648,7 +15056,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1126)
   %6703 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %6704 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %6704, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2348 = load i32, ptr %6704, align 1
   %6705 = getelementptr inbounds nuw i8, ptr %6704, i64 8
   store ptr %6705, ptr %5, align 8, !tbaa !73
@@ -15662,7 +15069,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1127)
   %6711 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %6712 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %6712, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2349 = load i32, ptr %6712, align 1
   %6713 = getelementptr inbounds nuw i8, ptr %6712, i64 8
   store ptr %6713, ptr %5, align 8, !tbaa !73
@@ -15676,7 +15082,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1128)
   %6719 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %6720 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %6720, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2350 = load i32, ptr %6720, align 1
   %6721 = getelementptr inbounds nuw i8, ptr %6720, i64 8
   store ptr %6721, ptr %5, align 8, !tbaa !73
@@ -15690,7 +15095,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1129)
   %6727 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %6728 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %6728, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2351 = load i32, ptr %6728, align 1
   %6729 = getelementptr inbounds nuw i8, ptr %6728, i64 8
   store ptr %6729, ptr %5, align 8, !tbaa !73
@@ -15704,7 +15108,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1130)
   %6735 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %6736 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %6736, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2352 = load i32, ptr %6736, align 1
   %6737 = getelementptr inbounds nuw i8, ptr %6736, i64 8
   store ptr %6737, ptr %5, align 8, !tbaa !73
@@ -15718,7 +15121,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1131)
   %6743 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %6744 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %6744, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2353 = load i32, ptr %6744, align 1
   %6745 = getelementptr inbounds nuw i8, ptr %6744, i64 8
   store ptr %6745, ptr %5, align 8, !tbaa !73
@@ -15732,7 +15134,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1132)
   %6751 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %6752 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %6752, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2354 = load i32, ptr %6752, align 1
   %6753 = getelementptr inbounds nuw i8, ptr %6752, i64 8
   store ptr %6753, ptr %5, align 8, !tbaa !73
@@ -15746,7 +15147,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1133)
   %6759 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %6760 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %6760, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2355 = load i32, ptr %6760, align 1
   %6761 = getelementptr inbounds nuw i8, ptr %6760, i64 8
   store ptr %6761, ptr %5, align 8, !tbaa !73
@@ -15760,7 +15160,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1134)
   %6767 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %6768 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %6768, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2356 = load i32, ptr %6768, align 1
   %6769 = getelementptr inbounds nuw i8, ptr %6768, i64 8
   store ptr %6769, ptr %5, align 8, !tbaa !73
@@ -15774,7 +15173,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1135)
   %6775 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %6776 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %6776, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2357 = load i32, ptr %6776, align 1
   %6777 = getelementptr inbounds nuw i8, ptr %6776, i64 8
   store ptr %6777, ptr %5, align 8, !tbaa !73
@@ -15788,7 +15186,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1136)
   %6783 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %6784 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %6784, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2358 = load i32, ptr %6784, align 1
   %6785 = getelementptr inbounds nuw i8, ptr %6784, i64 8
   store ptr %6785, ptr %5, align 8, !tbaa !73
@@ -15802,7 +15199,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1137)
   %6791 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %6792 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %6792, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2359 = load i32, ptr %6792, align 1
   %6793 = getelementptr inbounds nuw i8, ptr %6792, i64 8
   store ptr %6793, ptr %5, align 8, !tbaa !73
@@ -15816,7 +15212,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1138)
   %6799 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %6800 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %6800, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2360 = load i32, ptr %6800, align 1
   %6801 = getelementptr inbounds nuw i8, ptr %6800, i64 8
   store ptr %6801, ptr %5, align 8, !tbaa !73
@@ -15830,7 +15225,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1139)
   %6807 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %6808 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %6808, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2361 = load i32, ptr %6808, align 1
   %6809 = getelementptr inbounds nuw i8, ptr %6808, i64 8
   store ptr %6809, ptr %5, align 8, !tbaa !73
@@ -15844,7 +15238,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1140)
   %6815 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %6816 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %6816, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2362 = load i32, ptr %6816, align 1
   %6817 = getelementptr inbounds nuw i8, ptr %6816, i64 8
   store ptr %6817, ptr %5, align 8, !tbaa !73
@@ -15858,7 +15251,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1141)
   %6823 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %6824 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %6824, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2363 = load i32, ptr %6824, align 1
   %6825 = getelementptr inbounds nuw i8, ptr %6824, i64 8
   store ptr %6825, ptr %5, align 8, !tbaa !73
@@ -15884,14 +15276,12 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1144)
   %6837 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %6838 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %6838, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2364 = load i8, ptr %6838, align 1
   %6839 = getelementptr inbounds nuw i8, ptr %6838, i64 8
   store ptr %6839, ptr %5, align 8, !tbaa !73
   %6840 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN5clang6interplsERN4llvm11raw_ostreamENS0_8CastKindE(ptr noundef nonnull align 8 dereferenceable(48) %6837, i8 noundef zeroext %.0.copyload.i.i.i.i.i.i2364)
   %6841 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %6840, ptr noundef nonnull @.str)
   %6842 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %6842, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2365 = load i8, ptr %6842, align 1
   %6843 = getelementptr inbounds nuw i8, ptr %6842, i64 8
   store ptr %6843, ptr %5, align 8, !tbaa !73
@@ -15907,7 +15297,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   %6850 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %6851 = load ptr, ptr %0, align 8, !tbaa !84
   %6852 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %6852, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2366 = load i32, ptr %6852, align 1
   %6853 = getelementptr inbounds nuw i8, ptr %6852, i64 8
   store ptr %6853, ptr %5, align 8, !tbaa !73
@@ -15915,7 +15304,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   %6855 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %6850, ptr noundef %6854) #18
   %6856 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %6855, ptr noundef nonnull @.str)
   %6857 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %6857, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2367 = load i8, ptr %6857, align 1
   %6858 = getelementptr inbounds nuw i8, ptr %6857, i64 8
   store ptr %6858, ptr %5, align 8, !tbaa !73
@@ -15931,7 +15319,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   %6865 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %6866 = load ptr, ptr %0, align 8, !tbaa !84
   %6867 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %6867, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2368 = load i32, ptr %6867, align 1
   %6868 = getelementptr inbounds nuw i8, ptr %6867, i64 8
   store ptr %6868, ptr %5, align 8, !tbaa !73
@@ -15945,7 +15332,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1147)
   %6874 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %6875 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %6875, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2369 = load i32, ptr %6875, align 1
   %6876 = getelementptr inbounds nuw i8, ptr %6875, i64 8
   store ptr %6876, ptr %5, align 8, !tbaa !73
@@ -15983,7 +15369,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1152)
   %6894 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %6895 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %6895, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2370 = load i32, ptr %6895, align 1
   %6896 = getelementptr inbounds nuw i8, ptr %6895, i64 8
   store ptr %6896, ptr %5, align 8, !tbaa !73
@@ -15997,7 +15382,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1153)
   %6902 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %6903 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %6903, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2371 = load i32, ptr %6903, align 1
   %6904 = getelementptr inbounds nuw i8, ptr %6903, i64 8
   store ptr %6904, ptr %5, align 8, !tbaa !73
@@ -16011,7 +15395,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1154)
   %6910 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %6911 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %6911, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2372 = load i32, ptr %6911, align 1
   %6912 = getelementptr inbounds nuw i8, ptr %6911, i64 8
   store ptr %6912, ptr %5, align 8, !tbaa !73
@@ -16541,7 +15924,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1241)
   %7176 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %7177 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %7177, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2373 = load i32, ptr %7177, align 1
   %7178 = getelementptr inbounds nuw i8, ptr %7177, i64 8
   store ptr %7178, ptr %5, align 8, !tbaa !73
@@ -16741,7 +16123,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1273)
   %7277 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %7278 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %7278, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2374 = load i64, ptr %7278, align 1
   %7279 = getelementptr inbounds nuw i8, ptr %7278, i64 8
   store ptr %7279, ptr %5, align 8, !tbaa !73
@@ -16749,7 +16130,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   %7281 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %7280, ptr noundef nonnull @.str)
   %7282 = load ptr, ptr %0, align 8, !tbaa !84
   %7283 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %7283, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2375 = load i32, ptr %7283, align 1
   %7284 = getelementptr inbounds nuw i8, ptr %7283, i64 8
   store ptr %7284, ptr %5, align 8, !tbaa !73
@@ -16763,7 +16143,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1274)
   %7290 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %7291 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %7291, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2376 = load i64, ptr %7291, align 1
   %7292 = getelementptr inbounds nuw i8, ptr %7291, i64 8
   store ptr %7292, ptr %5, align 8, !tbaa !73
@@ -16771,7 +16150,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   %7294 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %7293, ptr noundef nonnull @.str)
   %7295 = load ptr, ptr %0, align 8, !tbaa !84
   %7296 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %7296, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2377 = load i32, ptr %7296, align 1
   %7297 = getelementptr inbounds nuw i8, ptr %7296, i64 8
   store ptr %7297, ptr %5, align 8, !tbaa !73
@@ -16785,7 +16163,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1275)
   %7303 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %7304 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %7304, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2378 = load i64, ptr %7304, align 1
   %7305 = getelementptr inbounds nuw i8, ptr %7304, i64 8
   store ptr %7305, ptr %5, align 8, !tbaa !73
@@ -16793,7 +16170,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   %7307 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %7306, ptr noundef nonnull @.str)
   %7308 = load ptr, ptr %0, align 8, !tbaa !84
   %7309 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %7309, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2379 = load i32, ptr %7309, align 1
   %7310 = getelementptr inbounds nuw i8, ptr %7309, i64 8
   store ptr %7310, ptr %5, align 8, !tbaa !73
@@ -16808,7 +16184,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   %7316 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %7317 = load ptr, ptr %0, align 8, !tbaa !84
   %7318 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %7318, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2380 = load i32, ptr %7318, align 1
   %7319 = getelementptr inbounds nuw i8, ptr %7318, i64 8
   store ptr %7319, ptr %5, align 8, !tbaa !73
@@ -16823,7 +16198,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   %7325 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %7326 = load ptr, ptr %0, align 8, !tbaa !84
   %7327 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %7327, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2381 = load i32, ptr %7327, align 1
   %7328 = getelementptr inbounds nuw i8, ptr %7327, i64 8
   store ptr %7328, ptr %5, align 8, !tbaa !73
@@ -16838,7 +16212,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   %7334 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %7335 = load ptr, ptr %0, align 8, !tbaa !84
   %7336 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %7336, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2382 = load i32, ptr %7336, align 1
   %7337 = getelementptr inbounds nuw i8, ptr %7336, i64 8
   store ptr %7337, ptr %5, align 8, !tbaa !73
@@ -16853,7 +16226,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   %7343 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %7344 = load ptr, ptr %0, align 8, !tbaa !84
   %7345 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %7345, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2383 = load i32, ptr %7345, align 1
   %7346 = getelementptr inbounds nuw i8, ptr %7345, i64 8
   store ptr %7346, ptr %5, align 8, !tbaa !73
@@ -16868,7 +16240,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   %7352 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %7353 = load ptr, ptr %0, align 8, !tbaa !84
   %7354 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %7354, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2384 = load i32, ptr %7354, align 1
   %7355 = getelementptr inbounds nuw i8, ptr %7354, i64 8
   store ptr %7355, ptr %5, align 8, !tbaa !73
@@ -16883,7 +16254,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   %7361 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %7362 = load ptr, ptr %0, align 8, !tbaa !84
   %7363 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %7363, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2385 = load i32, ptr %7363, align 1
   %7364 = getelementptr inbounds nuw i8, ptr %7363, i64 8
   store ptr %7364, ptr %5, align 8, !tbaa !73
@@ -16898,7 +16268,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   %7370 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %7371 = load ptr, ptr %0, align 8, !tbaa !84
   %7372 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %7372, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2386 = load i32, ptr %7372, align 1
   %7373 = getelementptr inbounds nuw i8, ptr %7372, i64 8
   store ptr %7373, ptr %5, align 8, !tbaa !73
@@ -16913,7 +16282,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   %7379 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %7380 = load ptr, ptr %0, align 8, !tbaa !84
   %7381 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %7381, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2387 = load i32, ptr %7381, align 1
   %7382 = getelementptr inbounds nuw i8, ptr %7381, i64 8
   store ptr %7382, ptr %5, align 8, !tbaa !73
@@ -16928,7 +16296,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   %7388 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %7389 = load ptr, ptr %0, align 8, !tbaa !84
   %7390 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %7390, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2388 = load i32, ptr %7390, align 1
   %7391 = getelementptr inbounds nuw i8, ptr %7390, i64 8
   store ptr %7391, ptr %5, align 8, !tbaa !73
@@ -16943,7 +16310,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   %7397 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %7398 = load ptr, ptr %0, align 8, !tbaa !84
   %7399 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %7399, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2389 = load i32, ptr %7399, align 1
   %7400 = getelementptr inbounds nuw i8, ptr %7399, i64 8
   store ptr %7400, ptr %5, align 8, !tbaa !73
@@ -17053,7 +16419,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1302)
   %7454 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %7455 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %7455, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2390 = load i8, ptr %7455, align 1
   %7456 = getelementptr inbounds nuw i8, ptr %7455, i64 8
   store ptr %7456, ptr %5, align 8, !tbaa !73
@@ -17248,7 +16613,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1333)
   %7553 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %7554 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %7554, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2391 = load i32, ptr %7554, align 1
   %7555 = getelementptr inbounds nuw i8, ptr %7554, i64 8
   store ptr %7555, ptr %5, align 8, !tbaa !73
@@ -17262,7 +16626,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1334)
   %7561 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %7562 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %7562, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2392 = load i32, ptr %7562, align 1
   %7563 = getelementptr inbounds nuw i8, ptr %7562, i64 8
   store ptr %7563, ptr %5, align 8, !tbaa !73
@@ -17276,7 +16639,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1335)
   %7569 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %7570 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %7570, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2393 = load i32, ptr %7570, align 1
   %7571 = getelementptr inbounds nuw i8, ptr %7570, i64 8
   store ptr %7571, ptr %5, align 8, !tbaa !73
@@ -17290,7 +16652,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1336)
   %7577 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %7578 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %7578, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2394 = load i32, ptr %7578, align 1
   %7579 = getelementptr inbounds nuw i8, ptr %7578, i64 8
   store ptr %7579, ptr %5, align 8, !tbaa !73
@@ -17304,7 +16665,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1337)
   %7585 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %7586 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %7586, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2395 = load i32, ptr %7586, align 1
   %7587 = getelementptr inbounds nuw i8, ptr %7586, i64 8
   store ptr %7587, ptr %5, align 8, !tbaa !73
@@ -17318,7 +16678,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1338)
   %7593 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %7594 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %7594, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2396 = load i32, ptr %7594, align 1
   %7595 = getelementptr inbounds nuw i8, ptr %7594, i64 8
   store ptr %7595, ptr %5, align 8, !tbaa !73
@@ -17332,7 +16691,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1339)
   %7601 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %7602 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %7602, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2397 = load i32, ptr %7602, align 1
   %7603 = getelementptr inbounds nuw i8, ptr %7602, i64 8
   store ptr %7603, ptr %5, align 8, !tbaa !73
@@ -17346,7 +16704,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1340)
   %7609 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %7610 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %7610, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2398 = load i32, ptr %7610, align 1
   %7611 = getelementptr inbounds nuw i8, ptr %7610, i64 8
   store ptr %7611, ptr %5, align 8, !tbaa !73
@@ -17360,7 +16717,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1341)
   %7617 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %7618 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %7618, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2399 = load i32, ptr %7618, align 1
   %7619 = getelementptr inbounds nuw i8, ptr %7618, i64 8
   store ptr %7619, ptr %5, align 8, !tbaa !73
@@ -17374,7 +16730,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1342)
   %7625 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %7626 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %7626, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2400 = load i32, ptr %7626, align 1
   %7627 = getelementptr inbounds nuw i8, ptr %7626, i64 8
   store ptr %7627, ptr %5, align 8, !tbaa !73
@@ -17388,7 +16743,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1343)
   %7633 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %7634 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %7634, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2401 = load i32, ptr %7634, align 1
   %7635 = getelementptr inbounds nuw i8, ptr %7634, i64 8
   store ptr %7635, ptr %5, align 8, !tbaa !73
@@ -17402,7 +16756,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1344)
   %7641 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %7642 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %7642, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2402 = load i32, ptr %7642, align 1
   %7643 = getelementptr inbounds nuw i8, ptr %7642, i64 8
   store ptr %7643, ptr %5, align 8, !tbaa !73
@@ -17416,7 +16769,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1345)
   %7649 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %7650 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %7650, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2403 = load i32, ptr %7650, align 1
   %7651 = getelementptr inbounds nuw i8, ptr %7650, i64 8
   store ptr %7651, ptr %5, align 8, !tbaa !73
@@ -17430,7 +16782,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1346)
   %7657 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %7658 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %7658, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2404 = load i32, ptr %7658, align 1
   %7659 = getelementptr inbounds nuw i8, ptr %7658, i64 8
   store ptr %7659, ptr %5, align 8, !tbaa !73
@@ -17444,7 +16795,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1347)
   %7665 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %7666 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %7666, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2405 = load i32, ptr %7666, align 1
   %7667 = getelementptr inbounds nuw i8, ptr %7666, i64 8
   store ptr %7667, ptr %5, align 8, !tbaa !73
@@ -17458,7 +16808,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1348)
   %7673 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %7674 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %7674, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2406 = load i32, ptr %7674, align 1
   %7675 = getelementptr inbounds nuw i8, ptr %7674, i64 8
   store ptr %7675, ptr %5, align 8, !tbaa !73
@@ -17472,7 +16821,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1349)
   %7681 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %7682 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %7682, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2407 = load i32, ptr %7682, align 1
   %7683 = getelementptr inbounds nuw i8, ptr %7682, i64 8
   store ptr %7683, ptr %5, align 8, !tbaa !73
@@ -17486,7 +16834,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1350)
   %7689 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %7690 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %7690, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2408 = load i32, ptr %7690, align 1
   %7691 = getelementptr inbounds nuw i8, ptr %7690, i64 8
   store ptr %7691, ptr %5, align 8, !tbaa !73
@@ -17500,7 +16847,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1351)
   %7697 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %7698 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %7698, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2409 = load i32, ptr %7698, align 1
   %7699 = getelementptr inbounds nuw i8, ptr %7698, i64 8
   store ptr %7699, ptr %5, align 8, !tbaa !73
@@ -17514,7 +16860,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1352)
   %7705 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %7706 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %7706, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2410 = load i32, ptr %7706, align 1
   %7707 = getelementptr inbounds nuw i8, ptr %7706, i64 8
   store ptr %7707, ptr %5, align 8, !tbaa !73
@@ -17528,7 +16873,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1353)
   %7713 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %7714 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %7714, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2411 = load i32, ptr %7714, align 1
   %7715 = getelementptr inbounds nuw i8, ptr %7714, i64 8
   store ptr %7715, ptr %5, align 8, !tbaa !73
@@ -17542,7 +16886,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1354)
   %7721 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %7722 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %7722, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2412 = load i32, ptr %7722, align 1
   %7723 = getelementptr inbounds nuw i8, ptr %7722, i64 8
   store ptr %7723, ptr %5, align 8, !tbaa !73
@@ -17556,7 +16899,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1355)
   %7729 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %7730 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %7730, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2413 = load i32, ptr %7730, align 1
   %7731 = getelementptr inbounds nuw i8, ptr %7730, i64 8
   store ptr %7731, ptr %5, align 8, !tbaa !73
@@ -17570,7 +16912,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1356)
   %7737 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %7738 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %7738, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2414 = load i32, ptr %7738, align 1
   %7739 = getelementptr inbounds nuw i8, ptr %7738, i64 8
   store ptr %7739, ptr %5, align 8, !tbaa !73
@@ -17584,7 +16925,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1357)
   %7745 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %7746 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %7746, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2415 = load i32, ptr %7746, align 1
   %7747 = getelementptr inbounds nuw i8, ptr %7746, i64 8
   store ptr %7747, ptr %5, align 8, !tbaa !73
@@ -17598,7 +16938,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1358)
   %7753 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %7754 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %7754, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2416 = load i32, ptr %7754, align 1
   %7755 = getelementptr inbounds nuw i8, ptr %7754, i64 8
   store ptr %7755, ptr %5, align 8, !tbaa !73
@@ -17612,7 +16951,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1359)
   %7761 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %7762 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %7762, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2417 = load i32, ptr %7762, align 1
   %7763 = getelementptr inbounds nuw i8, ptr %7762, i64 8
   store ptr %7763, ptr %5, align 8, !tbaa !73
@@ -17626,7 +16964,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1360)
   %7769 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %7770 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %7770, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2418 = load i32, ptr %7770, align 1
   %7771 = getelementptr inbounds nuw i8, ptr %7770, i64 8
   store ptr %7771, ptr %5, align 8, !tbaa !73
@@ -17640,7 +16977,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1361)
   %7777 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %7778 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %7778, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2419 = load i32, ptr %7778, align 1
   %7779 = getelementptr inbounds nuw i8, ptr %7778, i64 8
   store ptr %7779, ptr %5, align 8, !tbaa !73
@@ -17654,7 +16990,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1362)
   %7785 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %7786 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %7786, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2420 = load i32, ptr %7786, align 1
   %7787 = getelementptr inbounds nuw i8, ptr %7786, i64 8
   store ptr %7787, ptr %5, align 8, !tbaa !73
@@ -17668,7 +17003,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1363)
   %7793 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %7794 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %7794, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2421 = load i32, ptr %7794, align 1
   %7795 = getelementptr inbounds nuw i8, ptr %7794, i64 8
   store ptr %7795, ptr %5, align 8, !tbaa !73
@@ -17682,7 +17016,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1364)
   %7801 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %7802 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %7802, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2422 = load i32, ptr %7802, align 1
   %7803 = getelementptr inbounds nuw i8, ptr %7802, i64 8
   store ptr %7803, ptr %5, align 8, !tbaa !73
@@ -17696,7 +17029,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1365)
   %7809 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %7810 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %7810, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2423 = load i32, ptr %7810, align 1
   %7811 = getelementptr inbounds nuw i8, ptr %7810, i64 8
   store ptr %7811, ptr %5, align 8, !tbaa !73
@@ -17710,7 +17042,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1366)
   %7817 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %7818 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %7818, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2424 = load i32, ptr %7818, align 1
   %7819 = getelementptr inbounds nuw i8, ptr %7818, i64 8
   store ptr %7819, ptr %5, align 8, !tbaa !73
@@ -17724,7 +17055,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1367)
   %7825 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %7826 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %7826, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2425 = load i32, ptr %7826, align 1
   %7827 = getelementptr inbounds nuw i8, ptr %7826, i64 8
   store ptr %7827, ptr %5, align 8, !tbaa !73
@@ -17738,7 +17068,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1368)
   %7833 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %7834 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %7834, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2426 = load i32, ptr %7834, align 1
   %7835 = getelementptr inbounds nuw i8, ptr %7834, i64 8
   store ptr %7835, ptr %5, align 8, !tbaa !73
@@ -17752,7 +17081,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1369)
   %7841 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %7842 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %7842, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2427 = load i32, ptr %7842, align 1
   %7843 = getelementptr inbounds nuw i8, ptr %7842, i64 8
   store ptr %7843, ptr %5, align 8, !tbaa !73
@@ -17766,7 +17094,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1370)
   %7849 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %7850 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %7850, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2428 = load i32, ptr %7850, align 1
   %7851 = getelementptr inbounds nuw i8, ptr %7850, i64 8
   store ptr %7851, ptr %5, align 8, !tbaa !73
@@ -17780,7 +17107,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1371)
   %7857 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %7858 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %7858, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2429 = load i32, ptr %7858, align 1
   %7859 = getelementptr inbounds nuw i8, ptr %7858, i64 8
   store ptr %7859, ptr %5, align 8, !tbaa !73
@@ -17794,7 +17120,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1372)
   %7865 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %7866 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %7866, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2430 = load i32, ptr %7866, align 1
   %7867 = getelementptr inbounds nuw i8, ptr %7866, i64 8
   store ptr %7867, ptr %5, align 8, !tbaa !73
@@ -17808,7 +17133,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1373)
   %7873 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %7874 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %7874, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2431 = load i32, ptr %7874, align 1
   %7875 = getelementptr inbounds nuw i8, ptr %7874, i64 8
   store ptr %7875, ptr %5, align 8, !tbaa !73
@@ -17822,7 +17146,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1374)
   %7881 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %7882 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %7882, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2432 = load i32, ptr %7882, align 1
   %7883 = getelementptr inbounds nuw i8, ptr %7882, i64 8
   store ptr %7883, ptr %5, align 8, !tbaa !73
@@ -17836,7 +17159,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1375)
   %7889 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %7890 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %7890, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2433 = load i32, ptr %7890, align 1
   %7891 = getelementptr inbounds nuw i8, ptr %7890, i64 8
   store ptr %7891, ptr %5, align 8, !tbaa !73
@@ -17850,7 +17172,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1376)
   %7897 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %7898 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %7898, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2434 = load i32, ptr %7898, align 1
   %7899 = getelementptr inbounds nuw i8, ptr %7898, i64 8
   store ptr %7899, ptr %5, align 8, !tbaa !73
@@ -17864,7 +17185,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1377)
   %7905 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %7906 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %7906, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2435 = load i32, ptr %7906, align 1
   %7907 = getelementptr inbounds nuw i8, ptr %7906, i64 8
   store ptr %7907, ptr %5, align 8, !tbaa !73
@@ -17878,7 +17198,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1378)
   %7913 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %7914 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %7914, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2436 = load i32, ptr %7914, align 1
   %7915 = getelementptr inbounds nuw i8, ptr %7914, i64 8
   store ptr %7915, ptr %5, align 8, !tbaa !73
@@ -17892,7 +17211,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1379)
   %7921 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %7922 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %7922, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2437 = load i32, ptr %7922, align 1
   %7923 = getelementptr inbounds nuw i8, ptr %7922, i64 8
   store ptr %7923, ptr %5, align 8, !tbaa !73
@@ -17906,7 +17224,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1380)
   %7929 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %7930 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %7930, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2438 = load i32, ptr %7930, align 1
   %7931 = getelementptr inbounds nuw i8, ptr %7930, i64 8
   store ptr %7931, ptr %5, align 8, !tbaa !73
@@ -17920,7 +17237,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1381)
   %7937 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %7938 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %7938, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2439 = load i32, ptr %7938, align 1
   %7939 = getelementptr inbounds nuw i8, ptr %7938, i64 8
   store ptr %7939, ptr %5, align 8, !tbaa !73
@@ -17934,7 +17250,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1382)
   %7945 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %7946 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %7946, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2440 = load i32, ptr %7946, align 1
   %7947 = getelementptr inbounds nuw i8, ptr %7946, i64 8
   store ptr %7947, ptr %5, align 8, !tbaa !73
@@ -17948,7 +17263,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1383)
   %7953 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %7954 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %7954, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2441 = load i32, ptr %7954, align 1
   %7955 = getelementptr inbounds nuw i8, ptr %7954, i64 8
   store ptr %7955, ptr %5, align 8, !tbaa !73
@@ -17962,7 +17276,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1384)
   %7961 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %7962 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %7962, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2442 = load i32, ptr %7962, align 1
   %7963 = getelementptr inbounds nuw i8, ptr %7962, i64 8
   store ptr %7963, ptr %5, align 8, !tbaa !73
@@ -17976,7 +17289,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1385)
   %7969 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %7970 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %7970, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2443 = load i32, ptr %7970, align 1
   %7971 = getelementptr inbounds nuw i8, ptr %7970, i64 8
   store ptr %7971, ptr %5, align 8, !tbaa !73
@@ -17990,7 +17302,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1386)
   %7977 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %7978 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %7978, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2444 = load i32, ptr %7978, align 1
   %7979 = getelementptr inbounds nuw i8, ptr %7978, i64 8
   store ptr %7979, ptr %5, align 8, !tbaa !73
@@ -18004,7 +17315,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1387)
   %7985 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %7986 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %7986, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2445 = load i32, ptr %7986, align 1
   %7987 = getelementptr inbounds nuw i8, ptr %7986, i64 8
   store ptr %7987, ptr %5, align 8, !tbaa !73
@@ -18018,7 +17328,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1388)
   %7993 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %7994 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %7994, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2446 = load i32, ptr %7994, align 1
   %7995 = getelementptr inbounds nuw i8, ptr %7994, i64 8
   store ptr %7995, ptr %5, align 8, !tbaa !73
@@ -18032,7 +17341,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1389)
   %8001 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %8002 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %8002, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2447 = load i32, ptr %8002, align 1
   %8003 = getelementptr inbounds nuw i8, ptr %8002, i64 8
   store ptr %8003, ptr %5, align 8, !tbaa !73
@@ -18046,7 +17354,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1390)
   %8009 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %8010 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %8010, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2448 = load i32, ptr %8010, align 1
   %8011 = getelementptr inbounds nuw i8, ptr %8010, i64 8
   store ptr %8011, ptr %5, align 8, !tbaa !73
@@ -18060,7 +17367,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1391)
   %8017 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %8018 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %8018, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2449 = load i32, ptr %8018, align 1
   %8019 = getelementptr inbounds nuw i8, ptr %8018, i64 8
   store ptr %8019, ptr %5, align 8, !tbaa !73
@@ -18074,7 +17380,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1392)
   %8025 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %8026 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %8026, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2450 = load i32, ptr %8026, align 1
   %8027 = getelementptr inbounds nuw i8, ptr %8026, i64 8
   store ptr %8027, ptr %5, align 8, !tbaa !73
@@ -18088,7 +17393,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1393)
   %8033 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %8034 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %8034, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2451 = load i32, ptr %8034, align 1
   %8035 = getelementptr inbounds nuw i8, ptr %8034, i64 8
   store ptr %8035, ptr %5, align 8, !tbaa !73
@@ -18102,7 +17406,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1394)
   %8041 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %8042 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %8042, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2452 = load i32, ptr %8042, align 1
   %8043 = getelementptr inbounds nuw i8, ptr %8042, i64 8
   store ptr %8043, ptr %5, align 8, !tbaa !73
@@ -18116,7 +17419,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1395)
   %8049 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %8050 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %8050, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2453 = load i32, ptr %8050, align 1
   %8051 = getelementptr inbounds nuw i8, ptr %8050, i64 8
   store ptr %8051, ptr %5, align 8, !tbaa !73
@@ -18130,7 +17432,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1396)
   %8057 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %8058 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %8058, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2454 = load i32, ptr %8058, align 1
   %8059 = getelementptr inbounds nuw i8, ptr %8058, i64 8
   store ptr %8059, ptr %5, align 8, !tbaa !73
@@ -18144,7 +17445,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1397)
   %8065 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %8066 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %8066, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2455 = load i32, ptr %8066, align 1
   %8067 = getelementptr inbounds nuw i8, ptr %8066, i64 8
   store ptr %8067, ptr %5, align 8, !tbaa !73
@@ -18158,7 +17458,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1398)
   %8073 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %8074 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %8074, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2456 = load i32, ptr %8074, align 1
   %8075 = getelementptr inbounds nuw i8, ptr %8074, i64 8
   store ptr %8075, ptr %5, align 8, !tbaa !73
@@ -18172,7 +17471,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1399)
   %8081 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %8082 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %8082, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2457 = load i32, ptr %8082, align 1
   %8083 = getelementptr inbounds nuw i8, ptr %8082, i64 8
   store ptr %8083, ptr %5, align 8, !tbaa !73
@@ -18186,7 +17484,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1400)
   %8089 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %8090 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %8090, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2458 = load i32, ptr %8090, align 1
   %8091 = getelementptr inbounds nuw i8, ptr %8090, i64 8
   store ptr %8091, ptr %5, align 8, !tbaa !73
@@ -18200,7 +17497,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1401)
   %8097 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %8098 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %8098, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2459 = load i32, ptr %8098, align 1
   %8099 = getelementptr inbounds nuw i8, ptr %8098, i64 8
   store ptr %8099, ptr %5, align 8, !tbaa !73
@@ -18214,7 +17510,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1402)
   %8105 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %8106 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %8106, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2460 = load i32, ptr %8106, align 1
   %8107 = getelementptr inbounds nuw i8, ptr %8106, i64 8
   store ptr %8107, ptr %5, align 8, !tbaa !73
@@ -18228,7 +17523,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1403)
   %8113 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %8114 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %8114, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2461 = load i32, ptr %8114, align 1
   %8115 = getelementptr inbounds nuw i8, ptr %8114, i64 8
   store ptr %8115, ptr %5, align 8, !tbaa !73
@@ -18242,7 +17536,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1404)
   %8121 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %8122 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %8122, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2462 = load i32, ptr %8122, align 1
   %8123 = getelementptr inbounds nuw i8, ptr %8122, i64 8
   store ptr %8123, ptr %5, align 8, !tbaa !73
@@ -18256,7 +17549,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1405)
   %8129 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %8130 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %8130, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2463 = load i32, ptr %8130, align 1
   %8131 = getelementptr inbounds nuw i8, ptr %8130, i64 8
   store ptr %8131, ptr %5, align 8, !tbaa !73
@@ -18270,7 +17562,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1406)
   %8137 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %8138 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %8138, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2464 = load i32, ptr %8138, align 1
   %8139 = getelementptr inbounds nuw i8, ptr %8138, i64 8
   store ptr %8139, ptr %5, align 8, !tbaa !73
@@ -18284,7 +17575,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1407)
   %8145 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %8146 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %8146, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2465 = load i32, ptr %8146, align 1
   %8147 = getelementptr inbounds nuw i8, ptr %8146, i64 8
   store ptr %8147, ptr %5, align 8, !tbaa !73
@@ -18298,7 +17588,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1408)
   %8153 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %8154 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %8154, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2466 = load i32, ptr %8154, align 1
   %8155 = getelementptr inbounds nuw i8, ptr %8154, i64 8
   store ptr %8155, ptr %5, align 8, !tbaa !73
@@ -18312,7 +17601,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1409)
   %8161 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %8162 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %8162, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2467 = load i32, ptr %8162, align 1
   %8163 = getelementptr inbounds nuw i8, ptr %8162, i64 8
   store ptr %8163, ptr %5, align 8, !tbaa !73
@@ -18326,7 +17614,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1410)
   %8169 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %8170 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %8170, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2468 = load i32, ptr %8170, align 1
   %8171 = getelementptr inbounds nuw i8, ptr %8170, i64 8
   store ptr %8171, ptr %5, align 8, !tbaa !73
@@ -18340,7 +17627,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1411)
   %8177 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %8178 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %8178, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2469 = load i32, ptr %8178, align 1
   %8179 = getelementptr inbounds nuw i8, ptr %8178, i64 8
   store ptr %8179, ptr %5, align 8, !tbaa !73
@@ -18354,7 +17640,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1412)
   %8185 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %8186 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %8186, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2470 = load i32, ptr %8186, align 1
   %8187 = getelementptr inbounds nuw i8, ptr %8186, i64 8
   store ptr %8187, ptr %5, align 8, !tbaa !73
@@ -18368,7 +17653,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1413)
   %8193 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %8194 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %8194, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2471 = load i8, ptr %8194, align 1
   %8195 = getelementptr inbounds nuw i8, ptr %8194, i64 8
   store ptr %8195, ptr %5, align 8, !tbaa !73
@@ -20135,7 +19419,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1706)
   %9078 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %9079 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %9079, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2472 = load i32, ptr %9079, align 1
   %9080 = getelementptr inbounds nuw i8, ptr %9079, i64 8
   store ptr %9080, ptr %5, align 8, !tbaa !73
@@ -20221,7 +19504,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1719)
   %9122 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %9123 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %9123, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2473 = load i32, ptr %9123, align 1
   %9124 = getelementptr inbounds nuw i8, ptr %9123, i64 8
   store ptr %9124, ptr %5, align 8, !tbaa !73
@@ -20235,7 +19517,6 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2808, %2810
   call fastcc void @"_ZZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamEENK3$_0clEPKc"(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1720)
   %9130 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.8)
   %9131 = load ptr, ptr %5, align 8, !tbaa !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %9131, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2474 = load i32, ptr %9131, align 1
   %9132 = getelementptr inbounds nuw i8, ptr %9131, i64 8
   store ptr %9132, ptr %5, align 8, !tbaa !73

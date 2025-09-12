@@ -157,7 +157,6 @@ _ZN4llvm18BinaryStreamReader10readObjectI23FileChecksumEntryHeaderEENS_5ErrorERP
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %_ZN4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEED2Ev.exit
   %46 = load ptr, ptr %6, align 8, !tbaa !27, !noalias !21
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !21
-  call void @llvm.assume(i1 true) [ "align"(ptr %46, i64 1) ]
   %.0.copyload.i.i.i = load i32, ptr %46, align 1
   store i32 %.0.copyload.i.i.i, ptr %4, align 8, !tbaa !31
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 5
@@ -1153,7 +1152,6 @@ define dso_local void @_ZNK4llvm8codeview24DebugChecksumsSubsection6commitERNS_1
 .lr.ph:                                           ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 5
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 1) ]
   br label %13
 
 11:                                               ; preds = %_ZN4llvm5ErrorD2Ev.exit29

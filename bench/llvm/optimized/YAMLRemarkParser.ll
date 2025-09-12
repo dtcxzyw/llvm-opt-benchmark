@@ -438,7 +438,6 @@ _ZN4llvm5ErrorD2Ev.exit.i24:                      ; preds = %_ZNKSt7__cxx1112bas
 
 69:                                               ; preds = %52
   %70 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  call void @llvm.assume(i1 true) [ "align"(ptr %70, i64 1) ]
   %.0.copyload.i.i.i.i.i = load i64, ptr %70, align 1, !noalias !59
   %.not.i = icmp eq i64 %.0.copyload.i.i.i.i.i, 0
   br i1 %.not.i, label %96, label %71
@@ -557,7 +556,6 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 112:                                              ; preds = %96
   %113 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  call void @llvm.assume(i1 true) [ "align"(ptr %113, i64 1) ]
   %.0.copyload.i.i.i.i.i31 = load i64, ptr %113, align 1, !noalias !94
   %114 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %115 = add i64 %2, -24

@@ -980,7 +980,6 @@ _brush_bounding_box.exit:                         ; preds = %.lr.ph.split.i.i, %
   br i1 %.not.i46, label %137, label %139
 
 137:                                              ; preds = %129
-  call void @llvm.assume(i1 true) [ "align"(ptr null, i64 64) ]
   store ptr null, ptr %3, align 8, !tbaa !125
   call void @free(ptr noundef %62) #19
   call void @free(ptr noundef %63) #19

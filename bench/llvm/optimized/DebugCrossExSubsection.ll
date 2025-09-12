@@ -971,7 +971,6 @@ define dso_local void @_ZNK4llvm8codeview33DebugCrossModuleExportsSubsection6com
   %.not.i.i.i = icmp eq i32 %17, 1
   %18 = call i32 @llvm.bswap.i32(i32 %12)
   %spec.select.i.i.i = select i1 %.not.i.i.i, i32 %12, i32 %18
-  call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 1) ]
   store i32 %spec.select.i.i.i, ptr %5, align 4, !noalias !70
   call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %2, ptr nonnull %5, i64 4) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !70
@@ -991,7 +990,6 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %10
   %.not.i.i.i17 = icmp eq i32 %26, 1
   %27 = call i32 @llvm.bswap.i32(i32 %21)
   %spec.select.i.i.i18 = select i1 %.not.i.i.i17, i32 %21, i32 %27
-  call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 1) ]
   store i32 %spec.select.i.i.i18, ptr %4, align 4, !noalias !78
   call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %2, ptr nonnull %4, i64 4) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !78

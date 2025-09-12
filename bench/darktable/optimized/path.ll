@@ -1173,7 +1173,6 @@ _path_bounding_box.exit:                          ; preds = %.lr.ph107.i.i, %._c
   br i1 %.not.i258, label %140, label %141
 
 140:                                              ; preds = %132
-  call void @llvm.assume(i1 true) [ "align"(ptr null, i64 64) ]
   store ptr null, ptr %3, align 8, !tbaa !117
   call void @free(ptr noundef %62) #21
   call void @free(ptr noundef %63) #21

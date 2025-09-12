@@ -1134,7 +1134,6 @@ define linkonce_odr void @_ZNSt12__shared_ptrIN5folly13StrandContextELN9__gnu_cx
   store ptr null, ptr %0, align 8, !tbaa !26
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = tail call noalias noundef nonnull align 64 dereferenceable(256) ptr @_ZnwmSt11align_val_t(i64 noundef 256, i64 noundef 64) #41
-  call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 64) ]
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 1, ptr %6, align 8, !tbaa !13
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 12
@@ -10210,7 +10209,6 @@ define linkonce_odr noundef ptr @_ZN5folly17atomic_grow_arrayINS_12SynchronizedI
   %21 = and i64 %20, -16
   %22 = add i64 %21, %15
   %23 = tail call noalias noundef nonnull align 16 ptr @_ZnwmSt11align_val_t(i64 noundef %22, i64 noundef 16) #41
-  call void @llvm.assume(i1 true) [ "align"(ptr %23, i64 16) ]
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store i64 %1, ptr %24, align 8, !tbaa !25
   store ptr %4, ptr %23, align 16, !tbaa !351

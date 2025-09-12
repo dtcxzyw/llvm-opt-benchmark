@@ -990,7 +990,6 @@ _ZN4llvm5ErrorD2Ev.exit8:                         ; preds = %31
 
 _ZL10readUint32RN4llvm6object14WasmObjectFile11ReadContextE.exit: ; preds = %31
   %43 = getelementptr inbounds nuw i8, ptr %33, i64 4
-  call void @llvm.assume(i1 true) [ "align"(ptr %43, i64 1) ]
   %.0.copyload.i.i.i.i.i.i.i = load i32, ptr %43, align 1
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 %.0.copyload.i.i.i.i.i.i.i, ptr %44, align 8, !tbaa !168

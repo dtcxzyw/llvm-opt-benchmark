@@ -1318,7 +1318,6 @@ _ZN4llvm13IRBuilderBase8CreateOrEPNS_5ValueES2_RKNS_5TwineE.exit: ; preds = %581
   call void @llvm.lifetime.start.p0(ptr nonnull %77)
   call void @llvm.lifetime.start.p0(ptr nonnull %78)
   call void @llvm.lifetime.start.p0(ptr nonnull %79)
-  call void @llvm.assume(i1 true) [ "align"(ptr %75, i64 1) ]
   %.0.copyload.i.i.i.i.i = load i64, ptr %75, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !134)
   call void @llvm.lifetime.start.p0(ptr nonnull %36), !noalias !134
@@ -1722,7 +1721,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit132: ; preds = %_Z
   %769 = call noundef ptr @_ZN4llvm7MDTuple7getImplERNS_11LLVMContextENS_8ArrayRefIPNS_8MetadataEEENS4_11StorageTypeEb(ptr noundef nonnull align 8 dereferenceable(8) %141, ptr nonnull %81, i64 1, i32 noundef 0, i1 noundef zeroext true) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %81)
   call void @_ZN4llvm11NamedMDNode10addOperandEPNS_6MDNodeE(ptr noundef nonnull align 8 dereferenceable(64) %609, ptr noundef %769) #15
-  call void @llvm.assume(i1 true) [ "align"(ptr %75, i64 1) ]
   %.0.copyload.i.i.i.i.i133 = load i64, ptr %75, align 8
   %770 = load ptr, ptr %140, align 8, !tbaa !50
   %771 = call noundef ptr @_ZN4llvm4Type10getInt64TyERNS_11LLVMContextE(ptr noundef nonnull align 8 dereferenceable(8) %770) #15

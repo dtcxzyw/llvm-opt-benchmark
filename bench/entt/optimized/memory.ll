@@ -4665,7 +4665,6 @@ define hidden void @_ZN47AllocateUnique_NoUsesAllocatorConstruction_Test8TestBod
           to label %21 unwind label %30
 
 21:                                               ; preds = %1
-  call void @llvm.assume(i1 true) [ "align"(ptr %20, i64 4) ]
   %22 = ptrtoint ptr %2 to i64
   store i32 0, ptr %20, align 4, !tbaa !26, !noalias !127
   store i64 %22, ptr %3, align 8, !alias.scope !127
@@ -8936,7 +8935,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcENSt3pmr21polymorphic_allocatorIcE
           to label %.noexc37 unwind label %33
 
 .noexc37:                                         ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcENSt3pmr21polymorphic_allocatorIcEEE9_M_createERmm.exit.i.i.i.i.i.i.i.i
-  call void @llvm.assume(i1 true) [ "align"(ptr %26, i64 1) ]
   store ptr %26, ptr %21, align 8, !tbaa !143
   store i64 55, ptr %19, align 8, !tbaa !52
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(55) %26, ptr noundef nonnull align 1 dereferenceable(55) @.str.99, i64 55, i1 false)

@@ -282,7 +282,6 @@ _ZN4llvmeqENS_9StringRefES0_.exit.split.us52:     ; preds = %_ZN4llvm9StringRefC
   br i1 %or.cond, label %.critedge, label %17
 
 17:                                               ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.split.us52
-  call void @llvm.assume(i1 true) [ "align"(ptr %.325.us45, i64 1) ]
   %.0.copyload.i.i.us47 = load i64, ptr %.325.us45, align 1
   %18 = getelementptr inbounds nuw i8, ptr %.325.us45, i64 8
   %.not104 = icmp eq i64 %.0.copyload.i.i.us47, -1
@@ -318,7 +317,6 @@ _ZN4llvmeqENS_9StringRefES0_.exit.split.us.us:    ; preds = %_ZN4llvm9StringRefC
   br i1 %26, label %.critedge, label %27
 
 27:                                               ; preds = %23
-  call void @llvm.assume(i1 true) [ "align"(ptr %.325.us.us, i64 1) ]
   %.0.copyload.i.i.us.us = load i64, ptr %.325.us.us, align 1
   %28 = getelementptr inbounds nuw i8, ptr %.325.us.us, i64 8
   %.not60 = icmp eq i64 %.0.copyload.i.i.us.us, -1
@@ -360,7 +358,6 @@ _ZN4llvmeqENS_9StringRefES0_.exit.split.us:       ; preds = %_ZN4llvm9StringRefC
   br i1 %37, label %.critedge, label %38
 
 38:                                               ; preds = %34
-  call void @llvm.assume(i1 true) [ "align"(ptr %.325.us, i64 1) ]
   %.0.copyload.i.i.us = load i64, ptr %.325.us, align 1
   %39 = getelementptr inbounds nuw i8, ptr %.325.us, i64 8
   %.not59 = icmp eq i64 %.0.copyload.i.i.us, -1
@@ -378,7 +375,6 @@ _ZN4llvmeqENS_9StringRefES0_.exit.split:          ; preds = %_ZN4llvmeqENS_9Stri
   br i1 %or.cond121, label %.critedge, label %45
 
 45:                                               ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.split
-  call void @llvm.assume(i1 true) [ "align"(ptr %.325, i64 1) ]
   %.0.copyload.i.i = load i64, ptr %.325, align 1
   %46 = getelementptr inbounds nuw i8, ptr %.325, i64 8
   %.not102 = icmp eq i64 %.0.copyload.i.i, -1

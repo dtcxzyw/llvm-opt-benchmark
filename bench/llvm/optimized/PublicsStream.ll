@@ -446,31 +446,28 @@ _ZN4llvm16FixedStreamArrayINS_3pdb12PSHashRecordEED2Ev.exit: ; preds = %_ZN4llvm
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef i32 @_ZNK4llvm3pdb13PublicsStream10getSymHashEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16704) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16696
   %3 = load ptr, ptr %2, align 8, !tbaa !23
-  call void @llvm.assume(i1 true) [ "align"(ptr %3, i64 1) ]
   %.0.copyload.i.i.i = load i32, ptr %3, align 1
   ret i32 %.0.copyload.i.i.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i16 @_ZNK4llvm3pdb13PublicsStream20getThunkTableSectionEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16704) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16696
   %3 = load ptr, ptr %2, align 8, !tbaa !23
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 1) ]
   %.0.copyload.i.i.i = load i16, ptr %4, align 1
   ret i16 %.0.copyload.i.i.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef i32 @_ZNK4llvm3pdb13PublicsStream19getThunkTableOffsetEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16704) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16696
   %3 = load ptr, ptr %2, align 8, !tbaa !23
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 20
-  call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 1) ]
   %.0.copyload.i.i.i = load i32, ptr %4, align 1
   ret i32 %.0.copyload.i.i.i
 }
@@ -595,7 +592,6 @@ _ZNK4llvm18BinaryStreamReader14bytesRemainingEv.exit: ; preds = %25, %28, %31
 _ZN4llvm5ErrorD2Ev.exit17:                        ; preds = %59
   %63 = load ptr, ptr %49, align 8, !tbaa !23
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 4
-  call void @llvm.assume(i1 true) [ "align"(ptr %64, i64 1) ]
   %.0.copyload.i.i.i = load i32, ptr %64, align 1
   %65 = lshr i32 %.0.copyload.i.i.i, 2
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
@@ -670,7 +666,6 @@ _ZN4llvm5ErrorD2Ev.exit21:                        ; preds = %_ZN4llvm5ErrorD2Ev.
   %91 = getelementptr inbounds nuw i8, ptr %1, i64 16600
   %92 = load ptr, ptr %49, align 8, !tbaa !23
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 8
-  call void @llvm.assume(i1 true) [ "align"(ptr %93, i64 1) ]
   %.0.copyload.i.i.i22 = load i32, ptr %93, align 1
   call void @_ZN4llvm18BinaryStreamReader9readArrayINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEEENS_5ErrorERNS_16FixedStreamArrayIT_EEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %15, ptr noundef nonnull align 8 dereferenceable(64) %12, ptr noundef nonnull align 8 dereferenceable(48) %91, i32 noundef %.0.copyload.i.i.i22)
   %94 = load ptr, ptr %15, align 8, !tbaa !64
@@ -774,7 +769,6 @@ _ZNK4llvm18BinaryStreamReader14bytesRemainingEv.exit31: ; preds = %120, %123, %1
   %136 = getelementptr inbounds nuw i8, ptr %1, i64 16648
   %137 = load ptr, ptr %49, align 8, !tbaa !23
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 24
-  call void @llvm.assume(i1 true) [ "align"(ptr %138, i64 1) ]
   %.0.copyload.i.i.i32 = load i32, ptr %138, align 1
   call void @_ZN4llvm18BinaryStreamReader9readArrayINS_3pdb13SectionOffsetEEENS_5ErrorERNS_16FixedStreamArrayIT_EEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %16, ptr noundef nonnull align 8 dereferenceable(64) %12, ptr noundef nonnull align 8 dereferenceable(48) %136, i32 noundef %.0.copyload.i.i.i32)
   %139 = load ptr, ptr %16, align 8, !tbaa !64
@@ -2580,7 +2574,7 @@ declare i64 @llvm.umin.i64(i64, i64) #15
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { mustprogress noinline nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

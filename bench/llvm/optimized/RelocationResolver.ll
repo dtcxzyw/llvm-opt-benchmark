@@ -1181,7 +1181,6 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i.i.i:
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 4
-  call void @llvm.assume(i1 true) [ "align"(ptr %53, i64 1) ]
   %.0.copyload.i.i.i.i = load i32, ptr %53, align 1
   br label %"_ZZN4llvm6object17resolveRelocationEPFmmmmmlERKNS0_13RelocationRefEmmENK3$_0clEv.exit"
 
@@ -1229,7 +1228,6 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i.i29.
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 4
-  call void @llvm.assume(i1 true) [ "align"(ptr %72, i64 1) ]
   %.0.copyload.i.i.i30.i = load i32, ptr %72, align 1
   br label %"_ZZN4llvm6object17resolveRelocationEPFmmmmmlERKNS0_13RelocationRefEmmENK3$_0clEv.exit"
 
@@ -1276,7 +1274,6 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i.i34.
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 4
-  call void @llvm.assume(i1 true) [ "align"(ptr %90, i64 1) ]
   %.0.copyload.i.i.i35.i = load i32, ptr %90, align 1
   %91 = call noundef i32 @llvm.bswap.i32(i32 %.0.copyload.i.i.i35.i)
   br label %"_ZZN4llvm6object17resolveRelocationEPFmmmmmlERKNS0_13RelocationRefEmmENK3$_0clEv.exit"
@@ -1318,7 +1315,6 @@ _ZNK4llvm6object13ELFObjectFileINS0_7ELFTypeILNS_10endiannessE0ELb1EEEE13getRelS
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 4
-  call void @llvm.assume(i1 true) [ "align"(ptr %107, i64 1) ]
   %.0.copyload.i.i.i39.i = load i32, ptr %107, align 1
   %108 = call noundef i32 @llvm.bswap.i32(i32 %.0.copyload.i.i.i39.i)
   br label %"_ZZN4llvm6object17resolveRelocationEPFmmmmmlERKNS0_13RelocationRefEmmENK3$_0clEv.exit"

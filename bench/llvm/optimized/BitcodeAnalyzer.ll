@@ -1929,19 +1929,14 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %38
   br i1 %45, label %46, label %177
 
 46:                                               ; preds = %44
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.0.0.copyload.i, i64 1) ]
   %.0.copyload.i.i.i.i.i.i = load i32, ptr %.sroa.0.0.copyload.i, align 1
   %47 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i, i64 4
-  call void @llvm.assume(i1 true) [ "align"(ptr %47, i64 1) ]
   %.0.copyload.i.i.i.i.i.i7 = load i32, ptr %47, align 1
   %48 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i, i64 8
-  call void @llvm.assume(i1 true) [ "align"(ptr %48, i64 1) ]
   %.0.copyload.i.i.i.i.i.i8 = load i32, ptr %48, align 1
   %49 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i, i64 12
-  call void @llvm.assume(i1 true) [ "align"(ptr %49, i64 1) ]
   %.0.copyload.i.i.i.i.i.i9 = load i32, ptr %49, align 1
   %50 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i, i64 16
-  call void @llvm.assume(i1 true) [ "align"(ptr %50, i64 1) ]
   %.0.copyload.i.i.i.i.i.i10 = load i32, ptr %50, align 1
   %51 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
   %52 = load ptr, ptr %51, align 8, !tbaa !11
@@ -2189,10 +2184,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit28:               ; preds = %172, %174
 
 180:                                              ; preds = %177
   %181 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i, i64 8
-  call void @llvm.assume(i1 true) [ "align"(ptr %181, i64 1) ]
   %.0.copyload.i.i.i.i.i.i.i = load i32, ptr %181, align 1
   %182 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i, i64 12
-  call void @llvm.assume(i1 true) [ "align"(ptr %182, i64 1) ]
   %.0.copyload.i.i.i.i.i.i15.i = load i32, ptr %182, align 1
   %183 = zext i32 %.0.copyload.i.i.i.i.i.i.i to i64
   %184 = zext i32 %.0.copyload.i.i.i.i.i.i15.i to i64
@@ -4457,7 +4450,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit295:              ; preds = %647, %649
   %682 = load i64, ptr %.0148508, align 8, !tbaa !10
   %683 = trunc i64 %682 to i32
   %684 = call i32 @llvm.bswap.i32(i32 %683)
-  call void @llvm.assume(i1 true) [ "align"(ptr %681, i64 1) ]
   store i32 %684, ptr %681, align 1
   %indvars.iv.next540 = add nuw nsw i64 %indvars.iv539, 4
   %685 = getelementptr inbounds nuw i8, ptr %.0148508, i64 8
@@ -8006,7 +7998,6 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br i1 %.not11.i, label %65, label %64
 
 64:                                               ; preds = %60
-  call void @llvm.assume(i1 true) [ "align"(ptr %62, i64 1) ]
   %.0.copyload.i.i.i.i.i = load i64, ptr %62, align 1, !noalias !476
   store i64 %.0.copyload.i.i.i.i.i, ptr %29, align 8, !tbaa !270, !noalias !476
   br label %_ZN4llvm5ErrorD2Ev.exit11

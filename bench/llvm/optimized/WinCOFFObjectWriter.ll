@@ -4651,10 +4651,8 @@ _ZN4llvm13WinCOFFWriter14SetSectionNameERN12_GLOBAL__N_111COFFSectionE.exit: ; p
   %.sroa.2.8.insert.insert.i.i167 = or disjoint i64 %.sroa.4.8.insert.shift.i.i165, %.sroa.2.8.insert.ext.i.i166
   %115 = tail call noundef i64 @_ZNK4llvm18StringTableBuilder9getOffsetENS_19CachedHashStringRefE(ptr noundef nonnull align 8 dereferenceable(38) %84, ptr %113, i64 %.sroa.2.8.insert.insert.i.i167) #24
   %116 = trunc i64 %115 to i32
-  call void @llvm.assume(i1 true) [ "align"(ptr %.val150, i64 1) ]
   store i32 0, ptr %.val150, align 8
   %117 = getelementptr inbounds nuw i8, ptr %.val150, i64 4
-  call void @llvm.assume(i1 true) [ "align"(ptr %117, i64 1) ]
   store i32 %116, ptr %117, align 4
   br label %_ZN4llvm13WinCOFFWriter13SetSymbolNameERN12_GLOBAL__N_110COFFSymbolE.exit
 

@@ -59628,10 +59628,8 @@ define linkonce_odr hidden void @_ZN5clang13serialization20MultiOnDiskHashTableI
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %4, ptr %9, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  call void @llvm.assume(i1 true) [ "align"(ptr %2, i64 1) ]
   %.0.copyload.i.i.i = load i32, ptr %2, align 1
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  call void @llvm.assume(i1 true) [ "align"(ptr %10, i64 1) ]
   %.0.copyload.i.i.i8 = load i32, ptr %10, align 1
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %11, ptr %7, align 8, !tbaa !2087
@@ -59882,10 +59880,8 @@ define linkonce_odr hidden void @_ZN5clang13serialization20MultiOnDiskHashTableI
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %4, ptr %9, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  call void @llvm.assume(i1 true) [ "align"(ptr %2, i64 1) ]
   %.0.copyload.i.i.i = load i32, ptr %2, align 1
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  call void @llvm.assume(i1 true) [ "align"(ptr %10, i64 1) ]
   %.0.copyload.i.i.i8 = load i32, ptr %10, align 1
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %11, ptr %7, align 8, !tbaa !2087
@@ -66584,7 +66580,6 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br i1 %.not11.i, label %65, label %64
 
 64:                                               ; preds = %60
-  call void @llvm.assume(i1 true) [ "align"(ptr %62, i64 1) ]
   %.0.copyload.i.i.i.i.i = load i64, ptr %62, align 1, !noalias !2235
   store i64 %.0.copyload.i.i.i.i.i, ptr %29, align 8, !tbaa !2234, !noalias !2235
   br label %_ZN4llvm5ErrorD2Ev.exit11
@@ -79811,7 +79806,6 @@ _ZSt7advanceIPKN5clang13serialization18ObjCCategoriesInfoElEvRT_T0_.exit.i.i.i: 
   %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN5clang13serialization18ObjCCategoriesInfoElEvRT_T0_.exit.i.i.i ], [ %24, %19 ]
   %26 = lshr i64 %.01116.i.i.i, 1
   %27 = getelementptr inbounds nuw %"struct.clang::serialization::ObjCCategoriesInfo", ptr %.017.i.i.i, i64 %26
-  call void @llvm.assume(i1 true) [ "align"(ptr %27, i64 1) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %27, align 1
   %28 = icmp ult i64 %.0.copyload.i.i.i.i.i.i.i.i.i, %17
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 12
@@ -79828,7 +79822,6 @@ _ZSt11lower_boundIPKN5clang13serialization18ObjCCategoriesInfoES2_ET_S5_S5_RKT0_
   br i1 %33, label %.critedge.i, label %34
 
 34:                                               ; preds = %_ZSt11lower_boundIPKN5clang13serialization18ObjCCategoriesInfoES2_ET_S5_S5_RKT0_.exit.i
-  call void @llvm.assume(i1 true) [ "align"(ptr %.0.lcssa.i.i.i, i64 1) ]
   %.0.copyload.i.i.i.i.i = load i64, ptr %.0.lcssa.i.i.i, align 1
   %.not28.i = icmp eq i64 %17, %.0.copyload.i.i.i.i.i
   br i1 %.not28.i, label %37, label %.critedge.i

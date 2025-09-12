@@ -5649,7 +5649,6 @@ _ZN4llvm5ErrorD2Ev.exit4.i:                       ; preds = %148
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 16
   %154 = load ptr, ptr %153, align 8
   %155 = call noundef i32 %154(ptr noundef nonnull align 8 dereferenceable(8) %151) #21
-  call void @llvm.assume(i1 true) [ "align"(ptr %150, i64 1) ]
   %.0.copyload.i.i = load i32, ptr %150, align 1
   %.not.i.i.i22 = icmp eq i32 %155, 1
   %156 = call i32 @llvm.bswap.i32(i32 %.0.copyload.i.i)

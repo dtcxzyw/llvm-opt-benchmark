@@ -2287,7 +2287,6 @@ _ZN4llvm13ManagedStaticINS_10TimerGroupEN12_GLOBAL__N_135CreateClangOffloadBundl
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %16, ptr %77, i64 %82) #24
   call void @_ZN4llvm3MD55finalERNS0_9MD5ResultE(ptr noundef nonnull align 4 dereferenceable(152) %16, ptr noundef nonnull align 1 dereferenceable(16) %17) #24
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
-  call void @llvm.assume(i1 true) [ "align"(ptr %17, i64 1) ]
   %.0.copyload.i.i.i.i.i = load i64, ptr %17, align 8
   store i64 %.0.copyload.i.i.i.i.i, ptr %18, align 8, !tbaa !24
   br i1 %5, label %83, label %84
@@ -3981,7 +3980,6 @@ _ZN4llvm13ManagedStaticINS_10TimerGroupEN12_GLOBAL__N_135CreateClangOffloadBundl
   %227 = load i64, ptr %150, align 8, !tbaa !153
   call void @_ZN4llvm3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(152) %24, ptr %226, i64 %227) #24
   call void @_ZN4llvm3MD55finalERNS0_9MD5ResultE(ptr noundef nonnull align 4 dereferenceable(152) %24, ptr noundef nonnull align 1 dereferenceable(16) %25) #24
-  call void @llvm.assume(i1 true) [ "align"(ptr %25, i64 1) ]
   %.0.copyload.i.i.i.i.i = load i64, ptr %25, align 8
   call void @_ZN4llvm5Timer9stopTimerEv(ptr noundef nonnull align 8 dereferenceable(176) %23) #24
   %228 = icmp eq i64 %.0.copyload, %.0.copyload.i.i.i.i.i
@@ -13663,7 +13661,6 @@ define internal void @_ZN12_GLOBAL__N_117BinaryFileHandler10ReadHeaderERN4llvm12
 
 20:                                               ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  call void @llvm.assume(i1 true) [ "align"(ptr %21, i64 1) ]
   %.0.copyload.i.i.i.i.i.i.i = load i64, ptr %21, align 1
   %.not55108.not = icmp eq i64 %.0.copyload.i.i.i.i.i.i.i, 0
   br i1 %.not55108.not, label %.critedge56, label %.lr.ph
@@ -13677,7 +13674,6 @@ define internal void @_ZN12_GLOBAL__N_117BinaryFileHandler10ReadHeaderERN4llvm12
 
 24:                                               ; preds = %.lr.ph
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 %.0110
-  call void @llvm.assume(i1 true) [ "align"(ptr %25, i64 1) ]
   %.0.copyload.i.i.i.i.i.i.i66 = load i64, ptr %25, align 1
   %26 = add i64 %.0110, 16
   %27 = icmp ugt i64 %26, %10
@@ -13685,7 +13681,6 @@ define internal void @_ZN12_GLOBAL__N_117BinaryFileHandler10ReadHeaderERN4llvm12
 
 28:                                               ; preds = %24
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 %22
-  call void @llvm.assume(i1 true) [ "align"(ptr %29, i64 1) ]
   %.0.copyload.i.i.i.i.i.i.i68 = load i64, ptr %29, align 1
   %30 = add i64 %.0110, 24
   %31 = icmp ugt i64 %30, %10
@@ -13693,7 +13688,6 @@ define internal void @_ZN12_GLOBAL__N_117BinaryFileHandler10ReadHeaderERN4llvm12
 
 32:                                               ; preds = %28
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 %26
-  call void @llvm.assume(i1 true) [ "align"(ptr %33, i64 1) ]
   %.0.copyload.i.i.i.i.i.i.i70 = load i64, ptr %33, align 1
   %34 = add i64 %.0.copyload.i.i.i.i.i.i.i70, %30
   %35 = icmp ugt i64 %34, %10

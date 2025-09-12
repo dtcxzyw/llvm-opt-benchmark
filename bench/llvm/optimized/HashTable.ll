@@ -140,7 +140,6 @@ _ZN4llvm5ErrorD2Ev.exit27:                        ; preds = %3
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %43 = load ptr, ptr %42, align 8
   %44 = call noundef i32 %43(ptr noundef nonnull align 8 dereferenceable(8) %40) #13
-  call void @llvm.assume(i1 true) [ "align"(ptr %38, i64 1) ]
   %.0.copyload.i.i = load i32, ptr %38, align 1
   %.not.i.i.i = icmp eq i32 %44, 1
   %45 = call i32 @llvm.bswap.i32(i32 %.0.copyload.i.i)
@@ -228,7 +227,6 @@ _ZN4llvm5ErrorD2Ev.exit39:                        ; preds = %48
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 16
   %76 = load ptr, ptr %75, align 8
   %77 = call noundef i32 %76(ptr noundef nonnull align 8 dereferenceable(8) %73) #13
-  call void @llvm.assume(i1 true) [ "align"(ptr %72, i64 1) ]
   %.0.copyload.i.i30 = load i32, ptr %72, align 1
   %.not.i.i.i31 = icmp eq i32 %77, 1
   %78 = call i32 @llvm.bswap.i32(i32 %.0.copyload.i.i30)
@@ -451,7 +449,6 @@ _ZNK4llvm15SparseBitVectorILj128EE9find_lastEv.exit: ; preds = %3, %_ZNK4llvm22S
   %.not.i.i.i = icmp eq i32 %46, 1
   %47 = tail call i32 @llvm.bswap.i32(i32 %40)
   %spec.select.i.i.i = select i1 %.not.i.i.i, i32 %40, i32 %47
-  call void @llvm.assume(i1 true) [ "align"(ptr %11, i64 1) ]
   store i32 %spec.select.i.i.i, ptr %11, align 4, !noalias !75
   call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %12, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr nonnull %11, i64 4) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !75
@@ -550,7 +547,6 @@ _ZN4llvm5ErrorD2Ev.exit34:                        ; preds = %_ZNK4llvm15SparseBi
   %.not.i.i.i35 = icmp eq i32 %79, 1
   %80 = call i32 @llvm.bswap.i32(i32 %.us-phi71)
   %spec.select.i.i.i36 = select i1 %.not.i.i.i35, i32 %.us-phi71, i32 %80
-  call void @llvm.assume(i1 true) [ "align"(ptr %7, i64 1) ]
   store i32 %spec.select.i.i.i36, ptr %7, align 4, !noalias !91
   call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %13, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr nonnull %7, i64 4) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !91

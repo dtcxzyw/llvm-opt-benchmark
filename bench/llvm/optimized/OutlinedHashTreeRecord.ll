@@ -801,7 +801,6 @@ define dso_local void @_ZN4llvm22OutlinedHashTreeRecord11deserializeERPKh(ptr no
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store i64 0, ptr %11, align 8, !tbaa !15
   %12 = load ptr, ptr %1, align 8, !tbaa !70
-  call void @llvm.assume(i1 true) [ "align"(ptr %12, i64 1) ]
   %.0.copyload.i.i.i = load i32, ptr %12, align 1
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store ptr %13, ptr %1, align 8, !tbaa !70
@@ -819,20 +818,16 @@ define dso_local void @_ZN4llvm22OutlinedHashTreeRecord11deserializeERPKh(ptr no
   %.01241 = phi i32 [ %42, %_ZN4llvm14HashNodeStableD2Ev.exit ], [ 0, %2 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %15 = load ptr, ptr %1, align 8, !tbaa !70
-  call void @llvm.assume(i1 true) [ "align"(ptr %15, i64 1) ]
   %.0.copyload.i.i.i13 = load i32, ptr %15, align 1
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
   store ptr %16, ptr %1, align 8, !tbaa !70
   store i32 %.0.copyload.i.i.i13, ptr %6, align 4, !tbaa !16
-  call void @llvm.assume(i1 true) [ "align"(ptr %16, i64 1) ]
   %.0.copyload.i.i.i14 = load i64, ptr %16, align 1
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 12
   store ptr %17, ptr %1, align 8, !tbaa !70
-  call void @llvm.assume(i1 true) [ "align"(ptr %17, i64 1) ]
   %.0.copyload.i.i.i15 = load i32, ptr %17, align 1
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store ptr %18, ptr %1, align 8, !tbaa !70
-  call void @llvm.assume(i1 true) [ "align"(ptr %18, i64 1) ]
   %.0.copyload.i.i.i16 = load i32, ptr %18, align 1
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 20
   store ptr %19, ptr %1, align 8, !tbaa !70
@@ -921,7 +916,6 @@ _ZN4llvm14HashNodeStableD2Ev.exit:                ; preds = %38, %_ZNSt3mapIjN4l
   %.sroa.12.136 = phi ptr [ %.sroa.12.2, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit ], [ null, %.lr.ph43 ]
   %.sroa.16.135 = phi ptr [ %.sroa.16.2, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit ], [ null, %.lr.ph43 ]
   %43 = load ptr, ptr %1, align 8, !tbaa !70
-  call void @llvm.assume(i1 true) [ "align"(ptr %43, i64 1) ]
   %.0.copyload.i.i.i18 = load i32, ptr %43, align 1
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 4
   store ptr %44, ptr %1, align 8, !tbaa !70

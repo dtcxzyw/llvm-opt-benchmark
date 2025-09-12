@@ -1092,10 +1092,9 @@ define dso_local noundef nonnull align 8 dereferenceable(17) ptr @_ZN4llvm11Code
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm13IndexedCGData6Header14readFromBufferEPKh(ptr dead_on_unwind noalias writable sret(%"class.llvm::Expected") align 8 captures(none) initializes((0, 8)) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm13IndexedCGData6Header14readFromBufferEPKh(ptr dead_on_unwind noalias writable sret(%"class.llvm::Expected") align 8 captures(none) initializes((0, 8)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::Twine", align 8
   %4 = alloca %"class.llvm::Twine", align 8
-  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 1) ]
   %.0.copyload.i.i.i = load i64, ptr %1, align 1
   %.not = icmp eq i64 %.0.copyload.i.i.i, -9123883408430767105
   br i1 %.not, label %13, label %_ZN4llvm5ErrorD2Ev.exit
@@ -1122,7 +1121,6 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %2
 
 13:                                               ; preds = %2
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  call void @llvm.assume(i1 true) [ "align"(ptr %14, i64 1) ]
   %.0.copyload.i.i.i1 = load i32, ptr %14, align 1
   %15 = icmp ugt i32 %.0.copyload.i.i.i1, 2
   br i1 %15, label %_ZN4llvm5ErrorD2Ev.exit2, label %24
@@ -1149,17 +1147,14 @@ _ZN4llvm5ErrorD2Ev.exit2:                         ; preds = %13
 
 24:                                               ; preds = %13
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  call void @llvm.assume(i1 true) [ "align"(ptr %25, i64 1) ]
   %.0.copyload.i.i.i3 = load i32, ptr %25, align 1
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  call void @llvm.assume(i1 true) [ "align"(ptr %26, i64 1) ]
   %.0.copyload.i.i.i4 = load i64, ptr %26, align 1
   %27 = icmp eq i32 %.0.copyload.i.i.i1, 2
   br i1 %27, label %28, label %30
 
 28:                                               ; preds = %24
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  call void @llvm.assume(i1 true) [ "align"(ptr %29, i64 1) ]
   %.0.copyload.i.i.i5 = load i64, ptr %29, align 1
   br label %30
 

@@ -1879,7 +1879,6 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_11SmallVectorIjLj5EEENS_12DenseMapInfoIj
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 %59
   %61 = getelementptr inbounds i8, ptr %60, i64 -8
   %62 = sub i32 %14, %57
-  call void @llvm.assume(i1 true) [ "align"(ptr %61, i64 1) ]
   store i32 %62, ptr %61, align 1
   %63 = getelementptr inbounds nuw i8, ptr %.017, i64 4
   %.not = icmp eq ptr %63, %46

@@ -1234,7 +1234,6 @@ _ZN4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinarySt
   %98 = call noundef i32 %97(ptr noundef nonnull align 8 dereferenceable(8) %94) #20, !noalias !120
   %.not.i.i.i73 = icmp eq i32 %98, 1
   %spec.select.i.i.i = select i1 %.not.i.i.i73, i32 4, i32 67108864
-  call void @llvm.assume(i1 true) [ "align"(ptr %8, i64 1) ]
   store i32 %spec.select.i.i.i, ptr %8, align 4, !noalias !120
   call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %12, ptr nonnull %8, i64 4) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !120
@@ -1317,7 +1316,6 @@ _ZN4llvm5ErrorD2Ev.exit79:                        ; preds = %.critedge55, %128
   %.not.i.i.i77 = icmp eq i32 %138, 1
   %139 = call i32 @llvm.bswap.i32(i32 %133)
   %spec.select.i.i.i78 = select i1 %.not.i.i.i77, i32 %133, i32 %139
-  call void @llvm.assume(i1 true) [ "align"(ptr %7, i64 1) ]
   store i32 %spec.select.i.i.i78, ptr %7, align 4, !noalias !146
   call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %12, ptr nonnull %7, i64 4) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !146
@@ -1353,7 +1351,6 @@ _ZN4llvm5ErrorD2Ev.exit80:                        ; preds = %.critedge58, %145
   %150 = getelementptr inbounds nuw i8, ptr %149, i64 16
   %151 = load ptr, ptr %150, align 8, !noalias !149
   %152 = call noundef i32 %151(ptr noundef nonnull align 8 dereferenceable(8) %148) #20, !noalias !149
-  call void @llvm.assume(i1 true) [ "align"(ptr %6, i64 1) ]
   store i32 0, ptr %6, align 4, !noalias !149
   call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %12, ptr nonnull %6, i64 4) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !149

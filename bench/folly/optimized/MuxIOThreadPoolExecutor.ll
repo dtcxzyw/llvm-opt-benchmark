@@ -1068,7 +1068,6 @@ define linkonce_odr void @_ZN5folly18ThreadPoolExecutor10makeThreadEv(ptr dead_o
   store ptr null, ptr %0, align 8, !tbaa !18, !alias.scope !15
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = tail call noalias noundef nonnull align 64 dereferenceable(128) ptr @_ZnwmSt11align_val_t(i64 noundef 128, i64 noundef 64) #41, !noalias !15
-  call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 64) ]
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 1, ptr %5, align 8, !tbaa !21, !noalias !15
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 12
@@ -3576,7 +3575,6 @@ _ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm
 define void @_ZN5folly23MuxIOThreadPoolExecutor10makeThreadEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::shared_ptr.0") align 8 captures(none) initializes((0, 16)) %0, ptr nonnull readnone align 64 captures(none) %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt12__shared_ptrIN5folly23MuxIOThreadPoolExecutor8IOThreadELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit:
   %2 = tail call noalias noundef nonnull align 64 dereferenceable(128) ptr @_ZnwmSt11align_val_t(i64 noundef 128, i64 noundef 64) #41, !noalias !288
-  call void @llvm.assume(i1 true) [ "align"(ptr %2, i64 64) ]
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 1, ptr %3, align 8, !tbaa !21, !noalias !288
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 12
@@ -12063,7 +12061,6 @@ define linkonce_odr noundef ptr @_ZN5folly17atomic_grow_arrayINS_12SynchronizedI
   %21 = and i64 %20, -16
   %22 = add i64 %21, %15
   %23 = tail call noalias noundef nonnull align 16 ptr @_ZnwmSt11align_val_t(i64 noundef %22, i64 noundef 16) #41
-  call void @llvm.assume(i1 true) [ "align"(ptr %23, i64 16) ]
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store i64 %1, ptr %24, align 8, !tbaa !89
   store ptr %4, ptr %23, align 16, !tbaa !547

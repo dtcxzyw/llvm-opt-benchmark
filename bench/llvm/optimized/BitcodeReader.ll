@@ -2797,10 +2797,8 @@ _ZN4llvm16isBitcodeWrapperEPKhS1_.exit:           ; preds = %38
 
 48:                                               ; preds = %45
   %49 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
-  call void @llvm.assume(i1 true) [ "align"(ptr %49, i64 1) ]
   %.0.copyload.i.i.i.i.i.i.i = load i32, ptr %49, align 1
   %50 = getelementptr inbounds nuw i8, ptr %.0.val, i64 12
-  call void @llvm.assume(i1 true) [ "align"(ptr %50, i64 1) ]
   %.0.copyload.i.i.i.i.i.i15.i = load i32, ptr %50, align 1
   %51 = zext i32 %.0.copyload.i.i.i.i.i.i.i to i64
   %52 = zext i32 %.0.copyload.i.i.i.i.i.i15.i to i64
@@ -12230,7 +12228,6 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br i1 %.not11.i, label %65, label %64
 
 64:                                               ; preds = %60
-  call void @llvm.assume(i1 true) [ "align"(ptr %62, i64 1) ]
   %.0.copyload.i.i.i.i.i = load i64, ptr %62, align 1, !noalias !1188
   store i64 %.0.copyload.i.i.i.i.i, ptr %29, align 8, !tbaa !276, !noalias !1188
   br label %_ZN4llvm5ErrorD2Ev.exit11

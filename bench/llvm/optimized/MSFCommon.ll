@@ -317,10 +317,8 @@ define dso_local void @_ZN4llvm3msf18getFpmStreamLayoutERKNS0_9MSFLayoutEbb(ptr 
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   %6 = load ptr, ptr %1, align 8, !tbaa !51
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  call void @llvm.assume(i1 true) [ "align"(ptr %7, i64 1) ]
   %.0.copyload.i.i.i.i = load i32, ptr %7, align 1
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  call void @llvm.assume(i1 true) [ "align"(ptr %8, i64 1) ]
   %.0.copyload.i.i.i5.i = load i32, ptr %8, align 1
   br i1 %2, label %9, label %18
 
@@ -366,7 +364,7 @@ _ZN4llvm3msf18getNumFpmIntervalsERKNS0_9MSFLayoutEbb.exit: ; preds = %9, %18
   %30 = phi ptr [ %6, %_ZN4llvm3msf18getNumFpmIntervalsERKNS0_9MSFLayoutEbb.exit ], [ %58, %_ZNSt6vectorIN4llvm7support6detail31packed_endian_specific_integralIjLNS0_10endiannessE1ELm1ELm1EEESaIS5_EE9push_backEOS5_.exit ]
   %.lcssa = phi ptr [ null, %_ZN4llvm3msf18getNumFpmIntervalsERKNS0_9MSFLayoutEbb.exit ], [ %57, %_ZNSt6vectorIN4llvm7support6detail31packed_endian_specific_integralIjLNS0_10endiannessE1ELm1ELm1EEESaIS5_EE9push_backEOS5_.exit ]
   store ptr %.lcssa, ptr %5, align 8
-  br i1 %2, label %62, label %65
+  br i1 %2, label %62, label %64
 
 31:                                               ; preds = %.lr.ph, %_ZNSt6vectorIN4llvm7support6detail31packed_endian_specific_integralIjLNS0_10endiannessE1ELm1ELm1EEESaIS5_EE9push_backEOS5_.exit
   %32 = phi ptr [ null, %.lr.ph ], [ %56, %_ZNSt6vectorIN4llvm7support6detail31packed_endian_specific_integralIjLNS0_10endiannessE1ELm1ELm1EEESaIS5_EE9push_backEOS5_.exit ]
@@ -435,7 +433,6 @@ _ZNSt6vectorIN4llvm7support6detail31packed_endian_specific_integralIjLNS0_10endi
   %57 = phi ptr [ %33, %35 ], [ %49, %_ZNSt6vectorIN4llvm7support6detail31packed_endian_specific_integralIjLNS0_10endiannessE1ELm1ELm1EEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i ]
   %58 = load ptr, ptr %1, align 8, !tbaa !51
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 32
-  call void @llvm.assume(i1 true) [ "align"(ptr %59, i64 1) ]
   %.0.copyload.i.i.i.i19 = load i32, ptr %59, align 1
   %60 = add i32 %.0.copyload.i.i.i.i19, %.01623
   %61 = add nuw i32 %.024, 1
@@ -443,26 +440,23 @@ _ZNSt6vectorIN4llvm7support6detail31packed_endian_specific_integralIjLNS0_10endi
   br i1 %exitcond.not, label %._crit_edge, label %31, !llvm.loop !73
 
 62:                                               ; preds = %._crit_edge
-  %63 = getelementptr inbounds nuw i8, ptr %30, i64 32
-  call void @llvm.assume(i1 true) [ "align"(ptr %63, i64 1) ]
-  %64 = mul i32 %.0.copyload.i.i.i, %.0.i.i
-  br label %74
+  %63 = mul i32 %.0.copyload.i.i.i, %.0.i.i
+  br label %73
 
-65:                                               ; preds = %._crit_edge
-  %66 = getelementptr inbounds nuw i8, ptr %30, i64 40
-  call void @llvm.assume(i1 true) [ "align"(ptr %66, i64 1) ]
-  %.0.copyload.i.i.i20 = load i32, ptr %66, align 1
-  %67 = zext i32 %.0.copyload.i.i.i20 to i64
-  %68 = icmp ne i32 %.0.copyload.i.i.i20, 0
-  %69 = zext i1 %68 to i64
-  %70 = sub nsw i64 %67, %69
-  %71 = lshr i64 %70, 3
-  %72 = add nuw nsw i64 %71, %69
-  %73 = trunc i64 %72 to i32
-  br label %74
+64:                                               ; preds = %._crit_edge
+  %65 = getelementptr inbounds nuw i8, ptr %30, i64 40
+  %.0.copyload.i.i.i20 = load i32, ptr %65, align 1
+  %66 = zext i32 %.0.copyload.i.i.i20 to i64
+  %67 = icmp ne i32 %.0.copyload.i.i.i20, 0
+  %68 = zext i1 %67 to i64
+  %69 = sub nsw i64 %66, %68
+  %70 = lshr i64 %69, 3
+  %71 = add nuw nsw i64 %70, %68
+  %72 = trunc i64 %71 to i32
+  br label %73
 
-74:                                               ; preds = %65, %62
-  %storemerge = phi i32 [ %73, %65 ], [ %64, %62 ]
+73:                                               ; preds = %64, %62
+  %storemerge = phi i32 [ %72, %64 ], [ %63, %62 ]
   store i32 %storemerge, ptr %0, align 8, !tbaa !75
   ret void
 }

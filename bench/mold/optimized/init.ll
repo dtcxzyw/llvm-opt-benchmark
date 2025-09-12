@@ -229,7 +229,6 @@ declare void @_mi_os_free(ptr noundef, i64 noundef, ptr noundef byval(%struct.mi
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: write) uwtable
 define hidden void @_mi_tld_init(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 {
   call void @llvm.assume(i1 true) [ "align"(ptr %0, i64 8) ]
-  call void @llvm.assume(i1 true) [ "align"(ptr @tld_empty, i64 8) ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1656) %0, ptr noundef nonnull align 64 dereferenceable(1656) @tld_empty, i64 1656, i1 false)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %1, ptr %3, align 8, !tbaa !41
@@ -383,7 +382,6 @@ mi_thread_data_zalloc.exit.i:                     ; preds = %42
 44:                                               ; preds = %mi_thread_data_zalloc.exit.i, %mi_thread_data_zalloc.exit.thread.i
   %45 = getelementptr inbounds nuw i8, ptr %.3.i.i, i64 3064
   call void @llvm.assume(i1 true) [ "align"(ptr %45, i64 8) ]
-  call void @llvm.assume(i1 true) [ "align"(ptr @tld_empty, i64 8) ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1656) %45, ptr noundef nonnull align 64 dereferenceable(1656) @tld_empty, i64 1656, i1 false)
   %46 = getelementptr inbounds nuw i8, ptr %.3.i.i, i64 3080
   store ptr %.3.i.i, ptr %46, align 8, !tbaa !41

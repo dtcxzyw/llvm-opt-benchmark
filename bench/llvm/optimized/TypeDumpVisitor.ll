@@ -527,7 +527,6 @@ define dso_local void @_ZN4llvm8codeview15TypeDumpVisitor14visitTypeBeginERNS0_8
 15:                                               ; preds = %4
   %16 = load ptr, ptr %2, align 8, !tbaa !20
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 2
-  call void @llvm.assume(i1 true) [ "align"(ptr %17, i64 1) ]
   %.0.copyload.i.i.i.i = load i16, ptr %17, align 1
   br label %_ZNK4llvm8codeview8CVRecordINS0_12TypeLeafKindEE4kindEv.exit
 
@@ -653,7 +652,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit10:               ; preds = %78, %80
 89:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit10
   %90 = load ptr, ptr %2, align 8, !tbaa !20
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 2
-  call void @llvm.assume(i1 true) [ "align"(ptr %91, i64 1) ]
   %.0.copyload.i.i.i.i11 = load i16, ptr %91, align 1
   %92 = zext i16 %.0.copyload.i.i.i.i11 to i32
   br label %_ZNK4llvm8codeview8CVRecordINS0_12TypeLeafKindEE4kindEv.exit13
@@ -3890,7 +3888,6 @@ define dso_local void @_ZN4llvm8codeview15TypeDumpVisitor16visitUnknownTypeERNS0
 9:                                                ; preds = %3
   %10 = load ptr, ptr %2, align 8, !tbaa !20
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 2
-  call void @llvm.assume(i1 true) [ "align"(ptr %11, i64 1) ]
   %.0.copyload.i.i.i.i = load i16, ptr %11, align 1
   br label %_ZNK4llvm8codeview8CVRecordINS0_12TypeLeafKindEE4kindEv.exit
 

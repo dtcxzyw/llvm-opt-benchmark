@@ -1685,7 +1685,6 @@ define void @_ZN17grpc_event_engine12experimental22WorkStealingThreadPool26WorkS
           to label %10 unwind label %25
 
 10:                                               ; preds = %.noexc
-  call void @llvm.assume(i1 true) [ "align"(ptr %9, i64 64) ]
   store ptr %9, ptr %4, align 8, !tbaa !118
   %11 = getelementptr inbounds nuw %"struct.grpc_event_engine::experimental::BusyThreadCount::ShardedData", ptr %9, i64 %7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(1) %9, i8 0, i64 %8, i1 false)

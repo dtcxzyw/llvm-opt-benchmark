@@ -78498,7 +78498,6 @@ _ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i
 
 .loopexit.i.i.i.i.i.i.i.i:                        ; preds = %35, %39, %_ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i.i.i, %1
   %41 = call noalias align 16 dereferenceable_or_null(64) ptr @aligned_alloc(i64 noundef 16, i64 noundef 64) #70
-  call void @llvm.assume(i1 true) [ "align"(ptr %41, i64 16) ]
   %.not.i.i1.i.i.i.i.i.i.i = icmp eq ptr %41, null
   br i1 %.not.i.i1.i.i.i.i.i.i.i, label %42, label %.loopexit.i.i.i.i._crit_edge.i.i.i.i
 
@@ -149077,7 +149076,6 @@ _ZN5boost4asio6detail19recycling_allocatorINS1_11executor_opINS1_7binder0IZZNS_7
 
 .loopexit.i:                                      ; preds = %16, %1, %20, %_ZN5boost4asio6detail19recycling_allocatorINS1_11executor_opINS1_7binder0IZZNS_7process2v16detail11system_implINS0_10io_contextEJRPcRA5_KcRA14_SC_RA4_SC_NS7_5posix16async_out_futureILi1ELin1ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS9_RSt10error_codeEEEiSt17integral_constantIbLb1EESW_DpOT0_ENKUliRKST_E_clEiS11_EUlvE_EESaIvENS1_19scheduler_operationEEENS1_16thread_info_base11default_tagEE8allocateEm.exit
   %22 = tail call noalias align 16 dereferenceable_or_null(48) ptr @aligned_alloc(i64 noundef 16, i64 noundef 48) #70
-  call void @llvm.assume(i1 true) [ "align"(ptr %22, i64 16) ]
   %.not.i.i = icmp eq ptr %22, null
   br i1 %.not.i.i, label %23, label %_ZN5boost4asio6detail16thread_info_base8allocateINS2_11default_tagEEEPvT_PS2_mm.exit
 
@@ -159488,7 +159486,6 @@ _ZN5boost4asio6detail19recycling_allocatorINS1_11executor_opINS1_17executor_func
 
 .loopexit.i:                                      ; preds = %16, %1, %20, %_ZN5boost4asio6detail19recycling_allocatorINS1_11executor_opINS1_17executor_functionESaIvENS1_19scheduler_operationEEENS1_16thread_info_base11default_tagEE8allocateEm.exit
   %22 = tail call noalias align 16 dereferenceable_or_null(48) ptr @aligned_alloc(i64 noundef 16, i64 noundef 48) #70
-  call void @llvm.assume(i1 true) [ "align"(ptr %22, i64 16) ]
   %.not.i.i = icmp eq ptr %22, null
   br i1 %.not.i.i, label %23, label %_ZN5boost4asio6detail16thread_info_base8allocateINS2_11default_tagEEEPvT_PS2_mm.exit
 
@@ -172793,7 +172790,6 @@ _ZN5boost4asio6detail19recycling_allocatorINS1_11executor_opINS1_7binder0INS1_14
 
 .loopexit.i:                                      ; preds = %16, %1, %20, %_ZN5boost4asio6detail19recycling_allocatorINS1_11executor_opINS1_7binder0INS1_14append_handlerIZNS_7process2v16detail5posix14io_context_ref10on_successINS9_8executorINS_6fusion10joint_viewINSD_5tupleIJNS9_12exe_cmd_initIcEESA_NS8_12set_on_errorEEEENSD_11filter_viewIKNSF_IJRPcRA5_KcRA14_SN_RA4_SN_RNS9_16async_out_futureILi1ELin1ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERNS0_10io_contextERSt10error_codeRNS8_25system_impl_success_checkERNS9_8on_exit_EEEENS8_14is_initializerIN4mpl_3argILin1EEEEEEEEEEEEEvRT_EUliRKS15_E_JiS15_EEEEESaIvENS1_19scheduler_operationEEENS1_16thread_info_base11default_tagEE8allocateEm.exit
   %22 = tail call noalias align 16 dereferenceable_or_null(112) ptr @aligned_alloc(i64 noundef 16, i64 noundef 112) #70
-  call void @llvm.assume(i1 true) [ "align"(ptr %22, i64 16) ]
   %.not.i.i = icmp eq ptr %22, null
   br i1 %.not.i.i, label %23, label %_ZN5boost4asio6detail16thread_info_base8allocateINS2_11default_tagEEEPvT_PS2_mm.exit
 
@@ -173666,7 +173662,6 @@ _ZN5boost4asio6detail19recycling_allocatorINS1_11executor_opINS1_23strand_execut
 
 .loopexit.i:                                      ; preds = %16, %1, %20, %_ZN5boost4asio6detail19recycling_allocatorINS1_11executor_opINS1_23strand_executor_service7invokerIKNS0_10io_context19basic_executor_typeISaIvELm0EEEvEES8_NS1_19scheduler_operationEEENS1_16thread_info_base11default_tagEE8allocateEm.exit
   %22 = tail call noalias align 16 dereferenceable_or_null(64) ptr @aligned_alloc(i64 noundef 16, i64 noundef 64) #70
-  call void @llvm.assume(i1 true) [ "align"(ptr %22, i64 16) ]
   %.not.i.i = icmp eq ptr %22, null
   br i1 %.not.i.i, label %23, label %_ZN5boost4asio6detail16thread_info_base8allocateINS2_11default_tagEEEPvT_PS2_mm.exit
 
@@ -174259,7 +174254,6 @@ _ZN5boost4asio6detail19recycling_allocatorINS1_11executor_opINS1_23strand_execut
 
 .loopexit.i:                                      ; preds = %16, %1, %20, %_ZN5boost4asio6detail19recycling_allocatorINS1_11executor_opINS1_23strand_executor_service7invokerIKNS0_10io_context19basic_executor_typeISaIvELm0EEEvEENS2_IvNS1_16thread_info_base11default_tagEEENS1_19scheduler_operationEEESD_E8allocateEm.exit
   %22 = tail call noalias align 16 dereferenceable_or_null(64) ptr @aligned_alloc(i64 noundef 16, i64 noundef 64) #70
-  call void @llvm.assume(i1 true) [ "align"(ptr %22, i64 16) ]
   %.not.i.i = icmp eq ptr %22, null
   br i1 %.not.i.i, label %23, label %_ZN5boost4asio6detail16thread_info_base8allocateINS2_11default_tagEEEPvT_PS2_mm.exit
 
@@ -175321,7 +175315,6 @@ _ZN5boost4asio6detail19recycling_allocatorINS1_14signal_handlerINS0_15executor_b
 
 .loopexit.i:                                      ; preds = %16, %1, %20, %_ZN5boost4asio6detail19recycling_allocatorINS1_14signal_handlerINS0_15executor_binderIZNS_7process2v16detail5posix15sigchld_service22initiate_async_wait_opclIZNS8_14io_context_ref10on_successINS8_8executorINS_6fusion10joint_viewINSF_5tupleIJNS8_12exe_cmd_initIcEESC_NS7_12set_on_errorEEEENSF_11filter_viewIKNSH_IJRPcRA5_KcRA14_SP_RA4_SP_RNS8_16async_out_futureILi1ELin1ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERNS0_10io_contextERSt10error_codeRNS7_25system_impl_success_checkERNS8_8on_exit_EEEENS7_14is_initializerIN4mpl_3argILin1EEEEEEEEEEEEEvRT_EUliRKS17_E_EEvOS1N_iEUlRKNS_6system10error_codeEiE_NS0_6strandINS15_19basic_executor_typeISaIvELm0EEEEEEENS0_15any_io_executorEEENS1_16thread_info_base11default_tagEE8allocateEm.exit
   %22 = tail call noalias align 16 dereferenceable_or_null(192) ptr @aligned_alloc(i64 noundef 16, i64 noundef 192) #70
-  call void @llvm.assume(i1 true) [ "align"(ptr %22, i64 16) ]
   %.not.i.i = icmp eq ptr %22, null
   br i1 %.not.i.i, label %23, label %_ZN5boost4asio6detail16thread_info_base8allocateINS2_11default_tagEEEPvT_PS2_mm.exit
 
@@ -175475,7 +175468,6 @@ _ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit8.i: ; pre
 
 .loopexit.i:                                      ; preds = %45, %_ZN5boost4asio6detail16thread_info_base10deallocateINS2_23cancellation_signal_tagEEEvT_PS2_Pvm.exit.i, %48, %_ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit8.i
   %50 = tail call noalias align 16 dereferenceable_or_null(48) ptr @aligned_alloc(i64 noundef 16, i64 noundef 48) #70
-  call void @llvm.assume(i1 true) [ "align"(ptr %50, i64 16) ]
   %.not.i.i = icmp eq ptr %50, null
   br i1 %.not.i.i, label %51, label %_ZN5boost4asio6detail16thread_info_base8allocateINS2_23cancellation_signal_tagEEEPvT_PS2_mm.exit
 
@@ -176942,7 +176934,6 @@ _ZN5boost4asio6detail19recycling_allocatorINS1_14signal_handlerIZNS_7process2v16
 
 .loopexit.i:                                      ; preds = %16, %1, %20, %_ZN5boost4asio6detail19recycling_allocatorINS1_14signal_handlerIZNS_7process2v16detail5posix15sigchld_service14_handle_signalERKNS_6system10error_codeEEUlSC_iE_NS0_15any_io_executorEEENS1_16thread_info_base11default_tagEE8allocateEm.exit
   %22 = tail call noalias align 16 dereferenceable_or_null(144) ptr @aligned_alloc(i64 noundef 16, i64 noundef 144) #70
-  call void @llvm.assume(i1 true) [ "align"(ptr %22, i64 16) ]
   %.not.i.i = icmp eq ptr %22, null
   br i1 %.not.i.i, label %23, label %_ZN5boost4asio6detail16thread_info_base8allocateINS2_11default_tagEEEPvT_PS2_mm.exit
 
@@ -177964,7 +177955,6 @@ _ZN5boost4asio6detail19recycling_allocatorINS1_11executor_opINS1_7binder0IZZNS_7
 
 .loopexit.i:                                      ; preds = %16, %1, %20, %_ZN5boost4asio6detail19recycling_allocatorINS1_11executor_opINS1_7binder0IZZNS_7process2v16detail5posix15sigchld_service14_handle_signalERKNS_6system10error_codeEENKUlSD_iE_clESD_iEUlvE_EESaIvENS1_19scheduler_operationEEENS1_16thread_info_base11default_tagEE8allocateEm.exit
   %22 = tail call noalias align 16 dereferenceable_or_null(80) ptr @aligned_alloc(i64 noundef 16, i64 noundef 80) #70
-  call void @llvm.assume(i1 true) [ "align"(ptr %22, i64 16) ]
   %.not.i.i = icmp eq ptr %22, null
   br i1 %.not.i.i, label %23, label %_ZN5boost4asio6detail16thread_info_base8allocateINS2_11default_tagEEEPvT_PS2_mm.exit
 
@@ -178314,7 +178304,6 @@ _ZN5boost4asio6detail19recycling_allocatorINS1_17executor_function4implINS1_7bin
 
 .loopexit.i:                                      ; preds = %16, %1, %19, %_ZN5boost4asio6detail19recycling_allocatorINS1_17executor_function4implINS1_7binder2IZNS_7process2v16detail5posix15sigchld_service14_handle_signalERKNS_6system10error_codeEEUlSE_iE_SC_iEESaIvEEENS1_16thread_info_base21executor_function_tagEE8allocateEm.exit
   %21 = tail call noalias align 16 dereferenceable_or_null(64) ptr @aligned_alloc(i64 noundef 16, i64 noundef 64) #70
-  call void @llvm.assume(i1 true) [ "align"(ptr %21, i64 16) ]
   %.not.i.i = icmp eq ptr %21, null
   br i1 %.not.i.i, label %22, label %_ZN5boost4asio6detail16thread_info_base8allocateINS2_21executor_function_tagEEEPvT_PS2_mm.exit
 
@@ -179227,7 +179216,6 @@ _ZN5boost4asio6detail19recycling_allocatorINS1_11executor_opINS1_7binder2INS0_15
 
 .loopexit.i:                                      ; preds = %16, %1, %20, %_ZN5boost4asio6detail19recycling_allocatorINS1_11executor_opINS1_7binder2INS0_15executor_binderIZNS_7process2v16detail5posix15sigchld_service22initiate_async_wait_opclIZNS9_14io_context_ref10on_successINS9_8executorINS_6fusion10joint_viewINSG_5tupleIJNS9_12exe_cmd_initIcEESD_NS8_12set_on_errorEEEENSG_11filter_viewIKNSI_IJRPcRA5_KcRA14_SQ_RA4_SQ_RNS9_16async_out_futureILi1ELin1ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERNS0_10io_contextERSt10error_codeRNS8_25system_impl_success_checkERNS9_8on_exit_EEEENS8_14is_initializerIN4mpl_3argILin1EEEEEEEEEEEEEvRT_EUliRKS18_E_EEvOS1O_iEUlRKNS_6system10error_codeEiE_NS0_6strandINS16_19basic_executor_typeISaIvELm0EEEEEEES1V_iEES21_NS1_19scheduler_operationEEENS1_16thread_info_base11default_tagEE8allocateEm.exit
   %22 = tail call noalias align 16 dereferenceable_or_null(112) ptr @aligned_alloc(i64 noundef 16, i64 noundef 112) #70
-  call void @llvm.assume(i1 true) [ "align"(ptr %22, i64 16) ]
   %.not.i.i = icmp eq ptr %22, null
   br i1 %.not.i.i, label %23, label %_ZN5boost4asio6detail16thread_info_base8allocateINS2_11default_tagEEEPvT_PS2_mm.exit
 
@@ -180114,7 +180102,6 @@ _ZN5boost4asio6detail19recycling_allocatorINS1_11executor_opINS1_23strand_execut
 
 .loopexit.i:                                      ; preds = %16, %1, %20, %_ZN5boost4asio6detail19recycling_allocatorINS1_11executor_opINS1_23strand_executor_service7invokerIKNS0_10io_context19basic_executor_typeISaIvELm4EEEvEES8_NS1_19scheduler_operationEEENS1_16thread_info_base11default_tagEE8allocateEm.exit
   %22 = tail call noalias align 16 dereferenceable_or_null(64) ptr @aligned_alloc(i64 noundef 16, i64 noundef 64) #70
-  call void @llvm.assume(i1 true) [ "align"(ptr %22, i64 16) ]
   %.not.i.i = icmp eq ptr %22, null
   br i1 %.not.i.i, label %23, label %_ZN5boost4asio6detail16thread_info_base8allocateINS2_11default_tagEEEPvT_PS2_mm.exit
 
@@ -180615,7 +180602,6 @@ _ZN5boost4asio6detail19recycling_allocatorINS1_11executor_opINS1_23strand_execut
 
 .loopexit.i:                                      ; preds = %16, %1, %20, %_ZN5boost4asio6detail19recycling_allocatorINS1_11executor_opINS1_23strand_executor_service7invokerIKNS0_10io_context19basic_executor_typeISaIvELm4EEEvEENS2_IvNS1_16thread_info_base11default_tagEEENS1_19scheduler_operationEEESD_E8allocateEm.exit
   %22 = tail call noalias align 16 dereferenceable_or_null(64) ptr @aligned_alloc(i64 noundef 16, i64 noundef 64) #70
-  call void @llvm.assume(i1 true) [ "align"(ptr %22, i64 16) ]
   %.not.i.i = icmp eq ptr %22, null
   br i1 %.not.i.i, label %23, label %_ZN5boost4asio6detail16thread_info_base8allocateINS2_11default_tagEEEPvT_PS2_mm.exit
 
@@ -183419,7 +183405,6 @@ _ZN5boost4asio6detail19recycling_allocatorINS1_18descriptor_read_opINS0_14mutabl
 
 .loopexit.i:                                      ; preds = %16, %1, %20, %_ZN5boost4asio6detail19recycling_allocatorINS1_18descriptor_read_opINS0_14mutable_bufferENS1_17read_dynbuf_v1_opINS_7process2v16detail5posix10async_pipeENS0_19basic_streambuf_refISaIcEEENS1_14transfer_all_tEZNS9_16async_out_futureILi1ELin1ENSt7__cxx1112basic_stringIcSt11char_traitsIcESC_EEE10on_successINS9_8executorINS_6fusion10joint_viewINSO_5tupleIJNS9_12exe_cmd_initIcEENS9_14io_context_refENS8_12set_on_errorEEEENSO_11filter_viewIKNSQ_IJRPcRA5_KcRA14_SZ_RA4_SZ_RSL_RNS0_10io_contextERSt10error_codeRNS8_25system_impl_success_checkERNS9_8on_exit_EEEENS8_14is_initializerIN4mpl_3argILin1EEEEEEEEEEEEEvRT_EUlRKNS_6system10error_codeEmE_EENS0_15any_io_executorEEENS1_16thread_info_base11default_tagEE8allocateEm.exit
   %22 = tail call noalias align 16 dereferenceable_or_null(240) ptr @aligned_alloc(i64 noundef 16, i64 noundef 240) #70
-  call void @llvm.assume(i1 true) [ "align"(ptr %22, i64 16) ]
   %.not.i.i = icmp eq ptr %22, null
   br i1 %.not.i.i, label %23, label %_ZN5boost4asio6detail16thread_info_base8allocateINS2_11default_tagEEEPvT_PS2_mm.exit
 
@@ -184431,7 +184416,6 @@ _ZN5boost4asio6detail19recycling_allocatorINS1_17executor_function4implINS1_7bin
 
 .loopexit.i:                                      ; preds = %16, %1, %19, %_ZN5boost4asio6detail19recycling_allocatorINS1_17executor_function4implINS1_7binder2INS1_17read_dynbuf_v1_opINS_7process2v16detail5posix10async_pipeENS0_19basic_streambuf_refISaIcEEENS1_14transfer_all_tEZNSA_16async_out_futureILi1ELin1ENSt7__cxx1112basic_stringIcSt11char_traitsIcESD_EEE10on_successINSA_8executorINS_6fusion10joint_viewINSP_5tupleIJNSA_12exe_cmd_initIcEENSA_14io_context_refENS9_12set_on_errorEEEENSP_11filter_viewIKNSR_IJRPcRA5_KcRA14_S10_RA4_S10_RSM_RNS0_10io_contextERSt10error_codeRNS9_25system_impl_success_checkERNSA_8on_exit_EEEENS9_14is_initializerIN4mpl_3argILin1EEEEEEEEEEEEEvRT_EUlRKNS_6system10error_codeEmE_EES1T_mEESaIvEEENS1_16thread_info_base21executor_function_tagEE8allocateEm.exit
   %21 = tail call noalias align 16 dereferenceable_or_null(144) ptr @aligned_alloc(i64 noundef 16, i64 noundef 144) #70
-  call void @llvm.assume(i1 true) [ "align"(ptr %21, i64 16) ]
   %.not.i.i = icmp eq ptr %21, null
   br i1 %.not.i.i, label %22, label %_ZN5boost4asio6detail16thread_info_base8allocateINS2_21executor_function_tagEEEPvT_PS2_mm.exit
 

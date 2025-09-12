@@ -313,7 +313,6 @@ _ZNK4llvm3pdb15GSIHashIteratordeEv.exit:          ; preds = %_ZNK4llvm20iterator
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %124 = load ptr, ptr %6, align 8, !tbaa !59
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  call void @llvm.assume(i1 true) [ "align"(ptr %124, i64 1) ]
   %.0.copyload.i.i.i.i = load i32, ptr %124, align 1
   %125 = add i32 %.0.copyload.i.i.i.i, -1
   %126 = call { ptr, i64 } @_ZNK4llvm3pdb12SymbolStream10readRecordEj(ptr noundef nonnull align 8 dereferenceable(64) %28, i32 noundef %125) #15
@@ -324,7 +323,6 @@ _ZNK4llvm3pdb15GSIHashIteratordeEv.exit:          ; preds = %_ZNK4llvm20iterator
 129:                                              ; preds = %_ZNK4llvm3pdb15GSIHashIteratordeEv.exit
   %130 = extractvalue { ptr, i64 } %126, 0
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 2
-  call void @llvm.assume(i1 true) [ "align"(ptr %131, i64 1) ]
   %.0.copyload.i.i.i.i16 = load i16, ptr %131, align 1
   br label %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
 

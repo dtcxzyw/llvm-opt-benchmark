@@ -4261,13 +4261,11 @@ _ZN4llvm8ExpectedINS_9StringRefEE9takeErrorEv.exit163.i: ; preds = %_ZN4llvmneEN
 
 389:                                              ; preds = %387
   %390 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 4
-  call void @llvm.assume(i1 true) [ "align"(ptr %390, i64 1) ]
   %.0.copyload.i.i.i.i = load i32, ptr %390, align 1, !noalias !203
   br label %393
 
 _ZNK4llvm6object6Binary14isLittleEndianEv.exit.i: ; preds = %387, %387, %387, %387, %387, %387
   %391 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 4
-  call void @llvm.assume(i1 true) [ "align"(ptr %391, i64 1) ]
   %.0.copyload.i.i.i164.i = load i32, ptr %391, align 1, !noalias !203
   %392 = call noundef i32 @llvm.bswap.i32(i32 %.0.copyload.i.i.i164.i)
   br label %393

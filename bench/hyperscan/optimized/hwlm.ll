@@ -1203,7 +1203,6 @@ run_hwlm_accel.exit.thread:                       ; preds = %19, %run_hwlm_accel
   %319 = load i8, ptr %318, align 2
   %320 = insertelement <16 x i8> poison, i8 %319, i64 0
   %321 = shufflevector <16 x i8> %320, <16 x i8> poison, <16 x i32> zeroinitializer
-  call void @llvm.assume(i1 true) [ "align"(ptr %7, i64 16) ]
   %322 = load <16 x i8>, ptr %7, align 16
   %323 = icmp eq <16 x i8> %321, %322
   %324 = bitcast <16 x i1> %323 to i16
@@ -1211,7 +1210,7 @@ run_hwlm_accel.exit.thread:                       ; preds = %19, %run_hwlm_accel
   br i1 %.not.i231.not, label %vermSearchAligned.exit237.thread, label %vermSearchAligned.exit237, !prof !5
 
 vermSearchAligned.exit237:                        ; preds = %317
-  %325 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %324, i1 true)
+  %325 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %324, i1 true)
   %326 = zext nneg i16 %325 to i64
   %327 = getelementptr inbounds nuw i8, ptr %7, i64 %326
   br label %run_hwlm_accel.exit69
@@ -1225,7 +1224,7 @@ vermSearchAligned.exit237.thread:                 ; preds = %317
   br i1 %.not.i185, label %vermUnalign.exit187, label %332, !prof !5
 
 332:                                              ; preds = %vermSearchAligned.exit237.thread
-  %333 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %331, i1 true)
+  %333 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %331, i1 true)
   %334 = zext nneg i16 %333 to i64
   %335 = getelementptr inbounds nuw i8, ptr %328, i64 %334
   br label %vermUnalign.exit187
@@ -1241,7 +1240,6 @@ vermUnalign.exit187:                              ; preds = %vermSearchAligned.e
   %339 = load i8, ptr %338, align 2
   %340 = insertelement <16 x i8> poison, i8 %339, i64 0
   %341 = shufflevector <16 x i8> %340, <16 x i8> poison, <16 x i32> zeroinitializer
-  call void @llvm.assume(i1 true) [ "align"(ptr %7, i64 16) ]
   %342 = load <16 x i8>, ptr %7, align 16
   %343 = and <16 x i8> %342, splat (i8 -33)
   %344 = icmp eq <16 x i8> %341, %343
@@ -1250,7 +1248,7 @@ vermUnalign.exit187:                              ; preds = %vermSearchAligned.e
   br i1 %.not.i205, label %vermSearchAlignedNocase.exit209.thread, label %vermSearchAlignedNocase.exit209, !prof !5
 
 vermSearchAlignedNocase.exit209:                  ; preds = %337
-  %346 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %345, i1 true)
+  %346 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %345, i1 true)
   %347 = zext nneg i16 %346 to i64
   %348 = getelementptr inbounds nuw i8, ptr %7, i64 %347
   br label %run_hwlm_accel.exit69
@@ -1265,7 +1263,7 @@ vermSearchAlignedNocase.exit209.thread:           ; preds = %337
   br i1 %.not.i169, label %vermUnalignNocase.exit171, label %354, !prof !5
 
 354:                                              ; preds = %vermSearchAlignedNocase.exit209.thread
-  %355 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %353, i1 true)
+  %355 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %353, i1 true)
   %356 = zext nneg i16 %355 to i64
   %357 = getelementptr inbounds nuw i8, ptr %349, i64 %356
   br label %vermUnalignNocase.exit171
@@ -1286,7 +1284,6 @@ vermUnalignNocase.exit171:                        ; preds = %vermSearchAlignedNo
   %366 = insertelement <16 x i8> poison, i8 %363, i64 0
   %367 = shufflevector <16 x i8> %366, <16 x i8> poison, <16 x i32> zeroinitializer
   %.ptr504 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  call void @llvm.assume(i1 true) [ "align"(ptr %7, i64 16) ]
   %368 = load <16 x i8>, ptr %7, align 16
   %369 = icmp eq <16 x i8> %365, %368
   %370 = icmp eq <16 x i8> %367, %368
@@ -1312,7 +1309,7 @@ dvermSearchAligned.exit317.split.loop.exit:       ; preds = %359
 
 dvermSearchAligned.exit317:                       ; preds = %380, %dvermSearchAligned.exit317.split.loop.exit
   %.019.i312417.in = phi i16 [ %381, %dvermSearchAligned.exit317.split.loop.exit ], [ %375, %380 ]
-  %382 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.019.i312417.in, i1 true)
+  %382 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.019.i312417.in, i1 true)
   %383 = zext nneg i16 %382 to i64
   %384 = getelementptr inbounds nuw i8, ptr %7, i64 %383
   br label %run_hwlm_accel.exit69
@@ -1331,7 +1328,7 @@ dvermSearchAligned.exit317.thread.critedge:       ; preds = %380
   br i1 %.not.i272, label %397, label %dvermPrecondition.exit274, !prof !5
 
 dvermPrecondition.exit274:                        ; preds = %dvermSearchAligned.exit317.thread.critedge
-  %394 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %393, i1 true)
+  %394 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %393, i1 true)
   %395 = zext nneg i16 %394 to i64
   %396 = getelementptr inbounds nuw i8, ptr %385, i64 %395
   br label %run_hwlm_accel.exit69
@@ -1352,7 +1349,6 @@ dvermPrecondition.exit274:                        ; preds = %dvermSearchAligned.
   %407 = shufflevector <16 x i8> %406, <16 x i8> poison, <16 x i32> zeroinitializer
   %408 = insertelement <16 x i8> poison, i8 %405, i64 0
   %409 = shufflevector <16 x i8> %408, <16 x i8> poison, <16 x i32> zeroinitializer
-  call void @llvm.assume(i1 true) [ "align"(ptr %7, i64 16) ]
   %410 = load <16 x i8>, ptr %7, align 16
   %411 = and <16 x i8> %410, splat (i8 -33)
   %412 = icmp eq <16 x i8> %407, %411
@@ -1384,7 +1380,7 @@ dvermSearchAlignedNocase.exit294.split.loop.exit: ; preds = %422
 
 dvermSearchAlignedNocase.exit294:                 ; preds = %426, %dvermSearchAlignedNocase.exit294.split.loop.exit
   %.021.i290435.in = phi i16 [ %427, %dvermSearchAlignedNocase.exit294.split.loop.exit ], [ %418, %426 ]
-  %428 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.021.i290435.in, i1 true)
+  %428 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.021.i290435.in, i1 true)
   %429 = zext nneg i16 %428 to i64
   %430 = getelementptr inbounds nuw i8, ptr %7, i64 %429
   br label %run_hwlm_accel.exit69
@@ -1404,7 +1400,7 @@ dvermSearchAlignedNocase.exit294.thread.critedge: ; preds = %426
   br i1 %.not.i255, label %444, label %dvermPreconditionNocase.exit257, !prof !5
 
 dvermPreconditionNocase.exit257:                  ; preds = %dvermSearchAlignedNocase.exit294.thread.critedge
-  %441 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %440, i1 true)
+  %441 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %440, i1 true)
   %442 = zext nneg i16 %441 to i64
   %443 = getelementptr inbounds nuw i8, ptr %431, i64 %442
   br label %run_hwlm_accel.exit69

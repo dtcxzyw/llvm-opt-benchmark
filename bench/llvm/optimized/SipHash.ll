@@ -8,14 +8,14 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZZN4llvm27getPointerAuthStableSipHashENS_9StringRefEE1K = internal constant [16 x i8] c"\B5\D4\C9\EBy\10Jyo\EC\8B\1BB\87\81\D4", align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: write) uwtable
-define dso_local void @_ZN4llvm17getSipHash_2_4_64ENS_8ArrayRefIhEERA16_KhRA8_h(ptr %0, i64 %1, ptr noundef nonnull align 1 dereferenceable(16) %2, ptr noundef nonnull align 1 dereferenceable(8) %3) local_unnamed_addr #0 {
+define dso_local void @_ZN4llvm17getSipHash_2_4_64ENS_8ArrayRefIhEERA16_KhRA8_h(ptr readonly captures(address) %0, i64 %1, ptr noundef nonnull align 1 dereferenceable(16) %2, ptr noundef nonnull align 1 dereferenceable(8) %3) local_unnamed_addr #0 {
   call void @llvm.assume(i1 true) [ "align"(ptr %2, i64 1) ]
   %.0.copyload.i.i.i.i.i.i.i = load i64, ptr %2, align 1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 1) ]
   %.0.copyload.i.i.i.i.i.i160.i = load i64, ptr %5, align 1
   %6 = and i64 %1, -8
-  %7 = getelementptr inbounds i8, ptr %0, i64 %6
+  %7 = getelementptr i8, ptr %0, i64 %6
   %8 = trunc i64 %1 to i32
   %9 = and i32 %8, 7
   %10 = shl i64 %1, 56
@@ -32,7 +32,6 @@ define dso_local void @_ZN4llvm17getSipHash_2_4_64ENS_8ArrayRefIhEERA16_KhRA8_h(
   %.0148170.i = phi i64 [ %30, %32 ], [ %13, %4 ]
   %.0152169.i = phi i64 [ %31, %32 ], [ %12, %4 ]
   %.0156168.i = phi i64 [ %27, %32 ], [ %11, %4 ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %.0140172.i, i64 1) ]
   %.0.copyload.i.i.i.i.i.i161.i = load i64, ptr %.0140172.i, align 1
   %15 = xor i64 %.0.copyload.i.i.i.i.i.i161.i, %.0156168.i
   br label %16
@@ -210,14 +209,14 @@ _ZN12_GLOBAL__N_17siphashILi2ELi4ELm8EEEvPKhmRA16_S1_RAT1__h.exit: ; preds = %96
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: write) uwtable
-define dso_local void @_ZN4llvm18getSipHash_2_4_128ENS_8ArrayRefIhEERA16_KhRA16_h(ptr %0, i64 %1, ptr noundef nonnull align 1 dereferenceable(16) %2, ptr noundef nonnull align 1 dereferenceable(16) %3) local_unnamed_addr #0 {
+define dso_local void @_ZN4llvm18getSipHash_2_4_128ENS_8ArrayRefIhEERA16_KhRA16_h(ptr readonly captures(address) %0, i64 %1, ptr noundef nonnull align 1 dereferenceable(16) %2, ptr noundef nonnull align 1 dereferenceable(16) %3) local_unnamed_addr #0 {
   call void @llvm.assume(i1 true) [ "align"(ptr %2, i64 1) ]
   %.0.copyload.i.i.i.i.i.i.i = load i64, ptr %2, align 1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 1) ]
   %.0.copyload.i.i.i.i.i.i203.i = load i64, ptr %5, align 1
   %6 = and i64 %1, -8
-  %7 = getelementptr inbounds i8, ptr %0, i64 %6
+  %7 = getelementptr i8, ptr %0, i64 %6
   %8 = trunc i64 %1 to i32
   %9 = and i32 %8, 7
   %10 = shl i64 %1, 56
@@ -234,7 +233,6 @@ define dso_local void @_ZN4llvm18getSipHash_2_4_128ENS_8ArrayRefIhEERA16_KhRA16_
   %.0188213.i = phi i64 [ %30, %32 ], [ %14, %4 ]
   %.0193212.i = phi i64 [ %31, %32 ], [ %12, %4 ]
   %.0198211.i = phi i64 [ %27, %32 ], [ %11, %4 ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %.0178215.i, i64 1) ]
   %.0.copyload.i.i.i.i.i.i204.i = load i64, ptr %.0178215.i, align 1
   %15 = xor i64 %.0.copyload.i.i.i.i.i.i204.i, %.0198211.i
   br label %16
@@ -445,11 +443,10 @@ _ZN12_GLOBAL__N_17siphashILi2ELi4ELm16EEEvPKhmRA16_S1_RAT1__h.exit: ; preds = %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: write) uwtable
-define dso_local noundef zeroext range(i16 1, 0) i16 @_ZN4llvm27getPointerAuthStableSipHashENS_9StringRefE(ptr %0, i64 %1) local_unnamed_addr #0 {
+define dso_local noundef zeroext range(i16 1, 0) i16 @_ZN4llvm27getPointerAuthStableSipHashENS_9StringRefE(ptr readonly captures(address) %0, i64 %1) local_unnamed_addr #0 {
   %3 = alloca [8 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN4llvm17getSipHash_2_4_64ENS_8ArrayRefIhEERA16_KhRA8_h(ptr %0, i64 %1, ptr noundef nonnull align 1 dereferenceable(16) @_ZZN4llvm27getPointerAuthStableSipHashENS_9StringRefEE1K, ptr noundef nonnull align 1 dereferenceable(8) %3)
-  call void @llvm.assume(i1 true) [ "align"(ptr %3, i64 1) ]
   %.0.copyload.i.i.i.i.i.i = load i64, ptr %3, align 8
   %4 = urem i64 %.0.copyload.i.i.i.i.i.i, 65535
   %5 = trunc nuw i64 %4 to i16

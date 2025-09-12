@@ -559,13 +559,11 @@ _ZL10emitStrTabRN4llvm11raw_ostreamESt8optionalIPKNS_7remarks11StringTableEE.exi
   %19 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(48) %5, i8 noundef zeroext 0) #14
   %20 = load ptr, ptr %4, align 8, !tbaa !90
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  call void @llvm.assume(i1 true) [ "align"(ptr %3, i64 1) ]
   store i64 0, ptr %3, align 8
   %21 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %20, ptr noundef nonnull %3, i64 noundef 8) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %22 = load ptr, ptr %4, align 8, !tbaa !90
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  call void @llvm.assume(i1 true) [ "align"(ptr %2, i64 1) ]
   store i64 0, ptr %2, align 8
   %23 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull %2, i64 noundef 8) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -674,7 +672,6 @@ _ZL10emitStrTabRN4llvm11raw_ostreamESt8optionalIPKNS_7remarks11StringTableEE.exi
   %19 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(48) %5, i8 noundef zeroext 0) #14
   %20 = load ptr, ptr %4, align 8, !tbaa !90
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  call void @llvm.assume(i1 true) [ "align"(ptr %3, i64 1) ]
   store i64 0, ptr %3, align 8
   %21 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %20, ptr noundef nonnull %3, i64 noundef 8) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -684,7 +681,6 @@ _ZL10emitStrTabRN4llvm11raw_ostreamESt8optionalIPKNS_7remarks11StringTableEE.exi
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 120
   %26 = load i64, ptr %25, align 8, !tbaa !39
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  call void @llvm.assume(i1 true) [ "align"(ptr %2, i64 1) ]
   store i64 %26, ptr %2, align 8
   %27 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull %2, i64 noundef 8) #14
   call void @_ZNK4llvm7remarks11StringTable9serializeERNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(128) %24, ptr noundef nonnull align 8 dereferenceable(48) %22) #14

@@ -234,7 +234,6 @@ _ZNSt6vectorIhSaIhEE6resizeEm.exit132:            ; preds = %if.else.i, %if.then
   %sub.ptr.sub.i7.i = sub i64 %sub.ptr.lhs.cast.i5.i, %sub.ptr.rhs.cast.i6.i.pre-phi
   %add.ptr.i = getelementptr inbounds i8, ptr %tmpSeqBuffer.sroa.0.2, i64 %sub.ptr.sub.i7.i
   %add.ptr3.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 -4
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr3.i, i64 1) ]
   store i32 %conv11.i50, ptr %add.ptr3.i, align 1
   br label %for.inc
 
@@ -311,7 +310,6 @@ _ZNSt6vectorIhSaIhEE6resizeEm.exit182:            ; preds = %if.else.i138, %if.t
   %sub.ptr.sub.i7.i76 = sub i64 %sub.ptr.lhs.cast.i5.i74, %sub.ptr.rhs.cast.i6.i75.pre-phi
   %add.ptr.i77 = getelementptr inbounds i8, ptr %tmpSeqBuffer.sroa.0.3, i64 %sub.ptr.sub.i7.i76
   %add.ptr3.i78 = getelementptr inbounds i8, ptr %add.ptr.i77, i64 -8
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr3.i78, i64 1) ]
   store double %12, ptr %add.ptr3.i78, align 1
   br label %for.inc
 
@@ -410,7 +408,6 @@ _ZNSt6vectorIhSaIhEE6resizeEm.exit232:            ; preds = %if.else.i188, %if.t
   %sub.ptr.sub.i7.i89 = sub i64 %sub.ptr.lhs.cast.i5.i87, %sub.ptr.rhs.cast.i6.i88.pre-phi
   %add.ptr.i90 = getelementptr inbounds i8, ptr %tmpSeqBuffer.sroa.0.4, i64 %sub.ptr.sub.i7.i89
   %add.ptr3.i91 = getelementptr inbounds i8, ptr %add.ptr.i90, i64 -4
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr3.i91, i64 1) ]
   store i32 %cond86, ptr %add.ptr3.i91, align 1
   br label %for.inc
 
@@ -496,7 +493,6 @@ _ZNSt6vectorIhSaIhEE6resizeEm.exit282:            ; preds = %if.else.i238, %if.t
   %sub.ptr.sub.i7.i99 = sub i64 %sub.ptr.lhs.cast.i5.i97, %sub.ptr.rhs.cast.i6.i98.pre-phi
   %add.ptr.i100 = getelementptr inbounds i8, ptr %tmpSeqBuffer.sroa.0.5, i64 %sub.ptr.sub.i7.i99
   %add.ptr3.i101 = getelementptr inbounds i8, ptr %add.ptr.i100, i64 -2
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr3.i101, i64 1) ]
   store i16 %conv92, ptr %add.ptr3.i101, align 1
   br label %for.inc
 
@@ -571,7 +567,6 @@ _ZNSt6vectorIhSaIhEE6resizeEm.exit332:            ; preds = %if.then.i.i.i.i.i30
   %sub.ptr.sub.i7.i109 = sub i64 %sub.ptr.lhs.cast.i5.i107, %sub.ptr.rhs.cast.i6.i108.pre-phi
   %add.ptr.i110 = getelementptr inbounds i8, ptr %tmpSeqBuffer.sroa.0.6, i64 %sub.ptr.sub.i7.i109
   %add.ptr3.i111 = getelementptr inbounds i8, ptr %add.ptr.i110, i64 -1
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr3.i111, i64 1) ]
   store i8 %conv94, ptr %add.ptr3.i111, align 1
   br label %for.inc
 

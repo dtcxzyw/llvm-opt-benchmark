@@ -463,7 +463,6 @@ define dso_local noundef zeroext i1 @_ZN4llvm8codeview23MergingTypeTableBuilder1
   %20 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapINS_8codeview17LocallyHashedTypeENS2_9TypeIndexENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S4_EEEES3_S4_S6_S9_E20InsertIntoBucketImplIS3_EEPS9_RKT_SD_(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef %13), !noalias !66
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false), !tbaa.struct !24, !noalias !66
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
-  call void @llvm.assume(i1 true) [ "align"(ptr %21, i64 1) ]
   store i32 %19, ptr %21, align 1, !noalias !66
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !66
   br i1 %4, label %22, label %41

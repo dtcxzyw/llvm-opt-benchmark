@@ -1681,7 +1681,6 @@ _ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.us: ; preds = %21, %15
   br i1 %.not22, label %.critedge, label %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit._crit_edge
 
 31:                                               ; preds = %.critedge
-  call void @llvm.assume(i1 true) [ "align"(ptr %35, i64 8) ]
   %.0.copyload.i.i.i.i.i.i = load i64, ptr %35, align 8
   %32 = and i64 %.0.copyload.i.i.i.i.i.i, -8
   %33 = inttoptr i64 %32 to ptr

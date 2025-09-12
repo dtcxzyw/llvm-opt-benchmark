@@ -243,7 +243,6 @@ define hidden ptr @mi_heap_new() local_unnamed_addr #0 {
 
 8:                                                ; preds = %0
   call void @llvm.assume(i1 true) [ "align"(ptr %6, i64 8) ]
-  call void @llvm.assume(i1 true) [ "align"(ptr @_mi_heap_empty, i64 8) ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3056) %6, ptr noundef nonnull readonly align 8 dereferenceable(3056) @_mi_heap_empty, i64 range(i64 1800, 3057) 3056, i1 false)
   %9 = load ptr, ptr %5, align 8, !tbaa !3
   store ptr %9, ptr %6, align 8, !tbaa !3
@@ -353,7 +352,6 @@ mi_heap_visit_pages.exit:                         ; preds = %._crit_edge, %1, %4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1032) %26, i8 0, i64 1032, i1 false)
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 1040
   call void @llvm.assume(i1 true) [ "align"(ptr %27, i64 8) ]
-  call void @llvm.assume(i1 true) [ "align"(ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_empty, i64 1040), i64 8) ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1800) %27, ptr noundef nonnull readonly align 8 dereferenceable(1800) getelementptr inbounds nuw (i8, ptr @_mi_heap_empty, i64 1040), i64 range(i64 1800, 3057) 1800, i1 false)
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 2840
   store atomic ptr null, ptr %28 seq_cst, align 8, !tbaa !48
@@ -436,7 +434,6 @@ _mi_heap_destroy_pages.exit:                      ; preds = %._crit_edge.i, %10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1032) %32, i8 0, i64 1032, i1 false)
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 1040
   call void @llvm.assume(i1 true) [ "align"(ptr %33, i64 8) ]
-  call void @llvm.assume(i1 true) [ "align"(ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_empty, i64 1040), i64 8) ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1800) %33, ptr noundef nonnull readonly align 8 dereferenceable(1800) getelementptr inbounds nuw (i8, ptr @_mi_heap_empty, i64 1040), i64 range(i64 1800, 3057) 1800, i1 false)
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 2840
   store atomic ptr null, ptr %34 seq_cst, align 8, !tbaa !48
@@ -532,7 +529,6 @@ define hidden void @mi_heap_delete(ptr noundef %0) local_unnamed_addr #0 {
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1032) %18, i8 0, i64 1032, i1 false)
   call void @llvm.assume(i1 true) [ "align"(ptr %15, i64 8) ]
-  call void @llvm.assume(i1 true) [ "align"(ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_empty, i64 1040), i64 8) ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1800) %15, ptr noundef nonnull readonly align 8 dereferenceable(1800) getelementptr inbounds nuw (i8, ptr @_mi_heap_empty, i64 1040), i64 range(i64 1800, 3057) 1800, i1 false)
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 2840
   store atomic ptr null, ptr %19 seq_cst, align 8, !tbaa !48

@@ -7407,7 +7407,6 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_3DIEEjNS_12DenseMapInfoIS4_vEENS_6detai
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN4llvm3MD55finalERNS0_9MD5ResultE(ptr noundef nonnull align 4 dereferenceable(152) %0, ptr noundef nonnull align 1 dereferenceable(16) %6) #10
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call void @llvm.assume(i1 true) [ "align"(ptr %30, i64 1) ]
   %.0.copyload.i.i.i.i.i = load i64, ptr %30, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i64 %.0.copyload.i.i.i.i.i
@@ -7481,7 +7480,6 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_3DIEEjNS_12DenseMapInfoIS4_vEENS_6detai
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN4llvm3MD55finalERNS0_9MD5ResultE(ptr noundef nonnull align 4 dereferenceable(152) %0, ptr noundef nonnull align 1 dereferenceable(16) %4) #10
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  call void @llvm.assume(i1 true) [ "align"(ptr %28, i64 1) ]
   %.0.copyload.i.i.i.i.i = load i64, ptr %28, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %.0.copyload.i.i.i.i.i

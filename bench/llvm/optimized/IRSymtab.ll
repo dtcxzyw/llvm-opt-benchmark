@@ -1248,10 +1248,8 @@ _ZNSt6vectorIN4llvm8irsymtab7storage6SymbolESaIS3_EE12emplace_backIJEEERS3_DpOT_
   %.sroa.2.8.insert.insert.i.i.i.i.i = or disjoint i64 %.sroa.4.8.insert.shift.i.i.i.i.i, %.sroa.2.8.insert.ext.i.i.i.i.i
   %427 = call noundef i64 @_ZN4llvm18StringTableBuilder3addENS_19CachedHashStringRefE(ptr noundef nonnull align 8 dereferenceable(38) %.val94.i.i.i, ptr %424, i64 %.sroa.2.8.insert.insert.i.i.i.i.i) #20, !noalias !169
   %428 = trunc i64 %427 to i32
-  call void @llvm.assume(i1 true) [ "align"(ptr %420, i64 1) ]
   store i32 %428, ptr %420, align 1, !noalias !169
   %429 = trunc i64 %425 to i32
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.4202.0..sroa_idx.i.i.i, i64 1) ]
   store i32 %429, ptr %.sroa.4202.0..sroa_idx.i.i.i, align 1, !noalias !169
   %430 = call noundef i32 @_ZNK4llvm17ModuleSymbolTable14getSymbolFlagsENS_12PointerUnionIJPNS_11GlobalValueEPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjEEEE(ptr noundef nonnull align 8 dereferenceable(152) %29, i64 %.sroa.05.0.copyload.i.i) #20, !noalias !169
   %431 = and i32 %430, 1
@@ -1259,10 +1257,8 @@ _ZNSt6vectorIN4llvm8irsymtab7storage6SymbolESaIS3_EE12emplace_backIJEEERS3_DpOT_
   br i1 %.not.i108.i.i, label %434, label %432
 
 432:                                              ; preds = %_ZNSt6vectorIN4llvm8irsymtab7storage6SymbolESaIS3_EE12emplace_backIJEEERS3_DpOT_.exit.i.i.i
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.8.0..sroa_idx.i.i.i, i64 1) ]
   %.0.copyload.i.i.i.i.i.i.i = load i32, ptr %.sroa.8.0..sroa_idx.i.i.i, align 1, !noalias !169
   %433 = or i32 %.0.copyload.i.i.i.i.i.i.i, 8
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.8.0..sroa_idx.i.i.i, i64 1) ]
   store i32 %433, ptr %.sroa.8.0..sroa_idx.i.i.i, align 1, !noalias !169
   br label %434
 
@@ -1272,10 +1268,8 @@ _ZNSt6vectorIN4llvm8irsymtab7storage6SymbolESaIS3_EE12emplace_backIJEEERS3_DpOT_
   br i1 %.not78.i.i.i, label %438, label %436
 
 436:                                              ; preds = %434
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.8.0..sroa_idx.i.i.i, i64 1) ]
   %.0.copyload.i.i.i.i95.i.i.i = load i32, ptr %.sroa.8.0..sroa_idx.i.i.i, align 1, !noalias !169
   %437 = or i32 %.0.copyload.i.i.i.i95.i.i.i, 16
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.8.0..sroa_idx.i.i.i, i64 1) ]
   store i32 %437, ptr %.sroa.8.0..sroa_idx.i.i.i, align 1, !noalias !169
   br label %438
 
@@ -1285,10 +1279,8 @@ _ZNSt6vectorIN4llvm8irsymtab7storage6SymbolESaIS3_EE12emplace_backIJEEERS3_DpOT_
   br i1 %.not79.i.i.i, label %442, label %440
 
 440:                                              ; preds = %438
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.8.0..sroa_idx.i.i.i, i64 1) ]
   %.0.copyload.i.i.i.i96.i.i.i = load i32, ptr %.sroa.8.0..sroa_idx.i.i.i, align 1, !noalias !169
   %441 = or i32 %.0.copyload.i.i.i.i96.i.i.i, 32
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.8.0..sroa_idx.i.i.i, i64 1) ]
   store i32 %441, ptr %.sroa.8.0..sroa_idx.i.i.i, align 1, !noalias !169
   br label %442
 
@@ -1298,10 +1290,8 @@ _ZNSt6vectorIN4llvm8irsymtab7storage6SymbolESaIS3_EE12emplace_backIJEEERS3_DpOT_
   br i1 %.not80.i.i.i, label %446, label %444
 
 444:                                              ; preds = %442
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.8.0..sroa_idx.i.i.i, i64 1) ]
   %.0.copyload.i.i.i.i97.i.i.i = load i32, ptr %.sroa.8.0..sroa_idx.i.i.i, align 1, !noalias !169
   %445 = or i32 %.0.copyload.i.i.i.i97.i.i.i, 64
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.8.0..sroa_idx.i.i.i, i64 1) ]
   store i32 %445, ptr %.sroa.8.0..sroa_idx.i.i.i, align 1, !noalias !169
   br label %446
 
@@ -1311,10 +1301,8 @@ _ZNSt6vectorIN4llvm8irsymtab7storage6SymbolESaIS3_EE12emplace_backIJEEERS3_DpOT_
   br i1 %.not81.i.i.i, label %450, label %448
 
 448:                                              ; preds = %446
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.8.0..sroa_idx.i.i.i, i64 1) ]
   %.0.copyload.i.i.i.i98.i.i.i = load i32, ptr %.sroa.8.0..sroa_idx.i.i.i, align 1, !noalias !169
   %449 = or i32 %.0.copyload.i.i.i.i98.i.i.i, 1024
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.8.0..sroa_idx.i.i.i, i64 1) ]
   store i32 %449, ptr %.sroa.8.0..sroa_idx.i.i.i, align 1, !noalias !169
   br label %450
 
@@ -1324,10 +1312,8 @@ _ZNSt6vectorIN4llvm8irsymtab7storage6SymbolESaIS3_EE12emplace_backIJEEERS3_DpOT_
   br i1 %.not82.i.i.i, label %454, label %452
 
 452:                                              ; preds = %450
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.8.0..sroa_idx.i.i.i, i64 1) ]
   %.0.copyload.i.i.i.i99.i.i.i = load i32, ptr %.sroa.8.0..sroa_idx.i.i.i, align 1, !noalias !169
   %453 = or i32 %.0.copyload.i.i.i.i99.i.i.i, 2048
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.8.0..sroa_idx.i.i.i, i64 1) ]
   store i32 %453, ptr %.sroa.8.0..sroa_idx.i.i.i, align 1, !noalias !169
   br label %454
 
@@ -1337,15 +1323,12 @@ _ZNSt6vectorIN4llvm8irsymtab7storage6SymbolESaIS3_EE12emplace_backIJEEERS3_DpOT_
   br i1 %.not83.i.i.i, label %458, label %456
 
 456:                                              ; preds = %454
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.8.0..sroa_idx.i.i.i, i64 1) ]
   %.0.copyload.i.i.i.i100.i.i.i = load i32, ptr %.sroa.8.0..sroa_idx.i.i.i, align 1, !noalias !169
   %457 = or i32 %.0.copyload.i.i.i.i100.i.i.i, 8192
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.8.0..sroa_idx.i.i.i, i64 1) ]
   store i32 %457, ptr %.sroa.8.0..sroa_idx.i.i.i, align 1, !noalias !169
   br label %458
 
 458:                                              ; preds = %456, %454
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.7.0..sroa_idx.i.i.i, i64 1) ]
   store i32 -1, ptr %.sroa.7.0..sroa_idx.i.i.i, align 1, !noalias !169
   %459 = and i64 %.sroa.05.0.copyload.i.i, 4
   %460 = icmp ne i64 %459, 0
@@ -1359,10 +1342,8 @@ _ZNSt6vectorIN4llvm8irsymtab7storage6SymbolESaIS3_EE12emplace_backIJEEERS3_DpOT_
   br i1 %.not.i108.i.i, label %_ZN4llvm5ErrorD2Ev.exit.i.i.i, label %464
 
 464:                                              ; preds = %463
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.8.0..sroa_idx.i.i.i, i64 1) ]
   %.0.copyload.i.i.i.i101.i.i.i = load i32, ptr %.sroa.8.0..sroa_idx.i.i.i, align 1, !noalias !169
   %465 = or i32 %.0.copyload.i.i.i.i101.i.i.i, 128
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.8.0..sroa_idx.i.i.i, i64 1) ]
   store i32 %465, ptr %.sroa.8.0..sroa_idx.i.i.i, align 1, !noalias !169
   br label %_ZN4llvm5ErrorD2Ev.exit.i.i.i
 
@@ -1373,9 +1354,7 @@ _ZN4llvm5ErrorD2Ev.exit.i.i.i:                    ; preds = %464, %463
   %.sroa.4.8.insert.shift.i.i103.i.i.i = shl nuw i64 %.sroa.4.8.insert.ext.i.i102.i.i.i, 32
   %467 = call noundef i64 @_ZN4llvm18StringTableBuilder3addENS_19CachedHashStringRefE(ptr noundef nonnull align 8 dereferenceable(38) %.val93.i.i.i, ptr nonnull @.str.10, i64 %.sroa.4.8.insert.shift.i.i103.i.i.i) #20, !noalias !169
   %468 = trunc i64 %467 to i32
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.5203.0..sroa_idx.i.i.i, i64 1) ]
   store i32 %468, ptr %.sroa.5203.0..sroa_idx.i.i.i, align 1, !noalias !169
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.6.0..sroa_idx.i.i.i, i64 1) ]
   store i32 0, ptr %.sroa.6.0..sroa_idx.i.i.i, align 1, !noalias !169
   br label %_ZN4llvm5ErrorD2Ev.exit152.i.i.i
 
@@ -1391,10 +1370,8 @@ _ZN4llvm5ErrorD2Ev.exit.i.i.i:                    ; preds = %464, %463
   %.sroa.2.8.insert.insert.i.i109.i.i.i = or disjoint i64 %.sroa.4.8.insert.shift.i.i107.i.i.i, %.sroa.2.8.insert.ext.i.i108.i.i.i
   %474 = call noundef i64 @_ZN4llvm18StringTableBuilder3addENS_19CachedHashStringRefE(ptr noundef nonnull align 8 dereferenceable(38) %.val92.i.i.i, ptr %471, i64 %.sroa.2.8.insert.insert.i.i109.i.i.i) #20, !noalias !169
   %475 = trunc i64 %474 to i32
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.5203.0..sroa_idx.i.i.i, i64 1) ]
   store i32 %475, ptr %.sroa.5203.0..sroa_idx.i.i.i, align 1, !noalias !169
   %476 = trunc i64 %472 to i32
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.6.0..sroa_idx.i.i.i, i64 1) ]
   store i32 %476, ptr %.sroa.6.0..sroa_idx.i.i.i, align 1, !noalias !169
   %477 = load atomic i8, ptr @_ZGVZN12_GLOBAL__N_17Builder9addSymbolERKN4llvm17ModuleSymbolTableERKNS1_11SmallPtrSetIPNS1_11GlobalValueELj4EEENS1_12PointerUnionIJS7_PSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjEEEEE19PreservedSymbolsSet acquire, align 8, !noalias !172
   %478 = icmp eq i8 %477, 0
@@ -1696,10 +1673,8 @@ _ZNK4llvm15SmallPtrSetImplIPNS_11GlobalValueEE5countEPKS1_.exit.i.i.i: ; preds =
   br i1 %or.cond.i.i.i, label %_ZNK4llvm15SmallPtrSetImplIPNS_11GlobalValueEE5countEPKS1_.exit.thread.i.i.i, label %572
 
 _ZNK4llvm15SmallPtrSetImplIPNS_11GlobalValueEE5countEPKS1_.exit.thread.i.i.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZNK4llvm15SmallPtrSetImplIPNS_11GlobalValueEE5countEPKS1_.exit.i.i.i
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.8.0..sroa_idx.i.i.i, i64 1) ]
   %.0.copyload.i.i.i.i111.i.i.i = load i32, ptr %.sroa.8.0..sroa_idx.i.i.i, align 1, !noalias !169
   %571 = or i32 %.0.copyload.i.i.i.i111.i.i.i, 128
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.8.0..sroa_idx.i.i.i, i64 1) ]
   store i32 %571, ptr %.sroa.8.0..sroa_idx.i.i.i, align 1, !noalias !169
   br label %572
 
@@ -1711,10 +1686,8 @@ _ZNK4llvm15SmallPtrSetImplIPNS_11GlobalValueEE5countEPKS1_.exit.thread.i.i.i: ; 
   br i1 %.not231.i.i.i, label %578, label %576
 
 576:                                              ; preds = %572
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.8.0..sroa_idx.i.i.i, i64 1) ]
   %.0.copyload.i.i.i.i112.i.i.i = load i32, ptr %.sroa.8.0..sroa_idx.i.i.i, align 1, !noalias !169
   %577 = or i32 %.0.copyload.i.i.i.i112.i.i.i, 256
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.8.0..sroa_idx.i.i.i, i64 1) ]
   store i32 %577, ptr %.sroa.8.0..sroa_idx.i.i.i, align 1, !noalias !169
   %.pre.i.i28.i = load i32, ptr %573, align 8, !noalias !169
   br label %578
@@ -1726,10 +1699,8 @@ _ZNK4llvm15SmallPtrSetImplIPNS_11GlobalValueEE5countEPKS1_.exit.thread.i.i.i: ; 
   br i1 %581, label %582, label %584
 
 582:                                              ; preds = %578
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.8.0..sroa_idx.i.i.i, i64 1) ]
   %.0.copyload.i.i.i.i113.i.i.i = load i32, ptr %.sroa.8.0..sroa_idx.i.i.i, align 1, !noalias !169
   %583 = or i32 %.0.copyload.i.i.i.i113.i.i.i, 4096
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.8.0..sroa_idx.i.i.i, i64 1) ]
   store i32 %583, ptr %.sroa.8.0..sroa_idx.i.i.i, align 1, !noalias !169
   br label %584
 
@@ -1739,9 +1710,7 @@ _ZNK4llvm15SmallPtrSetImplIPNS_11GlobalValueEE5countEPKS1_.exit.thread.i.i.i: ; 
   br i1 %585, label %586, label %588
 
 586:                                              ; preds = %584
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.8.0..sroa_idx.i.i.i, i64 1) ]
   %587 = or i32 %.0.copyload.i.i.i.i115.pre.i.i.i, 512
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.8.0..sroa_idx.i.i.i, i64 1) ]
   store i32 %587, ptr %.sroa.8.0..sroa_idx.i.i.i, align 1, !noalias !169
   br label %588
 
@@ -1750,9 +1719,7 @@ _ZNK4llvm15SmallPtrSetImplIPNS_11GlobalValueEE5countEPKS1_.exit.thread.i.i.i: ; 
   %589 = load i32, ptr %573, align 8, !noalias !169
   %590 = lshr i32 %589, 4
   %591 = and i32 %590, 3
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.8.0..sroa_idx.i.i.i, i64 1) ]
   %592 = or i32 %591, %.0.copyload.i.i.i.i115.i.i.i
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.8.0..sroa_idx.i.i.i, i64 1) ]
   store i32 %592, ptr %.sroa.8.0..sroa_idx.i.i.i, align 1, !noalias !169
   br i1 %.not79.i.i.i, label %626, label %593
 
@@ -1797,7 +1764,6 @@ _ZNK4llvm15SmallPtrSetImplIPNS_11GlobalValueEE5countEPKS1_.exit.thread.i.i.i: ; 
   %613 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %23) #20, !noalias !169
   %614 = trunc i64 %613 to i32
   %615 = call fastcc noundef nonnull align 1 dereferenceable(24) ptr @"_ZZN12_GLOBAL__N_17Builder9addSymbolERKN4llvm17ModuleSymbolTableERKNS1_11SmallPtrSetIPNS1_11GlobalValueELj4EEENS1_12PointerUnionIJS7_PSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjEEEEENK3$_0clEv"(ptr noundef nonnull align 8 dereferenceable(24) %18), !noalias !169
-  call void @llvm.assume(i1 true) [ "align"(ptr %615, i64 1) ]
   store i32 %614, ptr %615, align 1, !noalias !169
   call void @llvm.lifetime.end.p0(ptr nonnull %23), !noalias !172
   %616 = load i32, ptr %573, align 8, !noalias !169
@@ -1813,7 +1779,6 @@ _ZNK4llvm15SmallPtrSetImplIPNS_11GlobalValueEE5countEPKS1_.exit.thread.i.i.i: ; 
   %623 = select i1 %.not.i.i.i110.i.i, i32 0, i32 %622
   %624 = call fastcc noundef nonnull align 1 dereferenceable(24) ptr @"_ZZN12_GLOBAL__N_17Builder9addSymbolERKN4llvm17ModuleSymbolTableERKNS1_11SmallPtrSetIPNS1_11GlobalValueELj4EEENS1_12PointerUnionIJS7_PSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjEEEEENK3$_0clEv"(ptr noundef nonnull align 8 dereferenceable(24) %18), !noalias !169
   %625 = getelementptr inbounds nuw i8, ptr %624, i64 4
-  call void @llvm.assume(i1 true) [ "align"(ptr %625, i64 1) ]
   store i32 %623, ptr %625, align 1, !noalias !169
   br label %626
 
@@ -2224,7 +2189,6 @@ _ZN4llvm8ExpectedIiED2Ev.exit.i.i.i:              ; preds = %_ZN12_GLOBAL__N_17B
 
 .critedge.sink.split.i.i.i:                       ; preds = %776, %.thread227.i.i.i
   %.sroa.0161.0.extract.trunc.sink.i.i.i = phi i32 [ %.sroa.0161.0.extract.trunc.i.i.i, %776 ], [ %775, %.thread227.i.i.i ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.7.0..sroa_idx.i.i.i, i64 1) ]
   store i32 %.sroa.0161.0.extract.trunc.sink.i.i.i, ptr %.sroa.7.0..sroa_idx.i.i.i, align 1, !noalias !169
   br label %.critedge.i.i.i
 
@@ -2301,11 +2265,9 @@ _ZN4llvm11raw_ostream5flushEv.exit.i.i.i:         ; preds = %796, %791
   %.sroa.2.8.insert.insert.i.i137.i.i.i = or disjoint i64 %.sroa.4.8.insert.shift.i.i135.i.i.i, %.sroa.2.8.insert.ext.i.i136.i.i.i
   %805 = call noundef i64 @_ZN4llvm18StringTableBuilder3addENS_19CachedHashStringRefE(ptr noundef nonnull align 8 dereferenceable(38) %.val91.i.i.i, ptr %802, i64 %.sroa.2.8.insert.insert.i.i137.i.i.i) #20, !noalias !169
   %806 = trunc i64 %805 to i32
-  call void @llvm.assume(i1 true) [ "align"(ptr %798, i64 1) ]
   store i32 %806, ptr %798, align 1, !noalias !169
   %807 = trunc i64 %803 to i32
   %808 = getelementptr inbounds nuw i8, ptr %797, i64 12
-  call void @llvm.assume(i1 true) [ "align"(ptr %808, i64 1) ]
   store i32 %807, ptr %808, align 1, !noalias !169
   call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %25) #20, !noalias !169
   call void @llvm.lifetime.end.p0(ptr nonnull %25), !noalias !172
@@ -2370,11 +2332,9 @@ _ZNK4llvm12GlobalObject10getSectionEv.exit147.i.i.i: ; preds = %828, %823
   %.sroa.2.8.insert.insert.i.i151.i.i.i = or disjoint i64 %.sroa.4.8.insert.shift.i.i149.i.i.i, %.sroa.2.8.insert.ext.i.i150.i.i.i
   %836 = call noundef i64 @_ZN4llvm18StringTableBuilder3addENS_19CachedHashStringRefE(ptr noundef nonnull align 8 dereferenceable(38) %.val.i.i.i, ptr %833, i64 %.sroa.2.8.insert.insert.i.i151.i.i.i) #20, !noalias !169
   %837 = trunc i64 %836 to i32
-  call void @llvm.assume(i1 true) [ "align"(ptr %825, i64 1) ]
   store i32 %837, ptr %825, align 1, !noalias !169
   %838 = trunc i64 %834 to i32
   %839 = getelementptr inbounds nuw i8, ptr %824, i64 20
-  call void @llvm.assume(i1 true) [ "align"(ptr %839, i64 1) ]
   store i32 %838, ptr %839, align 1, !noalias !169
   br label %_ZN4llvm5ErrorD2Ev.exit152.i.i.i
 
@@ -2907,16 +2867,13 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %2
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %36 = load ptr, ptr %35, align 8, !tbaa !281
-  call void @llvm.assume(i1 true) [ "align"(ptr %36, i64 1) ]
   %.0.copyload.i.i.i = load i32, ptr %36, align 1
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 4
   %.sroa.01.0.copyload = load ptr, ptr %34, align 8, !tbaa !46
-  call void @llvm.assume(i1 true) [ "align"(ptr %37, i64 1) ]
   %.0.copyload.i.i.i.i = load i32, ptr %37, align 1
   %38 = zext i32 %.0.copyload.i.i.i.i to i64
   %39 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.copyload, i64 %38
   %40 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  call void @llvm.assume(i1 true) [ "align"(ptr %40, i64 1) ]
   %.0.copyload.i.i.i1.i = load i32, ptr %40, align 1
   %41 = zext i32 %.0.copyload.i.i.i1.i to i64
   %.not = icmp eq i32 %.0.copyload.i.i.i, 3
@@ -3886,10 +3843,8 @@ define internal fastcc noundef nonnull align 1 dereferenceable(24) ptr @"_ZZN12_
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !333
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 20
-  call void @llvm.assume(i1 true) [ "align"(ptr %9, i64 1) ]
   %.0.copyload.i.i.i.i = load i32, ptr %9, align 1
   %10 = or i32 %.0.copyload.i.i.i.i, 4
-  call void @llvm.assume(i1 true) [ "align"(ptr %9, i64 1) ]
   store i32 %10, ptr %9, align 1
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 200
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 208
@@ -3969,10 +3924,8 @@ _ZNSt6vectorIN4llvm8irsymtab7storage8UncommonESaIS3_EE12emplace_backIJEEERS3_DpO
   %.sroa.4.8.insert.shift.i.i = shl nuw i64 %.sroa.4.8.insert.ext.i.i, 32
   %46 = tail call noundef i64 @_ZN4llvm18StringTableBuilder3addENS_19CachedHashStringRefE(ptr noundef nonnull align 8 dereferenceable(38) %.val3, ptr nonnull @.str.10, i64 %.sroa.4.8.insert.shift.i.i) #20
   %47 = trunc i64 %46 to i32
-  call void @llvm.assume(i1 true) [ "align"(ptr %43, i64 1) ]
   store i32 %47, ptr %43, align 1
   %48 = getelementptr inbounds nuw i8, ptr %42, i64 12
-  call void @llvm.assume(i1 true) [ "align"(ptr %48, i64 1) ]
   store i32 0, ptr %48, align 1
   %49 = load ptr, ptr %0, align 8, !tbaa !332
   %50 = load ptr, ptr %49, align 8, !tbaa !174
@@ -3983,10 +3936,8 @@ _ZNSt6vectorIN4llvm8irsymtab7storage8UncommonESaIS3_EE12emplace_backIJEEERS3_DpO
   %.sroa.4.8.insert.shift.i.i5 = shl nuw i64 %.sroa.4.8.insert.ext.i.i4, 32
   %53 = tail call noundef i64 @_ZN4llvm18StringTableBuilder3addENS_19CachedHashStringRefE(ptr noundef nonnull align 8 dereferenceable(38) %.val, ptr nonnull @.str.10, i64 %.sroa.4.8.insert.shift.i.i5) #20
   %54 = trunc i64 %53 to i32
-  call void @llvm.assume(i1 true) [ "align"(ptr %51, i64 1) ]
   store i32 %54, ptr %51, align 1
   %55 = getelementptr inbounds nuw i8, ptr %50, i64 20
-  call void @llvm.assume(i1 true) [ "align"(ptr %55, i64 1) ]
   store i32 0, ptr %55, align 1
   %56 = load ptr, ptr %0, align 8, !tbaa !332
   %57 = load ptr, ptr %56, align 8, !tbaa !174

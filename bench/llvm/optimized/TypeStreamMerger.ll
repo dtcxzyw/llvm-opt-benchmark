@@ -176,7 +176,6 @@ define dso_local void @_ZN4llvm8codeview16mergeTypeRecordsERNS0_23MergingTypeTab
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i32 0, ptr %9, align 4, !tbaa !37
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  call void @llvm.assume(i1 true) [ "align"(ptr %10, i64 1) ]
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 96
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %11, i8 0, i64 64, i1 false)
@@ -192,9 +191,7 @@ define dso_local void @_ZN4llvm8codeview16mergeTypeRecordsERNS0_23MergingTypeTab
   store i8 0, ptr %17, align 8, !tbaa !42
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %19 = load i32, ptr %18, align 8, !tbaa !43
-  call void @llvm.assume(i1 true) [ "align"(ptr %10, i64 1) ]
   %20 = add i32 %19, 4096
-  call void @llvm.assume(i1 true) [ "align"(ptr %10, i64 1) ]
   store i32 %20, ptr %10, align 8
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store ptr %1, ptr %21, align 8, !tbaa !45, !noalias !46
@@ -243,7 +240,6 @@ define dso_local void @_ZN4llvm8codeview14mergeIdRecordsERNS0_23MergingTypeTable
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 20
   store i32 0, ptr %11, align 4, !tbaa !37
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  call void @llvm.assume(i1 true) [ "align"(ptr %12, i64 1) ]
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 40
@@ -260,9 +256,7 @@ define dso_local void @_ZN4llvm8codeview14mergeIdRecordsERNS0_23MergingTypeTable
   store i8 0, ptr %20, align 8, !tbaa !42
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %22 = load i32, ptr %21, align 8, !tbaa !43
-  call void @llvm.assume(i1 true) [ "align"(ptr %12, i64 1) ]
   %23 = add i32 %22, 4096
-  call void @llvm.assume(i1 true) [ "align"(ptr %12, i64 1) ]
   store i32 %23, ptr %12, align 8
   store ptr %1, ptr %13, align 8, !tbaa !57, !noalias !58
   %24 = getelementptr inbounds nuw i8, ptr %7, i64 80
@@ -317,7 +311,6 @@ define dso_local void @_ZN4llvm8codeview21mergeTypeAndIdRecordsERNS0_23MergingTy
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 20
   store i32 0, ptr %11, align 4, !tbaa !37
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  call void @llvm.assume(i1 true) [ "align"(ptr %12, i64 1) ]
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 48
@@ -334,9 +327,7 @@ define dso_local void @_ZN4llvm8codeview21mergeTypeAndIdRecordsERNS0_23MergingTy
   store i8 0, ptr %20, align 8, !tbaa !42
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %22 = load i32, ptr %21, align 8, !tbaa !43
-  call void @llvm.assume(i1 true) [ "align"(ptr %12, i64 1) ]
   %23 = add i32 %22, 4096
-  call void @llvm.assume(i1 true) [ "align"(ptr %12, i64 1) ]
   store i32 %23, ptr %12, align 8
   store ptr %1, ptr %13, align 8, !tbaa !57, !noalias !63
   %24 = getelementptr inbounds nuw i8, ptr %7, i64 40
@@ -388,7 +379,6 @@ define dso_local void @_ZN4llvm8codeview21mergeTypeAndIdRecordsERNS0_22GlobalTyp
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 20
   store i32 0, ptr %12, align 4, !tbaa !37
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 1) ]
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 96
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %14, i8 0, i64 64, i1 false)
@@ -404,9 +394,7 @@ define dso_local void @_ZN4llvm8codeview21mergeTypeAndIdRecordsERNS0_22GlobalTyp
   store i8 0, ptr %20, align 8, !tbaa !42
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %22 = load i32, ptr %21, align 8, !tbaa !43
-  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 1) ]
   %23 = add i32 %22, 4096
-  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 1) ]
   store i32 %23, ptr %13, align 8
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
@@ -461,7 +449,6 @@ define dso_local void @_ZN4llvm8codeview16mergeTypeRecordsERNS0_22GlobalTypeTabl
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 20
   store i32 0, ptr %12, align 4, !tbaa !37
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 1) ]
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 96
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %14, i8 0, i64 64, i1 false)
@@ -477,9 +464,7 @@ define dso_local void @_ZN4llvm8codeview16mergeTypeRecordsERNS0_22GlobalTypeTabl
   store i8 0, ptr %20, align 8, !tbaa !42
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %22 = load i32, ptr %21, align 8, !tbaa !43
-  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 1) ]
   %23 = add i32 %22, 4096
-  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 1) ]
   store i32 %23, ptr %13, align 8
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 56
   store ptr %1, ptr %24, align 8, !tbaa !70, !noalias !71
@@ -534,7 +519,6 @@ define dso_local void @_ZN4llvm8codeview14mergeIdRecordsERNS0_22GlobalTypeTableB
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 20
   store i32 0, ptr %12, align 4, !tbaa !37
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 1) ]
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 96
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %14, i8 0, i64 32, i1 false)
@@ -550,9 +534,7 @@ define dso_local void @_ZN4llvm8codeview14mergeIdRecordsERNS0_22GlobalTypeTableB
   store i8 0, ptr %20, align 8, !tbaa !42
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %22 = load i32, ptr %21, align 8, !tbaa !43
-  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 1) ]
   %23 = add i32 %22, 4096
-  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 1) ]
   store i32 %23, ptr %13, align 8
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false)
@@ -803,7 +785,6 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %44, %42, %39
   br label %"_ZN4llvm8codeview21forEachCodeViewRecordINS0_8CVRecordINS0_12TypeLeafKindEEEZN12_GLOBAL__N_116TypeStreamMerger13remapAllTypesERKNS_14VarStreamArrayIS4_NS_23VarStreamArrayExtractorIS4_EEEEE3$_0EENS_5ErrorENS_8ArrayRefIhEET0_.exit"
 
 75:                                               ; preds = %68
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.015.036.i, i64 1) ]
   %.0.copyload.i.i.i.i = load i16, ptr %.sroa.015.036.i, align 1, !noalias !110
   %76 = zext i16 %.0.copyload.i.i.i.i to i64
   %77 = add nuw nsw i64 %76, 2
@@ -839,7 +820,6 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %44, %42, %39
 
 _ZNK4llvm8codeview8CVRecordINS0_12TypeLeafKindEE4kindEv.exit.i.i.i.i: ; preds = %83
   %87 = getelementptr inbounds nuw i8, ptr %.sroa.015.036.i, i64 2
-  call void @llvm.assume(i1 true) [ "align"(ptr %87, i64 1) ]
   %.0.copyload.i.i.i.i.i.i.i.i = load i16, ptr %87, align 1, !noalias !134
   %88 = icmp eq i16 %.0.copyload.i.i.i.i.i.i.i.i, 20
   br i1 %88, label %89, label %thread-pre-split.i.i.thread.i
@@ -963,7 +943,6 @@ thread-pre-split.i.i.thread.i:                    ; preds = %_ZNK4llvm8codeview8
   %126 = add nuw nsw i64 %76, 5
   %127 = load i8, ptr %61, align 8, !tbaa !49, !range !50, !noalias !161, !noundef !51
   %128 = trunc nuw i8 %127 to i1
-  call void @llvm.assume(i1 true) [ "align"(ptr %87, i64 1) ]
   %129 = add i16 %.0.copyload.i.i.i.i.i.i.i.i, -5633
   %130 = icmp ult i16 %129, 7
   br i1 %128, label %131, label %206, !prof !162
@@ -1007,7 +986,6 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapINS_8codeview18GloballyHashedTypeENS2_9TypeIn
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !165
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !161
   %147 = getelementptr inbounds nuw i8, ptr %144, i64 8
-  call void @llvm.assume(i1 true) [ "align"(ptr %147, i64 1) ]
   %.0.copyload.i.i.i.i.i16.i.i.i = load i32, ptr %147, align 1, !noalias !161
   %148 = icmp ult i32 %.0.copyload.i.i.i.i.i16.i.i.i, 4096
   br i1 %148, label %.critedge.i.i.i.i, label %"_ZN4llvm8codeview22GlobalTypeTableBuilder14insertRecordAsIZN12_GLOBAL__N_116TypeStreamMerger9remapTypeERKNS0_8CVRecordINS0_12TypeLeafKindEEEE3$_0EENS0_9TypeIndexENS0_18GloballyHashedTypeEmT_.exit.i.i.i", !prof !170
@@ -1054,7 +1032,6 @@ _ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm
   br label %"_ZN4llvm8codeview22GlobalTypeTableBuilder14insertRecordAsIZN12_GLOBAL__N_116TypeStreamMerger9remapTypeERKNS0_8CVRecordINS0_12TypeLeafKindEEEE3$_0EENS0_9TypeIndexENS0_18GloballyHashedTypeEmT_.exit.i.i.i"
 
 171:                                              ; preds = %_ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE8AllocateIhEEPT_m.exit.i.i.i
-  call void @llvm.assume(i1 true) [ "align"(ptr %170, i64 1) ]
   %.0.copyload.i.i.i.i8.i.i.i.i = load i32, ptr %170, align 1, !noalias !161
   %172 = icmp ult i32 %.0.copyload.i.i.i.i8.i.i.i.i, 4096
   br i1 %172, label %173, label %175
@@ -1495,6 +1472,9 @@ define internal fastcc { ptr, i64 } @"_ZZN12_GLOBAL__N_116TypeStreamMerger9remap
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 96
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 80
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %5, i64 88
+  %.0.copyload.i.i.i.i2.i.i.i9.i.i = load i32, ptr @_ZN12_GLOBAL__N_116TypeStreamMerger12UntranslatedE, align 4
+  %.0.copyload.i.i.i.i2.i.i.i.i58.i = load i32, ptr @_ZN12_GLOBAL__N_116TypeStreamMerger12UntranslatedE, align 4
+  %.0.copyload.i.i.i.i2.i.i.i.i.i = load i32, ptr @_ZN12_GLOBAL__N_116TypeStreamMerger12UntranslatedE, align 4
   br label %25
 
 25:                                               ; preds = %.critedge50.i, %.lr.ph77.i
@@ -1534,10 +1514,7 @@ define internal fastcc { ptr, i64 } @"_ZZN12_GLOBAL__N_116TypeStreamMerger9remap
 44:                                               ; preds = %42
   %45 = zext i32 %43 to i64
   %46 = getelementptr inbounds nuw %"class.llvm::codeview::TypeIndex", ptr %38, i64 %45
-  call void @llvm.assume(i1 true) [ "align"(ptr %46, i64 1) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i = load i32, ptr %46, align 1
-  call void @llvm.assume(i1 true) [ "align"(ptr @_ZN12_GLOBAL__N_116TypeStreamMerger12UntranslatedE, i64 1) ]
-  %.0.copyload.i.i.i.i2.i.i.i.i.i = load i32, ptr @_ZN12_GLOBAL__N_116TypeStreamMerger12UntranslatedE, align 4
   %47 = icmp eq i32 %.0.copyload.i.i.i.i.i.i.i.i.i, %.0.copyload.i.i.i.i2.i.i.i.i.i
   br i1 %47, label %_ZNK12_GLOBAL__N_116TypeStreamMerger16remapIndexSimpleERN4llvm8codeview9TypeIndexENS1_8ArrayRefIS3_EE.exit.i.i.i, label %.critedge.sink.split.i, !prof !235
 
@@ -1570,10 +1547,7 @@ _ZNK12_GLOBAL__N_116TypeStreamMerger16remapIndexSimpleERN4llvm8codeview9TypeInde
 
 57:                                               ; preds = %54
   %58 = getelementptr inbounds nuw %"class.llvm::codeview::TypeIndex", ptr %.sroa.0.0.copyload.i.i, i64 %56
-  call void @llvm.assume(i1 true) [ "align"(ptr %58, i64 1) ]
   %.0.copyload.i.i.i.i.i.i.i.i57.i = load i32, ptr %58, align 1
-  call void @llvm.assume(i1 true) [ "align"(ptr @_ZN12_GLOBAL__N_116TypeStreamMerger12UntranslatedE, i64 1) ]
-  %.0.copyload.i.i.i.i2.i.i.i.i58.i = load i32, ptr @_ZN12_GLOBAL__N_116TypeStreamMerger12UntranslatedE, align 4
   %59 = icmp eq i32 %.0.copyload.i.i.i.i.i.i.i.i57.i, %.0.copyload.i.i.i.i2.i.i.i.i58.i
   br i1 %59, label %_ZN12_GLOBAL__N_116TypeStreamMerger14remapItemIndexERN4llvm8codeview9TypeIndexE.exit.i.sink.split, label %.critedge.sink.split.i, !prof !235
 
@@ -1595,10 +1569,7 @@ _ZNK12_GLOBAL__N_116TypeStreamMerger16remapIndexSimpleERN4llvm8codeview9TypeInde
 68:                                               ; preds = %66
   %69 = zext i32 %67 to i64
   %70 = getelementptr inbounds nuw %"class.llvm::codeview::TypeIndex", ptr %62, i64 %69
-  call void @llvm.assume(i1 true) [ "align"(ptr %70, i64 1) ]
   %.0.copyload.i.i.i.i.i.i.i8.i.i = load i32, ptr %70, align 1
-  call void @llvm.assume(i1 true) [ "align"(ptr @_ZN12_GLOBAL__N_116TypeStreamMerger12UntranslatedE, i64 1) ]
-  %.0.copyload.i.i.i.i2.i.i.i9.i.i = load i32, ptr @_ZN12_GLOBAL__N_116TypeStreamMerger12UntranslatedE, align 4
   %71 = icmp eq i32 %.0.copyload.i.i.i.i.i.i.i8.i.i, %.0.copyload.i.i.i.i2.i.i.i9.i.i
   br i1 %71, label %_ZNK12_GLOBAL__N_116TypeStreamMerger16remapIndexSimpleERN4llvm8codeview9TypeIndexENS1_8ArrayRefIS3_EE.exit.i6.i.i, label %.critedge.sink.split.i, !prof !235
 
@@ -1686,7 +1657,6 @@ define linkonce_odr hidden void @_ZN4llvm8codeview16TypeDeserializer13deserializ
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %.pre, i64 2
-  call void @llvm.assume(i1 true) [ "align"(ptr %9, i64 1) ]
   %.0.copyload.i.i.i.i = load i16, ptr %9, align 1
   br label %_ZNK4llvm8codeview8CVRecordINS0_12TypeLeafKindEE4kindEv.exit
 
@@ -2993,9 +2963,8 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE19_M_release_last_useEv.ex
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define internal void @_GLOBAL__sub_I_TypeStreamMerger.cpp() #13 section ".text.startup" {
-  call void @llvm.assume(i1 true) [ "align"(ptr @_ZN12_GLOBAL__N_116TypeStreamMerger12UntranslatedE, i64 1) ]
   store i32 7, ptr @_ZN12_GLOBAL__N_116TypeStreamMerger12UntranslatedE, align 4
   %1 = tail call ptr @llvm.invariant.start.p0(i64 4, ptr nonnull @_ZN12_GLOBAL__N_116TypeStreamMerger12UntranslatedE)
   ret void
@@ -3035,7 +3004,7 @@ attributes #9 = { mustprogress nounwind willreturn allockind("free") memory(argm
 attributes #10 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress noinline nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #16 = { nounwind }

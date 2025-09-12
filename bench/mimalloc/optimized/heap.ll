@@ -251,7 +251,6 @@ define hidden ptr @mi_heap_get_backing() local_unnamed_addr #0 {
 define hidden void @_mi_heap_init(ptr noundef %0, ptr noundef %1, i32 noundef %2, i1 noundef zeroext %3, i8 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = zext i1 %3 to i8
   call void @llvm.assume(i1 true) [ "align"(ptr %0, i64 8) ]
-  call void @llvm.assume(i1 true) [ "align"(ptr @_mi_heap_empty, i64 8) ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3064) %0, ptr noundef nonnull readonly align 8 dereferenceable(3064) @_mi_heap_empty, i64 range(i64 1800, 3065) 3064, i1 false)
   store ptr %1, ptr %0, align 8, !tbaa !14
   %7 = tail call i64 @_mi_thread_id() #11
@@ -475,7 +474,6 @@ mi_heap_visit_pages.exit:                         ; preds = %.critedge.i, %1, %3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1032) %17, i8 0, i64 1032, i1 false)
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 1264
   call void @llvm.assume(i1 true) [ "align"(ptr %18, i64 8) ]
-  call void @llvm.assume(i1 true) [ "align"(ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_empty, i64 1264), i64 8) ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1800) %18, ptr noundef nonnull readonly align 8 dereferenceable(1800) getelementptr inbounds nuw (i8, ptr @_mi_heap_empty, i64 1264), i64 range(i64 1800, 3065) 1800, i1 false)
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store atomic ptr null, ptr %19 seq_cst, align 8, !tbaa !50
@@ -543,7 +541,6 @@ _mi_heap_destroy_pages.exit:                      ; preds = %.critedge.i.i, %9
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1032) %23, i8 0, i64 1032, i1 false)
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 1264
   call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 8) ]
-  call void @llvm.assume(i1 true) [ "align"(ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_empty, i64 1264), i64 8) ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1800) %24, ptr noundef nonnull readonly align 8 dereferenceable(1800) getelementptr inbounds nuw (i8, ptr @_mi_heap_empty, i64 1264), i64 range(i64 1800, 3065) 1800, i1 false)
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store atomic ptr null, ptr %25 seq_cst, align 8, !tbaa !50
@@ -657,7 +654,6 @@ mi_heaps_are_compatible.exit:                     ; preds = %8
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 232
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1032) %29, i8 0, i64 1032, i1 false)
   call void @llvm.assume(i1 true) [ "align"(ptr %26, i64 8) ]
-  call void @llvm.assume(i1 true) [ "align"(ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_empty, i64 1264), i64 8) ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1800) %26, ptr noundef nonnull readonly align 8 dereferenceable(1800) getelementptr inbounds nuw (i8, ptr @_mi_heap_empty, i64 1264), i64 range(i64 1800, 3065) 1800, i1 false)
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store atomic ptr null, ptr %30 seq_cst, align 8, !tbaa !50
@@ -809,7 +805,6 @@ _mi_heap_destroy_pages.exit:                      ; preds = %.critedge.i.i, %13
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1032) %27, i8 0, i64 1032, i1 false)
   %28 = getelementptr inbounds nuw i8, ptr %.010, i64 1264
   call void @llvm.assume(i1 true) [ "align"(ptr %28, i64 8) ]
-  call void @llvm.assume(i1 true) [ "align"(ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_empty, i64 1264), i64 8) ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1800) %28, ptr noundef nonnull readonly align 8 dereferenceable(1800) getelementptr inbounds nuw (i8, ptr @_mi_heap_empty, i64 1264), i64 range(i64 1800, 3065) 1800, i1 false)
   %29 = getelementptr inbounds nuw i8, ptr %.010, i64 8
   store atomic ptr null, ptr %29 seq_cst, align 8, !tbaa !50

@@ -3238,7 +3238,6 @@ define dso_local noundef range(i64 0, 4294967296) i64 @_ZNK4llvm22BlockCoverageI
 
 11:                                               ; preds = %.lr.ph
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  call void @llvm.assume(i1 true) [ "align"(ptr %3, i64 1) ]
   store i64 %.011, ptr %3, align 8
   call void @_ZN4llvm6JamCRC6updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(4) %2, ptr nonnull %3, i64 8) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -4920,7 +4919,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit23:               ; preds = %86, %88
 
 97:                                               ; preds = %.lr.ph.i
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 1) ]
   store i64 %.011.i, ptr %4, align 8
   call void @_ZN4llvm6JamCRC6updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(4) %3, ptr nonnull %4, i64 8) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

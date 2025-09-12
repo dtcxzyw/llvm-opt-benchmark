@@ -21641,7 +21641,6 @@ define dso_local ptr @_ZN5clang4Sema18getMostSpecializedENS_21UnresolvedSetItera
   br i1 %.not88.us113, label %._crit_edge.loopexit, label %._crit_edge
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph99.split.us
-  call void @llvm.assume(i1 true) [ "align"(ptr %21, i64 8) ]
   %.0.copyload.i.i.i.i.i.i36.us = load i64, ptr %21, align 8
   %29 = and i64 %.0.copyload.i.i.i.i.i.i36.us, -8
   %30 = inttoptr i64 %29 to ptr

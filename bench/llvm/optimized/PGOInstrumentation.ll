@@ -14357,7 +14357,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit56.i: ; preds = %_
   %.val.i58.i = load i32, ptr %108, align 8, !tbaa !420
   %540 = zext i32 %.val.i58.i to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %33)
-  call void @llvm.assume(i1 true) [ "align"(ptr %33, i64 1) ]
   store i64 %540, ptr %33, align 8
   call void @_ZN4llvm6JamCRC6updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(4) %35, ptr nonnull %33, i64 8) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
@@ -14370,7 +14369,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit56.i: ; preds = %_
   %547 = sub i64 %545, %546
   %548 = sdiv exact i64 %547, 24
   call void @llvm.lifetime.start.p0(ptr nonnull %32)
-  call void @llvm.assume(i1 true) [ "align"(ptr %32, i64 1) ]
   store i64 %548, ptr %32, align 8
   call void @_ZN4llvm6JamCRC6updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(4) %35, ptr nonnull %32, i64 8) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %32)
@@ -14384,7 +14382,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit56.i: ; preds = %_
   %556 = sub i64 %554, %555
   %557 = sdiv exact i64 %556, 24
   call void @llvm.lifetime.start.p0(ptr nonnull %31)
-  call void @llvm.assume(i1 true) [ "align"(ptr %31, i64 1) ]
   store i64 %557, ptr %31, align 8
   call void @_ZN4llvm6JamCRC6updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(4) %35, ptr nonnull %31, i64 8) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
@@ -14571,7 +14568,6 @@ _ZNK12_GLOBAL__N_122FuncPGOInstrumentationINS_7PGOEdgeENS_9PGOBBInfoEE10findBBIn
 629:                                              ; preds = %._crit_edge98.i.i
   %630 = call noundef i64 @_ZNK4llvm22BlockCoverageInference25getInstrumentedBlocksHashEv(ptr noundef nonnull align 8 dereferenceable(64) %354) #24
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
-  call void @llvm.assume(i1 true) [ "align"(ptr %30, i64 1) ]
   store i64 %630, ptr %30, align 8
   call void @_ZN4llvm6JamCRC6updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(4) %35, ptr nonnull %30, i64 8) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
@@ -14585,7 +14581,6 @@ _ZNK12_GLOBAL__N_122FuncPGOInstrumentationINS_7PGOEdgeENS_9PGOBBInfoEE10findBBIn
   %634 = sub i64 %632, %633
   %635 = ashr exact i64 %634, 3
   call void @llvm.lifetime.start.p0(ptr nonnull %29)
-  call void @llvm.assume(i1 true) [ "align"(ptr %29, i64 1) ]
   store i64 %635, ptr %29, align 8
   call void @_ZN4llvm6JamCRC6updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(4) %35, ptr nonnull %29, i64 8) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
@@ -23539,7 +23534,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit56.i: ; preds = %_
   %.val22.i.i = load i32, ptr %59, align 8, !tbaa !420
   %494 = zext i32 %.val22.i.i to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %32)
-  call void @llvm.assume(i1 true) [ "align"(ptr %32, i64 1) ]
   store i64 %494, ptr %32, align 8
   call void @_ZN4llvm6JamCRC6updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(4) %34, ptr nonnull %32, i64 8) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %32)
@@ -23552,7 +23546,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit56.i: ; preds = %_
   %501 = sub i64 %499, %500
   %502 = sdiv exact i64 %501, 24
   call void @llvm.lifetime.start.p0(ptr nonnull %31)
-  call void @llvm.assume(i1 true) [ "align"(ptr %31, i64 1) ]
   store i64 %502, ptr %31, align 8
   call void @_ZN4llvm6JamCRC6updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(4) %34, ptr nonnull %31, i64 8) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
@@ -23566,7 +23559,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit56.i: ; preds = %_
   %510 = sub i64 %508, %509
   %511 = sdiv exact i64 %510, 24
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
-  call void @llvm.assume(i1 true) [ "align"(ptr %30, i64 1) ]
   store i64 %511, ptr %30, align 8
   call void @_ZN4llvm6JamCRC6updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(4) %34, ptr nonnull %30, i64 8) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
@@ -23753,7 +23745,6 @@ _ZNK12_GLOBAL__N_122FuncPGOInstrumentationINS_10PGOUseEdgeENS_12PGOUseBBInfoEE10
 583:                                              ; preds = %._crit_edge98.i.i
   %584 = call noundef i64 @_ZNK4llvm22BlockCoverageInference25getInstrumentedBlocksHashEv(ptr noundef nonnull align 8 dereferenceable(64) %306) #24
   call void @llvm.lifetime.start.p0(ptr nonnull %29)
-  call void @llvm.assume(i1 true) [ "align"(ptr %29, i64 1) ]
   store i64 %584, ptr %29, align 8
   call void @_ZN4llvm6JamCRC6updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(4) %34, ptr nonnull %29, i64 8) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
@@ -23767,7 +23758,6 @@ _ZNK12_GLOBAL__N_122FuncPGOInstrumentationINS_10PGOUseEdgeENS_12PGOUseBBInfoEE10
   %588 = sub i64 %586, %587
   %589 = ashr exact i64 %588, 3
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
-  call void @llvm.assume(i1 true) [ "align"(ptr %28, i64 1) ]
   store i64 %589, ptr %28, align 8
   call void @_ZN4llvm6JamCRC6updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(4) %34, ptr nonnull %28, i64 8) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %28)

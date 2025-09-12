@@ -302,7 +302,6 @@ _ZN4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinarySt
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %51, i8 0, i64 24, i1 false)
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %53 = load i32, ptr %52, align 8, !tbaa !8
-  call void @llvm.assume(i1 true) [ "align"(ptr %10, i64 1) ]
   store i32 %53, ptr %10, align 4
   call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %9, ptr nonnull align 1 dereferenceable(28) %10, i64 28) #16
   %54 = load ptr, ptr %0, align 8, !tbaa !70
@@ -325,7 +324,6 @@ _ZN4llvm5ErrorD2Ev.exit30:                        ; preds = %_ZN4llvm5ErrorD2Ev.
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 16
   %62 = load ptr, ptr %61, align 8, !noalias !73
   %63 = call noundef i32 %62(ptr noundef nonnull align 8 dereferenceable(8) %59) #16, !noalias !73
-  call void @llvm.assume(i1 true) [ "align"(ptr %6, i64 1) ]
   store i32 0, ptr %6, align 4, !noalias !73
   call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %9, ptr nonnull %6, i64 4) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !73
@@ -358,7 +356,6 @@ _ZN4llvm5ErrorD2Ev.exit34:                        ; preds = %_ZN4llvm5ErrorD2Ev.
   %.not.i.i.i.i33 = icmp eq i32 %76, 1
   %77 = call i32 @llvm.bswap.i32(i32 %71)
   %spec.select.i.i.i.i = select i1 %.not.i.i.i.i33, i32 %71, i32 %77
-  call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 1) ]
   store i32 %spec.select.i.i.i.i, ptr %5, align 4, !noalias !85
   call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %9, ptr nonnull %5, i64 4) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !85

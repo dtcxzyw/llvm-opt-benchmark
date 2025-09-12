@@ -854,7 +854,6 @@ _ZN4llvm16DenseMapIteratorISt4pairIjjEmNS_12DenseMapInfoIS2_vEENS_6detail12Dense
 define dso_local void @_ZN4llvm23StableFunctionMapRecord11deserializeERPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.std::unique_ptr.27", align 8
   %4 = load ptr, ptr %1, align 8, !tbaa !72
-  call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 1) ]
   %.0.copyload.i.i.i = load i32, ptr %4, align 1
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store ptr %5, ptr %1, align 8, !tbaa !72
@@ -867,7 +866,6 @@ define dso_local void @_ZN4llvm23StableFunctionMapRecord11deserializeERPKh(ptr n
   %10 = and i64 %9, -4
   %11 = inttoptr i64 %10 to ptr
   store ptr %11, ptr %1, align 8, !tbaa !72
-  call void @llvm.assume(i1 true) [ "align"(ptr %11, i64 1) ]
   %.0.copyload.i.i.i27 = load i32, ptr %11, align 4
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
   store ptr %12, ptr %1, align 8, !tbaa !72
@@ -899,23 +897,18 @@ _ZN4llvm9StringRefC2EPKc.exit:                    ; preds = %.preheader, %14
 .lr.ph78:                                         ; preds = %7, %_ZNSt10unique_ptrIN4llvm8DenseMapISt4pairIjjEmNS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_mEEEESt14default_deleteIS9_EED2Ev.exit
   %.02476 = phi i32 [ %60, %_ZNSt10unique_ptrIN4llvm8DenseMapISt4pairIjjEmNS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_mEEEESt14default_deleteIS9_EED2Ev.exit ], [ 0, %7 ]
   %23 = load ptr, ptr %1, align 8, !tbaa !72
-  call void @llvm.assume(i1 true) [ "align"(ptr %23, i64 1) ]
   %.0.copyload.i.i.i28 = load i64, ptr %23, align 1
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store ptr %24, ptr %1, align 8, !tbaa !72
-  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 1) ]
   %.0.copyload.i.i.i29 = load i32, ptr %24, align 1
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 12
   store ptr %25, ptr %1, align 8, !tbaa !72
-  call void @llvm.assume(i1 true) [ "align"(ptr %25, i64 1) ]
   %.0.copyload.i.i.i30 = load i32, ptr %25, align 1
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 16
   store ptr %26, ptr %1, align 8, !tbaa !72
-  call void @llvm.assume(i1 true) [ "align"(ptr %26, i64 1) ]
   %.0.copyload.i.i.i31 = load i32, ptr %26, align 1
   %27 = getelementptr inbounds nuw i8, ptr %23, i64 20
   store ptr %27, ptr %1, align 8, !tbaa !72
-  call void @llvm.assume(i1 true) [ "align"(ptr %27, i64 1) ]
   %.0.copyload.i.i.i32 = load i32, ptr %27, align 1
   %28 = getelementptr inbounds nuw i8, ptr %23, i64 24
   store ptr %28, ptr %1, align 8, !tbaa !72
@@ -1001,15 +994,12 @@ _ZNSt10unique_ptrIN4llvm8DenseMapISt4pairIjjEmNS0_12DenseMapInfoIS3_vEENS0_6deta
   %64 = phi ptr [ null, %.lr.ph ], [ %216, %_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIjjEmNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_E11try_emplaceIJRmEEES2_INS_16DenseMapIteratorIS3_mS5_S8_Lb0EEEbEOS3_DpOT_.exit ]
   %.075 = phi i32 [ 0, %.lr.ph ], [ %217, %_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIjjEmNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_E11try_emplaceIJRmEEES2_INS_16DenseMapIteratorIS3_mS5_S8_Lb0EEEbEOS3_DpOT_.exit ]
   %65 = load ptr, ptr %1, align 8, !tbaa !72
-  call void @llvm.assume(i1 true) [ "align"(ptr %65, i64 1) ]
   %.0.copyload.i.i.i40 = load i32, ptr %65, align 1
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 4
   store ptr %66, ptr %1, align 8, !tbaa !72
-  call void @llvm.assume(i1 true) [ "align"(ptr %66, i64 1) ]
   %.0.copyload.i.i.i41 = load i32, ptr %66, align 1
   %67 = getelementptr inbounds nuw i8, ptr %65, i64 8
   store ptr %67, ptr %1, align 8, !tbaa !72
-  call void @llvm.assume(i1 true) [ "align"(ptr %67, i64 1) ]
   %.0.copyload.i.i.i42 = load i64, ptr %67, align 1
   %68 = getelementptr inbounds nuw i8, ptr %65, i64 16
   store ptr %68, ptr %1, align 8, !tbaa !72

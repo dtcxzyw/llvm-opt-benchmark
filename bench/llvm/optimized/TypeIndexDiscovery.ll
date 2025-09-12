@@ -86,7 +86,6 @@ define dso_local void @_ZN4llvm8codeview19discoverTypeIndicesERKNS0_8CVRecordINS
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 2
-  call void @llvm.assume(i1 true) [ "align"(ptr %8, i64 1) ]
   %.0.copyload.i.i.i.i = load i16, ptr %8, align 1
   br label %_ZNK4llvm8codeview8CVRecordINS0_12TypeLeafKindEE4kindEv.exit
 
@@ -745,7 +744,6 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8codeview11TiReferenceELb1EE9push_backES2_.
   %.014.i = phi i32 [ 0, %.lr.ph.i ], [ %330, %329 ]
   %storemerge13.i = phi i64 [ %1, %.lr.ph.i ], [ %332, %329 ]
   %.sroa.0.012.i = phi ptr [ %0, %.lr.ph.i ], [ %333, %329 ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.0.012.i, i64 1) ]
   %.0.copyload.i.i.i.i.i.i.i = load i16, ptr %.sroa.0.012.i, align 1
   %315 = add i32 %.014.i, 4
   %.sroa.23.0.insert.ext.i = zext i32 %315 to i64
@@ -802,7 +800,6 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8codeview11TiReferenceELb1EE9push_backES2_.
   %.0122.i = phi i32 [ 0, %.lr.ph.i225 ], [ %.1.i, %550 ]
   %.sroa.0.0121.i = phi ptr [ %0, %.lr.ph.i225 ], [ %.sroa.0.1.i, %550 ]
   %.sroa.15.0120.i = phi i64 [ %1, %.lr.ph.i225 ], [ %.sroa.15.1.i, %550 ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.0.0121.i, i64 1) ]
   %.0.copyload.i.i.i.i.i.i.i226 = load i16, ptr %.sroa.0.0121.i, align 1
   switch i16 %.0.copyload.i.i.i.i.i.i.i226, label %_ZL24handleMethodOverloadListN4llvm8ArrayRefIhEERNS_15SmallVectorImplINS_8codeview11TiReferenceEEE.exit [
     i16 5120, label %341
@@ -846,7 +843,6 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8codeview11TiReferenceELb1EE9push_backES2_.
   %353 = add i32 %352, 1
   store i32 %353, ptr %337, align 8, !tbaa !11
   %354 = getelementptr inbounds nuw i8, ptr %.sroa.0.0121.i, i64 8
-  call void @llvm.assume(i1 true) [ "align"(ptr %354, i64 1) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i = load i16, ptr %354, align 1
   %355 = icmp sgt i16 %.0.copyload.i.i.i.i.i.i.i.i.i, -1
   br i1 %355, label %_ZL15handleBaseClassN4llvm8ArrayRefIhEEjRNS_15SmallVectorImplINS_8codeview11TiReferenceEEE.exit.i, label %356
@@ -861,7 +857,6 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8codeview11TiReferenceELb1EE9push_backES2_.
 
 362:                                              ; preds = %340
   %363 = getelementptr inbounds nuw i8, ptr %.sroa.0.0121.i, i64 4
-  call void @llvm.assume(i1 true) [ "align"(ptr %363, i64 1) ]
   %.0.copyload.i.i.i.i.i.i.i.i54.i = load i16, ptr %363, align 1
   %364 = icmp sgt i16 %.0.copyload.i.i.i.i.i.i.i.i54.i, -1
   br i1 %364, label %_ZL16handleEnumeratorN4llvm8ArrayRefIhEEjRNS_15SmallVectorImplINS_8codeview11TiReferenceEEE.exit.i, label %365
@@ -912,7 +907,6 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8codeview11TiReferenceELb1EE9push_backES2_.
   %389 = add i32 %388, 1
   store i32 %389, ptr %337, align 8, !tbaa !11
   %390 = getelementptr inbounds nuw i8, ptr %.sroa.0.0121.i, i64 8
-  call void @llvm.assume(i1 true) [ "align"(ptr %390, i64 1) ]
   %.0.copyload.i.i.i.i.i.i.i.i60.i = load i16, ptr %390, align 1
   %391 = icmp sgt i16 %.0.copyload.i.i.i.i.i.i.i.i60.i, -1
   br i1 %391, label %_ZL16handleDataMemberN4llvm8ArrayRefIhEEjRNS_15SmallVectorImplINS_8codeview11TiReferenceEEE.exit.i, label %392
@@ -996,7 +990,6 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8codeview11TiReferenceELb1EE9push_backES2_.
   %433 = add i32 %432, 1
   store i32 %433, ptr %337, align 8, !tbaa !11
   %434 = getelementptr inbounds nuw i8, ptr %.sroa.0.0121.i, i64 2
-  call void @llvm.assume(i1 true) [ "align"(ptr %434, i64 1) ]
   %.0.copyload.i.i.i.i.i.i.i.i = load i16, ptr %434, align 1
   %435 = and i16 %.0.copyload.i.i.i.i.i.i.i.i, 20
   %436 = icmp eq i16 %435, 16
@@ -1109,7 +1102,6 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8codeview11TiReferenceELb1EE9push_backES2_.
   %490 = add i32 %489, 1
   store i32 %490, ptr %337, align 8, !tbaa !11
   %491 = getelementptr inbounds nuw i8, ptr %.sroa.0.0121.i, i64 12
-  call void @llvm.assume(i1 true) [ "align"(ptr %491, i64 1) ]
   %.0.copyload.i.i.i.i.i.i.i.i90.i = load i16, ptr %491, align 1
   %492 = icmp sgt i16 %.0.copyload.i.i.i.i.i.i.i.i90.i, -1
   br i1 %492, label %_ZL23getEncodedIntegerLengthN4llvm8ArrayRefIhEE.exit.i.i, label %493
@@ -1126,7 +1118,6 @@ _ZL23getEncodedIntegerLengthN4llvm8ArrayRefIhEE.exit.i.i: ; preds = %493, %_ZN4l
   %.0.i.i91.i = phi i32 [ %498, %493 ], [ 14, %_ZN4llvm23SmallVectorTemplateBaseINS_8codeview11TiReferenceELb1EE9push_backES2_.exit.i88.i ]
   %499 = zext i32 %.0.i.i91.i to i64
   %500 = getelementptr inbounds nuw i8, ptr %.sroa.0.0121.i, i64 %499
-  call void @llvm.assume(i1 true) [ "align"(ptr %500, i64 1) ]
   %.0.copyload.i.i.i.i.i.i.i14.i.i = load i16, ptr %500, align 1
   %501 = icmp sgt i16 %.0.copyload.i.i.i.i.i.i.i14.i.i, -1
   br i1 %501, label %_ZL22handleVirtualBaseClassN4llvm8ArrayRefIhEEjbRNS_15SmallVectorImplINS_8codeview11TiReferenceEEE.exit.i, label %502
@@ -1310,7 +1301,6 @@ define dso_local void @_ZN4llvm8codeview19discoverTypeIndicesERKNS0_8CVRecordINS
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 4, ptr %6, align 4, !tbaa !14
   %7 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 2
-  call void @llvm.assume(i1 true) [ "align"(ptr %7, i64 1) ]
   %.0.copyload.i.i.i.i.i = load i16, ptr %7, align 1
   %8 = add i64 %.sroa.2.0.copyload, -4
   %9 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 4
@@ -1729,7 +1719,6 @@ define dso_local noundef zeroext i1 @_ZN4llvm8codeview27discoverTypeIndicesInSym
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %.pre, i64 2
-  call void @llvm.assume(i1 true) [ "align"(ptr %7, i64 1) ]
   %.0.copyload.i.i.i.i = load i16, ptr %7, align 1
   br label %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
 

@@ -297,7 +297,6 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %41, %_ZN4llvm8codev
   %.not.i.i.i = icmp eq i32 %54, 1
   %55 = tail call i32 @llvm.bswap.i32(i32 %48)
   %spec.select.i.i.i11 = select i1 %.not.i.i.i, i32 %48, i32 %55
-  call void @llvm.assume(i1 true) [ "align"(ptr %6, i64 1) ]
   store i32 %spec.select.i.i.i11, ptr %6, align 4, !noalias !42
   call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %14, ptr nonnull %6, i64 4) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !42
@@ -320,7 +319,6 @@ _ZN4llvm5ErrorD2Ev.exit4.i:                       ; preds = %_ZNK4llvm8codeview1
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 16
   %62 = load ptr, ptr %61, align 8
   %63 = call noundef i32 %62(ptr noundef nonnull align 8 dereferenceable(8) %59) #17
-  call void @llvm.assume(i1 true) [ "align"(ptr %57, i64 1) ]
   %.0.copyload.i.i = load i32, ptr %57, align 1
   %.not.i.i.i13 = icmp eq i32 %63, 1
   %64 = call i32 @llvm.bswap.i32(i32 %.0.copyload.i.i)
@@ -432,7 +430,6 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %41, %_ZN4llvm8codev
   %.not.i.i.i = icmp eq i32 %54, 1
   %rev.i.i.i.i.i.i = tail call i16 @llvm.bswap.i16(i16 %48)
   %spec.select.i.i.i11 = select i1 %.not.i.i.i, i16 %48, i16 %rev.i.i.i.i.i.i
-  call void @llvm.assume(i1 true) [ "align"(ptr %6, i64 1) ]
   store i16 %spec.select.i.i.i11, ptr %6, align 2, !noalias !69
   call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %14, ptr nonnull %6, i64 2) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !69
@@ -455,7 +452,6 @@ _ZN4llvm5ErrorD2Ev.exit4.i:                       ; preds = %_ZNK4llvm8codeview1
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %61 = load ptr, ptr %60, align 8
   %62 = call noundef i32 %61(ptr noundef nonnull align 8 dereferenceable(8) %58) #17
-  call void @llvm.assume(i1 true) [ "align"(ptr %56, i64 1) ]
   %.0.copyload.i.i = load i16, ptr %56, align 1
   %.not.i.i.i13 = icmp eq i32 %62, 1
   %rev.i.i.i.i.i.i14 = call i16 @llvm.bswap.i16(i16 %.0.copyload.i.i)
@@ -1059,7 +1055,6 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %41, %_ZN4llvm8codev
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %53 = load ptr, ptr %52, align 8, !noalias !93
   %54 = tail call noundef i32 %53(ptr noundef nonnull align 8 dereferenceable(8) %50) #17, !noalias !93
-  call void @llvm.assume(i1 true) [ "align"(ptr %6, i64 1) ]
   store i8 %48, ptr %6, align 1, !noalias !93
   call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %14, ptr nonnull %6, i64 1) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !93
@@ -1082,7 +1077,6 @@ _ZN4llvm5ErrorD2Ev.exit4.i:                       ; preds = %_ZNK4llvm8codeview1
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %61 = load ptr, ptr %60, align 8
   %62 = call noundef i32 %61(ptr noundef nonnull align 8 dereferenceable(8) %58) #17
-  call void @llvm.assume(i1 true) [ "align"(ptr %56, i64 1) ]
   %.0.copyload.i.i = load i8, ptr %56, align 1
   store i8 %.0.copyload.i.i, ptr %2, align 1, !tbaa !35, !noalias !96
   store ptr null, ptr %0, align 8, !tbaa !27, !alias.scope !96
@@ -1297,7 +1291,6 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %41, %_ZN4llvm8codev
   %.not.i.i.i = icmp eq i32 %54, 1
   %55 = tail call i32 @llvm.bswap.i32(i32 %48)
   %spec.select.i.i.i11 = select i1 %.not.i.i.i, i32 %48, i32 %55
-  call void @llvm.assume(i1 true) [ "align"(ptr %6, i64 1) ]
   store i32 %spec.select.i.i.i11, ptr %6, align 4, !noalias !99
   call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %14, ptr nonnull %6, i64 4) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !99
@@ -1320,7 +1313,6 @@ _ZN4llvm5ErrorD2Ev.exit4.i:                       ; preds = %_ZNK4llvm8codeview1
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 16
   %62 = load ptr, ptr %61, align 8
   %63 = call noundef i32 %62(ptr noundef nonnull align 8 dereferenceable(8) %59) #17
-  call void @llvm.assume(i1 true) [ "align"(ptr %57, i64 1) ]
   %.0.copyload.i.i = load i32, ptr %57, align 1
   %.not.i.i.i13 = icmp eq i32 %63, 1
   %64 = call i32 @llvm.bswap.i32(i32 %.0.copyload.i.i)
@@ -4651,7 +4643,6 @@ _ZN4llvm5ErrorD2Ev.exit.i:                        ; preds = %49, %_ZN4llvm5Error
   %.not.i.i.i.i = icmp eq i32 %68, 1
   %69 = tail call i32 @llvm.bswap.i32(i32 %62)
   %spec.select.i.i.i69.i = select i1 %.not.i.i.i.i, i32 %62, i32 %69
-  call void @llvm.assume(i1 true) [ "align"(ptr %8, i64 1) ]
   store i32 %spec.select.i.i.i69.i, ptr %8, align 4, !noalias !254
   call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %19, ptr nonnull %8, i64 4) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !254
@@ -4705,7 +4696,6 @@ _ZN4llvm5ErrorD2Ev.exit75.i:                      ; preds = %_ZNK4llvm8codeview1
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 16
   %83 = load ptr, ptr %82, align 8
   %84 = call noundef i32 %83(ptr noundef nonnull align 8 dereferenceable(8) %80) #17
-  call void @llvm.assume(i1 true) [ "align"(ptr %78, i64 1) ]
   %.0.copyload.i.i.i = load i32, ptr %78, align 1
   %.not.i.i.i73.i = icmp eq i32 %84, 1
   %85 = call i32 @llvm.bswap.i32(i32 %.0.copyload.i.i.i)
@@ -4716,7 +4706,6 @@ _ZN4llvm5ErrorD2Ev.exit75.i:                      ; preds = %_ZNK4llvm8codeview1
   br i1 %.not31.not.i, label %_ZN4llvm5ErrorD2Ev.exit4, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZN4llvm5ErrorD2Ev.exit75.i
-  call void @llvm.assume(i1 true) [ "align"(ptr %10, i64 1) ]
   %86 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %87 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %88 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -5110,7 +5099,6 @@ _ZN4llvm5ErrorD2Ev.exit.i:                        ; preds = %57, %_ZN4llvm5Error
   %.not.i.i.i.i = icmp eq i32 %76, 1
   %rev.i.i.i.i.i.i.i = call i16 @llvm.bswap.i16(i16 %70)
   %spec.select.i.i.i69.i = select i1 %.not.i.i.i.i, i16 %70, i16 %rev.i.i.i.i.i.i.i
-  call void @llvm.assume(i1 true) [ "align"(ptr %7, i64 1) ]
   store i16 %spec.select.i.i.i69.i, ptr %7, align 2, !noalias !286
   call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %27, ptr nonnull %7, i64 2) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !286
@@ -5164,7 +5152,6 @@ _ZN4llvm5ErrorD2Ev.exit76.i:                      ; preds = %_ZNK4llvm8codeview1
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 16
   %90 = load ptr, ptr %89, align 8
   %91 = call noundef i32 %90(ptr noundef nonnull align 8 dereferenceable(8) %87) #17
-  call void @llvm.assume(i1 true) [ "align"(ptr %85, i64 1) ]
   %.0.copyload.i.i.i = load i16, ptr %85, align 1
   %.not.i.i.i73.i = icmp eq i32 %91, 1
   %rev.i.i.i.i.i.i74.i = call i16 @llvm.bswap.i16(i16 %.0.copyload.i.i.i)

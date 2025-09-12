@@ -45,10 +45,10 @@ $_ZN4llvm14MCDisassembler13setABIVersionEj = comdat any
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @LLVMInitializeX86Disassembler() local_unnamed_addr #0 {
-  %1 = tail call noundef nonnull align 8 dereferenceable(248) ptr @_ZN4llvm18getTheX86_32TargetEv() #14
+  %1 = tail call noundef nonnull align 8 dereferenceable(248) ptr @_ZN4llvm18getTheX86_32TargetEv() #13
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 128
   store ptr @_ZL21createX86DisassemblerRKN4llvm6TargetERKNS_15MCSubtargetInfoERNS_9MCContextE, ptr %2, align 8, !tbaa !3
-  %3 = tail call noundef nonnull align 8 dereferenceable(248) ptr @_ZN4llvm18getTheX86_64TargetEv() #14
+  %3 = tail call noundef nonnull align 8 dereferenceable(248) ptr @_ZN4llvm18getTheX86_64TargetEv() #13
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 128
   store ptr @_ZL21createX86DisassemblerRKN4llvm6TargetERKNS_15MCSubtargetInfoERNS_9MCContextE, ptr %4, align 8, !tbaa !3
   ret void
@@ -64,13 +64,13 @@ define internal noalias noundef nonnull ptr @_ZL21createX86DisassemblerRKN4llvm6
   br i1 %.not.i, label %_ZNSt10unique_ptrIKN4llvm11MCInstrInfoESt14default_deleteIS2_EED2Ev.exit7, label %6
 
 6:                                                ; preds = %3
-  %7 = tail call noundef ptr %5() #14
+  %7 = tail call noundef ptr %5() #13
   %8 = ptrtoint ptr %7 to i64
   br label %_ZNSt10unique_ptrIKN4llvm11MCInstrInfoESt14default_deleteIS2_EED2Ev.exit7
 
 _ZNSt10unique_ptrIKN4llvm11MCInstrInfoESt14default_deleteIS2_EED2Ev.exit7: ; preds = %3, %6
   %.0.i = phi i64 [ %8, %6 ], [ 0, %3 ]
-  %9 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #15
+  %9 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #14
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %2, ptr %10, align 8, !tbaa !12
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -107,12 +107,12 @@ define internal void @_ZN12_GLOBAL__N_122X86GenericDisassemblerD2Ev(ptr noundef 
   br i1 %.not.i, label %_ZNSt10unique_ptrIKN4llvm11MCInstrInfoESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIKN4llvm11MCInstrInfoEEclEPS2_.exit.i
 
 _ZNKSt14default_deleteIKN4llvm11MCInstrInfoEEclEPS2_.exit.i: ; preds = %1
-  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 48) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 48) #15
   br label %_ZNSt10unique_ptrIKN4llvm11MCInstrInfoESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIKN4llvm11MCInstrInfoESt14default_deleteIS2_EED2Ev.exit: ; preds = %1, %_ZNKSt14default_deleteIKN4llvm11MCInstrInfoEEclEPS2_.exit.i
   store ptr null, ptr %2, align 8, !tbaa !18
-  tail call void @_ZN4llvm14MCDisassemblerD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #14
+  tail call void @_ZN4llvm14MCDisassemblerD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #13
   ret void
 }
 
@@ -125,13 +125,13 @@ define internal void @_ZN12_GLOBAL__N_122X86GenericDisassemblerD0Ev(ptr noundef 
   br i1 %.not.i.i, label %_ZN12_GLOBAL__N_122X86GenericDisassemblerD2Ev.exit, label %_ZNKSt14default_deleteIKN4llvm11MCInstrInfoEEclEPS2_.exit.i.i
 
 _ZNKSt14default_deleteIKN4llvm11MCInstrInfoEEclEPS2_.exit.i.i: ; preds = %1
-  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 48) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 48) #15
   br label %_ZN12_GLOBAL__N_122X86GenericDisassemblerD2Ev.exit
 
 _ZN12_GLOBAL__N_122X86GenericDisassemblerD2Ev.exit: ; preds = %1, %_ZNKSt14default_deleteIKN4llvm11MCInstrInfoEEclEPS2_.exit.i.i
   store ptr null, ptr %2, align 8, !tbaa !18
-  tail call void @_ZN4llvm14MCDisassemblerD2Ev(ptr noundef nonnull align 8 dereferenceable(52) %0) #14
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 56) #16
+  tail call void @_ZN4llvm14MCDisassemblerD2Ev(ptr noundef nonnull align 8 dereferenceable(52) %0) #13
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 56) #15
   ret void
 }
 
@@ -183,7 +183,6 @@ define internal noundef range(i32 0, 4) i32 @_ZNK12_GLOBAL__N_122X86GenericDisas
   %38 = phi i64 [ %5, %22 ], [ %40, %.thread363.i ]
   %.0.copyload.i.i.i8081 = phi i8 [ 0, %22 ], [ %.0.copyload.i.i.i78, %.thread363.i ]
   %39 = getelementptr inbounds nuw i8, ptr %3, i64 %37
-  call void @llvm.assume(i1 true) [ "align"(ptr %39, i64 1) ]
   %.0.copyload.i.i.i = load i8, ptr %39, align 1
   %40 = add i64 %38, 1
   %41 = icmp eq i64 %38, %5
@@ -244,7 +243,6 @@ define internal noundef range(i32 0, 4) i32 @_ZNK12_GLOBAL__N_122X86GenericDisas
   br i1 %spec.select.i.i, label %66, label %_ZL4peekPN4llvm15X86Disassembler19InternalInstructionERh.exit.thread.i
 
 66:                                               ; preds = %63
-  call void @llvm.assume(i1 true) [ "align"(ptr %48, i64 1) ]
   %67 = add i64 %38, 2
   %68 = sub i64 %67, %5
   %.not.i231.not.i = icmp ult i64 %68, %4
@@ -401,7 +399,6 @@ _ZL7consumeIhEbPN4llvm15X86Disassembler19InternalInstructionERT_.exit.thread.i: 
 
 118:                                              ; preds = %114
   %119 = getelementptr inbounds nuw i8, ptr %3, i64 %115
-  call void @llvm.assume(i1 true) [ "align"(ptr %119, i64 1) ]
   %.0.copyload.i.i243.i = load i8, ptr %119, align 1
   %120 = add i64 %38, 2
   store i64 %120, ptr %17, align 8, !tbaa !58
@@ -426,7 +423,6 @@ _ZL7consumeIhEbPN4llvm15X86Disassembler19InternalInstructionERT_.exit.thread.i: 
   store i8 %.0.copyload.i.i243.i, ptr %127, align 2, !tbaa !60
   %128 = getelementptr inbounds nuw i8, ptr %12, i64 51
   %129 = getelementptr inbounds nuw i8, ptr %3, i64 %121
-  call void @llvm.assume(i1 true) [ "align"(ptr %129, i64 1) ]
   %.0.copyload.i.i250.i = load i8, ptr %129, align 1
   store i8 %.0.copyload.i.i250.i, ptr %128, align 1, !tbaa !60
   %130 = add i64 %38, 3
@@ -439,7 +435,6 @@ _ZL7consumeIhEbPN4llvm15X86Disassembler19InternalInstructionERT_.exit.thread.i: 
 134:                                              ; preds = %125
   %135 = getelementptr inbounds nuw i8, ptr %12, i64 52
   %136 = getelementptr inbounds nuw i8, ptr %3, i64 %131
-  call void @llvm.assume(i1 true) [ "align"(ptr %136, i64 1) ]
   %.0.copyload.i.i255.i = load i8, ptr %136, align 1
   store i8 %.0.copyload.i.i255.i, ptr %135, align 4, !tbaa !60
   %137 = add i64 %38, 4
@@ -488,7 +483,6 @@ _ZL7consumeIhEbPN4llvm15X86Disassembler19InternalInstructionERT_.exit263.i: ; pr
   %162 = getelementptr inbounds nuw i8, ptr %12, i64 49
   store i8 -60, ptr %162, align 1, !tbaa !60
   %163 = getelementptr inbounds nuw i8, ptr %12, i64 50
-  call void @llvm.assume(i1 true) [ "align"(ptr %158, i64 1) ]
   store i8 %159, ptr %163, align 2, !tbaa !60
   %164 = add i64 %38, 2
   store i64 %164, ptr %17, align 8, !tbaa !58
@@ -500,7 +494,6 @@ _ZL7consumeIhEbPN4llvm15X86Disassembler19InternalInstructionERT_.exit263.i: ; pr
 166:                                              ; preds = %_ZL7consumeIhEbPN4llvm15X86Disassembler19InternalInstructionERT_.exit263.i
   %167 = getelementptr inbounds nuw i8, ptr %12, i64 51
   %168 = getelementptr inbounds nuw i8, ptr %3, i64 %.pre412.i
-  call void @llvm.assume(i1 true) [ "align"(ptr %168, i64 1) ]
   %.0.copyload.i.i267.i = load i8, ptr %168, align 1
   store i8 %.0.copyload.i.i267.i, ptr %167, align 1, !tbaa !60
   %169 = add i64 %38, 3
@@ -543,7 +536,6 @@ _ZL7consumeIhEbPN4llvm15X86Disassembler19InternalInstructionERT_.exit275.i: ; pr
   %186 = getelementptr inbounds nuw i8, ptr %12, i64 49
   store i8 -59, ptr %186, align 1, !tbaa !60
   %187 = getelementptr inbounds nuw i8, ptr %12, i64 50
-  call void @llvm.assume(i1 true) [ "align"(ptr %182, i64 1) ]
   store i8 %183, ptr %187, align 2, !tbaa !60
   %188 = add i64 %38, 2
   store i64 %188, ptr %17, align 8, !tbaa !58
@@ -586,7 +578,6 @@ _ZL7consumeIhEbPN4llvm15X86Disassembler19InternalInstructionERT_.exit282.i: ; pr
   %202 = getelementptr inbounds nuw i8, ptr %12, i64 49
   store i8 -113, ptr %202, align 1, !tbaa !60
   %203 = getelementptr inbounds nuw i8, ptr %12, i64 50
-  call void @llvm.assume(i1 true) [ "align"(ptr %198, i64 1) ]
   store i8 %199, ptr %203, align 2, !tbaa !60
   %204 = add i64 %38, 2
   store i64 %204, ptr %17, align 8, !tbaa !58
@@ -598,7 +589,6 @@ _ZL7consumeIhEbPN4llvm15X86Disassembler19InternalInstructionERT_.exit282.i: ; pr
 206:                                              ; preds = %_ZL7consumeIhEbPN4llvm15X86Disassembler19InternalInstructionERT_.exit282.i
   %207 = getelementptr inbounds nuw i8, ptr %12, i64 51
   %208 = getelementptr inbounds nuw i8, ptr %3, i64 %.pre406.i
-  call void @llvm.assume(i1 true) [ "align"(ptr %208, i64 1) ]
   %.0.copyload.i.i286.i = load i8, ptr %208, align 1
   store i8 %.0.copyload.i.i286.i, ptr %207, align 1, !tbaa !60
   %209 = add i64 %38, 3
@@ -645,7 +635,6 @@ _ZL7consumeIhEbPN4llvm15X86Disassembler19InternalInstructionERT_.exit294.i: ; pr
   store i8 -43, ptr %227, align 4, !tbaa !60
   %228 = getelementptr inbounds nuw i8, ptr %12, i64 61
   %229 = getelementptr inbounds nuw i8, ptr %3, i64 %226
-  call void @llvm.assume(i1 true) [ "align"(ptr %229, i64 1) ]
   %.0.copyload.i.i293.i = load i8, ptr %229, align 1
   store i8 %.0.copyload.i.i293.i, ptr %228, align 1, !tbaa !60
   %230 = add i64 %38, 2
@@ -932,7 +921,6 @@ default.unreachable:                              ; preds = %537, %522, %508, %4
 _ZL10readOpcodePN4llvm15X86Disassembler19InternalInstructionE.exit.thread134: ; preds = %368
   %372 = getelementptr inbounds nuw i8, ptr %12, i64 79
   %373 = getelementptr inbounds nuw i8, ptr %3, i64 %369
-  call void @llvm.assume(i1 true) [ "align"(ptr %373, i64 1) ]
   %.0.copyload.i.i164.i = load i8, ptr %373, align 1
   store i8 %.0.copyload.i.i164.i, ptr %372, align 1, !tbaa !60
   %374 = add i64 %288, 1
@@ -947,7 +935,6 @@ _ZL10readOpcodePN4llvm15X86Disassembler19InternalInstructionE.exit.thread134: ; 
 
 379:                                              ; preds = %375
   %380 = getelementptr inbounds nuw i8, ptr %3, i64 %376
-  call void @llvm.assume(i1 true) [ "align"(ptr %380, i64 1) ]
   %.0.copyload.i.i169.i = load i8, ptr %380, align 1
   %381 = add i64 %288, 1
   store i64 %381, ptr %17, align 8, !tbaa !58
@@ -962,7 +949,6 @@ _ZL10readOpcodePN4llvm15X86Disassembler19InternalInstructionE.exit.thread134: ; 
 
 387:                                              ; preds = %383
   %388 = getelementptr inbounds nuw i8, ptr %3, i64 %384
-  call void @llvm.assume(i1 true) [ "align"(ptr %388, i64 1) ]
   %.0.copyload.i.i174.i = load i8, ptr %388, align 1
   %389 = add i64 %288, 2
   store i64 %389, ptr %17, align 8, !tbaa !58
@@ -980,7 +966,6 @@ _ZL10readOpcodePN4llvm15X86Disassembler19InternalInstructionE.exit.thread134: ; 
 
 394:                                              ; preds = %390
   %395 = getelementptr inbounds nuw i8, ptr %3, i64 %391
-  call void @llvm.assume(i1 true) [ "align"(ptr %395, i64 1) ]
   %.0.copyload.i.i179.i = load i8, ptr %395, align 1
   %396 = add i64 %288, 3
   store i64 %396, ptr %17, align 8, !tbaa !58
@@ -995,7 +980,6 @@ _ZL10readOpcodePN4llvm15X86Disassembler19InternalInstructionE.exit.thread134: ; 
 
 401:                                              ; preds = %397
   %402 = getelementptr inbounds nuw i8, ptr %3, i64 %398
-  call void @llvm.assume(i1 true) [ "align"(ptr %402, i64 1) ]
   %.0.copyload.i.i184.i = load i8, ptr %402, align 1
   %403 = add i64 %288, 3
   store i64 %403, ptr %17, align 8, !tbaa !58
@@ -1029,11 +1013,10 @@ _ZL10readOpcodePN4llvm15X86Disassembler19InternalInstructionE.exit.thread134: ; 
   br label %_ZL10readOpcodePN4llvm15X86Disassembler19InternalInstructionE.exit.thread140
 
 _ZL10readOpcodePN4llvm15X86Disassembler19InternalInstructionE.exit.thread: ; preds = %363, %359, %355, %349, %345, %341, %337, %333, %329, %325, %319, %315, %311, %307, %303, %299, %295
-  %.sink175 = phi i64 [ %296, %295 ], [ %300, %299 ], [ %304, %303 ], [ %308, %307 ], [ %312, %311 ], [ %316, %315 ], [ %320, %319 ], [ %326, %325 ], [ %330, %329 ], [ %334, %333 ], [ %338, %337 ], [ %342, %341 ], [ %346, %345 ], [ %350, %349 ], [ %356, %355 ], [ %360, %359 ], [ %364, %363 ]
+  %.sink174 = phi i64 [ %296, %295 ], [ %300, %299 ], [ %304, %303 ], [ %308, %307 ], [ %312, %311 ], [ %316, %315 ], [ %320, %319 ], [ %326, %325 ], [ %330, %329 ], [ %334, %333 ], [ %338, %337 ], [ %342, %341 ], [ %346, %345 ], [ %350, %349 ], [ %356, %355 ], [ %360, %359 ], [ %364, %363 ]
   %.ph129 = phi i32 [ 1, %295 ], [ 2, %299 ], [ 3, %303 ], [ 8, %307 ], [ 9, %311 ], [ 10, %315 ], [ 11, %319 ], [ 1, %325 ], [ 2, %329 ], [ 3, %333 ], [ 9, %337 ], [ 10, %341 ], [ 11, %345 ], [ 1, %349 ], [ 4, %355 ], [ 5, %359 ], [ 6, %363 ]
   %415 = getelementptr inbounds nuw i8, ptr %12, i64 79
-  %416 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink175
-  call void @llvm.assume(i1 true) [ "align"(ptr %416, i64 1) ]
+  %416 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink174
   %.0.copyload.i.i159.i = load i8, ptr %416, align 1
   store i8 %.0.copyload.i.i159.i, ptr %415, align 1, !tbaa !60
   %417 = add i64 %288, 1
@@ -1055,7 +1038,6 @@ _ZL10readOpcodePN4llvm15X86Disassembler19InternalInstructionE.exit.thread140: ; 
 _ZL10readOpcodePN4llvm15X86Disassembler19InternalInstructionE.exit: ; preds = %406
   %.sroa.0.0.copyload.i188.i = load ptr, ptr %12, align 8, !tbaa !41
   %422 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i188.i, i64 %409
-  call void @llvm.assume(i1 true) [ "align"(ptr %422, i64 1) ]
   %.0.copyload.i.i189.i = load i8, ptr %422, align 1
   %423 = add i64 %407, 1
   store i64 %423, ptr %17, align 8, !tbaa !58
@@ -1345,8 +1327,8 @@ _ZL4isNFPN4llvm15X86Disassembler19InternalInstructionE.exit.i: ; preds = %_ZL13i
   br label %590
 
 .sink.split:                                      ; preds = %_ZL10readOpcodePN4llvm15X86Disassembler19InternalInstructionE.exit.thread134, %_ZL10readOpcodePN4llvm15X86Disassembler19InternalInstructionE.exit.thread140
-  %.ph176 = phi i32 [ %.ph139, %_ZL10readOpcodePN4llvm15X86Disassembler19InternalInstructionE.exit.thread140 ], [ 1, %_ZL10readOpcodePN4llvm15X86Disassembler19InternalInstructionE.exit.thread134 ]
-  %.ph177 = phi i8 [ %.0193.i.ph, %_ZL10readOpcodePN4llvm15X86Disassembler19InternalInstructionE.exit.thread140 ], [ %.0.copyload.i.i164.i, %_ZL10readOpcodePN4llvm15X86Disassembler19InternalInstructionE.exit.thread134 ]
+  %.ph175 = phi i32 [ %.ph139, %_ZL10readOpcodePN4llvm15X86Disassembler19InternalInstructionE.exit.thread140 ], [ 1, %_ZL10readOpcodePN4llvm15X86Disassembler19InternalInstructionE.exit.thread134 ]
+  %.ph176 = phi i8 [ %.0193.i.ph, %_ZL10readOpcodePN4llvm15X86Disassembler19InternalInstructionE.exit.thread140 ], [ %.0.copyload.i.i164.i, %_ZL10readOpcodePN4llvm15X86Disassembler19InternalInstructionE.exit.thread134 ]
   %551 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %552 = load ptr, ptr %551, align 8, !tbaa !18
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -1358,8 +1340,8 @@ _ZL4isNFPN4llvm15X86Disassembler19InternalInstructionE.exit.i: ; preds = %_ZL13i
   %spec.select.i137 = phi i16 [ %spec.select.i, %_ZL10readOpcodePN4llvm15X86Disassembler19InternalInstructionE.exit ], [ %spec.select.i144, %.sink.split ]
   %555 = phi ptr [ %426, %_ZL10readOpcodePN4llvm15X86Disassembler19InternalInstructionE.exit ], [ %552, %.sink.split ]
   %556 = phi i32 [ %.pre.pre, %_ZL10readOpcodePN4llvm15X86Disassembler19InternalInstructionE.exit ], [ %19, %.sink.split ]
-  %557 = phi i32 [ 7, %_ZL10readOpcodePN4llvm15X86Disassembler19InternalInstructionE.exit ], [ %.ph176, %.sink.split ]
-  %558 = phi i8 [ %.0.copyload.i.i189.i, %_ZL10readOpcodePN4llvm15X86Disassembler19InternalInstructionE.exit ], [ %.ph177, %.sink.split ]
+  %557 = phi i32 [ 7, %_ZL10readOpcodePN4llvm15X86Disassembler19InternalInstructionE.exit ], [ %.ph175, %.sink.split ]
+  %558 = phi i8 [ %.0.copyload.i.i189.i, %_ZL10readOpcodePN4llvm15X86Disassembler19InternalInstructionE.exit ], [ %.ph176, %.sink.split ]
   %559 = load i8, ptr %25, align 8, !tbaa !63
   switch i8 %559, label %590 [
     i8 0, label %560
@@ -1990,11 +1972,11 @@ _ZL8readVVVVPN4llvm15X86Disassembler19InternalInstructionE.exit.i: ; preds = %81
   %869 = and i8 %868, 8
   %.not130.not.i = icmp eq i8 %869, 0
   %870 = add nsw i32 %862, 16
-  %spec.select178 = select i1 %.not130.not.i, i32 %870, i32 %862
+  %spec.select177 = select i1 %.not130.not.i, i32 %870, i32 %862
   br label %871
 
 871:                                              ; preds = %867, %857
-  %872 = phi i32 [ %862, %857 ], [ %spec.select178, %867 ]
+  %872 = phi i32 [ %862, %857 ], [ %spec.select177, %867 ]
   %873 = getelementptr inbounds nuw i8, ptr %.099.ptr234.i, i64 1
   %874 = load i8, ptr %873, align 1, !tbaa !98
   %switch.tableidx = add i8 %874, -10
@@ -2094,7 +2076,6 @@ switch.lookup:                                    ; preds = %871
 921:                                              ; preds = %914
   %.sroa.0.0.copyload.i.i.i = load ptr, ptr %12, align 8, !tbaa !41
   %922 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i.i, i64 %917
-  call void @llvm.assume(i1 true) [ "align"(ptr %922, i64 1) ]
   %.0.copyload.i.i.i.i = load i8, ptr %922, align 1
   %923 = add i64 %915, 1
   store i64 %923, ptr %17, align 8, !tbaa !58
@@ -2127,7 +2108,6 @@ switch.lookup:                                    ; preds = %871
 _ZL13readImmediatePN4llvm15X86Disassembler19InternalInstructionEh.exit137.thread.i: ; preds = %932
   %.sroa.0.0.copyload.i21.i.i = load ptr, ptr %12, align 8, !tbaa !41
   %939 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i21.i.i, i64 %935
-  call void @llvm.assume(i1 true) [ "align"(ptr %939, i64 1) ]
   %.0.copyload.i.i22.i.i = load i16, ptr %939, align 1
   %940 = add i64 %933, 2
   store i64 %940, ptr %17, align 8, !tbaa !58
@@ -2155,7 +2135,6 @@ _ZL13readImmediatePN4llvm15X86Disassembler19InternalInstructionEh.exit137.thread
 _ZL13readImmediatePN4llvm15X86Disassembler19InternalInstructionEh.exit141.thread.i: ; preds = %946
   %.sroa.0.0.copyload.i25.i.i = load ptr, ptr %12, align 8, !tbaa !41
   %953 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i25.i.i, i64 %949
-  call void @llvm.assume(i1 true) [ "align"(ptr %953, i64 1) ]
   %.0.copyload.i.i26.i.i = load i32, ptr %953, align 1
   %954 = add i64 %947, 4
   store i64 %954, ptr %17, align 8, !tbaa !58
@@ -2183,7 +2162,6 @@ _ZL13readImmediatePN4llvm15X86Disassembler19InternalInstructionEh.exit141.thread
 _ZL13readImmediatePN4llvm15X86Disassembler19InternalInstructionEh.exit145.thread.i: ; preds = %960
   %.sroa.0.0.copyload.i29.i.i = load ptr, ptr %12, align 8, !tbaa !41
   %967 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i29.i.i, i64 %963
-  call void @llvm.assume(i1 true) [ "align"(ptr %967, i64 1) ]
   %.0.copyload.i.i30.i.i = load i64, ptr %967, align 1
   %968 = add i64 %961, 8
   store i64 %968, ptr %17, align 8, !tbaa !58
@@ -2219,7 +2197,6 @@ _ZL13readImmediatePN4llvm15X86Disassembler19InternalInstructionEh.exit145.thread
 983:                                              ; preds = %980
   %.sroa.0.0.copyload.i.i155.i = load ptr, ptr %12, align 8, !tbaa !41
   %984 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i155.i, i64 %977
-  call void @llvm.assume(i1 true) [ "align"(ptr %984, i64 1) ]
   %.0.copyload.i.i.i156.i = load i8, ptr %984, align 1
   %985 = add i64 %975, 1
   store i64 %985, ptr %17, align 8, !tbaa !58
@@ -2234,7 +2211,6 @@ _ZL13readImmediatePN4llvm15X86Disassembler19InternalInstructionEh.exit145.thread
 990:                                              ; preds = %987
   %.sroa.0.0.copyload.i21.i153.i = load ptr, ptr %12, align 8, !tbaa !41
   %991 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i21.i153.i, i64 %977
-  call void @llvm.assume(i1 true) [ "align"(ptr %991, i64 1) ]
   %.0.copyload.i.i22.i154.i = load i16, ptr %991, align 1
   %992 = add i64 %975, 2
   store i64 %992, ptr %17, align 8, !tbaa !58
@@ -2249,7 +2225,6 @@ _ZL13readImmediatePN4llvm15X86Disassembler19InternalInstructionEh.exit145.thread
 997:                                              ; preds = %994
   %.sroa.0.0.copyload.i25.i151.i = load ptr, ptr %12, align 8, !tbaa !41
   %998 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i25.i151.i, i64 %977
-  call void @llvm.assume(i1 true) [ "align"(ptr %998, i64 1) ]
   %.0.copyload.i.i26.i152.i = load i32, ptr %998, align 1
   %999 = add i64 %975, 4
   store i64 %999, ptr %17, align 8, !tbaa !58
@@ -2264,7 +2239,6 @@ _ZL13readImmediatePN4llvm15X86Disassembler19InternalInstructionEh.exit145.thread
 1004:                                             ; preds = %1001
   %.sroa.0.0.copyload.i29.i148.i = load ptr, ptr %12, align 8, !tbaa !41
   %1005 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i29.i148.i, i64 %977
-  call void @llvm.assume(i1 true) [ "align"(ptr %1005, i64 1) ]
   %.0.copyload.i.i30.i149.i = load i64, ptr %1005, align 1
   %1006 = add i64 %975, 8
   store i64 %1006, ptr %17, align 8, !tbaa !58
@@ -2308,7 +2282,6 @@ _ZL13readImmediatePN4llvm15X86Disassembler19InternalInstructionEh.exit157.i: ; p
 1022:                                             ; preds = %1019
   %.sroa.0.0.copyload.i.i168.i = load ptr, ptr %12, align 8, !tbaa !41
   %1023 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i168.i, i64 %1016
-  call void @llvm.assume(i1 true) [ "align"(ptr %1023, i64 1) ]
   %.0.copyload.i.i.i169.i = load i8, ptr %1023, align 1
   %1024 = add i64 %1014, 1
   store i64 %1024, ptr %17, align 8, !tbaa !58
@@ -2323,7 +2296,6 @@ _ZL13readImmediatePN4llvm15X86Disassembler19InternalInstructionEh.exit157.i: ; p
 1029:                                             ; preds = %1026
   %.sroa.0.0.copyload.i21.i166.i = load ptr, ptr %12, align 8, !tbaa !41
   %1030 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i21.i166.i, i64 %1016
-  call void @llvm.assume(i1 true) [ "align"(ptr %1030, i64 1) ]
   %.0.copyload.i.i22.i167.i = load i16, ptr %1030, align 1
   %1031 = add i64 %1014, 2
   store i64 %1031, ptr %17, align 8, !tbaa !58
@@ -2338,7 +2310,6 @@ _ZL13readImmediatePN4llvm15X86Disassembler19InternalInstructionEh.exit157.i: ; p
 1036:                                             ; preds = %1033
   %.sroa.0.0.copyload.i25.i164.i = load ptr, ptr %12, align 8, !tbaa !41
   %1037 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i25.i164.i, i64 %1016
-  call void @llvm.assume(i1 true) [ "align"(ptr %1037, i64 1) ]
   %.0.copyload.i.i26.i165.i = load i32, ptr %1037, align 1
   %1038 = add i64 %1014, 4
   store i64 %1038, ptr %17, align 8, !tbaa !58
@@ -2353,7 +2324,6 @@ _ZL13readImmediatePN4llvm15X86Disassembler19InternalInstructionEh.exit157.i: ; p
 1043:                                             ; preds = %1040
   %.sroa.0.0.copyload.i29.i160.i = load ptr, ptr %12, align 8, !tbaa !41
   %1044 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i29.i160.i, i64 %1016
-  call void @llvm.assume(i1 true) [ "align"(ptr %1044, i64 1) ]
   %.0.copyload.i.i30.i161.i = load i64, ptr %1044, align 1
   %1045 = add i64 %1014, 8
   store i64 %1045, ptr %17, align 8, !tbaa !58
@@ -2862,7 +2832,7 @@ tailrecurse.i:                                    ; preds = %305, %48
 58:                                               ; preds = %51
   %59 = zext i32 %56 to i64
   %60 = add nuw nsw i64 %59, 1
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull %26, i64 noundef %60, i64 noundef 16) #14
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull %26, i64 noundef %60, i64 noundef 16) #13
   %.pre.i.i.i.i = load i32, ptr %7, align 8, !tbaa !118
   br label %_ZL17translateRegisterRN4llvm6MCInstENS_15X86Disassembler3RegE.exit.i
 
@@ -2888,7 +2858,7 @@ _ZL17translateRegisterRN4llvm6MCInstENS_15X86Disassembler3RegE.exit.i: ; preds =
 69:                                               ; preds = %66
   %70 = zext i32 %67 to i64
   %71 = add nuw nsw i64 %70, 1
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull %26, i64 noundef %71, i64 noundef 16) #14
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull %26, i64 noundef %71, i64 noundef 16) #13
   %.pre.i.i.i52.i = load i32, ptr %7, align 8, !tbaa !118
   br label %.critedge.sink.split
 
@@ -2943,7 +2913,7 @@ switch.lookup:                                    ; preds = %75
 80:                                               ; preds = %switch.lookup
   %81 = zext i32 %78 to i64
   %82 = add nuw nsw i64 %81, 1
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull %26, i64 noundef %82, i64 noundef 16) #14
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull %26, i64 noundef %82, i64 noundef 16) #13
   %.pre.i.i.i55.i = load i32, ptr %7, align 8, !tbaa !118
   br label %.critedge.sink.split
 
@@ -3073,7 +3043,7 @@ switch.lookup:                                    ; preds = %75
 133:                                              ; preds = %128
   %134 = zext i32 %131 to i64
   %135 = add nuw nsw i64 %134, 1
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull %26, i64 noundef %135, i64 noundef 16) #14
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull %26, i64 noundef %135, i64 noundef 16) #13
   %.pre.i.i.i60.i = load i32, ptr %7, align 8, !tbaa !118
   br label %.critedge.sink.split
 
@@ -3089,7 +3059,7 @@ switch.lookup:                                    ; preds = %75
 141:                                              ; preds = %136
   %142 = zext i32 %139 to i64
   %143 = add nuw nsw i64 %142, 1
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull %26, i64 noundef %143, i64 noundef 16) #14
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull %26, i64 noundef %143, i64 noundef 16) #13
   %.pre.i.i79.i.i = load i32, ptr %7, align 8, !tbaa !118
   br label %.critedge.sink.split
 
@@ -3105,7 +3075,7 @@ switch.lookup:                                    ; preds = %75
 149:                                              ; preds = %144
   %150 = zext i32 %147 to i64
   %151 = add nuw nsw i64 %150, 1
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull %26, i64 noundef %151, i64 noundef 16) #14
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull %26, i64 noundef %151, i64 noundef 16) #13
   %.pre.i.i85.i.i = load i32, ptr %7, align 8, !tbaa !118
   br label %.critedge.sink.split
 
@@ -3119,7 +3089,7 @@ switch.lookup:                                    ; preds = %75
   %156 = load i8, ptr %42, align 4, !tbaa !75
   %157 = zext i8 %156 to i64
   %158 = load i64, ptr %39, align 8, !tbaa !108
-  %159 = tail call noundef zeroext i1 @_ZNK4llvm14MCDisassembler24tryAddingSymbolicOperandERNS_6MCInstElmbmmm(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(128) %0, i64 noundef %152, i64 noundef %153, i1 noundef zeroext %92, i64 noundef %155, i64 noundef %157, i64 noundef %158) #14
+  %159 = tail call noundef zeroext i1 @_ZNK4llvm14MCDisassembler24tryAddingSymbolicOperandERNS_6MCInstElmbmmm(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(128) %0, i64 noundef %152, i64 noundef %153, i1 noundef zeroext %92, i64 noundef %155, i64 noundef %157, i64 noundef %158) #13
   br i1 %159, label %172, label %160
 
 160:                                              ; preds = %.thread.i.i
@@ -3131,7 +3101,7 @@ switch.lookup:                                    ; preds = %75
 163:                                              ; preds = %160
   %164 = zext i32 %161 to i64
   %165 = add nuw nsw i64 %164, 1
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull %26, i64 noundef %165, i64 noundef 16) #14
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull %26, i64 noundef %165, i64 noundef 16) #13
   %.pre.i.i90.i.i = load i32, ptr %7, align 8, !tbaa !118
   br label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit92.i.i
 
@@ -3166,7 +3136,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit92.i.i: ; preds = %163, %160
 181:                                              ; preds = %174
   %182 = zext i32 %179 to i64
   %183 = add nuw nsw i64 %182, 1
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull %26, i64 noundef %183, i64 noundef 16) #14
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull %26, i64 noundef %183, i64 noundef 16) #13
   %.pre.i.i96.i.i = load i32, ptr %7, align 8, !tbaa !118
   br label %.critedge.sink.split
 
@@ -3181,7 +3151,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit92.i.i: ; preds = %163, %160
 189:                                              ; preds = %184
   %190 = zext i32 %187 to i64
   %191 = add nuw nsw i64 %190, 1
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull %26, i64 noundef %191, i64 noundef 16) #14
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull %26, i64 noundef %191, i64 noundef 16) #13
   %.pre.i.i.i = load i32, ptr %7, align 8, !tbaa !118
   br label %.critedge.sink.split
 
@@ -3216,7 +3186,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit92.i.i: ; preds = %163, %160
 205:                                              ; preds = %202
   %206 = zext i32 %203 to i64
   %207 = add nuw nsw i64 %206, 1
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull %26, i64 noundef %207, i64 noundef 16) #14
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull %26, i64 noundef %207, i64 noundef 16) #13
   %.pre.i.i.i65.i = load i32, ptr %7, align 8, !tbaa !118
   br label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit.i66.i
 
@@ -3242,7 +3212,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit.i66.i: ; preds = %205, %202
 219:                                              ; preds = %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit.i66.i
   %220 = zext i32 %213 to i64
   %221 = add nuw nsw i64 %220, 1
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull %26, i64 noundef %221, i64 noundef 16) #14
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull %26, i64 noundef %221, i64 noundef 16) #13
   %.pre.i.i20.i.i = load i32, ptr %7, align 8, !tbaa !118
   br label %_ZL17translateSrcIndexRN4llvm6MCInstERNS_15X86Disassembler19InternalInstructionE.exit.i
 
@@ -3282,7 +3252,7 @@ _ZL17translateSrcIndexRN4llvm6MCInstERNS_15X86Disassembler19InternalInstructionE
 234:                                              ; preds = %231
   %235 = zext i32 %232 to i64
   %236 = add nuw nsw i64 %235, 1
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull %26, i64 noundef %236, i64 noundef 16) #14
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull %26, i64 noundef %236, i64 noundef 16) #13
   %.pre.i.i.i70.i = load i32, ptr %7, align 8, !tbaa !118
   br label %.critedge.sink.split
 
@@ -3299,7 +3269,7 @@ _ZL17translateSrcIndexRN4llvm6MCInstERNS_15X86Disassembler19InternalInstructionE
 244:                                              ; preds = %237
   %245 = zext i32 %242 to i64
   %246 = add nuw nsw i64 %245, 1
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull %26, i64 noundef %246, i64 noundef 16) #14
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull %26, i64 noundef %246, i64 noundef 16) #13
   %.pre.i.i.i74.i = load i32, ptr %7, align 8, !tbaa !118
   br label %_ZL17translateRegisterRN4llvm6MCInstENS_15X86Disassembler3RegE.exit78.i
 
@@ -3318,7 +3288,7 @@ _ZL17translateRegisterRN4llvm6MCInstENS_15X86Disassembler3RegE.exit78.i: ; preds
 252:                                              ; preds = %248
   %253 = zext i32 %250 to i64
   %254 = add nuw nsw i64 %253, 1
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull %26, i64 noundef %254, i64 noundef 16) #14
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull %26, i64 noundef %254, i64 noundef 16) #13
   %.pre.i.i81.i = load i32, ptr %7, align 8, !tbaa !118
   br label %.critedge.sink.split
 
@@ -3370,7 +3340,7 @@ _ZL13isCCMPOrCTESTPN4llvm15X86Disassembler19InternalInstructionE.exit.thread102.
 276:                                              ; preds = %_ZL13isCCMPOrCTESTPN4llvm15X86Disassembler19InternalInstructionE.exit.thread102.i
   %277 = zext i32 %274 to i64
   %278 = add nuw nsw i64 %277, 1
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull %26, i64 noundef %278, i64 noundef 16) #14
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull %26, i64 noundef %278, i64 noundef 16) #13
   %.pre.i.i30 = load i32, ptr %7, align 8, !tbaa !118
   br label %.critedge.sink.split
 
@@ -3384,7 +3354,7 @@ _ZL13isCCMPOrCTESTPN4llvm15X86Disassembler19InternalInstructionE.exit.thread.i: 
 282:                                              ; preds = %_ZL13isCCMPOrCTESTPN4llvm15X86Disassembler19InternalInstructionE.exit.thread.i
   %283 = zext i32 %280 to i64
   %284 = add nuw nsw i64 %283, 1
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull %26, i64 noundef %284, i64 noundef 16) #14
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull %26, i64 noundef %284, i64 noundef 16) #13
   %.pre.i.i = load i32, ptr %7, align 8, !tbaa !118
   br label %.critedge.sink.split
 
@@ -3399,7 +3369,7 @@ _ZL13isCCMPOrCTESTPN4llvm15X86Disassembler19InternalInstructionE.exit.thread.i: 
 290:                                              ; preds = %285
   %291 = zext i32 %288 to i64
   %292 = add nuw nsw i64 %291, 1
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull %26, i64 noundef %292, i64 noundef 16) #14
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull %26, i64 noundef %292, i64 noundef 16) #13
   %.pre.i.i.i90.i = load i32, ptr %7, align 8, !tbaa !118
   br label %_ZL19translateFPRegisterRN4llvm6MCInstEh.exit.i
 
@@ -3422,7 +3392,7 @@ _ZL19translateFPRegisterRN4llvm6MCInstEh.exit.i:  ; preds = %290, %285
 301:                                              ; preds = %294
   %302 = zext i32 %299 to i64
   %303 = add nuw nsw i64 %302, 1
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull %26, i64 noundef %303, i64 noundef 16) #14
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull %26, i64 noundef %303, i64 noundef 16) #13
   %.pre.i.i.i96.i = load i32, ptr %7, align 8, !tbaa !118
   br label %_ZL17translateRegisterRN4llvm6MCInstENS_15X86Disassembler3RegE.exit100.i
 
@@ -3469,11 +3439,8 @@ _ZL16translateOperandRN4llvm6MCInstERKNS_15X86Disassembler16OperandSpecifierERNS
   ret i1 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #7
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: write) uwtable
-define internal fastcc noundef range(i32 -1, 1) i32 @_ZL9readModRMPN4llvm15X86Disassembler19InternalInstructionE(ptr noundef nonnull captures(none) %0) unnamed_addr #8 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define internal fastcc noundef range(i32 -1, 1) i32 @_ZL9readModRMPN4llvm15X86Disassembler19InternalInstructionE(ptr noundef nonnull captures(none) %0) unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load i8, ptr %2, align 8, !tbaa !127, !range !79, !noundef !80
   %4 = trunc nuw i8 %3 to i1
@@ -3495,7 +3462,6 @@ define internal fastcc noundef range(i32 -1, 1) i32 @_ZL9readModRMPN4llvm15X86Di
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 105
   %.sroa.0.0.copyload.i = load ptr, ptr %0, align 8, !tbaa !41
   %15 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i, i64 %10
-  call void @llvm.assume(i1 true) [ "align"(ptr %15, i64 1) ]
   %.0.copyload.i.i = load i8, ptr %15, align 1
   store i8 %.0.copyload.i.i, ptr %14, align 1, !tbaa !60
   %16 = add i64 %7, 1
@@ -3739,7 +3705,6 @@ default.unreachable106:                           ; preds = %93, %64
 
 133:                                              ; preds = %130
   %134 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i, i64 %127
-  call void @llvm.assume(i1 true) [ "align"(ptr %134, i64 1) ]
   %.0.copyload.i.i.i = load i8, ptr %134, align 1
   %135 = add i64 %7, 2
   store i64 %135, ptr %6, align 8, !tbaa !58
@@ -3753,7 +3718,6 @@ default.unreachable106:                           ; preds = %93, %64
 
 140:                                              ; preds = %137
   %141 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i, i64 %127
-  call void @llvm.assume(i1 true) [ "align"(ptr %141, i64 1) ]
   %.0.copyload.i.i17.i = load i32, ptr %141, align 1
   %142 = add i64 %7, 5
   store i64 %142, ptr %6, align 8, !tbaa !58
@@ -3783,8 +3747,8 @@ _ZL7consumeIhEbPN4llvm15X86Disassembler19InternalInstructionERT_.exit.thread: ; 
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: write) uwtable
-define internal fastcc noundef range(i32 -1, 1) i32 @_ZL16readDisplacementPN4llvm15X86Disassembler19InternalInstructionE(ptr noundef nonnull captures(none) initializes((77, 78)) %0) unnamed_addr #8 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define internal fastcc noundef range(i32 -1, 1) i32 @_ZL16readDisplacementPN4llvm15X86Disassembler19InternalInstructionE(ptr noundef nonnull captures(none) initializes((77, 78)) %0) unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i64, ptr %2, align 8, !tbaa !58
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -3811,7 +3775,6 @@ define internal fastcc noundef range(i32 -1, 1) i32 @_ZL16readDisplacementPN4llv
 14:                                               ; preds = %11
   %.sroa.0.0.copyload.i = load ptr, ptr %0, align 8, !tbaa !41
   %15 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i, i64 %6
-  call void @llvm.assume(i1 true) [ "align"(ptr %15, i64 1) ]
   %.0.copyload.i.i = load i8, ptr %15, align 1
   %16 = add i64 %3, 1
   store i64 %16, ptr %2, align 8, !tbaa !58
@@ -3828,7 +3791,6 @@ define internal fastcc noundef range(i32 -1, 1) i32 @_ZL16readDisplacementPN4llv
 21:                                               ; preds = %18
   %.sroa.0.0.copyload.i12 = load ptr, ptr %0, align 8, !tbaa !41
   %22 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i12, i64 %6
-  call void @llvm.assume(i1 true) [ "align"(ptr %22, i64 1) ]
   %.0.copyload.i.i13 = load i16, ptr %22, align 1
   %23 = add i64 %3, 2
   store i64 %23, ptr %2, align 8, !tbaa !58
@@ -3845,7 +3807,6 @@ define internal fastcc noundef range(i32 -1, 1) i32 @_ZL16readDisplacementPN4llv
 28:                                               ; preds = %25
   %.sroa.0.0.copyload.i16 = load ptr, ptr %0, align 8, !tbaa !41
   %29 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i16, i64 %6
-  call void @llvm.assume(i1 true) [ "align"(ptr %29, i64 1) ]
   %.0.copyload.i.i17 = load i32, ptr %29, align 1
   %30 = add i64 %3, 4
   store i64 %30, ptr %2, align 8, !tbaa !58
@@ -3862,8 +3823,8 @@ _ZL7consumeIaEbPN4llvm15X86Disassembler19InternalInstructionERT_.exit.thread: ; 
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: write) uwtable
-define internal fastcc noundef range(i32 -1, 1) i32 @_ZL7readSIBPN4llvm15X86Disassembler19InternalInstructionE(ptr noundef nonnull captures(none) initializes((168, 172)) %0) unnamed_addr #8 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define internal fastcc noundef range(i32 -1, 1) i32 @_ZL7readSIBPN4llvm15X86Disassembler19InternalInstructionE(ptr noundef nonnull captures(none) initializes((168, 172)) %0) unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 74
   %3 = load i8, ptr %2, align 2, !tbaa !73
   %switch = icmp eq i8 %3, 8
@@ -3886,7 +3847,6 @@ define internal fastcc noundef range(i32 -1, 1) i32 @_ZL7readSIBPN4llvm15X86Disa
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 106
   %.sroa.0.0.copyload.i = load ptr, ptr %0, align 8, !tbaa !41
   %14 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i, i64 %9
-  call void @llvm.assume(i1 true) [ "align"(ptr %14, i64 1) ]
   %.0.copyload.i.i = load i8, ptr %14, align 1
   store i8 %.0.copyload.i.i, ptr %13, align 2, !tbaa !60
   %15 = add i64 %6, 1
@@ -3968,8 +3928,8 @@ _ZL7consumeIhEbPN4llvm15X86Disassembler19InternalInstructionERT_.exit.thread: ; 
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: write) uwtable
-define internal fastcc noundef range(i32 -1, 1) i32 @_ZL28getInstructionIDWithAttrMaskPtPN4llvm15X86Disassembler19InternalInstructionEt(ptr noundef nonnull writeonly captures(none) %0, ptr noundef nonnull captures(none) %1, i16 noundef zeroext %2) unnamed_addr #8 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define internal fastcc noundef range(i32 -1, 1) i32 @_ZL28getInstructionIDWithAttrMaskPtPN4llvm15X86Disassembler19InternalInstructionEt(ptr noundef nonnull writeonly captures(none) %0, ptr noundef nonnull captures(none) %1, i16 noundef zeroext %2) unnamed_addr #7 {
   %4 = zext i16 %2 to i64
   %5 = getelementptr inbounds nuw i8, ptr @_ZL23x86DisassemblerContexts, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !60
@@ -4035,7 +3995,7 @@ switch.lookup17:                                  ; preds = %12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc noundef zeroext i1 @_ZL17is16BitEquivalentPKcS0_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #9 {
+define internal fastcc noundef zeroext i1 @_ZL17is16BitEquivalentPKcS0_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #8 {
   %3 = load i8, ptr %0, align 1, !tbaa !60
   %4 = icmp eq i8 %3, 0
   br i1 %4, label %._crit_edge, label %.lr.ph
@@ -4100,7 +4060,7 @@ define internal fastcc noundef zeroext i1 @_ZL17is16BitEquivalentPKcS0_(ptr noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i16 @_ZL6decodeN4llvm15X86Disassembler10OpcodeTypeENS0_18InstructionContextEhh(i32 noundef %0, i32 noundef range(i32 0, 256) %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #10 {
+define internal fastcc noundef zeroext i16 @_ZL6decodeN4llvm15X86Disassembler10OpcodeTypeENS0_18InstructionContextEhh(i32 noundef %0, i32 noundef range(i32 0, 256) %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #9 {
   switch i32 %0, label %65 [
     i32 0, label %5
     i32 1, label %10
@@ -4282,7 +4242,7 @@ define internal fastcc noundef zeroext i16 @_ZL6decodeN4llvm15X86Disassembler10O
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc noundef range(i32 -1, 1) i32 @_ZL8fixupRegPN4llvm15X86Disassembler19InternalInstructionEPKNS0_16OperandSpecifierE(ptr noundef nonnull captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #11 {
+define internal fastcc noundef range(i32 -1, 1) i32 @_ZL8fixupRegPN4llvm15X86Disassembler19InternalInstructionEPKNS0_16OperandSpecifierE(ptr noundef nonnull captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #10 {
   %3 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = load i8, ptr %1, align 1, !tbaa !94
@@ -4521,7 +4481,7 @@ _ZL12fixupRMValuePN4llvm15X86Disassembler19InternalInstructionENS0_11OperandType
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc noundef zeroext i16 @_ZL13fixupRegValuePN4llvm15X86Disassembler19InternalInstructionENS0_11OperandTypeEhPh(ptr noundef nonnull readonly captures(none) %0, i32 noundef range(i32 0, 256) %1, i8 noundef zeroext %2, ptr noundef nonnull writeonly captures(none) initializes((0, 1)) %3) unnamed_addr #11 {
+define internal fastcc noundef zeroext i16 @_ZL13fixupRegValuePN4llvm15X86Disassembler19InternalInstructionENS0_11OperandTypeEhPh(ptr noundef nonnull readonly captures(none) %0, i32 noundef range(i32 0, 256) %1, i8 noundef zeroext %2, ptr noundef nonnull writeonly captures(none) initializes((0, 1)) %3) unnamed_addr #10 {
   store i8 1, ptr %3, align 1, !tbaa !60
   %trunc = trunc nuw i32 %1 to i8
   switch i8 %trunc, label %5 [
@@ -4842,7 +4802,7 @@ switch.lookup2133:                                ; preds = %16
   %55 = load i8, ptr %54, align 1, !tbaa !130
   %56 = zext i8 %55 to i64
   %57 = add i64 %46, %56
-  tail call void @_ZNK4llvm14MCDisassembler31tryAddingPcLoadReferenceCommentElm(ptr noundef nonnull align 8 dereferenceable(40) %2, i64 noundef %53, i64 noundef %57) #14
+  tail call void @_ZNK4llvm14MCDisassembler31tryAddingPcLoadReferenceCommentElm(ptr noundef nonnull align 8 dereferenceable(40) %2, i64 noundef %53, i64 noundef %57) #13
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 74
   %59 = load i8, ptr %58, align 2, !tbaa !73
   %60 = icmp eq i8 %59, 4
@@ -4895,7 +4855,7 @@ switch.lookup2137:                                ; preds = %64
   %82 = zext i32 %78 to i64
   %83 = add nuw nsw i64 %82, 1
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %76, ptr noundef nonnull %84, i64 noundef %83, i64 noundef 16) #14
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %76, ptr noundef nonnull %84, i64 noundef %83, i64 noundef 16) #13
   %.pre.i.i = load i32, ptr %77, align 8, !tbaa !118
   br label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit
 
@@ -4918,7 +4878,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %67, %81
   %93 = zext i32 %90 to i64
   %94 = add nuw nsw i64 %93, 1
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %76, ptr noundef nonnull %95, i64 noundef %94, i64 noundef 16) #14
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %76, ptr noundef nonnull %95, i64 noundef %94, i64 noundef 16) #13
   %.pre.i.i1762 = load i32, ptr %77, align 8, !tbaa !118
   br label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit1764
 
@@ -4941,7 +4901,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit1764: ; preds = %_ZN4llvm6MCInst1
   %104 = zext i32 %101 to i64
   %105 = add nuw nsw i64 %104, 1
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %76, ptr noundef nonnull %106, i64 noundef %105, i64 noundef 16) #14
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %76, ptr noundef nonnull %106, i64 noundef %105, i64 noundef 16) #13
   %.pre.i.i1766 = load i32, ptr %77, align 8, !tbaa !118
   br label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit1768
 
@@ -4973,7 +4933,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit1768: ; preds = %_ZN4llvm6MCInst1
   %127 = zext i8 %126 to i64
   %128 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %129 = load i64, ptr %128, align 8, !tbaa !108
-  %130 = tail call noundef zeroext i1 @_ZNK4llvm14MCDisassembler24tryAddingSymbolicOperandERNS_6MCInstElmbmmm(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(128) %0, i64 noundef %122, i64 noundef %124, i1 noundef zeroext false, i64 noundef %127, i64 noundef %119, i64 noundef %129) #14
+  %130 = tail call noundef zeroext i1 @_ZNK4llvm14MCDisassembler24tryAddingSymbolicOperandERNS_6MCInstElmbmmm(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(128) %0, i64 noundef %122, i64 noundef %124, i1 noundef zeroext false, i64 noundef %127, i64 noundef %119, i64 noundef %129) #13
   %.pre = load i32, ptr %77, align 8, !tbaa !118
   br i1 %130, label %143, label %131
 
@@ -4986,7 +4946,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit1768: ; preds = %_ZN4llvm6MCInst1
   %134 = zext i32 %.pre to i64
   %135 = add nuw nsw i64 %134, 1
   %136 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %76, ptr noundef nonnull %136, i64 noundef %135, i64 noundef 16) #14
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %76, ptr noundef nonnull %136, i64 noundef %135, i64 noundef 16) #13
   %.pre.i.i1770 = load i32, ptr %77, align 8, !tbaa !118
   br label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit1772
 
@@ -5013,7 +4973,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit1772: ; preds = %131, %133
   %147 = zext i32 %144 to i64
   %148 = add nuw nsw i64 %147, 1
   %149 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %76, ptr noundef nonnull %149, i64 noundef %148, i64 noundef 16) #14
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %76, ptr noundef nonnull %149, i64 noundef %148, i64 noundef 16) #13
   %.pre.i.i1774 = load i32, ptr %77, align 8, !tbaa !118
   br label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit1776
 
@@ -5042,13 +5002,13 @@ declare noundef zeroext i1 @_ZNK4llvm14MCDisassembler24tryAddingSymbolicOperandE
 declare void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.cttz.i8(i8, i1 immarg) #13
+declare i8 @llvm.cttz.i8(i8, i1 immarg) #12
 
 attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -5057,16 +5017,15 @@ attributes #3 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-wid
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #5 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #14 = { nounwind }
-attributes #15 = { builtin nounwind allocsize(0) }
-attributes #16 = { builtin nounwind }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { nounwind }
+attributes #14 = { builtin nounwind allocsize(0) }
+attributes #15 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

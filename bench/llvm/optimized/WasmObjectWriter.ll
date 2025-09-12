@@ -9711,7 +9711,6 @@ _ZN4llvm11raw_ostreamlsEc.exit27.i:               ; preds = %2515, %2513
 
 2538:                                             ; preds = %_ZN4llvm11raw_ostreamlsEc.exit27.i
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
-  call void @llvm.assume(i1 true) [ "align"(ptr %22, i64 1) ]
   store i32 0, ptr %22, align 4
   %2539 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %2519, ptr noundef nonnull %22, i64 noundef 4) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
@@ -9719,7 +9718,6 @@ _ZN4llvm11raw_ostreamlsEc.exit27.i:               ; preds = %2515, %2513
 
 2540:                                             ; preds = %_ZN4llvm11raw_ostreamlsEc.exit27.i
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
-  call void @llvm.assume(i1 true) [ "align"(ptr %21, i64 1) ]
   store i64 0, ptr %21, align 8
   %2541 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %2519, ptr noundef nonnull %21, i64 noundef 8) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
@@ -17815,7 +17813,6 @@ _ZN12_GLOBAL__N_117writePatchableU64ERN4llvm17raw_pwrite_streamEmm.exit: ; preds
 212:                                              ; preds = %_ZN12_GLOBAL__N_116WasmObjectWriter19getProvisionalValueERKN4llvm11MCAssemblerERKNS_19WasmRelocationEntryE.exit, %_ZN12_GLOBAL__N_116WasmObjectWriter19getProvisionalValueERKN4llvm11MCAssemblerERKNS_19WasmRelocationEntryE.exit, %_ZN12_GLOBAL__N_116WasmObjectWriter19getProvisionalValueERKN4llvm11MCAssemblerERKNS_19WasmRelocationEntryE.exit, %_ZN12_GLOBAL__N_116WasmObjectWriter19getProvisionalValueERKN4llvm11MCAssemblerERKNS_19WasmRelocationEntryE.exit, %_ZN12_GLOBAL__N_116WasmObjectWriter19getProvisionalValueERKN4llvm11MCAssemblerERKNS_19WasmRelocationEntryE.exit, %_ZN12_GLOBAL__N_116WasmObjectWriter19getProvisionalValueERKN4llvm11MCAssemblerERKNS_19WasmRelocationEntryE.exit, %_ZN12_GLOBAL__N_116WasmObjectWriter19getProvisionalValueERKN4llvm11MCAssemblerERKNS_19WasmRelocationEntryE.exit
   %213 = trunc i64 %.0.i to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  call void @llvm.assume(i1 true) [ "align"(ptr %9, i64 1) ]
   store i32 %213, ptr %9, align 4
   %214 = load ptr, ptr %16, align 8, !tbaa !23
   %215 = getelementptr inbounds nuw i8, ptr %214, i64 104
@@ -17826,7 +17823,6 @@ _ZN12_GLOBAL__N_117writePatchableU64ERN4llvm17raw_pwrite_streamEmm.exit: ; preds
 
 217:                                              ; preds = %_ZN12_GLOBAL__N_116WasmObjectWriter19getProvisionalValueERKN4llvm11MCAssemblerERKNS_19WasmRelocationEntryE.exit, %_ZN12_GLOBAL__N_116WasmObjectWriter19getProvisionalValueERKN4llvm11MCAssemblerERKNS_19WasmRelocationEntryE.exit, %_ZN12_GLOBAL__N_116WasmObjectWriter19getProvisionalValueERKN4llvm11MCAssemblerERKNS_19WasmRelocationEntryE.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  call void @llvm.assume(i1 true) [ "align"(ptr %8, i64 1) ]
   store i64 %.0.i, ptr %8, align 8
   %218 = load ptr, ptr %16, align 8, !tbaa !23
   %219 = getelementptr inbounds nuw i8, ptr %218, i64 104

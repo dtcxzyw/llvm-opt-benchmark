@@ -2312,13 +2312,11 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i21: ; preds = %106,
 _ZN4llvm16FixedStreamArrayINS_6object12coff_sectionEED2Ev.exit23: ; preds = %_ZNK4llvm16FixedStreamArrayINS_6object12coff_sectionEEixEj.exit, %94, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i21, %109
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %110 = getelementptr inbounds nuw i8, ptr %87, i64 12
-  call void @llvm.assume(i1 true) [ "align"(ptr %110, i64 1) ]
   %.0.copyload.i.i.i = load i32, ptr %110, align 1
   %.not = icmp ult i32 %1, %.0.copyload.i.i.i
   br i1 %.not, label %.critedge.loopexit, label %111
 
 111:                                              ; preds = %_ZN4llvm16FixedStreamArrayINS_6object12coff_sectionEED2Ev.exit23
-  call void @llvm.assume(i1 true) [ "align"(ptr %110, i64 1) ]
   %112 = sub nuw nsw i32 %1, %.0.copyload.i.i.i
   store i32 %112, ptr %3, align 4, !tbaa !171
   %113 = load i32, ptr %2, align 4, !tbaa !171
@@ -3160,7 +3158,6 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i19: ; preds = %123,
 _ZN4llvm16FixedStreamArrayINS_6object12coff_sectionEED2Ev.exit21: ; preds = %_ZNK4llvm16FixedStreamArrayINS_6object12coff_sectionEEixEj.exit, %111, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i19, %126
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %127 = getelementptr inbounds nuw i8, ptr %103, i64 12
-  call void @llvm.assume(i1 true) [ "align"(ptr %127, i64 1) ]
   %.0.copyload.i.i.i = load i32, ptr %127, align 1
   %128 = add i32 %.0.copyload.i.i.i, %2
   br label %129

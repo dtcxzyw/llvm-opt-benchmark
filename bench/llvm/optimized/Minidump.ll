@@ -94,7 +94,7 @@ $_ZTVN4llvm6object12MinidumpFileE = comdat any
 @_ZTVN4llvm6object12MinidumpFileE = linkonce_odr unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr null, ptr @_ZN4llvm6object12MinidumpFileD2Ev, ptr @_ZN4llvm6object12MinidumpFileD0Ev, ptr @_ZN4llvm6object6Binary11initContentEv] }, comdat, align 8
 @.str.11 = private unnamed_addr constant [26 x i8] c"vector::_M_realloc_insert\00", align 1
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local void @_ZNK4llvm6object12MinidumpFile12getRawStreamENS_8minidump10StreamTypeE(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::optional") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %5 = load ptr, ptr %4, align 8, !tbaa !3
@@ -152,10 +152,8 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapINS_8minidump10StreamTypeEmNS_12DenseMapInfo
   %.sroa.0.0.copyload.i.i.i = load ptr, ptr %35, align 8, !tbaa !24
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 4
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  call void @llvm.assume(i1 true) [ "align"(ptr %37, i64 1) ]
   %.0.copyload.i.i.i.i = load i32, ptr %37, align 1
   %38 = zext i32 %.0.copyload.i.i.i.i to i64
-  call void @llvm.assume(i1 true) [ "align"(ptr %36, i64 1) ]
   %.0.copyload.i.i.i3.i = load i32, ptr %36, align 1
   %39 = zext i32 %.0.copyload.i.i.i3.i to i64
   %40 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i.i, i64 %38
@@ -191,7 +189,6 @@ define dso_local void @_ZNK4llvm6object12MinidumpFile9getStringB5cxx11Em(ptr dea
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.0.0.copyload.i.i = load ptr, ptr %14, align 8, !tbaa !24
   %15 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i, i64 %2
-  call void @llvm.assume(i1 true) [ "align"(ptr %15, i64 1) ]
   %.0.copyload.i.i.i = load i32, ptr %15, align 1
   %16 = zext i32 %.0.copyload.i.i.i to i64
   %17 = and i64 %16, 1
@@ -280,7 +277,6 @@ _ZN4llvm11SmallVectorItLj32EEC2Em.exit:           ; preds = %_ZN4llvm15SmallVect
   %.012.i.i.i.i.i.i = phi i64 [ %50, %.lr.ph.i.i.i.i.i.i ], [ %26, %_ZN4llvm11SmallVectorItLj32EEC2Em.exit ]
   %.0811.i.i.i.i.i.i = phi ptr [ %49, %.lr.ph.i.i.i.i.i.i ], [ %.pre, %_ZN4llvm11SmallVectorItLj32EEC2Em.exit ]
   %.0910.i.i.i.i.i.i = phi ptr [ %48, %.lr.ph.i.i.i.i.i.i ], [ %38, %_ZN4llvm11SmallVectorItLj32EEC2Em.exit ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %.0910.i.i.i.i.i.i, i64 1) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i = load i16, ptr %.0910.i.i.i.i.i.i, align 1
   store i16 %.0.copyload.i.i.i.i.i.i.i.i.i, ptr %.0811.i.i.i.i.i.i, align 2, !tbaa !55
   %48 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i, i64 2
@@ -524,10 +520,8 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %_ZNK4llvm12DenseMap
   %.sroa.0.0.copyload.i.i.i.i = load ptr, ptr %43, align 8, !tbaa !24, !noalias !100
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 4
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  call void @llvm.assume(i1 true) [ "align"(ptr %45, i64 1) ]
   %.0.copyload.i.i.i.i.i = load i32, ptr %45, align 1, !noalias !100
   %46 = zext i32 %.0.copyload.i.i.i.i.i to i64
-  call void @llvm.assume(i1 true) [ "align"(ptr %44, i64 1) ]
   %.0.copyload.i.i.i3.i.i = load i32, ptr %44, align 1, !noalias !100
   %47 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i.i.i, i64 %46
   %48 = icmp ult i32 %.0.copyload.i.i.i3.i.i, 16
@@ -535,15 +529,12 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %_ZNK4llvm12DenseMap
 
 49:                                               ; preds = %37
   %50 = zext i32 %.0.copyload.i.i.i3.i.i to i64
-  call void @llvm.assume(i1 true) [ "align"(ptr %47, i64 1) ]
   %.0.copyload.i.i.i = load i32, ptr %47, align 1
   %51 = zext i32 %.0.copyload.i.i.i to i64
   %52 = getelementptr inbounds nuw i8, ptr %47, i64 4
-  call void @llvm.assume(i1 true) [ "align"(ptr %52, i64 1) ]
   %.0.copyload.i.i.i12 = load i32, ptr %52, align 1
   %53 = zext i32 %.0.copyload.i.i.i12 to i64
   %54 = getelementptr inbounds nuw i8, ptr %47, i64 8
-  call void @llvm.assume(i1 true) [ "align"(ptr %54, i64 1) ]
   %.0.copyload.i.i.i13 = load i64, ptr %54, align 1
   %55 = mul i64 %.0.copyload.i.i.i13, %53
   %56 = add i64 %55, %51
@@ -554,8 +545,6 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %_ZNK4llvm12DenseMap
 
 59:                                               ; preds = %49
   %60 = getelementptr inbounds nuw i8, ptr %47, i64 %51
-  call void @llvm.assume(i1 true) [ "align"(ptr %52, i64 1) ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %52, i64 1) ]
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %62 = load i8, ptr %61, align 8
   %63 = and i8 %62, -2
@@ -673,7 +662,6 @@ define dso_local void @_ZN4llvm6object12MinidumpFile6createENS_15MemoryBufferRef
   br i1 %14, label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i64, label %15
 
 15:                                               ; preds = %2
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.0.0.copyload.i, i64 1) ]
   %.0.copyload.i.i.i = load i32, ptr %.sroa.0.0.copyload.i, align 1
   %.not = icmp eq i32 %.0.copyload.i.i.i, 1347241037
   br i1 %.not, label %23, label %_ZN4llvm5ErrorD2Ev.exit32
@@ -699,7 +687,6 @@ _ZN4llvm5ErrorD2Ev.exit32:                        ; preds = %15
 
 23:                                               ; preds = %15
   %24 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i, i64 4
-  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 1) ]
   %.0.copyload.i.i.i33 = load i32, ptr %24, align 1
   %25 = and i32 %.0.copyload.i.i.i33, 65535
   %.not29 = icmp eq i32 %25, 42899
@@ -726,11 +713,9 @@ _ZN4llvm5ErrorD2Ev.exit34:                        ; preds = %23
 
 33:                                               ; preds = %23
   %34 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i, i64 12
-  call void @llvm.assume(i1 true) [ "align"(ptr %34, i64 1) ]
   %.0.copyload.i.i.i35 = load i32, ptr %34, align 1
   %35 = zext i32 %.0.copyload.i.i.i35 to i64
   %36 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i, i64 8
-  call void @llvm.assume(i1 true) [ "align"(ptr %36, i64 1) ]
   %.0.copyload.i.i.i36 = load i32, ptr %36, align 1
   %37 = zext i32 %.0.copyload.i.i.i36 to i64
   %38 = mul nuw nsw i64 %37, 12
@@ -766,15 +751,12 @@ _ZN4llvm5ErrorD2Ev.exit34:                        ; preds = %23
   %.sroa.898.0164 = phi i64 [ 0, %.lr.ph ], [ %92, %91 ]
   %.sroa.095.0163 = phi ptr [ %42, %.lr.ph ], [ %93, %91 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.095.0163, i64 1) ]
   %.0.copyload.i.i.i42 = load i32, ptr %.sroa.095.0163, align 1
   store i32 %.0.copyload.i.i.i42, ptr %11, align 4, !tbaa !11
   %55 = getelementptr inbounds nuw i8, ptr %.sroa.095.0163, i64 4
   %56 = getelementptr inbounds nuw i8, ptr %.sroa.095.0163, i64 8
-  call void @llvm.assume(i1 true) [ "align"(ptr %56, i64 1) ]
   %.0.copyload.i.i.i43 = load i32, ptr %56, align 1
   %57 = zext i32 %.0.copyload.i.i.i43 to i64
-  call void @llvm.assume(i1 true) [ "align"(ptr %55, i64 1) ]
   %.0.copyload.i.i.i44 = load i32, ptr %55, align 1
   %58 = zext i32 %.0.copyload.i.i.i44 to i64
   %59 = add nuw nsw i64 %58, %57
@@ -801,7 +783,6 @@ _ZN4llvm5ErrorD2Ev.exit49:                        ; preds = %54
   ]
 
 63:                                               ; preds = %61
-  call void @llvm.assume(i1 true) [ "align"(ptr %55, i64 1) ]
   %.0.copyload.i.i.i50 = load i32, ptr %55, align 1
   %64 = icmp eq i32 %.0.copyload.i.i.i50, 0
   br i1 %64, label %91, label %.thread145
@@ -1247,7 +1228,6 @@ _ZN4llvm5ErrorD2Ev.exit11:                        ; preds = %_ZNK4llvm12DenseMap
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.0.0.copyload.i.i.i.i = load ptr, ptr %51, align 8, !tbaa !24, !noalias !245
   %52 = getelementptr inbounds nuw i8, ptr %50, i64 8
-  call void @llvm.assume(i1 true) [ "align"(ptr %52, i64 1) ]
   %.0.copyload.i.i.i.i.i = load i32, ptr %52, align 1, !noalias !245
   %53 = zext i32 %.0.copyload.i.i.i.i.i to i64
   %54 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i.i.i, i64 %53
@@ -1302,7 +1282,6 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i8.i: 
 
 70:                                               ; preds = %67
   %71 = getelementptr inbounds nuw i8, ptr %54, i64 24
-  call void @llvm.assume(i1 true) [ "align"(ptr %71, i64 1) ]
   %.0.copyload.i.i.i18 = load i64, ptr %71, align 1
   %72 = add i64 %.0.copyload.i.i.i18, %.sroa.970.0.copyload
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -1513,18 +1492,16 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapINS_8minidump10StreamTypeEmNS_12DenseMapInfo
   %34 = load i64, ptr %33, align 8, !tbaa !18, !noalias !283
   %35 = load ptr, ptr %32, align 8, !tbaa !21, !noalias !283
   %36 = getelementptr inbounds nuw %"struct.llvm::minidump::Directory", ptr %35, i64 %34
-  %37 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.sroa.0.0.copyload.i.i.i.i = load ptr, ptr %37, align 8, !tbaa !24, !noalias !283
-  %38 = getelementptr inbounds nuw i8, ptr %36, i64 4
-  %39 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  call void @llvm.assume(i1 true) [ "align"(ptr %39, i64 1) ]
-  %.0.copyload.i.i.i.i.i = load i32, ptr %39, align 1, !noalias !283
-  call void @llvm.assume(i1 true) [ "align"(ptr %38, i64 1) ]
-  %.0.copyload.i.i.i3.i.i = load i32, ptr %38, align 1, !noalias !283
-  %40 = icmp ugt i32 %.0.copyload.i.i.i3.i.i, 15
-  br i1 %40, label %41, label %_ZN4llvm5ErrorD2Ev.exit
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 4
+  %.0.copyload.i.i.i3.i.i = load i32, ptr %37, align 1, !noalias !283
+  %38 = icmp ugt i32 %.0.copyload.i.i.i3.i.i, 15
+  br i1 %38, label %39, label %_ZN4llvm5ErrorD2Ev.exit
 
-41:                                               ; preds = %31
+39:                                               ; preds = %31
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.sroa.0.0.copyload.i.i.i.i = load ptr, ptr %40, align 8, !tbaa !24, !noalias !283
+  %41 = getelementptr inbounds nuw i8, ptr %36, i64 8
+  %.0.copyload.i.i.i.i.i = load i32, ptr %41, align 1, !noalias !283
   %42 = zext i32 %.0.copyload.i.i.i.i.i to i64
   %43 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i.i.i, i64 %42
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1567,8 +1544,8 @@ _ZN4llvm5ErrorD2Ev.exit2:                         ; preds = %_ZNK4llvm12DenseMap
   store i8 %59, ptr %57, align 8
   br label %_ZNK4llvm6object12MinidumpFile12getRawStreamENS_8minidump10StreamTypeE.exit.thread13
 
-_ZNK4llvm6object12MinidumpFile12getRawStreamENS_8minidump10StreamTypeE.exit.thread13: ; preds = %41, %_ZN4llvm5ErrorD2Ev.exit, %_ZN4llvm5ErrorD2Ev.exit2
-  %.sink = phi ptr [ %43, %41 ], [ %47, %_ZN4llvm5ErrorD2Ev.exit ], [ %53, %_ZN4llvm5ErrorD2Ev.exit2 ]
+_ZNK4llvm6object12MinidumpFile12getRawStreamENS_8minidump10StreamTypeE.exit.thread13: ; preds = %39, %_ZN4llvm5ErrorD2Ev.exit, %_ZN4llvm5ErrorD2Ev.exit2
+  %.sink = phi ptr [ %43, %39 ], [ %47, %_ZN4llvm5ErrorD2Ev.exit ], [ %53, %_ZN4llvm5ErrorD2Ev.exit2 ]
   store ptr %.sink, ptr %0, align 8, !tbaa !146
   ret void
 }
@@ -1808,7 +1785,7 @@ declare i64 @llvm.umin.i64(i64, i64) #14
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #14
 
-attributes #0 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

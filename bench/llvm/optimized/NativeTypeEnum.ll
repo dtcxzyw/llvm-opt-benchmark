@@ -1898,7 +1898,6 @@ define linkonce_odr hidden void @_ZN4llvm8codeview16TypeDeserializer13deserializ
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %.pre, i64 2
-  call void @llvm.assume(i1 true) [ "align"(ptr %9, i64 1) ]
   %.0.copyload.i.i.i.i = load i16, ptr %9, align 1
   br label %_ZNK4llvm8codeview8CVRecordINS0_12TypeLeafKindEE4kindEv.exit
 
@@ -3112,7 +3111,6 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairINS_
   call void @llvm.assume(i1 true) [ "align"(ptr %2, i64 1) ]
   %25 = zext i32 %24 to i64
   %26 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %6, i64 %25
-  call void @llvm.assume(i1 true) [ "align"(ptr %26, i64 1) ]
   %.0.copyload.i.i.i.i2.i.i.i50.i = load i32, ptr %26, align 1
   %27 = icmp eq i32 %.0.copyload.i.i.i.i.i.i.i.i, %.0.copyload.i.i.i.i2.i.i.i50.i
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 4
@@ -3128,7 +3126,6 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairINS_
   %.02553.i = phi i32 [ %44, %39 ], [ 1, %10 ]
   %.02752.i = phi i32 [ %46, %39 ], [ %24, %10 ]
   %.02951.i = phi ptr [ %spec.select.i, %39 ], [ null, %10 ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %33, i64 1) ]
   %34 = icmp eq i32 %.0.copyload.i.i.i.i2.i.i.i54.i, -1
   %35 = icmp eq i32 %32, -1
   %36 = select i1 %34, i1 %35, i1 false
@@ -3140,7 +3137,6 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairINS_
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairINS_8codeview9TypeIndexEjEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit
 
 39:                                               ; preds = %.lr.ph.i
-  call void @llvm.assume(i1 true) [ "align"(ptr %33, i64 1) ]
   %40 = icmp eq i32 %.0.copyload.i.i.i.i2.i.i.i54.i, -2
   %41 = icmp eq i32 %32, -2
   %42 = select i1 %40, i1 %41, i1 false
@@ -3152,7 +3148,6 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairINS_
   %46 = and i32 %45, %23
   %47 = zext i32 %46 to i64
   %48 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %6, i64 %47
-  call void @llvm.assume(i1 true) [ "align"(ptr %48, i64 1) ]
   %.0.copyload.i.i.i.i2.i.i.i.i = load i32, ptr %48, align 1
   %49 = icmp eq i32 %.0.copyload.i.i.i.i.i.i.i.i, %.0.copyload.i.i.i.i2.i.i.i.i
   %50 = getelementptr inbounds nuw i8, ptr %48, i64 4
@@ -3200,7 +3195,6 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairINS_8codeview9TypeIndexEjEjNS_12Dense
   %69 = phi i32 [ %.pre.i, %.sink.split.i.i ], [ %55, %61 ]
   %70 = add i32 %69, 1
   store i32 %70, ptr %54, align 8, !tbaa !193
-  call void @llvm.assume(i1 true) [ "align"(ptr %68, i64 1) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i = load i32, ptr %68, align 1
   %71 = icmp eq i32 %.0.copyload.i.i.i.i.i.i.i.i.i, -1
   %72 = getelementptr inbounds nuw i8, ptr %68, i64 4
@@ -3418,7 +3412,6 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseM
   call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 1) ]
   %23 = zext i32 %22 to i64
   %24 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %4, i64 %23
-  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 1) ]
   %.0.copyload.i.i.i.i2.i.i.i50 = load i32, ptr %24, align 1
   %25 = icmp eq i32 %.0.copyload.i.i.i.i.i.i.i, %.0.copyload.i.i.i.i2.i.i.i50
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 4
@@ -3434,7 +3427,6 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseM
   %.02553 = phi i32 [ %42, %37 ], [ 1, %8 ]
   %.02752 = phi i32 [ %44, %37 ], [ %22, %8 ]
   %.02951 = phi ptr [ %spec.select, %37 ], [ null, %8 ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %31, i64 1) ]
   %32 = icmp eq i32 %.0.copyload.i.i.i.i2.i.i.i54, -1
   %33 = icmp eq i32 %30, -1
   %34 = select i1 %32, i1 %33, i1 false
@@ -3446,7 +3438,6 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseM
   br label %._crit_edge
 
 37:                                               ; preds = %.lr.ph
-  call void @llvm.assume(i1 true) [ "align"(ptr %31, i64 1) ]
   %38 = icmp eq i32 %.0.copyload.i.i.i.i2.i.i.i54, -2
   %39 = icmp eq i32 %30, -2
   %40 = select i1 %38, i1 %39, i1 false
@@ -3458,7 +3449,6 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseM
   %44 = and i32 %43, %21
   %45 = zext i32 %44 to i64
   %46 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %4, i64 %45
-  call void @llvm.assume(i1 true) [ "align"(ptr %46, i64 1) ]
   %.0.copyload.i.i.i.i2.i.i.i = load i32, ptr %46, align 1
   %47 = icmp eq i32 %.0.copyload.i.i.i.i.i.i.i, %.0.copyload.i.i.i.i2.i.i.i
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 4
@@ -3564,7 +3554,6 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairINS_8codeview9TypeIndexEjEjNS_12Dense
 
 .lr.ph:                                           ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairINS_8codeview9TypeIndexEjEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E9initEmptyEv.exit, %73
   %.024 = phi ptr [ %74, %73 ], [ %1, %_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairINS_8codeview9TypeIndexEjEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E9initEmptyEv.exit ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %.024, i64 1) ]
   %.0.copyload.i.i.i.i.i.i.i = load i32, ptr %.024, align 1
   %12 = icmp eq i32 %.0.copyload.i.i.i.i.i.i.i, -1
   %13 = getelementptr inbounds nuw i8, ptr %.024, i64 4
@@ -3574,7 +3563,6 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairINS_8codeview9TypeIndexEjEjNS_12Dense
   br i1 %16, label %73, label %17
 
 17:                                               ; preds = %.lr.ph
-  call void @llvm.assume(i1 true) [ "align"(ptr %.024, i64 1) ]
   %18 = icmp eq i32 %.0.copyload.i.i.i.i.i.i.i, -2
   %19 = icmp eq i32 %14, -2
   %20 = select i1 %18, i1 %19, i1 false
@@ -3585,7 +3573,6 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairINS_8codeview9TypeIndexEjEjNS_12Dense
   %23 = load i32, ptr %7, align 8, !tbaa !187
   %24 = icmp ne i32 %23, 0
   tail call void @llvm.assume(i1 %24)
-  call void @llvm.assume(i1 true) [ "align"(ptr %.024, i64 1) ]
   %25 = mul i32 %.0.copyload.i.i.i.i.i.i.i, 37
   %26 = mul i32 %14, 37
   %27 = zext i32 %25 to i64
@@ -3598,10 +3585,8 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairINS_8codeview9TypeIndexEjEjNS_12Dense
   %34 = trunc i64 %33 to i32
   %35 = add i32 %23, -1
   %36 = and i32 %35, %34
-  call void @llvm.assume(i1 true) [ "align"(ptr %.024, i64 1) ]
   %37 = zext i32 %36 to i64
   %38 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %22, i64 %37
-  call void @llvm.assume(i1 true) [ "align"(ptr %38, i64 1) ]
   %.0.copyload.i.i.i.i2.i.i.i50.i = load i32, ptr %38, align 1
   %39 = icmp eq i32 %.0.copyload.i.i.i.i.i.i.i, %.0.copyload.i.i.i.i2.i.i.i50.i
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 4
@@ -3617,7 +3602,6 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairINS_8codeview9TypeIndexEjEjNS_12Dense
   %.02553.i = phi i32 [ %56, %51 ], [ 1, %21 ]
   %.02752.i = phi i32 [ %58, %51 ], [ %36, %21 ]
   %.02951.i = phi ptr [ %spec.select.i, %51 ], [ null, %21 ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %45, i64 1) ]
   %46 = icmp eq i32 %.0.copyload.i.i.i.i2.i.i.i54.i, -1
   %47 = icmp eq i32 %44, -1
   %48 = select i1 %46, i1 %47, i1 false
@@ -3629,7 +3613,6 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairINS_8codeview9TypeIndexEjEjNS_12Dense
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairINS_8codeview9TypeIndexEjEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit
 
 51:                                               ; preds = %.lr.ph.i15
-  call void @llvm.assume(i1 true) [ "align"(ptr %45, i64 1) ]
   %52 = icmp eq i32 %.0.copyload.i.i.i.i2.i.i.i54.i, -2
   %53 = icmp eq i32 %44, -2
   %54 = select i1 %52, i1 %53, i1 false
@@ -3641,7 +3624,6 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairINS_8codeview9TypeIndexEjEjNS_12Dense
   %58 = and i32 %57, %35
   %59 = zext i32 %58 to i64
   %60 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %22, i64 %59
-  call void @llvm.assume(i1 true) [ "align"(ptr %60, i64 1) ]
   %.0.copyload.i.i.i.i2.i.i.i.i = load i32, ptr %60, align 1
   %61 = icmp eq i32 %.0.copyload.i.i.i.i.i.i.i, %.0.copyload.i.i.i.i2.i.i.i.i
   %62 = getelementptr inbounds nuw i8, ptr %60, i64 4

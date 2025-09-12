@@ -8216,7 +8216,6 @@ define internal void @_ZN12_GLOBAL__N_118CVSymbolDumperImpl16visitSymbolBeginERN
 _ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit: ; preds = %3
   %13 = load ptr, ptr %2, align 8, !tbaa !77
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 2
-  call void @llvm.assume(i1 true) [ "align"(ptr %14, i64 1) ]
   %.0.copyload.i.i.i.i = load i16, ptr %14, align 1
   switch i16 %.0.copyload.i.i.i.i, label %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit.thread [
     i16 4456, label %_ZL17getSymbolKindNameN4llvm8codeview10SymbolKindE.exit
@@ -8513,7 +8512,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %97, %99
 108:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit
   %109 = load ptr, ptr %2, align 8, !tbaa !77
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 2
-  call void @llvm.assume(i1 true) [ "align"(ptr %110, i64 1) ]
   %.0.copyload.i.i.i.i6 = load i16, ptr %110, align 1
   %111 = zext i16 %.0.copyload.i.i.i.i6 to i32
   br label %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit8
@@ -12156,7 +12154,6 @@ define internal void @_ZN12_GLOBAL__N_118CVSymbolDumperImpl16visitKnownRecordERN
 _ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit: ; preds = %4
   %9 = load ptr, ptr %2, align 8, !tbaa !77
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 2
-  call void @llvm.assume(i1 true) [ "align"(ptr %10, i64 1) ]
   %.0.copyload.i.i.i.i = load i16, ptr %10, align 1
   switch i16 %.0.copyload.i.i.i.i, label %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit.thread [
     i16 4442, label %17

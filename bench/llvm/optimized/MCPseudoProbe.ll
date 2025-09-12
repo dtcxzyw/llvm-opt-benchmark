@@ -1153,7 +1153,6 @@ _ZNK4llvm8MCSymbol7getNameEv.exit:                ; preds = %165, %168
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %3, ptr %.sroa.0.0.i, i64 %.sroa.4.0.i) #21
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN4llvm3MD55finalERNS0_9MD5ResultE(ptr noundef nonnull align 4 dereferenceable(152) %3, ptr noundef nonnull align 1 dereferenceable(16) %4) #21
-  call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 1) ]
   %.0.copyload.i.i.i.i.i.i = load i64, ptr %4, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -2288,14 +2287,12 @@ define dso_local noundef zeroext i1 @_ZN4llvm20MCPseudoProbeDecoder21buildGUID2F
   br i1 %13, label %"_ZN4llvm4sortIRNS_20GUIDProbeFunctionMapEZNS_20MCPseudoProbeDecoder21buildGUID2FuncDescMapEPKhmbE3$_0EEvOT_T0_.exit", label %_ZN4llvm20MCPseudoProbeDecoder19readUnencodedNumberImEENS_7ErrorOrIT_EEv.exit
 
 _ZN4llvm20MCPseudoProbeDecoder19readUnencodedNumberImEENS_7ErrorOrIT_EEv.exit: ; preds = %.lr.ph
-  call void @llvm.assume(i1 true) [ "align"(ptr %11, i64 1) ]
   store ptr %12, ptr %7, align 8, !tbaa !363, !noalias !451
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %15 = icmp ugt ptr %14, %8
   br i1 %15, label %"_ZN4llvm4sortIRNS_20GUIDProbeFunctionMapEZNS_20MCPseudoProbeDecoder21buildGUID2FuncDescMapEPKhmbE3$_0EEvOT_T0_.exit", label %_ZN4llvm20MCPseudoProbeDecoder19readUnencodedNumberImEENS_7ErrorOrIT_EEv.exit16
 
 _ZN4llvm20MCPseudoProbeDecoder19readUnencodedNumberImEENS_7ErrorOrIT_EEv.exit16: ; preds = %_ZN4llvm20MCPseudoProbeDecoder19readUnencodedNumberImEENS_7ErrorOrIT_EEv.exit
-  call void @llvm.assume(i1 true) [ "align"(ptr %12, i64 1) ]
   store ptr %14, ptr %7, align 8, !tbaa !363, !noalias !454
   %16 = ptrtoint ptr %14 to i64
   br label %17
@@ -2426,7 +2423,6 @@ _ZNSt6vectorIN4llvm21MCPseudoProbeFuncDescESaIS1_EE7reserveEm.exit.._crit_edge20
   br i1 %67, label %_ZNK4llvm7ErrorOrImE8getErrorEv.exit.i, label %_ZN4llvm20MCPseudoProbeDecoder19readUnencodedNumberImEENS_7ErrorOrIT_EEv.exit20
 
 _ZN4llvm20MCPseudoProbeDecoder19readUnencodedNumberImEENS_7ErrorOrIT_EEv.exit20: ; preds = %63
-  call void @llvm.assume(i1 true) [ "align"(ptr %65, i64 1) ]
   %.0.copyload.i.i.i.i18 = load i64, ptr %65, align 1, !noalias !475
   store ptr %66, ptr %7, align 8, !tbaa !363, !noalias !475
   br label %_ZN4llvm8ExpectedImED2Ev.exit
@@ -2444,7 +2440,6 @@ _ZN4llvm8ExpectedImED2Ev.exit:                    ; preds = %_ZNK4llvm7ErrorOrIm
   br i1 %71, label %_ZNK4llvm7ErrorOrImE8getErrorEv.exit.i26, label %_ZN4llvm20MCPseudoProbeDecoder19readUnencodedNumberImEENS_7ErrorOrIT_EEv.exit24
 
 _ZN4llvm20MCPseudoProbeDecoder19readUnencodedNumberImEENS_7ErrorOrIT_EEv.exit24: ; preds = %_ZN4llvm8ExpectedImED2Ev.exit
-  call void @llvm.assume(i1 true) [ "align"(ptr %68, i64 1) ]
   %.0.copyload.i.i.i.i22 = load i64, ptr %68, align 1, !noalias !478
   store ptr %69, ptr %7, align 8, !tbaa !363, !noalias !478
   br label %_ZN4llvm8ExpectedImED2Ev.exit35
@@ -3263,7 +3258,6 @@ define linkonce_odr noundef zeroext i1 @_ZN4llvm20MCPseudoProbeDecoder12countRec
   br i1 %11, label %_ZN4llvm20MCPseudoProbeDecoder18readUnsignedNumberIjEENS_7ErrorOrIT_EEv.exit.thread, label %12
 
 12:                                               ; preds = %5
-  call void @llvm.assume(i1 true) [ "align"(ptr %7, i64 1) ]
   %.0.copyload.i.i.i.i = load i64, ptr %7, align 1, !noalias !549
   store ptr %8, ptr %6, align 8, !tbaa !363, !noalias !549
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -3478,7 +3472,6 @@ _ZN4llvm20MCPseudoProbeDecoder18readUnsignedNumberIjEENS_7ErrorOrIT_EEv.exit79: 
   br i1 %110, label %_ZN4llvm20MCPseudoProbeDecoder18readUnsignedNumberIjEENS_7ErrorOrIT_EEv.exit.thread, label %111
 
 111:                                              ; preds = %_ZN4llvm20MCPseudoProbeDecoder18readUnsignedNumberIjEENS_7ErrorOrIT_EEv.exit79
-  call void @llvm.assume(i1 true) [ "align"(ptr %107, i64 1) ]
   %.0.copyload.i.i.i.i80 = load i8, ptr %107, align 1, !noalias !569
   store ptr %109, ptr %6, align 8, !tbaa !363, !noalias !569
   %.sroa.0116.0.insert.ext = zext i8 %.0.copyload.i.i.i.i80 to i32
@@ -3538,14 +3531,10 @@ switch.early.test.i.i:                            ; preds = %119
 133:                                              ; preds = %111
   %134 = getelementptr inbounds nuw i8, ptr %107, i64 9
   %135 = icmp ugt ptr %134, %10
-  br i1 %135, label %_ZN4llvm20MCPseudoProbeDecoder18readUnsignedNumberIjEENS_7ErrorOrIT_EEv.exit.thread, label %_ZN4llvm20MCPseudoProbeDecoder19readUnencodedNumberIlEENS_7ErrorOrIT_EEv.exit
+  br i1 %135, label %_ZN4llvm20MCPseudoProbeDecoder18readUnsignedNumberIjEENS_7ErrorOrIT_EEv.exit.thread, label %_ZN4llvm20MCPseudoProbeDecoder16readSignedNumberIlEENS_7ErrorOrIT_EEv.exit
 
-_ZN4llvm20MCPseudoProbeDecoder19readUnencodedNumberIlEENS_7ErrorOrIT_EEv.exit: ; preds = %133
-  call void @llvm.assume(i1 true) [ "align"(ptr %109, i64 1) ]
-  br label %_ZN4llvm20MCPseudoProbeDecoder16readSignedNumberIlEENS_7ErrorOrIT_EEv.exit
-
-_ZN4llvm20MCPseudoProbeDecoder16readSignedNumberIlEENS_7ErrorOrIT_EEv.exit: ; preds = %.loopexit.i, %_ZN4llvm20MCPseudoProbeDecoder19readUnencodedNumberIlEENS_7ErrorOrIT_EEv.exit
-  %.sink = phi ptr [ %134, %_ZN4llvm20MCPseudoProbeDecoder19readUnencodedNumberIlEENS_7ErrorOrIT_EEv.exit ], [ %131, %.loopexit.i ]
+_ZN4llvm20MCPseudoProbeDecoder16readSignedNumberIlEENS_7ErrorOrIT_EEv.exit: ; preds = %133, %.loopexit.i
+  %.sink = phi ptr [ %131, %.loopexit.i ], [ %134, %133 ]
   store ptr %.sink, ptr %6, align 8, !tbaa !363, !noalias !498
   %136 = and i32 %.sroa.0116.0.insert.ext, 64
   %.not = icmp eq i32 %136, 0
@@ -3652,7 +3641,6 @@ define linkonce_odr noundef zeroext i1 @_ZN4llvm20MCPseudoProbeDecoder21buildAdd
   br i1 %12, label %_ZN4llvm8ExpectedImED2Ev.exit, label %_ZN4llvm20MCPseudoProbeDecoder19readUnencodedNumberImEENS_7ErrorOrIT_EEv.exit
 
 _ZN4llvm20MCPseudoProbeDecoder19readUnencodedNumberImEENS_7ErrorOrIT_EEv.exit: ; preds = %6
-  call void @llvm.assume(i1 true) [ "align"(ptr %8, i64 1) ]
   %.0.copyload.i.i.i.i = load i64, ptr %8, align 1, !noalias !581
   store ptr %9, ptr %7, align 8, !tbaa !363, !noalias !581
   br label %_ZN4llvm8ExpectedImED2Ev.exit
@@ -3989,7 +3977,6 @@ _ZNK4llvm7ErrorOrIjE8getErrorEv.exit.thread.i101: ; preds = %_ZN4llvm13decodeULE
   br i1 %160, label %_ZNK4llvm7ErrorOrIhE8getErrorEv.exit.thread.i.thread, label %_ZNK4llvm7ErrorOrIhE8getErrorEv.exit.thread.i
 
 _ZNK4llvm7ErrorOrIhE8getErrorEv.exit.thread.i:    ; preds = %_ZNK4llvm7ErrorOrIjE8getErrorEv.exit.thread.i101
-  call void @llvm.assume(i1 true) [ "align"(ptr %158, i64 1) ]
   %.0.copyload.i.i.i.i112 = load i8, ptr %158, align 1, !noalias !600
   store ptr %159, ptr %7, align 8, !tbaa !363, !noalias !600
   %161 = and i8 %.0.copyload.i.i.i.i112, 15
@@ -4083,7 +4070,6 @@ _ZNK4llvm7ErrorOrIhE8getErrorEv.exit.thread.i.thread: ; preds = %_ZNK4llvm7Error
   br i1 %196, label %_ZNK4llvm7ErrorOrIlE8getErrorEv.exit.i133, label %_ZN4llvm20MCPseudoProbeDecoder19readUnencodedNumberIlEENS_7ErrorOrIT_EEv.exit
 
 _ZN4llvm20MCPseudoProbeDecoder19readUnencodedNumberIlEENS_7ErrorOrIT_EEv.exit: ; preds = %_ZNK4llvm7ErrorOrIhE8getErrorEv.exit.thread.i.thread
-  call void @llvm.assume(i1 true) [ "align"(ptr %194, i64 1) ]
   %.0.copyload.i.i.i.i130 = load i64, ptr %194, align 1, !noalias !606
   store ptr %195, ptr %7, align 8, !tbaa !363, !noalias !606
   br label %_ZN4llvm8ExpectedIlED2Ev.exit142
@@ -7585,7 +7571,6 @@ _ZN4llvm13decodeULEB128EPKhPjS1_PPKc.exit.thread.i: ; preds = %17, %10, %_ZN4llv
   br i1 %33, label %_ZN4llvm20MCPseudoProbeDecoder18readUnsignedNumberIjEENS_7ErrorOrIT_EEv.exit.thread, label %34
 
 34:                                               ; preds = %31
-  call void @llvm.assume(i1 true) [ "align"(ptr %27, i64 1) ]
   store ptr %32, ptr %6, align 8, !tbaa !363, !noalias !664
   %35 = ptrtoint ptr %32 to i64
   br label %36
@@ -7745,7 +7730,6 @@ _ZN4llvm20MCPseudoProbeDecoder18readUnsignedNumberIjEENS_7ErrorOrIT_EEv.exit89: 
   br i1 %100, label %_ZN4llvm20MCPseudoProbeDecoder18readUnsignedNumberIjEENS_7ErrorOrIT_EEv.exit.thread, label %101
 
 101:                                              ; preds = %_ZN4llvm20MCPseudoProbeDecoder18readUnsignedNumberIjEENS_7ErrorOrIT_EEv.exit89
-  call void @llvm.assume(i1 true) [ "align"(ptr %97, i64 1) ]
   %.0.copyload.i.i.i.i90 = load i8, ptr %97, align 1, !noalias !676
   store ptr %99, ptr %6, align 8, !tbaa !363, !noalias !676
   %.sroa.0126.0.insert.ext = zext i8 %.0.copyload.i.i.i.i90 to i32
@@ -7805,14 +7789,10 @@ switch.early.test.i.i:                            ; preds = %109
 123:                                              ; preds = %101
   %124 = getelementptr inbounds nuw i8, ptr %97, i64 9
   %125 = icmp ugt ptr %124, %29
-  br i1 %125, label %_ZN4llvm20MCPseudoProbeDecoder18readUnsignedNumberIjEENS_7ErrorOrIT_EEv.exit.thread, label %_ZN4llvm20MCPseudoProbeDecoder19readUnencodedNumberIlEENS_7ErrorOrIT_EEv.exit
+  br i1 %125, label %_ZN4llvm20MCPseudoProbeDecoder18readUnsignedNumberIjEENS_7ErrorOrIT_EEv.exit.thread, label %_ZN4llvm20MCPseudoProbeDecoder16readSignedNumberIlEENS_7ErrorOrIT_EEv.exit
 
-_ZN4llvm20MCPseudoProbeDecoder19readUnencodedNumberIlEENS_7ErrorOrIT_EEv.exit: ; preds = %123
-  call void @llvm.assume(i1 true) [ "align"(ptr %99, i64 1) ]
-  br label %_ZN4llvm20MCPseudoProbeDecoder16readSignedNumberIlEENS_7ErrorOrIT_EEv.exit
-
-_ZN4llvm20MCPseudoProbeDecoder16readSignedNumberIlEENS_7ErrorOrIT_EEv.exit: ; preds = %.loopexit.i, %_ZN4llvm20MCPseudoProbeDecoder19readUnencodedNumberIlEENS_7ErrorOrIT_EEv.exit
-  %.sink = phi ptr [ %124, %_ZN4llvm20MCPseudoProbeDecoder19readUnencodedNumberIlEENS_7ErrorOrIT_EEv.exit ], [ %121, %.loopexit.i ]
+_ZN4llvm20MCPseudoProbeDecoder16readSignedNumberIlEENS_7ErrorOrIT_EEv.exit: ; preds = %123, %.loopexit.i
+  %.sink = phi ptr [ %121, %.loopexit.i ], [ %124, %123 ]
   store ptr %.sink, ptr %6, align 8, !tbaa !363, !noalias !498
   %126 = and i32 %.sroa.0126.0.insert.ext, 64
   %.not179 = icmp eq i32 %126, 0
@@ -8066,7 +8046,6 @@ _ZN4llvm8ExpectedIjED2Ev.exit:                    ; preds = %_ZN4llvm13decodeULE
   br i1 %37, label %_ZN4llvm8ExpectedImED2Ev.exit, label %_ZN4llvm20MCPseudoProbeDecoder19readUnencodedNumberImEENS_7ErrorOrIT_EEv.exit
 
 _ZN4llvm20MCPseudoProbeDecoder19readUnencodedNumberImEENS_7ErrorOrIT_EEv.exit: ; preds = %_ZN4llvm8ExpectedIjED2Ev.exit
-  call void @llvm.assume(i1 true) [ "align"(ptr %34, i64 1) ]
   %.0.copyload.i.i.i.i = load i64, ptr %34, align 1, !noalias !694
   store ptr %35, ptr %7, align 8, !tbaa !363, !noalias !694
   br label %_ZN4llvm8ExpectedImED2Ev.exit
@@ -8310,7 +8289,6 @@ _ZNK4llvm7ErrorOrIjE8getErrorEv.exit.thread.i120: ; preds = %_ZN4llvm13decodeULE
   br i1 %124, label %_ZNK4llvm7ErrorOrIhE8getErrorEv.exit.thread.i.thread, label %_ZNK4llvm7ErrorOrIhE8getErrorEv.exit.thread.i
 
 _ZNK4llvm7ErrorOrIhE8getErrorEv.exit.thread.i:    ; preds = %_ZNK4llvm7ErrorOrIjE8getErrorEv.exit.thread.i120
-  call void @llvm.assume(i1 true) [ "align"(ptr %122, i64 1) ]
   %.0.copyload.i.i.i.i131 = load i8, ptr %122, align 1, !noalias !706
   store ptr %123, ptr %7, align 8, !tbaa !363, !noalias !706
   %125 = and i8 %.0.copyload.i.i.i.i131, 15
@@ -8404,7 +8382,6 @@ _ZNK4llvm7ErrorOrIhE8getErrorEv.exit.thread.i.thread: ; preds = %_ZNK4llvm7Error
   br i1 %160, label %_ZNK4llvm7ErrorOrIlE8getErrorEv.exit.i152, label %_ZN4llvm20MCPseudoProbeDecoder19readUnencodedNumberIlEENS_7ErrorOrIT_EEv.exit
 
 _ZN4llvm20MCPseudoProbeDecoder19readUnencodedNumberIlEENS_7ErrorOrIT_EEv.exit: ; preds = %_ZNK4llvm7ErrorOrIhE8getErrorEv.exit.thread.i.thread
-  call void @llvm.assume(i1 true) [ "align"(ptr %158, i64 1) ]
   %.0.copyload.i.i.i.i149 = load i64, ptr %158, align 1, !noalias !712
   store ptr %159, ptr %7, align 8, !tbaa !363, !noalias !712
   br label %_ZN4llvm8ExpectedIlED2Ev.exit161

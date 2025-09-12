@@ -425,7 +425,6 @@ define dso_local void @_ZN4llvm3pdb12GSIHashTable4readERNS_18BinaryStreamReaderE
   store ptr %44, ptr %1, align 8, !tbaa !46, !noalias !29
   call void @llvm.lifetime.end.p0(ptr nonnull %32), !noalias !29
   call void @llvm.lifetime.end.p0(ptr nonnull %33), !noalias !23
-  call void @llvm.assume(i1 true) [ "align"(ptr %44, i64 1) ]
   %.0.copyload.i.i.i.i = load i32, ptr %44, align 1, !noalias !23
   %.not.i = icmp eq i32 %.0.copyload.i.i.i.i, -1
   br i1 %.not.i, label %50, label %45
@@ -449,7 +448,6 @@ define dso_local void @_ZN4llvm3pdb12GSIHashTable4readERNS_18BinaryStreamReaderE
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 8
   call void @llvm.experimental.noalias.scope.decl(metadata !53)
   %52 = getelementptr inbounds nuw i8, ptr %44, i64 4
-  call void @llvm.assume(i1 true) [ "align"(ptr %52, i64 1) ]
   %.0.copyload.i.i.i.i.i = load i32, ptr %52, align 1, !noalias !56
   %.not.i.i16 = icmp eq i32 %.0.copyload.i.i.i.i.i, -248575718
   br i1 %.not.i.i16, label %58, label %53
@@ -470,7 +468,6 @@ define dso_local void @_ZN4llvm3pdb12GSIHashTable4readERNS_18BinaryStreamReaderE
 
 58:                                               ; preds = %50
   %59 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  call void @llvm.assume(i1 true) [ "align"(ptr %59, i64 1) ]
   %.0.copyload.i.i.i.i17 = load i32, ptr %59, align 1, !noalias !53
   %60 = and i32 %.0.copyload.i.i.i.i17, 7
   %.not.i18 = icmp eq i32 %60, 0
@@ -491,7 +488,6 @@ define dso_local void @_ZN4llvm3pdb12GSIHashTable4readERNS_18BinaryStreamReaderE
   br label %_ZN4llvm5ErrorD2Ev.exit19.thread33.sink.split
 
 66:                                               ; preds = %58
-  call void @llvm.assume(i1 true) [ "align"(ptr %59, i64 1) ]
   %67 = lshr exact i32 %.0.copyload.i.i.i.i17, 3
   call void @llvm.lifetime.start.p0(ptr nonnull %29), !noalias !53
   call void @_ZN4llvm18BinaryStreamReader9readArrayINS_3pdb12PSHashRecordEEENS_5ErrorERNS_16FixedStreamArrayIT_EEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %29, ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(48) %51, i32 noundef %67), !noalias !53
@@ -568,7 +564,6 @@ _ZL18readGSIHashRecordsRN4llvm16FixedStreamArrayINS_3pdb12PSHashRecordEEEPKNS1_1
 92:                                               ; preds = %_ZN4llvm5ErrorD2Ev.exit19.thread, %_ZL18readGSIHashRecordsRN4llvm16FixedStreamArrayINS_3pdb12PSHashRecordEEEPKNS1_13GSIHashHeaderERNS_18BinaryStreamReaderE.exit
   %93 = load ptr, ptr %1, align 8, !tbaa !77
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 8
-  call void @llvm.assume(i1 true) [ "align"(ptr %94, i64 1) ]
   %.0.copyload.i.i.i = load i32, ptr %94, align 1
   %.not = icmp eq i32 %.0.copyload.i.i.i, 0
   br i1 %.not, label %_ZN4llvm5ErrorD2Ev.exit19.thread33.sink.split, label %95
@@ -580,7 +575,6 @@ _ZL18readGSIHashRecordsRN4llvm16FixedStreamArrayINS_3pdb12PSHashRecordEEEPKNS1_1
   call void @llvm.experimental.noalias.scope.decl(metadata !90)
   call void @llvm.experimental.noalias.scope.decl(metadata !93)
   %99 = getelementptr inbounds nuw i8, ptr %93, i64 4
-  call void @llvm.assume(i1 true) [ "align"(ptr %99, i64 1) ]
   %.0.copyload.i.i.i.i.i20 = load i32, ptr %99, align 1, !noalias !96
   %.not.i.i21 = icmp eq i32 %.0.copyload.i.i.i.i.i20, -248575718
   br i1 %.not.i.i21, label %104, label %_ZN4llvm5ErrorD2Ev.exit25.thread38
@@ -821,7 +815,6 @@ _ZNK4llvm16FixedStreamArrayINS_7support6detail31packed_endian_specific_integralI
   call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !90
   %195 = load ptr, ptr %15, align 8, !tbaa !42, !noalias !90
   call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !90
-  call void @llvm.assume(i1 true) [ "align"(ptr %195, i64 1) ]
   %.0.copyload.i.i.i.i23 = load i32, ptr %195, align 1, !noalias !90
   %196 = shl nuw i32 1, %177
   %197 = and i32 %.0.copyload.i.i.i.i23, %196
@@ -1017,7 +1010,6 @@ _ZN4llvm24FixedStreamArrayIteratorINS_7support6detail31packed_endian_specific_in
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !90
   %273 = load ptr, ptr %10, align 8, !tbaa !42, !noalias !90
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !90
-  call void @llvm.assume(i1 true) [ "align"(ptr %273, i64 1) ]
   %.0.copyload.i.i.i50.i = load i32, ptr %273, align 1, !noalias !90
   %274 = call noundef range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %.0.copyload.i.i.i50.i)
   %275 = add i32 %274, %.029.i
@@ -1269,7 +1261,6 @@ _ZNK4llvm16FixedStreamArrayINS_7support6detail31packed_endian_specific_integralI
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   %67 = load ptr, ptr %19, align 8, !tbaa !42
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
-  call void @llvm.assume(i1 true) [ "align"(ptr %67, i64 1) ]
   %.0.copyload.i.i.i = load i32, ptr %67, align 1
   %68 = udiv i32 %.0.copyload.i.i.i, 12
   %69 = icmp ult i32 %26, %49
@@ -1326,7 +1317,6 @@ _ZNK4llvm16FixedStreamArrayINS_7support6detail31packed_endian_specific_integralI
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %88 = load ptr, ptr %14, align 8, !tbaa !42
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  call void @llvm.assume(i1 true) [ "align"(ptr %88, i64 1) ]
   %.0.copyload.i.i.i27 = load i32, ptr %88, align 1
   br label %110
 

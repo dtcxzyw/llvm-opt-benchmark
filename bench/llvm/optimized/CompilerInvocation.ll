@@ -137940,9 +137940,7 @@ _ZN5clang12SanitizerSet5clearENS_13SanitizerMaskE.exit.critedge: ; preds = %2481
   %2644 = load ptr, ptr %358, align 8, !tbaa !3198
   call void @_ZN4llvm3MD55finalERNS0_9MD5ResultE(ptr noundef nonnull align 4 dereferenceable(152) %2644, ptr noundef nonnull align 1 dereferenceable(16) %355) #25
   %2645 = getelementptr inbounds nuw i8, ptr %355, i64 8
-  call void @llvm.assume(i1 true) [ "align"(ptr %2645, i64 1) ]
   %.0.copyload.i.i.i.i.i = load i64, ptr %2645, align 8
-  call void @llvm.assume(i1 true) [ "align"(ptr %355, i64 1) ]
   %.0.copyload.i.i.i.i.i95 = load i64, ptr %355, align 8
   %2646 = xor i64 %.0.copyload.i.i.i.i.i95, %.0.copyload.i.i.i.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %356)

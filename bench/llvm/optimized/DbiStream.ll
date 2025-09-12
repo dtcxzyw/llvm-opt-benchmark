@@ -1549,7 +1549,6 @@ _ZN4llvm5ErrorD2Ev.exit97:                        ; preds = %34
   store ptr %48, ptr %35, align 8, !tbaa !107, !noalias !95
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !95
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  call void @llvm.assume(i1 true) [ "align"(ptr %48, i64 1) ]
   %.0.copyload.i.i.i = load i32, ptr %48, align 1
   %.not = icmp eq i32 %.0.copyload.i.i.i, -1
   br i1 %.not, label %54, label %49
@@ -1572,7 +1571,6 @@ _ZN4llvm5ErrorD2Ev.exit97:                        ; preds = %34
 
 54:                                               ; preds = %_ZN4llvm5ErrorD2Ev.exit97
   %55 = getelementptr inbounds nuw i8, ptr %48, i64 4
-  call void @llvm.assume(i1 true) [ "align"(ptr %55, i64 1) ]
   %.0.copyload.i.i.i98 = load i32, ptr %55, align 1
   %56 = icmp ult i32 %.0.copyload.i.i.i98, 19990903
   br i1 %56, label %57, label %62
@@ -1601,37 +1599,30 @@ _ZN4llvm5ErrorD2Ev.exit97:                        ; preds = %34
   %67 = call noundef i64 %66(ptr noundef nonnull align 8 dereferenceable(8) %63) #19
   %68 = load ptr, ptr %35, align 8, !tbaa !71
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 24
-  call void @llvm.assume(i1 true) [ "align"(ptr %69, i64 1) ]
   %.0.copyload.i.i.i99 = load i32, ptr %69, align 1
   %70 = sext i32 %.0.copyload.i.i.i99 to i64
   %71 = add nsw i64 %70, 64
   %72 = getelementptr inbounds nuw i8, ptr %68, i64 28
-  call void @llvm.assume(i1 true) [ "align"(ptr %72, i64 1) ]
   %.0.copyload.i.i.i100 = load i32, ptr %72, align 1
   %73 = sext i32 %.0.copyload.i.i.i100 to i64
   %74 = add nsw i64 %71, %73
   %75 = getelementptr inbounds nuw i8, ptr %68, i64 32
-  call void @llvm.assume(i1 true) [ "align"(ptr %75, i64 1) ]
   %.0.copyload.i.i.i101 = load i32, ptr %75, align 1
   %76 = sext i32 %.0.copyload.i.i.i101 to i64
   %77 = add nsw i64 %74, %76
   %78 = getelementptr inbounds nuw i8, ptr %68, i64 36
-  call void @llvm.assume(i1 true) [ "align"(ptr %78, i64 1) ]
   %.0.copyload.i.i.i102 = load i32, ptr %78, align 1
   %79 = sext i32 %.0.copyload.i.i.i102 to i64
   %80 = add nsw i64 %77, %79
   %81 = getelementptr inbounds nuw i8, ptr %68, i64 40
-  call void @llvm.assume(i1 true) [ "align"(ptr %81, i64 1) ]
   %.0.copyload.i.i.i103 = load i32, ptr %81, align 1
   %82 = sext i32 %.0.copyload.i.i.i103 to i64
   %83 = add nsw i64 %80, %82
   %84 = getelementptr inbounds nuw i8, ptr %68, i64 48
-  call void @llvm.assume(i1 true) [ "align"(ptr %84, i64 1) ]
   %.0.copyload.i.i.i104 = load i32, ptr %84, align 1
   %85 = sext i32 %.0.copyload.i.i.i104 to i64
   %86 = add nsw i64 %83, %85
   %87 = getelementptr inbounds nuw i8, ptr %68, i64 52
-  call void @llvm.assume(i1 true) [ "align"(ptr %87, i64 1) ]
   %.0.copyload.i.i.i105 = load i32, ptr %87, align 1
   %88 = sext i32 %.0.copyload.i.i.i105 to i64
   %89 = add nsw i64 %86, %88
@@ -1655,7 +1646,6 @@ _ZN4llvm5ErrorD2Ev.exit97:                        ; preds = %34
   br label %.critedge70
 
 95:                                               ; preds = %62
-  call void @llvm.assume(i1 true) [ "align"(ptr %69, i64 1) ]
   %96 = and i32 %.0.copyload.i.i.i99, 3
   %.not63 = icmp eq i32 %96, 0
   br i1 %.not63, label %98, label %97
@@ -1668,7 +1658,6 @@ _ZN4llvm5ErrorD2Ev.exit97:                        ; preds = %34
   br label %.critedge70
 
 98:                                               ; preds = %95
-  call void @llvm.assume(i1 true) [ "align"(ptr %72, i64 1) ]
   %99 = and i32 %.0.copyload.i.i.i100, 3
   %.not64 = icmp eq i32 %99, 0
   br i1 %.not64, label %101, label %100
@@ -1681,7 +1670,6 @@ _ZN4llvm5ErrorD2Ev.exit97:                        ; preds = %34
   br label %.critedge70
 
 101:                                              ; preds = %98
-  call void @llvm.assume(i1 true) [ "align"(ptr %75, i64 1) ]
   %102 = and i32 %.0.copyload.i.i.i101, 3
   %.not65 = icmp eq i32 %102, 0
   br i1 %.not65, label %104, label %103
@@ -1694,7 +1682,6 @@ _ZN4llvm5ErrorD2Ev.exit97:                        ; preds = %34
   br label %.critedge70
 
 104:                                              ; preds = %101
-  call void @llvm.assume(i1 true) [ "align"(ptr %78, i64 1) ]
   %105 = and i32 %.0.copyload.i.i.i102, 3
   %.not66 = icmp eq i32 %105, 0
   br i1 %.not66, label %107, label %106
@@ -1707,7 +1694,6 @@ _ZN4llvm5ErrorD2Ev.exit97:                        ; preds = %34
   br label %.critedge70
 
 107:                                              ; preds = %104
-  call void @llvm.assume(i1 true) [ "align"(ptr %81, i64 1) ]
   %108 = and i32 %.0.copyload.i.i.i103, 3
   %.not67 = icmp eq i32 %108, 0
   br i1 %.not67, label %110, label %109
@@ -1721,7 +1707,6 @@ _ZN4llvm5ErrorD2Ev.exit97:                        ; preds = %34
 
 110:                                              ; preds = %107
   %111 = getelementptr inbounds nuw i8, ptr %1, i64 248
-  call void @llvm.assume(i1 true) [ "align"(ptr %69, i64 1) ]
   call void @_ZN4llvm18BinaryStreamReader13readSubstreamERNS_18BinarySubstreamRefEj(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %10, ptr noundef nonnull align 8 dereferenceable(56) %111, i32 noundef %.0.copyload.i.i.i99) #19
   %112 = load ptr, ptr %0, align 8, !tbaa !92
   %.not148 = icmp eq ptr %112, null
@@ -1731,7 +1716,6 @@ _ZN4llvm5ErrorD2Ev.exit112:                       ; preds = %110
   %113 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %114 = load ptr, ptr %35, align 8, !tbaa !71
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 28
-  call void @llvm.assume(i1 true) [ "align"(ptr %115, i64 1) ]
   %.0.copyload.i.i.i113 = load i32, ptr %115, align 1
   call void @_ZN4llvm18BinaryStreamReader13readSubstreamERNS_18BinarySubstreamRefEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %10, ptr noundef nonnull align 8 dereferenceable(56) %113, i32 noundef %.0.copyload.i.i.i113) #19
   %116 = load ptr, ptr %0, align 8, !tbaa !92
@@ -1742,7 +1726,6 @@ _ZN4llvm5ErrorD2Ev.exit114:                       ; preds = %_ZN4llvm5ErrorD2Ev.
   %117 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %118 = load ptr, ptr %35, align 8, !tbaa !71
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 32
-  call void @llvm.assume(i1 true) [ "align"(ptr %119, i64 1) ]
   %.0.copyload.i.i.i115 = load i32, ptr %119, align 1
   call void @_ZN4llvm18BinaryStreamReader13readSubstreamERNS_18BinarySubstreamRefEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %10, ptr noundef nonnull align 8 dereferenceable(56) %117, i32 noundef %.0.copyload.i.i.i115) #19
   %120 = load ptr, ptr %0, align 8, !tbaa !92
@@ -1753,7 +1736,6 @@ _ZN4llvm5ErrorD2Ev.exit116:                       ; preds = %_ZN4llvm5ErrorD2Ev.
   %121 = getelementptr inbounds nuw i8, ptr %1, i64 304
   %122 = load ptr, ptr %35, align 8, !tbaa !71
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 36
-  call void @llvm.assume(i1 true) [ "align"(ptr %123, i64 1) ]
   %.0.copyload.i.i.i117 = load i32, ptr %123, align 1
   call void @_ZN4llvm18BinaryStreamReader13readSubstreamERNS_18BinarySubstreamRefEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %10, ptr noundef nonnull align 8 dereferenceable(56) %121, i32 noundef %.0.copyload.i.i.i117) #19
   %124 = load ptr, ptr %0, align 8, !tbaa !92
@@ -1764,7 +1746,6 @@ _ZN4llvm5ErrorD2Ev.exit118:                       ; preds = %_ZN4llvm5ErrorD2Ev.
   %125 = getelementptr inbounds nuw i8, ptr %1, i64 360
   %126 = load ptr, ptr %35, align 8, !tbaa !71
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 40
-  call void @llvm.assume(i1 true) [ "align"(ptr %127, i64 1) ]
   %.0.copyload.i.i.i119 = load i32, ptr %127, align 1
   call void @_ZN4llvm18BinaryStreamReader13readSubstreamERNS_18BinarySubstreamRefEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %10, ptr noundef nonnull align 8 dereferenceable(56) %125, i32 noundef %.0.copyload.i.i.i119) #19
   %128 = load ptr, ptr %0, align 8, !tbaa !92
@@ -1775,7 +1756,6 @@ _ZN4llvm5ErrorD2Ev.exit120:                       ; preds = %_ZN4llvm5ErrorD2Ev.
   %129 = getelementptr inbounds nuw i8, ptr %1, i64 416
   %130 = load ptr, ptr %35, align 8, !tbaa !71
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 52
-  call void @llvm.assume(i1 true) [ "align"(ptr %131, i64 1) ]
   %.0.copyload.i.i.i121 = load i32, ptr %131, align 1
   call void @_ZN4llvm18BinaryStreamReader13readSubstreamERNS_18BinarySubstreamRefEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %10, ptr noundef nonnull align 8 dereferenceable(56) %129, i32 noundef %.0.copyload.i.i.i121) #19
   %132 = load ptr, ptr %0, align 8, !tbaa !92
@@ -1786,7 +1766,6 @@ _ZN4llvm5ErrorD2Ev.exit122:                       ; preds = %_ZN4llvm5ErrorD2Ev.
   %133 = getelementptr inbounds nuw i8, ptr %1, i64 824
   %134 = load ptr, ptr %35, align 8, !tbaa !71
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 48
-  call void @llvm.assume(i1 true) [ "align"(ptr %135, i64 1) ]
   %.0.copyload.i.i.i123 = load i32, ptr %135, align 1
   %136 = ashr i32 %.0.copyload.i.i.i123, 1
   call void @_ZN4llvm18BinaryStreamReader9readArrayINS_7support6detail31packed_endian_specific_integralItLNS_10endiannessE1ELm1ELm1EEEEENS_5ErrorERNS_16FixedStreamArrayIT_EEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %10, ptr noundef nonnull align 8 dereferenceable(48) %133, i32 noundef %136)
@@ -2815,7 +2794,6 @@ _ZN4llvm5ErrorD2Ev.exit6:                         ; preds = %_ZN4llvm19BinaryStr
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 16
   %72 = load ptr, ptr %71, align 8
   %73 = call noundef i32 %72(ptr noundef nonnull align 8 dereferenceable(8) %69) #19
-  call void @llvm.assume(i1 true) [ "align"(ptr %67, i64 1) ]
   %.0.copyload.i.i.i = load i32, ptr %67, align 1
   %.not.i.i.i.i5 = icmp eq i32 %73, 1
   %74 = call i32 @llvm.bswap.i32(i32 %.0.copyload.i.i.i)
@@ -3458,7 +3436,6 @@ _ZN4llvm5ErrorD2Ev.exit10:                        ; preds = %_ZN4llvm19BinaryStr
   %63 = load ptr, ptr %3, align 8, !tbaa !104, !noalias !210
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !210
   %64 = getelementptr inbounds nuw i8, ptr %1, i64 976
-  call void @llvm.assume(i1 true) [ "align"(ptr %63, i64 1) ]
   %.0.copyload.i.i.i = load i16, ptr %63, align 1
   %65 = zext i16 %.0.copyload.i.i.i to i32
   call void @_ZN4llvm18BinaryStreamReader9readArrayINS_3pdb11SecMapEntryEEENS_5ErrorERNS_16FixedStreamArrayIT_EEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(48) %64, i32 noundef %65)
@@ -3999,163 +3976,148 @@ _ZN4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEED2Ev.exit:
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef i32 @_ZNK4llvm3pdb9DbiStream13getDbiVersionEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1224) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1216
   %3 = load ptr, ptr %2, align 8, !tbaa !71
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 1) ]
   %.0.copyload.i.i.i = load i32, ptr %4, align 1
   ret i32 %.0.copyload.i.i.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef i32 @_ZNK4llvm3pdb9DbiStream6getAgeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1224) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1216
   %3 = load ptr, ptr %2, align 8, !tbaa !71
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 1) ]
   %.0.copyload.i.i.i = load i32, ptr %4, align 1
   ret i32 %.0.copyload.i.i.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i16 @_ZNK4llvm3pdb9DbiStream26getPublicSymbolStreamIndexEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1224) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1216
   %3 = load ptr, ptr %2, align 8, !tbaa !71
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 1) ]
   %.0.copyload.i.i.i = load i16, ptr %4, align 1
   ret i16 %.0.copyload.i.i.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i16 @_ZNK4llvm3pdb9DbiStream26getGlobalSymbolStreamIndexEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1224) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1216
   %3 = load ptr, ptr %2, align 8, !tbaa !71
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 1) ]
   %.0.copyload.i.i.i = load i16, ptr %4, align 1
   ret i16 %.0.copyload.i.i.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i16 @_ZNK4llvm3pdb9DbiStream8getFlagsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1224) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1216
   %3 = load ptr, ptr %2, align 8, !tbaa !71
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 1) ]
   %.0.copyload.i.i.i = load i16, ptr %4, align 1
   ret i16 %.0.copyload.i.i.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZNK4llvm3pdb9DbiStream21isIncrementallyLinkedEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1224) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1216
   %3 = load ptr, ptr %2, align 8, !tbaa !71
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 1) ]
   %.0.copyload.i.i.i = load i16, ptr %4, align 1
   %5 = and i16 %.0.copyload.i.i.i, 1
   %6 = icmp ne i16 %5, 0
   ret i1 %6
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZNK4llvm3pdb9DbiStream9hasCTypesEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1224) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1216
   %3 = load ptr, ptr %2, align 8, !tbaa !71
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 1) ]
   %.0.copyload.i.i.i = load i16, ptr %4, align 1
   %5 = and i16 %.0.copyload.i.i.i, 4
   %6 = icmp ne i16 %5, 0
   ret i1 %6
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZNK4llvm3pdb9DbiStream10isStrippedEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1224) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1216
   %3 = load ptr, ptr %2, align 8, !tbaa !71
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 1) ]
   %.0.copyload.i.i.i = load i16, ptr %4, align 1
   %5 = and i16 %.0.copyload.i.i.i, 2
   %6 = icmp ne i16 %5, 0
   ret i1 %6
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i16 @_ZNK4llvm3pdb9DbiStream14getBuildNumberEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1224) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1216
   %3 = load ptr, ptr %2, align 8, !tbaa !71
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 14
-  call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 1) ]
   %.0.copyload.i.i.i = load i16, ptr %4, align 1
   ret i16 %.0.copyload.i.i.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext range(i16 0, 128) i16 @_ZNK4llvm3pdb9DbiStream20getBuildMajorVersionEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1224) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1216
   %3 = load ptr, ptr %2, align 8, !tbaa !71
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 14
-  call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 1) ]
   %.0.copyload.i.i.i = load i16, ptr %4, align 1
   %5 = lshr i16 %.0.copyload.i.i.i, 8
   %6 = and i16 %5, 127
   ret i16 %6
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext range(i16 0, 256) i16 @_ZNK4llvm3pdb9DbiStream20getBuildMinorVersionEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1224) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1216
   %3 = load ptr, ptr %2, align 8, !tbaa !71
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 14
-  call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 1) ]
   %.0.copyload.i.i.i = load i16, ptr %4, align 1
   %5 = and i16 %.0.copyload.i.i.i, 255
   ret i16 %5
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i16 @_ZNK4llvm3pdb9DbiStream13getPdbDllRbldEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1224) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1216
   %3 = load ptr, ptr %2, align 8, !tbaa !71
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 22
-  call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 1) ]
   %.0.copyload.i.i.i = load i16, ptr %4, align 1
   ret i16 %.0.copyload.i.i.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef range(i32 0, 65536) i32 @_ZNK4llvm3pdb9DbiStream16getPdbDllVersionEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1224) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1216
   %3 = load ptr, ptr %2, align 8, !tbaa !71
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 18
-  call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 1) ]
   %.0.copyload.i.i.i = load i16, ptr %4, align 1
   %5 = zext i16 %.0.copyload.i.i.i to i32
   ret i32 %5
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef range(i32 0, 65536) i32 @_ZNK4llvm3pdb9DbiStream23getSymRecordStreamIndexEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1224) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1216
   %3 = load ptr, ptr %2, align 8, !tbaa !71
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 20
-  call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 1) ]
   %.0.copyload.i.i.i = load i16, ptr %4, align 1
   %5 = zext i16 %.0.copyload.i.i.i to i32
   ret i32 %5
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef range(i32 0, 65536) i32 @_ZNK4llvm3pdb9DbiStream14getMachineTypeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1224) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1216
   %3 = load ptr, ptr %2, align 8, !tbaa !71
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 58
-  call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 1) ]
   %.0.copyload.i.i.i = load i16, ptr %4, align 1
   %5 = zext i16 %.0.copyload.i.i.i to i32
   ret i32 %5
@@ -5925,7 +5887,6 @@ _ZNK4llvm16FixedStreamArrayINS_7support6detail31packed_endian_specific_integralI
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %47 = load ptr, ptr %6, align 8, !tbaa !104
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  call void @llvm.assume(i1 true) [ "align"(ptr %47, i64 1) ]
   %.0.copyload.i.i.i = load i16, ptr %47, align 1
   %48 = zext i16 %.0.copyload.i.i.i to i32
   br label %49
@@ -8374,7 +8335,7 @@ declare i64 @llvm.umin.i64(i64, i64) #18
 attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree norecurse nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

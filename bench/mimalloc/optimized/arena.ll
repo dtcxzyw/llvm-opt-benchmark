@@ -892,7 +892,6 @@ mi_arena_static_zalloc.exit:                      ; preds = %12
   %19 = add i64 %13, 15
   %20 = and i64 %19, -16
   %21 = getelementptr inbounds nuw i8, ptr @mi_arena_static, i64 %20
-  call void @llvm.assume(i1 true) [ "align"(ptr %21, i64 8) ]
   tail call void @llvm.memset.p0.i64(ptr nonnull align 16 %21, i8 0, i64 %0, i1 false)
   br label %30
 
@@ -1944,7 +1943,6 @@ mi_arena_static_zalloc.exit.i:                    ; preds = %46
   %53 = add i64 %47, 15
   %54 = and i64 %53, -16
   %55 = getelementptr inbounds nuw i8, ptr @mi_arena_static, i64 %54
-  call void @llvm.assume(i1 true) [ "align"(ptr %55, i64 8) ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %55, i8 0, i64 %36, i1 false)
   br label %64
 

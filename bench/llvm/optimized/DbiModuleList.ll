@@ -242,7 +242,6 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %35, %_ZNSt10unique_
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %61 = load ptr, ptr %5, align 8, !tbaa !32
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  call void @llvm.assume(i1 true) [ "align"(ptr %61, i64 1) ]
   %.0.copyload.i.i.i.i = load i16, ptr %61, align 1
   store i16 %.0.copyload.i.i.i.i, ptr %23, align 4, !tbaa !15
   %62 = load ptr, ptr %10, align 8, !tbaa !22
@@ -355,7 +354,6 @@ define dso_local noundef zeroext i1 @_ZNK4llvm3pdb28DbiModuleSourceFilesIterator
   br i1 %.not.i2, label %_ZNK4llvm3pdb13DbiModuleList14getModuleCountEv.exit, label %14
 
 14:                                               ; preds = %9
-  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 1) ]
   %.0.copyload.i.i.i.i = load i16, ptr %13, align 1
   %15 = zext i16 %.0.copyload.i.i.i.i to i32
   br label %_ZNK4llvm3pdb13DbiModuleList14getModuleCountEv.exit
@@ -419,7 +417,6 @@ _ZNK4llvm3pdb13DbiModuleList18getSourceFileCountEj.exit: ; preds = %18, %33, %35
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %39 = load ptr, ptr %5, align 8, !tbaa !32
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  call void @llvm.assume(i1 true) [ "align"(ptr %39, i64 1) ]
   %.0.copyload.i.i.i.i3 = load i16, ptr %39, align 1
   %40 = icmp eq i16 %20, %.0.copyload.i.i.i.i3
   br label %41
@@ -565,7 +562,6 @@ _ZNK4llvm3pdb13DbiModuleList18getSourceFileCountEj.exit: ; preds = %15, %32, %34
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %38 = load ptr, ptr %6, align 8, !tbaa !32
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  call void @llvm.assume(i1 true) [ "align"(ptr %38, i64 1) ]
   %.0.copyload.i.i.i.i = load i16, ptr %38, align 1
   br label %39
 
@@ -642,7 +638,6 @@ _ZNK4llvm16FixedStreamArrayINS_7support6detail31packed_endian_specific_integralI
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %26 = load ptr, ptr %6, align 8, !tbaa !32
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  call void @llvm.assume(i1 true) [ "align"(ptr %26, i64 1) ]
   %.0.copyload.i.i.i = load i16, ptr %26, align 1
   ret i16 %.0.copyload.i.i.i
 }
@@ -867,7 +862,6 @@ _ZNK4llvm16FixedStreamArrayINS_7support6detail31packed_endian_specific_integralI
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %96 = load ptr, ptr %7, align 8, !tbaa !32
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  call void @llvm.assume(i1 true) [ "align"(ptr %96, i64 1) ]
   %.0.copyload.i.i.i = load i32, ptr %96, align 1
   %97 = zext i32 %.0.copyload.i.i.i to i64
   %98 = getelementptr inbounds nuw i8, ptr %10, i64 56
@@ -966,7 +960,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm3pdb28DbiModuleSourceFilesIterator
   ret i1 %.not
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef range(i32 0, 65536) i32 @_ZNK4llvm3pdb13DbiModuleList14getModuleCountEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(352) %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %3 = load ptr, ptr %2, align 8, !tbaa !34
@@ -974,7 +968,6 @@ define dso_local noundef range(i32 0, 65536) i32 @_ZNK4llvm3pdb13DbiModuleList14
   br i1 %.not, label %6, label %4
 
 4:                                                ; preds = %1
-  call void @llvm.assume(i1 true) [ "align"(ptr %3, i64 1) ]
   %.0.copyload.i.i.i = load i16, ptr %3, align 1
   %5 = zext i16 %.0.copyload.i.i.i to i32
   br label %6
@@ -1687,7 +1680,6 @@ _ZN4llvm5ErrorD2Ev.exit44:                        ; preds = %_ZN4llvm19BinaryStr
   %114 = getelementptr inbounds nuw i8, ptr %17, i64 40
   store i8 0, ptr %114, align 8, !tbaa !63
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %17, i8 0, i64 32, i1 false)
-  call void @llvm.assume(i1 true) [ "align"(ptr %113, i64 1) ]
   %.0.copyload.i.i.i = load i16, ptr %113, align 1
   %115 = zext i16 %.0.copyload.i.i.i to i32
   call void @_ZN4llvm18BinaryStreamReader9readArrayINS_7support6detail31packed_endian_specific_integralItLNS_10endiannessE1ELm1ELm1EEEEENS_5ErrorERNS_16FixedStreamArrayIT_EEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %15, ptr noundef nonnull align 8 dereferenceable(48) %17, i32 noundef %115)
@@ -1698,7 +1690,6 @@ _ZN4llvm5ErrorD2Ev.exit44:                        ; preds = %_ZN4llvm19BinaryStr
 _ZN4llvm5ErrorD2Ev.exit45:                        ; preds = %_ZN4llvm5ErrorD2Ev.exit44
   %117 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %118 = load ptr, ptr %111, align 8, !tbaa !34
-  call void @llvm.assume(i1 true) [ "align"(ptr %118, i64 1) ]
   %.0.copyload.i.i.i46 = load i16, ptr %118, align 1
   %119 = zext i16 %.0.copyload.i.i.i46 to i32
   call void @_ZN4llvm18BinaryStreamReader9readArrayINS_7support6detail31packed_endian_specific_integralItLNS_10endiannessE1ELm1ELm1EEEEENS_5ErrorERNS_16FixedStreamArrayIT_EEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %15, ptr noundef nonnull align 8 dereferenceable(48) %117, i32 noundef %119)
@@ -2007,18 +1998,15 @@ _ZN4llvm5ErrorD2Ev.exit65:                        ; preds = %_ZN4llvm5ErrorD2Ev.
   call void @_ZN4llvm22VarStreamArrayIteratorINS_3pdb19DbiModuleDescriptorENS_23VarStreamArrayExtractorIS2_EEEC2ERKNS_14VarStreamArrayIS2_S4_EERKS4_jPb(ptr noundef nonnull align 8 dereferenceable(128) %19, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 1 dereferenceable(1) %248, i32 noundef %250, ptr noundef null)
   %251 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %252 = load ptr, ptr %111, align 8, !tbaa !34
-  call void @llvm.assume(i1 true) [ "align"(ptr %252, i64 1) ]
   %.0.copyload.i.i.i66 = load i16, ptr %252, align 1
   %253 = zext i16 %.0.copyload.i.i.i66 to i64
   call void @_ZNSt6vectorIjSaIjEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %251, i64 noundef %253)
   %254 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %255 = load ptr, ptr %111, align 8, !tbaa !34
-  call void @llvm.assume(i1 true) [ "align"(ptr %255, i64 1) ]
   %.0.copyload.i.i.i67 = load i16, ptr %255, align 1
   %256 = zext i16 %.0.copyload.i.i.i67 to i64
   call void @_ZNSt6vectorIjSaIjEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %254, i64 noundef %256)
   %257 = load ptr, ptr %111, align 8, !tbaa !34
-  call void @llvm.assume(i1 true) [ "align"(ptr %257, i64 1) ]
   %.0.copyload.i.i.i6893 = load i16, ptr %257, align 1
   %.not96 = icmp eq i16 %.0.copyload.i.i.i6893, 0
   br i1 %.not96, label %_ZN4llvm5ErrorD2Ev.exit69, label %.lr.ph
@@ -2092,14 +2080,12 @@ _ZNK4llvm16FixedStreamArrayINS_7support6detail31packed_endian_specific_integralI
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %281 = load ptr, ptr %7, align 8, !tbaa !32
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  call void @llvm.assume(i1 true) [ "align"(ptr %281, i64 1) ]
   %.0.copyload.i.i.i72 = load i16, ptr %281, align 1
   %282 = zext i16 %.0.copyload.i.i.i72 to i32
   %283 = add i32 %.02594, %282
   %284 = call noundef nonnull align 8 dereferenceable(128) ptr @_ZN4llvm22VarStreamArrayIteratorINS_3pdb19DbiModuleDescriptorENS_23VarStreamArrayExtractorIS2_EEEpLEj(ptr noundef nonnull align 8 dereferenceable(128) %19, i32 noundef 1)
   %285 = add nuw nsw i64 %.095, 1
   %286 = load ptr, ptr %111, align 8, !tbaa !34
-  call void @llvm.assume(i1 true) [ "align"(ptr %286, i64 1) ]
   %.0.copyload.i.i.i68 = load i16, ptr %286, align 1
   %287 = zext i16 %.0.copyload.i.i.i68 to i64
   %288 = icmp samesign ult i64 %285, %287
@@ -5216,7 +5202,7 @@ attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #7 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

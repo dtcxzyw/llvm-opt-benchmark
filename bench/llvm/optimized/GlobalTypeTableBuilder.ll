@@ -312,7 +312,6 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapINS_8codeview18GloballyHashedTypeENS2_9TypeIn
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !28
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  call void @llvm.assume(i1 true) [ "align"(ptr %21, i64 1) ]
   %.0.copyload.i.i.i.i.i = load i32, ptr %21, align 1
   %22 = icmp ult i32 %.0.copyload.i.i.i.i.i, 4096
   br i1 %22, label %.critedge.i, label %"_ZN4llvm8codeview22GlobalTypeTableBuilder14insertRecordAsIZNS1_17insertRecordBytesENS_8ArrayRefIhEEE3$_0EENS0_9TypeIndexENS0_18GloballyHashedTypeEmT_.exit", !prof !32
@@ -357,7 +356,6 @@ _ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm
   br label %"_ZN4llvm8codeview22GlobalTypeTableBuilder14insertRecordAsIZNS1_17insertRecordBytesENS_8ArrayRefIhEEE3$_0EENS0_9TypeIndexENS0_18GloballyHashedTypeEmT_.exit"
 
 42:                                               ; preds = %_ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE8AllocateIhEEPT_m.exit
-  call void @llvm.assume(i1 true) [ "align"(ptr %41, i64 1) ]
   %.0.copyload.i.i.i.i10.i = load i32, ptr %41, align 1
   %43 = icmp ult i32 %.0.copyload.i.i.i.i10.i, 4096
   br i1 %43, label %44, label %47
@@ -1096,7 +1094,6 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapINS_8codeview18GloballyHashedTypeENS2_9TypeIn
   store i64 %29, ptr %22, align 1, !tbaa !24
   %30 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %31 = load i32, ptr %3, align 4, !tbaa !70
-  call void @llvm.assume(i1 true) [ "align"(ptr %30, i64 1) ]
   store i32 %31, ptr %30, align 1
   ret ptr %22
 }

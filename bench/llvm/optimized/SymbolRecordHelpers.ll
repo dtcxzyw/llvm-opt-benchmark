@@ -332,7 +332,6 @@ define dso_local noundef i32 @_ZN4llvm8codeview17getScopeEndOffsetERKNS0_8CVReco
 _ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit: ; preds = %1
   %13 = load ptr, ptr %0, align 8, !tbaa !10
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 2
-  call void @llvm.assume(i1 true) [ "align"(ptr %14, i64 1) ]
   %.0.copyload.i.i.i.i = load i16, ptr %14, align 1
   switch i16 %.0.copyload.i.i.i.i, label %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit.thread [
     i16 4368, label %_ZL12createRecordIN4llvm8codeview7ProcSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.exit
@@ -350,21 +349,18 @@ _ZL12createRecordIN4llvm8codeview7ProcSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  call void @llvm.assume(i1 true) [ "align"(ptr %14, i64 1) ]
   store i16 %.0.copyload.i.i.i.i, ptr %6, align 8, !tbaa !14, !alias.scope !11
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %16 = getelementptr inbounds nuw i8, ptr %6, i64 28
-  call void @llvm.assume(i1 true) [ "align"(ptr %16, i64 1) ]
-  %17 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(35) %15, i8 0, i64 35, i1 false), !alias.scope !11
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %17, i8 0, i64 20, i1 false), !alias.scope !11
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %16, i8 0, i64 20, i1 false), !alias.scope !11
   call void @_ZN4llvm8codeview18SymbolDeserializer13deserializeAsINS0_7ProcSymEEENS_5ErrorENS0_8CVRecordINS0_10SymbolKindEEERT_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %5, ptr nonnull %13, i64 %11, ptr noundef nonnull align 8 dereferenceable(60) %6)
-  %18 = load ptr, ptr %5, align 8, !tbaa !17, !noalias !11
-  %.not.i.i = icmp eq ptr %18, null
+  %17 = load ptr, ptr %5, align 8, !tbaa !17, !noalias !11
+  %.not.i.i = icmp eq ptr %17, null
   call void @llvm.assume(i1 %.not.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %19 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %20 = load i32, ptr %19, align 8, !tbaa !20
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %19 = load i32, ptr %18, align 8, !tbaa !20
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit.thread
 
@@ -372,19 +368,18 @@ _ZL12createRecordIN4llvm8codeview8BlockSymEET_RKNS1_8CVRecordINS1_10SymbolKindEE
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !29)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  call void @llvm.assume(i1 true) [ "align"(ptr %14, i64 1) ]
   store i16 4355, ptr %7, align 8, !tbaa !14, !alias.scope !29
-  %21 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %22 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(18) %21, i8 0, i64 18, i1 false), !alias.scope !29
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %22, i8 0, i64 20, i1 false), !alias.scope !29
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(18) %20, i8 0, i64 18, i1 false), !alias.scope !29
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %21, i8 0, i64 20, i1 false), !alias.scope !29
   call void @_ZN4llvm8codeview18SymbolDeserializer13deserializeAsINS0_8BlockSymEEENS_5ErrorENS0_8CVRecordINS0_10SymbolKindEEERT_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %4, ptr nonnull %13, i64 %11, ptr noundef nonnull align 8 dereferenceable(44) %7)
-  %23 = load ptr, ptr %4, align 8, !tbaa !17, !noalias !29
-  %.not.i.i14 = icmp eq ptr %23, null
+  %22 = load ptr, ptr %4, align 8, !tbaa !17, !noalias !29
+  %.not.i.i14 = icmp eq ptr %22, null
   call void @llvm.assume(i1 %.not.i.i14)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %24 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %25 = load i32, ptr %24, align 8, !tbaa !32
+  %23 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %24 = load i32, ptr %23, align 8, !tbaa !32
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit.thread
 
@@ -392,19 +387,18 @@ _ZL12createRecordIN4llvm8codeview10Thunk32SymEET_RKNS1_8CVRecordINS1_10SymbolKin
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !34)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  call void @llvm.assume(i1 true) [ "align"(ptr %14, i64 1) ]
   store i16 4354, ptr %8, align 8, !tbaa !14, !alias.scope !34
-  %26 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  %27 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(21) %26, i8 0, i64 21, i1 false), !alias.scope !34
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %27, i8 0, i64 36, i1 false), !alias.scope !34
+  %25 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(21) %25, i8 0, i64 21, i1 false), !alias.scope !34
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %26, i8 0, i64 36, i1 false), !alias.scope !34
   call void @_ZN4llvm8codeview18SymbolDeserializer13deserializeAsINS0_10Thunk32SymEEENS_5ErrorENS0_8CVRecordINS0_10SymbolKindEEERT_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %3, ptr nonnull %13, i64 %11, ptr noundef nonnull align 8 dereferenceable(68) %8)
-  %28 = load ptr, ptr %3, align 8, !tbaa !17, !noalias !34
-  %.not.i.i17 = icmp eq ptr %28, null
+  %27 = load ptr, ptr %3, align 8, !tbaa !17, !noalias !34
+  %.not.i.i17 = icmp eq ptr %27, null
   call void @llvm.assume(i1 %.not.i.i17)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %29 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %30 = load i32, ptr %29, align 8, !tbaa !37
+  %28 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %29 = load i32, ptr %28, align 8, !tbaa !37
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit.thread
 
@@ -412,39 +406,36 @@ _ZL12createRecordIN4llvm8codeview13InlineSiteSymEET_RKNS1_8CVRecordINS1_10Symbol
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !40)
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  call void @llvm.assume(i1 true) [ "align"(ptr %14, i64 1) ]
   store i16 4429, ptr %9, align 8, !tbaa !14, !alias.scope !40
-  %31 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  %32 = getelementptr inbounds nuw i8, ptr %9, i64 12
-  call void @llvm.assume(i1 true) [ "align"(ptr %32, i64 1) ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %31, i8 0, i64 40, i1 false), !alias.scope !40
+  %30 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %30, i8 0, i64 40, i1 false), !alias.scope !40
   call void @_ZN4llvm8codeview18SymbolDeserializer13deserializeAsINS0_13InlineSiteSymEEENS_5ErrorENS0_8CVRecordINS0_10SymbolKindEEERT_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %2, ptr nonnull %13, i64 %11, ptr noundef nonnull align 8 dereferenceable(44) %9)
-  %33 = load ptr, ptr %2, align 8, !tbaa !17, !noalias !40
-  %.not.i.i20 = icmp eq ptr %33, null
+  %31 = load ptr, ptr %2, align 8, !tbaa !17, !noalias !40
+  %.not.i.i20 = icmp eq ptr %31, null
   call void @llvm.assume(i1 %.not.i.i20)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %34 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %35 = load i32, ptr %34, align 8, !tbaa !43
-  %36 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %37 = load ptr, ptr %36, align 8, !tbaa !49
-  %.not.i.i.i.i = icmp eq ptr %37, null
-  br i1 %.not.i.i.i.i, label %_ZN4llvm8codeview13InlineSiteSymD2Ev.exit, label %38
+  %32 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %33 = load i32, ptr %32, align 8, !tbaa !43
+  %34 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %35 = load ptr, ptr %34, align 8, !tbaa !49
+  %.not.i.i.i.i = icmp eq ptr %35, null
+  br i1 %.not.i.i.i.i, label %_ZN4llvm8codeview13InlineSiteSymD2Ev.exit, label %36
 
-38:                                               ; preds = %_ZL12createRecordIN4llvm8codeview13InlineSiteSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.exit
-  %39 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  %40 = load ptr, ptr %39, align 8, !tbaa !50
-  %41 = ptrtoint ptr %40 to i64
-  %42 = ptrtoint ptr %37 to i64
-  %43 = sub i64 %41, %42
-  call void @_ZdlPvm(ptr noundef nonnull %37, i64 noundef %43) #15
+36:                                               ; preds = %_ZL12createRecordIN4llvm8codeview13InlineSiteSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.exit
+  %37 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  %38 = load ptr, ptr %37, align 8, !tbaa !50
+  %39 = ptrtoint ptr %38 to i64
+  %40 = ptrtoint ptr %35 to i64
+  %41 = sub i64 %39, %40
+  call void @_ZdlPvm(ptr noundef nonnull %35, i64 noundef %41) #15
   br label %_ZN4llvm8codeview13InlineSiteSymD2Ev.exit
 
-_ZN4llvm8codeview13InlineSiteSymD2Ev.exit:        ; preds = %_ZL12createRecordIN4llvm8codeview13InlineSiteSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.exit, %38
+_ZN4llvm8codeview13InlineSiteSymD2Ev.exit:        ; preds = %_ZL12createRecordIN4llvm8codeview13InlineSiteSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.exit, %36
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit.thread
 
 _ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit.thread: ; preds = %1, %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit, %_ZN4llvm8codeview13InlineSiteSymD2Ev.exit, %_ZL12createRecordIN4llvm8codeview10Thunk32SymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.exit, %_ZL12createRecordIN4llvm8codeview8BlockSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.exit, %_ZL12createRecordIN4llvm8codeview7ProcSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.exit
-  %.0 = phi i32 [ %20, %_ZL12createRecordIN4llvm8codeview7ProcSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.exit ], [ %25, %_ZL12createRecordIN4llvm8codeview8BlockSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.exit ], [ %30, %_ZL12createRecordIN4llvm8codeview10Thunk32SymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.exit ], [ %35, %_ZN4llvm8codeview13InlineSiteSymD2Ev.exit ], [ 0, %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit ], [ 0, %1 ]
+  %.0 = phi i32 [ %19, %_ZL12createRecordIN4llvm8codeview7ProcSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.exit ], [ %24, %_ZL12createRecordIN4llvm8codeview8BlockSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.exit ], [ %29, %_ZL12createRecordIN4llvm8codeview10Thunk32SymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.exit ], [ %33, %_ZN4llvm8codeview13InlineSiteSymD2Ev.exit ], [ 0, %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit ], [ 0, %1 ]
   ret i32 %.0
 }
 
@@ -466,7 +457,6 @@ define dso_local noundef i32 @_ZN4llvm8codeview20getScopeParentOffsetERKNS0_8CVR
 _ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit: ; preds = %1
   %13 = load ptr, ptr %0, align 8, !tbaa !10
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 2
-  call void @llvm.assume(i1 true) [ "align"(ptr %14, i64 1) ]
   %.0.copyload.i.i.i.i = load i16, ptr %14, align 1
   switch i16 %.0.copyload.i.i.i.i, label %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit.thread [
     i16 4368, label %_ZL12createRecordIN4llvm8codeview7ProcSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.exit
@@ -484,20 +474,17 @@ _ZL12createRecordIN4llvm8codeview7ProcSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !51)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  call void @llvm.assume(i1 true) [ "align"(ptr %14, i64 1) ]
   store i16 %.0.copyload.i.i.i.i, ptr %6, align 8, !tbaa !14, !alias.scope !51
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %16 = getelementptr inbounds nuw i8, ptr %6, i64 28
-  call void @llvm.assume(i1 true) [ "align"(ptr %16, i64 1) ]
-  %17 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(35) %15, i8 0, i64 35, i1 false), !alias.scope !51
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %17, i8 0, i64 20, i1 false), !alias.scope !51
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %16, i8 0, i64 20, i1 false), !alias.scope !51
   call void @_ZN4llvm8codeview18SymbolDeserializer13deserializeAsINS0_7ProcSymEEENS_5ErrorENS0_8CVRecordINS0_10SymbolKindEEERT_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %5, ptr nonnull %13, i64 %11, ptr noundef nonnull align 8 dereferenceable(60) %6)
-  %18 = load ptr, ptr %5, align 8, !tbaa !17, !noalias !51
-  %.not.i.i = icmp eq ptr %18, null
+  %17 = load ptr, ptr %5, align 8, !tbaa !17, !noalias !51
+  %.not.i.i = icmp eq ptr %17, null
   call void @llvm.assume(i1 %.not.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %19 = load i32, ptr %15, align 4, !tbaa !54
+  %18 = load i32, ptr %15, align 4, !tbaa !54
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit.thread
 
@@ -505,18 +492,17 @@ _ZL12createRecordIN4llvm8codeview8BlockSymEET_RKNS1_8CVRecordINS1_10SymbolKindEE
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !55)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  call void @llvm.assume(i1 true) [ "align"(ptr %14, i64 1) ]
   store i16 4355, ptr %7, align 8, !tbaa !14, !alias.scope !55
-  %20 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %21 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(18) %20, i8 0, i64 18, i1 false), !alias.scope !55
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %21, i8 0, i64 20, i1 false), !alias.scope !55
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(18) %19, i8 0, i64 18, i1 false), !alias.scope !55
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %20, i8 0, i64 20, i1 false), !alias.scope !55
   call void @_ZN4llvm8codeview18SymbolDeserializer13deserializeAsINS0_8BlockSymEEENS_5ErrorENS0_8CVRecordINS0_10SymbolKindEEERT_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %4, ptr nonnull %13, i64 %11, ptr noundef nonnull align 8 dereferenceable(44) %7)
-  %22 = load ptr, ptr %4, align 8, !tbaa !17, !noalias !55
-  %.not.i.i14 = icmp eq ptr %22, null
+  %21 = load ptr, ptr %4, align 8, !tbaa !17, !noalias !55
+  %.not.i.i14 = icmp eq ptr %21, null
   call void @llvm.assume(i1 %.not.i.i14)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %23 = load i32, ptr %20, align 4, !tbaa !58
+  %22 = load i32, ptr %19, align 4, !tbaa !58
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit.thread
 
@@ -524,18 +510,17 @@ _ZL12createRecordIN4llvm8codeview10Thunk32SymEET_RKNS1_8CVRecordINS1_10SymbolKin
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !59)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  call void @llvm.assume(i1 true) [ "align"(ptr %14, i64 1) ]
   store i16 4354, ptr %8, align 8, !tbaa !14, !alias.scope !59
-  %24 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  %25 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(21) %24, i8 0, i64 21, i1 false), !alias.scope !59
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %25, i8 0, i64 36, i1 false), !alias.scope !59
+  %23 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(21) %23, i8 0, i64 21, i1 false), !alias.scope !59
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %24, i8 0, i64 36, i1 false), !alias.scope !59
   call void @_ZN4llvm8codeview18SymbolDeserializer13deserializeAsINS0_10Thunk32SymEEENS_5ErrorENS0_8CVRecordINS0_10SymbolKindEEERT_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %3, ptr nonnull %13, i64 %11, ptr noundef nonnull align 8 dereferenceable(68) %8)
-  %26 = load ptr, ptr %3, align 8, !tbaa !17, !noalias !59
-  %.not.i.i17 = icmp eq ptr %26, null
+  %25 = load ptr, ptr %3, align 8, !tbaa !17, !noalias !59
+  %.not.i.i17 = icmp eq ptr %25, null
   call void @llvm.assume(i1 %.not.i.i17)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %27 = load i32, ptr %24, align 4, !tbaa !62
+  %26 = load i32, ptr %23, align 4, !tbaa !62
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit.thread
 
@@ -543,38 +528,35 @@ _ZL12createRecordIN4llvm8codeview13InlineSiteSymEET_RKNS1_8CVRecordINS1_10Symbol
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !63)
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  call void @llvm.assume(i1 true) [ "align"(ptr %14, i64 1) ]
   store i16 4429, ptr %9, align 8, !tbaa !14, !alias.scope !63
-  %28 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  %29 = getelementptr inbounds nuw i8, ptr %9, i64 12
-  call void @llvm.assume(i1 true) [ "align"(ptr %29, i64 1) ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %28, i8 0, i64 40, i1 false), !alias.scope !63
+  %27 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %27, i8 0, i64 40, i1 false), !alias.scope !63
   call void @_ZN4llvm8codeview18SymbolDeserializer13deserializeAsINS0_13InlineSiteSymEEENS_5ErrorENS0_8CVRecordINS0_10SymbolKindEEERT_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %2, ptr nonnull %13, i64 %11, ptr noundef nonnull align 8 dereferenceable(44) %9)
-  %30 = load ptr, ptr %2, align 8, !tbaa !17, !noalias !63
-  %.not.i.i20 = icmp eq ptr %30, null
+  %28 = load ptr, ptr %2, align 8, !tbaa !17, !noalias !63
+  %.not.i.i20 = icmp eq ptr %28, null
   call void @llvm.assume(i1 %.not.i.i20)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %31 = load i32, ptr %28, align 4, !tbaa !66
-  %32 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %33 = load ptr, ptr %32, align 8, !tbaa !49
-  %.not.i.i.i.i = icmp eq ptr %33, null
-  br i1 %.not.i.i.i.i, label %_ZN4llvm8codeview13InlineSiteSymD2Ev.exit, label %34
+  %29 = load i32, ptr %27, align 4, !tbaa !66
+  %30 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %31 = load ptr, ptr %30, align 8, !tbaa !49
+  %.not.i.i.i.i = icmp eq ptr %31, null
+  br i1 %.not.i.i.i.i, label %_ZN4llvm8codeview13InlineSiteSymD2Ev.exit, label %32
 
-34:                                               ; preds = %_ZL12createRecordIN4llvm8codeview13InlineSiteSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.exit
-  %35 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  %36 = load ptr, ptr %35, align 8, !tbaa !50
-  %37 = ptrtoint ptr %36 to i64
-  %38 = ptrtoint ptr %33 to i64
-  %39 = sub i64 %37, %38
-  call void @_ZdlPvm(ptr noundef nonnull %33, i64 noundef %39) #15
+32:                                               ; preds = %_ZL12createRecordIN4llvm8codeview13InlineSiteSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.exit
+  %33 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  %34 = load ptr, ptr %33, align 8, !tbaa !50
+  %35 = ptrtoint ptr %34 to i64
+  %36 = ptrtoint ptr %31 to i64
+  %37 = sub i64 %35, %36
+  call void @_ZdlPvm(ptr noundef nonnull %31, i64 noundef %37) #15
   br label %_ZN4llvm8codeview13InlineSiteSymD2Ev.exit
 
-_ZN4llvm8codeview13InlineSiteSymD2Ev.exit:        ; preds = %_ZL12createRecordIN4llvm8codeview13InlineSiteSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.exit, %34
+_ZN4llvm8codeview13InlineSiteSymD2Ev.exit:        ; preds = %_ZL12createRecordIN4llvm8codeview13InlineSiteSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.exit, %32
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit.thread
 
 _ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit.thread: ; preds = %1, %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit, %_ZN4llvm8codeview13InlineSiteSymD2Ev.exit, %_ZL12createRecordIN4llvm8codeview10Thunk32SymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.exit, %_ZL12createRecordIN4llvm8codeview8BlockSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.exit, %_ZL12createRecordIN4llvm8codeview7ProcSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.exit
-  %.0 = phi i32 [ %19, %_ZL12createRecordIN4llvm8codeview7ProcSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.exit ], [ %23, %_ZL12createRecordIN4llvm8codeview8BlockSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.exit ], [ %27, %_ZL12createRecordIN4llvm8codeview10Thunk32SymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.exit ], [ %31, %_ZN4llvm8codeview13InlineSiteSymD2Ev.exit ], [ 0, %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit ], [ 0, %1 ]
+  %.0 = phi i32 [ %18, %_ZL12createRecordIN4llvm8codeview7ProcSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.exit ], [ %22, %_ZL12createRecordIN4llvm8codeview8BlockSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.exit ], [ %26, %_ZL12createRecordIN4llvm8codeview10Thunk32SymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.exit ], [ %29, %_ZN4llvm8codeview13InlineSiteSymD2Ev.exit ], [ 0, %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit ], [ 0, %1 ]
   ret i32 %.0
 }
 
@@ -7560,7 +7542,6 @@ _ZN4llvm5ErrorD2Ev.exit7:                         ; preds = %_ZN4llvm19BinaryStr
   %53 = load ptr, ptr %5, align 8, !tbaa !10, !noalias !284
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !284
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  call void @llvm.assume(i1 true) [ "align"(ptr %53, i64 1) ]
   %.0.copyload.i.i.i = load i16, ptr %53, align 1
   %54 = icmp ult i16 %.0.copyload.i.i.i, 2
   br i1 %54, label %_ZN4llvm5ErrorD2Ev.exit8, label %62
@@ -7588,7 +7569,6 @@ _ZN4llvm5ErrorD2Ev.exit8:                         ; preds = %_ZN4llvm5ErrorD2Ev.
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  call void @llvm.assume(i1 true) [ "align"(ptr %53, i64 1) ]
   %.0.copyload.i.i.i9 = load i16, ptr %53, align 1
   %63 = zext i16 %.0.copyload.i.i.i9 to i32
   %64 = add nuw nsw i32 %63, 2

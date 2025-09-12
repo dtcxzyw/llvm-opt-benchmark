@@ -1291,11 +1291,9 @@ _ZN4llvm3MD55finalERNS0_9MD5ResultE.exit:         ; preds = %_ZN4llvm3MD56update
   %51 = shl i32 %48, 3
   store i32 %51, ptr %4, align 4, !tbaa !22
   %52 = getelementptr inbounds nuw i8, ptr %3, i64 80
-  call void @llvm.assume(i1 true) [ "align"(ptr %52, i64 1) ]
   store i32 %51, ptr %52, align 8
   %53 = getelementptr inbounds nuw i8, ptr %3, i64 84
   %54 = load i32, ptr %10, align 8, !tbaa !23
-  call void @llvm.assume(i1 true) [ "align"(ptr %53, i64 1) ]
   store i32 %54, ptr %53, align 4
   %55 = call noundef ptr @_ZN4llvm3MD54bodyENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(152) %3, ptr nonnull %40, i64 64)
   %56 = load i64, ptr %3, align 8

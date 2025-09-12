@@ -1110,8 +1110,8 @@ _ZN4llvm4SHA112addUncountedEh.exit:               ; preds = %2, %14
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: write) uwtable
-define dso_local void @_ZN4llvm4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 captures(none) dereferenceable(92) %0, ptr %1, i64 %2) local_unnamed_addr #2 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define dso_local void @_ZN4llvm4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 captures(none) dereferenceable(92) %0, ptr readonly captures(address) %1, i64 %2) local_unnamed_addr #2 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %5 = load i32, ptr %4, align 4, !tbaa !7
   %6 = trunc i64 %2 to i32
@@ -1182,7 +1182,6 @@ _ZN4llvm4SHA112addUncountedEh.exit:               ; preds = %.lr.ph, %24
   %.01839 = phi i64 [ 0, %.preheader ], [ %38, %33 ]
   %34 = shl nuw nsw i64 %.01839, 2
   %35 = getelementptr inbounds nuw i8, ptr %.sroa.0.140, i64 %34
-  call void @llvm.assume(i1 true) [ "align"(ptr %35, i64 1) ]
   %.0.copyload.i.i.i.i.i.i = load i32, ptr %35, align 1
   %36 = tail call noundef i32 @llvm.bswap.i32(i32 %.0.copyload.i.i.i.i.i.i)
   %37 = getelementptr inbounds nuw i32, ptr %0, i64 %.01839
@@ -1234,14 +1233,14 @@ _ZN4llvm4SHA112addUncountedEh.exit24:             ; preds = %.lr.ph47, %48
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: write) uwtable
-define dso_local void @_ZN4llvm4SHA16updateENS_9StringRefE(ptr noundef nonnull align 4 captures(none) dereferenceable(92) %0, ptr %1, i64 %2) local_unnamed_addr #2 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define dso_local void @_ZN4llvm4SHA16updateENS_9StringRefE(ptr noundef nonnull align 4 captures(none) dereferenceable(92) %0, ptr readonly captures(address) %1, i64 %2) local_unnamed_addr #2 align 2 {
   tail call void @_ZN4llvm4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(92) %0, ptr %1, i64 %2)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4llvm4SHA13padEv(ptr noundef nonnull align 4 captures(none) dereferenceable(92) %0) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN4llvm4SHA13padEv(ptr noundef nonnull align 4 captures(none) dereferenceable(92) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load i8, ptr %2, align 4, !tbaa !10
   %4 = xor i8 %3, 3
@@ -1399,7 +1398,7 @@ _ZN4llvm4SHA112addUncountedEh.exit9:              ; preds = %_ZN4llvm4SHA112addU
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4llvm4SHA15finalERSt5arrayIjLm5EE(ptr noundef nonnull align 4 captures(none) dereferenceable(92) %0, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(20) %1) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN4llvm4SHA15finalERSt5arrayIjLm5EE(ptr noundef nonnull align 4 captures(none) dereferenceable(92) %0, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(20) %1) local_unnamed_addr #2 align 2 {
   tail call void @_ZN4llvm4SHA13padEv(ptr noundef nonnull align 4 dereferenceable(92) %0)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   br label %5
@@ -1420,7 +1419,7 @@ define dso_local void @_ZN4llvm4SHA15finalERSt5arrayIjLm5EE(ptr noundef nonnull 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4llvm4SHA15finalEv(ptr dead_on_unwind noalias writable writeonly sret(%"struct.std::array.0") align 1 captures(none) %0, ptr noundef nonnull align 4 captures(none) dereferenceable(92) %1) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN4llvm4SHA15finalEv(ptr dead_on_unwind noalias writable writeonly sret(%"struct.std::array.0") align 1 captures(none) %0, ptr noundef nonnull align 4 captures(none) dereferenceable(92) %1) local_unnamed_addr #2 align 2 {
   %3 = alloca %union.anon.1, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   tail call void @_ZN4llvm4SHA13padEv(ptr noundef nonnull align 4 dereferenceable(92) %1)
@@ -1445,7 +1444,7 @@ _ZN4llvm4SHA15finalERSt5arrayIjLm5EE.exit:        ; preds = %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4llvm4SHA16resultEv(ptr dead_on_unwind noalias writable writeonly sret(%"struct.std::array.0") align 1 captures(none) %0, ptr noundef nonnull align 4 captures(none) dereferenceable(92) %1) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN4llvm4SHA16resultEv(ptr dead_on_unwind noalias writable writeonly sret(%"struct.std::array.0") align 1 captures(none) %0, ptr noundef nonnull align 4 captures(none) dereferenceable(92) %1) local_unnamed_addr #2 align 2 {
   %3 = alloca %union.anon.1, align 4
   %4 = alloca %struct.anon, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -1474,8 +1473,8 @@ _ZN4llvm4SHA15finalEv.exit:                       ; preds = %6
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: write) uwtable
-define dso_local void @_ZN4llvm4SHA14hashENS_8ArrayRefIhEE(ptr dead_on_unwind noalias writable writeonly sret(%"struct.std::array.0") align 1 captures(none) %0, ptr %1, i64 %2) local_unnamed_addr #2 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define dso_local void @_ZN4llvm4SHA14hashENS_8ArrayRefIhEE(ptr dead_on_unwind noalias writable writeonly sret(%"struct.std::array.0") align 1 captures(none) %0, ptr readonly captures(address) %1, i64 %2) local_unnamed_addr #2 align 2 {
   %4 = alloca %union.anon.1, align 4
   %5 = alloca %"class.llvm::SHA1", align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -1516,33 +1515,28 @@ _ZN4llvm4SHA15finalEv.exit:                       ; preds = %13
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #5
-
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.bswap.i32(i32) #6
+declare i32 @llvm.bswap.i32(i32) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #8
+declare i32 @llvm.fshl.i32(i32, i32, i32) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #8
+declare i64 @llvm.umin.i64(i64, i64) #6
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

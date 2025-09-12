@@ -1506,7 +1506,6 @@ _ZNSt6vectorIN2tf6WorkerESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i: ; preds = %3
 _ZNSt12_Vector_baseIN2tf6WorkerESaIS1_EEC2EmRKS2_.exit.i: ; preds = %_ZNSt6vectorIN2tf6WorkerESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
   %12 = mul nuw nsw i64 %1, 2432
   %13 = tail call noalias noundef nonnull align 128 ptr @_ZnwmSt11align_val_t(i64 noundef %12, i64 noundef 128) #37
-  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 128) ]
   store ptr %13, ptr %10, align 8, !tbaa !114
   %14 = getelementptr inbounds nuw %"class.tf::Worker", ptr %13, i64 %1
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -1518,7 +1517,7 @@ _ZNSt12_Vector_baseIN2tf6WorkerESaIS1_EEC2EmRKS2_.exit.i: ; preds = %_ZNSt6vecto
   %.01012.i.i.i.i.i = phi i64 [ %18, %.lr.ph.i.i.i.i.i ], [ %1, %_ZNSt12_Vector_baseIN2tf6WorkerESaIS1_EEC2EmRKS2_.exit.i ]
   %16 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 128 dereferenceable(2432) %.013.i.i.i.i.i, i8 0, i64 2432, i1 false)
-  store i64 1, ptr %16, align 32, !tbaa !116
+  store i64 1, ptr %16, align 8, !tbaa !116
   %17 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 48
   store i64 -1, ptr %17, align 8, !tbaa !118
   %18 = add i64 %.01012.i.i.i.i.i, -1
@@ -1547,7 +1546,6 @@ _ZNSt12_Vector_baseIN2tf21NonblockingNotifierV26WaiterESaIS2_EEC2EmRKS3_.exit.i.
           to label %.noexc19 unwind label %78
 
 .noexc19:                                         ; preds = %_ZNSt12_Vector_baseIN2tf21NonblockingNotifierV26WaiterESaIS2_EEC2EmRKS3_.exit.i.i
-  call void @llvm.assume(i1 true) [ "align"(ptr %27, i64 128) ]
   store ptr %27, ptr %25, align 8, !tbaa !123
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store ptr %27, ptr %28, align 128, !tbaa !124
@@ -19306,7 +19304,6 @@ _ZNSt6vectorIN2tf16CachelineAlignedIiEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i
           to label %.noexc10.i.i.i.i unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2tf6detail8ScanDataIiEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i, !noalias !745
 
 .noexc10.i.i.i.i:                                 ; preds = %.noexc4.i.i.i.i.i.i.i.i
-  call void @llvm.assume(i1 true) [ "align"(ptr %65, i64 128) ]
   store ptr %65, ptr %62, align 8, !tbaa !748, !noalias !745
   %66 = getelementptr inbounds nuw %"struct.tf::CachelineAligned", ptr %65, i64 %spec.select
   %67 = getelementptr inbounds nuw i8, ptr %59, i64 32

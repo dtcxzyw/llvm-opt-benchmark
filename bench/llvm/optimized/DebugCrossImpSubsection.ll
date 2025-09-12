@@ -265,7 +265,6 @@ _ZNK4llvm18BinaryStreamReader14bytesRemainingEv.exit15: ; preds = %78, %81, %84
   %93 = load i64, ptr %64, align 8, !tbaa !35
   %94 = sub i64 %.0.i.i.i14, %93
   %95 = getelementptr inbounds nuw i8, ptr %92, i64 4
-  call void @llvm.assume(i1 true) [ "align"(ptr %95, i64 1) ]
   %.0.copyload.i.i.i = load i32, ptr %95, align 1
   %96 = zext i32 %.0.copyload.i.i.i to i64
   %97 = shl nuw nsw i64 %96, 2
@@ -290,7 +289,6 @@ _ZNK4llvm18BinaryStreamReader14bytesRemainingEv.exit15: ; preds = %78, %81, %84
 
 104:                                              ; preds = %_ZNK4llvm18BinaryStreamReader14bytesRemainingEv.exit15
   %105 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  call void @llvm.assume(i1 true) [ "align"(ptr %95, i64 1) ]
   call void @_ZN4llvm18BinaryStreamReader9readArrayINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEEENS_5ErrorERNS_16FixedStreamArrayIT_EEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %9, ptr noundef nonnull align 8 dereferenceable(48) %105, i32 noundef %.0.copyload.i.i.i)
   br label %.critedge
 
@@ -1753,7 +1751,6 @@ _ZNSt6vectorIPKN4llvm14StringMapEntryIS_INS0_7support6detail31packed_endian_spec
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 32
   %83 = load i64, ptr %81, align 8, !tbaa !106
   %84 = call noundef i32 @_ZNK4llvm8codeview26DebugStringTableSubsection14getIdForStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(68) %80, ptr nonnull %82, i64 %83) #17
-  call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 1) ]
   store i32 %84, ptr %4, align 4
   %85 = load ptr, ptr %.sroa.035.068, align 8, !tbaa !104
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 8
@@ -1765,7 +1762,6 @@ _ZNSt6vectorIPKN4llvm14StringMapEntryIS_INS0_7support6detail31packed_endian_spec
   %92 = sub i64 %90, %91
   %93 = lshr exact i64 %92, 2
   %94 = trunc i64 %93 to i32
-  call void @llvm.assume(i1 true) [ "align"(ptr %57, i64 1) ]
   store i32 %94, ptr %57, align 4
   call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %2, ptr nonnull align 1 dereferenceable(8) %4, i64 8) #17
   %95 = load ptr, ptr %0, align 8, !tbaa !48

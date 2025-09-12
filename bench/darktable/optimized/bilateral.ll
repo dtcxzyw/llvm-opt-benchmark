@@ -355,7 +355,6 @@ define noalias noundef ptr @dt_bilateral_init(i32 noundef %0, i32 noundef %1, fl
   br i1 %.not.i, label %66, label %67
 
 66:                                               ; preds = %6
-  call void @llvm.assume(i1 true) [ "align"(ptr null, i64 64) ]
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str, i64 noundef %42, i64 noundef %47, i64 noundef %53) #17
   tail call void @free(ptr noundef nonnull %5) #17
   br label %76

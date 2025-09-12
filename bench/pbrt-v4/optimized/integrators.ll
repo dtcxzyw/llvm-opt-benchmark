@@ -4613,7 +4613,6 @@ _ZNSt12_Vector_baseIN4pstd8optionalIN4pbrt11ThreadLocalINS2_13ScratchBufferEE5En
 .lr.ph.preheader.i.i.i.i.i:                       ; preds = %_ZNSt6vectorIN4pstd8optionalIN4pbrt11ThreadLocalINS2_13ScratchBufferEE5EntryEEESaIS7_EE17_S_check_init_lenEmRKS8_.exit.i
   %8 = mul nuw nsw i64 %6, 192
   %9 = tail call noalias noundef nonnull align 64 ptr @_ZnwmSt11align_val_t(i64 noundef %8, i64 noundef 64) #39
-  call void @llvm.assume(i1 true) [ "align"(ptr %9, i64 64) ]
   store ptr %9, ptr %3, align 8, !tbaa !252
   %10 = getelementptr inbounds nuw %"class.pstd::optional.387", ptr %9, i64 %6
   tail call void @llvm.memset.p0.i64(ptr nonnull align 64 %9, i8 0, i64 %8, i1 false)

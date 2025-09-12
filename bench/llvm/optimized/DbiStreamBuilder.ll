@@ -1627,11 +1627,11 @@ _ZNK4llvm3pdb16DbiStreamBuilder30calculateFileInfoSubstreamSizeEv.exit: ; preds 
 79:                                               ; preds = %_ZNK4llvm3pdb16DbiStreamBuilder30calculateFileInfoSubstreamSizeEv.exit
   %80 = tail call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(96) %64, i64 noundef %65, i64 noundef %65, i8 0)
   %.pre = load ptr, ptr %18, align 8, !tbaa !140
-  %.pre282 = load ptr, ptr %17, align 8, !tbaa !139
+  %.pre281 = load ptr, ptr %17, align 8, !tbaa !139
   br label %_ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE8AllocateIhEEPT_m.exit
 
 _ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE8AllocateIhEEPT_m.exit: ; preds = %77, %79
-  %81 = phi ptr [ %20, %77 ], [ %.pre282, %79 ]
+  %81 = phi ptr [ %20, %77 ], [ %.pre281, %79 ]
   %82 = phi ptr [ %19, %77 ], [ %.pre, %79 ]
   %.0.i.i.i.i = phi ptr [ %69, %77 ], [ %80, %79 ]
   %.not15.i = icmp eq ptr %81, %82
@@ -1957,7 +1957,7 @@ _ZN4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinarySt
   %228 = ptrtoint ptr %226 to i64
   %229 = ptrtoint ptr %227 to i64
   %230 = sub i64 %228, %229
-  %231 = lshr i64 %230, 3
+  %231 = lshr exact i64 %230, 3
   %232 = trunc i64 %231 to i32
   %.sroa.speculated225 = call i32 @llvm.umin.i32(i32 %232, i32 65535)
   %233 = trunc nuw i32 %.sroa.speculated225 to i16
@@ -1973,7 +1973,6 @@ _ZN4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinarySt
   %.not.i.i.i114 = icmp eq i32 %241, 1
   %rev.i.i.i.i.i.i = call i16 @llvm.bswap.i16(i16 %233)
   %spec.select.i.i.i = select i1 %.not.i.i.i114, i16 %233, i16 %rev.i.i.i.i.i.i
-  call void @llvm.assume(i1 true) [ "align"(ptr %9, i64 1) ]
   store i16 %spec.select.i.i.i, ptr %9, align 2, !noalias !224
   call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %11, ptr nonnull %9, i64 2) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !224
@@ -1993,7 +1992,6 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %_ZN4llvm19BinaryStr
   %.not.i.i.i115 = icmp eq i32 %248, 1
   %rev.i.i.i.i.i.i116 = call i16 @llvm.bswap.i16(i16 %243)
   %spec.select.i.i.i117 = select i1 %.not.i.i.i115, i16 %243, i16 %rev.i.i.i.i.i.i116
-  call void @llvm.assume(i1 true) [ "align"(ptr %8, i64 1) ]
   store i16 %spec.select.i.i.i117, ptr %8, align 2, !noalias !227
   call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %11, ptr nonnull %8, i64 2) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !227
@@ -2006,23 +2004,21 @@ _ZN4llvm5ErrorD2Ev.exit118.preheader:             ; preds = %_ZN4llvm5ErrorD2Ev.
   br i1 %.not264.not, label %.critedge89, label %_ZN4llvm5ErrorD2Ev.exit122
 
 _ZN4llvm5ErrorD2Ev.exit118:                       ; preds = %_ZN4llvm5ErrorD2Ev.exit122
-  %indvars.iv.next = add nuw nsw i32 %indvars.iv, 1
-  %exitcond.not = icmp eq i32 %indvars.iv.next, %.sroa.speculated225
-  br i1 %exitcond.not, label %.critedge89, label %_ZN4llvm5ErrorD2Ev.exit122, !llvm.loop !230
+  %250 = add nuw i16 %.079265, 1
+  %.not = icmp ult i16 %250, %233
+  br i1 %.not, label %_ZN4llvm5ErrorD2Ev.exit122, label %.critedge89, !llvm.loop !230
 
 _ZN4llvm5ErrorD2Ev.exit122:                       ; preds = %_ZN4llvm5ErrorD2Ev.exit118.preheader, %_ZN4llvm5ErrorD2Ev.exit118
-  %indvars.iv = phi i32 [ %indvars.iv.next, %_ZN4llvm5ErrorD2Ev.exit118 ], [ 0, %_ZN4llvm5ErrorD2Ev.exit118.preheader ]
+  %.079265 = phi i16 [ %250, %_ZN4llvm5ErrorD2Ev.exit118 ], [ 0, %_ZN4llvm5ErrorD2Ev.exit118.preheader ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !231
-  %250 = load ptr, ptr %236, align 8, !tbaa !217, !noalias !231
-  %251 = load ptr, ptr %250, align 8, !tbaa !103, !noalias !231
-  %252 = getelementptr inbounds nuw i8, ptr %251, i64 16
-  %253 = load ptr, ptr %252, align 8, !noalias !231
-  %254 = call noundef i32 %253(ptr noundef nonnull align 8 dereferenceable(8) %250) #21, !noalias !231
-  %.not.i.i.i119 = icmp eq i32 %254, 1
-  %255 = trunc nuw i32 %indvars.iv to i16
-  %rev.i.i.i.i.i.i120 = call i16 @llvm.bswap.i16(i16 %255)
-  %spec.select.i.i.i121 = select i1 %.not.i.i.i119, i16 %255, i16 %rev.i.i.i.i.i.i120
-  call void @llvm.assume(i1 true) [ "align"(ptr %7, i64 1) ]
+  %251 = load ptr, ptr %236, align 8, !tbaa !217, !noalias !231
+  %252 = load ptr, ptr %251, align 8, !tbaa !103, !noalias !231
+  %253 = getelementptr inbounds nuw i8, ptr %252, i64 16
+  %254 = load ptr, ptr %253, align 8, !noalias !231
+  %255 = call noundef i32 %254(ptr noundef nonnull align 8 dereferenceable(8) %251) #21, !noalias !231
+  %.not.i.i.i119 = icmp eq i32 %255, 1
+  %rev.i.i.i.i.i.i120 = call i16 @llvm.bswap.i16(i16 %.079265)
+  %spec.select.i.i.i121 = select i1 %.not.i.i.i119, i16 %.079265, i16 %rev.i.i.i.i.i.i120
   store i16 %spec.select.i.i.i121, ptr %7, align 2, !noalias !231
   call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %11, ptr nonnull %7, i64 2) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !231
@@ -2062,7 +2058,6 @@ _ZN4llvm5ErrorD2Ev.exit126:                       ; preds = %.critedge89, %259
   %.not.i.i.i123 = icmp eq i32 %275, 1
   %rev.i.i.i.i.i.i124 = call i16 @llvm.bswap.i16(i16 %270)
   %spec.select.i.i.i125 = select i1 %.not.i.i.i123, i16 %270, i16 %rev.i.i.i.i.i.i124
-  call void @llvm.assume(i1 true) [ "align"(ptr %6, i64 1) ]
   store i16 %spec.select.i.i.i125, ptr %6, align 2, !noalias !234
   call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %11, ptr nonnull %6, i64 2) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !234
@@ -2377,7 +2372,7 @@ _ZN4llvm9StringMapIjNS_15MallocAllocatorEE5beginEv.exit: ; preds = %.preheader.i
 
 .lr.ph:                                           ; preds = %_ZN4llvm9StringMapIjNS_15MallocAllocatorEE5beginEv.exit
   %400 = getelementptr inbounds nuw i8, ptr %14, i64 56
-  %.pre283 = load ptr, ptr %.sroa.0.1.i, align 8, !tbaa !125
+  %.pre282 = load ptr, ptr %.sroa.0.1.i, align 8, !tbaa !125
   br label %401
 
 _ZN4llvm17StringMapIterBaseINS_17StringMapIteratorIjEENS_14StringMapEntryIjEEEppEv.exit.loopexit: ; preds = %_ZN4llvm5ErrorD2Ev.exit156
@@ -2385,7 +2380,7 @@ _ZN4llvm17StringMapIterBaseINS_17StringMapIteratorIjEENS_14StringMapEntryIjEEEpp
   br i1 %.not252, label %.critedge95, label %401
 
 401:                                              ; preds = %.lr.ph, %_ZN4llvm17StringMapIterBaseINS_17StringMapIteratorIjEENS_14StringMapEntryIjEEEppEv.exit.loopexit
-  %402 = phi ptr [ %.pre283, %.lr.ph ], [ %409, %_ZN4llvm17StringMapIterBaseINS_17StringMapIteratorIjEENS_14StringMapEntryIjEEEppEv.exit.loopexit ]
+  %402 = phi ptr [ %.pre282, %.lr.ph ], [ %409, %_ZN4llvm17StringMapIterBaseINS_17StringMapIteratorIjEENS_14StringMapEntryIjEEEppEv.exit.loopexit ]
   %.sroa.0197.0269 = phi ptr [ %.sroa.0.1.i, %.lr.ph ], [ %storemerge.i, %_ZN4llvm17StringMapIterBaseINS_17StringMapIteratorIjEENS_14StringMapEntryIjEEEppEv.exit.loopexit ]
   %403 = load i64, ptr %400, align 8, !tbaa !242
   %404 = trunc i64 %403 to i32
@@ -2478,7 +2473,6 @@ _ZN4llvm5ErrorD2Ev.exit162:                       ; preds = %.lr.ph272
   %.not.i.i.i160 = icmp eq i32 %442, 1
   %443 = call i32 @llvm.bswap.i32(i32 %437)
   %spec.select.i.i.i161 = select i1 %.not.i.i.i160, i32 %437, i32 %443
-  call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 1) ]
   store i32 %spec.select.i.i.i161, ptr %4, align 4, !noalias !256
   call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %11, ptr nonnull %4, i64 4) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !256
@@ -2906,51 +2900,41 @@ _ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %32 = load i32, ptr %31, align 8, !tbaa !271
   %33 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 4
-  call void @llvm.assume(i1 true) [ "align"(ptr %33, i64 1) ]
   store i32 %32, ptr %33, align 1
-  call void @llvm.assume(i1 true) [ "align"(ptr %.0.i.i.i.i, i64 1) ]
   store i32 -1, ptr %.0.i.i.i.i, align 1
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %35 = load i32, ptr %34, align 8, !tbaa !33
   %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
-  call void @llvm.assume(i1 true) [ "align"(ptr %36, i64 1) ]
   store i32 %35, ptr %36, align 1
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %38 = load i16, ptr %37, align 4, !tbaa !145
   %39 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 14
-  call void @llvm.assume(i1 true) [ "align"(ptr %39, i64 1) ]
   store i16 %38, ptr %39, align 1
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 34
   %41 = load i16, ptr %40, align 2, !tbaa !148
   %42 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
-  call void @llvm.assume(i1 true) [ "align"(ptr %42, i64 1) ]
   store i16 %41, ptr %42, align 1
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %44 = load i16, ptr %43, align 8, !tbaa !147
   %45 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 22
-  call void @llvm.assume(i1 true) [ "align"(ptr %45, i64 1) ]
   store i16 %44, ptr %45, align 1
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 30
   %47 = load i16, ptr %46, align 2, !tbaa !146
   %48 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 18
-  call void @llvm.assume(i1 true) [ "align"(ptr %48, i64 1) ]
   store i16 %47, ptr %48, align 1
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %50 = load i32, ptr %49, align 4, !tbaa !96
   %51 = trunc i32 %50 to i16
   %52 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 58
-  call void @llvm.assume(i1 true) [ "align"(ptr %52, i64 1) ]
   store i16 %51, ptr %52, align 1
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 184
   %54 = tail call noundef i32 @_ZNK4llvm3pdb21PDBStringTableBuilder23calculateSerializedSizeEv(ptr noundef nonnull align 8 dereferenceable(72) %53) #21
   %55 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 52
-  call void @llvm.assume(i1 true) [ "align"(ptr %55, i64 1) ]
   store i32 %54, ptr %55, align 1
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 352
   %57 = load i64, ptr %56, align 8, !tbaa !273
   %58 = trunc i64 %57 to i32
   %59 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 36
-  call void @llvm.assume(i1 true) [ "align"(ptr %59, i64 1) ]
   store i32 %58, ptr %59, align 1
   %60 = load ptr, ptr %6, align 8, !tbaa !172
   %61 = load ptr, ptr %8, align 8, !tbaa !172
@@ -2970,10 +2954,8 @@ _ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm
 _ZNK4llvm3pdb16DbiStreamBuilder26calculateModiSubstreamSizeEv.exit: ; preds = %.lr.ph.i, %_ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE8AllocateINS_3pdb15DbiStreamHeaderEEEPT_m.exit
   %.0.lcssa.i = phi i32 [ 0, %_ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE8AllocateINS_3pdb15DbiStreamHeaderEEEPT_m.exit ], [ %64, %.lr.ph.i ]
   %66 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
-  call void @llvm.assume(i1 true) [ "align"(ptr %66, i64 1) ]
   store i32 %.0.lcssa.i, ptr %66, align 1
   %67 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
-  call void @llvm.assume(i1 true) [ "align"(ptr %67, i64 1) ]
   store i32 22, ptr %67, align 1
   %68 = getelementptr inbounds nuw i8, ptr %1, i64 360
   %69 = load ptr, ptr %68, align 8, !tbaa !170
@@ -2995,7 +2977,6 @@ _ZNK4llvm3pdb16DbiStreamBuilder26calculateModiSubstreamSizeEv.exit: ; preds = %.
 _ZNK4llvm3pdb16DbiStreamBuilder34calculateSectionContribsStreamSizeEv.exit: ; preds = %_ZNK4llvm3pdb16DbiStreamBuilder26calculateModiSubstreamSizeEv.exit, %73
   %.0.i = phi i32 [ %80, %73 ], [ 0, %_ZNK4llvm3pdb16DbiStreamBuilder26calculateModiSubstreamSizeEv.exit ]
   %81 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 28
-  call void @llvm.assume(i1 true) [ "align"(ptr %81, i64 1) ]
   store i32 %.0.i, ptr %81, align 1
   %82 = getelementptr inbounds nuw i8, ptr %1, i64 384
   %83 = load ptr, ptr %82, align 8, !tbaa !171
@@ -3017,31 +2998,25 @@ _ZNK4llvm3pdb16DbiStreamBuilder34calculateSectionContribsStreamSizeEv.exit: ; pr
 _ZN4llvm5ErrorD2Ev.exit29:                        ; preds = %87, %_ZNK4llvm3pdb16DbiStreamBuilder34calculateSectionContribsStreamSizeEv.exit
   %.0.i28 = phi i32 [ %94, %87 ], [ 0, %_ZNK4llvm3pdb16DbiStreamBuilder34calculateSectionContribsStreamSizeEv.exit ]
   %95 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
-  call void @llvm.assume(i1 true) [ "align"(ptr %95, i64 1) ]
   store i32 %.0.i28, ptr %95, align 1
   %96 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
-  call void @llvm.assume(i1 true) [ "align"(ptr %96, i64 1) ]
   store i32 0, ptr %96, align 1
   %97 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %98 = load i32, ptr %97, align 8, !tbaa !99
   %99 = trunc i32 %98 to i16
   %100 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 20
-  call void @llvm.assume(i1 true) [ "align"(ptr %100, i64 1) ]
   store i16 %99, ptr %100, align 1
   %101 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %102 = load i32, ptr %101, align 4, !tbaa !98
   %103 = trunc i32 %102 to i16
   %104 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
-  call void @llvm.assume(i1 true) [ "align"(ptr %104, i64 1) ]
   store i16 %103, ptr %104, align 1
   %105 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 44
-  call void @llvm.assume(i1 true) [ "align"(ptr %105, i64 1) ]
   store i32 0, ptr %105, align 1
   %106 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %107 = load i32, ptr %106, align 8, !tbaa !97
   %108 = trunc i32 %107 to i16
   %109 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
-  call void @llvm.assume(i1 true) [ "align"(ptr %109, i64 1) ]
   store i16 %108, ptr %109, align 1
   store ptr %.0.i.i.i.i, ptr %3, align 8, !tbaa !270
   br label %.sink.split
@@ -3364,7 +3339,7 @@ declare void @_ZN4llvm3pdb26DbiModuleDescriptorBuilder17finalizeMsfLayoutEv(ptr 
 declare void @_ZN4llvm3msf10MSFBuilder13setStreamSizeEjj(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8, ptr noundef nonnull align 8 dereferenceable(152), i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3pdb16DbiStreamBuilder16createSectionMapENS_8ArrayRefINS_6object12coff_sectionEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(936) %0, ptr %1, i64 %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3pdb16DbiStreamBuilder16createSectionMapENS_8ArrayRefINS_6object12coff_sectionEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(936) %0, ptr readonly captures(address) %1, i64 %2) local_unnamed_addr #0 align 2 {
   %.idx = mul nuw nsw i64 %2, 40
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %.not30 = icmp eq i64 %2, 0
@@ -3452,18 +3427,13 @@ _ZNSt6vectorIN4llvm3pdb11SecMapEntryESaIS2_EE17_M_realloc_insertIJEEEvN9__gnu_cx
   %40 = getelementptr inbounds i8, ptr %38, i64 -18
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(14) %40, i8 0, i64 14, i1 false)
   %41 = getelementptr inbounds i8, ptr %38, i64 -14
-  call void @llvm.assume(i1 true) [ "align"(ptr %41, i64 1) ]
   store i16 %.028.lcssa, ptr %41, align 1
   %42 = getelementptr inbounds i8, ptr %38, i64 -12
-  call void @llvm.assume(i1 true) [ "align"(ptr %42, i64 1) ]
   store i16 -1, ptr %42, align 1
   %43 = getelementptr inbounds i8, ptr %38, i64 -10
-  call void @llvm.assume(i1 true) [ "align"(ptr %43, i64 1) ]
   store i16 -1, ptr %43, align 1
-  call void @llvm.assume(i1 true) [ "align"(ptr %39, i64 1) ]
   store i16 520, ptr %39, align 1
   %44 = getelementptr inbounds i8, ptr %38, i64 -4
-  call void @llvm.assume(i1 true) [ "align"(ptr %44, i64 1) ]
   store i32 -1, ptr %44, align 1
   ret void
 
@@ -3537,16 +3507,12 @@ _ZNSt6vectorIN4llvm3pdb11SecMapEntryESaIS2_EE17_M_realloc_insertIJEEEvN9__gnu_cx
   %73 = trunc i32 %.02831 to i16
   %74 = add i16 %73, 1
   %75 = getelementptr inbounds i8, ptr %71, i64 -14
-  call void @llvm.assume(i1 true) [ "align"(ptr %75, i64 1) ]
   store i16 %74, ptr %75, align 1
   %76 = getelementptr inbounds i8, ptr %71, i64 -12
-  call void @llvm.assume(i1 true) [ "align"(ptr %76, i64 1) ]
   store i16 -1, ptr %76, align 1
   %77 = getelementptr inbounds i8, ptr %71, i64 -10
-  call void @llvm.assume(i1 true) [ "align"(ptr %77, i64 1) ]
   store i16 -1, ptr %77, align 1
   %78 = getelementptr inbounds nuw i8, ptr %.032, i64 36
-  call void @llvm.assume(i1 true) [ "align"(ptr %78, i64 1) ]
   %.0.copyload.i.i.i = load i32, ptr %78, align 1
   %79 = lshr i32 %.0.copyload.i.i.i, 30
   %80 = trunc nuw nsw i32 %79 to i16
@@ -3563,7 +3529,6 @@ _ZNSt6vectorIN4llvm3pdb11SecMapEntryESaIS2_EE17_M_realloc_insertIJEEEvN9__gnu_cx
   %86 = or disjoint i16 %.2.i, 8
   %.3.i = select i1 %.not12.i, i16 %86, i16 %.2.i
   %87 = or i16 %.3.i, 256
-  call void @llvm.assume(i1 true) [ "align"(ptr %72, i64 1) ]
   store i16 %87, ptr %72, align 1
   %88 = getelementptr inbounds nuw i8, ptr %.032, i64 8
   %89 = getelementptr inbounds i8, ptr %71, i64 -4
@@ -4057,7 +4022,6 @@ _ZN4llvm5ErrorD2Ev.exit127:                       ; preds = %"_ZN4llvm20parallel
   %198 = call noundef i32 %197(ptr noundef nonnull align 8 dereferenceable(8) %194) #21, !noalias !329
   %.not.i.i.i.i128 = icmp eq i32 %198, 1
   %spec.select.i.i.i.i = select i1 %.not.i.i.i.i128, i32 -248595923, i32 767176433
-  call void @llvm.assume(i1 true) [ "align"(ptr %6, i64 1) ]
   store i32 %spec.select.i.i.i.i, ptr %6, align 4, !noalias !329
   call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %23, ptr nonnull %6, i64 4) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !329
@@ -4239,7 +4203,6 @@ _ZN4llvm5ErrorD2Ev.exit140:                       ; preds = %266, %262
   %.not.i.i.i139 = icmp eq i32 %273, 1
   %rev.i.i.i.i.i.i = call i16 @llvm.bswap.i16(i16 %.086)
   %spec.select.i.i.i = select i1 %.not.i.i.i139, i16 %.086, i16 %rev.i.i.i.i.i.i
-  call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 1) ]
   store i16 %spec.select.i.i.i, ptr %5, align 2, !noalias !345
   call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %23, ptr nonnull %5, i64 2) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !345

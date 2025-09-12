@@ -6081,7 +6081,6 @@ _ZN12_GLOBAL__N_111XCOFFWriter36writeSectionForExceptionSectionEntryERKN4llvm11M
   %.03.i.i = phi i64 [ %506, %.lr.ph.i24.i ], [ 0, %.preheader.i.i ]
   %507 = load ptr, ptr %496, align 8, !tbaa !189
   %508 = getelementptr inbounds nuw i8, ptr %507, i64 %.03.i.i
-  call void @llvm.assume(i1 true) [ "align"(ptr %508, i64 1) ]
   %.0.copyload.i.i.i.i.i.i.i.i = load i32, ptr %508, align 1
   %509 = call noundef i32 @llvm.bswap.i32(i32 %.0.copyload.i.i.i.i.i.i.i.i)
   %510 = load ptr, ptr %241, align 8, !tbaa !497

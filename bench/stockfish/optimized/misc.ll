@@ -547,7 +547,6 @@ define dso_local noundef ptr @_ZN9Stockfish25aligned_large_pages_allocEm(i64 nou
   %2 = add i64 %0, 2097151
   %3 = and i64 %2, -2097152
   %4 = tail call noalias noundef align 2097152 ptr @aligned_alloc(i64 noundef 2097152, i64 noundef %3) #24
-  call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 2097152) ]
   %5 = tail call i32 @madvise(ptr noundef %4, i64 noundef %3, i32 noundef 14) #21
   ret ptr %4
 }

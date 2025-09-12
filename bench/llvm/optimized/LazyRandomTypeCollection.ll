@@ -1506,7 +1506,7 @@ _ZNSt6vectorIN4llvm8codeview24LazyRandomTypeCollection10CacheEntryESaIS3_EE6resi
 
 declare void @_ZN4llvm8codeview15computeTypeNameB5cxx11ERNS0_14TypeCollectionENS0_9TypeIndexE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(8), i32) local_unnamed_addr #3
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN4llvm8codeview24LazyRandomTypeCollection8containsENS0_9TypeIndexE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(248) %0, i32 %1) unnamed_addr #4 align 2 {
   %3 = icmp ult i32 %1, 4096
   br i1 %3, label %_ZNK4llvm8codeview8CVRecordINS0_12TypeLeafKindEE5validEv.exit, label %4
@@ -1536,7 +1536,6 @@ define dso_local noundef zeroext i1 @_ZN4llvm8codeview24LazyRandomTypeCollection
 21:                                               ; preds = %16
   %22 = load ptr, ptr %17, align 8, !tbaa !104
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 2
-  call void @llvm.assume(i1 true) [ "align"(ptr %23, i64 1) ]
   %.0.copyload.i.i.i.i.i3 = load i16, ptr %23, align 1
   %24 = icmp ne i16 %.0.copyload.i.i.i.i.i3, 0
   br label %_ZNK4llvm8codeview8CVRecordINS0_12TypeLeafKindEE5validEv.exit
@@ -2032,7 +2031,6 @@ _ZN4llvm24FixedStreamArrayIteratorINS_8codeview15TypeIndexOffsetEEC2ERKS3_.exit1
   call void @llvm.lifetime.end.p0(ptr nonnull %24), !noalias !133
   %210 = load ptr, ptr %23, align 8, !tbaa !104, !noalias !133
   call void @llvm.lifetime.end.p0(ptr nonnull %23), !noalias !133
-  call void @llvm.assume(i1 true) [ "align"(ptr %210, i64 1) ]
   %.0.copyload.i.i.i.i2.i.i.i.i.i.i = load i32, ptr %210, align 1, !noalias !133
   %211 = icmp ult i32 %2, %.0.copyload.i.i.i.i2.i.i.i.i.i.i
   %212 = load ptr, ptr %174, align 8, !tbaa !33, !noalias !133
@@ -2806,7 +2804,6 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %538, %536, %523
   %542 = load ptr, ptr %7, align 8, !tbaa !104
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %543 = getelementptr inbounds nuw i8, ptr %542, i64 4
-  call void @llvm.assume(i1 true) [ "align"(ptr %543, i64 1) ]
   %.0.copyload.i.i.i = load i32, ptr %543, align 1
   call void @_ZN4llvm8codeview24LazyRandomTypeCollection10visitRangeENS0_9TypeIndexEjS2_(ptr noundef nonnull align 8 dereferenceable(248) %1, i32 %.sroa.04.0.copyload, i32 noundef %.0.copyload.i.i.i, i32 %.sroa.047.0)
   br label %544
@@ -5299,7 +5296,6 @@ _ZN4llvm5ErrorD2Ev.exit7:                         ; preds = %_ZN4llvm19BinaryStr
   %53 = load ptr, ptr %5, align 8, !tbaa !104, !noalias !277
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !277
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  call void @llvm.assume(i1 true) [ "align"(ptr %53, i64 1) ]
   %.0.copyload.i.i.i = load i16, ptr %53, align 1
   %54 = icmp ult i16 %.0.copyload.i.i.i, 2
   br i1 %54, label %_ZN4llvm5ErrorD2Ev.exit8, label %62
@@ -5327,7 +5323,6 @@ _ZN4llvm5ErrorD2Ev.exit8:                         ; preds = %_ZN4llvm5ErrorD2Ev.
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  call void @llvm.assume(i1 true) [ "align"(ptr %53, i64 1) ]
   %.0.copyload.i.i.i9 = load i16, ptr %53, align 1
   %63 = zext i16 %.0.copyload.i.i.i9 to i32
   %64 = add nuw nsw i32 %63, 2
@@ -5796,7 +5791,7 @@ attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree norecurse noreturn nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

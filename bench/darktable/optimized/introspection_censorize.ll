@@ -246,7 +246,6 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %95 = add i64 %93, %94
   %.idx197.us217 = shl i64 %95, 4
   %96 = getelementptr inbounds nuw i8, ptr %.0168, i64 %.idx197.us217
-  call void @llvm.assume(i1 true) [ "align"(ptr %96, i64 16) ]
   br label %99
 
 97:                                               ; preds = %99
@@ -313,7 +312,6 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %123 = add i64 %121, %122
   %.idx197.us.us = shl i64 %123, 4
   %124 = getelementptr inbounds nuw i8, ptr %.0168, i64 %.idx197.us.us
-  call void @llvm.assume(i1 true) [ "align"(ptr %124, i64 16) ]
   br label %127
 
 125:                                              ; preds = %127

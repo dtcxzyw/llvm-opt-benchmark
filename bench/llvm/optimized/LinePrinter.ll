@@ -2010,7 +2010,6 @@ _ZNSt6vectorIN12_GLOBAL__N_13RunESaIS1_EE12emplace_backIJRjEEERS1_DpOT_.exit.i: 
   %60 = load ptr, ptr %59, align 8, !tbaa !145, !noalias !171
   %61 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %62 = load ptr, ptr %61, align 8, !tbaa !174, !noalias !171
-  call void @llvm.assume(i1 true) [ "align"(ptr %60, i64 1) ]
   %.0.copyload.i.i.i.i = load i32, ptr %60, align 1, !noalias !171
   %63 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #18, !noalias !171
   store i32 %.0.copyload.i.i.i.i, ptr %63, align 8, !tbaa !175, !noalias !171
@@ -2040,7 +2039,6 @@ _ZNSt6vectorIN12_GLOBAL__N_13RunESaIS1_EE12emplace_backIJRjEEERS1_DpOT_.exit.i: 
   %.sroa.0.043.i = phi ptr [ %60, %.lr.ph.i ], [ %108, %_ZNSt6vectorIN12_GLOBAL__N_13RunESaIS1_EE12emplace_backIJRjEEERS1_DpOT_.exit27.i ]
   %.042.i = phi i32 [ %.0.copyload.i.i.i.i, %.lr.ph.i ], [ %.0.copyload.i.i.i13.i, %_ZNSt6vectorIN12_GLOBAL__N_13RunESaIS1_EE12emplace_backIJRjEEERS1_DpOT_.exit27.i ]
   %.03941.i = phi i64 [ %67, %.lr.ph.i ], [ %106, %_ZNSt6vectorIN12_GLOBAL__N_13RunESaIS1_EE12emplace_backIJRjEEERS1_DpOT_.exit27.i ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.0.043.i, i64 1) ]
   %.0.copyload.i.i.i13.i = load i32, ptr %.sroa.0.043.i, align 1, !noalias !171
   %75 = icmp ult i32 %.0.copyload.i.i.i13.i, %.042.i
   %76 = sub nuw i32 %.0.copyload.i.i.i13.i, %.042.i
@@ -2709,7 +2707,6 @@ _ZN4llvm8ExpectedINS_8ArrayRefIhEEED2Ev.exit:     ; preds = %32, %34
   %39 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream6indentEj(ptr noundef nonnull align 8 dereferenceable(48) %37, i32 noundef %38) #19
   %40 = load ptr, ptr %0, align 8, !tbaa !35
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.022.028, i64 1) ]
   %.0.copyload.i.i.i = load i32, ptr %.sroa.022.028, align 1
   store ptr @.str.8, ptr %4, align 8, !tbaa !64, !alias.scope !202
   store i64 12, ptr %.sroa.22.0..sroa_idx.i.i.i.i, align 8, !tbaa !68, !alias.scope !202
@@ -2726,7 +2723,6 @@ _ZN4llvm8ExpectedINS_8ArrayRefIhEEED2Ev.exit:     ; preds = %32, %34
   %44 = load ptr, ptr %43, align 8
   %45 = call noundef i32 %44(ptr noundef nonnull align 8 dereferenceable(280) %1) #19
   %46 = zext i32 %45 to i64
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.022.028, i64 1) ]
   %.0.copyload.i.i.i10 = load i32, ptr %.sroa.022.028, align 1
   %47 = load ptr, ptr %1, align 8, !tbaa !84
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
@@ -2742,7 +2738,6 @@ _ZN4llvm8ExpectedINS_8ArrayRefIhEEED2Ev.exit:     ; preds = %32, %34
   call void @llvm.assume(i1 %56)
   %.sroa.0.0.copyload.i = load ptr, ptr %5, align 8, !tbaa !64
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !68
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.022.028, i64 1) ]
   %.0.copyload.i.i.i11 = load i32, ptr %.sroa.022.028, align 1
   %57 = zext i32 %.0.copyload.i.i.i11 to i64
   %58 = load ptr, ptr %1, align 8, !tbaa !84

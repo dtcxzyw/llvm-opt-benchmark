@@ -133800,7 +133800,6 @@ _ZN5boost4asio6detail19recycling_allocatorINS1_11executor_opINS1_17executor_func
 
 .loopexit.i:                                      ; preds = %16, %1, %20, %_ZN5boost4asio6detail19recycling_allocatorINS1_11executor_opINS1_17executor_functionESaIvENS1_19scheduler_operationEEENS1_16thread_info_base11default_tagEE8allocateEm.exit
   %22 = tail call noalias align 16 dereferenceable_or_null(48) ptr @aligned_alloc(i64 noundef 16, i64 noundef 48) #67
-  call void @llvm.assume(i1 true) [ "align"(ptr %22, i64 16) ]
   %.not.i.i = icmp eq ptr %22, null
   br i1 %.not.i.i, label %23, label %_ZN5boost4asio6detail16thread_info_base8allocateINS2_11default_tagEEEPvT_PS2_mm.exit
 
@@ -156364,7 +156363,6 @@ _ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i
 
 .loopexit.i.i.i.i.i.i.i.i.i:                      ; preds = %43, %47, %_ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i.i.i.i, %_ZN5boost4asio6detail25base_from_completion_condINS1_14transfer_all_tEE20check_for_completionERKNS_6system10error_codeEm.exit
   %49 = tail call noalias align 16 dereferenceable_or_null(208) ptr @aligned_alloc(i64 noundef 16, i64 noundef 208) #67
-  call void @llvm.assume(i1 true) [ "align"(ptr %49, i64 16) ]
   %.not.i.i1.i.i.i.i.i.i.i.i = icmp eq ptr %49, null
   br i1 %.not.i.i1.i.i.i.i.i.i.i.i, label %50, label %54
 
@@ -156936,7 +156934,6 @@ _ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit8.i: ; pre
 
 .loopexit.i:                                      ; preds = %47, %_ZN5boost4asio6detail16thread_info_base10deallocateINS2_23cancellation_signal_tagEEEvT_PS2_Pvm.exit.i, %50, %_ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit8.i
   %52 = tail call noalias align 16 dereferenceable_or_null(48) ptr @aligned_alloc(i64 noundef 16, i64 noundef 48) #67
-  call void @llvm.assume(i1 true) [ "align"(ptr %52, i64 16) ]
   %.not.i.i = icmp eq ptr %52, null
   br i1 %.not.i.i, label %53, label %_ZN5boost4asio6detail16thread_info_base8allocateINS2_23cancellation_signal_tagEEEPvT_PS2_mm.exit
 
@@ -157282,7 +157279,6 @@ _ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i
 
 .loopexit.i.i.i.i.i.i.i:                          ; preds = %89, %92, %_ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i.i, %73
   %94 = call noalias align 16 dereferenceable_or_null(96) ptr @aligned_alloc(i64 noundef 16, i64 noundef 96) #67
-  call void @llvm.assume(i1 true) [ "align"(ptr %94, i64 16) ]
   %.not.i.i1.i.i.i.i.i.i = icmp eq ptr %94, null
   br i1 %.not.i.i1.i.i.i.i.i.i, label %95, label %"_ZN5boost4asio6detail17executor_functionC2INS1_7binder2INS1_8write_opINS_7process2v16detail5posix10async_pipeENS0_14mutable_bufferEPKSB_NS1_14transfer_all_tEZN5async11plain_async11test_methodEvE3$_0EENS_6system10error_codeEmEESaIvEEET_RKT0_.exit.i.i.i"
 
@@ -158685,7 +158681,6 @@ _ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i
 
 .loopexit.i.i.i.i.i.i.i.i.i:                      ; preds = %116, %120, %_ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i.i.i.i, %93
   %122 = call noalias align 16 dereferenceable_or_null(208) ptr @aligned_alloc(i64 noundef 16, i64 noundef 208) #67
-  call void @llvm.assume(i1 true) [ "align"(ptr %122, i64 16) ]
   %.not.i.i1.i.i.i.i.i.i.i.i = icmp eq ptr %122, null
   br i1 %.not.i.i1.i.i.i.i.i.i.i.i, label %123, label %127
 
@@ -159805,7 +159800,6 @@ _ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i
 
 .loopexit.i.i.i.i.i.i.i:                          ; preds = %97, %100, %_ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i.i, %80
   %102 = call noalias align 16 dereferenceable_or_null(96) ptr @aligned_alloc(i64 noundef 16, i64 noundef 96) #67
-  call void @llvm.assume(i1 true) [ "align"(ptr %102, i64 16) ]
   %.not.i.i1.i.i.i.i.i.i = icmp eq ptr %102, null
   br i1 %.not.i.i1.i.i.i.i.i.i, label %103, label %"_ZN5boost4asio6detail17executor_functionC2INS1_7binder2INS1_22read_until_delim_op_v1INS_7process2v16detail5posix10async_pipeENS0_19basic_streambuf_refISaIcEEEZN5async11plain_async11test_methodEvE3$_1EENS_6system10error_codeEmEESaIvEEET_RKT0_.exit.i.i.i"
 
