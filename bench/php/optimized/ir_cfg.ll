@@ -2902,7 +2902,7 @@ define hidden noundef i32 @ir_schedule_blocks(ptr noundef %0) local_unnamed_addr
   %80 = and i32 %79, 2
   %.not53 = icmp ne i32 %80, 0
   %81 = icmp ugt i32 %.pre, 256
-  %or.cond = select i1 %.not53, i1 true, i1 %81
+  %or.cond = select i1 %.not53, i1 true, i1 %81, !prof !62
   br i1 %or.cond, label %82, label %298, !prof !62
 
 82:                                               ; preds = %._crit_edge

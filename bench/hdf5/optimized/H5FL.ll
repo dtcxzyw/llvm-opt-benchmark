@@ -134,7 +134,7 @@ H5FL__reg_term.exit:                              ; preds = %3, %._crit_edge.i
   %26 = select i1 %23, i1 true, i1 %25
   %27 = load ptr, ptr @H5FL_fac_gc_head.1, align 8
   %28 = icmp ne ptr %27, null
-  %or.cond.i = select i1 %26, i1 %28, i1 false
+  %or.cond.i = select i1 %26, i1 %28, i1 false, !prof !9
   br i1 %or.cond.i, label %.preheader.i, label %H5FL__fac_term_all.exit, !prof !9
 
 .preheader.i:                                     ; preds = %H5FL__reg_term.exit, %.preheader.i
@@ -305,7 +305,7 @@ define noundef i32 @H5FL_garbage_coll() local_unnamed_addr #0 {
   %.not8.i = select i1 %not..i, i1 %13, i1 false
   %.045.i = load ptr, ptr @H5FL_blk_gc_head.1, align 8
   %.not6.i = icmp eq ptr %.045.i, null
-  %or.cond.i = select i1 %.not8.i, i1 true, i1 %.not6.i
+  %or.cond.i = select i1 %.not8.i, i1 true, i1 %.not6.i, !prof !65
   br i1 %or.cond.i, label %H5FL__blk_gc.exit, label %.lr.ph.i, !prof !65
 
 .lr.ph.i:                                         ; preds = %9, %.lr.ph.i
@@ -331,7 +331,7 @@ H5FL__blk_gc.exit:                                ; preds = %H5FL__blk_gc.exit.l
   %.not8.i6 = select i1 %not..i5.pre-phi, i1 %.pre-phi33, i1 false
   %.045.i7 = load ptr, ptr @H5FL_reg_gc_head.1, align 8
   %.not6.i8 = icmp eq ptr %.045.i7, null
-  %or.cond.i9 = select i1 %.not8.i6, i1 true, i1 %.not6.i8
+  %or.cond.i9 = select i1 %.not8.i6, i1 true, i1 %.not6.i8, !prof !65
   br i1 %or.cond.i9, label %H5FL__reg_gc.exit, label %.lr.ph.i10, !prof !65
 
 .lr.ph.i10:                                       ; preds = %H5FL__blk_gc.exit, %H5FL__reg_gc_list.exit.i
@@ -396,7 +396,7 @@ H5FL__reg_gc.exit:                                ; preds = %H5FL__reg_gc.exit.l
   %.not8.i15 = select i1 %not..i14.pre-phi, i1 %.pre-phi38, i1 false
   %.045.i16 = load ptr, ptr @H5FL_fac_gc_head.1, align 8
   %.not6.i17 = icmp eq ptr %.045.i16, null
-  %or.cond.i18 = select i1 %.not8.i15, i1 true, i1 %.not6.i17
+  %or.cond.i18 = select i1 %.not8.i15, i1 true, i1 %.not6.i17, !prof !65
   br i1 %or.cond.i18, label %H5FL__fac_gc.exit, label %.lr.ph.i19, !prof !65
 
 .lr.ph.i19:                                       ; preds = %H5FL__reg_gc.exit, %H5FL__fac_gc_list.exit.i
@@ -525,7 +525,7 @@ H5FL__reg_gc_list.exit:                           ; preds = %._crit_edge.i, %23,
   %.not8.i = select i1 %not..i, i1 %44, i1 false
   %.045.i = load ptr, ptr @H5FL_reg_gc_head.1, align 8
   %.not6.i = icmp eq ptr %.045.i, null
-  %or.cond.i = select i1 %.not8.i, i1 true, i1 %.not6.i
+  %or.cond.i = select i1 %.not8.i, i1 true, i1 %.not6.i, !prof !65
   br i1 %or.cond.i, label %H5FL__reg_gc.exit, label %.lr.ph.i11, !prof !65
 
 .lr.ph.i11:                                       ; preds = %40, %H5FL__reg_gc_list.exit.i
@@ -1266,7 +1266,7 @@ define noalias noundef ptr @H5FL_blk_free(ptr noundef captures(none) %0, ptr nou
   %.not8.i = select i1 %not..i, i1 %78, i1 false
   %.045.i = load ptr, ptr @H5FL_blk_gc_head.1, align 8
   %.not6.i = icmp eq ptr %.045.i, null
-  %or.cond.i = select i1 %.not8.i, i1 true, i1 %.not6.i
+  %or.cond.i = select i1 %.not8.i, i1 true, i1 %.not6.i, !prof !65
   br i1 %or.cond.i, label %H5FL__blk_gc.exit, label %.lr.ph.i, !prof !65
 
 .lr.ph.i:                                         ; preds = %74, %.lr.ph.i
@@ -1604,7 +1604,7 @@ define internal fastcc void @H5FL__arr_gc() unnamed_addr #0 {
   %.not8 = select i1 %not., i1 %4, i1 false
   %.045 = load ptr, ptr @H5FL_arr_gc_head.1, align 8
   %.not6 = icmp eq ptr %.045, null
-  %or.cond = select i1 %.not8, i1 true, i1 %.not6
+  %or.cond = select i1 %.not8, i1 true, i1 %.not6, !prof !65
   br i1 %or.cond, label %.loopexit, label %.lr.ph, !prof !65
 
 .lr.ph:                                           ; preds = %0, %H5FL__arr_gc_list.exit
@@ -2298,7 +2298,7 @@ H5FL__fac_gc_list.exit:                           ; preds = %._crit_edge.i, %23,
   %.not8.i = select i1 %not..i, i1 %44, i1 false
   %.045.i = load ptr, ptr @H5FL_fac_gc_head.1, align 8
   %.not6.i = icmp eq ptr %.045.i, null
-  %or.cond.i = select i1 %.not8.i, i1 true, i1 %.not6.i
+  %or.cond.i = select i1 %.not8.i, i1 true, i1 %.not6.i, !prof !65
   br i1 %or.cond.i, label %H5FL__fac_gc.exit, label %.lr.ph.i11, !prof !65
 
 .lr.ph.i11:                                       ; preds = %40, %H5FL__fac_gc_list.exit.i

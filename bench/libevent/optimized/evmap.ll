@@ -252,7 +252,7 @@ evmap_make_space.exit:                            ; preds = %21, %7
   %.275 = select i1 %.not94.not, i16 %.174, i16 %spec.select106
   %68 = icmp samesign ugt i32 %.080, 65535
   %69 = icmp samesign ugt i32 %.079, 65535
-  %or.cond = select i1 %68, i1 true, i1 %69
+  %or.cond = select i1 %68, i1 true, i1 %69, !prof !7
   %70 = icmp samesign ugt i32 %.078, 65535
   %spec.select107 = select i1 %or.cond, i1 true, i1 %70, !prof !7
   br i1 %spec.select107, label %71, label %72, !prof !6

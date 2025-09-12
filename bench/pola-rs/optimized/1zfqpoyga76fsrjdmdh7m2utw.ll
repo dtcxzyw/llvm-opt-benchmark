@@ -106931,7 +106931,7 @@ define hidden void @_ZN11polars_plan5plans9optimizer10join_utils13remove_suffix1
 61:                                               ; preds = %60
   %62 = icmp ne i64 %4, 0
   %.not221 = icmp eq ptr %spec.select.i6, null
-  %or.cond = select i1 %62, i1 true, i1 %.not221
+  %or.cond = select i1 %62, i1 true, i1 %.not221, !prof !4482
   br i1 %or.cond, label %"_ZN4core3str6traits110_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeTo$LT$usize$GT$$GT$3get17h453c7d029d9d89c6E.exit.thread", label %.thread, !prof !4482
 
 63:                                               ; preds = %60
@@ -107139,7 +107139,7 @@ define void @"_ZN146_$LT$polars_plan..plans..optimizer..join_utils..remove_suffi
 35:                                               ; preds = %34
   %36 = icmp ne i64 %31, 0
   %.not16 = icmp eq ptr %spec.select.i, null
-  %or.cond = select i1 %36, i1 true, i1 %.not16
+  %or.cond = select i1 %36, i1 true, i1 %.not16, !prof !4482
   br i1 %or.cond, label %"_ZN4core3str6traits110_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeTo$LT$usize$GT$$GT$3get17h453c7d029d9d89c6E.exit.thread", label %.thread, !prof !4482
 
 37:                                               ; preds = %34

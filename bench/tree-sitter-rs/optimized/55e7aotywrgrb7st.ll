@@ -21006,7 +21006,7 @@ _ZN15tree_sitter_cli8generate5dedup21split_state_id_groups17h86004340cfc66be7E.e
   %774 = icmp ne i64 %.fca.0.extract.i.i.i.us.i.i.i, 1
   %.fca.1.extract.i.i.i.us.i.i.i = extractvalue { i64, i64 } %773, 1
   %775 = icmp ult i64 %.fca.1.extract.i.i.i.us.i.i.i, %732
-  %or.cond.i.i.i = select i1 %774, i1 true, i1 %775
+  %or.cond.i.i.i = select i1 %774, i1 true, i1 %775, !prof !3874
   br i1 %or.cond.i.i.i, label %.backedge.i.us57.i.i.i, label %.invoke.i119.i, !prof !3874
 
 .backedge.i.us57.i.i.i:                           ; preds = %.noexc61.i154.i

@@ -542,7 +542,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5folly6fibers20SimpleLoopController20
   %8 = trunc nuw i8 %7 to i1
   %9 = load ptr, ptr %5, align 8
   %10 = icmp ne ptr %9, %1
-  %or.cond = select i1 %8, i1 %10, i1 false
+  %or.cond = select i1 %8, i1 %10, i1 false, !prof !135
   br i1 %or.cond, label %11, label %.critedge, !prof !135
 
 11:                                               ; preds = %3

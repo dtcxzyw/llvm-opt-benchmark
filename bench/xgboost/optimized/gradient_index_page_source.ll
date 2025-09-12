@@ -4777,7 +4777,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %293 = load i8, ptr %99, align 8, !tbaa !205, !range !78, !noundef !119
   %294 = trunc nuw i8 %293 to i1
   %295 = icmp eq ptr %254, %255
-  %or.cond.i.i = select i1 %294, i1 %295, i1 false
+  %or.cond.i.i = select i1 %294, i1 %295, i1 false, !prof !256
   br i1 %or.cond.i.i, label %296, label %308, !prof !256
 
 296:                                              ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit.i.i
@@ -5511,7 +5511,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %570 = load i8, ptr %99, align 8, !tbaa !205, !range !78, !noundef !119
   %571 = trunc nuw i8 %570 to i1
   %572 = icmp eq ptr %531, %532
-  %or.cond.i98.i = select i1 %571, i1 %572, i1 false
+  %or.cond.i98.i = select i1 %571, i1 %572, i1 false, !prof !256
   br i1 %or.cond.i98.i, label %573, label %585, !prof !256
 
 573:                                              ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit.i97.i
@@ -6239,7 +6239,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %845 = load i8, ptr %99, align 8, !tbaa !205, !range !78, !noundef !119
   %846 = trunc nuw i8 %845 to i1
   %847 = icmp eq ptr %806, %807
-  %or.cond.i172.i = select i1 %846, i1 %847, i1 false
+  %or.cond.i172.i = select i1 %846, i1 %847, i1 false, !prof !256
   br i1 %or.cond.i172.i, label %848, label %860, !prof !256
 
 848:                                              ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit.i171.i

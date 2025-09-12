@@ -13353,7 +13353,7 @@ _ZN7AstNode9privateIsI11AstArraySelKPS_EEbPKS_.exit.thread.i.i: ; preds = %_ZN7A
   %578 = getelementptr inbounds nuw i8, ptr %.sroa.0391.0745, i64 48
   %579 = load i32, ptr %578, align 8
   %580 = icmp eq i32 %574, %579
-  %or.cond.i = select i1 %577, i1 %580, i1 false
+  %or.cond.i = select i1 %577, i1 %580, i1 false, !prof !365
   br i1 %or.cond.i, label %_ZNK9UnpackRef5indexEv.exit, label %_ZNK9UnpackRef11isSingleRefEv.exit.thread1.i, !prof !365
 
 _ZNK9UnpackRef11isSingleRefEv.exit.thread1.i:     ; preds = %_ZN7AstNode9privateIsI11AstArraySelKPS_EEbPKS_.exit.thread.i.i

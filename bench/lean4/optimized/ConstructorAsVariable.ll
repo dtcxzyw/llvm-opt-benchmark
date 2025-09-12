@@ -20923,7 +20923,7 @@ define zeroext range(i8 0, 2) i8 @l_Array_qsort_sort___at_Lean_Linter_constructo
   %14 = ptrtoint ptr %10 to i64
   %15 = and i64 %14, 1
   %16 = icmp ne i64 %15, 0
-  %or.cond = select i1 %13, i1 %16, i1 false
+  %or.cond = select i1 %13, i1 %16, i1 false, !prof !19
   br i1 %or.cond, label %17, label %.critedge.i, !prof !19
 
 17:                                               ; preds = %2
@@ -23876,7 +23876,7 @@ define nonnull ptr @l_Array_qsort_sort___at_Lean_Linter_constructorNameAsVariabl
   %14 = ptrtoint ptr %10 to i64
   %15 = and i64 %14, 1
   %16 = icmp ne i64 %15, 0
-  %or.cond.i = select i1 %13, i1 %16, i1 false
+  %or.cond.i = select i1 %13, i1 %16, i1 false, !prof !19
   br i1 %or.cond.i, label %17, label %.critedge.i.i, !prof !19
 
 17:                                               ; preds = %2

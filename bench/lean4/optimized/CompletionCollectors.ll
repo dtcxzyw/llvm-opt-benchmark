@@ -31929,7 +31929,7 @@ lean_nat_add.exit254:                             ; preds = %80, %76, %.critedge
   %83 = ptrtoint ptr %.0.i253 to i64
   %84 = and i64 %83, 1
   %85 = icmp ne i64 %84, 0
-  %or.cond = select i1 %56, i1 %85, i1 false
+  %or.cond = select i1 %56, i1 %85, i1 false, !prof !19
   br i1 %or.cond, label %86, label %lean_nat_le.exit, !prof !19
 
 86:                                               ; preds = %lean_nat_add.exit254
@@ -32863,7 +32863,7 @@ lean_nat_add.exit242:                             ; preds = %415, %411, %.crited
   %418 = ptrtoint ptr %.0.i241 to i64
   %419 = and i64 %418, 1
   %420 = icmp ne i64 %419, 0
-  %or.cond569 = select i1 %56, i1 %420, i1 false
+  %or.cond569 = select i1 %56, i1 %420, i1 false, !prof !19
   br i1 %or.cond569, label %421, label %lean_nat_le.exit465, !prof !19
 
 421:                                              ; preds = %lean_nat_add.exit242

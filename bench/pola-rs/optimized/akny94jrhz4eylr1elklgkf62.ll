@@ -50021,7 +50021,7 @@ _ZN9polars_io3csv4read6parser14skip_condition17h492976672d34faadE.exit: ; preds 
   %.sroa.3.0.i = phi i64 [ %110, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17hd419cbaa2cc4f8b0E.exit.i" ], [ 0, %11 ]
   %.sroa.0.0.i = phi ptr [ %111, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17hd419cbaa2cc4f8b0E.exit.i" ], [ %95, %11 ]
   %112 = icmp eq i64 %.sroa.3.0.i, 0
-  %or.cond6 = select i1 %10, i1 %112, i1 false
+  %or.cond6 = select i1 %10, i1 %112, i1 false, !prof !6197
   br i1 %or.cond6, label %149, label %113, !prof !6197
 
 113:                                              ; preds = %_ZN9polars_io3csv4read6parser14skip_condition17h492976672d34faadE.exit

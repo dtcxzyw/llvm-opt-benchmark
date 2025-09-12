@@ -7653,7 +7653,7 @@ define internal void @atapi_qc_complete(ptr noundef %0) #0 align 16 {
   %9 = load i64, ptr %8, align 8
   %10 = and i64 %9, 131072
   %11 = icmp eq i64 %10, 0
-  %or.cond = select i1 %7, i1 %11, i1 false
+  %or.cond = select i1 %7, i1 %11, i1 false, !prof !59
   br i1 %or.cond, label %31, label %._crit_edge, !prof !59
 
 ._crit_edge:                                      ; preds = %1

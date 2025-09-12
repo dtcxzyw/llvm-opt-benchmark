@@ -5296,7 +5296,7 @@ define linkonce_odr void @_ZN13duckdb_snappy18SnappyDecompressor17DecompressAllT
   %80 = add i64 %79, %73
   %81 = icmp slt i64 %80, 0
   %.not.i = icmp eq i64 %67, %73
-  %or.cond157.i = select i1 %81, i1 true, i1 %.not.i
+  %or.cond157.i = select i1 %81, i1 true, i1 %.not.i, !prof !142
   br i1 %or.cond157.i, label %.thread133.thread.i, label %.thread125.i, !prof !142
 
 .thread125.i:                                     ; preds = %78

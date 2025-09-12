@@ -98503,7 +98503,7 @@ lean_nat_abs.exit118:                             ; preds = %99, %lean_int_neg.e
   %127 = icmp ne i64 %126, 0
   %128 = and i64 %.pre-phi, 1
   %129 = icmp ne i64 %128, 0
-  %or.cond = select i1 %127, i1 %129, i1 false
+  %or.cond = select i1 %127, i1 %129, i1 false, !prof !18
   br i1 %or.cond, label %lean_dec.exit70.thread, label %lean_nat_lt.exit, !prof !18
 
 lean_dec.exit70.thread:                           ; preds = %lean_nat_abs.exit118

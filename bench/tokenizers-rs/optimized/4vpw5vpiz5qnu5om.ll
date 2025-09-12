@@ -12169,7 +12169,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %28 = load i64, ptr %27, align 8
   %29 = icmp eq i64 %28, -1
-  %or.cond = select i1 %.not.i.i.i, i1 %29, i1 false
+  %or.cond = select i1 %.not.i.i.i, i1 %29, i1 false, !prof !3237
   br i1 %or.cond, label %31, label %"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h3b0ec4421e493fe9E.exit", !prof !3237
 
 30:                                               ; preds = %21
@@ -12269,7 +12269,7 @@ _ZN5alloc7raw_vec14handle_reserve17hcad0629ec913c222E.llvm.4432219087322099438.e
   %.not.i.i.i.i.i = icmp ugt i64 %.val15.i.i.i.i.i, %.val.i.i.i.i.i
   %66 = load i64, ptr %53, align 8, !alias.scope !3262, !noalias !3261
   %67 = icmp eq i64 %66, -1
-  %or.cond.i.i = select i1 %.not.i.i.i.i.i, i1 %67, i1 false
+  %or.cond.i.i = select i1 %.not.i.i.i.i.i, i1 %67, i1 false, !prof !3237
   br i1 %or.cond.i.i, label %.invoke, label %"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h3b0ec4421e493fe9E.exit.i.i", !prof !3237
 
 .invoke:                                          ; preds = %65, %62

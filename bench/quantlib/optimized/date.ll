@@ -10295,7 +10295,7 @@ if.then.i:                                        ; preds = %entry
   %4 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !12
   %cmp.i.i.i.i.i = icmp slt i64 %4, 1
   %loadedv.i.i.i.i.i.i = trunc nuw i8 %next.coerce1 to i1
-  %or.cond.i = select i1 %cmp.i.i.i.i.i, i1 true, i1 %loadedv.i.i.i.i.i.i
+  %or.cond.i = select i1 %cmp.i.i.i.i.i, i1 true, i1 %loadedv.i.i.i.i.i.i, !prof !99
   br i1 %or.cond.i, label %_ZNK5boost9date_time24special_values_formatterIcSt19ostreambuf_iteratorIcSt11char_traitsIcEEE11put_specialES5_RKNS0_14special_valuesE.exit, label %land.lhs.true.i.i.i.i.i.i, !prof !99
 
 land.lhs.true.i.i.i.i.i.i:                        ; preds = %if.then.i

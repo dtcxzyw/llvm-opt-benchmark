@@ -654,7 +654,7 @@ _ZSt5alignmmRPvRm.exit.thread:                    ; preds = %9, %3, %_ZSt5alignm
   %.not = icmp ugt ptr %0, %18
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 %1
   %23 = icmp ult ptr %22, %18
-  %or.cond = select i1 %.not, i1 true, i1 %23
+  %or.cond = select i1 %.not, i1 true, i1 %23, !prof !15
   br i1 %or.cond, label %.critedge, label %24, !prof !15
 
 .critedge:                                        ; preds = %21
@@ -795,7 +795,7 @@ _ZSt5alignmmRPvRm.exit.thread:                    ; preds = %7, %3
   %.not10 = icmp ult ptr %.0.i14, %0
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 %1
   %21 = icmp ugt ptr %.0.i14, %20
-  %or.cond18 = select i1 %.not10, i1 true, i1 %21
+  %or.cond18 = select i1 %.not10, i1 true, i1 %21, !prof !15
   br i1 %or.cond18, label %.critedge, label %22, !prof !15
 
 .critedge:                                        ; preds = %19

@@ -8603,7 +8603,7 @@ _ZNKSt3setIjSt4lessIjESaIjEE5countERKj.exit:      ; preds = %_ZNKSt8_Rb_treeIjjS
   %212 = load i32, ptr %.19.i.i.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 4, !tbaa !16
   %213 = icmp ult i32 %212, 2147483647
   %214 = icmp ne i64 %.pr.pre.pre233, 1
-  %or.cond = select i1 %213, i1 %214, i1 false
+  %or.cond = select i1 %213, i1 %214, i1 false, !prof !310
   br i1 %or.cond, label %215, label %.critedge44, !prof !310
 
 215:                                              ; preds = %_ZNKSt3setIjSt4lessIjESaIjEE5countERKj.exit

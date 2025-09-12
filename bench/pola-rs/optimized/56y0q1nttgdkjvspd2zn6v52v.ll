@@ -7330,7 +7330,7 @@ define internal { ptr, ptr } @"_ZN103_$LT$polars_arrow..array..fixed_size_list..
   %41 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %42 = load i64, ptr %41, align 8
   %.not3.i.i = icmp eq i64 %42, %12
-  %or.cond = select i1 %.not.i.i, i1 true, i1 %.not3.i.i
+  %or.cond = select i1 %.not.i.i, i1 true, i1 %.not3.i.i, !prof !552
   br i1 %or.cond, label %43, label %46, !prof !552
 
 43:                                               ; preds = %32
@@ -157554,7 +157554,7 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort8_stable1
   %74 = getelementptr i8, ptr %89, i64 16
   %75 = icmp ne ptr %84, %73
   %76 = icmp ne ptr %82, %74
-  %or.cond.i = select i1 %75, i1 true, i1 %76
+  %or.cond.i = select i1 %75, i1 true, i1 %76, !prof !17190
   br i1 %or.cond.i, label %92, label %_ZN4core5slice4sort6shared9smallsort19bidirectional_merge17h43090b5798d9267dE.exit, !prof !17190
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %3
@@ -157720,7 +157720,7 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort8_stable1
   %74 = getelementptr i8, ptr %89, i64 16
   %75 = icmp ne ptr %84, %73
   %76 = icmp ne ptr %82, %74
-  %or.cond.i = select i1 %75, i1 true, i1 %76
+  %or.cond.i = select i1 %75, i1 true, i1 %76, !prof !17190
   br i1 %or.cond.i, label %92, label %_ZN4core5slice4sort6shared9smallsort19bidirectional_merge17h0df36d0410e8c4b4E.exit, !prof !17190
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %3
@@ -157886,7 +157886,7 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort8_stable1
   %74 = getelementptr i8, ptr %89, i64 16
   %75 = icmp ne ptr %84, %73
   %76 = icmp ne ptr %82, %74
-  %or.cond.i = select i1 %75, i1 true, i1 %76
+  %or.cond.i = select i1 %75, i1 true, i1 %76, !prof !17190
   br i1 %or.cond.i, label %92, label %_ZN4core5slice4sort6shared9smallsort19bidirectional_merge17hb110b72575071818E.exit, !prof !17190
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %3
@@ -157952,7 +157952,7 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort8_stable1
   %10 = getelementptr i8, ptr %43, i64 12
   %11 = icmp ne ptr %29, %9
   %12 = icmp ne ptr %27, %10
-  %or.cond.i = select i1 %11, i1 true, i1 %12
+  %or.cond.i = select i1 %11, i1 true, i1 %12, !prof !17190
   br i1 %or.cond.i, label %46, label %_ZN4core5slice4sort6shared9smallsort19bidirectional_merge17h73fb67c58ad6c1cdE.exit, !prof !17190
 
 .lr.ph.i:                                         ; preds = %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17hd6642f64b4ad506fE.exit30.thread.i", %3
@@ -158180,7 +158180,7 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort8_stable1
   %82 = getelementptr i8, ptr %99, i64 8
   %83 = icmp ne ptr %93, %81
   %84 = icmp ne ptr %91, %82
-  %or.cond.i = select i1 %83, i1 true, i1 %84
+  %or.cond.i = select i1 %83, i1 true, i1 %84, !prof !17190
   br i1 %or.cond.i, label %102, label %_ZN4core5slice4sort6shared9smallsort19bidirectional_merge17h87a5f6ca02e8967bE.exit, !prof !17190
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %3
@@ -158483,7 +158483,7 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort18small_sort_ge
   %.sroa.0.1.i.i = phi ptr [ %.sroa.sel4.idx.sroa.sel.idx.sroa.sel, %._crit_edge.i.i ], [ %.sroa.sel18.idx.sroa.sel, %130 ]
   %132 = icmp ne ptr %.sroa.0.1.i.i, %115
   %133 = icmp ne ptr %.sroa.06.1.i.i, %116
-  %or.cond.i.i = select i1 %132, i1 true, i1 %133
+  %or.cond.i.i = select i1 %132, i1 true, i1 %133, !prof !17190
   br i1 %or.cond.i.i, label %134, label %_ZN4core5slice4sort6shared9smallsort19bidirectional_merge17he4671c146880dfd0E.exit.i, !prof !17190
 
 134:                                              ; preds = %131
@@ -159718,7 +159718,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
   %.sroa.0.1.i = phi ptr [ %146, %._crit_edge.i ], [ %159, %155 ]
   %164 = icmp ne ptr %.sroa.0.1.i, %134
   %165 = icmp ne ptr %.sroa.06.1.i, %135
-  %or.cond.i = select i1 %164, i1 true, i1 %165
+  %or.cond.i = select i1 %164, i1 true, i1 %165, !prof !17190
   br i1 %or.cond.i, label %166, label %_ZN4core5slice4sort6shared9smallsort19bidirectional_merge17h87a5f6ca02e8967bE.exit, !prof !17190
 
 166:                                              ; preds = %163
@@ -160027,7 +160027,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
   %.sroa.0.1.i = phi ptr [ %69, %._crit_edge.i ], [ %89, %86 ]
   %94 = icmp ne ptr %.sroa.0.1.i, %49
   %95 = icmp ne ptr %.sroa.06.1.i, %50
-  %or.cond.i = select i1 %94, i1 true, i1 %95
+  %or.cond.i = select i1 %94, i1 true, i1 %95, !prof !17190
   br i1 %or.cond.i, label %96, label %_ZN4core5slice4sort6shared9smallsort19bidirectional_merge17ha01ceb96efb68509E.exit, !prof !17190
 
 96:                                               ; preds = %93
@@ -160442,7 +160442,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
   %.sroa.0.1.i = phi ptr [ %135, %._crit_edge.i ], [ %146, %143 ]
   %151 = icmp ne ptr %.sroa.0.1.i, %124
   %152 = icmp ne ptr %.sroa.06.1.i, %125
-  %or.cond.i = select i1 %151, i1 true, i1 %152
+  %or.cond.i = select i1 %151, i1 true, i1 %152, !prof !17190
   br i1 %or.cond.i, label %153, label %_ZN4core5slice4sort6shared9smallsort19bidirectional_merge17h0df36d0410e8c4b4E.exit, !prof !17190
 
 153:                                              ; preds = %150
@@ -160761,7 +160761,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
   %.sroa.0.1.i = phi ptr [ %76, %._crit_edge.i ], [ %96, %93 ]
   %101 = icmp ne ptr %.sroa.0.1.i, %56
   %102 = icmp ne ptr %.sroa.06.1.i, %57
-  %or.cond.i = select i1 %101, i1 true, i1 %102
+  %or.cond.i = select i1 %101, i1 true, i1 %102, !prof !17190
   br i1 %or.cond.i, label %103, label %_ZN4core5slice4sort6shared9smallsort19bidirectional_merge17h73fb67c58ad6c1cdE.exit, !prof !17190
 
 103:                                              ; preds = %100
@@ -161727,7 +161727,7 @@ define internal fastcc void @_ZN4core5slice4sort8unstable9quicksort9quicksort17h
   %.sroa.0.1.i.i.i = phi ptr [ %.sroa.sel4.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.sroa.sel, %._crit_edge.i.i.i ], [ %.sroa.sel19.idx.i.sroa.sel.idx.sroa.sel, %142 ]
   %144 = icmp ne ptr %.sroa.0.1.i.i.i, %128
   %145 = icmp ne ptr %.sroa.06.1.i.i.i, %129
-  %or.cond.i.i.i = select i1 %144, i1 true, i1 %145
+  %or.cond.i.i.i = select i1 %144, i1 true, i1 %145, !prof !17190
   br i1 %or.cond.i.i.i, label %146, label %_ZN4core5slice4sort6shared9smallsort19bidirectional_merge17hb110b72575071818E.exit.i.i, !prof !17190
 
 146:                                              ; preds = %143
@@ -162726,7 +162726,7 @@ define internal fastcc void @_ZN4core5slice4sort8unstable9quicksort9quicksort17h
   %.sroa.0.1.i.i.i = phi ptr [ %.sroa.sel4.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.sroa.sel, %._crit_edge.i.i.i ], [ %.sroa.sel19.idx.i.sroa.sel.idx.sroa.sel, %142 ]
   %144 = icmp ne ptr %.sroa.0.1.i.i.i, %128
   %145 = icmp ne ptr %.sroa.06.1.i.i.i, %129
-  %or.cond.i.i.i = select i1 %144, i1 true, i1 %145
+  %or.cond.i.i.i = select i1 %144, i1 true, i1 %145, !prof !17190
   br i1 %or.cond.i.i.i, label %146, label %_ZN4core5slice4sort6shared9smallsort19bidirectional_merge17h43090b5798d9267dE.exit.i.i, !prof !17190
 
 146:                                              ; preds = %143

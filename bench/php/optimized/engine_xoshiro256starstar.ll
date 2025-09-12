@@ -627,7 +627,7 @@ zend_parse_arg_str_or_long.exit:                  ; preds = %14
   %or.cond7 = select i1 %or.cond, i1 %38, i1 false
   %39 = load i64, ptr %24, align 8
   %40 = icmp eq i64 %39, 0
-  %or.cond76 = select i1 %or.cond7, i1 %40, i1 false
+  %or.cond76 = select i1 %or.cond7, i1 %40, i1 false, !prof !54
   br i1 %or.cond76, label %25, label %.critedge72, !prof !54
 
 .critedge72:                                      ; preds = %32
@@ -678,7 +678,7 @@ zend_parse_arg_str_or_long.exit:                  ; preds = %14
   %61 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %62 = load i64, ptr %61, align 8
   %63 = icmp eq i64 %62, 0
-  %or.cond81 = select i1 %or.cond13, i1 %63, i1 false
+  %or.cond81 = select i1 %or.cond13, i1 %63, i1 false, !prof !54
   br i1 %or.cond81, label %75, label %.critedge78, !prof !54
 
 64:                                               ; preds = %50, %67

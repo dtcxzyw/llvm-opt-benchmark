@@ -11100,7 +11100,7 @@ define noundef range(i32 1, 0) i32 @"_ZN77_$LT$wasmi..func..FuncIdx$u20$as$u20$w
   %6 = trunc nuw i64 %0 to i32
   %7 = add i32 %6, 1
   %.not12 = icmp eq i32 %7, 0
-  %or.cond = select i1 %5, i1 true, i1 %.not12
+  %or.cond = select i1 %5, i1 true, i1 %.not12, !prof !957
   br i1 %or.cond, label %8, label %13, !prof !957
 
 8:                                                ; preds = %1

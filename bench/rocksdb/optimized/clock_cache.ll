@@ -1563,7 +1563,7 @@ define noundef zeroext i1 @_ZN7rocksdb11clock_cache20FixedHyperClockTable7Releas
   %storemerge = phi i64 [ %9, %8 ], [ %7, %6 ]
   %.mask = and i64 %storemerge, -2305843009213693952
   %11 = icmp eq i64 %.mask, -4611686018427387904
-  %or.cond = select i1 %3, i1 true, i1 %11
+  %or.cond = select i1 %3, i1 true, i1 %11, !prof !103
   br i1 %or.cond, label %12, label %80, !prof !103
 
 12:                                               ; preds = %10

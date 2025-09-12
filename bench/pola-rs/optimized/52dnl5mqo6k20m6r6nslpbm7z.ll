@@ -13049,7 +13049,7 @@ define hidden void @"_ZN12polars_arrow5array9primitive23PrimitiveArray$LT$T$GT$7
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %16 = icmp ne i64 %15, %12
-  %or.cond.i = select i1 %.not, i1 %16, i1 false
+  %or.cond.i = select i1 %.not, i1 %16, i1 false, !prof !869
   br i1 %or.cond.i, label %22, label %17, !prof !869
 
 17:                                               ; preds = %4
@@ -13061,7 +13061,7 @@ define hidden void @"_ZN12polars_arrow5array9primitive23PrimitiveArray$LT$T$GT$7
   %20 = extractvalue { i8, i8 } %18, 1
   %21 = icmp eq i8 %19, 2
   %.not.i = icmp eq i8 %20, 12
-  %or.cond9.i = select i1 %21, i1 %.not.i, i1 false
+  %or.cond9.i = select i1 %21, i1 %.not.i, i1 false, !prof !870
   br i1 %or.cond9.i, label %42, label %27, !prof !870
 
 22:                                               ; preds = %4
@@ -13207,7 +13207,7 @@ define hidden void @"_ZN12polars_arrow5array9primitive23PrimitiveArray$LT$T$GT$7
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %16 = icmp ne i64 %15, %12
-  %or.cond.i = select i1 %.not, i1 %16, i1 false
+  %or.cond.i = select i1 %.not, i1 %16, i1 false, !prof !869
   br i1 %or.cond.i, label %22, label %17, !prof !869
 
 17:                                               ; preds = %4
@@ -13219,7 +13219,7 @@ define hidden void @"_ZN12polars_arrow5array9primitive23PrimitiveArray$LT$T$GT$7
   %20 = extractvalue { i8, i8 } %18, 1
   %21 = icmp eq i8 %19, 2
   %.not.i = icmp eq i8 %20, 9
-  %or.cond9.i = select i1 %21, i1 %.not.i, i1 false
+  %or.cond9.i = select i1 %21, i1 %.not.i, i1 false, !prof !870
   br i1 %or.cond9.i, label %42, label %27, !prof !870
 
 22:                                               ; preds = %4
@@ -13365,7 +13365,7 @@ define hidden void @"_ZN12polars_arrow5array9primitive23PrimitiveArray$LT$T$GT$7
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %16 = icmp ne i64 %15, %12
-  %or.cond.i = select i1 %.not, i1 %16, i1 false
+  %or.cond.i = select i1 %.not, i1 %16, i1 false, !prof !869
   br i1 %or.cond.i, label %22, label %17, !prof !869
 
 17:                                               ; preds = %4
@@ -13377,7 +13377,7 @@ define hidden void @"_ZN12polars_arrow5array9primitive23PrimitiveArray$LT$T$GT$7
   %20 = extractvalue { i8, i8 } %18, 1
   %21 = icmp eq i8 %19, 2
   %.not.i = icmp eq i8 %20, 6
-  %or.cond9.i = select i1 %21, i1 %.not.i, i1 false
+  %or.cond9.i = select i1 %21, i1 %.not.i, i1 false, !prof !870
   br i1 %or.cond9.i, label %42, label %27, !prof !870
 
 22:                                               ; preds = %4
@@ -13523,7 +13523,7 @@ define hidden void @"_ZN12polars_arrow5array9primitive23PrimitiveArray$LT$T$GT$7
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %16 = icmp ne i64 %15, %12
-  %or.cond.i = select i1 %.not, i1 %16, i1 false
+  %or.cond.i = select i1 %.not, i1 %16, i1 false, !prof !869
   br i1 %or.cond.i, label %22, label %17, !prof !869
 
 17:                                               ; preds = %4
@@ -13535,7 +13535,7 @@ define hidden void @"_ZN12polars_arrow5array9primitive23PrimitiveArray$LT$T$GT$7
   %20 = extractvalue { i8, i8 } %18, 1
   %21 = icmp eq i8 %19, 2
   %.not.i = icmp eq i8 %20, 8
-  %or.cond9.i = select i1 %21, i1 %.not.i, i1 false
+  %or.cond9.i = select i1 %21, i1 %.not.i, i1 false, !prof !870
   br i1 %or.cond9.i, label %42, label %27, !prof !870
 
 22:                                               ; preds = %4
@@ -13681,7 +13681,7 @@ define hidden void @"_ZN12polars_arrow5array9primitive23PrimitiveArray$LT$T$GT$7
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %16 = icmp ne i64 %15, %12
-  %or.cond.i = select i1 %.not, i1 %16, i1 false
+  %or.cond.i = select i1 %.not, i1 %16, i1 false, !prof !869
   br i1 %or.cond.i, label %22, label %17, !prof !869
 
 17:                                               ; preds = %4
@@ -13693,7 +13693,7 @@ define hidden void @"_ZN12polars_arrow5array9primitive23PrimitiveArray$LT$T$GT$7
   %20 = extractvalue { i8, i8 } %18, 1
   %21 = icmp eq i8 %19, 2
   %.not.i = icmp eq i8 %20, 1
-  %or.cond9.i = select i1 %21, i1 %.not.i, i1 false
+  %or.cond9.i = select i1 %21, i1 %.not.i, i1 false, !prof !870
   br i1 %or.cond9.i, label %42, label %27, !prof !870
 
 22:                                               ; preds = %4
@@ -13839,7 +13839,7 @@ define hidden void @"_ZN12polars_arrow5array9primitive23PrimitiveArray$LT$T$GT$7
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %16 = icmp ne i64 %15, %12
-  %or.cond.i = select i1 %.not, i1 %16, i1 false
+  %or.cond.i = select i1 %.not, i1 %16, i1 false, !prof !869
   br i1 %or.cond.i, label %22, label %17, !prof !869
 
 17:                                               ; preds = %4
@@ -13851,7 +13851,7 @@ define hidden void @"_ZN12polars_arrow5array9primitive23PrimitiveArray$LT$T$GT$7
   %20 = extractvalue { i8, i8 } %18, 1
   %21 = icmp eq i8 %19, 2
   %.not.i = icmp eq i8 %20, 13
-  %or.cond9.i = select i1 %21, i1 %.not.i, i1 false
+  %or.cond9.i = select i1 %21, i1 %.not.i, i1 false, !prof !870
   br i1 %or.cond9.i, label %42, label %27, !prof !870
 
 22:                                               ; preds = %4
@@ -13997,7 +13997,7 @@ define hidden void @"_ZN12polars_arrow5array9primitive23PrimitiveArray$LT$T$GT$7
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %16 = icmp ne i64 %15, %12
-  %or.cond.i = select i1 %.not, i1 %16, i1 false
+  %or.cond.i = select i1 %.not, i1 %16, i1 false, !prof !869
   br i1 %or.cond.i, label %22, label %17, !prof !869
 
 17:                                               ; preds = %4
@@ -14009,7 +14009,7 @@ define hidden void @"_ZN12polars_arrow5array9primitive23PrimitiveArray$LT$T$GT$7
   %20 = extractvalue { i8, i8 } %18, 1
   %21 = icmp eq i8 %19, 2
   %.not.i = icmp eq i8 %20, 3
-  %or.cond9.i = select i1 %21, i1 %.not.i, i1 false
+  %or.cond9.i = select i1 %21, i1 %.not.i, i1 false, !prof !870
   br i1 %or.cond9.i, label %42, label %27, !prof !870
 
 22:                                               ; preds = %4
@@ -14155,7 +14155,7 @@ define hidden void @"_ZN12polars_arrow5array9primitive23PrimitiveArray$LT$T$GT$7
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %16 = icmp ne i64 %15, %12
-  %or.cond.i = select i1 %.not, i1 %16, i1 false
+  %or.cond.i = select i1 %.not, i1 %16, i1 false, !prof !869
   br i1 %or.cond.i, label %22, label %17, !prof !869
 
 17:                                               ; preds = %4
@@ -14167,7 +14167,7 @@ define hidden void @"_ZN12polars_arrow5array9primitive23PrimitiveArray$LT$T$GT$7
   %20 = extractvalue { i8, i8 } %18, 1
   %21 = icmp eq i8 %19, 2
   %.not.i = icmp eq i8 %20, 7
-  %or.cond9.i = select i1 %21, i1 %.not.i, i1 false
+  %or.cond9.i = select i1 %21, i1 %.not.i, i1 false, !prof !870
   br i1 %or.cond9.i, label %42, label %27, !prof !870
 
 22:                                               ; preds = %4
@@ -14313,7 +14313,7 @@ define hidden void @"_ZN12polars_arrow5array9primitive23PrimitiveArray$LT$T$GT$7
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %16 = icmp ne i64 %15, %12
-  %or.cond.i = select i1 %.not, i1 %16, i1 false
+  %or.cond.i = select i1 %.not, i1 %16, i1 false, !prof !869
   br i1 %or.cond.i, label %22, label %17, !prof !869
 
 17:                                               ; preds = %4
@@ -14325,7 +14325,7 @@ define hidden void @"_ZN12polars_arrow5array9primitive23PrimitiveArray$LT$T$GT$7
   %20 = extractvalue { i8, i8 } %18, 1
   %21 = icmp eq i8 %19, 2
   %.not.i = icmp eq i8 %20, 2
-  %or.cond9.i = select i1 %21, i1 %.not.i, i1 false
+  %or.cond9.i = select i1 %21, i1 %.not.i, i1 false, !prof !870
   br i1 %or.cond9.i, label %42, label %27, !prof !870
 
 22:                                               ; preds = %4
@@ -14471,7 +14471,7 @@ define hidden void @"_ZN12polars_arrow5array9primitive23PrimitiveArray$LT$T$GT$7
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %16 = icmp ne i64 %15, %12
-  %or.cond.i = select i1 %.not, i1 %16, i1 false
+  %or.cond.i = select i1 %.not, i1 %16, i1 false, !prof !869
   br i1 %or.cond.i, label %22, label %17, !prof !869
 
 17:                                               ; preds = %4
@@ -14483,7 +14483,7 @@ define hidden void @"_ZN12polars_arrow5array9primitive23PrimitiveArray$LT$T$GT$7
   %20 = extractvalue { i8, i8 } %18, 1
   %21 = icmp eq i8 %19, 2
   %.not.i = icmp eq i8 %20, 0
-  %or.cond9.i = select i1 %21, i1 %.not.i, i1 false
+  %or.cond9.i = select i1 %21, i1 %.not.i, i1 false, !prof !870
   br i1 %or.cond9.i, label %42, label %27, !prof !870
 
 22:                                               ; preds = %4
@@ -14629,7 +14629,7 @@ define hidden void @"_ZN12polars_arrow5array9primitive23PrimitiveArray$LT$T$GT$7
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %16 = icmp ne i64 %15, %12
-  %or.cond.i = select i1 %.not, i1 %16, i1 false
+  %or.cond.i = select i1 %.not, i1 %16, i1 false, !prof !869
   br i1 %or.cond.i, label %22, label %17, !prof !869
 
 17:                                               ; preds = %4
@@ -14641,7 +14641,7 @@ define hidden void @"_ZN12polars_arrow5array9primitive23PrimitiveArray$LT$T$GT$7
   %20 = extractvalue { i8, i8 } %18, 1
   %21 = icmp eq i8 %19, 2
   %.not.i = icmp eq i8 %20, 4
-  %or.cond9.i = select i1 %21, i1 %.not.i, i1 false
+  %or.cond9.i = select i1 %21, i1 %.not.i, i1 false, !prof !870
   br i1 %or.cond9.i, label %42, label %27, !prof !870
 
 22:                                               ; preds = %4

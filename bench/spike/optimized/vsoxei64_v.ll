@@ -252,7 +252,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21fast_rv32i_vsoxei64_v
   %96 = icmp ugt i64 %95, 8
   %97 = add nuw nsw i64 %95, %68
   %98 = icmp samesign ugt i64 %97, 32
-  %or.cond = select i1 %96, i1 true, i1 %98
+  %or.cond = select i1 %96, i1 true, i1 %98, !prof !148
   br i1 %or.cond, label %99, label %104, !prof !148
 
 99:                                               ; preds = %94
@@ -907,7 +907,7 @@ define noundef i64 @_Z21fast_rv64i_vsoxei64_vP11processor_t6insn_tm(ptr noundef 
   %96 = icmp ugt i64 %95, 8
   %97 = add nuw nsw i64 %95, %68
   %98 = icmp samesign ugt i64 %97, 32
-  %or.cond = select i1 %96, i1 true, i1 %98
+  %or.cond = select i1 %96, i1 true, i1 %98, !prof !148
   br i1 %or.cond, label %99, label %104, !prof !148
 
 99:                                               ; preds = %94
@@ -1444,7 +1444,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z23logged_rv32i_vsoxei64
   %96 = icmp ugt i64 %95, 8
   %97 = add nuw nsw i64 %95, %68
   %98 = icmp samesign ugt i64 %97, 32
-  %or.cond = select i1 %96, i1 true, i1 %98
+  %or.cond = select i1 %96, i1 true, i1 %98, !prof !148
   br i1 %or.cond, label %99, label %104, !prof !148
 
 99:                                               ; preds = %94
@@ -1983,7 +1983,7 @@ define noundef i64 @_Z23logged_rv64i_vsoxei64_vP11processor_t6insn_tm(ptr nounde
   %96 = icmp ugt i64 %95, 8
   %97 = add nuw nsw i64 %95, %68
   %98 = icmp samesign ugt i64 %97, 32
-  %or.cond = select i1 %96, i1 true, i1 %98
+  %or.cond = select i1 %96, i1 true, i1 %98, !prof !148
   br i1 %or.cond, label %99, label %104, !prof !148
 
 99:                                               ; preds = %94
@@ -2520,7 +2520,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21fast_rv32e_vsoxei64_v
   %96 = icmp ugt i64 %95, 8
   %97 = add nuw nsw i64 %95, %68
   %98 = icmp samesign ugt i64 %97, 32
-  %or.cond = select i1 %96, i1 true, i1 %98
+  %or.cond = select i1 %96, i1 true, i1 %98, !prof !148
   br i1 %or.cond, label %99, label %104, !prof !148
 
 99:                                               ; preds = %94
@@ -3075,7 +3075,7 @@ define noundef i64 @_Z21fast_rv64e_vsoxei64_vP11processor_t6insn_tm(ptr noundef 
   %96 = icmp ugt i64 %95, 8
   %97 = add nuw nsw i64 %95, %68
   %98 = icmp samesign ugt i64 %97, 32
-  %or.cond = select i1 %96, i1 true, i1 %98
+  %or.cond = select i1 %96, i1 true, i1 %98, !prof !148
   br i1 %or.cond, label %99, label %104, !prof !148
 
 99:                                               ; preds = %94
@@ -3628,7 +3628,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z23logged_rv32e_vsoxei64
   %96 = icmp ugt i64 %95, 8
   %97 = add nuw nsw i64 %95, %68
   %98 = icmp samesign ugt i64 %97, 32
-  %or.cond = select i1 %96, i1 true, i1 %98
+  %or.cond = select i1 %96, i1 true, i1 %98, !prof !148
   br i1 %or.cond, label %99, label %104, !prof !148
 
 99:                                               ; preds = %94
@@ -4183,7 +4183,7 @@ define noundef i64 @_Z23logged_rv64e_vsoxei64_vP11processor_t6insn_tm(ptr nounde
   %96 = icmp ugt i64 %95, 8
   %97 = add nuw nsw i64 %95, %68
   %98 = icmp samesign ugt i64 %97, 32
-  %or.cond = select i1 %96, i1 true, i1 %98
+  %or.cond = select i1 %96, i1 true, i1 %98, !prof !148
   br i1 %or.cond, label %99, label %104, !prof !148
 
 99:                                               ; preds = %94

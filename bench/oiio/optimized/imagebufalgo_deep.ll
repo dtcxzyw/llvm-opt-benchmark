@@ -4863,7 +4863,7 @@ define linkonce_odr void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv(ptr
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %42 = load ptr, ptr %41, align 8
   %43 = icmp eq ptr %42, null
-  %or.cond7.i = select i1 %or.cond.i, i1 true, i1 %43
+  %or.cond7.i = select i1 %or.cond.i, i1 true, i1 %43, !prof !173
   br i1 %or.cond7.i, label %.critedge.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBase9pos_xincrEv.exit, !prof !173
 
 .critedge.i:                                      ; preds = %29

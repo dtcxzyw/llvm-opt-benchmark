@@ -6638,7 +6638,7 @@ _ZNSt8__detail22__from_chars_pow2_baseILb1EjEEbRPKcS2_RT0_i.exit.i: ; preds = %.
   %.not23 = icmp eq ptr %.168.i, %8
   %68 = select i1 %6, i32 -2147483648, i32 2147483647
   %69 = icmp ugt i32 %.0.i, %68
-  %or.cond = select i1 %.not23, i1 true, i1 %69
+  %or.cond = select i1 %.not23, i1 true, i1 %69, !prof !158
   br i1 %or.cond, label %_ZNSt8__detail22__from_chars_pow2_baseILb1EjEEbRPKcS2_RT0_i.exit.thread.i, label %70, !prof !158
 
 70:                                               ; preds = %_ZNSt8__detail22__from_chars_pow2_baseILb1EjEEbRPKcS2_RT0_i.exit.i

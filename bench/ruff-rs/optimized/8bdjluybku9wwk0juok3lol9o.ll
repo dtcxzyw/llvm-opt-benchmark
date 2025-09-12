@@ -21331,7 +21331,7 @@ common.resume:                                    ; preds = %145, %.body, %165, 
 245:                                              ; preds = %244
   %246 = icmp ne i64 %241, %240
   %.not101 = icmp eq ptr %239, null
-  %or.cond232 = select i1 %246, i1 true, i1 %.not101
+  %or.cond232 = select i1 %246, i1 true, i1 %.not101, !prof !1501
   br i1 %or.cond232, label %.thread216, label %252, !prof !1501
 
 247:                                              ; preds = %244
@@ -21339,7 +21339,7 @@ common.resume:                                    ; preds = %145, %.body, %165, 
   %249 = load i8, ptr %248, align 1, !alias.scope !1502, !noundef !3
   %250 = icmp slt i8 %249, -64
   %.not101.old = icmp eq ptr %239, null
-  %or.cond233 = select i1 %250, i1 true, i1 %.not101.old
+  %or.cond233 = select i1 %250, i1 true, i1 %.not101.old, !prof !1501
   br i1 %or.cond233, label %.thread216, label %252, !prof !1501
 
 251:                                              ; preds = %242
@@ -22552,7 +22552,7 @@ default.unreachable:                              ; preds = %343, %300
 600:                                              ; preds = %599
   %601 = icmp ne i64 %586, %581
   %.not106 = icmp eq ptr %580, null
-  %or.cond234 = select i1 %601, i1 true, i1 %.not106
+  %or.cond234 = select i1 %601, i1 true, i1 %.not106, !prof !1501
   br i1 %or.cond234, label %.thread228, label %607, !prof !1501
 
 602:                                              ; preds = %599
@@ -22560,7 +22560,7 @@ default.unreachable:                              ; preds = %343, %300
   %604 = load i8, ptr %603, align 1, !alias.scope !1631, !noundef !3
   %605 = icmp slt i8 %604, -64
   %.not106.old = icmp eq ptr %580, null
-  %or.cond235 = select i1 %605, i1 true, i1 %.not106.old
+  %or.cond235 = select i1 %605, i1 true, i1 %.not106.old, !prof !1501
   br i1 %or.cond235, label %.thread228, label %607, !prof !1501
 
 606:                                              ; preds = %591

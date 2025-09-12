@@ -7515,7 +7515,7 @@ lean_dec.exit95:                                  ; preds = %lean_dec.exit95.bac
   %24 = ptrtoint ptr %20 to i64
   %25 = and i64 %24, 1
   %26 = icmp ne i64 %25, 0
-  %or.cond = select i1 %23, i1 %26, i1 false
+  %or.cond = select i1 %23, i1 %26, i1 false, !prof !15
   br i1 %or.cond, label %27, label %lean_nat_lt.exit, !prof !15
 
 27:                                               ; preds = %lean_dec.exit95

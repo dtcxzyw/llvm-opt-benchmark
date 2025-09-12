@@ -247,7 +247,7 @@ _ZN5mmu_t21is_misaligned_enabledEv.exit.thread:   ; preds = %8, %_ZN5mmu_t21is_m
   %31 = getelementptr inbounds nuw i64, ptr %29, i64 %30
   %32 = load i64, ptr %31, align 8, !tbaa !3
   %33 = icmp eq i64 %32, %27
-  %or.cond.i = select i1 %.not50, i1 %33, i1 false
+  %or.cond.i = select i1 %.not50, i1 %33, i1 false, !prof !189
   br i1 %or.cond.i, label %34, label %.critedge.i, !prof !189
 
 34:                                               ; preds = %26
@@ -298,7 +298,7 @@ _ZN5mmu_t4loadImEET_m13xlate_flags_t.exit:        ; preds = %40, %43, %47
   %54 = getelementptr inbounds nuw i64, ptr %29, i64 %53
   %55 = load i64, ptr %54, align 8, !tbaa !3
   %56 = icmp eq i64 %55, %52
-  %or.cond.i22 = select i1 %.not50, i1 %56, i1 false
+  %or.cond.i22 = select i1 %.not50, i1 %56, i1 false, !prof !189
   br i1 %or.cond.i22, label %57, label %.critedge.i23, !prof !189
 
 57:                                               ; preds = %_ZN5mmu_t4loadImEET_m13xlate_flags_t.exit

@@ -11312,7 +11312,7 @@ _ZNSt3mapIjjSt4lessIjESaISt4pairIKjjEEE11lower_boundERS3_.exit.i.i.i.i: ; preds 
   %.not.i.i.i.i.i.i.i.i.i.i.i157 = icmp eq ptr %3156, null
   %3157 = getelementptr inbounds nuw i8, ptr %.sroa.017.0153.i.i.i, i64 88
   %3158 = icmp eq ptr %3157, %3156
-  %or.cond.i.i.i.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i.i.i157, i1 true, i1 %3158
+  %or.cond.i.i.i.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i.i.i157, i1 true, i1 %3158, !prof !1005
   br i1 %or.cond.i.i.i.i.i.i.i.i.i.i.i, label %_ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIjSaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE10deallocateERKPjm.exit.i.i.i.i.i.i.i.i.i.i.i, label %3159, !prof !1005
 
 3159:                                             ; preds = %3155
@@ -12947,7 +12947,7 @@ _ZNK3ue214RoseLiteralMap2atEj.exit.i.i.i.i:       ; preds = %3735, %3729
   %3746 = load ptr, ptr %10, align 8
   %.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %3746, null
   %3747 = icmp eq ptr %3362, %3746
-  %or.cond.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i, i1 true, i1 %3747
+  %or.cond.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i, i1 true, i1 %3747, !prof !1005
   br i1 %or.cond.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN3ue28flat_setINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEESt4lessIS8_ESaIS8_EEaSEOSC_.exit.thread.i.i.i.i, label %3748, !prof !1005
 
 3748:                                             ; preds = %3745

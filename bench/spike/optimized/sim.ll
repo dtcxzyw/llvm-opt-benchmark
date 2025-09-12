@@ -5817,7 +5817,7 @@ define void @_ZN5sim_t10read_chunkEmmPv(ptr noundef nonnull readonly align 8 cap
   %13 = getelementptr inbounds nuw i64, ptr %11, i64 %12
   %14 = load i64, ptr %13, align 8, !tbaa !216
   %15 = icmp eq i64 %14, %9
-  %or.cond.i = select i1 %.not, i1 %15, i1 false
+  %or.cond.i = select i1 %.not, i1 %15, i1 false, !prof !436
   br i1 %or.cond.i, label %16, label %.critedge.i, !prof !436
 
 16:                                               ; preds = %4

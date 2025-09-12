@@ -19340,7 +19340,7 @@ _ZN3ue28containsISt3mapItNS_22gough_accel_state_infoESt4lessItESaISt4pairIKtS2_E
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %29, null
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %31 = icmp eq ptr %30, %29
-  %or.cond.i.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i, i1 true, i1 %31
+  %or.cond.i.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i, i1 true, i1 %31, !prof !920
   br i1 %or.cond.i.i.i.i.i.i.i.i.i, label %_ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorISt4pairIhhESaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE10deallocateERKPS4_m.exit.i.i.i.i.i.i.i.i.i, label %32, !prof !920
 
 32:                                               ; preds = %27

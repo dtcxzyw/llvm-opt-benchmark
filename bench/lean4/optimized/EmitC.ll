@@ -36312,7 +36312,7 @@ lean_obj_tag.exit:                                ; preds = %5, %8
   %20 = ptrtoint ptr %14 to i64
   %21 = and i64 %20, 1
   %22 = icmp ne i64 %21, 0
-  %or.cond = select i1 %19, i1 %22, i1 false
+  %or.cond = select i1 %19, i1 %22, i1 false, !prof !19
   br i1 %or.cond, label %23, label %.critedge.i, !prof !19
 
 23:                                               ; preds = %12
@@ -36367,7 +36367,7 @@ lean_obj_tag.exit.i:                              ; preds = %8, %5
   %20 = ptrtoint ptr %14 to i64
   %21 = and i64 %20, 1
   %22 = icmp ne i64 %21, 0
-  %or.cond.i = select i1 %19, i1 %22, i1 false
+  %or.cond.i = select i1 %19, i1 %22, i1 false, !prof !19
   br i1 %or.cond.i, label %23, label %.critedge.i.i, !prof !19
 
 23:                                               ; preds = %12
@@ -36741,7 +36741,7 @@ lean_obj_tag.exit.i:                              ; preds = %127, %124
   %138 = ptrtoint ptr %133 to i64
   %139 = and i64 %138, 1
   %140 = icmp ne i64 %139, 0
-  %or.cond.i = select i1 %137, i1 %140, i1 false
+  %or.cond.i = select i1 %137, i1 %140, i1 false, !prof !19
   br i1 %or.cond.i, label %141, label %.critedge.i.i, !prof !19
 
 141:                                              ; preds = %131
@@ -37829,7 +37829,7 @@ lean_obj_tag.exit.i:                              ; preds = %89, %86
   %101 = ptrtoint ptr %95 to i64
   %102 = and i64 %101, 1
   %103 = icmp ne i64 %102, 0
-  %or.cond.i = select i1 %100, i1 %103, i1 false
+  %or.cond.i = select i1 %100, i1 %103, i1 false, !prof !19
   br i1 %or.cond.i, label %104, label %l_Lean_IR_EmitC_paramEqArg.exit, !prof !19
 
 104:                                              ; preds = %93
@@ -38324,7 +38324,7 @@ lean_obj_tag.exit.i:                              ; preds = %79, %lean_array_fge
   %91 = ptrtoint ptr %85 to i64
   %92 = and i64 %91, 1
   %93 = icmp ne i64 %92, 0
-  %or.cond.i = select i1 %90, i1 %93, i1 false
+  %or.cond.i = select i1 %90, i1 %93, i1 false, !prof !19
   br i1 %or.cond.i, label %94, label %l_Lean_IR_EmitC_paramEqArg.exit, !prof !19
 
 94:                                               ; preds = %83
@@ -38935,7 +38935,7 @@ lean_obj_tag.exit.i:                              ; preds = %79, %lean_array_fge
   %91 = ptrtoint ptr %85 to i64
   %92 = and i64 %91, 1
   %93 = icmp ne i64 %92, 0
-  %or.cond.i = select i1 %90, i1 %93, i1 false
+  %or.cond.i = select i1 %90, i1 %93, i1 false, !prof !19
   br i1 %or.cond.i, label %94, label %.critedge.i.i, !prof !19
 
 94:                                               ; preds = %83

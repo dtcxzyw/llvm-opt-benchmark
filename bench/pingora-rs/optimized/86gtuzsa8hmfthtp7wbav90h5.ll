@@ -2699,7 +2699,7 @@ _ZN14regex_automata4util6search5Input8set_span17h431e05010e95d0d7E.exit.i.i.i.i:
   %211 = trunc nuw i64 %210 to i1
   %212 = load i64, ptr %.sroa.02.sroa.3.0..sroa_idx.i, align 8, !alias.scope !297, !noalias !298
   %213 = icmp eq i64 %197, %212
-  %or.cond.i.i.i.i = select i1 %211, i1 %213, i1 false
+  %or.cond.i.i.i.i = select i1 %211, i1 %213, i1 false, !prof !304
   br i1 %or.cond.i.i.i.i, label %214, label %201, !prof !304
 
 214:                                              ; preds = %209

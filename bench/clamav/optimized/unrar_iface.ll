@@ -658,8 +658,8 @@ define range(i32 0, 6) i32 @libclamunrar_iface_LTX_unrar_peek_file_header(ptr no
   %51 = getelementptr inbounds nuw i8, ptr %3, i64 10344
   %52 = load i32, ptr %51, align 1, !tbaa !50
   %.not31 = icmp eq i32 %52, 0
-  %or.cond35 = select i1 %.not31, i1 true, i1 %50
-  br i1 %or.cond35, label %.thread49.thread, label %53, !prof !51
+  %or.cond35 = select i1 %.not31, i1 true, i1 %50, !prof !51
+  br i1 %or.cond35, label %.thread49.thread, label %53, !prof !52
 
 53:                                               ; preds = %.thread49
   %54 = load ptr, ptr %13, align 1, !tbaa !36
@@ -669,7 +669,7 @@ define range(i32 0, 6) i32 @libclamunrar_iface_LTX_unrar_peek_file_header(ptr no
 .thread49.thread:                                 ; preds = %.thread45, %45, %41, %.thread38, %40, %17, %.thread49, %53, %9, %7, %15
   %.0 = phi i32 [ 4, %9 ], [ 4, %7 ], [ %16, %15 ], [ 0, %53 ], [ 0, %.thread49 ], [ 0, %17 ], [ 0, %40 ], [ 0, %.thread38 ], [ 0, %41 ], [ 0, %45 ], [ 0, %.thread45 ]
   %55 = getelementptr inbounds nuw i8, ptr %3, i64 10284
-  %56 = load ptr, ptr %55, align 1, !tbaa !52
+  %56 = load ptr, ptr %55, align 1, !tbaa !53
   %.not34 = icmp eq ptr %56, null
   br i1 %.not34, label %58, label %57
 
@@ -739,7 +739,7 @@ define range(i32 0, 6) i32 @libclamunrar_iface_LTX_unrar_extract_file(ptr nounde
 19:                                               ; preds = %12, %16
   %.pr = load i8, ptr @unrar_debug, align 1, !tbaa !3
   %.not19 = icmp eq i8 %.pr, 0
-  br i1 %.not19, label %.thread, label %20, !prof !53
+  br i1 %.not19, label %.thread, label %20, !prof !54
 
 20:                                               ; preds = %19
   tail call void (ptr, ...) @_ZL21unrar_dbgmsg_internalPKcz(ptr noundef nonnull @.str.33, ptr noundef nonnull %1)
@@ -978,6 +978,7 @@ attributes #17 = { cold nounwind }
 !48 = !{!34, !12, i64 10272}
 !49 = !{!"branch_weights", !"expected", i32 1, i32 2147483647}
 !50 = !{!34, !12, i64 10344}
-!51 = !{!"branch_weights", i32 1073739822, i32 1073743826}
-!52 = !{!34, !9, i64 10284}
-!53 = !{!"branch_weights", !"expected", i32 2145338310, i32 2145338}
+!51 = !{!"branch_weights", i32 4001, i32 1}
+!52 = !{!"branch_weights", i32 1073739822, i32 1073743826}
+!53 = !{!34, !9, i64 10284}
+!54 = !{!"branch_weights", !"expected", i32 2145338310, i32 2145338}

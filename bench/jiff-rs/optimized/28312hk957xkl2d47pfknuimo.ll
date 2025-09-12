@@ -595,7 +595,7 @@ _ZN4jiff4span4Span9only_time17h27c5c4a2df35341bE.exit.i: ; preds = %172, %169, %
   %261 = icmp sgt i32 %259, -1
   %262 = load i8, ptr %30, align 4, !range !107, !alias.scope !116, !noalias !118
   %.not.i.i = icmp eq i8 %262, 2
-  %or.cond.i.i = select i1 %261, i1 %.not.i.i, i1 false
+  %or.cond.i.i = select i1 %261, i1 %.not.i.i, i1 false, !prof !119
   %263 = getelementptr inbounds nuw i8, ptr %27, i64 20
   br i1 %or.cond.i.i, label %265, label %264, !prof !119
 
@@ -741,7 +741,7 @@ _ZN4jiff3fmt4util7Decimal3new17hfa803fb8c2dfdc3fE.exit.i: ; preds = %292, %.preh
   %328 = icmp sgt i64 %327, -1
   %329 = load i8, ptr %30, align 4, !range !107, !alias.scope !136, !noalias !138
   %.not.i103.i = icmp eq i8 %329, 2
-  %or.cond.i104.i = select i1 %328, i1 %.not.i103.i, i1 false
+  %or.cond.i104.i = select i1 %328, i1 %.not.i103.i, i1 false, !prof !119
   %330 = getelementptr inbounds nuw i8, ptr %26, i64 20
   br i1 %or.cond.i104.i, label %332, label %331, !prof !119
 
@@ -1303,7 +1303,7 @@ _ZN4jiff3fmt4util7Decimal3new17hfa803fb8c2dfdc3fE.exit106.i: ; preds = %359, %.p
   %627 = icmp sgt i64 %626, -1
   %628 = load i8, ptr %625, align 8, !range !107, !alias.scope !214, !noalias !215
   %.not.i.i9 = icmp eq i8 %628, 2
-  %or.cond.i.i10 = select i1 %627, i1 %.not.i.i9, i1 false
+  %or.cond.i.i10 = select i1 %627, i1 %.not.i.i9, i1 false, !prof !119
   %629 = getelementptr inbounds nuw i8, ptr %11, i64 20
   br i1 %or.cond.i.i10, label %631, label %630, !prof !119
 
@@ -1932,7 +1932,7 @@ _ZN4jiff4span4Span9only_time17h27c5c4a2df35341bE.exit.i: ; preds = %150, %147, %
   %251 = icmp sgt i32 %249, -1
   %252 = load i8, ptr %14, align 4, !range !107, !alias.scope !303, !noalias !305
   %.not.i.i = icmp eq i8 %252, 2
-  %or.cond.i.i = select i1 %251, i1 %.not.i.i, i1 false
+  %or.cond.i.i = select i1 %251, i1 %.not.i.i, i1 false, !prof !119
   %253 = getelementptr inbounds nuw i8, ptr %11, i64 20
   br i1 %or.cond.i.i, label %255, label %254, !prof !119
 
@@ -2053,7 +2053,7 @@ _ZN4jiff3fmt4util7Decimal3new17hfa803fb8c2dfdc3fE.exit.i: ; preds = %282, %.preh
   %314 = icmp sgt i64 %313, -1
   %315 = load i8, ptr %14, align 4, !range !107, !alias.scope !314, !noalias !316
   %.not.i103.i = icmp eq i8 %315, 2
-  %or.cond.i104.i = select i1 %314, i1 %.not.i103.i, i1 false
+  %or.cond.i104.i = select i1 %314, i1 %.not.i103.i, i1 false, !prof !119
   %316 = getelementptr inbounds nuw i8, ptr %10, i64 20
   br i1 %or.cond.i104.i, label %318, label %317, !prof !119
 
@@ -2840,7 +2840,7 @@ _ZN4jiff3fmt8friendly7printer11SpanPrinter26print_duration_designators17hc5ccd24
   %332 = icmp sgt i64 %.sroa.024.0.i, -1
   %333 = load i8, ptr %8, align 4, !range !107, !alias.scope !369, !noalias !371
   %.not.i.i = icmp eq i8 %333, 2
-  %or.cond.i.i6 = select i1 %332, i1 %.not.i.i, i1 false
+  %or.cond.i.i6 = select i1 %332, i1 %.not.i.i, i1 false, !prof !119
   %334 = getelementptr inbounds nuw i8, ptr %5, i64 20
   br i1 %or.cond.i.i6, label %336, label %335, !prof !119
 
@@ -2964,7 +2964,7 @@ _ZN4jiff3fmt4util7Decimal3new17hfa803fb8c2dfdc3fE.exit.i: ; preds = %363, %.preh
   %396 = icmp sgt i64 %.sroa.035.0.i, -1
   %397 = load i8, ptr %8, align 4, !range !107, !alias.scope !380, !noalias !382
   %.not.i87.i = icmp eq i8 %397, 2
-  %or.cond.i88.i = select i1 %396, i1 %.not.i87.i, i1 false
+  %or.cond.i88.i = select i1 %396, i1 %.not.i87.i, i1 false, !prof !119
   %398 = getelementptr inbounds nuw i8, ptr %4, i64 20
   br i1 %or.cond.i88.i, label %400, label %399, !prof !119
 
@@ -3772,7 +3772,7 @@ _ZN4jiff3fmt8friendly7printer11SpanPrinter26print_duration_designators17h5e8d914
   %348 = icmp sgt i64 %.sroa.024.0.i, -1
   %349 = load i8, ptr %15, align 4, !range !107, !alias.scope !437, !noalias !439
   %.not.i.i = icmp eq i8 %349, 2
-  %or.cond.i.i6 = select i1 %348, i1 %.not.i.i, i1 false
+  %or.cond.i.i6 = select i1 %348, i1 %.not.i.i, i1 false, !prof !119
   %350 = getelementptr inbounds nuw i8, ptr %12, i64 20
   br i1 %or.cond.i.i6, label %352, label %351, !prof !119
 
@@ -3933,7 +3933,7 @@ _ZN4jiff3fmt4util7Decimal3new17hfa803fb8c2dfdc3fE.exit.i: ; preds = %379, %.preh
   %418 = icmp sgt i64 %.sroa.035.0.i, -1
   %419 = load i8, ptr %15, align 4, !range !107, !alias.scope !460, !noalias !462
   %.not.i87.i = icmp eq i8 %419, 2
-  %or.cond.i88.i = select i1 %418, i1 %.not.i87.i, i1 false
+  %or.cond.i88.i = select i1 %418, i1 %.not.i87.i, i1 false, !prof !119
   %420 = getelementptr inbounds nuw i8, ptr %11, i64 20
   br i1 %or.cond.i88.i, label %422, label %421, !prof !119
 
@@ -4228,7 +4228,7 @@ define internal fastcc { i64, ptr } @_ZN4jiff3fmt8friendly7printer11SpanPrinter3
   %46 = icmp sgt i16 %32, -1
   %47 = load i8, ptr %45, align 1, !range !107, !alias.scope !488, !noalias !483
   %.not.i.i = icmp eq i8 %47, 2
-  %or.cond.i.i = select i1 %46, i1 %.not.i.i, i1 false
+  %or.cond.i.i = select i1 %46, i1 %.not.i.i, i1 false, !prof !119
   %48 = getelementptr inbounds nuw i8, ptr %6, i64 20
   br i1 %or.cond.i.i, label %50, label %49, !prof !119
 
@@ -4636,7 +4636,7 @@ define internal fastcc { i64, ptr } @_ZN4jiff3fmt8friendly7printer11SpanPrinter3
   %60 = icmp sgt i16 %29, -1
   %61 = load i8, ptr %59, align 1, !range !107, !alias.scope !521, !noalias !516
   %.not.i.i = icmp eq i8 %61, 2
-  %or.cond.i.i = select i1 %60, i1 %.not.i.i, i1 false
+  %or.cond.i.i = select i1 %60, i1 %.not.i.i, i1 false, !prof !119
   %62 = getelementptr inbounds nuw i8, ptr %3, i64 20
   br i1 %or.cond.i.i, label %64, label %63, !prof !119
 
@@ -8021,7 +8021,7 @@ define internal fastcc { i64, ptr } @"_ZN4jiff3fmt8friendly7printer25DesignatorW
   %38 = icmp sgt i32 %2, -1
   %39 = load i8, ptr %37, align 1, !range !107, !alias.scope !843, !noalias !840
   %.not.i = icmp eq i8 %39, 2
-  %or.cond.i = select i1 %38, i1 %.not.i, i1 false
+  %or.cond.i = select i1 %38, i1 %.not.i, i1 false, !prof !119
   %40 = getelementptr inbounds nuw i8, ptr %4, i64 20
   br i1 %or.cond.i, label %42, label %41, !prof !119
 
@@ -8260,7 +8260,7 @@ define internal fastcc { i64, ptr } @"_ZN4jiff3fmt8friendly7printer25DesignatorW
   %37 = icmp sgt i64 %2, -1
   %38 = load i8, ptr %36, align 1, !range !107, !alias.scope !858, !noalias !855
   %.not.i = icmp eq i8 %38, 2
-  %or.cond.i = select i1 %37, i1 %.not.i, i1 false
+  %or.cond.i = select i1 %37, i1 %.not.i, i1 false, !prof !119
   %39 = getelementptr inbounds nuw i8, ptr %4, i64 20
   br i1 %or.cond.i, label %41, label %40, !prof !119
 
@@ -8470,7 +8470,7 @@ define internal fastcc { i64, ptr } @"_ZN4jiff3fmt8friendly7printer25DesignatorW
   %23 = icmp sgt i64 %2, -1
   %24 = load i8, ptr %22, align 1, !range !107, !alias.scope !870, !noalias !867
   %.not.i = icmp eq i8 %24, 2
-  %or.cond.i = select i1 %23, i1 %.not.i, i1 false
+  %or.cond.i = select i1 %23, i1 %.not.i, i1 false, !prof !119
   %25 = getelementptr inbounds nuw i8, ptr %7, i64 20
   br i1 %or.cond.i, label %27, label %26, !prof !119
 
@@ -8715,7 +8715,7 @@ define internal fastcc { i64, ptr } @"_ZN4jiff3fmt8friendly7printer25DesignatorW
   %24 = icmp sgt i32 %2, -1
   %25 = load i8, ptr %23, align 1, !range !107, !alias.scope !894, !noalias !891
   %.not.i = icmp eq i8 %25, 2
-  %or.cond.i = select i1 %24, i1 %.not.i, i1 false
+  %or.cond.i = select i1 %24, i1 %.not.i, i1 false, !prof !119
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 20
   br i1 %or.cond.i, label %28, label %27, !prof !119
 
@@ -9285,7 +9285,7 @@ define internal fastcc { i64, ptr } @_ZN4jiff3fmt8friendly7printer17FractionalPr
   %8 = icmp sgt i64 %7, -1
   %9 = load i8, ptr %6, align 8, !range !107, !alias.scope !943, !noalias !940
   %.not.i = icmp eq i8 %9, 2
-  %or.cond.i = select i1 %8, i1 %.not.i, i1 false
+  %or.cond.i = select i1 %8, i1 %.not.i, i1 false, !prof !119
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 20
   br i1 %or.cond.i, label %12, label %11, !prof !119
 
@@ -9449,7 +9449,7 @@ define internal fastcc { i64, ptr } @_ZN4jiff3fmt8friendly7printer17FractionalPr
   %8 = icmp sgt i64 %7, -1
   %9 = load i8, ptr %6, align 8, !range !107, !alias.scope !952, !noalias !949
   %.not.i = icmp eq i8 %9, 2
-  %or.cond.i = select i1 %8, i1 %.not.i, i1 false
+  %or.cond.i = select i1 %8, i1 %.not.i, i1 false, !prof !119
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 20
   br i1 %or.cond.i, label %12, label %11, !prof !119
 
@@ -9613,7 +9613,7 @@ define internal fastcc { i64, ptr } @_ZN4jiff3fmt8friendly7printer17FractionalPr
   %8 = icmp sgt i64 %7, -1
   %9 = load i8, ptr %6, align 8, !range !107, !alias.scope !961, !noalias !958
   %.not.i = icmp eq i8 %9, 2
-  %or.cond.i = select i1 %8, i1 %.not.i, i1 false
+  %or.cond.i = select i1 %8, i1 %.not.i, i1 false, !prof !119
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 20
   br i1 %or.cond.i, label %12, label %11, !prof !119
 

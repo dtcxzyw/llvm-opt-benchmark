@@ -144699,7 +144699,7 @@ sljit_emit_op1.exit869:                           ; preds = %1138, %emit_groupf.
   %.not34.i873 = icmp eq i32 %1166, 0
   %.pre2686.pre2692.pre2694 = load i32, ptr %7, align 8, !tbaa !110
   %.not.i1599 = icmp eq i32 %.pre2686.pre2692.pre2694, 0
-  %or.cond3060 = select i1 %.not34.i873, i1 %.not.i1599, i1 false
+  %or.cond3060 = select i1 %.not34.i873, i1 %.not.i1599, i1 false, !prof !358
   br i1 %or.cond3060, label %1167, label %sljit_emit_cmp.exit874, !prof !358
 
 1167:                                             ; preds = %1162

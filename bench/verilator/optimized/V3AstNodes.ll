@@ -60627,7 +60627,7 @@ define dso_local noundef ptr @_ZNK6AstLet9brokenGenEv(ptr noundef nonnull readon
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 64
   %.sroa.0.0.copyload.i.i = load i16, ptr %19, align 8, !tbaa !20
   %20 = icmp ne i16 %.sroa.0.0.copyload.i.i, 136
-  %brmerge = select i1 %20, i1 true, i1 %.not7
+  %brmerge = select i1 %20, i1 true, i1 %.not7, !prof !121
   %.str.541.mux = select i1 %20, ptr @.str.541, ptr @.str.1647, !prof !121
   br i1 %brmerge, label %_ZNK6AstLet6brokenEv.exit, label %_ZN7AstNode9privateIsI11AstStmtExprPS_EEbPKS_.exit.i, !prof !122
 

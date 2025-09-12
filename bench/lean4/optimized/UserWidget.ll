@@ -34138,7 +34138,7 @@ define zeroext range(i8 0, 2) i8 @l_Lean_Widget_getWidgetSource___lambda__2(ptr 
   %8 = ptrtoint ptr %4 to i64
   %9 = and i64 %8, 1
   %10 = icmp ne i64 %9, 0
-  %or.cond = select i1 %7, i1 %10, i1 false
+  %or.cond = select i1 %7, i1 %10, i1 false, !prof !18
   br i1 %or.cond, label %lean_nat_le.exit.thread, label %lean_nat_le.exit, !prof !18
 
 lean_nat_le.exit.thread:                          ; preds = %3

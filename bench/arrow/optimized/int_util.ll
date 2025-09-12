@@ -22194,7 +22194,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit.us42: ; pred
   %76 = add i64 %75, -1
   %77 = icmp eq i64 %76, 0
   %78 = icmp slt i64 %76, %65
-  %or.cond = select i1 %77, i1 true, i1 %78
+  %or.cond = select i1 %77, i1 true, i1 %78, !prof !1269
   br i1 %or.cond, label %.lr.ph.split.split.us, label %.lr.ph.preheader.i.i.i27.us, !prof !1269
 
 .lr.ph.preheader.i.i.i27.us:                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit.us42

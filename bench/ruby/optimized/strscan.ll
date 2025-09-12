@@ -1299,7 +1299,7 @@ define internal i64 @strscan_scan_base10_integer(i64 noundef %0) #0 {
   %or.cond.i.i = select i1 %17, i1 true, i1 %19
   %20 = load i32, ptr @usascii_encindex, align 4
   %21 = icmp eq i32 %15, %20
-  %or.cond.i = select i1 %or.cond.i.i, i1 true, i1 %21
+  %or.cond.i = select i1 %or.cond.i.i, i1 true, i1 %21, !prof !61
   br i1 %or.cond.i, label %strscan_must_ascii_compat.exit, label %22, !prof !61
 
 22:                                               ; preds = %8
@@ -1404,7 +1404,7 @@ define internal i64 @strscan_scan_base16_integer(i64 noundef %0) #0 {
   %or.cond.i.i = select i1 %17, i1 true, i1 %19
   %20 = load i32, ptr @usascii_encindex, align 4
   %21 = icmp eq i32 %15, %20
-  %or.cond.i = select i1 %or.cond.i.i, i1 true, i1 %21
+  %or.cond.i = select i1 %or.cond.i.i, i1 true, i1 %21, !prof !61
   br i1 %or.cond.i, label %strscan_must_ascii_compat.exit, label %22, !prof !61
 
 22:                                               ; preds = %8

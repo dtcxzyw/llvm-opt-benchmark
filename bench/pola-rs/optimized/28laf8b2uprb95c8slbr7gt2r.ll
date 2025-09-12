@@ -37427,7 +37427,7 @@ define internal fastcc void @"_ZN12polars_arrow5array9primitive23PrimitiveArray$
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %16 = icmp ne i64 %15, %12
-  %or.cond.i = select i1 %.not, i1 %16, i1 false
+  %or.cond.i = select i1 %.not, i1 %16, i1 false, !prof !2486
   br i1 %or.cond.i, label %22, label %17, !prof !2486
 
 17:                                               ; preds = %4
@@ -37439,7 +37439,7 @@ define internal fastcc void @"_ZN12polars_arrow5array9primitive23PrimitiveArray$
   %20 = extractvalue { i8, i8 } %18, 1
   %21 = icmp eq i8 %19, 2
   %.not.i = icmp eq i8 %20, 11
-  %or.cond9.i = select i1 %21, i1 %.not.i, i1 false
+  %or.cond9.i = select i1 %21, i1 %.not.i, i1 false, !prof !2487
   br i1 %or.cond9.i, label %42, label %27, !prof !2487
 
 22:                                               ; preds = %4
@@ -41378,7 +41378,7 @@ define internal fastcc void @_ZN12polars_arrow5array9primitive5check17h01b2716da
   %9 = alloca [24 x i8], align 8
   %10 = trunc nuw i64 %3 to i1
   %11 = icmp ne i64 %4, %2
-  %or.cond = select i1 %10, i1 %11, i1 false
+  %or.cond = select i1 %10, i1 %11, i1 false, !prof !2486
   br i1 %or.cond, label %17, label %12, !prof !2486
 
 12:                                               ; preds = %5
@@ -41387,7 +41387,7 @@ define internal fastcc void @_ZN12polars_arrow5array9primitive5check17h01b2716da
   %15 = extractvalue { i8, i8 } %13, 1
   %16 = icmp eq i8 %14, 2
   %.not = icmp eq i8 %15, 13
-  %or.cond9 = select i1 %16, i1 %.not, i1 false
+  %or.cond9 = select i1 %16, i1 %.not, i1 false, !prof !2487
   br i1 %or.cond9, label %27, label %22, !prof !2487
 
 17:                                               ; preds = %5
@@ -41440,7 +41440,7 @@ define internal fastcc void @_ZN12polars_arrow5array9primitive5check17h16f490fb5
   %9 = alloca [24 x i8], align 8
   %10 = trunc nuw i64 %3 to i1
   %11 = icmp ne i64 %4, %2
-  %or.cond = select i1 %10, i1 %11, i1 false
+  %or.cond = select i1 %10, i1 %11, i1 false, !prof !2486
   br i1 %or.cond, label %17, label %12, !prof !2486
 
 12:                                               ; preds = %5
@@ -41449,7 +41449,7 @@ define internal fastcc void @_ZN12polars_arrow5array9primitive5check17h16f490fb5
   %15 = extractvalue { i8, i8 } %13, 1
   %16 = icmp eq i8 %14, 2
   %.not = icmp eq i8 %15, 1
-  %or.cond9 = select i1 %16, i1 %.not, i1 false
+  %or.cond9 = select i1 %16, i1 %.not, i1 false, !prof !2487
   br i1 %or.cond9, label %27, label %22, !prof !2487
 
 17:                                               ; preds = %5
@@ -41502,7 +41502,7 @@ define internal fastcc void @_ZN12polars_arrow5array9primitive5check17h23bb473fe
   %9 = alloca [24 x i8], align 8
   %10 = trunc nuw i64 %3 to i1
   %11 = icmp ne i64 %4, %2
-  %or.cond = select i1 %10, i1 %11, i1 false
+  %or.cond = select i1 %10, i1 %11, i1 false, !prof !2486
   br i1 %or.cond, label %17, label %12, !prof !2486
 
 12:                                               ; preds = %5
@@ -41511,7 +41511,7 @@ define internal fastcc void @_ZN12polars_arrow5array9primitive5check17h23bb473fe
   %15 = extractvalue { i8, i8 } %13, 1
   %16 = icmp eq i8 %14, 2
   %.not = icmp eq i8 %15, 7
-  %or.cond9 = select i1 %16, i1 %.not, i1 false
+  %or.cond9 = select i1 %16, i1 %.not, i1 false, !prof !2487
   br i1 %or.cond9, label %27, label %22, !prof !2487
 
 17:                                               ; preds = %5
@@ -41564,7 +41564,7 @@ define internal fastcc void @_ZN12polars_arrow5array9primitive5check17h38f425313
   %9 = alloca [24 x i8], align 8
   %10 = trunc nuw i64 %3 to i1
   %11 = icmp ne i64 %4, %2
-  %or.cond = select i1 %10, i1 %11, i1 false
+  %or.cond = select i1 %10, i1 %11, i1 false, !prof !2486
   br i1 %or.cond, label %17, label %12, !prof !2486
 
 12:                                               ; preds = %5
@@ -41573,7 +41573,7 @@ define internal fastcc void @_ZN12polars_arrow5array9primitive5check17h38f425313
   %15 = extractvalue { i8, i8 } %13, 1
   %16 = icmp eq i8 %14, 2
   %.not = icmp eq i8 %15, 0
-  %or.cond9 = select i1 %16, i1 %.not, i1 false
+  %or.cond9 = select i1 %16, i1 %.not, i1 false, !prof !2487
   br i1 %or.cond9, label %27, label %22, !prof !2487
 
 17:                                               ; preds = %5
@@ -41626,7 +41626,7 @@ define internal fastcc void @_ZN12polars_arrow5array9primitive5check17ha48bfad12
   %9 = alloca [24 x i8], align 8
   %10 = trunc nuw i64 %3 to i1
   %11 = icmp ne i64 %4, %2
-  %or.cond = select i1 %10, i1 %11, i1 false
+  %or.cond = select i1 %10, i1 %11, i1 false, !prof !2486
   br i1 %or.cond, label %17, label %12, !prof !2486
 
 12:                                               ; preds = %5
@@ -41635,7 +41635,7 @@ define internal fastcc void @_ZN12polars_arrow5array9primitive5check17ha48bfad12
   %15 = extractvalue { i8, i8 } %13, 1
   %16 = icmp eq i8 %14, 2
   %.not = icmp eq i8 %15, 2
-  %or.cond9 = select i1 %16, i1 %.not, i1 false
+  %or.cond9 = select i1 %16, i1 %.not, i1 false, !prof !2487
   br i1 %or.cond9, label %27, label %22, !prof !2487
 
 17:                                               ; preds = %5
@@ -41688,7 +41688,7 @@ define internal fastcc void @_ZN12polars_arrow5array9primitive5check17ha9734f72d
   %9 = alloca [24 x i8], align 8
   %10 = trunc nuw i64 %3 to i1
   %11 = icmp ne i64 %4, %2
-  %or.cond = select i1 %10, i1 %11, i1 false
+  %or.cond = select i1 %10, i1 %11, i1 false, !prof !2486
   br i1 %or.cond, label %17, label %12, !prof !2486
 
 12:                                               ; preds = %5
@@ -41697,7 +41697,7 @@ define internal fastcc void @_ZN12polars_arrow5array9primitive5check17ha9734f72d
   %15 = extractvalue { i8, i8 } %13, 1
   %16 = icmp eq i8 %14, 2
   %.not = icmp eq i8 %15, 4
-  %or.cond9 = select i1 %16, i1 %.not, i1 false
+  %or.cond9 = select i1 %16, i1 %.not, i1 false, !prof !2487
   br i1 %or.cond9, label %27, label %22, !prof !2487
 
 17:                                               ; preds = %5
@@ -41750,7 +41750,7 @@ define internal fastcc void @_ZN12polars_arrow5array9primitive5check17hd96e47aaf
   %9 = alloca [24 x i8], align 8
   %10 = trunc nuw i64 %3 to i1
   %11 = icmp ne i64 %4, %2
-  %or.cond = select i1 %10, i1 %11, i1 false
+  %or.cond = select i1 %10, i1 %11, i1 false, !prof !2486
   br i1 %or.cond, label %17, label %12, !prof !2486
 
 12:                                               ; preds = %5
@@ -41759,7 +41759,7 @@ define internal fastcc void @_ZN12polars_arrow5array9primitive5check17hd96e47aaf
   %15 = extractvalue { i8, i8 } %13, 1
   %16 = icmp eq i8 %14, 2
   %.not = icmp eq i8 %15, 8
-  %or.cond9 = select i1 %16, i1 %.not, i1 false
+  %or.cond9 = select i1 %16, i1 %.not, i1 false, !prof !2487
   br i1 %or.cond9, label %27, label %22, !prof !2487
 
 17:                                               ; preds = %5
@@ -41812,7 +41812,7 @@ define internal fastcc void @_ZN12polars_arrow5array9primitive5check17hec83202ae
   %9 = alloca [24 x i8], align 8
   %10 = trunc nuw i64 %3 to i1
   %11 = icmp ne i64 %4, %2
-  %or.cond = select i1 %10, i1 %11, i1 false
+  %or.cond = select i1 %10, i1 %11, i1 false, !prof !2486
   br i1 %or.cond, label %17, label %12, !prof !2486
 
 12:                                               ; preds = %5
@@ -41821,7 +41821,7 @@ define internal fastcc void @_ZN12polars_arrow5array9primitive5check17hec83202ae
   %15 = extractvalue { i8, i8 } %13, 1
   %16 = icmp eq i8 %14, 2
   %.not = icmp eq i8 %15, 3
-  %or.cond9 = select i1 %16, i1 %.not, i1 false
+  %or.cond9 = select i1 %16, i1 %.not, i1 false, !prof !2487
   br i1 %or.cond9, label %27, label %22, !prof !2487
 
 17:                                               ; preds = %5
@@ -41874,7 +41874,7 @@ define internal fastcc void @_ZN12polars_arrow5array9primitive5check17hf05393d0d
   %9 = alloca [24 x i8], align 8
   %10 = trunc nuw i64 %3 to i1
   %11 = icmp ne i64 %4, %2
-  %or.cond = select i1 %10, i1 %11, i1 false
+  %or.cond = select i1 %10, i1 %11, i1 false, !prof !2486
   br i1 %or.cond, label %17, label %12, !prof !2486
 
 12:                                               ; preds = %5
@@ -41883,7 +41883,7 @@ define internal fastcc void @_ZN12polars_arrow5array9primitive5check17hf05393d0d
   %15 = extractvalue { i8, i8 } %13, 1
   %16 = icmp eq i8 %14, 2
   %.not = icmp eq i8 %15, 12
-  %or.cond9 = select i1 %16, i1 %.not, i1 false
+  %or.cond9 = select i1 %16, i1 %.not, i1 false, !prof !2487
   br i1 %or.cond9, label %27, label %22, !prof !2487
 
 17:                                               ; preds = %5
@@ -41936,7 +41936,7 @@ define internal fastcc void @_ZN12polars_arrow5array9primitive5check17hf9daf31e0
   %9 = alloca [24 x i8], align 8
   %10 = trunc nuw i64 %3 to i1
   %11 = icmp ne i64 %4, %2
-  %or.cond = select i1 %10, i1 %11, i1 false
+  %or.cond = select i1 %10, i1 %11, i1 false, !prof !2486
   br i1 %or.cond, label %17, label %12, !prof !2486
 
 12:                                               ; preds = %5
@@ -41945,7 +41945,7 @@ define internal fastcc void @_ZN12polars_arrow5array9primitive5check17hf9daf31e0
   %15 = extractvalue { i8, i8 } %13, 1
   %16 = icmp eq i8 %14, 2
   %.not = icmp eq i8 %15, 9
-  %or.cond9 = select i1 %16, i1 %.not, i1 false
+  %or.cond9 = select i1 %16, i1 %.not, i1 false, !prof !2487
   br i1 %or.cond9, label %27, label %22, !prof !2487
 
 17:                                               ; preds = %5
@@ -41998,7 +41998,7 @@ define internal fastcc void @_ZN12polars_arrow5array9primitive5check17hff977e096
   %9 = alloca [24 x i8], align 8
   %10 = trunc nuw i64 %3 to i1
   %11 = icmp ne i64 %4, %2
-  %or.cond = select i1 %10, i1 %11, i1 false
+  %or.cond = select i1 %10, i1 %11, i1 false, !prof !2486
   br i1 %or.cond, label %17, label %12, !prof !2486
 
 12:                                               ; preds = %5
@@ -42007,7 +42007,7 @@ define internal fastcc void @_ZN12polars_arrow5array9primitive5check17hff977e096
   %15 = extractvalue { i8, i8 } %13, 1
   %16 = icmp eq i8 %14, 2
   %.not = icmp eq i8 %15, 6
-  %or.cond9 = select i1 %16, i1 %.not, i1 false
+  %or.cond9 = select i1 %16, i1 %.not, i1 false, !prof !2487
   br i1 %or.cond9, label %27, label %22, !prof !2487
 
 17:                                               ; preds = %5

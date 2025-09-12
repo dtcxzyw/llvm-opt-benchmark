@@ -4803,7 +4803,7 @@ define linkonce_odr dso_local void @_ZN6snappy18SnappyDecompressor17DecompressAl
   %80 = add i64 %79, %73
   %81 = icmp slt i64 %80, 0
   %.not.i = icmp eq i64 %67, %73
-  %or.cond158.i = select i1 %81, i1 true, i1 %.not.i
+  %or.cond158.i = select i1 %81, i1 true, i1 %.not.i, !prof !144
   br i1 %or.cond158.i, label %.thread134.thread.i, label %.thread126.i, !prof !144
 
 .thread126.i:                                     ; preds = %78

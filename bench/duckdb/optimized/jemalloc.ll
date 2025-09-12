@@ -1847,7 +1847,7 @@ imalloc_no_sample.exit:                           ; preds = %.critedge.i.i, %.th
   %.not.i16 = xor i1 %143, true
   %287 = load i8, ptr @duckdb_je_opt_junk_alloc, align 1, !range !55
   %288 = trunc nuw i8 %287 to i1
-  %or.cond45.i17 = select i1 %.not.i16, i1 %288, i1 false
+  %or.cond45.i17 = select i1 %.not.i16, i1 %288, i1 false, !prof !135
   br i1 %or.cond45.i17, label %289, label %291, !prof !135
 
 289:                                              ; preds = %286
@@ -1981,7 +1981,7 @@ compute_size_with_overflow.exit31:                ; preds = %3, %tsd_fetch_impl.
   %12 = icmp ult i64 %1, 8
   %13 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %1)
   %14 = icmp samesign ugt i64 %13, 1
-  %or.cond47.i = select i1 %12, i1 true, i1 %14
+  %or.cond47.i = select i1 %12, i1 true, i1 %14, !prof !137
   br i1 %or.cond47.i, label %imalloc.exit, label %15, !prof !137
 
 15:                                               ; preds = %compute_size_with_overflow.exit31
@@ -2132,7 +2132,7 @@ compute_size_with_overflow.exit:                  ; preds = %88, %85
   %91 = icmp ult i64 %1, 8
   %92 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %1)
   %93 = icmp samesign ugt i64 %92, 1
-  %or.cond47.i10 = select i1 %91, i1 true, i1 %93
+  %or.cond47.i10 = select i1 %91, i1 true, i1 %93, !prof !137
   br i1 %or.cond47.i10, label %aligned_usize_get.exit.i16.thread, label %94, !prof !137
 
 94:                                               ; preds = %compute_size_with_overflow.exit
@@ -2300,7 +2300,7 @@ imalloc_no_sample.exit:                           ; preds = %150, %160, %arena_g
   %.not.i20 = xor i1 %96, true
   %180 = load i8, ptr @duckdb_je_opt_junk_alloc, align 1, !range !55
   %181 = trunc nuw i8 %180 to i1
-  %or.cond45.i21 = select i1 %.not.i20, i1 %181, i1 false
+  %or.cond45.i21 = select i1 %.not.i20, i1 %181, i1 false, !prof !135
   br i1 %or.cond45.i21, label %182, label %183, !prof !135
 
 182:                                              ; preds = %179
@@ -2677,7 +2677,7 @@ imalloc_no_sample.exit:                           ; preds = %148, %158, %arena_g
   %.not.i18 = xor i1 %94, true
   %178 = load i8, ptr @duckdb_je_opt_junk_alloc, align 1, !range !55
   %179 = trunc nuw i8 %178 to i1
-  %or.cond45.i19 = select i1 %.not.i18, i1 %179, i1 false
+  %or.cond45.i19 = select i1 %.not.i18, i1 %179, i1 false, !prof !135
   br i1 %or.cond45.i19, label %180, label %184, !prof !135
 
 180:                                              ; preds = %177
@@ -4305,7 +4305,7 @@ imalloc_no_sample.exit:                           ; preds = %117, %127, %arena_g
   %.not.i16 = xor i1 %75, true
   %147 = load i8, ptr @duckdb_je_opt_junk_alloc, align 1, !range !55
   %148 = trunc nuw i8 %147 to i1
-  %or.cond45.i17 = select i1 %.not.i16, i1 %148, i1 false
+  %or.cond45.i17 = select i1 %.not.i16, i1 %148, i1 false, !prof !135
   br i1 %or.cond45.i17, label %149, label %aligned_usize_get.exit.i12.thread, !prof !135
 
 149:                                              ; preds = %146
@@ -5270,7 +5270,7 @@ imalloc_no_sample.exit:                           ; preds = %.critedge.i.i, %.th
   %.not.i25 = xor i1 %spec.select.i.i17, true
   %463 = load i8, ptr @duckdb_je_opt_junk_alloc, align 1, !range !55
   %464 = trunc nuw i8 %463 to i1
-  %or.cond45.i26 = select i1 %.not.i25, i1 %464, i1 false
+  %or.cond45.i26 = select i1 %.not.i25, i1 %464, i1 false, !prof !135
   br i1 %or.cond45.i26, label %465, label %aligned_usize_get.exit.i21.thread, !prof !135
 
 465:                                              ; preds = %462
@@ -6584,7 +6584,7 @@ imalloc_no_sample.exit:                           ; preds = %.critedge.i.i, %.th
   %.not.i29 = xor i1 %154, true
   %298 = load i8, ptr @duckdb_je_opt_junk_alloc, align 1, !range !55
   %299 = trunc nuw i8 %298 to i1
-  %or.cond45.i30 = select i1 %.not.i29, i1 %299, i1 false
+  %or.cond45.i30 = select i1 %.not.i29, i1 %299, i1 false, !prof !135
   br i1 %or.cond45.i30, label %300, label %302, !prof !135
 
 300:                                              ; preds = %297
@@ -9113,7 +9113,7 @@ sz_size2index.exit:                               ; preds = %90, %sz_size2index_
 145:                                              ; preds = %143
   %146 = sub nuw i64 %1, %.1
   %.not = icmp ult i64 %146, %.099
-  %or.cond = select i1 %116, i1 true, i1 %.not
+  %or.cond = select i1 %116, i1 true, i1 %.not, !prof !49
   br i1 %or.cond, label %181, label %147, !prof !49
 
 147:                                              ; preds = %145
@@ -9259,7 +9259,7 @@ tcache_get_from_ind.exit.thread178:               ; preds = %mallocx_tcache_get.
   %.val = load ptr, ptr %197, align 8, !tbaa !107
   %198 = icmp ne ptr %.val, @duckdb_je_disabled_bin
   %199 = icmp ult i64 %.0101, %146
-  %or.cond120 = select i1 %198, i1 %199, i1 false
+  %or.cond120 = select i1 %198, i1 %199, i1 false, !prof !11
   br i1 %or.cond120, label %200, label %.critedge119, !prof !11
 
 200:                                              ; preds = %195

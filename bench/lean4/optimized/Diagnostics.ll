@@ -3953,7 +3953,7 @@ define noalias noundef nonnull ptr @l_Lean_Meta_collectAboveThreshold___at_Lean_
   %14 = ptrtoint ptr %9 to i64
   %15 = and i64 %14, 1
   %16 = icmp ne i64 %15, 0
-  %or.cond = select i1 %13, i1 %16, i1 false
+  %or.cond = select i1 %13, i1 %16, i1 false, !prof !17
   br i1 %or.cond, label %17, label %lean_nat_lt.exit, !prof !17
 
 17:                                               ; preds = %10

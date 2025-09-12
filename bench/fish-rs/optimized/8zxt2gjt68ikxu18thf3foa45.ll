@@ -26207,7 +26207,7 @@ define internal fastcc void @_ZN4fish10parse_util13IndentVisitor18indent_string_
   %29 = icmp ult i64 %2, %.ph
   %30 = load i64, ptr %28, align 8
   %.not = icmp ugt i64 %2, %30
-  %or.cond = select i1 %29, i1 true, i1 %.not
+  %or.cond = select i1 %29, i1 true, i1 %.not, !prof !707
   br i1 %or.cond, label %48, label %32, !prof !707
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph, %32
@@ -26381,7 +26381,7 @@ define internal void @"_ZN4fish10parse_util13IndentVisitor18indent_string_part28
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %41 = load i64, ptr %40, align 8
   %.not = icmp ugt i64 %38, %41
-  %or.cond = select i1 %39, i1 true, i1 %.not
+  %or.cond = select i1 %39, i1 true, i1 %.not, !prof !707
   br i1 %or.cond, label %84, label %45, !prof !707
 
 42:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h5237911404c95ab8E.exit3", %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h5237911404c95ab8E.exit"

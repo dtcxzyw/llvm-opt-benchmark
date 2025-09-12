@@ -1802,7 +1802,7 @@ define internal fastcc range(i32 -1, 1) i32 @zend_generator_get_next_delegated_v
   %88 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !102
   %.not102 = icmp ne ptr %88, null
   %.not103 = icmp eq ptr %87, null
-  %or.cond = select i1 %.not102, i1 true, i1 %.not103
+  %or.cond = select i1 %.not102, i1 true, i1 %.not103, !prof !124
   br i1 %or.cond, label %.thread118, label %89, !prof !124
 
 89:                                               ; preds = %83

@@ -1367,7 +1367,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__prepare_prelude_callback_dcpl(
   %.not95 = select i1 %not., i1 %9, i1 false
   %10 = load i64, ptr @H5P_LST_DATASET_CREATE_ID_g, align 8
   %.not = icmp eq i64 %0, %10
-  %or.cond = select i1 %.not95, i1 true, i1 %.not
+  %or.cond = select i1 %.not95, i1 true, i1 %.not, !prof !52
   br i1 %or.cond, label %.thread87, label %11, !prof !52
 
 11:                                               ; preds = %3

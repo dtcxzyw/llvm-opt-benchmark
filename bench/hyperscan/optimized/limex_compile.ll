@@ -39709,7 +39709,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %26, null
   %27 = getelementptr inbounds nuw i8, ptr %18, i64 80
   %28 = icmp eq ptr %27, %26
-  %or.cond.i.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i, i1 true, i1 %28
+  %or.cond.i.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i, i1 true, i1 %28, !prof !668
   br i1 %or.cond.i.i.i.i.i.i.i.i.i, label %_ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorISt4pairIhhESaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE10deallocateERKPS4_m.exit.i.i.i.i.i.i.i.i.i, label %29, !prof !668
 
 29:                                               ; preds = %24
@@ -39788,7 +39788,7 @@ _ZN3ue212_GLOBAL__N_110AccelBuildaSEOS1_.exit:    ; preds = %.lr.ph, %_ZN5boost9
   %.not.i.i.i.i.i.i.i.i.i36 = icmp eq ptr %62, null
   %63 = getelementptr inbounds nuw i8, ptr %54, i64 80
   %64 = icmp eq ptr %63, %62
-  %or.cond.i.i.i.i.i.i.i.i.i37 = select i1 %.not.i.i.i.i.i.i.i.i.i36, i1 true, i1 %64
+  %or.cond.i.i.i.i.i.i.i.i.i37 = select i1 %.not.i.i.i.i.i.i.i.i.i36, i1 true, i1 %64, !prof !668
   br i1 %or.cond.i.i.i.i.i.i.i.i.i37, label %_ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorISt4pairIhhESaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE10deallocateERKPS4_m.exit.i.i.i.i.i.i.i.i.i38, label %65, !prof !668
 
 65:                                               ; preds = %60
@@ -39923,7 +39923,7 @@ _ZN3ue212_GLOBAL__N_110AccelBuildC2EOS1_.exit:    ; preds = %86, %.noexc.i.i.i.i
   %.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %117, null
   %118 = getelementptr inbounds nuw i8, ptr %109, i64 80
   %119 = icmp eq ptr %118, %117
-  %or.cond.i.i.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i.i, i1 true, i1 %119
+  %or.cond.i.i.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i.i, i1 true, i1 %119, !prof !668
   br i1 %or.cond.i.i.i.i.i.i.i.i.i.i, label %_ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorISt4pairIhhESaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE10deallocateERKPS4_m.exit.i.i.i.i.i.i.i.i.i.i, label %120, !prof !668
 
 120:                                              ; preds = %115
@@ -39986,7 +39986,7 @@ _ZN3ue212_GLOBAL__N_110AccelBuildaSEOS1_.exit.i:  ; preds = %.noexc.i.i.i.i.i.i.
   %.not.i.i.i.i.i.i.i.i.i19.i = icmp eq ptr %141, null
   %142 = getelementptr inbounds nuw i8, ptr %135, i64 80
   %143 = icmp eq ptr %142, %141
-  %or.cond.i.i.i.i.i.i.i.i.i20.i = select i1 %.not.i.i.i.i.i.i.i.i.i19.i, i1 true, i1 %143
+  %or.cond.i.i.i.i.i.i.i.i.i20.i = select i1 %.not.i.i.i.i.i.i.i.i.i19.i, i1 true, i1 %143, !prof !668
   br i1 %or.cond.i.i.i.i.i.i.i.i.i20.i, label %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN3ue212_GLOBAL__N_110AccelBuildESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops14_Iter_comp_valIZNS3_17gatherAccelStatesERKNS3_10build_infoERS8_E3$_0EEEvT_T0_SJ_T1_RT2_.exit.thread", label %144, !prof !668
 
 144:                                              ; preds = %139
@@ -40171,7 +40171,7 @@ _ZN3ue212_GLOBAL__N_110AccelBuildaSEOS1_.exit.i:  ; preds = %.noexc.i.i.i.i.i.i.
   %.not.i.i.i.i.i.i.i.i.i9.i = icmp eq ptr %53, null
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %55 = icmp eq ptr %54, %53
-  %or.cond.i.i.i.i.i.i.i.i.i10.i = select i1 %.not.i.i.i.i.i.i.i.i.i9.i, i1 true, i1 %55
+  %or.cond.i.i.i.i.i.i.i.i.i10.i = select i1 %.not.i.i.i.i.i.i.i.i.i9.i, i1 true, i1 %55, !prof !668
   br i1 %or.cond.i.i.i.i.i.i.i.i.i10.i, label %_ZN3ue212_GLOBAL__N_110AccelBuildaSEOS1_.exit13.thread.i, label %56, !prof !668
 
 56:                                               ; preds = %51
@@ -40344,7 +40344,7 @@ _ZN3ue212_GLOBAL__N_110AccelBuildC2EOS1_.exit:    ; preds = %22, %.noexc.i.i.i.i
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %52, null
   %53 = getelementptr inbounds i8, ptr %.0610.i.i.i.i.i, i64 -8
   %54 = icmp eq ptr %53, %52
-  %or.cond.i.i.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i1 true, i1 %54
+  %or.cond.i.i.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i1 true, i1 %54, !prof !668
   br i1 %or.cond.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorISt4pairIhhESaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE10deallocateERKPS4_m.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %55, !prof !668
 
 55:                                               ; preds = %50
@@ -40401,7 +40401,7 @@ _ZN3ue212_GLOBAL__N_110AccelBuildaSEOS1_.exit.i.i.i.i.i: ; preds = %.noexc.i.i.i
   %74 = load ptr, ptr %11, align 8
   %.not.i.i.i.i.i.i.i.i.i16 = icmp eq ptr %74, null
   %75 = icmp eq ptr %13, %74
-  %or.cond.i.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i16, i1 true, i1 %75
+  %or.cond.i.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i16, i1 true, i1 %75, !prof !668
   br i1 %or.cond.i.i.i.i.i.i.i.i.i, label %_ZN3ue212_GLOBAL__N_110AccelBuildaSEOS1_.exit.thread, label %76, !prof !668
 
 76:                                               ; preds = %73
@@ -40551,7 +40551,7 @@ _ZN3ue212_GLOBAL__N_110AccelBuildC2EOS1_.exit:    ; preds = %10, %.noexc.i.i.i.i
   %.not.i.i.i.i.i.i.i.i.i6 = icmp eq ptr %35, null
   %36 = getelementptr inbounds nuw i8, ptr %.sroa.017.023, i64 80
   %37 = icmp eq ptr %36, %35
-  %or.cond.i.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i6, i1 true, i1 %37
+  %or.cond.i.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i6, i1 true, i1 %37, !prof !668
   br i1 %or.cond.i.i.i.i.i.i.i.i.i, label %_ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorISt4pairIhhESaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE10deallocateERKPS4_m.exit.i.i.i.i.i.i.i.i.i, label %38, !prof !668
 
 38:                                               ; preds = %33
@@ -40616,7 +40616,7 @@ _ZN3ue212_GLOBAL__N_110AccelBuildaSEOS1_.exit:    ; preds = %.noexc.i.i.i.i.i.i.
   %.not.i.i.i.i.i.i.i.i.i9 = icmp eq ptr %59, null
   %60 = getelementptr inbounds nuw i8, ptr %.sroa.017.0.lcssa, i64 80
   %61 = icmp eq ptr %60, %59
-  %or.cond.i.i.i.i.i.i.i.i.i10 = select i1 %.not.i.i.i.i.i.i.i.i.i9, i1 true, i1 %61
+  %or.cond.i.i.i.i.i.i.i.i.i10 = select i1 %.not.i.i.i.i.i.i.i.i.i9, i1 true, i1 %61, !prof !668
   br i1 %or.cond.i.i.i.i.i.i.i.i.i10, label %_ZN3ue212_GLOBAL__N_110AccelBuildaSEOS1_.exit13.thread, label %62, !prof !668
 
 62:                                               ; preds = %57

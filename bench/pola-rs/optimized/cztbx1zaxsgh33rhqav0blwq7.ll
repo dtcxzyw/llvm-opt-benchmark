@@ -10763,7 +10763,7 @@ define internal fastcc noundef range(i32 -31, 3) i32 @_ZN19brotli_decompressor6d
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 1888
   %34 = load i32, ptr %33, align 8
   %35 = icmp ugt i32 %34, 27
-  %or.cond12 = select i1 %0, i1 true, i1 %35
+  %or.cond12 = select i1 %0, i1 true, i1 %35, !prof !761
   br i1 %or.cond12, label %36, label %44, !prof !761
 
 36:                                               ; preds = %4
@@ -10927,7 +10927,7 @@ define internal fastcc noundef range(i32 -31, 3) i32 @_ZN19brotli_decompressor6d
 94:                                               ; preds = %.backedge
   %95 = load i32, ptr %33, align 8
   %96 = icmp ugt i32 %95, 27
-  %or.cond16 = select i1 %0, i1 true, i1 %96
+  %or.cond16 = select i1 %0, i1 true, i1 %96, !prof !761
   br i1 %or.cond16, label %106, label %.thread270, !prof !761
 
 97:                                               ; preds = %.backedge
@@ -40643,7 +40643,7 @@ common.resume:                                    ; preds = %526, %210, %217, %6
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 5564
   %124 = load i8, ptr %123, align 4, !range !652
   %125 = trunc nuw i8 %124 to i1
-  %or.cond11 = select i1 %122, i1 true, i1 %125
+  %or.cond11 = select i1 %122, i1 true, i1 %125, !prof !761
   br i1 %or.cond11, label %127, label %126, !prof !761
 
 126:                                              ; preds = %120
@@ -41903,7 +41903,7 @@ common.resume:                                    ; preds = %526, %210, %217, %6
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 5564
   %124 = load i8, ptr %123, align 4, !range !652
   %125 = trunc nuw i8 %124 to i1
-  %or.cond11 = select i1 %122, i1 true, i1 %125
+  %or.cond11 = select i1 %122, i1 true, i1 %125, !prof !761
   br i1 %or.cond11, label %127, label %126, !prof !761
 
 126:                                              ; preds = %120

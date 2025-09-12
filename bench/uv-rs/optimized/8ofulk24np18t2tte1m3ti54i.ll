@@ -29009,7 +29009,7 @@ _ZN11uv_resolver10resolution7display12strip_extras17hc1fdb7573c8c026bE.exit: ; p
   %bcmp.i.i.i.i.i.i.i.i.i.i.i = call i32 @bcmp(ptr nonnull readonly align 1 %607, ptr nonnull readonly align 1 %628, i64 %625), !alias.scope !8976, !noalias !8974
   %629 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i.i.i.i, 0
   %630 = icmp eq i64 %.val33.i, %.val4.i.i.i.i
-  %or.cond.i.i.i = select i1 %629, i1 %630, i1 false
+  %or.cond.i.i.i = select i1 %629, i1 %630, i1 false, !prof !8980
   br i1 %or.cond.i.i.i, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h3eee16c6e09a23f3E.exit.i", label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h4bb8435f476b4af1E.exit.thread.i.i.i", !prof !8980
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h4bb8435f476b4af1E.exit.i.i.i": ; preds = %.lr.ph.i.i.i
@@ -29127,7 +29127,7 @@ select.unfold.cont.i:                             ; preds = %select.unfold.invok
   %bcmp.i.i.i.i.i.i.i.i.i.i75.i = call i32 @bcmp(ptr nonnull readonly align 1 %665, ptr nonnull readonly align 1 %686, i64 %683), !alias.scope !9043, !noalias !9042
   %687 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i.i.i75.i, 0
   %688 = icmp eq i64 %.val35.i, %.val4.i.i.i67.i
-  %or.cond.i.i76.i = select i1 %687, i1 %688, i1 false
+  %or.cond.i.i76.i = select i1 %687, i1 %688, i1 false, !prof !8980
   br i1 %or.cond.i.i76.i, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h3eee16c6e09a23f3E.exit80.i", label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h4bb8435f476b4af1E.exit.thread.i.i69.i", !prof !8980
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h4bb8435f476b4af1E.exit.i.i77.i": ; preds = %.lr.ph.i.i64.i

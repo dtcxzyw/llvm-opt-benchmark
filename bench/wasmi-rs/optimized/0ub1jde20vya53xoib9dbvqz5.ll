@@ -25282,7 +25282,7 @@ _ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc18assert_alloc_
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %.val.i = load i16, ptr %14, align 8, !alias.scope !540
   %15 = icmp slt i16 %12, %.val.i
-  %or.cond.i = select i1 %13, i1 true, i1 %15
+  %or.cond.i = select i1 %13, i1 true, i1 %15, !prof !538
   br i1 %or.cond.i, label %17, label %16, !prof !538
 
 16:                                               ; preds = %7

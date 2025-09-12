@@ -347,7 +347,7 @@ H5PL__expand_path_table.exit:                     ; preds = %13
   %50 = select i1 %46, i1 true, i1 %49
   %.pre11 = load i32, ptr @H5PL_num_paths_g, align 4, !tbaa !13
   %51 = icmp ugt i32 %.pre11, %1
-  %or.cond = select i1 %50, i1 %51, i1 false
+  %or.cond = select i1 %50, i1 %51, i1 false, !prof !22
   br i1 %or.cond, label %.lr.ph.i, label %H5PL__make_space_at.exit, !prof !22
 
 .lr.ph.i:                                         ; preds = %44
@@ -588,7 +588,7 @@ define range(i32 -1, -2147483648) i32 @H5PL__path_table_iterate(i32 noundef %0, 
   %13 = select i1 %9, i1 true, i1 %12
   %14 = load i32, ptr @H5PL_num_paths_g, align 4
   %15 = icmp ne i32 %14, 0
-  %or.cond = select i1 %13, i1 %15, i1 false
+  %or.cond = select i1 %13, i1 %15, i1 false, !prof !22
   br i1 %or.cond, label %.lr.ph, label %.loopexit, !prof !22
 
 .lr.ph:                                           ; preds = %3

@@ -6274,7 +6274,7 @@ define void @_ZN4core5slice4sort6stable9quicksort9quicksort17h2188e5053c769c62E(
   %.sroa.0.1.i.i = phi ptr [ %74, %._crit_edge.i.i ], [ %91, %88 ]
   %96 = icmp ne ptr %.sroa.0.1.i.i, %58
   %97 = icmp ne ptr %.sroa.06.1.i.i, %59
-  %or.cond.i.i = select i1 %96, i1 true, i1 %97
+  %or.cond.i.i = select i1 %96, i1 true, i1 %97, !prof !560
   br i1 %or.cond.i.i, label %98, label %_ZN4core5slice4sort6shared9smallsort19bidirectional_merge17h343a6237102c6709E.exit.i, !prof !560
 
 98:                                               ; preds = %95

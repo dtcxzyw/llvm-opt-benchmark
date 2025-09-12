@@ -958,7 +958,7 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort8_stable1
   %66 = getelementptr i8, ptr %83, i64 8
   %67 = icmp ne ptr %77, %65
   %68 = icmp ne ptr %75, %66
-  %or.cond.i = select i1 %67, i1 true, i1 %68
+  %or.cond.i = select i1 %67, i1 true, i1 %68, !prof !158
   br i1 %or.cond.i, label %86, label %_ZN4core5slice4sort6shared9smallsort19bidirectional_merge17heda205739367f839E.exit, !prof !158
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %3
@@ -1400,7 +1400,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
   %.sroa.0.1.i = phi ptr [ %42, %._crit_edge.i ], [ %59, %56 ]
   %64 = icmp ne ptr %.sroa.0.1.i, %26
   %65 = icmp ne ptr %.sroa.06.1.i, %27
-  %or.cond.i = select i1 %64, i1 true, i1 %65
+  %or.cond.i = select i1 %64, i1 true, i1 %65, !prof !158
   br i1 %or.cond.i, label %66, label %_ZN4core5slice4sort6shared9smallsort19bidirectional_merge17hff59b35a8daf80d1E.exit, !prof !158
 
 66:                                               ; preds = %63
@@ -1622,7 +1622,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
   %.sroa.0.1.i = phi ptr [ %42, %._crit_edge.i ], [ %59, %56 ]
   %64 = icmp ne ptr %.sroa.0.1.i, %26
   %65 = icmp ne ptr %.sroa.06.1.i, %27
-  %or.cond.i = select i1 %64, i1 true, i1 %65
+  %or.cond.i = select i1 %64, i1 true, i1 %65, !prof !158
   br i1 %or.cond.i, label %66, label %_ZN4core5slice4sort6shared9smallsort19bidirectional_merge17h2b0e547284c8ae1aE.exit, !prof !158
 
 66:                                               ; preds = %63
@@ -2085,7 +2085,7 @@ define void @_ZN4core5slice4sort6stable9quicksort9quicksort17h774fa2b327cef30dE(
   %.sroa.0.1.i.i = phi ptr [ %116, %._crit_edge.i.i ], [ %129, %125 ]
   %134 = icmp ne ptr %.sroa.0.1.i.i, %104
   %135 = icmp ne ptr %.sroa.06.1.i.i, %105
-  %or.cond.i.i = select i1 %134, i1 true, i1 %135
+  %or.cond.i.i = select i1 %134, i1 true, i1 %135, !prof !158
   br i1 %or.cond.i.i, label %136, label %_ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17hb2005e85ba06f6d4E.exit, !prof !158
 
 136:                                              ; preds = %133

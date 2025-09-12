@@ -2890,7 +2890,7 @@ _ZN14regex_automata4meta5regex5Regex9find_iter17h277246e2a31dd275E.exit: ; preds
   %69 = trunc nuw i64 %68 to i1
   %70 = load i64, ptr %.sroa.4.32..sroa_idx, align 8, !alias.scope !205, !noalias !206
   %71 = icmp eq i64 %70, %65
-  %or.cond.i.i.i.i = select i1 %69, i1 %71, i1 false
+  %or.cond.i.i.i.i = select i1 %69, i1 %71, i1 false, !prof !207
   br i1 %or.cond.i.i.i.i, label %82, label %72, !prof !207
 
 72:                                               ; preds = %90, %67

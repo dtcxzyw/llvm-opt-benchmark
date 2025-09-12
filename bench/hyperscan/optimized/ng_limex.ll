@@ -4116,7 +4116,7 @@ _ZN5boost9container13move_backwardIPjS2_EENS0_3dtl37enable_if_memtransfer_copy_a
   %636 = load ptr, ptr %24, align 8
   %.not.i.i.i.i.i.i.i.i109.i.i.i = icmp eq ptr %636, null
   %637 = icmp eq ptr %413, %636
-  %or.cond.i.i.i.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i109.i.i.i, i1 true, i1 %637
+  %or.cond.i.i.i.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i109.i.i.i, i1 true, i1 %637, !prof !254
   br i1 %or.cond.i.i.i.i.i.i.i.i.i.i.i, label %_ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIjSaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE10deallocateERKPjm.exit.i.i.i.i.i.i.i.i.i.i.i, label %638, !prof !254
 
 638:                                              ; preds = %635
@@ -4566,7 +4566,7 @@ _ZN3ue28flat_setINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolder
   %773 = load ptr, ptr %41, align 8
   %.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %773, null
   %774 = icmp eq ptr %729, %773
-  %or.cond.i.i.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i.i, i1 true, i1 %774
+  %or.cond.i.i.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i.i, i1 true, i1 %774, !prof !254
   br i1 %or.cond.i.i.i.i.i.i.i.i.i.i, label %_ZN3ue28flat_setIjSt4lessIjESaIjEEaSEOS4_.exit.thread.i.i, label %775, !prof !254
 
 775:                                              ; preds = %772
@@ -4748,7 +4748,7 @@ _ZNK3ue28flat_setIjSt4lessIjESaIjEEltERKS4_.exit.i.i: ; preds = %830, %817
   %836 = load ptr, ptr %42, align 8
   %.not.i.i.i.i.i.i.i.i37.i.i = icmp eq ptr %836, null
   %837 = icmp eq ptr %734, %836
-  %or.cond.i.i.i.i.i.i.i.i38.i.i = select i1 %.not.i.i.i.i.i.i.i.i37.i.i, i1 true, i1 %837
+  %or.cond.i.i.i.i.i.i.i.i38.i.i = select i1 %.not.i.i.i.i.i.i.i.i37.i.i, i1 true, i1 %837, !prof !254
   br i1 %or.cond.i.i.i.i.i.i.i.i38.i.i, label %_ZN3ue28flat_setINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEESt4lessIS8_ESaIS8_EEaSEOSC_.exit.i.thread.i, label %838, !prof !254
 
 838:                                              ; preds = %835

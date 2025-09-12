@@ -18965,7 +18965,7 @@ _ZNSt6vectorImSaImEED2Ev.exit.i60:                ; preds = %_ZSt11lower_boundIN
   %565 = fcmp ord float %.0, 0.000000e+00
   %566 = load i64, ptr %14, align 8
   %567 = icmp eq i64 %566, 0
-  %or.cond = select i1 %565, i1 true, i1 %567
+  %or.cond = select i1 %565, i1 true, i1 %567, !prof !610
   br i1 %or.cond, label %576, label %568, !prof !610
 
 568:                                              ; preds = %"_ZN7xgboost6common8QuantileINS0_18IndexTransformIterIZZZNS_3obj6detail18UpdateTreeLeafHostEPKNS_7ContextERKSt6vectorIiSaIiEEiRKNS_8MetaInfoEfRKNS_16HostDeviceVectorIfEEfPNS_7RegTreeEENK3$_1clEvENKUlmE_clEmEUlmE_EEfEET0_S7_dRKT_ST_.exit"

@@ -1699,7 +1699,7 @@ heap_idx_for_size.exit.i:                         ; preds = %21
   %39 = load i64, ptr %14, align 8, !tbaa !194
   %40 = icmp ugt i64 %39, 499
   %cond.i.i.i = icmp eq ptr %36, null
-  %or.cond.i.i.i = select i1 %40, i1 true, i1 %cond.i.i.i
+  %or.cond.i.i.i = select i1 %40, i1 true, i1 %cond.i.i.i, !prof !196
   br i1 %or.cond.i.i.i, label %ractor_cache_allocate_slot.exit.thread.i.i, label %.thread.i.i.i, !prof !196
 
 .thread.i.i.i:                                    ; preds = %38
@@ -16644,7 +16644,7 @@ newobj_slowpath.exit:                             ; preds = %rb_gc_cr_lock.exit,
   %39 = load i64, ptr %3, align 8, !tbaa !194
   %40 = icmp ugt i64 %39, 499
   %cond.i.i = icmp eq ptr %36, null
-  %or.cond.i.i = select i1 %40, i1 true, i1 %cond.i.i
+  %or.cond.i.i = select i1 %40, i1 true, i1 %cond.i.i, !prof !196
   br i1 %or.cond.i.i, label %ractor_cache_allocate_slot.exit.thread.i, label %.thread.i.i, !prof !196
 
 .thread.i.i:                                      ; preds = %38
@@ -16804,7 +16804,7 @@ newobj_slowpath.exit:                             ; preds = %rb_gc_cr_lock.exit,
   %39 = load i64, ptr %3, align 8, !tbaa !194
   %40 = icmp ugt i64 %39, 499
   %cond.i.i = icmp eq ptr %36, null
-  %or.cond.i.i = select i1 %40, i1 true, i1 %cond.i.i
+  %or.cond.i.i = select i1 %40, i1 true, i1 %cond.i.i, !prof !196
   br i1 %or.cond.i.i, label %ractor_cache_allocate_slot.exit.thread.i, label %.thread.i.i, !prof !196
 
 .thread.i.i:                                      ; preds = %38
@@ -17138,7 +17138,7 @@ heap_next_free_page.exit:                         ; preds = %ractor_cache_alloca
   %126 = load i64, ptr %1, align 8, !tbaa !194
   %127 = icmp ugt i64 %126, 499
   %cond.i29 = icmp eq ptr %122, null
-  %or.cond.i30 = select i1 %127, i1 true, i1 %cond.i29
+  %or.cond.i30 = select i1 %127, i1 true, i1 %cond.i29, !prof !196
   br i1 %or.cond.i30, label %ractor_cache_allocate_slot.exit34, label %.thread.i31, !prof !196
 
 .thread.i31:                                      ; preds = %125

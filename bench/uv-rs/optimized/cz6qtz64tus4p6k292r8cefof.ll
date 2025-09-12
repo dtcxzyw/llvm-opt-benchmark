@@ -4096,7 +4096,7 @@ define void @_ZN4core5slice4sort6stable9quicksort9quicksort17hb19e6516e546e81cE(
   %.sroa.0.1.i.i = phi ptr [ %74, %._crit_edge.i.i ], [ %90, %87 ]
   %95 = icmp ne ptr %.sroa.0.1.i.i, %58
   %96 = icmp ne ptr %.sroa.06.1.i.i, %59
-  %or.cond.i.i = select i1 %95, i1 true, i1 %96
+  %or.cond.i.i = select i1 %95, i1 true, i1 %96, !prof !796
   br i1 %or.cond.i.i, label %97, label %_ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17hcb13162780c6322cE.exit, !prof !796
 
 97:                                               ; preds = %94
@@ -4863,7 +4863,7 @@ _ZN4core3ops8function5FnMut8call_mut17hc0c2ae8380c2ce71E.exit39.thread.i.i: ; pr
   %.sroa.0.1.i.i = phi ptr [ %95, %._crit_edge.i.i ], [ %144, %141 ]
   %149 = icmp ne ptr %.sroa.0.1.i.i, %46
   %150 = icmp ne ptr %.sroa.06.1.i.i, %47
-  %or.cond.i.i = select i1 %149, i1 true, i1 %150
+  %or.cond.i.i = select i1 %149, i1 true, i1 %150, !prof !796
   br i1 %or.cond.i.i, label %151, label %_ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h41f8971f1e338ca9E.exit, !prof !796
 
 151:                                              ; preds = %148

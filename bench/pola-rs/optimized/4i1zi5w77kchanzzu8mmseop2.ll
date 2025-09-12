@@ -30310,7 +30310,7 @@ _ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h7df8419d9464d12fE.exit
   %317 = trunc nuw i64 %316 to i1
   %318 = load i64, ptr %.sroa.044.sroa.6.0..sroa_idx57, align 8, !alias.scope !2966, !noalias !2967
   %319 = icmp eq i64 %304, %318
-  %or.cond.i.i.i.i.i.i = select i1 %317, i1 %319, i1 false
+  %or.cond.i.i.i.i.i.i = select i1 %317, i1 %319, i1 false, !prof !2968
   br i1 %or.cond.i.i.i.i.i.i, label %320, label %305, !prof !2968
 
 320:                                              ; preds = %315

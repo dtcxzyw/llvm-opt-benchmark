@@ -980,7 +980,7 @@ define linkonce_odr void @_ZN5folly7futures6detail4CoreIbED2Ev(ptr noundef nonnu
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %4 = load i32, ptr %3, align 8
   %cond.i = icmp eq i32 %4, 1
-  %or.cond = select i1 %2, i1 %cond.i, i1 false
+  %or.cond = select i1 %2, i1 %cond.i, i1 false, !prof !100
   br i1 %or.cond, label %5, label %_ZN5folly6detail7TryBaseIbED2Ev.exit, !prof !100
 
 5:                                                ; preds = %1
@@ -1004,7 +1004,7 @@ define linkonce_odr void @_ZN5folly7futures6detail4CoreIbED0Ev(ptr noundef nonnu
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %4 = load i32, ptr %3, align 8
   %cond.i.i = icmp eq i32 %4, 1
-  %or.cond.i = select i1 %2, i1 %cond.i.i, i1 false
+  %or.cond.i = select i1 %2, i1 %cond.i.i, i1 false, !prof !100
   br i1 %or.cond.i, label %5, label %_ZN5folly7futures6detail4CoreIbED2Ev.exit, !prof !100
 
 5:                                                ; preds = %1

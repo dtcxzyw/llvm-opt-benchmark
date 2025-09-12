@@ -1672,7 +1672,7 @@ define ptr @l_Lean_reportOutOfHeartbeats(ptr noundef %0, ptr noundef %1, ptr nou
   %17 = ptrtoint ptr %10 to i64
   %18 = and i64 %17, 1
   %19 = icmp ne i64 %18, 0
-  %or.cond = select i1 %16, i1 %19, i1 false
+  %or.cond = select i1 %16, i1 %19, i1 false, !prof !15
   br i1 %or.cond, label %lean_nat_le.exit.thread, label %lean_nat_le.exit, !prof !15
 
 lean_nat_le.exit.thread:                          ; preds = %13

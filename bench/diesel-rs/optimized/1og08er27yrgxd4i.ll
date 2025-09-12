@@ -1436,7 +1436,7 @@ _ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.llvm.5342648240390131844.ex
 .split.split.us.split.us.preheader:               ; preds = %.split.split.us
   %151 = icmp ult i64 %149, %146
   %152 = getelementptr inbounds { { i64, [28 x i64] }, { [1 x i32] }, [1 x i32] }, ptr %150, i64 %149
-  %brmerge = select i1 %.not.i, i1 true, i1 %151
+  %brmerge = select i1 %.not.i, i1 true, i1 %151, !prof !203
   %.mux = select i1 %.not.i, ptr %147, ptr %152, !prof !203
   br label %.split.split.us.split.us
 
@@ -1550,9 +1550,9 @@ _ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.llvm.5342648240390131844.ex
   %191 = getelementptr inbounds { { i64, [28 x i64] }, { [1 x i32] }, [1 x i32] }, ptr %150, i64 %149
   %192 = icmp ult i64 %188, %185
   %193 = getelementptr inbounds { { i64, [21 x i64] }, { [1 x i32] }, [1 x i32] }, ptr %189, i64 %188
-  %brmerge308 = select i1 %.not.i, i1 true, i1 %190
+  %brmerge308 = select i1 %.not.i, i1 true, i1 %190, !prof !203
   %.mux309 = select i1 %.not.i, ptr %147, ptr %191, !prof !203
-  %brmerge310 = select i1 %.not.i69, i1 true, i1 %192
+  %brmerge310 = select i1 %.not.i69, i1 true, i1 %192, !prof !203
   %.mux311 = select i1 %.not.i69, ptr %186, ptr %193, !prof !203
   br label %.split.split.split.us
 
@@ -1635,7 +1635,7 @@ _ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.llvm.5342648240390131844.ex
 .split.split.split.split.us.preheader:            ; preds = %.split.split.split
   %218 = icmp ult i64 %188, %185
   %219 = getelementptr inbounds { { i64, [21 x i64] }, { [1 x i32] }, [1 x i32] }, ptr %189, i64 %188
-  %brmerge312 = select i1 %.not.i69, i1 true, i1 %218
+  %brmerge312 = select i1 %.not.i69, i1 true, i1 %218, !prof !203
   %.mux313 = select i1 %.not.i69, ptr %186, ptr %219, !prof !203
   br label %.split.split.split.split.us
 

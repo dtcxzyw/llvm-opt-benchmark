@@ -5422,7 +5422,7 @@ define linkonce_odr hidden noundef double @_ZN5boost8charconv6detail15compute_fl
   %or.cond88 = select i1 %64, i1 %65, i1 false
   %66 = and i64 %63, 3
   %67 = icmp eq i64 %66, 1
-  %or.cond92 = select i1 %or.cond88, i1 %67, i1 false
+  %or.cond92 = select i1 %or.cond88, i1 %67, i1 false, !prof !92
   br i1 %or.cond92, label %87, label %.critedge, !prof !92
 
 .critedge:                                        ; preds = %60

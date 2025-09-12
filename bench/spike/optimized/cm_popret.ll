@@ -305,7 +305,7 @@ _ZN6insn_t12zcmp_regmaskEv.exit:                  ; preds = %.lr.ph.i, %64
   %84 = getelementptr inbounds nuw i64, ptr %82, i64 %83
   %85 = load i64, ptr %84, align 8, !tbaa !3
   %86 = icmp eq i64 %85, %80
-  %or.cond.i = select i1 %.not63, i1 %86, i1 false
+  %or.cond.i = select i1 %.not63, i1 %86, i1 false, !prof !152
   br i1 %or.cond.i, label %87, label %.critedge.i, !prof !152
 
 87:                                               ; preds = %76
@@ -569,7 +569,7 @@ _ZN6insn_t12zcmp_regmaskEv.exit:                  ; preds = %.lr.ph.i, %65
   %85 = getelementptr inbounds nuw i64, ptr %83, i64 %84
   %86 = load i64, ptr %85, align 8, !tbaa !3
   %87 = icmp eq i64 %86, %81
-  %or.cond.i = select i1 %.not63, i1 %87, i1 false
+  %or.cond.i = select i1 %.not63, i1 %87, i1 false, !prof !152
   br i1 %or.cond.i, label %88, label %.critedge.i, !prof !152
 
 88:                                               ; preds = %77
@@ -822,7 +822,7 @@ _ZN6insn_t12zcmp_regmaskEv.exit:                  ; preds = %.lr.ph.i, %68
   %88 = getelementptr inbounds nuw i64, ptr %86, i64 %87
   %89 = load i64, ptr %88, align 8, !tbaa !3
   %90 = icmp eq i64 %89, %84
-  %or.cond.i = select i1 %.not71, i1 %90, i1 false
+  %or.cond.i = select i1 %.not71, i1 %90, i1 false, !prof !152
   br i1 %or.cond.i, label %91, label %.critedge.i, !prof !152
 
 91:                                               ; preds = %80
@@ -1180,7 +1180,7 @@ _ZN6insn_t12zcmp_regmaskEv.exit:                  ; preds = %.lr.ph.i, %69
   %89 = getelementptr inbounds nuw i64, ptr %87, i64 %88
   %90 = load i64, ptr %89, align 8, !tbaa !3
   %91 = icmp eq i64 %90, %85
-  %or.cond.i = select i1 %.not71, i1 %91, i1 false
+  %or.cond.i = select i1 %.not71, i1 %91, i1 false, !prof !152
   br i1 %or.cond.i, label %92, label %.critedge.i, !prof !152
 
 92:                                               ; preds = %81
@@ -1447,7 +1447,7 @@ _ZN6insn_t12zcmp_regmaskEv.exit:                  ; preds = %.lr.ph.i, %64
   %91 = getelementptr inbounds nuw i64, ptr %89, i64 %90
   %92 = load i64, ptr %91, align 8, !tbaa !3
   %93 = icmp eq i64 %92, %87
-  %or.cond.i = select i1 %.not67, i1 %93, i1 false
+  %or.cond.i = select i1 %.not67, i1 %93, i1 false, !prof !152
   br i1 %or.cond.i, label %94, label %.critedge.i, !prof !152
 
 94:                                               ; preds = %83
@@ -1717,7 +1717,7 @@ _ZN6insn_t12zcmp_regmaskEv.exit:                  ; preds = %.lr.ph.i, %65
   %92 = getelementptr inbounds nuw i64, ptr %90, i64 %91
   %93 = load i64, ptr %92, align 8, !tbaa !3
   %94 = icmp eq i64 %93, %88
-  %or.cond.i = select i1 %.not67, i1 %94, i1 false
+  %or.cond.i = select i1 %.not67, i1 %94, i1 false, !prof !152
   br i1 %or.cond.i, label %95, label %.critedge.i, !prof !152
 
 95:                                               ; preds = %84
@@ -1986,7 +1986,7 @@ _ZN6insn_t12zcmp_regmaskEv.exit:                  ; preds = %.lr.ph.i, %68
   %95 = getelementptr inbounds nuw i64, ptr %93, i64 %94
   %96 = load i64, ptr %95, align 8, !tbaa !3
   %97 = icmp eq i64 %96, %91
-  %or.cond.i = select i1 %.not75, i1 %97, i1 false
+  %or.cond.i = select i1 %.not75, i1 %97, i1 false, !prof !152
   br i1 %or.cond.i, label %98, label %.critedge.i, !prof !152
 
 98:                                               ; preds = %87
@@ -2274,7 +2274,7 @@ _ZN6insn_t12zcmp_regmaskEv.exit:                  ; preds = %.lr.ph.i, %69
   %96 = getelementptr inbounds nuw i64, ptr %94, i64 %95
   %97 = load i64, ptr %96, align 8, !tbaa !3
   %98 = icmp eq i64 %97, %92
-  %or.cond.i = select i1 %.not75, i1 %98, i1 false
+  %or.cond.i = select i1 %.not75, i1 %98, i1 false, !prof !152
   br i1 %or.cond.i, label %99, label %.critedge.i, !prof !152
 
 99:                                               ; preds = %88

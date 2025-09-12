@@ -5702,7 +5702,7 @@ lean_usize_to_nat.exit:                           ; preds = %25, %29
   %34 = ptrtoint ptr %.0.i136 to i64
   %35 = and i64 %34, 1
   %36 = icmp ne i64 %35, 0
-  %or.cond = select i1 %33, i1 %36, i1 false
+  %or.cond = select i1 %33, i1 %36, i1 false, !prof !18
   br i1 %or.cond, label %lean_nat_le.exit.thread, label %lean_nat_le.exit, !prof !18
 
 lean_nat_le.exit.thread:                          ; preds = %lean_usize_to_nat.exit
@@ -5976,7 +5976,7 @@ lean_usize_to_nat.exit152:                        ; preds = %125, %129
   %131 = ptrtoint ptr %.0.i151 to i64
   %132 = and i64 %131, 1
   %133 = icmp ne i64 %132, 0
-  %or.cond168 = select i1 %91, i1 %133, i1 false
+  %or.cond168 = select i1 %91, i1 %133, i1 false, !prof !18
   br i1 %or.cond168, label %lean_nat_le.exit135.thread, label %lean_nat_le.exit135, !prof !18
 
 lean_nat_le.exit135.thread:                       ; preds = %lean_usize_to_nat.exit152
@@ -58423,7 +58423,7 @@ lean_dec.exit222:                                 ; preds = %28, %32, %41, %40, 
   %45 = ptrtoint ptr %20 to i64
   %46 = and i64 %45, 1
   %47 = icmp ne i64 %46, 0
-  %or.cond = select i1 %44, i1 %47, i1 false
+  %or.cond = select i1 %44, i1 %47, i1 false, !prof !18
   %48 = getelementptr i8, ptr %16, i64 8
   br i1 %or.cond, label %49, label %lean_nat_lt.exit, !prof !18
 

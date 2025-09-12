@@ -15590,7 +15590,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZNK5boost9date_time10date_facetINS_9gre
   %20 = load i64, ptr %19, align 8, !tbaa !16
   %21 = icmp slt i64 %20, 1
   %22 = trunc nuw i8 %2 to i1
-  %or.cond.i = select i1 %21, i1 true, i1 %22
+  %or.cond.i = select i1 %21, i1 true, i1 %22, !prof !291
   br i1 %or.cond.i, label %_ZNK5boost9date_time24special_values_formatterIcSt19ostreambuf_iteratorIcSt11char_traitsIcEEE11put_specialES5_RKNS0_14special_valuesE.exit, label %23, !prof !291
 
 23:                                               ; preds = %17

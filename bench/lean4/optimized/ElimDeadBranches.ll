@@ -76783,7 +76783,7 @@ lean_inc.exit186:                                 ; preds = %lean_inc.exit186.ba
   %35 = ptrtoint ptr %31 to i64
   %36 = and i64 %35, 1
   %37 = icmp ne i64 %36, 0
-  %or.cond = select i1 %34, i1 %37, i1 false
+  %or.cond = select i1 %34, i1 %37, i1 false, !prof !22
   br i1 %or.cond, label %38, label %lean_nat_lt.exit, !prof !22
 
 38:                                               ; preds = %lean_inc.exit186

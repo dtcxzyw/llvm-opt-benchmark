@@ -869,7 +869,7 @@ define hidden noundef nonnull align 8 dereferenceable(344) ptr @_ZN5wasmi5store6
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %9 = load i64, ptr %8, align 8
   %.not.i = icmp eq i64 %9, -6369371454254257959
-  %or.cond = select i1 %7, i1 %.not.i, i1 false
+  %or.cond = select i1 %7, i1 %.not.i, i1 false, !prof !209
   br i1 %or.cond, label %_ZN5wasmi5store6pruned11PrunedStore7restore17haafba995fa1d37feE.exit, label %10, !prof !209
 
 10:                                               ; preds = %1
@@ -909,7 +909,7 @@ define hidden noundef nonnull align 8 dereferenceable(344) ptr @_ZN5wasmi5store6
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %9 = load i64, ptr %8, align 8
   %.not.i = icmp eq i64 %9, 7115994307536420094
-  %or.cond = select i1 %7, i1 %.not.i, i1 false
+  %or.cond = select i1 %7, i1 %.not.i, i1 false, !prof !209
   br i1 %or.cond, label %_ZN5wasmi5store6pruned11PrunedStore7restore17h02b6cd15a4c6efdfE.exit, label %10, !prof !209
 
 10:                                               ; preds = %1

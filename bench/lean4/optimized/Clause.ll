@@ -558,7 +558,7 @@ lean_obj_tag.exit55:                              ; preds = %24, %27
   %51 = ptrtoint ptr %45 to i64
   %52 = and i64 %51, 1
   %53 = icmp ne i64 %52, 0
-  %or.cond = select i1 %50, i1 %53, i1 false
+  %or.cond = select i1 %50, i1 %53, i1 false, !prof !14
   br i1 %or.cond, label %54, label %lean_nat_eq.exit, !prof !14
 
 54:                                               ; preds = %31
@@ -677,7 +677,7 @@ lean_obj_tag.exit55.i:                            ; preds = %27, %24
   %51 = ptrtoint ptr %45 to i64
   %52 = and i64 %51, 1
   %53 = icmp ne i64 %52, 0
-  %or.cond.i = select i1 %50, i1 %53, i1 false
+  %or.cond.i = select i1 %50, i1 %53, i1 false, !prof !14
   br i1 %or.cond.i, label %54, label %lean_nat_eq.exit.i, !prof !14
 
 54:                                               ; preds = %31
@@ -796,7 +796,7 @@ lean_obj_tag.exit55.i:                            ; preds = %28, %25
   %52 = ptrtoint ptr %46 to i64
   %53 = and i64 %52, 1
   %54 = icmp ne i64 %53, 0
-  %or.cond.i = select i1 %51, i1 %54, i1 false
+  %or.cond.i = select i1 %51, i1 %54, i1 false, !prof !14
   br i1 %or.cond.i, label %55, label %lean_nat_eq.exit.i, !prof !14
 
 55:                                               ; preds = %32
@@ -988,7 +988,7 @@ lean_obj_tag.exit55.i.i:                          ; preds = %28, %25
   %52 = ptrtoint ptr %46 to i64
   %53 = and i64 %52, 1
   %54 = icmp ne i64 %53, 0
-  %or.cond.i.i = select i1 %51, i1 %54, i1 false
+  %or.cond.i.i = select i1 %51, i1 %54, i1 false, !prof !14
   br i1 %or.cond.i.i, label %55, label %lean_nat_eq.exit.i.i, !prof !14
 
 55:                                               ; preds = %32
@@ -10881,7 +10881,7 @@ lean_obj_tag.exit:                                ; preds = %8, %11
   %29 = ptrtoint ptr %23 to i64
   %30 = and i64 %29, 1
   %31 = icmp ne i64 %30, 0
-  %or.cond = select i1 %28, i1 %31, i1 false
+  %or.cond = select i1 %28, i1 %31, i1 false, !prof !14
   br i1 %or.cond, label %32, label %lean_nat_eq.exit, !prof !14
 
 32:                                               ; preds = %15
@@ -10961,7 +10961,7 @@ lean_obj_tag.exit.i:                              ; preds = %11, %8
   %29 = ptrtoint ptr %23 to i64
   %30 = and i64 %29, 1
   %31 = icmp ne i64 %30, 0
-  %or.cond.i = select i1 %28, i1 %31, i1 false
+  %or.cond.i = select i1 %28, i1 %31, i1 false, !prof !14
   br i1 %or.cond.i, label %32, label %lean_nat_eq.exit.i, !prof !14
 
 32:                                               ; preds = %15
@@ -11041,7 +11041,7 @@ lean_obj_tag.exit.i:                              ; preds = %11, %8
   %29 = ptrtoint ptr %23 to i64
   %30 = and i64 %29, 1
   %31 = icmp ne i64 %30, 0
-  %or.cond.i = select i1 %28, i1 %31, i1 false
+  %or.cond.i = select i1 %28, i1 %31, i1 false, !prof !14
   br i1 %or.cond.i, label %32, label %lean_nat_eq.exit.i, !prof !14
 
 32:                                               ; preds = %15
@@ -11194,7 +11194,7 @@ lean_obj_tag.exit.i.i:                            ; preds = %11, %8
   %29 = ptrtoint ptr %23 to i64
   %30 = and i64 %29, 1
   %31 = icmp ne i64 %30, 0
-  %or.cond.i.i = select i1 %28, i1 %31, i1 false
+  %or.cond.i.i = select i1 %28, i1 %31, i1 false, !prof !14
   br i1 %or.cond.i.i, label %32, label %lean_nat_eq.exit.i.i, !prof !14
 
 32:                                               ; preds = %15

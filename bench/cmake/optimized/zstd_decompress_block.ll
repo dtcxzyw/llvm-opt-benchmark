@@ -2521,7 +2521,7 @@ thread-pre-split:                                 ; preds = %614, %ZSTD_safecopy
   %659 = icmp ugt i64 %.sroa.0.0.copyload, 65536
   %660 = getelementptr inbounds nuw i8, ptr %.3205.i.i, i64 %655
   %661 = icmp ugt ptr %660, %250
-  %or.cond.i.i = select i1 %659, i1 true, i1 %661
+  %or.cond.i.i = select i1 %659, i1 true, i1 %661, !prof !98
   br i1 %or.cond.i.i, label %.critedge.i.i, label %662, !prof !98
 
 662:                                              ; preds = %thread-pre-split
@@ -2743,7 +2743,7 @@ ZSTD_execSequence.exit.i:                         ; preds = %742, %.preheader587
   %763 = icmp ugt ptr %611, %.2221.i.i
   %764 = getelementptr inbounds nuw i8, ptr %.2204.i.i, i64 %760
   %765 = icmp ugt ptr %764, %758
-  %or.cond.i50.i = select i1 %763, i1 true, i1 %765
+  %or.cond.i50.i = select i1 %763, i1 true, i1 %765, !prof !98
   br i1 %or.cond.i50.i, label %.critedge.i54.i, label %766, !prof !98
 
 766:                                              ; preds = %757
@@ -2950,7 +2950,7 @@ ZSTD_overlapCopy8.exit186.i:                      ; preds = %830, %809
   %862 = icmp ugt ptr %859, %.2221.i.i
   %863 = getelementptr inbounds nuw i8, ptr %.2204.i.i, i64 %857
   %864 = icmp ugt ptr %863, %244
-  %or.cond.i32.i = select i1 %862, i1 true, i1 %864
+  %or.cond.i32.i = select i1 %862, i1 true, i1 %864, !prof !98
   br i1 %or.cond.i32.i, label %.critedge.i36.i, label %865, !prof !98
 
 865:                                              ; preds = %852
@@ -3322,7 +3322,7 @@ thread-pre-split50:                               ; preds = %987, %ZSTD_safecopy
   %1032 = icmp ugt i64 %.sroa.018.0.copyload, 65536
   %1033 = getelementptr inbounds nuw i8, ptr %.8210.i.i, i64 %1028
   %1034 = icmp ugt ptr %1033, %969
-  %or.cond.i38.i = select i1 %1032, i1 true, i1 %1034
+  %or.cond.i38.i = select i1 %1032, i1 true, i1 %1034, !prof !98
   br i1 %or.cond.i38.i, label %.critedge.i42.i, label %1035, !prof !98
 
 1035:                                             ; preds = %thread-pre-split50
@@ -3529,7 +3529,7 @@ ZSTD_overlapCopy8.exit188.i:                      ; preds = %1098, %1077
   %1128 = icmp ugt ptr %984, %.6225.i621.i
   %1129 = getelementptr inbounds nuw i8, ptr %.7209.i623.i, i64 %1125
   %1130 = icmp ugt ptr %1129, %1123
-  %or.cond.i55.i = select i1 %1128, i1 true, i1 %1130
+  %or.cond.i55.i = select i1 %1128, i1 true, i1 %1130, !prof !98
   br i1 %or.cond.i55.i, label %.critedge.i59.i, label %1131, !prof !98
 
 1131:                                             ; preds = %1122
@@ -3733,7 +3733,7 @@ ZSTD_overlapCopy8.exit.i:                         ; preds = %1195, %1174
   %1224 = icmp ugt ptr %1221, %.6225.i621.i
   %1225 = getelementptr inbounds nuw i8, ptr %.7209.i623.i, i64 %1219
   %1226 = icmp ugt ptr %1225, %969
-  %or.cond.i44.i = select i1 %1224, i1 true, i1 %1226
+  %or.cond.i44.i = select i1 %1224, i1 true, i1 %1226, !prof !98
   br i1 %or.cond.i44.i, label %.critedge.i48.i, label %1227, !prof !98
 
 1227:                                             ; preds = %1217
@@ -4663,7 +4663,7 @@ ZSTD_decodeSequence.exit227.i.i:                  ; preds = %313, %BIT_reloadDSt
   %370 = icmp ugt ptr %363, %16
   %371 = getelementptr inbounds nuw i8, ptr %.2133.i363.i, i64 %367
   %372 = icmp ugt ptr %371, %365
-  %or.cond.i236.i.i = select i1 %370, i1 true, i1 %372
+  %or.cond.i236.i.i = select i1 %370, i1 true, i1 %372, !prof !98
   br i1 %or.cond.i236.i.i, label %.critedge.i240.i.i, label %373, !prof !98
 
 373:                                              ; preds = %362
@@ -5301,7 +5301,7 @@ ZSTD_safecopyDstBeforeSrc.exit.i:                 ; preds = %.lr.ph.i.i, %.lr.ph
   %717 = getelementptr inbounds i8, ptr %12, i64 -32
   %718 = getelementptr inbounds nuw i8, ptr %.7138.i.i, i64 %712
   %719 = icmp ugt ptr %718, %717
-  %or.cond.i230.i.i = select i1 %716, i1 true, i1 %719
+  %or.cond.i230.i.i = select i1 %716, i1 true, i1 %719, !prof !98
   br i1 %or.cond.i230.i.i, label %.critedge.i234.i.i, label %720, !prof !98
 
 720:                                              ; preds = %707
@@ -5840,7 +5840,7 @@ ZSTD_decodeSequence.exit.i.i:                     ; preds = %973, %BIT_reloadDSt
   %1021 = icmp ugt ptr %1018, %709
   %1022 = getelementptr inbounds nuw i8, ptr %.11142.i.i, i64 %1016
   %1023 = icmp ugt ptr %1022, %717
-  %or.cond.i.i.i = select i1 %1021, i1 true, i1 %1023
+  %or.cond.i.i.i = select i1 %1021, i1 true, i1 %1023, !prof !98
   br i1 %or.cond.i.i.i, label %.critedge.i.i.i, label %1024, !prof !98
 
 1024:                                             ; preds = %ZSTD_decodeSequence.exit.i.i
@@ -6867,7 +6867,7 @@ ZSTD_decodeSequence.exit.i.i:                     ; preds = %340, %BIT_reloadDSt
   %388 = icmp ugt ptr %385, %24
   %389 = getelementptr inbounds nuw i8, ptr %.269.i.i, i64 %383
   %390 = icmp ugt ptr %389, %208
-  %or.cond.i.i.i = select i1 %388, i1 true, i1 %390
+  %or.cond.i.i.i = select i1 %388, i1 true, i1 %390, !prof !98
   br i1 %or.cond.i.i.i, label %.critedge.i.i.i, label %391, !prof !98
 
 391:                                              ; preds = %ZSTD_decodeSequence.exit.i.i

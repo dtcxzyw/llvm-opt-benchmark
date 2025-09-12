@@ -5125,7 +5125,7 @@ lean_inc.exit246:                                 ; preds = %22, %21, %19, %11
   %26 = ptrtoint ptr %12 to i64
   %27 = and i64 %26, 1
   %28 = icmp ne i64 %27, 0
-  %or.cond = select i1 %25, i1 %28, i1 false
+  %or.cond = select i1 %25, i1 %28, i1 false, !prof !17
   br i1 %or.cond, label %lean_nat_lt.exit.thread, label %lean_nat_lt.exit, !prof !17
 
 lean_nat_lt.exit.thread:                          ; preds = %lean_inc.exit246

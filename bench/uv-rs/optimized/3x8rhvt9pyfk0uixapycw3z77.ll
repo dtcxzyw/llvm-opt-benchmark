@@ -42063,7 +42063,7 @@ switch.lookup62:                                  ; preds = %.noexc28
   %.sroa.0.1.i = phi ptr [ %69, %._crit_edge.i ], [ %105, %102 ]
   %110 = icmp ne ptr %.sroa.0.1.i, %32
   %111 = icmp ne ptr %.sroa.06.1.i, %33
-  %or.cond.i = select i1 %110, i1 true, i1 %111
+  %or.cond.i = select i1 %110, i1 true, i1 %111, !prof !15109
   br i1 %or.cond.i, label %112, label %_ZN4core5slice4sort6shared9smallsort19bidirectional_merge17hb3e9fa2f87c30314E.exit, !prof !15109
 
 112:                                              ; preds = %109
@@ -42241,7 +42241,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
   %.sroa.0.1.i = phi ptr [ %44, %._crit_edge.i ], [ %63, %60 ]
   %68 = icmp ne ptr %.sroa.0.1.i, %26
   %69 = icmp ne ptr %.sroa.06.1.i, %27
-  %or.cond.i = select i1 %68, i1 true, i1 %69
+  %or.cond.i = select i1 %68, i1 true, i1 %69, !prof !15109
   br i1 %or.cond.i, label %70, label %_ZN4core5slice4sort6shared9smallsort19bidirectional_merge17hce274dff034a0538E.exit, !prof !15109
 
 70:                                               ; preds = %67

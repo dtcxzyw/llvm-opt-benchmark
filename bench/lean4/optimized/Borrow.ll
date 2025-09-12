@@ -124,7 +124,7 @@ define zeroext range(i8 0, 2) i8 @l_Lean_IR_Borrow_OwnedSet_beq(ptr noundef read
   %17 = ptrtoint ptr %10 to i64
   %18 = and i64 %17, 1
   %19 = icmp ne i64 %18, 0
-  %or.cond = select i1 %16, i1 %19, i1 false
+  %or.cond = select i1 %16, i1 %19, i1 false, !prof !12
   br i1 %or.cond, label %20, label %.critedge.i, !prof !12
 
 20:                                               ; preds = %13
@@ -168,7 +168,7 @@ define nonnull ptr @l_Lean_IR_Borrow_OwnedSet_beq___boxed(ptr noundef %0, ptr no
   %17 = ptrtoint ptr %10 to i64
   %18 = and i64 %17, 1
   %19 = icmp ne i64 %18, 0
-  %or.cond.i = select i1 %16, i1 %19, i1 false
+  %or.cond.i = select i1 %16, i1 %19, i1 false, !prof !12
   br i1 %or.cond.i, label %20, label %.critedge.i.i, !prof !12
 
 20:                                               ; preds = %13
@@ -384,7 +384,7 @@ lean_obj_tag.exit:                                ; preds = %7, %10
   %31 = ptrtoint ptr %24 to i64
   %32 = and i64 %31, 1
   %33 = icmp ne i64 %32, 0
-  %or.cond.i = select i1 %30, i1 %33, i1 false
+  %or.cond.i = select i1 %30, i1 %33, i1 false, !prof !12
   br i1 %or.cond.i, label %34, label %lean_nat_eq.exit.i, !prof !12
 
 34:                                               ; preds = %27
@@ -1131,7 +1131,7 @@ lean_dec.exit59:                                  ; preds = %22, %21, %19, %13
   %55 = ptrtoint ptr %48 to i64
   %56 = and i64 %55, 1
   %57 = icmp ne i64 %56, 0
-  %or.cond.i = select i1 %54, i1 %57, i1 false
+  %or.cond.i = select i1 %54, i1 %57, i1 false, !prof !12
   br i1 %or.cond.i, label %58, label %l_Lean_IR_Borrow_OwnedSet_beq.exit, !prof !12
 
 58:                                               ; preds = %51
@@ -1317,7 +1317,7 @@ lean_dec.exit55:                                  ; preds = %112, %111, %109, %l
   %127 = ptrtoint ptr %120 to i64
   %128 = and i64 %127, 1
   %129 = icmp ne i64 %128, 0
-  %or.cond.i84 = select i1 %126, i1 %129, i1 false
+  %or.cond.i84 = select i1 %126, i1 %129, i1 false, !prof !12
   br i1 %or.cond.i84, label %130, label %l_Lean_IR_Borrow_OwnedSet_beq.exit89, !prof !12
 
 130:                                              ; preds = %123
@@ -1531,7 +1531,7 @@ lean_obj_tag.exit.i:                              ; preds = %46, %43
   %67 = ptrtoint ptr %60 to i64
   %68 = and i64 %67, 1
   %69 = icmp ne i64 %68, 0
-  %or.cond.i.i = select i1 %66, i1 %69, i1 false
+  %or.cond.i.i = select i1 %66, i1 %69, i1 false, !prof !12
   br i1 %or.cond.i.i, label %70, label %lean_nat_eq.exit.i.i, !prof !12
 
 70:                                               ; preds = %63
@@ -2042,7 +2042,7 @@ lean_obj_tag.exit.i238:                           ; preds = %270, %267
   %291 = ptrtoint ptr %284 to i64
   %292 = and i64 %291, 1
   %293 = icmp ne i64 %292, 0
-  %or.cond.i.i240 = select i1 %290, i1 %293, i1 false
+  %or.cond.i.i240 = select i1 %290, i1 %293, i1 false, !prof !12
   br i1 %or.cond.i.i240, label %294, label %lean_nat_eq.exit.i.i241, !prof !12
 
 294:                                              ; preds = %287
@@ -2475,7 +2475,7 @@ lean_obj_tag.exit.i:                              ; preds = %10, %7
   %31 = ptrtoint ptr %24 to i64
   %32 = and i64 %31, 1
   %33 = icmp ne i64 %32, 0
-  %or.cond.i.i = select i1 %30, i1 %33, i1 false
+  %or.cond.i.i = select i1 %30, i1 %33, i1 false, !prof !12
   br i1 %or.cond.i.i, label %34, label %lean_nat_eq.exit.i.i, !prof !12
 
 34:                                               ; preds = %27
@@ -2651,7 +2651,7 @@ lean_obj_tag.exit.i:                              ; preds = %42, %39
   %63 = ptrtoint ptr %56 to i64
   %64 = and i64 %63, 1
   %65 = icmp ne i64 %64, 0
-  %or.cond.i.i = select i1 %62, i1 %65, i1 false
+  %or.cond.i.i = select i1 %62, i1 %65, i1 false, !prof !12
   br i1 %or.cond.i.i, label %66, label %lean_nat_eq.exit.i.i, !prof !12
 
 66:                                               ; preds = %59
@@ -2841,7 +2841,7 @@ lean_obj_tag.exit29:                              ; preds = %29, %32
   %51 = ptrtoint ptr %44 to i64
   %52 = and i64 %51, 1
   %53 = icmp ne i64 %52, 0
-  %or.cond = select i1 %50, i1 %53, i1 false
+  %or.cond = select i1 %50, i1 %53, i1 false, !prof !12
   br i1 %or.cond, label %54, label %.critedge.i, !prof !12
 
 54:                                               ; preds = %47
@@ -26326,7 +26326,7 @@ lean_dec.exit424:                                 ; preds = %344, %343, %341, %l
   %352 = ptrtoint ptr %285 to i64
   %353 = and i64 %352, 1
   %354 = icmp ne i64 %353, 0
-  %or.cond = select i1 %351, i1 %354, i1 false
+  %or.cond = select i1 %351, i1 %354, i1 false, !prof !12
   br i1 %or.cond, label %lean_nat_eq.exit.thread, label %lean_nat_eq.exit, !prof !12
 
 lean_nat_eq.exit.thread:                          ; preds = %348

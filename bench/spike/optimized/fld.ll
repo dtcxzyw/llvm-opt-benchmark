@@ -132,7 +132,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z14fast_rv32i_fldP11proc
   %32 = getelementptr inbounds nuw i64, ptr %30, i64 %31
   %33 = load i64, ptr %32, align 8, !tbaa !3
   %34 = icmp eq i64 %33, %28
-  %or.cond.i = select i1 %.not, i1 %34, i1 false
+  %or.cond.i = select i1 %.not, i1 %34, i1 false, !prof !143
   br i1 %or.cond.i, label %35, label %.critedge.i, !prof !143
 
 35:                                               ; preds = %15
@@ -258,7 +258,7 @@ define noundef i64 @_Z14fast_rv64i_fldP11processor_t6insn_tm(ptr noundef capture
   %32 = getelementptr inbounds nuw i64, ptr %30, i64 %31
   %33 = load i64, ptr %32, align 8, !tbaa !3
   %34 = icmp eq i64 %33, %28
-  %or.cond.i = select i1 %.not, i1 %34, i1 false
+  %or.cond.i = select i1 %.not, i1 %34, i1 false, !prof !143
   br i1 %or.cond.i, label %35, label %.critedge.i, !prof !143
 
 35:                                               ; preds = %15
@@ -364,7 +364,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z16logged_rv32i_fldP11pr
   %33 = getelementptr inbounds nuw i64, ptr %31, i64 %32
   %34 = load i64, ptr %33, align 8, !tbaa !3
   %35 = icmp eq i64 %34, %29
-  %or.cond.i = select i1 %.not, i1 %35, i1 false
+  %or.cond.i = select i1 %.not, i1 %35, i1 false, !prof !143
   br i1 %or.cond.i, label %36, label %.critedge.i, !prof !143
 
 36:                                               ; preds = %16
@@ -568,7 +568,7 @@ define noundef i64 @_Z16logged_rv64i_fldP11processor_t6insn_tm(ptr noundef %0, i
   %33 = getelementptr inbounds nuw i64, ptr %31, i64 %32
   %34 = load i64, ptr %33, align 8, !tbaa !3
   %35 = icmp eq i64 %34, %29
-  %or.cond.i = select i1 %.not, i1 %35, i1 false
+  %or.cond.i = select i1 %.not, i1 %35, i1 false, !prof !143
   br i1 %or.cond.i, label %36, label %.critedge.i, !prof !143
 
 36:                                               ; preds = %16
@@ -699,7 +699,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z14fast_rv32e_fldP11proc
   %39 = getelementptr inbounds nuw i64, ptr %37, i64 %38
   %40 = load i64, ptr %39, align 8, !tbaa !3
   %41 = icmp eq i64 %40, %35
-  %or.cond.i = select i1 %.not, i1 %41, i1 false
+  %or.cond.i = select i1 %.not, i1 %41, i1 false, !prof !143
   br i1 %or.cond.i, label %42, label %.critedge.i, !prof !143
 
 42:                                               ; preds = %28
@@ -822,7 +822,7 @@ define noundef i64 @_Z14fast_rv64e_fldP11processor_t6insn_tm(ptr noundef capture
   %39 = getelementptr inbounds nuw i64, ptr %37, i64 %38
   %40 = load i64, ptr %39, align 8, !tbaa !3
   %41 = icmp eq i64 %40, %35
-  %or.cond.i = select i1 %.not, i1 %41, i1 false
+  %or.cond.i = select i1 %.not, i1 %41, i1 false, !prof !143
   br i1 %or.cond.i, label %42, label %.critedge.i, !prof !143
 
 42:                                               ; preds = %28
@@ -944,7 +944,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z16logged_rv32e_fldP11pr
   %40 = getelementptr inbounds nuw i64, ptr %38, i64 %39
   %41 = load i64, ptr %40, align 8, !tbaa !3
   %42 = icmp eq i64 %41, %36
-  %or.cond.i = select i1 %.not, i1 %42, i1 false
+  %or.cond.i = select i1 %.not, i1 %42, i1 false, !prof !143
   br i1 %or.cond.i, label %43, label %.critedge.i, !prof !143
 
 43:                                               ; preds = %29
@@ -1078,7 +1078,7 @@ define noundef i64 @_Z16logged_rv64e_fldP11processor_t6insn_tm(ptr noundef %0, i
   %40 = getelementptr inbounds nuw i64, ptr %38, i64 %39
   %41 = load i64, ptr %40, align 8, !tbaa !3
   %42 = icmp eq i64 %41, %36
-  %or.cond.i = select i1 %.not, i1 %42, i1 false
+  %or.cond.i = select i1 %.not, i1 %42, i1 false, !prof !143
   br i1 %or.cond.i, label %43, label %.critedge.i, !prof !143
 
 43:                                               ; preds = %29

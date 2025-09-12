@@ -9146,7 +9146,7 @@ lean_uint64_to_nat.exit:                          ; preds = %14, %18
   %24 = ptrtoint ptr %20 to i64
   %25 = and i64 %24, 1
   %26 = icmp ne i64 %25, 0
-  %or.cond = select i1 %23, i1 %26, i1 false
+  %or.cond = select i1 %23, i1 %26, i1 false, !prof !17
   br i1 %or.cond, label %27, label %lean_nat_lt.exit, !prof !17
 
 27:                                               ; preds = %lean_uint64_to_nat.exit

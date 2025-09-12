@@ -591,7 +591,7 @@ _ZN5serde2de9MapAccess10next_value17h4cd110f3472546edE.exit56: ; preds = %54
   %63 = trunc nuw i64 %.sroa.033.0.ph297 to i1
   %.not55 = xor i1 %63, true
   %.not52 = icmp eq i8 %.sroa.0.0, 2
-  %or.cond = select i1 %.not55, i1 true, i1 %.not52
+  %or.cond = select i1 %.not55, i1 true, i1 %.not52, !prof !18
   br i1 %or.cond, label %69, label %70, !prof !18
 
 64:                                               ; preds = %21
@@ -1592,7 +1592,7 @@ _ZN5serde2de9MapAccess10next_value17h4cd110f3472546edE.exit56: ; preds = %51
   %60 = trunc nuw i64 %.sroa.033.0.ph297 to i1
   %.not55 = xor i1 %60, true
   %.not52 = icmp eq i8 %.sroa.0.0, 3
-  %or.cond = select i1 %.not55, i1 true, i1 %.not52
+  %or.cond = select i1 %.not55, i1 true, i1 %.not52, !prof !18
   br i1 %or.cond, label %66, label %67, !prof !18
 
 61:                                               ; preds = %21
@@ -1847,7 +1847,7 @@ _ZN5serde2de9MapAccess10next_value17h4cd110f3472546edE.exit62: ; preds = %55
 63:                                               ; preds = %21
   %64 = trunc nuw i64 %.sroa.038.0.ph340 to i1
   %65 = trunc nuw i8 %.sroa.0.0 to i1
-  %or.cond = select i1 %64, i1 %65, i1 false
+  %or.cond = select i1 %64, i1 %65, i1 false, !prof !17
   br i1 %or.cond, label %73, label %.invoke278, !prof !17
 
 66:                                               ; preds = %21

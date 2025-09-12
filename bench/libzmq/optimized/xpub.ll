@@ -3344,7 +3344,7 @@ define noundef range(i32 -1, 1) i32 @_ZN3zmq6xpub_t5xsendEPNS_5msg_tE(ptr nounde
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 1960
   %16 = load i8, ptr %15, align 8, !range !172
   %17 = trunc nuw i8 %16 to i1
-  %or.cond14 = select i1 %or.cond.not32, i1 %17, i1 false
+  %or.cond14 = select i1 %or.cond.not32, i1 %17, i1 false, !prof !215
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 1832
   %19 = tail call noundef ptr @_ZN3zmq5msg_t4dataEv(ptr noundef nonnull align 8 dereferenceable(64) %1)
   %20 = tail call noundef i64 @_ZNK3zmq5msg_t4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %1)

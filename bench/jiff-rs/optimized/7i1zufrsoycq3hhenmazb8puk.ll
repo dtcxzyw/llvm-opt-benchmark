@@ -917,7 +917,7 @@ define hidden { i64, ptr } @_ZN4jiff3fmt7rfc282215DateTimePrinter23print_civil_w
   %67 = icmp sgt i32 %.sroa.0113.0.copyload, -1
   %68 = load i8, ptr @_ZN4jiff3fmt7rfc282215DateTimePrinter23print_civil_with_offset7FMT_DAY17hd076a74391a19861E, align 1, !range !25, !alias.scope !33, !noalias !30
   %.not.i = icmp eq i8 %68, 2
-  %or.cond.i = select i1 %67, i1 %.not.i, i1 false
+  %or.cond.i = select i1 %67, i1 %.not.i, i1 false, !prof !35
   %69 = getelementptr inbounds nuw i8, ptr %12, i64 20
   br i1 %or.cond.i, label %71, label %70, !prof !35
 
@@ -1050,7 +1050,7 @@ _ZN4jiff3fmt4util7Decimal3new17hfa803fb8c2dfdc3fE.exit: ; preds = %96, %.prehead
   %138 = icmp sgt i16 %53, -1
   %139 = load i8, ptr @_ZN4jiff3fmt7rfc282215DateTimePrinter23print_civil_with_offset8FMT_YEAR17hfbdeb49c22d0ec7fE, align 1, !range !25, !alias.scope !43, !noalias !40
   %.not.i138 = icmp eq i8 %139, 2
-  %or.cond.i139 = select i1 %138, i1 %.not.i138, i1 false
+  %or.cond.i139 = select i1 %138, i1 %.not.i138, i1 false, !prof !35
   %140 = getelementptr inbounds nuw i8, ptr %11, i64 20
   br i1 %or.cond.i139, label %142, label %141, !prof !35
 
@@ -1168,7 +1168,7 @@ _ZN4jiff3fmt4util7Decimal3new17hfa803fb8c2dfdc3fE.exit141: ; preds = %167, %.pre
   %198 = icmp sgt i8 %196, -1
   %199 = load i8, ptr @_ZN4jiff3fmt7rfc282215DateTimePrinter23print_civil_with_offset13FMT_TIME_UNIT17h5dbc2c0ca64905e6E, align 1, !range !25, !alias.scope !52, !noalias !49
   %.not.i142 = icmp eq i8 %199, 2
-  %or.cond.i143 = select i1 %198, i1 %.not.i142, i1 false
+  %or.cond.i143 = select i1 %198, i1 %.not.i142, i1 false, !prof !35
   %200 = getelementptr inbounds nuw i8, ptr %10, i64 20
   br i1 %or.cond.i143, label %202, label %201, !prof !35
 
@@ -1286,7 +1286,7 @@ _ZN4jiff3fmt4util7Decimal3new17hfa803fb8c2dfdc3fE.exit145: ; preds = %227, %.pre
   %258 = icmp sgt i8 %256, -1
   %259 = load i8, ptr @_ZN4jiff3fmt7rfc282215DateTimePrinter23print_civil_with_offset13FMT_TIME_UNIT17h5dbc2c0ca64905e6E, align 1, !range !25, !alias.scope !61, !noalias !58
   %.not.i146 = icmp eq i8 %259, 2
-  %or.cond.i147 = select i1 %258, i1 %.not.i146, i1 false
+  %or.cond.i147 = select i1 %258, i1 %.not.i146, i1 false, !prof !35
   %260 = getelementptr inbounds nuw i8, ptr %9, i64 20
   br i1 %or.cond.i147, label %262, label %261, !prof !35
 
@@ -1404,7 +1404,7 @@ _ZN4jiff3fmt4util7Decimal3new17hfa803fb8c2dfdc3fE.exit149: ; preds = %287, %.pre
   %318 = icmp sgt i8 %316, -1
   %319 = load i8, ptr @_ZN4jiff3fmt7rfc282215DateTimePrinter23print_civil_with_offset13FMT_TIME_UNIT17h5dbc2c0ca64905e6E, align 1, !range !25, !alias.scope !70, !noalias !67
   %.not.i150 = icmp eq i8 %319, 2
-  %or.cond.i151 = select i1 %318, i1 %.not.i150, i1 false
+  %or.cond.i151 = select i1 %318, i1 %.not.i150, i1 false, !prof !35
   %320 = getelementptr inbounds nuw i8, ptr %8, i64 20
   br i1 %or.cond.i151, label %322, label %321, !prof !35
 
@@ -1582,7 +1582,7 @@ _ZN4jiff3fmt4util7Decimal3new17hfa803fb8c2dfdc3fE.exit153: ; preds = %347, %.pre
   %409 = icmp sgt i8 %.sroa.0115.1, -1
   %410 = load i8, ptr @_ZN4jiff3fmt7rfc282215DateTimePrinter23print_civil_with_offset13FMT_TIME_UNIT17h5dbc2c0ca64905e6E, align 1, !range !25, !alias.scope !79, !noalias !76
   %.not.i154 = icmp eq i8 %410, 2
-  %or.cond.i155 = select i1 %409, i1 %.not.i154, i1 false
+  %or.cond.i155 = select i1 %409, i1 %.not.i154, i1 false, !prof !35
   %411 = getelementptr inbounds nuw i8, ptr %7, i64 20
   br i1 %or.cond.i155, label %413, label %412, !prof !35
 
@@ -1699,7 +1699,7 @@ _ZN4jiff3fmt4util7Decimal3new17hfa803fb8c2dfdc3fE.exit157: ; preds = %438, %.pre
   %466 = icmp sgt i8 %.sroa.0117.1, -1
   %467 = load i8, ptr @_ZN4jiff3fmt7rfc282215DateTimePrinter23print_civil_with_offset13FMT_TIME_UNIT17h5dbc2c0ca64905e6E, align 1, !range !25, !alias.scope !88, !noalias !85
   %.not.i158 = icmp eq i8 %467, 2
-  %or.cond.i159 = select i1 %466, i1 %.not.i158, i1 false
+  %or.cond.i159 = select i1 %466, i1 %.not.i158, i1 false, !prof !35
   %468 = getelementptr inbounds nuw i8, ptr %6, i64 20
   br i1 %or.cond.i159, label %470, label %469, !prof !35
 
@@ -2035,7 +2035,7 @@ define hidden { i64, ptr } @_ZN4jiff3fmt7rfc282215DateTimePrinter22print_civil_a
   %127 = icmp sgt i32 %.sroa.093.0.copyload, -1
   %128 = load i8, ptr @_ZN4jiff3fmt7rfc282215DateTimePrinter22print_civil_always_utc7FMT_DAY17hceefb23b59fc61daE, align 1, !range !25, !alias.scope !100, !noalias !97
   %.not.i = icmp eq i8 %128, 2
-  %or.cond.i = select i1 %127, i1 %.not.i, i1 false
+  %or.cond.i = select i1 %127, i1 %.not.i, i1 false, !prof !35
   %129 = getelementptr inbounds nuw i8, ptr %8, i64 20
   br i1 %or.cond.i, label %131, label %130, !prof !35
 
@@ -2168,7 +2168,7 @@ _ZN4jiff3fmt4util7Decimal3new17hfa803fb8c2dfdc3fE.exit: ; preds = %156, %.prehea
   %198 = icmp sgt i16 %113, -1
   %199 = load i8, ptr @_ZN4jiff3fmt7rfc282215DateTimePrinter22print_civil_always_utc8FMT_YEAR17h690398081a4204fbE, align 1, !range !25, !alias.scope !109, !noalias !106
   %.not.i103 = icmp eq i8 %199, 2
-  %or.cond.i104 = select i1 %198, i1 %.not.i103, i1 false
+  %or.cond.i104 = select i1 %198, i1 %.not.i103, i1 false, !prof !35
   %200 = getelementptr inbounds nuw i8, ptr %7, i64 20
   br i1 %or.cond.i104, label %202, label %201, !prof !35
 

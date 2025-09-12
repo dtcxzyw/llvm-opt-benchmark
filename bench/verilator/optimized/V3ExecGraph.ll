@@ -19428,7 +19428,7 @@ _ZN6V3ListI13V3GraphVertexXadL_ZNS0_5linksEvEES0_E19SimpleItertatorImplIS0_Lb0EE
   %.not581 = icmp eq i32 %102, 0
   %103 = load ptr, ptr %34, align 8
   %104 = icmp eq ptr %103, %32
-  %or.cond791 = select i1 %.not581, i1 true, i1 %104
+  %or.cond791 = select i1 %.not581, i1 true, i1 %104, !prof !487
   br i1 %or.cond791, label %._crit_edge569.thread, label %.lr.ph568.split, !prof !487
 
 ._crit_edge569:                                   ; preds = %.thread

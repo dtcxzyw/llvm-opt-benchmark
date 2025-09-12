@@ -1205,7 +1205,7 @@ rb_class_of.exit.i:                               ; preds = %15, %13, %12, %11, 
 
 rb_obj_class.exit:                                ; preds = %.lr.ph.i.i
   %25 = icmp eq i64 %21, 2
-  %or.cond = select i1 %.not8.i.i, i1 %25, i1 false
+  %or.cond = select i1 %.not8.i.i, i1 %25, i1 false, !prof !38
   br i1 %or.cond, label %rb_obj_alloc.exit, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i, !prof !38
 
 rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i:        ; preds = %.critedge2.i.i, %rb_class_of.exit.i, %rb_obj_class.exit
@@ -1275,7 +1275,7 @@ rb_class_of.exit.i:                               ; preds = %6
 
 rb_obj_class.exit:                                ; preds = %.lr.ph.i.i
   %19 = icmp eq i64 %15, 2
-  %or.cond = select i1 %.not8.i.i, i1 %19, i1 false
+  %or.cond = select i1 %.not8.i.i, i1 %19, i1 false, !prof !38
   br i1 %or.cond, label %rb_obj_alloc.exit, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i, !prof !38
 
 rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i:        ; preds = %.critedge2.i.i, %rb_class_of.exit.i, %rb_obj_class.exit

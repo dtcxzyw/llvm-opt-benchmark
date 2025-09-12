@@ -180,7 +180,7 @@ define noundef i32 @_ZN6google8protobuf2io16CodedInputStream9PushLimitEi(ptr nou
   %or.cond.not11 = select i1 %15, i1 %.not, i1 false
   %17 = sub nsw i32 %14, %12
   %18 = icmp slt i32 %1, %17
-  %or.cond9 = select i1 %or.cond.not11, i1 %18, i1 false
+  %or.cond9 = select i1 %or.cond.not11, i1 %18, i1 false, !prof !22
   br i1 %or.cond9, label %19, label %.critedge, !prof !22
 
 19:                                               ; preds = %2
@@ -270,7 +270,7 @@ define i64 @_ZN6google8protobuf2io16CodedInputStream35IncrementRecursionDepthAnd
   %or.cond.not11.i = select i1 %15, i1 %.not.i, i1 false
   %17 = sub nsw i32 %14, %12
   %18 = icmp slt i32 %1, %17
-  %or.cond9.i = select i1 %or.cond.not11.i, i1 %18, i1 false
+  %or.cond9.i = select i1 %or.cond.not11.i, i1 %18, i1 false, !prof !22
   br i1 %or.cond9.i, label %19, label %_ZN6google8protobuf2io16CodedInputStream9PushLimitEi.exit, !prof !22
 
 19:                                               ; preds = %2
@@ -447,7 +447,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit: ; preds = %54, %
   %or.cond.not11.i = select i1 %74, i1 %.not.i, i1 false
   %76 = sub nsw i32 %73, %71
   %77 = icmp slt i32 %62, %76
-  %or.cond9.i = select i1 %or.cond.not11.i, i1 %77, i1 false
+  %or.cond9.i = select i1 %or.cond.not11.i, i1 %77, i1 false, !prof !22
   br i1 %or.cond9.i, label %78, label %_ZN6google8protobuf2io16CodedInputStream9PushLimitEi.exit, !prof !22
 
 78:                                               ; preds = %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit

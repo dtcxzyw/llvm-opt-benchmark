@@ -22516,7 +22516,7 @@ define internal { ptr, ptr } @"_ZN103_$LT$polars_arrow..array..fixed_size_list..
   %43 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %44 = load i64, ptr %43, align 8
   %.not3.i.i = icmp eq i64 %44, %12
-  %or.cond = select i1 %.not.i.i, i1 true, i1 %.not3.i.i
+  %or.cond = select i1 %.not.i.i, i1 true, i1 %.not3.i.i, !prof !1090
   br i1 %or.cond, label %45, label %48, !prof !1090
 
 45:                                               ; preds = %34
@@ -30925,7 +30925,7 @@ define internal { ptr, ptr } @"_ZN88_$LT$polars_arrow..array..struct_..StructArr
   %32 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %33 = load i64, ptr %32, align 8
   %.not3.i.i = icmp eq i64 %33, %16
-  %or.cond = select i1 %.not.i.i, i1 true, i1 %.not3.i.i
+  %or.cond = select i1 %.not.i.i, i1 true, i1 %.not3.i.i, !prof !1090
   br i1 %or.cond, label %34, label %37, !prof !1090
 
 34:                                               ; preds = %27

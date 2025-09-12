@@ -117,7 +117,7 @@ lean_obj_tag.exit33:                              ; preds = %42, %45
   %58 = ptrtoint ptr %54 to i64
   %59 = and i64 %58, 1
   %60 = icmp ne i64 %59, 0
-  %or.cond = select i1 %57, i1 %60, i1 false
+  %or.cond = select i1 %57, i1 %60, i1 false, !prof !8
   br i1 %or.cond, label %61, label %lean_nat_eq.exit, !prof !8
 
 61:                                               ; preds = %49

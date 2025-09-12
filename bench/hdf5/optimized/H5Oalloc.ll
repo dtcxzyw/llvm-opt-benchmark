@@ -1149,7 +1149,7 @@ define range(i32 -1, 1) i32 @H5O__alloc(ptr noundef %0, ptr noundef %1, ptr noun
   %not. = xor i1 %39, true
   %.not72 = select i1 %not., i1 %41, i1 false
   %.not.i = icmp eq i64 %37, 0
-  %or.cond = select i1 %.not72, i1 true, i1 %.not.i
+  %or.cond = select i1 %.not72, i1 true, i1 %.not.i, !prof !63
   br i1 %or.cond, label %.preheader, label %.lr.ph.i, !prof !63
 
 .lr.ph.i:                                         ; preds = %29

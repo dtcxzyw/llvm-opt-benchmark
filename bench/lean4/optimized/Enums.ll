@@ -34749,7 +34749,7 @@ define zeroext range(i8 0, 2) i8 @l_Array_qsort_sort___at___private_Lean_Elab_Ta
   %10 = ptrtoint ptr %6 to i64
   %11 = and i64 %10, 1
   %12 = icmp ne i64 %11, 0
-  %or.cond = select i1 %9, i1 %12, i1 false
+  %or.cond = select i1 %9, i1 %12, i1 false, !prof !19
   br i1 %or.cond, label %13, label %.critedge.i, !prof !19
 
 13:                                               ; preds = %2
@@ -43680,7 +43680,7 @@ define nonnull ptr @l_Array_qsort_sort___at___private_Lean_Elab_Tactic_BVDecide_
   %10 = ptrtoint ptr %6 to i64
   %11 = and i64 %10, 1
   %12 = icmp ne i64 %11, 0
-  %or.cond.i = select i1 %9, i1 %12, i1 false
+  %or.cond.i = select i1 %9, i1 %12, i1 false, !prof !19
   br i1 %or.cond.i, label %13, label %.critedge.i.i, !prof !19
 
 13:                                               ; preds = %2
@@ -44062,7 +44062,7 @@ define noalias nonnull ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Norma
   %29 = ptrtoint ptr %25 to i64
   %30 = and i64 %29, 1
   %31 = icmp ne i64 %30, 0
-  %or.cond = select i1 %28, i1 %31, i1 false
+  %or.cond = select i1 %28, i1 %31, i1 false, !prof !19
   br i1 %or.cond, label %lean_nat_eq.exit.thread, label %lean_nat_eq.exit, !prof !19
 
 lean_nat_eq.exit.thread:                          ; preds = %24

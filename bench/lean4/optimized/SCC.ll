@@ -16424,7 +16424,7 @@ lean_obj_tag.exit19.i:                            ; preds = %178, %175
   %190 = ptrtoint ptr %186 to i64
   %191 = and i64 %190, 1
   %192 = icmp ne i64 %191, 0
-  %or.cond.i = select i1 %189, i1 %192, i1 false
+  %or.cond.i = select i1 %189, i1 %192, i1 false, !prof !19
   br i1 %or.cond.i, label %193, label %.critedge.i.i, !prof !19
 
 193:                                              ; preds = %182
@@ -16792,7 +16792,7 @@ lean_obj_tag.exit19.i209:                         ; preds = %316, %313
   %328 = ptrtoint ptr %324 to i64
   %329 = and i64 %328, 1
   %330 = icmp ne i64 %329, 0
-  %or.cond.i211 = select i1 %327, i1 %330, i1 false
+  %or.cond.i211 = select i1 %327, i1 %330, i1 false, !prof !19
   br i1 %or.cond.i211, label %331, label %.critedge.i.i212, !prof !19
 
 331:                                              ; preds = %320
@@ -17066,7 +17066,7 @@ lean_obj_tag.exit19:                              ; preds = %23, %26
   %38 = ptrtoint ptr %34 to i64
   %39 = and i64 %38, 1
   %40 = icmp ne i64 %39, 0
-  %or.cond = select i1 %37, i1 %40, i1 false
+  %or.cond = select i1 %37, i1 %40, i1 false, !prof !19
   br i1 %or.cond, label %41, label %.critedge.i, !prof !19
 
 41:                                               ; preds = %30
@@ -17182,7 +17182,7 @@ lean_obj_tag.exit19.i:                            ; preds = %26, %23
   %38 = ptrtoint ptr %34 to i64
   %39 = and i64 %38, 1
   %40 = icmp ne i64 %39, 0
-  %or.cond.i = select i1 %37, i1 %40, i1 false
+  %or.cond.i = select i1 %37, i1 %40, i1 false, !prof !19
   br i1 %or.cond.i, label %41, label %.critedge.i.i, !prof !19
 
 41:                                               ; preds = %30

@@ -30168,7 +30168,7 @@ define hidden { ptr, i64 } @"_ZN66_$LT$$RF$$u5b$T$u5d$$u20$as$u20$polars_utils..
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   %.not = icmp ugt i64 %2, %6
-  %or.cond = select i1 %4, i1 true, i1 %.not
+  %or.cond = select i1 %4, i1 true, i1 %.not, !prof !4345
   br i1 %or.cond, label %13, label %7, !prof !4345
 
 7:                                                ; preds = %3
@@ -30190,7 +30190,7 @@ define hidden { ptr, i64 } @"_ZN66_$LT$$RF$$u5b$T$u5d$$u20$as$u20$polars_utils..
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   %.not = icmp ugt i64 %2, %6
-  %or.cond = select i1 %4, i1 true, i1 %.not
+  %or.cond = select i1 %4, i1 true, i1 %.not, !prof !4345
   br i1 %or.cond, label %13, label %7, !prof !4345
 
 7:                                                ; preds = %3

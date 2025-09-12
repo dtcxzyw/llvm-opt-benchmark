@@ -27883,7 +27883,7 @@ _ZN4absl12log_internal10LogMessagelsILi16EEERS1_RAT__Kc.exit736: ; preds = %307
   %.not.i.i743 = icmp ne i64 %.sroa.011.0.copyload.i.i738, 0
   %315 = add i32 %.sroa.212.0.copyload.i.i740, 694967295
   %or.cond829 = icmp ult i32 %315, -2000000001
-  %or.cond = select i1 %.not.i.i743, i1 true, i1 %or.cond829
+  %or.cond = select i1 %.not.i.i743, i1 true, i1 %or.cond829, !prof !745
   br i1 %or.cond, label %.thread815, label %.critedge631, !prof !745
 
 .thread815:                                       ; preds = %313

@@ -2633,7 +2633,7 @@ define void @"_ZN105_$LT$ty_test..assertion..AssertionWithRangeIterator$u20$as$u
 42:                                               ; preds = %41
   %43 = icmp ne i64 %29, %27
   %.not = icmp eq ptr %26, null
-  %or.cond = select i1 %43, i1 true, i1 %.not
+  %or.cond = select i1 %43, i1 true, i1 %.not, !prof !217
   br i1 %or.cond, label %"_ZN4core3str6traits108_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$3get17h48b5fc281fcfd004E.exit.thread", label %48, !prof !217
 
 44:                                               ; preds = %41
@@ -2641,7 +2641,7 @@ define void @"_ZN105_$LT$ty_test..assertion..AssertionWithRangeIterator$u20$as$u
   %46 = load i8, ptr %45, align 1, !alias.scope !214, !noundef !3
   %47 = icmp slt i8 %46, -64
   %.not.old = icmp eq ptr %26, null
-  %or.cond21 = select i1 %47, i1 true, i1 %.not.old
+  %or.cond21 = select i1 %47, i1 true, i1 %.not.old, !prof !217
   br i1 %or.cond21, label %"_ZN4core3str6traits108_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$3get17h48b5fc281fcfd004E.exit.thread", label %48, !prof !217
 
 "_ZN4core3str6traits108_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$3get17h48b5fc281fcfd004E.exit": ; preds = %33

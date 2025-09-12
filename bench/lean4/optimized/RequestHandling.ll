@@ -5937,7 +5937,7 @@ define zeroext range(i8 0, 2) i8 @l_Lean_Server_FileWorker_handleHover___lambda_
   %7 = ptrtoint ptr %3 to i64
   %8 = and i64 %7, 1
   %9 = icmp ne i64 %8, 0
-  %or.cond = select i1 %6, i1 %9, i1 false
+  %or.cond = select i1 %6, i1 %9, i1 false, !prof !16
   br i1 %or.cond, label %lean_nat_lt.exit.thread, label %lean_nat_lt.exit, !prof !16
 
 lean_nat_lt.exit.thread:                          ; preds = %2
@@ -11376,7 +11376,7 @@ define nonnull ptr @l_Lean_Server_FileWorker_handleHover___lambda__1___boxed(ptr
   %7 = ptrtoint ptr %3 to i64
   %8 = and i64 %7, 1
   %9 = icmp ne i64 %8, 0
-  %or.cond.i = select i1 %6, i1 %9, i1 false
+  %or.cond.i = select i1 %6, i1 %9, i1 false, !prof !16
   br i1 %or.cond.i, label %lean_nat_lt.exit.thread.i, label %lean_nat_lt.exit.i, !prof !16
 
 lean_nat_lt.exit.thread.i:                        ; preds = %2
@@ -70312,7 +70312,7 @@ define zeroext range(i8 0, 2) i8 @l_Lean_Server_FileWorker_handleDefinition___la
   %7 = ptrtoint ptr %3 to i64
   %8 = and i64 %7, 1
   %9 = icmp ne i64 %8, 0
-  %or.cond = select i1 %6, i1 %9, i1 false
+  %or.cond = select i1 %6, i1 %9, i1 false, !prof !16
   br i1 %or.cond, label %lean_nat_le.exit.thread, label %lean_nat_le.exit, !prof !16
 
 lean_nat_le.exit.thread:                          ; preds = %2
@@ -70927,7 +70927,7 @@ define nonnull ptr @l_Lean_Server_FileWorker_handleDefinition___lambda__1___boxe
   %7 = ptrtoint ptr %3 to i64
   %8 = and i64 %7, 1
   %9 = icmp ne i64 %8, 0
-  %or.cond.i = select i1 %6, i1 %9, i1 false
+  %or.cond.i = select i1 %6, i1 %9, i1 false, !prof !16
   br i1 %or.cond.i, label %lean_nat_le.exit.thread.i, label %lean_nat_le.exit.i, !prof !16
 
 lean_nat_le.exit.thread.i:                        ; preds = %2
@@ -144220,7 +144220,7 @@ lean_dec.exit380:                                 ; preds = %30, %29, %27, %21
   %48 = ptrtoint ptr %.0280 to i64
   %49 = and i64 %48, 1
   %50 = icmp ne i64 %49, 0
-  %or.cond = select i1 %47, i1 %50, i1 false
+  %or.cond = select i1 %47, i1 %50, i1 false, !prof !16
   br i1 %or.cond, label %lean_nat_eq.exit.thread, label %lean_nat_eq.exit, !prof !16
 
 lean_nat_eq.exit:                                 ; preds = %44
@@ -145641,7 +145641,7 @@ lean_dec_ref.exit491:                             ; preds = %568, %567, %565, %l
   %569 = ptrtoint ptr %.0280 to i64
   %570 = and i64 %569, 1
   %571 = icmp ne i64 %570, 0
-  %or.cond700 = select i1 %524, i1 %571, i1 false
+  %or.cond700 = select i1 %524, i1 %571, i1 false, !prof !16
   br i1 %or.cond700, label %572, label %lean_nat_eq.exit498, !prof !16
 
 572:                                              ; preds = %lean_dec_ref.exit491

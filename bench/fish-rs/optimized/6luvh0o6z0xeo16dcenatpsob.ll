@@ -12096,7 +12096,7 @@ define noundef range(i64 0, 2305843009213693952) i64 @_ZN4fish5wutil14wstr_offse
   %8 = getelementptr inbounds nuw i32, ptr %0, i64 %1
   %9 = icmp ule ptr %2, %0
   %10 = icmp ule ptr %8, %7
-  %or.cond = select i1 %9, i1 %10, i1 false
+  %or.cond = select i1 %9, i1 %10, i1 false, !prof !874
   br i1 %or.cond, label %16, label %11, !prof !874
 
 11:                                               ; preds = %4

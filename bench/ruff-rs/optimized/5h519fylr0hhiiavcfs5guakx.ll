@@ -1081,7 +1081,7 @@ define internal fastcc void @"_ZN3zip5write60_$LT$impl$u20$zip..write..zip_write
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %36 = load i64, ptr %35, align 8, !range !57, !alias.scope !104, !noalias !107
   %.not54.i = icmp eq i64 %36, -9223372036854775808
-  %or.cond.i = select i1 %34, i1 %.not54.i, i1 false
+  %or.cond.i = select i1 %34, i1 %.not54.i, i1 false, !prof !110
   br i1 %or.cond.i, label %42, label %37, !prof !110
 
 37:                                               ; preds = %32
@@ -1432,7 +1432,7 @@ define internal fastcc void @"_ZN3zip5write60_$LT$impl$u20$zip..write..zip_write
   %156 = icmp eq i64 %155, 1
   %157 = load i64, ptr %.sroa.28.0..sroa_idx, align 8, !range !57
   %.not104 = icmp eq i64 %157, -9223372036854775808
-  %or.cond = select i1 %156, i1 %.not104, i1 false
+  %or.cond = select i1 %156, i1 %.not104, i1 false, !prof !110
   br i1 %or.cond, label %173, label %168, !prof !110
 
 158:                                              ; preds = %"_ZN4core3ptr113drop_in_place$LT$zip..write..GenericZipWriter$LT$std..io..cursor..Cursor$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17h7be4d6584d515871E.exit121"
@@ -1628,7 +1628,7 @@ define hidden void @"_ZN3zip5write60_$LT$impl$u20$zip..write..zip_writer..ZipWri
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load i64, ptr %17, align 8, !range !57
   %.not66 = icmp eq i64 %18, -9223372036854775808
-  %or.cond = select i1 %16, i1 %.not66, i1 false
+  %or.cond = select i1 %16, i1 %.not66, i1 false, !prof !110
   br i1 %or.cond, label %24, label %19, !prof !110
 
 19:                                               ; preds = %14

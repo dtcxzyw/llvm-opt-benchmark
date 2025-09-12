@@ -695,7 +695,7 @@ define hidden noundef nonnull align 8 dereferenceable(124) ptr @_ZN4cvc58interna
   %11 = load i64, ptr %10, align 8
   %12 = and i64 %11, 1023
   %13 = icmp eq i64 %12, 1023
-  %or.cond = select i1 %9, i1 true, i1 %13
+  %or.cond = select i1 %9, i1 true, i1 %13, !prof !31
   br i1 %or.cond, label %.critedge, label %14, !prof !31
 
 14:                                               ; preds = %2

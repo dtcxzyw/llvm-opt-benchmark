@@ -914,7 +914,7 @@ _ZNK5folly7dynamic11stringPieceEv.exit:           ; preds = %3
   %161 = getelementptr inbounds nuw i8, ptr %158, i64 112
   %162 = load i64, ptr %161, align 8
   %163 = icmp ne i64 %162, 0
-  %or.cond.i = select i1 %.not.i, i1 true, i1 %163
+  %or.cond.i = select i1 %.not.i, i1 true, i1 %163, !prof !52
   br i1 %or.cond.i, label %.critedge.i, label %164, !prof !52
 
 .critedge.i:                                      ; preds = %_ZNK5folly7dynamic11stringPieceEv.exit
@@ -2581,7 +2581,7 @@ define void @_ZN5folly4json12escapeStringENS_5RangeIPKcEERNSt7__cxx1112basic_str
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 112
   %8 = load i64, ptr %7, align 16
   %9 = icmp ne i64 %8, 0
-  %or.cond = select i1 %.not, i1 true, i1 %9
+  %or.cond = select i1 %.not, i1 true, i1 %9, !prof !52
   br i1 %or.cond, label %.critedge, label %10, !prof !52
 
 .critedge:                                        ; preds = %4

@@ -7723,7 +7723,7 @@ _ZN5boost9container12small_vectorIN3ue212graph_detail17vertex_descriptorINS2_9ue
   %.not.i.i.i.i8 = icmp eq ptr %50, null
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %52 = icmp eq ptr %51, %50
-  %or.cond.i.i.i.i9 = select i1 %.not.i.i.i.i8, i1 true, i1 %52
+  %or.cond.i.i.i.i9 = select i1 %.not.i.i.i.i8, i1 true, i1 %52, !prof !318
   br i1 %or.cond.i.i.i.i9, label %_ZN5boost9container12small_vectorIN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_8NGHolderENS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEEEEELm1ESaISA_EvEaSEOSC_.exit12.thread, label %53, !prof !318
 
 53:                                               ; preds = %48
@@ -9618,7 +9618,7 @@ _ZN5boost9container12small_vectorItLm1ESaItEvEaSEOS3_.exit: ; preds = %_ZN5boost
   %.not.i.i.i.i6 = icmp eq ptr %46, null
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %48 = icmp eq ptr %47, %46
-  %or.cond.i.i.i.i7 = select i1 %.not.i.i.i.i6, i1 true, i1 %48
+  %or.cond.i.i.i.i7 = select i1 %.not.i.i.i.i6, i1 true, i1 %48, !prof !318
   br i1 %or.cond.i.i.i.i7, label %_ZN5boost9container12small_vectorItLm1ESaItEvEaSEOS3_.exit10.thread, label %49, !prof !318
 
 49:                                               ; preds = %44

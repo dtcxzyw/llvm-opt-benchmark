@@ -993,7 +993,7 @@ define hidden { ptr, ptr } @"_ZN5salsa5views32DatabaseDownCaster$LT$DbView$GT$8d
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load i64, ptr %15, align 8
   %17 = icmp eq i64 %16, %11
-  %or.cond = select i1 %14, i1 %17, i1 false
+  %or.cond = select i1 %14, i1 %17, i1 false, !prof !85
   br i1 %or.cond, label %19, label %18, !prof !85
 
 18:                                               ; preds = %3

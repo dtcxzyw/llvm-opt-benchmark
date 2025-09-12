@@ -2563,7 +2563,7 @@ _ZN14regex_automata4util6search5Input8set_span17h4481304cd50f8adeE.exit.i.i.i: ;
   %157 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %158 = load i64, ptr %157, align 8, !alias.scope !91, !noalias !90
   %159 = icmp eq i64 %133, %158
-  %or.cond.i.i.i = select i1 %156, i1 %159, i1 false
+  %or.cond.i.i.i = select i1 %156, i1 %159, i1 false, !prof !92
   br i1 %or.cond.i.i.i, label %160, label %141, !prof !92
 
 160:                                              ; preds = %154
@@ -2939,7 +2939,7 @@ _ZN14regex_automata4meta5regex9RegexInfo13is_impossible17hffb708d4c365dd83E.exit
   %106 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %107 = load i64, ptr %106, align 8, !alias.scope !153, !noalias !154
   %108 = icmp eq i64 %91, %107
-  %or.cond.i.i.i = select i1 %105, i1 %108, i1 false
+  %or.cond.i.i.i = select i1 %105, i1 %108, i1 false, !prof !92
   br i1 %or.cond.i.i.i, label %109, label %92, !prof !92
 
 109:                                              ; preds = %103

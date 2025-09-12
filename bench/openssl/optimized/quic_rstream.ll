@@ -393,7 +393,7 @@ ring_buf_get_ptr.exit:                            ; preds = %34
   store ptr %59, ptr %9, align 8, !tbaa !27
   %.not70 = icmp ne ptr %50, null
   %60 = icmp ugt i64 %58, %47
-  %or.cond73 = select i1 %.not70, i1 %60, i1 false
+  %or.cond73 = select i1 %.not70, i1 %60, i1 false, !prof !30
   br i1 %or.cond73, label %.thread94, label %.thread108
 
 .thread94:                                        ; preds = %41, %55, %28
@@ -536,7 +536,7 @@ define noundef i32 @ossl_quic_rstream_available(ptr noundef %0, ptr noundef writ
   %13 = sub i64 %12, %11
   %14 = call i32 @ossl_sframe_list_peek(ptr noundef %0, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef %2) #10
   %.not = icmp eq i32 %14, 0
-  br i1 %.not, label %._crit_edge, label %9, !llvm.loop !30
+  br i1 %.not, label %._crit_edge, label %9, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %9, %3
   %.0.lcssa = phi i64 [ 0, %3 ], [ %13, %9 ]
@@ -566,15 +566,15 @@ define range(i32 0, 2) i32 @ossl_quic_rstream_get_record(ptr noundef %0, ptr nou
 
 9:                                                ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %11 = load i64, ptr %10, align 8, !tbaa !32
-  %12 = load i64, ptr %6, align 8, !tbaa !33
+  %11 = load i64, ptr %10, align 8, !tbaa !33
+  %12 = load i64, ptr %6, align 8, !tbaa !34
   %13 = icmp eq i64 %11, %12
   br i1 %13, label %14, label %18
 
 14:                                               ; preds = %9
   %15 = load i32, ptr %3, align 4, !tbaa !26
   %.not26 = icmp eq i32 %15, 0
-  br i1 %.not26, label %ring_buf_get_ptr.exit.thread, label %16, !prof !34
+  br i1 %.not26, label %ring_buf_get_ptr.exit.thread, label %16, !prof !35
 
 16:                                               ; preds = %14
   %17 = call i32 @ossl_sframe_list_drop_frames(ptr noundef nonnull %0, i64 noundef %11) #10
@@ -582,8 +582,8 @@ define range(i32 0, 2) i32 @ossl_quic_rstream_get_record(ptr noundef %0, ptr nou
   br i1 %.not27, label %ring_buf_get_ptr.exit.thread, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %16
-  %.pre = load i64, ptr %10, align 8, !tbaa !32
-  %.pre33 = load i64, ptr %6, align 8, !tbaa !33
+  %.pre = load i64, ptr %10, align 8, !tbaa !33
+  %.pre33 = load i64, ptr %6, align 8, !tbaa !34
   br label %18
 
 18:                                               ; preds = %._crit_edge, %9
@@ -625,7 +625,7 @@ ring_buf_get_ptr.exit:                            ; preds = %30
 
 41:                                               ; preds = %39
   %42 = add i64 %37, %19
-  store i64 %42, ptr %10, align 8, !tbaa !32
+  store i64 %42, ptr %10, align 8, !tbaa !33
   br label %43
 
 43:                                               ; preds = %39, %41, %18
@@ -655,8 +655,8 @@ define range(i32 0, 2) i32 @ossl_quic_rstream_release_record(ptr noundef %0, i64
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %8 = load i64, ptr %7, align 8, !tbaa !32
-  %9 = load i64, ptr %6, align 8, !tbaa !33
+  %8 = load i64, ptr %7, align 8, !tbaa !33
+  %9 = load i64, ptr %6, align 8, !tbaa !34
   %10 = sub i64 %8, %9
   %11 = icmp ugt i64 %1, %10
   br i1 %11, label %12, label %13
@@ -873,7 +873,7 @@ safe_add_u64.exit48.i:                            ; preds = %20
   %37 = sub i64 %.04156.i, %spec.select.i
   %38 = icmp ne i64 %37, 0
   %39 = and i1 %26, %38
-  br i1 %39, label %.lr.ph.i, label %ring_buf_write_at.exit, !llvm.loop !35
+  br i1 %39, label %.lr.ph.i, label %ring_buf_write_at.exit, !llvm.loop !36
 
 ring_buf_write_at.exit:                           ; preds = %35, %4, %safe_add_u64.exit.i, %20, %safe_add_u64.exit48.i, %.preheader.i
   %.037.i = phi i32 [ 0, %safe_add_u64.exit48.i ], [ 0, %safe_add_u64.exit.i ], [ 0, %4 ], [ 0, %20 ], [ 1, %.preheader.i ], [ 1, %35 ]
@@ -975,9 +975,10 @@ attributes #10 = { nounwind }
 !27 = !{!28, !28, i64 0}
 !28 = !{!"p1 omnipotent char", !7, i64 0}
 !29 = !{!"branch_weights", !"expected", i32 0, i32 -2147483648}
-!30 = distinct !{!30, !31}
-!31 = !{!"llvm.loop.mustprogress"}
-!32 = !{!4, !11, i64 72}
-!33 = !{!4, !11, i64 64}
-!34 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!35 = distinct !{!35, !31}
+!30 = !{!"branch_weights", i32 4000000, i32 4001}
+!31 = distinct !{!31, !32}
+!32 = !{!"llvm.loop.mustprogress"}
+!33 = !{!4, !11, i64 72}
+!34 = !{!4, !11, i64 64}
+!35 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!36 = distinct !{!36, !32}

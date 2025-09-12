@@ -16685,7 +16685,7 @@ default.unreachable:                              ; preds = %385, %398
   %415 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %416 = load i64, ptr %415, align 8, !range !1067, !noalias !2919
   %.not1.i.i.i = icmp eq i64 %416, -9223372036854775807
-  %or.cond.i.i = select i1 %.not.i22.i.i, i1 true, i1 %.not1.i.i.i
+  %or.cond.i.i = select i1 %.not.i22.i.i, i1 true, i1 %.not1.i.i.i, !prof !1104
   br i1 %or.cond.i.i, label %417, label %"_ZN6yara_x7modules2pe6parser2PE10parse_info28_$u7b$$u7b$closure$u7d$$u7d$17h4928ecb1f23b3f00E.exit", !prof !1104
 
 417:                                              ; preds = %.thread143.i.i

@@ -858,7 +858,7 @@ zend_hash_str_find_ptr.exit.i:                    ; preds = %95, %90
   %105 = load i8, ptr %104, align 8, !tbaa !4
   %106 = icmp eq i8 %105, 0
   %.not61.i = icmp eq ptr %3, %103
-  %or.cond76.i = select i1 %106, i1 true, i1 %.not61.i
+  %or.cond76.i = select i1 %106, i1 true, i1 %.not61.i, !prof !78
   br i1 %or.cond76.i, label %111, label %107, !prof !78
 
 107:                                              ; preds = %.lr.ph.i
@@ -1435,7 +1435,7 @@ pdo_attr_lval.exit292:                            ; preds = %pdo_attr_lval.exit,
   %371 = load i8, ptr %370, align 8, !tbaa !4
   %372 = icmp ne i8 %371, 0
   %.not256 = icmp eq ptr %.1190, null
-  %or.cond262 = select i1 %372, i1 %.not256, i1 false
+  %or.cond262 = select i1 %372, i1 %.not256, i1 false, !prof !110
   br i1 %or.cond262, label %373, label %380, !prof !110
 
 373:                                              ; preds = %369

@@ -3293,7 +3293,7 @@ define internal fastcc void @do_inherit_method(ptr noundef %0, ptr noundef %1, p
 9:                                                ; preds = %5
   %10 = load ptr, ptr %8, align 8, !tbaa !21
   %11 = icmp eq ptr %10, %1
-  %or.cond = select i1 %3, i1 %11, i1 false
+  %or.cond = select i1 %3, i1 %11, i1 false, !prof !150
   br i1 %or.cond, label %91, label %.critedge, !prof !150
 
 .critedge:                                        ; preds = %9

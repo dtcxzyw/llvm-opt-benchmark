@@ -9104,7 +9104,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort19bidirectional_merge17h
   %.sroa.0.1 = phi ptr [ %38, %._crit_edge ], [ %50, %47 ]
   %55 = icmp ne ptr %.sroa.0.1, %25
   %56 = icmp ne ptr %.sroa.06.1, %26
-  %or.cond = select i1 %55, i1 true, i1 %56
+  %or.cond = select i1 %55, i1 true, i1 %56, !prof !264
   br i1 %or.cond, label %58, label %57, !prof !264
 
 57:                                               ; preds = %54
@@ -9978,7 +9978,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
   %.sroa.0.1.i = phi ptr [ %42, %._crit_edge.i ], [ %59, %56 ]
   %64 = icmp ne ptr %.sroa.0.1.i, %26
   %65 = icmp ne ptr %.sroa.06.1.i, %27
-  %or.cond.i = select i1 %64, i1 true, i1 %65
+  %or.cond.i = select i1 %64, i1 true, i1 %65, !prof !264
   br i1 %or.cond.i, label %66, label %_ZN4core5slice4sort6shared9smallsort19bidirectional_merge17h371842acce50d78dE.exit, !prof !264
 
 66:                                               ; preds = %63
@@ -10503,7 +10503,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
   %.sroa.0.1.i = phi ptr [ %168, %._crit_edge.i ], [ %179, %176 ]
   %184 = icmp ne ptr %.sroa.0.1.i, %157
   %185 = icmp ne ptr %.sroa.06.1.i, %158
-  %or.cond.i = select i1 %184, i1 true, i1 %185
+  %or.cond.i = select i1 %184, i1 true, i1 %185, !prof !264
   br i1 %or.cond.i, label %186, label %_ZN4core5slice4sort6shared9smallsort19bidirectional_merge17h5128a2eedca83e63E.exit, !prof !264
 
 186:                                              ; preds = %183
@@ -11449,7 +11449,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
   %.sroa.0.1.i = phi ptr [ %79, %._crit_edge.i ], [ %89, %86 ]
   %94 = icmp ne ptr %.sroa.0.1.i, %69
   %95 = icmp ne ptr %.sroa.06.1.i, %70
-  %or.cond.i = select i1 %94, i1 true, i1 %95
+  %or.cond.i = select i1 %94, i1 true, i1 %95, !prof !264
   br i1 %or.cond.i, label %96, label %_ZN4core5slice4sort6shared9smallsort19bidirectional_merge17h110bceaa8cf928aaE.exit, !prof !264
 
 96:                                               ; preds = %93

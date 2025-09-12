@@ -238,7 +238,7 @@ _ZN11processor_t22take_pending_interruptEv.exit:  ; preds = %55
   %or.cond14.i = select i1 %or.cond11.i, i1 true, i1 %77
   %78 = load i8, ptr %28, align 2, !range !131
   %79 = trunc nuw i8 %78 to i1
-  %or.cond130 = select i1 %or.cond14.i, i1 true, i1 %79
+  %or.cond130 = select i1 %or.cond14.i, i1 true, i1 %79, !prof !145
   br i1 %or.cond130, label %_ZN11processor_t9slow_pathEv.exit.preheader, label %.preheader, !prof !145
 
 .preheader:                                       ; preds = %66

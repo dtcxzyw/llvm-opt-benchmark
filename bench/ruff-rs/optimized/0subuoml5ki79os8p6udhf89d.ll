@@ -10305,7 +10305,7 @@ default.unreachable6.i101:                        ; preds = %"_ZN21ruff_python_f
 271:                                              ; preds = %270
   %272 = icmp ne i64 %268, %20
   %.not56 = icmp eq ptr %19, null
-  %or.cond188 = select i1 %272, i1 true, i1 %.not56
+  %or.cond188 = select i1 %272, i1 true, i1 %.not56, !prof !963
   br i1 %or.cond188, label %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17h22a549b3ee3047beE.exit.thread", label %281, !prof !963
 
 273:                                              ; preds = %270
@@ -10313,7 +10313,7 @@ default.unreachable6.i101:                        ; preds = %"_ZN21ruff_python_f
   %275 = load i8, ptr %274, align 1, !alias.scope !964, !noundef !3
   %276 = icmp slt i8 %275, -64
   %.not56.old = icmp eq ptr %19, null
-  %or.cond189 = select i1 %276, i1 true, i1 %.not56.old
+  %or.cond189 = select i1 %276, i1 true, i1 %.not56.old, !prof !963
   br i1 %or.cond189, label %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17h22a549b3ee3047beE.exit.thread", label %281, !prof !963
 
 "_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17h22a549b3ee3047beE.exit": ; preds = %267

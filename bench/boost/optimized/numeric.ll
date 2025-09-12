@@ -4300,7 +4300,7 @@ _ZNSt19ostreambuf_iteratorIcSt11char_traitsIcEEaSEc.exit: ; preds = %.noexc, %_Z
   %116 = load i64, ptr %58, align 8, !tbaa !26
   %117 = icmp slt i64 %116, 1
   %118 = trunc nuw i8 %.sroa.5.0.lcssa to i1
-  %or.cond = select i1 %117, i1 true, i1 %118
+  %or.cond = select i1 %117, i1 true, i1 %118, !prof !62
   br i1 %or.cond, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt19ostreambuf_iteratorIcS6_EET0_T_SD_SC_.exit, label %119, !prof !62
 
 119:                                              ; preds = %._crit_edge
@@ -10953,7 +10953,7 @@ _ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.i.i: 
   %122 = load i64, ptr %58, align 8, !tbaa !102
   %123 = icmp slt i64 %122, 1
   %124 = trunc nuw i8 %.sroa.5.0.lcssa to i1
-  %or.cond = select i1 %123, i1 true, i1 %124
+  %or.cond = select i1 %123, i1 true, i1 %124, !prof !62
   br i1 %or.cond, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPwNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEEESt19ostreambuf_iteratorIwS6_EET0_T_SD_SC_.exit, label %125, !prof !62
 
 125:                                              ; preds = %._crit_edge

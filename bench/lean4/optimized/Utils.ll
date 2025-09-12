@@ -2565,7 +2565,7 @@ define ptr @l_Lean_Server_FileWorker_RpcSession_hasExpired(ptr noundef readonly 
   %13 = ptrtoint ptr %6 to i64
   %14 = and i64 %13, 1
   %15 = icmp ne i64 %14, 0
-  %or.cond = select i1 %12, i1 %15, i1 false
+  %or.cond = select i1 %12, i1 %15, i1 false, !prof !17
   br i1 %or.cond, label %lean_nat_le.exit.thread, label %lean_nat_le.exit, !prof !17
 
 lean_nat_le.exit.thread:                          ; preds = %7

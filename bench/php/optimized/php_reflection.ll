@@ -16118,7 +16118,7 @@ zend_string_release.exit:                         ; preds = %147, %151
   %352 = load i8, ptr %351, align 8, !tbaa !26
   %353 = icmp eq i8 %352, 0
   %.not357 = icmp eq ptr %.1306, null
-  %or.cond = select i1 %353, i1 true, i1 %.not357
+  %or.cond = select i1 %353, i1 true, i1 %.not357, !prof !217
   br i1 %or.cond, label %377, label %354, !prof !217
 
 354:                                              ; preds = %350

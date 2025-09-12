@@ -73122,7 +73122,7 @@ _ZN4core4iter6traits8iterator8Iterator3zip17hf431585edfe67bceE.exit: ; preds = %
   %.not.i.i = icmp ne i64 %.pr, -9223372036854775808
   %106 = load i64, ptr %.old, align 8
   %107 = icmp ult i64 %.sroa.831.090, %106
-  %or.cond = select i1 %.not.i.i, i1 %107, i1 false
+  %or.cond = select i1 %.not.i.i, i1 %107, i1 false, !prof !3619
   br i1 %or.cond, label %110, label %108, !prof !3619
 
 108:                                              ; preds = %.thread, %.noexc27

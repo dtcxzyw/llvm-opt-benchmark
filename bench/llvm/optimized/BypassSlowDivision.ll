@@ -1556,7 +1556,7 @@ _ZN12_GLOBAL__N_120FastDivInsertionTask19insertFastDivAndRemEv.exit.i: ; preds =
   %694 = getelementptr inbounds nuw i8, ptr %691, i64 8
   %695 = load ptr, ptr %694, align 8, !tbaa !52, !noalias !131
   %696 = icmp eq ptr %214, %695
-  %or.cond.i.i21.i = select i1 %693, i1 %696, i1 false
+  %or.cond.i.i21.i = select i1 %693, i1 %696, i1 false, !prof !136
   br i1 %or.cond.i.i21.i, label %_ZN4llvm12DenseMapInfoINS_12DivRemMapKeyEvE7isEqualERKS1_S4_.exit.i.i.i.i, label %_ZN4llvm12DenseMapInfoINS_12DivRemMapKeyEvE7isEqualERKS1_S4_.exit.thread.i.i.i.i, !prof !136
 
 _ZN4llvm12DenseMapInfoINS_12DivRemMapKeyEvE7isEqualERKS1_S4_.exit.i.i.i.i: ; preds = %689
@@ -4128,7 +4128,7 @@ _ZN4llvm12DenseMapInfoINS_12DivRemMapKeyEvE7isEqualERKS1_S4_.exit14.thread.i.i: 
   %66 = getelementptr inbounds nuw i8, ptr %63, i64 8
   %67 = load ptr, ptr %66, align 8, !tbaa !52
   %68 = icmp eq ptr %50, %67
-  %or.cond.i.i = select i1 %65, i1 %68, i1 false
+  %or.cond.i.i = select i1 %65, i1 %68, i1 false, !prof !136
   br i1 %or.cond.i.i, label %_ZN4llvm12DenseMapInfoINS_12DivRemMapKeyEvE7isEqualERKS1_S4_.exit.i.i.i, label %_ZN4llvm12DenseMapInfoINS_12DivRemMapKeyEvE7isEqualERKS1_S4_.exit.thread.i.i.i, !prof !136
 
 _ZN4llvm12DenseMapInfoINS_12DivRemMapKeyEvE7isEqualERKS1_S4_.exit.i.i.i: ; preds = %61

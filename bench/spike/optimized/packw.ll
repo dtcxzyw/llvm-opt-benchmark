@@ -106,7 +106,7 @@ define noundef i64 @_Z16fast_rv64i_packwP11processor_t6insn_tm(ptr noundef captu
   %or.cond = select i1 %6, i1 true, i1 %.0.i.not
   %9 = and i64 %.sink.i, 8589934592
   %.0.i15.not = icmp eq i64 %9, 0
-  %or.cond22 = select i1 %or.cond, i1 %.0.i15.not, i1 false
+  %or.cond22 = select i1 %or.cond, i1 %.0.i15.not, i1 false, !prof !15
   br i1 %or.cond22, label %10, label %.critedge, !prof !15
 
 10:                                               ; preds = %3
@@ -179,7 +179,7 @@ define noundef i64 @_Z18logged_rv64i_packwP11processor_t6insn_tm(ptr noundef %0,
   %or.cond = select i1 %7, i1 true, i1 %.0.i.not
   %10 = and i64 %.sink.i, 8589934592
   %.0.i18.not = icmp eq i64 %10, 0
-  %or.cond26 = select i1 %or.cond, i1 %.0.i18.not, i1 false
+  %or.cond26 = select i1 %or.cond, i1 %.0.i18.not, i1 false, !prof !15
   br i1 %or.cond26, label %11, label %.critedge, !prof !15
 
 11:                                               ; preds = %3

@@ -18679,7 +18679,7 @@ _ZN3ue216has_intersectionINS_8flat_setIjSt4lessIjESaIjEEES5_EEbRKT_RKT0_.exit: ;
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %58, null
   %59 = getelementptr inbounds nuw i8, ptr %.sroa.053.078.i, i64 88
   %60 = icmp eq ptr %59, %58
-  %or.cond.i.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i, i1 true, i1 %60
+  %or.cond.i.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i, i1 true, i1 %60, !prof !756
   br i1 %or.cond.i.i.i.i.i.i.i.i.i, label %_ZN3ue28flat_setIjSt4lessIjESaIjEEaSEOS4_.exit.thread.i, label %61, !prof !756
 
 61:                                               ; preds = %57

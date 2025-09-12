@@ -1060,7 +1060,7 @@ define dso_local i32 @sg_alloc_table_from_pages_segment(ptr noundef captures(non
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %15 = load i32, ptr %14, align 8
   %16 = icmp eq i32 %15, 0
-  %or.cond = select i1 %13, i1 true, i1 %16
+  %or.cond = select i1 %13, i1 true, i1 %16, !prof !31
   br i1 %or.cond, label %.loopexit, label %.preheader.preheader, !prof !31
 
 .preheader.preheader:                             ; preds = %11

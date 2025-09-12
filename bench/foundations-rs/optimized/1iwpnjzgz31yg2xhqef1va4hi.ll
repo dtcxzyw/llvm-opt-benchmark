@@ -3515,7 +3515,7 @@ define void @_ZN4core5slice4sort6stable9quicksort9quicksort17h313d8ff71692bf34E(
   %.sroa.0.1.i.i = phi ptr [ %74, %._crit_edge.i.i ], [ %91, %88 ]
   %96 = icmp ne ptr %.sroa.0.1.i.i, %58
   %97 = icmp ne ptr %.sroa.06.1.i.i, %59
-  %or.cond.i.i = select i1 %96, i1 true, i1 %97
+  %or.cond.i.i = select i1 %96, i1 true, i1 %97, !prof !352
   br i1 %or.cond.i.i, label %98, label %_ZN4core5slice4sort6shared9smallsort19bidirectional_merge17h8af03981da14965fE.exit.i, !prof !352
 
 98:                                               ; preds = %95
@@ -4077,7 +4077,7 @@ define void @_ZN4core5slice4sort6stable9quicksort9quicksort17h505197d738ad847eE(
   %.sroa.0.1.i.i = phi ptr [ %74, %._crit_edge.i.i ], [ %91, %88 ]
   %96 = icmp ne ptr %.sroa.0.1.i.i, %58
   %97 = icmp ne ptr %.sroa.06.1.i.i, %59
-  %or.cond.i.i = select i1 %96, i1 true, i1 %97
+  %or.cond.i.i = select i1 %96, i1 true, i1 %97, !prof !352
   br i1 %or.cond.i.i, label %98, label %_ZN4core5slice4sort6shared9smallsort19bidirectional_merge17hf19aaaaca607c003E.exit.i, !prof !352
 
 98:                                               ; preds = %95
@@ -4803,7 +4803,7 @@ define void @_ZN4core5slice4sort6stable9quicksort9quicksort17h726656a0d9816f88E(
   %.sroa.0.1.i.i = phi ptr [ %187, %._crit_edge.i.i ], [ %203, %200 ]
   %208 = icmp ne ptr %.sroa.0.1.i.i, %171
   %209 = icmp ne ptr %.sroa.06.1.i.i, %172
-  %or.cond.i.i = select i1 %208, i1 true, i1 %209
+  %or.cond.i.i = select i1 %208, i1 true, i1 %209, !prof !352
   br i1 %or.cond.i.i, label %210, label %_ZN4core5slice4sort6shared9smallsort19bidirectional_merge17h84c628b688b75517E.exit.i, !prof !352
 
 210:                                              ; preds = %207
@@ -5349,7 +5349,7 @@ define void @_ZN4core5slice4sort6stable9quicksort9quicksort17h8904550bad28a507E(
   %.sroa.0.1.i.i = phi ptr [ %74, %._crit_edge.i.i ], [ %91, %88 ]
   %96 = icmp ne ptr %.sroa.0.1.i.i, %58
   %97 = icmp ne ptr %.sroa.06.1.i.i, %59
-  %or.cond.i.i = select i1 %96, i1 true, i1 %97
+  %or.cond.i.i = select i1 %96, i1 true, i1 %97, !prof !352
   br i1 %or.cond.i.i, label %98, label %_ZN4core5slice4sort6shared9smallsort19bidirectional_merge17h853e5a2bfc18d1f9E.exit.i, !prof !352
 
 98:                                               ; preds = %95

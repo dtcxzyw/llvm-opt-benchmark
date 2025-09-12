@@ -33756,7 +33756,7 @@ lean_dec.exit:                                    ; preds = %65, %64, %62, %lean
   %73 = and i64 %72, 1
   %74 = icmp ne i64 %73, 0
   %75 = icmp ne i64 %16, 0
-  %or.cond = select i1 %74, i1 %75, i1 false
+  %or.cond = select i1 %74, i1 %75, i1 false, !prof !20
   br i1 %or.cond, label %76, label %.critedge.i31, !prof !20
 
 76:                                               ; preds = %67

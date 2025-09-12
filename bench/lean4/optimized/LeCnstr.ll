@@ -6186,7 +6186,7 @@ lean_dec.exit:                                    ; preds = %103, %102, %100, %l
   %108 = ptrtoint ptr %73 to i64
   %109 = and i64 %108, 1
   %110 = icmp ne i64 %109, 0
-  %or.cond = select i1 %107, i1 %110, i1 false
+  %or.cond = select i1 %107, i1 %110, i1 false, !prof !17
   br i1 %or.cond, label %111, label %113, !prof !17
 
 111:                                              ; preds = %104

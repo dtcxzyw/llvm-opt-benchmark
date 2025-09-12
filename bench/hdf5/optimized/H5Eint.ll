@@ -2913,7 +2913,7 @@ define range(i32 -1, 1) i32 @H5E_printf_stack(ptr noundef %0, ptr noundef %1, i3
   %14 = select i1 %10, i1 true, i1 %13
   %15 = load i32, ptr getelementptr inbounds nuw (i8, ptr @H5E_stack_g, i64 2104), align 8
   %.not = icmp eq i32 %15, 0
-  %or.cond = select i1 %14, i1 %.not, i1 false
+  %or.cond = select i1 %14, i1 %.not, i1 false, !prof !12
   br i1 %or.cond, label %16, label %41, !prof !12
 
 16:                                               ; preds = %6

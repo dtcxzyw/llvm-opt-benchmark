@@ -2879,7 +2879,7 @@ define dso_local noundef ptr @GetSnapshotData(ptr noundef returned captures(ret:
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 56
   %.pre167 = load i64, ptr %.phi.trans.insert, align 8
   %.not.i = icmp eq i64 %.pre167, %40
-  %or.cond177 = select i1 %41, i1 %.not.i, i1 false
+  %or.cond177 = select i1 %41, i1 %.not.i, i1 false, !prof !39
   br i1 %or.cond177, label %42, label %._crit_edge166, !prof !39
 
 42:                                               ; preds = %35

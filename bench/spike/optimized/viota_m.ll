@@ -206,7 +206,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z18fast_rv32i_viota_mP11
   %79 = and i64 %78, 1
   %80 = icmp eq i64 %79, 0
   %.not100 = icmp eq i64 %63, 0
-  %or.cond122 = select i1 %80, i1 %.not100, i1 false
+  %or.cond122 = select i1 %80, i1 %.not100, i1 false, !prof !148
   br i1 %or.cond122, label %81, label %86, !prof !148
 
 81:                                               ; preds = %77
@@ -645,7 +645,7 @@ define noundef i64 @_Z18fast_rv64i_viota_mP11processor_t6insn_tm(ptr noundef %0,
   %79 = and i64 %78, 1
   %80 = icmp eq i64 %79, 0
   %.not100 = icmp eq i64 %63, 0
-  %or.cond122 = select i1 %80, i1 %.not100, i1 false
+  %or.cond122 = select i1 %80, i1 %.not100, i1 false, !prof !148
   br i1 %or.cond122, label %81, label %86, !prof !148
 
 81:                                               ; preds = %77
@@ -969,7 +969,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20logged_rv32i_viota_mP
   %79 = and i64 %78, 1
   %80 = icmp eq i64 %79, 0
   %.not100 = icmp eq i64 %63, 0
-  %or.cond122 = select i1 %80, i1 %.not100, i1 false
+  %or.cond122 = select i1 %80, i1 %.not100, i1 false, !prof !148
   br i1 %or.cond122, label %81, label %86, !prof !148
 
 81:                                               ; preds = %77
@@ -1295,7 +1295,7 @@ define noundef i64 @_Z20logged_rv64i_viota_mP11processor_t6insn_tm(ptr noundef %
   %79 = and i64 %78, 1
   %80 = icmp eq i64 %79, 0
   %.not100 = icmp eq i64 %63, 0
-  %or.cond122 = select i1 %80, i1 %.not100, i1 false
+  %or.cond122 = select i1 %80, i1 %.not100, i1 false, !prof !148
   br i1 %or.cond122, label %81, label %86, !prof !148
 
 81:                                               ; preds = %77
@@ -1619,7 +1619,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z18fast_rv32e_viota_mP11
   %79 = and i64 %78, 1
   %80 = icmp eq i64 %79, 0
   %.not100 = icmp eq i64 %63, 0
-  %or.cond122 = select i1 %80, i1 %.not100, i1 false
+  %or.cond122 = select i1 %80, i1 %.not100, i1 false, !prof !148
   br i1 %or.cond122, label %81, label %86, !prof !148
 
 81:                                               ; preds = %77
@@ -1945,7 +1945,7 @@ define noundef i64 @_Z18fast_rv64e_viota_mP11processor_t6insn_tm(ptr noundef %0,
   %79 = and i64 %78, 1
   %80 = icmp eq i64 %79, 0
   %.not100 = icmp eq i64 %63, 0
-  %or.cond122 = select i1 %80, i1 %.not100, i1 false
+  %or.cond122 = select i1 %80, i1 %.not100, i1 false, !prof !148
   br i1 %or.cond122, label %81, label %86, !prof !148
 
 81:                                               ; preds = %77
@@ -2269,7 +2269,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20logged_rv32e_viota_mP
   %79 = and i64 %78, 1
   %80 = icmp eq i64 %79, 0
   %.not100 = icmp eq i64 %63, 0
-  %or.cond122 = select i1 %80, i1 %.not100, i1 false
+  %or.cond122 = select i1 %80, i1 %.not100, i1 false, !prof !148
   br i1 %or.cond122, label %81, label %86, !prof !148
 
 81:                                               ; preds = %77
@@ -2595,7 +2595,7 @@ define noundef i64 @_Z20logged_rv64e_viota_mP11processor_t6insn_tm(ptr noundef %
   %79 = and i64 %78, 1
   %80 = icmp eq i64 %79, 0
   %.not100 = icmp eq i64 %63, 0
-  %or.cond122 = select i1 %80, i1 %.not100, i1 false
+  %or.cond122 = select i1 %80, i1 %.not100, i1 false, !prof !148
   br i1 %or.cond122, label %81, label %86, !prof !148
 
 81:                                               ; preds = %77

@@ -17728,7 +17728,7 @@ lean_obj_tag.exit36:                              ; preds = %41, %44
   %55 = ptrtoint ptr %51 to i64
   %56 = and i64 %55, 1
   %57 = icmp ne i64 %56, 0
-  %or.cond = select i1 %54, i1 %57, i1 false
+  %or.cond = select i1 %54, i1 %57, i1 false, !prof !18
   br i1 %or.cond, label %58, label %.critedge.i30, !prof !18
 
 58:                                               ; preds = %48

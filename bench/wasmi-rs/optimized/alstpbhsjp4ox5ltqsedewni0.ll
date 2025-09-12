@@ -352,7 +352,7 @@ define void @_ZN10wasmi_core5table2ty9TableType5new6417h9c0874ab4f5c3311E(ptr de
   tail call void @llvm.experimental.noalias.scope.decl(metadata !87)
   %6 = trunc nuw i64 %3 to i1
   %.not.i.i.i = icmp ugt i64 %2, %4
-  %or.cond = select i1 %6, i1 %.not.i.i.i, i1 false
+  %or.cond = select i1 %6, i1 %.not.i.i.i, i1 false, !prof !90
   br i1 %or.cond, label %7, label %_ZN10wasmi_core5table2ty9TableType8new_impl17h3d89aa4268240193E.exit, !prof !90
 
 7:                                                ; preds = %5
@@ -391,7 +391,7 @@ define hidden void @_ZN10wasmi_core5table2ty9TableType8new_impl17h3d89aa42682401
   %.not.i.i = icmp ugt i64 %3, %5
   %12 = zext i64 %5 to i128
   %.not1.i.i = icmp samesign ult i128 %..i, %12
-  %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %.not1.i.i
+  %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %.not1.i.i, !prof !83
   br i1 %or.cond.i.i, label %13, label %"_ZN4core6option15Option$LT$T$GT$7inspect17h1cac5e75ca5ccd65E.exit", !prof !83
 
 13:                                               ; preds = %11

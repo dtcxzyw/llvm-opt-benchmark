@@ -55475,7 +55475,7 @@ define internal noundef range(i32 0, 23) i32 @_ZN5arrow12_GLOBAL__N_124AsyncReco
   %.val1.i = load ptr, ptr %21, align 8
   %22 = icmp ne ptr %.val.i, null
   %.not.i.i.i.i.i = icmp eq ptr %.val1.i, null
-  %or.cond.i.i = select i1 %22, i1 true, i1 %.not.i.i.i.i.i
+  %or.cond.i.i = select i1 %22, i1 true, i1 %.not.i.i.i.i.i, !prof !3651
   br i1 %or.cond.i.i, label %_ZN5arrow6ResultISt10shared_ptrINS_12_GLOBAL__N_124AsyncRecordBatchIterator5StateEEE7DestroyEv.exit.i, label %23, !prof !3651
 
 23:                                               ; preds = %20
@@ -55640,7 +55640,7 @@ _ZN5arrow6ResultISt10shared_ptrINS_12_GLOBAL__N_124AsyncRecordBatchIterator5Stat
   %.val1.i29 = load ptr, ptr %84, align 8
   %94 = icmp ne ptr %.val.i28, null
   %.not.i.i.i.i.i30 = icmp eq ptr %.val1.i29, null
-  %or.cond.i.i31 = select i1 %94, i1 true, i1 %.not.i.i.i.i.i30
+  %or.cond.i.i31 = select i1 %94, i1 true, i1 %.not.i.i.i.i.i30, !prof !3651
   br i1 %or.cond.i.i31, label %_ZN5arrow6ResultISt10shared_ptrINS_12_GLOBAL__N_124AsyncRecordBatchIterator5StateEEE7DestroyEv.exit.i35, label %95, !prof !3651
 
 95:                                               ; preds = %93
@@ -56385,7 +56385,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i30: ; preds = %77, %75
   %.val1.i = load ptr, ptr %88, align 8
   %89 = icmp ne ptr %.val.i, null
   %.not.i.i.i.i.i = icmp eq ptr %.val1.i, null
-  %or.cond.i.i = select i1 %89, i1 true, i1 %.not.i.i.i.i.i
+  %or.cond.i.i = select i1 %89, i1 true, i1 %.not.i.i.i.i.i, !prof !3651
   br i1 %or.cond.i.i, label %_ZN5arrow6ResultISt10shared_ptrINS_12_GLOBAL__N_124AsyncRecordBatchIterator5StateEEE7DestroyEv.exit.i, label %90, !prof !3651
 
 90:                                               ; preds = %87
@@ -57205,7 +57205,7 @@ _ZN5arrow6ResultISt10shared_ptrINS_12_GLOBAL__N_124AsyncRecordBatchIterator5Stat
   %.val1.i.i = load ptr, ptr %51, align 8
   %52 = icmp ne ptr %.val.i.i, null
   %.not.i.i.i.i.i3.i = icmp eq ptr %.val1.i.i, null
-  %or.cond.i.i.i = select i1 %52, i1 true, i1 %.not.i.i.i.i.i3.i
+  %or.cond.i.i.i = select i1 %52, i1 true, i1 %.not.i.i.i.i.i3.i, !prof !3651
   br i1 %or.cond.i.i.i, label %_ZN5arrow6ResultISt10shared_ptrINS_12_GLOBAL__N_124AsyncRecordBatchIterator5StateEEE7DestroyEv.exit.i.i, label %53, !prof !3651
 
 53:                                               ; preds = %50
@@ -57296,7 +57296,7 @@ _ZN5arrow6ResultISt10shared_ptrINS_12_GLOBAL__N_124AsyncRecordBatchIterator5Stat
   %.val1.i = load ptr, ptr %87, align 8
   %88 = icmp ne ptr %.val.i3, null
   %.not.i.i.i.i.i = icmp eq ptr %.val1.i, null
-  %or.cond.i.i = select i1 %88, i1 true, i1 %.not.i.i.i.i.i
+  %or.cond.i.i = select i1 %88, i1 true, i1 %.not.i.i.i.i.i, !prof !3651
   br i1 %or.cond.i.i, label %_ZN5arrow6ResultISt10shared_ptrINS_12_GLOBAL__N_124AsyncRecordBatchIterator5StateEEE7DestroyEv.exit.i, label %89, !prof !3651
 
 89:                                               ; preds = %86
@@ -57489,7 +57489,7 @@ define internal fastcc void @_ZN5arrow6ResultISt10shared_ptrINS_12_GLOBAL__N_124
   %.val1 = load ptr, ptr %2, align 8
   %3 = icmp ne ptr %.val, null
   %.not.i.i.i.i = icmp eq ptr %.val1, null
-  %or.cond.i = select i1 %3, i1 true, i1 %.not.i.i.i.i
+  %or.cond.i = select i1 %3, i1 true, i1 %.not.i.i.i.i, !prof !3651
   br i1 %or.cond.i, label %_ZN5arrow6ResultISt10shared_ptrINS_12_GLOBAL__N_124AsyncRecordBatchIterator5StateEEE7DestroyEv.exit, label %4, !prof !3651
 
 4:                                                ; preds = %1
@@ -57570,7 +57570,7 @@ define internal void @_ZZN5arrow6FutureISt10shared_ptrINS_12_GLOBAL__N_124AsyncR
   %.val1.i.i = load ptr, ptr %4, align 8
   %5 = icmp ne ptr %.val.i.i, null
   %.not.i.i.i.i.i.i = icmp eq ptr %.val1.i.i, null
-  %or.cond.i.i.i = select i1 %5, i1 true, i1 %.not.i.i.i.i.i.i
+  %or.cond.i.i.i = select i1 %5, i1 true, i1 %.not.i.i.i.i.i.i, !prof !3651
   br i1 %or.cond.i.i.i, label %_ZN5arrow6ResultISt10shared_ptrINS_12_GLOBAL__N_124AsyncRecordBatchIterator5StateEEE7DestroyEv.exit.i.i, label %6, !prof !3651
 
 6:                                                ; preds = %3

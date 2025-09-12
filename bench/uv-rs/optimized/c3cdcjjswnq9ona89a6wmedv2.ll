@@ -794,7 +794,7 @@ define hidden void @_ZN12erased_serde2de3Out4take17hf64587e02ea91155E(ptr noalia
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %15 = load i64, ptr %14, align 8, !alias.scope !175
   %16 = icmp eq i64 %15, %13
-  %or.cond.i = select i1 %12, i1 %16, i1 false
+  %or.cond.i = select i1 %12, i1 %16, i1 false, !prof !178
   br i1 %or.cond.i, label %_ZN12erased_serde3any3Any4take17h8ab708bd0c206655E.exit, label %17, !prof !178
 
 17:                                               ; preds = %8
@@ -6028,7 +6028,7 @@ define hidden noundef align 8 ptr @"_ZN70_$LT$erased_serde..de..Variant$u20$as$u
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %23 = load i64, ptr %22, align 8, !alias.scope !1274, !noalias !1271
   %24 = icmp eq i64 %23, %21
-  %or.cond.i.i = select i1 %20, i1 %24, i1 false
+  %or.cond.i.i = select i1 %20, i1 %24, i1 false, !prof !178
   br i1 %or.cond.i.i, label %_ZN12erased_serde2de3Out4take17hf64587e02ea91155E.exit, label %25, !prof !178
 
 25:                                               ; preds = %16
@@ -9966,7 +9966,7 @@ define hidden void @"_ZN88_$LT$$RF$mut$u20$dyn$u20$erased_serde..de..MapAccess$u
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %31 = load i64, ptr %30, align 8, !alias.scope !1964, !noalias !1961
   %32 = icmp eq i64 %31, %29
-  %or.cond.i.i = select i1 %28, i1 %32, i1 false
+  %or.cond.i.i = select i1 %28, i1 %32, i1 false, !prof !178
   br i1 %or.cond.i.i, label %_ZN12erased_serde2de3Out4take17hf64587e02ea91155E.exit, label %33, !prof !178
 
 33:                                               ; preds = %24
@@ -10055,7 +10055,7 @@ define hidden noundef align 8 ptr @"_ZN88_$LT$$RF$mut$u20$dyn$u20$erased_serde..
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %25 = load i64, ptr %24, align 8, !alias.scope !1971, !noalias !1968
   %26 = icmp eq i64 %25, %23
-  %or.cond.i.i = select i1 %22, i1 %26, i1 false
+  %or.cond.i.i = select i1 %22, i1 %26, i1 false, !prof !178
   br i1 %or.cond.i.i, label %_ZN12erased_serde2de3Out4take17hf64587e02ea91155E.exit, label %27, !prof !178
 
 27:                                               ; preds = %18
@@ -10156,7 +10156,7 @@ define hidden void @"_ZN88_$LT$$RF$mut$u20$dyn$u20$erased_serde..de..SeqAccess$u
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %31 = load i64, ptr %30, align 8, !alias.scope !1978, !noalias !1975
   %32 = icmp eq i64 %31, %29
-  %or.cond.i.i = select i1 %28, i1 %32, i1 false
+  %or.cond.i.i = select i1 %28, i1 %32, i1 false, !prof !178
   br i1 %or.cond.i.i, label %_ZN12erased_serde2de3Out4take17hf64587e02ea91155E.exit, label %33, !prof !178
 
 33:                                               ; preds = %24
@@ -10259,7 +10259,7 @@ define hidden void @"_ZN90_$LT$$RF$mut$u20$dyn$u20$erased_serde..de..EnumAccess$
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %26 = load i64, ptr %25, align 8, !alias.scope !1985
   %27 = icmp eq i64 %26, %24
-  %or.cond.i = select i1 %23, i1 %27, i1 false
+  %or.cond.i = select i1 %23, i1 %27, i1 false, !prof !178
   br i1 %or.cond.i, label %_ZN12erased_serde3any3Any4take17h8ab708bd0c206655E.exit, label %28, !prof !178
 
 28:                                               ; preds = %19
@@ -10341,7 +10341,7 @@ define hidden noalias noundef align 8 ptr @"_ZN93_$LT$erased_serde..de..erase..E
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load i64, ptr %13, align 8, !alias.scope !1988
   %15 = icmp eq i64 %14, %12
-  %or.cond.i = select i1 %11, i1 %15, i1 false
+  %or.cond.i = select i1 %11, i1 %15, i1 false, !prof !178
   br i1 %or.cond.i, label %24, label %16, !prof !178
 
 16:                                               ; preds = %7
@@ -10397,7 +10397,7 @@ define hidden noalias noundef align 8 ptr @"_ZN93_$LT$erased_serde..de..erase..E
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load i64, ptr %13, align 8, !alias.scope !1991
   %15 = icmp eq i64 %14, %12
-  %or.cond.i = select i1 %11, i1 %15, i1 false
+  %or.cond.i = select i1 %11, i1 %15, i1 false, !prof !178
   br i1 %or.cond.i, label %24, label %16, !prof !178
 
 16:                                               ; preds = %7
@@ -10480,7 +10480,7 @@ define hidden noalias noundef align 8 ptr @"_ZN93_$LT$erased_serde..de..erase..E
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load i64, ptr %13, align 8, !alias.scope !1997
   %15 = icmp eq i64 %14, %12
-  %or.cond.i = select i1 %11, i1 %15, i1 false
+  %or.cond.i = select i1 %11, i1 %15, i1 false, !prof !178
   br i1 %or.cond.i, label %24, label %16, !prof !178
 
 16:                                               ; preds = %7
@@ -10536,7 +10536,7 @@ define hidden noalias noundef align 8 ptr @"_ZN93_$LT$erased_serde..de..erase..E
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load i64, ptr %13, align 8, !alias.scope !2000
   %15 = icmp eq i64 %14, %12
-  %or.cond.i = select i1 %11, i1 %15, i1 false
+  %or.cond.i = select i1 %11, i1 %15, i1 false, !prof !178
   br i1 %or.cond.i, label %24, label %16, !prof !178
 
 16:                                               ; preds = %7
@@ -10596,7 +10596,7 @@ define hidden void @"_ZN93_$LT$erased_serde..de..erase..EnumAccess$LT$T$GT$$u20$
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %21 = load i64, ptr %20, align 8, !alias.scope !2003
   %22 = icmp eq i64 %21, %19
-  %or.cond.i = select i1 %18, i1 %22, i1 false
+  %or.cond.i = select i1 %18, i1 %22, i1 false, !prof !178
   br i1 %or.cond.i, label %_ZN12erased_serde3any3Any4take17h54d72dd0b9c1c558E.exit, label %23, !prof !178
 
 23:                                               ; preds = %14
@@ -10681,7 +10681,7 @@ define hidden void @"_ZN93_$LT$erased_serde..de..erase..EnumAccess$LT$T$GT$$u20$
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %21 = load i64, ptr %20, align 8, !alias.scope !2012
   %22 = icmp eq i64 %21, %19
-  %or.cond.i = select i1 %18, i1 %22, i1 false
+  %or.cond.i = select i1 %18, i1 %22, i1 false, !prof !178
   br i1 %or.cond.i, label %_ZN12erased_serde3any3Any4take17h4ff713a3338aec3dE.exit, label %23, !prof !178
 
 23:                                               ; preds = %14
@@ -10766,7 +10766,7 @@ define hidden void @"_ZN93_$LT$erased_serde..de..erase..EnumAccess$LT$T$GT$$u20$
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %21 = load i64, ptr %20, align 8, !alias.scope !2021
   %22 = icmp eq i64 %21, %19
-  %or.cond.i = select i1 %18, i1 %22, i1 false
+  %or.cond.i = select i1 %18, i1 %22, i1 false, !prof !178
   br i1 %or.cond.i, label %_ZN12erased_serde3any3Any4take17h54d72dd0b9c1c558E.exit, label %23, !prof !178
 
 23:                                               ; preds = %14
@@ -10851,7 +10851,7 @@ define hidden void @"_ZN93_$LT$erased_serde..de..erase..EnumAccess$LT$T$GT$$u20$
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %21 = load i64, ptr %20, align 8, !alias.scope !2030
   %22 = icmp eq i64 %21, %19
-  %or.cond.i = select i1 %18, i1 %22, i1 false
+  %or.cond.i = select i1 %18, i1 %22, i1 false, !prof !178
   br i1 %or.cond.i, label %_ZN12erased_serde3any3Any4take17h54d72dd0b9c1c558E.exit, label %23, !prof !178
 
 23:                                               ; preds = %14
@@ -10970,7 +10970,7 @@ define hidden void @"_ZN93_$LT$erased_serde..de..erase..EnumAccess$LT$T$GT$$u20$
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %20 = load i64, ptr %19, align 8, !alias.scope !2042
   %21 = icmp eq i64 %20, %18
-  %or.cond.i = select i1 %17, i1 %21, i1 false
+  %or.cond.i = select i1 %17, i1 %21, i1 false, !prof !178
   br i1 %or.cond.i, label %_ZN12erased_serde3any3Any4take17h54d72dd0b9c1c558E.exit, label %22, !prof !178
 
 22:                                               ; preds = %13
@@ -11055,7 +11055,7 @@ define hidden void @"_ZN93_$LT$erased_serde..de..erase..EnumAccess$LT$T$GT$$u20$
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %20 = load i64, ptr %19, align 8, !alias.scope !2051
   %21 = icmp eq i64 %20, %18
-  %or.cond.i = select i1 %17, i1 %21, i1 false
+  %or.cond.i = select i1 %17, i1 %21, i1 false, !prof !178
   br i1 %or.cond.i, label %_ZN12erased_serde3any3Any4take17h54d72dd0b9c1c558E.exit, label %22, !prof !178
 
 22:                                               ; preds = %13
@@ -11140,7 +11140,7 @@ define hidden void @"_ZN93_$LT$erased_serde..de..erase..EnumAccess$LT$T$GT$$u20$
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %20 = load i64, ptr %19, align 8, !alias.scope !2060
   %21 = icmp eq i64 %20, %18
-  %or.cond.i = select i1 %17, i1 %21, i1 false
+  %or.cond.i = select i1 %17, i1 %21, i1 false, !prof !178
   br i1 %or.cond.i, label %_ZN12erased_serde3any3Any4take17h4ff713a3338aec3dE.exit, label %22, !prof !178
 
 22:                                               ; preds = %13
@@ -11261,7 +11261,7 @@ define hidden void @"_ZN93_$LT$erased_serde..de..erase..EnumAccess$LT$T$GT$$u20$
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %20 = load i64, ptr %19, align 8, !alias.scope !2078
   %21 = icmp eq i64 %20, %18
-  %or.cond.i = select i1 %17, i1 %21, i1 false
+  %or.cond.i = select i1 %17, i1 %21, i1 false, !prof !178
   br i1 %or.cond.i, label %_ZN12erased_serde3any3Any4take17h54d72dd0b9c1c558E.exit, label %22, !prof !178
 
 22:                                               ; preds = %13
@@ -11346,7 +11346,7 @@ define hidden void @"_ZN93_$LT$erased_serde..de..erase..EnumAccess$LT$T$GT$$u20$
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %22 = load i64, ptr %21, align 8, !alias.scope !2087
   %23 = icmp eq i64 %22, %20
-  %or.cond.i = select i1 %19, i1 %23, i1 false
+  %or.cond.i = select i1 %19, i1 %23, i1 false, !prof !178
   br i1 %or.cond.i, label %_ZN12erased_serde3any3Any4take17h4ff713a3338aec3dE.exit, label %24, !prof !178
 
 24:                                               ; preds = %15
@@ -11467,7 +11467,7 @@ define hidden void @"_ZN93_$LT$erased_serde..de..erase..EnumAccess$LT$T$GT$$u20$
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %22 = load i64, ptr %21, align 8, !alias.scope !2106
   %23 = icmp eq i64 %22, %20
-  %or.cond.i = select i1 %19, i1 %23, i1 false
+  %or.cond.i = select i1 %19, i1 %23, i1 false, !prof !178
   br i1 %or.cond.i, label %_ZN12erased_serde3any3Any4take17h54d72dd0b9c1c558E.exit, label %24, !prof !178
 
 24:                                               ; preds = %15
@@ -11552,7 +11552,7 @@ define hidden void @"_ZN93_$LT$erased_serde..de..erase..EnumAccess$LT$T$GT$$u20$
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %22 = load i64, ptr %21, align 8, !alias.scope !2115
   %23 = icmp eq i64 %22, %20
-  %or.cond.i = select i1 %19, i1 %23, i1 false
+  %or.cond.i = select i1 %19, i1 %23, i1 false, !prof !178
   br i1 %or.cond.i, label %_ZN12erased_serde3any3Any4take17h54d72dd0b9c1c558E.exit, label %24, !prof !178
 
 24:                                               ; preds = %15
@@ -11637,7 +11637,7 @@ define hidden void @"_ZN93_$LT$erased_serde..de..erase..EnumAccess$LT$T$GT$$u20$
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %22 = load i64, ptr %21, align 8, !alias.scope !2124
   %23 = icmp eq i64 %22, %20
-  %or.cond.i = select i1 %19, i1 %23, i1 false
+  %or.cond.i = select i1 %19, i1 %23, i1 false, !prof !178
   br i1 %or.cond.i, label %_ZN12erased_serde3any3Any4take17h54d72dd0b9c1c558E.exit, label %24, !prof !178
 
 24:                                               ; preds = %15
@@ -11809,7 +11809,7 @@ define hidden noundef align 8 ptr @"_ZN94_$LT$$RF$mut$u20$dyn$u20$erased_serde..
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %23 = load i64, ptr %22, align 8, !alias.scope !2143, !noalias !2140
   %24 = icmp eq i64 %23, %21
-  %or.cond.i.i = select i1 %20, i1 %24, i1 false
+  %or.cond.i.i = select i1 %20, i1 %24, i1 false, !prof !178
   br i1 %or.cond.i.i, label %_ZN12erased_serde2de3Out4take17hf64587e02ea91155E.exit, label %25, !prof !178
 
 25:                                               ; preds = %16

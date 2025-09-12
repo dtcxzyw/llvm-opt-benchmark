@@ -27876,7 +27876,7 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort19bidirectional
   %.sroa.0.1 = phi ptr [ %31, %._crit_edge ], [ %54, %51 ]
   %59 = icmp ne ptr %.sroa.0.1, %9
   %60 = icmp ne ptr %.sroa.06.1, %10
-  %or.cond = select i1 %59, i1 true, i1 %60
+  %or.cond = select i1 %59, i1 true, i1 %60, !prof !10207
   br i1 %or.cond, label %62, label %61, !prof !10207
 
 61:                                               ; preds = %58
@@ -27996,7 +27996,7 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort19bidirectional
   %.sroa.0.1 = phi ptr [ %30, %._crit_edge ], [ %53, %49 ]
   %58 = icmp ne ptr %.sroa.0.1, %9
   %59 = icmp ne ptr %.sroa.06.1, %10
-  %or.cond = select i1 %58, i1 true, i1 %59
+  %or.cond = select i1 %58, i1 true, i1 %59, !prof !10207
   br i1 %or.cond, label %61, label %60, !prof !10207
 
 60:                                               ; preds = %57

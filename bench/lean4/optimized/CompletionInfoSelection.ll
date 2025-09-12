@@ -9048,7 +9048,7 @@ lean_obj_tag.exit50:                              ; preds = %43, %46
   %68 = ptrtoint ptr %64 to i64
   %69 = and i64 %68, 1
   %70 = icmp ne i64 %69, 0
-  %or.cond = select i1 %67, i1 %70, i1 false
+  %or.cond = select i1 %67, i1 %70, i1 false, !prof !18
   br i1 %or.cond, label %71, label %.critedge.i, !prof !18
 
 71:                                               ; preds = %60
@@ -9078,7 +9078,7 @@ lean_nat_lt.exit:                                 ; preds = %71, %.critedge.i
   %84 = ptrtoint ptr %80 to i64
   %85 = and i64 %84, 1
   %86 = icmp ne i64 %85, 0
-  %or.cond55 = select i1 %83, i1 %86, i1 false
+  %or.cond55 = select i1 %83, i1 %86, i1 false, !prof !18
   br i1 %or.cond55, label %87, label %.critedge.i39, !prof !18
 
 87:                                               ; preds = %76

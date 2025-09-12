@@ -10119,7 +10119,7 @@ _ZN7AstNode11privateCastI19AstUnpackArrayDTypeP12AstNodeDTypeEEPT_PS_.exit: ; pr
   %196 = icmp sgt i32 %.sroa.4.0.extract.trunc, 0
   %197 = load i64, ptr %21, align 8
   %.not102 = icmp eq i64 %197, 0
-  %or.cond = select i1 %196, i1 %.not102, i1 false
+  %or.cond = select i1 %196, i1 %.not102, i1 false, !prof !304
   br i1 %or.cond, label %198, label %_ZN7AstNode11privateCastI19AstUnpackArrayDTypeP12AstNodeDTypeEEPT_PS_.exit.thread, !prof !304
 
 198:                                              ; preds = %195

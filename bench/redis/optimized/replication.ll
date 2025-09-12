@@ -1878,7 +1878,7 @@ define dso_local void @replicationFeedStreamFromMasterStream(ptr noundef readonl
   %.not = icmp ne i64 %6, 0
   %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7104), align 8
   %.not1 = icmp eq ptr %7, null
-  %or.cond = select i1 %.not, i1 %.not1, i1 false
+  %or.cond = select i1 %.not, i1 %.not1, i1 false, !prof !105
   br i1 %or.cond, label %8, label %9, !prof !105
 
 8:                                                ; preds = %2

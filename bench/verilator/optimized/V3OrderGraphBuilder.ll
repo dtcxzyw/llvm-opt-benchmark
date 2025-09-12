@@ -1487,7 +1487,7 @@ define linkonce_odr dso_local void @_ZN17OrderGraphBuilder5visitEP9AstActive(ptr
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %33 = load ptr, ptr %32, align 8
   %.not22 = icmp ne ptr %33, null
-  %or.cond27 = select i1 %or.cond.not49, i1 true, i1 %.not22
+  %or.cond27 = select i1 %or.cond.not49, i1 true, i1 %.not22, !prof !83
   br i1 %or.cond27, label %.critedge, label %37, !prof !83
 
 .critedge:                                        ; preds = %26

@@ -2871,7 +2871,7 @@ define hidden void @_ZN15crossbeam_utils6thread5scope17h6f3294369807cee0E(ptr de
   store i64 %70, ptr %77, align 8, !noalias !314
   store i64 1, ptr %31, align 8, !noalias !314
   %78 = icmp eq i64 %.sroa.6.0.i.i.i.i.i.i, %70
-  %or.cond.i.i.i.i.i = select i1 %75, i1 %78, i1 false
+  %or.cond.i.i.i.i.i = select i1 %75, i1 %78, i1 false, !prof !315
   br i1 %or.cond.i.i.i.i.i, label %80, label %79, !prof !315
 
 79:                                               ; preds = %"_ZN108_$LT$core..iter..adapters..peekable..Peekable$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17had6547b4f90dd17cE.exit.i.i.i.i.i"
@@ -2936,7 +2936,7 @@ define hidden void @_ZN15crossbeam_utils6thread5scope17h6f3294369807cee0E(ptr de
   store i64 1, ptr %27, align 8, !noalias !327
   %101 = trunc nuw i64 %.sroa.03.0.sink.i.i19.i.i.i.i to i1
   %102 = icmp eq i64 %.sroa.6.0.sink.i.i20.i.i.i.i, %.sink.i.i18.i.i.i.i
-  %or.cond.i21.i.i.i.i = select i1 %101, i1 %102, i1 false
+  %or.cond.i21.i.i.i.i = select i1 %101, i1 %102, i1 false, !prof !315
   br i1 %or.cond.i21.i.i.i.i, label %106, label %103, !prof !315
 
 103:                                              ; preds = %"_ZN108_$LT$core..iter..adapters..peekable..Peekable$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17had6547b4f90dd17cE.exit.i17.i.i.i.i"

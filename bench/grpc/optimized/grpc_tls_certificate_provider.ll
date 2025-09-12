@@ -1967,7 +1967,7 @@ _ZN4absl12lts_2024072212log_internal8VLogSite9IsEnabledEi.exit: ; preds = %94
 .critedge34:                                      ; preds = %109
   %119 = load i64, ptr %57, align 8
   %120 = icmp eq i64 %119, 0
-  %or.cond = select i1 %111, i1 %120, i1 false
+  %or.cond = select i1 %111, i1 %120, i1 false, !prof !121
   br i1 %or.cond, label %121, label %.critedge36, !prof !121
 
 121:                                              ; preds = %.critedge34

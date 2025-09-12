@@ -6706,7 +6706,7 @@ _ZN5boost10filesystem4pathD2Ev.exit:              ; preds = %_ZNKSt7__cxx1112bas
   %67 = icmp ne i64 %64, 1
   %68 = load i32, ptr %5, align 8
   %69 = icmp ne i32 %68, 0
-  %or.cond = select i1 %67, i1 true, i1 %69
+  %or.cond = select i1 %67, i1 true, i1 %69, !prof !122
   br i1 %or.cond, label %_ZNK5boost6system10error_codecvbEv.exit.thread, label %_ZNK5boost6system10error_codecvbEv.exit.thread61, !prof !122
 
 .critedge:                                        ; preds = %110
@@ -6825,7 +6825,7 @@ _ZNK5boost6system10error_codecvbEv.exit.thread61: ; preds = %66, %_ZN5boost10fil
   %111 = icmp ne i64 %108, 1
   %112 = load i32, ptr %5, align 8
   %113 = icmp ne i32 %112, 0
-  %or.cond72 = select i1 %111, i1 true, i1 %113
+  %or.cond72 = select i1 %111, i1 true, i1 %113, !prof !123
   br i1 %or.cond72, label %.critedge, label %_ZNK5boost6system10error_codecvbEv.exit38.thread64, !prof !123
 
 114:                                              ; preds = %_ZNK5boost6system10error_codecvbEv.exit.thread61
@@ -6848,7 +6848,7 @@ _ZNK5boost6system10error_codecvbEv.exit38.thread64: ; preds = %110, %106
   %120 = icmp ne i64 %117, 1
   %121 = load i32, ptr %5, align 8
   %122 = icmp ne i32 %121, 0
-  %or.cond74 = select i1 %120, i1 true, i1 %122
+  %or.cond74 = select i1 %120, i1 true, i1 %122, !prof !123
   br i1 %or.cond74, label %.critedge24, label %_ZNK5boost6system10error_codecvbEv.exit41.thread67, !prof !123
 
 123:                                              ; preds = %_ZNK5boost6system10error_codecvbEv.exit38.thread64
@@ -8610,7 +8610,7 @@ _ZN5boost10filesystem6detail16create_directoryERKNS0_4pathEPS3_PNS_6system10erro
   %249 = icmp ne i64 %246, 1
   %250 = load i32, ptr %13, align 8
   %251 = icmp ne i32 %250, 0
-  %or.cond = select i1 %249, i1 true, i1 %251
+  %or.cond = select i1 %249, i1 true, i1 %251, !prof !122
   br i1 %or.cond, label %_ZNK5boost6system10error_codecvbEv.exit.thread, label %_ZNK5boost6system10error_codecvbEv.exit.thread122, !prof !122
 
 _ZNK5boost6system10error_codecvbEv.exit.thread:   ; preds = %248
@@ -10295,7 +10295,7 @@ _ZN5boost10filesystem4pathD2Ev.exit:              ; preds = %_ZNKSt7__cxx1112bas
   %166 = icmp ne i64 %163, 1
   %167 = load i32, ptr %8, align 8
   %168 = icmp ne i32 %167, 0
-  %or.cond = select i1 %166, i1 true, i1 %168
+  %or.cond = select i1 %166, i1 true, i1 %168, !prof !122
   br i1 %or.cond, label %_ZNK5boost6system10error_codecvbEv.exit55.thread, label %_ZNK5boost6system10error_codecvbEv.exit55.thread106, !prof !122
 
 _ZNK5boost6system10error_codecvbEv.exit55.thread: ; preds = %165
@@ -11125,7 +11125,7 @@ _ZNK5boost6system10error_codecvbEv.exit.thread.thread249: ; preds = %_ZNK5boost6
   %107 = phi i1 [ %106, %_ZNK5boost6system10error_codecvbEv.exit.thread ], [ false, %_ZNK5boost6system10error_codecvbEv.exit ]
   %108 = load i32, ptr %7, align 8
   %109 = icmp ne i32 %108, 0
-  %or.cond = select i1 %107, i1 true, i1 %109
+  %or.cond = select i1 %107, i1 true, i1 %109, !prof !123
   br i1 %or.cond, label %_ZNK5boost6system10error_codecvbEv.exit100.thread, label %_ZNK5boost6system10error_codecvbEv.exit100.thread130, !prof !174
 
 _ZNK5boost6system10error_codecvbEv.exit100.thread: ; preds = %98, %_ZNK5boost6system10error_codecvbEv.exit.thread.thread249
@@ -12501,7 +12501,7 @@ _ZN5boost10filesystem4pathD2Ev.exit:              ; preds = %_ZNKSt7__cxx1112bas
   %166 = icmp ne i64 %163, 1
   %167 = load i32, ptr %8, align 8
   %168 = icmp ne i32 %167, 0
-  %or.cond = select i1 %166, i1 true, i1 %168
+  %or.cond = select i1 %166, i1 true, i1 %168, !prof !122
   br i1 %or.cond, label %_ZNK5boost6system10error_codecvbEv.exit55.thread, label %_ZNK5boost6system10error_codecvbEv.exit55.thread106, !prof !122
 
 _ZNK5boost6system10error_codecvbEv.exit55.thread: ; preds = %165

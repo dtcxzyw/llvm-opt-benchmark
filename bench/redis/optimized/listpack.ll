@@ -1852,7 +1852,7 @@ lpEncodeBacklenBytes.exit:                        ; preds = %switch.lookup211, %
   %203 = getelementptr inbounds nuw i8, ptr %202, i64 %149
   %204 = getelementptr inbounds nuw i8, ptr %203, i64 %154
   %205 = icmp ult ptr %200, %204
-  %or.cond185 = select i1 %.not139, i1 %205, i1 false
+  %or.cond185 = select i1 %.not139, i1 %205, i1 false, !prof !28
   br i1 %or.cond185, label %lpEncodeBacklen.exit._crit_edge, label %.critedge145, !prof !28
 
 .critedge145:                                     ; preds = %lpEncodeBacklenBytes.exit

@@ -26303,7 +26303,7 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort8_stable1
   %56 = getelementptr i8, ptr %71, i64 1
   %57 = icmp ne ptr %66, %55
   %58 = icmp ne ptr %64, %56
-  %or.cond.i = select i1 %57, i1 true, i1 %58
+  %or.cond.i = select i1 %57, i1 true, i1 %58, !prof !8984
   br i1 %or.cond.i, label %74, label %_ZN4core5slice4sort6shared9smallsort19bidirectional_merge17hcf9bd6f150560c95E.exit, !prof !8984
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %3
@@ -26606,7 +26606,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
   %.sroa.0.1.i = phi ptr [ %94, %._crit_edge.i ], [ %106, %102 ]
   %111 = icmp ne ptr %.sroa.0.1.i, %83
   %112 = icmp ne ptr %.sroa.06.1.i, %84
-  %or.cond.i = select i1 %111, i1 true, i1 %112
+  %or.cond.i = select i1 %111, i1 true, i1 %112, !prof !8984
   br i1 %or.cond.i, label %113, label %_ZN4core5slice4sort6shared9smallsort19bidirectional_merge17hcf9bd6f150560c95E.exit, !prof !8984
 
 113:                                              ; preds = %110

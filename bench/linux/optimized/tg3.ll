@@ -30785,7 +30785,7 @@ define internal noundef range(i32 0, 2) i32 @tg3_interrupt(i32 %0, ptr noundef %
   %77 = load i32, ptr %76, align 4
   %78 = icmp eq i32 %77, %75
   %79 = icmp eq i32 %69, 0
-  %or.cond = select i1 %78, i1 %79, i1 false
+  %or.cond = select i1 %78, i1 %79, i1 false, !prof !182
   br i1 %or.cond, label %87, label %.thread, !prof !182
 
 select.unfold:                                    ; preds = %61

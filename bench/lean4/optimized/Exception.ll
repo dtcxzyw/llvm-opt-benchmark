@@ -452,7 +452,7 @@ lean_obj_tag.exit:                                ; preds = %4, %7
   %20 = ptrtoint ptr %16 to i64
   %21 = and i64 %20, 1
   %22 = icmp ne i64 %21, 0
-  %or.cond = select i1 %19, i1 %22, i1 false
+  %or.cond = select i1 %19, i1 %22, i1 false, !prof !14
   br i1 %or.cond, label %23, label %lean_nat_eq.exit, !prof !14
 
 23:                                               ; preds = %11
@@ -866,7 +866,7 @@ lean_obj_tag.exit:                                ; preds = %4, %7
   %18 = ptrtoint ptr %14 to i64
   %19 = and i64 %18, 1
   %20 = icmp ne i64 %19, 0
-  %or.cond = select i1 %17, i1 %20, i1 false
+  %or.cond = select i1 %17, i1 %20, i1 false, !prof !14
   br i1 %or.cond, label %21, label %.critedge.i, !prof !14
 
 21:                                               ; preds = %11
@@ -920,7 +920,7 @@ lean_obj_tag.exit.i:                              ; preds = %7, %4
   %18 = ptrtoint ptr %14 to i64
   %19 = and i64 %18, 1
   %20 = icmp ne i64 %19, 0
-  %or.cond.i = select i1 %17, i1 %20, i1 false
+  %or.cond.i = select i1 %17, i1 %20, i1 false, !prof !14
   br i1 %or.cond.i, label %21, label %.critedge.i.i, !prof !14
 
 21:                                               ; preds = %11
@@ -972,7 +972,7 @@ define zeroext range(i8 0, 2) i8 @l_Lean_Elab_isAbortExceptionId(ptr noundef %0)
   %6 = ptrtoint ptr %2 to i64
   %7 = and i64 %6, 1
   %8 = icmp ne i64 %7, 0
-  %or.cond = select i1 %5, i1 %8, i1 false
+  %or.cond = select i1 %5, i1 %8, i1 false, !prof !14
   br i1 %or.cond, label %lean_nat_eq.exit.thread, label %lean_nat_eq.exit, !prof !14
 
 lean_nat_eq.exit:                                 ; preds = %1

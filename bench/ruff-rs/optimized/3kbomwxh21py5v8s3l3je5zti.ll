@@ -39488,7 +39488,7 @@ _ZN7tracing4span4Span7entered17ha11137ff65c49145E.exit: ; preds = %.noexc104, %5
 148:                                              ; preds = %147
   %149 = icmp ne i64 %134, %128
   %.not93 = icmp eq ptr %127, null
-  %or.cond = select i1 %149, i1 true, i1 %.not93
+  %or.cond = select i1 %149, i1 true, i1 %.not93, !prof !5
   br i1 %or.cond, label %.thread, label %.thread124, !prof !5
 
 150:                                              ; preds = %147

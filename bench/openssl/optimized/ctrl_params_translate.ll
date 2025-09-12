@@ -1196,8 +1196,8 @@ define i32 @evp_pkey_get_params_to_ctrl(ptr noundef %0, ptr noundef %1) local_un
   store ptr %0, ptr %7, align 8, !tbaa !35
   store ptr %.02242.i4, ptr %8, align 8, !tbaa !37
   %17 = icmp ne i32 %16, 1
-  %brmerge.i = select i1 %17, i1 true, i1 %.not30.i
-  br i1 %brmerge.i, label %.critedge35.i, label %18, !prof !61
+  %brmerge.i = select i1 %17, i1 true, i1 %.not30.i, !prof !61
+  br i1 %brmerge.i, label %.critedge35.i, label %18, !prof !62
 
 18:                                               ; preds = %13
   %19 = call i32 %15(i32 noundef 0, ptr noundef nonnull %12, ptr noundef nonnull %3) #8
@@ -1379,7 +1379,7 @@ define internal fastcc ptr @lookup_translation(ptr noundef nonnull captures(none
   %17 = load i32, ptr %16, align 8, !tbaa !21
   %18 = icmp ne i32 %17, -1
   %19 = xor i1 %15, %18
-  br i1 %19, label %20, label %.thread, !prof !62
+  br i1 %19, label %20, label %.thread, !prof !63
 
 20:                                               ; preds = %11
   %21 = getelementptr inbounds nuw i8, ptr %12, i64 12
@@ -1496,7 +1496,7 @@ define internal fastcc ptr @lookup_translation(ptr noundef nonnull captures(none
 .thread:                                          ; preds = %49, %52, %39, %11, %23, %30, %34, %68, %63
   %70 = add nuw nsw i64 %.04884, 1
   %exitcond.not = icmp eq i64 %70, %2
-  br i1 %exitcond.not, label %.loopexit, label %11, !llvm.loop !63
+  br i1 %exitcond.not, label %.loopexit, label %11, !llvm.loop !64
 
 .loopexit:                                        ; preds = %34, %68, %65, %59, %.thread, %58
   %.2 = phi ptr [ %12, %58 ], [ %12, %34 ], [ %12, %68 ], [ %12, %65 ], [ null, %59 ], [ null, %.thread ]
@@ -1566,7 +1566,7 @@ define internal i32 @fix_md(i32 noundef %0, ptr noundef readonly captures(addres
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %12 = load ptr, ptr %11, align 8, !tbaa !35
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  store ptr %12, ptr %13, align 8, !tbaa !65
+  store ptr %12, ptr %13, align 8, !tbaa !66
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store ptr %14, ptr %11, align 8, !tbaa !35
   br label %.critedge.thread.sink.split.i
@@ -1643,12 +1643,12 @@ define internal i32 @fix_md(i32 noundef %0, ptr noundef readonly captures(addres
 51:                                               ; preds = %47
   %52 = load ptr, ptr %2, align 8, !tbaa !36
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
-  %54 = load ptr, ptr %53, align 8, !tbaa !66
+  %54 = load ptr, ptr %53, align 8, !tbaa !67
   %55 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %56 = load ptr, ptr %55, align 8, !tbaa !35
   %57 = tail call ptr @evp_get_digestbyname_ex(ptr noundef %54, ptr noundef %56) #8
   %58 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %59 = load ptr, ptr %58, align 8, !tbaa !65
+  %59 = load ptr, ptr %58, align 8, !tbaa !66
   store ptr %57, ptr %59, align 8, !tbaa !46
   br label %.sink.split.i
 
@@ -1661,7 +1661,7 @@ define internal i32 @fix_md(i32 noundef %0, ptr noundef readonly captures(addres
 64:                                               ; preds = %60
   %65 = load ptr, ptr %2, align 8, !tbaa !36
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
-  %67 = load ptr, ptr %66, align 8, !tbaa !66
+  %67 = load ptr, ptr %66, align 8, !tbaa !67
   %68 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %69 = load ptr, ptr %68, align 8, !tbaa !35
   %70 = tail call ptr @evp_get_digestbyname_ex(ptr noundef %67, ptr noundef %69) #8
@@ -2070,7 +2070,7 @@ define internal i32 @fix_ecdh_cofactor(i32 noundef %0, ptr noundef readonly capt
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load i32, ptr %6, align 8, !tbaa !29
   %8 = icmp eq i32 %7, 0
-  br i1 %8, label %9, label %62, !prof !62
+  br i1 %8, label %9, label %62, !prof !63
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 28
@@ -2221,7 +2221,7 @@ define internal i32 @fix_rsa_padding_mode(i32 noundef %0, ptr noundef readonly c
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %13 = load ptr, ptr %12, align 8, !tbaa !35
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  store ptr %13, ptr %14, align 8, !tbaa !65
+  store ptr %13, ptr %14, align 8, !tbaa !66
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store ptr %15, ptr %12, align 8, !tbaa !35
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 28
@@ -2272,14 +2272,14 @@ define internal i32 @fix_rsa_padding_mode(i32 noundef %0, ptr noundef readonly c
 38:                                               ; preds = %.preheader, %42
   %.06479 = phi i64 [ 0, %.preheader ], [ %43, %42 ]
   %39 = getelementptr inbounds nuw %struct.ossl_item_st, ptr @fix_rsa_padding_mode.str_value_map, i64 %.06479
-  %40 = load i32, ptr %39, align 16, !tbaa !67
+  %40 = load i32, ptr %39, align 16, !tbaa !68
   %41 = icmp eq i32 %33, %40
   br i1 %41, label %44, label %42
 
 42:                                               ; preds = %38
   %43 = add nuw nsw i64 %.06479, 1
   %exitcond.not = icmp eq i64 %43, 7
-  br i1 %exitcond.not, label %.thread87, label %38, !llvm.loop !69
+  br i1 %exitcond.not, label %.thread87, label %38, !llvm.loop !70
 
 44:                                               ; preds = %38
   switch i64 %.06479, label %48 [
@@ -2304,7 +2304,7 @@ define internal i32 @fix_rsa_padding_mode(i32 noundef %0, ptr noundef readonly c
 48:                                               ; preds = %44
   %49 = getelementptr inbounds nuw %struct.ossl_item_st, ptr @fix_rsa_padding_mode.str_value_map, i64 %.06479
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  %51 = load ptr, ptr %50, align 8, !tbaa !70
+  %51 = load ptr, ptr %50, align 8, !tbaa !71
   %52 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store ptr %51, ptr %52, align 8, !tbaa !35
   %53 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %51) #9
@@ -2340,7 +2340,7 @@ define internal i32 @fix_rsa_padding_mode(i32 noundef %0, ptr noundef readonly c
   %.080 = phi i64 [ 0, %65 ], [ %75, %74 ]
   %69 = getelementptr inbounds nuw %struct.ossl_item_st, ptr @fix_rsa_padding_mode.str_value_map, i64 %.080
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
-  %71 = load ptr, ptr %70, align 8, !tbaa !70
+  %71 = load ptr, ptr %70, align 8, !tbaa !71
   %72 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %67, ptr noundef nonnull dereferenceable(1) %71) #9
   %73 = icmp eq i32 %72, 0
   br i1 %73, label %.thread76, label %74
@@ -2348,7 +2348,7 @@ define internal i32 @fix_rsa_padding_mode(i32 noundef %0, ptr noundef readonly c
 74:                                               ; preds = %68
   %75 = add nuw nsw i64 %.080, 1
   %exitcond82.not = icmp eq i64 %75, 7
-  br i1 %exitcond82.not, label %76, label %68, !llvm.loop !71
+  br i1 %exitcond82.not, label %76, label %68, !llvm.loop !72
 
 76:                                               ; preds = %74
   tail call void @ERR_new() #8
@@ -2362,12 +2362,12 @@ define internal i32 @fix_rsa_padding_mode(i32 noundef %0, ptr noundef readonly c
 
 .thread76:                                        ; preds = %68
   %80 = icmp eq i32 %0, 2
-  %81 = load i32, ptr %69, align 16, !tbaa !67
+  %81 = load i32, ptr %69, align 16, !tbaa !68
   br i1 %80, label %82, label %85
 
 82:                                               ; preds = %.thread76
   %83 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %84 = load ptr, ptr %83, align 8, !tbaa !65
+  %84 = load ptr, ptr %83, align 8, !tbaa !66
   store i32 %81, ptr %84, align 4, !tbaa !45
   br label %87
 
@@ -2406,7 +2406,7 @@ define internal i32 @fix_rsa_pss_saltlen(i32 noundef %0, ptr noundef readonly ca
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %14 = load ptr, ptr %13, align 8, !tbaa !35
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  store ptr %14, ptr %15, align 8, !tbaa !65
+  store ptr %14, ptr %15, align 8, !tbaa !66
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store ptr %16, ptr %13, align 8, !tbaa !35
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 28
@@ -2430,14 +2430,14 @@ define internal i32 @fix_rsa_pss_saltlen(i32 noundef %0, ptr noundef readonly ca
 25:                                               ; preds = %22, %29
   %.05971 = phi i64 [ 0, %22 ], [ %30, %29 ]
   %26 = getelementptr inbounds nuw %struct.ossl_item_st, ptr @fix_rsa_pss_saltlen.str_value_map, i64 %.05971
-  %27 = load i32, ptr %26, align 16, !tbaa !67
+  %27 = load i32, ptr %26, align 16, !tbaa !68
   %28 = icmp eq i32 %24, %27
   br i1 %28, label %.thread65, label %29
 
 29:                                               ; preds = %25
   %30 = add nuw nsw i64 %.05971, 1
   %exitcond.not = icmp eq i64 %30, 3
-  br i1 %exitcond.not, label %31, label %25, !llvm.loop !72
+  br i1 %exitcond.not, label %31, label %25, !llvm.loop !73
 
 31:                                               ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 64
@@ -2447,7 +2447,7 @@ define internal i32 @fix_rsa_pss_saltlen(i32 noundef %0, ptr noundef readonly ca
 .thread65:                                        ; preds = %25
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %35 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %36 = load ptr, ptr %35, align 8, !tbaa !70
+  %36 = load ptr, ptr %35, align 8, !tbaa !71
   %37 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %34, ptr noundef nonnull dereferenceable(1) %36, i64 noundef 49) #8
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 113
   store i8 0, ptr %38, align 1, !tbaa !40
@@ -2490,7 +2490,7 @@ define internal i32 @fix_rsa_pss_saltlen(i32 noundef %0, ptr noundef readonly ca
   %.05872 = phi i64 [ 0, %54 ], [ %64, %63 ]
   %58 = getelementptr inbounds nuw %struct.ossl_item_st, ptr @fix_rsa_pss_saltlen.str_value_map, i64 %.05872
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
-  %60 = load ptr, ptr %59, align 8, !tbaa !70
+  %60 = load ptr, ptr %59, align 8, !tbaa !71
   %61 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %56, ptr noundef nonnull dereferenceable(1) %60) #9
   %62 = icmp eq i32 %61, 0
   br i1 %62, label %.thread66, label %63
@@ -2498,7 +2498,7 @@ define internal i32 @fix_rsa_pss_saltlen(i32 noundef %0, ptr noundef readonly ca
 63:                                               ; preds = %57
   %64 = add nuw nsw i64 %.05872, 1
   %exitcond76.not = icmp eq i64 %64, 3
-  br i1 %exitcond76.not, label %65, label %57, !llvm.loop !73
+  br i1 %exitcond76.not, label %65, label %57, !llvm.loop !74
 
 65:                                               ; preds = %63
   %66 = tail call i64 @strtol(ptr noundef nonnull captures(none) %56, ptr noundef null, i32 noundef 10) #8
@@ -2506,7 +2506,7 @@ define internal i32 @fix_rsa_pss_saltlen(i32 noundef %0, ptr noundef readonly ca
   br label %69
 
 .thread66:                                        ; preds = %57
-  %68 = load i32, ptr %58, align 16, !tbaa !67
+  %68 = load i32, ptr %58, align 16, !tbaa !68
   br label %69
 
 69:                                               ; preds = %.thread66, %65
@@ -2516,7 +2516,7 @@ define internal i32 @fix_rsa_pss_saltlen(i32 noundef %0, ptr noundef readonly ca
 
 72:                                               ; preds = %69
   %73 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %74 = load ptr, ptr %73, align 8, !tbaa !65
+  %74 = load ptr, ptr %73, align 8, !tbaa !66
   store i32 %70, ptr %74, align 4, !tbaa !45
   br label %77
 
@@ -2562,18 +2562,18 @@ define internal range(i32 -2147483648, 2) i32 @fix_hkdf_mode(i32 noundef %0, ptr
 17:                                               ; preds = %14, %21
   %.04561 = phi i64 [ 0, %14 ], [ %22, %21 ]
   %18 = getelementptr inbounds nuw %struct.ossl_item_st, ptr @fix_hkdf_mode.str_value_map, i64 %.04561
-  %19 = load i32, ptr %18, align 16, !tbaa !67
+  %19 = load i32, ptr %18, align 16, !tbaa !68
   %20 = icmp eq i32 %16, %19
   br i1 %20, label %.thread, label %21
 
 21:                                               ; preds = %17
   %22 = add nuw nsw i64 %.04561, 1
   %exitcond.not = icmp eq i64 %22, 3
-  br i1 %exitcond.not, label %.critedge, label %17, !llvm.loop !74
+  br i1 %exitcond.not, label %.critedge, label %17, !llvm.loop !75
 
 .thread:                                          ; preds = %17
   %23 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %24 = load ptr, ptr %23, align 8, !tbaa !70
+  %24 = load ptr, ptr %23, align 8, !tbaa !71
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store ptr %24, ptr %25, align 8, !tbaa !35
   %26 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %24) #9
@@ -2608,7 +2608,7 @@ define internal range(i32 -2147483648, 2) i32 @fix_hkdf_mode(i32 noundef %0, ptr
   %.062 = phi i64 [ 0, %38 ], [ %48, %47 ]
   %42 = getelementptr inbounds nuw %struct.ossl_item_st, ptr @fix_hkdf_mode.str_value_map, i64 %.062
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  %44 = load ptr, ptr %43, align 8, !tbaa !70
+  %44 = load ptr, ptr %43, align 8, !tbaa !71
   %45 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %40, ptr noundef nonnull dereferenceable(1) %44) #9
   %46 = icmp eq i32 %45, 0
   br i1 %46, label %.thread55, label %47
@@ -2616,14 +2616,14 @@ define internal range(i32 -2147483648, 2) i32 @fix_hkdf_mode(i32 noundef %0, ptr
 47:                                               ; preds = %41
   %48 = add nuw nsw i64 %.062, 1
   %exitcond66.not = icmp eq i64 %48, 3
-  br i1 %exitcond66.not, label %.critedge, label %41, !llvm.loop !75
+  br i1 %exitcond66.not, label %.critedge, label %41, !llvm.loop !76
 
 .thread55:                                        ; preds = %41
   %49 = icmp eq i32 %0, 2
   br i1 %49, label %53, label %50
 
 50:                                               ; preds = %.thread55
-  %51 = load i32, ptr %42, align 16, !tbaa !67
+  %51 = load i32, ptr %42, align 16, !tbaa !68
   %52 = getelementptr inbounds nuw i8, ptr %2, i64 28
   store i32 %51, ptr %52, align 4, !tbaa !34
   br label %53
@@ -2661,7 +2661,7 @@ define internal i32 @fix_cipher(i32 noundef %0, ptr noundef readonly captures(ad
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %12 = load ptr, ptr %11, align 8, !tbaa !35
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  store ptr %12, ptr %13, align 8, !tbaa !65
+  store ptr %12, ptr %13, align 8, !tbaa !66
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store ptr %14, ptr %11, align 8, !tbaa !35
   br label %.critedge.thread.sink.split.i
@@ -2738,12 +2738,12 @@ define internal i32 @fix_cipher(i32 noundef %0, ptr noundef readonly captures(ad
 51:                                               ; preds = %47
   %52 = load ptr, ptr %2, align 8, !tbaa !36
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
-  %54 = load ptr, ptr %53, align 8, !tbaa !66
+  %54 = load ptr, ptr %53, align 8, !tbaa !67
   %55 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %56 = load ptr, ptr %55, align 8, !tbaa !35
   %57 = tail call ptr @evp_get_cipherbyname_ex(ptr noundef %54, ptr noundef %56) #8
   %58 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %59 = load ptr, ptr %58, align 8, !tbaa !65
+  %59 = load ptr, ptr %58, align 8, !tbaa !66
   store ptr %57, ptr %59, align 8, !tbaa !46
   br label %.sink.split.i
 
@@ -2756,7 +2756,7 @@ define internal i32 @fix_cipher(i32 noundef %0, ptr noundef readonly captures(ad
 64:                                               ; preds = %60
   %65 = load ptr, ptr %2, align 8, !tbaa !36
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
-  %67 = load ptr, ptr %66, align 8, !tbaa !66
+  %67 = load ptr, ptr %66, align 8, !tbaa !67
   %68 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %69 = load ptr, ptr %68, align 8, !tbaa !35
   %70 = tail call ptr @evp_get_cipherbyname_ex(ptr noundef %67, ptr noundef %69) #8
@@ -2806,7 +2806,7 @@ define internal range(i32 0, 2) i32 @fix_group_ecx(i32 noundef %0, ptr readnone 
 16:                                               ; preds = %11
   %17 = load ptr, ptr %2, align 8, !tbaa !36
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  %19 = load ptr, ptr %18, align 8, !tbaa !76
+  %19 = load ptr, ptr %18, align 8, !tbaa !77
   %20 = load ptr, ptr %4, align 8, !tbaa !44
   %21 = call i32 @OPENSSL_strcasecmp(ptr noundef %19, ptr noundef %20) #8
   %.not = icmp eq i32 %21, 0
@@ -2845,7 +2845,7 @@ define internal fastcc i32 @fix_kdf_type(i32 noundef %0, ptr noundef readonly ca
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %11 = load i32, ptr %10, align 8, !tbaa !29
   %12 = icmp eq i32 %11, 0
-  br i1 %12, label %13, label %.critedge, !prof !62
+  br i1 %12, label %13, label %.critedge, !prof !63
 
 13:                                               ; preds = %9
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 28
@@ -2889,29 +2889,29 @@ define internal fastcc i32 @fix_kdf_type(i32 noundef %0, ptr noundef readonly ca
 
 33:                                               ; preds = %29, %25
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %35 = load ptr, ptr %34, align 8, !tbaa !77
+  %35 = load ptr, ptr %34, align 8, !tbaa !78
   %.not68 = icmp eq ptr %35, null
   br i1 %.not68, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %33
   %36 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %37 = load i32, ptr %36, align 4, !tbaa !34
-  %38 = load i32, ptr %3, align 8, !tbaa !79
+  %38 = load i32, ptr %3, align 8, !tbaa !80
   %39 = icmp eq i32 %37, %38
   br i1 %39, label %._crit_edge, label %.lr.ph91
 
 40:                                               ; preds = %.lr.ph91
   %41 = getelementptr inbounds nuw i8, ptr %.1506990, i64 16
-  %42 = load i32, ptr %41, align 8, !tbaa !79
+  %42 = load i32, ptr %41, align 8, !tbaa !80
   %43 = icmp eq i32 %37, %42
-  br i1 %43, label %._crit_edge, label %.lr.ph91, !llvm.loop !80
+  br i1 %43, label %._crit_edge, label %.lr.ph91, !llvm.loop !81
 
 .lr.ph91:                                         ; preds = %.lr.ph, %40
   %.1506990 = phi ptr [ %41, %40 ], [ %3, %.lr.ph ]
   %44 = getelementptr inbounds nuw i8, ptr %.1506990, i64 24
-  %45 = load ptr, ptr %44, align 8, !tbaa !77
+  %45 = load ptr, ptr %44, align 8, !tbaa !78
   %.not = icmp eq ptr %45, null
-  br i1 %.not, label %.critedge, label %40, !llvm.loop !80
+  br i1 %.not, label %.critedge, label %40, !llvm.loop !81
 
 ._crit_edge:                                      ; preds = %40, %.lr.ph
   %.lcssa = phi ptr [ %35, %.lr.ph ], [ %45, %40 ]
@@ -2953,7 +2953,7 @@ define internal fastcc i32 @fix_kdf_type(i32 noundef %0, ptr noundef readonly ca
   %60 = getelementptr inbounds nuw i8, ptr %2, i64 28
   store i32 -1, ptr %60, align 4, !tbaa !34
   %61 = getelementptr inbounds nuw i8, ptr %.049, i64 8
-  %62 = load ptr, ptr %61, align 8, !tbaa !77
+  %62 = load ptr, ptr %61, align 8, !tbaa !78
   %.not5970 = icmp eq ptr %62, null
   br i1 %.not5970, label %.loopexit, label %.lr.ph72
 
@@ -2970,16 +2970,16 @@ define internal fastcc i32 @fix_kdf_type(i32 noundef %0, ptr noundef readonly ca
   br i1 %68, label %69, label %71
 
 69:                                               ; preds = %64
-  %70 = load i32, ptr %.25171, align 8, !tbaa !79
+  %70 = load i32, ptr %.25171, align 8, !tbaa !80
   store i32 %70, ptr %60, align 4, !tbaa !34
   br label %.loopexit
 
 71:                                               ; preds = %64
   %72 = getelementptr inbounds nuw i8, ptr %.25171, i64 16
   %73 = getelementptr inbounds nuw i8, ptr %.25171, i64 24
-  %74 = load ptr, ptr %73, align 8, !tbaa !77
+  %74 = load ptr, ptr %73, align 8, !tbaa !78
   %.not59 = icmp eq ptr %74, null
-  br i1 %.not59, label %.loopexit, label %64, !llvm.loop !81
+  br i1 %.not59, label %.loopexit, label %64, !llvm.loop !82
 
 .loopexit:                                        ; preds = %71, %59, %69
   %.2 = phi i32 [ 1, %69 ], [ -1, %59 ], [ -1, %71 ]
@@ -3690,7 +3690,7 @@ define internal i32 @get_rsa_payload_f3(i32 noundef %0, ptr noundef readonly cap
   br label %get_rsa_payload_factor.exit
 
 17:                                               ; preds = %15
-  %18 = load ptr, ptr %4, align 16, !tbaa !82
+  %18 = load ptr, ptr %4, align 16, !tbaa !83
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %19 = icmp eq ptr %18, null
   br i1 %19, label %get_rsa_payload_factor.exit, label %20
@@ -3747,7 +3747,7 @@ define internal i32 @get_rsa_payload_f4(i32 noundef %0, ptr noundef readonly cap
 
 18:                                               ; preds = %16
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %20 = load ptr, ptr %19, align 8, !tbaa !82
+  %20 = load ptr, ptr %19, align 8, !tbaa !83
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %21 = icmp eq ptr %20, null
   br i1 %21, label %get_rsa_payload_factor.exit, label %22
@@ -3804,7 +3804,7 @@ define internal i32 @get_rsa_payload_f5(i32 noundef %0, ptr noundef readonly cap
 
 18:                                               ; preds = %16
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %20 = load ptr, ptr %19, align 16, !tbaa !82
+  %20 = load ptr, ptr %19, align 16, !tbaa !83
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %21 = icmp eq ptr %20, null
   br i1 %21, label %get_rsa_payload_factor.exit, label %22
@@ -3861,7 +3861,7 @@ define internal i32 @get_rsa_payload_f6(i32 noundef %0, ptr noundef readonly cap
 
 18:                                               ; preds = %16
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %20 = load ptr, ptr %19, align 8, !tbaa !82
+  %20 = load ptr, ptr %19, align 8, !tbaa !83
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %21 = icmp eq ptr %20, null
   br i1 %21, label %get_rsa_payload_factor.exit, label %22
@@ -3918,7 +3918,7 @@ define internal i32 @get_rsa_payload_f7(i32 noundef %0, ptr noundef readonly cap
 
 18:                                               ; preds = %16
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %20 = load ptr, ptr %19, align 16, !tbaa !82
+  %20 = load ptr, ptr %19, align 16, !tbaa !83
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %21 = icmp eq ptr %20, null
   br i1 %21, label %get_rsa_payload_factor.exit, label %22
@@ -3975,7 +3975,7 @@ define internal i32 @get_rsa_payload_f8(i32 noundef %0, ptr noundef readonly cap
 
 18:                                               ; preds = %16
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  %20 = load ptr, ptr %19, align 8, !tbaa !82
+  %20 = load ptr, ptr %19, align 8, !tbaa !83
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %21 = icmp eq ptr %20, null
   br i1 %21, label %get_rsa_payload_factor.exit, label %22
@@ -4032,7 +4032,7 @@ define internal i32 @get_rsa_payload_f9(i32 noundef %0, ptr noundef readonly cap
 
 18:                                               ; preds = %16
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  %20 = load ptr, ptr %19, align 16, !tbaa !82
+  %20 = load ptr, ptr %19, align 16, !tbaa !83
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %21 = icmp eq ptr %20, null
   br i1 %21, label %get_rsa_payload_factor.exit, label %22
@@ -4089,7 +4089,7 @@ define internal i32 @get_rsa_payload_f10(i32 noundef %0, ptr noundef readonly ca
 
 18:                                               ; preds = %16
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 56
-  %20 = load ptr, ptr %19, align 8, !tbaa !82
+  %20 = load ptr, ptr %19, align 8, !tbaa !83
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %21 = icmp eq ptr %20, null
   br i1 %21, label %get_rsa_payload_factor.exit, label %22
@@ -4226,7 +4226,7 @@ define internal i32 @get_rsa_payload_e3(i32 noundef %0, ptr noundef readonly cap
   br label %get_rsa_payload_exponent.exit
 
 18:                                               ; preds = %16
-  %19 = load ptr, ptr %4, align 16, !tbaa !82
+  %19 = load ptr, ptr %4, align 16, !tbaa !83
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %20 = icmp eq ptr %19, null
@@ -4287,7 +4287,7 @@ define internal i32 @get_rsa_payload_e4(i32 noundef %0, ptr noundef readonly cap
 
 19:                                               ; preds = %17
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %21 = load ptr, ptr %20, align 8, !tbaa !82
+  %21 = load ptr, ptr %20, align 8, !tbaa !83
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %22 = icmp eq ptr %21, null
@@ -4348,7 +4348,7 @@ define internal i32 @get_rsa_payload_e5(i32 noundef %0, ptr noundef readonly cap
 
 19:                                               ; preds = %17
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %21 = load ptr, ptr %20, align 16, !tbaa !82
+  %21 = load ptr, ptr %20, align 16, !tbaa !83
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %22 = icmp eq ptr %21, null
@@ -4409,7 +4409,7 @@ define internal i32 @get_rsa_payload_e6(i32 noundef %0, ptr noundef readonly cap
 
 19:                                               ; preds = %17
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %21 = load ptr, ptr %20, align 8, !tbaa !82
+  %21 = load ptr, ptr %20, align 8, !tbaa !83
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %22 = icmp eq ptr %21, null
@@ -4470,7 +4470,7 @@ define internal i32 @get_rsa_payload_e7(i32 noundef %0, ptr noundef readonly cap
 
 19:                                               ; preds = %17
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %21 = load ptr, ptr %20, align 16, !tbaa !82
+  %21 = load ptr, ptr %20, align 16, !tbaa !83
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %22 = icmp eq ptr %21, null
@@ -4531,7 +4531,7 @@ define internal i32 @get_rsa_payload_e8(i32 noundef %0, ptr noundef readonly cap
 
 19:                                               ; preds = %17
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  %21 = load ptr, ptr %20, align 8, !tbaa !82
+  %21 = load ptr, ptr %20, align 8, !tbaa !83
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %22 = icmp eq ptr %21, null
@@ -4592,7 +4592,7 @@ define internal i32 @get_rsa_payload_e9(i32 noundef %0, ptr noundef readonly cap
 
 19:                                               ; preds = %17
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  %21 = load ptr, ptr %20, align 16, !tbaa !82
+  %21 = load ptr, ptr %20, align 16, !tbaa !83
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %22 = icmp eq ptr %21, null
@@ -4653,7 +4653,7 @@ define internal i32 @get_rsa_payload_e10(i32 noundef %0, ptr noundef readonly ca
 
 19:                                               ; preds = %17
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 56
-  %21 = load ptr, ptr %20, align 8, !tbaa !82
+  %21 = load ptr, ptr %20, align 8, !tbaa !83
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %22 = icmp eq ptr %21, null
@@ -4752,7 +4752,7 @@ define internal i32 @get_rsa_payload_c2(i32 noundef %0, ptr noundef readonly cap
   br label %get_rsa_payload_coefficient.exit
 
 18:                                               ; preds = %16
-  %19 = load ptr, ptr %5, align 16, !tbaa !82
+  %19 = load ptr, ptr %5, align 16, !tbaa !83
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %20 = icmp eq ptr %19, null
@@ -4813,7 +4813,7 @@ define internal i32 @get_rsa_payload_c3(i32 noundef %0, ptr noundef readonly cap
 
 19:                                               ; preds = %17
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %21 = load ptr, ptr %20, align 8, !tbaa !82
+  %21 = load ptr, ptr %20, align 8, !tbaa !83
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %22 = icmp eq ptr %21, null
@@ -4874,7 +4874,7 @@ define internal i32 @get_rsa_payload_c4(i32 noundef %0, ptr noundef readonly cap
 
 19:                                               ; preds = %17
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %21 = load ptr, ptr %20, align 16, !tbaa !82
+  %21 = load ptr, ptr %20, align 16, !tbaa !83
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %22 = icmp eq ptr %21, null
@@ -4935,7 +4935,7 @@ define internal i32 @get_rsa_payload_c5(i32 noundef %0, ptr noundef readonly cap
 
 19:                                               ; preds = %17
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %21 = load ptr, ptr %20, align 8, !tbaa !82
+  %21 = load ptr, ptr %20, align 8, !tbaa !83
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %22 = icmp eq ptr %21, null
@@ -4996,7 +4996,7 @@ define internal i32 @get_rsa_payload_c6(i32 noundef %0, ptr noundef readonly cap
 
 19:                                               ; preds = %17
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %21 = load ptr, ptr %20, align 16, !tbaa !82
+  %21 = load ptr, ptr %20, align 16, !tbaa !83
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %22 = icmp eq ptr %21, null
@@ -5057,7 +5057,7 @@ define internal i32 @get_rsa_payload_c7(i32 noundef %0, ptr noundef readonly cap
 
 19:                                               ; preds = %17
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  %21 = load ptr, ptr %20, align 8, !tbaa !82
+  %21 = load ptr, ptr %20, align 8, !tbaa !83
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %22 = icmp eq ptr %21, null
@@ -5118,7 +5118,7 @@ define internal i32 @get_rsa_payload_c8(i32 noundef %0, ptr noundef readonly cap
 
 19:                                               ; preds = %17
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  %21 = load ptr, ptr %20, align 16, !tbaa !82
+  %21 = load ptr, ptr %20, align 16, !tbaa !83
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %22 = icmp eq ptr %21, null
@@ -5179,7 +5179,7 @@ define internal i32 @get_rsa_payload_c9(i32 noundef %0, ptr noundef readonly cap
 
 19:                                               ; preds = %17
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 56
-  %21 = load ptr, ptr %20, align 8, !tbaa !82
+  %21 = load ptr, ptr %20, align 8, !tbaa !83
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %22 = icmp eq ptr %21, null
@@ -5407,25 +5407,26 @@ attributes #9 = { nounwind willreturn memory(read) }
 !58 = !{!20, !10, i64 24}
 !59 = !{!20, !10, i64 32}
 !60 = !{!50, !10, i64 0}
-!61 = !{!"branch_weights", i32 4001, i32 4000000}
-!62 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!63 = distinct !{!63, !64}
-!64 = !{!"llvm.loop.mustprogress"}
-!65 = !{!30, !9, i64 56}
-!66 = !{!4, !8, i64 8}
-!67 = !{!68, !5, i64 0}
-!68 = !{!"ossl_item_st", !5, i64 0, !9, i64 8}
-!69 = distinct !{!69, !64}
-!70 = !{!68, !9, i64 8}
-!71 = distinct !{!71, !64}
-!72 = distinct !{!72, !64}
-!73 = distinct !{!73, !64}
-!74 = distinct !{!74, !64}
-!75 = distinct !{!75, !64}
-!76 = !{!4, !10, i64 24}
-!77 = !{!78, !10, i64 8}
-!78 = !{!"kdf_type_map_st", !5, i64 0, !10, i64 8}
-!79 = !{!78, !5, i64 0}
-!80 = distinct !{!80, !64}
-!81 = distinct !{!81, !64}
-!82 = !{!18, !18, i64 0}
+!61 = !{!"branch_weights", i32 1, i32 2000}
+!62 = !{!"branch_weights", i32 4001, i32 4000000}
+!63 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!64 = distinct !{!64, !65}
+!65 = !{!"llvm.loop.mustprogress"}
+!66 = !{!30, !9, i64 56}
+!67 = !{!4, !8, i64 8}
+!68 = !{!69, !5, i64 0}
+!69 = !{!"ossl_item_st", !5, i64 0, !9, i64 8}
+!70 = distinct !{!70, !65}
+!71 = !{!69, !9, i64 8}
+!72 = distinct !{!72, !65}
+!73 = distinct !{!73, !65}
+!74 = distinct !{!74, !65}
+!75 = distinct !{!75, !65}
+!76 = distinct !{!76, !65}
+!77 = !{!4, !10, i64 24}
+!78 = !{!79, !10, i64 8}
+!79 = !{!"kdf_type_map_st", !5, i64 0, !10, i64 8}
+!80 = !{!79, !5, i64 0}
+!81 = distinct !{!81, !65}
+!82 = distinct !{!82, !65}
+!83 = !{!18, !18, i64 0}

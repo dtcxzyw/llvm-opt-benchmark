@@ -4952,7 +4952,7 @@ _ZN5arrow8internal13ParseUnsignedEPKcmPh.exit.i.i: ; preds = %47
   %spec.select.i.i.i.i = icmp ult i8 %63, -12
   %or.cond36.not40.i.i = select i1 %61, i1 true, i1 %spec.select.i.i.i.i
   %.not8.i.i.i = icmp eq i8 %62, 0
-  %or.cond37.i.i = select i1 %or.cond36.not40.i.i, i1 true, i1 %.not8.i.i.i
+  %or.cond37.i.i = select i1 %or.cond36.not40.i.i, i1 true, i1 %.not8.i.i.i, !prof !110
   br i1 %or.cond37.i.i, label %_ZN5arrow8internalL21ParseTimestampISO8601EPKcmNS_8TimeUnit4typeEPlPb.exit, label %64, !prof !110
 
 64:                                               ; preds = %57
@@ -5106,7 +5106,7 @@ _ZN5arrow4util17CastSecondsToUnitENS_8TimeUnit4typeEl.exit.i: ; preds = %110, %1
   %141 = icmp ugt i8 %140, 9
   %142 = add i8 %narrow.i.i.i, %140
   %143 = icmp ugt i8 %142, 23
-  %or.cond.i.i = select i1 %141, i1 true, i1 %143
+  %or.cond.i.i = select i1 %141, i1 true, i1 %143, !prof !113
   br i1 %or.cond.i.i, label %_ZN5arrow8internal6detailL7ParseHHINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEEbPKcPT_.exit.thread.i, label %144, !prof !113
 
 144:                                              ; preds = %139
@@ -5162,8 +5162,8 @@ _ZN5arrow8internal13ParseUnsignedEPKcmPh.exit.i79.i: ; preds = %159
 _ZN5arrow8internal13ParseUnsignedEPKcmPh.exit9.i.i: ; preds = %167
   %171 = icmp ugt i8 %162, 23
   %172 = icmp ugt i8 %170, 59
-  %or.cond6.i.i = select i1 %171, i1 true, i1 %172
-  br i1 %or.cond6.i.i, label %_ZN5arrow8internal6detailL7ParseHHINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEEbPKcPT_.exit.thread.i, label %173, !prof !114
+  %or.cond6.i.i = select i1 %171, i1 true, i1 %172, !prof !114
+  br i1 %or.cond6.i.i, label %_ZN5arrow8internal6detailL7ParseHHINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEEbPKcPT_.exit.thread.i, label %173, !prof !115
 
 173:                                              ; preds = %_ZN5arrow8internal13ParseUnsignedEPKcmPh.exit9.i.i
   %174 = zext nneg i8 %162 to i64
@@ -5204,9 +5204,9 @@ _ZN5arrow8internal13ParseUnsignedEPKcmPh.exit9.i.i: ; preds = %167
   br i1 %192, label %193, label %196
 
 193:                                              ; preds = %191
-  %194 = load i64, ptr %8, align 8, !tbaa !115
+  %194 = load i64, ptr %8, align 8, !tbaa !116
   %195 = sub nsw i64 0, %194
-  store i64 %195, ptr %8, align 8, !tbaa !115
+  store i64 %195, ptr %8, align 8, !tbaa !116
   br label %196
 
 196:                                              ; preds = %193, %191
@@ -5248,7 +5248,7 @@ _ZN5arrow8internal13ParseUnsignedEPKcmPh.exit9.i.i: ; preds = %167
   %208 = icmp ugt i8 %207, 9
   %209 = add i8 %207, %narrow.i.i81.i
   %210 = icmp ugt i8 %209, 23
-  %or.cond.i82.i = select i1 %208, i1 true, i1 %210
+  %or.cond.i82.i = select i1 %208, i1 true, i1 %210, !prof !113
   br i1 %or.cond.i82.i, label %_ZN5arrow8internal6detailL7ParseHHINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEEbPKcPT_.exit.thread.i, label %_ZN5arrow8internal6detailL7ParseHHINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEEbPKcPT_.exit83.i, !prof !113
 
 _ZN5arrow8internal6detailL7ParseHHINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEEbPKcPT_.exit83.i: ; preds = %204
@@ -5297,8 +5297,8 @@ _ZN5arrow8internal13ParseUnsignedEPKcmPh.exit.i87.i: ; preds = %221
 _ZN5arrow8internal13ParseUnsignedEPKcmPh.exit11.i.i: ; preds = %231
   %237 = icmp ugt i8 %226, 23
   %238 = icmp ugt i8 %236, 59
-  %or.cond8.i.i = select i1 %237, i1 true, i1 %238
-  br i1 %or.cond8.i.i, label %_ZN5arrow8internal6detailL7ParseHHINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEEbPKcPT_.exit.thread.i, label %_ZN5arrow8internal6detailL10ParseHH_MMINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEEbPKcPT_.exit.i, !prof !114
+  %or.cond8.i.i = select i1 %237, i1 true, i1 %238, !prof !114
+  br i1 %or.cond8.i.i, label %_ZN5arrow8internal6detailL7ParseHHINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEEbPKcPT_.exit.thread.i, label %_ZN5arrow8internal6detailL10ParseHH_MMINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEEbPKcPT_.exit.i, !prof !115
 
 _ZN5arrow8internal6detailL10ParseHH_MMINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEEbPKcPT_.exit.i: ; preds = %_ZN5arrow8internal13ParseUnsignedEPKcmPh.exit11.i.i
   %239 = zext nneg i8 %226 to i64
@@ -5367,17 +5367,17 @@ _ZN5arrow8internal13ParseUnsignedEPKcmPh.exit19.i.i: ; preds = %_ZN5arrow8intern
   %278 = icmp ugt i8 %277, 9
   %279 = add i8 %277, %narrow.i18.i.i
   %280 = icmp ugt i8 %260, 23
-  %or.cond.i93.i = select i1 %278, i1 true, i1 %280
+  %or.cond.i93.i = select i1 %278, i1 true, i1 %280, !prof !118
   %281 = icmp ugt i8 %270, 59
-  %or.cond11.i.i = select i1 %or.cond.i93.i, i1 true, i1 %281
+  %or.cond11.i.i = select i1 %or.cond.i93.i, i1 true, i1 %281, !prof !114
   %282 = icmp ugt i8 %279, 59
-  %or.cond13.i.i = select i1 %or.cond11.i.i, i1 true, i1 %282
-  br i1 %or.cond13.i.i, label %_ZN5arrow8internal6detailL7ParseHHINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEEbPKcPT_.exit.thread.i, label %286, !prof !114
+  %or.cond13.i.i = select i1 %or.cond11.i.i, i1 true, i1 %282, !prof !119
+  br i1 %or.cond13.i.i, label %_ZN5arrow8internal6detailL7ParseHHINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEEbPKcPT_.exit.thread.i, label %286, !prof !115
 
 .thread117.i:                                     ; preds = %_ZN5arrow8internal6detailL10ParseHH_MMINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEEbPKcPT_.exit.i, %_ZN5arrow8internal6detailL7ParseHHINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEEbPKcPT_.exit83.i
   %.sroa.0.0.ph.i = phi i64 [ %243, %_ZN5arrow8internal6detailL10ParseHH_MMINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEEbPKcPT_.exit.i ], [ %212, %_ZN5arrow8internal6detailL7ParseHHINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEEbPKcPT_.exit83.i ]
   %283 = add nsw i64 %.sroa.0.0.ph.i, %103
-  %284 = load i64, ptr %8, align 8, !tbaa !115
+  %284 = load i64, ptr %8, align 8, !tbaa !116
   %285 = add nsw i64 %283, %284
   br label %298
 
@@ -5388,7 +5388,7 @@ _ZN5arrow8internal13ParseUnsignedEPKcmPh.exit19.i.i: ; preds = %_ZN5arrow8intern
   %290 = add nuw nsw i64 %289, %288
   %291 = zext nneg i8 %279 to i64
   %292 = mul nuw nsw i64 %290, 60
-  %293 = load i64, ptr %8, align 8, !tbaa !115
+  %293 = load i64, ptr %8, align 8, !tbaa !116
   %294 = add nsw i64 %292, %103
   %295 = add nsw i64 %294, %291
   %296 = add nsw i64 %295, %293
@@ -5452,7 +5452,7 @@ _ZN5arrow4util17CastSecondsToUnitENS_8TimeUnit4typeEl.exit95.i: ; preds = %304, 
 
 318:                                              ; preds = %316
   %319 = call noundef zeroext i1 @_ZN5arrow8internal13ParseUnsignedEPKcmPj(ptr noundef nonnull %310, i64 noundef range(i64 0, -20) %311, ptr noundef nonnull %9)
-  br i1 %319, label %switch.lookup34, label %_ZN5arrow8internal6detailL15ParseSubSecondsEPKcmNS_8TimeUnit4typeEPj.exit.thread.i, !prof !117
+  br i1 %319, label %switch.lookup34, label %_ZN5arrow8internal6detailL15ParseSubSecondsEPKcmNS_8TimeUnit4typeEPj.exit.thread.i, !prof !120
 
 320:                                              ; preds = %316
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -5555,8 +5555,8 @@ _ZN5arrow8internal13ParseUnsignedEPKcmPh.exit:    ; preds = %9
 _ZN5arrow8internal13ParseUnsignedEPKcmPh.exit11:  ; preds = %19
   %25 = icmp ugt i8 %14, 23
   %26 = icmp ugt i8 %24, 59
-  %or.cond8 = select i1 %25, i1 true, i1 %26
-  br i1 %or.cond8, label %_ZN5arrow8internal13ParseUnsignedEPKcmPh.exit.thread, label %27, !prof !114
+  %or.cond8 = select i1 %25, i1 true, i1 %26, !prof !114
+  br i1 %or.cond8, label %_ZN5arrow8internal13ParseUnsignedEPKcmPh.exit.thread, label %27, !prof !115
 
 27:                                               ; preds = %_ZN5arrow8internal13ParseUnsignedEPKcmPh.exit11
   %28 = zext nneg i8 %14 to i64
@@ -5901,8 +5901,10 @@ attributes #25 = { noreturn }
 !111 = !{!"branch_weights", !"expected", i32 0, i32 -2147483648}
 !112 = !{!"branch_weights", i32 1, i32 4002000, i32 2000}
 !113 = !{!"branch_weights", i32 -2147483648, i32 -2147483648}
-!114 = !{!"branch_weights", i32 0, i32 -2147483648}
-!115 = !{!116, !11, i64 0}
-!116 = !{!"_ZTSNSt6chrono8durationIlSt5ratioILl1ELl1EEEE", !11, i64 0}
-!117 = !{!"branch_weights", !"expected", i32 -2147483648, i32 0}
+!114 = !{!"branch_weights", i32 6003000, i32 -294967296}
+!115 = !{!"branch_weights", i32 0, i32 -2147483648}
+!116 = !{!117, !11, i64 0}
+!117 = !{!"_ZTSNSt6chrono8durationIlSt5ratioILl1ELl1EEEE", !11, i64 0}
 !118 = !{!"branch_weights", i32 4001, i32 4000000}
+!119 = !{!"branch_weights", i32 7818360, i32 -388717296}
+!120 = !{!"branch_weights", !"expected", i32 -2147483648, i32 0}

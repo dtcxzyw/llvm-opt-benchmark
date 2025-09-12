@@ -421,7 +421,7 @@ define i32 @EVP_PKEY_derive_init_ex(ptr noundef %0, ptr noundef %1) local_unname
   %31 = load ptr, ptr %30, align 8, !tbaa !57
   %32 = icmp eq ptr %31, null
   %33 = icmp eq ptr %31, %.pre
-  %or.cond = select i1 %32, i1 true, i1 %33
+  %or.cond = select i1 %32, i1 true, i1 %33, !prof !58
   br i1 %or.cond, label %.critedge, label %34, !prof !58
 
 34:                                               ; preds = %28

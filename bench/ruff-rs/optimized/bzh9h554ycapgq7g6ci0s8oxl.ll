@@ -65901,7 +65901,7 @@ define hidden void @_ZN11ruff_linter5rules6pylint5rules14sys_exit_alias14sys_exi
 116:                                              ; preds = %115
   %117 = icmp ne i64 %102, %96
   %.not16.i.i = icmp eq ptr %95, null
-  %or.cond.i.i = select i1 %117, i1 true, i1 %.not16.i.i
+  %or.cond.i.i = select i1 %117, i1 true, i1 %.not16.i.i, !prof !6638
   br i1 %or.cond.i.i, label %.thread39.i.i, label %.thread.i.i, !prof !6638
 
 118:                                              ; preds = %115

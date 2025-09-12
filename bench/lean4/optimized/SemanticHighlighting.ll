@@ -11655,7 +11655,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit98
   %191 = ptrtoint ptr %190 to i64
   %192 = and i64 %191, 1
   %193 = icmp ne i64 %192, 0
-  %or.cond = select i1 %73, i1 %193, i1 false
+  %or.cond = select i1 %73, i1 %193, i1 false, !prof !16
   br i1 %or.cond, label %194, label %lean_nat_lt.exit, !prof !16
 
 194:                                              ; preds = %189
@@ -28742,7 +28742,7 @@ define zeroext range(i8 0, 2) i8 @l_Lean_Server_FileWorker_handleSemanticTokensR
   %7 = ptrtoint ptr %3 to i64
   %8 = and i64 %7, 1
   %9 = icmp ne i64 %8, 0
-  %or.cond = select i1 %6, i1 %9, i1 false
+  %or.cond = select i1 %6, i1 %9, i1 false, !prof !16
   br i1 %or.cond, label %lean_nat_le.exit.thread, label %lean_nat_le.exit, !prof !16
 
 lean_nat_le.exit.thread:                          ; preds = %2
@@ -29330,7 +29330,7 @@ define nonnull ptr @l_Lean_Server_FileWorker_handleSemanticTokensRange___lambda_
   %7 = ptrtoint ptr %3 to i64
   %8 = and i64 %7, 1
   %9 = icmp ne i64 %8, 0
-  %or.cond.i = select i1 %6, i1 %9, i1 false
+  %or.cond.i = select i1 %6, i1 %9, i1 false, !prof !16
   br i1 %or.cond.i, label %lean_nat_le.exit.thread.i, label %lean_nat_le.exit.i, !prof !16
 
 lean_nat_le.exit.thread.i:                        ; preds = %2

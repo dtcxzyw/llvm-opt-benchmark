@@ -2471,7 +2471,7 @@ define ptr @l_Lean_Meta_Tactic_TryThis_tryThisProvider___lambda__2(ptr noundef r
   %22 = ptrtoint ptr %18 to i64
   %23 = and i64 %22, 1
   %24 = icmp ne i64 %23, 0
-  %or.cond = select i1 %21, i1 %24, i1 false
+  %or.cond = select i1 %21, i1 %24, i1 false, !prof !15
   br i1 %or.cond, label %25, label %lean_nat_le.exit, !prof !15
 
 25:                                               ; preds = %8

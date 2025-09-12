@@ -9797,7 +9797,7 @@ _ZN3fst3raw4node4Node10transition17hebd1ab1d7bb177ddE.exit.i: ; preds = %.noexc3
   %333 = icmp ugt i64 %320, %302
   %334 = sub nuw i64 %302, %320
   %335 = icmp ult i64 %334, %329
-  %brmerge.i = select i1 %325, i1 true, i1 %326
+  %brmerge.i = select i1 %325, i1 true, i1 %326, !prof !1258
   %.mux.i = select i1 %325, ptr %313, ptr %316, !prof !1258
   %switch137 = icmp eq i8 %293, 3
   br i1 %switch137, label %.invoke.i, label %.lr.ph.i.i.split
@@ -46305,7 +46305,7 @@ define hidden void @"_ZN79_$LT$arroy..distance..angular..Angular$u20$as$u20$arro
   %.sroa.516.0.copyload.i = load i64, ptr %.sroa.516.0..sroa_idx.i, align 8, !alias.scope !7427, !noalias !7431
   %50 = icmp eq i64 %.sroa.56.0.copyload.i, 0
   %51 = icmp eq i64 %.sroa.516.0.copyload.i, 0
-  %or.cond = select i1 %50, i1 true, i1 %51
+  %or.cond = select i1 %50, i1 true, i1 %51, !prof !7432
   br i1 %or.cond, label %.invoke, label %52, !prof !7432
 
 .invoke:                                          ; preds = %49

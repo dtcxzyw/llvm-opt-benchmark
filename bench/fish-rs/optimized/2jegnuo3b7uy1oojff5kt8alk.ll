@@ -47776,10 +47776,10 @@ _ZN4fish13topic_monitor12TopicMonitor37try_update_gens_maybe_becoming_reader17hb
   %153 = icmp eq i64 %.sroa.0.2.i, %152
   %154 = load i64, ptr %30, align 8
   %155 = icmp eq i64 %.sroa.9.2.i, %154
-  %or.cond68 = select i1 %153, i1 %155, i1 false
+  %or.cond68 = select i1 %153, i1 %155, i1 false, !prof !4464
   %156 = load i64, ptr %29, align 8
   %157 = icmp eq i64 %.sroa.14.2.i, %156
-  %or.cond70 = select i1 %or.cond68, i1 %157, i1 false
+  %or.cond70 = select i1 %or.cond68, i1 %157, i1 false, !prof !4464
   br i1 %or.cond70, label %162, label %"_ZN77_$LT$fish..topic_monitor..GenerationsList$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0b0e85390832bcf3E.exit7.thread.i", !prof !4464
 
 "_ZN77_$LT$fish..topic_monitor..GenerationsList$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0b0e85390832bcf3E.exit7.thread.i": ; preds = %151

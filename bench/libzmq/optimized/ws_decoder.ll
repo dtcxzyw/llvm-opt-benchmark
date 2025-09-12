@@ -442,7 +442,7 @@ define noundef range(i32 -1, 1) i32 @_ZN3zmq12ws_decoder_t10size_readyEPKh(ptr n
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %7 = load i64, ptr %6, align 8
   %8 = icmp ugt i64 %7, %4
-  %or.cond = select i1 %5, i1 %8, i1 false
+  %or.cond = select i1 %5, i1 %8, i1 false, !prof !36
   br i1 %or.cond, label %9, label %11, !prof !36
 
 9:                                                ; preds = %2

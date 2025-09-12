@@ -6471,7 +6471,7 @@ lean_dec.exit246:                                 ; preds = %lean_dec.exit246.ba
   %35 = ptrtoint ptr %31 to i64
   %36 = and i64 %35, 1
   %37 = icmp ne i64 %36, 0
-  %or.cond = select i1 %34, i1 %37, i1 false
+  %or.cond = select i1 %34, i1 %37, i1 false, !prof !16
   br i1 %or.cond, label %38, label %lean_nat_lt.exit, !prof !16
 
 38:                                               ; preds = %lean_dec.exit246
@@ -18981,7 +18981,7 @@ lean_dec.exit184:                                 ; preds = %220, %224, %234, %2
   %239 = ptrtoint ptr %.0.i297 to i64
   %240 = and i64 %239, 1
   %241 = icmp ne i64 %240, 0
-  %or.cond = select i1 %238, i1 %241, i1 false
+  %or.cond = select i1 %238, i1 %241, i1 false, !prof !16
   br i1 %or.cond, label %lean_dec.exit183.thread, label %lean_nat_eq.exit244, !prof !16
 
 lean_dec.exit183.thread:                          ; preds = %lean_dec.exit184

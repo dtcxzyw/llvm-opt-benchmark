@@ -4072,7 +4072,7 @@ zend_parse_arg_str_ex.exit286.thread.sink.split.i: ; preds = %zend_parse_arg_str
 zend_parse_arg_str_ex.exit286.thread.i:           ; preds = %zend_parse_arg_str_ex.exit286.thread.sink.split.i, %173
   %177 = phi ptr [ null, %173 ], [ %176, %zend_parse_arg_str_ex.exit286.thread.sink.split.i ]
   %.not.i258.i = icmp eq ptr %177, null
-  %or.cond.i.i = select i1 %170, i1 %.not.i258.i, i1 false
+  %or.cond.i.i = select i1 %170, i1 %.not.i258.i, i1 false, !prof !95
   br i1 %or.cond.i.i, label %zend_parse_arg_string.exit.thread.i, label %178, !prof !95
 
 178:                                              ; preds = %zend_parse_arg_str_ex.exit286.thread.i
@@ -13609,7 +13609,7 @@ zend_string_release_ex.exit:                      ; preds = %45, %54, %59
   %62 = icmp eq i8 %61, 2
   %63 = load i8, ptr @zend_observer_class_linked_observed, align 1, !range !212
   %64 = trunc nuw i8 %63 to i1
-  %or.cond27 = select i1 %62, i1 %64, i1 false
+  %or.cond27 = select i1 %62, i1 %64, i1 false, !prof !95
   br i1 %or.cond27, label %65, label %zend_observer_class_linked_notify.exit, !prof !95
 
 65:                                               ; preds = %60

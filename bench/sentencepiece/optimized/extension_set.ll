@@ -9134,7 +9134,7 @@ define void @_ZN6google8protobuf8internal12ExtensionSet12GrowCapacityEm(ptr noun
   %6 = icmp ult i16 %5, 257
   %7 = zext nneg i16 %5 to i64
   %.not = icmp ugt i64 %1, %7
-  %or.cond = select i1 %6, i1 %.not, i1 false
+  %or.cond = select i1 %6, i1 %.not, i1 false, !prof !152
   br i1 %or.cond, label %.preheader, label %91, !prof !152
 
 .preheader:                                       ; preds = %2, %.preheader

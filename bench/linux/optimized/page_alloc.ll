@@ -5888,7 +5888,7 @@ __zone_watermark_ok.exit:                         ; preds = %117
 162:                                              ; preds = %.thread.i
   %163 = icmp ne i64 %121, 0
   %164 = and i1 %49, %163
-  %or.cond = select i1 %47, i1 %164, i1 false
+  %or.cond = select i1 %47, i1 %164, i1 false, !prof !133
   br i1 %or.cond, label %165, label %.thread43, !prof !133
 
 165:                                              ; preds = %162
@@ -5976,7 +5976,7 @@ __zone_watermark_ok.exit37:                       ; preds = %168
 213:                                              ; preds = %.thread.i36
   %214 = icmp ne i64 %172, 0
   %215 = and i1 %62, %214
-  %or.cond281 = select i1 %61, i1 %215, i1 false
+  %or.cond281 = select i1 %61, i1 %215, i1 false, !prof !133
   br i1 %or.cond281, label %216, label %.thread48, !prof !133
 
 216:                                              ; preds = %213
@@ -10304,7 +10304,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @free_tail_page_prepare(ptr n
   %42 = add nsw i64 %39, -1
   %43 = inttoptr i64 %42 to ptr
   %44 = icmp eq ptr %1, %43
-  %or.cond = select i1 %41, i1 true, i1 %44
+  %or.cond = select i1 %41, i1 true, i1 %44, !prof !231
   br i1 %or.cond, label %.thread, label %45, !prof !231
 
 45:                                               ; preds = %37, %24

@@ -2210,7 +2210,7 @@ _ZN10duckdb_lz4L20read_variable_lengthEPPKhS1_i.exit484: ; preds = %95
   %106 = getelementptr inbounds nuw i8, ptr %89, i64 %8
   %107 = icmp ult ptr %106, %6
   %or.cond458 = select i1 %20, i1 %107, i1 false
-  %or.cond475 = select i1 %105, i1 true, i1 %or.cond458
+  %or.cond475 = select i1 %105, i1 true, i1 %or.cond458, !prof !36
   br i1 %or.cond475, label %_ZN10duckdb_lz4L14LZ4_wildCopy32EPvPKvS0_.exit.thread, label %108, !prof !36
 
 108:                                              ; preds = %101
@@ -2261,7 +2261,7 @@ _ZN10duckdb_lz4L20read_variable_lengthEPPKhS1_i.exit484: ; preds = %95
   %.4384 = phi i64 [ %111, %117 ], [ %111, %114 ], [ %102, %108 ]
   %126 = getelementptr inbounds nuw i8, ptr %89, i64 %8
   %127 = icmp ult ptr %126, %6
-  %or.cond460 = select i1 %20, i1 %127, i1 false
+  %or.cond460 = select i1 %20, i1 %127, i1 false, !prof !38
   br i1 %or.cond460, label %_ZN10duckdb_lz4L14LZ4_wildCopy32EPvPKvS0_.exit.thread, label %128, !prof !38
 
 128:                                              ; preds = %.thread552
@@ -2578,7 +2578,7 @@ _ZN10duckdb_lz4L20read_variable_lengthEPPKhS1_i.exit498: ; preds = %264
   %.4 = phi ptr [ %.9, %274 ], [ %.3, %110 ], [ %.3, %108 ]
   %276 = getelementptr inbounds nuw i8, ptr %.0370, i64 %8
   %277 = icmp ult ptr %276, %6
-  %or.cond469 = select i1 %20, i1 %277, i1 false
+  %or.cond469 = select i1 %20, i1 %277, i1 false, !prof !38
   br i1 %or.cond469, label %_ZN10duckdb_lz4L14LZ4_wildCopy32EPvPKvS0_.exit.thread, label %278, !prof !38
 
 278:                                              ; preds = %.loopexit598

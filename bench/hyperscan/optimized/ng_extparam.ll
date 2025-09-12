@@ -4485,7 +4485,7 @@ define internal fastcc void @"_ZN3ue214replaceReportsIZNS_L18updateReportBoundsE
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %47, null
   %48 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.copyload, i64 72
   %49 = icmp eq ptr %48, %47
-  %or.cond.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i, i1 true, i1 %49
+  %or.cond.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i, i1 true, i1 %49, !prof !311
   br i1 %or.cond.i.i.i.i.i.i.i.i, label %_ZN3ue28flat_setIjSt4lessIjESaIjEEaSEOS4_.exit.thread, label %50, !prof !311
 
 50:                                               ; preds = %46
@@ -6134,7 +6134,7 @@ define internal fastcc void @"_ZN3ue214replaceReportsIZNS_L26replaceMinLengthWit
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %39, null
   %40 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.copyload, i64 72
   %41 = icmp eq ptr %40, %39
-  %or.cond.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i, i1 true, i1 %41
+  %or.cond.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i, i1 true, i1 %41, !prof !311
   br i1 %or.cond.i.i.i.i.i.i.i.i, label %_ZN3ue28flat_setIjSt4lessIjESaIjEEaSEOS4_.exit.thread, label %42, !prof !311
 
 42:                                               ; preds = %38
@@ -6929,7 +6929,7 @@ define internal fastcc void @"_ZN3ue214replaceReportsIZNS_L19clearMinLengthParam
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %38, null
   %39 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.copyload, i64 72
   %40 = icmp eq ptr %39, %38
-  %or.cond.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i, i1 true, i1 %40
+  %or.cond.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i, i1 true, i1 %40, !prof !311
   br i1 %or.cond.i.i.i.i.i.i.i.i, label %_ZN3ue28flat_setIjSt4lessIjESaIjEEaSEOS4_.exit.thread, label %41, !prof !311
 
 41:                                               ; preds = %37
@@ -7647,7 +7647,7 @@ define internal fastcc void @"_ZN3ue214replaceReportsIZNS_L17clearOffsetParamsER
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %39, null
   %40 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.copyload, i64 72
   %41 = icmp eq ptr %40, %39
-  %or.cond.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i, i1 true, i1 %41
+  %or.cond.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i, i1 true, i1 %41, !prof !311
   br i1 %or.cond.i.i.i.i.i.i.i.i, label %_ZN3ue28flat_setIjSt4lessIjESaIjEEaSEOS4_.exit.thread, label %42, !prof !311
 
 42:                                               ; preds = %38
@@ -7949,7 +7949,7 @@ define internal fastcc void @"_ZN3ue214replaceReportsIZNS_L26removeUnneededOffse
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %40, null
   %41 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.copyload, i64 72
   %42 = icmp eq ptr %41, %40
-  %or.cond.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i, i1 true, i1 %42
+  %or.cond.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i, i1 true, i1 %42, !prof !311
   br i1 %or.cond.i.i.i.i.i.i.i.i, label %_ZN3ue28flat_setIjSt4lessIjESaIjEEaSEOS4_.exit.thread, label %43, !prof !311
 
 43:                                               ; preds = %39

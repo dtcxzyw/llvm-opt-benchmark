@@ -3166,7 +3166,7 @@ define hidden { i64, i64 } @_ZN9rand_core5impls15fill_via_chunks17h361ad28957547
   store i64 1, ptr %10, align 8, !noalias !324
   %44 = trunc nuw i64 %.sroa.07.0.i.i.i to i1
   %45 = icmp eq i64 %.sroa.7.0.i.i.i, %.sroa.0.0.sroa.speculated.i.i.i.i
-  %or.cond.i = select i1 %44, i1 %45, i1 false
+  %or.cond.i = select i1 %44, i1 %45, i1 false, !prof !325
   br i1 %or.cond.i, label %_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h2d567d06a327ed79E.exit, label %46, !prof !325
 
 46:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h5dd538f35781b393E.exit.i"
@@ -4521,7 +4521,7 @@ define noundef zeroext i1 @_ZN11quinn_proto9range_set15array_range_set13ArrayRan
   br label %.outer.backedge
 
 43:                                               ; preds = %28
-  %brmerge282 = select i1 %9, i1 true, i1 %12
+  %brmerge282 = select i1 %9, i1 true, i1 %12, !prof !612
   %.mux283 = select i1 %9, ptr %14, ptr %6, !prof !612
   br i1 %brmerge282, label %"_ZN90_$LT$tinyvec..tinyvec..TinyVec$LT$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h7732e039d6f7b4acE.exit", label %44, !prof !595
 

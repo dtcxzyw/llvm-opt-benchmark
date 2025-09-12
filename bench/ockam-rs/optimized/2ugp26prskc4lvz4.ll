@@ -62837,7 +62837,7 @@ define hidden void @_ZN4core4iter8adapters11try_process17h7a38d5fc745f910dE.llvm
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %.val1.i.i.i.i.i = load i64, ptr %13, align 8, !alias.scope !18734, !noalias !18726
   %14 = icmp eq i64 %.val1.i.i.i.i.i, 0
-  %or.cond10.i.i.i.i = select i1 %or.cond.not11.i.i.i.i, i1 %14, i1 false
+  %or.cond10.i.i.i.i = select i1 %or.cond.not11.i.i.i.i, i1 %14, i1 false, !prof !18735
   br i1 %or.cond10.i.i.i.i, label %15, label %"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h304253f5c5c72bdcE.exit.i.i.i.i", !prof !18735
 
 15:                                               ; preds = %8
@@ -62894,7 +62894,7 @@ define hidden void @_ZN4core4iter8adapters11try_process17h7a38d5fc745f910dE.llvm
   %or.cond.not10.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i, i1 %32, i1 false
   %.val1.i.i.i.i.i.i.i = load i64, ptr %24, align 8, !alias.scope !18762, !noalias !18763
   %33 = icmp eq i64 %.val1.i.i.i.i.i.i.i, 0
-  %or.cond6.i.i.i.i.i.i = select i1 %or.cond.not10.i.i.i.i.i.i, i1 %33, i1 false
+  %or.cond6.i.i.i.i.i.i = select i1 %or.cond.not10.i.i.i.i.i.i, i1 %33, i1 false, !prof !18735
   br i1 %or.cond6.i.i.i.i.i.i, label %34, label %"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h304253f5c5c72bdcE.exit.i.i.i.i.i.i", !prof !18735
 
 34:                                               ; preds = %29
@@ -63028,7 +63028,7 @@ define hidden void @_ZN4core4iter8adapters11try_process17h81d9954e655cc481E.llvm
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %.val1.i.i.i.i.i = load i64, ptr %13, align 8, !alias.scope !18810, !noalias !18802
   %14 = icmp eq i64 %.val1.i.i.i.i.i, 0
-  %or.cond10.i.i.i.i = select i1 %or.cond.not11.i.i.i.i, i1 %14, i1 false
+  %or.cond10.i.i.i.i = select i1 %or.cond.not11.i.i.i.i, i1 %14, i1 false, !prof !18735
   br i1 %or.cond10.i.i.i.i, label %15, label %"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hdb43d723e5f34a3bE.exit.i.i.i.i", !prof !18735
 
 15:                                               ; preds = %8
@@ -63085,7 +63085,7 @@ define hidden void @_ZN4core4iter8adapters11try_process17h81d9954e655cc481E.llvm
   %or.cond.not10.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i, i1 %32, i1 false
   %.val1.i.i.i.i.i.i.i = load i64, ptr %24, align 8, !alias.scope !18837, !noalias !18838
   %33 = icmp eq i64 %.val1.i.i.i.i.i.i.i, 0
-  %or.cond6.i.i.i.i.i.i = select i1 %or.cond.not10.i.i.i.i.i.i, i1 %33, i1 false
+  %or.cond6.i.i.i.i.i.i = select i1 %or.cond.not10.i.i.i.i.i.i, i1 %33, i1 false, !prof !18735
   br i1 %or.cond6.i.i.i.i.i.i, label %34, label %"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hdb43d723e5f34a3bE.exit.i.i.i.i.i.i", !prof !18735
 
 34:                                               ; preds = %29
@@ -63610,7 +63610,7 @@ define hidden void @_ZN4core4iter8adapters11try_process17hbdd23f2a3d76d98eE.llvm
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %.val1.i.i.i.i.i = load i64, ptr %13, align 8, !alias.scope !19008, !noalias !19000
   %14 = icmp eq i64 %.val1.i.i.i.i.i, 0
-  %or.cond10.i.i.i.i = select i1 %or.cond.not11.i.i.i.i, i1 %14, i1 false
+  %or.cond10.i.i.i.i = select i1 %or.cond.not11.i.i.i.i, i1 %14, i1 false, !prof !18735
   br i1 %or.cond10.i.i.i.i, label %15, label %"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h98213778dc2b8e74E.exit.i.i.i.i", !prof !18735
 
 15:                                               ; preds = %8
@@ -63667,7 +63667,7 @@ define hidden void @_ZN4core4iter8adapters11try_process17hbdd23f2a3d76d98eE.llvm
   %or.cond.not10.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i, i1 %32, i1 false
   %.val1.i.i.i.i.i.i.i = load i64, ptr %24, align 8, !alias.scope !19035, !noalias !19036
   %33 = icmp eq i64 %.val1.i.i.i.i.i.i.i, 0
-  %or.cond6.i.i.i.i.i.i = select i1 %or.cond.not10.i.i.i.i.i.i, i1 %33, i1 false
+  %or.cond6.i.i.i.i.i.i = select i1 %or.cond.not10.i.i.i.i.i.i, i1 %33, i1 false, !prof !18735
   br i1 %or.cond6.i.i.i.i.i.i, label %34, label %"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h98213778dc2b8e74E.exit.i.i.i.i.i.i", !prof !18735
 
 34:                                               ; preds = %29

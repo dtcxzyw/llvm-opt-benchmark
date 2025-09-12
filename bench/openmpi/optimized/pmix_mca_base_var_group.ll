@@ -1002,7 +1002,7 @@ define noundef range(i32 -46, 1) i32 @pmix_mca_base_var_group_deregister(i32 nou
   %3 = icmp sgt i32 %0, -1
   %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_base_var_groups, i64 128), align 8
   %.not.i = icmp sgt i32 %4, %0
-  %or.cond = select i1 %3, i1 %.not.i, i1 false
+  %or.cond = select i1 %3, i1 %.not.i, i1 false, !prof !50
   br i1 %or.cond, label %pmix_pointer_array_get_item.exit.i, label %pmix_mca_base_var_group_get_internal.exit.thread, !prof !50
 
 pmix_pointer_array_get_item.exit.i:               ; preds = %1
@@ -1572,7 +1572,7 @@ pmix_mca_base_var_group_get_internal.exit.loopexit148.split.loop.exit150.i: ; pr
   %176 = icmp sgt i32 %175, -1
   %177 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_base_var_groups, i64 128), align 8
   %.not.i.i23 = icmp sgt i32 %177, %175
-  %or.cond.i = select i1 %176, i1 %.not.i.i23, i1 false
+  %or.cond.i = select i1 %176, i1 %.not.i.i23, i1 false, !prof !50
   br i1 %or.cond.i, label %pmix_pointer_array_get_item.exit.i.i24, label %group_find_by_name.exit.thread, !prof !50
 
 pmix_pointer_array_get_item.exit.i.i24:           ; preds = %172
@@ -1633,7 +1633,7 @@ define i32 @pmix_mca_base_var_group_find_by_name(ptr noundef %0, ptr noundef wri
   %10 = icmp sgt i32 %9, -1
   %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_base_var_groups, i64 128), align 8
   %.not.i.i = icmp sgt i32 %11, %9
-  %or.cond.i = select i1 %10, i1 %.not.i.i, i1 false
+  %or.cond.i = select i1 %10, i1 %.not.i.i, i1 false, !prof !50
   br i1 %or.cond.i, label %pmix_pointer_array_get_item.exit.i.i, label %group_find_by_name.exit, !prof !50
 
 pmix_pointer_array_get_item.exit.i.i:             ; preds = %6
@@ -1667,7 +1667,7 @@ define i32 @pmix_mca_base_var_group_add_var(i32 noundef %0, i32 noundef %1) loca
   %4 = icmp sgt i32 %0, -1
   %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_base_var_groups, i64 128), align 8
   %.not.i = icmp sgt i32 %5, %0
-  %or.cond = select i1 %4, i1 %.not.i, i1 false
+  %or.cond = select i1 %4, i1 %.not.i, i1 false, !prof !50
   br i1 %or.cond, label %pmix_pointer_array_get_item.exit.i, label %pmix_value_array_append_item.exit, !prof !50
 
 pmix_pointer_array_get_item.exit.i:               ; preds = %2

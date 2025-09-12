@@ -4026,7 +4026,7 @@ _ZN10wasmi_wast12v128_matches17h0c088f7ad4ca3e60E.exit.critedge: ; preds = %76
   %150 = getelementptr inbounds nuw i8, ptr %2, i64 9
   %151 = load i8, ptr %150, align 1, !range !271
   %152 = icmp eq i8 %151, 0
-  %or.cond = select i1 %cond, i1 %152, i1 false
+  %or.cond = select i1 %cond, i1 %152, i1 false, !prof !272
   br i1 %or.cond, label %159, label %_ZN10wasmi_wast12v128_matches17h0c088f7ad4ca3e60E.exit.thread51, !prof !272
 
 153:                                              ; preds = %34
@@ -4036,7 +4036,7 @@ _ZN10wasmi_wast12v128_matches17h0c088f7ad4ca3e60E.exit.critedge: ; preds = %76
   %156 = getelementptr inbounds nuw i8, ptr %2, i64 9
   %157 = load i8, ptr %156, align 1, !range !271
   %158 = icmp eq i8 %157, 1
-  %or.cond29 = select i1 %cond24, i1 %158, i1 false
+  %or.cond29 = select i1 %cond24, i1 %158, i1 false, !prof !272
   br i1 %or.cond29, label %162, label %_ZN10wasmi_wast12v128_matches17h0c088f7ad4ca3e60E.exit.thread51, !prof !272
 
 159:                                              ; preds = %147

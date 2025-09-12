@@ -1733,7 +1733,7 @@ _ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit: ; preds = %.lr.ph.i
   store i32 %.01116.i, ptr %2, align 4, !tbaa !83
   %.not = icmp ne i8 %17, 36
   %26 = icmp eq ptr %16, %1
-  %or.cond189 = select i1 %.not, i1 true, i1 %26
+  %or.cond189 = select i1 %.not, i1 true, i1 %26, !prof !84
   br i1 %or.cond189, label %.critedge71, label %27, !prof !84
 
 27:                                               ; preds = %_ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit
@@ -1891,7 +1891,7 @@ _ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit89: ; preds = %.lr.ph.i
   store i32 %92, ptr %77, align 4, !tbaa !23
   %.not68 = icmp ne i8 %82, 36
   %93 = icmp eq ptr %81, %1
-  %or.cond190 = select i1 %.not68, i1 true, i1 %93
+  %or.cond190 = select i1 %.not68, i1 true, i1 %93, !prof !84
   br i1 %or.cond190, label %.critedge71, label %94, !prof !84
 
 94:                                               ; preds = %_ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit89
@@ -2020,7 +2020,7 @@ _ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit107: ; preds = %.lr.ph.
   store i32 %149, ptr %134, align 4, !tbaa !23
   %.not69 = icmp ne i8 %139, 36
   %150 = icmp eq ptr %138, %1
-  %or.cond191 = select i1 %.not69, i1 true, i1 %150
+  %or.cond191 = select i1 %.not69, i1 true, i1 %150, !prof !85
   br i1 %or.cond191, label %.critedge71, label %151, !prof !85
 
 151:                                              ; preds = %_ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit107
@@ -2113,7 +2113,7 @@ _ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit107: ; preds = %.lr.ph.
   %.sroa.0.0.copyload.i109 = load i8, ptr %195, align 1, !tbaa !7
   %196 = icmp ne i8 %.5159, 118
   %197 = icmp sgt i8 %.sroa.0.0.copyload.i109, -1
-  %or.cond192 = select i1 %196, i1 %197, i1 false
+  %or.cond192 = select i1 %196, i1 %197, i1 false, !prof !87
   br i1 %or.cond192, label %198, label %.critedge71, !prof !87
 
 198:                                              ; preds = %192
@@ -2459,7 +2459,7 @@ _ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit80: ; preds = %.lr.ph.i
   %.sroa.0.0.copyload.i82 = load i8, ptr %145, align 1, !tbaa !7
   %146 = icmp ne i8 %.5122, 118
   %147 = icmp sgt i8 %.sroa.0.0.copyload.i82, -1
-  %or.cond172 = select i1 %146, i1 %147, i1 false
+  %or.cond172 = select i1 %146, i1 %147, i1 false, !prof !87
   br i1 %or.cond172, label %148, label %.thread, !prof !87
 
 148:                                              ; preds = %142

@@ -171,7 +171,7 @@ define hidden void @zim_DOMCharacterData_substringData(ptr noundef readonly capt
   %32 = icmp sgt i64 %31, 2147483647
   %33 = load i64, ptr %4, align 8
   %34 = icmp sgt i64 %33, 2147483647
-  %or.cond = select i1 %32, i1 true, i1 %34
+  %or.cond = select i1 %32, i1 true, i1 %34, !prof !73
   br i1 %or.cond, label %35, label %40, !prof !73
 
 35:                                               ; preds = %26

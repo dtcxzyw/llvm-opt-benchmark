@@ -24555,7 +24555,7 @@ l_Lean_Name_hash___override.exit:                 ; preds = %5, %8
   %17 = ptrtoint ptr %13 to i64
   %18 = and i64 %17, 1
   %19 = icmp ne i64 %18, 0
-  %or.cond = select i1 %16, i1 %19, i1 false
+  %or.cond = select i1 %16, i1 %19, i1 false, !prof !19
   br i1 %or.cond, label %lean_nat_lt.exit.thread, label %lean_nat_lt.exit, !prof !19
 
 lean_nat_lt.exit:                                 ; preds = %l_Lean_Name_hash___override.exit
@@ -40138,7 +40138,7 @@ define ptr @l_Lean_Macro_withIncRecDepth___rarg(ptr noundef %0, ptr noundef %1, 
   %22 = ptrtoint ptr %15 to i64
   %23 = and i64 %22, 1
   %24 = icmp ne i64 %23, 0
-  %or.cond = select i1 %21, i1 %24, i1 false
+  %or.cond = select i1 %21, i1 %24, i1 false, !prof !19
   br i1 %or.cond, label %25, label %lean_nat_eq.exit, !prof !19
 
 25:                                               ; preds = %18

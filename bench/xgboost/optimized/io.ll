@@ -1145,7 +1145,7 @@ define void @_ZN7xgboost6common18LoadSequentialFileENSt7__cxx1112basic_stringIcS
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %17 = load i64, ptr %16, align 8
   %18 = icmp ne i64 %17, 0
-  %or.cond = select i1 %15, i1 %18, i1 false
+  %or.cond = select i1 %15, i1 %18, i1 false, !prof !30
   br i1 %or.cond, label %19, label %.critedge, !prof !30
 
 19:                                               ; preds = %2

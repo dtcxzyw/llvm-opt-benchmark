@@ -3848,7 +3848,7 @@ thread-pre-split:                                 ; preds = %71, %95, %96, %99, 
   %198 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %197) #19
   %199 = and i32 %198, 7
   %200 = icmp eq i32 %199, 0
-  %or.cond69 = select i1 %195, i1 %200, i1 false
+  %or.cond69 = select i1 %195, i1 %200, i1 false, !prof !43
   br i1 %or.cond69, label %201, label %205, !prof !43
 
 201:                                              ; preds = %192

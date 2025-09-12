@@ -8969,7 +8969,7 @@ define internal { ptr, ptr } @"_ZN103_$LT$polars_arrow..array..fixed_size_list..
   %41 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %42 = load i64, ptr %41, align 8
   %.not3.i.i = icmp eq i64 %42, %12
-  %or.cond = select i1 %.not.i.i, i1 true, i1 %.not3.i.i
+  %or.cond = select i1 %.not.i.i, i1 true, i1 %.not3.i.i, !prof !621
   br i1 %or.cond, label %43, label %46, !prof !621
 
 43:                                               ; preds = %32
@@ -29104,7 +29104,7 @@ define hidden void @_ZN11polars_time12chunkedarray14rolling_window8dispatch14rol
   call void @llvm.lifetime.end.p0(ptr nonnull %47)
   %110 = tail call noundef zeroext i1 @_ZN11polars_time7windows8duration8Duration7is_zero17hcc201fad1599ea27E(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %100)
   %111 = trunc nuw i8 %.sroa.4.0.copyload to i1
-  %or.cond = select i1 %110, i1 true, i1 %111
+  %or.cond = select i1 %110, i1 true, i1 %111, !prof !2755
   br i1 %or.cond, label %120, label %112, !prof !2755
 
 112:                                              ; preds = %109
@@ -30172,7 +30172,7 @@ define hidden void @_ZN11polars_time12chunkedarray14rolling_window8dispatch14rol
   call void @llvm.lifetime.end.p0(ptr nonnull %47)
   %110 = tail call noundef zeroext i1 @_ZN11polars_time7windows8duration8Duration7is_zero17hcc201fad1599ea27E(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %100)
   %111 = trunc nuw i8 %.sroa.4.0.copyload to i1
-  %or.cond = select i1 %110, i1 true, i1 %111
+  %or.cond = select i1 %110, i1 true, i1 %111, !prof !2755
   br i1 %or.cond, label %120, label %112, !prof !2755
 
 112:                                              ; preds = %109
@@ -31240,7 +31240,7 @@ define hidden void @_ZN11polars_time12chunkedarray14rolling_window8dispatch14rol
   call void @llvm.lifetime.end.p0(ptr nonnull %47)
   %110 = tail call noundef zeroext i1 @_ZN11polars_time7windows8duration8Duration7is_zero17hcc201fad1599ea27E(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %100)
   %111 = trunc nuw i8 %.sroa.4.0.copyload to i1
-  %or.cond = select i1 %110, i1 true, i1 %111
+  %or.cond = select i1 %110, i1 true, i1 %111, !prof !2755
   br i1 %or.cond, label %120, label %112, !prof !2755
 
 112:                                              ; preds = %109
@@ -32308,7 +32308,7 @@ define hidden void @_ZN11polars_time12chunkedarray14rolling_window8dispatch14rol
   call void @llvm.lifetime.end.p0(ptr nonnull %47)
   %110 = tail call noundef zeroext i1 @_ZN11polars_time7windows8duration8Duration7is_zero17hcc201fad1599ea27E(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %100)
   %111 = trunc nuw i8 %.sroa.4.0.copyload to i1
-  %or.cond = select i1 %110, i1 true, i1 %111
+  %or.cond = select i1 %110, i1 true, i1 %111, !prof !2755
   br i1 %or.cond, label %120, label %112, !prof !2755
 
 112:                                              ; preds = %109
@@ -33376,7 +33376,7 @@ define hidden void @_ZN11polars_time12chunkedarray14rolling_window8dispatch14rol
   call void @llvm.lifetime.end.p0(ptr nonnull %47)
   %110 = tail call noundef zeroext i1 @_ZN11polars_time7windows8duration8Duration7is_zero17hcc201fad1599ea27E(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %100)
   %111 = trunc nuw i8 %.sroa.4.0.copyload to i1
-  %or.cond = select i1 %110, i1 true, i1 %111
+  %or.cond = select i1 %110, i1 true, i1 %111, !prof !2755
   br i1 %or.cond, label %120, label %112, !prof !2755
 
 112:                                              ; preds = %109
@@ -34444,7 +34444,7 @@ define hidden void @_ZN11polars_time12chunkedarray14rolling_window8dispatch14rol
   call void @llvm.lifetime.end.p0(ptr nonnull %47)
   %110 = tail call noundef zeroext i1 @_ZN11polars_time7windows8duration8Duration7is_zero17hcc201fad1599ea27E(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %100)
   %111 = trunc nuw i8 %.sroa.4.0.copyload to i1
-  %or.cond = select i1 %110, i1 true, i1 %111
+  %or.cond = select i1 %110, i1 true, i1 %111, !prof !2755
   br i1 %or.cond, label %120, label %112, !prof !2755
 
 112:                                              ; preds = %109
@@ -35512,7 +35512,7 @@ define hidden void @_ZN11polars_time12chunkedarray14rolling_window8dispatch14rol
   call void @llvm.lifetime.end.p0(ptr nonnull %47)
   %110 = tail call noundef zeroext i1 @_ZN11polars_time7windows8duration8Duration7is_zero17hcc201fad1599ea27E(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %100)
   %111 = trunc nuw i8 %.sroa.4.0.copyload to i1
-  %or.cond = select i1 %110, i1 true, i1 %111
+  %or.cond = select i1 %110, i1 true, i1 %111, !prof !2755
   br i1 %or.cond, label %120, label %112, !prof !2755
 
 112:                                              ; preds = %109
@@ -36580,7 +36580,7 @@ define hidden void @_ZN11polars_time12chunkedarray14rolling_window8dispatch14rol
   call void @llvm.lifetime.end.p0(ptr nonnull %47)
   %110 = tail call noundef zeroext i1 @_ZN11polars_time7windows8duration8Duration7is_zero17hcc201fad1599ea27E(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %100)
   %111 = trunc nuw i8 %.sroa.4.0.copyload to i1
-  %or.cond = select i1 %110, i1 true, i1 %111
+  %or.cond = select i1 %110, i1 true, i1 %111, !prof !2755
   br i1 %or.cond, label %120, label %112, !prof !2755
 
 112:                                              ; preds = %109
@@ -37648,7 +37648,7 @@ define hidden void @_ZN11polars_time12chunkedarray14rolling_window8dispatch14rol
   call void @llvm.lifetime.end.p0(ptr nonnull %47)
   %110 = tail call noundef zeroext i1 @_ZN11polars_time7windows8duration8Duration7is_zero17hcc201fad1599ea27E(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %100)
   %111 = trunc nuw i8 %.sroa.4.0.copyload to i1
-  %or.cond = select i1 %110, i1 true, i1 %111
+  %or.cond = select i1 %110, i1 true, i1 %111, !prof !2755
   br i1 %or.cond, label %120, label %112, !prof !2755
 
 112:                                              ; preds = %109
@@ -38716,7 +38716,7 @@ define hidden void @_ZN11polars_time12chunkedarray14rolling_window8dispatch14rol
   call void @llvm.lifetime.end.p0(ptr nonnull %47)
   %110 = tail call noundef zeroext i1 @_ZN11polars_time7windows8duration8Duration7is_zero17hcc201fad1599ea27E(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %100)
   %111 = trunc nuw i8 %.sroa.4.0.copyload to i1
-  %or.cond = select i1 %110, i1 true, i1 %111
+  %or.cond = select i1 %110, i1 true, i1 %111, !prof !2755
   br i1 %or.cond, label %120, label %112, !prof !2755
 
 112:                                              ; preds = %109
@@ -39784,7 +39784,7 @@ define hidden void @_ZN11polars_time12chunkedarray14rolling_window8dispatch14rol
   call void @llvm.lifetime.end.p0(ptr nonnull %47)
   %110 = tail call noundef zeroext i1 @_ZN11polars_time7windows8duration8Duration7is_zero17hcc201fad1599ea27E(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %100)
   %111 = trunc nuw i8 %.sroa.4.0.copyload to i1
-  %or.cond = select i1 %110, i1 true, i1 %111
+  %or.cond = select i1 %110, i1 true, i1 %111, !prof !2755
   br i1 %or.cond, label %120, label %112, !prof !2755
 
 112:                                              ; preds = %109
@@ -126041,7 +126041,7 @@ define internal { ptr, ptr } @"_ZN88_$LT$polars_arrow..array..struct_..StructArr
   %32 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %33 = load i64, ptr %32, align 8
   %.not3.i.i = icmp eq i64 %33, %16
-  %or.cond = select i1 %.not.i.i, i1 true, i1 %.not3.i.i
+  %or.cond = select i1 %.not.i.i, i1 true, i1 %.not3.i.i, !prof !621
   br i1 %or.cond, label %34, label %37, !prof !621
 
 34:                                               ; preds = %27

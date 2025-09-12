@@ -7836,7 +7836,7 @@ define internal fastcc noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterato
 20:                                               ; preds = %19
   %21 = icmp ne i64 %17, %14
   %.not.i.i = icmp eq ptr %13, null
-  %or.cond.i.i = select i1 %21, i1 true, i1 %.not.i.i
+  %or.cond.i.i = select i1 %21, i1 true, i1 %.not.i.i, !prof !555
   br i1 %or.cond.i.i, label %"_ZN4core3str6traits110_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeTo$LT$usize$GT$$GT$3get17heac9f6a047b0eab2E.exit.thread.i.i", label %"_ZN4core3str6traits110_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeTo$LT$usize$GT$$GT$3get17heac9f6a047b0eab2E.exit.thread3.i.i", !prof !555
 
 22:                                               ; preds = %19
@@ -55707,7 +55707,7 @@ define internal fastcc void @_ZN11ruff_linter5rules9pydoclint5rules15check_docst
 58:                                               ; preds = %57
   %59 = icmp ne i64 %54, %50
   %.not36 = icmp eq ptr %49, null
-  %or.cond = select i1 %59, i1 true, i1 %.not36
+  %or.cond = select i1 %59, i1 true, i1 %.not36, !prof !555
   br i1 %or.cond, label %.thread65, label %.thread68, !prof !555
 
 60:                                               ; preds = %57

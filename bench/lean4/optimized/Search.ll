@@ -41495,7 +41495,7 @@ lean_int_dec_eq.exit.us:                          ; preds = %24
   %48 = ptrtoint ptr %34 to i64
   %49 = and i64 %48, 1
   %50 = icmp ne i64 %49, 0
-  %or.cond.us = select i1 %47, i1 %50, i1 false
+  %or.cond.us = select i1 %47, i1 %50, i1 false, !prof !18
   br i1 %or.cond.us, label %51, label %.backedge.us, !prof !18
 
 51:                                               ; preds = %44
@@ -41670,7 +41670,7 @@ lean_dec.exit:                                    ; preds = %125, %124, %122, %l
   %130 = ptrtoint ptr %92 to i64
   %131 = and i64 %130, 1
   %132 = icmp ne i64 %131, 0
-  %or.cond97 = select i1 %129, i1 %132, i1 false
+  %or.cond97 = select i1 %129, i1 %132, i1 false, !prof !18
   br i1 %or.cond97, label %133, label %.backedge, !prof !18
 
 133:                                              ; preds = %126
@@ -141896,7 +141896,7 @@ lean_dec.exit37:                                  ; preds = %91, %123, %122, %12
   %127 = ptrtoint ptr %.0.i6373 to i64
   %128 = and i64 %127, 1
   %129 = icmp ne i64 %128, 0
-  %or.cond = select i1 %126, i1 %129, i1 false
+  %or.cond = select i1 %126, i1 %129, i1 false, !prof !18
   br i1 %or.cond, label %lean_dec.exit36.thread, label %lean_nat_lt.exit, !prof !18
 
 lean_dec.exit36.thread:                           ; preds = %lean_dec.exit37
@@ -142320,7 +142320,7 @@ lean_dec.exit39:                                  ; preds = %92, %124, %123, %12
   %128 = ptrtoint ptr %.0.i6576 to i64
   %129 = and i64 %128, 1
   %130 = icmp ne i64 %129, 0
-  %or.cond = select i1 %127, i1 %130, i1 false
+  %or.cond = select i1 %127, i1 %130, i1 false, !prof !18
   br i1 %or.cond, label %lean_dec.exit38.thread, label %lean_nat_lt.exit, !prof !18
 
 lean_dec.exit38.thread:                           ; preds = %lean_dec.exit39

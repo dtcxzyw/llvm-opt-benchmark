@@ -11047,7 +11047,7 @@ define internal noundef i32 @ZEND_CONCAT_SPEC_TMPVAR_CV_HANDLER(ptr noundef %0) 
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %15 = load i8, ptr %14, align 8, !tbaa !55
   %16 = icmp eq i8 %15, 6
-  %or.cond = select i1 %13, i1 %16, i1 false
+  %or.cond = select i1 %13, i1 %16, i1 false, !prof !219
   br i1 %or.cond, label %17, label %._crit_edge, !prof !219
 
 17:                                               ; preds = %1
@@ -69894,7 +69894,7 @@ _get_zval_ptr_undef.exit:                         ; preds = %9, %12
   %38 = icmp ne i8 %37, 1
   %39 = and i32 %36, 65280
   %.not90 = icmp eq i32 %39, 0
-  %or.cond = select i1 %38, i1 true, i1 %.not90
+  %or.cond = select i1 %38, i1 true, i1 %.not90, !prof !251
   br i1 %or.cond, label %101, label %40, !prof !251
 
 40:                                               ; preds = %32
@@ -77251,7 +77251,7 @@ define internal range(i32 0, 2) i32 @ZEND_INCLUDE_OR_EVAL_SPEC_CONST_HANDLER(ptr
   %58 = icmp eq i8 %57, 1
   %59 = load ptr, ptr @zend_execute_ex, align 8
   %60 = icmp eq ptr %59, @execute_ex
-  %or.cond = select i1 %58, i1 %60, i1 false
+  %or.cond = select i1 %58, i1 %60, i1 false, !prof !252
   br i1 %or.cond, label %61, label %82, !prof !252
 
 61:                                               ; preds = %55
@@ -77709,7 +77709,7 @@ zval_ptr_dtor_nogc.exit114:                       ; preds = %40, %35, %29, %26
   %88 = icmp eq i8 %87, 1
   %89 = load ptr, ptr @zend_execute_ex, align 8
   %90 = icmp eq ptr %89, @execute_ex
-  %or.cond = select i1 %88, i1 %90, i1 false
+  %or.cond = select i1 %88, i1 %90, i1 false, !prof !252
   br i1 %or.cond, label %91, label %112, !prof !252
 
 91:                                               ; preds = %85
@@ -78259,7 +78259,7 @@ zval_ptr_dtor_nogc.exit103:                       ; preds = %11, %17, %22
   %70 = icmp eq i8 %69, 1
   %71 = load ptr, ptr @zend_execute_ex, align 8
   %72 = icmp eq ptr %71, @execute_ex
-  %or.cond = select i1 %70, i1 %72, i1 false
+  %or.cond = select i1 %70, i1 %72, i1 false, !prof !252
   br i1 %or.cond, label %73, label %94, !prof !252
 
 73:                                               ; preds = %67
@@ -78734,7 +78734,7 @@ _get_zval_ptr_cv_BP_VAR_R.exit:                   ; preds = %1, %10
   %62 = icmp eq i8 %61, 1
   %63 = load ptr, ptr @zend_execute_ex, align 8
   %64 = icmp eq ptr %63, @execute_ex
-  %or.cond = select i1 %62, i1 %64, i1 false
+  %or.cond = select i1 %62, i1 %64, i1 false, !prof !252
   br i1 %or.cond, label %65, label %86, !prof !252
 
 65:                                               ; preds = %59
@@ -101013,7 +101013,7 @@ zval_ptr_dtor_nogc.exit:                          ; preds = %31, %41, %46
   %.not = icmp eq i32 %91, 0
   %92 = load ptr, ptr %2, align 8
   %93 = icmp eq ptr %92, %50
-  %or.cond = select i1 %.not, i1 %93, i1 false
+  %or.cond = select i1 %.not, i1 %93, i1 false, !prof !219
   br i1 %or.cond, label %94, label %100, !prof !219
 
 94:                                               ; preds = %88
@@ -102063,7 +102063,7 @@ define internal noundef i32 @ZEND_INIT_METHOD_CALL_SPEC_UNUSED_CONST_HANDLER(ptr
   %.not = icmp eq i32 %41, 0
   %42 = load ptr, ptr %2, align 8
   %43 = icmp eq ptr %42, %5
-  %or.cond = select i1 %.not, i1 %43, i1 false
+  %or.cond = select i1 %.not, i1 %43, i1 false, !prof !219
   br i1 %or.cond, label %44, label %50, !prof !219
 
 44:                                               ; preds = %38
@@ -102767,7 +102767,7 @@ define internal noundef i32 @ZEND_INIT_METHOD_CALL_SPEC_CV_CONST_HANDLER(ptr nou
   %.not62 = icmp eq i32 %63, 0
   %64 = load ptr, ptr %2, align 8
   %65 = icmp eq ptr %64, %storemerge
-  %or.cond = select i1 %.not62, i1 %65, i1 false
+  %or.cond = select i1 %.not62, i1 %65, i1 false, !prof !219
   br i1 %or.cond, label %66, label %72, !prof !219
 
 66:                                               ; preds = %60
@@ -124372,7 +124372,7 @@ define internal range(i32 -1, 3) i32 @ZEND_GENERATOR_CREATE_SPEC_HANDLER(ptr nou
   %.not139 = icmp ne i32 %59, 0
   %60 = load ptr, ptr @zend_execute_ex, align 8
   %.not140 = icmp eq ptr %60, @execute_ex
-  %or.cond = select i1 %.not139, i1 %.not140, i1 false
+  %or.cond = select i1 %.not139, i1 %.not140, i1 false, !prof !252
   br i1 %or.cond, label %70, label %61, !prof !252
 
 61:                                               ; preds = %58
@@ -125343,7 +125343,7 @@ zval_ptr_dtor_nogc.exit191:                       ; preds = %169, %164, %158, %1
   %189 = icmp eq i32 %188, 0
   %190 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8
   %.not162220 = icmp eq ptr %190, null
-  %or.cond221 = select i1 %189, i1 %.not162220, i1 false
+  %or.cond221 = select i1 %189, i1 %.not162220, i1 false, !prof !252
   br i1 %or.cond221, label %.lr.ph, label %.thread, !prof !327
 
 .lr.ph:                                           ; preds = %185
@@ -125523,7 +125523,7 @@ zval_ptr_dtor_str.exit:                           ; preds = %248, %243, %_zend_h
   %267 = icmp eq i32 %266, 0
   %268 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8
   %.not162 = icmp eq ptr %268, null
-  %or.cond = select i1 %267, i1 %.not162, i1 false
+  %or.cond = select i1 %267, i1 %.not162, i1 false, !prof !252
   br i1 %or.cond, label %196, label %.thread, !prof !329
 
 .thread.sink.split:                               ; preds = %202, %206, %.thread211
@@ -133980,7 +133980,7 @@ _get_zval_ptr.exit:                               ; preds = %22, %10, %13
   %32 = icmp ne i8 %31, 1
   %33 = and i32 %29, 65280
   %.not63 = icmp eq i32 %33, 0
-  %or.cond = select i1 %32, i1 true, i1 %.not63
+  %or.cond = select i1 %32, i1 true, i1 %.not63, !prof !251
   br i1 %or.cond, label %94, label %34, !prof !251
 
 34:                                               ; preds = %25
@@ -136052,7 +136052,7 @@ zval_ptr_dtor_nogc.exit362:                       ; preds = %332, %327, %321, %3
   %352 = icmp eq i32 %351, 0
   %353 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8
   %.not321473 = icmp eq ptr %353, null
-  %or.cond474 = select i1 %352, i1 %.not321473, i1 false
+  %or.cond474 = select i1 %352, i1 %.not321473, i1 false, !prof !252
   br i1 %or.cond474, label %.lr.ph, label %.thread448, !prof !327
 
 .lr.ph:                                           ; preds = %348
@@ -136431,7 +136431,7 @@ zend_check_arg_send_type.exit388.thread:          ; preds = %495, %zend_check_ar
   %541 = icmp eq i32 %540, 0
   %542 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8
   %.not321 = icmp eq ptr %542, null
-  %or.cond = select i1 %541, i1 %.not321, i1 false
+  %or.cond = select i1 %541, i1 %.not321, i1 false, !prof !252
   br i1 %or.cond, label %358, label %.thread448, !prof !329
 
 .thread448:                                       ; preds = %535, %358, %348, %zend_string_release.exit358.thread, %.loopexit461, %458
@@ -136944,7 +136944,7 @@ zval_ptr_dtor_nogc.exit128:                       ; preds = %162, %169, %174
   %.not108 = icmp ne ptr %163, null
   %176 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8
   %.not109 = icmp eq ptr %176, null
-  %or.cond = select i1 %.not108, i1 %.not109, i1 false
+  %or.cond = select i1 %.not108, i1 %.not109, i1 false, !prof !219
   br i1 %or.cond, label %195, label %177, !prof !219
 
 177:                                              ; preds = %zval_ptr_dtor_nogc.exit128
@@ -137369,7 +137369,7 @@ zend_generator_get_current.exit:                  ; preds = %83, %92, %95
   %.not98 = icmp ne ptr %131, null
   %132 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8
   %.not99 = icmp eq ptr %132, null
-  %or.cond = select i1 %.not98, i1 %.not99, i1 false
+  %or.cond = select i1 %.not98, i1 %.not99, i1 false, !prof !219
   br i1 %or.cond, label %151, label %133, !prof !219
 
 133:                                              ; preds = %130
@@ -168999,7 +168999,7 @@ define internal fastcc zeroext i1 @zend_fe_reset_iterator(ptr noundef %0, i32 no
   %.not = icmp ne ptr %10, null
   %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8
   %.not34 = icmp eq ptr %11, null
-  %or.cond = select i1 %.not, i1 %.not34, i1 false
+  %or.cond = select i1 %.not, i1 %.not34, i1 false, !prof !219
   br i1 %or.cond, label %37, label %12, !prof !219
 
 12:                                               ; preds = %4
@@ -174763,7 +174763,7 @@ define internal fastcc ptr @zend_init_dynamic_call_array(ptr noundef %0, i32 nou
   %9 = tail call ptr @zend_hash_index_find(ptr noundef nonnull %0, i64 noundef 1) #31
   %.not = icmp eq ptr %8, null
   %.not75 = icmp eq ptr %9, null
-  %or.cond = select i1 %.not, i1 true, i1 %.not75
+  %or.cond = select i1 %.not, i1 true, i1 %.not75, !prof !269
   br i1 %or.cond, label %10, label %11, !prof !269
 
 10:                                               ; preds = %7

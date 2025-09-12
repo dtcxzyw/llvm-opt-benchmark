@@ -47902,7 +47902,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.
   %1130 = getelementptr inbounds nuw i8, ptr %229, i64 256
   %1131 = load i8, ptr %1130, align 16, !range !312, !alias.scope !5031, !noalias !5032
   %1132 = trunc nuw i8 %1131 to i1
-  %or.cond.i.i.i.i.i = select i1 %1129, i1 true, i1 %1132
+  %or.cond.i.i.i.i.i = select i1 %1129, i1 true, i1 %1132, !prof !4245
   br i1 %or.cond.i.i.i.i.i, label %1134, label %1136, !prof !4245
 
 1133:                                             ; preds = %347

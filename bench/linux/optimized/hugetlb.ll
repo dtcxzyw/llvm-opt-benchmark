@@ -9595,7 +9595,7 @@ define internal fastcc range(i32 0, 65) i32 @hugetlb_wp(ptr noundef %0, ptr noun
   %32 = load i64, ptr %31, align 8
   %33 = and i64 %32, 2
   %34 = icmp eq i64 %33, 0
-  %or.cond = select i1 %16, i1 %34, i1 false
+  %or.cond = select i1 %16, i1 %34, i1 false, !prof !90
   br i1 %or.cond, label %35, label %._crit_edge, !prof !90
 
 35:                                               ; preds = %7

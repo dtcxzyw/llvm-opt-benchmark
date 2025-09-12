@@ -536,7 +536,7 @@ _ZL10_Py_DECREFP7_object.exit:                    ; preds = %14, %17
   %64 = load ptr, ptr %46, align 8
   %.not63 = icmp eq ptr %64, null
   %65 = icmp eq ptr %47, null
-  %or.cond = select i1 %.not63, i1 true, i1 %65
+  %or.cond = select i1 %.not63, i1 true, i1 %65, !prof !6
   br i1 %or.cond, label %.critedge, label %66, !prof !6
 
 .critedge:                                        ; preds = %63, %61, %59, %57, %48

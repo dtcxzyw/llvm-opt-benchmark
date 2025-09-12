@@ -6123,7 +6123,7 @@ spin_acquire_lock.exit:                           ; preds = %11, %3, %7
   %.not48 = icmp uge ptr %23, %27
   %28 = and i64 %25, 3
   %29 = icmp ne i64 %28, 1
-  %or.cond = select i1 %.not48, i1 %29, i1 false
+  %or.cond = select i1 %.not48, i1 %29, i1 false, !prof !77
   br i1 %or.cond, label %30, label %.critedge, !prof !77
 
 30:                                               ; preds = %22

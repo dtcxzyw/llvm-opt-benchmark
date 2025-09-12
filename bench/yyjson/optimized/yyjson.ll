@@ -4223,7 +4223,7 @@ yyjson_mut_is_obj.exit314:                        ; preds = %443, %448
   %456 = and i64 %340, 7
   %457 = icmp ne i64 %456, 7
   %.not.i322 = icmp eq ptr %455, null
-  %or.cond610 = select i1 %457, i1 true, i1 %.not.i322
+  %or.cond610 = select i1 %457, i1 true, i1 %.not.i322, !prof !95
   br i1 %or.cond610, label %.critedge253, label %458, !prof !95
 
 458:                                              ; preds = %yyjson_mut_is_obj.exit314
@@ -7106,7 +7106,7 @@ yyjson_mut_is_obj.exit:                           ; preds = %unsafe_yyjson_equal
   %59 = and i64 %58, 7
   %60 = icmp ne i64 %59, 7
   %.not.i72 = icmp eq ptr %56, null
-  %or.cond = select i1 %60, i1 true, i1 %.not.i72
+  %or.cond = select i1 %60, i1 true, i1 %.not.i72, !prof !95
   br i1 %or.cond, label %yyjson_mut_obj.exit.thread, label %61, !prof !95
 
 61:                                               ; preds = %yyjson_mut_is_obj.exit
@@ -7243,7 +7243,7 @@ yyjson_mut_is_obj.exit71:                         ; preds = %unsafe_yyjson_equal
   %126 = and i64 %125, 7
   %127 = icmp ne i64 %126, 7
   %.not.i73 = icmp eq ptr %97, null
-  %or.cond150 = select i1 %127, i1 true, i1 %.not.i73
+  %or.cond150 = select i1 %127, i1 true, i1 %.not.i73, !prof !95
   br i1 %or.cond150, label %yyjson_mut_obj.exit.thread, label %128, !prof !95
 
 128:                                              ; preds = %yyjson_mut_is_obj.exit71
@@ -7466,7 +7466,7 @@ yyjson_mut_is_obj.exit:                           ; preds = %yyjson_mut_val_mut_
   %67 = and i64 %66, 7
   %68 = icmp ne i64 %67, 7
   %.not.i82 = icmp eq ptr %63, null
-  %or.cond = select i1 %68, i1 true, i1 %.not.i82
+  %or.cond = select i1 %68, i1 true, i1 %.not.i82, !prof !95
   br i1 %or.cond, label %yyjson_mut_val_mut_copy.exit, label %69, !prof !95
 
 69:                                               ; preds = %yyjson_mut_is_obj.exit
@@ -7621,7 +7621,7 @@ yyjson_mut_is_obj.exit77:                         ; preds = %unsafe_yyjson_equal
   %141 = and i64 %140, 7
   %142 = icmp ne i64 %141, 7
   %.not.i83 = icmp eq ptr %.0.i112, null
-  %or.cond201 = select i1 %142, i1 true, i1 %.not.i83
+  %or.cond201 = select i1 %142, i1 true, i1 %.not.i83, !prof !95
   br i1 %or.cond201, label %yyjson_mut_val_mut_copy.exit, label %143, !prof !95
 
 143:                                              ; preds = %yyjson_mut_is_obj.exit77

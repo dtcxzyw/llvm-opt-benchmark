@@ -14429,7 +14429,7 @@ define internal fastcc void @_ZN14polars_parquet5arrow4read11deserialize7binview
   %130 = icmp ne i8 %129, 0
   %131 = load ptr, ptr %23, align 8
   %.not79 = icmp eq ptr %131, null
-  %or.cond = select i1 %130, i1 %.not79, i1 false
+  %or.cond = select i1 %130, i1 %.not79, i1 false, !prof !1402
   br i1 %or.cond, label %132, label %137, !prof !1402
 
 132:                                              ; preds = %128

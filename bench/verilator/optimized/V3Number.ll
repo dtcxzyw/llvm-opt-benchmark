@@ -6874,7 +6874,7 @@ _ZNSolsEd.exit:                                   ; preds = %55
   %62 = icmp ne i8 %61, 2
   %63 = load i32, ptr %53, align 8
   %64 = icmp ne i32 %63, 64
-  %or.cond.i32 = select i1 %62, i1 true, i1 %64
+  %or.cond.i32 = select i1 %62, i1 true, i1 %64, !prof !183
   br i1 %or.cond.i32, label %.critedge.i37, label %68, !prof !183
 
 .critedge.i37:                                    ; preds = %_ZNSolsEd.exit
@@ -7747,7 +7747,7 @@ define dso_local noundef double @_ZNK8V3Number8toDoubleEv(ptr noundef nonnull re
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load i32, ptr %5, align 8
   %7 = icmp ne i32 %6, 64
-  %or.cond = select i1 %4, i1 true, i1 %7
+  %or.cond = select i1 %4, i1 true, i1 %7, !prof !183
   br i1 %or.cond, label %.critedge, label %_ZNK12V3NumberData3numEv.exit3, !prof !183
 
 .critedge:                                        ; preds = %1
@@ -11242,7 +11242,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit551: ; preds = 
   %1025 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %1026 = load i32, ptr %1025, align 8
   %1027 = icmp ne i32 %1026, 64
-  %or.cond.i552 = select i1 %1024, i1 true, i1 %1027
+  %or.cond.i552 = select i1 %1024, i1 true, i1 %1027, !prof !183
   br i1 %or.cond.i552, label %.critedge.i, label %1031, !prof !183
 
 .critedge.i:                                      ; preds = %1021
@@ -23218,7 +23218,7 @@ _ZNK8V3Number8toDoubleEv.exit:                    ; preds = %43
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %53 = load i32, ptr %52, align 8
   %54 = icmp ne i32 %53, 64
-  %or.cond.i20 = select i1 %51, i1 true, i1 %54
+  %or.cond.i20 = select i1 %51, i1 true, i1 %54, !prof !183
   br i1 %or.cond.i20, label %.critedge.i25, label %_ZNK8V3Number8toDoubleEv.exit26, !prof !183
 
 .critedge.i25:                                    ; preds = %_ZNK8V3Number8toDoubleEv.exit
@@ -30232,7 +30232,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number12
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %22 = load i32, ptr %21, align 8
   %23 = icmp ne i32 %22, 64
-  %or.cond = select i1 %20, i1 true, i1 %23
+  %or.cond = select i1 %20, i1 true, i1 %23, !prof !183
   br i1 %or.cond, label %.critedge, label %_ZNK8V3Number8toDoubleEv.exit, !prof !183
 
 .critedge:                                        ; preds = %17
@@ -30273,7 +30273,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number13
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load i32, ptr %11, align 8
   %13 = icmp ne i32 %12, 64
-  %or.cond = select i1 %10, i1 true, i1 %13
+  %or.cond = select i1 %10, i1 true, i1 %13, !prof !183
   br i1 %or.cond, label %.critedge, label %17, !prof !183
 
 .critedge:                                        ; preds = %7

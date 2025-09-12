@@ -12262,7 +12262,7 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort8_stable1
   %72 = getelementptr i8, ptr %87, i64 8
   %73 = icmp ne ptr %82, %71
   %74 = icmp ne ptr %80, %72
-  %or.cond.i = select i1 %73, i1 true, i1 %74
+  %or.cond.i = select i1 %73, i1 true, i1 %74, !prof !1656
   br i1 %or.cond.i, label %90, label %_ZN4core5slice4sort6shared9smallsort19bidirectional_merge17h0b59f5e7740ae40fE.exit, !prof !1656
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %3
@@ -13032,7 +13032,7 @@ define void @_ZN4core5slice4sort6stable9quicksort9quicksort17h547a52d33a5d5bbcE(
   %.sroa.0.1.i.i = phi ptr [ %126, %._crit_edge.i.i ], [ %138, %134 ]
   %143 = icmp ne ptr %.sroa.0.1.i.i, %115
   %144 = icmp ne ptr %.sroa.06.1.i.i, %116
-  %or.cond.i.i = select i1 %143, i1 true, i1 %144
+  %or.cond.i.i = select i1 %143, i1 true, i1 %144, !prof !1656
   br i1 %or.cond.i.i, label %145, label %_ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h9efbdedd7f4d3d5dE.exit, !prof !1656
 
 145:                                              ; preds = %142
@@ -38942,7 +38942,7 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i74.i: ; preds 
   %252 = trunc nuw i8 %.sroa.018.3.i to i1
   %253 = load i8, ptr %76, align 1, !range !28
   %254 = icmp eq i8 %253, -40
-  %or.cond161 = select i1 %252, i1 %254, i1 false
+  %or.cond161 = select i1 %252, i1 %254, i1 false, !prof !290
   br i1 %or.cond161, label %256, label %.noexc64, !prof !290
 
 255:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd01836ec19f8d0c0E.exit.i"
@@ -38982,7 +38982,7 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i74.i: ; preds 
   %266 = trunc nuw i8 %.sroa.018.1.i115 to i1
   %267 = load i8, ptr %76, align 1, !range !28
   %268 = icmp eq i8 %267, -40
-  %or.cond164 = select i1 %266, i1 %268, i1 false
+  %or.cond164 = select i1 %266, i1 %268, i1 false, !prof !290
   br i1 %or.cond164, label %270, label %.body20, !prof !290
 
 269:                                              ; preds = %.thread
@@ -41138,7 +41138,7 @@ define internal fastcc void @"_ZN18ruff_python_parser6parser10expression52_$LT$i
   call void @llvm.experimental.noalias.scope.decl(metadata !6403)
   %154 = load i32, ptr %.phi.trans.insert.i, align 8, !alias.scope !6403, !noalias !6406
   %.not.i = icmp eq i32 %.sroa.6.0763, %154
-  %or.cond = select i1 %.sroa.0.0764, i1 %.not.i, i1 false
+  %or.cond = select i1 %.sroa.0.0764, i1 %.not.i, i1 false, !prof !290
   br i1 %or.cond, label %155, label %._crit_edge.i, !prof !290
 
 155:                                              ; preds = %150
@@ -50858,7 +50858,7 @@ define internal fastcc void @"_ZN18ruff_python_parser6parser10expression52_$LT$i
   call void @llvm.experimental.noalias.scope.decl(metadata !7841)
   %73 = load i32, ptr %.phi.trans.insert.i, align 8, !alias.scope !7841, !noalias !7844
   %.not.i = icmp eq i32 %.sroa.5.0233, %73
-  %or.cond = select i1 %.sroa.0.0234, i1 %.not.i, i1 false
+  %or.cond = select i1 %.sroa.0.0234, i1 %.not.i, i1 false, !prof !290
   br i1 %or.cond, label %74, label %_ZN18ruff_python_parser6parser8progress14ParserProgress18assert_progressing17h1ea05777d349e887E.exit, !prof !290
 
 74:                                               ; preds = %70
@@ -51234,7 +51234,7 @@ _ZN18ruff_python_parser12token_source11TokenSource4bump17h8e4402bc6f8e8d4aE.exit
   store i32 %159, ptr %.phi.trans.insert.i, align 8, !alias.scope !7923
   call void @llvm.experimental.noalias.scope.decl(metadata !7926)
   %.not.i31 = icmp eq i32 %.sroa.579.1175, %159
-  %or.cond389 = select i1 %.sroa.078.0176, i1 %.not.i31, i1 false
+  %or.cond389 = select i1 %.sroa.078.0176, i1 %.not.i31, i1 false, !prof !290
   br i1 %or.cond389, label %160, label %_ZN18ruff_python_parser6parser8progress14ParserProgress18assert_progressing17h1ea05777d349e887E.exit42, !prof !290
 
 160:                                              ; preds = %157
@@ -52256,7 +52256,7 @@ _ZN18ruff_python_parser6parser6Parser9add_error17had7821f4a9ca56b1E.exit: ; pred
   call void @llvm.experimental.noalias.scope.decl(metadata !8043)
   %52 = load i32, ptr %.phi.trans.insert.i, align 8, !alias.scope !8043, !noalias !8046
   %.not.i = icmp eq i32 %.sroa.5.078, %52
-  %or.cond = select i1 %.sroa.0.079, i1 %.not.i, i1 false
+  %or.cond = select i1 %.sroa.0.079, i1 %.not.i, i1 false, !prof !290
   br i1 %or.cond, label %53, label %_ZN18ruff_python_parser6parser8progress14ParserProgress18assert_progressing17h1ea05777d349e887E.exit, !prof !290
 
 53:                                               ; preds = %51
@@ -58652,7 +58652,7 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i: ; preds = %1
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5626)
   %.not = icmp eq i64 %377, -9223372036854775800
   %.not116 = icmp eq i64 %.sroa.0295.0, -9223372036854775800
-  %or.cond = select i1 %.not, i1 true, i1 %.not116
+  %or.cond = select i1 %.not, i1 true, i1 %.not116, !prof !1656
   br i1 %or.cond, label %382, label %387, !prof !1656
 
 382:                                              ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hee62a1eb57eb60f0E.exit189"
@@ -60288,7 +60288,7 @@ _ZN18ruff_python_parser6parser6Parser6expect17hb23f24054a0cb239E.exit168: ; pred
   call void @llvm.experimental.noalias.scope.decl(metadata !9127), !noalias !9106
   %406 = load i32, ptr %.phi.trans.insert.i.i, align 8, !alias.scope !9130, !noalias !9131
   %.not.i.i = icmp eq i32 %.sroa.5400.0865, %406
-  %or.cond1225 = select i1 %.sroa.0399.0864, i1 %.not.i.i, i1 false
+  %or.cond1225 = select i1 %.sroa.0399.0864, i1 %.not.i.i, i1 false, !prof !290
   br i1 %or.cond1225, label %407, label %_ZN18ruff_python_parser6parser8progress14ParserProgress18assert_progressing17h1ea05777d349e887E.exit.i, !prof !290
 
 407:                                              ; preds = %403
@@ -60757,7 +60757,7 @@ _ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i250: 
   call void @llvm.experimental.noalias.scope.decl(metadata !9204), !noalias !9180
   %535 = load i32, ptr %.phi.trans.insert.i.i220, align 8, !alias.scope !9207, !noalias !9208
   %.not.i.i233 = icmp eq i32 %.sroa.5405.0837, %535
-  %or.cond1226 = select i1 %.sroa.0404.0836, i1 %.not.i.i233, i1 false
+  %or.cond1226 = select i1 %.sroa.0404.0836, i1 %.not.i.i233, i1 false, !prof !290
   br i1 %or.cond1226, label %536, label %_ZN18ruff_python_parser6parser6Parser4bump17h5304758086845b63E.exit.i, !prof !290
 
 536:                                              ; preds = %532
@@ -67525,7 +67525,7 @@ define internal fastcc void @"_ZN18ruff_python_parser6parser9statement52_$LT$imp
   call void @llvm.experimental.noalias.scope.decl(metadata !10316)
   %20 = load i32, ptr %.phi.trans.insert.i, align 8, !alias.scope !10316, !noalias !10319
   %.not.i = icmp eq i32 %.sroa.5.023, %20
-  %or.cond = select i1 %.sroa.0.01324, i1 %.not.i, i1 false
+  %or.cond = select i1 %.sroa.0.01324, i1 %.not.i, i1 false, !prof !290
   br i1 %or.cond, label %21, label %_ZN18ruff_python_parser6parser8progress14ParserProgress18assert_progressing17h1ea05777d349e887E.exit, !prof !290
 
 21:                                               ; preds = %19
@@ -72427,7 +72427,7 @@ _ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit: ; preds = %_
   call void @llvm.experimental.noalias.scope.decl(metadata !11115)
   %97 = load i32, ptr %.phi.trans.insert.i31, align 8, !alias.scope !11115, !noalias !11118
   %.not.i = icmp eq i32 %.sroa.549.0102, %97
-  %or.cond = select i1 %.sroa.048.0101, i1 %.not.i, i1 false
+  %or.cond = select i1 %.sroa.048.0101, i1 %.not.i, i1 false, !prof !290
   br i1 %or.cond, label %98, label %_ZN18ruff_python_parser6parser6Parser4bump17h5304758086845b63E.exit.i, !prof !290
 
 98:                                               ; preds = %94
@@ -73050,7 +73050,7 @@ _ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit: ; preds = %3
   call void @llvm.experimental.noalias.scope.decl(metadata !11209)
   %55 = load i32, ptr %.phi.trans.insert.i.i, align 8, !alias.scope !11212, !noalias !11213
   %.not.i.i = icmp eq i32 %.sroa.5.0.i, %55
-  %or.cond.i = select i1 %.sroa.0.0.i19, i1 %.not.i.i, i1 false
+  %or.cond.i = select i1 %.sroa.0.0.i19, i1 %.not.i.i, i1 false, !prof !290
   br i1 %or.cond.i, label %56, label %_ZN18ruff_python_parser6parser8progress14ParserProgress18assert_progressing17h1ea05777d349e887E.exit.i, !prof !290
 
 56:                                               ; preds = %52
@@ -77176,7 +77176,7 @@ _ZN18ruff_python_parser6parser6Parser8bump_any17hf4fcb2824f31d554E.exit.i: ; pre
   call void @llvm.experimental.noalias.scope.decl(metadata !11915)
   %80 = load i32, ptr %.phi.trans.insert.i.i, align 8, !alias.scope !11918, !noalias !11919
   %.not.i.i = icmp eq i32 %.sroa.5.0.i, %80
-  %or.cond.i = select i1 %.sroa.0.0.i, i1 %.not.i.i, i1 false
+  %or.cond.i = select i1 %.sroa.0.0.i, i1 %.not.i.i, i1 false, !prof !290
   br i1 %or.cond.i, label %81, label %._crit_edge.i.i, !prof !290
 
 81:                                               ; preds = %_ZN18ruff_python_parser6parser6Parser8bump_any17hf4fcb2824f31d554E.exit.i

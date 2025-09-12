@@ -1773,7 +1773,7 @@ encrypt_validation_token.exit:                    ; preds = %48
   %.not20 = icmp ne i32 %59, 0
   %60 = load i64, ptr %11, align 8
   %61 = icmp ugt i64 %60, 15
-  %or.cond23 = select i1 %.not20, i1 %61, i1 false
+  %or.cond23 = select i1 %.not20, i1 %61, i1 false, !prof !225
   br i1 %or.cond23, label %62, label %encrypt_validation_token.exit.thread, !prof !225
 
 62:                                               ; preds = %57
@@ -2368,7 +2368,7 @@ encrypt_validation_token.exit:                    ; preds = %50
   %.not17 = icmp ne i32 %62, 0
   %63 = load i64, ptr %7, align 8
   %64 = icmp ugt i64 %63, 15
-  %or.cond19 = select i1 %.not17, i1 %64, i1 false
+  %or.cond19 = select i1 %.not17, i1 %64, i1 false, !prof !225
   br i1 %or.cond19, label %65, label %encrypt_validation_token.exit.thread, !prof !225
 
 encrypt_validation_token.exit.thread:             ; preds = %50, %42, %generate_token.exit.thread, %59, %encrypt_validation_token.exit, %40

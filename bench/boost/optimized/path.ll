@@ -1675,7 +1675,7 @@ define void @_ZN5boost10filesystem6detail15path_algorithms9append_v3ERNS0_4pathE
   %10 = load i64, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 %10
   %12 = icmp uge ptr %1, %11
-  %or.cond = select i1 %8, i1 true, i1 %12
+  %or.cond = select i1 %8, i1 true, i1 %12, !prof !22
   br i1 %or.cond, label %.critedge, label %40, !prof !22
 
 .critedge:                                        ; preds = %6
@@ -1858,7 +1858,7 @@ define void @_ZN5boost10filesystem6detail15path_algorithms9append_v4ERNS0_4pathE
   %10 = load i64, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 %10
   %12 = icmp uge ptr %1, %11
-  %or.cond = select i1 %8, i1 true, i1 %12
+  %or.cond = select i1 %8, i1 true, i1 %12, !prof !22
   br i1 %or.cond, label %.critedge, label %88, !prof !22
 
 .critedge:                                        ; preds = %6

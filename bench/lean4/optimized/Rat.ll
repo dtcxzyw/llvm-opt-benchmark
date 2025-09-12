@@ -63,7 +63,7 @@ lean_int_dec_eq.exit:                             ; preds = %2
   %22 = ptrtoint ptr %10 to i64
   %23 = and i64 %22, 1
   %24 = icmp ne i64 %23, 0
-  %or.cond = select i1 %21, i1 %24, i1 false
+  %or.cond = select i1 %21, i1 %24, i1 false, !prof !9
   br i1 %or.cond, label %25, label %.critedge.i, !prof !9
 
 25:                                               ; preds = %18
@@ -116,7 +116,7 @@ lean_int_dec_eq.exit.i:                           ; preds = %2
   %22 = ptrtoint ptr %10 to i64
   %23 = and i64 %22, 1
   %24 = icmp ne i64 %23, 0
-  %or.cond.i = select i1 %21, i1 %24, i1 false
+  %or.cond.i = select i1 %21, i1 %24, i1 false, !prof !9
   br i1 %or.cond.i, label %25, label %.critedge.i.i, !prof !9
 
 25:                                               ; preds = %18
@@ -218,7 +218,7 @@ lean_int_dec_eq.exit:                             ; preds = %2
   %22 = ptrtoint ptr %10 to i64
   %23 = and i64 %22, 1
   %24 = icmp ne i64 %23, 0
-  %or.cond = select i1 %21, i1 %24, i1 false
+  %or.cond = select i1 %21, i1 %24, i1 false, !prof !9
   br i1 %or.cond, label %25, label %.critedge.i, !prof !9
 
 25:                                               ; preds = %18
@@ -271,7 +271,7 @@ lean_int_dec_eq.exit.i:                           ; preds = %2
   %22 = ptrtoint ptr %10 to i64
   %23 = and i64 %22, 1
   %24 = icmp ne i64 %23, 0
-  %or.cond.i = select i1 %21, i1 %24, i1 false
+  %or.cond.i = select i1 %21, i1 %24, i1 false, !prof !9
   br i1 %or.cond.i, label %25, label %.critedge.i.i, !prof !9
 
 25:                                               ; preds = %18
@@ -373,7 +373,7 @@ lean_int_dec_eq.exit.i:                           ; preds = %2
   %22 = ptrtoint ptr %10 to i64
   %23 = and i64 %22, 1
   %24 = icmp ne i64 %23, 0
-  %or.cond.i = select i1 %21, i1 %24, i1 false
+  %or.cond.i = select i1 %21, i1 %24, i1 false, !prof !9
   br i1 %or.cond.i, label %25, label %.critedge.i.i, !prof !9
 
 25:                                               ; preds = %18
@@ -426,7 +426,7 @@ lean_int_dec_eq.exit.i.i:                         ; preds = %2
   %22 = ptrtoint ptr %10 to i64
   %23 = and i64 %22, 1
   %24 = icmp ne i64 %23, 0
-  %or.cond.i.i = select i1 %21, i1 %24, i1 false
+  %or.cond.i.i = select i1 %21, i1 %24, i1 false, !prof !9
   br i1 %or.cond.i.i, label %25, label %.critedge.i.i.i, !prof !9
 
 25:                                               ; preds = %18

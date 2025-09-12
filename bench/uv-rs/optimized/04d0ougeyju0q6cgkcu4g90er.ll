@@ -3494,7 +3494,7 @@ _ZN4jiff3fmt8WriteExt13write_decimal17h45e12d8a3f136802E.exit69.thread.i: ; pred
   %109 = icmp sgt i8 %.sroa.5.0.extract.trunc, -1
   %110 = load i8, ptr @_ZN4jiff3fmt8temporal7printer15DateTimePrinter10print_date7FMT_TWO17h35e94a12e3ddbf38E, align 1, !range !581, !alias.scope !611, !noalias !613
   %.not.i52.i = icmp eq i8 %110, 2
-  %or.cond.i53.i = select i1 %109, i1 %.not.i52.i, i1 false
+  %or.cond.i53.i = select i1 %109, i1 %.not.i52.i, i1 false, !prof !583
   %111 = getelementptr inbounds nuw i8, ptr %23, i64 20
   br i1 %or.cond.i53.i, label %113, label %112, !prof !583
 
@@ -3637,7 +3637,7 @@ _ZN4jiff3fmt4util7Decimal3new17h08bb54769781a042E.exit55.i: ; preds = %138, %.pr
   %173 = icmp sgt i32 %.sroa.020.0.copyload, -1
   %174 = load i8, ptr @_ZN4jiff3fmt8temporal7printer15DateTimePrinter10print_date7FMT_TWO17h35e94a12e3ddbf38E, align 1, !range !581, !alias.scope !641, !noalias !643
   %.not.i56.i = icmp eq i8 %174, 2
-  %or.cond.i57.i = select i1 %173, i1 %.not.i56.i, i1 false
+  %or.cond.i57.i = select i1 %173, i1 %.not.i56.i, i1 false, !prof !583
   %175 = getelementptr inbounds nuw i8, ptr %22, i64 20
   br i1 %or.cond.i57.i, label %177, label %176, !prof !583
 
@@ -3813,7 +3813,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha4c6f67d3ae98f5fE.exit.i: ; preds = %23
   %254 = icmp eq i64 %253, 0
   %255 = load i8, ptr @_ZN4jiff3fmt8temporal7printer15DateTimePrinter10print_time7FMT_TWO17h4c81289ea49e0bf3E, align 1, !range !581, !alias.scope !679, !noalias !681
   %.not.i.i = icmp eq i8 %255, 2
-  %or.cond.i.i = select i1 %254, i1 %.not.i.i, i1 false
+  %or.cond.i.i = select i1 %254, i1 %.not.i.i, i1 false, !prof !583
   %256 = getelementptr inbounds nuw i8, ptr %12, i64 20
   br i1 %or.cond.i.i, label %258, label %257, !prof !583
 
@@ -3942,7 +3942,7 @@ _ZN4jiff3fmt4util7Decimal3new17h08bb54769781a042E.exit.i34: ; preds = %283, %.pr
   %314 = icmp eq i64 %313, 0
   %315 = load i8, ptr @_ZN4jiff3fmt8temporal7printer15DateTimePrinter10print_time7FMT_TWO17h4c81289ea49e0bf3E, align 1, !range !581, !alias.scope !704, !noalias !706
   %.not.i68.i = icmp eq i8 %315, 2
-  %or.cond.i69.i = select i1 %314, i1 %.not.i68.i, i1 false
+  %or.cond.i69.i = select i1 %314, i1 %.not.i68.i, i1 false, !prof !583
   %316 = getelementptr inbounds nuw i8, ptr %11, i64 20
   br i1 %or.cond.i69.i, label %318, label %317, !prof !583
 
@@ -4086,7 +4086,7 @@ _ZN4jiff3fmt4util7Decimal3new17h08bb54769781a042E.exit71.i: ; preds = %343, %.pr
   %380 = icmp eq i64 %379, 0
   %381 = load i8, ptr @_ZN4jiff3fmt8temporal7printer15DateTimePrinter10print_time7FMT_TWO17h4c81289ea49e0bf3E, align 1, !range !581, !alias.scope !734, !noalias !736
   %.not.i72.i = icmp eq i8 %381, 2
-  %or.cond.i73.i = select i1 %380, i1 %.not.i72.i, i1 false
+  %or.cond.i73.i = select i1 %380, i1 %.not.i72.i, i1 false, !prof !583
   %382 = getelementptr inbounds nuw i8, ptr %10, i64 20
   br i1 %or.cond.i73.i, label %384, label %383, !prof !583
 

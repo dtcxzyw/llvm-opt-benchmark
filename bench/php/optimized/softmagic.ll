@@ -5682,7 +5682,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @file_strncmp(ptr 
   %83 = and i16 %82, 8192
   %.not93 = icmp eq i16 %83, 0
   %84 = icmp ult ptr %78, %8
-  %or.cond = select i1 %.not93, i1 %84, i1 false
+  %or.cond = select i1 %.not93, i1 %84, i1 false, !prof !79
   br i1 %or.cond, label %.lr.ph, label %.critedge2, !prof !79
 
 .lr.ph:                                           ; preds = %77, %91
@@ -5701,8 +5701,8 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @file_strncmp(ptr 
   %93 = add nuw nsw i32 %85, 1
   %94 = icmp samesign ult i32 %85, 2048
   %95 = icmp ult ptr %92, %8
-  %or.cond102 = select i1 %94, i1 %95, i1 false
-  br i1 %or.cond102, label %.lr.ph, label %.critedge2, !prof !80
+  %or.cond102 = select i1 %94, i1 %95, i1 false, !prof !80
+  br i1 %or.cond102, label %.lr.ph, label %.critedge2, !prof !81
 
 96:                                               ; preds = %63, %62
   br i1 %.not88, label %._crit_edge, label %97
@@ -5903,7 +5903,7 @@ define internal fastcc range(i32 -1, 1) i32 @varexpand(ptr noundef readonly capt
   br i1 %cond, label %33, label %.loopexit
 
 33:                                               ; preds = %32
-  %34 = load i32, ptr %6, align 8, !tbaa !81
+  %34 = load i32, ptr %6, align 8, !tbaa !82
   %35 = and i32 %34, 73
   %.not77 = icmp eq i32 %35, 0
   %36 = ptrtoint ptr %.054 to i64
@@ -6184,5 +6184,6 @@ attributes #26 = { nounwind willreturn memory(read) }
 !77 = !{!78, !78, i64 0}
 !78 = !{!"p1 int", !12, i64 0}
 !79 = !{!"branch_weights", i32 2000, i32 2004}
-!80 = !{!"branch_weights", i32 0, i32 2000}
-!81 = !{!20, !5, i64 96}
+!80 = !{!"branch_weights", i32 2000, i32 2002}
+!81 = !{!"branch_weights", i32 0, i32 2000}
+!82 = !{!20, !5, i64 96}

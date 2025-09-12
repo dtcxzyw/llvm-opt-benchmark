@@ -6322,7 +6322,7 @@ define hidden void @zif_get_resources(ptr noundef readonly captures(none) %0, pt
   %29 = load i8, ptr %28, align 8, !tbaa !28
   %30 = icmp ne i8 %29, 0
   %.not122 = icmp eq ptr %.1104, null
-  %or.cond = select i1 %30, i1 %.not122, i1 false
+  %or.cond = select i1 %30, i1 %.not122, i1 false, !prof !171
   br i1 %or.cond, label %31, label %40, !prof !171
 
 31:                                               ; preds = %27
@@ -6404,7 +6404,7 @@ zend_string_equals_cstr.exit:                     ; preds = %43
   %67 = load i8, ptr %66, align 8, !tbaa !28
   %68 = icmp ne i8 %67, 0
   %.not128 = icmp eq ptr %.1117, null
-  %or.cond129 = select i1 %68, i1 %.not128, i1 false
+  %or.cond129 = select i1 %68, i1 %.not128, i1 false, !prof !171
   br i1 %or.cond129, label %69, label %82, !prof !171
 
 69:                                               ; preds = %65
@@ -6490,7 +6490,7 @@ zend_string_equals_cstr.exit.thread:              ; preds = %43, %zend_string_eq
   %108 = load i8, ptr %107, align 8, !tbaa !28
   %109 = icmp ne i8 %108, 0
   %.not125 = icmp eq ptr %.199, null
-  %or.cond130 = select i1 %109, i1 %.not125, i1 false
+  %or.cond130 = select i1 %109, i1 %.not125, i1 false, !prof !171
   br i1 %or.cond130, label %110, label %123, !prof !171
 
 110:                                              ; preds = %106

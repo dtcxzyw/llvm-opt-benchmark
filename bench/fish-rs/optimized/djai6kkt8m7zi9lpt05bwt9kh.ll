@@ -30537,7 +30537,7 @@ define range(i64 0, 8589934594) i64 @_ZN4fish8builtins4test4test17h8d24439a9af25
   call void @llvm.assume(i1 %187)
   %188 = icmp eq i64 %186, 0
   %.not.i = icmp eq ptr %184, null
-  %or.cond.i = select i1 %188, i1 %.not.i, i1 false
+  %or.cond.i = select i1 %188, i1 %.not.i, i1 false, !prof !2297
   br i1 %or.cond.i, label %.invoke.i, label %189, !prof !2297
 
 189:                                              ; preds = %183

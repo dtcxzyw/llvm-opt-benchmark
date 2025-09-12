@@ -6555,7 +6555,7 @@ _ZNK7AstNode8widthMinEv.exit.i:                   ; preds = %126
   %132 = select i1 %.not.i.i.i, i1 %131, i1 false
   %.sroa.0.0.copyload.i.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @v3Global, i64 24), align 8
   %133 = icmp eq i8 %.sroa.0.0.copyload.i.i, 1
-  %or.cond.i = select i1 %132, i1 %133, i1 false
+  %or.cond.i = select i1 %132, i1 %133, i1 false, !prof !259
   br i1 %or.cond.i, label %134, label %_ZNK7AstNode8widthMinEv.exit.i51, !prof !259
 
 134:                                              ; preds = %_ZNK7AstNode8widthMinEv.exit.i
@@ -6581,7 +6581,7 @@ _ZNK7AstNode8widthMinEv.exit.i51:                 ; preds = %_ZNK7AstNode8widthM
   %145 = select i1 %.not.i.i.i52, i1 %144, i1 false
   %.sroa.0.0.copyload.i.i53 = load i8, ptr getelementptr inbounds nuw (i8, ptr @v3Global, i64 24), align 8
   %146 = icmp eq i8 %.sroa.0.0.copyload.i.i53, 1
-  %or.cond.i54 = select i1 %145, i1 %146, i1 false
+  %or.cond.i54 = select i1 %145, i1 %146, i1 false, !prof !259
   br i1 %or.cond.i54, label %147, label %_ZN18BrokenCheckVisitor13checkWidthMinEPK7AstNode.exit55, !prof !259
 
 147:                                              ; preds = %_ZNK7AstNode8widthMinEv.exit.i51

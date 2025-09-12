@@ -32686,7 +32686,7 @@ define void @_ZN11polars_time7windows8duration8Duration15localize_result17h07573
   %49 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %50 = load i32, ptr %49, align 4
   %51 = icmp eq i32 %.sroa.6128.0.copyload, %50
-  %or.cond7 = select i1 %48, i1 %51, i1 false
+  %or.cond7 = select i1 %48, i1 %51, i1 false, !prof !4221
   br i1 %or.cond7, label %53, label %52, !prof !4221
 
 52:                                               ; preds = %45, %42
@@ -34758,7 +34758,7 @@ define void @_ZN11polars_time7windows8duration27ensure_is_constant_duration17h3a
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %22 = load i64, ptr %21, align 8
   %23 = icmp eq i64 %22, 0
-  %or.cond = select i1 %or.cond.i, i1 %23, i1 false
+  %or.cond = select i1 %or.cond.i, i1 %23, i1 false, !prof !4496
   br i1 %or.cond, label %41, label %_ZN11polars_time7windows8duration8Duration20is_constant_duration17hec5941f738455bb1E.exit.thread, !prof !4496
 
 24:                                               ; preds = %26
@@ -34905,7 +34905,7 @@ define void @_ZN11polars_time7windows8duration29ensure_duration_matches_dtype17h
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %38 = load i64, ptr %37, align 8
   %39 = icmp eq i64 %38, 0
-  %or.cond = select i1 %or.cond5.i, i1 %39, i1 false
+  %or.cond = select i1 %or.cond5.i, i1 %39, i1 false, !prof !4525
   br i1 %or.cond, label %40, label %_ZN11polars_time7windows8duration8Duration7is_zero17hcc201fad1599ea27E.exit.thread, !prof !4525
 
 _ZN11polars_time7windows8duration8Duration7is_zero17hcc201fad1599ea27E.exit.thread: ; preds = %28

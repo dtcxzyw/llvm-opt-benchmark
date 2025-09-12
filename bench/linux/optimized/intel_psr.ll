@@ -4995,7 +4995,7 @@ define dso_local void @intel_psr_post_plane_update(ptr noundef readonly captures
   %67 = icmp ne i8 %66, 0
   %.pre17 = load i8, ptr %28, align 1
   %68 = icmp eq i8 %.pre17, 0
-  %or.cond = select i1 %67, i1 %68, i1 false
+  %or.cond = select i1 %67, i1 %68, i1 false, !prof !107
   br i1 %or.cond, label %69, label %80, !prof !107
 
 69:                                               ; preds = %61

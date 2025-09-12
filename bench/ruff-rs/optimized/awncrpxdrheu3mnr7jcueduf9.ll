@@ -53648,7 +53648,7 @@ _ZN4jiff3fmt8friendly7printer11SpanPrinter26print_duration_designators17h752ba8b
   %422 = icmp sgt i64 %.sroa.026.0.i, -1
   %423 = load i8, ptr %14, align 4, !range !1063, !alias.scope !1107, !noalias !1109
   %.not.i.i = icmp eq i8 %423, 2
-  %or.cond.i.i8 = select i1 %422, i1 %.not.i.i, i1 false
+  %or.cond.i.i8 = select i1 %422, i1 %.not.i.i, i1 false, !prof !373
   %424 = getelementptr inbounds nuw i8, ptr %11, i64 20
   br i1 %or.cond.i.i8, label %426, label %425, !prof !373
 
@@ -53807,7 +53807,7 @@ _ZN4jiff3fmt4util7Decimal3new17ha2f3e7dd60258e05E.exit.i: ; preds = %451, %.preh
   %490 = icmp sgt i64 %.sroa.037.0.i, -1
   %491 = load i8, ptr %14, align 4, !range !1063, !alias.scope !1130, !noalias !1132
   %.not.i86.i = icmp eq i8 %491, 2
-  %or.cond.i87.i = select i1 %490, i1 %.not.i86.i, i1 false
+  %or.cond.i87.i = select i1 %490, i1 %.not.i86.i, i1 false, !prof !373
   %492 = getelementptr inbounds nuw i8, ptr %10, i64 20
   br i1 %or.cond.i87.i, label %494, label %493, !prof !373
 
@@ -54040,7 +54040,7 @@ define internal fastcc { i64, ptr } @_ZN4jiff3fmt8friendly7printer17FractionalPr
   %10 = icmp sgt i64 %9, -1
   %11 = load i8, ptr %8, align 8, !range !1063, !alias.scope !1149, !noalias !1146
   %.not.i = icmp eq i8 %11, 2
-  %or.cond.i = select i1 %10, i1 %.not.i, i1 false
+  %or.cond.i = select i1 %10, i1 %.not.i, i1 false, !prof !373
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 20
   br i1 %or.cond.i, label %14, label %13, !prof !373
 

@@ -18871,7 +18871,7 @@ define hidden void @_ZN12polars_arrow5array9primitive5check17h04190d94450b905aE(
   %10 = alloca [24 x i8], align 8
   %11 = trunc nuw i64 %4 to i1
   %12 = icmp ne i64 %5, %3
-  %or.cond = select i1 %11, i1 %12, i1 false
+  %or.cond = select i1 %11, i1 %12, i1 false, !prof !1002
   br i1 %or.cond, label %18, label %13, !prof !1002
 
 13:                                               ; preds = %6
@@ -18880,7 +18880,7 @@ define hidden void @_ZN12polars_arrow5array9primitive5check17h04190d94450b905aE(
   %16 = extractvalue { i8, i8 } %14, 1
   %17 = icmp eq i8 %15, 2
   %.not = icmp eq i8 %16, 11
-  %or.cond9 = select i1 %17, i1 %.not, i1 false
+  %or.cond9 = select i1 %17, i1 %.not, i1 false, !prof !1003
   br i1 %or.cond9, label %28, label %23, !prof !1003
 
 18:                                               ; preds = %6
@@ -18933,7 +18933,7 @@ define hidden void @_ZN12polars_arrow5array9primitive5check17h1d723f6e6913a4a2E(
   %10 = alloca [24 x i8], align 8
   %11 = trunc nuw i64 %4 to i1
   %12 = icmp ne i64 %5, %3
-  %or.cond = select i1 %11, i1 %12, i1 false
+  %or.cond = select i1 %11, i1 %12, i1 false, !prof !1002
   br i1 %or.cond, label %18, label %13, !prof !1002
 
 13:                                               ; preds = %6
@@ -18942,7 +18942,7 @@ define hidden void @_ZN12polars_arrow5array9primitive5check17h1d723f6e6913a4a2E(
   %16 = extractvalue { i8, i8 } %14, 1
   %17 = icmp eq i8 %15, 2
   %.not = icmp eq i8 %16, 7
-  %or.cond9 = select i1 %17, i1 %.not, i1 false
+  %or.cond9 = select i1 %17, i1 %.not, i1 false, !prof !1003
   br i1 %or.cond9, label %28, label %23, !prof !1003
 
 18:                                               ; preds = %6
@@ -18995,7 +18995,7 @@ define hidden void @_ZN12polars_arrow5array9primitive5check17h3d7ef0a3b7bb13a2E(
   %10 = alloca [24 x i8], align 8
   %11 = trunc nuw i64 %4 to i1
   %12 = icmp ne i64 %5, %3
-  %or.cond = select i1 %11, i1 %12, i1 false
+  %or.cond = select i1 %11, i1 %12, i1 false, !prof !1002
   br i1 %or.cond, label %18, label %13, !prof !1002
 
 13:                                               ; preds = %6
@@ -19004,7 +19004,7 @@ define hidden void @_ZN12polars_arrow5array9primitive5check17h3d7ef0a3b7bb13a2E(
   %16 = extractvalue { i8, i8 } %14, 1
   %17 = icmp eq i8 %15, 2
   %.not = icmp eq i8 %16, 6
-  %or.cond9 = select i1 %17, i1 %.not, i1 false
+  %or.cond9 = select i1 %17, i1 %.not, i1 false, !prof !1003
   br i1 %or.cond9, label %28, label %23, !prof !1003
 
 18:                                               ; preds = %6
@@ -19057,7 +19057,7 @@ define hidden void @_ZN12polars_arrow5array9primitive5check17h3eaea71dda0eb3beE(
   %10 = alloca [24 x i8], align 8
   %11 = trunc nuw i64 %4 to i1
   %12 = icmp ne i64 %5, %3
-  %or.cond = select i1 %11, i1 %12, i1 false
+  %or.cond = select i1 %11, i1 %12, i1 false, !prof !1002
   br i1 %or.cond, label %18, label %13, !prof !1002
 
 13:                                               ; preds = %6
@@ -19066,7 +19066,7 @@ define hidden void @_ZN12polars_arrow5array9primitive5check17h3eaea71dda0eb3beE(
   %16 = extractvalue { i8, i8 } %14, 1
   %17 = icmp eq i8 %15, 2
   %.not = icmp eq i8 %16, 8
-  %or.cond9 = select i1 %17, i1 %.not, i1 false
+  %or.cond9 = select i1 %17, i1 %.not, i1 false, !prof !1003
   br i1 %or.cond9, label %28, label %23, !prof !1003
 
 18:                                               ; preds = %6
@@ -19119,7 +19119,7 @@ define hidden void @_ZN12polars_arrow5array9primitive5check17h57192e3d3c6ca29aE(
   %10 = alloca [24 x i8], align 8
   %11 = trunc nuw i64 %4 to i1
   %12 = icmp ne i64 %5, %3
-  %or.cond = select i1 %11, i1 %12, i1 false
+  %or.cond = select i1 %11, i1 %12, i1 false, !prof !1002
   br i1 %or.cond, label %18, label %13, !prof !1002
 
 13:                                               ; preds = %6
@@ -19128,7 +19128,7 @@ define hidden void @_ZN12polars_arrow5array9primitive5check17h57192e3d3c6ca29aE(
   %16 = extractvalue { i8, i8 } %14, 1
   %17 = icmp eq i8 %15, 2
   %.not = icmp eq i8 %16, 0
-  %or.cond9 = select i1 %17, i1 %.not, i1 false
+  %or.cond9 = select i1 %17, i1 %.not, i1 false, !prof !1003
   br i1 %or.cond9, label %28, label %23, !prof !1003
 
 18:                                               ; preds = %6
@@ -19181,7 +19181,7 @@ define hidden void @_ZN12polars_arrow5array9primitive5check17h6f41251faf246817E(
   %10 = alloca [24 x i8], align 8
   %11 = trunc nuw i64 %4 to i1
   %12 = icmp ne i64 %5, %3
-  %or.cond = select i1 %11, i1 %12, i1 false
+  %or.cond = select i1 %11, i1 %12, i1 false, !prof !1002
   br i1 %or.cond, label %18, label %13, !prof !1002
 
 13:                                               ; preds = %6
@@ -19190,7 +19190,7 @@ define hidden void @_ZN12polars_arrow5array9primitive5check17h6f41251faf246817E(
   %16 = extractvalue { i8, i8 } %14, 1
   %17 = icmp eq i8 %15, 2
   %.not = icmp eq i8 %16, 9
-  %or.cond9 = select i1 %17, i1 %.not, i1 false
+  %or.cond9 = select i1 %17, i1 %.not, i1 false, !prof !1003
   br i1 %or.cond9, label %28, label %23, !prof !1003
 
 18:                                               ; preds = %6
@@ -19243,7 +19243,7 @@ define hidden void @_ZN12polars_arrow5array9primitive5check17h9ab4c289521a290bE(
   %10 = alloca [24 x i8], align 8
   %11 = trunc nuw i64 %4 to i1
   %12 = icmp ne i64 %5, %3
-  %or.cond = select i1 %11, i1 %12, i1 false
+  %or.cond = select i1 %11, i1 %12, i1 false, !prof !1002
   br i1 %or.cond, label %18, label %13, !prof !1002
 
 13:                                               ; preds = %6
@@ -19252,7 +19252,7 @@ define hidden void @_ZN12polars_arrow5array9primitive5check17h9ab4c289521a290bE(
   %16 = extractvalue { i8, i8 } %14, 1
   %17 = icmp eq i8 %15, 2
   %.not = icmp eq i8 %16, 13
-  %or.cond9 = select i1 %17, i1 %.not, i1 false
+  %or.cond9 = select i1 %17, i1 %.not, i1 false, !prof !1003
   br i1 %or.cond9, label %28, label %23, !prof !1003
 
 18:                                               ; preds = %6
@@ -19305,7 +19305,7 @@ define hidden void @_ZN12polars_arrow5array9primitive5check17ha17daee0c95a9900E(
   %10 = alloca [24 x i8], align 8
   %11 = trunc nuw i64 %4 to i1
   %12 = icmp ne i64 %5, %3
-  %or.cond = select i1 %11, i1 %12, i1 false
+  %or.cond = select i1 %11, i1 %12, i1 false, !prof !1002
   br i1 %or.cond, label %18, label %13, !prof !1002
 
 13:                                               ; preds = %6
@@ -19314,7 +19314,7 @@ define hidden void @_ZN12polars_arrow5array9primitive5check17ha17daee0c95a9900E(
   %16 = extractvalue { i8, i8 } %14, 1
   %17 = icmp eq i8 %15, 2
   %.not = icmp eq i8 %16, 4
-  %or.cond9 = select i1 %17, i1 %.not, i1 false
+  %or.cond9 = select i1 %17, i1 %.not, i1 false, !prof !1003
   br i1 %or.cond9, label %28, label %23, !prof !1003
 
 18:                                               ; preds = %6
@@ -19367,7 +19367,7 @@ define hidden void @_ZN12polars_arrow5array9primitive5check17hb8f46fb933493dfbE(
   %10 = alloca [24 x i8], align 8
   %11 = trunc nuw i64 %4 to i1
   %12 = icmp ne i64 %5, %3
-  %or.cond = select i1 %11, i1 %12, i1 false
+  %or.cond = select i1 %11, i1 %12, i1 false, !prof !1002
   br i1 %or.cond, label %18, label %13, !prof !1002
 
 13:                                               ; preds = %6
@@ -19376,7 +19376,7 @@ define hidden void @_ZN12polars_arrow5array9primitive5check17hb8f46fb933493dfbE(
   %16 = extractvalue { i8, i8 } %14, 1
   %17 = icmp eq i8 %15, 2
   %.not = icmp eq i8 %16, 1
-  %or.cond9 = select i1 %17, i1 %.not, i1 false
+  %or.cond9 = select i1 %17, i1 %.not, i1 false, !prof !1003
   br i1 %or.cond9, label %28, label %23, !prof !1003
 
 18:                                               ; preds = %6
@@ -19429,7 +19429,7 @@ define hidden void @_ZN12polars_arrow5array9primitive5check17hbf90dfe5f37cbbfeE(
   %10 = alloca [24 x i8], align 8
   %11 = trunc nuw i64 %4 to i1
   %12 = icmp ne i64 %5, %3
-  %or.cond = select i1 %11, i1 %12, i1 false
+  %or.cond = select i1 %11, i1 %12, i1 false, !prof !1002
   br i1 %or.cond, label %18, label %13, !prof !1002
 
 13:                                               ; preds = %6
@@ -19438,7 +19438,7 @@ define hidden void @_ZN12polars_arrow5array9primitive5check17hbf90dfe5f37cbbfeE(
   %16 = extractvalue { i8, i8 } %14, 1
   %17 = icmp eq i8 %15, 2
   %.not = icmp eq i8 %16, 12
-  %or.cond9 = select i1 %17, i1 %.not, i1 false
+  %or.cond9 = select i1 %17, i1 %.not, i1 false, !prof !1003
   br i1 %or.cond9, label %28, label %23, !prof !1003
 
 18:                                               ; preds = %6
@@ -19491,7 +19491,7 @@ define hidden void @_ZN12polars_arrow5array9primitive5check17hfac71da110d5000dE(
   %10 = alloca [24 x i8], align 8
   %11 = trunc nuw i64 %4 to i1
   %12 = icmp ne i64 %5, %3
-  %or.cond = select i1 %11, i1 %12, i1 false
+  %or.cond = select i1 %11, i1 %12, i1 false, !prof !1002
   br i1 %or.cond, label %18, label %13, !prof !1002
 
 13:                                               ; preds = %6
@@ -19500,7 +19500,7 @@ define hidden void @_ZN12polars_arrow5array9primitive5check17hfac71da110d5000dE(
   %16 = extractvalue { i8, i8 } %14, 1
   %17 = icmp eq i8 %15, 2
   %.not = icmp eq i8 %16, 2
-  %or.cond9 = select i1 %17, i1 %.not, i1 false
+  %or.cond9 = select i1 %17, i1 %.not, i1 false, !prof !1003
   br i1 %or.cond9, label %28, label %23, !prof !1003
 
 18:                                               ; preds = %6
@@ -19553,7 +19553,7 @@ define hidden void @_ZN12polars_arrow5array9primitive5check17hfb8ccc016861c9a4E(
   %10 = alloca [24 x i8], align 8
   %11 = trunc nuw i64 %4 to i1
   %12 = icmp ne i64 %5, %3
-  %or.cond = select i1 %11, i1 %12, i1 false
+  %or.cond = select i1 %11, i1 %12, i1 false, !prof !1002
   br i1 %or.cond, label %18, label %13, !prof !1002
 
 13:                                               ; preds = %6
@@ -19562,7 +19562,7 @@ define hidden void @_ZN12polars_arrow5array9primitive5check17hfb8ccc016861c9a4E(
   %16 = extractvalue { i8, i8 } %14, 1
   %17 = icmp eq i8 %15, 2
   %.not = icmp eq i8 %16, 3
-  %or.cond9 = select i1 %17, i1 %.not, i1 false
+  %or.cond9 = select i1 %17, i1 %.not, i1 false, !prof !1003
   br i1 %or.cond9, label %28, label %23, !prof !1003
 
 18:                                               ; preds = %6
@@ -24006,7 +24006,7 @@ define internal { ptr, ptr } @"_ZN102_$LT$polars_arrow..array..primitive..Primit
   %41 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %42 = load i64, ptr %41, align 8
   %.not3.i.i = icmp eq i64 %42, %17
-  %or.cond = select i1 %.not.i.i, i1 true, i1 %.not3.i.i
+  %or.cond = select i1 %.not.i.i, i1 true, i1 %.not3.i.i, !prof !1299
   br i1 %or.cond, label %43, label %46, !prof !1299
 
 43:                                               ; preds = %37
@@ -24212,7 +24212,7 @@ define internal { ptr, ptr } @"_ZN102_$LT$polars_arrow..array..primitive..Primit
   %41 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %42 = load i64, ptr %41, align 8
   %.not3.i.i = icmp eq i64 %42, %17
-  %or.cond = select i1 %.not.i.i, i1 true, i1 %.not3.i.i
+  %or.cond = select i1 %.not.i.i, i1 true, i1 %.not3.i.i, !prof !1299
   br i1 %or.cond, label %43, label %46, !prof !1299
 
 43:                                               ; preds = %37
@@ -24418,7 +24418,7 @@ define internal { ptr, ptr } @"_ZN102_$LT$polars_arrow..array..primitive..Primit
   %41 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %42 = load i64, ptr %41, align 8
   %.not3.i.i = icmp eq i64 %42, %17
-  %or.cond = select i1 %.not.i.i, i1 true, i1 %.not3.i.i
+  %or.cond = select i1 %.not.i.i, i1 true, i1 %.not3.i.i, !prof !1299
   br i1 %or.cond, label %43, label %46, !prof !1299
 
 43:                                               ; preds = %37
@@ -24624,7 +24624,7 @@ define internal { ptr, ptr } @"_ZN102_$LT$polars_arrow..array..primitive..Primit
   %41 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %42 = load i64, ptr %41, align 8
   %.not3.i.i = icmp eq i64 %42, %17
-  %or.cond = select i1 %.not.i.i, i1 true, i1 %.not3.i.i
+  %or.cond = select i1 %.not.i.i, i1 true, i1 %.not3.i.i, !prof !1299
   br i1 %or.cond, label %43, label %46, !prof !1299
 
 43:                                               ; preds = %37
@@ -24830,7 +24830,7 @@ define internal { ptr, ptr } @"_ZN102_$LT$polars_arrow..array..primitive..Primit
   %41 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %42 = load i64, ptr %41, align 8
   %.not3.i.i = icmp eq i64 %42, %17
-  %or.cond = select i1 %.not.i.i, i1 true, i1 %.not3.i.i
+  %or.cond = select i1 %.not.i.i, i1 true, i1 %.not3.i.i, !prof !1299
   br i1 %or.cond, label %43, label %46, !prof !1299
 
 43:                                               ; preds = %37
@@ -25036,7 +25036,7 @@ define internal { ptr, ptr } @"_ZN102_$LT$polars_arrow..array..primitive..Primit
   %41 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %42 = load i64, ptr %41, align 8
   %.not3.i.i = icmp eq i64 %42, %17
-  %or.cond = select i1 %.not.i.i, i1 true, i1 %.not3.i.i
+  %or.cond = select i1 %.not.i.i, i1 true, i1 %.not3.i.i, !prof !1299
   br i1 %or.cond, label %43, label %46, !prof !1299
 
 43:                                               ; preds = %37
@@ -25242,7 +25242,7 @@ define internal { ptr, ptr } @"_ZN102_$LT$polars_arrow..array..primitive..Primit
   %41 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %42 = load i64, ptr %41, align 8
   %.not3.i.i = icmp eq i64 %42, %17
-  %or.cond = select i1 %.not.i.i, i1 true, i1 %.not3.i.i
+  %or.cond = select i1 %.not.i.i, i1 true, i1 %.not3.i.i, !prof !1299
   br i1 %or.cond, label %43, label %46, !prof !1299
 
 43:                                               ; preds = %37
@@ -25448,7 +25448,7 @@ define internal { ptr, ptr } @"_ZN102_$LT$polars_arrow..array..primitive..Primit
   %41 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %42 = load i64, ptr %41, align 8
   %.not3.i.i = icmp eq i64 %42, %17
-  %or.cond = select i1 %.not.i.i, i1 true, i1 %.not3.i.i
+  %or.cond = select i1 %.not.i.i, i1 true, i1 %.not3.i.i, !prof !1299
   br i1 %or.cond, label %43, label %46, !prof !1299
 
 43:                                               ; preds = %37
@@ -25654,7 +25654,7 @@ define internal { ptr, ptr } @"_ZN102_$LT$polars_arrow..array..primitive..Primit
   %41 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %42 = load i64, ptr %41, align 8
   %.not3.i.i = icmp eq i64 %42, %17
-  %or.cond = select i1 %.not.i.i, i1 true, i1 %.not3.i.i
+  %or.cond = select i1 %.not.i.i, i1 true, i1 %.not3.i.i, !prof !1299
   br i1 %or.cond, label %43, label %46, !prof !1299
 
 43:                                               ; preds = %37
@@ -25860,7 +25860,7 @@ define internal { ptr, ptr } @"_ZN102_$LT$polars_arrow..array..primitive..Primit
   %41 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %42 = load i64, ptr %41, align 8
   %.not3.i.i = icmp eq i64 %42, %17
-  %or.cond = select i1 %.not.i.i, i1 true, i1 %.not3.i.i
+  %or.cond = select i1 %.not.i.i, i1 true, i1 %.not3.i.i, !prof !1299
   br i1 %or.cond, label %43, label %46, !prof !1299
 
 43:                                               ; preds = %37
@@ -26066,7 +26066,7 @@ define internal { ptr, ptr } @"_ZN102_$LT$polars_arrow..array..primitive..Primit
   %41 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %42 = load i64, ptr %41, align 8
   %.not3.i.i = icmp eq i64 %42, %17
-  %or.cond = select i1 %.not.i.i, i1 true, i1 %.not3.i.i
+  %or.cond = select i1 %.not.i.i, i1 true, i1 %.not3.i.i, !prof !1299
   br i1 %or.cond, label %43, label %46, !prof !1299
 
 43:                                               ; preds = %37
@@ -26272,7 +26272,7 @@ define internal { ptr, ptr } @"_ZN102_$LT$polars_arrow..array..primitive..Primit
   %41 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %42 = load i64, ptr %41, align 8
   %.not3.i.i = icmp eq i64 %42, %17
-  %or.cond = select i1 %.not.i.i, i1 true, i1 %.not3.i.i
+  %or.cond = select i1 %.not.i.i, i1 true, i1 %.not3.i.i, !prof !1299
   br i1 %or.cond, label %43, label %46, !prof !1299
 
 43:                                               ; preds = %37

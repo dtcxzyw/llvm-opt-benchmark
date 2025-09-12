@@ -4106,7 +4106,7 @@ _ZN13duckdb_yyjsonL17yyjson_mut_is_objEPNS_14yyjson_mut_valE.exit314: ; preds = 
   %456 = and i64 %340, 7
   %457 = icmp ne i64 %456, 7
   %.not.i322 = icmp eq ptr %455, null
-  %or.cond571 = select i1 %457, i1 true, i1 %.not.i322
+  %or.cond571 = select i1 %457, i1 true, i1 %.not.i322, !prof !95
   br i1 %or.cond571, label %.critedge253, label %458, !prof !95
 
 458:                                              ; preds = %_ZN13duckdb_yyjsonL17yyjson_mut_is_objEPNS_14yyjson_mut_valE.exit314

@@ -1732,7 +1732,7 @@ _ZN6brotli3enc6encode16GetBrotliStorage17h5e7664e67a4bd080E.exit.i.i.i.i: ; pred
   %395 = icmp ult i64 %394, 2
   %396 = load i8, ptr %50, align 4, !range !31, !alias.scope !85, !noalias !88
   %397 = trunc nuw i8 %396 to i1
-  %or.cond11.i.i.i.i = select i1 %395, i1 true, i1 %397
+  %or.cond11.i.i.i.i = select i1 %395, i1 true, i1 %397, !prof !119
   br i1 %or.cond11.i.i.i.i, label %399, label %398, !prof !119
 
 398:                                              ; preds = %393
@@ -2571,7 +2571,7 @@ _ZN6brotli3enc6encode22UpdateLastProcessedPos17h1d6b33cb0ce96c90E.exit211.i.i.i.
   %.not.i212.i.i.i.i = xor i1 %768, true
   %769 = load i8, ptr %25, align 4, !range !31, !alias.scope !173, !noalias !174
   %770 = trunc nuw i8 %769 to i1
-  %or.cond.i.i.i.i.i = select i1 %.not.i212.i.i.i.i, i1 %770, i1 false
+  %or.cond.i.i.i.i.i = select i1 %.not.i212.i.i.i.i, i1 %770, i1 false, !prof !183
   br i1 %or.cond.i.i.i.i.i, label %771, label %772, !prof !183
 
 771:                                              ; preds = %760
@@ -6024,7 +6024,7 @@ _ZN6brotli3enc6encode16GetBrotliStorage17h5e7664e67a4bd080E.exit: ; preds = %._Z
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 5564
   %124 = load i8, ptr %123, align 4, !range !31
   %125 = trunc nuw i8 %124 to i1
-  %or.cond11 = select i1 %122, i1 true, i1 %125
+  %or.cond11 = select i1 %122, i1 true, i1 %125, !prof !119
   br i1 %or.cond11, label %127, label %126, !prof !119
 
 126:                                              ; preds = %120

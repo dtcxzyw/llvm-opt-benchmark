@@ -5318,7 +5318,7 @@ _ZN3ue2L21find_daddy_candidatesERKNS_12_GLOBAL__N_18dfa_infoEt.exit.i: ; preds =
   %1283 = load ptr, ptr %29, align 8
   %.not.i.i.i.i.i.i.i.i.i73 = icmp eq ptr %1283, null
   %1284 = icmp eq ptr %1087, %1283
-  %or.cond.i.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i73, i1 true, i1 %1284
+  %or.cond.i.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i73, i1 true, i1 %1284, !prof !218
   br i1 %or.cond.i.i.i.i.i.i.i.i.i, label %_ZN3ue28flat_setItSt4lessItESaItEEaSEOS4_.exit.thread.i, label %1285, !prof !218
 
 1285:                                             ; preds = %1282

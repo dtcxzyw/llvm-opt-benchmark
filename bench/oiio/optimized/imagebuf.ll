@@ -25550,7 +25550,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIffEC2ERKS1_iiiiiiNS1_8WrapModeE.
   %or.cond.i.i34.i = select i1 %not..i.i.i, i1 true, i1 %176
   %177 = load ptr, ptr %101, align 8
   %178 = icmp eq ptr %177, null
-  %or.cond7.i.i.i = select i1 %or.cond.i.i34.i, i1 true, i1 %178
+  %or.cond7.i.i.i = select i1 %or.cond.i.i34.i, i1 true, i1 %178, !prof !419
   br i1 %or.cond7.i.i.i, label %.critedge.i.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit.i, !prof !419
 
 .critedge.i.i.i:                                  ; preds = %169
@@ -25892,7 +25892,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIhfEC2ERKS1_iiiiiiNS1_8WrapModeE.
   %or.cond.i.i34.i89 = select i1 %not..i.i.i88, i1 true, i1 %349
   %350 = load ptr, ptr %274, align 8
   %351 = icmp eq ptr %350, null
-  %or.cond7.i.i.i90 = select i1 %or.cond.i.i34.i89, i1 true, i1 %351
+  %or.cond7.i.i.i90 = select i1 %or.cond.i.i34.i89, i1 true, i1 %351, !prof !419
   br i1 %or.cond7.i.i.i90, label %.critedge.i.i.i91, label %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit.i78, !prof !419
 
 .critedge.i.i.i91:                                ; preds = %342
@@ -26232,7 +26232,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIN9Imath_3_14halfEfEC2ERKS1_iiiii
   %or.cond.i.i34.i126 = select i1 %not..i.i.i125, i1 true, i1 %524
   %525 = load ptr, ptr %449, align 8
   %526 = icmp eq ptr %525, null
-  %or.cond7.i.i.i127 = select i1 %or.cond.i.i34.i126, i1 true, i1 %526
+  %or.cond7.i.i.i127 = select i1 %or.cond.i.i34.i126, i1 true, i1 %526, !prof !419
   br i1 %or.cond7.i.i.i127, label %.critedge.i.i.i128, label %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit.i115, !prof !419
 
 .critedge.i.i.i128:                               ; preds = %517
@@ -26608,7 +26608,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorItfEC2ERKS1_iiiiiiNS1_8WrapModeE.
   %or.cond.i.i34.i163 = select i1 %not..i.i.i162, i1 true, i1 %720
   %721 = load ptr, ptr %645, align 8
   %722 = icmp eq ptr %721, null
-  %or.cond7.i.i.i164 = select i1 %or.cond.i.i34.i163, i1 true, i1 %722
+  %or.cond7.i.i.i164 = select i1 %or.cond.i.i34.i163, i1 true, i1 %722, !prof !419
   br i1 %or.cond7.i.i.i164, label %.critedge.i.i.i165, label %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit.i152, !prof !419
 
 .critedge.i.i.i165:                               ; preds = %713
@@ -26948,7 +26948,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIcfEC2ERKS1_iiiiiiNS1_8WrapModeE.
   %or.cond.i.i34.i200 = select i1 %not..i.i.i199, i1 true, i1 %895
   %896 = load ptr, ptr %820, align 8
   %897 = icmp eq ptr %896, null
-  %or.cond7.i.i.i201 = select i1 %or.cond.i.i34.i200, i1 true, i1 %897
+  %or.cond7.i.i.i201 = select i1 %or.cond.i.i34.i200, i1 true, i1 %897, !prof !419
   br i1 %or.cond7.i.i.i201, label %.critedge.i.i.i202, label %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit.i189, !prof !419
 
 .critedge.i.i.i202:                               ; preds = %888
@@ -27288,7 +27288,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIsfEC2ERKS1_iiiiiiNS1_8WrapModeE.
   %or.cond.i.i34.i237 = select i1 %not..i.i.i236, i1 true, i1 %1070
   %1071 = load ptr, ptr %995, align 8
   %1072 = icmp eq ptr %1071, null
-  %or.cond7.i.i.i238 = select i1 %or.cond.i.i34.i237, i1 true, i1 %1072
+  %or.cond7.i.i.i238 = select i1 %or.cond.i.i34.i237, i1 true, i1 %1072, !prof !419
   br i1 %or.cond7.i.i.i238, label %.critedge.i.i.i239, label %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit.i226, !prof !419
 
 .critedge.i.i.i239:                               ; preds = %1063
@@ -27628,7 +27628,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIjfEC2ERKS1_iiiiiiNS1_8WrapModeE.
   %or.cond.i.i34.i274 = select i1 %not..i.i.i273, i1 true, i1 %1245
   %1246 = load ptr, ptr %1170, align 8
   %1247 = icmp eq ptr %1246, null
-  %or.cond7.i.i.i275 = select i1 %or.cond.i.i34.i274, i1 true, i1 %1247
+  %or.cond7.i.i.i275 = select i1 %or.cond.i.i34.i274, i1 true, i1 %1247, !prof !419
   br i1 %or.cond7.i.i.i275, label %.critedge.i.i.i276, label %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit.i263, !prof !419
 
 .critedge.i.i.i276:                               ; preds = %1238
@@ -27968,7 +27968,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIifEC2ERKS1_iiiiiiNS1_8WrapModeE.
   %or.cond.i.i34.i311 = select i1 %not..i.i.i310, i1 true, i1 %1420
   %1421 = load ptr, ptr %1345, align 8
   %1422 = icmp eq ptr %1421, null
-  %or.cond7.i.i.i312 = select i1 %or.cond.i.i34.i311, i1 true, i1 %1422
+  %or.cond7.i.i.i312 = select i1 %or.cond.i.i34.i311, i1 true, i1 %1422, !prof !419
   br i1 %or.cond7.i.i.i312, label %.critedge.i.i.i313, label %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit.i300, !prof !419
 
 .critedge.i.i.i313:                               ; preds = %1413
@@ -28308,7 +28308,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIdfEC2ERKS1_iiiiiiNS1_8WrapModeE.
   %or.cond.i.i34.i348 = select i1 %not..i.i.i347, i1 true, i1 %1595
   %1596 = load ptr, ptr %1520, align 8
   %1597 = icmp eq ptr %1596, null
-  %or.cond7.i.i.i349 = select i1 %or.cond.i.i34.i348, i1 true, i1 %1597
+  %or.cond7.i.i.i349 = select i1 %or.cond.i.i34.i348, i1 true, i1 %1597, !prof !419
   br i1 %or.cond7.i.i.i349, label %.critedge.i.i.i350, label %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit.i337, !prof !419
 
 .critedge.i.i.i350:                               ; preds = %1588
@@ -59102,7 +59102,7 @@ define void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBase3posEiii(ptr noundef 
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %58 = load ptr, ptr %57, align 8
   %59 = icmp eq ptr %58, null
-  %or.cond7.i = select i1 %or.cond.i, i1 true, i1 %59
+  %or.cond7.i = select i1 %or.cond.i, i1 true, i1 %59, !prof !419
   br i1 %or.cond7.i, label %.critedge.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBase9pos_xincrEv.exit, !prof !419
 
 .critedge.i:                                      ; preds = %45
@@ -88202,7 +88202,7 @@ define linkonce_odr void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv(ptr
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %42 = load ptr, ptr %41, align 8
   %43 = icmp eq ptr %42, null
-  %or.cond7.i = select i1 %or.cond.i, i1 true, i1 %43
+  %or.cond7.i = select i1 %or.cond.i, i1 true, i1 %43, !prof !419
   br i1 %or.cond7.i, label %.critedge.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBase9pos_xincrEv.exit, !prof !419
 
 .critedge.i:                                      ; preds = %29
@@ -92724,7 +92724,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIffEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i39.i.i = select i1 %not..i.i38.i.i, i1 true, i1 %326
   %327 = load ptr, ptr %208, align 8
   %328 = icmp eq ptr %327, null
-  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %328
+  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %328, !prof !419
   br i1 %or.cond7.i.i40.i.i, label %.critedge.i.i41.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIffEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.us.i.i.i.backedge, !prof !419
 
 .critedge.i.i41.i.i:                              ; preds = %319
@@ -92862,7 +92862,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIffEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i25.i.i = select i1 %not..i.i24.i.i, i1 true, i1 %393
   %394 = load ptr, ptr %174, align 8
   %395 = icmp eq ptr %394, null
-  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %395
+  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %395, !prof !419
   br i1 %or.cond7.i.i26.i.i, label %.critedge.i.i27.i.i, label %.noexc29.i.i, !prof !419
 
 .critedge.i.i27.i.i:                              ; preds = %387
@@ -93011,7 +93011,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIffEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i11.i.i = select i1 %not..i.i10.i.i, i1 true, i1 %463
   %464 = load ptr, ptr %174, align 8
   %465 = icmp eq ptr %464, null
-  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %465
+  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %465, !prof !419
   br i1 %or.cond7.i.i12.i.i, label %.critedge.i.i13.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i, !prof !419
 
 .critedge.i.i13.i.i:                              ; preds = %456
@@ -93124,7 +93124,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i: ; preds = %483, %
   %or.cond.i.i.i.i = select i1 %not..i.i.i.i, i1 true, i1 %516
   %517 = load ptr, ptr %208, align 8
   %518 = icmp eq ptr %517, null
-  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %518
+  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %518, !prof !419
   br i1 %or.cond7.i.i.i.i, label %.critedge.i.i.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIffEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.i.i.i.backedge, !prof !419
 
 .critedge.i.i.i.i:                                ; preds = %509
@@ -93606,7 +93606,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIhfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i39.i.i = select i1 %not..i.i38.i.i, i1 true, i1 %161
   %162 = load ptr, ptr %43, align 8
   %163 = icmp eq ptr %162, null
-  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163
+  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163, !prof !419
   br i1 %or.cond7.i.i40.i.i, label %.critedge.i.i41.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIhfEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.us.i.i.i.backedge, !prof !419
 
 .critedge.i.i41.i.i:                              ; preds = %154
@@ -93746,7 +93746,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIhfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i25.i.i = select i1 %not..i.i24.i.i, i1 true, i1 %230
   %231 = load ptr, ptr %9, align 8
   %232 = icmp eq ptr %231, null
-  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %232
+  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %232, !prof !419
   br i1 %or.cond7.i.i26.i.i, label %.critedge.i.i27.i.i, label %.noexc29.i.i, !prof !419
 
 .critedge.i.i27.i.i:                              ; preds = %224
@@ -93897,7 +93897,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIhfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i11.i.i = select i1 %not..i.i10.i.i, i1 true, i1 %302
   %303 = load ptr, ptr %9, align 8
   %304 = icmp eq ptr %303, null
-  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %304
+  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %304, !prof !419
   br i1 %or.cond7.i.i12.i.i, label %.critedge.i.i13.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i, !prof !419
 
 .critedge.i.i13.i.i:                              ; preds = %295
@@ -94005,7 +94005,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i: ; preds = %322, %
   %or.cond.i.i.i.i = select i1 %not..i.i.i.i, i1 true, i1 %354
   %355 = load ptr, ptr %43, align 8
   %356 = icmp eq ptr %355, null
-  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %356
+  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %356, !prof !419
   br i1 %or.cond7.i.i.i.i, label %.critedge.i.i.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIhfEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.i.i.i.backedge, !prof !419
 
 .critedge.i.i.i.i:                                ; preds = %347
@@ -94492,7 +94492,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIN9Imath_3_14halfEfEC2ERKS1_RKNS0
   %or.cond.i.i39.i.i = select i1 %not..i.i38.i.i, i1 true, i1 %161
   %162 = load ptr, ptr %43, align 8
   %163 = icmp eq ptr %162, null
-  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163
+  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163, !prof !419
   br i1 %or.cond7.i.i40.i.i, label %.critedge.i.i41.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIN9Imath_3_14halfEfEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.us.i.i.i.backedge, !prof !419
 
 .critedge.i.i41.i.i:                              ; preds = %154
@@ -94658,7 +94658,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIN9Imath_3_14halfEfEC2ERKS1_RKNS0
   %or.cond.i.i25.i.i = select i1 %not..i.i24.i.i, i1 true, i1 %244
   %245 = load ptr, ptr %9, align 8
   %246 = icmp eq ptr %245, null
-  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %246
+  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %246, !prof !419
   br i1 %or.cond7.i.i26.i.i, label %.critedge.i.i27.i.i, label %.noexc29.i.i, !prof !419
 
 .critedge.i.i27.i.i:                              ; preds = %238
@@ -94792,7 +94792,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIN9Imath_3_14halfEfEC2ERKS1_RKNS0
   %or.cond.i.i11.i.i = select i1 %not..i.i10.i.i, i1 true, i1 %308
   %309 = load ptr, ptr %9, align 8
   %310 = icmp eq ptr %309, null
-  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %310
+  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %310, !prof !419
   br i1 %or.cond7.i.i12.i.i, label %.critedge.i.i13.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i, !prof !419
 
 .critedge.i.i13.i.i:                              ; preds = %301
@@ -94900,7 +94900,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i: ; preds = %328, %
   %or.cond.i.i.i.i = select i1 %not..i.i.i.i, i1 true, i1 %360
   %361 = load ptr, ptr %43, align 8
   %362 = icmp eq ptr %361, null
-  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %362
+  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %362, !prof !419
   br i1 %or.cond7.i.i.i.i, label %.critedge.i.i.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIN9Imath_3_14halfEfEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.i.i.i.backedge, !prof !419
 
 .critedge.i.i.i.i:                                ; preds = %353
@@ -95384,7 +95384,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorItfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i39.i.i = select i1 %not..i.i38.i.i, i1 true, i1 %161
   %162 = load ptr, ptr %43, align 8
   %163 = icmp eq ptr %162, null
-  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163
+  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163, !prof !419
   br i1 %or.cond7.i.i40.i.i, label %.critedge.i.i41.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorItfEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.us.i.i.i.backedge, !prof !419
 
 .critedge.i.i41.i.i:                              ; preds = %154
@@ -95524,7 +95524,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorItfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i25.i.i = select i1 %not..i.i24.i.i, i1 true, i1 %230
   %231 = load ptr, ptr %9, align 8
   %232 = icmp eq ptr %231, null
-  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %232
+  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %232, !prof !419
   br i1 %or.cond7.i.i26.i.i, label %.critedge.i.i27.i.i, label %.noexc29.i.i, !prof !419
 
 .critedge.i.i27.i.i:                              ; preds = %224
@@ -95675,7 +95675,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorItfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i11.i.i = select i1 %not..i.i10.i.i, i1 true, i1 %302
   %303 = load ptr, ptr %9, align 8
   %304 = icmp eq ptr %303, null
-  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %304
+  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %304, !prof !419
   br i1 %or.cond7.i.i12.i.i, label %.critedge.i.i13.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i, !prof !419
 
 .critedge.i.i13.i.i:                              ; preds = %295
@@ -95783,7 +95783,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i: ; preds = %322, %
   %or.cond.i.i.i.i = select i1 %not..i.i.i.i, i1 true, i1 %354
   %355 = load ptr, ptr %43, align 8
   %356 = icmp eq ptr %355, null
-  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %356
+  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %356, !prof !419
   br i1 %or.cond7.i.i.i.i, label %.critedge.i.i.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorItfEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.i.i.i.backedge, !prof !419
 
 .critedge.i.i.i.i:                                ; preds = %347
@@ -96267,7 +96267,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIcfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i39.i.i = select i1 %not..i.i38.i.i, i1 true, i1 %161
   %162 = load ptr, ptr %43, align 8
   %163 = icmp eq ptr %162, null
-  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163
+  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163, !prof !419
   br i1 %or.cond7.i.i40.i.i, label %.critedge.i.i41.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIcfEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.us.i.i.i.backedge, !prof !419
 
 .critedge.i.i41.i.i:                              ; preds = %154
@@ -96407,7 +96407,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIcfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i25.i.i = select i1 %not..i.i24.i.i, i1 true, i1 %230
   %231 = load ptr, ptr %9, align 8
   %232 = icmp eq ptr %231, null
-  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %232
+  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %232, !prof !419
   br i1 %or.cond7.i.i26.i.i, label %.critedge.i.i27.i.i, label %.noexc29.i.i, !prof !419
 
 .critedge.i.i27.i.i:                              ; preds = %224
@@ -96558,7 +96558,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIcfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i11.i.i = select i1 %not..i.i10.i.i, i1 true, i1 %302
   %303 = load ptr, ptr %9, align 8
   %304 = icmp eq ptr %303, null
-  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %304
+  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %304, !prof !419
   br i1 %or.cond7.i.i12.i.i, label %.critedge.i.i13.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i, !prof !419
 
 .critedge.i.i13.i.i:                              ; preds = %295
@@ -96666,7 +96666,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i: ; preds = %322, %
   %or.cond.i.i.i.i = select i1 %not..i.i.i.i, i1 true, i1 %354
   %355 = load ptr, ptr %43, align 8
   %356 = icmp eq ptr %355, null
-  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %356
+  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %356, !prof !419
   br i1 %or.cond7.i.i.i.i, label %.critedge.i.i.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIcfEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.i.i.i.backedge, !prof !419
 
 .critedge.i.i.i.i:                                ; preds = %347
@@ -97150,7 +97150,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIsfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i39.i.i = select i1 %not..i.i38.i.i, i1 true, i1 %161
   %162 = load ptr, ptr %43, align 8
   %163 = icmp eq ptr %162, null
-  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163
+  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163, !prof !419
   br i1 %or.cond7.i.i40.i.i, label %.critedge.i.i41.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIsfEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.us.i.i.i.backedge, !prof !419
 
 .critedge.i.i41.i.i:                              ; preds = %154
@@ -97290,7 +97290,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIsfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i25.i.i = select i1 %not..i.i24.i.i, i1 true, i1 %230
   %231 = load ptr, ptr %9, align 8
   %232 = icmp eq ptr %231, null
-  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %232
+  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %232, !prof !419
   br i1 %or.cond7.i.i26.i.i, label %.critedge.i.i27.i.i, label %.noexc29.i.i, !prof !419
 
 .critedge.i.i27.i.i:                              ; preds = %224
@@ -97441,7 +97441,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIsfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i11.i.i = select i1 %not..i.i10.i.i, i1 true, i1 %302
   %303 = load ptr, ptr %9, align 8
   %304 = icmp eq ptr %303, null
-  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %304
+  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %304, !prof !419
   br i1 %or.cond7.i.i12.i.i, label %.critedge.i.i13.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i, !prof !419
 
 .critedge.i.i13.i.i:                              ; preds = %295
@@ -97549,7 +97549,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i: ; preds = %322, %
   %or.cond.i.i.i.i = select i1 %not..i.i.i.i, i1 true, i1 %354
   %355 = load ptr, ptr %43, align 8
   %356 = icmp eq ptr %355, null
-  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %356
+  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %356, !prof !419
   br i1 %or.cond7.i.i.i.i, label %.critedge.i.i.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIsfEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.i.i.i.backedge, !prof !419
 
 .critedge.i.i.i.i:                                ; preds = %347
@@ -98033,7 +98033,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIjfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i39.i.i = select i1 %not..i.i38.i.i, i1 true, i1 %161
   %162 = load ptr, ptr %43, align 8
   %163 = icmp eq ptr %162, null
-  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163
+  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163, !prof !419
   br i1 %or.cond7.i.i40.i.i, label %.critedge.i.i41.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIjfEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.us.i.i.i.backedge, !prof !419
 
 .critedge.i.i41.i.i:                              ; preds = %154
@@ -98173,7 +98173,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIjfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i25.i.i = select i1 %not..i.i24.i.i, i1 true, i1 %230
   %231 = load ptr, ptr %9, align 8
   %232 = icmp eq ptr %231, null
-  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %232
+  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %232, !prof !419
   br i1 %or.cond7.i.i26.i.i, label %.critedge.i.i27.i.i, label %.noexc29.i.i, !prof !419
 
 .critedge.i.i27.i.i:                              ; preds = %224
@@ -98324,7 +98324,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIjfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i11.i.i = select i1 %not..i.i10.i.i, i1 true, i1 %302
   %303 = load ptr, ptr %9, align 8
   %304 = icmp eq ptr %303, null
-  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %304
+  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %304, !prof !419
   br i1 %or.cond7.i.i12.i.i, label %.critedge.i.i13.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i, !prof !419
 
 .critedge.i.i13.i.i:                              ; preds = %295
@@ -98432,7 +98432,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i: ; preds = %322, %
   %or.cond.i.i.i.i = select i1 %not..i.i.i.i, i1 true, i1 %354
   %355 = load ptr, ptr %43, align 8
   %356 = icmp eq ptr %355, null
-  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %356
+  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %356, !prof !419
   br i1 %or.cond7.i.i.i.i, label %.critedge.i.i.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIjfEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.i.i.i.backedge, !prof !419
 
 .critedge.i.i.i.i:                                ; preds = %347
@@ -98916,7 +98916,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIifEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i39.i.i = select i1 %not..i.i38.i.i, i1 true, i1 %161
   %162 = load ptr, ptr %43, align 8
   %163 = icmp eq ptr %162, null
-  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163
+  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163, !prof !419
   br i1 %or.cond7.i.i40.i.i, label %.critedge.i.i41.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIifEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.us.i.i.i.backedge, !prof !419
 
 .critedge.i.i41.i.i:                              ; preds = %154
@@ -99056,7 +99056,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIifEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i25.i.i = select i1 %not..i.i24.i.i, i1 true, i1 %230
   %231 = load ptr, ptr %9, align 8
   %232 = icmp eq ptr %231, null
-  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %232
+  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %232, !prof !419
   br i1 %or.cond7.i.i26.i.i, label %.critedge.i.i27.i.i, label %.noexc29.i.i, !prof !419
 
 .critedge.i.i27.i.i:                              ; preds = %224
@@ -99207,7 +99207,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIifEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i11.i.i = select i1 %not..i.i10.i.i, i1 true, i1 %302
   %303 = load ptr, ptr %9, align 8
   %304 = icmp eq ptr %303, null
-  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %304
+  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %304, !prof !419
   br i1 %or.cond7.i.i12.i.i, label %.critedge.i.i13.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i, !prof !419
 
 .critedge.i.i13.i.i:                              ; preds = %295
@@ -99315,7 +99315,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i: ; preds = %322, %
   %or.cond.i.i.i.i = select i1 %not..i.i.i.i, i1 true, i1 %354
   %355 = load ptr, ptr %43, align 8
   %356 = icmp eq ptr %355, null
-  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %356
+  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %356, !prof !419
   br i1 %or.cond7.i.i.i.i, label %.critedge.i.i.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIifEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.i.i.i.backedge, !prof !419
 
 .critedge.i.i.i.i:                                ; preds = %347
@@ -99799,7 +99799,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIdfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i39.i.i = select i1 %not..i.i38.i.i, i1 true, i1 %161
   %162 = load ptr, ptr %43, align 8
   %163 = icmp eq ptr %162, null
-  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163
+  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163, !prof !419
   br i1 %or.cond7.i.i40.i.i, label %.critedge.i.i41.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIdfEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.us.i.i.i.backedge, !prof !419
 
 .critedge.i.i41.i.i:                              ; preds = %154
@@ -99938,7 +99938,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIdfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i25.i.i = select i1 %not..i.i24.i.i, i1 true, i1 %229
   %230 = load ptr, ptr %9, align 8
   %231 = icmp eq ptr %230, null
-  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %231
+  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %231, !prof !419
   br i1 %or.cond7.i.i26.i.i, label %.critedge.i.i27.i.i, label %.noexc29.i.i, !prof !419
 
 .critedge.i.i27.i.i:                              ; preds = %223
@@ -100088,7 +100088,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIdfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i11.i.i = select i1 %not..i.i10.i.i, i1 true, i1 %300
   %301 = load ptr, ptr %9, align 8
   %302 = icmp eq ptr %301, null
-  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %302
+  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %302, !prof !419
   br i1 %or.cond7.i.i12.i.i, label %.critedge.i.i13.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i, !prof !419
 
 .critedge.i.i13.i.i:                              ; preds = %293
@@ -100196,7 +100196,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i: ; preds = %320, %
   %or.cond.i.i.i.i = select i1 %not..i.i.i.i, i1 true, i1 %352
   %353 = load ptr, ptr %43, align 8
   %354 = icmp eq ptr %353, null
-  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %354
+  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %354, !prof !419
   br i1 %or.cond7.i.i.i.i, label %.critedge.i.i.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIdfEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.i.i.i.backedge, !prof !419
 
 .critedge.i.i.i.i:                                ; preds = %345
@@ -100683,7 +100683,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIffEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i39.i.i = select i1 %not..i.i38.i.i, i1 true, i1 %161
   %162 = load ptr, ptr %43, align 8
   %163 = icmp eq ptr %162, null
-  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163
+  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163, !prof !419
   br i1 %or.cond7.i.i40.i.i, label %.critedge.i.i41.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIffEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.us.i.i.i.backedge, !prof !419
 
 .critedge.i.i41.i.i:                              ; preds = %154
@@ -100823,7 +100823,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIffEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i25.i.i = select i1 %not..i.i24.i.i, i1 true, i1 %230
   %231 = load ptr, ptr %9, align 8
   %232 = icmp eq ptr %231, null
-  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %232
+  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %232, !prof !419
   br i1 %or.cond7.i.i26.i.i, label %.critedge.i.i27.i.i, label %.noexc29.i.i, !prof !419
 
 .critedge.i.i27.i.i:                              ; preds = %223
@@ -100957,7 +100957,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIffEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i11.i.i = select i1 %not..i.i10.i.i, i1 true, i1 %294
   %295 = load ptr, ptr %9, align 8
   %296 = icmp eq ptr %295, null
-  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %296
+  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %296, !prof !419
   br i1 %or.cond7.i.i12.i.i, label %.critedge.i.i13.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i, !prof !419
 
 .critedge.i.i13.i.i:                              ; preds = %287
@@ -101065,7 +101065,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i: ; preds = %314, %
   %or.cond.i.i.i.i = select i1 %not..i.i.i.i, i1 true, i1 %346
   %347 = load ptr, ptr %43, align 8
   %348 = icmp eq ptr %347, null
-  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %348
+  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %348, !prof !419
   br i1 %or.cond7.i.i.i.i, label %.critedge.i.i.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIffEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.i.i.i.backedge, !prof !419
 
 .critedge.i.i.i.i:                                ; preds = %339
@@ -101853,7 +101853,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIhhEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i39.i.i = select i1 %not..i.i38.i.i, i1 true, i1 %326
   %327 = load ptr, ptr %208, align 8
   %328 = icmp eq ptr %327, null
-  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %328
+  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %328, !prof !419
   br i1 %or.cond7.i.i40.i.i, label %.critedge.i.i41.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIhhEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.us.i.i.i.backedge, !prof !419
 
 .critedge.i.i41.i.i:                              ; preds = %319
@@ -101984,7 +101984,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIhhEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i25.i.i = select i1 %not..i.i24.i.i, i1 true, i1 %389
   %390 = load ptr, ptr %174, align 8
   %391 = icmp eq ptr %390, null
-  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %391
+  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %391, !prof !419
   br i1 %or.cond7.i.i26.i.i, label %.critedge.i.i27.i.i, label %.noexc29.i.i, !prof !419
 
 .critedge.i.i27.i.i:                              ; preds = %382
@@ -102118,7 +102118,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIhhEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i11.i.i = select i1 %not..i.i10.i.i, i1 true, i1 %453
   %454 = load ptr, ptr %174, align 8
   %455 = icmp eq ptr %454, null
-  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %455
+  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %455, !prof !419
   br i1 %or.cond7.i.i12.i.i, label %.critedge.i.i13.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i, !prof !419
 
 .critedge.i.i13.i.i:                              ; preds = %446
@@ -102226,7 +102226,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i: ; preds = %473, %
   %or.cond.i.i.i.i = select i1 %not..i.i.i.i, i1 true, i1 %505
   %506 = load ptr, ptr %208, align 8
   %507 = icmp eq ptr %506, null
-  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %507
+  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %507, !prof !419
   br i1 %or.cond7.i.i.i.i, label %.critedge.i.i.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIhhEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.i.i.i.backedge, !prof !419
 
 .critedge.i.i.i.i:                                ; preds = %498
@@ -102716,7 +102716,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIN9Imath_3_14halfEfEC2ERKS1_RKNS0
   %or.cond.i.i39.i.i = select i1 %not..i.i38.i.i, i1 true, i1 %161
   %162 = load ptr, ptr %43, align 8
   %163 = icmp eq ptr %162, null
-  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163
+  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163, !prof !419
   br i1 %or.cond7.i.i40.i.i, label %.critedge.i.i41.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIN9Imath_3_14halfEfEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.us.i.i.i.backedge, !prof !419
 
 .critedge.i.i41.i.i:                              ; preds = %154
@@ -102894,7 +102894,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIN9Imath_3_14halfEfEC2ERKS1_RKNS0
   %or.cond.i.i25.i.i = select i1 %not..i.i24.i.i, i1 true, i1 %253
   %254 = load ptr, ptr %9, align 8
   %255 = icmp eq ptr %254, null
-  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %255
+  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %255, !prof !419
   br i1 %or.cond7.i.i26.i.i, label %.critedge.i.i27.i.i, label %.noexc29.i.i, !prof !419
 
 .critedge.i.i27.i.i:                              ; preds = %246
@@ -103028,7 +103028,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIN9Imath_3_14halfEfEC2ERKS1_RKNS0
   %or.cond.i.i11.i.i = select i1 %not..i.i10.i.i, i1 true, i1 %317
   %318 = load ptr, ptr %9, align 8
   %319 = icmp eq ptr %318, null
-  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %319
+  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %319, !prof !419
   br i1 %or.cond7.i.i12.i.i, label %.critedge.i.i13.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i, !prof !419
 
 .critedge.i.i13.i.i:                              ; preds = %310
@@ -103136,7 +103136,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i: ; preds = %337, %
   %or.cond.i.i.i.i = select i1 %not..i.i.i.i, i1 true, i1 %369
   %370 = load ptr, ptr %43, align 8
   %371 = icmp eq ptr %370, null
-  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %371
+  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %371, !prof !419
   br i1 %or.cond7.i.i.i.i, label %.critedge.i.i.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIN9Imath_3_14halfEfEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.i.i.i.backedge, !prof !419
 
 .critedge.i.i.i.i:                                ; preds = %362
@@ -103623,7 +103623,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorItfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i39.i.i = select i1 %not..i.i38.i.i, i1 true, i1 %161
   %162 = load ptr, ptr %43, align 8
   %163 = icmp eq ptr %162, null
-  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163
+  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163, !prof !419
   br i1 %or.cond7.i.i40.i.i, label %.critedge.i.i41.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorItfEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.us.i.i.i.backedge, !prof !419
 
 .critedge.i.i41.i.i:                              ; preds = %154
@@ -103761,7 +103761,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorItfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i25.i.i = select i1 %not..i.i24.i.i, i1 true, i1 %230
   %231 = load ptr, ptr %9, align 8
   %232 = icmp eq ptr %231, null
-  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %232
+  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %232, !prof !419
   br i1 %or.cond7.i.i26.i.i, label %.critedge.i.i27.i.i, label %.noexc29.i.i, !prof !419
 
 .critedge.i.i27.i.i:                              ; preds = %223
@@ -103895,7 +103895,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorItfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i11.i.i = select i1 %not..i.i10.i.i, i1 true, i1 %294
   %295 = load ptr, ptr %9, align 8
   %296 = icmp eq ptr %295, null
-  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %296
+  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %296, !prof !419
   br i1 %or.cond7.i.i12.i.i, label %.critedge.i.i13.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i, !prof !419
 
 .critedge.i.i13.i.i:                              ; preds = %287
@@ -104003,7 +104003,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i: ; preds = %314, %
   %or.cond.i.i.i.i = select i1 %not..i.i.i.i, i1 true, i1 %346
   %347 = load ptr, ptr %43, align 8
   %348 = icmp eq ptr %347, null
-  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %348
+  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %348, !prof !419
   br i1 %or.cond7.i.i.i.i, label %.critedge.i.i.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorItfEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.i.i.i.backedge, !prof !419
 
 .critedge.i.i.i.i:                                ; preds = %339
@@ -104490,7 +104490,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIcfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i39.i.i = select i1 %not..i.i38.i.i, i1 true, i1 %161
   %162 = load ptr, ptr %43, align 8
   %163 = icmp eq ptr %162, null
-  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163
+  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163, !prof !419
   br i1 %or.cond7.i.i40.i.i, label %.critedge.i.i41.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIcfEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.us.i.i.i.backedge, !prof !419
 
 .critedge.i.i41.i.i:                              ; preds = %154
@@ -104632,7 +104632,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIcfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i25.i.i = select i1 %not..i.i24.i.i, i1 true, i1 %232
   %233 = load ptr, ptr %9, align 8
   %234 = icmp eq ptr %233, null
-  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %234
+  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %234, !prof !419
   br i1 %or.cond7.i.i26.i.i, label %.critedge.i.i27.i.i, label %.noexc29.i.i, !prof !419
 
 .critedge.i.i27.i.i:                              ; preds = %225
@@ -104766,7 +104766,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIcfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i11.i.i = select i1 %not..i.i10.i.i, i1 true, i1 %296
   %297 = load ptr, ptr %9, align 8
   %298 = icmp eq ptr %297, null
-  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %298
+  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %298, !prof !419
   br i1 %or.cond7.i.i12.i.i, label %.critedge.i.i13.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i, !prof !419
 
 .critedge.i.i13.i.i:                              ; preds = %289
@@ -104874,7 +104874,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i: ; preds = %316, %
   %or.cond.i.i.i.i = select i1 %not..i.i.i.i, i1 true, i1 %348
   %349 = load ptr, ptr %43, align 8
   %350 = icmp eq ptr %349, null
-  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %350
+  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %350, !prof !419
   br i1 %or.cond7.i.i.i.i, label %.critedge.i.i.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIcfEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.i.i.i.backedge, !prof !419
 
 .critedge.i.i.i.i:                                ; preds = %341
@@ -105361,7 +105361,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIsfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i39.i.i = select i1 %not..i.i38.i.i, i1 true, i1 %161
   %162 = load ptr, ptr %43, align 8
   %163 = icmp eq ptr %162, null
-  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163
+  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163, !prof !419
   br i1 %or.cond7.i.i40.i.i, label %.critedge.i.i41.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIsfEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.us.i.i.i.backedge, !prof !419
 
 .critedge.i.i41.i.i:                              ; preds = %154
@@ -105503,7 +105503,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIsfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i25.i.i = select i1 %not..i.i24.i.i, i1 true, i1 %232
   %233 = load ptr, ptr %9, align 8
   %234 = icmp eq ptr %233, null
-  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %234
+  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %234, !prof !419
   br i1 %or.cond7.i.i26.i.i, label %.critedge.i.i27.i.i, label %.noexc29.i.i, !prof !419
 
 .critedge.i.i27.i.i:                              ; preds = %225
@@ -105637,7 +105637,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIsfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i11.i.i = select i1 %not..i.i10.i.i, i1 true, i1 %296
   %297 = load ptr, ptr %9, align 8
   %298 = icmp eq ptr %297, null
-  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %298
+  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %298, !prof !419
   br i1 %or.cond7.i.i12.i.i, label %.critedge.i.i13.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i, !prof !419
 
 .critedge.i.i13.i.i:                              ; preds = %289
@@ -105745,7 +105745,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i: ; preds = %316, %
   %or.cond.i.i.i.i = select i1 %not..i.i.i.i, i1 true, i1 %348
   %349 = load ptr, ptr %43, align 8
   %350 = icmp eq ptr %349, null
-  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %350
+  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %350, !prof !419
   br i1 %or.cond7.i.i.i.i, label %.critedge.i.i.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIsfEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.i.i.i.backedge, !prof !419
 
 .critedge.i.i.i.i:                                ; preds = %341
@@ -106232,7 +106232,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIjfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i39.i.i = select i1 %not..i.i38.i.i, i1 true, i1 %161
   %162 = load ptr, ptr %43, align 8
   %163 = icmp eq ptr %162, null
-  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163
+  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163, !prof !419
   br i1 %or.cond7.i.i40.i.i, label %.critedge.i.i41.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIjfEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.us.i.i.i.backedge, !prof !419
 
 .critedge.i.i41.i.i:                              ; preds = %154
@@ -106370,7 +106370,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIjfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i25.i.i = select i1 %not..i.i24.i.i, i1 true, i1 %230
   %231 = load ptr, ptr %9, align 8
   %232 = icmp eq ptr %231, null
-  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %232
+  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %232, !prof !419
   br i1 %or.cond7.i.i26.i.i, label %.critedge.i.i27.i.i, label %.noexc29.i.i, !prof !419
 
 .critedge.i.i27.i.i:                              ; preds = %223
@@ -106504,7 +106504,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIjfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i11.i.i = select i1 %not..i.i10.i.i, i1 true, i1 %294
   %295 = load ptr, ptr %9, align 8
   %296 = icmp eq ptr %295, null
-  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %296
+  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %296, !prof !419
   br i1 %or.cond7.i.i12.i.i, label %.critedge.i.i13.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i, !prof !419
 
 .critedge.i.i13.i.i:                              ; preds = %287
@@ -106612,7 +106612,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i: ; preds = %314, %
   %or.cond.i.i.i.i = select i1 %not..i.i.i.i, i1 true, i1 %346
   %347 = load ptr, ptr %43, align 8
   %348 = icmp eq ptr %347, null
-  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %348
+  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %348, !prof !419
   br i1 %or.cond7.i.i.i.i, label %.critedge.i.i.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIjfEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.i.i.i.backedge, !prof !419
 
 .critedge.i.i.i.i:                                ; preds = %339
@@ -107099,7 +107099,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIifEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i39.i.i = select i1 %not..i.i38.i.i, i1 true, i1 %161
   %162 = load ptr, ptr %43, align 8
   %163 = icmp eq ptr %162, null
-  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163
+  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163, !prof !419
   br i1 %or.cond7.i.i40.i.i, label %.critedge.i.i41.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIifEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.us.i.i.i.backedge, !prof !419
 
 .critedge.i.i41.i.i:                              ; preds = %154
@@ -107241,7 +107241,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIifEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i25.i.i = select i1 %not..i.i24.i.i, i1 true, i1 %232
   %233 = load ptr, ptr %9, align 8
   %234 = icmp eq ptr %233, null
-  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %234
+  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %234, !prof !419
   br i1 %or.cond7.i.i26.i.i, label %.critedge.i.i27.i.i, label %.noexc29.i.i, !prof !419
 
 .critedge.i.i27.i.i:                              ; preds = %225
@@ -107375,7 +107375,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIifEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i11.i.i = select i1 %not..i.i10.i.i, i1 true, i1 %296
   %297 = load ptr, ptr %9, align 8
   %298 = icmp eq ptr %297, null
-  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %298
+  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %298, !prof !419
   br i1 %or.cond7.i.i12.i.i, label %.critedge.i.i13.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i, !prof !419
 
 .critedge.i.i13.i.i:                              ; preds = %289
@@ -107483,7 +107483,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i: ; preds = %316, %
   %or.cond.i.i.i.i = select i1 %not..i.i.i.i, i1 true, i1 %348
   %349 = load ptr, ptr %43, align 8
   %350 = icmp eq ptr %349, null
-  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %350
+  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %350, !prof !419
   br i1 %or.cond7.i.i.i.i, label %.critedge.i.i.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIifEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.i.i.i.backedge, !prof !419
 
 .critedge.i.i.i.i:                                ; preds = %341
@@ -107970,7 +107970,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIdfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i39.i.i = select i1 %not..i.i38.i.i, i1 true, i1 %161
   %162 = load ptr, ptr %43, align 8
   %163 = icmp eq ptr %162, null
-  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163
+  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163, !prof !419
   br i1 %or.cond7.i.i40.i.i, label %.critedge.i.i41.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIdfEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.us.i.i.i.backedge, !prof !419
 
 .critedge.i.i41.i.i:                              ; preds = %154
@@ -108111,7 +108111,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIdfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i25.i.i = select i1 %not..i.i24.i.i, i1 true, i1 %231
   %232 = load ptr, ptr %9, align 8
   %233 = icmp eq ptr %232, null
-  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %233
+  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %233, !prof !419
   br i1 %or.cond7.i.i26.i.i, label %.critedge.i.i27.i.i, label %.noexc29.i.i, !prof !419
 
 .critedge.i.i27.i.i:                              ; preds = %224
@@ -108245,7 +108245,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIdfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i11.i.i = select i1 %not..i.i10.i.i, i1 true, i1 %295
   %296 = load ptr, ptr %9, align 8
   %297 = icmp eq ptr %296, null
-  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %297
+  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %297, !prof !419
   br i1 %or.cond7.i.i12.i.i, label %.critedge.i.i13.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i, !prof !419
 
 .critedge.i.i13.i.i:                              ; preds = %288
@@ -108353,7 +108353,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i: ; preds = %315, %
   %or.cond.i.i.i.i = select i1 %not..i.i.i.i, i1 true, i1 %347
   %348 = load ptr, ptr %43, align 8
   %349 = icmp eq ptr %348, null
-  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %349
+  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %349, !prof !419
   br i1 %or.cond7.i.i.i.i, label %.critedge.i.i.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIdfEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.i.i.i.backedge, !prof !419
 
 .critedge.i.i.i.i:                                ; preds = %340
@@ -108840,7 +108840,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIffEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i39.i.i = select i1 %not..i.i38.i.i, i1 true, i1 %161
   %162 = load ptr, ptr %43, align 8
   %163 = icmp eq ptr %162, null
-  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163
+  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163, !prof !419
   br i1 %or.cond7.i.i40.i.i, label %.critedge.i.i41.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIffEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.us.i.i.i.backedge, !prof !419
 
 .critedge.i.i41.i.i:                              ; preds = %154
@@ -109047,7 +109047,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBase15ensure_writableEv.exit.i.us.i.i.
   %or.cond.i.i25.i.i = select i1 %not..i.i24.i.i, i1 true, i1 %274
   %275 = load ptr, ptr %9, align 8
   %276 = icmp eq ptr %275, null
-  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %276
+  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %276, !prof !419
   br i1 %or.cond7.i.i26.i.i, label %.critedge.i.i27.i.i, label %.noexc29.i.i, !prof !419
 
 .critedge.i.i27.i.i:                              ; preds = %268
@@ -109181,7 +109181,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIffEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i11.i.i = select i1 %not..i.i10.i.i, i1 true, i1 %338
   %339 = load ptr, ptr %9, align 8
   %340 = icmp eq ptr %339, null
-  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %340
+  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %340, !prof !419
   br i1 %or.cond7.i.i12.i.i, label %.critedge.i.i13.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i, !prof !419
 
 .critedge.i.i13.i.i:                              ; preds = %331
@@ -109289,7 +109289,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i: ; preds = %358, %
   %or.cond.i.i.i.i = select i1 %not..i.i.i.i, i1 true, i1 %390
   %391 = load ptr, ptr %43, align 8
   %392 = icmp eq ptr %391, null
-  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %392
+  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %392, !prof !419
   br i1 %or.cond7.i.i.i.i, label %.critedge.i.i.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIffEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.i.i.i.backedge, !prof !419
 
 .critedge.i.i.i.i:                                ; preds = %383
@@ -109876,7 +109876,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIhfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i39.i.i = select i1 %not..i.i38.i.i, i1 true, i1 %161
   %162 = load ptr, ptr %43, align 8
   %163 = icmp eq ptr %162, null
-  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163
+  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163, !prof !419
   br i1 %or.cond7.i.i40.i.i, label %.critedge.i.i41.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIhfEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.us.i.i.i.backedge, !prof !419
 
 .critedge.i.i41.i.i:                              ; preds = %154
@@ -110071,7 +110071,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBase15ensure_writableEv.exit.i.us.i.i.
   %or.cond.i.i25.i.i = select i1 %not..i.i24.i.i, i1 true, i1 %264
   %265 = load ptr, ptr %9, align 8
   %266 = icmp eq ptr %265, null
-  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %266
+  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %266, !prof !419
   br i1 %or.cond7.i.i26.i.i, label %.critedge.i.i27.i.i, label %.noexc29.i.i, !prof !419
 
 .critedge.i.i27.i.i:                              ; preds = %258
@@ -110205,7 +110205,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIhfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i11.i.i = select i1 %not..i.i10.i.i, i1 true, i1 %328
   %329 = load ptr, ptr %9, align 8
   %330 = icmp eq ptr %329, null
-  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %330
+  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %330, !prof !419
   br i1 %or.cond7.i.i12.i.i, label %.critedge.i.i13.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i, !prof !419
 
 .critedge.i.i13.i.i:                              ; preds = %321
@@ -110313,7 +110313,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i: ; preds = %348, %
   %or.cond.i.i.i.i = select i1 %not..i.i.i.i, i1 true, i1 %380
   %381 = load ptr, ptr %43, align 8
   %382 = icmp eq ptr %381, null
-  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %382
+  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %382, !prof !419
   br i1 %or.cond7.i.i.i.i, label %.critedge.i.i.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIhfEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.i.i.i.backedge, !prof !419
 
 .critedge.i.i.i.i:                                ; preds = %373
@@ -111098,7 +111098,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIN9Imath_3_14halfES4_EC2ERKS1_RKN
   %or.cond.i.i39.i.i = select i1 %not..i.i38.i.i, i1 true, i1 %326
   %327 = load ptr, ptr %208, align 8
   %328 = icmp eq ptr %327, null
-  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %328
+  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %328, !prof !419
   br i1 %or.cond7.i.i40.i.i, label %.critedge.i.i41.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIN9Imath_3_14halfES4_EC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.us.i.i.i.backedge, !prof !419
 
 .critedge.i.i41.i.i:                              ; preds = %319
@@ -111236,7 +111236,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIN9Imath_3_14halfES4_EC2ERKS1_RKN
   %or.cond.i.i25.i.i = select i1 %not..i.i24.i.i, i1 true, i1 %392
   %393 = load ptr, ptr %174, align 8
   %394 = icmp eq ptr %393, null
-  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %394
+  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %394, !prof !419
   br i1 %or.cond7.i.i26.i.i, label %.critedge.i.i27.i.i, label %.noexc29.i.i, !prof !419
 
 .critedge.i.i27.i.i:                              ; preds = %386
@@ -111385,7 +111385,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIN9Imath_3_14halfES4_EC2ERKS1_RKN
   %or.cond.i.i11.i.i = select i1 %not..i.i10.i.i, i1 true, i1 %461
   %462 = load ptr, ptr %174, align 8
   %463 = icmp eq ptr %462, null
-  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %463
+  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %463, !prof !419
   br i1 %or.cond7.i.i12.i.i, label %.critedge.i.i13.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i, !prof !419
 
 .critedge.i.i13.i.i:                              ; preds = %454
@@ -111493,7 +111493,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i: ; preds = %481, %
   %or.cond.i.i.i.i = select i1 %not..i.i.i.i, i1 true, i1 %513
   %514 = load ptr, ptr %208, align 8
   %515 = icmp eq ptr %514, null
-  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %515
+  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %515, !prof !419
   br i1 %or.cond7.i.i.i.i, label %.critedge.i.i.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIN9Imath_3_14halfES4_EC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.i.i.i.backedge, !prof !419
 
 .critedge.i.i.i.i:                                ; preds = %506
@@ -111983,7 +111983,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorItfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i39.i.i = select i1 %not..i.i38.i.i, i1 true, i1 %161
   %162 = load ptr, ptr %43, align 8
   %163 = icmp eq ptr %162, null
-  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163
+  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163, !prof !419
   br i1 %or.cond7.i.i40.i.i, label %.critedge.i.i41.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorItfEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.us.i.i.i.backedge, !prof !419
 
 .critedge.i.i41.i.i:                              ; preds = %154
@@ -112178,7 +112178,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBase15ensure_writableEv.exit.i.us.i.i.
   %or.cond.i.i25.i.i = select i1 %not..i.i24.i.i, i1 true, i1 %264
   %265 = load ptr, ptr %9, align 8
   %266 = icmp eq ptr %265, null
-  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %266
+  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %266, !prof !419
   br i1 %or.cond7.i.i26.i.i, label %.critedge.i.i27.i.i, label %.noexc29.i.i, !prof !419
 
 .critedge.i.i27.i.i:                              ; preds = %258
@@ -112312,7 +112312,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorItfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i11.i.i = select i1 %not..i.i10.i.i, i1 true, i1 %328
   %329 = load ptr, ptr %9, align 8
   %330 = icmp eq ptr %329, null
-  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %330
+  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %330, !prof !419
   br i1 %or.cond7.i.i12.i.i, label %.critedge.i.i13.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i, !prof !419
 
 .critedge.i.i13.i.i:                              ; preds = %321
@@ -112420,7 +112420,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i: ; preds = %348, %
   %or.cond.i.i.i.i = select i1 %not..i.i.i.i, i1 true, i1 %380
   %381 = load ptr, ptr %43, align 8
   %382 = icmp eq ptr %381, null
-  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %382
+  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %382, !prof !419
   br i1 %or.cond7.i.i.i.i, label %.critedge.i.i.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorItfEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.i.i.i.backedge, !prof !419
 
 .critedge.i.i.i.i:                                ; preds = %373
@@ -112907,7 +112907,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIcfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i39.i.i = select i1 %not..i.i38.i.i, i1 true, i1 %161
   %162 = load ptr, ptr %43, align 8
   %163 = icmp eq ptr %162, null
-  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163
+  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163, !prof !419
   br i1 %or.cond7.i.i40.i.i, label %.critedge.i.i41.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIcfEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.us.i.i.i.backedge, !prof !419
 
 .critedge.i.i41.i.i:                              ; preds = %154
@@ -113116,7 +113116,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBase15ensure_writableEv.exit.i.us.i.i.
   %or.cond.i.i25.i.i = select i1 %not..i.i24.i.i, i1 true, i1 %276
   %277 = load ptr, ptr %9, align 8
   %278 = icmp eq ptr %277, null
-  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %278
+  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %278, !prof !419
   br i1 %or.cond7.i.i26.i.i, label %.critedge.i.i27.i.i, label %.noexc29.i.i, !prof !419
 
 .critedge.i.i27.i.i:                              ; preds = %270
@@ -113250,7 +113250,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIcfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i11.i.i = select i1 %not..i.i10.i.i, i1 true, i1 %340
   %341 = load ptr, ptr %9, align 8
   %342 = icmp eq ptr %341, null
-  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %342
+  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %342, !prof !419
   br i1 %or.cond7.i.i12.i.i, label %.critedge.i.i13.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i, !prof !419
 
 .critedge.i.i13.i.i:                              ; preds = %333
@@ -113358,7 +113358,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i: ; preds = %360, %
   %or.cond.i.i.i.i = select i1 %not..i.i.i.i, i1 true, i1 %392
   %393 = load ptr, ptr %43, align 8
   %394 = icmp eq ptr %393, null
-  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %394
+  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %394, !prof !419
   br i1 %or.cond7.i.i.i.i, label %.critedge.i.i.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIcfEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.i.i.i.backedge, !prof !419
 
 .critedge.i.i.i.i:                                ; preds = %385
@@ -113845,7 +113845,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIsfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i39.i.i = select i1 %not..i.i38.i.i, i1 true, i1 %161
   %162 = load ptr, ptr %43, align 8
   %163 = icmp eq ptr %162, null
-  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163
+  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163, !prof !419
   br i1 %or.cond7.i.i40.i.i, label %.critedge.i.i41.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIsfEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.us.i.i.i.backedge, !prof !419
 
 .critedge.i.i41.i.i:                              ; preds = %154
@@ -114054,7 +114054,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBase15ensure_writableEv.exit.i.us.i.i.
   %or.cond.i.i25.i.i = select i1 %not..i.i24.i.i, i1 true, i1 %276
   %277 = load ptr, ptr %9, align 8
   %278 = icmp eq ptr %277, null
-  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %278
+  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %278, !prof !419
   br i1 %or.cond7.i.i26.i.i, label %.critedge.i.i27.i.i, label %.noexc29.i.i, !prof !419
 
 .critedge.i.i27.i.i:                              ; preds = %270
@@ -114188,7 +114188,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIsfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i11.i.i = select i1 %not..i.i10.i.i, i1 true, i1 %340
   %341 = load ptr, ptr %9, align 8
   %342 = icmp eq ptr %341, null
-  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %342
+  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %342, !prof !419
   br i1 %or.cond7.i.i12.i.i, label %.critedge.i.i13.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i, !prof !419
 
 .critedge.i.i13.i.i:                              ; preds = %333
@@ -114296,7 +114296,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i: ; preds = %360, %
   %or.cond.i.i.i.i = select i1 %not..i.i.i.i, i1 true, i1 %392
   %393 = load ptr, ptr %43, align 8
   %394 = icmp eq ptr %393, null
-  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %394
+  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %394, !prof !419
   br i1 %or.cond7.i.i.i.i, label %.critedge.i.i.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIsfEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.i.i.i.backedge, !prof !419
 
 .critedge.i.i.i.i:                                ; preds = %385
@@ -114783,7 +114783,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIjfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i39.i.i = select i1 %not..i.i38.i.i, i1 true, i1 %161
   %162 = load ptr, ptr %43, align 8
   %163 = icmp eq ptr %162, null
-  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163
+  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163, !prof !419
   br i1 %or.cond7.i.i40.i.i, label %.critedge.i.i41.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIjfEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.us.i.i.i.backedge, !prof !419
 
 .critedge.i.i41.i.i:                              ; preds = %154
@@ -114978,7 +114978,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBase15ensure_writableEv.exit.i.us.i.i.
   %or.cond.i.i25.i.i = select i1 %not..i.i24.i.i, i1 true, i1 %264
   %265 = load ptr, ptr %9, align 8
   %266 = icmp eq ptr %265, null
-  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %266
+  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %266, !prof !419
   br i1 %or.cond7.i.i26.i.i, label %.critedge.i.i27.i.i, label %.noexc29.i.i, !prof !419
 
 .critedge.i.i27.i.i:                              ; preds = %258
@@ -115112,7 +115112,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIjfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i11.i.i = select i1 %not..i.i10.i.i, i1 true, i1 %328
   %329 = load ptr, ptr %9, align 8
   %330 = icmp eq ptr %329, null
-  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %330
+  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %330, !prof !419
   br i1 %or.cond7.i.i12.i.i, label %.critedge.i.i13.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i, !prof !419
 
 .critedge.i.i13.i.i:                              ; preds = %321
@@ -115220,7 +115220,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i: ; preds = %348, %
   %or.cond.i.i.i.i = select i1 %not..i.i.i.i, i1 true, i1 %380
   %381 = load ptr, ptr %43, align 8
   %382 = icmp eq ptr %381, null
-  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %382
+  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %382, !prof !419
   br i1 %or.cond7.i.i.i.i, label %.critedge.i.i.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIjfEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.i.i.i.backedge, !prof !419
 
 .critedge.i.i.i.i:                                ; preds = %373
@@ -115707,7 +115707,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIifEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i39.i.i = select i1 %not..i.i38.i.i, i1 true, i1 %161
   %162 = load ptr, ptr %43, align 8
   %163 = icmp eq ptr %162, null
-  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163
+  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163, !prof !419
   br i1 %or.cond7.i.i40.i.i, label %.critedge.i.i41.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIifEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.us.i.i.i.backedge, !prof !419
 
 .critedge.i.i41.i.i:                              ; preds = %154
@@ -115916,7 +115916,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBase15ensure_writableEv.exit.i.us.i.i.
   %or.cond.i.i25.i.i = select i1 %not..i.i24.i.i, i1 true, i1 %276
   %277 = load ptr, ptr %9, align 8
   %278 = icmp eq ptr %277, null
-  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %278
+  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %278, !prof !419
   br i1 %or.cond7.i.i26.i.i, label %.critedge.i.i27.i.i, label %.noexc29.i.i, !prof !419
 
 .critedge.i.i27.i.i:                              ; preds = %270
@@ -116050,7 +116050,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIifEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i11.i.i = select i1 %not..i.i10.i.i, i1 true, i1 %340
   %341 = load ptr, ptr %9, align 8
   %342 = icmp eq ptr %341, null
-  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %342
+  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %342, !prof !419
   br i1 %or.cond7.i.i12.i.i, label %.critedge.i.i13.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i, !prof !419
 
 .critedge.i.i13.i.i:                              ; preds = %333
@@ -116158,7 +116158,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i: ; preds = %360, %
   %or.cond.i.i.i.i = select i1 %not..i.i.i.i, i1 true, i1 %392
   %393 = load ptr, ptr %43, align 8
   %394 = icmp eq ptr %393, null
-  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %394
+  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %394, !prof !419
   br i1 %or.cond7.i.i.i.i, label %.critedge.i.i.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIifEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.i.i.i.backedge, !prof !419
 
 .critedge.i.i.i.i:                                ; preds = %385
@@ -116645,7 +116645,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIdfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i39.i.i = select i1 %not..i.i38.i.i, i1 true, i1 %161
   %162 = load ptr, ptr %43, align 8
   %163 = icmp eq ptr %162, null
-  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163
+  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163, !prof !419
   br i1 %or.cond7.i.i40.i.i, label %.critedge.i.i41.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIdfEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.us.i.i.i.backedge, !prof !419
 
 .critedge.i.i41.i.i:                              ; preds = %154
@@ -116853,7 +116853,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBase15ensure_writableEv.exit.i.us.i.i.
   %or.cond.i.i25.i.i = select i1 %not..i.i24.i.i, i1 true, i1 %275
   %276 = load ptr, ptr %9, align 8
   %277 = icmp eq ptr %276, null
-  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %277
+  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %277, !prof !419
   br i1 %or.cond7.i.i26.i.i, label %.critedge.i.i27.i.i, label %.noexc29.i.i, !prof !419
 
 .critedge.i.i27.i.i:                              ; preds = %269
@@ -116987,7 +116987,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIdfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i11.i.i = select i1 %not..i.i10.i.i, i1 true, i1 %339
   %340 = load ptr, ptr %9, align 8
   %341 = icmp eq ptr %340, null
-  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %341
+  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %341, !prof !419
   br i1 %or.cond7.i.i12.i.i, label %.critedge.i.i13.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i, !prof !419
 
 .critedge.i.i13.i.i:                              ; preds = %332
@@ -117095,7 +117095,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i: ; preds = %359, %
   %or.cond.i.i.i.i = select i1 %not..i.i.i.i, i1 true, i1 %391
   %392 = load ptr, ptr %43, align 8
   %393 = icmp eq ptr %392, null
-  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %393
+  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %393, !prof !419
   br i1 %or.cond7.i.i.i.i, label %.critedge.i.i.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIdfEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.i.i.i.backedge, !prof !419
 
 .critedge.i.i.i.i:                                ; preds = %384
@@ -117579,7 +117579,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIffEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i39.i.i = select i1 %not..i.i38.i.i, i1 true, i1 %161
   %162 = load ptr, ptr %43, align 8
   %163 = icmp eq ptr %162, null
-  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163
+  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163, !prof !419
   br i1 %or.cond7.i.i40.i.i, label %.critedge.i.i41.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIffEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.us.i.i.i.backedge, !prof !419
 
 .critedge.i.i41.i.i:                              ; preds = %154
@@ -117726,7 +117726,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIffEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i25.i.i = select i1 %not..i.i24.i.i, i1 true, i1 %234
   %235 = load ptr, ptr %9, align 8
   %236 = icmp eq ptr %235, null
-  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %236
+  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %236, !prof !419
   br i1 %or.cond7.i.i26.i.i, label %.critedge.i.i27.i.i, label %.noexc29.i.i, !prof !419
 
 .critedge.i.i27.i.i:                              ; preds = %228
@@ -117884,7 +117884,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIffEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i11.i.i = select i1 %not..i.i10.i.i, i1 true, i1 %310
   %311 = load ptr, ptr %9, align 8
   %312 = icmp eq ptr %311, null
-  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %312
+  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %312, !prof !419
   br i1 %or.cond7.i.i12.i.i, label %.critedge.i.i13.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i, !prof !419
 
 .critedge.i.i13.i.i:                              ; preds = %303
@@ -117992,7 +117992,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i: ; preds = %330, %
   %or.cond.i.i.i.i = select i1 %not..i.i.i.i, i1 true, i1 %362
   %363 = load ptr, ptr %43, align 8
   %364 = icmp eq ptr %363, null
-  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %364
+  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %364, !prof !419
   br i1 %or.cond7.i.i.i.i, label %.critedge.i.i.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIffEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.i.i.i.backedge, !prof !419
 
 .critedge.i.i.i.i:                                ; preds = %355
@@ -118476,7 +118476,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIhfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i39.i.i = select i1 %not..i.i38.i.i, i1 true, i1 %161
   %162 = load ptr, ptr %43, align 8
   %163 = icmp eq ptr %162, null
-  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163
+  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163, !prof !419
   br i1 %or.cond7.i.i40.i.i, label %.critedge.i.i41.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIhfEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.us.i.i.i.backedge, !prof !419
 
 .critedge.i.i41.i.i:                              ; preds = %154
@@ -118621,7 +118621,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIhfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i25.i.i = select i1 %not..i.i24.i.i, i1 true, i1 %234
   %235 = load ptr, ptr %9, align 8
   %236 = icmp eq ptr %235, null
-  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %236
+  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %236, !prof !419
   br i1 %or.cond7.i.i26.i.i, label %.critedge.i.i27.i.i, label %.noexc29.i.i, !prof !419
 
 .critedge.i.i27.i.i:                              ; preds = %228
@@ -118777,7 +118777,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIhfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i11.i.i = select i1 %not..i.i10.i.i, i1 true, i1 %310
   %311 = load ptr, ptr %9, align 8
   %312 = icmp eq ptr %311, null
-  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %312
+  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %312, !prof !419
   br i1 %or.cond7.i.i12.i.i, label %.critedge.i.i13.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i, !prof !419
 
 .critedge.i.i13.i.i:                              ; preds = %303
@@ -118885,7 +118885,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i: ; preds = %330, %
   %or.cond.i.i.i.i = select i1 %not..i.i.i.i, i1 true, i1 %362
   %363 = load ptr, ptr %43, align 8
   %364 = icmp eq ptr %363, null
-  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %364
+  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %364, !prof !419
   br i1 %or.cond7.i.i.i.i, label %.critedge.i.i.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIhfEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.i.i.i.backedge, !prof !419
 
 .critedge.i.i.i.i:                                ; preds = %355
@@ -119372,7 +119372,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIN9Imath_3_14halfEfEC2ERKS1_RKNS0
   %or.cond.i.i39.i.i = select i1 %not..i.i38.i.i, i1 true, i1 %161
   %162 = load ptr, ptr %43, align 8
   %163 = icmp eq ptr %162, null
-  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163
+  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163, !prof !419
   br i1 %or.cond7.i.i40.i.i, label %.critedge.i.i41.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIN9Imath_3_14halfEfEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.us.i.i.i.backedge, !prof !419
 
 .critedge.i.i41.i.i:                              ; preds = %154
@@ -119548,7 +119548,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIN9Imath_3_14halfEfEC2ERKS1_RKNS0
   %or.cond.i.i25.i.i = select i1 %not..i.i24.i.i, i1 true, i1 %251
   %252 = load ptr, ptr %9, align 8
   %253 = icmp eq ptr %252, null
-  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %253
+  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %253, !prof !419
   br i1 %or.cond7.i.i26.i.i, label %.critedge.i.i27.i.i, label %.noexc29.i.i, !prof !419
 
 .critedge.i.i27.i.i:                              ; preds = %245
@@ -119682,7 +119682,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIN9Imath_3_14halfEfEC2ERKS1_RKNS0
   %or.cond.i.i11.i.i = select i1 %not..i.i10.i.i, i1 true, i1 %315
   %316 = load ptr, ptr %9, align 8
   %317 = icmp eq ptr %316, null
-  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %317
+  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %317, !prof !419
   br i1 %or.cond7.i.i12.i.i, label %.critedge.i.i13.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i, !prof !419
 
 .critedge.i.i13.i.i:                              ; preds = %308
@@ -119790,7 +119790,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i: ; preds = %335, %
   %or.cond.i.i.i.i = select i1 %not..i.i.i.i, i1 true, i1 %367
   %368 = load ptr, ptr %43, align 8
   %369 = icmp eq ptr %368, null
-  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %369
+  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %369, !prof !419
   br i1 %or.cond7.i.i.i.i, label %.critedge.i.i.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIN9Imath_3_14halfEfEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.i.i.i.backedge, !prof !419
 
 .critedge.i.i.i.i:                                ; preds = %360
@@ -120575,7 +120575,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIttEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i39.i.i = select i1 %not..i.i38.i.i, i1 true, i1 %326
   %327 = load ptr, ptr %208, align 8
   %328 = icmp eq ptr %327, null
-  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %328
+  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %328, !prof !419
   br i1 %or.cond7.i.i40.i.i, label %.critedge.i.i41.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIttEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.us.i.i.i.backedge, !prof !419
 
 .critedge.i.i41.i.i:                              ; preds = %319
@@ -120713,7 +120713,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIttEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i25.i.i = select i1 %not..i.i24.i.i, i1 true, i1 %393
   %394 = load ptr, ptr %174, align 8
   %395 = icmp eq ptr %394, null
-  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %395
+  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %395, !prof !419
   br i1 %or.cond7.i.i26.i.i, label %.critedge.i.i27.i.i, label %.noexc29.i.i, !prof !419
 
 .critedge.i.i27.i.i:                              ; preds = %387
@@ -120862,7 +120862,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIttEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i11.i.i = select i1 %not..i.i10.i.i, i1 true, i1 %463
   %464 = load ptr, ptr %174, align 8
   %465 = icmp eq ptr %464, null
-  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %465
+  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %465, !prof !419
   br i1 %or.cond7.i.i12.i.i, label %.critedge.i.i13.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i, !prof !419
 
 .critedge.i.i13.i.i:                              ; preds = %456
@@ -120970,7 +120970,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i: ; preds = %483, %
   %or.cond.i.i.i.i = select i1 %not..i.i.i.i, i1 true, i1 %515
   %516 = load ptr, ptr %208, align 8
   %517 = icmp eq ptr %516, null
-  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %517
+  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %517, !prof !419
   br i1 %or.cond7.i.i.i.i, label %.critedge.i.i.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIttEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.i.i.i.backedge, !prof !419
 
 .critedge.i.i.i.i:                                ; preds = %508
@@ -121457,7 +121457,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIcfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i39.i.i = select i1 %not..i.i38.i.i, i1 true, i1 %161
   %162 = load ptr, ptr %43, align 8
   %163 = icmp eq ptr %162, null
-  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163
+  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163, !prof !419
   br i1 %or.cond7.i.i40.i.i, label %.critedge.i.i41.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIcfEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.us.i.i.i.backedge, !prof !419
 
 .critedge.i.i41.i.i:                              ; preds = %154
@@ -121606,7 +121606,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIcfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i25.i.i = select i1 %not..i.i24.i.i, i1 true, i1 %236
   %237 = load ptr, ptr %9, align 8
   %238 = icmp eq ptr %237, null
-  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %238
+  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %238, !prof !419
   br i1 %or.cond7.i.i26.i.i, label %.critedge.i.i27.i.i, label %.noexc29.i.i, !prof !419
 
 .critedge.i.i27.i.i:                              ; preds = %230
@@ -121766,7 +121766,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIcfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i11.i.i = select i1 %not..i.i10.i.i, i1 true, i1 %314
   %315 = load ptr, ptr %9, align 8
   %316 = icmp eq ptr %315, null
-  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %316
+  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %316, !prof !419
   br i1 %or.cond7.i.i12.i.i, label %.critedge.i.i13.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i, !prof !419
 
 .critedge.i.i13.i.i:                              ; preds = %307
@@ -121874,7 +121874,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i: ; preds = %334, %
   %or.cond.i.i.i.i = select i1 %not..i.i.i.i, i1 true, i1 %366
   %367 = load ptr, ptr %43, align 8
   %368 = icmp eq ptr %367, null
-  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %368
+  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %368, !prof !419
   br i1 %or.cond7.i.i.i.i, label %.critedge.i.i.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIcfEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.i.i.i.backedge, !prof !419
 
 .critedge.i.i.i.i:                                ; preds = %359
@@ -122358,7 +122358,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIsfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i39.i.i = select i1 %not..i.i38.i.i, i1 true, i1 %161
   %162 = load ptr, ptr %43, align 8
   %163 = icmp eq ptr %162, null
-  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163
+  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163, !prof !419
   br i1 %or.cond7.i.i40.i.i, label %.critedge.i.i41.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIsfEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.us.i.i.i.backedge, !prof !419
 
 .critedge.i.i41.i.i:                              ; preds = %154
@@ -122507,7 +122507,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIsfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i25.i.i = select i1 %not..i.i24.i.i, i1 true, i1 %236
   %237 = load ptr, ptr %9, align 8
   %238 = icmp eq ptr %237, null
-  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %238
+  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %238, !prof !419
   br i1 %or.cond7.i.i26.i.i, label %.critedge.i.i27.i.i, label %.noexc29.i.i, !prof !419
 
 .critedge.i.i27.i.i:                              ; preds = %230
@@ -122667,7 +122667,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIsfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i11.i.i = select i1 %not..i.i10.i.i, i1 true, i1 %314
   %315 = load ptr, ptr %9, align 8
   %316 = icmp eq ptr %315, null
-  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %316
+  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %316, !prof !419
   br i1 %or.cond7.i.i12.i.i, label %.critedge.i.i13.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i, !prof !419
 
 .critedge.i.i13.i.i:                              ; preds = %307
@@ -122775,7 +122775,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i: ; preds = %334, %
   %or.cond.i.i.i.i = select i1 %not..i.i.i.i, i1 true, i1 %366
   %367 = load ptr, ptr %43, align 8
   %368 = icmp eq ptr %367, null
-  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %368
+  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %368, !prof !419
   br i1 %or.cond7.i.i.i.i, label %.critedge.i.i.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIsfEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.i.i.i.backedge, !prof !419
 
 .critedge.i.i.i.i:                                ; preds = %359
@@ -123259,7 +123259,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIjfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i39.i.i = select i1 %not..i.i38.i.i, i1 true, i1 %161
   %162 = load ptr, ptr %43, align 8
   %163 = icmp eq ptr %162, null
-  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163
+  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163, !prof !419
   br i1 %or.cond7.i.i40.i.i, label %.critedge.i.i41.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIjfEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.us.i.i.i.backedge, !prof !419
 
 .critedge.i.i41.i.i:                              ; preds = %154
@@ -123404,7 +123404,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIjfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i25.i.i = select i1 %not..i.i24.i.i, i1 true, i1 %234
   %235 = load ptr, ptr %9, align 8
   %236 = icmp eq ptr %235, null
-  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %236
+  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %236, !prof !419
   br i1 %or.cond7.i.i26.i.i, label %.critedge.i.i27.i.i, label %.noexc29.i.i, !prof !419
 
 .critedge.i.i27.i.i:                              ; preds = %228
@@ -123560,7 +123560,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIjfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i11.i.i = select i1 %not..i.i10.i.i, i1 true, i1 %310
   %311 = load ptr, ptr %9, align 8
   %312 = icmp eq ptr %311, null
-  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %312
+  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %312, !prof !419
   br i1 %or.cond7.i.i12.i.i, label %.critedge.i.i13.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i, !prof !419
 
 .critedge.i.i13.i.i:                              ; preds = %303
@@ -123668,7 +123668,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i: ; preds = %330, %
   %or.cond.i.i.i.i = select i1 %not..i.i.i.i, i1 true, i1 %362
   %363 = load ptr, ptr %43, align 8
   %364 = icmp eq ptr %363, null
-  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %364
+  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %364, !prof !419
   br i1 %or.cond7.i.i.i.i, label %.critedge.i.i.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIjfEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.i.i.i.backedge, !prof !419
 
 .critedge.i.i.i.i:                                ; preds = %355
@@ -124152,7 +124152,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIifEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i39.i.i = select i1 %not..i.i38.i.i, i1 true, i1 %161
   %162 = load ptr, ptr %43, align 8
   %163 = icmp eq ptr %162, null
-  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163
+  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163, !prof !419
   br i1 %or.cond7.i.i40.i.i, label %.critedge.i.i41.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIifEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.us.i.i.i.backedge, !prof !419
 
 .critedge.i.i41.i.i:                              ; preds = %154
@@ -124301,7 +124301,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIifEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i25.i.i = select i1 %not..i.i24.i.i, i1 true, i1 %236
   %237 = load ptr, ptr %9, align 8
   %238 = icmp eq ptr %237, null
-  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %238
+  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %238, !prof !419
   br i1 %or.cond7.i.i26.i.i, label %.critedge.i.i27.i.i, label %.noexc29.i.i, !prof !419
 
 .critedge.i.i27.i.i:                              ; preds = %230
@@ -124461,7 +124461,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIifEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i11.i.i = select i1 %not..i.i10.i.i, i1 true, i1 %314
   %315 = load ptr, ptr %9, align 8
   %316 = icmp eq ptr %315, null
-  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %316
+  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %316, !prof !419
   br i1 %or.cond7.i.i12.i.i, label %.critedge.i.i13.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i, !prof !419
 
 .critedge.i.i13.i.i:                              ; preds = %307
@@ -124569,7 +124569,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i: ; preds = %334, %
   %or.cond.i.i.i.i = select i1 %not..i.i.i.i, i1 true, i1 %366
   %367 = load ptr, ptr %43, align 8
   %368 = icmp eq ptr %367, null
-  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %368
+  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %368, !prof !419
   br i1 %or.cond7.i.i.i.i, label %.critedge.i.i.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIifEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.i.i.i.backedge, !prof !419
 
 .critedge.i.i.i.i:                                ; preds = %359
@@ -125053,7 +125053,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIdfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i39.i.i = select i1 %not..i.i38.i.i, i1 true, i1 %161
   %162 = load ptr, ptr %43, align 8
   %163 = icmp eq ptr %162, null
-  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163
+  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163, !prof !419
   br i1 %or.cond7.i.i40.i.i, label %.critedge.i.i41.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIdfEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.us.i.i.i.backedge, !prof !419
 
 .critedge.i.i41.i.i:                              ; preds = %154
@@ -125201,7 +125201,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIdfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i25.i.i = select i1 %not..i.i24.i.i, i1 true, i1 %235
   %236 = load ptr, ptr %9, align 8
   %237 = icmp eq ptr %236, null
-  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %237
+  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %237, !prof !419
   br i1 %or.cond7.i.i26.i.i, label %.critedge.i.i27.i.i, label %.noexc29.i.i, !prof !419
 
 .critedge.i.i27.i.i:                              ; preds = %229
@@ -125360,7 +125360,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIdfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i11.i.i = select i1 %not..i.i10.i.i, i1 true, i1 %312
   %313 = load ptr, ptr %9, align 8
   %314 = icmp eq ptr %313, null
-  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %314
+  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %314, !prof !419
   br i1 %or.cond7.i.i12.i.i, label %.critedge.i.i13.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i, !prof !419
 
 .critedge.i.i13.i.i:                              ; preds = %305
@@ -125468,7 +125468,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i: ; preds = %332, %
   %or.cond.i.i.i.i = select i1 %not..i.i.i.i, i1 true, i1 %364
   %365 = load ptr, ptr %43, align 8
   %366 = icmp eq ptr %365, null
-  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %366
+  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %366, !prof !419
   br i1 %or.cond7.i.i.i.i, label %.critedge.i.i.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIdfEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.i.i.i.backedge, !prof !419
 
 .critedge.i.i.i.i:                                ; preds = %357
@@ -125955,7 +125955,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIffEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i39.i.i = select i1 %not..i.i38.i.i, i1 true, i1 %161
   %162 = load ptr, ptr %43, align 8
   %163 = icmp eq ptr %162, null
-  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163
+  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163, !prof !419
   br i1 %or.cond7.i.i40.i.i, label %.critedge.i.i41.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIffEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.us.i.i.i.backedge, !prof !419
 
 .critedge.i.i41.i.i:                              ; preds = %154
@@ -126095,7 +126095,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIffEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i25.i.i = select i1 %not..i.i24.i.i, i1 true, i1 %230
   %231 = load ptr, ptr %9, align 8
   %232 = icmp eq ptr %231, null
-  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %232
+  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %232, !prof !419
   br i1 %or.cond7.i.i26.i.i, label %.critedge.i.i27.i.i, label %.noexc29.i.i, !prof !419
 
 .critedge.i.i27.i.i:                              ; preds = %223
@@ -126229,7 +126229,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIffEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i11.i.i = select i1 %not..i.i10.i.i, i1 true, i1 %294
   %295 = load ptr, ptr %9, align 8
   %296 = icmp eq ptr %295, null
-  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %296
+  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %296, !prof !419
   br i1 %or.cond7.i.i12.i.i, label %.critedge.i.i13.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i, !prof !419
 
 .critedge.i.i13.i.i:                              ; preds = %287
@@ -126337,7 +126337,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i: ; preds = %314, %
   %or.cond.i.i.i.i = select i1 %not..i.i.i.i, i1 true, i1 %346
   %347 = load ptr, ptr %43, align 8
   %348 = icmp eq ptr %347, null
-  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %348
+  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %348, !prof !419
   br i1 %or.cond7.i.i.i.i, label %.critedge.i.i.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIffEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.i.i.i.backedge, !prof !419
 
 .critedge.i.i.i.i:                                ; preds = %339
@@ -126824,7 +126824,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIhfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i39.i.i = select i1 %not..i.i38.i.i, i1 true, i1 %161
   %162 = load ptr, ptr %43, align 8
   %163 = icmp eq ptr %162, null
-  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163
+  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163, !prof !419
   br i1 %or.cond7.i.i40.i.i, label %.critedge.i.i41.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIhfEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.us.i.i.i.backedge, !prof !419
 
 .critedge.i.i41.i.i:                              ; preds = %154
@@ -126964,7 +126964,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIhfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i25.i.i = select i1 %not..i.i24.i.i, i1 true, i1 %230
   %231 = load ptr, ptr %9, align 8
   %232 = icmp eq ptr %231, null
-  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %232
+  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %232, !prof !419
   br i1 %or.cond7.i.i26.i.i, label %.critedge.i.i27.i.i, label %.noexc29.i.i, !prof !419
 
 .critedge.i.i27.i.i:                              ; preds = %223
@@ -127098,7 +127098,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIhfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i11.i.i = select i1 %not..i.i10.i.i, i1 true, i1 %294
   %295 = load ptr, ptr %9, align 8
   %296 = icmp eq ptr %295, null
-  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %296
+  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %296, !prof !419
   br i1 %or.cond7.i.i12.i.i, label %.critedge.i.i13.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i, !prof !419
 
 .critedge.i.i13.i.i:                              ; preds = %287
@@ -127206,7 +127206,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i: ; preds = %314, %
   %or.cond.i.i.i.i = select i1 %not..i.i.i.i, i1 true, i1 %346
   %347 = load ptr, ptr %43, align 8
   %348 = icmp eq ptr %347, null
-  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %348
+  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %348, !prof !419
   br i1 %or.cond7.i.i.i.i, label %.critedge.i.i.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIhfEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.i.i.i.backedge, !prof !419
 
 .critedge.i.i.i.i:                                ; preds = %339
@@ -127693,7 +127693,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIN9Imath_3_14halfEfEC2ERKS1_RKNS0
   %or.cond.i.i39.i.i = select i1 %not..i.i38.i.i, i1 true, i1 %161
   %162 = load ptr, ptr %43, align 8
   %163 = icmp eq ptr %162, null
-  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163
+  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163, !prof !419
   br i1 %or.cond7.i.i40.i.i, label %.critedge.i.i41.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIN9Imath_3_14halfEfEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.us.i.i.i.backedge, !prof !419
 
 .critedge.i.i41.i.i:                              ; preds = %154
@@ -127871,7 +127871,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIN9Imath_3_14halfEfEC2ERKS1_RKNS0
   %or.cond.i.i25.i.i = select i1 %not..i.i24.i.i, i1 true, i1 %253
   %254 = load ptr, ptr %9, align 8
   %255 = icmp eq ptr %254, null
-  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %255
+  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %255, !prof !419
   br i1 %or.cond7.i.i26.i.i, label %.critedge.i.i27.i.i, label %.noexc29.i.i, !prof !419
 
 .critedge.i.i27.i.i:                              ; preds = %246
@@ -128005,7 +128005,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIN9Imath_3_14halfEfEC2ERKS1_RKNS0
   %or.cond.i.i11.i.i = select i1 %not..i.i10.i.i, i1 true, i1 %317
   %318 = load ptr, ptr %9, align 8
   %319 = icmp eq ptr %318, null
-  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %319
+  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %319, !prof !419
   br i1 %or.cond7.i.i12.i.i, label %.critedge.i.i13.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i, !prof !419
 
 .critedge.i.i13.i.i:                              ; preds = %310
@@ -128113,7 +128113,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i: ; preds = %337, %
   %or.cond.i.i.i.i = select i1 %not..i.i.i.i, i1 true, i1 %369
   %370 = load ptr, ptr %43, align 8
   %371 = icmp eq ptr %370, null
-  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %371
+  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %371, !prof !419
   br i1 %or.cond7.i.i.i.i, label %.critedge.i.i.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIN9Imath_3_14halfEfEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.i.i.i.backedge, !prof !419
 
 .critedge.i.i.i.i:                                ; preds = %362
@@ -128600,7 +128600,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorItfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i39.i.i = select i1 %not..i.i38.i.i, i1 true, i1 %161
   %162 = load ptr, ptr %43, align 8
   %163 = icmp eq ptr %162, null
-  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163
+  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163, !prof !419
   br i1 %or.cond7.i.i40.i.i, label %.critedge.i.i41.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorItfEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.us.i.i.i.backedge, !prof !419
 
 .critedge.i.i41.i.i:                              ; preds = %154
@@ -128740,7 +128740,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorItfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i25.i.i = select i1 %not..i.i24.i.i, i1 true, i1 %230
   %231 = load ptr, ptr %9, align 8
   %232 = icmp eq ptr %231, null
-  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %232
+  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %232, !prof !419
   br i1 %or.cond7.i.i26.i.i, label %.critedge.i.i27.i.i, label %.noexc29.i.i, !prof !419
 
 .critedge.i.i27.i.i:                              ; preds = %223
@@ -128874,7 +128874,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorItfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i11.i.i = select i1 %not..i.i10.i.i, i1 true, i1 %294
   %295 = load ptr, ptr %9, align 8
   %296 = icmp eq ptr %295, null
-  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %296
+  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %296, !prof !419
   br i1 %or.cond7.i.i12.i.i, label %.critedge.i.i13.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i, !prof !419
 
 .critedge.i.i13.i.i:                              ; preds = %287
@@ -128982,7 +128982,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i: ; preds = %314, %
   %or.cond.i.i.i.i = select i1 %not..i.i.i.i, i1 true, i1 %346
   %347 = load ptr, ptr %43, align 8
   %348 = icmp eq ptr %347, null
-  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %348
+  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %348, !prof !419
   br i1 %or.cond7.i.i.i.i, label %.critedge.i.i.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorItfEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.i.i.i.backedge, !prof !419
 
 .critedge.i.i.i.i:                                ; preds = %339
@@ -129770,7 +129770,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIccEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i39.i.i = select i1 %not..i.i38.i.i, i1 true, i1 %326
   %327 = load ptr, ptr %208, align 8
   %328 = icmp eq ptr %327, null
-  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %328
+  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %328, !prof !419
   br i1 %or.cond7.i.i40.i.i, label %.critedge.i.i41.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIccEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.us.i.i.i.backedge, !prof !419
 
 .critedge.i.i41.i.i:                              ; preds = %319
@@ -129901,7 +129901,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIccEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i25.i.i = select i1 %not..i.i24.i.i, i1 true, i1 %389
   %390 = load ptr, ptr %174, align 8
   %391 = icmp eq ptr %390, null
-  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %391
+  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %391, !prof !419
   br i1 %or.cond7.i.i26.i.i, label %.critedge.i.i27.i.i, label %.noexc29.i.i, !prof !419
 
 .critedge.i.i27.i.i:                              ; preds = %382
@@ -130035,7 +130035,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIccEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i11.i.i = select i1 %not..i.i10.i.i, i1 true, i1 %453
   %454 = load ptr, ptr %174, align 8
   %455 = icmp eq ptr %454, null
-  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %455
+  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %455, !prof !419
   br i1 %or.cond7.i.i12.i.i, label %.critedge.i.i13.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i, !prof !419
 
 .critedge.i.i13.i.i:                              ; preds = %446
@@ -130143,7 +130143,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i: ; preds = %473, %
   %or.cond.i.i.i.i = select i1 %not..i.i.i.i, i1 true, i1 %505
   %506 = load ptr, ptr %208, align 8
   %507 = icmp eq ptr %506, null
-  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %507
+  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %507, !prof !419
   br i1 %or.cond7.i.i.i.i, label %.critedge.i.i.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIccEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.i.i.i.backedge, !prof !419
 
 .critedge.i.i.i.i:                                ; preds = %498
@@ -130633,7 +130633,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIsfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i39.i.i = select i1 %not..i.i38.i.i, i1 true, i1 %161
   %162 = load ptr, ptr %43, align 8
   %163 = icmp eq ptr %162, null
-  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163
+  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163, !prof !419
   br i1 %or.cond7.i.i40.i.i, label %.critedge.i.i41.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIsfEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.us.i.i.i.backedge, !prof !419
 
 .critedge.i.i41.i.i:                              ; preds = %154
@@ -130775,7 +130775,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIsfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i25.i.i = select i1 %not..i.i24.i.i, i1 true, i1 %232
   %233 = load ptr, ptr %9, align 8
   %234 = icmp eq ptr %233, null
-  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %234
+  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %234, !prof !419
   br i1 %or.cond7.i.i26.i.i, label %.critedge.i.i27.i.i, label %.noexc29.i.i, !prof !419
 
 .critedge.i.i27.i.i:                              ; preds = %225
@@ -130909,7 +130909,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIsfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i11.i.i = select i1 %not..i.i10.i.i, i1 true, i1 %296
   %297 = load ptr, ptr %9, align 8
   %298 = icmp eq ptr %297, null
-  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %298
+  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %298, !prof !419
   br i1 %or.cond7.i.i12.i.i, label %.critedge.i.i13.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i, !prof !419
 
 .critedge.i.i13.i.i:                              ; preds = %289
@@ -131017,7 +131017,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i: ; preds = %316, %
   %or.cond.i.i.i.i = select i1 %not..i.i.i.i, i1 true, i1 %348
   %349 = load ptr, ptr %43, align 8
   %350 = icmp eq ptr %349, null
-  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %350
+  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %350, !prof !419
   br i1 %or.cond7.i.i.i.i, label %.critedge.i.i.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIsfEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.i.i.i.backedge, !prof !419
 
 .critedge.i.i.i.i:                                ; preds = %341
@@ -131504,7 +131504,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIjfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i39.i.i = select i1 %not..i.i38.i.i, i1 true, i1 %161
   %162 = load ptr, ptr %43, align 8
   %163 = icmp eq ptr %162, null
-  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163
+  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163, !prof !419
   br i1 %or.cond7.i.i40.i.i, label %.critedge.i.i41.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIjfEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.us.i.i.i.backedge, !prof !419
 
 .critedge.i.i41.i.i:                              ; preds = %154
@@ -131644,7 +131644,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIjfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i25.i.i = select i1 %not..i.i24.i.i, i1 true, i1 %230
   %231 = load ptr, ptr %9, align 8
   %232 = icmp eq ptr %231, null
-  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %232
+  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %232, !prof !419
   br i1 %or.cond7.i.i26.i.i, label %.critedge.i.i27.i.i, label %.noexc29.i.i, !prof !419
 
 .critedge.i.i27.i.i:                              ; preds = %223
@@ -131778,7 +131778,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIjfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i11.i.i = select i1 %not..i.i10.i.i, i1 true, i1 %294
   %295 = load ptr, ptr %9, align 8
   %296 = icmp eq ptr %295, null
-  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %296
+  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %296, !prof !419
   br i1 %or.cond7.i.i12.i.i, label %.critedge.i.i13.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i, !prof !419
 
 .critedge.i.i13.i.i:                              ; preds = %287
@@ -131886,7 +131886,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i: ; preds = %314, %
   %or.cond.i.i.i.i = select i1 %not..i.i.i.i, i1 true, i1 %346
   %347 = load ptr, ptr %43, align 8
   %348 = icmp eq ptr %347, null
-  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %348
+  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %348, !prof !419
   br i1 %or.cond7.i.i.i.i, label %.critedge.i.i.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIjfEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.i.i.i.backedge, !prof !419
 
 .critedge.i.i.i.i:                                ; preds = %339
@@ -132373,7 +132373,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIifEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i39.i.i = select i1 %not..i.i38.i.i, i1 true, i1 %161
   %162 = load ptr, ptr %43, align 8
   %163 = icmp eq ptr %162, null
-  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163
+  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163, !prof !419
   br i1 %or.cond7.i.i40.i.i, label %.critedge.i.i41.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIifEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.us.i.i.i.backedge, !prof !419
 
 .critedge.i.i41.i.i:                              ; preds = %154
@@ -132515,7 +132515,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIifEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i25.i.i = select i1 %not..i.i24.i.i, i1 true, i1 %232
   %233 = load ptr, ptr %9, align 8
   %234 = icmp eq ptr %233, null
-  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %234
+  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %234, !prof !419
   br i1 %or.cond7.i.i26.i.i, label %.critedge.i.i27.i.i, label %.noexc29.i.i, !prof !419
 
 .critedge.i.i27.i.i:                              ; preds = %225
@@ -132649,7 +132649,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIifEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i11.i.i = select i1 %not..i.i10.i.i, i1 true, i1 %296
   %297 = load ptr, ptr %9, align 8
   %298 = icmp eq ptr %297, null
-  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %298
+  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %298, !prof !419
   br i1 %or.cond7.i.i12.i.i, label %.critedge.i.i13.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i, !prof !419
 
 .critedge.i.i13.i.i:                              ; preds = %289
@@ -132757,7 +132757,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i: ; preds = %316, %
   %or.cond.i.i.i.i = select i1 %not..i.i.i.i, i1 true, i1 %348
   %349 = load ptr, ptr %43, align 8
   %350 = icmp eq ptr %349, null
-  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %350
+  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %350, !prof !419
   br i1 %or.cond7.i.i.i.i, label %.critedge.i.i.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIifEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.i.i.i.backedge, !prof !419
 
 .critedge.i.i.i.i:                                ; preds = %341
@@ -133244,7 +133244,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIdfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i39.i.i = select i1 %not..i.i38.i.i, i1 true, i1 %161
   %162 = load ptr, ptr %43, align 8
   %163 = icmp eq ptr %162, null
-  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163
+  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163, !prof !419
   br i1 %or.cond7.i.i40.i.i, label %.critedge.i.i41.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIdfEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.us.i.i.i.backedge, !prof !419
 
 .critedge.i.i41.i.i:                              ; preds = %154
@@ -133385,7 +133385,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIdfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i25.i.i = select i1 %not..i.i24.i.i, i1 true, i1 %231
   %232 = load ptr, ptr %9, align 8
   %233 = icmp eq ptr %232, null
-  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %233
+  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %233, !prof !419
   br i1 %or.cond7.i.i26.i.i, label %.critedge.i.i27.i.i, label %.noexc29.i.i, !prof !419
 
 .critedge.i.i27.i.i:                              ; preds = %224
@@ -133519,7 +133519,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIdfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i11.i.i = select i1 %not..i.i10.i.i, i1 true, i1 %295
   %296 = load ptr, ptr %9, align 8
   %297 = icmp eq ptr %296, null
-  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %297
+  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %297, !prof !419
   br i1 %or.cond7.i.i12.i.i, label %.critedge.i.i13.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i, !prof !419
 
 .critedge.i.i13.i.i:                              ; preds = %288
@@ -133627,7 +133627,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i: ; preds = %315, %
   %or.cond.i.i.i.i = select i1 %not..i.i.i.i, i1 true, i1 %347
   %348 = load ptr, ptr %43, align 8
   %349 = icmp eq ptr %348, null
-  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %349
+  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %349, !prof !419
   br i1 %or.cond7.i.i.i.i, label %.critedge.i.i.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIdfEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.i.i.i.backedge, !prof !419
 
 .critedge.i.i.i.i:                                ; preds = %340
@@ -134111,7 +134111,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIffEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i39.i.i = select i1 %not..i.i38.i.i, i1 true, i1 %161
   %162 = load ptr, ptr %43, align 8
   %163 = icmp eq ptr %162, null
-  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163
+  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163, !prof !419
   br i1 %or.cond7.i.i40.i.i, label %.critedge.i.i41.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIffEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.us.i.i.i.backedge, !prof !419
 
 .critedge.i.i41.i.i:                              ; preds = %154
@@ -134258,7 +134258,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIffEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i25.i.i = select i1 %not..i.i24.i.i, i1 true, i1 %234
   %235 = load ptr, ptr %9, align 8
   %236 = icmp eq ptr %235, null
-  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %236
+  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %236, !prof !419
   br i1 %or.cond7.i.i26.i.i, label %.critedge.i.i27.i.i, label %.noexc29.i.i, !prof !419
 
 .critedge.i.i27.i.i:                              ; preds = %228
@@ -134416,7 +134416,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIffEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i11.i.i = select i1 %not..i.i10.i.i, i1 true, i1 %310
   %311 = load ptr, ptr %9, align 8
   %312 = icmp eq ptr %311, null
-  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %312
+  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %312, !prof !419
   br i1 %or.cond7.i.i12.i.i, label %.critedge.i.i13.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i, !prof !419
 
 .critedge.i.i13.i.i:                              ; preds = %303
@@ -134524,7 +134524,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i: ; preds = %330, %
   %or.cond.i.i.i.i = select i1 %not..i.i.i.i, i1 true, i1 %362
   %363 = load ptr, ptr %43, align 8
   %364 = icmp eq ptr %363, null
-  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %364
+  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %364, !prof !419
   br i1 %or.cond7.i.i.i.i, label %.critedge.i.i.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIffEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.i.i.i.backedge, !prof !419
 
 .critedge.i.i.i.i:                                ; preds = %355
@@ -135008,7 +135008,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIhfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i39.i.i = select i1 %not..i.i38.i.i, i1 true, i1 %161
   %162 = load ptr, ptr %43, align 8
   %163 = icmp eq ptr %162, null
-  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163
+  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163, !prof !419
   br i1 %or.cond7.i.i40.i.i, label %.critedge.i.i41.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIhfEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.us.i.i.i.backedge, !prof !419
 
 .critedge.i.i41.i.i:                              ; preds = %154
@@ -135155,7 +135155,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIhfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i25.i.i = select i1 %not..i.i24.i.i, i1 true, i1 %234
   %235 = load ptr, ptr %9, align 8
   %236 = icmp eq ptr %235, null
-  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %236
+  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %236, !prof !419
   br i1 %or.cond7.i.i26.i.i, label %.critedge.i.i27.i.i, label %.noexc29.i.i, !prof !419
 
 .critedge.i.i27.i.i:                              ; preds = %228
@@ -135313,7 +135313,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIhfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i11.i.i = select i1 %not..i.i10.i.i, i1 true, i1 %310
   %311 = load ptr, ptr %9, align 8
   %312 = icmp eq ptr %311, null
-  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %312
+  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %312, !prof !419
   br i1 %or.cond7.i.i12.i.i, label %.critedge.i.i13.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i, !prof !419
 
 .critedge.i.i13.i.i:                              ; preds = %303
@@ -135421,7 +135421,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i: ; preds = %330, %
   %or.cond.i.i.i.i = select i1 %not..i.i.i.i, i1 true, i1 %362
   %363 = load ptr, ptr %43, align 8
   %364 = icmp eq ptr %363, null
-  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %364
+  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %364, !prof !419
   br i1 %or.cond7.i.i.i.i, label %.critedge.i.i.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIhfEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.i.i.i.backedge, !prof !419
 
 .critedge.i.i.i.i:                                ; preds = %355
@@ -135908,7 +135908,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIN9Imath_3_14halfEfEC2ERKS1_RKNS0
   %or.cond.i.i39.i.i = select i1 %not..i.i38.i.i, i1 true, i1 %161
   %162 = load ptr, ptr %43, align 8
   %163 = icmp eq ptr %162, null
-  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163
+  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163, !prof !419
   br i1 %or.cond7.i.i40.i.i, label %.critedge.i.i41.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIN9Imath_3_14halfEfEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.us.i.i.i.backedge, !prof !419
 
 .critedge.i.i41.i.i:                              ; preds = %154
@@ -136084,7 +136084,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIN9Imath_3_14halfEfEC2ERKS1_RKNS0
   %or.cond.i.i25.i.i = select i1 %not..i.i24.i.i, i1 true, i1 %251
   %252 = load ptr, ptr %9, align 8
   %253 = icmp eq ptr %252, null
-  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %253
+  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %253, !prof !419
   br i1 %or.cond7.i.i26.i.i, label %.critedge.i.i27.i.i, label %.noexc29.i.i, !prof !419
 
 .critedge.i.i27.i.i:                              ; preds = %245
@@ -136218,7 +136218,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIN9Imath_3_14halfEfEC2ERKS1_RKNS0
   %or.cond.i.i11.i.i = select i1 %not..i.i10.i.i, i1 true, i1 %315
   %316 = load ptr, ptr %9, align 8
   %317 = icmp eq ptr %316, null
-  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %317
+  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %317, !prof !419
   br i1 %or.cond7.i.i12.i.i, label %.critedge.i.i13.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i, !prof !419
 
 .critedge.i.i13.i.i:                              ; preds = %308
@@ -136326,7 +136326,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i: ; preds = %335, %
   %or.cond.i.i.i.i = select i1 %not..i.i.i.i, i1 true, i1 %367
   %368 = load ptr, ptr %43, align 8
   %369 = icmp eq ptr %368, null
-  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %369
+  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %369, !prof !419
   br i1 %or.cond7.i.i.i.i, label %.critedge.i.i.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIN9Imath_3_14halfEfEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.i.i.i.backedge, !prof !419
 
 .critedge.i.i.i.i:                                ; preds = %360
@@ -136810,7 +136810,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorItfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i39.i.i = select i1 %not..i.i38.i.i, i1 true, i1 %161
   %162 = load ptr, ptr %43, align 8
   %163 = icmp eq ptr %162, null
-  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163
+  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163, !prof !419
   br i1 %or.cond7.i.i40.i.i, label %.critedge.i.i41.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorItfEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.us.i.i.i.backedge, !prof !419
 
 .critedge.i.i41.i.i:                              ; preds = %154
@@ -136957,7 +136957,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorItfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i25.i.i = select i1 %not..i.i24.i.i, i1 true, i1 %234
   %235 = load ptr, ptr %9, align 8
   %236 = icmp eq ptr %235, null
-  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %236
+  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %236, !prof !419
   br i1 %or.cond7.i.i26.i.i, label %.critedge.i.i27.i.i, label %.noexc29.i.i, !prof !419
 
 .critedge.i.i27.i.i:                              ; preds = %228
@@ -137115,7 +137115,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorItfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i11.i.i = select i1 %not..i.i10.i.i, i1 true, i1 %310
   %311 = load ptr, ptr %9, align 8
   %312 = icmp eq ptr %311, null
-  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %312
+  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %312, !prof !419
   br i1 %or.cond7.i.i12.i.i, label %.critedge.i.i13.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i, !prof !419
 
 .critedge.i.i13.i.i:                              ; preds = %303
@@ -137223,7 +137223,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i: ; preds = %330, %
   %or.cond.i.i.i.i = select i1 %not..i.i.i.i, i1 true, i1 %362
   %363 = load ptr, ptr %43, align 8
   %364 = icmp eq ptr %363, null
-  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %364
+  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %364, !prof !419
   br i1 %or.cond7.i.i.i.i, label %.critedge.i.i.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorItfEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.i.i.i.backedge, !prof !419
 
 .critedge.i.i.i.i:                                ; preds = %355
@@ -137707,7 +137707,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIcfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i39.i.i = select i1 %not..i.i38.i.i, i1 true, i1 %161
   %162 = load ptr, ptr %43, align 8
   %163 = icmp eq ptr %162, null
-  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163
+  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163, !prof !419
   br i1 %or.cond7.i.i40.i.i, label %.critedge.i.i41.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIcfEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.us.i.i.i.backedge, !prof !419
 
 .critedge.i.i41.i.i:                              ; preds = %154
@@ -137856,7 +137856,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIcfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i25.i.i = select i1 %not..i.i24.i.i, i1 true, i1 %236
   %237 = load ptr, ptr %9, align 8
   %238 = icmp eq ptr %237, null
-  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %238
+  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %238, !prof !419
   br i1 %or.cond7.i.i26.i.i, label %.critedge.i.i27.i.i, label %.noexc29.i.i, !prof !419
 
 .critedge.i.i27.i.i:                              ; preds = %230
@@ -138016,7 +138016,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIcfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i11.i.i = select i1 %not..i.i10.i.i, i1 true, i1 %314
   %315 = load ptr, ptr %9, align 8
   %316 = icmp eq ptr %315, null
-  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %316
+  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %316, !prof !419
   br i1 %or.cond7.i.i12.i.i, label %.critedge.i.i13.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i, !prof !419
 
 .critedge.i.i13.i.i:                              ; preds = %307
@@ -138124,7 +138124,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i: ; preds = %334, %
   %or.cond.i.i.i.i = select i1 %not..i.i.i.i, i1 true, i1 %366
   %367 = load ptr, ptr %43, align 8
   %368 = icmp eq ptr %367, null
-  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %368
+  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %368, !prof !419
   br i1 %or.cond7.i.i.i.i, label %.critedge.i.i.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIcfEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.i.i.i.backedge, !prof !419
 
 .critedge.i.i.i.i:                                ; preds = %359
@@ -138909,7 +138909,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIssEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i39.i.i = select i1 %not..i.i38.i.i, i1 true, i1 %326
   %327 = load ptr, ptr %208, align 8
   %328 = icmp eq ptr %327, null
-  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %328
+  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %328, !prof !419
   br i1 %or.cond7.i.i40.i.i, label %.critedge.i.i41.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIssEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.us.i.i.i.backedge, !prof !419
 
 .critedge.i.i41.i.i:                              ; preds = %319
@@ -139047,7 +139047,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIssEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i25.i.i = select i1 %not..i.i24.i.i, i1 true, i1 %393
   %394 = load ptr, ptr %174, align 8
   %395 = icmp eq ptr %394, null
-  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %395
+  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %395, !prof !419
   br i1 %or.cond7.i.i26.i.i, label %.critedge.i.i27.i.i, label %.noexc29.i.i, !prof !419
 
 .critedge.i.i27.i.i:                              ; preds = %387
@@ -139196,7 +139196,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIssEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i11.i.i = select i1 %not..i.i10.i.i, i1 true, i1 %463
   %464 = load ptr, ptr %174, align 8
   %465 = icmp eq ptr %464, null
-  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %465
+  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %465, !prof !419
   br i1 %or.cond7.i.i12.i.i, label %.critedge.i.i13.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i, !prof !419
 
 .critedge.i.i13.i.i:                              ; preds = %456
@@ -139304,7 +139304,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i: ; preds = %483, %
   %or.cond.i.i.i.i = select i1 %not..i.i.i.i, i1 true, i1 %515
   %516 = load ptr, ptr %208, align 8
   %517 = icmp eq ptr %516, null
-  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %517
+  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %517, !prof !419
   br i1 %or.cond7.i.i.i.i, label %.critedge.i.i.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIssEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.i.i.i.backedge, !prof !419
 
 .critedge.i.i.i.i:                                ; preds = %508
@@ -139791,7 +139791,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIjfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i39.i.i = select i1 %not..i.i38.i.i, i1 true, i1 %161
   %162 = load ptr, ptr %43, align 8
   %163 = icmp eq ptr %162, null
-  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163
+  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163, !prof !419
   br i1 %or.cond7.i.i40.i.i, label %.critedge.i.i41.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIjfEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.us.i.i.i.backedge, !prof !419
 
 .critedge.i.i41.i.i:                              ; preds = %154
@@ -139938,7 +139938,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIjfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i25.i.i = select i1 %not..i.i24.i.i, i1 true, i1 %234
   %235 = load ptr, ptr %9, align 8
   %236 = icmp eq ptr %235, null
-  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %236
+  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %236, !prof !419
   br i1 %or.cond7.i.i26.i.i, label %.critedge.i.i27.i.i, label %.noexc29.i.i, !prof !419
 
 .critedge.i.i27.i.i:                              ; preds = %228
@@ -140096,7 +140096,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIjfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i11.i.i = select i1 %not..i.i10.i.i, i1 true, i1 %310
   %311 = load ptr, ptr %9, align 8
   %312 = icmp eq ptr %311, null
-  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %312
+  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %312, !prof !419
   br i1 %or.cond7.i.i12.i.i, label %.critedge.i.i13.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i, !prof !419
 
 .critedge.i.i13.i.i:                              ; preds = %303
@@ -140204,7 +140204,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i: ; preds = %330, %
   %or.cond.i.i.i.i = select i1 %not..i.i.i.i, i1 true, i1 %362
   %363 = load ptr, ptr %43, align 8
   %364 = icmp eq ptr %363, null
-  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %364
+  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %364, !prof !419
   br i1 %or.cond7.i.i.i.i, label %.critedge.i.i.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIjfEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.i.i.i.backedge, !prof !419
 
 .critedge.i.i.i.i:                                ; preds = %355
@@ -140688,7 +140688,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIifEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i39.i.i = select i1 %not..i.i38.i.i, i1 true, i1 %161
   %162 = load ptr, ptr %43, align 8
   %163 = icmp eq ptr %162, null
-  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163
+  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163, !prof !419
   br i1 %or.cond7.i.i40.i.i, label %.critedge.i.i41.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIifEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.us.i.i.i.backedge, !prof !419
 
 .critedge.i.i41.i.i:                              ; preds = %154
@@ -140837,7 +140837,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIifEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i25.i.i = select i1 %not..i.i24.i.i, i1 true, i1 %236
   %237 = load ptr, ptr %9, align 8
   %238 = icmp eq ptr %237, null
-  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %238
+  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %238, !prof !419
   br i1 %or.cond7.i.i26.i.i, label %.critedge.i.i27.i.i, label %.noexc29.i.i, !prof !419
 
 .critedge.i.i27.i.i:                              ; preds = %230
@@ -140997,7 +140997,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIifEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i11.i.i = select i1 %not..i.i10.i.i, i1 true, i1 %314
   %315 = load ptr, ptr %9, align 8
   %316 = icmp eq ptr %315, null
-  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %316
+  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %316, !prof !419
   br i1 %or.cond7.i.i12.i.i, label %.critedge.i.i13.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i, !prof !419
 
 .critedge.i.i13.i.i:                              ; preds = %307
@@ -141105,7 +141105,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i: ; preds = %334, %
   %or.cond.i.i.i.i = select i1 %not..i.i.i.i, i1 true, i1 %366
   %367 = load ptr, ptr %43, align 8
   %368 = icmp eq ptr %367, null
-  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %368
+  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %368, !prof !419
   br i1 %or.cond7.i.i.i.i, label %.critedge.i.i.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIifEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.i.i.i.backedge, !prof !419
 
 .critedge.i.i.i.i:                                ; preds = %359
@@ -141589,7 +141589,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIdfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i39.i.i = select i1 %not..i.i38.i.i, i1 true, i1 %161
   %162 = load ptr, ptr %43, align 8
   %163 = icmp eq ptr %162, null
-  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163
+  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163, !prof !419
   br i1 %or.cond7.i.i40.i.i, label %.critedge.i.i41.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIdfEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.us.i.i.i.backedge, !prof !419
 
 .critedge.i.i41.i.i:                              ; preds = %154
@@ -141737,7 +141737,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIdfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i25.i.i = select i1 %not..i.i24.i.i, i1 true, i1 %235
   %236 = load ptr, ptr %9, align 8
   %237 = icmp eq ptr %236, null
-  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %237
+  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %237, !prof !419
   br i1 %or.cond7.i.i26.i.i, label %.critedge.i.i27.i.i, label %.noexc29.i.i, !prof !419
 
 .critedge.i.i27.i.i:                              ; preds = %229
@@ -141896,7 +141896,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIdfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i11.i.i = select i1 %not..i.i10.i.i, i1 true, i1 %312
   %313 = load ptr, ptr %9, align 8
   %314 = icmp eq ptr %313, null
-  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %314
+  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %314, !prof !419
   br i1 %or.cond7.i.i12.i.i, label %.critedge.i.i13.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i, !prof !419
 
 .critedge.i.i13.i.i:                              ; preds = %305
@@ -142004,7 +142004,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i: ; preds = %332, %
   %or.cond.i.i.i.i = select i1 %not..i.i.i.i, i1 true, i1 %364
   %365 = load ptr, ptr %43, align 8
   %366 = icmp eq ptr %365, null
-  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %366
+  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %366, !prof !419
   br i1 %or.cond7.i.i.i.i, label %.critedge.i.i.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIdfEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.i.i.i.backedge, !prof !419
 
 .critedge.i.i.i.i:                                ; preds = %357
@@ -142488,7 +142488,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIffEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i39.i.i = select i1 %not..i.i38.i.i, i1 true, i1 %161
   %162 = load ptr, ptr %43, align 8
   %163 = icmp eq ptr %162, null
-  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163
+  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163, !prof !419
   br i1 %or.cond7.i.i40.i.i, label %.critedge.i.i41.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIffEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.us.i.i.i.backedge, !prof !419
 
 .critedge.i.i41.i.i:                              ; preds = %154
@@ -142636,7 +142636,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIffEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i25.i.i = select i1 %not..i.i24.i.i, i1 true, i1 %235
   %236 = load ptr, ptr %9, align 8
   %237 = icmp eq ptr %236, null
-  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %237
+  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %237, !prof !419
   br i1 %or.cond7.i.i26.i.i, label %.critedge.i.i27.i.i, label %.noexc29.i.i, !prof !419
 
 .critedge.i.i27.i.i:                              ; preds = %229
@@ -142795,7 +142795,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIffEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i11.i.i = select i1 %not..i.i10.i.i, i1 true, i1 %312
   %313 = load ptr, ptr %9, align 8
   %314 = icmp eq ptr %313, null
-  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %314
+  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %314, !prof !419
   br i1 %or.cond7.i.i12.i.i, label %.critedge.i.i13.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i, !prof !419
 
 .critedge.i.i13.i.i:                              ; preds = %305
@@ -142903,7 +142903,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i: ; preds = %332, %
   %or.cond.i.i.i.i = select i1 %not..i.i.i.i, i1 true, i1 %364
   %365 = load ptr, ptr %43, align 8
   %366 = icmp eq ptr %365, null
-  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %366
+  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %366, !prof !419
   br i1 %or.cond7.i.i.i.i, label %.critedge.i.i.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIffEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.i.i.i.backedge, !prof !419
 
 .critedge.i.i.i.i:                                ; preds = %357
@@ -143387,7 +143387,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIhfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i39.i.i = select i1 %not..i.i38.i.i, i1 true, i1 %161
   %162 = load ptr, ptr %43, align 8
   %163 = icmp eq ptr %162, null
-  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163
+  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163, !prof !419
   br i1 %or.cond7.i.i40.i.i, label %.critedge.i.i41.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIhfEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.us.i.i.i.backedge, !prof !419
 
 .critedge.i.i41.i.i:                              ; preds = %154
@@ -143533,7 +143533,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIhfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i25.i.i = select i1 %not..i.i24.i.i, i1 true, i1 %235
   %236 = load ptr, ptr %9, align 8
   %237 = icmp eq ptr %236, null
-  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %237
+  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %237, !prof !419
   br i1 %or.cond7.i.i26.i.i, label %.critedge.i.i27.i.i, label %.noexc29.i.i, !prof !419
 
 .critedge.i.i27.i.i:                              ; preds = %229
@@ -143690,7 +143690,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIhfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i11.i.i = select i1 %not..i.i10.i.i, i1 true, i1 %312
   %313 = load ptr, ptr %9, align 8
   %314 = icmp eq ptr %313, null
-  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %314
+  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %314, !prof !419
   br i1 %or.cond7.i.i12.i.i, label %.critedge.i.i13.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i, !prof !419
 
 .critedge.i.i13.i.i:                              ; preds = %305
@@ -143798,7 +143798,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i: ; preds = %332, %
   %or.cond.i.i.i.i = select i1 %not..i.i.i.i, i1 true, i1 %364
   %365 = load ptr, ptr %43, align 8
   %366 = icmp eq ptr %365, null
-  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %366
+  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %366, !prof !419
   br i1 %or.cond7.i.i.i.i, label %.critedge.i.i.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIhfEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.i.i.i.backedge, !prof !419
 
 .critedge.i.i.i.i:                                ; preds = %357
@@ -144285,7 +144285,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIN9Imath_3_14halfEfEC2ERKS1_RKNS0
   %or.cond.i.i39.i.i = select i1 %not..i.i38.i.i, i1 true, i1 %161
   %162 = load ptr, ptr %43, align 8
   %163 = icmp eq ptr %162, null
-  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163
+  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163, !prof !419
   br i1 %or.cond7.i.i40.i.i, label %.critedge.i.i41.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIN9Imath_3_14halfEfEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.us.i.i.i.backedge, !prof !419
 
 .critedge.i.i41.i.i:                              ; preds = %154
@@ -144462,7 +144462,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIN9Imath_3_14halfEfEC2ERKS1_RKNS0
   %or.cond.i.i25.i.i = select i1 %not..i.i24.i.i, i1 true, i1 %252
   %253 = load ptr, ptr %9, align 8
   %254 = icmp eq ptr %253, null
-  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %254
+  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %254, !prof !419
   br i1 %or.cond7.i.i26.i.i, label %.critedge.i.i27.i.i, label %.noexc29.i.i, !prof !419
 
 .critedge.i.i27.i.i:                              ; preds = %246
@@ -144596,7 +144596,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIN9Imath_3_14halfEfEC2ERKS1_RKNS0
   %or.cond.i.i11.i.i = select i1 %not..i.i10.i.i, i1 true, i1 %316
   %317 = load ptr, ptr %9, align 8
   %318 = icmp eq ptr %317, null
-  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %318
+  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %318, !prof !419
   br i1 %or.cond7.i.i12.i.i, label %.critedge.i.i13.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i, !prof !419
 
 .critedge.i.i13.i.i:                              ; preds = %309
@@ -144704,7 +144704,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i: ; preds = %336, %
   %or.cond.i.i.i.i = select i1 %not..i.i.i.i, i1 true, i1 %368
   %369 = load ptr, ptr %43, align 8
   %370 = icmp eq ptr %369, null
-  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %370
+  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %370, !prof !419
   br i1 %or.cond7.i.i.i.i, label %.critedge.i.i.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIN9Imath_3_14halfEfEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.i.i.i.backedge, !prof !419
 
 .critedge.i.i.i.i:                                ; preds = %361
@@ -145188,7 +145188,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorItfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i39.i.i = select i1 %not..i.i38.i.i, i1 true, i1 %161
   %162 = load ptr, ptr %43, align 8
   %163 = icmp eq ptr %162, null
-  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163
+  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163, !prof !419
   br i1 %or.cond7.i.i40.i.i, label %.critedge.i.i41.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorItfEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.us.i.i.i.backedge, !prof !419
 
 .critedge.i.i41.i.i:                              ; preds = %154
@@ -145334,7 +145334,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorItfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i25.i.i = select i1 %not..i.i24.i.i, i1 true, i1 %235
   %236 = load ptr, ptr %9, align 8
   %237 = icmp eq ptr %236, null
-  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %237
+  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %237, !prof !419
   br i1 %or.cond7.i.i26.i.i, label %.critedge.i.i27.i.i, label %.noexc29.i.i, !prof !419
 
 .critedge.i.i27.i.i:                              ; preds = %229
@@ -145491,7 +145491,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorItfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i11.i.i = select i1 %not..i.i10.i.i, i1 true, i1 %312
   %313 = load ptr, ptr %9, align 8
   %314 = icmp eq ptr %313, null
-  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %314
+  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %314, !prof !419
   br i1 %or.cond7.i.i12.i.i, label %.critedge.i.i13.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i, !prof !419
 
 .critedge.i.i13.i.i:                              ; preds = %305
@@ -145599,7 +145599,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i: ; preds = %332, %
   %or.cond.i.i.i.i = select i1 %not..i.i.i.i, i1 true, i1 %364
   %365 = load ptr, ptr %43, align 8
   %366 = icmp eq ptr %365, null
-  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %366
+  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %366, !prof !419
   br i1 %or.cond7.i.i.i.i, label %.critedge.i.i.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorItfEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.i.i.i.backedge, !prof !419
 
 .critedge.i.i.i.i:                                ; preds = %357
@@ -146083,7 +146083,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIcfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i39.i.i = select i1 %not..i.i38.i.i, i1 true, i1 %161
   %162 = load ptr, ptr %43, align 8
   %163 = icmp eq ptr %162, null
-  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163
+  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163, !prof !419
   br i1 %or.cond7.i.i40.i.i, label %.critedge.i.i41.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIcfEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.us.i.i.i.backedge, !prof !419
 
 .critedge.i.i41.i.i:                              ; preds = %154
@@ -146233,7 +146233,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIcfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i25.i.i = select i1 %not..i.i24.i.i, i1 true, i1 %237
   %238 = load ptr, ptr %9, align 8
   %239 = icmp eq ptr %238, null
-  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %239
+  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %239, !prof !419
   br i1 %or.cond7.i.i26.i.i, label %.critedge.i.i27.i.i, label %.noexc29.i.i, !prof !419
 
 .critedge.i.i27.i.i:                              ; preds = %231
@@ -146394,7 +146394,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIcfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i11.i.i = select i1 %not..i.i10.i.i, i1 true, i1 %316
   %317 = load ptr, ptr %9, align 8
   %318 = icmp eq ptr %317, null
-  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %318
+  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %318, !prof !419
   br i1 %or.cond7.i.i12.i.i, label %.critedge.i.i13.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i, !prof !419
 
 .critedge.i.i13.i.i:                              ; preds = %309
@@ -146502,7 +146502,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i: ; preds = %336, %
   %or.cond.i.i.i.i = select i1 %not..i.i.i.i, i1 true, i1 %368
   %369 = load ptr, ptr %43, align 8
   %370 = icmp eq ptr %369, null
-  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %370
+  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %370, !prof !419
   br i1 %or.cond7.i.i.i.i, label %.critedge.i.i.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIcfEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.i.i.i.backedge, !prof !419
 
 .critedge.i.i.i.i:                                ; preds = %361
@@ -146986,7 +146986,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIsfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i39.i.i = select i1 %not..i.i38.i.i, i1 true, i1 %161
   %162 = load ptr, ptr %43, align 8
   %163 = icmp eq ptr %162, null
-  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163
+  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163, !prof !419
   br i1 %or.cond7.i.i40.i.i, label %.critedge.i.i41.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIsfEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.us.i.i.i.backedge, !prof !419
 
 .critedge.i.i41.i.i:                              ; preds = %154
@@ -147136,7 +147136,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIsfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i25.i.i = select i1 %not..i.i24.i.i, i1 true, i1 %237
   %238 = load ptr, ptr %9, align 8
   %239 = icmp eq ptr %238, null
-  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %239
+  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %239, !prof !419
   br i1 %or.cond7.i.i26.i.i, label %.critedge.i.i27.i.i, label %.noexc29.i.i, !prof !419
 
 .critedge.i.i27.i.i:                              ; preds = %231
@@ -147297,7 +147297,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIsfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i11.i.i = select i1 %not..i.i10.i.i, i1 true, i1 %316
   %317 = load ptr, ptr %9, align 8
   %318 = icmp eq ptr %317, null
-  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %318
+  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %318, !prof !419
   br i1 %or.cond7.i.i12.i.i, label %.critedge.i.i13.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i, !prof !419
 
 .critedge.i.i13.i.i:                              ; preds = %309
@@ -147405,7 +147405,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i: ; preds = %336, %
   %or.cond.i.i.i.i = select i1 %not..i.i.i.i, i1 true, i1 %368
   %369 = load ptr, ptr %43, align 8
   %370 = icmp eq ptr %369, null
-  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %370
+  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %370, !prof !419
   br i1 %or.cond7.i.i.i.i, label %.critedge.i.i.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIsfEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.i.i.i.backedge, !prof !419
 
 .critedge.i.i.i.i:                                ; preds = %361
@@ -148190,7 +148190,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIjjEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i39.i.i = select i1 %not..i.i38.i.i, i1 true, i1 %326
   %327 = load ptr, ptr %208, align 8
   %328 = icmp eq ptr %327, null
-  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %328
+  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %328, !prof !419
   br i1 %or.cond7.i.i40.i.i, label %.critedge.i.i41.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIjjEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.us.i.i.i.backedge, !prof !419
 
 .critedge.i.i41.i.i:                              ; preds = %319
@@ -148328,7 +148328,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIjjEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i25.i.i = select i1 %not..i.i24.i.i, i1 true, i1 %393
   %394 = load ptr, ptr %174, align 8
   %395 = icmp eq ptr %394, null
-  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %395
+  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %395, !prof !419
   br i1 %or.cond7.i.i26.i.i, label %.critedge.i.i27.i.i, label %.noexc29.i.i, !prof !419
 
 .critedge.i.i27.i.i:                              ; preds = %387
@@ -148477,7 +148477,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIjjEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i11.i.i = select i1 %not..i.i10.i.i, i1 true, i1 %463
   %464 = load ptr, ptr %174, align 8
   %465 = icmp eq ptr %464, null
-  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %465
+  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %465, !prof !419
   br i1 %or.cond7.i.i12.i.i, label %.critedge.i.i13.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i, !prof !419
 
 .critedge.i.i13.i.i:                              ; preds = %456
@@ -148585,7 +148585,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i: ; preds = %483, %
   %or.cond.i.i.i.i = select i1 %not..i.i.i.i, i1 true, i1 %515
   %516 = load ptr, ptr %208, align 8
   %517 = icmp eq ptr %516, null
-  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %517
+  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %517, !prof !419
   br i1 %or.cond7.i.i.i.i, label %.critedge.i.i.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIjjEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.i.i.i.backedge, !prof !419
 
 .critedge.i.i.i.i:                                ; preds = %508
@@ -149072,7 +149072,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIifEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i39.i.i = select i1 %not..i.i38.i.i, i1 true, i1 %161
   %162 = load ptr, ptr %43, align 8
   %163 = icmp eq ptr %162, null
-  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163
+  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163, !prof !419
   br i1 %or.cond7.i.i40.i.i, label %.critedge.i.i41.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIifEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.us.i.i.i.backedge, !prof !419
 
 .critedge.i.i41.i.i:                              ; preds = %154
@@ -149222,7 +149222,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIifEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i25.i.i = select i1 %not..i.i24.i.i, i1 true, i1 %237
   %238 = load ptr, ptr %9, align 8
   %239 = icmp eq ptr %238, null
-  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %239
+  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %239, !prof !419
   br i1 %or.cond7.i.i26.i.i, label %.critedge.i.i27.i.i, label %.noexc29.i.i, !prof !419
 
 .critedge.i.i27.i.i:                              ; preds = %231
@@ -149383,7 +149383,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIifEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i11.i.i = select i1 %not..i.i10.i.i, i1 true, i1 %316
   %317 = load ptr, ptr %9, align 8
   %318 = icmp eq ptr %317, null
-  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %318
+  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %318, !prof !419
   br i1 %or.cond7.i.i12.i.i, label %.critedge.i.i13.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i, !prof !419
 
 .critedge.i.i13.i.i:                              ; preds = %309
@@ -149491,7 +149491,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i: ; preds = %336, %
   %or.cond.i.i.i.i = select i1 %not..i.i.i.i, i1 true, i1 %368
   %369 = load ptr, ptr %43, align 8
   %370 = icmp eq ptr %369, null
-  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %370
+  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %370, !prof !419
   br i1 %or.cond7.i.i.i.i, label %.critedge.i.i.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIifEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.i.i.i.backedge, !prof !419
 
 .critedge.i.i.i.i:                                ; preds = %361
@@ -149975,7 +149975,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIdfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i39.i.i = select i1 %not..i.i38.i.i, i1 true, i1 %161
   %162 = load ptr, ptr %43, align 8
   %163 = icmp eq ptr %162, null
-  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163
+  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163, !prof !419
   br i1 %or.cond7.i.i40.i.i, label %.critedge.i.i41.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIdfEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.us.i.i.i.backedge, !prof !419
 
 .critedge.i.i41.i.i:                              ; preds = %154
@@ -150124,7 +150124,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIdfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i25.i.i = select i1 %not..i.i24.i.i, i1 true, i1 %236
   %237 = load ptr, ptr %9, align 8
   %238 = icmp eq ptr %237, null
-  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %238
+  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %238, !prof !419
   br i1 %or.cond7.i.i26.i.i, label %.critedge.i.i27.i.i, label %.noexc29.i.i, !prof !419
 
 .critedge.i.i27.i.i:                              ; preds = %230
@@ -150284,7 +150284,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIdfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i11.i.i = select i1 %not..i.i10.i.i, i1 true, i1 %314
   %315 = load ptr, ptr %9, align 8
   %316 = icmp eq ptr %315, null
-  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %316
+  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %316, !prof !419
   br i1 %or.cond7.i.i12.i.i, label %.critedge.i.i13.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i, !prof !419
 
 .critedge.i.i13.i.i:                              ; preds = %307
@@ -150392,7 +150392,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i: ; preds = %334, %
   %or.cond.i.i.i.i = select i1 %not..i.i.i.i, i1 true, i1 %366
   %367 = load ptr, ptr %43, align 8
   %368 = icmp eq ptr %367, null
-  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %368
+  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %368, !prof !419
   br i1 %or.cond7.i.i.i.i, label %.critedge.i.i.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIdfEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.i.i.i.backedge, !prof !419
 
 .critedge.i.i.i.i:                                ; preds = %359
@@ -150876,7 +150876,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIffEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i39.i.i = select i1 %not..i.i38.i.i, i1 true, i1 %161
   %162 = load ptr, ptr %43, align 8
   %163 = icmp eq ptr %162, null
-  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163
+  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163, !prof !419
   br i1 %or.cond7.i.i40.i.i, label %.critedge.i.i41.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIffEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.us.i.i.i.backedge, !prof !419
 
 .critedge.i.i41.i.i:                              ; preds = %154
@@ -151024,7 +151024,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIffEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i25.i.i = select i1 %not..i.i24.i.i, i1 true, i1 %235
   %236 = load ptr, ptr %9, align 8
   %237 = icmp eq ptr %236, null
-  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %237
+  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %237, !prof !419
   br i1 %or.cond7.i.i26.i.i, label %.critedge.i.i27.i.i, label %.noexc29.i.i, !prof !419
 
 .critedge.i.i27.i.i:                              ; preds = %229
@@ -151183,7 +151183,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIffEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i11.i.i = select i1 %not..i.i10.i.i, i1 true, i1 %312
   %313 = load ptr, ptr %9, align 8
   %314 = icmp eq ptr %313, null
-  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %314
+  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %314, !prof !419
   br i1 %or.cond7.i.i12.i.i, label %.critedge.i.i13.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i, !prof !419
 
 .critedge.i.i13.i.i:                              ; preds = %305
@@ -151291,7 +151291,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i: ; preds = %332, %
   %or.cond.i.i.i.i = select i1 %not..i.i.i.i, i1 true, i1 %364
   %365 = load ptr, ptr %43, align 8
   %366 = icmp eq ptr %365, null
-  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %366
+  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %366, !prof !419
   br i1 %or.cond7.i.i.i.i, label %.critedge.i.i.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIffEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.i.i.i.backedge, !prof !419
 
 .critedge.i.i.i.i:                                ; preds = %357
@@ -151775,7 +151775,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIhfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i39.i.i = select i1 %not..i.i38.i.i, i1 true, i1 %161
   %162 = load ptr, ptr %43, align 8
   %163 = icmp eq ptr %162, null
-  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163
+  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163, !prof !419
   br i1 %or.cond7.i.i40.i.i, label %.critedge.i.i41.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIhfEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.us.i.i.i.backedge, !prof !419
 
 .critedge.i.i41.i.i:                              ; preds = %154
@@ -151923,7 +151923,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIhfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i25.i.i = select i1 %not..i.i24.i.i, i1 true, i1 %235
   %236 = load ptr, ptr %9, align 8
   %237 = icmp eq ptr %236, null
-  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %237
+  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %237, !prof !419
   br i1 %or.cond7.i.i26.i.i, label %.critedge.i.i27.i.i, label %.noexc29.i.i, !prof !419
 
 .critedge.i.i27.i.i:                              ; preds = %229
@@ -152082,7 +152082,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIhfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i11.i.i = select i1 %not..i.i10.i.i, i1 true, i1 %312
   %313 = load ptr, ptr %9, align 8
   %314 = icmp eq ptr %313, null
-  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %314
+  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %314, !prof !419
   br i1 %or.cond7.i.i12.i.i, label %.critedge.i.i13.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i, !prof !419
 
 .critedge.i.i13.i.i:                              ; preds = %305
@@ -152190,7 +152190,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i: ; preds = %332, %
   %or.cond.i.i.i.i = select i1 %not..i.i.i.i, i1 true, i1 %364
   %365 = load ptr, ptr %43, align 8
   %366 = icmp eq ptr %365, null
-  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %366
+  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %366, !prof !419
   br i1 %or.cond7.i.i.i.i, label %.critedge.i.i.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIhfEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.i.i.i.backedge, !prof !419
 
 .critedge.i.i.i.i:                                ; preds = %357
@@ -152677,7 +152677,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIN9Imath_3_14halfEfEC2ERKS1_RKNS0
   %or.cond.i.i39.i.i = select i1 %not..i.i38.i.i, i1 true, i1 %161
   %162 = load ptr, ptr %43, align 8
   %163 = icmp eq ptr %162, null
-  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163
+  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163, !prof !419
   br i1 %or.cond7.i.i40.i.i, label %.critedge.i.i41.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIN9Imath_3_14halfEfEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.us.i.i.i.backedge, !prof !419
 
 .critedge.i.i41.i.i:                              ; preds = %154
@@ -152854,7 +152854,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIN9Imath_3_14halfEfEC2ERKS1_RKNS0
   %or.cond.i.i25.i.i = select i1 %not..i.i24.i.i, i1 true, i1 %252
   %253 = load ptr, ptr %9, align 8
   %254 = icmp eq ptr %253, null
-  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %254
+  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %254, !prof !419
   br i1 %or.cond7.i.i26.i.i, label %.critedge.i.i27.i.i, label %.noexc29.i.i, !prof !419
 
 .critedge.i.i27.i.i:                              ; preds = %246
@@ -152988,7 +152988,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIN9Imath_3_14halfEfEC2ERKS1_RKNS0
   %or.cond.i.i11.i.i = select i1 %not..i.i10.i.i, i1 true, i1 %316
   %317 = load ptr, ptr %9, align 8
   %318 = icmp eq ptr %317, null
-  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %318
+  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %318, !prof !419
   br i1 %or.cond7.i.i12.i.i, label %.critedge.i.i13.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i, !prof !419
 
 .critedge.i.i13.i.i:                              ; preds = %309
@@ -153096,7 +153096,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i: ; preds = %336, %
   %or.cond.i.i.i.i = select i1 %not..i.i.i.i, i1 true, i1 %368
   %369 = load ptr, ptr %43, align 8
   %370 = icmp eq ptr %369, null
-  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %370
+  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %370, !prof !419
   br i1 %or.cond7.i.i.i.i, label %.critedge.i.i.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIN9Imath_3_14halfEfEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.i.i.i.backedge, !prof !419
 
 .critedge.i.i.i.i:                                ; preds = %361
@@ -153580,7 +153580,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorItfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i39.i.i = select i1 %not..i.i38.i.i, i1 true, i1 %161
   %162 = load ptr, ptr %43, align 8
   %163 = icmp eq ptr %162, null
-  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163
+  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163, !prof !419
   br i1 %or.cond7.i.i40.i.i, label %.critedge.i.i41.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorItfEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.us.i.i.i.backedge, !prof !419
 
 .critedge.i.i41.i.i:                              ; preds = %154
@@ -153728,7 +153728,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorItfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i25.i.i = select i1 %not..i.i24.i.i, i1 true, i1 %235
   %236 = load ptr, ptr %9, align 8
   %237 = icmp eq ptr %236, null
-  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %237
+  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %237, !prof !419
   br i1 %or.cond7.i.i26.i.i, label %.critedge.i.i27.i.i, label %.noexc29.i.i, !prof !419
 
 .critedge.i.i27.i.i:                              ; preds = %229
@@ -153887,7 +153887,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorItfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i11.i.i = select i1 %not..i.i10.i.i, i1 true, i1 %312
   %313 = load ptr, ptr %9, align 8
   %314 = icmp eq ptr %313, null
-  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %314
+  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %314, !prof !419
   br i1 %or.cond7.i.i12.i.i, label %.critedge.i.i13.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i, !prof !419
 
 .critedge.i.i13.i.i:                              ; preds = %305
@@ -153995,7 +153995,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i: ; preds = %332, %
   %or.cond.i.i.i.i = select i1 %not..i.i.i.i, i1 true, i1 %364
   %365 = load ptr, ptr %43, align 8
   %366 = icmp eq ptr %365, null
-  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %366
+  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %366, !prof !419
   br i1 %or.cond7.i.i.i.i, label %.critedge.i.i.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorItfEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.i.i.i.backedge, !prof !419
 
 .critedge.i.i.i.i:                                ; preds = %357
@@ -154479,7 +154479,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIcfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i39.i.i = select i1 %not..i.i38.i.i, i1 true, i1 %161
   %162 = load ptr, ptr %43, align 8
   %163 = icmp eq ptr %162, null
-  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163
+  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163, !prof !419
   br i1 %or.cond7.i.i40.i.i, label %.critedge.i.i41.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIcfEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.us.i.i.i.backedge, !prof !419
 
 .critedge.i.i41.i.i:                              ; preds = %154
@@ -154629,7 +154629,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIcfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i25.i.i = select i1 %not..i.i24.i.i, i1 true, i1 %237
   %238 = load ptr, ptr %9, align 8
   %239 = icmp eq ptr %238, null
-  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %239
+  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %239, !prof !419
   br i1 %or.cond7.i.i26.i.i, label %.critedge.i.i27.i.i, label %.noexc29.i.i, !prof !419
 
 .critedge.i.i27.i.i:                              ; preds = %231
@@ -154790,7 +154790,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIcfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i11.i.i = select i1 %not..i.i10.i.i, i1 true, i1 %316
   %317 = load ptr, ptr %9, align 8
   %318 = icmp eq ptr %317, null
-  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %318
+  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %318, !prof !419
   br i1 %or.cond7.i.i12.i.i, label %.critedge.i.i13.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i, !prof !419
 
 .critedge.i.i13.i.i:                              ; preds = %309
@@ -154898,7 +154898,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i: ; preds = %336, %
   %or.cond.i.i.i.i = select i1 %not..i.i.i.i, i1 true, i1 %368
   %369 = load ptr, ptr %43, align 8
   %370 = icmp eq ptr %369, null
-  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %370
+  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %370, !prof !419
   br i1 %or.cond7.i.i.i.i, label %.critedge.i.i.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIcfEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.i.i.i.backedge, !prof !419
 
 .critedge.i.i.i.i:                                ; preds = %361
@@ -155382,7 +155382,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIsfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i39.i.i = select i1 %not..i.i38.i.i, i1 true, i1 %161
   %162 = load ptr, ptr %43, align 8
   %163 = icmp eq ptr %162, null
-  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163
+  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163, !prof !419
   br i1 %or.cond7.i.i40.i.i, label %.critedge.i.i41.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIsfEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.us.i.i.i.backedge, !prof !419
 
 .critedge.i.i41.i.i:                              ; preds = %154
@@ -155532,7 +155532,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIsfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i25.i.i = select i1 %not..i.i24.i.i, i1 true, i1 %237
   %238 = load ptr, ptr %9, align 8
   %239 = icmp eq ptr %238, null
-  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %239
+  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %239, !prof !419
   br i1 %or.cond7.i.i26.i.i, label %.critedge.i.i27.i.i, label %.noexc29.i.i, !prof !419
 
 .critedge.i.i27.i.i:                              ; preds = %231
@@ -155693,7 +155693,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIsfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i11.i.i = select i1 %not..i.i10.i.i, i1 true, i1 %316
   %317 = load ptr, ptr %9, align 8
   %318 = icmp eq ptr %317, null
-  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %318
+  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %318, !prof !419
   br i1 %or.cond7.i.i12.i.i, label %.critedge.i.i13.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i, !prof !419
 
 .critedge.i.i13.i.i:                              ; preds = %309
@@ -155801,7 +155801,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i: ; preds = %336, %
   %or.cond.i.i.i.i = select i1 %not..i.i.i.i, i1 true, i1 %368
   %369 = load ptr, ptr %43, align 8
   %370 = icmp eq ptr %369, null
-  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %370
+  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %370, !prof !419
   br i1 %or.cond7.i.i.i.i, label %.critedge.i.i.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIsfEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.i.i.i.backedge, !prof !419
 
 .critedge.i.i.i.i:                                ; preds = %361
@@ -156285,7 +156285,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIjfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i39.i.i = select i1 %not..i.i38.i.i, i1 true, i1 %161
   %162 = load ptr, ptr %43, align 8
   %163 = icmp eq ptr %162, null
-  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163
+  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163, !prof !419
   br i1 %or.cond7.i.i40.i.i, label %.critedge.i.i41.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIjfEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.us.i.i.i.backedge, !prof !419
 
 .critedge.i.i41.i.i:                              ; preds = %154
@@ -156433,7 +156433,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIjfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i25.i.i = select i1 %not..i.i24.i.i, i1 true, i1 %235
   %236 = load ptr, ptr %9, align 8
   %237 = icmp eq ptr %236, null
-  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %237
+  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %237, !prof !419
   br i1 %or.cond7.i.i26.i.i, label %.critedge.i.i27.i.i, label %.noexc29.i.i, !prof !419
 
 .critedge.i.i27.i.i:                              ; preds = %229
@@ -156592,7 +156592,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIjfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i11.i.i = select i1 %not..i.i10.i.i, i1 true, i1 %312
   %313 = load ptr, ptr %9, align 8
   %314 = icmp eq ptr %313, null
-  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %314
+  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %314, !prof !419
   br i1 %or.cond7.i.i12.i.i, label %.critedge.i.i13.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i, !prof !419
 
 .critedge.i.i13.i.i:                              ; preds = %305
@@ -156700,7 +156700,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i: ; preds = %332, %
   %or.cond.i.i.i.i = select i1 %not..i.i.i.i, i1 true, i1 %364
   %365 = load ptr, ptr %43, align 8
   %366 = icmp eq ptr %365, null
-  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %366
+  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %366, !prof !419
   br i1 %or.cond7.i.i.i.i, label %.critedge.i.i.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIjfEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.i.i.i.backedge, !prof !419
 
 .critedge.i.i.i.i:                                ; preds = %357
@@ -157485,7 +157485,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIiiEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i39.i.i = select i1 %not..i.i38.i.i, i1 true, i1 %326
   %327 = load ptr, ptr %208, align 8
   %328 = icmp eq ptr %327, null
-  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %328
+  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %328, !prof !419
   br i1 %or.cond7.i.i40.i.i, label %.critedge.i.i41.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIiiEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.us.i.i.i.backedge, !prof !419
 
 .critedge.i.i41.i.i:                              ; preds = %319
@@ -157623,7 +157623,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIiiEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i25.i.i = select i1 %not..i.i24.i.i, i1 true, i1 %393
   %394 = load ptr, ptr %174, align 8
   %395 = icmp eq ptr %394, null
-  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %395
+  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %395, !prof !419
   br i1 %or.cond7.i.i26.i.i, label %.critedge.i.i27.i.i, label %.noexc29.i.i, !prof !419
 
 .critedge.i.i27.i.i:                              ; preds = %387
@@ -157772,7 +157772,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIiiEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i11.i.i = select i1 %not..i.i10.i.i, i1 true, i1 %463
   %464 = load ptr, ptr %174, align 8
   %465 = icmp eq ptr %464, null
-  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %465
+  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %465, !prof !419
   br i1 %or.cond7.i.i12.i.i, label %.critedge.i.i13.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i, !prof !419
 
 .critedge.i.i13.i.i:                              ; preds = %456
@@ -157880,7 +157880,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i: ; preds = %483, %
   %or.cond.i.i.i.i = select i1 %not..i.i.i.i, i1 true, i1 %515
   %516 = load ptr, ptr %208, align 8
   %517 = icmp eq ptr %516, null
-  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %517
+  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %517, !prof !419
   br i1 %or.cond7.i.i.i.i, label %.critedge.i.i.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIiiEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.i.i.i.backedge, !prof !419
 
 .critedge.i.i.i.i:                                ; preds = %508
@@ -158367,7 +158367,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIdfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i39.i.i = select i1 %not..i.i38.i.i, i1 true, i1 %161
   %162 = load ptr, ptr %43, align 8
   %163 = icmp eq ptr %162, null
-  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163
+  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163, !prof !419
   br i1 %or.cond7.i.i40.i.i, label %.critedge.i.i41.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIdfEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.us.i.i.i.backedge, !prof !419
 
 .critedge.i.i41.i.i:                              ; preds = %154
@@ -158516,7 +158516,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIdfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i25.i.i = select i1 %not..i.i24.i.i, i1 true, i1 %236
   %237 = load ptr, ptr %9, align 8
   %238 = icmp eq ptr %237, null
-  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %238
+  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %238, !prof !419
   br i1 %or.cond7.i.i26.i.i, label %.critedge.i.i27.i.i, label %.noexc29.i.i, !prof !419
 
 .critedge.i.i27.i.i:                              ; preds = %230
@@ -158676,7 +158676,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIdfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i11.i.i = select i1 %not..i.i10.i.i, i1 true, i1 %314
   %315 = load ptr, ptr %9, align 8
   %316 = icmp eq ptr %315, null
-  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %316
+  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %316, !prof !419
   br i1 %or.cond7.i.i12.i.i, label %.critedge.i.i13.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i, !prof !419
 
 .critedge.i.i13.i.i:                              ; preds = %307
@@ -158784,7 +158784,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i: ; preds = %334, %
   %or.cond.i.i.i.i = select i1 %not..i.i.i.i, i1 true, i1 %366
   %367 = load ptr, ptr %43, align 8
   %368 = icmp eq ptr %367, null
-  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %368
+  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %368, !prof !419
   br i1 %or.cond7.i.i.i.i, label %.critedge.i.i.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIdfEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.i.i.i.backedge, !prof !419
 
 .critedge.i.i.i.i:                                ; preds = %359
@@ -159268,7 +159268,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIffEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i39.i.i = select i1 %not..i.i38.i.i, i1 true, i1 %161
   %162 = load ptr, ptr %43, align 8
   %163 = icmp eq ptr %162, null
-  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163
+  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163, !prof !419
   br i1 %or.cond7.i.i40.i.i, label %.critedge.i.i41.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIffEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.us.i.i.i.backedge, !prof !419
 
 .critedge.i.i41.i.i:                              ; preds = %154
@@ -159407,7 +159407,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIffEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i25.i.i = select i1 %not..i.i24.i.i, i1 true, i1 %229
   %230 = load ptr, ptr %9, align 8
   %231 = icmp eq ptr %230, null
-  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %231
+  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %231, !prof !419
   br i1 %or.cond7.i.i26.i.i, label %.critedge.i.i27.i.i, label %.noexc29.i.i, !prof !419
 
 .critedge.i.i27.i.i:                              ; preds = %223
@@ -159557,7 +159557,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIffEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i11.i.i = select i1 %not..i.i10.i.i, i1 true, i1 %300
   %301 = load ptr, ptr %9, align 8
   %302 = icmp eq ptr %301, null
-  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %302
+  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %302, !prof !419
   br i1 %or.cond7.i.i12.i.i, label %.critedge.i.i13.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i, !prof !419
 
 .critedge.i.i13.i.i:                              ; preds = %293
@@ -159665,7 +159665,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i: ; preds = %320, %
   %or.cond.i.i.i.i = select i1 %not..i.i.i.i, i1 true, i1 %352
   %353 = load ptr, ptr %43, align 8
   %354 = icmp eq ptr %353, null
-  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %354
+  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %354, !prof !419
   br i1 %or.cond7.i.i.i.i, label %.critedge.i.i.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIffEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.i.i.i.backedge, !prof !419
 
 .critedge.i.i.i.i:                                ; preds = %345
@@ -160149,7 +160149,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIhfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i39.i.i = select i1 %not..i.i38.i.i, i1 true, i1 %161
   %162 = load ptr, ptr %43, align 8
   %163 = icmp eq ptr %162, null
-  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163
+  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163, !prof !419
   br i1 %or.cond7.i.i40.i.i, label %.critedge.i.i41.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIhfEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.us.i.i.i.backedge, !prof !419
 
 .critedge.i.i41.i.i:                              ; preds = %154
@@ -160290,7 +160290,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIhfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i25.i.i = select i1 %not..i.i24.i.i, i1 true, i1 %231
   %232 = load ptr, ptr %9, align 8
   %233 = icmp eq ptr %232, null
-  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %233
+  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %233, !prof !419
   br i1 %or.cond7.i.i26.i.i, label %.critedge.i.i27.i.i, label %.noexc29.i.i, !prof !419
 
 .critedge.i.i27.i.i:                              ; preds = %225
@@ -160442,7 +160442,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIhfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i11.i.i = select i1 %not..i.i10.i.i, i1 true, i1 %304
   %305 = load ptr, ptr %9, align 8
   %306 = icmp eq ptr %305, null
-  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %306
+  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %306, !prof !419
   br i1 %or.cond7.i.i12.i.i, label %.critedge.i.i13.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i, !prof !419
 
 .critedge.i.i13.i.i:                              ; preds = %297
@@ -160550,7 +160550,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i: ; preds = %324, %
   %or.cond.i.i.i.i = select i1 %not..i.i.i.i, i1 true, i1 %356
   %357 = load ptr, ptr %43, align 8
   %358 = icmp eq ptr %357, null
-  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %358
+  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %358, !prof !419
   br i1 %or.cond7.i.i.i.i, label %.critedge.i.i.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIhfEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.i.i.i.backedge, !prof !419
 
 .critedge.i.i.i.i:                                ; preds = %349
@@ -161037,7 +161037,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIN9Imath_3_14halfEfEC2ERKS1_RKNS0
   %or.cond.i.i39.i.i = select i1 %not..i.i38.i.i, i1 true, i1 %161
   %162 = load ptr, ptr %43, align 8
   %163 = icmp eq ptr %162, null
-  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163
+  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163, !prof !419
   br i1 %or.cond7.i.i40.i.i, label %.critedge.i.i41.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIN9Imath_3_14halfEfEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.us.i.i.i.backedge, !prof !419
 
 .critedge.i.i41.i.i:                              ; preds = %154
@@ -161205,7 +161205,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIN9Imath_3_14halfEfEC2ERKS1_RKNS0
   %or.cond.i.i25.i.i = select i1 %not..i.i24.i.i, i1 true, i1 %246
   %247 = load ptr, ptr %9, align 8
   %248 = icmp eq ptr %247, null
-  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %248
+  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %248, !prof !419
   br i1 %or.cond7.i.i26.i.i, label %.critedge.i.i27.i.i, label %.noexc29.i.i, !prof !419
 
 .critedge.i.i27.i.i:                              ; preds = %240
@@ -161339,7 +161339,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIN9Imath_3_14halfEfEC2ERKS1_RKNS0
   %or.cond.i.i11.i.i = select i1 %not..i.i10.i.i, i1 true, i1 %310
   %311 = load ptr, ptr %9, align 8
   %312 = icmp eq ptr %311, null
-  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %312
+  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %312, !prof !419
   br i1 %or.cond7.i.i12.i.i, label %.critedge.i.i13.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i, !prof !419
 
 .critedge.i.i13.i.i:                              ; preds = %303
@@ -161447,7 +161447,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i: ; preds = %330, %
   %or.cond.i.i.i.i = select i1 %not..i.i.i.i, i1 true, i1 %362
   %363 = load ptr, ptr %43, align 8
   %364 = icmp eq ptr %363, null
-  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %364
+  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %364, !prof !419
   br i1 %or.cond7.i.i.i.i, label %.critedge.i.i.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIN9Imath_3_14halfEfEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.i.i.i.backedge, !prof !419
 
 .critedge.i.i.i.i:                                ; preds = %355
@@ -161931,7 +161931,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorItfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i39.i.i = select i1 %not..i.i38.i.i, i1 true, i1 %161
   %162 = load ptr, ptr %43, align 8
   %163 = icmp eq ptr %162, null
-  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163
+  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163, !prof !419
   br i1 %or.cond7.i.i40.i.i, label %.critedge.i.i41.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorItfEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.us.i.i.i.backedge, !prof !419
 
 .critedge.i.i41.i.i:                              ; preds = %154
@@ -162072,7 +162072,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorItfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i25.i.i = select i1 %not..i.i24.i.i, i1 true, i1 %231
   %232 = load ptr, ptr %9, align 8
   %233 = icmp eq ptr %232, null
-  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %233
+  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %233, !prof !419
   br i1 %or.cond7.i.i26.i.i, label %.critedge.i.i27.i.i, label %.noexc29.i.i, !prof !419
 
 .critedge.i.i27.i.i:                              ; preds = %225
@@ -162224,7 +162224,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorItfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i11.i.i = select i1 %not..i.i10.i.i, i1 true, i1 %304
   %305 = load ptr, ptr %9, align 8
   %306 = icmp eq ptr %305, null
-  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %306
+  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %306, !prof !419
   br i1 %or.cond7.i.i12.i.i, label %.critedge.i.i13.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i, !prof !419
 
 .critedge.i.i13.i.i:                              ; preds = %297
@@ -162332,7 +162332,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i: ; preds = %324, %
   %or.cond.i.i.i.i = select i1 %not..i.i.i.i, i1 true, i1 %356
   %357 = load ptr, ptr %43, align 8
   %358 = icmp eq ptr %357, null
-  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %358
+  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %358, !prof !419
   br i1 %or.cond7.i.i.i.i, label %.critedge.i.i.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorItfEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.i.i.i.backedge, !prof !419
 
 .critedge.i.i.i.i:                                ; preds = %349
@@ -162816,7 +162816,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIcfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i39.i.i = select i1 %not..i.i38.i.i, i1 true, i1 %161
   %162 = load ptr, ptr %43, align 8
   %163 = icmp eq ptr %162, null
-  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163
+  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163, !prof !419
   br i1 %or.cond7.i.i40.i.i, label %.critedge.i.i41.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIcfEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.us.i.i.i.backedge, !prof !419
 
 .critedge.i.i41.i.i:                              ; preds = %154
@@ -162957,7 +162957,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIcfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i25.i.i = select i1 %not..i.i24.i.i, i1 true, i1 %231
   %232 = load ptr, ptr %9, align 8
   %233 = icmp eq ptr %232, null
-  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %233
+  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %233, !prof !419
   br i1 %or.cond7.i.i26.i.i, label %.critedge.i.i27.i.i, label %.noexc29.i.i, !prof !419
 
 .critedge.i.i27.i.i:                              ; preds = %225
@@ -163109,7 +163109,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIcfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i11.i.i = select i1 %not..i.i10.i.i, i1 true, i1 %304
   %305 = load ptr, ptr %9, align 8
   %306 = icmp eq ptr %305, null
-  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %306
+  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %306, !prof !419
   br i1 %or.cond7.i.i12.i.i, label %.critedge.i.i13.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i, !prof !419
 
 .critedge.i.i13.i.i:                              ; preds = %297
@@ -163217,7 +163217,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i: ; preds = %324, %
   %or.cond.i.i.i.i = select i1 %not..i.i.i.i, i1 true, i1 %356
   %357 = load ptr, ptr %43, align 8
   %358 = icmp eq ptr %357, null
-  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %358
+  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %358, !prof !419
   br i1 %or.cond7.i.i.i.i, label %.critedge.i.i.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIcfEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.i.i.i.backedge, !prof !419
 
 .critedge.i.i.i.i:                                ; preds = %349
@@ -163701,7 +163701,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIsfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i39.i.i = select i1 %not..i.i38.i.i, i1 true, i1 %161
   %162 = load ptr, ptr %43, align 8
   %163 = icmp eq ptr %162, null
-  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163
+  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163, !prof !419
   br i1 %or.cond7.i.i40.i.i, label %.critedge.i.i41.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIsfEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.us.i.i.i.backedge, !prof !419
 
 .critedge.i.i41.i.i:                              ; preds = %154
@@ -163842,7 +163842,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIsfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i25.i.i = select i1 %not..i.i24.i.i, i1 true, i1 %231
   %232 = load ptr, ptr %9, align 8
   %233 = icmp eq ptr %232, null
-  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %233
+  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %233, !prof !419
   br i1 %or.cond7.i.i26.i.i, label %.critedge.i.i27.i.i, label %.noexc29.i.i, !prof !419
 
 .critedge.i.i27.i.i:                              ; preds = %225
@@ -163994,7 +163994,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIsfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i11.i.i = select i1 %not..i.i10.i.i, i1 true, i1 %304
   %305 = load ptr, ptr %9, align 8
   %306 = icmp eq ptr %305, null
-  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %306
+  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %306, !prof !419
   br i1 %or.cond7.i.i12.i.i, label %.critedge.i.i13.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i, !prof !419
 
 .critedge.i.i13.i.i:                              ; preds = %297
@@ -164102,7 +164102,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i: ; preds = %324, %
   %or.cond.i.i.i.i = select i1 %not..i.i.i.i, i1 true, i1 %356
   %357 = load ptr, ptr %43, align 8
   %358 = icmp eq ptr %357, null
-  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %358
+  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %358, !prof !419
   br i1 %or.cond7.i.i.i.i, label %.critedge.i.i.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIsfEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.i.i.i.backedge, !prof !419
 
 .critedge.i.i.i.i:                                ; preds = %349
@@ -164586,7 +164586,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIjfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i39.i.i = select i1 %not..i.i38.i.i, i1 true, i1 %161
   %162 = load ptr, ptr %43, align 8
   %163 = icmp eq ptr %162, null
-  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163
+  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163, !prof !419
   br i1 %or.cond7.i.i40.i.i, label %.critedge.i.i41.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIjfEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.us.i.i.i.backedge, !prof !419
 
 .critedge.i.i41.i.i:                              ; preds = %154
@@ -164727,7 +164727,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIjfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i25.i.i = select i1 %not..i.i24.i.i, i1 true, i1 %231
   %232 = load ptr, ptr %9, align 8
   %233 = icmp eq ptr %232, null
-  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %233
+  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %233, !prof !419
   br i1 %or.cond7.i.i26.i.i, label %.critedge.i.i27.i.i, label %.noexc29.i.i, !prof !419
 
 .critedge.i.i27.i.i:                              ; preds = %225
@@ -164879,7 +164879,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIjfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i11.i.i = select i1 %not..i.i10.i.i, i1 true, i1 %304
   %305 = load ptr, ptr %9, align 8
   %306 = icmp eq ptr %305, null
-  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %306
+  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %306, !prof !419
   br i1 %or.cond7.i.i12.i.i, label %.critedge.i.i13.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i, !prof !419
 
 .critedge.i.i13.i.i:                              ; preds = %297
@@ -164987,7 +164987,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i: ; preds = %324, %
   %or.cond.i.i.i.i = select i1 %not..i.i.i.i, i1 true, i1 %356
   %357 = load ptr, ptr %43, align 8
   %358 = icmp eq ptr %357, null
-  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %358
+  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %358, !prof !419
   br i1 %or.cond7.i.i.i.i, label %.critedge.i.i.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIjfEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.i.i.i.backedge, !prof !419
 
 .critedge.i.i.i.i:                                ; preds = %349
@@ -165471,7 +165471,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIifEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i39.i.i = select i1 %not..i.i38.i.i, i1 true, i1 %161
   %162 = load ptr, ptr %43, align 8
   %163 = icmp eq ptr %162, null
-  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163
+  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %163, !prof !419
   br i1 %or.cond7.i.i40.i.i, label %.critedge.i.i41.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIifEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.us.i.i.i.backedge, !prof !419
 
 .critedge.i.i41.i.i:                              ; preds = %154
@@ -165612,7 +165612,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIifEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i25.i.i = select i1 %not..i.i24.i.i, i1 true, i1 %231
   %232 = load ptr, ptr %9, align 8
   %233 = icmp eq ptr %232, null
-  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %233
+  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %233, !prof !419
   br i1 %or.cond7.i.i26.i.i, label %.critedge.i.i27.i.i, label %.noexc29.i.i, !prof !419
 
 .critedge.i.i27.i.i:                              ; preds = %225
@@ -165764,7 +165764,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIifEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i11.i.i = select i1 %not..i.i10.i.i, i1 true, i1 %304
   %305 = load ptr, ptr %9, align 8
   %306 = icmp eq ptr %305, null
-  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %306
+  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %306, !prof !419
   br i1 %or.cond7.i.i12.i.i, label %.critedge.i.i13.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i, !prof !419
 
 .critedge.i.i13.i.i:                              ; preds = %297
@@ -165872,7 +165872,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i: ; preds = %324, %
   %or.cond.i.i.i.i = select i1 %not..i.i.i.i, i1 true, i1 %356
   %357 = load ptr, ptr %43, align 8
   %358 = icmp eq ptr %357, null
-  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %358
+  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %358, !prof !419
   br i1 %or.cond7.i.i.i.i, label %.critedge.i.i.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIifEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.i.i.i.backedge, !prof !419
 
 .critedge.i.i.i.i:                                ; preds = %349
@@ -166657,7 +166657,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIddEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i39.i.i = select i1 %not..i.i38.i.i, i1 true, i1 %326
   %327 = load ptr, ptr %208, align 8
   %328 = icmp eq ptr %327, null
-  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %328
+  %or.cond7.i.i40.i.i = select i1 %or.cond.i.i39.i.i, i1 true, i1 %328, !prof !419
   br i1 %or.cond7.i.i40.i.i, label %.critedge.i.i41.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIddEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.us.i.i.i.backedge, !prof !419
 
 .critedge.i.i41.i.i:                              ; preds = %319
@@ -166795,7 +166795,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIddEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i25.i.i = select i1 %not..i.i24.i.i, i1 true, i1 %393
   %394 = load ptr, ptr %174, align 8
   %395 = icmp eq ptr %394, null
-  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %395
+  %or.cond7.i.i26.i.i = select i1 %or.cond.i.i25.i.i, i1 true, i1 %395, !prof !419
   br i1 %or.cond7.i.i26.i.i, label %.critedge.i.i27.i.i, label %.noexc29.i.i, !prof !419
 
 .critedge.i.i27.i.i:                              ; preds = %387
@@ -166944,7 +166944,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIddEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %or.cond.i.i11.i.i = select i1 %not..i.i10.i.i, i1 true, i1 %463
   %464 = load ptr, ptr %174, align 8
   %465 = icmp eq ptr %464, null
-  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %465
+  %or.cond7.i.i12.i.i = select i1 %or.cond.i.i11.i.i, i1 true, i1 %465, !prof !419
   br i1 %or.cond7.i.i12.i.i, label %.critedge.i.i13.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i, !prof !419
 
 .critedge.i.i13.i.i:                              ; preds = %456
@@ -167052,7 +167052,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit18.i.i: ; preds = %483, %
   %or.cond.i.i.i.i = select i1 %not..i.i.i.i, i1 true, i1 %515
   %516 = load ptr, ptr %208, align 8
   %517 = icmp eq ptr %516, null
-  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %517
+  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %517, !prof !419
   br i1 %or.cond7.i.i.i.i, label %.critedge.i.i.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIddEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.i.i.i.backedge, !prof !419
 
 .critedge.i.i.i.i:                                ; preds = %508
@@ -167464,7 +167464,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us.i.i.i: ; p
   %or.cond.i.i12.i.i = select i1 %not..i.i11.i.i, i1 true, i1 %128
   %129 = load ptr, ptr %9, align 8
   %130 = icmp eq ptr %129, null
-  %or.cond7.i.i13.i.i = select i1 %or.cond.i.i12.i.i, i1 true, i1 %130
+  %or.cond7.i.i13.i.i = select i1 %or.cond.i.i12.i.i, i1 true, i1 %130, !prof !419
   br i1 %or.cond7.i.i13.i.i, label %.critedge.i.i14.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIffEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.us.i.i.i.backedge, !prof !419
 
 .critedge.i.i14.i.i:                              ; preds = %122
@@ -167592,7 +167592,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
   %or.cond.i.i.i.i = select i1 %not..i.i.i.i, i1 true, i1 %186
   %187 = load ptr, ptr %9, align 8
   %188 = icmp eq ptr %187, null
-  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %188
+  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %188, !prof !419
   br i1 %or.cond7.i.i.i.i, label %.critedge.i.i.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit.i.i, !prof !419
 
 .critedge.i.i.i.i:                                ; preds = %179
@@ -167980,7 +167980,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us.i.i.i: ; p
   %or.cond.i.i12.i.i = select i1 %not..i.i11.i.i, i1 true, i1 %130
   %131 = load ptr, ptr %9, align 8
   %132 = icmp eq ptr %131, null
-  %or.cond7.i.i13.i.i = select i1 %or.cond.i.i12.i.i, i1 true, i1 %132
+  %or.cond7.i.i13.i.i = select i1 %or.cond.i.i12.i.i, i1 true, i1 %132, !prof !419
   br i1 %or.cond7.i.i13.i.i, label %.critedge.i.i14.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIhfEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.us.i.i.i.backedge, !prof !419
 
 .critedge.i.i14.i.i:                              ; preds = %124
@@ -168108,7 +168108,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
   %or.cond.i.i.i.i = select i1 %not..i.i.i.i, i1 true, i1 %188
   %189 = load ptr, ptr %9, align 8
   %190 = icmp eq ptr %189, null
-  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %190
+  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %190, !prof !419
   br i1 %or.cond7.i.i.i.i, label %.critedge.i.i.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit.i.i, !prof !419
 
 .critedge.i.i.i.i:                                ; preds = %181
@@ -168531,7 +168531,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us.i.i.i: ; p
   %or.cond.i.i12.i.i = select i1 %not..i.i11.i.i, i1 true, i1 %150
   %151 = load ptr, ptr %9, align 8
   %152 = icmp eq ptr %151, null
-  %or.cond7.i.i13.i.i = select i1 %or.cond.i.i12.i.i, i1 true, i1 %152
+  %or.cond7.i.i13.i.i = select i1 %or.cond.i.i12.i.i, i1 true, i1 %152, !prof !419
   br i1 %or.cond7.i.i13.i.i, label %.critedge.i.i14.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIN9Imath_3_14halfEfEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.us.i.i.i.backedge, !prof !419
 
 .critedge.i.i14.i.i:                              ; preds = %144
@@ -168659,7 +168659,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
   %or.cond.i.i.i.i = select i1 %not..i.i.i.i, i1 true, i1 %208
   %209 = load ptr, ptr %9, align 8
   %210 = icmp eq ptr %209, null
-  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %210
+  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %210, !prof !419
   br i1 %or.cond7.i.i.i.i, label %.critedge.i.i.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit.i.i, !prof !419
 
 .critedge.i.i.i.i:                                ; preds = %201
@@ -169047,7 +169047,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us.i.i.i: ; p
   %or.cond.i.i12.i.i = select i1 %not..i.i11.i.i, i1 true, i1 %130
   %131 = load ptr, ptr %9, align 8
   %132 = icmp eq ptr %131, null
-  %or.cond7.i.i13.i.i = select i1 %or.cond.i.i12.i.i, i1 true, i1 %132
+  %or.cond7.i.i13.i.i = select i1 %or.cond.i.i12.i.i, i1 true, i1 %132, !prof !419
   br i1 %or.cond7.i.i13.i.i, label %.critedge.i.i14.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorItfEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.us.i.i.i.backedge, !prof !419
 
 .critedge.i.i14.i.i:                              ; preds = %124
@@ -169175,7 +169175,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
   %or.cond.i.i.i.i = select i1 %not..i.i.i.i, i1 true, i1 %188
   %189 = load ptr, ptr %9, align 8
   %190 = icmp eq ptr %189, null
-  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %190
+  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %190, !prof !419
   br i1 %or.cond7.i.i.i.i, label %.critedge.i.i.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit.i.i, !prof !419
 
 .critedge.i.i.i.i:                                ; preds = %181
@@ -169578,7 +169578,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us.i.i.i: ; p
   %or.cond.i.i12.i.i = select i1 %not..i.i11.i.i, i1 true, i1 %136
   %137 = load ptr, ptr %9, align 8
   %138 = icmp eq ptr %137, null
-  %or.cond7.i.i13.i.i = select i1 %or.cond.i.i12.i.i, i1 true, i1 %138
+  %or.cond7.i.i13.i.i = select i1 %or.cond.i.i12.i.i, i1 true, i1 %138, !prof !419
   br i1 %or.cond7.i.i13.i.i, label %.critedge.i.i14.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIfhEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.us.i.i.i.backedge, !prof !419
 
 .critedge.i.i14.i.i:                              ; preds = %129
@@ -169710,7 +169710,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
   %or.cond.i.i.i.i = select i1 %not..i.i.i.i, i1 true, i1 %198
   %199 = load ptr, ptr %9, align 8
   %200 = icmp eq ptr %199, null
-  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %200
+  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %200, !prof !419
   br i1 %or.cond7.i.i.i.i, label %.critedge.i.i.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit.i.i, !prof !419
 
 .critedge.i.i.i.i:                                ; preds = %191
@@ -170104,7 +170104,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us.i.i.i: ; p
   %or.cond.i.i12.i.i = select i1 %not..i.i11.i.i, i1 true, i1 %130
   %131 = load ptr, ptr %9, align 8
   %132 = icmp eq ptr %131, null
-  %or.cond7.i.i13.i.i = select i1 %or.cond.i.i12.i.i, i1 true, i1 %132
+  %or.cond7.i.i13.i.i = select i1 %or.cond.i.i12.i.i, i1 true, i1 %132, !prof !419
   br i1 %or.cond7.i.i13.i.i, label %.critedge.i.i14.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIhhEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.us.i.i.i.backedge, !prof !419
 
 .critedge.i.i14.i.i:                              ; preds = %123
@@ -170236,7 +170236,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
   %or.cond.i.i.i.i = select i1 %not..i.i.i.i, i1 true, i1 %192
   %193 = load ptr, ptr %9, align 8
   %194 = icmp eq ptr %193, null
-  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %194
+  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %194, !prof !419
   br i1 %or.cond7.i.i.i.i, label %.critedge.i.i.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit.i.i, !prof !419
 
 .critedge.i.i.i.i:                                ; preds = %185
@@ -170677,7 +170677,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us.i.i.i: ; p
   %or.cond.i.i12.i.i = select i1 %not..i.i11.i.i, i1 true, i1 %159
   %160 = load ptr, ptr %9, align 8
   %161 = icmp eq ptr %160, null
-  %or.cond7.i.i13.i.i = select i1 %or.cond.i.i12.i.i, i1 true, i1 %161
+  %or.cond7.i.i13.i.i = select i1 %or.cond.i.i12.i.i, i1 true, i1 %161, !prof !419
   br i1 %or.cond7.i.i13.i.i, label %.critedge.i.i14.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIN9Imath_3_14halfEhEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.us.i.i.i.backedge, !prof !419
 
 .critedge.i.i14.i.i:                              ; preds = %152
@@ -170809,7 +170809,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
   %or.cond.i.i.i.i = select i1 %not..i.i.i.i, i1 true, i1 %221
   %222 = load ptr, ptr %9, align 8
   %223 = icmp eq ptr %222, null
-  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %223
+  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %223, !prof !419
   br i1 %or.cond7.i.i.i.i, label %.critedge.i.i.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit.i.i, !prof !419
 
 .critedge.i.i.i.i:                                ; preds = %214
@@ -171210,7 +171210,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us.i.i.i: ; p
   %or.cond.i.i12.i.i = select i1 %not..i.i11.i.i, i1 true, i1 %134
   %135 = load ptr, ptr %9, align 8
   %136 = icmp eq ptr %135, null
-  %or.cond7.i.i13.i.i = select i1 %or.cond.i.i12.i.i, i1 true, i1 %136
+  %or.cond7.i.i13.i.i = select i1 %or.cond.i.i12.i.i, i1 true, i1 %136, !prof !419
   br i1 %or.cond7.i.i13.i.i, label %.critedge.i.i14.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIthEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.us.i.i.i.backedge, !prof !419
 
 .critedge.i.i14.i.i:                              ; preds = %127
@@ -171342,7 +171342,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
   %or.cond.i.i.i.i = select i1 %not..i.i.i.i, i1 true, i1 %196
   %197 = load ptr, ptr %9, align 8
   %198 = icmp eq ptr %197, null
-  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %198
+  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %198, !prof !419
   br i1 %or.cond7.i.i.i.i, label %.critedge.i.i.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit.i.i, !prof !419
 
 .critedge.i.i.i.i:                                ; preds = %189
@@ -171806,7 +171806,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIfN9Imath_3_14halfEEixEi.exit.us
   %or.cond.i.i12.i.i = select i1 %not..i.i11.i.i, i1 true, i1 %180
   %181 = load ptr, ptr %9, align 8
   %182 = icmp eq ptr %181, null
-  %or.cond7.i.i13.i.i = select i1 %or.cond.i.i12.i.i, i1 true, i1 %182
+  %or.cond7.i.i13.i.i = select i1 %or.cond.i.i12.i.i, i1 true, i1 %182, !prof !419
   br i1 %or.cond7.i.i13.i.i, label %.critedge.i.i14.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIfN9Imath_3_14halfEEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.us.i.i.i.backedge, !prof !419
 
 .critedge.i.i14.i.i:                              ; preds = %174
@@ -171934,7 +171934,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
   %or.cond.i.i.i.i = select i1 %not..i.i.i.i, i1 true, i1 %238
   %239 = load ptr, ptr %9, align 8
   %240 = icmp eq ptr %239, null
-  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %240
+  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %240, !prof !419
   br i1 %or.cond7.i.i.i.i, label %.critedge.i.i.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit.i.i, !prof !419
 
 .critedge.i.i.i.i:                                ; preds = %231
@@ -172386,7 +172386,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIhN9Imath_3_14halfEEixEi.exit.us
   %or.cond.i.i12.i.i = select i1 %not..i.i11.i.i, i1 true, i1 %170
   %171 = load ptr, ptr %9, align 8
   %172 = icmp eq ptr %171, null
-  %or.cond7.i.i13.i.i = select i1 %or.cond.i.i12.i.i, i1 true, i1 %172
+  %or.cond7.i.i13.i.i = select i1 %or.cond.i.i12.i.i, i1 true, i1 %172, !prof !419
   br i1 %or.cond7.i.i13.i.i, label %.critedge.i.i14.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIhN9Imath_3_14halfEEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.us.i.i.i.backedge, !prof !419
 
 .critedge.i.i14.i.i:                              ; preds = %164
@@ -172514,7 +172514,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
   %or.cond.i.i.i.i = select i1 %not..i.i.i.i, i1 true, i1 %228
   %229 = load ptr, ptr %9, align 8
   %230 = icmp eq ptr %229, null
-  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %230
+  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %230, !prof !419
   br i1 %or.cond7.i.i.i.i, label %.critedge.i.i.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit.i.i, !prof !419
 
 .critedge.i.i.i.i:                                ; preds = %221
@@ -172900,7 +172900,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us.i.i.i: ; p
   %or.cond.i.i12.i.i = select i1 %not..i.i11.i.i, i1 true, i1 %127
   %128 = load ptr, ptr %9, align 8
   %129 = icmp eq ptr %128, null
-  %or.cond7.i.i13.i.i = select i1 %or.cond.i.i12.i.i, i1 true, i1 %129
+  %or.cond7.i.i13.i.i = select i1 %or.cond.i.i12.i.i, i1 true, i1 %129, !prof !419
   br i1 %or.cond7.i.i13.i.i, label %.critedge.i.i14.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIN9Imath_3_14halfES4_EC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.us.i.i.i.backedge, !prof !419
 
 .critedge.i.i14.i.i:                              ; preds = %121
@@ -173028,7 +173028,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
   %or.cond.i.i.i.i = select i1 %not..i.i.i.i, i1 true, i1 %185
   %186 = load ptr, ptr %9, align 8
   %187 = icmp eq ptr %186, null
-  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %187
+  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %187, !prof !419
   br i1 %or.cond7.i.i.i.i, label %.critedge.i.i.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit.i.i, !prof !419
 
 .critedge.i.i.i.i:                                ; preds = %178
@@ -173480,7 +173480,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf13ConstIteratorItN9Imath_3_14halfEEixEi.exit.us
   %or.cond.i.i12.i.i = select i1 %not..i.i11.i.i, i1 true, i1 %170
   %171 = load ptr, ptr %9, align 8
   %172 = icmp eq ptr %171, null
-  %or.cond7.i.i13.i.i = select i1 %or.cond.i.i12.i.i, i1 true, i1 %172
+  %or.cond7.i.i13.i.i = select i1 %or.cond.i.i12.i.i, i1 true, i1 %172, !prof !419
   br i1 %or.cond7.i.i13.i.i, label %.critedge.i.i14.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorItN9Imath_3_14halfEEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.us.i.i.i.backedge, !prof !419
 
 .critedge.i.i14.i.i:                              ; preds = %164
@@ -173608,7 +173608,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
   %or.cond.i.i.i.i = select i1 %not..i.i.i.i, i1 true, i1 %228
   %229 = load ptr, ptr %9, align 8
   %230 = icmp eq ptr %229, null
-  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %230
+  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %230, !prof !419
   br i1 %or.cond7.i.i.i.i, label %.critedge.i.i.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit.i.i, !prof !419
 
 .critedge.i.i.i.i:                                ; preds = %221
@@ -174003,7 +174003,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us.i.i.i: ; p
   %or.cond.i.i12.i.i = select i1 %not..i.i11.i.i, i1 true, i1 %134
   %135 = load ptr, ptr %9, align 8
   %136 = icmp eq ptr %135, null
-  %or.cond7.i.i13.i.i = select i1 %or.cond.i.i12.i.i, i1 true, i1 %136
+  %or.cond7.i.i13.i.i = select i1 %or.cond.i.i12.i.i, i1 true, i1 %136, !prof !419
   br i1 %or.cond7.i.i13.i.i, label %.critedge.i.i14.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIftEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.us.i.i.i.backedge, !prof !419
 
 .critedge.i.i14.i.i:                              ; preds = %128
@@ -174131,7 +174131,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
   %or.cond.i.i.i.i = select i1 %not..i.i.i.i, i1 true, i1 %192
   %193 = load ptr, ptr %9, align 8
   %194 = icmp eq ptr %193, null
-  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %194
+  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %194, !prof !419
   br i1 %or.cond7.i.i.i.i, label %.critedge.i.i.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit.i.i, !prof !419
 
 .critedge.i.i.i.i:                                ; preds = %185
@@ -174524,7 +174524,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us.i.i.i: ; p
   %or.cond.i.i12.i.i = select i1 %not..i.i11.i.i, i1 true, i1 %132
   %133 = load ptr, ptr %9, align 8
   %134 = icmp eq ptr %133, null
-  %or.cond7.i.i13.i.i = select i1 %or.cond.i.i12.i.i, i1 true, i1 %134
+  %or.cond7.i.i13.i.i = select i1 %or.cond.i.i12.i.i, i1 true, i1 %134, !prof !419
   br i1 %or.cond7.i.i13.i.i, label %.critedge.i.i14.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIhtEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.us.i.i.i.backedge, !prof !419
 
 .critedge.i.i14.i.i:                              ; preds = %126
@@ -174652,7 +174652,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
   %or.cond.i.i.i.i = select i1 %not..i.i.i.i, i1 true, i1 %190
   %191 = load ptr, ptr %9, align 8
   %192 = icmp eq ptr %191, null
-  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %192
+  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %192, !prof !419
   br i1 %or.cond7.i.i.i.i, label %.critedge.i.i.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit.i.i, !prof !419
 
 .critedge.i.i.i.i:                                ; preds = %183
@@ -175085,7 +175085,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us.i.i.i: ; p
   %or.cond.i.i12.i.i = select i1 %not..i.i11.i.i, i1 true, i1 %157
   %158 = load ptr, ptr %9, align 8
   %159 = icmp eq ptr %158, null
-  %or.cond7.i.i13.i.i = select i1 %or.cond.i.i12.i.i, i1 true, i1 %159
+  %or.cond7.i.i13.i.i = select i1 %or.cond.i.i12.i.i, i1 true, i1 %159, !prof !419
   br i1 %or.cond7.i.i13.i.i, label %.critedge.i.i14.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIN9Imath_3_14halfEtEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.us.i.i.i.backedge, !prof !419
 
 .critedge.i.i14.i.i:                              ; preds = %151
@@ -175213,7 +175213,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
   %or.cond.i.i.i.i = select i1 %not..i.i.i.i, i1 true, i1 %215
   %216 = load ptr, ptr %9, align 8
   %217 = icmp eq ptr %216, null
-  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %217
+  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %217, !prof !419
   br i1 %or.cond7.i.i.i.i, label %.critedge.i.i.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit.i.i, !prof !419
 
 .critedge.i.i.i.i:                                ; preds = %208
@@ -175599,7 +175599,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us.i.i.i: ; p
   %or.cond.i.i12.i.i = select i1 %not..i.i11.i.i, i1 true, i1 %128
   %129 = load ptr, ptr %9, align 8
   %130 = icmp eq ptr %129, null
-  %or.cond7.i.i13.i.i = select i1 %or.cond.i.i12.i.i, i1 true, i1 %130
+  %or.cond7.i.i13.i.i = select i1 %or.cond.i.i12.i.i, i1 true, i1 %130, !prof !419
   br i1 %or.cond7.i.i13.i.i, label %.critedge.i.i14.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIttEC2ERKS1_RKNS0_3ROIENS1_8WrapModeE.exit.split.us.i.i.i.backedge, !prof !419
 
 .critedge.i.i14.i.i:                              ; preds = %122
@@ -175727,7 +175727,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
   %or.cond.i.i.i.i = select i1 %not..i.i.i.i, i1 true, i1 %186
   %187 = load ptr, ptr %9, align 8
   %188 = icmp eq ptr %187, null
-  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %188
+  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %188, !prof !419
   br i1 %or.cond7.i.i.i.i, label %.critedge.i.i.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit.i.i, !prof !419
 
 .critedge.i.i.i.i:                                ; preds = %179

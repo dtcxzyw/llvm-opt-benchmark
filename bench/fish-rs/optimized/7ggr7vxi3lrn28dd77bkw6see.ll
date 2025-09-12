@@ -33007,7 +33007,7 @@ define hidden void @"_ZN4core3ptr78drop_in_place$LT$fish..input..EventQueuePeeke
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load i64, ptr %7, align 8, !alias.scope !4279
   %9 = icmp eq i64 %8, 0
-  %or.cond.i = select i1 %6, i1 %9, i1 false
+  %or.cond.i = select i1 %6, i1 %9, i1 false, !prof !4282
   br i1 %or.cond.i, label %10, label %13, !prof !4282
 
 10:                                               ; preds = %1

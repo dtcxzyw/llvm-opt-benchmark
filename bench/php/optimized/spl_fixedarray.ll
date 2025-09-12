@@ -419,7 +419,7 @@ define hidden void @zim_SplFixedArray___serialize(ptr noundef readonly captures(
   %57 = load i8, ptr %56, align 8, !tbaa !8
   %58 = icmp eq i8 %57, 0
   %.not66 = icmp eq ptr %.162, null
-  %or.cond = select i1 %58, i1 true, i1 %.not66
+  %or.cond = select i1 %58, i1 true, i1 %.not66, !prof !61
   br i1 %or.cond, label %68, label %59, !prof !61
 
 59:                                               ; preds = %55

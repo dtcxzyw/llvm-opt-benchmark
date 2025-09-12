@@ -7251,7 +7251,7 @@ define linkonce_odr hidden void @_ZN11OpenImageIO6v3_1_08PSDInput11cmyk_to_rgbIh
 define hidden noundef zeroext i1 @_ZNK11OpenImageIO6v3_1_08PSDInput14indexed_to_rgbENS0_4spanIhLm18446744073709551615EEENS2_IKhLm18446744073709551615EEEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(840) %0, ptr writeonly captures(none) %1, i64 %2, ptr readonly captures(none) %3, i64 %4, i32 noundef %5) local_unnamed_addr #15 align 2 {
   %.not = icmp ne i64 %4, 0
   %7 = icmp ne i64 %2, 0
-  %or.cond = select i1 %.not, i1 %7, i1 false
+  %or.cond = select i1 %.not, i1 %7, i1 false, !prof !334
   br i1 %or.cond, label %10, label %.critedge, !prof !334
 
 .critedge:                                        ; preds = %6

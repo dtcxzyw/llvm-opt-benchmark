@@ -4550,7 +4550,7 @@ define internal range(i32 -1, 1) i32 @H5P__dxfr_dset_io_hyp_sel_copy(ptr readnon
   %not. = xor i1 %6, true
   %.not23 = select i1 %not., i1 %8, i1 false
   %.not = icmp eq ptr %4, null
-  %or.cond = select i1 %.not23, i1 true, i1 %.not
+  %or.cond = select i1 %.not23, i1 true, i1 %.not, !prof !47
   br i1 %or.cond, label %.loopexit, label %9, !prof !47
 
 9:                                                ; preds = %3
@@ -4627,7 +4627,7 @@ define internal range(i32 -1, 1) i32 @H5P__dxfr_dset_io_hyp_sel_close(ptr readno
   %9 = xor i1 %8, true
   %10 = select i1 %6, i1 true, i1 %9
   %11 = icmp ne ptr %4, null
-  %or.cond = select i1 %10, i1 %11, i1 false
+  %or.cond = select i1 %10, i1 %11, i1 false, !prof !48
   br i1 %or.cond, label %12, label %19, !prof !48
 
 12:                                               ; preds = %3

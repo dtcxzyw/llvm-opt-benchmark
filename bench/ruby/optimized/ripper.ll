@@ -34399,7 +34399,7 @@ define internal fastcc range(i32 -32768, 32768) i32 @parser_yylex(ptr noundef %0
   %.not.i.i = icmp ult ptr %16, %36
   %37 = and i16 %11, 8
   %.not13.i.i = icmp eq i16 %37, 0
-  %or.cond1292 = select i1 %.not.i.i, i1 %.not13.i.i, i1 false
+  %or.cond1292 = select i1 %.not.i.i, i1 %.not13.i.i, i1 false, !prof !498
   br i1 %or.cond1292, label %38, label %.critedge.i.i, !prof !498
 
 38:                                               ; preds = %19
@@ -35722,7 +35722,7 @@ here_document.exit:                               ; preds = %parser_set_lex_stat
   %.not.i.i839 = icmp ult ptr %16, %685
   %686 = and i16 %11, 8
   %.not13.i.i849 = icmp eq i16 %686, 0
-  %or.cond1293 = select i1 %.not.i.i839, i1 %.not13.i.i849, i1 false
+  %or.cond1293 = select i1 %.not.i.i839, i1 %.not13.i.i849, i1 false, !prof !498
   br i1 %or.cond1293, label %687, label %.critedge.i.i840, !prof !498
 
 687:                                              ; preds = %683
@@ -35793,7 +35793,7 @@ parser_set_lex_state.exit.i843:                   ; preds = %706, %nextc0.exit.i
   %.not.i105.i = icmp ult ptr %16, %716
   %717 = and i16 %11, 8
   %.not13.i112.i = icmp eq i16 %717, 0
-  %or.cond1294 = select i1 %.not.i105.i, i1 %.not13.i112.i, i1 false
+  %or.cond1294 = select i1 %.not.i105.i, i1 %.not13.i112.i, i1 false, !prof !498
   br i1 %or.cond1294, label %718, label %.critedge.i106.i, !prof !498
 
 718:                                              ; preds = %714

@@ -4334,7 +4334,7 @@ define internal ptr @spl_array_read_dimension(ptr noundef %0, ptr noundef %1, i3
   %39 = load i8, ptr %38, align 8, !tbaa !4
   %40 = icmp eq i8 %39, 10
   %.not51.i = icmp eq ptr %36, @executor_globals
-  %or.cond.i = select i1 %40, i1 true, i1 %.not51.i
+  %or.cond.i = select i1 %40, i1 true, i1 %.not51.i, !prof !138
   br i1 %or.cond.i, label %spl_array_read_dimension_ex.exit, label %41, !prof !138
 
 41:                                               ; preds = %37

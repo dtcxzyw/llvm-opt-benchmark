@@ -18278,7 +18278,7 @@ define hidden void @"_ZN12polars_arrow5array9primitive23PrimitiveArray$LT$T$GT$7
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %16 = icmp ne i64 %15, %12
-  %or.cond.i = select i1 %.not, i1 %16, i1 false
+  %or.cond.i = select i1 %.not, i1 %16, i1 false, !prof !1259
   br i1 %or.cond.i, label %22, label %17, !prof !1259
 
 17:                                               ; preds = %4
@@ -18290,7 +18290,7 @@ define hidden void @"_ZN12polars_arrow5array9primitive23PrimitiveArray$LT$T$GT$7
   %20 = extractvalue { i8, i8 } %18, 1
   %21 = icmp eq i8 %19, 2
   %.not.i = icmp eq i8 %20, 8
-  %or.cond9.i = select i1 %21, i1 %.not.i, i1 false
+  %or.cond9.i = select i1 %21, i1 %.not.i, i1 false, !prof !1260
   br i1 %or.cond9.i, label %42, label %27, !prof !1260
 
 22:                                               ; preds = %4
@@ -22295,7 +22295,7 @@ define hidden void @"_ZN185_$LT$polars_arrow..array..primitive..PrimitiveArray$L
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !1947
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !1947
   %19 = icmp ne i64 %18, %15
-  %or.cond.i.i = select i1 %.not.i, i1 %19, i1 false
+  %or.cond.i.i = select i1 %.not.i, i1 %19, i1 false, !prof !1259
   br i1 %or.cond.i.i, label %25, label %20, !prof !1259
 
 20:                                               ; preds = %13
@@ -22307,7 +22307,7 @@ define hidden void @"_ZN185_$LT$polars_arrow..array..primitive..PrimitiveArray$L
   %23 = extractvalue { i8, i8 } %21, 1
   %24 = icmp eq i8 %22, 2
   %.not.i.i = icmp eq i8 %23, 9
-  %or.cond9.i.i = select i1 %24, i1 %.not.i.i, i1 false
+  %or.cond9.i.i = select i1 %24, i1 %.not.i.i, i1 false, !prof !1260
   br i1 %or.cond9.i.i, label %"_ZN12polars_arrow5array9primitive23PrimitiveArray$LT$T$GT$7try_new17h37221b458c56cefdE.exit", label %31, !prof !1260
 
 25:                                               ; preds = %13
@@ -55881,7 +55881,7 @@ define internal { ptr, ptr } @"_ZN88_$LT$polars_arrow..array..struct_..StructArr
   %32 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %33 = load i64, ptr %32, align 8
   %.not3.i.i = icmp eq i64 %33, %16
-  %or.cond = select i1 %.not.i.i, i1 true, i1 %.not3.i.i
+  %or.cond = select i1 %.not.i.i, i1 true, i1 %.not3.i.i, !prof !4865
   br i1 %or.cond, label %34, label %37, !prof !4865
 
 34:                                               ; preds = %27

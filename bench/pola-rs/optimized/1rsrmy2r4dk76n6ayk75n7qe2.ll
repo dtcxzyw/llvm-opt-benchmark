@@ -30151,7 +30151,7 @@ define internal { ptr, ptr } @"_ZN88_$LT$polars_arrow..array..struct_..StructArr
   %32 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %33 = load i64, ptr %32, align 8
   %.not3.i.i = icmp eq i64 %33, %16
-  %or.cond = select i1 %.not.i.i, i1 true, i1 %.not3.i.i
+  %or.cond = select i1 %.not.i.i, i1 true, i1 %.not3.i.i, !prof !2427
   br i1 %or.cond, label %34, label %37, !prof !2427
 
 34:                                               ; preds = %27
@@ -41154,7 +41154,7 @@ _ZN14polars_parquet5arrow4read6schema7convert9to_struct17hd983349652bed779E.exit
 54:                                               ; preds = %53
   %55 = icmp ne i64 %3, %51
   %.not26 = icmp eq ptr %50, null
-  %or.cond = select i1 %55, i1 true, i1 %.not26
+  %or.cond = select i1 %55, i1 true, i1 %.not26, !prof !3112
   br i1 %or.cond, label %"_ZN4core3str6traits110_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeTo$LT$usize$GT$$GT$3get17h453c7d029d9d89c6E.exit.thread", label %.thread, !prof !3112
 
 56:                                               ; preds = %53

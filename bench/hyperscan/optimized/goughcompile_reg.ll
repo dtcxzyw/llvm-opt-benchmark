@@ -6532,7 +6532,7 @@ _ZN5boost9container12small_vectorIjLm1ESaIjEvEaSEOS3_.exit: ; preds = %_ZN5boost
   %.not.i.i.i.i6 = icmp eq ptr %46, null
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %48 = icmp eq ptr %47, %46
-  %or.cond.i.i.i.i7 = select i1 %.not.i.i.i.i6, i1 true, i1 %48
+  %or.cond.i.i.i.i7 = select i1 %.not.i.i.i.i6, i1 true, i1 %48, !prof !285
   br i1 %or.cond.i.i.i.i7, label %_ZN5boost9container12small_vectorIjLm1ESaIjEvEaSEOS3_.exit10.thread, label %49, !prof !285
 
 49:                                               ; preds = %44

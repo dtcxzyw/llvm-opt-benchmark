@@ -1051,7 +1051,7 @@ qrx_validate_hdr.exit.i:                          ; preds = %195, %switch.lookup
   %244 = or i64 %236, %229
   %or.cond.not.i.i = icmp ugt i64 %244, 2147483647
   %.not.i8.i = icmp eq ptr %243, null
-  %or.cond.i.i = select i1 %or.cond.not.i.i, i1 true, i1 %.not.i8.i
+  %or.cond.i.i = select i1 %or.cond.not.i.i, i1 true, i1 %.not.i8.i, !prof !89
   br i1 %or.cond.i.i, label %qrx_decrypt_pkt_body.exit.thread.i, label %245, !prof !89
 
 245:                                              ; preds = %226

@@ -40164,7 +40164,7 @@ define void @_ZN4core5slice4sort6stable9quicksort9quicksort17h49b49ca08740626dE(
   %.sroa.0.1.i.i = phi ptr [ %54, %._crit_edge.i.i ], [ %71, %68 ]
   %76 = icmp ne ptr %.sroa.0.1.i.i, %38
   %77 = icmp ne ptr %.sroa.06.1.i.i, %39
-  %or.cond.i.i = select i1 %76, i1 true, i1 %77
+  %or.cond.i.i = select i1 %76, i1 true, i1 %77, !prof !14913
   br i1 %or.cond.i.i, label %78, label %_ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17he0e6d66dc779a99aE.exit, !prof !14913
 
 78:                                               ; preds = %75

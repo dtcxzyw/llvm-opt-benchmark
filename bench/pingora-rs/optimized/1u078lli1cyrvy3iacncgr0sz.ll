@@ -5253,7 +5253,7 @@ define internal fastcc noundef range(i32 -31, 3) i32 @_ZN19brotli_decompressor6d
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 1888
   %34 = load i32, ptr %33, align 8
   %35 = icmp ugt i32 %34, 27
-  %or.cond12 = select i1 %0, i1 true, i1 %35
+  %or.cond12 = select i1 %0, i1 true, i1 %35, !prof !184
   br i1 %or.cond12, label %36, label %44, !prof !184
 
 36:                                               ; preds = %4
@@ -5417,7 +5417,7 @@ define internal fastcc noundef range(i32 -31, 3) i32 @_ZN19brotli_decompressor6d
 94:                                               ; preds = %.backedge
   %95 = load i32, ptr %33, align 8
   %96 = icmp ugt i32 %95, 27
-  %or.cond16 = select i1 %0, i1 true, i1 %96
+  %or.cond16 = select i1 %0, i1 true, i1 %96, !prof !184
   br i1 %or.cond16, label %106, label %.thread268, !prof !184
 
 97:                                               ; preds = %.backedge

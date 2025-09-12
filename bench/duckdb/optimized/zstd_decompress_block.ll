@@ -2892,7 +2892,7 @@ thread-pre-split.i:                               ; preds = %_ZN11duckdb_zstdL25
   %726 = icmp ugt i64 %.sroa.0317.0.copyload.i, 65536
   %727 = getelementptr inbounds nuw i8, ptr %.3210.i.i, i64 %722
   %728 = icmp ugt ptr %727, %261
-  %or.cond.i.i = select i1 %726, i1 true, i1 %728
+  %or.cond.i.i = select i1 %726, i1 true, i1 %728, !prof !109
   br i1 %or.cond.i.i, label %.critedge.i.i, label %729, !prof !109
 
 729:                                              ; preds = %thread-pre-split.i
@@ -3122,7 +3122,7 @@ _ZN11duckdb_zstdL17ZSTD_execSequenceEPhS0_NS_5seq_tEPPKhS3_S3_S3_S3_.exit.i: ; p
   %842 = icmp ugt ptr %675, %.2228.i695.i
   %843 = getelementptr inbounds nuw i8, ptr %.2209.i696.i, i64 %839
   %844 = icmp ugt ptr %843, %837
-  %or.cond.i35.i = select i1 %842, i1 true, i1 %844
+  %or.cond.i35.i = select i1 %842, i1 true, i1 %844, !prof !109
   br i1 %or.cond.i35.i, label %.critedge.i39.i, label %845, !prof !109
 
 845:                                              ; preds = %836
@@ -3338,7 +3338,7 @@ _ZN11duckdb_zstdL31ZSTD_execSequenceSplitLitBufferEPhS0_PKhNS_5seq_tEPS2_S2_S2_S
   %954 = icmp ugt ptr %951, %.2228.i695.i
   %955 = getelementptr inbounds nuw i8, ptr %.2209.i696.i, i64 %949
   %956 = icmp ugt ptr %955, %261
-  %or.cond.i17.i = select i1 %954, i1 true, i1 %956
+  %or.cond.i17.i = select i1 %954, i1 true, i1 %956, !prof !109
   br i1 %or.cond.i17.i, label %.critedge.i21.i, label %957, !prof !109
 
 957:                                              ; preds = %944
@@ -3743,7 +3743,7 @@ thread-pre-split598.i:                            ; preds = %_ZN11duckdb_zstdL25
   %1145 = icmp ugt i64 %.sroa.0398.0.copyload.i, 65536
   %1146 = getelementptr inbounds nuw i8, ptr %.10217.i.i, i64 %1141
   %1147 = icmp ugt ptr %1146, %1079
-  %or.cond.i23.i = select i1 %1145, i1 true, i1 %1147
+  %or.cond.i23.i = select i1 %1145, i1 true, i1 %1147, !prof !109
   br i1 %or.cond.i23.i, label %.critedge.i27.i, label %1148, !prof !109
 
 1148:                                             ; preds = %thread-pre-split598.i
@@ -3958,7 +3958,7 @@ _ZN11duckdb_zstdL17ZSTD_overlapCopy8EPPhPPKhm.exit196.i: ; preds = %1218, %1196
   %1253 = icmp ugt ptr %1094, %.6232.i705.i
   %1254 = getelementptr inbounds nuw i8, ptr %.9216.i707.i, i64 %1250
   %1255 = icmp ugt ptr %1254, %1248
-  %or.cond.i40.i = select i1 %1253, i1 true, i1 %1255
+  %or.cond.i40.i = select i1 %1253, i1 true, i1 %1255, !prof !109
   br i1 %or.cond.i40.i, label %.critedge.i44.i, label %1256, !prof !109
 
 1256:                                             ; preds = %1247
@@ -4171,7 +4171,7 @@ _ZN11duckdb_zstdL31ZSTD_execSequenceSplitLitBufferEPhS0_PKhNS_5seq_tEPS2_S2_S2_S
   %1362 = icmp ugt ptr %1359, %.6232.i705.i
   %1363 = getelementptr inbounds nuw i8, ptr %.9216.i707.i, i64 %1357
   %1364 = icmp ugt ptr %1363, %1079
-  %or.cond.i29.i = select i1 %1362, i1 true, i1 %1364
+  %or.cond.i29.i = select i1 %1362, i1 true, i1 %1364, !prof !109
   br i1 %or.cond.i29.i, label %.critedge.i33.i, label %1365, !prof !109
 
 1365:                                             ; preds = %1355
@@ -5213,7 +5213,7 @@ _ZN11duckdb_zstdL19ZSTD_decodeSequenceEPNS_10seqState_tENS_17ZSTD_longOffset_eEi
   %454 = icmp ugt ptr %447, %20
   %455 = getelementptr inbounds nuw i8, ptr %.2144.i285.i, i64 %451
   %456 = icmp ugt ptr %455, %449
-  %or.cond.i207.i.i = select i1 %454, i1 true, i1 %456
+  %or.cond.i207.i.i = select i1 %454, i1 true, i1 %456, !prof !109
   br i1 %or.cond.i207.i.i, label %.critedge.i211.i.i, label %457, !prof !109
 
 457:                                              ; preds = %446
@@ -5537,7 +5537,7 @@ _ZN11duckdb_zstdL25ZSTD_safecopyDstBeforeSrcEPhPKhl.exit.i: ; preds = %.lr.ph.i.
   %616 = getelementptr inbounds i8, ptr %16, i64 -32
   %617 = getelementptr inbounds nuw i8, ptr %.6148.i.i, i64 %611
   %618 = icmp ugt ptr %617, %616
-  %or.cond.i201.i.i = select i1 %615, i1 true, i1 %618
+  %or.cond.i201.i.i = select i1 %615, i1 true, i1 %618, !prof !109
   br i1 %or.cond.i201.i.i, label %.critedge.i205.i.i, label %619, !prof !109
 
 619:                                              ; preds = %606
@@ -6084,7 +6084,7 @@ _ZN11duckdb_zstdL19ZSTD_decodeSequenceEPNS_10seqState_tENS_17ZSTD_longOffset_eEi
   %930 = icmp ugt ptr %927, %608
   %931 = getelementptr inbounds nuw i8, ptr %.9151.i288.i, i64 %925
   %932 = icmp ugt ptr %931, %616
-  %or.cond.i.i.i = select i1 %930, i1 true, i1 %932
+  %or.cond.i.i.i = select i1 %930, i1 true, i1 %932, !prof !109
   br i1 %or.cond.i.i.i, label %.critedge.i.i.i, label %933, !prof !109
 
 933:                                              ; preds = %_ZN11duckdb_zstdL19ZSTD_decodeSequenceEPNS_10seqState_tENS_17ZSTD_longOffset_eEi.exit.i.i
@@ -7138,7 +7138,7 @@ _ZN11duckdb_zstdL19ZSTD_decodeSequenceEPNS_10seqState_tENS_17ZSTD_longOffset_eEi
   %453 = icmp ugt ptr %450, %28
   %454 = getelementptr inbounds nuw i8, ptr %.270.i103.i, i64 %448
   %455 = icmp ugt ptr %454, %240
-  %or.cond.i.i.i = select i1 %453, i1 true, i1 %455
+  %or.cond.i.i.i = select i1 %453, i1 true, i1 %455, !prof !109
   br i1 %or.cond.i.i.i, label %.critedge.i.i.i, label %456, !prof !109
 
 456:                                              ; preds = %_ZN11duckdb_zstdL19ZSTD_decodeSequenceEPNS_10seqState_tENS_17ZSTD_longOffset_eEi.exit.i.i
@@ -8752,7 +8752,7 @@ thread-pre-split:                                 ; preds = %674, %_ZN11duckdb_z
   %722 = icmp ugt i64 %.sroa.0317.0.copyload, 65536
   %723 = getelementptr inbounds nuw i8, ptr %.3210.i, i64 %718
   %724 = icmp ugt ptr %723, %257
-  %or.cond.i = select i1 %722, i1 true, i1 %724
+  %or.cond.i = select i1 %722, i1 true, i1 %724, !prof !109
   br i1 %or.cond.i, label %.critedge.i, label %725, !prof !109
 
 725:                                              ; preds = %thread-pre-split
@@ -8982,7 +8982,7 @@ _ZN11duckdb_zstdL17ZSTD_execSequenceEPhS0_NS_5seq_tEPPKhS3_S3_S3_S3_.exit: ; pre
   %838 = icmp ugt ptr %671, %.2228.i695
   %839 = getelementptr inbounds nuw i8, ptr %.2209.i696, i64 %835
   %840 = icmp ugt ptr %839, %833
-  %or.cond.i35 = select i1 %838, i1 true, i1 %840
+  %or.cond.i35 = select i1 %838, i1 true, i1 %840, !prof !109
   br i1 %or.cond.i35, label %.critedge.i39, label %841, !prof !109
 
 841:                                              ; preds = %832
@@ -9198,7 +9198,7 @@ _ZN11duckdb_zstdL31ZSTD_execSequenceSplitLitBufferEPhS0_PKhNS_5seq_tEPS2_S2_S2_S
   %950 = icmp ugt ptr %947, %.2228.i695
   %951 = getelementptr inbounds nuw i8, ptr %.2209.i696, i64 %945
   %952 = icmp ugt ptr %951, %257
-  %or.cond.i17 = select i1 %950, i1 true, i1 %952
+  %or.cond.i17 = select i1 %950, i1 true, i1 %952, !prof !109
   br i1 %or.cond.i17, label %.critedge.i21, label %953, !prof !109
 
 953:                                              ; preds = %940
@@ -9603,7 +9603,7 @@ thread-pre-split598:                              ; preds = %1093, %_ZN11duckdb_
   %1141 = icmp ugt i64 %.sroa.0398.0.copyload, 65536
   %1142 = getelementptr inbounds nuw i8, ptr %.10217.i, i64 %1137
   %1143 = icmp ugt ptr %1142, %1075
-  %or.cond.i23 = select i1 %1141, i1 true, i1 %1143
+  %or.cond.i23 = select i1 %1141, i1 true, i1 %1143, !prof !109
   br i1 %or.cond.i23, label %.critedge.i27, label %1144, !prof !109
 
 1144:                                             ; preds = %thread-pre-split598
@@ -9818,7 +9818,7 @@ _ZN11duckdb_zstdL17ZSTD_overlapCopy8EPPhPPKhm.exit196: ; preds = %1192, %1214
   %1249 = icmp ugt ptr %1090, %.6232.i705
   %1250 = getelementptr inbounds nuw i8, ptr %.9216.i707, i64 %1246
   %1251 = icmp ugt ptr %1250, %1244
-  %or.cond.i40 = select i1 %1249, i1 true, i1 %1251
+  %or.cond.i40 = select i1 %1249, i1 true, i1 %1251, !prof !109
   br i1 %or.cond.i40, label %.critedge.i44, label %1252, !prof !109
 
 1252:                                             ; preds = %1243
@@ -10031,7 +10031,7 @@ _ZN11duckdb_zstdL31ZSTD_execSequenceSplitLitBufferEPhS0_PKhNS_5seq_tEPS2_S2_S2_S
   %1358 = icmp ugt ptr %1355, %.6232.i705
   %1359 = getelementptr inbounds nuw i8, ptr %.9216.i707, i64 %1353
   %1360 = icmp ugt ptr %1359, %1075
-  %or.cond.i29 = select i1 %1358, i1 true, i1 %1360
+  %or.cond.i29 = select i1 %1358, i1 true, i1 %1360, !prof !109
   br i1 %or.cond.i29, label %.critedge.i33, label %1361, !prof !109
 
 1361:                                             ; preds = %1351
@@ -11573,7 +11573,7 @@ _ZN11duckdb_zstdL19ZSTD_decodeSequenceEPNS_10seqState_tENS_17ZSTD_longOffset_eEi
   %450 = icmp ugt ptr %443, %16
   %451 = getelementptr inbounds nuw i8, ptr %.2144.i285, i64 %447
   %452 = icmp ugt ptr %451, %445
-  %or.cond.i207.i = select i1 %450, i1 true, i1 %452
+  %or.cond.i207.i = select i1 %450, i1 true, i1 %452, !prof !109
   br i1 %or.cond.i207.i, label %.critedge.i211.i, label %453, !prof !109
 
 453:                                              ; preds = %442
@@ -11897,7 +11897,7 @@ _ZN11duckdb_zstdL25ZSTD_safecopyDstBeforeSrcEPhPKhl.exit: ; preds = %.lr.ph.i, %
   %612 = getelementptr inbounds i8, ptr %12, i64 -32
   %613 = getelementptr inbounds nuw i8, ptr %.6148.i, i64 %607
   %614 = icmp ugt ptr %613, %612
-  %or.cond.i201.i = select i1 %611, i1 true, i1 %614
+  %or.cond.i201.i = select i1 %611, i1 true, i1 %614, !prof !109
   br i1 %or.cond.i201.i, label %.critedge.i205.i, label %615, !prof !109
 
 615:                                              ; preds = %602
@@ -12444,7 +12444,7 @@ _ZN11duckdb_zstdL19ZSTD_decodeSequenceEPNS_10seqState_tENS_17ZSTD_longOffset_eEi
   %926 = icmp ugt ptr %923, %604
   %927 = getelementptr inbounds nuw i8, ptr %.9151.i288, i64 %921
   %928 = icmp ugt ptr %927, %612
-  %or.cond.i.i = select i1 %926, i1 true, i1 %928
+  %or.cond.i.i = select i1 %926, i1 true, i1 %928, !prof !109
   br i1 %or.cond.i.i, label %.critedge.i.i, label %929, !prof !109
 
 929:                                              ; preds = %_ZN11duckdb_zstdL19ZSTD_decodeSequenceEPNS_10seqState_tENS_17ZSTD_longOffset_eEi.exit.i
@@ -13484,7 +13484,7 @@ _ZN11duckdb_zstdL19ZSTD_decodeSequenceEPNS_10seqState_tENS_17ZSTD_longOffset_eEi
   %449 = icmp ugt ptr %446, %24
   %450 = getelementptr inbounds nuw i8, ptr %.270.i103, i64 %444
   %451 = icmp ugt ptr %450, %236
-  %or.cond.i.i = select i1 %449, i1 true, i1 %451
+  %or.cond.i.i = select i1 %449, i1 true, i1 %451, !prof !109
   br i1 %or.cond.i.i, label %.critedge.i.i, label %452, !prof !109
 
 452:                                              ; preds = %_ZN11duckdb_zstdL19ZSTD_decodeSequenceEPNS_10seqState_tENS_17ZSTD_longOffset_eEi.exit.i

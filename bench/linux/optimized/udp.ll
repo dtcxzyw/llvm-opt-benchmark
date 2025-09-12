@@ -1789,7 +1789,7 @@ define dso_local range(i32 0, -2147483648) i32 @__udp6_lib_rcv(ptr noundef %0, p
   %105 = tail call i16 @llvm.bswap.i16(i16 %69)
   %106 = tail call ptr @inet6_lookup_reuseport(ptr noundef %7, ptr noundef nonnull %71, ptr noundef %0, i32 noundef 8, ptr noundef nonnull %63, i16 noundef zeroext %67, ptr noundef nonnull %62, i16 noundef zeroext %105, ptr noundef nonnull @udp6_ehashfn) #14
   %107 = icmp eq ptr %106, null
-  %brmerge = select i1 %107, i1 true, i1 %89
+  %brmerge = select i1 %107, i1 true, i1 %89, !prof !29
   %.mux = select i1 %107, ptr %71, ptr %106, !prof !29
   br i1 %brmerge, label %109, label %108, !prof !30
 

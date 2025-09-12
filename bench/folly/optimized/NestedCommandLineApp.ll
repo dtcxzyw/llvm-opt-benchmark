@@ -594,7 +594,7 @@ define void @_ZN5folly11ProgramExitC2EiRKNSt7__cxx1112basic_stringIcSt11char_tra
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load i64, ptr %6, align 8
   %.not13 = icmp eq i64 %7, 0
-  %or.cond = select i1 %.not, i1 true, i1 %.not13
+  %or.cond = select i1 %.not, i1 true, i1 %.not13, !prof !27
   br i1 %or.cond, label %.critedge, label %8, !prof !27
 
 8:                                                ; preds = %3

@@ -8658,7 +8658,7 @@ define hidden noundef ptr @"_ZN166_$LT$brotli..enc..writer..CompressorWriterCust
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 5608
   %4 = load ptr, ptr %3, align 8, !align !603
   %.not3 = icmp eq ptr %4, null
-  %or.cond = select i1 %.not, i1 %.not3, i1 false
+  %or.cond = select i1 %.not, i1 %.not3, i1 false, !prof !604
   br i1 %or.cond, label %5, label %6, !prof !604
 
 5:                                                ; preds = %1

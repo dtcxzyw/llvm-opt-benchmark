@@ -4562,7 +4562,7 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort18small_sort_ge
   %.sroa.0.1.i.i = phi ptr [ %.sroa.sel4.idx.sroa.sel.idx.sroa.sel, %._crit_edge.i.i ], [ %.sroa.sel.idx.sroa.sel, %66 ]
   %69 = icmp ne ptr %.sroa.0.1.i.i, %43
   %70 = icmp ne ptr %.sroa.06.1.i.i, %44
-  %or.cond.i.i = select i1 %69, i1 true, i1 %70
+  %or.cond.i.i = select i1 %69, i1 true, i1 %70, !prof !850
   br i1 %or.cond.i.i, label %71, label %_ZN4core5slice4sort6shared9smallsort19bidirectional_merge17h1f6bd15f453e7e8fE.exit.i, !prof !850
 
 71:                                               ; preds = %68

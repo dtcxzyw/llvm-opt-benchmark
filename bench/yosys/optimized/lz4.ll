@@ -14576,7 +14576,7 @@ _ZL20read_variable_lengthPPKhS0_i.exit17.thread81: ; preds = %90, %_ZL20read_var
   %.4376.i = phi i64 [ %108, %110 ], [ %101, %105 ]
   %121 = getelementptr inbounds nuw i8, ptr %84, i64 %5
   %122 = icmp ult ptr %121, %1
-  %or.cond451.i = select i1 %17, i1 %122, i1 false
+  %or.cond451.i = select i1 %17, i1 %122, i1 false, !prof !46
   br i1 %or.cond451.i, label %_ZL14LZ4_wildCopy32PvPKvS_.exit.thread, label %123, !prof !46
 
 123:                                              ; preds = %.thread89
@@ -14953,7 +14953,7 @@ _ZL20read_variable_lengthPPKhS0_i.exit26:         ; preds = %283, %278
   %.4.i = phi ptr [ %.9.i, %294 ], [ %.3.i, %107 ], [ %.3.i, %105 ]
   %296 = getelementptr inbounds nuw i8, ptr %.0362.i, i64 %5
   %297 = icmp ult ptr %296, %1
-  %or.cond460.i = select i1 %17, i1 %297, i1 false
+  %or.cond460.i = select i1 %17, i1 %297, i1 false, !prof !46
   br i1 %or.cond460.i, label %_ZL14LZ4_wildCopy32PvPKvS_.exit.thread, label %298, !prof !46
 
 298:                                              ; preds = %.loopexit143
@@ -15363,7 +15363,7 @@ _ZL20read_variable_lengthPPKhS0_i.exit21.thread85: ; preds = %87, %_ZL20read_var
   %.4376.i = phi i64 [ %105, %107 ], [ %98, %102 ]
   %118 = getelementptr inbounds nuw i8, ptr %81, i64 %6
   %119 = icmp ult ptr %118, %1
-  %or.cond451.i = select i1 %19, i1 %119, i1 false
+  %or.cond451.i = select i1 %19, i1 %119, i1 false, !prof !46
   br i1 %or.cond451.i, label %_ZL14LZ4_wildCopy32PvPKvS_.exit.thread, label %120, !prof !46
 
 120:                                              ; preds = %.thread93
@@ -15770,7 +15770,7 @@ _ZL20read_variable_lengthPPKhS0_i.exit30:         ; preds = %296, %291
   %.4.i = phi ptr [ %.9.i, %307 ], [ %.3.i, %104 ], [ %.3.i, %102 ]
   %309 = getelementptr inbounds nuw i8, ptr %.0362.i, i64 %6
   %310 = icmp ult ptr %309, %1
-  %or.cond460.i = select i1 %19, i1 %310, i1 false
+  %or.cond460.i = select i1 %19, i1 %310, i1 false, !prof !46
   br i1 %or.cond460.i, label %_ZL14LZ4_wildCopy32PvPKvS_.exit.thread, label %311, !prof !46
 
 311:                                              ; preds = %.loopexit149
@@ -16288,7 +16288,7 @@ _ZL20read_variable_lengthPPKhS0_i.exit77.thread143: ; preds = %118, %_ZL20read_v
   %.4376.i.i = phi i64 [ %136, %138 ], [ %129, %133 ]
   %149 = getelementptr inbounds nuw i8, ptr %112, i64 %26
   %150 = icmp ult ptr %149, %32
-  %or.cond451.i.i = select i1 %44, i1 %150, i1 false
+  %or.cond451.i.i = select i1 %44, i1 %150, i1 false, !prof !46
   br i1 %or.cond451.i.i, label %_ZL14LZ4_wildCopy32PvPKvS_.exit.thread, label %151, !prof !46
 
 151:                                              ; preds = %.thread151
@@ -16665,7 +16665,7 @@ _ZL20read_variable_lengthPPKhS0_i.exit86:         ; preds = %311, %306
   %.4.i.i = phi ptr [ %.9.i.i, %322 ], [ %.3.i.i, %135 ], [ %.3.i.i, %133 ]
   %324 = getelementptr inbounds nuw i8, ptr %.0362.i.i, i64 %26
   %325 = icmp ult ptr %324, %32
-  %or.cond460.i.i = select i1 %44, i1 %325, i1 false
+  %or.cond460.i.i = select i1 %44, i1 %325, i1 false, !prof !46
   br i1 %or.cond460.i.i, label %_ZL14LZ4_wildCopy32PvPKvS_.exit.thread, label %326, !prof !46
 
 326:                                              ; preds = %.loopexit209

@@ -31335,7 +31335,7 @@ select.unfold.i:                                  ; preds = %175, %172, %169, %1
 219:                                              ; preds = %218
   %220 = icmp ne i64 %216, %214
   %.not.i = icmp eq ptr %213, null
-  %or.cond51.i = select i1 %220, i1 true, i1 %.not.i
+  %or.cond51.i = select i1 %220, i1 true, i1 %.not.i, !prof !2776
   br i1 %or.cond51.i, label %"_ZN4core3str6traits108_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$3get17h48b5fc281fcfd004E.exit.thread.i.invoke", label %225, !prof !2776
 
 221:                                              ; preds = %218
@@ -31343,7 +31343,7 @@ select.unfold.i:                                  ; preds = %175, %172, %169, %1
   %223 = load i8, ptr %222, align 1, !alias.scope !2777, !noalias !2780, !noundef !3
   %224 = icmp slt i8 %223, -64
   %.not.old.i = icmp eq ptr %213, null
-  %or.cond52.i = select i1 %224, i1 true, i1 %.not.old.i
+  %or.cond52.i = select i1 %224, i1 true, i1 %.not.old.i, !prof !2776
   br i1 %or.cond52.i, label %"_ZN4core3str6traits108_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$3get17h48b5fc281fcfd004E.exit.thread.i.invoke", label %225, !prof !2776
 
 "_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17h22a549b3ee3047beE.exit.i": ; preds = %.noexc86
@@ -31669,7 +31669,7 @@ select.unfold.i:                                  ; preds = %175, %172, %169, %1
 362:                                              ; preds = %361
   %363 = icmp ne i64 %349, %344
   %.not24.i = icmp eq ptr %343, null
-  %or.cond81.i = select i1 %363, i1 true, i1 %.not24.i
+  %or.cond81.i = select i1 %363, i1 true, i1 %.not24.i, !prof !2776
   br i1 %or.cond81.i, label %"_ZN4core3str6traits108_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$3get17h48b5fc281fcfd004E.exit.thread.i.invoke", label %.cont, !prof !2776
 
 364:                                              ; preds = %361
@@ -32246,7 +32246,7 @@ define hidden { ptr, i64 } @_ZN11ruff_linter10docstrings8sections14SectionContex
 28:                                               ; preds = %27
   %29 = icmp ne i64 %15, %8
   %.not = icmp eq ptr %7, null
-  %or.cond = select i1 %29, i1 true, i1 %.not
+  %or.cond = select i1 %29, i1 true, i1 %.not, !prof !2776
   br i1 %or.cond, label %"_ZN4core3str6traits108_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$3get17h48b5fc281fcfd004E.exit.thread", label %34, !prof !2776
 
 30:                                               ; preds = %27
@@ -32254,7 +32254,7 @@ define hidden { ptr, i64 } @_ZN11ruff_linter10docstrings8sections14SectionContex
   %32 = load i8, ptr %31, align 1, !alias.scope !2837, !noundef !3
   %33 = icmp slt i8 %32, -64
   %.not.old = icmp eq ptr %7, null
-  %or.cond5 = select i1 %33, i1 true, i1 %.not.old
+  %or.cond5 = select i1 %33, i1 true, i1 %.not.old, !prof !2776
   br i1 %or.cond5, label %"_ZN4core3str6traits108_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$3get17h48b5fc281fcfd004E.exit.thread", label %34, !prof !2776
 
 "_ZN4core3str6traits108_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$3get17h48b5fc281fcfd004E.exit": ; preds = %19
@@ -32299,7 +32299,7 @@ define hidden { ptr, i64 } @_ZN11ruff_linter10docstrings8sections14SectionContex
 15:                                               ; preds = %14
   %16 = icmp ne i64 %12, %5
   %.not = icmp eq ptr %4, null
-  %or.cond = select i1 %16, i1 true, i1 %.not
+  %or.cond = select i1 %16, i1 true, i1 %.not, !prof !2776
   br i1 %or.cond, label %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17h22a549b3ee3047beE.exit.thread", label %21, !prof !2776
 
 17:                                               ; preds = %14
@@ -32307,7 +32307,7 @@ define hidden { ptr, i64 } @_ZN11ruff_linter10docstrings8sections14SectionContex
   %19 = load i8, ptr %18, align 1, !alias.scope !2840, !noundef !3
   %20 = icmp slt i8 %19, -64
   %.not.old = icmp eq ptr %4, null
-  %or.cond5 = select i1 %20, i1 true, i1 %.not.old
+  %or.cond5 = select i1 %20, i1 true, i1 %.not.old, !prof !2776
   br i1 %or.cond5, label %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17h22a549b3ee3047beE.exit.thread", label %21, !prof !2776
 
 "_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17h22a549b3ee3047beE.exit": ; preds = %1
@@ -32503,7 +32503,7 @@ _ZN11ruff_linter10docstrings8sections14SectionContext27summary_full_range_relati
 28:                                               ; preds = %27
   %29 = icmp ne i64 %15, %8
   %.not = icmp eq ptr %7, null
-  %or.cond = select i1 %29, i1 true, i1 %.not
+  %or.cond = select i1 %29, i1 true, i1 %.not, !prof !2776
   br i1 %or.cond, label %"_ZN4core3str6traits108_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$3get17h48b5fc281fcfd004E.exit.thread", label %"_ZN4core3str6traits108_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$3get17h48b5fc281fcfd004E.exit.thread46", !prof !2776
 
 30:                                               ; preds = %27
@@ -32635,7 +32635,7 @@ define hidden { ptr, i64 } @_ZN11ruff_linter10docstrings8sections14SectionContex
 29:                                               ; preds = %28
   %30 = icmp ne i64 %16, %11
   %.not = icmp eq ptr %10, null
-  %or.cond = select i1 %30, i1 true, i1 %.not
+  %or.cond = select i1 %30, i1 true, i1 %.not, !prof !2776
   br i1 %or.cond, label %"_ZN4core3str6traits108_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$3get17h48b5fc281fcfd004E.exit.thread", label %35, !prof !2776
 
 31:                                               ; preds = %28
@@ -32643,7 +32643,7 @@ define hidden { ptr, i64 } @_ZN11ruff_linter10docstrings8sections14SectionContex
   %33 = load i8, ptr %32, align 1, !alias.scope !2852, !noundef !3
   %34 = icmp slt i8 %33, -64
   %.not.old = icmp eq ptr %10, null
-  %or.cond10 = select i1 %34, i1 true, i1 %.not.old
+  %or.cond10 = select i1 %34, i1 true, i1 %.not.old, !prof !2776
   br i1 %or.cond10, label %"_ZN4core3str6traits108_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$3get17h48b5fc281fcfd004E.exit.thread", label %35, !prof !2776
 
 "_ZN4core3str6traits108_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$3get17h48b5fc281fcfd004E.exit": ; preds = %20
@@ -32806,7 +32806,7 @@ _ZN11ruff_linter10docstrings8sections14SectionContext24following_range_relative1
 28:                                               ; preds = %27
   %29 = icmp ne i64 %15, %8
   %.not = icmp eq ptr %7, null
-  %or.cond = select i1 %29, i1 true, i1 %.not
+  %or.cond = select i1 %29, i1 true, i1 %.not, !prof !2776
   br i1 %or.cond, label %"_ZN4core3str6traits108_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$3get17h48b5fc281fcfd004E.exit.thread", label %34, !prof !2776
 
 30:                                               ; preds = %27
@@ -32814,7 +32814,7 @@ _ZN11ruff_linter10docstrings8sections14SectionContext24following_range_relative1
   %32 = load i8, ptr %31, align 1, !alias.scope !2858, !noundef !3
   %33 = icmp slt i8 %32, -64
   %.not.old = icmp eq ptr %7, null
-  %or.cond6 = select i1 %33, i1 true, i1 %.not.old
+  %or.cond6 = select i1 %33, i1 true, i1 %.not.old, !prof !2776
   br i1 %or.cond6, label %"_ZN4core3str6traits108_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$3get17h48b5fc281fcfd004E.exit.thread", label %34, !prof !2776
 
 "_ZN4core3str6traits108_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$3get17h48b5fc281fcfd004E.exit": ; preds = %19
@@ -38254,7 +38254,7 @@ _ZN11ruff_linter4noqa9NoqaLexer11token_range17h2ad12b0a8d4bdfafE.exit.i: ; preds
 61:                                               ; preds = %60
   %62 = icmp ne i64 %58, %32
   %.not21.i = icmp eq ptr %31, null
-  %or.cond38.i = select i1 %62, i1 true, i1 %.not21.i
+  %or.cond38.i = select i1 %62, i1 true, i1 %.not21.i, !prof !2776
   br i1 %or.cond38.i, label %"_ZN4core3str6traits110_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeTo$LT$usize$GT$$GT$3get17heac9f6a047b0eab2E.exit.thread.i", label %"_ZN4core3str6traits110_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeTo$LT$usize$GT$$GT$3get17heac9f6a047b0eab2E.exit.thread34.i", !prof !2776
 
 63:                                               ; preds = %60
@@ -39081,14 +39081,14 @@ define hidden { i64, ptr } @_ZN11ruff_linter4noqa8add_noqa17h1a687c811cda833dE(p
 
 177:                                              ; preds = %176
   %178 = icmp ne i64 %162, %131
-  %or.cond.i = select i1 %178, i1 true, i1 %.not22.i
+  %or.cond.i = select i1 %178, i1 true, i1 %.not22.i, !prof !2776
   br i1 %or.cond.i, label %.thread12.i, label %184, !prof !2776
 
 179:                                              ; preds = %176
   %180 = getelementptr inbounds nuw i8, ptr %130, i64 %162
   %181 = load i8, ptr %180, align 1, !alias.scope !3361, !noalias !3315, !noundef !3
   %182 = icmp slt i8 %181, -64
-  %or.cond21.i = select i1 %182, i1 true, i1 %.not22.i
+  %or.cond21.i = select i1 %182, i1 true, i1 %.not22.i, !prof !2776
   br i1 %or.cond21.i, label %.thread12.i, label %184, !prof !2776
 
 183:                                              ; preds = %168
@@ -39173,14 +39173,14 @@ define hidden { i64, ptr } @_ZN11ruff_linter4noqa8add_noqa17h1a687c811cda833dE(p
 
 208:                                              ; preds = %207
   %209 = icmp ne i64 %194, %131
-  %or.cond22.i = select i1 %209, i1 true, i1 %.not22.i
+  %or.cond22.i = select i1 %209, i1 true, i1 %.not22.i, !prof !2776
   br i1 %or.cond22.i, label %.thread17.i, label %215, !prof !2776
 
 210:                                              ; preds = %207
   %211 = getelementptr inbounds nuw i8, ptr %130, i64 %194
   %212 = load i8, ptr %211, align 1, !alias.scope !3368, !noalias !3315, !noundef !3
   %213 = icmp slt i8 %212, -64
-  %or.cond23.i = select i1 %213, i1 true, i1 %.not22.i
+  %or.cond23.i = select i1 %213, i1 true, i1 %.not22.i, !prof !2776
   br i1 %or.cond23.i, label %.thread17.i, label %215, !prof !2776
 
 214:                                              ; preds = %199
@@ -64432,7 +64432,7 @@ _ZN11ruff_linter10docstrings8sections14SectionContext15following_lines17h30215c5
 102:                                              ; preds = %101
   %103 = icmp ne i64 %99, %92
   %.not.i22 = icmp eq ptr %91, null
-  %or.cond.i = select i1 %103, i1 true, i1 %.not.i22
+  %or.cond.i = select i1 %103, i1 true, i1 %.not.i22, !prof !2776
   br i1 %or.cond.i, label %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17h22a549b3ee3047beE.exit.thread.i", label %108, !prof !2776
 
 104:                                              ; preds = %101
@@ -64440,7 +64440,7 @@ _ZN11ruff_linter10docstrings8sections14SectionContext15following_lines17h30215c5
   %106 = load i8, ptr %105, align 1, !alias.scope !4825, !noalias !4822, !noundef !3
   %107 = icmp slt i8 %106, -64
   %.not.old.i = icmp eq ptr %91, null
-  %or.cond5.i = select i1 %107, i1 true, i1 %.not.old.i
+  %or.cond5.i = select i1 %107, i1 true, i1 %.not.old.i, !prof !2776
   br i1 %or.cond5.i, label %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17h22a549b3ee3047beE.exit.thread.i", label %108, !prof !2776
 
 "_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17h22a549b3ee3047beE.exit.i": ; preds = %.noexc24
@@ -66248,7 +66248,7 @@ define hidden void @_ZN11ruff_linter5rules10pydocstyle5rules12no_signature12no_s
 40:                                               ; preds = %39
   %41 = icmp ne i64 %34, %37
   %.not.i.i.i = icmp eq ptr %36, null
-  %or.cond.i.i.i = select i1 %41, i1 true, i1 %.not.i.i.i
+  %or.cond.i.i.i = select i1 %41, i1 true, i1 %.not.i.i.i, !prof !2776
   br i1 %or.cond.i.i.i, label %"_ZN4core3str6traits110_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeTo$LT$usize$GT$$GT$3get17heac9f6a047b0eab2E.exit.thread.i.i.i", label %46, !prof !2776
 
 42:                                               ; preds = %39
@@ -66354,7 +66354,7 @@ define hidden void @_ZN11ruff_linter5rules10pydocstyle5rules12no_signature12no_s
 94:                                               ; preds = %93
   %95 = icmp ne i64 %91, %88
   %.not10.i.i.i = icmp eq ptr %87, null
-  %or.cond13.i.i.i = select i1 %95, i1 true, i1 %.not10.i.i.i
+  %or.cond13.i.i.i = select i1 %95, i1 true, i1 %.not10.i.i.i, !prof !2776
   br i1 %or.cond13.i.i.i, label %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17h22a549b3ee3047beE.exit.thread.i.i.i", label %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h61416eda6df069c5E.exit.i", !prof !2776
 
 96:                                               ; preds = %93
@@ -66362,7 +66362,7 @@ define hidden void @_ZN11ruff_linter5rules10pydocstyle5rules12no_signature12no_s
   %98 = load i8, ptr %97, align 1, !alias.scope !5018, !noalias !5009, !noundef !3
   %99 = icmp slt i8 %98, -64
   %.not10.old.i.i.i = icmp eq ptr %87, null
-  %or.cond14.i.i.i = select i1 %99, i1 true, i1 %.not10.old.i.i.i
+  %or.cond14.i.i.i = select i1 %99, i1 true, i1 %.not10.old.i.i.i, !prof !2776
   br i1 %or.cond14.i.i.i, label %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17h22a549b3ee3047beE.exit.thread.i.i.i", label %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h61416eda6df069c5E.exit.i", !prof !2776
 
 "_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17h22a549b3ee3047beE.exit.i.i.i": ; preds = %"_ZN4core3str6traits110_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeTo$LT$usize$GT$$GT$3get17heac9f6a047b0eab2E.exit.thread5.i.i.i"

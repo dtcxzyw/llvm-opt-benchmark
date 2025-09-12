@@ -2705,7 +2705,7 @@ define void @"_ZN162_$LT$ruff_python_formatter..other..identifier..DotDelimitedI
 38:                                               ; preds = %37
   %39 = icmp ne i64 %25, %19
   %.not = icmp eq ptr %18, null
-  %or.cond = select i1 %39, i1 true, i1 %.not
+  %or.cond = select i1 %39, i1 true, i1 %.not, !prof !176
   br i1 %or.cond, label %"_ZN4core3str6traits108_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$3get17h48b5fc281fcfd004E.exit.thread", label %44, !prof !176
 
 40:                                               ; preds = %37
@@ -2713,7 +2713,7 @@ define void @"_ZN162_$LT$ruff_python_formatter..other..identifier..DotDelimitedI
   %42 = load i8, ptr %41, align 1, !alias.scope !173, !noundef !3
   %43 = icmp slt i8 %42, -64
   %.not.old = icmp eq ptr %18, null
-  %or.cond21 = select i1 %43, i1 true, i1 %.not.old
+  %or.cond21 = select i1 %43, i1 true, i1 %.not.old, !prof !176
   br i1 %or.cond21, label %"_ZN4core3str6traits108_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$3get17h48b5fc281fcfd004E.exit.thread", label %44, !prof !176
 
 "_ZN4core3str6traits108_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$3get17h48b5fc281fcfd004E.exit": ; preds = %29
@@ -2868,7 +2868,7 @@ define void @"_ZN162_$LT$ruff_python_formatter..other..identifier..DotDelimitedI
 121:                                              ; preds = %120
   %122 = icmp ne i64 %108, %103
   %.not6 = icmp eq ptr %102, null
-  %or.cond22 = select i1 %122, i1 true, i1 %.not6
+  %or.cond22 = select i1 %122, i1 true, i1 %.not6, !prof !176
   br i1 %or.cond22, label %"_ZN4core3str6traits108_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$3get17h48b5fc281fcfd004E.exit12.thread", label %128, !prof !176
 
 123:                                              ; preds = %120
@@ -2876,7 +2876,7 @@ define void @"_ZN162_$LT$ruff_python_formatter..other..identifier..DotDelimitedI
   %125 = load i8, ptr %124, align 1, !alias.scope !186, !noundef !3
   %126 = icmp slt i8 %125, -64
   %.not6.old = icmp eq ptr %102, null
-  %or.cond23 = select i1 %126, i1 true, i1 %.not6.old
+  %or.cond23 = select i1 %126, i1 true, i1 %.not6.old, !prof !176
   br i1 %or.cond23, label %"_ZN4core3str6traits108_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$3get17h48b5fc281fcfd004E.exit12.thread", label %128, !prof !176
 
 "_ZN4core3str6traits108_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$3get17h48b5fc281fcfd004E.exit12": ; preds = %112
@@ -5535,7 +5535,7 @@ define void @"_ZN175_$LT$ruff_python_formatter..string..implicit..FormatImplicit
 100:                                              ; preds = %99
   %101 = icmp ne i64 %87, %82
   %.not61 = icmp eq ptr %81, null
-  %or.cond = select i1 %101, i1 true, i1 %.not61
+  %or.cond = select i1 %101, i1 true, i1 %.not61, !prof !176
   br i1 %or.cond, label %"_ZN4core3str6traits108_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$3get17h48b5fc281fcfd004E.exit.thread", label %106, !prof !176
 
 102:                                              ; preds = %99
@@ -5543,7 +5543,7 @@ define void @"_ZN175_$LT$ruff_python_formatter..string..implicit..FormatImplicit
   %104 = load i8, ptr %103, align 1, !alias.scope !337, !noundef !3
   %105 = icmp slt i8 %104, -64
   %.not61.old = icmp eq ptr %81, null
-  %or.cond109 = select i1 %105, i1 true, i1 %.not61.old
+  %or.cond109 = select i1 %105, i1 true, i1 %.not61.old, !prof !176
   br i1 %or.cond109, label %"_ZN4core3str6traits108_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$3get17h48b5fc281fcfd004E.exit.thread", label %106, !prof !176
 
 "_ZN4core3str6traits108_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$3get17h48b5fc281fcfd004E.exit": ; preds = %91
@@ -5752,7 +5752,7 @@ define void @"_ZN175_$LT$ruff_python_formatter..string..implicit..FormatImplicit
 183:                                              ; preds = %182
   %184 = icmp ne i64 %170, %165
   %.not72 = icmp eq ptr %164, null
-  %or.cond110 = select i1 %184, i1 true, i1 %.not72
+  %or.cond110 = select i1 %184, i1 true, i1 %.not72, !prof !176
   br i1 %or.cond110, label %"_ZN4core3str6traits108_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$3get17h48b5fc281fcfd004E.exit81.thread", label %189, !prof !176
 
 185:                                              ; preds = %182
@@ -5760,7 +5760,7 @@ define void @"_ZN175_$LT$ruff_python_formatter..string..implicit..FormatImplicit
   %187 = load i8, ptr %186, align 1, !alias.scope !353, !noundef !3
   %188 = icmp slt i8 %187, -64
   %.not72.old = icmp eq ptr %164, null
-  %or.cond111 = select i1 %188, i1 true, i1 %.not72.old
+  %or.cond111 = select i1 %188, i1 true, i1 %.not72.old, !prof !176
   br i1 %or.cond111, label %"_ZN4core3str6traits108_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$3get17h48b5fc281fcfd004E.exit81.thread", label %189, !prof !176
 
 "_ZN4core3str6traits108_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$3get17h48b5fc281fcfd004E.exit81": ; preds = %174
@@ -5935,7 +5935,7 @@ define void @"_ZN159_$LT$ruff_python_formatter..string..implicit..FormatLiteralC
 40:                                               ; preds = %39
   %41 = icmp ne i64 %27, %22
   %.not = icmp eq ptr %21, null
-  %or.cond = select i1 %41, i1 true, i1 %.not
+  %or.cond = select i1 %41, i1 true, i1 %.not, !prof !176
   br i1 %or.cond, label %"_ZN4core3str6traits108_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$3get17h48b5fc281fcfd004E.exit.thread", label %46, !prof !176
 
 42:                                               ; preds = %39
@@ -5943,7 +5943,7 @@ define void @"_ZN159_$LT$ruff_python_formatter..string..implicit..FormatLiteralC
   %44 = load i8, ptr %43, align 1, !alias.scope !357, !noundef !3
   %45 = icmp slt i8 %44, -64
   %.not.old = icmp eq ptr %21, null
-  %or.cond66 = select i1 %45, i1 true, i1 %.not.old
+  %or.cond66 = select i1 %45, i1 true, i1 %.not.old, !prof !176
   br i1 %or.cond66, label %"_ZN4core3str6traits108_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$3get17h48b5fc281fcfd004E.exit.thread", label %46, !prof !176
 
 "_ZN4core3str6traits108_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$3get17h48b5fc281fcfd004E.exit": ; preds = %31
@@ -9381,7 +9381,7 @@ define void @"_ZN143_$LT$ruff_python_formatter..verbatim..VerbatimText$u20$as$u2
 44:                                               ; preds = %43
   %45 = icmp ne i64 %31, %29
   %.not = icmp eq ptr %28, null
-  %or.cond = select i1 %45, i1 true, i1 %.not
+  %or.cond = select i1 %45, i1 true, i1 %.not, !prof !176
   br i1 %or.cond, label %"_ZN4core3str6traits108_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$3get17h48b5fc281fcfd004E.exit.thread", label %50, !prof !176
 
 46:                                               ; preds = %43
@@ -9389,7 +9389,7 @@ define void @"_ZN143_$LT$ruff_python_formatter..verbatim..VerbatimText$u20$as$u2
   %48 = load i8, ptr %47, align 1, !alias.scope !514, !noundef !3
   %49 = icmp slt i8 %48, -64
   %.not.old = icmp eq ptr %28, null
-  %or.cond34 = select i1 %49, i1 true, i1 %.not.old
+  %or.cond34 = select i1 %49, i1 true, i1 %.not.old, !prof !176
   br i1 %or.cond34, label %"_ZN4core3str6traits108_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$3get17h48b5fc281fcfd004E.exit.thread", label %50, !prof !176
 
 "_ZN4core3str6traits108_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$3get17h48b5fc281fcfd004E.exit": ; preds = %35

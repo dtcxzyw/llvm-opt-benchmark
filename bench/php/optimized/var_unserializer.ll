@@ -3181,7 +3181,7 @@ define internal fastcc i64 @parse_iv(ptr noundef %0) unnamed_addr #8 {
   %25 = sub i64 %23, %24
   %26 = icmp sgt i64 %25, 19
   %27 = icmp ugt i64 %.024.lcssa.i, %.023.i
-  %or.cond32.i = select i1 %26, i1 true, i1 %27
+  %or.cond32.i = select i1 %26, i1 true, i1 %27, !prof !142
   br i1 %or.cond32.i, label %28, label %30, !prof !142
 
 28:                                               ; preds = %.critedge.i
@@ -3272,7 +3272,7 @@ define internal fastcc range(i32 0, 2) i32 @object_custom(ptr noundef %0, ptr no
   %31 = sub i64 %29, %30
   %32 = icmp sgt i64 %31, 19
   %33 = icmp ugt i64 %.024.lcssa.i, %.023.i
-  %or.cond32.i = select i1 %32, i1 true, i1 %33
+  %or.cond32.i = select i1 %32, i1 true, i1 %33, !prof !142
   br i1 %or.cond32.i, label %34, label %36, !prof !142
 
 34:                                               ; preds = %.loopexit
@@ -3435,7 +3435,7 @@ define internal fastcc i64 @parse_iv2(ptr noundef %0, ptr noundef writeonly capt
   %28 = sub i64 %26, %27
   %29 = icmp sgt i64 %28, 19
   %30 = icmp ugt i64 %.024.lcssa, %.023
-  %or.cond32 = select i1 %29, i1 true, i1 %30
+  %or.cond32 = select i1 %29, i1 true, i1 %30, !prof !142
   br i1 %or.cond32, label %31, label %33, !prof !142
 
 31:                                               ; preds = %25

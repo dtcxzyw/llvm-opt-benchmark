@@ -7772,7 +7772,7 @@ mi_os_prim_free.exit.i:                           ; preds = %135, %133
   %.b53 = load i1, ptr @mi_os_mem_config.1, align 8
   %145 = load i32, ptr getelementptr inbounds nuw (i8, ptr @options, i64 200), align 8
   %146 = icmp eq i32 %145, 0
-  %or.cond16.i = select i1 %.b53, i1 %146, i1 false
+  %or.cond16.i = select i1 %.b53, i1 %146, i1 false, !prof !118
   br i1 %or.cond16.i, label %147, label %unix_mmap_prim.exit116.i, !prof !118
 
 147:                                              ; preds = %141
@@ -16605,7 +16605,7 @@ _mi_os_good_alloc_size.exit.thread:               ; preds = %15, %_mi_os_good_al
   %.b = load i1, ptr @mi_os_mem_config.1, align 8
   %31 = load i32, ptr getelementptr inbounds nuw (i8, ptr @options, i64 200), align 8
   %32 = icmp eq i32 %31, 0
-  %or.cond = select i1 %.b, i1 %32, i1 false
+  %or.cond = select i1 %.b, i1 %32, i1 false, !prof !118
   br i1 %or.cond, label %33, label %unix_mmap_prim.exit, !prof !118
 
 33:                                               ; preds = %_mi_os_good_alloc_size.exit.thread

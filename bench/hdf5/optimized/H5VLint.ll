@@ -489,7 +489,7 @@ define range(i32 -1, 1) i32 @H5VL__set_def_conn() local_unnamed_addr #0 {
   %.not.i = select i1 %not..i, i1 %35, i1 false
   %.013.i.i = load ptr, ptr @H5VL_conn_list_head_g, align 8
   %.not14.i.i = icmp eq ptr %.013.i.i, null
-  %or.cond.i = select i1 %.not.i, i1 true, i1 %.not14.i.i
+  %or.cond.i = select i1 %.not.i, i1 true, i1 %.not14.i.i, !prof !20
   br i1 %or.cond.i, label %.loopexit, label %.lr.ph.split.us.i.i, !prof !20
 
 .lr.ph.split.us.i.i:                              ; preds = %31, %41
@@ -922,7 +922,7 @@ define range(i32 0, 2) i32 @H5VL__is_connector_registered_by_name(ptr noundef re
   %.not = select i1 %not., i1 %5, i1 false
   %.013.i = load ptr, ptr @H5VL_conn_list_head_g, align 8
   %.not14.i = icmp eq ptr %.013.i, null
-  %or.cond = select i1 %.not, i1 true, i1 %.not14.i
+  %or.cond = select i1 %.not, i1 true, i1 %.not14.i, !prof !20
   br i1 %or.cond, label %H5VL__conn_find.exit, label %.lr.ph.split.us.i, !prof !20
 
 .lr.ph.split.us.i:                                ; preds = %1, %11
@@ -955,7 +955,7 @@ define noundef ptr @H5VL__get_connector_by_name(ptr noundef readonly captures(no
   %.not = select i1 %not., i1 %5, i1 false
   %.013.i = load ptr, ptr @H5VL_conn_list_head_g, align 8
   %.not14.i = icmp eq ptr %.013.i, null
-  %or.cond = select i1 %.not, i1 true, i1 %.not14.i
+  %or.cond = select i1 %.not, i1 true, i1 %.not14.i, !prof !20
   br i1 %or.cond, label %H5VL_conn_inc_rc.exit, label %.lr.ph.split.us.i, !prof !20
 
 .lr.ph.split.us.i:                                ; preds = %1, %11
@@ -3250,7 +3250,7 @@ define range(i32 0, 2) i32 @H5VL__is_connector_registered_by_value(i32 noundef %
   %.not = select i1 %not., i1 %5, i1 false
   %.013.i = load ptr, ptr @H5VL_conn_list_head_g, align 8
   %.not14.i = icmp eq ptr %.013.i, null
-  %or.cond = select i1 %.not, i1 true, i1 %.not14.i
+  %or.cond = select i1 %.not, i1 true, i1 %.not14.i, !prof !20
   br i1 %or.cond, label %H5VL__conn_find.exit, label %.lr.ph.split.i, !prof !20
 
 .lr.ph.split.i:                                   ; preds = %1, %10
@@ -3282,7 +3282,7 @@ define noundef ptr @H5VL__get_connector_by_value(i32 noundef %0) local_unnamed_a
   %.not = select i1 %not., i1 %5, i1 false
   %.013.i = load ptr, ptr @H5VL_conn_list_head_g, align 8
   %.not14.i = icmp eq ptr %.013.i, null
-  %or.cond = select i1 %.not, i1 true, i1 %.not14.i
+  %or.cond = select i1 %.not, i1 true, i1 %.not14.i, !prof !20
   br i1 %or.cond, label %H5VL_conn_inc_rc.exit, label %.lr.ph.split.i, !prof !20
 
 .lr.ph.split.i:                                   ; preds = %1, %10

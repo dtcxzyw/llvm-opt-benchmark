@@ -29488,7 +29488,7 @@ common.resume:                                    ; preds = %314, %270, %.body53
   %407 = getelementptr inbounds nuw i8, ptr %0, i64 79
   %408 = load i8, ptr %407, align 1, !range !529, !alias.scope !5185
   %409 = icmp eq i8 %408, -40
-  %or.cond.i = select i1 %406, i1 %409, i1 false
+  %or.cond.i = select i1 %406, i1 %409, i1 false, !prof !187
   br i1 %or.cond.i, label %410, label %common.resume, !prof !187
 
 410:                                              ; preds = %"_ZN4core3ptr171drop_in_place$LT$core..option..Option$LT$$LP$alloc..sync..Arc$LT$polars_plan..dsl..expr..Expr$GT$$C$polars_core..chunked_array..ops..sort..options..SortOptions$RP$$GT$$GT$17h0916e3eb49d74f72E.exit"
@@ -29508,7 +29508,7 @@ common.resume:                                    ; preds = %314, %270, %.body53
   %417 = getelementptr inbounds nuw i8, ptr %0, i64 79
   %418 = load i8, ptr %417, align 1, !range !529, !alias.scope !5188
   %419 = icmp eq i8 %418, -40
-  %or.cond.i74 = select i1 %416, i1 %419, i1 false
+  %or.cond.i74 = select i1 %416, i1 %419, i1 false, !prof !187
   br i1 %or.cond.i74, label %420, label %"_ZN4core3ptr53drop_in_place$LT$polars_utils..pl_str..PlSmallStr$GT$17hb6116c9cdc00a838E.exit", !prof !187
 
 420:                                              ; preds = %"_ZN4core3ptr171drop_in_place$LT$core..option..Option$LT$$LP$alloc..sync..Arc$LT$polars_plan..dsl..expr..Expr$GT$$C$polars_core..chunked_array..ops..sort..options..SortOptions$RP$$GT$$GT$17h0916e3eb49d74f72E.exit72"
@@ -30516,7 +30516,7 @@ define hidden void @"_ZN4core3ptr52drop_in_place$LT$polars_lazy..frame..LazyGrou
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 479
   %12 = load i8, ptr %11, align 1, !range !529, !alias.scope !5415
   %13 = icmp eq i8 %12, -40
-  %or.cond.i = select i1 %10, i1 %13, i1 false
+  %or.cond.i = select i1 %10, i1 %13, i1 false, !prof !187
   br i1 %or.cond.i, label %14, label %"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$polars_time..group_by..dynamic..DynamicGroupOptions$GT$$GT$17h85b0f5c54881d502E.exit", !prof !187
 
 14:                                               ; preds = %7
@@ -30536,7 +30536,7 @@ define hidden void @"_ZN4core3ptr52drop_in_place$LT$polars_lazy..frame..LazyGrou
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 479
   %23 = load i8, ptr %22, align 1, !range !529, !alias.scope !5418
   %24 = icmp eq i8 %23, -40
-  %or.cond.i4 = select i1 %21, i1 %24, i1 false
+  %or.cond.i4 = select i1 %21, i1 %24, i1 false, !prof !187
   br i1 %or.cond.i4, label %25, label %"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$polars_time..group_by..dynamic..DynamicGroupOptions$GT$$GT$17h85b0f5c54881d502E.exit6", !prof !187
 
 25:                                               ; preds = %18
@@ -30552,7 +30552,7 @@ define hidden void @"_ZN4core3ptr52drop_in_place$LT$polars_lazy..frame..LazyGrou
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 343
   %31 = load i8, ptr %30, align 1, !range !529, !alias.scope !5421
   %32 = icmp eq i8 %31, -40
-  %or.cond.i7 = select i1 %29, i1 %32, i1 false
+  %or.cond.i7 = select i1 %29, i1 %32, i1 false, !prof !187
   br i1 %or.cond.i7, label %33, label %"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$polars_time..group_by..dynamic..RollingGroupOptions$GT$$GT$17h136f149bc97deebaE.exit", !prof !187
 
 33:                                               ; preds = %"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$polars_time..group_by..dynamic..DynamicGroupOptions$GT$$GT$17h85b0f5c54881d502E.exit"
@@ -30572,7 +30572,7 @@ define hidden void @"_ZN4core3ptr52drop_in_place$LT$polars_lazy..frame..LazyGrou
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 343
   %41 = load i8, ptr %40, align 1, !range !529, !alias.scope !5424
   %42 = icmp eq i8 %41, -40
-  %or.cond.i9 = select i1 %39, i1 %42, i1 false
+  %or.cond.i9 = select i1 %39, i1 %42, i1 false, !prof !187
   br i1 %or.cond.i9, label %43, label %"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$polars_time..group_by..dynamic..RollingGroupOptions$GT$$GT$17h136f149bc97deebaE.exit10", !prof !187
 
 43:                                               ; preds = %"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$polars_time..group_by..dynamic..DynamicGroupOptions$GT$$GT$17h85b0f5c54881d502E.exit6"
@@ -32068,7 +32068,7 @@ common.resume:                                    ; preds = %30, %47, %53, %66, 
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 79
   %64 = load i8, ptr %63, align 1, !range !529, !alias.scope !5817
   %65 = icmp eq i8 %64, -40
-  %or.cond.i = select i1 %62, i1 %65, i1 false
+  %or.cond.i = select i1 %62, i1 %65, i1 false, !prof !187
   br i1 %or.cond.i, label %66, label %common.resume, !prof !187
 
 66:                                               ; preds = %58
@@ -32083,7 +32083,7 @@ common.resume:                                    ; preds = %30, %47, %53, %66, 
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 79
   %72 = load i8, ptr %71, align 1, !range !529, !alias.scope !5820
   %73 = icmp eq i8 %72, -40
-  %or.cond.i6 = select i1 %70, i1 %73, i1 false
+  %or.cond.i6 = select i1 %70, i1 %73, i1 false, !prof !187
   br i1 %or.cond.i6, label %74, label %"_ZN4core3ptr53drop_in_place$LT$polars_utils..pl_str..PlSmallStr$GT$17hb6116c9cdc00a838E.exit", !prof !187
 
 74:                                               ; preds = %"_ZN4core3ptr69drop_in_place$LT$alloc..vec..Vec$LT$polars_utils..arena..Node$GT$$GT$17he46be6830cf06097E.exit5"
@@ -34751,7 +34751,7 @@ define hidden void @"_ZN4core3ptr62drop_in_place$LT$polars_plan..dsl..options..G
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 159
   %6 = load i8, ptr %5, align 1, !range !529, !alias.scope !6525
   %7 = icmp eq i8 %6, -40
-  %or.cond.i = select i1 %4, i1 %7, i1 false
+  %or.cond.i = select i1 %4, i1 %7, i1 false, !prof !187
   br i1 %or.cond.i, label %8, label %"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$polars_time..group_by..dynamic..DynamicGroupOptions$GT$$GT$17h85b0f5c54881d502E.exit", !prof !187
 
 8:                                                ; preds = %1
@@ -34768,7 +34768,7 @@ define hidden void @"_ZN4core3ptr62drop_in_place$LT$polars_plan..dsl..options..G
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 47
   %16 = load i8, ptr %15, align 1, !range !529, !alias.scope !6528
   %17 = icmp eq i8 %16, -40
-  %or.cond.i1 = select i1 %14, i1 %17, i1 false
+  %or.cond.i1 = select i1 %14, i1 %17, i1 false, !prof !187
   br i1 %or.cond.i1, label %18, label %"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$polars_time..group_by..dynamic..RollingGroupOptions$GT$$GT$17h136f149bc97deebaE.exit", !prof !187
 
 18:                                               ; preds = %10
@@ -34783,7 +34783,7 @@ define hidden void @"_ZN4core3ptr62drop_in_place$LT$polars_plan..dsl..options..G
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 47
   %24 = load i8, ptr %23, align 1, !range !529, !alias.scope !6531
   %25 = icmp eq i8 %24, -40
-  %or.cond.i3 = select i1 %22, i1 %25, i1 false
+  %or.cond.i3 = select i1 %22, i1 %25, i1 false, !prof !187
   br i1 %or.cond.i3, label %26, label %"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$polars_time..group_by..dynamic..RollingGroupOptions$GT$$GT$17h136f149bc97deebaE.exit4", !prof !187
 
 26:                                               ; preds = %"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$polars_time..group_by..dynamic..DynamicGroupOptions$GT$$GT$17h85b0f5c54881d502E.exit"
@@ -55739,7 +55739,7 @@ define hidden void @"_ZN4core3ptr91drop_in_place$LT$alloc..sync..ArcInner$LT$pol
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 175
   %6 = load i8, ptr %5, align 1, !range !529, !alias.scope !12171
   %7 = icmp eq i8 %6, -40
-  %or.cond.i.i = select i1 %4, i1 %7, i1 false
+  %or.cond.i.i = select i1 %4, i1 %7, i1 false, !prof !187
   br i1 %or.cond.i.i, label %8, label %"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$polars_time..group_by..dynamic..DynamicGroupOptions$GT$$GT$17h85b0f5c54881d502E.exit.i", !prof !187
 
 8:                                                ; preds = %1
@@ -55756,7 +55756,7 @@ define hidden void @"_ZN4core3ptr91drop_in_place$LT$alloc..sync..ArcInner$LT$pol
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 63
   %16 = load i8, ptr %15, align 1, !range !529, !alias.scope !12176
   %17 = icmp eq i8 %16, -40
-  %or.cond.i1.i = select i1 %14, i1 %17, i1 false
+  %or.cond.i1.i = select i1 %14, i1 %17, i1 false, !prof !187
   br i1 %or.cond.i1.i, label %18, label %"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$polars_time..group_by..dynamic..RollingGroupOptions$GT$$GT$17h136f149bc97deebaE.exit.i", !prof !187
 
 18:                                               ; preds = %10
@@ -55771,7 +55771,7 @@ define hidden void @"_ZN4core3ptr91drop_in_place$LT$alloc..sync..ArcInner$LT$pol
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 63
   %24 = load i8, ptr %23, align 1, !range !529, !alias.scope !12179
   %25 = icmp eq i8 %24, -40
-  %or.cond.i3.i = select i1 %22, i1 %25, i1 false
+  %or.cond.i3.i = select i1 %22, i1 %25, i1 false, !prof !187
   br i1 %or.cond.i3.i, label %26, label %"_ZN4core3ptr62drop_in_place$LT$polars_plan..dsl..options..GroupbyOptions$GT$17h1defaafa7a926208E.exit", !prof !187
 
 26:                                               ; preds = %"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$polars_time..group_by..dynamic..DynamicGroupOptions$GT$$GT$17h85b0f5c54881d502E.exit.i"

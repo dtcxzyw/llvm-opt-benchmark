@@ -1840,7 +1840,7 @@ define range(i32 -2, 2) i32 @tls_release_record(ptr noundef captures(address) %0
   %9 = load i64, ptr %8, align 8, !tbaa !95
   %10 = icmp ult i64 %6, %9
   %11 = icmp eq ptr %1, %7
-  %or.cond = select i1 %10, i1 %11, i1 false
+  %or.cond = select i1 %10, i1 %11, i1 false, !prof !101
   br i1 %or.cond, label %13, label %12, !prof !101
 
 12:                                               ; preds = %3

@@ -2062,7 +2062,7 @@ imalloc_no_sample.exit:                           ; preds = %.critedge.i.i, %.th
   %.not.i16 = xor i1 %141, true
   %283 = load i8, ptr @je_opt_junk_alloc, align 1, !range !110
   %284 = trunc nuw i8 %283 to i1
-  %or.cond45.i17 = select i1 %.not.i16, i1 %284, i1 false
+  %or.cond45.i17 = select i1 %.not.i16, i1 %284, i1 false, !prof !143
   br i1 %or.cond45.i17, label %285, label %287, !prof !143
 
 285:                                              ; preds = %282
@@ -2197,7 +2197,7 @@ compute_size_with_overflow.exit31:                ; preds = %3, %tsd_fetch_impl.
   %12 = icmp ult i64 %1, 8
   %13 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %1)
   %14 = icmp samesign ugt i64 %13, 1
-  %or.cond47.i = select i1 %12, i1 true, i1 %14
+  %or.cond47.i = select i1 %12, i1 true, i1 %14, !prof !145
   br i1 %or.cond47.i, label %imalloc.exit, label %15, !prof !145
 
 15:                                               ; preds = %compute_size_with_overflow.exit31
@@ -2348,7 +2348,7 @@ compute_size_with_overflow.exit:                  ; preds = %88, %85
   %91 = icmp ult i64 %1, 8
   %92 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %1)
   %93 = icmp samesign ugt i64 %92, 1
-  %or.cond47.i10 = select i1 %91, i1 true, i1 %93
+  %or.cond47.i10 = select i1 %91, i1 true, i1 %93, !prof !145
   br i1 %or.cond47.i10, label %aligned_usize_get.exit.i16.thread, label %94, !prof !145
 
 94:                                               ; preds = %compute_size_with_overflow.exit
@@ -2516,7 +2516,7 @@ imalloc_no_sample.exit:                           ; preds = %150, %160, %arena_g
   %.not.i20 = xor i1 %96, true
   %180 = load i8, ptr @je_opt_junk_alloc, align 1, !range !110
   %181 = trunc nuw i8 %180 to i1
-  %or.cond45.i21 = select i1 %.not.i20, i1 %181, i1 false
+  %or.cond45.i21 = select i1 %.not.i20, i1 %181, i1 false, !prof !143
   br i1 %or.cond45.i21, label %182, label %183, !prof !143
 
 182:                                              ; preds = %179
@@ -2893,7 +2893,7 @@ imalloc_no_sample.exit:                           ; preds = %148, %158, %arena_g
   %.not.i18 = xor i1 %94, true
   %178 = load i8, ptr @je_opt_junk_alloc, align 1, !range !110
   %179 = trunc nuw i8 %178 to i1
-  %or.cond45.i19 = select i1 %.not.i18, i1 %179, i1 false
+  %or.cond45.i19 = select i1 %.not.i18, i1 %179, i1 false, !prof !143
   br i1 %or.cond45.i19, label %180, label %184, !prof !143
 
 180:                                              ; preds = %177
@@ -4566,7 +4566,7 @@ imalloc_no_sample.exit:                           ; preds = %145, %155, %arena_g
   %.not.i18 = xor i1 %91, true
   %175 = load i8, ptr @je_opt_junk_alloc, align 1, !range !110
   %176 = trunc nuw i8 %175 to i1
-  %or.cond45.i19 = select i1 %.not.i18, i1 %176, i1 false
+  %or.cond45.i19 = select i1 %.not.i18, i1 %176, i1 false, !prof !143
   br i1 %or.cond45.i19, label %177, label %aligned_usize_get.exit.i14.thread, !prof !143
 
 177:                                              ; preds = %174
@@ -4883,7 +4883,7 @@ imalloc_no_sample.exit:                           ; preds = %117, %127, %arena_g
   %.not.i16 = xor i1 %75, true
   %147 = load i8, ptr @je_opt_junk_alloc, align 1, !range !110
   %148 = trunc nuw i8 %147 to i1
-  %or.cond45.i17 = select i1 %.not.i16, i1 %148, i1 false
+  %or.cond45.i17 = select i1 %.not.i16, i1 %148, i1 false, !prof !143
   br i1 %or.cond45.i17, label %149, label %aligned_usize_get.exit.i12.thread, !prof !143
 
 149:                                              ; preds = %146
@@ -5188,7 +5188,7 @@ imalloc_no_sample.exit:                           ; preds = %113, %123, %arena_g
   %.not.i16 = xor i1 %74, true
   %143 = load i8, ptr @je_opt_junk_alloc, align 1, !range !110
   %144 = trunc nuw i8 %143 to i1
-  %or.cond45.i17 = select i1 %.not.i16, i1 %144, i1 false
+  %or.cond45.i17 = select i1 %.not.i16, i1 %144, i1 false, !prof !143
   br i1 %or.cond45.i17, label %145, label %aligned_usize_get.exit.i12.thread, !prof !143
 
 145:                                              ; preds = %142
@@ -6151,7 +6151,7 @@ imalloc_no_sample.exit:                           ; preds = %.critedge.i.i, %.th
   %.not.i25 = xor i1 %spec.select.i.i17, true
   %459 = load i8, ptr @je_opt_junk_alloc, align 1, !range !110
   %460 = trunc nuw i8 %459 to i1
-  %or.cond45.i26 = select i1 %.not.i25, i1 %460, i1 false
+  %or.cond45.i26 = select i1 %.not.i25, i1 %460, i1 false, !prof !143
   br i1 %or.cond45.i26, label %461, label %aligned_usize_get.exit.i21.thread, !prof !143
 
 461:                                              ; preds = %458
@@ -7462,7 +7462,7 @@ imalloc_no_sample.exit:                           ; preds = %.critedge.i.i, %.th
   %.not.i29 = xor i1 %152, true
   %294 = load i8, ptr @je_opt_junk_alloc, align 1, !range !110
   %295 = trunc nuw i8 %294 to i1
-  %or.cond45.i30 = select i1 %.not.i29, i1 %295, i1 false
+  %or.cond45.i30 = select i1 %.not.i29, i1 %295, i1 false, !prof !143
   br i1 %or.cond45.i30, label %296, label %298, !prof !143
 
 296:                                              ; preds = %293
@@ -9985,7 +9985,7 @@ sz_size2index.exit:                               ; preds = %90, %sz_size2index_
 140:                                              ; preds = %138
   %141 = sub nuw i64 %1, %.1
   %.not = icmp ult i64 %141, %.099
-  %or.cond = select i1 %114, i1 true, i1 %.not
+  %or.cond = select i1 %114, i1 true, i1 %.not, !prof !105
   br i1 %or.cond, label %158, label %142, !prof !105
 
 142:                                              ; preds = %140
@@ -10088,7 +10088,7 @@ tcache_get_from_ind.exit.thread176:               ; preds = %mallocx_tcache_get.
   %.val = load ptr, ptr %174, align 8, !tbaa !115
   %175 = icmp ne ptr %.val, @je_disabled_bin
   %176 = icmp ult i64 %.0101, %141
-  %or.cond120 = select i1 %175, i1 %176, i1 false
+  %or.cond120 = select i1 %175, i1 %176, i1 false, !prof !12
   br i1 %or.cond120, label %177, label %.critedge119, !prof !12
 
 177:                                              ; preds = %172

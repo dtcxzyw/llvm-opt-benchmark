@@ -89575,7 +89575,7 @@ select.unfold.us.i:                               ; preds = %.split.us.preheader
   %458 = extractvalue { i64, i1 } %457, 1
   %459 = add nuw i64 %.val367, %.val366
   %.not13.i = icmp ugt i64 %459, %3
-  %or.cond17.i = select i1 %458, i1 true, i1 %.not13.i
+  %or.cond17.i = select i1 %458, i1 true, i1 %.not13.i, !prof !5944
   br i1 %or.cond17.i, label %505, label %463, !prof !5944
 
 460:                                              ; preds = %.body.i, %468, %461

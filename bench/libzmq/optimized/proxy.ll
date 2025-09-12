@@ -1355,7 +1355,7 @@ select.unfold:                                    ; preds = %.critedge
   %444 = icmp slt i32 %443, 0
   %445 = add nuw nsw i64 %.038.i, 1
   %exitcond.not.i = icmp eq i64 %445, 8
-  %or.cond.i = select i1 %444, i1 true, i1 %exitcond.not.i
+  %or.cond.i = select i1 %444, i1 true, i1 %exitcond.not.i, !prof !19
   br i1 %or.cond.i, label %446, label %437, !prof !19, !llvm.loop !20
 
 446:                                              ; preds = %437

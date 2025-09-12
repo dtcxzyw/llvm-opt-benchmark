@@ -131053,7 +131053,7 @@ _ZN13duckdb_yyjsonL17yyjson_mut_is_objEPNS_14yyjson_mut_valE.exit: ; preds = %_Z
   %81 = and i64 %80, 7
   %82 = icmp ne i64 %81, 7
   %.not.i44 = icmp eq ptr %.1.i, null
-  %or.cond = select i1 %82, i1 true, i1 %.not.i44
+  %or.cond = select i1 %82, i1 true, i1 %.not.i44, !prof !2336
   br i1 %or.cond, label %_ZN13duckdb_yyjsonL18yyjson_mut_obj_addEPNS_14yyjson_mut_valES1_S1_.exit, label %83, !prof !2336
 
 83:                                               ; preds = %_ZN13duckdb_yyjsonL17yyjson_mut_is_objEPNS_14yyjson_mut_valE.exit

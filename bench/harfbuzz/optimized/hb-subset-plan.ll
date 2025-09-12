@@ -4613,7 +4613,7 @@ _ZNK14hb_sparseset_tI23hb_bit_set_invertible_tE14get_populationEv.exit87.i: ; pr
   %1023 = load i32, ptr %111, align 8, !tbaa !260
   %1024 = icmp sgt i32 %1023, -1
   %.not.i.i64 = icmp ugt i32 %1022, %1023
-  %or.cond851.i = select i1 %1024, i1 %.not.i.i64, i1 false
+  %or.cond851.i = select i1 %1024, i1 %.not.i.i64, i1 false, !prof !261
   br i1 %or.cond851.i, label %.preheader.i.i, label %_ZN11hb_vector_tI9hb_pair_tIjjELb1EE5allocEjb.exit.i, !prof !261
 
 .preheader.i.i:                                   ; preds = %_ZNK14hb_sparseset_tI23hb_bit_set_invertible_tE14get_populationEv.exit87.i, %.preheader.i.i
@@ -5512,7 +5512,7 @@ _ZNK14hb_sparseset_tI23hb_bit_set_invertible_tE14get_populationEv.exit229.i: ; p
   %1365 = load i32, ptr %111, align 8, !tbaa !260
   %1366 = icmp sgt i32 %1365, -1
   %.not.i231.i = icmp ugt i32 %.sroa.speculated.i, %1365
-  %or.cond852.i = select i1 %1366, i1 %.not.i231.i, i1 false
+  %or.cond852.i = select i1 %1366, i1 %.not.i231.i, i1 false, !prof !261
   br i1 %or.cond852.i, label %.preheader.i233.i, label %_ZN11hb_vector_tI9hb_pair_tIjjELb1EE5allocEjb.exit246.i, !prof !261
 
 .preheader.i233.i:                                ; preds = %_ZNK14hb_sparseset_tI23hb_bit_set_invertible_tE14get_populationEv.exit229.i, %.preheader.i233.i
@@ -24732,7 +24732,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK2OT12CmapSubtable8sanitize
   %.pre25.i = sub i64 %.pre23.i, %38
   %43 = trunc i64 %.pre25.i to i32
   %.not12.i.i = icmp ugt i32 %36, %43
-  %or.cond.i = select i1 %.not.i.i, i1 true, i1 %.not12.i.i
+  %or.cond.i = select i1 %.not.i.i, i1 true, i1 %.not12.i.i, !prof !631
   br i1 %or.cond.i, label %_ZNK21hb_sanitize_context_t11check_rangeEPKvj.exit.thread.i, label %_ZNK21hb_sanitize_context_t11check_rangeEPKvj.exit.i, !prof !631
 
 _ZNK21hb_sanitize_context_t11check_rangeEPKvj.exit.i: ; preds = %32
@@ -25360,7 +25360,7 @@ _ZN21hb_sanitize_context_t16start_processingEv.exit: ; preds = %13, %22
   %44 = ptrtoint ptr %43 to i64
   %45 = sub i64 %44, %33
   %.not17.i = icmp ugt i64 %45, %36
-  %or.cond.i = select i1 %42, i1 %.not17.i, i1 false
+  %or.cond.i = select i1 %42, i1 %.not17.i, i1 false, !prof !633
   br i1 %or.cond.i, label %77, label %_ZNK2OT3OS28sanitizeEP21hb_sanitize_context_t.exit, !prof !633
 
 _ZNK2OT3OS28sanitizeEP21hb_sanitize_context_t.exit: ; preds = %.critedge7.i, %.critedge.i, %26
@@ -25415,7 +25415,7 @@ _ZNK2OT3OS28sanitizeEP21hb_sanitize_context_t.exit: ; preds = %.critedge7.i, %.c
   %73 = ptrtoint ptr %72 to i64
   %74 = sub i64 %73, %62
   %.not17.i30 = icmp ugt i64 %74, %65
-  %or.cond.i31 = select i1 %71, i1 %.not17.i30, i1 false
+  %or.cond.i31 = select i1 %71, i1 %.not17.i30, i1 false, !prof !633
   br i1 %or.cond.i31, label %_ZNK2OT3OS28sanitizeEP21hb_sanitize_context_t.exit32, label %.critedge9.i26, !prof !633
 
 .critedge9.i26:                                   ; preds = %.critedge7.i29, %.critedge.i25, %55
@@ -30594,7 +30594,7 @@ _ZN14hb_sparseset_tI23hb_bit_set_invertible_tE3addEj.exit: ; preds = %55, %56
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %63 = load i32, ptr %62, align 4
   %.not.i = icmp ult i32 %1, %63
-  %or.cond86 = select i1 %61, i1 %.not.i, i1 false
+  %or.cond86 = select i1 %61, i1 %.not.i, i1 false, !prof !568
   br i1 %or.cond86, label %64, label %.loopexit, !prof !568
 
 64:                                               ; preds = %59
@@ -59992,7 +59992,7 @@ define linkonce_odr dso_local void @_ZNK2OT7RuleSetINS_6Layout10SmallTypesEE15cl
   %59 = select i1 %57, i1 true, i1 %.not.i.i.i, !prof !33
   %60 = load i32, ptr %4, align 8
   %61 = icmp ugt i32 %60, 35000
-  %or.cond.i.i.i = select i1 %59, i1 true, i1 %61
+  %or.cond.i.i.i = select i1 %59, i1 true, i1 %61, !prof !722
   br i1 %or.cond.i.i.i, label %_ZN2OT28hb_closure_lookups_context_t7recurseEj.exit.i.i, label %62, !prof !722
 
 62:                                               ; preds = %.lr.ph.i.i.i.i.i.i.i
@@ -60132,7 +60132,7 @@ define linkonce_odr dso_local void @_ZN2OT28hb_closure_lookups_context_t7recurse
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %10 = load i32, ptr %9, align 8
   %11 = icmp ugt i32 %10, 35000
-  %or.cond = select i1 %8, i1 true, i1 %11
+  %or.cond = select i1 %8, i1 true, i1 %11, !prof !722
   br i1 %or.cond, label %71, label %12, !prof !722
 
 12:                                               ; preds = %2
@@ -60716,7 +60716,7 @@ define linkonce_odr dso_local void @_ZNK2OT12ChainRuleSetINS_6Layout10SmallTypes
   %53 = select i1 %51, i1 true, i1 %.not.i.i.i, !prof !33
   %54 = load i32, ptr %4, align 8
   %55 = icmp ugt i32 %54, 35000
-  %or.cond.i.i.i = select i1 %53, i1 true, i1 %55
+  %or.cond.i.i.i = select i1 %53, i1 true, i1 %55, !prof !722
   br i1 %or.cond.i.i.i, label %_ZN2OT28hb_closure_lookups_context_t7recurseEj.exit.i.i, label %56, !prof !722
 
 56:                                               ; preds = %.lr.ph.i.i.i.i.i.i.i
@@ -71488,7 +71488,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK2OT4MATH8sanitizeEP21hb_sa
   %.not = icmp ule i64 %8, %11
   %12 = load i16, ptr %0, align 1
   %13 = icmp eq i16 %12, 256
-  %or.cond = select i1 %.not, i1 %13, i1 false
+  %or.cond = select i1 %.not, i1 %13, i1 false, !prof !399
   br i1 %or.cond, label %14, label %_ZNK2OT8OffsetToINS_13MathConstantsENS_7IntTypeItLj2EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit.thread17, !prof !399
 
 14:                                               ; preds = %2
@@ -75362,7 +75362,7 @@ _ZNK2OT14UnsizedArrayOfINS_15BaseGlyphRecordEE8sanitizeIJEEEbP21hb_sanitize_cont
   %51 = sub i64 %32, %49
   %52 = trunc i64 %51 to i32
   %.not12.i.i.i.i11 = icmp ugt i32 %48, %52
-  %or.cond = select i1 %.not.i.i.i.i10, i1 true, i1 %.not12.i.i.i.i11
+  %or.cond = select i1 %.not.i.i.i.i10, i1 true, i1 %.not12.i.i.i.i11, !prof !631
   br i1 %or.cond, label %_ZNK2OT14UnsizedArrayOfINS_15BaseGlyphRecordEE8sanitizeIJEEEbP21hb_sanitize_context_tjDpOT_.exit.thread, label %_ZNK2OT14UnsizedArrayOfINS_11LayerRecordEE16sanitize_shallowEP21hb_sanitize_context_tj.exit, !prof !631
 
 _ZNK2OT14UnsizedArrayOfINS_11LayerRecordEE16sanitize_shallowEP21hb_sanitize_context_tj.exit: ; preds = %_ZNK2OT14UnsizedArrayOfINS_15BaseGlyphRecordEE8sanitizeIJEEEbP21hb_sanitize_context_tjDpOT_.exit
@@ -75832,7 +75832,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sa
   %53 = ptrtoint ptr %52 to i64
   %54 = sub i64 %53, %47
   %.not.i.not.i.i.i.i = icmp ugt i64 %54, %50
-  %or.cond = select i1 %.not.i.i.i36, i1 true, i1 %.not.i.not.i.i.i.i
+  %or.cond = select i1 %.not.i.i.i36, i1 true, i1 %.not.i.not.i.i.i.i, !prof !722
   br i1 %or.cond, label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit, label %55, !prof !722
 
 55:                                               ; preds = %43
@@ -75937,7 +75937,7 @@ _ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i.i.i.i: ; preds = %_ZN21hb_sa
   %121 = ptrtoint ptr %120 to i64
   %122 = sub i64 %121, %112
   %.not.i.not.i.i.i.i38 = icmp ugt i64 %122, %115
-  %or.cond151 = select i1 %or.cond.i.i.i, i1 true, i1 %.not.i.not.i.i.i.i38
+  %or.cond151 = select i1 %or.cond.i.i.i, i1 true, i1 %.not.i.not.i.i.i.i38, !prof !722
   br i1 %or.cond151, label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit, label %123, !prof !722
 
 123:                                              ; preds = %108
@@ -76037,7 +76037,7 @@ _ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i.i.i.i42: ; preds = %_ZN21hb_
   %186 = ptrtoint ptr %185 to i64
   %187 = sub i64 %186, %180
   %.not.i.not.i.i.i.i44 = icmp ugt i64 %187, %183
-  %or.cond154 = select i1 %.not.i.i.i43, i1 true, i1 %.not.i.not.i.i.i.i44
+  %or.cond154 = select i1 %.not.i.i.i43, i1 true, i1 %.not.i.not.i.i.i.i44, !prof !722
   br i1 %or.cond154, label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit, label %188, !prof !722
 
 188:                                              ; preds = %176
@@ -76142,7 +76142,7 @@ _ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i.i.i.i50: ; preds = %_ZN21hb_
   %254 = ptrtoint ptr %253 to i64
   %255 = sub i64 %254, %245
   %.not.i.not.i.i.i.i54 = icmp ugt i64 %255, %248
-  %or.cond157 = select i1 %or.cond.i.i.i53, i1 true, i1 %.not.i.not.i.i.i.i54
+  %or.cond157 = select i1 %or.cond.i.i.i53, i1 true, i1 %.not.i.not.i.i.i.i54, !prof !722
   br i1 %or.cond157, label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit, label %256, !prof !722
 
 256:                                              ; preds = %241
@@ -76242,7 +76242,7 @@ _ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i.i.i.i60: ; preds = %_ZN21hb_
   %319 = ptrtoint ptr %318 to i64
   %320 = sub i64 %319, %313
   %.not.i.not.i.i.i.i62 = icmp ugt i64 %320, %316
-  %or.cond160 = select i1 %.not.i.i.i61, i1 true, i1 %.not.i.not.i.i.i.i62
+  %or.cond160 = select i1 %.not.i.i.i61, i1 true, i1 %.not.i.not.i.i.i.i62, !prof !722
   br i1 %or.cond160, label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit, label %321, !prof !722
 
 321:                                              ; preds = %309
@@ -76347,7 +76347,7 @@ _ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i.i.i.i68: ; preds = %_ZN21hb_
   %387 = ptrtoint ptr %386 to i64
   %388 = sub i64 %387, %378
   %.not.i.not.i.i.i.i72 = icmp ugt i64 %388, %381
-  %or.cond163 = select i1 %or.cond.i.i.i71, i1 true, i1 %.not.i.not.i.i.i.i72
+  %or.cond163 = select i1 %or.cond.i.i.i71, i1 true, i1 %.not.i.not.i.i.i.i72, !prof !722
   br i1 %or.cond163, label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit, label %389, !prof !722
 
 389:                                              ; preds = %374
@@ -82200,7 +82200,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK2OT4STAT8sanitizeEP21hb_sa
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %18 = load i16, ptr %17, align 1
   %.not = icmp eq i16 %18, 0
-  %or.cond = select i1 %16, i1 true, i1 %.not
+  %or.cond = select i1 %16, i1 true, i1 %.not, !prof !766
   br i1 %or.cond, label %_ZNK2OT8OffsetToINS_14UnsizedArrayOfINS_14StatAxisRecordEEENS_7IntTypeIjLj4EEEvLb0EE8sanitizeIJRKNS4_ItLj2EEEEEEbP21hb_sanitize_context_tPKvDpOT_.exit.thread, label %19, !prof !766
 
 19:                                               ; preds = %14
@@ -83408,7 +83408,7 @@ _ZNK2OT14UnsizedArrayOfINS_7IntTypeIjLj4EEEE8sanitizeIJEEEbP21hb_sanitize_contex
   %45 = sub i64 %32, %6
   %46 = trunc i64 %45 to i32
   %.not12.i.i.i.i7 = icmp ugt i32 %43, %46
-  %or.cond = select i1 %.not.i.i.i.i6, i1 true, i1 %.not12.i.i.i.i7
+  %or.cond = select i1 %.not.i.i.i.i6, i1 true, i1 %.not12.i.i.i.i7, !prof !631
   br i1 %or.cond, label %_ZNK2OT14UnsizedArrayOfINS_7IntTypeIjLj4EEEE8sanitizeIJEEEbP21hb_sanitize_context_tjDpOT_.exit.thread, label %_ZNK2OT14UnsizedArrayOfINS_7IntTypeItLj2EEEE16sanitize_shallowEP21hb_sanitize_context_tj.exit, !prof !631
 
 _ZNK2OT14UnsizedArrayOfINS_7IntTypeItLj2EEEE16sanitize_shallowEP21hb_sanitize_context_tj.exit: ; preds = %_ZNK2OT14UnsizedArrayOfINS_7IntTypeIjLj4EEEE8sanitizeIJEEEbP21hb_sanitize_context_tjDpOT_.exit
@@ -84959,7 +84959,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK2OT14GDEFVersion1_2INS_6La
   %14 = ptrtoint ptr %13 to i64
   %15 = sub i64 %14, %7
   %.not.i = icmp ule i64 %15, %11
-  %or.cond = select i1 %12, i1 %.not.i, i1 false
+  %or.cond = select i1 %12, i1 %.not.i, i1 false, !prof !399
   br i1 %or.cond, label %16, label %_ZNK2OT8OffsetToINS_8ClassDefENS_7IntTypeItLj2EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit8.thread41, !prof !399
 
 16:                                               ; preds = %2
@@ -98497,7 +98497,7 @@ _ZN21hb_sanitize_context_t16start_processingEv.exit: ; preds = %_ZN21hb_sanitize
   %63 = sub i64 %62, %59
   %64 = trunc i64 %63 to i32
   %.not12.i.i.i.i = icmp ugt i32 %58, %64
-  %or.cond = select i1 %.not.i.i.i.i, i1 true, i1 %.not12.i.i.i.i
+  %or.cond = select i1 %.not.i.i.i.i, i1 true, i1 %.not12.i.i.i.i, !prof !631
   br i1 %or.cond, label %.thread, label %_ZNK10hb_array_tIKhE8sanitizeI21hb_sanitize_context_tEEbPT_.exit, !prof !631
 
 _ZNK10hb_array_tIKhE8sanitizeI21hb_sanitize_context_tEEbPT_.exit: ; preds = %50

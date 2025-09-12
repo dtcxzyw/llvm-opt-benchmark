@@ -6451,7 +6451,7 @@ define internal fastcc void @_ZN21ruff_python_formatter6string9normalize16String
 31:                                               ; preds = %30
   %32 = icmp ne i64 %18, %13
   %.not = icmp eq ptr %12, null
-  %or.cond = select i1 %32, i1 true, i1 %.not
+  %or.cond = select i1 %32, i1 true, i1 %.not, !prof !501
   br i1 %or.cond, label %"_ZN4core3str6traits108_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$3get17h48b5fc281fcfd004E.exit.thread", label %"_ZN4core3str6traits108_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$3get17h48b5fc281fcfd004E.exit.thread55", !prof !501
 
 33:                                               ; preds = %30
@@ -6684,7 +6684,7 @@ define hidden void @_ZN21ruff_python_formatter6string9normalize16StringNormalize
 30:                                               ; preds = %29
   %31 = icmp ne i64 %17, %12
   %.not = icmp eq ptr %11, null
-  %or.cond = select i1 %31, i1 true, i1 %.not
+  %or.cond = select i1 %31, i1 true, i1 %.not, !prof !501
   br i1 %or.cond, label %"_ZN4core3str6traits108_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$3get17h48b5fc281fcfd004E.exit.thread", label %"_ZN4core3str6traits108_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$3get17h48b5fc281fcfd004E.exit.thread8", !prof !501
 
 32:                                               ; preds = %29
@@ -6828,7 +6828,7 @@ define hidden void @_ZN21ruff_python_formatter6string9normalize13QuoteMetadata9f
 32:                                               ; preds = %31
   %33 = icmp ne i64 %19, %14
   %.not = icmp eq ptr %13, null
-  %or.cond = select i1 %33, i1 true, i1 %.not
+  %or.cond = select i1 %33, i1 true, i1 %.not, !prof !501
   br i1 %or.cond, label %"_ZN4core3str6traits108_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$3get17h48b5fc281fcfd004E.exit.thread", label %42, !prof !501
 
 34:                                               ; preds = %31
@@ -6836,7 +6836,7 @@ define hidden void @_ZN21ruff_python_formatter6string9normalize13QuoteMetadata9f
   %36 = load i8, ptr %35, align 1, !alias.scope !519, !noundef !3
   %37 = icmp slt i8 %36, -64
   %.not.old = icmp eq ptr %13, null
-  %or.cond5 = select i1 %37, i1 true, i1 %.not.old
+  %or.cond5 = select i1 %37, i1 true, i1 %.not.old, !prof !501
   br i1 %or.cond5, label %"_ZN4core3str6traits108_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$3get17h48b5fc281fcfd004E.exit.thread", label %42, !prof !501
 
 "_ZN4core3str6traits108_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$3get17h48b5fc281fcfd004E.exit": ; preds = %23
@@ -10149,7 +10149,7 @@ define internal fastcc noundef zeroext i1 @_ZN21ruff_python_formatter6string9nor
 23:                                               ; preds = %22
   %24 = icmp ne i64 %10, %8
   %.not = icmp eq ptr %7, null
-  %or.cond = select i1 %24, i1 true, i1 %.not
+  %or.cond = select i1 %24, i1 true, i1 %.not, !prof !501
   br i1 %or.cond, label %"_ZN4core3str6traits108_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$3get17h48b5fc281fcfd004E.exit.thread", label %"_ZN4core3str6traits108_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$3get17h48b5fc281fcfd004E.exit.thread14", !prof !501
 
 25:                                               ; preds = %22

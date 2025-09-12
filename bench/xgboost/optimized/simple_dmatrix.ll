@@ -15634,7 +15634,7 @@ define linkonce_odr void @_ZN7xgboost4data6detail10CheckEmptyERKNS_10BatchParamE
   %5 = icmp ne i32 %4, 0
   %6 = load i32, ptr %1, align 8
   %7 = icmp ne i32 %6, 0
-  %or.cond = select i1 %5, i1 true, i1 %7
+  %or.cond = select i1 %5, i1 true, i1 %7, !prof !377
   br i1 %or.cond, label %17, label %8, !prof !377
 
 8:                                                ; preds = %2

@@ -70226,7 +70226,7 @@ _ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h7df8419d9464d12fE.exit
   %417 = trunc nuw i64 %416 to i1
   %418 = load i64, ptr %.sroa.0.sroa.6.0..sroa_idx11.i.i.i.i.i, align 8, !alias.scope !10970, !noalias !10971
   %419 = icmp eq i64 %404, %418
-  %or.cond.i.i.i.i.i.i.i.i.i.i.i = select i1 %417, i1 %419, i1 false
+  %or.cond.i.i.i.i.i.i.i.i.i.i.i = select i1 %417, i1 %419, i1 false, !prof !10972
   br i1 %or.cond.i.i.i.i.i.i.i.i.i.i.i, label %420, label %405, !prof !10972
 
 420:                                              ; preds = %415

@@ -23016,7 +23016,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit189: ; preds = %_ZN4cvc58internal1
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   %525 = load ptr, ptr %20, align 8
   %.not.i190 = icmp eq ptr %296, %525
-  %or.cond = select i1 %.not283, i1 true, i1 %.not.i190
+  %or.cond = select i1 %.not283, i1 true, i1 %.not.i190, !prof !840
   br i1 %or.cond, label %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit195, label %526, !prof !840
 
 526:                                              ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit189

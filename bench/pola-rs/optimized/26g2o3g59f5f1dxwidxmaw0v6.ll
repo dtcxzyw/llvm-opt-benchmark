@@ -1541,7 +1541,7 @@ _ZN4core4iter6traits8iterator8Iterator3zip17h82c202ef50ddd379E.exit: ; preds = %
   %326 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %327 = load ptr, ptr %326, align 8
   %.not252 = icmp eq ptr %327, null
-  %or.cond275 = select i1 %325, i1 %.not252, i1 false
+  %or.cond275 = select i1 %325, i1 %.not252, i1 false, !prof !101
   br i1 %or.cond275, label %336, label %332, !prof !101
 
 328:                                              ; preds = %.thread395

@@ -9643,7 +9643,7 @@ define internal fastcc ptr @next_uptodate_folio(ptr noundef %0, ptr noundef read
   %26 = phi i64 [ %38, %36 ], [ %20, %.preheader15 ]
   %27 = icmp uge i64 %26, %2
   %28 = icmp eq i8 %25, 63
-  %or.cond = select i1 %27, i1 true, i1 %28
+  %or.cond = select i1 %27, i1 true, i1 %28, !prof !38
   br i1 %or.cond, label %.loopexit16, label %29, !prof !38
 
 29:                                               ; preds = %24
@@ -9884,7 +9884,7 @@ define internal fastcc ptr @next_uptodate_folio(ptr noundef %0, ptr noundef read
   %170 = phi i64 [ %182, %180 ], [ %164, %.preheader ]
   %171 = icmp uge i64 %170, %2
   %172 = icmp eq i8 %169, 63
-  %or.cond34 = select i1 %171, i1 true, i1 %172
+  %or.cond34 = select i1 %171, i1 true, i1 %172, !prof !38
   br i1 %or.cond34, label %.loopexit, label %173, !prof !38
 
 173:                                              ; preds = %168

@@ -870,7 +870,7 @@ _ZN7ty_test6parser6Parser3new17h98c7e544dd98f78aE.exit: ; preds = %"_ZN4core6res
 159:                                              ; preds = %158
   %160 = icmp ne i64 %151, %156
   %.not79.i.i = icmp eq ptr %155, null
-  %or.cond.i.i = select i1 %160, i1 true, i1 %.not79.i.i
+  %or.cond.i.i = select i1 %160, i1 true, i1 %.not79.i.i, !prof !63
   br i1 %or.cond.i.i, label %"_ZN4core3str6traits110_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeTo$LT$usize$GT$$GT$3get17heac9f6a047b0eab2E.exit.thread.i.invoke.i", label %"_ZN4core3str6traits110_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeTo$LT$usize$GT$$GT$3get17heac9f6a047b0eab2E.exit.thread120.i.i", !prof !63
 
 161:                                              ; preds = %158
@@ -1626,7 +1626,7 @@ _ZN7ty_test6parser6Parser14process_header17h6926078816d985a8E.exit.i.i: ; preds 
   %395 = icmp eq i64 %394, 0
   %396 = load ptr, ptr %107, align 8, !alias.scope !61, !noalias !52, !align !15
   %.not70.i.i = icmp eq ptr %396, null
-  %or.cond84.i.i = select i1 %395, i1 %.not70.i.i, i1 false
+  %or.cond84.i.i = select i1 %395, i1 %.not70.i.i, i1 false, !prof !163
   br i1 %or.cond84.i.i, label %412, label %407, !prof !163
 
 397:                                              ; preds = %386
@@ -1760,7 +1760,7 @@ _ZN7ty_test6parser6Parser14process_header17h6926078816d985a8E.exit.i.i: ; preds 
 438:                                              ; preds = %437
   %439 = icmp ne i64 %430, %435
   %.not72.i.i = icmp eq ptr %434, null
-  %or.cond146.i.i = select i1 %439, i1 true, i1 %.not72.i.i
+  %or.cond146.i.i = select i1 %439, i1 true, i1 %.not72.i.i, !prof !63
   br i1 %or.cond146.i.i, label %"_ZN4core3str6traits110_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeTo$LT$usize$GT$$GT$3get17heac9f6a047b0eab2E.exit.thread.i.invoke.i", label %"_ZN4core3str6traits110_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeTo$LT$usize$GT$$GT$3get17heac9f6a047b0eab2E.exit93.thread128.i.i", !prof !63
 
 440:                                              ; preds = %437

@@ -9383,7 +9383,7 @@ define internal { ptr, ptr } @"_ZN88_$LT$polars_arrow..array..struct_..StructArr
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1727)
   %.not.i.i = icmp eq ptr %.sroa.0.0.copyload, null
   %.not3.i.i = icmp eq i64 %.sroa.615.0.copyload, %15
-  %or.cond = select i1 %.not.i.i, i1 true, i1 %.not3.i.i
+  %or.cond = select i1 %.not.i.i, i1 true, i1 %.not3.i.i, !prof !1729
   br i1 %or.cond, label %30, label %40, !prof !1729
 
 30:                                               ; preds = %26

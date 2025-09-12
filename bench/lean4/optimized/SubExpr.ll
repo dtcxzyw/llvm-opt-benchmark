@@ -12945,7 +12945,7 @@ define ptr @l_Lean_PrettyPrinter_Delaborator_SubExpr_withBoundedAppFn___rarg___l
   %12 = ptrtoint ptr %8 to i64
   %13 = and i64 %12, 1
   %14 = icmp ne i64 %13, 0
-  %or.cond = select i1 %11, i1 %14, i1 false
+  %or.cond = select i1 %11, i1 %14, i1 false, !prof !19
   br i1 %or.cond, label %15, label %.critedge.i, !prof !19
 
 15:                                               ; preds = %7

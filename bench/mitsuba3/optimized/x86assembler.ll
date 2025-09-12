@@ -8015,7 +8015,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %.pre146 = load i32, ptr %.phi.trans.insert, align 4
   %5377 = and i32 %.pre146, 112
   %5378 = icmp eq i32 %5377, 0
-  %or.cond = select i1 %5376, i1 true, i1 %5378
+  %or.cond = select i1 %5376, i1 true, i1 %5378, !prof !90
   br i1 %or.cond, label %._crit_edge, label %6023, !prof !90
 
 ._crit_edge:                                      ; preds = %5374

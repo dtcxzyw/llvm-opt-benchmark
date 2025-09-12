@@ -4540,7 +4540,7 @@ define internal range(i32 -1, 1) i32 @js_os_poll(ptr noundef %0) #0 {
   %.not = icmp ne ptr %11, null
   %12 = load i64, ptr @os_pending_signals, align 8
   %.not130 = icmp eq i64 %12, 0
-  %or.cond = select i1 %.not, i1 true, i1 %.not130
+  %or.cond = select i1 %.not, i1 true, i1 %.not130, !prof !82
   br i1 %or.cond, label %.critedge, label %13, !prof !82
 
 13:                                               ; preds = %1

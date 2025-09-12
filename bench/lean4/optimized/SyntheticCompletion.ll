@@ -4357,7 +4357,7 @@ lean_obj_tag.exit:                                ; preds = %151, %154
   %164 = ptrtoint ptr %160 to i64
   %165 = and i64 %164, 1
   %166 = icmp ne i64 %165, 0
-  %or.cond = select i1 %163, i1 %166, i1 false
+  %or.cond = select i1 %163, i1 %166, i1 false, !prof !17
   br i1 %or.cond, label %167, label %lean_nat_lt.exit, !prof !17
 
 167:                                              ; preds = %158
@@ -4536,7 +4536,7 @@ lean_alloc_ctor.exit235:                          ; preds = %lean_alloc_ctor.exi
   %234 = ptrtoint ptr %229 to i64
   %235 = and i64 %234, 1
   %236 = icmp ne i64 %235, 0
-  %or.cond271 = select i1 %233, i1 %236, i1 false
+  %or.cond271 = select i1 %233, i1 %236, i1 false, !prof !17
   br i1 %or.cond271, label %237, label %lean_nat_lt.exit209, !prof !17
 
 237:                                              ; preds = %230
@@ -7065,7 +7065,7 @@ lean_dec.exit58:                                  ; preds = %113, %109, %129, %1
   %130 = ptrtoint ptr %.0.i151155 to i64
   %131 = and i64 %130, 1
   %132 = icmp ne i64 %131, 0
-  %or.cond = select i1 %8, i1 %132, i1 false
+  %or.cond = select i1 %8, i1 %132, i1 false, !prof !17
   br i1 %or.cond, label %lean_nat_le.exit89.thread, label %lean_nat_le.exit89, !prof !17
 
 lean_nat_le.exit89.thread:                        ; preds = %lean_dec.exit58
@@ -9829,7 +9829,7 @@ lean_dec.exit61:                                  ; preds = %219, %215, %235, %2
   %239 = ptrtoint ptr %.0.i214218 to i64
   %240 = and i64 %239, 1
   %241 = icmp ne i64 %240, 0
-  %or.cond = select i1 %238, i1 %241, i1 false
+  %or.cond = select i1 %238, i1 %241, i1 false, !prof !17
   br i1 %or.cond, label %lean_nat_le.exit117.thread, label %lean_nat_le.exit117, !prof !17
 
 lean_nat_le.exit117.thread:                       ; preds = %lean_dec.exit61
@@ -18433,7 +18433,7 @@ lean_dec.exit21:                                  ; preds = %76, %75, %73, %lean
   %80 = ptrtoint ptr %.0.i to i64
   %81 = and i64 %80, 1
   %82 = icmp ne i64 %81, 0
-  %or.cond = select i1 %79, i1 %82, i1 false
+  %or.cond = select i1 %79, i1 %82, i1 false, !prof !17
   br i1 %or.cond, label %lean_nat_le.exit37.thread, label %lean_nat_le.exit37, !prof !17
 
 lean_nat_le.exit37.thread:                        ; preds = %lean_dec.exit21

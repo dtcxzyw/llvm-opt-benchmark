@@ -44764,7 +44764,7 @@ lean_dec.exit368:                                 ; preds = %238, %237, %235, %l
   %243 = ptrtoint ptr %239 to i64
   %244 = and i64 %243, 1
   %245 = icmp ne i64 %244, 0
-  %or.cond = select i1 %242, i1 %245, i1 false
+  %or.cond = select i1 %242, i1 %245, i1 false, !prof !19
   br i1 %or.cond, label %lean_dec.exit367.thread, label %lean_nat_eq.exit, !prof !19
 
 lean_dec.exit367.thread:                          ; preds = %lean_dec.exit368

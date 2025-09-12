@@ -4209,7 +4209,7 @@ define internal void @tool_iof_handler(ptr noundef readonly captures(none) %0, p
   %.val = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 2056), align 8
   %199 = icmp slt i32 %198, 0
   %200 = icmp sle i32 %.val, %198
-  %or.cond.i = select i1 %199, i1 true, i1 %200
+  %or.cond.i = select i1 %199, i1 true, i1 %200, !prof !186
   br i1 %or.cond.i, label %pmix_pointer_array_get_item.exit.thread, label %pmix_pointer_array_get_item.exit, !prof !186
 
 pmix_pointer_array_get_item.exit:                 ; preds = %196

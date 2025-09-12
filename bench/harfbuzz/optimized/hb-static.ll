@@ -4493,7 +4493,7 @@ _ZNK9hb_iter_tI10hb_array_tIjERjEixEj.exit:       ; preds = %299, %300
   %.not223 = icmp uge i32 %302, %.sroa.18.8.extract.trunc376
   %303 = icmp ult i32 %302, %154
   %or.cond230 = select i1 %6, i1 %303, i1 false
-  %or.cond669 = select i1 %.not223, i1 true, i1 %or.cond230
+  %or.cond669 = select i1 %.not223, i1 true, i1 %or.cond230, !prof !95
   br i1 %or.cond669, label %319, label %304, !prof !95
 
 304:                                              ; preds = %_ZNK9hb_iter_tI10hb_array_tIjERjEixEj.exit
@@ -4568,7 +4568,7 @@ _ZNK9hb_iter_tI10hb_array_tIjERjEixEj.exit295:    ; preds = %335, %336
   %.not222 = icmp uge i32 %338, %.sroa.18.8.extract.trunc376
   %339 = icmp ult i32 %338, %154
   %or.cond232 = select i1 %6, i1 %339, i1 false
-  %or.cond670 = select i1 %.not222, i1 true, i1 %or.cond232
+  %or.cond670 = select i1 %.not222, i1 true, i1 %or.cond232, !prof !95
   br i1 %or.cond670, label %355, label %340, !prof !95
 
 340:                                              ; preds = %_ZNK9hb_iter_tI10hb_array_tIjERjEixEj.exit295
@@ -5849,7 +5849,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN2OT11TupleValues9decompileI
   %15 = load i32, ptr %1, align 8, !tbaa !226
   %16 = icmp sgt i32 %15, -1
   %.not.i = icmp ult i32 %15, %14
-  %or.cond = select i1 %16, i1 %.not.i, i1 false
+  %or.cond = select i1 %16, i1 %.not.i, i1 false, !prof !256
   br i1 %or.cond, label %.preheader.i, label %_ZN11hb_vector_tIiLb0EE5allocEjb.exit, !prof !256
 
 .preheader.i:                                     ; preds = %8, %.preheader.i

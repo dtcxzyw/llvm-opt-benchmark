@@ -933,7 +933,7 @@ define zeroext range(i8 0, 2) i8 @l___private_Lean_Meta_Tactic_Simp_BuiltinSimpr
   %14 = ptrtoint ptr %8 to i64
   %15 = and i64 %14, 1
   %16 = icmp ne i64 %15, 0
-  %or.cond = select i1 %13, i1 %16, i1 false
+  %or.cond = select i1 %13, i1 %16, i1 false, !prof !9
   br i1 %or.cond, label %17, label %lean_nat_eq.exit, !prof !9
 
 17:                                               ; preds = %2
@@ -951,7 +951,7 @@ lean_nat_eq.exit:                                 ; preds = %2
   %24 = ptrtoint ptr %10 to i64
   %25 = and i64 %24, 1
   %26 = icmp ne i64 %25, 0
-  %or.cond18 = select i1 %23, i1 %26, i1 false
+  %or.cond18 = select i1 %23, i1 %26, i1 false, !prof !9
   br i1 %or.cond18, label %27, label %.critedge.i11, !prof !9
 
 27:                                               ; preds = %20
@@ -988,7 +988,7 @@ define nonnull ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_BitVec_0__
   %14 = ptrtoint ptr %8 to i64
   %15 = and i64 %14, 1
   %16 = icmp ne i64 %15, 0
-  %or.cond.i = select i1 %13, i1 %16, i1 false
+  %or.cond.i = select i1 %13, i1 %16, i1 false, !prof !9
   br i1 %or.cond.i, label %17, label %lean_nat_eq.exit.i, !prof !9
 
 17:                                               ; preds = %2
@@ -1006,7 +1006,7 @@ lean_nat_eq.exit.i:                               ; preds = %2
   %24 = ptrtoint ptr %10 to i64
   %25 = and i64 %24, 1
   %26 = icmp ne i64 %25, 0
-  %or.cond18.i = select i1 %23, i1 %26, i1 false
+  %or.cond18.i = select i1 %23, i1 %26, i1 false, !prof !9
   br i1 %or.cond18.i, label %27, label %.critedge.i11.i, !prof !9
 
 27:                                               ; preds = %20
@@ -1092,7 +1092,7 @@ define zeroext range(i8 0, 2) i8 @l_BitVec_instDecidableEqLiteral(ptr noundef re
   %14 = ptrtoint ptr %8 to i64
   %15 = and i64 %14, 1
   %16 = icmp ne i64 %15, 0
-  %or.cond.i = select i1 %13, i1 %16, i1 false
+  %or.cond.i = select i1 %13, i1 %16, i1 false, !prof !9
   br i1 %or.cond.i, label %17, label %lean_nat_eq.exit.i, !prof !9
 
 17:                                               ; preds = %2
@@ -1110,7 +1110,7 @@ lean_nat_eq.exit.i:                               ; preds = %2
   %24 = ptrtoint ptr %10 to i64
   %25 = and i64 %24, 1
   %26 = icmp ne i64 %25, 0
-  %or.cond18.i = select i1 %23, i1 %26, i1 false
+  %or.cond18.i = select i1 %23, i1 %26, i1 false, !prof !9
   br i1 %or.cond18.i, label %27, label %.critedge.i11.i, !prof !9
 
 27:                                               ; preds = %20
@@ -1147,7 +1147,7 @@ define nonnull ptr @l_BitVec_instDecidableEqLiteral___boxed(ptr noundef %0, ptr 
   %14 = ptrtoint ptr %8 to i64
   %15 = and i64 %14, 1
   %16 = icmp ne i64 %15, 0
-  %or.cond.i.i = select i1 %13, i1 %16, i1 false
+  %or.cond.i.i = select i1 %13, i1 %16, i1 false, !prof !9
   br i1 %or.cond.i.i, label %17, label %lean_nat_eq.exit.i.i, !prof !9
 
 17:                                               ; preds = %2
@@ -1165,7 +1165,7 @@ lean_nat_eq.exit.i.i:                             ; preds = %2
   %24 = ptrtoint ptr %10 to i64
   %25 = and i64 %24, 1
   %26 = icmp ne i64 %25, 0
-  %or.cond18.i.i = select i1 %23, i1 %26, i1 false
+  %or.cond18.i.i = select i1 %23, i1 %26, i1 false, !prof !9
   br i1 %or.cond18.i.i, label %27, label %.critedge.i11.i.i, !prof !9
 
 27:                                               ; preds = %20

@@ -382,7 +382,7 @@ define void @_ZN9grpc_core24ConnectivityStateTrackerD2Ev(ptr noundef nonnull ali
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load i64, ptr %11, align 8
   %.not.i.i = icmp ult i64 %12, 2
-  %or.cond = select i1 %10, i1 true, i1 %.not.i.i
+  %or.cond = select i1 %10, i1 true, i1 %.not.i.i, !prof !38
   br i1 %or.cond, label %.loopexit, label %13, !prof !38
 
 13:                                               ; preds = %1

@@ -39061,7 +39061,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
   %.not22 = icmp eq ptr %22, null
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %24 = icmp eq ptr %22, %23
-  %or.cond112 = select i1 %.not22, i1 true, i1 %24
+  %or.cond112 = select i1 %.not22, i1 true, i1 %24, !prof !668
   br i1 %or.cond112, label %.thread104, label %.loopexit, !prof !668
 
 .thread104:                                       ; preds = %18, %16
@@ -39095,7 +39095,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
   %39 = tail call noundef ptr @memchr(ptr noundef nonnull %35, i32 noundef 42, i64 noundef %38) #55
   %.not19 = icmp eq ptr %39, null
   %40 = icmp eq ptr %39, %13
-  %or.cond114 = select i1 %.not19, i1 true, i1 %40
+  %or.cond114 = select i1 %.not19, i1 true, i1 %40, !prof !668
   br i1 %or.cond114, label %.thread109, label %42, !prof !668
 
 .thread109:                                       ; preds = %36, %33
@@ -41161,7 +41161,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit: ; preds = %._crit_edge.i, %59,
   %237 = icmp samesign ult i32 %180, -2147483339
   %or.cond96 = and i1 %237, %236
   %238 = icmp ne i64 %179, 0
-  %or.cond103 = select i1 %or.cond96, i1 %238, i1 false
+  %or.cond103 = select i1 %or.cond96, i1 %238, i1 false, !prof !688
   br i1 %or.cond103, label %239, label %.critedge98, !prof !688
 
 239:                                              ; preds = %235
@@ -41178,7 +41178,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit: ; preds = %._crit_edge.i, %59,
   %246 = icmp samesign ugt i32 %180, 2147483339
   %or.cond99 = and i1 %246, %245
   %247 = icmp ne i64 %179, 0
-  %or.cond105 = select i1 %or.cond99, i1 %247, i1 false
+  %or.cond105 = select i1 %or.cond99, i1 %247, i1 false, !prof !688
   br i1 %or.cond105, label %248, label %.thread306.thread, !prof !688
 
 248:                                              ; preds = %244
@@ -41806,7 +41806,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit: ; preds = %._crit_edge.i, %61,
   %255 = icmp samesign ult i32 %190, -2147483339
   %or.cond119 = and i1 %255, %254
   %256 = icmp ne i64 %189, 0
-  %or.cond126 = select i1 %or.cond119, i1 %256, i1 false
+  %or.cond126 = select i1 %or.cond119, i1 %256, i1 false, !prof !688
   br i1 %or.cond126, label %257, label %.sink.split, !prof !688
 
 257:                                              ; preds = %253
@@ -41823,7 +41823,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit: ; preds = %._crit_edge.i, %61,
   %264 = icmp samesign ugt i32 %190, 2147483339
   %or.cond122 = and i1 %264, %263
   %265 = icmp ne i64 %189, 0
-  %or.cond128 = select i1 %or.cond122, i1 %265, i1 false
+  %or.cond128 = select i1 %or.cond122, i1 %265, i1 false, !prof !688
   br i1 %or.cond128, label %266, label %.sink.split, !prof !688
 
 266:                                              ; preds = %262
@@ -42972,7 +42972,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit162: ; preds = %._crit_edge.i152
   %405 = icmp samesign ult i32 %348, -2147483339
   %or.cond142 = and i1 %405, %404
   %406 = icmp ne i64 %347, 0
-  %or.cond149 = select i1 %or.cond142, i1 %406, i1 false
+  %or.cond149 = select i1 %or.cond142, i1 %406, i1 false, !prof !688
   br i1 %or.cond149, label %407, label %.critedge144, !prof !688
 
 407:                                              ; preds = %403
@@ -42989,7 +42989,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit162: ; preds = %._crit_edge.i152
   %414 = icmp samesign ugt i32 %348, 2147483339
   %or.cond145 = and i1 %414, %413
   %415 = icmp ne i64 %347, 0
-  %or.cond151 = select i1 %or.cond145, i1 %415, i1 false
+  %or.cond151 = select i1 %or.cond145, i1 %415, i1 false, !prof !688
   br i1 %or.cond151, label %416, label %.thread462.thread, !prof !688
 
 416:                                              ; preds = %412
@@ -44114,7 +44114,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit193: ; preds = %._crit_edge.i183
   %444 = icmp samesign ult i32 %376, -2147483339
   %or.cond173 = and i1 %444, %443
   %445 = icmp ne i64 %375, 0
-  %or.cond180 = select i1 %or.cond173, i1 %445, i1 false
+  %or.cond180 = select i1 %or.cond173, i1 %445, i1 false, !prof !688
   br i1 %or.cond180, label %446, label %.sink.split, !prof !688
 
 446:                                              ; preds = %442
@@ -44131,7 +44131,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit193: ; preds = %._crit_edge.i183
   %453 = icmp samesign ugt i32 %376, 2147483339
   %or.cond176 = and i1 %453, %452
   %454 = icmp ne i64 %375, 0
-  %or.cond182 = select i1 %or.cond176, i1 %454, i1 false
+  %or.cond182 = select i1 %or.cond176, i1 %454, i1 false, !prof !688
   br i1 %or.cond182, label %455, label %.sink.split, !prof !688
 
 455:                                              ; preds = %451
@@ -45265,7 +45265,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit148: ; preds = %._crit_edge.i138
   %355 = icmp samesign ult i32 %298, -2147483339
   %or.cond128 = and i1 %355, %354
   %356 = icmp ne i64 %297, 0
-  %or.cond135 = select i1 %or.cond128, i1 %356, i1 false
+  %or.cond135 = select i1 %or.cond128, i1 %356, i1 false, !prof !688
   br i1 %or.cond135, label %357, label %.critedge130, !prof !688
 
 357:                                              ; preds = %353
@@ -45282,7 +45282,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit148: ; preds = %._crit_edge.i138
   %364 = icmp samesign ugt i32 %298, 2147483339
   %or.cond131 = and i1 %364, %363
   %365 = icmp ne i64 %297, 0
-  %or.cond137 = select i1 %or.cond131, i1 %365, i1 false
+  %or.cond137 = select i1 %or.cond131, i1 %365, i1 false, !prof !688
   br i1 %or.cond137, label %366, label %.thread419.thread, !prof !688
 
 366:                                              ; preds = %362
@@ -46056,7 +46056,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit177: ; preds = %._crit_edge.i167
   %380 = icmp samesign ult i32 %315, -2147483339
   %or.cond157 = and i1 %380, %379
   %381 = icmp ne i64 %314, 0
-  %or.cond164 = select i1 %or.cond157, i1 %381, i1 false
+  %or.cond164 = select i1 %or.cond157, i1 %381, i1 false, !prof !688
   br i1 %or.cond164, label %382, label %.sink.split, !prof !688
 
 382:                                              ; preds = %378
@@ -46073,7 +46073,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit177: ; preds = %._crit_edge.i167
   %389 = icmp samesign ugt i32 %315, 2147483339
   %or.cond160 = and i1 %389, %388
   %390 = icmp ne i64 %314, 0
-  %or.cond166 = select i1 %or.cond160, i1 %390, i1 false
+  %or.cond166 = select i1 %or.cond160, i1 %390, i1 false, !prof !688
   br i1 %or.cond166, label %391, label %.sink.split, !prof !688
 
 391:                                              ; preds = %387
@@ -49869,7 +49869,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
   %.not24 = icmp eq ptr %32, null
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %34 = icmp eq ptr %32, %33
-  %or.cond120 = select i1 %.not24, i1 true, i1 %34
+  %or.cond120 = select i1 %.not24, i1 true, i1 %34, !prof !668
   br i1 %or.cond120, label %.thread112, label %61, !prof !668
 
 .thread112:                                       ; preds = %28, %.thread106
@@ -49909,7 +49909,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
   %.not21 = icmp eq ptr %49, null
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %51 = icmp eq ptr %49, %50
-  %or.cond122 = select i1 %.not21, i1 true, i1 %51
+  %or.cond122 = select i1 %.not21, i1 true, i1 %51, !prof !668
   br i1 %or.cond122, label %.thread117, label %53, !prof !668
 
 .thread117:                                       ; preds = %45, %.thread108
@@ -54220,7 +54220,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit: ; preds = %._crit_edge.i, %63,
   %or.cond155 = and i1 %364, %363
   %365 = load i64, ptr %3, align 8
   %366 = icmp ne i64 %365, 0
-  %or.cond162 = select i1 %or.cond155, i1 %366, i1 false
+  %or.cond162 = select i1 %or.cond155, i1 %366, i1 false, !prof !688
   br i1 %or.cond162, label %367, label %.thread468.sink.split, !prof !688
 
 367:                                              ; preds = %362
@@ -54238,7 +54238,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit: ; preds = %._crit_edge.i, %63,
   %or.cond158 = and i1 %374, %373
   %375 = load i64, ptr %3, align 8
   %376 = icmp ne i64 %375, 0
-  %or.cond164 = select i1 %or.cond158, i1 %376, i1 false
+  %or.cond164 = select i1 %or.cond158, i1 %376, i1 false, !prof !688
   br i1 %or.cond164, label %377, label %.thread468.sink.split, !prof !688
 
 377:                                              ; preds = %372
@@ -55162,7 +55162,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit: ; preds = %._crit_edge.i, %64,
   %or.cond188 = and i1 %422, %421
   %423 = load i64, ptr %3, align 8
   %424 = icmp ne i64 %423, 0
-  %or.cond195 = select i1 %or.cond188, i1 %424, i1 false
+  %or.cond195 = select i1 %or.cond188, i1 %424, i1 false, !prof !688
   br i1 %or.cond195, label %425, label %.thread525.sink.split, !prof !688
 
 425:                                              ; preds = %420
@@ -55180,7 +55180,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit: ; preds = %._crit_edge.i, %64,
   %or.cond191 = and i1 %432, %431
   %433 = load i64, ptr %3, align 8
   %434 = icmp ne i64 %433, 0
-  %or.cond197 = select i1 %or.cond191, i1 %434, i1 false
+  %or.cond197 = select i1 %or.cond191, i1 %434, i1 false, !prof !688
   br i1 %or.cond197, label %435, label %.thread525.sink.split, !prof !688
 
 435:                                              ; preds = %430
@@ -55931,7 +55931,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
   %or.cond146 = and i1 %307, %306
   %308 = load i64, ptr %3, align 8
   %309 = icmp ne i64 %308, 0
-  %or.cond154 = select i1 %or.cond146, i1 %309, i1 false
+  %or.cond154 = select i1 %or.cond146, i1 %309, i1 false, !prof !688
   br i1 %or.cond154, label %310, label %.thread453, !prof !688
 
 310:                                              ; preds = %305
@@ -55949,7 +55949,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
   %or.cond149 = and i1 %317, %316
   %318 = load i64, ptr %3, align 8
   %319 = icmp ne i64 %318, 0
-  %or.cond156 = select i1 %or.cond149, i1 %319, i1 false
+  %or.cond156 = select i1 %or.cond149, i1 %319, i1 false, !prof !688
   br i1 %or.cond156, label %320, label %.thread453, !prof !688
 
 320:                                              ; preds = %315
@@ -62098,7 +62098,7 @@ define linkonce_odr hidden noundef double @_ZN5boost4json6detail8charconv6detail
   %or.cond90 = select i1 %64, i1 %65, i1 false
   %66 = and i64 %63, 3
   %67 = icmp eq i64 %66, 1
-  %or.cond94 = select i1 %or.cond90, i1 %67, i1 false
+  %or.cond94 = select i1 %or.cond90, i1 %67, i1 false, !prof !688
   br i1 %or.cond94, label %87, label %.critedge, !prof !688
 
 .critedge:                                        ; preds = %60

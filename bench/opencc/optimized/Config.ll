@@ -11294,7 +11294,7 @@ _ZN9rapidjson13GenericReaderINS_4UTF8IcEES2_NS_12CrtAllocatorEE7ConsumeINS4_12Nu
 59:                                               ; preds = %.lr.ph504
   %.not150 = icmp ne i64 %.2139502, 922337203685477580
   %60 = icmp samesign ugt i8 %57, 56
-  %or.cond435 = select i1 %.not150, i1 true, i1 %60
+  %or.cond435 = select i1 %.not150, i1 true, i1 %60, !prof !323
   br i1 %or.cond435, label %.critedge172, label %61, !prof !323
 
 61:                                               ; preds = %59, %.lr.ph504
@@ -11320,7 +11320,7 @@ _ZN9rapidjson13GenericReaderINS_4UTF8IcEES2_NS_12CrtAllocatorEE7ConsumeINS4_12Nu
 72:                                               ; preds = %.lr.ph496
   %.not149 = icmp ne i64 %.3140494, 1844674407370955161
   %73 = icmp samesign ugt i8 %70, 53
-  %or.cond437 = select i1 %.not149, i1 true, i1 %73
+  %or.cond437 = select i1 %.not149, i1 true, i1 %73, !prof !323
   br i1 %or.cond437, label %.critedge172, label %74, !prof !323
 
 74:                                               ; preds = %72, %.lr.ph496
@@ -11413,8 +11413,8 @@ _ZN9rapidjson13GenericReaderINS_4UTF8IcEES2_NS_12CrtAllocatorEE7ConsumeINS4_12Nu
   %.sroa.0.10514 = phi ptr [ %117, %115 ], [ %101, %.lr.ph518.preheader ]
   %112 = icmp samesign ugt i8 %111, 57
   %113 = icmp ugt i64 %.6143515, 9007199254740991
-  %or.cond = select i1 %112, i1 true, i1 %113
-  br i1 %or.cond, label %.thread616, label %115, !prof !328
+  %or.cond = select i1 %112, i1 true, i1 %113, !prof !328
+  br i1 %or.cond, label %.thread616, label %115, !prof !329
 
 .thread616:                                       ; preds = %.lr.ph518
   %114 = uitofp i64 %.6143515 to double
@@ -11433,7 +11433,7 @@ _ZN9rapidjson13GenericReaderINS_4UTF8IcEES2_NS_12CrtAllocatorEE7ConsumeINS4_12Nu
   %spec.select183 = add nsw i32 %.7134516, %123
   %124 = load i8, ptr %117, align 1, !tbaa !20
   %125 = icmp sgt i8 %124, 47
-  br i1 %125, label %.lr.ph518, label %126, !prof !313, !llvm.loop !329
+  br i1 %125, label %.lr.ph518, label %126, !prof !313, !llvm.loop !330
 
 126:                                              ; preds = %115
   %127 = uitofp nneg i64 %121 to double
@@ -11482,7 +11482,7 @@ _ZN9rapidjson13GenericReaderINS_4UTF8IcEES2_NS_12CrtAllocatorEE7ConsumeINS4_12Nu
   %.sroa.0.12 = getelementptr inbounds nuw i8, ptr %.sroa.0.11528, i64 1
   %143 = load i8, ptr %.sroa.0.12, align 1, !tbaa !20
   %144 = icmp sgt i8 %143, 47
-  br i1 %144, label %.lr.ph532, label %_ZN9rapidjson13GenericReaderINS_4UTF8IcEES2_NS_12CrtAllocatorEE7ConsumeINS4_12NumberStreamINS_25GenericInsituStringStreamIS2_EELb0ELb0EEEEEbRT_NSA_2ChE.exit196, !prof !313, !llvm.loop !330
+  br i1 %144, label %.lr.ph532, label %_ZN9rapidjson13GenericReaderINS_4UTF8IcEES2_NS_12CrtAllocatorEE7ConsumeINS4_12NumberStreamINS_25GenericInsituStringStreamIS2_EELb0ELb0EEEEEbRT_NSA_2ChE.exit196, !prof !313, !llvm.loop !331
 
 .critedge185:                                     ; preds = %.lr.ph532, %.critedge180
   %.pr398 = phi i8 [ %97, %.critedge180 ], [ %129, %.lr.ph532 ]
@@ -11494,7 +11494,7 @@ _ZN9rapidjson13GenericReaderINS_4UTF8IcEES2_NS_12CrtAllocatorEE7ConsumeINS4_12Nu
   switch i8 %.pr398, label %_ZN9rapidjson13GenericReaderINS_4UTF8IcEES2_NS_12CrtAllocatorEE7ConsumeINS4_12NumberStreamINS_25GenericInsituStringStreamIS2_EELb0ELb0EEEEEbRT_NSA_2ChE.exit196 [
     i8 101, label %_ZN9rapidjson13GenericReaderINS_4UTF8IcEES2_NS_12CrtAllocatorEE7ConsumeINS4_12NumberStreamINS_25GenericInsituStringStreamIS2_EELb0ELb0EEEEEbRT_NSA_2ChE.exit195
     i8 69, label %_ZN9rapidjson13GenericReaderINS_4UTF8IcEES2_NS_12CrtAllocatorEE7ConsumeINS4_12NumberStreamINS_25GenericInsituStringStreamIS2_EELb0ELb0EEEEEbRT_NSA_2ChE.exit195
-  ], !prof !331
+  ], !prof !332
 
 _ZN9rapidjson13GenericReaderINS_4UTF8IcEES2_NS_12CrtAllocatorEE7ConsumeINS4_12NumberStreamINS_25GenericInsituStringStreamIS2_EELb0ELb0EEEEEbRT_NSA_2ChE.exit195: ; preds = %.critedge185, %.critedge185
   %.sroa.0.14 = getelementptr inbounds nuw i8, ptr %.sroa.0.13, i64 1
@@ -11559,13 +11559,13 @@ _ZN9rapidjson13GenericReaderINS_4UTF8IcEES2_NS_12CrtAllocatorEE7ConsumeINS4_12Nu
   %170 = add i8 %169, -48
   %or.cond442 = icmp ult i8 %170, 10
   %171 = getelementptr inbounds nuw i8, ptr %.sroa.0.19, i64 1
-  br i1 %or.cond442, label %.preheader, label %.thread423, !prof !332, !llvm.loop !333
+  br i1 %or.cond442, label %.preheader, label %.thread423, !prof !333, !llvm.loop !334
 
 .critedge192:                                     ; preds = %.lr.ph539
   %.pre583 = load i8, ptr %164, align 1, !tbaa !20
   %.pre584 = add i8 %.pre583, -48
   %172 = icmp ult i8 %.pre584, 10
-  br i1 %172, label %.lr.ph539, label %.thread423, !prof !334, !llvm.loop !335
+  br i1 %172, label %.lr.ph539, label %.thread423, !prof !335, !llvm.loop !336
 
 173:                                              ; preds = %.thread627, %156
   %174 = phi i32 [ %155, %.thread627 ], [ %159, %156 ]
@@ -11579,7 +11579,7 @@ _ZN9rapidjson13GenericReaderINS_4UTF8IcEES2_NS_12CrtAllocatorEE7ConsumeINS4_12Nu
   %178 = load i8, ptr %.sroa.0.20, align 1, !tbaa !20
   %179 = add i8 %178, -48
   %or.cond443 = icmp ult i8 %179, 10
-  br i1 %or.cond443, label %180, label %.thread423, !prof !336
+  br i1 %or.cond443, label %180, label %.thread423, !prof !337
 
 180:                                              ; preds = %177
   %181 = mul nsw i32 %.2110, 10
@@ -11588,7 +11588,7 @@ _ZN9rapidjson13GenericReaderINS_4UTF8IcEES2_NS_12CrtAllocatorEE7ConsumeINS4_12Nu
   %184 = add i32 %181, -48
   %185 = add i32 %184, %183
   %186 = icmp sgt i32 %185, %176
-  br i1 %186, label %187, label %177, !prof !144, !llvm.loop !337
+  br i1 %186, label %187, label %177, !prof !144, !llvm.loop !338
 
 187:                                              ; preds = %180
   %188 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -11642,7 +11642,7 @@ _ZN9rapidjson13GenericReaderINS_4UTF8IcEES2_NS_12CrtAllocatorEE7ConsumeINS4_12Nu
   %203 = sub nuw nsw i32 -308, %197
   %204 = zext nneg i32 %203 to i64
   %205 = getelementptr inbounds nuw double, ptr @_ZZN9rapidjson8internal5Pow10EiE1e, i64 %204
-  %206 = load double, ptr %205, align 8, !tbaa !338
+  %206 = load double, ptr %205, align 8, !tbaa !339
   %207 = fdiv double %202, %206
   br label %_ZN9rapidjson8internal21StrtodNormalPrecisionEdi.exit
 
@@ -11653,7 +11653,7 @@ _ZN9rapidjson13GenericReaderINS_4UTF8IcEES2_NS_12CrtAllocatorEE7ConsumeINS4_12Nu
 210:                                              ; preds = %208
   %211 = zext nneg i32 %197 to i64
   %212 = getelementptr inbounds nuw double, ptr @_ZZN9rapidjson8internal5Pow10EiE1e, i64 %211
-  %213 = load double, ptr %212, align 8, !tbaa !338
+  %213 = load double, ptr %212, align 8, !tbaa !339
   %214 = fmul double %.7102645, %213
   br label %_ZN9rapidjson8internal21StrtodNormalPrecisionEdi.exit
 
@@ -11661,7 +11661,7 @@ _ZN9rapidjson13GenericReaderINS_4UTF8IcEES2_NS_12CrtAllocatorEE7ConsumeINS4_12Nu
   %216 = sub nsw i32 0, %197
   %217 = zext nneg i32 %216 to i64
   %218 = getelementptr inbounds nuw double, ptr @_ZZN9rapidjson8internal5Pow10EiE1e, i64 %217
-  %219 = load double, ptr %218, align 8, !tbaa !338
+  %219 = load double, ptr %218, align 8, !tbaa !339
   %220 = fdiv double %.7102645, %219
   br label %_ZN9rapidjson8internal21StrtodNormalPrecisionEdi.exit
 
@@ -11987,7 +11987,7 @@ define linkonce_odr noundef i32 @_ZN9rapidjson13GenericReaderINS_4UTF8IcEES2_NS_
   store ptr %20, ptr %1, align 8, !tbaa !109
   %21 = add nuw nsw i32 %.03242, 1
   %exitcond = icmp eq i32 %21, 4
-  br i1 %exitcond, label %.loopexit, label %4, !llvm.loop !340
+  br i1 %exitcond, label %.loopexit, label %4, !llvm.loop !341
 
 .loopexit:                                        ; preds = %18, %15
   %spec.select = phi i32 [ 0, %15 ], [ %19, %18 ]
@@ -12122,7 +12122,7 @@ define linkonce_odr noundef zeroext i1 @_ZN9rapidjson15GenericDocumentINS_4UTF8I
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %16 = load i64, ptr %15, align 8, !tbaa !212
   %17 = add i64 %16, %11
-  %18 = load i64, ptr %12, align 8, !tbaa !341
+  %18 = load i64, ptr %12, align 8, !tbaa !342
   %19 = icmp ugt i64 %17, %18
   br i1 %19, label %20, label %33
 
@@ -12131,13 +12131,13 @@ define linkonce_odr noundef zeroext i1 @_ZN9rapidjson15GenericDocumentINS_4UTF8I
   %22 = load i64, ptr %21, align 8, !tbaa !103
   %..i.i = tail call i64 @llvm.umax.i64(i64 %22, i64 %11)
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %24 = load ptr, ptr %23, align 8, !tbaa !342
+  %24 = load ptr, ptr %23, align 8, !tbaa !343
   %.not.i.i.i = icmp eq ptr %24, null
   br i1 %.not.i.i.i, label %25, label %28
 
 25:                                               ; preds = %20
   %26 = tail call noalias noundef nonnull dereferenceable(1) ptr @_Znwm(i64 noundef 1) #29
-  store ptr %26, ptr %23, align 8, !tbaa !342
+  store ptr %26, ptr %23, align 8, !tbaa !343
   %27 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store ptr %26, ptr %27, align 8, !tbaa !213
   br label %28
@@ -12153,7 +12153,7 @@ _ZN9rapidjson12CrtAllocator6MallocEm.exit.i.i.i:  ; preds = %28
   br i1 %.not9.not.i.i.i, label %_ZN9rapidjson19MemoryPoolAllocatorINS_12CrtAllocatorEE6MallocEm.exit.i, label %_ZN9rapidjson19MemoryPoolAllocatorINS_12CrtAllocatorEE8AddChunkEm.exit.i.i
 
 _ZN9rapidjson19MemoryPoolAllocatorINS_12CrtAllocatorEE8AddChunkEm.exit.i.i: ; preds = %_ZN9rapidjson12CrtAllocator6MallocEm.exit.i.i.i
-  store i64 %..i.i, ptr %30, align 8, !tbaa !341
+  store i64 %..i.i, ptr %30, align 8, !tbaa !342
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store i64 0, ptr %31, align 8, !tbaa !212
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 16
@@ -12226,7 +12226,7 @@ define linkonce_odr noundef zeroext i1 @_ZN9rapidjson15GenericDocumentINS_4UTF8I
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %16 = load i64, ptr %15, align 8, !tbaa !212
   %17 = add i64 %16, %11
-  %18 = load i64, ptr %12, align 8, !tbaa !341
+  %18 = load i64, ptr %12, align 8, !tbaa !342
   %19 = icmp ugt i64 %17, %18
   br i1 %19, label %20, label %33
 
@@ -12235,13 +12235,13 @@ define linkonce_odr noundef zeroext i1 @_ZN9rapidjson15GenericDocumentINS_4UTF8I
   %22 = load i64, ptr %21, align 8, !tbaa !103
   %..i.i = tail call i64 @llvm.umax.i64(i64 %22, i64 %11)
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %24 = load ptr, ptr %23, align 8, !tbaa !342
+  %24 = load ptr, ptr %23, align 8, !tbaa !343
   %.not.i.i.i = icmp eq ptr %24, null
   br i1 %.not.i.i.i, label %25, label %28
 
 25:                                               ; preds = %20
   %26 = tail call noalias noundef nonnull dereferenceable(1) ptr @_Znwm(i64 noundef 1) #29
-  store ptr %26, ptr %23, align 8, !tbaa !342
+  store ptr %26, ptr %23, align 8, !tbaa !343
   %27 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store ptr %26, ptr %27, align 8, !tbaa !213
   br label %28
@@ -12257,7 +12257,7 @@ _ZN9rapidjson12CrtAllocator6MallocEm.exit.i.i.i:  ; preds = %28
   br i1 %.not9.not.i.i.i, label %_ZN9rapidjson19MemoryPoolAllocatorINS_12CrtAllocatorEE6MallocEm.exit.i, label %_ZN9rapidjson19MemoryPoolAllocatorINS_12CrtAllocatorEE8AddChunkEm.exit.i.i
 
 _ZN9rapidjson19MemoryPoolAllocatorINS_12CrtAllocatorEE8AddChunkEm.exit.i.i: ; preds = %_ZN9rapidjson12CrtAllocator6MallocEm.exit.i.i.i
-  store i64 %..i.i, ptr %30, align 8, !tbaa !341
+  store i64 %..i.i, ptr %30, align 8, !tbaa !342
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store i64 0, ptr %31, align 8, !tbaa !212
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 16
@@ -12321,7 +12321,7 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
   store i32 1, ptr %6, align 4, !tbaa !138
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN6opencc9ConverterELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3, align 8, !tbaa !3
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %1, ptr %7, align 8, !tbaa !343
+  store ptr %1, ptr %7, align 8, !tbaa !344
   store ptr %3, ptr %0, align 8, !tbaa !134
   ret void
 
@@ -12500,7 +12500,7 @@ define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN6opencc9ConverterELN9__gnu_cx
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN6opencc9ConverterELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !343
+  %3 = load ptr, ptr %2, align 8, !tbaa !344
   %4 = icmp eq ptr %3, null
   br i1 %4, label %6, label %5
 
@@ -12933,20 +12933,21 @@ attributes #36 = { nounwind allocsize(0) }
 !325 = distinct !{!325, !22}
 !326 = distinct !{!326, !22}
 !327 = !{!"branch_weights", i32 4001, i32 4000000}
-!328 = !{!"branch_weights", i32 1073741825, i32 1073741823}
-!329 = distinct !{!329, !22}
+!328 = !{!"branch_weights", i32 2002, i32 2000}
+!329 = !{!"branch_weights", i32 1073741825, i32 1073741823}
 !330 = distinct !{!330, !22}
-!331 = !{!"branch_weights", i32 0, i32 -2147483648, i32 0}
-!332 = !{!"branch_weights", i32 1, i32 4001}
-!333 = distinct !{!333, !22}
-!334 = !{!"branch_weights", i32 -2147483648, i32 0}
-!335 = distinct !{!335, !22}
-!336 = !{!"branch_weights", i32 -100663296, i32 2097152}
-!337 = distinct !{!337, !22}
-!338 = !{!339, !339, i64 0}
-!339 = !{!"double", !9, i64 0}
-!340 = distinct !{!340, !22}
-!341 = !{!210, !18, i64 0}
-!342 = !{!101, !95, i64 24}
-!343 = !{!344, !178, i64 16}
-!344 = !{!"_ZTSSt15_Sp_counted_ptrIPN6opencc9ConverterELN9__gnu_cxx12_Lock_policyE2EE", !137, i64 0, !178, i64 16}
+!331 = distinct !{!331, !22}
+!332 = !{!"branch_weights", i32 0, i32 -2147483648, i32 0}
+!333 = !{!"branch_weights", i32 1, i32 4001}
+!334 = distinct !{!334, !22}
+!335 = !{!"branch_weights", i32 -2147483648, i32 0}
+!336 = distinct !{!336, !22}
+!337 = !{!"branch_weights", i32 -100663296, i32 2097152}
+!338 = distinct !{!338, !22}
+!339 = !{!340, !340, i64 0}
+!340 = !{!"double", !9, i64 0}
+!341 = distinct !{!341, !22}
+!342 = !{!210, !18, i64 0}
+!343 = !{!101, !95, i64 24}
+!344 = !{!345, !178, i64 16}
+!345 = !{!"_ZTSSt15_Sp_counted_ptrIPN6opencc9ConverterELN9__gnu_cxx12_Lock_policyE2EE", !137, i64 0, !178, i64 16}

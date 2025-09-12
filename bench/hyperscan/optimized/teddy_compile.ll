@@ -2073,7 +2073,7 @@ _ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIjNS0_13new
   %300 = load ptr, ptr %76, align 8, !noalias !62
   %.not.i.i228.i.i = icmp ne ptr %300, null
   %301 = icmp ne ptr %300, %275
-  %or.cond.i229.i.i = select i1 %.not.i.i228.i.i, i1 %301, i1 false
+  %or.cond.i229.i.i = select i1 %.not.i.i228.i.i, i1 %301, i1 false, !prof !65
   br i1 %or.cond.i229.i.i, label %_ZN5boost9container3dtl18insert_range_proxyINS0_22small_vector_allocatorIjNS0_13new_allocatorIvEEvEENS0_12vec_iteratorIPjLb1EEES8_E31uninitialized_copy_n_and_updateERS6_S8_m.exit.i.i231.thread.i.i, label %_ZN5boost9container3dtl18insert_range_proxyINS0_22small_vector_allocatorIjNS0_13new_allocatorIvEEvEENS0_12vec_iteratorIPjLb1EEES8_E31uninitialized_copy_n_and_updateERS6_S8_m.exit.i.i231.i.i, !prof !65
 
 _ZN5boost9container3dtl18insert_range_proxyINS0_22small_vector_allocatorIjNS0_13new_allocatorIvEEvEENS0_12vec_iteratorIPjLb1EEES8_E31uninitialized_copy_n_and_updateERS6_S8_m.exit.i.i231.thread.i.i: ; preds = %.noexc234.i.i
@@ -4177,7 +4177,7 @@ _ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorItNS0_13new
   %33 = load ptr, ptr %1, align 8
   %.not.i = icmp ne ptr %33, null
   %34 = icmp ne ptr %33, %6
-  %or.cond = select i1 %.not.i, i1 %34, i1 false
+  %or.cond = select i1 %.not.i, i1 %34, i1 false, !prof !65
   br i1 %or.cond, label %35, label %_ZN5boost9container24uninitialized_move_allocINS0_22small_vector_allocatorItNS0_13new_allocatorIvEEvEEPtS6_EENS0_3dtl40enable_if_memtransfer_copy_constructibleIT0_T1_SA_E4typeERT_S9_S9_SA_.exit.i, !prof !65
 
 35:                                               ; preds = %_ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorItNS0_13new_allocatorIvEEvEEmNS_11move_detail17integral_constantIjLj1EEEE8allocateEm.exit
@@ -5669,7 +5669,7 @@ _ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIjNS0_13new
   %33 = load ptr, ptr %1, align 8
   %.not.i = icmp ne ptr %33, null
   %34 = icmp ne ptr %33, %6
-  %or.cond = select i1 %.not.i, i1 %34, i1 false
+  %or.cond = select i1 %.not.i, i1 %34, i1 false, !prof !65
   br i1 %or.cond, label %35, label %_ZN5boost9container24uninitialized_move_allocINS0_22small_vector_allocatorIjNS0_13new_allocatorIvEEvEEPjS6_EENS0_3dtl40enable_if_memtransfer_copy_constructibleIT0_T1_SA_E4typeERT_S9_S9_SA_.exit.i, !prof !65
 
 35:                                               ; preds = %_ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIjNS0_13new_allocatorIvEEvEEmNS_11move_detail17integral_constantIjLj1EEEE8allocateEm.exit

@@ -2641,7 +2641,7 @@ define internal fastcc ptr @xas_next_entry(ptr noundef %0) unnamed_addr #4 align
   %23 = phi i64 [ %35, %33 ], [ %17, %.preheader ]
   %24 = icmp eq i64 %23, -1
   %25 = icmp eq i8 %22, 63
-  %or.cond = select i1 %24, i1 true, i1 %25
+  %or.cond = select i1 %24, i1 true, i1 %25, !prof !74
   br i1 %or.cond, label %.loopexit, label %26, !prof !74
 
 26:                                               ; preds = %21

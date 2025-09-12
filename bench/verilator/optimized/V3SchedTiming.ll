@@ -4839,7 +4839,7 @@ define internal void @_ZZN7V3Sched13prepareTimingEP10AstNetlistEN12AwaitVisitor5
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 34
   %11 = load i8, ptr %10, align 2, !range !194
   %12 = trunc nuw i8 %11 to i1
-  %or.cond = select i1 %9, i1 true, i1 %12
+  %or.cond = select i1 %9, i1 true, i1 %12, !prof !260
   br i1 %or.cond, label %.critedge, label %13, !prof !260
 
 13:                                               ; preds = %2

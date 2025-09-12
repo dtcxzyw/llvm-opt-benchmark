@@ -7337,7 +7337,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZN5folly14
   %17 = icmp ule ptr %15, %1
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 %12
   %.not30 = icmp ugt ptr %18, %1
-  %or.cond = select i1 %17, i1 %.not30, i1 false
+  %or.cond = select i1 %17, i1 %.not30, i1 false, !prof !266
   br i1 %or.cond, label %19, label %.critedge, !prof !266
 
 19:                                               ; preds = %4
@@ -10294,7 +10294,7 @@ define linkonce_odr noundef i64 @_ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBuf
   %16 = load ptr, ptr %15, align 8, !tbaa !377
   %17 = icmp eq ptr %16, %3
   %18 = icmp eq i64 %13, 0
-  %or.cond = select i1 %17, i1 true, i1 %18
+  %or.cond = select i1 %17, i1 true, i1 %18, !prof !267
   br i1 %or.cond, label %_ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE16tryAdvanceBufferEv.exit, label %19, !prof !267
 
 19:                                               ; preds = %9

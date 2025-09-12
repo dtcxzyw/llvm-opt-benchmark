@@ -9558,7 +9558,7 @@ define linkonce_odr void @_ZN7xgboost4data6detail10CheckEmptyERKNS_10BatchParamE
   %5 = icmp ne i32 %4, 0
   %6 = load i32, ptr %1, align 8
   %7 = icmp ne i32 %6, 0
-  %or.cond = select i1 %5, i1 true, i1 %7
+  %or.cond = select i1 %5, i1 true, i1 %7, !prof !322
   br i1 %or.cond, label %17, label %8, !prof !322
 
 8:                                                ; preds = %2
@@ -9946,7 +9946,7 @@ _ZN7xgboost6common13HistogramCutsC2EOS1_.exit:    ; preds = %102
   %108 = trunc nuw i8 %107 to i1
   %109 = load i64, ptr %57, align 8
   %110 = icmp eq i64 %109, 0
-  %or.cond = select i1 %108, i1 %110, i1 false
+  %or.cond = select i1 %108, i1 %110, i1 false, !prof !331
   br i1 %or.cond, label %111, label %126, !prof !331
 
 111:                                              ; preds = %_ZN7xgboost6common13HistogramCutsC2EOS1_.exit

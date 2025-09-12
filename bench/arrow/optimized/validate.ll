@@ -14611,7 +14611,7 @@ _ZN5arrow9ArraySpanC2ERKNS_9ArrayDataE.exit.i.i.i: ; preds = %170
   %197 = icmp sgt i64 %196, %195
   %198 = load i64, ptr %169, align 8, !noalias !1375
   %199 = icmp slt i64 %198, %195
-  %or.cond.i.i.i = select i1 %197, i1 true, i1 %199
+  %or.cond.i.i.i = select i1 %197, i1 true, i1 %199, !prof !1393
   br i1 %or.cond.i.i.i, label %.critedge.i.i.i.i.i.i.i.i, label %_ZN5arrow6StatusD2Ev.exit.thread.i.i.i.i.i.i, !prof !1393
 
 .critedge.i.i.i.i.i.i.i.i:                        ; preds = %.lr.ph29.i.i.i.i.i.i
@@ -14738,7 +14738,7 @@ _ZN5arrow6StatusD2Ev.exit77.lr.ph.i.i.i.i.i.i:    ; preds = %.preheader10.i.i.i.
   %241 = icmp sgt i64 %240, %239
   %242 = load i64, ptr %169, align 8, !noalias !1375
   %243 = icmp slt i64 %242, %239
-  %or.cond4.i.i.i = select i1 %241, i1 true, i1 %243
+  %or.cond4.i.i.i = select i1 %241, i1 true, i1 %243, !prof !1393
   br i1 %or.cond4.i.i.i, label %.critedge.i.i80.i.i.i.i.i.i, label %_ZN5arrow6StatusD2Ev.exit83.thread.i.i.i.i.i.i, !prof !1393
 
 .critedge.i.i80.i.i.i.i.i.i:                      ; preds = %236
@@ -14978,7 +14978,7 @@ _ZN5arrow9ArraySpanC2ERKNS_9ArrayDataE.exit.i93.i.i: ; preds = %278
   %305 = icmp sgt i64 %304, %303
   %306 = load i64, ptr %169, align 8, !noalias !1443
   %307 = icmp slt i64 %306, %303
-  %or.cond.i149.i.i = select i1 %305, i1 true, i1 %307
+  %or.cond.i149.i.i = select i1 %305, i1 true, i1 %307, !prof !1393
   br i1 %or.cond.i149.i.i, label %.critedge.i.i.i.i.i.i153.i.i, label %_ZN5arrow6StatusD2Ev.exit.thread.i.i.i.i150.i.i, !prof !1393
 
 .critedge.i.i.i.i.i.i153.i.i:                     ; preds = %.lr.ph29.i.i.i.i146.i.i
@@ -15107,7 +15107,7 @@ _ZN5arrow6StatusD2Ev.exit77.lr.ph.i.i.i.i143.i.i: ; preds = %.preheader10.i.i.i.
   %350 = icmp sgt i64 %349, %348
   %351 = load i64, ptr %169, align 8, !noalias !1443
   %352 = icmp slt i64 %351, %348
-  %or.cond4.i126.i.i = select i1 %350, i1 true, i1 %352
+  %or.cond4.i126.i.i = select i1 %350, i1 true, i1 %352, !prof !1393
   br i1 %or.cond4.i126.i.i, label %.critedge.i.i80.i.i.i.i130.i.i, label %_ZN5arrow6StatusD2Ev.exit83.thread.i.i.i.i127.i.i, !prof !1393
 
 .critedge.i.i80.i.i.i.i130.i.i:                   ; preds = %345
@@ -15364,7 +15364,7 @@ _ZN5arrow9ArraySpanC2ERKNS_9ArrayDataE.exit.i166.i.i: ; preds = %388
   %415 = icmp sgt i64 %414, %413
   %416 = load i64, ptr %169, align 8, !noalias !1503
   %417 = icmp slt i64 %416, %413
-  %or.cond.i222.i.i = select i1 %415, i1 true, i1 %417
+  %or.cond.i222.i.i = select i1 %415, i1 true, i1 %417, !prof !1393
   br i1 %or.cond.i222.i.i, label %.critedge.i.i.i.i.i.i226.i.i, label %_ZN5arrow6StatusD2Ev.exit.thread.i.i.i.i223.i.i, !prof !1393
 
 .critedge.i.i.i.i.i.i226.i.i:                     ; preds = %.lr.ph29.i.i.i.i219.i.i
@@ -15493,7 +15493,7 @@ _ZN5arrow6StatusD2Ev.exit77.lr.ph.i.i.i.i216.i.i: ; preds = %.preheader10.i.i.i.
   %460 = icmp sgt i64 %459, %458
   %461 = load i64, ptr %169, align 8, !noalias !1503
   %462 = icmp slt i64 %461, %458
-  %or.cond4.i199.i.i = select i1 %460, i1 true, i1 %462
+  %or.cond4.i199.i.i = select i1 %460, i1 true, i1 %462, !prof !1393
   br i1 %or.cond4.i199.i.i, label %.critedge.i.i80.i.i.i.i203.i.i, label %_ZN5arrow6StatusD2Ev.exit83.thread.i.i.i.i200.i.i, !prof !1393
 
 .critedge.i.i80.i.i.i.i203.i.i:                   ; preds = %455
@@ -15750,7 +15750,7 @@ _ZN5arrow9ArraySpanC2ERKNS_9ArrayDataE.exit.i239.i.i: ; preds = %498
   %525 = icmp sgt i64 %524, %523
   %526 = load i64, ptr %169, align 8, !noalias !1564
   %527 = icmp slt i64 %526, %523
-  %or.cond.i295.i.i = select i1 %525, i1 true, i1 %527
+  %or.cond.i295.i.i = select i1 %525, i1 true, i1 %527, !prof !1393
   br i1 %or.cond.i295.i.i, label %.critedge.i.i.i.i.i.i299.i.i, label %_ZN5arrow6StatusD2Ev.exit.thread.i.i.i.i296.i.i, !prof !1393
 
 .critedge.i.i.i.i.i.i299.i.i:                     ; preds = %.lr.ph29.i.i.i.i292.i.i
@@ -15879,7 +15879,7 @@ _ZN5arrow6StatusD2Ev.exit77.lr.ph.i.i.i.i289.i.i: ; preds = %.preheader10.i.i.i.
   %570 = icmp sgt i64 %569, %568
   %571 = load i64, ptr %169, align 8, !noalias !1564
   %572 = icmp slt i64 %571, %568
-  %or.cond4.i272.i.i = select i1 %570, i1 true, i1 %572
+  %or.cond4.i272.i.i = select i1 %570, i1 true, i1 %572, !prof !1393
   br i1 %or.cond4.i272.i.i, label %.critedge.i.i80.i.i.i.i276.i.i, label %_ZN5arrow6StatusD2Ev.exit83.thread.i.i.i.i273.i.i, !prof !1393
 
 .critedge.i.i80.i.i.i.i276.i.i:                   ; preds = %565
@@ -16136,7 +16136,7 @@ _ZN5arrow9ArraySpanC2ERKNS_9ArrayDataE.exit.i312.i.i: ; preds = %608
   %635 = icmp sgt i64 %634, %633
   %636 = load i64, ptr %169, align 8, !noalias !1624
   %637 = icmp slt i64 %636, %633
-  %or.cond.i368.i.i = select i1 %635, i1 true, i1 %637
+  %or.cond.i368.i.i = select i1 %635, i1 true, i1 %637, !prof !1393
   br i1 %or.cond.i368.i.i, label %.critedge.i.i.i.i.i.i372.i.i, label %_ZN5arrow6StatusD2Ev.exit.thread.i.i.i.i369.i.i, !prof !1393
 
 .critedge.i.i.i.i.i.i372.i.i:                     ; preds = %.lr.ph29.i.i.i.i365.i.i
@@ -16265,7 +16265,7 @@ _ZN5arrow6StatusD2Ev.exit77.lr.ph.i.i.i.i362.i.i: ; preds = %.preheader10.i.i.i.
   %680 = icmp sgt i64 %679, %678
   %681 = load i64, ptr %169, align 8, !noalias !1624
   %682 = icmp slt i64 %681, %678
-  %or.cond4.i345.i.i = select i1 %680, i1 true, i1 %682
+  %or.cond4.i345.i.i = select i1 %680, i1 true, i1 %682, !prof !1393
   br i1 %or.cond4.i345.i.i, label %.critedge.i.i80.i.i.i.i349.i.i, label %_ZN5arrow6StatusD2Ev.exit83.thread.i.i.i.i346.i.i, !prof !1393
 
 .critedge.i.i80.i.i.i.i349.i.i:                   ; preds = %675
@@ -16522,7 +16522,7 @@ _ZN5arrow9ArraySpanC2ERKNS_9ArrayDataE.exit.i385.i.i: ; preds = %718
   %745 = icmp sgt i64 %744, %743
   %746 = load i64, ptr %169, align 8, !noalias !1684
   %747 = icmp slt i64 %746, %743
-  %or.cond.i441.i.i = select i1 %745, i1 true, i1 %747
+  %or.cond.i441.i.i = select i1 %745, i1 true, i1 %747, !prof !1393
   br i1 %or.cond.i441.i.i, label %.critedge.i.i.i.i.i.i445.i.i, label %_ZN5arrow6StatusD2Ev.exit.thread.i.i.i.i442.i.i, !prof !1393
 
 .critedge.i.i.i.i.i.i445.i.i:                     ; preds = %.lr.ph29.i.i.i.i438.i.i
@@ -16651,7 +16651,7 @@ _ZN5arrow6StatusD2Ev.exit77.lr.ph.i.i.i.i435.i.i: ; preds = %.preheader10.i.i.i.
   %790 = icmp sgt i64 %789, %788
   %791 = load i64, ptr %169, align 8, !noalias !1684
   %792 = icmp slt i64 %791, %788
-  %or.cond4.i418.i.i = select i1 %790, i1 true, i1 %792
+  %or.cond4.i418.i.i = select i1 %790, i1 true, i1 %792, !prof !1393
   br i1 %or.cond4.i418.i.i, label %.critedge.i.i80.i.i.i.i422.i.i, label %_ZN5arrow6StatusD2Ev.exit83.thread.i.i.i.i419.i.i, !prof !1393
 
 .critedge.i.i80.i.i.i.i422.i.i:                   ; preds = %785
@@ -16907,7 +16907,7 @@ _ZN5arrow9ArraySpanC2ERKNS_9ArrayDataE.exit.i458.i.i: ; preds = %828
   %854 = icmp slt i64 %852, %853
   %855 = load i64, ptr %169, align 8, !noalias !1744
   %856 = icmp sgt i64 %852, %855
-  %or.cond.i514.i.i = select i1 %854, i1 true, i1 %856
+  %or.cond.i514.i.i = select i1 %854, i1 true, i1 %856, !prof !1393
   br i1 %or.cond.i514.i.i, label %.critedge.i.i.i.i.i.i518.i.i, label %_ZN5arrow6StatusD2Ev.exit.thread.i.i.i.i515.i.i, !prof !1393
 
 .critedge.i.i.i.i.i.i518.i.i:                     ; preds = %.lr.ph29.i.i.i.i511.i.i
@@ -17035,7 +17035,7 @@ _ZN5arrow6StatusD2Ev.exit77.lr.ph.i.i.i.i508.i.i: ; preds = %.preheader10.i.i.i.
   %898 = icmp slt i64 %896, %897
   %899 = load i64, ptr %169, align 8, !noalias !1744
   %900 = icmp sgt i64 %896, %899
-  %or.cond4.i491.i.i = select i1 %898, i1 true, i1 %900
+  %or.cond4.i491.i.i = select i1 %898, i1 true, i1 %900, !prof !1393
   br i1 %or.cond4.i491.i.i, label %.critedge.i.i80.i.i.i.i495.i.i, label %_ZN5arrow6StatusD2Ev.exit83.thread.i.i.i.i492.i.i, !prof !1393
 
 .critedge.i.i80.i.i.i.i495.i.i:                   ; preds = %894
@@ -17291,7 +17291,7 @@ _ZN5arrow9ArraySpanC2ERKNS_9ArrayDataE.exit.i531.i.i: ; preds = %936
   %962 = icmp slt i64 %960, %961
   %963 = load i64, ptr %169, align 8, !noalias !1804
   %964 = icmp sgt i64 %960, %963
-  %or.cond.i587.i.i = select i1 %962, i1 true, i1 %964
+  %or.cond.i587.i.i = select i1 %962, i1 true, i1 %964, !prof !1393
   br i1 %or.cond.i587.i.i, label %.critedge.i.i.i.i.i.i591.i.i, label %_ZN5arrow6StatusD2Ev.exit.thread.i.i.i.i588.i.i, !prof !1393
 
 .critedge.i.i.i.i.i.i591.i.i:                     ; preds = %.lr.ph29.i.i.i.i584.i.i
@@ -17419,7 +17419,7 @@ _ZN5arrow6StatusD2Ev.exit77.lr.ph.i.i.i.i581.i.i: ; preds = %.preheader10.i.i.i.
   %1006 = icmp slt i64 %1004, %1005
   %1007 = load i64, ptr %169, align 8, !noalias !1804
   %1008 = icmp sgt i64 %1004, %1007
-  %or.cond4.i564.i.i = select i1 %1006, i1 true, i1 %1008
+  %or.cond4.i564.i.i = select i1 %1006, i1 true, i1 %1008, !prof !1393
   br i1 %or.cond4.i564.i.i, label %.critedge.i.i80.i.i.i.i568.i.i, label %_ZN5arrow6StatusD2Ev.exit83.thread.i.i.i.i565.i.i, !prof !1393
 
 .critedge.i.i80.i.i.i.i568.i.i:                   ; preds = %1002

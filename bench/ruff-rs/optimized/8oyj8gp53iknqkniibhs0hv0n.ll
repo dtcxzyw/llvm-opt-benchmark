@@ -3708,7 +3708,7 @@ define hidden void @"_ZN3zip5write25GenericZipWriter$LT$W$GT$6unwrap17h57888c2cd
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i64, ptr %6, align 8, !range !9
   %.not = icmp eq i64 %7, -9223372036854775808
-  %or.cond = select i1 %5, i1 %.not, i1 false
+  %or.cond = select i1 %5, i1 %.not, i1 false, !prof !916
   br i1 %or.cond, label %13, label %8, !prof !916
 
 8:                                                ; preds = %2
@@ -3757,7 +3757,7 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN3zip5write25G
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !range !9
   %.not = icmp eq i64 %6, -9223372036854775808
-  %or.cond = select i1 %4, i1 %.not, i1 false
+  %or.cond = select i1 %4, i1 %.not, i1 false, !prof !916
   br i1 %or.cond, label %12, label %7, !prof !916
 
 7:                                                ; preds = %1

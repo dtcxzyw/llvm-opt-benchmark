@@ -3482,7 +3482,7 @@ _ZN3ue28flat_setINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolder
   %1214 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %1214, null
   %1215 = icmp eq ptr %869, %1214
-  %or.cond.i.i.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i.i, i1 true, i1 %1215
+  %or.cond.i.i.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i.i, i1 true, i1 %1215, !prof !163
   br i1 %or.cond.i.i.i.i.i.i.i.i.i.i, label %_ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIN3ue212graph_detail17vertex_descriptorINS3_9ue2_graphINS3_8NGHolderENS3_19NFAGraphVertexPropsENS3_17NFAGraphEdgePropsEEEEESaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE10deallocateERKPSB_m.exit.i.i.i.i.i.i.i.i.i.i, label %1216, !prof !163
 
 1216:                                             ; preds = %1213
@@ -3856,7 +3856,7 @@ _ZN3ue28flat_setINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolder
   %.not.i.i.i.i.i.i.i.i.i.i.i.i79.i = icmp eq ptr %1323, null
   %1324 = getelementptr inbounds nuw i8, ptr %.sroa.013.125.i.i.i.i, i64 40
   %1325 = icmp eq ptr %1324, %1323
-  %or.cond.i.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i79.i, i1 true, i1 %1325
+  %or.cond.i.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i79.i, i1 true, i1 %1325, !prof !163
   br i1 %or.cond.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIN3ue212graph_detail17vertex_descriptorINS3_9ue2_graphINS3_8NGHolderENS3_19NFAGraphVertexPropsENS3_17NFAGraphEdgePropsEEEEESaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE10deallocateERKPSB_m.exit.i.i.i.i.i.i.i.i.i.i.i.i.i, label %1326, !prof !163
 
 1326:                                             ; preds = %1321

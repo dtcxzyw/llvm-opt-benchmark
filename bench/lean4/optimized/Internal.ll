@@ -47438,7 +47438,7 @@ lean_nat_mul.exit3271:                            ; preds = %166, %170, %.crited
   %177 = ptrtoint ptr %.2.i3267 to i64
   %178 = and i64 %177, 1
   %179 = icmp ne i64 %178, 0
-  %or.cond = select i1 %176, i1 %179, i1 false
+  %or.cond = select i1 %176, i1 %179, i1 false, !prof !17
   br i1 %or.cond, label %lean_nat_lt.exit4631.thread, label %lean_nat_lt.exit4631, !prof !17
 
 lean_nat_lt.exit4631.thread:                      ; preds = %lean_nat_mul.exit3271
@@ -49498,7 +49498,7 @@ lean_nat_mul.exit3265:                            ; preds = %955, %959, %.crited
   %963 = ptrtoint ptr %.2.i3261 to i64
   %964 = and i64 %963, 1
   %965 = icmp ne i64 %964, 0
-  %or.cond6203 = select i1 %937, i1 %965, i1 false
+  %or.cond6203 = select i1 %937, i1 %965, i1 false, !prof !17
   br i1 %or.cond6203, label %lean_nat_lt.exit4634.thread, label %lean_nat_lt.exit4634, !prof !17
 
 lean_nat_lt.exit4634.thread:                      ; preds = %lean_nat_mul.exit3265
@@ -51253,7 +51253,7 @@ lean_nat_mul.exit3253:                            ; preds = %1629, %1633, %.crit
   %1637 = ptrtoint ptr %.2.i3249 to i64
   %1638 = and i64 %1637, 1
   %1639 = icmp ne i64 %1638, 0
-  %or.cond6206 = select i1 %1572, i1 %1639, i1 false
+  %or.cond6206 = select i1 %1572, i1 %1639, i1 false, !prof !17
   br i1 %or.cond6206, label %lean_nat_lt.exit4640.thread, label %lean_nat_lt.exit4640, !prof !17
 
 lean_nat_lt.exit4640.thread:                      ; preds = %lean_nat_mul.exit3253
@@ -53642,7 +53642,7 @@ lean_nat_mul.exit3241:                            ; preds = %2587, %2591, %.crit
   %2598 = ptrtoint ptr %.2.i3237 to i64
   %2599 = and i64 %2598, 1
   %2600 = icmp ne i64 %2599, 0
-  %or.cond6209 = select i1 %2597, i1 %2600, i1 false
+  %or.cond6209 = select i1 %2597, i1 %2600, i1 false, !prof !17
   br i1 %or.cond6209, label %lean_nat_lt.exit4646.thread, label %lean_nat_lt.exit4646, !prof !17
 
 lean_nat_lt.exit4646.thread:                      ; preds = %lean_nat_mul.exit3241
@@ -55609,7 +55609,7 @@ lean_nat_mul.exit3235:                            ; preds = %3337, %3341, %.crit
   %3345 = ptrtoint ptr %.2.i3231 to i64
   %3346 = and i64 %3345, 1
   %3347 = icmp ne i64 %3346, 0
-  %or.cond6212 = select i1 %3310, i1 %3347, i1 false
+  %or.cond6212 = select i1 %3310, i1 %3347, i1 false, !prof !17
   br i1 %or.cond6212, label %lean_nat_lt.exit4649.thread, label %lean_nat_lt.exit4649, !prof !17
 
 lean_nat_lt.exit4649.thread:                      ; preds = %lean_nat_mul.exit3235
@@ -57246,7 +57246,7 @@ lean_nat_mul.exit3223:                            ; preds = %3964, %3968, %.crit
   %3972 = ptrtoint ptr %.2.i3219 to i64
   %3973 = and i64 %3972, 1
   %3974 = icmp ne i64 %3973, 0
-  %or.cond6215 = select i1 %3898, i1 %3974, i1 false
+  %or.cond6215 = select i1 %3898, i1 %3974, i1 false, !prof !17
   br i1 %or.cond6215, label %lean_nat_lt.exit4655.thread, label %lean_nat_lt.exit4655, !prof !17
 
 lean_nat_lt.exit4655.thread:                      ; preds = %lean_nat_mul.exit3223
@@ -59960,7 +59960,7 @@ lean_nat_mul.exit3211:                            ; preds = %5010, %5014, %.crit
   %5018 = ptrtoint ptr %.2.i3207 to i64
   %5019 = and i64 %5018, 1
   %5020 = icmp ne i64 %5019, 0
-  %or.cond6218 = select i1 %4953, i1 %5020, i1 false
+  %or.cond6218 = select i1 %4953, i1 %5020, i1 false, !prof !17
   br i1 %or.cond6218, label %lean_nat_lt.exit4661.thread, label %lean_nat_lt.exit4661, !prof !17
 
 lean_nat_lt.exit4661.thread:                      ; preds = %lean_nat_mul.exit3211
@@ -62397,7 +62397,7 @@ lean_nat_mul.exit:                                ; preds = %5977, %5981, %.crit
   %5985 = ptrtoint ptr %.2.i to i64
   %5986 = and i64 %5985, 1
   %5987 = icmp ne i64 %5986, 0
-  %or.cond6221 = select i1 %5911, i1 %5987, i1 false
+  %or.cond6221 = select i1 %5911, i1 %5987, i1 false, !prof !17
   br i1 %or.cond6221, label %lean_nat_lt.exit4667.thread, label %lean_nat_lt.exit4667, !prof !17
 
 lean_nat_lt.exit4667.thread:                      ; preds = %lean_nat_mul.exit

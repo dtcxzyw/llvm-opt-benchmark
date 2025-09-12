@@ -492,7 +492,7 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort8_stable1
   %64 = getelementptr i8, ptr %77, i64 16
   %65 = icmp ne ptr %73, %63
   %66 = icmp ne ptr %71, %64
-  %or.cond.i = select i1 %65, i1 true, i1 %66
+  %or.cond.i = select i1 %65, i1 true, i1 %66, !prof !99
   br i1 %or.cond.i, label %80, label %_ZN4core5slice4sort6shared9smallsort19bidirectional_merge17h02384d809e8b8972E.exit, !prof !99
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %3
@@ -626,7 +626,7 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort19bidirectional
   %.sroa.0.1 = phi ptr [ %27, %._crit_edge ], [ %40, %36 ]
   %45 = icmp ne ptr %.sroa.0.1, %14
   %46 = icmp ne ptr %.sroa.06.1, %15
-  %or.cond = select i1 %45, i1 true, i1 %46
+  %or.cond = select i1 %45, i1 true, i1 %46, !prof !99
   br i1 %or.cond, label %48, label %47, !prof !99
 
 47:                                               ; preds = %44
@@ -2034,7 +2034,7 @@ define internal fastcc void @_ZN4core5slice4sort8unstable9quicksort9quicksort17h
   %.sroa.0.1.i.i.i = phi ptr [ %.sroa.sel4.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.sroa.sel, %._crit_edge.i.i.i ], [ %.sroa.sel16.idx.i.sroa.sel.idx.sroa.sel, %121 ]
   %123 = icmp ne ptr %.sroa.0.1.i.i.i, %110
   %124 = icmp ne ptr %.sroa.06.1.i.i.i, %111
-  %or.cond.i.i.i = select i1 %123, i1 true, i1 %124
+  %or.cond.i.i.i = select i1 %123, i1 true, i1 %124, !prof !99
   br i1 %or.cond.i.i.i, label %125, label %_ZN4core5slice4sort6shared9smallsort19bidirectional_merge17h02384d809e8b8972E.exit.i.i, !prof !99
 
 125:                                              ; preds = %122

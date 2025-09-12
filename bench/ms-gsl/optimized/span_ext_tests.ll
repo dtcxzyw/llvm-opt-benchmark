@@ -14604,7 +14604,7 @@ _ZNK3gsl7details13span_iteratorIiEmiIiTnNSt9enable_ifIXsr3std7is_sameINSt9remove
   %.not7.i.i.i = icmp ne ptr %.sroa.3.0.copyload, null
   %or.cond.not15.i.i.i = select i1 %.not6.i.i.i, i1 %.not7.i.i.i, i1 false
   %23 = icmp ne ptr %.sroa.2.0.copyload, null
-  %or.cond13.i.i.i = select i1 %or.cond.not15.i.i.i, i1 %23, i1 false
+  %or.cond13.i.i.i = select i1 %or.cond.not15.i.i.i, i1 %23, i1 false, !prof !21
   br i1 %or.cond13.i.i.i, label %24, label %.critedge.i.i.i, !prof !21
 
 .critedge.i.i.i:                                  ; preds = %22

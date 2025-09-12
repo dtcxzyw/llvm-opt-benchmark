@@ -69,7 +69,7 @@ define zeroext i8 @l___private_Lean_Compiler_IR_ResetReuse_0__Lean_IR_ResetReuse
   %13 = ptrtoint ptr %9 to i64
   %14 = and i64 %13, 1
   %15 = icmp ne i64 %14, 0
-  %or.cond = select i1 %12, i1 %15, i1 false
+  %or.cond = select i1 %12, i1 %15, i1 false, !prof !12
   br i1 %or.cond, label %16, label %lean_nat_eq.exit, !prof !12
 
 16:                                               ; preds = %3
@@ -91,7 +91,7 @@ lean_nat_eq.exit:                                 ; preds = %3
   %27 = ptrtoint ptr %23 to i64
   %28 = and i64 %27, 1
   %29 = icmp ne i64 %28, 0
-  %or.cond42 = select i1 %26, i1 %29, i1 false
+  %or.cond42 = select i1 %26, i1 %29, i1 false, !prof !12
   br i1 %or.cond42, label %30, label %lean_nat_eq.exit34, !prof !12
 
 30:                                               ; preds = %19
@@ -113,7 +113,7 @@ lean_nat_eq.exit34:                               ; preds = %19
   %41 = ptrtoint ptr %37 to i64
   %42 = and i64 %41, 1
   %43 = icmp ne i64 %42, 0
-  %or.cond45 = select i1 %40, i1 %43, i1 false
+  %or.cond45 = select i1 %40, i1 %43, i1 false, !prof !12
   br i1 %or.cond45, label %44, label %lean_nat_eq.exit37, !prof !12
 
 44:                                               ; preds = %33
@@ -10419,7 +10419,7 @@ lean_obj_tag.exit473:                             ; preds = %71, %74
   %87 = ptrtoint ptr %80 to i64
   %88 = and i64 %87, 1
   %89 = icmp ne i64 %88, 0
-  %or.cond = select i1 %86, i1 %89, i1 false
+  %or.cond = select i1 %86, i1 %89, i1 false, !prof !12
   br i1 %or.cond, label %90, label %lean_nat_eq.exit, !prof !12
 
 90:                                               ; preds = %83

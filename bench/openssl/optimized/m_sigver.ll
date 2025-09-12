@@ -126,7 +126,7 @@ define internal fastcc range(i32 0, 2) i32 @do_sigver_init(ptr noundef %0, ptr n
   %61 = icmp eq ptr %60, null
   %.pre = load ptr, ptr %29, align 8, !tbaa !14
   %62 = icmp eq ptr %60, %.pre
-  %or.cond289 = select i1 %61, i1 true, i1 %62
+  %or.cond289 = select i1 %61, i1 true, i1 %62, !prof !37
   br i1 %or.cond289, label %.critedge, label %73, !prof !37
 
 63:                                               ; preds = %56

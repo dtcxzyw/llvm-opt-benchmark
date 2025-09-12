@@ -214,7 +214,7 @@ define linkonce_odr noundef i64 @_ZN12dummy_rocc_t7custom0E11rocc_insn_tmm(ptr n
   %27 = getelementptr inbounds nuw i64, ptr %25, i64 %26
   %28 = load i64, ptr %27, align 8, !tbaa !9
   %29 = icmp eq i64 %28, %23
-  %or.cond.i = select i1 %.not, i1 %29, i1 false
+  %or.cond.i = select i1 %.not, i1 %29, i1 false, !prof !139
   br i1 %or.cond.i, label %30, label %.critedge.i, !prof !139
 
 30:                                               ; preds = %18

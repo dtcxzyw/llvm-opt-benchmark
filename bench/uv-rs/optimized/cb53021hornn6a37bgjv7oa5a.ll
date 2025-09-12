@@ -422,7 +422,7 @@ define internal fastcc void @"_ZN110_$LT$core..iter..adapters..enumerate..Enumer
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %44 = load i64, ptr %43, align 8, !alias.scope !59, !noalias !60
   %45 = icmp eq i64 %41, %44
-  %or.cond44.i.i.i = select i1 %or.cond.not47.i.i.i, i1 %45, i1 false
+  %or.cond44.i.i.i = select i1 %or.cond.not47.i.i.i, i1 %45, i1 false, !prof !61
   br i1 %or.cond44.i.i.i, label %61, label %46, !prof !61
 
 46:                                               ; preds = %68, %40

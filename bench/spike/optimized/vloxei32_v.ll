@@ -253,7 +253,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21fast_rv32i_vloxei32_v
   %97 = icmp ugt i64 %96, 8
   %98 = add nuw nsw i64 %96, %69
   %99 = icmp samesign ugt i64 %98, 32
-  %or.cond = select i1 %97, i1 true, i1 %99
+  %or.cond = select i1 %97, i1 true, i1 %99, !prof !148
   br i1 %or.cond, label %136, label %.preheader, !prof !148
 
 .preheader:                                       ; preds = %95
@@ -656,7 +656,7 @@ _ZN5mmu_t4loadIhEET_m13xlate_flags_t.exit:        ; preds = %269, %272, %276
   %288 = getelementptr inbounds nuw i64, ptr %286, i64 %287
   %289 = load i64, ptr %288, align 8, !tbaa !144
   %290 = icmp eq i64 %289, %285
-  %or.cond.i = select i1 %.not307, i1 %290, i1 false
+  %or.cond.i = select i1 %.not307, i1 %290, i1 false, !prof !191
   br i1 %or.cond.i, label %291, label %.critedge.i, !prof !191
 
 291:                                              ; preds = %281
@@ -715,7 +715,7 @@ _ZN5mmu_t4loadItEET_m13xlate_flags_t.exit:        ; preds = %297, %300, %304
   %316 = getelementptr inbounds nuw i64, ptr %314, i64 %315
   %317 = load i64, ptr %316, align 8, !tbaa !144
   %318 = icmp eq i64 %317, %313
-  %or.cond.i208 = select i1 %.not306, i1 %318, i1 false
+  %or.cond.i208 = select i1 %.not306, i1 %318, i1 false, !prof !191
   br i1 %or.cond.i208, label %319, label %.critedge.i209, !prof !191
 
 319:                                              ; preds = %309
@@ -774,7 +774,7 @@ _ZN5mmu_t4loadIjEET_m13xlate_flags_t.exit:        ; preds = %325, %328, %332
   %344 = getelementptr inbounds nuw i64, ptr %342, i64 %343
   %345 = load i64, ptr %344, align 8, !tbaa !144
   %346 = icmp eq i64 %345, %341
-  %or.cond.i215 = select i1 %.not308, i1 %346, i1 false
+  %or.cond.i215 = select i1 %.not308, i1 %346, i1 false, !prof !191
   br i1 %or.cond.i215, label %347, label %.critedge.i216, !prof !191
 
 347:                                              ; preds = %337
@@ -1120,7 +1120,7 @@ define noundef i64 @_Z21fast_rv64i_vloxei32_vP11processor_t6insn_tm(ptr noundef 
   %97 = icmp ugt i64 %96, 8
   %98 = add nuw nsw i64 %96, %69
   %99 = icmp samesign ugt i64 %98, 32
-  %or.cond = select i1 %97, i1 true, i1 %99
+  %or.cond = select i1 %97, i1 true, i1 %99, !prof !148
   br i1 %or.cond, label %136, label %.preheader, !prof !148
 
 .preheader:                                       ; preds = %95
@@ -1521,7 +1521,7 @@ _ZN5mmu_t4loadIhEET_m13xlate_flags_t.exit:        ; preds = %267, %270, %274
   %286 = getelementptr inbounds nuw i64, ptr %284, i64 %285
   %287 = load i64, ptr %286, align 8, !tbaa !144
   %288 = icmp eq i64 %287, %283
-  %or.cond.i = select i1 %.not307, i1 %288, i1 false
+  %or.cond.i = select i1 %.not307, i1 %288, i1 false, !prof !191
   br i1 %or.cond.i, label %289, label %.critedge.i, !prof !191
 
 289:                                              ; preds = %279
@@ -1580,7 +1580,7 @@ _ZN5mmu_t4loadItEET_m13xlate_flags_t.exit:        ; preds = %295, %298, %302
   %314 = getelementptr inbounds nuw i64, ptr %312, i64 %313
   %315 = load i64, ptr %314, align 8, !tbaa !144
   %316 = icmp eq i64 %315, %311
-  %or.cond.i208 = select i1 %.not306, i1 %316, i1 false
+  %or.cond.i208 = select i1 %.not306, i1 %316, i1 false, !prof !191
   br i1 %or.cond.i208, label %317, label %.critedge.i209, !prof !191
 
 317:                                              ; preds = %307
@@ -1639,7 +1639,7 @@ _ZN5mmu_t4loadIjEET_m13xlate_flags_t.exit:        ; preds = %323, %326, %330
   %342 = getelementptr inbounds nuw i64, ptr %340, i64 %341
   %343 = load i64, ptr %342, align 8, !tbaa !144
   %344 = icmp eq i64 %343, %339
-  %or.cond.i215 = select i1 %.not308, i1 %344, i1 false
+  %or.cond.i215 = select i1 %.not308, i1 %344, i1 false, !prof !191
   br i1 %or.cond.i215, label %345, label %.critedge.i216, !prof !191
 
 345:                                              ; preds = %335
@@ -1869,7 +1869,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z23logged_rv32i_vloxei32
   %97 = icmp ugt i64 %96, 8
   %98 = add nuw nsw i64 %96, %69
   %99 = icmp samesign ugt i64 %98, 32
-  %or.cond = select i1 %97, i1 true, i1 %99
+  %or.cond = select i1 %97, i1 true, i1 %99, !prof !148
   br i1 %or.cond, label %136, label %.preheader, !prof !148
 
 .preheader:                                       ; preds = %95
@@ -2272,7 +2272,7 @@ _ZN5mmu_t4loadIhEET_m13xlate_flags_t.exit:        ; preds = %269, %272, %276
   %288 = getelementptr inbounds nuw i64, ptr %286, i64 %287
   %289 = load i64, ptr %288, align 8, !tbaa !144
   %290 = icmp eq i64 %289, %285
-  %or.cond.i = select i1 %.not307, i1 %290, i1 false
+  %or.cond.i = select i1 %.not307, i1 %290, i1 false, !prof !191
   br i1 %or.cond.i, label %291, label %.critedge.i, !prof !191
 
 291:                                              ; preds = %281
@@ -2331,7 +2331,7 @@ _ZN5mmu_t4loadItEET_m13xlate_flags_t.exit:        ; preds = %297, %300, %304
   %316 = getelementptr inbounds nuw i64, ptr %314, i64 %315
   %317 = load i64, ptr %316, align 8, !tbaa !144
   %318 = icmp eq i64 %317, %313
-  %or.cond.i208 = select i1 %.not306, i1 %318, i1 false
+  %or.cond.i208 = select i1 %.not306, i1 %318, i1 false, !prof !191
   br i1 %or.cond.i208, label %319, label %.critedge.i209, !prof !191
 
 319:                                              ; preds = %309
@@ -2390,7 +2390,7 @@ _ZN5mmu_t4loadIjEET_m13xlate_flags_t.exit:        ; preds = %325, %328, %332
   %344 = getelementptr inbounds nuw i64, ptr %342, i64 %343
   %345 = load i64, ptr %344, align 8, !tbaa !144
   %346 = icmp eq i64 %345, %341
-  %or.cond.i215 = select i1 %.not308, i1 %346, i1 false
+  %or.cond.i215 = select i1 %.not308, i1 %346, i1 false, !prof !191
   br i1 %or.cond.i215, label %347, label %.critedge.i216, !prof !191
 
 347:                                              ; preds = %337
@@ -2620,7 +2620,7 @@ define noundef i64 @_Z23logged_rv64i_vloxei32_vP11processor_t6insn_tm(ptr nounde
   %97 = icmp ugt i64 %96, 8
   %98 = add nuw nsw i64 %96, %69
   %99 = icmp samesign ugt i64 %98, 32
-  %or.cond = select i1 %97, i1 true, i1 %99
+  %or.cond = select i1 %97, i1 true, i1 %99, !prof !148
   br i1 %or.cond, label %136, label %.preheader, !prof !148
 
 .preheader:                                       ; preds = %95
@@ -3021,7 +3021,7 @@ _ZN5mmu_t4loadIhEET_m13xlate_flags_t.exit:        ; preds = %267, %270, %274
   %286 = getelementptr inbounds nuw i64, ptr %284, i64 %285
   %287 = load i64, ptr %286, align 8, !tbaa !144
   %288 = icmp eq i64 %287, %283
-  %or.cond.i = select i1 %.not307, i1 %288, i1 false
+  %or.cond.i = select i1 %.not307, i1 %288, i1 false, !prof !191
   br i1 %or.cond.i, label %289, label %.critedge.i, !prof !191
 
 289:                                              ; preds = %279
@@ -3080,7 +3080,7 @@ _ZN5mmu_t4loadItEET_m13xlate_flags_t.exit:        ; preds = %295, %298, %302
   %314 = getelementptr inbounds nuw i64, ptr %312, i64 %313
   %315 = load i64, ptr %314, align 8, !tbaa !144
   %316 = icmp eq i64 %315, %311
-  %or.cond.i208 = select i1 %.not306, i1 %316, i1 false
+  %or.cond.i208 = select i1 %.not306, i1 %316, i1 false, !prof !191
   br i1 %or.cond.i208, label %317, label %.critedge.i209, !prof !191
 
 317:                                              ; preds = %307
@@ -3139,7 +3139,7 @@ _ZN5mmu_t4loadIjEET_m13xlate_flags_t.exit:        ; preds = %323, %326, %330
   %342 = getelementptr inbounds nuw i64, ptr %340, i64 %341
   %343 = load i64, ptr %342, align 8, !tbaa !144
   %344 = icmp eq i64 %343, %339
-  %or.cond.i215 = select i1 %.not308, i1 %344, i1 false
+  %or.cond.i215 = select i1 %.not308, i1 %344, i1 false, !prof !191
   br i1 %or.cond.i215, label %345, label %.critedge.i216, !prof !191
 
 345:                                              ; preds = %335
@@ -3369,7 +3369,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21fast_rv32e_vloxei32_v
   %97 = icmp ugt i64 %96, 8
   %98 = add nuw nsw i64 %96, %69
   %99 = icmp samesign ugt i64 %98, 32
-  %or.cond = select i1 %97, i1 true, i1 %99
+  %or.cond = select i1 %97, i1 true, i1 %99, !prof !148
   br i1 %or.cond, label %136, label %.preheader, !prof !148
 
 .preheader:                                       ; preds = %95
@@ -3788,7 +3788,7 @@ _ZN5mmu_t4loadIhEET_m13xlate_flags_t.exit:        ; preds = %276, %279, %283
   %295 = getelementptr inbounds nuw i64, ptr %293, i64 %294
   %296 = load i64, ptr %295, align 8, !tbaa !144
   %297 = icmp eq i64 %296, %292
-  %or.cond.i = select i1 %.not311, i1 %297, i1 false
+  %or.cond.i = select i1 %.not311, i1 %297, i1 false, !prof !191
   br i1 %or.cond.i, label %298, label %.critedge.i, !prof !191
 
 298:                                              ; preds = %288
@@ -3847,7 +3847,7 @@ _ZN5mmu_t4loadItEET_m13xlate_flags_t.exit:        ; preds = %304, %307, %311
   %323 = getelementptr inbounds nuw i64, ptr %321, i64 %322
   %324 = load i64, ptr %323, align 8, !tbaa !144
   %325 = icmp eq i64 %324, %320
-  %or.cond.i210 = select i1 %.not310, i1 %325, i1 false
+  %or.cond.i210 = select i1 %.not310, i1 %325, i1 false, !prof !191
   br i1 %or.cond.i210, label %326, label %.critedge.i211, !prof !191
 
 326:                                              ; preds = %316
@@ -3906,7 +3906,7 @@ _ZN5mmu_t4loadIjEET_m13xlate_flags_t.exit:        ; preds = %332, %335, %339
   %351 = getelementptr inbounds nuw i64, ptr %349, i64 %350
   %352 = load i64, ptr %351, align 8, !tbaa !144
   %353 = icmp eq i64 %352, %348
-  %or.cond.i217 = select i1 %.not312, i1 %353, i1 false
+  %or.cond.i217 = select i1 %.not312, i1 %353, i1 false, !prof !191
   br i1 %or.cond.i217, label %354, label %.critedge.i218, !prof !191
 
 354:                                              ; preds = %344
@@ -4136,7 +4136,7 @@ define noundef i64 @_Z21fast_rv64e_vloxei32_vP11processor_t6insn_tm(ptr noundef 
   %97 = icmp ugt i64 %96, 8
   %98 = add nuw nsw i64 %96, %69
   %99 = icmp samesign ugt i64 %98, 32
-  %or.cond = select i1 %97, i1 true, i1 %99
+  %or.cond = select i1 %97, i1 true, i1 %99, !prof !148
   br i1 %or.cond, label %136, label %.preheader, !prof !148
 
 .preheader:                                       ; preds = %95
@@ -4553,7 +4553,7 @@ _ZN5mmu_t4loadIhEET_m13xlate_flags_t.exit:        ; preds = %274, %277, %281
   %293 = getelementptr inbounds nuw i64, ptr %291, i64 %292
   %294 = load i64, ptr %293, align 8, !tbaa !144
   %295 = icmp eq i64 %294, %290
-  %or.cond.i = select i1 %.not311, i1 %295, i1 false
+  %or.cond.i = select i1 %.not311, i1 %295, i1 false, !prof !191
   br i1 %or.cond.i, label %296, label %.critedge.i, !prof !191
 
 296:                                              ; preds = %286
@@ -4612,7 +4612,7 @@ _ZN5mmu_t4loadItEET_m13xlate_flags_t.exit:        ; preds = %302, %305, %309
   %321 = getelementptr inbounds nuw i64, ptr %319, i64 %320
   %322 = load i64, ptr %321, align 8, !tbaa !144
   %323 = icmp eq i64 %322, %318
-  %or.cond.i210 = select i1 %.not310, i1 %323, i1 false
+  %or.cond.i210 = select i1 %.not310, i1 %323, i1 false, !prof !191
   br i1 %or.cond.i210, label %324, label %.critedge.i211, !prof !191
 
 324:                                              ; preds = %314
@@ -4671,7 +4671,7 @@ _ZN5mmu_t4loadIjEET_m13xlate_flags_t.exit:        ; preds = %330, %333, %337
   %349 = getelementptr inbounds nuw i64, ptr %347, i64 %348
   %350 = load i64, ptr %349, align 8, !tbaa !144
   %351 = icmp eq i64 %350, %346
-  %or.cond.i217 = select i1 %.not312, i1 %351, i1 false
+  %or.cond.i217 = select i1 %.not312, i1 %351, i1 false, !prof !191
   br i1 %or.cond.i217, label %352, label %.critedge.i218, !prof !191
 
 352:                                              ; preds = %342
@@ -4901,7 +4901,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z23logged_rv32e_vloxei32
   %97 = icmp ugt i64 %96, 8
   %98 = add nuw nsw i64 %96, %69
   %99 = icmp samesign ugt i64 %98, 32
-  %or.cond = select i1 %97, i1 true, i1 %99
+  %or.cond = select i1 %97, i1 true, i1 %99, !prof !148
   br i1 %or.cond, label %136, label %.preheader, !prof !148
 
 .preheader:                                       ; preds = %95
@@ -5320,7 +5320,7 @@ _ZN5mmu_t4loadIhEET_m13xlate_flags_t.exit:        ; preds = %276, %279, %283
   %295 = getelementptr inbounds nuw i64, ptr %293, i64 %294
   %296 = load i64, ptr %295, align 8, !tbaa !144
   %297 = icmp eq i64 %296, %292
-  %or.cond.i = select i1 %.not311, i1 %297, i1 false
+  %or.cond.i = select i1 %.not311, i1 %297, i1 false, !prof !191
   br i1 %or.cond.i, label %298, label %.critedge.i, !prof !191
 
 298:                                              ; preds = %288
@@ -5379,7 +5379,7 @@ _ZN5mmu_t4loadItEET_m13xlate_flags_t.exit:        ; preds = %304, %307, %311
   %323 = getelementptr inbounds nuw i64, ptr %321, i64 %322
   %324 = load i64, ptr %323, align 8, !tbaa !144
   %325 = icmp eq i64 %324, %320
-  %or.cond.i210 = select i1 %.not310, i1 %325, i1 false
+  %or.cond.i210 = select i1 %.not310, i1 %325, i1 false, !prof !191
   br i1 %or.cond.i210, label %326, label %.critedge.i211, !prof !191
 
 326:                                              ; preds = %316
@@ -5438,7 +5438,7 @@ _ZN5mmu_t4loadIjEET_m13xlate_flags_t.exit:        ; preds = %332, %335, %339
   %351 = getelementptr inbounds nuw i64, ptr %349, i64 %350
   %352 = load i64, ptr %351, align 8, !tbaa !144
   %353 = icmp eq i64 %352, %348
-  %or.cond.i217 = select i1 %.not312, i1 %353, i1 false
+  %or.cond.i217 = select i1 %.not312, i1 %353, i1 false, !prof !191
   br i1 %or.cond.i217, label %354, label %.critedge.i218, !prof !191
 
 354:                                              ; preds = %344
@@ -5668,7 +5668,7 @@ define noundef i64 @_Z23logged_rv64e_vloxei32_vP11processor_t6insn_tm(ptr nounde
   %97 = icmp ugt i64 %96, 8
   %98 = add nuw nsw i64 %96, %69
   %99 = icmp samesign ugt i64 %98, 32
-  %or.cond = select i1 %97, i1 true, i1 %99
+  %or.cond = select i1 %97, i1 true, i1 %99, !prof !148
   br i1 %or.cond, label %136, label %.preheader, !prof !148
 
 .preheader:                                       ; preds = %95
@@ -6085,7 +6085,7 @@ _ZN5mmu_t4loadIhEET_m13xlate_flags_t.exit:        ; preds = %274, %277, %281
   %293 = getelementptr inbounds nuw i64, ptr %291, i64 %292
   %294 = load i64, ptr %293, align 8, !tbaa !144
   %295 = icmp eq i64 %294, %290
-  %or.cond.i = select i1 %.not311, i1 %295, i1 false
+  %or.cond.i = select i1 %.not311, i1 %295, i1 false, !prof !191
   br i1 %or.cond.i, label %296, label %.critedge.i, !prof !191
 
 296:                                              ; preds = %286
@@ -6144,7 +6144,7 @@ _ZN5mmu_t4loadItEET_m13xlate_flags_t.exit:        ; preds = %302, %305, %309
   %321 = getelementptr inbounds nuw i64, ptr %319, i64 %320
   %322 = load i64, ptr %321, align 8, !tbaa !144
   %323 = icmp eq i64 %322, %318
-  %or.cond.i210 = select i1 %.not310, i1 %323, i1 false
+  %or.cond.i210 = select i1 %.not310, i1 %323, i1 false, !prof !191
   br i1 %or.cond.i210, label %324, label %.critedge.i211, !prof !191
 
 324:                                              ; preds = %314
@@ -6203,7 +6203,7 @@ _ZN5mmu_t4loadIjEET_m13xlate_flags_t.exit:        ; preds = %330, %333, %337
   %349 = getelementptr inbounds nuw i64, ptr %347, i64 %348
   %350 = load i64, ptr %349, align 8, !tbaa !144
   %351 = icmp eq i64 %350, %346
-  %or.cond.i217 = select i1 %.not312, i1 %351, i1 false
+  %or.cond.i217 = select i1 %.not312, i1 %351, i1 false, !prof !191
   br i1 %or.cond.i217, label %352, label %.critedge.i218, !prof !191
 
 352:                                              ; preds = %342

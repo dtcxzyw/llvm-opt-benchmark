@@ -287,7 +287,7 @@ define linkonce_odr noundef signext i16 @_ZN5mmu_t20amo_compare_and_swapIsEET_mS
   %13 = getelementptr inbounds nuw i64, ptr %11, i64 %12
   %14 = load i64, ptr %13, align 8, !tbaa !3
   %15 = icmp eq i64 %14, %9
-  %or.cond.i = select i1 %.not, i1 %15, i1 false
+  %or.cond.i = select i1 %.not, i1 %15, i1 false, !prof !143
   br i1 %or.cond.i, label %16, label %.critedge.i, !prof !143
 
 16:                                               ; preds = %.noexc

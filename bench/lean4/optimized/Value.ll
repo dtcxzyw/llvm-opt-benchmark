@@ -8077,7 +8077,7 @@ l_Lake_Toml_decodeHexDigit.exit:                  ; preds = %55, %60, %65
   %72 = icmp ne i64 %71, 0
   %73 = and i64 %.1.in.i, 1
   %74 = icmp ne i64 %73, 0
-  %or.cond = select i1 %72, i1 %74, i1 false
+  %or.cond = select i1 %72, i1 %74, i1 false, !prof !19
   br i1 %or.cond, label %75, label %lean_nat_add.exit, !prof !19
 
 75:                                               ; preds = %l_Lake_Toml_decodeHexDigit.exit
@@ -10570,7 +10570,7 @@ l_Lake_Toml_decodeHexDigit.exit:                  ; preds = %54, %59, %64
   %71 = icmp ne i64 %70, 0
   %72 = and i64 %.1.in.i, 1
   %73 = icmp ne i64 %72, 0
-  %or.cond = select i1 %71, i1 %73, i1 false
+  %or.cond = select i1 %71, i1 %73, i1 false, !prof !19
   br i1 %or.cond, label %74, label %lean_nat_add.exit, !prof !19
 
 74:                                               ; preds = %l_Lake_Toml_decodeHexDigit.exit

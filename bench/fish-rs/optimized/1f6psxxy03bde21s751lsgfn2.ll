@@ -40806,7 +40806,7 @@ _ZN4fish6reader10ReaderData16active_edit_line17hb5b3ae928391b01eE.exit.thread: ;
   %58 = load i64, ptr %30, align 8
   %59 = icmp ult i64 %57, %56
   %.not13 = icmp ugt i64 %57, %58
-  %or.cond = select i1 %59, i1 true, i1 %.not13
+  %or.cond = select i1 %59, i1 true, i1 %.not13, !prof !710
   br i1 %or.cond, label %64, label %60, !prof !710
 
 60:                                               ; preds = %55

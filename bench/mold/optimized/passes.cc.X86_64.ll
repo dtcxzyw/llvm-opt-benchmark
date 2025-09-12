@@ -27498,7 +27498,7 @@ _ZN4mold7CounterpLEi.exit78:                      ; preds = %187, %192
   %220 = load i64, ptr %212, align 8, !tbaa !321
   %.not66 = icmp ne i64 %220, %219
   %221 = trunc nuw i8 %216 to i1
-  %or.cond235 = select i1 %.not66, i1 %221, i1 false
+  %or.cond235 = select i1 %.not66, i1 %221, i1 false, !prof !1382
   br i1 %or.cond235, label %222, label %_ZN4mold7CounterpLEi.exit79, !prof !1382
 
 222:                                              ; preds = %215
@@ -27594,7 +27594,7 @@ _ZN4mold7CounterpLEi.exit80:                      ; preds = %236, %241
   %266 = load i8, ptr %265, align 8, !tbaa !1386, !range !438, !noundef !439
   %267 = trunc nuw i8 %266 to i1
   %268 = trunc nuw i8 %264 to i1
-  %or.cond = select i1 %267, i1 %268, i1 false
+  %or.cond = select i1 %267, i1 %268, i1 false, !prof !1382
   br i1 %or.cond, label %269, label %_ZN4mold7CounterppEi.exit, !prof !1382
 
 269:                                              ; preds = %.lr.ph254
@@ -27984,7 +27984,7 @@ _ZN3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorISt10unique_ptrIN4mold
   %460 = load atomic i64, ptr %.sroa.0135.0269 monotonic, align 8
   %.not58 = icmp ne i64 %460, 0
   %461 = trunc nuw i8 %459 to i1
-  %or.cond220 = select i1 %.not58, i1 %461, i1 false
+  %or.cond220 = select i1 %.not58, i1 %461, i1 false, !prof !1382
   br i1 %or.cond220, label %462, label %_ZN4mold7CounterppEi.exit109, !prof !1382
 
 462:                                              ; preds = %.lr.ph270

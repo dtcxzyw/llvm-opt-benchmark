@@ -3114,7 +3114,7 @@ ahci_write_fis_d2h.exit.i.i.i:                    ; preds = %.sink.split.i.i.i.i
   %.not94.i.i.i = icmp eq i64 %indvars.iv, %271
   %379 = load i32, ptr @trace_events_enabled_count, align 4
   %.not.i.i.i.i.i = icmp eq i32 %379, 0
-  %or.cond.i89.i.i = select i1 %.not94.i.i.i, i1 true, i1 %.not.i.i.i.i.i
+  %or.cond.i89.i.i = select i1 %.not94.i.i.i, i1 true, i1 %.not.i.i.i.i.i, !prof !23
   br i1 %or.cond.i89.i.i, label %trace_process_ncq_command_mismatch.exit.i.i.i, label %380, !prof !23
 
 380:                                              ; preds = %ahci_write_fis_d2h.exit.i.i.i
@@ -3174,7 +3174,7 @@ trace_process_ncq_command_mismatch.exit.i.i.i:    ; preds = %394, %388, %382, %3
   %.not98.i.i.i = icmp eq i8 %406, 0
   %407 = load i32, ptr @trace_events_enabled_count, align 4
   %.not.i.i106.i.i.i = icmp eq i32 %407, 0
-  %or.cond123.i.i.i = select i1 %.not98.i.i.i, i1 true, i1 %.not.i.i106.i.i.i
+  %or.cond123.i.i.i = select i1 %.not98.i.i.i, i1 true, i1 %.not.i.i106.i.i.i, !prof !23
   br i1 %or.cond123.i.i.i, label %trace_process_ncq_command_aux.exit.i.i.i, label %409, !prof !23
 
 408:                                              ; preds = %401, %398, %trace_process_ncq_command_mismatch.exit.i.i.i
@@ -3227,7 +3227,7 @@ trace_process_ncq_command_aux.exit.i.i.i:         ; preds = %423, %417, %411, %4
   %.not100.i.i.i = icmp eq i8 %429, 0
   %430 = load i32, ptr @trace_events_enabled_count, align 4
   %.not.i.i107.i.i.i = icmp eq i32 %430, 0
-  %or.cond125.i.i.i = select i1 %.not100.i.i.i, i1 true, i1 %.not.i.i107.i.i.i
+  %or.cond125.i.i.i = select i1 %.not100.i.i.i, i1 true, i1 %.not.i.i107.i.i.i, !prof !23
   br i1 %or.cond125.i.i.i, label %trace_process_ncq_command_prioicc.exit.i.i.i, label %432, !prof !23
 
 431:                                              ; preds = %trace_process_ncq_command_aux.exit.i.i.i
@@ -3274,7 +3274,7 @@ trace_process_ncq_command_prioicc.exit.i.i.i:     ; preds = %446, %440, %434, %4
   %.not101.i.i.i = icmp sgt i8 %449, -1
   %450 = load i32, ptr @trace_events_enabled_count, align 4
   %.not.i.i110.i.i.i = icmp eq i32 %450, 0
-  %or.cond127.i.i.i = select i1 %.not101.i.i.i, i1 true, i1 %.not.i.i110.i.i.i
+  %or.cond127.i.i.i = select i1 %.not101.i.i.i, i1 true, i1 %.not.i.i110.i.i.i, !prof !23
   br i1 %or.cond127.i.i.i, label %trace_process_ncq_command_fua.exit.i.i.i, label %451, !prof !23
 
 451:                                              ; preds = %trace_process_ncq_command_prioicc.exit.i.i.i
@@ -3316,7 +3316,7 @@ trace_process_ncq_command_fua.exit.i.i.i:         ; preds = %465, %459, %453, %4
   %.not102.i.i.i = icmp eq i8 %468, 0
   %469 = load i32, ptr @trace_events_enabled_count, align 4
   %.not.i.i113.i.i.i = icmp eq i32 %469, 0
-  %or.cond129.i.i.i = select i1 %.not102.i.i.i, i1 true, i1 %.not.i.i113.i.i.i
+  %or.cond129.i.i.i = select i1 %.not102.i.i.i, i1 true, i1 %.not.i.i113.i.i.i, !prof !23
   br i1 %or.cond129.i.i.i, label %trace_process_ncq_command_rarc.exit.i.i.i, label %470, !prof !23
 
 470:                                              ; preds = %trace_process_ncq_command_fua.exit.i.i.i

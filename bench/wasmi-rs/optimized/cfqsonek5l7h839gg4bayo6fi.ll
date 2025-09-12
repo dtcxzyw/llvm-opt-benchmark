@@ -13493,7 +13493,7 @@ define void @_ZN5wasmi6module9init_expr9ConstExpr3new17h19deb4e4eb49a9e0E(ptr de
   %.sroa.7.0.copyload = load i16, ptr %.sroa.7.0..sroa_idx, align 2
   %67 = icmp ne i32 %.sroa.0.0.copyload, 3
   %68 = trunc nuw i8 %.sroa.5.0.copyload to i1
-  %or.cond = select i1 %67, i1 true, i1 %68
+  %or.cond = select i1 %67, i1 true, i1 %68, !prof !918
   br i1 %or.cond, label %187, label %192, !prof !918
 
 69:                                               ; preds = %41

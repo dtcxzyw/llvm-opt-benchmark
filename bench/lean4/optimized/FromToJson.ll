@@ -12247,7 +12247,7 @@ lean_dec.exit169:                                 ; preds = %lean_dec.exit169.ba
   %29 = ptrtoint ptr %25 to i64
   %30 = and i64 %29, 1
   %31 = icmp ne i64 %30, 0
-  %or.cond = select i1 %28, i1 %31, i1 false
+  %or.cond = select i1 %28, i1 %31, i1 false, !prof !17
   br i1 %or.cond, label %32, label %lean_nat_lt.exit, !prof !17
 
 32:                                               ; preds = %lean_dec.exit169
@@ -55365,7 +55365,7 @@ lean_dec.exit159:                                 ; preds = %lean_dec.exit159.ba
   %27 = ptrtoint ptr %23 to i64
   %28 = and i64 %27, 1
   %29 = icmp ne i64 %28, 0
-  %or.cond = select i1 %26, i1 %29, i1 false
+  %or.cond = select i1 %26, i1 %29, i1 false, !prof !17
   br i1 %or.cond, label %30, label %lean_nat_lt.exit, !prof !17
 
 30:                                               ; preds = %lean_dec.exit159
@@ -70936,7 +70936,7 @@ define zeroext range(i8 0, 2) i8 @l_Array_qsort_sort___at_Lean_Elab_Deriving_Fro
   %10 = ptrtoint ptr %6 to i64
   %11 = and i64 %10, 1
   %12 = icmp ne i64 %11, 0
-  %or.cond = select i1 %9, i1 %12, i1 false
+  %or.cond = select i1 %9, i1 %12, i1 false, !prof !17
   br i1 %or.cond, label %13, label %.critedge.i, !prof !17
 
 13:                                               ; preds = %2
@@ -73104,7 +73104,7 @@ define nonnull ptr @l_Array_qsort_sort___at_Lean_Elab_Deriving_FromToJson_mkFrom
   %10 = ptrtoint ptr %6 to i64
   %11 = and i64 %10, 1
   %12 = icmp ne i64 %11, 0
-  %or.cond.i = select i1 %9, i1 %12, i1 false
+  %or.cond.i = select i1 %9, i1 %12, i1 false, !prof !17
   br i1 %or.cond.i, label %13, label %.critedge.i.i, !prof !17
 
 13:                                               ; preds = %2
@@ -96844,7 +96844,7 @@ lean_dec.exit102:                                 ; preds = %lean_dec.exit102.ba
   %35 = ptrtoint ptr %31 to i64
   %36 = and i64 %35, 1
   %37 = icmp ne i64 %36, 0
-  %or.cond = select i1 %34, i1 %37, i1 false
+  %or.cond = select i1 %34, i1 %37, i1 false, !prof !17
   br i1 %or.cond, label %38, label %lean_nat_lt.exit, !prof !17
 
 38:                                               ; preds = %lean_dec.exit102
@@ -98607,7 +98607,7 @@ lean_dec.exit102:                                 ; preds = %lean_dec.exit102.ba
   %35 = ptrtoint ptr %31 to i64
   %36 = and i64 %35, 1
   %37 = icmp ne i64 %36, 0
-  %or.cond = select i1 %34, i1 %37, i1 false
+  %or.cond = select i1 %34, i1 %37, i1 false, !prof !17
   br i1 %or.cond, label %38, label %lean_nat_lt.exit, !prof !17
 
 38:                                               ; preds = %lean_dec.exit102

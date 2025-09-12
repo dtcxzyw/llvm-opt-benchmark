@@ -5890,7 +5890,7 @@ _ZN21ruff_python_formatter8comments8Comments3has17h851e396befa321e7E.exit.i: ; p
 188:                                              ; preds = %187
   %189 = icmp ne i64 %175, %173
   %.not12.i.i.i.i = icmp eq ptr %172, null
-  %or.cond.i.i.i.i = select i1 %189, i1 true, i1 %.not12.i.i.i.i
+  %or.cond.i.i.i.i = select i1 %189, i1 true, i1 %.not12.i.i.i.i, !prof !720
   br i1 %or.cond.i.i.i.i, label %"_ZN4core3str6traits108_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$3get17h48b5fc281fcfd004E.exit.thread.i.i.i.i", label %194, !prof !720
 
 190:                                              ; preds = %187
@@ -5898,7 +5898,7 @@ _ZN21ruff_python_formatter8comments8Comments3has17h851e396befa321e7E.exit.i: ; p
   %192 = load i8, ptr %191, align 1, !alias.scope !717, !noundef !3
   %193 = icmp slt i8 %192, -64
   %.not12.old.i.i.i.i = icmp eq ptr %172, null
-  %or.cond16.i.i.i.i = select i1 %193, i1 true, i1 %.not12.old.i.i.i.i
+  %or.cond16.i.i.i.i = select i1 %193, i1 true, i1 %.not12.old.i.i.i.i, !prof !720
   br i1 %or.cond16.i.i.i.i, label %"_ZN4core3str6traits108_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$3get17h48b5fc281fcfd004E.exit.thread.i.i.i.i", label %194, !prof !720
 
 "_ZN4core3str6traits108_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$3get17h48b5fc281fcfd004E.exit.i.i.i.i": ; preds = %179

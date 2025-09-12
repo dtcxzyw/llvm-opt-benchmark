@@ -37482,7 +37482,7 @@ _ZN7AstNode11privateCastI13AstBasicDTypeP12AstNodeDTypeEEPT_PS_.exit: ; preds = 
   %877 = select i1 %.not.i496, ptr %876, ptr %849
   %.not217 = icmp eq ptr %877, null
   %878 = icmp eq ptr %876, null
-  %or.cond714 = select i1 %.not217, i1 true, i1 %878
+  %or.cond714 = select i1 %.not217, i1 true, i1 %878, !prof !795
   br i1 %or.cond714, label %.critedge276, label %_ZN6AstVar11childDTypepEP12AstNodeDType.exit, !prof !795
 
 .critedge276:                                     ; preds = %875

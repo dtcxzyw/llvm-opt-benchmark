@@ -57986,7 +57986,7 @@ define linkonce_odr void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv(ptr
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %42 = load ptr, ptr %41, align 8
   %43 = icmp eq ptr %42, null
-  %or.cond7.i = select i1 %or.cond.i, i1 true, i1 %43
+  %or.cond7.i = select i1 %or.cond.i, i1 true, i1 %43, !prof !1160
   br i1 %or.cond7.i, label %.critedge.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBase9pos_xincrEv.exit, !prof !1160
 
 .critedge.i:                                      ; preds = %29
@@ -60458,7 +60458,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
   %or.cond.i.i.i.i = select i1 %not..i.i.i.i, i1 true, i1 %153
   %154 = load ptr, ptr %29, align 8
   %155 = icmp eq ptr %154, null
-  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %155
+  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %155, !prof !1160
   br i1 %or.cond7.i.i.i.i, label %.critedge.i.i.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit.i.i.backedge, !prof !1160
 
 .critedge.i.i.i.i:                                ; preds = %147
@@ -60990,7 +60990,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
   %or.cond.i.i.i.i = select i1 %not..i.i.i.i, i1 true, i1 %153
   %154 = load ptr, ptr %29, align 8
   %155 = icmp eq ptr %154, null
-  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %155
+  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %155, !prof !1160
   br i1 %or.cond7.i.i.i.i, label %.critedge.i.i.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit.i.i.backedge, !prof !1160
 
 .critedge.i.i.i.i:                                ; preds = %147
@@ -61558,7 +61558,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
   %or.cond.i.i.i.i = select i1 %not..i.i.i.i, i1 true, i1 %153
   %154 = load ptr, ptr %29, align 8
   %155 = icmp eq ptr %154, null
-  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %155
+  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %155, !prof !1160
   br i1 %or.cond7.i.i.i.i, label %.critedge.i.i.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit.i.i.backedge, !prof !1160
 
 .critedge.i.i.i.i:                                ; preds = %147
@@ -62090,7 +62090,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
   %or.cond.i.i.i.i = select i1 %not..i.i.i.i, i1 true, i1 %153
   %154 = load ptr, ptr %29, align 8
   %155 = icmp eq ptr %154, null
-  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %155
+  %or.cond7.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %155, !prof !1160
   br i1 %or.cond7.i.i.i.i, label %.critedge.i.i.i.i, label %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit.i.i.backedge, !prof !1160
 
 .critedge.i.i.i.i:                                ; preds = %147
@@ -65270,7 +65270,7 @@ define internal fastcc void @_ZL13resize_block_IfEbRN11OpenImageIO6v3_1_08ImageB
   %or.cond.i.i.us = select i1 %not..i.i.us, i1 true, i1 %149
   %150 = load ptr, ptr %98, align 8
   %151 = icmp eq ptr %150, null
-  %or.cond7.i.i.us = select i1 %or.cond.i.i.us, i1 true, i1 %151
+  %or.cond7.i.i.us = select i1 %or.cond.i.i.us, i1 true, i1 %151, !prof !1160
   br i1 %or.cond7.i.i.us, label %.critedge.i.i.us, label %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit.us, !prof !1160
 
 .critedge.i.i.us:                                 ; preds = %142
@@ -65620,7 +65620,7 @@ define internal fastcc void @_ZL13resize_block_IhEbRN11OpenImageIO6v3_1_08ImageB
   %or.cond.i.i.us = select i1 %not..i.i.us, i1 true, i1 %149
   %150 = load ptr, ptr %98, align 8
   %151 = icmp eq ptr %150, null
-  %or.cond7.i.i.us = select i1 %or.cond.i.i.us, i1 true, i1 %151
+  %or.cond7.i.i.us = select i1 %or.cond.i.i.us, i1 true, i1 %151, !prof !1160
   br i1 %or.cond7.i.i.us, label %.critedge.i.i.us, label %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit.us, !prof !1160
 
 .critedge.i.i.us:                                 ; preds = %142
@@ -65970,7 +65970,7 @@ define internal fastcc void @_ZL13resize_block_IN9Imath_3_14halfEEbRN11OpenImage
   %or.cond.i.i.us = select i1 %not..i.i.us, i1 true, i1 %149
   %150 = load ptr, ptr %98, align 8
   %151 = icmp eq ptr %150, null
-  %or.cond7.i.i.us = select i1 %or.cond.i.i.us, i1 true, i1 %151
+  %or.cond7.i.i.us = select i1 %or.cond.i.i.us, i1 true, i1 %151, !prof !1160
   br i1 %or.cond7.i.i.us, label %.critedge.i.i.us, label %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit.us, !prof !1160
 
 .critedge.i.i.us:                                 ; preds = %142
@@ -66320,7 +66320,7 @@ define internal fastcc void @_ZL13resize_block_ItEbRN11OpenImageIO6v3_1_08ImageB
   %or.cond.i.i.us = select i1 %not..i.i.us, i1 true, i1 %149
   %150 = load ptr, ptr %98, align 8
   %151 = icmp eq ptr %150, null
-  %or.cond7.i.i.us = select i1 %or.cond.i.i.us, i1 true, i1 %151
+  %or.cond7.i.i.us = select i1 %or.cond.i.i.us, i1 true, i1 %151, !prof !1160
   br i1 %or.cond7.i.i.us, label %.critedge.i.i.us, label %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit.us, !prof !1160
 
 .critedge.i.i.us:                                 ; preds = %142
@@ -66670,7 +66670,7 @@ define internal fastcc void @_ZL13resize_block_IcEbRN11OpenImageIO6v3_1_08ImageB
   %or.cond.i.i.us = select i1 %not..i.i.us, i1 true, i1 %149
   %150 = load ptr, ptr %98, align 8
   %151 = icmp eq ptr %150, null
-  %or.cond7.i.i.us = select i1 %or.cond.i.i.us, i1 true, i1 %151
+  %or.cond7.i.i.us = select i1 %or.cond.i.i.us, i1 true, i1 %151, !prof !1160
   br i1 %or.cond7.i.i.us, label %.critedge.i.i.us, label %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit.us, !prof !1160
 
 .critedge.i.i.us:                                 ; preds = %142
@@ -67020,7 +67020,7 @@ define internal fastcc void @_ZL13resize_block_IsEbRN11OpenImageIO6v3_1_08ImageB
   %or.cond.i.i.us = select i1 %not..i.i.us, i1 true, i1 %149
   %150 = load ptr, ptr %98, align 8
   %151 = icmp eq ptr %150, null
-  %or.cond7.i.i.us = select i1 %or.cond.i.i.us, i1 true, i1 %151
+  %or.cond7.i.i.us = select i1 %or.cond.i.i.us, i1 true, i1 %151, !prof !1160
   br i1 %or.cond7.i.i.us, label %.critedge.i.i.us, label %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit.us, !prof !1160
 
 .critedge.i.i.us:                                 ; preds = %142
@@ -67370,7 +67370,7 @@ define internal fastcc void @_ZL13resize_block_IjEbRN11OpenImageIO6v3_1_08ImageB
   %or.cond.i.i.us = select i1 %not..i.i.us, i1 true, i1 %149
   %150 = load ptr, ptr %98, align 8
   %151 = icmp eq ptr %150, null
-  %or.cond7.i.i.us = select i1 %or.cond.i.i.us, i1 true, i1 %151
+  %or.cond7.i.i.us = select i1 %or.cond.i.i.us, i1 true, i1 %151, !prof !1160
   br i1 %or.cond7.i.i.us, label %.critedge.i.i.us, label %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit.us, !prof !1160
 
 .critedge.i.i.us:                                 ; preds = %142
@@ -67720,7 +67720,7 @@ define internal fastcc void @_ZL13resize_block_IiEbRN11OpenImageIO6v3_1_08ImageB
   %or.cond.i.i.us = select i1 %not..i.i.us, i1 true, i1 %149
   %150 = load ptr, ptr %98, align 8
   %151 = icmp eq ptr %150, null
-  %or.cond7.i.i.us = select i1 %or.cond.i.i.us, i1 true, i1 %151
+  %or.cond7.i.i.us = select i1 %or.cond.i.i.us, i1 true, i1 %151, !prof !1160
   br i1 %or.cond7.i.i.us, label %.critedge.i.i.us, label %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit.us, !prof !1160
 
 .critedge.i.i.us:                                 ; preds = %142
@@ -68070,7 +68070,7 @@ define internal fastcc void @_ZL13resize_block_IdEbRN11OpenImageIO6v3_1_08ImageB
   %or.cond.i.i.us = select i1 %not..i.i.us, i1 true, i1 %149
   %150 = load ptr, ptr %98, align 8
   %151 = icmp eq ptr %150, null
-  %or.cond7.i.i.us = select i1 %or.cond.i.i.us, i1 true, i1 %151
+  %or.cond7.i.i.us = select i1 %or.cond.i.i.us, i1 true, i1 %151, !prof !1160
   br i1 %or.cond7.i.i.us, label %.critedge.i.i.us, label %_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit.us, !prof !1160
 
 .critedge.i.i.us:                                 ; preds = %142

@@ -1853,8 +1853,8 @@ BufferGetPage.exit.i:                             ; preds = %64, %58
   %77 = getelementptr inbounds nuw i8, ptr %73, i64 4
   %78 = load i32, ptr %77, align 4
   %79 = icmp eq i32 %78, %.060.i
-  %or.cond.i72 = select i1 %.not70.i71, i1 %79, i1 false
-  br i1 %or.cond.i72, label %_bt_lock_and_validate_left.exit, label %.critedge.i, !prof !14
+  %or.cond.i72 = select i1 %.not70.i71, i1 %79, i1 false, !prof !14
+  br i1 %or.cond.i72, label %_bt_lock_and_validate_left.exit, label %.critedge.i, !prof !15
 
 .critedge.i:                                      ; preds = %BufferGetPage.exit.i, %BufferGetPage.exit74.i
   %80 = phi i32 [ %107, %BufferGetPage.exit74.i ], [ %78, %BufferGetPage.exit.i ]
@@ -1903,8 +1903,8 @@ BufferGetPage.exit74.i:                           ; preds = %93, %87
   %106 = getelementptr inbounds nuw i8, ptr %102, i64 4
   %107 = load i32, ptr %106, align 4
   %108 = icmp eq i32 %107, %.060.i
-  %or.cond.i = select i1 %.not70.i, i1 %108, i1 false
-  br i1 %or.cond.i, label %_bt_lock_and_validate_left.exit, label %.critedge.i, !prof !15
+  %or.cond.i = select i1 %.not70.i, i1 %108, i1 false, !prof !14
+  br i1 %or.cond.i, label %_bt_lock_and_validate_left.exit, label %.critedge.i, !prof !16
 
 109:                                              ; preds = %82, %.critedge.i
   %110 = call i32 @_bt_relandgetbuf(ptr noundef %9, i32 noundef %.055.i73, i32 noundef %.060.i, i32 noundef 1) #7
@@ -2606,7 +2606,7 @@ BufferGetPage.exit:                               ; preds = %12, %18
   %77 = sext i32 %76 to i64
   %78 = shl nsw i64 %77, 13
   %79 = getelementptr inbounds nuw i8, ptr %75, i64 %78
-  br label %.split.us.us.sink.split, !llvm.loop !16
+  br label %.split.us.us.sink.split, !llvm.loop !17
 
 80:                                               ; preds = %.critedge.us.us.thread
   %81 = load ptr, ptr @LocalBufferBlockPointers, align 8
@@ -2614,7 +2614,7 @@ BufferGetPage.exit:                               ; preds = %12, %18
   %83 = zext nneg i32 %82 to i64
   %84 = getelementptr inbounds nuw ptr, ptr %81, i64 %83
   %85 = load ptr, ptr %84, align 8
-  br label %.split.us.us.sink.split, !llvm.loop !16
+  br label %.split.us.us.sink.split, !llvm.loop !17
 
 .critedge2.split.us.us:                           ; preds = %71
   %86 = getelementptr inbounds nuw i8, ptr %.1.us.us, i64 8
@@ -2690,7 +2690,7 @@ BufferGetPage.exit57:                             ; preds = %106, %112
   %123 = load i16, ptr %122, align 4
   %124 = and i16 %123, 20
   %.not = icmp eq i16 %124, 0
-  br i1 %.not, label %.critedge2.split, label %.critedge, !llvm.loop !16
+  br i1 %.not, label %.critedge2.split, label %.critedge, !llvm.loop !17
 
 125:                                              ; preds = %.critedge2.split
   %126 = icmp ult i32 %93, %1
@@ -3137,7 +3137,7 @@ _bt_savepostingitem.exit:                         ; preds = %.lr.ph265, %202
   %204 = and i16 %.val220, 4095
   %205 = zext nneg i16 %204 to i64
   %206 = icmp samesign ult i64 %indvars.iv.next271, %205
-  br i1 %206, label %.lr.ph265, label %.loopexit, !llvm.loop !17
+  br i1 %206, label %.lr.ph265, label %.loopexit, !llvm.loop !18
 
 .loopexit:                                        ; preds = %_bt_savepostingitem.exit, %132, %_bt_saveitem.exit, %_bt_setuppostingitems.exit
   %.3190 = phi i32 [ %157, %_bt_saveitem.exit ], [ %.0187.ph, %132 ], [ %.4261, %_bt_setuppostingitems.exit ], [ %.4, %_bt_savepostingitem.exit ]
@@ -3423,7 +3423,7 @@ _bt_savepostingitem.exit250:                      ; preds = %.lr.ph, %348
   %350 = and i16 %.val219, 4095
   %351 = zext nneg i16 %350 to i64
   %352 = icmp samesign ult i64 %indvars.iv.next, %351
-  br i1 %352, label %.lr.ph, label %.loopexit280, !llvm.loop !18
+  br i1 %352, label %.lr.ph, label %.loopexit280, !llvm.loop !19
 
 .loopexit280:                                     ; preds = %_bt_savepostingitem.exit250, %276, %BTreeTupleIsPosting.exit235.thread, %289, %_bt_setuppostingitems.exit246
   %.8 = phi i32 [ %.5.ph, %276 ], [ %284, %BTreeTupleIsPosting.exit235.thread ], [ %284, %289 ], [ %303, %_bt_setuppostingitems.exit246 ], [ %337, %_bt_savepostingitem.exit250 ]
@@ -3522,8 +3522,9 @@ attributes #8 = { cold nounwind }
 !11 = distinct !{!11, !8}
 !12 = distinct !{!12, !8}
 !13 = distinct !{!13, !8}
-!14 = !{!"branch_weights", i32 1, i32 1999}
-!15 = !{!"branch_weights", i32 1999, i32 3}
-!16 = distinct !{!16, !8}
+!14 = !{!"branch_weights", i32 2000, i32 2002}
+!15 = !{!"branch_weights", i32 1, i32 1999}
+!16 = !{!"branch_weights", i32 1999, i32 3}
 !17 = distinct !{!17, !8}
 !18 = distinct !{!18, !8}
+!19 = distinct !{!19, !8}

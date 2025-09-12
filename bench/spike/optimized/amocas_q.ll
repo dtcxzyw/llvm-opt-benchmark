@@ -345,7 +345,7 @@ define linkonce_odr noundef { i64, i64 } @_ZN5mmu_t20amo_compare_and_swapIoEET_m
   %15 = getelementptr inbounds nuw i64, ptr %13, i64 %14
   %16 = load i64, ptr %15, align 8, !tbaa !14
   %17 = icmp eq i64 %16, %11
-  %or.cond.i = select i1 %.not, i1 %17, i1 false
+  %or.cond.i = select i1 %.not, i1 %17, i1 false, !prof !144
   br i1 %or.cond.i, label %18, label %.critedge.i, !prof !144
 
 18:                                               ; preds = %.noexc

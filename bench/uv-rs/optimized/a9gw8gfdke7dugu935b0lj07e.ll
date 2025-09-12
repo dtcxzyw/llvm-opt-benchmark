@@ -3285,7 +3285,7 @@ define hidden void @"_ZN3zip5write25GenericZipWriter$LT$W$GT$6unwrap17h000d36127
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i64, ptr %6, align 8, !range !324
   %8 = icmp eq i64 %7, -9223372036854775808
-  %or.cond = select i1 %5, i1 %8, i1 false
+  %or.cond = select i1 %5, i1 %8, i1 false, !prof !671
   br i1 %or.cond, label %14, label %9, !prof !671
 
 9:                                                ; preds = %2
@@ -3929,7 +3929,7 @@ define internal fastcc void @"_ZN3zip5write60_$LT$impl$u20$zip..write..zip_write
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %58 = load i64, ptr %57, align 8, !range !324
   %59 = icmp eq i64 %58, -9223372036854775808
-  %or.cond = select i1 %56, i1 %59, i1 false
+  %or.cond = select i1 %56, i1 %59, i1 false, !prof !671
   br i1 %or.cond, label %65, label %60, !prof !671
 
 60:                                               ; preds = %.loopexit
@@ -4216,7 +4216,7 @@ _ZN5alloc5alloc15exchange_malloc17h2c8a02dcfd7e37fdE.llvm.18114576096980994613.e
   %110 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %111 = load i64, ptr %110, align 8, !range !324, !alias.scope !727, !noalias !735
   %112 = icmp eq i64 %111, -9223372036854775808
-  %or.cond.i25 = select i1 %109, i1 %112, i1 false
+  %or.cond.i25 = select i1 %109, i1 %112, i1 false, !prof !671
   br i1 %or.cond.i25, label %115, label %114, !prof !671
 
 113:                                              ; preds = %.noexc
@@ -5184,7 +5184,7 @@ _ZN4core5slice5ascii8is_ascii17hb022378719fa8ba5E.exit.i.i: ; preds = %._crit_ed
   %419 = icmp eq i64 %418, -9223372036854775807
   %420 = load i64, ptr %110, align 8, !range !324, !alias.scope !727, !noalias !735
   %421 = icmp eq i64 %420, -9223372036854775808
-  %or.cond321.i = select i1 %419, i1 %421, i1 false
+  %or.cond321.i = select i1 %419, i1 %421, i1 false, !prof !671
   br i1 %or.cond321.i, label %425, label %424, !prof !671
 
 422:                                              ; preds = %414
@@ -5396,7 +5396,7 @@ _ZN4core5slice5ascii8is_ascii17hb022378719fa8ba5E.exit.i.i: ; preds = %._crit_ed
   %488 = icmp eq i64 %487, -9223372036854775807
   %489 = load i64, ptr %110, align 8, !range !324, !alias.scope !727, !noalias !735
   %490 = icmp eq i64 %489, -9223372036854775808
-  %or.cond7.i = select i1 %488, i1 %490, i1 false
+  %or.cond7.i = select i1 %488, i1 %490, i1 false, !prof !671
   br i1 %or.cond7.i, label %_ZN3std2io4Seek15stream_position17h3055422e5455372eE.exit.i, label %493, !prof !671
 
 491:                                              ; preds = %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hf57c0a5fefc4c82dE.exit.i.i.i.i", %476
@@ -5821,7 +5821,7 @@ define internal fastcc void @"_ZN3zip5write60_$LT$impl$u20$zip..write..zip_write
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %29 = load i64, ptr %28, align 8, !range !324
   %30 = icmp eq i64 %29, -9223372036854775808
-  %or.cond = select i1 %27, i1 %30, i1 false
+  %or.cond = select i1 %27, i1 %30, i1 false, !prof !671
   br i1 %or.cond, label %37, label %32, !prof !671
 
 31:                                               ; preds = %21
@@ -6223,7 +6223,7 @@ define hidden void @"_ZN3zip5write60_$LT$impl$u20$zip..write..zip_writer..ZipWri
   %133 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %134 = load i64, ptr %133, align 8, !range !324, !alias.scope !981, !noalias !989
   %135 = icmp eq i64 %134, -9223372036854775808
-  %or.cond.i = select i1 %132, i1 %135, i1 false
+  %or.cond.i = select i1 %132, i1 %135, i1 false, !prof !671
   br i1 %or.cond.i, label %142, label %137, !prof !671
 
 136:                                              ; preds = %126
@@ -7193,7 +7193,7 @@ _ZN4core5slice5ascii8is_ascii17hb022378719fa8ba5E.exit.i.i: ; preds = %._crit_ed
   %447 = icmp eq i64 %446, -9223372036854775807
   %448 = load i64, ptr %133, align 8, !range !324, !alias.scope !981, !noalias !989
   %449 = icmp eq i64 %448, -9223372036854775808
-  %or.cond333.i = select i1 %447, i1 %449, i1 false
+  %or.cond333.i = select i1 %447, i1 %449, i1 false, !prof !671
   br i1 %or.cond333.i, label %453, label %452, !prof !671
 
 450:                                              ; preds = %442
@@ -7402,7 +7402,7 @@ _ZN4core5slice5ascii8is_ascii17hb022378719fa8ba5E.exit.i.i: ; preds = %._crit_ed
   %516 = icmp eq i64 %515, -9223372036854775807
   %517 = load i64, ptr %133, align 8, !range !324, !alias.scope !981, !noalias !989
   %518 = icmp eq i64 %517, -9223372036854775808
-  %or.cond7.i = select i1 %516, i1 %518, i1 false
+  %or.cond7.i = select i1 %516, i1 %518, i1 false, !prof !671
   br i1 %or.cond7.i, label %_ZN3std2io4Seek15stream_position17h3055422e5455372eE.exit205.i, label %.noexc13, !prof !671
 
 519:                                              ; preds = %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hf57c0a5fefc4c82dE.exit.i.i.i.i", %504
@@ -7825,7 +7825,7 @@ define internal fastcc void @"_ZN3zip5write60_$LT$impl$u20$zip..write..zip_write
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %13 = load i64, ptr %12, align 8, !range !324
   %14 = icmp eq i64 %13, -9223372036854775808
-  %or.cond = select i1 %11, i1 %14, i1 false
+  %or.cond = select i1 %11, i1 %14, i1 false, !prof !671
   br i1 %or.cond, label %20, label %15, !prof !671
 
 15:                                               ; preds = %2
@@ -8616,7 +8616,7 @@ define hidden void @"_ZN3zip5write60_$LT$impl$u20$zip..write..zip_writer..ZipWri
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %22 = load i64, ptr %21, align 8, !range !324
   %23 = icmp eq i64 %22, -9223372036854775808
-  %or.cond = select i1 %20, i1 %23, i1 false
+  %or.cond = select i1 %20, i1 %23, i1 false, !prof !671
   br i1 %or.cond, label %30, label %25, !prof !671
 
 24:                                               ; preds = %11

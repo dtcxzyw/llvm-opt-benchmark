@@ -128458,7 +128458,7 @@ lean_alloc_ctor.exit277:                          ; preds = %lean_dec.exit156
   %362 = ptrtoint ptr %358 to i64
   %363 = and i64 %362, 1
   %364 = icmp ne i64 %363, 0
-  %or.cond = select i1 %361, i1 %364, i1 false
+  %or.cond = select i1 %361, i1 %364, i1 false, !prof !19
   br i1 %or.cond, label %365, label %lean_nat_lt.exit, !prof !19
 
 365:                                              ; preds = %357
@@ -301980,7 +301980,7 @@ lean_dec.exit274:                                 ; preds = %lean_dec.exit274.ba
   %26 = ptrtoint ptr %22 to i64
   %27 = and i64 %26, 1
   %28 = icmp ne i64 %27, 0
-  %or.cond = select i1 %25, i1 %28, i1 false
+  %or.cond = select i1 %25, i1 %28, i1 false, !prof !19
   br i1 %or.cond, label %29, label %lean_nat_lt.exit, !prof !19
 
 29:                                               ; preds = %lean_dec.exit274
@@ -304170,7 +304170,7 @@ lean_dec.exit520:                                 ; preds = %lean_dec.exit520.ba
   %24 = ptrtoint ptr %20 to i64
   %25 = and i64 %24, 1
   %26 = icmp ne i64 %25, 0
-  %or.cond = select i1 %23, i1 %26, i1 false
+  %or.cond = select i1 %23, i1 %26, i1 false, !prof !19
   br i1 %or.cond, label %27, label %lean_nat_lt.exit, !prof !19
 
 27:                                               ; preds = %lean_dec.exit520

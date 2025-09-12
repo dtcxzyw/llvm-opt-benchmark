@@ -4173,7 +4173,7 @@ define noundef i32 @_ZN3zmq20stream_engine_base_t25process_handshake_commandEPNS
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 1664
   %39 = load i8, ptr %38, align 8, !range !123
   %40 = trunc nuw i8 %39 to i1
-  %or.cond = select i1 %.not4, i1 true, i1 %40
+  %or.cond = select i1 %.not4, i1 true, i1 %40, !prof !157
   br i1 %or.cond, label %_ZN3zmq20stream_engine_base_t14restart_outputEv.exit, label %41, !prof !157
 
 41:                                               ; preds = %34

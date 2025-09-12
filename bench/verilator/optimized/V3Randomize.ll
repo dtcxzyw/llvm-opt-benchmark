@@ -45004,7 +45004,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit231: ; preds = %_Z
   %or.cond.not293 = select i1 %252, i1 true, i1 %253
   %254 = load ptr, ptr %6, align 8
   %255 = icmp eq ptr %254, null
-  %or.cond164 = select i1 %or.cond.not293, i1 true, i1 %255
+  %or.cond164 = select i1 %or.cond.not293, i1 true, i1 %255, !prof !711
   br i1 %or.cond164, label %.critedge, label %264, !prof !711
 
 .critedge:                                        ; preds = %250

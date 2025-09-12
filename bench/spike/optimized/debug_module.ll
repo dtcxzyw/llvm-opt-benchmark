@@ -1299,7 +1299,7 @@ define void @_ZN14debug_module_t7sb_readEv(ptr noundef nonnull align 8 captures(
   %67 = getelementptr inbounds nuw i64, ptr %65, i64 %66
   %68 = load i64, ptr %67, align 8, !tbaa !47
   %69 = icmp eq i64 %68, %63
-  %or.cond.i = select i1 %.not126, i1 %69, i1 false
+  %or.cond.i = select i1 %.not126, i1 %69, i1 false, !prof !243
   br i1 %or.cond.i, label %70, label %.critedge.i49, !prof !243
 
 70:                                               ; preds = %.noexc53
@@ -1371,7 +1371,7 @@ define void @_ZN14debug_module_t7sb_readEv(ptr noundef nonnull align 8 captures(
   %100 = getelementptr inbounds nuw i64, ptr %98, i64 %99
   %101 = load i64, ptr %100, align 8, !tbaa !47
   %102 = icmp eq i64 %101, %96
-  %or.cond.i59 = select i1 %.not125, i1 %102, i1 false
+  %or.cond.i59 = select i1 %.not125, i1 %102, i1 false, !prof !243
   br i1 %or.cond.i59, label %103, label %.critedge.i60, !prof !243
 
 103:                                              ; preds = %.noexc65
@@ -1442,7 +1442,7 @@ define void @_ZN14debug_module_t7sb_readEv(ptr noundef nonnull align 8 captures(
   %132 = getelementptr inbounds nuw i64, ptr %130, i64 %131
   %133 = load i64, ptr %132, align 8, !tbaa !47
   %134 = icmp eq i64 %133, %128
-  %or.cond.i71 = select i1 %.not, i1 %134, i1 false
+  %or.cond.i71 = select i1 %.not, i1 %134, i1 false, !prof !243
   br i1 %or.cond.i71, label %135, label %.critedge.i72, !prof !243
 
 135:                                              ; preds = %.noexc77

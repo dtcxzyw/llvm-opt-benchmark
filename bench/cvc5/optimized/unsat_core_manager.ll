@@ -5005,7 +5005,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit166: ; preds = %_ZN4cvc58internal1
   %577 = and i64 %576, 1023
   %578 = icmp ne i64 %577, 366
   %.not.i238 = icmp eq ptr %573, %574
-  %or.cond = select i1 %578, i1 true, i1 %.not.i238
+  %or.cond = select i1 %578, i1 true, i1 %.not.i238, !prof !372
   br i1 %or.cond, label %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit243, label %583, !prof !372
 
 579:                                              ; preds = %558, %556

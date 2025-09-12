@@ -3577,7 +3577,7 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort8_stable1
   %10 = getelementptr i8, ptr %25, i64 8
   %11 = icmp ne ptr %20, %9
   %12 = icmp ne ptr %18, %10
-  %or.cond.i = select i1 %11, i1 true, i1 %12
+  %or.cond.i = select i1 %11, i1 true, i1 %12, !prof !689
   br i1 %or.cond.i, label %28, label %_ZN4core5slice4sort6shared9smallsort19bidirectional_merge17h92a1f620363ce6a6E.exit, !prof !689
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %3
@@ -3745,7 +3745,7 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort8_stable1
   %80 = getelementptr i8, ptr %95, i64 8
   %81 = icmp ne ptr %90, %79
   %82 = icmp ne ptr %88, %80
-  %or.cond.i = select i1 %81, i1 true, i1 %82
+  %or.cond.i = select i1 %81, i1 true, i1 %82, !prof !689
   br i1 %or.cond.i, label %98, label %_ZN4core5slice4sort6shared9smallsort19bidirectional_merge17hcbccb7b99f2c2086E.exit, !prof !689
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %3
@@ -3888,7 +3888,7 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort19bidirectional
   %.sroa.0.1 = phi ptr [ %25, %._crit_edge ], [ %37, %34 ]
   %42 = icmp ne ptr %.sroa.0.1, %13
   %43 = icmp ne ptr %.sroa.06.1, %14
-  %or.cond = select i1 %42, i1 true, i1 %43
+  %or.cond = select i1 %42, i1 true, i1 %43, !prof !689
   br i1 %or.cond, label %45, label %44, !prof !689
 
 44:                                               ; preds = %41
@@ -3993,7 +3993,7 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort19bidirectional
   %.sroa.0.1 = phi ptr [ %23, %._crit_edge ], [ %38, %35 ]
   %43 = icmp ne ptr %.sroa.0.1, %9
   %44 = icmp ne ptr %.sroa.06.1, %10
-  %or.cond = select i1 %43, i1 true, i1 %44
+  %or.cond = select i1 %43, i1 true, i1 %44, !prof !689
   br i1 %or.cond, label %46, label %45, !prof !689
 
 45:                                               ; preds = %42
@@ -4706,7 +4706,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
   %.sroa.0.1.i = phi ptr [ %66, %._crit_edge.i ], [ %78, %74 ]
   %83 = icmp ne ptr %.sroa.0.1.i, %55
   %84 = icmp ne ptr %.sroa.06.1.i, %56
-  %or.cond.i = select i1 %83, i1 true, i1 %84
+  %or.cond.i = select i1 %83, i1 true, i1 %84, !prof !689
   br i1 %or.cond.i, label %85, label %_ZN4core5slice4sort6shared9smallsort19bidirectional_merge17h92a1f620363ce6a6E.exit, !prof !689
 
 85:                                               ; preds = %82
@@ -5116,7 +5116,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
   %.sroa.0.1.i = phi ptr [ %138, %._crit_edge.i ], [ %150, %146 ]
   %155 = icmp ne ptr %.sroa.0.1.i, %127
   %156 = icmp ne ptr %.sroa.06.1.i, %128
-  %or.cond.i = select i1 %155, i1 true, i1 %156
+  %or.cond.i = select i1 %155, i1 true, i1 %156, !prof !689
   br i1 %or.cond.i, label %157, label %_ZN4core5slice4sort6shared9smallsort19bidirectional_merge17hcbccb7b99f2c2086E.exit, !prof !689
 
 157:                                              ; preds = %154
@@ -5453,7 +5453,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
   %.sroa.0.1.i = phi ptr [ %113, %._crit_edge.i ], [ %123, %120 ]
   %128 = icmp ne ptr %.sroa.0.1.i, %103
   %129 = icmp ne ptr %.sroa.06.1.i, %104
-  %or.cond.i = select i1 %128, i1 true, i1 %129
+  %or.cond.i = select i1 %128, i1 true, i1 %129, !prof !689
   br i1 %or.cond.i, label %130, label %_ZN4core5slice4sort6shared9smallsort19bidirectional_merge17h95260851d365d484E.exit, !prof !689
 
 130:                                              ; preds = %127
@@ -5752,7 +5752,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
   %.sroa.0.1.i = phi ptr [ %70, %._crit_edge.i ], [ %86, %83 ]
   %91 = icmp ne ptr %.sroa.0.1.i, %54
   %92 = icmp ne ptr %.sroa.06.1.i, %55
-  %or.cond.i = select i1 %91, i1 true, i1 %92
+  %or.cond.i = select i1 %91, i1 true, i1 %92, !prof !689
   br i1 %or.cond.i, label %93, label %_ZN4core5slice4sort6shared9smallsort19bidirectional_merge17hfcf2ebceebd4caecE.exit, !prof !689
 
 93:                                               ; preds = %90

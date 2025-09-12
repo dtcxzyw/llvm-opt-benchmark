@@ -17273,7 +17273,7 @@ define i32 @pmix_server_iofdereg(ptr noundef readonly captures(none) %0, ptr nou
   %.val = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 2056), align 8
   %137 = icmp slt i32 %136, 0
   %138 = icmp sle i32 %.val, %136
-  %or.cond.i = select i1 %137, i1 true, i1 %138
+  %or.cond.i = select i1 %137, i1 true, i1 %138, !prof !362
   br i1 %or.cond.i, label %pmix_obj_new_tma.exit, label %pmix_pointer_array_get_item.exit, !prof !362
 
 pmix_pointer_array_get_item.exit:                 ; preds = %134

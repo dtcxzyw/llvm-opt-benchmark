@@ -5681,7 +5681,7 @@ _ZN18fast_double_parserL18parse_float_strtodEPKcPd.exit: ; preds = %121, %124, %
   %or.cond99.i = select i1 %194, i1 %195, i1 false
   %196 = and i64 %193, 3
   %197 = icmp eq i64 %196, 1
-  %or.cond105.i = select i1 %or.cond99.i, i1 %197, i1 false
+  %or.cond105.i = select i1 %or.cond99.i, i1 %197, i1 false, !prof !147
   br i1 %or.cond105.i, label %217, label %.critedge101.i, !prof !147
 
 .critedge101.i:                                   ; preds = %190

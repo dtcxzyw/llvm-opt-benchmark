@@ -4604,7 +4604,7 @@ lean_obj_tag.exit90:                              ; preds = %44, %47
   %68 = ptrtoint ptr %64 to i64
   %69 = and i64 %68, 1
   %70 = icmp ne i64 %69, 0
-  %or.cond = select i1 %67, i1 %70, i1 false
+  %or.cond = select i1 %67, i1 %70, i1 false, !prof !15
   br i1 %or.cond, label %lean_nat_lt.exit.thread, label %lean_nat_lt.exit, !prof !15
 
 lean_nat_lt.exit:                                 ; preds = %63

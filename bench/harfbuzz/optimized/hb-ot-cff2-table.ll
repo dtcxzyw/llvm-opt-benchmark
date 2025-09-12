@@ -248,7 +248,7 @@ _ZNK3CFF15cs_interp_env_tINS_8number_tENS_5SubrsIN2OT7IntTypeIjLj4EEEEEE8in_erro
   %63 = or i1 %60, %62
   %64 = add nsw i32 %.0.i, -1
   %.not.i = icmp eq i32 %64, 0
-  %brmerge.i = select i1 %63, i1 true, i1 %.not.i
+  %brmerge.i = select i1 %63, i1 true, i1 %.not.i, !prof !83
   br i1 %brmerge.i, label %_ZN3CFF16cs_interpreter_tINS_20cff2_cs_interp_env_tINS_8number_tEEE23cff2_cs_opset_extents_t20cff2_extents_param_tE9interpretERS5_.exit, label %65, !prof !83
 
 65:                                               ; preds = %_ZNK3CFF15cs_interp_env_tINS_8number_tENS_5SubrsIN2OT7IntTypeIjLj4EEEEEE8in_errorEv.exit.i
@@ -1057,7 +1057,7 @@ _ZNK3CFF15cs_interp_env_tINS_8number_tENS_5SubrsIN2OT7IntTypeIjLj4EEEEEE8in_erro
   %58 = or i1 %55, %57
   %59 = add nsw i32 %.0.i, -1
   %.not.i = icmp eq i32 %59, 0
-  %brmerge.i = select i1 %58, i1 true, i1 %.not.i
+  %brmerge.i = select i1 %58, i1 true, i1 %.not.i, !prof !83
   br i1 %brmerge.i, label %.thread.i, label %62, !prof !83
 
 .thread.i:                                        ; preds = %_ZNK3CFF15cs_interp_env_tINS_8number_tENS_5SubrsIN2OT7IntTypeIjLj4EEEEEE8in_errorEv.exit.i, %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8fetch_opEv.exit..thread_crit_edge.i

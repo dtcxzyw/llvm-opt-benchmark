@@ -86719,7 +86719,7 @@ define void @"_ZN156_$LT$polars_stream..nodes..io_sources..batch..BatchFnReader$
   %.not = icmp eq i8 %22, -38
   %23 = load i64, ptr %2, align 8, !range !6
   %.not43 = icmp eq i64 %23, 2
-  %or.cond63 = select i1 %.not, i1 %.not43, i1 false
+  %or.cond63 = select i1 %.not, i1 %.not43, i1 false, !prof !6463
   br i1 %or.cond63, label %29, label %24, !prof !6463
 
 24:                                               ; preds = %29, %3

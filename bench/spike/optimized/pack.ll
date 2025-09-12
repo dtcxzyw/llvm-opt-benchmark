@@ -80,7 +80,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z15fast_rv32i_packP11pro
   %or.cond = select i1 %6, i1 true, i1 %.0.i.not
   %9 = and i64 %.sink.i, 8589934592
   %.0.i15.not = icmp eq i64 %9, 0
-  %or.cond22 = select i1 %or.cond, i1 %.0.i15.not, i1 false
+  %or.cond22 = select i1 %or.cond, i1 %.0.i15.not, i1 false, !prof !7
   br i1 %or.cond22, label %10, label %.critedge, !prof !7
 
 10:                                               ; preds = %3
@@ -202,7 +202,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z17logged_rv32i_packP11p
   %or.cond = select i1 %7, i1 true, i1 %.0.i.not
   %10 = and i64 %.sink.i, 8589934592
   %.0.i18.not = icmp eq i64 %10, 0
-  %or.cond26 = select i1 %or.cond, i1 %.0.i18.not, i1 false
+  %or.cond26 = select i1 %or.cond, i1 %.0.i18.not, i1 false, !prof !7
   br i1 %or.cond26, label %11, label %.critedge, !prof !7
 
 11:                                               ; preds = %3

@@ -17597,7 +17597,7 @@ _ZN3ue28flat_setIjSt4lessIjESaIjEE6insertERKj.exit: ; preds = %81, %_ZN5boost9co
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %132, null
   %133 = getelementptr inbounds nuw i8, ptr %.sroa.020.0100, i64 88
   %134 = icmp eq ptr %133, %132
-  %or.cond.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i, i1 true, i1 %134
+  %or.cond.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i, i1 true, i1 %134, !prof !639
   br i1 %or.cond.i.i.i.i.i.i.i.i, label %_ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIjSaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE10deallocateERKPjm.exit.i.i.i.i.i.i.i.i, label %135, !prof !639
 
 135:                                              ; preds = %131

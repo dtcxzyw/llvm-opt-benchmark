@@ -4634,7 +4634,7 @@ define zeroext range(i8 0, 2) i8 @l_Array_qsort_sort___at_Lean_Expr_numApps___sp
   %10 = ptrtoint ptr %6 to i64
   %11 = and i64 %10, 1
   %12 = icmp ne i64 %11, 0
-  %or.cond = select i1 %9, i1 %12, i1 false
+  %or.cond = select i1 %9, i1 %12, i1 false, !prof !15
   br i1 %or.cond, label %13, label %.critedge.i, !prof !15
 
 13:                                               ; preds = %2
@@ -5064,7 +5064,7 @@ lean_dec.exit74:                                  ; preds = %64, %63, %61, %lean
   %65 = ptrtoint ptr %36 to i64
   %66 = and i64 %65, 1
   %67 = icmp ne i64 %66, 0
-  %or.cond = select i1 %7, i1 %67, i1 false
+  %or.cond = select i1 %7, i1 %67, i1 false, !prof !15
   br i1 %or.cond, label %68, label %lean_nat_lt.exit, !prof !15
 
 68:                                               ; preds = %lean_dec.exit74
@@ -5254,7 +5254,7 @@ lean_dec.exit:                                    ; preds = %130, %129, %127, %l
   %131 = ptrtoint ptr %36 to i64
   %132 = and i64 %131, 1
   %133 = icmp ne i64 %132, 0
-  %or.cond120 = select i1 %7, i1 %133, i1 false
+  %or.cond120 = select i1 %7, i1 %133, i1 false, !prof !15
   br i1 %or.cond120, label %134, label %lean_nat_lt.exit88, !prof !15
 
 134:                                              ; preds = %lean_dec.exit
@@ -5550,7 +5550,7 @@ define nonnull ptr @l_Array_qsort_sort___at_Lean_Expr_numApps___spec__1___lambda
   %10 = ptrtoint ptr %6 to i64
   %11 = and i64 %10, 1
   %12 = icmp ne i64 %11, 0
-  %or.cond.i = select i1 %9, i1 %12, i1 false
+  %or.cond.i = select i1 %9, i1 %12, i1 false, !prof !15
   br i1 %or.cond.i, label %13, label %.critedge.i.i, !prof !15
 
 13:                                               ; preds = %2

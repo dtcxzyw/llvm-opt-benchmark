@@ -104554,7 +104554,7 @@ common.resume:                                    ; preds = %332, %288, %.body53
   %425 = getelementptr inbounds nuw i8, ptr %0, i64 79
   %426 = load i8, ptr %425, align 1, !range !203, !alias.scope !18537
   %427 = icmp eq i8 %426, -40
-  %or.cond.i = select i1 %424, i1 %427, i1 false
+  %or.cond.i = select i1 %424, i1 %427, i1 false, !prof !66
   br i1 %or.cond.i, label %428, label %common.resume, !prof !66
 
 428:                                              ; preds = %"_ZN4core3ptr171drop_in_place$LT$core..option..Option$LT$$LP$alloc..sync..Arc$LT$polars_plan..dsl..expr..Expr$GT$$C$polars_core..chunked_array..ops..sort..options..SortOptions$RP$$GT$$GT$17hfd50aa21433fa915E.exit"
@@ -104574,7 +104574,7 @@ common.resume:                                    ; preds = %332, %288, %.body53
   %435 = getelementptr inbounds nuw i8, ptr %0, i64 79
   %436 = load i8, ptr %435, align 1, !range !203, !alias.scope !18540
   %437 = icmp eq i8 %436, -40
-  %or.cond.i74 = select i1 %434, i1 %437, i1 false
+  %or.cond.i74 = select i1 %434, i1 %437, i1 false, !prof !66
   br i1 %or.cond.i74, label %438, label %"_ZN4core3ptr53drop_in_place$LT$polars_utils..pl_str..PlSmallStr$GT$17h522e2f8b23360a55E.exit", !prof !66
 
 438:                                              ; preds = %"_ZN4core3ptr171drop_in_place$LT$core..option..Option$LT$$LP$alloc..sync..Arc$LT$polars_plan..dsl..expr..Expr$GT$$C$polars_core..chunked_array..ops..sort..options..SortOptions$RP$$GT$$GT$17hfd50aa21433fa915E.exit72"
@@ -115827,7 +115827,7 @@ common.resume:                                    ; preds = %30, %47, %53, %66, 
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 79
   %64 = load i8, ptr %63, align 1, !range !203, !alias.scope !20307
   %65 = icmp eq i8 %64, -40
-  %or.cond.i = select i1 %62, i1 %65, i1 false
+  %or.cond.i = select i1 %62, i1 %65, i1 false, !prof !66
   br i1 %or.cond.i, label %66, label %common.resume, !prof !66
 
 66:                                               ; preds = %58
@@ -115842,7 +115842,7 @@ common.resume:                                    ; preds = %30, %47, %53, %66, 
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 79
   %72 = load i8, ptr %71, align 1, !range !203, !alias.scope !20310
   %73 = icmp eq i8 %72, -40
-  %or.cond.i6 = select i1 %70, i1 %73, i1 false
+  %or.cond.i6 = select i1 %70, i1 %73, i1 false, !prof !66
   br i1 %or.cond.i6, label %74, label %"_ZN4core3ptr53drop_in_place$LT$polars_utils..pl_str..PlSmallStr$GT$17h522e2f8b23360a55E.exit", !prof !66
 
 74:                                               ; preds = %"_ZN4core3ptr69drop_in_place$LT$alloc..vec..Vec$LT$polars_utils..arena..Node$GT$$GT$17h6142cac0a707d4d9E.exit5"
@@ -173445,7 +173445,7 @@ define hidden void @"_ZN4core3ptr91drop_in_place$LT$alloc..sync..ArcInner$LT$pol
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 175
   %6 = load i8, ptr %5, align 1, !range !203, !alias.scope !32498
   %7 = icmp eq i8 %6, -40
-  %or.cond.i.i = select i1 %4, i1 %7, i1 false
+  %or.cond.i.i = select i1 %4, i1 %7, i1 false, !prof !66
   br i1 %or.cond.i.i, label %8, label %"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$polars_time..group_by..dynamic..DynamicGroupOptions$GT$$GT$17h581cf1b25b7962f0E.exit.i", !prof !66
 
 8:                                                ; preds = %1
@@ -173462,7 +173462,7 @@ define hidden void @"_ZN4core3ptr91drop_in_place$LT$alloc..sync..ArcInner$LT$pol
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 63
   %16 = load i8, ptr %15, align 1, !range !203, !alias.scope !32503
   %17 = icmp eq i8 %16, -40
-  %or.cond.i1.i = select i1 %14, i1 %17, i1 false
+  %or.cond.i1.i = select i1 %14, i1 %17, i1 false, !prof !66
   br i1 %or.cond.i1.i, label %18, label %"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$polars_time..group_by..dynamic..RollingGroupOptions$GT$$GT$17ha82a96fdabdbc2c6E.exit.i", !prof !66
 
 18:                                               ; preds = %10
@@ -173477,7 +173477,7 @@ define hidden void @"_ZN4core3ptr91drop_in_place$LT$alloc..sync..ArcInner$LT$pol
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 63
   %24 = load i8, ptr %23, align 1, !range !203, !alias.scope !32506
   %25 = icmp eq i8 %24, -40
-  %or.cond.i3.i = select i1 %22, i1 %25, i1 false
+  %or.cond.i3.i = select i1 %22, i1 %25, i1 false, !prof !66
   br i1 %or.cond.i3.i, label %26, label %"_ZN4core3ptr62drop_in_place$LT$polars_plan..dsl..options..GroupbyOptions$GT$17h697255df0a7f66d6E.exit", !prof !66
 
 26:                                               ; preds = %"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$polars_time..group_by..dynamic..DynamicGroupOptions$GT$$GT$17h581cf1b25b7962f0E.exit.i"

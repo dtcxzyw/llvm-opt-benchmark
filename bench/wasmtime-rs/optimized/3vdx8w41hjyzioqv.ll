@@ -13605,7 +13605,7 @@ define hidden void @_ZN4core4iter8adapters11try_process17hfe89201dc6e6b76aE(ptr 
   store i64 0, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !noalias !3526
   %8 = icmp ne i64 %.sroa.2.sroa.2.0.copyload, 0
   %9 = icmp eq i64 %.sroa.2.sroa.3.0.copyload, 0
-  %or.cond14.i = select i1 %8, i1 %9, i1 false
+  %or.cond14.i = select i1 %8, i1 %9, i1 false, !prof !3533
   br i1 %or.cond14.i, label %10, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h9ffe6bb570e29900E.exit.i", !prof !3533
 
 10:                                               ; preds = %2

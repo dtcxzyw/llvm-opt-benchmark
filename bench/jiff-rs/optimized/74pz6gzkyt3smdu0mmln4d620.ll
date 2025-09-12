@@ -4645,7 +4645,7 @@ define internal fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$
   %33 = icmp sgt i8 %.pn3.i9, -1
   %34 = trunc i24 %storemerge to i8
   %.not.i = icmp eq i8 %34, 2
-  %or.cond.i = select i1 %33, i1 %.not.i, i1 false
+  %or.cond.i = select i1 %33, i1 %.not.i, i1 false, !prof !326
   %35 = lshr i24 %storemerge, 8
   %36 = trunc i24 %35 to i8
   %37 = lshr i24 %storemerge, 16
@@ -4861,7 +4861,7 @@ define internal fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$
   %33 = icmp sgt i8 %.pn3.i9, -1
   %34 = trunc i24 %storemerge to i8
   %.not.i = icmp eq i8 %34, 2
-  %or.cond.i = select i1 %33, i1 %.not.i, i1 false
+  %or.cond.i = select i1 %33, i1 %.not.i, i1 false, !prof !326
   %35 = lshr i24 %storemerge, 8
   %36 = trunc i24 %35 to i8
   %37 = lshr i24 %storemerge, 16
@@ -5067,7 +5067,7 @@ define internal fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$
   %33 = icmp sgt i8 %.sroa.011.0, -1
   %34 = trunc i24 %storemerge to i8
   %.not.i = icmp eq i8 %34, 2
-  %or.cond.i = select i1 %33, i1 %.not.i, i1 false
+  %or.cond.i = select i1 %33, i1 %.not.i, i1 false, !prof !326
   %35 = lshr i24 %storemerge, 8
   %36 = trunc i24 %35 to i8
   %37 = lshr i24 %storemerge, 16
@@ -5265,7 +5265,7 @@ define internal fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$
   %30 = icmp sgt i8 %12, -1
   %31 = trunc i24 %storemerge to i8
   %.not.i = icmp eq i8 %31, 2
-  %or.cond.i = select i1 %30, i1 %.not.i, i1 false
+  %or.cond.i = select i1 %30, i1 %.not.i, i1 false, !prof !326
   %32 = lshr i24 %storemerge, 8
   %33 = trunc i24 %32 to i8
   %34 = lshr i24 %storemerge, 16
@@ -5468,7 +5468,7 @@ define internal fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$
   %33 = icmp sgt i8 %.sroa.011.0, -1
   %34 = trunc i24 %storemerge to i8
   %.not.i = icmp eq i8 %34, 2
-  %or.cond.i = select i1 %33, i1 %.not.i, i1 false
+  %or.cond.i = select i1 %33, i1 %.not.i, i1 false, !prof !326
   %35 = lshr i24 %storemerge, 8
   %36 = trunc i24 %35 to i8
   %37 = lshr i24 %storemerge, 16
@@ -5666,7 +5666,7 @@ define internal fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$
   %30 = icmp sgt i8 %12, -1
   %31 = trunc i24 %storemerge to i8
   %.not.i = icmp eq i8 %31, 2
-  %or.cond.i = select i1 %30, i1 %.not.i, i1 false
+  %or.cond.i = select i1 %30, i1 %.not.i, i1 false, !prof !326
   %32 = lshr i24 %storemerge, 8
   %33 = trunc i24 %32 to i8
   %34 = lshr i24 %storemerge, 16
@@ -5956,7 +5956,7 @@ define internal fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$
   %30 = icmp sgt i8 %12, -1
   %31 = trunc i24 %storemerge to i8
   %.not.i = icmp eq i8 %31, 2
-  %or.cond.i = select i1 %30, i1 %.not.i, i1 false
+  %or.cond.i = select i1 %30, i1 %.not.i, i1 false, !prof !326
   %32 = lshr i24 %storemerge, 8
   %33 = trunc i24 %32 to i8
   %34 = lshr i24 %storemerge, 16
@@ -6169,7 +6169,7 @@ define internal fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$
   %33 = icmp sgt i8 %.pn3.i9, -1
   %34 = trunc i24 %storemerge to i8
   %.not.i = icmp eq i8 %34, 2
-  %or.cond.i = select i1 %33, i1 %.not.i, i1 false
+  %or.cond.i = select i1 %33, i1 %.not.i, i1 false, !prof !326
   %35 = lshr i24 %storemerge, 8
   %36 = trunc i24 %35 to i8
   %37 = lshr i24 %storemerge, 16
@@ -6866,7 +6866,7 @@ define internal fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$
   %30 = icmp sgt i8 %12, -1
   %31 = trunc i24 %storemerge to i8
   %.not.i = icmp eq i8 %31, 2
-  %or.cond.i = select i1 %30, i1 %.not.i, i1 false
+  %or.cond.i = select i1 %30, i1 %.not.i, i1 false, !prof !326
   %32 = lshr i24 %storemerge, 8
   %33 = trunc i24 %32 to i8
   %34 = lshr i24 %storemerge, 16
@@ -7080,7 +7080,7 @@ define internal fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$
   tail call void @llvm.experimental.noalias.scope.decl(metadata !547)
   %42 = icmp sgt i64 %13, -1
   %.not.i = icmp eq i8 %41, 2
-  %or.cond.i = select i1 %42, i1 %.not.i, i1 false
+  %or.cond.i = select i1 %42, i1 %.not.i, i1 false, !prof !326
   %43 = getelementptr inbounds nuw i8, ptr %3, i64 20
   br i1 %or.cond.i, label %45, label %44, !prof !326
 
@@ -7265,7 +7265,7 @@ define internal fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %15 = load i8, ptr %14, align 1
   %16 = icmp eq i8 %15, 0
-  %or.cond = select i1 %13, i1 %16, i1 false
+  %or.cond = select i1 %13, i1 %16, i1 false, !prof !560
   br i1 %or.cond, label %31, label %26, !prof !560
 
 17:                                               ; preds = %1
@@ -8404,7 +8404,7 @@ _ZN4jiff5civil7weekday7Weekday28to_sunday_zero_offset_ranged17h0c87b2a045c7a7afE
   tail call void @llvm.experimental.noalias.scope.decl(metadata !641)
   %81 = icmp sgt i64 %.sroa.0.0.i14, -1
   %.not.i = icmp eq i8 %80, 2
-  %or.cond.i = select i1 %81, i1 %.not.i, i1 false
+  %or.cond.i = select i1 %81, i1 %.not.i, i1 false, !prof !326
   %82 = getelementptr inbounds nuw i8, ptr %4, i64 20
   br i1 %or.cond.i, label %84, label %83, !prof !326
 
@@ -8611,7 +8611,7 @@ define internal fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$
   %36 = icmp sgt i8 %18, -1
   %37 = trunc i24 %storemerge.i to i8
   %.not.i = icmp eq i8 %37, 2
-  %or.cond.i = select i1 %36, i1 %.not.i, i1 false
+  %or.cond.i = select i1 %36, i1 %.not.i, i1 false, !prof !326
   %38 = lshr i24 %storemerge.i, 8
   %39 = trunc i24 %38 to i8
   %40 = lshr i24 %storemerge.i, 16
@@ -8928,7 +8928,7 @@ _ZN4jiff5civil7weekday7Weekday28to_sunday_zero_offset_ranged17h0c87b2a045c7a7afE
   %190 = icmp sgt i16 %171, -7
   %191 = trunc i24 %storemerge to i8
   %.not.i34 = icmp eq i8 %191, 2
-  %or.cond.i35 = select i1 %190, i1 %.not.i34, i1 false
+  %or.cond.i35 = select i1 %190, i1 %.not.i34, i1 false, !prof !326
   %192 = lshr i24 %storemerge, 8
   %193 = trunc i24 %192 to i8
   %194 = lshr i24 %storemerge, 16
@@ -9141,7 +9141,7 @@ define internal fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$
   %35 = icmp sgt i8 %.pn3.i9, -1
   %36 = trunc i24 %storemerge.i to i8
   %.not.i = icmp eq i8 %36, 2
-  %or.cond.i = select i1 %35, i1 %.not.i, i1 false
+  %or.cond.i = select i1 %35, i1 %.not.i, i1 false, !prof !326
   %37 = lshr i24 %storemerge.i, 8
   %38 = trunc i24 %37 to i8
   %39 = lshr i24 %storemerge.i, 16
@@ -9348,7 +9348,7 @@ define internal fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$
   %36 = icmp sgt i8 %18, -1
   %37 = trunc i24 %storemerge.i to i8
   %.not.i = icmp eq i8 %37, 2
-  %or.cond.i = select i1 %36, i1 %.not.i, i1 false
+  %or.cond.i = select i1 %36, i1 %.not.i, i1 false, !prof !326
   %38 = lshr i24 %storemerge.i, 8
   %39 = trunc i24 %38 to i8
   %40 = lshr i24 %storemerge.i, 16
@@ -9667,7 +9667,7 @@ _ZN4jiff5civil7weekday7Weekday28to_sunday_zero_offset_ranged17h0c87b2a045c7a7afE
   %192 = icmp sgt i16 %173, -7
   %193 = trunc i24 %storemerge to i8
   %.not.i34 = icmp eq i8 %193, 2
-  %or.cond.i35 = select i1 %192, i1 %.not.i34, i1 false
+  %or.cond.i35 = select i1 %192, i1 %.not.i34, i1 false, !prof !326
   %194 = lshr i24 %storemerge, 8
   %195 = trunc i24 %194 to i8
   %196 = lshr i24 %storemerge, 16
@@ -9877,7 +9877,7 @@ define internal fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$
   %34 = icmp sgt i16 %.pn3.i5, -1
   %35 = trunc i24 %storemerge to i8
   %.not.i = icmp eq i8 %35, 2
-  %or.cond.i = select i1 %34, i1 %.not.i, i1 false
+  %or.cond.i = select i1 %34, i1 %.not.i, i1 false, !prof !326
   %36 = lshr i24 %storemerge, 8
   %37 = trunc i24 %36 to i8
   %38 = lshr i24 %storemerge, 16
@@ -10354,7 +10354,7 @@ define internal fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$
   tail call void @llvm.experimental.noalias.scope.decl(metadata !833)
   %47 = icmp sgt i16 %.pn3.i5, -100
   %.not.i = icmp eq i8 %46, 2
-  %or.cond.i = select i1 %47, i1 %.not.i, i1 false
+  %or.cond.i = select i1 %47, i1 %.not.i, i1 false, !prof !326
   %48 = getelementptr inbounds nuw i8, ptr %4, i64 20
   br i1 %or.cond.i, label %50, label %49, !prof !326
 
@@ -10572,7 +10572,7 @@ define internal fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$
   %37 = icmp sgt i16 %.pn3.i.ph, -1
   %38 = trunc i24 %storemerge to i8
   %.not.i = icmp eq i8 %38, 2
-  %or.cond.i = select i1 %37, i1 %.not.i, i1 false
+  %or.cond.i = select i1 %37, i1 %.not.i, i1 false, !prof !326
   %39 = lshr i24 %storemerge, 8
   %40 = trunc i24 %39 to i8
   %41 = lshr i24 %storemerge, 16
@@ -11292,7 +11292,7 @@ _ZN4jiff5civil4date4Date11day_of_year17h61b3e7fa49b9cb0fE.exit.i.i: ; preds = %1
   %49 = icmp sgt i16 %.pn3.i.ph, -1
   %50 = trunc i24 %storemerge to i8
   %.not.i = icmp eq i8 %50, 2
-  %or.cond.i = select i1 %49, i1 %.not.i, i1 false
+  %or.cond.i = select i1 %49, i1 %.not.i, i1 false, !prof !326
   %51 = lshr i24 %storemerge, 8
   %52 = trunc i24 %51 to i8
   %53 = lshr i24 %storemerge, 16
@@ -11540,7 +11540,7 @@ _ZN4jiff2tz6offset6Offset19part_minutes_ranged17h7914e8167e40d755E.exit.thread: 
   %48 = icmp sgt i64 %.sroa.0.0.i63, -1
   %49 = load i8, ptr @_ZN4jiff3fmt7strtime6format12write_offset7FMT_TWO17h6e4c74aa51b3dfc5E, align 1, !range !12, !alias.scope !945, !noalias !942
   %.not.i = icmp eq i8 %49, 2
-  %or.cond.i = select i1 %48, i1 %.not.i, i1 false
+  %or.cond.i = select i1 %48, i1 %.not.i, i1 false, !prof !326
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 20
   br i1 %or.cond.i, label %52, label %51, !prof !326
 
@@ -11652,7 +11652,7 @@ _ZN4jiff3fmt4util7Decimal3new17hfa803fb8c2dfdc3fE.exit: ; preds = %77, %.prehead
   %102 = icmp sgt i64 %34, -1
   %103 = load i8, ptr @_ZN4jiff3fmt7strtime6format12write_offset7FMT_TWO17h6e4c74aa51b3dfc5E, align 1, !range !12, !alias.scope !954, !noalias !951
   %.not.i55 = icmp eq i8 %103, 2
-  %or.cond.i56 = select i1 %102, i1 %.not.i55, i1 false
+  %or.cond.i56 = select i1 %102, i1 %.not.i55, i1 false, !prof !326
   %104 = getelementptr inbounds nuw i8, ptr %5, i64 20
   br i1 %or.cond.i56, label %106, label %105, !prof !326
 
@@ -11774,7 +11774,7 @@ _ZN4jiff3fmt4util7Decimal3new17hfa803fb8c2dfdc3fE.exit58: ; preds = %131, %.preh
   %161 = icmp sgt i8 %.sroa.0.0.i64, -1
   %162 = load i8, ptr @_ZN4jiff3fmt7strtime6format12write_offset7FMT_TWO17h6e4c74aa51b3dfc5E, align 1, !range !12, !alias.scope !963, !noalias !960
   %.not.i59 = icmp eq i8 %162, 2
-  %or.cond.i60 = select i1 %161, i1 %.not.i59, i1 false
+  %or.cond.i60 = select i1 %161, i1 %.not.i59, i1 false, !prof !326
   %163 = getelementptr inbounds nuw i8, ptr %4, i64 20
   br i1 %or.cond.i60, label %165, label %164, !prof !326
 
@@ -12030,7 +12030,7 @@ _ZN4jiff2tz6offset6Offset19part_minutes_ranged17h7914e8167e40d755E.exit.thread: 
   %62 = icmp sgt i64 %.sroa.0.0.i66, -1
   %63 = load i8, ptr @_ZN4jiff3fmt7strtime6format12write_offset7FMT_TWO17h6e4c74aa51b3dfc5E, align 1, !range !12, !alias.scope !980, !noalias !977
   %.not.i = icmp eq i8 %63, 2
-  %or.cond.i = select i1 %62, i1 %.not.i, i1 false
+  %or.cond.i = select i1 %62, i1 %.not.i, i1 false, !prof !326
   %64 = getelementptr inbounds nuw i8, ptr %13, i64 20
   br i1 %or.cond.i, label %66, label %65, !prof !326
 
@@ -12162,7 +12162,7 @@ _ZN4jiff3fmt4util7Decimal3new17hfa803fb8c2dfdc3fE.exit: ; preds = %91, %.prehead
   %121 = icmp sgt i8 %40, -1
   %122 = load i8, ptr @_ZN4jiff3fmt7strtime6format12write_offset7FMT_TWO17h6e4c74aa51b3dfc5E, align 1, !range !12, !alias.scope !993, !noalias !990
   %.not.i58 = icmp eq i8 %122, 2
-  %or.cond.i59 = select i1 %121, i1 %.not.i58, i1 false
+  %or.cond.i59 = select i1 %121, i1 %.not.i58, i1 false, !prof !326
   %123 = getelementptr inbounds nuw i8, ptr %12, i64 20
   br i1 %or.cond.i59, label %125, label %124, !prof !326
 
@@ -12310,7 +12310,7 @@ _ZN4jiff3fmt4util7Decimal3new17hfa803fb8c2dfdc3fE.exit61: ; preds = %150, %.preh
   %185 = icmp sgt i8 %.sroa.0.0.i67, -1
   %186 = load i8, ptr @_ZN4jiff3fmt7strtime6format12write_offset7FMT_TWO17h6e4c74aa51b3dfc5E, align 1, !range !12, !alias.scope !1010, !noalias !1007
   %.not.i62 = icmp eq i8 %186, 2
-  %or.cond.i63 = select i1 %185, i1 %.not.i62, i1 false
+  %or.cond.i63 = select i1 %185, i1 %.not.i62, i1 false, !prof !326
   %187 = getelementptr inbounds nuw i8, ptr %11, i64 20
   br i1 %or.cond.i63, label %189, label %188, !prof !326
 

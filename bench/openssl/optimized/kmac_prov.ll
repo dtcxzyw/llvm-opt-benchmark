@@ -819,7 +819,7 @@ encode_string.exit.i:                             ; preds = %get_encode_size.exi
   store i64 %43, ptr %15, align 8, !tbaa !24
   %44 = icmp ult i64 %43, 673
   %45 = icmp samesign ult i32 %7, 256
-  %or.cond15 = select i1 %44, i1 %45, i1 false
+  %or.cond15 = select i1 %44, i1 %45, i1 false, !prof !31
   br i1 %or.cond15, label %46, label %58, !prof !31
 
 46:                                               ; preds = %39

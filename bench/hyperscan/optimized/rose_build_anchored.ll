@@ -3236,7 +3236,7 @@ _ZN3ue2L14reverseFragMapERKNS_13RoseBuildImplERKSt6vectorINS_11LitFragmentESaIS4
   %.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %96, null
   %97 = getelementptr inbounds nuw i8, ptr %.sroa.08.028.i.i, i64 56
   %98 = icmp eq ptr %97, %96
-  %or.cond.i.i.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i.i, i1 true, i1 %98
+  %or.cond.i.i.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i.i, i1 true, i1 %98, !prof !199
   br i1 %or.cond.i.i.i.i.i.i.i.i.i.i, label %_ZN3ue28flat_setIjSt4lessIjESaIjEEaSEOS4_.exit.thread.i.i, label %99, !prof !199
 
 99:                                               ; preds = %95
@@ -7034,7 +7034,7 @@ _ZN3ue212bytecode_ptrI3NFAED2Ev.exit.i:           ; preds = %103, %_ZNSt6vectorI
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %122, null
   %123 = getelementptr inbounds nuw i8, ptr %.sroa.08.040.i, i64 56
   %124 = icmp eq ptr %123, %122
-  %or.cond.i.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i, i1 true, i1 %124
+  %or.cond.i.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i, i1 true, i1 %124, !prof !199
   br i1 %or.cond.i.i.i.i.i.i.i.i.i, label %_ZN3ue28flat_setIjSt4lessIjESaIjEEaSEOS4_.exit.thread.i, label %125, !prof !199
 
 125:                                              ; preds = %121

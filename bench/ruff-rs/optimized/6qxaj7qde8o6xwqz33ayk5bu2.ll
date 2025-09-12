@@ -1317,7 +1317,7 @@ define hidden void @"_ZN3zip5write60_$LT$impl$u20$zip..write..zip_writer..ZipWri
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %44 = load i64, ptr %43, align 8, !range !53, !alias.scope !119, !noalias !120
   %.not54.i.i = icmp eq i64 %44, -9223372036854775808
-  %or.cond.i.i = select i1 %42, i1 %.not54.i.i, i1 false
+  %or.cond.i.i = select i1 %42, i1 %.not54.i.i, i1 false, !prof !126
   br i1 %or.cond.i.i, label %50, label %45, !prof !126
 
 45:                                               ; preds = %40
@@ -1634,7 +1634,7 @@ _ZN9byteorder2io13WriteBytesExt9write_u1617h82eaf4271c1640a3E.exit.i.i: ; preds 
   %164 = icmp eq i64 %163, 1
   %165 = load i64, ptr %.sroa.28.0..sroa_idx.i, align 8, !range !53, !alias.scope !109, !noalias !113
   %.not104.i = icmp eq i64 %165, -9223372036854775808
-  %or.cond.i = select i1 %164, i1 %.not104.i, i1 false
+  %or.cond.i = select i1 %164, i1 %.not104.i, i1 false, !prof !126
   br i1 %or.cond.i, label %180, label %175, !prof !126
 
 166:                                              ; preds = %"_ZN4core3ptr113drop_in_place$LT$zip..write..GenericZipWriter$LT$std..io..cursor..Cursor$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17h64ff093f356ccd79E.exit118.i"
@@ -2089,7 +2089,7 @@ define hidden void @"_ZN3zip5write60_$LT$impl$u20$zip..write..zip_writer..ZipWri
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %43 = load i64, ptr %42, align 8, !range !53, !alias.scope !193, !noalias !194
   %.not54.i.i = icmp eq i64 %43, -9223372036854775808
-  %or.cond.i.i = select i1 %41, i1 %.not54.i.i, i1 false
+  %or.cond.i.i = select i1 %41, i1 %.not54.i.i, i1 false, !prof !126
   br i1 %or.cond.i.i, label %49, label %44, !prof !126
 
 44:                                               ; preds = %39
@@ -2395,7 +2395,7 @@ _ZN9byteorder2io13WriteBytesExt9write_u1617ha76d8e177fc4ccbeE.exit.i.i: ; preds 
   %168 = icmp eq i64 %167, 1
   %169 = load i64, ptr %.sroa.28.0..sroa_idx.i, align 8, !range !53, !alias.scope !184, !noalias !187
   %.not97.i = icmp eq i64 %169, -9223372036854775808
-  %or.cond.i = select i1 %168, i1 %.not97.i, i1 false
+  %or.cond.i = select i1 %168, i1 %.not97.i, i1 false, !prof !126
   br i1 %or.cond.i, label %178, label %173, !prof !126
 
 default.unreachable:                              ; preds = %"_ZN4core3ptr137drop_in_place$LT$zip..write..GenericZipWriter$LT$$RF$mut$u20$std..io..cursor..Cursor$LT$$RF$mut$u20$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17hbb37b0875b90bd95E.exit110.i", %154, %151

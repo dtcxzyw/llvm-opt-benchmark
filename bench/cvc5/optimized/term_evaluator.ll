@@ -1871,7 +1871,7 @@ _ZNK4cvc58internal12NodeTemplateILb0EE8getConstIbEERKT_v.exit: ; preds = %324
 350:                                              ; preds = %348
   %351 = load ptr, ptr %10, align 8
   %.not.i320 = icmp eq ptr %351, %340
-  %or.cond = select i1 %349, i1 true, i1 %.not.i320
+  %or.cond = select i1 %349, i1 true, i1 %.not.i320, !prof !61
   br i1 %or.cond, label %.thread588, label %352, !prof !61
 
 .thread581:                                       ; preds = %347

@@ -67880,7 +67880,7 @@ _ZN11ruff_linter5rules21flake8_comprehensions5rules7helpers43exactly_one_argumen
 186:                                              ; preds = %185
   %187 = icmp ne i64 %172, %170
   %.not18 = icmp eq ptr %169, null
-  %or.cond = select i1 %187, i1 true, i1 %.not18
+  %or.cond = select i1 %187, i1 true, i1 %.not18, !prof !5959
   br i1 %or.cond, label %.thread75, label %.thread99, !prof !5959
 
 188:                                              ; preds = %185

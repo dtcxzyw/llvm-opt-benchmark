@@ -16658,7 +16658,7 @@ define hidden void @_ZN11OpenImageIO6v3_1_014ImageCacheTileC2ERKNS0_6TileIDEPKvN
   %.not = icmp ne i64 %72, 0
   %73 = load i64, ptr %12, align 8
   %74 = icmp eq i64 %73, 0
-  %or.cond = select i1 %.not, i1 %74, i1 false
+  %or.cond = select i1 %.not, i1 %74, i1 false, !prof !637
   br i1 %or.cond, label %77, label %.critedge, !prof !637
 
 .critedge:                                        ; preds = %53

@@ -866,7 +866,7 @@ define i32 @pmix_mca_base_var_register_synonym(i32 noundef %0, ptr noundef %1, p
   %10 = icmp slt i32 %0, 0
   %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_base_vars, i64 128), align 8
   %12 = icmp sle i32 %11, %0
-  %or.cond20.i = select i1 %10, i1 true, i1 %12
+  %or.cond20.i = select i1 %10, i1 true, i1 %12, !prof !63
   br i1 %or.cond20.i, label %var_get.exit.thread, label %pmix_pointer_array_get_item.exit.i, !prof !63
 
 pmix_pointer_array_get_item.exit.i:               ; preds = %9
@@ -1162,7 +1162,7 @@ define range(i32 -46, 1) i32 @pmix_mca_base_var_get_value(i32 noundef %0, ptr no
   %8 = icmp slt i32 %0, 0
   %9 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_base_vars, i64 128), align 8
   %10 = icmp sle i32 %9, %0
-  %or.cond20.i = select i1 %8, i1 true, i1 %10
+  %or.cond20.i = select i1 %8, i1 true, i1 %10, !prof !63
   br i1 %or.cond20.i, label %var_get.exit.thread, label %pmix_pointer_array_get_item.exit.i, !prof !63
 
 pmix_pointer_array_get_item.exit.i:               ; preds = %7
@@ -1185,7 +1185,7 @@ pmix_pointer_array_get_item.exit.i:               ; preds = %7
   %22 = load i32, ptr %21, align 8, !tbaa !69
   %23 = icmp slt i32 %22, 0
   %24 = icmp sle i32 %9, %22
-  %or.cond22.i = select i1 %23, i1 true, i1 %24
+  %or.cond22.i = select i1 %23, i1 true, i1 %24, !prof !63
   br i1 %or.cond22.i, label %var_get.exit.thread, label %pmix_pointer_array_get_item.exit.i.i, !prof !63
 
 pmix_pointer_array_get_item.exit.i.i:             ; preds = %20
@@ -1268,7 +1268,7 @@ define range(i32 -27, 1) i32 @pmix_mca_base_var_deregister(i32 noundef %0) local
   %5 = icmp slt i32 %0, 0
   %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_base_vars, i64 128), align 8
   %7 = icmp sle i32 %6, %0
-  %or.cond20.i = select i1 %5, i1 true, i1 %7
+  %or.cond20.i = select i1 %5, i1 true, i1 %7, !prof !63
   br i1 %or.cond20.i, label %var_get.exit.thread, label %pmix_pointer_array_get_item.exit.i, !prof !63
 
 pmix_pointer_array_get_item.exit.i:               ; preds = %4
@@ -1502,7 +1502,7 @@ pmix_mca_base_var_generate_full_name4.exit:       ; preds = %19
   %47 = icmp slt i32 %43, 0
   %48 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_base_vars, i64 128), align 8
   %49 = icmp sle i32 %48, %43
-  %or.cond20.i.i = select i1 %47, i1 true, i1 %49
+  %or.cond20.i.i = select i1 %47, i1 true, i1 %49, !prof !63
   br i1 %or.cond20.i.i, label %var_get.exit.i, label %pmix_pointer_array_get_item.exit.i.i, !prof !63
 
 pmix_pointer_array_get_item.exit.i.i:             ; preds = %46
@@ -1564,7 +1564,7 @@ define i32 @pmix_mca_base_var_find_by_name(ptr noundef %0, ptr noundef writeonly
   %13 = icmp slt i32 %9, 0
   %14 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_base_vars, i64 128), align 8
   %15 = icmp sle i32 %14, %9
-  %or.cond20.i.i = select i1 %13, i1 true, i1 %15
+  %or.cond20.i.i = select i1 %13, i1 true, i1 %15, !prof !63
   br i1 %or.cond20.i.i, label %var_find_by_name.exit, label %var_get.exit.i, !prof !63
 
 var_get.exit.i:                                   ; preds = %12
@@ -1613,7 +1613,7 @@ define internal fastcc void @var_find_by_name(ptr noundef %0, ptr noundef writeo
   %14 = icmp slt i32 %10, 0
   %15 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_base_vars, i64 128), align 8
   %16 = icmp sle i32 %15, %10
-  %or.cond20.i = select i1 %14, i1 true, i1 %16
+  %or.cond20.i = select i1 %14, i1 true, i1 %16, !prof !63
   br i1 %or.cond20.i, label %var_get.exit, label %pmix_pointer_array_get_item.exit.i, !prof !63
 
 pmix_pointer_array_get_item.exit.i:               ; preds = %13
@@ -1665,7 +1665,7 @@ define range(i32 -46, 1) i32 @pmix_mca_base_var_get(i32 noundef %0, ptr noundef 
   %8 = icmp slt i32 %0, 0
   %9 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_base_vars, i64 128), align 8
   %10 = icmp sle i32 %9, %0
-  %or.cond20.i = select i1 %8, i1 true, i1 %10
+  %or.cond20.i = select i1 %8, i1 true, i1 %10, !prof !63
   br i1 %or.cond20.i, label %var_get.exit.thread, label %pmix_pointer_array_get_item.exit.i, !prof !63
 
 pmix_pointer_array_get_item.exit.i:               ; preds = %7
@@ -1871,7 +1871,7 @@ define internal fastcc i32 @var_value_string(ptr noundef readonly captures(none)
   %8 = icmp slt i32 %4, 0
   %9 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_base_vars, i64 128), align 8
   %10 = icmp sle i32 %9, %4
-  %or.cond20.i.i = select i1 %8, i1 true, i1 %10
+  %or.cond20.i.i = select i1 %8, i1 true, i1 %10, !prof !63
   br i1 %or.cond20.i.i, label %pmix_mca_base_var_get_value.exit.thread, label %pmix_pointer_array_get_item.exit.i.i, !prof !63
 
 pmix_pointer_array_get_item.exit.i.i:             ; preds = %7
@@ -1894,7 +1894,7 @@ pmix_pointer_array_get_item.exit.i.i:             ; preds = %7
   %22 = load i32, ptr %21, align 8, !tbaa !69
   %23 = icmp slt i32 %22, 0
   %24 = icmp sle i32 %9, %22
-  %or.cond22.i.i = select i1 %23, i1 true, i1 %24
+  %or.cond22.i.i = select i1 %23, i1 true, i1 %24, !prof !63
   br i1 %or.cond22.i.i, label %pmix_mca_base_var_get_value.exit.thread, label %pmix_pointer_array_get_item.exit.i.i.i, !prof !63
 
 pmix_pointer_array_get_item.exit.i.i.i:           ; preds = %20
@@ -3342,7 +3342,7 @@ define i32 @pmix_mca_base_var_dump(i32 noundef %0, ptr noundef captures(none) %1
   %15 = icmp slt i32 %0, 0
   %16 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_base_vars, i64 128), align 8
   %17 = icmp sle i32 %16, %0
-  %or.cond20.i = select i1 %15, i1 true, i1 %17
+  %or.cond20.i = select i1 %15, i1 true, i1 %17, !prof !63
   br i1 %or.cond20.i, label %var_get.exit.thread, label %pmix_pointer_array_get_item.exit.i, !prof !63
 
 pmix_pointer_array_get_item.exit.i:               ; preds = %14
@@ -3378,7 +3378,7 @@ pmix_pointer_array_get_item.exit.i:               ; preds = %14
   %37 = icmp slt i32 %33, 0
   %38 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_base_vars, i64 128), align 8
   %39 = icmp sle i32 %38, %33
-  %or.cond20.i172 = select i1 %37, i1 true, i1 %39
+  %or.cond20.i172 = select i1 %37, i1 true, i1 %39, !prof !63
   br i1 %or.cond20.i172, label %var_get.exit.thread, label %pmix_pointer_array_get_item.exit.i173, !prof !63
 
 pmix_pointer_array_get_item.exit.i173:            ; preds = %36
@@ -3683,7 +3683,7 @@ source_name.exit:                                 ; preds = %source_name.exit.si
   %201 = icmp slt i32 %198, 0
   %202 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_base_vars, i64 128), align 8
   %203 = icmp sle i32 %202, %198
-  %or.cond20.i178 = select i1 %201, i1 true, i1 %203
+  %or.cond20.i178 = select i1 %201, i1 true, i1 %203, !prof !63
   br i1 %or.cond20.i178, label %var_get.exit180.thread, label %pmix_pointer_array_get_item.exit.i179, !prof !63
 
 pmix_pointer_array_get_item.exit.i179:            ; preds = %200
@@ -3814,7 +3814,7 @@ var_get.exit180.thread:                           ; preds = %pmix_pointer_array_
   %271 = icmp slt i32 %268, 0
   %272 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_base_vars, i64 128), align 8
   %273 = icmp sle i32 %272, %268
-  %or.cond20.i183 = select i1 %271, i1 true, i1 %273
+  %or.cond20.i183 = select i1 %271, i1 true, i1 %273, !prof !63
   br i1 %or.cond20.i183, label %var_get.exit185.thread, label %pmix_pointer_array_get_item.exit.i184, !prof !63
 
 pmix_pointer_array_get_item.exit.i184:            ; preds = %270

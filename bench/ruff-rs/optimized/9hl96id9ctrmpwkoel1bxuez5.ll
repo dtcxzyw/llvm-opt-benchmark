@@ -27258,7 +27258,7 @@ define hidden void @"_ZN4core3ptr322drop_in_place$LT$alloc..collections..btree..
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 55
   %51 = load i8, ptr %50, align 1, !range !661, !alias.scope !5787
   %52 = icmp eq i8 %51, -40
-  %or.cond.i.i.i = select i1 %49, i1 %52, i1 false
+  %or.cond.i.i.i = select i1 %49, i1 %52, i1 false, !prof !4664
   br i1 %or.cond.i.i.i, label %53, label %"_ZN4core3ptr176drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$$LP$ruff_python_ast..name..Name$C$ty_python_semantic..types..protocol_class..ProtocolMemberData$RP$$GT$$GT$$GT$17hc6fc663bbc17068eE.exit.i", !prof !4664
 
 53:                                               ; preds = %48
@@ -27278,7 +27278,7 @@ define hidden void @"_ZN4core3ptr322drop_in_place$LT$alloc..collections..btree..
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 55
   %62 = load i8, ptr %61, align 1, !range !661, !alias.scope !5793
   %63 = icmp eq i8 %62, -40
-  %or.cond.i.i1.i = select i1 %60, i1 %63, i1 false
+  %or.cond.i.i1.i = select i1 %60, i1 %63, i1 false, !prof !4664
   br i1 %or.cond.i.i1.i, label %64, label %"_ZN4core3ptr207drop_in_place$LT$core..iter..adapters..peekable..Peekable$LT$alloc..vec..into_iter..IntoIter$LT$$LP$ruff_python_ast..name..Name$C$ty_python_semantic..types..protocol_class..ProtocolMemberData$RP$$GT$$GT$$GT$17h2b5c08a3337d0e1cE.exit", !prof !4664
 
 64:                                               ; preds = %59
@@ -27586,7 +27586,7 @@ define hidden void @"_ZN4core3ptr363drop_in_place$LT$core..iter..adapters..chain
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 103
   %29 = load i8, ptr %28, align 1, !range !650, !alias.scope !5852
   %30 = icmp eq i8 %29, -40
-  %or.cond.i.i.i.i = select i1 %27, i1 %30, i1 false
+  %or.cond.i.i.i.i = select i1 %27, i1 %30, i1 false, !prof !4664
   br i1 %or.cond.i.i.i.i, label %"_ZN4core3ptr48drop_in_place$LT$ruff_python_ast..name..Name$GT$17h31ae05a5d5f3ac0cE.exit.sink.split.i.i.i.i.i.i", label %"_ZN4core3ptr127drop_in_place$LT$core..option..Option$LT$core..option..IntoIter$LT$ty_python_semantic..types..signatures..Parameter$GT$$GT$$GT$17h7107867f5a02d88cE.exit", !prof !4664
 
 "_ZN4core3ptr48drop_in_place$LT$ruff_python_ast..name..Name$GT$17h31ae05a5d5f3ac0cE.exit.sink.split.i.i.i.i.i.i": ; preds = %26
@@ -27605,7 +27605,7 @@ define hidden void @"_ZN4core3ptr363drop_in_place$LT$core..iter..adapters..chain
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 103
   %38 = load i8, ptr %37, align 1, !range !650, !alias.scope !5862
   %39 = icmp eq i8 %38, -40
-  %or.cond.i.i.i.i2 = select i1 %36, i1 %39, i1 false
+  %or.cond.i.i.i.i2 = select i1 %36, i1 %39, i1 false, !prof !4664
   br i1 %or.cond.i.i.i.i2, label %"_ZN4core3ptr48drop_in_place$LT$ruff_python_ast..name..Name$GT$17h31ae05a5d5f3ac0cE.exit.sink.split.i.i.i.i.i.i3", label %"_ZN4core3ptr127drop_in_place$LT$core..option..Option$LT$core..option..IntoIter$LT$ty_python_semantic..types..signatures..Parameter$GT$$GT$$GT$17h7107867f5a02d88cE.exit4", !prof !4664
 
 "_ZN4core3ptr48drop_in_place$LT$ruff_python_ast..name..Name$GT$17h31ae05a5d5f3ac0cE.exit.sink.split.i.i.i.i.i.i3": ; preds = %35
@@ -35863,7 +35863,7 @@ define hidden void @"_ZN4core3ptr611drop_in_place$LT$core..iter..adapters..chain
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 135
   %8 = load i8, ptr %7, align 1, !range !650, !alias.scope !7427
   %9 = icmp eq i8 %8, -40
-  %or.cond.i.i.i.i = select i1 %6, i1 %9, i1 false
+  %or.cond.i.i.i.i = select i1 %6, i1 %9, i1 false, !prof !4664
   br i1 %or.cond.i.i.i.i, label %"_ZN4core3ptr48drop_in_place$LT$ruff_python_ast..name..Name$GT$17h31ae05a5d5f3ac0cE.exit.sink.split.i.i.i.i.i.i", label %"_ZN4core3ptr127drop_in_place$LT$core..option..Option$LT$core..option..IntoIter$LT$ty_python_semantic..types..signatures..Parameter$GT$$GT$$GT$17h7107867f5a02d88cE.exit", !prof !4664
 
 "_ZN4core3ptr48drop_in_place$LT$ruff_python_ast..name..Name$GT$17h31ae05a5d5f3ac0cE.exit.sink.split.i.i.i.i.i.i": ; preds = %5
@@ -35947,7 +35947,7 @@ define hidden void @"_ZN4core3ptr618drop_in_place$LT$core..iter..adapters..chain
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 207
   %24 = load i8, ptr %23, align 1, !range !650, !alias.scope !7453
   %25 = icmp eq i8 %24, -40
-  %or.cond.i.i.i.i = select i1 %22, i1 %25, i1 false
+  %or.cond.i.i.i.i = select i1 %22, i1 %25, i1 false, !prof !4664
   br i1 %or.cond.i.i.i.i, label %"_ZN4core3ptr48drop_in_place$LT$ruff_python_ast..name..Name$GT$17h31ae05a5d5f3ac0cE.exit.sink.split.i.i.i.i.i.i", label %"_ZN4core3ptr127drop_in_place$LT$core..option..Option$LT$core..option..IntoIter$LT$ty_python_semantic..types..signatures..Parameter$GT$$GT$$GT$17h7107867f5a02d88cE.exit", !prof !4664
 
 "_ZN4core3ptr48drop_in_place$LT$ruff_python_ast..name..Name$GT$17h31ae05a5d5f3ac0cE.exit.sink.split.i.i.i.i.i.i": ; preds = %21
@@ -35966,7 +35966,7 @@ define hidden void @"_ZN4core3ptr618drop_in_place$LT$core..iter..adapters..chain
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 207
   %33 = load i8, ptr %32, align 1, !range !650, !alias.scope !7463
   %34 = icmp eq i8 %33, -40
-  %or.cond.i.i.i.i2 = select i1 %31, i1 %34, i1 false
+  %or.cond.i.i.i.i2 = select i1 %31, i1 %34, i1 false, !prof !4664
   br i1 %or.cond.i.i.i.i2, label %"_ZN4core3ptr48drop_in_place$LT$ruff_python_ast..name..Name$GT$17h31ae05a5d5f3ac0cE.exit.sink.split.i.i.i.i.i.i3", label %"_ZN4core3ptr127drop_in_place$LT$core..option..Option$LT$core..option..IntoIter$LT$ty_python_semantic..types..signatures..Parameter$GT$$GT$$GT$17h7107867f5a02d88cE.exit4", !prof !4664
 
 "_ZN4core3ptr48drop_in_place$LT$ruff_python_ast..name..Name$GT$17h31ae05a5d5f3ac0cE.exit.sink.split.i.i.i.i.i.i3": ; preds = %30
@@ -46420,7 +46420,7 @@ define hidden void @"_ZN4core3ptr867drop_in_place$LT$core..iter..adapters..chain
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 135
   %11 = load i8, ptr %10, align 1, !range !650, !alias.scope !9120
   %12 = icmp eq i8 %11, -40
-  %or.cond.i.i.i.i.i.i = select i1 %9, i1 %12, i1 false
+  %or.cond.i.i.i.i.i.i = select i1 %9, i1 %12, i1 false, !prof !4664
   br i1 %or.cond.i.i.i.i.i.i, label %"_ZN4core3ptr48drop_in_place$LT$ruff_python_ast..name..Name$GT$17h31ae05a5d5f3ac0cE.exit.sink.split.i.i.i.i.i.i.i.i", label %"_ZN4core3ptr639drop_in_place$LT$core..option..Option$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$ruff_python_ast..nodes..ParameterWithDefault$GT$$C$ty_python_semantic..types..signatures..Parameters..from_parameters..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$ruff_python_ast..nodes..ParameterWithDefault$GT$$C$ty_python_semantic..types..signatures..Parameters..from_parameters..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$core..option..IntoIter$LT$ty_python_semantic..types..signatures..Parameter$GT$$GT$$GT$$GT$17h9c19374154e1342dE.exit", !prof !4664
 
 "_ZN4core3ptr48drop_in_place$LT$ruff_python_ast..name..Name$GT$17h31ae05a5d5f3ac0cE.exit.sink.split.i.i.i.i.i.i.i.i": ; preds = %8
@@ -51251,7 +51251,7 @@ define hidden void @"_ZN4core3ptr990drop_in_place$LT$core..iter..adapters..chain
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 135
   %10 = load i8, ptr %9, align 1, !range !650, !alias.scope !10229
   %11 = icmp eq i8 %10, -40
-  %or.cond.i.i.i.i.i.i.i.i = select i1 %8, i1 %11, i1 false
+  %or.cond.i.i.i.i.i.i.i.i = select i1 %8, i1 %11, i1 false, !prof !4664
   br i1 %or.cond.i.i.i.i.i.i.i.i, label %"_ZN4core3ptr48drop_in_place$LT$ruff_python_ast..name..Name$GT$17h31ae05a5d5f3ac0cE.exit.sink.split.i.i.i.i.i.i.i.i.i.i", label %"_ZN4core3ptr895drop_in_place$LT$core..option..Option$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$ruff_python_ast..nodes..ParameterWithDefault$GT$$C$ty_python_semantic..types..signatures..Parameters..from_parameters..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$ruff_python_ast..nodes..ParameterWithDefault$GT$$C$ty_python_semantic..types..signatures..Parameters..from_parameters..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$core..option..IntoIter$LT$ty_python_semantic..types..signatures..Parameter$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$ruff_python_ast..nodes..ParameterWithDefault$GT$$C$ty_python_semantic..types..signatures..Parameters..from_parameters..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17hca3733cc27cd2793E.exit", !prof !4664
 
 "_ZN4core3ptr48drop_in_place$LT$ruff_python_ast..name..Name$GT$17h31ae05a5d5f3ac0cE.exit.sink.split.i.i.i.i.i.i.i.i.i.i": ; preds = %7
@@ -51272,7 +51272,7 @@ define hidden void @"_ZN4core3ptr990drop_in_place$LT$core..iter..adapters..chain
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 255
   %21 = load i8, ptr %20, align 1, !range !650, !alias.scope !10239
   %22 = icmp eq i8 %21, -40
-  %or.cond.i.i.i.i = select i1 %19, i1 %22, i1 false
+  %or.cond.i.i.i.i = select i1 %19, i1 %22, i1 false, !prof !4664
   br i1 %or.cond.i.i.i.i, label %"_ZN4core3ptr48drop_in_place$LT$ruff_python_ast..name..Name$GT$17h31ae05a5d5f3ac0cE.exit.sink.split.i.i.i.i.i.i", label %"_ZN4core3ptr127drop_in_place$LT$core..option..Option$LT$core..option..IntoIter$LT$ty_python_semantic..types..signatures..Parameter$GT$$GT$$GT$17h7107867f5a02d88cE.exit", !prof !4664
 
 "_ZN4core3ptr48drop_in_place$LT$ruff_python_ast..name..Name$GT$17h31ae05a5d5f3ac0cE.exit.sink.split.i.i.i.i.i.i": ; preds = %18
@@ -51291,7 +51291,7 @@ define hidden void @"_ZN4core3ptr990drop_in_place$LT$core..iter..adapters..chain
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 255
   %30 = load i8, ptr %29, align 1, !range !650, !alias.scope !10249
   %31 = icmp eq i8 %30, -40
-  %or.cond.i.i.i.i2 = select i1 %28, i1 %31, i1 false
+  %or.cond.i.i.i.i2 = select i1 %28, i1 %31, i1 false, !prof !4664
   br i1 %or.cond.i.i.i.i2, label %"_ZN4core3ptr48drop_in_place$LT$ruff_python_ast..name..Name$GT$17h31ae05a5d5f3ac0cE.exit.sink.split.i.i.i.i.i.i3", label %"_ZN4core3ptr127drop_in_place$LT$core..option..Option$LT$core..option..IntoIter$LT$ty_python_semantic..types..signatures..Parameter$GT$$GT$$GT$17h7107867f5a02d88cE.exit4", !prof !4664
 
 "_ZN4core3ptr48drop_in_place$LT$ruff_python_ast..name..Name$GT$17h31ae05a5d5f3ac0cE.exit.sink.split.i.i.i.i.i.i3": ; preds = %27
@@ -51437,7 +51437,7 @@ define hidden void @"_ZN4core3ptr99drop_in_place$LT$core..option..IntoIter$LT$ty
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 31
   %5 = load i8, ptr %4, align 1, !range !650, !alias.scope !10271
   %6 = icmp eq i8 %5, -40
-  %or.cond.i.i = select i1 %3, i1 %6, i1 false
+  %or.cond.i.i = select i1 %3, i1 %6, i1 false, !prof !4664
   br i1 %or.cond.i.i, label %"_ZN4core3ptr48drop_in_place$LT$ruff_python_ast..name..Name$GT$17h31ae05a5d5f3ac0cE.exit.sink.split.i.i.i.i", label %"_ZN4core3ptr95drop_in_place$LT$core..option..Item$LT$ty_python_semantic..types..signatures..Parameter$GT$$GT$17h5696d1f8775c7e2bE.exit", !prof !4664
 
 "_ZN4core3ptr48drop_in_place$LT$ruff_python_ast..name..Name$GT$17h31ae05a5d5f3ac0cE.exit.sink.split.i.i.i.i": ; preds = %1

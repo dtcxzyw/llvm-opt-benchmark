@@ -867,7 +867,7 @@ sheng4_coda.exit.thread:                          ; preds = %.thread354, %272, %
   %492 = and i8 %.0300432, 32
   %.not.i69 = icmp ne i8 %492, 0
   %.not43.i740 = icmp eq ptr %.0217435, %15
-  %or.cond1249 = select i1 %.not.i69, i1 true, i1 %.not43.i740
+  %or.cond1249 = select i1 %.not.i69, i1 true, i1 %.not43.i740, !prof !8
   br i1 %or.cond1249, label %runShengCb.exit, label %.lr.ph746, !prof !8
 
 .lr.ph746:                                        ; preds = %sheng4_coda.exit.thread
@@ -3279,7 +3279,7 @@ sheng4_coda.exit.thread:                          ; preds = %.thread724, %543, %
   %761 = and i8 %.6619802, 32
   %.not.i190 = icmp ne i8 %761, 0
   %.not43.i1306 = icmp eq ptr %.0805, %289
-  %or.cond2243 = select i1 %.not.i190, i1 true, i1 %.not43.i1306
+  %or.cond2243 = select i1 %.not.i190, i1 true, i1 %.not43.i1306, !prof !8
   br i1 %or.cond2243, label %runShengSam.exit.thread964, label %.lr.ph1312, !prof !8
 
 .lr.ph1312:                                       ; preds = %sheng4_coda.exit.thread
@@ -4531,7 +4531,7 @@ sheng4_samda.exit.thread:                         ; preds = %1393, %1417, %1468,
   %1475 = and i8 %.22635918, 32
   %.not.i327 = icmp ne i8 %1475, 0
   %.not32.i1451 = icmp eq ptr %.11919, %1324
-  %or.cond2244 = select i1 %.not.i327, i1 true, i1 %.not32.i1451
+  %or.cond2244 = select i1 %.not.i327, i1 true, i1 %.not32.i1451, !prof !8
   br i1 %or.cond2244, label %runShengSam.exit.thread964, label %.lr.ph1455.preheader, !prof !8
 
 .lr.ph1455.preheader:                             ; preds = %sheng4_samda.exit.thread

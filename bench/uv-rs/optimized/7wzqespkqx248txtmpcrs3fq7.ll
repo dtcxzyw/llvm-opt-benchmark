@@ -3387,7 +3387,7 @@ _ZN4core3ops8function5FnMut8call_mut17hf75407caa2921e89E.exit31: ; preds = %_ZN4
   %.sroa.0.1 = phi ptr [ %34, %._crit_edge ], [ %59, %56 ]
   %64 = icmp ne ptr %.sroa.0.1, %9
   %65 = icmp ne ptr %.sroa.06.1, %10
-  %or.cond = select i1 %64, i1 true, i1 %65
+  %or.cond = select i1 %64, i1 true, i1 %65, !prof !665
   br i1 %or.cond, label %67, label %66, !prof !665
 
 66:                                               ; preds = %63
@@ -3735,7 +3735,7 @@ _ZN4core3ops8function5FnMut8call_mut17h9b48b2f31239ce79E.exit37.i: ; preds = %12
   %.sroa.0.1.i = phi ptr [ %86, %._crit_edge.i ], [ %146, %143 ]
   %151 = icmp ne ptr %.sroa.0.1.i, %26
   %152 = icmp ne ptr %.sroa.06.1.i, %27
-  %or.cond.i = select i1 %151, i1 true, i1 %152
+  %or.cond.i = select i1 %151, i1 true, i1 %152, !prof !665
   br i1 %or.cond.i, label %153, label %_ZN4core5slice4sort6shared9smallsort19bidirectional_merge17h335b8af91dbfc0ceE.exit, !prof !665
 
 153:                                              ; preds = %150

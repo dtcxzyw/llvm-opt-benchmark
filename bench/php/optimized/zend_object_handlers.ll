@@ -1780,7 +1780,7 @@ zend_get_property_offset.exit.thread.thread.thread368: ; preds = %86, %87, %zend
   %263 = icmp ne ptr %3, null
   %264 = load ptr, ptr @zend_execute_ex, align 8
   %265 = icmp eq ptr %264, @execute_ex
-  %or.cond11 = select i1 %263, i1 %265, i1 false
+  %or.cond11 = select i1 %263, i1 %265, i1 false, !prof !110
   br i1 %or.cond11, label %266, label %.critedge, !prof !110
 
 266:                                              ; preds = %262
@@ -4016,7 +4016,7 @@ i_zend_is_true.exit45:                            ; preds = %36, %i_zend_is_true
   %or.cond = select i1 %75, i1 %.0.i38, i1 false
   %76 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8
   %.not33 = icmp eq ptr %76, null
-  %or.cond34 = select i1 %or.cond, i1 %.not33, i1 false
+  %or.cond34 = select i1 %or.cond, i1 %.not33, i1 false, !prof !116
   br i1 %or.cond34, label %77, label %119, !prof !116
 
 77:                                               ; preds = %i_zend_is_true.exit45

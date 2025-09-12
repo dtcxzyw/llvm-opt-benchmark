@@ -14582,7 +14582,7 @@ read_variable_length.exit17.thread81:             ; preds = %89, %read_variable_
   %.4376.i = phi i64 [ %107, %109 ], [ %100, %104 ]
   %120 = getelementptr inbounds nuw i8, ptr %83, i64 %5
   %121 = icmp ult ptr %120, %1
-  %or.cond451.i = select i1 %17, i1 %121, i1 false
+  %or.cond451.i = select i1 %17, i1 %121, i1 false, !prof !43
   br i1 %or.cond451.i, label %LZ4_wildCopy32.exit.thread, label %122, !prof !43
 
 122:                                              ; preds = %.thread89
@@ -14964,7 +14964,7 @@ read_variable_length.exit26:                      ; preds = %282, %277
   %.4.i = phi ptr [ %.9.i, %293 ], [ %.3.i, %106 ], [ %.3.i, %104 ]
   %295 = getelementptr inbounds nuw i8, ptr %.0362.i, i64 %5
   %296 = icmp ult ptr %295, %1
-  %or.cond460.i = select i1 %17, i1 %296, i1 false
+  %or.cond460.i = select i1 %17, i1 %296, i1 false, !prof !43
   br i1 %or.cond460.i, label %LZ4_wildCopy32.exit.thread, label %297, !prof !43
 
 297:                                              ; preds = %.loopexit143
@@ -15362,7 +15362,7 @@ read_variable_length.exit21.thread85:             ; preds = %86, %read_variable_
   %.4376.i = phi i64 [ %104, %106 ], [ %97, %101 ]
   %117 = getelementptr inbounds nuw i8, ptr %80, i64 %6
   %118 = icmp ult ptr %117, %1
-  %or.cond451.i = select i1 %19, i1 %118, i1 false
+  %or.cond451.i = select i1 %19, i1 %118, i1 false, !prof !43
   br i1 %or.cond451.i, label %LZ4_wildCopy32.exit.thread, label %119, !prof !43
 
 119:                                              ; preds = %.thread93
@@ -15774,7 +15774,7 @@ read_variable_length.exit30:                      ; preds = %295, %290
   %.4.i = phi ptr [ %.9.i, %306 ], [ %.3.i, %103 ], [ %.3.i, %101 ]
   %308 = getelementptr inbounds nuw i8, ptr %.0362.i, i64 %6
   %309 = icmp ult ptr %308, %1
-  %or.cond460.i = select i1 %19, i1 %309, i1 false
+  %or.cond460.i = select i1 %19, i1 %309, i1 false, !prof !43
   br i1 %or.cond460.i, label %LZ4_wildCopy32.exit.thread, label %310, !prof !43
 
 310:                                              ; preds = %.loopexit149
@@ -16280,7 +16280,7 @@ read_variable_length.exit77.thread143:            ; preds = %117, %read_variable
   %.4376.i.i = phi i64 [ %135, %137 ], [ %128, %132 ]
   %148 = getelementptr inbounds nuw i8, ptr %111, i64 %26
   %149 = icmp ult ptr %148, %32
-  %or.cond451.i.i = select i1 %44, i1 %149, i1 false
+  %or.cond451.i.i = select i1 %44, i1 %149, i1 false, !prof !43
   br i1 %or.cond451.i.i, label %LZ4_wildCopy32.exit.thread, label %150, !prof !43
 
 150:                                              ; preds = %.thread151
@@ -16662,7 +16662,7 @@ read_variable_length.exit86:                      ; preds = %310, %305
   %.4.i.i = phi ptr [ %.9.i.i, %321 ], [ %.3.i.i, %134 ], [ %.3.i.i, %132 ]
   %323 = getelementptr inbounds nuw i8, ptr %.0362.i.i, i64 %26
   %324 = icmp ult ptr %323, %32
-  %or.cond460.i.i = select i1 %44, i1 %324, i1 false
+  %or.cond460.i.i = select i1 %44, i1 %324, i1 false, !prof !43
   br i1 %or.cond460.i.i, label %LZ4_wildCopy32.exit.thread, label %325, !prof !43
 
 325:                                              ; preds = %.loopexit209

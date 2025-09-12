@@ -8661,7 +8661,7 @@ _ZN4jiff2tz6offset14OffsetConflict18resolve_via_prefer17hc0c15a6ff8dc70e1E.exit:
 76:                                               ; preds = %48
   %77 = icmp eq i32 %3, %.sroa.6.0.copyload.i
   %78 = icmp eq i32 %3, %.sroa.9.0.copyload.i
-  %or.cond.i9 = select i1 %77, i1 true, i1 %78
+  %or.cond.i9 = select i1 %77, i1 true, i1 %78, !prof !895
   br i1 %or.cond.i9, label %92, label %79, !prof !895
 
 79:                                               ; preds = %76

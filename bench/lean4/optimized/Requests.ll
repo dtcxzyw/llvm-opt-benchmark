@@ -10001,7 +10001,7 @@ define zeroext range(i8 0, 2) i8 @l_Lean_Server_RequestM_withWaitFindSnapAtPos__
   %7 = ptrtoint ptr %3 to i64
   %8 = and i64 %7, 1
   %9 = icmp ne i64 %8, 0
-  %or.cond = select i1 %6, i1 %9, i1 false
+  %or.cond = select i1 %6, i1 %9, i1 false, !prof !19
   br i1 %or.cond, label %lean_nat_le.exit.thread, label %lean_nat_le.exit, !prof !19
 
 lean_nat_le.exit.thread:                          ; preds = %2
@@ -10575,7 +10575,7 @@ define nonnull ptr @l_Lean_Server_RequestM_withWaitFindSnapAtPos___rarg___lambda
   %7 = ptrtoint ptr %3 to i64
   %8 = and i64 %7, 1
   %9 = icmp ne i64 %8, 0
-  %or.cond.i = select i1 %6, i1 %9, i1 false
+  %or.cond.i = select i1 %6, i1 %9, i1 false, !prof !19
   br i1 %or.cond.i, label %lean_nat_le.exit.thread.i, label %lean_nat_le.exit.i, !prof !19
 
 lean_nat_le.exit.thread.i:                        ; preds = %2

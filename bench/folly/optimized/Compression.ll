@@ -5149,7 +5149,7 @@ define linkonce_odr noundef i64 @_ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBuf
   %16 = load ptr, ptr %15, align 8, !tbaa !37
   %17 = icmp eq ptr %16, %3
   %18 = icmp eq i64 %13, 0
-  %or.cond = select i1 %17, i1 true, i1 %18
+  %or.cond = select i1 %17, i1 true, i1 %18, !prof !158
   br i1 %or.cond, label %_ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE16tryAdvanceBufferEv.exit, label %19, !prof !158
 
 19:                                               ; preds = %9
@@ -6006,7 +6006,7 @@ define linkonce_odr noundef i64 @_ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBuf
   %14 = load ptr, ptr %13, align 8, !tbaa !37
   %15 = icmp eq ptr %14, %9
   %16 = icmp eq i64 %.promoted36, 0
-  %or.cond68 = select i1 %15, i1 true, i1 %16
+  %or.cond68 = select i1 %15, i1 true, i1 %16, !prof !158
   br i1 %or.cond68, label %.thread, label %.lr.ph70, !prof !167
 
 .lr.ph70:                                         ; preds = %.lr.ph
@@ -6020,7 +6020,7 @@ define linkonce_odr noundef i64 @_ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBuf
   %20 = load ptr, ptr %19, align 8, !tbaa !37
   %21 = icmp eq ptr %20, %9
   %22 = icmp eq i64 %45, 0
-  %or.cond = select i1 %21, i1 true, i1 %22
+  %or.cond = select i1 %21, i1 true, i1 %22, !prof !158
   br i1 %or.cond, label %.thread.loopexit, label %23, !prof !168, !llvm.loop !169
 
 23:                                               ; preds = %.lr.ph70, %17

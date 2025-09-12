@@ -1763,7 +1763,7 @@ _ZN4jiff3fmt6offset6Parser13parse_minutes17h75b49b014d468b45E.exit: ; preds = %"
   %360 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %361 = load i8, ptr %360, align 1, !range !5, !alias.scope !53, !noalias !105
   %362 = trunc nuw i8 %361 to i1
-  %or.cond.i = select i1 %359, i1 %362, i1 false
+  %or.cond.i = select i1 %359, i1 %362, i1 false, !prof !153
   br i1 %or.cond.i, label %363, label %369, !prof !153
 
 363:                                              ; preds = %356, %260

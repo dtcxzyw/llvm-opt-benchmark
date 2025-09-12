@@ -95742,7 +95742,7 @@ lean_obj_tag.exit94:                              ; preds = %23, %26
   %35 = ptrtoint ptr %31 to i64
   %36 = and i64 %35, 1
   %37 = icmp ne i64 %36, 0
-  %or.cond = select i1 %34, i1 %37, i1 false
+  %or.cond = select i1 %34, i1 %37, i1 false, !prof !19
   br i1 %or.cond, label %lean_dec.exit54.thread, label %lean_nat_lt.exit, !prof !19
 
 lean_dec.exit54.thread:                           ; preds = %30
@@ -95982,7 +95982,7 @@ lean_dec.exit49:                                  ; preds = %126, %125, %123, %l
   %129 = ptrtoint ptr %128 to i64
   %130 = and i64 %129, 1
   %131 = icmp ne i64 %130, 0
-  %or.cond120 = select i1 %113, i1 %131, i1 false
+  %or.cond120 = select i1 %113, i1 %131, i1 false, !prof !19
   br i1 %or.cond120, label %lean_dec.exit48.thread, label %lean_nat_lt.exit85, !prof !19
 
 lean_dec.exit48.thread:                           ; preds = %lean_dec.exit49

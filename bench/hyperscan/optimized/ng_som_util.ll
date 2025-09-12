@@ -1067,7 +1067,7 @@ define hidden noundef zeroext i1 @_ZN3ue217firstMatchIsFirstERKNS_8NGHolderE(ptr
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %28, null
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %30 = icmp eq ptr %29, %28
-  %or.cond.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i, i1 true, i1 %30
+  %or.cond.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i, i1 true, i1 %30, !prof !48
   br i1 %or.cond.i.i.i.i.i.i.i.i, label %_ZN3ue28flat_setINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEESt4lessIS8_ESaIS8_EEaSEOSC_.exit.thread, label %31, !prof !48
 
 31:                                               ; preds = %26
@@ -3246,7 +3246,7 @@ define hidden noundef zeroext i1 @_ZN3ue214sentClearsTailERKNS_8NGHolderERKSt13u
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %31, null
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %33 = icmp eq ptr %32, %31
-  %or.cond.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i, i1 true, i1 %33
+  %or.cond.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i, i1 true, i1 %33, !prof !48
   br i1 %or.cond.i.i.i.i.i.i.i.i, label %_ZN3ue28flat_setINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEESt4lessIS8_ESaIS8_EEaSEOSC_.exit.thread, label %34, !prof !48
 
 34:                                               ; preds = %30

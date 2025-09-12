@@ -458,7 +458,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZN5folly14
   %17 = icmp ule ptr %15, %1
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 %12
   %.not30 = icmp ugt ptr %18, %1
-  %or.cond = select i1 %17, i1 %.not30, i1 false
+  %or.cond = select i1 %17, i1 %.not30, i1 false, !prof !65
   br i1 %or.cond, label %19, label %.critedge, !prof !65
 
 19:                                               ; preds = %4

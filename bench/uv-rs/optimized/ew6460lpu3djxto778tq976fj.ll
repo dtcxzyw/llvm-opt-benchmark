@@ -985,7 +985,7 @@ define hidden void @_ZN12erased_serde3any3Any4take17h46d1311d7f901ca6E(ptr dead_
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %8 = load i64, ptr %7, align 8
   %9 = icmp eq i64 %8, 4524654817230186406
-  %or.cond = select i1 %6, i1 %9, i1 false
+  %or.cond = select i1 %6, i1 %9, i1 false, !prof !151
   br i1 %or.cond, label %17, label %12, !prof !151
 
 10:                                               ; preds = %12
@@ -1037,7 +1037,7 @@ define hidden void @_ZN12erased_serde3any3Any4take17h4ff713a3338aec3dE(ptr noali
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load i64, ptr %6, align 8
   %8 = icmp eq i64 %7, 7464995365307830654
-  %or.cond = select i1 %5, i1 %8, i1 false
+  %or.cond = select i1 %5, i1 %8, i1 false, !prof !151
   br i1 %or.cond, label %16, label %11, !prof !151
 
 9:                                                ; preds = %11
@@ -1085,7 +1085,7 @@ define hidden void @_ZN12erased_serde3any3Any4take17h54d72dd0b9c1c558E(ptr noali
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load i64, ptr %6, align 8
   %8 = icmp eq i64 %7, 7295517708107606267
-  %or.cond = select i1 %5, i1 %8, i1 false
+  %or.cond = select i1 %5, i1 %8, i1 false, !prof !151
   br i1 %or.cond, label %16, label %11, !prof !151
 
 9:                                                ; preds = %11
@@ -1133,7 +1133,7 @@ define hidden void @_ZN12erased_serde3any3Any4take17h6cfba558572500cfE(ptr dead_
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %8 = load i64, ptr %7, align 8
   %9 = icmp eq i64 %8, 984885604023361246
-  %or.cond = select i1 %6, i1 %9, i1 false
+  %or.cond = select i1 %6, i1 %9, i1 false, !prof !151
   br i1 %or.cond, label %17, label %12, !prof !151
 
 10:                                               ; preds = %12
@@ -1185,7 +1185,7 @@ define hidden { i16, i16 } @_ZN12erased_serde3any3Any4take17h7411cd5b2612cd8dE(p
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load i64, ptr %6, align 8
   %8 = icmp eq i64 %7, -6422015352864991416
-  %or.cond = select i1 %5, i1 %8, i1 false
+  %or.cond = select i1 %5, i1 %8, i1 false, !prof !151
   br i1 %or.cond, label %16, label %11, !prof !151
 
 9:                                                ; preds = %11
@@ -1239,7 +1239,7 @@ define hidden noundef range(i8 0, 4) i8 @_ZN12erased_serde3any3Any4take17h7e5fe7
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load i64, ptr %6, align 8
   %8 = icmp eq i64 %7, -6460190402194936197
-  %or.cond = select i1 %5, i1 %8, i1 false
+  %or.cond = select i1 %5, i1 %8, i1 false, !prof !151
   br i1 %or.cond, label %16, label %11, !prof !151
 
 9:                                                ; preds = %11
@@ -1289,7 +1289,7 @@ define hidden void @_ZN12erased_serde3any3Any4take17h8ab708bd0c206655E(ptr noali
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load i64, ptr %6, align 8
   %8 = icmp eq i64 %7, 3840111031146175664
-  %or.cond = select i1 %5, i1 %8, i1 false
+  %or.cond = select i1 %5, i1 %8, i1 false, !prof !151
   br i1 %or.cond, label %16, label %11, !prof !151
 
 9:                                                ; preds = %11
@@ -1337,7 +1337,7 @@ define hidden noundef i16 @_ZN12erased_serde3any3Any4take17h90b777dd807f34b3E(pt
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load i64, ptr %6, align 8
   %8 = icmp eq i64 %7, 8142825056748903639
-  %or.cond = select i1 %5, i1 %8, i1 false
+  %or.cond = select i1 %5, i1 %8, i1 false, !prof !151
   br i1 %or.cond, label %16, label %11, !prof !151
 
 9:                                                ; preds = %11
@@ -1387,7 +1387,7 @@ define hidden void @_ZN12erased_serde3any3Any4take17hb908c1eeca8484ddE(ptr dead_
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %8 = load i64, ptr %7, align 8
   %9 = icmp eq i64 %8, 6461359947241368460
-  %or.cond = select i1 %6, i1 %9, i1 false
+  %or.cond = select i1 %6, i1 %9, i1 false, !prof !151
   br i1 %or.cond, label %17, label %12, !prof !151
 
 10:                                               ; preds = %12

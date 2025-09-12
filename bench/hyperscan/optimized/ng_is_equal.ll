@@ -3589,7 +3589,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIjN3ue28f
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %53, null
   %54 = getelementptr inbounds nuw i8, ptr %45, i64 32
   %55 = icmp eq ptr %54, %53
-  %or.cond.i.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i, i1 true, i1 %55
+  %or.cond.i.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i, i1 true, i1 %55, !prof !146
   br i1 %or.cond.i.i.i.i.i.i.i.i.i, label %_ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIjSaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE10deallocateERKPjm.exit.i.i.i.i.i.i.i.i.i, label %56, !prof !146
 
 56:                                               ; preds = %51
@@ -3669,7 +3669,7 @@ _ZNSt4pairIjN3ue28flat_setIjSt4lessIjESaIjEEEEaSEOS6_.exit: ; preds = %_ZNK9__gn
   %.not.i.i.i.i.i.i.i.i.i27 = icmp eq ptr %90, null
   %91 = getelementptr inbounds nuw i8, ptr %81, i64 32
   %92 = icmp eq ptr %91, %90
-  %or.cond.i.i.i.i.i.i.i.i.i28 = select i1 %.not.i.i.i.i.i.i.i.i.i27, i1 true, i1 %92
+  %or.cond.i.i.i.i.i.i.i.i.i28 = select i1 %.not.i.i.i.i.i.i.i.i.i27, i1 true, i1 %92, !prof !146
   br i1 %or.cond.i.i.i.i.i.i.i.i.i28, label %_ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIjSaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE10deallocateERKPjm.exit.i.i.i.i.i.i.i.i.i29, label %93, !prof !146
 
 93:                                               ; preds = %88
@@ -3886,7 +3886,7 @@ _ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPSt4pairIjN3ue28fl
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %45, null
   %46 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %47 = icmp eq ptr %46, %45
-  %or.cond.i.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i, i1 true, i1 %47
+  %or.cond.i.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i, i1 true, i1 %47, !prof !146
   br i1 %or.cond.i.i.i.i.i.i.i.i.i, label %_ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIjSaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE10deallocateERKPjm.exit.i.i.i.i.i.i.i.i.i, label %48, !prof !146
 
 48:                                               ; preds = %43
@@ -3952,7 +3952,7 @@ _ZNSt4pairIjN3ue28flat_setIjSt4lessIjESaIjEEEEaSEOS6_.exit: ; preds = %_ZNK9__gn
   %.not.i.i.i.i.i.i.i.i.i12 = icmp eq ptr %72, null
   %73 = getelementptr inbounds nuw i8, ptr %63, i64 32
   %74 = icmp eq ptr %73, %72
-  %or.cond.i.i.i.i.i.i.i.i.i13 = select i1 %.not.i.i.i.i.i.i.i.i.i12, i1 true, i1 %74
+  %or.cond.i.i.i.i.i.i.i.i.i13 = select i1 %.not.i.i.i.i.i.i.i.i.i12, i1 true, i1 %74, !prof !146
   br i1 %or.cond.i.i.i.i.i.i.i.i.i13, label %_ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIjSaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE10deallocateERKPjm.exit.i.i.i.i.i.i.i.i.i14, label %75, !prof !146
 
 75:                                               ; preds = %70
@@ -4549,7 +4549,7 @@ _ZN5boost9container12small_vectorIjLm1ESaIjEvEaSEOS3_.exit: ; preds = %_ZN5boost
   %.not.i.i.i.i6 = icmp eq ptr %46, null
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %48 = icmp eq ptr %47, %46
-  %or.cond.i.i.i.i7 = select i1 %.not.i.i.i.i6, i1 true, i1 %48
+  %or.cond.i.i.i.i7 = select i1 %.not.i.i.i.i6, i1 true, i1 %48, !prof !146
   br i1 %or.cond.i.i.i.i7, label %_ZN5boost9container12small_vectorIjLm1ESaIjEvEaSEOS3_.exit10.thread, label %49, !prof !146
 
 49:                                               ; preds = %44
@@ -4762,7 +4762,7 @@ _ZNSt4pairIjN3ue28flat_setIjSt4lessIjESaIjEEEEC2EOS6_.exit: ; preds = %43, %.noe
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %71, null
   %72 = getelementptr inbounds i8, ptr %.0610.i.i.i.i.i, i64 -8
   %73 = icmp eq ptr %72, %71
-  %or.cond.i.i.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i1 true, i1 %73
+  %or.cond.i.i.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i1 true, i1 %73, !prof !146
   br i1 %or.cond.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIjSaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE10deallocateERKPjm.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %74, !prof !146
 
 74:                                               ; preds = %69
@@ -4820,7 +4820,7 @@ _ZNSt4pairIjN3ue28flat_setIjSt4lessIjESaIjEEEEaSEOS6_.exit.i.i.i.i.i: ; preds = 
   %94 = load ptr, ptr %5, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %94, null
   %95 = icmp eq ptr %12, %94
-  %or.cond.i.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i, i1 true, i1 %95
+  %or.cond.i.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i, i1 true, i1 %95, !prof !146
   br i1 %or.cond.i.i.i.i.i.i.i.i.i, label %_ZNSt4pairIjN3ue28flat_setIjSt4lessIjESaIjEEEEaSEOS6_.exit.thread, label %96, !prof !146
 
 96:                                               ; preds = %93
@@ -5013,7 +5013,7 @@ _ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairIjN3ue28flat_setIjSt4lessIjESaIjEE
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %55, null
   %56 = getelementptr inbounds nuw i8, ptr %.sroa.013.0, i64 32
   %57 = icmp eq ptr %56, %55
-  %or.cond.i.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i, i1 true, i1 %57
+  %or.cond.i.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i, i1 true, i1 %57, !prof !146
   br i1 %or.cond.i.i.i.i.i.i.i.i.i, label %_ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIjSaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE10deallocateERKPjm.exit.i.i.i.i.i.i.i.i.i, label %58, !prof !146
 
 58:                                               ; preds = %53
@@ -5073,7 +5073,7 @@ _ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairIjN3ue28flat_setIjSt4lessIjESaIjEE
   %.not.i.i.i.i.i.i.i.i.i4 = icmp eq ptr %77, null
   %78 = getelementptr inbounds nuw i8, ptr %.sroa.013.0, i64 32
   %79 = icmp eq ptr %78, %77
-  %or.cond.i.i.i.i.i.i.i.i.i5 = select i1 %.not.i.i.i.i.i.i.i.i.i4, i1 true, i1 %79
+  %or.cond.i.i.i.i.i.i.i.i.i5 = select i1 %.not.i.i.i.i.i.i.i.i.i4, i1 true, i1 %79, !prof !146
   br i1 %or.cond.i.i.i.i.i.i.i.i.i5, label %_ZNSt4pairIjN3ue28flat_setIjSt4lessIjESaIjEEEEaSEOS6_.exit8.thread, label %80, !prof !146
 
 80:                                               ; preds = %75

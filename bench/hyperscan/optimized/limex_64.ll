@@ -6739,7 +6739,7 @@ processExceptional64.exit.thread:                 ; preds = %108, %154, %104, %1
   %.not77 = icmp eq i32 %171, 0
   %172 = and i64 %169, %166
   %.not78 = icmp eq i64 %172, 0
-  %or.cond = select i1 %.not77, i1 true, i1 %.not78
+  %or.cond = select i1 %.not77, i1 true, i1 %.not78, !prof !8
   br i1 %or.cond, label %processExceptional64.exit.thread149, label %173, !prof !8
 
 173:                                              ; preds = %.thread174

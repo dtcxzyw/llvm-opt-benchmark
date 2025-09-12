@@ -710,7 +710,7 @@ read_block.exit.i:                                ; preds = %.thread.i, %283
   %.not.i166 = icmp ne i32 %.097.lcssa.i, 0
   %307 = load i32, ptr @__pg_log_level, align 4
   %308 = icmp ult i32 %307, 2
-  %or.cond190 = select i1 %.not.i166, i1 %308, i1 false
+  %or.cond190 = select i1 %.not.i166, i1 %308, i1 false, !prof !13
   br i1 %or.cond190, label %._crit_edge144.thread.sink.split.i, label %._crit_edge144.thread.i, !prof !13
 
 ._crit_edge144.thread.sink.split.i:               ; preds = %._crit_edge144.i
@@ -816,7 +816,7 @@ write_reconstructed_file.exit.thread:             ; preds = %230
   %345 = icmp ne i32 %344, 0
   %346 = load i32, ptr @__pg_log_level, align 4
   %347 = icmp ult i32 %346, 2
-  %or.cond.i174 = select i1 %345, i1 %347, i1 false
+  %or.cond.i174 = select i1 %345, i1 %347, i1 false, !prof !13
   br i1 %or.cond.i174, label %348, label %352, !prof !13
 
 348:                                              ; preds = %342

@@ -2324,7 +2324,7 @@ define internal fastcc ptr @ext4_append(ptr noundef %0, ptr noundef %1, ptr noun
   %12 = ashr i64 %.pre, 10
   %13 = zext i32 %10 to i64
   %14 = icmp slt i64 %12, %13
-  %or.cond = select i1 %11, i1 true, i1 %14
+  %or.cond = select i1 %11, i1 true, i1 %14, !prof !36
   br i1 %or.cond, label %._crit_edge, label %56, !prof !36
 
 ._crit_edge:                                      ; preds = %3

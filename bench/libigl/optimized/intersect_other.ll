@@ -43756,7 +43756,7 @@ define linkonce_odr dso_local ptr @_ZNSt7__cxx114listIN4CGAL13Intersections8inte
   %19 = load ptr, ptr %8, align 8, !tbaa !825
   %.not.i6.i.i.i = icmp ne i64 %.pre.i.i.i, 0
   %20 = icmp ne ptr %19, null
-  %or.cond.i.i.i = select i1 %.not.i6.i.i.i, i1 %20, i1 false
+  %or.cond.i.i.i = select i1 %.not.i6.i.i.i, i1 %20, i1 false, !prof !1051
   br i1 %or.cond.i.i.i, label %21, label %_ZNSt7__cxx114listIN4CGAL13Intersections8internal17Point_on_triangleINS1_5EpickEEESaIS6_EE14_M_create_nodeIJRKS6_EEEPSt10_List_nodeIS6_EDpOT_.exit, !prof !1051
 
 21:                                               ; preds = %.noexc8.i
@@ -67098,7 +67098,7 @@ define linkonce_odr dso_local ptr @_ZNSt7__cxx114listIN4CGAL13Intersections8inte
   %19 = load ptr, ptr %8, align 8, !tbaa !825
   %.not.i6.i.i.i = icmp ne i64 %.pre.i.i.i, 0
   %20 = icmp ne ptr %19, null
-  %or.cond.i.i.i = select i1 %.not.i6.i.i.i, i1 %20, i1 false
+  %or.cond.i.i.i = select i1 %.not.i6.i.i.i, i1 %20, i1 false, !prof !1051
   br i1 %or.cond.i.i.i, label %21, label %_ZNSt7__cxx114listIN4CGAL13Intersections8internal17Point_on_triangleINS1_16Simple_cartesianINS1_11Interval_ntILb0EEEEEEESaIS9_EE14_M_create_nodeIJRKS9_EEEPSt10_List_nodeIS9_EDpOT_.exit, !prof !1051
 
 21:                                               ; preds = %.noexc8.i
@@ -94546,7 +94546,7 @@ define linkonce_odr dso_local noundef ptr @_ZNSt7__cxx114listIN4CGAL13Intersecti
   %18 = load ptr, ptr %7, align 8, !tbaa !825
   %.not.i6.i.i = icmp ne i64 %.pre.i.i, 0
   %19 = icmp ne ptr %18, null
-  %or.cond.i.i = select i1 %.not.i6.i.i, i1 %19, i1 false
+  %or.cond.i.i = select i1 %.not.i6.i.i, i1 %19, i1 false, !prof !1051
   br i1 %or.cond.i.i, label %20, label %_ZN5boost9container6vectorIiNS0_13new_allocatorIiEEvEC2ERKS4_.exit.i, !prof !1051
 
 20:                                               ; preds = %.noexc8

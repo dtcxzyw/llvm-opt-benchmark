@@ -1872,7 +1872,7 @@ _ZNSt6vectorItSaItEEaSEOS1_.exit:                 ; preds = %2, %11
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %22, null
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %24 = icmp eq ptr %23, %22
-  %or.cond.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i, i1 true, i1 %24
+  %or.cond.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i, i1 true, i1 %24, !prof !106
   br i1 %or.cond.i.i.i.i.i.i.i.i, label %_ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIjSaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE10deallocateERKPjm.exit.i.i.i.i.i.i.i.i, label %25, !prof !106
 
 25:                                               ; preds = %20
@@ -1925,7 +1925,7 @@ _ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIjSaIvEvEEm
   %.not.i.i.i.i.i.i.i.i7 = icmp eq ptr %46, null
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %48 = icmp eq ptr %47, %46
-  %or.cond.i.i.i.i.i.i.i.i8 = select i1 %.not.i.i.i.i.i.i.i.i7, i1 true, i1 %48
+  %or.cond.i.i.i.i.i.i.i.i8 = select i1 %.not.i.i.i.i.i.i.i.i7, i1 true, i1 %48, !prof !106
   br i1 %or.cond.i.i.i.i.i.i.i.i8, label %_ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIjSaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE10deallocateERKPjm.exit.i.i.i.i.i.i.i.i9, label %49, !prof !106
 
 49:                                               ; preds = %44

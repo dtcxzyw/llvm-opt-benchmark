@@ -211,7 +211,7 @@ _ZN6google8protobuf8internal12ParseContextC2IJRNS0_20stringpiece_internal11Strin
   %.not = icmp ne ptr %36, null
   %37 = load i32, ptr %9, align 8
   %38 = icmp eq i32 %37, 0
-  %or.cond = select i1 %.not, i1 %38, i1 false
+  %or.cond = select i1 %.not, i1 %38, i1 false, !prof !27
   br i1 %or.cond, label %39, label %.critedge, !prof !27
 
 39:                                               ; preds = %_ZN6google8protobuf8internal12ParseContextC2IJRNS0_20stringpiece_internal11StringPieceEEEEibPPKcDpOT_.exit
@@ -306,7 +306,7 @@ _ZN6google8protobuf8internal12ParseContextC2IJRNS0_20stringpiece_internal11Strin
   %.not = icmp ne ptr %36, null
   %37 = load i32, ptr %9, align 8
   %38 = icmp eq i32 %37, 0
-  %or.cond = select i1 %.not, i1 %38, i1 false
+  %or.cond = select i1 %.not, i1 %38, i1 false, !prof !27
   br i1 %or.cond, label %39, label %.critedge, !prof !27
 
 39:                                               ; preds = %_ZN6google8protobuf8internal12ParseContextC2IJRNS0_20stringpiece_internal11StringPieceEEEEibPPKcDpOT_.exit
@@ -355,7 +355,7 @@ define weak_odr hidden noundef zeroext i1 @_ZN6google8protobuf8internal13MergeFr
   %.not = icmp ne ptr %16, null
   %17 = load i32, ptr %7, align 8
   %18 = icmp eq i32 %17, 1
-  %or.cond = select i1 %.not, i1 %18, i1 false
+  %or.cond = select i1 %.not, i1 %18, i1 false, !prof !27
   br i1 %or.cond, label %19, label %.critedge, !prof !27
 
 19:                                               ; preds = %3
@@ -407,7 +407,7 @@ define weak_odr hidden noundef zeroext i1 @_ZN6google8protobuf8internal13MergeFr
   %.not = icmp ne ptr %17, null
   %18 = load i32, ptr %8, align 8
   %19 = icmp eq i32 %18, 1
-  %or.cond = select i1 %.not, i1 %19, i1 false
+  %or.cond = select i1 %.not, i1 %19, i1 false, !prof !27
   br i1 %or.cond, label %20, label %.critedge, !prof !27
 
 20:                                               ; preds = %3
@@ -1239,7 +1239,7 @@ define hidden noundef zeroext i1 @_ZN6google8protobuf11MessageLite23ParseFromZer
   %.not.i.i = icmp ne ptr %18, null
   %19 = load i32, ptr %9, align 8
   %20 = icmp eq i32 %19, 1
-  %or.cond.i.i = select i1 %.not.i.i, i1 %20, i1 false
+  %or.cond.i.i = select i1 %.not.i.i, i1 %20, i1 false, !prof !27
   br i1 %or.cond.i.i, label %21, label %_ZN6google8protobuf11MessageLite9ParseFromILNS1_10ParseFlagsE1EPNS0_2io19ZeroCopyInputStreamEEEbRKT0_.exit, !prof !27
 
 21:                                               ; preds = %2
@@ -1287,7 +1287,7 @@ define hidden noundef zeroext i1 @_ZN6google8protobuf11MessageLite30ParsePartial
   %.not.i.i = icmp ne ptr %18, null
   %19 = load i32, ptr %9, align 8
   %20 = icmp eq i32 %19, 1
-  %or.cond.i.i = select i1 %.not.i.i, i1 %20, i1 false
+  %or.cond.i.i = select i1 %.not.i.i, i1 %20, i1 false, !prof !27
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %or.cond.i.i
 }
@@ -1332,7 +1332,7 @@ define hidden noundef zeroext i1 @_ZN6google8protobuf11MessageLite23ParseFromFil
   %.not.i.i.i = icmp ne ptr %19, null
   %20 = load i32, ptr %10, align 8
   %21 = icmp eq i32 %20, 1
-  %or.cond.i.i.i = select i1 %.not.i.i.i, i1 %21, i1 false
+  %or.cond.i.i.i = select i1 %.not.i.i.i, i1 %21, i1 false, !prof !27
   br i1 %or.cond.i.i.i, label %22, label %.thread, !prof !27
 
 22:                                               ; preds = %.noexc4
@@ -1424,7 +1424,7 @@ define hidden noundef zeroext i1 @_ZN6google8protobuf11MessageLite30ParsePartial
   %.not.i.i.i = icmp ne ptr %19, null
   %21 = load i32, ptr %10, align 8
   %22 = icmp eq i32 %21, 1
-  %or.cond.i.i.i = select i1 %.not.i.i.i, i1 %22, i1 false
+  %or.cond.i.i.i = select i1 %.not.i.i.i, i1 %22, i1 false, !prof !27
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %or.cond.i.i.i, label %23, label %27
 
@@ -1496,7 +1496,7 @@ define hidden noundef zeroext i1 @_ZN6google8protobuf11MessageLite16ParseFromIst
   %.not.i.i.i = icmp ne ptr %19, null
   %20 = load i32, ptr %10, align 8
   %21 = icmp eq i32 %20, 1
-  %or.cond.i.i.i = select i1 %.not.i.i.i, i1 %21, i1 false
+  %or.cond.i.i.i = select i1 %.not.i.i.i, i1 %21, i1 false, !prof !27
   br i1 %or.cond.i.i.i, label %22, label %.thread, !prof !27
 
 22:                                               ; preds = %.noexc5
@@ -1593,7 +1593,7 @@ define hidden noundef zeroext i1 @_ZN6google8protobuf11MessageLite23ParsePartial
   %.not.i.i.i = icmp ne ptr %19, null
   %21 = load i32, ptr %10, align 8
   %22 = icmp eq i32 %21, 1
-  %or.cond.i.i.i = select i1 %.not.i.i.i, i1 %22, i1 false
+  %or.cond.i.i.i = select i1 %.not.i.i.i, i1 %22, i1 false, !prof !27
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %or.cond.i.i.i, label %23, label %32
 
@@ -1732,7 +1732,7 @@ _ZN6google8protobuf8internal12ParseContextC2IJRNS0_20stringpiece_internal11Strin
   %.not.i.i = icmp ne ptr %40, null
   %41 = load i32, ptr %13, align 8
   %42 = icmp eq i32 %41, 0
-  %or.cond.i.i = select i1 %.not.i.i, i1 %42, i1 false
+  %or.cond.i.i = select i1 %.not.i.i, i1 %42, i1 false, !prof !27
   br i1 %or.cond.i.i, label %43, label %_ZN6google8protobuf11MessageLite9ParseFromILNS1_10ParseFlagsE1ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKT0_.exit, !prof !27
 
 43:                                               ; preds = %_ZN6google8protobuf8internal12ParseContextC2IJRNS0_20stringpiece_internal11StringPieceEEEEibPPKcDpOT_.exit.i.i
@@ -1822,7 +1822,7 @@ _ZN6google8protobuf11MessageLite9ParseFromILNS1_10ParseFlagsE3ENSt7__cxx1112basi
   %.not.i.i = icmp ne ptr %40, null
   %41 = load i32, ptr %36, align 8
   %42 = icmp eq i32 %41, 0
-  %or.cond.i.i = select i1 %.not.i.i, i1 %42, i1 false
+  %or.cond.i.i = select i1 %.not.i.i, i1 %42, i1 false, !prof !27
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %or.cond.i.i
 }
@@ -1895,7 +1895,7 @@ _ZN6google8protobuf8internal12ParseContextC2IJRNS0_20stringpiece_internal11Strin
   %.not.i.i = icmp ne ptr %39, null
   %40 = load i32, ptr %12, align 8
   %41 = icmp eq i32 %40, 0
-  %or.cond.i.i = select i1 %.not.i.i, i1 %41, i1 false
+  %or.cond.i.i = select i1 %.not.i.i, i1 %41, i1 false, !prof !27
   br i1 %or.cond.i.i, label %42, label %_ZN6google8protobuf11MessageLite9ParseFromILNS1_10ParseFlagsE1ENS0_20stringpiece_internal11StringPieceEEEbRKT0_.exit, !prof !27
 
 42:                                               ; preds = %_ZN6google8protobuf8internal12ParseContextC2IJRNS0_20stringpiece_internal11StringPieceEEEEibPPKcDpOT_.exit.i.i
@@ -1983,7 +1983,7 @@ _ZN6google8protobuf11MessageLite9ParseFromILNS1_10ParseFlagsE3ENS0_20stringpiece
   %.not.i.i = icmp ne ptr %39, null
   %40 = load i32, ptr %35, align 8
   %41 = icmp eq i32 %40, 0
-  %or.cond.i.i = select i1 %.not.i.i, i1 %41, i1 false
+  %or.cond.i.i = select i1 %.not.i.i, i1 %41, i1 false, !prof !27
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %or.cond.i.i
 }
@@ -2054,7 +2054,7 @@ _ZN6google8protobuf8internal12ParseContextC2IJRNS0_20stringpiece_internal11Strin
   %.not.i.i = icmp ne ptr %37, null
   %38 = load i32, ptr %10, align 8
   %39 = icmp eq i32 %38, 0
-  %or.cond.i.i = select i1 %.not.i.i, i1 %39, i1 false
+  %or.cond.i.i = select i1 %.not.i.i, i1 %39, i1 false, !prof !27
   br i1 %or.cond.i.i, label %40, label %_ZN6google8protobuf11MessageLite9ParseFromILNS1_10ParseFlagsE0ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKT0_.exit, !prof !27
 
 40:                                               ; preds = %_ZN6google8protobuf8internal12ParseContextC2IJRNS0_20stringpiece_internal11StringPieceEEEEibPPKcDpOT_.exit.i.i

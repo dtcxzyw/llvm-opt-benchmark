@@ -48126,7 +48126,7 @@ define hidden void @_ZN11ruff_linter8checkers14physical_lines20check_physical_li
 286:                                              ; preds = %.noexc46
   %287 = icmp ne i64 %280, %285
   %.not.i = icmp eq ptr %284, null
-  %or.cond.i = select i1 %287, i1 true, i1 %.not.i
+  %or.cond.i = select i1 %287, i1 true, i1 %.not.i, !prof !5873
   br i1 %or.cond.i, label %"_ZN4core3str6traits110_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeTo$LT$usize$GT$$GT$3get17heac9f6a047b0eab2E.exit.thread.i", label %"_ZN4core3str6traits110_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeTo$LT$usize$GT$$GT$3get17heac9f6a047b0eab2E.exit.thread24.i", !prof !5873
 
 288:                                              ; preds = %.noexc46

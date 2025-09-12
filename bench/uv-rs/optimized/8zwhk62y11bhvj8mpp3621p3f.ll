@@ -412,7 +412,7 @@ _ZN14regex_automata4meta5regex5Regex20search_captures_with17he4b8b79c5562e093E.e
   %137 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %138 = load i64, ptr %137, align 8, !alias.scope !66, !noalias !67
   %139 = icmp eq i64 %128, %138
-  %or.cond44.i.i.i = select i1 %or.cond.not53.i.i.i, i1 %139, i1 false
+  %or.cond44.i.i.i = select i1 %or.cond.not53.i.i.i, i1 %139, i1 false, !prof !68
   br i1 %or.cond44.i.i.i, label %152, label %140, !prof !68
 
 140:                                              ; preds = %156, %134
@@ -808,7 +808,7 @@ _ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h06d84edb39d03c8aE.exit
   %89 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %90 = load i64, ptr %89, align 8, !alias.scope !159, !noalias !160
   %91 = icmp eq i64 %87, %90
-  %or.cond44.i.i.i = select i1 %or.cond.not57.i.i.i, i1 %91, i1 false
+  %or.cond44.i.i.i = select i1 %or.cond.not57.i.i.i, i1 %91, i1 false, !prof !68
   br i1 %or.cond44.i.i.i, label %103, label %92, !prof !68
 
 92:                                               ; preds = %110, %86

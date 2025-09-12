@@ -474,7 +474,7 @@ define range(i32 -1, 1) i32 @H5RS_acat(ptr noundef captures(none) %0, ptr nounde
   %.not24 = select i1 %not., i1 %31, i1 false
   %32 = sub i64 %26, %23
   %.not.i = icmp ult i64 %14, %32
-  %or.cond = select i1 %.not24, i1 true, i1 %.not.i
+  %or.cond = select i1 %.not24, i1 true, i1 %.not.i, !prof !29
   br i1 %or.cond, label %H5RS__resize_for_append.exit.thread, label %.lr.ph.i, !prof !29
 
 .lr.ph.i:                                         ; preds = %27, %.lr.ph.i
@@ -587,7 +587,7 @@ define range(i32 -1, 1) i32 @H5RS_ancat(ptr noundef captures(none) %0, ptr nound
   %.not31 = select i1 %not., i1 %37, i1 false
   %38 = sub i64 %32, %29
   %.not.i = icmp ult i64 %20, %38
-  %or.cond32 = select i1 %.not31, i1 true, i1 %.not.i
+  %or.cond32 = select i1 %.not31, i1 true, i1 %.not.i, !prof !29
   br i1 %or.cond32, label %H5RS__resize_for_append.exit.thread, label %.lr.ph.i, !prof !29
 
 .lr.ph.i:                                         ; preds = %33, %.lr.ph.i

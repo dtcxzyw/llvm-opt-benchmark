@@ -1856,7 +1856,7 @@ lean_string_dec_eq.exit:                          ; preds = %11, %18, %22
   %32 = ptrtoint ptr %16 to i64
   %33 = and i64 %32, 1
   %34 = icmp ne i64 %33, 0
-  %or.cond = select i1 %31, i1 %34, i1 false
+  %or.cond = select i1 %31, i1 %34, i1 false, !prof !16
   br i1 %or.cond, label %35, label %lean_nat_lt.exit, !prof !16
 
 35:                                               ; preds = %28

@@ -26762,7 +26762,7 @@ define hidden void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..H
   %bcmp.i.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %40, ptr nonnull readonly align 1 %9, i64 %37), !alias.scope !6542, !noalias !6538
   %41 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i, 0
   %42 = icmp eq i64 %.val4.i.i, %3
-  %or.cond.i = select i1 %41, i1 %42, i1 false
+  %or.cond.i = select i1 %41, i1 %42, i1 false, !prof !6546
   br i1 %or.cond.i, label %52, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hfee6c67516a4fb3aE.llvm.908770108122041493.exit.thread.i", !prof !6546
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hfee6c67516a4fb3aE.llvm.908770108122041493.exit.i": ; preds = %.lr.ph.i
@@ -39238,7 +39238,7 @@ define hidden noundef ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17hf824
   %bcmp.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %31, ptr nonnull readonly align 1 %15, i64 %28), !alias.scope !9493, !noalias !9489
   %32 = icmp eq i32 %bcmp.i.i.i.i.i.i.i, 0
   %33 = icmp eq i64 %.val4.i, %.val3.i.i
-  %or.cond = select i1 %32, i1 %33, i1 false
+  %or.cond = select i1 %32, i1 %33, i1 false, !prof !6546
   br i1 %or.cond, label %.loopexit, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hfee6c67516a4fb3aE.llvm.908770108122041493.exit.thread", !prof !6546
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hfee6c67516a4fb3aE.llvm.908770108122041493.exit": ; preds = %16

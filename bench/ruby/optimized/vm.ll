@@ -54169,14 +54169,14 @@ define internal fastcc void @vm_trace_hook(ptr noundef nonnull %0, ptr noundef c
   %24 = icmp ne i16 %23, 0
   %25 = load i16, ptr @ruby_method__return_semaphore, align 2
   %26 = icmp ne i16 %25, 0
-  %or.cond.i = select i1 %24, i1 true, i1 %26
+  %or.cond.i = select i1 %24, i1 true, i1 %26, !prof !698
   %27 = load i16, ptr @ruby_cmethod__entry_semaphore, align 2
   %28 = icmp ne i16 %27, 0
-  %or.cond5.i = select i1 %or.cond.i, i1 true, i1 %28
+  %or.cond5.i = select i1 %or.cond.i, i1 true, i1 %28, !prof !699
   %29 = load i16, ptr @ruby_cmethod__return_semaphore, align 2
   %30 = icmp ne i16 %29, 0
-  %or.cond8.i = select i1 %or.cond5.i, i1 true, i1 %30
-  br i1 %or.cond8.i, label %31, label %vm_dtrace.exit, !prof !698
+  %or.cond8.i = select i1 %or.cond5.i, i1 true, i1 %30, !prof !700
+  br i1 %or.cond8.i, label %31, label %vm_dtrace.exit, !prof !700
 
 31:                                               ; preds = %20
   %32 = add nsw i32 %14, -8
@@ -54198,7 +54198,7 @@ define internal fastcc void @vm_trace_hook(ptr noundef nonnull %0, ptr noundef c
   br i1 %.not14.i, label %45, label %37
 
 37:                                               ; preds = %35
-  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i16) @ruby_method__entry_semaphore) #20, !srcloc !699
+  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i16) @ruby_method__entry_semaphore) #20, !srcloc !701
   %38 = load ptr, ptr %10, align 8, !tbaa !457
   %39 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %40 = load ptr, ptr %39, align 8, !tbaa !459
@@ -54206,8 +54206,8 @@ define internal fastcc void @vm_trace_hook(ptr noundef nonnull %0, ptr noundef c
   %42 = load ptr, ptr %41, align 8, !tbaa !460
   %43 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %44 = load i32, ptr %43, align 8, !tbaa !480
-  call void asm sideeffect ".altmacro\0A.macro _SDT_SIGN x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.iflt \\x\0A.ascii \22-\22\0A.endif\0A.popsection\0A.endm\0A.macro _SDT_SIZE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ascii \22\\x\22\0A.popsection\0A.endm\0A.macro _SDT_SIZE x\0A_SDT_SIZE_ %((-(-\\x*((-\\x>0)-(-\\x<0))))>>8)\0A.endm\0A.macro _SDT_TYPE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ifc 8,\\x\0A.ascii \22f\22\0A.endif\0A.ascii \22@\22\0A.popsection\0A.endm\0A.macro _SDT_TYPE x\0A_SDT_TYPE_ %((\\x)&(0xff))\0A.endm\0A990: nop\0A.pushsection .note.stapsdt,\22?\22,\22note\22\0A.balign 4\0A.4byte 992f-991f,994f-993f,3\0A991: .asciz \22stapsdt\22\0A992: .balign 4\0A993: .8byte 990b\0A.8byte _.stapsdt.base\0A.8byte ruby_method__entry_semaphore\0A.asciz \22ruby\22\0A.asciz \22method__entry\22\0A_SDT_SIGN ${0:n}\0A_SDT_SIZE ${0:n}\0A_SDT_TYPE ${0:n}\0A.ascii \22$1\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${2:n}\0A_SDT_SIZE ${2:n}\0A_SDT_TYPE ${2:n}\0A.ascii \22$3\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${4:n}\0A_SDT_SIZE ${4:n}\0A_SDT_TYPE ${4:n}\0A.ascii \22$5\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${6:n}\0A_SDT_SIZE ${6:n}\0A_SDT_TYPE ${6:n}\0A.ascii \22$7\22\0A.ascii \22\\x00\22\0A.purgem _SDT_SIGN\0A.purgem _SDT_SIZE_\0A.purgem _SDT_SIZE\0A.purgem _SDT_TYPE_\0A.purgem _SDT_TYPE\0A994: .balign 4\0A.popsection\0A", "n,norfxy,n,norfxy,n,norfxy,n,norfxy,~{dirflag},~{fpsr},~{flags}"(i32 -2053, ptr %38, i32 -2053, ptr %40, i32 -2053, ptr %42, i32 1025, i32 %44) #20, !srcloc !700
-  call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !701
+  call void asm sideeffect ".altmacro\0A.macro _SDT_SIGN x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.iflt \\x\0A.ascii \22-\22\0A.endif\0A.popsection\0A.endm\0A.macro _SDT_SIZE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ascii \22\\x\22\0A.popsection\0A.endm\0A.macro _SDT_SIZE x\0A_SDT_SIZE_ %((-(-\\x*((-\\x>0)-(-\\x<0))))>>8)\0A.endm\0A.macro _SDT_TYPE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ifc 8,\\x\0A.ascii \22f\22\0A.endif\0A.ascii \22@\22\0A.popsection\0A.endm\0A.macro _SDT_TYPE x\0A_SDT_TYPE_ %((\\x)&(0xff))\0A.endm\0A990: nop\0A.pushsection .note.stapsdt,\22?\22,\22note\22\0A.balign 4\0A.4byte 992f-991f,994f-993f,3\0A991: .asciz \22stapsdt\22\0A992: .balign 4\0A993: .8byte 990b\0A.8byte _.stapsdt.base\0A.8byte ruby_method__entry_semaphore\0A.asciz \22ruby\22\0A.asciz \22method__entry\22\0A_SDT_SIGN ${0:n}\0A_SDT_SIZE ${0:n}\0A_SDT_TYPE ${0:n}\0A.ascii \22$1\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${2:n}\0A_SDT_SIZE ${2:n}\0A_SDT_TYPE ${2:n}\0A.ascii \22$3\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${4:n}\0A_SDT_SIZE ${4:n}\0A_SDT_TYPE ${4:n}\0A.ascii \22$5\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${6:n}\0A_SDT_SIZE ${6:n}\0A_SDT_TYPE ${6:n}\0A.ascii \22$7\22\0A.ascii \22\\x00\22\0A.purgem _SDT_SIGN\0A.purgem _SDT_SIZE_\0A.purgem _SDT_SIZE\0A.purgem _SDT_TYPE_\0A.purgem _SDT_TYPE\0A994: .balign 4\0A.popsection\0A", "n,norfxy,n,norfxy,n,norfxy,n,norfxy,~{dirflag},~{fpsr},~{flags}"(i32 -2053, ptr %38, i32 -2053, ptr %40, i32 -2053, ptr %42, i32 1025, i32 %44) #20, !srcloc !702
+  call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !703
   br label %45
 
 45:                                               ; preds = %37, %35
@@ -54224,7 +54224,7 @@ define internal fastcc void @vm_trace_hook(ptr noundef nonnull %0, ptr noundef c
   br i1 %.not13.i, label %57, label %49
 
 49:                                               ; preds = %47
-  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i16) @ruby_cmethod__entry_semaphore) #20, !srcloc !702
+  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i16) @ruby_cmethod__entry_semaphore) #20, !srcloc !704
   %50 = load ptr, ptr %11, align 8, !tbaa !457
   %51 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %52 = load ptr, ptr %51, align 8, !tbaa !459
@@ -54232,8 +54232,8 @@ define internal fastcc void @vm_trace_hook(ptr noundef nonnull %0, ptr noundef c
   %54 = load ptr, ptr %53, align 8, !tbaa !460
   %55 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %56 = load i32, ptr %55, align 8, !tbaa !480
-  call void asm sideeffect ".altmacro\0A.macro _SDT_SIGN x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.iflt \\x\0A.ascii \22-\22\0A.endif\0A.popsection\0A.endm\0A.macro _SDT_SIZE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ascii \22\\x\22\0A.popsection\0A.endm\0A.macro _SDT_SIZE x\0A_SDT_SIZE_ %((-(-\\x*((-\\x>0)-(-\\x<0))))>>8)\0A.endm\0A.macro _SDT_TYPE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ifc 8,\\x\0A.ascii \22f\22\0A.endif\0A.ascii \22@\22\0A.popsection\0A.endm\0A.macro _SDT_TYPE x\0A_SDT_TYPE_ %((\\x)&(0xff))\0A.endm\0A990: nop\0A.pushsection .note.stapsdt,\22?\22,\22note\22\0A.balign 4\0A.4byte 992f-991f,994f-993f,3\0A991: .asciz \22stapsdt\22\0A992: .balign 4\0A993: .8byte 990b\0A.8byte _.stapsdt.base\0A.8byte ruby_cmethod__entry_semaphore\0A.asciz \22ruby\22\0A.asciz \22cmethod__entry\22\0A_SDT_SIGN ${0:n}\0A_SDT_SIZE ${0:n}\0A_SDT_TYPE ${0:n}\0A.ascii \22$1\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${2:n}\0A_SDT_SIZE ${2:n}\0A_SDT_TYPE ${2:n}\0A.ascii \22$3\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${4:n}\0A_SDT_SIZE ${4:n}\0A_SDT_TYPE ${4:n}\0A.ascii \22$5\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${6:n}\0A_SDT_SIZE ${6:n}\0A_SDT_TYPE ${6:n}\0A.ascii \22$7\22\0A.ascii \22\\x00\22\0A.purgem _SDT_SIGN\0A.purgem _SDT_SIZE_\0A.purgem _SDT_SIZE\0A.purgem _SDT_TYPE_\0A.purgem _SDT_TYPE\0A994: .balign 4\0A.popsection\0A", "n,norfxy,n,norfxy,n,norfxy,n,norfxy,~{dirflag},~{fpsr},~{flags}"(i32 -2053, ptr %50, i32 -2053, ptr %52, i32 -2053, ptr %54, i32 1025, i32 %56) #20, !srcloc !703
-  call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !704
+  call void asm sideeffect ".altmacro\0A.macro _SDT_SIGN x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.iflt \\x\0A.ascii \22-\22\0A.endif\0A.popsection\0A.endm\0A.macro _SDT_SIZE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ascii \22\\x\22\0A.popsection\0A.endm\0A.macro _SDT_SIZE x\0A_SDT_SIZE_ %((-(-\\x*((-\\x>0)-(-\\x<0))))>>8)\0A.endm\0A.macro _SDT_TYPE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ifc 8,\\x\0A.ascii \22f\22\0A.endif\0A.ascii \22@\22\0A.popsection\0A.endm\0A.macro _SDT_TYPE x\0A_SDT_TYPE_ %((\\x)&(0xff))\0A.endm\0A990: nop\0A.pushsection .note.stapsdt,\22?\22,\22note\22\0A.balign 4\0A.4byte 992f-991f,994f-993f,3\0A991: .asciz \22stapsdt\22\0A992: .balign 4\0A993: .8byte 990b\0A.8byte _.stapsdt.base\0A.8byte ruby_cmethod__entry_semaphore\0A.asciz \22ruby\22\0A.asciz \22cmethod__entry\22\0A_SDT_SIGN ${0:n}\0A_SDT_SIZE ${0:n}\0A_SDT_TYPE ${0:n}\0A.ascii \22$1\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${2:n}\0A_SDT_SIZE ${2:n}\0A_SDT_TYPE ${2:n}\0A.ascii \22$3\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${4:n}\0A_SDT_SIZE ${4:n}\0A_SDT_TYPE ${4:n}\0A.ascii \22$5\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${6:n}\0A_SDT_SIZE ${6:n}\0A_SDT_TYPE ${6:n}\0A.ascii \22$7\22\0A.ascii \22\\x00\22\0A.purgem _SDT_SIGN\0A.purgem _SDT_SIZE_\0A.purgem _SDT_SIZE\0A.purgem _SDT_TYPE_\0A.purgem _SDT_TYPE\0A994: .balign 4\0A.popsection\0A", "n,norfxy,n,norfxy,n,norfxy,n,norfxy,~{dirflag},~{fpsr},~{flags}"(i32 -2053, ptr %50, i32 -2053, ptr %52, i32 -2053, ptr %54, i32 1025, i32 %56) #20, !srcloc !705
+  call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !706
   br label %57
 
 57:                                               ; preds = %49, %47
@@ -54250,7 +54250,7 @@ define internal fastcc void @vm_trace_hook(ptr noundef nonnull %0, ptr noundef c
   br i1 %.not12.i, label %69, label %61
 
 61:                                               ; preds = %59
-  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i16) @ruby_method__return_semaphore) #20, !srcloc !705
+  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i16) @ruby_method__return_semaphore) #20, !srcloc !707
   %62 = load ptr, ptr %12, align 8, !tbaa !457
   %63 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %64 = load ptr, ptr %63, align 8, !tbaa !459
@@ -54258,8 +54258,8 @@ define internal fastcc void @vm_trace_hook(ptr noundef nonnull %0, ptr noundef c
   %66 = load ptr, ptr %65, align 8, !tbaa !460
   %67 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %68 = load i32, ptr %67, align 8, !tbaa !480
-  call void asm sideeffect ".altmacro\0A.macro _SDT_SIGN x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.iflt \\x\0A.ascii \22-\22\0A.endif\0A.popsection\0A.endm\0A.macro _SDT_SIZE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ascii \22\\x\22\0A.popsection\0A.endm\0A.macro _SDT_SIZE x\0A_SDT_SIZE_ %((-(-\\x*((-\\x>0)-(-\\x<0))))>>8)\0A.endm\0A.macro _SDT_TYPE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ifc 8,\\x\0A.ascii \22f\22\0A.endif\0A.ascii \22@\22\0A.popsection\0A.endm\0A.macro _SDT_TYPE x\0A_SDT_TYPE_ %((\\x)&(0xff))\0A.endm\0A990: nop\0A.pushsection .note.stapsdt,\22?\22,\22note\22\0A.balign 4\0A.4byte 992f-991f,994f-993f,3\0A991: .asciz \22stapsdt\22\0A992: .balign 4\0A993: .8byte 990b\0A.8byte _.stapsdt.base\0A.8byte ruby_method__return_semaphore\0A.asciz \22ruby\22\0A.asciz \22method__return\22\0A_SDT_SIGN ${0:n}\0A_SDT_SIZE ${0:n}\0A_SDT_TYPE ${0:n}\0A.ascii \22$1\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${2:n}\0A_SDT_SIZE ${2:n}\0A_SDT_TYPE ${2:n}\0A.ascii \22$3\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${4:n}\0A_SDT_SIZE ${4:n}\0A_SDT_TYPE ${4:n}\0A.ascii \22$5\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${6:n}\0A_SDT_SIZE ${6:n}\0A_SDT_TYPE ${6:n}\0A.ascii \22$7\22\0A.ascii \22\\x00\22\0A.purgem _SDT_SIGN\0A.purgem _SDT_SIZE_\0A.purgem _SDT_SIZE\0A.purgem _SDT_TYPE_\0A.purgem _SDT_TYPE\0A994: .balign 4\0A.popsection\0A", "n,norfxy,n,norfxy,n,norfxy,n,norfxy,~{dirflag},~{fpsr},~{flags}"(i32 -2053, ptr %62, i32 -2053, ptr %64, i32 -2053, ptr %66, i32 1025, i32 %68) #20, !srcloc !706
-  call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !707
+  call void asm sideeffect ".altmacro\0A.macro _SDT_SIGN x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.iflt \\x\0A.ascii \22-\22\0A.endif\0A.popsection\0A.endm\0A.macro _SDT_SIZE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ascii \22\\x\22\0A.popsection\0A.endm\0A.macro _SDT_SIZE x\0A_SDT_SIZE_ %((-(-\\x*((-\\x>0)-(-\\x<0))))>>8)\0A.endm\0A.macro _SDT_TYPE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ifc 8,\\x\0A.ascii \22f\22\0A.endif\0A.ascii \22@\22\0A.popsection\0A.endm\0A.macro _SDT_TYPE x\0A_SDT_TYPE_ %((\\x)&(0xff))\0A.endm\0A990: nop\0A.pushsection .note.stapsdt,\22?\22,\22note\22\0A.balign 4\0A.4byte 992f-991f,994f-993f,3\0A991: .asciz \22stapsdt\22\0A992: .balign 4\0A993: .8byte 990b\0A.8byte _.stapsdt.base\0A.8byte ruby_method__return_semaphore\0A.asciz \22ruby\22\0A.asciz \22method__return\22\0A_SDT_SIGN ${0:n}\0A_SDT_SIZE ${0:n}\0A_SDT_TYPE ${0:n}\0A.ascii \22$1\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${2:n}\0A_SDT_SIZE ${2:n}\0A_SDT_TYPE ${2:n}\0A.ascii \22$3\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${4:n}\0A_SDT_SIZE ${4:n}\0A_SDT_TYPE ${4:n}\0A.ascii \22$5\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${6:n}\0A_SDT_SIZE ${6:n}\0A_SDT_TYPE ${6:n}\0A.ascii \22$7\22\0A.ascii \22\\x00\22\0A.purgem _SDT_SIGN\0A.purgem _SDT_SIZE_\0A.purgem _SDT_SIZE\0A.purgem _SDT_TYPE_\0A.purgem _SDT_TYPE\0A994: .balign 4\0A.popsection\0A", "n,norfxy,n,norfxy,n,norfxy,n,norfxy,~{dirflag},~{fpsr},~{flags}"(i32 -2053, ptr %62, i32 -2053, ptr %64, i32 -2053, ptr %66, i32 1025, i32 %68) #20, !srcloc !708
+  call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !709
   br label %69
 
 69:                                               ; preds = %61, %59
@@ -54276,7 +54276,7 @@ define internal fastcc void @vm_trace_hook(ptr noundef nonnull %0, ptr noundef c
   br i1 %.not.i, label %81, label %73
 
 73:                                               ; preds = %71
-  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i16) @ruby_cmethod__return_semaphore) #20, !srcloc !708
+  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i16) @ruby_cmethod__return_semaphore) #20, !srcloc !710
   %74 = load ptr, ptr %13, align 8, !tbaa !457
   %75 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %76 = load ptr, ptr %75, align 8, !tbaa !459
@@ -54284,8 +54284,8 @@ define internal fastcc void @vm_trace_hook(ptr noundef nonnull %0, ptr noundef c
   %78 = load ptr, ptr %77, align 8, !tbaa !460
   %79 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %80 = load i32, ptr %79, align 8, !tbaa !480
-  call void asm sideeffect ".altmacro\0A.macro _SDT_SIGN x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.iflt \\x\0A.ascii \22-\22\0A.endif\0A.popsection\0A.endm\0A.macro _SDT_SIZE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ascii \22\\x\22\0A.popsection\0A.endm\0A.macro _SDT_SIZE x\0A_SDT_SIZE_ %((-(-\\x*((-\\x>0)-(-\\x<0))))>>8)\0A.endm\0A.macro _SDT_TYPE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ifc 8,\\x\0A.ascii \22f\22\0A.endif\0A.ascii \22@\22\0A.popsection\0A.endm\0A.macro _SDT_TYPE x\0A_SDT_TYPE_ %((\\x)&(0xff))\0A.endm\0A990: nop\0A.pushsection .note.stapsdt,\22?\22,\22note\22\0A.balign 4\0A.4byte 992f-991f,994f-993f,3\0A991: .asciz \22stapsdt\22\0A992: .balign 4\0A993: .8byte 990b\0A.8byte _.stapsdt.base\0A.8byte ruby_cmethod__return_semaphore\0A.asciz \22ruby\22\0A.asciz \22cmethod__return\22\0A_SDT_SIGN ${0:n}\0A_SDT_SIZE ${0:n}\0A_SDT_TYPE ${0:n}\0A.ascii \22$1\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${2:n}\0A_SDT_SIZE ${2:n}\0A_SDT_TYPE ${2:n}\0A.ascii \22$3\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${4:n}\0A_SDT_SIZE ${4:n}\0A_SDT_TYPE ${4:n}\0A.ascii \22$5\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${6:n}\0A_SDT_SIZE ${6:n}\0A_SDT_TYPE ${6:n}\0A.ascii \22$7\22\0A.ascii \22\\x00\22\0A.purgem _SDT_SIGN\0A.purgem _SDT_SIZE_\0A.purgem _SDT_SIZE\0A.purgem _SDT_TYPE_\0A.purgem _SDT_TYPE\0A994: .balign 4\0A.popsection\0A", "n,norfxy,n,norfxy,n,norfxy,n,norfxy,~{dirflag},~{fpsr},~{flags}"(i32 -2053, ptr %74, i32 -2053, ptr %76, i32 -2053, ptr %78, i32 1025, i32 %80) #20, !srcloc !709
-  call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !710
+  call void asm sideeffect ".altmacro\0A.macro _SDT_SIGN x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.iflt \\x\0A.ascii \22-\22\0A.endif\0A.popsection\0A.endm\0A.macro _SDT_SIZE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ascii \22\\x\22\0A.popsection\0A.endm\0A.macro _SDT_SIZE x\0A_SDT_SIZE_ %((-(-\\x*((-\\x>0)-(-\\x<0))))>>8)\0A.endm\0A.macro _SDT_TYPE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ifc 8,\\x\0A.ascii \22f\22\0A.endif\0A.ascii \22@\22\0A.popsection\0A.endm\0A.macro _SDT_TYPE x\0A_SDT_TYPE_ %((\\x)&(0xff))\0A.endm\0A990: nop\0A.pushsection .note.stapsdt,\22?\22,\22note\22\0A.balign 4\0A.4byte 992f-991f,994f-993f,3\0A991: .asciz \22stapsdt\22\0A992: .balign 4\0A993: .8byte 990b\0A.8byte _.stapsdt.base\0A.8byte ruby_cmethod__return_semaphore\0A.asciz \22ruby\22\0A.asciz \22cmethod__return\22\0A_SDT_SIGN ${0:n}\0A_SDT_SIZE ${0:n}\0A_SDT_TYPE ${0:n}\0A.ascii \22$1\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${2:n}\0A_SDT_SIZE ${2:n}\0A_SDT_TYPE ${2:n}\0A.ascii \22$3\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${4:n}\0A_SDT_SIZE ${4:n}\0A_SDT_TYPE ${4:n}\0A.ascii \22$5\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${6:n}\0A_SDT_SIZE ${6:n}\0A_SDT_TYPE ${6:n}\0A.ascii \22$7\22\0A.ascii \22\\x00\22\0A.purgem _SDT_SIGN\0A.purgem _SDT_SIZE_\0A.purgem _SDT_SIZE\0A.purgem _SDT_TYPE_\0A.purgem _SDT_TYPE\0A994: .balign 4\0A.popsection\0A", "n,norfxy,n,norfxy,n,norfxy,n,norfxy,~{dirflag},~{fpsr},~{flags}"(i32 -2053, ptr %74, i32 -2053, ptr %76, i32 -2053, ptr %78, i32 1025, i32 %80) #20, !srcloc !711
+  call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !712
   br label %81
 
 81:                                               ; preds = %73, %71
@@ -54319,7 +54319,7 @@ vm_dtrace.exit:                                   ; preds = %20, %31, %34, %45, 
   br label %93
 
 93:                                               ; preds = %vm_dtrace.exit, %7
-  %94 = load ptr, ptr %5, align 8, !tbaa !711
+  %94 = load ptr, ptr %5, align 8, !tbaa !713
   %.not24 = icmp eq ptr %94, null
   br i1 %.not24, label %113, label %95
 
@@ -54420,7 +54420,7 @@ define internal noundef i32 @vm_ccs_dump_i(i64 noundef %0, i64 noundef %1, ptr r
   %24 = load i32, ptr %7, align 4, !tbaa !162
   %25 = sext i32 %24 to i64
   %26 = icmp slt i64 %indvars.iv.next, %25
-  br i1 %26, label %16, label %._crit_edge, !llvm.loop !713
+  br i1 %26, label %16, label %._crit_edge, !llvm.loop !715
 }
 
 declare void @rb_obj_info_dump_loc(i64 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
@@ -55962,7 +55962,7 @@ RARRAY_AREF.exit:                                 ; preds = %rb_array_len.exit.t
   %37 = load i64, ptr %36, align 8, !tbaa !7
   tail call fastcc void @check_and_export_method(i64 noundef %0, i64 noundef %37, i32 noundef %3)
   %38 = add nuw nsw i64 %.0, 1
-  br label %26, !llvm.loop !714
+  br label %26, !llvm.loop !716
 
 39:                                               ; preds = %rb_check_frozen_inline.exit
   %40 = icmp sgt i32 %1, 0
@@ -55979,7 +55979,7 @@ RARRAY_AREF.exit:                                 ; preds = %rb_array_len.exit.t
   tail call fastcc void @check_and_export_method(i64 noundef %0, i64 noundef %42, i32 noundef %3)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !715
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !717
 
 .loopexit:                                        ; preds = %rb_array_len.exit.thread, %rb_array_len.exit, %.lr.ph, %39, %17
   ret void
@@ -56530,7 +56530,7 @@ define internal fastcc i64 @vm_call0_body(ptr noundef %0, ptr noundef nonnull %1
   store i64 %49, ptr %47, align 8, !tbaa !7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %46, !llvm.loop !716
+  br i1 %exitcond.not, label %._crit_edge, label %46, !llvm.loop !718
 
 ._crit_edge:                                      ; preds = %46
   store ptr %50, ptr %32, align 8, !tbaa !93
@@ -56668,7 +56668,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i:        ; preds = %RHASH_EMPTY_P.exit.
   br i1 %.not65.i.i, label %137, label %129
 
 129:                                              ; preds = %123
-  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i16) @ruby_cmethod__entry_semaphore) #20, !srcloc !717
+  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i16) @ruby_cmethod__entry_semaphore) #20, !srcloc !719
   %130 = load ptr, ptr %16, align 8, !tbaa !457
   %131 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %132 = load ptr, ptr %131, align 8, !tbaa !459
@@ -56676,8 +56676,8 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i:        ; preds = %RHASH_EMPTY_P.exit.
   %134 = load ptr, ptr %133, align 8, !tbaa !460
   %135 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %136 = load i32, ptr %135, align 8, !tbaa !480
-  call void asm sideeffect ".altmacro\0A.macro _SDT_SIGN x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.iflt \\x\0A.ascii \22-\22\0A.endif\0A.popsection\0A.endm\0A.macro _SDT_SIZE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ascii \22\\x\22\0A.popsection\0A.endm\0A.macro _SDT_SIZE x\0A_SDT_SIZE_ %((-(-\\x*((-\\x>0)-(-\\x<0))))>>8)\0A.endm\0A.macro _SDT_TYPE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ifc 8,\\x\0A.ascii \22f\22\0A.endif\0A.ascii \22@\22\0A.popsection\0A.endm\0A.macro _SDT_TYPE x\0A_SDT_TYPE_ %((\\x)&(0xff))\0A.endm\0A990: nop\0A.pushsection .note.stapsdt,\22?\22,\22note\22\0A.balign 4\0A.4byte 992f-991f,994f-993f,3\0A991: .asciz \22stapsdt\22\0A992: .balign 4\0A993: .8byte 990b\0A.8byte _.stapsdt.base\0A.8byte ruby_cmethod__entry_semaphore\0A.asciz \22ruby\22\0A.asciz \22cmethod__entry\22\0A_SDT_SIGN ${0:n}\0A_SDT_SIZE ${0:n}\0A_SDT_TYPE ${0:n}\0A.ascii \22$1\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${2:n}\0A_SDT_SIZE ${2:n}\0A_SDT_TYPE ${2:n}\0A.ascii \22$3\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${4:n}\0A_SDT_SIZE ${4:n}\0A_SDT_TYPE ${4:n}\0A.ascii \22$5\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${6:n}\0A_SDT_SIZE ${6:n}\0A_SDT_TYPE ${6:n}\0A.ascii \22$7\22\0A.ascii \22\\x00\22\0A.purgem _SDT_SIGN\0A.purgem _SDT_SIZE_\0A.purgem _SDT_SIZE\0A.purgem _SDT_TYPE_\0A.purgem _SDT_TYPE\0A994: .balign 4\0A.popsection\0A", "n,norfxy,n,norfxy,n,norfxy,n,norfxy,~{dirflag},~{fpsr},~{flags}"(i32 -2053, ptr %130, i32 -2053, ptr %132, i32 -2053, ptr %134, i32 1025, i32 %136) #20, !srcloc !718
-  call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !719
+  call void asm sideeffect ".altmacro\0A.macro _SDT_SIGN x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.iflt \\x\0A.ascii \22-\22\0A.endif\0A.popsection\0A.endm\0A.macro _SDT_SIZE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ascii \22\\x\22\0A.popsection\0A.endm\0A.macro _SDT_SIZE x\0A_SDT_SIZE_ %((-(-\\x*((-\\x>0)-(-\\x<0))))>>8)\0A.endm\0A.macro _SDT_TYPE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ifc 8,\\x\0A.ascii \22f\22\0A.endif\0A.ascii \22@\22\0A.popsection\0A.endm\0A.macro _SDT_TYPE x\0A_SDT_TYPE_ %((\\x)&(0xff))\0A.endm\0A990: nop\0A.pushsection .note.stapsdt,\22?\22,\22note\22\0A.balign 4\0A.4byte 992f-991f,994f-993f,3\0A991: .asciz \22stapsdt\22\0A992: .balign 4\0A993: .8byte 990b\0A.8byte _.stapsdt.base\0A.8byte ruby_cmethod__entry_semaphore\0A.asciz \22ruby\22\0A.asciz \22cmethod__entry\22\0A_SDT_SIGN ${0:n}\0A_SDT_SIZE ${0:n}\0A_SDT_TYPE ${0:n}\0A.ascii \22$1\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${2:n}\0A_SDT_SIZE ${2:n}\0A_SDT_TYPE ${2:n}\0A.ascii \22$3\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${4:n}\0A_SDT_SIZE ${4:n}\0A_SDT_TYPE ${4:n}\0A.ascii \22$5\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${6:n}\0A_SDT_SIZE ${6:n}\0A_SDT_TYPE ${6:n}\0A.ascii \22$7\22\0A.ascii \22\\x00\22\0A.purgem _SDT_SIGN\0A.purgem _SDT_SIZE_\0A.purgem _SDT_SIZE\0A.purgem _SDT_TYPE_\0A.purgem _SDT_TYPE\0A994: .balign 4\0A.popsection\0A", "n,norfxy,n,norfxy,n,norfxy,n,norfxy,~{dirflag},~{fpsr},~{flags}"(i32 -2053, ptr %130, i32 -2053, ptr %132, i32 -2053, ptr %134, i32 1025, i32 %136) #20, !srcloc !720
+  call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !721
   br label %137
 
 137:                                              ; preds = %129, %123
@@ -56882,7 +56882,7 @@ rb_vm_pop_frame.exit.i.i:                         ; preds = %197, %192
   br i1 %.not70.i.i, label %237, label %229
 
 229:                                              ; preds = %222
-  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i16) @ruby_cmethod__return_semaphore) #20, !srcloc !720
+  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i16) @ruby_cmethod__return_semaphore) #20, !srcloc !722
   %230 = load ptr, ptr %17, align 8, !tbaa !457
   %231 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %232 = load ptr, ptr %231, align 8, !tbaa !459
@@ -56890,8 +56890,8 @@ rb_vm_pop_frame.exit.i.i:                         ; preds = %197, %192
   %234 = load ptr, ptr %233, align 8, !tbaa !460
   %235 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %236 = load i32, ptr %235, align 8, !tbaa !480
-  call void asm sideeffect ".altmacro\0A.macro _SDT_SIGN x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.iflt \\x\0A.ascii \22-\22\0A.endif\0A.popsection\0A.endm\0A.macro _SDT_SIZE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ascii \22\\x\22\0A.popsection\0A.endm\0A.macro _SDT_SIZE x\0A_SDT_SIZE_ %((-(-\\x*((-\\x>0)-(-\\x<0))))>>8)\0A.endm\0A.macro _SDT_TYPE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ifc 8,\\x\0A.ascii \22f\22\0A.endif\0A.ascii \22@\22\0A.popsection\0A.endm\0A.macro _SDT_TYPE x\0A_SDT_TYPE_ %((\\x)&(0xff))\0A.endm\0A990: nop\0A.pushsection .note.stapsdt,\22?\22,\22note\22\0A.balign 4\0A.4byte 992f-991f,994f-993f,3\0A991: .asciz \22stapsdt\22\0A992: .balign 4\0A993: .8byte 990b\0A.8byte _.stapsdt.base\0A.8byte ruby_cmethod__return_semaphore\0A.asciz \22ruby\22\0A.asciz \22cmethod__return\22\0A_SDT_SIGN ${0:n}\0A_SDT_SIZE ${0:n}\0A_SDT_TYPE ${0:n}\0A.ascii \22$1\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${2:n}\0A_SDT_SIZE ${2:n}\0A_SDT_TYPE ${2:n}\0A.ascii \22$3\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${4:n}\0A_SDT_SIZE ${4:n}\0A_SDT_TYPE ${4:n}\0A.ascii \22$5\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${6:n}\0A_SDT_SIZE ${6:n}\0A_SDT_TYPE ${6:n}\0A.ascii \22$7\22\0A.ascii \22\\x00\22\0A.purgem _SDT_SIGN\0A.purgem _SDT_SIZE_\0A.purgem _SDT_SIZE\0A.purgem _SDT_TYPE_\0A.purgem _SDT_TYPE\0A994: .balign 4\0A.popsection\0A", "n,norfxy,n,norfxy,n,norfxy,n,norfxy,~{dirflag},~{fpsr},~{flags}"(i32 -2053, ptr %230, i32 -2053, ptr %232, i32 -2053, ptr %234, i32 1025, i32 %236) #20, !srcloc !721
-  call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !722
+  call void asm sideeffect ".altmacro\0A.macro _SDT_SIGN x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.iflt \\x\0A.ascii \22-\22\0A.endif\0A.popsection\0A.endm\0A.macro _SDT_SIZE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ascii \22\\x\22\0A.popsection\0A.endm\0A.macro _SDT_SIZE x\0A_SDT_SIZE_ %((-(-\\x*((-\\x>0)-(-\\x<0))))>>8)\0A.endm\0A.macro _SDT_TYPE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ifc 8,\\x\0A.ascii \22f\22\0A.endif\0A.ascii \22@\22\0A.popsection\0A.endm\0A.macro _SDT_TYPE x\0A_SDT_TYPE_ %((\\x)&(0xff))\0A.endm\0A990: nop\0A.pushsection .note.stapsdt,\22?\22,\22note\22\0A.balign 4\0A.4byte 992f-991f,994f-993f,3\0A991: .asciz \22stapsdt\22\0A992: .balign 4\0A993: .8byte 990b\0A.8byte _.stapsdt.base\0A.8byte ruby_cmethod__return_semaphore\0A.asciz \22ruby\22\0A.asciz \22cmethod__return\22\0A_SDT_SIGN ${0:n}\0A_SDT_SIZE ${0:n}\0A_SDT_TYPE ${0:n}\0A.ascii \22$1\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${2:n}\0A_SDT_SIZE ${2:n}\0A_SDT_TYPE ${2:n}\0A.ascii \22$3\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${4:n}\0A_SDT_SIZE ${4:n}\0A_SDT_TYPE ${4:n}\0A.ascii \22$5\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${6:n}\0A_SDT_SIZE ${6:n}\0A_SDT_TYPE ${6:n}\0A.ascii \22$7\22\0A.ascii \22\\x00\22\0A.purgem _SDT_SIGN\0A.purgem _SDT_SIZE_\0A.purgem _SDT_SIZE\0A.purgem _SDT_TYPE_\0A.purgem _SDT_TYPE\0A994: .balign 4\0A.popsection\0A", "n,norfxy,n,norfxy,n,norfxy,n,norfxy,~{dirflag},~{fpsr},~{flags}"(i32 -2053, ptr %230, i32 -2053, ptr %232, i32 -2053, ptr %234, i32 1025, i32 %236) #20, !srcloc !723
+  call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !724
   br label %237
 
 237:                                              ; preds = %229, %222
@@ -59036,7 +59036,7 @@ define internal noundef i64 @check_funcall_failed(i64 noundef %0, i64 noundef %1
   br i1 %.not, label %7, label %.critedge
 
 7:                                                ; preds = %2
-  %8 = load i64, ptr %3, align 8, !tbaa !723
+  %8 = load i64, ptr %3, align 8, !tbaa !725
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %10 = load i64, ptr %9, align 8, !tbaa !407
   %11 = tail call fastcc i32 @method_boundp(i64 noundef %8, i64 noundef %10, i32 noundef 3)
@@ -59179,7 +59179,7 @@ rb_source_location.exit.i:                        ; preds = %rb_vm_get_ruby_leve
   %48 = getelementptr inbounds nuw i8, ptr %7, i64 712
   call void @pm_options_line_set(ptr noundef nonnull %48, i32 noundef %.0147151.i) #20
   %49 = getelementptr inbounds nuw i8, ptr %7, i64 976
-  store i32 %.0117.i, ptr %49, align 8, !tbaa !724
+  store i32 %.0117.i, ptr %49, align 8, !tbaa !726
   br label %50
 
 50:                                               ; preds = %50, %.thread.i
@@ -59193,7 +59193,7 @@ rb_source_location.exit.i:                        ; preds = %rb_vm_get_ruby_leve
   %55 = load ptr, ptr %54, align 8, !tbaa !133
   %.not138.i = icmp eq ptr %55, null
   %indvars.iv.next187.i = add i32 %indvars.iv186.i, 1
-  br i1 %.not138.i, label %56, label %50, !llvm.loop !749
+  br i1 %.not138.i, label %56, label %50, !llvm.loop !751
 
 56:                                               ; preds = %50
   %57 = getelementptr inbounds nuw i8, ptr %7, i64 840
@@ -59211,7 +59211,7 @@ rb_source_location.exit.i:                        ; preds = %rb_vm_get_ruby_leve
 
 ._crit_edge165.i:                                 ; preds = %._crit_edge.i, %56
   %64 = getelementptr inbounds nuw i8, ptr %7, i64 792
-  %65 = load ptr, ptr %64, align 8, !tbaa !750
+  %65 = load ptr, ptr %64, align 8, !tbaa !752
   %66 = sext i32 %51 to i64
   %67 = getelementptr %struct.pm_options_scope, ptr %65, i64 %66
   %68 = call zeroext i1 @pm_options_scope_init(ptr noundef %67, i64 noundef 0) #20
@@ -59241,7 +59241,7 @@ rb_source_location.exit.i:                        ; preds = %rb_vm_get_ruby_leve
   %77 = load ptr, ptr %76, align 8, !tbaa !73
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 232
   %79 = load i32, ptr %78, align 8, !tbaa !182
-  %80 = load ptr, ptr %63, align 8, !tbaa !750
+  %80 = load ptr, ptr %63, align 8, !tbaa !752
   %81 = trunc nuw nsw i64 %indvars.iv183.i to i32
   %82 = sub i32 %.0120.i, %81
   %83 = sext i32 %82 to i64
@@ -59264,19 +59264,19 @@ rb_source_location.exit.i:                        ; preds = %rb_vm_get_ruby_leve
   %91 = load ptr, ptr %90, align 8, !tbaa !133
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr %8, ptr %11, align 8, !tbaa !95
-  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %11) #20, !srcloc !751
+  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %11) #20, !srcloc !753
   %92 = load ptr, ptr %11, align 8, !tbaa !95
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %93 = load volatile i64, ptr %92, align 8, !tbaa !7
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %indvars.iv.next184.i = add nuw nsw i64 %indvars.iv183.i, 1
   %exitcond189.not.i = icmp eq i64 %indvars.iv.next184.i, %wide.trip.count188.i
-  br i1 %exitcond189.not.i, label %._crit_edge165.i, label %74, !llvm.loop !752
+  br i1 %exitcond189.not.i, label %._crit_edge165.i, label %74, !llvm.loop !754
 
 94:                                               ; preds = %137, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %137 ]
   %.0124160.i = phi i8 [ 0, %.lr.ph.i ], [ %.1125.i, %137 ]
-  %95 = load ptr, ptr %88, align 8, !tbaa !753
+  %95 = load ptr, ptr %88, align 8, !tbaa !755
   %96 = getelementptr %struct.pm_string_t, ptr %95, i64 %indvars.iv.i
   %97 = load ptr, ptr %76, align 8, !tbaa !73
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 144
@@ -59292,7 +59292,7 @@ rb_source_location.exit.i:                        ; preds = %rb_vm_get_ruby_leve
   %104 = call i64 @rb_id2str(i64 noundef %101) #20
   store i64 %104, ptr %9, align 8, !tbaa !7
   %105 = inttoptr i64 %104 to ptr
-  %106 = load i64, ptr %105, align 8, !tbaa !97, !noalias !755
+  %106 = load i64, ptr %105, align 8, !tbaa !97, !noalias !757
   %107 = and i64 %106, 8192
   %.not.i.i.i = icmp eq i64 %107, 0
   %108 = getelementptr inbounds nuw i8, ptr %105, i64 24
@@ -59331,7 +59331,7 @@ RSTRING_PTR.exit.i:                               ; preds = %109, %103
   %124 = call i64 @strlcpy(ptr noundef nonnull %123, ptr noundef nonnull dereferenceable(1) %.sroa.2.0.i.i, i64 noundef %122) #20
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %9, ptr %10, align 8, !tbaa !95
-  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %10) #20, !srcloc !758
+  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %10) #20, !srcloc !760
   %125 = load ptr, ptr %10, align 8, !tbaa !95
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %126 = load volatile i64, ptr %125, align 8, !tbaa !7
@@ -59375,7 +59375,7 @@ RSTRING_PTR.exit.i:                               ; preds = %109, %103
   %.1125.i = phi i8 [ %.0124160.i, %127 ], [ %130, %129 ], [ %132, %131 ], [ %134, %133 ], [ %136, %135 ], [ %.0124160.i, %.critedge.i ], [ %.0124160.i, %128 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %94, !llvm.loop !759
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %94, !llvm.loop !761
 
 138:                                              ; preds = %._crit_edge165.i
   call void @pm_parse_result_free(ptr noundef nonnull %7) #20
@@ -59386,7 +59386,7 @@ RSTRING_PTR.exit.i:                               ; preds = %109, %103
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %139 = call ptr @pm_iseq_new_eval(ptr noundef nonnull %57, i64 noundef %26, i64 noundef %.1.i, i64 noundef 4, i32 noundef %.0147151.i, ptr noundef %.0.i.i, i32 noundef 0, ptr noundef nonnull %13) #20
   %140 = getelementptr inbounds nuw i8, ptr %7, i64 864
-  %141 = load ptr, ptr %140, align 8, !tbaa !760
+  %141 = load ptr, ptr %140, align 8, !tbaa !762
   %.not140175.i = icmp eq ptr %141, null
   br i1 %.not140175.i, label %._crit_edge179.i, label %.lr.ph178.i
 
@@ -59395,20 +59395,20 @@ RSTRING_PTR.exit.i:                               ; preds = %109, %103
   %.2172.i = phi ptr [ %.0.i.i, %.lr.ph173.i ], [ %164, %._crit_edge169.i ]
   %.0128170.i = phi ptr [ %57, %.lr.ph173.i ], [ %143, %._crit_edge169.i ]
   %143 = call noalias nonnull dereferenceable(152) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 152) #57
-  %144 = load ptr, ptr %64, align 8, !tbaa !750
+  %144 = load ptr, ptr %64, align 8, !tbaa !752
   %145 = getelementptr inbounds nuw i8, ptr %143, i64 136
-  store i32 %.0117.i, ptr %145, align 8, !tbaa !761
+  store i32 %.0117.i, ptr %145, align 8, !tbaa !763
   %146 = getelementptr inbounds nuw i8, ptr %143, i64 80
-  store ptr %7, ptr %146, align 8, !tbaa !762
+  store ptr %7, ptr %146, align 8, !tbaa !764
   %147 = call ptr @rb_st_init_numtable() #20
   %148 = getelementptr inbounds nuw i8, ptr %143, i64 128
-  store ptr %147, ptr %148, align 8, !tbaa !763
+  store ptr %147, ptr %148, align 8, !tbaa !765
   %149 = getelementptr inbounds nuw i8, ptr %.2172.i, i64 16
   %150 = load ptr, ptr %149, align 8, !tbaa !73
   %151 = getelementptr inbounds nuw i8, ptr %150, i64 232
   %152 = load i32, ptr %151, align 8, !tbaa !182
   %153 = getelementptr inbounds nuw i8, ptr %143, i64 112
-  store i32 %152, ptr %153, align 8, !tbaa !764
+  store i32 %152, ptr %153, align 8, !tbaa !766
   %154 = getelementptr inbounds nuw i8, ptr %143, i64 56
   call void @pm_constant_id_list_init(ptr noundef nonnull %154) #20
   %155 = icmp sgt i32 %152, 0
@@ -59425,17 +59425,17 @@ RSTRING_PTR.exit.i:                               ; preds = %109, %103
 
 ._crit_edge169.i:                                 ; preds = %185, %142
   %161 = getelementptr inbounds nuw i8, ptr %.0128170.i, i64 24
-  store ptr %143, ptr %161, align 8, !tbaa !765
+  store ptr %143, ptr %161, align 8, !tbaa !767
   %162 = load ptr, ptr %149, align 8, !tbaa !73
   %163 = getelementptr inbounds nuw i8, ptr %162, i64 160
   %164 = load ptr, ptr %163, align 8, !tbaa !133
   %indvars.iv.next196.i = add nuw nsw i64 %indvars.iv195.i, 1
   %exitcond200.not.i = icmp eq i64 %indvars.iv.next196.i, %wide.trip.count199.i
-  br i1 %exitcond200.not.i, label %._crit_edge174.i, label %142, !llvm.loop !766
+  br i1 %exitcond200.not.i, label %._crit_edge174.i, label %142, !llvm.loop !768
 
 165:                                              ; preds = %185, %.lr.ph168.i
   %indvars.iv190.i = phi i64 [ 0, %.lr.ph168.i ], [ %indvars.iv.next191.i, %185 ]
-  %166 = load ptr, ptr %160, align 8, !tbaa !753
+  %166 = load ptr, ptr %160, align 8, !tbaa !755
   %167 = getelementptr %struct.pm_string_t, ptr %166, i64 %indvars.iv190.i
   %168 = call ptr @pm_string_source(ptr noundef %167) #20
   %169 = call i64 @pm_string_length(ptr noundef %167) #20
@@ -59472,7 +59472,7 @@ switch.lookup:                                    ; preds = %170
 
 181:                                              ; preds = %switch.lookup, %178, %176
   %.1119.i = phi i32 [ %177, %176 ], [ %179, %178 ], [ %switch.load, %switch.lookup ]
-  %182 = load ptr, ptr %148, align 8, !tbaa !763
+  %182 = load ptr, ptr %148, align 8, !tbaa !765
   %183 = zext i32 %.1119.i to i64
   %184 = call i32 @rb_st_insert(ptr noundef %182, i64 noundef %183, i64 noundef %indvars.iv190.i) #20
   br label %185
@@ -59482,18 +59482,18 @@ switch.lookup:                                    ; preds = %170
   %186 = call zeroext i1 @pm_constant_id_list_append(ptr noundef nonnull %154, i32 noundef %.0118.i) #20
   %indvars.iv.next191.i = add nuw nsw i64 %indvars.iv190.i, 1
   %exitcond194.not.i = icmp eq i64 %indvars.iv.next191.i, %wide.trip.count193.i
-  br i1 %exitcond194.not.i, label %._crit_edge169.i, label %165, !llvm.loop !767
+  br i1 %exitcond194.not.i, label %._crit_edge169.i, label %165, !llvm.loop !769
 
 .lr.ph178.i:                                      ; preds = %._crit_edge174.i, %.lr.ph178.i
   %.0114176.i = phi ptr [ %188, %.lr.ph178.i ], [ %141, %._crit_edge174.i ]
   %187 = getelementptr inbounds nuw i8, ptr %.0114176.i, i64 24
-  %188 = load ptr, ptr %187, align 8, !tbaa !765
+  %188 = load ptr, ptr %187, align 8, !tbaa !767
   %189 = getelementptr inbounds nuw i8, ptr %.0114176.i, i64 56
   call void @pm_constant_id_list_free(ptr noundef nonnull %189) #20
   call void @pm_scope_node_destroy(ptr noundef nonnull %.0114176.i) #20
   call void @ruby_xfree(ptr noundef nonnull %.0114176.i) #20
   %.not140.i = icmp eq ptr %188, null
-  br i1 %.not140.i, label %._crit_edge179.i, label %.lr.ph178.i, !llvm.loop !768
+  br i1 %.not140.i, label %._crit_edge179.i, label %.lr.ph178.i, !llvm.loop !770
 
 ._crit_edge179.i:                                 ; preds = %.lr.ph178.i, %._crit_edge174.i
   call void @pm_parse_result_free(ptr noundef nonnull %7) #20
@@ -59712,7 +59712,7 @@ rb_source_location.exit:                          ; preds = %rb_vm_get_ruby_leve
   %275 = tail call i64 @rb_parser_compile_string_path(i64 noundef %222, i64 noundef %.1, i64 noundef %0, i32 noundef %.05862) #20
   %276 = tail call ptr @rb_ruby_ast_data_get(i64 noundef %275) #20
   %277 = getelementptr inbounds nuw i8, ptr %276, i64 8
-  %278 = load ptr, ptr %277, align 8, !tbaa !769
+  %278 = load ptr, ptr %277, align 8, !tbaa !771
   %.not43 = icmp eq ptr %278, null
   br i1 %.not43, label %.thread67, label %279
 
@@ -60156,7 +60156,7 @@ define internal fastcc i64 @vm_make_env_each(ptr noundef readnone captures(none)
   %16 = getelementptr i8, ptr %.pn, i64 88
   %17 = load ptr, ptr %16, align 8, !tbaa !13
   %.not64 = icmp eq ptr %17, %14
-  br i1 %.not64, label %18, label %.preheader, !llvm.loop !774
+  br i1 %.not64, label %18, label %.preheader, !llvm.loop !776
 
 18:                                               ; preds = %.preheader
   %19 = getelementptr i8, ptr %.pn, i64 88
@@ -60317,7 +60317,7 @@ ruby_nonempty_memcpy.exit:                        ; preds = %rbimpl_size_mul_or_
   %95 = getelementptr inbounds nuw i8, ptr %75, i64 24
   store ptr %73, ptr %95, align 8, !tbaa !512
   %96 = getelementptr inbounds nuw i8, ptr %75, i64 32
-  store i32 %71, ptr %96, align 8, !tbaa !775
+  store i32 %71, ptr %96, align 8, !tbaa !777
   store ptr %85, ptr %3, align 8, !tbaa !13
   %97 = load i64, ptr %85, align 8, !tbaa !7
   %98 = or i64 %97, 12
@@ -60415,10 +60415,10 @@ define internal fastcc ptr @env_copy(ptr noundef readonly captures(none) %0, i64
   %.val62 = load i64, ptr %3, align 8, !tbaa !7
   %4 = inttoptr i64 %.val62 to ptr
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %6 = load i32, ptr %5, align 8, !tbaa !775
+  %6 = load i32, ptr %5, align 8, !tbaa !777
   %7 = zext i32 %6 to i64
   %8 = tail call noalias nonnull ptr @ruby_xcalloc(i64 noundef %7, i64 noundef 8) #57
-  %9 = load i32, ptr %5, align 8, !tbaa !775
+  %9 = load i32, ptr %5, align 8, !tbaa !777
   %10 = add i32 %9, -2
   %11 = zext i32 %10 to i64
   %12 = getelementptr i64, ptr %8, i64 %11
@@ -60432,7 +60432,7 @@ define internal fastcc ptr @env_copy(ptr noundef readonly captures(none) %0, i64
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 24
   store ptr %8, ptr %19, align 8, !tbaa !512
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 32
-  store i32 %9, ptr %20, align 8, !tbaa !775
+  store i32 %9, ptr %20, align 8, !tbaa !777
   %21 = getelementptr i8, ptr %12, i64 8
   store i64 %16, ptr %21, align 8, !tbaa !7
   %22 = getelementptr i8, ptr %12, i64 -16
@@ -60542,7 +60542,7 @@ NUM2ID.exit:                                      ; preds = %57, %59
 68:                                               ; preds = %69
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %69, !llvm.loop !776
+  br i1 %exitcond.not, label %.loopexit, label %69, !llvm.loop !778
 
 69:                                               ; preds = %.lr.ph, %68
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %68 ]
@@ -60610,7 +60610,7 @@ rb_obj_write.exit67:                              ; preds = %.thread69, %.thread
 .loopexit:                                        ; preds = %68, %NUM2ID.exit, %rb_obj_write.exit67
   %indvars.iv.next81 = add nsw i64 %indvars.iv80, -1
   %99 = icmp sgt i64 %indvars.iv80, 0
-  br i1 %99, label %49, label %.loopexit70.loopexit, !llvm.loop !777
+  br i1 %99, label %49, label %.loopexit70.loopexit, !llvm.loop !779
 
 .loopexit70.loopexit:                             ; preds = %.loopexit
   %.val.pre = load i64, ptr %0, align 8, !tbaa !7
@@ -61179,13 +61179,13 @@ rb_ec_ractor_hooks.exit:                          ; preds = %.critedge
   br i1 %.not256, label %71, label %66
 
 66:                                               ; preds = %57
-  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i16) @ruby_cmethod__return_semaphore) #20, !srcloc !778
+  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i16) @ruby_cmethod__return_semaphore) #20, !srcloc !780
   %67 = load ptr, ptr %5, align 8, !tbaa !457
   %68 = load ptr, ptr %18, align 8, !tbaa !459
   %69 = load ptr, ptr %19, align 8, !tbaa !460
   %70 = load i32, ptr %20, align 8, !tbaa !480
-  call void asm sideeffect ".altmacro\0A.macro _SDT_SIGN x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.iflt \\x\0A.ascii \22-\22\0A.endif\0A.popsection\0A.endm\0A.macro _SDT_SIZE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ascii \22\\x\22\0A.popsection\0A.endm\0A.macro _SDT_SIZE x\0A_SDT_SIZE_ %((-(-\\x*((-\\x>0)-(-\\x<0))))>>8)\0A.endm\0A.macro _SDT_TYPE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ifc 8,\\x\0A.ascii \22f\22\0A.endif\0A.ascii \22@\22\0A.popsection\0A.endm\0A.macro _SDT_TYPE x\0A_SDT_TYPE_ %((\\x)&(0xff))\0A.endm\0A990: nop\0A.pushsection .note.stapsdt,\22?\22,\22note\22\0A.balign 4\0A.4byte 992f-991f,994f-993f,3\0A991: .asciz \22stapsdt\22\0A992: .balign 4\0A993: .8byte 990b\0A.8byte _.stapsdt.base\0A.8byte ruby_cmethod__return_semaphore\0A.asciz \22ruby\22\0A.asciz \22cmethod__return\22\0A_SDT_SIGN ${0:n}\0A_SDT_SIZE ${0:n}\0A_SDT_TYPE ${0:n}\0A.ascii \22$1\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${2:n}\0A_SDT_SIZE ${2:n}\0A_SDT_TYPE ${2:n}\0A.ascii \22$3\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${4:n}\0A_SDT_SIZE ${4:n}\0A_SDT_TYPE ${4:n}\0A.ascii \22$5\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${6:n}\0A_SDT_SIZE ${6:n}\0A_SDT_TYPE ${6:n}\0A.ascii \22$7\22\0A.ascii \22\\x00\22\0A.purgem _SDT_SIGN\0A.purgem _SDT_SIZE_\0A.purgem _SDT_SIZE\0A.purgem _SDT_TYPE_\0A.purgem _SDT_TYPE\0A994: .balign 4\0A.popsection\0A", "n,norfxy,n,norfxy,n,norfxy,n,norfxy,~{dirflag},~{fpsr},~{flags}"(i32 -2053, ptr %67, i32 -2053, ptr %68, i32 -2053, ptr %69, i32 1025, i32 %70) #20, !srcloc !779
-  call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !780
+  call void asm sideeffect ".altmacro\0A.macro _SDT_SIGN x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.iflt \\x\0A.ascii \22-\22\0A.endif\0A.popsection\0A.endm\0A.macro _SDT_SIZE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ascii \22\\x\22\0A.popsection\0A.endm\0A.macro _SDT_SIZE x\0A_SDT_SIZE_ %((-(-\\x*((-\\x>0)-(-\\x<0))))>>8)\0A.endm\0A.macro _SDT_TYPE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ifc 8,\\x\0A.ascii \22f\22\0A.endif\0A.ascii \22@\22\0A.popsection\0A.endm\0A.macro _SDT_TYPE x\0A_SDT_TYPE_ %((\\x)&(0xff))\0A.endm\0A990: nop\0A.pushsection .note.stapsdt,\22?\22,\22note\22\0A.balign 4\0A.4byte 992f-991f,994f-993f,3\0A991: .asciz \22stapsdt\22\0A992: .balign 4\0A993: .8byte 990b\0A.8byte _.stapsdt.base\0A.8byte ruby_cmethod__return_semaphore\0A.asciz \22ruby\22\0A.asciz \22cmethod__return\22\0A_SDT_SIGN ${0:n}\0A_SDT_SIZE ${0:n}\0A_SDT_TYPE ${0:n}\0A.ascii \22$1\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${2:n}\0A_SDT_SIZE ${2:n}\0A_SDT_TYPE ${2:n}\0A.ascii \22$3\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${4:n}\0A_SDT_SIZE ${4:n}\0A_SDT_TYPE ${4:n}\0A.ascii \22$5\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${6:n}\0A_SDT_SIZE ${6:n}\0A_SDT_TYPE ${6:n}\0A.ascii \22$7\22\0A.ascii \22\\x00\22\0A.purgem _SDT_SIGN\0A.purgem _SDT_SIZE_\0A.purgem _SDT_SIZE\0A.purgem _SDT_TYPE_\0A.purgem _SDT_TYPE\0A994: .balign 4\0A.popsection\0A", "n,norfxy,n,norfxy,n,norfxy,n,norfxy,~{dirflag},~{fpsr},~{flags}"(i32 -2053, ptr %67, i32 -2053, ptr %68, i32 -2053, ptr %69, i32 1025, i32 %70) #20, !srcloc !781
+  call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !782
   br label %71
 
 71:                                               ; preds = %66, %57
@@ -61210,7 +61210,7 @@ rb_ec_ractor_hooks.exit:                          ; preds = %.critedge
 rb_vm_pop_frame.exit:                             ; preds = %72, %76
   %78 = getelementptr i8, ptr %73, i64 56
   store ptr %78, ptr %7, align 8, !tbaa !66
-  br label %26, !llvm.loop !781
+  br label %26, !llvm.loop !783
 
 79:                                               ; preds = %30
   %80 = getelementptr inbounds nuw i8, ptr %32, i64 16
@@ -61288,7 +61288,7 @@ rb_vm_pop_frame.exit:                             ; preds = %72, %76
 116:                                              ; preds = %103, %109, %113
   %indvars.iv.next484 = add nuw nsw i64 %indvars.iv483, 1
   %exitcond487.not = icmp eq i64 %indvars.iv.next484, %wide.trip.count486
-  br i1 %exitcond487.not, label %.thread, label %103, !llvm.loop !782
+  br i1 %exitcond487.not, label %.thread, label %103, !llvm.loop !784
 
 117:                                              ; preds = %113
   %118 = getelementptr inbounds nuw i8, ptr %104, i64 8
@@ -61297,7 +61297,7 @@ rb_vm_pop_frame.exit:                             ; preds = %72, %76
   %121 = load i32, ptr %120, align 8, !tbaa !145
   %122 = zext i32 %121 to i64
   %123 = getelementptr inbounds nuw i8, ptr %104, i64 28
-  %124 = load i32, ptr %123, align 4, !tbaa !783
+  %124 = load i32, ptr %123, align 4, !tbaa !785
   %125 = zext i32 %124 to i64
   %126 = icmp eq ptr %119, null
   br i1 %126, label %.thread, label %.preheader369
@@ -61389,7 +61389,7 @@ rb_vm_pop_frame.exit270:                          ; preds = %.thread, %132
 160:                                              ; preds = %158, %148, %154
   %indvars.iv.next479 = add nuw nsw i64 %indvars.iv478, 1
   %exitcond482.not = icmp eq i64 %indvars.iv.next479, %wide.trip.count481
-  br i1 %exitcond482.not, label %.thread316, label %148, !llvm.loop !784
+  br i1 %exitcond482.not, label %.thread316, label %148, !llvm.loop !786
 
 161:                                              ; preds = %142
   %162 = getelementptr inbounds nuw i8, ptr %81, i64 152
@@ -61448,7 +61448,7 @@ rb_vm_pop_frame.exit270:                          ; preds = %.thread, %132
 184:                                              ; preds = %178, %176, %166, %172
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.thread316, label %166, !llvm.loop !785
+  br i1 %exitcond.not, label %.thread316, label %166, !llvm.loop !787
 
 .thread300:                                       ; preds = %96, %142
   %.1199312 = phi i32 [ %.0198, %142 ], [ 2, %96 ]
@@ -61583,7 +61583,7 @@ vm_ci_argc.exit.i:                                ; preds = %241, %238
 vm_base_ptr.exit:                                 ; preds = %210, %247
   %.0.i = phi ptr [ null, %210 ], [ %spec.select.i, %247 ]
   %251 = getelementptr inbounds nuw i8, ptr %196, i64 28
-  %252 = load i32, ptr %251, align 4, !tbaa !783
+  %252 = load i32, ptr %251, align 4, !tbaa !785
   %253 = zext i32 %252 to i64
   %254 = getelementptr i64, ptr %.0.i, i64 %253
   %255 = getelementptr inbounds nuw i8, ptr %27, i64 8
@@ -61607,7 +61607,7 @@ vm_base_ptr.exit:                                 ; preds = %210, %247
 261:                                              ; preds = %195, %201, %208
   %indvars.iv.next494 = add nuw nsw i64 %indvars.iv493, 1
   %exitcond497.not = icmp eq i64 %indvars.iv.next494, %wide.trip.count496
-  br i1 %exitcond497.not, label %.thread316, label %195, !llvm.loop !786
+  br i1 %exitcond497.not, label %.thread316, label %195, !llvm.loop !788
 
 switch.early.test.thread:                         ; preds = %switch.early.test
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %81, i64 152
@@ -61655,7 +61655,7 @@ switch.early.test.thread:                         ; preds = %switch.early.test
 278:                                              ; preds = %265, %271, %275
   %indvars.iv.next489 = add nuw nsw i64 %indvars.iv488, 1
   %exitcond492.not = icmp eq i64 %indvars.iv.next489, %wide.trip.count491
-  br i1 %exitcond492.not, label %.loopexit, label %265, !llvm.loop !787
+  br i1 %exitcond492.not, label %.loopexit, label %265, !llvm.loop !789
 
 .loopexit.sink.split:                             ; preds = %176, %158, %158, %275, %205
   %.lcssa551.sink580 = phi ptr [ %196, %205 ], [ %266, %275 ], [ %149, %158 ], [ %149, %158 ], [ %167, %176 ]
@@ -61667,7 +61667,7 @@ switch.early.test.thread:                         ; preds = %switch.early.test
   %282 = load i32, ptr %281, align 8, !tbaa !145
   %283 = zext i32 %282 to i64
   %284 = getelementptr inbounds nuw i8, ptr %.lcssa551.sink580, i64 28
-  %285 = load i32, ptr %284, align 4, !tbaa !783
+  %285 = load i32, ptr %284, align 4, !tbaa !785
   %286 = zext i32 %285 to i64
   br label %.loopexit
 
@@ -61924,7 +61924,7 @@ define internal fastcc void @hook_before_rewind(ptr noundef %0, i1 noundef zeroe
   br i1 %.not83, label %42, label %34
 
 34:                                               ; preds = %32
-  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i16) @ruby_method__return_semaphore) #20, !srcloc !788
+  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i16) @ruby_method__return_semaphore) #20, !srcloc !790
   %35 = load ptr, ptr %14, align 8, !tbaa !457
   %36 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %37 = load ptr, ptr %36, align 8, !tbaa !459
@@ -61932,8 +61932,8 @@ define internal fastcc void @hook_before_rewind(ptr noundef %0, i1 noundef zeroe
   %39 = load ptr, ptr %38, align 8, !tbaa !460
   %40 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %41 = load i32, ptr %40, align 8, !tbaa !480
-  call void asm sideeffect ".altmacro\0A.macro _SDT_SIGN x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.iflt \\x\0A.ascii \22-\22\0A.endif\0A.popsection\0A.endm\0A.macro _SDT_SIZE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ascii \22\\x\22\0A.popsection\0A.endm\0A.macro _SDT_SIZE x\0A_SDT_SIZE_ %((-(-\\x*((-\\x>0)-(-\\x<0))))>>8)\0A.endm\0A.macro _SDT_TYPE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ifc 8,\\x\0A.ascii \22f\22\0A.endif\0A.ascii \22@\22\0A.popsection\0A.endm\0A.macro _SDT_TYPE x\0A_SDT_TYPE_ %((\\x)&(0xff))\0A.endm\0A990: nop\0A.pushsection .note.stapsdt,\22?\22,\22note\22\0A.balign 4\0A.4byte 992f-991f,994f-993f,3\0A991: .asciz \22stapsdt\22\0A992: .balign 4\0A993: .8byte 990b\0A.8byte _.stapsdt.base\0A.8byte ruby_method__return_semaphore\0A.asciz \22ruby\22\0A.asciz \22method__return\22\0A_SDT_SIGN ${0:n}\0A_SDT_SIZE ${0:n}\0A_SDT_TYPE ${0:n}\0A.ascii \22$1\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${2:n}\0A_SDT_SIZE ${2:n}\0A_SDT_TYPE ${2:n}\0A.ascii \22$3\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${4:n}\0A_SDT_SIZE ${4:n}\0A_SDT_TYPE ${4:n}\0A.ascii \22$5\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${6:n}\0A_SDT_SIZE ${6:n}\0A_SDT_TYPE ${6:n}\0A.ascii \22$7\22\0A.ascii \22\\x00\22\0A.purgem _SDT_SIGN\0A.purgem _SDT_SIZE_\0A.purgem _SDT_SIZE\0A.purgem _SDT_TYPE_\0A.purgem _SDT_TYPE\0A994: .balign 4\0A.popsection\0A", "n,norfxy,n,norfxy,n,norfxy,n,norfxy,~{dirflag},~{fpsr},~{flags}"(i32 -2053, ptr %35, i32 -2053, ptr %37, i32 -2053, ptr %39, i32 1025, i32 %41) #20, !srcloc !789
-  call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !790
+  call void asm sideeffect ".altmacro\0A.macro _SDT_SIGN x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.iflt \\x\0A.ascii \22-\22\0A.endif\0A.popsection\0A.endm\0A.macro _SDT_SIZE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ascii \22\\x\22\0A.popsection\0A.endm\0A.macro _SDT_SIZE x\0A_SDT_SIZE_ %((-(-\\x*((-\\x>0)-(-\\x<0))))>>8)\0A.endm\0A.macro _SDT_TYPE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ifc 8,\\x\0A.ascii \22f\22\0A.endif\0A.ascii \22@\22\0A.popsection\0A.endm\0A.macro _SDT_TYPE x\0A_SDT_TYPE_ %((\\x)&(0xff))\0A.endm\0A990: nop\0A.pushsection .note.stapsdt,\22?\22,\22note\22\0A.balign 4\0A.4byte 992f-991f,994f-993f,3\0A991: .asciz \22stapsdt\22\0A992: .balign 4\0A993: .8byte 990b\0A.8byte _.stapsdt.base\0A.8byte ruby_method__return_semaphore\0A.asciz \22ruby\22\0A.asciz \22method__return\22\0A_SDT_SIGN ${0:n}\0A_SDT_SIZE ${0:n}\0A_SDT_TYPE ${0:n}\0A.ascii \22$1\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${2:n}\0A_SDT_SIZE ${2:n}\0A_SDT_TYPE ${2:n}\0A.ascii \22$3\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${4:n}\0A_SDT_SIZE ${4:n}\0A_SDT_TYPE ${4:n}\0A.ascii \22$5\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${6:n}\0A_SDT_SIZE ${6:n}\0A_SDT_TYPE ${6:n}\0A.ascii \22$7\22\0A.ascii \22\\x00\22\0A.purgem _SDT_SIGN\0A.purgem _SDT_SIZE_\0A.purgem _SDT_SIZE\0A.purgem _SDT_TYPE_\0A.purgem _SDT_TYPE\0A994: .balign 4\0A.popsection\0A", "n,norfxy,n,norfxy,n,norfxy,n,norfxy,~{dirflag},~{fpsr},~{flags}"(i32 -2053, ptr %35, i32 -2053, ptr %37, i32 -2053, ptr %39, i32 1025, i32 %41) #20, !srcloc !791
+  call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !792
   br label %42
 
 42:                                               ; preds = %34, %32
@@ -62035,7 +62035,7 @@ imemo_throw_data_p.exit.i:                        ; preds = %.critedge
 
 90:                                               ; preds = %87
   %91 = or i64 %84, 65536
-  store i64 %91, ptr %3, align 8, !tbaa !791
+  store i64 %91, ptr %3, align 8, !tbaa !793
   br label %THROW_DATA_CONSUMED_SET.exit
 
 92:                                               ; preds = %21
@@ -62328,7 +62328,7 @@ imemo_throw_data_p.exit.i108:                     ; preds = %.critedge89
 
 239:                                              ; preds = %236
   %240 = or i64 %233, 65536
-  store i64 %240, ptr %3, align 8, !tbaa !791
+  store i64 %240, ptr %3, align 8, !tbaa !793
   br label %THROW_DATA_CONSUMED_SET.exit
 
 rb_ec_ractor_hooks.exit113:                       ; preds = %92
@@ -62425,7 +62425,7 @@ imemo_throw_data_p.exit.i114:                     ; preds = %.critedge91
 
 287:                                              ; preds = %284
   %288 = or i64 %281, 65536
-  store i64 %288, ptr %3, align 8, !tbaa !791
+  store i64 %288, ptr %3, align 8, !tbaa !793
   br label %THROW_DATA_CONSUMED_SET.exit
 
 rb_ec_ractor_hooks.exit119:                       ; preds = %21
@@ -62549,7 +62549,7 @@ define internal i64 @vm_memsize(ptr readnone captures(none) %0) #2 {
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 488
   %5 = tail call i64 @rb_vm_memsize_waiting_fds(ptr noundef nonnull %4) #20
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 640
-  %7 = load ptr, ptr %6, align 8, !tbaa !792
+  %7 = load ptr, ptr %6, align 8, !tbaa !794
   %8 = tail call i64 @rb_st_memsize(ptr noundef %7) #54
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 648
   %10 = load ptr, ptr %9, align 8, !tbaa !540
@@ -62569,7 +62569,7 @@ define internal i64 @vm_memsize(ptr readnone captures(none) %0) #2 {
   %18 = getelementptr inbounds nuw i8, ptr %.035.i, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !486
   %.not.i = icmp eq ptr %19, null
-  br i1 %.not.i, label %vm_memsize_at_exit_list.exit, label %.lr.ph.i, !llvm.loop !793
+  br i1 %.not.i, label %vm_memsize_at_exit_list.exit, label %.lr.ph.i, !llvm.loop !795
 
 vm_memsize_at_exit_list.exit:                     ; preds = %.lr.ph.i, %1
   %.0.lcssa.i = phi i64 [ 0, %1 ], [ %17, %.lr.ph.i ]
@@ -62588,7 +62588,7 @@ vm_memsize_at_exit_list.exit:                     ; preds = %.lr.ph.i, %1
   %32 = tail call i64 @rb_st_memsize(ptr noundef %31) #54
   %33 = add i64 %29, %32
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 1328
-  %35 = load ptr, ptr %34, align 8, !tbaa !794
+  %35 = load ptr, ptr %34, align 8, !tbaa !796
   %36 = icmp eq ptr %35, null
   %37 = select i1 %36, i64 0, i64 24
   %38 = add i64 %33, %37
@@ -62706,7 +62706,7 @@ declare i64 @__sysconf(i32 noundef) local_unnamed_addr #48
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @pin_array_list_mark(ptr noundef readonly captures(none) %0) #2 {
-  %2 = load i64, ptr %0, align 8, !tbaa !795
+  %2 = load i64, ptr %0, align 8, !tbaa !797
   tail call void @rb_gc_mark_movable(i64 noundef %2) #20
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !tbaa !545
@@ -62731,9 +62731,9 @@ define internal noundef i64 @pin_array_list_memsize(ptr readnone captures(none) 
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @pin_array_list_update_references(ptr noundef captures(none) %0) #2 {
-  %2 = load i64, ptr %0, align 8, !tbaa !795
+  %2 = load i64, ptr %0, align 8, !tbaa !797
   %3 = tail call i64 @rb_gc_location(i64 noundef %2) #20
-  store i64 %3, ptr %0, align 8, !tbaa !795
+  store i64 %3, ptr %0, align 8, !tbaa !797
   ret void
 }
 
@@ -62791,7 +62791,7 @@ define internal range(i32 0, 2) i32 @vm_ci_hash_cmp(i64 noundef %0, i64 noundef 
 29:                                               ; preds = %30
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %30, !llvm.loop !796
+  br i1 %exitcond.not, label %.critedge, label %30, !llvm.loop !798
 
 30:                                               ; preds = %.lr.ph, %29
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %29 ]
@@ -62842,7 +62842,7 @@ define internal i64 @vm_ci_hash(i64 noundef %0) #2 {
   %20 = tail call i64 @rb_st_hash_uint(i64 noundef %.114, i64 noundef %19) #64
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %17, !llvm.loop !797
+  br i1 %exitcond.not, label %.loopexit, label %17, !llvm.loop !799
 
 .loopexit:                                        ; preds = %17, %.preheader, %1
   %.013 = phi i64 [ %11, %1 ], [ %11, %.preheader ], [ %20, %17 ]
@@ -63648,103 +63648,105 @@ attributes #65 = { nounwind allocsize(1) }
 !695 = !{!158, !22, i64 144}
 !696 = !{!30, !36, i64 104}
 !697 = !{i64 2158272448}
-!698 = !{!"branch_weights", i32 7818360, i32 -388717296}
-!699 = !{i64 2158141350}
-!700 = !{i64 2158143367, i64 2158143417, i64 2158143528, i64 2158143609, i64 2158143650, i64 2158143690, i64 2158143729, i64 2158143767, i64 2158143813, i64 2158143925, i64 2158144008, i64 2158144055, i64 2158144093, i64 2158144138, i64 2158144225, i64 2158144299, i64 2158144345, i64 2158144457, i64 2158144553, i64 2158144600, i64 2158144640, i64 2158144678, i64 2158144723, i64 2158144761, i64 2158144806, i64 2158144873, i64 2158144927, i64 2158144966, i64 2158145072, i64 2158145154, i64 2158145250, i64 2158145341, i64 2158145400, i64 2158145459, i64 2158145525, i64 2158145706, i64 2158145831, i64 2158145963, i64 2158146536, i64 2158146610, i64 2158146684, i64 2158146837, i64 2158146970, i64 2158147326, i64 2158147400, i64 2158147474, i64 2158147627, i64 2158147760, i64 2158148116, i64 2158148190, i64 2158148264, i64 2158148417, i64 2158148550, i64 2158148906, i64 2158148980, i64 2158149054, i64 2158149207, i64 2158149318, i64 2158149583, i64 2158149640, i64 2158149697, i64 2158149754, i64 2158149811, i64 2158149864, i64 2158149911}
-!701 = !{i64 2158155794, i64 2158155972, i64 2158156101, i64 2158156165, i64 2158156233, i64 2158156315, i64 2158156375, i64 2158156414}
-!702 = !{i64 2158157957}
-!703 = !{i64 2158159978, i64 2158160028, i64 2158160139, i64 2158160220, i64 2158160261, i64 2158160301, i64 2158160340, i64 2158160378, i64 2158160424, i64 2158160536, i64 2158160619, i64 2158160666, i64 2158160704, i64 2158160749, i64 2158160836, i64 2158160910, i64 2158160956, i64 2158161068, i64 2158161164, i64 2158161211, i64 2158161251, i64 2158161289, i64 2158161334, i64 2158161372, i64 2158161417, i64 2158161484, i64 2158161538, i64 2158161577, i64 2158161683, i64 2158161765, i64 2158161861, i64 2158161952, i64 2158162011, i64 2158162070, i64 2158162136, i64 2158162320, i64 2158162446, i64 2158162581, i64 2158163155, i64 2158163229, i64 2158163303, i64 2158163456, i64 2158163589, i64 2158163945, i64 2158164019, i64 2158164093, i64 2158164246, i64 2158164379, i64 2158164735, i64 2158164809, i64 2158164883, i64 2158165036, i64 2158165169, i64 2158165525, i64 2158165599, i64 2158165673, i64 2158169887, i64 2158169998, i64 2158170263, i64 2158170320, i64 2158170377, i64 2158170434, i64 2158170491, i64 2158170544, i64 2158170591}
-!704 = !{i64 2158176474, i64 2158176652, i64 2158176781, i64 2158176845, i64 2158176913, i64 2158176995, i64 2158177055, i64 2158177094}
-!705 = !{i64 2158178637}
-!706 = !{i64 2158180658, i64 2158180708, i64 2158180819, i64 2158180900, i64 2158180941, i64 2158180981, i64 2158181020, i64 2158181058, i64 2158181104, i64 2158181216, i64 2158181299, i64 2158181346, i64 2158181384, i64 2158181429, i64 2158181516, i64 2158181590, i64 2158181636, i64 2158181748, i64 2158181844, i64 2158181891, i64 2158181931, i64 2158181969, i64 2158182014, i64 2158182052, i64 2158182097, i64 2158182164, i64 2158182218, i64 2158182257, i64 2158182363, i64 2158182445, i64 2158182541, i64 2158182632, i64 2158182691, i64 2158182750, i64 2158182816, i64 2158183000, i64 2158183126, i64 2158183261, i64 2158183835, i64 2158183909, i64 2158183983, i64 2158184136, i64 2158184269, i64 2158184625, i64 2158184699, i64 2158184773, i64 2158184926, i64 2158185059, i64 2158185415, i64 2158185489, i64 2158185563, i64 2158185716, i64 2158185849, i64 2158186205, i64 2158186279, i64 2158186353, i64 2158186506, i64 2158186617, i64 2158186882, i64 2158186939, i64 2158186996, i64 2158187053, i64 2158187110, i64 2158187163, i64 2158187210}
-!707 = !{i64 2158193093, i64 2158193271, i64 2158193400, i64 2158193464, i64 2158193532, i64 2158193614, i64 2158193674, i64 2158193713}
-!708 = !{i64 2158195269}
-!709 = !{i64 2158197294, i64 2158197344, i64 2158197455, i64 2158197536, i64 2158197577, i64 2158197617, i64 2158197656, i64 2158197694, i64 2158197740, i64 2158197852, i64 2158197935, i64 2158197982, i64 2158198020, i64 2158198065, i64 2158198152, i64 2158198226, i64 2158198272, i64 2158198384, i64 2158198480, i64 2158198527, i64 2158198567, i64 2158198605, i64 2158198650, i64 2158198688, i64 2158198733, i64 2158198800, i64 2158198854, i64 2158198893, i64 2158198999, i64 2158199081, i64 2158199177, i64 2158199268, i64 2158199327, i64 2158199386, i64 2158199452, i64 2158199639, i64 2158199766, i64 2158199904, i64 2158204540, i64 2158204614, i64 2158204688, i64 2158204841, i64 2158204974, i64 2158205330, i64 2158205404, i64 2158205478, i64 2158205631, i64 2158205764, i64 2158206120, i64 2158206194, i64 2158206268, i64 2158206421, i64 2158206554, i64 2158206910, i64 2158206984, i64 2158207058, i64 2158207211, i64 2158207322, i64 2158207587, i64 2158207644, i64 2158207701, i64 2158207758, i64 2158207815, i64 2158207868, i64 2158207915}
-!710 = !{i64 2158213798, i64 2158213976, i64 2158214105, i64 2158214169, i64 2158214237, i64 2158214319, i64 2158214379, i64 2158214418}
-!711 = !{!712, !712, i64 0}
-!712 = !{!"p1 _ZTS19rb_hook_list_struct", !16, i64 0}
-!713 = distinct !{!713, !12}
-!714 = distinct !{!714, !12}
+!698 = !{!"branch_weights", i32 4001, i32 4000000}
+!699 = !{!"branch_weights", i32 6003000, i32 -294967296}
+!700 = !{!"branch_weights", i32 7818360, i32 -388717296}
+!701 = !{i64 2158141350}
+!702 = !{i64 2158143367, i64 2158143417, i64 2158143528, i64 2158143609, i64 2158143650, i64 2158143690, i64 2158143729, i64 2158143767, i64 2158143813, i64 2158143925, i64 2158144008, i64 2158144055, i64 2158144093, i64 2158144138, i64 2158144225, i64 2158144299, i64 2158144345, i64 2158144457, i64 2158144553, i64 2158144600, i64 2158144640, i64 2158144678, i64 2158144723, i64 2158144761, i64 2158144806, i64 2158144873, i64 2158144927, i64 2158144966, i64 2158145072, i64 2158145154, i64 2158145250, i64 2158145341, i64 2158145400, i64 2158145459, i64 2158145525, i64 2158145706, i64 2158145831, i64 2158145963, i64 2158146536, i64 2158146610, i64 2158146684, i64 2158146837, i64 2158146970, i64 2158147326, i64 2158147400, i64 2158147474, i64 2158147627, i64 2158147760, i64 2158148116, i64 2158148190, i64 2158148264, i64 2158148417, i64 2158148550, i64 2158148906, i64 2158148980, i64 2158149054, i64 2158149207, i64 2158149318, i64 2158149583, i64 2158149640, i64 2158149697, i64 2158149754, i64 2158149811, i64 2158149864, i64 2158149911}
+!703 = !{i64 2158155794, i64 2158155972, i64 2158156101, i64 2158156165, i64 2158156233, i64 2158156315, i64 2158156375, i64 2158156414}
+!704 = !{i64 2158157957}
+!705 = !{i64 2158159978, i64 2158160028, i64 2158160139, i64 2158160220, i64 2158160261, i64 2158160301, i64 2158160340, i64 2158160378, i64 2158160424, i64 2158160536, i64 2158160619, i64 2158160666, i64 2158160704, i64 2158160749, i64 2158160836, i64 2158160910, i64 2158160956, i64 2158161068, i64 2158161164, i64 2158161211, i64 2158161251, i64 2158161289, i64 2158161334, i64 2158161372, i64 2158161417, i64 2158161484, i64 2158161538, i64 2158161577, i64 2158161683, i64 2158161765, i64 2158161861, i64 2158161952, i64 2158162011, i64 2158162070, i64 2158162136, i64 2158162320, i64 2158162446, i64 2158162581, i64 2158163155, i64 2158163229, i64 2158163303, i64 2158163456, i64 2158163589, i64 2158163945, i64 2158164019, i64 2158164093, i64 2158164246, i64 2158164379, i64 2158164735, i64 2158164809, i64 2158164883, i64 2158165036, i64 2158165169, i64 2158165525, i64 2158165599, i64 2158165673, i64 2158169887, i64 2158169998, i64 2158170263, i64 2158170320, i64 2158170377, i64 2158170434, i64 2158170491, i64 2158170544, i64 2158170591}
+!706 = !{i64 2158176474, i64 2158176652, i64 2158176781, i64 2158176845, i64 2158176913, i64 2158176995, i64 2158177055, i64 2158177094}
+!707 = !{i64 2158178637}
+!708 = !{i64 2158180658, i64 2158180708, i64 2158180819, i64 2158180900, i64 2158180941, i64 2158180981, i64 2158181020, i64 2158181058, i64 2158181104, i64 2158181216, i64 2158181299, i64 2158181346, i64 2158181384, i64 2158181429, i64 2158181516, i64 2158181590, i64 2158181636, i64 2158181748, i64 2158181844, i64 2158181891, i64 2158181931, i64 2158181969, i64 2158182014, i64 2158182052, i64 2158182097, i64 2158182164, i64 2158182218, i64 2158182257, i64 2158182363, i64 2158182445, i64 2158182541, i64 2158182632, i64 2158182691, i64 2158182750, i64 2158182816, i64 2158183000, i64 2158183126, i64 2158183261, i64 2158183835, i64 2158183909, i64 2158183983, i64 2158184136, i64 2158184269, i64 2158184625, i64 2158184699, i64 2158184773, i64 2158184926, i64 2158185059, i64 2158185415, i64 2158185489, i64 2158185563, i64 2158185716, i64 2158185849, i64 2158186205, i64 2158186279, i64 2158186353, i64 2158186506, i64 2158186617, i64 2158186882, i64 2158186939, i64 2158186996, i64 2158187053, i64 2158187110, i64 2158187163, i64 2158187210}
+!709 = !{i64 2158193093, i64 2158193271, i64 2158193400, i64 2158193464, i64 2158193532, i64 2158193614, i64 2158193674, i64 2158193713}
+!710 = !{i64 2158195269}
+!711 = !{i64 2158197294, i64 2158197344, i64 2158197455, i64 2158197536, i64 2158197577, i64 2158197617, i64 2158197656, i64 2158197694, i64 2158197740, i64 2158197852, i64 2158197935, i64 2158197982, i64 2158198020, i64 2158198065, i64 2158198152, i64 2158198226, i64 2158198272, i64 2158198384, i64 2158198480, i64 2158198527, i64 2158198567, i64 2158198605, i64 2158198650, i64 2158198688, i64 2158198733, i64 2158198800, i64 2158198854, i64 2158198893, i64 2158198999, i64 2158199081, i64 2158199177, i64 2158199268, i64 2158199327, i64 2158199386, i64 2158199452, i64 2158199639, i64 2158199766, i64 2158199904, i64 2158204540, i64 2158204614, i64 2158204688, i64 2158204841, i64 2158204974, i64 2158205330, i64 2158205404, i64 2158205478, i64 2158205631, i64 2158205764, i64 2158206120, i64 2158206194, i64 2158206268, i64 2158206421, i64 2158206554, i64 2158206910, i64 2158206984, i64 2158207058, i64 2158207211, i64 2158207322, i64 2158207587, i64 2158207644, i64 2158207701, i64 2158207758, i64 2158207815, i64 2158207868, i64 2158207915}
+!712 = !{i64 2158213798, i64 2158213976, i64 2158214105, i64 2158214169, i64 2158214237, i64 2158214319, i64 2158214379, i64 2158214418}
+!713 = !{!714, !714, i64 0}
+!714 = !{!"p1 _ZTS19rb_hook_list_struct", !16, i64 0}
 !715 = distinct !{!715, !12}
 !716 = distinct !{!716, !12}
-!717 = !{i64 2160345935}
-!718 = !{i64 2160347956, i64 2160348006, i64 2160348117, i64 2160348198, i64 2160348239, i64 2160348279, i64 2160348318, i64 2160348356, i64 2160348402, i64 2160348514, i64 2160348597, i64 2160348644, i64 2160348682, i64 2160348727, i64 2160348814, i64 2160348888, i64 2160348934, i64 2160349046, i64 2160349142, i64 2160349189, i64 2160349229, i64 2160349267, i64 2160349312, i64 2160349350, i64 2160349395, i64 2160349462, i64 2160349516, i64 2160349555, i64 2160349661, i64 2160349743, i64 2160349839, i64 2160349930, i64 2160349989, i64 2160350048, i64 2160350114, i64 2160350298, i64 2160350424, i64 2160350559, i64 2160351133, i64 2160351207, i64 2160351281, i64 2160351434, i64 2160351567, i64 2160351923, i64 2160351997, i64 2160352071, i64 2160352224, i64 2160352357, i64 2160352713, i64 2160352787, i64 2160352861, i64 2160353014, i64 2160353147, i64 2160353503, i64 2160357638, i64 2160357712, i64 2160357865, i64 2160357976, i64 2160358241, i64 2160358298, i64 2160358355, i64 2160358412, i64 2160358469, i64 2160358522, i64 2160358569}
-!719 = !{i64 2160364452, i64 2160364630, i64 2160364759, i64 2160364823, i64 2160364891, i64 2160364973, i64 2160365033, i64 2160365072}
-!720 = !{i64 2160368474}
-!721 = !{i64 2160370499, i64 2160370549, i64 2160370660, i64 2160370741, i64 2160370782, i64 2160370822, i64 2160370861, i64 2160370899, i64 2160370945, i64 2160371057, i64 2160371140, i64 2160371187, i64 2160371225, i64 2160371270, i64 2160371357, i64 2160371431, i64 2160371477, i64 2160371589, i64 2160371685, i64 2160371732, i64 2160371772, i64 2160371810, i64 2160371855, i64 2160371893, i64 2160371938, i64 2160372005, i64 2160372059, i64 2160372098, i64 2160372204, i64 2160372286, i64 2160372382, i64 2160372473, i64 2160372532, i64 2160372591, i64 2160372657, i64 2160372844, i64 2160372971, i64 2160373109, i64 2160373684, i64 2160373758, i64 2160373832, i64 2160373985, i64 2160374118, i64 2160374474, i64 2160374548, i64 2160374622, i64 2160374775, i64 2160374908, i64 2160375264, i64 2160375338, i64 2160375412, i64 2160375565, i64 2160375698, i64 2160376054, i64 2160376128, i64 2160376202, i64 2160376355, i64 2160376466, i64 2160376731, i64 2160376788, i64 2160376845, i64 2160376902, i64 2160376959, i64 2160377012, i64 2160377059}
-!722 = !{i64 2160382942, i64 2160383120, i64 2160383249, i64 2160383313, i64 2160383381, i64 2160383463, i64 2160383523, i64 2160383562}
-!723 = !{!404, !8, i64 0}
-!724 = !{!725, !22, i64 976}
-!725 = !{!"", !726, i64 0, !739, i64 712, !735, i64 816, !741, i64 840, !49, i64 992}
-!726 = !{!"pm_parser", !22, i64 0, !22, i64 4, !22, i64 8, !22, i64 12, !22, i64 16, !22, i64 20, !22, i64 24, !727, i64 32, !331, i64 304, !331, i64 312, !729, i64 320, !729, i64 344, !331, i64 368, !331, i64 376, !730, i64 384, !730, i64 408, !732, i64 432, !730, i64 448, !730, i64 472, !733, i64 496, !734, i64 504, !16, i64 512, !16, i64 520, !16, i64 528, !331, i64 536, !16, i64 544, !735, i64 552, !736, i64 576, !737, i64 600, !264, i64 632, !735, i64 640, !22, i64 664, !16, i64 672, !738, i64 680, !22, i64 688, !9, i64 692, !9, i64 693, !49, i64 694, !49, i64 695, !49, i64 696, !49, i64 697, !49, i64 698, !49, i64 699, !49, i64 700, !49, i64 701, !49, i64 702, !49, i64 703, !49, i64 704}
-!727 = !{!"", !728, i64 0, !9, i64 8, !8, i64 264}
-!728 = !{!"p1 _ZTS11pm_lex_mode", !16, i64 0}
-!729 = !{!"", !22, i64 0, !331, i64 8, !331, i64 16}
-!730 = !{!"", !8, i64 0, !731, i64 8, !731, i64 16}
-!731 = !{!"p1 _ZTS12pm_list_node", !16, i64 0}
-!732 = !{!"", !331, i64 0, !331, i64 8}
-!733 = !{!"p1 _ZTS8pm_scope", !16, i64 0}
-!734 = !{!"p1 _ZTS15pm_context_node", !16, i64 0}
-!735 = !{!"", !331, i64 0, !8, i64 8, !22, i64 16}
-!736 = !{!"", !16, i64 0, !16, i64 8, !22, i64 16, !22, i64 20}
-!737 = !{!"", !331, i64 0, !8, i64 8, !8, i64 16, !15, i64 24}
-!738 = !{!"p1 _ZTS12pm_node_list", !16, i64 0}
-!739 = !{!"pm_options", !16, i64 0, !16, i64 8, !735, i64 16, !22, i64 40, !735, i64 48, !8, i64 72, !740, i64 80, !22, i64 88, !9, i64 92, !9, i64 93, !49, i64 94, !49, i64 95, !49, i64 96, !49, i64 97}
-!740 = !{!"p1 _ZTS16pm_options_scope", !16, i64 0}
-!741 = !{!"pm_scope_node", !742, i64 0, !743, i64 24, !744, i64 32, !744, i64 40, !744, i64 48, !745, i64 56, !746, i64 80, !747, i64 88, !15, i64 96, !747, i64 104, !22, i64 112, !15, i64 120, !238, i64 128, !22, i64 136, !748, i64 144}
-!742 = !{!"pm_node", !264, i64 0, !264, i64 2, !22, i64 4, !732, i64 8}
-!743 = !{!"p1 _ZTS13pm_scope_node", !16, i64 0}
-!744 = !{!"p1 _ZTS7pm_node", !16, i64 0}
-!745 = !{!"", !8, i64 0, !8, i64 8, !86, i64 16}
-!746 = !{!"p1 _ZTS9pm_parser", !16, i64 0}
-!747 = !{!"p1 _ZTS18OnigEncodingTypeST", !16, i64 0}
-!748 = !{!"p1 _ZTS16iseq_link_anchor", !16, i64 0}
-!749 = distinct !{!749, !12}
-!750 = !{!725, !740, i64 792}
-!751 = !{i64 2160414809}
-!752 = distinct !{!752, !12}
-!753 = !{!754, !16, i64 8}
-!754 = !{!"pm_options_scope", !8, i64 0, !16, i64 8, !9, i64 16}
-!755 = !{!756}
-!756 = distinct !{!756, !757, !"rbimpl_rstring_getmem: argument 0"}
-!757 = distinct !{!757, !"rbimpl_rstring_getmem"}
-!758 = !{i64 2160414604}
-!759 = distinct !{!759, !12}
-!760 = !{!725, !743, i64 864}
-!761 = !{!741, !22, i64 136}
-!762 = !{!741, !746, i64 80}
-!763 = !{!741, !238, i64 128}
-!764 = !{!741, !22, i64 112}
-!765 = !{!741, !743, i64 24}
-!766 = distinct !{!766, !12}
-!767 = distinct !{!767, !12}
+!717 = distinct !{!717, !12}
+!718 = distinct !{!718, !12}
+!719 = !{i64 2160345935}
+!720 = !{i64 2160347956, i64 2160348006, i64 2160348117, i64 2160348198, i64 2160348239, i64 2160348279, i64 2160348318, i64 2160348356, i64 2160348402, i64 2160348514, i64 2160348597, i64 2160348644, i64 2160348682, i64 2160348727, i64 2160348814, i64 2160348888, i64 2160348934, i64 2160349046, i64 2160349142, i64 2160349189, i64 2160349229, i64 2160349267, i64 2160349312, i64 2160349350, i64 2160349395, i64 2160349462, i64 2160349516, i64 2160349555, i64 2160349661, i64 2160349743, i64 2160349839, i64 2160349930, i64 2160349989, i64 2160350048, i64 2160350114, i64 2160350298, i64 2160350424, i64 2160350559, i64 2160351133, i64 2160351207, i64 2160351281, i64 2160351434, i64 2160351567, i64 2160351923, i64 2160351997, i64 2160352071, i64 2160352224, i64 2160352357, i64 2160352713, i64 2160352787, i64 2160352861, i64 2160353014, i64 2160353147, i64 2160353503, i64 2160357638, i64 2160357712, i64 2160357865, i64 2160357976, i64 2160358241, i64 2160358298, i64 2160358355, i64 2160358412, i64 2160358469, i64 2160358522, i64 2160358569}
+!721 = !{i64 2160364452, i64 2160364630, i64 2160364759, i64 2160364823, i64 2160364891, i64 2160364973, i64 2160365033, i64 2160365072}
+!722 = !{i64 2160368474}
+!723 = !{i64 2160370499, i64 2160370549, i64 2160370660, i64 2160370741, i64 2160370782, i64 2160370822, i64 2160370861, i64 2160370899, i64 2160370945, i64 2160371057, i64 2160371140, i64 2160371187, i64 2160371225, i64 2160371270, i64 2160371357, i64 2160371431, i64 2160371477, i64 2160371589, i64 2160371685, i64 2160371732, i64 2160371772, i64 2160371810, i64 2160371855, i64 2160371893, i64 2160371938, i64 2160372005, i64 2160372059, i64 2160372098, i64 2160372204, i64 2160372286, i64 2160372382, i64 2160372473, i64 2160372532, i64 2160372591, i64 2160372657, i64 2160372844, i64 2160372971, i64 2160373109, i64 2160373684, i64 2160373758, i64 2160373832, i64 2160373985, i64 2160374118, i64 2160374474, i64 2160374548, i64 2160374622, i64 2160374775, i64 2160374908, i64 2160375264, i64 2160375338, i64 2160375412, i64 2160375565, i64 2160375698, i64 2160376054, i64 2160376128, i64 2160376202, i64 2160376355, i64 2160376466, i64 2160376731, i64 2160376788, i64 2160376845, i64 2160376902, i64 2160376959, i64 2160377012, i64 2160377059}
+!724 = !{i64 2160382942, i64 2160383120, i64 2160383249, i64 2160383313, i64 2160383381, i64 2160383463, i64 2160383523, i64 2160383562}
+!725 = !{!404, !8, i64 0}
+!726 = !{!727, !22, i64 976}
+!727 = !{!"", !728, i64 0, !741, i64 712, !737, i64 816, !743, i64 840, !49, i64 992}
+!728 = !{!"pm_parser", !22, i64 0, !22, i64 4, !22, i64 8, !22, i64 12, !22, i64 16, !22, i64 20, !22, i64 24, !729, i64 32, !331, i64 304, !331, i64 312, !731, i64 320, !731, i64 344, !331, i64 368, !331, i64 376, !732, i64 384, !732, i64 408, !734, i64 432, !732, i64 448, !732, i64 472, !735, i64 496, !736, i64 504, !16, i64 512, !16, i64 520, !16, i64 528, !331, i64 536, !16, i64 544, !737, i64 552, !738, i64 576, !739, i64 600, !264, i64 632, !737, i64 640, !22, i64 664, !16, i64 672, !740, i64 680, !22, i64 688, !9, i64 692, !9, i64 693, !49, i64 694, !49, i64 695, !49, i64 696, !49, i64 697, !49, i64 698, !49, i64 699, !49, i64 700, !49, i64 701, !49, i64 702, !49, i64 703, !49, i64 704}
+!729 = !{!"", !730, i64 0, !9, i64 8, !8, i64 264}
+!730 = !{!"p1 _ZTS11pm_lex_mode", !16, i64 0}
+!731 = !{!"", !22, i64 0, !331, i64 8, !331, i64 16}
+!732 = !{!"", !8, i64 0, !733, i64 8, !733, i64 16}
+!733 = !{!"p1 _ZTS12pm_list_node", !16, i64 0}
+!734 = !{!"", !331, i64 0, !331, i64 8}
+!735 = !{!"p1 _ZTS8pm_scope", !16, i64 0}
+!736 = !{!"p1 _ZTS15pm_context_node", !16, i64 0}
+!737 = !{!"", !331, i64 0, !8, i64 8, !22, i64 16}
+!738 = !{!"", !16, i64 0, !16, i64 8, !22, i64 16, !22, i64 20}
+!739 = !{!"", !331, i64 0, !8, i64 8, !8, i64 16, !15, i64 24}
+!740 = !{!"p1 _ZTS12pm_node_list", !16, i64 0}
+!741 = !{!"pm_options", !16, i64 0, !16, i64 8, !737, i64 16, !22, i64 40, !737, i64 48, !8, i64 72, !742, i64 80, !22, i64 88, !9, i64 92, !9, i64 93, !49, i64 94, !49, i64 95, !49, i64 96, !49, i64 97}
+!742 = !{!"p1 _ZTS16pm_options_scope", !16, i64 0}
+!743 = !{!"pm_scope_node", !744, i64 0, !745, i64 24, !746, i64 32, !746, i64 40, !746, i64 48, !747, i64 56, !748, i64 80, !749, i64 88, !15, i64 96, !749, i64 104, !22, i64 112, !15, i64 120, !238, i64 128, !22, i64 136, !750, i64 144}
+!744 = !{!"pm_node", !264, i64 0, !264, i64 2, !22, i64 4, !734, i64 8}
+!745 = !{!"p1 _ZTS13pm_scope_node", !16, i64 0}
+!746 = !{!"p1 _ZTS7pm_node", !16, i64 0}
+!747 = !{!"", !8, i64 0, !8, i64 8, !86, i64 16}
+!748 = !{!"p1 _ZTS9pm_parser", !16, i64 0}
+!749 = !{!"p1 _ZTS18OnigEncodingTypeST", !16, i64 0}
+!750 = !{!"p1 _ZTS16iseq_link_anchor", !16, i64 0}
+!751 = distinct !{!751, !12}
+!752 = !{!727, !742, i64 792}
+!753 = !{i64 2160414809}
+!754 = distinct !{!754, !12}
+!755 = !{!756, !16, i64 8}
+!756 = !{!"pm_options_scope", !8, i64 0, !16, i64 8, !9, i64 16}
+!757 = !{!758}
+!758 = distinct !{!758, !759, !"rbimpl_rstring_getmem: argument 0"}
+!759 = distinct !{!759, !"rbimpl_rstring_getmem"}
+!760 = !{i64 2160414604}
+!761 = distinct !{!761, !12}
+!762 = !{!727, !745, i64 864}
+!763 = !{!743, !22, i64 136}
+!764 = !{!743, !748, i64 80}
+!765 = !{!743, !238, i64 128}
+!766 = !{!743, !22, i64 112}
+!767 = !{!743, !745, i64 24}
 !768 = distinct !{!768, !12}
-!769 = !{!770, !509, i64 8}
-!770 = !{!"rb_ast_struct", !771, i64 0, !772, i64 8}
-!771 = !{!"p1 _ZTS18node_buffer_struct", !16, i64 0}
-!772 = !{!"rb_ast_body_struct", !509, i64 0, !773, i64 8, !22, i64 16, !22, i64 20, !22, i64 20}
-!773 = !{!"p1 _ZTS13rb_parser_ary", !16, i64 0}
-!774 = distinct !{!774, !12}
-!775 = !{!432, !22, i64 32}
+!769 = distinct !{!769, !12}
+!770 = distinct !{!770, !12}
+!771 = !{!772, !509, i64 8}
+!772 = !{!"rb_ast_struct", !773, i64 0, !774, i64 8}
+!773 = !{!"p1 _ZTS18node_buffer_struct", !16, i64 0}
+!774 = !{!"rb_ast_body_struct", !509, i64 0, !775, i64 8, !22, i64 16, !22, i64 20, !22, i64 20}
+!775 = !{!"p1 _ZTS13rb_parser_ary", !16, i64 0}
 !776 = distinct !{!776, !12}
-!777 = distinct !{!777, !12}
-!778 = !{i64 2161572292}
-!779 = !{i64 2161574317, i64 2161574367, i64 2161574478, i64 2161574559, i64 2161574600, i64 2161574640, i64 2161574679, i64 2161574717, i64 2161574763, i64 2161574875, i64 2161574958, i64 2161575005, i64 2161575043, i64 2161575088, i64 2161575175, i64 2161575249, i64 2161575295, i64 2161575407, i64 2161575503, i64 2161575550, i64 2161575590, i64 2161575628, i64 2161575673, i64 2161575711, i64 2161575756, i64 2161575823, i64 2161575877, i64 2161575916, i64 2161576022, i64 2161576104, i64 2161576200, i64 2161576291, i64 2161576350, i64 2161576409, i64 2161576475, i64 2161576662, i64 2161576789, i64 2161576927, i64 2161577502, i64 2161577576, i64 2161577650, i64 2161581864, i64 2161581997, i64 2161582353, i64 2161582427, i64 2161582501, i64 2161582654, i64 2161582787, i64 2161583143, i64 2161583217, i64 2161583291, i64 2161583444, i64 2161583577, i64 2161583933, i64 2161584007, i64 2161584081, i64 2161584234, i64 2161584345, i64 2161584610, i64 2161584667, i64 2161584724, i64 2161584781, i64 2161584838, i64 2161584891, i64 2161584938}
-!780 = !{i64 2161590821, i64 2161590999, i64 2161591128, i64 2161591192, i64 2161591260, i64 2161591342, i64 2161591402, i64 2161591441}
-!781 = distinct !{!781, !12}
-!782 = distinct !{!782, !12}
-!783 = !{!141, !22, i64 28}
+!777 = !{!432, !22, i64 32}
+!778 = distinct !{!778, !12}
+!779 = distinct !{!779, !12}
+!780 = !{i64 2161572292}
+!781 = !{i64 2161574317, i64 2161574367, i64 2161574478, i64 2161574559, i64 2161574600, i64 2161574640, i64 2161574679, i64 2161574717, i64 2161574763, i64 2161574875, i64 2161574958, i64 2161575005, i64 2161575043, i64 2161575088, i64 2161575175, i64 2161575249, i64 2161575295, i64 2161575407, i64 2161575503, i64 2161575550, i64 2161575590, i64 2161575628, i64 2161575673, i64 2161575711, i64 2161575756, i64 2161575823, i64 2161575877, i64 2161575916, i64 2161576022, i64 2161576104, i64 2161576200, i64 2161576291, i64 2161576350, i64 2161576409, i64 2161576475, i64 2161576662, i64 2161576789, i64 2161576927, i64 2161577502, i64 2161577576, i64 2161577650, i64 2161581864, i64 2161581997, i64 2161582353, i64 2161582427, i64 2161582501, i64 2161582654, i64 2161582787, i64 2161583143, i64 2161583217, i64 2161583291, i64 2161583444, i64 2161583577, i64 2161583933, i64 2161584007, i64 2161584081, i64 2161584234, i64 2161584345, i64 2161584610, i64 2161584667, i64 2161584724, i64 2161584781, i64 2161584838, i64 2161584891, i64 2161584938}
+!782 = !{i64 2161590821, i64 2161590999, i64 2161591128, i64 2161591192, i64 2161591260, i64 2161591342, i64 2161591402, i64 2161591441}
+!783 = distinct !{!783, !12}
 !784 = distinct !{!784, !12}
-!785 = distinct !{!785, !12}
+!785 = !{!141, !22, i64 28}
 !786 = distinct !{!786, !12}
 !787 = distinct !{!787, !12}
-!788 = !{i64 2161548572}
-!789 = !{i64 2161550593, i64 2161550643, i64 2161550754, i64 2161550835, i64 2161550876, i64 2161550916, i64 2161550955, i64 2161550993, i64 2161551039, i64 2161551151, i64 2161551234, i64 2161551281, i64 2161551319, i64 2161551364, i64 2161551451, i64 2161551525, i64 2161551571, i64 2161551683, i64 2161551779, i64 2161551826, i64 2161551866, i64 2161551904, i64 2161551949, i64 2161551987, i64 2161552032, i64 2161552099, i64 2161552153, i64 2161552192, i64 2161552298, i64 2161552380, i64 2161552476, i64 2161552567, i64 2161552626, i64 2161552685, i64 2161552751, i64 2161552935, i64 2161553061, i64 2161553196, i64 2161553770, i64 2161553844, i64 2161553918, i64 2161554071, i64 2161554204, i64 2161554560, i64 2161554634, i64 2161554708, i64 2161554861, i64 2161554994, i64 2161555350, i64 2161555424, i64 2161555498, i64 2161555651, i64 2161555784, i64 2161556140, i64 2161556214, i64 2161556288, i64 2161556441, i64 2161556552, i64 2161556817, i64 2161556874, i64 2161556931, i64 2161556988, i64 2161557045, i64 2161557098, i64 2161557145}
-!790 = !{i64 2161563028, i64 2161563206, i64 2161563335, i64 2161563399, i64 2161563467, i64 2161563549, i64 2161563609, i64 2161563648}
-!791 = !{!153, !8, i64 0}
-!792 = !{!233, !238, i64 640}
-!793 = distinct !{!793, !12}
-!794 = !{!233, !245, i64 1328}
-!795 = !{!546, !8, i64 0}
-!796 = distinct !{!796, !12}
-!797 = distinct !{!797, !12}
+!788 = distinct !{!788, !12}
+!789 = distinct !{!789, !12}
+!790 = !{i64 2161548572}
+!791 = !{i64 2161550593, i64 2161550643, i64 2161550754, i64 2161550835, i64 2161550876, i64 2161550916, i64 2161550955, i64 2161550993, i64 2161551039, i64 2161551151, i64 2161551234, i64 2161551281, i64 2161551319, i64 2161551364, i64 2161551451, i64 2161551525, i64 2161551571, i64 2161551683, i64 2161551779, i64 2161551826, i64 2161551866, i64 2161551904, i64 2161551949, i64 2161551987, i64 2161552032, i64 2161552099, i64 2161552153, i64 2161552192, i64 2161552298, i64 2161552380, i64 2161552476, i64 2161552567, i64 2161552626, i64 2161552685, i64 2161552751, i64 2161552935, i64 2161553061, i64 2161553196, i64 2161553770, i64 2161553844, i64 2161553918, i64 2161554071, i64 2161554204, i64 2161554560, i64 2161554634, i64 2161554708, i64 2161554861, i64 2161554994, i64 2161555350, i64 2161555424, i64 2161555498, i64 2161555651, i64 2161555784, i64 2161556140, i64 2161556214, i64 2161556288, i64 2161556441, i64 2161556552, i64 2161556817, i64 2161556874, i64 2161556931, i64 2161556988, i64 2161557045, i64 2161557098, i64 2161557145}
+!792 = !{i64 2161563028, i64 2161563206, i64 2161563335, i64 2161563399, i64 2161563467, i64 2161563549, i64 2161563609, i64 2161563648}
+!793 = !{!153, !8, i64 0}
+!794 = !{!233, !238, i64 640}
+!795 = distinct !{!795, !12}
+!796 = !{!233, !245, i64 1328}
+!797 = !{!546, !8, i64 0}
+!798 = distinct !{!798, !12}
+!799 = distinct !{!799, !12}

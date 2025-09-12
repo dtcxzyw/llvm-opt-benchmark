@@ -8288,7 +8288,7 @@ define hidden void @_ZN6ty_ide9find_node13covering_node17hde6eeca9ff86dbbfE(ptr 
   %12 = extractvalue { i32, i32 } %10, 1
   %13 = icmp ule i32 %11, %3
   %14 = icmp ule i32 %4, %12
-  %or.cond = select i1 %13, i1 %14, i1 false
+  %or.cond = select i1 %13, i1 %14, i1 false, !prof !601
   br i1 %or.cond, label %20, label %15, !prof !601
 
 15:                                               ; preds = %5

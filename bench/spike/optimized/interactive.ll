@@ -13186,7 +13186,7 @@ _ZN5mmu_t4loadImEET_m13xlate_flags_t.exit:        ; preds = %.noexc53, %91, %.no
   %105 = getelementptr inbounds nuw i64, ptr %103, i64 %104
   %106 = load i64, ptr %105, align 8, !tbaa !341
   %107 = icmp eq i64 %106, %101
-  %or.cond.i58 = select i1 %.not138, i1 %107, i1 false
+  %or.cond.i58 = select i1 %.not138, i1 %107, i1 false, !prof !421
   br i1 %or.cond.i58, label %108, label %.critedge.i59, !prof !421
 
 108:                                              ; preds = %.noexc64
@@ -13246,7 +13246,7 @@ _ZN5mmu_t4loadImEET_m13xlate_flags_t.exit:        ; preds = %.noexc53, %91, %.no
   %130 = getelementptr inbounds nuw i64, ptr %128, i64 %129
   %131 = load i64, ptr %130, align 8, !tbaa !341
   %132 = icmp eq i64 %131, %126
-  %or.cond.i70 = select i1 %.not, i1 %132, i1 false
+  %or.cond.i70 = select i1 %.not, i1 %132, i1 false, !prof !421
   br i1 %or.cond.i70, label %133, label %.critedge.i71, !prof !421
 
 133:                                              ; preds = %.noexc76

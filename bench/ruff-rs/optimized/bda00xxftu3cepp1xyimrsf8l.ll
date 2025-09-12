@@ -74541,7 +74541,7 @@ define void @"_ZN135_$LT$ruff_server..server..api..requests..hover..Hover$u20$as
 120:                                              ; preds = %119
   %121 = icmp ne i64 %107, %105
   %.not.i = icmp eq ptr %104, null
-  %or.cond.i = select i1 %121, i1 true, i1 %.not.i
+  %or.cond.i = select i1 %121, i1 true, i1 %.not.i, !prof !10230
   br i1 %or.cond.i, label %"_ZN4core3str6traits108_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$3get17h48b5fc281fcfd004E.exit.thread.i", label %"_ZN4core3str6traits108_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$3get17h48b5fc281fcfd004E.exit.thread260.i", !prof !10230
 
 122:                                              ; preds = %119
@@ -75378,7 +75378,7 @@ _ZN14regex_automata4meta5regex9RegexInfo13is_impossible17hffb708d4c365dd83E.exit
   %439 = trunc nuw i64 %438 to i1
   %440 = load i64, ptr %.sroa.5168.0..sroa_idx.i, align 8, !alias.scope !10387, !noalias !10388
   %441 = icmp eq i64 %426, %440
-  %or.cond.i.i.i.i.i = select i1 %439, i1 %441, i1 false
+  %or.cond.i.i.i.i.i = select i1 %439, i1 %441, i1 false, !prof !241
   br i1 %or.cond.i.i.i.i.i, label %442, label %427, !prof !241
 
 442:                                              ; preds = %437

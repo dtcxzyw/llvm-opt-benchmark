@@ -739,7 +739,7 @@ _ZN11hb_vector_tIjLb0EE4pushIJiEEEPjDpOT_.exit:   ; preds = %_ZN11hb_vector_tIjL
   %12 = load i32, ptr %11, align 4, !tbaa !18
   %13 = icmp sgt i32 %10, -1
   %.not.i22 = icmp ugt i32 %12, %10
-  %or.cond = select i1 %13, i1 %.not.i22, i1 false
+  %or.cond = select i1 %13, i1 %.not.i22, i1 false, !prof !57
   br i1 %or.cond, label %.preheader.i, label %_ZN11hb_vector_tIN5graph7graph_t8vertex_tELb0EE5allocEjb.exit, !prof !57
 
 .preheader.i:                                     ; preds = %_ZN11hb_vector_tIjLb0EE4pushIJiEEEPjDpOT_.exit, %.preheader.i
@@ -787,7 +787,7 @@ _ZN11hb_vector_tIN5graph7graph_t8vertex_tELb0EE5allocEjb.exit: ; preds = %_ZN11h
   %29 = load i32, ptr %3, align 8, !tbaa !53
   %30 = icmp sgt i32 %29, -1
   %.not.i25 = icmp ugt i32 %28, %29
-  %or.cond65 = select i1 %30, i1 %.not.i25, i1 false
+  %or.cond65 = select i1 %30, i1 %.not.i25, i1 false, !prof !57
   br i1 %or.cond65, label %.preheader.i27, label %_ZN11hb_vector_tIN5graph7graph_t8vertex_tELb0EE5allocEjb.exit36, !prof !57
 
 .preheader.i27:                                   ; preds = %_ZN11hb_vector_tIN5graph7graph_t8vertex_tELb0EE5allocEjb.exit, %.preheader.i27
@@ -18689,7 +18689,7 @@ _ZN2OT13SortedArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntT
   store ptr %518, ptr %182, align 8, !tbaa !205
   %.not.i.i.i.i.i = icmp eq ptr %517, null
   %.not39.i.i.i.i.i = icmp eq i32 %.028.i.i.i.i.i, 0
-  %or.cond2.i.i.i = select i1 %.not.i.i.i.i.i, i1 true, i1 %.not39.i.i.i.i.i
+  %or.cond2.i.i.i = select i1 %.not.i.i.i.i.i, i1 true, i1 %.not39.i.i.i.i.i, !prof !534
   br i1 %or.cond2.i.i.i, label %"_ZN2OT6Layout6Common17CoverageFormat2_4INS0_10SmallTypesEE9serializeI13hb_map_iter_tI16hb_filter_iter_tI13hb_zip_iter_tINS1_8Coverage6iter_tE15hb_range_iter_tIjjEEZN5graph8Coverage14clone_coverageERNSE_24gsubgpos_graph_context_tEjjjjjEUl9hb_pair_tIjjEE_RK4$_19LPv0EERK3$_6L24hb_function_sortedness_t1ELSO_0EETnPN12hb_enable_ifIXaasr15hb_is_source_ofIT_jEE5valuesrSW_18is_sorted_iteratorEvE4typeELSO_0EEEbP22hb_serialize_context_tSW_.exit.i.i.i.i", label %612, !prof !534
 
 519:                                              ; preds = %"_ZNK13hb_map_iter_tI16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE15hb_range_iter_tIjjEEZN5graph8Coverage14clone_coverageERNSA_24gsubgpos_graph_context_tEjjjjjEUl9hb_pair_tIjjEE_RK4$_19LPv0EERK3$_6L24hb_function_sortedness_t1ELSK_0EEneERKSQ_.exit.i.i.i.i.i"
@@ -23539,7 +23539,7 @@ _ZN2OT13SortedArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntT
   store ptr %453, ptr %178, align 8, !tbaa !205
   %.not.i.i.i.i = icmp eq ptr %452, null
   %.not39.i.i.i.i = icmp eq i32 %.028.i.i.i.i, 0
-  %or.cond2.i.i = select i1 %.not.i.i.i.i, i1 true, i1 %.not39.i.i.i.i
+  %or.cond2.i.i = select i1 %.not.i.i.i.i, i1 true, i1 %.not39.i.i.i.i, !prof !534
   br i1 %or.cond2.i.i, label %"_ZN2OT6Layout6Common17CoverageFormat2_4INS0_10SmallTypesEE9serializeI13hb_map_iter_tI16hb_filter_iter_tI13hb_zip_iter_tINS1_8Coverage6iter_tE15hb_range_iter_tIjjEEZN5graph14PairPosFormat16shrinkERNSE_24gsubgpos_graph_context_tEjjEUl9hb_pair_tIjjEE_RK4$_19LPv0EERK3$_6L24hb_function_sortedness_t1ELSO_0EETnPN12hb_enable_ifIXaasr15hb_is_source_ofIT_jEE5valuesrSW_18is_sorted_iteratorEvE4typeELSO_0EEEbP22hb_serialize_context_tSW_.exit.i.i.i", label %512, !prof !534
 
 454:                                              ; preds = %"_ZNK13hb_map_iter_tI16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE15hb_range_iter_tIjjEEZN5graph14PairPosFormat16shrinkERNSA_24gsubgpos_graph_context_tEjjEUl9hb_pair_tIjjEE_RK4$_19LPv0EERK3$_6L24hb_function_sortedness_t1ELSK_0EEneERKSQ_.exit.i.i.i.i"
@@ -30072,7 +30072,7 @@ _ZN2OT7ArrayOfINS_11HBGlyphID16ENS_7IntTypeItLj2EEEE9serializeEP22hb_serialize_c
   store ptr %362, ptr %256, align 8, !tbaa !205
   %.not.i.i.i.i.i.i.i = icmp eq ptr %352, null
   %.not11.i.i.i.i.i.i.i = icmp eq i32 %.0.lcssa.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 0
-  %or.cond.i.i.i = select i1 %.not.i.i.i.i.i.i.i, i1 true, i1 %.not11.i.i.i.i.i.i.i
+  %or.cond.i.i.i = select i1 %.not.i.i.i.i.i.i.i, i1 true, i1 %.not11.i.i.i.i.i.i.i, !prof !534
   br i1 %or.cond.i.i.i, label %"_ZN2OT6Layout6Common17CoverageFormat1_3INS0_10SmallTypesEE9serializeI13hb_map_iter_tIS6_I16hb_filter_iter_tIS6_INS1_8Coverage6iter_tEZNK5graph14PairPosFormat211clone_rangeERNSB_15split_context_tEjjEUljE_L24hb_function_sortedness_t1ELPv0EEZNKSB_11clone_rangeESD_jjEUljE0_RK3$_7LSG_0EEZNKSB_11clone_rangeESD_jjEUl9hb_pair_tIjjEE_LSF_1ELSG_0EERK3$_6LSF_1ELSG_0EETnPN12hb_enable_ifIXaasr15hb_is_source_ofIT_jEE5valuesrSW_18is_sorted_iteratorEvE4typeELSG_0EEEbP22hb_serialize_context_tSW_.exit.i.i.i.i", label %.lr.ph.i.i.i.i.i.i.i, !prof !534
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %_ZN2OT7ArrayOfINS_11HBGlyphID16ENS_7IntTypeItLj2EEEE9serializeEP22hb_serialize_context_tjb.exit.i.i.i.i.i.i.i
@@ -30288,7 +30288,7 @@ _ZN2OT13SortedArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntT
   store ptr %443, ptr %256, align 8, !tbaa !205
   %.not86.i.i.i.i.i = icmp eq ptr %442, null
   %.not39.i.i.i.i.i = icmp eq i32 %.028.i.i.i.i.i, 0
-  %or.cond2.i.i.i = select i1 %.not86.i.i.i.i.i, i1 true, i1 %.not39.i.i.i.i.i
+  %or.cond2.i.i.i = select i1 %.not86.i.i.i.i.i, i1 true, i1 %.not39.i.i.i.i.i, !prof !534
   br i1 %or.cond2.i.i.i, label %"_ZN2OT6Layout6Common17CoverageFormat2_4INS0_10SmallTypesEE9serializeI13hb_map_iter_tIS6_I16hb_filter_iter_tIS6_INS1_8Coverage6iter_tEZNK5graph14PairPosFormat211clone_rangeERNSB_15split_context_tEjjEUljE_L24hb_function_sortedness_t1ELPv0EEZNKSB_11clone_rangeESD_jjEUljE0_RK3$_7LSG_0EEZNKSB_11clone_rangeESD_jjEUl9hb_pair_tIjjEE_LSF_1ELSG_0EERK3$_6LSF_1ELSG_0EETnPN12hb_enable_ifIXaasr15hb_is_source_ofIT_jEE5valuesrSW_18is_sorted_iteratorEvE4typeELSG_0EEEbP22hb_serialize_context_tSW_.exit.i.i.i.i", label %448, !prof !534
 
 "_ZNK13hb_map_iter_tIS_I16hb_filter_iter_tIS_IN2OT6Layout6Common8Coverage6iter_tEZNK5graph14PairPosFormat211clone_rangeERNS7_15split_context_tEjjEUljE_L24hb_function_sortedness_t1ELPv0EEZNKS7_11clone_rangeES9_jjEUljE0_RK3$_7LSC_0EEZNKS7_11clone_rangeES9_jjEUl9hb_pair_tIjjEE_LSB_1ELSC_0EERK3$_6LSB_1ELSC_0EEneERKSQ_.exit.thread.i.i.i.i.i": ; preds = %"_ZNK13hb_map_iter_tIS_I16hb_filter_iter_tIS_IN2OT6Layout6Common8Coverage6iter_tEZNK5graph14PairPosFormat211clone_rangeERNS7_15split_context_tEjjEUljE_L24hb_function_sortedness_t1ELPv0EEZNKS7_11clone_rangeES9_jjEUljE0_RK3$_7LSC_0EEZNKS7_11clone_rangeES9_jjEUl9hb_pair_tIjjEE_LSB_1ELSC_0EERK3$_6LSB_1ELSC_0EEneERKSQ_.exit.i.i.i.i.i", %398, %395
@@ -35505,7 +35505,7 @@ _ZN2OT7ArrayOfINS_11HBGlyphID16ENS_7IntTypeItLj2EEEE9serializeEP22hb_serialize_c
   store ptr %323, ptr %217, align 8, !tbaa !205
   %.not.i.i.i.i.i.i = icmp eq ptr %313, null
   %.not11.i.i.i.i.i.i = icmp eq i32 %.0.lcssa.i.i.i.i.i.i.i.i.i.i.i.i, 0
-  %or.cond.i.i = select i1 %.not.i.i.i.i.i.i, i1 true, i1 %.not11.i.i.i.i.i.i
+  %or.cond.i.i = select i1 %.not.i.i.i.i.i.i, i1 true, i1 %.not11.i.i.i.i.i.i, !prof !534
   br i1 %or.cond.i.i, label %"_ZN2OT6Layout6Common17CoverageFormat1_3INS0_10SmallTypesEE9serializeI13hb_map_iter_tI16hb_filter_iter_tIS6_INS1_8Coverage6iter_tEZN5graph14PairPosFormat26shrinkERNSB_15split_context_tEjEUljE_L24hb_function_sortedness_t1ELPv0EEZNSB_6shrinkESD_jEUljE0_RK3$_7LSG_0EERK3$_6LSF_1ELSG_0EETnPN12hb_enable_ifIXaasr15hb_is_source_ofIT_jEE5valuesrSS_18is_sorted_iteratorEvE4typeELSG_0EEEbP22hb_serialize_context_tSS_.exit.i.i.i", label %.lr.ph.i.i.i.i.i.i, !prof !534
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %_ZN2OT7ArrayOfINS_11HBGlyphID16ENS_7IntTypeItLj2EEEE9serializeEP22hb_serialize_context_tjb.exit.i.i.i.i.i.i
@@ -35719,7 +35719,7 @@ _ZN2OT13SortedArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntT
   store ptr %404, ptr %217, align 8, !tbaa !205
   %.not81.i.i.i.i = icmp eq ptr %403, null
   %.not39.i.i.i.i = icmp eq i32 %.028.i.i.i.i, 0
-  %or.cond2.i.i = select i1 %.not81.i.i.i.i, i1 true, i1 %.not39.i.i.i.i
+  %or.cond2.i.i = select i1 %.not81.i.i.i.i, i1 true, i1 %.not39.i.i.i.i, !prof !534
   br i1 %or.cond2.i.i, label %"_ZN2OT6Layout6Common17CoverageFormat2_4INS0_10SmallTypesEE9serializeI13hb_map_iter_tI16hb_filter_iter_tIS6_INS1_8Coverage6iter_tEZN5graph14PairPosFormat26shrinkERNSB_15split_context_tEjEUljE_L24hb_function_sortedness_t1ELPv0EEZNSB_6shrinkESD_jEUljE0_RK3$_7LSG_0EERK3$_6LSF_1ELSG_0EETnPN12hb_enable_ifIXaasr15hb_is_source_ofIT_jEE5valuesrSS_18is_sorted_iteratorEvE4typeELSG_0EEEbP22hb_serialize_context_tSS_.exit.i.i.i", label %409, !prof !534
 
 "_ZNK13hb_map_iter_tI16hb_filter_iter_tIS_IN2OT6Layout6Common8Coverage6iter_tEZN5graph14PairPosFormat26shrinkERNS7_15split_context_tEjEUljE_L24hb_function_sortedness_t1ELPv0EEZNS7_6shrinkES9_jEUljE0_RK3$_7LSC_0EERK3$_6LSB_1ELSC_0EEneERKSM_.exit.thread.i.i.i.i": ; preds = %"_ZNK13hb_map_iter_tI16hb_filter_iter_tIS_IN2OT6Layout6Common8Coverage6iter_tEZN5graph14PairPosFormat26shrinkERNS7_15split_context_tEjEUljE_L24hb_function_sortedness_t1ELPv0EEZNS7_6shrinkES9_jEUljE0_RK3$_7LSC_0EERK3$_6LSB_1ELSC_0EEneERKSM_.exit.i.i.i.i", %359, %356
@@ -43925,7 +43925,7 @@ _ZN2OT7ArrayOfINS_11HBGlyphID16ENS_7IntTypeItLj2EEEE9serializeEP22hb_serialize_c
   store ptr %155, ptr %31, align 8, !tbaa !205
   %.not.i.i.i.i.i = icmp eq ptr %145, null
   %.not11.i.i.i.i.i = icmp eq i32 %.0.lcssa.i.i.i.i.i.i.i.i.i.i.i, 0
-  %or.cond.i = select i1 %.not.i.i.i.i.i, i1 true, i1 %.not11.i.i.i.i.i
+  %or.cond.i = select i1 %.not.i.i.i.i.i, i1 true, i1 %.not11.i.i.i.i.i, !prof !534
   br i1 %or.cond.i, label %"_ZN2OT6Layout6Common17CoverageFormat1_3INS0_10SmallTypesEE9serializeI13hb_map_iter_tI16hb_filter_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjENS1_8Coverage6iter_tEER8hb_set_tRK3$_6LPv0EERK3$_7L24hb_function_sortedness_t1ELSJ_0EETnPN12hb_enable_ifIXaasr15hb_is_source_ofIT_jEE5valuesrSR_18is_sorted_iteratorEvE4typeELSJ_0EEEbP22hb_serialize_context_tSR_.exit.i.i", label %.lr.ph.i.i.i.i.i, !prof !534
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZN2OT7ArrayOfINS_11HBGlyphID16ENS_7IntTypeItLj2EEEE9serializeEP22hb_serialize_context_tjb.exit.i.i.i.i.i
@@ -44179,7 +44179,7 @@ _ZN2OT13SortedArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntT
   store ptr %257, ptr %31, align 8, !tbaa !205
   %.not88.i.i.i = icmp eq ptr %256, null
   %.not39.i.i.i = icmp eq i32 %.028.i.i.i, 0
-  %or.cond2.i = select i1 %.not88.i.i.i, i1 true, i1 %.not39.i.i.i
+  %or.cond2.i = select i1 %.not88.i.i.i, i1 true, i1 %.not39.i.i.i, !prof !534
   br i1 %or.cond2.i, label %"_ZN2OT6Layout6Common17CoverageFormat2_4INS0_10SmallTypesEE9serializeI13hb_map_iter_tI16hb_filter_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjENS1_8Coverage6iter_tEER8hb_set_tRK3$_6LPv0EERK3$_7L24hb_function_sortedness_t1ELSJ_0EETnPN12hb_enable_ifIXaasr15hb_is_source_ofIT_jEE5valuesrSR_18is_sorted_iteratorEvE4typeELSJ_0EEEbP22hb_serialize_context_tSR_.exit.i.i", label %275, !prof !534
 
 258:                                              ; preds = %209
@@ -49369,7 +49369,7 @@ _ZNK16hb_concat_iter_tI10hb_array_tIN22hb_serialize_context_t8object_t6link_tEES
   %.not.i.i20.i = icmp eq i32 %.sroa.7.0.i, 0
   %.not.i.i20.i.not = xor i1 %.not.i.i20.i, true
   %.not.i.i.i.i.i51.not = xor i1 %.not.i.i.i.i.i51, true
-  %brmerge = select i1 %.not.i.i20.i.not, i1 true, i1 %.not.i.i.i.i.i51.not
+  %brmerge = select i1 %.not.i.i20.i.not, i1 true, i1 %.not.i.i.i.i.i51.not, !prof !1481
   %.mux = select i1 %.not.i.i20.i.not, i1 false, i1 true, !prof !1481
   %.sroa.068.0.i.mux = select i1 %.not.i.i20.i.not, ptr %.sroa.068.0.i, ptr %.sroa.13.0.i.ph.ph, !prof !1481
   br i1 %brmerge, label %_ZN9hb_iter_tI16hb_concat_iter_tI10hb_array_tIN22hb_serialize_context_t8object_t6link_tEES5_ERS4_EdeEv.exit.i, label %305, !prof !1482

@@ -3047,7 +3047,7 @@ define hidden noundef nonnull align 8 dereferenceable(40) ptr @"_ZN46_$LT$dyn$u2
   store i64 -1087493654637955957, ptr %16, align 8
   %17 = icmp eq i64 %13, 7549171843087528630
   %18 = icmp eq i64 %14, -1087493654637955957
-  %or.cond = select i1 %17, i1 %18, i1 false
+  %or.cond = select i1 %17, i1 %18, i1 false, !prof !579
   br i1 %or.cond, label %22, label %19, !prof !579
 
 19:                                               ; preds = %2
@@ -3108,7 +3108,7 @@ define hidden noundef nonnull align 128 ptr @"_ZN46_$LT$dyn$u20$salsa..ingredien
   store i64 2955823697676656048, ptr %16, align 8
   %17 = icmp eq i64 %13, -5744037712343538582
   %18 = icmp eq i64 %14, 2955823697676656048
-  %or.cond = select i1 %17, i1 %18, i1 false
+  %or.cond = select i1 %17, i1 %18, i1 false, !prof !579
   br i1 %or.cond, label %22, label %19, !prof !579
 
 19:                                               ; preds = %2
@@ -3169,7 +3169,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN46_$LT$dyn$u20$salsa..ingredient.
   store i64 8675218109007975891, ptr %16, align 8
   %17 = icmp eq i64 %13, 5264284509667773164
   %18 = icmp eq i64 %14, 8675218109007975891
-  %or.cond = select i1 %17, i1 %18, i1 false
+  %or.cond = select i1 %17, i1 %18, i1 false, !prof !579
   br i1 %or.cond, label %22, label %19, !prof !579
 
 19:                                               ; preds = %2
@@ -3230,7 +3230,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN46_$LT$dyn$u20$salsa..ingredient.
   store i64 8213058936214709650, ptr %16, align 8
   %17 = icmp eq i64 %13, 6650115697442316365
   %18 = icmp eq i64 %14, 8213058936214709650
-  %or.cond = select i1 %17, i1 %18, i1 false
+  %or.cond = select i1 %17, i1 %18, i1 false, !prof !579
   br i1 %or.cond, label %22, label %19, !prof !579
 
 19:                                               ; preds = %2
@@ -3291,7 +3291,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN46_$LT$dyn$u20$salsa..ingredient.
   store i64 -7666044039745687730, ptr %16, align 8
   %17 = icmp eq i64 %13, 5813125743266193906
   %18 = icmp eq i64 %14, -7666044039745687730
-  %or.cond = select i1 %17, i1 %18, i1 false
+  %or.cond = select i1 %17, i1 %18, i1 false, !prof !579
   br i1 %or.cond, label %22, label %19, !prof !579
 
 19:                                               ; preds = %2
@@ -3352,7 +3352,7 @@ define hidden noundef nonnull align 8 dereferenceable(40) ptr @"_ZN46_$LT$dyn$u2
   store i64 -3600907329268410163, ptr %16, align 8
   %17 = icmp eq i64 %13, 4662416190600371636
   %18 = icmp eq i64 %14, -3600907329268410163
-  %or.cond = select i1 %17, i1 %18, i1 false
+  %or.cond = select i1 %17, i1 %18, i1 false, !prof !579
   br i1 %or.cond, label %22, label %19, !prof !579
 
 19:                                               ; preds = %2
@@ -3413,7 +3413,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN46_$LT$dyn$u20$salsa..ingredient.
   store i64 2000648706111782497, ptr %16, align 8
   %17 = icmp eq i64 %13, 6174350850447681503
   %18 = icmp eq i64 %14, 2000648706111782497
-  %or.cond = select i1 %17, i1 %18, i1 false
+  %or.cond = select i1 %17, i1 %18, i1 false, !prof !579
   br i1 %or.cond, label %22, label %19, !prof !579
 
 19:                                               ; preds = %2
@@ -3474,7 +3474,7 @@ define hidden noundef nonnull align 8 dereferenceable(40) ptr @"_ZN46_$LT$dyn$u2
   store i64 -8105700831371996629, ptr %16, align 8
   %17 = icmp eq i64 %13, 3062131811850773458
   %18 = icmp eq i64 %14, -8105700831371996629
-  %or.cond = select i1 %17, i1 %18, i1 false
+  %or.cond = select i1 %17, i1 %18, i1 false, !prof !579
   br i1 %or.cond, label %22, label %19, !prof !579
 
 19:                                               ; preds = %2
@@ -3535,7 +3535,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN46_$LT$dyn$u20$salsa..ingredient.
   store i64 -4424608536280242988, ptr %16, align 8
   %17 = icmp eq i64 %13, 9157358265653778837
   %18 = icmp eq i64 %14, -4424608536280242988
-  %or.cond = select i1 %17, i1 %18, i1 false
+  %or.cond = select i1 %17, i1 %18, i1 false, !prof !579
   br i1 %or.cond, label %22, label %19, !prof !579
 
 19:                                               ; preds = %2
@@ -3596,7 +3596,7 @@ define hidden noundef nonnull align 8 dereferenceable(40) ptr @"_ZN46_$LT$dyn$u2
   store i64 -8305568327475920618, ptr %16, align 8
   %17 = icmp eq i64 %13, 6147759647878065802
   %18 = icmp eq i64 %14, -8305568327475920618
-  %or.cond = select i1 %17, i1 %18, i1 false
+  %or.cond = select i1 %17, i1 %18, i1 false, !prof !579
   br i1 %or.cond, label %22, label %19, !prof !579
 
 19:                                               ; preds = %2
@@ -3657,7 +3657,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN46_$LT$dyn$u20$salsa..ingredient.
   store i64 1287009473416136656, ptr %16, align 8
   %17 = icmp eq i64 %13, -5493695757263889019
   %18 = icmp eq i64 %14, 1287009473416136656
-  %or.cond = select i1 %17, i1 %18, i1 false
+  %or.cond = select i1 %17, i1 %18, i1 false, !prof !579
   br i1 %or.cond, label %22, label %19, !prof !579
 
 19:                                               ; preds = %2
@@ -3718,7 +3718,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN46_$LT$dyn$u20$salsa..ingredient.
   store i64 1811795071660836407, ptr %16, align 8
   %17 = icmp eq i64 %13, -1002073119833874106
   %18 = icmp eq i64 %14, 1811795071660836407
-  %or.cond = select i1 %17, i1 %18, i1 false
+  %or.cond = select i1 %17, i1 %18, i1 false, !prof !579
   br i1 %or.cond, label %22, label %19, !prof !579
 
 19:                                               ; preds = %2
@@ -3779,7 +3779,7 @@ define hidden noundef nonnull align 8 dereferenceable(40) ptr @"_ZN46_$LT$dyn$u2
   store i64 4957888438018501857, ptr %16, align 8
   %17 = icmp eq i64 %13, -5661560549889964088
   %18 = icmp eq i64 %14, 4957888438018501857
-  %or.cond = select i1 %17, i1 %18, i1 false
+  %or.cond = select i1 %17, i1 %18, i1 false, !prof !579
   br i1 %or.cond, label %22, label %19, !prof !579
 
 19:                                               ; preds = %2
@@ -3840,7 +3840,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN46_$LT$dyn$u20$salsa..ingredient.
   store i64 -2063989447936917077, ptr %16, align 8
   %17 = icmp eq i64 %13, 4480789708948249910
   %18 = icmp eq i64 %14, -2063989447936917077
-  %or.cond = select i1 %17, i1 %18, i1 false
+  %or.cond = select i1 %17, i1 %18, i1 false, !prof !579
   br i1 %or.cond, label %22, label %19, !prof !579
 
 19:                                               ; preds = %2
@@ -3901,7 +3901,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN46_$LT$dyn$u20$salsa..ingredient.
   store i64 -7696923732331331224, ptr %16, align 8
   %17 = icmp eq i64 %13, -7200648711106918150
   %18 = icmp eq i64 %14, -7696923732331331224
-  %or.cond = select i1 %17, i1 %18, i1 false
+  %or.cond = select i1 %17, i1 %18, i1 false, !prof !579
   br i1 %or.cond, label %22, label %19, !prof !579
 
 19:                                               ; preds = %2
@@ -3962,7 +3962,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN46_$LT$dyn$u20$salsa..ingredient.
   store i64 3653976437013033135, ptr %16, align 8
   %17 = icmp eq i64 %13, 5259749970904203955
   %18 = icmp eq i64 %14, 3653976437013033135
-  %or.cond = select i1 %17, i1 %18, i1 false
+  %or.cond = select i1 %17, i1 %18, i1 false, !prof !579
   br i1 %or.cond, label %22, label %19, !prof !579
 
 19:                                               ; preds = %2
@@ -4023,7 +4023,7 @@ define hidden noundef nonnull align 8 dereferenceable(40) ptr @"_ZN46_$LT$dyn$u2
   store i64 1059477259970657940, ptr %16, align 8
   %17 = icmp eq i64 %13, -7892562366801487316
   %18 = icmp eq i64 %14, 1059477259970657940
-  %or.cond = select i1 %17, i1 %18, i1 false
+  %or.cond = select i1 %17, i1 %18, i1 false, !prof !579
   br i1 %or.cond, label %22, label %19, !prof !579
 
 19:                                               ; preds = %2
@@ -4084,7 +4084,7 @@ define hidden noundef nonnull align 8 dereferenceable(40) ptr @"_ZN46_$LT$dyn$u2
   store i64 1433885292295776258, ptr %16, align 8
   %17 = icmp eq i64 %13, 2913512233986227599
   %18 = icmp eq i64 %14, 1433885292295776258
-  %or.cond = select i1 %17, i1 %18, i1 false
+  %or.cond = select i1 %17, i1 %18, i1 false, !prof !579
   br i1 %or.cond, label %22, label %19, !prof !579
 
 19:                                               ; preds = %2
@@ -4145,7 +4145,7 @@ define hidden noundef nonnull align 8 dereferenceable(40) ptr @"_ZN46_$LT$dyn$u2
   store i64 1073310558858290161, ptr %16, align 8
   %17 = icmp eq i64 %13, -1315854666822251733
   %18 = icmp eq i64 %14, 1073310558858290161
-  %or.cond = select i1 %17, i1 %18, i1 false
+  %or.cond = select i1 %17, i1 %18, i1 false, !prof !579
   br i1 %or.cond, label %22, label %19, !prof !579
 
 19:                                               ; preds = %2
@@ -4206,7 +4206,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN46_$LT$dyn$u20$salsa..ingredient.
   store i64 8127489697242678638, ptr %16, align 8
   %17 = icmp eq i64 %13, -4677765335042763616
   %18 = icmp eq i64 %14, 8127489697242678638
-  %or.cond = select i1 %17, i1 %18, i1 false
+  %or.cond = select i1 %17, i1 %18, i1 false, !prof !579
   br i1 %or.cond, label %22, label %19, !prof !579
 
 19:                                               ; preds = %2
@@ -4267,7 +4267,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN46_$LT$dyn$u20$salsa..ingredient.
   store i64 1632379082825233551, ptr %16, align 8
   %17 = icmp eq i64 %13, 72350631183501061
   %18 = icmp eq i64 %14, 1632379082825233551
-  %or.cond = select i1 %17, i1 %18, i1 false
+  %or.cond = select i1 %17, i1 %18, i1 false, !prof !579
   br i1 %or.cond, label %22, label %19, !prof !579
 
 19:                                               ; preds = %2
@@ -4328,7 +4328,7 @@ define hidden noundef nonnull align 128 ptr @"_ZN46_$LT$dyn$u20$salsa..ingredien
   store i64 -2739331842209318315, ptr %16, align 8
   %17 = icmp eq i64 %13, -3636498015560147153
   %18 = icmp eq i64 %14, -2739331842209318315
-  %or.cond = select i1 %17, i1 %18, i1 false
+  %or.cond = select i1 %17, i1 %18, i1 false, !prof !579
   br i1 %or.cond, label %22, label %19, !prof !579
 
 19:                                               ; preds = %2
@@ -4389,7 +4389,7 @@ define hidden noundef nonnull align 8 dereferenceable(40) ptr @"_ZN46_$LT$dyn$u2
   store i64 -4562602637417735575, ptr %16, align 8
   %17 = icmp eq i64 %13, 405268221410406883
   %18 = icmp eq i64 %14, -4562602637417735575
-  %or.cond = select i1 %17, i1 %18, i1 false
+  %or.cond = select i1 %17, i1 %18, i1 false, !prof !579
   br i1 %or.cond, label %22, label %19, !prof !579
 
 19:                                               ; preds = %2
@@ -4450,7 +4450,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN46_$LT$dyn$u20$salsa..ingredient.
   store i64 3585419284655386738, ptr %16, align 8
   %17 = icmp eq i64 %13, -5907831254371964685
   %18 = icmp eq i64 %14, 3585419284655386738
-  %or.cond = select i1 %17, i1 %18, i1 false
+  %or.cond = select i1 %17, i1 %18, i1 false, !prof !579
   br i1 %or.cond, label %22, label %19, !prof !579
 
 19:                                               ; preds = %2
@@ -4511,7 +4511,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN46_$LT$dyn$u20$salsa..ingredient.
   store i64 -218222305062996679, ptr %16, align 8
   %17 = icmp eq i64 %13, 771528873081881261
   %18 = icmp eq i64 %14, -218222305062996679
-  %or.cond = select i1 %17, i1 %18, i1 false
+  %or.cond = select i1 %17, i1 %18, i1 false, !prof !579
   br i1 %or.cond, label %22, label %19, !prof !579
 
 19:                                               ; preds = %2
@@ -4572,7 +4572,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN46_$LT$dyn$u20$salsa..ingredient.
   store i64 3199048884221076956, ptr %16, align 8
   %17 = icmp eq i64 %13, 784180444486540163
   %18 = icmp eq i64 %14, 3199048884221076956
-  %or.cond = select i1 %17, i1 %18, i1 false
+  %or.cond = select i1 %17, i1 %18, i1 false, !prof !579
   br i1 %or.cond, label %22, label %19, !prof !579
 
 19:                                               ; preds = %2
@@ -4633,7 +4633,7 @@ define hidden noundef nonnull align 8 dereferenceable(40) ptr @"_ZN46_$LT$dyn$u2
   store i64 4538498358435477822, ptr %16, align 8
   %17 = icmp eq i64 %13, -6458697329117090813
   %18 = icmp eq i64 %14, 4538498358435477822
-  %or.cond = select i1 %17, i1 %18, i1 false
+  %or.cond = select i1 %17, i1 %18, i1 false, !prof !579
   br i1 %or.cond, label %22, label %19, !prof !579
 
 19:                                               ; preds = %2
@@ -4694,7 +4694,7 @@ define hidden noundef nonnull align 8 dereferenceable(40) ptr @"_ZN46_$LT$dyn$u2
   store i64 -9040156262565417901, ptr %16, align 8
   %17 = icmp eq i64 %13, -7292962748621675206
   %18 = icmp eq i64 %14, -9040156262565417901
-  %or.cond = select i1 %17, i1 %18, i1 false
+  %or.cond = select i1 %17, i1 %18, i1 false, !prof !579
   br i1 %or.cond, label %22, label %19, !prof !579
 
 19:                                               ; preds = %2
@@ -4755,7 +4755,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN46_$LT$dyn$u20$salsa..ingredient.
   store i64 4118347255568404935, ptr %16, align 8
   %17 = icmp eq i64 %13, -5938814086149588305
   %18 = icmp eq i64 %14, 4118347255568404935
-  %or.cond = select i1 %17, i1 %18, i1 false
+  %or.cond = select i1 %17, i1 %18, i1 false, !prof !579
   br i1 %or.cond, label %22, label %19, !prof !579
 
 19:                                               ; preds = %2
@@ -4816,7 +4816,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN46_$LT$dyn$u20$salsa..ingredient.
   store i64 -6779264828647057104, ptr %16, align 8
   %17 = icmp eq i64 %13, -2542137221086540188
   %18 = icmp eq i64 %14, -6779264828647057104
-  %or.cond = select i1 %17, i1 %18, i1 false
+  %or.cond = select i1 %17, i1 %18, i1 false, !prof !579
   br i1 %or.cond, label %22, label %19, !prof !579
 
 19:                                               ; preds = %2
@@ -4877,7 +4877,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN46_$LT$dyn$u20$salsa..ingredient.
   store i64 -1263846011326345028, ptr %16, align 8
   %17 = icmp eq i64 %13, 8210396172308238049
   %18 = icmp eq i64 %14, -1263846011326345028
-  %or.cond = select i1 %17, i1 %18, i1 false
+  %or.cond = select i1 %17, i1 %18, i1 false, !prof !579
   br i1 %or.cond, label %22, label %19, !prof !579
 
 19:                                               ; preds = %2
@@ -4938,7 +4938,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN46_$LT$dyn$u20$salsa..ingredient.
   store i64 216087900090968766, ptr %16, align 8
   %17 = icmp eq i64 %13, -1128213162299772866
   %18 = icmp eq i64 %14, 216087900090968766
-  %or.cond = select i1 %17, i1 %18, i1 false
+  %or.cond = select i1 %17, i1 %18, i1 false, !prof !579
   br i1 %or.cond, label %22, label %19, !prof !579
 
 19:                                               ; preds = %2
@@ -4999,7 +4999,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN46_$LT$dyn$u20$salsa..ingredient.
   store i64 -5558144730109116960, ptr %16, align 8
   %17 = icmp eq i64 %13, 6246443710083761909
   %18 = icmp eq i64 %14, -5558144730109116960
-  %or.cond = select i1 %17, i1 %18, i1 false
+  %or.cond = select i1 %17, i1 %18, i1 false, !prof !579
   br i1 %or.cond, label %22, label %19, !prof !579
 
 19:                                               ; preds = %2
@@ -5060,7 +5060,7 @@ define hidden noundef nonnull align 8 dereferenceable(40) ptr @"_ZN46_$LT$dyn$u2
   store i64 -3075996139366072690, ptr %16, align 8
   %17 = icmp eq i64 %13, -2073694678688871132
   %18 = icmp eq i64 %14, -3075996139366072690
-  %or.cond = select i1 %17, i1 %18, i1 false
+  %or.cond = select i1 %17, i1 %18, i1 false, !prof !579
   br i1 %or.cond, label %22, label %19, !prof !579
 
 19:                                               ; preds = %2
@@ -5121,7 +5121,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN46_$LT$dyn$u20$salsa..ingredient.
   store i64 -4599857389807686800, ptr %16, align 8
   %17 = icmp eq i64 %13, -6747902865141337387
   %18 = icmp eq i64 %14, -4599857389807686800
-  %or.cond = select i1 %17, i1 %18, i1 false
+  %or.cond = select i1 %17, i1 %18, i1 false, !prof !579
   br i1 %or.cond, label %22, label %19, !prof !579
 
 19:                                               ; preds = %2
@@ -5182,7 +5182,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN46_$LT$dyn$u20$salsa..ingredient.
   store i64 -7163361683832887917, ptr %16, align 8
   %17 = icmp eq i64 %13, -8847769150007786248
   %18 = icmp eq i64 %14, -7163361683832887917
-  %or.cond = select i1 %17, i1 %18, i1 false
+  %or.cond = select i1 %17, i1 %18, i1 false, !prof !579
   br i1 %or.cond, label %22, label %19, !prof !579
 
 19:                                               ; preds = %2
@@ -5243,7 +5243,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN46_$LT$dyn$u20$salsa..ingredient.
   store i64 -4044539323738838796, ptr %16, align 8
   %17 = icmp eq i64 %13, 1294287130567109804
   %18 = icmp eq i64 %14, -4044539323738838796
-  %or.cond = select i1 %17, i1 %18, i1 false
+  %or.cond = select i1 %17, i1 %18, i1 false, !prof !579
   br i1 %or.cond, label %22, label %19, !prof !579
 
 19:                                               ; preds = %2
@@ -5304,7 +5304,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN46_$LT$dyn$u20$salsa..ingredient.
   store i64 2166736411282206042, ptr %16, align 8
   %17 = icmp eq i64 %13, 7608855930295215315
   %18 = icmp eq i64 %14, 2166736411282206042
-  %or.cond = select i1 %17, i1 %18, i1 false
+  %or.cond = select i1 %17, i1 %18, i1 false, !prof !579
   br i1 %or.cond, label %22, label %19, !prof !579
 
 19:                                               ; preds = %2
@@ -5365,7 +5365,7 @@ define hidden noundef nonnull align 8 dereferenceable(40) ptr @"_ZN46_$LT$dyn$u2
   store i64 -8645414808292883173, ptr %16, align 8
   %17 = icmp eq i64 %13, -5243687995804103067
   %18 = icmp eq i64 %14, -8645414808292883173
-  %or.cond = select i1 %17, i1 %18, i1 false
+  %or.cond = select i1 %17, i1 %18, i1 false, !prof !579
   br i1 %or.cond, label %22, label %19, !prof !579
 
 19:                                               ; preds = %2
@@ -5426,7 +5426,7 @@ define hidden noundef nonnull align 128 ptr @"_ZN46_$LT$dyn$u20$salsa..ingredien
   store i64 -9078410296178927105, ptr %16, align 8
   %17 = icmp eq i64 %13, -4551881114361108360
   %18 = icmp eq i64 %14, -9078410296178927105
-  %or.cond = select i1 %17, i1 %18, i1 false
+  %or.cond = select i1 %17, i1 %18, i1 false, !prof !579
   br i1 %or.cond, label %22, label %19, !prof !579
 
 19:                                               ; preds = %2
@@ -5487,7 +5487,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN46_$LT$dyn$u20$salsa..ingredient.
   store i64 -5214116844953046287, ptr %16, align 8
   %17 = icmp eq i64 %13, 5770566233989690127
   %18 = icmp eq i64 %14, -5214116844953046287
-  %or.cond = select i1 %17, i1 %18, i1 false
+  %or.cond = select i1 %17, i1 %18, i1 false, !prof !579
   br i1 %or.cond, label %22, label %19, !prof !579
 
 19:                                               ; preds = %2
@@ -5548,7 +5548,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN46_$LT$dyn$u20$salsa..ingredient.
   store i64 8195871855197726155, ptr %16, align 8
   %17 = icmp eq i64 %13, 9108416108889784780
   %18 = icmp eq i64 %14, 8195871855197726155
-  %or.cond = select i1 %17, i1 %18, i1 false
+  %or.cond = select i1 %17, i1 %18, i1 false, !prof !579
   br i1 %or.cond, label %22, label %19, !prof !579
 
 19:                                               ; preds = %2
@@ -5609,7 +5609,7 @@ define hidden noundef nonnull align 8 dereferenceable(40) ptr @"_ZN46_$LT$dyn$u2
   store i64 3148799627504428578, ptr %16, align 8
   %17 = icmp eq i64 %13, -2642854828183481923
   %18 = icmp eq i64 %14, 3148799627504428578
-  %or.cond = select i1 %17, i1 %18, i1 false
+  %or.cond = select i1 %17, i1 %18, i1 false, !prof !579
   br i1 %or.cond, label %22, label %19, !prof !579
 
 19:                                               ; preds = %2
@@ -5670,7 +5670,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN46_$LT$dyn$u20$salsa..ingredient.
   store i64 7437434369679727085, ptr %16, align 8
   %17 = icmp eq i64 %13, -8339744580785161617
   %18 = icmp eq i64 %14, 7437434369679727085
-  %or.cond = select i1 %17, i1 %18, i1 false
+  %or.cond = select i1 %17, i1 %18, i1 false, !prof !579
   br i1 %or.cond, label %22, label %19, !prof !579
 
 19:                                               ; preds = %2
@@ -5731,7 +5731,7 @@ define hidden noundef nonnull align 128 ptr @"_ZN46_$LT$dyn$u20$salsa..ingredien
   store i64 8810389333380619697, ptr %16, align 8
   %17 = icmp eq i64 %13, -6234630073222470085
   %18 = icmp eq i64 %14, 8810389333380619697
-  %or.cond = select i1 %17, i1 %18, i1 false
+  %or.cond = select i1 %17, i1 %18, i1 false, !prof !579
   br i1 %or.cond, label %22, label %19, !prof !579
 
 19:                                               ; preds = %2
@@ -5792,7 +5792,7 @@ define hidden noundef nonnull align 8 dereferenceable(40) ptr @"_ZN46_$LT$dyn$u2
   store i64 -4126904917552750766, ptr %16, align 8
   %17 = icmp eq i64 %13, -8448809650309656971
   %18 = icmp eq i64 %14, -4126904917552750766
-  %or.cond = select i1 %17, i1 %18, i1 false
+  %or.cond = select i1 %17, i1 %18, i1 false, !prof !579
   br i1 %or.cond, label %22, label %19, !prof !579
 
 19:                                               ; preds = %2
@@ -5853,7 +5853,7 @@ define hidden noundef nonnull align 128 ptr @"_ZN46_$LT$dyn$u20$salsa..ingredien
   store i64 -5572064104677051851, ptr %16, align 8
   %17 = icmp eq i64 %13, 2564255597320552569
   %18 = icmp eq i64 %14, -5572064104677051851
-  %or.cond = select i1 %17, i1 %18, i1 false
+  %or.cond = select i1 %17, i1 %18, i1 false, !prof !579
   br i1 %or.cond, label %22, label %19, !prof !579
 
 19:                                               ; preds = %2
@@ -5914,7 +5914,7 @@ define hidden noundef nonnull align 8 dereferenceable(40) ptr @"_ZN46_$LT$dyn$u2
   store i64 8220339394450566345, ptr %16, align 8
   %17 = icmp eq i64 %13, -8894814639995126549
   %18 = icmp eq i64 %14, 8220339394450566345
-  %or.cond = select i1 %17, i1 %18, i1 false
+  %or.cond = select i1 %17, i1 %18, i1 false, !prof !579
   br i1 %or.cond, label %22, label %19, !prof !579
 
 19:                                               ; preds = %2
@@ -5975,7 +5975,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN46_$LT$dyn$u20$salsa..ingredient.
   store i64 -860626310496168929, ptr %16, align 8
   %17 = icmp eq i64 %13, 6487906276031967944
   %18 = icmp eq i64 %14, -860626310496168929
-  %or.cond = select i1 %17, i1 %18, i1 false
+  %or.cond = select i1 %17, i1 %18, i1 false, !prof !579
   br i1 %or.cond, label %22, label %19, !prof !579
 
 19:                                               ; preds = %2
@@ -6036,7 +6036,7 @@ define hidden noundef nonnull align 8 dereferenceable(40) ptr @"_ZN46_$LT$dyn$u2
   store i64 -7063710048230499514, ptr %16, align 8
   %17 = icmp eq i64 %13, -2989846596031141456
   %18 = icmp eq i64 %14, -7063710048230499514
-  %or.cond = select i1 %17, i1 %18, i1 false
+  %or.cond = select i1 %17, i1 %18, i1 false, !prof !579
   br i1 %or.cond, label %22, label %19, !prof !579
 
 19:                                               ; preds = %2
@@ -6097,7 +6097,7 @@ define hidden noundef nonnull align 8 dereferenceable(40) ptr @"_ZN46_$LT$dyn$u2
   store i64 -5911751673392990389, ptr %16, align 8
   %17 = icmp eq i64 %13, 4676622218643542757
   %18 = icmp eq i64 %14, -5911751673392990389
-  %or.cond = select i1 %17, i1 %18, i1 false
+  %or.cond = select i1 %17, i1 %18, i1 false, !prof !579
   br i1 %or.cond, label %22, label %19, !prof !579
 
 19:                                               ; preds = %2
@@ -6158,7 +6158,7 @@ define hidden noundef nonnull align 8 dereferenceable(40) ptr @"_ZN46_$LT$dyn$u2
   store i64 1659485645975423487, ptr %16, align 8
   %17 = icmp eq i64 %13, -5713295839137641041
   %18 = icmp eq i64 %14, 1659485645975423487
-  %or.cond = select i1 %17, i1 %18, i1 false
+  %or.cond = select i1 %17, i1 %18, i1 false, !prof !579
   br i1 %or.cond, label %22, label %19, !prof !579
 
 19:                                               ; preds = %2
@@ -6219,7 +6219,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN46_$LT$dyn$u20$salsa..ingredient.
   store i64 -3808448246117698101, ptr %16, align 8
   %17 = icmp eq i64 %13, 1615645133176589965
   %18 = icmp eq i64 %14, -3808448246117698101
-  %or.cond = select i1 %17, i1 %18, i1 false
+  %or.cond = select i1 %17, i1 %18, i1 false, !prof !579
   br i1 %or.cond, label %22, label %19, !prof !579
 
 19:                                               ; preds = %2
@@ -6280,7 +6280,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN46_$LT$dyn$u20$salsa..ingredient.
   store i64 -3235471276448399326, ptr %16, align 8
   %17 = icmp eq i64 %13, 8267910015938111583
   %18 = icmp eq i64 %14, -3235471276448399326
-  %or.cond = select i1 %17, i1 %18, i1 false
+  %or.cond = select i1 %17, i1 %18, i1 false, !prof !579
   br i1 %or.cond, label %22, label %19, !prof !579
 
 19:                                               ; preds = %2
@@ -6341,7 +6341,7 @@ define hidden noundef nonnull align 8 dereferenceable(40) ptr @"_ZN46_$LT$dyn$u2
   store i64 -5865123015232714300, ptr %16, align 8
   %17 = icmp eq i64 %13, -6952903118755063011
   %18 = icmp eq i64 %14, -5865123015232714300
-  %or.cond = select i1 %17, i1 %18, i1 false
+  %or.cond = select i1 %17, i1 %18, i1 false, !prof !579
   br i1 %or.cond, label %22, label %19, !prof !579
 
 19:                                               ; preds = %2
@@ -6402,7 +6402,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN46_$LT$dyn$u20$salsa..ingredient.
   store i64 -9061075981782674539, ptr %16, align 8
   %17 = icmp eq i64 %13, 1138188278247336155
   %18 = icmp eq i64 %14, -9061075981782674539
-  %or.cond = select i1 %17, i1 %18, i1 false
+  %or.cond = select i1 %17, i1 %18, i1 false, !prof !579
   br i1 %or.cond, label %22, label %19, !prof !579
 
 19:                                               ; preds = %2
@@ -6463,7 +6463,7 @@ define hidden noundef nonnull align 8 dereferenceable(40) ptr @"_ZN46_$LT$dyn$u2
   store i64 -4710346688958145119, ptr %16, align 8
   %17 = icmp eq i64 %13, 6575811793081984438
   %18 = icmp eq i64 %14, -4710346688958145119
-  %or.cond = select i1 %17, i1 %18, i1 false
+  %or.cond = select i1 %17, i1 %18, i1 false, !prof !579
   br i1 %or.cond, label %22, label %19, !prof !579
 
 19:                                               ; preds = %2
@@ -6524,7 +6524,7 @@ define hidden noundef nonnull align 8 dereferenceable(40) ptr @"_ZN46_$LT$dyn$u2
   store i64 -2257701981849909220, ptr %16, align 8
   %17 = icmp eq i64 %13, -981115012186241886
   %18 = icmp eq i64 %14, -2257701981849909220
-  %or.cond = select i1 %17, i1 %18, i1 false
+  %or.cond = select i1 %17, i1 %18, i1 false, !prof !579
   br i1 %or.cond, label %22, label %19, !prof !579
 
 19:                                               ; preds = %2
@@ -6585,7 +6585,7 @@ define hidden noundef nonnull align 8 dereferenceable(40) ptr @"_ZN46_$LT$dyn$u2
   store i64 -4645855203200861800, ptr %16, align 8
   %17 = icmp eq i64 %13, 1579775582379348360
   %18 = icmp eq i64 %14, -4645855203200861800
-  %or.cond = select i1 %17, i1 %18, i1 false
+  %or.cond = select i1 %17, i1 %18, i1 false, !prof !579
   br i1 %or.cond, label %22, label %19, !prof !579
 
 19:                                               ; preds = %2
@@ -6646,7 +6646,7 @@ define hidden noundef nonnull align 8 dereferenceable(40) ptr @"_ZN46_$LT$dyn$u2
   store i64 -1555281442459066909, ptr %16, align 8
   %17 = icmp eq i64 %13, 8873148472038356706
   %18 = icmp eq i64 %14, -1555281442459066909
-  %or.cond = select i1 %17, i1 %18, i1 false
+  %or.cond = select i1 %17, i1 %18, i1 false, !prof !579
   br i1 %or.cond, label %22, label %19, !prof !579
 
 19:                                               ; preds = %2
@@ -6707,7 +6707,7 @@ define hidden noundef nonnull align 128 ptr @"_ZN46_$LT$dyn$u20$salsa..ingredien
   store i64 -3384367634473603310, ptr %16, align 8
   %17 = icmp eq i64 %13, -6181160520919295461
   %18 = icmp eq i64 %14, -3384367634473603310
-  %or.cond = select i1 %17, i1 %18, i1 false
+  %or.cond = select i1 %17, i1 %18, i1 false, !prof !579
   br i1 %or.cond, label %22, label %19, !prof !579
 
 19:                                               ; preds = %2
@@ -6768,7 +6768,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN46_$LT$dyn$u20$salsa..ingredient.
   store i64 5615699900892041594, ptr %16, align 8
   %17 = icmp eq i64 %13, 7922385194004755814
   %18 = icmp eq i64 %14, 5615699900892041594
-  %or.cond = select i1 %17, i1 %18, i1 false
+  %or.cond = select i1 %17, i1 %18, i1 false, !prof !579
   br i1 %or.cond, label %22, label %19, !prof !579
 
 19:                                               ; preds = %2
@@ -6829,7 +6829,7 @@ define hidden noundef nonnull align 8 dereferenceable(40) ptr @"_ZN46_$LT$dyn$u2
   store i64 -4147503810768110553, ptr %16, align 8
   %17 = icmp eq i64 %13, 39956157809552238
   %18 = icmp eq i64 %14, -4147503810768110553
-  %or.cond = select i1 %17, i1 %18, i1 false
+  %or.cond = select i1 %17, i1 %18, i1 false, !prof !579
   br i1 %or.cond, label %22, label %19, !prof !579
 
 19:                                               ; preds = %2
@@ -6890,7 +6890,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN46_$LT$dyn$u20$salsa..ingredient.
   store i64 -2618002388288392757, ptr %16, align 8
   %17 = icmp eq i64 %13, 2762471803248235600
   %18 = icmp eq i64 %14, -2618002388288392757
-  %or.cond = select i1 %17, i1 %18, i1 false
+  %or.cond = select i1 %17, i1 %18, i1 false, !prof !579
   br i1 %or.cond, label %22, label %19, !prof !579
 
 19:                                               ; preds = %2
@@ -6951,7 +6951,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN46_$LT$dyn$u20$salsa..ingredient.
   store i64 4530885117584191889, ptr %16, align 8
   %17 = icmp eq i64 %13, 6589867106255496717
   %18 = icmp eq i64 %14, 4530885117584191889
-  %or.cond = select i1 %17, i1 %18, i1 false
+  %or.cond = select i1 %17, i1 %18, i1 false, !prof !579
   br i1 %or.cond, label %22, label %19, !prof !579
 
 19:                                               ; preds = %2
@@ -7012,7 +7012,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN46_$LT$dyn$u20$salsa..ingredient.
   store i64 4775020638930567929, ptr %16, align 8
   %17 = icmp eq i64 %13, 4480015702310788434
   %18 = icmp eq i64 %14, 4775020638930567929
-  %or.cond = select i1 %17, i1 %18, i1 false
+  %or.cond = select i1 %17, i1 %18, i1 false, !prof !579
   br i1 %or.cond, label %22, label %19, !prof !579
 
 19:                                               ; preds = %2
@@ -7073,7 +7073,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN46_$LT$dyn$u20$salsa..ingredient.
   store i64 4600392153130758518, ptr %16, align 8
   %17 = icmp eq i64 %13, -7482700684142208090
   %18 = icmp eq i64 %14, 4600392153130758518
-  %or.cond = select i1 %17, i1 %18, i1 false
+  %or.cond = select i1 %17, i1 %18, i1 false, !prof !579
   br i1 %or.cond, label %22, label %19, !prof !579
 
 19:                                               ; preds = %2
@@ -7134,7 +7134,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN46_$LT$dyn$u20$salsa..ingredient.
   store i64 -2830023792944120936, ptr %16, align 8
   %17 = icmp eq i64 %13, 6755747531394431877
   %18 = icmp eq i64 %14, -2830023792944120936
-  %or.cond = select i1 %17, i1 %18, i1 false
+  %or.cond = select i1 %17, i1 %18, i1 false, !prof !579
   br i1 %or.cond, label %22, label %19, !prof !579
 
 19:                                               ; preds = %2
@@ -7195,7 +7195,7 @@ define hidden noundef nonnull align 8 dereferenceable(40) ptr @"_ZN46_$LT$dyn$u2
   store i64 1878186399079162468, ptr %16, align 8
   %17 = icmp eq i64 %13, 1430544377859199639
   %18 = icmp eq i64 %14, 1878186399079162468
-  %or.cond = select i1 %17, i1 %18, i1 false
+  %or.cond = select i1 %17, i1 %18, i1 false, !prof !579
   br i1 %or.cond, label %22, label %19, !prof !579
 
 19:                                               ; preds = %2
@@ -7256,7 +7256,7 @@ define hidden noundef nonnull align 8 dereferenceable(40) ptr @"_ZN46_$LT$dyn$u2
   store i64 6090629862503153691, ptr %16, align 8
   %17 = icmp eq i64 %13, 8842178123565267025
   %18 = icmp eq i64 %14, 6090629862503153691
-  %or.cond = select i1 %17, i1 %18, i1 false
+  %or.cond = select i1 %17, i1 %18, i1 false, !prof !579
   br i1 %or.cond, label %22, label %19, !prof !579
 
 19:                                               ; preds = %2
@@ -7317,7 +7317,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN46_$LT$dyn$u20$salsa..ingredient.
   store i64 -4188378995886577251, ptr %16, align 8
   %17 = icmp eq i64 %13, -8528955984224532718
   %18 = icmp eq i64 %14, -4188378995886577251
-  %or.cond = select i1 %17, i1 %18, i1 false
+  %or.cond = select i1 %17, i1 %18, i1 false, !prof !579
   br i1 %or.cond, label %22, label %19, !prof !579
 
 19:                                               ; preds = %2
@@ -7378,7 +7378,7 @@ define hidden noundef nonnull align 8 dereferenceable(40) ptr @"_ZN46_$LT$dyn$u2
   store i64 -3794463384316277595, ptr %16, align 8
   %17 = icmp eq i64 %13, -6724777437569103320
   %18 = icmp eq i64 %14, -3794463384316277595
-  %or.cond = select i1 %17, i1 %18, i1 false
+  %or.cond = select i1 %17, i1 %18, i1 false, !prof !579
   br i1 %or.cond, label %22, label %19, !prof !579
 
 19:                                               ; preds = %2
@@ -7439,7 +7439,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN46_$LT$dyn$u20$salsa..ingredient.
   store i64 -4452221222491413101, ptr %16, align 8
   %17 = icmp eq i64 %13, 8994610249340274735
   %18 = icmp eq i64 %14, -4452221222491413101
-  %or.cond = select i1 %17, i1 %18, i1 false
+  %or.cond = select i1 %17, i1 %18, i1 false, !prof !579
   br i1 %or.cond, label %22, label %19, !prof !579
 
 19:                                               ; preds = %2
@@ -7500,7 +7500,7 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN46_$LT$dyn$u2
   store i64 4600392153130758518, ptr %16, align 8
   %17 = icmp eq i64 %13, -7482700684142208090
   %18 = icmp eq i64 %14, 4600392153130758518
-  %or.cond = select i1 %17, i1 %18, i1 false
+  %or.cond = select i1 %17, i1 %18, i1 false, !prof !579
   br i1 %or.cond, label %22, label %19, !prof !579
 
 19:                                               ; preds = %2

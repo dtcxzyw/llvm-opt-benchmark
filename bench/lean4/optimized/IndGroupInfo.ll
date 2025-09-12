@@ -334,7 +334,7 @@ lean_dec.exit22:
   %23 = ptrtoint ptr %9 to i64
   %24 = and i64 %23, 1
   %25 = icmp ne i64 %24, 0
-  %or.cond = select i1 %22, i1 %25, i1 false
+  %or.cond = select i1 %22, i1 %25, i1 false, !prof !15
   br i1 %or.cond, label %26, label %.critedge.i25, !prof !15
 
 26:                                               ; preds = %19
@@ -494,7 +494,7 @@ define nonnull ptr @l_Lean_Elab_Structural_beqIndGroupInfo____x40_Lean_Elab_PreD
   %24 = ptrtoint ptr %10 to i64
   %25 = and i64 %24, 1
   %26 = icmp ne i64 %25, 0
-  %or.cond.i = select i1 %23, i1 %26, i1 false
+  %or.cond.i = select i1 %23, i1 %26, i1 false, !prof !15
   br i1 %or.cond.i, label %27, label %.critedge.i25.i, !prof !15
 
 27:                                               ; preds = %20
@@ -4862,7 +4862,7 @@ lean_dec.exit43:                                  ; preds = %47, %46, %44, %lean
   %52 = ptrtoint ptr %48 to i64
   %53 = and i64 %52, 1
   %54 = icmp ne i64 %53, 0
-  %or.cond = select i1 %51, i1 %54, i1 false
+  %or.cond = select i1 %51, i1 %54, i1 false, !prof !15
   br i1 %or.cond, label %lean_dec.exit42.thread, label %lean_nat_eq.exit, !prof !15
 
 lean_dec.exit42.thread:                           ; preds = %lean_dec.exit43
@@ -5176,7 +5176,7 @@ lean_inc.exit:                                    ; preds = %27, %26, %24, %lean
   %49 = ptrtoint ptr %35 to i64
   %50 = and i64 %49, 1
   %51 = icmp ne i64 %50, 0
-  %or.cond.i = select i1 %48, i1 %51, i1 false
+  %or.cond.i = select i1 %48, i1 %51, i1 false, !prof !15
   br i1 %or.cond.i, label %52, label %.critedge.i25.i, !prof !15
 
 52:                                               ; preds = %45
@@ -8445,7 +8445,7 @@ l_Lean_Elab_Structural_IndGroupInfo_numMotives.exit: ; preds = %116, %120, %.cri
   %126 = ptrtoint ptr %.0.i.i to i64
   %127 = and i64 %126, 1
   %128 = icmp ne i64 %127, 0
-  %or.cond = select i1 %91, i1 %128, i1 false
+  %or.cond = select i1 %91, i1 %128, i1 false, !prof !15
   br i1 %or.cond, label %lean_nat_eq.exit.thread, label %lean_nat_eq.exit, !prof !15
 
 lean_nat_eq.exit.thread:                          ; preds = %l_Lean_Elab_Structural_IndGroupInfo_numMotives.exit

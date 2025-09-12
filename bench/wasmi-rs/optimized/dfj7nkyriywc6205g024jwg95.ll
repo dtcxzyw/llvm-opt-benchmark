@@ -11274,7 +11274,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
   %.sroa.0.1.i = phi ptr [ %47, %._crit_edge.i ], [ %62, %59 ]
   %67 = icmp ne ptr %.sroa.0.1.i, %33
   %68 = icmp ne ptr %.sroa.06.1.i, %34
-  %or.cond.i = select i1 %67, i1 true, i1 %68
+  %or.cond.i = select i1 %67, i1 true, i1 %68, !prof !2127
   br i1 %or.cond.i, label %69, label %_ZN4core5slice4sort6shared9smallsort19bidirectional_merge17h607fd43ac047904fE.exit, !prof !2127
 
 69:                                               ; preds = %66

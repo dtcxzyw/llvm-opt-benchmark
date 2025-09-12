@@ -4437,7 +4437,7 @@ define dso_local i32 @__tcp_retransmit_skb(ptr noundef %0, ptr noundef %1, i32 n
   %290 = load i8, ptr %289, align 1
   %291 = and i8 %290, 75
   %292 = icmp eq i8 %291, 0
-  %or.cond.i = select i1 %282, i1 %292, i1 false
+  %or.cond.i = select i1 %282, i1 %292, i1 false, !prof !81
   br i1 %or.cond.i, label %307, label %._crit_edge.i, !prof !81
 
 ._crit_edge.i:                                    ; preds = %277
@@ -5157,7 +5157,7 @@ define dso_local void @tcp_skb_collapse_tstamp(ptr noundef captures(none) %0, pt
   %14 = load i8, ptr %13, align 1
   %15 = and i8 %14, 75
   %16 = icmp eq i8 %15, 0
-  %or.cond = select i1 %6, i1 %16, i1 false
+  %or.cond = select i1 %6, i1 %16, i1 false, !prof !81
   br i1 %or.cond, label %35, label %._crit_edge, !prof !81
 
 ._crit_edge:                                      ; preds = %2

@@ -35255,7 +35255,7 @@ _ZN7xgboost4tree21BoundedHistCollection5ClearEb.exit: ; preds = %50
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %75 = load i8, ptr %74, align 8, !range !139
   %76 = trunc nuw i8 %75 to i1
-  %or.cond = select i1 %4, i1 %76, i1 false
+  %or.cond = select i1 %4, i1 %76, i1 false, !prof !1191
   br i1 %or.cond, label %77, label %_ZNSt6vectorIiSaIiEED2Ev.exit, !prof !1191
 
 77:                                               ; preds = %61

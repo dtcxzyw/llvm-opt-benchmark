@@ -3079,7 +3079,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit107:        ; preds = %231, %234
   %249 = trunc i8 %248 to i1
   %250 = load i32, ptr %10, align 8
   %251 = icmp ne i32 %250, 1
-  %or.cond = select i1 %249, i1 true, i1 %251
+  %or.cond = select i1 %249, i1 true, i1 %251, !prof !146
   br i1 %or.cond, label %252, label %285, !prof !146
 
 252:                                              ; preds = %247
@@ -4663,7 +4663,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %253
   %274 = trunc i8 %273 to i1
   %275 = load i32, ptr %13, align 8
   %276 = icmp ne i32 %275, 1
-  %or.cond = select i1 %274, i1 true, i1 %276
+  %or.cond = select i1 %274, i1 true, i1 %276, !prof !146
   br i1 %or.cond, label %277, label %310, !prof !146
 
 277:                                              ; preds = %272

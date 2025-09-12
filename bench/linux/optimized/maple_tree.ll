@@ -10497,7 +10497,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @mas_ascend(ptr noundef captu
   %154 = icmp eq i64 %153, 0
   %155 = icmp eq i8 %133, 0
   %156 = or i1 %155, %146
-  %or.cond = select i1 %154, i1 %156, i1 false
+  %or.cond = select i1 %154, i1 %156, i1 false, !prof !124
   br i1 %or.cond, label %67, label %157, !prof !124, !llvm.loop !125
 
 157:                                              ; preds = %152

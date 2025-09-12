@@ -874,7 +874,7 @@ _ZN5serde2de9MapAccess10next_value17h8bb51206e80de8a1E.exit110: ; preds = %71
   %.not100 = xor i1 %78, true
   %79 = load i64, ptr %32, align 8, !range !124
   %.not90 = icmp eq i64 %79, -9223372036854775807
-  %or.cond = select i1 %.not100, i1 true, i1 %.not90
+  %or.cond = select i1 %.not100, i1 true, i1 %.not90, !prof !134
   br i1 %or.cond, label %90, label %91, !prof !134
 
 80:                                               ; preds = %31
@@ -1222,7 +1222,7 @@ _ZN5serde2de9MapAccess10next_value17hba04901f7b507abaE.exit113: ; preds = %55
   %62 = trunc nuw i64 %.sroa.056.0.ph411 to i1
   %.not112 = xor i1 %62, true
   %.not106 = icmp eq i8 %.sroa.0.0, 3
-  %or.cond = select i1 %.not112, i1 true, i1 %.not106
+  %or.cond = select i1 %.not112, i1 true, i1 %.not106, !prof !134
   br i1 %or.cond, label %67, label %68, !prof !134
 
 63:                                               ; preds = %27
@@ -1975,7 +1975,7 @@ _ZN5serde2de9MapAccess10next_value17hba04901f7b507abaE.exit108: ; preds = %74
   %.not100 = xor i1 %81, true
   %82 = load i64, ptr %33, align 8, !range !144
   %.not90 = icmp eq i64 %82, -9223372036854775808
-  %or.cond = select i1 %.not100, i1 true, i1 %.not90
+  %or.cond = select i1 %.not100, i1 true, i1 %.not90, !prof !134
   br i1 %or.cond, label %91, label %92, !prof !134
 
 83:                                               ; preds = %32
@@ -2372,7 +2372,7 @@ _ZN5serde2de9MapAccess10next_value17h3f0ae9267d36d8ebE.exit107: ; preds = %74
   %.not100 = xor i1 %81, true
   %82 = load i64, ptr %33, align 8, !range !144
   %.not90 = icmp eq i64 %82, -9223372036854775808
-  %or.cond = select i1 %.not100, i1 true, i1 %.not90
+  %or.cond = select i1 %.not100, i1 true, i1 %.not90, !prof !134
   br i1 %or.cond, label %91, label %92, !prof !134
 
 83:                                               ; preds = %32
@@ -2751,7 +2751,7 @@ _ZN5serde2de9MapAccess10next_value17h8bb51206e80de8a1E.exit108: ; preds = %74
   %.not100 = xor i1 %81, true
   %82 = load i64, ptr %33, align 8, !range !144
   %.not90 = icmp eq i64 %82, -9223372036854775808
-  %or.cond = select i1 %.not100, i1 true, i1 %.not90
+  %or.cond = select i1 %.not100, i1 true, i1 %.not90, !prof !134
   br i1 %or.cond, label %91, label %92, !prof !134
 
 83:                                               ; preds = %32
@@ -3101,7 +3101,7 @@ _ZN5serde2de9MapAccess10next_value17hba04901f7b507abaE.exit122: ; preds = %56
 62:                                               ; preds = %27
   %63 = trunc nuw i64 %.sroa.061.0.ph456 to i1
   %64 = trunc nuw i8 %.sroa.0.0 to i1
-  %or.cond = select i1 %63, i1 %64, i1 false
+  %or.cond = select i1 %63, i1 %64, i1 false, !prof !173
   br i1 %or.cond, label %70, label %69, !prof !173
 
 65:                                               ; preds = %27
@@ -3462,7 +3462,7 @@ _ZN5serde2de9MapAccess10next_value17hba04901f7b507abaE.exit110: ; preds = %71
   %.not100 = xor i1 %78, true
   %79 = load i64, ptr %32, align 8, !range !124
   %.not90 = icmp eq i64 %79, -9223372036854775807
-  %or.cond = select i1 %.not100, i1 true, i1 %.not90
+  %or.cond = select i1 %.not100, i1 true, i1 %.not90, !prof !134
   br i1 %or.cond, label %90, label %91, !prof !134
 
 80:                                               ; preds = %31
@@ -3860,7 +3860,7 @@ _ZN5serde2de9MapAccess10next_value17hba04901f7b507abaE.exit108: ; preds = %74
   %.not100 = xor i1 %81, true
   %82 = load i64, ptr %33, align 8, !range !144
   %.not90 = icmp eq i64 %82, -9223372036854775808
-  %or.cond = select i1 %.not100, i1 true, i1 %.not90
+  %or.cond = select i1 %.not100, i1 true, i1 %.not90, !prof !134
   br i1 %or.cond, label %91, label %92, !prof !134
 
 83:                                               ; preds = %32
@@ -4257,7 +4257,7 @@ _ZN5serde2de9MapAccess10next_value17h93000e564ca58456E.exit107: ; preds = %74
   %.not100 = xor i1 %81, true
   %82 = load i64, ptr %33, align 8, !range !144
   %.not90 = icmp eq i64 %82, -9223372036854775808
-  %or.cond = select i1 %.not100, i1 true, i1 %.not90
+  %or.cond = select i1 %.not100, i1 true, i1 %.not90, !prof !134
   br i1 %or.cond, label %91, label %92, !prof !134
 
 83:                                               ; preds = %32
@@ -4593,7 +4593,7 @@ _ZN5serde2de9MapAccess10next_value17h8bb51206e80de8a1E.exit122: ; preds = %56
 62:                                               ; preds = %27
   %63 = trunc nuw i64 %.sroa.061.0.ph456 to i1
   %64 = trunc nuw i8 %.sroa.0.0 to i1
-  %or.cond = select i1 %63, i1 %64, i1 false
+  %or.cond = select i1 %63, i1 %64, i1 false, !prof !173
   br i1 %or.cond, label %70, label %69, !prof !173
 
 65:                                               ; preds = %27
@@ -4904,7 +4904,7 @@ _ZN5serde2de9MapAccess10next_value17hba04901f7b507abaE.exit113: ; preds = %55
   %62 = trunc nuw i64 %.sroa.056.0.ph411 to i1
   %.not112 = xor i1 %62, true
   %.not106 = icmp eq i8 %.sroa.0.0, 2
-  %or.cond = select i1 %.not112, i1 true, i1 %.not106
+  %or.cond = select i1 %.not112, i1 true, i1 %.not106, !prof !134
   br i1 %or.cond, label %67, label %68, !prof !134
 
 63:                                               ; preds = %27
@@ -5268,7 +5268,7 @@ _ZN5serde2de9MapAccess10next_value17h3f0ae9267d36d8ebE.exit109: ; preds = %71
   %.not100 = xor i1 %78, true
   %79 = load i64, ptr %32, align 8, !range !124
   %.not90 = icmp eq i64 %79, -9223372036854775807
-  %or.cond = select i1 %.not100, i1 true, i1 %.not90
+  %or.cond = select i1 %.not100, i1 true, i1 %.not90, !prof !134
   br i1 %or.cond, label %90, label %91, !prof !134
 
 80:                                               ; preds = %31
@@ -5538,7 +5538,7 @@ define hidden void @"_ZN159_$LT$$LT$serde_spanned..spanned..Spanned$LT$T$GT$$u20
   %51 = trunc nuw i64 %.sroa.056.0183 to i1
   %.not112 = xor i1 %51, true
   %.not106 = icmp eq i8 %.sroa.0.0185, 3
-  %or.cond = select i1 %.not112, i1 true, i1 %.not106
+  %or.cond = select i1 %.not112, i1 true, i1 %.not106, !prof !134
   br i1 %or.cond, label %53, label %54, !prof !134
 
 52:                                               ; preds = %18
@@ -5810,7 +5810,7 @@ _ZN5serde2de9MapAccess10next_value17h8bb51206e80de8a1E.exit113: ; preds = %55
   %62 = trunc nuw i64 %.sroa.056.0.ph411 to i1
   %.not112 = xor i1 %62, true
   %.not106 = icmp eq i8 %.sroa.0.0, 3
-  %or.cond = select i1 %.not112, i1 true, i1 %.not106
+  %or.cond = select i1 %.not112, i1 true, i1 %.not106, !prof !134
   br i1 %or.cond, label %67, label %68, !prof !134
 
 63:                                               ; preds = %27
@@ -6120,7 +6120,7 @@ _ZN5serde2de9MapAccess10next_value17h8bb51206e80de8a1E.exit113: ; preds = %55
   %62 = trunc nuw i64 %.sroa.056.0.ph411 to i1
   %.not112 = xor i1 %62, true
   %.not106 = icmp eq i8 %.sroa.0.0, 2
-  %or.cond = select i1 %.not112, i1 true, i1 %.not106
+  %or.cond = select i1 %.not112, i1 true, i1 %.not106, !prof !134
   br i1 %or.cond, label %67, label %68, !prof !134
 
 63:                                               ; preds = %27
@@ -6480,7 +6480,7 @@ _ZN5serde2de9MapAccess10next_value17h8bb51206e80de8a1E.exit108: ; preds = %74
   %.not100 = xor i1 %81, true
   %82 = load i64, ptr %33, align 8, !range !144
   %.not90 = icmp eq i64 %82, -9223372036854775808
-  %or.cond = select i1 %.not100, i1 true, i1 %.not90
+  %or.cond = select i1 %.not100, i1 true, i1 %.not90, !prof !134
   br i1 %or.cond, label %91, label %92, !prof !134
 
 83:                                               ; preds = %32
@@ -7270,7 +7270,7 @@ _ZN5serde2de9MapAccess10next_value17h3f0ae9267d36d8ebE.exit107: ; preds = %74
   %.not100 = xor i1 %81, true
   %82 = load i64, ptr %33, align 8, !range !144
   %.not90 = icmp eq i64 %82, -9223372036854775808
-  %or.cond = select i1 %.not100, i1 true, i1 %.not90
+  %or.cond = select i1 %.not100, i1 true, i1 %.not90, !prof !134
   br i1 %or.cond, label %91, label %92, !prof !134
 
 83:                                               ; preds = %32
@@ -7541,7 +7541,7 @@ define hidden void @"_ZN159_$LT$$LT$serde_spanned..spanned..Spanned$LT$T$GT$$u20
 51:                                               ; preds = %18
   %52 = trunc nuw i64 %.sroa.061.0200 to i1
   %53 = trunc nuw i8 %.sroa.0.0203 to i1
-  %or.cond = select i1 %52, i1 %53, i1 false
+  %or.cond = select i1 %52, i1 %53, i1 false, !prof !173
   br i1 %or.cond, label %56, label %55, !prof !173
 
 54:                                               ; preds = %18
@@ -7864,7 +7864,7 @@ _ZN5serde2de9MapAccess10next_value17hba04901f7b507abaE.exit108: ; preds = %74
   %.not100 = xor i1 %81, true
   %82 = load i64, ptr %33, align 8, !range !144
   %.not90 = icmp eq i64 %82, -9223372036854775808
-  %or.cond = select i1 %.not100, i1 true, i1 %.not90
+  %or.cond = select i1 %.not100, i1 true, i1 %.not90, !prof !134
   br i1 %or.cond, label %91, label %92, !prof !134
 
 83:                                               ; preds = %32
@@ -8257,7 +8257,7 @@ _ZN5serde2de9MapAccess10next_value17h8bb51206e80de8a1E.exit108: ; preds = %74
   %.not100 = xor i1 %81, true
   %82 = load i64, ptr %33, align 8, !range !144
   %.not90 = icmp eq i64 %82, -9223372036854775808
-  %or.cond = select i1 %.not100, i1 true, i1 %.not90
+  %or.cond = select i1 %.not100, i1 true, i1 %.not90, !prof !134
   br i1 %or.cond, label %91, label %92, !prof !134
 
 83:                                               ; preds = %32
@@ -8919,7 +8919,7 @@ define hidden void @"_ZN159_$LT$$LT$serde_spanned..spanned..Spanned$LT$T$GT$$u20
   %51 = trunc nuw i64 %.sroa.056.0183 to i1
   %.not112 = xor i1 %51, true
   %.not106 = icmp eq i8 %.sroa.0.0185, 2
-  %or.cond = select i1 %.not112, i1 true, i1 %.not106
+  %or.cond = select i1 %.not112, i1 true, i1 %.not106, !prof !134
   br i1 %or.cond, label %53, label %54, !prof !134
 
 52:                                               ; preds = %18
@@ -9245,7 +9245,7 @@ _ZN5serde2de9MapAccess10next_value17h3f0ae9267d36d8ebE.exit107: ; preds = %74
   %.not100 = xor i1 %81, true
   %82 = load i64, ptr %33, align 8, !range !144
   %.not90 = icmp eq i64 %82, -9223372036854775808
-  %or.cond = select i1 %.not100, i1 true, i1 %.not90
+  %or.cond = select i1 %.not100, i1 true, i1 %.not90, !prof !134
   br i1 %or.cond, label %91, label %92, !prof !134
 
 83:                                               ; preds = %32

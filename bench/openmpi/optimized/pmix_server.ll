@@ -2670,7 +2670,7 @@ pmix_obj_run_destructors.exit164:                 ; preds = %.lr.ph.i161, %181
   %197 = icmp sgt i32 %196, -1
   %198 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_pmix_server_globals, i64 304), align 8
   %.not.i166 = icmp sgt i32 %198, %196
-  %or.cond190 = select i1 %197, i1 %.not.i166, i1 false
+  %or.cond190 = select i1 %197, i1 %.not.i166, i1 false, !prof !134
   br i1 %or.cond190, label %pmix_pointer_array_get_item.exit, label %pmix_pointer_array_get_item.exit.thread, !prof !134
 
 pmix_pointer_array_get_item.exit:                 ; preds = %195

@@ -838,7 +838,7 @@ define hidden void @_ZN12erased_serde3any3Any4take17h1b7c61d443a269faE(ptr dead_
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %14 = load i64, ptr %13, align 8
   %.not = icmp eq i64 %14, %12
-  %or.cond = select i1 %11, i1 %.not, i1 false
+  %or.cond = select i1 %11, i1 %.not, i1 false, !prof !12
   br i1 %or.cond, label %20, label %15, !prof !12
 
 15:                                               ; preds = %7
@@ -896,7 +896,7 @@ define hidden void @_ZN12erased_serde3any3Any4take17h7968714dc29fbbf0E(ptr noali
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %13 = load i64, ptr %12, align 8
   %.not = icmp eq i64 %13, %11
-  %or.cond = select i1 %10, i1 %.not, i1 false
+  %or.cond = select i1 %10, i1 %.not, i1 false, !prof !12
   br i1 %or.cond, label %19, label %14, !prof !12
 
 14:                                               ; preds = %6
@@ -951,7 +951,7 @@ define hidden void @_ZN12erased_serde3any3Any4take17hcf6371331d224ca8E(ptr noali
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %13 = load i64, ptr %12, align 8
   %.not = icmp eq i64 %13, %11
-  %or.cond = select i1 %10, i1 %.not, i1 false
+  %or.cond = select i1 %10, i1 %.not, i1 false, !prof !12
   br i1 %or.cond, label %19, label %14, !prof !12
 
 14:                                               ; preds = %6
@@ -996,7 +996,7 @@ define hidden noundef nonnull align 1 ptr @_ZN12erased_serde3any3Any4view17h804a
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load i64, ptr %9, align 8
   %.not = icmp eq i64 %10, %8
-  %or.cond = select i1 %7, i1 %.not, i1 false
+  %or.cond = select i1 %7, i1 %.not, i1 false, !prof !12
   br i1 %or.cond, label %16, label %11, !prof !12
 
 11:                                               ; preds = %1
@@ -1030,7 +1030,7 @@ define hidden noundef align 8 dereferenceable(24) ptr @_ZN12erased_serde3any3Any
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load i64, ptr %9, align 8
   %.not = icmp eq i64 %10, %8
-  %or.cond = select i1 %7, i1 %.not, i1 false
+  %or.cond = select i1 %7, i1 %.not, i1 false, !prof !12
   br i1 %or.cond, label %16, label %11, !prof !12
 
 11:                                               ; preds = %1

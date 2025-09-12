@@ -190880,7 +190880,7 @@ lean_dec.exit47:                                  ; preds = %54, %53, %51, %lean
   %60 = ptrtoint ptr %56 to i64
   %61 = and i64 %60, 1
   %62 = icmp ne i64 %61, 0
-  %or.cond = select i1 %59, i1 %62, i1 false
+  %or.cond = select i1 %59, i1 %62, i1 false, !prof !19
   br i1 %or.cond, label %lean_dec.exit46.thread, label %lean_nat_lt.exit, !prof !19
 
 lean_dec.exit46.thread:                           ; preds = %lean_dec.exit47

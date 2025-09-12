@@ -775,8 +775,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseM
   %.sroa.368.0.copyload.us123 = load i64, ptr %.sroa.368.0..sroa_idx.us122, align 8, !tbaa !21
   %.not.i.us124 = icmp eq i64 %.sroa.01.0.copyload.i, %.sroa.066.0.copyload.us119
   %.not.i.i.i.us125 = icmp eq i64 %.sroa.368.0.copyload.us123, 0
-  %or.cond.us126 = select i1 %.not.i.us124, i1 %.not.i.i.i.us125, i1 false
-  br i1 %or.cond.us126, label %_ZN4llvm12DenseMapInfoINS_8codeview17LocallyHashedTypeEvE7isEqualES2_S2_.exit.thread100, label %_ZN4llvm12DenseMapInfoINS_8codeview17LocallyHashedTypeEvE7isEqualES2_S2_.exit.thread.us.preheader, !prof !70
+  %or.cond.us126 = select i1 %.not.i.us124, i1 %.not.i.i.i.us125, i1 false, !prof !70
+  br i1 %or.cond.us126, label %_ZN4llvm12DenseMapInfoINS_8codeview17LocallyHashedTypeEvE7isEqualES2_S2_.exit.thread100, label %_ZN4llvm12DenseMapInfoINS_8codeview17LocallyHashedTypeEvE7isEqualES2_S2_.exit.thread.us.preheader, !prof !71
 
 _ZN4llvm12DenseMapInfoINS_8codeview17LocallyHashedTypeEvE7isEqualES2_S2_.exit.thread.us.preheader: ; preds = %.split.us
   %.not.not.i.i.i.i.i.i.i45.us = icmp samesign eq i64 %.sroa.583.0.copyload, 0
@@ -794,8 +794,8 @@ _ZN4llvm12DenseMapInfoINS_8codeview17LocallyHashedTypeEvE7isEqualES2_S2_.exit.th
   %.sroa.267.0.copyload.us131 = load ptr, ptr %.sroa.267.0.copyload.us131.in, align 8, !tbaa !19
   %.not.i36.us = icmp eq i64 %.sroa.066.0.copyload.us130, %.sroa.081.0.copyload
   %.not.i.i.i44.us = icmp eq i64 %.sroa.368.0.copyload.us132, %.sroa.583.0.copyload
-  %or.cond111.us = select i1 %.not.i36.us, i1 %.not.i.i.i44.us, i1 false
-  br i1 %or.cond111.us, label %15, label %_ZN4llvm12DenseMapInfoINS_8codeview17LocallyHashedTypeEvE7isEqualES2_S2_.exit48.thread.us, !prof !71
+  %or.cond111.us = select i1 %.not.i36.us, i1 %.not.i.i.i44.us, i1 false, !prof !70
+  br i1 %or.cond111.us, label %15, label %_ZN4llvm12DenseMapInfoINS_8codeview17LocallyHashedTypeEvE7isEqualES2_S2_.exit48.thread.us, !prof !70
 
 15:                                               ; preds = %_ZN4llvm12DenseMapInfoINS_8codeview17LocallyHashedTypeEvE7isEqualES2_S2_.exit.thread.us
   br i1 %.not.not.i.i.i.i.i.i.i45.us, label %_ZN4llvm12DenseMapInfoINS_8codeview17LocallyHashedTypeEvE7isEqualES2_S2_.exit48.thread103, label %_ZN4llvm12DenseMapInfoINS_8codeview17LocallyHashedTypeEvE7isEqualES2_S2_.exit48.us
@@ -833,7 +833,7 @@ _ZN4llvm12DenseMapInfoINS_8codeview17LocallyHashedTypeEvE7isEqualES2_S2_.exit48.
   %.sroa.368.0.copyload.us = load i64, ptr %.sroa.368.0..sroa_idx.us, align 8, !tbaa !21
   %.not.i.us = icmp eq i64 %.sroa.01.0.copyload.i, %.sroa.066.0.copyload.us
   %.not.i.i.i.us = icmp eq i64 %.sroa.368.0.copyload.us, 0
-  %or.cond.us = select i1 %.not.i.us, i1 %.not.i.i.i.us, i1 false
+  %or.cond.us = select i1 %.not.i.us, i1 %.not.i.i.i.us, i1 false, !prof !70
   br i1 %or.cond.us, label %_ZN4llvm12DenseMapInfoINS_8codeview17LocallyHashedTypeEvE7isEqualES2_S2_.exit.thread100, label %_ZN4llvm12DenseMapInfoINS_8codeview17LocallyHashedTypeEvE7isEqualES2_S2_.exit.thread.us, !prof !73, !llvm.loop !74
 
 .split:                                           ; preds = %.split.preheader, %29
@@ -849,8 +849,8 @@ _ZN4llvm12DenseMapInfoINS_8codeview17LocallyHashedTypeEvE7isEqualES2_S2_.exit48.
   %.sroa.368.0.copyload = load i64, ptr %.sroa.368.0..sroa_idx, align 8, !tbaa !21
   %.not.i = icmp eq i64 %.sroa.01.0.copyload.i, %.sroa.066.0.copyload
   %.not.i.i.i = icmp eq i64 %.sroa.3.0.copyload.fr, %.sroa.368.0.copyload
-  %or.cond = select i1 %.not.i, i1 %.not.i.i.i, i1 false
-  br i1 %or.cond, label %_ZN4llvm12DenseMapInfoINS_8codeview17LocallyHashedTypeEvE7isEqualES2_S2_.exit, label %_ZN4llvm12DenseMapInfoINS_8codeview17LocallyHashedTypeEvE7isEqualES2_S2_.exit.thread, !prof !71
+  %or.cond = select i1 %.not.i, i1 %.not.i.i.i, i1 false, !prof !70
+  br i1 %or.cond, label %_ZN4llvm12DenseMapInfoINS_8codeview17LocallyHashedTypeEvE7isEqualES2_S2_.exit, label %_ZN4llvm12DenseMapInfoINS_8codeview17LocallyHashedTypeEvE7isEqualES2_S2_.exit.thread, !prof !70
 
 _ZN4llvm12DenseMapInfoINS_8codeview17LocallyHashedTypeEvE7isEqualES2_S2_.exit: ; preds = %.split
   %bcmp.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr %.sroa.2.0.copyload, ptr %.sroa.267.0.copyload, i64 %.sroa.3.0.copyload.fr)
@@ -860,8 +860,8 @@ _ZN4llvm12DenseMapInfoINS_8codeview17LocallyHashedTypeEvE7isEqualES2_S2_.exit: ;
 _ZN4llvm12DenseMapInfoINS_8codeview17LocallyHashedTypeEvE7isEqualES2_S2_.exit.thread: ; preds = %.split, %_ZN4llvm12DenseMapInfoINS_8codeview17LocallyHashedTypeEvE7isEqualES2_S2_.exit
   %.not.i36 = icmp eq i64 %.sroa.066.0.copyload, %.sroa.081.0.copyload
   %.not.i.i.i44 = icmp eq i64 %.sroa.368.0.copyload, %.sroa.583.0.copyload
-  %or.cond111 = select i1 %.not.i36, i1 %.not.i.i.i44, i1 false
-  br i1 %or.cond111, label %26, label %_ZN4llvm12DenseMapInfoINS_8codeview17LocallyHashedTypeEvE7isEqualES2_S2_.exit48.thread, !prof !71
+  %or.cond111 = select i1 %.not.i36, i1 %.not.i.i.i44, i1 false, !prof !70
+  br i1 %or.cond111, label %26, label %_ZN4llvm12DenseMapInfoINS_8codeview17LocallyHashedTypeEvE7isEqualES2_S2_.exit48.thread, !prof !70
 
 26:                                               ; preds = %_ZN4llvm12DenseMapInfoINS_8codeview17LocallyHashedTypeEvE7isEqualES2_S2_.exit.thread
   br i1 %.not.not.i.i.i.i.i.i.i45, label %_ZN4llvm12DenseMapInfoINS_8codeview17LocallyHashedTypeEvE7isEqualES2_S2_.exit48.thread103, label %_ZN4llvm12DenseMapInfoINS_8codeview17LocallyHashedTypeEvE7isEqualES2_S2_.exit48
@@ -1707,8 +1707,8 @@ attributes #18 = { builtin nounwind }
 !67 = distinct !{!67, !68, !"_ZN4llvm12DenseMapBaseINS_8DenseMapINS_8codeview17LocallyHashedTypeENS2_9TypeIndexENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S4_EEEES3_S4_S6_S9_E11try_emplaceIJjEEESt4pairINS_16DenseMapIteratorIS3_S4_S6_S9_Lb0EEEbERKS3_DpOT_: argument 0"}
 !68 = distinct !{!68, !"_ZN4llvm12DenseMapBaseINS_8DenseMapINS_8codeview17LocallyHashedTypeENS2_9TypeIndexENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S4_EEEES3_S4_S6_S9_E11try_emplaceIJjEEESt4pairINS_16DenseMapIteratorIS3_S4_S6_S9_Lb0EEEbERKS3_DpOT_"}
 !69 = distinct !{!69, !27}
-!70 = !{!"branch_weights", i32 -8583495, i32 4291747}
-!71 = !{!"branch_weights", i32 -4291748, i32 4291747}
+!70 = !{!"branch_weights", i32 -4291748, i32 4291747}
+!71 = !{!"branch_weights", i32 -8583495, i32 4291747}
 !72 = !{!"branch_weights", !"expected", i32 -2147483648, i32 0}
 !73 = !{!"branch_weights", i32 4291747, i32 0}
 !74 = distinct !{!74, !27}

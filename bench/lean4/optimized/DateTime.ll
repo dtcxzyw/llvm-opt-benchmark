@@ -60,7 +60,7 @@ define zeroext range(i8 0, 2) i8 @l___private_Lake_Toml_Data_DateTime_0__Lake_To
   %26 = ptrtoint ptr %14 to i64
   %27 = and i64 %26, 1
   %28 = icmp ne i64 %27, 0
-  %or.cond = select i1 %25, i1 %28, i1 false
+  %or.cond = select i1 %25, i1 %28, i1 false, !prof !8
   br i1 %or.cond, label %29, label %lean_nat_eq.exit, !prof !8
 
 29:                                               ; preds = %2
@@ -78,7 +78,7 @@ lean_nat_eq.exit:                                 ; preds = %2
   %36 = ptrtoint ptr %16 to i64
   %37 = and i64 %36, 1
   %38 = icmp ne i64 %37, 0
-  %or.cond45 = select i1 %35, i1 %38, i1 false
+  %or.cond45 = select i1 %35, i1 %38, i1 false, !prof !8
   br i1 %or.cond45, label %39, label %lean_nat_eq.exit31, !prof !8
 
 39:                                               ; preds = %32
@@ -96,7 +96,7 @@ lean_nat_eq.exit31:                               ; preds = %32
   %46 = ptrtoint ptr %18 to i64
   %47 = and i64 %46, 1
   %48 = icmp ne i64 %47, 0
-  %or.cond48 = select i1 %45, i1 %48, i1 false
+  %or.cond48 = select i1 %45, i1 %48, i1 false, !prof !8
   br i1 %or.cond48, label %49, label %lean_nat_eq.exit34, !prof !8
 
 49:                                               ; preds = %42
@@ -114,7 +114,7 @@ lean_nat_eq.exit34:                               ; preds = %42
   %56 = ptrtoint ptr %20 to i64
   %57 = and i64 %56, 1
   %58 = icmp ne i64 %57, 0
-  %or.cond51 = select i1 %55, i1 %58, i1 false
+  %or.cond51 = select i1 %55, i1 %58, i1 false, !prof !8
   br i1 %or.cond51, label %59, label %lean_nat_eq.exit37, !prof !8
 
 59:                                               ; preds = %52
@@ -132,7 +132,7 @@ lean_nat_eq.exit37:                               ; preds = %52
   %66 = ptrtoint ptr %22 to i64
   %67 = and i64 %66, 1
   %68 = icmp ne i64 %67, 0
-  %or.cond54 = select i1 %65, i1 %68, i1 false
+  %or.cond54 = select i1 %65, i1 %68, i1 false, !prof !8
   br i1 %or.cond54, label %69, label %.critedge.i38, !prof !8
 
 69:                                               ; preds = %62

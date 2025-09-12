@@ -2275,7 +2275,7 @@ lean_alloc_ctor.exit664:                          ; preds = %lean_dec.exit417
   %497 = ptrtoint ptr %493 to i64
   %498 = and i64 %497, 1
   %499 = icmp ne i64 %498, 0
-  %or.cond = select i1 %6, i1 %499, i1 false
+  %or.cond = select i1 %6, i1 %499, i1 false, !prof !19
   br i1 %or.cond, label %lean_nat_eq.exit595.thread, label %lean_nat_eq.exit595, !prof !19
 
 lean_nat_eq.exit595.thread:                       ; preds = %496

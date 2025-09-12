@@ -634,7 +634,7 @@ define zeroext range(i8 0, 2) i8 @l___private_Lake_Util_Date_0__Lake_decEqDate__
   %18 = ptrtoint ptr %10 to i64
   %19 = and i64 %18, 1
   %20 = icmp ne i64 %19, 0
-  %or.cond = select i1 %17, i1 %20, i1 false
+  %or.cond = select i1 %17, i1 %20, i1 false, !prof !15
   br i1 %or.cond, label %21, label %lean_nat_eq.exit, !prof !15
 
 21:                                               ; preds = %2
@@ -652,7 +652,7 @@ lean_nat_eq.exit:                                 ; preds = %2
   %28 = ptrtoint ptr %12 to i64
   %29 = and i64 %28, 1
   %30 = icmp ne i64 %29, 0
-  %or.cond27 = select i1 %27, i1 %30, i1 false
+  %or.cond27 = select i1 %27, i1 %30, i1 false, !prof !15
   br i1 %or.cond27, label %31, label %lean_nat_eq.exit19, !prof !15
 
 31:                                               ; preds = %24
@@ -670,7 +670,7 @@ lean_nat_eq.exit19:                               ; preds = %24
   %38 = ptrtoint ptr %14 to i64
   %39 = and i64 %38, 1
   %40 = icmp ne i64 %39, 0
-  %or.cond30 = select i1 %37, i1 %40, i1 false
+  %or.cond30 = select i1 %37, i1 %40, i1 false, !prof !15
   br i1 %or.cond30, label %41, label %.critedge.i20, !prof !15
 
 41:                                               ; preds = %34
@@ -711,7 +711,7 @@ define nonnull ptr @l___private_Lake_Util_Date_0__Lake_decEqDate____x40_Lake_Uti
   %18 = ptrtoint ptr %10 to i64
   %19 = and i64 %18, 1
   %20 = icmp ne i64 %19, 0
-  %or.cond.i = select i1 %17, i1 %20, i1 false
+  %or.cond.i = select i1 %17, i1 %20, i1 false, !prof !15
   br i1 %or.cond.i, label %21, label %lean_nat_eq.exit.i, !prof !15
 
 21:                                               ; preds = %2
@@ -729,7 +729,7 @@ lean_nat_eq.exit.i:                               ; preds = %2
   %28 = ptrtoint ptr %12 to i64
   %29 = and i64 %28, 1
   %30 = icmp ne i64 %29, 0
-  %or.cond27.i = select i1 %27, i1 %30, i1 false
+  %or.cond27.i = select i1 %27, i1 %30, i1 false, !prof !15
   br i1 %or.cond27.i, label %31, label %lean_nat_eq.exit19.i, !prof !15
 
 31:                                               ; preds = %24
@@ -747,7 +747,7 @@ lean_nat_eq.exit19.i:                             ; preds = %24
   %38 = ptrtoint ptr %14 to i64
   %39 = and i64 %38, 1
   %40 = icmp ne i64 %39, 0
-  %or.cond30.i = select i1 %37, i1 %40, i1 false
+  %or.cond30.i = select i1 %37, i1 %40, i1 false, !prof !15
   br i1 %or.cond30.i, label %41, label %.critedge.i20.i, !prof !15
 
 41:                                               ; preds = %34
@@ -837,7 +837,7 @@ define zeroext range(i8 0, 2) i8 @l_Lake_instDecidableEqDate(ptr noundef readonl
   %18 = ptrtoint ptr %10 to i64
   %19 = and i64 %18, 1
   %20 = icmp ne i64 %19, 0
-  %or.cond.i = select i1 %17, i1 %20, i1 false
+  %or.cond.i = select i1 %17, i1 %20, i1 false, !prof !15
   br i1 %or.cond.i, label %21, label %lean_nat_eq.exit.i, !prof !15
 
 21:                                               ; preds = %2
@@ -855,7 +855,7 @@ lean_nat_eq.exit.i:                               ; preds = %2
   %28 = ptrtoint ptr %12 to i64
   %29 = and i64 %28, 1
   %30 = icmp ne i64 %29, 0
-  %or.cond27.i = select i1 %27, i1 %30, i1 false
+  %or.cond27.i = select i1 %27, i1 %30, i1 false, !prof !15
   br i1 %or.cond27.i, label %31, label %lean_nat_eq.exit19.i, !prof !15
 
 31:                                               ; preds = %24
@@ -873,7 +873,7 @@ lean_nat_eq.exit19.i:                             ; preds = %24
   %38 = ptrtoint ptr %14 to i64
   %39 = and i64 %38, 1
   %40 = icmp ne i64 %39, 0
-  %or.cond30.i = select i1 %37, i1 %40, i1 false
+  %or.cond30.i = select i1 %37, i1 %40, i1 false, !prof !15
   br i1 %or.cond30.i, label %41, label %.critedge.i20.i, !prof !15
 
 41:                                               ; preds = %34
@@ -914,7 +914,7 @@ define nonnull ptr @l_Lake_instDecidableEqDate___boxed(ptr noundef %0, ptr nound
   %18 = ptrtoint ptr %10 to i64
   %19 = and i64 %18, 1
   %20 = icmp ne i64 %19, 0
-  %or.cond.i.i = select i1 %17, i1 %20, i1 false
+  %or.cond.i.i = select i1 %17, i1 %20, i1 false, !prof !15
   br i1 %or.cond.i.i, label %21, label %lean_nat_eq.exit.i.i, !prof !15
 
 21:                                               ; preds = %2
@@ -932,7 +932,7 @@ lean_nat_eq.exit.i.i:                             ; preds = %2
   %28 = ptrtoint ptr %12 to i64
   %29 = and i64 %28, 1
   %30 = icmp ne i64 %29, 0
-  %or.cond27.i.i = select i1 %27, i1 %30, i1 false
+  %or.cond27.i.i = select i1 %27, i1 %30, i1 false, !prof !15
   br i1 %or.cond27.i.i, label %31, label %lean_nat_eq.exit19.i.i, !prof !15
 
 31:                                               ; preds = %24
@@ -950,7 +950,7 @@ lean_nat_eq.exit19.i.i:                           ; preds = %24
   %38 = ptrtoint ptr %14 to i64
   %39 = and i64 %38, 1
   %40 = icmp ne i64 %39, 0
-  %or.cond30.i.i = select i1 %37, i1 %40, i1 false
+  %or.cond30.i.i = select i1 %37, i1 %40, i1 false, !prof !15
   br i1 %or.cond30.i.i, label %41, label %.critedge.i20.i.i, !prof !15
 
 41:                                               ; preds = %34
@@ -2523,7 +2523,7 @@ lean_dec.exit44:                                  ; preds = %80, %79, %77, %lean
   %93 = ptrtoint ptr %91 to i64
   %94 = and i64 %93, 1
   %95 = icmp ne i64 %94, 0
-  %or.cond = select i1 %92, i1 %95, i1 false
+  %or.cond = select i1 %92, i1 %95, i1 false, !prof !15
   br i1 %or.cond, label %lean_nat_le.exit84.thread, label %lean_nat_le.exit84, !prof !15
 
 lean_nat_le.exit84.thread:                        ; preds = %90

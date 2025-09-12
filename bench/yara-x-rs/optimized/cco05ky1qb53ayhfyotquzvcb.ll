@@ -5631,7 +5631,7 @@ define internal fastcc noundef range(i8 0, 3) i8 @"_ZN13yara_x_parser3ast7cst2as
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %23 = load i16, ptr %22, align 8, !range !102
   %24 = icmp eq i16 %23, %1
-  %or.cond = select i1 %21, i1 %24, i1 false
+  %or.cond = select i1 %21, i1 %24, i1 false, !prof !354
   br i1 %or.cond, label %26, label %25, !prof !354
 
 25:                                               ; preds = %20
@@ -5740,7 +5740,7 @@ define internal fastcc noundef range(i8 0, 3) i8 @"_ZN13yara_x_parser3ast7cst2as
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %23 = load i16, ptr %22, align 8, !range !102
   %24 = icmp eq i16 %23, %1
-  %or.cond = select i1 %21, i1 %24, i1 false
+  %or.cond = select i1 %21, i1 %24, i1 false, !prof !354
   br i1 %or.cond, label %"_ZN4core3ptr46drop_in_place$LT$yara_x_parser..cst..Event$GT$17h8f7d3995a5665ff3E.exit", label %25, !prof !354
 
 25:                                               ; preds = %20

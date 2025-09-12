@@ -50,7 +50,7 @@ define i32 @BIO_get_host_ip(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
   %.not6 = icmp ne i32 %13, 0
   %14 = load i64, ptr %4, align 8
   %15 = icmp eq i64 %14, 4
-  %or.cond = select i1 %.not6, i1 %15, i1 false
+  %or.cond = select i1 %.not6, i1 %15, i1 false, !prof !8
   br i1 %or.cond, label %16, label %20, !prof !8
 
 16:                                               ; preds = %10

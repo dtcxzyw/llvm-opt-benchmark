@@ -543,7 +543,7 @@ l_Subarray_size___rarg.exit:                      ; preds = %13, %17, %.critedge
   %26 = ptrtoint ptr %.1.i.i to i64
   %27 = and i64 %26, 1
   %28 = icmp ne i64 %27, 0
-  %or.cond = select i1 %25, i1 %28, i1 false
+  %or.cond = select i1 %25, i1 %28, i1 false, !prof !15
   br i1 %or.cond, label %lean_nat_lt.exit.thread, label %lean_nat_lt.exit, !prof !15
 
 lean_nat_lt.exit.thread:                          ; preds = %l_Subarray_size___rarg.exit
@@ -753,7 +753,7 @@ l_Subarray_size___rarg.exit:                      ; preds = %13, %17, %.critedge
   %26 = ptrtoint ptr %.1.i.i to i64
   %27 = and i64 %26, 1
   %28 = icmp ne i64 %27, 0
-  %or.cond = select i1 %25, i1 %28, i1 false
+  %or.cond = select i1 %25, i1 %28, i1 false, !prof !15
   br i1 %or.cond, label %lean_nat_lt.exit.thread, label %lean_nat_lt.exit, !prof !15
 
 lean_nat_lt.exit.thread:                          ; preds = %l_Subarray_size___rarg.exit
@@ -9528,7 +9528,7 @@ define ptr @l_Subarray_foldl___rarg(ptr noundef %0, ptr noundef %1, ptr noundef 
   %13 = ptrtoint ptr %9 to i64
   %14 = and i64 %13, 1
   %15 = icmp ne i64 %14, 0
-  %or.cond = select i1 %12, i1 %15, i1 false
+  %or.cond = select i1 %12, i1 %15, i1 false, !prof !15
   br i1 %or.cond, label %16, label %lean_nat_lt.exit, !prof !15
 
 16:                                               ; preds = %3
@@ -11011,7 +11011,7 @@ define zeroext range(i8 0, 2) i8 @l_Subarray_any___rarg(ptr noundef %0, ptr noun
   %12 = ptrtoint ptr %8 to i64
   %13 = and i64 %12, 1
   %14 = icmp ne i64 %13, 0
-  %or.cond = select i1 %11, i1 %14, i1 false
+  %or.cond = select i1 %11, i1 %14, i1 false, !prof !15
   br i1 %or.cond, label %15, label %lean_nat_lt.exit, !prof !15
 
 15:                                               ; preds = %2
@@ -11853,7 +11853,7 @@ define zeroext range(i8 0, 2) i8 @l_Subarray_all___rarg(ptr noundef %0, ptr noun
   %12 = ptrtoint ptr %8 to i64
   %13 = and i64 %12, 1
   %14 = icmp ne i64 %13, 0
-  %or.cond = select i1 %11, i1 %14, i1 false
+  %or.cond = select i1 %11, i1 %14, i1 false, !prof !15
   br i1 %or.cond, label %15, label %lean_nat_lt.exit, !prof !15
 
 15:                                               ; preds = %2

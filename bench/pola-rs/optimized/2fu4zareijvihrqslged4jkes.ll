@@ -19360,7 +19360,7 @@ define internal fastcc void @"_ZN4core3ptr118drop_in_place$LT$$u5b$core..option.
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 55
   %14 = load i8, ptr %13, align 1, !range !3259
   %15 = icmp eq i8 %14, -40
-  %or.cond = select i1 %12, i1 %15, i1 false
+  %or.cond = select i1 %12, i1 %15, i1 false, !prof !3264
   br i1 %or.cond, label %16, label %._crit_edge, !prof !3264
 
 16:                                               ; preds = %10
@@ -81971,7 +81971,7 @@ define hidden void @"_ZN4core3ptr71drop_in_place$LT$polars_io..path_utils..expan
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 79
   %18 = load i8, ptr %17, align 1, !range !3259, !alias.scope !16335
   %19 = icmp eq i8 %18, -40
-  %or.cond.i = select i1 %16, i1 %19, i1 false
+  %or.cond.i = select i1 %16, i1 %19, i1 false, !prof !3264
   br i1 %or.cond.i, label %20, label %common.resume, !prof !3264
 
 20:                                               ; preds = %14

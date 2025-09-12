@@ -5002,7 +5002,7 @@ get_trace_arg.exit:                               ; preds = %2
   %.pre = load i64, ptr %.pre.i, align 8, !tbaa !118
   %23 = and i64 %.pre, 61471
   %.not9.i = icmp eq i64 %23, 28698
-  %or.cond = select i1 %.not4, i1 %.not9.i, i1 false
+  %or.cond = select i1 %.not4, i1 %.not9.i, i1 false, !prof !160
   br i1 %or.cond, label %rb_tracearg_eval_script.exit, label %rb_obj_is_iseq.exit.thread.i, !prof !160
 
 rb_obj_is_iseq.exit.thread.i:                     ; preds = %19
@@ -5073,7 +5073,7 @@ get_trace_arg.exit:                               ; preds = %2
   %.pre = load i64, ptr %.pre.i, align 8, !tbaa !118
   %23 = and i64 %.pre, 61471
   %.not10.i = icmp eq i64 %23, 28698
-  %or.cond = select i1 %.not4, i1 %.not10.i, i1 false
+  %or.cond = select i1 %.not4, i1 %.not10.i, i1 false, !prof !160
   br i1 %or.cond, label %rb_tracearg_instruction_sequence.exit, label %rb_obj_is_iseq.exit.thread.i, !prof !160
 
 rb_obj_is_iseq.exit.thread.i:                     ; preds = %19

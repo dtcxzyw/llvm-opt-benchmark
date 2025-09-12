@@ -29330,7 +29330,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_3
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %18 = load i8, ptr %17, align 8, !range !27
   %.not.not.i.i = icmp eq i8 %18, 0
-  %or.cond.i.i = select i1 %16, i1 %.not.not.i.i, i1 false
+  %or.cond.i.i = select i1 %16, i1 %.not.not.i.i, i1 false, !prof !404
   br i1 %or.cond.i.i, label %.preheader.i.preheader.i, label %_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIPKcEE10ParserImplE19parse_bson_internalEv.exit, !prof !404
 
 .preheader.i.preheader.i:                         ; preds = %15
@@ -36334,7 +36334,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_3
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %23 = load i8, ptr %22, align 8, !range !27
   %.not.not.i = icmp eq i8 %23, 0
-  %or.cond.i = select i1 %21, i1 %.not.not.i, i1 false
+  %or.cond.i = select i1 %21, i1 %.not.not.i, i1 false, !prof !404
   br i1 %or.cond.i, label %.preheader.i, label %_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIPKcEE10ParserImplE10get_numberIdLb1EEEbNS1_14input_format_tERT_.exit, !prof !404
 
 .preheader.i:                                     ; preds = %20, %.preheader.i
@@ -36427,7 +36427,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit34: ; preds = %_ZN
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %50 = load i8, ptr %49, align 8, !range !27
   %.not.not.i35 = icmp eq i8 %50, 0
-  %or.cond.i36 = select i1 %48, i1 %.not.not.i35, i1 false
+  %or.cond.i36 = select i1 %48, i1 %.not.not.i35, i1 false, !prof !404
   br i1 %or.cond.i36, label %.preheader.i37, label %_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIPKcEE10ParserImplE10get_numberIiLb1EEEbNS1_14input_format_tERT_.exit, !prof !404
 
 .preheader.i37:                                   ; preds = %.noexc39
@@ -36499,7 +36499,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit45: ; preds = %_ZN
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %73 = load i8, ptr %72, align 8, !range !27
   %.not.not.i.i = icmp eq i8 %73, 0
-  %or.cond.i.i = select i1 %71, i1 %.not.not.i.i, i1 false
+  %or.cond.i.i = select i1 %71, i1 %.not.not.i.i, i1 false, !prof !404
   br i1 %or.cond.i.i, label %.preheader.i.i.preheader, label %_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIPKcEE10ParserImplE10get_numberIiLb1EEEbNS1_14input_format_tERT_.exit.i, !prof !404
 
 .preheader.i.i.preheader:                         ; preds = %70
@@ -36526,7 +36526,7 @@ _ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6v
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %82 = load i8, ptr %81, align 8, !range !27
   %.not.not.i86 = icmp eq i8 %82, 0
-  %or.cond.i87 = select i1 %80, i1 %.not.not.i86, i1 false
+  %or.cond.i87 = select i1 %80, i1 %.not.not.i86, i1 false, !prof !404
   br i1 %or.cond.i87, label %.preheader.i88.preheader, label %_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIPKcEE10ParserImplE16parse_bson_arrayEv.exit, !prof !404
 
 .preheader.i88.preheader:                         ; preds = %79
@@ -36558,7 +36558,7 @@ _ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6v
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %91 = load i8, ptr %90, align 8, !range !27
   %.not.not.i47 = icmp eq i8 %91, 0
-  %or.cond.i48 = select i1 %89, i1 %.not.not.i47, i1 false
+  %or.cond.i48 = select i1 %89, i1 %.not.not.i47, i1 false, !prof !404
   br i1 %or.cond.i48, label %.preheader.i49, label %_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIPKcEE10ParserImplE10get_numberIiLb1EEEbNS1_14input_format_tERT_.exit52, !prof !404
 
 .preheader.i49:                                   ; preds = %.noexc51
@@ -36642,7 +36642,7 @@ _ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6v
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %121 = load i8, ptr %120, align 8, !range !27
   %.not.not.i55 = icmp eq i8 %121, 0
-  %or.cond.i56 = select i1 %119, i1 %.not.not.i55, i1 false
+  %or.cond.i56 = select i1 %119, i1 %.not.not.i55, i1 false, !prof !404
   br i1 %or.cond.i56, label %.preheader.i57.preheader, label %_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIPKcEE10ParserImplE10get_numberIiLb1EEEbNS1_14input_format_tERT_.exit59, !prof !404
 
 .preheader.i57.preheader:                         ; preds = %118
@@ -36668,7 +36668,7 @@ _ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6v
   %128 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %129 = load i8, ptr %128, align 8, !range !27
   %.not.not.i60 = icmp eq i8 %129, 0
-  %or.cond.i61 = select i1 %127, i1 %.not.not.i60, i1 false
+  %or.cond.i61 = select i1 %127, i1 %.not.not.i60, i1 false, !prof !404
   br i1 %or.cond.i61, label %.preheader.i62, label %_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIPKcEE10ParserImplE10get_numberIlLb1EEEbNS1_14input_format_tERT_.exit, !prof !404
 
 .preheader.i62:                                   ; preds = %126, %.preheader.i62
@@ -36695,7 +36695,7 @@ _ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6v
   %138 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %139 = load i8, ptr %138, align 8, !range !27
   %.not.not.i65 = icmp eq i8 %139, 0
-  %or.cond.i66 = select i1 %137, i1 %.not.not.i65, i1 false
+  %or.cond.i66 = select i1 %137, i1 %.not.not.i65, i1 false, !prof !404
   br i1 %or.cond.i66, label %.preheader.i67, label %_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIPKcEE10ParserImplE10get_numberImLb1EEEbNS1_14input_format_tERT_.exit, !prof !404
 
 .preheader.i67:                                   ; preds = %136, %.preheader.i67
@@ -43946,7 +43946,7 @@ _ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6v
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %90 = load i8, ptr %89, align 8, !range !27
   %.not.i79.not = icmp eq i8 %90, 0
-  %or.cond205 = select i1 %88, i1 %.not.i79.not, i1 false
+  %or.cond205 = select i1 %88, i1 %.not.i79.not, i1 false, !prof !404
   br i1 %or.cond205, label %.preheader.i80, label %_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIPKcEE10ParserImplE10get_numberIjLb0EEEbNS1_14input_format_tERT_.exit, !prof !404
 
 .preheader.i80:                                   ; preds = %87
@@ -43977,7 +43977,7 @@ _ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6v
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %101 = load i8, ptr %100, align 8, !range !27
   %.not.i82.not = icmp eq i8 %101, 0
-  %or.cond207 = select i1 %99, i1 %.not.i82.not, i1 false
+  %or.cond207 = select i1 %99, i1 %.not.i82.not, i1 false, !prof !404
   br i1 %or.cond207, label %.preheader.i83, label %_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIPKcEE10ParserImplE10get_numberImLb0EEEbNS1_14input_format_tERT_.exit, !prof !404
 
 .preheader.i83:                                   ; preds = %98, %.preheader.i83

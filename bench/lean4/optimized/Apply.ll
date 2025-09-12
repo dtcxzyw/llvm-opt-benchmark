@@ -41957,7 +41957,7 @@ define ptr @l_Lean_MVarId_nthConstructor___lambda__1(ptr noundef readonly captur
   %18 = ptrtoint ptr %14 to i64
   %19 = and i64 %18, 1
   %20 = icmp ne i64 %19, 0
-  %or.cond = select i1 %17, i1 %20, i1 false
+  %or.cond = select i1 %17, i1 %20, i1 false, !prof !20
   br i1 %or.cond, label %21, label %lean_nat_lt.exit, !prof !20
 
 21:                                               ; preds = %11

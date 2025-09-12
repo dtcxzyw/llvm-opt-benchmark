@@ -460,7 +460,7 @@ _ZNK4llvm4User10getOperandEj.exit42.i.i:          ; preds = %72, %69
   %96 = getelementptr inbounds nuw i8, ptr %93, i64 8
   %97 = load ptr, ptr %96, align 8, !tbaa !50, !noalias !15
   %98 = icmp eq ptr %77, %97
-  %or.cond.i.i.i = select i1 %95, i1 %98, i1 false
+  %or.cond.i.i.i = select i1 %95, i1 %98, i1 false, !prof !51
   br i1 %or.cond.i.i.i, label %_ZN4llvm12DenseMapInfoINS_12DivRemMapKeyEvE7isEqualERKS1_S4_.exit.i.i.i.i, label %_ZN4llvm12DenseMapInfoINS_12DivRemMapKeyEvE7isEqualERKS1_S4_.exit.thread.i.i.i.i, !prof !51
 
 _ZN4llvm12DenseMapInfoINS_12DivRemMapKeyEvE7isEqualERKS1_S4_.exit.i.i.i.i: ; preds = %91
@@ -707,7 +707,7 @@ _ZNK4llvm4User10getOperandEj.exit47.i.i:          ; preds = %192, %189
   %215 = getelementptr inbounds nuw i8, ptr %212, i64 8
   %216 = load ptr, ptr %215, align 8, !tbaa !50, !noalias !15
   %217 = icmp eq ptr %197, %216
-  %or.cond.i52.i.i = select i1 %214, i1 %217, i1 false
+  %or.cond.i52.i.i = select i1 %214, i1 %217, i1 false, !prof !51
   br i1 %or.cond.i52.i.i, label %_ZN4llvm12DenseMapInfoINS_12DivRemMapKeyEvE7isEqualERKS1_S4_.exit.i.i73.i.i, label %_ZN4llvm12DenseMapInfoINS_12DivRemMapKeyEvE7isEqualERKS1_S4_.exit.thread.i.i53.i.i, !prof !51
 
 _ZN4llvm12DenseMapInfoINS_12DivRemMapKeyEvE7isEqualERKS1_S4_.exit.i.i73.i.i: ; preds = %210
@@ -953,7 +953,7 @@ _ZNK4llvm4User10getOperandEj.exit78.i.i:          ; preds = %310, %307
   %334 = getelementptr inbounds nuw i8, ptr %331, i64 8
   %335 = load ptr, ptr %334, align 8, !tbaa !50, !noalias !66
   %336 = icmp eq ptr %315, %335
-  %or.cond.i122.i.i = select i1 %333, i1 %336, i1 false
+  %or.cond.i122.i.i = select i1 %333, i1 %336, i1 false, !prof !51
   br i1 %or.cond.i122.i.i, label %_ZN4llvm12DenseMapInfoINS_12DivRemMapKeyEvE7isEqualERKS1_S4_.exit.i.i140.i.i, label %_ZN4llvm12DenseMapInfoINS_12DivRemMapKeyEvE7isEqualERKS1_S4_.exit.thread.i.i123.i.i, !prof !51
 
 _ZN4llvm12DenseMapInfoINS_12DivRemMapKeyEvE7isEqualERKS1_S4_.exit.i.i140.i.i: ; preds = %329
@@ -1253,7 +1253,7 @@ _ZNK4llvm4User10getOperandEj.exit83.i.i:          ; preds = %456, %453
   %479 = getelementptr inbounds nuw i8, ptr %476, i64 8
   %480 = load ptr, ptr %479, align 8, !tbaa !50, !noalias !82
   %481 = icmp eq ptr %461, %480
-  %or.cond.i145.i.i = select i1 %478, i1 %481, i1 false
+  %or.cond.i145.i.i = select i1 %478, i1 %481, i1 false, !prof !51
   br i1 %or.cond.i145.i.i, label %_ZN4llvm12DenseMapInfoINS_12DivRemMapKeyEvE7isEqualERKS1_S4_.exit.i.i168.i.i, label %_ZN4llvm12DenseMapInfoINS_12DivRemMapKeyEvE7isEqualERKS1_S4_.exit.thread.i.i146.i.i, !prof !51
 
 _ZN4llvm12DenseMapInfoINS_12DivRemMapKeyEvE7isEqualERKS1_S4_.exit.i.i168.i.i: ; preds = %474
@@ -4651,7 +4651,7 @@ _ZN4llvm12DenseMapInfoINS_12DivRemMapKeyEvE7isEqualERKS1_S4_.exit13.thread: ; pr
   %43 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %44 = load ptr, ptr %43, align 8, !tbaa !50
   %45 = icmp eq ptr %25, %44
-  %or.cond = select i1 %42, i1 %45, i1 false
+  %or.cond = select i1 %42, i1 %45, i1 false, !prof !51
   br i1 %or.cond, label %_ZN4llvm12DenseMapInfoINS_12DivRemMapKeyEvE7isEqualERKS1_S4_.exit.i, label %_ZN4llvm12DenseMapInfoINS_12DivRemMapKeyEvE7isEqualERKS1_S4_.exit.thread.i, !prof !51
 
 _ZN4llvm12DenseMapInfoINS_12DivRemMapKeyEvE7isEqualERKS1_S4_.exit.i: ; preds = %38
@@ -4757,7 +4757,7 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_8DenseMapINS_12DivRem
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %29 = load ptr, ptr %28, align 8, !tbaa !50
   %30 = icmp eq ptr %12, %29
-  %or.cond = select i1 %27, i1 %30, i1 false
+  %or.cond = select i1 %27, i1 %30, i1 false, !prof !51
   br i1 %or.cond, label %_ZN4llvm12DenseMapInfoINS_12DivRemMapKeyEvE7isEqualERKS1_S4_.exit.i, label %_ZN4llvm12DenseMapInfoINS_12DivRemMapKeyEvE7isEqualERKS1_S4_.exit.thread.i, !prof !51
 
 _ZN4llvm12DenseMapInfoINS_12DivRemMapKeyEvE7isEqualERKS1_S4_.exit.i: ; preds = %23
@@ -5154,7 +5154,7 @@ _ZN4llvm12DenseMapInfoINS_12DivRemMapKeyEvE7isEqualERKS1_S4_.exit13.thread: ; pr
   %43 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %44 = load ptr, ptr %43, align 8, !tbaa !50
   %45 = icmp eq ptr %25, %44
-  %or.cond = select i1 %42, i1 %45, i1 false
+  %or.cond = select i1 %42, i1 %45, i1 false, !prof !51
   br i1 %or.cond, label %_ZN4llvm12DenseMapInfoINS_12DivRemMapKeyEvE7isEqualERKS1_S4_.exit.i, label %_ZN4llvm12DenseMapInfoINS_12DivRemMapKeyEvE7isEqualERKS1_S4_.exit.thread.i, !prof !51
 
 _ZN4llvm12DenseMapInfoINS_12DivRemMapKeyEvE7isEqualERKS1_S4_.exit.i: ; preds = %38

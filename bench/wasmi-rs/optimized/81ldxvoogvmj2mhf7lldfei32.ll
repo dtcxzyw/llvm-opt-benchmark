@@ -2434,7 +2434,7 @@ define internal noundef align 8 ptr @_ZN4core3ops8function6FnOnce9call_once17h52
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %26 = load i64, ptr %25, align 8, !alias.scope !326, !noalias !322
   %.not.i.i.i = icmp eq i64 %26, -6369371454254257959
-  %or.cond.i.i = select i1 %24, i1 %.not.i.i.i, i1 false
+  %or.cond.i.i = select i1 %24, i1 %.not.i.i.i, i1 false, !prof !327
   br i1 %or.cond.i.i, label %_ZN5wasmi5store6pruned11PrunedStore16restore_or_panic17h93b73a5871d5ebf9E.exit.i, label %27, !prof !327
 
 27:                                               ; preds = %5
@@ -2622,7 +2622,7 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17hd84e8882a776095bE
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 336
   %13 = load i64, ptr %12, align 8, !alias.scope !385, !noalias !382
   %.not.i.i.i = icmp eq i64 %13, -6369371454254257959
-  %or.cond.i.i = select i1 %11, i1 %.not.i.i.i, i1 false
+  %or.cond.i.i = select i1 %11, i1 %.not.i.i.i, i1 false, !prof !327
   br i1 %or.cond.i.i, label %_ZN5wasmi5store6pruned11PrunedStore16restore_or_panic17h93b73a5871d5ebf9E.exit.i, label %14, !prof !327
 
 14:                                               ; preds = %4
@@ -2698,7 +2698,7 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17hf9c17b7275cd6a0bE
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 336
   %15 = load i64, ptr %14, align 8, !alias.scope !408, !noalias !405
   %.not.i.i.i = icmp eq i64 %15, -6369371454254257959
-  %or.cond.i.i = select i1 %13, i1 %.not.i.i.i, i1 false
+  %or.cond.i.i = select i1 %13, i1 %.not.i.i.i, i1 false, !prof !327
   br i1 %or.cond.i.i, label %_ZN5wasmi5store6pruned11PrunedStore16restore_or_panic17h93b73a5871d5ebf9E.exit.i, label %16, !prof !327
 
 16:                                               ; preds = %6

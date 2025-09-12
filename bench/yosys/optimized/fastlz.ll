@@ -1118,7 +1118,7 @@ define i32 @fastlz_decompress(ptr noundef readonly captures(address) %0, i32 nou
   %70 = icmp ugt ptr %69, %11
   %71 = getelementptr inbounds nuw i8, ptr %.074.i, i64 %68
   %72 = icmp ugt ptr %71, %9
-  %or.cond.i = select i1 %70, i1 true, i1 %72
+  %or.cond.i = select i1 %70, i1 true, i1 %72, !prof !31
   br i1 %or.cond.i, label %_ZL18fastlz1_decompressPKviPvi.exit, label %73, !prof !31
 
 73:                                               ; preds = %66
@@ -1325,7 +1325,7 @@ define i32 @fastlz_decompress(ptr noundef readonly captures(address) %0, i32 nou
   %167 = icmp ugt ptr %166, %92
   %168 = getelementptr inbounds nuw i8, ptr %.0103.i, i64 %165
   %169 = icmp ugt ptr %168, %90
-  %or.cond.i12 = select i1 %167, i1 true, i1 %169
+  %or.cond.i12 = select i1 %167, i1 true, i1 %169, !prof !31
   br i1 %or.cond.i12, label %_ZL18fastlz1_decompressPKviPvi.exit, label %170, !prof !31
 
 170:                                              ; preds = %163

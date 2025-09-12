@@ -64088,7 +64088,7 @@ define zeroext range(i8 0, 2) i8 @l_Array_qsort_sort___at_Lean_LocalContext_sort
   %10 = ptrtoint ptr %6 to i64
   %11 = and i64 %10, 1
   %12 = icmp ne i64 %11, 0
-  %or.cond = select i1 %9, i1 %12, i1 false
+  %or.cond = select i1 %9, i1 %12, i1 false, !prof !20
   br i1 %or.cond, label %13, label %.critedge.i, !prof !20
 
 13:                                               ; preds = %2
@@ -64651,7 +64651,7 @@ define nonnull ptr @l_Array_qsort_sort___at_Lean_LocalContext_sortFVarsByContext
   %10 = ptrtoint ptr %6 to i64
   %11 = and i64 %10, 1
   %12 = icmp ne i64 %11, 0
-  %or.cond.i = select i1 %9, i1 %12, i1 false
+  %or.cond.i = select i1 %9, i1 %12, i1 false, !prof !20
   br i1 %or.cond.i, label %13, label %.critedge.i.i, !prof !20
 
 13:                                               ; preds = %2

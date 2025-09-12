@@ -1547,7 +1547,7 @@ define void @_ZN5boost10filesystem6detail28directory_iterator_incrementERNS0_18d
 19:                                               ; preds = %17
   %20 = icmp ne i64 %.sroa.855.0.copyload, 1
   %21 = icmp ne i32 %.sroa.050.0.copyload, 0
-  %or.cond = select i1 %20, i1 true, i1 %21
+  %or.cond = select i1 %20, i1 true, i1 %21, !prof !77
   br i1 %or.cond, label %_ZNK5boost6system10error_codecvbEv.exit.thread, label %_ZNK5boost6system10error_codecvbEv.exit.thread63, !prof !77
 
 _ZNK5boost6system10error_codecvbEv.exit.thread:   ; preds = %19
@@ -2584,7 +2584,7 @@ _ZN5boost10filesystem6detail17recur_dir_itr_impD2Ev.exit.i.i.i: ; preds = %36, %
   %48 = icmp ne i64 %45, 1
   %49 = load i32, ptr %3, align 8
   %50 = icmp ne i32 %49, 0
-  %or.cond = select i1 %48, i1 true, i1 %50
+  %or.cond = select i1 %48, i1 true, i1 %50, !prof !113
   br i1 %or.cond, label %_ZNK5boost6system10error_codecvbEv.exit.thread, label %_ZNK5boost6system10error_codecvbEv.exit.thread26, !prof !113
 
 _ZNK5boost6system10error_codecvbEv.exit.thread:   ; preds = %47
@@ -3602,7 +3602,7 @@ _ZN5boost6system4errc15make_error_codeENS1_6errc_tE.exit.thread.i: ; preds = %_Z
   %311 = icmp ne i64 %308, 1
   %312 = load i32, ptr %11, align 8
   %313 = icmp ne i32 %312, 0
-  %or.cond206.i = select i1 %311, i1 true, i1 %313
+  %or.cond206.i = select i1 %311, i1 true, i1 %313, !prof !77
   br i1 %or.cond206.i, label %_ZNK5boost6system10error_codecvbEv.exit139.thread.i, label %_ZNK5boost6system10error_codecvbEv.exit139.thread186.i, !prof !77
 
 _ZNK5boost6system10error_codecvbEv.exit139.thread186.i: ; preds = %310, %307
@@ -3878,7 +3878,7 @@ _ZNK5boost6system10error_codecvbEv.exit.preheader: ; preds = %399, %_ZZN5boost10
   %400 = icmp ne i64 %392, 1
   %401 = load i32, ptr %11, align 8
   %402 = icmp ne i32 %401, 0
-  %or.cond106 = select i1 %400, i1 true, i1 %402
+  %or.cond106 = select i1 %400, i1 true, i1 %402, !prof !135
   br i1 %or.cond106, label %_ZNK5boost6system10error_codecvbEv.exit.thread, label %_ZNK5boost6system10error_codecvbEv.exit.preheader, !prof !135
 
 _ZNK5boost6system10error_codecvbEv.exit.thread:   ; preds = %506, %399
@@ -4161,7 +4161,7 @@ _ZN5boost10filesystem6detail17recur_dir_itr_impD2Ev.exit.i.i.i59: ; preds = %496
   %507 = icmp ne i64 %504, 1
   %508 = load i32, ptr %11, align 8
   %509 = icmp ne i32 %508, 0
-  %or.cond110 = select i1 %507, i1 true, i1 %509
+  %or.cond110 = select i1 %507, i1 true, i1 %509, !prof !136
   br i1 %or.cond110, label %_ZNK5boost6system10error_codecvbEv.exit.thread, label %_ZNK5boost6system10error_codecvbEv.exit63.thread99, !prof !136
 
 _ZNK5boost6system10error_codecvbEv.exit63.thread99: ; preds = %506, %.lr.ph

@@ -2567,7 +2567,7 @@ define internal fastcc void @intel_dp_compute_vsc_colorimetry(ptr noundef readon
   %50 = add i32 %47, -21
   %51 = icmp ult i32 %50, -3
   %52 = icmp eq i32 %17, 0
-  %or.cond = select i1 %51, i1 true, i1 %52
+  %or.cond = select i1 %51, i1 true, i1 %52, !prof !47
   br i1 %or.cond, label %65, label %53, !prof !47
 
 53:                                               ; preds = %45

@@ -2549,7 +2549,7 @@ is_cacheable_stream_path.exit:                    ; preds = %104
   %185 = icmp ne ptr %.4, null
   %186 = load i8, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 57), align 1, !range !37
   %187 = trunc nuw i8 %186 to i1
-  %or.cond193 = select i1 %185, i1 %187, i1 false
+  %or.cond193 = select i1 %185, i1 %187, i1 false, !prof !176
   br i1 %or.cond193, label %188, label %202, !prof !176
 
 188:                                              ; preds = %184
