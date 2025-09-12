@@ -352,10 +352,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6: ; preds = %_ZNK
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef range(i32 0, 5) i32 @_Z44grpc_get_tsi_client_certificate_request_type40grpc_ssl_client_certificate_request_type(i32 noundef %0) local_unnamed_addr #5 {
-  %switch.tableidx = add i32 %0, -1
-  %2 = icmp ult i32 %switch.tableidx, 4
-  %.0 = select i1 %2, i32 %0, i32 0
-  ret i32 %.0
+  %2 = icmp ult i32 %0, 5
+  %. = select i1 %2, i32 %0, i32 0
+  ret i32 %.
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2363,11 +2362,10 @@ _Z31grpc_fill_alpn_protocol_stringsPm.exit:       ; preds = %.lr.ph.i, %11
   store i64 %1, ptr %26, align 8, !tbaa !127
   %27 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store ptr %2, ptr %27, align 8, !tbaa !128
-  %switch.tableidx = add i32 %3, -1
-  %28 = icmp ult i32 %switch.tableidx, 4
-  %.0.i = select i1 %28, i32 %3, i32 0
+  %28 = icmp ult i32 %3, 5
+  %..i = select i1 %28, i32 %3, i32 0
   %29 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  store i32 %.0.i, ptr %29, align 8, !tbaa !129
+  store i32 %..i, ptr %29, align 8, !tbaa !129
   invoke void @gpr_once_init(ptr noundef nonnull @_ZL18cipher_suites_once, ptr noundef nonnull @_ZL18init_cipher_suitesv)
           to label %30 unwind label %74
 

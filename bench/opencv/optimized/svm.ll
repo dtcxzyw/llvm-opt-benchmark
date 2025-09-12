@@ -8106,12 +8106,11 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2cv2ml7SVMImpl9isTrainedEv(pt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK2cv2ml7SVMImpl12isClassifierEv(ptr noundef nonnull align 8 dereferenceable(560) %0) unnamed_addr #4 comdat align 2 {
-switch.edge:
-  %1 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %2 = load i32, ptr %1, align 8, !tbaa !158
-  %.off = add i32 %2, -100
-  %switch = icmp ult i32 %.off, 3
-  ret i1 %switch
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %3 = load i32, ptr %2, align 8, !tbaa !158
+  %switch.tableidx = add i32 %3, -100
+  %4 = icmp ult i32 %switch.tableidx, 3
+  ret i1 %4
 }
 
 ; Function Attrs: mustprogress uwtable

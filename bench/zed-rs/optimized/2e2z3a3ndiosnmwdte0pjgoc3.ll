@@ -4891,9 +4891,8 @@ define noundef zeroext i1 @_ZN15live_kit_server5proto16participant_info5State8is
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define noundef range(i32 0, 5) i32 @_ZN15live_kit_server5proto16participant_info5State8from_i3217h63305ec99939674eE(i32 noundef %0) unnamed_addr #6 {
-switch.lookup:
-  %spec.select = tail call i32 @llvm.umin.i32(i32 %0, i32 4)
-  ret i32 %spec.select
+  %. = tail call i32 @llvm.umin.i32(i32 %0, i32 4)
+  ret i32 %.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable

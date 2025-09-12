@@ -257,14 +257,14 @@ define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_125X86InterleavedAcc
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 320
   %20 = load i32, ptr %19, align 8, !tbaa !107
   %21 = icmp sgt i32 %20, 6
-  br i1 %21, label %22, label %75
+  br i1 %21, label %22, label %switch.lookup
 
 22:                                               ; preds = %1
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %24 = load i32, ptr %23, align 8, !tbaa !49
   %.off = add i32 %24, -3
   %switch = icmp ult i32 %.off, 2
-  br i1 %switch, label %25, label %75
+  br i1 %switch, label %25, label %switch.lookup
 
 25:                                               ; preds = %22
   %26 = load ptr, ptr %0, align 8, !tbaa !212
@@ -308,7 +308,7 @@ define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_125X86InterleavedAcc
 _ZNK4llvm8LoadInst22getPointerAddressSpaceEv.exit: ; preds = %29, %44
   %48 = phi i32 [ %.pre.i.i, %44 ], [ %41, %29 ]
   %.not36 = icmp ult i32 %48, 256
-  br i1 %.not36, label %57, label %75
+  br i1 %.not36, label %57, label %switch.lookup
 
 49:                                               ; preds = %25
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -336,7 +336,7 @@ _ZNK4llvm8LoadInst22getPointerAddressSpaceEv.exit: ; preds = %29, %44
   %60 = load i32, ptr %23, align 8
   %61 = icmp eq i32 %60, 4
   %or.cond38 = select i1 %or.cond, i1 %61, i1 false
-  br i1 %or.cond38, label %75, label %62
+  br i1 %or.cond38, label %switch.lookup, label %62
 
 62:                                               ; preds = %57
   %63 = icmp eq i32 %16, 8
@@ -353,7 +353,11 @@ _ZNK4llvm8LoadInst22getPointerAddressSpaceEv.exit: ; preds = %29, %44
   %69 = add i32 %.033, -256
   %70 = call i32 @llvm.fshl.i32(i32 %69, i32 %69, i32 24)
   %71 = icmp ult i32 %70, 8
-  br i1 %71, label %switch.lookup, label %.critedge
+  %switch.maskindex = trunc i32 %70 to i8
+  %switch.shifted = lshr i8 -117, %switch.maskindex
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  %or.cond43 = select i1 %71, i1 %switch.lobit, i1 false
+  br i1 %or.cond43, label %switch.lookup, label %.critedge
 
 72:                                               ; preds = %64
   %73 = icmp eq i32 %60, 3
@@ -361,22 +365,16 @@ _ZNK4llvm8LoadInst22getPointerAddressSpaceEv.exit: ; preds = %29, %44
 
 74:                                               ; preds = %72
   switch i32 %.033, label %.critedge [
-    i32 1536, label %75
-    i32 768, label %75
-    i32 384, label %75
+    i32 1536, label %switch.lookup
+    i32 768, label %switch.lookup
+    i32 384, label %switch.lookup
   ]
 
 .critedge:                                        ; preds = %68, %62, %74, %72
-  br label %75
+  br label %switch.lookup
 
-switch.lookup:                                    ; preds = %68
-  %switch.cast = trunc nuw i32 %70 to i8
-  %switch.downshift = lshr i8 -117, %switch.cast
-  %switch.masked = trunc i8 %switch.downshift to i1
-  br label %75
-
-75:                                               ; preds = %switch.lookup, %22, %74, %74, %74, %57, %_ZNK4llvm8LoadInst22getPointerAddressSpaceEv.exit, %1, %.critedge
-  %.0 = phi i1 [ false, %.critedge ], [ false, %22 ], [ false, %1 ], [ false, %_ZNK4llvm8LoadInst22getPointerAddressSpaceEv.exit ], [ true, %57 ], [ true, %74 ], [ true, %74 ], [ true, %74 ], [ %switch.masked, %switch.lookup ]
+switch.lookup:                                    ; preds = %68, %22, %74, %74, %74, %57, %_ZNK4llvm8LoadInst22getPointerAddressSpaceEv.exit, %1, %.critedge
+  %.0 = phi i1 [ false, %.critedge ], [ false, %22 ], [ false, %1 ], [ false, %_ZNK4llvm8LoadInst22getPointerAddressSpaceEv.exit ], [ true, %57 ], [ true, %74 ], [ true, %74 ], [ true, %74 ], [ true, %68 ]
   ret i1 %.0
 }
 

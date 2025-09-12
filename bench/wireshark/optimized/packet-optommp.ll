@@ -166,7 +166,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.134 = private unnamed_addr constant [21 x i8] c", dest_off: 0x%012lx\00", align 1
 @.str.135 = private unnamed_addr constant [25 x i8] c"data_block (as quadlets)\00", align 1
 @.str.136 = private unnamed_addr constant [22 x i8] c"data_block (as bytes)\00", align 1
-@switch.table.get_optommp_message_len = private unnamed_addr constant [7 x i32] [i32 16, i32 12, i32 8, i32 12, i32 16, i32 16, i32 16], align 4
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_optommp() local_unnamed_addr #0 {
@@ -231,40 +230,44 @@ define internal range(i32 8, 65552) i32 @get_optommp_message_len(ptr readnone ca
   %.fr = freeze i8 %6
   %7 = lshr i8 %.fr, 4
   %8 = icmp ult i8 %.fr, 16
-  br i1 %8, label %.fold.split, label %switch.early.test
+  br i1 %8, label %switch.lookup, label %switch.early.test
 
 switch.early.test:                                ; preds = %4
   %switch.tableidx = add nsw i8 %7, -1
   %9 = icmp ult i8 %switch.tableidx, 7
-  br i1 %9, label %switch.lookup, label %.fold.split
+  %switch.shifted = lshr i8 113, %switch.tableidx
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  %or.cond = select i1 %9, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %10
 
-switch.lookup:                                    ; preds = %switch.early.test
-  %10 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.get_optommp_message_len, i64 %10
-  %switch.load = load i32, ptr %switch.gep, align 4
-  br label %.fold.split
+10:                                               ; preds = %switch.early.test
+  %11 = add nsw i8 %7, -2
+  %switch.and = and i8 %11, -3
+  %switch.selectcmp = icmp eq i8 %switch.and, 0
+  %12 = select i1 %switch.selectcmp, i32 12, i32 8
+  br label %switch.lookup
 
-.fold.split:                                      ; preds = %switch.early.test, %switch.lookup, %4
-  %.0 = phi i32 [ 16, %4 ], [ %switch.load, %switch.lookup ], [ 8, %switch.early.test ]
-  switch i8 %7, label %19 [
-    i8 7, label %11
-    i8 1, label %11
+switch.lookup:                                    ; preds = %switch.early.test, %10, %4
+  %.0 = phi i32 [ 16, %4 ], [ %12, %10 ], [ 16, %switch.early.test ]
+  switch i8 %7, label %21 [
+    i8 7, label %13
+    i8 1, label %13
   ]
 
-11:                                               ; preds = %.fold.split, %.fold.split
-  %12 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %2)
-  %13 = icmp sgt i32 %12, 13
-  br i1 %13, label %14, label %19
+13:                                               ; preds = %switch.lookup, %switch.lookup
+  %14 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %2)
+  %15 = icmp sgt i32 %14, 13
+  br i1 %15, label %16, label %21
 
-14:                                               ; preds = %11
-  %15 = add i32 %2, 12
-  %16 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef %15)
-  %17 = zext i16 %16 to i32
-  %18 = add nuw nsw i32 %.0, %17
-  br label %19
+16:                                               ; preds = %13
+  %17 = add i32 %2, 12
+  %18 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef %17)
+  %19 = zext i16 %18 to i32
+  %20 = add nuw nsw i32 %.0, %19
+  br label %21
 
-19:                                               ; preds = %.fold.split, %14, %11
-  %.1 = phi i32 [ %18, %14 ], [ %.0, %11 ], [ %.0, %.fold.split ]
+21:                                               ; preds = %switch.lookup, %16, %13
+  %.1 = phi i32 [ %20, %16 ], [ %.0, %13 ], [ %.0, %switch.lookup ]
   ret i32 %.1
 }
 

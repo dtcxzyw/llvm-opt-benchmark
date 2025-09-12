@@ -3866,21 +3866,27 @@ define dso_local noundef zeroext i1 @_ZN4llvm7AArch6422isX18ReservedByDefaultERK
   br i1 %spec.select.i.i, label %_ZNK4llvm6Triple10isOSDarwinEv.exit.thread, label %9
 
 9:                                                ; preds = %5
-  %switch.tableidx = add i32 %7, -4
-  %10 = icmp ult i32 %switch.tableidx, 27
-  %switch.shifted = lshr i32 113247235, %switch.tableidx
+  %switch.tableidx = add i32 %7, -5
+  %10 = icmp ult i32 %switch.tableidx, 26
+  %switch.shifted = lshr i32 56623105, %switch.tableidx
   %switch.lobit = trunc i32 %switch.shifted to i1
   %or.cond = select i1 %10, i1 %switch.lobit, i1 false
-  br i1 %or.cond, label %_ZNK4llvm6Triple10isOSDarwinEv.exit.thread, label %11
+  br i1 %or.cond, label %_ZNK4llvm6Triple10isOSDarwinEv.exit.thread, label %_ZNK4llvm6Triple10isOSDarwinEv.exit
 
-11:                                               ; preds = %9
+_ZNK4llvm6Triple10isOSDarwinEv.exit:              ; preds = %9
+  switch i32 %7, label %11 [
+    i32 4, label %_ZNK4llvm6Triple10isOSDarwinEv.exit.thread
+    i32 14, label %_ZNK4llvm6Triple10isOSDarwinEv.exit.thread
+  ]
+
+11:                                               ; preds = %_ZNK4llvm6Triple10isOSDarwinEv.exit
   %12 = icmp eq i32 %3, 49
   %13 = icmp eq i32 %7, 38
   %14 = or i1 %12, %13
   br label %_ZNK4llvm6Triple10isOSDarwinEv.exit.thread
 
-_ZNK4llvm6Triple10isOSDarwinEv.exit.thread:       ; preds = %9, %5, %11, %1
-  %15 = phi i1 [ true, %1 ], [ %14, %11 ], [ true, %5 ], [ true, %9 ]
+_ZNK4llvm6Triple10isOSDarwinEv.exit.thread:       ; preds = %9, %_ZNK4llvm6Triple10isOSDarwinEv.exit, %_ZNK4llvm6Triple10isOSDarwinEv.exit, %5, %11, %1
+  %15 = phi i1 [ true, %_ZNK4llvm6Triple10isOSDarwinEv.exit ], [ true, %1 ], [ %14, %11 ], [ true, %5 ], [ true, %_ZNK4llvm6Triple10isOSDarwinEv.exit ], [ true, %9 ]
   ret i1 %15
 }
 

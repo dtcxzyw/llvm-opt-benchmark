@@ -3282,11 +3282,8 @@ define void @post_process_smoothing(i32 noundef %0, ptr noundef %1, ptr noundef 
   br label %TriangleSmoother_delete.exit
 
 32:                                               ; preds = %4, %4, %4
-  %switch.selectcmp = icmp eq i32 %7, 3
-  %switch.select = select i1 %switch.selectcmp, i32 2, i32 1
-  %switch.selectcmp34 = icmp eq i32 %7, 1
-  %switch.select35 = select i1 %switch.selectcmp34, i32 0, i32 %switch.select
-  %33 = tail call ptr @StressMajorizationSmoother2_new(ptr noundef %1, i32 noundef %0, double noundef 5.000000e-02, ptr noundef %3, i32 noundef %switch.select35)
+  %switch.tableidx = add nsw i32 %7, -1
+  %33 = tail call ptr @StressMajorizationSmoother2_new(ptr noundef %1, i32 noundef %0, double noundef 5.000000e-02, ptr noundef %3, i32 noundef %switch.tableidx)
   %34 = tail call double @StressMajorizationSmoother_smooth(ptr noundef %33, i32 noundef %0, ptr noundef %3, i32 noundef 50)
   %.not.i = icmp eq ptr %33, null
   br i1 %.not.i, label %TriangleSmoother_delete.exit, label %35

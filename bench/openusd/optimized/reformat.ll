@@ -193,7 +193,7 @@ declare i32 @avifRGBImagePixelSize(ptr noundef) local_unnamed_addr #1
 define hidden range(i32 0, 2) i32 @avifGetYUVColorSpaceInfo(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
-  switch i32 %4, label %53 [
+  switch i32 %4, label %switch.lookup [
     i32 8, label %5
     i32 10, label %5
     i32 12, label %5
@@ -205,102 +205,105 @@ define hidden range(i32 0, 2) i32 @avifGetYUVColorSpaceInfo(ptr noundef %0, ptr 
   %7 = load i32, ptr %6, align 4
   %8 = add i32 %7, -5
   %or.cond = icmp ult i32 %8, -4
-  br i1 %or.cond, label %53, label %9
+  br i1 %or.cond, label %switch.lookup, label %9
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load i32, ptr %10, align 8
   %switch = icmp ult i32 %11, 2
-  br i1 %switch, label %12, label %53
+  br i1 %switch, label %12, label %switch.lookup
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %14 = load i16, ptr %13, align 4
   switch i16 %14, label %17 [
-    i16 3, label %53
+    i16 3, label %switch.lookup
     i16 8, label %15
-    i16 10, label %53
-    i16 11, label %53
-    i16 13, label %53
-    i16 14, label %53
   ]
 
 15:                                               ; preds = %12
   %16 = icmp eq i32 %11, 0
-  br i1 %16, label %53, label %.thread60
+  br i1 %16, label %switch.lookup, label %17
 
-17:                                               ; preds = %12
-  %18 = icmp ugt i16 %14, 14
-  br i1 %18, label %53, label %19
+17:                                               ; preds = %12, %15
+  %switch.tableidx = add i16 %14, -10
+  %18 = icmp ult i16 %switch.tableidx, 5
+  %switch.maskindex = trunc i16 %switch.tableidx to i8
+  %switch.shifted = lshr i8 27, %switch.maskindex
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  %or.cond59 = select i1 %18, i1 %switch.lobit, i1 false
+  %19 = icmp ugt i16 %14, 14
+  %or.cond60 = or i1 %19, %or.cond59
+  br i1 %or.cond60, label %switch.lookup, label %20
 
-19:                                               ; preds = %17
-  %20 = icmp eq i16 %14, 0
-  br i1 %20, label %21, label %.thread60
+20:                                               ; preds = %17
+  %21 = icmp eq i16 %14, 0
+  br i1 %21, label %22, label %23
 
-21:                                               ; preds = %19
-  switch i32 %7, label %53 [
-    i32 1, label %.thread60
-    i32 4, label %.thread60
+22:                                               ; preds = %20
+  switch i32 %7, label %switch.lookup [
+    i32 1, label %23
+    i32 4, label %23
   ]
 
-.thread60:                                        ; preds = %15, %21, %21, %19
-  %22 = getelementptr inbounds nuw i8, ptr %1, i64 44
-  tail call void @avifGetPixelFormatInfo(i32 noundef %7, ptr noundef nonnull %22) #10
-  %23 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  tail call void @avifCalcYUVCoefficients(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %23, ptr noundef nonnull %24) #10
-  %25 = load i32, ptr %3, align 8
-  %26 = icmp ugt i32 %25, 8
-  %27 = select i1 %26, i32 2, i32 1
-  %28 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  store i32 %27, ptr %28, align 4
-  %29 = load i32, ptr %3, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %1, i64 16
+23:                                               ; preds = %22, %22, %20
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 44
+  tail call void @avifGetPixelFormatInfo(i32 noundef %7, ptr noundef nonnull %24) #10
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  tail call void @avifCalcYUVCoefficients(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %25, ptr noundef nonnull %26) #10
+  %27 = load i32, ptr %3, align 8
+  %28 = icmp ugt i32 %27, 8
+  %29 = select i1 %28, i32 2, i32 1
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 %29, ptr %30, align 4
-  %31 = load i32, ptr %10, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %31 = load i32, ptr %3, align 8
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i32 %31, ptr %32, align 4
-  %33 = load i32, ptr %3, align 8
-  %notmask = shl nsw i32 -1, %33
-  %34 = xor i32 %notmask, -1
-  %35 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store i32 %34, ptr %35, align 4
-  %36 = icmp eq i32 %31, 0
-  br i1 %36, label %37, label %44
+  %33 = load i32, ptr %10, align 8
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  store i32 %33, ptr %34, align 4
+  %35 = load i32, ptr %3, align 8
+  %notmask = shl nsw i32 -1, %35
+  %36 = xor i32 %notmask, -1
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  store i32 %36, ptr %37, align 4
+  %38 = icmp eq i32 %33, 0
+  br i1 %38, label %39, label %46
 
-37:                                               ; preds = %.thread60
-  %38 = add i32 %29, -8
-  %39 = shl i32 16, %38
-  %40 = sitofp i32 %39 to float
-  %41 = shl i32 219, %38
+39:                                               ; preds = %23
+  %40 = add i32 %31, -8
+  %41 = shl i32 16, %40
   %42 = sitofp i32 %41 to float
-  %43 = shl i32 224, %38
-  br label %46
+  %43 = shl i32 219, %40
+  %44 = sitofp i32 %43 to float
+  %45 = shl i32 224, %40
+  br label %48
 
-44:                                               ; preds = %.thread60
-  %45 = uitofp nneg i32 %34 to float
-  br label %46
+46:                                               ; preds = %23
+  %47 = uitofp nneg i32 %36 to float
+  br label %48
 
-46:                                               ; preds = %44, %37
-  %.sink64 = phi float [ %40, %37 ], [ 0.000000e+00, %44 ]
-  %.sink = phi float [ %42, %37 ], [ %45, %44 ]
-  %47 = phi i32 [ %43, %37 ], [ %34, %44 ]
-  %.pn = add i32 %29, -1
-  %.sink63.in = shl nuw i32 1, %.pn
-  %.sink63 = sitofp i32 %.sink63.in to float
-  %48 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  store float %.sink64, ptr %48, align 4
-  %49 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store float %.sink63, ptr %49, align 4
-  %50 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  store float %.sink, ptr %50, align 4
-  %51 = sitofp i32 %47 to float
-  %52 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  store float %51, ptr %52, align 4
-  br label %53
+48:                                               ; preds = %46, %39
+  %.sink63 = phi float [ %42, %39 ], [ 0.000000e+00, %46 ]
+  %.sink = phi float [ %44, %39 ], [ %47, %46 ]
+  %49 = phi i32 [ %45, %39 ], [ %36, %46 ]
+  %.pn = add i32 %31, -1
+  %.sink62.in = shl nuw i32 1, %.pn
+  %.sink62 = sitofp i32 %.sink62.in to float
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 28
+  store float %.sink63, ptr %50, align 4
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  store float %.sink62, ptr %51, align 4
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 36
+  store float %.sink, ptr %52, align 4
+  %53 = sitofp i32 %49 to float
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  store float %53, ptr %54, align 4
+  br label %switch.lookup
 
-53:                                               ; preds = %12, %12, %12, %12, %12, %9, %21, %15, %17, %5, %2, %46
-  %.0 = phi i32 [ 1, %46 ], [ 0, %2 ], [ 0, %5 ], [ 0, %9 ], [ 0, %12 ], [ 0, %17 ], [ 0, %15 ], [ 0, %21 ], [ 0, %12 ], [ 0, %12 ], [ 0, %12 ], [ 0, %12 ]
+switch.lookup:                                    ; preds = %17, %9, %22, %15, %12, %5, %2, %48
+  %.0 = phi i32 [ 1, %48 ], [ 0, %2 ], [ 0, %5 ], [ 0, %9 ], [ 0, %12 ], [ 0, %15 ], [ 0, %22 ], [ 0, %17 ]
   ret i32 %.0
 }
 

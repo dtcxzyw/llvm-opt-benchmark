@@ -1139,23 +1139,19 @@ declare noundef i32 @_ZNK5clang8EnumDecl29getTemplateSpecializationKindEv(ptr no
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef zeroext i1 @_ZN5clang5index15IndexingContext22shouldIgnoreIfImplicitEPKNS_4DeclE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(64) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 align 2 {
-  %3 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %4 = load i32, ptr %3, align 4
-  %5 = and i32 %4, 127
-  switch i32 %5, label %6 [
-    i32 18, label %switch.edge
-    i32 21, label %switch.edge
-    i32 48, label %switch.edge
-    i32 16, label %switch.edge
-    i32 80, label %switch.edge
-  ]
-
-6:                                                ; preds = %2
-  br label %switch.edge
-
-switch.edge:                                      ; preds = %2, %2, %2, %2, %2, %6
-  %.0 = phi i1 [ false, %2 ], [ true, %6 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ]
-  ret i1 %.0
+switch.lookup:
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 28
+  %3 = load i32, ptr %2, align 4
+  %4 = and i32 %3, 127
+  %switch.tableidx = add nsw i32 %4, -16
+  %5 = icmp ult i32 %switch.tableidx, 33
+  %switch.maskindex = zext nneg i32 %switch.tableidx to i64
+  %switch.shifted = lshr i64 4294967333, %switch.maskindex
+  %switch.lobit = trunc i64 %switch.shifted to i1
+  %or.cond = select i1 %5, i1 %switch.lobit, i1 false
+  %6 = icmp ne i32 %4, 80
+  %spec.select = xor i1 %or.cond, %6
+  ret i1 %spec.select
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

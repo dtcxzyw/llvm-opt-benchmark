@@ -1376,15 +1376,19 @@ switch.hole_check:                                ; preds = %69
   %switch.maskindex = zext nneg i8 %switch.tableidx to i32
   %switch.shifted = lshr i32 136315905, %switch.maskindex
   %switch.lobit = trunc i32 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %75
+  br i1 %switch.lobit, label %switch.hole_check.switch.lookup_crit_edge, label %75
 
-switch.lookup:                                    ; preds = %switch.hole_check, %75
-  %79 = phi i1 [ %78, %75 ], [ true, %switch.hole_check ]
-  tail call void @llvm.assume(i1 %79)
-  %80 = getelementptr inbounds nuw i8, ptr %71, i64 32
-  store ptr %80, ptr %70, align 8, !tbaa !82
-  %81 = load i8, ptr %30, align 8, !tbaa !99
-  %82 = or i8 %81, 1
+switch.hole_check.switch.lookup_crit_edge:        ; preds = %switch.hole_check
+  %.pre139 = load i8, ptr %30, align 8, !tbaa !99
+  br label %switch.lookup
+
+switch.lookup:                                    ; preds = %switch.hole_check.switch.lookup_crit_edge, %75
+  %79 = phi i8 [ %76, %75 ], [ %.pre139, %switch.hole_check.switch.lookup_crit_edge ]
+  %80 = phi i1 [ %78, %75 ], [ true, %switch.hole_check.switch.lookup_crit_edge ]
+  tail call void @llvm.assume(i1 %80)
+  %81 = getelementptr inbounds nuw i8, ptr %71, i64 32
+  store ptr %81, ptr %70, align 8, !tbaa !82
+  %82 = or i8 %79, 1
   store i8 %82, ptr %30, align 8, !tbaa !99
   %83 = load i32, ptr @zend_observer_fcall_op_array_extension, align 4, !tbaa !108
   %.not71 = icmp eq i32 %83, -1
@@ -1413,9 +1417,9 @@ zend_observer_fcall_end.exit.thread:              ; preds = %86
 92:                                               ; preds = %86
   %93 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 536), align 8, !tbaa !110
   %94 = icmp eq ptr %89, %93
-  br i1 %94, label %97, label %zend_observer_fcall_end.exit.thread152
+  br i1 %94, label %97, label %zend_observer_fcall_end.exit.thread153
 
-zend_observer_fcall_end.exit.thread152:           ; preds = %92
+zend_observer_fcall_end.exit.thread153:           ; preds = %92
   %95 = load i8, ptr %30, align 8, !tbaa !99
   %96 = and i8 %95, -18
   store i8 %96, ptr %30, align 8, !tbaa !99
@@ -1436,15 +1440,15 @@ zend_observer_fcall_end.exit:                     ; preds = %97, %84
   %.not73 = icmp eq ptr %.pr.pr, null
   br i1 %.not73, label %106, label %101, !prof !111
 
-101:                                              ; preds = %zend_observer_fcall_end.exit.thread152, %zend_observer_fcall_end.exit
-  %.pr155 = phi ptr [ %89, %zend_observer_fcall_end.exit.thread152 ], [ %.pr.pr, %zend_observer_fcall_end.exit ]
-  %102 = getelementptr inbounds nuw i8, ptr %.pr155, i64 8
+101:                                              ; preds = %zend_observer_fcall_end.exit.thread153, %zend_observer_fcall_end.exit
+  %.pr156 = phi ptr [ %89, %zend_observer_fcall_end.exit.thread153 ], [ %.pr.pr, %zend_observer_fcall_end.exit ]
+  %102 = getelementptr inbounds nuw i8, ptr %.pr156, i64 8
   %103 = load ptr, ptr %102, align 8, !tbaa !57
   %.not74 = icmp eq ptr %103, null
   br i1 %.not74, label %106, label %104, !prof !58
 
 104:                                              ; preds = %101
-  %105 = tail call ptr @zend_generator_freeze_call_stack(ptr noundef nonnull %.pr155)
+  %105 = tail call ptr @zend_generator_freeze_call_stack(ptr noundef nonnull %.pr156)
   br label %.sink.split
 
 .sink.split:                                      ; preds = %104, %zend_observer_fcall_end.exit.thread

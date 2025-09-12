@@ -27043,8 +27043,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit511: ; preds = %_Z
   %847 = load i8, ptr %846, align 8, !tbaa !232
   %848 = icmp eq i8 %847, 2
   %849 = icmp eq i8 %83, 2
-  %or.cond = and i1 %848, %849
-  br i1 %or.cond, label %.noexc.i513, label %1093
+  %or.cond322 = and i1 %848, %849
+  br i1 %or.cond322, label %.noexc.i513, label %1093
 
 .noexc.i513:                                      ; preds = %.thread23
   call void @llvm.lifetime.start.p0(ptr nonnull %40)
@@ -28374,9 +28374,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit728: ; preds = %_Z
 
 1380:                                             ; preds = %.thread28
   %1381 = icmp ult i8 %.0.val, 43
-  br i1 %1381, label %switch.hole_check, label %1382
+  %switch.maskindex = zext nneg i8 %.0.val to i64
+  %switch.shifted = lshr i64 5781025980417, %switch.maskindex
+  %switch.lobit = trunc i64 %switch.shifted to i1
+  %or.cond = select i1 %1381, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %.critedge259, label %1382
 
-1382:                                             ; preds = %switch.hole_check, %1380
+1382:                                             ; preds = %1380
   store i8 3, ptr %1378, align 8, !tbaa !232
   br label %.critedge259
 
@@ -29095,8 +29099,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit843: ; preds = %_Z
   %1671 = load i8, ptr %1670, align 8, !tbaa !232
   %1672 = icmp eq i8 %1671, 3
   %1673 = icmp eq i8 %1384, 41
-  %or.cond322 = and i1 %1672, %1673
-  br i1 %or.cond322, label %1674, label %.critedge259
+  %or.cond323 = and i1 %1672, %1673
+  br i1 %or.cond323, label %1674, label %.critedge259
 
 1674:                                             ; preds = %1668
   call void @llvm.lifetime.start.p0(ptr nonnull %67)
@@ -29137,14 +29141,8 @@ _ZN5Yosys7token_tC2EcNS_5RTLIL7SigSpecE.exit845:  ; preds = %1674
   call void @llvm.lifetime.end.p0(ptr nonnull %67)
   br label %1683
 
-switch.hole_check:                                ; preds = %1380
-  %switch.maskindex = zext nneg i8 %.0.val to i64
-  %switch.shifted = lshr i64 5781025980417, %switch.maskindex
-  %switch.lobit = trunc i64 %switch.shifted to i1
-  br i1 %switch.lobit, label %.critedge259, label %1382
-
-.critedge259:                                     ; preds = %switch.hole_check, %.thread319, %1389, %1393, %.critedge, %1668, %1383, %841, %.thread, %1677, %_ZN5Yosys7token_tD2Ev.exit834, %1382, %_ZN5Yosys7token_tD2Ev.exit719, %_ZN5Yosys7token_tD2Ev.exit604, %844, %_ZN5Yosys7token_tD2Ev.exit502, %552, %_ZN5Yosys7token_tD2Ev.exit387, %_ZN5Yosys7token_tD2Ev.exit
-  %.0 = phi i1 [ true, %_ZN5Yosys7token_tD2Ev.exit ], [ true, %_ZN5Yosys7token_tD2Ev.exit387 ], [ true, %552 ], [ true, %_ZN5Yosys7token_tD2Ev.exit502 ], [ true, %844 ], [ true, %_ZN5Yosys7token_tD2Ev.exit604 ], [ true, %_ZN5Yosys7token_tD2Ev.exit719 ], [ true, %1382 ], [ true, %_ZN5Yosys7token_tD2Ev.exit834 ], [ true, %1677 ], [ false, %.thread ], [ false, %841 ], [ false, %1383 ], [ false, %1668 ], [ false, %.critedge ], [ false, %1393 ], [ false, %1389 ], [ false, %.thread319 ], [ false, %switch.hole_check ]
+.critedge259:                                     ; preds = %.thread319, %1389, %1393, %.critedge, %1380, %1668, %1383, %841, %.thread, %1677, %_ZN5Yosys7token_tD2Ev.exit834, %1382, %_ZN5Yosys7token_tD2Ev.exit719, %_ZN5Yosys7token_tD2Ev.exit604, %844, %_ZN5Yosys7token_tD2Ev.exit502, %552, %_ZN5Yosys7token_tD2Ev.exit387, %_ZN5Yosys7token_tD2Ev.exit
+  %.0 = phi i1 [ true, %_ZN5Yosys7token_tD2Ev.exit ], [ true, %_ZN5Yosys7token_tD2Ev.exit387 ], [ true, %552 ], [ true, %_ZN5Yosys7token_tD2Ev.exit502 ], [ true, %844 ], [ true, %_ZN5Yosys7token_tD2Ev.exit604 ], [ true, %_ZN5Yosys7token_tD2Ev.exit719 ], [ true, %1382 ], [ true, %_ZN5Yosys7token_tD2Ev.exit834 ], [ true, %1677 ], [ false, %.thread ], [ false, %841 ], [ false, %1383 ], [ false, %1668 ], [ false, %1380 ], [ false, %.critedge ], [ false, %1393 ], [ false, %1389 ], [ false, %.thread319 ]
   ret i1 %.0
 
 1683:                                             ; preds = %1682, %1667, %1374, %1092, %838, %545, %314

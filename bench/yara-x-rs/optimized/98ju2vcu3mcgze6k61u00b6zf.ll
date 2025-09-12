@@ -55865,18 +55865,18 @@ define noundef range(i8 0, 7) i8 @_ZN6yara_x7modules6protos3lnk3Lnk10drive_type1
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %3 = load i32, ptr %2, align 8, !range !1888, !noundef !3
   %4 = trunc nuw i32 %3 to i1
-  br i1 %4, label %5, label %"_ZN81_$LT$yara_x..modules..protos..lnk..DriveType$u20$as$u20$protobuf..enums..Enum$GT$8from_i3217hdbd40971130d33b0E.exit"
+  br i1 %4, label %5, label %8
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 308
   %7 = load i32, ptr %6, align 4, !noundef !3
-  %8 = icmp ult i32 %7, 7
-  %switch.idx.cast = trunc i32 %7 to i8
-  %spec.select = select i1 %8, i8 %switch.idx.cast, i8 0
-  br label %"_ZN81_$LT$yara_x..modules..protos..lnk..DriveType$u20$as$u20$protobuf..enums..Enum$GT$8from_i3217hdbd40971130d33b0E.exit"
+  %.sroa.0.0.i = trunc nuw nsw i32 %7 to i8
+  %.not = icmp ugt i32 %7, 6
+  %. = select i1 %.not, i8 0, i8 %.sroa.0.0.i
+  br label %8
 
-"_ZN81_$LT$yara_x..modules..protos..lnk..DriveType$u20$as$u20$protobuf..enums..Enum$GT$8from_i3217hdbd40971130d33b0E.exit": ; preds = %5, %1
-  %.sroa.0.0 = phi i8 [ 0, %1 ], [ %spec.select, %5 ]
+8:                                                ; preds = %1, %5
+  %.sroa.0.0 = phi i8 [ %., %5 ], [ 0, %1 ]
   ret i8 %.sroa.0.0
 }
 
@@ -61607,10 +61607,9 @@ define noundef range(i32 0, 7) i32 @"_ZN81_$LT$yara_x..modules..protos..lnk..Dri
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define noundef range(i8 0, 8) i8 @"_ZN81_$LT$yara_x..modules..protos..lnk..DriveType$u20$as$u20$protobuf..enums..Enum$GT$8from_i3217hdbd40971130d33b0E"(i32 noundef %0) unnamed_addr #2 {
-switch.lookup:
-  %spec.select1 = tail call i32 @llvm.umin.i32(i32 %0, i32 7)
-  %spec.select = trunc nuw nsw i32 %spec.select1 to i8
-  ret i8 %spec.select
+  %.sroa.0.01 = tail call i32 @llvm.umin.i32(i32 %0, i32 7)
+  %.sroa.0.0 = trunc nuw nsw i32 %.sroa.0.01 to i8
+  ret i8 %.sroa.0.0
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -66445,10 +66444,9 @@ define noundef range(i32 0, 5) i32 @"_ZN94_$LT$yara_x..modules..protos..net_anal
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define noundef range(i8 0, 6) i8 @"_ZN94_$LT$yara_x..modules..protos..net_analysis..AlertSeverity$u20$as$u20$protobuf..enums..Enum$GT$8from_i3217hd1a8ed83a02768a0E"(i32 noundef %0) unnamed_addr #2 {
-switch.lookup:
-  %spec.select1 = tail call i32 @llvm.umin.i32(i32 %0, i32 5)
-  %spec.select = trunc nuw nsw i32 %spec.select1 to i8
-  ret i8 %spec.select
+  %.sroa.0.01 = tail call i32 @llvm.umin.i32(i32 %0, i32 5)
+  %.sroa.0.0 = trunc nuw nsw i32 %.sroa.0.01 to i8
+  ret i8 %.sroa.0.0
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -96156,10 +96154,9 @@ define noundef range(i32 0, 14) i32 @"_ZN86_$LT$yara_x..modules..protos..sandbox
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define noundef range(i8 0, 15) i8 @"_ZN86_$LT$yara_x..modules..protos..sandbox..VerdictTag$u20$as$u20$protobuf..enums..Enum$GT$8from_i3217hc8a62579899eb3e7E"(i32 noundef %0) unnamed_addr #2 {
-switch.lookup:
-  %spec.select1 = tail call i32 @llvm.umin.i32(i32 %0, i32 14)
-  %spec.select = trunc nuw nsw i32 %spec.select1 to i8
-  ret i8 %spec.select
+  %.sroa.0.01 = tail call i32 @llvm.umin.i32(i32 %0, i32 14)
+  %.sroa.0.0 = trunc nuw nsw i32 %.sroa.0.01 to i8
+  ret i8 %.sroa.0.0
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -96333,10 +96330,9 @@ define noundef range(i32 0, 5) i32 @"_ZN90_$LT$yara_x..modules..protos..sandbox.
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define noundef range(i8 0, 6) i8 @"_ZN90_$LT$yara_x..modules..protos..sandbox..ImpactSeverity$u20$as$u20$protobuf..enums..Enum$GT$8from_i3217h868ff7512ae1048fE"(i32 noundef %0) unnamed_addr #2 {
-switch.lookup:
-  %spec.select1 = tail call i32 @llvm.umin.i32(i32 %0, i32 5)
-  %spec.select = trunc nuw nsw i32 %spec.select1 to i8
-  ret i8 %spec.select
+  %.sroa.0.01 = tail call i32 @llvm.umin.i32(i32 %0, i32 5)
+  %.sroa.0.0 = trunc nuw nsw i32 %.sroa.0.01 to i8
+  ret i8 %.sroa.0.0
 }
 
 ; Function Attrs: nonlazybind uwtable

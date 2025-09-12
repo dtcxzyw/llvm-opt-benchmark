@@ -2521,9 +2521,6 @@ get_unary.exit:                                   ; preds = %301, %312
   %323 = icmp eq i32 %320, 0
   %324 = icmp eq i32 %322, 3
   %or.cond.i530 = select i1 %323, i1 %324, i1 false
-  %.0.i108.sroa.gep169.i = getelementptr inbounds nuw i8, ptr %20, i64 24
-  %.0.i108.sroa.gep170.i = getelementptr inbounds nuw i8, ptr %20, i64 36
-  %.0.i108.sroa.gep171.i = getelementptr inbounds nuw i8, ptr %20, i64 12
   br i1 %or.cond.i530, label %325, label %347
 
 325:                                              ; preds = %.loopexit
@@ -3105,8 +3102,8 @@ predict_mv.exit.i:                                ; preds = %587, %490
   %593 = add i16 %592, %.sroa.8.1.i.i
   %594 = icmp sgt i32 %.sroa.13.1.i, 0
   %595 = icmp sgt i32 %.sroa.0110.1.i, 0
-  %or.cond212.i = select i1 %594, i1 %595, i1 false
-  br i1 %or.cond212.i, label %.preheader133.lr.ph.split.us.i, label %._crit_edge137.i
+  %or.cond209.i = select i1 %594, i1 %595, i1 false
+  br i1 %or.cond209.i, label %.preheader133.lr.ph.split.us.i, label %._crit_edge137.i
 
 .preheader133.lr.ph.split.us.i:                   ; preds = %predict_mv.exit.i
   %596 = load ptr, ptr %373, align 8, !tbaa !105
@@ -3609,27 +3606,16 @@ add_if_valid.exit158.i.i:                         ; preds = %unique_list_mvinfo_
 fill_mv_skip_cand.exit.i:                         ; preds = %.lr.ph.i.i, %add_if_valid.exit158.i.i
   %759 = getelementptr inbounds nuw i8, ptr %26, i64 56
   %760 = load i32, ptr %759, align 4, !tbaa !136
-  switch i32 %760, label %763 [
-    i32 6, label %get_skip_mv_index.exit.i
-    i32 7, label %761
-    i32 8, label %762
-  ]
-
-761:                                              ; preds = %fill_mv_skip_cand.exit.i
-  br label %get_skip_mv_index.exit.i
-
-762:                                              ; preds = %fill_mv_skip_cand.exit.i
-  br label %get_skip_mv_index.exit.i
-
-763:                                              ; preds = %fill_mv_skip_cand.exit.i
-  br label %get_skip_mv_index.exit.i
-
-get_skip_mv_index.exit.i:                         ; preds = %763, %762, %761, %fill_mv_skip_cand.exit.i
-  %.0.i108.sroa.phi.i = phi ptr [ %20, %763 ], [ %.0.i108.sroa.gep169.i, %761 ], [ %.0.i108.sroa.gep170.i, %762 ], [ %.0.i108.sroa.gep171.i, %fill_mv_skip_cand.exit.i ]
+  %switch.tableidx.i.i = add i32 %760, -6
+  %761 = icmp ult i32 %switch.tableidx.i.i, 3
+  %switch.offset.i.i = add nsw i32 %760, -5
+  %.0.i108.i = select i1 %761, i32 %switch.offset.i.i, i32 0
+  %762 = zext nneg i32 %.0.i108.i to i64
+  %763 = getelementptr inbounds nuw %struct.MVInfo, ptr %20, i64 %762
   %764 = icmp sgt i32 %628, 0
   br i1 %764, label %.preheader129.lr.ph.i, label %.loopexit130.i
 
-.preheader129.lr.ph.i:                            ; preds = %get_skip_mv_index.exit.i
+.preheader129.lr.ph.i:                            ; preds = %fill_mv_skip_cand.exit.i
   %765 = getelementptr inbounds nuw i8, ptr %0, i64 128
   br label %.preheader129.us.i
 
@@ -3648,7 +3634,7 @@ get_skip_mv_index.exit.i:                         ; preds = %763, %762, %761, %f
   %773 = sext i32 %772 to i64
   %774 = getelementptr inbounds %struct.BlockInfo, ptr %767, i64 %773
   %775 = getelementptr inbounds nuw i8, ptr %774, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %775, ptr noundef nonnull align 4 dereferenceable(12) %.0.i108.sroa.phi.i, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %775, ptr noundef nonnull align 4 dereferenceable(12) %763, i64 12, i1 false)
   %776 = add nuw nsw i32 %.090146.us.i, 1
   %exitcond165.not.i = icmp eq i32 %776, %628
   br i1 %exitcond165.not.i, label %._crit_edge.us148.i, label %766, !llvm.loop !160
@@ -3658,7 +3644,7 @@ get_skip_mv_index.exit.i:                         ; preds = %763, %762, %761, %f
   %exitcond166.not.i = icmp eq i32 %777, %628
   br i1 %exitcond166.not.i, label %.loopexit130.i, label %.preheader129.us.i, !llvm.loop !161
 
-.loopexit130.i:                                   ; preds = %get_next_mv.exit.i, %._crit_edge.us145.i, %._crit_edge.us148.i, %get_skip_mv_index.exit.i, %348
+.loopexit130.i:                                   ; preds = %get_next_mv.exit.i, %._crit_edge.us145.i, %._crit_edge.us148.i, %fill_mv_skip_cand.exit.i, %348
   %778 = icmp sgt i32 %319, 0
   br i1 %778, label %.preheader127.lr.ph.i, label %reconstruct.exit
 

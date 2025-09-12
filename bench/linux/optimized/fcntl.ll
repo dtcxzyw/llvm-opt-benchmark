@@ -1384,17 +1384,17 @@ define internal fastcc i64 @do_fcntl(i32 noundef %0, i32 noundef %1, i64 noundef
 168:                                              ; preds = %164, %156
   tail call void @__rcu_read_unlock() #6
   %169 = load i32, ptr %160, align 8
-  %switch19 = icmp ult i32 %169, 3
-  br i1 %switch19, label %171, label %170
+  %170 = icmp ult i32 %169, 3
+  br i1 %170, label %switch.lookup, label %171
 
-170:                                              ; preds = %168
+171:                                              ; preds = %168
   tail call void asm sideeffect "393: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 393b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 393) #6, !srcloc !21
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 232, i32 2305, i64 12) #6, !srcloc !22
   tail call void asm sideeffect "394: nop\0A\09.pushsection .discard.instr_end\0A\09.long 394b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 394) #6, !srcloc !23
   tail call void @_raw_read_unlock_irq(ptr noundef nonnull %157) #6
   br label %176
 
-171:                                              ; preds = %168
+switch.lookup:                                    ; preds = %168
   store i32 %169, ptr %7, align 8
   tail call void @_raw_read_unlock_irq(ptr noundef nonnull %157) #6
   %172 = call i64 @_copy_to_user(ptr noundef %9, ptr noundef nonnull %7, i64 noundef 8) #6
@@ -1403,8 +1403,8 @@ define internal fastcc i64 @do_fcntl(i32 noundef %0, i32 noundef %1, i64 noundef
   %175 = select i1 %174, i64 0, i64 -14
   br label %176
 
-176:                                              ; preds = %170, %171
-  %177 = phi i64 [ -22, %170 ], [ %175, %171 ]
+176:                                              ; preds = %171, %switch.lookup
+  %177 = phi i64 [ -22, %171 ], [ %175, %switch.lookup ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %242
 
@@ -1597,7 +1597,7 @@ define internal fastcc i64 @do_compat_fcntl64(i32 noundef %0, i32 noundef %1, i3
   %11 = inttoptr i64 %10 to ptr
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %12 = icmp eq i64 %10, 0
-  br i1 %12, label %141, label %13
+  br i1 %12, label %139, label %13
 
 13:                                               ; preds = %3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, i8 0, i64 32, i1 false), !annotation !19
@@ -1608,7 +1608,7 @@ define internal fastcc i64 @do_compat_fcntl64(i32 noundef %0, i32 noundef %1, i3
   br i1 %17, label %19, label %18, !prof !7
 
 18:                                               ; preds = %13
-  switch i32 %1, label %136 [
+  switch i32 %1, label %134 [
     i32 0, label %19
     i32 1030, label %19
     i32 1, label %19
@@ -1621,10 +1621,10 @@ define internal fastcc i64 @do_compat_fcntl64(i32 noundef %0, i32 noundef %1, i3
   %21 = tail call i32 @security_file_fcntl(ptr noundef nonnull %11, i32 noundef %1, i64 noundef %20) #6
   %22 = sext i32 %21 to i64
   %23 = icmp eq i32 %21, 0
-  br i1 %23, label %24, label %136
+  br i1 %23, label %24, label %134
 
 24:                                               ; preds = %19
-  switch i32 %1, label %134 [
+  switch i32 %1, label %132 [
     i32 5, label %25
     i32 12, label %59
     i32 36, label %59
@@ -1646,7 +1646,7 @@ define internal fastcc i64 @do_compat_fcntl64(i32 noundef %0, i32 noundef %1, i3
 
 29:                                               ; preds = %25
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %136
+  br label %134
 
 30:                                               ; preds = %25
   %31 = load i16, ptr %7, align 4
@@ -1673,12 +1673,12 @@ define internal fastcc i64 @do_compat_fcntl64(i32 noundef %0, i32 noundef %1, i3
   %46 = call i32 @fcntl_getlk(ptr noundef nonnull %11, i32 noundef 5, ptr noundef nonnull %8) #6
   %47 = sext i32 %46 to i64
   %48 = icmp eq i32 %46, 0
-  br i1 %48, label %49, label %136
+  br i1 %48, label %49, label %134
 
 49:                                               ; preds = %30
   %50 = load i64, ptr %38, align 8
   %51 = icmp slt i64 %50, 2147483648
-  br i1 %51, label %52, label %136
+  br i1 %51, label %52, label %134
 
 52:                                               ; preds = %49
   %53 = load i64, ptr %42, align 8
@@ -1692,7 +1692,7 @@ define internal fastcc i64 @do_compat_fcntl64(i32 noundef %0, i32 noundef %1, i3
 56:                                               ; preds = %55, %52
   %57 = call fastcc i32 @put_compat_flock(ptr noundef nonnull %8, ptr noundef %26), !range !24
   %58 = sext i32 %57 to i64
-  br label %136
+  br label %134
 
 59:                                               ; preds = %24, %24
   %60 = inttoptr i64 %20 to ptr
@@ -1704,7 +1704,7 @@ define internal fastcc i64 @do_compat_fcntl64(i32 noundef %0, i32 noundef %1, i3
 
 63:                                               ; preds = %59
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %136
+  br label %134
 
 64:                                               ; preds = %59
   %65 = load i16, ptr %6, align 2
@@ -1726,19 +1726,19 @@ define internal fastcc i64 @do_compat_fcntl64(i32 noundef %0, i32 noundef %1, i3
   %77 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i32 %76, ptr %77, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %switch.tableidx = add i32 %1, -12
-  %78 = icmp ult i32 %switch.tableidx, 3
-  %switch.offset = add i32 %1, -7
+  %switch.tableidx = add nsw i32 %1, -12
+  %78 = icmp samesign ult i32 %switch.tableidx, 3
+  %switch.offset = add nsw i32 %1, -7
   %79 = select i1 %78, i32 %switch.offset, i32 %1
   %80 = call i32 @fcntl_getlk(ptr noundef nonnull %11, i32 noundef %79, ptr noundef nonnull %8) #6
   %81 = sext i32 %80 to i64
   %82 = icmp eq i32 %80, 0
-  br i1 %82, label %83, label %136
+  br i1 %82, label %83, label %134
 
 83:                                               ; preds = %64
   %84 = call fastcc i32 @put_compat_flock64(ptr noundef nonnull %8, ptr noundef %60), !range !24
   %85 = sext i32 %84 to i64
-  br label %136
+  br label %134
 
 86:                                               ; preds = %24, %24
   %87 = inttoptr i64 %20 to ptr
@@ -1750,7 +1750,7 @@ define internal fastcc i64 @do_compat_fcntl64(i32 noundef %0, i32 noundef %1, i3
 
 90:                                               ; preds = %86
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %136
+  br label %134
 
 91:                                               ; preds = %86
   %92 = load i16, ptr %5, align 4
@@ -1776,7 +1776,7 @@ define internal fastcc i64 @do_compat_fcntl64(i32 noundef %0, i32 noundef %1, i3
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %107 = call i32 @fcntl_setlk(i32 noundef %0, ptr noundef nonnull %11, i32 noundef %1, ptr noundef nonnull %8) #6
   %108 = sext i32 %107 to i64
-  br label %136
+  br label %134
 
 109:                                              ; preds = %24, %24, %24, %24
   %110 = inttoptr i64 %20 to ptr
@@ -1788,7 +1788,7 @@ define internal fastcc i64 @do_compat_fcntl64(i32 noundef %0, i32 noundef %1, i3
 
 113:                                              ; preds = %109
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %136
+  br label %134
 
 114:                                              ; preds = %109
   %115 = load i16, ptr %4, align 2
@@ -1810,41 +1810,32 @@ define internal fastcc i64 @do_compat_fcntl64(i32 noundef %0, i32 noundef %1, i3
   %127 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i32 %126, ptr %127, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  switch i32 %1, label %129 [
-    i32 14, label %128
-    i32 13, label %130
-  ]
+  %switch.tableidx4 = add nsw i32 %1, -12
+  %128 = icmp samesign ult i32 %switch.tableidx4, 3
+  %switch.offset6 = add nsw i32 %1, -7
+  %129 = select i1 %128, i32 %switch.offset6, i32 %1
+  %130 = call i32 @fcntl_setlk(i32 noundef %0, ptr noundef nonnull %11, i32 noundef %129, ptr noundef nonnull %8) #6
+  %131 = sext i32 %130 to i64
+  br label %134
 
-128:                                              ; preds = %114
-  br label %130
+132:                                              ; preds = %24
+  %133 = tail call fastcc i64 @do_fcntl(i32 noundef %0, i32 noundef %1, i64 noundef %20, ptr noundef nonnull %11)
+  br label %134
 
-129:                                              ; preds = %114
-  br label %130
+134:                                              ; preds = %113, %90, %63, %49, %29, %132, %114, %91, %83, %64, %56, %30, %19, %18
+  %135 = phi i64 [ %22, %19 ], [ %133, %132 ], [ -14, %113 ], [ %131, %114 ], [ -14, %90 ], [ %108, %91 ], [ -14, %63 ], [ %81, %64 ], [ %85, %83 ], [ -14, %29 ], [ %47, %30 ], [ %58, %56 ], [ -9, %18 ], [ -75, %49 ]
+  %136 = and i64 %9, 1
+  %137 = icmp eq i64 %136, 0
+  br i1 %137, label %139, label %138
 
-130:                                              ; preds = %114, %129, %128
-  %131 = phi i32 [ %1, %129 ], [ 7, %128 ], [ 6, %114 ]
-  %132 = call i32 @fcntl_setlk(i32 noundef %0, ptr noundef nonnull %11, i32 noundef %131, ptr noundef nonnull %8) #6
-  %133 = sext i32 %132 to i64
-  br label %136
-
-134:                                              ; preds = %24
-  %135 = tail call fastcc i64 @do_fcntl(i32 noundef %0, i32 noundef %1, i64 noundef %20, ptr noundef nonnull %11)
-  br label %136
-
-136:                                              ; preds = %113, %90, %63, %49, %29, %134, %130, %91, %83, %64, %56, %30, %19, %18
-  %137 = phi i64 [ %22, %19 ], [ %135, %134 ], [ -14, %113 ], [ %133, %130 ], [ -14, %90 ], [ %108, %91 ], [ -14, %63 ], [ %81, %64 ], [ %85, %83 ], [ -14, %29 ], [ %47, %30 ], [ %58, %56 ], [ -9, %18 ], [ -75, %49 ]
-  %138 = and i64 %9, 1
-  %139 = icmp eq i64 %138, 0
-  br i1 %139, label %141, label %140
-
-140:                                              ; preds = %136
+138:                                              ; preds = %134
   call void @fput(ptr noundef nonnull %11) #6
-  br label %141
+  br label %139
 
-141:                                              ; preds = %140, %136, %3
-  %142 = phi i64 [ -9, %3 ], [ %137, %136 ], [ %137, %140 ]
+139:                                              ; preds = %138, %134, %3
+  %140 = phi i64 [ -9, %3 ], [ %135, %134 ], [ %135, %138 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  ret i64 %142
+  ret i64 %140
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

@@ -118,7 +118,7 @@ target triple = "x86_64-pc-linux-gnu"
 define hidden noundef zeroext i1 @_Z32validate_form_string_for_numbersPKc(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load i8, ptr %0, align 1, !tbaa !4
   %.not = icmp eq i8 %2, 37
-  br i1 %.not, label %3, label %switch.edge
+  br i1 %.not, label %3, label %switch.lookup
 
 3:                                                ; preds = %1
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #4
@@ -143,7 +143,7 @@ define hidden noundef zeroext i1 @_Z32validate_form_string_for_numbersPKc(ptr no
 10:                                               ; preds = %.lr.ph
   %11 = add i8 %9, -48
   %or.cond = icmp ult i8 %11, 10
-  br i1 %or.cond, label %12, label %switch.edge
+  br i1 %or.cond, label %12, label %switch.lookup
 
 12:                                               ; preds = %10, %.lr.ph, %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -156,16 +156,20 @@ define hidden noundef zeroext i1 @_Z32validate_form_string_for_numbersPKc(ptr no
   %15 = load i8, ptr %14, align 1, !tbaa !4
   %switch.tableidx = add i8 %15, -69
   %16 = icmp ult i8 %switch.tableidx, 35
-  br i1 %16, label %switch.lookup, label %switch.edge
+  br i1 %16, label %switch.hole_check, label %17
 
-switch.lookup:                                    ; preds = %._crit_edge
-  %switch.cast = zext nneg i8 %switch.tableidx to i35
-  %switch.downshift = lshr i35 -4294967289, %switch.cast
-  %switch.masked = trunc i35 %switch.downshift to i1
-  br label %switch.edge
+17:                                               ; preds = %switch.hole_check, %._crit_edge
+  %18 = icmp eq i8 %15, 71
+  br label %switch.lookup
 
-switch.edge:                                      ; preds = %10, %._crit_edge, %switch.lookup, %1
-  %.026 = phi i1 [ false, %1 ], [ %switch.masked, %switch.lookup ], [ false, %._crit_edge ], [ false, %10 ]
+switch.hole_check:                                ; preds = %._crit_edge
+  %switch.maskindex = zext nneg i8 %switch.tableidx to i64
+  %switch.shifted = lshr i64 30064771075, %switch.maskindex
+  %switch.lobit = trunc i64 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %17
+
+switch.lookup:                                    ; preds = %10, %17, %switch.hole_check, %1
+  %.026 = phi i1 [ false, %1 ], [ %18, %17 ], [ true, %switch.hole_check ], [ false, %10 ]
   ret i1 %.026
 }
 

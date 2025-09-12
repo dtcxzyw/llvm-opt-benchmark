@@ -338,69 +338,67 @@ define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$18trim_start_mat
   %46 = ptrtoint ptr %44 to i64
   %47 = sub i64 %5, %7
   %48 = add i64 %47, %46
-  switch i32 %.sroa.4.0.i.ph.i.i.i.i, label %49 [
-    i32 32, label %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17h554fd018eed1a458E.exit.i.i"
-    i32 13, label %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17h554fd018eed1a458E.exit.i.i"
-    i32 12, label %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17h554fd018eed1a458E.exit.i.i"
-    i32 11, label %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17h554fd018eed1a458E.exit.i.i"
-    i32 10, label %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17h554fd018eed1a458E.exit.i.i"
-    i32 9, label %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17h554fd018eed1a458E.exit.i.i"
+  %switch.tableidx.i.i.i.i.i = add nsw i32 %.sroa.4.0.i.ph.i.i.i.i, -9
+  %49 = icmp ult i32 %switch.tableidx.i.i.i.i.i, 24
+  %switch.shifted.i.i.i.i.i = lshr i32 8388639, %switch.tableidx.i.i.i.i.i
+  %switch.lobit.i.i.i.i.i = trunc i32 %switch.shifted.i.i.i.i.i to i1
+  %or.cond.i.i.i.i.i = select i1 %49, i1 %switch.lobit.i.i.i.i.i, i1 false
+  br i1 %or.cond.i.i.i.i.i, label %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17h554fd018eed1a458E.exit.i.i", label %50
+
+50:                                               ; preds = %43
+  %51 = icmp samesign ugt i32 %.sroa.4.0.i.ph.i.i.i.i, 127
+  br i1 %51, label %52, label %"_ZN99_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..Searcher$GT$11next_reject17h27564643a0aa48a3E.exit"
+
+52:                                               ; preds = %50
+  %53 = lshr i32 %.sroa.4.0.i.ph.i.i.i.i, 8
+  switch i32 %53, label %"_ZN99_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..Searcher$GT$11next_reject17h27564643a0aa48a3E.exit" [
+    i32 0, label %60
+    i32 22, label %54
+    i32 32, label %65
+    i32 48, label %57
   ]
 
-49:                                               ; preds = %43
-  %50 = icmp samesign ugt i32 %.sroa.4.0.i.ph.i.i.i.i, 127
-  br i1 %50, label %51, label %"_ZN99_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..Searcher$GT$11next_reject17h27564643a0aa48a3E.exit"
-
-51:                                               ; preds = %49
-  %52 = lshr i32 %.sroa.4.0.i.ph.i.i.i.i, 8
-  switch i32 %52, label %"_ZN99_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..Searcher$GT$11next_reject17h27564643a0aa48a3E.exit" [
-    i32 0, label %59
-    i32 22, label %53
-    i32 32, label %64
-    i32 48, label %56
-  ]
-
-53:                                               ; preds = %51
-  %54 = icmp eq i32 %.sroa.4.0.i.ph.i.i.i.i, 5760
-  %55 = zext i1 %54 to i8
+54:                                               ; preds = %52
+  %55 = icmp eq i32 %.sroa.4.0.i.ph.i.i.i.i, 5760
+  %56 = zext i1 %55 to i8
   br label %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h26d21c332616a01aE.exit.i.i.i"
 
-56:                                               ; preds = %51
-  %57 = icmp eq i32 %.sroa.4.0.i.ph.i.i.i.i, 12288
-  %58 = zext i1 %57 to i8
+57:                                               ; preds = %52
+  %58 = icmp eq i32 %.sroa.4.0.i.ph.i.i.i.i, 12288
+  %59 = zext i1 %58 to i8
   br label %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h26d21c332616a01aE.exit.i.i.i"
 
-59:                                               ; preds = %51
-  %60 = and i32 %.sroa.4.0.i.ph.i.i.i.i, 255
-  %61 = zext nneg i32 %60 to i64
-  %62 = getelementptr inbounds nuw i8, ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17hceb78ebe9d072315E, i64 %61
-  %63 = load i8, ptr %62, align 1, !noalias !63, !noundef !17
+60:                                               ; preds = %52
+  %61 = and i32 %.sroa.4.0.i.ph.i.i.i.i, 255
+  %62 = zext nneg i32 %61 to i64
+  %63 = getelementptr inbounds nuw i8, ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17hceb78ebe9d072315E, i64 %62
+  %64 = load i8, ptr %63, align 1, !noalias !63, !noundef !17
   br label %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h26d21c332616a01aE.exit.i.i.i"
 
-64:                                               ; preds = %51
-  %65 = and i32 %.sroa.4.0.i.ph.i.i.i.i, 255
-  %66 = zext nneg i32 %65 to i64
-  %67 = getelementptr inbounds nuw i8, ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17hceb78ebe9d072315E, i64 %66
-  %68 = load i8, ptr %67, align 1, !noalias !63, !noundef !17
-  %69 = lshr i8 %68, 1
+65:                                               ; preds = %52
+  %66 = and i32 %.sroa.4.0.i.ph.i.i.i.i, 255
+  %67 = zext nneg i32 %66 to i64
+  %68 = getelementptr inbounds nuw i8, ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17hceb78ebe9d072315E, i64 %67
+  %69 = load i8, ptr %68, align 1, !noalias !63, !noundef !17
+  %70 = lshr i8 %69, 1
   br label %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h26d21c332616a01aE.exit.i.i.i"
 
-"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h26d21c332616a01aE.exit.i.i.i": ; preds = %64, %59, %56, %53
-  %.sroa.0.0.i.i.i.i.i.i = phi i8 [ %63, %59 ], [ %55, %53 ], [ %69, %64 ], [ %58, %56 ]
-  %70 = trunc i8 %.sroa.0.0.i.i.i.i.i.i to i1
-  br i1 %70, label %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17h554fd018eed1a458E.exit.i.i", label %"_ZN99_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..Searcher$GT$11next_reject17h27564643a0aa48a3E.exit"
+"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h26d21c332616a01aE.exit.i.i.i": ; preds = %65, %60, %57, %54
+  %.sroa.0.0.i.i.i.i.i.i = phi i8 [ %64, %60 ], [ %56, %54 ], [ %70, %65 ], [ %59, %57 ]
+  %71 = trunc i8 %.sroa.0.0.i.i.i.i.i.i to i1
+  br i1 %71, label %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17h554fd018eed1a458E.exit.i.i", label %"_ZN99_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..Searcher$GT$11next_reject17h27564643a0aa48a3E.exit"
 
-"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17h554fd018eed1a458E.exit.i.i": ; preds = %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h26d21c332616a01aE.exit.i.i.i", %43, %43, %43, %43, %43, %43
-  %71 = icmp eq ptr %44, %3
-  br i1 %71, label %"_ZN99_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..Searcher$GT$11next_reject17h27564643a0aa48a3E.exit", label %.lr.ph.i.i
+"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17h554fd018eed1a458E.exit.i.i": ; preds = %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h26d21c332616a01aE.exit.i.i.i", %43
+  %72 = icmp eq ptr %44, %3
+  br i1 %72, label %"_ZN99_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..Searcher$GT$11next_reject17h27564643a0aa48a3E.exit", label %.lr.ph.i.i
 
-"_ZN99_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..Searcher$GT$11next_reject17h27564643a0aa48a3E.exit": ; preds = %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17h554fd018eed1a458E.exit.i.i", %49, %51, %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h26d21c332616a01aE.exit.i.i.i", %2
-  %.sroa.0.0 = phi i64 [ 0, %2 ], [ %1, %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17h554fd018eed1a458E.exit.i.i" ], [ %5, %49 ], [ %5, %51 ], [ %5, %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h26d21c332616a01aE.exit.i.i.i" ]
-  %72 = sub nuw i64 %1, %.sroa.0.0
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 %.sroa.0.0
-  %74 = insertvalue { ptr, i64 } poison, ptr %73, 0
-  %75 = insertvalue { ptr, i64 } %74, i64 %72, 1
-  ret { ptr, i64 } %75
+"_ZN99_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..Searcher$GT$11next_reject17h27564643a0aa48a3E.exit": ; preds = %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17h554fd018eed1a458E.exit.i.i", %50, %52, %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h26d21c332616a01aE.exit.i.i.i", %2
+  %.sroa.0.0 = phi i64 [ 0, %2 ], [ %1, %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17h554fd018eed1a458E.exit.i.i" ], [ %5, %50 ], [ %5, %52 ], [ %5, %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h26d21c332616a01aE.exit.i.i.i" ]
+  %73 = sub nuw i64 %1, %.sroa.0.0
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 %.sroa.0.0
+  %75 = insertvalue { ptr, i64 } poison, ptr %74, 0
+  %76 = insertvalue { ptr, i64 } %75, i64 %73, 1
+  ret { ptr, i64 } %76
 }
 
 ; Function Attrs: nonlazybind uwtable

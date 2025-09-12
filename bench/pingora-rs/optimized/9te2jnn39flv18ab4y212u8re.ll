@@ -18085,9 +18085,9 @@ define noundef zeroext i1 @_ZN12pingora_core9protocols4http18conditional_filter1
   %15 = extractvalue { ptr, i64 } %9, 0
   %16 = select i1 %.not.i, ptr %2, ptr %15
   %17 = extractvalue { ptr, i64 } %11, 1
-  %.sroa.15.073 = select i1 %.not.i37, i64 %.sink, i64 %17
-  %.not75 = icmp ugt i64 %14, %.sroa.15.073
-  br i1 %.not75, label %_ZN12pingora_core9protocols4http18conditional_filter16trim_ascii_start17h88dcbe34a40a1f33E.exit.thread, label %.lr.ph.preheader
+  %.sroa.15.074 = select i1 %.not.i37, i64 %.sink, i64 %17
+  %.not76 = icmp ugt i64 %14, %.sroa.15.074
+  br i1 %.not76, label %_ZN12pingora_core9protocols4http18conditional_filter16trim_ascii_start17h88dcbe34a40a1f33E.exit.thread, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.split26
   %18 = insertvalue { ptr, i64 } poison, ptr %0, 0
@@ -18095,33 +18095,33 @@ define noundef zeroext i1 @_ZN12pingora_core9protocols4http18conditional_filter1
   %.merged.i38 = select i1 %.not.i37, { ptr, i64 } %19, { ptr, i64 } %11
   br label %.lr.ph
 
-_ZN12pingora_core9protocols4http18conditional_filter16trim_ascii_start17h88dcbe34a40a1f33E.exit.thread: ; preds = %48, %22, %32, %.lr.ph.i45, %36, %28, %"_ZN12pingora_core9protocols4http18conditional_filter18weak_validate_etag28_$u7b$$u7b$closure$u7d$$u7d$17h8ee87e7972882555E.exit.i", %.split26, %6
-  %.sroa.0.0 = phi i1 [ true, %6 ], [ false, %.split26 ], [ false, %"_ZN12pingora_core9protocols4http18conditional_filter18weak_validate_etag28_$u7b$$u7b$closure$u7d$$u7d$17h8ee87e7972882555E.exit.i" ], [ false, %28 ], [ true, %36 ], [ true, %.lr.ph.i45 ], [ false, %48 ], [ false, %22 ], [ true, %32 ]
+_ZN12pingora_core9protocols4http18conditional_filter16trim_ascii_start17h88dcbe34a40a1f33E.exit.thread: ; preds = %49, %22, %32, %.lr.ph.i45, %36, %28, %"_ZN12pingora_core9protocols4http18conditional_filter18weak_validate_etag28_$u7b$$u7b$closure$u7d$$u7d$17h8ee87e7972882555E.exit.thread.i", %.split26, %6
+  %.sroa.0.0 = phi i1 [ true, %6 ], [ false, %.split26 ], [ false, %"_ZN12pingora_core9protocols4http18conditional_filter18weak_validate_etag28_$u7b$$u7b$closure$u7d$$u7d$17h8ee87e7972882555E.exit.thread.i" ], [ false, %28 ], [ true, %36 ], [ true, %.lr.ph.i45 ], [ false, %49 ], [ false, %22 ], [ true, %32 ]
   ret i1 %.sroa.0.0
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %48
-  %.merged.i55.pn = phi { ptr, i64 } [ %.merged.i55, %48 ], [ %.merged.i38, %.lr.ph.preheader ]
-  %.sroa.15.076 = phi i64 [ %.sroa.15.0, %48 ], [ %.sroa.15.073, %.lr.ph.preheader ]
-  %.sroa.08.077 = extractvalue { ptr, i64 } %.merged.i55.pn, 0
-  %20 = icmp ne ptr %.sroa.08.077, null
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %49
+  %.merged.i56.pn = phi { ptr, i64 } [ %.merged.i56, %49 ], [ %.merged.i38, %.lr.ph.preheader ]
+  %.sroa.15.077 = phi i64 [ %.sroa.15.0, %49 ], [ %.sroa.15.074, %.lr.ph.preheader ]
+  %.sroa.08.078 = extractvalue { ptr, i64 } %.merged.i56.pn, 0
+  %20 = icmp ne ptr %.sroa.08.078, null
   tail call void @llvm.assume(i1 %20)
-  %21 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h34b70a7648f39ce2E"(ptr noalias noundef nonnull readonly align 1 %.sroa.08.077, i64 noundef %14, ptr noalias noundef nonnull readonly align 1 %16, i64 noundef %14)
+  %21 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h34b70a7648f39ce2E"(ptr noalias noundef nonnull readonly align 1 %.sroa.08.078, i64 noundef %14, ptr noalias noundef nonnull readonly align 1 %16, i64 noundef %14)
   br i1 %21, label %32, label %22
 
 22:                                               ; preds = %.lr.ph
-  %23 = getelementptr inbounds nuw i8, ptr %.sroa.08.077, i64 %.sroa.15.076
-  %24 = icmp samesign eq i64 %.sroa.15.076, 0
+  %23 = getelementptr inbounds nuw i8, ptr %.sroa.08.078, i64 %.sroa.15.077
+  %24 = icmp samesign eq i64 %.sroa.15.077, 0
   br i1 %24, label %_ZN12pingora_core9protocols4http18conditional_filter16trim_ascii_start17h88dcbe34a40a1f33E.exit.thread, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %.thread, %22
   %25 = phi ptr [ %39, %.thread ], [ %23, %22 ]
-  %.sroa.15.1100 = phi i64 [ %.sroa.5.06.i, %.thread ], [ %.sroa.15.076, %22 ]
-  %.sroa.08.199 = phi ptr [ %.sroa.0.07.i, %.thread ], [ %.sroa.08.077, %22 ]
+  %.sroa.15.1101 = phi i64 [ %.sroa.5.06.i, %.thread ], [ %.sroa.15.077, %22 ]
+  %.sroa.08.1100 = phi ptr [ %.sroa.0.07.i, %.thread ], [ %.sroa.08.078, %22 ]
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %28
   %.sroa.02.011.i = phi i64 [ %30, %28 ], [ 0, %.lr.ph.i.preheader ]
-  %26 = phi ptr [ %29, %28 ], [ %.sroa.08.199, %.lr.ph.i.preheader ]
+  %26 = phi ptr [ %29, %28 ], [ %.sroa.08.1100, %.lr.ph.i.preheader ]
   %.val.i = load i8, ptr %26, align 1, !noalias !932, !noundef !3
   %27 = icmp eq i8 %.val.i, 44
   br i1 %27, label %40, label %28
@@ -18133,12 +18133,12 @@ _ZN12pingora_core9protocols4http18conditional_filter16trim_ascii_start17h88dcbe3
   br i1 %31, label %_ZN12pingora_core9protocols4http18conditional_filter16trim_ascii_start17h88dcbe34a40a1f33E.exit.thread, label %.lr.ph.i
 
 32:                                               ; preds = %.lr.ph
-  %33 = sub nuw i64 %.sroa.15.076, %14
+  %33 = sub nuw i64 %.sroa.15.077, %14
   %.not5.i = icmp eq i64 %33, 0
   br i1 %.not5.i, label %_ZN12pingora_core9protocols4http18conditional_filter16trim_ascii_start17h88dcbe34a40a1f33E.exit.thread, label %.lr.ph.i45.preheader
 
 .lr.ph.i45.preheader:                             ; preds = %32
-  %34 = getelementptr inbounds nuw i8, ptr %.sroa.08.077, i64 %14
+  %34 = getelementptr inbounds nuw i8, ptr %.sroa.08.078, i64 %14
   br label %.lr.ph.i45
 
 .lr.ph.i45:                                       ; preds = %.lr.ph.i45.preheader, %36
@@ -18165,44 +18165,49 @@ _ZN12pingora_core9protocols4http18conditional_filter16trim_ascii_start17h88dcbe3
   br label %.lr.ph.i.preheader
 
 40:                                               ; preds = %.lr.ph.i
-  %41 = icmp ult i64 %.sroa.02.011.i, %.sroa.15.1100
+  %41 = icmp ult i64 %.sroa.02.011.i, %.sroa.15.1101
   tail call void @llvm.assume(i1 %41)
-  %42 = sub i64 %.sroa.15.1100, %.sroa.02.011.i
-  %43 = getelementptr inbounds nuw i8, ptr %.sroa.08.199, i64 %.sroa.02.011.i
+  %42 = sub i64 %.sroa.15.1101, %.sroa.02.011.i
+  %43 = getelementptr inbounds nuw i8, ptr %.sroa.08.1100, i64 %.sroa.02.011.i
   br label %.lr.ph.i49
 
-.lr.ph.i49:                                       ; preds = %40, %"_ZN12pingora_core9protocols4http18conditional_filter18weak_validate_etag28_$u7b$$u7b$closure$u7d$$u7d$17h8ee87e7972882555E.exit.i"
-  %.sroa.02.013.i = phi i64 [ %46, %"_ZN12pingora_core9protocols4http18conditional_filter18weak_validate_etag28_$u7b$$u7b$closure$u7d$$u7d$17h8ee87e7972882555E.exit.i" ], [ 0, %40 ]
-  %44 = phi ptr [ %45, %"_ZN12pingora_core9protocols4http18conditional_filter18weak_validate_etag28_$u7b$$u7b$closure$u7d$$u7d$17h8ee87e7972882555E.exit.i" ], [ %43, %40 ]
-  %.val.i50 = load i8, ptr %44, align 1, !noalias !938, !noundef !3
-  switch i8 %.val.i50, label %48 [
-    i8 9, label %"_ZN12pingora_core9protocols4http18conditional_filter18weak_validate_etag28_$u7b$$u7b$closure$u7d$$u7d$17h8ee87e7972882555E.exit.i"
-    i8 10, label %"_ZN12pingora_core9protocols4http18conditional_filter18weak_validate_etag28_$u7b$$u7b$closure$u7d$$u7d$17h8ee87e7972882555E.exit.i"
-    i8 12, label %"_ZN12pingora_core9protocols4http18conditional_filter18weak_validate_etag28_$u7b$$u7b$closure$u7d$$u7d$17h8ee87e7972882555E.exit.i"
-    i8 13, label %"_ZN12pingora_core9protocols4http18conditional_filter18weak_validate_etag28_$u7b$$u7b$closure$u7d$$u7d$17h8ee87e7972882555E.exit.i"
-    i8 32, label %"_ZN12pingora_core9protocols4http18conditional_filter18weak_validate_etag28_$u7b$$u7b$closure$u7d$$u7d$17h8ee87e7972882555E.exit.i"
-    i8 44, label %"_ZN12pingora_core9protocols4http18conditional_filter18weak_validate_etag28_$u7b$$u7b$closure$u7d$$u7d$17h8ee87e7972882555E.exit.i"
-  ]
-
-"_ZN12pingora_core9protocols4http18conditional_filter18weak_validate_etag28_$u7b$$u7b$closure$u7d$$u7d$17h8ee87e7972882555E.exit.i": ; preds = %.lr.ph.i49, %.lr.ph.i49, %.lr.ph.i49, %.lr.ph.i49, %.lr.ph.i49, %.lr.ph.i49
+.lr.ph.i49:                                       ; preds = %40, %"_ZN12pingora_core9protocols4http18conditional_filter18weak_validate_etag28_$u7b$$u7b$closure$u7d$$u7d$17h8ee87e7972882555E.exit.thread.i"
+  %.sroa.02.014.i = phi i64 [ %47, %"_ZN12pingora_core9protocols4http18conditional_filter18weak_validate_etag28_$u7b$$u7b$closure$u7d$$u7d$17h8ee87e7972882555E.exit.thread.i" ], [ 0, %40 ]
+  %44 = phi ptr [ %45, %"_ZN12pingora_core9protocols4http18conditional_filter18weak_validate_etag28_$u7b$$u7b$closure$u7d$$u7d$17h8ee87e7972882555E.exit.thread.i" ], [ %43, %40 ]
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 1
-  %46 = add i64 %.sroa.02.013.i, 1
-  %47 = icmp eq ptr %45, %25
-  br i1 %47, label %_ZN12pingora_core9protocols4http18conditional_filter16trim_ascii_start17h88dcbe34a40a1f33E.exit.thread, label %.lr.ph.i49
+  %.val.i50 = load i8, ptr %44, align 1, !noalias !938, !noundef !3
+  %switch.tableidx.i.i = add i8 %.val.i50, -9
+  %46 = icmp ult i8 %switch.tableidx.i.i, 24
+  br i1 %46, label %switch.hole_check.i.i, label %"_ZN12pingora_core9protocols4http18conditional_filter18weak_validate_etag28_$u7b$$u7b$closure$u7d$$u7d$17h8ee87e7972882555E.exit.i"
 
-48:                                               ; preds = %.lr.ph.i49
-  %49 = icmp ult i64 %.sroa.02.013.i, %42
-  tail call void @llvm.assume(i1 %49)
-  %50 = sub nuw i64 %42, %.sroa.02.013.i
-  %51 = getelementptr inbounds nuw i8, ptr %43, i64 %.sroa.02.013.i
-  %52 = tail call { ptr, i64 } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$12strip_prefix17h9637ff19fdeb9670E"(ptr noalias noundef nonnull readonly align 1 %51, i64 noundef %50, ptr noalias noundef readonly align 1 dereferenceable(2) @anon.cc180569dbfb30d6841720704a8a24b8.237)
-  %53 = extractvalue { ptr, i64 } %52, 0
-  %.not.i54 = icmp eq ptr %53, null
-  %54 = insertvalue { ptr, i64 } poison, ptr %51, 0
-  %55 = insertvalue { ptr, i64 } %54, i64 %50, 1
-  %.merged.i55 = select i1 %.not.i54, { ptr, i64 } %55, { ptr, i64 } %52
-  %56 = extractvalue { ptr, i64 } %52, 1
-  %.sroa.15.0 = select i1 %.not.i54, i64 %50, i64 %56
+switch.hole_check.i.i:                            ; preds = %.lr.ph.i49
+  %switch.maskindex.i.i = zext nneg i8 %switch.tableidx.i.i to i32
+  %switch.shifted.i.i = lshr i32 8388635, %switch.maskindex.i.i
+  %switch.lobit.i.i = trunc i32 %switch.shifted.i.i to i1
+  br i1 %switch.lobit.i.i, label %"_ZN12pingora_core9protocols4http18conditional_filter18weak_validate_etag28_$u7b$$u7b$closure$u7d$$u7d$17h8ee87e7972882555E.exit.thread.i", label %49
+
+"_ZN12pingora_core9protocols4http18conditional_filter18weak_validate_etag28_$u7b$$u7b$closure$u7d$$u7d$17h8ee87e7972882555E.exit.i": ; preds = %.lr.ph.i49
+  %.not.i51 = icmp eq i8 %.val.i50, 44
+  br i1 %.not.i51, label %"_ZN12pingora_core9protocols4http18conditional_filter18weak_validate_etag28_$u7b$$u7b$closure$u7d$$u7d$17h8ee87e7972882555E.exit.thread.i", label %49
+
+"_ZN12pingora_core9protocols4http18conditional_filter18weak_validate_etag28_$u7b$$u7b$closure$u7d$$u7d$17h8ee87e7972882555E.exit.thread.i": ; preds = %"_ZN12pingora_core9protocols4http18conditional_filter18weak_validate_etag28_$u7b$$u7b$closure$u7d$$u7d$17h8ee87e7972882555E.exit.i", %switch.hole_check.i.i
+  %47 = add i64 %.sroa.02.014.i, 1
+  %48 = icmp eq ptr %45, %25
+  br i1 %48, label %_ZN12pingora_core9protocols4http18conditional_filter16trim_ascii_start17h88dcbe34a40a1f33E.exit.thread, label %.lr.ph.i49
+
+49:                                               ; preds = %switch.hole_check.i.i, %"_ZN12pingora_core9protocols4http18conditional_filter18weak_validate_etag28_$u7b$$u7b$closure$u7d$$u7d$17h8ee87e7972882555E.exit.i"
+  %50 = icmp ult i64 %.sroa.02.014.i, %42
+  tail call void @llvm.assume(i1 %50)
+  %51 = sub nuw i64 %42, %.sroa.02.014.i
+  %52 = getelementptr inbounds nuw i8, ptr %43, i64 %.sroa.02.014.i
+  %53 = tail call { ptr, i64 } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$12strip_prefix17h9637ff19fdeb9670E"(ptr noalias noundef nonnull readonly align 1 %52, i64 noundef %51, ptr noalias noundef readonly align 1 dereferenceable(2) @anon.cc180569dbfb30d6841720704a8a24b8.237)
+  %54 = extractvalue { ptr, i64 } %53, 0
+  %.not.i55 = icmp eq ptr %54, null
+  %55 = insertvalue { ptr, i64 } poison, ptr %52, 0
+  %56 = insertvalue { ptr, i64 } %55, i64 %51, 1
+  %.merged.i56 = select i1 %.not.i55, { ptr, i64 } %56, { ptr, i64 } %53
+  %57 = extractvalue { ptr, i64 } %53, 1
+  %.sroa.15.0 = select i1 %.not.i55, i64 %51, i64 %57
   %.not = icmp ugt i64 %14, %.sroa.15.0
   br i1 %.not, label %_ZN12pingora_core9protocols4http18conditional_filter16trim_ascii_start17h88dcbe34a40a1f33E.exit.thread, label %.lr.ph
 }
