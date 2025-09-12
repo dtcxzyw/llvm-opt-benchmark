@@ -16162,10 +16162,9 @@ _ZL22GetDraggedColumnOffsetP15ImGuiOldColumnsi.exit: ; preds = %_ZN5ImGui15GetCo
   %205 = getelementptr inbounds nuw i8, ptr %8, i64 348
   %206 = load float, ptr %205, align 4, !tbaa !231
   %207 = fadd float %204, %206
-  %208 = fadd float %207, 0.000000e+00
-  %209 = fptosi float %208 to i32
-  %210 = sitofp i32 %209 to float
-  store float %210, ptr %197, align 8, !tbaa !543
+  %208 = fptosi float %207 to i32
+  %209 = sitofp i32 %208 to float
+  store float %209, ptr %197, align 8, !tbaa !543
   call void @_ZN5ImGui39NavUpdateCurrentWindowIsScrollPushableXEv()
   ret void
 }

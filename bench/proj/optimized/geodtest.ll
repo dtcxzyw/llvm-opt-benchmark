@@ -2364,225 +2364,223 @@ GeodSolve61.exit:                                 ; preds = %checkEquals.exit16.
 checkEquals.exit.i289:                            ; preds = %1180, %1174
   %.0.i.i290 = phi i32 [ 1, %1180 ], [ 0, %1174 ]
   %1182 = load double, ptr %113, align 8, !tbaa !4
-  %1183 = fadd double %1182, 0.000000e+00
-  %1184 = call double @llvm.fabs.f64(double %1183)
-  %1185 = fcmp ugt double %1184, 5.000000e-06
-  br i1 %1185, label %1186, label %checkEquals.exit24.i291
+  %1183 = call double @llvm.fabs.f64(double %1182)
+  %1184 = fcmp ugt double %1183, 5.000000e-06
+  br i1 %1184, label %1185, label %checkEquals.exit24.i291
 
-1186:                                             ; preds = %checkEquals.exit.i289
-  %1187 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1182, double noundef -0.000000e+00, double noundef 5.000000e-06)
+1185:                                             ; preds = %checkEquals.exit.i289
+  %1186 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1182, double noundef -0.000000e+00, double noundef 5.000000e-06)
   br label %checkEquals.exit24.i291
 
-checkEquals.exit24.i291:                          ; preds = %1186, %checkEquals.exit.i289
-  %.0.i23.i292 = phi i32 [ 1, %1186 ], [ 0, %checkEquals.exit.i289 ]
-  %1188 = load double, ptr %114, align 8, !tbaa !4
-  %1189 = call double @llvm.fabs.f64(double %1188)
-  %1190 = fadd double %1189, -1.800000e+02
-  %1191 = call double @llvm.fabs.f64(double %1190)
-  %1192 = fcmp ugt double %1191, 5.000000e-06
-  br i1 %1192, label %1193, label %checkEquals.exit26.i293
+checkEquals.exit24.i291:                          ; preds = %1185, %checkEquals.exit.i289
+  %.0.i23.i292 = phi i32 [ 1, %1185 ], [ 0, %checkEquals.exit.i289 ]
+  %1187 = load double, ptr %114, align 8, !tbaa !4
+  %1188 = call double @llvm.fabs.f64(double %1187)
+  %1189 = fadd double %1188, -1.800000e+02
+  %1190 = call double @llvm.fabs.f64(double %1189)
+  %1191 = fcmp ugt double %1190, 5.000000e-06
+  br i1 %1191, label %1192, label %checkEquals.exit26.i293
 
-1193:                                             ; preds = %checkEquals.exit24.i291
-  %1194 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1189, double noundef 1.800000e+02, double noundef 5.000000e-06)
+1192:                                             ; preds = %checkEquals.exit24.i291
+  %1193 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1188, double noundef 1.800000e+02, double noundef 5.000000e-06)
   br label %checkEquals.exit26.i293
 
-checkEquals.exit26.i293:                          ; preds = %1193, %checkEquals.exit24.i291
-  %.0.i25.i294 = phi i32 [ 1, %1193 ], [ 0, %checkEquals.exit24.i291 ]
-  %1195 = load double, ptr %115, align 8, !tbaa !4
-  %1196 = fadd double %1195, -1.000000e+07
-  %1197 = call double @llvm.fabs.f64(double %1196)
-  %1198 = fcmp ugt double %1197, 5.000000e-01
-  br i1 %1198, label %1199, label %checkEquals.exit28.i295
+checkEquals.exit26.i293:                          ; preds = %1192, %checkEquals.exit24.i291
+  %.0.i25.i294 = phi i32 [ 1, %1192 ], [ 0, %checkEquals.exit24.i291 ]
+  %1194 = load double, ptr %115, align 8, !tbaa !4
+  %1195 = fadd double %1194, -1.000000e+07
+  %1196 = call double @llvm.fabs.f64(double %1195)
+  %1197 = fcmp ugt double %1196, 5.000000e-01
+  br i1 %1197, label %1198, label %checkEquals.exit28.i295
 
-1199:                                             ; preds = %checkEquals.exit26.i293
-  %1200 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1195, double noundef 1.000000e+07, double noundef 5.000000e-01)
+1198:                                             ; preds = %checkEquals.exit26.i293
+  %1199 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1194, double noundef 1.000000e+07, double noundef 5.000000e-01)
   br label %checkEquals.exit28.i295
 
-checkEquals.exit28.i295:                          ; preds = %1199, %checkEquals.exit26.i293
-  %.0.i27.i296 = phi i32 [ 1, %1199 ], [ 0, %checkEquals.exit26.i293 ]
-  %1201 = fadd double %1175, 0xC05684302B40F66A
-  %1202 = call double @llvm.fabs.f64(double %1201)
-  %1203 = fcmp ugt double %1202, 5.000000e-06
-  br i1 %1203, label %1204, label %checkEquals.exit30.i297
+checkEquals.exit28.i295:                          ; preds = %1198, %checkEquals.exit26.i293
+  %.0.i27.i296 = phi i32 [ 1, %1198 ], [ 0, %checkEquals.exit26.i293 ]
+  %1200 = fadd double %1175, 0xC05684302B40F66A
+  %1201 = call double @llvm.fabs.f64(double %1200)
+  %1202 = fcmp ugt double %1201, 5.000000e-06
+  br i1 %1202, label %1203, label %checkEquals.exit30.i297
 
-1204:                                             ; preds = %checkEquals.exit28.i295
-  %1205 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1175, double noundef 0x405684302B40F66A, double noundef 5.000000e-06)
+1203:                                             ; preds = %checkEquals.exit28.i295
+  %1204 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1175, double noundef 0x405684302B40F66A, double noundef 5.000000e-06)
   br label %checkEquals.exit30.i297
 
-checkEquals.exit30.i297:                          ; preds = %1204, %checkEquals.exit28.i295
-  %.0.i29.i298 = phi i32 [ 1, %1204 ], [ 0, %checkEquals.exit28.i295 ]
-  %1206 = load double, ptr %116, align 8, !tbaa !4
-  %1207 = fadd double %1206, 0xC158467D00000000
-  %1208 = call double @llvm.fabs.f64(double %1207)
-  %1209 = fcmp ugt double %1208, 5.000000e-01
-  br i1 %1209, label %1210, label %checkEquals.exit32.i299
+checkEquals.exit30.i297:                          ; preds = %1203, %checkEquals.exit28.i295
+  %.0.i29.i298 = phi i32 [ 1, %1203 ], [ 0, %checkEquals.exit28.i295 ]
+  %1205 = load double, ptr %116, align 8, !tbaa !4
+  %1206 = fadd double %1205, 0xC158467D00000000
+  %1207 = call double @llvm.fabs.f64(double %1206)
+  %1208 = fcmp ugt double %1207, 5.000000e-01
+  br i1 %1208, label %1209, label %checkEquals.exit32.i299
 
-1210:                                             ; preds = %checkEquals.exit30.i297
-  %1211 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1206, double noundef 0x4158467D00000000, double noundef 5.000000e-01)
+1209:                                             ; preds = %checkEquals.exit30.i297
+  %1210 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1205, double noundef 0x4158467D00000000, double noundef 5.000000e-01)
   br label %checkEquals.exit32.i299
 
-checkEquals.exit32.i299:                          ; preds = %1210, %checkEquals.exit30.i297
-  %.0.i31.i300 = phi i32 [ 1, %1210 ], [ 0, %checkEquals.exit30.i297 ]
-  %1212 = load double, ptr %117, align 8, !tbaa !4
-  %1213 = fadd double %1212, 1.283400e-03
-  %1214 = call double @llvm.fabs.f64(double %1213)
-  %1215 = fcmp ugt double %1214, 5.000000e-08
-  br i1 %1215, label %1216, label %checkEquals.exit34.i301
+checkEquals.exit32.i299:                          ; preds = %1209, %checkEquals.exit30.i297
+  %.0.i31.i300 = phi i32 [ 1, %1209 ], [ 0, %checkEquals.exit30.i297 ]
+  %1211 = load double, ptr %117, align 8, !tbaa !4
+  %1212 = fadd double %1211, 1.283400e-03
+  %1213 = call double @llvm.fabs.f64(double %1212)
+  %1214 = fcmp ugt double %1213, 5.000000e-08
+  br i1 %1214, label %1215, label %checkEquals.exit34.i301
 
-1216:                                             ; preds = %checkEquals.exit32.i299
-  %1217 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1212, double noundef -1.283400e-03, double noundef 5.000000e-08)
+1215:                                             ; preds = %checkEquals.exit32.i299
+  %1216 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1211, double noundef -1.283400e-03, double noundef 5.000000e-08)
   br label %checkEquals.exit34.i301
 
-checkEquals.exit34.i301:                          ; preds = %1216, %checkEquals.exit32.i299
-  %.0.i33.i302 = phi i32 [ 1, %1216 ], [ 0, %checkEquals.exit32.i299 ]
-  %1218 = load double, ptr %118, align 8, !tbaa !4
-  %1219 = fadd double %1218, -1.374900e-03
-  %1220 = call double @llvm.fabs.f64(double %1219)
-  %1221 = fcmp ugt double %1220, 5.000000e-08
-  br i1 %1221, label %1222, label %checkEquals.exit36.i
+checkEquals.exit34.i301:                          ; preds = %1215, %checkEquals.exit32.i299
+  %.0.i33.i302 = phi i32 [ 1, %1215 ], [ 0, %checkEquals.exit32.i299 ]
+  %1217 = load double, ptr %118, align 8, !tbaa !4
+  %1218 = fadd double %1217, -1.374900e-03
+  %1219 = call double @llvm.fabs.f64(double %1218)
+  %1220 = fcmp ugt double %1219, 5.000000e-08
+  br i1 %1220, label %1221, label %checkEquals.exit36.i
 
-1222:                                             ; preds = %checkEquals.exit34.i301
-  %1223 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1218, double noundef 1.374900e-03, double noundef 5.000000e-08)
+1221:                                             ; preds = %checkEquals.exit34.i301
+  %1222 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1217, double noundef 1.374900e-03, double noundef 5.000000e-08)
   br label %checkEquals.exit36.i
 
-checkEquals.exit36.i:                             ; preds = %1222, %checkEquals.exit34.i301
-  %.0.i35.i303 = phi i32 [ 1, %1222 ], [ 0, %checkEquals.exit34.i301 ]
-  %1224 = load double, ptr %119, align 8, !tbaa !4
-  %1225 = call double @llvm.fabs.f64(double %1224)
-  %1226 = fcmp ugt double %1225, 5.000000e-01
-  br i1 %1226, label %1227, label %checkEquals.exit38.i
+checkEquals.exit36.i:                             ; preds = %1221, %checkEquals.exit34.i301
+  %.0.i35.i303 = phi i32 [ 1, %1221 ], [ 0, %checkEquals.exit34.i301 ]
+  %1223 = load double, ptr %119, align 8, !tbaa !4
+  %1224 = call double @llvm.fabs.f64(double %1223)
+  %1225 = fcmp ugt double %1224, 5.000000e-01
+  br i1 %1225, label %1226, label %checkEquals.exit38.i
 
-1227:                                             ; preds = %checkEquals.exit36.i
-  %1228 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1224, double noundef 0.000000e+00, double noundef 5.000000e-01)
+1226:                                             ; preds = %checkEquals.exit36.i
+  %1227 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1223, double noundef 0.000000e+00, double noundef 5.000000e-01)
   br label %checkEquals.exit38.i
 
-checkEquals.exit38.i:                             ; preds = %1227, %checkEquals.exit36.i
-  %.0.i37.i = phi i32 [ 1, %1227 ], [ 0, %checkEquals.exit36.i ]
-  %1229 = call double @geod_genposition(ptr noundef nonnull %121, i32 noundef 32768, double noundef 2.000000e+07, ptr noundef nonnull %112, ptr noundef nonnull %113, ptr noundef nonnull %114, ptr noundef nonnull %115, ptr noundef nonnull %116, ptr noundef nonnull %117, ptr noundef nonnull %118, ptr noundef nonnull %119) #7
-  %1230 = load double, ptr %112, align 8, !tbaa !4
-  %1231 = fadd double %1230, 0x403E09148FD9FD37
-  %1232 = call double @llvm.fabs.f64(double %1231)
-  %1233 = fcmp ugt double %1232, 5.000000e-06
-  br i1 %1233, label %1234, label %checkEquals.exit40.i304
+checkEquals.exit38.i:                             ; preds = %1226, %checkEquals.exit36.i
+  %.0.i37.i = phi i32 [ 1, %1226 ], [ 0, %checkEquals.exit36.i ]
+  %1228 = call double @geod_genposition(ptr noundef nonnull %121, i32 noundef 32768, double noundef 2.000000e+07, ptr noundef nonnull %112, ptr noundef nonnull %113, ptr noundef nonnull %114, ptr noundef nonnull %115, ptr noundef nonnull %116, ptr noundef nonnull %117, ptr noundef nonnull %118, ptr noundef nonnull %119) #7
+  %1229 = load double, ptr %112, align 8, !tbaa !4
+  %1230 = fadd double %1229, 0x403E09148FD9FD37
+  %1231 = call double @llvm.fabs.f64(double %1230)
+  %1232 = fcmp ugt double %1231, 5.000000e-06
+  br i1 %1232, label %1233, label %checkEquals.exit40.i304
 
-1234:                                             ; preds = %checkEquals.exit38.i
-  %1235 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1230, double noundef 0xC03E09148FD9FD37, double noundef 5.000000e-06)
+1233:                                             ; preds = %checkEquals.exit38.i
+  %1234 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1229, double noundef 0xC03E09148FD9FD37, double noundef 5.000000e-06)
   br label %checkEquals.exit40.i304
 
-checkEquals.exit40.i304:                          ; preds = %1234, %checkEquals.exit38.i
-  %.0.i39.i305 = phi i32 [ 1, %1234 ], [ 0, %checkEquals.exit38.i ]
-  %1236 = load double, ptr %113, align 8, !tbaa !4
-  %1237 = fadd double %1236, 1.800000e+02
-  %1238 = call double @llvm.fabs.f64(double %1237)
-  %1239 = fcmp ugt double %1238, 5.000000e-06
-  br i1 %1239, label %1240, label %checkEquals.exit42.i306
+checkEquals.exit40.i304:                          ; preds = %1233, %checkEquals.exit38.i
+  %.0.i39.i305 = phi i32 [ 1, %1233 ], [ 0, %checkEquals.exit38.i ]
+  %1235 = load double, ptr %113, align 8, !tbaa !4
+  %1236 = fadd double %1235, 1.800000e+02
+  %1237 = call double @llvm.fabs.f64(double %1236)
+  %1238 = fcmp ugt double %1237, 5.000000e-06
+  br i1 %1238, label %1239, label %checkEquals.exit42.i306
 
-1240:                                             ; preds = %checkEquals.exit40.i304
-  %1241 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1236, double noundef -1.800000e+02, double noundef 5.000000e-06)
+1239:                                             ; preds = %checkEquals.exit40.i304
+  %1240 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1235, double noundef -1.800000e+02, double noundef 5.000000e-06)
   br label %checkEquals.exit42.i306
 
-checkEquals.exit42.i306:                          ; preds = %1240, %checkEquals.exit40.i304
-  %.0.i41.i307 = phi i32 [ 1, %1240 ], [ 0, %checkEquals.exit40.i304 ]
-  %1242 = load double, ptr %114, align 8, !tbaa !4
-  %1243 = fadd double %1242, 0.000000e+00
-  %1244 = call double @llvm.fabs.f64(double %1243)
-  %1245 = fcmp ugt double %1244, 5.000000e-06
-  br i1 %1245, label %1246, label %checkEquals.exit44.i308
+checkEquals.exit42.i306:                          ; preds = %1239, %checkEquals.exit40.i304
+  %.0.i41.i307 = phi i32 [ 1, %1239 ], [ 0, %checkEquals.exit40.i304 ]
+  %1241 = load double, ptr %114, align 8, !tbaa !4
+  %1242 = call double @llvm.fabs.f64(double %1241)
+  %1243 = fcmp ugt double %1242, 5.000000e-06
+  br i1 %1243, label %1244, label %checkEquals.exit44.i308
 
-1246:                                             ; preds = %checkEquals.exit42.i306
-  %1247 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1242, double noundef -0.000000e+00, double noundef 5.000000e-06)
+1244:                                             ; preds = %checkEquals.exit42.i306
+  %1245 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1241, double noundef -0.000000e+00, double noundef 5.000000e-06)
   br label %checkEquals.exit44.i308
 
-checkEquals.exit44.i308:                          ; preds = %1246, %checkEquals.exit42.i306
-  %.0.i43.i309 = phi i32 [ 1, %1246 ], [ 0, %checkEquals.exit42.i306 ]
-  %1248 = load double, ptr %115, align 8, !tbaa !4
-  %1249 = fadd double %1248, -2.000000e+07
-  %1250 = call double @llvm.fabs.f64(double %1249)
-  %1251 = fcmp ugt double %1250, 5.000000e-01
-  br i1 %1251, label %1252, label %checkEquals.exit46.i310
+checkEquals.exit44.i308:                          ; preds = %1244, %checkEquals.exit42.i306
+  %.0.i43.i309 = phi i32 [ 1, %1244 ], [ 0, %checkEquals.exit42.i306 ]
+  %1246 = load double, ptr %115, align 8, !tbaa !4
+  %1247 = fadd double %1246, -2.000000e+07
+  %1248 = call double @llvm.fabs.f64(double %1247)
+  %1249 = fcmp ugt double %1248, 5.000000e-01
+  br i1 %1249, label %1250, label %checkEquals.exit46.i310
 
-1252:                                             ; preds = %checkEquals.exit44.i308
-  %1253 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1248, double noundef 2.000000e+07, double noundef 5.000000e-01)
+1250:                                             ; preds = %checkEquals.exit44.i308
+  %1251 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1246, double noundef 2.000000e+07, double noundef 5.000000e-01)
   br label %checkEquals.exit46.i310
 
-checkEquals.exit46.i310:                          ; preds = %1252, %checkEquals.exit44.i308
-  %.0.i45.i311 = phi i32 [ 1, %1252 ], [ 0, %checkEquals.exit44.i308 ]
-  %1254 = fadd double %1229, 0xC0667EDDEBD9018E
-  %1255 = call double @llvm.fabs.f64(double %1254)
-  %1256 = fcmp ugt double %1255, 5.000000e-06
-  br i1 %1256, label %1257, label %checkEquals.exit48.i312
+checkEquals.exit46.i310:                          ; preds = %1250, %checkEquals.exit44.i308
+  %.0.i45.i311 = phi i32 [ 1, %1250 ], [ 0, %checkEquals.exit44.i308 ]
+  %1252 = fadd double %1228, 0xC0667EDDEBD9018E
+  %1253 = call double @llvm.fabs.f64(double %1252)
+  %1254 = fcmp ugt double %1253, 5.000000e-06
+  br i1 %1254, label %1255, label %checkEquals.exit48.i312
 
-1257:                                             ; preds = %checkEquals.exit46.i310
-  %1258 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1229, double noundef 0x40667EDDEBD9018E, double noundef 5.000000e-06)
+1255:                                             ; preds = %checkEquals.exit46.i310
+  %1256 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1228, double noundef 0x40667EDDEBD9018E, double noundef 5.000000e-06)
   br label %checkEquals.exit48.i312
 
-checkEquals.exit48.i312:                          ; preds = %1257, %checkEquals.exit46.i310
-  %.0.i47.i313 = phi i32 [ 1, %1257 ], [ 0, %checkEquals.exit46.i310 ]
-  %1259 = load double, ptr %116, align 8, !tbaa !4
-  %1260 = fadd double %1259, -5.434200e+04
-  %1261 = call double @llvm.fabs.f64(double %1260)
-  %1262 = fcmp ugt double %1261, 5.000000e-01
-  br i1 %1262, label %1263, label %checkEquals.exit50.i314
+checkEquals.exit48.i312:                          ; preds = %1255, %checkEquals.exit46.i310
+  %.0.i47.i313 = phi i32 [ 1, %1255 ], [ 0, %checkEquals.exit46.i310 ]
+  %1257 = load double, ptr %116, align 8, !tbaa !4
+  %1258 = fadd double %1257, -5.434200e+04
+  %1259 = call double @llvm.fabs.f64(double %1258)
+  %1260 = fcmp ugt double %1259, 5.000000e-01
+  br i1 %1260, label %1261, label %checkEquals.exit50.i314
 
-1263:                                             ; preds = %checkEquals.exit48.i312
-  %1264 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1259, double noundef 5.434200e+04, double noundef 5.000000e-01)
+1261:                                             ; preds = %checkEquals.exit48.i312
+  %1262 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1257, double noundef 5.434200e+04, double noundef 5.000000e-01)
   br label %checkEquals.exit50.i314
 
-checkEquals.exit50.i314:                          ; preds = %1263, %checkEquals.exit48.i312
-  %.0.i49.i315 = phi i32 [ 1, %1263 ], [ 0, %checkEquals.exit48.i312 ]
-  %1265 = load double, ptr %117, align 8, !tbaa !4
-  %1266 = fadd double %1265, 0x3FF012ACAAEE55B4
-  %1267 = call double @llvm.fabs.f64(double %1266)
-  %1268 = fcmp ugt double %1267, 5.000000e-08
-  br i1 %1268, label %1269, label %checkEquals.exit52.i316
+checkEquals.exit50.i314:                          ; preds = %1261, %checkEquals.exit48.i312
+  %.0.i49.i315 = phi i32 [ 1, %1261 ], [ 0, %checkEquals.exit48.i312 ]
+  %1263 = load double, ptr %117, align 8, !tbaa !4
+  %1264 = fadd double %1263, 0x3FF012ACAAEE55B4
+  %1265 = call double @llvm.fabs.f64(double %1264)
+  %1266 = fcmp ugt double %1265, 5.000000e-08
+  br i1 %1266, label %1267, label %checkEquals.exit52.i316
 
-1269:                                             ; preds = %checkEquals.exit50.i314
-  %1270 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1265, double noundef 0xBFF012ACAAEE55B4, double noundef 5.000000e-08)
+1267:                                             ; preds = %checkEquals.exit50.i314
+  %1268 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1263, double noundef 0xBFF012ACAAEE55B4, double noundef 5.000000e-08)
   br label %checkEquals.exit52.i316
 
-checkEquals.exit52.i316:                          ; preds = %1269, %checkEquals.exit50.i314
-  %.0.i51.i317 = phi i32 [ 1, %1269 ], [ 0, %checkEquals.exit50.i314 ]
-  %1271 = load double, ptr %118, align 8, !tbaa !4
-  %1272 = fadd double %1271, 0x3FEFDA9831BA8D2F
-  %1273 = call double @llvm.fabs.f64(double %1272)
-  %1274 = fcmp ugt double %1273, 5.000000e-08
-  br i1 %1274, label %1275, label %checkEquals.exit54.i318
+checkEquals.exit52.i316:                          ; preds = %1267, %checkEquals.exit50.i314
+  %.0.i51.i317 = phi i32 [ 1, %1267 ], [ 0, %checkEquals.exit50.i314 ]
+  %1269 = load double, ptr %118, align 8, !tbaa !4
+  %1270 = fadd double %1269, 0x3FEFDA9831BA8D2F
+  %1271 = call double @llvm.fabs.f64(double %1270)
+  %1272 = fcmp ugt double %1271, 5.000000e-08
+  br i1 %1272, label %1273, label %checkEquals.exit54.i318
 
-1275:                                             ; preds = %checkEquals.exit52.i316
-  %1276 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1271, double noundef 0xBFEFDA9831BA8D2F, double noundef 5.000000e-08)
+1273:                                             ; preds = %checkEquals.exit52.i316
+  %1274 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1269, double noundef 0xBFEFDA9831BA8D2F, double noundef 5.000000e-08)
   br label %checkEquals.exit54.i318
 
-checkEquals.exit54.i318:                          ; preds = %1275, %checkEquals.exit52.i316
-  %.0.i53.i319 = phi i32 [ 1, %1275 ], [ 0, %checkEquals.exit52.i316 ]
-  %1277 = load double, ptr %119, align 8, !tbaa !4
-  %1278 = fadd double %1277, 0xC2DCFE6E831EBB80
-  %1279 = call double @llvm.fabs.f64(double %1278)
-  %1280 = fcmp ugt double %1279, 5.000000e-01
-  br i1 %1280, label %1281, label %GeodSolve65.exit
+checkEquals.exit54.i318:                          ; preds = %1273, %checkEquals.exit52.i316
+  %.0.i53.i319 = phi i32 [ 1, %1273 ], [ 0, %checkEquals.exit52.i316 ]
+  %1275 = load double, ptr %119, align 8, !tbaa !4
+  %1276 = fadd double %1275, 0xC2DCFE6E831EBB80
+  %1277 = call double @llvm.fabs.f64(double %1276)
+  %1278 = fcmp ugt double %1277, 5.000000e-01
+  br i1 %1278, label %1279, label %GeodSolve65.exit
 
-1281:                                             ; preds = %checkEquals.exit54.i318
-  %1282 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1277, double noundef 0x42DCFE6E831EBB80, double noundef 5.000000e-01)
+1279:                                             ; preds = %checkEquals.exit54.i318
+  %1280 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1275, double noundef 0x42DCFE6E831EBB80, double noundef 5.000000e-01)
   br label %GeodSolve65.exit
 
-GeodSolve65.exit:                                 ; preds = %checkEquals.exit54.i318, %1281
-  %.0.i55.i321 = phi i32 [ 1, %1281 ], [ 0, %checkEquals.exit54.i318 ]
-  %1283 = add nuw nsw i32 %.0.i23.i292, %.0.i.i290
-  %1284 = add nuw nsw i32 %1283, %.0.i25.i294
-  %1285 = add nuw nsw i32 %1284, %.0.i27.i296
-  %1286 = add nuw nsw i32 %1285, %.0.i29.i298
-  %1287 = add nuw nsw i32 %1286, %.0.i31.i300
-  %1288 = add nuw nsw i32 %1287, %.0.i33.i302
-  %1289 = add nuw nsw i32 %1288, %.0.i35.i303
-  %1290 = add nuw nsw i32 %1289, %.0.i37.i
-  %1291 = add nuw nsw i32 %1290, %.0.i39.i305
-  %1292 = add nuw nsw i32 %1291, %.0.i41.i307
-  %1293 = add nuw nsw i32 %1292, %.0.i43.i309
-  %1294 = add nuw nsw i32 %1293, %.0.i45.i311
-  %1295 = add nuw nsw i32 %1294, %.0.i47.i313
-  %1296 = add nuw nsw i32 %1295, %.0.i49.i315
-  %1297 = add nuw nsw i32 %1296, %.0.i51.i317
-  %1298 = add nuw nsw i32 %1297, %.0.i53.i319
-  %1299 = add nuw nsw i32 %1298, %.0.i55.i321
+GeodSolve65.exit:                                 ; preds = %checkEquals.exit54.i318, %1279
+  %.0.i55.i321 = phi i32 [ 1, %1279 ], [ 0, %checkEquals.exit54.i318 ]
+  %1281 = add nuw nsw i32 %.0.i23.i292, %.0.i.i290
+  %1282 = add nuw nsw i32 %1281, %.0.i25.i294
+  %1283 = add nuw nsw i32 %1282, %.0.i27.i296
+  %1284 = add nuw nsw i32 %1283, %.0.i29.i298
+  %1285 = add nuw nsw i32 %1284, %.0.i31.i300
+  %1286 = add nuw nsw i32 %1285, %.0.i33.i302
+  %1287 = add nuw nsw i32 %1286, %.0.i35.i303
+  %1288 = add nuw nsw i32 %1287, %.0.i37.i
+  %1289 = add nuw nsw i32 %1288, %.0.i39.i305
+  %1290 = add nuw nsw i32 %1289, %.0.i41.i307
+  %1291 = add nuw nsw i32 %1290, %.0.i43.i309
+  %1292 = add nuw nsw i32 %1291, %.0.i45.i311
+  %1293 = add nuw nsw i32 %1292, %.0.i47.i313
+  %1294 = add nuw nsw i32 %1293, %.0.i49.i315
+  %1295 = add nuw nsw i32 %1294, %.0.i51.i317
+  %1296 = add nuw nsw i32 %1295, %.0.i53.i319
+  %1297 = add nuw nsw i32 %1296, %.0.i55.i321
   call void @llvm.lifetime.end.p0(ptr nonnull %121)
   call void @llvm.lifetime.end.p0(ptr nonnull %120)
   call void @llvm.lifetime.end.p0(ptr nonnull %119)
@@ -2593,16 +2591,16 @@ GeodSolve65.exit:                                 ; preds = %checkEquals.exit54.
   call void @llvm.lifetime.end.p0(ptr nonnull %114)
   call void @llvm.lifetime.end.p0(ptr nonnull %113)
   call void @llvm.lifetime.end.p0(ptr nonnull %112)
-  %.not154 = icmp eq i32 %1299, 0
-  br i1 %.not154, label %1303, label %1300
+  %.not154 = icmp eq i32 %1297, 0
+  br i1 %.not154, label %1301, label %1298
 
-1300:                                             ; preds = %GeodSolve65.exit
-  %1301 = add nsw i32 %.21, 1
-  %1302 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.22, i32 noundef %1299)
-  br label %1303
+1298:                                             ; preds = %GeodSolve65.exit
+  %1299 = add nsw i32 %.21, 1
+  %1300 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.22, i32 noundef %1297)
+  br label %1301
 
-1303:                                             ; preds = %1300, %GeodSolve65.exit
-  %.22 = phi i32 [ %1301, %1300 ], [ %.21, %GeodSolve65.exit ]
+1301:                                             ; preds = %1298, %GeodSolve65.exit
+  %.22 = phi i32 [ %1299, %1298 ], [ %.21, %GeodSolve65.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %107)
   call void @llvm.lifetime.start.p0(ptr nonnull %108)
   call void @llvm.lifetime.start.p0(ptr nonnull %109)
@@ -2610,103 +2608,101 @@ GeodSolve65.exit:                                 ; preds = %checkEquals.exit54.
   call void @llvm.lifetime.start.p0(ptr nonnull %111)
   call void @geod_init(ptr noundef nonnull %110, double noundef 0x415854A640000000, double noundef 0x3F6B775A84F3E128) #7
   call void @geod_inverseline(ptr noundef nonnull %111, ptr noundef nonnull %110, double noundef -5.000000e+00, double noundef -2.000000e-15, double noundef -1.000000e+01, double noundef 1.800000e+02, i32 noundef 0) #7
-  %1304 = call double @geod_genposition(ptr noundef nonnull %111, i32 noundef 32768, double noundef 2.000000e+07, ptr noundef nonnull %107, ptr noundef nonnull %108, ptr noundef nonnull %109, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null) #7
-  %1305 = load double, ptr %107, align 8, !tbaa !4
-  %1306 = fadd double %1305, -4.964450e+00
-  %1307 = call double @llvm.fabs.f64(double %1306)
-  %1308 = fcmp ugt double %1307, 5.000000e-06
-  br i1 %1308, label %1309, label %checkEquals.exit.i322
+  %1302 = call double @geod_genposition(ptr noundef nonnull %111, i32 noundef 32768, double noundef 2.000000e+07, ptr noundef nonnull %107, ptr noundef nonnull %108, ptr noundef nonnull %109, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null) #7
+  %1303 = load double, ptr %107, align 8, !tbaa !4
+  %1304 = fadd double %1303, -4.964450e+00
+  %1305 = call double @llvm.fabs.f64(double %1304)
+  %1306 = fcmp ugt double %1305, 5.000000e-06
+  br i1 %1306, label %1307, label %checkEquals.exit.i322
 
-1309:                                             ; preds = %1303
-  %1310 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1305, double noundef 4.964450e+00, double noundef 5.000000e-06)
+1307:                                             ; preds = %1301
+  %1308 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1303, double noundef 4.964450e+00, double noundef 5.000000e-06)
   br label %checkEquals.exit.i322
 
-checkEquals.exit.i322:                            ; preds = %1309, %1303
-  %.0.i.i323 = phi i32 [ 1, %1309 ], [ 0, %1303 ]
-  %1311 = load double, ptr %108, align 8, !tbaa !4
-  %1312 = fadd double %1311, 1.800000e+02
-  %1313 = call double @llvm.fabs.f64(double %1312)
-  %1314 = fcmp ugt double %1313, 5.000000e-06
-  br i1 %1314, label %1315, label %checkEquals.exit10.i324
+checkEquals.exit.i322:                            ; preds = %1307, %1301
+  %.0.i.i323 = phi i32 [ 1, %1307 ], [ 0, %1301 ]
+  %1309 = load double, ptr %108, align 8, !tbaa !4
+  %1310 = fadd double %1309, 1.800000e+02
+  %1311 = call double @llvm.fabs.f64(double %1310)
+  %1312 = fcmp ugt double %1311, 5.000000e-06
+  br i1 %1312, label %1313, label %checkEquals.exit10.i324
 
-1315:                                             ; preds = %checkEquals.exit.i322
-  %1316 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1311, double noundef -1.800000e+02, double noundef 5.000000e-06)
+1313:                                             ; preds = %checkEquals.exit.i322
+  %1314 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1309, double noundef -1.800000e+02, double noundef 5.000000e-06)
   br label %checkEquals.exit10.i324
 
-checkEquals.exit10.i324:                          ; preds = %1315, %checkEquals.exit.i322
-  %.0.i9.i325 = phi i32 [ 1, %1315 ], [ 0, %checkEquals.exit.i322 ]
-  %1317 = load double, ptr %109, align 8, !tbaa !4
-  %1318 = fadd double %1317, 0.000000e+00
-  %1319 = call double @llvm.fabs.f64(double %1318)
-  %1320 = fcmp ugt double %1319, 5.000000e-06
-  br i1 %1320, label %1321, label %checkEquals.exit12.i326
+checkEquals.exit10.i324:                          ; preds = %1313, %checkEquals.exit.i322
+  %.0.i9.i325 = phi i32 [ 1, %1313 ], [ 0, %checkEquals.exit.i322 ]
+  %1315 = load double, ptr %109, align 8, !tbaa !4
+  %1316 = call double @llvm.fabs.f64(double %1315)
+  %1317 = fcmp ugt double %1316, 5.000000e-06
+  br i1 %1317, label %1318, label %checkEquals.exit12.i326
 
-1321:                                             ; preds = %checkEquals.exit10.i324
-  %1322 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1317, double noundef -0.000000e+00, double noundef 5.000000e-06)
+1318:                                             ; preds = %checkEquals.exit10.i324
+  %1319 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1315, double noundef -0.000000e+00, double noundef 5.000000e-06)
   br label %checkEquals.exit12.i326
 
-checkEquals.exit12.i326:                          ; preds = %1321, %checkEquals.exit10.i324
-  %.0.i11.i327 = phi i32 [ 1, %1321 ], [ 0, %checkEquals.exit10.i324 ]
-  %1323 = getelementptr inbounds nuw i8, ptr %111, i64 64
-  %1324 = load double, ptr %1323, align 8, !tbaa !8
-  %1325 = fmul double %1324, 5.000000e-01
-  %1326 = call double @geod_genposition(ptr noundef nonnull %111, i32 noundef 32768, double noundef %1325, ptr noundef nonnull %107, ptr noundef nonnull %108, ptr noundef nonnull %109, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null) #7
-  %1327 = load double, ptr %107, align 8, !tbaa !4
-  %1328 = fadd double %1327, 0x4055E19335D249E4
-  %1329 = call double @llvm.fabs.f64(double %1328)
-  %1330 = fcmp ugt double %1329, 5.000000e-06
-  br i1 %1330, label %1331, label %checkEquals.exit14.i328
+checkEquals.exit12.i326:                          ; preds = %1318, %checkEquals.exit10.i324
+  %.0.i11.i327 = phi i32 [ 1, %1318 ], [ 0, %checkEquals.exit10.i324 ]
+  %1320 = getelementptr inbounds nuw i8, ptr %111, i64 64
+  %1321 = load double, ptr %1320, align 8, !tbaa !8
+  %1322 = fmul double %1321, 5.000000e-01
+  %1323 = call double @geod_genposition(ptr noundef nonnull %111, i32 noundef 32768, double noundef %1322, ptr noundef nonnull %107, ptr noundef nonnull %108, ptr noundef nonnull %109, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null) #7
+  %1324 = load double, ptr %107, align 8, !tbaa !4
+  %1325 = fadd double %1324, 0x4055E19335D249E4
+  %1326 = call double @llvm.fabs.f64(double %1325)
+  %1327 = fcmp ugt double %1326, 5.000000e-06
+  br i1 %1327, label %1328, label %checkEquals.exit14.i328
 
-1331:                                             ; preds = %checkEquals.exit12.i326
-  %1332 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1327, double noundef 0xC055E19335D249E4, double noundef 5.000000e-06)
+1328:                                             ; preds = %checkEquals.exit12.i326
+  %1329 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1324, double noundef 0xC055E19335D249E4, double noundef 5.000000e-06)
   br label %checkEquals.exit14.i328
 
-checkEquals.exit14.i328:                          ; preds = %1331, %checkEquals.exit12.i326
-  %.0.i13.i329 = phi i32 [ 1, %1331 ], [ 0, %checkEquals.exit12.i326 ]
-  %1333 = load double, ptr %108, align 8, !tbaa !4
-  %1334 = fadd double %1333, 0.000000e+00
-  %1335 = call double @llvm.fabs.f64(double %1334)
-  %1336 = fcmp ugt double %1335, 5.000000e-06
-  br i1 %1336, label %1337, label %checkEquals.exit16.i330
+checkEquals.exit14.i328:                          ; preds = %1328, %checkEquals.exit12.i326
+  %.0.i13.i329 = phi i32 [ 1, %1328 ], [ 0, %checkEquals.exit12.i326 ]
+  %1330 = load double, ptr %108, align 8, !tbaa !4
+  %1331 = call double @llvm.fabs.f64(double %1330)
+  %1332 = fcmp ugt double %1331, 5.000000e-06
+  br i1 %1332, label %1333, label %checkEquals.exit16.i330
 
-1337:                                             ; preds = %checkEquals.exit14.i328
-  %1338 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1333, double noundef -0.000000e+00, double noundef 5.000000e-06)
+1333:                                             ; preds = %checkEquals.exit14.i328
+  %1334 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1330, double noundef -0.000000e+00, double noundef 5.000000e-06)
   br label %checkEquals.exit16.i330
 
-checkEquals.exit16.i330:                          ; preds = %1337, %checkEquals.exit14.i328
-  %.0.i15.i331 = phi i32 [ 1, %1337 ], [ 0, %checkEquals.exit14.i328 ]
-  %1339 = load double, ptr %109, align 8, !tbaa !4
-  %1340 = fadd double %1339, 1.800000e+02
-  %1341 = call double @llvm.fabs.f64(double %1340)
-  %1342 = fcmp ugt double %1341, 5.000000e-06
-  br i1 %1342, label %1343, label %GeodSolve67.exit
+checkEquals.exit16.i330:                          ; preds = %1333, %checkEquals.exit14.i328
+  %.0.i15.i331 = phi i32 [ 1, %1333 ], [ 0, %checkEquals.exit14.i328 ]
+  %1335 = load double, ptr %109, align 8, !tbaa !4
+  %1336 = fadd double %1335, 1.800000e+02
+  %1337 = call double @llvm.fabs.f64(double %1336)
+  %1338 = fcmp ugt double %1337, 5.000000e-06
+  br i1 %1338, label %1339, label %GeodSolve67.exit
 
-1343:                                             ; preds = %checkEquals.exit16.i330
-  %1344 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1339, double noundef -1.800000e+02, double noundef 5.000000e-06)
+1339:                                             ; preds = %checkEquals.exit16.i330
+  %1340 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1335, double noundef -1.800000e+02, double noundef 5.000000e-06)
   br label %GeodSolve67.exit
 
-GeodSolve67.exit:                                 ; preds = %checkEquals.exit16.i330, %1343
-  %.0.i17.i333 = phi i32 [ 1, %1343 ], [ 0, %checkEquals.exit16.i330 ]
-  %1345 = add nuw nsw i32 %.0.i9.i325, %.0.i.i323
-  %1346 = add nuw nsw i32 %1345, %.0.i11.i327
-  %1347 = add nuw nsw i32 %1346, %.0.i13.i329
-  %1348 = add nuw nsw i32 %1347, %.0.i15.i331
-  %1349 = add nuw nsw i32 %1348, %.0.i17.i333
+GeodSolve67.exit:                                 ; preds = %checkEquals.exit16.i330, %1339
+  %.0.i17.i333 = phi i32 [ 1, %1339 ], [ 0, %checkEquals.exit16.i330 ]
+  %1341 = add nuw nsw i32 %.0.i9.i325, %.0.i.i323
+  %1342 = add nuw nsw i32 %1341, %.0.i11.i327
+  %1343 = add nuw nsw i32 %1342, %.0.i13.i329
+  %1344 = add nuw nsw i32 %1343, %.0.i15.i331
+  %1345 = add nuw nsw i32 %1344, %.0.i17.i333
   call void @llvm.lifetime.end.p0(ptr nonnull %111)
   call void @llvm.lifetime.end.p0(ptr nonnull %110)
   call void @llvm.lifetime.end.p0(ptr nonnull %109)
   call void @llvm.lifetime.end.p0(ptr nonnull %108)
   call void @llvm.lifetime.end.p0(ptr nonnull %107)
-  %.not155 = icmp eq i32 %1349, 0
-  br i1 %.not155, label %1353, label %1350
+  %.not155 = icmp eq i32 %1345, 0
+  br i1 %.not155, label %1349, label %1346
 
-1350:                                             ; preds = %GeodSolve67.exit
-  %1351 = add nsw i32 %.22, 1
-  %1352 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.23, i32 noundef %1349)
-  br label %1353
+1346:                                             ; preds = %GeodSolve67.exit
+  %1347 = add nsw i32 %.22, 1
+  %1348 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.23, i32 noundef %1345)
+  br label %1349
 
-1353:                                             ; preds = %1350, %GeodSolve67.exit
-  %.23 = phi i32 [ %1351, %1350 ], [ %.22, %GeodSolve67.exit ]
+1349:                                             ; preds = %1346, %GeodSolve67.exit
+  %.23 = phi i32 [ %1347, %1346 ], [ %.22, %GeodSolve67.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %102)
   call void @llvm.lifetime.start.p0(ptr nonnull %103)
   call void @llvm.lifetime.start.p0(ptr nonnull %104)
@@ -2714,116 +2710,116 @@ GeodSolve67.exit:                                 ; preds = %checkEquals.exit16.
   call void @llvm.lifetime.start.p0(ptr nonnull %106)
   call void @geod_init(ptr noundef nonnull %105, double noundef 0x415854A640000000, double noundef 0x3F6B775A84F3E128) #7
   call void @geod_directline(ptr noundef nonnull %106, ptr noundef nonnull %105, double noundef 1.000000e+00, double noundef 2.000000e+00, double noundef 4.500000e+01, double noundef 1.000000e+07, i32 noundef 0) #7
-  %1354 = getelementptr inbounds nuw i8, ptr %106, i64 64
-  %1355 = load double, ptr %1354, align 8, !tbaa !8
-  %1356 = fmul double %1355, 5.000000e-01
-  call void @geod_position(ptr noundef nonnull %106, double noundef %1356, ptr noundef nonnull %102, ptr noundef nonnull %103, ptr noundef nonnull %104) #7
-  %1357 = load double, ptr %102, align 8, !tbaa !4
-  %1358 = fadd double %1357, 0xC03EED1EB851EB85
-  %1359 = call double @llvm.fabs.f64(double %1358)
-  %1360 = fcmp ugt double %1359, 5.000000e-06
-  br i1 %1360, label %1361, label %checkEquals.exit.i334
+  %1350 = getelementptr inbounds nuw i8, ptr %106, i64 64
+  %1351 = load double, ptr %1350, align 8, !tbaa !8
+  %1352 = fmul double %1351, 5.000000e-01
+  call void @geod_position(ptr noundef nonnull %106, double noundef %1352, ptr noundef nonnull %102, ptr noundef nonnull %103, ptr noundef nonnull %104) #7
+  %1353 = load double, ptr %102, align 8, !tbaa !4
+  %1354 = fadd double %1353, 0xC03EED1EB851EB85
+  %1355 = call double @llvm.fabs.f64(double %1354)
+  %1356 = fcmp ugt double %1355, 5.000000e-06
+  br i1 %1356, label %1357, label %checkEquals.exit.i334
 
-1361:                                             ; preds = %1353
-  %1362 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1357, double noundef 0x403EED1EB851EB85, double noundef 5.000000e-06)
+1357:                                             ; preds = %1349
+  %1358 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1353, double noundef 0x403EED1EB851EB85, double noundef 5.000000e-06)
   br label %checkEquals.exit.i334
 
-checkEquals.exit.i334:                            ; preds = %1361, %1353
-  %.0.i.i335 = phi i32 [ 1, %1361 ], [ 0, %1353 ]
-  %1363 = load double, ptr %103, align 8, !tbaa !4
-  %1364 = fadd double %1363, -3.754640e+01
-  %1365 = call double @llvm.fabs.f64(double %1364)
-  %1366 = fcmp ugt double %1365, 5.000000e-06
-  br i1 %1366, label %1367, label %checkEquals.exit5.i336
+checkEquals.exit.i334:                            ; preds = %1357, %1349
+  %.0.i.i335 = phi i32 [ 1, %1357 ], [ 0, %1349 ]
+  %1359 = load double, ptr %103, align 8, !tbaa !4
+  %1360 = fadd double %1359, -3.754640e+01
+  %1361 = call double @llvm.fabs.f64(double %1360)
+  %1362 = fcmp ugt double %1361, 5.000000e-06
+  br i1 %1362, label %1363, label %checkEquals.exit5.i336
 
-1367:                                             ; preds = %checkEquals.exit.i334
-  %1368 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1363, double noundef 3.754640e+01, double noundef 5.000000e-06)
+1363:                                             ; preds = %checkEquals.exit.i334
+  %1364 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1359, double noundef 3.754640e+01, double noundef 5.000000e-06)
   br label %checkEquals.exit5.i336
 
-checkEquals.exit5.i336:                           ; preds = %1367, %checkEquals.exit.i334
-  %.0.i4.i337 = phi i32 [ 1, %1367 ], [ 0, %checkEquals.exit.i334 ]
-  %1369 = load double, ptr %104, align 8, !tbaa !4
-  %1370 = fadd double %1369, 0xC04BB72C5197A249
-  %1371 = call double @llvm.fabs.f64(double %1370)
-  %1372 = fcmp ugt double %1371, 5.000000e-06
-  br i1 %1372, label %1373, label %GeodSolve71.exit
+checkEquals.exit5.i336:                           ; preds = %1363, %checkEquals.exit.i334
+  %.0.i4.i337 = phi i32 [ 1, %1363 ], [ 0, %checkEquals.exit.i334 ]
+  %1365 = load double, ptr %104, align 8, !tbaa !4
+  %1366 = fadd double %1365, 0xC04BB72C5197A249
+  %1367 = call double @llvm.fabs.f64(double %1366)
+  %1368 = fcmp ugt double %1367, 5.000000e-06
+  br i1 %1368, label %1369, label %GeodSolve71.exit
 
-1373:                                             ; preds = %checkEquals.exit5.i336
-  %1374 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1369, double noundef 0x404BB72C5197A249, double noundef 5.000000e-06)
+1369:                                             ; preds = %checkEquals.exit5.i336
+  %1370 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1365, double noundef 0x404BB72C5197A249, double noundef 5.000000e-06)
   br label %GeodSolve71.exit
 
-GeodSolve71.exit:                                 ; preds = %checkEquals.exit5.i336, %1373
-  %.0.i6.i338 = phi i32 [ 1, %1373 ], [ 0, %checkEquals.exit5.i336 ]
-  %1375 = add nuw nsw i32 %.0.i4.i337, %.0.i.i335
-  %1376 = add nuw nsw i32 %1375, %.0.i6.i338
+GeodSolve71.exit:                                 ; preds = %checkEquals.exit5.i336, %1369
+  %.0.i6.i338 = phi i32 [ 1, %1369 ], [ 0, %checkEquals.exit5.i336 ]
+  %1371 = add nuw nsw i32 %.0.i4.i337, %.0.i.i335
+  %1372 = add nuw nsw i32 %1371, %.0.i6.i338
   call void @llvm.lifetime.end.p0(ptr nonnull %106)
   call void @llvm.lifetime.end.p0(ptr nonnull %105)
   call void @llvm.lifetime.end.p0(ptr nonnull %104)
   call void @llvm.lifetime.end.p0(ptr nonnull %103)
   call void @llvm.lifetime.end.p0(ptr nonnull %102)
-  %.not156 = icmp eq i32 %1376, 0
-  br i1 %.not156, label %1380, label %1377
+  %.not156 = icmp eq i32 %1372, 0
+  br i1 %.not156, label %1376, label %1373
 
-1377:                                             ; preds = %GeodSolve71.exit
-  %1378 = add nsw i32 %.23, 1
-  %1379 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.24, i32 noundef %1376)
-  br label %1380
+1373:                                             ; preds = %GeodSolve71.exit
+  %1374 = add nsw i32 %.23, 1
+  %1375 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.24, i32 noundef %1372)
+  br label %1376
 
-1380:                                             ; preds = %1377, %GeodSolve71.exit
-  %.24 = phi i32 [ %1378, %1377 ], [ %.23, %GeodSolve71.exit ]
+1376:                                             ; preds = %1373, %GeodSolve71.exit
+  %.24 = phi i32 [ %1374, %1373 ], [ %.23, %GeodSolve71.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %98)
   call void @llvm.lifetime.start.p0(ptr nonnull %99)
   call void @llvm.lifetime.start.p0(ptr nonnull %100)
   call void @llvm.lifetime.start.p0(ptr nonnull %101)
   call void @geod_init(ptr noundef nonnull %101, double noundef 0x415854A640000000, double noundef 0x3F6B775A84F3E128) #7
   call void @geod_direct(ptr noundef nonnull %101, double noundef 9.000000e+01, double noundef 1.000000e+01, double noundef 1.800000e+02, double noundef -1.000000e+06, ptr noundef nonnull %98, ptr noundef nonnull %99, ptr noundef nonnull %100) #7
-  %1381 = load double, ptr %98, align 8, !tbaa !4
-  %1382 = fadd double %1381, 0xC05442F56EAC8605
-  %1383 = call double @llvm.fabs.f64(double %1382)
-  %1384 = fcmp ugt double %1383, 5.000000e-06
-  br i1 %1384, label %1385, label %checkEquals.exit.i339
+  %1377 = load double, ptr %98, align 8, !tbaa !4
+  %1378 = fadd double %1377, 0xC05442F56EAC8605
+  %1379 = call double @llvm.fabs.f64(double %1378)
+  %1380 = fcmp ugt double %1379, 5.000000e-06
+  br i1 %1380, label %1381, label %checkEquals.exit.i339
 
-1385:                                             ; preds = %1380
-  %1386 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1381, double noundef 0x405442F56EAC8605, double noundef 5.000000e-06)
+1381:                                             ; preds = %1376
+  %1382 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1377, double noundef 0x405442F56EAC8605, double noundef 5.000000e-06)
   br label %checkEquals.exit.i339
 
-checkEquals.exit.i339:                            ; preds = %1385, %1380
-  %.0.i.i340 = phi i32 [ 1, %1385 ], [ 0, %1380 ]
-  %1387 = load double, ptr %99, align 8, !tbaa !4
-  %1388 = fadd double %1387, 1.700000e+02
-  %1389 = call double @llvm.fabs.f64(double %1388)
-  %1390 = fcmp ugt double %1389, 5.000000e-06
-  br i1 %1390, label %1391, label %GeodSolve73.exit
+checkEquals.exit.i339:                            ; preds = %1381, %1376
+  %.0.i.i340 = phi i32 [ 1, %1381 ], [ 0, %1376 ]
+  %1383 = load double, ptr %99, align 8, !tbaa !4
+  %1384 = fadd double %1383, 1.700000e+02
+  %1385 = call double @llvm.fabs.f64(double %1384)
+  %1386 = fcmp ugt double %1385, 5.000000e-06
+  br i1 %1386, label %1387, label %GeodSolve73.exit
 
-1391:                                             ; preds = %checkEquals.exit.i339
-  %1392 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1387, double noundef -1.700000e+02, double noundef 5.000000e-06)
+1387:                                             ; preds = %checkEquals.exit.i339
+  %1388 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1383, double noundef -1.700000e+02, double noundef 5.000000e-06)
   br label %GeodSolve73.exit
 
-GeodSolve73.exit:                                 ; preds = %checkEquals.exit.i339, %1391
-  %.0.i5.i = phi i32 [ 1, %1391 ], [ 0, %checkEquals.exit.i339 ]
-  %1393 = add nuw nsw i32 %.0.i5.i, %.0.i.i340
-  %1394 = load double, ptr %100, align 8, !tbaa !4
-  %1395 = fcmp une double %1394, 0.000000e+00
+GeodSolve73.exit:                                 ; preds = %checkEquals.exit.i339, %1387
+  %.0.i5.i = phi i32 [ 1, %1387 ], [ 0, %checkEquals.exit.i339 ]
+  %1389 = add nuw nsw i32 %.0.i5.i, %.0.i.i340
+  %1390 = load double, ptr %100, align 8, !tbaa !4
+  %1391 = fcmp une double %1390, 0.000000e+00
+  %1392 = zext i1 %1391 to i32
+  %1393 = add nuw nsw i32 %1389, %1392
+  %1394 = fdiv double 1.000000e+00, %1390
+  %1395 = fcmp ule double %1394, 0.000000e+00
   %1396 = zext i1 %1395 to i32
   %1397 = add nuw nsw i32 %1393, %1396
-  %1398 = fdiv double 1.000000e+00, %1394
-  %1399 = fcmp ule double %1398, 0.000000e+00
-  %1400 = zext i1 %1399 to i32
-  %1401 = add nuw nsw i32 %1397, %1400
   call void @llvm.lifetime.end.p0(ptr nonnull %101)
   call void @llvm.lifetime.end.p0(ptr nonnull %100)
   call void @llvm.lifetime.end.p0(ptr nonnull %99)
   call void @llvm.lifetime.end.p0(ptr nonnull %98)
-  %.not157 = icmp eq i32 %1401, 0
-  br i1 %.not157, label %1405, label %1402
+  %.not157 = icmp eq i32 %1397, 0
+  br i1 %.not157, label %1401, label %1398
 
-1402:                                             ; preds = %GeodSolve73.exit
-  %1403 = add nsw i32 %.24, 1
-  %1404 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.25, i32 noundef %1401)
-  br label %1405
+1398:                                             ; preds = %GeodSolve73.exit
+  %1399 = add nsw i32 %.24, 1
+  %1400 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.25, i32 noundef %1397)
+  br label %1401
 
-1405:                                             ; preds = %1402, %GeodSolve73.exit
-  %.25 = phi i32 [ %1403, %1402 ], [ %.24, %GeodSolve73.exit ]
+1401:                                             ; preds = %1398, %GeodSolve73.exit
+  %.25 = phi i32 [ %1399, %1398 ], [ %.24, %GeodSolve73.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %90)
   call void @llvm.lifetime.start.p0(ptr nonnull %91)
   call void @llvm.lifetime.start.p0(ptr nonnull %92)
@@ -2833,109 +2829,109 @@ GeodSolve73.exit:                                 ; preds = %checkEquals.exit.i3
   call void @llvm.lifetime.start.p0(ptr nonnull %96)
   call void @llvm.lifetime.start.p0(ptr nonnull %97)
   call void @geod_init(ptr noundef nonnull %97, double noundef 0x415854A640000000, double noundef 0x3F6B775A84F3E128) #7
-  %1406 = call double @geod_geninverse(ptr noundef nonnull %97, double noundef 5.415890e+01, double noundef 1.538720e+01, double noundef 5.415910e+01, double noundef 1.538770e+01, ptr noundef nonnull %90, ptr noundef nonnull %91, ptr noundef nonnull %92, ptr noundef nonnull %93, ptr noundef nonnull %94, ptr noundef nonnull %95, ptr noundef nonnull %96) #7
-  %1407 = load double, ptr %91, align 8, !tbaa !4
-  %1408 = fadd double %1407, 0xC04BDC8EE14F0FDE
-  %1409 = call double @llvm.fabs.f64(double %1408)
-  %1410 = fcmp ugt double %1409, 5.000000e-09
-  br i1 %1410, label %1411, label %checkEquals.exit.i341
+  %1402 = call double @geod_geninverse(ptr noundef nonnull %97, double noundef 5.415890e+01, double noundef 1.538720e+01, double noundef 5.415910e+01, double noundef 1.538770e+01, ptr noundef nonnull %90, ptr noundef nonnull %91, ptr noundef nonnull %92, ptr noundef nonnull %93, ptr noundef nonnull %94, ptr noundef nonnull %95, ptr noundef nonnull %96) #7
+  %1403 = load double, ptr %91, align 8, !tbaa !4
+  %1404 = fadd double %1403, 0xC04BDC8EE14F0FDE
+  %1405 = call double @llvm.fabs.f64(double %1404)
+  %1406 = fcmp ugt double %1405, 5.000000e-09
+  br i1 %1406, label %1407, label %checkEquals.exit.i341
 
-1411:                                             ; preds = %1405
-  %1412 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1407, double noundef 0x404BDC8EE14F0FDE, double noundef 5.000000e-09)
+1407:                                             ; preds = %1401
+  %1408 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1403, double noundef 0x404BDC8EE14F0FDE, double noundef 5.000000e-09)
   br label %checkEquals.exit.i341
 
-checkEquals.exit.i341:                            ; preds = %1411, %1405
-  %.0.i.i342 = phi i32 [ 1, %1411 ], [ 0, %1405 ]
-  %1413 = load double, ptr %92, align 8, !tbaa !4
-  %1414 = fadd double %1413, 0xC04BDC9C2961225A
-  %1415 = call double @llvm.fabs.f64(double %1414)
-  %1416 = fcmp ugt double %1415, 5.000000e-09
-  br i1 %1416, label %1417, label %checkEquals.exit10.i343
+checkEquals.exit.i341:                            ; preds = %1407, %1401
+  %.0.i.i342 = phi i32 [ 1, %1407 ], [ 0, %1401 ]
+  %1409 = load double, ptr %92, align 8, !tbaa !4
+  %1410 = fadd double %1409, 0xC04BDC9C2961225A
+  %1411 = call double @llvm.fabs.f64(double %1410)
+  %1412 = fcmp ugt double %1411, 5.000000e-09
+  br i1 %1412, label %1413, label %checkEquals.exit10.i343
 
-1417:                                             ; preds = %checkEquals.exit.i341
-  %1418 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1413, double noundef 0x404BDC9C2961225A, double noundef 5.000000e-09)
+1413:                                             ; preds = %checkEquals.exit.i341
+  %1414 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1409, double noundef 0x404BDC9C2961225A, double noundef 5.000000e-09)
   br label %checkEquals.exit10.i343
 
-checkEquals.exit10.i343:                          ; preds = %1417, %checkEquals.exit.i341
-  %.0.i9.i344 = phi i32 [ 1, %1417 ], [ 0, %checkEquals.exit.i341 ]
-  %1419 = load double, ptr %90, align 8, !tbaa !4
-  %1420 = fadd double %1419, 0xC043C38B3A3B0F4B
-  %1421 = call double @llvm.fabs.f64(double %1420)
-  %1422 = fcmp ugt double %1421, 5.000000e-09
-  br i1 %1422, label %1423, label %checkEquals.exit12.i345
+checkEquals.exit10.i343:                          ; preds = %1413, %checkEquals.exit.i341
+  %.0.i9.i344 = phi i32 [ 1, %1413 ], [ 0, %checkEquals.exit.i341 ]
+  %1415 = load double, ptr %90, align 8, !tbaa !4
+  %1416 = fadd double %1415, 0xC043C38B3A3B0F4B
+  %1417 = call double @llvm.fabs.f64(double %1416)
+  %1418 = fcmp ugt double %1417, 5.000000e-09
+  br i1 %1418, label %1419, label %checkEquals.exit12.i345
 
-1423:                                             ; preds = %checkEquals.exit10.i343
-  %1424 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1419, double noundef 0x4043C38B3A3B0F4B, double noundef 5.000000e-09)
+1419:                                             ; preds = %checkEquals.exit10.i343
+  %1420 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1415, double noundef 0x4043C38B3A3B0F4B, double noundef 5.000000e-09)
   br label %checkEquals.exit12.i345
 
-checkEquals.exit12.i345:                          ; preds = %1423, %checkEquals.exit10.i343
-  %.0.i11.i346 = phi i32 [ 1, %1423 ], [ 0, %checkEquals.exit10.i343 ]
-  %1425 = fadd double %1406, -3.554950e-04
-  %1426 = call double @llvm.fabs.f64(double %1425)
-  %1427 = fcmp ugt double %1426, 5.000000e-09
-  br i1 %1427, label %1428, label %checkEquals.exit14.i347
+checkEquals.exit12.i345:                          ; preds = %1419, %checkEquals.exit10.i343
+  %.0.i11.i346 = phi i32 [ 1, %1419 ], [ 0, %checkEquals.exit10.i343 ]
+  %1421 = fadd double %1402, -3.554950e-04
+  %1422 = call double @llvm.fabs.f64(double %1421)
+  %1423 = fcmp ugt double %1422, 5.000000e-09
+  br i1 %1423, label %1424, label %checkEquals.exit14.i347
 
-1428:                                             ; preds = %checkEquals.exit12.i345
-  %1429 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1406, double noundef 3.554950e-04, double noundef 5.000000e-09)
+1424:                                             ; preds = %checkEquals.exit12.i345
+  %1425 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1402, double noundef 3.554950e-04, double noundef 5.000000e-09)
   br label %checkEquals.exit14.i347
 
-checkEquals.exit14.i347:                          ; preds = %1428, %checkEquals.exit12.i345
-  %.0.i13.i348 = phi i32 [ 1, %1428 ], [ 0, %checkEquals.exit12.i345 ]
-  %1430 = load double, ptr %93, align 8, !tbaa !4
-  %1431 = fadd double %1430, 0xC043C38B3A3B0F4B
-  %1432 = call double @llvm.fabs.f64(double %1431)
-  %1433 = fcmp ugt double %1432, 5.000000e-09
-  br i1 %1433, label %1434, label %checkEquals.exit16.i349
+checkEquals.exit14.i347:                          ; preds = %1424, %checkEquals.exit12.i345
+  %.0.i13.i348 = phi i32 [ 1, %1424 ], [ 0, %checkEquals.exit12.i345 ]
+  %1426 = load double, ptr %93, align 8, !tbaa !4
+  %1427 = fadd double %1426, 0xC043C38B3A3B0F4B
+  %1428 = call double @llvm.fabs.f64(double %1427)
+  %1429 = fcmp ugt double %1428, 5.000000e-09
+  br i1 %1429, label %1430, label %checkEquals.exit16.i349
 
-1434:                                             ; preds = %checkEquals.exit14.i347
-  %1435 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1430, double noundef 0x4043C38B3A3B0F4B, double noundef 5.000000e-09)
+1430:                                             ; preds = %checkEquals.exit14.i347
+  %1431 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1426, double noundef 0x4043C38B3A3B0F4B, double noundef 5.000000e-09)
   br label %checkEquals.exit16.i349
 
-checkEquals.exit16.i349:                          ; preds = %1434, %checkEquals.exit14.i347
-  %.0.i15.i350 = phi i32 [ 1, %1434 ], [ 0, %checkEquals.exit14.i347 ]
-  %1436 = load double, ptr %94, align 8, !tbaa !4
-  %1437 = fadd double %1436, 0xBFEFFFFFFD50CE24
-  %1438 = call double @llvm.fabs.f64(double %1437)
-  %1439 = fcmp ugt double %1438, 5.000000e-09
-  br i1 %1439, label %1440, label %checkEquals.exit18.i351
+checkEquals.exit16.i349:                          ; preds = %1430, %checkEquals.exit14.i347
+  %.0.i15.i350 = phi i32 [ 1, %1430 ], [ 0, %checkEquals.exit14.i347 ]
+  %1432 = load double, ptr %94, align 8, !tbaa !4
+  %1433 = fadd double %1432, 0xBFEFFFFFFD50CE24
+  %1434 = call double @llvm.fabs.f64(double %1433)
+  %1435 = fcmp ugt double %1434, 5.000000e-09
+  br i1 %1435, label %1436, label %checkEquals.exit18.i351
 
-1440:                                             ; preds = %checkEquals.exit16.i349
-  %1441 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1436, double noundef 0x3FEFFFFFFD50CE24, double noundef 5.000000e-09)
+1436:                                             ; preds = %checkEquals.exit16.i349
+  %1437 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1432, double noundef 0x3FEFFFFFFD50CE24, double noundef 5.000000e-09)
   br label %checkEquals.exit18.i351
 
-checkEquals.exit18.i351:                          ; preds = %1440, %checkEquals.exit16.i349
-  %.0.i17.i352 = phi i32 [ 1, %1440 ], [ 0, %checkEquals.exit16.i349 ]
-  %1442 = load double, ptr %95, align 8, !tbaa !4
-  %1443 = fadd double %1442, 0xBFEFFFFFFD50CE24
-  %1444 = call double @llvm.fabs.f64(double %1443)
-  %1445 = fcmp ugt double %1444, 5.000000e-09
-  br i1 %1445, label %1446, label %checkEquals.exit20.i353
+checkEquals.exit18.i351:                          ; preds = %1436, %checkEquals.exit16.i349
+  %.0.i17.i352 = phi i32 [ 1, %1436 ], [ 0, %checkEquals.exit16.i349 ]
+  %1438 = load double, ptr %95, align 8, !tbaa !4
+  %1439 = fadd double %1438, 0xBFEFFFFFFD50CE24
+  %1440 = call double @llvm.fabs.f64(double %1439)
+  %1441 = fcmp ugt double %1440, 5.000000e-09
+  br i1 %1441, label %1442, label %checkEquals.exit20.i353
 
-1446:                                             ; preds = %checkEquals.exit18.i351
-  %1447 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1442, double noundef 0x3FEFFFFFFD50CE24, double noundef 5.000000e-09)
+1442:                                             ; preds = %checkEquals.exit18.i351
+  %1443 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1438, double noundef 0x3FEFFFFFFD50CE24, double noundef 5.000000e-09)
   br label %checkEquals.exit20.i353
 
-checkEquals.exit20.i353:                          ; preds = %1446, %checkEquals.exit18.i351
-  %.0.i19.i354 = phi i32 [ 1, %1446 ], [ 0, %checkEquals.exit18.i351 ]
-  %1448 = load double, ptr %96, align 8, !tbaa !4
-  %1449 = fadd double %1448, 0xC1B116AC5A4D4DE8
-  %1450 = call double @llvm.fabs.f64(double %1449)
-  %1451 = fcmp ugt double %1450, 5.000000e-04
-  br i1 %1451, label %1452, label %GeodSolve74.exit
+checkEquals.exit20.i353:                          ; preds = %1442, %checkEquals.exit18.i351
+  %.0.i19.i354 = phi i32 [ 1, %1442 ], [ 0, %checkEquals.exit18.i351 ]
+  %1444 = load double, ptr %96, align 8, !tbaa !4
+  %1445 = fadd double %1444, 0xC1B116AC5A4D4DE8
+  %1446 = call double @llvm.fabs.f64(double %1445)
+  %1447 = fcmp ugt double %1446, 5.000000e-04
+  br i1 %1447, label %1448, label %GeodSolve74.exit
 
-1452:                                             ; preds = %checkEquals.exit20.i353
-  %1453 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1448, double noundef 0x41B116AC5A4D4DE8, double noundef 5.000000e-04)
+1448:                                             ; preds = %checkEquals.exit20.i353
+  %1449 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1444, double noundef 0x41B116AC5A4D4DE8, double noundef 5.000000e-04)
   br label %GeodSolve74.exit
 
-GeodSolve74.exit:                                 ; preds = %checkEquals.exit20.i353, %1452
-  %.0.i21.i356 = phi i32 [ 1, %1452 ], [ 0, %checkEquals.exit20.i353 ]
-  %1454 = add nuw nsw i32 %.0.i9.i344, %.0.i.i342
-  %1455 = add nuw nsw i32 %1454, %.0.i11.i346
-  %1456 = add nuw nsw i32 %1455, %.0.i13.i348
-  %1457 = add nuw nsw i32 %1456, %.0.i15.i350
-  %1458 = add nuw nsw i32 %1457, %.0.i17.i352
-  %1459 = add nuw nsw i32 %1458, %.0.i19.i354
-  %1460 = add nuw nsw i32 %1459, %.0.i21.i356
+GeodSolve74.exit:                                 ; preds = %checkEquals.exit20.i353, %1448
+  %.0.i21.i356 = phi i32 [ 1, %1448 ], [ 0, %checkEquals.exit20.i353 ]
+  %1450 = add nuw nsw i32 %.0.i9.i344, %.0.i.i342
+  %1451 = add nuw nsw i32 %1450, %.0.i11.i346
+  %1452 = add nuw nsw i32 %1451, %.0.i13.i348
+  %1453 = add nuw nsw i32 %1452, %.0.i15.i350
+  %1454 = add nuw nsw i32 %1453, %.0.i17.i352
+  %1455 = add nuw nsw i32 %1454, %.0.i19.i354
+  %1456 = add nuw nsw i32 %1455, %.0.i21.i356
   call void @llvm.lifetime.end.p0(ptr nonnull %97)
   call void @llvm.lifetime.end.p0(ptr nonnull %96)
   call void @llvm.lifetime.end.p0(ptr nonnull %95)
@@ -2944,132 +2940,132 @@ GeodSolve74.exit:                                 ; preds = %checkEquals.exit20.
   call void @llvm.lifetime.end.p0(ptr nonnull %92)
   call void @llvm.lifetime.end.p0(ptr nonnull %91)
   call void @llvm.lifetime.end.p0(ptr nonnull %90)
-  %.not158 = icmp eq i32 %1460, 0
-  br i1 %.not158, label %1464, label %1461
+  %.not158 = icmp eq i32 %1456, 0
+  br i1 %.not158, label %1460, label %1457
 
-1461:                                             ; preds = %GeodSolve74.exit
-  %1462 = add nsw i32 %.25, 1
-  %1463 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.26, i32 noundef %1460)
-  br label %1464
+1457:                                             ; preds = %GeodSolve74.exit
+  %1458 = add nsw i32 %.25, 1
+  %1459 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.26, i32 noundef %1456)
+  br label %1460
 
-1464:                                             ; preds = %1461, %GeodSolve74.exit
-  %.26 = phi i32 [ %1462, %1461 ], [ %.25, %GeodSolve74.exit ]
+1460:                                             ; preds = %1457, %GeodSolve74.exit
+  %.26 = phi i32 [ %1458, %1457 ], [ %.25, %GeodSolve74.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %86)
   call void @llvm.lifetime.start.p0(ptr nonnull %87)
   call void @llvm.lifetime.start.p0(ptr nonnull %88)
   call void @llvm.lifetime.start.p0(ptr nonnull %89)
   call void @geod_init(ptr noundef nonnull %89, double noundef 0x415854A640000000, double noundef 0x3F6B775A84F3E128) #7
   call void @geod_inverse(ptr noundef nonnull %89, double noundef 0xC044A88888888889, double noundef 0x4065DA2222222222, double noundef 0x40447BBBBBBBBBBC, double noundef -5.500000e+00, ptr noundef nonnull %88, ptr noundef nonnull %86, ptr noundef nonnull %87) #7
-  %1465 = load double, ptr %86, align 8, !tbaa !4
-  %1466 = fadd double %1465, 0xC0640C862800AFBD
-  %1467 = call double @llvm.fabs.f64(double %1466)
-  %1468 = fcmp ugt double %1467, 5.000000e-12
-  br i1 %1468, label %1469, label %checkEquals.exit.i357
+  %1461 = load double, ptr %86, align 8, !tbaa !4
+  %1462 = fadd double %1461, 0xC0640C862800AFBD
+  %1463 = call double @llvm.fabs.f64(double %1462)
+  %1464 = fcmp ugt double %1463, 5.000000e-12
+  br i1 %1464, label %1465, label %checkEquals.exit.i357
 
-1469:                                             ; preds = %1464
-  %1470 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1465, double noundef 0x40640C862800AFBD, double noundef 5.000000e-12)
+1465:                                             ; preds = %1460
+  %1466 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1461, double noundef 0x40640C862800AFBD, double noundef 5.000000e-12)
   br label %checkEquals.exit.i357
 
-checkEquals.exit.i357:                            ; preds = %1469, %1464
-  %.0.i.i358 = phi i32 [ 1, %1469 ], [ 0, %1464 ]
-  %1471 = load double, ptr %87, align 8, !tbaa !4
-  %1472 = fadd double %1471, 0xC033801C21A6455D
-  %1473 = call double @llvm.fabs.f64(double %1472)
-  %1474 = fcmp ugt double %1473, 5.000000e-12
-  br i1 %1474, label %1475, label %checkEquals.exit5.i359
+checkEquals.exit.i357:                            ; preds = %1465, %1460
+  %.0.i.i358 = phi i32 [ 1, %1465 ], [ 0, %1460 ]
+  %1467 = load double, ptr %87, align 8, !tbaa !4
+  %1468 = fadd double %1467, 0xC033801C21A6455D
+  %1469 = call double @llvm.fabs.f64(double %1468)
+  %1470 = fcmp ugt double %1469, 5.000000e-12
+  br i1 %1470, label %1471, label %checkEquals.exit5.i359
 
-1475:                                             ; preds = %checkEquals.exit.i357
-  %1476 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1471, double noundef 0x4033801C21A6455D, double noundef 5.000000e-12)
+1471:                                             ; preds = %checkEquals.exit.i357
+  %1472 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1467, double noundef 0x4033801C21A6455D, double noundef 5.000000e-12)
   br label %checkEquals.exit5.i359
 
-checkEquals.exit5.i359:                           ; preds = %1475, %checkEquals.exit.i357
-  %.0.i4.i360 = phi i32 [ 1, %1475 ], [ 0, %checkEquals.exit.i357 ]
-  %1477 = load double, ptr %88, align 8, !tbaa !4
-  %1478 = fadd double %1477, 0xC173092DFDB70154
-  %1479 = call double @llvm.fabs.f64(double %1478)
-  %1480 = fcmp ugt double %1479, 5.000000e-07
-  br i1 %1480, label %1481, label %GeodSolve76.exit
+checkEquals.exit5.i359:                           ; preds = %1471, %checkEquals.exit.i357
+  %.0.i4.i360 = phi i32 [ 1, %1471 ], [ 0, %checkEquals.exit.i357 ]
+  %1473 = load double, ptr %88, align 8, !tbaa !4
+  %1474 = fadd double %1473, 0xC173092DFDB70154
+  %1475 = call double @llvm.fabs.f64(double %1474)
+  %1476 = fcmp ugt double %1475, 5.000000e-07
+  br i1 %1476, label %1477, label %GeodSolve76.exit
 
-1481:                                             ; preds = %checkEquals.exit5.i359
-  %1482 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1477, double noundef 0x4173092DFDB70154, double noundef 5.000000e-07)
+1477:                                             ; preds = %checkEquals.exit5.i359
+  %1478 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1473, double noundef 0x4173092DFDB70154, double noundef 5.000000e-07)
   br label %GeodSolve76.exit
 
-GeodSolve76.exit:                                 ; preds = %checkEquals.exit5.i359, %1481
-  %.0.i6.i361 = phi i32 [ 1, %1481 ], [ 0, %checkEquals.exit5.i359 ]
-  %1483 = add nuw nsw i32 %.0.i4.i360, %.0.i.i358
-  %1484 = add nuw nsw i32 %1483, %.0.i6.i361
+GeodSolve76.exit:                                 ; preds = %checkEquals.exit5.i359, %1477
+  %.0.i6.i361 = phi i32 [ 1, %1477 ], [ 0, %checkEquals.exit5.i359 ]
+  %1479 = add nuw nsw i32 %.0.i4.i360, %.0.i.i358
+  %1480 = add nuw nsw i32 %1479, %.0.i6.i361
   call void @llvm.lifetime.end.p0(ptr nonnull %89)
   call void @llvm.lifetime.end.p0(ptr nonnull %88)
   call void @llvm.lifetime.end.p0(ptr nonnull %87)
   call void @llvm.lifetime.end.p0(ptr nonnull %86)
-  %.not159 = icmp eq i32 %1484, 0
-  br i1 %.not159, label %1488, label %1485
+  %.not159 = icmp eq i32 %1480, 0
+  br i1 %.not159, label %1484, label %1481
 
-1485:                                             ; preds = %GeodSolve76.exit
-  %1486 = add nsw i32 %.26, 1
-  %1487 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.27, i32 noundef %1484)
-  br label %1488
+1481:                                             ; preds = %GeodSolve76.exit
+  %1482 = add nsw i32 %.26, 1
+  %1483 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.27, i32 noundef %1480)
+  br label %1484
 
-1488:                                             ; preds = %1485, %GeodSolve76.exit
-  %.27 = phi i32 [ %1486, %1485 ], [ %.26, %GeodSolve76.exit ]
+1484:                                             ; preds = %1481, %GeodSolve76.exit
+  %.27 = phi i32 [ %1482, %1481 ], [ %.26, %GeodSolve76.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %82)
   call void @llvm.lifetime.start.p0(ptr nonnull %83)
   call void @llvm.lifetime.start.p0(ptr nonnull %84)
   call void @llvm.lifetime.start.p0(ptr nonnull %85)
   call void @geod_init(ptr noundef nonnull %85, double noundef 0x415854A640000000, double noundef 0x3F6B775A84F3E128) #7
   call void @geod_inverse(ptr noundef nonnull %85, double noundef 2.720000e+01, double noundef 0.000000e+00, double noundef -2.710000e+01, double noundef 1.795000e+02, ptr noundef nonnull %84, ptr noundef nonnull %82, ptr noundef nonnull %83) #7
-  %1489 = load double, ptr %82, align 8, !tbaa !4
-  %1490 = fadd double %1489, 0xC046E98F595F17EF
-  %1491 = call double @llvm.fabs.f64(double %1490)
-  %1492 = fcmp ugt double %1491, 5.000000e-12
-  br i1 %1492, label %1493, label %checkEquals.exit.i362
+  %1485 = load double, ptr %82, align 8, !tbaa !4
+  %1486 = fadd double %1485, 0xC046E98F595F17EF
+  %1487 = call double @llvm.fabs.f64(double %1486)
+  %1488 = fcmp ugt double %1487, 5.000000e-12
+  br i1 %1488, label %1489, label %checkEquals.exit.i362
 
-1493:                                             ; preds = %1488
-  %1494 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1489, double noundef 0x4046E98F595F17EF, double noundef 5.000000e-12)
+1489:                                             ; preds = %1484
+  %1490 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1485, double noundef 0x4046E98F595F17EF, double noundef 5.000000e-12)
   br label %checkEquals.exit.i362
 
-checkEquals.exit.i362:                            ; preds = %1493, %1488
-  %.0.i.i363 = phi i32 [ 1, %1493 ], [ 0, %1488 ]
-  %1495 = load double, ptr %83, align 8, !tbaa !4
-  %1496 = fadd double %1495, 0xC060C749DA82AADB
-  %1497 = call double @llvm.fabs.f64(double %1496)
-  %1498 = fcmp ugt double %1497, 5.000000e-12
-  br i1 %1498, label %1499, label %checkEquals.exit5.i364
+checkEquals.exit.i362:                            ; preds = %1489, %1484
+  %.0.i.i363 = phi i32 [ 1, %1489 ], [ 0, %1484 ]
+  %1491 = load double, ptr %83, align 8, !tbaa !4
+  %1492 = fadd double %1491, 0xC060C749DA82AADB
+  %1493 = call double @llvm.fabs.f64(double %1492)
+  %1494 = fcmp ugt double %1493, 5.000000e-12
+  br i1 %1494, label %1495, label %checkEquals.exit5.i364
 
-1499:                                             ; preds = %checkEquals.exit.i362
-  %1500 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1495, double noundef 0x4060C749DA82AADB, double noundef 5.000000e-12)
+1495:                                             ; preds = %checkEquals.exit.i362
+  %1496 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1491, double noundef 0x4060C749DA82AADB, double noundef 5.000000e-12)
   br label %checkEquals.exit5.i364
 
-checkEquals.exit5.i364:                           ; preds = %1499, %checkEquals.exit.i362
-  %.0.i4.i365 = phi i32 [ 1, %1499 ], [ 0, %checkEquals.exit.i362 ]
-  %1501 = load double, ptr %84, align 8, !tbaa !4
-  %1502 = fadd double %1501, 0xC1730C8D2C4094E6
-  %1503 = call double @llvm.fabs.f64(double %1502)
-  %1504 = fcmp ugt double %1503, 5.000000e-07
-  br i1 %1504, label %1505, label %GeodSolve78.exit
+checkEquals.exit5.i364:                           ; preds = %1495, %checkEquals.exit.i362
+  %.0.i4.i365 = phi i32 [ 1, %1495 ], [ 0, %checkEquals.exit.i362 ]
+  %1497 = load double, ptr %84, align 8, !tbaa !4
+  %1498 = fadd double %1497, 0xC1730C8D2C4094E6
+  %1499 = call double @llvm.fabs.f64(double %1498)
+  %1500 = fcmp ugt double %1499, 5.000000e-07
+  br i1 %1500, label %1501, label %GeodSolve78.exit
 
-1505:                                             ; preds = %checkEquals.exit5.i364
-  %1506 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1501, double noundef 0x41730C8D2C4094E6, double noundef 5.000000e-07)
+1501:                                             ; preds = %checkEquals.exit5.i364
+  %1502 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1497, double noundef 0x41730C8D2C4094E6, double noundef 5.000000e-07)
   br label %GeodSolve78.exit
 
-GeodSolve78.exit:                                 ; preds = %checkEquals.exit5.i364, %1505
-  %.0.i6.i366 = phi i32 [ 1, %1505 ], [ 0, %checkEquals.exit5.i364 ]
-  %1507 = add nuw nsw i32 %.0.i4.i365, %.0.i.i363
-  %1508 = add nuw nsw i32 %1507, %.0.i6.i366
+GeodSolve78.exit:                                 ; preds = %checkEquals.exit5.i364, %1501
+  %.0.i6.i366 = phi i32 [ 1, %1501 ], [ 0, %checkEquals.exit5.i364 ]
+  %1503 = add nuw nsw i32 %.0.i4.i365, %.0.i.i363
+  %1504 = add nuw nsw i32 %1503, %.0.i6.i366
   call void @llvm.lifetime.end.p0(ptr nonnull %85)
   call void @llvm.lifetime.end.p0(ptr nonnull %84)
   call void @llvm.lifetime.end.p0(ptr nonnull %83)
   call void @llvm.lifetime.end.p0(ptr nonnull %82)
-  %.not160 = icmp eq i32 %1508, 0
-  br i1 %.not160, label %1512, label %1509
+  %.not160 = icmp eq i32 %1504, 0
+  br i1 %.not160, label %1508, label %1505
 
-1509:                                             ; preds = %GeodSolve78.exit
-  %1510 = add nsw i32 %.27, 1
-  %1511 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.28, i32 noundef %1508)
-  br label %1512
+1505:                                             ; preds = %GeodSolve78.exit
+  %1506 = add nsw i32 %.27, 1
+  %1507 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.28, i32 noundef %1504)
+  br label %1508
 
-1512:                                             ; preds = %1509, %GeodSolve78.exit
-  %.28 = phi i32 [ %1510, %1509 ], [ %.27, %GeodSolve78.exit ]
+1508:                                             ; preds = %1505, %GeodSolve78.exit
+  %.28 = phi i32 [ %1506, %1505 ], [ %.27, %GeodSolve78.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %73)
   call void @llvm.lifetime.start.p0(ptr nonnull %74)
   call void @llvm.lifetime.start.p0(ptr nonnull %75)
@@ -3080,285 +3076,285 @@ GeodSolve78.exit:                                 ; preds = %checkEquals.exit5.i
   call void @llvm.lifetime.start.p0(ptr nonnull %80)
   call void @llvm.lifetime.start.p0(ptr nonnull %81)
   call void @geod_init(ptr noundef nonnull %80, double noundef 0x415854A640000000, double noundef 0x3F6B775A84F3E128) #7
-  %1513 = call double @geod_geninverse(ptr noundef nonnull %80, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef 9.000000e+01, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %77, ptr noundef nonnull %78, ptr noundef null) #7
-  %1514 = load double, ptr %77, align 8, !tbaa !4
-  %1515 = fadd double %1514, 0x3F75A4F6DC4B331A
-  %1516 = call double @llvm.fabs.f64(double %1515)
-  %1517 = fcmp ugt double %1516, 5.000000e-11
-  br i1 %1517, label %1518, label %checkEquals.exit.i367
+  %1509 = call double @geod_geninverse(ptr noundef nonnull %80, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef 9.000000e+01, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %77, ptr noundef nonnull %78, ptr noundef null) #7
+  %1510 = load double, ptr %77, align 8, !tbaa !4
+  %1511 = fadd double %1510, 0x3F75A4F6DC4B331A
+  %1512 = call double @llvm.fabs.f64(double %1511)
+  %1513 = fcmp ugt double %1512, 5.000000e-11
+  br i1 %1513, label %1514, label %checkEquals.exit.i367
 
-1518:                                             ; preds = %1512
-  %1519 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1514, double noundef 0xBF75A4F6DC4B331A, double noundef 5.000000e-11)
+1514:                                             ; preds = %1508
+  %1515 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1510, double noundef 0xBF75A4F6DC4B331A, double noundef 5.000000e-11)
   br label %checkEquals.exit.i367
 
-checkEquals.exit.i367:                            ; preds = %1518, %1512
-  %.0.i.i368 = phi i32 [ 1, %1518 ], [ 0, %1512 ]
-  %1520 = load double, ptr %78, align 8, !tbaa !4
-  %1521 = fadd double %1520, 0x3F75A4F6DC4B331A
-  %1522 = call double @llvm.fabs.f64(double %1521)
-  %1523 = fcmp ugt double %1522, 5.000000e-11
-  br i1 %1523, label %1524, label %checkEquals.exit29.i
+checkEquals.exit.i367:                            ; preds = %1514, %1508
+  %.0.i.i368 = phi i32 [ 1, %1514 ], [ 0, %1508 ]
+  %1516 = load double, ptr %78, align 8, !tbaa !4
+  %1517 = fadd double %1516, 0x3F75A4F6DC4B331A
+  %1518 = call double @llvm.fabs.f64(double %1517)
+  %1519 = fcmp ugt double %1518, 5.000000e-11
+  br i1 %1519, label %1520, label %checkEquals.exit29.i
 
-1524:                                             ; preds = %checkEquals.exit.i367
-  %1525 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1520, double noundef 0xBF75A4F6DC4B331A, double noundef 5.000000e-11)
+1520:                                             ; preds = %checkEquals.exit.i367
+  %1521 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1516, double noundef 0xBF75A4F6DC4B331A, double noundef 5.000000e-11)
   br label %checkEquals.exit29.i
 
-checkEquals.exit29.i:                             ; preds = %1524, %checkEquals.exit.i367
-  %.0.i28.i = phi i32 [ 1, %1524 ], [ 0, %checkEquals.exit.i367 ]
-  %1526 = call double @geod_geninverse(ptr noundef nonnull %80, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef 0x3EB0C6F7A0B5ED8D, double noundef 0x3EB0C6F7A0B5ED8D, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %77, ptr noundef nonnull %78, ptr noundef null) #7
-  %1527 = load double, ptr %77, align 8, !tbaa !4
-  %1528 = fadd double %1527, -1.000000e+00
-  %1529 = call double @llvm.fabs.f64(double %1528)
-  %1530 = fcmp ugt double %1529, 5.000000e-11
-  br i1 %1530, label %1531, label %checkEquals.exit31.i
+checkEquals.exit29.i:                             ; preds = %1520, %checkEquals.exit.i367
+  %.0.i28.i = phi i32 [ 1, %1520 ], [ 0, %checkEquals.exit.i367 ]
+  %1522 = call double @geod_geninverse(ptr noundef nonnull %80, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef 0x3EB0C6F7A0B5ED8D, double noundef 0x3EB0C6F7A0B5ED8D, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %77, ptr noundef nonnull %78, ptr noundef null) #7
+  %1523 = load double, ptr %77, align 8, !tbaa !4
+  %1524 = fadd double %1523, -1.000000e+00
+  %1525 = call double @llvm.fabs.f64(double %1524)
+  %1526 = fcmp ugt double %1525, 5.000000e-11
+  br i1 %1526, label %1527, label %checkEquals.exit31.i
 
-1531:                                             ; preds = %checkEquals.exit29.i
-  %1532 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1527, double noundef 1.000000e+00, double noundef 5.000000e-11)
+1527:                                             ; preds = %checkEquals.exit29.i
+  %1528 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1523, double noundef 1.000000e+00, double noundef 5.000000e-11)
   br label %checkEquals.exit31.i
 
-checkEquals.exit31.i:                             ; preds = %1531, %checkEquals.exit29.i
-  %.0.i30.i = phi i32 [ 1, %1531 ], [ 0, %checkEquals.exit29.i ]
-  %1533 = load double, ptr %78, align 8, !tbaa !4
-  %1534 = fadd double %1533, -1.000000e+00
-  %1535 = call double @llvm.fabs.f64(double %1534)
-  %1536 = fcmp ugt double %1535, 5.000000e-11
-  br i1 %1536, label %1537, label %checkEquals.exit33.i
+checkEquals.exit31.i:                             ; preds = %1527, %checkEquals.exit29.i
+  %.0.i30.i = phi i32 [ 1, %1527 ], [ 0, %checkEquals.exit29.i ]
+  %1529 = load double, ptr %78, align 8, !tbaa !4
+  %1530 = fadd double %1529, -1.000000e+00
+  %1531 = call double @llvm.fabs.f64(double %1530)
+  %1532 = fcmp ugt double %1531, 5.000000e-11
+  br i1 %1532, label %1533, label %checkEquals.exit33.i
 
-1537:                                             ; preds = %checkEquals.exit31.i
-  %1538 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1533, double noundef 1.000000e+00, double noundef 5.000000e-11)
+1533:                                             ; preds = %checkEquals.exit31.i
+  %1534 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1529, double noundef 1.000000e+00, double noundef 5.000000e-11)
   br label %checkEquals.exit33.i
 
-checkEquals.exit33.i:                             ; preds = %1537, %checkEquals.exit31.i
-  %.0.i32.i = phi i32 [ 1, %1537 ], [ 0, %checkEquals.exit31.i ]
-  %1539 = call double @geod_geninverse(ptr noundef nonnull %80, double noundef 2.000100e+01, double noundef 0.000000e+00, double noundef 2.000100e+01, double noundef 0.000000e+00, ptr noundef nonnull %73, ptr noundef nonnull %74, ptr noundef nonnull %75, ptr noundef nonnull %76, ptr noundef nonnull %77, ptr noundef nonnull %78, ptr noundef nonnull %79) #7
-  %1540 = call double @llvm.fabs.f64(double %1539)
-  %1541 = fcmp ugt double %1540, 1.000000e-13
-  br i1 %1541, label %1542, label %checkEquals.exit35.i369
+checkEquals.exit33.i:                             ; preds = %1533, %checkEquals.exit31.i
+  %.0.i32.i = phi i32 [ 1, %1533 ], [ 0, %checkEquals.exit31.i ]
+  %1535 = call double @geod_geninverse(ptr noundef nonnull %80, double noundef 2.000100e+01, double noundef 0.000000e+00, double noundef 2.000100e+01, double noundef 0.000000e+00, ptr noundef nonnull %73, ptr noundef nonnull %74, ptr noundef nonnull %75, ptr noundef nonnull %76, ptr noundef nonnull %77, ptr noundef nonnull %78, ptr noundef nonnull %79) #7
+  %1536 = call double @llvm.fabs.f64(double %1535)
+  %1537 = fcmp ugt double %1536, 1.000000e-13
+  br i1 %1537, label %1538, label %checkEquals.exit35.i369
 
-1542:                                             ; preds = %checkEquals.exit33.i
-  %1543 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1539, double noundef 0.000000e+00, double noundef 1.000000e-13)
+1538:                                             ; preds = %checkEquals.exit33.i
+  %1539 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1535, double noundef 0.000000e+00, double noundef 1.000000e-13)
   br label %checkEquals.exit35.i369
 
-checkEquals.exit35.i369:                          ; preds = %1542, %checkEquals.exit33.i
-  %.0.i34.i370 = phi i32 [ 1, %1542 ], [ 0, %checkEquals.exit33.i ]
-  %1544 = load double, ptr %73, align 8, !tbaa !4
-  %1545 = call double @llvm.fabs.f64(double %1544)
-  %1546 = fcmp ugt double %1545, 1.000000e-08
-  br i1 %1546, label %1547, label %checkEquals.exit37.i371
+checkEquals.exit35.i369:                          ; preds = %1538, %checkEquals.exit33.i
+  %.0.i34.i370 = phi i32 [ 1, %1538 ], [ 0, %checkEquals.exit33.i ]
+  %1540 = load double, ptr %73, align 8, !tbaa !4
+  %1541 = call double @llvm.fabs.f64(double %1540)
+  %1542 = fcmp ugt double %1541, 1.000000e-08
+  br i1 %1542, label %1543, label %checkEquals.exit37.i371
 
-1547:                                             ; preds = %checkEquals.exit35.i369
-  %1548 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1544, double noundef 0.000000e+00, double noundef 1.000000e-08)
+1543:                                             ; preds = %checkEquals.exit35.i369
+  %1544 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1540, double noundef 0.000000e+00, double noundef 1.000000e-08)
   br label %checkEquals.exit37.i371
 
-checkEquals.exit37.i371:                          ; preds = %1547, %checkEquals.exit35.i369
-  %.0.i36.i372 = phi i32 [ 1, %1547 ], [ 0, %checkEquals.exit35.i369 ]
-  %1549 = load double, ptr %74, align 8, !tbaa !4
-  %1550 = fadd double %1549, -1.800000e+02
-  %1551 = call double @llvm.fabs.f64(double %1550)
-  %1552 = fcmp ugt double %1551, 1.000000e-13
-  br i1 %1552, label %1553, label %checkEquals.exit39.i373
+checkEquals.exit37.i371:                          ; preds = %1543, %checkEquals.exit35.i369
+  %.0.i36.i372 = phi i32 [ 1, %1543 ], [ 0, %checkEquals.exit35.i369 ]
+  %1545 = load double, ptr %74, align 8, !tbaa !4
+  %1546 = fadd double %1545, -1.800000e+02
+  %1547 = call double @llvm.fabs.f64(double %1546)
+  %1548 = fcmp ugt double %1547, 1.000000e-13
+  br i1 %1548, label %1549, label %checkEquals.exit39.i373
 
-1553:                                             ; preds = %checkEquals.exit37.i371
-  %1554 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1549, double noundef 1.800000e+02, double noundef 1.000000e-13)
+1549:                                             ; preds = %checkEquals.exit37.i371
+  %1550 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1545, double noundef 1.800000e+02, double noundef 1.000000e-13)
   br label %checkEquals.exit39.i373
 
-checkEquals.exit39.i373:                          ; preds = %1553, %checkEquals.exit37.i371
-  %.0.i38.i374 = phi i32 [ 1, %1553 ], [ 0, %checkEquals.exit37.i371 ]
-  %1555 = load double, ptr %75, align 8, !tbaa !4
-  %1556 = fadd double %1555, -1.800000e+02
-  %1557 = call double @llvm.fabs.f64(double %1556)
-  %1558 = fcmp ugt double %1557, 1.000000e-13
-  br i1 %1558, label %1559, label %checkEquals.exit41.i375
+checkEquals.exit39.i373:                          ; preds = %1549, %checkEquals.exit37.i371
+  %.0.i38.i374 = phi i32 [ 1, %1549 ], [ 0, %checkEquals.exit37.i371 ]
+  %1551 = load double, ptr %75, align 8, !tbaa !4
+  %1552 = fadd double %1551, -1.800000e+02
+  %1553 = call double @llvm.fabs.f64(double %1552)
+  %1554 = fcmp ugt double %1553, 1.000000e-13
+  br i1 %1554, label %1555, label %checkEquals.exit41.i375
 
-1559:                                             ; preds = %checkEquals.exit39.i373
-  %1560 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1555, double noundef 1.800000e+02, double noundef 1.000000e-13)
+1555:                                             ; preds = %checkEquals.exit39.i373
+  %1556 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1551, double noundef 1.800000e+02, double noundef 1.000000e-13)
   br label %checkEquals.exit41.i375
 
-checkEquals.exit41.i375:                          ; preds = %1559, %checkEquals.exit39.i373
-  %.0.i40.i376 = phi i32 [ 1, %1559 ], [ 0, %checkEquals.exit39.i373 ]
-  %1561 = load double, ptr %76, align 8, !tbaa !4
-  %1562 = call double @llvm.fabs.f64(double %1561)
-  %1563 = fcmp ugt double %1562, 1.000000e-08
-  br i1 %1563, label %1564, label %checkEquals.exit43.i377
+checkEquals.exit41.i375:                          ; preds = %1555, %checkEquals.exit39.i373
+  %.0.i40.i376 = phi i32 [ 1, %1555 ], [ 0, %checkEquals.exit39.i373 ]
+  %1557 = load double, ptr %76, align 8, !tbaa !4
+  %1558 = call double @llvm.fabs.f64(double %1557)
+  %1559 = fcmp ugt double %1558, 1.000000e-08
+  br i1 %1559, label %1560, label %checkEquals.exit43.i377
 
-1564:                                             ; preds = %checkEquals.exit41.i375
-  %1565 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1561, double noundef 0.000000e+00, double noundef 1.000000e-08)
+1560:                                             ; preds = %checkEquals.exit41.i375
+  %1561 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1557, double noundef 0.000000e+00, double noundef 1.000000e-08)
   br label %checkEquals.exit43.i377
 
-checkEquals.exit43.i377:                          ; preds = %1564, %checkEquals.exit41.i375
-  %.0.i42.i378 = phi i32 [ 1, %1564 ], [ 0, %checkEquals.exit41.i375 ]
-  %1566 = load double, ptr %77, align 8, !tbaa !4
-  %1567 = fadd double %1566, -1.000000e+00
-  %1568 = call double @llvm.fabs.f64(double %1567)
-  %1569 = fcmp ugt double %1568, 1.000000e-15
-  br i1 %1569, label %1570, label %checkEquals.exit45.i379
+checkEquals.exit43.i377:                          ; preds = %1560, %checkEquals.exit41.i375
+  %.0.i42.i378 = phi i32 [ 1, %1560 ], [ 0, %checkEquals.exit41.i375 ]
+  %1562 = load double, ptr %77, align 8, !tbaa !4
+  %1563 = fadd double %1562, -1.000000e+00
+  %1564 = call double @llvm.fabs.f64(double %1563)
+  %1565 = fcmp ugt double %1564, 1.000000e-15
+  br i1 %1565, label %1566, label %checkEquals.exit45.i379
 
-1570:                                             ; preds = %checkEquals.exit43.i377
-  %1571 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1566, double noundef 1.000000e+00, double noundef 1.000000e-15)
+1566:                                             ; preds = %checkEquals.exit43.i377
+  %1567 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1562, double noundef 1.000000e+00, double noundef 1.000000e-15)
   br label %checkEquals.exit45.i379
 
-checkEquals.exit45.i379:                          ; preds = %1570, %checkEquals.exit43.i377
-  %.0.i44.i380 = phi i32 [ 1, %1570 ], [ 0, %checkEquals.exit43.i377 ]
-  %1572 = load double, ptr %78, align 8, !tbaa !4
-  %1573 = fadd double %1572, -1.000000e+00
-  %1574 = call double @llvm.fabs.f64(double %1573)
-  %1575 = fcmp ugt double %1574, 1.000000e-15
-  br i1 %1575, label %1576, label %checkEquals.exit47.i381
+checkEquals.exit45.i379:                          ; preds = %1566, %checkEquals.exit43.i377
+  %.0.i44.i380 = phi i32 [ 1, %1566 ], [ 0, %checkEquals.exit43.i377 ]
+  %1568 = load double, ptr %78, align 8, !tbaa !4
+  %1569 = fadd double %1568, -1.000000e+00
+  %1570 = call double @llvm.fabs.f64(double %1569)
+  %1571 = fcmp ugt double %1570, 1.000000e-15
+  br i1 %1571, label %1572, label %checkEquals.exit47.i381
 
-1576:                                             ; preds = %checkEquals.exit45.i379
-  %1577 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1572, double noundef 1.000000e+00, double noundef 1.000000e-15)
+1572:                                             ; preds = %checkEquals.exit45.i379
+  %1573 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1568, double noundef 1.000000e+00, double noundef 1.000000e-15)
   br label %checkEquals.exit47.i381
 
-checkEquals.exit47.i381:                          ; preds = %1576, %checkEquals.exit45.i379
-  %.0.i46.i382 = phi i32 [ 1, %1576 ], [ 0, %checkEquals.exit45.i379 ]
-  %1578 = load double, ptr %79, align 8, !tbaa !4
-  %1579 = call double @llvm.fabs.f64(double %1578)
-  %1580 = fcmp ugt double %1579, 1.000000e-10
-  br i1 %1580, label %1581, label %checkEquals.exit49.i383
+checkEquals.exit47.i381:                          ; preds = %1572, %checkEquals.exit45.i379
+  %.0.i46.i382 = phi i32 [ 1, %1572 ], [ 0, %checkEquals.exit45.i379 ]
+  %1574 = load double, ptr %79, align 8, !tbaa !4
+  %1575 = call double @llvm.fabs.f64(double %1574)
+  %1576 = fcmp ugt double %1575, 1.000000e-10
+  br i1 %1576, label %1577, label %checkEquals.exit49.i383
 
-1581:                                             ; preds = %checkEquals.exit47.i381
-  %1582 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1578, double noundef 0.000000e+00, double noundef 1.000000e-10)
+1577:                                             ; preds = %checkEquals.exit47.i381
+  %1578 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1574, double noundef 0.000000e+00, double noundef 1.000000e-10)
   br label %checkEquals.exit49.i383
 
-checkEquals.exit49.i383:                          ; preds = %1581, %checkEquals.exit47.i381
-  %.0.i48.i384 = phi i32 [ 1, %1581 ], [ 0, %checkEquals.exit47.i381 ]
-  %1583 = load double, ptr %73, align 8, !tbaa !4
-  %1584 = load double, ptr %76, align 8, !tbaa !4
-  %1585 = call double @geod_geninverse(ptr noundef nonnull %80, double noundef 9.000000e+01, double noundef 0.000000e+00, double noundef 9.000000e+01, double noundef 1.800000e+02, ptr noundef nonnull %73, ptr noundef nonnull %74, ptr noundef nonnull %75, ptr noundef nonnull %76, ptr noundef nonnull %77, ptr noundef nonnull %78, ptr noundef nonnull %79) #7
-  %1586 = call double @llvm.fabs.f64(double %1585)
-  %1587 = fcmp ugt double %1586, 1.000000e-13
-  br i1 %1587, label %1588, label %checkEquals.exit51.i385
+checkEquals.exit49.i383:                          ; preds = %1577, %checkEquals.exit47.i381
+  %.0.i48.i384 = phi i32 [ 1, %1577 ], [ 0, %checkEquals.exit47.i381 ]
+  %1579 = load double, ptr %73, align 8, !tbaa !4
+  %1580 = load double, ptr %76, align 8, !tbaa !4
+  %1581 = call double @geod_geninverse(ptr noundef nonnull %80, double noundef 9.000000e+01, double noundef 0.000000e+00, double noundef 9.000000e+01, double noundef 1.800000e+02, ptr noundef nonnull %73, ptr noundef nonnull %74, ptr noundef nonnull %75, ptr noundef nonnull %76, ptr noundef nonnull %77, ptr noundef nonnull %78, ptr noundef nonnull %79) #7
+  %1582 = call double @llvm.fabs.f64(double %1581)
+  %1583 = fcmp ugt double %1582, 1.000000e-13
+  br i1 %1583, label %1584, label %checkEquals.exit51.i385
 
-1588:                                             ; preds = %checkEquals.exit49.i383
-  %1589 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1585, double noundef 0.000000e+00, double noundef 1.000000e-13)
+1584:                                             ; preds = %checkEquals.exit49.i383
+  %1585 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1581, double noundef 0.000000e+00, double noundef 1.000000e-13)
   br label %checkEquals.exit51.i385
 
-checkEquals.exit51.i385:                          ; preds = %1588, %checkEquals.exit49.i383
-  %.0.i50.i386 = phi i32 [ 1, %1588 ], [ 0, %checkEquals.exit49.i383 ]
-  %1590 = load double, ptr %73, align 8, !tbaa !4
-  %1591 = call double @llvm.fabs.f64(double %1590)
-  %1592 = fcmp ugt double %1591, 1.000000e-08
-  br i1 %1592, label %1593, label %checkEquals.exit53.i387
+checkEquals.exit51.i385:                          ; preds = %1584, %checkEquals.exit49.i383
+  %.0.i50.i386 = phi i32 [ 1, %1584 ], [ 0, %checkEquals.exit49.i383 ]
+  %1586 = load double, ptr %73, align 8, !tbaa !4
+  %1587 = call double @llvm.fabs.f64(double %1586)
+  %1588 = fcmp ugt double %1587, 1.000000e-08
+  br i1 %1588, label %1589, label %checkEquals.exit53.i387
 
-1593:                                             ; preds = %checkEquals.exit51.i385
-  %1594 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1590, double noundef 0.000000e+00, double noundef 1.000000e-08)
+1589:                                             ; preds = %checkEquals.exit51.i385
+  %1590 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1586, double noundef 0.000000e+00, double noundef 1.000000e-08)
   br label %checkEquals.exit53.i387
 
-checkEquals.exit53.i387:                          ; preds = %1593, %checkEquals.exit51.i385
-  %.0.i52.i388 = phi i32 [ 1, %1593 ], [ 0, %checkEquals.exit51.i385 ]
-  %1595 = load double, ptr %74, align 8, !tbaa !4
-  %1596 = call double @llvm.fabs.f64(double %1595)
-  %1597 = fcmp ugt double %1596, 1.000000e-13
-  br i1 %1597, label %1598, label %checkEquals.exit55.i389
+checkEquals.exit53.i387:                          ; preds = %1589, %checkEquals.exit51.i385
+  %.0.i52.i388 = phi i32 [ 1, %1589 ], [ 0, %checkEquals.exit51.i385 ]
+  %1591 = load double, ptr %74, align 8, !tbaa !4
+  %1592 = call double @llvm.fabs.f64(double %1591)
+  %1593 = fcmp ugt double %1592, 1.000000e-13
+  br i1 %1593, label %1594, label %checkEquals.exit55.i389
 
-1598:                                             ; preds = %checkEquals.exit53.i387
-  %1599 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1595, double noundef 0.000000e+00, double noundef 1.000000e-13)
+1594:                                             ; preds = %checkEquals.exit53.i387
+  %1595 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1591, double noundef 0.000000e+00, double noundef 1.000000e-13)
   br label %checkEquals.exit55.i389
 
-checkEquals.exit55.i389:                          ; preds = %1598, %checkEquals.exit53.i387
-  %.0.i54.i390 = phi i32 [ 1, %1598 ], [ 0, %checkEquals.exit53.i387 ]
-  %1600 = load double, ptr %75, align 8, !tbaa !4
-  %1601 = fadd double %1600, -1.800000e+02
-  %1602 = call double @llvm.fabs.f64(double %1601)
-  %1603 = fcmp ugt double %1602, 1.000000e-13
-  br i1 %1603, label %1604, label %checkEquals.exit57.i391
+checkEquals.exit55.i389:                          ; preds = %1594, %checkEquals.exit53.i387
+  %.0.i54.i390 = phi i32 [ 1, %1594 ], [ 0, %checkEquals.exit53.i387 ]
+  %1596 = load double, ptr %75, align 8, !tbaa !4
+  %1597 = fadd double %1596, -1.800000e+02
+  %1598 = call double @llvm.fabs.f64(double %1597)
+  %1599 = fcmp ugt double %1598, 1.000000e-13
+  br i1 %1599, label %1600, label %checkEquals.exit57.i391
 
-1604:                                             ; preds = %checkEquals.exit55.i389
-  %1605 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1600, double noundef 1.800000e+02, double noundef 1.000000e-13)
+1600:                                             ; preds = %checkEquals.exit55.i389
+  %1601 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1596, double noundef 1.800000e+02, double noundef 1.000000e-13)
   br label %checkEquals.exit57.i391
 
-checkEquals.exit57.i391:                          ; preds = %1604, %checkEquals.exit55.i389
-  %.0.i56.i392 = phi i32 [ 1, %1604 ], [ 0, %checkEquals.exit55.i389 ]
-  %1606 = load double, ptr %76, align 8, !tbaa !4
-  %1607 = call double @llvm.fabs.f64(double %1606)
-  %1608 = fcmp ugt double %1607, 1.000000e-08
-  br i1 %1608, label %1609, label %checkEquals.exit59.i393
+checkEquals.exit57.i391:                          ; preds = %1600, %checkEquals.exit55.i389
+  %.0.i56.i392 = phi i32 [ 1, %1600 ], [ 0, %checkEquals.exit55.i389 ]
+  %1602 = load double, ptr %76, align 8, !tbaa !4
+  %1603 = call double @llvm.fabs.f64(double %1602)
+  %1604 = fcmp ugt double %1603, 1.000000e-08
+  br i1 %1604, label %1605, label %checkEquals.exit59.i393
 
-1609:                                             ; preds = %checkEquals.exit57.i391
-  %1610 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1606, double noundef 0.000000e+00, double noundef 1.000000e-08)
+1605:                                             ; preds = %checkEquals.exit57.i391
+  %1606 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1602, double noundef 0.000000e+00, double noundef 1.000000e-08)
   br label %checkEquals.exit59.i393
 
-checkEquals.exit59.i393:                          ; preds = %1609, %checkEquals.exit57.i391
-  %.0.i58.i394 = phi i32 [ 1, %1609 ], [ 0, %checkEquals.exit57.i391 ]
-  %1611 = load double, ptr %77, align 8, !tbaa !4
-  %1612 = fadd double %1611, -1.000000e+00
-  %1613 = call double @llvm.fabs.f64(double %1612)
-  %1614 = fcmp ugt double %1613, 1.000000e-15
-  br i1 %1614, label %1615, label %checkEquals.exit61.i395
+checkEquals.exit59.i393:                          ; preds = %1605, %checkEquals.exit57.i391
+  %.0.i58.i394 = phi i32 [ 1, %1605 ], [ 0, %checkEquals.exit57.i391 ]
+  %1607 = load double, ptr %77, align 8, !tbaa !4
+  %1608 = fadd double %1607, -1.000000e+00
+  %1609 = call double @llvm.fabs.f64(double %1608)
+  %1610 = fcmp ugt double %1609, 1.000000e-15
+  br i1 %1610, label %1611, label %checkEquals.exit61.i395
 
-1615:                                             ; preds = %checkEquals.exit59.i393
-  %1616 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1611, double noundef 1.000000e+00, double noundef 1.000000e-15)
+1611:                                             ; preds = %checkEquals.exit59.i393
+  %1612 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1607, double noundef 1.000000e+00, double noundef 1.000000e-15)
   br label %checkEquals.exit61.i395
 
-checkEquals.exit61.i395:                          ; preds = %1615, %checkEquals.exit59.i393
-  %.0.i60.i396 = phi i32 [ 1, %1615 ], [ 0, %checkEquals.exit59.i393 ]
-  %1617 = load double, ptr %78, align 8, !tbaa !4
-  %1618 = fadd double %1617, -1.000000e+00
-  %1619 = call double @llvm.fabs.f64(double %1618)
-  %1620 = fcmp ugt double %1619, 1.000000e-15
-  br i1 %1620, label %1621, label %checkEquals.exit63.i397
+checkEquals.exit61.i395:                          ; preds = %1611, %checkEquals.exit59.i393
+  %.0.i60.i396 = phi i32 [ 1, %1611 ], [ 0, %checkEquals.exit59.i393 ]
+  %1613 = load double, ptr %78, align 8, !tbaa !4
+  %1614 = fadd double %1613, -1.000000e+00
+  %1615 = call double @llvm.fabs.f64(double %1614)
+  %1616 = fcmp ugt double %1615, 1.000000e-15
+  br i1 %1616, label %1617, label %checkEquals.exit63.i397
 
-1621:                                             ; preds = %checkEquals.exit61.i395
-  %1622 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1617, double noundef 1.000000e+00, double noundef 1.000000e-15)
+1617:                                             ; preds = %checkEquals.exit61.i395
+  %1618 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1613, double noundef 1.000000e+00, double noundef 1.000000e-15)
   br label %checkEquals.exit63.i397
 
-checkEquals.exit63.i397:                          ; preds = %1621, %checkEquals.exit61.i395
-  %.0.i62.i398 = phi i32 [ 1, %1621 ], [ 0, %checkEquals.exit61.i395 ]
-  %1623 = load double, ptr %79, align 8, !tbaa !4
-  %1624 = fadd double %1623, 0xC2DCFE6E831EBB80
-  %1625 = call double @llvm.fabs.f64(double %1624)
-  %1626 = fcmp ugt double %1625, 5.000000e-01
-  br i1 %1626, label %1627, label %checkEquals.exit65.i399
+checkEquals.exit63.i397:                          ; preds = %1617, %checkEquals.exit61.i395
+  %.0.i62.i398 = phi i32 [ 1, %1617 ], [ 0, %checkEquals.exit61.i395 ]
+  %1619 = load double, ptr %79, align 8, !tbaa !4
+  %1620 = fadd double %1619, 0xC2DCFE6E831EBB80
+  %1621 = call double @llvm.fabs.f64(double %1620)
+  %1622 = fcmp ugt double %1621, 5.000000e-01
+  br i1 %1622, label %1623, label %checkEquals.exit65.i399
 
-1627:                                             ; preds = %checkEquals.exit63.i397
-  %1628 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1623, double noundef 0x42DCFE6E831EBB80, double noundef 5.000000e-01)
+1623:                                             ; preds = %checkEquals.exit63.i397
+  %1624 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1619, double noundef 0x42DCFE6E831EBB80, double noundef 5.000000e-01)
   br label %checkEquals.exit65.i399
 
-checkEquals.exit65.i399:                          ; preds = %1627, %checkEquals.exit63.i397
-  %.0.i64.i400 = phi i32 [ 1, %1627 ], [ 0, %checkEquals.exit63.i397 ]
+checkEquals.exit65.i399:                          ; preds = %1623, %checkEquals.exit63.i397
+  %.0.i64.i400 = phi i32 [ 1, %1623 ], [ 0, %checkEquals.exit63.i397 ]
   call void @geod_lineinit(ptr noundef nonnull %81, ptr noundef nonnull %80, double noundef 1.000000e+00, double noundef 2.000000e+00, double noundef 9.000000e+01, i32 noundef 128) #7
-  %1629 = call double @geod_genposition(ptr noundef nonnull %81, i32 noundef 0, double noundef 1.000000e+03, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null) #7
-  %1630 = fcmp uno double %1629, 0.000000e+00
-  br i1 %1630, label %GeodSolve80.exit, label %1631
+  %1625 = call double @geod_genposition(ptr noundef nonnull %81, i32 noundef 0, double noundef 1.000000e+03, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null) #7
+  %1626 = fcmp uno double %1625, 0.000000e+00
+  br i1 %1626, label %GeodSolve80.exit, label %1627
 
-1631:                                             ; preds = %checkEquals.exit65.i399
-  %1632 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.46, double noundef %1629)
+1627:                                             ; preds = %checkEquals.exit65.i399
+  %1628 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.46, double noundef %1625)
   br label %GeodSolve80.exit
 
-GeodSolve80.exit:                                 ; preds = %checkEquals.exit65.i399, %1631
-  %.0.i66.i402 = phi i32 [ 1, %1631 ], [ 0, %checkEquals.exit65.i399 ]
-  %1633 = add nuw nsw i32 %.0.i28.i, %.0.i.i368
-  %1634 = add nuw nsw i32 %1633, %.0.i30.i
-  %1635 = add nuw nsw i32 %1634, %.0.i32.i
-  %1636 = fdiv double 1.000000e+00, %1539
-  %1637 = fcmp ule double %1636, 0.000000e+00
-  %1638 = zext i1 %1637 to i32
-  %1639 = fdiv double 1.000000e+00, %1583
-  %1640 = fcmp ule double %1639, 0.000000e+00
-  %1641 = zext i1 %1640 to i32
-  %1642 = fdiv double 1.000000e+00, %1584
-  %1643 = fcmp ule double %1642, 0.000000e+00
-  %1644 = zext i1 %1643 to i32
-  %1645 = add nuw nsw i32 %1635, %1638
-  %1646 = add nuw nsw i32 %1645, %.0.i34.i370
-  %1647 = add nuw nsw i32 %1646, %.0.i36.i372
-  %1648 = add nuw nsw i32 %1647, %.0.i38.i374
-  %1649 = add nuw nsw i32 %1648, %.0.i40.i376
-  %1650 = add nuw nsw i32 %1649, %.0.i42.i378
-  %1651 = add nuw nsw i32 %1650, %.0.i44.i380
-  %1652 = add nuw nsw i32 %1651, %.0.i46.i382
-  %1653 = add nuw nsw i32 %1652, %.0.i48.i384
-  %1654 = add nuw nsw i32 %1653, %1641
-  %1655 = add nuw nsw i32 %1654, %1644
-  %1656 = add nuw nsw i32 %1655, %.0.i50.i386
-  %1657 = add nuw nsw i32 %1656, %.0.i52.i388
-  %1658 = add nuw nsw i32 %1657, %.0.i54.i390
-  %1659 = add nuw nsw i32 %1658, %.0.i56.i392
-  %1660 = add nuw nsw i32 %1659, %.0.i58.i394
-  %1661 = add nuw nsw i32 %1660, %.0.i60.i396
-  %1662 = add nuw nsw i32 %1661, %.0.i62.i398
-  %1663 = add nuw nsw i32 %1662, %.0.i64.i400
-  %1664 = add nuw nsw i32 %1663, %.0.i66.i402
+GeodSolve80.exit:                                 ; preds = %checkEquals.exit65.i399, %1627
+  %.0.i66.i402 = phi i32 [ 1, %1627 ], [ 0, %checkEquals.exit65.i399 ]
+  %1629 = add nuw nsw i32 %.0.i28.i, %.0.i.i368
+  %1630 = add nuw nsw i32 %1629, %.0.i30.i
+  %1631 = add nuw nsw i32 %1630, %.0.i32.i
+  %1632 = fdiv double 1.000000e+00, %1535
+  %1633 = fcmp ule double %1632, 0.000000e+00
+  %1634 = zext i1 %1633 to i32
+  %1635 = fdiv double 1.000000e+00, %1579
+  %1636 = fcmp ule double %1635, 0.000000e+00
+  %1637 = zext i1 %1636 to i32
+  %1638 = fdiv double 1.000000e+00, %1580
+  %1639 = fcmp ule double %1638, 0.000000e+00
+  %1640 = zext i1 %1639 to i32
+  %1641 = add nuw nsw i32 %1631, %1634
+  %1642 = add nuw nsw i32 %1641, %.0.i34.i370
+  %1643 = add nuw nsw i32 %1642, %.0.i36.i372
+  %1644 = add nuw nsw i32 %1643, %.0.i38.i374
+  %1645 = add nuw nsw i32 %1644, %.0.i40.i376
+  %1646 = add nuw nsw i32 %1645, %.0.i42.i378
+  %1647 = add nuw nsw i32 %1646, %.0.i44.i380
+  %1648 = add nuw nsw i32 %1647, %.0.i46.i382
+  %1649 = add nuw nsw i32 %1648, %.0.i48.i384
+  %1650 = add nuw nsw i32 %1649, %1637
+  %1651 = add nuw nsw i32 %1650, %1640
+  %1652 = add nuw nsw i32 %1651, %.0.i50.i386
+  %1653 = add nuw nsw i32 %1652, %.0.i52.i388
+  %1654 = add nuw nsw i32 %1653, %.0.i54.i390
+  %1655 = add nuw nsw i32 %1654, %.0.i56.i392
+  %1656 = add nuw nsw i32 %1655, %.0.i58.i394
+  %1657 = add nuw nsw i32 %1656, %.0.i60.i396
+  %1658 = add nuw nsw i32 %1657, %.0.i62.i398
+  %1659 = add nuw nsw i32 %1658, %.0.i64.i400
+  %1660 = add nuw nsw i32 %1659, %.0.i66.i402
   call void @llvm.lifetime.end.p0(ptr nonnull %81)
   call void @llvm.lifetime.end.p0(ptr nonnull %80)
   call void @llvm.lifetime.end.p0(ptr nonnull %79)
@@ -3368,16 +3364,16 @@ GeodSolve80.exit:                                 ; preds = %checkEquals.exit65.
   call void @llvm.lifetime.end.p0(ptr nonnull %75)
   call void @llvm.lifetime.end.p0(ptr nonnull %74)
   call void @llvm.lifetime.end.p0(ptr nonnull %73)
-  %.not161 = icmp eq i32 %1664, 0
-  br i1 %.not161, label %1668, label %1665
+  %.not161 = icmp eq i32 %1660, 0
+  br i1 %.not161, label %1664, label %1661
 
-1665:                                             ; preds = %GeodSolve80.exit
-  %1666 = add nsw i32 %.28, 1
-  %1667 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.29, i32 noundef %1664)
-  br label %1668
+1661:                                             ; preds = %GeodSolve80.exit
+  %1662 = add nsw i32 %.28, 1
+  %1663 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.29, i32 noundef %1660)
+  br label %1664
 
-1668:                                             ; preds = %1665, %GeodSolve80.exit
-  %.29 = phi i32 [ %1666, %1665 ], [ %.28, %GeodSolve80.exit ]
+1664:                                             ; preds = %1661, %GeodSolve80.exit
+  %.29 = phi i32 [ %1662, %1661 ], [ %.28, %GeodSolve80.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %68)
   call void @llvm.lifetime.start.p0(ptr nonnull %69)
   call void @llvm.lifetime.start.p0(ptr nonnull %70)
@@ -3385,935 +3381,935 @@ GeodSolve80.exit:                                 ; preds = %checkEquals.exit65.
   call void @llvm.lifetime.start.p0(ptr nonnull %72)
   call void @geod_init(ptr noundef nonnull %72, double noundef 0x415854A640000000, double noundef 0x3F6B775A84F3E128) #7
   call void @geod_direct(ptr noundef nonnull %72, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef 9.000000e+01, double noundef 0.000000e+00, ptr noundef nonnull %71, ptr noundef null, ptr noundef null) #7
-  %1669 = load double, ptr %71, align 8, !tbaa !4
-  %1670 = fdiv double 1.000000e+00, %1669
-  store double %1670, ptr %71, align 8, !tbaa !4
-  call void @geod_direct(ptr noundef nonnull %72, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef 9.000000e+01, double noundef %1670, ptr noundef nonnull %68, ptr noundef nonnull %69, ptr noundef nonnull %70) #7
-  %1671 = load double, ptr %68, align 8, !tbaa !4
-  %1672 = fcmp uno double %1671, 0.000000e+00
-  br i1 %1672, label %checkNaN.exit.i403, label %1673
+  %1665 = load double, ptr %71, align 8, !tbaa !4
+  %1666 = fdiv double 1.000000e+00, %1665
+  store double %1666, ptr %71, align 8, !tbaa !4
+  call void @geod_direct(ptr noundef nonnull %72, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef 9.000000e+01, double noundef %1666, ptr noundef nonnull %68, ptr noundef nonnull %69, ptr noundef nonnull %70) #7
+  %1667 = load double, ptr %68, align 8, !tbaa !4
+  %1668 = fcmp uno double %1667, 0.000000e+00
+  br i1 %1668, label %checkNaN.exit.i403, label %1669
 
-1673:                                             ; preds = %1668
-  %1674 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.46, double noundef %1671)
+1669:                                             ; preds = %1664
+  %1670 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.46, double noundef %1667)
   br label %checkNaN.exit.i403
 
-checkNaN.exit.i403:                               ; preds = %1673, %1668
-  %.0.i.i404 = phi i32 [ 1, %1673 ], [ 0, %1668 ]
-  %1675 = load double, ptr %69, align 8, !tbaa !4
-  %1676 = fcmp uno double %1675, 0.000000e+00
-  br i1 %1676, label %checkNaN.exit26.i, label %1677
+checkNaN.exit.i403:                               ; preds = %1669, %1664
+  %.0.i.i404 = phi i32 [ 1, %1669 ], [ 0, %1664 ]
+  %1671 = load double, ptr %69, align 8, !tbaa !4
+  %1672 = fcmp uno double %1671, 0.000000e+00
+  br i1 %1672, label %checkNaN.exit26.i, label %1673
 
-1677:                                             ; preds = %checkNaN.exit.i403
-  %1678 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.46, double noundef %1675)
+1673:                                             ; preds = %checkNaN.exit.i403
+  %1674 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.46, double noundef %1671)
   br label %checkNaN.exit26.i
 
-checkNaN.exit26.i:                                ; preds = %1677, %checkNaN.exit.i403
-  %.0.i25.i405 = phi i32 [ 1, %1677 ], [ 0, %checkNaN.exit.i403 ]
-  %1679 = load double, ptr %70, align 8, !tbaa !4
-  %1680 = fcmp uno double %1679, 0.000000e+00
-  br i1 %1680, label %checkNaN.exit28.i, label %1681
+checkNaN.exit26.i:                                ; preds = %1673, %checkNaN.exit.i403
+  %.0.i25.i405 = phi i32 [ 1, %1673 ], [ 0, %checkNaN.exit.i403 ]
+  %1675 = load double, ptr %70, align 8, !tbaa !4
+  %1676 = fcmp uno double %1675, 0.000000e+00
+  br i1 %1676, label %checkNaN.exit28.i, label %1677
 
-1681:                                             ; preds = %checkNaN.exit26.i
-  %1682 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.46, double noundef %1679)
+1677:                                             ; preds = %checkNaN.exit26.i
+  %1678 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.46, double noundef %1675)
   br label %checkNaN.exit28.i
 
-checkNaN.exit28.i:                                ; preds = %1681, %checkNaN.exit26.i
-  %.0.i27.i406 = phi i32 [ 1, %1681 ], [ 0, %checkNaN.exit26.i ]
+checkNaN.exit28.i:                                ; preds = %1677, %checkNaN.exit26.i
+  %.0.i27.i406 = phi i32 [ 1, %1677 ], [ 0, %checkNaN.exit26.i ]
   call void @geod_direct(ptr noundef nonnull %72, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef 9.000000e+01, double noundef 0x7FF8000000000000, ptr noundef nonnull %68, ptr noundef nonnull %69, ptr noundef nonnull %70) #7
-  %1683 = load double, ptr %68, align 8, !tbaa !4
-  %1684 = fcmp uno double %1683, 0.000000e+00
-  br i1 %1684, label %checkNaN.exit30.i, label %1685
+  %1679 = load double, ptr %68, align 8, !tbaa !4
+  %1680 = fcmp uno double %1679, 0.000000e+00
+  br i1 %1680, label %checkNaN.exit30.i, label %1681
 
-1685:                                             ; preds = %checkNaN.exit28.i
-  %1686 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.46, double noundef %1683)
+1681:                                             ; preds = %checkNaN.exit28.i
+  %1682 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.46, double noundef %1679)
   br label %checkNaN.exit30.i
 
-checkNaN.exit30.i:                                ; preds = %1685, %checkNaN.exit28.i
-  %.0.i29.i407 = phi i32 [ 1, %1685 ], [ 0, %checkNaN.exit28.i ]
-  %1687 = load double, ptr %69, align 8, !tbaa !4
-  %1688 = fcmp uno double %1687, 0.000000e+00
-  br i1 %1688, label %checkNaN.exit32.i, label %1689
+checkNaN.exit30.i:                                ; preds = %1681, %checkNaN.exit28.i
+  %.0.i29.i407 = phi i32 [ 1, %1681 ], [ 0, %checkNaN.exit28.i ]
+  %1683 = load double, ptr %69, align 8, !tbaa !4
+  %1684 = fcmp uno double %1683, 0.000000e+00
+  br i1 %1684, label %checkNaN.exit32.i, label %1685
 
-1689:                                             ; preds = %checkNaN.exit30.i
-  %1690 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.46, double noundef %1687)
+1685:                                             ; preds = %checkNaN.exit30.i
+  %1686 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.46, double noundef %1683)
   br label %checkNaN.exit32.i
 
-checkNaN.exit32.i:                                ; preds = %1689, %checkNaN.exit30.i
-  %.0.i31.i408 = phi i32 [ 1, %1689 ], [ 0, %checkNaN.exit30.i ]
-  %1691 = load double, ptr %70, align 8, !tbaa !4
-  %1692 = fcmp uno double %1691, 0.000000e+00
-  br i1 %1692, label %checkNaN.exit34.i, label %1693
+checkNaN.exit32.i:                                ; preds = %1685, %checkNaN.exit30.i
+  %.0.i31.i408 = phi i32 [ 1, %1685 ], [ 0, %checkNaN.exit30.i ]
+  %1687 = load double, ptr %70, align 8, !tbaa !4
+  %1688 = fcmp uno double %1687, 0.000000e+00
+  br i1 %1688, label %checkNaN.exit34.i, label %1689
 
-1693:                                             ; preds = %checkNaN.exit32.i
-  %1694 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.46, double noundef %1691)
+1689:                                             ; preds = %checkNaN.exit32.i
+  %1690 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.46, double noundef %1687)
   br label %checkNaN.exit34.i
 
-checkNaN.exit34.i:                                ; preds = %1693, %checkNaN.exit32.i
-  %.0.i33.i409 = phi i32 [ 1, %1693 ], [ 0, %checkNaN.exit32.i ]
-  %1695 = load double, ptr %71, align 8, !tbaa !4
-  call void @geod_direct(ptr noundef nonnull %72, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef %1695, double noundef 1.000000e+03, ptr noundef nonnull %68, ptr noundef nonnull %69, ptr noundef nonnull %70) #7
-  %1696 = load double, ptr %68, align 8, !tbaa !4
-  %1697 = fcmp uno double %1696, 0.000000e+00
-  br i1 %1697, label %checkNaN.exit36.i, label %1698
+checkNaN.exit34.i:                                ; preds = %1689, %checkNaN.exit32.i
+  %.0.i33.i409 = phi i32 [ 1, %1689 ], [ 0, %checkNaN.exit32.i ]
+  %1691 = load double, ptr %71, align 8, !tbaa !4
+  call void @geod_direct(ptr noundef nonnull %72, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef %1691, double noundef 1.000000e+03, ptr noundef nonnull %68, ptr noundef nonnull %69, ptr noundef nonnull %70) #7
+  %1692 = load double, ptr %68, align 8, !tbaa !4
+  %1693 = fcmp uno double %1692, 0.000000e+00
+  br i1 %1693, label %checkNaN.exit36.i, label %1694
 
-1698:                                             ; preds = %checkNaN.exit34.i
-  %1699 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.46, double noundef %1696)
+1694:                                             ; preds = %checkNaN.exit34.i
+  %1695 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.46, double noundef %1692)
   br label %checkNaN.exit36.i
 
-checkNaN.exit36.i:                                ; preds = %1698, %checkNaN.exit34.i
-  %.0.i35.i410 = phi i32 [ 1, %1698 ], [ 0, %checkNaN.exit34.i ]
-  %1700 = load double, ptr %69, align 8, !tbaa !4
-  %1701 = fcmp uno double %1700, 0.000000e+00
-  br i1 %1701, label %checkNaN.exit38.i, label %1702
+checkNaN.exit36.i:                                ; preds = %1694, %checkNaN.exit34.i
+  %.0.i35.i410 = phi i32 [ 1, %1694 ], [ 0, %checkNaN.exit34.i ]
+  %1696 = load double, ptr %69, align 8, !tbaa !4
+  %1697 = fcmp uno double %1696, 0.000000e+00
+  br i1 %1697, label %checkNaN.exit38.i, label %1698
 
-1702:                                             ; preds = %checkNaN.exit36.i
-  %1703 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.46, double noundef %1700)
+1698:                                             ; preds = %checkNaN.exit36.i
+  %1699 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.46, double noundef %1696)
   br label %checkNaN.exit38.i
 
-checkNaN.exit38.i:                                ; preds = %1702, %checkNaN.exit36.i
-  %.0.i37.i411 = phi i32 [ 1, %1702 ], [ 0, %checkNaN.exit36.i ]
-  %1704 = load double, ptr %70, align 8, !tbaa !4
-  %1705 = fcmp uno double %1704, 0.000000e+00
-  br i1 %1705, label %checkNaN.exit40.i, label %1706
+checkNaN.exit38.i:                                ; preds = %1698, %checkNaN.exit36.i
+  %.0.i37.i411 = phi i32 [ 1, %1698 ], [ 0, %checkNaN.exit36.i ]
+  %1700 = load double, ptr %70, align 8, !tbaa !4
+  %1701 = fcmp uno double %1700, 0.000000e+00
+  br i1 %1701, label %checkNaN.exit40.i, label %1702
 
-1706:                                             ; preds = %checkNaN.exit38.i
-  %1707 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.46, double noundef %1704)
+1702:                                             ; preds = %checkNaN.exit38.i
+  %1703 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.46, double noundef %1700)
   br label %checkNaN.exit40.i
 
-checkNaN.exit40.i:                                ; preds = %1706, %checkNaN.exit38.i
-  %.0.i39.i412 = phi i32 [ 1, %1706 ], [ 0, %checkNaN.exit38.i ]
+checkNaN.exit40.i:                                ; preds = %1702, %checkNaN.exit38.i
+  %.0.i39.i412 = phi i32 [ 1, %1702 ], [ 0, %checkNaN.exit38.i ]
   call void @geod_direct(ptr noundef nonnull %72, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef 0x7FF8000000000000, double noundef 1.000000e+03, ptr noundef nonnull %68, ptr noundef nonnull %69, ptr noundef nonnull %70) #7
-  %1708 = load double, ptr %68, align 8, !tbaa !4
-  %1709 = fcmp uno double %1708, 0.000000e+00
-  br i1 %1709, label %checkNaN.exit42.i, label %1710
+  %1704 = load double, ptr %68, align 8, !tbaa !4
+  %1705 = fcmp uno double %1704, 0.000000e+00
+  br i1 %1705, label %checkNaN.exit42.i, label %1706
 
-1710:                                             ; preds = %checkNaN.exit40.i
-  %1711 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.46, double noundef %1708)
+1706:                                             ; preds = %checkNaN.exit40.i
+  %1707 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.46, double noundef %1704)
   br label %checkNaN.exit42.i
 
-checkNaN.exit42.i:                                ; preds = %1710, %checkNaN.exit40.i
-  %.0.i41.i413 = phi i32 [ 1, %1710 ], [ 0, %checkNaN.exit40.i ]
-  %1712 = load double, ptr %69, align 8, !tbaa !4
-  %1713 = fcmp uno double %1712, 0.000000e+00
-  br i1 %1713, label %checkNaN.exit44.i, label %1714
+checkNaN.exit42.i:                                ; preds = %1706, %checkNaN.exit40.i
+  %.0.i41.i413 = phi i32 [ 1, %1706 ], [ 0, %checkNaN.exit40.i ]
+  %1708 = load double, ptr %69, align 8, !tbaa !4
+  %1709 = fcmp uno double %1708, 0.000000e+00
+  br i1 %1709, label %checkNaN.exit44.i, label %1710
 
-1714:                                             ; preds = %checkNaN.exit42.i
-  %1715 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.46, double noundef %1712)
+1710:                                             ; preds = %checkNaN.exit42.i
+  %1711 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.46, double noundef %1708)
   br label %checkNaN.exit44.i
 
-checkNaN.exit44.i:                                ; preds = %1714, %checkNaN.exit42.i
-  %.0.i43.i414 = phi i32 [ 1, %1714 ], [ 0, %checkNaN.exit42.i ]
-  %1716 = load double, ptr %70, align 8, !tbaa !4
-  %1717 = fcmp uno double %1716, 0.000000e+00
-  br i1 %1717, label %checkNaN.exit46.i, label %1718
+checkNaN.exit44.i:                                ; preds = %1710, %checkNaN.exit42.i
+  %.0.i43.i414 = phi i32 [ 1, %1710 ], [ 0, %checkNaN.exit42.i ]
+  %1712 = load double, ptr %70, align 8, !tbaa !4
+  %1713 = fcmp uno double %1712, 0.000000e+00
+  br i1 %1713, label %checkNaN.exit46.i, label %1714
 
-1718:                                             ; preds = %checkNaN.exit44.i
-  %1719 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.46, double noundef %1716)
+1714:                                             ; preds = %checkNaN.exit44.i
+  %1715 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.46, double noundef %1712)
   br label %checkNaN.exit46.i
 
-checkNaN.exit46.i:                                ; preds = %1718, %checkNaN.exit44.i
-  %.0.i45.i415 = phi i32 [ 1, %1718 ], [ 0, %checkNaN.exit44.i ]
-  %1720 = load double, ptr %71, align 8, !tbaa !4
-  call void @geod_direct(ptr noundef nonnull %72, double noundef 0.000000e+00, double noundef %1720, double noundef 9.000000e+01, double noundef 1.000000e+03, ptr noundef nonnull %68, ptr noundef nonnull %69, ptr noundef nonnull %70) #7
-  %1721 = load double, ptr %68, align 8, !tbaa !4
-  %1722 = load double, ptr %69, align 8, !tbaa !4
-  %1723 = fcmp uno double %1722, 0.000000e+00
-  br i1 %1723, label %checkNaN.exit48.i, label %1724
+checkNaN.exit46.i:                                ; preds = %1714, %checkNaN.exit44.i
+  %.0.i45.i415 = phi i32 [ 1, %1714 ], [ 0, %checkNaN.exit44.i ]
+  %1716 = load double, ptr %71, align 8, !tbaa !4
+  call void @geod_direct(ptr noundef nonnull %72, double noundef 0.000000e+00, double noundef %1716, double noundef 9.000000e+01, double noundef 1.000000e+03, ptr noundef nonnull %68, ptr noundef nonnull %69, ptr noundef nonnull %70) #7
+  %1717 = load double, ptr %68, align 8, !tbaa !4
+  %1718 = load double, ptr %69, align 8, !tbaa !4
+  %1719 = fcmp uno double %1718, 0.000000e+00
+  br i1 %1719, label %checkNaN.exit48.i, label %1720
 
-1724:                                             ; preds = %checkNaN.exit46.i
-  %1725 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.46, double noundef %1722)
+1720:                                             ; preds = %checkNaN.exit46.i
+  %1721 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.46, double noundef %1718)
   br label %checkNaN.exit48.i
 
-checkNaN.exit48.i:                                ; preds = %1724, %checkNaN.exit46.i
-  %.0.i47.i416 = phi i32 [ 1, %1724 ], [ 0, %checkNaN.exit46.i ]
-  %1726 = load double, ptr %70, align 8, !tbaa !4
+checkNaN.exit48.i:                                ; preds = %1720, %checkNaN.exit46.i
+  %.0.i47.i416 = phi i32 [ 1, %1720 ], [ 0, %checkNaN.exit46.i ]
+  %1722 = load double, ptr %70, align 8, !tbaa !4
   call void @geod_direct(ptr noundef nonnull %72, double noundef 0.000000e+00, double noundef 0x7FF8000000000000, double noundef 9.000000e+01, double noundef 1.000000e+03, ptr noundef nonnull %68, ptr noundef nonnull %69, ptr noundef nonnull %70) #7
-  %1727 = load double, ptr %68, align 8, !tbaa !4
-  %1728 = load double, ptr %69, align 8, !tbaa !4
-  %1729 = fcmp uno double %1728, 0.000000e+00
-  br i1 %1729, label %checkNaN.exit50.i, label %1730
+  %1723 = load double, ptr %68, align 8, !tbaa !4
+  %1724 = load double, ptr %69, align 8, !tbaa !4
+  %1725 = fcmp uno double %1724, 0.000000e+00
+  br i1 %1725, label %checkNaN.exit50.i, label %1726
 
-1730:                                             ; preds = %checkNaN.exit48.i
-  %1731 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.46, double noundef %1728)
+1726:                                             ; preds = %checkNaN.exit48.i
+  %1727 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.46, double noundef %1724)
   br label %checkNaN.exit50.i
 
-checkNaN.exit50.i:                                ; preds = %1730, %checkNaN.exit48.i
-  %.0.i49.i417 = phi i32 [ 1, %1730 ], [ 0, %checkNaN.exit48.i ]
-  %1732 = load double, ptr %70, align 8, !tbaa !4
-  %1733 = load double, ptr %71, align 8, !tbaa !4
-  call void @geod_direct(ptr noundef nonnull %72, double noundef %1733, double noundef 0.000000e+00, double noundef 9.000000e+01, double noundef 1.000000e+03, ptr noundef nonnull %68, ptr noundef nonnull %69, ptr noundef nonnull %70) #7
-  %1734 = load double, ptr %68, align 8, !tbaa !4
-  %1735 = fcmp uno double %1734, 0.000000e+00
-  br i1 %1735, label %checkNaN.exit52.i, label %1736
+checkNaN.exit50.i:                                ; preds = %1726, %checkNaN.exit48.i
+  %.0.i49.i417 = phi i32 [ 1, %1726 ], [ 0, %checkNaN.exit48.i ]
+  %1728 = load double, ptr %70, align 8, !tbaa !4
+  %1729 = load double, ptr %71, align 8, !tbaa !4
+  call void @geod_direct(ptr noundef nonnull %72, double noundef %1729, double noundef 0.000000e+00, double noundef 9.000000e+01, double noundef 1.000000e+03, ptr noundef nonnull %68, ptr noundef nonnull %69, ptr noundef nonnull %70) #7
+  %1730 = load double, ptr %68, align 8, !tbaa !4
+  %1731 = fcmp uno double %1730, 0.000000e+00
+  br i1 %1731, label %checkNaN.exit52.i, label %1732
 
-1736:                                             ; preds = %checkNaN.exit50.i
-  %1737 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.46, double noundef %1734)
+1732:                                             ; preds = %checkNaN.exit50.i
+  %1733 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.46, double noundef %1730)
   br label %checkNaN.exit52.i
 
-checkNaN.exit52.i:                                ; preds = %1736, %checkNaN.exit50.i
-  %.0.i51.i418 = phi i32 [ 1, %1736 ], [ 0, %checkNaN.exit50.i ]
-  %1738 = load double, ptr %69, align 8, !tbaa !4
-  %1739 = fcmp uno double %1738, 0.000000e+00
-  br i1 %1739, label %checkNaN.exit54.i, label %1740
+checkNaN.exit52.i:                                ; preds = %1732, %checkNaN.exit50.i
+  %.0.i51.i418 = phi i32 [ 1, %1732 ], [ 0, %checkNaN.exit50.i ]
+  %1734 = load double, ptr %69, align 8, !tbaa !4
+  %1735 = fcmp uno double %1734, 0.000000e+00
+  br i1 %1735, label %checkNaN.exit54.i, label %1736
 
-1740:                                             ; preds = %checkNaN.exit52.i
-  %1741 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.46, double noundef %1738)
+1736:                                             ; preds = %checkNaN.exit52.i
+  %1737 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.46, double noundef %1734)
   br label %checkNaN.exit54.i
 
-checkNaN.exit54.i:                                ; preds = %1740, %checkNaN.exit52.i
-  %.0.i53.i419 = phi i32 [ 1, %1740 ], [ 0, %checkNaN.exit52.i ]
-  %1742 = load double, ptr %70, align 8, !tbaa !4
-  %1743 = fcmp uno double %1742, 0.000000e+00
-  br i1 %1743, label %checkNaN.exit56.i, label %1744
+checkNaN.exit54.i:                                ; preds = %1736, %checkNaN.exit52.i
+  %.0.i53.i419 = phi i32 [ 1, %1736 ], [ 0, %checkNaN.exit52.i ]
+  %1738 = load double, ptr %70, align 8, !tbaa !4
+  %1739 = fcmp uno double %1738, 0.000000e+00
+  br i1 %1739, label %checkNaN.exit56.i, label %1740
 
-1744:                                             ; preds = %checkNaN.exit54.i
-  %1745 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.46, double noundef %1742)
+1740:                                             ; preds = %checkNaN.exit54.i
+  %1741 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.46, double noundef %1738)
   br label %checkNaN.exit56.i
 
-checkNaN.exit56.i:                                ; preds = %1744, %checkNaN.exit54.i
-  %.0.i55.i420 = phi i32 [ 1, %1744 ], [ 0, %checkNaN.exit54.i ]
+checkNaN.exit56.i:                                ; preds = %1740, %checkNaN.exit54.i
+  %.0.i55.i420 = phi i32 [ 1, %1740 ], [ 0, %checkNaN.exit54.i ]
   call void @geod_direct(ptr noundef nonnull %72, double noundef 0x7FF8000000000000, double noundef 0.000000e+00, double noundef 9.000000e+01, double noundef 1.000000e+03, ptr noundef nonnull %68, ptr noundef nonnull %69, ptr noundef nonnull %70) #7
-  %1746 = load double, ptr %68, align 8, !tbaa !4
-  %1747 = fcmp uno double %1746, 0.000000e+00
-  br i1 %1747, label %checkNaN.exit58.i, label %1748
+  %1742 = load double, ptr %68, align 8, !tbaa !4
+  %1743 = fcmp uno double %1742, 0.000000e+00
+  br i1 %1743, label %checkNaN.exit58.i, label %1744
 
-1748:                                             ; preds = %checkNaN.exit56.i
-  %1749 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.46, double noundef %1746)
+1744:                                             ; preds = %checkNaN.exit56.i
+  %1745 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.46, double noundef %1742)
   br label %checkNaN.exit58.i
 
-checkNaN.exit58.i:                                ; preds = %1748, %checkNaN.exit56.i
-  %.0.i57.i421 = phi i32 [ 1, %1748 ], [ 0, %checkNaN.exit56.i ]
-  %1750 = load double, ptr %69, align 8, !tbaa !4
-  %1751 = fcmp uno double %1750, 0.000000e+00
-  br i1 %1751, label %checkNaN.exit60.i, label %1752
+checkNaN.exit58.i:                                ; preds = %1744, %checkNaN.exit56.i
+  %.0.i57.i421 = phi i32 [ 1, %1744 ], [ 0, %checkNaN.exit56.i ]
+  %1746 = load double, ptr %69, align 8, !tbaa !4
+  %1747 = fcmp uno double %1746, 0.000000e+00
+  br i1 %1747, label %checkNaN.exit60.i, label %1748
 
-1752:                                             ; preds = %checkNaN.exit58.i
-  %1753 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.46, double noundef %1750)
+1748:                                             ; preds = %checkNaN.exit58.i
+  %1749 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.46, double noundef %1746)
   br label %checkNaN.exit60.i
 
-checkNaN.exit60.i:                                ; preds = %1752, %checkNaN.exit58.i
-  %.0.i59.i = phi i32 [ 1, %1752 ], [ 0, %checkNaN.exit58.i ]
-  %1754 = load double, ptr %70, align 8, !tbaa !4
-  %1755 = fcmp uno double %1754, 0.000000e+00
-  br i1 %1755, label %GeodSolve84.exit, label %1756
+checkNaN.exit60.i:                                ; preds = %1748, %checkNaN.exit58.i
+  %.0.i59.i = phi i32 [ 1, %1748 ], [ 0, %checkNaN.exit58.i ]
+  %1750 = load double, ptr %70, align 8, !tbaa !4
+  %1751 = fcmp uno double %1750, 0.000000e+00
+  br i1 %1751, label %GeodSolve84.exit, label %1752
 
-1756:                                             ; preds = %checkNaN.exit60.i
-  %1757 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.46, double noundef %1754)
+1752:                                             ; preds = %checkNaN.exit60.i
+  %1753 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.46, double noundef %1750)
   br label %GeodSolve84.exit
 
-GeodSolve84.exit:                                 ; preds = %checkNaN.exit60.i, %1756
-  %.0.i61.i = phi i32 [ 1, %1756 ], [ 0, %checkNaN.exit60.i ]
-  %1758 = add nuw nsw i32 %.0.i25.i405, %.0.i.i404
-  %1759 = add nuw nsw i32 %1758, %.0.i27.i406
-  %1760 = add nuw nsw i32 %1759, %.0.i29.i407
-  %1761 = add nuw nsw i32 %1760, %.0.i31.i408
-  %1762 = add nuw nsw i32 %1761, %.0.i33.i409
-  %1763 = add nuw nsw i32 %1762, %.0.i35.i410
-  %1764 = add nuw nsw i32 %1763, %.0.i37.i411
-  %1765 = add nuw nsw i32 %1764, %.0.i39.i412
-  %1766 = add nuw nsw i32 %1765, %.0.i41.i413
-  %1767 = add nuw nsw i32 %1766, %.0.i43.i414
-  %1768 = add nuw nsw i32 %1767, %.0.i45.i415
-  %1769 = fcmp une double %1721, 0.000000e+00
+GeodSolve84.exit:                                 ; preds = %checkNaN.exit60.i, %1752
+  %.0.i61.i = phi i32 [ 1, %1752 ], [ 0, %checkNaN.exit60.i ]
+  %1754 = add nuw nsw i32 %.0.i25.i405, %.0.i.i404
+  %1755 = add nuw nsw i32 %1754, %.0.i27.i406
+  %1756 = add nuw nsw i32 %1755, %.0.i29.i407
+  %1757 = add nuw nsw i32 %1756, %.0.i31.i408
+  %1758 = add nuw nsw i32 %1757, %.0.i33.i409
+  %1759 = add nuw nsw i32 %1758, %.0.i35.i410
+  %1760 = add nuw nsw i32 %1759, %.0.i37.i411
+  %1761 = add nuw nsw i32 %1760, %.0.i39.i412
+  %1762 = add nuw nsw i32 %1761, %.0.i41.i413
+  %1763 = add nuw nsw i32 %1762, %.0.i43.i414
+  %1764 = add nuw nsw i32 %1763, %.0.i45.i415
+  %1765 = fcmp une double %1717, 0.000000e+00
+  %1766 = zext i1 %1765 to i32
+  %1767 = add nuw nsw i32 %1764, %1766
+  %1768 = add nuw nsw i32 %1767, %.0.i47.i416
+  %1769 = fcmp une double %1722, 9.000000e+01
   %1770 = zext i1 %1769 to i32
   %1771 = add nuw nsw i32 %1768, %1770
-  %1772 = add nuw nsw i32 %1771, %.0.i47.i416
-  %1773 = fcmp une double %1726, 9.000000e+01
-  %1774 = zext i1 %1773 to i32
-  %1775 = add nuw nsw i32 %1772, %1774
-  %1776 = fcmp une double %1727, 0.000000e+00
+  %1772 = fcmp une double %1723, 0.000000e+00
+  %1773 = zext i1 %1772 to i32
+  %1774 = add nuw nsw i32 %1771, %1773
+  %1775 = add nuw nsw i32 %1774, %.0.i49.i417
+  %1776 = fcmp une double %1728, 9.000000e+01
   %1777 = zext i1 %1776 to i32
   %1778 = add nuw nsw i32 %1775, %1777
-  %1779 = add nuw nsw i32 %1778, %.0.i49.i417
-  %1780 = fcmp une double %1732, 9.000000e+01
-  %1781 = zext i1 %1780 to i32
-  %1782 = add nuw nsw i32 %1779, %1781
-  %1783 = add nuw nsw i32 %1782, %.0.i51.i418
-  %1784 = add nuw nsw i32 %1783, %.0.i53.i419
-  %1785 = add nuw nsw i32 %1784, %.0.i55.i420
-  %1786 = add nuw nsw i32 %1785, %.0.i57.i421
-  %1787 = add nuw nsw i32 %1786, %.0.i59.i
-  %1788 = add nuw nsw i32 %1787, %.0.i61.i
+  %1779 = add nuw nsw i32 %1778, %.0.i51.i418
+  %1780 = add nuw nsw i32 %1779, %.0.i53.i419
+  %1781 = add nuw nsw i32 %1780, %.0.i55.i420
+  %1782 = add nuw nsw i32 %1781, %.0.i57.i421
+  %1783 = add nuw nsw i32 %1782, %.0.i59.i
+  %1784 = add nuw nsw i32 %1783, %.0.i61.i
   call void @llvm.lifetime.end.p0(ptr nonnull %72)
   call void @llvm.lifetime.end.p0(ptr nonnull %71)
   call void @llvm.lifetime.end.p0(ptr nonnull %70)
   call void @llvm.lifetime.end.p0(ptr nonnull %69)
   call void @llvm.lifetime.end.p0(ptr nonnull %68)
-  %.not162 = icmp eq i32 %1788, 0
-  br i1 %.not162, label %1792, label %1789
+  %.not162 = icmp eq i32 %1784, 0
+  br i1 %.not162, label %1788, label %1785
 
-1789:                                             ; preds = %GeodSolve84.exit
-  %1790 = add nsw i32 %.29, 1
-  %1791 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.30, i32 noundef %1788)
-  br label %1792
+1785:                                             ; preds = %GeodSolve84.exit
+  %1786 = add nsw i32 %.29, 1
+  %1787 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.30, i32 noundef %1784)
+  br label %1788
 
-1792:                                             ; preds = %1789, %GeodSolve84.exit
-  %.30 = phi i32 [ %1790, %1789 ], [ %.29, %GeodSolve84.exit ]
+1788:                                             ; preds = %1785, %GeodSolve84.exit
+  %.30 = phi i32 [ %1786, %1785 ], [ %.29, %GeodSolve84.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %64)
   call void @llvm.lifetime.start.p0(ptr nonnull %65)
   call void @llvm.lifetime.start.p0(ptr nonnull %66)
   call void @llvm.lifetime.start.p0(ptr nonnull %67)
   call void @geod_init(ptr noundef nonnull %67, double noundef 0x415854A640000000, double noundef 0x3F6B775A84F3E128) #7
   call void @geod_inverse(ptr noundef nonnull %67, double noundef 0x4042E0F7121AB4B8, double noundef 0xC05E9E176DDACEEE, double noundef 0x4042E0F7121AB4B7, double noundef 0xC05E9E1761459536, ptr noundef nonnull %66, ptr noundef nonnull %64, ptr noundef nonnull %65) #7
-  %1793 = load double, ptr %64, align 8, !tbaa !4
-  %1794 = fadd double %1793, 0xC0567FFFFCC53803
-  %1795 = call double @llvm.fabs.f64(double %1794)
-  %1796 = fcmp ugt double %1795, 0x3E7AD7F29ABCAF48
-  br i1 %1796, label %1797, label %checkEquals.exit.i422
+  %1789 = load double, ptr %64, align 8, !tbaa !4
+  %1790 = fadd double %1789, 0xC0567FFFFCC53803
+  %1791 = call double @llvm.fabs.f64(double %1790)
+  %1792 = fcmp ugt double %1791, 0x3E7AD7F29ABCAF48
+  br i1 %1792, label %1793, label %checkEquals.exit.i422
 
-1797:                                             ; preds = %1792
-  %1798 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1793, double noundef 0x40567FFFFCC53803, double noundef 0x3E7AD7F29ABCAF48)
+1793:                                             ; preds = %1788
+  %1794 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1789, double noundef 0x40567FFFFCC53803, double noundef 0x3E7AD7F29ABCAF48)
   br label %checkEquals.exit.i422
 
-checkEquals.exit.i422:                            ; preds = %1797, %1792
-  %.0.i.i423 = phi i32 [ 1, %1797 ], [ 0, %1792 ]
-  %1799 = load double, ptr %65, align 8, !tbaa !4
-  %1800 = fadd double %1799, 0xC056800004722A95
-  %1801 = call double @llvm.fabs.f64(double %1800)
-  %1802 = fcmp ugt double %1801, 0x3E7AD7F29ABCAF48
-  br i1 %1802, label %1803, label %checkEquals.exit5.i424
+checkEquals.exit.i422:                            ; preds = %1793, %1788
+  %.0.i.i423 = phi i32 [ 1, %1793 ], [ 0, %1788 ]
+  %1795 = load double, ptr %65, align 8, !tbaa !4
+  %1796 = fadd double %1795, 0xC056800004722A95
+  %1797 = call double @llvm.fabs.f64(double %1796)
+  %1798 = fcmp ugt double %1797, 0x3E7AD7F29ABCAF48
+  br i1 %1798, label %1799, label %checkEquals.exit5.i424
 
-1803:                                             ; preds = %checkEquals.exit.i422
-  %1804 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1799, double noundef 0x4056800004722A95, double noundef 0x3E7AD7F29ABCAF48)
+1799:                                             ; preds = %checkEquals.exit.i422
+  %1800 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1795, double noundef 0x4056800004722A95, double noundef 0x3E7AD7F29ABCAF48)
   br label %checkEquals.exit5.i424
 
-checkEquals.exit5.i424:                           ; preds = %1803, %checkEquals.exit.i422
-  %.0.i4.i425 = phi i32 [ 1, %1803 ], [ 0, %checkEquals.exit.i422 ]
-  %1805 = load double, ptr %66, align 8, !tbaa !4
-  %1806 = fadd double %1805, -2.640000e-01
-  %1807 = call double @llvm.fabs.f64(double %1806)
-  %1808 = fcmp ugt double %1807, 5.000000e-04
-  br i1 %1808, label %1809, label %GeodSolve92.exit
+checkEquals.exit5.i424:                           ; preds = %1799, %checkEquals.exit.i422
+  %.0.i4.i425 = phi i32 [ 1, %1799 ], [ 0, %checkEquals.exit.i422 ]
+  %1801 = load double, ptr %66, align 8, !tbaa !4
+  %1802 = fadd double %1801, -2.640000e-01
+  %1803 = call double @llvm.fabs.f64(double %1802)
+  %1804 = fcmp ugt double %1803, 5.000000e-04
+  br i1 %1804, label %1805, label %GeodSolve92.exit
 
-1809:                                             ; preds = %checkEquals.exit5.i424
-  %1810 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1805, double noundef 2.640000e-01, double noundef 5.000000e-04)
+1805:                                             ; preds = %checkEquals.exit5.i424
+  %1806 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1801, double noundef 2.640000e-01, double noundef 5.000000e-04)
   br label %GeodSolve92.exit
 
-GeodSolve92.exit:                                 ; preds = %checkEquals.exit5.i424, %1809
-  %.0.i6.i426 = phi i32 [ 1, %1809 ], [ 0, %checkEquals.exit5.i424 ]
-  %1811 = add nuw nsw i32 %.0.i4.i425, %.0.i.i423
-  %1812 = add nuw nsw i32 %1811, %.0.i6.i426
+GeodSolve92.exit:                                 ; preds = %checkEquals.exit5.i424, %1805
+  %.0.i6.i426 = phi i32 [ 1, %1805 ], [ 0, %checkEquals.exit5.i424 ]
+  %1807 = add nuw nsw i32 %.0.i4.i425, %.0.i.i423
+  %1808 = add nuw nsw i32 %1807, %.0.i6.i426
   call void @llvm.lifetime.end.p0(ptr nonnull %67)
   call void @llvm.lifetime.end.p0(ptr nonnull %66)
   call void @llvm.lifetime.end.p0(ptr nonnull %65)
   call void @llvm.lifetime.end.p0(ptr nonnull %64)
-  %.not163 = icmp eq i32 %1812, 0
-  br i1 %.not163, label %1816, label %1813
+  %.not163 = icmp eq i32 %1808, 0
+  br i1 %.not163, label %1812, label %1809
 
-1813:                                             ; preds = %GeodSolve92.exit
-  %1814 = add nsw i32 %.30, 1
-  %1815 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.31, i32 noundef %1812)
-  br label %1816
+1809:                                             ; preds = %GeodSolve92.exit
+  %1810 = add nsw i32 %.30, 1
+  %1811 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.31, i32 noundef %1808)
+  br label %1812
 
-1816:                                             ; preds = %1813, %GeodSolve92.exit
-  %.31 = phi i32 [ %1814, %1813 ], [ %.30, %GeodSolve92.exit ]
+1812:                                             ; preds = %1809, %GeodSolve92.exit
+  %.31 = phi i32 [ %1810, %1809 ], [ %.30, %GeodSolve92.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %60)
   call void @llvm.lifetime.start.p0(ptr nonnull %61)
   call void @llvm.lifetime.start.p0(ptr nonnull %62)
   call void @llvm.lifetime.start.p0(ptr nonnull %63)
   call void @geod_init(ptr noundef nonnull %63, double noundef 0x415854A640000000, double noundef 0x3F6B775A84F3E128) #7
   call void @geod_inverse(ptr noundef nonnull %63, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef 0x7FF8000000000000, double noundef 9.000000e+01, ptr noundef nonnull %62, ptr noundef nonnull %60, ptr noundef nonnull %61) #7
-  %1817 = load double, ptr %60, align 8, !tbaa !4
-  %1818 = fcmp uno double %1817, 0.000000e+00
-  br i1 %1818, label %checkNaN.exit.i427, label %1819
+  %1813 = load double, ptr %60, align 8, !tbaa !4
+  %1814 = fcmp uno double %1813, 0.000000e+00
+  br i1 %1814, label %checkNaN.exit.i427, label %1815
 
-1819:                                             ; preds = %1816
-  %1820 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.46, double noundef %1817)
+1815:                                             ; preds = %1812
+  %1816 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.46, double noundef %1813)
   br label %checkNaN.exit.i427
 
-checkNaN.exit.i427:                               ; preds = %1819, %1816
-  %.0.i.i428 = phi i32 [ 1, %1819 ], [ 0, %1816 ]
-  %1821 = load double, ptr %61, align 8, !tbaa !4
-  %1822 = fcmp uno double %1821, 0.000000e+00
-  br i1 %1822, label %checkNaN.exit5.i429, label %1823
+checkNaN.exit.i427:                               ; preds = %1815, %1812
+  %.0.i.i428 = phi i32 [ 1, %1815 ], [ 0, %1812 ]
+  %1817 = load double, ptr %61, align 8, !tbaa !4
+  %1818 = fcmp uno double %1817, 0.000000e+00
+  br i1 %1818, label %checkNaN.exit5.i429, label %1819
 
-1823:                                             ; preds = %checkNaN.exit.i427
-  %1824 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.46, double noundef %1821)
+1819:                                             ; preds = %checkNaN.exit.i427
+  %1820 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.46, double noundef %1817)
   br label %checkNaN.exit5.i429
 
-checkNaN.exit5.i429:                              ; preds = %1823, %checkNaN.exit.i427
-  %.0.i4.i430 = phi i32 [ 1, %1823 ], [ 0, %checkNaN.exit.i427 ]
-  %1825 = load double, ptr %62, align 8, !tbaa !4
-  %1826 = fcmp uno double %1825, 0.000000e+00
-  br i1 %1826, label %GeodSolve94.exit, label %1827
+checkNaN.exit5.i429:                              ; preds = %1819, %checkNaN.exit.i427
+  %.0.i4.i430 = phi i32 [ 1, %1819 ], [ 0, %checkNaN.exit.i427 ]
+  %1821 = load double, ptr %62, align 8, !tbaa !4
+  %1822 = fcmp uno double %1821, 0.000000e+00
+  br i1 %1822, label %GeodSolve94.exit, label %1823
 
-1827:                                             ; preds = %checkNaN.exit5.i429
-  %1828 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.46, double noundef %1825)
+1823:                                             ; preds = %checkNaN.exit5.i429
+  %1824 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.46, double noundef %1821)
   br label %GeodSolve94.exit
 
-GeodSolve94.exit:                                 ; preds = %checkNaN.exit5.i429, %1827
-  %.0.i6.i431 = phi i32 [ 1, %1827 ], [ 0, %checkNaN.exit5.i429 ]
-  %1829 = add nuw nsw i32 %.0.i4.i430, %.0.i.i428
-  %1830 = add nuw nsw i32 %1829, %.0.i6.i431
+GeodSolve94.exit:                                 ; preds = %checkNaN.exit5.i429, %1823
+  %.0.i6.i431 = phi i32 [ 1, %1823 ], [ 0, %checkNaN.exit5.i429 ]
+  %1825 = add nuw nsw i32 %.0.i4.i430, %.0.i.i428
+  %1826 = add nuw nsw i32 %1825, %.0.i6.i431
   call void @llvm.lifetime.end.p0(ptr nonnull %63)
   call void @llvm.lifetime.end.p0(ptr nonnull %62)
   call void @llvm.lifetime.end.p0(ptr nonnull %61)
   call void @llvm.lifetime.end.p0(ptr nonnull %60)
-  %.not164 = icmp eq i32 %1830, 0
-  br i1 %.not164, label %1834, label %1831
+  %.not164 = icmp eq i32 %1826, 0
+  br i1 %.not164, label %1830, label %1827
 
-1831:                                             ; preds = %GeodSolve94.exit
-  %1832 = add nsw i32 %.31, 1
-  %1833 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.32, i32 noundef %1830)
-  br label %1834
+1827:                                             ; preds = %GeodSolve94.exit
+  %1828 = add nsw i32 %.31, 1
+  %1829 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.32, i32 noundef %1826)
+  br label %1830
 
-1834:                                             ; preds = %1831, %GeodSolve94.exit
-  %.32 = phi i32 [ %1832, %1831 ], [ %.31, %GeodSolve94.exit ]
+1830:                                             ; preds = %1827, %GeodSolve94.exit
+  %.32 = phi i32 [ %1828, %1827 ], [ %.31, %GeodSolve94.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %58)
   call void @llvm.lifetime.start.p0(ptr nonnull %59)
   call void @geod_init(ptr noundef nonnull %59, double noundef 0x415854A640000000, double noundef 0x3F6B775A87362105) #7
-  %1835 = call double @geod_geninverse(ptr noundef nonnull %59, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef 0x404E0AA802CD5C72, double noundef 0x4056765998952DAD, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %58) #7
-  %1836 = load double, ptr %58, align 8, !tbaa !4
-  %1837 = fadd double %1836, 0xC2C34B251CABCA80
-  %1838 = call double @llvm.fabs.f64(double %1837)
-  %1839 = fcmp ugt double %1838, 5.000000e-01
-  br i1 %1839, label %1840, label %GeodSolve96.exit.thread
+  %1831 = call double @geod_geninverse(ptr noundef nonnull %59, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef 0x404E0AA802CD5C72, double noundef 0x4056765998952DAD, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %58) #7
+  %1832 = load double, ptr %58, align 8, !tbaa !4
+  %1833 = fadd double %1832, 0xC2C34B251CABCA80
+  %1834 = call double @llvm.fabs.f64(double %1833)
+  %1835 = fcmp ugt double %1834, 5.000000e-01
+  br i1 %1835, label %1836, label %GeodSolve96.exit.thread
 
-GeodSolve96.exit.thread:                          ; preds = %1834
+GeodSolve96.exit.thread:                          ; preds = %1830
   call void @llvm.lifetime.end.p0(ptr nonnull %59)
   call void @llvm.lifetime.end.p0(ptr nonnull %58)
-  br label %1844
+  br label %1840
 
-1840:                                             ; preds = %1834
-  %1841 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1836, double noundef 0x42C34B251CABCA80, double noundef 5.000000e-01)
+1836:                                             ; preds = %1830
+  %1837 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1832, double noundef 0x42C34B251CABCA80, double noundef 5.000000e-01)
   call void @llvm.lifetime.end.p0(ptr nonnull %59)
   call void @llvm.lifetime.end.p0(ptr nonnull %58)
-  %1842 = add nsw i32 %.32, 1
-  %1843 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.33, i32 noundef 1)
-  br label %1844
+  %1838 = add nsw i32 %.32, 1
+  %1839 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.33, i32 noundef 1)
+  br label %1840
 
-1844:                                             ; preds = %GeodSolve96.exit.thread, %1840
-  %.33 = phi i32 [ %1842, %1840 ], [ %.32, %GeodSolve96.exit.thread ]
+1840:                                             ; preds = %GeodSolve96.exit.thread, %1836
+  %.33 = phi i32 [ %1838, %1836 ], [ %.32, %GeodSolve96.exit.thread ]
   call void @llvm.lifetime.start.p0(ptr nonnull %53)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %53, i8 0, i64 64, i1 false)
-  %1845 = getelementptr inbounds nuw i8, ptr %53, i64 8
-  store double -1.000000e+00, ptr %1845, align 8
-  %1846 = getelementptr inbounds nuw i8, ptr %53, i64 16
-  store double -1.000000e+00, ptr %1846, align 16
-  %1847 = getelementptr inbounds nuw i8, ptr %53, i64 40
-  store double 1.000000e+00, ptr %1847, align 8
-  %1848 = getelementptr inbounds nuw i8, ptr %53, i64 48
-  store double 1.000000e+00, ptr %1848, align 16
+  %1841 = getelementptr inbounds nuw i8, ptr %53, i64 8
+  store double -1.000000e+00, ptr %1841, align 8
+  %1842 = getelementptr inbounds nuw i8, ptr %53, i64 16
+  store double -1.000000e+00, ptr %1842, align 16
+  %1843 = getelementptr inbounds nuw i8, ptr %53, i64 40
+  store double 1.000000e+00, ptr %1843, align 8
+  %1844 = getelementptr inbounds nuw i8, ptr %53, i64 48
+  store double 1.000000e+00, ptr %1844, align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %54)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %54, i8 0, i64 48, i1 false)
   store double 9.000000e+01, ptr %54, align 16
-  %1849 = getelementptr inbounds nuw i8, ptr %54, i64 40
-  store double 9.000000e+01, ptr %1849, align 8
+  %1845 = getelementptr inbounds nuw i8, ptr %54, i64 40
+  store double 9.000000e+01, ptr %1845, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %55)
   call void @llvm.lifetime.start.p0(ptr nonnull %56)
   call void @llvm.lifetime.start.p0(ptr nonnull %57)
   call void @geod_init(ptr noundef nonnull %55, double noundef 0x415854A640000000, double noundef 0x3F6B775A84F3E128) #7
   call void @llvm.lifetime.start.p0(ptr nonnull %52)
   call void @geod_polygon_init(ptr noundef nonnull %52, i32 noundef 0) #7
-  br label %1850
+  br label %1846
 
-1850:                                             ; preds = %1850, %1844
-  %indvars.iv.i.i = phi i64 [ 0, %1844 ], [ %indvars.iv.next.i.i, %1850 ]
-  %1851 = getelementptr inbounds nuw [2 x double], ptr @__const.Planimeter0.pa, i64 %indvars.iv.i.i
-  %1852 = getelementptr inbounds nuw i8, ptr %1851, i64 8
-  %1853 = load double, ptr %1852, align 8, !tbaa !4
-  call void @geod_polygon_addpoint(ptr noundef nonnull %55, ptr noundef nonnull %52, double noundef 8.900000e+01, double noundef %1853) #7
+1846:                                             ; preds = %1846, %1840
+  %indvars.iv.i.i = phi i64 [ 0, %1840 ], [ %indvars.iv.next.i.i, %1846 ]
+  %1847 = getelementptr inbounds nuw [2 x double], ptr @__const.Planimeter0.pa, i64 %indvars.iv.i.i
+  %1848 = getelementptr inbounds nuw i8, ptr %1847, i64 8
+  %1849 = load double, ptr %1848, align 8, !tbaa !4
+  call void @geod_polygon_addpoint(ptr noundef nonnull %55, ptr noundef nonnull %52, double noundef 8.900000e+01, double noundef %1849) #7
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 4
-  br i1 %exitcond.not.i.i, label %planimeter.exit.i, label %1850
+  br i1 %exitcond.not.i.i, label %planimeter.exit.i, label %1846
 
-planimeter.exit.i:                                ; preds = %1850
-  %1854 = call i32 @geod_polygon_compute(ptr noundef nonnull %55, ptr noundef nonnull %52, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %57, ptr noundef nonnull %56) #7
+planimeter.exit.i:                                ; preds = %1846
+  %1850 = call i32 @geod_polygon_compute(ptr noundef nonnull %55, ptr noundef nonnull %52, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %57, ptr noundef nonnull %56) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %52)
-  %1855 = load double, ptr %56, align 8, !tbaa !4
-  %1856 = fadd double %1855, 0xC1234817BFBE76C9
-  %1857 = call double @llvm.fabs.f64(double %1856)
-  %1858 = fcmp ugt double %1857, 1.000000e-04
-  br i1 %1858, label %1859, label %checkEquals.exit.i434
+  %1851 = load double, ptr %56, align 8, !tbaa !4
+  %1852 = fadd double %1851, 0xC1234817BFBE76C9
+  %1853 = call double @llvm.fabs.f64(double %1852)
+  %1854 = fcmp ugt double %1853, 1.000000e-04
+  br i1 %1854, label %1855, label %checkEquals.exit.i434
 
-1859:                                             ; preds = %planimeter.exit.i
-  %1860 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1855, double noundef 0x41234817BFBE76C9, double noundef 1.000000e-04)
+1855:                                             ; preds = %planimeter.exit.i
+  %1856 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1851, double noundef 0x41234817BFBE76C9, double noundef 1.000000e-04)
   br label %checkEquals.exit.i434
 
-checkEquals.exit.i434:                            ; preds = %1859, %planimeter.exit.i
-  %.0.i.i435 = phi i32 [ 1, %1859 ], [ 0, %planimeter.exit.i ]
-  %1861 = load double, ptr %57, align 8, !tbaa !4
-  %1862 = fadd double %1861, 0xC2173D17E0380000
-  %1863 = call double @llvm.fabs.f64(double %1862)
-  %1864 = fcmp ugt double %1863, 1.000000e+00
-  br i1 %1864, label %1865, label %checkEquals.exit11.i
+checkEquals.exit.i434:                            ; preds = %1855, %planimeter.exit.i
+  %.0.i.i435 = phi i32 [ 1, %1855 ], [ 0, %planimeter.exit.i ]
+  %1857 = load double, ptr %57, align 8, !tbaa !4
+  %1858 = fadd double %1857, 0xC2173D17E0380000
+  %1859 = call double @llvm.fabs.f64(double %1858)
+  %1860 = fcmp ugt double %1859, 1.000000e+00
+  br i1 %1860, label %1861, label %checkEquals.exit11.i
 
-1865:                                             ; preds = %checkEquals.exit.i434
-  %1866 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1861, double noundef 0x42173D17E0380000, double noundef 1.000000e+00)
+1861:                                             ; preds = %checkEquals.exit.i434
+  %1862 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1857, double noundef 0x42173D17E0380000, double noundef 1.000000e+00)
   br label %checkEquals.exit11.i
 
-checkEquals.exit11.i:                             ; preds = %1865, %checkEquals.exit.i434
-  %.0.i10.i = phi i32 [ 1, %1865 ], [ 0, %checkEquals.exit.i434 ]
+checkEquals.exit11.i:                             ; preds = %1861, %checkEquals.exit.i434
+  %.0.i10.i = phi i32 [ 1, %1861 ], [ 0, %checkEquals.exit.i434 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %51)
   call void @geod_polygon_init(ptr noundef nonnull %51, i32 noundef 0) #7
-  br label %1867
+  br label %1863
 
-1867:                                             ; preds = %1867, %checkEquals.exit11.i
-  %indvars.iv.i12.i = phi i64 [ 0, %checkEquals.exit11.i ], [ %indvars.iv.next.i13.i, %1867 ]
-  %1868 = getelementptr inbounds nuw [2 x double], ptr @__const.Planimeter0.pb, i64 %indvars.iv.i12.i
-  %1869 = getelementptr inbounds nuw i8, ptr %1868, i64 8
-  %1870 = load double, ptr %1869, align 8, !tbaa !4
-  call void @geod_polygon_addpoint(ptr noundef nonnull %55, ptr noundef nonnull %51, double noundef -8.900000e+01, double noundef %1870) #7
+1863:                                             ; preds = %1863, %checkEquals.exit11.i
+  %indvars.iv.i12.i = phi i64 [ 0, %checkEquals.exit11.i ], [ %indvars.iv.next.i13.i, %1863 ]
+  %1864 = getelementptr inbounds nuw [2 x double], ptr @__const.Planimeter0.pb, i64 %indvars.iv.i12.i
+  %1865 = getelementptr inbounds nuw i8, ptr %1864, i64 8
+  %1866 = load double, ptr %1865, align 8, !tbaa !4
+  call void @geod_polygon_addpoint(ptr noundef nonnull %55, ptr noundef nonnull %51, double noundef -8.900000e+01, double noundef %1866) #7
   %indvars.iv.next.i13.i = add nuw nsw i64 %indvars.iv.i12.i, 1
   %exitcond.not.i14.i = icmp eq i64 %indvars.iv.next.i13.i, 4
-  br i1 %exitcond.not.i14.i, label %planimeter.exit15.i, label %1867
+  br i1 %exitcond.not.i14.i, label %planimeter.exit15.i, label %1863
 
-planimeter.exit15.i:                              ; preds = %1867
-  %1871 = call i32 @geod_polygon_compute(ptr noundef nonnull %55, ptr noundef nonnull %51, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %57, ptr noundef nonnull %56) #7
+planimeter.exit15.i:                              ; preds = %1863
+  %1867 = call i32 @geod_polygon_compute(ptr noundef nonnull %55, ptr noundef nonnull %51, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %57, ptr noundef nonnull %56) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %51)
-  %1872 = load double, ptr %56, align 8, !tbaa !4
-  %1873 = fadd double %1872, 0xC1234817BFBE76C9
-  %1874 = call double @llvm.fabs.f64(double %1873)
-  %1875 = fcmp ugt double %1874, 1.000000e-04
-  br i1 %1875, label %1876, label %checkEquals.exit17.i
+  %1868 = load double, ptr %56, align 8, !tbaa !4
+  %1869 = fadd double %1868, 0xC1234817BFBE76C9
+  %1870 = call double @llvm.fabs.f64(double %1869)
+  %1871 = fcmp ugt double %1870, 1.000000e-04
+  br i1 %1871, label %1872, label %checkEquals.exit17.i
 
-1876:                                             ; preds = %planimeter.exit15.i
-  %1877 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1872, double noundef 0x41234817BFBE76C9, double noundef 1.000000e-04)
+1872:                                             ; preds = %planimeter.exit15.i
+  %1873 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1868, double noundef 0x41234817BFBE76C9, double noundef 1.000000e-04)
   br label %checkEquals.exit17.i
 
-checkEquals.exit17.i:                             ; preds = %1876, %planimeter.exit15.i
-  %.0.i16.i = phi i32 [ 1, %1876 ], [ 0, %planimeter.exit15.i ]
-  %1878 = load double, ptr %57, align 8, !tbaa !4
-  %1879 = fadd double %1878, 0x42173D17E0380000
-  %1880 = call double @llvm.fabs.f64(double %1879)
-  %1881 = fcmp ugt double %1880, 1.000000e+00
-  br i1 %1881, label %1882, label %checkEquals.exit19.i
+checkEquals.exit17.i:                             ; preds = %1872, %planimeter.exit15.i
+  %.0.i16.i = phi i32 [ 1, %1872 ], [ 0, %planimeter.exit15.i ]
+  %1874 = load double, ptr %57, align 8, !tbaa !4
+  %1875 = fadd double %1874, 0x42173D17E0380000
+  %1876 = call double @llvm.fabs.f64(double %1875)
+  %1877 = fcmp ugt double %1876, 1.000000e+00
+  br i1 %1877, label %1878, label %checkEquals.exit19.i
 
-1882:                                             ; preds = %checkEquals.exit17.i
-  %1883 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1878, double noundef 0xC2173D17E0380000, double noundef 1.000000e+00)
+1878:                                             ; preds = %checkEquals.exit17.i
+  %1879 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1874, double noundef 0xC2173D17E0380000, double noundef 1.000000e+00)
   br label %checkEquals.exit19.i
 
-checkEquals.exit19.i:                             ; preds = %1882, %checkEquals.exit17.i
-  %.0.i18.i = phi i32 [ 1, %1882 ], [ 0, %checkEquals.exit17.i ]
+checkEquals.exit19.i:                             ; preds = %1878, %checkEquals.exit17.i
+  %.0.i18.i = phi i32 [ 1, %1878 ], [ 0, %checkEquals.exit17.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %50)
   call void @geod_polygon_init(ptr noundef nonnull %50, i32 noundef 0) #7
-  br label %1884
+  br label %1880
 
-1884:                                             ; preds = %1884, %checkEquals.exit19.i
-  %indvars.iv.i20.i = phi i64 [ 0, %checkEquals.exit19.i ], [ %indvars.iv.next.i21.i, %1884 ]
-  %1885 = getelementptr inbounds nuw [2 x double], ptr %53, i64 %indvars.iv.i20.i
-  %1886 = load double, ptr %1885, align 16, !tbaa !4
-  %1887 = getelementptr inbounds nuw i8, ptr %1885, i64 8
-  %1888 = load double, ptr %1887, align 8, !tbaa !4
-  call void @geod_polygon_addpoint(ptr noundef nonnull %55, ptr noundef nonnull %50, double noundef %1886, double noundef %1888) #7
+1880:                                             ; preds = %1880, %checkEquals.exit19.i
+  %indvars.iv.i20.i = phi i64 [ 0, %checkEquals.exit19.i ], [ %indvars.iv.next.i21.i, %1880 ]
+  %1881 = getelementptr inbounds nuw [2 x double], ptr %53, i64 %indvars.iv.i20.i
+  %1882 = load double, ptr %1881, align 16, !tbaa !4
+  %1883 = getelementptr inbounds nuw i8, ptr %1881, i64 8
+  %1884 = load double, ptr %1883, align 8, !tbaa !4
+  call void @geod_polygon_addpoint(ptr noundef nonnull %55, ptr noundef nonnull %50, double noundef %1882, double noundef %1884) #7
   %indvars.iv.next.i21.i = add nuw nsw i64 %indvars.iv.i20.i, 1
   %exitcond.not.i22.i = icmp eq i64 %indvars.iv.next.i21.i, 4
-  br i1 %exitcond.not.i22.i, label %planimeter.exit23.i, label %1884
+  br i1 %exitcond.not.i22.i, label %planimeter.exit23.i, label %1880
 
-planimeter.exit23.i:                              ; preds = %1884
-  %1889 = call i32 @geod_polygon_compute(ptr noundef nonnull %55, ptr noundef nonnull %50, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %57, ptr noundef nonnull %56) #7
+planimeter.exit23.i:                              ; preds = %1880
+  %1885 = call i32 @geod_polygon_compute(ptr noundef nonnull %55, ptr noundef nonnull %50, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %57, ptr noundef nonnull %56) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %50)
-  %1890 = load double, ptr %56, align 8, !tbaa !4
-  %1891 = fadd double %1890, 0xC123271C8BD3C361
-  %1892 = call double @llvm.fabs.f64(double %1891)
-  %1893 = fcmp ugt double %1892, 1.000000e-04
-  br i1 %1893, label %1894, label %checkEquals.exit25.i
+  %1886 = load double, ptr %56, align 8, !tbaa !4
+  %1887 = fadd double %1886, 0xC123271C8BD3C361
+  %1888 = call double @llvm.fabs.f64(double %1887)
+  %1889 = fcmp ugt double %1888, 1.000000e-04
+  br i1 %1889, label %1890, label %checkEquals.exit25.i
 
-1894:                                             ; preds = %planimeter.exit23.i
-  %1895 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1890, double noundef 0x4123271C8BD3C361, double noundef 1.000000e-04)
+1890:                                             ; preds = %planimeter.exit23.i
+  %1891 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1886, double noundef 0x4123271C8BD3C361, double noundef 1.000000e-04)
   br label %checkEquals.exit25.i
 
-checkEquals.exit25.i:                             ; preds = %1894, %planimeter.exit23.i
-  %.0.i24.i = phi i32 [ 1, %1894 ], [ 0, %planimeter.exit23.i ]
-  %1896 = load double, ptr %57, align 8, !tbaa !4
-  %1897 = fadd double %1896, 0xC216EDBA18280000
-  %1898 = call double @llvm.fabs.f64(double %1897)
-  %1899 = fcmp ugt double %1898, 1.000000e+00
-  br i1 %1899, label %1900, label %checkEquals.exit27.i
+checkEquals.exit25.i:                             ; preds = %1890, %planimeter.exit23.i
+  %.0.i24.i = phi i32 [ 1, %1890 ], [ 0, %planimeter.exit23.i ]
+  %1892 = load double, ptr %57, align 8, !tbaa !4
+  %1893 = fadd double %1892, 0xC216EDBA18280000
+  %1894 = call double @llvm.fabs.f64(double %1893)
+  %1895 = fcmp ugt double %1894, 1.000000e+00
+  br i1 %1895, label %1896, label %checkEquals.exit27.i
 
-1900:                                             ; preds = %checkEquals.exit25.i
-  %1901 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1896, double noundef 0x4216EDBA18280000, double noundef 1.000000e+00)
+1896:                                             ; preds = %checkEquals.exit25.i
+  %1897 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1892, double noundef 0x4216EDBA18280000, double noundef 1.000000e+00)
   br label %checkEquals.exit27.i
 
-checkEquals.exit27.i:                             ; preds = %1900, %checkEquals.exit25.i
-  %.0.i26.i = phi i32 [ 1, %1900 ], [ 0, %checkEquals.exit25.i ]
+checkEquals.exit27.i:                             ; preds = %1896, %checkEquals.exit25.i
+  %.0.i26.i = phi i32 [ 1, %1896 ], [ 0, %checkEquals.exit25.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %49)
   call void @geod_polygon_init(ptr noundef nonnull %49, i32 noundef 0) #7
-  br label %1902
+  br label %1898
 
-1902:                                             ; preds = %1902, %checkEquals.exit27.i
-  %indvars.iv.i28.i = phi i64 [ 0, %checkEquals.exit27.i ], [ %indvars.iv.next.i29.i, %1902 ]
-  %1903 = getelementptr inbounds nuw [2 x double], ptr %54, i64 %indvars.iv.i28.i
-  %1904 = load double, ptr %1903, align 16, !tbaa !4
-  %1905 = getelementptr inbounds nuw i8, ptr %1903, i64 8
-  %1906 = load double, ptr %1905, align 8, !tbaa !4
-  call void @geod_polygon_addpoint(ptr noundef nonnull %55, ptr noundef nonnull %49, double noundef %1904, double noundef %1906) #7
+1898:                                             ; preds = %1898, %checkEquals.exit27.i
+  %indvars.iv.i28.i = phi i64 [ 0, %checkEquals.exit27.i ], [ %indvars.iv.next.i29.i, %1898 ]
+  %1899 = getelementptr inbounds nuw [2 x double], ptr %54, i64 %indvars.iv.i28.i
+  %1900 = load double, ptr %1899, align 16, !tbaa !4
+  %1901 = getelementptr inbounds nuw i8, ptr %1899, i64 8
+  %1902 = load double, ptr %1901, align 8, !tbaa !4
+  call void @geod_polygon_addpoint(ptr noundef nonnull %55, ptr noundef nonnull %49, double noundef %1900, double noundef %1902) #7
   %indvars.iv.next.i29.i = add nuw nsw i64 %indvars.iv.i28.i, 1
   %exitcond.not.i30.i = icmp eq i64 %indvars.iv.next.i29.i, 3
-  br i1 %exitcond.not.i30.i, label %planimeter.exit31.i, label %1902
+  br i1 %exitcond.not.i30.i, label %planimeter.exit31.i, label %1898
 
-planimeter.exit31.i:                              ; preds = %1902
-  %1907 = call i32 @geod_polygon_compute(ptr noundef nonnull %55, ptr noundef nonnull %49, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %57, ptr noundef nonnull %56) #7
+planimeter.exit31.i:                              ; preds = %1898
+  %1903 = call i32 @geod_polygon_compute(ptr noundef nonnull %55, ptr noundef nonnull %49, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %57, ptr noundef nonnull %56) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %49)
-  %1908 = load double, ptr %56, align 8, !tbaa !4
-  %1909 = fadd double %1908, 0xC17CA1C1D0000000
-  %1910 = call double @llvm.fabs.f64(double %1909)
-  %1911 = fcmp ugt double %1910, 1.000000e+00
-  br i1 %1911, label %1912, label %checkEquals.exit33.i436
+  %1904 = load double, ptr %56, align 8, !tbaa !4
+  %1905 = fadd double %1904, 0xC17CA1C1D0000000
+  %1906 = call double @llvm.fabs.f64(double %1905)
+  %1907 = fcmp ugt double %1906, 1.000000e+00
+  br i1 %1907, label %1908, label %checkEquals.exit33.i436
 
-1912:                                             ; preds = %planimeter.exit31.i
-  %1913 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1908, double noundef 0x417CA1C1D0000000, double noundef 1.000000e+00)
+1908:                                             ; preds = %planimeter.exit31.i
+  %1909 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1904, double noundef 0x417CA1C1D0000000, double noundef 1.000000e+00)
   br label %checkEquals.exit33.i436
 
-checkEquals.exit33.i436:                          ; preds = %1912, %planimeter.exit31.i
-  %.0.i32.i437 = phi i32 [ 1, %1912 ], [ 0, %planimeter.exit31.i ]
-  %1914 = load double, ptr %57, align 8, !tbaa !4
-  %1915 = fadd double %1914, 0xC2CCFE6E831EBB80
-  %1916 = call double @llvm.fabs.f64(double %1915)
-  %1917 = fcmp ugt double %1916, 1.000000e+00
-  br i1 %1917, label %1918, label %checkEquals.exit35.i438
+checkEquals.exit33.i436:                          ; preds = %1908, %planimeter.exit31.i
+  %.0.i32.i437 = phi i32 [ 1, %1908 ], [ 0, %planimeter.exit31.i ]
+  %1910 = load double, ptr %57, align 8, !tbaa !4
+  %1911 = fadd double %1910, 0xC2CCFE6E831EBB80
+  %1912 = call double @llvm.fabs.f64(double %1911)
+  %1913 = fcmp ugt double %1912, 1.000000e+00
+  br i1 %1913, label %1914, label %checkEquals.exit35.i438
 
-1918:                                             ; preds = %checkEquals.exit33.i436
-  %1919 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1914, double noundef 0x42CCFE6E831EBB80, double noundef 1.000000e+00)
+1914:                                             ; preds = %checkEquals.exit33.i436
+  %1915 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1910, double noundef 0x42CCFE6E831EBB80, double noundef 1.000000e+00)
   br label %checkEquals.exit35.i438
 
-checkEquals.exit35.i438:                          ; preds = %1918, %checkEquals.exit33.i436
-  %.0.i34.i439 = phi i32 [ 1, %1918 ], [ 0, %checkEquals.exit33.i436 ]
+checkEquals.exit35.i438:                          ; preds = %1914, %checkEquals.exit33.i436
+  %.0.i34.i439 = phi i32 [ 1, %1914 ], [ 0, %checkEquals.exit33.i436 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %48)
   call void @geod_polygon_init(ptr noundef nonnull %48, i32 noundef 1) #7
-  br label %1920
+  br label %1916
 
-1920:                                             ; preds = %1920, %checkEquals.exit35.i438
-  %indvars.iv.i36.i = phi i64 [ 0, %checkEquals.exit35.i438 ], [ %indvars.iv.next.i37.i, %1920 ]
-  %1921 = getelementptr inbounds nuw [2 x double], ptr %54, i64 %indvars.iv.i36.i
-  %1922 = load double, ptr %1921, align 16, !tbaa !4
-  %1923 = getelementptr inbounds nuw i8, ptr %1921, i64 8
-  %1924 = load double, ptr %1923, align 8, !tbaa !4
-  call void @geod_polygon_addpoint(ptr noundef nonnull %55, ptr noundef nonnull %48, double noundef %1922, double noundef %1924) #7
+1916:                                             ; preds = %1916, %checkEquals.exit35.i438
+  %indvars.iv.i36.i = phi i64 [ 0, %checkEquals.exit35.i438 ], [ %indvars.iv.next.i37.i, %1916 ]
+  %1917 = getelementptr inbounds nuw [2 x double], ptr %54, i64 %indvars.iv.i36.i
+  %1918 = load double, ptr %1917, align 16, !tbaa !4
+  %1919 = getelementptr inbounds nuw i8, ptr %1917, i64 8
+  %1920 = load double, ptr %1919, align 8, !tbaa !4
+  call void @geod_polygon_addpoint(ptr noundef nonnull %55, ptr noundef nonnull %48, double noundef %1918, double noundef %1920) #7
   %indvars.iv.next.i37.i = add nuw nsw i64 %indvars.iv.i36.i, 1
   %exitcond.not.i38.i = icmp eq i64 %indvars.iv.next.i37.i, 3
-  br i1 %exitcond.not.i38.i, label %polylength.exit.i, label %1920
+  br i1 %exitcond.not.i38.i, label %polylength.exit.i, label %1916
 
-polylength.exit.i:                                ; preds = %1920
-  %1925 = call i32 @geod_polygon_compute(ptr noundef nonnull %55, ptr noundef nonnull %48, i32 noundef 0, i32 noundef 1, ptr noundef null, ptr noundef nonnull %56) #7
+polylength.exit.i:                                ; preds = %1916
+  %1921 = call i32 @geod_polygon_compute(ptr noundef nonnull %55, ptr noundef nonnull %48, i32 noundef 0, i32 noundef 1, ptr noundef null, ptr noundef nonnull %56) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %48)
-  %1926 = load double, ptr %56, align 8, !tbaa !4
-  %1927 = fadd double %1926, 0xC17317DEF0000000
-  %1928 = call double @llvm.fabs.f64(double %1927)
-  %1929 = fcmp ugt double %1928, 1.000000e+00
-  br i1 %1929, label %1930, label %Planimeter0.exit
+  %1922 = load double, ptr %56, align 8, !tbaa !4
+  %1923 = fadd double %1922, 0xC17317DEF0000000
+  %1924 = call double @llvm.fabs.f64(double %1923)
+  %1925 = fcmp ugt double %1924, 1.000000e+00
+  br i1 %1925, label %1926, label %Planimeter0.exit
 
-1930:                                             ; preds = %polylength.exit.i
-  %1931 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1926, double noundef 0x417317DEF0000000, double noundef 1.000000e+00)
+1926:                                             ; preds = %polylength.exit.i
+  %1927 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1922, double noundef 0x417317DEF0000000, double noundef 1.000000e+00)
   br label %Planimeter0.exit
 
-Planimeter0.exit:                                 ; preds = %polylength.exit.i, %1930
-  %.0.i39.i441 = phi i32 [ 1, %1930 ], [ 0, %polylength.exit.i ]
-  %1932 = add nuw nsw i32 %.0.i10.i, %.0.i.i435
-  %1933 = add nuw nsw i32 %1932, %.0.i16.i
-  %1934 = add nuw nsw i32 %1933, %.0.i18.i
-  %1935 = add nuw nsw i32 %1934, %.0.i24.i
-  %1936 = add nuw nsw i32 %1935, %.0.i26.i
-  %1937 = add nuw nsw i32 %1936, %.0.i32.i437
-  %1938 = add nuw nsw i32 %1937, %.0.i34.i439
-  %1939 = add nuw nsw i32 %1938, %.0.i39.i441
+Planimeter0.exit:                                 ; preds = %polylength.exit.i, %1926
+  %.0.i39.i441 = phi i32 [ 1, %1926 ], [ 0, %polylength.exit.i ]
+  %1928 = add nuw nsw i32 %.0.i10.i, %.0.i.i435
+  %1929 = add nuw nsw i32 %1928, %.0.i16.i
+  %1930 = add nuw nsw i32 %1929, %.0.i18.i
+  %1931 = add nuw nsw i32 %1930, %.0.i24.i
+  %1932 = add nuw nsw i32 %1931, %.0.i26.i
+  %1933 = add nuw nsw i32 %1932, %.0.i32.i437
+  %1934 = add nuw nsw i32 %1933, %.0.i34.i439
+  %1935 = add nuw nsw i32 %1934, %.0.i39.i441
   call void @llvm.lifetime.end.p0(ptr nonnull %57)
   call void @llvm.lifetime.end.p0(ptr nonnull %56)
   call void @llvm.lifetime.end.p0(ptr nonnull %55)
   call void @llvm.lifetime.end.p0(ptr nonnull %54)
   call void @llvm.lifetime.end.p0(ptr nonnull %53)
-  %.not166 = icmp eq i32 %1939, 0
-  br i1 %.not166, label %1943, label %1940
+  %.not166 = icmp eq i32 %1935, 0
+  br i1 %.not166, label %1939, label %1936
 
-1940:                                             ; preds = %Planimeter0.exit
-  %1941 = add nsw i32 %.33, 1
-  %1942 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.34, i32 noundef %1939)
-  br label %1943
+1936:                                             ; preds = %Planimeter0.exit
+  %1937 = add nsw i32 %.33, 1
+  %1938 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.34, i32 noundef %1935)
+  br label %1939
 
-1943:                                             ; preds = %1940, %Planimeter0.exit
-  %.34 = phi i32 [ %1941, %1940 ], [ %.33, %Planimeter0.exit ]
+1939:                                             ; preds = %1936, %Planimeter0.exit
+  %.34 = phi i32 [ %1937, %1936 ], [ %.33, %Planimeter0.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %44)
   store double 8.900000e+01, ptr %44, align 16
-  %1944 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  store double 1.000000e-01, ptr %1944, align 8
-  %1945 = getelementptr inbounds nuw i8, ptr %44, i64 16
-  store double 8.900000e+01, ptr %1945, align 16
-  %1946 = getelementptr inbounds nuw i8, ptr %44, i64 24
-  store double 9.010000e+01, ptr %1946, align 8
-  %1947 = getelementptr inbounds nuw i8, ptr %44, i64 32
-  store double 8.900000e+01, ptr %1947, align 16
-  %1948 = getelementptr inbounds nuw i8, ptr %44, i64 40
-  store double -1.799000e+02, ptr %1948, align 8
+  %1940 = getelementptr inbounds nuw i8, ptr %44, i64 8
+  store double 1.000000e-01, ptr %1940, align 8
+  %1941 = getelementptr inbounds nuw i8, ptr %44, i64 16
+  store double 8.900000e+01, ptr %1941, align 16
+  %1942 = getelementptr inbounds nuw i8, ptr %44, i64 24
+  store double 9.010000e+01, ptr %1942, align 8
+  %1943 = getelementptr inbounds nuw i8, ptr %44, i64 32
+  store double 8.900000e+01, ptr %1943, align 16
+  %1944 = getelementptr inbounds nuw i8, ptr %44, i64 40
+  store double -1.799000e+02, ptr %1944, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %45)
   call void @llvm.lifetime.start.p0(ptr nonnull %46)
   call void @llvm.lifetime.start.p0(ptr nonnull %47)
   call void @geod_init(ptr noundef nonnull %45, double noundef 0x415854A640000000, double noundef 0x3F6B775A84F3E128) #7
   call void @llvm.lifetime.start.p0(ptr nonnull %43)
   call void @geod_polygon_init(ptr noundef nonnull %43, i32 noundef 0) #7
-  br label %1949
+  br label %1945
 
-1949:                                             ; preds = %1949, %1943
-  %indvars.iv.i.i442 = phi i64 [ 0, %1943 ], [ %indvars.iv.next.i.i443, %1949 ]
-  %1950 = getelementptr inbounds nuw [2 x double], ptr %44, i64 %indvars.iv.i.i442
-  %1951 = load double, ptr %1950, align 16, !tbaa !4
-  %1952 = getelementptr inbounds nuw i8, ptr %1950, i64 8
-  %1953 = load double, ptr %1952, align 8, !tbaa !4
-  call void @geod_polygon_addpoint(ptr noundef nonnull %45, ptr noundef nonnull %43, double noundef %1951, double noundef %1953) #7
+1945:                                             ; preds = %1945, %1939
+  %indvars.iv.i.i442 = phi i64 [ 0, %1939 ], [ %indvars.iv.next.i.i443, %1945 ]
+  %1946 = getelementptr inbounds nuw [2 x double], ptr %44, i64 %indvars.iv.i.i442
+  %1947 = load double, ptr %1946, align 16, !tbaa !4
+  %1948 = getelementptr inbounds nuw i8, ptr %1946, i64 8
+  %1949 = load double, ptr %1948, align 8, !tbaa !4
+  call void @geod_polygon_addpoint(ptr noundef nonnull %45, ptr noundef nonnull %43, double noundef %1947, double noundef %1949) #7
   %indvars.iv.next.i.i443 = add nuw nsw i64 %indvars.iv.i.i442, 1
   %exitcond.not.i.i444 = icmp eq i64 %indvars.iv.next.i.i443, 3
-  br i1 %exitcond.not.i.i444, label %planimeter.exit.i445, label %1949
+  br i1 %exitcond.not.i.i444, label %planimeter.exit.i445, label %1945
 
-planimeter.exit.i445:                             ; preds = %1949
-  %1954 = call i32 @geod_polygon_compute(ptr noundef nonnull %45, ptr noundef nonnull %43, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %47, ptr noundef nonnull %46) #7
+planimeter.exit.i445:                             ; preds = %1945
+  %1950 = call i32 @geod_polygon_compute(ptr noundef nonnull %45, ptr noundef nonnull %43, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %47, ptr noundef nonnull %46) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %43)
-  %1955 = load double, ptr %46, align 8, !tbaa !4
-  %1956 = fadd double %1955, -5.392970e+05
-  %1957 = call double @llvm.fabs.f64(double %1956)
-  %1958 = fcmp ugt double %1957, 1.000000e+00
-  br i1 %1958, label %1959, label %checkEquals.exit.i446
+  %1951 = load double, ptr %46, align 8, !tbaa !4
+  %1952 = fadd double %1951, -5.392970e+05
+  %1953 = call double @llvm.fabs.f64(double %1952)
+  %1954 = fcmp ugt double %1953, 1.000000e+00
+  br i1 %1954, label %1955, label %checkEquals.exit.i446
 
-1959:                                             ; preds = %planimeter.exit.i445
-  %1960 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1955, double noundef 5.392970e+05, double noundef 1.000000e+00)
+1955:                                             ; preds = %planimeter.exit.i445
+  %1956 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1951, double noundef 5.392970e+05, double noundef 1.000000e+00)
   br label %checkEquals.exit.i446
 
-checkEquals.exit.i446:                            ; preds = %1959, %planimeter.exit.i445
-  %.0.i.i447 = phi i32 [ 1, %1959 ], [ 0, %planimeter.exit.i445 ]
-  %1961 = load double, ptr %47, align 8, !tbaa !4
-  %1962 = fadd double %1961, 0xC2073D17E0340000
-  %1963 = call double @llvm.fabs.f64(double %1962)
-  %1964 = fcmp ugt double %1963, 1.000000e+00
-  br i1 %1964, label %1965, label %Planimeter5.exit
+checkEquals.exit.i446:                            ; preds = %1955, %planimeter.exit.i445
+  %.0.i.i447 = phi i32 [ 1, %1955 ], [ 0, %planimeter.exit.i445 ]
+  %1957 = load double, ptr %47, align 8, !tbaa !4
+  %1958 = fadd double %1957, 0xC2073D17E0340000
+  %1959 = call double @llvm.fabs.f64(double %1958)
+  %1960 = fcmp ugt double %1959, 1.000000e+00
+  br i1 %1960, label %1961, label %Planimeter5.exit
 
-1965:                                             ; preds = %checkEquals.exit.i446
-  %1966 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1961, double noundef 0x42073D17E0340000, double noundef 1.000000e+00)
+1961:                                             ; preds = %checkEquals.exit.i446
+  %1962 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1957, double noundef 0x42073D17E0340000, double noundef 1.000000e+00)
   br label %Planimeter5.exit
 
-Planimeter5.exit:                                 ; preds = %checkEquals.exit.i446, %1965
-  %.0.i3.i = phi i32 [ 1, %1965 ], [ 0, %checkEquals.exit.i446 ]
-  %1967 = add nuw nsw i32 %.0.i3.i, %.0.i.i447
+Planimeter5.exit:                                 ; preds = %checkEquals.exit.i446, %1961
+  %.0.i3.i = phi i32 [ 1, %1961 ], [ 0, %checkEquals.exit.i446 ]
+  %1963 = add nuw nsw i32 %.0.i3.i, %.0.i.i447
   call void @llvm.lifetime.end.p0(ptr nonnull %47)
   call void @llvm.lifetime.end.p0(ptr nonnull %46)
   call void @llvm.lifetime.end.p0(ptr nonnull %45)
   call void @llvm.lifetime.end.p0(ptr nonnull %44)
-  %.not167 = icmp eq i32 %1967, 0
-  br i1 %.not167, label %1971, label %1968
+  %.not167 = icmp eq i32 %1963, 0
+  br i1 %.not167, label %1967, label %1964
 
-1968:                                             ; preds = %Planimeter5.exit
-  %1969 = add nsw i32 %.34, 1
-  %1970 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.35, i32 noundef %1967)
-  br label %1971
+1964:                                             ; preds = %Planimeter5.exit
+  %1965 = add nsw i32 %.34, 1
+  %1966 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.35, i32 noundef %1963)
+  br label %1967
 
-1971:                                             ; preds = %1968, %Planimeter5.exit
-  %.35 = phi i32 [ %1969, %1968 ], [ %.34, %Planimeter5.exit ]
+1967:                                             ; preds = %1964, %Planimeter5.exit
+  %.35 = phi i32 [ %1965, %1964 ], [ %.34, %Planimeter5.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %36)
-  %1972 = getelementptr inbounds nuw i8, ptr %36, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %1972, i8 0, i64 16, i1 false)
+  %1968 = getelementptr inbounds nuw i8, ptr %36, i64 32
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %1968, i8 0, i64 16, i1 false)
   store double 9.000000e+00, ptr %36, align 16
-  %1973 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  store double 0xBD06849B86A12B9B, ptr %1973, align 8
-  %1974 = getelementptr inbounds nuw i8, ptr %36, i64 16
-  store double 9.000000e+00, ptr %1974, align 16
-  %1975 = getelementptr inbounds nuw i8, ptr %36, i64 24
-  store double 1.800000e+02, ptr %1975, align 8
-  store double 9.000000e+00, ptr %1972, align 16
+  %1969 = getelementptr inbounds nuw i8, ptr %36, i64 8
+  store double 0xBD06849B86A12B9B, ptr %1969, align 8
+  %1970 = getelementptr inbounds nuw i8, ptr %36, i64 16
+  store double 9.000000e+00, ptr %1970, align 16
+  %1971 = getelementptr inbounds nuw i8, ptr %36, i64 24
+  store double 1.800000e+02, ptr %1971, align 8
+  store double 9.000000e+00, ptr %1968, align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %37)
-  %1976 = getelementptr inbounds nuw i8, ptr %37, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %1976, i8 0, i64 16, i1 false)
+  %1972 = getelementptr inbounds nuw i8, ptr %37, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %1972, i8 0, i64 16, i1 false)
   store double 9.000000e+00, ptr %37, align 16
-  %1977 = getelementptr inbounds nuw i8, ptr %37, i64 8
-  store double 0x3D06849B86A12B9B, ptr %1977, align 8
-  store double 9.000000e+00, ptr %1976, align 16
-  %1978 = getelementptr inbounds nuw i8, ptr %37, i64 32
-  store double 9.000000e+00, ptr %1978, align 16
-  %1979 = getelementptr inbounds nuw i8, ptr %37, i64 40
-  store double 1.800000e+02, ptr %1979, align 8
+  %1973 = getelementptr inbounds nuw i8, ptr %37, i64 8
+  store double 0x3D06849B86A12B9B, ptr %1973, align 8
+  store double 9.000000e+00, ptr %1972, align 16
+  %1974 = getelementptr inbounds nuw i8, ptr %37, i64 32
+  store double 9.000000e+00, ptr %1974, align 16
+  %1975 = getelementptr inbounds nuw i8, ptr %37, i64 40
+  store double 1.800000e+02, ptr %1975, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %38)
-  %1980 = getelementptr inbounds nuw i8, ptr %38, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %1980, i8 0, i64 16, i1 false)
+  %1976 = getelementptr inbounds nuw i8, ptr %38, i64 32
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %1976, i8 0, i64 16, i1 false)
   store double 9.000000e+00, ptr %38, align 16
-  %1981 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  store double 0x3D06849B86A12B9B, ptr %1981, align 8
-  %1982 = getelementptr inbounds nuw i8, ptr %38, i64 16
-  store double 9.000000e+00, ptr %1982, align 16
-  %1983 = getelementptr inbounds nuw i8, ptr %38, i64 24
-  store double 1.800000e+02, ptr %1983, align 8
-  store double 9.000000e+00, ptr %1980, align 16
+  %1977 = getelementptr inbounds nuw i8, ptr %38, i64 8
+  store double 0x3D06849B86A12B9B, ptr %1977, align 8
+  %1978 = getelementptr inbounds nuw i8, ptr %38, i64 16
+  store double 9.000000e+00, ptr %1978, align 16
+  %1979 = getelementptr inbounds nuw i8, ptr %38, i64 24
+  store double 1.800000e+02, ptr %1979, align 8
+  store double 9.000000e+00, ptr %1976, align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %39)
-  %1984 = getelementptr inbounds nuw i8, ptr %39, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %1984, i8 0, i64 16, i1 false)
+  %1980 = getelementptr inbounds nuw i8, ptr %39, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %1980, i8 0, i64 16, i1 false)
   store double 9.000000e+00, ptr %39, align 16
-  %1985 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  store double 0xBD06849B86A12B9B, ptr %1985, align 8
-  store double 9.000000e+00, ptr %1984, align 16
-  %1986 = getelementptr inbounds nuw i8, ptr %39, i64 32
-  store double 9.000000e+00, ptr %1986, align 16
-  %1987 = getelementptr inbounds nuw i8, ptr %39, i64 40
-  store double 1.800000e+02, ptr %1987, align 8
+  %1981 = getelementptr inbounds nuw i8, ptr %39, i64 8
+  store double 0xBD06849B86A12B9B, ptr %1981, align 8
+  store double 9.000000e+00, ptr %1980, align 16
+  %1982 = getelementptr inbounds nuw i8, ptr %39, i64 32
+  store double 9.000000e+00, ptr %1982, align 16
+  %1983 = getelementptr inbounds nuw i8, ptr %39, i64 40
+  store double 1.800000e+02, ptr %1983, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %40)
   call void @llvm.lifetime.start.p0(ptr nonnull %41)
   call void @llvm.lifetime.start.p0(ptr nonnull %42)
   call void @geod_init(ptr noundef nonnull %40, double noundef 0x415854A640000000, double noundef 0x3F6B775A84F3E128) #7
   call void @llvm.lifetime.start.p0(ptr nonnull %35)
   call void @geod_polygon_init(ptr noundef nonnull %35, i32 noundef 0) #7
-  br label %1988
+  br label %1984
 
-1988:                                             ; preds = %1988, %1971
-  %indvars.iv.i.i448 = phi i64 [ 0, %1971 ], [ %indvars.iv.next.i.i449, %1988 ]
-  %1989 = getelementptr inbounds nuw [2 x double], ptr %36, i64 %indvars.iv.i.i448
-  %1990 = load double, ptr %1989, align 16, !tbaa !4
-  %1991 = getelementptr inbounds nuw i8, ptr %1989, i64 8
-  %1992 = load double, ptr %1991, align 8, !tbaa !4
-  call void @geod_polygon_addpoint(ptr noundef nonnull %40, ptr noundef nonnull %35, double noundef %1990, double noundef %1992) #7
+1984:                                             ; preds = %1984, %1967
+  %indvars.iv.i.i448 = phi i64 [ 0, %1967 ], [ %indvars.iv.next.i.i449, %1984 ]
+  %1985 = getelementptr inbounds nuw [2 x double], ptr %36, i64 %indvars.iv.i.i448
+  %1986 = load double, ptr %1985, align 16, !tbaa !4
+  %1987 = getelementptr inbounds nuw i8, ptr %1985, i64 8
+  %1988 = load double, ptr %1987, align 8, !tbaa !4
+  call void @geod_polygon_addpoint(ptr noundef nonnull %40, ptr noundef nonnull %35, double noundef %1986, double noundef %1988) #7
   %indvars.iv.next.i.i449 = add nuw nsw i64 %indvars.iv.i.i448, 1
   %exitcond.not.i.i450 = icmp eq i64 %indvars.iv.next.i.i449, 3
-  br i1 %exitcond.not.i.i450, label %planimeter.exit.i451, label %1988
+  br i1 %exitcond.not.i.i450, label %planimeter.exit.i451, label %1984
 
-planimeter.exit.i451:                             ; preds = %1988
-  %1993 = call i32 @geod_polygon_compute(ptr noundef nonnull %40, ptr noundef nonnull %35, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %42, ptr noundef nonnull %41) #7
+planimeter.exit.i451:                             ; preds = %1984
+  %1989 = call i32 @geod_polygon_compute(ptr noundef nonnull %40, ptr noundef nonnull %35, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %42, ptr noundef nonnull %41) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %35)
-  %1994 = load double, ptr %41, align 8, !tbaa !4
-  %1995 = fadd double %1994, 0xC1812DCF68000000
-  %1996 = call double @llvm.fabs.f64(double %1995)
-  %1997 = fcmp ugt double %1996, 1.000000e+00
-  br i1 %1997, label %1998, label %checkEquals.exit.i452
+  %1990 = load double, ptr %41, align 8, !tbaa !4
+  %1991 = fadd double %1990, 0xC1812DCF68000000
+  %1992 = call double @llvm.fabs.f64(double %1991)
+  %1993 = fcmp ugt double %1992, 1.000000e+00
+  br i1 %1993, label %1994, label %checkEquals.exit.i452
 
-1998:                                             ; preds = %planimeter.exit.i451
-  %1999 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1994, double noundef 0x41812DCF68000000, double noundef 1.000000e+00)
+1994:                                             ; preds = %planimeter.exit.i451
+  %1995 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1990, double noundef 0x41812DCF68000000, double noundef 1.000000e+00)
   br label %checkEquals.exit.i452
 
-checkEquals.exit.i452:                            ; preds = %1998, %planimeter.exit.i451
-  %.0.i.i453 = phi i32 [ 1, %1998 ], [ 0, %planimeter.exit.i451 ]
-  %2000 = load double, ptr %42, align 8, !tbaa !4
-  %2001 = call double @llvm.fabs.f64(double %2000)
-  %2002 = fcmp ugt double %2001, 1.000000e+00
-  br i1 %2002, label %2003, label %checkEquals.exit10.i454
+checkEquals.exit.i452:                            ; preds = %1994, %planimeter.exit.i451
+  %.0.i.i453 = phi i32 [ 1, %1994 ], [ 0, %planimeter.exit.i451 ]
+  %1996 = load double, ptr %42, align 8, !tbaa !4
+  %1997 = call double @llvm.fabs.f64(double %1996)
+  %1998 = fcmp ugt double %1997, 1.000000e+00
+  br i1 %1998, label %1999, label %checkEquals.exit10.i454
 
-2003:                                             ; preds = %checkEquals.exit.i452
-  %2004 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %2000, double noundef 0.000000e+00, double noundef 1.000000e+00)
+1999:                                             ; preds = %checkEquals.exit.i452
+  %2000 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %1996, double noundef 0.000000e+00, double noundef 1.000000e+00)
   br label %checkEquals.exit10.i454
 
-checkEquals.exit10.i454:                          ; preds = %2003, %checkEquals.exit.i452
-  %.0.i9.i455 = phi i32 [ 1, %2003 ], [ 0, %checkEquals.exit.i452 ]
+checkEquals.exit10.i454:                          ; preds = %1999, %checkEquals.exit.i452
+  %.0.i9.i455 = phi i32 [ 1, %1999 ], [ 0, %checkEquals.exit.i452 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %34)
   call void @geod_polygon_init(ptr noundef nonnull %34, i32 noundef 0) #7
-  br label %2005
+  br label %2001
 
-2005:                                             ; preds = %2005, %checkEquals.exit10.i454
-  %indvars.iv.i11.i = phi i64 [ 0, %checkEquals.exit10.i454 ], [ %indvars.iv.next.i12.i, %2005 ]
-  %2006 = getelementptr inbounds nuw [2 x double], ptr %37, i64 %indvars.iv.i11.i
-  %2007 = load double, ptr %2006, align 16, !tbaa !4
-  %2008 = getelementptr inbounds nuw i8, ptr %2006, i64 8
-  %2009 = load double, ptr %2008, align 8, !tbaa !4
-  call void @geod_polygon_addpoint(ptr noundef nonnull %40, ptr noundef nonnull %34, double noundef %2007, double noundef %2009) #7
+2001:                                             ; preds = %2001, %checkEquals.exit10.i454
+  %indvars.iv.i11.i = phi i64 [ 0, %checkEquals.exit10.i454 ], [ %indvars.iv.next.i12.i, %2001 ]
+  %2002 = getelementptr inbounds nuw [2 x double], ptr %37, i64 %indvars.iv.i11.i
+  %2003 = load double, ptr %2002, align 16, !tbaa !4
+  %2004 = getelementptr inbounds nuw i8, ptr %2002, i64 8
+  %2005 = load double, ptr %2004, align 8, !tbaa !4
+  call void @geod_polygon_addpoint(ptr noundef nonnull %40, ptr noundef nonnull %34, double noundef %2003, double noundef %2005) #7
   %indvars.iv.next.i12.i = add nuw nsw i64 %indvars.iv.i11.i, 1
   %exitcond.not.i13.i = icmp eq i64 %indvars.iv.next.i12.i, 3
-  br i1 %exitcond.not.i13.i, label %planimeter.exit14.i, label %2005
+  br i1 %exitcond.not.i13.i, label %planimeter.exit14.i, label %2001
 
-planimeter.exit14.i:                              ; preds = %2005
-  %2010 = call i32 @geod_polygon_compute(ptr noundef nonnull %40, ptr noundef nonnull %34, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %42, ptr noundef nonnull %41) #7
+planimeter.exit14.i:                              ; preds = %2001
+  %2006 = call i32 @geod_polygon_compute(ptr noundef nonnull %40, ptr noundef nonnull %34, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %42, ptr noundef nonnull %41) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %34)
-  %2011 = load double, ptr %41, align 8, !tbaa !4
-  %2012 = fadd double %2011, 0xC1812DCF68000000
-  %2013 = call double @llvm.fabs.f64(double %2012)
-  %2014 = fcmp ugt double %2013, 1.000000e+00
-  br i1 %2014, label %2015, label %checkEquals.exit16.i456
+  %2007 = load double, ptr %41, align 8, !tbaa !4
+  %2008 = fadd double %2007, 0xC1812DCF68000000
+  %2009 = call double @llvm.fabs.f64(double %2008)
+  %2010 = fcmp ugt double %2009, 1.000000e+00
+  br i1 %2010, label %2011, label %checkEquals.exit16.i456
 
-2015:                                             ; preds = %planimeter.exit14.i
-  %2016 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %2011, double noundef 0x41812DCF68000000, double noundef 1.000000e+00)
+2011:                                             ; preds = %planimeter.exit14.i
+  %2012 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %2007, double noundef 0x41812DCF68000000, double noundef 1.000000e+00)
   br label %checkEquals.exit16.i456
 
-checkEquals.exit16.i456:                          ; preds = %2015, %planimeter.exit14.i
-  %.0.i15.i457 = phi i32 [ 1, %2015 ], [ 0, %planimeter.exit14.i ]
-  %2017 = load double, ptr %42, align 8, !tbaa !4
-  %2018 = call double @llvm.fabs.f64(double %2017)
-  %2019 = fcmp ugt double %2018, 1.000000e+00
-  br i1 %2019, label %2020, label %checkEquals.exit18.i458
+checkEquals.exit16.i456:                          ; preds = %2011, %planimeter.exit14.i
+  %.0.i15.i457 = phi i32 [ 1, %2011 ], [ 0, %planimeter.exit14.i ]
+  %2013 = load double, ptr %42, align 8, !tbaa !4
+  %2014 = call double @llvm.fabs.f64(double %2013)
+  %2015 = fcmp ugt double %2014, 1.000000e+00
+  br i1 %2015, label %2016, label %checkEquals.exit18.i458
 
-2020:                                             ; preds = %checkEquals.exit16.i456
-  %2021 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %2017, double noundef 0.000000e+00, double noundef 1.000000e+00)
+2016:                                             ; preds = %checkEquals.exit16.i456
+  %2017 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %2013, double noundef 0.000000e+00, double noundef 1.000000e+00)
   br label %checkEquals.exit18.i458
 
-checkEquals.exit18.i458:                          ; preds = %2020, %checkEquals.exit16.i456
-  %.0.i17.i459 = phi i32 [ 1, %2020 ], [ 0, %checkEquals.exit16.i456 ]
+checkEquals.exit18.i458:                          ; preds = %2016, %checkEquals.exit16.i456
+  %.0.i17.i459 = phi i32 [ 1, %2016 ], [ 0, %checkEquals.exit16.i456 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %33)
   call void @geod_polygon_init(ptr noundef nonnull %33, i32 noundef 0) #7
-  br label %2022
+  br label %2018
 
-2022:                                             ; preds = %2022, %checkEquals.exit18.i458
-  %indvars.iv.i19.i = phi i64 [ 0, %checkEquals.exit18.i458 ], [ %indvars.iv.next.i20.i, %2022 ]
-  %2023 = getelementptr inbounds nuw [2 x double], ptr %38, i64 %indvars.iv.i19.i
-  %2024 = load double, ptr %2023, align 16, !tbaa !4
-  %2025 = getelementptr inbounds nuw i8, ptr %2023, i64 8
-  %2026 = load double, ptr %2025, align 8, !tbaa !4
-  call void @geod_polygon_addpoint(ptr noundef nonnull %40, ptr noundef nonnull %33, double noundef %2024, double noundef %2026) #7
+2018:                                             ; preds = %2018, %checkEquals.exit18.i458
+  %indvars.iv.i19.i = phi i64 [ 0, %checkEquals.exit18.i458 ], [ %indvars.iv.next.i20.i, %2018 ]
+  %2019 = getelementptr inbounds nuw [2 x double], ptr %38, i64 %indvars.iv.i19.i
+  %2020 = load double, ptr %2019, align 16, !tbaa !4
+  %2021 = getelementptr inbounds nuw i8, ptr %2019, i64 8
+  %2022 = load double, ptr %2021, align 8, !tbaa !4
+  call void @geod_polygon_addpoint(ptr noundef nonnull %40, ptr noundef nonnull %33, double noundef %2020, double noundef %2022) #7
   %indvars.iv.next.i20.i = add nuw nsw i64 %indvars.iv.i19.i, 1
   %exitcond.not.i21.i = icmp eq i64 %indvars.iv.next.i20.i, 3
-  br i1 %exitcond.not.i21.i, label %planimeter.exit22.i, label %2022
+  br i1 %exitcond.not.i21.i, label %planimeter.exit22.i, label %2018
 
-planimeter.exit22.i:                              ; preds = %2022
-  %2027 = call i32 @geod_polygon_compute(ptr noundef nonnull %40, ptr noundef nonnull %33, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %42, ptr noundef nonnull %41) #7
+planimeter.exit22.i:                              ; preds = %2018
+  %2023 = call i32 @geod_polygon_compute(ptr noundef nonnull %40, ptr noundef nonnull %33, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %42, ptr noundef nonnull %41) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
-  %2028 = load double, ptr %41, align 8, !tbaa !4
-  %2029 = fadd double %2028, 0xC1812DCF68000000
-  %2030 = call double @llvm.fabs.f64(double %2029)
-  %2031 = fcmp ugt double %2030, 1.000000e+00
-  br i1 %2031, label %2032, label %checkEquals.exit24.i460
+  %2024 = load double, ptr %41, align 8, !tbaa !4
+  %2025 = fadd double %2024, 0xC1812DCF68000000
+  %2026 = call double @llvm.fabs.f64(double %2025)
+  %2027 = fcmp ugt double %2026, 1.000000e+00
+  br i1 %2027, label %2028, label %checkEquals.exit24.i460
 
-2032:                                             ; preds = %planimeter.exit22.i
-  %2033 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %2028, double noundef 0x41812DCF68000000, double noundef 1.000000e+00)
+2028:                                             ; preds = %planimeter.exit22.i
+  %2029 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %2024, double noundef 0x41812DCF68000000, double noundef 1.000000e+00)
   br label %checkEquals.exit24.i460
 
-checkEquals.exit24.i460:                          ; preds = %2032, %planimeter.exit22.i
-  %.0.i23.i461 = phi i32 [ 1, %2032 ], [ 0, %planimeter.exit22.i ]
-  %2034 = load double, ptr %42, align 8, !tbaa !4
-  %2035 = call double @llvm.fabs.f64(double %2034)
-  %2036 = fcmp ugt double %2035, 1.000000e+00
-  br i1 %2036, label %2037, label %checkEquals.exit26.i462
+checkEquals.exit24.i460:                          ; preds = %2028, %planimeter.exit22.i
+  %.0.i23.i461 = phi i32 [ 1, %2028 ], [ 0, %planimeter.exit22.i ]
+  %2030 = load double, ptr %42, align 8, !tbaa !4
+  %2031 = call double @llvm.fabs.f64(double %2030)
+  %2032 = fcmp ugt double %2031, 1.000000e+00
+  br i1 %2032, label %2033, label %checkEquals.exit26.i462
 
-2037:                                             ; preds = %checkEquals.exit24.i460
-  %2038 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %2034, double noundef 0.000000e+00, double noundef 1.000000e+00)
+2033:                                             ; preds = %checkEquals.exit24.i460
+  %2034 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %2030, double noundef 0.000000e+00, double noundef 1.000000e+00)
   br label %checkEquals.exit26.i462
 
-checkEquals.exit26.i462:                          ; preds = %2037, %checkEquals.exit24.i460
-  %.0.i25.i463 = phi i32 [ 1, %2037 ], [ 0, %checkEquals.exit24.i460 ]
+checkEquals.exit26.i462:                          ; preds = %2033, %checkEquals.exit24.i460
+  %.0.i25.i463 = phi i32 [ 1, %2033 ], [ 0, %checkEquals.exit24.i460 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %32)
   call void @geod_polygon_init(ptr noundef nonnull %32, i32 noundef 0) #7
-  br label %2039
+  br label %2035
 
-2039:                                             ; preds = %2039, %checkEquals.exit26.i462
-  %indvars.iv.i27.i = phi i64 [ 0, %checkEquals.exit26.i462 ], [ %indvars.iv.next.i28.i, %2039 ]
-  %2040 = getelementptr inbounds nuw [2 x double], ptr %39, i64 %indvars.iv.i27.i
-  %2041 = load double, ptr %2040, align 16, !tbaa !4
-  %2042 = getelementptr inbounds nuw i8, ptr %2040, i64 8
-  %2043 = load double, ptr %2042, align 8, !tbaa !4
-  call void @geod_polygon_addpoint(ptr noundef nonnull %40, ptr noundef nonnull %32, double noundef %2041, double noundef %2043) #7
+2035:                                             ; preds = %2035, %checkEquals.exit26.i462
+  %indvars.iv.i27.i = phi i64 [ 0, %checkEquals.exit26.i462 ], [ %indvars.iv.next.i28.i, %2035 ]
+  %2036 = getelementptr inbounds nuw [2 x double], ptr %39, i64 %indvars.iv.i27.i
+  %2037 = load double, ptr %2036, align 16, !tbaa !4
+  %2038 = getelementptr inbounds nuw i8, ptr %2036, i64 8
+  %2039 = load double, ptr %2038, align 8, !tbaa !4
+  call void @geod_polygon_addpoint(ptr noundef nonnull %40, ptr noundef nonnull %32, double noundef %2037, double noundef %2039) #7
   %indvars.iv.next.i28.i = add nuw nsw i64 %indvars.iv.i27.i, 1
   %exitcond.not.i29.i = icmp eq i64 %indvars.iv.next.i28.i, 3
-  br i1 %exitcond.not.i29.i, label %planimeter.exit30.i, label %2039
+  br i1 %exitcond.not.i29.i, label %planimeter.exit30.i, label %2035
 
-planimeter.exit30.i:                              ; preds = %2039
-  %2044 = call i32 @geod_polygon_compute(ptr noundef nonnull %40, ptr noundef nonnull %32, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %42, ptr noundef nonnull %41) #7
+planimeter.exit30.i:                              ; preds = %2035
+  %2040 = call i32 @geod_polygon_compute(ptr noundef nonnull %40, ptr noundef nonnull %32, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %42, ptr noundef nonnull %41) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %32)
-  %2045 = load double, ptr %41, align 8, !tbaa !4
-  %2046 = fadd double %2045, 0xC1812DCF68000000
-  %2047 = call double @llvm.fabs.f64(double %2046)
-  %2048 = fcmp ugt double %2047, 1.000000e+00
-  br i1 %2048, label %2049, label %checkEquals.exit32.i464
+  %2041 = load double, ptr %41, align 8, !tbaa !4
+  %2042 = fadd double %2041, 0xC1812DCF68000000
+  %2043 = call double @llvm.fabs.f64(double %2042)
+  %2044 = fcmp ugt double %2043, 1.000000e+00
+  br i1 %2044, label %2045, label %checkEquals.exit32.i464
 
-2049:                                             ; preds = %planimeter.exit30.i
-  %2050 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %2045, double noundef 0x41812DCF68000000, double noundef 1.000000e+00)
+2045:                                             ; preds = %planimeter.exit30.i
+  %2046 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %2041, double noundef 0x41812DCF68000000, double noundef 1.000000e+00)
   br label %checkEquals.exit32.i464
 
-checkEquals.exit32.i464:                          ; preds = %2049, %planimeter.exit30.i
-  %.0.i31.i465 = phi i32 [ 1, %2049 ], [ 0, %planimeter.exit30.i ]
-  %2051 = load double, ptr %42, align 8, !tbaa !4
-  %2052 = call double @llvm.fabs.f64(double %2051)
-  %2053 = fcmp ugt double %2052, 1.000000e+00
-  br i1 %2053, label %2054, label %Planimeter6.exit
+checkEquals.exit32.i464:                          ; preds = %2045, %planimeter.exit30.i
+  %.0.i31.i465 = phi i32 [ 1, %2045 ], [ 0, %planimeter.exit30.i ]
+  %2047 = load double, ptr %42, align 8, !tbaa !4
+  %2048 = call double @llvm.fabs.f64(double %2047)
+  %2049 = fcmp ugt double %2048, 1.000000e+00
+  br i1 %2049, label %2050, label %Planimeter6.exit
 
-2054:                                             ; preds = %checkEquals.exit32.i464
-  %2055 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %2051, double noundef 0.000000e+00, double noundef 1.000000e+00)
+2050:                                             ; preds = %checkEquals.exit32.i464
+  %2051 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %2047, double noundef 0.000000e+00, double noundef 1.000000e+00)
   br label %Planimeter6.exit
 
-Planimeter6.exit:                                 ; preds = %checkEquals.exit32.i464, %2054
-  %.0.i33.i467 = phi i32 [ 1, %2054 ], [ 0, %checkEquals.exit32.i464 ]
-  %2056 = add nuw nsw i32 %.0.i9.i455, %.0.i.i453
-  %2057 = add nuw nsw i32 %2056, %.0.i15.i457
-  %2058 = add nuw nsw i32 %2057, %.0.i17.i459
-  %2059 = add nuw nsw i32 %2058, %.0.i23.i461
-  %2060 = add nuw nsw i32 %2059, %.0.i25.i463
-  %2061 = add nuw nsw i32 %2060, %.0.i31.i465
-  %2062 = add nuw nsw i32 %2061, %.0.i33.i467
+Planimeter6.exit:                                 ; preds = %checkEquals.exit32.i464, %2050
+  %.0.i33.i467 = phi i32 [ 1, %2050 ], [ 0, %checkEquals.exit32.i464 ]
+  %2052 = add nuw nsw i32 %.0.i9.i455, %.0.i.i453
+  %2053 = add nuw nsw i32 %2052, %.0.i15.i457
+  %2054 = add nuw nsw i32 %2053, %.0.i17.i459
+  %2055 = add nuw nsw i32 %2054, %.0.i23.i461
+  %2056 = add nuw nsw i32 %2055, %.0.i25.i463
+  %2057 = add nuw nsw i32 %2056, %.0.i31.i465
+  %2058 = add nuw nsw i32 %2057, %.0.i33.i467
   call void @llvm.lifetime.end.p0(ptr nonnull %42)
   call void @llvm.lifetime.end.p0(ptr nonnull %41)
   call void @llvm.lifetime.end.p0(ptr nonnull %40)
@@ -4321,217 +4317,217 @@ Planimeter6.exit:                                 ; preds = %checkEquals.exit32.
   call void @llvm.lifetime.end.p0(ptr nonnull %38)
   call void @llvm.lifetime.end.p0(ptr nonnull %37)
   call void @llvm.lifetime.end.p0(ptr nonnull %36)
-  %.not168 = icmp eq i32 %2062, 0
-  br i1 %.not168, label %2066, label %2063
+  %.not168 = icmp eq i32 %2058, 0
+  br i1 %.not168, label %2062, label %2059
 
-2063:                                             ; preds = %Planimeter6.exit
-  %2064 = add nsw i32 %.35, 1
-  %2065 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.36, i32 noundef %2062)
-  br label %2066
+2059:                                             ; preds = %Planimeter6.exit
+  %2060 = add nsw i32 %.35, 1
+  %2061 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.36, i32 noundef %2058)
+  br label %2062
 
-2066:                                             ; preds = %2063, %Planimeter6.exit
-  %.36 = phi i32 [ %2064, %2063 ], [ %.35, %Planimeter6.exit ]
+2062:                                             ; preds = %2059, %Planimeter6.exit
+  %.36 = phi i32 [ %2060, %2059 ], [ %.35, %Planimeter6.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %28, i8 0, i64 16, i1 false)
   store double 0x4050A3FB72EA24C4, ptr %28, align 16
-  %2067 = getelementptr inbounds nuw i8, ptr %28, i64 16
-  store double 0x4050A3FB72EA24C4, ptr %2067, align 16
-  %2068 = getelementptr inbounds nuw i8, ptr %28, i64 24
-  store double 1.800000e+02, ptr %2068, align 8
-  %2069 = getelementptr inbounds nuw i8, ptr %28, i64 32
-  store double 0x4050A3FB72EA24C4, ptr %2069, align 16
-  %2070 = getelementptr inbounds nuw i8, ptr %28, i64 40
-  store double 3.600000e+02, ptr %2070, align 8
+  %2063 = getelementptr inbounds nuw i8, ptr %28, i64 16
+  store double 0x4050A3FB72EA24C4, ptr %2063, align 16
+  %2064 = getelementptr inbounds nuw i8, ptr %28, i64 24
+  store double 1.800000e+02, ptr %2064, align 8
+  %2065 = getelementptr inbounds nuw i8, ptr %28, i64 32
+  store double 0x4050A3FB72EA24C4, ptr %2065, align 16
+  %2066 = getelementptr inbounds nuw i8, ptr %28, i64 40
+  store double 3.600000e+02, ptr %2066, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %29)
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
   call void @llvm.lifetime.start.p0(ptr nonnull %31)
   call void @geod_init(ptr noundef nonnull %29, double noundef 0x415854A640000000, double noundef 0x3F6B775A84F3E128) #7
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
   call void @geod_polygon_init(ptr noundef nonnull %27, i32 noundef 0) #7
-  br label %2071
+  br label %2067
 
-2071:                                             ; preds = %2071, %2066
-  %indvars.iv.i.i468 = phi i64 [ 0, %2066 ], [ %indvars.iv.next.i.i469, %2071 ]
-  %2072 = getelementptr inbounds nuw [2 x double], ptr %28, i64 %indvars.iv.i.i468
-  %2073 = load double, ptr %2072, align 16, !tbaa !4
-  %2074 = getelementptr inbounds nuw i8, ptr %2072, i64 8
-  %2075 = load double, ptr %2074, align 8, !tbaa !4
-  call void @geod_polygon_addpoint(ptr noundef nonnull %29, ptr noundef nonnull %27, double noundef %2073, double noundef %2075) #7
+2067:                                             ; preds = %2067, %2062
+  %indvars.iv.i.i468 = phi i64 [ 0, %2062 ], [ %indvars.iv.next.i.i469, %2067 ]
+  %2068 = getelementptr inbounds nuw [2 x double], ptr %28, i64 %indvars.iv.i.i468
+  %2069 = load double, ptr %2068, align 16, !tbaa !4
+  %2070 = getelementptr inbounds nuw i8, ptr %2068, i64 8
+  %2071 = load double, ptr %2070, align 8, !tbaa !4
+  call void @geod_polygon_addpoint(ptr noundef nonnull %29, ptr noundef nonnull %27, double noundef %2069, double noundef %2071) #7
   %indvars.iv.next.i.i469 = add nuw nsw i64 %indvars.iv.i.i468, 1
   %exitcond.not.i.i470 = icmp eq i64 %indvars.iv.next.i.i469, 3
-  br i1 %exitcond.not.i.i470, label %planimeter.exit.i471, label %2071
+  br i1 %exitcond.not.i.i470, label %planimeter.exit.i471, label %2067
 
-planimeter.exit.i471:                             ; preds = %2071
-  %2076 = call i32 @geod_polygon_compute(ptr noundef nonnull %29, ptr noundef nonnull %27, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %31, ptr noundef nonnull %30) #7
+planimeter.exit.i471:                             ; preds = %2067
+  %2072 = call i32 @geod_polygon_compute(ptr noundef nonnull %29, ptr noundef nonnull %27, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %31, ptr noundef nonnull %30) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
-  %2077 = load double, ptr %30, align 8, !tbaa !4
-  %2078 = fadd double %2077, 0xC163F63820000000
-  %2079 = call double @llvm.fabs.f64(double %2078)
-  %2080 = fcmp ugt double %2079, 1.000000e+00
-  br i1 %2080, label %2081, label %checkEquals.exit.i472
+  %2073 = load double, ptr %30, align 8, !tbaa !4
+  %2074 = fadd double %2073, 0xC163F63820000000
+  %2075 = call double @llvm.fabs.f64(double %2074)
+  %2076 = fcmp ugt double %2075, 1.000000e+00
+  br i1 %2076, label %2077, label %checkEquals.exit.i472
 
-2081:                                             ; preds = %planimeter.exit.i471
-  %2082 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %2077, double noundef 0x4163F63820000000, double noundef 1.000000e+00)
+2077:                                             ; preds = %planimeter.exit.i471
+  %2078 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %2073, double noundef 0x4163F63820000000, double noundef 1.000000e+00)
   br label %checkEquals.exit.i472
 
-checkEquals.exit.i472:                            ; preds = %2081, %planimeter.exit.i471
-  %.0.i.i473 = phi i32 [ 1, %2081 ], [ 0, %planimeter.exit.i471 ]
-  %2083 = load double, ptr %31, align 8, !tbaa !4
-  %2084 = call double @llvm.fabs.f64(double %2083)
-  %2085 = fcmp ugt double %2084, 1.000000e+00
-  br i1 %2085, label %2086, label %Planimeter12.exit
+checkEquals.exit.i472:                            ; preds = %2077, %planimeter.exit.i471
+  %.0.i.i473 = phi i32 [ 1, %2077 ], [ 0, %planimeter.exit.i471 ]
+  %2079 = load double, ptr %31, align 8, !tbaa !4
+  %2080 = call double @llvm.fabs.f64(double %2079)
+  %2081 = fcmp ugt double %2080, 1.000000e+00
+  br i1 %2081, label %2082, label %Planimeter12.exit
 
-2086:                                             ; preds = %checkEquals.exit.i472
-  %2087 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %2083, double noundef 0.000000e+00, double noundef 1.000000e+00)
+2082:                                             ; preds = %checkEquals.exit.i472
+  %2083 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %2079, double noundef 0.000000e+00, double noundef 1.000000e+00)
   br label %Planimeter12.exit
 
-Planimeter12.exit:                                ; preds = %checkEquals.exit.i472, %2086
-  %.0.i3.i474 = phi i32 [ 1, %2086 ], [ 0, %checkEquals.exit.i472 ]
-  %2088 = add nuw nsw i32 %.0.i3.i474, %.0.i.i473
+Planimeter12.exit:                                ; preds = %checkEquals.exit.i472, %2082
+  %.0.i3.i474 = phi i32 [ 1, %2082 ], [ 0, %checkEquals.exit.i472 ]
+  %2084 = add nuw nsw i32 %.0.i3.i474, %.0.i.i473
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
-  %.not169 = icmp eq i32 %2088, 0
-  br i1 %.not169, label %2092, label %2089
+  %.not169 = icmp eq i32 %2084, 0
+  br i1 %.not169, label %2088, label %2085
 
-2089:                                             ; preds = %Planimeter12.exit
-  %2090 = add nsw i32 %.36, 1
-  %2091 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.37, i32 noundef %2088)
-  br label %2092
+2085:                                             ; preds = %Planimeter12.exit
+  %2086 = add nsw i32 %.36, 1
+  %2087 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.37, i32 noundef %2084)
+  br label %2088
 
-2092:                                             ; preds = %2089, %Planimeter12.exit
-  %.37 = phi i32 [ %2090, %2089 ], [ %.36, %Planimeter12.exit ]
+2088:                                             ; preds = %2085, %Planimeter12.exit
+  %.37 = phi i32 [ %2086, %2085 ], [ %.36, %Planimeter12.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %23, i8 0, i64 16, i1 false)
   store double 0x4050A3FB72EA24C4, ptr %23, align 16
-  %2093 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  store double 0x4050A3FB72EA24C4, ptr %2093, align 16
-  %2094 = getelementptr inbounds nuw i8, ptr %23, i64 24
-  store double -1.800000e+02, ptr %2094, align 8
-  %2095 = getelementptr inbounds nuw i8, ptr %23, i64 32
-  store double 0x4050A3FB72EA24C4, ptr %2095, align 16
-  %2096 = getelementptr inbounds nuw i8, ptr %23, i64 40
-  store double -3.600000e+02, ptr %2096, align 8
+  %2089 = getelementptr inbounds nuw i8, ptr %23, i64 16
+  store double 0x4050A3FB72EA24C4, ptr %2089, align 16
+  %2090 = getelementptr inbounds nuw i8, ptr %23, i64 24
+  store double -1.800000e+02, ptr %2090, align 8
+  %2091 = getelementptr inbounds nuw i8, ptr %23, i64 32
+  store double 0x4050A3FB72EA24C4, ptr %2091, align 16
+  %2092 = getelementptr inbounds nuw i8, ptr %23, i64 40
+  store double -3.600000e+02, ptr %2092, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
   call void @geod_init(ptr noundef nonnull %24, double noundef 0x415854A640000000, double noundef 0x3F6B775A84F3E128) #7
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   call void @geod_polygon_init(ptr noundef nonnull %22, i32 noundef 0) #7
-  br label %2097
+  br label %2093
 
-2097:                                             ; preds = %2097, %2092
-  %indvars.iv.i.i475 = phi i64 [ 0, %2092 ], [ %indvars.iv.next.i.i476, %2097 ]
-  %2098 = getelementptr inbounds nuw [2 x double], ptr %23, i64 %indvars.iv.i.i475
-  %2099 = load double, ptr %2098, align 16, !tbaa !4
-  %2100 = getelementptr inbounds nuw i8, ptr %2098, i64 8
-  %2101 = load double, ptr %2100, align 8, !tbaa !4
-  call void @geod_polygon_addpoint(ptr noundef nonnull %24, ptr noundef nonnull %22, double noundef %2099, double noundef %2101) #7
+2093:                                             ; preds = %2093, %2088
+  %indvars.iv.i.i475 = phi i64 [ 0, %2088 ], [ %indvars.iv.next.i.i476, %2093 ]
+  %2094 = getelementptr inbounds nuw [2 x double], ptr %23, i64 %indvars.iv.i.i475
+  %2095 = load double, ptr %2094, align 16, !tbaa !4
+  %2096 = getelementptr inbounds nuw i8, ptr %2094, i64 8
+  %2097 = load double, ptr %2096, align 8, !tbaa !4
+  call void @geod_polygon_addpoint(ptr noundef nonnull %24, ptr noundef nonnull %22, double noundef %2095, double noundef %2097) #7
   %indvars.iv.next.i.i476 = add nuw nsw i64 %indvars.iv.i.i475, 1
   %exitcond.not.i.i477 = icmp eq i64 %indvars.iv.next.i.i476, 3
-  br i1 %exitcond.not.i.i477, label %planimeter.exit.i478, label %2097
+  br i1 %exitcond.not.i.i477, label %planimeter.exit.i478, label %2093
 
-planimeter.exit.i478:                             ; preds = %2097
-  %2102 = call i32 @geod_polygon_compute(ptr noundef nonnull %24, ptr noundef nonnull %22, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %26, ptr noundef nonnull %25) #7
+planimeter.exit.i478:                             ; preds = %2093
+  %2098 = call i32 @geod_polygon_compute(ptr noundef nonnull %24, ptr noundef nonnull %22, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %26, ptr noundef nonnull %25) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
-  %2103 = load double, ptr %25, align 8, !tbaa !4
-  %2104 = fadd double %2103, 0xC163F63820000000
-  %2105 = call double @llvm.fabs.f64(double %2104)
-  %2106 = fcmp ugt double %2105, 1.000000e+00
-  br i1 %2106, label %2107, label %checkEquals.exit.i479
+  %2099 = load double, ptr %25, align 8, !tbaa !4
+  %2100 = fadd double %2099, 0xC163F63820000000
+  %2101 = call double @llvm.fabs.f64(double %2100)
+  %2102 = fcmp ugt double %2101, 1.000000e+00
+  br i1 %2102, label %2103, label %checkEquals.exit.i479
 
-2107:                                             ; preds = %planimeter.exit.i478
-  %2108 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %2103, double noundef 0x4163F63820000000, double noundef 1.000000e+00)
+2103:                                             ; preds = %planimeter.exit.i478
+  %2104 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %2099, double noundef 0x4163F63820000000, double noundef 1.000000e+00)
   br label %checkEquals.exit.i479
 
-checkEquals.exit.i479:                            ; preds = %2107, %planimeter.exit.i478
-  %.0.i.i480 = phi i32 [ 1, %2107 ], [ 0, %planimeter.exit.i478 ]
-  %2109 = load double, ptr %26, align 8, !tbaa !4
-  %2110 = call double @llvm.fabs.f64(double %2109)
-  %2111 = fcmp ugt double %2110, 1.000000e+00
-  br i1 %2111, label %2112, label %Planimeter12r.exit
+checkEquals.exit.i479:                            ; preds = %2103, %planimeter.exit.i478
+  %.0.i.i480 = phi i32 [ 1, %2103 ], [ 0, %planimeter.exit.i478 ]
+  %2105 = load double, ptr %26, align 8, !tbaa !4
+  %2106 = call double @llvm.fabs.f64(double %2105)
+  %2107 = fcmp ugt double %2106, 1.000000e+00
+  br i1 %2107, label %2108, label %Planimeter12r.exit
 
-2112:                                             ; preds = %checkEquals.exit.i479
-  %2113 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %2109, double noundef 0.000000e+00, double noundef 1.000000e+00)
+2108:                                             ; preds = %checkEquals.exit.i479
+  %2109 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %2105, double noundef 0.000000e+00, double noundef 1.000000e+00)
   br label %Planimeter12r.exit
 
-Planimeter12r.exit:                               ; preds = %checkEquals.exit.i479, %2112
-  %.0.i3.i481 = phi i32 [ 1, %2112 ], [ 0, %checkEquals.exit.i479 ]
-  %2114 = add nuw nsw i32 %.0.i3.i481, %.0.i.i480
+Planimeter12r.exit:                               ; preds = %checkEquals.exit.i479, %2108
+  %.0.i3.i481 = phi i32 [ 1, %2108 ], [ 0, %checkEquals.exit.i479 ]
+  %2110 = add nuw nsw i32 %.0.i3.i481, %.0.i.i480
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
-  %.not170 = icmp eq i32 %2114, 0
-  br i1 %.not170, label %2118, label %2115
+  %.not170 = icmp eq i32 %2110, 0
+  br i1 %.not170, label %2114, label %2111
 
-2115:                                             ; preds = %Planimeter12r.exit
-  %2116 = add nsw i32 %.37, 1
-  %2117 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.38, i32 noundef %2114)
-  br label %2118
+2111:                                             ; preds = %Planimeter12r.exit
+  %2112 = add nsw i32 %.37, 1
+  %2113 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.38, i32 noundef %2110)
+  br label %2114
 
-2118:                                             ; preds = %2115, %Planimeter12r.exit
-  %.38 = phi i32 [ %2116, %2115 ], [ %.37, %Planimeter12r.exit ]
+2114:                                             ; preds = %2111, %Planimeter12r.exit
+  %.38 = phi i32 [ %2112, %2111 ], [ %.37, %Planimeter12r.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   call void @geod_init(ptr noundef nonnull %19, double noundef 0x415854A640000000, double noundef 0x3F6B775A84F3E128) #7
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   call void @geod_polygon_init(ptr noundef nonnull %18, i32 noundef 0) #7
-  br label %2119
+  br label %2115
 
-2119:                                             ; preds = %2119, %2118
-  %indvars.iv.i.i482 = phi i64 [ 0, %2118 ], [ %indvars.iv.next.i.i483, %2119 ]
-  %2120 = getelementptr inbounds nuw [2 x double], ptr @__const.Planimeter13.points, i64 %indvars.iv.i.i482
-  %2121 = getelementptr inbounds nuw i8, ptr %2120, i64 8
-  %2122 = load double, ptr %2121, align 8, !tbaa !4
-  call void @geod_polygon_addpoint(ptr noundef nonnull %19, ptr noundef nonnull %18, double noundef 8.900000e+01, double noundef %2122) #7
+2115:                                             ; preds = %2115, %2114
+  %indvars.iv.i.i482 = phi i64 [ 0, %2114 ], [ %indvars.iv.next.i.i483, %2115 ]
+  %2116 = getelementptr inbounds nuw [2 x double], ptr @__const.Planimeter13.points, i64 %indvars.iv.i.i482
+  %2117 = getelementptr inbounds nuw i8, ptr %2116, i64 8
+  %2118 = load double, ptr %2117, align 8, !tbaa !4
+  call void @geod_polygon_addpoint(ptr noundef nonnull %19, ptr noundef nonnull %18, double noundef 8.900000e+01, double noundef %2118) #7
   %indvars.iv.next.i.i483 = add nuw nsw i64 %indvars.iv.i.i482, 1
   %exitcond.not.i.i484 = icmp eq i64 %indvars.iv.next.i.i483, 6
-  br i1 %exitcond.not.i.i484, label %planimeter.exit.i485, label %2119
+  br i1 %exitcond.not.i.i484, label %planimeter.exit.i485, label %2115
 
-planimeter.exit.i485:                             ; preds = %2119
-  %2123 = call i32 @geod_polygon_compute(ptr noundef nonnull %19, ptr noundef nonnull %18, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %21, ptr noundef nonnull %20) #7
+planimeter.exit.i485:                             ; preds = %2115
+  %2119 = call i32 @geod_polygon_compute(ptr noundef nonnull %19, ptr noundef nonnull %18, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %21, ptr noundef nonnull %20) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
-  %2124 = load double, ptr %20, align 8, !tbaa !4
-  %2125 = fadd double %2124, 0xC131B62500000000
-  %2126 = call double @llvm.fabs.f64(double %2125)
-  %2127 = fcmp ugt double %2126, 1.000000e+00
-  br i1 %2127, label %2128, label %checkEquals.exit.i486
+  %2120 = load double, ptr %20, align 8, !tbaa !4
+  %2121 = fadd double %2120, 0xC131B62500000000
+  %2122 = call double @llvm.fabs.f64(double %2121)
+  %2123 = fcmp ugt double %2122, 1.000000e+00
+  br i1 %2123, label %2124, label %checkEquals.exit.i486
 
-2128:                                             ; preds = %planimeter.exit.i485
-  %2129 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %2124, double noundef 0x4131B62500000000, double noundef 1.000000e+00)
+2124:                                             ; preds = %planimeter.exit.i485
+  %2125 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %2120, double noundef 0x4131B62500000000, double noundef 1.000000e+00)
   br label %checkEquals.exit.i486
 
-checkEquals.exit.i486:                            ; preds = %2128, %planimeter.exit.i485
-  %.0.i.i487 = phi i32 [ 1, %2128 ], [ 0, %planimeter.exit.i485 ]
-  %2130 = load double, ptr %21, align 8, !tbaa !4
-  %2131 = fadd double %2130, 0xC21E3064A4C00000
-  %2132 = call double @llvm.fabs.f64(double %2131)
-  %2133 = fcmp ugt double %2132, 1.000000e+00
-  br i1 %2133, label %2134, label %Planimeter13.exit
+checkEquals.exit.i486:                            ; preds = %2124, %planimeter.exit.i485
+  %.0.i.i487 = phi i32 [ 1, %2124 ], [ 0, %planimeter.exit.i485 ]
+  %2126 = load double, ptr %21, align 8, !tbaa !4
+  %2127 = fadd double %2126, 0xC21E3064A4C00000
+  %2128 = call double @llvm.fabs.f64(double %2127)
+  %2129 = fcmp ugt double %2128, 1.000000e+00
+  br i1 %2129, label %2130, label %Planimeter13.exit
 
-2134:                                             ; preds = %checkEquals.exit.i486
-  %2135 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %2130, double noundef 0x421E3064A4C00000, double noundef 1.000000e+00)
+2130:                                             ; preds = %checkEquals.exit.i486
+  %2131 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %2126, double noundef 0x421E3064A4C00000, double noundef 1.000000e+00)
   br label %Planimeter13.exit
 
-Planimeter13.exit:                                ; preds = %checkEquals.exit.i486, %2134
-  %.0.i3.i488 = phi i32 [ 1, %2134 ], [ 0, %checkEquals.exit.i486 ]
-  %2136 = add nuw nsw i32 %.0.i3.i488, %.0.i.i487
+Planimeter13.exit:                                ; preds = %checkEquals.exit.i486, %2130
+  %.0.i3.i488 = phi i32 [ 1, %2130 ], [ 0, %checkEquals.exit.i486 ]
+  %2132 = add nuw nsw i32 %.0.i3.i488, %.0.i.i487
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
-  %.not171 = icmp eq i32 %2136, 0
-  br i1 %.not171, label %2140, label %2137
+  %.not171 = icmp eq i32 %2132, 0
+  br i1 %.not171, label %2136, label %2133
 
-2137:                                             ; preds = %Planimeter13.exit
-  %2138 = add nsw i32 %.38, 1
-  %2139 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.39, i32 noundef %2136)
-  br label %2140
+2133:                                             ; preds = %Planimeter13.exit
+  %2134 = add nsw i32 %.38, 1
+  %2135 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.39, i32 noundef %2132)
+  br label %2136
 
-2140:                                             ; preds = %2137, %Planimeter13.exit
-  %.39 = phi i32 [ %2138, %2137 ], [ %.38, %Planimeter13.exit ]
+2136:                                             ; preds = %2133, %Planimeter13.exit
+  %.39 = phi i32 [ %2134, %2133 ], [ %.38, %Planimeter13.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
@@ -4545,197 +4541,197 @@ Planimeter13.exit:                                ; preds = %checkEquals.exit.i4
   call void @geod_polygon_init(ptr noundef nonnull %12, i32 noundef 0) #7
   call void @geod_polygon_addpoint(ptr noundef nonnull %11, ptr noundef nonnull %12, double noundef 2.000000e+00, double noundef 1.000000e+00) #7
   call void @geod_polygon_addpoint(ptr noundef nonnull %11, ptr noundef nonnull %12, double noundef 1.000000e+00, double noundef 2.000000e+00) #7
-  %2141 = call i32 @geod_polygon_testpoint(ptr noundef nonnull %11, ptr noundef nonnull %12, double noundef 3.000000e+00, double noundef 3.000000e+00, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %15, ptr noundef null) #7
-  %2142 = load double, ptr %15, align 8, !tbaa !4
-  %2143 = fadd double %2142, 0xC2112FE91855CE05
-  %2144 = call double @llvm.fabs.f64(double %2143)
-  %2145 = fcmp ugt double %2144, 5.000000e-01
-  br i1 %2145, label %2146, label %checkEquals.exit.i489
+  %2137 = call i32 @geod_polygon_testpoint(ptr noundef nonnull %11, ptr noundef nonnull %12, double noundef 3.000000e+00, double noundef 3.000000e+00, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %15, ptr noundef null) #7
+  %2138 = load double, ptr %15, align 8, !tbaa !4
+  %2139 = fadd double %2138, 0xC2112FE91855CE05
+  %2140 = call double @llvm.fabs.f64(double %2139)
+  %2141 = fcmp ugt double %2140, 5.000000e-01
+  br i1 %2141, label %2142, label %checkEquals.exit.i489
 
-2146:                                             ; preds = %2140
-  %2147 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %2142, double noundef 0x42112FE91855CE05, double noundef 5.000000e-01)
+2142:                                             ; preds = %2136
+  %2143 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %2138, double noundef 0x42112FE91855CE05, double noundef 5.000000e-01)
   br label %checkEquals.exit.i489
 
-checkEquals.exit.i489:                            ; preds = %2146, %2140
-  %.0.i.i490 = phi i32 [ 1, %2146 ], [ 0, %2140 ]
-  %2148 = call i32 @geod_polygon_testpoint(ptr noundef nonnull %11, ptr noundef nonnull %12, double noundef 3.000000e+00, double noundef 3.000000e+00, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %15, ptr noundef null) #7
-  %2149 = load double, ptr %15, align 8, !tbaa !4
-  %2150 = fadd double %2149, 0xC2112FE91855CE05
-  %2151 = call double @llvm.fabs.f64(double %2150)
-  %2152 = fcmp ugt double %2151, 5.000000e-01
-  br i1 %2152, label %2153, label %checkEquals.exit30.i491
+checkEquals.exit.i489:                            ; preds = %2142, %2136
+  %.0.i.i490 = phi i32 [ 1, %2142 ], [ 0, %2136 ]
+  %2144 = call i32 @geod_polygon_testpoint(ptr noundef nonnull %11, ptr noundef nonnull %12, double noundef 3.000000e+00, double noundef 3.000000e+00, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %15, ptr noundef null) #7
+  %2145 = load double, ptr %15, align 8, !tbaa !4
+  %2146 = fadd double %2145, 0xC2112FE91855CE05
+  %2147 = call double @llvm.fabs.f64(double %2146)
+  %2148 = fcmp ugt double %2147, 5.000000e-01
+  br i1 %2148, label %2149, label %checkEquals.exit30.i491
 
-2153:                                             ; preds = %checkEquals.exit.i489
-  %2154 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %2149, double noundef 0x42112FE91855CE05, double noundef 5.000000e-01)
+2149:                                             ; preds = %checkEquals.exit.i489
+  %2150 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %2145, double noundef 0x42112FE91855CE05, double noundef 5.000000e-01)
   br label %checkEquals.exit30.i491
 
-checkEquals.exit30.i491:                          ; preds = %2153, %checkEquals.exit.i489
-  %.0.i29.i492 = phi i32 [ 1, %2153 ], [ 0, %checkEquals.exit.i489 ]
-  %2155 = call i32 @geod_polygon_testpoint(ptr noundef nonnull %11, ptr noundef nonnull %12, double noundef 3.000000e+00, double noundef 3.000000e+00, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %15, ptr noundef null) #7
-  %2156 = load double, ptr %15, align 8, !tbaa !4
-  %2157 = fadd double %2156, 0x42112FE91855CE05
-  %2158 = call double @llvm.fabs.f64(double %2157)
-  %2159 = fcmp ugt double %2158, 5.000000e-01
-  br i1 %2159, label %2160, label %checkEquals.exit32.i493
+checkEquals.exit30.i491:                          ; preds = %2149, %checkEquals.exit.i489
+  %.0.i29.i492 = phi i32 [ 1, %2149 ], [ 0, %checkEquals.exit.i489 ]
+  %2151 = call i32 @geod_polygon_testpoint(ptr noundef nonnull %11, ptr noundef nonnull %12, double noundef 3.000000e+00, double noundef 3.000000e+00, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %15, ptr noundef null) #7
+  %2152 = load double, ptr %15, align 8, !tbaa !4
+  %2153 = fadd double %2152, 0x42112FE91855CE05
+  %2154 = call double @llvm.fabs.f64(double %2153)
+  %2155 = fcmp ugt double %2154, 5.000000e-01
+  br i1 %2155, label %2156, label %checkEquals.exit32.i493
 
-2160:                                             ; preds = %checkEquals.exit30.i491
-  %2161 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %2156, double noundef 0xC2112FE91855CE05, double noundef 5.000000e-01)
+2156:                                             ; preds = %checkEquals.exit30.i491
+  %2157 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %2152, double noundef 0xC2112FE91855CE05, double noundef 5.000000e-01)
   br label %checkEquals.exit32.i493
 
-checkEquals.exit32.i493:                          ; preds = %2160, %checkEquals.exit30.i491
-  %.0.i31.i494 = phi i32 [ 1, %2160 ], [ 0, %checkEquals.exit30.i491 ]
-  %2162 = call i32 @geod_polygon_testpoint(ptr noundef nonnull %11, ptr noundef nonnull %12, double noundef 3.000000e+00, double noundef 3.000000e+00, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %15, ptr noundef null) #7
-  %2163 = load double, ptr %15, align 8, !tbaa !4
-  %2164 = fadd double %2163, 0xC2FCFE29C37A5A31
-  %2165 = call double @llvm.fabs.f64(double %2164)
-  %2166 = fcmp ugt double %2165, 5.000000e-01
-  br i1 %2166, label %2167, label %checkEquals.exit34.i495
+checkEquals.exit32.i493:                          ; preds = %2156, %checkEquals.exit30.i491
+  %.0.i31.i494 = phi i32 [ 1, %2156 ], [ 0, %checkEquals.exit30.i491 ]
+  %2158 = call i32 @geod_polygon_testpoint(ptr noundef nonnull %11, ptr noundef nonnull %12, double noundef 3.000000e+00, double noundef 3.000000e+00, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %15, ptr noundef null) #7
+  %2159 = load double, ptr %15, align 8, !tbaa !4
+  %2160 = fadd double %2159, 0xC2FCFE29C37A5A31
+  %2161 = call double @llvm.fabs.f64(double %2160)
+  %2162 = fcmp ugt double %2161, 5.000000e-01
+  br i1 %2162, label %2163, label %checkEquals.exit34.i495
 
-2167:                                             ; preds = %checkEquals.exit32.i493
-  %2168 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %2163, double noundef 0x42FCFE29C37A5A31, double noundef 5.000000e-01)
+2163:                                             ; preds = %checkEquals.exit32.i493
+  %2164 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %2159, double noundef 0x42FCFE29C37A5A31, double noundef 5.000000e-01)
   br label %checkEquals.exit34.i495
 
-checkEquals.exit34.i495:                          ; preds = %2167, %checkEquals.exit32.i493
-  %.0.i33.i496 = phi i32 [ 1, %2167 ], [ 0, %checkEquals.exit32.i493 ]
+checkEquals.exit34.i495:                          ; preds = %2163, %checkEquals.exit32.i493
+  %.0.i33.i496 = phi i32 [ 1, %2163 ], [ 0, %checkEquals.exit32.i493 ]
   call void @geod_inverse(ptr noundef nonnull %11, double noundef 1.000000e+00, double noundef 2.000000e+00, double noundef 3.000000e+00, double noundef 3.000000e+00, ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef null) #7
-  %2169 = load double, ptr %17, align 8, !tbaa !4
-  %2170 = load double, ptr %16, align 8, !tbaa !4
-  %2171 = call i32 @geod_polygon_testedge(ptr noundef nonnull %11, ptr noundef nonnull %12, double noundef %2169, double noundef %2170, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %15, ptr noundef null) #7
-  %2172 = load double, ptr %15, align 8, !tbaa !4
-  %2173 = fadd double %2172, 0xC2112FE91855CE05
-  %2174 = call double @llvm.fabs.f64(double %2173)
-  %2175 = fcmp ugt double %2174, 5.000000e-01
-  br i1 %2175, label %2176, label %checkEquals.exit36.i497
+  %2165 = load double, ptr %17, align 8, !tbaa !4
+  %2166 = load double, ptr %16, align 8, !tbaa !4
+  %2167 = call i32 @geod_polygon_testedge(ptr noundef nonnull %11, ptr noundef nonnull %12, double noundef %2165, double noundef %2166, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %15, ptr noundef null) #7
+  %2168 = load double, ptr %15, align 8, !tbaa !4
+  %2169 = fadd double %2168, 0xC2112FE91855CE05
+  %2170 = call double @llvm.fabs.f64(double %2169)
+  %2171 = fcmp ugt double %2170, 5.000000e-01
+  br i1 %2171, label %2172, label %checkEquals.exit36.i497
 
-2176:                                             ; preds = %checkEquals.exit34.i495
-  %2177 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %2172, double noundef 0x42112FE91855CE05, double noundef 5.000000e-01)
+2172:                                             ; preds = %checkEquals.exit34.i495
+  %2173 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %2168, double noundef 0x42112FE91855CE05, double noundef 5.000000e-01)
   br label %checkEquals.exit36.i497
 
-checkEquals.exit36.i497:                          ; preds = %2176, %checkEquals.exit34.i495
-  %.0.i35.i498 = phi i32 [ 1, %2176 ], [ 0, %checkEquals.exit34.i495 ]
-  %2178 = load double, ptr %17, align 8, !tbaa !4
-  %2179 = load double, ptr %16, align 8, !tbaa !4
-  %2180 = call i32 @geod_polygon_testedge(ptr noundef nonnull %11, ptr noundef nonnull %12, double noundef %2178, double noundef %2179, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %15, ptr noundef null) #7
-  %2181 = load double, ptr %15, align 8, !tbaa !4
-  %2182 = fadd double %2181, 0xC2112FE91855CE05
-  %2183 = call double @llvm.fabs.f64(double %2182)
-  %2184 = fcmp ugt double %2183, 5.000000e-01
-  br i1 %2184, label %2185, label %checkEquals.exit38.i499
+checkEquals.exit36.i497:                          ; preds = %2172, %checkEquals.exit34.i495
+  %.0.i35.i498 = phi i32 [ 1, %2172 ], [ 0, %checkEquals.exit34.i495 ]
+  %2174 = load double, ptr %17, align 8, !tbaa !4
+  %2175 = load double, ptr %16, align 8, !tbaa !4
+  %2176 = call i32 @geod_polygon_testedge(ptr noundef nonnull %11, ptr noundef nonnull %12, double noundef %2174, double noundef %2175, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %15, ptr noundef null) #7
+  %2177 = load double, ptr %15, align 8, !tbaa !4
+  %2178 = fadd double %2177, 0xC2112FE91855CE05
+  %2179 = call double @llvm.fabs.f64(double %2178)
+  %2180 = fcmp ugt double %2179, 5.000000e-01
+  br i1 %2180, label %2181, label %checkEquals.exit38.i499
 
-2185:                                             ; preds = %checkEquals.exit36.i497
-  %2186 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %2181, double noundef 0x42112FE91855CE05, double noundef 5.000000e-01)
+2181:                                             ; preds = %checkEquals.exit36.i497
+  %2182 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %2177, double noundef 0x42112FE91855CE05, double noundef 5.000000e-01)
   br label %checkEquals.exit38.i499
 
-checkEquals.exit38.i499:                          ; preds = %2185, %checkEquals.exit36.i497
-  %.0.i37.i500 = phi i32 [ 1, %2185 ], [ 0, %checkEquals.exit36.i497 ]
-  %2187 = load double, ptr %17, align 8, !tbaa !4
-  %2188 = load double, ptr %16, align 8, !tbaa !4
-  %2189 = call i32 @geod_polygon_testedge(ptr noundef nonnull %11, ptr noundef nonnull %12, double noundef %2187, double noundef %2188, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %15, ptr noundef null) #7
-  %2190 = load double, ptr %15, align 8, !tbaa !4
-  %2191 = fadd double %2190, 0x42112FE91855CE05
-  %2192 = call double @llvm.fabs.f64(double %2191)
-  %2193 = fcmp ugt double %2192, 5.000000e-01
-  br i1 %2193, label %2194, label %checkEquals.exit40.i501
+checkEquals.exit38.i499:                          ; preds = %2181, %checkEquals.exit36.i497
+  %.0.i37.i500 = phi i32 [ 1, %2181 ], [ 0, %checkEquals.exit36.i497 ]
+  %2183 = load double, ptr %17, align 8, !tbaa !4
+  %2184 = load double, ptr %16, align 8, !tbaa !4
+  %2185 = call i32 @geod_polygon_testedge(ptr noundef nonnull %11, ptr noundef nonnull %12, double noundef %2183, double noundef %2184, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %15, ptr noundef null) #7
+  %2186 = load double, ptr %15, align 8, !tbaa !4
+  %2187 = fadd double %2186, 0x42112FE91855CE05
+  %2188 = call double @llvm.fabs.f64(double %2187)
+  %2189 = fcmp ugt double %2188, 5.000000e-01
+  br i1 %2189, label %2190, label %checkEquals.exit40.i501
 
-2194:                                             ; preds = %checkEquals.exit38.i499
-  %2195 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %2190, double noundef 0xC2112FE91855CE05, double noundef 5.000000e-01)
+2190:                                             ; preds = %checkEquals.exit38.i499
+  %2191 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %2186, double noundef 0xC2112FE91855CE05, double noundef 5.000000e-01)
   br label %checkEquals.exit40.i501
 
-checkEquals.exit40.i501:                          ; preds = %2194, %checkEquals.exit38.i499
-  %.0.i39.i502 = phi i32 [ 1, %2194 ], [ 0, %checkEquals.exit38.i499 ]
-  %2196 = load double, ptr %17, align 8, !tbaa !4
-  %2197 = load double, ptr %16, align 8, !tbaa !4
-  %2198 = call i32 @geod_polygon_testedge(ptr noundef nonnull %11, ptr noundef nonnull %12, double noundef %2196, double noundef %2197, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %15, ptr noundef null) #7
-  %2199 = load double, ptr %15, align 8, !tbaa !4
-  %2200 = fadd double %2199, 0xC2FCFE29C37A5A31
-  %2201 = call double @llvm.fabs.f64(double %2200)
-  %2202 = fcmp ugt double %2201, 5.000000e-01
-  br i1 %2202, label %2203, label %checkEquals.exit42.i503
+checkEquals.exit40.i501:                          ; preds = %2190, %checkEquals.exit38.i499
+  %.0.i39.i502 = phi i32 [ 1, %2190 ], [ 0, %checkEquals.exit38.i499 ]
+  %2192 = load double, ptr %17, align 8, !tbaa !4
+  %2193 = load double, ptr %16, align 8, !tbaa !4
+  %2194 = call i32 @geod_polygon_testedge(ptr noundef nonnull %11, ptr noundef nonnull %12, double noundef %2192, double noundef %2193, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %15, ptr noundef null) #7
+  %2195 = load double, ptr %15, align 8, !tbaa !4
+  %2196 = fadd double %2195, 0xC2FCFE29C37A5A31
+  %2197 = call double @llvm.fabs.f64(double %2196)
+  %2198 = fcmp ugt double %2197, 5.000000e-01
+  br i1 %2198, label %2199, label %checkEquals.exit42.i503
 
-2203:                                             ; preds = %checkEquals.exit40.i501
-  %2204 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %2199, double noundef 0x42FCFE29C37A5A31, double noundef 5.000000e-01)
+2199:                                             ; preds = %checkEquals.exit40.i501
+  %2200 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %2195, double noundef 0x42FCFE29C37A5A31, double noundef 5.000000e-01)
   br label %checkEquals.exit42.i503
 
-checkEquals.exit42.i503:                          ; preds = %2203, %checkEquals.exit40.i501
-  %.0.i41.i504 = phi i32 [ 1, %2203 ], [ 0, %checkEquals.exit40.i501 ]
+checkEquals.exit42.i503:                          ; preds = %2199, %checkEquals.exit40.i501
+  %.0.i41.i504 = phi i32 [ 1, %2199 ], [ 0, %checkEquals.exit40.i501 ]
   call void @geod_polygon_addpoint(ptr noundef nonnull %11, ptr noundef nonnull %12, double noundef 3.000000e+00, double noundef 3.000000e+00) #7
-  %2205 = call i32 @geod_polygon_compute(ptr noundef nonnull %11, ptr noundef nonnull %12, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %15, ptr noundef null) #7
-  %2206 = load double, ptr %15, align 8, !tbaa !4
-  %2207 = fadd double %2206, 0xC2112FE91855CE05
-  %2208 = call double @llvm.fabs.f64(double %2207)
-  %2209 = fcmp ugt double %2208, 5.000000e-01
-  br i1 %2209, label %2210, label %checkEquals.exit44.i505
+  %2201 = call i32 @geod_polygon_compute(ptr noundef nonnull %11, ptr noundef nonnull %12, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %15, ptr noundef null) #7
+  %2202 = load double, ptr %15, align 8, !tbaa !4
+  %2203 = fadd double %2202, 0xC2112FE91855CE05
+  %2204 = call double @llvm.fabs.f64(double %2203)
+  %2205 = fcmp ugt double %2204, 5.000000e-01
+  br i1 %2205, label %2206, label %checkEquals.exit44.i505
 
-2210:                                             ; preds = %checkEquals.exit42.i503
-  %2211 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %2206, double noundef 0x42112FE91855CE05, double noundef 5.000000e-01)
+2206:                                             ; preds = %checkEquals.exit42.i503
+  %2207 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %2202, double noundef 0x42112FE91855CE05, double noundef 5.000000e-01)
   br label %checkEquals.exit44.i505
 
-checkEquals.exit44.i505:                          ; preds = %2210, %checkEquals.exit42.i503
-  %.0.i43.i506 = phi i32 [ 1, %2210 ], [ 0, %checkEquals.exit42.i503 ]
-  %2212 = call i32 @geod_polygon_compute(ptr noundef nonnull %11, ptr noundef nonnull %12, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %15, ptr noundef null) #7
-  %2213 = load double, ptr %15, align 8, !tbaa !4
-  %2214 = fadd double %2213, 0xC2112FE91855CE05
-  %2215 = call double @llvm.fabs.f64(double %2214)
-  %2216 = fcmp ugt double %2215, 5.000000e-01
-  br i1 %2216, label %2217, label %checkEquals.exit46.i507
+checkEquals.exit44.i505:                          ; preds = %2206, %checkEquals.exit42.i503
+  %.0.i43.i506 = phi i32 [ 1, %2206 ], [ 0, %checkEquals.exit42.i503 ]
+  %2208 = call i32 @geod_polygon_compute(ptr noundef nonnull %11, ptr noundef nonnull %12, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %15, ptr noundef null) #7
+  %2209 = load double, ptr %15, align 8, !tbaa !4
+  %2210 = fadd double %2209, 0xC2112FE91855CE05
+  %2211 = call double @llvm.fabs.f64(double %2210)
+  %2212 = fcmp ugt double %2211, 5.000000e-01
+  br i1 %2212, label %2213, label %checkEquals.exit46.i507
 
-2217:                                             ; preds = %checkEquals.exit44.i505
-  %2218 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %2213, double noundef 0x42112FE91855CE05, double noundef 5.000000e-01)
+2213:                                             ; preds = %checkEquals.exit44.i505
+  %2214 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %2209, double noundef 0x42112FE91855CE05, double noundef 5.000000e-01)
   br label %checkEquals.exit46.i507
 
-checkEquals.exit46.i507:                          ; preds = %2217, %checkEquals.exit44.i505
-  %.0.i45.i508 = phi i32 [ 1, %2217 ], [ 0, %checkEquals.exit44.i505 ]
-  %2219 = call i32 @geod_polygon_compute(ptr noundef nonnull %11, ptr noundef nonnull %12, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %15, ptr noundef null) #7
-  %2220 = load double, ptr %15, align 8, !tbaa !4
-  %2221 = fadd double %2220, 0x42112FE91855CE05
-  %2222 = call double @llvm.fabs.f64(double %2221)
-  %2223 = fcmp ugt double %2222, 5.000000e-01
-  br i1 %2223, label %2224, label %checkEquals.exit48.i509
+checkEquals.exit46.i507:                          ; preds = %2213, %checkEquals.exit44.i505
+  %.0.i45.i508 = phi i32 [ 1, %2213 ], [ 0, %checkEquals.exit44.i505 ]
+  %2215 = call i32 @geod_polygon_compute(ptr noundef nonnull %11, ptr noundef nonnull %12, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %15, ptr noundef null) #7
+  %2216 = load double, ptr %15, align 8, !tbaa !4
+  %2217 = fadd double %2216, 0x42112FE91855CE05
+  %2218 = call double @llvm.fabs.f64(double %2217)
+  %2219 = fcmp ugt double %2218, 5.000000e-01
+  br i1 %2219, label %2220, label %checkEquals.exit48.i509
 
-2224:                                             ; preds = %checkEquals.exit46.i507
-  %2225 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %2220, double noundef 0xC2112FE91855CE05, double noundef 5.000000e-01)
+2220:                                             ; preds = %checkEquals.exit46.i507
+  %2221 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %2216, double noundef 0xC2112FE91855CE05, double noundef 5.000000e-01)
   br label %checkEquals.exit48.i509
 
-checkEquals.exit48.i509:                          ; preds = %2224, %checkEquals.exit46.i507
-  %.0.i47.i510 = phi i32 [ 1, %2224 ], [ 0, %checkEquals.exit46.i507 ]
-  %2226 = call i32 @geod_polygon_compute(ptr noundef nonnull %11, ptr noundef nonnull %12, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %15, ptr noundef null) #7
-  %2227 = load double, ptr %15, align 8, !tbaa !4
-  %2228 = fadd double %2227, 0xC2FCFE29C37A5A31
-  %2229 = call double @llvm.fabs.f64(double %2228)
-  %2230 = fcmp ugt double %2229, 5.000000e-01
-  br i1 %2230, label %2231, label %checkEquals.exit50.i511
+checkEquals.exit48.i509:                          ; preds = %2220, %checkEquals.exit46.i507
+  %.0.i47.i510 = phi i32 [ 1, %2220 ], [ 0, %checkEquals.exit46.i507 ]
+  %2222 = call i32 @geod_polygon_compute(ptr noundef nonnull %11, ptr noundef nonnull %12, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %15, ptr noundef null) #7
+  %2223 = load double, ptr %15, align 8, !tbaa !4
+  %2224 = fadd double %2223, 0xC2FCFE29C37A5A31
+  %2225 = call double @llvm.fabs.f64(double %2224)
+  %2226 = fcmp ugt double %2225, 5.000000e-01
+  br i1 %2226, label %2227, label %checkEquals.exit50.i511
 
-2231:                                             ; preds = %checkEquals.exit48.i509
-  %2232 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %2227, double noundef 0x42FCFE29C37A5A31, double noundef 5.000000e-01)
+2227:                                             ; preds = %checkEquals.exit48.i509
+  %2228 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %2223, double noundef 0x42FCFE29C37A5A31, double noundef 5.000000e-01)
   br label %checkEquals.exit50.i511
 
-checkEquals.exit50.i511:                          ; preds = %2231, %checkEquals.exit48.i509
-  %.0.i49.i512 = phi i32 [ 1, %2231 ], [ 0, %checkEquals.exit48.i509 ]
+checkEquals.exit50.i511:                          ; preds = %2227, %checkEquals.exit48.i509
+  %.0.i49.i512 = phi i32 [ 1, %2227 ], [ 0, %checkEquals.exit48.i509 ]
   call void @geod_polygonarea(ptr noundef nonnull %11, ptr noundef nonnull %13, ptr noundef nonnull %14, i32 noundef 3, ptr noundef nonnull %15, ptr noundef null) #7
-  %2233 = load double, ptr %15, align 8, !tbaa !4
-  %2234 = fadd double %2233, 0xC2112FE91855CE05
-  %2235 = call double @llvm.fabs.f64(double %2234)
-  %2236 = fcmp ugt double %2235, 5.000000e-01
-  br i1 %2236, label %2237, label %Planimeter15.exit
+  %2229 = load double, ptr %15, align 8, !tbaa !4
+  %2230 = fadd double %2229, 0xC2112FE91855CE05
+  %2231 = call double @llvm.fabs.f64(double %2230)
+  %2232 = fcmp ugt double %2231, 5.000000e-01
+  br i1 %2232, label %2233, label %Planimeter15.exit
 
-2237:                                             ; preds = %checkEquals.exit50.i511
-  %2238 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %2233, double noundef 0x42112FE91855CE05, double noundef 5.000000e-01)
+2233:                                             ; preds = %checkEquals.exit50.i511
+  %2234 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %2229, double noundef 0x42112FE91855CE05, double noundef 5.000000e-01)
   br label %Planimeter15.exit
 
-Planimeter15.exit:                                ; preds = %checkEquals.exit50.i511, %2237
-  %.0.i51.i514 = phi i32 [ 1, %2237 ], [ 0, %checkEquals.exit50.i511 ]
-  %2239 = add nuw nsw i32 %.0.i29.i492, %.0.i.i490
-  %2240 = add nuw nsw i32 %2239, %.0.i31.i494
-  %2241 = add nuw nsw i32 %2240, %.0.i33.i496
-  %2242 = add nuw nsw i32 %2241, %.0.i35.i498
-  %2243 = add nuw nsw i32 %2242, %.0.i37.i500
-  %2244 = add nuw nsw i32 %2243, %.0.i39.i502
-  %2245 = add nuw nsw i32 %2244, %.0.i41.i504
-  %2246 = add nuw nsw i32 %2245, %.0.i43.i506
-  %2247 = add nuw nsw i32 %2246, %.0.i45.i508
-  %2248 = add nuw nsw i32 %2247, %.0.i47.i510
-  %2249 = add nuw nsw i32 %2248, %.0.i49.i512
-  %2250 = add nuw nsw i32 %2249, %.0.i51.i514
+Planimeter15.exit:                                ; preds = %checkEquals.exit50.i511, %2233
+  %.0.i51.i514 = phi i32 [ 1, %2233 ], [ 0, %checkEquals.exit50.i511 ]
+  %2235 = add nuw nsw i32 %.0.i29.i492, %.0.i.i490
+  %2236 = add nuw nsw i32 %2235, %.0.i31.i494
+  %2237 = add nuw nsw i32 %2236, %.0.i33.i496
+  %2238 = add nuw nsw i32 %2237, %.0.i35.i498
+  %2239 = add nuw nsw i32 %2238, %.0.i37.i500
+  %2240 = add nuw nsw i32 %2239, %.0.i39.i502
+  %2241 = add nuw nsw i32 %2240, %.0.i41.i504
+  %2242 = add nuw nsw i32 %2241, %.0.i43.i506
+  %2243 = add nuw nsw i32 %2242, %.0.i45.i508
+  %2244 = add nuw nsw i32 %2243, %.0.i47.i510
+  %2245 = add nuw nsw i32 %2244, %.0.i49.i512
+  %2246 = add nuw nsw i32 %2245, %.0.i51.i514
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
@@ -4743,144 +4739,144 @@ Planimeter15.exit:                                ; preds = %checkEquals.exit50.
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  %.not172 = icmp eq i32 %2250, 0
-  br i1 %.not172, label %2254, label %2251
+  %.not172 = icmp eq i32 %2246, 0
+  br i1 %.not172, label %2250, label %2247
 
-2251:                                             ; preds = %Planimeter15.exit
-  %2252 = add nsw i32 %.39, 1
-  %2253 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.40, i32 noundef %2250)
-  br label %2254
+2247:                                             ; preds = %Planimeter15.exit
+  %2248 = add nsw i32 %.39, 1
+  %2249 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.40, i32 noundef %2246)
+  br label %2250
 
-2254:                                             ; preds = %2251, %Planimeter15.exit
-  %.40 = phi i32 [ %2252, %2251 ], [ %.39, %Planimeter15.exit ]
+2250:                                             ; preds = %2247, %Planimeter15.exit
+  %.40 = phi i32 [ %2248, %2247 ], [ %.39, %Planimeter15.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @geod_init(ptr noundef nonnull %7, double noundef 0x415854A640000000, double noundef 0x3F6B775A84F3E128) #7
   call void @geod_polygon_init(ptr noundef nonnull %8, i32 noundef 0) #7
-  %2255 = call i32 @geod_polygon_compute(ptr noundef nonnull %7, ptr noundef nonnull %8, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %9, ptr noundef nonnull %10) #7
-  %2256 = load double, ptr %9, align 8, !tbaa !4
-  %2257 = load double, ptr %10, align 8, !tbaa !4
-  %2258 = call i32 @geod_polygon_testpoint(ptr noundef nonnull %7, ptr noundef nonnull %8, double noundef 1.000000e+00, double noundef 1.000000e+00, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %9, ptr noundef nonnull %10) #7
-  %2259 = load double, ptr %9, align 8, !tbaa !4
-  %2260 = load double, ptr %10, align 8, !tbaa !4
-  %2261 = call i32 @geod_polygon_testedge(ptr noundef nonnull %7, ptr noundef nonnull %8, double noundef 9.000000e+01, double noundef 1.000000e+03, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %9, ptr noundef nonnull %10) #7
-  %2262 = load double, ptr %9, align 8, !tbaa !4
-  %2263 = fcmp uno double %2262, 0.000000e+00
-  br i1 %2263, label %checkNaN.exit.i515, label %2264
+  %2251 = call i32 @geod_polygon_compute(ptr noundef nonnull %7, ptr noundef nonnull %8, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %9, ptr noundef nonnull %10) #7
+  %2252 = load double, ptr %9, align 8, !tbaa !4
+  %2253 = load double, ptr %10, align 8, !tbaa !4
+  %2254 = call i32 @geod_polygon_testpoint(ptr noundef nonnull %7, ptr noundef nonnull %8, double noundef 1.000000e+00, double noundef 1.000000e+00, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %9, ptr noundef nonnull %10) #7
+  %2255 = load double, ptr %9, align 8, !tbaa !4
+  %2256 = load double, ptr %10, align 8, !tbaa !4
+  %2257 = call i32 @geod_polygon_testedge(ptr noundef nonnull %7, ptr noundef nonnull %8, double noundef 9.000000e+01, double noundef 1.000000e+03, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %9, ptr noundef nonnull %10) #7
+  %2258 = load double, ptr %9, align 8, !tbaa !4
+  %2259 = fcmp uno double %2258, 0.000000e+00
+  br i1 %2259, label %checkNaN.exit.i515, label %2260
 
-2264:                                             ; preds = %2254
-  %2265 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.46, double noundef %2262)
+2260:                                             ; preds = %2250
+  %2261 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.46, double noundef %2258)
   br label %checkNaN.exit.i515
 
-checkNaN.exit.i515:                               ; preds = %2264, %2254
-  %.0.i.i516 = phi i32 [ 1, %2264 ], [ 0, %2254 ]
-  %2266 = load double, ptr %10, align 8, !tbaa !4
-  %2267 = fcmp uno double %2266, 0.000000e+00
-  br i1 %2267, label %checkNaN.exit16.i, label %2268
+checkNaN.exit.i515:                               ; preds = %2260, %2250
+  %.0.i.i516 = phi i32 [ 1, %2260 ], [ 0, %2250 ]
+  %2262 = load double, ptr %10, align 8, !tbaa !4
+  %2263 = fcmp uno double %2262, 0.000000e+00
+  br i1 %2263, label %checkNaN.exit16.i, label %2264
 
-2268:                                             ; preds = %checkNaN.exit.i515
-  %2269 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.46, double noundef %2266)
+2264:                                             ; preds = %checkNaN.exit.i515
+  %2265 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.46, double noundef %2262)
   br label %checkNaN.exit16.i
 
-checkNaN.exit16.i:                                ; preds = %2268, %checkNaN.exit.i515
-  %.0.i15.i517 = phi i32 [ 1, %2268 ], [ 0, %checkNaN.exit.i515 ]
+checkNaN.exit16.i:                                ; preds = %2264, %checkNaN.exit.i515
+  %.0.i15.i517 = phi i32 [ 1, %2264 ], [ 0, %checkNaN.exit.i515 ]
   call void @geod_polygon_addpoint(ptr noundef nonnull %7, ptr noundef nonnull %8, double noundef 1.000000e+00, double noundef 1.000000e+00) #7
-  %2270 = call i32 @geod_polygon_compute(ptr noundef nonnull %7, ptr noundef nonnull %8, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %9, ptr noundef nonnull %10) #7
-  %2271 = load double, ptr %9, align 8, !tbaa !4
-  %2272 = load double, ptr %10, align 8, !tbaa !4
+  %2266 = call i32 @geod_polygon_compute(ptr noundef nonnull %7, ptr noundef nonnull %8, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %9, ptr noundef nonnull %10) #7
+  %2267 = load double, ptr %9, align 8, !tbaa !4
+  %2268 = load double, ptr %10, align 8, !tbaa !4
   call void @geod_polygon_init(ptr noundef nonnull %8, i32 noundef 1) #7
-  %2273 = call i32 @geod_polygon_compute(ptr noundef nonnull %7, ptr noundef nonnull %8, i32 noundef 0, i32 noundef 1, ptr noundef null, ptr noundef nonnull %10) #7
+  %2269 = call i32 @geod_polygon_compute(ptr noundef nonnull %7, ptr noundef nonnull %8, i32 noundef 0, i32 noundef 1, ptr noundef null, ptr noundef nonnull %10) #7
+  %2270 = load double, ptr %10, align 8, !tbaa !4
+  %2271 = call i32 @geod_polygon_testpoint(ptr noundef nonnull %7, ptr noundef nonnull %8, double noundef 1.000000e+00, double noundef 1.000000e+00, i32 noundef 0, i32 noundef 1, ptr noundef null, ptr noundef nonnull %10) #7
+  %2272 = load double, ptr %10, align 8, !tbaa !4
+  %2273 = call i32 @geod_polygon_testedge(ptr noundef nonnull %7, ptr noundef nonnull %8, double noundef 9.000000e+01, double noundef 1.000000e+03, i32 noundef 0, i32 noundef 1, ptr noundef null, ptr noundef nonnull %10) #7
   %2274 = load double, ptr %10, align 8, !tbaa !4
-  %2275 = call i32 @geod_polygon_testpoint(ptr noundef nonnull %7, ptr noundef nonnull %8, double noundef 1.000000e+00, double noundef 1.000000e+00, i32 noundef 0, i32 noundef 1, ptr noundef null, ptr noundef nonnull %10) #7
-  %2276 = load double, ptr %10, align 8, !tbaa !4
-  %2277 = call i32 @geod_polygon_testedge(ptr noundef nonnull %7, ptr noundef nonnull %8, double noundef 9.000000e+01, double noundef 1.000000e+03, i32 noundef 0, i32 noundef 1, ptr noundef null, ptr noundef nonnull %10) #7
-  %2278 = load double, ptr %10, align 8, !tbaa !4
-  %2279 = fcmp uno double %2278, 0.000000e+00
-  br i1 %2279, label %checkNaN.exit18.i, label %2280
+  %2275 = fcmp uno double %2274, 0.000000e+00
+  br i1 %2275, label %checkNaN.exit18.i, label %2276
 
-2280:                                             ; preds = %checkNaN.exit16.i
-  %2281 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.46, double noundef %2278)
+2276:                                             ; preds = %checkNaN.exit16.i
+  %2277 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.46, double noundef %2274)
   br label %checkNaN.exit18.i
 
-checkNaN.exit18.i:                                ; preds = %2280, %checkNaN.exit16.i
-  %.0.i17.i518 = phi i32 [ 1, %2280 ], [ 0, %checkNaN.exit16.i ]
+checkNaN.exit18.i:                                ; preds = %2276, %checkNaN.exit16.i
+  %.0.i17.i518 = phi i32 [ 1, %2276 ], [ 0, %checkNaN.exit16.i ]
   call void @geod_polygon_addpoint(ptr noundef nonnull %7, ptr noundef nonnull %8, double noundef 1.000000e+00, double noundef 1.000000e+00) #7
-  %2282 = call i32 @geod_polygon_compute(ptr noundef nonnull %7, ptr noundef nonnull %8, i32 noundef 0, i32 noundef 1, ptr noundef null, ptr noundef nonnull %10) #7
-  %2283 = load double, ptr %10, align 8, !tbaa !4
+  %2278 = call i32 @geod_polygon_compute(ptr noundef nonnull %7, ptr noundef nonnull %8, i32 noundef 0, i32 noundef 1, ptr noundef null, ptr noundef nonnull %10) #7
+  %2279 = load double, ptr %10, align 8, !tbaa !4
   call void @geod_polygon_addpoint(ptr noundef nonnull %7, ptr noundef nonnull %8, double noundef 1.000000e+00, double noundef 1.000000e+00) #7
-  %2284 = call i32 @geod_polygon_testedge(ptr noundef nonnull %7, ptr noundef nonnull %8, double noundef 9.000000e+01, double noundef 1.000000e+03, i32 noundef 0, i32 noundef 1, ptr noundef null, ptr noundef nonnull %10) #7
-  %2285 = load double, ptr %10, align 8, !tbaa !4
-  %2286 = fadd double %2285, -1.000000e+03
-  %2287 = call double @llvm.fabs.f64(double %2286)
-  %2288 = fcmp ugt double %2287, 1.000000e-10
-  br i1 %2288, label %2289, label %checkEquals.exit.i519
+  %2280 = call i32 @geod_polygon_testedge(ptr noundef nonnull %7, ptr noundef nonnull %8, double noundef 9.000000e+01, double noundef 1.000000e+03, i32 noundef 0, i32 noundef 1, ptr noundef null, ptr noundef nonnull %10) #7
+  %2281 = load double, ptr %10, align 8, !tbaa !4
+  %2282 = fadd double %2281, -1.000000e+03
+  %2283 = call double @llvm.fabs.f64(double %2282)
+  %2284 = fcmp ugt double %2283, 1.000000e-10
+  br i1 %2284, label %2285, label %checkEquals.exit.i519
 
-2289:                                             ; preds = %checkNaN.exit18.i
-  %2290 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %2285, double noundef 1.000000e+03, double noundef 1.000000e-10)
+2285:                                             ; preds = %checkNaN.exit18.i
+  %2286 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %2281, double noundef 1.000000e+03, double noundef 1.000000e-10)
   br label %checkEquals.exit.i519
 
-checkEquals.exit.i519:                            ; preds = %2289, %checkNaN.exit18.i
-  %.0.i19.i520 = phi i32 [ 1, %2289 ], [ 0, %checkNaN.exit18.i ]
-  %2291 = call i32 @geod_polygon_testpoint(ptr noundef nonnull %7, ptr noundef nonnull %8, double noundef 2.000000e+00, double noundef 2.000000e+00, i32 noundef 0, i32 noundef 1, ptr noundef null, ptr noundef nonnull %10) #7
-  %2292 = load double, ptr %10, align 8, !tbaa !4
-  %2293 = fadd double %2292, 0xC10326613126E979
-  %2294 = call double @llvm.fabs.f64(double %2293)
-  %2295 = fcmp ugt double %2294, 5.000000e-04
-  br i1 %2295, label %2296, label %Planimeter19.exit
+checkEquals.exit.i519:                            ; preds = %2285, %checkNaN.exit18.i
+  %.0.i19.i520 = phi i32 [ 1, %2285 ], [ 0, %checkNaN.exit18.i ]
+  %2287 = call i32 @geod_polygon_testpoint(ptr noundef nonnull %7, ptr noundef nonnull %8, double noundef 2.000000e+00, double noundef 2.000000e+00, i32 noundef 0, i32 noundef 1, ptr noundef null, ptr noundef nonnull %10) #7
+  %2288 = load double, ptr %10, align 8, !tbaa !4
+  %2289 = fadd double %2288, 0xC10326613126E979
+  %2290 = call double @llvm.fabs.f64(double %2289)
+  %2291 = fcmp ugt double %2290, 5.000000e-04
+  br i1 %2291, label %2292, label %Planimeter19.exit
 
-2296:                                             ; preds = %checkEquals.exit.i519
-  %2297 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %2292, double noundef 0x410326613126E979, double noundef 5.000000e-04)
+2292:                                             ; preds = %checkEquals.exit.i519
+  %2293 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %2288, double noundef 0x410326613126E979, double noundef 5.000000e-04)
   br label %Planimeter19.exit
 
-Planimeter19.exit:                                ; preds = %checkEquals.exit.i519, %2296
-  %.0.i20.i = phi i32 [ 1, %2296 ], [ 0, %checkEquals.exit.i519 ]
-  %2298 = fcmp une double %2256, 0.000000e+00
-  %2299 = zext i1 %2298 to i32
-  %2300 = fcmp une double %2257, 0.000000e+00
-  %2301 = zext i1 %2300 to i32
-  %2302 = add nuw nsw i32 %2301, %2299
-  %2303 = fcmp une double %2259, 0.000000e+00
-  %2304 = zext i1 %2303 to i32
-  %2305 = add nuw nsw i32 %2302, %2304
-  %2306 = fcmp une double %2260, 0.000000e+00
-  %2307 = zext i1 %2306 to i32
-  %2308 = add nuw nsw i32 %2305, %2307
-  %2309 = add nuw nsw i32 %2308, %.0.i.i516
-  %2310 = add nuw nsw i32 %2309, %.0.i15.i517
-  %2311 = fcmp une double %2271, 0.000000e+00
-  %2312 = zext i1 %2311 to i32
-  %2313 = add nuw nsw i32 %2310, %2312
-  %2314 = fcmp une double %2272, 0.000000e+00
-  %2315 = zext i1 %2314 to i32
-  %2316 = add nuw nsw i32 %2313, %2315
-  %2317 = fcmp une double %2274, 0.000000e+00
-  %2318 = zext i1 %2317 to i32
-  %2319 = add nuw nsw i32 %2316, %2318
-  %2320 = fcmp une double %2276, 0.000000e+00
+Planimeter19.exit:                                ; preds = %checkEquals.exit.i519, %2292
+  %.0.i20.i = phi i32 [ 1, %2292 ], [ 0, %checkEquals.exit.i519 ]
+  %2294 = fcmp une double %2252, 0.000000e+00
+  %2295 = zext i1 %2294 to i32
+  %2296 = fcmp une double %2253, 0.000000e+00
+  %2297 = zext i1 %2296 to i32
+  %2298 = add nuw nsw i32 %2297, %2295
+  %2299 = fcmp une double %2255, 0.000000e+00
+  %2300 = zext i1 %2299 to i32
+  %2301 = add nuw nsw i32 %2298, %2300
+  %2302 = fcmp une double %2256, 0.000000e+00
+  %2303 = zext i1 %2302 to i32
+  %2304 = add nuw nsw i32 %2301, %2303
+  %2305 = add nuw nsw i32 %2304, %.0.i.i516
+  %2306 = add nuw nsw i32 %2305, %.0.i15.i517
+  %2307 = fcmp une double %2267, 0.000000e+00
+  %2308 = zext i1 %2307 to i32
+  %2309 = add nuw nsw i32 %2306, %2308
+  %2310 = fcmp une double %2268, 0.000000e+00
+  %2311 = zext i1 %2310 to i32
+  %2312 = add nuw nsw i32 %2309, %2311
+  %2313 = fcmp une double %2270, 0.000000e+00
+  %2314 = zext i1 %2313 to i32
+  %2315 = add nuw nsw i32 %2312, %2314
+  %2316 = fcmp une double %2272, 0.000000e+00
+  %2317 = zext i1 %2316 to i32
+  %2318 = add nuw nsw i32 %2315, %2317
+  %2319 = add nuw nsw i32 %2318, %.0.i17.i518
+  %2320 = fcmp une double %2279, 0.000000e+00
   %2321 = zext i1 %2320 to i32
   %2322 = add nuw nsw i32 %2319, %2321
-  %2323 = add nuw nsw i32 %2322, %.0.i17.i518
-  %2324 = fcmp une double %2283, 0.000000e+00
-  %2325 = zext i1 %2324 to i32
-  %2326 = add nuw nsw i32 %2323, %2325
-  %2327 = add nuw nsw i32 %2326, %.0.i19.i520
-  %2328 = add nuw nsw i32 %2327, %.0.i20.i
+  %2323 = add nuw nsw i32 %2322, %.0.i19.i520
+  %2324 = add nuw nsw i32 %2323, %.0.i20.i
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %.not173 = icmp eq i32 %2328, 0
-  br i1 %.not173, label %2332, label %2329
+  %.not173 = icmp eq i32 %2324, 0
+  br i1 %.not173, label %2328, label %2325
 
-2329:                                             ; preds = %Planimeter19.exit
-  %2330 = add nsw i32 %.40, 1
-  %2331 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.41, i32 noundef %2328)
-  br label %2332
+2325:                                             ; preds = %Planimeter19.exit
+  %2326 = add nsw i32 %.40, 1
+  %2327 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.41, i32 noundef %2324)
+  br label %2328
 
-2332:                                             ; preds = %2329, %Planimeter19.exit
-  %.41 = phi i32 [ %2330, %2329 ], [ %.40, %Planimeter19.exit ]
+2328:                                             ; preds = %2325, %Planimeter19.exit
+  %.41 = phi i32 [ %2326, %2325 ], [ %.40, %Planimeter19.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -4892,205 +4888,205 @@ Planimeter19.exit:                                ; preds = %checkEquals.exit.i5
   call void @geod_polygon_addpoint(ptr noundef nonnull %4, ptr noundef nonnull %5, double noundef 4.500000e+01, double noundef 6.000000e+01) #7
   call void @geod_polygon_addpoint(ptr noundef nonnull %4, ptr noundef nonnull %5, double noundef 4.500000e+01, double noundef 1.800000e+02) #7
   call void @geod_polygon_addpoint(ptr noundef nonnull %4, ptr noundef nonnull %5, double noundef 4.500000e+01, double noundef -6.000000e+01) #7
-  br label %2333
+  br label %2329
 
-2333:                                             ; preds = %checkEquals.exit84.i, %2332
-  %exitcond.not.i521 = phi i1 [ false, %2332 ], [ true, %checkEquals.exit84.i ]
-  %.086.i = phi i32 [ 3, %2332 ], [ 4, %checkEquals.exit84.i ]
-  %.06285.i = phi i32 [ 0, %2332 ], [ %2435, %checkEquals.exit84.i ]
+2329:                                             ; preds = %checkEquals.exit84.i, %2328
+  %exitcond.not.i521 = phi i1 [ false, %2328 ], [ true, %checkEquals.exit84.i ]
+  %.086.i = phi i32 [ 3, %2328 ], [ 4, %checkEquals.exit84.i ]
+  %.06285.i = phi i32 [ 0, %2328 ], [ %2431, %checkEquals.exit84.i ]
   call void @geod_polygon_addpoint(ptr noundef nonnull %4, ptr noundef nonnull %5, double noundef 4.500000e+01, double noundef 6.000000e+01) #7
   call void @geod_polygon_addpoint(ptr noundef nonnull %4, ptr noundef nonnull %5, double noundef 4.500000e+01, double noundef 1.800000e+02) #7
-  %2334 = call i32 @geod_polygon_testpoint(ptr noundef nonnull %4, ptr noundef nonnull %5, double noundef 4.500000e+01, double noundef -6.000000e+01, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %6, ptr noundef null) #7
-  %2335 = load double, ptr %6, align 8, !tbaa !4
-  %2336 = uitofp nneg i32 %.086.i to double
-  %2337 = fmul double %2336, 0x42C1EEB5598C05B7
-  %2338 = fsub double %2335, %2337
-  %2339 = call double @llvm.fabs.f64(double %2338)
-  %2340 = fcmp ugt double %2339, 5.000000e-01
-  br i1 %2340, label %2341, label %checkEquals.exit.i522
+  %2330 = call i32 @geod_polygon_testpoint(ptr noundef nonnull %4, ptr noundef nonnull %5, double noundef 4.500000e+01, double noundef -6.000000e+01, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %6, ptr noundef null) #7
+  %2331 = load double, ptr %6, align 8, !tbaa !4
+  %2332 = uitofp nneg i32 %.086.i to double
+  %2333 = fmul double %2332, 0x42C1EEB5598C05B7
+  %2334 = fsub double %2331, %2333
+  %2335 = call double @llvm.fabs.f64(double %2334)
+  %2336 = fcmp ugt double %2335, 5.000000e-01
+  br i1 %2336, label %2337, label %checkEquals.exit.i522
 
-2341:                                             ; preds = %2333
-  %2342 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %2335, double noundef %2337, double noundef 5.000000e-01)
+2337:                                             ; preds = %2329
+  %2338 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %2331, double noundef %2333, double noundef 5.000000e-01)
   br label %checkEquals.exit.i522
 
-checkEquals.exit.i522:                            ; preds = %2341, %2333
-  %.0.i.i523 = phi i32 [ 1, %2341 ], [ 0, %2333 ]
-  %2343 = add nsw i32 %.0.i.i523, %.06285.i
-  %2344 = call i32 @geod_polygon_testpoint(ptr noundef nonnull %4, ptr noundef nonnull %5, double noundef 4.500000e+01, double noundef -6.000000e+01, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %6, ptr noundef null) #7
-  %2345 = load double, ptr %6, align 8, !tbaa !4
-  %2346 = fsub double %2345, %2337
-  %2347 = call double @llvm.fabs.f64(double %2346)
-  %2348 = fcmp ugt double %2347, 5.000000e-01
-  br i1 %2348, label %2349, label %checkEquals.exit64.i
+checkEquals.exit.i522:                            ; preds = %2337, %2329
+  %.0.i.i523 = phi i32 [ 1, %2337 ], [ 0, %2329 ]
+  %2339 = add nsw i32 %.0.i.i523, %.06285.i
+  %2340 = call i32 @geod_polygon_testpoint(ptr noundef nonnull %4, ptr noundef nonnull %5, double noundef 4.500000e+01, double noundef -6.000000e+01, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %6, ptr noundef null) #7
+  %2341 = load double, ptr %6, align 8, !tbaa !4
+  %2342 = fsub double %2341, %2333
+  %2343 = call double @llvm.fabs.f64(double %2342)
+  %2344 = fcmp ugt double %2343, 5.000000e-01
+  br i1 %2344, label %2345, label %checkEquals.exit64.i
 
-2349:                                             ; preds = %checkEquals.exit.i522
-  %2350 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %2345, double noundef %2337, double noundef 5.000000e-01)
+2345:                                             ; preds = %checkEquals.exit.i522
+  %2346 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %2341, double noundef %2333, double noundef 5.000000e-01)
   br label %checkEquals.exit64.i
 
-checkEquals.exit64.i:                             ; preds = %2349, %checkEquals.exit.i522
-  %.0.i63.i = phi i32 [ 1, %2349 ], [ 0, %checkEquals.exit.i522 ]
-  %2351 = add nsw i32 %2343, %.0.i63.i
-  %2352 = call i32 @geod_polygon_testpoint(ptr noundef nonnull %4, ptr noundef nonnull %5, double noundef 4.500000e+01, double noundef -6.000000e+01, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %6, ptr noundef null) #7
-  %2353 = load double, ptr %6, align 8, !tbaa !4
-  %2354 = sub nsw i32 0, %.086.i
-  %2355 = sitofp i32 %2354 to double
-  %2356 = fmul double %2355, 0x42C1EEB5598C05B7
-  %2357 = fsub double %2353, %2356
-  %2358 = call double @llvm.fabs.f64(double %2357)
-  %2359 = fcmp ugt double %2358, 5.000000e-01
-  br i1 %2359, label %2360, label %checkEquals.exit66.i
+checkEquals.exit64.i:                             ; preds = %2345, %checkEquals.exit.i522
+  %.0.i63.i = phi i32 [ 1, %2345 ], [ 0, %checkEquals.exit.i522 ]
+  %2347 = add nsw i32 %2339, %.0.i63.i
+  %2348 = call i32 @geod_polygon_testpoint(ptr noundef nonnull %4, ptr noundef nonnull %5, double noundef 4.500000e+01, double noundef -6.000000e+01, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %6, ptr noundef null) #7
+  %2349 = load double, ptr %6, align 8, !tbaa !4
+  %2350 = sub nsw i32 0, %.086.i
+  %2351 = sitofp i32 %2350 to double
+  %2352 = fmul double %2351, 0x42C1EEB5598C05B7
+  %2353 = fsub double %2349, %2352
+  %2354 = call double @llvm.fabs.f64(double %2353)
+  %2355 = fcmp ugt double %2354, 5.000000e-01
+  br i1 %2355, label %2356, label %checkEquals.exit66.i
 
-2360:                                             ; preds = %checkEquals.exit64.i
-  %2361 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %2353, double noundef %2356, double noundef 5.000000e-01)
+2356:                                             ; preds = %checkEquals.exit64.i
+  %2357 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %2349, double noundef %2352, double noundef 5.000000e-01)
   br label %checkEquals.exit66.i
 
-checkEquals.exit66.i:                             ; preds = %2360, %checkEquals.exit64.i
-  %.0.i65.i = phi i32 [ 1, %2360 ], [ 0, %checkEquals.exit64.i ]
-  %2362 = add nsw i32 %2351, %.0.i65.i
-  %2363 = call i32 @geod_polygon_testpoint(ptr noundef nonnull %4, ptr noundef nonnull %5, double noundef 4.500000e+01, double noundef -6.000000e+01, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %6, ptr noundef null) #7
-  %2364 = load double, ptr %6, align 8, !tbaa !4
-  %2365 = call double @llvm.fmuladd.f64(double %2355, double 0x42C1EEB5598C05B7, double 0x42FCFE6E831EBB88)
-  %2366 = fsub double %2364, %2365
-  %2367 = call double @llvm.fabs.f64(double %2366)
-  %2368 = fcmp ugt double %2367, 5.000000e-01
-  br i1 %2368, label %2369, label %checkEquals.exit68.i
+checkEquals.exit66.i:                             ; preds = %2356, %checkEquals.exit64.i
+  %.0.i65.i = phi i32 [ 1, %2356 ], [ 0, %checkEquals.exit64.i ]
+  %2358 = add nsw i32 %2347, %.0.i65.i
+  %2359 = call i32 @geod_polygon_testpoint(ptr noundef nonnull %4, ptr noundef nonnull %5, double noundef 4.500000e+01, double noundef -6.000000e+01, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %6, ptr noundef null) #7
+  %2360 = load double, ptr %6, align 8, !tbaa !4
+  %2361 = call double @llvm.fmuladd.f64(double %2351, double 0x42C1EEB5598C05B7, double 0x42FCFE6E831EBB88)
+  %2362 = fsub double %2360, %2361
+  %2363 = call double @llvm.fabs.f64(double %2362)
+  %2364 = fcmp ugt double %2363, 5.000000e-01
+  br i1 %2364, label %2365, label %checkEquals.exit68.i
 
-2369:                                             ; preds = %checkEquals.exit66.i
-  %2370 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %2364, double noundef %2365, double noundef 5.000000e-01)
+2365:                                             ; preds = %checkEquals.exit66.i
+  %2366 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %2360, double noundef %2361, double noundef 5.000000e-01)
   br label %checkEquals.exit68.i
 
-checkEquals.exit68.i:                             ; preds = %2369, %checkEquals.exit66.i
-  %.0.i67.i = phi i32 [ 1, %2369 ], [ 0, %checkEquals.exit66.i ]
-  %2371 = add nsw i32 %2362, %.0.i67.i
-  %2372 = call i32 @geod_polygon_testedge(ptr noundef nonnull %4, ptr noundef nonnull %5, double noundef 0x40439B7372E45CB9, double noundef 0x41600FAC2D1B3648, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %6, ptr noundef null) #7
-  %2373 = load double, ptr %6, align 8, !tbaa !4
-  %2374 = fsub double %2373, %2337
-  %2375 = call double @llvm.fabs.f64(double %2374)
-  %2376 = fcmp ugt double %2375, 5.000000e-01
-  br i1 %2376, label %2377, label %checkEquals.exit70.i
+checkEquals.exit68.i:                             ; preds = %2365, %checkEquals.exit66.i
+  %.0.i67.i = phi i32 [ 1, %2365 ], [ 0, %checkEquals.exit66.i ]
+  %2367 = add nsw i32 %2358, %.0.i67.i
+  %2368 = call i32 @geod_polygon_testedge(ptr noundef nonnull %4, ptr noundef nonnull %5, double noundef 0x40439B7372E45CB9, double noundef 0x41600FAC2D1B3648, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %6, ptr noundef null) #7
+  %2369 = load double, ptr %6, align 8, !tbaa !4
+  %2370 = fsub double %2369, %2333
+  %2371 = call double @llvm.fabs.f64(double %2370)
+  %2372 = fcmp ugt double %2371, 5.000000e-01
+  br i1 %2372, label %2373, label %checkEquals.exit70.i
 
-2377:                                             ; preds = %checkEquals.exit68.i
-  %2378 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %2373, double noundef %2337, double noundef 5.000000e-01)
+2373:                                             ; preds = %checkEquals.exit68.i
+  %2374 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %2369, double noundef %2333, double noundef 5.000000e-01)
   br label %checkEquals.exit70.i
 
-checkEquals.exit70.i:                             ; preds = %2377, %checkEquals.exit68.i
-  %.0.i69.i = phi i32 [ 1, %2377 ], [ 0, %checkEquals.exit68.i ]
-  %2379 = add nsw i32 %2371, %.0.i69.i
-  %2380 = call i32 @geod_polygon_testedge(ptr noundef nonnull %4, ptr noundef nonnull %5, double noundef 0x40439B7372E45CB9, double noundef 0x41600FAC2D1B3648, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %6, ptr noundef null) #7
-  %2381 = load double, ptr %6, align 8, !tbaa !4
-  %2382 = fsub double %2381, %2337
-  %2383 = call double @llvm.fabs.f64(double %2382)
-  %2384 = fcmp ugt double %2383, 5.000000e-01
-  br i1 %2384, label %2385, label %checkEquals.exit72.i
+checkEquals.exit70.i:                             ; preds = %2373, %checkEquals.exit68.i
+  %.0.i69.i = phi i32 [ 1, %2373 ], [ 0, %checkEquals.exit68.i ]
+  %2375 = add nsw i32 %2367, %.0.i69.i
+  %2376 = call i32 @geod_polygon_testedge(ptr noundef nonnull %4, ptr noundef nonnull %5, double noundef 0x40439B7372E45CB9, double noundef 0x41600FAC2D1B3648, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %6, ptr noundef null) #7
+  %2377 = load double, ptr %6, align 8, !tbaa !4
+  %2378 = fsub double %2377, %2333
+  %2379 = call double @llvm.fabs.f64(double %2378)
+  %2380 = fcmp ugt double %2379, 5.000000e-01
+  br i1 %2380, label %2381, label %checkEquals.exit72.i
 
-2385:                                             ; preds = %checkEquals.exit70.i
-  %2386 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %2381, double noundef %2337, double noundef 5.000000e-01)
+2381:                                             ; preds = %checkEquals.exit70.i
+  %2382 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %2377, double noundef %2333, double noundef 5.000000e-01)
   br label %checkEquals.exit72.i
 
-checkEquals.exit72.i:                             ; preds = %2385, %checkEquals.exit70.i
-  %.0.i71.i = phi i32 [ 1, %2385 ], [ 0, %checkEquals.exit70.i ]
-  %2387 = add nsw i32 %2379, %.0.i71.i
-  %2388 = call i32 @geod_polygon_testedge(ptr noundef nonnull %4, ptr noundef nonnull %5, double noundef 0x40439B7372E45CB9, double noundef 0x41600FAC2D1B3648, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %6, ptr noundef null) #7
-  %2389 = load double, ptr %6, align 8, !tbaa !4
-  %2390 = fsub double %2389, %2356
-  %2391 = call double @llvm.fabs.f64(double %2390)
-  %2392 = fcmp ugt double %2391, 5.000000e-01
-  br i1 %2392, label %2393, label %checkEquals.exit74.i
+checkEquals.exit72.i:                             ; preds = %2381, %checkEquals.exit70.i
+  %.0.i71.i = phi i32 [ 1, %2381 ], [ 0, %checkEquals.exit70.i ]
+  %2383 = add nsw i32 %2375, %.0.i71.i
+  %2384 = call i32 @geod_polygon_testedge(ptr noundef nonnull %4, ptr noundef nonnull %5, double noundef 0x40439B7372E45CB9, double noundef 0x41600FAC2D1B3648, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %6, ptr noundef null) #7
+  %2385 = load double, ptr %6, align 8, !tbaa !4
+  %2386 = fsub double %2385, %2352
+  %2387 = call double @llvm.fabs.f64(double %2386)
+  %2388 = fcmp ugt double %2387, 5.000000e-01
+  br i1 %2388, label %2389, label %checkEquals.exit74.i
 
-2393:                                             ; preds = %checkEquals.exit72.i
-  %2394 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %2389, double noundef %2356, double noundef 5.000000e-01)
+2389:                                             ; preds = %checkEquals.exit72.i
+  %2390 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %2385, double noundef %2352, double noundef 5.000000e-01)
   br label %checkEquals.exit74.i
 
-checkEquals.exit74.i:                             ; preds = %2393, %checkEquals.exit72.i
-  %.0.i73.i = phi i32 [ 1, %2393 ], [ 0, %checkEquals.exit72.i ]
-  %2395 = add nsw i32 %2387, %.0.i73.i
-  %2396 = call i32 @geod_polygon_testedge(ptr noundef nonnull %4, ptr noundef nonnull %5, double noundef 0x40439B7372E45CB9, double noundef 0x41600FAC2D1B3648, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %6, ptr noundef null) #7
-  %2397 = load double, ptr %6, align 8, !tbaa !4
-  %2398 = fsub double %2397, %2365
-  %2399 = call double @llvm.fabs.f64(double %2398)
-  %2400 = fcmp ugt double %2399, 5.000000e-01
-  br i1 %2400, label %2401, label %checkEquals.exit76.i
+checkEquals.exit74.i:                             ; preds = %2389, %checkEquals.exit72.i
+  %.0.i73.i = phi i32 [ 1, %2389 ], [ 0, %checkEquals.exit72.i ]
+  %2391 = add nsw i32 %2383, %.0.i73.i
+  %2392 = call i32 @geod_polygon_testedge(ptr noundef nonnull %4, ptr noundef nonnull %5, double noundef 0x40439B7372E45CB9, double noundef 0x41600FAC2D1B3648, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %6, ptr noundef null) #7
+  %2393 = load double, ptr %6, align 8, !tbaa !4
+  %2394 = fsub double %2393, %2361
+  %2395 = call double @llvm.fabs.f64(double %2394)
+  %2396 = fcmp ugt double %2395, 5.000000e-01
+  br i1 %2396, label %2397, label %checkEquals.exit76.i
 
-2401:                                             ; preds = %checkEquals.exit74.i
-  %2402 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %2397, double noundef %2365, double noundef 5.000000e-01)
+2397:                                             ; preds = %checkEquals.exit74.i
+  %2398 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %2393, double noundef %2361, double noundef 5.000000e-01)
   br label %checkEquals.exit76.i
 
-checkEquals.exit76.i:                             ; preds = %2401, %checkEquals.exit74.i
-  %.0.i75.i = phi i32 [ 1, %2401 ], [ 0, %checkEquals.exit74.i ]
-  %2403 = add nsw i32 %2395, %.0.i75.i
+checkEquals.exit76.i:                             ; preds = %2397, %checkEquals.exit74.i
+  %.0.i75.i = phi i32 [ 1, %2397 ], [ 0, %checkEquals.exit74.i ]
+  %2399 = add nsw i32 %2391, %.0.i75.i
   call void @geod_polygon_addpoint(ptr noundef nonnull %4, ptr noundef nonnull %5, double noundef 4.500000e+01, double noundef -6.000000e+01) #7
-  %2404 = call i32 @geod_polygon_compute(ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %6, ptr noundef null) #7
-  %2405 = load double, ptr %6, align 8, !tbaa !4
-  %2406 = fsub double %2405, %2337
-  %2407 = call double @llvm.fabs.f64(double %2406)
-  %2408 = fcmp ugt double %2407, 5.000000e-01
-  br i1 %2408, label %2409, label %checkEquals.exit78.i
+  %2400 = call i32 @geod_polygon_compute(ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %6, ptr noundef null) #7
+  %2401 = load double, ptr %6, align 8, !tbaa !4
+  %2402 = fsub double %2401, %2333
+  %2403 = call double @llvm.fabs.f64(double %2402)
+  %2404 = fcmp ugt double %2403, 5.000000e-01
+  br i1 %2404, label %2405, label %checkEquals.exit78.i
 
-2409:                                             ; preds = %checkEquals.exit76.i
-  %2410 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %2405, double noundef %2337, double noundef 5.000000e-01)
+2405:                                             ; preds = %checkEquals.exit76.i
+  %2406 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %2401, double noundef %2333, double noundef 5.000000e-01)
   br label %checkEquals.exit78.i
 
-checkEquals.exit78.i:                             ; preds = %2409, %checkEquals.exit76.i
-  %.0.i77.i = phi i32 [ 1, %2409 ], [ 0, %checkEquals.exit76.i ]
-  %2411 = add nsw i32 %2403, %.0.i77.i
-  %2412 = call i32 @geod_polygon_compute(ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %6, ptr noundef null) #7
-  %2413 = load double, ptr %6, align 8, !tbaa !4
-  %2414 = fsub double %2413, %2337
-  %2415 = call double @llvm.fabs.f64(double %2414)
-  %2416 = fcmp ugt double %2415, 5.000000e-01
-  br i1 %2416, label %2417, label %checkEquals.exit80.i
+checkEquals.exit78.i:                             ; preds = %2405, %checkEquals.exit76.i
+  %.0.i77.i = phi i32 [ 1, %2405 ], [ 0, %checkEquals.exit76.i ]
+  %2407 = add nsw i32 %2399, %.0.i77.i
+  %2408 = call i32 @geod_polygon_compute(ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %6, ptr noundef null) #7
+  %2409 = load double, ptr %6, align 8, !tbaa !4
+  %2410 = fsub double %2409, %2333
+  %2411 = call double @llvm.fabs.f64(double %2410)
+  %2412 = fcmp ugt double %2411, 5.000000e-01
+  br i1 %2412, label %2413, label %checkEquals.exit80.i
 
-2417:                                             ; preds = %checkEquals.exit78.i
-  %2418 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %2413, double noundef %2337, double noundef 5.000000e-01)
+2413:                                             ; preds = %checkEquals.exit78.i
+  %2414 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %2409, double noundef %2333, double noundef 5.000000e-01)
   br label %checkEquals.exit80.i
 
-checkEquals.exit80.i:                             ; preds = %2417, %checkEquals.exit78.i
-  %.0.i79.i = phi i32 [ 1, %2417 ], [ 0, %checkEquals.exit78.i ]
-  %2419 = add nsw i32 %2411, %.0.i79.i
-  %2420 = call i32 @geod_polygon_compute(ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %6, ptr noundef null) #7
-  %2421 = load double, ptr %6, align 8, !tbaa !4
-  %2422 = fsub double %2421, %2356
-  %2423 = call double @llvm.fabs.f64(double %2422)
-  %2424 = fcmp ugt double %2423, 5.000000e-01
-  br i1 %2424, label %2425, label %checkEquals.exit82.i
+checkEquals.exit80.i:                             ; preds = %2413, %checkEquals.exit78.i
+  %.0.i79.i = phi i32 [ 1, %2413 ], [ 0, %checkEquals.exit78.i ]
+  %2415 = add nsw i32 %2407, %.0.i79.i
+  %2416 = call i32 @geod_polygon_compute(ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %6, ptr noundef null) #7
+  %2417 = load double, ptr %6, align 8, !tbaa !4
+  %2418 = fsub double %2417, %2352
+  %2419 = call double @llvm.fabs.f64(double %2418)
+  %2420 = fcmp ugt double %2419, 5.000000e-01
+  br i1 %2420, label %2421, label %checkEquals.exit82.i
 
-2425:                                             ; preds = %checkEquals.exit80.i
-  %2426 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %2421, double noundef %2356, double noundef 5.000000e-01)
+2421:                                             ; preds = %checkEquals.exit80.i
+  %2422 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %2417, double noundef %2352, double noundef 5.000000e-01)
   br label %checkEquals.exit82.i
 
-checkEquals.exit82.i:                             ; preds = %2425, %checkEquals.exit80.i
-  %.0.i81.i = phi i32 [ 1, %2425 ], [ 0, %checkEquals.exit80.i ]
-  %2427 = add nsw i32 %2419, %.0.i81.i
-  %2428 = call i32 @geod_polygon_compute(ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %6, ptr noundef null) #7
-  %2429 = load double, ptr %6, align 8, !tbaa !4
-  %2430 = fsub double %2429, %2365
-  %2431 = call double @llvm.fabs.f64(double %2430)
-  %2432 = fcmp ugt double %2431, 5.000000e-01
-  br i1 %2432, label %2433, label %checkEquals.exit84.i
+checkEquals.exit82.i:                             ; preds = %2421, %checkEquals.exit80.i
+  %.0.i81.i = phi i32 [ 1, %2421 ], [ 0, %checkEquals.exit80.i ]
+  %2423 = add nsw i32 %2415, %.0.i81.i
+  %2424 = call i32 @geod_polygon_compute(ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %6, ptr noundef null) #7
+  %2425 = load double, ptr %6, align 8, !tbaa !4
+  %2426 = fsub double %2425, %2361
+  %2427 = call double @llvm.fabs.f64(double %2426)
+  %2428 = fcmp ugt double %2427, 5.000000e-01
+  br i1 %2428, label %2429, label %checkEquals.exit84.i
 
-2433:                                             ; preds = %checkEquals.exit82.i
-  %2434 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %2429, double noundef %2365, double noundef 5.000000e-01)
+2429:                                             ; preds = %checkEquals.exit82.i
+  %2430 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %2425, double noundef %2361, double noundef 5.000000e-01)
   br label %checkEquals.exit84.i
 
-checkEquals.exit84.i:                             ; preds = %2433, %checkEquals.exit82.i
-  %.0.i83.i = phi i32 [ 1, %2433 ], [ 0, %checkEquals.exit82.i ]
-  %2435 = add nsw i32 %2427, %.0.i83.i
-  br i1 %exitcond.not.i521, label %Planimeter21.exit, label %2333
+checkEquals.exit84.i:                             ; preds = %2429, %checkEquals.exit82.i
+  %.0.i83.i = phi i32 [ 1, %2429 ], [ 0, %checkEquals.exit82.i ]
+  %2431 = add nsw i32 %2423, %.0.i83.i
+  br i1 %exitcond.not.i521, label %Planimeter21.exit, label %2329
 
 Planimeter21.exit:                                ; preds = %checkEquals.exit84.i
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %.not174 = icmp eq i32 %2435, 0
-  br i1 %.not174, label %2439, label %2436
+  %.not174 = icmp eq i32 %2431, 0
+  br i1 %.not174, label %2435, label %2432
 
-2436:                                             ; preds = %Planimeter21.exit
-  %2437 = add nsw i32 %.41, 1
-  %2438 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.42, i32 noundef %2435)
-  br label %2439
+2432:                                             ; preds = %Planimeter21.exit
+  %2433 = add nsw i32 %.41, 1
+  %2434 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.42, i32 noundef %2431)
+  br label %2435
 
-2439:                                             ; preds = %2436, %Planimeter21.exit
-  %.42 = phi i32 [ %2437, %2436 ], [ %.41, %Planimeter21.exit ]
+2435:                                             ; preds = %2432, %Planimeter21.exit
+  %.42 = phi i32 [ %2433, %2432 ], [ %.41, %Planimeter21.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -5100,30 +5096,30 @@ Planimeter21.exit:                                ; preds = %checkEquals.exit84.
   call void @geod_polygon_addedge(ptr noundef nonnull %1, ptr noundef nonnull %2, double noundef 9.000000e+01, double noundef 1.000000e+03) #7
   call void @geod_polygon_addedge(ptr noundef nonnull %1, ptr noundef nonnull %2, double noundef 0.000000e+00, double noundef 1.000000e+03) #7
   call void @geod_polygon_addedge(ptr noundef nonnull %1, ptr noundef nonnull %2, double noundef -9.000000e+01, double noundef 1.000000e+03) #7
-  %2440 = call i32 @geod_polygon_compute(ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %3, ptr noundef null) #7
-  %2441 = load double, ptr %3, align 8, !tbaa !4
-  %2442 = fadd double %2441, -1.000000e+06
-  %2443 = call double @llvm.fabs.f64(double %2442)
-  %2444 = fcmp ugt double %2443, 1.000000e-02
-  br i1 %2444, label %2445, label %Planimeter29.exit.thread
+  %2436 = call i32 @geod_polygon_compute(ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %3, ptr noundef null) #7
+  %2437 = load double, ptr %3, align 8, !tbaa !4
+  %2438 = fadd double %2437, -1.000000e+06
+  %2439 = call double @llvm.fabs.f64(double %2438)
+  %2440 = fcmp ugt double %2439, 1.000000e-02
+  br i1 %2440, label %2441, label %Planimeter29.exit.thread
 
-Planimeter29.exit.thread:                         ; preds = %2439
+Planimeter29.exit.thread:                         ; preds = %2435
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
-  br label %2449
+  br label %2445
 
-2445:                                             ; preds = %2439
-  %2446 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %2441, double noundef 1.000000e+06, double noundef 1.000000e-02)
+2441:                                             ; preds = %2435
+  %2442 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %2437, double noundef 1.000000e+06, double noundef 1.000000e-02)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
-  %2447 = add nsw i32 %.42, 1
-  %2448 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.43, i32 noundef 1)
-  br label %2449
+  %2443 = add nsw i32 %.42, 1
+  %2444 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.43, i32 noundef 1)
+  br label %2445
 
-2449:                                             ; preds = %Planimeter29.exit.thread, %2445
-  %.43 = phi i32 [ %2447, %2445 ], [ %.42, %Planimeter29.exit.thread ]
+2445:                                             ; preds = %Planimeter29.exit.thread, %2441
+  %.43 = phi i32 [ %2443, %2441 ], [ %.42, %Planimeter29.exit.thread ]
   ret i32 %.43
 }
 

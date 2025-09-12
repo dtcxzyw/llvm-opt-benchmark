@@ -124643,10 +124643,9 @@ entry:
 define linkonce_odr void @_ZN7openvdb5v11_04GridINS0_4tree4TreeINS2_8RootNodeINS2_12InternalNodeINS5_INS0_6points17PointDataLeafNodeINS0_10PointIndexIjLj1EEELj3EEELj4EEELj5EEEEEEEE9pruneGridEf(ptr noundef nonnull align 8 dereferenceable(88) %this, float noundef %tolerance) unnamed_addr #5 comdat align 2 {
 entry:
   %ref.tmp4 = alloca %"struct.openvdb::v11_0::PointIndex", align 4
-  %add.i = fadd float %tolerance, 0.000000e+00
   %mTree.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = load ptr, ptr %mTree.i, align 8
-  %conv.i1 = fptoui float %add.i to i32
+  %conv.i1 = fptoui float %tolerance to i32
   store i32 %conv.i1, ptr %ref.tmp4, align 4
   tail call void @_ZN7openvdb5v11_04tree4TreeINS1_8RootNodeINS1_12InternalNodeINS4_INS0_6points17PointDataLeafNodeINS0_10PointIndexIjLj1EEELj3EEELj4EEELj5EEEEEE17clearAllAccessorsEv(ptr noundef nonnull align 8 dereferenceable(1232) %0)
   %mRoot.i = getelementptr inbounds nuw i8, ptr %0, i64 8
