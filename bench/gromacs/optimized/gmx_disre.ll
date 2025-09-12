@@ -3217,8 +3217,7 @@ _ZL9dump_violP8_IO_FILEiP10t_dr_statsb.exit67.i:  ; preds = %.noexc391, %.lr.ph.
 
 .preheader.us.us.us.i.i:                          ; preds = %.split78.us.us.i.i, %1211
   %indvars.iv118.i.i = phi i64 [ %indvars.iv.next119.i.i, %1211 ], [ 0, %.split78.us.us.i.i ]
-  %switch.idx.cast = shl i64 %indvars.iv118.i.i, 2
-  %switch.idx.mult = and i64 %switch.idx.cast, 17179869180
+  %switch.idx.cast.i.i = shl nuw nsw i64 %indvars.iv118.i.i, 2
   br label %1215
 
 1206:                                             ; preds = %._crit_edge.split.us.us.us.us.i.i
@@ -3246,10 +3245,10 @@ _ZL9dump_violP8_IO_FILEiP10t_dr_statsb.exit67.i:  ; preds = %.noexc391, %.lr.ph.
   %1217 = getelementptr inbounds nuw i8, ptr %1216, i64 4
   %1218 = load i8, ptr %1217, align 4, !tbaa !284, !range !241, !noundef !242
   %1219 = trunc nuw i8 %1218 to i1
-  br i1 %1219, label %switch.lookup, label %1227
+  br i1 %1219, label %switch.lookup.i.i, label %1227
 
-switch.lookup:                                    ; preds = %1215
-  %1220 = getelementptr inbounds nuw i8, ptr %1216, i64 %switch.idx.mult
+switch.lookup.i.i:                                ; preds = %1215
+  %1220 = getelementptr inbounds nuw i8, ptr %1216, i64 %switch.idx.cast.i.i
   %1221 = getelementptr inbounds nuw i8, ptr %1220, i64 24
   %.0.us.us.us.us.i.i = load float, ptr %1221, align 4, !tbaa !95
   %1222 = fcmp olt float %.05964.us.us.us.us.i.i, %.0.us.us.us.us.i.i
@@ -3261,11 +3260,11 @@ switch.lookup:                                    ; preds = %1215
   %1226 = add nsw i32 %.04667.us.us.us.us.i.i, 1
   br label %1227
 
-1227:                                             ; preds = %switch.lookup, %1215
-  %.1.us.us.us.us.i.i = phi float [ %.sroa.speculated.us.us.us.us.i.i, %switch.lookup ], [ %.05964.us.us.us.us.i.i, %1215 ]
-  %.151.us.us.us.us.i.i = phi float [ %1225, %switch.lookup ], [ %.05065.us.us.us.us.i.i, %1215 ]
-  %.2.us.us.us.us.i.i = phi i32 [ %.149.us.us.us.us.i.i, %switch.lookup ], [ %.04866.us.us.us.us.i.i, %1215 ]
-  %.147.us.us.us.us.i.i = phi i32 [ %1226, %switch.lookup ], [ %.04667.us.us.us.us.i.i, %1215 ]
+1227:                                             ; preds = %switch.lookup.i.i, %1215
+  %.1.us.us.us.us.i.i = phi float [ %.sroa.speculated.us.us.us.us.i.i, %switch.lookup.i.i ], [ %.05964.us.us.us.us.i.i, %1215 ]
+  %.151.us.us.us.us.i.i = phi float [ %1225, %switch.lookup.i.i ], [ %.05065.us.us.us.us.i.i, %1215 ]
+  %.2.us.us.us.us.i.i = phi i32 [ %.149.us.us.us.us.i.i, %switch.lookup.i.i ], [ %.04866.us.us.us.us.i.i, %1215 ]
+  %.147.us.us.us.us.i.i = phi i32 [ %1226, %switch.lookup.i.i ], [ %.04667.us.us.us.us.i.i, %1215 ]
   %indvars.iv.next114.i.i = add nuw nsw i64 %indvars.iv113.i.i, 1
   %exitcond117.not.i.i = icmp eq i64 %indvars.iv.next114.i.i, %wide.trip.count.i.i
   br i1 %exitcond117.not.i.i, label %._crit_edge.split.us.us.us.us.i.i, label %1215, !llvm.loop !303

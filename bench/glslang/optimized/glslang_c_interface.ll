@@ -146,100 +146,100 @@ define noundef ptr @glslang_shader_create(ptr noundef %0) local_unnamed_addr #0 
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %.not23 = icmp eq ptr %4, null
-  br i1 %.not23, label %5, label %_ZL14c_shader_stage15glslang_stage_t.exit
+  br i1 %.not23, label %5, label %10
 
 5:                                                ; preds = %2
   %6 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, ptr noundef nonnull %0)
   %7 = load ptr, ptr %3, align 8
   %8 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef %7)
-  br label %44
+  br label %45
 
 .critedge:                                        ; preds = %1
   %9 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, ptr noundef null)
-  br label %44
+  br label %45
 
-_ZL14c_shader_stage15glslang_stage_t.exit:        ; preds = %2
-  %10 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %10, i8 0, i64 40, i1 false)
-  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #15
-  %12 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #16
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %14 = load i32, ptr %13, align 4
-  %. = tail call i32 @llvm.umin.i32(i32 %14, i32 14)
-  tail call void @_ZN7glslang7TShaderC1E11EShLanguage(ptr noundef nonnull align 8 dereferenceable(165) %12, i32 noundef %.) #15
-  store ptr %12, ptr %10, align 8
-  tail call void @_ZN7glslang7TShader10setStringsEPKPKci(ptr noundef nonnull align 8 dereferenceable(165) %12, ptr noundef nonnull %3, i32 noundef 1) #15
-  %15 = load ptr, ptr %10, align 8
-  %16 = load i32, ptr %0, align 8
-  %switch.selectcmp.i = icmp eq i32 %16, 2
+10:                                               ; preds = %2
+  %11 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %11, i8 0, i64 40, i1 false)
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #15
+  %13 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %15 = load i32, ptr %14, align 4
+  %..i = tail call noundef range(i32 0, 15) i32 @llvm.umin.i32(i32 %15, i32 14)
+  tail call void @_ZN7glslang7TShaderC1E11EShLanguage(ptr noundef nonnull align 8 dereferenceable(165) %13, i32 noundef %..i) #15
+  store ptr %13, ptr %11, align 8
+  tail call void @_ZN7glslang7TShader10setStringsEPKPKci(ptr noundef nonnull align 8 dereferenceable(165) %13, ptr noundef nonnull %3, i32 noundef 1) #15
+  %16 = load ptr, ptr %11, align 8
+  %17 = load i32, ptr %0, align 8
+  %switch.selectcmp.i = icmp eq i32 %17, 2
   %switch.select.i = select i1 %switch.selectcmp.i, i32 2, i32 0
-  %switch.selectcmp2.i = icmp eq i32 %16, 1
+  %switch.selectcmp2.i = icmp eq i32 %17, 1
   %switch.select3.i = select i1 %switch.selectcmp2.i, i32 1, i32 %switch.select.i
-  %17 = load i32, ptr %13, align 4
-  %.38 = tail call i32 @llvm.umin.i32(i32 %17, i32 14)
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %19 = load i32, ptr %18, align 8
-  %switch.selectcmp.i26 = icmp eq i32 %19, 2
-  %switch.select.i27 = select i1 %switch.selectcmp.i26, i32 2, i32 0
-  %switch.selectcmp2.i28 = icmp eq i32 %19, 1
-  %switch.select3.i29 = select i1 %switch.selectcmp2.i28, i32 1, i32 %switch.select.i27
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %21 = load i32, ptr %20, align 8
-  %22 = getelementptr inbounds nuw i8, ptr %15, i64 124
-  store i32 %switch.select3.i, ptr %22, align 4
-  %23 = getelementptr inbounds nuw i8, ptr %15, i64 128
-  store i32 %.38, ptr %23, align 4
-  %24 = getelementptr inbounds nuw i8, ptr %15, i64 132
-  store i32 %switch.select3.i29, ptr %24, align 4
-  %25 = getelementptr inbounds nuw i8, ptr %15, i64 136
-  store i32 %21, ptr %25, align 4
-  %26 = load ptr, ptr %10, align 8
-  %27 = load i32, ptr %18, align 8
-  %switch.selectcmp.i30 = icmp eq i32 %27, 2
-  %switch.select.i31 = select i1 %switch.selectcmp.i30, i32 2, i32 0
-  %switch.selectcmp2.i32 = icmp eq i32 %27, 1
-  %switch.select3.i33 = select i1 %switch.selectcmp2.i32, i32 1, i32 %switch.select.i31
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %29 = load i32, ptr %28, align 4
-  switch i32 %29, label %30 [
+  %18 = load i32, ptr %14, align 4
+  %..i24 = tail call noundef range(i32 0, 15) i32 @llvm.umin.i32(i32 %18, i32 14)
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %20 = load i32, ptr %19, align 8
+  %switch.selectcmp.i25 = icmp eq i32 %20, 2
+  %switch.select.i26 = select i1 %switch.selectcmp.i25, i32 2, i32 0
+  %switch.selectcmp2.i27 = icmp eq i32 %20, 1
+  %switch.select3.i28 = select i1 %switch.selectcmp2.i27, i32 1, i32 %switch.select.i26
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %22 = load i32, ptr %21, align 8
+  %23 = getelementptr inbounds nuw i8, ptr %16, i64 124
+  store i32 %switch.select3.i, ptr %23, align 4
+  %24 = getelementptr inbounds nuw i8, ptr %16, i64 128
+  store i32 %..i24, ptr %24, align 4
+  %25 = getelementptr inbounds nuw i8, ptr %16, i64 132
+  store i32 %switch.select3.i28, ptr %25, align 4
+  %26 = getelementptr inbounds nuw i8, ptr %16, i64 136
+  store i32 %22, ptr %26, align 4
+  %27 = load ptr, ptr %11, align 8
+  %28 = load i32, ptr %19, align 8
+  %switch.selectcmp.i29 = icmp eq i32 %28, 2
+  %switch.select.i30 = select i1 %switch.selectcmp.i29, i32 2, i32 0
+  %switch.selectcmp2.i31 = icmp eq i32 %28, 1
+  %switch.select3.i32 = select i1 %switch.selectcmp2.i31, i32 1, i32 %switch.select.i30
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %30 = load i32, ptr %29, align 4
+  switch i32 %30, label %31 [
     i32 4198400, label %_ZL23c_shader_client_version31glslang_target_client_version_t.exit
     i32 4202496, label %_ZL23c_shader_client_version31glslang_target_client_version_t.exit
     i32 4206592, label %_ZL23c_shader_client_version31glslang_target_client_version_t.exit
     i32 450, label %_ZL23c_shader_client_version31glslang_target_client_version_t.exit
   ]
 
-30:                                               ; preds = %_ZL14c_shader_stage15glslang_stage_t.exit
+31:                                               ; preds = %10
   br label %_ZL23c_shader_client_version31glslang_target_client_version_t.exit
 
-_ZL23c_shader_client_version31glslang_target_client_version_t.exit: ; preds = %_ZL14c_shader_stage15glslang_stage_t.exit, %_ZL14c_shader_stage15glslang_stage_t.exit, %_ZL14c_shader_stage15glslang_stage_t.exit, %_ZL14c_shader_stage15glslang_stage_t.exit, %30
-  %.0.i34 = phi i32 [ 4194304, %30 ], [ %29, %_ZL14c_shader_stage15glslang_stage_t.exit ], [ %29, %_ZL14c_shader_stage15glslang_stage_t.exit ], [ %29, %_ZL14c_shader_stage15glslang_stage_t.exit ], [ %29, %_ZL14c_shader_stage15glslang_stage_t.exit ]
-  %31 = getelementptr inbounds nuw i8, ptr %26, i64 144
-  store i32 %switch.select3.i33, ptr %31, align 4
-  %32 = getelementptr inbounds nuw i8, ptr %26, i64 148
-  store i32 %.0.i34, ptr %32, align 4
-  %33 = load ptr, ptr %10, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %35 = load i32, ptr %34, align 8
-  %36 = icmp ne i32 %35, 0
-  %..i = zext i1 %36 to i32
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %38 = load i32, ptr %37, align 4
-  %39 = add i32 %38, -65536
-  %40 = tail call i32 @llvm.fshl.i32(i32 %39, i32 %39, i32 24)
-  %switch.tableidx = add i32 %40, -1
-  %41 = icmp ult i32 %switch.tableidx, 6
-  %switch.idx.mult = shl nsw i32 %switch.tableidx, 8
-  %switch.offset = add nsw i32 %switch.idx.mult, 65792
-  %.0.i35 = select i1 %41, i32 %switch.offset, i32 65536
-  %42 = getelementptr inbounds nuw i8, ptr %33, i64 152
-  store i32 %..i, ptr %42, align 4
-  %43 = getelementptr inbounds nuw i8, ptr %33, i64 156
-  store i32 %.0.i35, ptr %43, align 4
-  br label %44
+_ZL23c_shader_client_version31glslang_target_client_version_t.exit: ; preds = %10, %10, %10, %10, %31
+  %.0.i = phi i32 [ 4194304, %31 ], [ %30, %10 ], [ %30, %10 ], [ %30, %10 ], [ %30, %10 ]
+  %32 = getelementptr inbounds nuw i8, ptr %27, i64 144
+  store i32 %switch.select3.i32, ptr %32, align 4
+  %33 = getelementptr inbounds nuw i8, ptr %27, i64 148
+  store i32 %.0.i, ptr %33, align 4
+  %34 = load ptr, ptr %11, align 8
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %36 = load i32, ptr %35, align 8
+  %37 = icmp ne i32 %36, 0
+  %..i33 = zext i1 %37 to i32
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %39 = load i32, ptr %38, align 4
+  %40 = add i32 %39, -65536
+  %41 = tail call i32 @llvm.fshl.i32(i32 %40, i32 %40, i32 24)
+  %switch.tableidx.i = add i32 %41, -1
+  %42 = icmp ult i32 %switch.tableidx.i, 6
+  %switch.idx.mult.i = shl nsw i32 %switch.tableidx.i, 8
+  %switch.offset.i = add nsw i32 %switch.idx.mult.i, 65792
+  %.0.i34 = select i1 %42, i32 %switch.offset.i, i32 65536
+  %43 = getelementptr inbounds nuw i8, ptr %34, i64 152
+  store i32 %..i33, ptr %43, align 4
+  %44 = getelementptr inbounds nuw i8, ptr %34, i64 156
+  store i32 %.0.i34, ptr %44, align 4
+  br label %45
 
-44:                                               ; preds = %5, %.critedge, %_ZL23c_shader_client_version31glslang_target_client_version_t.exit
-  %.0 = phi ptr [ %10, %_ZL23c_shader_client_version31glslang_target_client_version_t.exit ], [ null, %.critedge ], [ null, %5 ]
+45:                                               ; preds = %5, %.critedge, %_ZL23c_shader_client_version31glslang_target_client_version_t.exit
+  %.0 = phi ptr [ %11, %_ZL23c_shader_client_version31glslang_target_client_version_t.exit ], [ null, %.critedge ], [ null, %5 ]
   ret ptr %.0
 }
 
@@ -666,36 +666,34 @@ declare noundef zeroext i1 @_ZN7glslang8TProgram4linkE11EShMessages(ptr noundef 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @glslang_program_add_source_text(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
-_ZL14c_shader_stage15glslang_stage_t.exit:
-  %4 = load ptr, ptr %0, align 8
-  %narrow = tail call i32 @llvm.umin.i32(i32 %1, i32 14)
-  %.0.i = zext nneg i32 %narrow to i64
-  %5 = getelementptr inbounds nuw i8, ptr %4, i64 352
-  %6 = getelementptr inbounds nuw ptr, ptr %5, i64 %.0.i
-  %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds nuw i8, ptr %7, i64 1920
-  %9 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef %2, i64 noundef %3) #15
+  %5 = load ptr, ptr %0, align 8
+  %..i = tail call noundef range(i32 0, 15) i32 @llvm.umin.i32(i32 %1, i32 14)
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 352
+  %7 = zext nneg i32 %..i to i64
+  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %7
+  %9 = load ptr, ptr %8, align 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 1920
+  %11 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef %2, i64 noundef %3) #15
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @glslang_program_set_source_file(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-_ZL14c_shader_stage15glslang_stage_t.exit:
   %.not.i = icmp eq ptr %2, null
-  br i1 %.not.i, label %_ZN7glslang13TIntermediate13setSourceFileEPKc.exit, label %3
+  br i1 %.not.i, label %_ZN7glslang13TIntermediate13setSourceFileEPKc.exit, label %4
 
-3:                                                ; preds = %_ZL14c_shader_stage15glslang_stage_t.exit
-  %narrow = tail call i32 @llvm.umin.i32(i32 %1, i32 14)
-  %.0.i = zext nneg i32 %narrow to i64
-  %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds nuw i8, ptr %4, i64 352
-  %6 = getelementptr inbounds nuw ptr, ptr %5, i64 %.0.i
-  %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds nuw i8, ptr %7, i64 1888
-  %9 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull %2) #15
+4:                                                ; preds = %3
+  %5 = load ptr, ptr %0, align 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 352
+  %..i = tail call noundef range(i32 0, 15) i32 @llvm.umin.i32(i32 %1, i32 14)
+  %7 = zext nneg i32 %..i to i64
+  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %7
+  %9 = load ptr, ptr %8, align 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 1888
+  %11 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull %2) #15
   br label %_ZN7glslang13TIntermediate13setSourceFileEPKc.exit
 
-_ZN7glslang13TIntermediate13setSourceFileEPKc.exit: ; preds = %_ZL14c_shader_stage15glslang_stage_t.exit, %3
+_ZN7glslang13TIntermediate13setSourceFileEPKc.exit: ; preds = %3, %4
   ret void
 }
 
@@ -1821,6 +1819,9 @@ declare i32 @llvm.fshl.i32(i32, i32, i32) #12
 declare void @llvm.assume(i1 noundef) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #12
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -1831,9 +1832,6 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #12
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

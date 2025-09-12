@@ -8197,43 +8197,41 @@ define internal noundef zeroext i1 @"_ZN57_$LT$alloc..sync..Arc$LT$D$GT$$u20$as$
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef range(i8 0, 3) i8 @"_ZN58_$LT$slog..LevelFilter$LT$D$GT$$u20$as$u20$slog..Drain$GT$3log17he22ea50b8e6ffe46E"(ptr noalias noundef readonly align 8 dereferenceable(24) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias noundef readonly align 8 dereferenceable(16) %2) unnamed_addr #0 {
-switch.lookup:
-  %3 = load ptr, ptr %1, align 8, !nonnull !4, !align !7, !noundef !4
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %5 = load i8, ptr %4, align 8, !range !350, !noundef !4
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = load i8, ptr %6, align 8, !range !350, !noundef !4
-  %.not = icmp samesign ugt i8 %5, %7
-  br i1 %.not, label %10, label %8
+  %4 = load ptr, ptr %1, align 8, !nonnull !4, !align !7, !noundef !4
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %6 = load i8, ptr %5, align 8, !range !350, !noundef !4
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %8 = load i8, ptr %7, align 8, !range !350, !noundef !4
+  %.not = icmp samesign ugt i8 %6, %8
+  br i1 %.not, label %11, label %9
 
-8:                                                ; preds = %switch.lookup
-  %9 = tail call noundef zeroext i1 @"_ZN110_$LT$foundations..telemetry..log..field_filtering..FieldFilteringDrain$LT$F$C$D$GT$$u20$as$u20$slog..Drain$GT$3log17h6736fb74614125d7E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2)
-  %. = select i1 %9, i8 2, i8 1
-  br label %10
+9:                                                ; preds = %3
+  %10 = tail call noundef zeroext i1 @"_ZN110_$LT$foundations..telemetry..log..field_filtering..FieldFilteringDrain$LT$F$C$D$GT$$u20$as$u20$slog..Drain$GT$3log17h6736fb74614125d7E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2)
+  %. = select i1 %10, i8 2, i8 1
+  br label %11
 
-10:                                               ; preds = %switch.lookup, %8
-  %.sroa.0.0 = phi i8 [ %., %8 ], [ 0, %switch.lookup ]
+11:                                               ; preds = %3, %9
+  %.sroa.0.0 = phi i8 [ %., %9 ], [ 0, %3 ]
   ret i8 %.sroa.0.0
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef range(i8 0, 3) i8 @"_ZN58_$LT$slog..LevelFilter$LT$D$GT$$u20$as$u20$slog..Drain$GT$3log17hfd1b90c6eade04d6E"(ptr noalias noundef readonly align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias noundef readonly align 8 dereferenceable(16) %2) unnamed_addr #0 {
-switch.lookup:
-  %3 = load ptr, ptr %1, align 8, !nonnull !4, !align !7, !noundef !4
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %5 = load i8, ptr %4, align 8, !range !350, !noundef !4
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %7 = load i8, ptr %6, align 8, !range !350, !noundef !4
-  %.not = icmp samesign ugt i8 %5, %7
-  br i1 %.not, label %10, label %8
+  %4 = load ptr, ptr %1, align 8, !nonnull !4, !align !7, !noundef !4
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %6 = load i8, ptr %5, align 8, !range !350, !noundef !4
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %8 = load i8, ptr %7, align 8, !range !350, !noundef !4
+  %.not = icmp samesign ugt i8 %6, %8
+  br i1 %.not, label %11, label %9
 
-8:                                                ; preds = %switch.lookup
-  %9 = tail call noundef zeroext i1 @"_ZN110_$LT$foundations..telemetry..log..field_filtering..FieldFilteringDrain$LT$F$C$D$GT$$u20$as$u20$slog..Drain$GT$3log17h427ce11ee198880fE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2)
-  %. = select i1 %9, i8 2, i8 1
-  br label %10
+9:                                                ; preds = %3
+  %10 = tail call noundef zeroext i1 @"_ZN110_$LT$foundations..telemetry..log..field_filtering..FieldFilteringDrain$LT$F$C$D$GT$$u20$as$u20$slog..Drain$GT$3log17h427ce11ee198880fE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2)
+  %. = select i1 %10, i8 2, i8 1
+  br label %11
 
-10:                                               ; preds = %switch.lookup, %8
-  %.sroa.0.0 = phi i8 [ %., %8 ], [ 0, %switch.lookup ]
+11:                                               ; preds = %3, %9
+  %.sroa.0.0 = phi i8 [ %., %9 ], [ 0, %3 ]
   ret i8 %.sroa.0.0
 }
 

@@ -605,67 +605,69 @@ $_ZGVZN6spdlog7details2os9thread_idEvE3tid = comdat any
 define noundef range(i32 -1, 16393) i32 @_ZN4LIEF2PE15RelocationEntry14type_from_dataENS0_6Header13MACHINE_TYPESEt(i32 noundef %0, i16 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = lshr i16 %1, 12
   %4 = zext nneg i16 %3 to i32
-  switch i16 %3, label %10 [
+  switch i16 %3, label %12 [
     i16 5, label %5
-    i16 7, label %7
-    i16 8, label %9
+    i16 7, label %9
+    i16 8, label %11
   ]
 
 5:                                                ; preds = %2
-  switch i32 %0, label %_ZN4LIEF2PE6Header8is_riscvENS1_13MACHINE_TYPESE.exit.fold.split26 [
+  switch i32 %0, label %_ZN4LIEF2PE6Header7is_mipsENS1_13MACHINE_TYPESE.exit [
     i32 614, label %_ZN4LIEF2PE6Header8is_riscvENS1_13MACHINE_TYPESE.exit
     i32 870, label %_ZN4LIEF2PE6Header8is_riscvENS1_13MACHINE_TYPESE.exit
     i32 1126, label %_ZN4LIEF2PE6Header8is_riscvENS1_13MACHINE_TYPESE.exit
     i32 358, label %_ZN4LIEF2PE6Header8is_riscvENS1_13MACHINE_TYPESE.exit
     i32 361, label %_ZN4LIEF2PE6Header8is_riscvENS1_13MACHINE_TYPESE.exit
-    i32 448, label %_ZN4LIEF2PE6Header8is_riscvENS1_13MACHINE_TYPESE.exit.fold.split
-    i32 450, label %_ZN4LIEF2PE6Header8is_riscvENS1_13MACHINE_TYPESE.exit.fold.split
-    i32 452, label %_ZN4LIEF2PE6Header8is_riscvENS1_13MACHINE_TYPESE.exit.fold.split
-    i32 20530, label %6
-    i32 20580, label %6
-    i32 20776, label %6
   ]
 
-6:                                                ; preds = %5, %5, %5
-  br label %_ZN4LIEF2PE6Header8is_riscvENS1_13MACHINE_TYPESE.exit
+_ZN4LIEF2PE6Header7is_mipsENS1_13MACHINE_TYPESE.exit: ; preds = %5
+  %6 = add i32 %0, -453
+  %7 = icmp ult i32 %6, -5
+  %switch.idx.cast.i = trunc i32 %0 to i1
+  %or.cond.not = or i1 %7, %switch.idx.cast.i
+  br i1 %or.cond.not, label %_ZN4LIEF2PE6Header6is_armENS1_13MACHINE_TYPESE.exit.thread, label %_ZN4LIEF2PE6Header8is_riscvENS1_13MACHINE_TYPESE.exit
 
-7:                                                ; preds = %2
-  switch i32 %0, label %_ZN4LIEF2PE6Header8is_riscvENS1_13MACHINE_TYPESE.exit.fold.split27 [
-    i32 450, label %_ZN4LIEF2PE6Header8is_riscvENS1_13MACHINE_TYPESE.exit
+_ZN4LIEF2PE6Header6is_armENS1_13MACHINE_TYPESE.exit.thread: ; preds = %_ZN4LIEF2PE6Header7is_mipsENS1_13MACHINE_TYPESE.exit
+  switch i32 %0, label %_ZN4LIEF2PE6Header8is_riscvENS1_13MACHINE_TYPESE.exit [
     i32 20530, label %8
     i32 20580, label %8
     i32 20776, label %8
   ]
 
-8:                                                ; preds = %7, %7, %7
+8:                                                ; preds = %_ZN4LIEF2PE6Header6is_armENS1_13MACHINE_TYPESE.exit.thread, %_ZN4LIEF2PE6Header6is_armENS1_13MACHINE_TYPESE.exit.thread, %_ZN4LIEF2PE6Header6is_armENS1_13MACHINE_TYPESE.exit.thread
   br label %_ZN4LIEF2PE6Header8is_riscvENS1_13MACHINE_TYPESE.exit
 
 9:                                                ; preds = %2
-  switch i32 %0, label %10 [
+  switch i32 %0, label %_ZN4LIEF2PE6Header8is_riscvENS1_13MACHINE_TYPESE.exit.fold.split [
+    i32 450, label %_ZN4LIEF2PE6Header8is_riscvENS1_13MACHINE_TYPESE.exit
+    i32 20530, label %10
+    i32 20580, label %10
+    i32 20776, label %10
+  ]
+
+10:                                               ; preds = %9, %9, %9
+  br label %_ZN4LIEF2PE6Header8is_riscvENS1_13MACHINE_TYPESE.exit
+
+11:                                               ; preds = %2
+  switch i32 %0, label %12 [
     i32 20530, label %_ZN4LIEF2PE6Header8is_riscvENS1_13MACHINE_TYPESE.exit
     i32 20580, label %_ZN4LIEF2PE6Header8is_riscvENS1_13MACHINE_TYPESE.exit
     i32 20776, label %_ZN4LIEF2PE6Header8is_riscvENS1_13MACHINE_TYPESE.exit
-    i32 25188, label %_ZN4LIEF2PE6Header8is_riscvENS1_13MACHINE_TYPESE.exit.fold.split28
-    i32 25138, label %_ZN4LIEF2PE6Header8is_riscvENS1_13MACHINE_TYPESE.exit.fold.split28
+    i32 25188, label %_ZN4LIEF2PE6Header8is_riscvENS1_13MACHINE_TYPESE.exit.fold.split26
+    i32 25138, label %_ZN4LIEF2PE6Header8is_riscvENS1_13MACHINE_TYPESE.exit.fold.split26
   ]
 
-10:                                               ; preds = %9, %2
+12:                                               ; preds = %11, %2
   br label %_ZN4LIEF2PE6Header8is_riscvENS1_13MACHINE_TYPESE.exit
 
-_ZN4LIEF2PE6Header8is_riscvENS1_13MACHINE_TYPESE.exit.fold.split: ; preds = %5, %5, %5
+_ZN4LIEF2PE6Header8is_riscvENS1_13MACHINE_TYPESE.exit.fold.split: ; preds = %9
   br label %_ZN4LIEF2PE6Header8is_riscvENS1_13MACHINE_TYPESE.exit
 
-_ZN4LIEF2PE6Header8is_riscvENS1_13MACHINE_TYPESE.exit.fold.split26: ; preds = %5
+_ZN4LIEF2PE6Header8is_riscvENS1_13MACHINE_TYPESE.exit.fold.split26: ; preds = %11, %11
   br label %_ZN4LIEF2PE6Header8is_riscvENS1_13MACHINE_TYPESE.exit
 
-_ZN4LIEF2PE6Header8is_riscvENS1_13MACHINE_TYPESE.exit.fold.split27: ; preds = %7
-  br label %_ZN4LIEF2PE6Header8is_riscvENS1_13MACHINE_TYPESE.exit
-
-_ZN4LIEF2PE6Header8is_riscvENS1_13MACHINE_TYPESE.exit.fold.split28: ; preds = %9, %9
-  br label %_ZN4LIEF2PE6Header8is_riscvENS1_13MACHINE_TYPESE.exit
-
-_ZN4LIEF2PE6Header8is_riscvENS1_13MACHINE_TYPESE.exit: ; preds = %9, %9, %9, %_ZN4LIEF2PE6Header8is_riscvENS1_13MACHINE_TYPESE.exit.fold.split28, %7, %_ZN4LIEF2PE6Header8is_riscvENS1_13MACHINE_TYPESE.exit.fold.split27, %5, %5, %5, %5, %5, %_ZN4LIEF2PE6Header8is_riscvENS1_13MACHINE_TYPESE.exit.fold.split26, %_ZN4LIEF2PE6Header8is_riscvENS1_13MACHINE_TYPESE.exit.fold.split, %8, %6, %10
-  %.0 = phi i32 [ %4, %10 ], [ 2055, %7 ], [ 1029, %6 ], [ 4103, %8 ], [ 261, %5 ], [ 261, %5 ], [ 261, %5 ], [ 261, %5 ], [ 261, %5 ], [ 8200, %9 ], [ 8200, %9 ], [ 8200, %9 ], [ 517, %_ZN4LIEF2PE6Header8is_riscvENS1_13MACHINE_TYPESE.exit.fold.split ], [ -1, %_ZN4LIEF2PE6Header8is_riscvENS1_13MACHINE_TYPESE.exit.fold.split26 ], [ -1, %_ZN4LIEF2PE6Header8is_riscvENS1_13MACHINE_TYPESE.exit.fold.split27 ], [ 16392, %_ZN4LIEF2PE6Header8is_riscvENS1_13MACHINE_TYPESE.exit.fold.split28 ]
+_ZN4LIEF2PE6Header8is_riscvENS1_13MACHINE_TYPESE.exit: ; preds = %11, %11, %11, %_ZN4LIEF2PE6Header8is_riscvENS1_13MACHINE_TYPESE.exit.fold.split26, %9, %_ZN4LIEF2PE6Header8is_riscvENS1_13MACHINE_TYPESE.exit.fold.split, %_ZN4LIEF2PE6Header7is_mipsENS1_13MACHINE_TYPESE.exit, %5, %5, %5, %5, %5, %10, %8, %_ZN4LIEF2PE6Header6is_armENS1_13MACHINE_TYPESE.exit.thread, %12
+  %.0 = phi i32 [ %4, %12 ], [ 2055, %9 ], [ 1029, %8 ], [ -1, %_ZN4LIEF2PE6Header6is_armENS1_13MACHINE_TYPESE.exit.thread ], [ 4103, %10 ], [ 261, %5 ], [ 261, %5 ], [ 261, %5 ], [ 261, %5 ], [ 261, %5 ], [ 8200, %11 ], [ 8200, %11 ], [ 8200, %11 ], [ 517, %_ZN4LIEF2PE6Header7is_mipsENS1_13MACHINE_TYPESE.exit ], [ -1, %_ZN4LIEF2PE6Header8is_riscvENS1_13MACHINE_TYPESE.exit.fold.split ], [ 16392, %_ZN4LIEF2PE6Header8is_riscvENS1_13MACHINE_TYPESE.exit.fold.split26 ]
   ret i32 %.0
 }
 

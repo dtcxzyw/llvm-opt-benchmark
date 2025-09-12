@@ -1444,27 +1444,26 @@ _ZNSt6vectorIhSaIhEE17_M_default_appendEm.exit:   ; preds = %45, %43, %_ZNSt12_V
 
 ; Function Attrs: mustprogress nounwind uwtable
 define range(i32 0, -65535) i32 @_ZNK8WasmEdge4Host4WASI5INode6fdSeekEl15__wasi_whence_tRm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %0, i64 noundef %1, i8 noundef zeroext %2, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-switch.lookup:
-  %4 = load i32, ptr %0, align 8
-  %switch.idx.cast = zext i8 %2 to i32
-  %5 = tail call i64 @lseek(i32 noundef %4, i64 noundef %1, i32 noundef %switch.idx.cast) #25
-  %6 = icmp slt i64 %5, 0
-  br i1 %6, label %7, label %13
+  %5 = load i32, ptr %0, align 8
+  %switch.idx.cast.i = zext i8 %2 to i32
+  %6 = tail call i64 @lseek(i32 noundef %5, i64 noundef %1, i32 noundef %switch.idx.cast.i) #25
+  %7 = icmp slt i64 %6, 0
+  br i1 %7, label %8, label %14
 
-7:                                                ; preds = %switch.lookup
-  %8 = tail call ptr @__errno_location() #26
-  %9 = load i32, ptr %8, align 4
-  %10 = tail call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %9) #25
-  %11 = zext i16 %10 to i32
-  %12 = shl nuw i32 %11, 16
-  br label %14
+8:                                                ; preds = %4
+  %9 = tail call ptr @__errno_location() #26
+  %10 = load i32, ptr %9, align 4
+  %11 = tail call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %10) #25
+  %12 = zext i16 %11 to i32
+  %13 = shl nuw i32 %12, 16
+  br label %15
 
-13:                                               ; preds = %switch.lookup
-  store i64 %5, ptr %3, align 8
-  br label %14
+14:                                               ; preds = %4
+  store i64 %6, ptr %3, align 8
+  br label %15
 
-14:                                               ; preds = %13, %7
-  %.sroa.05.0.insert.insert = phi i32 [ %12, %7 ], [ 1, %13 ]
+15:                                               ; preds = %14, %8
+  %.sroa.05.0.insert.insert = phi i32 [ %13, %8 ], [ 1, %14 ]
   ret i32 %.sroa.05.0.insert.insert
 }
 

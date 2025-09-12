@@ -4071,10 +4071,9 @@ define internal void @interpolator_callback(ptr noundef %0, ptr noundef %1) #1 {
   tail call void @dt_iop_color_picker_reset(ptr noundef %1, i32 noundef 1) #19
   %9 = tail call i32 @dt_bauhaus_combobox_get(ptr noundef %0) #19
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 52
-  %switch.tableidx = add i32 %9, -1
-  %11 = icmp ult i32 %switch.tableidx, 3
-  %.sink = select i1 %11, i32 %9, i32 0
-  store i32 %.sink, ptr %10, align 4, !tbaa !174
+  %11 = icmp ult i32 %9, 4
+  %. = select i1 %11, i32 %9, i32 0
+  store i32 %., ptr %10, align 4, !tbaa !174
   %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !166
   tail call void @dt_dev_add_history_item(ptr noundef %12, ptr noundef nonnull %1, i32 noundef 1) #19
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 816

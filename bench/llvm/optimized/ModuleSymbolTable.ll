@@ -1838,36 +1838,35 @@ declare void @_ZN4llvm16MCObjectFileInfo20initMCObjectFileInfoERNS_9MCContextEbb
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZNSt17_Function_handlerIFvRKN4llvm12SMDiagnosticEbRKNS0_9SourceMgrERSt6vectorIPKNS0_6MDNodeESaISA_EEEZL24initializeRecordStreamerRKNS0_6ModuleENS0_12function_refIFvRNS0_14RecordStreamerEEEEE3$_0E9_M_invokeERKSt9_Any_dataS3_ObS6_SD_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %2, ptr nonnull readnone align 8 captures(none) %3, ptr nonnull readnone align 8 captures(none) %4) #0 align 2 {
-switch.lookup:
-  %5 = alloca %"class.llvm::DiagnosticInfoSrcMgr", align 8
+  %6 = alloca %"class.llvm::DiagnosticInfoSrcMgr", align 8
   %.val = load ptr, ptr %0, align 8, !tbaa !369
   %.val5 = load i8, ptr %2, align 1, !tbaa !371, !range !169, !noundef !44
-  %6 = load ptr, ptr %.val, align 8, !tbaa !77
-  call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %7 = getelementptr inbounds nuw i8, ptr %.val, i64 168
-  %8 = load ptr, ptr %7, align 8, !tbaa !75
-  %9 = getelementptr inbounds nuw i8, ptr %.val, i64 176
-  %10 = load i64, ptr %9, align 8, !tbaa !76
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %12 = load i32, ptr %11, align 8, !tbaa !372
-  %switch.idx.cast = trunc i32 %12 to i8
-  %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 25, ptr %13, align 8, !tbaa !386
-  %14 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  store i8 %switch.idx.cast, ptr %14, align 4, !tbaa !389
-  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm20DiagnosticInfoSrcMgrE, i64 16), ptr %5, align 8, !tbaa !42
-  %15 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %1, ptr %15, align 8, !tbaa !390
-  %16 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store ptr %8, ptr %16, align 8, !tbaa !326
-  %.sroa.2.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store i64 %10, ptr %.sroa.2.0..sroa_idx.i.i.i.i, align 8, !tbaa !392
-  %17 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  store i8 %.val5, ptr %17, align 8, !tbaa !393
-  %18 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  store i64 0, ptr %18, align 8, !tbaa !395
-  call void @_ZN4llvm11LLVMContext8diagnoseERKNS_14DiagnosticInfoE(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(13) %5) #17
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  %7 = load ptr, ptr %.val, align 8, !tbaa !77
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  %8 = getelementptr inbounds nuw i8, ptr %.val, i64 168
+  %9 = load ptr, ptr %8, align 8, !tbaa !75
+  %10 = getelementptr inbounds nuw i8, ptr %.val, i64 176
+  %11 = load i64, ptr %10, align 8, !tbaa !76
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %13 = load i32, ptr %12, align 8, !tbaa !372
+  %switch.idx.cast.i.i.i.i.i = trunc i32 %13 to i8
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i32 25, ptr %14, align 8, !tbaa !386
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 12
+  store i8 %switch.idx.cast.i.i.i.i.i, ptr %15, align 4, !tbaa !389
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm20DiagnosticInfoSrcMgrE, i64 16), ptr %6, align 8, !tbaa !42
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store ptr %1, ptr %16, align 8, !tbaa !390
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  store ptr %9, ptr %17, align 8, !tbaa !326
+  %.sroa.2.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 32
+  store i64 %11, ptr %.sroa.2.0..sroa_idx.i.i.i.i, align 8, !tbaa !392
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  store i8 %.val5, ptr %18, align 8, !tbaa !393
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 48
+  store i64 0, ptr %19, align 8, !tbaa !395
+  call void @_ZN4llvm11LLVMContext8diagnoseERKNS_14DiagnosticInfoE(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(13) %6) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 

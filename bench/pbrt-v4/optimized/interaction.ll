@@ -3595,7 +3595,7 @@ _ZNK4pbrt11MixMaterial14ChooseMaterialINS_25UniversalTextureEvaluatorEEENS_8Mate
   br label %_ZNK4pbrt8Material9GetBSSRDFINS_25UniversalTextureEvaluatorEEENS_6BSSRDFET_NS_19MaterialEvalContextERNS_18SampledWavelengthsERNS_13ScratchBufferE.exit
 
 _ZNK4pbrt8Material9GetBSSRDFINS_25UniversalTextureEvaluatorEEENS_6BSSRDFET_NS_19MaterialEvalContextERNS_18SampledWavelengthsERNS_13ScratchBufferE.exit: ; preds = %._crit_edge, %104
-  %.sink.i.sink.i.i.i = phi i64 [ 0, %._crit_edge ], [ %109, %104 ]
+  %.sink.i.sink.i.i.i = phi i64 [ %109, %104 ], [ 0, %._crit_edge ]
   store i64 %.sink.i.sink.i.i.i, ptr %0, align 8, !tbaa !268, !alias.scope !270
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
