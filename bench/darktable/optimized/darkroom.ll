@@ -3412,17 +3412,17 @@ switch.lookup:
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 216), align 8, !tbaa !211
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 2172
   %5 = load i32, ptr %4, align 4, !tbaa !285
-  %6 = icmp ugt i32 %2, 3
+  %.not = icmp ugt i32 %2, 3
   %.not5 = icmp eq i32 %2, %5
-  %.not = select i1 %6, i1 true, i1 %.not5
+  %.not = select i1 %.not, i1 true, i1 %.not5
   br i1 %.not, label %8, label %7
 
 7:                                                ; preds = %switch.lookup
   store i32 %2, ptr %4, align 4, !tbaa !285
   tail call void @dt_dev_reprocess_all(ptr noundef %1) #19
-  br label %8
+  br label %.thread
 
-8:                                                ; preds = %7, %switch.lookup
+.thread:                                          ; preds = %7, %switch.lookup
   ret void
 }
 
@@ -3433,17 +3433,17 @@ switch.lookup:
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 216), align 8, !tbaa !211
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 2176
   %5 = load i32, ptr %4, align 8, !tbaa !286
-  %6 = icmp ugt i32 %2, 3
+  %.not = icmp ugt i32 %2, 3
   %.not5 = icmp eq i32 %2, %5
-  %.not = select i1 %6, i1 true, i1 %.not5
+  %.not = select i1 %.not, i1 true, i1 %.not5
   br i1 %.not, label %8, label %7
 
 7:                                                ; preds = %switch.lookup
   store i32 %2, ptr %4, align 8, !tbaa !286
   tail call void @dt_dev_reprocess_all(ptr noundef %1) #19
-  br label %8
+  br label %.thread
 
-8:                                                ; preds = %7, %switch.lookup
+.thread:                                          ; preds = %7, %switch.lookup
   ret void
 }
 

@@ -10801,7 +10801,7 @@ define void @_ZN7mitsuba6Bitmap8read_bmpEPNS_6StreamE(ptr noundef nonnull align 
           catch ptr null
   br label %.loopexit135
 
-.loopexit.split-lp:                               ; preds = %2, %29, %35, %_ZN7mitsuba6Stream4readIjEEvRT_.exit128, %83, %91, %109, %_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEED2B8ne190000Ev.exit, %117, %127, %.loopexit, %36, %_ZN7mitsuba6Stream4readIjEEvRT_.exit, %_ZN7mitsuba6Stream4readIjEEvRT_.exit105, %_ZN7mitsuba6Stream4readIiEEvRT_.exit, %_ZN7mitsuba6Stream4readIiEEvRT_.exit114, %_ZN7mitsuba6Stream4readItEEvRT_.exit, %_ZN7mitsuba6Stream4readItEEvRT_.exit123, %129
+.loopexit.split-lp:                               ; preds = %2, %29, %35, %_ZN7mitsuba6Stream4readIjEEvRT_.exit128, %83, %91, %108, %_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEED2B8ne190000Ev.exit, %117, %127, %.loopexit, %36, %_ZN7mitsuba6Stream4readIjEEvRT_.exit, %_ZN7mitsuba6Stream4readIjEEvRT_.exit105, %_ZN7mitsuba6Stream4readIiEEvRT_.exit, %_ZN7mitsuba6Stream4readIiEEvRT_.exit114, %_ZN7mitsuba6Stream4readItEEvRT_.exit, %_ZN7mitsuba6Stream4readItEEvRT_.exit123, %129
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           catch ptr null
   br label %.loopexit135
@@ -11021,35 +11021,35 @@ _ZN7mitsuba6Stream4readIjEEvRT_.exit128:          ; preds = %.lr.ph.i.preheader.
   %105 = zext i16 %104 to i32
   %106 = add nsw i32 %105, -8
   %107 = call i32 @llvm.fshl.i32(i32 %106, i32 %106, i32 29)
-  %108 = icmp ult i32 %107, 4
-  br i1 %108, label %switch.lookup, label %109
+  %switch155 = icmp ult i32 %107, 4
+  br i1 %switch155, label %114, label %108
 
-109:                                              ; preds = %97
-  %110 = load ptr, ptr @_ZN7mitsuba6Bitmap7m_classE, align 8
+108:                                              ; preds = %97
+  %109 = load ptr, ptr @_ZN7mitsuba6Bitmap7m_classE, align 8
   invoke void @_ZN10tinyformat6formatIJtEEENSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEPKcDpRKT_(ptr dead_on_unwind nonnull writable sret(%"class.std::__1::basic_string") align 8 %15, ptr noundef nonnull @.str.132, ptr noundef nonnull align 2 dereferenceable(2) %9)
           to label %111 unwind label %.loopexit.split-lp
 
-111:                                              ; preds = %109
-  invoke void @_ZN7mitsuba6detail5ThrowENS_8LogLevelEPKNS_5ClassEPKciRKNSt3__112basic_stringIcNS7_11char_traitsIcEENS7_9allocatorIcEEEE(i32 noundef 400, ptr noundef %110, ptr noundef nonnull @.str.10, i32 noundef 2360, ptr noundef nonnull align 8 dereferenceable(24) %15) #39
-          to label %112 unwind label %113
+110:                                              ; preds = %108
+  invoke void @_ZN7mitsuba6detail5ThrowENS_8LogLevelEPKNS_5ClassEPKciRKNSt3__112basic_stringIcNS7_11char_traitsIcEENS7_9allocatorIcEEEE(i32 noundef 400, ptr noundef %109, ptr noundef nonnull @.str.10, i32 noundef 2360, ptr noundef nonnull align 8 dereferenceable(24) %15) #39
+          to label %112 unwind label %112
 
-112:                                              ; preds = %111
+111:                                              ; preds = %110
   unreachable
 
-113:                                              ; preds = %111
-  %114 = landingpad { ptr, i32 }
+112:                                              ; preds = %110
+  %113 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #38
   br label %.loopexit135
 
-switch.lookup:                                    ; preds = %97
+114:                                              ; preds = %97
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %107, ptr %115, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, i8 0, i64 24, i1 false)
   invoke void @_ZN7mitsuba6Bitmap14rebuild_structEmRKNSt3__16vectorINS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS6_IS8_EEEE(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(24) %16)
           to label %_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEED2B8ne190000Ev.exit unwind label %125
 
-_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEED2B8ne190000Ev.exit: ; preds = %switch.lookup
+_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEED2B8ne190000Ev.exit: ; preds = %114
   %116 = invoke noundef i64 @_ZNK7mitsuba6Bitmap11buffer_sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %0)
           to label %117 unwind label %.loopexit.split-lp
 
@@ -11076,7 +11076,7 @@ _ZNSt3__110unique_ptrIA_hNS_14default_deleteIS1_EEED2B8ne190000Ev.exit: ; preds 
   %.not97 = icmp eq ptr %123, null
   br i1 %.not97, label %129, label %127
 
-125:                                              ; preds = %switch.lookup
+125:                                              ; preds = %114
   %126 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #38
@@ -11206,8 +11206,8 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0E
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #38
   br label %.loopexit135
 
-.loopexit135:                                     ; preds = %.loopexit.split-lp, %.loopexit135.split.us, %.loopexit135.split, %181, %125, %113, %95, %87, %33
-  %.pn = phi { ptr, i32 } [ %34, %33 ], [ %88, %87 ], [ %96, %95 ], [ %114, %113 ], [ %182, %181 ], [ %126, %125 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit135.split ], [ %lpad.loopexit.us, %.loopexit135.split.us ]
+.loopexit135:                                     ; preds = %.loopexit.split-lp, %.loopexit135.split.us, %.loopexit135.split, %181, %125, %112, %95, %87, %33
+  %.pn = phi { ptr, i32 } [ %34, %33 ], [ %88, %87 ], [ %96, %95 ], [ %113, %113 ], [ %182, %181 ], [ %126, %125 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit135.split ], [ %lpad.loopexit.us, %.loopexit135.split.us ]
   %.1 = extractvalue { ptr, i32 } %.pn, 0
   %183 = call ptr @__cxa_begin_catch(ptr %.1) #38
   invoke void @_ZN7mitsuba6Stream14set_byte_orderENS0_10EByteOrderE(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %19)

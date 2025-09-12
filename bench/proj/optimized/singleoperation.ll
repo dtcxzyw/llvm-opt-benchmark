@@ -10554,25 +10554,25 @@ _ZSt11make_uniqueIN5osgeo4proj9operation15SingleOperation7PrivateEJRKN7dropbox6o
   %57 = getelementptr i8, ptr %56, i64 -24
   %58 = load i64, ptr %57, align 8
   %59 = invoke noundef zeroext i1 @_ZN5osgeo4proj9operation15isTimeDependentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %55)
-          to label %60 unwind label %68
+          to label %60 unwind label %65
 
-60:                                               ; preds = %_ZSt11make_uniqueIN5osgeo4proj9operation15SingleOperation7PrivateEJRKN7dropbox6oxygen2nnISt10shared_ptrINS2_15OperationMethodEEEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
-  %switch.tableidx = add i32 %54, -1053
-  %61 = icmp ult i32 %switch.tableidx, 6
-  %62 = or i1 %61, %59
-  %63 = getelementptr inbounds i8, ptr %0, i64 %58
-  %64 = zext i1 %62 to i8
-  %65 = getelementptr inbounds nuw i8, ptr %63, i64 64
-  %66 = load ptr, ptr %65, align 8, !tbaa !27
-  %67 = getelementptr inbounds nuw i8, ptr %66, i64 145
-  store i8 %64, ptr %67, align 1, !tbaa !156
+switch.edge:                                      ; preds = %_ZSt11make_uniqueIN5osgeo4proj9operation15SingleOperation7PrivateEJRKN7dropbox6oxygen2nnISt10shared_ptrINS2_15OperationMethodEEEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
+  %.off = add i32 %54, -1053
+  %switch = icmp ult i32 %.off, 6
+  %or.cond = or i1 %switch, %59
+  %60 = getelementptr inbounds i8, ptr %0, i64 %58
+  %61 = zext i1 %or.cond to i8
+  %62 = getelementptr inbounds nuw i8, ptr %60, i64 64
+  %63 = load ptr, ptr %62, align 8, !tbaa !27
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 145
+  store i8 %61, ptr %64, align 1, !tbaa !156
   ret void
 
-68:                                               ; preds = %_ZSt11make_uniqueIN5osgeo4proj9operation15SingleOperation7PrivateEJRKN7dropbox6oxygen2nnISt10shared_ptrINS2_15OperationMethodEEEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
-  %69 = landingpad { ptr, i32 }
+65:                                               ; preds = %_ZSt11make_uniqueIN5osgeo4proj9operation15SingleOperation7PrivateEJRKN7dropbox6oxygen2nnISt10shared_ptrINS2_15OperationMethodEEEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
+  %66 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt10unique_ptrIN5osgeo4proj9operation15SingleOperation7PrivateESt14default_deleteIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %38) #46
-  resume { ptr, i32 } %69
+  resume { ptr, i32 } %66
 }
 
 declare noundef zeroext i1 @_ZN5osgeo4proj9operation15isTimeDependentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #6

@@ -173,14 +173,14 @@ define noundef range(i64 0, 6) i64 @"_ZN57_$LT$log..Level$u20$as$u20$core..str..
   %33 = icmp samesign ult i64 %.014.i, 6
   call void @llvm.assume(i1 %33)
   %.not.i.not.i.i.i.i17 = icmp eq i64 %.014.i, 0
-  br i1 %.not.i.not.i.i.i.i17, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h19ce84a97ce69529E.exit", label %34
+  br i1 %.not.i.not.i.i.i.i17, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h19ce84a97ce69529E.exit", label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h19ce84a97ce69529E.exit.loopexit"
 
-34:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17hedc9a746eb35aaffE.exit.thread"
+"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h19ce84a97ce69529E.exit.loopexit": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17hedc9a746eb35aaffE.exit.thread"
   %35 = add nsw i64 %.014.i, -6
   %36 = icmp ult i64 %35, -5
   br i1 %36, label %37, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h19ce84a97ce69529E.exit"
 
-37:                                               ; preds = %34
+"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h19ce84a97ce69529E.exit": ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h19ce84a97ce69529E.exit.loopexit"
   call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.282e2e7c46ac4708fb019700c78d9e7f.24.llvm.9080322772985218481, i64 noundef 43, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.282e2e7c46ac4708fb019700c78d9e7f.26.llvm.9080322772985218481) #15, !noalias !31
   unreachable
 
@@ -204,9 +204,9 @@ define noundef zeroext i1 @"_ZN49_$LT$log..Level$u20$as$u20$core..fmt..Display$G
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define noundef range(i64 0, 6) i64 @_ZN3log5Level10from_usize17h61e8a9f6cf6140e3E(i64 noundef %0) unnamed_addr #3 {
   %switch.tableidx = add i64 %0, -1
-  %2 = icmp ult i64 %switch.tableidx, 5
-  %.0 = select i1 %2, i64 %0, i64 0
-  ret i64 %.0
+  %1 = icmp ult i64 %switch.tableidx, 5
+  %spec.select = select i1 %1, i64 %0, i64 0
+  ret i64 %spec.select
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -275,7 +275,7 @@ define noundef range(i64 0, 7) i64 @"_ZN63_$LT$log..LevelFilter$u20$as$u20$core.
 19:                                               ; preds = %21, %12
   %20 = phi i64 [ %22, %21 ], [ 0, %12 ]
   %exitcond.not.i.i.i = icmp eq i64 %20, %16
-  br i1 %exitcond.not.i.i.i, label %33, label %21
+  br i1 %exitcond.not.i.i.i, label %switch.lookup, label %21
 
 21:                                               ; preds = %19
   %22 = add i64 %20, 1
@@ -299,12 +299,12 @@ define noundef range(i64 0, 7) i64 @"_ZN63_$LT$log..LevelFilter$u20$as$u20$core.
   %32 = icmp eq i64 %.add, 96
   br i1 %32, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h45c01db3aff8e53eE.exit.thread", label %9
 
-33:                                               ; preds = %19
-  %34 = icmp samesign ult i64 %.014.i, 6
-  call void @llvm.assume(i1 %34)
+switch.lookup:                                    ; preds = %19
+  %33 = icmp samesign ult i64 %.014.i, 6
+  call void @llvm.assume(i1 %33)
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h45c01db3aff8e53eE.exit.thread"
 
-"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h45c01db3aff8e53eE.exit.thread": ; preds = %.loopexit.i, %33
+"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h45c01db3aff8e53eE.exit.thread": ; preds = %.loopexit.i, %switch.lookup
   %.07 = phi i64 [ %.014.i, %33 ], [ 6, %.loopexit.i ]
   ret i64 %.07
 }
@@ -530,7 +530,7 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 declare void @llvm.experimental.noalias.scope.decl(metadata) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #13
+declare i64 @llvm.umin.i64(i64, i64) #14
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14

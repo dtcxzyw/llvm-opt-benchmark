@@ -2493,16 +2493,16 @@ define dso_local void @_ZN4Luau7CodeGen3A6413IrLoweringA649lowerInstERNS0_6IrIns
 1356:                                             ; preds = %1351, %1347
   %1357 = load ptr, ptr %0, align 8, !tbaa !63
   %1358 = icmp ult i8 %1331, 10
-  br i1 %1358, label %switch.lookup3705, label %_ZN4Luau7CodeGen3A6414getConditionFPENS0_11IrConditionE.exit
+  br i1 %1358, label %switch.lookup, label %_ZN4Luau7CodeGen3A6414getConditionFPENS0_11IrConditionE.exit
 
-switch.lookup3705:                                ; preds = %1356
+switch.lookup:                                    ; preds = %1356
   %.mask = and i32 %1330, 15
   %1359 = zext nneg i32 %.mask to i64
   %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN4Luau7CodeGen3A6413IrLoweringA649lowerInstERNS0_6IrInstEjRKNS0_7IrBlockE, i64 %1359
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN4Luau7CodeGen3A6414getConditionFPENS0_11IrConditionE.exit
 
-_ZN4Luau7CodeGen3A6414getConditionFPENS0_11IrConditionE.exit: ; preds = %1356, %switch.lookup3705
+_ZN4Luau7CodeGen3A6414getConditionFPENS0_11IrConditionE.exit: ; preds = %1356, %switch.lookup
   %.0.i = phi i32 [ %switch.load, %switch.lookup3705 ], [ 14, %1356 ]
   %1360 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.01308.0.copyload = load i32, ptr %1360, align 4, !tbaa !43
@@ -3427,9 +3427,9 @@ _ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit2
   %1934 = load i32, ptr %1933, align 8, !tbaa !43
   %switch.tableidx = add i32 %1934, -8
   %1935 = icmp ult i32 %switch.tableidx, 8
-  br i1 %1935, label %switch.lookup, label %1937
+  br i1 %1935, label %switch.lookup3705, label %1937
 
-switch.lookup:                                    ; preds = %1924
+switch.lookup3705:                                ; preds = %1924
   %switch.idx.cast = zext nneg i32 %switch.tableidx to i64
   %switch.idx.mult = shl nuw nsw i64 %switch.idx.cast, 35
   %switch.offset = add nuw nsw i64 %switch.idx.mult, 171815117313
@@ -3437,7 +3437,7 @@ switch.lookup:                                    ; preds = %1924
   tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %1936, i8 34, i64 %switch.offset)
   br label %1937
 
-1937:                                             ; preds = %1924, %switch.lookup
+1937:                                             ; preds = %1924, %switch.lookup3705
   %1938 = load ptr, ptr %0, align 8, !tbaa !63
   tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643blrENS1_11RegisterA64E(ptr noundef nonnull align 8 dereferenceable(176) %1938, i8 34)
   %1939 = load ptr, ptr %0, align 8, !tbaa !63

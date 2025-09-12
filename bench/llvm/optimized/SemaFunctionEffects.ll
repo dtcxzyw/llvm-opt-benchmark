@@ -3479,45 +3479,45 @@ define dso_local noundef zeroext i1 @_ZNK5clang4Sema18FunctionEffectDiff24should
   %6 = load i8, ptr %0, align 8, !tbaa !894
   switch i8 %6, label %19 [
     i8 1, label %7
-    i8 0, label %.switch.lookup_crit_edge
+    i8 0, label %..thread_crit_edge
     i8 2, label %.loopexit
     i8 3, label %.loopexit
   ]
 
-.switch.lookup_crit_edge:                         ; preds = %5
+..thread_crit_edge:                               ; preds = %5
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !901
-  br label %switch.lookup
+  br label %.thread
 
 7:                                                ; preds = %5
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %9 = load i32, ptr %8, align 4, !tbaa !901
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %11, label %switch.lookup
+  br i1 %10, label %11, label %.thread
 
 11:                                               ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %13 = load i64, ptr %12, align 8, !tbaa !19
-  %.not2627 = icmp eq i64 %13, 0
-  br i1 %.not2627, label %switch.lookup, label %_ZNK5clang22FunctionEffectIteratorINS_18FunctionEffectsRefEEdeEv.exit.lr.ph
+  %.not2829 = icmp eq i64 %13, 0
+  br i1 %.not2829, label %.thread, label %_ZNK5clang22FunctionEffectIteratorINS_18FunctionEffectsRefEEdeEv.exit.lr.ph
 
 _ZNK5clang22FunctionEffectIteratorINS_18FunctionEffectsRefEEdeEv.exit.lr.ph: ; preds = %11
   %14 = load ptr, ptr %2, align 8, !tbaa !26
   br label %_ZNK5clang22FunctionEffectIteratorINS_18FunctionEffectsRefEEdeEv.exit
 
 15:                                               ; preds = %_ZNK5clang22FunctionEffectIteratorINS_18FunctionEffectsRefEEdeEv.exit
-  %16 = add nuw i64 %.sroa.5.028, 1
-  %.not26 = icmp eq i64 %16, %13
-  br i1 %.not26, label %switch.lookup, label %_ZNK5clang22FunctionEffectIteratorINS_18FunctionEffectsRefEEdeEv.exit
+  %16 = add nuw i64 %.sroa.5.030, 1
+  %.not28 = icmp eq i64 %16, %13
+  br i1 %.not28, label %.thread, label %_ZNK5clang22FunctionEffectIteratorINS_18FunctionEffectsRefEEdeEv.exit
 
 _ZNK5clang22FunctionEffectIteratorINS_18FunctionEffectsRefEEdeEv.exit: ; preds = %_ZNK5clang22FunctionEffectIteratorINS_18FunctionEffectsRefEEdeEv.exit.lr.ph, %15
-  %.sroa.5.028 = phi i64 [ 0, %_ZNK5clang22FunctionEffectIteratorINS_18FunctionEffectsRefEEdeEv.exit.lr.ph ], [ %16, %15 ]
-  %17 = getelementptr inbounds nuw %"class.clang::FunctionEffect", ptr %14, i64 %.sroa.5.028
+  %.sroa.5.030 = phi i64 [ 0, %_ZNK5clang22FunctionEffectIteratorINS_18FunctionEffectsRefEEdeEv.exit.lr.ph ], [ %16, %15 ]
+  %17 = getelementptr inbounds nuw %"class.clang::FunctionEffect", ptr %14, i64 %.sroa.5.030
   %.sroa.0.0.copyload.i = load i8, ptr %17, align 1, !tbaa !27
   %.not = icmp eq i8 %.sroa.0.0.copyload.i, 0
   br i1 %.not, label %.loopexit, label %15
 
-switch.lookup:                                    ; preds = %15, %.switch.lookup_crit_edge, %11, %7
+.thread:                                          ; preds = %15, %..thread_crit_edge, %11, %7
   %18 = phi i32 [ %.pre, %.switch.lookup_crit_edge ], [ 0, %11 ], [ %9, %7 ], [ 0, %15 ]
   %switch.idx.cast = trunc i32 %18 to i1
   %switch.offset = xor i1 %switch.idx.cast, true
@@ -3526,7 +3526,7 @@ switch.lookup:                                    ; preds = %15, %.switch.lookup
 19:                                               ; preds = %5
   unreachable
 
-.loopexit:                                        ; preds = %_ZNK5clang22FunctionEffectIteratorINS_18FunctionEffectsRefEEdeEv.exit, %5, %5, %switch.lookup
+.loopexit:                                        ; preds = %_ZNK5clang22FunctionEffectIteratorINS_18FunctionEffectsRefEEdeEv.exit, %5, %5, %.thread
   %.3 = phi i1 [ %switch.offset, %switch.lookup ], [ false, %5 ], [ false, %5 ], [ false, %_ZNK5clang22FunctionEffectIteratorINS_18FunctionEffectsRefEEdeEv.exit ]
   ret i1 %.3
 }

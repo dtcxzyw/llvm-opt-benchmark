@@ -1474,7 +1474,7 @@ _ZN4llvm11safe_mallocEm.exit:                     ; preds = %2
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %14, %._crit_edge.loopexit, %_ZN4llvm11safe_mallocEm.exit
-  %.0.i26 = phi ptr [ %10, %_ZN4llvm11safe_mallocEm.exit ], [ %10, %._crit_edge.loopexit ], [ %15, %14 ]
+  %.0.i29 = phi ptr [ %10, %_ZN4llvm11safe_mallocEm.exit ], [ %10, %._crit_edge.loopexit ], [ %15, %14 ]
   %.lcssa = phi i64 [ 0, %_ZN4llvm11safe_mallocEm.exit ], [ %19, %._crit_edge.loopexit ], [ 0, %14 ]
   store i64 %.lcssa, ptr %1, align 8, !tbaa !37
   %20 = load ptr, ptr %3, align 8, !tbaa !39
@@ -1487,17 +1487,17 @@ _ZN4llvm11safe_mallocEm.exit:                     ; preds = %2
 
 _ZN4llvm11SmallVectorINS_6Module15ModuleFlagEntryELj8EED2Ev.exit: ; preds = %._crit_edge, %22
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret ptr %.0.i26
+  ret ptr %.0.i29
 
 .lr.ph:                                           ; preds = %_ZN4llvm11safe_mallocEm.exit, %.lr.ph
-  %.019 = phi i32 [ %40, %.lr.ph ], [ 0, %_ZN4llvm11safe_mallocEm.exit ]
+  %23 = phi i32 [ %40, %.lr.ph ], [ 0, %_ZN4llvm11safe_mallocEm.exit ]
   %23 = zext i32 %.019 to i64
   %24 = load ptr, ptr %3, align 8, !tbaa !39
   %25 = getelementptr inbounds nuw %"struct.llvm::Module::ModuleFlagEntry", ptr %24, i64 %23
   %26 = load i32, ptr %25, align 8, !tbaa !43
-  %switch.tableidx.i = add nsw i32 %26, -1
+  %switch.tableidx = add nsw i32 %26, -1
   %27 = getelementptr inbounds nuw %struct.LLVMOpaqueModuleFlagEntry, ptr %10, i64 %23
-  store i32 %switch.tableidx.i, ptr %27, align 8, !tbaa !48
+  store i32 %switch.tableidx, ptr %27, align 8, !tbaa !48
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %29 = load ptr, ptr %28, align 8, !tbaa !52
   %30 = call { ptr, i64 } @_ZNK4llvm8MDString9getStringEv(ptr noundef nonnull align 8 dereferenceable(16) %29) #35

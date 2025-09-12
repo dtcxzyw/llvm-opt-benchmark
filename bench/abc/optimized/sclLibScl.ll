@@ -703,15 +703,15 @@ Vec_PtrPush.exit130.i:                            ; preds = %285, %Vec_PtrGrow.e
   %291 = getelementptr inbounds ptr, ptr %287, i64 %290
   store ptr %259, ptr %291, align 8, !tbaa !22
   %292 = icmp ult i32 %222, 3
-  br i1 %292, label %switch.lookup.i, label %294
+  br i1 %292, label %switch.lookup, label %294
 
-switch.lookup.i:                                  ; preds = %Vec_PtrPush.exit130.i
-  %switch.offset.i = sub nuw nsw i32 3, %222
+switch.lookup:                                    ; preds = %Vec_PtrPush.exit130.i
+  %switch.offset = sub nuw nsw i32 3, %222
   %293 = getelementptr inbounds nuw i8, ptr %259, i64 8
-  store i32 %switch.offset.i, ptr %293, align 8, !tbaa !49
+  store i32 %switch.offset, ptr %293, align 8, !tbaa !49
   br label %294
 
-294:                                              ; preds = %switch.lookup.i, %Vec_PtrPush.exit130.i
+294:                                              ; preds = %switch.lookup, %Vec_PtrPush.exit130.i
   %295 = getelementptr inbounds nuw i8, ptr %259, i64 24
   tail call fastcc void @Abc_SclReadSurfaceGenlib(ptr noundef nonnull %295)
   %296 = getelementptr inbounds nuw i8, ptr %259, i64 200

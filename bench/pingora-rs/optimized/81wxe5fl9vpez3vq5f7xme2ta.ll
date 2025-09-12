@@ -944,7 +944,7 @@ define hidden void @_ZN5serde2de7Visitor8visit_u817h00f40196bc665257E(ptr dead_o
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN5serde2de7Visitor8visit_u817h021d02107cf66935E(ptr dead_on_unwind noalias noundef writable writeonly sret([32 x i8]) align 8 captures(none) dereferenceable(32) initializes((0, 2)) %0, i8 noundef %1) unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %4 = tail call i8 @llvm.umin.i8(i8 %1, i8 4)
+  %spec.select = tail call i8 @llvm.umin.i8(i8 %1, i8 4)
   store i8 %4, ptr %3, align 1, !alias.scope !67
   store i8 9, ptr %0, align 8, !alias.scope !67
   ret void
@@ -970,7 +970,7 @@ define hidden void @_ZN5serde2de7Visitor8visit_u817h45e3ca9a070cad39E(ptr dead_o
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN5serde2de7Visitor8visit_u817hcf9c53cd1aaf7cd2E(ptr dead_on_unwind noalias noundef writable writeonly sret([32 x i8]) align 8 captures(none) dereferenceable(32) initializes((0, 2)) %0, i8 noundef %1) unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %4 = tail call i8 @llvm.umin.i8(i8 %1, i8 7)
+  %spec.select = tail call i8 @llvm.umin.i8(i8 %1, i8 7)
   store i8 %4, ptr %3, align 1, !alias.scope !73
   store i8 9, ptr %0, align 8, !alias.scope !73
   ret void
@@ -979,7 +979,7 @@ define hidden void @_ZN5serde2de7Visitor8visit_u817hcf9c53cd1aaf7cd2E(ptr dead_o
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN5serde2de7Visitor8visit_u817hf52490b756e14521E(ptr dead_on_unwind noalias noundef writable writeonly sret([32 x i8]) align 8 captures(none) dereferenceable(32) initializes((0, 2)) %0, i8 noundef %1) unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %4 = tail call i8 @llvm.umin.i8(i8 %1, i8 5)
+  %spec.select = tail call i8 @llvm.umin.i8(i8 %1, i8 5)
   store i8 %4, ptr %3, align 1, !alias.scope !76
   store i8 9, ptr %0, align 8, !alias.scope !76
   ret void
@@ -1615,8 +1615,8 @@ define hidden void @_ZN5serde2de7Visitor9visit_u1617h062a82b0127db1b1E(ptr dead_
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN5serde2de7Visitor9visit_u1617h6ef2cb82db4b07b7E(ptr dead_on_unwind noalias noundef writable writeonly sret([32 x i8]) align 8 captures(none) dereferenceable(32) initializes((0, 2)) %0, i16 noundef %1) unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %4 = tail call i16 @llvm.umin.i16(i16 %1, i16 4)
-  %.sink.i = trunc nuw nsw i16 %4 to i8
+  %spec.select1 = tail call i16 @llvm.umin.i16(i16 %1, i16 4)
+  %spec.select = trunc nuw nsw i16 %spec.select1 to i8
   store i8 %.sink.i, ptr %3, align 1, !alias.scope !136
   store i8 9, ptr %0, align 8, !alias.scope !136
   ret void
@@ -1642,8 +1642,8 @@ define hidden void @_ZN5serde2de7Visitor9visit_u1617h72f0caecada52236E(ptr dead_
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN5serde2de7Visitor9visit_u1617hb4b748deb52dcc84E(ptr dead_on_unwind noalias noundef writable writeonly sret([32 x i8]) align 8 captures(none) dereferenceable(32) initializes((0, 2)) %0, i16 noundef %1) unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %4 = tail call i16 @llvm.umin.i16(i16 %1, i16 7)
-  %.sink.i = trunc nuw nsw i16 %4 to i8
+  %spec.select1 = tail call i16 @llvm.umin.i16(i16 %1, i16 7)
+  %spec.select = trunc nuw nsw i16 %spec.select1 to i8
   store i8 %.sink.i, ptr %3, align 1, !alias.scope !142
   store i8 9, ptr %0, align 8, !alias.scope !142
   ret void
@@ -1652,8 +1652,8 @@ define hidden void @_ZN5serde2de7Visitor9visit_u1617hb4b748deb52dcc84E(ptr dead_
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN5serde2de7Visitor9visit_u1617hbe74e77302af7123E(ptr dead_on_unwind noalias noundef writable writeonly sret([32 x i8]) align 8 captures(none) dereferenceable(32) initializes((0, 2)) %0, i16 noundef %1) unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %4 = tail call i16 @llvm.umin.i16(i16 %1, i16 5)
-  %.sink.i = trunc nuw nsw i16 %4 to i8
+  %spec.select1 = tail call i16 @llvm.umin.i16(i16 %1, i16 5)
+  %spec.select = trunc nuw nsw i16 %spec.select1 to i8
   store i8 %.sink.i, ptr %3, align 1, !alias.scope !145
   store i8 9, ptr %0, align 8, !alias.scope !145
   ret void
@@ -1680,8 +1680,8 @@ define hidden void @_ZN5serde2de7Visitor9visit_u1617hd5e630e3a3c3a3acE(ptr dead_
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN5serde2de7Visitor9visit_u3217h09985a5eb8ee229fE(ptr dead_on_unwind noalias noundef writable writeonly sret([32 x i8]) align 8 captures(none) dereferenceable(32) initializes((0, 2)) %0, i32 noundef %1) unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %4 = tail call i32 @llvm.umin.i32(i32 %1, i32 7)
-  %.sink.i = trunc nuw nsw i32 %4 to i8
+  %spec.select1 = tail call i32 @llvm.umin.i32(i32 %1, i32 7)
+  %spec.select = trunc nuw nsw i32 %spec.select1 to i8
   store i8 %.sink.i, ptr %3, align 1, !alias.scope !151
   store i8 9, ptr %0, align 8, !alias.scope !151
   ret void
@@ -1743,8 +1743,8 @@ define hidden void @_ZN5serde2de7Visitor9visit_u3217hc4f1701da0931e99E(ptr dead_
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN5serde2de7Visitor9visit_u3217hd406818ff728947eE(ptr dead_on_unwind noalias noundef writable writeonly sret([32 x i8]) align 8 captures(none) dereferenceable(32) initializes((0, 2)) %0, i32 noundef %1) unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %4 = tail call i32 @llvm.umin.i32(i32 %1, i32 5)
-  %.sink.i = trunc nuw nsw i32 %4 to i8
+  %spec.select1 = tail call i32 @llvm.umin.i32(i32 %1, i32 5)
+  %spec.select = trunc nuw nsw i32 %spec.select1 to i8
   store i8 %.sink.i, ptr %3, align 1, !alias.scope !163
   store i8 9, ptr %0, align 8, !alias.scope !163
   ret void
@@ -1753,8 +1753,8 @@ define hidden void @_ZN5serde2de7Visitor9visit_u3217hd406818ff728947eE(ptr dead_
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN5serde2de7Visitor9visit_u3217he623b1a2e604c39bE(ptr dead_on_unwind noalias noundef writable writeonly sret([32 x i8]) align 8 captures(none) dereferenceable(32) initializes((0, 2)) %0, i32 noundef %1) unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %4 = tail call i32 @llvm.umin.i32(i32 %1, i32 4)
-  %.sink.i = trunc nuw nsw i32 %4 to i8
+  %spec.select1 = tail call i32 @llvm.umin.i32(i32 %1, i32 4)
+  %spec.select = trunc nuw nsw i32 %spec.select1 to i8
   store i8 %.sink.i, ptr %3, align 1, !alias.scope !166
   store i8 9, ptr %0, align 8, !alias.scope !166
   ret void
@@ -7703,8 +7703,8 @@ define internal fastcc void @"_ZN88_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @"_ZN209_$LT$pingora_cache..meta..internal_meta.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$pingora_cache..meta..internal_meta..InternalMetaV0$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417hb6e74668c736bcd4E"(ptr dead_on_unwind noalias noundef writable writeonly sret([32 x i8]) align 8 captures(none) dereferenceable(32) initializes((0, 2)) %0, i64 noundef %1) unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %.sink1 = tail call i64 @llvm.umin.i64(i64 %1, i64 4)
-  %.sink = trunc nuw nsw i64 %.sink1 to i8
+  %spec.select1 = tail call i64 @llvm.umin.i64(i64 %1, i64 4)
+  %spec.select = trunc nuw nsw i64 %spec.select1 to i8
   store i8 %.sink, ptr %3, align 1
   store i8 9, ptr %0, align 8
   ret void
@@ -8145,8 +8145,8 @@ define hidden void @"_ZN209_$LT$pingora_cache..meta..internal_meta.._..$LT$impl$
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @"_ZN209_$LT$pingora_cache..meta..internal_meta.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$pingora_cache..meta..internal_meta..InternalMetaV1$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h8c39c6a9c68e09bfE"(ptr dead_on_unwind noalias noundef writable writeonly sret([32 x i8]) align 8 captures(none) dereferenceable(32) initializes((0, 2)) %0, i64 noundef %1) unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %.sink1 = tail call i64 @llvm.umin.i64(i64 %1, i64 5)
-  %.sink = trunc nuw nsw i64 %.sink1 to i8
+  %spec.select1 = tail call i64 @llvm.umin.i64(i64 %1, i64 5)
+  %spec.select = trunc nuw nsw i64 %spec.select1 to i8
   store i8 %.sink, ptr %3, align 1
   store i8 9, ptr %0, align 8
   ret void
@@ -8634,8 +8634,8 @@ define hidden void @"_ZN209_$LT$pingora_cache..meta..internal_meta.._..$LT$impl$
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @"_ZN209_$LT$pingora_cache..meta..internal_meta.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$pingora_cache..meta..internal_meta..InternalMetaV2$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h61efd9ba17be7469E"(ptr dead_on_unwind noalias noundef writable writeonly sret([32 x i8]) align 8 captures(none) dereferenceable(32) initializes((0, 2)) %0, i64 noundef %1) unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %.sink1 = tail call i64 @llvm.umin.i64(i64 %1, i64 7)
-  %.sink = trunc nuw nsw i64 %.sink1 to i8
+  %spec.select1 = tail call i64 @llvm.umin.i64(i64 %1, i64 7)
+  %spec.select = trunc nuw nsw i64 %spec.select1 to i8
   store i8 %.sink, ptr %3, align 1
   store i8 9, ptr %0, align 8
   ret void
@@ -9699,16 +9699,16 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
 declare void @llvm.experimental.noalias.scope.decl(metadata) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #16
+declare i64 @llvm.umin.i64(i64, i64) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.umin.i8(i8, i8) #16
+declare i8 @llvm.umin.i8(i8, i8) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.umin.i16(i16, i16) #16
+declare i16 @llvm.umin.i16(i16, i16) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #16
+declare i32 @llvm.umin.i32(i32, i32) #17
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #17

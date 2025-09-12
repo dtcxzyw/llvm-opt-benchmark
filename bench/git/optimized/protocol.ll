@@ -31,17 +31,17 @@ define dso_local range(i32 0, 3) i32 @get_protocol_version_config() local_unname
 4:                                                ; preds = %0
   %5 = load ptr, ptr %1, align 8, !tbaa !9
   %6 = load i8, ptr %5, align 1
-  %switch.tableidx.i = add i8 %6, -48
-  %7 = icmp ult i8 %switch.tableidx.i, 3
-  br i1 %7, label %switch.lookup.i, label %11
+  %switch.tableidx = add i8 %6, -48
+  %7 = icmp ult i8 %switch.tableidx, 3
+  br i1 %7, label %switch.lookup, label %11
 
-switch.lookup.i:                                  ; preds = %4
+switch.lookup:                                    ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %9 = load i8, ptr %8, align 1
   %10 = icmp eq i8 %9, 0
   br i1 %10, label %parse_protocol_version.exit, label %11
 
-11:                                               ; preds = %4, %switch.lookup.i
+11:                                               ; preds = %4, %switch.lookup
   call void (ptr, ...) @die(ptr noundef nonnull @.str.2, ptr noundef nonnull %5) #8
   unreachable
 
@@ -55,23 +55,23 @@ switch.lookup.i:                                  ; preds = %4
   %.not14 = icmp eq i8 %15, 0
   br i1 %.not14, label %parse_protocol_version.exit, label %16
 
-16:                                               ; preds = %14
+16: ; preds = %14
   %switch.tableidx.i15 = add i8 %15, -48
   %17 = icmp ult i8 %switch.tableidx.i15, 3
   br i1 %17, label %switch.lookup.i17, label %21
 
-switch.lookup.i17:                                ; preds = %16
+switch.lookup.i17:; preds = %16
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 1
   %19 = load i8, ptr %18, align 1
   %20 = icmp eq i8 %19, 0
   br i1 %20, label %parse_protocol_version.exit, label %21
 
-21:                                               ; preds = %16, %switch.lookup.i17
+21:; preds = %16, %switch.lookup.i17
   call void (ptr, ...) @die(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str, ptr noundef nonnull %13) #8
   unreachable
 
-parse_protocol_version.exit:                      ; preds = %switch.lookup.i17, %switch.lookup.i, %12, %14
-  %.0.shrunk = phi i8 [ 2, %14 ], [ 2, %12 ], [ %switch.tableidx.i, %switch.lookup.i ], [ %switch.tableidx.i15, %switch.lookup.i17 ]
+parse_protocol_version.exit:                      ; preds = %switch.lookup.i17, %switch.lookup, %12, %14
+  %.0 = phi i8 [ 2, %14 ], [ 2, %12 ], [ %switch.tableidx.i, %switch.lookup.i ], [ %switch.tableidx.i15, %switch.lookup.i17 ]
   %.0 = zext nneg i8 %.0.shrunk to i32
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0
@@ -132,19 +132,19 @@ define dso_local range(i32 0, 3) i32 @determine_protocol_version_server() local_
 
 17:                                               ; preds = %11
   %18 = load i8, ptr %scevgep, align 1
-  %switch.tableidx.i = add i8 %18, -48
-  %19 = icmp ult i8 %switch.tableidx.i, 3
-  br i1 %19, label %switch.lookup.i, label %parse_protocol_version.exit
+  %switch.tableidx = add i8 %18, -48
+  %19 = icmp ult i8 %switch.tableidx, 3
+  br i1 %19, label %switch.lookup, label %parse_protocol_version.exit
 
-switch.lookup.i:                                  ; preds = %17
-  %switch.idx.cast.i = zext nneg i8 %switch.tableidx.i to i32
+switch.lookup:                                    ; preds = %17
+  %switch.idx.cast = zext nneg i8 %switch.tableidx to i32
   %20 = getelementptr i8, ptr %10, i64 9
   %21 = load i8, ptr %20, align 1
   %22 = icmp eq i8 %21, 0
-  %spec.select22.i = select i1 %22, i32 %switch.idx.cast.i, i32 -1
+  %spec.select22.i = select i1 %22, i32 %switch.idx.cast, i32 -1
   br label %parse_protocol_version.exit
 
-parse_protocol_version.exit:                      ; preds = %17, %switch.lookup.i
+parse_protocol_version.exit:                      ; preds = %17, %switch.lookup
   %.0.i = phi i32 [ -1, %17 ], [ %spec.select22.i, %switch.lookup.i ]
   %spec.select = call i32 @llvm.smax.i32(i32 %.0.i, i32 %.12228)
   br label %skip_prefix.exit
@@ -199,9 +199,9 @@ define dso_local range(i32 0, 3) i32 @determine_protocol_version_client(ptr noun
 
 8:                                                ; preds = %2
   %9 = load i8, ptr %scevgep, align 1
-  %switch.tableidx.i = add i8 %9, -48
+  %switch.tableidx = add i8 %9, -48
   %10 = icmp ult i8 %switch.tableidx.i, 3
-  br i1 %10, label %switch.lookup.i, label %parse_protocol_version.exit.thread
+  br i1 %10, label %switch.lookup, label %parse_protocol_version.exit.thread
 
 switch.lookup.i:                                  ; preds = %8
   %11 = getelementptr i8, ptr %0, i64 9
@@ -209,21 +209,21 @@ switch.lookup.i:                                  ; preds = %8
   %13 = icmp eq i8 %12, 0
   br i1 %13, label %parse_protocol_version.exit, label %parse_protocol_version.exit.thread
 
-parse_protocol_version.exit:                      ; preds = %switch.lookup.i
-  %switch.idx.cast.i = zext nneg i8 %switch.tableidx.i to i32
-  %cond = icmp eq i8 %switch.tableidx.i, 0
+parse_protocol_version.exit:; preds = %switch.lookup.i
+  %switch.idx.cast = zext nneg i8 %switch.tableidx to i32
+  %cond = icmp eq i8 %switch.tableidx, 0
   br i1 %cond, label %14, label %skip_prefix.exit
 
 parse_protocol_version.exit.thread:               ; preds = %switch.lookup.i, %8
   tail call void (ptr, ...) @die(ptr noundef nonnull @.str.10) #8
   unreachable
 
-14:                                               ; preds = %parse_protocol_version.exit
+16:                                               ; preds = %parse_protocol_version.exit
   tail call void (ptr, ...) @die(ptr noundef nonnull @.str.11) #8
   unreachable
 
 skip_prefix.exit:                                 ; preds = %3, %parse_protocol_version.exit
-  %.0 = phi i32 [ %switch.idx.cast.i, %parse_protocol_version.exit ], [ 0, %3 ]
+  %.0 = phi i32 [ %switch.idx.cast, %parse_protocol_version.exit ], [ 0, %3 ]
   ret i32 %.0
 }
 

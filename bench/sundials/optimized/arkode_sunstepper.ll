@@ -170,16 +170,16 @@ define internal range(i32 -9990, 1) i32 @arkSUNStepperFullRhs(ptr noundef %0, do
   %7 = call i32 @SUNStepper_GetContent(ptr noundef %0, ptr noundef nonnull %6) #3
   %8 = load ptr, ptr %6, align 8, !tbaa !20
   %9 = icmp ult i32 %4, 3
-  %. = select i1 %9, i32 %4, i32 -1
+  %.12 = select i1 %9, i32 %4, i32 -1
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 152
   %11 = load ptr, ptr %10, align 8, !tbaa !24
-  %12 = call i32 %11(ptr noundef %8, double noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %.) #3
+  %12 = call i32 %11(ptr noundef %8, double noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %.12) #3
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %12, ptr %13, align 8, !tbaa !21
   %.not = icmp eq i32 %12, 0
-  %.011 = select i1 %.not, i32 0, i32 -9990
+  %. = select i1 %.not, i32 0, i32 -9990
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  ret i32 %.011
+  ret i32 %.
 }
 
 declare i32 @SUNStepper_SetResetFn(ptr noundef, ptr noundef) local_unnamed_addr #1
