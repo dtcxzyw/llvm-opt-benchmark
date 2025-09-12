@@ -2918,7 +2918,7 @@ define hidden void @_ZN15crossbeam_utils6thread5scope17h6f3294369807cee0E(ptr de
   %97 = extractvalue { i64, i1 } %96, 1
   %98 = add nuw i64 %93, %.sroa.0.0.i.i11.i.i.i.i
   %not..i.i12.i.i.i.i = xor i1 %97, true
-  %spec.select5.i.i13.i.i.i.i = select i1 %97, i64 undef, i64 %98
+  %spec.select5.i.i13.i.i.i.i = select i1 %97, i64 undef, i64 %98, !prof !13
   %narrow.i.i14.i.i.i.i = select i1 %95, i1 %not..i.i12.i.i.i.i, i1 false
   %.sroa.03.0.i.i15.i.i.i.i = zext i1 %narrow.i.i14.i.i.i.i to i64
   %.sroa.6.0.i.i16.i.i.i.i = select i1 %95, i64 %spec.select5.i.i13.i.i.i.i, i64 undef
@@ -14955,7 +14955,7 @@ define hidden void @"_ZN72_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..traits..iter
   %20 = extractvalue { i64, i1 } %19, 1
   %21 = add nuw i64 %16, %.sroa.0.0.i
   %not..i = xor i1 %20, true
-  %spec.select5.i = select i1 %20, i64 undef, i64 %21
+  %spec.select5.i = select i1 %20, i64 undef, i64 %21, !prof !13
   %narrow.i = select i1 %18, i1 %not..i, i1 false
   %.sroa.03.0.i = zext i1 %narrow.i to i64
   %.sroa.6.0.i = select i1 %18, i64 %spec.select5.i, i64 undef

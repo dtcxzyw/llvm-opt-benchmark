@@ -2574,7 +2574,7 @@ define internal fastcc void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A
   %41 = extractvalue { i64, i1 } %40, 1
   %42 = add nuw i64 %38, %spec.select23
   %not. = xor i1 %41, true
-  %spec.select8 = select i1 %41, i64 undef, i64 %42
+  %spec.select8 = select i1 %41, i64 undef, i64 %42, !prof !49
   %narrow = select i1 %or.cond.not.not, i1 %not., i1 false
   %.sroa.04.0 = zext i1 %narrow to i64
   %.sroa.6.0 = select i1 %or.cond.not.not, i64 %spec.select8, i64 undef
@@ -2737,7 +2737,7 @@ define internal fastcc void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A
   %49 = extractvalue { i64, i1 } %48, 1
   %50 = add nuw i64 %46, %40
   %not..i = xor i1 %49, true
-  %spec.select8.i = select i1 %49, i64 undef, i64 %50
+  %spec.select8.i = select i1 %49, i64 undef, i64 %50, !prof !49
   %narrow.i = select i1 %or.cond.not.i, i1 %not..i, i1 false
   %.sroa.6.0.i = select i1 %or.cond.not.i, i64 %spec.select8.i, i64 undef
   br label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h212b4dd1cac72f75E.exit"
@@ -2770,7 +2770,7 @@ define internal fastcc void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A
   %63 = extractvalue { i64, i1 } %62, 1
   %64 = add nuw i64 %60, %53
   %not. = xor i1 %63, true
-  %spec.select8 = select i1 %63, i64 undef, i64 %64
+  %spec.select8 = select i1 %63, i64 undef, i64 %64, !prof !49
   %narrow = select i1 %or.cond.not, i1 %not., i1 false
   %.sroa.04.0 = zext i1 %narrow to i64
   store i64 %61, ptr %0, align 8
@@ -2840,7 +2840,7 @@ define internal fastcc void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A
   %97 = extractvalue { i64, i1 } %96, 1
   %98 = add nuw i64 %94, %88
   %not..i17 = xor i1 %97, true
-  %spec.select8.i18 = select i1 %97, i64 undef, i64 %98
+  %spec.select8.i18 = select i1 %97, i64 undef, i64 %98, !prof !49
   %narrow.i19 = select i1 %or.cond.not.i16, i1 %not..i17, i1 false
   %.sroa.04.0.i20 = zext i1 %narrow.i19 to i64
   %.sroa.6.0.i21 = select i1 %or.cond.not.i16, i64 %spec.select8.i18, i64 undef
@@ -2990,7 +2990,7 @@ define internal fastcc void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A
   %62 = extractvalue { i64, i1 } %61, 1
   %63 = add nuw i64 %59, %spec.select31.i
   %not..i = xor i1 %62, true
-  %spec.select8.i = select i1 %62, i64 undef, i64 %63
+  %spec.select8.i = select i1 %62, i64 undef, i64 %63, !prof !49
   %narrow.i = select i1 %.sroa.054.0.i.i.not.not.i, i1 %not..i, i1 false
   %.sroa.04.0.i = zext i1 %narrow.i to i64
   %.sroa.6.0.i = select i1 %.sroa.054.0.i.i.not.not.i, i64 %spec.select8.i, i64 undef
@@ -3073,7 +3073,7 @@ define internal fastcc void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A
   %95 = extractvalue { i64, i1 } %94, 1
   %96 = add nuw i64 %92, %.sroa.12.0..sroa.12.0..sroa.12.0..sroa.12.16.
   %not. = xor i1 %95, true
-  %spec.select8 = select i1 %95, i64 undef, i64 %96
+  %spec.select8 = select i1 %95, i64 undef, i64 %96, !prof !49
   %narrow = select i1 %or.cond.not, i1 %not., i1 false
   %.sroa.04.0 = zext i1 %narrow to i64
   %.sroa.6.0 = select i1 %or.cond.not, i64 %spec.select8, i64 undef
@@ -3174,7 +3174,7 @@ define internal fastcc void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A
   %143 = extractvalue { i64, i1 } %142, 1
   %144 = add nuw i64 %140, %spec.select31.i27
   %not..i30 = xor i1 %143, true
-  %spec.select8.i31 = select i1 %143, i64 undef, i64 %144
+  %spec.select8.i31 = select i1 %143, i64 undef, i64 %144, !prof !49
   %narrow.i32 = select i1 %.sroa.054.0.i.i.not.not.i26, i1 %not..i30, i1 false
   %.sroa.04.0.i33 = zext i1 %narrow.i32 to i64
   %.sroa.6.0.i34 = select i1 %.sroa.054.0.i.i.not.not.i26, i64 %spec.select8.i31, i64 undef
@@ -3314,7 +3314,7 @@ define internal fastcc void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A
   %34 = extractvalue { i64, i1 } %33, 1
   %35 = add nuw i64 %29, %31
   %not..i = xor i1 %34, true
-  %spec.select8.i = select i1 %34, i64 undef, i64 %35
+  %spec.select8.i = select i1 %34, i64 undef, i64 %35, !prof !49
   %narrow.i = select i1 %or.cond.not.i, i1 %not..i, i1 false
   %.sroa.04.0.i = zext i1 %narrow.i to i64
   %.sroa.6.0.i = select i1 %or.cond.not.i, i64 %spec.select8.i, i64 undef
@@ -3349,7 +3349,7 @@ define internal fastcc void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A
   %48 = extractvalue { i64, i1 } %47, 1
   %49 = add nuw i64 %44, %37
   %not. = xor i1 %48, true
-  %spec.select8 = select i1 %48, i64 undef, i64 %49
+  %spec.select8 = select i1 %48, i64 undef, i64 %49, !prof !49
   %narrow = select i1 %or.cond.not, i1 %not., i1 false
   %.sroa.04.0 = zext i1 %narrow to i64
   %.sroa.6.0 = select i1 %or.cond.not, i64 %spec.select8, i64 undef
@@ -3408,7 +3408,7 @@ define internal fastcc void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A
   %74 = extractvalue { i64, i1 } %73, 1
   %75 = add nuw i64 %69, %71
   %not..i13 = xor i1 %74, true
-  %spec.select8.i14 = select i1 %74, i64 undef, i64 %75
+  %spec.select8.i14 = select i1 %74, i64 undef, i64 %75, !prof !49
   %narrow.i15 = select i1 %or.cond.not.i12, i1 %not..i13, i1 false
   %.sroa.04.0.i16 = zext i1 %narrow.i15 to i64
   %.sroa.6.0.i17 = select i1 %or.cond.not.i12, i64 %spec.select8.i14, i64 undef
@@ -3497,7 +3497,7 @@ define internal fastcc void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A
   %31 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %5, i64 %.val15.i)
   %32 = extractvalue { i64, i1 } %31, 1
   %33 = add nuw i64 %.val15.i, %5
-  %spec.select8.i.i = select i1 %32, i64 undef, i64 %33
+  %spec.select8.i.i = select i1 %32, i64 undef, i64 %33, !prof !49
   br label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h9274245875cf82d7E.exit.i"
 
 "_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h9274245875cf82d7E.exit.i": ; preds = %29, %28, %27
@@ -3557,7 +3557,7 @@ define internal fastcc void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A
   %58 = add nuw i64 %.val15.i, %5
   %not..i18.i = xor i1 %57, true
   %spec.select.i19.i = zext i1 %not..i18.i to i64
-  %spec.select8.i20.i = select i1 %57, i64 undef, i64 %58
+  %spec.select8.i20.i = select i1 %57, i64 undef, i64 %58, !prof !49
   store i64 %55, ptr %0, align 8, !alias.scope !1160, !noalias !1150
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %spec.select.i19.i, ptr %59, align 8, !alias.scope !1160, !noalias !1150
@@ -3627,7 +3627,7 @@ define internal fastcc void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A
   %85 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %5, i64 %.val15.i12)
   %86 = extractvalue { i64, i1 } %85, 1
   %87 = add nuw i64 %.val15.i12, %5
-  %spec.select8.i.i15 = select i1 %86, i64 undef, i64 %87
+  %spec.select8.i.i15 = select i1 %86, i64 undef, i64 %87, !prof !49
   br label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h9274245875cf82d7E.exit.i16"
 
 "_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h9274245875cf82d7E.exit.i16": ; preds = %83, %82, %81
@@ -3665,7 +3665,7 @@ define internal fastcc void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A
   %104 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %5, i64 %.val15.i12)
   %105 = extractvalue { i64, i1 } %104, 1
   %106 = add nuw i64 %.val15.i12, %5
-  %spec.select8.i20.i28 = select i1 %105, i64 undef, i64 %106
+  %spec.select8.i20.i28 = select i1 %105, i64 undef, i64 %106, !prof !49
   br label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h90535bf8ae07a468E.exit31"
 
 "_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h90535bf8ae07a468E.exit31": ; preds = %101, %100, %72, %73, %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h9274245875cf82d7E.exit.i16", %102
@@ -87733,7 +87733,7 @@ define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..s
   %29 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %13, i64 %.val13.i.i)
   %30 = extractvalue { i64, i1 } %29, 1
   %31 = add nuw i64 %.val13.i.i, %13
-  %spec.select8.i18.i.i = select i1 %30, i64 undef, i64 %31
+  %spec.select8.i18.i.i = select i1 %30, i64 undef, i64 %31, !prof !49
   br label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h9c31bd4a30a5f22fE.exit.i"
 
 "_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h9c31bd4a30a5f22fE.exit.i": ; preds = %28, %27, %26
@@ -87847,7 +87847,7 @@ define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..s
   %71 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %55, i64 %.val13.i.i.i.i)
   %72 = extractvalue { i64, i1 } %71, 1
   %73 = add nuw i64 %.val13.i.i.i.i, %55
-  %spec.select8.i18.i.i.i.i = select i1 %72, i64 undef, i64 %73
+  %spec.select8.i18.i.i.i.i = select i1 %72, i64 undef, i64 %73, !prof !49
   br label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h9c31bd4a30a5f22fE.exit.i.i.i"
 
 "_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h9c31bd4a30a5f22fE.exit.i.i.i": ; preds = %70, %69, %68
@@ -100406,7 +100406,7 @@ define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..s
   %29 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %13, i64 %.val13.i.i)
   %30 = extractvalue { i64, i1 } %29, 1
   %31 = add nuw i64 %.val13.i.i, %13
-  %spec.select8.i18.i.i = select i1 %30, i64 undef, i64 %31
+  %spec.select8.i18.i.i = select i1 %30, i64 undef, i64 %31, !prof !49
   br label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h6a7a59b1695da775E.exit.i"
 
 "_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h6a7a59b1695da775E.exit.i": ; preds = %28, %27, %26
@@ -100520,7 +100520,7 @@ define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..s
   %71 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %55, i64 %.val13.i.i.i.i)
   %72 = extractvalue { i64, i1 } %71, 1
   %73 = add nuw i64 %.val13.i.i.i.i, %55
-  %spec.select8.i18.i.i.i.i = select i1 %72, i64 undef, i64 %73
+  %spec.select8.i18.i.i.i.i = select i1 %72, i64 undef, i64 %73, !prof !49
   br label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h6a7a59b1695da775E.exit.i.i.i"
 
 "_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h6a7a59b1695da775E.exit.i.i.i": ; preds = %70, %69, %68

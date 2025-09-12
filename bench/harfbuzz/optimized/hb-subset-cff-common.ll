@@ -259,7 +259,7 @@ _ZNK14hb_sparseset_tI23hb_bit_set_invertible_tE14get_populationEv.exit: ; preds 
   %81 = getelementptr inbounds nuw i8, ptr %.sroa.097.0120, i64 8
   %.pre148 = and i64 %80, 4294967295
   %82 = icmp eq i64 %.pre148, 0
-  %83 = select i1 %82, ptr @_hb_NullPool, ptr %81
+  %83 = select i1 %82, ptr @_hb_NullPool, ptr %81, !prof !71
   br label %_ZNR9hb_iter_tI17hb_sorted_array_tIK9hb_pair_tIjjEERS3_EppEv.exit
 
 _ZNR9hb_iter_tI17hb_sorted_array_tIK9hb_pair_tIjjEERS3_EppEv.exit: ; preds = %77, %79

@@ -2623,7 +2623,7 @@ define internal void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT
   %26 = extractvalue { i64, i1 } %25, 1
   %27 = add nuw i64 %23, %11
   %not. = xor i1 %26, true
-  %spec.select7 = select i1 %26, i64 undef, i64 %27
+  %spec.select7 = select i1 %26, i64 undef, i64 %27, !prof !17
   %narrow = select i1 %or.cond.not, i1 %not., i1 false
   %.sroa.04.0 = zext i1 %narrow to i64
   %.sroa.6.0 = select i1 %or.cond.not, i64 %spec.select7, i64 undef

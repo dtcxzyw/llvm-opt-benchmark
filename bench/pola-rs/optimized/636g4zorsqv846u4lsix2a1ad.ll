@@ -18385,7 +18385,7 @@ define internal fastcc void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A
   %47 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %43, i64 %45)
   %48 = extractvalue { i64, i1 } %47, 1
   %49 = add nuw i64 %43, %45
-  %spec.select6.i.i = select i1 %48, i64 undef, i64 %49
+  %spec.select6.i.i = select i1 %48, i64 undef, i64 %49, !prof !14
   br label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hec163d83bb58a873E.exit.i"
 
 50:                                               ; preds = %31
@@ -18448,7 +18448,7 @@ define internal fastcc void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A
   %83 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %79, i64 %81)
   %84 = extractvalue { i64, i1 } %83, 1
   %85 = add nuw i64 %79, %81
-  %spec.select6.i22.i = select i1 %84, i64 undef, i64 %85
+  %spec.select6.i22.i = select i1 %84, i64 undef, i64 %85, !prof !14
   br label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h204b1d827fef1112E.exit"
 
 86:                                               ; preds = %67
@@ -18536,7 +18536,7 @@ define internal fastcc void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A
   %130 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %126, i64 %128)
   %131 = extractvalue { i64, i1 } %130, 1
   %132 = add nuw i64 %126, %128
-  %spec.select6.i.i28 = select i1 %131, i64 undef, i64 %132
+  %spec.select6.i.i28 = select i1 %131, i64 undef, i64 %132, !prof !14
   br label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hec163d83bb58a873E.exit.i14"
 
 133:                                              ; preds = %114
@@ -18601,7 +18601,7 @@ define internal fastcc void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A
   %167 = extractvalue { i64, i1 } %166, 1
   %168 = add nuw i64 %162, %164
   %not..i20.i36 = xor i1 %167, true
-  %spec.select6.i22.i37 = select i1 %167, i64 undef, i64 %168
+  %spec.select6.i22.i37 = select i1 %167, i64 undef, i64 %168, !prof !14
   br label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h204b1d827fef1112E.exit41"
 
 169:                                              ; preds = %150

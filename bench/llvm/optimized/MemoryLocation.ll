@@ -782,7 +782,7 @@ _ZN4llvm12LocationSize10upperBoundENS_8TypeSizeE.exit: ; preds = %_ZN4llvm8dyn_c
   %119 = trunc i8 %.fca.1.extract.i.i to i1
   %120 = icmp ult i64 %117, 8
   %121 = or disjoint i64 %118, -9223372036854775808
-  %.sroa.0.0.i.i = select i1 %120, i64 0, i64 %121
+  %.sroa.0.0.i.i = select i1 %120, i64 0, i64 %121, !prof !89
   %.sroa.0.0.i = select i1 %119, i64 -4611686018427387906, i64 %.sroa.0.0.i.i
   store ptr %15, ptr %0, align 8, !tbaa !28
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -808,7 +808,7 @@ _ZN4llvm12LocationSize10upperBoundENS_8TypeSizeE.exit192: ; preds = %_ZN4llvm8dy
   %135 = trunc i8 %.fca.1.extract.i.i186 to i1
   %136 = icmp ult i64 %133, 8
   %137 = or disjoint i64 %134, -9223372036854775808
-  %.sroa.0.0.i.i190 = select i1 %136, i64 0, i64 %137
+  %.sroa.0.0.i.i190 = select i1 %136, i64 0, i64 %137, !prof !89
   %.sroa.0.0.i191 = select i1 %135, i64 -4611686018427387906, i64 %.sroa.0.0.i.i190
   store ptr %15, ptr %0, align 8, !tbaa !28
   %138 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -940,12 +940,12 @@ _ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i: ; preds = %
   br i1 %208, label %_ZNK4llvm17TargetLibraryInfo10getLibFuncERKNS_8CallBaseERNS_7LibFuncE.exit, label %_ZNK4llvm17TargetLibraryInfo10getLibFuncERKNS_8CallBaseERNS_7LibFuncE.exit.thread
 
 _ZNK4llvm17TargetLibraryInfo10getLibFuncERKNS_8CallBaseERNS_7LibFuncE.exit: ; preds = %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i
-  %209 = load ptr, ptr %3, align 8, !tbaa !89
+  %209 = load ptr, ptr %3, align 8, !tbaa !90
   %210 = call noundef zeroext i1 @_ZNK4llvm21TargetLibraryInfoImpl10getLibFuncERKNS_8FunctionERNS_7LibFuncE(ptr noundef nonnull align 8 dereferenceable(216) %209, ptr noundef nonnull align 8 dereferenceable(136) %200, ptr noundef nonnull align 4 dereferenceable(4) %6) #7
   br i1 %210, label %211, label %_ZNK4llvm17TargetLibraryInfo10getLibFuncERKNS_8CallBaseERNS_7LibFuncE.exit.thread
 
 211:                                              ; preds = %_ZNK4llvm17TargetLibraryInfo10getLibFuncERKNS_8CallBaseERNS_7LibFuncE.exit
-  %212 = load i32, ptr %6, align 4, !tbaa !94
+  %212 = load i32, ptr %6, align 4, !tbaa !95
   %213 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %214 = zext i32 %212 to i64
   %215 = lshr i64 %214, 6
@@ -958,7 +958,7 @@ _ZNK4llvm17TargetLibraryInfo10getLibFuncERKNS_8CallBaseERNS_7LibFuncE.exit: ; pr
   br i1 %.not.i.i203, label %_ZNK4llvm17TargetLibraryInfo3hasENS_7LibFuncE.exit, label %_ZNK4llvm17TargetLibraryInfo10getLibFuncERKNS_8CallBaseERNS_7LibFuncE.exit.thread
 
 _ZNK4llvm17TargetLibraryInfo3hasENS_7LibFuncE.exit: ; preds = %211
-  %221 = load ptr, ptr %3, align 8, !tbaa !89
+  %221 = load ptr, ptr %3, align 8, !tbaa !90
   %222 = lshr i32 %212, 2
   %223 = zext nneg i32 %222 to i64
   %224 = getelementptr inbounds nuw i8, ptr %221, i64 %223
@@ -1011,8 +1011,8 @@ _ZNK4llvm17TargetLibraryInfo3hasENS_7LibFuncE.exit: ; preds = %211
   %247 = icmp eq i64 %.0.i.i207, 0
   %248 = icmp ugt i64 %.0.i.i207, 4611686018427387899
   %249 = or disjoint i64 %.0.i.i207, -9223372036854775808
-  %spec.select.i = select i1 %248, i64 -4611686018427387906, i64 %249
-  %.sroa.0.0.i208 = select i1 %247, i64 0, i64 %spec.select.i, !prof !96
+  %spec.select.i = select i1 %248, i64 -4611686018427387906, i64 %249, !prof !89
+  %.sroa.0.0.i208 = select i1 %247, i64 0, i64 %spec.select.i, !prof !89
   br label %.critedge168
 
 250:                                              ; preds = %231
@@ -1047,8 +1047,8 @@ _ZNK4llvm17TargetLibraryInfo3hasENS_7LibFuncE.exit: ; preds = %211
   %270 = icmp eq i64 %.0.i.i211, 0
   %271 = icmp ugt i64 %.0.i.i211, 4611686018427387899
   %272 = or disjoint i64 %.0.i.i211, -9223372036854775808
-  %spec.select.i214 = select i1 %271, i64 -4611686018427387906, i64 %272
-  %.sroa.0.0.i215 = select i1 %270, i64 0, i64 %spec.select.i214, !prof !96
+  %spec.select.i214 = select i1 %271, i64 -4611686018427387906, i64 %272, !prof !89
+  %.sroa.0.0.i215 = select i1 %270, i64 0, i64 %spec.select.i214, !prof !89
   br label %.critedge168
 
 273:                                              ; preds = %231, %231, %231
@@ -1157,8 +1157,8 @@ _ZNK4llvm17TargetLibraryInfo3hasENS_7LibFuncE.exit: ; preds = %211
   %342 = icmp eq i64 %.0.i.i227, 0
   %343 = icmp ugt i64 %.0.i.i227, 4611686018427387899
   %344 = or disjoint i64 %.0.i.i227, -9223372036854775808
-  %spec.select.i228 = select i1 %343, i64 -4611686018427387906, i64 %344
-  %.sroa.0.0.i229 = select i1 %342, i64 0, i64 %spec.select.i228, !prof !96
+  %spec.select.i228 = select i1 %343, i64 -4611686018427387906, i64 %344, !prof !89
+  %.sroa.0.0.i229 = select i1 %342, i64 0, i64 %spec.select.i228, !prof !89
   br label %.critedge168
 
 _ZNK4llvm17TargetLibraryInfo10getLibFuncERKNS_8CallBaseERNS_7LibFuncE.exit.thread: ; preds = %211, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i, %_ZNK4llvm8CallBase11isNoBuiltinEv.exit.thread.i, %201, %_ZNK4llvm8CallBase11isNoBuiltinEv.exit.i, %231, %_ZNK4llvm17TargetLibraryInfo3hasENS_7LibFuncE.exit, %_ZNK4llvm17TargetLibraryInfo10getLibFuncERKNS_8CallBaseERNS_7LibFuncE.exit, %.critedge166
@@ -1780,14 +1780,14 @@ attributes #7 = { nounwind }
 !86 = !{!87}
 !87 = distinct !{!87, !88, !"_ZN4llvm14MemoryLocation8getAfterEPKNS_5ValueERKNS_9AAMDNodesE: argument 0"}
 !88 = distinct !{!88, !"_ZN4llvm14MemoryLocation8getAfterEPKNS_5ValueERKNS_9AAMDNodesE"}
-!89 = !{!90, !91, i64 0}
-!90 = !{!"_ZTSN4llvm17TargetLibraryInfoE", !91, i64 0, !92, i64 8}
-!91 = !{!"p1 _ZTSN4llvm21TargetLibraryInfoImplE", !9, i64 0}
-!92 = !{!"_ZTSSt6bitsetILm523EE", !93, i64 0}
-!93 = !{!"_ZTSSt12_Base_bitsetILm9EE", !6, i64 0}
-!94 = !{!95, !95, i64 0}
-!95 = !{!"_ZTSN4llvm7LibFuncE", !6, i64 0}
-!96 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!89 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!90 = !{!91, !92, i64 0}
+!91 = !{!"_ZTSN4llvm17TargetLibraryInfoE", !92, i64 0, !93, i64 8}
+!92 = !{!"p1 _ZTSN4llvm21TargetLibraryInfoImplE", !9, i64 0}
+!93 = !{!"_ZTSSt6bitsetILm523EE", !94, i64 0}
+!94 = !{!"_ZTSSt12_Base_bitsetILm9EE", !6, i64 0}
+!95 = !{!96, !96, i64 0}
+!96 = !{!"_ZTSN4llvm7LibFuncE", !6, i64 0}
 !97 = distinct !{!97, !98}
 !98 = !{!"llvm.loop.mustprogress"}
 !99 = !{!100, !101, i64 0}

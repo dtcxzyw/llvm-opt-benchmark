@@ -22677,7 +22677,7 @@ _ZN3std2io19default_read_to_end16small_probe_read17h177e0bdad009a706E.exit84._cr
   %or.cond2 = and i1 %117, %116
   %118 = shl i64 %spec.select, 1
   %.inv = icmp sgt i64 %spec.select, -1
-  %.sroa.048.0 = select i1 %.inv, i64 %118, i64 -1
+  %.sroa.048.0 = select i1 %.inv, i64 %118, i64 -1, !prof !2941
   %.sroa.08.4.ph.be = select i1 %or.cond2, i64 %.sroa.048.0, i64 %spec.select
   br label %.outer
 
@@ -22976,7 +22976,7 @@ default.unreachable:                              ; preds = %86
   %or.cond2 = and i1 %118, %117
   %119 = shl i64 %.sroa.08.6, 1
   %.inv = icmp sgt i64 %.sroa.08.6, -1
-  %.sroa.048.0 = select i1 %.inv, i64 %119, i64 -1
+  %.sroa.048.0 = select i1 %.inv, i64 %119, i64 -1, !prof !2941
   %.sroa.08.5 = select i1 %or.cond2, i64 %.sroa.048.0, i64 %.sroa.08.6
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %28
@@ -23307,7 +23307,7 @@ _ZN3std2io19default_read_to_end16small_probe_read17hb89c4a464714d2c0E.exit85._cr
   %or.cond2 = and i1 %117, %116
   %118 = shl i64 %spec.select, 1
   %.inv = icmp sgt i64 %spec.select, -1
-  %.sroa.048.0 = select i1 %.inv, i64 %118, i64 -1
+  %.sroa.048.0 = select i1 %.inv, i64 %118, i64 -1, !prof !2941
   %.sroa.08.4.ph.be = select i1 %or.cond2, i64 %.sroa.048.0, i64 %spec.select
   br label %.outer
 

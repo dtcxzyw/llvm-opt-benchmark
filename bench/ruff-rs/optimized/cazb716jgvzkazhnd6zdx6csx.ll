@@ -13322,7 +13322,7 @@ define hidden void @"_ZN117_$LT$itertools..adaptors..coalesce..CoalesceBy$LT$I$C
   %9 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %5, i64 %8)
   %10 = extractvalue { i64, i1 } %9, 1
   %11 = add nuw i64 %5, %8
-  %spec.select = select i1 %10, i64 undef, i64 %11
+  %spec.select = select i1 %10, i64 undef, i64 %11, !prof !1909
   %not. = xor i1 %10, true
   %spec.select6 = zext i1 %not. to i64
   %12 = or i64 %5, %8

@@ -16094,7 +16094,7 @@ _ZN3std2io19default_read_to_end16small_probe_read17h80d93b2b81c3c256E.exit84._cr
   %or.cond2 = and i1 %107, %106
   %108 = shl i64 %spec.select, 1
   %.inv = icmp sgt i64 %spec.select, -1
-  %.sroa.048.0 = select i1 %.inv, i64 %108, i64 -1
+  %.sroa.048.0 = select i1 %.inv, i64 %108, i64 -1, !prof !120
   %.sroa.08.4.ph.be = select i1 %or.cond2, i64 %.sroa.048.0, i64 %spec.select
   br label %.outer
 

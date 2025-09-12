@@ -2498,7 +2498,7 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
   %140 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %.sroa.7.1.i.i14, i64 %.sroa.8.1.i.i19)
   %141 = extractvalue { i64, i1 } %140, 1
   %142 = add nuw i64 %.sroa.8.1.i.i19, %.sroa.7.1.i.i14
-  %.sroa.531.0.i.i33 = select i1 %141, i64 undef, i64 %142
+  %.sroa.531.0.i.i33 = select i1 %141, i64 undef, i64 %142, !prof !251
   %143 = xor i1 %141, true
   %.sroa.655.0 = select i1 %or.cond48.i.i29, i64 %.sroa.531.0.i.i33, i64 undef
   %.sink.i.i30 = select i1 %or.cond48.i.i29, i1 %143, i1 false
@@ -2508,7 +2508,7 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
   %147 = extractvalue { i64, i1 } %146, 1
   %148 = add nuw i64 %.sroa.655.0, %15
   %not. = xor i1 %147, true
-  %spec.select8 = select i1 %147, i64 undef, i64 %148
+  %spec.select8 = select i1 %147, i64 undef, i64 %148, !prof !251
   %narrow = select i1 %.sink.i.i30, i1 %not., i1 false
   %.sroa.03.0 = zext i1 %narrow to i64
   %.sroa.6.0 = select i1 %.sink.i.i30, i64 %spec.select8, i64 undef
@@ -2818,7 +2818,7 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
   %140 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %.sroa.7.1.i.i14, i64 %.sroa.8.1.i.i19)
   %141 = extractvalue { i64, i1 } %140, 1
   %142 = add nuw i64 %.sroa.8.1.i.i19, %.sroa.7.1.i.i14
-  %.sroa.531.0.i.i33 = select i1 %141, i64 undef, i64 %142
+  %.sroa.531.0.i.i33 = select i1 %141, i64 undef, i64 %142, !prof !251
   %143 = xor i1 %141, true
   %.sroa.655.0 = select i1 %or.cond48.i.i29, i64 %.sroa.531.0.i.i33, i64 undef
   %.sink.i.i30 = select i1 %or.cond48.i.i29, i1 %143, i1 false
@@ -2828,7 +2828,7 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
   %147 = extractvalue { i64, i1 } %146, 1
   %148 = add nuw i64 %.sroa.655.0, %15
   %not. = xor i1 %147, true
-  %spec.select8 = select i1 %147, i64 undef, i64 %148
+  %spec.select8 = select i1 %147, i64 undef, i64 %148, !prof !251
   %narrow = select i1 %.sink.i.i30, i1 %not., i1 false
   %.sroa.03.0 = zext i1 %narrow to i64
   %.sroa.6.0 = select i1 %.sink.i.i30, i64 %spec.select8, i64 undef

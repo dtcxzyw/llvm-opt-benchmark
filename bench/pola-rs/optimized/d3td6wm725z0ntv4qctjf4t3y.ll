@@ -26293,7 +26293,7 @@ _ZN3std2io19default_read_to_end16small_probe_read17h00e97e8c9fd88443E.exit81._cr
   %or.cond2.i = and i1 %116, %115
   %117 = shl i64 %.sroa.08.6.i, 1
   %.inv.i = icmp sgt i64 %.sroa.08.6.i, -1
-  %.sroa.048.0.i = select i1 %.inv.i, i64 %117, i64 -1
+  %.sroa.048.0.i = select i1 %.inv.i, i64 %117, i64 -1, !prof !1487
   %.sroa.08.5.i = select i1 %or.cond2.i, i64 %.sroa.048.0.i, i64 %.sroa.08.6.i
   br label %65
 
@@ -38834,7 +38834,7 @@ _ZN3std2io19default_read_to_end16small_probe_read17h2d55a334fb2a6279E.exit82._cr
   %or.cond2 = and i1 %115, %114
   %116 = shl i64 %spec.select, 1
   %.inv = icmp sgt i64 %spec.select, -1
-  %.sroa.048.0 = select i1 %.inv, i64 %116, i64 -1
+  %.sroa.048.0 = select i1 %.inv, i64 %116, i64 -1, !prof !1487
   %.sroa.08.4.ph.be = select i1 %or.cond2, i64 %.sroa.048.0, i64 %spec.select
   br label %.outer
 
@@ -39153,7 +39153,7 @@ _ZN3std2io19default_read_to_end16small_probe_read17h9935ce8825256a0eE.exit84._cr
   %or.cond2 = and i1 %113, %112
   %114 = shl i64 %spec.select, 1
   %.inv = icmp sgt i64 %spec.select, -1
-  %.sroa.048.0 = select i1 %.inv, i64 %114, i64 -1
+  %.sroa.048.0 = select i1 %.inv, i64 %114, i64 -1, !prof !1487
   %.sroa.08.4.ph.be = select i1 %or.cond2, i64 %.sroa.048.0, i64 %spec.select
   br label %.outer
 
@@ -39466,7 +39466,7 @@ _ZN3std2io19default_read_to_end16small_probe_read17h7d33fe164925e93eE.exit84._cr
   %or.cond2 = and i1 %107, %106
   %108 = shl i64 %spec.select, 1
   %.inv = icmp sgt i64 %spec.select, -1
-  %.sroa.048.0 = select i1 %.inv, i64 %108, i64 -1
+  %.sroa.048.0 = select i1 %.inv, i64 %108, i64 -1, !prof !1487
   %.sroa.08.4.ph.be = select i1 %or.cond2, i64 %.sroa.048.0, i64 %spec.select
   br label %.outer
 
@@ -50295,7 +50295,7 @@ _ZN3std2io19default_read_to_end16small_probe_read17h28bf166c17ca5dfbE.exit85._cr
   %or.cond2.i = and i1 %89, %88
   %90 = shl i64 %.sroa.08.6.i, 1
   %.inv.i = icmp sgt i64 %.sroa.08.6.i, -1
-  %.sroa.048.0.i = select i1 %.inv.i, i64 %90, i64 -1
+  %.sroa.048.0.i = select i1 %.inv.i, i64 %90, i64 -1, !prof !1487
   %.sroa.08.5.i = select i1 %or.cond2.i, i64 %.sroa.048.0.i, i64 %.sroa.08.6.i
   br label %25
 

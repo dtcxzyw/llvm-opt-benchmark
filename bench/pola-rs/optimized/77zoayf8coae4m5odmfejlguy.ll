@@ -34758,7 +34758,7 @@ define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..s
   %35 = add nuw i64 %32, %spec.select.i.i16.i.i
   %not..i.i = xor i1 %34, true
   %spec.select.i.i = zext i1 %not..i.i to i64
-  %spec.select8.i.i = select i1 %34, i64 undef, i64 %35
+  %spec.select8.i.i = select i1 %34, i64 undef, i64 %35, !prof !14
   store i64 %spec.select.i.i, ptr %.sroa.6.i, align 8, !alias.scope !6332, !noalias !6349
   br label %37
 
@@ -34880,7 +34880,7 @@ define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..s
   %81 = add nuw i64 %78, %spec.select.i.i16.i.i.i.i
   %not..i.i.i.i = xor i1 %80, true
   %spec.select.i.i.i.i = zext i1 %not..i.i.i.i to i64
-  %spec.select8.i.i.i.i = select i1 %80, i64 undef, i64 %81
+  %spec.select8.i.i.i.i = select i1 %80, i64 undef, i64 %81, !prof !14
   store i64 %spec.select.i.i.i.i, ptr %.sroa.6.i.i.i, align 8, !alias.scope !6370, !noalias !6389
   br label %83
 

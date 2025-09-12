@@ -2144,7 +2144,7 @@ define internal fastcc void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F
   %81 = extractvalue { i64, i1 } %80, 1
   %82 = add nuw i64 %.sroa.648.0.i, %.sroa.6.049.i
   %not..i = xor i1 %81, true
-  %spec.select8.i = select i1 %81, i64 undef, i64 %82
+  %spec.select8.i = select i1 %81, i64 undef, i64 %82, !prof !47
   %narrow.i = select i1 %or.cond.not.i, i1 %not..i, i1 false
   %.sroa.04.0.i = zext i1 %narrow.i to i64
   %.sroa.6.0.i = select i1 %or.cond.not.i, i64 %spec.select8.i, i64 undef

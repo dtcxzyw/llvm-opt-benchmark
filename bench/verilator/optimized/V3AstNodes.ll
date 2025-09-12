@@ -107002,7 +107002,7 @@ define linkonce_odr dso_local noundef ptr @_ZNK7AstWith6brokenEv(ptr noundef non
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
   %.not2 = icmp eq ptr %5, null
-  %.str.1657. = select i1 %.not2, ptr @.str.1657, ptr null
+  %.str.1657. = select i1 %.not2, ptr @.str.1657, ptr null, !prof !21
   %.0 = select i1 %.not, ptr @.str.1656, ptr %.str.1657., !prof !21
   ret ptr %.0
 }

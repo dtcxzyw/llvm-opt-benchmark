@@ -1798,7 +1798,7 @@ common.resume:                                    ; preds = %269, %206, %210, %2
   %.pre123.pre = load i64, ptr %.sroa.28.0..sroa_idx.i, align 8, !range !53
   %217 = icmp eq i64 %.pre.pre, 1
   %218 = icmp eq i64 %.pre123.pre, -9223372036854775808
-  %219 = select i1 %217, i1 %218, i1 false
+  %219 = select i1 %217, i1 %218, i1 false, !prof !126
   %220 = getelementptr inbounds nuw i8, ptr %1, i64 208
   store i8 0, ptr %220, align 8, !alias.scope !109, !noalias !113
   store i8 0, ptr %182, align 1, !alias.scope !109, !noalias !113
@@ -2536,7 +2536,7 @@ common.resume:                                    ; preds = %266, %204, %205, %2
   %.pre125.pre = load i64, ptr %.sroa.28.0..sroa_idx.i, align 8, !range !53
   %214 = icmp eq i64 %.pre.pre, 1
   %215 = icmp eq i64 %.pre125.pre, -9223372036854775808
-  %216 = select i1 %214, i1 %215, i1 false
+  %216 = select i1 %214, i1 %215, i1 false, !prof !126
   %217 = getelementptr inbounds nuw i8, ptr %1, i64 184
   store i8 0, ptr %217, align 8, !alias.scope !184, !noalias !187
   store i8 0, ptr %180, align 1, !alias.scope !184, !noalias !187

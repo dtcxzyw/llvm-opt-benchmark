@@ -2795,7 +2795,7 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
   %58 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %.sroa.7.0.i.i16, i64 %.sroa.8.0.i.i18)
   %59 = extractvalue { i64, i1 } %58, 1
   %60 = add nuw i64 %.sroa.8.0.i.i18, %.sroa.7.0.i.i16
-  %.sroa.531.0.i.i24 = select i1 %59, i64 undef, i64 %60
+  %.sroa.531.0.i.i24 = select i1 %59, i64 undef, i64 %60, !prof !56
   %61 = xor i1 %59, true
   %.sroa.6.038 = select i1 %.sroa.055.0.i.i20, i64 %.sroa.531.0.i.i24, i64 undef
   %.sink.i.i21 = select i1 %.sroa.055.0.i.i20, i1 %61, i1 false
@@ -2849,7 +2849,7 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
   %78 = extractvalue { i64, i1 } %77, 1
   %79 = add nuw i64 %.sroa.8.0..sroa.8.0..sroa.8.0..sroa.8.16., %.sroa.6.038
   %not. = xor i1 %78, true
-  %spec.select8 = select i1 %78, i64 undef, i64 %79
+  %spec.select8 = select i1 %78, i64 undef, i64 %79, !prof !56
   %narrow = select i1 %or.cond, i1 %not., i1 false
   %.sroa.03.0 = zext i1 %narrow to i64
   %.sroa.6.0 = select i1 %or.cond, i64 %spec.select8, i64 undef

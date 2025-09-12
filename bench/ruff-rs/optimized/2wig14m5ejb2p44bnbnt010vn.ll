@@ -15865,7 +15865,7 @@ define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..s
   %79 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %spec.select52.i, i64 %spec.select54.i)
   %80 = extractvalue { i64, i1 } %79, 1
   %81 = add nuw i64 %spec.select54.i, %spec.select52.i
-  %spec.select8.i = select i1 %80, i64 undef, i64 %81
+  %spec.select8.i = select i1 %80, i64 undef, i64 %81, !prof !368
   %.sroa.6.0.i = select i1 %.not56.not.i, i64 %spec.select8.i, i64 undef
   br label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hc9c58a25ebd6fa80E.exit"
 
@@ -16135,7 +16135,7 @@ define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..s
   %187 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %spec.select52.i.i, i64 %spec.select54.i.i)
   %188 = extractvalue { i64, i1 } %187, 1
   %189 = add nuw i64 %spec.select54.i.i, %spec.select52.i.i
-  %spec.select8.i.i = select i1 %188, i64 undef, i64 %189
+  %spec.select8.i.i = select i1 %188, i64 undef, i64 %189, !prof !368
   %.sroa.6.0.i.i = select i1 %.not56.not.i.i, i64 %spec.select8.i.i, i64 undef
   br label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hc9c58a25ebd6fa80E.exit.i"
 

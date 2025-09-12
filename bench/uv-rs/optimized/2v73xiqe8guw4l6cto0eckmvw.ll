@@ -1899,7 +1899,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %29 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %17, i64 %28)
   %30 = extractvalue { i64, i1 } %29, 1
   %31 = add nuw i64 %28, %17
-  %spec.select11.i = select i1 %30, i64 undef, i64 %31
+  %spec.select11.i = select i1 %30, i64 undef, i64 %31, !prof !218
   br i1 %30, label %37, label %.noexc
 
 .noexc:                                           ; preds = %13, %14, %18, %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h6dc6f2c78e6dfa84E.exit"

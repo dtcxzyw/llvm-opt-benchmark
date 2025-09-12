@@ -2368,7 +2368,7 @@ _ZL9hb_memsetPvij.exit.i.i.i:                     ; preds = %24, %23
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 %14
   store ptr %26, ptr %10, align 8, !tbaa !65
   %27 = icmp eq ptr %25, null
-  br i1 %27, label %select.unfold, label %_ZN22hb_serialize_context_t10extend_minIN3CFF7CharsetEEEPT_S4_.exit
+  br i1 %27, label %select.unfold, label %_ZN22hb_serialize_context_t10extend_minIN3CFF7CharsetEEEPT_S4_.exit, !prof !47
 
 _ZN22hb_serialize_context_t10extend_minIN3CFF7CharsetEEEPT_S4_.exit: ; preds = %_ZL9hb_memsetPvij.exit.i.i.i
   store i8 %2, ptr %0, align 1, !tbaa !74
@@ -2723,7 +2723,7 @@ _ZL9hb_memsetPvij.exit.i.i.i:                     ; preds = %24, %23
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 %15
   store ptr %26, ptr %11, align 8, !tbaa !65
   %27 = icmp eq ptr %25, null
-  br i1 %27, label %select.unfold, label %_ZN22hb_serialize_context_t10extend_minIN3CFF8EncodingEEEPT_S4_.exit
+  br i1 %27, label %select.unfold, label %_ZN22hb_serialize_context_t10extend_minIN3CFF8EncodingEEEPT_S4_.exit, !prof !47
 
 _ZN22hb_serialize_context_t10extend_minIN3CFF8EncodingEEEPT_S4_.exit: ; preds = %_ZL9hb_memsetPvij.exit.i.i.i
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 4
@@ -3465,7 +3465,7 @@ _ZL9hb_memsetPvij.exit.i.i.i:                     ; preds = %30, %29
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 %20
   store ptr %32, ptr %16, align 8, !tbaa !65
   %33 = icmp eq ptr %31, null
-  br i1 %33, label %select.unfold, label %_ZN22hb_serialize_context_t10extend_minIN2OT8CFFIndexINS1_7IntTypeItLj2EEEEEEEPT_S7_.exit
+  br i1 %33, label %select.unfold, label %_ZN22hb_serialize_context_t10extend_minIN2OT8CFFIndexINS1_7IntTypeItLj2EEEEEEEPT_S7_.exit, !prof !47
 
 _ZN22hb_serialize_context_t10extend_minIN2OT8CFFIndexINS1_7IntTypeItLj2EEEEEEEPT_S7_.exit: ; preds = %_ZL9hb_memsetPvij.exit.i.i.i
   %34 = trunc i64 %3 to i16
@@ -3512,7 +3512,7 @@ _ZL9hb_memsetPvij.exit.i.i.i.i:                   ; preds = %53, %52
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 %44
   store ptr %55, ptr %16, align 8, !tbaa !65
   %56 = icmp eq ptr %54, null
-  br i1 %56, label %select.unfold, label %_ZN22hb_serialize_context_t6extendIN2OT7IntTypeIhLj1EEEJEEEPT_RS4_DpOT0_.exit
+  br i1 %56, label %select.unfold, label %_ZN22hb_serialize_context_t6extendIN2OT7IntTypeIhLj1EEEJEEEPT_RS4_DpOT0_.exit, !prof !47
 
 _ZN22hb_serialize_context_t6extendIN2OT7IntTypeIhLj1EEEJEEEPT_RS4_DpOT0_.exit: ; preds = %_ZL9hb_memsetPvij.exit.i.i.i.i
   %57 = trunc i32 %.sroa.speculated to i8
@@ -6702,7 +6702,7 @@ _ZL9hb_memsetPvij.exit.i.i.i:                     ; preds = %21, %20
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 %11
   store ptr %23, ptr %7, align 8, !tbaa !65
   %24 = icmp eq ptr %22, null
-  %25 = select i1 %24, ptr null, ptr %1
+  %25 = select i1 %24, ptr null, ptr %1, !prof !47
   br label %_ZN22hb_serialize_context_t10extend_minIN2OT7IntTypeItLj2EEEEEPT_S5_.exit
 
 _ZN22hb_serialize_context_t10extend_minIN2OT7IntTypeItLj2EEEEEPT_S5_.exit: ; preds = %2, %19, %_ZL9hb_memsetPvij.exit.i.i.i
@@ -7050,7 +7050,7 @@ _ZL9hb_memsetPvij.exit.i.i.i:                     ; preds = %30, %29
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 %20
   store ptr %32, ptr %16, align 8, !tbaa !65
   %33 = icmp eq ptr %31, null
-  br i1 %33, label %select.unfold, label %_ZN22hb_serialize_context_t10extend_minIN2OT8CFFIndexINS1_7IntTypeItLj2EEEEEEEPT_S7_.exit
+  br i1 %33, label %select.unfold, label %_ZN22hb_serialize_context_t10extend_minIN2OT8CFFIndexINS1_7IntTypeItLj2EEEEEEEPT_S7_.exit, !prof !47
 
 _ZN22hb_serialize_context_t10extend_minIN2OT8CFFIndexINS1_7IntTypeItLj2EEEEEEEPT_S7_.exit: ; preds = %_ZL9hb_memsetPvij.exit.i.i.i
   %34 = trunc i64 %3 to i16
@@ -7097,7 +7097,7 @@ _ZL9hb_memsetPvij.exit.i.i.i.i:                   ; preds = %53, %52
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 %44
   store ptr %55, ptr %16, align 8, !tbaa !65
   %56 = icmp eq ptr %54, null
-  br i1 %56, label %select.unfold, label %_ZN22hb_serialize_context_t6extendIN2OT7IntTypeIhLj1EEEJEEEPT_RS4_DpOT0_.exit
+  br i1 %56, label %select.unfold, label %_ZN22hb_serialize_context_t6extendIN2OT7IntTypeIhLj1EEEJEEEPT_RS4_DpOT0_.exit, !prof !47
 
 _ZN22hb_serialize_context_t6extendIN2OT7IntTypeIhLj1EEEJEEEPT_RS4_DpOT0_.exit: ; preds = %_ZL9hb_memsetPvij.exit.i.i.i.i
   %57 = trunc i32 %.sroa.speculated to i8
@@ -7671,7 +7671,7 @@ _ZN11remap_sid_t5allocEj.exit:                    ; preds = %.sink.split.i.i.i, 
   %89 = getelementptr inbounds nuw i8, ptr %.sroa.098.1148, i64 8
   %.pre = and i64 %88, 4294967295
   %90 = icmp eq i64 %.pre, 0
-  %91 = select i1 %90, ptr @_hb_NullPool, ptr %89
+  %91 = select i1 %90, ptr @_hb_NullPool, ptr %89, !prof !47
   br label %_ZNR9hb_iter_tI17hb_sorted_array_tIK9hb_pair_tIjjEERS3_EppEv.exit
 
 _ZNR9hb_iter_tI17hb_sorted_array_tIK9hb_pair_tIjjEERS3_EppEv.exit: ; preds = %85, %87
@@ -10742,7 +10742,7 @@ _ZN9hb_iter_tI17hb_sorted_array_tIK9hb_pair_tIjjEERS3_EppEi.exit: ; preds = %3
   %42 = getelementptr inbounds nuw i8, ptr %.sroa.081.1151, i64 8
   %.pre = and i64 %41, 4294967295
   %43 = icmp eq i64 %.pre, 0
-  %44 = select i1 %43, ptr @_hb_NullPool, ptr %42
+  %44 = select i1 %43, ptr @_hb_NullPool, ptr %42, !prof !47
   br label %_ZNR9hb_iter_tI17hb_sorted_array_tIK9hb_pair_tIjjEERS3_EppEv.exit
 
 _ZNR9hb_iter_tI17hb_sorted_array_tIK9hb_pair_tIjjEERS3_EppEv.exit: ; preds = %38, %40
@@ -21889,7 +21889,7 @@ _ZL9hb_memsetPvij.exit.i.i.i:                     ; preds = %30, %29
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 %20
   store ptr %32, ptr %16, align 8, !tbaa !65
   %33 = icmp eq ptr %31, null
-  br i1 %33, label %select.unfold, label %_ZN22hb_serialize_context_t10extend_minIN2OT8CFFIndexINS1_7IntTypeItLj2EEEEEEEPT_S7_.exit
+  br i1 %33, label %select.unfold, label %_ZN22hb_serialize_context_t10extend_minIN2OT8CFFIndexINS1_7IntTypeItLj2EEEEEEEPT_S7_.exit, !prof !47
 
 _ZN22hb_serialize_context_t10extend_minIN2OT8CFFIndexINS1_7IntTypeItLj2EEEEEEEPT_S7_.exit: ; preds = %_ZL9hb_memsetPvij.exit.i.i.i
   %34 = trunc i64 %3 to i16
@@ -21936,7 +21936,7 @@ _ZL9hb_memsetPvij.exit.i.i.i.i:                   ; preds = %53, %52
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 %44
   store ptr %55, ptr %16, align 8, !tbaa !65
   %56 = icmp eq ptr %54, null
-  br i1 %56, label %select.unfold, label %_ZN22hb_serialize_context_t6extendIN2OT7IntTypeIhLj1EEEJEEEPT_RS4_DpOT0_.exit
+  br i1 %56, label %select.unfold, label %_ZN22hb_serialize_context_t6extendIN2OT7IntTypeIhLj1EEEJEEEPT_RS4_DpOT0_.exit, !prof !47
 
 _ZN22hb_serialize_context_t6extendIN2OT7IntTypeIhLj1EEEJEEEPT_RS4_DpOT0_.exit: ; preds = %_ZL9hb_memsetPvij.exit.i.i.i.i
   %57 = trunc i32 %.sroa.speculated to i8
@@ -22660,7 +22660,7 @@ _ZL9hb_memsetPvij.exit.i.i.i:                     ; preds = %30, %29
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 %20
   store ptr %32, ptr %16, align 8, !tbaa !65
   %33 = icmp eq ptr %31, null
-  br i1 %33, label %select.unfold, label %_ZN22hb_serialize_context_t10extend_minIN2OT8CFFIndexINS1_7IntTypeItLj2EEEEEEEPT_S7_.exit
+  br i1 %33, label %select.unfold, label %_ZN22hb_serialize_context_t10extend_minIN2OT8CFFIndexINS1_7IntTypeItLj2EEEEEEEPT_S7_.exit, !prof !47
 
 _ZN22hb_serialize_context_t10extend_minIN2OT8CFFIndexINS1_7IntTypeItLj2EEEEEEEPT_S7_.exit: ; preds = %_ZL9hb_memsetPvij.exit.i.i.i
   %34 = trunc i64 %3 to i16
@@ -22707,7 +22707,7 @@ _ZL9hb_memsetPvij.exit.i.i.i.i:                   ; preds = %53, %52
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 %44
   store ptr %55, ptr %16, align 8, !tbaa !65
   %56 = icmp eq ptr %54, null
-  br i1 %56, label %select.unfold, label %_ZN22hb_serialize_context_t6extendIN2OT7IntTypeIhLj1EEEJEEEPT_RS4_DpOT0_.exit
+  br i1 %56, label %select.unfold, label %_ZN22hb_serialize_context_t6extendIN2OT7IntTypeIhLj1EEEJEEEPT_RS4_DpOT0_.exit, !prof !47
 
 _ZN22hb_serialize_context_t6extendIN2OT7IntTypeIhLj1EEEJEEEPT_RS4_DpOT0_.exit: ; preds = %_ZL9hb_memsetPvij.exit.i.i.i.i
   %57 = trunc i32 %.sroa.speculated to i8

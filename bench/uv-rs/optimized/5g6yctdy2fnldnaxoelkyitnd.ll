@@ -703,7 +703,7 @@ define internal fastcc void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A
   %136 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %.sroa.7.1.i.i19, i64 %.sroa.8.1.i.i32)
   %137 = extractvalue { i64, i1 } %136, 1
   %138 = add nuw i64 %.sroa.8.1.i.i32, %.sroa.7.1.i.i19
-  %.sroa.531.0.i.i46 = select i1 %137, i64 undef, i64 %138
+  %.sroa.531.0.i.i46 = select i1 %137, i64 undef, i64 %138, !prof !182
   %139 = xor i1 %137, true
   %.sroa.6.048 = select i1 %or.cond44.i.i42, i64 %.sroa.531.0.i.i46, i64 undef
   %140 = add nuw nsw i64 %.sroa.063.0.i.i34, %.sroa.0.0.i.i21
@@ -715,7 +715,7 @@ define internal fastcc void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A
   %144 = extractvalue { i64, i1 } %143, 1
   %145 = add nuw i64 %.sroa.6.048, %82
   %not. = xor i1 %144, true
-  %spec.select8 = select i1 %144, i64 undef, i64 %145
+  %spec.select8 = select i1 %144, i64 undef, i64 %145, !prof !182
   %narrow = select i1 %or.cond, i1 %not., i1 false
   %.sroa.03.0 = zext i1 %narrow to i64
   %.sroa.6.0 = select i1 %or.cond, i64 %spec.select8, i64 undef

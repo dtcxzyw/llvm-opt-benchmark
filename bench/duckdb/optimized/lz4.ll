@@ -2209,9 +2209,9 @@ _ZN10duckdb_lz4L20read_variable_lengthEPPKhS1_i.exit484: ; preds = %95
   %105 = icmp ugt i64 %102, %104
   %106 = getelementptr inbounds nuw i8, ptr %89, i64 %8
   %107 = icmp ult ptr %106, %6
-  %or.cond458 = select i1 %20, i1 %107, i1 false
-  %or.cond475 = select i1 %105, i1 true, i1 %or.cond458, !prof !36
-  br i1 %or.cond475, label %_ZN10duckdb_lz4L14LZ4_wildCopy32EPvPKvS0_.exit.thread, label %108, !prof !36
+  %or.cond458 = select i1 %20, i1 %107, i1 false, !prof !36
+  %or.cond475 = select i1 %105, i1 true, i1 %or.cond458, !prof !37
+  br i1 %or.cond475, label %_ZN10duckdb_lz4L14LZ4_wildCopy32EPvPKvS0_.exit.thread, label %108, !prof !37
 
 108:                                              ; preds = %101
   %109 = getelementptr inbounds nuw i8, ptr %.3, i64 %102
@@ -2254,15 +2254,15 @@ _ZN10duckdb_lz4L20read_variable_lengthEPPKhS1_i.exit484: ; preds = %95
 .backedge:                                        ; preds = %.preheader591, %.lr.ph, %162, %141, %158, %118
   %.0523.be = phi ptr [ %87, %118 ], [ %.6529, %158 ], [ %.6529, %141 ], [ %.6529, %162 ], [ %.6529, %.lr.ph ], [ %.6529, %.preheader591 ]
   %.0362.be = phi ptr [ %112, %118 ], [ %159, %158 ], [ %144, %141 ], [ %130, %162 ], [ %156, %.lr.ph ], [ %130, %.preheader591 ]
-  br label %46, !llvm.loop !37
+  br label %46, !llvm.loop !38
 
 .thread552:                                       ; preds = %108, %114, %117
   %.6529 = phi ptr [ %87, %117 ], [ %87, %114 ], [ %93, %108 ]
   %.4384 = phi i64 [ %111, %117 ], [ %111, %114 ], [ %102, %108 ]
   %126 = getelementptr inbounds nuw i8, ptr %89, i64 %8
   %127 = icmp ult ptr %126, %6
-  %or.cond460 = select i1 %20, i1 %127, i1 false, !prof !38
-  br i1 %or.cond460, label %_ZN10duckdb_lz4L14LZ4_wildCopy32EPvPKvS0_.exit.thread, label %128, !prof !38
+  %or.cond460 = select i1 %20, i1 %127, i1 false, !prof !36
+  br i1 %or.cond460, label %_ZN10duckdb_lz4L14LZ4_wildCopy32EPvPKvS0_.exit.thread, label %128, !prof !36
 
 128:                                              ; preds = %.thread552
   %129 = icmp ult ptr %89, %6
@@ -2578,8 +2578,8 @@ _ZN10duckdb_lz4L20read_variable_lengthEPPKhS1_i.exit498: ; preds = %264
   %.4 = phi ptr [ %.9, %274 ], [ %.3, %110 ], [ %.3, %108 ]
   %276 = getelementptr inbounds nuw i8, ptr %.0370, i64 %8
   %277 = icmp ult ptr %276, %6
-  %or.cond469 = select i1 %20, i1 %277, i1 false, !prof !38
-  br i1 %or.cond469, label %_ZN10duckdb_lz4L14LZ4_wildCopy32EPvPKvS0_.exit.thread, label %278, !prof !38
+  %or.cond469 = select i1 %20, i1 %277, i1 false, !prof !36
+  br i1 %or.cond469, label %_ZN10duckdb_lz4L14LZ4_wildCopy32EPvPKvS0_.exit.thread, label %278, !prof !36
 
 278:                                              ; preds = %.loopexit598
   %279 = icmp eq i32 %5, 2
@@ -4545,9 +4545,9 @@ attributes #20 = { nounwind allocsize(0,1) }
 !33 = distinct !{!33, !21}
 !34 = !{!"branch_weights", i32 4001, i32 4000000}
 !35 = distinct !{!35, !21}
-!36 = !{!"branch_weights", i32 6002, i32 8002000}
-!37 = distinct !{!37, !21}
-!38 = !{!"branch_weights", i32 1, i32 4001}
+!36 = !{!"branch_weights", i32 1, i32 4001}
+!37 = !{!"branch_weights", i32 6002, i32 8002000}
+!38 = distinct !{!38, !21}
 !39 = distinct !{!39, !21}
 !40 = distinct !{!40, !21}
 !41 = distinct !{!41, !21}

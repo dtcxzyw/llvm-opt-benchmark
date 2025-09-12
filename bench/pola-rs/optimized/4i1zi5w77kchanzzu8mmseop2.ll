@@ -124616,7 +124616,7 @@ define hidden void @"_ZN124_$LT$futures_util..stream..try_stream..try_filter..Tr
   %15 = extractvalue { i64, i1 } %14, 1
   %16 = add nuw i64 %12, %7
   %not. = xor i1 %15, true
-  %spec.select3 = select i1 %15, i64 undef, i64 %16
+  %spec.select3 = select i1 %15, i64 undef, i64 %16, !prof !56
   %narrow = select i1 %13, i1 %not., i1 false
   %.sroa.01.0 = zext i1 %narrow to i64
   %.sroa.42.0 = select i1 %13, i64 %spec.select3, i64 undef
@@ -124648,7 +124648,7 @@ define hidden void @"_ZN124_$LT$futures_util..stream..try_stream..try_filter..Tr
   %15 = extractvalue { i64, i1 } %14, 1
   %16 = add nuw i64 %12, %7
   %not. = xor i1 %15, true
-  %spec.select3 = select i1 %15, i64 undef, i64 %16
+  %spec.select3 = select i1 %15, i64 undef, i64 %16, !prof !56
   %narrow = select i1 %13, i1 %not., i1 false
   %.sroa.01.0 = zext i1 %narrow to i64
   %.sroa.42.0 = select i1 %13, i64 %spec.select3, i64 undef

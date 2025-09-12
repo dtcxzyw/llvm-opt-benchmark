@@ -1755,7 +1755,7 @@ define hidden void @"_ZN119_$LT$itertools..peeking_take_while..PeekingTakeWhile$
   %13 = add nuw i64 %10, %.sroa.0.0.i
   %not..i = xor i1 %12, true
   %spec.select.i = zext i1 %not..i to i64
-  %spec.select6.i = select i1 %12, i64 undef, i64 %13
+  %spec.select6.i = select i1 %12, i64 undef, i64 %13, !prof !4
   br label %"_ZN108_$LT$core..iter..adapters..peekable..Peekable$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h07814fe472cbcfceE.exit"
 
 14:                                               ; preds = %2

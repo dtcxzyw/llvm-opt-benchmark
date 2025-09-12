@@ -435,7 +435,7 @@ _ZNR9hb_iter_tI16hb_concat_iter_tI10hb_array_tIKN22hb_serialize_context_t8object
 _ZNK16hb_concat_iter_tI10hb_array_tIKN22hb_serialize_context_t8object_t6link_tEES5_EneERKS6_.exit.thread: ; preds = %_ZNR9hb_iter_tI16hb_concat_iter_tI10hb_array_tIKN22hb_serialize_context_t8object_t6link_tEES6_ERS5_EppEv.exit
   %.not.i.i13 = icmp eq i32 %.sroa.7.0, 0
   %.not.i.i.i.i = icmp eq i32 %.sroa.17.0, 0
-  %spec.select.i.i.i.i = select i1 %.not.i.i.i.i, ptr @_hb_NullPool, ptr %.sroa.13.0.ph40
+  %spec.select.i.i.i.i = select i1 %.not.i.i.i.i, ptr @_hb_NullPool, ptr %.sroa.13.0.ph40, !prof !37
   %.0.i.i14 = select i1 %.not.i.i13, ptr %spec.select.i.i.i.i, ptr %.sroa.019.0.ph
   %48 = getelementptr inbounds nuw i8, ptr %.0.i.i14, i64 8
   %49 = load i32, ptr %48, align 4, !tbaa !59

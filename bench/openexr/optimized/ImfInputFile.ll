@@ -2744,7 +2744,7 @@ define void @_ZN7Imf_3_49InputFile4Data10fillBufferENS_11FrameBuffer13ConstItera
   %59 = select i1 %49, i16 0, i16 %54
   %60 = or disjoint i16 %23, %59
   %spec.select = or disjoint i16 %60, 31744
-  %spec.select.. = select i1 %39, i16 %spec.select, i16 %.
+  %spec.select.. = select i1 %39, i16 %spec.select, i16 %., !prof !107
   %spec.select69 = select i1 %25, i16 %23, i16 %spec.select56
   %.0.i.i = select i1 %24, i16 %spec.select.., i16 %spec.select69
   br label %66

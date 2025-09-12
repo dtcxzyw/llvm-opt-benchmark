@@ -5869,7 +5869,7 @@ define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..s
   %29 = add nuw i64 %spec.select.i.i13.i.i, %18
   %not..i.i = xor i1 %28, true
   %spec.select.i.i = zext i1 %not..i.i to i64
-  %spec.select7.i.i = select i1 %28, i64 undef, i64 %29
+  %spec.select7.i.i = select i1 %28, i64 undef, i64 %29, !prof !243
   store i64 %spec.select.i.i, ptr %.sroa.6.i, align 8, !alias.scope !965, !noalias !984
   br label %31
 
@@ -5984,7 +5984,7 @@ define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..s
   %69 = add nuw i64 %spec.select.i.i13.i.i.i.i, %58
   %not..i.i.i.i = xor i1 %68, true
   %spec.select.i.i.i4.i = zext i1 %not..i.i.i.i to i64
-  %spec.select7.i.i.i.i = select i1 %68, i64 undef, i64 %69
+  %spec.select7.i.i.i.i = select i1 %68, i64 undef, i64 %69, !prof !243
   store i64 %spec.select.i.i.i4.i, ptr %.sroa.6.i.i.i, align 8, !alias.scope !1003, !noalias !1024
   br label %71
 
@@ -7396,7 +7396,7 @@ define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..s
   %29 = add nuw i64 %spec.select.i.i13.i.i, %18
   %not..i.i = xor i1 %28, true
   %spec.select.i.i = zext i1 %not..i.i to i64
-  %spec.select7.i.i = select i1 %28, i64 undef, i64 %29
+  %spec.select7.i.i = select i1 %28, i64 undef, i64 %29, !prof !243
   store i64 %spec.select.i.i, ptr %.sroa.6.i, align 8, !alias.scope !1357, !noalias !1376
   br label %31
 
@@ -7511,7 +7511,7 @@ define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..s
   %69 = add nuw i64 %spec.select.i.i13.i.i.i.i, %58
   %not..i.i.i.i = xor i1 %68, true
   %spec.select.i.i.i4.i = zext i1 %not..i.i.i.i to i64
-  %spec.select7.i.i.i.i = select i1 %68, i64 undef, i64 %69
+  %spec.select7.i.i.i.i = select i1 %68, i64 undef, i64 %69, !prof !243
   store i64 %spec.select.i.i.i4.i, ptr %.sroa.6.i.i.i, align 8, !alias.scope !1395, !noalias !1416
   br label %71
 
