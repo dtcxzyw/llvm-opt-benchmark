@@ -1424,47 +1424,46 @@ define dso_local range(i32 0, 2) i32 @string2ull(ptr noundef %0, ptr noundef wri
   br i1 %33, label %.loopexit, label %string2ll.exit.thread14
 
 string2ll.exit:                                   ; preds = %30
-  %notsub = add i64 %.0.lcssa.i, -1
-  %34 = icmp sgt i64 %notsub, -1
-  br i1 %34, label %45, label %string2ll.exit.thread14
+  %.not = icmp eq i64 %.0.lcssa.i, 0
+  br i1 %.not, label %string2ll.exit.thread14, label %44
 
 string2ll.exit.thread14:                          ; preds = %32, %.thread91.i, %9, %string2ll.exit
   %.sink.i16 = phi i64 [ 0, %string2ll.exit ], [ %.0.lcssa.i, %32 ], [ %15, %.thread91.i ], [ 0, %9 ]
   store i64 %.sink.i16, ptr %1, align 8, !tbaa !35
-  br label %45
-
-.loopexit:                                        ; preds = %22, %.lr.ph.i, %2, %11, %30, %32, %9, %.thread74.i
-  %35 = tail call ptr @__errno_location() #29
-  store i32 0, ptr %35, align 4, !tbaa !5
-  call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  store ptr null, ptr %3, align 8, !tbaa !27
-  %36 = call i64 @strtoull(ptr noundef nonnull %0, ptr noundef nonnull %3, i32 noundef 10) #31
-  store i64 %36, ptr %1, align 8, !tbaa !35
-  %37 = load i32, ptr %35, align 4, !tbaa !5
-  switch i32 %37, label %38 [
-    i32 22, label %44
-    i32 34, label %44
-  ]
-
-38:                                               ; preds = %.loopexit
-  %39 = load i8, ptr %0, align 1, !tbaa !9
-  %.not8 = icmp eq i8 %39, 0
-  br i1 %.not8, label %44, label %40
-
-40:                                               ; preds = %38
-  %41 = load ptr, ptr %3, align 8, !tbaa !27
-  %42 = load i8, ptr %41, align 1, !tbaa !9
-  %43 = icmp eq i8 %42, 0
-  %spec.select = zext i1 %43 to i32
   br label %44
 
-44:                                               ; preds = %40, %38, %.loopexit, %.loopexit
-  %.1 = phi i32 [ 0, %.loopexit ], [ 0, %.loopexit ], [ 0, %38 ], [ %spec.select, %40 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %45
+.loopexit:                                        ; preds = %22, %.lr.ph.i, %2, %11, %30, %32, %9, %.thread74.i
+  %34 = tail call ptr @__errno_location() #29
+  store i32 0, ptr %34, align 4, !tbaa !5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  store ptr null, ptr %3, align 8, !tbaa !27
+  %35 = call i64 @strtoull(ptr noundef nonnull %0, ptr noundef nonnull %3, i32 noundef 10) #31
+  store i64 %35, ptr %1, align 8, !tbaa !35
+  %36 = load i32, ptr %34, align 4, !tbaa !5
+  switch i32 %36, label %37 [
+    i32 22, label %43
+    i32 34, label %43
+  ]
 
-45:                                               ; preds = %string2ll.exit, %44, %string2ll.exit.thread14
-  %.0 = phi i32 [ 1, %string2ll.exit.thread14 ], [ %.1, %44 ], [ 0, %string2ll.exit ]
+37:                                               ; preds = %.loopexit
+  %38 = load i8, ptr %0, align 1, !tbaa !9
+  %.not8 = icmp eq i8 %38, 0
+  br i1 %.not8, label %43, label %39
+
+39:                                               ; preds = %37
+  %40 = load ptr, ptr %3, align 8, !tbaa !27
+  %41 = load i8, ptr %40, align 1, !tbaa !9
+  %42 = icmp eq i8 %41, 0
+  %spec.select = zext i1 %42 to i32
+  br label %43
+
+43:                                               ; preds = %39, %37, %.loopexit, %.loopexit
+  %.1 = phi i32 [ 0, %.loopexit ], [ 0, %.loopexit ], [ 0, %37 ], [ %spec.select, %39 ]
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  br label %44
+
+44:                                               ; preds = %string2ll.exit, %43, %string2ll.exit.thread14
+  %.0 = phi i32 [ 1, %string2ll.exit.thread14 ], [ %.1, %43 ], [ 0, %string2ll.exit ]
   ret i32 %.0
 }
 

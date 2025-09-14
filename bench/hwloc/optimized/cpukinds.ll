@@ -1720,7 +1720,7 @@ define range(i32 -1, 1) i32 @hwloc_cpukinds_get_info(ptr noundef readonly captur
 declare i32 @hwloc_bitmap_copy(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define i32 @hwloc_cpukinds_get_by_cpuset(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #15 {
+define i32 @hwloc_cpukinds_get_by_cpuset(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, i64 noundef %2) local_unnamed_addr #15 {
   %.not = icmp eq i64 %2, 0
   br i1 %.not, label %6, label %4
 
@@ -1764,9 +1764,8 @@ define i32 @hwloc_cpukinds_get_by_cpuset(ptr noundef readonly captures(none) %0,
   br i1 %or.cond, label %.thread.loopexit, label %19
 
 19:                                               ; preds = %15
-  %20 = and i32 %18, -2
-  %or.cond3 = icmp eq i32 %20, 2
-  br i1 %or.cond3, label %21, label %23
+  %20 = icmp ult i32 %18, 4
+  br i1 %20, label %21, label %23
 
 21:                                               ; preds = %19
   %22 = tail call ptr @__errno_location() #27

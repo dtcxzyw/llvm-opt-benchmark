@@ -658,8 +658,10 @@ while.end184:                                     ; preds = %invoke.cont162
   %call185 = call ptr @signal(i32 noundef 13, ptr noundef %call8) #23
   %25 = load i32, ptr %status, align 4
   %and186 = and i32 %25, 127
-  %cmp187 = icmp eq i32 %and186, 0
-  br i1 %cmp187, label %if.then188, label %if.else201
+  switch i32 %and186, label %if.then208 [
+    i32 0, label %if.then188
+    i32 127, label %if.else216
+  ]
 
 if.then188:                                       ; preds = %while.end184
   %and189 = lshr i32 %25, 8
@@ -700,13 +702,7 @@ invoke.cont198:                                   ; preds = %invoke.cont197
   %call199 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %error, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp194) #23
   br label %cleanup.sink.split
 
-if.else201:                                       ; preds = %while.end184
-  %conv204 = shl nuw nsw i32 %and186, 24
-  %sext = add nuw i32 %conv204, 16777216
-  %cmp207 = icmp sgt i32 %sext, 33554431
-  br i1 %cmp207, label %if.then208, label %if.else216
-
-if.then208:                                       ; preds = %if.else201
+if.then208:                                       ; preds = %while.end184
   %scratch_.i26 = getelementptr inbounds nuw i8, ptr %ref.tmp212, i64 16
   %call.i31 = invoke noundef ptr @_ZN4absl12lts_2023080216numbers_internal15FastIntToBufferEiPc(i32 noundef %and186, ptr noundef nonnull %scratch_.i26)
           to label %invoke.cont213 unwind label %lpad15.loopexit.split-lp.loopexit.split-lp
@@ -739,7 +735,7 @@ invoke.cont214:                                   ; preds = %invoke.cont213
   %call215 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %error, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp210) #23
   br label %cleanup.sink.split
 
-if.else216:                                       ; preds = %if.else201
+if.else216:                                       ; preds = %while.end184
   %call218 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %error, ptr noundef nonnull @.str.12)
           to label %cleanup unwind label %lpad15.loopexit.split-lp.loopexit.split-lp
 

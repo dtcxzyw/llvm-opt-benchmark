@@ -815,8 +815,10 @@ if.end61:                                         ; preds = %if.else43, %if.then
   %call93651 = phi i32 [ %call936, %if.then58 ], [ %call936, %if.end54 ], [ %call935, %if.else43 ]
   %6 = load i32, ptr %status, align 4
   %and = and i32 %6, 127
-  %cmp62 = icmp eq i32 %and, 0
-  br i1 %cmp62, label %if.then63, label %if.else83
+  switch i32 %and, label %if.then88 [
+    i32 0, label %if.then63
+    i32 127, label %return
+  ]
 
 if.then63:                                        ; preds = %if.end61
   %and64 = lshr i32 %6, 8
@@ -845,13 +847,7 @@ if.then78:                                        ; preds = %if.then76
   %call79 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %ErrMsg, ptr noundef nonnull @.str.6) #22
   br label %return
 
-if.else83:                                        ; preds = %if.end61
-  %conv = shl nuw nsw i32 %and, 24
-  %sext = add nuw i32 %conv, 16777216
-  %cmp87 = icmp sgt i32 %sext, 33554431
-  br i1 %cmp87, label %if.then88, label %return
-
-if.then88:                                        ; preds = %if.else83
+if.then88:                                        ; preds = %if.end61
   %tobool89.not = icmp eq ptr %ErrMsg, null
   br i1 %tobool89.not, label %return, label %if.then90
 
@@ -867,9 +863,9 @@ if.then96:                                        ; preds = %if.then90
   %call97 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %ErrMsg, ptr noundef nonnull @.str.7) #22
   br label %return
 
-return:                                           ; preds = %if.then88, %if.then96, %if.then90, %if.then76, %if.then78, %if.then67, %if.then69, %if.then35, %if.else38, %if.then63, %if.else83, %if.then19, %if.then46
-  %call934 = phi i32 [ %call93651, %if.then63 ], [ %call93651, %if.else83 ], [ 0, %if.then19 ], [ %call935, %if.then46 ], [ %call935, %if.else38 ], [ %call935, %if.then35 ], [ %call93651, %if.then69 ], [ %call93651, %if.then67 ], [ %call93651, %if.then78 ], [ %call93651, %if.then76 ], [ %call93651, %if.then90 ], [ %call93651, %if.then96 ], [ %call93651, %if.then88 ]
-  %retval.sroa.4.sroa.1.0 = phi i32 [ %shr, %if.then63 ], [ 0, %if.else83 ], [ 0, %if.then19 ], [ -1, %if.then46 ], [ -2, %if.else38 ], [ -2, %if.then35 ], [ -1, %if.then69 ], [ -1, %if.then67 ], [ -1, %if.then78 ], [ -1, %if.then76 ], [ -2, %if.then90 ], [ -2, %if.then96 ], [ -2, %if.then88 ]
+return:                                           ; preds = %if.end61, %if.then88, %if.then96, %if.then90, %if.then76, %if.then78, %if.then67, %if.then69, %if.then35, %if.else38, %if.then63, %if.then19, %if.then46
+  %call934 = phi i32 [ %call93651, %if.then63 ], [ 0, %if.then19 ], [ %call935, %if.then46 ], [ %call935, %if.else38 ], [ %call935, %if.then35 ], [ %call93651, %if.then69 ], [ %call93651, %if.then67 ], [ %call93651, %if.then78 ], [ %call93651, %if.then76 ], [ %call93651, %if.then90 ], [ %call93651, %if.then96 ], [ %call93651, %if.then88 ], [ %call93651, %if.end61 ]
+  %retval.sroa.4.sroa.1.0 = phi i32 [ %shr, %if.then63 ], [ 0, %if.then19 ], [ -1, %if.then46 ], [ -2, %if.else38 ], [ -2, %if.then35 ], [ -1, %if.then69 ], [ -1, %if.then67 ], [ -1, %if.then78 ], [ -1, %if.then76 ], [ -2, %if.then90 ], [ -2, %if.then96 ], [ -2, %if.then88 ], [ 0, %if.end61 ]
   %retval.sroa.0.0.insert.ext = zext i32 %call934 to i64
   %.fca.0.insert = insertvalue { i64, i32 } poison, i64 %retval.sroa.0.0.insert.ext, 0
   %.fca.1.insert = insertvalue { i64, i32 } %.fca.0.insert, i32 %retval.sroa.4.sroa.1.0, 1

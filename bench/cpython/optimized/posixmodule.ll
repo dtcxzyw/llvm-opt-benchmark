@@ -19753,49 +19753,45 @@ define internal ptr @os_waitstatus_to_exitcode(ptr readnone captures(none) %0, p
 
 17:                                               ; preds = %.thread
   %18 = and i32 %13, 127
-  %19 = icmp eq i32 %18, 0
-  br i1 %19, label %20, label %23
+  switch i32 %18, label %22 [
+    i32 0, label %19
+    i32 127, label %24
+  ]
 
-20:                                               ; preds = %17
-  %21 = lshr i32 %13, 8
-  %22 = and i32 %21, 255
-  br label %38
+19:                                               ; preds = %17
+  %20 = lshr i32 %13, 8
+  %21 = and i32 %20, 255
+  br label %34
 
-23:                                               ; preds = %17
-  %24 = shl nuw nsw i32 %18, 24
-  %sext.i = add nuw i32 %24, 16777216
-  %25 = icmp sgt i32 %sext.i, 33554431
-  br i1 %25, label %26, label %28
+22:                                               ; preds = %17
+  %23 = sub nsw i32 0, %18
+  br label %34
 
-26:                                               ; preds = %23
-  %27 = sub nsw i32 0, %18
-  br label %38
+24:                                               ; preds = %17
+  %25 = and i32 %13, 255
+  %26 = icmp eq i32 %25, 127
+  br i1 %26, label %27, label %.thread3.i
 
-28:                                               ; preds = %23
-  %29 = and i32 %13, 255
-  %30 = icmp eq i32 %29, 127
-  br i1 %30, label %31, label %.thread3.i
-
-31:                                               ; preds = %28
-  %32 = lshr i32 %13, 8
-  %33 = and i32 %32, 255
-  %34 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !97
-  %35 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %34, ptr noundef nonnull @.str.388, i32 noundef %33) #19
+27:                                               ; preds = %24
+  %28 = lshr i32 %13, 8
+  %29 = and i32 %28, 255
+  %30 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !97
+  %31 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %30, ptr noundef nonnull @.str.388, i32 noundef %29) #19
   br label %os_waitstatus_to_exitcode_impl.exit
 
-.thread3.i:                                       ; preds = %28, %15
-  %36 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !97
-  %37 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %36, ptr noundef nonnull @.str.389, i32 noundef %13) #19
+.thread3.i:                                       ; preds = %24, %15
+  %32 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !97
+  %33 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %32, ptr noundef nonnull @.str.389, i32 noundef %13) #19
   br label %os_waitstatus_to_exitcode_impl.exit
 
-38:                                               ; preds = %26, %20
-  %.019.i = phi i32 [ %22, %20 ], [ %27, %26 ]
-  %39 = sext i32 %.019.i to i64
-  %40 = call ptr @PyLong_FromLong(i64 noundef %39) #19
+34:                                               ; preds = %22, %19
+  %.019.i = phi i32 [ %21, %19 ], [ %23, %22 ]
+  %35 = sext i32 %.019.i to i64
+  %36 = call ptr @PyLong_FromLong(i64 noundef %35) #19
   br label %os_waitstatus_to_exitcode_impl.exit
 
-os_waitstatus_to_exitcode_impl.exit:              ; preds = %38, %.thread3.i, %31, %15, %9
-  %.0 = phi ptr [ null, %9 ], [ null, %15 ], [ %40, %38 ], [ null, %31 ], [ null, %.thread3.i ]
+os_waitstatus_to_exitcode_impl.exit:              ; preds = %34, %.thread3.i, %27, %15, %9
+  %.0 = phi ptr [ null, %9 ], [ null, %15 ], [ %36, %34 ], [ null, %27 ], [ null, %.thread3.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }

@@ -9995,7 +9995,7 @@ sstrsep.exit672:                                  ; preds = %._crit_edge.i666, %
   br label %.preheader
 
 .preheader:                                       ; preds = %._crit_edge920, %.thread826
-  %.261921 = phi i32 [ %862, %.thread826 ], [ 0, %._crit_edge920 ]
+  %.261921 = phi i32 [ %858, %.thread826 ], [ 0, %._crit_edge920 ]
   br label %837
 
 837:                                              ; preds = %.preheader, %840
@@ -10017,34 +10017,30 @@ sstrsep.exit672:                                  ; preds = %._crit_edge.i666, %
 846:                                              ; preds = %837
   %847 = load i32, ptr %55, align 4, !tbaa !13
   %848 = and i32 %847, 127
-  %849 = icmp eq i32 %848, 0
-  br i1 %849, label %850, label %856
+  switch i32 %848, label %855 [
+    i32 0, label %849
+    i32 127, label %.thread826
+  ]
 
-850:                                              ; preds = %846
-  %851 = lshr i32 %847, 8
-  %852 = and i32 %851, 255
-  %.not = icmp eq i32 %852, 0
-  br i1 %.not, label %.thread826, label %853
+849:                                              ; preds = %846
+  %850 = lshr i32 %847, 8
+  %851 = and i32 %850, 255
+  %.not = icmp eq i32 %851, 0
+  br i1 %.not, label %.thread826, label %852
 
-853:                                              ; preds = %850
-  %854 = load ptr, ptr @bio_err, align 8, !tbaa !19
-  %855 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %854, ptr noundef nonnull @.str.499, i32 noundef %852) #14
+852:                                              ; preds = %849
+  %853 = load ptr, ptr @bio_err, align 8, !tbaa !19
+  %854 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %853, ptr noundef nonnull @.str.499, i32 noundef %851) #14
   br label %.thread826
 
-856:                                              ; preds = %846
-  %857 = shl nuw nsw i32 %848, 24
-  %sext = add nuw i32 %857, 16777216
-  %858 = icmp sgt i32 %sext, 33554431
-  br i1 %858, label %859, label %.thread826
-
-859:                                              ; preds = %856
-  %860 = load ptr, ptr @bio_err, align 8, !tbaa !19
-  %861 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %860, ptr noundef nonnull @.str.500, i32 noundef %848) #14
+855:                                              ; preds = %846
+  %856 = load ptr, ptr @bio_err, align 8, !tbaa !19
+  %857 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %856, ptr noundef nonnull @.str.500, i32 noundef %848) #14
   br label %.thread826
 
-.thread826:                                       ; preds = %850, %853, %859, %856
-  %862 = add nuw nsw i32 %.261921, 1
-  %exitcond1015.not = icmp eq i32 %862, %0
+.thread826:                                       ; preds = %846, %849, %852, %855
+  %858 = add nuw nsw i32 %.261921, 1
+  %exitcond1015.not = icmp eq i32 %858, %0
   br i1 %exitcond1015.not, label %.loopexit, label %.preheader, !llvm.loop !188
 
 .loopexit:                                        ; preds = %.thread826, %._crit_edge920.thread, %.thread, %843, %135

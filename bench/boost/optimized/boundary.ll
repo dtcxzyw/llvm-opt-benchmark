@@ -481,9 +481,8 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit._crit_edge: ; preds = %_ZNSt6vectorIiSaIiE
   br i1 %or.cond.us, label %.sink.split, label %110
 
 110:                                              ; preds = %.lr.ph.split.us
-  %111 = add i32 %109, -100
-  %or.cond78.us = icmp ult i32 %111, 100
-  br i1 %or.cond78.us, label %.sink.split, label %112
+  %111 = icmp ult i32 %109, 200
+  br i1 %111, label %.sink.split, label %112
 
 112:                                              ; preds = %110
   %113 = add i32 %109, -200
@@ -520,9 +519,8 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit._crit_edge: ; preds = %_ZNSt6vectorIiSaIiE
   br i1 %or.cond82.us, label %.sink.split257, label %123
 
 123:                                              ; preds = %.lr.ph.split.us127
-  %124 = add i32 %122, -100
-  %or.cond83.us = icmp ult i32 %124, 100
-  br i1 %or.cond83.us, label %.sink.split257, label %127
+  %124 = icmp ult i32 %122, 200
+  br i1 %124, label %.sink.split257, label %127
 
 .sink.split257:                                   ; preds = %.lr.ph.split.us127, %123
   %.sink259 = phi i32 [ 240, %123 ], [ 15, %.lr.ph.split.us127 ]
@@ -544,9 +542,8 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit._crit_edge: ; preds = %_ZNSt6vectorIiSaIiE
   br i1 %or.cond84.us, label %.sink.split260, label %130
 
 130:                                              ; preds = %.lr.ph.split.us129
-  %131 = add i32 %129, -100
-  %or.cond85.us = icmp ult i32 %131, 100
-  br i1 %or.cond85.us, label %.sink.split260, label %134
+  %131 = icmp ult i32 %129, 200
+  br i1 %131, label %.sink.split260, label %134
 
 .sink.split260:                                   ; preds = %.lr.ph.split.us129, %130
   %.sink262 = phi i32 [ 240, %130 ], [ 15, %.lr.ph.split.us129 ]

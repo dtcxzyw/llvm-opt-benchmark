@@ -1317,7 +1317,7 @@ getMaxmemoryState.exit205:                        ; preds = %freeMemoryGetNotCou
   %.3132 = phi i32 [ 2, %211 ], [ 0, %220 ], [ 0, %freeMemoryGetNotCountedMemory.exit.i198 ], [ 2, %getMaxmemoryState.exit205 ], [ 2, %215 ]
   %242 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 8064), align 8, !tbaa !81
   %.not155 = icmp eq i64 %242, 0
-  br i1 %.not155, label %.thread349, label %243
+  br i1 %.not155, label %.thread350, label %243
 
 243:                                              ; preds = %.critedge
   %244 = call i64 @mstime() #15
@@ -1341,7 +1341,7 @@ thread-pre-split:                                 ; preds = %.loopexit268, %246
   %248 = phi i64 [ %.pr, %thread-pre-split ], [ %.pre, %243 ]
   %.2131 = phi i32 [ %.2131.ph, %thread-pre-split ], [ %.3132, %243 ]
   %.not158 = icmp eq i64 %248, 0
-  br i1 %.not158, label %.thread349, label %249
+  br i1 %.not158, label %.thread350, label %249
 
 249:                                              ; preds = %247
   %250 = call i64 @mstime() #15
@@ -1350,46 +1350,45 @@ thread-pre-split:                                 ; preds = %.loopexit268, %246
   %.not159 = icmp eq i64 %.pre308, 0
   %.not160 = icmp slt i64 %251, %.pre308
   %or.cond171 = select i1 %.not159, i1 true, i1 %.not160
-  br i1 %or.cond171, label %.thread349, label %252
+  br i1 %or.cond171, label %.thread350, label %252
 
 252:                                              ; preds = %249
   call void @latencyAddSample(ptr noundef nonnull @.str.4, i64 noundef %251) #15
-  br label %.thread349
+  br label %.thread350
 
-.thread349:                                       ; preds = %.critedge, %247, %249, %252
-  %.2131348355 = phi i32 [ %.2131, %249 ], [ %.2131, %252 ], [ %.2131, %247 ], [ %.3132, %.critedge ]
-  %253 = add nsw i32 %.2131348355, -1
-  %or.cond5 = icmp ult i32 %253, 2
-  br i1 %or.cond5, label %.thread252, label %.thread257
+.thread350:                                       ; preds = %.critedge, %247, %249, %252
+  %.2131349356 = phi i32 [ %.2131, %249 ], [ %.2131, %252 ], [ %.2131, %247 ], [ %.3132, %.critedge ]
+  %.not339 = icmp eq i32 %.2131349356, 0
+  br i1 %.not339, label %.thread257, label %.thread252
 
-.thread252:                                       ; preds = %34, %.thread349
-  %.0129256 = phi i32 [ %.2131348355, %.thread349 ], [ 2, %34 ]
-  %254 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2560), align 8, !tbaa !94
-  %255 = icmp eq i64 %254, 0
-  br i1 %255, label %256, label %isSafeToPerformEvictions.exit.thread
+.thread252:                                       ; preds = %34, %.thread350
+  %.0129256 = phi i32 [ %.2131349356, %.thread350 ], [ 2, %34 ]
+  %253 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2560), align 8, !tbaa !94
+  %254 = icmp eq i64 %253, 0
+  br i1 %254, label %255, label %isSafeToPerformEvictions.exit.thread
 
-256:                                              ; preds = %.thread252
-  %257 = load ptr, ptr @getMonotonicUs, align 8, !tbaa !82
-  %258 = call i64 %257() #15
+255:                                              ; preds = %.thread252
+  %256 = load ptr, ptr @getMonotonicUs, align 8, !tbaa !82
+  %257 = call i64 %256() #15
   br label %isSafeToPerformEvictions.exit.thread.sink.split
 
-.thread257:                                       ; preds = %freeMemoryGetNotCountedMemory.exit.i, %11, %.thread349
-  %259 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2560), align 8
-  %.not = icmp eq i64 %259, 0
-  br i1 %.not, label %isSafeToPerformEvictions.exit.thread, label %260
+.thread257:                                       ; preds = %freeMemoryGetNotCountedMemory.exit.i, %11, %.thread350
+  %258 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2560), align 8
+  %.not = icmp eq i64 %258, 0
+  br i1 %.not, label %isSafeToPerformEvictions.exit.thread, label %259
 
-260:                                              ; preds = %.thread257
-  %261 = load ptr, ptr @getMonotonicUs, align 8, !tbaa !82
-  %262 = call i64 %261() #15
-  %263 = sub i64 %262, %259
-  %264 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2552), align 8, !tbaa !95
-  %265 = add i64 %263, %264
-  store i64 %265, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2552), align 8, !tbaa !95
+259:                                              ; preds = %.thread257
+  %260 = load ptr, ptr @getMonotonicUs, align 8, !tbaa !82
+  %261 = call i64 %260() #15
+  %262 = sub i64 %261, %258
+  %263 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2552), align 8, !tbaa !95
+  %264 = add i64 %262, %263
+  store i64 %264, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2552), align 8, !tbaa !95
   br label %isSafeToPerformEvictions.exit.thread.sink.split
 
-isSafeToPerformEvictions.exit.thread.sink.split:  ; preds = %256, %260
-  %.sink = phi i64 [ 0, %260 ], [ %258, %256 ]
-  %.094.ph = phi i32 [ 0, %260 ], [ %.0129256, %256 ]
+isSafeToPerformEvictions.exit.thread.sink.split:  ; preds = %255, %259
+  %.sink = phi i64 [ 0, %259 ], [ %257, %255 ]
+  %.094.ph = phi i32 [ 0, %259 ], [ %.0129256, %255 ]
   store i64 %.sink, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2560), align 8, !tbaa !60
   br label %isSafeToPerformEvictions.exit.thread
 

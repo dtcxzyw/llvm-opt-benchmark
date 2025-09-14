@@ -5397,22 +5397,11 @@ _ZN5boost7process2v26detail23basic_process_handle_fdINS_4asio15any_io_executorEE
   %39 = load i32, ptr %38, align 8, !tbaa !250
   %40 = and i32 %39, 127
   %41 = icmp eq i32 %40, 0
-  br i1 %41, label %42, label %45
-
-42:                                               ; preds = %_ZN5boost7process2v26detail23basic_process_handle_fdINS_4asio15any_io_executorEE4waitERiRNS_6system10error_codeE.exit
-  %43 = lshr i32 %39, 8
-  %44 = and i32 %43, 255
-  br label %_ZNK5boost7process2v213basic_processINS_4asio15any_io_executorEE9exit_codeEv.exit
-
-45:                                               ; preds = %_ZN5boost7process2v26detail23basic_process_handle_fdINS_4asio15any_io_executorEE4waitERiRNS_6system10error_codeE.exit
-  %46 = shl nuw nsw i32 %40, 24
-  %sext.i.i = add nuw i32 %46, 16777216
-  %47 = icmp sgt i32 %sext.i.i, 33554431
-  %..i.i = select i1 %47, i32 %40, i32 %39
-  br label %_ZNK5boost7process2v213basic_processINS_4asio15any_io_executorEE9exit_codeEv.exit
-
-_ZNK5boost7process2v213basic_processINS_4asio15any_io_executorEE9exit_codeEv.exit: ; preds = %42, %45
-  %.0.i.i3 = phi i32 [ %44, %42 ], [ %..i.i, %45 ]
+  %42 = lshr i32 %39, 8
+  %43 = and i32 %42, 255
+  %.not.i.i = icmp eq i32 %40, 127
+  %..i.i = select i1 %.not.i.i, i32 %39, i32 %40
+  %.0.i.i3 = select i1 %41, i32 %43, i32 %..i.i
   ret i32 %.0.i.i3
 }
 

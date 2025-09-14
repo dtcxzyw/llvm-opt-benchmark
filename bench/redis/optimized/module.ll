@@ -30333,9 +30333,9 @@ define internal fastcc noundef range(i32 0, 2) i32 @moduleValidateCommandArgs(pt
   br i1 %.not83, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %.critedge
-  %6 = phi ptr [ %64, %.critedge ], [ %5, %.preheader ]
-  %7 = phi ptr [ %63, %.critedge ], [ %0, %.preheader ]
-  %.03584 = phi i64 [ %60, %.critedge ], [ 0, %.preheader ]
+  %6 = phi ptr [ %68, %.critedge ], [ %5, %.preheader ]
+  %7 = phi ptr [ %67, %.critedge ], [ %0, %.preheader ]
+  %.03584 = phi i64 [ %64, %.critedge ], [ 0, %.preheader ]
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load i32, ptr %8, align 8, !tbaa !223
   %switch52 = icmp ult i32 %9, 9
@@ -30377,7 +30377,7 @@ moduleConvertArgType.exit:                        ; preds = %.lr.ph
   %24 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %25 = load i32, ptr %24, align 4, !tbaa !225
   %26 = icmp slt i32 %25, 0
-  br i1 %26, label %27, label %37
+  br i1 %26, label %27, label %.thread116
 
 27:                                               ; preds = %23
   %28 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !90
@@ -30405,71 +30405,79 @@ moduleConvertArgType.exit:                        ; preds = %.lr.ph
   tail call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef nonnull @.str.557, ptr noundef nonnull %6) #35
   br label %.loopexit
 
-37:                                               ; preds = %.thread, %.thread, %23
+37:                                               ; preds = %.thread, %.thread
   %38 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %39 = load i32, ptr %38, align 8, !tbaa !237
   %.not44 = icmp ult i32 %39, 8
-  br i1 %.not44, label %44, label %40
+  br i1 %.not44, label %46, label %42
 
-40:                                               ; preds = %37
-  %41 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !90
-  %42 = icmp sgt i32 %41, 3
-  br i1 %42, label %.loopexit, label %43
+.thread116:                                       ; preds = %23
+  %40 = getelementptr inbounds nuw i8, ptr %7, i64 40
+  %41 = load i32, ptr %40, align 8, !tbaa !237
+  %.not44117 = icmp ult i32 %41, 8
+  br i1 %.not44117, label %.thread118, label %42
 
-43:                                               ; preds = %40
+42:                                               ; preds = %.thread116, %37
+  %43 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !90
+  %44 = icmp sgt i32 %43, 3
+  br i1 %44, label %.loopexit, label %45
+
+45:                                               ; preds = %42
   tail call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef nonnull @.str.558, ptr noundef nonnull %6) #35
   br label %.loopexit
 
-44:                                               ; preds = %37
-  %.off = add nsw i32 %9, -7
-  %switch47 = icmp ult i32 %.off, 2
-  %45 = getelementptr inbounds nuw i8, ptr %7, i64 56
-  %46 = load ptr, ptr %45, align 8, !tbaa !239
-  %47 = icmp eq ptr %46, null
-  br i1 %switch47, label %48, label %55
+46:                                               ; preds = %37
+  %47 = icmp samesign ugt i32 %9, 6
+  br i1 %47, label %48, label %.thread118
 
-48:                                               ; preds = %44
-  br i1 %47, label %49, label %53
+48:                                               ; preds = %46
+  %49 = getelementptr inbounds nuw i8, ptr %7, i64 56
+  %50 = load ptr, ptr %49, align 8, !tbaa !239
+  %51 = icmp eq ptr %50, null
+  br i1 %51, label %52, label %56
 
-49:                                               ; preds = %48
-  %50 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !90
-  %51 = icmp sgt i32 %50, 3
-  br i1 %51, label %.loopexit, label %52
+52:                                               ; preds = %48
+  %53 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !90
+  %54 = icmp sgt i32 %53, 3
+  br i1 %54, label %.loopexit, label %55
 
-52:                                               ; preds = %49
+55:                                               ; preds = %52
   tail call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef nonnull @.str.559, ptr noundef nonnull %6) #35
   br label %.loopexit
 
-53:                                               ; preds = %48
-  %54 = tail call fastcc i32 @moduleValidateCommandArgs(ptr noundef nonnull %46, ptr noundef %1)
-  %.not46 = icmp eq i32 %54, 0
+56:                                               ; preds = %48
+  %57 = tail call fastcc i32 @moduleValidateCommandArgs(ptr noundef nonnull %50, ptr noundef %1)
+  %.not46 = icmp eq i32 %57, 0
   br i1 %.not46, label %.loopexit, label %.critedge
 
-55:                                               ; preds = %44
-  br i1 %47, label %.critedge, label %56
+.thread118:                                       ; preds = %.thread116, %46
+  %58 = getelementptr inbounds nuw i8, ptr %7, i64 56
+  %59 = load ptr, ptr %58, align 8, !tbaa !239
+  %.not45 = icmp eq ptr %59, null
+  br i1 %.not45, label %.critedge, label %60
 
-56:                                               ; preds = %55
-  %57 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !90
-  %58 = icmp sgt i32 %57, 3
-  br i1 %58, label %.loopexit, label %59
+60:                                               ; preds = %.thread118
+  %61 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !90
+  %62 = icmp sgt i32 %61, 3
+  br i1 %62, label %.loopexit, label %63
 
-59:                                               ; preds = %56
+63:                                               ; preds = %60
   tail call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef nonnull @.str.560, ptr noundef nonnull %6) #35
   br label %.loopexit
 
-.critedge:                                        ; preds = %55, %53
-  %60 = add i64 %.03584, 1
+.critedge:                                        ; preds = %.thread118, %56
+  %64 = add i64 %.03584, 1
   %.val = load i64, ptr %4, align 8, !tbaa !219
-  %sext = shl i64 %60, 32
-  %61 = ashr exact i64 %sext, 32
-  %62 = mul i64 %61, %.val
-  %63 = getelementptr inbounds i8, ptr %0, i64 %62
-  %64 = load ptr, ptr %63, align 8, !tbaa !220
-  %.not = icmp eq ptr %64, null
+  %sext = shl i64 %64, 32
+  %65 = ashr exact i64 %sext, 32
+  %66 = mul i64 %65, %.val
+  %67 = getelementptr inbounds i8, ptr %0, i64 %66
+  %68 = load ptr, ptr %67, align 8, !tbaa !220
+  %.not = icmp eq ptr %68, null
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !690
 
-.loopexit:                                        ; preds = %53, %.critedge, %59, %56, %52, %49, %43, %40, %36, %33, %30, %27, %20, %17, %12, %moduleConvertArgType.exit, %.preheader, %2
-  %.0 = phi i32 [ 1, %2 ], [ 0, %moduleConvertArgType.exit ], [ 0, %12 ], [ 0, %17 ], [ 0, %20 ], [ 0, %27 ], [ 0, %30 ], [ 0, %33 ], [ 0, %36 ], [ 0, %40 ], [ 0, %43 ], [ 0, %49 ], [ 0, %52 ], [ 0, %56 ], [ 0, %59 ], [ 1, %.preheader ], [ 1, %.critedge ], [ 0, %53 ]
+.loopexit:                                        ; preds = %56, %.critedge, %63, %60, %55, %52, %45, %42, %36, %33, %30, %27, %20, %17, %12, %moduleConvertArgType.exit, %.preheader, %2
+  %.0 = phi i32 [ 1, %2 ], [ 0, %moduleConvertArgType.exit ], [ 0, %12 ], [ 0, %17 ], [ 0, %20 ], [ 0, %27 ], [ 0, %30 ], [ 0, %33 ], [ 0, %36 ], [ 0, %42 ], [ 0, %45 ], [ 0, %52 ], [ 0, %55 ], [ 0, %60 ], [ 0, %63 ], [ 1, %.preheader ], [ 1, %.critedge ], [ 0, %56 ]
   ret i32 %.0
 }
 

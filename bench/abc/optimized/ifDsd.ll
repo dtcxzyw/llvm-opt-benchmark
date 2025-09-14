@@ -12759,8 +12759,7 @@ define i32 @If_CutDsdBalancePinDelays(ptr noundef readonly captures(none) %0, pt
   br i1 %10, label %70, label %11
 
 11:                                               ; preds = %3
-  %.mask = and i32 %9, -16777216
-  %12 = icmp eq i32 %.mask, 16777216
+  %12 = icmp ult i32 %9, 33554432
   br i1 %12, label %13, label %.lr.ph
 
 13:                                               ; preds = %11
@@ -13651,13 +13650,11 @@ Vec_IntPush.exit:                                 ; preds = %16, %Vec_IntGrow.ex
   br label %155
 
 45:                                               ; preds = %9
-  %.mask = and i32 %10, -16777216
-  %46 = icmp eq i32 %.mask, 16777216
+  %46 = icmp ult i32 %10, 33554432
   br i1 %46, label %.critedge, label %.lr.ph
 
 .thread118:                                       ; preds = %.thread
-  %.mask119 = and i32 %14, -16777216
-  %47 = icmp eq i32 %.mask119, 16777216
+  %47 = icmp ult i32 %14, 33554432
   br i1 %47, label %48, label %.lr.ph
 
 48:                                               ; preds = %.thread118

@@ -166,11 +166,11 @@ define internal range(i32 -30, 1) i32 @file_open(ptr noundef %0, ptr noundef %1)
   %11 = tail call ptr @__errno_location() #17
   %12 = load i32, ptr %11, align 4, !tbaa !21
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef %12, ptr noundef nonnull @.str.5, ptr noundef nonnull %7) #14
-  br label %57
+  br label %56
 
 .thread52:                                        ; preds = %2
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef -1, ptr noundef nonnull @.str.6) #14
-  br label %57
+  br label %56
 
 13:                                               ; preds = %2, %6
   %.042 = phi ptr [ %7, %6 ], [ @.str, %2 ]
@@ -256,24 +256,23 @@ define internal range(i32 -30, 1) i32 @file_open(ptr noundef %0, ptr noundef %1)
   store i32 %.041, ptr %1, align 8, !tbaa !13
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i32 %20, ptr %50, align 8, !tbaa !16
-  br i1 %.not4850, label %57, label %51
+  br i1 %.not4850, label %56, label %51
 
 51:                                               ; preds = %48
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 28
   store i8 1, ptr %52, align 4, !tbaa !15
-  br label %57
+  br label %56
 
 53:                                               ; preds = %47, %15
-  %54 = add nsw i32 %.041, -1
-  %or.cond = icmp ult i32 %54, -2
-  br i1 %or.cond, label %55, label %57
+  %.not58 = icmp eq i32 %.041, 0
+  br i1 %.not58, label %56, label %54
 
-55:                                               ; preds = %53
-  %56 = tail call i32 @close(i32 noundef %.041) #14
-  br label %57
+54:                                               ; preds = %53
+  %55 = tail call i32 @close(i32 noundef %.041) #14
+  br label %56
 
-57:                                               ; preds = %.thread52, %53, %55, %48, %51, %10
-  %.043 = phi i32 [ -30, %10 ], [ 0, %51 ], [ 0, %48 ], [ -30, %55 ], [ -30, %53 ], [ -30, %.thread52 ]
+56:                                               ; preds = %.thread52, %53, %54, %48, %51, %10
+  %.043 = phi i32 [ -30, %10 ], [ 0, %51 ], [ 0, %48 ], [ -30, %54 ], [ -30, %53 ], [ -30, %.thread52 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.043
 }

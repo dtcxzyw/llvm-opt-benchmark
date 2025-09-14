@@ -2777,7 +2777,7 @@ define dso_local i32 @run_script_health_check() local_unnamed_addr #0 {
   %8 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 444), align 4
   %9 = icmp ne i16 %8, 0
   %or.cond = select i1 %7, i1 %9, i1 false
-  br i1 %or.cond, label %10, label %51
+  br i1 %or.cond, label %10, label %47
 
 10:                                               ; preds = %0
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -2816,62 +2816,58 @@ define dso_local i32 @run_script_health_check() local_unnamed_addr #0 {
   store ptr %27, ptr %4, align 8
   %28 = load i32, ptr %1, align 4
   %.not = icmp eq i32 %28, 0
-  br i1 %.not, label %44, label %29
+  br i1 %.not, label %40, label %29
 
 29:                                               ; preds = %10
   %30 = and i32 %28, 127
-  %31 = icmp eq i32 %30, 0
-  br i1 %31, label %32, label %36
+  switch i32 %30, label %35 [
+    i32 0, label %31
+    i32 127, label %37
+  ]
 
-32:                                               ; preds = %29
-  %33 = lshr i32 %28, 8
-  %34 = and i32 %33, 255
-  %35 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.49, i32 noundef %34, ptr noundef %27) #18
-  br label %43
+31:                                               ; preds = %29
+  %32 = lshr i32 %28, 8
+  %33 = and i32 %32, 255
+  %34 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.49, i32 noundef %33, ptr noundef %27) #18
+  br label %39
 
-36:                                               ; preds = %29
-  %37 = shl nuw nsw i32 %30, 24
-  %sext = add nuw i32 %37, 16777216
-  %38 = icmp sgt i32 %sext, 33554431
-  br i1 %38, label %39, label %41
+35:                                               ; preds = %29
+  %36 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.50, i32 noundef %30, ptr noundef %27) #18
+  br label %39
 
-39:                                               ; preds = %36
-  %40 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.50, i32 noundef %30, ptr noundef %27) #18
-  br label %43
+37:                                               ; preds = %29
+  %38 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.51, i32 noundef %28, ptr noundef %27) #18
+  br label %39
 
-41:                                               ; preds = %36
-  %42 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.51, i32 noundef %28, ptr noundef %27) #18
-  br label %43
-
-43:                                               ; preds = %39, %41, %32
+39:                                               ; preds = %35, %37, %31
   store i32 -1, ptr %1, align 4
-  br label %49
+  br label %45
 
-44:                                               ; preds = %10
-  %45 = call i32 @get_log_level() #18
-  %46 = icmp sgt i32 %45, 5
-  br i1 %46, label %47, label %49
+40:                                               ; preds = %10
+  %41 = call i32 @get_log_level() #18
+  %42 = icmp sgt i32 %41, 5
+  br i1 %42, label %43, label %45
 
-47:                                               ; preds = %44
-  %48 = load i32, ptr %1, align 4
-  call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.52, i32 noundef %48, ptr noundef %27) #18
-  br label %49
+43:                                               ; preds = %40
+  %44 = load i32, ptr %1, align 4
+  call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.52, i32 noundef %44, ptr noundef %27) #18
+  br label %45
 
-49:                                               ; preds = %44, %47, %43
-  %50 = load ptr, ptr %2, align 8
-  call void @env_array_free(ptr noundef %50) #18
+45:                                               ; preds = %40, %43, %39
+  %46 = load ptr, ptr %2, align 8
+  call void @env_array_free(ptr noundef %46) #18
   call void @slurm_xfree(ptr noundef nonnull %4) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.pre = load i32, ptr %1, align 4
-  br label %51
+  br label %47
 
-51:                                               ; preds = %49, %0
-  %52 = phi i32 [ %.pre, %49 ], [ 0, %0 ]
+47:                                               ; preds = %45, %0
+  %48 = phi i32 [ %.pre, %45 ], [ 0, %0 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
-  ret i32 %52
+  ret i32 %48
 }
 
 declare void @record_launched_jobs() local_unnamed_addr #3
