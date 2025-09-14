@@ -1584,18 +1584,18 @@ define void @lv_label_set_long_mode(ptr noundef %0, i32 noundef %1) local_unname
   %5 = tail call zeroext i1 @lv_anim_delete(ptr noundef nonnull %0, ptr noundef nonnull @set_ofs_y_anim) #7
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 108
   tail call void @lv_point_set(ptr noundef nonnull %6, i32 noundef 0, i32 noundef 0) #7
-  %7 = add i32 %1, -2
-  %or.cond3 = icmp ult i32 %7, 3
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 116
-  %9 = load i8, ptr %8, align 4
-  %10 = and i8 %9, -80
-  %masksel = select i1 %or.cond3, i8 64, i8 0
-  %11 = or disjoint i8 %10, %masksel
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 116
-  %13 = trunc i32 %1 to i8
-  %14 = and i8 %13, 15
-  %15 = or disjoint i8 %11, %14
-  store i8 %15, ptr %12, align 4
+  %.off = add i32 %1, -2
+  %switch = icmp ult i32 %.off, 3
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 116
+  %8 = load i8, ptr %7, align 4
+  %9 = and i8 %8, -80
+  %masksel = select i1 %switch, i8 64, i8 0
+  %10 = or disjoint i8 %9, %masksel
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 116
+  %12 = trunc i32 %1 to i8
+  %13 = and i8 %12, 15
+  %14 = or disjoint i8 %10, %13
+  store i8 %14, ptr %11, align 4
   tail call fastcc void @lv_label_refr_text(ptr noundef nonnull %0)
   ret void
 }

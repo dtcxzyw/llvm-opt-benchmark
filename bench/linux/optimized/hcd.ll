@@ -346,7 +346,7 @@ define dso_local void @usb_hcd_giveback_urb(ptr noundef %0, ptr noundef %1, i32 
 
 21:                                               ; preds = %15
   tail call fastcc void @__usb_hcd_giveback_urb(ptr noundef %1)
-  br label %50
+  br label %53
 
 22:                                               ; preds = %15, %8
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 80
@@ -356,21 +356,21 @@ define dso_local void @usb_hcd_giveback_urb(ptr noundef %0, ptr noundef %1, i32 
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 4
   tail call void @_raw_spin_lock(ptr noundef nonnull %28) #18
-  %29 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %30 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %31 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %32 = load ptr, ptr %31, align 8
   store ptr %29, ptr %31, align 8
-  store ptr %30, ptr %29, align 8
+  store ptr %30, ptr %30, align 8
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store ptr %32, ptr %33, align 8
-  store volatile ptr %29, ptr %32, align 8
+  store volatile ptr %30, ptr %32, align 8
   %34 = load i8, ptr %27, align 8, !range !10, !noundef !11
   %35 = icmp eq i8 %34, 0
   tail call void @_raw_spin_unlock(ptr noundef nonnull %28) #18
   br i1 %35, label %36, label %50
 
-36:                                               ; preds = %22
+36:  ; preds = %22
   %37 = getelementptr inbounds nuw i8, ptr %27, i64 1
   %38 = load i8, ptr %37, align 1, !range !10, !noundef !11
   %39 = icmp eq i8 %38, 0
@@ -381,23 +381,23 @@ define dso_local void @usb_hcd_giveback_urb(ptr noundef %0, ptr noundef %1, i32 
   %43 = icmp eq i8 %41, 0
   br i1 %39, label %47, label %44
 
-44:                                               ; preds = %36
+44:; preds = %36
   br i1 %43, label %45, label %50
 
-45:                                               ; preds = %44
+47:                                               ; preds = %44
   %46 = getelementptr inbounds nuw i8, ptr %27, i64 24
   tail call void @__tasklet_hi_schedule(ptr noundef nonnull %46) #18
   br label %50
 
-47:                                               ; preds = %36
-  br i1 %43, label %48, label %50
+50:                                               ; preds = %36
+  br i1 %43, label %51, label %53
 
-48:                                               ; preds = %47
-  %49 = getelementptr inbounds nuw i8, ptr %27, i64 24
-  tail call void @__tasklet_schedule(ptr noundef nonnull %49) #18
-  br label %50
+51:                                               ; preds = %50
+  %52 = getelementptr inbounds nuw i8, ptr %27, i64 24
+  tail call void @__tasklet_schedule(ptr noundef nonnull %52) #18
+  br label %53
 
-50:                                               ; preds = %48, %47, %45, %44, %22, %21
+53:                                               ; preds = %51, %50, %45, %44, %22, %21
   ret void
 }
 

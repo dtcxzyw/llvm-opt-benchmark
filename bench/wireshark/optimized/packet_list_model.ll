@@ -5540,7 +5540,7 @@ declare void @_ZN13QElapsedTimer5startEv(ptr noundef align 8 dereferenceable_or_
 ; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
 define noundef zeroext i1 @_ZN15PacketListModel15isNumericColumnEi(ptr readnone align 8 captures(none) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = icmp slt i32 %1, 0
-  br i1 %3, label %switch.early.test, label %4
+  br i1 %3, label %.loopexit, label %4
 
 4:                                                ; preds = %2
   %5 = load ptr, ptr @_ZN15PacketListModel14sort_cap_file_E, align 8
@@ -5550,36 +5550,36 @@ define noundef zeroext i1 @_ZN15PacketListModel15isNumericColumnEi(ptr readnone 
   %9 = getelementptr %struct.col_item_t, ptr %7, i64 %8
   %10 = load i32, ptr %9, align 8
   switch i32 %10, label %11 [
-    i32 3, label %switch.early.test
-    i32 5, label %switch.early.test
-    i32 6, label %switch.early.test
-    i32 10, label %switch.early.test
-    i32 15, label %switch.early.test
-    i32 22, label %switch.early.test
-    i32 23, label %switch.early.test
-    i32 32, label %switch.early.test
-    i32 33, label %switch.early.test
-    i32 34, label %switch.early.test
-    i32 42, label %switch.early.test
-    i32 9, label %switch.early.test
-    i32 12, label %switch.early.test
-    i32 38, label %switch.early.test
-    i32 41, label %switch.early.test
+    i32 3, label %.loopexit
+    i32 5, label %.loopexit
+    i32 6, label %.loopexit
+    i32 10, label %.loopexit
+    i32 15, label %.loopexit
+    i32 22, label %.loopexit
+    i32 23, label %.loopexit
+    i32 32, label %.loopexit
+    i32 33, label %.loopexit
+    i32 34, label %.loopexit
+    i32 42, label %.loopexit
+    i32 9, label %.loopexit
+    i32 12, label %.loopexit
+    i32 38, label %.loopexit
+    i32 41, label %.loopexit
     i32 4, label %12
   ]
 
 11:                                               ; preds = %4
-  br label %switch.early.test
+  br label %.loopexit
 
 12:                                               ; preds = %4
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %14 = load ptr, ptr %13, align 8
   %15 = tail call i32 @g_slist_length(ptr noundef %14)
   %.not118.not119.not = icmp eq i32 %15, 0
-  br i1 %.not118.not119.not, label %switch.early.test, label %.lr.ph
+  br i1 %.not118.not119.not, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %12, %.critedge
-  %.0106120 = phi i32 [ %56, %.critedge ], [ 0, %12 ]
+  %.0106120 = phi i32 [ %58, %.critedge ], [ 0, %12 ]
   %16 = load ptr, ptr @_ZN15PacketListModel14sort_cap_file_E, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 296
   %18 = load ptr, ptr %17, align 8
@@ -5600,78 +5600,78 @@ define noundef zeroext i1 @_ZN15PacketListModel15isNumericColumnEi(ptr readnone 
   %or.cond14 = icmp ult i32 %30, 8
   %31 = add i32 %29, -3
   %32 = icmp ult i32 %31, 5
-  %or.cond24 = or i1 %or.cond14, %32
+  %or.cond14 = or i1 %or.cond14, %32
   %33 = icmp eq i32 %29, 35
   %or.cond26 = or i1 %33, %or.cond24
   %34 = and i32 %29, -4
   %35 = icmp eq i32 %34, 8
-  %or.cond34 = or i1 %35, %or.cond26
+  %or.cond28 = or i1 %35, %or.cond26
   %36 = and i32 %29, -2
-  %37 = icmp eq i32 %36, 22
-  %or.cond38 = or i1 %37, %or.cond34
-  %38 = icmp eq i32 %29, 2
-  %or.cond40 = or i1 %38, %or.cond38
-  %39 = icmp eq i32 %29, 25
-  %or.cond42 = or i1 %39, %or.cond40
-  br label %switch.early.test
+  %38 = icmp eq i32 %36, 22
+  %or.cond34 = or i1 %38, %or.cond28
+  %39 = icmp eq i32 %29, 2
+  %or.cond38 = or i1 %39, %or.cond34
+  %40 = icmp eq i32 %29, 25
+  %or.cond40 = or i1 %40, %or.cond38
+  br label %.loopexit
 
-40:                                               ; preds = %.lr.ph
+40:; preds = %.lr.ph
   %41 = tail call ptr @proto_registrar_get_nth(i32 noundef %24)
   %.not = icmp eq ptr %41, null
-  br i1 %.not, label %switch.early.test, label %42
+  br i1 %.not, label %.loopexit, label %42
 
-42:                                               ; preds = %40
+42:   ; preds = %40
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 24
   %44 = load ptr, ptr %43, align 8
   %.not116 = icmp eq ptr %44, null
   br i1 %.not116, label %49, label %45
 
-45:                                               ; preds = %42
+45:; preds = %42
   %46 = getelementptr inbounds nuw i8, ptr %41, i64 20
   %47 = load i32, ptr %46, align 4
   %48 = and i32 %47, 4096
   %.not117 = icmp eq i32 %48, 0
-  br i1 %.not117, label %switch.early.test, label %49
+  br i1 %.not117, label %.loopexit, label %49
 
-49:                                               ; preds = %45, %42
+49:; preds = %45, %42
   %50 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %51 = load i32, ptr %50, align 8
   switch i32 %51, label %switch.early.test [
     i32 12, label %52
     i32 13, label %52
-    i32 14, label %52
-    i32 15, label %52
-    i32 16, label %52
-    i32 17, label %52
-    i32 18, label %52
-    i32 19, label %52
-    i32 3, label %52
-    i32 4, label %52
-    i32 5, label %52
-    i32 6, label %52
-    i32 7, label %52
-    i32 35, label %52
-    i32 8, label %52
-    i32 9, label %52
-    i32 10, label %52
-    i32 11, label %52
+    i32 14, label %54
+    i32 15, label %54
+    i32 16, label %54
+    i32 17, label %54
+    i32 18, label %54
+    i32 19, label %54
+    i32 3, label %54
+    i32 4, label %54
+    i32 5, label %54
+    i32 6, label %54
+    i32 7, label %54
+    i32 35, label %54
+    i32 8, label %54
+    i32 9, label %54
+    i32 10, label %54
+    i32 11, label %54
     i32 23, label %.critedge
     i32 22, label %.critedge
     i32 2, label %.critedge
     i32 25, label %.critedge
   ]
 
-52:                                               ; preds = %49, %49, %49, %49, %49, %49, %49, %49, %49, %49, %49, %49, %49, %49, %49, %49, %49, %49
-  %53 = getelementptr inbounds nuw i8, ptr %41, i64 20
-  %54 = load i32, ptr %53, align 4
-  %trunc = trunc i32 %54 to i8
+54:                                               ; preds = %49, %49, %49, %49, %49, %49, %49, %49, %49, %49, %49, %49, %49, %49, %49, %49, %49, %49
+  %55 = getelementptr inbounds nuw i8, ptr %41, i64 20
+  %56 = load i32, ptr %55, align 4
+  %trunc = trunc i32 %56 to i8
   switch i8 %trunc, label %55 [
     i8 1, label %.critedge
     i8 3, label %.critedge
     i8 4, label %.critedge
   ]
 
-55:                                               ; preds = %52
+57:                                               ; preds = %54
   switch i32 %51, label %switch.early.test [
     i32 23, label %.critedge
     i32 22, label %.critedge
@@ -5679,12 +5679,12 @@ define noundef zeroext i1 @_ZN15PacketListModel15isNumericColumnEi(ptr readnone 
     i32 35, label %.critedge
   ]
 
-.critedge:                                        ; preds = %55, %49, %49, %49, %49, %55, %55, %55, %52, %52, %52
-  %56 = add nuw i32 %.0106120, 1
-  %exitcond.not = icmp eq i32 %56, %15
-  br i1 %exitcond.not, label %switch.early.test, label %.lr.ph, !llvm.loop !88
+.critedge:                                        ; preds = %57, %49, %49, %49, %49, %57, %57, %57, %54, %54, %54
+  %58 = add nuw i32 %.0106120, 1
+  %exitcond.not = icmp eq i32 %58, %15
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !88
 
-switch.early.test:                                ; preds = %49, %55, %45, %40, %.critedge, %12, %26, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %2, %11
+.loopexit:                                        ; preds = %49, %57, %45, %40, %.critedge, %12, %26, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %2, %11
   %.0 = phi i1 [ false, %11 ], [ false, %2 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ %or.cond42, %26 ], [ true, %12 ], [ false, %49 ], [ false, %55 ], [ false, %45 ], [ false, %40 ], [ true, %.critedge ]
   ret i1 %.0
 }

@@ -48,16 +48,16 @@ define dso_local range(i32 1, 5) i32 @pg_mule_mblen(ptr noundef readonly capture
 
 4:                                                ; preds = %1
   %5 = add i8 %2, 112
-  %or.cond14 = icmp ult i8 %5, 12
-  br i1 %or.cond14, label %8, label %6
+  %switch = icmp ult i8 %5, 12
+  br i1 %switch, label %8, label %6
 
-6:                                                ; preds = %4
+7:                                                ; preds = %4
   %7 = and i8 %2, -2
   %switch13 = icmp eq i8 %7, -100
   %spec.select = select i1 %switch13, i32 4, i32 1
   br label %8
 
-8:                                                ; preds = %6, %4, %1
+8:                                                ; preds = %7, %4, %1
   %.0 = phi i32 [ 2, %1 ], [ 3, %4 ], [ %spec.select, %6 ]
   ret i32 %.0
 }
@@ -2095,16 +2095,16 @@ define internal range(i32 -1, 5) i32 @pg_mule_verifychar(ptr noundef readonly ca
 
 5:                                                ; preds = %2
   %6 = add i8 %3, 112
-  %or.cond14.i = icmp ult i8 %6, 12
-  br i1 %or.cond14.i, label %pg_mule_mblen.exit, label %7
+  %switch.i = icmp ult i8 %6, 12
+  br i1 %switch.i, label %pg_mule_mblen.exit, label %7
 
-7:                                                ; preds = %5
+8:                                                ; preds = %5
   %8 = and i8 %3, -2
   %switch13.i = icmp eq i8 %8, -100
   %spec.select.i = select i1 %switch13.i, i32 4, i32 1
   br label %pg_mule_mblen.exit
 
-pg_mule_mblen.exit:                               ; preds = %2, %5, %7
+pg_mule_mblen.exit:                               ; preds = %2, %5, %8
   %.0.i = phi i32 [ 2, %2 ], [ 3, %5 ], [ %spec.select.i, %7 ]
   %9 = icmp slt i32 %1, %.0.i
   br i1 %9, label %.loopexit, label %.preheader
@@ -2150,16 +2150,16 @@ define internal i32 @pg_mule_verifystr(ptr noundef %0, i32 noundef %1) #5 {
 
 9:                                                ; preds = %7
   %10 = add nsw i8 %4, 112
-  %or.cond14.i.i = icmp ult i8 %10, 12
-  br i1 %or.cond14.i.i, label %pg_mule_mblen.exit.i, label %11
+  %switch.i.i = icmp ult i8 %10, 12
+  br i1 %switch.i.i, label %pg_mule_mblen.exit.i, label %12
 
-11:                                               ; preds = %9
+12:                                               ; preds = %9
   %12 = and i8 %4, -2
   %switch13.i.i = icmp eq i8 %12, -100
   %spec.select.i.i = select i1 %switch13.i.i, i32 4, i32 1
   br label %pg_mule_mblen.exit.i
 
-pg_mule_mblen.exit.i:                             ; preds = %11, %9, %7
+pg_mule_mblen.exit.i:                             ; preds = %12, %9, %7
   %.0.i.i = phi i32 [ 2, %7 ], [ 3, %9 ], [ %spec.select.i.i, %11 ]
   %13 = icmp samesign ult i32 %.01526, %.0.i.i
   br i1 %13, label %.thread, label %.preheader.i

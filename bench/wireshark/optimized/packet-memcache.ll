@@ -714,9 +714,9 @@ define internal fastcc void @dissect_key(ptr noundef %0, ptr noundef %1, ptr nou
   %13 = add i8 %12, -5
   %or.cond29 = icmp ult i8 %13, -4
   %14 = icmp ne i8 %5, 8
-  %or.cond32.not158 = and i1 %14, %or.cond29
+  %or.cond32.not160 = and i1 %14, %or.cond29
   %15 = icmp ne i8 %8, 14
-  %or.cond38.not156 = and i1 %15, %or.cond32.not158
+  %or.cond38.not158 = and i1 %15, %or.cond32.not160
   %16 = add i8 %5, -27
   %17 = icmp ult i8 %16, -3
   %or.cond47.not154 = and i1 %17, %or.cond38.not156
@@ -736,7 +736,7 @@ switch.early.test:                                ; preds = %9
   %20 = tail call ptr @val_to_str(i32 noundef %19, ptr noundef nonnull @opcode_vals, ptr noundef nonnull @.str.162)
   %21 = select i1 %6, ptr @.str.110, ptr @.str.48
   %22 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %11, ptr noundef nonnull @ei_key_unknown, ptr noundef nonnull @.str.166, ptr noundef %20, ptr noundef nonnull %21)
-  br label %.thread166
+  br label %.thread168
 
 23:                                               ; preds = %7
   %24 = icmp eq i8 %5, 0
@@ -749,15 +749,15 @@ switch.early.test:                                ; preds = %9
   %29 = icmp ult i8 %28, 6
   %or.cond92 = or i1 %or.cond56, %29
   %or.cond96 = and i1 %6, %or.cond92
-  br i1 %or.cond96, label %30, label %.thread166
+  br i1 %or.cond96, label %30, label %.thread168
 
 30:                                               ; preds = %23
   %31 = zext i8 %5 to i32
   %32 = tail call ptr @val_to_str(i32 noundef %31, ptr noundef nonnull @opcode_vals, ptr noundef nonnull @.str.162)
   %33 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_key_missing, ptr noundef %0, i32 noundef %3, i32 noundef 0, ptr noundef nonnull @.str.167, ptr noundef %32)
-  br label %.thread166
+  br label %.thread168
 
-.thread166:                                       ; preds = %switch.early.test, %23, %30, %18
+.thread168:                                       ; preds = %switch.early.test, %23, %30, %18
   ret void
 }
 

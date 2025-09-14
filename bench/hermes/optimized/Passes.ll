@@ -187,9 +187,9 @@ if.end19:                                         ; preds = %if.then12, %land.rh
   br label %return
 
 if.end20:                                         ; preds = %entry
-  %cmp.i.i.i.i.i.i.i49 = icmp eq i8 %0, 80
+  %cmp.i.i.i.i.i.i.i48 = icmp eq i8 %0, 80
   %cmp22 = icmp ne i32 %opIndex, 0
-  %or.cond = and i1 %cmp22, %cmp.i.i.i.i.i.i.i49
+  %or.cond = and i1 %cmp22, %cmp.i.i.i.i.i.i.i48
   br i1 %or.cond, label %return, label %if.end24
 
 if.end24:                                         ; preds = %if.end20
@@ -204,14 +204,14 @@ if.then26:                                        ; preds = %if.end24
   ]
 
 if.then28:                                        ; preds = %if.then26
-  %cmp.i.i.i.i.i.i.i51 = icmp eq i8 %0, 41
-  br i1 %cmp.i.i.i.i.i.i.i51, label %return, label %if.end31
+  %cmp.i.i.i.i.i.i.i50 = icmp eq i8 %0, 41
+  br i1 %cmp.i.i.i.i.i.i.i50, label %return, label %if.end31
 
 if.end31:                                         ; preds = %if.then28
   %call32 = tail call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %Inst, i32 noundef 2) #13
   %4 = load i8, ptr %call32, align 8
-  %cmp.i.i.i.i.i.i.i52.not = icmp eq i8 %4, 114
-  br i1 %cmp.i.i.i.i.i.i.i52.not, label %if.then35, label %if.end48
+  %cmp.i.i.i.i.i.i.i51.not = icmp eq i8 %4, 114
+  br i1 %cmp.i.i.i.i.i.i.i51.not, label %if.then35, label %if.end48
 
 if.then35:                                        ; preds = %if.end31
   %call.i = tail call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %Inst, i32 noundef 3) #13
@@ -243,8 +243,8 @@ if.end49:                                         ; preds = %if.end24
 land.rhs53:                                       ; preds = %if.end49
   %call55 = tail call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %Inst, i32 noundef 2) #13
   %9 = load i8, ptr %call55, align 8
-  %cmp.i.i.i.i.i.i55 = icmp eq i8 %9, 116
-  br i1 %cmp.i.i.i.i.i.i55, label %return, label %if.end79.sink.split
+  %cmp.i.i.i.i.i.i54 = icmp eq i8 %9, 116
+  br i1 %cmp.i.i.i.i.i.i54, label %return, label %if.end79.sink.split
 
 if.end59:                                         ; preds = %if.end49
   %10 = add i8 %0, -45
@@ -256,36 +256,36 @@ if.end59:                                         ; preds = %if.end49
 land.rhs63:                                       ; preds = %if.end59
   %call65 = tail call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %Inst, i32 noundef 1) #13
   %12 = load i8, ptr %call65, align 8
-  %cmp.i.i.i.i.i.i57 = icmp eq i8 %12, 116
-  br i1 %cmp.i.i.i.i.i.i57, label %return, label %if.end69
+  %cmp.i.i.i.i.i.i56 = icmp eq i8 %12, 116
+  br i1 %cmp.i.i.i.i.i.i56, label %return, label %if.end69
 
 if.end69:                                         ; preds = %if.end59, %land.rhs63
-  %cmp62104 = phi i1 [ %cmp62, %if.end59 ], [ true, %land.rhs63 ]
+  %cmp62103 = phi i1 [ %cmp62, %if.end59 ], [ true, %land.rhs63 ]
   %13 = load i8, ptr %add.ptr.i.i.i.i.i, align 8
-  %cmp.i.i.i.i.i.i.i59 = icmp eq i8 %13, 44
-  %or.cond3 = and i1 %cmp62104, %cmp.i.i.i.i.i.i.i59
+  %cmp.i.i.i.i.i.i.i58 = icmp eq i8 %13, 44
+  %or.cond3 = and i1 %cmp62103, %cmp.i.i.i.i.i.i.i58
   br i1 %or.cond3, label %land.rhs73, label %if.end79
 
 land.rhs73:                                       ; preds = %if.end69
   %call75 = tail call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %Inst, i32 noundef 1) #13
   %14 = load i8, ptr %call75, align 8
-  %cmp.i.i.i.i.i.i60 = icmp eq i8 %14, 116
-  br i1 %cmp.i.i.i.i.i.i60, label %return, label %if.end79.sink.split
+  %cmp.i.i.i.i.i.i59 = icmp eq i8 %14, 116
+  br i1 %cmp.i.i.i.i.i.i59, label %return, label %if.end79.sink.split
 
 if.end79.sink.split:                              ; preds = %land.rhs73, %land.rhs53
-  %cmp62104114.ph = phi i1 [ false, %land.rhs53 ], [ %cmp62104, %land.rhs73 ]
+  %cmp62103126.ph = phi i1 [ false, %land.rhs53 ], [ %cmp62103, %land.rhs73 ]
   %15 = load i8, ptr %add.ptr.i.i.i.i.i, align 8
   br label %if.end79
 
 if.end79:                                         ; preds = %if.end79.sink.split, %if.end69
-  %cmp62104114 = phi i1 [ %cmp62104, %if.end69 ], [ %cmp62104114.ph, %if.end79.sink.split ]
+  %cmp62103126 = phi i1 [ %cmp62103, %if.end69 ], [ %cmp62103126.ph, %if.end79.sink.split ]
   %16 = phi i8 [ %13, %if.end69 ], [ %15, %if.end79.sink.split ]
-  %cmp.i.i.i.i.i.i.i62 = icmp eq i8 %16, 43
+  %cmp.i.i.i.i.i.i.i61 = icmp eq i8 %16, 43
   %cmp82 = icmp eq i32 %opIndex, 4
-  %or.cond4 = and i1 %cmp82, %cmp.i.i.i.i.i.i.i62
-  %cmp.i.i.i.i.i.i.i64 = icmp eq i8 %16, 59
-  %or.cond105 = or i1 %cmp.i.i.i.i.i.i.i64, %or.cond4
-  br i1 %or.cond105, label %return, label %if.end87
+  %or.cond4 = and i1 %cmp82, %cmp.i.i.i.i.i.i.i61
+  %cmp.i.i.i.i.i.i.i63 = icmp eq i8 %16, 59
+  %or.cond117 = or i1 %cmp.i.i.i.i.i.i.i63, %or.cond4
+  br i1 %or.cond117, label %return, label %if.end87
 
 if.end87:                                         ; preds = %if.end79
   %cmp.i.i.i.i.i.i.i66 = icmp eq i8 %16, 87
@@ -293,7 +293,7 @@ if.end87:                                         ; preds = %if.end79
   %or.cond38 = and i1 %or.cond6, %cmp.i.i.i.i.i.i.i66
   br i1 %or.cond38, label %return, label %if.end95
 
-if.end95:                                         ; preds = %if.end87
+land.lhs.true89:                                  ; preds = %if.end87
   %cmp.i.i.i.i.i.i.i68 = icmp eq i8 %16, 93
   br i1 %cmp.i.i.i.i.i.i.i68, label %land.lhs.true97, label %if.end102
 
@@ -303,26 +303,26 @@ land.lhs.true97:                                  ; preds = %if.end95
     i32 0, label %return
   ]
 
-if.end102:                                        ; preds = %land.lhs.true97, %if.end95
-  %17 = add i8 %16, -90
-  %18 = icmp ult i8 %17, 8
-  %or.cond8 = and i1 %cmp62104114, %18
+if.end102:                                        ; preds = %land.lhs.true97, %land.lhs.true89
+  %18 = add i8 %16, -90
+  %19 = icmp ult i8 %18, 8
+  %or.cond8 = and i1 %cmp62103126, %19
   br i1 %or.cond8, label %return, label %if.end107
 
 if.end107:                                        ; preds = %if.end102
-  %cmp.i.i.i.i.i.i.i71 = icmp eq i8 %16, 98
+  %cmp.i.i.i.i.i.i.i70 = icmp eq i8 %16, 98
   %cmp110 = icmp eq i32 %opIndex, 0
-  %cmp.i.i.i.i.i.i.i73 = icmp eq i8 %16, 65
-  %or.cond10 = and i1 %cmp62104114, %cmp.i.i.i.i.i.i.i73
-  %cmp.i.i.i.i.i.i.i75 = icmp eq i8 %16, 4
-  %or.cond9110 = or i1 %cmp.i.i.i.i.i.i.i71, %cmp.i.i.i.i.i.i.i75
-  %19 = and i1 %cmp110, %or.cond9110
-  %or.cond107 = or i1 %or.cond10, %19
-  br i1 %or.cond107, label %return, label %if.end122
+  %cmp.i.i.i.i.i.i.i72 = icmp eq i8 %16, 65
+  %or.cond10 = and i1 %cmp62103126, %cmp.i.i.i.i.i.i.i72
+  %cmp.i.i.i.i.i.i.i74 = icmp eq i8 %16, 4
+  %or.cond9122 = or i1 %cmp.i.i.i.i.i.i.i70, %cmp.i.i.i.i.i.i.i74
+  %20 = and i1 %cmp110, %or.cond9122
+  %or.cond119 = or i1 %or.cond10, %20
+  br i1 %or.cond119, label %return, label %if.end122
 
 if.end122:                                        ; preds = %if.end107
-  %cmp.i.i.i.i.i.i.i77 = icmp eq i8 %16, 58
-  %or.cond12 = and i1 %cmp62104114, %cmp.i.i.i.i.i.i.i77
+  %cmp.i.i.i.i.i.i.i76 = icmp eq i8 %16, 58
+  %or.cond12 = and i1 %cmp62103126, %cmp.i.i.i.i.i.i.i76
   br label %return
 
 return:                                           ; preds = %entry, %entry, %entry, %entry, %if.end122, %if.end107, %if.end102, %land.lhs.true97, %land.lhs.true97, %if.end87, %if.end79, %land.rhs73, %land.rhs63, %land.rhs53, %if.then26, %land.rhs37, %if.then28, %if.end20, %land.rhs, %if.then12, %if.end48, %if.end19

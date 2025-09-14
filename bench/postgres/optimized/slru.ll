@@ -1888,7 +1888,7 @@ define dso_local noundef zeroext i1 @SlruScanDirectory(ptr noundef %0, ptr nound
   %.0.i = select i1 %12, i1 %13, i1 %spec.select.i
   br i1 %.0.i, label %15, label %26
 
-15:                                               ; preds = %8
+13:                                               ; preds = %8
   %16 = tail call i64 @strspn(ptr noundef nonnull %10, ptr noundef nonnull @.str.3) #18
   %17 = icmp eq i64 %16, %11
   br i1 %17, label %18, label %26

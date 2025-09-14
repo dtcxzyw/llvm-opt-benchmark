@@ -2844,8 +2844,8 @@ define internal range(i64 -4, 3) i64 @euc_jis_2004_decode(ptr readnone captures(
   br label %13
 
 13:                                               ; preds = %.lr.ph, %.thread287
-  %14 = phi ptr [ %.pre, %.lr.ph ], [ %262, %.thread287 ]
-  %.0207313 = phi i64 [ %3, %.lr.ph ], [ %263, %.thread287 ]
+  %14 = phi ptr [ %.pre, %.lr.ph ], [ %265, %.thread287 ]
+  %.0207313 = phi i64 [ %3, %.lr.ph ], [ %266, %.thread287 ]
   %15 = load i8, ptr %14, align 1, !tbaa !34
   %16 = icmp sgt i8 %15, -1
   br i1 %16, label %17, label %21
@@ -3051,41 +3051,41 @@ define internal range(i64 -4, 3) i64 @euc_jis_2004_decode(ptr readnone captures(
   %or.cond281 = select i1 %132, i1 %134, i1 false
   br i1 %or.cond281, label %.thread302, label %135
 
-135:                                              ; preds = %131, %111
+135:; preds = %131, %111
   %136 = icmp eq i8 %112, 33
   %137 = zext i8 %115 to i32
   %138 = icmp eq i8 %114, -64
   %or.cond44 = select i1 %136, i1 %138, i1 false
   br i1 %or.cond44, label %139, label %142
 
-139:                                              ; preds = %135
-  %140 = tail call i32 @_PyUnicodeWriter_WriteChar(ptr noundef %4, i32 noundef 65340) #9
-  %141 = icmp slt i32 %140, 0
-  br i1 %141, label %.thread302, label %.thread287
-
 142:                                              ; preds = %135
-  %143 = icmp eq i8 %112, 34
-  %144 = icmp eq i8 %114, -78
-  %or.cond47 = select i1 %143, i1 %144, i1 false
-  br i1 %or.cond47, label %145, label %148
+  %143 = tail call i32 @_PyUnicodeWriter_WriteChar(ptr noundef %4, i32 noundef 65340) #9
+  %144 = icmp slt i32 %143, 0
+  br i1 %144, label %.thread302, label %.thread287
 
-145:                                              ; preds = %142
-  %146 = tail call i32 @_PyUnicodeWriter_WriteChar(ptr noundef %4, i32 noundef 65374) #9
-  %147 = icmp slt i32 %146, 0
-  br i1 %147, label %.thread302, label %.thread287
+145:                                              ; preds = %135
+  %146 = icmp eq i8 %112, 34
+  %147 = icmp eq i8 %114, -78
+  %or.cond47 = select i1 %146, i1 %147, i1 false
+  br i1 %or.cond47, label %148, label %151
 
-148:                                              ; preds = %142
-  %149 = zext nneg i8 %112 to i64
-  %150 = getelementptr %struct.dbcs_index, ptr @jisx0208_decmap, i64 %149
-  %151 = load ptr, ptr %150, align 16, !tbaa !58
-  %.not = icmp eq ptr %151, null
-  br i1 %.not, label %168, label %152
+148:                                              ; preds = %145
+  %149 = tail call i32 @_PyUnicodeWriter_WriteChar(ptr noundef %4, i32 noundef 65374) #9
+  %150 = icmp slt i32 %149, 0
+  br i1 %150, label %.thread302, label %.thread287
 
-152:                                              ; preds = %148
-  %153 = getelementptr inbounds nuw i8, ptr %150, i64 8
-  %154 = load i8, ptr %153, align 8, !tbaa !60
-  %155 = zext i8 %154 to i32
-  %.not249 = icmp ult i8 %115, %154
+151:                                              ; preds = %145
+  %152 = zext nneg i8 %112 to i64
+  %153 = getelementptr %struct.dbcs_index, ptr @jisx0208_decmap, i64 %152
+  %154 = load ptr, ptr %153, align 16, !tbaa !58
+  %.not = icmp eq ptr %154, null
+  br i1 %.not, label %168, label %155
+
+155:                                              ; preds = %151
+  %156 = getelementptr inbounds nuw i8, ptr %153, i64 8
+  %157 = load i8, ptr %156, align 8, !tbaa !60
+  %158 = zext i8 %157 to i32
+  %.not249 = icmp ult i8 %115, %157
   br i1 %.not249, label %168, label %156
 
 156:                                              ; preds = %152
@@ -3102,22 +3102,22 @@ define internal range(i64 -4, 3) i64 @euc_jis_2004_decode(ptr readnone captures(
   %.not251 = icmp eq i16 %163, -2
   br i1 %.not251, label %168, label %164
 
-164:                                              ; preds = %159
+159:                                              ; preds = %159
   %165 = zext i16 %163 to i32
   %166 = tail call i32 @_PyUnicodeWriter_WriteChar(ptr noundef %4, i32 noundef %165) #9
-  %167 = icmp slt i32 %166, 0
-  br i1 %167, label %.thread302, label %.thread287
+  %.not250 = icmp slt i32 %166, 0
+  br i1 %.not250, label %.thread302, label %.thread287
 
-168:                                              ; preds = %159, %156, %152, %148
+162:                                              ; preds = %159, %156, %152, %148
   %169 = getelementptr %struct.dbcs_index, ptr @jisx0213_1_bmp_decmap, i64 %149
   %170 = load ptr, ptr %169, align 16, !tbaa !58
   %.not252 = icmp eq ptr %170, null
   br i1 %.not252, label %187, label %171
 
-171:                                              ; preds = %168
+171:; preds = %168
   %172 = getelementptr inbounds nuw i8, ptr %169, i64 8
   %173 = load i8, ptr %172, align 8, !tbaa !60
-  %174 = zext i8 %173 to i32
+  %168 = zext i8 %173 to i32
   %.not253 = icmp ult i8 %115, %173
   br i1 %.not253, label %187, label %175
 
@@ -3132,25 +3132,25 @@ define internal range(i64 -4, 3) i64 @euc_jis_2004_decode(ptr readnone captures(
   %180 = sext i32 %179 to i64
   %181 = getelementptr i16, ptr %170, i64 %180
   %182 = load i16, ptr %181, align 2, !tbaa !49
-  %.not255 = icmp eq i16 %182, -2
-  br i1 %.not255, label %187, label %183
+  %.not253 = icmp eq i16 %182, -2
+  br i1 %.not253, label %187, label %178
 
-183:                                              ; preds = %178
+178:                                              ; preds = %178
   %184 = zext i16 %182 to i32
   %185 = tail call i32 @_PyUnicodeWriter_WriteChar(ptr noundef %4, i32 noundef %184) #9
-  %186 = icmp slt i32 %185, 0
-  br i1 %186, label %.thread302, label %.thread287
+  %.not254 = icmp slt i32 %185, 0
+  br i1 %.not254, label %.thread302, label %.thread287
 
-187:                                              ; preds = %178, %175, %171, %168
+181:                                              ; preds = %178, %175, %171, %168
   %188 = getelementptr %struct.dbcs_index, ptr @jisx0213_1_emp_decmap, i64 %149
   %189 = load ptr, ptr %188, align 16, !tbaa !58
   %.not256 = icmp eq ptr %189, null
   br i1 %.not256, label %207, label %190
 
-190:                                              ; preds = %187
+190:; preds = %187
   %191 = getelementptr inbounds nuw i8, ptr %188, i64 8
   %192 = load i8, ptr %191, align 8, !tbaa !60
-  %193 = zext i8 %192 to i32
+  %187 = zext i8 %192 to i32
   %.not257 = icmp ult i8 %115, %192
   br i1 %.not257, label %207, label %194
 
@@ -3165,17 +3165,17 @@ define internal range(i64 -4, 3) i64 @euc_jis_2004_decode(ptr readnone captures(
   %199 = sext i32 %198 to i64
   %200 = getelementptr i16, ptr %189, i64 %199
   %201 = load i16, ptr %200, align 2, !tbaa !49
-  %.not259 = icmp eq i16 %201, -2
-  br i1 %.not259, label %207, label %202
+  %.not257 = icmp eq i16 %201, -2
+  br i1 %.not257, label %207, label %197
 
-202:                                              ; preds = %197
+197:                                              ; preds = %197
   %203 = zext i16 %201 to i32
   %204 = or disjoint i32 %203, 131072
   %205 = tail call i32 @_PyUnicodeWriter_WriteChar(ptr noundef %4, i32 noundef %204) #9
   %206 = icmp slt i32 %205, 0
   br i1 %206, label %.thread302, label %.thread287, !llvm.loop !85
 
-207:                                              ; preds = %197, %194, %190, %187
+207:; preds = %197, %194, %190, %187
   %208 = getelementptr %struct.widedbcs_index, ptr @jisx0213_pair_decmap, i64 %149
   %209 = load ptr, ptr %208, align 16, !tbaa !69
   %.not260 = icmp eq ptr %209, null
@@ -3199,10 +3199,10 @@ define internal range(i64 -4, 3) i64 @euc_jis_2004_decode(ptr readnone captures(
   %219 = sext i32 %218 to i64
   %220 = getelementptr i32, ptr %209, i64 %219
   %221 = load i32, ptr %220, align 4, !tbaa !50
-  %.not263 = icmp eq i32 %221, 65534
-  br i1 %.not263, label %.thread302, label %222
+  %.not261 = icmp eq i32 %221, 65534
+  br i1 %.not261, label %.thread302, label %217
 
-222:                                              ; preds = %217
+217:                                              ; preds = %217
   %223 = lshr i32 %221, 16
   %224 = and i32 %221, 65535
   %225 = tail call i32 @llvm.umax.i32(i32 %223, i32 %224)
@@ -3210,64 +3210,64 @@ define internal range(i64 -4, 3) i64 @euc_jis_2004_decode(ptr readnone captures(
   %.not264 = icmp ugt i32 %225, %226
   br i1 %.not264, label %232, label %227
 
-227:                                              ; preds = %222
+227:; preds = %222
   %228 = load i64, ptr %9, align 8, !tbaa !76
-  %229 = load i64, ptr %10, align 8, !tbaa !77
+  %224 = load i64, ptr %10, align 8, !tbaa !77
   %230 = sub i64 %228, %229
   %231 = icmp sgt i64 %230, 1
   br i1 %231, label %.thread292, label %232
 
-232:                                              ; preds = %222, %227
+232:; preds = %217, %227
   %233 = tail call i32 @_PyUnicodeWriter_PrepareInternal(ptr noundef nonnull %4, i64 noundef 2, i32 noundef %225) #9
   %234 = icmp slt i32 %233, 0
   br i1 %234, label %.thread302, label %..thread292_crit_edge
 
-..thread292_crit_edge:                            ; preds = %232
+..thread292_crit_edge:; preds = %232
   %.pre372 = load i64, ptr %10, align 8, !tbaa !77
   br label %.thread292
 
 .thread292:                                       ; preds = %..thread292_crit_edge, %227
-  %235 = phi i64 [ %.pre372, %..thread292_crit_edge ], [ %229, %227 ]
-  %236 = load i32, ptr %11, align 8, !tbaa !78
-  %237 = load ptr, ptr %12, align 8, !tbaa !79
-  switch i32 %236, label %244 [
-    i32 1, label %238
-    i32 2, label %241
+  %238 = phi i64 [ %.pre372, %..thread292_crit_edge ], [ %229, %227 ]
+  %239 = load i32, ptr %11, align 8, !tbaa !78
+  %240 = load ptr, ptr %12, align 8, !tbaa !79
+  switch i32 %239, label %244 [
+    i32 1, label %241
+    i32 2, label %244
   ]
 
-238:                                              ; preds = %.thread292
-  %239 = trunc i32 %223 to i8
-  %240 = getelementptr i8, ptr %237, i64 %235
-  store i8 %239, ptr %240, align 1, !tbaa !34
+241:                                              ; preds = %.thread292
+  %242 = trunc i32 %223 to i8
+  %243 = getelementptr i8, ptr %240, i64 %238
+  store i8 %242, ptr %243, align 1, !tbaa !34
   %.pre373 = load ptr, ptr %12, align 8, !tbaa !79
   %.pre374 = load i64, ptr %10, align 8, !tbaa !77
   br label %PyUnicode_WRITE.exit
 
-241:                                              ; preds = %.thread292
-  %242 = trunc nuw i32 %223 to i16
-  %243 = getelementptr i16, ptr %237, i64 %235
-  store i16 %242, ptr %243, align 2, !tbaa !49
-  br label %PyUnicode_WRITE.exit
-
 244:                                              ; preds = %.thread292
-  %245 = getelementptr i32, ptr %237, i64 %235
-  store i32 %223, ptr %245, align 4, !tbaa !50
+  %245 = trunc nuw i32 %223 to i16
+  %246 = getelementptr i16, ptr %240, i64 %238
+  store i16 %245, ptr %246, align 2, !tbaa !49
   br label %PyUnicode_WRITE.exit
 
-PyUnicode_WRITE.exit:                             ; preds = %238, %241, %244
-  %246 = phi i64 [ %.pre374, %238 ], [ %235, %241 ], [ %235, %244 ]
-  %247 = phi ptr [ %.pre373, %238 ], [ %237, %241 ], [ %237, %244 ]
-  %248 = load i32, ptr %11, align 8, !tbaa !78
-  %249 = add i64 %246, 1
-  switch i32 %248, label %256 [
-    i32 1, label %250
+247:                                              ; preds = %.thread292
+  %248 = getelementptr i32, ptr %240, i64 %238
+  store i32 %223, ptr %248, align 4, !tbaa !50
+  br label %PyUnicode_WRITE.exit
+
+PyUnicode_WRITE.exit:                             ; preds = %241, %244, %247
+  %249 = phi i64 [ %.pre374, %238 ], [ %238, %241 ], [ %235, %244 ]
+  %250 = phi ptr [ %.pre373, %238 ], [ %240, %241 ], [ %237, %244 ]
+  %251 = load i32, ptr %11, align 8, !tbaa !78
+  %252 = add i64 %249, 1
+  switch i32 %251, label %256 [
+    i32 1, label %253
     i32 2, label %253
   ]
 
-250:                                              ; preds = %PyUnicode_WRITE.exit
-  %251 = trunc i32 %221 to i8
-  %252 = getelementptr i8, ptr %247, i64 %249
-  store i8 %251, ptr %252, align 1, !tbaa !34
+253:                                              ; preds = %PyUnicode_WRITE.exit
+  %254 = trunc i32 %221 to i8
+  %255 = getelementptr i8, ptr %250, i64 %252
+  store i8 %254, ptr %255, align 1, !tbaa !34
   %.pre375 = load i64, ptr %10, align 8, !tbaa !77
   br label %258
 
@@ -3288,15 +3288,15 @@ PyUnicode_WRITE.exit:                             ; preds = %238, %241, %244
   store i64 %260, ptr %10, align 8, !tbaa !77
   br label %.thread287, !llvm.loop !85
 
-.thread287:                                       ; preds = %145, %183, %164, %139, %202, %46, %105, %66, %85, %28, %17, %258
+.thread287:                                       ; preds = %148, %183, %164, %142, %202, %46, %105, %66, %85, %28, %17, %258
   %.sink398 = phi i64 [ 2, %258 ], [ 1, %17 ], [ 2, %28 ], [ 3, %85 ], [ 3, %66 ], [ 3, %105 ], [ 3, %46 ], [ 2, %202 ], [ 2, %139 ], [ 2, %164 ], [ 2, %183 ], [ 2, %145 ]
   %.sink = phi i64 [ -2, %258 ], [ -1, %17 ], [ -2, %28 ], [ -3, %85 ], [ -3, %66 ], [ -3, %105 ], [ -3, %46 ], [ -2, %202 ], [ -2, %139 ], [ -2, %164 ], [ -2, %183 ], [ -2, %145 ]
-  %261 = load ptr, ptr %2, align 8, !tbaa !37
-  %262 = getelementptr i8, ptr %261, i64 %.sink398
-  store ptr %262, ptr %2, align 8, !tbaa !37
-  %263 = add nsw i64 %.0207313, %.sink
-  %264 = icmp sgt i64 %263, 0
-  br i1 %264, label %13, label %.thread302
+  %264 = load ptr, ptr %2, align 8, !tbaa !37
+  %265 = getelementptr i8, ptr %264, i64 %.sink398
+  store ptr %265, ptr %2, align 8, !tbaa !37
+  %266 = add nsw i64 %.0207313, %.sink
+  %267 = icmp sgt i64 %266, 0
+  br i1 %267, label %13, label %.thread302
 
 .thread302:                                       ; preds = %.thread287, %17, %22, %28, %24, %90, %93, %97, %100, %105, %85, %66, %46, %33, %207, %210, %214, %217, %202, %183, %164, %145, %139, %118, %121, %124, %128, %131, %109, %232, %5
   %.7 = phi i64 [ 0, %5 ], [ -4, %232 ], [ -2, %109 ], [ 2, %131 ], [ 2, %128 ], [ 2, %124 ], [ 2, %121 ], [ 2, %118 ], [ -4, %139 ], [ -4, %145 ], [ -4, %164 ], [ -4, %183 ], [ -4, %202 ], [ 1, %217 ], [ 1, %214 ], [ 1, %210 ], [ 1, %207 ], [ -2, %33 ], [ -4, %46 ], [ -4, %66 ], [ -4, %85 ], [ -4, %105 ], [ 1, %100 ], [ 1, %97 ], [ 1, %93 ], [ 1, %90 ], [ 1, %24 ], [ -4, %28 ], [ -2, %22 ], [ -4, %17 ], [ 0, %.thread287 ]

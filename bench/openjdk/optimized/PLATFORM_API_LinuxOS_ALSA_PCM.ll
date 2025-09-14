@@ -845,14 +845,14 @@ setStartThreshold.exit:                           ; preds = %2, %10
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i16 1, ptr %33, align 8
   %.not35 = icmp eq i32 %1, 0
-  br i1 %.not35, label %34, label %36
+  br i1 %.not35, label %34, label %switch.edge
 
 34:                                               ; preds = %32
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 50
   store i16 0, ptr %35, align 2
-  br label %36
+  br label %switch.edge
 
-36:                                               ; preds = %25, %32, %34
+switch.edge:                                      ; preds = %25, %32, %34
   %37 = add i32 %31, -2
   %or.cond5 = icmp ult i32 %37, 3
   %38 = icmp eq i32 %31, 7

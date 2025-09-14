@@ -1319,56 +1319,56 @@ clause_sides_match_join.exit.thread.i127:         ; preds = %503, %496, %492, %4
   %or.cond11.i = icmp eq i32 %651, 2
   br i1 %or.cond11.i, label %hash_inner_and_outer.exit, label %652
 
-652:                                              ; preds = %650
+652: ; preds = %650
   %653 = getelementptr inbounds nuw i8, ptr %.0174.i, i64 33
   %654 = load i8, ptr %653, align 1, !range !4, !noundef !5
   %655 = trunc nuw i8 %654 to i1
   %.not220.i = xor i1 %644, true
   %brmerge.i = or i1 %.not220.i, %655
   %.0174.mux.i = select i1 %655, ptr %.0174.i, ptr null
-  br i1 %brmerge.i, label %660, label %656
+  br i1 %brmerge.i, label %659, label %655
 
-656:                                              ; preds = %652
-  %657 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %658 = load ptr, ptr %657, align 8
-  %659 = call ptr @get_cheapest_parallel_safe_total_inner(ptr noundef %658) #5
-  br label %660
+655:                                              ; preds = %652
+  %656 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %657 = load ptr, ptr %656, align 8
+  %658 = call ptr @get_cheapest_parallel_safe_total_inner(ptr noundef %657) #5
+  br label %659
 
-660:                                              ; preds = %656, %652
-  %.0.i126 = phi ptr [ %659, %656 ], [ %.0174.mux.i, %652 ]
+659:                                              ; preds = %655, %652
+  %.0.i126 = phi ptr [ %658, %656 ], [ %.0174.mux.i, %652 ]
   %.not212.i = icmp eq ptr %.0.i126, null
-  br i1 %.not212.i, label %hash_inner_and_outer.exit, label %661
+  br i1 %.not212.i, label %hash_inner_and_outer.exit, label %660
 
-661:                                              ; preds = %660
+660:                                              ; preds = %659
   call fastcc void @try_partial_hashjoin_path(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %640, ptr noundef nonnull %.0.i126, ptr noundef %.0171.lcssa.i, i32 noundef %.0170.i, ptr noundef nonnull %8, i1 noundef zeroext false)
   br label %hash_inner_and_outer.exit
 
-hash_inner_and_outer.exit:                        ; preds = %.lr.ph.split.i.preheader, %661, %660, %650, %635, %632, %.critedge216.i, %.critedge216.thread.i, %537, %531, %523, %517, %.critedge.i121, %.lr.ph.split.us.split.i, %409, %match_unsorted_outer.exit
-  %662 = getelementptr inbounds nuw i8, ptr %1, i64 264
-  %663 = load ptr, ptr %662, align 8
-  %.not97 = icmp eq ptr %663, null
-  br i1 %.not97, label %668, label %664
+hash_inner_and_outer.exit:                        ; preds = %.lr.ph.split.i.preheader, %660, %659, %650, %635, %632, %.critedge216.i, %.critedge216.thread.i, %537, %531, %523, %517, %.critedge.i121, %.lr.ph.split.us.split.i, %409, %match_unsorted_outer.exit
+  %661 = getelementptr inbounds nuw i8, ptr %1, i64 264
+  %662 = load ptr, ptr %661, align 8
+  %.not97 = icmp eq ptr %662, null
+  br i1 %.not97, label %667, label %663
 
-664:                                              ; preds = %hash_inner_and_outer.exit
-  %665 = getelementptr inbounds nuw i8, ptr %663, i64 64
-  %666 = load ptr, ptr %665, align 8
-  %.not98 = icmp eq ptr %666, null
-  br i1 %.not98, label %668, label %667
+663:                                              ; preds = %hash_inner_and_outer.exit
+  %664 = getelementptr inbounds nuw i8, ptr %662, i64 64
+  %665 = load ptr, ptr %664, align 8
+  %.not98 = icmp eq ptr %665, null
+  br i1 %.not98, label %667, label %666
 
-667:                                              ; preds = %664
+666:                                              ; preds = %663
   call void %666(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef nonnull %8) #5
-  br label %668
+  br label %667
 
-668:                                              ; preds = %667, %664, %hash_inner_and_outer.exit
-  %669 = load ptr, ptr @set_join_pathlist_hook, align 8
-  %.not99 = icmp eq ptr %669, null
-  br i1 %.not99, label %671, label %670
+667:                                              ; preds = %666, %663, %hash_inner_and_outer.exit
+  %668 = load ptr, ptr @set_join_pathlist_hook, align 8
+  %.not99 = icmp eq ptr %668, null
+  br i1 %.not99, label %670, label %669
 
-670:                                              ; preds = %668
+669:                                              ; preds = %667
   call void %669(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef nonnull %8) #5
-  br label %671
+  br label %670
 
-671:                                              ; preds = %670, %668
+670:                                              ; preds = %669, %667
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 }

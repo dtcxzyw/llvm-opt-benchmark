@@ -6067,10 +6067,10 @@ _ZNK9SuperWord5in_bbEPK4Node.exit:                ; preds = %12, %_ZNK14PhaseIde
   %or.cond = icmp ult i8 %105, -6
   %106 = add i8 %104, -12
   %107 = icmp ult i8 %106, -6
-  %or.cond24 = or i1 %or.cond, %107
-  br i1 %or.cond24, label %119, label %108
+  %109 = or i1 %or.cond, %107
+  br i1 %109, label %119, label %108
 
-108:                                              ; preds = %65
+108:; preds = %65
   %109 = zext nneg i8 %86 to i64
   %110 = getelementptr inbounds nuw i32, ptr @_type2aelembytes, i64 %109
   %111 = load i32, ptr %110, align 4
@@ -6083,7 +6083,7 @@ _ZNK9SuperWord5in_bbEPK4Node.exit:                ; preds = %12, %_ZNK14PhaseIde
   %118 = select i1 %115, i8 99, i8 %117
   br label %119
 
-119:                                              ; preds = %65, %7, %_ZNK9SuperWord5in_bbEPK4Node.exit, %108
+119:; preds = %65, %7, %_ZNK9SuperWord5in_bbEPK4Node.exit, %108
   %.0 = phi i8 [ %118, %108 ], [ 99, %_ZNK9SuperWord5in_bbEPK4Node.exit ], [ 99, %7 ], [ 99, %65 ]
   ret i8 %.0
 }

@@ -11070,14 +11070,14 @@ define dso_local i32 @LLVMGetNumArgOperands(ptr noundef %0) local_unnamed_addr #
   %4 = icmp eq i8 %3, 80
   br i1 %4, label %5, label %10
 
-5:                                                ; preds = %1
+12:                                               ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = and i32 %7, 134217727
   %9 = add nsw i32 %8, -1
   br label %23
 
-10:                                               ; preds = %1
+25:                                               ; preds = %1
   %11 = tail call noundef ptr @_ZN4llvm8CallBase7arg_endEv(ptr noundef nonnull align 8 dereferenceable(88) %0)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %13 = load i32, ptr %12, align 4

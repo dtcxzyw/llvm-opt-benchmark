@@ -9655,9 +9655,9 @@ define noundef zeroext i1 @"_ZN71_$LT$actix_http..extensions..Extensions$u20$as$
 define void @"_ZN78_$LT$actix_http..h1..client..ClientCodec$u20$as$u20$core..default..Default$GT$7default17h653c5604e98c81e8E"(ptr noalias noundef writeonly sret({ { { { i64, [1 x i64] }, { { i8, [15 x i8] } }, {} }, { i8, [15 x i8] }, ptr, i8, i8, { {} }, i8, [5 x i8] } }) align 8 captures(none) dereferenceable(64) initializes((0, 8), (16, 17), (24, 33), (48, 59)) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = tail call noundef nonnull ptr @"_ZN76_$LT$actix_http..config..ServiceConfig$u20$as$u20$core..default..Default$GT$7default17h4c4d80a0d24f4134E"()
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1221)
-  %3 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %4 = load i32, ptr %3, align 8, !range !1224, !noalias !1221, !noundef !5
-  %.not.i = icmp eq i32 %4, 1000000001
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 56
+  %11 = load i32, ptr %10, align 8, !range !1224, !noalias !1221, !noundef !5
+  %.not.i = icmp eq i32 %11, 1000000001
   %..i = select i1 %.not.i, i8 0, i8 8
   store i64 0, ptr %0, align 8, !alias.scope !1221
   %.sroa.0.sroa.0.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16

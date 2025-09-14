@@ -420,7 +420,7 @@ define dso_local range(i32 0, 124) i32 @main(i32 noundef %0, ptr noundef %1) loc
   %or.cond9 = and i1 %26, %or.cond7
   br i1 %or.cond9, label %27, label %76
 
-27:                                               ; preds = %22
+27: ; preds = %22
   switch i32 %.087, label %73 [
     i32 1, label %28
     i32 2, label %29
@@ -437,80 +437,80 @@ define dso_local range(i32 0, 124) i32 @main(i32 noundef %0, ptr noundef %1) loc
     i32 110, label %72
   ]
 
-28:                                               ; preds = %27
-  tail call fastcc void @test1()
-  br label %157
-
-29:                                               ; preds = %27
-  tail call fastcc void @test2()
-  br label %157
-
 30:                                               ; preds = %27
-  tail call fastcc void @test3()
-  br label %157
+  tail call fastcc void @test1()
+  br label %159
 
 31:                                               ; preds = %27
-  tail call fastcc void @test4()
-  br label %157
+  tail call fastcc void @test2()
+  br label %159
 
 32:                                               ; preds = %27
-  %.val = load ptr, ptr %1, align 8, !tbaa !11
-  %33 = tail call fastcc i32 @test5(ptr %.val)
-  br label %157
+  tail call fastcc void @test3()
+  br label %159
+
+33:                                               ; preds = %27
+  tail call fastcc void @test4()
+  br label %159
 
 34:                                               ; preds = %27
+  %.val = load ptr, ptr %1, align 8, !tbaa !11
+  %35 = tail call fastcc i32 @test5(ptr %.val)
+  br label %159
+
+36:                                               ; preds = %27
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(8192) %4, i8 46, i64 8192, i1 false), !tbaa !18
-  %35 = getelementptr inbounds nuw i8, ptr %4, i64 8192
-  store i8 10, ptr %35, align 16, !tbaa !18
-  br label %36
+  %37 = getelementptr inbounds nuw i8, ptr %4, i64 8192
+  store i8 10, ptr %37, align 16, !tbaa !18
+  br label %38
 
-36:                                               ; preds = %36, %34
+38:                                               ; preds = %38, %36
   %37 = load ptr, ptr @stdout, align 8, !tbaa !4
   %38 = call i64 @fwrite(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 8193, ptr noundef %37)
   %39 = load ptr, ptr @stdout, align 8, !tbaa !4
   %40 = tail call i32 @fflush(ptr noundef %39)
   br label %36
 
-41:                                               ; preds = %27
+43:                                               ; preds = %27
   tail call fastcc void @test7()
-  br label %157
-
-42:                                               ; preds = %27
-  %.val91 = load ptr, ptr %1, align 8, !tbaa !11
-  %43 = tail call fastcc i32 @test8(ptr %.val91)
-  br label %157
+  br label %159
 
 44:                                               ; preds = %27
-  %.val92 = load ptr, ptr %1, align 8, !tbaa !11
-  %45 = tail call fastcc i32 @test9(ptr %.val92)
-  br label %157
+  %.val91 = load ptr, ptr %1, align 8, !tbaa !11
+  %45 = tail call fastcc i32 @test8(ptr %.val91)
+  br label %159
 
 46:                                               ; preds = %27
-  %.val93 = load ptr, ptr %1, align 8, !tbaa !11
-  %47 = tail call fastcc i32 @test10(ptr %.val93)
-  br label %157
+  %.val92 = load ptr, ptr %1, align 8, !tbaa !11
+  %47 = tail call fastcc i32 @test9(ptr %.val92)
+  br label %159
 
 48:                                               ; preds = %27
+  %.val93 = load ptr, ptr %1, align 8, !tbaa !11
+  %49 = tail call fastcc i32 @test10(ptr %.val93)
+  br label %159
+
+50:                                               ; preds = %27
   tail call fastcc void @test8_grandchild()
-  br label %157
+  br label %159
 
-49:                                               ; preds = %27
+51:                                               ; preds = %27
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %50 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %50, i8 0, i64 144, i1 false)
+  %52 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %52, i8 0, i64 144, i1 false)
   store ptr inttoptr (i64 1 to ptr), ptr %3, align 8, !tbaa !18
-  %51 = call i32 @sigemptyset(ptr noundef nonnull %50) #13
-  %52 = call i32 @sigaction(i32 noundef 2, ptr noundef nonnull %3, ptr noundef null) #13
-  %53 = icmp slt i32 %52, 0
-  br i1 %53, label %test9_grandchild.exit, label %54
+  %53 = call i32 @sigemptyset(ptr noundef nonnull %52) #13
+  %54 = call i32 @sigaction(i32 noundef 2, ptr noundef nonnull %3, ptr noundef null) #13
+  %55 = icmp slt i32 %54, 0
+  br i1 %55, label %test9_grandchild.exit, label %56
 
-54:                                               ; preds = %49
-  %55 = load ptr, ptr @stdout, align 8, !tbaa !4
-  %56 = call i64 @fwrite(ptr nonnull @.str.52, i64 47, i64 1, ptr %55)
-  %57 = load ptr, ptr @stderr, align 8, !tbaa !4
-  %58 = call i64 @fwrite(ptr nonnull @.str.53, i64 47, i64 1, ptr %57) #14
-  %59 = load ptr, ptr @stdout, align 8, !tbaa !4
+56:                                               ; preds = %51
+  %57 = load ptr, ptr @stdout, align 8, !tbaa !4
+  %58 = call i64 @fwrite(ptr nonnull @.str.52, i64 47, i64 1, ptr %57)
+  %59 = load ptr, ptr @stderr, align 8, !tbaa !4
+  %60 = call i64 @fwrite(ptr nonnull @.str.53, i64 47, i64 1, ptr %59) #14
+  %61 = load ptr, ptr @stdout, align 8, !tbaa !4
   %60 = call i32 @fflush(ptr noundef %59)
   %61 = load ptr, ptr @stderr, align 8, !tbaa !4
   %62 = call i32 @fflush(ptr noundef %61)
@@ -525,37 +525,37 @@ define dso_local range(i32 0, 124) i32 @main(i32 noundef %0, ptr noundef %1) loc
   %71 = call i32 @fflush(ptr noundef %70)
   br label %test9_grandchild.exit
 
-test9_grandchild.exit:                            ; preds = %49, %54
+test9_grandchild.exit:                            ; preds = %51, %56
   %.0.i = phi i32 [ 0, %54 ], [ 1, %49 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %157
+  br label %159
 
-72:                                               ; preds = %27
+74:                                               ; preds = %27
   tail call fastcc void @test10_grandchild()
-  br label %157
+  br label %159
 
-73:                                               ; preds = %27
-  %74 = load ptr, ptr @stderr, align 8, !tbaa !4
-  %75 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %74, ptr noundef nonnull @.str.2, i32 noundef %.087) #15
-  br label %157
+75:                                               ; preds = %27
+  %76 = load ptr, ptr @stderr, align 8, !tbaa !4
+  %77 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %76, ptr noundef nonnull @.str.2, i32 noundef %.087) #15
+  br label %159
 
-76:                                               ; preds = %22
-  br i1 %or.cond, label %77, label %143
+78:                                               ; preds = %22
+  br i1 %or.cond, label %79, label %145
 
-77:                                               ; preds = %76
+79:                                               ; preds = %78
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %5, i8 0, i64 40, i1 false)
-  %78 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  store i32 1, ptr %78, align 4
-  %79 = getelementptr inbounds nuw i8, ptr %5, i64 36
-  store i32 3, ptr %79, align 4
+  %80 = getelementptr inbounds nuw i8, ptr %5, i64 12
+  store i32 1, ptr %80, align 4
+  %81 = getelementptr inbounds nuw i8, ptr %5, i64 36
+  store i32 3, ptr %81, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %6, i8 0, i64 32, i1 false)
-  %80 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  store i32 123, ptr %80, align 4
-  %81 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i32 1, ptr %81, align 8
-  %82 = getelementptr inbounds nuw i8, ptr %6, i64 12
+  %82 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  store i32 123, ptr %82, align 4
+  %83 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i32 1, ptr %83, align 8
+  %84 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 1, ptr %82, align 4
   %83 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i32 1, ptr %83, align 16
@@ -563,60 +563,60 @@ test9_grandchild.exit:                            ; preds = %49, %54
   store i32 1, ptr %84, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, i8 0, i64 32, i1 false)
-  %85 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  store i32 1, ptr %85, align 16
-  %86 = getelementptr inbounds nuw i8, ptr %7, i64 36
-  store i32 1, ptr %86, align 4
+  %87 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  store i32 1, ptr %87, align 16
+  %88 = getelementptr inbounds nuw i8, ptr %7, i64 36
+  store i32 1, ptr %88, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %8, i8 0, i64 40, i1 false)
-  %87 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store i32 1, ptr %87, align 8
+  %89 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  store i32 1, ptr %89, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %9, ptr noundef nonnull align 16 dereferenceable(40) @__const.main.repeat, i64 40, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %10, i8 0, i64 32, i1 false)
-  %88 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  store i32 1, ptr %88, align 16
-  %89 = getelementptr inbounds nuw i8, ptr %10, i64 36
-  store i32 1, ptr %89, align 4
+  %90 = getelementptr inbounds nuw i8, ptr %10, i64 32
+  store i32 1, ptr %90, align 16
+  %91 = getelementptr inbounds nuw i8, ptr %10, i64 36
+  store i32 1, ptr %91, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %11, i8 0, i64 32, i1 false)
-  %90 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  store i32 3, ptr %90, align 16
-  %91 = getelementptr inbounds nuw i8, ptr %11, i64 36
-  store i32 2, ptr %91, align 4
+  %92 = getelementptr inbounds nuw i8, ptr %11, i64 32
+  store i32 3, ptr %92, align 16
+  %93 = getelementptr inbounds nuw i8, ptr %11, i64 36
+  store i32 2, ptr %93, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  %92 = tail call ptr @getenv(ptr noundef nonnull @.str.3) #13
-  %.not = icmp eq ptr %92, null
-  br i1 %.not, label %98, label %93
+  %94 = tail call ptr @getenv(ptr noundef nonnull @.str.3) #13
+  %.not = icmp eq ptr %94, null
+  br i1 %.not, label %100, label %95
 
-93:                                               ; preds = %77
-  %94 = tail call i64 @strtol(ptr noundef nonnull captures(none) %92, ptr noundef null, i32 noundef 10) #13
-  %95 = add i64 %94, -11
-  %or.cond13 = icmp ult i64 %95, 9223372036854775796
-  br i1 %or.cond13, label %96, label %98
+95:                                               ; preds = %79
+  %96 = tail call i64 @strtol(ptr noundef nonnull captures(none) %94, ptr noundef null, i32 noundef 10) #13
+  %97 = add i64 %96, -11
+  %or.cond13 = icmp ult i64 %97, 9223372036854775796
+  br i1 %or.cond13, label %98, label %100
 
-96:                                               ; preds = %93
-  %97 = trunc i64 %94 to i32
-  store i32 %97, ptr %9, align 16, !tbaa !13
-  br label %98
+98:                                               ; preds = %95
+  %99 = trunc i64 %96 to i32
+  store i32 %99, ptr %9, align 16, !tbaa !13
+  br label %100
 
-98:                                               ; preds = %93, %96, %77
-  %99 = load ptr, ptr %1, align 8, !tbaa !11
-  store ptr %99, ptr %12, align 16, !tbaa !11
-  %100 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store ptr @.str.1, ptr %100, align 8, !tbaa !11
-  %101 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %102 = load ptr, ptr %101, align 8, !tbaa !11
-  %103 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store ptr %102, ptr %103, align 16, !tbaa !11
-  %104 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  store ptr null, ptr %104, align 8, !tbaa !11
-  %105 = load ptr, ptr @stdout, align 8, !tbaa !4
-  %106 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %105, ptr noundef nonnull @.str.4, i32 noundef %.087) #13
-  %107 = load ptr, ptr @stderr, align 8, !tbaa !4
-  %108 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %107, ptr noundef nonnull @.str.5, i32 noundef %.087) #15
-  %109 = load ptr, ptr @stdout, align 8, !tbaa !4
+100:                                              ; preds = %95, %98, %79
+  %101 = load ptr, ptr %1, align 8, !tbaa !11
+  store ptr %101, ptr %12, align 16, !tbaa !11
+  %102 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store ptr @.str.1, ptr %102, align 8, !tbaa !11
+  %103 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %104 = load ptr, ptr %103, align 8, !tbaa !11
+  %105 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  store ptr %104, ptr %105, align 16, !tbaa !11
+  %106 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  store ptr null, ptr %106, align 8, !tbaa !11
+  %107 = load ptr, ptr @stdout, align 8, !tbaa !4
+  %108 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %107, ptr noundef nonnull @.str.4, i32 noundef %.087) #13
+  %109 = load ptr, ptr @stderr, align 8, !tbaa !4
+  %110 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %109, ptr noundef nonnull @.str.5, i32 noundef %.087) #15
+  %111 = load ptr, ptr @stdout, align 8, !tbaa !4
   %110 = tail call i32 @fflush(ptr noundef %109)
   %111 = load ptr, ptr @stderr, align 8, !tbaa !4
   %112 = tail call i32 @fflush(ptr noundef %111)
@@ -645,7 +645,7 @@ test9_grandchild.exit:                            ; preds = %49, %54
   %135 = load ptr, ptr @stdout, align 8, !tbaa !4
   %136 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %135, ptr noundef nonnull @.str.6, i32 noundef %.087) #13
   %137 = load ptr, ptr @stderr, align 8, !tbaa !4
-  %138 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %137, ptr noundef nonnull @.str.7, i32 noundef %.087) #15
+  %138 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %137, ptr noundef nonnull @.str.7, i32 noundef %.087) #13
   %139 = load ptr, ptr @stdout, align 8, !tbaa !4
   %140 = call i32 @fflush(ptr noundef %139)
   %141 = load ptr, ptr @stderr, align 8, !tbaa !4
@@ -658,38 +658,38 @@ test9_grandchild.exit:                            ; preds = %49, %54
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %157
+  br label %159
 
-143:                                              ; preds = %76
-  %144 = icmp sgt i32 %0, 2
-  br i1 %144, label %sub_0, label %.tail.thread
+145:                                              ; preds = %78
+  %146 = icmp sgt i32 %0, 2
+  br i1 %146, label %sub_0, label %.tail.thread
 
-sub_0:                                            ; preds = %143
-  %145 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %146 = load ptr, ptr %145, align 8, !tbaa !11
-  %147 = load i8, ptr %146, align 1
-  %.not94 = icmp eq i8 %147, 48
+sub_0:                                            ; preds = %145
+  %147 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %148 = load ptr, ptr %147, align 8, !tbaa !11
+  %149 = load i8, ptr %148, align 1
+  %.not94 = icmp eq i8 %149, 48
   br i1 %.not94, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_0
-  %148 = getelementptr inbounds nuw i8, ptr %146, i64 1
-  %149 = load i8, ptr %148, align 1
-  %150 = icmp eq i8 %149, 0
-  br i1 %150, label %151, label %.tail.thread
+  %150 = getelementptr inbounds nuw i8, ptr %148, i64 1
+  %151 = load i8, ptr %150, align 1
+  %152 = icmp eq i8 %151, 0
+  br i1 %152, label %153, label %.tail.thread
 
-151:                                              ; preds = %.tail
-  %152 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %153 = tail call i32 @runChild(ptr noundef nonnull %152, i32 noundef 4, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 1, i32 poison, double noundef 0.000000e+00, i32 noundef 0, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 0)
-  br label %157
+153:                                              ; preds = %.tail
+  %154 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %155 = tail call i32 @runChild(ptr noundef nonnull %154, i32 noundef 4, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 1, i32 poison, double noundef 0.000000e+00, i32 noundef 0, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 0)
+  br label %159
 
-.tail.thread:                                     ; preds = %sub_0, %.tail, %143
-  %154 = load ptr, ptr @stdout, align 8, !tbaa !4
-  %155 = load ptr, ptr %1, align 8, !tbaa !11
-  %156 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %154, ptr noundef nonnull @.str.9, ptr noundef %155) #13
-  br label %157
+.tail.thread:                                     ; preds = %sub_0, %.tail, %145
+  %156 = load ptr, ptr @stdout, align 8, !tbaa !4
+  %157 = load ptr, ptr %1, align 8, !tbaa !11
+  %158 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %156, ptr noundef nonnull @.str.9, ptr noundef %157) #13
+  br label %159
 
-157:                                              ; preds = %.tail.thread, %151, %98, %73, %72, %test9_grandchild.exit, %48, %46, %44, %42, %41, %32, %31, %30, %29, %28
-  %.0 = phi i32 [ 1, %73 ], [ 0, %28 ], [ 123, %29 ], [ 0, %30 ], [ 0, %31 ], [ %33, %32 ], [ 0, %41 ], [ %43, %42 ], [ %45, %44 ], [ %47, %46 ], [ 0, %48 ], [ %.0.i, %test9_grandchild.exit ], [ 0, %72 ], [ %134, %98 ], [ %153, %151 ], [ 1, %.tail.thread ]
+159:                                              ; preds = %.tail.thread, %153, %100, %75, %74, %test9_grandchild.exit, %48, %46, %44, %42, %43, %32, %31, %30, %29, %28
+  %.0 = phi i32 [ 1, %73 ], [ 0, %28 ], [ 123, %29 ], [ 0, %30 ], [ 0, %31 ], [ %33, %32 ], [ 0, %41 ], [ %43, %42 ], [ %45, %44 ], [ %47, %46 ], [ 0, %48 ], [ %.0.i, %test9_grandchild.exit ], [ 0, %72 ], [ %136, %98 ], [ %153, %151 ], [ 1, %.tail.thread ]
   ret i32 %.0
 }
 

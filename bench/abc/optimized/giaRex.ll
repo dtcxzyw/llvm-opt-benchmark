@@ -669,9 +669,9 @@ define void @Gia_ManPrintReached_rec(ptr noundef readonly captures(none) %0, ptr
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %52, %6
-  %.tr39 = phi i32 [ %2, %6 ], [ %54, %52 ]
+  %.tr40 = phi i32 [ %2, %6 ], [ %54, %52 ]
   %.val33 = load ptr, ptr %7, align 8, !tbaa !30
-  %10 = sext i32 %.tr39 to i64
+  %10 = sext i32 %.tr40 to i64
   %11 = getelementptr inbounds i32, ptr %.val33, i64 %10
   %12 = load i32, ptr %11, align 4, !tbaa !32
   %13 = icmp eq i32 %12, %5
@@ -750,7 +750,7 @@ Vec_IntGrow.exit.i:                               ; preds = %27, %25
   store i32 %44, ptr %8, align 4, !tbaa !31
   %45 = sext i32 %43 to i64
   %46 = getelementptr inbounds i32, ptr %42, i64 %45
-  store i32 %.tr39, ptr %46, align 4, !tbaa !32
+  store i32 %.tr40, ptr %46, align 4, !tbaa !32
   %.pre = load i8, ptr %15, align 1, !tbaa !35
   %47 = icmp eq i8 %.pre, 0
   br i1 %47, label %56, label %.thread
@@ -758,11 +758,11 @@ Vec_IntGrow.exit.i:                               ; preds = %27, %25
 .thread:                                          ; preds = %14, %14, %14, %14, %41
   %48 = phi i8 [ %.pre, %41 ], [ %16, %14 ], [ %16, %14 ], [ %16, %14 ], [ %16, %14 ]
   %49 = add i8 %48, -43
-  %or.cond5.i35 = icmp ult i8 %49, -3
-  br i1 %or.cond5.i35, label %52, label %50
+  %switch.i36 = icmp ult i8 %49, -3
+  br i1 %switch.i36, label %52, label %50
 
 50:                                               ; preds = %.thread
-  %51 = add nsw i32 %.tr39, 1
+  %51 = add nsw i32 %.tr40, 1
   tail call void @Gia_ManPrintReached_rec(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %51, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %5)
   br label %52
 

@@ -582,10 +582,10 @@ _ZNK4Luau7CodeGen10IrFunction18getBytecodeTypesAtEi.exit: ; preds = %8, %20
   %25 = and i32 %.sroa.10.0.extract.shift, 255
   %26 = icmp eq i32 %25, 8
   %27 = and i32 %7, -4
-  %or.cond9 = icmp eq i32 %27, 8
-  %28 = and i1 %or.cond9, %26
-  %or.cond418 = and i1 %24, %28
-  br i1 %or.cond418, label %switch.lookup, label %49
+  %switch = icmp eq i32 %27, 8
+  %28 = and i1 %switch, %26
+  %or.cond422 = and i1 %24, %28
+  br i1 %or.cond422, label %switch.lookup, label %49
 
 switch.lookup:                                    ; preds = %_ZNK4Luau7CodeGen10IrFunction18getBytecodeTypesAtEi.exit
   %29 = trunc i32 %2 to i8
@@ -616,8 +616,8 @@ switch.lookup:                                    ; preds = %_ZNK4Luau7CodeGen10
   %or.cond13 = and i1 %50, %26
   %51 = and i32 %7, -2
   %or.cond15 = icmp eq i32 %51, 10
-  %or.cond419 = and i1 %or.cond15, %or.cond13
-  br i1 %or.cond419, label %52, label %87
+  %or.cond418 = and i1 %or.cond15, %or.cond13
+  br i1 %or.cond418, label %52, label %87
 
 52:                                               ; preds = %49
   %.not417 = icmp eq i32 %2, -1
@@ -663,8 +663,8 @@ _ZN4Luau7CodeGenL20loadDoubleOrConstantERNS0_9IrBuilderENS0_4IrOpE.exit: ; preds
   %.sroa.08.0.i = phi i32 [ %77, %69 ], [ %79, %78 ]
   %80 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext 67, i32 %.sroa.08.0.i)
   %81 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext 6, i32 %5)
-  %switch = icmp eq i32 %7, 10
-  %. = select i1 %switch, i8 40, i8 41
+  %switch460 = icmp eq i32 %7, 10
+  %. = select i1 %switch460, i8 40, i8 41
   %82 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext %., i32 %80, i32 %81)
   %83 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext 68, i32 %82)
   %84 = trunc nuw i32 %1 to i8
@@ -675,8 +675,8 @@ _ZN4Luau7CodeGenL20loadDoubleOrConstantERNS0_9IrBuilderENS0_4IrOpE.exit: ; preds
 87:                                               ; preds = %49
   %88 = icmp eq i32 %25, 2
   %or.cond19 = and i1 %24, %88
-  %or.cond420 = and i1 %or.cond15, %or.cond19
-  br i1 %or.cond420, label %89, label %124
+  %or.cond419 = and i1 %or.cond15, %or.cond19
+  br i1 %or.cond419, label %89, label %124
 
 89:                                               ; preds = %87
   %90 = trunc i32 %2 to i8
@@ -722,9 +722,9 @@ _ZN4Luau7CodeGenL20loadDoubleOrConstantERNS0_9IrBuilderENS0_4IrOpE.exit: ; preds
 _ZN4Luau7CodeGenL20loadDoubleOrConstantERNS0_9IrBuilderENS0_4IrOpE.exit425: ; preds = %107, %116
   %.sroa.08.0.i423 = phi i32 [ %115, %107 ], [ %117, %116 ]
   %118 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext 67, i32 %.sroa.08.0.i423)
-  %switch460 = icmp eq i32 %7, 10
-  %.467 = select i1 %switch460, i8 40, i8 41
-  %119 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext %.467, i32 %104, i32 %118)
+  %switch462 = icmp eq i32 %7, 10
+  %.469 = select i1 %switch462, i8 40, i8 41
+  %119 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext %.469, i32 %104, i32 %118)
   %120 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext 68, i32 %119)
   %121 = trunc nuw i32 %1 to i8
   %122 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder5vmRegEh(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext %121)
@@ -790,8 +790,8 @@ _ZN4Luau7CodeGenL22getInitializedFallbackERNS0_9IrBuilderERNS0_4IrOpE.exit: ; pr
   %.sroa.0439.0 = phi i32 [ 0, %143 ], [ %.sroa.0439.1, %152 ]
   %.not410 = icmp eq i32 %3, -1
   %.not411 = icmp eq i32 %3, %2
-  %or.cond421 = or i1 %.not410, %.not411
-  br i1 %or.cond421, label %168, label %155
+  %or.cond420 = or i1 %.not410, %.not411
+  br i1 %or.cond420, label %168, label %155
 
 155:                                              ; preds = %154
   %156 = trunc nuw i32 %3 to i8
@@ -947,8 +947,8 @@ _ZN4Luau7CodeGenL20loadDoubleOrConstantERNS0_9IrBuilderENS0_4IrOpE.exit430: ; pr
   %230 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext 15, i32 %229, i32 %.sroa.0.1)
   %.not412 = icmp eq i32 %1, %2
   %.not413 = icmp eq i32 %1, %3
-  %or.cond422 = or i1 %.not412, %.not413
-  br i1 %or.cond422, label %235, label %231
+  %or.cond421 = or i1 %.not412, %.not413
+  br i1 %or.cond421, label %235, label %231
 
 231:                                              ; preds = %227
   %232 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder5vmRegEh(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext %228)

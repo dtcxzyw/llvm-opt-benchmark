@@ -2905,17 +2905,17 @@ _ZN4llvm14CastIsPossibleINS_22InstrProfIncrementInstEPNS_11InstructionEvE10isPos
   br i1 %or.cond.not, label %.thread.loopexit.split.loop.exit, label %_ZN4llvm8dyn_castINS_22InstrProfIncrementInstENS_11InstructionEEEDcPT0_.exit.thread
 
 _ZN4llvm8dyn_castINS_22InstrProfIncrementInstENS_11InstructionEEEDcPT0_.exit.thread: ; preds = %_ZN4llvm14CastIsPossibleINS_22InstrProfIncrementInstEPNS_11InstructionEvE10isPossibleERKS3_.exit.i.i, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %7, %10, %.lr.ph, %_ZN4llvm3isaINS_13IntrinsicInstEPKNS_5ValueEEEbRKT0_.exit.i.i.i.i.i.i.i.i
-  %23 = getelementptr inbounds nuw i8, ptr %.sroa.024.047, i64 8
-  %.sroa.024.0 = load ptr, ptr %23, align 8, !tbaa !254
+  %25 = getelementptr inbounds nuw i8, ptr %.sroa.024.047, i64 8
+  %.sroa.024.0 = load ptr, ptr %25, align 8, !tbaa !254
   %.not = icmp eq ptr %.sroa.024.0, %3
   br i1 %.not, label %.thread, label %.lr.ph
 
 .thread.loopexit.split.loop.exit:                 ; preds = %_ZN4llvm14CastIsPossibleINS_22InstrProfIncrementInstEPNS_11InstructionEvE10isPossibleERKS3_.exit.i.i
-  %24 = getelementptr inbounds i8, ptr %.sroa.024.047, i64 -24
+  %26 = getelementptr inbounds i8, ptr %.sroa.024.047, i64 -24
   br label %.thread
 
 .thread:                                          ; preds = %_ZN4llvm8dyn_castINS_22InstrProfIncrementInstENS_11InstructionEEEDcPT0_.exit.thread, %.thread.loopexit.split.loop.exit, %1
-  %spec.select = phi ptr [ null, %1 ], [ %24, %.thread.loopexit.split.loop.exit ], [ null, %_ZN4llvm8dyn_castINS_22InstrProfIncrementInstENS_11InstructionEEEDcPT0_.exit.thread ]
+  %spec.select = phi ptr [ null, %1 ], [ %26, %.thread.loopexit.split.loop.exit ], [ null, %_ZN4llvm8dyn_castINS_22InstrProfIncrementInstENS_11InstructionEEEDcPT0_.exit.thread ]
   ret ptr %spec.select
 }
 

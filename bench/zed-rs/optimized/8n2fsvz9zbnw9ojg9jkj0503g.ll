@@ -155816,14 +155816,14 @@ define noundef zeroext i1 @_ZN4gpui11text_system12line_wrapper11LineWrapper12is_
   %5 = icmp ult i32 %4, 26
   %6 = or i1 %.sroa.04.0, %5
   %7 = add i32 %0, -192
-  %8 = icmp ult i32 %7, 400
-  %or.cond9 = or i1 %8, %6
-  %9 = and i32 %0, -256
-  %or.cond3 = icmp eq i32 %9, 1024
+  %or.cond = icmp ult i32 %7, 400
+  %or.cond7 = or i1 %or.cond, %6
+  %8 = and i32 %0, -256
+  %or.cond1 = icmp eq i32 %8, 1024
   %or.cond10 = or i1 %or.cond3, %or.cond9
-  br i1 %or.cond10, label %switch.edge, label %10
+  br i1 %or.cond10, label %switch.edge, label %11
 
-10:                                               ; preds = %1
+11:                                               ; preds = %1
   switch i32 %0, label %11 [
     i32 45, label %switch.edge
     i32 95, label %switch.edge
@@ -155844,10 +155844,10 @@ define noundef zeroext i1 @_ZN4gpui11text_system12line_wrapper11LineWrapper12is_
     i32 8943, label %switch.edge
   ]
 
-11:                                               ; preds = %10
+12:                                               ; preds = %11
   br label %switch.edge
 
-switch.edge:                                      ; preds = %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %1, %11
+switch.edge:                                      ; preds = %11, %11, %11, %11, %11, %11, %11, %11, %11, %11, %11, %11, %11, %11, %11, %11, %11, %1, %12
   %.sroa.0.0 = phi i1 [ false, %11 ], [ true, %10 ], [ true, %10 ], [ true, %10 ], [ true, %10 ], [ true, %10 ], [ true, %10 ], [ true, %10 ], [ true, %10 ], [ true, %10 ], [ true, %10 ], [ true, %10 ], [ true, %10 ], [ true, %10 ], [ true, %10 ], [ true, %10 ], [ true, %10 ], [ true, %1 ], [ true, %10 ]
   ret i1 %.sroa.0.0
 }

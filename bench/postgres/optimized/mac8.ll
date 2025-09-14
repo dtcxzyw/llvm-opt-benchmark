@@ -48,7 +48,7 @@ define dso_local noundef i64 @macaddr8_in(ptr noundef readonly captures(none) %0
   br i1 %.not, label %.critedge5, label %10, !llvm.loop !4
 
 .lr.ph167:                                        ; preds = %10, %.critedge5.thread
-  %19 = phi i8 [ %184, %.critedge5.thread ], [ %11, %10 ]
+  %19 = phi i8 [ %183, %.critedge5.thread ], [ %11, %10 ]
   %.064166 = phi i8 [ %.1, %.critedge5.thread ], [ 0, %10 ]
   %.065165 = phi i32 [ %23, %.critedge5.thread ], [ 0, %10 ]
   %.066164 = phi i8 [ %.167, %.critedge5.thread ], [ 0, %10 ]
@@ -329,41 +329,41 @@ hex2_to_uchar.exit:                               ; preds = %39, %56, %73, %90, 
   %.1 = phi i8 [ %.2, %165 ], [ %.064166, %hex2_to_uchar.exit ]
   %168 = and i32 %.065165, -3
   %or.cond = icmp eq i32 %168, 5
-  br i1 %or.cond, label %169, label %..critedge5.thread_crit_edge
+  br i1 %or.cond, label %168, label %..critedge5.thread_crit_edge
 
 ..critedge5.thread_crit_edge:                     ; preds = %167
   %.pre = load i8, ptr %.289, align 1
   br label %.critedge5.thread
 
-169:                                              ; preds = %167
-  %170 = tail call ptr @__ctype_b_loc() #9
-  %171 = load ptr, ptr %170, align 8
-  %172 = load i8, ptr %.289, align 1
-  %173 = zext i8 %172 to i64
-  %174 = getelementptr inbounds nuw i16, ptr %171, i64 %173
-  %175 = load i16, ptr %174, align 2
-  %176 = and i16 %175, 8192
-  %.not99 = icmp eq i16 %176, 0
+168:                                              ; preds = %167
+  %169 = tail call ptr @__ctype_b_loc() #9
+  %170 = load ptr, ptr %169, align 8
+  %171 = load i8, ptr %.289, align 1
+  %172 = zext i8 %171 to i64
+  %173 = getelementptr inbounds nuw i16, ptr %170, i64 %172
+  %174 = load i16, ptr %173, align 2
+  %175 = and i16 %174, 8192
+  %.not99 = icmp eq i16 %175, 0
   br i1 %.not99, label %.critedge5.thread, label %.preheader
 
-.preheader:                                       ; preds = %169, %179
-  %.4 = phi ptr [ %177, %179 ], [ %.289, %169 ]
-  %177 = getelementptr inbounds nuw i8, ptr %.4, i64 1
-  %178 = load i8, ptr %177, align 1
-  %.not100 = icmp eq i8 %178, 0
-  br i1 %.not100, label %.critedge2, label %179
+.preheader:                                       ; preds = %168, %178
+  %.4 = phi ptr [ %176, %179 ], [ %.289, %169 ]
+  %176 = getelementptr inbounds nuw i8, ptr %.4, i64 1
+  %177 = load i8, ptr %176, align 1
+  %.not100 = icmp eq i8 %177, 0
+  br i1 %.not100, label %.critedge2, label %178
 
-179:                                              ; preds = %.preheader
-  %180 = zext i8 %178 to i64
-  %181 = getelementptr inbounds nuw i16, ptr %171, i64 %180
-  %182 = load i16, ptr %181, align 2
-  %183 = and i16 %182, 8192
-  %.not101 = icmp eq i16 %183, 0
+178:                                              ; preds = %.preheader
+  %179 = zext i8 %177 to i64
+  %180 = getelementptr inbounds nuw i16, ptr %170, i64 %179
+  %181 = load i16, ptr %180, align 2
+  %182 = and i16 %181, 8192
+  %.not101 = icmp eq i16 %182, 0
   br i1 %.not101, label %.critedge5, label %.preheader, !llvm.loop !6
 
-.critedge5.thread:                                ; preds = %..critedge5.thread_crit_edge, %169
-  %184 = phi i8 [ %172, %169 ], [ %.pre, %..critedge5.thread_crit_edge ]
-  %.not95 = icmp eq i8 %184, 0
+.critedge5.thread:                                ; preds = %..critedge5.thread_crit_edge, %168
+  %183 = phi i8 [ %171, %169 ], [ %.pre, %..critedge5.thread_crit_edge ]
+  %.not95 = icmp eq i8 %183, 0
   br i1 %.not95, label %.critedge2, label %.lr.ph167, !llvm.loop !7
 
 .critedge2:                                       ; preds = %.lr.ph167, %.critedge5.thread, %.preheader
@@ -377,50 +377,50 @@ hex2_to_uchar.exit:                               ; preds = %39, %56, %73, %90, 
   %.066.lcssa = phi i8 [ %.167, %.preheader ], [ %.167, %.critedge5.thread ], [ %.066164, %.lr.ph167 ]
   %.065.lcssa = phi i32 [ %23, %.preheader ], [ %23, %.critedge5.thread ], [ %.065165, %.lr.ph167 ]
   switch i32 %.065.lcssa, label %.critedge5 [
-    i32 6, label %185
+    i32 6, label %184
     i32 8, label %.fold.split
   ]
 
 .fold.split:                                      ; preds = %.critedge2
-  br label %185
+  br label %184
 
-185:                                              ; preds = %.critedge2, %.fold.split
+184:                                              ; preds = %.critedge2, %.fold.split
   %.280 = phi i8 [ -1, %.critedge2 ], [ %.078.lcssa, %.fold.split ]
   %.277 = phi i8 [ -2, %.critedge2 ], [ %.075.lcssa, %.fold.split ]
   %.274 = phi i8 [ %.078.lcssa, %.critedge2 ], [ %.072.lcssa, %.fold.split ]
   %.271 = phi i8 [ %.075.lcssa, %.critedge2 ], [ %.069.lcssa, %.fold.split ]
   %.268 = phi i8 [ %.072.lcssa, %.critedge2 ], [ %.066.lcssa, %.fold.split ]
-  %186 = tail call ptr @palloc0(i64 noundef 8) #10
-  store i8 %.085.lcssa, ptr %186, align 1
-  %187 = getelementptr inbounds nuw i8, ptr %186, i64 1
-  store i8 %.083.lcssa, ptr %187, align 1
-  %188 = getelementptr inbounds nuw i8, ptr %186, i64 2
-  store i8 %.081.lcssa, ptr %188, align 1
-  %189 = getelementptr inbounds nuw i8, ptr %186, i64 3
-  store i8 %.280, ptr %189, align 1
-  %190 = getelementptr inbounds nuw i8, ptr %186, i64 4
-  store i8 %.277, ptr %190, align 1
-  %191 = getelementptr inbounds nuw i8, ptr %186, i64 5
-  store i8 %.274, ptr %191, align 1
-  %192 = getelementptr inbounds nuw i8, ptr %186, i64 6
-  store i8 %.271, ptr %192, align 1
-  %193 = getelementptr inbounds nuw i8, ptr %186, i64 7
-  store i8 %.268, ptr %193, align 1
-  %194 = ptrtoint ptr %186 to i64
-  br label %199
+  %185 = tail call ptr @palloc0(i64 noundef 8) #10
+  store i8 %.085.lcssa, ptr %185, align 1
+  %186 = getelementptr inbounds nuw i8, ptr %185, i64 1
+  store i8 %.083.lcssa, ptr %186, align 1
+  %187 = getelementptr inbounds nuw i8, ptr %185, i64 2
+  store i8 %.081.lcssa, ptr %187, align 1
+  %188 = getelementptr inbounds nuw i8, ptr %185, i64 3
+  store i8 %.280, ptr %188, align 1
+  %189 = getelementptr inbounds nuw i8, ptr %185, i64 4
+  store i8 %.277, ptr %189, align 1
+  %190 = getelementptr inbounds nuw i8, ptr %185, i64 5
+  store i8 %.274, ptr %190, align 1
+  %191 = getelementptr inbounds nuw i8, ptr %185, i64 6
+  store i8 %.271, ptr %191, align 1
+  %192 = getelementptr inbounds nuw i8, ptr %185, i64 7
+  store i8 %.268, ptr %192, align 1
+  %193 = ptrtoint ptr %185 to i64
+  br label %198
 
-.critedge5:                                       ; preds = %16, %143, %145, %150, %153, %126, %128, %133, %136, %109, %111, %116, %119, %92, %94, %99, %102, %75, %77, %82, %85, %58, %60, %65, %68, %41, %43, %48, %51, %24, %26, %31, %34, %164, %22, %179, %1, %.critedge2
-  %195 = tail call zeroext i1 @errsave_start(ptr noundef %6, ptr noundef null) #10
-  br i1 %195, label %196, label %199
+.critedge5:                                       ; preds = %16, %143, %145, %150, %153, %126, %128, %133, %136, %109, %111, %116, %119, %92, %94, %99, %102, %75, %77, %82, %85, %58, %60, %65, %68, %41, %43, %48, %51, %24, %26, %31, %34, %164, %22, %178, %1, %.critedge2
+  %194 = tail call zeroext i1 @errsave_start(ptr noundef %6, ptr noundef null) #10
+  br i1 %194, label %195, label %198
 
-196:                                              ; preds = %.critedge5
-  %197 = tail call i32 @errcode(i32 noundef 33685634) #10
-  %198 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull %4) #10
+195:                                              ; preds = %.critedge5
+  %196 = tail call i32 @errcode(i32 noundef 33685634) #10
+  %197 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull %4) #10
   tail call void @errsave_finish(ptr noundef %6, ptr noundef nonnull @.str.2, i32 noundef 227, ptr noundef nonnull @__func__.macaddr8_in) #10
-  br label %199
+  br label %198
 
-199:                                              ; preds = %.critedge5, %196, %185
-  %.0 = phi i64 [ %194, %185 ], [ 0, %196 ], [ 0, %.critedge5 ]
+198:                                              ; preds = %.critedge5, %195, %184
+  %.0 = phi i64 [ %193, %185 ], [ 0, %196 ], [ 0, %.critedge5 ]
   ret i64 %.0
 }
 

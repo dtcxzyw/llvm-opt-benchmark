@@ -3588,22 +3588,22 @@ DTGTK_GRADIENT_SLIDER.exit:                       ; preds = %3, %5, %7
 .lr.ph:                                           ; preds = %DTGTK_GRADIENT_SLIDER.exit
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 224
   %.not.i = icmp eq i32 %2, 0
-  %narrow.v.i = select i1 %.not.i, i32 4, i32 2
+  %.0.in.in.in.v.i = select i1 %.not.i, i32 4, i32 2
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 64
   %wide.trip.count = zext nneg i32 %13 to i64
   br label %17
 
-._crit_edge:                                      ; preds = %35, %DTGTK_GRADIENT_SLIDER.exit
+._crit_edge:                                      ; preds = %34, %DTGTK_GRADIENT_SLIDER.exit
   %.018.lcssa = phi i32 [ -1, %DTGTK_GRADIENT_SLIDER.exit ], [ %.2, %35 ]
   ret i32 %.018.lcssa
 
-17:                                               ; preds = %.lr.ph, %35
+17:                                               ; preds = %.lr.ph, %34
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %35 ]
   %.01819 = phi i32 [ -1, %.lr.ph ], [ %.2, %35 ]
   %18 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv
   %19 = load i32, ptr %18, align 4, !tbaa !44
   %20 = and i32 %19, -10
-  %narrow.i.not = icmp eq i32 %20, %narrow.v.i
+  %narrow.i.not = icmp eq i32 %20, %.0.in.in.in.v.i
   br i1 %narrow.i.not, label %35, label %21
 
 21:                                               ; preds = %17
@@ -3625,7 +3625,7 @@ DTGTK_GRADIENT_SLIDER.exit:                       ; preds = %3, %5, %7
 34:                                               ; preds = %21
   br label %35
 
-35:                                               ; preds = %17, %34, %21
+34:                                               ; preds = %17, %34, %21
   %.2 = phi i32 [ %23, %34 ], [ %spec.select, %21 ], [ %.01819, %17 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

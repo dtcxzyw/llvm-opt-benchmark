@@ -5098,38 +5098,38 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i67: ; preds = %._crit_edge
   %or.cond34 = and i1 %110, %6
   br i1 %or.cond34, label %111, label %_ZL17setLoopComponentsRPN4llvm5ValueES2_RPNS_14BinaryOperatorERNS_15SmallPtrSetImplIPNS_11InstructionEEE.exit
 
-111:                                              ; preds = %108
+111:; preds = %108
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %113 = load i32, ptr %112, align 4
   %114 = and i32 %113, 1073741824
   %.not.i.i = icmp eq i32 %114, 0
   br i1 %.not.i.i, label %118, label %115
 
-115:                                              ; preds = %111
+115: ; preds = %111
   %116 = getelementptr inbounds i8, ptr %0, i64 -8
   %117 = load ptr, ptr %116, align 8, !tbaa !450
   br label %_ZNK4llvm4User10getOperandEj.exit
 
-118:                                              ; preds = %111
-  %119 = and i32 %113, 134217727
-  %120 = zext nneg i32 %119 to i64
-  %121 = sub nsw i64 0, %120
-  %122 = getelementptr inbounds %"class.llvm::Use", ptr %0, i64 %121
+119:                                              ; preds = %111
+  %120 = and i32 %113, 134217727
+  %121 = zext nneg i32 %120 to i64
+  %122 = sub nsw i64 0, %121
+  %123 = getelementptr inbounds %"class.llvm::Use", ptr %0, i64 %122
   br label %_ZNK4llvm4User10getOperandEj.exit
 
-_ZNK4llvm4User10getOperandEj.exit:                ; preds = %115, %118
-  %123 = phi ptr [ %117, %115 ], [ %122, %118 ]
-  %124 = load ptr, ptr %123, align 8, !tbaa !446
-  %125 = tail call noundef ptr @_ZN4llvm15ScalarEvolution7getSCEVEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(1344) %5, ptr noundef %124) #16
-  %.not44 = icmp eq ptr %125, %14
-  br i1 %.not44, label %126, label %_ZL17setLoopComponentsRPN4llvm5ValueES2_RPNS_14BinaryOperatorERNS_15SmallPtrSetImplIPNS_11InstructionEEE.exit
+_ZNK4llvm4User10getOperandEj.exit:                ; preds = %115, %119
+  %124 = phi ptr [ %117, %115 ], [ %123, %118 ]
+  %125 = load ptr, ptr %124, align 8, !tbaa !446
+  %126 = tail call noundef ptr @_ZN4llvm15ScalarEvolution7getSCEVEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(1344) %5, ptr noundef %125) #16
+  %.not44 = icmp eq ptr %126, %14
+  br i1 %.not44, label %127, label %_ZL17setLoopComponentsRPN4llvm5ValueES2_RPNS_14BinaryOperatorERNS_15SmallPtrSetImplIPNS_11InstructionEEE.exit
 
-126:                                              ; preds = %_ZNK4llvm4User10getOperandEj.exit
+127:                                              ; preds = %_ZNK4llvm4User10getOperandEj.exit
   %.val55 = load ptr, ptr %4, align 8, !tbaa !555
   tail call fastcc void @_ZL17setLoopComponentsRPN4llvm5ValueES2_RPNS_14BinaryOperatorERNS_15SmallPtrSetImplIPNS_11InstructionEEE(ptr nonnull %0, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr %.val55, ptr noundef nonnull align 8 dereferenceable(21) %2)
   br label %_ZL17setLoopComponentsRPN4llvm5ValueES2_RPNS_14BinaryOperatorERNS_15SmallPtrSetImplIPNS_11InstructionEEE.exit
 
-_ZL17setLoopComponentsRPN4llvm5ValueES2_RPNS_14BinaryOperatorERNS_15SmallPtrSetImplIPNS_11InstructionEEE.exit: ; preds = %.lr.ph.i.i.i70, %.lr.ph.i.i.i60, %.lr.ph.i.i.i, %126, %_ZNK4llvm4User10getOperandEj.exit, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i67, %105, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i57, %87, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i, %32, %108, %38, %7
+_ZL17setLoopComponentsRPN4llvm5ValueES2_RPNS_14BinaryOperatorERNS_15SmallPtrSetImplIPNS_11InstructionEEE.exit: ; preds = %.lr.ph.i.i.i70, %.lr.ph.i.i.i60, %.lr.ph.i.i.i, %127, %_ZNK4llvm4User10getOperandEj.exit, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i67, %105, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i57, %87, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i, %32, %108, %38, %7
   %.0 = phi i1 [ false, %7 ], [ false, %38 ], [ false, %108 ], [ true, %32 ], [ true, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i ], [ true, %87 ], [ true, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i57 ], [ true, %105 ], [ true, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i67 ], [ true, %126 ], [ false, %_ZNK4llvm4User10getOperandEj.exit ], [ true, %.lr.ph.i.i.i ], [ true, %.lr.ph.i.i.i60 ], [ true, %.lr.ph.i.i.i70 ]
   ret i1 %.0
 }

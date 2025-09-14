@@ -398,7 +398,7 @@ define dso_local noalias noundef nonnull ptr @bioProcessBackgroundJobs(ptr nound
   %74 = getelementptr inbounds nuw i8, ptr %37, i64 4
   %75 = load i32, ptr %74, align 4, !tbaa !61
   %76 = call i32 @close(i32 noundef %75) #11
-  br label %139
+  br label %137
 
 77:                                               ; preds = %34
   %78 = icmp eq i32 %39, 3
@@ -470,29 +470,29 @@ define dso_local noalias noundef nonnull ptr @bioProcessBackgroundJobs(ptr nound
   br label %112
 
 112:                                              ; preds = %102, %108, %98
-  br i1 %78, label %113, label %139
+  br i1 %78, label %113, label %137
 
 113:                                              ; preds = %112
   %114 = load i32, ptr %80, align 4, !tbaa !61
   %115 = call i32 @close(i32 noundef %114) #11
-  br label %139
+  br label %137
 
 116:                                              ; preds = %77
   %117 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %118 = load ptr, ptr %117, align 8, !tbaa !61
   %119 = getelementptr inbounds nuw i8, ptr %37, i64 16
   call void %118(ptr noundef nonnull %119) #11
-  br label %139
+  br label %137
 
 120:                                              ; preds = %77
   %121 = add i32 %39, -4
   %or.cond5 = icmp ult i32 %121, 3
   br i1 %or.cond5, label %122, label %138
 
-122:                                              ; preds = %120
+122: ; preds = %120
   %123 = call noalias dereferenceable_or_null(24) ptr @zmalloc(i64 noundef 24) #15
-  %124 = getelementptr inbounds nuw i8, ptr %37, i64 8
-  %125 = load ptr, ptr %124, align 8, !tbaa !61
+  %126 = getelementptr inbounds nuw i8, ptr %37, i64 8
+  %125 = load ptr, ptr %126, align 8, !tbaa !61
   store ptr %125, ptr %123, align 8, !tbaa !53
   %126 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %127 = load i64, ptr %126, align 8, !tbaa !61
@@ -502,7 +502,7 @@ define dso_local noalias noundef nonnull ptr @bioProcessBackgroundJobs(ptr nound
   %130 = load ptr, ptr %129, align 8, !tbaa !61
   %131 = getelementptr inbounds nuw i8, ptr %123, i64 16
   store ptr %130, ptr %131, align 8, !tbaa !56
-  %132 = call i32 @pthread_mutex_lock(ptr noundef nonnull @bio_mutex_comp) #11
+  %135 = call i32 @pthread_mutex_lock(ptr noundef nonnull @bio_mutex_comp) #11
   %133 = load ptr, ptr @bio_comp_list, align 8, !tbaa !5
   %134 = call ptr @listAddNodeTail(ptr noundef %133, ptr noundef nonnull %123) #11
   %135 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @bio_mutex_comp) #11
@@ -515,20 +515,20 @@ define dso_local noalias noundef nonnull ptr @bioProcessBackgroundJobs(ptr nound
   call void @abort() #14
   unreachable
 
-139:                                              ; preds = %113, %112, %122, %116, %73
+137:                                              ; preds = %113, %112, %122, %116, %73
   call void @zfree(ptr noundef nonnull %37) #11
-  %140 = call i32 @pthread_mutex_lock(ptr noundef nonnull %12) #11
-  %141 = load ptr, ptr %25, align 8, !tbaa !5
-  call void @listDelNode(ptr noundef %141, ptr noundef nonnull %35) #11
-  %142 = zext nneg i32 %39 to i64
-  %143 = getelementptr inbounds nuw i64, ptr @bio_jobs_counter, i64 %142
-  %144 = load i64, ptr %143, align 8, !tbaa !43
-  %145 = add i64 %144, -1
-  store i64 %145, ptr %143, align 8, !tbaa !43
-  %146 = call i32 @pthread_cond_signal(ptr noundef nonnull %26) #11
+  %138 = call i32 @pthread_mutex_lock(ptr noundef nonnull %12) #11
+  %139 = load ptr, ptr %25, align 8, !tbaa !5
+  call void @listDelNode(ptr noundef %139, ptr noundef nonnull %35) #11
+  %140 = zext nneg i32 %39 to i64
+  %141 = getelementptr inbounds nuw i64, ptr @bio_jobs_counter, i64 %140
+  %142 = load i64, ptr %141, align 8, !tbaa !43
+  %143 = add i64 %142, -1
+  store i64 %143, ptr %141, align 8, !tbaa !43
+  %144 = call i32 @pthread_cond_signal(ptr noundef nonnull %26) #11
   br label %.backedge
 
-.backedge:                                        ; preds = %139, %32
+.backedge:                                        ; preds = %137, %32
   br label %27
 }
 

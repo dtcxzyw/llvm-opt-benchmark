@@ -12693,11 +12693,11 @@ tailrecurse:                                      ; preds = %54, %1
   %31 = zext i32 %30 to i64
   %.idx = shl nuw nsw i64 %31, 3
   %32 = getelementptr inbounds nuw i8, ptr %28, i64 %.idx
-  %.not104 = icmp eq i32 %30, 0
-  br i1 %.not104, label %.loopexit, label %.lr.ph
+  %.not133 = icmp eq i32 %30, 0
+  br i1 %.not133, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %26, %59
-  %.08392 = phi ptr [ %64, %59 ], [ %28, %26 ]
+.lr.ph:                                           ; preds = %26, %58
+  %.08392 = phi ptr [ %63, %59 ], [ %28, %26 ]
   %33 = load ptr, ptr %.08392, align 8
   %34 = load ptr, ptr %33, align 8
   %35 = load ptr, ptr %34, align 8
@@ -12708,7 +12708,7 @@ tailrecurse:                                      ; preds = %54, %1
   %or.cond35 = or i1 %37, %39
   br i1 %or.cond35, label %.loopexit, label %40
 
-40:                                               ; preds = %.lr.ph
+40: ; preds = %.lr.ph
   %41 = load ptr, ptr @_ZN10BarrierSet12_barrier_setE, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 40
   %43 = load ptr, ptr %42, align 8
@@ -12720,35 +12720,35 @@ tailrecurse:                                      ; preds = %54, %1
   %or.cond = or i1 %48, %47
   br i1 %or.cond, label %.loopexit, label %49
 
-49:                                               ; preds = %40
+49: ; preds = %40
   %50 = getelementptr inbounds nuw i8, ptr %33, i64 44
   %51 = load i32, ptr %50, align 4
   %52 = and i32 %51, 31
   %53 = icmp eq i32 %52, 17
   br i1 %53, label %54, label %56
 
-54:                                               ; preds = %49
+54:; preds = %49
   %55 = add i32 %36, -213
   %or.cond37 = icmp ult i32 %55, 2
   br i1 %or.cond37, label %.loopexit, label %tailrecurse
 
-56:                                               ; preds = %49
-  %57 = and i32 %51, 3
-  %58 = icmp eq i32 %57, 3
-  br i1 %58, label %.loopexit, label %59
+55:                                               ; preds = %49
+  %56 = and i32 %51, 3
+  %57 = icmp eq i32 %56, 3
+  br i1 %57, label %.loopexit, label %58
 
-59:                                               ; preds = %56
-  %60 = load ptr, ptr %33, align 8
-  %61 = getelementptr inbounds nuw i8, ptr %60, i64 32
-  %62 = load ptr, ptr %61, align 8
-  %63 = tail call noundef ptr %62(ptr noundef nonnull align 8 dereferenceable(52) %33) #15
-  %.not = icmp eq ptr %63, null
-  %64 = getelementptr inbounds nuw i8, ptr %.08392, i64 8
-  %65 = icmp ult ptr %64, %32
-  %or.cond103 = select i1 %.not, i1 %65, i1 false
-  br i1 %or.cond103, label %.lr.ph, label %.loopexit, !llvm.loop !54
+58:                                               ; preds = %55
+  %59 = load ptr, ptr %33, align 8
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 32
+  %61 = load ptr, ptr %60, align 8
+  %62 = tail call noundef ptr %62(ptr noundef nonnull align 8 dereferenceable(52) %33) #15
+  %.not = icmp eq ptr %62, null
+  %63 = getelementptr inbounds nuw i8, ptr %.08392, i64 8
+  %64 = icmp ult ptr %63, %32
+  %or.cond132 = select i1 %.not, i1 %64, i1 false
+  br i1 %or.cond132, label %.lr.ph, label %.loopexit, !llvm.loop !54
 
-.loopexit:                                        ; preds = %54, %26, %40, %.lr.ph, %59, %56
+.loopexit:                                        ; preds = %54, %26, %40, %.lr.ph, %58, %55
   %.0 = phi i1 [ true, %40 ], [ true, %.lr.ph ], [ false, %59 ], [ false, %56 ], [ false, %26 ], [ false, %54 ]
   ret i1 %.0
 }

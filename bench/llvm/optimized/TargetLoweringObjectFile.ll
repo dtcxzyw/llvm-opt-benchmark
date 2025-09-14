@@ -881,12 +881,12 @@ declare noundef zeroext i1 @_ZNK4llvm8Constant22needsDynamicRelocationEv(ptr nou
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef ptr @_ZNK4llvm24TargetLoweringObjectFile16SectionForGlobalEPKNS_12GlobalObjectENS_11SectionKindERKNS_13TargetMachineE(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef %1, i32 %2, ptr noundef nonnull align 8 dereferenceable(1264) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::AttributeSet", align 8
-  %.sroa.024.0.extract.trunc = trunc i32 %2 to i8
+  %.sroa.025.0.extract.trunc = trunc i32 %2 to i8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %7 = load i32, ptr %6, align 8
   %8 = and i32 %7, 67108864
-  %.not57 = icmp eq i32 %8, 0
-  br i1 %.not57, label %14, label %9
+  %.not56 = icmp eq i32 %8, 0
+  br i1 %.not56, label %14, label %9
 
 9:                                                ; preds = %4
   %10 = load ptr, ptr %0, align 8, !tbaa !136
@@ -906,22 +906,22 @@ define dso_local noundef ptr @_ZNK4llvm24TargetLoweringObjectFile16SectionForGlo
   %.sroa.0.0.copyload.i = load ptr, ptr %17, align 8, !tbaa !340
   store ptr %.sroa.0.0.copyload.i, ptr %5, align 8
   %18 = call noundef zeroext i1 @_ZNK4llvm12AttributeSet12hasAttributeENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr nonnull @.str.1, i64 11) #18
-  %.off.i = add i8 %.sroa.024.0.extract.trunc, -15
+  %.off.i = add i8 %.sroa.025.0.extract.trunc, -15
   %switch.i = icmp ult i8 %.off.i, 3
   %or.cond = select i1 %18, i1 %switch.i, i1 false
   br i1 %or.cond, label %30, label %19
 
 19:                                               ; preds = %16
   %20 = call noundef zeroext i1 @_ZNK4llvm12AttributeSet12hasAttributeENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr nonnull @.str.2, i64 12) #18
-  %21 = icmp eq i8 %.sroa.024.0.extract.trunc, 19
-  %or.cond53 = select i1 %20, i1 %21, i1 false
-  br i1 %or.cond53, label %30, label %22
+  %21 = icmp eq i8 %.sroa.025.0.extract.trunc, 19
+  %or.cond54 = select i1 %20, i1 %21, i1 false
+  br i1 %or.cond54, label %30, label %22
 
 22:                                               ; preds = %19
   %23 = call noundef zeroext i1 @_ZNK4llvm12AttributeSet12hasAttributeENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr nonnull @.str.3, i64 13) #18
-  %24 = icmp eq i8 %.sroa.024.0.extract.trunc, 20
-  %or.cond54 = select i1 %23, i1 %24, i1 false
-  br i1 %or.cond54, label %30, label %25
+  %24 = icmp eq i8 %.sroa.025.0.extract.trunc, 20
+  %or.cond55 = select i1 %23, i1 %24, i1 false
+  br i1 %or.cond55, label %30, label %25
 
 25:                                               ; preds = %22
   %26 = call noundef zeroext i1 @_ZNK4llvm12AttributeSet12hasAttributeENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr nonnull @.str.4, i64 14) #18
@@ -930,7 +930,7 @@ define dso_local noundef ptr @_ZNK4llvm24TargetLoweringObjectFile16SectionForGlo
   %or.cond56 = select i1 %26, i1 %28, i1 false
   br i1 %or.cond56, label %30, label %29
 
-29:                                               ; preds = %25
+27:                                               ; preds = %25
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %35
 
@@ -1005,7 +1005,7 @@ _ZNK4llvm11GlobalValue15isWeakForLinkerEv.exit:
 define dso_local noundef ptr @_ZNK4llvm24TargetLoweringObjectFile21getSectionForConstantERKNS_10DataLayoutENS_11SectionKindEPKNS_8ConstantERNS_5AlignE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(976) %0, ptr nonnull readnone align 8 captures(none) %1, i32 %2, ptr readnone captures(none) %3, ptr nonnull readnone align 1 captures(none) %4) unnamed_addr #11 align 2 {
   %.sroa.0.0.extract.trunc = trunc i32 %2 to i8
   %6 = add i8 %.sroa.0.0.extract.trunc, -12
-  %7 = icmp ult i8 %6, -8
+  %switch.i = icmp ult i8 %6, -8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %9 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %9, null

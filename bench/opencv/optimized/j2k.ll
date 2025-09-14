@@ -2574,61 +2574,61 @@ define internal fastcc void @opj_j2k_set_imf_parameters(ptr noundef nonnull capt
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 5604
   %6 = load i32, ptr %5, align 4, !tbaa !52
   %7 = icmp eq i32 %6, 64
-  br i1 %7, label %8, label %13
+  br i1 %7, label %8, label %14
 
-8:                                                ; preds = %2
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 5608
-  %10 = load i32, ptr %9, align 8, !tbaa !53
-  %11 = icmp eq i32 %10, 64
-  br i1 %11, label %12, label %13
+9:                                                ; preds = %2
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 5608
+  %11 = load i32, ptr %10, align 8, !tbaa !53
+  %12 = icmp eq i32 %11, 64
+  br i1 %12, label %13, label %14
 
-12:                                               ; preds = %8
+13:                                               ; preds = %9
   store i32 32, ptr %5, align 4, !tbaa !52
-  store i32 32, ptr %9, align 8, !tbaa !53
-  br label %13
+  store i32 32, ptr %10, align 8, !tbaa !53
+  br label %14
 
-13:                                               ; preds = %12, %8, %2
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 18697
-  store i8 67, ptr %14, align 1, !tbaa !94
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 18696
-  store i8 1, ptr %15, align 8, !tbaa !93
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  %17 = load i32, ptr %16, align 4, !tbaa !105
-  %18 = icmp eq i32 %17, 0
-  br i1 %18, label %19, label %20
+14:                                               ; preds = %13, %9, %2
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 18697
+  store i8 67, ptr %15, align 1, !tbaa !94
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 18696
+  store i8 1, ptr %16, align 8, !tbaa !93
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %18 = load i32, ptr %17, align 4, !tbaa !105
+  %19 = icmp eq i32 %18, 0
+  br i1 %19, label %20, label %20
 
-19:                                               ; preds = %13
-  store i32 4, ptr %16, align 4, !tbaa !105
+20:                                               ; preds = %14
+  store i32 4, ptr %17, align 4, !tbaa !105
   br label %20
 
-20:                                               ; preds = %19, %13
+26:                                               ; preds = %19, %14
   %21 = add i16 %4, -1024
   %or.cond5 = icmp ult i16 %21, 768
   br i1 %or.cond5, label %22, label %24
 
-22:                                               ; preds = %20
+30:                                               ; preds = %26
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 5616
   store i32 1, ptr %23, align 8, !tbaa !137
-  br label %24
+  br label %33
 
-24:                                               ; preds = %20, %22
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 5600
-  %26 = load i32, ptr %25, align 8, !tbaa !49
-  %27 = icmp eq i32 %26, 6
-  br i1 %27, label %28, label %.loopexit5
+33:                                               ; preds = %20, %30
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 5600
+  %35 = load i32, ptr %34, align 8, !tbaa !51
+  %36 = icmp eq i32 %35, 6
+  br i1 %36, label %37, label %.loopexit7
 
-28:                                               ; preds = %24
-  %29 = load i32, ptr %1, align 8, !tbaa !155
-  %30 = icmp eq i32 %29, 0
+37:                                               ; preds = %33
+  %38 = load i32, ptr %1, align 8, !tbaa !155
+  %.not.i = icmp eq i32 %38, 0
   br i1 %30, label %31, label %.loopexit5
 
-31:                                               ; preds = %28
+31:; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %33 = load i32, ptr %32, align 4, !tbaa !156
   %34 = icmp eq i32 %33, 0
   br i1 %34, label %35, label %.loopexit5
 
-35:                                               ; preds = %31
+35: ; preds = %31
   %36 = load i32, ptr %0, align 8, !tbaa !90
   %.not.i = icmp eq i32 %36, 0
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -2645,114 +2645,114 @@ define internal fastcc void @opj_j2k_set_imf_parameters(ptr noundef nonnull capt
     i32 3, label %43
   ]
 
-43:                                               ; preds = %35
-  %44 = icmp ugt i32 %39, 2047
-  br i1 %44, label %58, label %45
+45:                                               ; preds = %35
+  %46 = icmp ugt i32 %39, 2047
+  br i1 %46, label %60, label %47
 
-45:                                               ; preds = %43
-  %46 = icmp samesign ugt i32 %39, 1023
-  br i1 %46, label %58, label %opj_j2k_get_imf_max_NL.exit
+47:                                               ; preds = %45
+  %48 = icmp samesign ugt i32 %39, 1023
+  br i1 %48, label %60, label %opj_j2k_get_imf_max_NL.exit
 
-47:                                               ; preds = %35
-  %48 = icmp ugt i32 %39, 4095
-  br i1 %48, label %opj_j2k_get_imf_max_NL.exit, label %49
-
-49:                                               ; preds = %47
-  %50 = icmp samesign ugt i32 %39, 2047
-  br i1 %50, label %58, label %51
+49:                                               ; preds = %35
+  %50 = icmp ugt i32 %39, 4095
+  br i1 %50, label %opj_j2k_get_imf_max_NL.exit, label %51
 
 51:                                               ; preds = %49
-  %52 = icmp samesign ugt i32 %39, 1023
-  br i1 %52, label %58, label %opj_j2k_get_imf_max_NL.exit
+  %52 = icmp samesign ugt i32 %39, 2047
+  br i1 %52, label %60, label %53
 
-53:                                               ; preds = %35
-  %or.cond.not = icmp ult i32 %39, 4096
-  br i1 %or.cond.not, label %54, label %opj_j2k_get_imf_max_NL.exit
+53:                                               ; preds = %51
+  %54 = icmp samesign ugt i32 %39, 1023
+  br i1 %54, label %60, label %opj_j2k_get_imf_max_NL.exit
 
-54:                                               ; preds = %53
-  %55 = icmp samesign ugt i32 %39, 2047
-  br i1 %55, label %58, label %56
+55:                                               ; preds = %35
+  %or.cond6.not = icmp ult i32 %39, 4096
+  br i1 %or.cond6.not, label %56, label %opj_j2k_get_imf_max_NL.exit
 
-56:                                               ; preds = %54
-  %57 = icmp samesign ugt i32 %39, 1023
-  br i1 %57, label %58, label %opj_j2k_get_imf_max_NL.exit
+56:                                               ; preds = %55
+  %57 = icmp samesign ugt i32 %39, 2047
+  br i1 %57, label %60, label %58
 
-58:                                               ; preds = %56, %54, %51, %49, %45, %43, %35
+58:                                               ; preds = %56
+  %59 = icmp samesign ugt i32 %39, 1023
+  br i1 %59, label %60, label %opj_j2k_get_imf_max_NL.exit
+
+60:                                               ; preds = %56, %54, %51, %49, %45, %43, %35
   %.0.i.ph.ph = phi i32 [ 6, %35 ], [ 6, %43 ], [ 5, %45 ], [ 6, %49 ], [ 5, %51 ], [ 6, %54 ], [ 5, %56 ]
   store i32 %.0.i.ph.ph, ptr %25, align 8, !tbaa !49
   br label %opj_j2k_get_imf_max_NL.exit
 
-opj_j2k_get_imf_max_NL.exit:                      ; preds = %53, %47, %56, %51, %45, %35, %58
+opj_j2k_get_imf_max_NL.exit:                      ; preds = %55, %49, %58, %53, %47, %35, %60
   %.pr = phi i32 [ 6, %53 ], [ 6, %47 ], [ 6, %56 ], [ 6, %51 ], [ 6, %45 ], [ 6, %35 ], [ %.0.i.ph.ph, %58 ]
-  br i1 %.not.i, label %.lr.ph, label %.loopexit5
+  br i1 %.not.i, label %.lr.ph, label %.loopexit7
 
 .lr.ph:                                           ; preds = %opj_j2k_get_imf_max_NL.exit
-  %59 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %60 = load i32, ptr %38, align 8, !tbaa !91
-  br label %61
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %62 = load i32, ptr %38, align 8, !tbaa !91
+  br label %63
 
-61:                                               ; preds = %.lr.ph, %.backedge
-  %62 = phi i32 [ %.pr, %.lr.ph ], [ %63, %.backedge ]
-  %63 = add nsw i32 %62, -1
-  %64 = shl nuw i32 1, %63
-  %65 = icmp ult i32 %60, %64
-  br i1 %65, label %.backedge, label %67
+63:                                               ; preds = %.lr.ph, %.backedge
+  %64 = phi i32 [ %.pr, %.lr.ph ], [ %65, %.backedge ]
+  %65 = add nsw i32 %64, -1
+  %66 = shl nuw i32 1, %65
+  %67 = icmp ult i32 %62, %66
+  br i1 %67, label %.backedge, label %69
 
-.backedge:                                        ; preds = %67, %61
-  store i32 %63, ptr %25, align 8, !tbaa !49
-  %66 = icmp samesign ugt i32 %62, 1
-  br i1 %66, label %61, label %.loopexit5, !llvm.loop !157
+.backedge:                                        ; preds = %69, %63
+  store i32 %65, ptr %25, align 8, !tbaa !49
+  %68 = icmp samesign ugt i32 %64, 1
+  br i1 %68, label %63, label %.loopexit7, !llvm.loop !157
 
-67:                                               ; preds = %61
-  %68 = load i32, ptr %59, align 4, !tbaa !92
-  %69 = icmp ult i32 %68, %64
-  br i1 %69, label %.backedge, label %.loopexit5
+69:                                               ; preds = %63
+  %70 = load i32, ptr %61, align 4, !tbaa !92
+  %71 = icmp ult i32 %70, %66
+  br i1 %71, label %.backedge, label %.loopexit7
 
-.loopexit5:                                       ; preds = %.backedge, %67, %opj_j2k_get_imf_max_NL.exit, %31, %28, %24
-  %70 = phi i32 [ %.pr, %opj_j2k_get_imf_max_NL.exit ], [ 6, %31 ], [ 6, %28 ], [ %26, %24 ], [ %63, %.backedge ], [ %62, %67 ]
-  %71 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %72 = load i32, ptr %71, align 8, !tbaa !103
-  %73 = icmp eq i32 %72, 0
-  br i1 %73, label %74, label %.loopexit
+.loopexit7:                                       ; preds = %.backedge, %69, %opj_j2k_get_imf_max_NL.exit, %31, %37, %24
+  %72 = phi i32 [ %.pr, %opj_j2k_get_imf_max_NL.exit ], [ 6, %31 ], [ 6, %28 ], [ %26, %24 ], [ %65, %.backedge ], [ %64, %67 ]
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %74 = load i32, ptr %73, align 8, !tbaa !103
+  %75 = icmp eq i32 %74, 0
+  br i1 %75, label %76, label %.loopexit
 
-74:                                               ; preds = %.loopexit5
-  store i32 1, ptr %71, align 8, !tbaa !103
-  %75 = icmp eq i32 %70, 1
-  br i1 %75, label %76, label %80
+76:                                               ; preds = %.loopexit7
+  store i32 1, ptr %73, align 8, !tbaa !103
+  %77 = icmp eq i32 %72, 1
+  br i1 %77, label %78, label %82
 
-76:                                               ; preds = %74
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 5628
-  store i32 1, ptr %77, align 4, !tbaa !144
-  %78 = getelementptr inbounds nuw i8, ptr %0, i64 5632
-  store i32 128, ptr %78, align 8, !tbaa !125
-  %79 = getelementptr inbounds nuw i8, ptr %0, i64 5764
-  store i32 128, ptr %79, align 4, !tbaa !125
+78:                                               ; preds = %76
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 5628
+  store i32 1, ptr %79, align 4, !tbaa !144
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 5632
+  store i32 128, ptr %80, align 8, !tbaa !125
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 5764
+  store i32 128, ptr %81, align 4, !tbaa !125
   br label %.loopexit
 
-80:                                               ; preds = %74
-  %81 = add i32 %70, -1
-  %82 = getelementptr inbounds nuw i8, ptr %0, i64 5628
-  store i32 %81, ptr %82, align 4, !tbaa !144
-  %83 = icmp sgt i32 %70, 1
-  br i1 %83, label %.lr.ph8, label %.loopexit
+82:                                               ; preds = %76
+  %83 = add i32 %72, -1
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 5628
+  store i32 %83, ptr %84, align 4, !tbaa !144
+  %85 = icmp sgt i32 %72, 1
+  br i1 %85, label %.lr.ph10, label %.loopexit
 
-.lr.ph8:                                          ; preds = %80
-  %84 = getelementptr inbounds nuw i8, ptr %0, i64 5632
-  %85 = getelementptr inbounds nuw i8, ptr %0, i64 5764
-  %wide.trip.count = zext nneg i32 %81 to i64
-  br label %86
+.lr.ph10:                                         ; preds = %82
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 5632
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 5764
+  %wide.trip.count = zext nneg i32 %83 to i64
+  br label %88
 
-86:                                               ; preds = %.lr.ph8, %86
+88:                                               ; preds = %.lr.ph10, %88
   %indvars.iv = phi i64 [ 0, %.lr.ph8 ], [ %indvars.iv.next, %86 ]
-  %87 = getelementptr inbounds nuw i32, ptr %84, i64 %indvars.iv
-  store i32 256, ptr %87, align 4, !tbaa !125
-  %88 = getelementptr inbounds nuw i32, ptr %85, i64 %indvars.iv
-  store i32 256, ptr %88, align 4, !tbaa !125
+  %89 = getelementptr inbounds nuw i32, ptr %86, i64 %indvars.iv
+  store i32 256, ptr %89, align 4, !tbaa !125
+  %90 = getelementptr inbounds nuw i32, ptr %87, i64 %indvars.iv
+  store i32 256, ptr %89, align 4, !tbaa !125
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %86, !llvm.loop !158
+  br i1 %exitcond.not, label %.loopexit, label %88, !llvm.loop !158
 
-.loopexit:                                        ; preds = %86, %80, %76, %.loopexit5
+.loopexit:                                        ; preds = %88, %82, %78, %.loopexit7
   ret void
 }
 

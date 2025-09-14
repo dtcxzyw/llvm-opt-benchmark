@@ -962,10 +962,10 @@ lor.lhs.false25:                                  ; preds = %lor.lhs.false19
 lor.lhs.false33:                                  ; preds = %lor.lhs.false25
   %cmp36 = icmp ne i32 %call4, 12
   %5 = add i32 %sub.i, -27
-  %or.cond4047 = icmp ult i32 %5, -3
+  %or.cond746 = icmp ult i32 %5, -3
   %cmp46 = icmp ne i32 %sub.i, 31
-  %or.cond4148.not49 = and i1 %cmp46, %or.cond4047
-  %or.cond42.not = or i1 %or.cond4148.not49, %cmp36
+  %or.cond4148.not49 = and i1 %cmp46, %or.cond746
+  %or.cond4148 = or i1 %or.cond4148.not49, %cmp36
   br label %cleanup
 
 cleanup:                                          ; preds = %lor.lhs.false33, %entry, %lor.lhs.false, %lor.lhs.false19, %lor.lhs.false25

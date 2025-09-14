@@ -187,7 +187,7 @@ define internal i64 @eckey_get_bitlen(ptr noundef readonly captures(none) %0) #3
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define internal range(i32 0, 2) i32 @eckey_can_do(i32 noundef %0) #1 {
   %2 = add i32 %0, -2
-  %narrow = icmp ult i32 %2, 3
+  %or.cond = icmp ult i32 %2, 3
   %3 = zext i1 %narrow to i32
   ret i32 %3
 }
