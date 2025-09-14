@@ -36,18 +36,18 @@ define void @ZSTDv04_findFrameSizeInfoLegacy(ptr noundef %0, i64 noundef %1, ptr
   br label %.thread50
 
 9:                                                ; preds = %7
-  %10 = add i64 %1, -5
-  %11 = icmp ult i64 %10, 3
-  br i1 %11, label %._crit_edge, label %.lr.ph.preheader
+  %10 = icmp ult i64 %1, 8
+  br i1 %10, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %9
+  %11 = add i64 %1, -5
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 5
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.thread88
   %.073 = phi ptr [ %38, %.thread88 ], [ %12, %.lr.ph.preheader ]
   %.03472 = phi i64 [ %40, %.thread88 ], [ 0, %.lr.ph.preheader ]
-  %.03671 = phi i64 [ %39, %.thread88 ], [ %10, %.lr.ph.preheader ]
+  %.03671 = phi i64 [ %39, %.thread88 ], [ %11, %.lr.ph.preheader ]
   %13 = load i8, ptr %.073, align 1, !tbaa !7
   %14 = zext i8 %13 to i32
   %15 = lshr i32 %14, 6

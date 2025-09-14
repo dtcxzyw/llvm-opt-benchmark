@@ -2539,9 +2539,8 @@ define hidden noalias noundef nonnull align 8 ptr @"_ZN5alloc5boxed12Box$LT$T$GT
           cleanup
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i64, ptr %8, align 8, !range !392, !alias.scope !393, !noundef !31
-  %10 = add nsw i64 %9, -3
-  %switch.i.i.i.i.i = icmp ult i64 %10, 2
-  br i1 %switch.i.i.i.i.i, label %"_ZN4core3ptr142drop_in_place$LT$triomphe..arc..ArcInner$LT$salsa..derived..slot..Slot$LT$base_db..ParseQuery$C$salsa..derived..AlwaysMemoizeValue$GT$$GT$$GT$17hc1d837ccfec60fddE.exit", label %11
+  %10 = icmp samesign ugt i64 %9, 2
+  br i1 %10, label %"_ZN4core3ptr142drop_in_place$LT$triomphe..arc..ArcInner$LT$salsa..derived..slot..Slot$LT$base_db..ParseQuery$C$salsa..derived..AlwaysMemoizeValue$GT$$GT$$GT$17hc1d837ccfec60fddE.exit", label %11
 
 11:                                               ; preds = %6
   invoke void @"_ZN4core3ptr117drop_in_place$LT$salsa..derived..slot..Memo$LT$syntax..Parse$LT$syntax..ast..generated..nodes..SourceFile$GT$$GT$$GT$17hbfb77be9acd826ddE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %8)
@@ -2580,9 +2579,8 @@ define hidden noalias noundef nonnull align 8 ptr @"_ZN5alloc5boxed12Box$LT$T$GT
           cleanup
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i64, ptr %8, align 8, !range !392, !alias.scope !404, !noundef !31
-  %10 = add nsw i64 %9, -3
-  %switch.i.i.i.i.i = icmp ult i64 %10, 2
-  br i1 %switch.i.i.i.i.i, label %"_ZN4core3ptr153drop_in_place$LT$triomphe..arc..ArcInner$LT$salsa..derived..slot..Slot$LT$base_db..SourceRootCratesQuery$C$salsa..derived..AlwaysMemoizeValue$GT$$GT$$GT$17hed6e9249b6bafe40E.exit", label %11
+  %10 = icmp samesign ugt i64 %9, 2
+  br i1 %10, label %"_ZN4core3ptr153drop_in_place$LT$triomphe..arc..ArcInner$LT$salsa..derived..slot..Slot$LT$base_db..SourceRootCratesQuery$C$salsa..derived..AlwaysMemoizeValue$GT$$GT$$GT$17hed6e9249b6bafe40E.exit", label %11
 
 11:                                               ; preds = %6
   invoke void @"_ZN4core3ptr137drop_in_place$LT$salsa..derived..slot..Memo$LT$triomphe..arc..Arc$LT$$u5b$la_arena..Idx$LT$base_db..input..CrateData$GT$$u5d$$GT$$GT$$GT$17h5c8bc438ad45d08cE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %8)
@@ -2621,9 +2619,8 @@ define hidden noalias noundef nonnull align 8 ptr @"_ZN5alloc5boxed12Box$LT$T$GT
           cleanup
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i64, ptr %8, align 8, !range !392, !alias.scope !415, !noundef !31
-  %10 = add nsw i64 %9, -3
-  %switch.i.i.i.i.i = icmp ult i64 %10, 2
-  br i1 %switch.i.i.i.i.i, label %"_ZN4core3ptr145drop_in_place$LT$triomphe..arc..ArcInner$LT$salsa..derived..slot..Slot$LT$base_db..FileTextQuery$C$salsa..derived..AlwaysMemoizeValue$GT$$GT$$GT$17hddd3937a7f7d8c42E.exit", label %11
+  %10 = icmp samesign ugt i64 %9, 2
+  br i1 %10, label %"_ZN4core3ptr145drop_in_place$LT$triomphe..arc..ArcInner$LT$salsa..derived..slot..Slot$LT$base_db..FileTextQuery$C$salsa..derived..AlwaysMemoizeValue$GT$$GT$$GT$17hddd3937a7f7d8c42E.exit", label %11
 
 11:                                               ; preds = %6
   invoke void @"_ZN4core3ptr84drop_in_place$LT$salsa..derived..slot..Memo$LT$triomphe..arc..Arc$LT$str$GT$$GT$$GT$17h8fc6008f89881eb3E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %8)

@@ -453,26 +453,25 @@ define hidden void @_ZN18ReferenceProcessor12init_staticsEv() local_unnamed_addr
 _ZN14CompilerConfig31is_c2_or_jvmci_compiler_enabledEv.exit: ; preds = %0
   %9 = load i8, ptr @TieredCompilation, align 1
   %10 = trunc i8 %9 to i1
-  %11 = add i64 %6, -1
-  %12 = icmp ult i64 %11, 3
-  %spec.select.i.i.i = select i1 %10, i1 %12, i1 false
-  %13 = load i32, ptr @_ZN19CompilationModeFlag5_modeE, align 4
-  %14 = icmp eq i32 %13, 1
-  %15 = or i1 %spec.select.i.i.i, %14
-  br i1 %15, label %_ZN14CompilerConfig31is_c2_or_jvmci_compiler_enabledEv.exit.thread, label %16
+  %11 = icmp ult i64 %6, 4
+  %spec.select.i.i.i = select i1 %10, i1 %11, i1 false
+  %12 = load i32, ptr @_ZN19CompilationModeFlag5_modeE, align 4
+  %13 = icmp eq i32 %12, 1
+  %14 = or i1 %spec.select.i.i.i, %13
+  br i1 %14, label %_ZN14CompilerConfig31is_c2_or_jvmci_compiler_enabledEv.exit.thread, label %15
 
-16:                                               ; preds = %_ZN14CompilerConfig31is_c2_or_jvmci_compiler_enabledEv.exit
-  %17 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 16, i8 noundef zeroext 5, i32 noundef 0) #17
-  tail call void @_ZN16LRUMaxHeapPolicyC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %17) #17
-  br label %19
+15:                                               ; preds = %_ZN14CompilerConfig31is_c2_or_jvmci_compiler_enabledEv.exit
+  %16 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 16, i8 noundef zeroext 5, i32 noundef 0) #17
+  tail call void @_ZN16LRUMaxHeapPolicyC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #17
+  br label %18
 
 _ZN14CompilerConfig31is_c2_or_jvmci_compiler_enabledEv.exit.thread: ; preds = %0, %_ZN14CompilerConfig31is_c2_or_jvmci_compiler_enabledEv.exit
-  %18 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 16, i8 noundef zeroext 5, i32 noundef 0) #17
-  tail call void @_ZN20LRUCurrentHeapPolicyC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %18) #17
-  br label %19
+  %17 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 16, i8 noundef zeroext 5, i32 noundef 0) #17
+  tail call void @_ZN20LRUCurrentHeapPolicyC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %17) #17
+  br label %18
 
-19:                                               ; preds = %_ZN14CompilerConfig31is_c2_or_jvmci_compiler_enabledEv.exit.thread, %16
-  %storemerge = phi ptr [ %18, %_ZN14CompilerConfig31is_c2_or_jvmci_compiler_enabledEv.exit.thread ], [ %17, %16 ]
+18:                                               ; preds = %_ZN14CompilerConfig31is_c2_or_jvmci_compiler_enabledEv.exit.thread, %15
+  %storemerge = phi ptr [ %17, %_ZN14CompilerConfig31is_c2_or_jvmci_compiler_enabledEv.exit.thread ], [ %16, %15 ]
   store ptr %storemerge, ptr @_ZN18ReferenceProcessor24_default_soft_ref_policyE, align 8
   ret void
 }

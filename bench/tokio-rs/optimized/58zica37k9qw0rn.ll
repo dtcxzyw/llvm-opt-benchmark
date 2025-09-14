@@ -5424,8 +5424,7 @@ define hidden void @"_ZN5tokio7runtime9scheduler6inject6shared15Shared$LT$T$GT$4
   unreachable
 
 _ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit.i.i.i: ; preds = %7
-  %.mask.i.i.i.i = and i64 %8, -64
-  %10 = icmp eq i64 %.mask.i.i.i.i, 64
+  %10 = icmp ult i64 %8, 128
   br i1 %10, label %11, label %"_ZN4core3ptr132drop_in_place$LT$tokio..runtime..task..Notified$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..current_thread..Handle$GT$$GT$$GT$17hcbe70498dbcd9ab2E.exit"
 
 11:                                               ; preds = %_ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit.i.i.i
@@ -5479,8 +5478,7 @@ define hidden void @"_ZN5tokio7runtime9scheduler6inject6shared15Shared$LT$T$GT$4
   unreachable
 
 _ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit.i.i.i: ; preds = %7
-  %.mask.i.i.i.i = and i64 %8, -64
-  %10 = icmp eq i64 %.mask.i.i.i.i, 64
+  %10 = icmp ult i64 %8, 128
   br i1 %10, label %11, label %"_ZN4core3ptr138drop_in_place$LT$tokio..runtime..task..Notified$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$$GT$17h00c58693331cd200E.exit"
 
 11:                                               ; preds = %_ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit.i.i.i
@@ -5746,8 +5744,7 @@ define hidden void @"_ZN5tokio7runtime4task7harness52_$LT$impl$u20$tokio..runtim
   unreachable
 
 _ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit: ; preds = %1
-  %.mask.i = and i64 %2, -64
-  %4 = icmp eq i64 %.mask.i, 64
+  %4 = icmp ult i64 %2, 128
   br i1 %4, label %6, label %5
 
 5:                                                ; preds = %6, %_ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit
@@ -5801,8 +5798,7 @@ default.unreachable1:                             ; preds = %1
   unreachable
 
 _ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit.i: ; preds = %6
-  %.mask.i.i = and i64 %11, -64
-  %13 = icmp eq i64 %.mask.i.i, 64
+  %13 = icmp ult i64 %11, 128
   br i1 %13, label %"_ZN5tokio7runtime4task7harness52_$LT$impl$u20$tokio..runtime..task..raw..RawTask$GT$14drop_reference17hb11b1191b0e49c09E.exit.sink.split", label %"_ZN5tokio7runtime4task7harness52_$LT$impl$u20$tokio..runtime..task..raw..RawTask$GT$14drop_reference17hb11b1191b0e49c09E.exit"
 
 14:                                               ; preds = %1
@@ -6067,13 +6063,13 @@ define hidden noundef nonnull ptr @"_ZN5tokio7runtime4task20UnownedTask$LT$S$GT$
   store ptr %0, ptr %2, align 8
   %3 = atomicrmw sub ptr %0, i64 64 acq_rel, align 8
   %.not.i = icmp ult i64 %3, 64
-  br i1 %.not.i, label %6, label %7
+  br i1 %.not.i, label %6, label %_ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit
 
 4:                                                ; preds = %6
   %5 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr107drop_in_place$LT$tokio..runtime..task..Task$LT$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$17h4058fd7d6f88b279E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %2) #56
-          to label %11 unwind label %9
+          to label %10 unwind label %8
 
 6:                                                ; preds = %1
   invoke void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.a04ce7f5fe84a8ff0b9c5affd729a942.149.llvm.5542961546488995764, i64 noundef 39, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a04ce7f5fe84a8ff0b9c5affd729a942.150.llvm.5542961546488995764) #55
@@ -6082,18 +6078,18 @@ define hidden noundef nonnull ptr @"_ZN5tokio7runtime4task20UnownedTask$LT$S$GT$
 .noexc:                                           ; preds = %6
   unreachable
 
-7:                                                ; preds = %1
-  %8 = load ptr, ptr %2, align 8, !nonnull !4, !noundef !4
+_ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit: ; preds = %1
+  %7 = load ptr, ptr %2, align 8, !nonnull !4, !noundef !4
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  ret ptr %8
+  ret ptr %7
 
-9:                                                ; preds = %4
-  %10 = landingpad { ptr, i32 }
+8:                                                ; preds = %4
+  %9 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #57
   unreachable
 
-11:                                               ; preds = %4
+10:                                               ; preds = %4
   resume { ptr, i32 } %5
 }
 
@@ -6118,8 +6114,7 @@ _ZN5tokio7runtime4task3raw7RawTask4poll17h1e6c599c93371073E.exit: ; preds = %1
   unreachable
 
 _ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit.i.i: ; preds = %_ZN5tokio7runtime4task3raw7RawTask4poll17h1e6c599c93371073E.exit
-  %.mask.i.i.i = and i64 %6, -64
-  %7 = icmp eq i64 %.mask.i.i.i, 64
+  %7 = icmp ult i64 %6, 128
   br i1 %7, label %8, label %"_ZN4core3ptr107drop_in_place$LT$tokio..runtime..task..Task$LT$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$17h4058fd7d6f88b279E.exit"
 
 8:                                                ; preds = %_ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit.i.i

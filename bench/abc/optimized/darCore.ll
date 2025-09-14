@@ -294,8 +294,7 @@ Abc_Clock.exit166:                                ; preds = %Abc_Clock.exit164, 
   br i1 %133, label %149, label %134
 
 134:                                              ; preds = %132
-  %.mask = and i32 %129, -536870912
-  %135 = icmp eq i32 %.mask, 536870912
+  %135 = icmp ult i32 %129, 1073741824
   br i1 %135, label %136, label %Aig_ManObj.exit.thread
 
 136:                                              ; preds = %134

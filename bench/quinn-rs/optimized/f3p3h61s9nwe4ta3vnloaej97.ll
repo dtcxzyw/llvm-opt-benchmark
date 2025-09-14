@@ -2832,122 +2832,122 @@ _ZN4ring4aead13less_safe_key11LessSafeKey11open_within17hb99ba8e7aad0f08dE.exit:
 define hidden noundef range(i64 0, 176) i64 @_ZN11quinn_proto5frame5Frame2ty17h165d19a20786a31bE(ptr noundef nonnull readonly align 8 captures(none) %0) unnamed_addr #8 {
   %2 = load i64, ptr %0, align 8, !range !239, !noundef !3
   %3 = add nsw i64 %2, -2
-  %4 = icmp ult i64 %3, 23
-  %5 = icmp ne i64 %3, 2
-  tail call void @llvm.assume(i1 %5)
-  %6 = select i1 %4, i64 %3, i64 2
-  switch i64 %6, label %7 [
-    i64 0, label %44
-    i64 1, label %44
-    i64 2, label %44
-    i64 3, label %8
-    i64 4, label %9
-    i64 5, label %10
-    i64 6, label %11
-    i64 7, label %12
-    i64 8, label %20
-    i64 9, label %21
-    i64 10, label %22
-    i64 11, label %26
-    i64 12, label %27
-    i64 13, label %28
-    i64 14, label %32
-    i64 15, label %33
-    i64 16, label %34
-    i64 17, label %35
-    i64 18, label %36
-    i64 19, label %40
-    i64 20, label %41
-    i64 21, label %42
-    i64 22, label %43
+  %4 = icmp ne i64 %3, 2
+  tail call void @llvm.assume(i1 %4)
+  %.inv = icmp samesign ult i64 %2, 2
+  %5 = select i1 %.inv, i64 2, i64 %3
+  switch i64 %5, label %6 [
+    i64 0, label %43
+    i64 1, label %43
+    i64 2, label %43
+    i64 3, label %7
+    i64 4, label %8
+    i64 5, label %9
+    i64 6, label %10
+    i64 7, label %11
+    i64 8, label %19
+    i64 9, label %20
+    i64 10, label %21
+    i64 11, label %25
+    i64 12, label %26
+    i64 13, label %27
+    i64 14, label %31
+    i64 15, label %32
+    i64 16, label %33
+    i64 17, label %34
+    i64 18, label %35
+    i64 19, label %39
+    i64 20, label %40
+    i64 21, label %41
+    i64 22, label %42
   ]
 
-7:                                                ; preds = %1
+6:                                                ; preds = %1
   unreachable
 
+7:                                                ; preds = %1
+  br label %43
+
 8:                                                ; preds = %1
-  br label %44
+  br label %43
 
 9:                                                ; preds = %1
-  br label %44
+  br label %43
 
 10:                                               ; preds = %1
-  br label %44
+  br label %43
 
 11:                                               ; preds = %1
-  br label %44
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %13 = load i8, ptr %12, align 8, !range !99, !noundef !3
+  %14 = trunc nuw i8 %13 to i1
+  %spec.store.select = select i1 %14, i64 9, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %16 = load i64, ptr %15, align 8, !noundef !3
+  %17 = icmp eq i64 %16, 0
+  %18 = or disjoint i64 %spec.store.select, 4
+  %spec.select = select i1 %17, i64 %spec.store.select, i64 %18
+  br label %43
 
-12:                                               ; preds = %1
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %14 = load i8, ptr %13, align 8, !range !99, !noundef !3
-  %15 = trunc nuw i8 %14 to i1
-  %spec.store.select = select i1 %15, i64 9, i64 8
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %17 = load i64, ptr %16, align 8, !noundef !3
-  %18 = icmp eq i64 %17, 0
-  %19 = or disjoint i64 %spec.store.select, 4
-  %spec.select = select i1 %18, i64 %spec.store.select, i64 %19
-  br label %44
+19:                                               ; preds = %1
+  br label %43
 
 20:                                               ; preds = %1
-  br label %44
+  br label %43
 
 21:                                               ; preds = %1
-  br label %44
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %23 = load i8, ptr %22, align 8, !range !99, !noundef !3
+  %24 = trunc nuw i8 %23 to i1
+  %. = select i1 %24, i64 19, i64 18
+  br label %43
 
-22:                                               ; preds = %1
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %24 = load i8, ptr %23, align 8, !range !99, !noundef !3
-  %25 = trunc nuw i8 %24 to i1
-  %. = select i1 %25, i64 19, i64 18
-  br label %44
+25:                                               ; preds = %1
+  br label %43
 
 26:                                               ; preds = %1
-  br label %44
+  br label %43
 
 27:                                               ; preds = %1
-  br label %44
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %29 = load i8, ptr %28, align 8, !range !99, !noundef !3
+  %30 = trunc nuw i8 %29 to i1
+  %.3 = select i1 %30, i64 23, i64 22
+  br label %43
 
-28:                                               ; preds = %1
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %30 = load i8, ptr %29, align 8, !range !99, !noundef !3
-  %31 = trunc nuw i8 %30 to i1
-  %.3 = select i1 %31, i64 23, i64 22
-  br label %44
+31:                                               ; preds = %1
+  br label %43
 
 32:                                               ; preds = %1
-  br label %44
+  br label %43
 
 33:                                               ; preds = %1
-  br label %44
+  br label %43
 
 34:                                               ; preds = %1
-  br label %44
+  br label %43
 
 35:                                               ; preds = %1
-  br label %44
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %37 = load i64, ptr %36, align 8, !range !240, !noundef !3
+  %38 = icmp eq i64 %37, 2
+  %.4 = select i1 %38, i64 29, i64 28
+  br label %43
 
-36:                                               ; preds = %1
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %38 = load i64, ptr %37, align 8, !range !240, !noundef !3
-  %39 = icmp eq i64 %38, 2
-  %.4 = select i1 %39, i64 29, i64 28
-  br label %44
+39:                                               ; preds = %1
+  br label %43
 
 40:                                               ; preds = %1
-  br label %44
+  br label %43
 
 41:                                               ; preds = %1
-  br label %44
+  br label %43
 
 42:                                               ; preds = %1
-  br label %44
+  br label %43
 
-43:                                               ; preds = %1
-  br label %44
-
-44:                                               ; preds = %1, %1, %36, %28, %22, %1, %12, %43, %42, %41, %40, %35, %34, %33, %32, %27, %26, %21, %20, %11, %10, %9, %8
-  %.sroa.0.0 = phi i64 [ 4, %8 ], [ 5, %9 ], [ 6, %10 ], [ 7, %11 ], [ %spec.select, %12 ], [ 16, %20 ], [ 17, %21 ], [ 20, %26 ], [ 21, %27 ], [ 24, %32 ], [ 25, %33 ], [ 26, %34 ], [ 27, %35 ], [ 48, %40 ], [ 175, %41 ], [ 31, %42 ], [ 30, %43 ], [ %6, %1 ], [ %., %22 ], [ %.3, %28 ], [ %.4, %36 ], [ %6, %1 ], [ %6, %1 ]
+43:                                               ; preds = %1, %1, %35, %27, %21, %1, %11, %42, %41, %40, %39, %34, %33, %32, %31, %26, %25, %20, %19, %10, %9, %8, %7
+  %.sroa.0.0 = phi i64 [ 4, %7 ], [ 5, %8 ], [ 6, %9 ], [ 7, %10 ], [ %spec.select, %11 ], [ 16, %19 ], [ 17, %20 ], [ 20, %25 ], [ 21, %26 ], [ 24, %31 ], [ 25, %32 ], [ 26, %33 ], [ 27, %34 ], [ 48, %39 ], [ 175, %40 ], [ 31, %41 ], [ 30, %42 ], [ %5, %1 ], [ %., %21 ], [ %.3, %27 ], [ %.4, %35 ], [ %5, %1 ], [ %5, %1 ]
   ret i64 %.sroa.0.0
 }
 
@@ -2955,16 +2955,16 @@ define hidden noundef range(i64 0, 176) i64 @_ZN11quinn_proto5frame5Frame2ty17h1
 define hidden noundef zeroext i1 @_ZN11quinn_proto5frame5Frame16is_ack_eliciting17hd73650e8747acb19E(ptr noundef nonnull readonly align 8 captures(none) %0) unnamed_addr #8 {
   %2 = load i64, ptr %0, align 8, !range !239, !noundef !3
   %3 = add nsw i64 %2, -2
-  %4 = icmp ult i64 %3, 23
-  %5 = icmp ne i64 %3, 2
-  tail call void @llvm.assume(i1 %5)
-  %6 = select i1 %4, i64 %3, i64 2
-  %7 = icmp samesign ugt i64 %6, 18
-  %switch.cast = trunc nuw nsw i64 %6 to i19
+  %4 = icmp ne i64 %3, 2
+  tail call void @llvm.assume(i1 %4)
+  %.inv = icmp samesign ult i64 %2, 2
+  %5 = select i1 %.inv, i64 2, i64 %3
+  %6 = icmp ugt i64 %5, 18
+  %switch.cast = trunc i64 %5 to i19
   %switch.downshift = lshr i19 262138, %switch.cast
   %switch.masked = trunc i19 %switch.downshift to i1
-  %8 = select i1 %7, i1 true, i1 %switch.masked
-  ret i1 %8
+  %7 = select i1 %6, i1 true, i1 %switch.masked
+  ret i1 %7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -6440,10 +6440,7 @@ _ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit: ; preds = %_ZN4core3f
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define noundef range(i8 0, 4) i8 @_ZN11quinn_proto6shared12EcnCodepoint9from_bits17hf8b87f01ba04aea8E(i8 noundef %0) unnamed_addr #6 {
   %2 = and i8 %0, 3
-  %.off = add nsw i8 %2, -1
-  %switch = icmp ult i8 %.off, 3
-  %.sroa.0.0 = select i1 %switch, i8 %2, i8 0
-  ret i8 %.sroa.0.0
+  ret i8 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable

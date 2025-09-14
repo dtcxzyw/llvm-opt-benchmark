@@ -5298,40 +5298,38 @@ _ZNK10open_spiel5maedn10MaednState9AllInGoalEi.exit.thread.us: ; preds = %.lr.ph
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !42
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split.backedge
+  %.not13 = phi i1 [ false, %.lr.ph.split.backedge ], [ true, %.lr.ph ]
   %exitcond12.not = phi i1 [ true, %.lr.ph.split.backedge ], [ false, %.lr.ph ]
-  %.05 = phi i32 [ 1, %.lr.ph.split.backedge ], [ 0, %.lr.ph ]
-  %22 = add nsw i32 %.05, -1
-  %or.cond.i.i = icmp ult i32 %22, 2
-  %23 = shl nuw nsw i32 %.05, 2
-  %24 = xor i32 %23, 12
-  %25 = select i1 %or.cond.i.i, i32 %24, i32 %23
-  %26 = zext nneg i32 %25 to i64
-  %27 = getelementptr i32, ptr %10, i64 %26
-  %28 = getelementptr i8, ptr %27, i64 160
-  %29 = load i32, ptr %28, align 4
-  %.not.i = icmp eq i32 %29, 0
-  br i1 %.not.i, label %_ZNK10open_spiel5maedn10MaednState9AllInGoalEi.exit.thread, label %30
+  %.05 = phi i32 [ 4, %.lr.ph.split.backedge ], [ 0, %.lr.ph ]
+  %22 = xor i32 %.05, 12
+  %23 = select i1 %.not13, i32 %.05, i32 %22
+  %24 = zext nneg i32 %23 to i64
+  %25 = getelementptr i32, ptr %10, i64 %24
+  %26 = getelementptr i8, ptr %25, i64 160
+  %27 = load i32, ptr %26, align 4
+  %.not.i = icmp eq i32 %27, 0
+  br i1 %.not.i, label %_ZNK10open_spiel5maedn10MaednState9AllInGoalEi.exit.thread, label %28
 
-30:                                               ; preds = %.lr.ph.split
-  %31 = getelementptr i8, ptr %27, i64 164
-  %32 = load i32, ptr %31, align 4
-  %.not6.i = icmp eq i32 %32, 0
-  br i1 %.not6.i, label %_ZNK10open_spiel5maedn10MaednState9AllInGoalEi.exit.thread, label %33
+28:                                               ; preds = %.lr.ph.split
+  %29 = getelementptr i8, ptr %25, i64 164
+  %30 = load i32, ptr %29, align 4
+  %.not6.i = icmp eq i32 %30, 0
+  br i1 %.not6.i, label %_ZNK10open_spiel5maedn10MaednState9AllInGoalEi.exit.thread, label %31
 
-33:                                               ; preds = %30
-  %34 = getelementptr i8, ptr %27, i64 168
-  %35 = load i32, ptr %34, align 4
-  %.not7.i = icmp eq i32 %35, 0
+31:                                               ; preds = %28
+  %32 = getelementptr i8, ptr %25, i64 168
+  %33 = load i32, ptr %32, align 4
+  %.not7.i = icmp eq i32 %33, 0
   br i1 %.not7.i, label %_ZNK10open_spiel5maedn10MaednState9AllInGoalEi.exit.thread, label %_ZNK10open_spiel5maedn10MaednState9AllInGoalEi.exit
 
-_ZNK10open_spiel5maedn10MaednState9AllInGoalEi.exit: ; preds = %33
-  %36 = getelementptr i8, ptr %27, i64 172
-  %37 = load i32, ptr %36, align 4
-  %.not = icmp ne i32 %37, 0
+_ZNK10open_spiel5maedn10MaednState9AllInGoalEi.exit: ; preds = %31
+  %34 = getelementptr i8, ptr %25, i64 172
+  %35 = load i32, ptr %34, align 4
+  %.not = icmp ne i32 %35, 0
   %brmerge = or i1 %.not, %exitcond12.not
   br i1 %brmerge, label %._crit_edge, label %.lr.ph.split.backedge
 
-_ZNK10open_spiel5maedn10MaednState9AllInGoalEi.exit.thread: ; preds = %.lr.ph.split, %30, %33
+_ZNK10open_spiel5maedn10MaednState9AllInGoalEi.exit.thread: ; preds = %.lr.ph.split, %28, %31
   br i1 %exitcond12.not, label %._crit_edge, label %.lr.ph.split.backedge
 
 .lr.ph.split.backedge:                            ; preds = %_ZNK10open_spiel5maedn10MaednState9AllInGoalEi.exit.thread, %_ZNK10open_spiel5maedn10MaednState9AllInGoalEi.exit

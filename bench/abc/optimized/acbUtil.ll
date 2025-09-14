@@ -3610,9 +3610,8 @@ Acb_NtkCleanObjPathD.exit:                        ; preds = %Vec_IntGrow.exit.i.
   br label %Acb_ObjComputePathD.exit
 
 61:                                               ; preds = %46
-  %62 = add i8 %51, -5
-  %narrow.i.i74 = icmp ult i8 %62, -2
-  %.neg = sext i1 %narrow.i.i74 to i32
+  %62 = icmp ne i8 %51, 4
+  %.neg = sext i1 %62 to i32
   %63 = load i32, ptr %41, align 4, !tbaa !95
   %64 = add i32 %55, %53
   %65 = sub i32 %63, %64
@@ -3696,9 +3695,8 @@ Acb_ObjComputePathD.exit:                         ; preds = %90, %66, %61, %56
   br label %Acb_ObjComputePathD.exit102
 
 108:                                              ; preds = %93
-  %109 = add i8 %98, -5
-  %narrow.i.i83 = icmp ult i8 %109, -2
-  %.neg104 = sext i1 %narrow.i.i83 to i32
+  %109 = icmp ne i8 %98, 4
+  %.neg104 = sext i1 %109 to i32
   %110 = load i32, ptr %32, align 4, !tbaa !95
   %111 = add i32 %102, %100
   %112 = sub i32 %110, %111
@@ -3989,9 +3987,8 @@ Acb_NtkCleanObjPathR.exit:                        ; preds = %Vec_IntGrow.exit.i.
   br label %Acb_ObjComputePathR.exit
 
 59:                                               ; preds = %44
-  %60 = add i8 %49, -5
-  %narrow.i.i74 = icmp ult i8 %60, -2
-  %.neg = sext i1 %narrow.i.i74 to i32
+  %60 = icmp ne i8 %49, 3
+  %.neg = sext i1 %60 to i32
   %61 = load i32, ptr %40, align 4, !tbaa !95
   %62 = add i32 %53, %51
   %63 = sub i32 %61, %62
@@ -4078,9 +4075,8 @@ Acb_ObjComputePathR.exit:                         ; preds = %87, %64, %59, %54
   br label %Acb_ObjComputePathR.exit104
 
 105:                                              ; preds = %90
-  %106 = add i8 %95, -5
-  %narrow.i.i83 = icmp ult i8 %106, -2
-  %.neg106 = sext i1 %narrow.i.i83 to i32
+  %106 = icmp ne i8 %95, 3
+  %.neg106 = sext i1 %106 to i32
   %107 = load i32, ptr %32, align 4, !tbaa !95
   %108 = add i32 %99, %97
   %109 = sub i32 %107, %108

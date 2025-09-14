@@ -456,87 +456,86 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   %4 = load ptr, ptr %0, align 8, !nonnull !5, !align !58, !noundef !5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !69)
   %5 = load i32, ptr %4, align 4, !range !72, !alias.scope !69, !noalias !73, !noundef !5
-  %6 = add nsw i32 %5, -3
-  %7 = icmp ult i32 %6, 12
-  %8 = zext nneg i32 %5 to i64
-  %9 = add nsw i64 %8, -2
-  %10 = select i1 %7, i64 %9, i64 0
-  switch i64 %10, label %11 [
-    i64 0, label %12
-    i64 1, label %14
-    i64 2, label %16
-    i64 3, label %18
-    i64 4, label %20
-    i64 5, label %22
-    i64 6, label %24
-    i64 7, label %26
-    i64 8, label %28
-    i64 9, label %30
-    i64 10, label %32
-    i64 11, label %34
-    i64 12, label %36
+  %6 = icmp samesign ugt i32 %5, 2
+  %7 = zext nneg i32 %5 to i64
+  %8 = add nsw i64 %7, -2
+  %9 = select i1 %6, i64 %8, i64 0
+  switch i64 %9, label %10 [
+    i64 0, label %11
+    i64 1, label %13
+    i64 2, label %15
+    i64 3, label %17
+    i64 4, label %19
+    i64 5, label %21
+    i64 6, label %23
+    i64 7, label %25
+    i64 8, label %27
+    i64 9, label %29
+    i64 10, label %31
+    i64 11, label %33
+    i64 12, label %35
   ]
 
-11:                                               ; preds = %2
+10:                                               ; preds = %2
   unreachable
 
-12:                                               ; preds = %2
+11:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !75
   store ptr %4, ptr %3, align 8, !noalias !75
-  %13 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h2963dbee503a3d8bE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.88cbe26c6f10de82bb64d60872f26f77.28, i64 noundef 8, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.88cbe26c6f10de82bb64d60872f26f77.29)
+  %12 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h2963dbee503a3d8bE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.88cbe26c6f10de82bb64d60872f26f77.28, i64 noundef 8, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.88cbe26c6f10de82bb64d60872f26f77.29)
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !75
   br label %"_ZN79_$LT$wasmparser..readers..core..types..HeapType$u20$as$u20$core..fmt..Debug$GT$3fmt17hcb3f6143a19178b2E.exit"
 
-14:                                               ; preds = %2
-  %15 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.88cbe26c6f10de82bb64d60872f26f77.30, i64 noundef 4), !noalias !69
+13:                                               ; preds = %2
+  %14 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.88cbe26c6f10de82bb64d60872f26f77.30, i64 noundef 4), !noalias !69
   br label %"_ZN79_$LT$wasmparser..readers..core..types..HeapType$u20$as$u20$core..fmt..Debug$GT$3fmt17hcb3f6143a19178b2E.exit"
 
-16:                                               ; preds = %2
-  %17 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.88cbe26c6f10de82bb64d60872f26f77.31, i64 noundef 6), !noalias !69
+15:                                               ; preds = %2
+  %16 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.88cbe26c6f10de82bb64d60872f26f77.31, i64 noundef 6), !noalias !69
   br label %"_ZN79_$LT$wasmparser..readers..core..types..HeapType$u20$as$u20$core..fmt..Debug$GT$3fmt17hcb3f6143a19178b2E.exit"
 
-18:                                               ; preds = %2
-  %19 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.88cbe26c6f10de82bb64d60872f26f77.32, i64 noundef 3), !noalias !69
+17:                                               ; preds = %2
+  %18 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.88cbe26c6f10de82bb64d60872f26f77.32, i64 noundef 3), !noalias !69
   br label %"_ZN79_$LT$wasmparser..readers..core..types..HeapType$u20$as$u20$core..fmt..Debug$GT$3fmt17hcb3f6143a19178b2E.exit"
 
-20:                                               ; preds = %2
-  %21 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.88cbe26c6f10de82bb64d60872f26f77.33, i64 noundef 4), !noalias !69
+19:                                               ; preds = %2
+  %20 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.88cbe26c6f10de82bb64d60872f26f77.33, i64 noundef 4), !noalias !69
   br label %"_ZN79_$LT$wasmparser..readers..core..types..HeapType$u20$as$u20$core..fmt..Debug$GT$3fmt17hcb3f6143a19178b2E.exit"
 
-22:                                               ; preds = %2
-  %23 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.88cbe26c6f10de82bb64d60872f26f77.34, i64 noundef 8), !noalias !69
+21:                                               ; preds = %2
+  %22 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.88cbe26c6f10de82bb64d60872f26f77.34, i64 noundef 8), !noalias !69
   br label %"_ZN79_$LT$wasmparser..readers..core..types..HeapType$u20$as$u20$core..fmt..Debug$GT$3fmt17hcb3f6143a19178b2E.exit"
 
-24:                                               ; preds = %2
-  %25 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.88cbe26c6f10de82bb64d60872f26f77.35, i64 noundef 6), !noalias !69
+23:                                               ; preds = %2
+  %24 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.88cbe26c6f10de82bb64d60872f26f77.35, i64 noundef 6), !noalias !69
   br label %"_ZN79_$LT$wasmparser..readers..core..types..HeapType$u20$as$u20$core..fmt..Debug$GT$3fmt17hcb3f6143a19178b2E.exit"
 
-26:                                               ; preds = %2
-  %27 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.88cbe26c6f10de82bb64d60872f26f77.36, i64 noundef 2), !noalias !69
+25:                                               ; preds = %2
+  %26 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.88cbe26c6f10de82bb64d60872f26f77.36, i64 noundef 2), !noalias !69
   br label %"_ZN79_$LT$wasmparser..readers..core..types..HeapType$u20$as$u20$core..fmt..Debug$GT$3fmt17hcb3f6143a19178b2E.exit"
 
-28:                                               ; preds = %2
-  %29 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.88cbe26c6f10de82bb64d60872f26f77.37, i64 noundef 6), !noalias !69
+27:                                               ; preds = %2
+  %28 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.88cbe26c6f10de82bb64d60872f26f77.37, i64 noundef 6), !noalias !69
   br label %"_ZN79_$LT$wasmparser..readers..core..types..HeapType$u20$as$u20$core..fmt..Debug$GT$3fmt17hcb3f6143a19178b2E.exit"
 
-30:                                               ; preds = %2
-  %31 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.88cbe26c6f10de82bb64d60872f26f77.38, i64 noundef 5), !noalias !69
+29:                                               ; preds = %2
+  %30 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.88cbe26c6f10de82bb64d60872f26f77.38, i64 noundef 5), !noalias !69
   br label %"_ZN79_$LT$wasmparser..readers..core..types..HeapType$u20$as$u20$core..fmt..Debug$GT$3fmt17hcb3f6143a19178b2E.exit"
 
-32:                                               ; preds = %2
-  %33 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.88cbe26c6f10de82bb64d60872f26f77.39, i64 noundef 3), !noalias !69
+31:                                               ; preds = %2
+  %32 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.88cbe26c6f10de82bb64d60872f26f77.39, i64 noundef 3), !noalias !69
   br label %"_ZN79_$LT$wasmparser..readers..core..types..HeapType$u20$as$u20$core..fmt..Debug$GT$3fmt17hcb3f6143a19178b2E.exit"
 
-34:                                               ; preds = %2
-  %35 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.88cbe26c6f10de82bb64d60872f26f77.40, i64 noundef 3), !noalias !69
+33:                                               ; preds = %2
+  %34 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.88cbe26c6f10de82bb64d60872f26f77.40, i64 noundef 3), !noalias !69
   br label %"_ZN79_$LT$wasmparser..readers..core..types..HeapType$u20$as$u20$core..fmt..Debug$GT$3fmt17hcb3f6143a19178b2E.exit"
 
-36:                                               ; preds = %2
-  %37 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.88cbe26c6f10de82bb64d60872f26f77.41, i64 noundef 5), !noalias !69
+35:                                               ; preds = %2
+  %36 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.88cbe26c6f10de82bb64d60872f26f77.41, i64 noundef 5), !noalias !69
   br label %"_ZN79_$LT$wasmparser..readers..core..types..HeapType$u20$as$u20$core..fmt..Debug$GT$3fmt17hcb3f6143a19178b2E.exit"
 
-"_ZN79_$LT$wasmparser..readers..core..types..HeapType$u20$as$u20$core..fmt..Debug$GT$3fmt17hcb3f6143a19178b2E.exit": ; preds = %12, %14, %16, %18, %20, %22, %24, %26, %28, %30, %32, %34, %36
-  %.0.in.i = phi i1 [ %13, %12 ], [ %15, %14 ], [ %17, %16 ], [ %19, %18 ], [ %21, %20 ], [ %23, %22 ], [ %25, %24 ], [ %27, %26 ], [ %29, %28 ], [ %31, %30 ], [ %33, %32 ], [ %35, %34 ], [ %37, %36 ]
+"_ZN79_$LT$wasmparser..readers..core..types..HeapType$u20$as$u20$core..fmt..Debug$GT$3fmt17hcb3f6143a19178b2E.exit": ; preds = %11, %13, %15, %17, %19, %21, %23, %25, %27, %29, %31, %33, %35
+  %.0.in.i = phi i1 [ %12, %11 ], [ %14, %13 ], [ %16, %15 ], [ %18, %17 ], [ %20, %19 ], [ %22, %21 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ], [ %30, %29 ], [ %32, %31 ], [ %34, %33 ], [ %36, %35 ]
   ret i1 %.0.in.i
 }
 

@@ -48533,7 +48533,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5arrow8internal31StringToSignedIntCon
 15:                                               ; preds = %12, %12
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %17 = add i64 %3, -3
-  %18 = icmp ult i64 %17, 8
+  %18 = icmp ult i64 %3, 11
   br i1 %18, label %.lr.ph.i, label %_ZN5arrow8internal8ParseHexIjEEbPKcmPT_.exit.thread, !prof !282
 
 .lr.ph.i:                                         ; preds = %15, %35

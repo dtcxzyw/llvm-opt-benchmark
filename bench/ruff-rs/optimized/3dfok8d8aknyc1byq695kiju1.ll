@@ -3295,9 +3295,8 @@ define internal fastcc void @_ZN14regex_automata4meta5regex5Regex11search_half17
 
 39:                                               ; preds = %34
   %40 = load i32, ptr %2, align 8, !range !299, !alias.scope !295, !noalias !292, !noundef !4
-  %.off.i = add nsw i32 %40, -1
-  %switch.i = icmp ult i32 %.off.i, 2
-  br i1 %switch.i, label %45, label %41
+  %.not = icmp eq i32 %40, 0
+  br i1 %.not, label %41, label %45
 
 41:                                               ; preds = %39
   %42 = getelementptr inbounds nuw i8, ptr %26, i64 60
@@ -3554,9 +3553,8 @@ define internal fastcc noundef zeroext i1 @_ZN14regex_automata4meta5regex5Regex8
 
 38:                                               ; preds = %33
   %39 = load i32, ptr %6, align 8, !range !299, !alias.scope !322, !noalias !319, !noundef !4
-  %.off.i = add nsw i32 %39, -1
-  %switch.i = icmp ult i32 %.off.i, 2
-  br i1 %switch.i, label %44, label %40
+  %.not = icmp eq i32 %39, 0
+  br i1 %.not, label %40, label %44
 
 40:                                               ; preds = %38
   %41 = getelementptr inbounds nuw i8, ptr %25, i64 60
@@ -8439,7 +8437,7 @@ define internal fastcc void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..
 define internal fastcc void @"_ZN4core3ptr48drop_in_place$LT$fern..builders..OutputInner$GT$17h976d7bdcbe51b540E"(ptr noalias noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !792, !noundef !4
   %3 = add nsw i64 %2, -6
-  %4 = icmp ult i64 %3, 10
+  %4 = icmp samesign ugt i64 %2, 5
   %5 = select i1 %4, i64 %3, i64 5
   switch i64 %5, label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h2aa5d16e69a31c39E.exit" [
     i64 0, label %6
@@ -56069,9 +56067,8 @@ define hidden void @_ZN11ruff_linter5rules4ruff5rules23falsy_dict_get_fallback23
   %40 = tail call noundef nonnull align 8 ptr @_ZN15ruff_python_ast5nodes12ArgOrKeyword5value17h7f0b2817a072bdd5E(i64 noundef %36, ptr noundef %38)
   %41 = tail call noundef i8 @_ZN15ruff_python_ast7helpers10Truthiness9from_expr17h4ebf7176c6209c43E(ptr noundef nonnull align 8 %40, ptr noalias noundef nonnull readonly align 8 dereferenceable(448) %8)
   %42 = tail call noundef i8 @_ZN15ruff_python_ast7helpers10Truthiness9into_bool17h7d9d068988976002E(i8 noundef %41)
-  %.off = add nsw i8 %42, -1
-  %switch = icmp ult i8 %.off, 2
-  br i1 %switch, label %13, label %43
+  %.not14 = icmp eq i8 %42, 0
+  br i1 %.not14, label %43, label %13
 
 43:                                               ; preds = %37
   call void @llvm.lifetime.start.p0(ptr nonnull %6)

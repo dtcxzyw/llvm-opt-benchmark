@@ -2828,7 +2828,7 @@ _ZN11duckdb_zstdL19ZSTD_decodeSequenceEPNS_10seqState_tENS_17ZSTD_longOffset_eEi
   %702 = getelementptr inbounds nuw i8, ptr %.2209.i696.i, i64 %701
   %703 = load <2 x i64>, ptr %670, align 1, !tbaa !7
   store <2 x i64> %703, ptr %.2209.i696.i, align 1, !tbaa !7
-  %704 = icmp samesign ult i64 %701, 17
+  %704 = icmp samesign ult i64 %681, 49
   br i1 %704, label %.thread.i238.i, label %705
 
 705:                                              ; preds = %699
@@ -3679,7 +3679,7 @@ _ZN11duckdb_zstdL17ZSTD_execSequenceEPhS0_NS_5seq_tEPPKhS3_S3_S3_S3_.exit22.i: ;
   %1121 = getelementptr inbounds nuw i8, ptr %.9216.i707.i, i64 %1120
   %1122 = load <2 x i64>, ptr %1092, align 1, !tbaa !7
   store <2 x i64> %1122, ptr %.9216.i707.i, align 1, !tbaa !7
-  %1123 = icmp samesign ult i64 %1120, 17
+  %1123 = icmp samesign ult i64 %1100, 49
   br i1 %1123, label %.thread.i250.i, label %1124
 
 1124:                                             ; preds = %1118
@@ -5475,7 +5475,7 @@ _ZN11duckdb_zstdL31ZSTD_execSequenceSplitLitBufferEPhS0_PKhNS_5seq_tEPS2_S2_S2_S
   %588 = getelementptr inbounds nuw i8, ptr %.2144.i285.i, i64 %587
   %589 = load <2 x i64>, ptr %562, align 1, !tbaa !7
   store <2 x i64> %589, ptr %.2144.i285.i, align 1, !tbaa !7
-  %590 = icmp samesign ult i64 %587, 17
+  %590 = icmp samesign ult i64 %566, 49
   br i1 %590, label %.thread.i39.i, label %591
 
 591:                                              ; preds = %585
@@ -8688,7 +8688,7 @@ _ZN11duckdb_zstdL19ZSTD_decodeSequenceEPNS_10seqState_tENS_17ZSTD_longOffset_eEi
   %698 = getelementptr inbounds nuw i8, ptr %.2209.i696, i64 %697
   %699 = load <2 x i64>, ptr %666, align 1, !tbaa !7
   store <2 x i64> %699, ptr %.2209.i696, align 1, !tbaa !7
-  %700 = icmp samesign ult i64 %697, 17
+  %700 = icmp samesign ult i64 %677, 49
   br i1 %700, label %.thread.i238, label %701
 
 701:                                              ; preds = %695
@@ -9539,7 +9539,7 @@ _ZN11duckdb_zstdL17ZSTD_execSequenceEPhS0_NS_5seq_tEPPKhS3_S3_S3_S3_.exit22: ; p
   %1117 = getelementptr inbounds nuw i8, ptr %.9216.i707, i64 %1116
   %1118 = load <2 x i64>, ptr %1088, align 1, !tbaa !7
   store <2 x i64> %1118, ptr %.9216.i707, align 1, !tbaa !7
-  %1119 = icmp samesign ult i64 %1116, 17
+  %1119 = icmp samesign ult i64 %1096, 49
   br i1 %1119, label %.thread.i250, label %1120
 
 1120:                                             ; preds = %1114
@@ -10767,7 +10767,7 @@ define internal fastcc noundef i64 @_ZN11duckdb_zstdL34ZSTD_execSequenceEndSplit
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 %47
   %49 = load <2 x i64>, ptr %15, align 1, !tbaa !7
   store <2 x i64> %49, ptr %0, align 1, !tbaa !7
-  %50 = icmp samesign ult i64 %47, 17
+  %50 = icmp samesign ult i64 %10, 49
   br i1 %50, label %.thread.i, label %51
 
 51:                                               ; preds = %45
@@ -11835,7 +11835,7 @@ _ZN11duckdb_zstdL31ZSTD_execSequenceSplitLitBufferEPhS0_PKhNS_5seq_tEPS2_S2_S2_S
   %584 = getelementptr inbounds nuw i8, ptr %.2144.i285, i64 %583
   %585 = load <2 x i64>, ptr %558, align 1, !tbaa !7
   store <2 x i64> %585, ptr %.2144.i285, align 1, !tbaa !7
-  %586 = icmp samesign ult i64 %583, 17
+  %586 = icmp samesign ult i64 %562, 49
   br i1 %586, label %.thread.i39, label %587
 
 587:                                              ; preds = %581

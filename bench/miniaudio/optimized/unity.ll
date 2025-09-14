@@ -38430,9 +38430,8 @@ ma_channel_map_get_channel.exit.us:               ; preds = %.lr.ph, %.loopexit.
   ]
 
 5:                                                ; preds = %ma_channel_map_get_channel.exit.us
-  %6 = add nsw i8 %4, -20
-  %or.cond8.i.us = icmp ult i8 %6, 32
-  br i1 %or.cond8.i.us, label %.loopexit.us, label %.preheader.i.us
+  %6 = icmp samesign ugt i8 %4, 19
+  br i1 %6, label %.loopexit.us, label %.preheader.i.us
 
 .preheader.i.us:                                  ; preds = %5
   %7 = zext nneg i8 %4 to i64
@@ -60113,7 +60112,7 @@ ma_dr_mp3_find_closest_seek_point.exit.thread32.i: ; preds = %ma_dr_mp3_find_clo
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 15976
   store i64 2147483647, ptr %55, align 8, !tbaa !1354
   %56 = add i64 %.sroa.0.0.copyload.i, -2147483647
-  %57 = icmp ult i64 %56, 2147483648
+  %57 = icmp ult i64 %.sroa.0.0.copyload.i, 4294967295
   br i1 %57, label %._crit_edge.i, label %.lr.ph53.i
 
 ._crit_edge.i:                                    ; preds = %68, %.lr.ph.i26.i
@@ -90118,7 +90117,7 @@ ma_dr_wav__read_chunk_header.exit643:             ; preds = %361, %353
 .preheader.i:                                     ; preds = %379, %382
   %.014.in.i = phi i64 [ %.014.i, %382 ], [ %368, %379 ]
   %.014.i = add i64 %.014.in.i, -2147483647
-  %381 = icmp ult i64 %.014.i, 2147483648
+  %381 = icmp ult i64 %.014.in.i, 4294967295
   br i1 %381, label %ma_dr_wav__seek_from_start.exit, label %382
 
 382:                                              ; preds = %.preheader.i
@@ -127069,7 +127068,7 @@ define internal fastcc i32 @ma_dr_wav__seek_from_start(ptr noundef readonly capt
 .preheader:                                       ; preds = %5, %8
   %.014.in = phi i64 [ %.014, %8 ], [ %1, %5 ]
   %.014 = add i64 %.014.in, -2147483647
-  %7 = icmp ult i64 %.014, 2147483648
+  %7 = icmp ult i64 %.014.in, 4294967295
   br i1 %7, label %.loopexit.sink.split, label %8
 
 8:                                                ; preds = %.preheader
