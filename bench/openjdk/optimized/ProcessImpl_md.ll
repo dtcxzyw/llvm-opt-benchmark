@@ -1060,25 +1060,25 @@ define internal fastcc void @throwExitCause(ptr noundef %0, i32 noundef %1, i32 
   %4 = alloca [128 x i8], align 16
   %5 = and i32 %2, 127
   switch i32 %5, label %10 [
-    i32 0, label %6
+    i32 0, label %11
     i32 127, label %12
   ]
 
-6:                                                ; preds = %3
+11:                                               ; preds = %3
   %7 = lshr i32 %2, 8
   %8 = and i32 %7, 255
   %9 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 128, ptr noundef nonnull @.str.17, i32 noundef %1, i32 noundef %8) #13
   br label %14
 
-10:                                               ; preds = %3
-  %11 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 128, ptr noundef nonnull @.str.18, i32 noundef %1, i32 noundef %5) #13
-  br label %14
+14:                                               ; preds = %3
+  %15 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 128, ptr noundef nonnull @.str.18, i32 noundef %1, i32 noundef %5) #13
+  br label %18
 
-12:                                               ; preds = %3
-  %13 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 128, ptr noundef nonnull @.str.19, i32 noundef %1, i32 noundef %2) #13
-  br label %14
+16:                                               ; preds = %3
+  %17 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 128, ptr noundef nonnull @.str.19, i32 noundef %1, i32 noundef %2) #13
+  br label %18
 
-14:                                               ; preds = %10, %12, %6
+18:                                               ; preds = %14, %16, %6
   call fastcc void @throwIOException(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %4)
   ret void
 }

@@ -9524,8 +9524,8 @@ define noundef zeroext i1 @_ZN9elfshaker4repo2fs29contains_parent_dir_component1
   %.sroa.68.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 40
   br label %6
 
-6:                                                ; preds = %18, %.lr.ph.i
-  %7 = phi i8 [ %5, %.lr.ph.i ], [ %19, %18 ]
+6:                                                ; preds = %19, %.lr.ph.i
+  %7 = phi i8 [ %5, %.lr.ph.i ], [ %20, %18 ]
   %8 = icmp samesign ugt i8 %7, 5
   %9 = zext nneg i8 %7 to i64
   %10 = add nsw i64 %9, -5
@@ -9533,26 +9533,26 @@ define noundef zeroext i1 @_ZN9elfshaker4repo2fs29contains_parent_dir_component1
   switch i64 %11, label %12 [
     i64 0, label %13
     i64 1, label %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h02179fb940f69534E.exit.i"
-    i64 2, label %14
-    i64 3, label %15
-    i64 4, label %16
+    i64 2, label %15
+    i64 3, label %16
+    i64 4, label %17
   ]
 
-12:                                               ; preds = %6
+13:                                               ; preds = %6
   unreachable
 
-13:                                               ; preds = %6
+14:                                               ; preds = %6
   %.sroa.79.0.copyload.i = load i64, ptr %.sroa.79.0..sroa_idx.i, align 8, !noalias !889
   %.sroa.68.0.copyload.i = load ptr, ptr %.sroa.68.0..sroa_idx.i, align 8, !noalias !889, !nonnull !3, !noundef !3
-  br label %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h02179fb940f69534E.exit.i"
-
-14:                                               ; preds = %6
   br label %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h02179fb940f69534E.exit.i"
 
 15:                                               ; preds = %6
   br label %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h02179fb940f69534E.exit.i"
 
 16:                                               ; preds = %6
+  br label %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h02179fb940f69534E.exit.i"
+
+17:                                               ; preds = %6
   %.sroa.46.0.copyload.i = load i64, ptr %.sroa.46.0..sroa_idx.i, align 8, !noalias !889
   %.sroa.3.0.copyload.i = load ptr, ptr %.sroa.3.0..sroa_idx.i, align 8, !noalias !889, !nonnull !3, !noundef !3
   br label %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h02179fb940f69534E.exit.i"
@@ -9560,18 +9560,18 @@ define noundef zeroext i1 @_ZN9elfshaker4repo2fs29contains_parent_dir_component1
 "_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h02179fb940f69534E.exit.i": ; preds = %16, %15, %14, %13, %6
   %.sroa.8.0.i.i.i.i = phi i64 [ %.sroa.79.0.copyload.i, %13 ], [ 1, %14 ], [ 2, %15 ], [ %.sroa.46.0.copyload.i, %16 ], [ %11, %6 ]
   %.sroa.0.0.i.i.i.i = phi ptr [ %.sroa.68.0.copyload.i, %13 ], [ @anon.86390c3cedd3d6efdbeae09d36267d88.8, %14 ], [ @anon.86390c3cedd3d6efdbeae09d36267d88.9, %15 ], [ %.sroa.3.0.copyload.i, %16 ], [ @anon.86390c3cedd3d6efdbeae09d36267d88.7, %6 ]
-  %17 = call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hadccd45e93907b8aE"(ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i.i.i, i64 noundef %.sroa.8.0.i.i.i.i, ptr noalias noundef nonnull readonly align 1 @anon.86390c3cedd3d6efdbeae09d36267d88.9, i64 noundef 2), !noalias !893
+  %18 = call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hadccd45e93907b8aE"(ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i.i.i, i64 noundef %.sroa.8.0.i.i.i.i, ptr noalias noundef nonnull readonly align 1 @anon.86390c3cedd3d6efdbeae09d36267d88.9, i64 noundef 2), !noalias !893
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !889
-  br i1 %17, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h76b53a9258c879a0E.exit, label %18
+  br i1 %18, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h76b53a9258c879a0E.exit, label %19
 
-18:                                               ; preds = %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h02179fb940f69534E.exit.i"
+19:                                               ; preds = %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h02179fb940f69534E.exit.i"
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !889
   call void @"_ZN80_$LT$std..path..Components$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h984a6a047e0f22cbE"(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %4)
-  %19 = load i8, ptr %3, align 8, !range !892, !noalias !889, !noundef !3
-  %.not.not.i = icmp eq i8 %19, 10
+  %20 = load i8, ptr %3, align 8, !range !892, !noalias !889, !noundef !3
+  %.not.not.i = icmp eq i8 %20, 10
   br i1 %.not.not.i, label %._crit_edge.i, label %6
 
-._crit_edge.i:                                    ; preds = %18, %2
+._crit_edge.i:                                    ; preds = %19, %2
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !889
   br label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h76b53a9258c879a0E.exit
 

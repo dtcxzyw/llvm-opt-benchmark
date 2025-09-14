@@ -2194,7 +2194,7 @@ define hidden void @"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$3pop17hd078b6676f5ee20
 
 "_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$18try_advancing_head17he3190bfd906c506aE.exit": ; preds = %.lr.ph.i
   store i8 6, ptr %0, align 8
-  br label %55
+  br label %54
 
 .loopexit:                                        ; preds = %15, %3
   %19 = phi ptr [ %8, %3 ], [ %14, %15 ]
@@ -2279,13 +2279,13 @@ define hidden void @"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$3pop17hd078b6676f5ee20
   %54 = icmp samesign ugt i8 %53, 4
   br i1 %54, label %55, label %56
 
-55:                                               ; preds = %"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$14reclaim_blocks17h990fa2b51109f579E.exit", %56, %"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$18try_advancing_head17he3190bfd906c506aE.exit"
+54:                                               ; preds = %"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$14reclaim_blocks17h990fa2b51109f579E.exit", %55, %"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$18try_advancing_head17he3190bfd906c506aE.exit"
   ret void
 
-56:                                               ; preds = %"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$14reclaim_blocks17h990fa2b51109f579E.exit"
-  %57 = add i64 %52, 1
-  store i64 %57, ptr %5, align 8
-  br label %55
+55:                                               ; preds = %"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$14reclaim_blocks17h990fa2b51109f579E.exit"
+  %56 = add i64 %52, 1
+  store i64 %56, ptr %5, align 8
+  br label %54
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -2318,7 +2318,7 @@ define hidden void @"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$3pop17hdd5c8a8c88bce5b
 
 "_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$18try_advancing_head17h96618fefc8995792E.exit": ; preds = %.lr.ph.i
   store i64 -9223372036854775806, ptr %0, align 8
-  br label %55
+  br label %54
 
 .loopexit:                                        ; preds = %15, %3
   %19 = phi ptr [ %8, %3 ], [ %14, %15 ]
@@ -2403,13 +2403,13 @@ define hidden void @"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$3pop17hdd5c8a8c88bce5b
   %54 = icmp ugt i64 %53, -9223372036854775808
   br i1 %54, label %55, label %56
 
-55:                                               ; preds = %"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$14reclaim_blocks17hba241e8bf6467a65E.exit", %56, %"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$18try_advancing_head17h96618fefc8995792E.exit"
+54:                                               ; preds = %"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$14reclaim_blocks17hba241e8bf6467a65E.exit", %55, %"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$18try_advancing_head17h96618fefc8995792E.exit"
   ret void
 
-56:                                               ; preds = %"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$14reclaim_blocks17hba241e8bf6467a65E.exit"
-  %57 = add i64 %52, 1
-  store i64 %57, ptr %5, align 8
-  br label %55
+55:                                               ; preds = %"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$14reclaim_blocks17hba241e8bf6467a65E.exit"
+  %56 = add i64 %52, 1
+  store i64 %56, ptr %5, align 8
+  br label %54
 }
 
 ; Function Attrs: nonlazybind uwtable

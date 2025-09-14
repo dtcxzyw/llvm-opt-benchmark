@@ -11454,12 +11454,12 @@ define hidden void @"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$3pop17habc8063bd803fd0
   %29 = icmp samesign ugt i8 %.pre, 14
   br i1 %29, label %"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4read17h82f9ccfa6eecf7b4E.exit.thread", label %30
 
-"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4read17h82f9ccfa6eecf7b4E.exit.thread": ; preds = %27, %26, %"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4read17h82f9ccfa6eecf7b4E.exit", %30, %"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$18try_advancing_head17h9d91a8d975626a4aE.llvm.17750508912526769443.exit"
+"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4read17h82f9ccfa6eecf7b4E.exit.thread": ; preds = %27, %26, %"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4read17h82f9ccfa6eecf7b4E.exit", %31, %"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$18try_advancing_head17h9d91a8d975626a4aE.llvm.17750508912526769443.exit"
   ret void
 
-30:                                               ; preds = %"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4read17h82f9ccfa6eecf7b4E.exit"
-  %31 = add i64 %18, 1
-  store i64 %31, ptr %4, align 8
+31:                                               ; preds = %"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4read17h82f9ccfa6eecf7b4E.exit"
+  %32 = add i64 %18, 1
+  store i64 %32, ptr %4, align 8
   br label %"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4read17h82f9ccfa6eecf7b4E.exit.thread"
 }
 

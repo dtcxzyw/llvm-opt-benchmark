@@ -851,11 +851,11 @@ define hidden zeroext i1 @SDL_SYS_WaitProcess(ptr noundef readonly captures(none
   br i1 %15, label %.lr.ph, label %.loopexit, !llvm.loop !8
 
 16:                                               ; preds = %11
-  br i1 %13, label %39, label %.loopexit
+  br i1 %13, label %43, label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %16
   store i32 0, ptr %2, align 4
-  br label %39
+  br label %43
 
 17:                                               ; preds = %3
   %not. = xor i1 %1, true
@@ -869,7 +869,7 @@ define hidden zeroext i1 @SDL_SYS_WaitProcess(ptr noundef readonly captures(none
   %23 = load i32, ptr %22, align 4
   %24 = call ptr @strerror(i32 noundef %23) #10
   %25 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.27, ptr noundef %24) #10
-  br label %39
+  br label %43
 
 26:                                               ; preds = %17
   %27 = icmp eq i32 %19, 0
@@ -877,7 +877,7 @@ define hidden zeroext i1 @SDL_SYS_WaitProcess(ptr noundef readonly captures(none
 
 28:                                               ; preds = %26
   %29 = call zeroext i1 @SDL_ClearError_REAL() #10
-  br label %39
+  br label %43
 
 30:                                               ; preds = %26
   %31 = load i32, ptr %4, align 4
@@ -887,22 +887,22 @@ define hidden zeroext i1 @SDL_SYS_WaitProcess(ptr noundef readonly captures(none
     i32 127, label %38
   ]
 
-33:                                               ; preds = %30
+33:; preds = %30
   %34 = lshr i32 %31, 8
   %35 = and i32 %34, 255
   store i32 %35, ptr %2, align 4
   br label %39
 
-36:                                               ; preds = %30
+36:; preds = %30
   %37 = sub nsw i32 0, %32
   store i32 %37, ptr %2, align 4
   br label %39
 
-38:                                               ; preds = %30
+38:; preds = %30
   store i32 -255, ptr %2, align 4
-  br label %39
+  br label %43
 
-39:                                               ; preds = %33, %38, %36, %16, %28, %21, %.loopexit
+43:                                               ; preds = %33, %38, %36, %16, %28, %21, %.loopexit
   %.0 = phi i1 [ true, %.loopexit ], [ %25, %21 ], [ false, %28 ], [ false, %16 ], [ true, %36 ], [ true, %38 ], [ true, %33 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0

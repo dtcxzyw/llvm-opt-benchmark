@@ -35,7 +35,7 @@ define internal noalias noundef ptr @H5O__btreek_decode(ptr readnone captures(no
   %12 = trunc nuw i8 %11 to i1
   %13 = xor i1 %12, true
   %14 = select i1 %10, i1 true, i1 %13
-  br i1 %14, label %15, label %84, !prof !9
+  br i1 %14, label %15, label %85, !prof !9
 
 15:                                               ; preds = %6
   %16 = icmp slt i64 %4, 1
@@ -102,7 +102,7 @@ define internal noalias noundef ptr @H5O__btreek_decode(ptr readnone captures(no
   %55 = load i64, ptr @H5E_OHDR_g, align 8, !tbaa !10
   %56 = load i64, ptr @H5E_OVERFLOW_g, align 8, !tbaa !10
   %57 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5O__btreek_decode, i32 noundef 99, i64 noundef %55, i64 noundef %56, ptr noundef nonnull @.str.2) #10
-  br label %83
+  br label %59
 
 58:                                               ; preds = %42
   %59 = load i8, ptr %51, align 1, !tbaa !12
@@ -138,12 +138,12 @@ define internal noalias noundef ptr @H5O__btreek_decode(ptr readnone captures(no
   store i32 %82, ptr %77, align 4, !tbaa !15
   br label %84
 
-83:                                               ; preds = %17, %24, %31, %38, %54, %70
+59:                                               ; preds = %17, %24, %31, %38, %54, %70
   %.046.ph = phi ptr [ %29, %70 ], [ %29, %54 ], [ %29, %38 ], [ null, %31 ], [ null, %24 ], [ null, %17 ]
   tail call void @free(ptr noundef %.046.ph) #10
-  br label %84
+  br label %85
 
-84:                                               ; preds = %74, %83, %6
+85:                                               ; preds = %74, %83, %6
   %.0 = phi ptr [ null, %83 ], [ %29, %74 ], [ null, %6 ]
   ret ptr %.0
 }

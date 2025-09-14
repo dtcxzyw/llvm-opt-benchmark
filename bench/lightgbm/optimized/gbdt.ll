@@ -6509,14 +6509,14 @@ define void @_ZNK8LightGBM4GBDT14PredictContribEPKdPd(ptr noundef nonnull readon
   ret void
 
 ._crit_edge:                                      ; preds = %_ZN8LightGBM4Tree14PredictContribEPKdiPd.exit, %.preheader
-  %25 = phi i32 [ %23, %.preheader ], [ %67, %_ZN8LightGBM4Tree14PredictContribEPKdiPd.exit ]
+  %25 = phi i32 [ %23, %.preheader ], [ %66, %_ZN8LightGBM4Tree14PredictContribEPKdiPd.exit ]
   %26 = add nsw i32 %.01417, 1
   %27 = icmp slt i32 %26, %17
   br i1 %27, label %.preheader, label %._crit_edge18, !llvm.loop !383
 
 .lr.ph:                                           ; preds = %.preheader, %_ZN8LightGBM4Tree14PredictContribEPKdiPd.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN8LightGBM4Tree14PredictContribEPKdiPd.exit ], [ 0, %.preheader ]
-  %28 = phi i32 [ %67, %_ZN8LightGBM4Tree14PredictContribEPKdiPd.exit ], [ %23, %.preheader ]
+  %28 = phi i32 [ %66, %_ZN8LightGBM4Tree14PredictContribEPKdiPd.exit ], [ %23, %.preheader ]
   %29 = mul nsw i32 %28, %.01417
   %30 = sext i32 %29 to i64
   %31 = load ptr, ptr %19, align 8, !tbaa !229
@@ -6566,42 +6566,42 @@ _ZNSt6vectorIN8LightGBM4Tree11PathElementESaIS2_EE17_S_check_init_lenEmRKS3_.exi
   br i1 %58, label %_ZNSt6vectorIN8LightGBM4Tree11PathElementESaIS2_EEC2EmRKS3_.exit.i, label %_ZNSt16allocator_traitsISaIN8LightGBM4Tree11PathElementEEE8allocateERS3_m.exit.i.i.i.i.i
 
 _ZNSt16allocator_traitsISaIN8LightGBM4Tree11PathElementEEE8allocateERS3_m.exit.i.i.i.i.i: ; preds = %_ZNSt6vectorIN8LightGBM4Tree11PathElementESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i
-  %59 = shl nuw nsw i64 %56, 5
-  %60 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %59) #36
+  %58 = shl nuw nsw i64 %56, 5
+  %59 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %58) #36
   br label %_ZNSt6vectorIN8LightGBM4Tree11PathElementESaIS2_EEC2EmRKS3_.exit.i
 
 _ZNSt6vectorIN8LightGBM4Tree11PathElementESaIS2_EEC2EmRKS3_.exit.i: ; preds = %_ZNSt16allocator_traitsISaIN8LightGBM4Tree11PathElementEEE8allocateERS3_m.exit.i.i.i.i.i, %_ZNSt6vectorIN8LightGBM4Tree11PathElementESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i
-  %61 = phi ptr [ null, %_ZNSt6vectorIN8LightGBM4Tree11PathElementESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i ], [ %60, %_ZNSt16allocator_traitsISaIN8LightGBM4Tree11PathElementEEE8allocateERS3_m.exit.i.i.i.i.i ]
-  invoke void @_ZNK8LightGBM4Tree8TreeSHAPEPKdPdiiPNS0_11PathElementEddi(ptr noundef nonnull align 8 dereferenceable(648) %34, ptr noundef %1, ptr noundef nonnull %36, i32 noundef 0, i32 noundef 0, ptr noundef %61, double noundef 1.000000e+00, double noundef 1.000000e+00, i32 noundef -1)
-          to label %62 unwind label %64
+  %60 = phi ptr [ null, %_ZNSt6vectorIN8LightGBM4Tree11PathElementESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i ], [ %59, %_ZNSt16allocator_traitsISaIN8LightGBM4Tree11PathElementEEE8allocateERS3_m.exit.i.i.i.i.i ]
+  invoke void @_ZNK8LightGBM4Tree8TreeSHAPEPKdPdiiPNS0_11PathElementEddi(ptr noundef nonnull align 8 dereferenceable(648) %34, ptr noundef %1, ptr noundef nonnull %36, i32 noundef 0, i32 noundef 0, ptr noundef %60, double noundef 1.000000e+00, double noundef 1.000000e+00, i32 noundef -1)
+          to label %62 unwind label %63
 
-62:                                               ; preds = %_ZNSt6vectorIN8LightGBM4Tree11PathElementESaIS2_EEC2EmRKS3_.exit.i
-  %.not.i.i.i.i = icmp eq ptr %61, null
-  br i1 %.not.i.i.i.i, label %_ZN8LightGBM4Tree14PredictContribEPKdiPd.exit, label %63
+61:                                               ; preds = %_ZNSt6vectorIN8LightGBM4Tree11PathElementESaIS2_EEC2EmRKS3_.exit.i
+  %.not.i.i.i.i = icmp eq ptr %60, null
+  br i1 %.not.i.i.i.i, label %_ZN8LightGBM4Tree14PredictContribEPKdiPd.exit, label %62
 
-63:                                               ; preds = %62
-  tail call void @_ZdlPv(ptr noundef nonnull %61) #35
+62:                                               ; preds = %61
+  tail call void @_ZdlPv(ptr noundef nonnull %60) #35
   br label %_ZN8LightGBM4Tree14PredictContribEPKdiPd.exit
 
-64:                                               ; preds = %_ZNSt6vectorIN8LightGBM4Tree11PathElementESaIS2_EEC2EmRKS3_.exit.i
-  %65 = landingpad { ptr, i32 }
+63:                                               ; preds = %_ZNSt6vectorIN8LightGBM4Tree11PathElementESaIS2_EEC2EmRKS3_.exit.i
+  %64 = landingpad { ptr, i32 }
           cleanup
-  %.not.i.i.i11.i = icmp eq ptr %61, null
-  br i1 %.not.i.i.i11.i, label %_ZNSt6vectorIN8LightGBM4Tree11PathElementESaIS2_EED2Ev.exit12.i, label %66
+  %.not.i.i.i11.i = icmp eq ptr %60, null
+  br i1 %.not.i.i.i11.i, label %_ZNSt6vectorIN8LightGBM4Tree11PathElementESaIS2_EED2Ev.exit12.i, label %65
 
-66:                                               ; preds = %64
-  tail call void @_ZdlPv(ptr noundef nonnull %61) #35
+65:                                               ; preds = %63
+  tail call void @_ZdlPv(ptr noundef nonnull %60) #35
   br label %_ZNSt6vectorIN8LightGBM4Tree11PathElementESaIS2_EED2Ev.exit12.i
 
-_ZNSt6vectorIN8LightGBM4Tree11PathElementESaIS2_EED2Ev.exit12.i: ; preds = %66, %64
-  resume { ptr, i32 } %65
+_ZNSt6vectorIN8LightGBM4Tree11PathElementESaIS2_EED2Ev.exit12.i: ; preds = %65, %63
+  resume { ptr, i32 } %64
 
-_ZN8LightGBM4Tree14PredictContribEPKdiPd.exit:    ; preds = %.lr.ph, %62, %63
+_ZN8LightGBM4Tree14PredictContribEPKdiPd.exit:    ; preds = %.lr.ph, %61, %62
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %67 = load i32, ptr %6, align 8, !tbaa !199
-  %68 = sext i32 %67 to i64
-  %69 = icmp slt i64 %indvars.iv.next, %68
-  br i1 %69, label %.lr.ph, label %._crit_edge, !llvm.loop !385
+  %66 = load i32, ptr %6, align 8, !tbaa !199
+  %67 = sext i32 %66 to i64
+  %68 = icmp slt i64 %indvars.iv.next, %67
+  br i1 %68, label %.lr.ph, label %._crit_edge, !llvm.loop !385
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -21616,14 +21616,14 @@ define linkonce_odr void @_ZN8LightGBM4Tree19PredictContribByMapERKSt13unordered
   %29 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKidESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS4_10_Hash_nodeIS2_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %3, i64 noundef %9, i64 noundef %6, ptr noundef nonnull %26, i64 noundef 1)
           to label %_ZNSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEEixERS5_.exit unwind label %_ZNSt10_HashtableIiSt4pairIKidESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i
 
-common.resume.sink.split:                         ; preds = %55, %_ZNSt10_HashtableIiSt4pairIKidESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i
-  %.sink = phi ptr [ %26, %_ZNSt10_HashtableIiSt4pairIKidESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i ], [ %52, %55 ]
-  %common.resume.op.ph = phi { ptr, i32 } [ %30, %_ZNSt10_HashtableIiSt4pairIKidESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i ], [ %56, %55 ]
+common.resume.sink.split:                         ; preds = %54, %_ZNSt10_HashtableIiSt4pairIKidESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i
+  %.sink = phi ptr [ %26, %_ZNSt10_HashtableIiSt4pairIKidESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i ], [ %51, %55 ]
+  %common.resume.op.ph = phi { ptr, i32 } [ %30, %_ZNSt10_HashtableIiSt4pairIKidESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i ], [ %55, %55 ]
   tail call void @_ZdlPv(ptr noundef nonnull %.sink) #35
   br label %common.resume
 
-common.resume:                                    ; preds = %common.resume.sink.split, %55
-  %common.resume.op = phi { ptr, i32 } [ %56, %55 ], [ %common.resume.op.ph, %common.resume.sink.split ]
+common.resume:                                    ; preds = %common.resume.sink.split, %54
+  %common.resume.op = phi { ptr, i32 } [ %55, %55 ], [ %common.resume.op.ph, %common.resume.sink.split ]
   resume { ptr, i32 } %common.resume.op
 
 _ZNSt10_HashtableIiSt4pairIKidESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i: ; preds = %.loopexit.i.i
@@ -21672,30 +21672,30 @@ _ZNSt6vectorIN8LightGBM4Tree11PathElementESaIS2_EE17_S_check_init_lenEmRKS3_.exi
   br i1 %49, label %_ZNSt6vectorIN8LightGBM4Tree11PathElementESaIS2_EEC2EmRKS3_.exit, label %_ZNSt16allocator_traitsISaIN8LightGBM4Tree11PathElementEEE8allocateERS3_m.exit.i.i.i.i
 
 _ZNSt16allocator_traitsISaIN8LightGBM4Tree11PathElementEEE8allocateERS3_m.exit.i.i.i.i: ; preds = %_ZNSt6vectorIN8LightGBM4Tree11PathElementESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i
-  %50 = shl nuw nsw i64 %47, 5
-  %51 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %50) #36
+  %49 = shl nuw nsw i64 %47, 5
+  %50 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %49) #36
   br label %_ZNSt6vectorIN8LightGBM4Tree11PathElementESaIS2_EEC2EmRKS3_.exit
 
 _ZNSt6vectorIN8LightGBM4Tree11PathElementESaIS2_EEC2EmRKS3_.exit: ; preds = %_ZNSt16allocator_traitsISaIN8LightGBM4Tree11PathElementEEE8allocateERS3_m.exit.i.i.i.i, %_ZNSt6vectorIN8LightGBM4Tree11PathElementESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i
-  %52 = phi ptr [ null, %_ZNSt6vectorIN8LightGBM4Tree11PathElementESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i ], [ %51, %_ZNSt16allocator_traitsISaIN8LightGBM4Tree11PathElementEEE8allocateERS3_m.exit.i.i.i.i ]
-  invoke void @_ZNK8LightGBM4Tree13TreeSHAPByMapERKSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEEPSA_iiPNS0_11PathElementEddi(ptr noundef nonnull align 8 dereferenceable(648) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull %3, i32 noundef 0, i32 noundef 0, ptr noundef %52, double noundef 1.000000e+00, double noundef 1.000000e+00, i32 noundef -1)
-          to label %53 unwind label %55
+  %51 = phi ptr [ null, %_ZNSt6vectorIN8LightGBM4Tree11PathElementESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i ], [ %50, %_ZNSt16allocator_traitsISaIN8LightGBM4Tree11PathElementEEE8allocateERS3_m.exit.i.i.i.i ]
+  invoke void @_ZNK8LightGBM4Tree13TreeSHAPByMapERKSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEEPSA_iiPNS0_11PathElementEddi(ptr noundef nonnull align 8 dereferenceable(648) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull %3, i32 noundef 0, i32 noundef 0, ptr noundef %51, double noundef 1.000000e+00, double noundef 1.000000e+00, i32 noundef -1)
+          to label %53 unwind label %54
 
-53:                                               ; preds = %_ZNSt6vectorIN8LightGBM4Tree11PathElementESaIS2_EEC2EmRKS3_.exit
-  %.not.i.i.i = icmp eq ptr %52, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIN8LightGBM4Tree11PathElementESaIS2_EED2Ev.exit, label %54
+52:                                               ; preds = %_ZNSt6vectorIN8LightGBM4Tree11PathElementESaIS2_EEC2EmRKS3_.exit
+  %.not.i.i.i = icmp eq ptr %51, null
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIN8LightGBM4Tree11PathElementESaIS2_EED2Ev.exit, label %53
 
-54:                                               ; preds = %53
-  tail call void @_ZdlPv(ptr noundef nonnull %52) #35
+53:                                               ; preds = %52
+  tail call void @_ZdlPv(ptr noundef nonnull %51) #35
   br label %_ZNSt6vectorIN8LightGBM4Tree11PathElementESaIS2_EED2Ev.exit
 
-55:                                               ; preds = %_ZNSt6vectorIN8LightGBM4Tree11PathElementESaIS2_EEC2EmRKS3_.exit
-  %56 = landingpad { ptr, i32 }
+54:                                               ; preds = %_ZNSt6vectorIN8LightGBM4Tree11PathElementESaIS2_EEC2EmRKS3_.exit
+  %55 = landingpad { ptr, i32 }
           cleanup
-  %.not.i.i.i11 = icmp eq ptr %52, null
+  %.not.i.i.i11 = icmp eq ptr %51, null
   br i1 %.not.i.i.i11, label %common.resume, label %common.resume.sink.split
 
-_ZNSt6vectorIN8LightGBM4Tree11PathElementESaIS2_EED2Ev.exit: ; preds = %54, %53, %_ZNSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEEixERS5_.exit
+_ZNSt6vectorIN8LightGBM4Tree11PathElementESaIS2_EED2Ev.exit: ; preds = %53, %52, %_ZNSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEEixERS5_.exit
   ret void
 }
 

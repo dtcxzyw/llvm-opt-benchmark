@@ -9932,34 +9932,34 @@ define internal fastcc range(i32 -98, 1) i32 @_sp_sqrmod(ptr noundef readonly ca
   %or.cond = icmp ult i16 %13, -64
   br i1 %or.cond, label %sp_mod.exit, label %sp_init_size.exit
 
-sp_init_size.exit:                                ; preds = %3
-  %14 = shl nuw nsw i16 %4, 1
+14:                                               ; preds = %3
+  %15 = shl nuw nsw i16 %4, 1
   store i16 0, ptr %12, align 16, !tbaa !3
-  %15 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store i64 0, ptr %15, align 8, !tbaa !8
-  %16 = getelementptr inbounds nuw i8, ptr %12, i64 2
-  store i16 %14, ptr %16, align 2, !tbaa !10
-  %17 = call i32 @sp_sqr(ptr noundef nonnull %0, ptr noundef nonnull %12)
-  %18 = icmp eq i32 %17, 0
-  br i1 %18, label %19, label %sp_mod.exit
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store i64 0, ptr %18, align 8, !tbaa !8
+  %19 = getelementptr inbounds nuw i8, ptr %12, i64 2
+  store i16 %15, ptr %19, align 2, !tbaa !10
+  %20 = call i32 @sp_sqr(ptr noundef nonnull %0, ptr noundef nonnull %12)
+  %21 = icmp eq i32 %20, 0
+  br i1 %21, label %22, label %sp_mod.exit
 
-19:                                               ; preds = %sp_init_size.exit
-  %20 = icmp eq ptr %1, null
-  %21 = icmp eq ptr %2, null
-  %or.cond3.i = or i1 %20, %21
-  br i1 %or.cond3.i, label %sp_mod.exit, label %22
-
-22:                                               ; preds = %19
-  %23 = load i16, ptr %12, align 16, !tbaa !12
-  %24 = icmp ult i16 %23, 129
-  br i1 %24, label %25, label %sp_mod.exit
+22:                                               ; preds = %sp_init_size.exit
+  %23 = icmp eq ptr %1, null
+  %24 = icmp eq ptr %2, null
+  %or.cond3.i = or i1 %23, %24
+  br i1 %or.cond3.i, label %sp_mod.exit, label %25
 
 25:                                               ; preds = %22
-  %26 = call i32 @sp_div(ptr noundef nonnull readonly %12, ptr noundef nonnull readonly %1, ptr noundef null, ptr noundef nonnull %2)
+  %26 = load i16, ptr %12, align 16, !tbaa !12
+  %27 = icmp ult i16 %26, 129
+  br i1 %27, label %28, label %sp_mod.exit
+
+28:                                               ; preds = %25
+  %29 = call i32 @sp_div(ptr noundef nonnull readonly %12, ptr noundef nonnull readonly %1, ptr noundef null, ptr noundef nonnull %2)
   br label %sp_mod.exit
 
-sp_mod.exit:                                      ; preds = %3, %25, %22, %19, %sp_init_size.exit
-  %.3 = phi i32 [ %17, %sp_init_size.exit ], [ %26, %25 ], [ -98, %22 ], [ -98, %19 ], [ -98, %3 ]
+sp_mod.exit:                                      ; preds = %3, %28, %25, %22, %sp_init_size.exit
+  %.3 = phi i32 [ %20, %sp_init_size.exit ], [ %29, %25 ], [ -98, %22 ], [ -98, %19 ], [ -98, %3 ]
   ret i32 %.3
 }
 

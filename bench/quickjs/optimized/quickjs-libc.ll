@@ -8272,7 +8272,7 @@ define internal { i64, i64 } @js_os_exec(ptr noundef %0, i64 %1, i64 %2, i32 nou
   %17 = extractvalue { i64, i64 } %15, 1
   %18 = and i64 %17, 4294967295
   %.not = icmp eq i64 %18, 6
-  br i1 %.not, label %225, label %19
+  br i1 %.not, label %229, label %19
 
 19:                                               ; preds = %5
   %20 = call i32 @JS_ToInt32(ptr noundef %0, ptr noundef nonnull %6, i64 %16, i64 %17) #30
@@ -8294,7 +8294,7 @@ define internal { i64, i64 } @js_os_exec(ptr noundef %0, i64 %1, i64 %2, i32 nou
 
 JS_FreeValue.exit:                                ; preds = %19, %23, %28
   %.not235 = icmp eq i32 %20, 0
-  br i1 %.not235, label %29, label %225
+  br i1 %.not235, label %29, label %229
 
 29:                                               ; preds = %JS_FreeValue.exit
   %30 = load i32, ptr %6, align 4, !tbaa !7
@@ -8307,7 +8307,7 @@ JS_FreeValue.exit:                                ; preds = %19, %23, %28
   %34 = extractvalue { i64, i64 } %33, 0
   %.sroa.6200.0.extract.shift = and i64 %34, -4294967296
   %35 = extractvalue { i64, i64 } %33, 1
-  br label %225
+  br label %229
 
 36:                                               ; preds = %29
   %37 = shl nuw nsw i32 %30, 3
@@ -8315,7 +8315,7 @@ JS_FreeValue.exit:                                ; preds = %19, %23, %28
   %39 = zext nneg i32 %38 to i64
   %40 = call ptr @js_mallocz(ptr noundef %0, i64 noundef %39) #30
   %.not236 = icmp eq ptr %40, null
-  br i1 %.not236, label %225, label %.preheader291
+  br i1 %.not236, label %229, label %.preheader291
 
 .preheader291:                                    ; preds = %36
   %41 = load i32, ptr %6, align 4, !tbaa !7
@@ -8722,7 +8722,7 @@ JS_FreeValue.exit274:                             ; preds = %150, %153, %158
 201:                                              ; preds = %164
   %202 = load i32, ptr %8, align 4, !tbaa !7
   %.not254 = icmp eq i32 %202, 0
-  br i1 %.not254, label %213, label %.preheader290
+  br i1 %.not254, label %217, label %.preheader290
 
 .preheader290:                                    ; preds = %201, %.preheader290.backedge
   %203 = call i32 @waitpid(i32 noundef %160, ptr noundef nonnull %7, i32 noundef 0) #30
@@ -8733,14 +8733,14 @@ JS_FreeValue.exit274:                             ; preds = %150, %153, %158
   %206 = load i32, ptr %7, align 4, !tbaa !7
   %207 = and i32 %206, 127
   switch i32 %207, label %211 [
-    i32 0, label %208
+    i32 0, label %215
     i32 127, label %.preheader290.backedge
   ]
 
 .preheader290.backedge:                           ; preds = %205, %.preheader290
   br label %.preheader290
 
-208:                                              ; preds = %205
+215:                                              ; preds = %205
   %209 = lshr i32 %206, 8
   %210 = and i32 %209, 255
   br label %213
@@ -8749,12 +8749,12 @@ JS_FreeValue.exit274:                             ; preds = %150, %153, %158
   %212 = sub nsw i32 0, %207
   br label %213
 
-213:                                              ; preds = %201, %208, %211
+217:                                              ; preds = %201, %208, %211
   %.0217 = phi i32 [ %210, %208 ], [ %212, %211 ], [ %160, %201 ]
   %.sroa.0.0.insert.ext.i = zext i32 %.0217 to i64
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph, %JS_FreeValue.exit268, %101, %146, %133, %120, %87, %74, %118, %162, %69, %72, %JS_FreeValue.exit269, %JS_FreeValue.exit270, %JS_FreeValue.exit272, %JS_FreeValue.exit273, %JS_FreeValue.exit274, %213
+.loopexit:                                        ; preds = %.lr.ph, %JS_FreeValue.exit268, %101, %146, %133, %120, %87, %74, %118, %162, %69, %72, %JS_FreeValue.exit269, %JS_FreeValue.exit270, %JS_FreeValue.exit272, %JS_FreeValue.exit273, %JS_FreeValue.exit274, %217
   %.3211 = phi ptr [ %.1209, %213 ], [ %14, %69 ], [ %14, %72 ], [ %14, %74 ], [ %14, %87 ], [ %14, %118 ], [ %14, %120 ], [ %.2210, %133 ], [ %.2210, %146 ], [ %.1209, %162 ], [ %.2210, %JS_FreeValue.exit274 ], [ %.2210, %JS_FreeValue.exit273 ], [ null, %JS_FreeValue.exit272 ], [ %14, %JS_FreeValue.exit270 ], [ %14, %JS_FreeValue.exit269 ], [ %14, %101 ], [ %14, %JS_FreeValue.exit268 ], [ %14, %.lr.ph ]
   %.3207 = phi ptr [ %.1205, %213 ], [ null, %69 ], [ null, %72 ], [ null, %74 ], [ null, %87 ], [ %.2206, %118 ], [ %.2206, %120 ], [ %.2206, %133 ], [ %.2206, %146 ], [ %.1205, %162 ], [ %.2206, %JS_FreeValue.exit274 ], [ %.2206, %JS_FreeValue.exit273 ], [ %.2206, %JS_FreeValue.exit272 ], [ null, %JS_FreeValue.exit270 ], [ null, %JS_FreeValue.exit269 ], [ %.2206, %101 ], [ null, %JS_FreeValue.exit268 ], [ null, %.lr.ph ]
   %.4 = phi ptr [ %.1, %213 ], [ null, %69 ], [ null, %72 ], [ null, %74 ], [ %.2, %87 ], [ %.2, %118 ], [ %.2, %120 ], [ %.2, %133 ], [ %.2, %146 ], [ %.1, %162 ], [ %.2, %JS_FreeValue.exit274 ], [ %.2, %JS_FreeValue.exit273 ], [ %.2, %JS_FreeValue.exit272 ], [ %.2, %JS_FreeValue.exit270 ], [ null, %JS_FreeValue.exit269 ], [ %.2, %101 ], [ null, %JS_FreeValue.exit268 ], [ null, %.lr.ph ]
@@ -8762,46 +8762,46 @@ JS_FreeValue.exit274:                             ; preds = %150, %153, %158
   %.sroa.079.sroa.0.0 = phi i64 [ %.sroa.0.0.insert.ext.i, %213 ], [ 0, %69 ], [ 0, %72 ], [ 0, %74 ], [ 0, %87 ], [ 0, %118 ], [ 0, %120 ], [ 0, %133 ], [ 0, %146 ], [ 0, %162 ], [ 0, %JS_FreeValue.exit274 ], [ 0, %JS_FreeValue.exit273 ], [ 0, %JS_FreeValue.exit272 ], [ 0, %JS_FreeValue.exit270 ], [ 0, %JS_FreeValue.exit269 ], [ 0, %101 ], [ 0, %JS_FreeValue.exit268 ], [ 0, %.lr.ph ]
   call void @JS_FreeCString(ptr noundef %0, ptr noundef %.4) #30
   call void @JS_FreeCString(ptr noundef %0, ptr noundef %.3207) #30
-  %214 = load i32, ptr %6, align 4, !tbaa !7
-  %.not315 = icmp eq i32 %214, 0
+  %218 = load i32, ptr %6, align 4, !tbaa !7
+  %.not315 = icmp eq i32 %218, 0
   br i1 %.not315, label %._crit_edge304, label %.lr.ph303
 
 .lr.ph303:                                        ; preds = %.loopexit, %.lr.ph303
   %indvars.iv334 = phi i64 [ %indvars.iv.next335, %.lr.ph303 ], [ 0, %.loopexit ]
-  %215 = getelementptr inbounds nuw ptr, ptr %40, i64 %indvars.iv334
-  %216 = load ptr, ptr %215, align 8, !tbaa !29
-  call void @JS_FreeCString(ptr noundef %0, ptr noundef %216) #30
+  %219 = getelementptr inbounds nuw ptr, ptr %40, i64 %indvars.iv334
+  %220 = load ptr, ptr %219, align 8, !tbaa !29
+  call void @JS_FreeCString(ptr noundef %0, ptr noundef %220) #30
   %indvars.iv.next335 = add nuw nsw i64 %indvars.iv334, 1
-  %217 = load i32, ptr %6, align 4, !tbaa !7
-  %218 = zext i32 %217 to i64
-  %219 = icmp samesign ult i64 %indvars.iv.next335, %218
-  br i1 %219, label %.lr.ph303, label %._crit_edge304, !llvm.loop !144
+  %221 = load i32, ptr %6, align 4, !tbaa !7
+  %222 = zext i32 %221 to i64
+  %223 = icmp samesign ult i64 %indvars.iv.next335, %222
+  br i1 %223, label %.lr.ph303, label %._crit_edge304, !llvm.loop !144
 
 ._crit_edge304:                                   ; preds = %.lr.ph303, %.loopexit
   call void @js_free(ptr noundef %0, ptr noundef nonnull %40) #30
-  %220 = load ptr, ptr @environ, align 8, !tbaa !77
-  %.not266 = icmp eq ptr %.3211, %220
-  br i1 %.not266, label %225, label %.preheader
+  %224 = load ptr, ptr @environ, align 8, !tbaa !77
+  %.not266 = icmp eq ptr %.3211, %224
+  br i1 %.not266, label %229, label %.preheader
 
 .preheader:                                       ; preds = %._crit_edge304
-  %221 = load ptr, ptr %.3211, align 8, !tbaa !29
-  %.not267305 = icmp eq ptr %221, null
+  %225 = load ptr, ptr %.3211, align 8, !tbaa !29
+  %.not267305 = icmp eq ptr %225, null
   br i1 %.not267305, label %._crit_edge308, label %.lr.ph307
 
 .lr.ph307:                                        ; preds = %.preheader, %.lr.ph307
-  %222 = phi ptr [ %224, %.lr.ph307 ], [ %221, %.preheader ]
-  %.0306 = phi ptr [ %223, %.lr.ph307 ], [ %.3211, %.preheader ]
-  call void @js_free(ptr noundef %0, ptr noundef nonnull %222) #30
-  %223 = getelementptr inbounds nuw i8, ptr %.0306, i64 8
-  %224 = load ptr, ptr %223, align 8, !tbaa !29
-  %.not267 = icmp eq ptr %224, null
+  %226 = phi ptr [ %228, %.lr.ph307 ], [ %225, %.preheader ]
+  %.0306 = phi ptr [ %227, %.lr.ph307 ], [ %.3211, %.preheader ]
+  call void @js_free(ptr noundef %0, ptr noundef nonnull %226) #30
+  %227 = getelementptr inbounds nuw i8, ptr %.0306, i64 8
+  %228 = load ptr, ptr %227, align 8, !tbaa !29
+  %.not267 = icmp eq ptr %228, null
   br i1 %.not267, label %._crit_edge308, label %.lr.ph307, !llvm.loop !145
 
 ._crit_edge308:                                   ; preds = %.lr.ph307, %.preheader
   call void @js_free(ptr noundef %0, ptr noundef nonnull %.3211) #30
-  br label %225
+  br label %229
 
-225:                                              ; preds = %._crit_edge304, %._crit_edge308, %36, %JS_FreeValue.exit, %5, %32
+229:                                              ; preds = %._crit_edge304, %._crit_edge308, %36, %JS_FreeValue.exit, %5, %32
   %.sroa.0198.0 = phi i64 [ %34, %32 ], [ 0, %5 ], [ 0, %JS_FreeValue.exit ], [ 0, %36 ], [ %.sroa.079.sroa.0.0, %._crit_edge308 ], [ %.sroa.079.sroa.0.0, %._crit_edge304 ]
   %.sroa.6200.0 = phi i64 [ %.sroa.6200.0.extract.shift, %32 ], [ 0, %5 ], [ 0, %JS_FreeValue.exit ], [ 0, %36 ], [ 0, %._crit_edge308 ], [ 0, %._crit_edge304 ]
   %.sroa.9.0 = phi i64 [ %35, %32 ], [ 6, %5 ], [ 6, %JS_FreeValue.exit ], [ 6, %36 ], [ %.sroa.6.0, %._crit_edge308 ], [ %.sroa.6.0, %._crit_edge304 ]

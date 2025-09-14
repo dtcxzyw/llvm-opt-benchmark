@@ -9995,7 +9995,7 @@ sstrsep.exit672:                                  ; preds = %._crit_edge.i666, %
   br label %.preheader
 
 .preheader:                                       ; preds = %._crit_edge920, %.thread826
-  %.261921 = phi i32 [ %858, %.thread826 ], [ 0, %._crit_edge920 ]
+  %.261921 = phi i32 [ %862, %.thread826 ], [ 0, %._crit_edge920 ]
   br label %837
 
 837:                                              ; preds = %.preheader, %840
@@ -10018,29 +10018,29 @@ sstrsep.exit672:                                  ; preds = %._crit_edge.i666, %
   %847 = load i32, ptr %55, align 4, !tbaa !13
   %848 = and i32 %847, 127
   switch i32 %848, label %855 [
-    i32 0, label %849
+    i32 0, label %856
     i32 127, label %.thread826
   ]
 
-849:                                              ; preds = %846
+856:                                              ; preds = %846
   %850 = lshr i32 %847, 8
   %851 = and i32 %850, 255
-  %.not = icmp eq i32 %851, 0
-  br i1 %.not, label %.thread826, label %852
+  %858 = icmp eq i32 %851, 0
+  br i1 %858, label %.thread826, label %852
 
 852:                                              ; preds = %849
   %853 = load ptr, ptr @bio_err, align 8, !tbaa !19
   %854 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %853, ptr noundef nonnull @.str.499, i32 noundef %851) #14
   br label %.thread826
 
-855:                                              ; preds = %846
-  %856 = load ptr, ptr @bio_err, align 8, !tbaa !19
-  %857 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %856, ptr noundef nonnull @.str.500, i32 noundef %848) #14
+859:                                              ; preds = %846
+  %860 = load ptr, ptr @bio_err, align 8, !tbaa !19
+  %861 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %860, ptr noundef nonnull @.str.500, i32 noundef %848) #14
   br label %.thread826
 
 .thread826:                                       ; preds = %846, %849, %852, %855
-  %858 = add nuw nsw i32 %.261921, 1
-  %exitcond1015.not = icmp eq i32 %858, %0
+  %862 = add nuw nsw i32 %.261921, 1
+  %exitcond1015.not = icmp eq i32 %862, %0
   br i1 %exitcond1015.not, label %.loopexit, label %.preheader, !llvm.loop !188
 
 .loopexit:                                        ; preds = %.thread826, %._crit_edge920.thread, %.thread, %843, %135

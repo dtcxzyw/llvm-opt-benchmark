@@ -1240,8 +1240,8 @@ define internal range(i32 0, 2) i32 @EncodeStreamHook(ptr noundef readonly captu
   store i32 %111, ptr %67, align 4, !tbaa !90
   %112 = select i1 %36, i1 true, i1 %105
   %spec.select = select i1 %.not170, i32 %111, i32 0
-  %spec.select433 = select i1 %112, i32 0, i32 %spec.select
-  store i32 %spec.select433, ptr %68, align 4, !tbaa !91
+  %spec.select435 = select i1 %112, i32 0, i32 %spec.select
+  store i32 %spec.select435, ptr %68, align 4, !tbaa !91
   store i32 0, ptr %69, align 8, !tbaa !92
   call void @VP8LBackwardRefsClear(ptr noundef nonnull %70) #8
   call void @VP8LBackwardRefsClear(ptr noundef nonnull %71) #8
@@ -1261,9 +1261,9 @@ define internal range(i32 0, 2) i32 @EncodeStreamHook(ptr noundef readonly captu
 117:                                              ; preds = %115
   %118 = load i32, ptr %67, align 4, !tbaa !90
   %.not172 = icmp eq i32 %118, 0
-  br i1 %.not172, label %119, label %.thread402
+  br i1 %.not172, label %119, label %.thread403
 
-.thread402:                                       ; preds = %117
+.thread403:                                       ; preds = %117
   store i32 0, ptr %73, align 8, !tbaa !15
   br label %363
 
@@ -1868,7 +1868,7 @@ ApplyPalette.exit.i:                              ; preds = %210
 362:                                              ; preds = %.critedge
   br i1 %114, label %MakeInputImageCopy.exit.thread, label %363
 
-363:                                              ; preds = %.thread402, %362
+363:                                              ; preds = %.thread403, %362
   %364 = load ptr, ptr %75, align 8, !tbaa !14
   %365 = getelementptr inbounds nuw i8, ptr %364, i64 8
   %366 = load i32, ptr %365, align 8, !tbaa !19
@@ -1914,7 +1914,7 @@ ApplyPalette.exit.i:                              ; preds = %210
   br label %MakeInputImageCopy.exit.thread
 
 MakeInputImageCopy.exit.thread:                   ; preds = %356, %359, %370, %._crit_edge.i, %362
-  %.0158401 = phi i32 [ %64, %370 ], [ %64, %._crit_edge.i ], [ %64, %362 ], [ %80, %359 ], [ %80, %356 ]
+  %.0158402 = phi i32 [ %64, %370 ], [ %64, %._crit_edge.i ], [ %64, %362 ], [ %80, %359 ], [ %80, %356 ]
   %387 = load i32, ptr %66, align 8, !tbaa !89
   %.not183 = icmp eq i32 %387, 0
   br i1 %.not183, label %410, label %388
@@ -1969,7 +1969,7 @@ ApplySubtractGreen.exit:                          ; preds = %VP8LPutBits.exit.i1
   br i1 %.not184, label %544, label %412
 
 412:                                              ; preds = %410
-  %413 = sdiv i32 %.0158401, 3
+  %413 = sdiv i32 %.0158402, 3
   %414 = load i32, ptr %81, align 8, !tbaa !97
   %415 = load i32, ptr %66, align 8, !tbaa !89
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -2105,7 +2105,7 @@ ClampBits.exit50.i:                               ; preds = %491, %488
   %502 = getelementptr inbounds nuw i8, ptr %458, i64 96
   %503 = load i32, ptr %502, align 4, !tbaa !116
   %504 = load ptr, ptr %75, align 8, !tbaa !14
-  %505 = sdiv i32 %.0158401, 6
+  %505 = sdiv i32 %.0158402, 6
   %506 = call i32 @VP8LResidualImage(i32 noundef %414, i32 noundef %41, i32 noundef %.131.i45.i, i32 noundef %.131.i.i, i32 noundef range(i32 0, 2) %37, ptr noundef %499, ptr noundef %500, ptr noundef %501, i32 noundef %422, i32 noundef %503, i32 noundef %415, ptr noundef %504, i32 noundef %505, ptr noundef nonnull %14, ptr noundef nonnull %9) #8
   %.not41.i = icmp eq i32 %506, 0
   br i1 %.not41.i, label %ApplyPredictFilter.exit.thread, label %507
@@ -2182,11 +2182,11 @@ ApplyPredictFilter.exit:                          ; preds = %VP8LPutBits.exit52.
   br i1 %.not185, label %MakeInputImageCopy.exit.thread270, label %542
 
 542:                                              ; preds = %ApplyPredictFilter.exit
-  %543 = sub nsw i32 %.0158401, %413
+  %543 = sub nsw i32 %.0158402, %413
   br label %544
 
 544:                                              ; preds = %542, %410
-  %.1 = phi i32 [ %543, %542 ], [ %.0158401, %410 ]
+  %.1 = phi i32 [ %543, %542 ], [ %.0158402, %410 ]
   %545 = load i32, ptr %68, align 4, !tbaa !91
   %.not186 = icmp eq i32 %545, 0
   br i1 %.not186, label %597, label %546

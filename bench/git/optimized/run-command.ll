@@ -3820,7 +3820,7 @@ define dso_local range(i32 0, 5) i32 @start_bg_command(ptr noundef %0, ptr nound
 16:                                               ; preds = %15, %12
   %17 = tail call i32 @start_command(ptr noundef nonnull %0)
   %.not33 = icmp eq i32 %17, 0
-  br i1 %.not33, label %18, label %56
+  br i1 %.not33, label %18, label %58
 
 18:                                               ; preds = %16
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -3845,7 +3845,7 @@ define dso_local range(i32 0, 5) i32 @start_bg_command(ptr noundef %0, ptr nound
 
 28:                                               ; preds = %26
   call void @trace2_child_ready_fl(ptr noundef nonnull @.str, i32 noundef 1913, ptr noundef nonnull %0, ptr noundef nonnull @.str.32) #21
-  br label %56
+  br label %58
 
 29:                                               ; preds = %26
   %30 = icmp sgt i32 %27, 0
@@ -3861,16 +3861,16 @@ define dso_local range(i32 0, 5) i32 @start_bg_command(ptr noundef %0, ptr nound
 
 .thread:                                          ; preds = %31
   call void @trace2_child_ready_fl(ptr noundef nonnull @.str, i32 noundef 1932, ptr noundef nonnull %0, ptr noundef nonnull @.str.33) #21
-  br label %56
+  br label %58
 
 35:                                               ; preds = %29
   call void @trace2_child_ready_fl(ptr noundef nonnull @.str, i32 noundef 1940, ptr noundef nonnull %0, ptr noundef nonnull @.str.34) #21
-  br label %56
+  br label %58
 
 36:                                               ; preds = %.backedge
   %37 = load i32, ptr %23, align 8, !tbaa !62
   %38 = icmp eq i32 %25, %37
-  br i1 %38, label %39, label %49
+  br i1 %38, label %39, label %51
 
 39:                                               ; preds = %36
   %40 = load i32, ptr %7, align 4, !tbaa !18
@@ -3889,33 +3889,33 @@ define dso_local range(i32 0, 5) i32 @start_bg_command(ptr noundef %0, ptr nound
   %spec.select = select i1 %.not45, i32 -1, i32 %47
   br label %48
 
-48:                                               ; preds = %46, %43
+48:; preds = %46, %43
   %.0 = phi i32 [ %45, %43 ], [ %spec.select, %46 ]
   call void @trace2_child_exit_fl(ptr noundef nonnull @.str, i32 noundef 1967, ptr noundef nonnull %0, i32 noundef %.0) #21
-  br label %56
+  br label %58
 
-49:                                               ; preds = %36
-  %50 = icmp slt i32 %25, 0
-  br i1 %50, label %51, label %55
+51:                                               ; preds = %36
+  %52 = icmp slt i32 %25, 0
+  br i1 %52, label %53, label %57
 
-51:                                               ; preds = %49
-  %52 = tail call ptr @__errno_location() #23
-  %53 = load i32, ptr %52, align 4, !tbaa !18
-  %54 = icmp eq i32 %53, 4
-  br i1 %54, label %.backedge.backedge, label %55
+53:                                               ; preds = %51
+  %54 = tail call ptr @__errno_location() #23
+  %55 = load i32, ptr %54, align 4, !tbaa !18
+  %56 = icmp eq i32 %55, 4
+  br i1 %56, label %.backedge.backedge, label %57
 
-.backedge.backedge:                               ; preds = %51, %31
+.backedge.backedge:                               ; preds = %53, %31
   br label %.backedge
 
-55:                                               ; preds = %51, %49
+57:                                               ; preds = %53, %51
   call void @trace2_child_exit_fl(ptr noundef nonnull @.str, i32 noundef 1976, ptr noundef nonnull %0, i32 noundef -1) #21
-  br label %56
+  br label %58
 
-56:                                               ; preds = %.thread, %16, %48, %55, %35, %28
+58:                                               ; preds = %.thread, %16, %48, %57, %35, %28
   %.028 = phi i32 [ 4, %48 ], [ 1, %55 ], [ 2, %35 ], [ 0, %28 ], [ 1, %16 ], [ 3, %.thread ]
   call void @strvec_clear(ptr noundef nonnull %0) #21
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @strvec_clear(ptr noundef nonnull %57) #21
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  call void @strvec_clear(ptr noundef nonnull %59) #21
   call void @invalidate_lstat_cache() #21
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.028

@@ -19,7 +19,7 @@ define void @_RINvNtCs68wO5nsWeTG_5alloc7raw_vec11finish_growNtNtB4_5alloc6Globa
 11:                                               ; preds = %5
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %12, align 8
-  br label %43
+  br label %45
 
 13:                                               ; preds = %7
   %14 = load ptr, ptr %3, align 8, !nonnull !5, !noundef !5
@@ -51,7 +51,7 @@ define void @_RINvNtCs68wO5nsWeTG_5alloc7raw_vec11finish_growNtNtB4_5alloc6Globa
 
 29:                                               ; preds = %7
   %30 = icmp eq i64 %2, 0
-  br i1 %30, label %31, label %34
+  br i1 %30, label %31, label %35
 
 31:                                               ; preds = %29
   %32 = icmp ult i64 %1, -9223372036854775807
@@ -59,31 +59,31 @@ define void @_RINvNtCs68wO5nsWeTG_5alloc7raw_vec11finish_growNtNtB4_5alloc6Globa
   %33 = getelementptr i8, ptr null, i64 %1
   br label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17h88f400c446b72260E.exit"
 
-34:                                               ; preds = %29
-  %35 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
+35:                                               ; preds = %29
+  %36 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
   %36 = icmp ult i64 %1, -9223372036854775807
   tail call void @llvm.assume(i1 %36)
   %37 = tail call noalias noundef ptr @__rust_alloc(i64 noundef range(i64 1, 0) %2, i64 noundef range(i64 1, 0) %1) #12
   br label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17h88f400c446b72260E.exit"
 
-"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17h88f400c446b72260E.exit": ; preds = %34, %31, %26, %23, %21
+"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17h88f400c446b72260E.exit": ; preds = %35, %31, %26, %23, %21
   %.sroa.06.0.i.i.pn = phi ptr [ %28, %26 ], [ %22, %21 ], [ %25, %23 ], [ %33, %31 ], [ %37, %34 ]
-  %38 = icmp eq ptr %.sroa.06.0.i.i.pn, null
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  br i1 %38, label %42, label %41
+  %40 = icmp eq ptr %.sroa.06.0.i.i.pn, null
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  br i1 %40, label %44, label %43
 
-41:                                               ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17h88f400c446b72260E.exit"
-  store ptr %.sroa.06.0.i.i.pn, ptr %39, align 8
-  store i64 %2, ptr %40, align 8
-  br label %43
+43:                                               ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17h88f400c446b72260E.exit"
+  store ptr %.sroa.06.0.i.i.pn, ptr %41, align 8
+  store i64 %2, ptr %42, align 8
+  br label %45
 
-42:                                               ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17h88f400c446b72260E.exit"
-  store i64 %1, ptr %39, align 8
-  store i64 %2, ptr %40, align 8
-  br label %43
+44:                                               ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17h88f400c446b72260E.exit"
+  store i64 %1, ptr %41, align 8
+  store i64 %2, ptr %42, align 8
+  br label %45
 
-43:                                               ; preds = %41, %42, %11
+45:                                               ; preds = %43, %44, %11
   %storemerge28 = phi i64 [ 1, %11 ], [ 0, %41 ], [ 1, %42 ]
   store i64 %storemerge28, ptr %0, align 8
   ret void

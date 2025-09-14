@@ -3212,7 +3212,7 @@ _ZN6icu_776number4impl15DecimalQuantity12setBcdToZeroEv.exit: ; preds = %2, %6
 
 21:                                               ; preds = %17
   %.not = icmp eq i32 %1, 0
-  br i1 %.not, label %32, label %.lr.ph.i3.i.preheader
+  br i1 %.not, label %31, label %.lr.ph.i3.i.preheader
 
 .lr.ph.i3.i.preheader:                            ; preds = %19, %21
   %.0911.i.i.ph = phi i32 [ %1, %21 ], [ %20, %19 ]
@@ -3227,25 +3227,25 @@ _ZN6icu_776number4impl15DecimalQuantity12setBcdToZeroEv.exit: ; preds = %2, %6
   %24 = tail call i64 @llvm.fshl.i64(i64 %23, i64 %.0812.i.i, i64 60)
   %25 = udiv i32 %.0911.i.i, 10
   %26 = add nsw i32 %.013.i.i, -1
-  %27 = icmp slt i32 %.0911.i.i, 10
-  br i1 %27, label %_ZN6icu_776number4impl15DecimalQuantity12readIntToBcdEi.exit.i, label %.lr.ph.i3.i, !llvm.loop !63
+  %.not.i4.i = icmp slt i32 %.0911.i.i, 10
+  br i1 %.not.i4.i, label %_ZN6icu_776number4impl15DecimalQuantity12readIntToBcdEi.exit.i, label %.lr.ph.i3.i, !llvm.loop !63
 
 _ZN6icu_776number4impl15DecimalQuantity12readIntToBcdEi.exit.i: ; preds = %.lr.ph.i3.i
-  %28 = shl nsw i32 %26, 2
-  %29 = zext nneg i32 %28 to i64
-  %30 = lshr i64 %24, %29
-  store i64 %30, ptr %9, align 8, !tbaa !26
+  %27 = shl nsw i32 %26, 2
+  %28 = zext nneg i32 %27 to i64
+  %29 = lshr i64 %24, %28
+  store i64 %29, ptr %9, align 8, !tbaa !26
   store i32 0, ptr %10, align 4, !tbaa !27
-  %31 = sub nsw i32 17, %.013.i.i
+  %30 = sub nsw i32 17, %.013.i.i
   br label %_ZN6icu_776number4impl15DecimalQuantity9_setToIntEi.exit
 
 _ZN6icu_776number4impl15DecimalQuantity9_setToIntEi.exit: ; preds = %.thread.thread, %_ZN6icu_776number4impl15DecimalQuantity12readIntToBcdEi.exit.i
-  %.sink.i = phi i32 [ %31, %_ZN6icu_776number4impl15DecimalQuantity12readIntToBcdEi.exit.i ], [ 10, %.thread.thread ]
+  %.sink.i = phi i32 [ %30, %_ZN6icu_776number4impl15DecimalQuantity12readIntToBcdEi.exit.i ], [ 10, %.thread.thread ]
   store i32 %.sink.i, ptr %11, align 8, !tbaa !28
   tail call void @_ZN6icu_776number4impl15DecimalQuantity7compactEv(ptr noundef nonnull align 8 dereferenceable(66) %0)
-  br label %32
+  br label %31
 
-32:                                               ; preds = %_ZN6icu_776number4impl15DecimalQuantity9_setToIntEi.exit, %21
+31:                                               ; preds = %_ZN6icu_776number4impl15DecimalQuantity9_setToIntEi.exit, %21
   ret ptr %0
 }
 

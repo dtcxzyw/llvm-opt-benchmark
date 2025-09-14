@@ -396,11 +396,11 @@ define hidden void @"_ZN10tokio_util4sync4mpsc19PollSender$LT$T$GT$12poll_reserv
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 144
   %.pre = load i64, ptr %1, align 8, !range !44
-  %.pre62 = load ptr, ptr %9, align 8
+  %.pre64 = load ptr, ptr %9, align 8
   br label %16
 
 16:                                               ; preds = %"_ZN4core3ptr204drop_in_place$LT$core..option..Option$LT$core..task..poll..Poll$LT$core..result..Result$LT$$LP$$RP$$C$tokio_util..sync..mpsc..PollSendError$LT$tokio_quiche..http3..driver..InboundFrame$GT$$GT$$GT$$GT$$GT$17hcc146d83e5a880d1E.exit", %3
-  %17 = phi ptr [ %40, %"_ZN4core3ptr204drop_in_place$LT$core..option..Option$LT$core..task..poll..Poll$LT$core..result..Result$LT$$LP$$RP$$C$tokio_util..sync..mpsc..PollSendError$LT$tokio_quiche..http3..driver..InboundFrame$GT$$GT$$GT$$GT$$GT$17hcc146d83e5a880d1E.exit" ], [ %.pre62, %3 ]
+  %17 = phi ptr [ %40, %"_ZN4core3ptr204drop_in_place$LT$core..option..Option$LT$core..task..poll..Poll$LT$core..result..Result$LT$$LP$$RP$$C$tokio_util..sync..mpsc..PollSendError$LT$tokio_quiche..http3..driver..InboundFrame$GT$$GT$$GT$$GT$$GT$17hcc146d83e5a880d1E.exit" ], [ %.pre64, %3 ]
   %18 = phi i64 [ %41, %"_ZN4core3ptr204drop_in_place$LT$core..option..Option$LT$core..task..poll..Poll$LT$core..result..Result$LT$$LP$$RP$$C$tokio_util..sync..mpsc..PollSendError$LT$tokio_quiche..http3..driver..InboundFrame$GT$$GT$$GT$$GT$$GT$17hcc146d83e5a880d1E.exit" ], [ %.pre, %3 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 %18, ptr %6, align 8
@@ -413,7 +413,7 @@ define hidden void @"_ZN10tokio_util4sync4mpsc19PollSender$LT$T$GT$12poll_reserv
     i64 3, label %25
   ]
 
-default.unreachable63:                            ; preds = %16
+default.unreachable65:                            ; preds = %16
   unreachable
 
 19:                                               ; preds = %16
@@ -440,7 +440,7 @@ default.unreachable63:                            ; preds = %16
           cleanup
   %28 = load i64, ptr %6, align 8, !range !44, !noundef !4
   %29 = icmp eq i64 %28, 0
-  br i1 %29, label %"_ZN4core3ptr204drop_in_place$LT$core..option..Option$LT$core..task..poll..Poll$LT$core..result..Result$LT$$LP$$RP$$C$tokio_util..sync..mpsc..PollSendError$LT$tokio_quiche..http3..driver..InboundFrame$GT$$GT$$GT$$GT$$GT$17hcc146d83e5a880d1E.exit46", label %48
+  br i1 %29, label %"_ZN4core3ptr204drop_in_place$LT$core..option..Option$LT$core..task..poll..Poll$LT$core..result..Result$LT$$LP$$RP$$C$tokio_util..sync..mpsc..PollSendError$LT$tokio_quiche..http3..driver..InboundFrame$GT$$GT$$GT$$GT$$GT$17hcc146d83e5a880d1E.exit48", label %48
 
 30:                                               ; preds = %19
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -482,9 +482,9 @@ default.unreachable63:                            ; preds = %16
   br label %31
 
 "_ZN4core3ptr99drop_in_place$LT$tokio_util..sync..mpsc..State$LT$tokio_quiche..http3..driver..InboundFrame$GT$$GT$17h363a5ce27b81aaa7E.exit44.sink.split": ; preds = %16, %25
-  %.sink70 = phi i64 [ -9223372036854775807, %25 ], [ -9223372036854775806, %16 ]
+  %.sink72 = phi i64 [ -9223372036854775807, %25 ], [ -9223372036854775806, %16 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  store i64 %.sink70, ptr %8, align 8
+  store i64 %.sink72, ptr %8, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.9.0..sroa_idx23, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.9, i64 40, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %18, ptr %7, align 8
@@ -492,7 +492,7 @@ default.unreachable63:                            ; preds = %16
   br label %"_ZN4core3ptr99drop_in_place$LT$tokio_util..sync..mpsc..State$LT$tokio_quiche..http3..driver..InboundFrame$GT$$GT$17h363a5ce27b81aaa7E.exit44"
 
 "_ZN4core3ptr99drop_in_place$LT$tokio_util..sync..mpsc..State$LT$tokio_quiche..http3..driver..InboundFrame$GT$$GT$17h363a5ce27b81aaa7E.exit44": ; preds = %"_ZN4core3ptr99drop_in_place$LT$tokio_util..sync..mpsc..State$LT$tokio_quiche..http3..driver..InboundFrame$GT$$GT$17h363a5ce27b81aaa7E.exit44.sink.split", %31, %45
-  %39 = phi i64 [ %.sroa.019.0, %31 ], [ %.sroa.019.0, %45 ], [ %.sink70, %"_ZN4core3ptr99drop_in_place$LT$tokio_util..sync..mpsc..State$LT$tokio_quiche..http3..driver..InboundFrame$GT$$GT$17h363a5ce27b81aaa7E.exit44.sink.split" ]
+  %39 = phi i64 [ %.sroa.019.0, %31 ], [ %.sroa.019.0, %45 ], [ %.sink72, %"_ZN4core3ptr99drop_in_place$LT$tokio_util..sync..mpsc..State$LT$tokio_quiche..http3..driver..InboundFrame$GT$$GT$17h363a5ce27b81aaa7E.exit44.sink.split" ]
   %40 = phi ptr [ %.sroa.934.0, %31 ], [ %.sroa.934.0, %45 ], [ %17, %"_ZN4core3ptr99drop_in_place$LT$tokio_util..sync..mpsc..State$LT$tokio_quiche..http3..driver..InboundFrame$GT$$GT$17h363a5ce27b81aaa7E.exit44.sink.split" ]
   %41 = phi i64 [ %.sroa.031.0, %31 ], [ %.sroa.031.0, %45 ], [ %18, %"_ZN4core3ptr99drop_in_place$LT$tokio_util..sync..mpsc..State$LT$tokio_quiche..http3..driver..InboundFrame$GT$$GT$17h363a5ce27b81aaa7E.exit44.sink.split" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -512,7 +512,7 @@ default.unreachable63:                            ; preds = %16
 
 45:                                               ; preds = %31
   invoke void @"_ZN4core3ptr109drop_in_place$LT$tokio..sync..mpsc..bounded..OwnedPermit$LT$tokio_quiche..http3..driver..InboundFrame$GT$$GT$17h47c87093415fce05E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %10)
-          to label %"_ZN4core3ptr99drop_in_place$LT$tokio_util..sync..mpsc..State$LT$tokio_quiche..http3..driver..InboundFrame$GT$$GT$17h363a5ce27b81aaa7E.exit44" unwind label %56
+          to label %"_ZN4core3ptr99drop_in_place$LT$tokio_util..sync..mpsc..State$LT$tokio_quiche..http3..driver..InboundFrame$GT$$GT$17h363a5ce27b81aaa7E.exit44" unwind label %55
 
 46:                                               ; preds = %43, %44
   %47 = landingpad { ptr, i32 }
@@ -521,15 +521,15 @@ default.unreachable63:                            ; preds = %16
   store ptr %40, ptr %9, align 8
   br label %52
 
-"_ZN4core3ptr204drop_in_place$LT$core..option..Option$LT$core..task..poll..Poll$LT$core..result..Result$LT$$LP$$RP$$C$tokio_util..sync..mpsc..PollSendError$LT$tokio_quiche..http3..driver..InboundFrame$GT$$GT$$GT$$GT$$GT$17hcc146d83e5a880d1E.exit46": ; preds = %52, %55, %48, %26
-  %.pn.pn = phi { ptr, i32 } [ %27, %26 ], [ %27, %48 ], [ %.pn49, %55 ], [ %.pn49, %52 ]
+"_ZN4core3ptr204drop_in_place$LT$core..option..Option$LT$core..task..poll..Poll$LT$core..result..Result$LT$$LP$$RP$$C$tokio_util..sync..mpsc..PollSendError$LT$tokio_quiche..http3..driver..InboundFrame$GT$$GT$$GT$$GT$$GT$17hcc146d83e5a880d1E.exit48": ; preds = %52, %54, %48, %26
+  %.pn.pn = phi { ptr, i32 } [ %27, %26 ], [ %27, %48 ], [ %.pn51, %55 ], [ %.pn51, %52 ]
   resume { ptr, i32 } %.pn.pn
 
 48:                                               ; preds = %26
   invoke fastcc void @"_ZN4core3ptr99drop_in_place$LT$tokio_util..sync..mpsc..State$LT$tokio_quiche..http3..driver..InboundFrame$GT$$GT$17h363a5ce27b81aaa7E"(ptr noalias noundef align 8 dereferenceable(16) %6) #25
           to label %"_ZN4core3ptr204drop_in_place$LT$core..option..Option$LT$core..task..poll..Poll$LT$core..result..Result$LT$$LP$$RP$$C$tokio_util..sync..mpsc..PollSendError$LT$tokio_quiche..http3..driver..InboundFrame$GT$$GT$$GT$$GT$$GT$17hcc146d83e5a880d1E.exit46" unwind label %49
 
-49:                                               ; preds = %55, %56, %48
+49:                                               ; preds = %54, %55, %48
   %50 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #26
@@ -552,18 +552,18 @@ default.unreachable63:                            ; preds = %16
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %16
 
-52:                                               ; preds = %46, %56
+52:                                               ; preds = %46, %55
   %53 = phi i64 [ %.sroa.019.0, %56 ], [ %39, %46 ]
-  %.pn49 = phi { ptr, i32 } [ %57, %56 ], [ %47, %46 ]
+  %.pn51 = phi { ptr, i32 } [ %56, %56 ], [ %47, %46 ]
   %54 = icmp ugt i64 %53, -9223372036854775807
   br i1 %54, label %"_ZN4core3ptr204drop_in_place$LT$core..option..Option$LT$core..task..poll..Poll$LT$core..result..Result$LT$$LP$$RP$$C$tokio_util..sync..mpsc..PollSendError$LT$tokio_quiche..http3..driver..InboundFrame$GT$$GT$$GT$$GT$$GT$17hcc146d83e5a880d1E.exit46", label %55
 
-55:                                               ; preds = %52
+54:                                               ; preds = %52
   invoke void @"_ZN4core3ptr107drop_in_place$LT$tokio_util..sync..mpsc..PollSendError$LT$tokio_quiche..http3..driver..InboundFrame$GT$$GT$17h0f37b800193154f1E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %8)
           to label %"_ZN4core3ptr204drop_in_place$LT$core..option..Option$LT$core..task..poll..Poll$LT$core..result..Result$LT$$LP$$RP$$C$tokio_util..sync..mpsc..PollSendError$LT$tokio_quiche..http3..driver..InboundFrame$GT$$GT$$GT$$GT$$GT$17hcc146d83e5a880d1E.exit46" unwind label %49
 
-56:                                               ; preds = %45
-  %57 = landingpad { ptr, i32 }
+55:                                               ; preds = %45
+  %56 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr99drop_in_place$LT$tokio_util..sync..mpsc..State$LT$tokio_quiche..http3..driver..InboundFrame$GT$$GT$17h363a5ce27b81aaa7E"(ptr noalias noundef align 8 dereferenceable(16) %7) #25
           to label %52 unwind label %49

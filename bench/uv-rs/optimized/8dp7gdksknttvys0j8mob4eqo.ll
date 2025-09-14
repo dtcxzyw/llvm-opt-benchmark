@@ -2116,10 +2116,10 @@ define hidden void @"_ZN4core3ptr101drop_in_place$LT$core..option..Option$LT$uv_
   %3 = icmp samesign ugt i64 %2, 2
   br i1 %3, label %"_ZN4core3ptr73drop_in_place$LT$uv_resolver..resolution..output..ResolutionGraphNode$GT$17he2a83550c019a8d3E.llvm.4212138799209801413.exit", label %4
 
-"_ZN4core3ptr73drop_in_place$LT$uv_resolver..resolution..output..ResolutionGraphNode$GT$17he2a83550c019a8d3E.llvm.4212138799209801413.exit": ; preds = %1, %4
+"_ZN4core3ptr73drop_in_place$LT$uv_resolver..resolution..output..ResolutionGraphNode$GT$17he2a83550c019a8d3E.llvm.4212138799209801413.exit": ; preds = %1, %3
   ret void
 
-4:                                                ; preds = %1
+3:                                                ; preds = %1
   tail call void @"_ZN4core3ptr59drop_in_place$LT$uv_resolver..resolution..AnnotatedDist$GT$17hee30c24c56895270E"(ptr noalias noundef nonnull align 8 dereferenceable(208) %0)
   br label %"_ZN4core3ptr73drop_in_place$LT$uv_resolver..resolution..output..ResolutionGraphNode$GT$17he2a83550c019a8d3E.llvm.4212138799209801413.exit"
 }
@@ -19383,10 +19383,10 @@ define hidden void @"_ZN8petgraph10graph_impl28Graph$LT$N$C$E$C$Ty$C$Ix$GT$12ret
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %7
 
-._crit_edge:                                      ; preds = %25, %1
+._crit_edge:                                      ; preds = %24, %1
   ret void
 
-7:                                                ; preds = %.lr.ph, %25
+7:                                                ; preds = %.lr.ph, %24
   %.sroa.4.08 = phi i64 [ %4, %.lr.ph ], [ %8, %25 ]
   %8 = add nsw i64 %.sroa.4.08, -1
   %9 = trunc i64 %8 to i32
@@ -19410,7 +19410,7 @@ define hidden void @"_ZN8petgraph10graph_impl28Graph$LT$N$C$E$C$Ty$C$Ix$GT$12ret
   %.sroa.0.0.i.i = select i1 %17, ptr @anon.180df14042c8a25df4f03a7d1b77e543.164.llvm.10029935473915784774, ptr %18
   %19 = load i64, ptr %.sroa.0.0.i.i, align 8, !noalias !3029, !noundef !3
   %20 = call noundef zeroext i1 @_ZN9uv_pep5086marker4tree10MarkerTree8is_false17h92307bcf7888c4feE(i64 noundef %19), !noalias !3029
-  br i1 %20, label %21, label %25
+  br i1 %20, label %21, label %24
 
 21:                                               ; preds = %"_ZN11uv_resolver10resolution6output14ResolverOutput10from_state28_$u7b$$u7b$closure$u7d$$u7d$17h859f1dbf64bf956eE.llvm.4212138799209801413.exit"
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -19419,15 +19419,15 @@ define hidden void @"_ZN8petgraph10graph_impl28Graph$LT$N$C$E$C$Ty$C$Ix$GT$12ret
   %23 = icmp samesign ugt i64 %22, 2
   br i1 %23, label %"_ZN4core3ptr101drop_in_place$LT$core..option..Option$LT$uv_resolver..resolution..output..ResolutionGraphNode$GT$$GT$17heca5f67df9ec3e14E.llvm.4212138799209801413.exit", label %24
 
-24:                                               ; preds = %21
+23:                                               ; preds = %21
   call void @"_ZN4core3ptr59drop_in_place$LT$uv_resolver..resolution..AnnotatedDist$GT$17hee30c24c56895270E"(ptr noalias noundef nonnull align 8 dereferenceable(208) %2)
   br label %"_ZN4core3ptr101drop_in_place$LT$core..option..Option$LT$uv_resolver..resolution..output..ResolutionGraphNode$GT$$GT$17heca5f67df9ec3e14E.llvm.4212138799209801413.exit"
 
-"_ZN4core3ptr101drop_in_place$LT$core..option..Option$LT$uv_resolver..resolution..output..ResolutionGraphNode$GT$$GT$17heca5f67df9ec3e14E.llvm.4212138799209801413.exit": ; preds = %21, %24
+"_ZN4core3ptr101drop_in_place$LT$core..option..Option$LT$uv_resolver..resolution..output..ResolutionGraphNode$GT$$GT$17heca5f67df9ec3e14E.llvm.4212138799209801413.exit": ; preds = %21, %23
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %25
+  br label %24
 
-25:                                               ; preds = %"_ZN11uv_resolver10resolution6output14ResolverOutput10from_state28_$u7b$$u7b$closure$u7d$$u7d$17h859f1dbf64bf956eE.llvm.4212138799209801413.exit", %"_ZN4core3ptr101drop_in_place$LT$core..option..Option$LT$uv_resolver..resolution..output..ResolutionGraphNode$GT$$GT$17heca5f67df9ec3e14E.llvm.4212138799209801413.exit"
+24:                                               ; preds = %"_ZN11uv_resolver10resolution6output14ResolverOutput10from_state28_$u7b$$u7b$closure$u7d$$u7d$17h859f1dbf64bf956eE.llvm.4212138799209801413.exit", %"_ZN4core3ptr101drop_in_place$LT$core..option..Option$LT$uv_resolver..resolution..output..ResolutionGraphNode$GT$$GT$17heca5f67df9ec3e14E.llvm.4212138799209801413.exit"
   %.not = icmp eq i64 %8, 0
   br i1 %.not, label %._crit_edge, label %7
 }

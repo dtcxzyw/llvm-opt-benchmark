@@ -16909,8 +16909,8 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$13drop_elements17ha
   br label %"_ZN9hashbrown3raw15Bucket$LT$T$GT$4drop17hcf6628a8de09ab19E.llvm.1710812290736639100.exit"
 
 "_ZN9hashbrown3raw15Bucket$LT$T$GT$4drop17hcf6628a8de09ab19E.llvm.1710812290736639100.exit": ; preds = %23, %34
-  %44 = icmp eq i64 %30, 0
-  br i1 %44, label %.thread, label %15
+  %45 = icmp eq i64 %30, 0
+  br i1 %45, label %.thread, label %15
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -17130,8 +17130,8 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$13drop_elements17hf
   br label %"_ZN9hashbrown3raw15Bucket$LT$T$GT$4drop17hc3548a8c08c2c3efE.llvm.1710812290736639100.exit"
 
 "_ZN9hashbrown3raw15Bucket$LT$T$GT$4drop17hc3548a8c08c2c3efE.llvm.1710812290736639100.exit": ; preds = %23, %34, %38
-  %46 = icmp eq i64 %30, 0
-  br i1 %46, label %.thread, label %15
+  %47 = icmp eq i64 %30, 0
+  br i1 %47, label %.thread, label %15
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn uwtable

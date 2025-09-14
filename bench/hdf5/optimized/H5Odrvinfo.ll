@@ -84,7 +84,7 @@ define internal noundef ptr @H5O__drvinfo_decode(ptr readnone captures(none) %0,
   %39 = load i64, ptr @H5E_OHDR_g, align 8, !tbaa !10
   %40 = load i64, ptr @H5E_OVERFLOW_g, align 8, !tbaa !10
   %41 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5O__drvinfo_decode, i32 noundef 96, i64 noundef %39, i64 noundef %40, ptr noundef nonnull @.str.2) #9
-  br label %84
+  br label %85
 
 42:                                               ; preds = %35
   %43 = getelementptr inbounds nuw i8, ptr %29, i64 248
@@ -146,19 +146,19 @@ define internal noundef ptr @H5O__drvinfo_decode(ptr readnone captures(none) %0,
   %80 = load i64, ptr @H5E_OHDR_g, align 8, !tbaa !10
   %81 = load i64, ptr @H5E_OVERFLOW_g, align 8, !tbaa !10
   %82 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5O__drvinfo_decode, i32 noundef 114, i64 noundef %80, i64 noundef %81, ptr noundef nonnull @.str.2) #9
-  br label %84
+  br label %85
 
 83:                                               ; preds = %75
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %68, ptr nonnull align 1 %61, i64 %60, i1 false)
   br label %.thread
 
-84:                                               ; preds = %38, %48, %63, %71, %79
-  %85 = phi ptr [ null, %38 ], [ null, %48 ], [ null, %63 ], [ null, %71 ], [ %68, %79 ]
-  %86 = tail call ptr @H5MM_xfree(ptr noundef %85) #9
-  %87 = tail call ptr @H5MM_xfree(ptr noundef nonnull %29) #9
+85:                                               ; preds = %38, %48, %63, %71, %79
+  %86 = phi ptr [ null, %38 ], [ null, %48 ], [ null, %63 ], [ null, %71 ], [ %68, %79 ]
+  %87 = tail call ptr @H5MM_xfree(ptr noundef %86) #9
+  %88 = tail call ptr @H5MM_xfree(ptr noundef nonnull %29) #9
   br label %.thread
 
-.thread:                                          ; preds = %31, %24, %17, %83, %84, %6
+.thread:                                          ; preds = %31, %24, %17, %83, %85, %6
   %.0 = phi ptr [ null, %84 ], [ null, %6 ], [ %29, %83 ], [ null, %31 ], [ null, %24 ], [ null, %17 ]
   ret ptr %.0
 }

@@ -280,7 +280,7 @@ define dso_local range(i32 0, 17) i32 @download_complete_callback(ptr noundef %0
   %18 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.4, ptr noundef nonnull %0) #17
   %19 = load i32, ptr %1, align 4, !tbaa !8
   %.not = icmp eq i32 %19, 0
-  br i1 %.not, label %112, label %20
+  br i1 %.not, label %116, label %20
 
 20:                                               ; preds = %11
   %21 = call i32 @pipe(ptr noundef nonnull %5) #17
@@ -295,7 +295,7 @@ define dso_local range(i32 0, 17) i32 @download_complete_callback(ptr noundef %0
   %28 = load i32, ptr %15, align 4, !tbaa !10
   %29 = call i32 @fc_test_database(ptr noundef nonnull %0, i32 noundef %28) #17
   %.not48 = icmp eq i32 %29, 0
-  br i1 %.not48, label %112, label %30
+  br i1 %.not48, label %116, label %30
 
 30:                                               ; preds = %23
   %31 = call ptr @fc_strerror(i32 noundef %29) #17
@@ -323,7 +323,7 @@ define dso_local range(i32 0, 17) i32 @download_complete_callback(ptr noundef %0
   %45 = load i32, ptr %15, align 4, !tbaa !10
   %46 = call i32 @fc_test_database(ptr noundef nonnull %0, i32 noundef %45) #17
   %.not39 = icmp eq i32 %46, 0
-  br i1 %.not39, label %112, label %47
+  br i1 %.not39, label %116, label %47
 
 47:                                               ; preds = %35
   %48 = call ptr @fc_strerror(i32 noundef %46) #17
@@ -423,11 +423,11 @@ define dso_local range(i32 0, 17) i32 @download_complete_callback(ptr noundef %0
   %96 = load i32, ptr %6, align 4, !tbaa !4
   %97 = and i32 %96, 127
   switch i32 %97, label %108 [
-    i32 0, label %98
+    i32 0, label %105
     i32 127, label %110
   ]
 
-98:                                               ; preds = %95
+105:                                              ; preds = %95
   %99 = lshr i32 %96, 8
   %100 = and i32 %99, 255
   %.not46 = icmp eq i32 %100, 0
@@ -438,33 +438,33 @@ define dso_local range(i32 0, 17) i32 @download_complete_callback(ptr noundef %0
   %103 = call i32 (i32, ptr, ...) @logg(i32 noundef 4, ptr noundef nonnull @.str.6, ptr noundef %102) #17
   br label %.thread
 
-104:                                              ; preds = %98
+107:                                              ; preds = %105
   %105 = load i8, ptr %3, align 16, !tbaa !11
   %.not47 = icmp eq i8 %105, 0
   br i1 %.not47, label %112, label %106
 
-106:                                              ; preds = %104
+109:                                              ; preds = %104
   %107 = call i32 (i32, ptr, ...) @logg(i32 noundef 4, ptr noundef nonnull @.str.16) #17
   br label %112
 
-108:                                              ; preds = %95
-  %109 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.17, i32 noundef %97) #17
+112:                                              ; preds = %95
+  %113 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.17, i32 noundef %97) #17
   br label %.thread
 
-110:                                              ; preds = %95
-  %111 = call i32 (i32, ptr, ...) @logg(i32 noundef 4, ptr noundef nonnull @.str.18, i32 noundef %96) #17
+114:                                              ; preds = %95
+  %115 = call i32 (i32, ptr, ...) @logg(i32 noundef 4, ptr noundef nonnull @.str.18, i32 noundef %96) #17
   br label %.thread
 
-112:                                              ; preds = %104, %106, %23, %35, %11
-  %113 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.19) #17
-  br label %115
+116:                                              ; preds = %104, %106, %23, %35, %11
+  %117 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.19) #17
+  br label %119
 
-.thread:                                          ; preds = %110, %108, %101, %9, %30, %47
+.thread:                                          ; preds = %114, %112, %101, %9, %30, %47
   %.031 = phi i32 [ 16, %9 ], [ 8, %30 ], [ 8, %47 ], [ 8, %101 ], [ 8, %108 ], [ 8, %110 ]
-  %114 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.20) #17
-  br label %115
+  %118 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.20) #17
+  br label %119
 
-115:                                              ; preds = %.thread, %112
+119:                                              ; preds = %.thread, %116
   %.03157 = phi i32 [ %.031, %.thread ], [ 0, %112 ]
   store i32 1, ptr @g_sigchildWait, align 4, !tbaa !4
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

@@ -4212,7 +4212,7 @@ ForceZero.exit112:                                ; preds = %.lr.ph35.i108, %.pr
   br label %57
 
 57:                                               ; preds = %.sink.split, %39, %38, %26, %25
-  %.5.shrunk = phi i1 [ false, %25 ], [ false, %38 ], [ %.not101, %26 ], [ %43, %39 ], [ false, %.sink.split ]
+  %.5 = phi i1 [ false, %25 ], [ false, %38 ], [ %.not101, %26 ], [ %43, %39 ], [ false, %.sink.split ]
   %.5 = zext i1 %.5.shrunk to i32
   %indvars.iv.next127 = add nuw nsw i64 %indvars.iv126, 1
   %exitcond129.not = icmp eq i64 %indvars.iv.next127, 32

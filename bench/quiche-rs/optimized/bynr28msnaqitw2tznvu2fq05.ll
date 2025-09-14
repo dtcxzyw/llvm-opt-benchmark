@@ -3151,7 +3151,7 @@ define void @"_ZN110_$LT$tokio_quiche..http3..driver..streams..WaitForUpstreamCa
 
 .thread:                                          ; preds = %6
   store i64 4, ptr %0, align 8
-  br label %"_ZN4core3ptr176drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$$LP$$RP$$C$tokio_util..sync..mpsc..PollSendError$LT$tokio_quiche..http3..driver..InboundFrame$GT$$GT$$GT$$GT$17h2a0ca66a3336d846E.exit12"
+  br label %"_ZN4core3ptr176drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$$LP$$RP$$C$tokio_util..sync..mpsc..PollSendError$LT$tokio_quiche..http3..driver..InboundFrame$GT$$GT$$GT$$GT$17h2a0ca66a3336d846E.exit13"
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -3200,9 +3200,9 @@ define void @"_ZN110_$LT$tokio_quiche..http3..driver..streams..WaitForUpstreamCa
 
 24:                                               ; preds = %22
   call void @"_ZN4core3ptr107drop_in_place$LT$tokio_util..sync..mpsc..PollSendError$LT$tokio_quiche..http3..driver..InboundFrame$GT$$GT$17h0f37b800193154f1E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %4)
-  br label %"_ZN4core3ptr176drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$$LP$$RP$$C$tokio_util..sync..mpsc..PollSendError$LT$tokio_quiche..http3..driver..InboundFrame$GT$$GT$$GT$$GT$17h2a0ca66a3336d846E.exit12"
+  br label %"_ZN4core3ptr176drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$$LP$$RP$$C$tokio_util..sync..mpsc..PollSendError$LT$tokio_quiche..http3..driver..InboundFrame$GT$$GT$$GT$$GT$17h2a0ca66a3336d846E.exit13"
 
-"_ZN4core3ptr176drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$$LP$$RP$$C$tokio_util..sync..mpsc..PollSendError$LT$tokio_quiche..http3..driver..InboundFrame$GT$$GT$$GT$$GT$17h2a0ca66a3336d846E.exit12": ; preds = %.thread, %22, %24
+"_ZN4core3ptr176drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$$LP$$RP$$C$tokio_util..sync..mpsc..PollSendError$LT$tokio_quiche..http3..driver..InboundFrame$GT$$GT$$GT$$GT$17h2a0ca66a3336d846E.exit13": ; preds = %.thread, %22, %24
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }

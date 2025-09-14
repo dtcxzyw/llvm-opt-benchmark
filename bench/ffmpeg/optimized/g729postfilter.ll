@@ -723,47 +723,47 @@ get_tilt_comp.exit:                               ; preds = %long_term_filter.ex
   br i1 %391, label %.lr.ph.i66, label %apply_tilt_comp.exit
 
 .lr.ph.i66:                                       ; preds = %380
-  %392 = and i32 %.037.i, -2
-  %393 = zext nneg i32 %387 to i64
-  br label %394
+  %393 = and i32 %.037.i, -2
+  %394 = zext nneg i32 %387 to i64
+  br label %395
 
-394:                                              ; preds = %394, %.lr.ph.i66
-  %indvars.iv.i67 = phi i64 [ %393, %.lr.ph.i66 ], [ %indvars.iv.next.i68, %394 ]
-  %395 = getelementptr i16, ptr %367, i64 %indvars.iv.i67
-  %396 = getelementptr i8, ptr %395, i64 -2
-  %397 = load i16, ptr %396, align 2, !tbaa !4
-  %398 = sext i16 %397 to i32
-  %399 = mul i32 %392, %398
-  %400 = add nsw i32 %399, 16384
-  %401 = load i16, ptr %395, align 2, !tbaa !4
-  %402 = sext i16 %401 to i32
-  %403 = ashr i32 %400, 15
-  %404 = add nsw i32 %403, %402
-  %405 = mul nsw i32 %404, %386
-  %406 = add nsw i32 %405, %.036.i
-  %407 = ashr i32 %406, %.0.i62
-  %408 = trunc i32 %407 to i16
-  %409 = getelementptr inbounds nuw i16, ptr %8, i64 %indvars.iv.i67
-  store i16 %408, ptr %409, align 2, !tbaa !4
+395:                                              ; preds = %395, %.lr.ph.i66
+  %indvars.iv.i67 = phi i64 [ %394, %.lr.ph.i66 ], [ %indvars.iv.next.i68, %394 ]
+  %396 = getelementptr i16, ptr %367, i64 %indvars.iv.i67
+  %397 = getelementptr i8, ptr %396, i64 -2
+  %398 = load i16, ptr %397, align 2, !tbaa !4
+  %399 = sext i16 %398 to i32
+  %400 = mul i32 %393, %399
+  %401 = add nsw i32 %400, 16384
+  %402 = load i16, ptr %396, align 2, !tbaa !4
+  %403 = sext i16 %402 to i32
+  %404 = ashr i32 %401, 15
+  %405 = add nsw i32 %404, %403
+  %406 = mul nsw i32 %405, %386
+  %407 = add nsw i32 %406, %.036.i
+  %408 = ashr i32 %407, %.0.i62
+  %409 = trunc i32 %408 to i16
+  %410 = getelementptr inbounds nuw i16, ptr %8, i64 %indvars.iv.i67
+  store i16 %409, ptr %410, align 2, !tbaa !4
   %indvars.iv.next.i68 = add nsw i64 %indvars.iv.i67, -1
-  %410 = icmp samesign ugt i64 %indvars.iv.i67, 1
-  br i1 %410, label %394, label %apply_tilt_comp.exit, !llvm.loop !31
+  %411 = icmp samesign ugt i64 %indvars.iv.i67, 1
+  br i1 %411, label %395, label %apply_tilt_comp.exit, !llvm.loop !31
 
-apply_tilt_comp.exit:                             ; preds = %394, %380
-  %411 = ashr i32 %.037.i, 1
-  %412 = sext i16 %370 to i32
-  %413 = shl nsw i32 %412, 1
-  %414 = mul nsw i32 %413, %411
-  %415 = add nsw i32 %414, 16384
-  %416 = load i16, ptr %367, align 2, !tbaa !4
-  %417 = sext i16 %416 to i32
-  %418 = ashr i32 %415, 15
-  %419 = add nsw i32 %418, %417
-  %420 = mul nsw i32 %419, %386
-  %421 = add nsw i32 %420, %.036.i
-  %422 = ashr i32 %421, %.0.i62
-  %423 = trunc i32 %422 to i16
-  store i16 %423, ptr %8, align 2, !tbaa !4
+apply_tilt_comp.exit:                             ; preds = %395, %380
+  %412 = ashr i32 %.037.i, 1
+  %413 = sext i16 %370 to i32
+  %414 = shl nsw i32 %413, 1
+  %415 = mul nsw i32 %414, %412
+  %416 = add nsw i32 %415, 16384
+  %417 = load i16, ptr %367, align 2, !tbaa !4
+  %418 = sext i16 %417 to i32
+  %419 = ashr i32 %416, 15
+  %420 = add nsw i32 %419, %418
+  %421 = mul nsw i32 %420, %386
+  %422 = add nsw i32 %421, %.036.i
+  %423 = ashr i32 %422, %.0.i62
+  %424 = trunc i32 %423 to i16
+  store i16 %424, ptr %8, align 2, !tbaa !4
   store i16 %390, ptr %1, align 2, !tbaa !4
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)

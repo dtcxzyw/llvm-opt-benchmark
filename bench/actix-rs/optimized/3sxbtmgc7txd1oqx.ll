@@ -3207,7 +3207,7 @@ define hidden void @"_ZN4core3ptr131drop_in_place$LT$indexmap..map..core..IndexM
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !888
   %7 = add i64 %.val1, 1
   invoke void @_ZN9hashbrown3raw5inner11TableLayout20calculate_layout_for17hd391f6e51ec51319E.llvm.906605461179275197(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %2, i64 noundef 8, i64 noundef 16, i64 noundef %7)
-          to label %.noexc unwind label %17
+          to label %.noexc unwind label %18
 
 .noexc:                                           ; preds = %6
   %8 = load i64, ptr %2, align 8, !range !475, !noalias !888, !noundef !4
@@ -3225,37 +3225,37 @@ define hidden void @"_ZN4core3ptr131drop_in_place$LT$indexmap..map..core..IndexM
   tail call void @__rust_dealloc(ptr noundef nonnull %15, i64 noundef %10, i64 noundef %8) #24, !noalias !888
   br label %"_ZN4core3ptr65drop_in_place$LT$hashbrown..raw..inner..RawTable$LT$usize$GT$$GT$17h5dab4257ab7d05cfE.exit"
 
-17:                                               ; preds = %6
-  %18 = landingpad { ptr, i32 }
+18:                                               ; preds = %6
+  %19 = landingpad { ptr, i32 }
           cleanup
   %.val2 = load i64, ptr %0, align 8
-  %19 = icmp eq i64 %.val2, 0
-  br i1 %19, label %"_ZN4core3ptr137drop_in_place$LT$alloc..vec..Vec$LT$indexmap..Bucket$LT$h2..frame..stream_id..StreamId$C$h2..proto..streams..store..SlabIndex$GT$$GT$$GT$17h97ae3d830cbc7a7fE.exit", label %20
+  %20 = icmp eq i64 %.val2, 0
+  br i1 %20, label %"_ZN4core3ptr137drop_in_place$LT$alloc..vec..Vec$LT$indexmap..Bucket$LT$h2..frame..stream_id..StreamId$C$h2..proto..streams..store..SlabIndex$GT$$GT$$GT$17h97ae3d830cbc7a7fE.exit", label %21
 
-20:                                               ; preds = %17
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.val3 = load ptr, ptr %21, align 8, !nonnull !4, !noundef !4
-  %22 = shl nuw i64 %.val2, 4
-  tail call void @__rust_dealloc(ptr noundef nonnull %.val3, i64 noundef %22, i64 noundef 8) #24
+21:                                               ; preds = %18
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.val3 = load ptr, ptr %22, align 8, !nonnull !4, !noundef !4
+  %23 = shl nuw i64 %.val2, 4
+  tail call void @__rust_dealloc(ptr noundef nonnull %.val3, i64 noundef %23, i64 noundef 8) #24
   br label %"_ZN4core3ptr137drop_in_place$LT$alloc..vec..Vec$LT$indexmap..Bucket$LT$h2..frame..stream_id..StreamId$C$h2..proto..streams..store..SlabIndex$GT$$GT$$GT$17h97ae3d830cbc7a7fE.exit"
 
 "_ZN4core3ptr65drop_in_place$LT$hashbrown..raw..inner..RawTable$LT$usize$GT$$GT$17h5dab4257ab7d05cfE.exit": ; preds = %.noexc, %1
   %.val4 = load i64, ptr %0, align 8
-  %23 = icmp eq i64 %.val4, 0
-  br i1 %23, label %"_ZN4core3ptr137drop_in_place$LT$alloc..vec..Vec$LT$indexmap..Bucket$LT$h2..frame..stream_id..StreamId$C$h2..proto..streams..store..SlabIndex$GT$$GT$$GT$17h97ae3d830cbc7a7fE.exit6", label %24
+  %24 = icmp eq i64 %.val4, 0
+  br i1 %24, label %"_ZN4core3ptr137drop_in_place$LT$alloc..vec..Vec$LT$indexmap..Bucket$LT$h2..frame..stream_id..StreamId$C$h2..proto..streams..store..SlabIndex$GT$$GT$$GT$17h97ae3d830cbc7a7fE.exit6", label %25
 
-24:                                               ; preds = %"_ZN4core3ptr65drop_in_place$LT$hashbrown..raw..inner..RawTable$LT$usize$GT$$GT$17h5dab4257ab7d05cfE.exit"
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.val5 = load ptr, ptr %25, align 8, !nonnull !4, !noundef !4
-  %26 = shl nuw i64 %.val4, 4
-  tail call void @__rust_dealloc(ptr noundef nonnull %.val5, i64 noundef %26, i64 noundef 8) #24
+25:                                               ; preds = %"_ZN4core3ptr65drop_in_place$LT$hashbrown..raw..inner..RawTable$LT$usize$GT$$GT$17h5dab4257ab7d05cfE.exit"
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.val5 = load ptr, ptr %26, align 8, !nonnull !4, !noundef !4
+  %27 = shl nuw i64 %.val4, 4
+  tail call void @__rust_dealloc(ptr noundef nonnull %.val5, i64 noundef %27, i64 noundef 8) #24
   br label %"_ZN4core3ptr137drop_in_place$LT$alloc..vec..Vec$LT$indexmap..Bucket$LT$h2..frame..stream_id..StreamId$C$h2..proto..streams..store..SlabIndex$GT$$GT$$GT$17h97ae3d830cbc7a7fE.exit6"
 
-"_ZN4core3ptr137drop_in_place$LT$alloc..vec..Vec$LT$indexmap..Bucket$LT$h2..frame..stream_id..StreamId$C$h2..proto..streams..store..SlabIndex$GT$$GT$$GT$17h97ae3d830cbc7a7fE.exit6": ; preds = %"_ZN4core3ptr65drop_in_place$LT$hashbrown..raw..inner..RawTable$LT$usize$GT$$GT$17h5dab4257ab7d05cfE.exit", %24
+"_ZN4core3ptr137drop_in_place$LT$alloc..vec..Vec$LT$indexmap..Bucket$LT$h2..frame..stream_id..StreamId$C$h2..proto..streams..store..SlabIndex$GT$$GT$$GT$17h97ae3d830cbc7a7fE.exit6": ; preds = %"_ZN4core3ptr65drop_in_place$LT$hashbrown..raw..inner..RawTable$LT$usize$GT$$GT$17h5dab4257ab7d05cfE.exit", %25
   ret void
 
-"_ZN4core3ptr137drop_in_place$LT$alloc..vec..Vec$LT$indexmap..Bucket$LT$h2..frame..stream_id..StreamId$C$h2..proto..streams..store..SlabIndex$GT$$GT$$GT$17h97ae3d830cbc7a7fE.exit": ; preds = %20, %17
-  resume { ptr, i32 } %18
+"_ZN4core3ptr137drop_in_place$LT$alloc..vec..Vec$LT$indexmap..Bucket$LT$h2..frame..stream_id..StreamId$C$h2..proto..streams..store..SlabIndex$GT$$GT$$GT$17h97ae3d830cbc7a7fE.exit": ; preds = %21, %18
+  resume { ptr, i32 } %19
 }
 
 ; Function Attrs: nonlazybind uwtable
