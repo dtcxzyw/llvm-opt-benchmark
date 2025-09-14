@@ -2050,16 +2050,16 @@ entry:
   %mul = sub nuw i64 %cond, %0
   store i64 0, ptr %i, align 8
   store i64 0, ptr %k, align 8
-  %1 = icmp ugt i64 %srclen, 3
+  %cmp336 = icmp ugt i64 %srclen, 3
   %cmp437 = icmp ne i64 %cond, %0
-  %2 = and i1 %1, %cmp437
-  br i1 %2, label %while.body.preheader, label %while.end
+  %1 = and i1 %cmp336, %cmp437
+  br i1 %1, label %while.body, label %while.end
 
-while.body.preheader:                             ; preds = %entry
+while.body:                                       ; preds = %entry
   %div125 = and i64 %srclen, -4
   br label %while.body
 
-while.body:                                       ; preds = %while.body.preheader, %if.end45
+while.body:; preds = %while.body, %if.end45
   %3 = phi i64 [ %15, %if.end45 ], [ 0, %while.body.preheader ]
   %4 = phi i64 [ %16, %if.end45 ], [ 0, %while.body.preheader ]
   %max_i.038 = phi i64 [ %max_i.1, %if.end45 ], [ %div125, %while.body.preheader ]
@@ -2067,32 +2067,32 @@ while.body:                                       ; preds = %while.body.preheade
   %5 = load i8, ptr %arrayidx, align 1
   %idxprom.i = zext i8 %5 to i64
   %arrayidx.i = getelementptr inbounds nuw i8, ptr @_ZN4node14unbase64_tableE, i64 %idxprom.i
-  %6 = load i8, ptr %arrayidx.i, align 1
+  %5 = load i8, ptr %arrayidx.i, align 1
   %arrayidx6 = getelementptr i8, ptr %arrayidx, i64 1
-  %7 = load i8, ptr %arrayidx6, align 1
-  %idxprom.i27 = zext i8 %7 to i64
+  %6 = load i8, ptr %arrayidx6, align 1
+  %idxprom.i27 = zext i8 %6 to i64
   %arrayidx.i28 = getelementptr inbounds nuw i8, ptr @_ZN4node14unbase64_tableE, i64 %idxprom.i27
-  %8 = load i8, ptr %arrayidx.i28, align 1
+  %7 = load i8, ptr %arrayidx.i28, align 1
   %arrayidx10 = getelementptr i8, ptr %arrayidx, i64 2
-  %9 = load i8, ptr %arrayidx10, align 1
-  %idxprom.i29 = zext i8 %9 to i64
+  %8 = load i8, ptr %arrayidx10, align 1
+  %idxprom.i29 = zext i8 %8 to i64
   %arrayidx.i30 = getelementptr inbounds nuw i8, ptr @_ZN4node14unbase64_tableE, i64 %idxprom.i29
-  %10 = load i8, ptr %arrayidx.i30, align 1
+  %9 = load i8, ptr %arrayidx.i30, align 1
   %arrayidx14 = getelementptr i8, ptr %arrayidx, i64 3
-  %11 = load i8, ptr %arrayidx14, align 1
-  %idxprom.i31 = zext i8 %11 to i64
+  %10 = load i8, ptr %arrayidx14, align 1
+  %idxprom.i31 = zext i8 %10 to i64
   %arrayidx.i32 = getelementptr inbounds nuw i8, ptr @_ZN4node14unbase64_tableE, i64 %idxprom.i31
-  %12 = load i8, ptr %arrayidx.i32, align 1
-  %conv.i = zext i8 %6 to i32
+  %11 = load i8, ptr %arrayidx.i32, align 1
+  %conv.i = zext i8 %5 to i32
   %shl.i = shl nuw i32 %conv.i, 24
-  %conv2.i = zext i8 %8 to i32
+  %conv2.i = zext i8 %7 to i32
   %shl3.i = shl nuw nsw i32 %conv2.i, 16
   %or.i = or disjoint i32 %shl3.i, %shl.i
-  %conv5.i = zext i8 %10 to i32
+  %conv5.i = zext i8 %9 to i32
   %shl6.i = shl nuw nsw i32 %conv5.i, 8
-  %conv9.i = zext i8 %12 to i32
-  %13 = or disjoint i32 %or.i, %shl6.i
-  %or10.i = or disjoint i32 %13, %conv9.i
+  %conv9.i = zext i8 %11 to i32
+  %12 = or disjoint i32 %or.i, %shl6.i
+  %or10.i = or disjoint i32 %12, %conv9.i
   %and = and i32 %or10.i, -2139062144
   %tobool.not = icmp eq i32 %and, 0
   br i1 %tobool.not, label %if.else, label %if.then
@@ -2102,28 +2102,28 @@ if.then:                                          ; preds = %while.body
   br i1 %call17, label %if.end, label %return
 
 if.end:                                           ; preds = %if.then
-  %14 = load i64, ptr %i, align 8
-  %sub = sub i64 %srclen, %14
+  %13 = load i64, ptr %i, align 8
+  %sub = sub i64 %srclen, %13
   %div1926 = and i64 %sub, -4
-  %add21 = add i64 %div1926, %14
+  %add21 = add i64 %div1926, %13
   %.pre = load i64, ptr %k, align 8
   br label %if.end45
 
 if.else:                                          ; preds = %while.body
-  %shr = shl i8 %6, 2
-  %shr23 = lshr i8 %8, 4
+  %shr = shl i8 %5, 2
+  %shr23 = lshr i8 %7, 4
   %and24 = and i8 %shr23, 3
   %or = or disjoint i8 %and24, %shr
   %arrayidx26 = getelementptr inbounds i8, ptr %dst, i64 %3
   store i8 %or, ptr %arrayidx26, align 1
-  %shr27 = shl i8 %8, 4
-  %shr29 = lshr i8 %10, 2
+  %shr27 = shl i8 %7, 4
+  %shr29 = lshr i8 %9, 2
   %and30 = and i8 %shr29, 15
   %or31 = or disjoint i8 %and30, %shr27
   %arrayidx34 = getelementptr i8, ptr %arrayidx26, i64 1
   store i8 %or31, ptr %arrayidx34, align 1
-  %shr35 = shl i8 %10, 6
-  %and38 = and i8 %12, 63
+  %shr35 = shl i8 %9, 6
+  %and38 = and i8 %11, 63
   %or39 = or disjoint i8 %and38, %shr35
   %arrayidx42 = getelementptr i8, ptr %arrayidx26, i64 2
   store i8 %or39, ptr %arrayidx42, align 1
@@ -2134,17 +2134,17 @@ if.else:                                          ; preds = %while.body
   br label %if.end45
 
 if.end45:                                         ; preds = %if.else, %if.end
-  %15 = phi i64 [ %.pre, %if.end ], [ %add44, %if.else ]
-  %16 = phi i64 [ %14, %if.end ], [ %add43, %if.else ]
+  %14 = phi i64 [ %.pre, %if.end ], [ %add44, %if.else ]
+  %15 = phi i64 [ %13, %if.end ], [ %add43, %if.else ]
   %max_i.1 = phi i64 [ %add21, %if.end ], [ %max_i.038, %if.else ]
-  %cmp3 = icmp ult i64 %16, %max_i.1
-  %cmp4 = icmp ult i64 %15, %mul
-  %17 = select i1 %cmp3, i1 %cmp4, i1 false
-  br i1 %17, label %while.body, label %while.end, !llvm.loop !15
+  %cmp3 = icmp ult i64 %15, %max_i.1
+  %cmp4 = icmp ult i64 %14, %mul
+  %16 = select i1 %cmp3, i1 %cmp4, i1 false
+  br i1 %16, label %while.body, label %while.end, !llvm.loop !15
 
 while.end:                                        ; preds = %if.end45, %entry
-  %.lcssa34 = phi i64 [ 0, %entry ], [ %16, %if.end45 ]
-  %.lcssa = phi i64 [ 0, %entry ], [ %15, %if.end45 ]
+  %.lcssa34 = phi i64 [ 0, %entry ], [ %15, %if.end45 ]
+  %.lcssa = phi i64 [ 0, %entry ], [ %14, %if.end45 ]
   %cmp46 = icmp ult i64 %.lcssa34, %srclen
   %cmp47 = icmp ult i64 %.lcssa, %dstlen
   %or.cond = select i1 %cmp46, i1 %cmp47, i1 false
@@ -2314,16 +2314,16 @@ entry:
   %mul = sub nuw i64 %cond, %0
   store i64 0, ptr %i, align 8
   store i64 0, ptr %k, align 8
-  %1 = icmp ugt i64 %srclen, 3
+  %cmp336 = icmp ugt i64 %srclen, 3
   %cmp437 = icmp ne i64 %cond, %0
-  %2 = and i1 %1, %cmp437
-  br i1 %2, label %while.body.preheader, label %while.end
+  %1 = and i1 %cmp336, %cmp437
+  br i1 %1, label %while.body, label %while.end
 
-while.body.preheader:                             ; preds = %entry
+while.body:                                       ; preds = %entry
   %div125 = and i64 %srclen, -4
   br label %while.body
 
-while.body:                                       ; preds = %while.body.preheader, %if.end49
+while.body:; preds = %while.body, %if.end49
   %3 = phi i64 [ %19, %if.end49 ], [ 0, %while.body.preheader ]
   %4 = phi i64 [ %20, %if.end49 ], [ 0, %while.body.preheader ]
   %max_i.038 = phi i64 [ %max_i.1, %if.end49 ], [ %div125, %while.body.preheader ]
@@ -2332,35 +2332,35 @@ while.body:                                       ; preds = %while.body.preheade
   %6 = and i16 %5, 255
   %idxprom.i = zext nneg i16 %6 to i64
   %arrayidx.i = getelementptr inbounds nuw i8, ptr @_ZN4node14unbase64_tableE, i64 %idxprom.i
-  %7 = load i8, ptr %arrayidx.i, align 1
+  %6 = load i8, ptr %arrayidx.i, align 1
   %arrayidx6 = getelementptr i8, ptr %arrayidx, i64 2
-  %8 = load i16, ptr %arrayidx6, align 2
-  %9 = and i16 %8, 255
-  %idxprom.i27 = zext nneg i16 %9 to i64
+  %7 = load i16, ptr %arrayidx6, align 2
+  %8 = and i16 %7, 255
+  %idxprom.i27 = zext nneg i16 %8 to i64
   %arrayidx.i28 = getelementptr inbounds nuw i8, ptr @_ZN4node14unbase64_tableE, i64 %idxprom.i27
-  %10 = load i8, ptr %arrayidx.i28, align 1
+  %9 = load i8, ptr %arrayidx.i28, align 1
   %arrayidx11 = getelementptr i8, ptr %arrayidx, i64 4
-  %11 = load i16, ptr %arrayidx11, align 2
-  %12 = and i16 %11, 255
-  %idxprom.i29 = zext nneg i16 %12 to i64
+  %10 = load i16, ptr %arrayidx11, align 2
+  %11 = and i16 %10, 255
+  %idxprom.i29 = zext nneg i16 %11 to i64
   %arrayidx.i30 = getelementptr inbounds nuw i8, ptr @_ZN4node14unbase64_tableE, i64 %idxprom.i29
-  %13 = load i8, ptr %arrayidx.i30, align 1
+  %12 = load i8, ptr %arrayidx.i30, align 1
   %arrayidx16 = getelementptr i8, ptr %arrayidx, i64 6
-  %14 = load i16, ptr %arrayidx16, align 2
-  %15 = and i16 %14, 255
-  %idxprom.i31 = zext nneg i16 %15 to i64
+  %13 = load i16, ptr %arrayidx16, align 2
+  %14 = and i16 %13, 255
+  %idxprom.i31 = zext nneg i16 %14 to i64
   %arrayidx.i32 = getelementptr inbounds nuw i8, ptr @_ZN4node14unbase64_tableE, i64 %idxprom.i31
-  %16 = load i8, ptr %arrayidx.i32, align 1
-  %conv.i = zext i8 %7 to i32
+  %15 = load i8, ptr %arrayidx.i32, align 1
+  %conv.i = zext i8 %6 to i32
   %shl.i = shl nuw i32 %conv.i, 24
-  %conv2.i = zext i8 %10 to i32
+  %conv2.i = zext i8 %9 to i32
   %shl3.i = shl nuw nsw i32 %conv2.i, 16
   %or.i = or disjoint i32 %shl3.i, %shl.i
-  %conv5.i = zext i8 %13 to i32
+  %conv5.i = zext i8 %12 to i32
   %shl6.i = shl nuw nsw i32 %conv5.i, 8
-  %conv9.i = zext i8 %16 to i32
-  %17 = or disjoint i32 %or.i, %shl6.i
-  %or10.i = or disjoint i32 %17, %conv9.i
+  %conv9.i = zext i8 %15 to i32
+  %16 = or disjoint i32 %or.i, %shl6.i
+  %or10.i = or disjoint i32 %16, %conv9.i
   %and = and i32 %or10.i, -2139062144
   %tobool.not = icmp eq i32 %and, 0
   br i1 %tobool.not, label %if.else, label %if.then
@@ -2370,28 +2370,28 @@ if.then:                                          ; preds = %while.body
   br i1 %call20, label %if.end, label %return
 
 if.end:                                           ; preds = %if.then
-  %18 = load i64, ptr %i, align 8
-  %sub = sub i64 %srclen, %18
+  %17 = load i64, ptr %i, align 8
+  %sub = sub i64 %srclen, %17
   %div2226 = and i64 %sub, -4
-  %add24 = add i64 %div2226, %18
+  %add24 = add i64 %div2226, %17
   %.pre = load i64, ptr %k, align 8
   br label %if.end49
 
 if.else:                                          ; preds = %while.body
-  %shr = shl i8 %7, 2
-  %shr26 = lshr i8 %10, 4
+  %shr = shl i8 %6, 2
+  %shr26 = lshr i8 %9, 4
   %and27 = and i8 %shr26, 3
   %or = or disjoint i8 %and27, %shr
   %arrayidx30 = getelementptr inbounds i8, ptr %dst, i64 %3
   store i8 %or, ptr %arrayidx30, align 1
-  %shr31 = shl i8 %10, 4
-  %shr33 = lshr i8 %13, 2
+  %shr31 = shl i8 %9, 4
+  %shr33 = lshr i8 %12, 2
   %and34 = and i8 %shr33, 15
   %or35 = or disjoint i8 %and34, %shr31
   %arrayidx38 = getelementptr i8, ptr %arrayidx30, i64 1
   store i8 %or35, ptr %arrayidx38, align 1
-  %shr39 = shl i8 %13, 6
-  %and42 = and i8 %16, 63
+  %shr39 = shl i8 %12, 6
+  %and42 = and i8 %15, 63
   %or43 = or disjoint i8 %and42, %shr39
   %arrayidx46 = getelementptr i8, ptr %arrayidx30, i64 2
   store i8 %or43, ptr %arrayidx46, align 1
@@ -2402,17 +2402,17 @@ if.else:                                          ; preds = %while.body
   br label %if.end49
 
 if.end49:                                         ; preds = %if.else, %if.end
-  %19 = phi i64 [ %.pre, %if.end ], [ %add48, %if.else ]
-  %20 = phi i64 [ %18, %if.end ], [ %add47, %if.else ]
+  %18 = phi i64 [ %.pre, %if.end ], [ %add48, %if.else ]
+  %19 = phi i64 [ %17, %if.end ], [ %add47, %if.else ]
   %max_i.1 = phi i64 [ %add24, %if.end ], [ %max_i.038, %if.else ]
-  %cmp3 = icmp ult i64 %20, %max_i.1
-  %cmp4 = icmp ult i64 %19, %mul
-  %21 = select i1 %cmp3, i1 %cmp4, i1 false
-  br i1 %21, label %while.body, label %while.end, !llvm.loop !20
+  %cmp3 = icmp ult i64 %19, %max_i.1
+  %cmp4 = icmp ult i64 %18, %mul
+  %20 = select i1 %cmp3, i1 %cmp4, i1 false
+  br i1 %20, label %while.body, label %while.end, !llvm.loop !20
 
 while.end:                                        ; preds = %if.end49, %entry
-  %.lcssa34 = phi i64 [ 0, %entry ], [ %20, %if.end49 ]
-  %.lcssa = phi i64 [ 0, %entry ], [ %19, %if.end49 ]
+  %.lcssa34 = phi i64 [ 0, %entry ], [ %19, %if.end49 ]
+  %.lcssa = phi i64 [ 0, %entry ], [ %18, %if.end49 ]
   %cmp50 = icmp ult i64 %.lcssa34, %srclen
   %cmp51 = icmp ult i64 %.lcssa, %dstlen
   %or.cond = select i1 %cmp50, i1 %cmp51, i1 false

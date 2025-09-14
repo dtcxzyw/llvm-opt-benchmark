@@ -940,32 +940,6 @@ res_getAlias_77.exit:                             ; preds = %13, %15
 define noundef range(i32 -134217728, 134217728) i32 @_ZNK6icu_7717ResourceDataValue6getIntER10UErrorCode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(29) %0, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %1) unnamed_addr #2 align 2 {
   %3 = load i32, ptr %1, align 4, !tbaa !3
   %4 = icmp slt i32 %3, 1
-  br i1 %4, label %5, label %13
-
-5:                                                ; preds = %2
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %7 = load i32, ptr %6, align 8, !tbaa !37
-  %8 = icmp sgt i32 %7, 1879048191
-  br i1 %8, label %10, label %9
-
-9:                                                ; preds = %5
-  store i32 17, ptr %1, align 4, !tbaa !3
-  br label %10
-
-10:                                               ; preds = %9, %5
-  %11 = shl i32 %7, 4
-  %12 = ashr exact i32 %11, 4
-  br label %13
-
-13:                                               ; preds = %2, %10
-  %.0 = phi i32 [ %12, %10 ], [ 0, %2 ]
-  ret i32 %.0
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef range(i32 0, 268435456) i32 @_ZNK6icu_7717ResourceDataValue7getUIntER10UErrorCode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(29) %0, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %1) unnamed_addr #2 align 2 {
-  %3 = load i32, ptr %1, align 4, !tbaa !3
-  %4 = icmp slt i32 %3, 1
   br i1 %4, label %5, label %12
 
 5:                                                ; preds = %2
@@ -974,16 +948,42 @@ define noundef range(i32 0, 268435456) i32 @_ZNK6icu_7717ResourceDataValue7getUI
   %8 = icmp sgt i32 %7, 1879048191
   br i1 %8, label %10, label %9
 
-9:                                                ; preds = %5
+8:                                                ; preds = %5
   store i32 17, ptr %1, align 4, !tbaa !3
-  br label %10
+  br label %9
 
-10:                                               ; preds = %9, %5
-  %11 = and i32 %7, 268435455
+9:                                                ; preds = %8, %5
+  %10 = shl i32 %7, 4
+  %11 = ashr exact i32 %10, 4
   br label %12
 
-12:                                               ; preds = %2, %10
+12:                                               ; preds = %2, %9
   %.0 = phi i32 [ %11, %10 ], [ 0, %2 ]
+  ret i32 %.0
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
+define noundef range(i32 0, 268435456) i32 @_ZNK6icu_7717ResourceDataValue7getUIntER10UErrorCode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(29) %0, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %1) unnamed_addr #2 align 2 {
+  %3 = load i32, ptr %1, align 4, !tbaa !3
+  %4 = icmp slt i32 %3, 1
+  br i1 %4, label %5, label %11
+
+5:                                                ; preds = %2
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %7 = load i32, ptr %6, align 8, !tbaa !37
+  %8 = icmp sgt i32 %7, 1879048191
+  br i1 %8, label %10, label %9
+
+8:                                                ; preds = %5
+  store i32 17, ptr %1, align 4, !tbaa !3
+  br label %9
+
+9:                                                ; preds = %8, %5
+  %10 = and i32 %7, 268435455
+  br label %11
+
+11:                                               ; preds = %2, %9
+  %.0 = phi i32 [ %10, %10 ], [ 0, %2 ]
   ret i32 %.0
 }
 

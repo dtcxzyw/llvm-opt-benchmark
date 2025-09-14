@@ -3762,9 +3762,9 @@ default.unreachable44:                            ; preds = %7
   %25 = srem i32 %24, 60
   %26 = icmp eq i8 %10, 3
   %27 = icmp eq i32 %25, 0
-  %or.cond2.not.not = select i1 %26, i1 %27, i1 false
+  %or.cond2.not = select i1 %26, i1 %27, i1 false
   %28 = trunc nsw i32 %25 to i8
-  %spec.select = select i1 %or.cond2.not.not, i8 0, i8 %28
+  %spec.select = select i1 %or.cond2.not, i8 0, i8 %28
   br label %36
 
 29:                                               ; preds = %7, %7, %7
@@ -3782,7 +3782,7 @@ default.unreachable44:                            ; preds = %7
   %.sroa.021.0 = phi i8 [ %33, %42 ], [ %10, %7 ], [ %., %44 ], [ %spec.select, %22 ]
   %.sroa.016.0.in.in = phi i32 [ %.sroa.030.0, %42 ], [ %.sroa.030.0, %7 ], [ %.sroa.030.0, %44 ], [ %23, %22 ]
   %37 = phi i1 [ true, %42 ], [ false, %7 ], [ false, %44 ], [ false, %22 ]
-  %.sroa.08.0 = phi i1 [ false, %42 ], [ true, %7 ], [ %or.cond6.not.not, %44 ], [ %or.cond2.not.not, %22 ]
+  %.sroa.08.0 = phi i1 [ false, %42 ], [ true, %7 ], [ %or.cond6.not.not, %44 ], [ %or.cond2.not, %22 ]
   %.sroa.016.0.in = sdiv i32 %.sroa.016.0.in.in, 3600
   %.sroa.016.0 = trunc i32 %.sroa.016.0.in to i8
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 1

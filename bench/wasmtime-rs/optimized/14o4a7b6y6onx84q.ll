@@ -15583,7 +15583,7 @@ define internal fastcc void @_ZN18wasmtime_cranelift8compiler16FunctionCompiler1
   br i1 %.2, label %.body97.thread, label %common.resume
 
 .thread:                                          ; preds = %71, %474
-  %lpad.thr_comm284 = landingpad { ptr, i32 }
+  %lpad.thr_comm283 = landingpad { ptr, i32 }
           cleanup
   br label %.body97.thread
 
@@ -16815,7 +16815,7 @@ common.resume:                                    ; preds = %.body97, %.body97.t
           to label %.body99 unwind label %276
 
 .body97.thread:                                   ; preds = %.thread, %65, %.body97
-  %.pn86.pn254 = phi { ptr, i32 } [ %.pn86, %.body97 ], [ %66, %65 ], [ %lpad.thr_comm284, %.thread ]
+  %.pn86.pn254 = phi { ptr, i32 } [ %.pn86, %.body97 ], [ %66, %65 ], [ %lpad.thr_comm283, %.thread ]
   invoke void @"_ZN4core3ptr66drop_in_place$LT$wasmtime_cranelift..compiler..CompilerContext$GT$17h4fdf4537cf039902E"(ptr noalias noundef nonnull align 8 dereferenceable(5312) %1) #38
           to label %common.resume unwind label %276
 }

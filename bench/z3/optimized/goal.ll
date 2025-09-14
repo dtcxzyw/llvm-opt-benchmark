@@ -9734,7 +9734,7 @@ _ZN6vectorIP4exprLb0EjED2Ev.exit:                 ; preds = %1, %4
 define hidden noundef zeroext i1 @_ZNK4goal13sat_preservedEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(124) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = load i32, ptr %2, align 8
-  %spec.select = icmp sgt i32 %3, -1
+  %4 = icmp sgt i32 %3, -1
   ret i1 %spec.select
 }
 
@@ -9798,11 +9798,11 @@ _ZNK4goal4sizeEv.exit:                            ; preds = %10, %14, %18
 _ZNK4goal4sizeEv.exit.thread:                     ; preds = %1, %_ZNK4goal4sizeEv.exit
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %23 = load i32, ptr %22, align 8
-  %spec.select.i = icmp sgt i32 %23, -1
+  %24 = icmp sgt i32 %23, -1
   br label %24
 
-24:                                               ; preds = %_ZNK4goal4sizeEv.exit.thread, %_ZNK4goal4sizeEv.exit
-  %25 = phi i1 [ false, %_ZNK4goal4sizeEv.exit ], [ %spec.select.i, %_ZNK4goal4sizeEv.exit.thread ]
+24:; preds = %_ZNK4goal4sizeEv.exit.thread, %_ZNK4goal4sizeEv.exit
+  %25 = phi i1 [ false, %_ZNK4goal4sizeEv.exit ], [ %24, %_ZNK4goal4sizeEv.exit.thread ]
   ret i1 %25
 }
 
@@ -9863,17 +9863,17 @@ _ZNK4goal4sizeEv.exit.i:                          ; preds = %18, %14, %10
   %21 = icmp eq i32 %.07.i.i.i.i, 0
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %23 = load i32, ptr %22, align 8
-  %spec.select.i.i = icmp sgt i32 %23, -1
-  %or.cond = select i1 %21, i1 %spec.select.i.i, i1 false
+  %24 = icmp sgt i32 %23, -1
+  %or.cond = select i1 %21, i1 %24, i1 false
   br i1 %or.cond, label %27, label %_ZNK4goal14is_decided_satEv.exit.thread
 
-_ZNK4goal14is_decided_satEv.exit:                 ; preds = %1
+_ZNK4goal14is_decided_satEv.exit:; preds = %1
   %.old = getelementptr inbounds nuw i8, ptr %0, i64 120
   %.old1 = load i32, ptr %.old, align 8
   %spec.select.i.i.old = icmp sgt i32 %.old1, -1
   br i1 %spec.select.i.i.old, label %27, label %_ZNK4goal14is_decided_satEv.exit.thread
 
-_ZNK4goal14is_decided_satEv.exit.thread:          ; preds = %_ZNK4goal4sizeEv.exit.i, %_ZNK4goal14is_decided_satEv.exit
+_ZNK4goal14is_decided_satEv.exit.thread:; preds = %_ZNK4goal4sizeEv.exit.i, %_ZNK4goal14is_decided_satEv.exit
   %24 = phi i32 [ %23, %_ZNK4goal4sizeEv.exit.i ], [ %.old1, %_ZNK4goal14is_decided_satEv.exit ]
   %25 = and i32 %24, 1610612736
   %26 = icmp eq i32 %25, 536870912

@@ -4212,7 +4212,7 @@ ForceZero.exit112:                                ; preds = %.lr.ph35.i108, %.pr
   br label %57
 
 57:                                               ; preds = %.sink.split, %39, %38, %26, %25
-  %.5.shrunk = phi i1 [ false, %25 ], [ false, %38 ], [ %.not101, %26 ], [ %43, %39 ], [ false, %.sink.split ]
+  %.5 = phi i1 [ false, %25 ], [ false, %38 ], [ %.not101, %26 ], [ %43, %39 ], [ false, %.sink.split ]
   %.5 = zext i1 %.5.shrunk to i32
   %indvars.iv.next127 = add nuw nsw i64 %indvars.iv126, 1
   %exitcond129.not = icmp eq i64 %indvars.iv.next127, 32
@@ -32028,43 +32028,43 @@ define internal range(i32 0, 2) i32 @test_tls_cert_store_unchanged() #0 {
   br i1 %21, label %.thread.thread, label %.thread.thread115
 
 .thread.thread115:                                ; preds = %19
-  %22 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, ptr noundef nonnull @.str.1, i32 noundef 97679)
-  %23 = load ptr, ptr @stdout, align 8, !tbaa !22
-  %24 = tail call i64 @fwrite(ptr nonnull @.str.2, i64 15, i64 1, ptr %23)
-  %25 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, ptr noundef nonnull @.str.2078, ptr noundef nonnull @.str.5)
-  %26 = load ptr, ptr @stdout, align 8, !tbaa !22
-  %27 = tail call i64 @fwrite(ptr nonnull @.str.6, i64 15, i64 1, ptr %26)
-  %28 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %20, i32 noundef 1)
+  %23 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, ptr noundef nonnull @.str.1, i32 noundef 97679)
+  %24 = load ptr, ptr @stdout, align 8, !tbaa !22
+  %25 = tail call i64 @fwrite(ptr nonnull @.str.2, i64 15, i64 1, ptr %24)
+  %26 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, ptr noundef nonnull @.str.2078, ptr noundef nonnull @.str.5)
+  %27 = load ptr, ptr @stdout, align 8, !tbaa !22
+  %28 = tail call i64 @fwrite(ptr nonnull @.str.6, i64 15, i64 1, ptr %27)
+  %29 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %20, i32 noundef 1)
   br label %.thread103.sink.split
 
 .thread.thread:                                   ; preds = %19
   %lhsv = load i64, ptr @test_tls_cert_store_unchanged_before_hashes, align 8
   %rhsv = load i64, ptr @test_tls_cert_store_unchanged_after_hashes, align 8
-  %.not128 = icmp eq i64 %lhsv, %rhsv
-  br i1 %.not128, label %.thread103, label %29
+  %.not = icmp eq i64 %lhsv, %rhsv
+  br i1 %.not, label %.thread103, label %30
 
-29:                                               ; preds = %.thread.thread
-  %30 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, ptr noundef nonnull @.str.1, i32 noundef 97683)
-  %31 = load ptr, ptr @stdout, align 8, !tbaa !22
-  %32 = tail call i64 @fwrite(ptr nonnull @.str.2, i64 15, i64 1, ptr %31)
-  %33 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2111, ptr noundef nonnull @.str.2119, ptr noundef nonnull @.str.2120, ptr noundef nonnull @.str.2121)
-  %34 = load ptr, ptr @stdout, align 8, !tbaa !22
-  %35 = tail call i64 @fwrite(ptr nonnull @.str.6, i64 15, i64 1, ptr %34)
-  %36 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2114, ptr noundef nonnull @test_tls_cert_store_unchanged_before_hashes, ptr noundef nonnull @test_tls_cert_store_unchanged_after_hashes, i32 noundef 8)
+30:                                               ; preds = %.thread.thread
+  %31 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, ptr noundef nonnull @.str.1, i32 noundef 97683)
+  %32 = load ptr, ptr @stdout, align 8, !tbaa !22
+  %33 = tail call i64 @fwrite(ptr nonnull @.str.2, i64 15, i64 1, ptr %32)
+  %34 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2111, ptr noundef nonnull @.str.2119, ptr noundef nonnull @.str.2120, ptr noundef nonnull @.str.2121)
+  %35 = load ptr, ptr @stdout, align 8, !tbaa !22
+  %36 = tail call i64 @fwrite(ptr nonnull @.str.6, i64 15, i64 1, ptr %35)
+  %37 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2114, ptr noundef nonnull @test_tls_cert_store_unchanged_before_hashes, ptr noundef nonnull @test_tls_cert_store_unchanged_after_hashes, i32 noundef 8)
   br label %.thread103.sink.split
 
-.thread103.sink.split:                            ; preds = %.thread.thread115, %29
-  %37 = load ptr, ptr @stdout, align 8, !tbaa !22
-  %38 = tail call i64 @fwrite(ptr nonnull @.str.8, i64 2, i64 1, ptr %37)
-  %39 = load ptr, ptr @stdout, align 8, !tbaa !22
-  %40 = tail call i32 @fflush(ptr noundef %39)
+.thread103.sink.split:                            ; preds = %.thread.thread115, %30
+  %38 = load ptr, ptr @stdout, align 8, !tbaa !22
+  %39 = tail call i64 @fwrite(ptr nonnull @.str.8, i64 2, i64 1, ptr %38)
+  %40 = load ptr, ptr @stdout, align 8, !tbaa !22
+  %41 = tail call i32 @fflush(ptr noundef %40)
   br label %.thread103
 
 .thread103:                                       ; preds = %.thread103.sink.split, %.thread.thread, %18
   %.4 = phi i32 [ 0, %18 ], [ 1, %.thread.thread ], [ 0, %.thread103.sink.split ]
-  br i1 %15, label %14, label %41, !llvm.loop !180
+  br i1 %15, label %14, label %42, !llvm.loop !180
 
-41:                                               ; preds = %.thread103
+42:                                               ; preds = %.thread103
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.4
