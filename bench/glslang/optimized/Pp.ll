@@ -4708,63 +4708,68 @@ define noundef i32 @_ZN7glslang10TPpContext8CPPerrorEPNS_8TPpTokenE(ptr noundef 
   store i8 0, ptr %5, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
-  %7 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 40
   br label %9
 
-9:                                                ; preds = %19, %2
-  %.0 = phi i32 [ %6, %2 ], [ %22, %19 ]
+9:                                                ; preds = %21, %2
+  %.0 = phi i32 [ %6, %2 ], [ %24, %21 ]
   switch i32 %.0, label %10 [
-    i32 -1, label %23
-    i32 10, label %23
-    i32 160, label %19
-    i32 159, label %19
-    i32 158, label %19
-    i32 157, label %19
-    i32 156, label %19
-    i32 155, label %19
-    i32 154, label %19
-    i32 153, label %19
-    i32 152, label %19
+    i32 -1, label %25
+    i32 10, label %25
   ]
 
 10:                                               ; preds = %9
-  %11 = add i32 %.0, -161
-  %or.cond17 = icmp ult i32 %11, 2
-  br i1 %or.cond17, label %19, label %12
+  %11 = and i32 %.0, -6
+  %or.cond5 = icmp eq i32 %11, 152
+  br i1 %or.cond5, label %21, label %switch.early.test
 
-12:                                               ; preds = %10
-  %13 = sext i32 %.0 to i64
-  %14 = load ptr, ptr %8, align 8
-  %15 = getelementptr inbounds ptr, ptr %14, i64 %13
-  %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
+switch.early.test:                                ; preds = %10
+  switch i32 %.0, label %12 [
+    i32 160, label %21
+    i32 159, label %21
+    i32 158, label %21
+    i32 155, label %21
+    i32 154, label %21
+  ]
+
+12:                                               ; preds = %switch.early.test
+  %13 = add i32 %.0, -161
+  %or.cond17 = icmp ult i32 %13, 2
+  br i1 %or.cond17, label %21, label %14
+
+14:                                               ; preds = %12
+  %15 = sext i32 %.0 to i64
+  %16 = load ptr, ptr %7, align 8
+  %17 = getelementptr inbounds ptr, ptr %16, i64 %15
   %18 = load ptr, ptr %17, align 8
-  br label %19
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %20 = load ptr, ptr %19, align 8
+  br label %21
 
-19:                                               ; preds = %10, %9, %9, %9, %9, %9, %9, %9, %9, %9, %12
-  %.sink = phi ptr [ %18, %12 ], [ %7, %9 ], [ %7, %9 ], [ %7, %9 ], [ %7, %9 ], [ %7, %9 ], [ %7, %9 ], [ %7, %9 ], [ %7, %9 ], [ %7, %9 ], [ %7, %10 ]
-  %20 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef %.sink) #18
-  %21 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.42) #18
-  %22 = call noundef i32 @_ZN7glslang10TPpContext9scanTokenEPNS_8TPpTokenE(ptr noundef nonnull align 8 dereferenceable(969) %0, ptr noundef nonnull %1)
+21:                                               ; preds = %12, %10, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %14
+  %.sink = phi ptr [ %20, %14 ], [ %8, %switch.early.test ], [ %8, %switch.early.test ], [ %8, %switch.early.test ], [ %8, %switch.early.test ], [ %8, %switch.early.test ], [ %8, %10 ], [ %8, %12 ]
+  %22 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef %.sink) #18
+  %23 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.42) #18
+  %24 = call noundef i32 @_ZN7glslang10TPpContext9scanTokenEPNS_8TPpTokenE(ptr noundef nonnull align 8 dereferenceable(969) %0, ptr noundef nonnull %1)
   br label %9, !llvm.loop !45
 
-23:                                               ; preds = %9, %9
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  %27 = load i32, ptr %26, align 4
-  %28 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
-  %29 = load ptr, ptr %25, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 472
-  %31 = load ptr, ptr %30, align 8
-  call void %31(ptr noundef nonnull align 8 dereferenceable(1280) %25, i32 noundef %27, ptr noundef %28) #18
-  %32 = load ptr, ptr %24, align 8
-  %33 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
-  %34 = load ptr, ptr %32, align 8
-  %35 = getelementptr inbounds nuw i8, ptr %34, i64 360
-  %36 = load ptr, ptr %35, align 8
-  call void (ptr, ptr, ptr, ptr, ptr, ...) %36(ptr noundef nonnull align 8 dereferenceable(1280) %32, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef %33, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.2) #18
+25:                                               ; preds = %9, %9
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %27 = load ptr, ptr %26, align 8
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 12
+  %29 = load i32, ptr %28, align 4
+  %30 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
+  %31 = load ptr, ptr %27, align 8
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 472
+  %33 = load ptr, ptr %32, align 8
+  call void %33(ptr noundef nonnull align 8 dereferenceable(1280) %27, i32 noundef %29, ptr noundef %30) #18
+  %34 = load ptr, ptr %26, align 8
+  %35 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
+  %36 = load ptr, ptr %34, align 8
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 360
+  %38 = load ptr, ptr %37, align 8
+  call void (ptr, ptr, ptr, ptr, ptr, ...) %38(ptr noundef nonnull align 8 dereferenceable(1280) %34, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef %35, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.2) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
   ret i32 10
 }

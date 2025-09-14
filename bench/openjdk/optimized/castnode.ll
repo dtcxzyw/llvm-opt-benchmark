@@ -2423,11 +2423,9 @@ _ZN4NodenwEm.exit53:                              ; preds = %74, %76
   br label %119
 
 80:                                               ; preds = %55
-  %81 = and i32 %7, -2
-  %switch.i = icmp ne i32 %81, 34
-  %82 = icmp ne i32 %7, 36
-  %.not63 = and i1 %82, %switch.i
-  %.not44 = or i1 %.not58, %.not63
+  %81 = add i32 %7, -37
+  %82 = icmp ult i32 %81, -3
+  %.not44 = or i1 %.not58, %82
   br i1 %.not44, label %105, label %83
 
 83:                                               ; preds = %80

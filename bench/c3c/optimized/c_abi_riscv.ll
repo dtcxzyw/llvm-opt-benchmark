@@ -702,9 +702,10 @@ define internal fastcc zeroext i1 @riscv_detect_fpcc_struct_internal(ptr noundef
 
 35:                                               ; preds = %13
   %36 = load i32, ptr %0, align 8
-  switch i32 %36, label %48 [
+  switch i32 %36, label %.loopexit [
     i32 33, label %37
     i32 31, label %.thread93
+    i32 26, label %.thread95
   ]
 
 37:                                               ; preds = %35
@@ -714,79 +715,72 @@ define internal fastcc zeroext i1 @riscv_detect_fpcc_struct_internal(ptr noundef
   %41 = zext i32 %40 to i64
   %42 = load ptr, ptr %38, align 8
   %43 = tail call i32 @type_size(ptr noundef %42) #5
-  %.not107 = icmp eq i32 %40, 0
-  br i1 %.not107, label %.loopexit, label %.lr.ph
+  %.not109 = icmp eq i32 %40, 0
+  br i1 %.not109, label %.loopexit, label %.lr.ph105
 
-.lr.ph:                                           ; preds = %37, %45
-  %.081102 = phi i64 [ %47, %45 ], [ 0, %37 ]
-  %.084101 = phi i32 [ %46, %45 ], [ %1, %37 ]
-  %44 = tail call fastcc zeroext i1 @riscv_detect_fpcc_struct_internal(ptr noundef %42, i32 noundef %.084101, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
+.lr.ph105:                                        ; preds = %37, %45
+  %.081103 = phi i64 [ %47, %45 ], [ 0, %37 ]
+  %.084102 = phi i32 [ %46, %45 ], [ %1, %37 ]
+  %44 = tail call fastcc zeroext i1 @riscv_detect_fpcc_struct_internal(ptr noundef %42, i32 noundef %.084102, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
   br i1 %44, label %45, label %.loopexit
 
-45:                                               ; preds = %.lr.ph
-  %46 = add i32 %.084101, %43
-  %47 = add nuw nsw i64 %.081102, 1
-  %exitcond.not = icmp eq i64 %47, %41
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !9
-
-48:                                               ; preds = %35
-  %49 = and i32 %36, -2
-  %50 = icmp ne i32 %49, 26
-  %51 = icmp eq i32 %36, 27
-  %or.cond96 = or i1 %51, %50
-  br i1 %or.cond96, label %.loopexit, label %.thread95
+45:                                               ; preds = %.lr.ph105
+  %46 = add i32 %.084102, %43
+  %47 = add nuw nsw i64 %.081103, 1
+  %exitcond112.not = icmp eq i64 %47, %41
+  br i1 %exitcond112.not, label %.loopexit, label %.lr.ph105, !llvm.loop !9
 
 .thread93:                                        ; preds = %35
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %53 = load ptr, ptr %52, align 8
-  %54 = load i32, ptr %53, align 8
-  %55 = and i32 %54, -2
-  %56 = icmp eq i32 %55, 26
-  br i1 %56, label %.thread95, label %.loopexit
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %49 = load ptr, ptr %48, align 8
+  %50 = load i32, ptr %49, align 8
+  %51 = and i32 %50, -2
+  %52 = icmp eq i32 %51, 26
+  br i1 %52, label %.thread95, label %.loopexit
 
-.thread95:                                        ; preds = %48, %.thread93
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds nuw i8, ptr %58, i64 104
-  %60 = load ptr, ptr %59, align 8
-  %.not = icmp eq ptr %60, null
-  br i1 %.not, label %._crit_edge, label %61
+.thread95:                                        ; preds = %35, %.thread93
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %54 = load ptr, ptr %53, align 8
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 104
+  %56 = load ptr, ptr %55, align 8
+  %.not = icmp eq ptr %56, null
+  br i1 %.not, label %._crit_edge, label %57
 
-61:                                               ; preds = %.thread95
-  %62 = getelementptr inbounds i8, ptr %60, i64 -8
-  %63 = load i32, ptr %62, align 4
-  %.not108 = icmp eq i32 %63, 0
-  br i1 %.not108, label %._crit_edge, label %.lr.ph106.preheader
+57:                                               ; preds = %.thread95
+  %58 = getelementptr inbounds i8, ptr %56, i64 -8
+  %59 = load i32, ptr %58, align 4
+  %.not108 = icmp eq i32 %59, 0
+  br i1 %.not108, label %._crit_edge, label %.lr.ph.preheader
 
-.lr.ph106.preheader:                              ; preds = %61
-  %wide.trip.count = zext i32 %63 to i64
-  br label %.lr.ph106
+.lr.ph.preheader:                                 ; preds = %57
+  %wide.trip.count = zext i32 %59 to i64
+  br label %.lr.ph
 
-64:                                               ; preds = %.lr.ph106
+60:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond111.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond111.not, label %._crit_edge, label %.lr.ph106, !llvm.loop !10
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
-.lr.ph106:                                        ; preds = %.lr.ph106.preheader, %64
-  %indvars.iv = phi i64 [ 0, %.lr.ph106.preheader ], [ %indvars.iv.next, %64 ]
-  %65 = getelementptr inbounds nuw ptr, ptr %60, i64 %indvars.iv
-  %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds nuw i8, ptr %66, i64 72
-  %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds nuw i8, ptr %66, i64 48
-  %70 = load i64, ptr %69, align 8
-  %71 = trunc i64 %70 to i32
-  %72 = add i32 %1, %71
-  %73 = tail call fastcc zeroext i1 @riscv_detect_fpcc_struct_internal(ptr noundef %68, i32 noundef %72, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
-  br i1 %73, label %64, label %.loopexit
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %60
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %60 ]
+  %61 = getelementptr inbounds nuw ptr, ptr %56, i64 %indvars.iv
+  %62 = load ptr, ptr %61, align 8
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 72
+  %64 = load ptr, ptr %63, align 8
+  %65 = getelementptr inbounds nuw i8, ptr %62, i64 48
+  %66 = load i64, ptr %65, align 8
+  %67 = trunc i64 %66 to i32
+  %68 = add i32 %1, %67
+  %69 = tail call fastcc zeroext i1 @riscv_detect_fpcc_struct_internal(ptr noundef %64, i32 noundef %68, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
+  br i1 %69, label %60, label %.loopexit
 
-._crit_edge:                                      ; preds = %64, %.thread95, %61
-  %74 = load ptr, ptr %2, align 8
-  %75 = icmp ne ptr %74, null
+._crit_edge:                                      ; preds = %60, %.thread95, %57
+  %70 = load ptr, ptr %2, align 8
+  %71 = icmp ne ptr %70, null
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph, %45, %.lr.ph106, %37, %.thread93, %48, %32, %29, %23, %19, %._crit_edge, %34, %.thread92
-  %.083 = phi i1 [ true, %34 ], [ true, %.thread92 ], [ %75, %._crit_edge ], [ false, %19 ], [ false, %23 ], [ false, %29 ], [ false, %32 ], [ false, %48 ], [ false, %.thread93 ], [ true, %37 ], [ false, %.lr.ph106 ], [ %44, %45 ], [ %44, %.lr.ph ]
+.loopexit:                                        ; preds = %.lr.ph, %.lr.ph105, %45, %37, %35, %.thread93, %32, %29, %23, %19, %._crit_edge, %34, %.thread92
+  %.083 = phi i1 [ true, %34 ], [ true, %.thread92 ], [ %71, %._crit_edge ], [ false, %19 ], [ false, %23 ], [ false, %29 ], [ false, %32 ], [ false, %.thread93 ], [ false, %35 ], [ true, %37 ], [ %44, %45 ], [ %44, %.lr.ph105 ], [ false, %.lr.ph ]
   ret i1 %.083
 }
 

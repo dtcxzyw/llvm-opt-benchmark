@@ -9027,8 +9027,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit472: ; preds = %_Z
   %1198 = getelementptr inbounds nuw i8, ptr %1197, i64 104
   %1199 = load i32, ptr %1198, align 8, !tbaa !257
   %1200 = and i32 %1199, -4
-  %switch = icmp eq i32 %1200, 4
-  br i1 %switch, label %1223, label %1201
+  %or.cond7 = icmp eq i32 %1200, 4
+  br i1 %or.cond7, label %1223, label %1201
 
 1201:                                             ; preds = %1196
   call void @llvm.lifetime.start.p0(ptr nonnull %78)

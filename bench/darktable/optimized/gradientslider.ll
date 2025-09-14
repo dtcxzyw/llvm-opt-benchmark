@@ -3588,46 +3588,45 @@ DTGTK_GRADIENT_SLIDER.exit:                       ; preds = %3, %5, %7
 .lr.ph:                                           ; preds = %DTGTK_GRADIENT_SLIDER.exit
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 224
   %.not.i = icmp eq i32 %2, 0
-  %.0.in.in.in.v.i = select i1 %.not.i, i32 -4, i32 -2
+  %narrow.v.i = select i1 %.not.i, i32 4, i32 2
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 64
   %wide.trip.count = zext nneg i32 %13 to i64
   br label %17
 
-._crit_edge:                                      ; preds = %34, %DTGTK_GRADIENT_SLIDER.exit
-  %.018.lcssa = phi i32 [ -1, %DTGTK_GRADIENT_SLIDER.exit ], [ %.2, %34 ]
+._crit_edge:                                      ; preds = %35, %DTGTK_GRADIENT_SLIDER.exit
+  %.018.lcssa = phi i32 [ -1, %DTGTK_GRADIENT_SLIDER.exit ], [ %.2, %35 ]
   ret i32 %.018.lcssa
 
-17:                                               ; preds = %.lr.ph, %34
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %34 ]
-  %.01819 = phi i32 [ -1, %.lr.ph ], [ %.2, %34 ]
+17:                                               ; preds = %.lr.ph, %35
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %35 ]
+  %.01819 = phi i32 [ -1, %.lr.ph ], [ %.2, %35 ]
   %18 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv
   %19 = load i32, ptr %18, align 4, !tbaa !44
-  %.0.in.in.in.i = add i32 %19, %.0.in.in.in.v.i
-  %.0.in.in.i = and i32 %.0.in.in.in.i, -10
-  %.0.in.i.not = icmp eq i32 %.0.in.in.i, 0
-  br i1 %.0.in.i.not, label %34, label %20
+  %20 = and i32 %19, -10
+  %narrow.i.not = icmp eq i32 %20, %narrow.v.i
+  br i1 %narrow.i.not, label %35, label %21
 
-20:                                               ; preds = %17
-  %21 = icmp slt i32 %.01819, 0
-  %22 = trunc nuw nsw i64 %indvars.iv to i32
-  %spec.select = select i1 %21, i32 %22, i32 %.01819
-  %23 = getelementptr inbounds nuw double, ptr %16, i64 %indvars.iv
-  %24 = load double, ptr %23, align 8, !tbaa !37
-  %25 = fsub reassoc nsz arcp contract afn double %11, %24
-  %26 = tail call reassoc nsz arcp contract afn double @llvm.fabs.f64(double %25)
-  %27 = zext nneg i32 %spec.select to i64
-  %28 = getelementptr inbounds nuw double, ptr %16, i64 %27
-  %29 = load double, ptr %28, align 8, !tbaa !37
-  %30 = fsub reassoc nsz arcp contract afn double %11, %29
-  %31 = tail call reassoc nsz arcp contract afn double @llvm.fabs.f64(double %30)
-  %32 = fcmp reassoc nsz arcp contract afn olt double %26, %31
-  br i1 %32, label %33, label %34
+21:                                               ; preds = %17
+  %22 = icmp slt i32 %.01819, 0
+  %23 = trunc nuw nsw i64 %indvars.iv to i32
+  %spec.select = select i1 %22, i32 %23, i32 %.01819
+  %24 = getelementptr inbounds nuw double, ptr %16, i64 %indvars.iv
+  %25 = load double, ptr %24, align 8, !tbaa !37
+  %26 = fsub reassoc nsz arcp contract afn double %11, %25
+  %27 = tail call reassoc nsz arcp contract afn double @llvm.fabs.f64(double %26)
+  %28 = zext nneg i32 %spec.select to i64
+  %29 = getelementptr inbounds nuw double, ptr %16, i64 %28
+  %30 = load double, ptr %29, align 8, !tbaa !37
+  %31 = fsub reassoc nsz arcp contract afn double %11, %30
+  %32 = tail call reassoc nsz arcp contract afn double @llvm.fabs.f64(double %31)
+  %33 = fcmp reassoc nsz arcp contract afn olt double %27, %32
+  br i1 %33, label %34, label %35
 
-33:                                               ; preds = %20
-  br label %34
+34:                                               ; preds = %21
+  br label %35
 
-34:                                               ; preds = %17, %33, %20
-  %.2 = phi i32 [ %22, %33 ], [ %spec.select, %20 ], [ %.01819, %17 ]
+35:                                               ; preds = %17, %34, %21
+  %.2 = phi i32 [ %23, %34 ], [ %spec.select, %21 ], [ %.01819, %17 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %17

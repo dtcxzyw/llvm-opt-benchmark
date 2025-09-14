@@ -367,7 +367,7 @@ _ZN6icu_7712IteratedChar8nextByteEPNS_9InputTextE.exit.thread: ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 13
   store i8 1, ptr %10, align 1, !tbaa !11
   store i32 -1, ptr %1, align 4, !tbaa !3
-  br label %34
+  br label %33
 
 _ZN6icu_7712IteratedChar8nextByteEPNS_9InputTextE.exit: ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 40
@@ -383,7 +383,7 @@ _ZN6icu_7712IteratedChar8nextByteEPNS_9InputTextE.exit: ; preds = %3
   %19 = add i8 %16, 95
   %or.cond = icmp ult i8 %19, 63
   %or.cond28 = or i1 %18, %or.cond
-  br i1 %or.cond28, label %34, label %20
+  br i1 %or.cond28, label %33, label %20
 
 20:                                               ; preds = %_ZN6icu_7712IteratedChar8nextByteEPNS_9InputTextE.exit
   %.not.i30 = icmp slt i32 %13, %9
@@ -392,7 +392,7 @@ _ZN6icu_7712IteratedChar8nextByteEPNS_9InputTextE.exit: ; preds = %3
 _ZN6icu_7712IteratedChar8nextByteEPNS_9InputTextE.exit32: ; preds = %20
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 13
   store i8 1, ptr %21, align 1, !tbaa !11
-  br label %30
+  br label %32
 
 22:                                               ; preds = %20
   %23 = add nsw i32 %5, 2
@@ -404,23 +404,16 @@ _ZN6icu_7712IteratedChar8nextByteEPNS_9InputTextE.exit32: ; preds = %20
   %28 = shl nuw nsw i32 %17, 8
   %29 = or disjoint i32 %28, %27
   store i32 %29, ptr %1, align 4, !tbaa !3
-  br label %30
+  %30 = add i8 %26, -64
+  %31 = icmp ult i8 %30, -65
+  br i1 %31, label %33, label %32
 
-30:                                               ; preds = %_ZN6icu_7712IteratedChar8nextByteEPNS_9InputTextE.exit32, %22
-  %.0.i3135 = phi i32 [ %27, %22 ], [ -1, %_ZN6icu_7712IteratedChar8nextByteEPNS_9InputTextE.exit32 ]
-  %31 = and i32 %.0.i3135, -64
-  %or.cond3 = icmp eq i32 %31, 64
-  %32 = add nsw i32 %.0.i3135, -128
-  %or.cond5 = icmp ult i32 %32, 127
-  %or.cond29 = select i1 %or.cond3, i1 true, i1 %or.cond5
-  br i1 %or.cond29, label %34, label %33
-
-33:                                               ; preds = %30
+32:                                               ; preds = %_ZN6icu_7712IteratedChar8nextByteEPNS_9InputTextE.exit32, %22
   store i8 1, ptr %7, align 4, !tbaa !10
-  br label %34
+  br label %33
 
-34:                                               ; preds = %_ZN6icu_7712IteratedChar8nextByteEPNS_9InputTextE.exit.thread, %33, %30, %_ZN6icu_7712IteratedChar8nextByteEPNS_9InputTextE.exit
-  %.0 = phi i8 [ 1, %_ZN6icu_7712IteratedChar8nextByteEPNS_9InputTextE.exit ], [ 1, %30 ], [ 1, %33 ], [ 0, %_ZN6icu_7712IteratedChar8nextByteEPNS_9InputTextE.exit.thread ]
+33:                                               ; preds = %_ZN6icu_7712IteratedChar8nextByteEPNS_9InputTextE.exit.thread, %32, %22, %_ZN6icu_7712IteratedChar8nextByteEPNS_9InputTextE.exit
+  %.0 = phi i8 [ 1, %_ZN6icu_7712IteratedChar8nextByteEPNS_9InputTextE.exit ], [ 1, %22 ], [ 1, %32 ], [ 0, %_ZN6icu_7712IteratedChar8nextByteEPNS_9InputTextE.exit.thread ]
   ret i8 %.0
 }
 

@@ -335,7 +335,7 @@ define noundef zeroext i8 @_ZN3net26Http2WeightToSpdy3PriorityEi(i32 noundef %0)
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN3net13SpdyConstants16IsValidFrameTypeENS_16SpdyMajorVersionEi(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.logging::LogMessage", align 8
-  switch i32 %0, label %9 [
+  switch i32 %0, label %7 [
     i32 1, label %4
     i32 2, label %6
   ]
@@ -346,41 +346,38 @@ define noundef zeroext i1 @_ZN3net13SpdyConstants16IsValidFrameTypeENS_16SpdyMaj
   br label %.critedge26
 
 6:                                                ; preds = %2
-  %7 = and i32 %1, -2
-  %switch = icmp eq i32 %7, 10
-  %8 = icmp ult i32 %1, 10
-  %spec.select28 = or i1 %switch, %8
+  %spec.select28 = icmp ult i32 %1, 12
   br label %.critedge26
 
-9:                                                ; preds = %2
-  %10 = tail call noundef zeroext i1 @_ZN7logging22ShouldCreateLogMessageEi(i32 noundef 2)
-  br i1 %10, label %11, label %.critedge26
+7:                                                ; preds = %2
+  %8 = tail call noundef zeroext i1 @_ZN7logging22ShouldCreateLogMessageEi(i32 noundef 2)
+  br i1 %8, label %9, label %.critedge26
 
-11:                                               ; preds = %9
+9:                                                ; preds = %7
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %3, ptr noundef nonnull @.str, i32 noundef 83, i32 noundef 2)
-  %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %13 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull @.str.3, i64 noundef 23)
-          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit unwind label %15
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %11 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull @.str.3, i64 noundef 23)
+          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit unwind label %13
 
-_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %11
-  %14 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %12, i32 noundef %0)
-          to label %.critedge unwind label %15
+_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %9
+  %12 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %10, i32 noundef %0)
+          to label %.critedge unwind label %13
 
 .critedge:                                        ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
   call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %3) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.critedge26
 
-15:                                               ; preds = %11, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
-  %16 = landingpad { ptr, i32 }
+13:                                               ; preds = %9, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
+  %14 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %3) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  resume { ptr, i32 } %16
+  resume { ptr, i32 } %14
 
-.critedge26:                                      ; preds = %6, %4, %.critedge, %9
-  %.0 = phi i1 [ false, %9 ], [ false, %.critedge ], [ %spec.select, %4 ], [ %spec.select28, %6 ]
+.critedge26:                                      ; preds = %6, %4, %.critedge, %7
+  %.0 = phi i1 [ false, %7 ], [ false, %.critedge ], [ %spec.select, %4 ], [ %spec.select28, %6 ]
   ret i1 %.0
 }
 

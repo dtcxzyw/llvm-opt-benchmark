@@ -5941,7 +5941,7 @@ define hidden noundef zeroext range(i8 6, 100) i8 @_ZNK9SuperWord26longer_type_f
   %9 = load ptr, ptr %8, align 8
   %10 = tail call noundef i32 %9(ptr noundef nonnull align 8 dereferenceable(52) %1) #12
   %11 = tail call noundef zeroext i1 @_ZN10VectorNode56is_scalar_op_that_returns_int_but_vector_op_returns_longEi(i32 noundef %10) #12
-  br i1 %11, label %12, label %124
+  br i1 %11, label %12, label %119
 
 12:                                               ; preds = %7, %2
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -6021,7 +6021,7 @@ _ZNK9SuperWord5in_bbEPK4Node.exit:                ; preds = %12, %_ZNK14PhaseIde
   %62 = load ptr, ptr %61, align 8
   %63 = icmp eq ptr %58, %62
   %64 = select i1 %.not7.i.i, i1 %63, i1 false
-  br i1 %64, label %65, label %124
+  br i1 %64, label %65, label %119
 
 65:                                               ; preds = %_ZNK9SuperWord5in_bbEPK4Node.exit
   %66 = load ptr, ptr %13, align 8
@@ -6063,33 +6063,28 @@ _ZNK9SuperWord5in_bbEPK4Node.exit:                ; preds = %12, %_ZNK14PhaseIde
   %102 = getelementptr inbounds ptr, ptr %100, i64 %101
   %103 = load ptr, ptr %102, align 8
   %104 = tail call noundef zeroext i8 @_ZNK4Type24array_element_basic_typeEv(ptr noundef nonnull align 8 dereferenceable(20) %103) #12
-  %105 = add i8 %86, -4
-  %106 = and i8 %86, -2
-  %107 = icmp eq i8 %106, 4
-  %108 = add i8 %104, -4
-  %109 = or i8 %108, %105
-  %110 = icmp ugt i8 %109, 7
-  %or.cond22.not28 = or i1 %107, %110
-  %111 = and i8 %104, -2
-  %112 = icmp eq i8 %111, 4
-  %or.cond24 = or i1 %112, %or.cond22.not28
-  br i1 %or.cond24, label %124, label %113
+  %105 = add i8 %86, -12
+  %or.cond = icmp ult i8 %105, -6
+  %106 = add i8 %104, -12
+  %107 = icmp ult i8 %106, -6
+  %or.cond24 = or i1 %or.cond, %107
+  br i1 %or.cond24, label %119, label %108
 
-113:                                              ; preds = %65
-  %114 = zext nneg i8 %86 to i64
-  %115 = getelementptr inbounds nuw i32, ptr @_type2aelembytes, i64 %114
-  %116 = load i32, ptr %115, align 4
-  %117 = zext nneg i8 %104 to i64
-  %118 = getelementptr inbounds nuw i32, ptr @_type2aelembytes, i64 %117
-  %119 = load i32, ptr %118, align 4
-  %120 = icmp eq i32 %116, %119
-  %121 = icmp sgt i32 %116, %119
-  %122 = select i1 %121, i8 %86, i8 %104
-  %123 = select i1 %120, i8 99, i8 %122
-  br label %124
+108:                                              ; preds = %65
+  %109 = zext nneg i8 %86 to i64
+  %110 = getelementptr inbounds nuw i32, ptr @_type2aelembytes, i64 %109
+  %111 = load i32, ptr %110, align 4
+  %112 = zext nneg i8 %104 to i64
+  %113 = getelementptr inbounds nuw i32, ptr @_type2aelembytes, i64 %112
+  %114 = load i32, ptr %113, align 4
+  %115 = icmp eq i32 %111, %114
+  %116 = icmp sgt i32 %111, %114
+  %117 = select i1 %116, i8 %86, i8 %104
+  %118 = select i1 %115, i8 99, i8 %117
+  br label %119
 
-124:                                              ; preds = %65, %7, %_ZNK9SuperWord5in_bbEPK4Node.exit, %113
-  %.0 = phi i8 [ %123, %113 ], [ 99, %_ZNK9SuperWord5in_bbEPK4Node.exit ], [ 99, %7 ], [ 99, %65 ]
+119:                                              ; preds = %65, %7, %_ZNK9SuperWord5in_bbEPK4Node.exit, %108
+  %.0 = phi i8 [ %118, %108 ], [ 99, %_ZNK9SuperWord5in_bbEPK4Node.exit ], [ 99, %7 ], [ 99, %65 ]
   ret i8 %.0
 }
 

@@ -904,8 +904,8 @@ lor.lhs.false21:                                  ; preds = %land.lhs.true13, %l
 
 lor.lhs.false27:                                  ; preds = %lor.lhs.false21
   %cmp30 = icmp eq i32 %call3, 5
-  %or.cond71745 = or i1 %cmp, %cmp22
-  %or.cond1633 = and i1 %cmp30, %or.cond71745
+  %or.cond71749 = or i1 %cmp, %cmp22
+  %or.cond1633 = and i1 %cmp30, %or.cond71749
   br i1 %or.cond1633, label %cleanup, label %lor.lhs.false35
 
 lor.lhs.false35:                                  ; preds = %lor.lhs.false27
@@ -1007,7 +1007,8 @@ lor.lhs.false107:                                 ; preds = %lor.lhs.false97
   %13 = and i32 %sub.i, -2
   %or.cond31 = icmp eq i32 %13, 8
   %cmp112 = icmp eq i32 %sub.i, 10
-  %or.cond32 = or i1 %cmp112, %or.cond31
+  %14 = add i32 %sub.i, -8
+  %or.cond32 = icmp ult i32 %14, 3
   %cmp114 = icmp eq i32 %call3, 2
   %or.cond33 = and i1 %cmp114, %or.cond32
   %cmp116 = icmp eq i32 %call4, 2005
@@ -1019,7 +1020,8 @@ lor.lhs.false117:                                 ; preds = %lor.lhs.false107
   %cmp120 = icmp eq i32 %sub.i, 29
   %or.cond35 = icmp eq i32 %13, 28
   %cmp122 = icmp eq i32 %sub.i, 30
-  %or.cond36 = or i1 %cmp122, %or.cond35
+  %15 = add i32 %sub.i, -28
+  %or.cond36 = icmp ult i32 %15, 3
   %or.cond37 = and i1 %cmp6, %or.cond36
   %cmp126 = icmp eq i32 %call4, 2006
   %or.cond38 = and i1 %cmp126, %or.cond37
@@ -1034,8 +1036,8 @@ lor.lhs.false127:                                 ; preds = %lor.lhs.false117
 
 lor.lhs.false133:                                 ; preds = %lor.lhs.false127
   %cmp136 = icmp eq i32 %sub.i, 7
-  %or.cond41 = icmp eq i32 %13, 6
-  %or.cond42 = or i1 %cmp108, %or.cond41
+  %16 = add i32 %sub.i, -6
+  %or.cond42 = icmp ult i32 %16, 3
   %or.cond43 = and i1 %cmp114, %or.cond42
   %cmp142 = icmp eq i32 %call4, 2008
   %or.cond44 = and i1 %cmp142, %or.cond43
@@ -1043,8 +1045,8 @@ lor.lhs.false133:                                 ; preds = %lor.lhs.false127
 
 lor.lhs.false143:                                 ; preds = %lor.lhs.false133
   %cmp146 = icmp eq i32 %sub.i, 26
-  %14 = add i32 %sub.i, -25
-  %or.cond46 = icmp ult i32 %14, 3
+  %17 = add i32 %sub.i, -25
+  %or.cond46 = icmp ult i32 %17, 3
   %or.cond47 = and i1 %cmp6, %or.cond46
   %cmp152 = icmp eq i32 %call4, 2009
   %or.cond48 = and i1 %cmp152, %or.cond47
@@ -1053,9 +1055,9 @@ lor.lhs.false143:                                 ; preds = %lor.lhs.false133
 lor.lhs.false153:                                 ; preds = %lor.lhs.false143
   %cmp154 = icmp eq i32 %sub.i, 13
   %cmp156 = icmp eq i32 %sub.i, 14
-  %15 = add i32 %sub.i, -13
-  %or.cond49 = icmp ult i32 %15, 2
-  %or.cond50 = icmp ult i32 %15, 3
+  %18 = add i32 %sub.i, -13
+  %or.cond49 = icmp ult i32 %18, 2
+  %or.cond50 = icmp ult i32 %18, 3
   %or.cond51 = and i1 %cmp114, %or.cond50
   %cmp162 = icmp eq i32 %call4, 2010
   %or.cond52 = and i1 %cmp162, %or.cond51
@@ -1063,9 +1065,9 @@ lor.lhs.false153:                                 ; preds = %lor.lhs.false143
 
 lor.lhs.false163:                                 ; preds = %lor.lhs.false153
   %cmp164 = icmp eq i32 %sub.i, 2
-  %or.cond53 = icmp eq i32 %13, 2
   %cmp168 = icmp eq i32 %sub.i, 4
-  %or.cond54 = or i1 %cmp168, %or.cond53
+  %19 = add i32 %sub.i, -2
+  %or.cond54 = icmp ult i32 %19, 3
   %or.cond55 = and i1 %cmp114, %or.cond54
   %cmp172 = icmp eq i32 %call4, 2011
   %or.cond56 = and i1 %cmp172, %or.cond55
@@ -1073,8 +1075,8 @@ lor.lhs.false163:                                 ; preds = %lor.lhs.false153
 
 lor.lhs.false173:                                 ; preds = %lor.lhs.false163
   %cmp176 = icmp eq i32 %sub.i, 24
-  %16 = add i32 %sub.i, -23
-  %or.cond57 = icmp ult i32 %16, 2
+  %20 = add i32 %sub.i, -23
+  %or.cond57 = icmp ult i32 %20, 2
   %or.cond58 = and i1 %cmp6, %or.cond57
   %cmp180 = icmp eq i32 %call4, 2012
   %or.cond59 = and i1 %cmp180, %or.cond58
@@ -1097,34 +1099,33 @@ lor.lhs.false187:                                 ; preds = %lor.lhs.false181
 
 lor.lhs.false195:                                 ; preds = %lor.lhs.false187
   %cmp196 = icmp eq i32 %sub.i, 18
-  %or.cond65 = icmp eq i32 %13, 18
   %cmp200 = icmp eq i32 %sub.i, 20
-  %or.cond66 = or i1 %cmp200, %or.cond65
+  %21 = add i32 %sub.i, -18
+  %or.cond66 = icmp ult i32 %21, 3
   %or.cond67 = and i1 %cmp114, %or.cond66
   %cmp204 = icmp eq i32 %call4, 2015
   %or.cond68 = and i1 %cmp204, %or.cond67
   br i1 %or.cond68, label %cleanup, label %lor.lhs.false205
 
 lor.lhs.false205:                                 ; preds = %lor.lhs.false195
-  %17 = add i32 %sub.i, -7
-  %or.cond69 = icmp ult i32 %17, 4
+  %22 = add i32 %sub.i, -7
+  %or.cond69 = icmp ult i32 %22, 4
   %or.cond70 = and i1 %cmp114, %or.cond69
   %cmp212 = icmp eq i32 %call4, 2016
   %or.cond71 = and i1 %cmp212, %or.cond70
   br i1 %or.cond71, label %cleanup, label %lor.lhs.false213
 
 lor.lhs.false213:                                 ; preds = %lor.lhs.false205
-  %18 = add i32 %sub.i, -27
-  %or.cond72 = icmp ult i32 %18, 4
+  %23 = add i32 %sub.i, -27
+  %or.cond72 = icmp ult i32 %23, 4
   %or.cond73 = and i1 %cmp6, %or.cond72
   %cmp220 = icmp eq i32 %call4, 2017
   %or.cond74 = and i1 %cmp220, %or.cond73
   br i1 %or.cond74, label %cleanup, label %lor.lhs.false221
 
 lor.lhs.false221:                                 ; preds = %lor.lhs.false213
-  %cmp224 = icmp eq i32 %sub.i, 16
-  %19 = add i32 %sub.i, -15
-  %or.cond76 = icmp ult i32 %19, 3
+  %24 = add i32 %sub.i, -15
+  %or.cond76 = icmp ult i32 %24, 3
   %or.cond77 = and i1 %cmp114, %or.cond76
   %cmp230 = icmp eq i32 %call4, 2018
   %or.cond78 = and i1 %cmp230, %or.cond77
@@ -1132,15 +1133,16 @@ lor.lhs.false221:                                 ; preds = %lor.lhs.false213
 
 lor.lhs.false231:                                 ; preds = %lor.lhs.false221
   %or.cond79 = icmp eq i32 %13, 4
-  %or.cond80 = or i1 %cmp46, %or.cond79
+  %25 = add i32 %sub.i, -4
+  %or.cond80 = icmp ult i32 %25, 3
   %or.cond81 = and i1 %cmp114, %or.cond80
   %cmp240 = icmp eq i32 %call4, 2019
   %or.cond82 = and i1 %cmp240, %or.cond81
   br i1 %or.cond82, label %cleanup, label %lor.lhs.false241
 
 lor.lhs.false241:                                 ; preds = %lor.lhs.false231
-  %20 = and i32 %sub.i, -4
-  %or.cond83 = icmp eq i32 %20, 24
+  %26 = and i32 %sub.i, -4
+  %or.cond83 = icmp eq i32 %26, 24
   %or.cond84 = and i1 %cmp6, %or.cond83
   %cmp248 = icmp eq i32 %call4, 2020
   %or.cond85 = and i1 %cmp248, %or.cond84
@@ -1148,8 +1150,8 @@ lor.lhs.false241:                                 ; preds = %lor.lhs.false231
 
 lor.lhs.false249:                                 ; preds = %lor.lhs.false241
   %cmp252 = icmp eq i32 %sub.i, 12
-  %21 = add i32 %sub.i, -11
-  %or.cond87 = icmp ult i32 %21, 3
+  %27 = add i32 %sub.i, -11
+  %or.cond87 = icmp ult i32 %27, 3
   %or.cond88 = and i1 %cmp114, %or.cond87
   %cmp258 = icmp eq i32 %call4, 2021
   %or.cond89 = and i1 %cmp258, %or.cond88
@@ -1160,11 +1162,11 @@ lor.lhs.false259:                                 ; preds = %lor.lhs.false249
   br i1 %or.cond90, label %land.lhs.true269, label %lor.lhs.false263
 
 lor.lhs.false263:                                 ; preds = %lor.lhs.false259
-  %22 = add i32 %sub.i, -1
-  %or.cond91 = icmp ult i32 %22, 2
+  %28 = add i32 %sub.i, -1
+  %or.cond91 = icmp ult i32 %28, 2
   %cmp270 = icmp eq i32 %call4, 2022
-  %23 = and i1 %or.cond91, %cmp270
-  %or.cond93 = and i1 %cmp114, %23
+  %29 = and i1 %or.cond91, %cmp270
+  %or.cond93 = and i1 %cmp114, %29
   br i1 %or.cond93, label %cleanup, label %lor.lhs.false271
 
 land.lhs.true269:                                 ; preds = %lor.lhs.false259
@@ -1177,8 +1179,8 @@ lor.lhs.false271:                                 ; preds = %lor.lhs.false263, %
   br i1 %or.cond99, label %cleanup, label %lor.lhs.false279
 
 lor.lhs.false279:                                 ; preds = %lor.lhs.false271
-  %24 = add i32 %sub.i, -9
-  %or.cond101 = icmp ult i32 %24, 4
+  %30 = add i32 %sub.i, -9
+  %or.cond101 = icmp ult i32 %30, 4
   %or.cond103 = and i1 %cmp114, %or.cond101
   %cmp286 = icmp eq i32 %call4, 2024
   %or.cond105 = and i1 %cmp286, %or.cond103
@@ -1191,7 +1193,8 @@ lor.lhs.false287:                                 ; preds = %lor.lhs.false279
 
 lor.lhs.false297:                                 ; preds = %lor.lhs.false287
   %or.cond115 = icmp eq i32 %13, 16
-  %or.cond117 = or i1 %cmp196, %or.cond115
+  %31 = add i32 %sub.i, -16
+  %or.cond117 = icmp ult i32 %31, 3
   %or.cond119 = and i1 %cmp114, %or.cond117
   %cmp306 = icmp eq i32 %call4, 2026
   %or.cond121 = and i1 %cmp306, %or.cond119
@@ -1204,8 +1207,8 @@ lor.lhs.false307:                                 ; preds = %lor.lhs.false297
   br i1 %or.cond127, label %cleanup, label %lor.lhs.false315
 
 lor.lhs.false315:                                 ; preds = %lor.lhs.false307
-  %or.cond129 = icmp eq i32 %13, 26
-  %or.cond131 = or i1 %cmp118, %or.cond129
+  %32 = add i32 %sub.i, -26
+  %or.cond131 = icmp ult i32 %32, 3
   %or.cond133 = and i1 %cmp6, %or.cond131
   %cmp324 = icmp eq i32 %call4, 2028
   %or.cond135 = and i1 %cmp324, %or.cond133
@@ -1213,7 +1216,8 @@ lor.lhs.false315:                                 ; preds = %lor.lhs.false307
 
 lor.lhs.false325:                                 ; preds = %lor.lhs.false315
   %or.cond137 = icmp eq i32 %13, 12
-  %or.cond139 = or i1 %cmp156, %or.cond137
+  %33 = add i32 %sub.i, -12
+  %or.cond139 = icmp ult i32 %33, 3
   %or.cond141 = and i1 %cmp114, %or.cond139
   %cmp334 = icmp eq i32 %call4, 2029
   %or.cond143 = and i1 %cmp334, %or.cond141
@@ -1226,8 +1230,8 @@ lor.lhs.false335:                                 ; preds = %lor.lhs.false325
   br i1 %or.cond149, label %cleanup, label %lor.lhs.false343
 
 lor.lhs.false343:                                 ; preds = %lor.lhs.false335
-  %or.cond151 = icmp eq i32 %13, 22
-  %or.cond153 = or i1 %cmp176, %or.cond151
+  %34 = add i32 %sub.i, -22
+  %or.cond153 = icmp ult i32 %34, 3
   %or.cond155 = and i1 %cmp6, %or.cond153
   %cmp352 = icmp eq i32 %call4, 2031
   %or.cond157 = and i1 %cmp352, %or.cond155
@@ -1235,7 +1239,8 @@ lor.lhs.false343:                                 ; preds = %lor.lhs.false335
 
 lor.lhs.false353:                                 ; preds = %lor.lhs.false343
   %or.cond159 = icmp eq i32 %13, 10
-  %or.cond161 = or i1 %cmp252, %or.cond159
+  %35 = add i32 %sub.i, -10
+  %or.cond161 = icmp ult i32 %35, 3
   %or.cond163 = and i1 %cmp114, %or.cond161
   %cmp362 = icmp eq i32 %call4, 2032
   %or.cond165 = and i1 %cmp362, %or.cond163
@@ -1245,11 +1250,11 @@ lor.lhs.false363:                                 ; preds = %lor.lhs.false353
   br i1 %or.cond90, label %land.lhs.true373, label %lor.lhs.false367
 
 lor.lhs.false367:                                 ; preds = %lor.lhs.false363
-  %25 = add i32 %sub.i, -1
-  %or.cond169 = icmp ult i32 %25, 2
+  %36 = add i32 %sub.i, -1
+  %or.cond169 = icmp ult i32 %36, 2
   %cmp374 = icmp eq i32 %call4, 2033
-  %26 = and i1 %or.cond169, %cmp374
-  %or.cond173 = and i1 %cmp114, %26
+  %37 = and i1 %or.cond169, %cmp374
+  %or.cond173 = and i1 %cmp114, %37
   br i1 %or.cond173, label %cleanup, label %lor.lhs.false375
 
 land.lhs.true373:                                 ; preds = %lor.lhs.false363
@@ -1269,7 +1274,7 @@ lor.lhs.false375:                                 ; preds = %lor.lhs.false367
   br i1 %or.cond179, label %cleanup, label %lor.lhs.false383
 
 lor.lhs.false383:                                 ; preds = %lor.lhs.false375
-  %or.cond183 = icmp ult i32 %17, 3
+  %or.cond183 = icmp ult i32 %22, 3
   %or.cond185 = and i1 %cmp114, %or.cond183
   %cmp392 = icmp eq i32 %call4, 2035
   %or.cond187 = and i1 %cmp392, %or.cond185
@@ -1291,8 +1296,8 @@ lor.lhs.false403:                                 ; preds = %lor.lhs.false393
   br i1 %or.cond201, label %cleanup, label %lor.lhs.false411
 
 lor.lhs.false411:                                 ; preds = %lor.lhs.false403
-  %27 = add i32 %sub.i, -3
-  %or.cond205 = icmp ult i32 %27, 3
+  %38 = add i32 %sub.i, -3
+  %or.cond205 = icmp ult i32 %38, 3
   %or.cond207 = and i1 %cmp114, %or.cond205
   %cmp420 = icmp eq i32 %call4, 2038
   %or.cond209 = and i1 %cmp420, %or.cond207
@@ -1300,7 +1305,8 @@ lor.lhs.false411:                                 ; preds = %lor.lhs.false403
 
 lor.lhs.false421:                                 ; preds = %lor.lhs.false411
   %or.cond211 = icmp eq i32 %13, 24
-  %or.cond213 = or i1 %cmp146, %or.cond211
+  %39 = add i32 %sub.i, -24
+  %or.cond213 = icmp ult i32 %39, 3
   %or.cond215 = and i1 %cmp6, %or.cond213
   %cmp430 = icmp eq i32 %call4, 2039
   %or.cond217 = and i1 %cmp430, %or.cond215
@@ -1316,11 +1322,11 @@ lor.lhs.false439:                                 ; preds = %lor.lhs.false431
   br i1 %or.cond90, label %land.lhs.true449, label %lor.lhs.false443
 
 lor.lhs.false443:                                 ; preds = %lor.lhs.false439
-  %28 = add i32 %sub.i, -1
-  %or.cond227 = icmp ult i32 %28, 2
+  %40 = add i32 %sub.i, -1
+  %or.cond227 = icmp ult i32 %40, 2
   %cmp450 = icmp eq i32 %call4, 2041
-  %29 = and i1 %or.cond227, %cmp450
-  %or.cond231 = and i1 %cmp114, %29
+  %41 = and i1 %or.cond227, %cmp450
+  %or.cond231 = and i1 %cmp114, %41
   br i1 %or.cond231, label %cleanup, label %lor.lhs.false451
 
 land.lhs.true449:                                 ; preds = %lor.lhs.false439
@@ -1333,23 +1339,23 @@ lor.lhs.false451:                                 ; preds = %lor.lhs.false443, %
   br i1 %or.cond239, label %cleanup, label %lor.lhs.false461
 
 lor.lhs.false461:                                 ; preds = %lor.lhs.false451
-  %or.cond243 = icmp ult i32 %24, 3
+  %or.cond243 = icmp ult i32 %30, 3
   %or.cond245 = and i1 %cmp114, %or.cond243
   %cmp470 = icmp eq i32 %call4, 2043
   %or.cond247 = and i1 %cmp470, %or.cond245
   br i1 %or.cond247, label %cleanup, label %lor.lhs.false471
 
 lor.lhs.false471:                                 ; preds = %lor.lhs.false461
-  %30 = add i32 %sub.i, -29
-  %or.cond249 = icmp ult i32 %30, 2
-  %or.cond251 = icmp ult i32 %30, 3
+  %42 = add i32 %sub.i, -29
+  %or.cond249 = icmp ult i32 %42, 2
+  %or.cond251 = icmp ult i32 %42, 3
   %or.cond253 = and i1 %cmp6, %or.cond251
   %cmp484.old = icmp eq i32 %call4, 2044
   br i1 %or.cond253, label %land.lhs.true483, label %lor.lhs.false479
 
 lor.lhs.false479:                                 ; preds = %lor.lhs.false471
-  %31 = and i1 %cmp114, %cmp484.old
-  %or.cond257 = and i1 %cmp, %31
+  %43 = and i1 %cmp114, %cmp484.old
+  %or.cond257 = and i1 %cmp, %43
   br i1 %or.cond257, label %cleanup, label %lor.lhs.false485
 
 land.lhs.true483:                                 ; preds = %lor.lhs.false471
@@ -1361,15 +1367,15 @@ lor.lhs.false485:                                 ; preds = %land.lhs.true483, %
   br i1 %or.cond265, label %cleanup, label %lor.lhs.false495
 
 lor.lhs.false495:                                 ; preds = %lor.lhs.false485
-  %32 = add i32 %sub.i, -5
-  %or.cond269 = icmp ult i32 %32, 3
+  %44 = add i32 %sub.i, -5
+  %or.cond269 = icmp ult i32 %44, 3
   %or.cond271 = and i1 %cmp114, %or.cond269
   %cmp504 = icmp eq i32 %call4, 2046
   %or.cond273 = and i1 %cmp504, %or.cond271
   br i1 %or.cond273, label %cleanup, label %lor.lhs.false505
 
 lor.lhs.false505:                                 ; preds = %lor.lhs.false495
-  %or.cond275 = icmp ult i32 %14, 4
+  %or.cond275 = icmp ult i32 %17, 4
   %or.cond277 = and i1 %cmp6, %or.cond275
   %cmp512 = icmp eq i32 %call4, 2047
   %or.cond279 = and i1 %cmp512, %or.cond277
@@ -1381,9 +1387,9 @@ lor.lhs.false513:                                 ; preds = %lor.lhs.false505
   br i1 %or.cond287, label %cleanup, label %lor.lhs.false523
 
 lor.lhs.false523:                                 ; preds = %lor.lhs.false513
-  %33 = add i32 %sub.i, -1
-  %or.cond289 = icmp ult i32 %33, 2
-  %or.cond291 = icmp ult i32 %33, 3
+  %45 = add i32 %sub.i, -1
+  %or.cond289 = icmp ult i32 %45, 2
+  %or.cond291 = icmp ult i32 %45, 3
   %or.cond293 = and i1 %cmp114, %or.cond291
   %cmp532 = icmp eq i32 %call4, 2049
   %or.cond295 = and i1 %cmp532, %or.cond293
@@ -1413,9 +1419,9 @@ lor.lhs.false553:                                 ; preds = %lor.lhs.false541
   %or.cond321 = and i1 %or.cond319, %cmp162
   %or.cond1636 = or i1 %or.cond321, %or.cond1635
   %or.cond323 = and i1 %cmp182, %cmp24
-  %or.cond3251746 = or i1 %or.cond323, %or.cond311
-  %34 = and i1 %cmp180, %or.cond3251746
-  %or.cond1638 = or i1 %34, %or.cond1636
+  %or.cond3251750 = or i1 %or.cond323, %or.cond311
+  %46 = and i1 %cmp180, %or.cond3251750
+  %or.cond1638 = or i1 %46, %or.cond1636
   %or.cond331 = and i1 %cmp168, %cmp48
   %or.cond333 = and i1 %or.cond331, %cmp194
   %or.cond1639 = or i1 %or.cond333, %or.cond1638
@@ -1438,8 +1444,8 @@ lor.lhs.false613:                                 ; preds = %lor.lhs.false595
   %or.cond351 = and i1 %cmp110, %cmp10
   %cmp618 = icmp eq i32 %call4, 2022
   %or.cond355 = and i1 %cmp, %cmp48
-  %or.cond3531747 = or i1 %or.cond351, %or.cond355
-  %or.cond1643 = and i1 %cmp618, %or.cond3531747
+  %or.cond3531751 = or i1 %or.cond351, %or.cond355
+  %or.cond1643 = and i1 %cmp618, %or.cond3531751
   %or.cond359 = and i1 %cmp112, %cmp24
   %or.cond361 = and i1 %or.cond359, %cmp286
   %or.cond1644 = or i1 %or.cond361, %or.cond1643
@@ -1608,16 +1614,16 @@ lor.lhs.false871:                                 ; preds = %lor.lhs.false853
   br i1 %or.cond1676, label %cleanup, label %lor.lhs.false931
 
 lor.lhs.false931:                                 ; preds = %lor.lhs.false871
-  %or.cond565 = icmp ult i32 %18, 3
+  %or.cond565 = icmp ult i32 %23, 3
   %cmp938 = icmp eq i32 %call3, 9
   %or.cond567 = and i1 %cmp938, %or.cond565
   %or.cond569 = and i1 %cmp106, %or.cond567
   br i1 %or.cond569, label %cleanup, label %lor.lhs.false941
 
 lor.lhs.false941:                                 ; preds = %lor.lhs.false931
-  %35 = add i32 %sub.i, -17
-  %or.cond571 = icmp ult i32 %35, 2
-  %or.cond573 = icmp ult i32 %35, 3
+  %47 = add i32 %sub.i, -17
+  %or.cond571 = icmp ult i32 %47, 2
+  %or.cond573 = icmp ult i32 %47, 3
   %or.cond575 = and i1 %cmp938, %or.cond573
   %or.cond577 = and i1 %cmp116, %or.cond575
   %or.cond583 = and i1 %or.cond269, %cmp721705170817161725
@@ -1661,20 +1667,20 @@ lor.lhs.false1009:                                ; preds = %lor.lhs.false991
   br i1 %or.cond1682, label %cleanup, label %lor.lhs.false1043
 
 lor.lhs.false1043:                                ; preds = %lor.lhs.false1009
-  %or.cond651 = icmp eq i32 %13, 14
-  %or.cond653 = or i1 %cmp224, %or.cond651
+  %48 = add i32 %sub.i, -14
+  %or.cond653 = icmp ult i32 %48, 3
   %or.cond655 = and i1 %cmp938, %or.cond653
   %or.cond657 = and i1 %cmp212, %or.cond655
   br i1 %or.cond657, label %cleanup, label %lor.lhs.false1053
 
 lor.lhs.false1053:                                ; preds = %lor.lhs.false1043
-  %or.cond659 = icmp ult i32 %27, 4
+  %or.cond659 = icmp ult i32 %38, 4
   %or.cond661 = and i1 %or.cond659, %cmp721705170817161725
   %or.cond663 = and i1 %cmp220, %or.cond661
   br i1 %or.cond663, label %cleanup, label %lor.lhs.false1061
 
 lor.lhs.false1061:                                ; preds = %lor.lhs.false1053
-  %or.cond665 = icmp ult i32 %16, 4
+  %or.cond665 = icmp ult i32 %20, 4
   %or.cond667 = and i1 %cmp938, %or.cond665
   %or.cond669 = and i1 %cmp230, %or.cond667
   %or.cond675 = and i1 %cmp938, %or.cond139
@@ -1692,15 +1698,17 @@ lor.lhs.false1083:                                ; preds = %lor.lhs.false1079
   br i1 %or.cond685, label %cleanup, label %lor.lhs.false1091
 
 land.lhs.true1089:                                ; preds = %lor.lhs.false1079
-  br i1 %cmp248, label %cleanup, label %lor.lhs.false1091
+  br i1 %cmp248, label %cleanup, label %lor.lhs.false1101
 
-lor.lhs.false1091:                                ; preds = %lor.lhs.false1083, %land.lhs.true1089
-  %or.cond689 = or i1 %cmp100, %or.cond17517311740
+lor.lhs.false1091:                                ; preds = %lor.lhs.false1083
+  %49 = add i32 %sub.i, -20
+  %or.cond689 = icmp ult i32 %49, 3
   %or.cond691 = and i1 %cmp938, %or.cond689
   %or.cond693 = and i1 %cmp258, %or.cond691
   br i1 %or.cond693, label %cleanup, label %lor.lhs.false1101
 
-lor.lhs.false1101:                                ; preds = %lor.lhs.false1091
+lor.lhs.false1101:                                ; preds = %land.lhs.true1089, %lor.lhs.false1091
+  %or.cond6911746 = phi i1 [ %or.cond691, %lor.lhs.false1091 ], [ false, %land.lhs.true1089 ]
   %or.cond699 = and i1 %cmp938, %or.cond243
   %or.cond705 = and i1 %cmp938, %or.cond101
   %or.cond707 = and i1 %cmp618, %or.cond705
@@ -1722,8 +1730,7 @@ lor.lhs.false1129:                                ; preds = %lor.lhs.false1101
   br i1 %or.cond1688, label %cleanup, label %lor.lhs.false1169
 
 lor.lhs.false1169:                                ; preds = %lor.lhs.false1129
-  %36 = add i32 %sub.i, -2
-  %or.cond749 = icmp ult i32 %36, 4
+  %or.cond749 = icmp ult i32 %19, 4
   %or.cond751 = and i1 %or.cond749, %cmp721705170817161725
   %or.cond753 = and i1 %cmp324, %or.cond751
   br i1 %or.cond753, label %cleanup, label %lor.lhs.false1177
@@ -1763,13 +1770,13 @@ lor.lhs.false1207:                                ; preds = %lor.lhs.false1199, 
   br i1 %or.cond1692, label %cleanup, label %lor.lhs.false1243
 
 lor.lhs.false1243:                                ; preds = %lor.lhs.false1207
-  %or.cond805 = icmp ult i32 %27, 5
+  %or.cond805 = icmp ult i32 %38, 5
   %or.cond807 = and i1 %or.cond805, %cmp721705170817161725
   %or.cond809 = and i1 %cmp402, %or.cond807
   br i1 %or.cond809, label %cleanup, label %lor.lhs.false1251
 
 lor.lhs.false1251:                                ; preds = %lor.lhs.false1243
-  %or.cond813 = icmp ult i32 %16, 3
+  %or.cond813 = icmp ult i32 %20, 3
   %or.cond815 = and i1 %cmp938, %or.cond813
   %or.cond817 = and i1 %cmp410, %or.cond815
   %or.cond825 = and i1 %cmp420, %or.cond599
@@ -1777,7 +1784,7 @@ lor.lhs.false1251:                                ; preds = %lor.lhs.false1243
   %or.cond831 = and i1 %or.cond205, %cmp721705170817161725
   %or.cond833 = and i1 %cmp430, %or.cond831
   %or.cond1694 = or i1 %or.cond1693, %or.cond833
-  %or.cond841 = and i1 %cmp438, %or.cond691
+  %or.cond841 = and i1 %cmp438, %or.cond6911746
   %or.cond1695 = or i1 %or.cond1694, %or.cond841
   %or.cond849 = and i1 %cmp858, %or.cond699
   %or.cond1696 = or i1 %or.cond849, %or.cond1695
@@ -1797,8 +1804,7 @@ lor.lhs.false1301:                                ; preds = %lor.lhs.false1251
   br i1 %or.cond1699, label %cleanup, label %lor.lhs.false1339
 
 lor.lhs.false1339:                                ; preds = %lor.lhs.false1301
-  %37 = add i32 %sub.i, -14
-  %or.cond881 = icmp ult i32 %37, 4
+  %or.cond881 = icmp ult i32 %48, 4
   %or.cond883 = and i1 %cmp938, %or.cond881
   %or.cond885 = and i1 %cmp504, %or.cond883
   br i1 %or.cond885, label %cleanup, label %lor.lhs.false1347
@@ -1812,8 +1818,7 @@ lor.lhs.false1347:                                ; preds = %lor.lhs.false1339
   br i1 %or.cond1700, label %cleanup, label %lor.lhs.false1367
 
 lor.lhs.false1367:                                ; preds = %lor.lhs.false1347
-  %38 = add i32 %sub.i, -10
-  %or.cond903 = icmp ult i32 %38, 4
+  %or.cond903 = icmp ult i32 %35, 4
   %or.cond905 = and i1 %cmp938, %or.cond903
   %or.cond907 = and i1 %cmp532, %or.cond905
   br i1 %or.cond907, label %cleanup, label %lor.lhs.false1375
@@ -1830,8 +1835,8 @@ land.lhs.true1385:                                ; preds = %lor.lhs.false1375
 
 lor.lhs.false1387:                                ; preds = %lor.lhs.false1381
   %cmp1392 = icmp sgt i32 %call4, 2012
-  %39 = and i1 %cmp1392, %cmp721705170817161725
-  %or.cond919 = and i1 %cmp110, %39
+  %50 = and i1 %cmp1392, %cmp721705170817161725
+  %or.cond919 = and i1 %cmp110, %50
   br i1 %or.cond919, label %cleanup, label %lor.lhs.false1393
 
 lor.lhs.false1393:                                ; preds = %land.lhs.true1385, %lor.lhs.false1387
@@ -1839,8 +1844,8 @@ lor.lhs.false1393:                                ; preds = %land.lhs.true1385, 
 
 land.lhs.true1395:                                ; preds = %lor.lhs.false1393
   %cmp1402 = icmp sgt i32 %call4, 2020
-  %40 = and i1 %cmp1402, %cmp721705170817161725
-  %or.cond925 = and i1 %or.cond159, %40
+  %51 = and i1 %or.cond159, %cmp1402
+  %or.cond925 = and i1 %51, %cmp721705170817161725
   br i1 %or.cond925, label %cleanup, label %if.end
 
 if.end:                                           ; preds = %land.lhs.true1395, %lor.lhs.false1393

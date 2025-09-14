@@ -2731,11 +2731,11 @@ define hidden noundef zeroext i1 @is_cause_accepted(i8 noundef zeroext %0, i32 n
 
 4:                                                ; preds = %2
   %5 = and i8 %0, -4
-  %switch.selectcmp = icmp eq i8 %5, 16
+  %spec.select20 = icmp eq i8 %5, 16
   br label %6
 
-6:                                                ; preds = %4, %2, %3
-  %.0 = phi i1 [ %spec.select, %3 ], [ false, %2 ], [ %switch.selectcmp, %4 ]
+6:                                                ; preds = %2, %4, %3
+  %.0 = phi i1 [ %spec.select, %3 ], [ %spec.select20, %4 ], [ false, %2 ]
   ret i1 %.0
 }
 

@@ -960,18 +960,16 @@ lor.lhs.false25:                                  ; preds = %lor.lhs.false19
   br i1 %or.cond6, label %cleanup, label %lor.lhs.false33
 
 lor.lhs.false33:                                  ; preds = %lor.lhs.false25
-  %cmp36 = icmp eq i32 %call4, 12
-  %5 = and i32 %sub.i, -2
-  %or.cond746 = icmp eq i32 %5, 24
-  %cmp46 = icmp eq i32 %sub.i, 31
-  %6 = or i1 %cmp46, %or.cond746
-  %or.cond4148 = or i1 %cmp20, %6
-  %or.cond42 = and i1 %or.cond4148, %cmp36
-  %not.or.cond42 = xor i1 %or.cond42, true
+  %cmp36 = icmp ne i32 %call4, 12
+  %5 = add i32 %sub.i, -27
+  %or.cond4047 = icmp ult i32 %5, -3
+  %cmp46 = icmp ne i32 %sub.i, 31
+  %or.cond4148.not49 = and i1 %cmp46, %or.cond4047
+  %or.cond42.not = or i1 %or.cond4148.not49, %cmp36
   br label %cleanup
 
 cleanup:                                          ; preds = %lor.lhs.false33, %entry, %lor.lhs.false, %lor.lhs.false19, %lor.lhs.false25
-  %retval.0 = phi i1 [ false, %lor.lhs.false25 ], [ false, %lor.lhs.false19 ], [ false, %lor.lhs.false ], [ false, %entry ], [ %not.or.cond42, %lor.lhs.false33 ]
+  %retval.0 = phi i1 [ false, %lor.lhs.false25 ], [ false, %lor.lhs.false19 ], [ false, %lor.lhs.false ], [ false, %entry ], [ %or.cond42.not, %lor.lhs.false33 ]
   ret i1 %retval.0
 }
 

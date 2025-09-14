@@ -4833,11 +4833,9 @@ define dso_local ptr @LLVMIsACmpInst(ptr noundef readonly captures(address_is_nu
 
 2:                                                ; preds = %1
   %3 = load i8, ptr %0, align 8, !tbaa !207
-  %4 = icmp ugt i8 %3, 28
-  %5 = and i8 %3, -2
-  %spec.select.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %5, 82
-  %6 = and i1 %4, %spec.select.i.i.i.i.i.i.i.i.i.i
-  %spec.select.i.i.i = select i1 %6, ptr %0, ptr null
+  %4 = and i8 %3, -2
+  %5 = icmp eq i8 %4, 82
+  %spec.select.i.i.i = select i1 %5, ptr %0, ptr null
   br label %_ZN4llvm16dyn_cast_or_nullINS_7CmpInstENS_5ValueEEEDaPT0_.exit
 
 _ZN4llvm16dyn_cast_or_nullINS_7CmpInstENS_5ValueEEEDaPT0_.exit: ; preds = %1, %2
@@ -5204,11 +5202,9 @@ define dso_local ptr @LLVMIsAFuncletPadInst(ptr noundef readonly captures(addres
 
 2:                                                ; preds = %1
   %3 = load i8, ptr %0, align 8, !tbaa !207
-  %4 = icmp ugt i8 %3, 28
-  %5 = and i8 %3, -2
-  %6 = icmp eq i8 %5, 80
-  %7 = and i1 %4, %6
-  %spec.select.i.i.i = select i1 %7, ptr %0, ptr null
+  %4 = and i8 %3, -2
+  %5 = icmp eq i8 %4, 80
+  %spec.select.i.i.i = select i1 %5, ptr %0, ptr null
   br label %_ZN4llvm16dyn_cast_or_nullINS_14FuncletPadInstENS_5ValueEEEDaPT0_.exit
 
 _ZN4llvm16dyn_cast_or_nullINS_14FuncletPadInstENS_5ValueEEEDaPT0_.exit: ; preds = %1, %2
@@ -11070,36 +11066,34 @@ define dso_local ptr @LLVMGetPreviousDbgRecord(ptr noundef nonnull %0) local_unn
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local i32 @LLVMGetNumArgOperands(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load i8, ptr %0, align 8, !tbaa !207
-  %3 = icmp ugt i8 %2, 28
-  %4 = and i8 %2, -2
-  %5 = icmp eq i8 %4, 80
-  %6 = and i1 %3, %5
-  br i1 %6, label %7, label %12
+  %3 = and i8 %2, -2
+  %4 = icmp eq i8 %3, 80
+  br i1 %4, label %5, label %10
 
-7:                                                ; preds = %1
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %9 = load i32, ptr %8, align 4
-  %10 = and i32 %9, 134217727
-  %11 = add nsw i32 %10, -1
-  br label %25
+5:                                                ; preds = %1
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %7 = load i32, ptr %6, align 4
+  %8 = and i32 %7, 134217727
+  %9 = add nsw i32 %8, -1
+  br label %23
 
-12:                                               ; preds = %1
-  %13 = tail call noundef ptr @_ZN4llvm8CallBase7arg_endEv(ptr noundef nonnull align 8 dereferenceable(88) %0)
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %15 = load i32, ptr %14, align 4
-  %16 = and i32 %15, 134217727
-  %17 = zext nneg i32 %16 to i64
-  %18 = sub nsw i64 0, %17
-  %19 = getelementptr inbounds %"class.llvm::Use", ptr %0, i64 %18
-  %20 = ptrtoint ptr %13 to i64
-  %21 = ptrtoint ptr %19 to i64
-  %22 = sub i64 %20, %21
-  %23 = lshr exact i64 %22, 5
-  %24 = trunc i64 %23 to i32
-  br label %25
+10:                                               ; preds = %1
+  %11 = tail call noundef ptr @_ZN4llvm8CallBase7arg_endEv(ptr noundef nonnull align 8 dereferenceable(88) %0)
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %13 = load i32, ptr %12, align 4
+  %14 = and i32 %13, 134217727
+  %15 = zext nneg i32 %14 to i64
+  %16 = sub nsw i64 0, %15
+  %17 = getelementptr inbounds %"class.llvm::Use", ptr %0, i64 %16
+  %18 = ptrtoint ptr %11 to i64
+  %19 = ptrtoint ptr %17 to i64
+  %20 = sub i64 %18, %19
+  %21 = lshr exact i64 %20, 5
+  %22 = trunc i64 %21 to i32
+  br label %23
 
-25:                                               ; preds = %7, %12
-  %.1 = phi i32 [ %24, %12 ], [ %11, %7 ]
+23:                                               ; preds = %5, %10
+  %.1 = phi i32 [ %22, %10 ], [ %9, %5 ]
   ret i32 %.1
 }
 

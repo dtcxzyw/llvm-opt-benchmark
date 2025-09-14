@@ -1026,10 +1026,10 @@ mbedtls_ssl_get_groups.exit:                      ; preds = %8, %11
   %.not59 = icmp samesign ult i32 %3, 2
   %23 = and i32 %3, 1
   %.not63 = icmp eq i32 %23, 0
-  br i1 %.not59, label %.lr.ph.split.us, label %.lr.ph.split
+  br i1 %.not63, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
-  br i1 %.not63, label %select.unfold.us.us, label %.lr.ph.split.us.split
+  br i1 %.not59, label %select.unfold.us.us, label %.lr.ph.split.us.split
 
 select.unfold.us.us:                              ; preds = %.lr.ph.split.us, %select.unfold.us.us
   %24 = phi i16 [ %27, %select.unfold.us.us ], [ %22, %.lr.ph.split.us ]
@@ -1041,63 +1041,15 @@ select.unfold.us.us:                              ; preds = %.lr.ph.split.us, %s
   %.not57.us.us = icmp eq i16 %27, 0
   br i1 %.not57.us.us, label %._crit_edge.thread, label %select.unfold.us.us, !llvm.loop !79
 
-.lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %select.unfold.us
-  %28 = phi i16 [ %44, %select.unfold.us ], [ %22, %.lr.ph.split.us ]
-  %.051.ptr85.us = phi ptr [ %.051.ptr.us, %select.unfold.us ], [ %.051.ptr81, %.lr.ph.split.us ]
-  %.04784.us = phi ptr [ %43, %select.unfold.us ], [ %.0.i, %.lr.ph.split.us ]
-  %.051.idx83.us = phi i64 [ %.253.idx.us, %select.unfold.us ], [ 6, %.lr.ph.split.us ]
+.lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %46
+  %28 = phi i16 [ %48, %46 ], [ %22, %.lr.ph.split.us ]
+  %.051.ptr85.us = phi ptr [ %.051.ptr.us, %46 ], [ %.051.ptr81, %.lr.ph.split.us ]
+  %.04784.us = phi ptr [ %47, %46 ], [ %.0.i, %.lr.ph.split.us ]
+  %.051.idx83.us = phi i64 [ %.253.idx.us, %46 ], [ 6, %.lr.ph.split.us ]
   %29 = zext i16 %28 to i32
   tail call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 249, ptr noundef nonnull @.str.23, i32 noundef %29) #7
   %30 = load i16, ptr %.04784.us, align 2, !tbaa !78
-  %.off.us = add i16 %30, -18
-  %switch.us = icmp ult i16 %.off.us, 13
-  br i1 %switch.us, label %mbedtls_ssl_tls12_named_group_is_ecdhe.exit.thread.us, label %select.unfold.us
-
-mbedtls_ssl_tls12_named_group_is_ecdhe.exit.thread.us: ; preds = %.lr.ph.split.us.split
-  %31 = tail call i32 @mbedtls_ssl_get_ecp_group_id_from_tls_id(i16 noundef zeroext %30) #7
-  %.not65.us = icmp eq i32 %31, 0
-  br i1 %.not65.us, label %select.unfold.us, label %.thread.us
-
-.thread.us:                                       ; preds = %mbedtls_ssl_tls12_named_group_is_ecdhe.exit.thread.us
-  %32 = icmp ule ptr %.051.ptr85.us, %2
-  %33 = ptrtoint ptr %.051.ptr85.us to i64
-  %34 = sub i64 %16, %33
-  %35 = icmp ugt i64 %34, 1
-  %narrow.i70.not.us = and i1 %32, %35
-  br i1 %narrow.i70.not.us, label %36, label %.critedge
-
-36:                                               ; preds = %.thread.us
-  %37 = load i16, ptr %.04784.us, align 2, !tbaa !78
-  %38 = tail call i16 @llvm.bswap.i16(i16 %37)
-  store i16 %38, ptr %.051.ptr85.us, align 1
-  %.051.add.us = add nuw nsw i64 %.051.idx83.us, 2
-  %39 = load i16, ptr %.04784.us, align 2, !tbaa !78
-  %40 = tail call ptr @mbedtls_ssl_named_group_to_str(i16 noundef zeroext %39) #7
-  %41 = load i16, ptr %.04784.us, align 2, !tbaa !78
-  %42 = zext i16 %41 to i32
-  tail call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 283, ptr noundef nonnull @.str.24, ptr noundef %40, i32 noundef %42) #7
-  br label %select.unfold.us
-
-select.unfold.us:                                 ; preds = %.lr.ph.split.us.split, %36, %mbedtls_ssl_tls12_named_group_is_ecdhe.exit.thread.us
-  %.253.idx.us = phi i64 [ %.051.add.us, %36 ], [ %.051.idx83.us, %mbedtls_ssl_tls12_named_group_is_ecdhe.exit.thread.us ], [ %.051.idx83.us, %.lr.ph.split.us.split ]
-  %43 = getelementptr inbounds nuw i8, ptr %.04784.us, i64 2
-  %.051.ptr.us = getelementptr inbounds nuw i8, ptr %1, i64 %.253.idx.us
-  %44 = load i16, ptr %43, align 2, !tbaa !78
-  %.not57.us = icmp eq i16 %44, 0
-  br i1 %.not57.us, label %._crit_edge, label %.lr.ph.split.us.split, !llvm.loop !79
-
-.lr.ph.split:                                     ; preds = %.lr.ph
-  br i1 %.not63, label %.lr.ph.split.split.us, label %.lr.ph.split.split
-
-.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %63
-  %45 = phi i16 [ %65, %63 ], [ %22, %.lr.ph.split ]
-  %.051.ptr85.us86 = phi ptr [ %.051.ptr.us94, %63 ], [ %.051.ptr81, %.lr.ph.split ]
-  %.04784.us87 = phi ptr [ %64, %63 ], [ %.0.i, %.lr.ph.split ]
-  %.051.idx83.us88 = phi i64 [ %.253.idx.us93, %63 ], [ 6, %.lr.ph.split ]
-  %46 = zext i16 %45 to i32
-  tail call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 249, ptr noundef nonnull @.str.23, i32 noundef %46) #7
-  %47 = load i16, ptr %.04784.us87, align 2, !tbaa !78
-  switch i16 %47, label %select.unfold.us89 [
+  switch i16 %30, label %select.unfold.us [
     i16 29, label %mbedtls_ssl_tls13_named_group_is_ecdhe.exit.thread.us
     i16 25, label %mbedtls_ssl_tls13_named_group_is_ecdhe.exit.thread.us
     i16 24, label %mbedtls_ssl_tls13_named_group_is_ecdhe.exit.thread.us
@@ -1105,56 +1057,108 @@ select.unfold.us:                                 ; preds = %.lr.ph.split.us.spl
     i16 30, label %mbedtls_ssl_tls13_named_group_is_ecdhe.exit.thread.us
   ]
 
-mbedtls_ssl_tls13_named_group_is_ecdhe.exit.thread.us: ; preds = %.lr.ph.split.split.us, %.lr.ph.split.split.us, %.lr.ph.split.split.us, %.lr.ph.split.split.us, %.lr.ph.split.split.us
-  %48 = tail call i32 @mbedtls_ssl_get_ecp_group_id_from_tls_id(i16 noundef zeroext %47) #7
-  %.not61.not.us = icmp eq i32 %48, 0
-  %.pre104 = load i16, ptr %.04784.us87, align 2, !tbaa !78
-  br label %select.unfold.us89
+mbedtls_ssl_tls13_named_group_is_ecdhe.exit.thread.us: ; preds = %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split
+  %31 = tail call i32 @mbedtls_ssl_get_ecp_group_id_from_tls_id(i16 noundef zeroext %30) #7
+  %.not61.not.us = icmp eq i32 %31, 0
+  %.pre106 = load i16, ptr %.04784.us, align 2, !tbaa !78
+  br label %select.unfold.us
 
-select.unfold.us89:                               ; preds = %mbedtls_ssl_tls13_named_group_is_ecdhe.exit.thread.us, %.lr.ph.split.split.us
-  %49 = phi i16 [ %.pre104, %mbedtls_ssl_tls13_named_group_is_ecdhe.exit.thread.us ], [ %47, %.lr.ph.split.split.us ]
-  %.1.us = phi i1 [ %.not61.not.us, %mbedtls_ssl_tls13_named_group_is_ecdhe.exit.thread.us ], [ true, %.lr.ph.split.split.us ]
-  %50 = add i16 %49, -261
-  %51 = icmp ult i16 %50, -5
-  %52 = select i1 %51, i1 %.1.us, i1 false
-  br i1 %52, label %63, label %.thread.us90
+select.unfold.us:                                 ; preds = %mbedtls_ssl_tls13_named_group_is_ecdhe.exit.thread.us, %.lr.ph.split.us.split
+  %32 = phi i16 [ %.pre106, %mbedtls_ssl_tls13_named_group_is_ecdhe.exit.thread.us ], [ %30, %.lr.ph.split.us.split ]
+  %.1.us = phi i1 [ %.not61.not.us, %mbedtls_ssl_tls13_named_group_is_ecdhe.exit.thread.us ], [ true, %.lr.ph.split.us.split ]
+  %33 = add i16 %32, -261
+  %34 = icmp ult i16 %33, -5
+  %35 = select i1 %34, i1 %.1.us, i1 false
+  br i1 %35, label %46, label %.thread.us
 
-.thread.us90:                                     ; preds = %select.unfold.us89
-  %53 = icmp ule ptr %.051.ptr85.us86, %2
-  %54 = ptrtoint ptr %.051.ptr85.us86 to i64
-  %55 = sub i64 %16, %54
-  %56 = icmp ugt i64 %55, 1
-  %narrow.i70.not.us91 = and i1 %53, %56
-  br i1 %narrow.i70.not.us91, label %57, label %.critedge
+.thread.us:                                       ; preds = %select.unfold.us
+  %36 = icmp ule ptr %.051.ptr85.us, %2
+  %37 = ptrtoint ptr %.051.ptr85.us to i64
+  %38 = sub i64 %16, %37
+  %39 = icmp ugt i64 %38, 1
+  %narrow.i71.not.us = and i1 %36, %39
+  br i1 %narrow.i71.not.us, label %40, label %.critedge
 
-57:                                               ; preds = %.thread.us90
-  %58 = tail call i16 @llvm.bswap.i16(i16 %49)
-  store i16 %58, ptr %.051.ptr85.us86, align 1
-  %.051.add.us92 = add nuw nsw i64 %.051.idx83.us88, 2
-  %59 = load i16, ptr %.04784.us87, align 2, !tbaa !78
-  %60 = tail call ptr @mbedtls_ssl_named_group_to_str(i16 noundef zeroext %59) #7
-  %61 = load i16, ptr %.04784.us87, align 2, !tbaa !78
-  %62 = zext i16 %61 to i32
-  tail call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 283, ptr noundef nonnull @.str.24, ptr noundef %60, i32 noundef %62) #7
-  br label %63
+40:                                               ; preds = %.thread.us
+  %41 = tail call i16 @llvm.bswap.i16(i16 %32)
+  store i16 %41, ptr %.051.ptr85.us, align 1
+  %.051.add.us = add nuw nsw i64 %.051.idx83.us, 2
+  %42 = load i16, ptr %.04784.us, align 2, !tbaa !78
+  %43 = tail call ptr @mbedtls_ssl_named_group_to_str(i16 noundef zeroext %42) #7
+  %44 = load i16, ptr %.04784.us, align 2, !tbaa !78
+  %45 = zext i16 %44 to i32
+  tail call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 283, ptr noundef nonnull @.str.24, ptr noundef %43, i32 noundef %45) #7
+  br label %46
 
-63:                                               ; preds = %57, %select.unfold.us89
-  %.253.idx.us93 = phi i64 [ %.051.add.us92, %57 ], [ %.051.idx83.us88, %select.unfold.us89 ]
-  %64 = getelementptr inbounds nuw i8, ptr %.04784.us87, i64 2
-  %.051.ptr.us94 = getelementptr inbounds nuw i8, ptr %1, i64 %.253.idx.us93
-  %65 = load i16, ptr %64, align 2, !tbaa !78
-  %.not57.us95 = icmp eq i16 %65, 0
-  br i1 %.not57.us95, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !79
+46:                                               ; preds = %40, %select.unfold.us
+  %.253.idx.us = phi i64 [ %.051.add.us, %40 ], [ %.051.idx83.us, %select.unfold.us ]
+  %47 = getelementptr inbounds nuw i8, ptr %.04784.us, i64 2
+  %.051.ptr.us = getelementptr inbounds nuw i8, ptr %1, i64 %.253.idx.us
+  %48 = load i16, ptr %47, align 2, !tbaa !78
+  %.not57.us = icmp eq i16 %48, 0
+  br i1 %.not57.us, label %._crit_edge, label %.lr.ph.split.us.split, !llvm.loop !79
 
-.lr.ph.split.split:                               ; preds = %.lr.ph.split, %87
-  %66 = phi i16 [ %89, %87 ], [ %22, %.lr.ph.split ]
-  %.051.ptr85 = phi ptr [ %.051.ptr, %87 ], [ %.051.ptr81, %.lr.ph.split ]
-  %.04784 = phi ptr [ %88, %87 ], [ %.0.i, %.lr.ph.split ]
-  %.051.idx83 = phi i64 [ %.253.idx, %87 ], [ 6, %.lr.ph.split ]
-  %67 = zext i16 %66 to i32
-  tail call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 249, ptr noundef nonnull @.str.23, i32 noundef %67) #7
-  %68 = load i16, ptr %.04784, align 2, !tbaa !78
-  switch i16 %68, label %70 [
+.lr.ph.split:                                     ; preds = %.lr.ph
+  br i1 %.not59, label %.lr.ph.split.split.us, label %.lr.ph.split.split
+
+.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %select.unfold.us90
+  %49 = phi i16 [ %70, %select.unfold.us90 ], [ %22, %.lr.ph.split ]
+  %.051.ptr85.us86 = phi ptr [ %.051.ptr.us95, %select.unfold.us90 ], [ %.051.ptr81, %.lr.ph.split ]
+  %.04784.us87 = phi ptr [ %69, %select.unfold.us90 ], [ %.0.i, %.lr.ph.split ]
+  %.051.idx83.us88 = phi i64 [ %.253.idx.us94, %select.unfold.us90 ], [ 6, %.lr.ph.split ]
+  %50 = zext i16 %49 to i32
+  tail call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 249, ptr noundef nonnull @.str.23, i32 noundef %50) #7
+  %51 = load i16, ptr %.04784.us87, align 2, !tbaa !78
+  %52 = and i16 %51, -9
+  %53 = add i16 %52, -23
+  %or.cond26.i.us = icmp ult i16 %53, -5
+  %54 = add i16 %51, -26
+  %55 = icmp ult i16 %54, -3
+  %narrow.i70.not.us = and i1 %55, %or.cond26.i.us
+  br i1 %narrow.i70.not.us, label %select.unfold.us90, label %56
+
+56:                                               ; preds = %.lr.ph.split.split.us
+  %57 = tail call i32 @mbedtls_ssl_get_ecp_group_id_from_tls_id(i16 noundef zeroext %51) #7
+  %.not65.us = icmp eq i32 %57, 0
+  br i1 %.not65.us, label %select.unfold.us90, label %.thread.us91
+
+.thread.us91:                                     ; preds = %56
+  %58 = icmp ule ptr %.051.ptr85.us86, %2
+  %59 = ptrtoint ptr %.051.ptr85.us86 to i64
+  %60 = sub i64 %16, %59
+  %61 = icmp ugt i64 %60, 1
+  %narrow.i71.not.us92 = and i1 %58, %61
+  br i1 %narrow.i71.not.us92, label %62, label %.critedge
+
+62:                                               ; preds = %.thread.us91
+  %63 = load i16, ptr %.04784.us87, align 2, !tbaa !78
+  %64 = tail call i16 @llvm.bswap.i16(i16 %63)
+  store i16 %64, ptr %.051.ptr85.us86, align 1
+  %.051.add.us93 = add nuw nsw i64 %.051.idx83.us88, 2
+  %65 = load i16, ptr %.04784.us87, align 2, !tbaa !78
+  %66 = tail call ptr @mbedtls_ssl_named_group_to_str(i16 noundef zeroext %65) #7
+  %67 = load i16, ptr %.04784.us87, align 2, !tbaa !78
+  %68 = zext i16 %67 to i32
+  tail call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 283, ptr noundef nonnull @.str.24, ptr noundef %66, i32 noundef %68) #7
+  br label %select.unfold.us90
+
+select.unfold.us90:                               ; preds = %.lr.ph.split.split.us, %62, %56
+  %.253.idx.us94 = phi i64 [ %.051.add.us93, %62 ], [ %.051.idx83.us88, %56 ], [ %.051.idx83.us88, %.lr.ph.split.split.us ]
+  %69 = getelementptr inbounds nuw i8, ptr %.04784.us87, i64 2
+  %.051.ptr.us95 = getelementptr inbounds nuw i8, ptr %1, i64 %.253.idx.us94
+  %70 = load i16, ptr %69, align 2, !tbaa !78
+  %.not57.us96 = icmp eq i16 %70, 0
+  br i1 %.not57.us96, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !79
+
+.lr.ph.split.split:                               ; preds = %.lr.ph.split, %97
+  %71 = phi i16 [ %99, %97 ], [ %22, %.lr.ph.split ]
+  %.051.ptr85 = phi ptr [ %.051.ptr, %97 ], [ %.051.ptr81, %.lr.ph.split ]
+  %.04784 = phi ptr [ %98, %97 ], [ %.0.i, %.lr.ph.split ]
+  %.051.idx83 = phi i64 [ %.253.idx, %97 ], [ 6, %.lr.ph.split ]
+  %72 = zext i16 %71 to i32
+  tail call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 249, ptr noundef nonnull @.str.23, i32 noundef %72) #7
+  %73 = load i16, ptr %.04784, align 2, !tbaa !78
+  switch i16 %73, label %75 [
     i16 29, label %mbedtls_ssl_tls13_named_group_is_ecdhe.exit.thread
     i16 25, label %mbedtls_ssl_tls13_named_group_is_ecdhe.exit.thread
     i16 24, label %mbedtls_ssl_tls13_named_group_is_ecdhe.exit.thread
@@ -1163,91 +1167,95 @@ select.unfold.us89:                               ; preds = %mbedtls_ssl_tls13_n
   ]
 
 mbedtls_ssl_tls13_named_group_is_ecdhe.exit.thread: ; preds = %.lr.ph.split.split, %.lr.ph.split.split, %.lr.ph.split.split, %.lr.ph.split.split, %.lr.ph.split.split
-  %69 = tail call i32 @mbedtls_ssl_get_ecp_group_id_from_tls_id(i16 noundef zeroext %68) #7
-  %.not61.not = icmp eq i32 %69, 0
+  %74 = tail call i32 @mbedtls_ssl_get_ecp_group_id_from_tls_id(i16 noundef zeroext %73) #7
+  %.not61.not = icmp eq i32 %74, 0
   %.pre = load i16, ptr %.04784, align 2, !tbaa !78
-  br label %70
+  br label %75
 
-70:                                               ; preds = %.lr.ph.split.split, %mbedtls_ssl_tls13_named_group_is_ecdhe.exit.thread
-  %71 = phi i16 [ %.pre, %mbedtls_ssl_tls13_named_group_is_ecdhe.exit.thread ], [ %68, %.lr.ph.split.split ]
+75:                                               ; preds = %.lr.ph.split.split, %mbedtls_ssl_tls13_named_group_is_ecdhe.exit.thread
+  %76 = phi i16 [ %.pre, %mbedtls_ssl_tls13_named_group_is_ecdhe.exit.thread ], [ %73, %.lr.ph.split.split ]
   %.1 = phi i1 [ %.not61.not, %mbedtls_ssl_tls13_named_group_is_ecdhe.exit.thread ], [ true, %.lr.ph.split.split ]
-  %72 = add i16 %71, -261
-  %73 = icmp ult i16 %72, -5
-  %74 = select i1 %73, i1 %.1, i1 false
-  %.off = add i16 %71, -18
-  %switch = icmp ult i16 %.off, 13
-  br i1 %switch, label %mbedtls_ssl_tls12_named_group_is_ecdhe.exit.thread, label %select.unfold
+  %77 = add i16 %76, -261
+  %78 = icmp ult i16 %77, -5
+  %79 = select i1 %78, i1 %.1, i1 false
+  %80 = and i16 %76, -9
+  %81 = add i16 %80, -23
+  %or.cond26.i = icmp ult i16 %81, -5
+  %82 = add i16 %76, -26
+  %83 = icmp ult i16 %82, -3
+  %narrow.i70.not = and i1 %83, %or.cond26.i
+  br i1 %narrow.i70.not, label %select.unfold, label %84
 
-mbedtls_ssl_tls12_named_group_is_ecdhe.exit.thread: ; preds = %70
-  %75 = tail call i32 @mbedtls_ssl_get_ecp_group_id_from_tls_id(i16 noundef zeroext %71) #7
-  %.not65 = icmp eq i32 %75, 0
-  %or.cond = select i1 %.not65, i1 %74, i1 false
-  br i1 %or.cond, label %87, label %.thread
+84:                                               ; preds = %75
+  %85 = tail call i32 @mbedtls_ssl_get_ecp_group_id_from_tls_id(i16 noundef zeroext %76) #7
+  %.not65 = icmp eq i32 %85, 0
+  %or.cond = select i1 %.not65, i1 %79, i1 false
+  br i1 %or.cond, label %97, label %.thread
 
-select.unfold:                                    ; preds = %70
-  br i1 %74, label %87, label %.thread
+select.unfold:                                    ; preds = %75
+  br i1 %79, label %97, label %.thread
 
-.thread:                                          ; preds = %mbedtls_ssl_tls12_named_group_is_ecdhe.exit.thread, %select.unfold
-  %76 = icmp ule ptr %.051.ptr85, %2
-  %77 = ptrtoint ptr %.051.ptr85 to i64
-  %78 = sub i64 %16, %77
-  %79 = icmp ugt i64 %78, 1
-  %narrow.i70.not = and i1 %76, %79
-  br i1 %narrow.i70.not, label %80, label %.critedge
+.thread:                                          ; preds = %84, %select.unfold
+  %86 = icmp ule ptr %.051.ptr85, %2
+  %87 = ptrtoint ptr %.051.ptr85 to i64
+  %88 = sub i64 %16, %87
+  %89 = icmp ugt i64 %88, 1
+  %narrow.i71.not = and i1 %86, %89
+  br i1 %narrow.i71.not, label %90, label %.critedge
 
-80:                                               ; preds = %.thread
-  %81 = load i16, ptr %.04784, align 2, !tbaa !78
-  %82 = tail call i16 @llvm.bswap.i16(i16 %81)
-  store i16 %82, ptr %.051.ptr85, align 1
+90:                                               ; preds = %.thread
+  %91 = load i16, ptr %.04784, align 2, !tbaa !78
+  %92 = tail call i16 @llvm.bswap.i16(i16 %91)
+  store i16 %92, ptr %.051.ptr85, align 1
   %.051.add = add nuw nsw i64 %.051.idx83, 2
-  %83 = load i16, ptr %.04784, align 2, !tbaa !78
-  %84 = tail call ptr @mbedtls_ssl_named_group_to_str(i16 noundef zeroext %83) #7
-  %85 = load i16, ptr %.04784, align 2, !tbaa !78
-  %86 = zext i16 %85 to i32
-  tail call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 283, ptr noundef nonnull @.str.24, ptr noundef %84, i32 noundef %86) #7
-  br label %87
+  %93 = load i16, ptr %.04784, align 2, !tbaa !78
+  %94 = tail call ptr @mbedtls_ssl_named_group_to_str(i16 noundef zeroext %93) #7
+  %95 = load i16, ptr %.04784, align 2, !tbaa !78
+  %96 = zext i16 %95 to i32
+  tail call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 283, ptr noundef nonnull @.str.24, ptr noundef %94, i32 noundef %96) #7
+  br label %97
 
-87:                                               ; preds = %mbedtls_ssl_tls12_named_group_is_ecdhe.exit.thread, %80, %select.unfold
-  %.253.idx = phi i64 [ %.051.add, %80 ], [ %.051.idx83, %select.unfold ], [ %.051.idx83, %mbedtls_ssl_tls12_named_group_is_ecdhe.exit.thread ]
-  %88 = getelementptr inbounds nuw i8, ptr %.04784, i64 2
+97:                                               ; preds = %84, %90, %select.unfold
+  %.253.idx = phi i64 [ %.051.add, %90 ], [ %.051.idx83, %select.unfold ], [ %.051.idx83, %84 ]
+  %98 = getelementptr inbounds nuw i8, ptr %.04784, i64 2
   %.051.ptr = getelementptr inbounds nuw i8, ptr %1, i64 %.253.idx
-  %89 = load i16, ptr %88, align 2, !tbaa !78
-  %.not57 = icmp eq i16 %89, 0
+  %99 = load i16, ptr %98, align 2, !tbaa !78
+  %.not57 = icmp eq i16 %99, 0
   br i1 %.not57, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !79
 
-._crit_edge:                                      ; preds = %87, %63, %select.unfold.us
-  %.051.idx.lcssa = phi i64 [ %.253.idx.us, %select.unfold.us ], [ %.253.idx.us93, %63 ], [ %.253.idx, %87 ]
-  %90 = icmp eq i64 %.051.idx.lcssa, 6
-  br i1 %90, label %._crit_edge.thread, label %91
+._crit_edge:                                      ; preds = %97, %select.unfold.us90, %46
+  %.051.idx.lcssa = phi i64 [ %.253.idx.us, %46 ], [ %.253.idx.us94, %select.unfold.us90 ], [ %.253.idx, %97 ]
+  %100 = icmp eq i64 %.051.idx.lcssa, 6
+  br i1 %100, label %._crit_edge.thread, label %101
 
 ._crit_edge.thread:                               ; preds = %select.unfold.us.us, %.preheader, %._crit_edge
   tail call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull @.str, i32 noundef 290, ptr noundef nonnull @.str.25) #7
   br label %.critedge
 
-91:                                               ; preds = %._crit_edge
+101:                                              ; preds = %._crit_edge
   store i16 2560, ptr %1, align 1
-  %92 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %93 = add i64 %.051.idx.lcssa, -4
-  %94 = trunc i64 %93 to i16
-  %95 = tail call i16 @llvm.bswap.i16(i16 %94)
-  store i16 %95, ptr %92, align 1
-  %96 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %97 = trunc i64 %.051.idx.lcssa to i16
-  %98 = add i16 %97, -6
-  %99 = tail call i16 @llvm.bswap.i16(i16 %98)
-  store i16 %99, ptr %96, align 1
-  tail call void @mbedtls_debug_print_buf(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 302, ptr noundef nonnull @.str.26, ptr noundef nonnull %96, i64 noundef %93) #7
+  %102 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  %103 = add i64 %.051.idx.lcssa, -4
+  %104 = trunc i64 %103 to i16
+  %105 = tail call i16 @llvm.bswap.i16(i16 %104)
+  store i16 %105, ptr %102, align 1
+  %106 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %107 = trunc i64 %.051.idx.lcssa to i16
+  %108 = add i16 %107, -6
+  %109 = tail call i16 @llvm.bswap.i16(i16 %108)
+  store i16 %109, ptr %106, align 1
+  tail call void @mbedtls_debug_print_buf(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 302, ptr noundef nonnull @.str.26, ptr noundef nonnull %106, i64 noundef %103) #7
   store i64 %.051.idx.lcssa, ptr %4, align 8, !tbaa !60
-  %100 = tail call i32 @mbedtls_ssl_get_extension_mask(i32 noundef 10) #7
-  %101 = load ptr, ptr %6, align 8, !tbaa !16
-  %102 = getelementptr inbounds nuw i8, ptr %101, i64 3272
-  %103 = load i32, ptr %102, align 8, !tbaa !69
-  %104 = or i32 %103, %100
-  store i32 %104, ptr %102, align 8, !tbaa !69
+  %110 = tail call i32 @mbedtls_ssl_get_extension_mask(i32 noundef 10) #7
+  %111 = load ptr, ptr %6, align 8, !tbaa !16
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 3272
+  %113 = load i32, ptr %112, align 8, !tbaa !69
+  %114 = or i32 %113, %110
+  store i32 %114, ptr %112, align 8, !tbaa !69
   br label %.critedge
 
-.critedge:                                        ; preds = %.thread, %.thread.us90, %.thread.us, %20, %mbedtls_ssl_get_groups.exit, %91, %._crit_edge.thread
-  %.048 = phi i32 [ -27648, %._crit_edge.thread ], [ 0, %91 ], [ -27136, %mbedtls_ssl_get_groups.exit ], [ -24192, %20 ], [ -27136, %.thread.us ], [ -27136, %.thread.us90 ], [ -27136, %.thread ]
+.critedge:                                        ; preds = %.thread, %.thread.us91, %.thread.us, %20, %mbedtls_ssl_get_groups.exit, %101, %._crit_edge.thread
+  %.048 = phi i32 [ -27648, %._crit_edge.thread ], [ 0, %101 ], [ -27136, %mbedtls_ssl_get_groups.exit ], [ -24192, %20 ], [ -27136, %.thread.us ], [ -27136, %.thread.us91 ], [ -27136, %.thread ]
   ret i32 %.048
 }
 

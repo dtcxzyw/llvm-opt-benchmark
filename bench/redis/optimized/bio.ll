@@ -398,17 +398,14 @@ define dso_local noalias noundef nonnull ptr @bioProcessBackgroundJobs(ptr nound
   %74 = getelementptr inbounds nuw i8, ptr %37, i64 4
   %75 = load i32, ptr %74, align 4, !tbaa !61
   %76 = call i32 @close(i32 noundef %75) #11
-  br label %137
+  br label %139
 
 77:                                               ; preds = %34
   %78 = icmp eq i32 %39, 3
-  switch i32 %39, label %136 [
+  switch i32 %39, label %120 [
     i32 3, label %79
     i32 1, label %79
     i32 2, label %116
-    i32 6, label %120
-    i32 5, label %120
-    i32 4, label %120
   ]
 
 79:                                               ; preds = %77, %77
@@ -473,60 +470,65 @@ define dso_local noalias noundef nonnull ptr @bioProcessBackgroundJobs(ptr nound
   br label %112
 
 112:                                              ; preds = %102, %108, %98
-  br i1 %78, label %113, label %137
+  br i1 %78, label %113, label %139
 
 113:                                              ; preds = %112
   %114 = load i32, ptr %80, align 4, !tbaa !61
   %115 = call i32 @close(i32 noundef %114) #11
-  br label %137
+  br label %139
 
 116:                                              ; preds = %77
   %117 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %118 = load ptr, ptr %117, align 8, !tbaa !61
   %119 = getelementptr inbounds nuw i8, ptr %37, i64 16
   call void %118(ptr noundef nonnull %119) #11
-  br label %137
+  br label %139
 
-120:                                              ; preds = %77, %77, %77
-  %121 = call noalias dereferenceable_or_null(24) ptr @zmalloc(i64 noundef 24) #15
-  %122 = getelementptr inbounds nuw i8, ptr %37, i64 8
-  %123 = load ptr, ptr %122, align 8, !tbaa !61
-  store ptr %123, ptr %121, align 8, !tbaa !53
-  %124 = getelementptr inbounds nuw i8, ptr %37, i64 16
-  %125 = load i64, ptr %124, align 8, !tbaa !61
-  %126 = getelementptr inbounds nuw i8, ptr %121, i64 8
-  store i64 %125, ptr %126, align 8, !tbaa !55
-  %127 = getelementptr inbounds nuw i8, ptr %37, i64 24
-  %128 = load ptr, ptr %127, align 8, !tbaa !61
-  %129 = getelementptr inbounds nuw i8, ptr %121, i64 16
-  store ptr %128, ptr %129, align 8, !tbaa !56
-  %130 = call i32 @pthread_mutex_lock(ptr noundef nonnull @bio_mutex_comp) #11
-  %131 = load ptr, ptr @bio_comp_list, align 8, !tbaa !5
-  %132 = call ptr @listAddNodeTail(ptr noundef %131, ptr noundef nonnull %121) #11
-  %133 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @bio_mutex_comp) #11
-  %134 = load i32, ptr getelementptr inbounds nuw (i8, ptr @job_comp_pipe, i64 4), align 4, !tbaa !41
-  %135 = call i64 @write(i32 noundef %134, ptr noundef nonnull @.str.9, i64 noundef 1) #11
-  br label %137
+120:                                              ; preds = %77
+  %121 = add i32 %39, -4
+  %or.cond5 = icmp ult i32 %121, 3
+  br i1 %or.cond5, label %122, label %138
 
-136:                                              ; preds = %77
+122:                                              ; preds = %120
+  %123 = call noalias dereferenceable_or_null(24) ptr @zmalloc(i64 noundef 24) #15
+  %124 = getelementptr inbounds nuw i8, ptr %37, i64 8
+  %125 = load ptr, ptr %124, align 8, !tbaa !61
+  store ptr %125, ptr %123, align 8, !tbaa !53
+  %126 = getelementptr inbounds nuw i8, ptr %37, i64 16
+  %127 = load i64, ptr %126, align 8, !tbaa !61
+  %128 = getelementptr inbounds nuw i8, ptr %123, i64 8
+  store i64 %127, ptr %128, align 8, !tbaa !55
+  %129 = getelementptr inbounds nuw i8, ptr %37, i64 24
+  %130 = load ptr, ptr %129, align 8, !tbaa !61
+  %131 = getelementptr inbounds nuw i8, ptr %123, i64 16
+  store ptr %130, ptr %131, align 8, !tbaa !56
+  %132 = call i32 @pthread_mutex_lock(ptr noundef nonnull @bio_mutex_comp) #11
+  %133 = load ptr, ptr @bio_comp_list, align 8, !tbaa !5
+  %134 = call ptr @listAddNodeTail(ptr noundef %133, ptr noundef nonnull %123) #11
+  %135 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @bio_mutex_comp) #11
+  %136 = load i32, ptr getelementptr inbounds nuw (i8, ptr @job_comp_pipe, i64 4), align 4, !tbaa !41
+  %137 = call i64 @write(i32 noundef %136, ptr noundef nonnull @.str.9, i64 noundef 1) #11
+  br label %139
+
+138:                                              ; preds = %120
   call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.1, i32 noundef 356, ptr noundef nonnull @.str.10) #11
   call void @abort() #14
   unreachable
 
-137:                                              ; preds = %113, %112, %120, %116, %73
+139:                                              ; preds = %113, %112, %122, %116, %73
   call void @zfree(ptr noundef nonnull %37) #11
-  %138 = call i32 @pthread_mutex_lock(ptr noundef nonnull %12) #11
-  %139 = load ptr, ptr %25, align 8, !tbaa !5
-  call void @listDelNode(ptr noundef %139, ptr noundef nonnull %35) #11
-  %140 = zext nneg i32 %39 to i64
-  %141 = getelementptr inbounds nuw i64, ptr @bio_jobs_counter, i64 %140
-  %142 = load i64, ptr %141, align 8, !tbaa !43
-  %143 = add i64 %142, -1
-  store i64 %143, ptr %141, align 8, !tbaa !43
-  %144 = call i32 @pthread_cond_signal(ptr noundef nonnull %26) #11
+  %140 = call i32 @pthread_mutex_lock(ptr noundef nonnull %12) #11
+  %141 = load ptr, ptr %25, align 8, !tbaa !5
+  call void @listDelNode(ptr noundef %141, ptr noundef nonnull %35) #11
+  %142 = zext nneg i32 %39 to i64
+  %143 = getelementptr inbounds nuw i64, ptr @bio_jobs_counter, i64 %142
+  %144 = load i64, ptr %143, align 8, !tbaa !43
+  %145 = add i64 %144, -1
+  store i64 %145, ptr %143, align 8, !tbaa !43
+  %146 = call i32 @pthread_cond_signal(ptr noundef nonnull %26) #11
   br label %.backedge
 
-.backedge:                                        ; preds = %137, %32
+.backedge:                                        ; preds = %139, %32
   br label %27
 }
 

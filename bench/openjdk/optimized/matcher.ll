@@ -12650,8 +12650,8 @@ define hidden noundef zeroext i1 @_ZN7Matcher23post_store_load_barrierEPK4Node(p
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   br label %tailrecurse
 
-tailrecurse:                                      ; preds = %53, %1
-  %.tr = phi ptr [ %0, %1 ], [ %33, %53 ]
+tailrecurse:                                      ; preds = %54, %1
+  %.tr = phi ptr [ %0, %1 ], [ %33, %54 ]
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1808
   %5 = load ptr, ptr %4, align 8
@@ -12693,80 +12693,63 @@ tailrecurse:                                      ; preds = %53, %1
   %31 = zext i32 %30 to i64
   %.idx = shl nuw nsw i64 %31, 3
   %32 = getelementptr inbounds nuw i8, ptr %28, i64 %.idx
-  %.not133 = icmp eq i32 %30, 0
-  br i1 %.not133, label %.loopexit, label %.lr.ph
+  %.not104 = icmp eq i32 %30, 0
+  br i1 %.not104, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %26, %58
-  %.08392 = phi ptr [ %63, %58 ], [ %28, %26 ]
+.lr.ph:                                           ; preds = %26, %59
+  %.08392 = phi ptr [ %64, %59 ], [ %28, %26 ]
   %33 = load ptr, ptr %.08392, align 8
   %34 = load ptr, ptr %33, align 8
   %35 = load ptr, ptr %34, align 8
   %36 = tail call noundef i32 %35(ptr noundef nonnull align 8 dereferenceable(52) %33) #15
-  %37 = and i32 %36, -4
-  %38 = icmp eq i32 %37, 92
-  br i1 %38, label %.loopexit, label %switch.early.test
+  %37 = icmp eq i32 %36, 221
+  %38 = add i32 %36, -90
+  %39 = icmp ult i32 %38, 18
+  %or.cond35 = or i1 %37, %39
+  br i1 %or.cond35, label %.loopexit, label %40
 
-switch.early.test:                                ; preds = %.lr.ph
-  switch i32 %36, label %39 [
-    i32 221, label %.loopexit
-    i32 107, label %.loopexit
-    i32 106, label %.loopexit
-    i32 105, label %.loopexit
-    i32 104, label %.loopexit
-    i32 103, label %.loopexit
-    i32 102, label %.loopexit
-    i32 101, label %.loopexit
-    i32 100, label %.loopexit
-    i32 99, label %.loopexit
-    i32 98, label %.loopexit
-    i32 97, label %.loopexit
-    i32 96, label %.loopexit
-    i32 91, label %.loopexit
-    i32 90, label %.loopexit
-  ]
-
-39:                                               ; preds = %switch.early.test
-  %40 = load ptr, ptr @_ZN10BarrierSet12_barrier_setE, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 40
-  %42 = load ptr, ptr %41, align 8
+40:                                               ; preds = %.lr.ph
+  %41 = load ptr, ptr @_ZN10BarrierSet12_barrier_setE, align 8
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 40
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 312
-  %45 = load ptr, ptr %44, align 8
-  %46 = tail call noundef zeroext i1 %45(ptr noundef nonnull align 8 dereferenceable(8) %42, ptr noundef nonnull %33, i32 noundef %36) #15
-  %47 = icmp eq i32 %36, 170
-  %or.cond = or i1 %47, %46
-  br i1 %or.cond, label %.loopexit, label %48
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 312
+  %46 = load ptr, ptr %45, align 8
+  %47 = tail call noundef zeroext i1 %46(ptr noundef nonnull align 8 dereferenceable(8) %43, ptr noundef nonnull %33, i32 noundef %36) #15
+  %48 = icmp eq i32 %36, 170
+  %or.cond = or i1 %48, %47
+  br i1 %or.cond, label %.loopexit, label %49
 
-48:                                               ; preds = %39
-  %49 = getelementptr inbounds nuw i8, ptr %33, i64 44
-  %50 = load i32, ptr %49, align 4
-  %51 = and i32 %50, 31
-  %52 = icmp eq i32 %51, 17
-  br i1 %52, label %53, label %55
+49:                                               ; preds = %40
+  %50 = getelementptr inbounds nuw i8, ptr %33, i64 44
+  %51 = load i32, ptr %50, align 4
+  %52 = and i32 %51, 31
+  %53 = icmp eq i32 %52, 17
+  br i1 %53, label %54, label %56
 
-53:                                               ; preds = %48
-  %54 = add i32 %36, -213
-  %or.cond37 = icmp ult i32 %54, 2
+54:                                               ; preds = %49
+  %55 = add i32 %36, -213
+  %or.cond37 = icmp ult i32 %55, 2
   br i1 %or.cond37, label %.loopexit, label %tailrecurse
 
-55:                                               ; preds = %48
-  %56 = and i32 %50, 3
-  %57 = icmp eq i32 %56, 3
-  br i1 %57, label %.loopexit, label %58
+56:                                               ; preds = %49
+  %57 = and i32 %51, 3
+  %58 = icmp eq i32 %57, 3
+  br i1 %58, label %.loopexit, label %59
 
-58:                                               ; preds = %55
-  %59 = load ptr, ptr %33, align 8
-  %60 = getelementptr inbounds nuw i8, ptr %59, i64 32
-  %61 = load ptr, ptr %60, align 8
-  %62 = tail call noundef ptr %61(ptr noundef nonnull align 8 dereferenceable(52) %33) #15
-  %.not = icmp eq ptr %62, null
-  %63 = getelementptr inbounds nuw i8, ptr %.08392, i64 8
-  %64 = icmp ult ptr %63, %32
-  %or.cond132 = select i1 %.not, i1 %64, i1 false
-  br i1 %or.cond132, label %.lr.ph, label %.loopexit, !llvm.loop !54
+59:                                               ; preds = %56
+  %60 = load ptr, ptr %33, align 8
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 32
+  %62 = load ptr, ptr %61, align 8
+  %63 = tail call noundef ptr %62(ptr noundef nonnull align 8 dereferenceable(52) %33) #15
+  %.not = icmp eq ptr %63, null
+  %64 = getelementptr inbounds nuw i8, ptr %.08392, i64 8
+  %65 = icmp ult ptr %64, %32
+  %or.cond103 = select i1 %.not, i1 %65, i1 false
+  br i1 %or.cond103, label %.lr.ph, label %.loopexit, !llvm.loop !54
 
-.loopexit:                                        ; preds = %53, %26, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %.lr.ph, %39, %58, %55
-  %.0 = phi i1 [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %.lr.ph ], [ true, %39 ], [ false, %58 ], [ false, %55 ], [ false, %26 ], [ false, %53 ]
+.loopexit:                                        ; preds = %54, %26, %40, %.lr.ph, %59, %56
+  %.0 = phi i1 [ true, %40 ], [ true, %.lr.ph ], [ false, %59 ], [ false, %56 ], [ false, %26 ], [ false, %54 ]
   ret i1 %.0
 }
 

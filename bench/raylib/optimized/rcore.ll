@@ -21373,9 +21373,9 @@ define i32 @rlLoadTexture(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 no
   %13 = load i8, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2703), align 1, !range !3, !noundef !4
   %14 = trunc nuw i8 %13 to i1
   %15 = add i32 %3, -18
-  %switch = icmp ult i32 %15, -4
-  %or.cond82.not = or i1 %switch, %14
-  br i1 %or.cond82.not, label %17, label %16
+  %or.cond5 = icmp ult i32 %15, -4
+  %or.cond.not = or i1 %or.cond5, %14
+  br i1 %or.cond.not, label %17, label %16
 
 16:                                               ; preds = %5
   tail call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.40) #60
@@ -21397,8 +21397,8 @@ define i32 @rlLoadTexture(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 no
   %24 = trunc nuw i8 %23 to i1
   %25 = add i32 %3, -21
   %or.cond9 = icmp ult i32 %25, -2
-  %or.cond.not = or i1 %or.cond9, %24
-  br i1 %or.cond.not, label %27, label %26
+  %or.cond78.not = or i1 %or.cond9, %24
+  br i1 %or.cond78.not, label %27, label %26
 
 26:                                               ; preds = %22
   tail call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.42) #60
@@ -21409,8 +21409,8 @@ define i32 @rlLoadTexture(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 no
   %29 = trunc nuw i8 %28 to i1
   %30 = add i32 %3, -23
   %or.cond11 = icmp ult i32 %30, -2
-  %or.cond78.not = or i1 %or.cond11, %29
-  br i1 %or.cond78.not, label %32, label %31
+  %or.cond80.not = or i1 %or.cond11, %29
+  br i1 %or.cond80.not, label %32, label %31
 
 31:                                               ; preds = %27
   tail call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.43) #60
@@ -21421,8 +21421,8 @@ define i32 @rlLoadTexture(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 no
   %34 = trunc nuw i8 %33 to i1
   %35 = add i32 %3, -25
   %or.cond13 = icmp ult i32 %35, -2
-  %or.cond80.not = or i1 %or.cond13, %34
-  br i1 %or.cond80.not, label %37, label %36
+  %or.cond82.not = or i1 %or.cond13, %34
+  br i1 %or.cond82.not, label %37, label %36
 
 36:                                               ; preds = %32
   tail call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.44) #60
