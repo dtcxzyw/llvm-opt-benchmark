@@ -127,10 +127,10 @@ define internal range(i32 -27, 1) i32 @flex128_encode_int(i16 noundef zeroext %0
   %.0.copyload20 = load i16, ptr %1, align 1
   %.0.copyload20.lobit = lshr i16 %.0.copyload20, 15
   %spec.select = zext nneg i16 %.0.copyload20.lobit to i64
-  %.0.copyload20.lobit65 = ashr i16 %.0.copyload20, 15
-  %spec.select5166 = xor i16 %.0.copyload20.lobit65, %.0.copyload20
-  %spec.select51 = sext i16 %spec.select5166 to i64
-  %7 = shl nsw i64 %spec.select51, 1
+  %.0.copyload20.lobit67 = ashr i16 %.0.copyload20, 15
+  %spec.select5368 = xor i16 %.0.copyload20.lobit67, %.0.copyload20
+  %spec.select53 = sext i16 %spec.select5368 to i64
+  %7 = shl nsw i64 %spec.select53, 1
   %8 = or disjoint i64 %7, %spec.select
   br label %.preheader
 
@@ -142,12 +142,12 @@ define internal range(i32 -27, 1) i32 @flex128_encode_int(i16 noundef zeroext %0
 11:                                               ; preds = %4, %4
   %.0.copyload13 = load i32, ptr %1, align 1
   %.0.copyload13.lobit = lshr i32 %.0.copyload13, 31
-  %spec.select52 = zext nneg i32 %.0.copyload13.lobit to i64
-  %.0.copyload13.lobit63 = ashr i32 %.0.copyload13, 31
-  %spec.select5364 = xor i32 %.0.copyload13.lobit63, %.0.copyload13
-  %spec.select53 = sext i32 %spec.select5364 to i64
-  %12 = shl nsw i64 %spec.select53, 1
-  %13 = or disjoint i64 %12, %spec.select52
+  %spec.select54 = zext nneg i32 %.0.copyload13.lobit to i64
+  %.0.copyload13.lobit65 = ashr i32 %.0.copyload13, 31
+  %spec.select5566 = xor i32 %.0.copyload13.lobit65, %.0.copyload13
+  %spec.select55 = sext i32 %spec.select5566 to i64
+  %12 = shl nsw i64 %spec.select55, 1
+  %13 = or disjoint i64 %12, %spec.select54
   br label %.preheader
 
 14:                                               ; preds = %4, %4
@@ -158,8 +158,8 @@ define internal range(i32 -27, 1) i32 @flex128_encode_int(i16 noundef zeroext %0
 16:                                               ; preds = %4
   %.0.copyload6 = load i64, ptr %1, align 1
   %.0.copyload6.lobit = ashr i64 %.0.copyload6, 63
-  %spec.select54 = xor i64 %.0.copyload6.lobit, %.0.copyload6
-  %17 = tail call i64 @llvm.fshl.i64(i64 %spec.select54, i64 %.0.copyload6, i64 1)
+  %spec.select56 = xor i64 %.0.copyload6.lobit, %.0.copyload6
+  %17 = tail call i64 @llvm.fshl.i64(i64 %spec.select56, i64 %.0.copyload6, i64 1)
   br label %.preheader
 
 18:                                               ; preds = %4
@@ -214,9 +214,9 @@ flex_pack_integer.exit:                           ; preds = %.thread22.i, %31
   br label %34
 
 34:                                               ; preds = %flex_pack_integer.exit, %20
-  %.04560 = phi i32 [ 0, %flex_pack_integer.exit ], [ -27, %20 ]
+  %.04562 = phi i32 [ 0, %flex_pack_integer.exit ], [ -27, %20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  ret i32 %.04560
+  ret i32 %.04562
 }
 
 ; Function Attrs: nounwind uwtable

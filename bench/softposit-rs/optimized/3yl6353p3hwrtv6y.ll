@@ -88,7 +88,7 @@ define void @_ZN9softposit7quire163ops3fdp17h6da150bf3eda9608E(ptr noalias nound
   %10 = icmp eq i16 %1, 0
   %11 = icmp eq i16 %2, 0
   %or.cond5 = or i1 %10, %11
-  br i1 %or.cond5, label %54, label %12
+  br i1 %or.cond5, label %61, label %12
 
 12:                                               ; preds = %9
   %13 = and i16 %1, -32768
@@ -190,12 +190,12 @@ _ZN9softposit5p16e15P16E117separate_bits_tmp17hb53692effe90da8fE.exit64: ; preds
   %53 = icmp samesign ult i32 %49, 536870912
   br i1 %53, label %55, label %62
 
-.sink.split:                                      ; preds = %4, %78
+.sink.split:; preds = %4, %78
   %.sink = phi i128 [ %.039, %78 ], [ -170141183460469231731687303715884105728, %4 ]
   store i128 %.sink, ptr %0, align 16
-  br label %54
+  br label %61
 
-54:                                               ; preds = %.sink.split, %9
+61:                                               ; preds = %.sink.split, %9
   ret void
 
 55:                                               ; preds = %62, %_ZN9softposit5p16e15P16E117separate_bits_tmp17hb53692effe90da8fE.exit64
@@ -215,10 +215,10 @@ _ZN9softposit5p16e15P16E117separate_bits_tmp17hb53692effe90da8fE.exit64: ; preds
   %64 = zext i1 %63 to i8
   %spec.select49 = add i8 %.040, %64
   %65 = xor i8 %.037, 1
-  %66 = lshr exact i32 %49, 1
+  %67 = lshr exact i32 %49, 1
   br label %55
 
-67:                                               ; preds = %55
+68:                                               ; preds = %55
   %68 = sub nsw i16 0, %60
   %69 = zext nneg i32 %.035 to i128
   %70 = and i16 %68, 127
@@ -233,7 +233,7 @@ _ZN9softposit5p16e15P16E117separate_bits_tmp17hb53692effe90da8fE.exit64: ; preds
   %77 = shl i128 %74, %76
   br label %78
 
-78:                                               ; preds = %73, %67
+78:; preds = %73, %67
   %.036 = phi i128 [ %77, %73 ], [ %72, %67 ]
   %79 = xor i1 %14, %3
   %80 = xor i1 %15, %79

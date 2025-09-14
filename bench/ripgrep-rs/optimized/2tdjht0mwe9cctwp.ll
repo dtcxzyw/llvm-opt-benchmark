@@ -12796,30 +12796,30 @@ define hidden void @"_ZN4core3ptr64drop_in_place$LT$regex_automata..meta..error.
     i64 1, label %22
   ]
 
-"_ZN4core3ptr47drop_in_place$LT$regex_syntax..error..Error$GT$17h2588100e7ff0fac4E.llvm.12875954175451687458.exit.sink.split.i.i": ; preds = %22, %18, %17
+"_ZN4core3ptr47drop_in_place$LT$regex_syntax..error..Error$GT$17h2588100e7ff0fac4E.llvm.12875954175451687458.exit.sink.split.i.i": ; preds = %24, %20, %19
   %.sink.i.i = phi i64 [ 16, %18 ], [ 8, %17 ], [ 16, %22 ]
-  %.sink2.i.i = phi i64 [ %20, %18 ], [ %12, %17 ], [ %24, %22 ]
-  %15 = getelementptr inbounds nuw i8, ptr %11, i64 %.sink.i.i
-  %16 = load ptr, ptr %15, align 8, !alias.scope !5866, !noalias !4, !nonnull !4, !noundef !4
-  tail call void @__rust_dealloc(ptr noundef nonnull %16, i64 noundef %.sink2.i.i, i64 noundef 1) #24, !noalias !5866
+  %.sink2.i.i = phi i64 [ %22, %18 ], [ %12, %17 ], [ %26, %22 ]
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 %.sink.i.i
+  %18 = load ptr, ptr %17, align 8, !alias.scope !5866, !noalias !4, !nonnull !4, !noundef !4
+  tail call void @__rust_dealloc(ptr noundef nonnull %18, i64 noundef %.sink2.i.i, i64 noundef 1) #24, !noalias !5866
   br label %"_ZN4core3ptr47drop_in_place$LT$regex_syntax..error..Error$GT$17h2588100e7ff0fac4E.llvm.12875954175451687458.exit"
 
-17:                                               ; preds = %10
+19:                                               ; preds = %10
   switch i64 %12, label %"_ZN4core3ptr47drop_in_place$LT$regex_syntax..error..Error$GT$17h2588100e7ff0fac4E.llvm.12875954175451687458.exit.sink.split.i.i" [
-    i64 -9223372036854775808, label %18
+    i64 -9223372036854775808, label %20
     i64 0, label %"_ZN4core3ptr47drop_in_place$LT$regex_syntax..error..Error$GT$17h2588100e7ff0fac4E.llvm.12875954175451687458.exit"
   ]
 
-18:                                               ; preds = %17
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %20 = load i64, ptr %19, align 8, !alias.scope !5867, !noalias !5882, !noundef !4
-  %21 = icmp eq i64 %20, 0
-  br i1 %21, label %"_ZN4core3ptr47drop_in_place$LT$regex_syntax..error..Error$GT$17h2588100e7ff0fac4E.llvm.12875954175451687458.exit", label %"_ZN4core3ptr47drop_in_place$LT$regex_syntax..error..Error$GT$17h2588100e7ff0fac4E.llvm.12875954175451687458.exit.sink.split.i.i"
+20:                                               ; preds = %19
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %22 = load i64, ptr %21, align 8, !alias.scope !5867, !noalias !5882, !noundef !4
+  %23 = icmp eq i64 %22, 0
+  br i1 %23, label %"_ZN4core3ptr47drop_in_place$LT$regex_syntax..error..Error$GT$17h2588100e7ff0fac4E.llvm.12875954175451687458.exit", label %"_ZN4core3ptr47drop_in_place$LT$regex_syntax..error..Error$GT$17h2588100e7ff0fac4E.llvm.12875954175451687458.exit.sink.split.i.i"
 
-22:                                               ; preds = %10
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %24 = load i64, ptr %23, align 8, !range !5884, !alias.scope !5885, !noundef !4
-  switch i64 %24, label %"_ZN4core3ptr47drop_in_place$LT$regex_syntax..error..Error$GT$17h2588100e7ff0fac4E.llvm.12875954175451687458.exit.sink.split.i.i" [
+24:                                               ; preds = %10
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %26 = load i64, ptr %25, align 8, !range !5884, !alias.scope !5885, !noundef !4
+  switch i64 %26, label %"_ZN4core3ptr47drop_in_place$LT$regex_syntax..error..Error$GT$17h2588100e7ff0fac4E.llvm.12875954175451687458.exit.sink.split.i.i" [
     i64 -9223372036854775805, label %"_ZN4core3ptr47drop_in_place$LT$regex_syntax..error..Error$GT$17h2588100e7ff0fac4E.llvm.12875954175451687458.exit"
     i64 -9223372036854775806, label %"_ZN4core3ptr47drop_in_place$LT$regex_syntax..error..Error$GT$17h2588100e7ff0fac4E.llvm.12875954175451687458.exit"
     i64 -9223372036854775807, label %"_ZN4core3ptr47drop_in_place$LT$regex_syntax..error..Error$GT$17h2588100e7ff0fac4E.llvm.12875954175451687458.exit"
@@ -12827,7 +12827,7 @@ define hidden void @"_ZN4core3ptr64drop_in_place$LT$regex_automata..meta..error.
     i64 0, label %"_ZN4core3ptr47drop_in_place$LT$regex_syntax..error..Error$GT$17h2588100e7ff0fac4E.llvm.12875954175451687458.exit"
   ]
 
-"_ZN4core3ptr47drop_in_place$LT$regex_syntax..error..Error$GT$17h2588100e7ff0fac4E.llvm.12875954175451687458.exit": ; preds = %3, %22, %22, %22, %22, %22, %18, %17, %"_ZN4core3ptr47drop_in_place$LT$regex_syntax..error..Error$GT$17h2588100e7ff0fac4E.llvm.12875954175451687458.exit.sink.split.i.i", %10, %"_ZN4core3ptr45drop_in_place$LT$regex_syntax..ast..Error$GT$17h1232fb1d033e8e7aE.llvm.12875954175451687458.exit.sink.split.i", %4
+"_ZN4core3ptr47drop_in_place$LT$regex_syntax..error..Error$GT$17h2588100e7ff0fac4E.llvm.12875954175451687458.exit": ; preds = %3, %24, %24, %24, %24, %24, %20, %19, %"_ZN4core3ptr47drop_in_place$LT$regex_syntax..error..Error$GT$17h2588100e7ff0fac4E.llvm.12875954175451687458.exit.sink.split.i.i", %10, %"_ZN4core3ptr45drop_in_place$LT$regex_syntax..ast..Error$GT$17h1232fb1d033e8e7aE.llvm.12875954175451687458.exit.sink.split.i", %4
   ret void
 }
 
@@ -13827,30 +13827,30 @@ define hidden void @"_ZN4core3ptr69drop_in_place$LT$regex_automata..nfa..thompso
     i64 1, label %12
   ]
 
-"_ZN4core3ptr47drop_in_place$LT$regex_syntax..error..Error$GT$17h2588100e7ff0fac4E.llvm.12875954175451687458.exit.sink.split.i": ; preds = %12, %8, %7
+"_ZN4core3ptr47drop_in_place$LT$regex_syntax..error..Error$GT$17h2588100e7ff0fac4E.llvm.12875954175451687458.exit.sink.split.i": ; preds = %14, %10, %9
   %.sink.i = phi i64 [ 16, %8 ], [ 8, %7 ], [ 16, %12 ]
-  %.sink2.i = phi i64 [ %10, %8 ], [ %2, %7 ], [ %14, %12 ]
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink.i
-  %6 = load ptr, ptr %5, align 8, !alias.scope !6417, !noalias !4, !nonnull !4, !noundef !4
-  tail call void @__rust_dealloc(ptr noundef nonnull %6, i64 noundef %.sink2.i, i64 noundef 1) #24, !noalias !6417
+  %.sink2.i = phi i64 [ %12, %8 ], [ %2, %7 ], [ %16, %12 ]
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink.i
+  %8 = load ptr, ptr %7, align 8, !alias.scope !6417, !noalias !4, !nonnull !4, !noundef !4
+  tail call void @__rust_dealloc(ptr noundef nonnull %8, i64 noundef %.sink2.i, i64 noundef 1) #24, !noalias !6417
   br label %"_ZN4core3ptr73drop_in_place$LT$regex_automata..nfa..thompson..error..BuildErrorKind$GT$17h95ae075b12e966d2E.llvm.12875954175451687458.exit"
 
-7:                                                ; preds = %1
+9:                                                ; preds = %1
   switch i64 %2, label %"_ZN4core3ptr47drop_in_place$LT$regex_syntax..error..Error$GT$17h2588100e7ff0fac4E.llvm.12875954175451687458.exit.sink.split.i" [
-    i64 -9223372036854775808, label %8
+    i64 -9223372036854775808, label %10
     i64 0, label %"_ZN4core3ptr73drop_in_place$LT$regex_automata..nfa..thompson..error..BuildErrorKind$GT$17h95ae075b12e966d2E.llvm.12875954175451687458.exit"
   ]
 
-8:                                                ; preds = %7
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = load i64, ptr %9, align 8, !alias.scope !6420, !noalias !6435, !noundef !4
-  %11 = icmp eq i64 %10, 0
-  br i1 %11, label %"_ZN4core3ptr73drop_in_place$LT$regex_automata..nfa..thompson..error..BuildErrorKind$GT$17h95ae075b12e966d2E.llvm.12875954175451687458.exit", label %"_ZN4core3ptr47drop_in_place$LT$regex_syntax..error..Error$GT$17h2588100e7ff0fac4E.llvm.12875954175451687458.exit.sink.split.i"
+10:                                               ; preds = %9
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %12 = load i64, ptr %11, align 8, !alias.scope !6420, !noalias !6435, !noundef !4
+  %13 = icmp eq i64 %12, 0
+  br i1 %13, label %"_ZN4core3ptr73drop_in_place$LT$regex_automata..nfa..thompson..error..BuildErrorKind$GT$17h95ae075b12e966d2E.llvm.12875954175451687458.exit", label %"_ZN4core3ptr47drop_in_place$LT$regex_syntax..error..Error$GT$17h2588100e7ff0fac4E.llvm.12875954175451687458.exit.sink.split.i"
 
-12:                                               ; preds = %1
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %14 = load i64, ptr %13, align 8, !range !5884, !alias.scope !6437, !noundef !4
-  switch i64 %14, label %"_ZN4core3ptr47drop_in_place$LT$regex_syntax..error..Error$GT$17h2588100e7ff0fac4E.llvm.12875954175451687458.exit.sink.split.i" [
+14:                                               ; preds = %1
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %16 = load i64, ptr %15, align 8, !range !5884, !alias.scope !6437, !noundef !4
+  switch i64 %16, label %"_ZN4core3ptr47drop_in_place$LT$regex_syntax..error..Error$GT$17h2588100e7ff0fac4E.llvm.12875954175451687458.exit.sink.split.i" [
     i64 -9223372036854775805, label %"_ZN4core3ptr73drop_in_place$LT$regex_automata..nfa..thompson..error..BuildErrorKind$GT$17h95ae075b12e966d2E.llvm.12875954175451687458.exit"
     i64 -9223372036854775806, label %"_ZN4core3ptr73drop_in_place$LT$regex_automata..nfa..thompson..error..BuildErrorKind$GT$17h95ae075b12e966d2E.llvm.12875954175451687458.exit"
     i64 -9223372036854775807, label %"_ZN4core3ptr73drop_in_place$LT$regex_automata..nfa..thompson..error..BuildErrorKind$GT$17h95ae075b12e966d2E.llvm.12875954175451687458.exit"
@@ -13858,7 +13858,7 @@ define hidden void @"_ZN4core3ptr69drop_in_place$LT$regex_automata..nfa..thompso
     i64 0, label %"_ZN4core3ptr73drop_in_place$LT$regex_automata..nfa..thompson..error..BuildErrorKind$GT$17h95ae075b12e966d2E.llvm.12875954175451687458.exit"
   ]
 
-"_ZN4core3ptr73drop_in_place$LT$regex_automata..nfa..thompson..error..BuildErrorKind$GT$17h95ae075b12e966d2E.llvm.12875954175451687458.exit": ; preds = %12, %12, %12, %12, %12, %1, %"_ZN4core3ptr47drop_in_place$LT$regex_syntax..error..Error$GT$17h2588100e7ff0fac4E.llvm.12875954175451687458.exit.sink.split.i", %7, %8
+"_ZN4core3ptr73drop_in_place$LT$regex_automata..nfa..thompson..error..BuildErrorKind$GT$17h95ae075b12e966d2E.llvm.12875954175451687458.exit": ; preds = %14, %14, %14, %14, %14, %1, %"_ZN4core3ptr47drop_in_place$LT$regex_syntax..error..Error$GT$17h2588100e7ff0fac4E.llvm.12875954175451687458.exit.sink.split.i", %9, %10
   ret void
 }
 
@@ -14525,33 +14525,33 @@ define hidden void @"_ZN4core3ptr73drop_in_place$LT$regex_automata..nfa..thompso
     i64 1, label %12
   ]
 
-"_ZN4core3ptr47drop_in_place$LT$regex_syntax..error..Error$GT$17h2588100e7ff0fac4E.llvm.12875954175451687458.exit.sink.split": ; preds = %12, %8, %7
+"_ZN4core3ptr47drop_in_place$LT$regex_syntax..error..Error$GT$17h2588100e7ff0fac4E.llvm.12875954175451687458.exit.sink.split": ; preds = %14, %10, %9
   %.sink = phi i64 [ 16, %8 ], [ 8, %7 ], [ 16, %12 ]
-  %.sink2 = phi i64 [ %10, %8 ], [ %2, %7 ], [ %14, %12 ]
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink
-  %6 = load ptr, ptr %5, align 8, !noalias !4, !nonnull !4, !noundef !4
-  tail call void @__rust_dealloc(ptr noundef nonnull %6, i64 noundef %.sink2, i64 noundef 1) #24, !noalias !4
+  %.sink2 = phi i64 [ %12, %8 ], [ %2, %7 ], [ %16, %12 ]
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink
+  %8 = load ptr, ptr %7, align 8, !noalias !4, !nonnull !4, !noundef !4
+  tail call void @__rust_dealloc(ptr noundef nonnull %8, i64 noundef %.sink2, i64 noundef 1) #24, !noalias !4
   br label %"_ZN4core3ptr47drop_in_place$LT$regex_syntax..error..Error$GT$17h2588100e7ff0fac4E.llvm.12875954175451687458.exit"
 
-"_ZN4core3ptr47drop_in_place$LT$regex_syntax..error..Error$GT$17h2588100e7ff0fac4E.llvm.12875954175451687458.exit": ; preds = %12, %12, %12, %12, %12, %"_ZN4core3ptr47drop_in_place$LT$regex_syntax..error..Error$GT$17h2588100e7ff0fac4E.llvm.12875954175451687458.exit.sink.split", %7, %8, %1
+"_ZN4core3ptr47drop_in_place$LT$regex_syntax..error..Error$GT$17h2588100e7ff0fac4E.llvm.12875954175451687458.exit": ; preds = %14, %14, %14, %14, %14, %"_ZN4core3ptr47drop_in_place$LT$regex_syntax..error..Error$GT$17h2588100e7ff0fac4E.llvm.12875954175451687458.exit.sink.split", %9, %10, %1
   ret void
 
-7:                                                ; preds = %1
+9:                                                ; preds = %1
   switch i64 %2, label %"_ZN4core3ptr47drop_in_place$LT$regex_syntax..error..Error$GT$17h2588100e7ff0fac4E.llvm.12875954175451687458.exit.sink.split" [
-    i64 -9223372036854775808, label %8
+    i64 -9223372036854775808, label %10
     i64 0, label %"_ZN4core3ptr47drop_in_place$LT$regex_syntax..error..Error$GT$17h2588100e7ff0fac4E.llvm.12875954175451687458.exit"
   ]
 
-8:                                                ; preds = %7
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = load i64, ptr %9, align 8, !alias.scope !6801, !noalias !6816, !noundef !4
-  %11 = icmp eq i64 %10, 0
-  br i1 %11, label %"_ZN4core3ptr47drop_in_place$LT$regex_syntax..error..Error$GT$17h2588100e7ff0fac4E.llvm.12875954175451687458.exit", label %"_ZN4core3ptr47drop_in_place$LT$regex_syntax..error..Error$GT$17h2588100e7ff0fac4E.llvm.12875954175451687458.exit.sink.split"
+10:                                               ; preds = %9
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %12 = load i64, ptr %11, align 8, !alias.scope !6801, !noalias !6816, !noundef !4
+  %13 = icmp eq i64 %12, 0
+  br i1 %13, label %"_ZN4core3ptr47drop_in_place$LT$regex_syntax..error..Error$GT$17h2588100e7ff0fac4E.llvm.12875954175451687458.exit", label %"_ZN4core3ptr47drop_in_place$LT$regex_syntax..error..Error$GT$17h2588100e7ff0fac4E.llvm.12875954175451687458.exit.sink.split"
 
-12:                                               ; preds = %1
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %14 = load i64, ptr %13, align 8, !range !5884, !alias.scope !6818, !noundef !4
-  switch i64 %14, label %"_ZN4core3ptr47drop_in_place$LT$regex_syntax..error..Error$GT$17h2588100e7ff0fac4E.llvm.12875954175451687458.exit.sink.split" [
+14:                                               ; preds = %1
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %16 = load i64, ptr %15, align 8, !range !5884, !alias.scope !6818, !noundef !4
+  switch i64 %16, label %"_ZN4core3ptr47drop_in_place$LT$regex_syntax..error..Error$GT$17h2588100e7ff0fac4E.llvm.12875954175451687458.exit.sink.split" [
     i64 -9223372036854775805, label %"_ZN4core3ptr47drop_in_place$LT$regex_syntax..error..Error$GT$17h2588100e7ff0fac4E.llvm.12875954175451687458.exit"
     i64 -9223372036854775806, label %"_ZN4core3ptr47drop_in_place$LT$regex_syntax..error..Error$GT$17h2588100e7ff0fac4E.llvm.12875954175451687458.exit"
     i64 -9223372036854775807, label %"_ZN4core3ptr47drop_in_place$LT$regex_syntax..error..Error$GT$17h2588100e7ff0fac4E.llvm.12875954175451687458.exit"

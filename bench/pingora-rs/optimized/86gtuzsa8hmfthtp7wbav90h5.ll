@@ -284,8 +284,8 @@ _ZN14regex_automata4util8captures14GroupInfoInner9group_len17h2c5ac0eaea0e45baE.
 108:                                              ; preds = %105
   %109 = add i64 %104, -1
   %110 = add i64 %107, -1
-  %.not.i2 = icmp ugt i64 %109, %110
-  br i1 %.not.i2, label %111, label %_ZN14regex_automata4util8captures8Captures9get_match17h82dbec91cec8829cE.exit, !prof !37
+  %.not.i = icmp ugt i64 %109, %110
+  br i1 %.not.i, label %111, label %_ZN14regex_automata4util8captures8Captures9get_match17h82dbec91cec8829cE.exit, !prof !37
 
 111:                                              ; preds = %108
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !38
@@ -2620,8 +2620,8 @@ _ZN14regex_automata4util8captures14GroupInfoInner9group_len17h2c5ac0eaea0e45baE.
 195:                                              ; preds = %192
   %196 = add i64 %191, -1
   %197 = add i64 %194, -1
-  %.not.i2.i.i = icmp ugt i64 %196, %197
-  br i1 %.not.i2.i.i, label %198, label %199, !prof !37
+  %.not.i.i.i = icmp ugt i64 %196, %197
+  br i1 %.not.i.i.i, label %198, label %199, !prof !37
 
 198:                                              ; preds = %195
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !293

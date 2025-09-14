@@ -229,7 +229,7 @@ define noundef range(i32 0, 1114112) i32 @_ZN13sentencepiece11string_util10Decod
   store i64 1, ptr %2, align 8, !tbaa !14
   %10 = load i8, ptr %0, align 1, !tbaa !12
   %11 = zext i8 %10 to i32
-  br label %90
+  br label %91
 
 12:                                               ; preds = %3
   %13 = icmp ugt i64 %6, 1
@@ -256,7 +256,7 @@ define noundef range(i32 0, 1114112) i32 @_ZN13sentencepiece11string_util10Decod
   %26 = zext nneg i8 %25 to i32
   %27 = or disjoint i32 %20, %26
   store i64 2, ptr %2, align 8, !tbaa !14
-  br label %90
+  br label %91
 
 28:                                               ; preds = %14
   %.not = icmp eq i64 %6, 2
@@ -265,7 +265,7 @@ define noundef range(i32 0, 1114112) i32 @_ZN13sentencepiece11string_util10Decod
 29:                                               ; preds = %28
   %30 = and i32 %15, 240
   %31 = icmp eq i32 %30, 224
-  br i1 %31, label %32, label %55
+  br i1 %31, label %32, label %56
 
 32:                                               ; preds = %29
   %33 = shl nsw i32 %15, 12
@@ -296,65 +296,65 @@ define noundef range(i32 0, 1114112) i32 @_ZN13sentencepiece11string_util10Decod
   %53 = or i1 %52, %51
   br i1 %53, label %54, label %.thread55
 
-54:                                               ; preds = %50
+55:                                               ; preds = %50
   store i64 3, ptr %2, align 8, !tbaa !14
-  br label %90
+  br label %91
 
-55:                                               ; preds = %29
-  %56 = icmp ugt i64 %6, 3
-  %57 = and i32 %15, 248
-  %58 = icmp eq i32 %57, 240
-  %or.cond72 = and i1 %56, %58
-  br i1 %or.cond72, label %59, label %.thread55
+56:                                               ; preds = %29
+  %57 = icmp ugt i64 %6, 3
+  %58 = and i32 %15, 248
+  %59 = icmp eq i32 %58, 240
+  %or.cond72 = and i1 %57, %59
+  br i1 %or.cond72, label %60, label %.thread55
 
-59:                                               ; preds = %55
-  %60 = shl nsw i32 %15, 18
-  %61 = and i32 %60, 1835008
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %63 = load i8, ptr %62, align 1, !tbaa !12
-  %64 = and i8 %63, 63
-  %65 = zext nneg i8 %64 to i32
-  %66 = shl nuw nsw i32 %65, 12
-  %67 = or disjoint i32 %66, %61
-  %68 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %69 = load i8, ptr %68, align 1, !tbaa !12
-  %70 = and i8 %69, 63
-  %71 = zext nneg i8 %70 to i32
-  %72 = shl nuw nsw i32 %71, 6
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  %74 = load i8, ptr %73, align 1, !tbaa !12
-  %75 = and i8 %74, 63
-  %76 = zext nneg i8 %75 to i32
-  %77 = or disjoint i32 %72, %76
-  %78 = or disjoint i32 %77, %67
-  %79 = icmp slt i8 %63, -64
-  %80 = icmp slt i8 %69, -64
-  %or.cond64 = select i1 %79, i1 %80, i1 false
-  br i1 %or.cond64, label %81, label %.thread55
+60:                                               ; preds = %56
+  %61 = shl nsw i32 %15, 18
+  %62 = and i32 %61, 1835008
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %64 = load i8, ptr %63, align 1, !tbaa !12
+  %65 = and i8 %64, 63
+  %66 = zext nneg i8 %65 to i32
+  %67 = shl nuw nsw i32 %66, 12
+  %68 = or disjoint i32 %67, %62
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %70 = load i8, ptr %69, align 1, !tbaa !12
+  %71 = and i8 %70, 63
+  %72 = zext nneg i8 %71 to i32
+  %73 = shl nuw nsw i32 %72, 6
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 3
+  %75 = load i8, ptr %74, align 1, !tbaa !12
+  %76 = and i8 %75, 63
+  %77 = zext nneg i8 %76 to i32
+  %78 = or disjoint i32 %73, %77
+  %79 = or disjoint i32 %78, %68
+  %80 = icmp slt i8 %64, -64
+  %81 = icmp slt i8 %70, -64
+  %or.cond64 = select i1 %80, i1 %81, i1 false
+  br i1 %or.cond64, label %82, label %.thread55
 
-81:                                               ; preds = %59
-  %82 = icmp slt i8 %74, -64
-  %83 = icmp samesign ugt i32 %67, 65535
-  %or.cond7 = select i1 %82, i1 %83, i1 false
-  br i1 %or.cond7, label %84, label %.thread55
+82:                                               ; preds = %60
+  %83 = icmp slt i8 %75, -64
+  %84 = icmp samesign ugt i32 %68, 65535
+  %or.cond7 = select i1 %83, i1 %84, i1 false
+  br i1 %or.cond7, label %85, label %.thread55
 
-84:                                               ; preds = %81
-  %85 = icmp samesign ult i32 %78, 55296
-  %86 = add nsw i32 %67, -57344
-  %87 = icmp samesign ult i32 %86, 1056768
-  %88 = or i1 %87, %85
-  br i1 %88, label %89, label %.thread55
+85:                                               ; preds = %82
+  %86 = icmp samesign ult i32 %79, 55296
+  %87 = add nsw i32 %68, -57344
+  %88 = icmp samesign ult i32 %87, 1056768
+  %89 = or i1 %88, %86
+  br i1 %89, label %90, label %.thread55
 
-89:                                               ; preds = %84
+90:                                               ; preds = %85
   store i64 4, ptr %2, align 8, !tbaa !14
-  br label %90
+  br label %91
 
-.thread55:                                        ; preds = %59, %81, %84, %12, %28, %32, %47, %50, %18, %55
+.thread55:                                        ; preds = %60, %82, %85, %12, %28, %32, %47, %50, %18, %56
   store i64 1, ptr %2, align 8, !tbaa !14
-  br label %90
+  br label %91
 
-90:                                               ; preds = %89, %54, %.critedge, %.thread55, %9
-  %.0 = phi i32 [ %11, %9 ], [ 65533, %.thread55 ], [ %45, %54 ], [ %78, %89 ], [ %27, %.critedge ]
+91:                                               ; preds = %90, %55, %.critedge, %.thread55, %9
+  %.0 = phi i32 [ %11, %9 ], [ 65533, %.thread55 ], [ %45, %54 ], [ %79, %89 ], [ %27, %.critedge ]
   ret i32 %.0
 }
 
@@ -372,10 +372,10 @@ define noundef zeroext i1 @_ZN13sentencepiece11string_util19IsStructurallyValidE
   %7 = icmp ne i32 %6, 65533
   %8 = load i64, ptr %3, align 8
   %9 = icmp eq i64 %8, 3
-  %or.cond.not23 = select i1 %7, i1 true, i1 %9
+  %or.cond = select i1 %7, i1 true, i1 %9
   %10 = add nsw i32 %6, -57344
   %11 = icmp ult i32 %10, -2048
-  %or.cond20 = select i1 %or.cond.not23, i1 %11, i1 false
+  %or.cond20 = select i1 %or.cond, i1 %11, i1 false
   %12 = getelementptr inbounds nuw i8, ptr %.01014, i64 %8
   %.not = icmp ult ptr %12, %4
   %or.cond = select i1 %or.cond20, i1 %.not, i1 false

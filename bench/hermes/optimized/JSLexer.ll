@@ -2440,21 +2440,21 @@ if.end.i.i:                                       ; preds = %if.end
 if.end.i51:                                       ; preds = %if.end.i.i
   %add.ptr.i154 = getelementptr inbounds nuw i8, ptr %start, i64 4
   %sub.i156 = add i64 %sub.ptr.sub.i, -4
-  %15 = icmp ult i64 %sub.ptr.sub.i, 14
-  br i1 %15, label %if.end30, label %if.end.i.i80
+  %cmp.i76.not = icmp ult i64 %sub.ptr.sub.i, 14
+  br i1 %cmp.i76.not, label %if.end30, label %if.end.i.i80
 
 if.end.i.i80:                                     ; preds = %if.end.i51
   %bcmp29 = call i32 @bcmp(ptr noundef nonnull dereferenceable(10) %add.ptr.i154, ptr noundef nonnull dereferenceable(10) @.str.61, i64 10)
-  %16 = icmp eq i32 %bcmp29, 0
-  br i1 %16, label %if.end.i39, label %if.else
+  %15 = icmp eq i32 %bcmp29, 0
+  br i1 %15, label %if.end.i39, label %if.else
 
 if.end.i39:                                       ; preds = %if.end.i.i80
   %add.ptr.i137 = getelementptr inbounds nuw i8, ptr %start, i64 14
   %sub.i139 = add i64 %sub.ptr.sub.i, -14
-  %17 = load ptr, ptr %this, align 8
+  %16 = load ptr, ptr %this, align 8
   %bufId_ = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %18 = load i32, ptr %bufId_, align 8
-  call void @_ZN6hermes18SourceErrorManager12setSourceUrlEjN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(464) %17, i32 noundef %18, ptr nonnull %add.ptr.i137, i64 %sub.i139)
+  %17 = load i32, ptr %bufId_, align 8
+  call void @_ZN6hermes18SourceErrorManager12setSourceUrlEjN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(464) %16, i32 noundef %17, ptr nonnull %add.ptr.i137, i64 %sub.i139)
   br label %if.end30
 
 if.else:                                          ; preds = %if.end.i.i80
@@ -2463,16 +2463,16 @@ if.else:                                          ; preds = %if.end.i.i80
 
 if.end.i.i99:                                     ; preds = %if.else
   %bcmp30 = call i32 @bcmp(ptr noundef nonnull dereferenceable(17) %add.ptr.i154, ptr noundef nonnull dereferenceable(17) @.str.62, i64 17)
-  %19 = icmp eq i32 %bcmp30, 0
-  br i1 %19, label %if.end.i, label %if.end30
+  %18 = icmp eq i32 %bcmp30, 0
+  br i1 %18, label %if.end.i, label %if.end30
 
 if.end.i:                                         ; preds = %if.end.i.i99
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %start, i64 21
   %sub.i = add i64 %sub.ptr.sub.i, -21
-  %20 = load ptr, ptr %this, align 8
+  %19 = load ptr, ptr %this, align 8
   %bufId_27 = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %21 = load i32, ptr %bufId_27, align 8
-  call void @_ZN6hermes18SourceErrorManager19setSourceMappingUrlEjN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(464) %20, i32 noundef %21, ptr nonnull %add.ptr.i, i64 %sub.i)
+  %20 = load i32, ptr %bufId_27, align 8
+  call void @_ZN6hermes18SourceErrorManager19setSourceMappingUrlEjN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(464) %19, i32 noundef %20, ptr nonnull %add.ptr.i, i64 %sub.i)
   br label %if.end30
 
 if.end30:                                         ; preds = %if.end.i51, %if.else, %if.end.i.i99, %if.end, %if.end.i.i, %if.end.i, %if.end.i39

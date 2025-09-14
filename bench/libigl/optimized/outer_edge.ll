@@ -874,30 +874,30 @@ _ZN5Eigen8internal23check_size_for_overflowIlEEvm.exit.i.i.i: ; preds = %68
   %.fr = freeze i64 %94
   %95 = sext i32 %89 to i64
   %96 = icmp eq i64 %.fr, %95
-  br i1 %96, label %.thread, label %97
+  br i1 %96, label %103, label %97
 
 97:                                               ; preds = %82
   %98 = sext i32 %91 to i64
   %99 = icmp eq i64 %.fr, %98
-  br i1 %99, label %.thread, label %100
+  br i1 %99, label %103, label %100
 
 100:                                              ; preds = %97
   %101 = sext i32 %.fr61 to i64
   %102 = icmp eq i64 %.fr, %101
-  br i1 %102, label %104, label %.thread
+  br i1 %102, label %104, label %102
 
 .thread:                                          ; preds = %82, %97, %100
   %.0.i.ph = phi i64 [ -1, %100 ], [ 1, %97 ], [ 0, %82 ]
   %103 = add nsw i64 %.0.i.ph, 1
   br label %104
 
-104:                                              ; preds = %100, %.thread
-  %.0.i91 = phi i64 [ %.0.i.ph, %.thread ], [ 2, %100 ]
+103:                                              ; preds = %100, %102
+  %.0.i = phi i64 [ %.0.i, %.thread ], [ 2, %100 ]
   %105 = phi i64 [ %103, %.thread ], [ 0, %100 ]
   %106 = getelementptr inbounds i32, ptr %18, i64 %105
   %107 = load i32, ptr %106, align 4, !tbaa !78
-  %108 = add nsw i64 %.0.i91, 2
-  %.urem59 = add nsw i64 %.0.i91, -1
+  %108 = add nsw i64 %.0.i, 2
+  %.urem59 = add nsw i64 %.0.i, -1
   %.cmp60 = icmp samesign ult i64 %108, 3
   %109 = select i1 %.cmp60, i64 %108, i64 %.urem59
   %110 = getelementptr inbounds i32, ptr %18, i64 %109
@@ -906,7 +906,7 @@ _ZN5Eigen8internal23check_size_for_overflowIlEEvm.exit.i.i.i: ; preds = %68
   invoke void @_ZZN3igl8copyleft4cgal10outer_edgeIN5Eigen6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEEEELin1ELin1ELi1ELin1ELin1EEENS4_IiLin1ELin1ELi0ELin1ELin1EEENS4_IiLin1ELi1ELi0ELin1ELi1EEElNS4_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS3_10MatrixBaseIT_EERKNSP_IT0_EERKNSP_IT1_EERT2_S13_RNS3_15PlainObjectBaseIT3_EEENKUlllE_clEll(ptr noundef nonnull align 8 dereferenceable(64) %17, i64 noundef %111, i64 noundef %85)
           to label %113 unwind label %117
 
-113:                                              ; preds = %104
+113:                                              ; preds = %103
   %114 = sext i32 %112 to i64
   invoke void @_ZZN3igl8copyleft4cgal10outer_edgeIN5Eigen6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEEEELin1ELin1ELi1ELin1ELin1EEENS4_IiLin1ELin1ELi0ELin1ELin1EEENS4_IiLin1ELi1ELi0ELin1ELi1EEElNS4_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS3_10MatrixBaseIT_EERKNSP_IT0_EERKNSP_IT1_EERT2_S13_RNS3_15PlainObjectBaseIT3_EEENKUlllE_clEll(ptr noundef nonnull align 8 dereferenceable(64) %17, i64 noundef %114, i64 noundef %85)
           to label %115 unwind label %117
@@ -917,7 +917,7 @@ _ZN5Eigen8internal23check_size_for_overflowIlEEvm.exit.i.i.i: ; preds = %68
   %exitcond.not = icmp eq i64 %116, %53
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %82, !llvm.loop !79
 
-117:                                              ; preds = %113, %104
+117:                                              ; preds = %113, %103
   %118 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
@@ -2950,30 +2950,30 @@ _ZN5Eigen8internal23check_size_for_overflowIlEEvm.exit.i.i.i: ; preds = %67
   %.fr = freeze i64 %93
   %94 = sext i32 %88 to i64
   %95 = icmp eq i64 %.fr, %94
-  br i1 %95, label %.thread, label %96
+  br i1 %95, label %102, label %96
 
 96:                                               ; preds = %81
   %97 = sext i32 %90 to i64
   %98 = icmp eq i64 %.fr, %97
-  br i1 %98, label %.thread, label %99
+  br i1 %98, label %102, label %99
 
 99:                                               ; preds = %96
   %100 = sext i32 %.fr61 to i64
   %101 = icmp eq i64 %.fr, %100
-  br i1 %101, label %103, label %.thread
+  br i1 %101, label %102, label %102
 
-.thread:                                          ; preds = %81, %96, %99
-  %.0.i.ph = phi i64 [ -1, %99 ], [ 1, %96 ], [ 0, %81 ]
-  %102 = add nsw i64 %.0.i.ph, 1
-  br label %103
+102:                                              ; preds = %81, %96, %99
+  %.0.i = phi i64 [ -1, %99 ], [ 1, %96 ], [ 0, %81 ]
+  %103 = add nsw i64 %.0.i, 1
+  br label %102
 
-103:                                              ; preds = %99, %.thread
+103:; preds = %99, %103
   %.0.i91 = phi i64 [ %.0.i.ph, %.thread ], [ 2, %99 ]
   %104 = phi i64 [ %102, %.thread ], [ 0, %99 ]
   %105 = getelementptr inbounds i32, ptr %18, i64 %104
   %106 = load i32, ptr %105, align 4, !tbaa !78
-  %107 = add nsw i64 %.0.i91, 2
-  %.urem59 = add nsw i64 %.0.i91, -1
+  %107 = add nsw i64 %.0.i, 2
+  %.urem59 = add nsw i64 %.0.i, -1
   %.cmp60 = icmp samesign ult i64 %107, 3
   %108 = select i1 %.cmp60, i64 %107, i64 %.urem59
   %109 = getelementptr inbounds i32, ptr %18, i64 %108
@@ -2982,7 +2982,7 @@ _ZN5Eigen8internal23check_size_for_overflowIlEEvm.exit.i.i.i: ; preds = %67
   invoke void @_ZZN3igl8copyleft4cgal10outer_edgeIN5Eigen6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEEEELin1ELin1ELi0ELin1ELin1EEENS4_IiLin1ELin1ELi0ELin1ELin1EEENS4_IiLin1ELi1ELi0ELin1ELi1EEElNS4_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS3_10MatrixBaseIT_EERKNSP_IT0_EERKNSP_IT1_EERT2_S13_RNS3_15PlainObjectBaseIT3_EEENKUlllE_clEll(ptr noundef nonnull align 8 dereferenceable(64) %17, i64 noundef %110, i64 noundef %84)
           to label %112 unwind label %116
 
-112:                                              ; preds = %103
+112:                                              ; preds = %102
   %113 = sext i32 %111 to i64
   invoke void @_ZZN3igl8copyleft4cgal10outer_edgeIN5Eigen6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEEEELin1ELin1ELi0ELin1ELin1EEENS4_IiLin1ELin1ELi0ELin1ELin1EEENS4_IiLin1ELi1ELi0ELin1ELi1EEElNS4_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS3_10MatrixBaseIT_EERKNSP_IT0_EERKNSP_IT1_EERT2_S13_RNS3_15PlainObjectBaseIT3_EEENKUlllE_clEll(ptr noundef nonnull align 8 dereferenceable(64) %17, i64 noundef %113, i64 noundef %84)
           to label %114 unwind label %116
@@ -2993,7 +2993,7 @@ _ZN5Eigen8internal23check_size_for_overflowIlEEvm.exit.i.i.i: ; preds = %67
   %exitcond.not = icmp eq i64 %115, %52
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %81, !llvm.loop !142
 
-116:                                              ; preds = %112, %103
+116:                                              ; preds = %112, %102
   %117 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
@@ -4899,30 +4899,30 @@ _ZN5Eigen8internal23check_size_for_overflowIlEEvm.exit.i.i.i: ; preds = %67
   %.fr = freeze i64 %93
   %94 = sext i32 %88 to i64
   %95 = icmp eq i64 %.fr, %94
-  br i1 %95, label %.thread, label %96
+  br i1 %95, label %102, label %96
 
 96:                                               ; preds = %81
   %97 = sext i32 %90 to i64
   %98 = icmp eq i64 %.fr, %97
-  br i1 %98, label %.thread, label %99
+  br i1 %98, label %102, label %99
 
 99:                                               ; preds = %96
   %100 = sext i32 %.fr61 to i64
   %101 = icmp eq i64 %.fr, %100
-  br i1 %101, label %103, label %.thread
+  br i1 %101, label %102, label %102
 
 .thread:                                          ; preds = %81, %96, %99
   %.0.i.ph = phi i64 [ -1, %99 ], [ 1, %96 ], [ 0, %81 ]
   %102 = add nsw i64 %.0.i.ph, 1
   br label %103
 
-103:                                              ; preds = %99, %.thread
-  %.0.i91 = phi i64 [ %.0.i.ph, %.thread ], [ 2, %99 ]
+102:                                              ; preds = %99, %102
+  %.0.i = phi i64 [ %.0.i, %.thread ], [ 2, %99 ]
   %104 = phi i64 [ %102, %.thread ], [ 0, %99 ]
   %105 = getelementptr inbounds i32, ptr %18, i64 %104
   %106 = load i32, ptr %105, align 4, !tbaa !78
-  %107 = add nsw i64 %.0.i91, 2
-  %.urem59 = add nsw i64 %.0.i91, -1
+  %107 = add nsw i64 %.0.i, 2
+  %.urem59 = add nsw i64 %.0.i, -1
   %.cmp60 = icmp samesign ult i64 %107, 3
   %108 = select i1 %.cmp60, i64 %107, i64 %.urem59
   %109 = getelementptr inbounds i32, ptr %18, i64 %108
@@ -4931,7 +4931,7 @@ _ZN5Eigen8internal23check_size_for_overflowIlEEvm.exit.i.i.i: ; preds = %67
   invoke void @_ZZN3igl8copyleft4cgal10outer_edgeIN5Eigen6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEEEELin1ELin1ELi0ELin1ELin1EEENS4_IiLin1ELin1ELi0ELin1ELin1EEENS4_IlLin1ELi1ELi0ELin1ELi1EEElSN_EEvRKNS3_10MatrixBaseIT_EERKNSO_IT0_EERKNSO_IT1_EERT2_S12_RNS3_15PlainObjectBaseIT3_EEENKUlllE_clEll(ptr noundef nonnull align 8 dereferenceable(64) %17, i64 noundef %110, i64 noundef %84)
           to label %112 unwind label %116
 
-112:                                              ; preds = %103
+112:                                              ; preds = %102
   %113 = sext i32 %111 to i64
   invoke void @_ZZN3igl8copyleft4cgal10outer_edgeIN5Eigen6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEEEELin1ELin1ELi0ELin1ELin1EEENS4_IiLin1ELin1ELi0ELin1ELin1EEENS4_IlLin1ELi1ELi0ELin1ELi1EEElSN_EEvRKNS3_10MatrixBaseIT_EERKNSO_IT0_EERKNSO_IT1_EERT2_S12_RNS3_15PlainObjectBaseIT3_EEENKUlllE_clEll(ptr noundef nonnull align 8 dereferenceable(64) %17, i64 noundef %113, i64 noundef %84)
           to label %114 unwind label %116
@@ -4942,7 +4942,7 @@ _ZN5Eigen8internal23check_size_for_overflowIlEEvm.exit.i.i.i: ; preds = %67
   %exitcond.not = icmp eq i64 %115, %52
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %81, !llvm.loop !191
 
-116:                                              ; preds = %112, %103
+116:                                              ; preds = %112, %102
   %117 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
@@ -6795,30 +6795,30 @@ _ZN5Eigen8internal23check_size_for_overflowIlEEvm.exit.i.i.i: ; preds = %54
   %.fr = freeze i64 %74
   %75 = sext i32 %69 to i64
   %76 = icmp eq i64 %.fr, %75
-  br i1 %76, label %.thread, label %77
+  br i1 %76, label %103, label %77
 
 77:                                               ; preds = %62
   %78 = sext i32 %71 to i64
   %79 = icmp eq i64 %.fr, %78
-  br i1 %79, label %.thread, label %80
+  br i1 %79, label %103, label %80
 
 80:                                               ; preds = %77
   %81 = sext i32 %.fr58 to i64
   %82 = icmp eq i64 %.fr, %81
-  br i1 %82, label %84, label %.thread
+  br i1 %82, label %84, label %102
 
 .thread:                                          ; preds = %62, %77, %80
   %.0.i.ph = phi i64 [ -1, %80 ], [ 1, %77 ], [ 0, %62 ]
   %83 = add nsw i64 %.0.i.ph, 1
   br label %84
 
-84:                                               ; preds = %80, %.thread
-  %.0.i79 = phi i64 [ %.0.i.ph, %.thread ], [ 2, %80 ]
+83:                                               ; preds = %80, %102
+  %.0.i = phi i64 [ %.0.i, %.thread ], [ 2, %80 ]
   %85 = phi i64 [ %83, %.thread ], [ 0, %80 ]
   %86 = getelementptr inbounds i32, ptr %17, i64 %85
   %87 = load i32, ptr %86, align 4, !tbaa !78
-  %88 = add nsw i64 %.0.i79, 2
-  %.urem56 = add nsw i64 %.0.i79, -1
+  %88 = add nsw i64 %.0.i, 2
+  %.urem56 = add nsw i64 %.0.i, -1
   %.cmp57 = icmp samesign ult i64 %88, 3
   %89 = select i1 %.cmp57, i64 %88, i64 %.urem56
   %90 = getelementptr inbounds i32, ptr %17, i64 %89
@@ -6827,7 +6827,7 @@ _ZN5Eigen8internal23check_size_for_overflowIlEEvm.exit.i.i.i: ; preds = %54
   invoke void @_ZZN3igl8copyleft4cgal10outer_edgeIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS4_IiLin1ELin1ELi0ELin1ELin1EEES6_lNS4_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS3_10MatrixBaseIT_EERKNS8_IT0_EERKNS8_IT1_EERT2_SM_RNS3_15PlainObjectBaseIT3_EEENKUlllE_clEll(ptr noundef nonnull align 8 dereferenceable(64) %16, i64 noundef %91, i64 noundef %65)
           to label %93 unwind label %97
 
-93:                                               ; preds = %84
+93:                                               ; preds = %83
   %94 = sext i32 %92 to i64
   invoke void @_ZZN3igl8copyleft4cgal10outer_edgeIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS4_IiLin1ELin1ELi0ELin1ELin1EEES6_lNS4_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS3_10MatrixBaseIT_EERKNS8_IT0_EERKNS8_IT1_EERT2_SM_RNS3_15PlainObjectBaseIT3_EEENKUlllE_clEll(ptr noundef nonnull align 8 dereferenceable(64) %16, i64 noundef %94, i64 noundef %65)
           to label %95 unwind label %97
@@ -6838,7 +6838,7 @@ _ZN5Eigen8internal23check_size_for_overflowIlEEvm.exit.i.i.i: ; preds = %54
   %exitcond.not = icmp eq i64 %96, %39
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %62, !llvm.loop !251
 
-97:                                               ; preds = %93, %84
+97:                                               ; preds = %93, %83
   %98 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
@@ -7405,30 +7405,30 @@ _ZN5Eigen8internal23check_size_for_overflowIlEEvm.exit.i.i.i: ; preds = %54
   %.fr = freeze i64 %74
   %75 = sext i32 %69 to i64
   %76 = icmp eq i64 %.fr, %75
-  br i1 %76, label %.thread, label %77
+  br i1 %76, label %103, label %77
 
 77:                                               ; preds = %62
   %78 = sext i32 %71 to i64
   %79 = icmp eq i64 %.fr, %78
-  br i1 %79, label %.thread, label %80
+  br i1 %79, label %103, label %80
 
 80:                                               ; preds = %77
   %81 = sext i32 %.fr58 to i64
   %82 = icmp eq i64 %.fr, %81
-  br i1 %82, label %84, label %.thread
+  br i1 %82, label %84, label %102
 
 .thread:                                          ; preds = %62, %77, %80
   %.0.i.ph = phi i64 [ -1, %80 ], [ 1, %77 ], [ 0, %62 ]
   %83 = add nsw i64 %.0.i.ph, 1
   br label %84
 
-84:                                               ; preds = %80, %.thread
-  %.0.i79 = phi i64 [ %.0.i.ph, %.thread ], [ 2, %80 ]
+83:                                               ; preds = %80, %102
+  %.0.i = phi i64 [ %.0.i, %.thread ], [ 2, %80 ]
   %85 = phi i64 [ %83, %.thread ], [ 0, %80 ]
   %86 = getelementptr inbounds i32, ptr %17, i64 %85
   %87 = load i32, ptr %86, align 4, !tbaa !78
-  %88 = add nsw i64 %.0.i79, 2
-  %.urem56 = add nsw i64 %.0.i79, -1
+  %88 = add nsw i64 %.0.i, 2
+  %.urem56 = add nsw i64 %.0.i, -1
   %.cmp57 = icmp samesign ult i64 %88, 3
   %89 = select i1 %.cmp57, i64 %88, i64 %.urem56
   %90 = getelementptr inbounds i32, ptr %17, i64 %89
@@ -7437,7 +7437,7 @@ _ZN5Eigen8internal23check_size_for_overflowIlEEvm.exit.i.i.i: ; preds = %54
   invoke void @_ZZN3igl8copyleft4cgal10outer_edgeIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS4_IiLin1ELin1ELi0ELin1ELin1EEENS4_IiLin1ELi1ELi0ELin1ELi1EEElNS4_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS3_10MatrixBaseIT_EERKNS9_IT0_EERKNS9_IT1_EERT2_SN_RNS3_15PlainObjectBaseIT3_EEENKUlllE_clEll(ptr noundef nonnull align 8 dereferenceable(64) %16, i64 noundef %91, i64 noundef %65)
           to label %93 unwind label %97
 
-93:                                               ; preds = %84
+93:                                               ; preds = %83
   %94 = sext i32 %92 to i64
   invoke void @_ZZN3igl8copyleft4cgal10outer_edgeIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS4_IiLin1ELin1ELi0ELin1ELin1EEENS4_IiLin1ELi1ELi0ELin1ELi1EEElNS4_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS3_10MatrixBaseIT_EERKNS9_IT0_EERKNS9_IT1_EERT2_SN_RNS3_15PlainObjectBaseIT3_EEENKUlllE_clEll(ptr noundef nonnull align 8 dereferenceable(64) %16, i64 noundef %94, i64 noundef %65)
           to label %95 unwind label %97
@@ -7448,7 +7448,7 @@ _ZN5Eigen8internal23check_size_for_overflowIlEEvm.exit.i.i.i: ; preds = %54
   %exitcond.not = icmp eq i64 %96, %39
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %62, !llvm.loop !269
 
-97:                                               ; preds = %93, %84
+97:                                               ; preds = %93, %83
   %98 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
@@ -8015,30 +8015,30 @@ _ZN5Eigen8internal23check_size_for_overflowIlEEvm.exit.i.i.i: ; preds = %54
   %.fr = freeze i64 %74
   %75 = sext i32 %69 to i64
   %76 = icmp eq i64 %.fr, %75
-  br i1 %76, label %.thread, label %77
+  br i1 %76, label %103, label %77
 
 77:                                               ; preds = %62
   %78 = sext i32 %71 to i64
   %79 = icmp eq i64 %.fr, %78
-  br i1 %79, label %.thread, label %80
+  br i1 %79, label %103, label %80
 
 80:                                               ; preds = %77
   %81 = sext i32 %.fr57 to i64
   %82 = icmp eq i64 %.fr, %81
-  br i1 %82, label %84, label %.thread
+  br i1 %82, label %84, label %102
 
 .thread:                                          ; preds = %62, %77, %80
   %.0.i.ph = phi i64 [ -1, %80 ], [ 1, %77 ], [ 0, %62 ]
   %83 = add nsw i64 %.0.i.ph, 1
   br label %84
 
-84:                                               ; preds = %80, %.thread
-  %.0.i78 = phi i64 [ %.0.i.ph, %.thread ], [ 2, %80 ]
+83:                                               ; preds = %80, %102
+  %.0.i = phi i64 [ %.0.i, %.thread ], [ 2, %80 ]
   %85 = phi i64 [ %83, %.thread ], [ 0, %80 ]
   %86 = getelementptr inbounds i32, ptr %17, i64 %85
   %87 = load i32, ptr %86, align 4, !tbaa !78
-  %88 = add nsw i64 %.0.i78, 2
-  %.urem55 = add nsw i64 %.0.i78, -1
+  %88 = add nsw i64 %.0.i, 2
+  %.urem55 = add nsw i64 %.0.i, -1
   %.cmp56 = icmp samesign ult i64 %88, 3
   %89 = select i1 %.cmp56, i64 %88, i64 %.urem55
   %90 = getelementptr inbounds i32, ptr %17, i64 %89
@@ -8047,7 +8047,7 @@ _ZN5Eigen8internal23check_size_for_overflowIlEEvm.exit.i.i.i: ; preds = %54
   invoke void @_ZZN3igl8copyleft4cgal10outer_edgeIN5Eigen6MatrixIdLin1ELi3ELi0ELin1ELi3EEENS4_IiLin1ELi3ELi0ELin1ELi3EEENS4_IiLin1ELi1ELi0ELin1ELi1EEElNS4_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS3_10MatrixBaseIT_EERKNS9_IT0_EERKNS9_IT1_EERT2_SN_RNS3_15PlainObjectBaseIT3_EEENKUlllE_clEll(ptr noundef nonnull align 8 dereferenceable(64) %16, i64 noundef %91, i64 noundef %65)
           to label %93 unwind label %97
 
-93:                                               ; preds = %84
+93:                                               ; preds = %83
   %94 = sext i32 %92 to i64
   invoke void @_ZZN3igl8copyleft4cgal10outer_edgeIN5Eigen6MatrixIdLin1ELi3ELi0ELin1ELi3EEENS4_IiLin1ELi3ELi0ELin1ELi3EEENS4_IiLin1ELi1ELi0ELin1ELi1EEElNS4_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS3_10MatrixBaseIT_EERKNS9_IT0_EERKNS9_IT1_EERT2_SN_RNS3_15PlainObjectBaseIT3_EEENKUlllE_clEll(ptr noundef nonnull align 8 dereferenceable(64) %16, i64 noundef %94, i64 noundef %65)
           to label %95 unwind label %97
@@ -8058,7 +8058,7 @@ _ZN5Eigen8internal23check_size_for_overflowIlEEvm.exit.i.i.i: ; preds = %54
   %exitcond.not = icmp eq i64 %96, %39
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %62, !llvm.loop !295
 
-97:                                               ; preds = %93, %84
+97:                                               ; preds = %93, %83
   %98 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
@@ -8625,30 +8625,30 @@ _ZN5Eigen8internal23check_size_for_overflowIlEEvm.exit.i.i.i: ; preds = %54
   %.fr = freeze i64 %74
   %75 = sext i32 %69 to i64
   %76 = icmp eq i64 %.fr, %75
-  br i1 %76, label %.thread, label %77
+  br i1 %76, label %103, label %77
 
 77:                                               ; preds = %62
   %78 = sext i32 %71 to i64
   %79 = icmp eq i64 %.fr, %78
-  br i1 %79, label %.thread, label %80
+  br i1 %79, label %103, label %80
 
 80:                                               ; preds = %77
   %81 = sext i32 %.fr57 to i64
   %82 = icmp eq i64 %.fr, %81
-  br i1 %82, label %84, label %.thread
+  br i1 %82, label %84, label %102
 
 .thread:                                          ; preds = %62, %77, %80
   %.0.i.ph = phi i64 [ -1, %80 ], [ 1, %77 ], [ 0, %62 ]
   %83 = add nsw i64 %.0.i.ph, 1
   br label %84
 
-84:                                               ; preds = %80, %.thread
-  %.0.i78 = phi i64 [ %.0.i.ph, %.thread ], [ 2, %80 ]
+83:                                               ; preds = %80, %102
+  %.0.i = phi i64 [ %.0.i, %.thread ], [ 2, %80 ]
   %85 = phi i64 [ %83, %.thread ], [ 0, %80 ]
   %86 = getelementptr inbounds i32, ptr %17, i64 %85
   %87 = load i32, ptr %86, align 4, !tbaa !78
-  %88 = add nsw i64 %.0.i78, 2
-  %.urem55 = add nsw i64 %.0.i78, -1
+  %88 = add nsw i64 %.0.i, 2
+  %.urem55 = add nsw i64 %.0.i, -1
   %.cmp56 = icmp samesign ult i64 %88, 3
   %89 = select i1 %.cmp56, i64 %88, i64 %.urem55
   %90 = getelementptr inbounds i32, ptr %17, i64 %89
@@ -8657,7 +8657,7 @@ _ZN5Eigen8internal23check_size_for_overflowIlEEvm.exit.i.i.i: ; preds = %54
   invoke void @_ZZN3igl8copyleft4cgal10outer_edgeIN5Eigen6MatrixIdLin1ELi3ELi0ELin1ELi3EEENS4_IiLin1ELi3ELi0ELin1ELi3EEENS4_IlLin1ELi1ELi0ELin1ELi1EEElS7_EEvRKNS3_10MatrixBaseIT_EERKNS8_IT0_EERKNS8_IT1_EERT2_SM_RNS3_15PlainObjectBaseIT3_EEENKUlllE_clEll(ptr noundef nonnull align 8 dereferenceable(64) %16, i64 noundef %91, i64 noundef %65)
           to label %93 unwind label %97
 
-93:                                               ; preds = %84
+93:                                               ; preds = %83
   %94 = sext i32 %92 to i64
   invoke void @_ZZN3igl8copyleft4cgal10outer_edgeIN5Eigen6MatrixIdLin1ELi3ELi0ELin1ELi3EEENS4_IiLin1ELi3ELi0ELin1ELi3EEENS4_IlLin1ELi1ELi0ELin1ELi1EEElS7_EEvRKNS3_10MatrixBaseIT_EERKNS8_IT0_EERKNS8_IT1_EERT2_SM_RNS3_15PlainObjectBaseIT3_EEENKUlllE_clEll(ptr noundef nonnull align 8 dereferenceable(64) %16, i64 noundef %94, i64 noundef %65)
           to label %95 unwind label %97
@@ -8668,7 +8668,7 @@ _ZN5Eigen8internal23check_size_for_overflowIlEEvm.exit.i.i.i: ; preds = %54
   %exitcond.not = icmp eq i64 %96, %39
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %62, !llvm.loop !313
 
-97:                                               ; preds = %93, %84
+97:                                               ; preds = %93, %83
   %98 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %17)

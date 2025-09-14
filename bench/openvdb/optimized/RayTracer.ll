@@ -11005,8 +11005,8 @@ if.end4.i.i.i.i:                                  ; preds = %if.end.i.i.i.i
 
 land.rhs.i.i.i.i:                                 ; preds = %if.end4.i.i.i.i, %while.body.i.i.i.i
   %indvars.iv.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i, %while.body.i.i.i.i ], [ %idxprom.i.i.i.i, %if.end4.i.i.i.i ]
-  %.not.i.i.i.i = icmp eq i64 %indvars.iv.i.i.i.i, 511
-  br i1 %.not.i.i.i.i, label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEppEv.exit.thread, label %while.body.i.i.i.i
+  %exitcond.not.i.i.i.i = icmp eq i64 %indvars.iv.i.i.i.i, 511
+  br i1 %exitcond.not.i.i.i.i, label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEppEv.exit.thread, label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
@@ -11102,8 +11102,8 @@ if.end4.i.i.i.i44:                                ; preds = %if.end.i.i.i.i35
 
 land.rhs.i.i.i.i53:                               ; preds = %if.end4.i.i.i.i44, %while.body.i.i.i.i56
   %indvars.iv.i.i.i.i54 = phi i64 [ %indvars.iv.next.i.i.i.i57, %while.body.i.i.i.i56 ], [ %idxprom.i.i.i.i37, %if.end4.i.i.i.i44 ]
-  %.not.i.i.i.i55 = icmp eq i64 %indvars.iv.i.i.i.i54, 511
-  br i1 %.not.i.i.i.i55, label %for.end14, label %while.body.i.i.i.i56
+  %exitcond.not.i.i.i.i55 = icmp eq i64 %indvars.iv.i.i.i.i54, 511
+  br i1 %exitcond.not.i.i.i.i55, label %for.end14, label %while.body.i.i.i.i56
 
 while.body.i.i.i.i56:                             ; preds = %land.rhs.i.i.i.i53
   %indvars.iv.next.i.i.i.i57 = add nuw nsw i64 %indvars.iv.i.i.i.i54, 1
@@ -11276,8 +11276,8 @@ if.end4.i.i.i.i:                                  ; preds = %if.end.i.i.i.i
 
 land.rhs.i.i.i.i:                                 ; preds = %if.end4.i.i.i.i, %while.body.i.i.i.i
   %indvars.iv.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i, %while.body.i.i.i.i ], [ %idxprom.i.i.i.i, %if.end4.i.i.i.i ]
-  %.not.i.i.i.i = icmp eq i64 %indvars.iv.i.i.i.i, 63
-  br i1 %.not.i.i.i.i, label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIfLj3EEELj4EEEEppEv.exit.thread, label %while.body.i.i.i.i
+  %exitcond.not.i.i.i.i = icmp eq i64 %indvars.iv.i.i.i.i, 63
+  br i1 %exitcond.not.i.i.i.i, label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIfLj3EEELj4EEEEppEv.exit.thread, label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
@@ -11373,8 +11373,8 @@ if.end4.i.i.i.i44:                                ; preds = %if.end.i.i.i.i35
 
 land.rhs.i.i.i.i53:                               ; preds = %if.end4.i.i.i.i44, %while.body.i.i.i.i56
   %indvars.iv.i.i.i.i54 = phi i64 [ %indvars.iv.next.i.i.i.i57, %while.body.i.i.i.i56 ], [ %idxprom.i.i.i.i37, %if.end4.i.i.i.i44 ]
-  %.not.i.i.i.i55 = icmp eq i64 %indvars.iv.i.i.i.i54, 63
-  br i1 %.not.i.i.i.i55, label %for.end14, label %while.body.i.i.i.i56
+  %exitcond.not.i.i.i.i55 = icmp eq i64 %indvars.iv.i.i.i.i54, 63
+  br i1 %exitcond.not.i.i.i.i55, label %for.end14, label %while.body.i.i.i.i56
 
 while.body.i.i.i.i56:                             ; preds = %land.rhs.i.i.i.i53
   %indvars.iv.next.i.i.i.i57 = add nuw nsw i64 %indvars.iv.i.i.i.i54, 1
@@ -11583,8 +11583,8 @@ if.end4.i.i.i.i:                                  ; preds = %if.end.i.i.i.i
 
 land.rhs.i.i.i.i:                                 ; preds = %if.end4.i.i.i.i, %while.body.i.i.i.i
   %indvars.iv.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i, %while.body.i.i.i.i ], [ %idxprom.i.i.i.i, %if.end4.i.i.i.i ]
-  %.not.i.i.i.i = icmp eq i64 %indvars.iv.i.i.i.i, 7
-  br i1 %.not.i.i.i.i, label %for.end, label %while.body.i.i.i.i
+  %exitcond.not.i.i.i.i = icmp eq i64 %indvars.iv.i.i.i.i, 7
+  br i1 %exitcond.not.i.i.i.i, label %for.end, label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
@@ -50358,8 +50358,8 @@ if.end4.i.i.i.i:                                  ; preds = %if.end.i.i.i.i
 
 land.rhs.i.i.i.i:                                 ; preds = %if.end4.i.i.i.i, %while.body.i.i.i.i
   %indvars.iv.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i, %while.body.i.i.i.i ], [ %idxprom.i.i.i.i, %if.end4.i.i.i.i ]
-  %.not.i.i.i.i = icmp eq i64 %indvars.iv.i.i.i.i, 511
-  br i1 %.not.i.i.i.i, label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEppEv.exit.thread, label %while.body.i.i.i.i
+  %exitcond.not.i.i.i.i = icmp eq i64 %indvars.iv.i.i.i.i, 511
+  br i1 %exitcond.not.i.i.i.i, label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEppEv.exit.thread, label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
@@ -50455,8 +50455,8 @@ if.end4.i.i.i.i44:                                ; preds = %if.end.i.i.i.i35
 
 land.rhs.i.i.i.i53:                               ; preds = %if.end4.i.i.i.i44, %while.body.i.i.i.i56
   %indvars.iv.i.i.i.i54 = phi i64 [ %indvars.iv.next.i.i.i.i57, %while.body.i.i.i.i56 ], [ %idxprom.i.i.i.i37, %if.end4.i.i.i.i44 ]
-  %.not.i.i.i.i55 = icmp eq i64 %indvars.iv.i.i.i.i54, 511
-  br i1 %.not.i.i.i.i55, label %for.end14, label %while.body.i.i.i.i56
+  %exitcond.not.i.i.i.i55 = icmp eq i64 %indvars.iv.i.i.i.i54, 511
+  br i1 %exitcond.not.i.i.i.i55, label %for.end14, label %while.body.i.i.i.i56
 
 while.body.i.i.i.i56:                             ; preds = %land.rhs.i.i.i.i53
   %indvars.iv.next.i.i.i.i57 = add nuw nsw i64 %indvars.iv.i.i.i.i54, 1
@@ -50629,8 +50629,8 @@ if.end4.i.i.i.i:                                  ; preds = %if.end.i.i.i.i
 
 land.rhs.i.i.i.i:                                 ; preds = %if.end4.i.i.i.i, %while.body.i.i.i.i
   %indvars.iv.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i, %while.body.i.i.i.i ], [ %idxprom.i.i.i.i, %if.end4.i.i.i.i ]
-  %.not.i.i.i.i = icmp eq i64 %indvars.iv.i.i.i.i, 63
-  br i1 %.not.i.i.i.i, label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIdLj3EEELj4EEEEppEv.exit.thread, label %while.body.i.i.i.i
+  %exitcond.not.i.i.i.i = icmp eq i64 %indvars.iv.i.i.i.i, 63
+  br i1 %exitcond.not.i.i.i.i, label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIdLj3EEELj4EEEEppEv.exit.thread, label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
@@ -50726,8 +50726,8 @@ if.end4.i.i.i.i44:                                ; preds = %if.end.i.i.i.i35
 
 land.rhs.i.i.i.i53:                               ; preds = %if.end4.i.i.i.i44, %while.body.i.i.i.i56
   %indvars.iv.i.i.i.i54 = phi i64 [ %indvars.iv.next.i.i.i.i57, %while.body.i.i.i.i56 ], [ %idxprom.i.i.i.i37, %if.end4.i.i.i.i44 ]
-  %.not.i.i.i.i55 = icmp eq i64 %indvars.iv.i.i.i.i54, 63
-  br i1 %.not.i.i.i.i55, label %for.end14, label %while.body.i.i.i.i56
+  %exitcond.not.i.i.i.i55 = icmp eq i64 %indvars.iv.i.i.i.i54, 63
+  br i1 %exitcond.not.i.i.i.i55, label %for.end14, label %while.body.i.i.i.i56
 
 while.body.i.i.i.i56:                             ; preds = %land.rhs.i.i.i.i53
   %indvars.iv.next.i.i.i.i57 = add nuw nsw i64 %indvars.iv.i.i.i.i54, 1
@@ -50936,8 +50936,8 @@ if.end4.i.i.i.i:                                  ; preds = %if.end.i.i.i.i
 
 land.rhs.i.i.i.i:                                 ; preds = %if.end4.i.i.i.i, %while.body.i.i.i.i
   %indvars.iv.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i, %while.body.i.i.i.i ], [ %idxprom.i.i.i.i, %if.end4.i.i.i.i ]
-  %.not.i.i.i.i = icmp eq i64 %indvars.iv.i.i.i.i, 7
-  br i1 %.not.i.i.i.i, label %for.end, label %while.body.i.i.i.i
+  %exitcond.not.i.i.i.i = icmp eq i64 %indvars.iv.i.i.i.i, 7
+  br i1 %exitcond.not.i.i.i.i, label %for.end, label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1

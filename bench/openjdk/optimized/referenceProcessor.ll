@@ -466,12 +466,12 @@ _ZN14CompilerConfig31is_c2_or_jvmci_compiler_enabledEv.exit: ; preds = %0
   br label %18
 
 _ZN14CompilerConfig31is_c2_or_jvmci_compiler_enabledEv.exit.thread: ; preds = %0, %_ZN14CompilerConfig31is_c2_or_jvmci_compiler_enabledEv.exit
-  %17 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 16, i8 noundef zeroext 5, i32 noundef 0) #17
-  tail call void @_ZN20LRUCurrentHeapPolicyC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %17) #17
-  br label %18
+  %18 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 16, i8 noundef zeroext 5, i32 noundef 0) #17
+  tail call void @_ZN20LRUCurrentHeapPolicyC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %18) #17
+  br label %19
 
-18:                                               ; preds = %_ZN14CompilerConfig31is_c2_or_jvmci_compiler_enabledEv.exit.thread, %15
-  %storemerge = phi ptr [ %17, %_ZN14CompilerConfig31is_c2_or_jvmci_compiler_enabledEv.exit.thread ], [ %16, %15 ]
+19:                                               ; preds = %_ZN14CompilerConfig31is_c2_or_jvmci_compiler_enabledEv.exit.thread, %15
+  %storemerge = phi ptr [ %18, %_ZN14CompilerConfig31is_c2_or_jvmci_compiler_enabledEv.exit.thread ], [ %16, %15 ]
   store ptr %storemerge, ptr @_ZN18ReferenceProcessor24_default_soft_ref_policyE, align 8
   ret void
 }

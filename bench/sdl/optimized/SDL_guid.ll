@@ -16,7 +16,7 @@ define hidden void @SDL_GUIDToString_REAL(i64 %0, i64 %1, ptr noundef writeonly 
   %7 = icmp eq ptr %2, null
   %8 = icmp slt i32 %3, 1
   %or.cond = or i1 %7, %8
-  br i1 %or.cond, label %25, label %.preheader
+  br i1 %or.cond, label %24, label %.preheader
 
 .preheader:                                       ; preds = %4
   %9 = icmp samesign ult i32 %3, 3
@@ -31,32 +31,32 @@ define hidden void @SDL_GUIDToString_REAL(i64 %0, i64 %1, ptr noundef writeonly 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.019 = phi ptr [ %2, %.lr.ph.preheader ], [ %24, %.lr.ph ]
-  %12 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv
-  %13 = load i8, ptr %12, align 1
-  %14 = zext i8 %13 to i32
-  %15 = lshr i32 %14, 4
-  %16 = zext nneg i32 %15 to i64
-  %17 = getelementptr inbounds nuw i8, ptr @SDL_GUIDToString_REAL.k_rgchHexToASCII, i64 %16
-  %18 = load i8, ptr %17, align 1
-  %19 = getelementptr inbounds nuw i8, ptr %.019, i64 1
-  store i8 %18, ptr %.019, align 1
-  %20 = and i32 %14, 15
-  %21 = zext nneg i32 %20 to i64
-  %22 = getelementptr inbounds nuw i8, ptr @SDL_GUIDToString_REAL.k_rgchHexToASCII, i64 %21
-  %23 = load i8, ptr %22, align 1
-  %24 = getelementptr inbounds nuw i8, ptr %.019, i64 2
-  store i8 %23, ptr %19, align 1
+  %.019 = phi ptr [ %2, %.lr.ph.preheader ], [ %23, %.lr.ph ]
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv
+  %12 = load i8, ptr %11, align 1
+  %13 = zext i8 %12 to i32
+  %14 = lshr i32 %13, 4
+  %15 = zext nneg i32 %14 to i64
+  %16 = getelementptr inbounds nuw i8, ptr @SDL_GUIDToString_REAL.k_rgchHexToASCII, i64 %15
+  %17 = load i8, ptr %16, align 1
+  %18 = getelementptr inbounds nuw i8, ptr %.019, i64 1
+  store i8 %17, ptr %.019, align 1
+  %19 = and i32 %13, 15
+  %20 = zext nneg i32 %19 to i64
+  %21 = getelementptr inbounds nuw i8, ptr @SDL_GUIDToString_REAL.k_rgchHexToASCII, i64 %20
+  %22 = load i8, ptr %21, align 1
+  %23 = getelementptr inbounds nuw i8, ptr %.019, i64 2
+  store i8 %22, ptr %18, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !3
 
 .critedge:                                        ; preds = %.lr.ph, %.preheader
-  %.0.lcssa = phi ptr [ %2, %.preheader ], [ %24, %.lr.ph ]
+  %.0.lcssa = phi ptr [ %2, %.preheader ], [ %23, %.lr.ph ]
   store i8 0, ptr %.0.lcssa, align 1
-  br label %25
+  br label %24
 
-25:                                               ; preds = %4, %.critedge
+24:                                               ; preds = %4, %.critedge
   ret void
 }
 

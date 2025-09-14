@@ -5877,7 +5877,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN13CompileReplay19is_valid_comp
   %7 = load i64, ptr @TieredStopAtLevel, align 8
   %8 = icmp eq i64 %7, 0
   %9 = select i1 %6, i1 true, i1 %8
-  br i1 %.not24, label %24, label %10
+  br i1 %.not24, label %25, label %10
 
 10:                                               ; preds = %4
   br i1 %9, label %_ZN14CompilerConfig13is_c1_enabledEv.exit.thread13, label %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i.i.i
@@ -5897,23 +5897,23 @@ _ZN14CompilerConfig10is_c1_onlyEv.exit.i.i.i.i:   ; preds = %10
 
 _ZN14CompilerConfig10is_c2_onlyEv.exit.thread.thread.i.i: ; preds = %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i.i.i
   %.not.i.i = xor i1 %18, true
-  %20 = icmp ne i32 %14, 2
-  %21 = and i1 %20, %12
-  %22 = or i1 %21, %.not.i.i
-  %or.cond = or i1 %16, %22
+  %21 = icmp ne i32 %14, 2
+  %22 = and i1 %21, %12
+  %23 = or i1 %22, %.not.i.i
+  %or.cond = or i1 %16, %23
   br i1 %or.cond, label %.thread15, label %_ZN14CompilerConfig13is_c1_enabledEv.exit.thread13
 
 _ZN14CompilerConfig13is_c1_enabledEv.exit:        ; preds = %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i.i.i
-  %23 = icmp ne i32 %14, 2
-  %.not6.i.i = and i1 %23, %12
+  %24 = icmp ne i32 %14, 2
+  %.not6.i.i = and i1 %24, %12
   br i1 %.not6.i.i, label %.thread15, label %_ZN14CompilerConfig13is_c1_enabledEv.exit.thread13
 
-24:                                               ; preds = %4
+25:                                               ; preds = %4
   br i1 %9, label %_ZN14CompilerConfig13is_c1_enabledEv.exit.thread13, label %_ZN14CompilerConfig10is_c1_onlyEv.exit.i
 
-_ZN14CompilerConfig10is_c1_onlyEv.exit.i:         ; preds = %24
-  %25 = load i8, ptr @TieredCompilation, align 1
-  %26 = trunc i8 %25 to i1
+_ZN14CompilerConfig10is_c1_onlyEv.exit.i:         ; preds = %25
+  %26 = load i8, ptr @TieredCompilation, align 1
+  %27 = trunc i8 %26 to i1
   %27 = icmp ult i64 %7, 4
   %spec.select.i.i = select i1 %26, i1 %27, i1 false
   %28 = load i32, ptr @_ZN19CompilationModeFlag5_modeE, align 4
@@ -5927,7 +5927,7 @@ _ZN14CompilerConfig10is_c1_onlyEv.exit.i:         ; preds = %24
 _ZN14CompilerConfig13is_c1_enabledEv.exit.thread13: ; preds = %_ZN14CompilerConfig10is_c1_onlyEv.exit.i, %24, %_ZN14CompilerConfig13is_c1_enabledEv.exit, %10, %_ZN14CompilerConfig10is_c2_onlyEv.exit.thread.thread.i.i, %2
   %.str.69.sink = phi ptr [ @.str.68, %2 ], [ @.str.69, %_ZN14CompilerConfig10is_c2_onlyEv.exit.thread.thread.i.i ], [ @.str.69, %10 ], [ @.str.69, %_ZN14CompilerConfig13is_c1_enabledEv.exit ], [ @.str.70, %24 ], [ @.str.70, %_ZN14CompilerConfig10is_c1_onlyEv.exit.i ]
   %34 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 256, i32 noundef 0) #17
-  %35 = tail call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef %34, i64 noundef 256, ptr noundef nonnull %.str.69.sink, i32 noundef %1) #17
+  %36 = tail call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef %34, i64 noundef 256, ptr noundef nonnull %.str.69.sink, i32 noundef %1) #17
   %.not = icmp eq ptr %34, null
   br i1 %.not, label %.thread15, label %36
 

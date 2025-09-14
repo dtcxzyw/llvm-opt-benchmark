@@ -146,9 +146,9 @@ _ZN14CompilerConfig31is_c2_or_jvmci_compiler_enabledEv.exit.i: ; preds = %1
   br label %_ZN19CardTableBarrierSet38initialize_deferred_card_mark_barriersEv.exit
 
 _ZN19CardTableBarrierSet38initialize_deferred_card_mark_barriersEv.exit: ; preds = %1, %_ZN14CompilerConfig31is_c2_or_jvmci_compiler_enabledEv.exit.i, %15, %18
-  %24 = phi i8 [ 0, %_ZN14CompilerConfig31is_c2_or_jvmci_compiler_enabledEv.exit.i ], [ 1, %15 ], [ %23, %18 ], [ 0, %1 ]
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i8 %24, ptr %25, align 8
+  %25 = phi i8 [ 0, %_ZN14CompilerConfig31is_c2_or_jvmci_compiler_enabledEv.exit.i ], [ 1, %15 ], [ %23, %18 ], [ 0, %1 ]
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store i8 %25, ptr %26, align 8
   ret void
 }
 
@@ -189,9 +189,9 @@ _ZN14CompilerConfig31is_c2_or_jvmci_compiler_enabledEv.exit: ; preds = %1
   br label %_ZN14CompilerConfig31is_c2_or_jvmci_compiler_enabledEv.exit.thread
 
 _ZN14CompilerConfig31is_c2_or_jvmci_compiler_enabledEv.exit.thread: ; preds = %1, %15, %18, %_ZN14CompilerConfig31is_c2_or_jvmci_compiler_enabledEv.exit
-  %24 = phi i8 [ 0, %_ZN14CompilerConfig31is_c2_or_jvmci_compiler_enabledEv.exit ], [ 1, %15 ], [ %23, %18 ], [ 0, %1 ]
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i8 %24, ptr %25, align 8
+  %25 = phi i8 [ 0, %_ZN14CompilerConfig31is_c2_or_jvmci_compiler_enabledEv.exit ], [ 1, %15 ], [ %23, %18 ], [ 0, %1 ]
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store i8 %25, ptr %26, align 8
   ret void
 }
 
