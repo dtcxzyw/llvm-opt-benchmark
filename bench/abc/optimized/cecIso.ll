@@ -448,8 +448,7 @@ Gia_ManIsoSimulate.exit:                          ; preds = %.preheader228, %Gia
   %173 = sext i32 %.sink222 to i64
   %174 = getelementptr inbounds %struct.Gia_Rpr_t_, ptr %.val27.i, i64 %173
   %175 = load i32, ptr %174, align 4
-  %.mask.i = and i32 %175, -1073741824
-  %176 = icmp eq i32 %.mask.i, 1073741824
+  %176 = icmp sgt i32 %175, 1073741823
   br i1 %176, label %177, label %205
 
 177:                                              ; preds = %172

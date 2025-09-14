@@ -410,31 +410,30 @@ define { i64, double } @"_ZN114_$LT$statrs..distribution..bernoulli..Bernoulli$u
   br i1 %16, label %"_ZN112_$LT$statrs..distribution..binomial..Binomial$u20$as$u20$statrs..statistics..traits..Distribution$LT$f64$GT$$GT$7entropy17hdb2a54ecee82bf2dE.exit", label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.13986783010576937582.exit7.thread13.i"
 
 "_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.13986783010576937582.exit7.i": ; preds = %13
-  %17 = add i64 %14, -4607182418800017408
-  %18 = icmp ult i64 %17, 5
-  br i1 %18, label %"_ZN112_$LT$statrs..distribution..binomial..Binomial$u20$as$u20$statrs..statistics..traits..Distribution$LT$f64$GT$$GT$7entropy17hdb2a54ecee82bf2dE.exit", label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.13986783010576937582.exit7.thread13.i"
+  %17 = icmp ult i64 %14, 4607182418800017413
+  br i1 %17, label %"_ZN112_$LT$statrs..distribution..binomial..Binomial$u20$as$u20$statrs..statistics..traits..Distribution$LT$f64$GT$$GT$7entropy17hdb2a54ecee82bf2dE.exit", label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.13986783010576937582.exit7.thread13.i"
 
 "_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.13986783010576937582.exit7.thread13.i": ; preds = %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.13986783010576937582.exit7.i", %15, %8
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %20 = load i64, ptr %19, align 8, !alias.scope !60, !noundef !7
-  %.not.i = icmp eq i64 %20, -1
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %19 = load i64, ptr %18, align 8, !alias.scope !60, !noundef !7
+  %.not.i = icmp eq i64 %19, -1
   br i1 %.not.i, label %"_ZN112_$LT$statrs..distribution..binomial..Binomial$u20$as$u20$statrs..statistics..traits..Distribution$LT$f64$GT$$GT$7entropy17hdb2a54ecee82bf2dE.exit", label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.13986783010576937582.exit7.thread13.i", %.lr.ph.i.i
-  %.sroa.0.015.i.i = phi double [ %25, %.lr.ph.i.i ], [ 0.000000e+00, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.13986783010576937582.exit7.thread13.i" ]
-  %.sroa.0.0814.i.i = phi i64 [ %21, %.lr.ph.i.i ], [ 0, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.13986783010576937582.exit7.thread13.i" ]
-  %21 = add nuw i64 %.sroa.0.0814.i.i, 1
-  %22 = tail call noundef double @"_ZN108_$LT$statrs..distribution..binomial..Binomial$u20$as$u20$statrs..distribution..Discrete$LT$u64$C$f64$GT$$GT$3pmf17h17be1c0ad76ac1c0E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0, i64 noundef %.sroa.0.0814.i.i), !noalias !63
-  %23 = tail call noundef double @llvm.log.f64(double %22)
-  %24 = fmul double %22, %23
-  %25 = fsub double %.sroa.0.015.i.i, %24
-  %exitcond.not.i.i = icmp eq i64 %.sroa.0.0814.i.i, %20
+  %.sroa.0.015.i.i = phi double [ %24, %.lr.ph.i.i ], [ 0.000000e+00, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.13986783010576937582.exit7.thread13.i" ]
+  %.sroa.0.0814.i.i = phi i64 [ %20, %.lr.ph.i.i ], [ 0, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.13986783010576937582.exit7.thread13.i" ]
+  %20 = add nuw i64 %.sroa.0.0814.i.i, 1
+  %21 = tail call noundef double @"_ZN108_$LT$statrs..distribution..binomial..Binomial$u20$as$u20$statrs..distribution..Discrete$LT$u64$C$f64$GT$$GT$3pmf17h17be1c0ad76ac1c0E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0, i64 noundef %.sroa.0.0814.i.i), !noalias !63
+  %22 = tail call noundef double @llvm.log.f64(double %21)
+  %23 = fmul double %21, %22
+  %24 = fsub double %.sroa.0.015.i.i, %23
+  %exitcond.not.i.i = icmp eq i64 %.sroa.0.0814.i.i, %19
   br i1 %exitcond.not.i.i, label %"_ZN112_$LT$statrs..distribution..binomial..Binomial$u20$as$u20$statrs..statistics..traits..Distribution$LT$f64$GT$$GT$7entropy17hdb2a54ecee82bf2dE.exit", label %.lr.ph.i.i
 
 "_ZN112_$LT$statrs..distribution..binomial..Binomial$u20$as$u20$statrs..statistics..traits..Distribution$LT$f64$GT$$GT$7entropy17hdb2a54ecee82bf2dE.exit": ; preds = %.lr.ph.i.i, %1, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.13986783010576937582.exit.i", %15, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.13986783010576937582.exit7.i", %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.13986783010576937582.exit7.thread13.i"
-  %.sroa.03.0.i = phi double [ 0.000000e+00, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.13986783010576937582.exit7.i" ], [ 0.000000e+00, %15 ], [ 0.000000e+00, %1 ], [ 0.000000e+00, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.13986783010576937582.exit7.thread13.i" ], [ 0.000000e+00, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.13986783010576937582.exit.i" ], [ %25, %.lr.ph.i.i ]
-  %26 = insertvalue { i64, double } { i64 1, double poison }, double %.sroa.03.0.i, 1
-  ret { i64, double } %26
+  %.sroa.03.0.i = phi double [ 0.000000e+00, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.13986783010576937582.exit7.i" ], [ 0.000000e+00, %15 ], [ 0.000000e+00, %1 ], [ 0.000000e+00, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.13986783010576937582.exit7.thread13.i" ], [ 0.000000e+00, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.13986783010576937582.exit.i" ], [ %24, %.lr.ph.i.i ]
+  %25 = insertvalue { i64, double } { i64 1, double poison }, double %.sroa.03.0.i, 1
+  ret { i64, double } %25
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -495,29 +494,28 @@ define { i64, i64 } @"_ZN134_$LT$statrs..distribution..bernoulli..Bernoulli$u20$
   br i1 %16, label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.13986783010576937582.exit6.thread.i", label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.13986783010576937582.exit6.thread9.i"
 
 "_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.13986783010576937582.exit6.i": ; preds = %13
-  %17 = add i64 %14, -4607182418800017408
-  %18 = icmp ult i64 %17, 5
-  br i1 %18, label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.13986783010576937582.exit6.thread.i", label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.13986783010576937582.exit6.thread9.i"
+  %17 = icmp ult i64 %14, 4607182418800017413
+  br i1 %17, label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.13986783010576937582.exit6.thread.i", label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.13986783010576937582.exit6.thread9.i"
 
 "_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.13986783010576937582.exit6.thread9.i": ; preds = %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.13986783010576937582.exit6.i", %15, %8
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %20 = load i64, ptr %19, align 8, !alias.scope !74, !noundef !7
-  %21 = uitofp i64 %20 to double
-  %22 = fadd double %21, 1.000000e+00
-  %23 = fmul double %2, %22
-  %24 = tail call double @llvm.floor.f64(double %23)
-  %25 = tail call i64 @llvm.fptoui.sat.i64.f64(double %24)
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %19 = load i64, ptr %18, align 8, !alias.scope !74, !noundef !7
+  %20 = uitofp i64 %19 to double
+  %21 = fadd double %20, 1.000000e+00
+  %22 = fmul double %2, %21
+  %23 = tail call double @llvm.floor.f64(double %22)
+  %24 = tail call i64 @llvm.fptoui.sat.i64.f64(double %23)
   br label %"_ZN132_$LT$statrs..distribution..binomial..Binomial$u20$as$u20$statrs..statistics..traits..Mode$LT$core..option..Option$LT$u64$GT$$GT$$GT$4mode17hd72b3194cb9d6e6bE.exit"
 
 "_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.13986783010576937582.exit6.thread.i": ; preds = %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.13986783010576937582.exit6.i", %15, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.13986783010576937582.exit.i"
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %27 = load i64, ptr %26, align 8, !alias.scope !74, !noundef !7
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %26 = load i64, ptr %25, align 8, !alias.scope !74, !noundef !7
   br label %"_ZN132_$LT$statrs..distribution..binomial..Binomial$u20$as$u20$statrs..statistics..traits..Mode$LT$core..option..Option$LT$u64$GT$$GT$$GT$4mode17hd72b3194cb9d6e6bE.exit"
 
 "_ZN132_$LT$statrs..distribution..binomial..Binomial$u20$as$u20$statrs..statistics..traits..Mode$LT$core..option..Option$LT$u64$GT$$GT$$GT$4mode17hd72b3194cb9d6e6bE.exit": ; preds = %1, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.13986783010576937582.exit6.thread9.i", %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.13986783010576937582.exit6.thread.i"
-  %.sroa.01.0.i = phi i64 [ %27, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.13986783010576937582.exit6.thread.i" ], [ %25, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.13986783010576937582.exit6.thread9.i" ], [ 0, %1 ]
-  %28 = insertvalue { i64, i64 } { i64 1, i64 poison }, i64 %.sroa.01.0.i, 1
-  ret { i64, i64 } %28
+  %.sroa.01.0.i = phi i64 [ %26, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.13986783010576937582.exit6.thread.i" ], [ %24, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.13986783010576937582.exit6.thread9.i" ], [ 0, %1 ]
+  %27 = insertvalue { i64, i64 } { i64 1, i64 poison }, i64 %.sroa.01.0.i, 1
+  ret { i64, i64 } %27
 }
 
 ; Function Attrs: nonlazybind uwtable

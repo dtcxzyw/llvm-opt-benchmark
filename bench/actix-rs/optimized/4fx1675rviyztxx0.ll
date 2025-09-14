@@ -8759,7 +8759,7 @@ define hidden void @"_ZN4core3ptr51drop_in_place$LT$actix_http..h1..payload..Inn
 5:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3557)
   %6 = add nsw i8 %3, -5
-  %7 = icmp ult i8 %6, 6
+  %7 = icmp samesign ugt i8 %3, 4
   %narrow.i.i = select i1 %7, i8 %6, i8 4
   switch i8 %narrow.i.i, label %8 [
     i8 0, label %33
@@ -13167,9 +13167,8 @@ define internal fastcc void @"_ZN4core3ptr74drop_in_place$LT$slab..Entry$LT$h2..
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5084)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5087)
   %6 = load i8, ptr %5, align 8, !range !3556, !alias.scope !5090, !noundef !4
-  %7 = add nsw i8 %6, -6
-  %switch.i.i.i = icmp ult i8 %7, 6
-  br i1 %switch.i.i.i, label %"_ZN4core3ptr53drop_in_place$LT$h2..proto..streams..state..State$GT$17h463dd8a8335ec183E.exit.i", label %8
+  %7 = icmp samesign ugt i8 %6, 5
+  br i1 %7, label %"_ZN4core3ptr53drop_in_place$LT$h2..proto..streams..state..State$GT$17h463dd8a8335ec183E.exit.i", label %8
 
 8:                                                ; preds = %4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5091)

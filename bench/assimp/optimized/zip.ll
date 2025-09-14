@@ -4100,7 +4100,7 @@ tinfl_clear_tree.exit:                            ; preds = %315, %316, %317
   %939 = lshr i64 %.741163, %938
   %940 = and i32 %.74.fr, -8
   %941 = icmp ugt ptr %.721253, %1
-  %942 = icmp ne i32 %940, 0
+  %942 = icmp ugt i32 %.74.fr, 7
   %943 = and i1 %941, %942
   br i1 %943, label %.lr.ph1803.preheader, label %._crit_edge1804
 

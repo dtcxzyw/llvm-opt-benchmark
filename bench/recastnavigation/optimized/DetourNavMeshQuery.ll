@@ -1329,8 +1329,7 @@ define noundef range(i32 1073741824, -2147483639) i32 @_ZNK14dtNavMeshQuery15get
 19:                                               ; preds = %12
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 31
   %21 = load i8, ptr %20, align 1
-  %.mask = and i8 %21, -64
-  %22 = icmp eq i8 %.mask, 64
+  %22 = icmp sgt i8 %21, 63
   br i1 %22, label %.lr.ph105, label %58
 
 .lr.ph105:                                        ; preds = %19, %56
@@ -1389,8 +1388,7 @@ define noundef range(i32 1073741824, -2147483639) i32 @_ZNK14dtNavMeshQuery15get
 58:                                               ; preds = %19
   %59 = getelementptr inbounds nuw i8, ptr %5, i64 31
   %60 = load i8, ptr %59, align 1
-  %.mask89 = and i8 %60, -64
-  %61 = icmp eq i8 %.mask89, 64
+  %61 = icmp sgt i8 %60, 63
   br i1 %61, label %.preheader90, label %100
 
 .preheader90:                                     ; preds = %58
@@ -1801,8 +1799,7 @@ _Z13dtVisfinite2DPKf.exit:                        ; preds = %16
   %25 = load ptr, ptr %6, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 31
   %27 = load i8, ptr %26, align 1
-  %.mask = and i8 %27, -64
-  %28 = icmp eq i8 %.mask, 64
+  %28 = icmp sgt i8 %27, 63
   br i1 %28, label %29, label %50
 
 29:                                               ; preds = %24
@@ -2430,8 +2427,7 @@ _Z20dtOverlapQuantBoundsPKtS0_S0_S0_.exit:        ; preds = %117
   %189 = getelementptr inbounds nuw %struct.dtPoly, ptr %188, i64 %indvars.iv174
   %190 = getelementptr inbounds nuw i8, ptr %189, i64 31
   %191 = load i8, ptr %190, align 1
-  %.mask = and i8 %191, -64
-  %192 = icmp eq i8 %.mask, 64
+  %192 = icmp sgt i8 %191, 63
   br i1 %192, label %_Z15dtOverlapBoundsPKfS0_S0_S0_.exit.thread, label %193
 
 193:                                              ; preds = %186
@@ -4496,8 +4492,7 @@ _Z11dtVisfinitePKf.exit179:                       ; preds = %49
   %164 = load ptr, ptr %15, align 8
   %165 = getelementptr inbounds nuw i8, ptr %164, i64 31
   %166 = load i8, ptr %165, align 1
-  %.mask = and i8 %166, -64
-  %167 = icmp eq i8 %.mask, 64
+  %167 = icmp sgt i8 %166, 63
   br i1 %167, label %252, label %168
 
 168:                                              ; preds = %161
@@ -7883,8 +7878,7 @@ _Z11dtVisfinitePKf.exit:                          ; preds = %41
   %96 = load ptr, ptr %16, align 8
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 31
   %98 = load i8, ptr %97, align 1
-  %.mask = and i8 %98, -64
-  %99 = icmp eq i8 %.mask, 64
+  %99 = icmp sgt i8 %98, 63
   br i1 %99, label %.loopexit157, label %100
 
 100:                                              ; preds = %94
@@ -9108,8 +9102,7 @@ _Z11dtVisfinitePKf.exit:                          ; preds = %45
   %234 = load ptr, ptr %19, align 8
   %235 = getelementptr inbounds nuw i8, ptr %234, i64 31
   %236 = load i8, ptr %235, align 1
-  %.mask = and i8 %236, -64
-  %237 = icmp eq i8 %.mask, 64
+  %237 = icmp sgt i8 %236, 63
   br i1 %237, label %_ZN11dtNodeQueue6modifyEP6dtNode.exit, label %238
 
 238:                                              ; preds = %232

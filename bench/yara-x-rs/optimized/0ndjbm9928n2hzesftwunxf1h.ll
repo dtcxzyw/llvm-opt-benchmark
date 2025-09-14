@@ -1261,7 +1261,7 @@ define hidden void @"_ZN4core3ptr43drop_in_place$LT$protobuf..error..Error$GT$17
   tail call void @llvm.experimental.noalias.scope.decl(metadata !104)
   %2 = load i64, ptr %.val, align 8, !range !107, !alias.scope !104, !noundef !9
   %3 = add i64 %2, 9223372036854775798
-  %4 = icmp ult i64 %3, 8
+  %4 = icmp ugt i64 %2, -9223372036854775799
   %5 = icmp ne i64 %3, 2
   tail call void @llvm.assume(i1 %5)
   %6 = select i1 %4, i64 %3, i64 2
@@ -3552,7 +3552,7 @@ define internal fastcc void @"_ZN4core3ptr64drop_in_place$LT$protobuf..reflect..
           cleanup
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   invoke fastcc void @"_ZN4core3ptr63drop_in_place$LT$protobuf..reflect..field..index..FieldKind$GT$17h9e20d44e1f19ff18E"(ptr noalias noundef align 8 dereferenceable(56) %12) #9
-          to label %39 unwind label %58
+          to label %39 unwind label %60
 
 "_ZN4core3ptr146drop_in_place$LT$protobuf..owning_ref..OwningRef$LT$protobuf..descriptor..FileDescriptorProto$C$protobuf..descriptor..FieldDescriptorProto$GT$$GT$17hebf2db29e1169989E.exit": ; preds = %4, %1, %9
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -3630,7 +3630,7 @@ define internal fastcc void @"_ZN4core3ptr64drop_in_place$LT$protobuf..reflect..
   %.pn = phi { ptr, i32 } [ %42, %41 ], [ %11, %10 ]
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 192
   invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h297c8282c33d81bcE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %40, i64 noundef 1, i64 noundef 1)
-          to label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hf2a5d5bbaaa622d5E.exit" unwind label %58
+          to label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hf2a5d5bbaaa622d5E.exit" unwind label %60
 
 41:                                               ; preds = %"_ZN4core3ptr66drop_in_place$LT$protobuf..reflect..message..MessageDescriptor$GT$17h18d0668e699129d4E.exit.sink.split.i.i.i.i"
   %42 = landingpad { ptr, i32 }
@@ -3646,7 +3646,7 @@ define internal fastcc void @"_ZN4core3ptr64drop_in_place$LT$protobuf..reflect..
   %.pn2 = phi { ptr, i32 } [ %46, %45 ], [ %.pn, %39 ]
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 80
   invoke fastcc void @"_ZN4core3ptr78drop_in_place$LT$protobuf..reflect..field..index..ForwardProtobufFieldType$GT$17h40d7488cfa8e2df9E"(ptr noalias noundef align 8 dereferenceable(80) %44) #9
-          to label %48 unwind label %58
+          to label %48 unwind label %60
 
 45:                                               ; preds = %"_ZN4core3ptr63drop_in_place$LT$protobuf..reflect..field..index..FieldKind$GT$17h9e20d44e1f19ff18E.exit"
   %46 = landingpad { ptr, i32 }
@@ -3656,46 +3656,44 @@ define internal fastcc void @"_ZN4core3ptr64drop_in_place$LT$protobuf..reflect..
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hf2a5d5bbaaa622d5E.exit9": ; preds = %"_ZN4core3ptr63drop_in_place$LT$protobuf..reflect..field..index..FieldKind$GT$17h9e20d44e1f19ff18E.exit"
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 80
   invoke fastcc void @"_ZN4core3ptr78drop_in_place$LT$protobuf..reflect..field..index..ForwardProtobufFieldType$GT$17h40d7488cfa8e2df9E"(ptr noalias noundef align 8 dereferenceable(80) %47)
-          to label %54 unwind label %52
+          to label %55 unwind label %53
 
-48:                                               ; preds = %52, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hf2a5d5bbaaa622d5E.exit"
-  %.pn4 = phi { ptr, i32 } [ %53, %52 ], [ %.pn2, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hf2a5d5bbaaa622d5E.exit" ]
+48:                                               ; preds = %53, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hf2a5d5bbaaa622d5E.exit"
+  %.pn4 = phi { ptr, i32 } [ %54, %53 ], [ %.pn2, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hf2a5d5bbaaa622d5E.exit" ]
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %50 = load i64, ptr %49, align 8, !range !448, !alias.scope !449, !noundef !9
-  %.off.i = add nsw i64 %50, -13
-  %switch.i = icmp ult i64 %.off.i, 2
-  br i1 %switch.i, label %"_ZN4core3ptr99drop_in_place$LT$core..option..Option$LT$protobuf..reflect..field..index..FieldDefaultValue$GT$$GT$17h5e4f34c10640406eE.exit", label %51
+  %51 = icmp samesign ugt i64 %50, 12
+  br i1 %51, label %"_ZN4core3ptr99drop_in_place$LT$core..option..Option$LT$protobuf..reflect..field..index..FieldDefaultValue$GT$$GT$17h5e4f34c10640406eE.exit", label %52
 
-51:                                               ; preds = %48
+52:                                               ; preds = %48
   invoke fastcc void @"_ZN4core3ptr73drop_in_place$LT$protobuf..reflect..value..value_box..ReflectValueBox$GT$17he20849078c34c43fE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %49)
-          to label %"_ZN4core3ptr99drop_in_place$LT$core..option..Option$LT$protobuf..reflect..field..index..FieldDefaultValue$GT$$GT$17h5e4f34c10640406eE.exit" unwind label %58
+          to label %"_ZN4core3ptr99drop_in_place$LT$core..option..Option$LT$protobuf..reflect..field..index..FieldDefaultValue$GT$$GT$17h5e4f34c10640406eE.exit" unwind label %60
 
-52:                                               ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hf2a5d5bbaaa622d5E.exit9"
-  %53 = landingpad { ptr, i32 }
+53:                                               ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hf2a5d5bbaaa622d5E.exit9"
+  %54 = landingpad { ptr, i32 }
           cleanup
   br label %48
 
-54:                                               ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hf2a5d5bbaaa622d5E.exit9"
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %56 = load i64, ptr %55, align 8, !range !448, !alias.scope !452, !noundef !9
-  %.off.i11 = add nsw i64 %56, -13
-  %switch.i12 = icmp ult i64 %.off.i11, 2
-  br i1 %switch.i12, label %"_ZN4core3ptr99drop_in_place$LT$core..option..Option$LT$protobuf..reflect..field..index..FieldDefaultValue$GT$$GT$17h5e4f34c10640406eE.exit13", label %57
+55:                                               ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hf2a5d5bbaaa622d5E.exit9"
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %57 = load i64, ptr %56, align 8, !range !448, !alias.scope !452, !noundef !9
+  %58 = icmp samesign ugt i64 %57, 12
+  br i1 %58, label %"_ZN4core3ptr99drop_in_place$LT$core..option..Option$LT$protobuf..reflect..field..index..FieldDefaultValue$GT$$GT$17h5e4f34c10640406eE.exit11", label %59
 
-57:                                               ; preds = %54
-  tail call fastcc void @"_ZN4core3ptr73drop_in_place$LT$protobuf..reflect..value..value_box..ReflectValueBox$GT$17he20849078c34c43fE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %55)
-  br label %"_ZN4core3ptr99drop_in_place$LT$core..option..Option$LT$protobuf..reflect..field..index..FieldDefaultValue$GT$$GT$17h5e4f34c10640406eE.exit13"
+59:                                               ; preds = %55
+  tail call fastcc void @"_ZN4core3ptr73drop_in_place$LT$protobuf..reflect..value..value_box..ReflectValueBox$GT$17he20849078c34c43fE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %56)
+  br label %"_ZN4core3ptr99drop_in_place$LT$core..option..Option$LT$protobuf..reflect..field..index..FieldDefaultValue$GT$$GT$17h5e4f34c10640406eE.exit11"
 
-"_ZN4core3ptr99drop_in_place$LT$core..option..Option$LT$protobuf..reflect..field..index..FieldDefaultValue$GT$$GT$17h5e4f34c10640406eE.exit13": ; preds = %54, %57
+"_ZN4core3ptr99drop_in_place$LT$core..option..Option$LT$protobuf..reflect..field..index..FieldDefaultValue$GT$$GT$17h5e4f34c10640406eE.exit11": ; preds = %55, %59
   ret void
 
-58:                                               ; preds = %51, %39, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hf2a5d5bbaaa622d5E.exit", %10
-  %59 = landingpad { ptr, i32 }
+60:                                               ; preds = %52, %39, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hf2a5d5bbaaa622d5E.exit", %10
+  %61 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hb7138e7aeec2c1a7E() #11
   unreachable
 
-"_ZN4core3ptr99drop_in_place$LT$core..option..Option$LT$protobuf..reflect..field..index..FieldDefaultValue$GT$$GT$17h5e4f34c10640406eE.exit": ; preds = %48, %51
+"_ZN4core3ptr99drop_in_place$LT$core..option..Option$LT$protobuf..reflect..field..index..FieldDefaultValue$GT$$GT$17h5e4f34c10640406eE.exit": ; preds = %48, %52
   resume { ptr, i32 } %.pn4
 }
 
@@ -5371,7 +5369,7 @@ define internal fastcc void @"_ZN4core3ptr73drop_in_place$LT$protobuf..reflect..
 define internal fastcc void @"_ZN4core3ptr73drop_in_place$LT$protobuf..reflect..value..value_box..ReflectValueBox$GT$17he20849078c34c43fE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !328, !noundef !9
   %3 = add nsw i64 %2, -2
-  %4 = icmp ult i64 %3, 11
+  %4 = icmp samesign ugt i64 %2, 1
   %5 = icmp ne i64 %3, 9
   tail call void @llvm.assume(i1 %5)
   %6 = select i1 %4, i64 %3, i64 9

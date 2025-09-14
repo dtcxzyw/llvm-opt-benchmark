@@ -9734,10 +9734,7 @@ _ZN6vectorIP4exprLb0EjED2Ev.exit:                 ; preds = %1, %4
 define hidden noundef zeroext i1 @_ZNK4goal13sat_preservedEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(124) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = load i32, ptr %2, align 8
-  %4 = icmp ult i32 %3, 1073741824
-  %.mask = and i32 %3, -1073741824
-  %5 = icmp eq i32 %.mask, 1073741824
-  %spec.select = or i1 %4, %5
+  %spec.select = icmp sgt i32 %3, -1
   ret i1 %spec.select
 }
 
@@ -9796,20 +9793,17 @@ default.unreachable:                              ; preds = %.preheader.i.i.i
 _ZNK4goal4sizeEv.exit:                            ; preds = %10, %14, %18
   %.07.i.i.i = phi i32 [ %13, %10 ], [ %17, %14 ], [ %20, %18 ]
   %21 = icmp eq i32 %.07.i.i.i, 0
-  br i1 %21, label %_ZNK4goal4sizeEv.exit.thread, label %26
+  br i1 %21, label %_ZNK4goal4sizeEv.exit.thread, label %24
 
 _ZNK4goal4sizeEv.exit.thread:                     ; preds = %1, %_ZNK4goal4sizeEv.exit
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %23 = load i32, ptr %22, align 8
-  %24 = icmp ult i32 %23, 1073741824
-  %.mask.i = and i32 %23, -1073741824
-  %25 = icmp eq i32 %.mask.i, 1073741824
-  %spec.select.i = or i1 %24, %25
-  br label %26
+  %spec.select.i = icmp sgt i32 %23, -1
+  br label %24
 
-26:                                               ; preds = %_ZNK4goal4sizeEv.exit.thread, %_ZNK4goal4sizeEv.exit
-  %27 = phi i1 [ false, %_ZNK4goal4sizeEv.exit ], [ %spec.select.i, %_ZNK4goal4sizeEv.exit.thread ]
-  ret i1 %27
+24:                                               ; preds = %_ZNK4goal4sizeEv.exit.thread, %_ZNK4goal4sizeEv.exit
+  %25 = phi i1 [ false, %_ZNK4goal4sizeEv.exit ], [ %spec.select.i, %_ZNK4goal4sizeEv.exit.thread ]
+  ret i1 %25
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
@@ -9867,31 +9861,27 @@ default.unreachable:                              ; preds = %.preheader.i.i.i.i
 _ZNK4goal4sizeEv.exit.i:                          ; preds = %18, %14, %10
   %.07.i.i.i.i = phi i32 [ %13, %10 ], [ %17, %14 ], [ %20, %18 ]
   %21 = icmp eq i32 %.07.i.i.i.i, 0
-  br i1 %21, label %_ZNK4goal14is_decided_satEv.exit, label %_ZNK4goal4sizeEv.exit.i._ZNK4goal14is_decided_satEv.exit.thread_crit_edge
-
-_ZNK4goal4sizeEv.exit.i._ZNK4goal14is_decided_satEv.exit.thread_crit_edge: ; preds = %_ZNK4goal4sizeEv.exit.i
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %.pre = load i32, ptr %.phi.trans.insert, align 8
-  br label %_ZNK4goal14is_decided_satEv.exit.thread
-
-_ZNK4goal14is_decided_satEv.exit:                 ; preds = %1, %_ZNK4goal4sizeEv.exit.i
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %23 = load i32, ptr %22, align 8
-  %24 = icmp ult i32 %23, 1073741824
-  %.mask.i.i = and i32 %23, -1073741824
-  %25 = icmp eq i32 %.mask.i.i, 1073741824
-  %spec.select.i.i = or i1 %24, %25
-  br i1 %spec.select.i.i, label %29, label %_ZNK4goal14is_decided_satEv.exit.thread
+  %spec.select.i.i = icmp sgt i32 %23, -1
+  %or.cond = select i1 %21, i1 %spec.select.i.i, i1 false
+  br i1 %or.cond, label %27, label %_ZNK4goal14is_decided_satEv.exit.thread
 
-_ZNK4goal14is_decided_satEv.exit.thread:          ; preds = %_ZNK4goal4sizeEv.exit.i._ZNK4goal14is_decided_satEv.exit.thread_crit_edge, %_ZNK4goal14is_decided_satEv.exit
-  %26 = phi i32 [ %.pre, %_ZNK4goal4sizeEv.exit.i._ZNK4goal14is_decided_satEv.exit.thread_crit_edge ], [ %23, %_ZNK4goal14is_decided_satEv.exit ]
-  %27 = and i32 %26, 1610612736
-  %28 = icmp eq i32 %27, 536870912
-  br label %29
+_ZNK4goal14is_decided_satEv.exit:                 ; preds = %1
+  %.old = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %.old1 = load i32, ptr %.old, align 8
+  %spec.select.i.i.old = icmp sgt i32 %.old1, -1
+  br i1 %spec.select.i.i.old, label %27, label %_ZNK4goal14is_decided_satEv.exit.thread
 
-29:                                               ; preds = %_ZNK4goal14is_decided_satEv.exit.thread, %_ZNK4goal14is_decided_satEv.exit
-  %30 = phi i1 [ true, %_ZNK4goal14is_decided_satEv.exit ], [ %28, %_ZNK4goal14is_decided_satEv.exit.thread ]
-  ret i1 %30
+_ZNK4goal14is_decided_satEv.exit.thread:          ; preds = %_ZNK4goal4sizeEv.exit.i, %_ZNK4goal14is_decided_satEv.exit
+  %24 = phi i32 [ %23, %_ZNK4goal4sizeEv.exit.i ], [ %.old1, %_ZNK4goal14is_decided_satEv.exit ]
+  %25 = and i32 %24, 1610612736
+  %26 = icmp eq i32 %25, 536870912
+  br label %27
+
+27:                                               ; preds = %_ZNK4goal4sizeEv.exit.i, %_ZNK4goal14is_decided_satEv.exit.thread, %_ZNK4goal14is_decided_satEv.exit
+  %28 = phi i1 [ true, %_ZNK4goal14is_decided_satEv.exit ], [ %26, %_ZNK4goal14is_decided_satEv.exit.thread ], [ true, %_ZNK4goal4sizeEv.exit.i ]
+  ret i1 %28
 }
 
 ; Function Attrs: mustprogress uwtable

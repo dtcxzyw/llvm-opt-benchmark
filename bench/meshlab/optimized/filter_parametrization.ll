@@ -5805,7 +5805,7 @@ _ZNSt3setIiSt4lessIiESaIiEE6insertESt23_Rb_tree_const_iteratorIiEOi.exit: ; pred
   br i1 %171, label %.lr.ph, label %.preheader, !llvm.loop !79
 
 172:                                              ; preds = %.lr.ph227, %_ZNSt6vectorIiSaIiEED2Ev.exit101
-  %.0226 = phi i32 [ undef, %.lr.ph227 ], [ %.2.lcssa299303, %_ZNSt6vectorIiSaIiEED2Ev.exit101 ]
+  %.0226 = phi i32 [ undef, %.lr.ph227 ], [ %.2.lcssa300304, %_ZNSt6vectorIiSaIiEED2Ev.exit101 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
   %173 = load ptr, ptr %97, align 8
   %174 = getelementptr inbounds nuw i8, ptr %173, i64 32
@@ -5898,8 +5898,8 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %192, %_ZNSt6vectorI
   %219 = getelementptr i8, ptr %215, i64 %218
   %220 = getelementptr i8, ptr %219, i64 -4
   %221 = load i32, ptr %220, align 4
-  %.fr192327 = freeze i32 %221
-  %222 = sext i32 %.fr192327 to i64
+  %.fr192328 = freeze i32 %221
+  %222 = sext i32 %.fr192328 to i64
   %223 = load ptr, ptr %10, align 8
   %224 = getelementptr inbounds %"class.std::vector.71", ptr %223, i64 %222
   %225 = getelementptr inbounds nuw i8, ptr %224, i64 8
@@ -5916,11 +5916,11 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %192, %_ZNSt6vectorI
 .lr.ph222:                                        ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit, %.loopexit
   %234 = phi i64 [ %370, %.loopexit ], [ %231, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ]
   %235 = phi ptr [ %366, %.loopexit ], [ %227, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ]
-  %.fr192329 = phi i32 [ %.fr192, %.loopexit ], [ %.fr192327, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ]
+  %.fr192330 = phi i32 [ %.fr192, %.loopexit ], [ %.fr192328, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ]
   %236 = phi i64 [ %357, %.loopexit ], [ %218, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ]
   %237 = phi ptr [ %354, %.loopexit ], [ %215, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ]
   %238 = phi ptr [ %353, %.loopexit ], [ %214, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ]
-  %.1224328 = phi i32 [ %.3, %.loopexit ], [ %.0226, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ]
+  %.1224329 = phi i32 [ %.3, %.loopexit ], [ %.0226, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ]
   %239 = ashr exact i64 %236, 2
   %240 = load ptr, ptr %8, align 8, !noalias !80
   %241 = load i64, ptr %84, align 8, !noalias !80
@@ -5932,7 +5932,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %192, %_ZNSt6vectorI
 
 246:                                              ; preds = %.lr.ph222, %.critedge
   %indvars.iv = phi i64 [ 0, %.lr.ph222 ], [ %indvars.iv.next, %.critedge ]
-  %.2220 = phi i32 [ %.1224328, %.lr.ph222 ], [ %.3, %.critedge ]
+  %.2220 = phi i32 [ %.1224329, %.lr.ph222 ], [ %.3, %.critedge ]
   %247 = getelementptr inbounds nuw i32, ptr %235, i64 %indvars.iv
   %248 = load i32, ptr %247, align 4
   %249 = sext i32 %248 to i64
@@ -5986,25 +5986,24 @@ _ZNK5Eigen9DenseBaseINS_5BlockINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb
   %262 = getelementptr i32, ptr %261, i64 %249
   %263 = load i32, ptr %262, align 4
   %.fr195 = freeze i32 %263
-  %264 = icmp ne i32 %.fr195, %.fr192329
+  %264 = icmp ne i32 %.fr195, %.fr192330
   %spec.select = sext i1 %264 to i32
   %265 = load i64, ptr %15, align 8
   %266 = getelementptr i32, ptr %262, i64 %265
   %267 = load i32, ptr %266, align 4
   %.fr193 = freeze i32 %267
-  %268 = icmp eq i32 %.fr193, %.fr192329
+  %268 = icmp eq i32 %.fr193, %.fr192330
   %spec.select58 = select i1 %268, i32 1, i32 %spec.select
   %.idx = shl i64 %265, 3
   %269 = getelementptr i8, ptr %262, i64 %.idx
   %270 = load i32, ptr %269, align 4
   %.fr = freeze i32 %270
-  %271 = icmp eq i32 %.fr, %.fr192329
+  %271 = icmp eq i32 %.fr, %.fr192330
   %spec.select59 = select i1 %271, i32 2, i32 %spec.select58
   %272 = add nsw i32 %spec.select59, 1
   %273 = zext nneg i32 %272 to i64
   %.urem = add nsw i64 %273, -3
-  %.cmp = icmp samesign ult i32 %272, 3
-  %274 = select i1 %.cmp, i64 %273, i64 %.urem
+  %274 = select i1 %271, i64 %.urem, i64 %273
   %275 = mul nsw i64 %274, %265
   %276 = getelementptr i32, ptr %262, i64 %275
   %277 = load i32, ptr %276, align 4
@@ -6250,7 +6249,7 @@ _ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE5clearEv.exit.i.i: ; preds = %33
   br i1 %372, label %.thread, label %.lr.ph222, !llvm.loop !89
 
 .thread:                                          ; preds = %._crit_edge, %.loopexit, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
-  %.2.lcssa299303 = phi i32 [ %.0226, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ], [ %.3, %.loopexit ], [ %.3, %._crit_edge ]
+  %.2.lcssa300304 = phi i32 [ %.0226, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ], [ %.3, %.loopexit ], [ %.3, %._crit_edge ]
   %373 = load ptr, ptr %114, align 8
   %374 = load ptr, ptr %115, align 8
   %.not.i95 = icmp eq ptr %373, %374

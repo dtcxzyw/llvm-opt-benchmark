@@ -310,7 +310,7 @@ read_ptr.exit.i.i:                                ; preds = %89
   %93 = load i64, ptr %10, align 8, !tbaa !8
   %94 = and i64 %93, -2
   store i64 %94, ptr %10, align 8, !tbaa !8
-  %95 = icmp eq i64 %94, 0
+  %95 = icmp ult i64 %93, 2
   br i1 %95, label %.critedge15, label %read_py_ptr.exit.thread.i
 
 read_py_ptr.exit.thread.i:                        ; preds = %92
@@ -1799,7 +1799,7 @@ read_ptr.exit.i:                                  ; preds = %77
   %81 = load i64, ptr %16, align 8, !tbaa !8
   %82 = and i64 %81, -2
   store i64 %82, ptr %16, align 8, !tbaa !8
-  %83 = icmp eq i64 %82, 0
+  %83 = icmp ult i64 %81, 2
   br i1 %83, label %read_py_ptr.exit.thread, label %84
 
 84:                                               ; preds = %80
@@ -2024,7 +2024,7 @@ read_ptr.exit.i:                                  ; preds = %74
   %78 = load i64, ptr %5, align 8, !tbaa !8
   %79 = and i64 %78, -2
   store i64 %79, ptr %5, align 8, !tbaa !8
-  %80 = icmp eq i64 %79, 0
+  %80 = icmp ult i64 %78, 2
   br i1 %80, label %read_py_ptr.exit.thread, label %81
 
 81:                                               ; preds = %77
@@ -2451,7 +2451,7 @@ read_ptr.exit.i:                                  ; preds = %39
   %43 = load i64, ptr %22, align 8, !tbaa !8
   %44 = and i64 %43, -2
   store i64 %44, ptr %22, align 8, !tbaa !8
-  %45 = icmp eq i64 %44, 0
+  %45 = icmp ult i64 %43, 2
   br i1 %45, label %read_py_ptr.exit.thread, label %46
 
 46:                                               ; preds = %42

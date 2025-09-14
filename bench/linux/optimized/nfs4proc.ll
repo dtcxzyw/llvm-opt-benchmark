@@ -9010,14 +9010,11 @@ define internal fastcc noundef ptr @nfs4_opendata_alloc(ptr noundef %0, ptr noun
   %62 = phi i32 [ 2, %60 ], [ 0, %59 ], [ %5, %47 ], [ %5, %58 ]
   %63 = getelementptr inbounds nuw i8, ptr %26, i64 136
   store i32 %62, ptr %63, align 8
-  %.off = add nsw i32 %2, -1
-  %switch = icmp ult i32 %.off, 3
-  %spec.select = select i1 %switch, i32 %2, i32 0
   %64 = and i32 %3, 16384
   %65 = icmp eq i32 %64, 0
   %66 = or i1 %65, %57
-  %67 = or disjoint i32 %spec.select, 1024
-  %68 = select i1 %66, i32 %spec.select, i32 %67
+  %67 = or disjoint i32 %2, 1024
+  %68 = select i1 %66, i32 %2, i32 %67
   %69 = getelementptr inbounds nuw i8, ptr %26, i64 48
   store i32 %68, ptr %69, align 8
   %70 = and i32 %3, 64
@@ -10774,11 +10771,8 @@ thread-pre-split.thread:                          ; preds = %52, %48, %thread-pr
 137:                                              ; preds = %134, %125
   %138 = phi i32 [ %.pre, %134 ], [ %126, %125 ]
   %139 = and i32 %138, 3
-  %.off = add nsw i32 %139, -1
-  %switch = icmp ult i32 %.off, 3
-  %spec.select = select i1 %switch, i32 %139, i32 0
   %140 = getelementptr inbounds nuw i8, ptr %1, i64 76
-  store i32 %spec.select, ptr %140, align 4
+  store i32 %139, ptr %140, align 4
   %141 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %142 = getelementptr inbounds nuw i8, ptr %1, i64 168
   %143 = load ptr, ptr %142, align 8

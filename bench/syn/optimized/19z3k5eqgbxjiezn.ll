@@ -114,8 +114,8 @@ define internal fastcc void @"_ZN4core3ptr43drop_in_place$LT$proc_macro2..TokenT
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = load i64, ptr %0, align 8, !range !11, !noundef !4
-  %5 = add i64 %4, 9223372036854775807
-  %6 = icmp ult i64 %5, 4
+  %5 = add nsw i64 %4, 9223372036854775807
+  %6 = icmp ugt i64 %4, -9223372036854775808
   %7 = select i1 %6, i64 %5, i64 1
   switch i64 %7, label %.unreachabledefault [
     i64 0, label %21
@@ -1608,9 +1608,8 @@ define void @_ZN3syn5token8printing5delim17hd3c311fe639540afE(i8 noundef %0, i32
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define noundef nonnull align 8 dereferenceable(48) ptr @_ZN3syn4attr9Attribute4path17h0ff6982c6043d592E(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(256) %0) unnamed_addr #7 {
   %2 = load i64, ptr %0, align 8, !range !257, !alias.scope !258, !noundef !4
-  %3 = add nsw i64 %2, -39
-  %switch.i = icmp ult i64 %3, 2
-  %..i = select i1 %switch.i, i64 8, i64 176
+  %3 = icmp samesign ugt i64 %2, 38
+  %..i = select i1 %3, i64 8, i64 176
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 %..i
   ret ptr %4
 }

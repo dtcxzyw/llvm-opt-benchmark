@@ -1074,6 +1074,44 @@ define noundef ptr @ures_getIntVector_77(ptr noundef readonly captures(address_i
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define range(i32 -134217728, 134217728) i32 @ures_getInt_77(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #11 {
   %3 = icmp eq ptr %1, null
+  br i1 %3, label %18, label %4
+
+4:                                                ; preds = %2
+  %5 = load i32, ptr %1, align 4, !tbaa !13
+  %6 = icmp slt i32 %5, 1
+  br i1 %6, label %7, label %18
+
+7:                                                ; preds = %4
+  %8 = icmp eq ptr %0, null
+  br i1 %8, label %9, label %10
+
+9:                                                ; preds = %7
+  store i32 1, ptr %1, align 4, !tbaa !13
+  br label %18
+
+10:                                               ; preds = %7
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 108
+  %12 = load i32, ptr %11, align 4, !tbaa !34
+  %13 = icmp sgt i32 %12, 1879048191
+  br i1 %13, label %15, label %14
+
+14:                                               ; preds = %10
+  store i32 17, ptr %1, align 4, !tbaa !13
+  br label %18
+
+15:                                               ; preds = %10
+  %16 = shl i32 %12, 4
+  %17 = ashr exact i32 %16, 4
+  br label %18
+
+18:                                               ; preds = %2, %4, %15, %14, %9
+  %.0 = phi i32 [ -1, %9 ], [ -1, %14 ], [ %17, %15 ], [ -1, %4 ], [ -1, %2 ]
+  ret i32 %.0
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
+define range(i32 -1, 268435456) i32 @ures_getUInt_77(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #11 {
+  %3 = icmp eq ptr %1, null
   br i1 %3, label %17, label %4
 
 4:                                                ; preds = %2
@@ -1092,59 +1130,19 @@ define range(i32 -134217728, 134217728) i32 @ures_getInt_77(ptr noundef readonly
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %12 = load i32, ptr %11, align 4, !tbaa !34
-  %.mask = and i32 %12, -268435456
-  %.not10 = icmp eq i32 %.mask, 1879048192
-  br i1 %.not10, label %14, label %13
+  %13 = icmp sgt i32 %12, 1879048191
+  br i1 %13, label %15, label %14
 
-13:                                               ; preds = %10
+14:                                               ; preds = %10
   store i32 17, ptr %1, align 4, !tbaa !13
   br label %17
 
-14:                                               ; preds = %10
-  %15 = shl i32 %12, 4
-  %16 = ashr exact i32 %15, 4
+15:                                               ; preds = %10
+  %16 = and i32 %12, 268435455
   br label %17
 
-17:                                               ; preds = %2, %4, %14, %13, %9
-  %.0 = phi i32 [ -1, %9 ], [ -1, %13 ], [ %16, %14 ], [ -1, %4 ], [ -1, %2 ]
-  ret i32 %.0
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 -1, 268435456) i32 @ures_getUInt_77(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #11 {
-  %3 = icmp eq ptr %1, null
-  br i1 %3, label %16, label %4
-
-4:                                                ; preds = %2
-  %5 = load i32, ptr %1, align 4, !tbaa !13
-  %6 = icmp slt i32 %5, 1
-  br i1 %6, label %7, label %16
-
-7:                                                ; preds = %4
-  %8 = icmp eq ptr %0, null
-  br i1 %8, label %9, label %10
-
-9:                                                ; preds = %7
-  store i32 1, ptr %1, align 4, !tbaa !13
-  br label %16
-
-10:                                               ; preds = %7
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 108
-  %12 = load i32, ptr %11, align 4, !tbaa !34
-  %.mask = and i32 %12, -268435456
-  %.not10 = icmp eq i32 %.mask, 1879048192
-  br i1 %.not10, label %14, label %13
-
-13:                                               ; preds = %10
-  store i32 17, ptr %1, align 4, !tbaa !13
-  br label %16
-
-14:                                               ; preds = %10
-  %15 = and i32 %12, 268435455
-  br label %16
-
-16:                                               ; preds = %2, %4, %14, %13, %9
-  %.0 = phi i32 [ -1, %9 ], [ -1, %13 ], [ %15, %14 ], [ -1, %4 ], [ -1, %2 ]
+17:                                               ; preds = %2, %4, %15, %14, %9
+  %.0 = phi i32 [ -1, %9 ], [ -1, %14 ], [ %16, %15 ], [ -1, %4 ], [ -1, %2 ]
   ret i32 %.0
 }
 

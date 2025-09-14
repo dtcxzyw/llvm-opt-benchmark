@@ -653,7 +653,7 @@ define internal noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug
   tail call void @llvm.experimental.noalias.scope.decl(metadata !114)
   %5 = load i32, ptr %4, align 4, !range !117, !alias.scope !114, !noalias !118, !noundef !4
   %6 = add nsw i32 %5, -3
-  %7 = icmp ult i32 %6, 7
+  %7 = icmp samesign ugt i32 %5, 2
   %narrow.i = select i1 %7, i32 %6, i32 2
   switch i32 %narrow.i, label %8 [
     i32 0, label %9
@@ -15583,7 +15583,7 @@ define internal fastcc void @_ZN18wasmtime_cranelift8compiler16FunctionCompiler1
   br i1 %.2, label %.body97.thread, label %common.resume
 
 .thread:                                          ; preds = %71, %474
-  %lpad.thr_comm283 = landingpad { ptr, i32 }
+  %lpad.thr_comm284 = landingpad { ptr, i32 }
           cleanup
   br label %.body97.thread
 
@@ -16331,9 +16331,8 @@ define internal fastcc void @_ZN18wasmtime_cranelift8compiler16FunctionCompiler1
           cleanup
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %326, ptr noundef nonnull align 8 dereferenceable(32) %43, i64 32, i1 false), !alias.scope !3399
   %339 = load i64, ptr %45, align 8, !range !216, !noundef !4
-  %.off = add nsw i64 %339, -1
-  %switch93 = icmp ult i64 %.off, 2
-  br i1 %switch93, label %.body109, label %340
+  %.not283 = icmp eq i64 %339, 0
+  br i1 %.not283, label %340, label %.body109
 
 _ZN18wasmtime_cranelift17compiled_function16CompiledFunction19set_cfa_unwind_info17hce26be8ae0966fbeE.exit: ; preds = %325, %"_ZN4core3ptr72drop_in_place$LT$cranelift_codegen..isa..unwind..systemv..UnwindInfo$GT$17h8d0add99707b89f7E.exit.i.i"
   %.pre = phi i64 [ 1, %325 ], [ %.pre.pre, %"_ZN4core3ptr72drop_in_place$LT$cranelift_codegen..isa..unwind..systemv..UnwindInfo$GT$17h8d0add99707b89f7E.exit.i.i" ]
@@ -16816,7 +16815,7 @@ common.resume:                                    ; preds = %.body97, %.body97.t
           to label %.body99 unwind label %276
 
 .body97.thread:                                   ; preds = %.thread, %65, %.body97
-  %.pn86.pn254 = phi { ptr, i32 } [ %.pn86, %.body97 ], [ %66, %65 ], [ %lpad.thr_comm283, %.thread ]
+  %.pn86.pn254 = phi { ptr, i32 } [ %.pn86, %.body97 ], [ %66, %65 ], [ %lpad.thr_comm284, %.thread ]
   invoke void @"_ZN4core3ptr66drop_in_place$LT$wasmtime_cranelift..compiler..CompilerContext$GT$17h4fdf4537cf039902E"(ptr noalias noundef nonnull align 8 dereferenceable(5312) %1) #38
           to label %common.resume unwind label %276
 }
