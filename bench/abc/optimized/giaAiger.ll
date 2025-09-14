@@ -638,75 +638,74 @@ Gia_AigerWriteUnsignedBuffer.exit:                ; preds = %Vec_StrAlloc.exit, 
   %21 = icmp sgt i32 %.val, 1
   br i1 %21, label %.lr.ph, label %.critedge
 
-.lr.ph:                                           ; preds = %Gia_AigerWriteUnsignedBuffer.exit, %47
-  %indvars.iv = phi i64 [ %indvars.iv.next, %47 ], [ 1, %Gia_AigerWriteUnsignedBuffer.exit ]
-  %22 = phi i32 [ %48, %47 ], [ %spec.store.select.i, %Gia_AigerWriteUnsignedBuffer.exit ]
-  %23 = phi ptr [ %49, %47 ], [ %.promoted, %Gia_AigerWriteUnsignedBuffer.exit ]
-  %.02955 = phi i32 [ %.029, %47 ], [ %.02951, %Gia_AigerWriteUnsignedBuffer.exit ]
-  %.03053 = phi i32 [ %25, %47 ], [ %12, %Gia_AigerWriteUnsignedBuffer.exit ]
+.lr.ph:                                           ; preds = %Gia_AigerWriteUnsignedBuffer.exit, %46
+  %indvars.iv = phi i64 [ %indvars.iv.next, %46 ], [ 1, %Gia_AigerWriteUnsignedBuffer.exit ]
+  %22 = phi i32 [ %47, %46 ], [ %spec.store.select.i, %Gia_AigerWriteUnsignedBuffer.exit ]
+  %23 = phi ptr [ %48, %46 ], [ %.promoted, %Gia_AigerWriteUnsignedBuffer.exit ]
+  %.02955 = phi i32 [ %.029, %46 ], [ %.02951, %Gia_AigerWriteUnsignedBuffer.exit ]
+  %.03053 = phi i32 [ %25, %46 ], [ %12, %Gia_AigerWriteUnsignedBuffer.exit ]
   %.val34 = load ptr, ptr %11, align 8, !tbaa !35
   %24 = getelementptr inbounds nuw i32, ptr %.val34, i64 %indvars.iv
   %25 = load i32, ptr %24, align 4, !tbaa !37
   %26 = sub nsw i32 %25, %.03053
   %27 = icmp slt i32 %25, %.03053
-  %28 = sub nsw i32 0, %26
-  %29 = select i1 %27, i32 %28, i32 %26
-  %30 = shl i32 %29, 1
-  %31 = zext i1 %27 to i32
-  %32 = or disjoint i32 %30, %31
-  %.not11.i38 = icmp ult i32 %30, 128
+  %28 = tail call i32 @llvm.abs.i32(i32 %26, i1 false)
+  %29 = shl i32 %28, 1
+  %30 = zext i1 %27 to i32
+  %31 = or disjoint i32 %29, %30
+  %.not11.i38 = icmp ult i32 %29, 128
   br i1 %.not11.i38, label %Gia_AigerWriteUnsignedBuffer.exit48, label %.lr.ph.preheader.i39
 
 .lr.ph.preheader.i39:                             ; preds = %.lr.ph
-  %33 = sext i32 %.02955 to i64
+  %32 = sext i32 %.02955 to i64
   br label %.lr.ph.i40
 
 .lr.ph.i40:                                       ; preds = %.lr.ph.i40, %.lr.ph.preheader.i39
-  %indvars.iv.i41 = phi i64 [ %33, %.lr.ph.preheader.i39 ], [ %indvars.iv.next.i43, %.lr.ph.i40 ]
-  %.013.i42 = phi i32 [ %32, %.lr.ph.preheader.i39 ], [ %37, %.lr.ph.i40 ]
-  %34 = trunc i32 %.013.i42 to i8
-  %35 = or i8 %34, -128
+  %indvars.iv.i41 = phi i64 [ %32, %.lr.ph.preheader.i39 ], [ %indvars.iv.next.i43, %.lr.ph.i40 ]
+  %.013.i42 = phi i32 [ %31, %.lr.ph.preheader.i39 ], [ %36, %.lr.ph.i40 ]
+  %33 = trunc i32 %.013.i42 to i8
+  %34 = or i8 %33, -128
   %indvars.iv.next.i43 = add nsw i64 %indvars.iv.i41, 1
-  %36 = getelementptr inbounds i8, ptr %23, i64 %indvars.iv.i41
-  store i8 %35, ptr %36, align 1, !tbaa !3
-  %37 = lshr i32 %.013.i42, 7
+  %35 = getelementptr inbounds i8, ptr %23, i64 %indvars.iv.i41
+  store i8 %34, ptr %35, align 1, !tbaa !3
+  %36 = lshr i32 %.013.i42, 7
   %.not.i44 = icmp ult i32 %.013.i42, 16384
   br i1 %.not.i44, label %._crit_edge.loopexit.i45, label %.lr.ph.i40, !llvm.loop !47
 
 ._crit_edge.loopexit.i45:                         ; preds = %.lr.ph.i40
-  %38 = trunc nsw i64 %indvars.iv.next.i43 to i32
+  %37 = trunc nsw i64 %indvars.iv.next.i43 to i32
   br label %Gia_AigerWriteUnsignedBuffer.exit48
 
 Gia_AigerWriteUnsignedBuffer.exit48:              ; preds = %.lr.ph, %._crit_edge.loopexit.i45
-  %.010.lcssa.i46 = phi i32 [ %.02955, %.lr.ph ], [ %38, %._crit_edge.loopexit.i45 ]
-  %.0.lcssa.i47 = phi i32 [ %32, %.lr.ph ], [ %37, %._crit_edge.loopexit.i45 ]
-  %39 = trunc nuw nsw i32 %.0.lcssa.i47 to i8
-  %40 = sext i32 %.010.lcssa.i46 to i64
-  %41 = getelementptr inbounds i8, ptr %23, i64 %40
-  store i8 %39, ptr %41, align 1, !tbaa !3
-  %42 = add nsw i32 %.010.lcssa.i46, 11
-  %43 = icmp sgt i32 %42, %22
-  br i1 %43, label %Vec_StrGrow.exit, label %47
+  %.010.lcssa.i46 = phi i32 [ %.02955, %.lr.ph ], [ %37, %._crit_edge.loopexit.i45 ]
+  %.0.lcssa.i47 = phi i32 [ %31, %.lr.ph ], [ %36, %._crit_edge.loopexit.i45 ]
+  %38 = trunc nuw nsw i32 %.0.lcssa.i47 to i8
+  %39 = sext i32 %.010.lcssa.i46 to i64
+  %40 = getelementptr inbounds i8, ptr %23, i64 %39
+  store i8 %38, ptr %40, align 1, !tbaa !3
+  %41 = add nsw i32 %.010.lcssa.i46, 11
+  %42 = icmp sgt i32 %41, %22
+  br i1 %42, label %Vec_StrGrow.exit, label %46
 
 Vec_StrGrow.exit:                                 ; preds = %Gia_AigerWriteUnsignedBuffer.exit48
-  %44 = add nsw i32 %22, 1
-  %45 = sext i32 %44 to i64
-  %46 = tail call ptr @realloc(ptr noundef nonnull %23, i64 noundef %45) #28
-  br label %47
+  %43 = add nsw i32 %22, 1
+  %44 = sext i32 %43 to i64
+  %45 = tail call ptr @realloc(ptr noundef nonnull %23, i64 noundef %44) #28
+  br label %46
 
-47:                                               ; preds = %Gia_AigerWriteUnsignedBuffer.exit48, %Vec_StrGrow.exit
-  %48 = phi i32 [ %22, %Gia_AigerWriteUnsignedBuffer.exit48 ], [ %44, %Vec_StrGrow.exit ]
-  %49 = phi ptr [ %23, %Gia_AigerWriteUnsignedBuffer.exit48 ], [ %46, %Vec_StrGrow.exit ]
+46:                                               ; preds = %Gia_AigerWriteUnsignedBuffer.exit48, %Vec_StrGrow.exit
+  %47 = phi i32 [ %22, %Gia_AigerWriteUnsignedBuffer.exit48 ], [ %43, %Vec_StrGrow.exit ]
+  %48 = phi ptr [ %23, %Gia_AigerWriteUnsignedBuffer.exit48 ], [ %45, %Vec_StrGrow.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.029 = add nsw i32 %.010.lcssa.i46, 1
   %.val32 = load i32, ptr %2, align 4, !tbaa !33
-  %50 = sext i32 %.val32 to i64
-  %51 = icmp slt i64 %indvars.iv.next, %50
-  br i1 %51, label %.lr.ph, label %..critedge_crit_edge, !llvm.loop !48
+  %49 = sext i32 %.val32 to i64
+  %50 = icmp slt i64 %indvars.iv.next, %49
+  br i1 %50, label %.lr.ph, label %..critedge_crit_edge, !llvm.loop !48
 
-..critedge_crit_edge:                             ; preds = %47
-  store ptr %49, ptr %10, align 8
-  store i32 %48, ptr %4, align 8
+..critedge_crit_edge:                             ; preds = %46
+  store ptr %48, ptr %10, align 8
+  store i32 %47, ptr %4, align 8
   br label %.critedge
 
 .critedge:                                        ; preds = %..critedge_crit_edge, %Gia_AigerWriteUnsignedBuffer.exit
@@ -9877,6 +9876,9 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #22
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #23
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.abs.i32(i32, i1 immarg) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #24
