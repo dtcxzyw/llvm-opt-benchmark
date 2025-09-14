@@ -4430,7 +4430,7 @@ define noundef i32 @_ZN7lodepng14convertFromXYZEPhPKfjjPK12LodePNGStateS2_j(ptr 
   %26 = zext i32 %25 to i64
   %27 = call fastcc noundef i32 @_ZN7lodepngL8parseICCEPNS_10LodePNGICCEPKhm(ptr noundef %8, ptr noundef %23, i64 noundef %26)
   %.not107 = icmp eq i32 %27, 0
-  br i1 %.not107, label %28, label %87
+  br i1 %.not107, label %28, label %90
 
 28:                                               ; preds = %21
   %29 = load i32, ptr %8, align 8, !tbaa !74
@@ -4468,7 +4468,7 @@ _ZN7lodepngL11validateICCEPKNS_10LodePNGICCE.exit: ; preds = %36, %35, %30, %28,
   %40 = zext i32 %3 to i64
   %mul.i133 = mul nuw i64 %40, %39
   %mul.ov.i124 = icmp ult i64 %mul.i133, 1152921504606846976
-  br i1 %mul.ov.i124, label %41, label %87
+  br i1 %mul.ov.i124, label %41, label %90
 
 41:                                               ; preds = %_ZN7lodepngL11validateICCEPKNS_10LodePNGICCE.exit
   %mul.val.i123 = shl nuw i64 %mul.i133, 4
@@ -4477,17 +4477,17 @@ _ZN7lodepngL11validateICCEPKNS_10LodePNGICCE.exit: ; preds = %36, %35, %30, %28,
   %43 = tail call noalias noundef ptr @malloc(i64 noundef %mul.val.i123) #31
   %44 = call fastcc noundef i32 @_ZN7lodepngL19convertFromXYZ_chrmEPfPKfjjPK11LodePNGInfojPKNS_10LodePNGICCES2_j(ptr noundef %43, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull %12, i32 noundef %.092, ptr noundef %8, ptr noundef %5, i32 noundef %6)
   %.not114 = icmp eq i32 %44, 0
-  br i1 %.not114, label %45, label %87
+  br i1 %.not114, label %45, label %90
 
 45:                                               ; preds = %41
   %46 = call fastcc noundef i32 @_ZN7lodepngL20convertFromXYZ_gammaEPfjjPK11LodePNGInfojPKNS_10LodePNGICCE(ptr noundef %43, i32 noundef %2, i32 noundef %3, ptr noundef nonnull %12, i32 noundef %.092, ptr noundef %8)
   %.not115 = icmp eq i32 %46, 0
-  br i1 %.not115, label %47, label %87
+  br i1 %.not115, label %47, label %90
 
 47:                                               ; preds = %45
   %48 = tail call noalias noundef ptr @malloc(i64 noundef %mul.i125) #31
   %.not146 = icmp eq i64 %mul.i133, 0
-  br i1 %15, label %49, label %71
+  br i1 %15, label %49, label %73
 
 49:                                               ; preds = %47
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -4512,7 +4512,7 @@ _ZN7lodepngL11validateICCEPKNS_10LodePNGICCE.exit: ; preds = %36, %35, %30, %28,
   %59 = call float @llvm.fmuladd.f32(float %56, float 6.553500e+04, float 5.000000e-01)
   %60 = fptosi float %59 to i32
   %.mux = select i1 %57, i32 0, i32 %60
-  %61 = select i1 %58, i32 65535, i32 %.mux
+  %.mux = select i1 %58, i32 65535, i32 %.mux
   %62 = lshr i32 %61, 8
   %63 = trunc i32 %62 to i8
   %64 = getelementptr inbounds nuw i8, ptr %52, i64 %54
@@ -4524,36 +4524,36 @@ _ZN7lodepngL11validateICCEPKNS_10LodePNGICCE.exit: ; preds = %36, %35, %30, %28,
   %exitcond148.not = icmp eq i64 %67, 4
   br i1 %exitcond148.not, label %68, label %53, !llvm.loop !113
 
-68:                                               ; preds = %53
+68:; preds = %53
   %69 = add nuw i64 %.095143, 1
   %exitcond149.not = icmp eq i64 %69, %mul.i133
   br i1 %exitcond149.not, label %._crit_edge144, label %.preheader, !llvm.loop !114
 
 ._crit_edge144:                                   ; preds = %68, %49
-  %70 = call noundef i32 @_Z15lodepng_convertPhPKhPK16LodePNGColorModeS4_jj(ptr noundef %0, ptr noundef %48, ptr noundef nonnull %11, ptr noundef nonnull %9, i32 noundef %2, i32 noundef %3)
+  %72 = call noundef i32 @_Z15lodepng_convertPhPKhPK16LodePNGColorModeS4_jj(ptr noundef %0, ptr noundef %48, ptr noundef nonnull %11, ptr noundef nonnull %9, i32 noundef %2, i32 noundef %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %87
+  br label %90
 
-71:                                               ; preds = %47
+73:                                               ; preds = %47
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @_Z23lodepng_color_mode_make16LodePNGColorTypej(ptr dead_on_unwind nonnull writable sret(%struct.LodePNGColorMode) align 8 %10, i32 noundef 6, i32 noundef 8)
   br i1 %.not146, label %._crit_edge, label %.preheader139
 
-.preheader139:                                    ; preds = %71, %84
+.preheader139:                                    ; preds = %73, %84
   %.196141 = phi i64 [ %85, %84 ], [ 0, %71 ]
-  %72 = shl i64 %.196141, 2
-  br label %73
+  %74 = shl i64 %.196141, 2
+  br label %75
 
-73:                                               ; preds = %.preheader139, %73
+75:                                               ; preds = %.preheader139, %75
   %.198140 = phi i64 [ 0, %.preheader139 ], [ %83, %73 ]
-  %74 = add nuw nsw i64 %.198140, %72
-  %75 = getelementptr inbounds nuw float, ptr %43, i64 %74
-  %76 = load float, ptr %75, align 4, !tbaa !79
-  %77 = fcmp olt float %76, 0.000000e+00
-  %78 = fcmp uge float %76, 1.000000e+00
-  %brmerge137 = or i1 %78, %77
+  %76 = add nuw nsw i64 %.198140, %74
+  %77 = getelementptr inbounds nuw float, ptr %43, i64 %76
+  %78 = load float, ptr %77, align 4, !tbaa !79
+  %79 = fcmp olt float %78, 0.000000e+00
+  %80 = fcmp uge float %78, 1.000000e+00
+  %81 = or i1 %78, %77
   %.mux138 = sext i1 %78 to i8
-  %79 = call float @llvm.fmuladd.f32(float %76, float 2.550000e+02, float 5.000000e-01)
+  %79 = call float @llvm.fmuladd.f32(float %78, float 2.550000e+02, float 5.000000e-01)
   %80 = fptoui float %79 to i8
   %81 = select i1 %brmerge137, i8 %.mux138, i8 %80
   %82 = getelementptr inbounds nuw i8, ptr %48, i64 %74
@@ -4562,26 +4562,26 @@ _ZN7lodepngL11validateICCEPKNS_10LodePNGICCE.exit: ; preds = %36, %35, %30, %28,
   %exitcond.not = icmp eq i64 %83, 4
   br i1 %exitcond.not, label %84, label %73, !llvm.loop !115
 
-84:                                               ; preds = %73
+84:; preds = %75
   %85 = add nuw i64 %.196141, 1
   %exitcond147.not = icmp eq i64 %85, %mul.i133
   br i1 %exitcond147.not, label %._crit_edge, label %.preheader139, !llvm.loop !116
 
-._crit_edge:                                      ; preds = %84, %71
-  %86 = call noundef i32 @_Z15lodepng_convertPhPKhPK16LodePNGColorModeS4_jj(ptr noundef %0, ptr noundef %48, ptr noundef nonnull %11, ptr noundef nonnull %10, i32 noundef %2, i32 noundef %3)
+._crit_edge:                                      ; preds = %84, %73
+  %89 = call noundef i32 @_Z15lodepng_convertPhPKhPK16LodePNGColorModeS4_jj(ptr noundef %0, ptr noundef %48, ptr noundef nonnull %11, ptr noundef nonnull %10, i32 noundef %2, i32 noundef %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %87
+  br label %90
 
-87:                                               ; preds = %._crit_edge, %._crit_edge144, %45, %41, %_ZN7lodepngL11validateICCEPKNS_10LodePNGICCE.exit, %21
+90:                                               ; preds = %._crit_edge, %._crit_edge144, %45, %41, %_ZN7lodepngL11validateICCEPKNS_10LodePNGICCE.exit, %21
   %.094 = phi ptr [ null, %21 ], [ null, %_ZN7lodepngL11validateICCEPKNS_10LodePNGICCE.exit ], [ %43, %41 ], [ %43, %45 ], [ %43, %._crit_edge144 ], [ %43, %._crit_edge ]
   %.093 = phi ptr [ null, %21 ], [ null, %_ZN7lodepngL11validateICCEPKNS_10LodePNGICCE.exit ], [ null, %41 ], [ null, %45 ], [ %48, %._crit_edge144 ], [ %48, %._crit_edge ]
-  %.191 = phi i32 [ 1, %21 ], [ 92, %_ZN7lodepngL11validateICCEPKNS_10LodePNGICCE.exit ], [ 1, %41 ], [ %46, %45 ], [ %70, %._crit_edge144 ], [ %86, %._crit_edge ]
-  %88 = load ptr, ptr %16, align 8, !tbaa !66
-  call void @free(ptr noundef %88) #27
-  %89 = load ptr, ptr %17, align 8, !tbaa !66
-  call void @free(ptr noundef %89) #27
-  %90 = load ptr, ptr %18, align 8, !tbaa !66
-  call void @free(ptr noundef %90) #27
+  %.191 = phi i32 [ 1, %21 ], [ 92, %_ZN7lodepngL11validateICCEPKNS_10LodePNGICCE.exit ], [ 1, %41 ], [ %46, %45 ], [ %72, %._crit_edge144 ], [ %89, %._crit_edge ]
+  %91 = load ptr, ptr %16, align 8, !tbaa !66
+  call void @free(ptr noundef %91) #27
+  %92 = load ptr, ptr %17, align 8, !tbaa !66
+  call void @free(ptr noundef %92) #27
+  %93 = load ptr, ptr %18, align 8, !tbaa !66
+  call void @free(ptr noundef %93) #27
   call void @free(ptr noundef %.094) #27
   call void @free(ptr noundef %.093) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
