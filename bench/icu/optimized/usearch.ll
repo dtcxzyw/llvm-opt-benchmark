@@ -3002,9 +3002,9 @@ define signext range(i8 0, 2) i8 @usearch_search_77(ptr noundef %0, i32 noundef 
   call fastcc void @_ZN6icu_7712_GLOBAL__N_19CEIBufferC2EP13UStringSearchP10UErrorCode(ptr noundef nonnull align 8 dereferenceable(1576) %11, ptr noundef nonnull %0, ptr noundef nonnull %4)
   %37 = load i32, ptr %4, align 4, !tbaa !3
   %38 = icmp slt i32 %37, 1
-  br i1 %38, label %.preheader404, label %460
+  br i1 %38, label %.preheader405, label %460
 
-.preheader404:                                    ; preds = %34
+.preheader405:                                    ; preds = %34
   %39 = getelementptr inbounds nuw i8, ptr %11, i64 1544
   %40 = getelementptr inbounds nuw i8, ptr %11, i64 1548
   %41 = getelementptr inbounds nuw i8, ptr %11, i64 1552
@@ -3015,10 +3015,10 @@ define signext range(i8 0, 2) i8 @usearch_search_77(ptr noundef %0, i32 noundef 
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 3136
   br label %47
 
-47:                                               ; preds = %.preheader404, %.thread380
-  %.0172 = phi i32 [ %.1173388, %.thread380 ], [ -1, %.preheader404 ]
-  %.0167 = phi i32 [ %.1168389, %.thread380 ], [ -1, %.preheader404 ]
-  %.0151 = phi i32 [ %452, %.thread380 ], [ 0, %.preheader404 ]
+47:                                               ; preds = %.preheader405, %.thread380
+  %.0172 = phi i32 [ %.1173388, %.thread380 ], [ -1, %.preheader405 ]
+  %.0167 = phi i32 [ %.1168389, %.thread380 ], [ -1, %.preheader405 ]
+  %.0151 = phi i32 [ %452, %.thread380 ], [ 0, %.preheader405 ]
   %48 = load i32, ptr %39, align 8, !tbaa !78
   %49 = srem i32 %.0151, %48
   %50 = load i32, ptr %40, align 4, !tbaa !82
@@ -3056,25 +3056,25 @@ define signext range(i8 0, 2) i8 @usearch_search_77(ptr noundef %0, i32 noundef 
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %67 = getelementptr inbounds nuw i8, ptr %65, i64 12
   %68 = invoke noundef i64 @_ZN6icu_7713UCollationPCE13nextProcessedEPiS1_P10UErrorCode(ptr noundef nonnull align 8 dereferenceable(292) %62, ptr noundef nonnull %66, ptr noundef nonnull %67, ptr noundef nonnull %10)
-          to label %_ZN6icu_7712_GLOBAL__N_19CEIBuffer3getEi.exit.thread529 unwind label %.loopexit.split-lp400
+          to label %_ZN6icu_7712_GLOBAL__N_19CEIBuffer3getEi.exit.thread530 unwind label %.loopexit.split-lp401
 
-_ZN6icu_7712_GLOBAL__N_19CEIBuffer3getEi.exit.thread529: ; preds = %59
+_ZN6icu_7712_GLOBAL__N_19CEIBuffer3getEi.exit.thread530: ; preds = %59
   %69 = load ptr, ptr %43, align 8, !tbaa !85
   %70 = getelementptr inbounds nuw %struct.CEI, ptr %69, i64 %64
   store i64 %68, ptr %70, align 8, !tbaa !86
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %.preheader398
+  br label %.preheader399
 
 _ZN6icu_7712_GLOBAL__N_19CEIBuffer3getEi.exit:    ; preds = %47
   %71 = load ptr, ptr %43, align 8, !tbaa !85
   %72 = zext nneg i32 %49 to i64
   %73 = getelementptr inbounds nuw %struct.CEI, ptr %71, i64 %72
   %74 = icmp eq ptr %71, null
-  br i1 %74, label %_ZN6icu_7712_GLOBAL__N_19CEIBuffer3getEi.exit.thread, label %.preheader398
+  br i1 %74, label %_ZN6icu_7712_GLOBAL__N_19CEIBuffer3getEi.exit.thread, label %.preheader399
 
-.preheader398:                                    ; preds = %_ZN6icu_7712_GLOBAL__N_19CEIBuffer3getEi.exit.thread529, %_ZN6icu_7712_GLOBAL__N_19CEIBuffer3getEi.exit
-  %.0.i531 = phi ptr [ %70, %_ZN6icu_7712_GLOBAL__N_19CEIBuffer3getEi.exit.thread529 ], [ %73, %_ZN6icu_7712_GLOBAL__N_19CEIBuffer3getEi.exit ]
-  %75 = phi ptr [ %69, %_ZN6icu_7712_GLOBAL__N_19CEIBuffer3getEi.exit.thread529 ], [ %71, %_ZN6icu_7712_GLOBAL__N_19CEIBuffer3getEi.exit ]
+.preheader399:                                    ; preds = %_ZN6icu_7712_GLOBAL__N_19CEIBuffer3getEi.exit.thread530, %_ZN6icu_7712_GLOBAL__N_19CEIBuffer3getEi.exit
+  %.0.i532 = phi ptr [ %70, %_ZN6icu_7712_GLOBAL__N_19CEIBuffer3getEi.exit.thread530 ], [ %73, %_ZN6icu_7712_GLOBAL__N_19CEIBuffer3getEi.exit ]
+  %75 = phi ptr [ %69, %_ZN6icu_7712_GLOBAL__N_19CEIBuffer3getEi.exit.thread530 ], [ %71, %_ZN6icu_7712_GLOBAL__N_19CEIBuffer3getEi.exit ]
   %76 = load i32, ptr %44, align 8, !tbaa !75
   %77 = icmp sgt i32 %76, 0
   br i1 %77, label %.lr.ph, label %.critedge
@@ -3083,26 +3083,26 @@ _ZN6icu_7712_GLOBAL__N_19CEIBuffer3getEi.exit.thread: ; preds = %53, %_ZN6icu_77
   store i32 5, ptr %4, align 4, !tbaa !3
   br label %.thread369
 
-.loopexit399:                                     ; preds = %98
-  %lpad.loopexit401 = landingpad { ptr, i32 }
+.loopexit400:                                     ; preds = %98
+  %lpad.loopexit402 = landingpad { ptr, i32 }
           cleanup
   br label %453
 
-.loopexit.split-lp400:                            ; preds = %59
-  %lpad.loopexit.split-lp402 = landingpad { ptr, i32 }
+.loopexit.split-lp401:                            ; preds = %59
+  %lpad.loopexit.split-lp403 = landingpad { ptr, i32 }
           cleanup
   br label %453
 
-.lr.ph:                                           ; preds = %.preheader398, %.thread
-  %78 = phi ptr [ %110, %.thread ], [ %75, %.preheader398 ]
-  %.0158431 = phi i32 [ %.2160.ph, %.thread ], [ 0, %.preheader398 ]
-  %.0164430 = phi i32 [ %154, %.thread ], [ 0, %.preheader398 ]
+.lr.ph:                                           ; preds = %.preheader399, %.thread
+  %78 = phi ptr [ %110, %.thread ], [ %75, %.preheader399 ]
+  %.0158432 = phi i32 [ %.2160.ph, %.thread ], [ 0, %.preheader399 ]
+  %.0164431 = phi i32 [ %154, %.thread ], [ 0, %.preheader399 ]
   %79 = load ptr, ptr %30, align 8, !tbaa !38
-  %80 = sext i32 %.0164430 to i64
+  %80 = sext i32 %.0164431 to i64
   %81 = getelementptr inbounds i64, ptr %79, i64 %80
   %82 = load i64, ptr %81, align 8, !tbaa !89
-  %83 = add nsw i32 %.0164430, %.0151
-  %84 = add nsw i32 %83, %.0158431
+  %83 = add nsw i32 %.0164431, %.0151
+  %84 = add nsw i32 %83, %.0158432
   %85 = load i32, ptr %39, align 8, !tbaa !78
   %86 = srem i32 %84, %85
   %87 = load i32, ptr %40, align 4, !tbaa !82
@@ -3143,7 +3143,7 @@ _ZN6icu_7712_GLOBAL__N_19CEIBuffer3getEi.exit.thread: ; preds = %53, %_ZN6icu_77
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 8
   %105 = getelementptr inbounds nuw i8, ptr %103, i64 12
   %106 = invoke noundef i64 @_ZN6icu_7713UCollationPCE13nextProcessedEPiS1_P10UErrorCode(ptr noundef nonnull align 8 dereferenceable(292) %101, ptr noundef nonnull %104, ptr noundef nonnull %105, ptr noundef nonnull %9)
-          to label %.noexc241 unwind label %.loopexit399
+          to label %.noexc241 unwind label %.loopexit400
 
 .noexc241:                                        ; preds = %98
   %107 = load ptr, ptr %43, align 8, !tbaa !85
@@ -3225,17 +3225,17 @@ _ZL12compareCE64slls.exit:                        ; preds = %141
   br i1 %narrow52.i, label %.thread, label %_ZL12compareCE64slls.exit.thread320
 
 150:                                              ; preds = %124, %132
-  %151 = add nsw i32 %.0164430, -1
-  %152 = add nsw i32 %.0158431, 1
+  %151 = add nsw i32 %.0164431, -1
+  %152 = add nsw i32 %.0158432, 1
   br label %.thread
 
 select.unfold:                                    ; preds = %126, %134
-  %153 = add nsw i32 %.0158431, -1
+  %153 = add nsw i32 %.0158432, -1
   br label %.thread
 
 .thread:                                          ; preds = %137, %_ZL12compareCE64slls.exit, %select.unfold, %150, %_ZN6icu_7712_GLOBAL__N_19CEIBuffer3getEi.exit242, %141
-  %.1165.ph = phi i32 [ %.0164430, %141 ], [ %.0164430, %_ZN6icu_7712_GLOBAL__N_19CEIBuffer3getEi.exit242 ], [ %.0164430, %select.unfold ], [ %151, %150 ], [ %.0164430, %_ZL12compareCE64slls.exit ], [ %.0164430, %137 ]
-  %.2160.ph = phi i32 [ %.0158431, %141 ], [ %.0158431, %_ZN6icu_7712_GLOBAL__N_19CEIBuffer3getEi.exit242 ], [ %153, %select.unfold ], [ %152, %150 ], [ %.0158431, %_ZL12compareCE64slls.exit ], [ %.0158431, %137 ]
+  %.1165.ph = phi i32 [ %.0164431, %141 ], [ %.0164431, %_ZN6icu_7712_GLOBAL__N_19CEIBuffer3getEi.exit242 ], [ %.0164431, %select.unfold ], [ %151, %150 ], [ %.0164431, %_ZL12compareCE64slls.exit ], [ %.0164431, %137 ]
+  %.2160.ph = phi i32 [ %.0158432, %141 ], [ %.0158432, %_ZN6icu_7712_GLOBAL__N_19CEIBuffer3getEi.exit242 ], [ %153, %select.unfold ], [ %152, %150 ], [ %.0158432, %_ZL12compareCE64slls.exit ], [ %.0158432, %137 ]
   %154 = add nsw i32 %.1165.ph, 1
   %155 = load i32, ptr %44, align 8, !tbaa !75
   %156 = icmp slt i32 %154, %155
@@ -3245,11 +3245,11 @@ _ZL12compareCE64slls.exit.thread320:              ; preds = %137, %126, %115, %_
   %.not195 = icmp eq i64 %109, 9223372036854775807
   br i1 %.not195, label %.thread369, label %.thread380
 
-.critedge:                                        ; preds = %.thread, %.preheader398
-  %157 = phi ptr [ %75, %.preheader398 ], [ %110, %.thread ]
-  %158 = phi i32 [ %76, %.preheader398 ], [ %155, %.thread ]
-  %.0158.lcssa = phi i32 [ 0, %.preheader398 ], [ %.2160.ph, %.thread ]
-  %.0156.lcssa = phi i64 [ 0, %.preheader398 ], [ %82, %.thread ]
+.critedge:                                        ; preds = %.thread, %.preheader399
+  %157 = phi ptr [ %75, %.preheader399 ], [ %110, %.thread ]
+  %158 = phi i32 [ %76, %.preheader399 ], [ %155, %.thread ]
+  %.0158.lcssa = phi i32 [ 0, %.preheader399 ], [ %.2160.ph, %.thread ]
+  %.0156.lcssa = phi i64 [ 0, %.preheader399 ], [ %82, %.thread ]
   %159 = add nsw i32 %158, %.0158.lcssa
   %160 = add nsw i32 %159, %.0151
   %161 = add nsw i32 %160, -1
@@ -3303,7 +3303,7 @@ _ZL12compareCE64slls.exit.thread320:              ; preds = %137, %126, %115, %_
 _ZN6icu_7712_GLOBAL__N_19CEIBuffer3getEi.exit252: ; preds = %.noexc251, %167
   %185 = phi ptr [ %157, %167 ], [ %183, %.noexc251 ]
   %.0.i249 = phi ptr [ %169, %167 ], [ %184, %.noexc251 ]
-  %186 = getelementptr inbounds nuw i8, ptr %.0.i531, i64 8
+  %186 = getelementptr inbounds nuw i8, ptr %.0.i532, i64 8
   %187 = load i32, ptr %186, align 8, !tbaa !91
   %188 = getelementptr inbounds nuw i8, ptr %.0.i249, i64 8
   %189 = load i32, ptr %188, align 8, !tbaa !91
@@ -3578,12 +3578,12 @@ _ZL15isBreakBoundaryP13UStringSearchiR10UErrorCode.exit.thread: ; preds = %_ZL16
   %.fr = freeze i8 %315
   %.not197 = icmp eq i8 %.fr, 0
   %spec.select394 = select i1 %.not197, i8 0, i8 %.4179
-  %.pre485 = load i32, ptr %4, align 4, !tbaa !3
-  %316 = icmp slt i32 %.pre485, 1
+  %.pre486 = load i32, ptr %4, align 4, !tbaa !3
+  %316 = icmp slt i32 %.pre486, 1
   br i1 %316, label %317, label %.thread369
 
 317:                                              ; preds = %_ZL15isBreakBoundaryP13UStringSearchiR10UErrorCode.exit.thread
-  %318 = getelementptr inbounds nuw i8, ptr %.0.i531, i64 12
+  %318 = getelementptr inbounds nuw i8, ptr %.0.i532, i64 12
   %319 = load i32, ptr %318, align 4, !tbaa !92
   %320 = icmp eq i32 %187, %319
   %spec.select222 = select i1 %320, i8 0, i8 %spec.select394
@@ -3687,7 +3687,7 @@ _ZN12_GLOBAL__N_115codePointBeforeERK7USearchi.exit: ; preds = %348, %351, %360,
 377:                                              ; preds = %327, %331, %333, %336, %374, %347, %323, %317
   %.0139 = phi i1 [ true, %323 ], [ true, %317 ], [ true, %336 ], [ true, %333 ], [ true, %331 ], [ true, %327 ], [ false, %347 ], [ %.not208, %374 ]
   %378 = icmp slt i32 %189, %.0163
-  %.pr391.pre489 = load i32, ptr %4, align 4, !tbaa !3
+  %.pr391.pre490 = load i32, ptr %4, align 4, !tbaa !3
   br i1 %378, label %379, label %_ZL15isBreakBoundaryP13UStringSearchiR10UErrorCode.exit294.thread
 
 379:                                              ; preds = %377
@@ -3697,7 +3697,7 @@ _ZN12_GLOBAL__N_115codePointBeforeERK7USearchi.exit: ; preds = %348, %351, %360,
   br i1 %382, label %383, label %_ZL15isBreakBoundaryP13UStringSearchiR10UErrorCode.exit294._crit_edge
 
 383:                                              ; preds = %379
-  %384 = icmp slt i32 %.pr391.pre489, 1
+  %384 = icmp slt i32 %.pr391.pre490, 1
   br i1 %384, label %385, label %.thread369
 
 385:                                              ; preds = %383
@@ -3741,11 +3741,11 @@ _ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.thread.i286: ; preds = %
 
 _ZL15isBreakBoundaryP13UStringSearchiR10UErrorCode.exit294: ; preds = %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.thread.i286
   %.not203 = icmp eq i8 %402, 0
-  %.pr391.pre488 = load i32, ptr %4, align 4, !tbaa !3
+  %.pr391.pre489 = load i32, ptr %4, align 4, !tbaa !3
   br i1 %.not203, label %_ZL15isBreakBoundaryP13UStringSearchiR10UErrorCode.exit294._crit_edge, label %_ZL15isBreakBoundaryP13UStringSearchiR10UErrorCode.exit294.thread
 
 _ZL15isBreakBoundaryP13UStringSearchiR10UErrorCode.exit294._crit_edge: ; preds = %_ZL15isBreakBoundaryP13UStringSearchiR10UErrorCode.exit294, %379
-  %403 = phi i32 [ %.pr391.pre489, %379 ], [ %.pr391.pre488, %_ZL15isBreakBoundaryP13UStringSearchiR10UErrorCode.exit294 ]
+  %403 = phi i32 [ %.pr391.pre490, %379 ], [ %.pr391.pre489, %_ZL15isBreakBoundaryP13UStringSearchiR10UErrorCode.exit294 ]
   %404 = icmp slt i32 %403, 1
   br i1 %404, label %405, label %_ZL17nextBoundaryAfterP13UStringSearchiR10UErrorCode.exit
 
@@ -3809,7 +3809,7 @@ _ZL17nextBoundaryAfterP13UStringSearchiR10UErrorCode.exit: ; preds = %_ZL16getBr
   br label %453
 
 _ZL15isBreakBoundaryP13UStringSearchiR10UErrorCode.exit294.thread: ; preds = %_ZL17nextBoundaryAfterP13UStringSearchiR10UErrorCode.exit, %_ZL15isBreakBoundaryP13UStringSearchiR10UErrorCode.exit294, %377
-  %.pr391 = phi i32 [ %.pr391.pre, %_ZL17nextBoundaryAfterP13UStringSearchiR10UErrorCode.exit ], [ %.pr391.pre488, %_ZL15isBreakBoundaryP13UStringSearchiR10UErrorCode.exit294 ], [ %.pr391.pre489, %377 ]
+  %.pr391 = phi i32 [ %.pr391.pre, %_ZL17nextBoundaryAfterP13UStringSearchiR10UErrorCode.exit ], [ %.pr391.pre489, %_ZL15isBreakBoundaryP13UStringSearchiR10UErrorCode.exit294 ], [ %.pr391.pre490, %377 ]
   %.3170.ph = phi i32 [ %spec.select233, %_ZL17nextBoundaryAfterP13UStringSearchiR10UErrorCode.exit ], [ %189, %_ZL15isBreakBoundaryP13UStringSearchiR10UErrorCode.exit294 ], [ %.0163, %377 ]
   %427 = icmp slt i32 %.pr391, 1
   br i1 %427, label %428, label %.thread369
@@ -3862,8 +3862,8 @@ _ZL15isBreakBoundaryP13UStringSearchiR10UErrorCode.exit314.thread: ; preds = %_Z
   %.fr396 = freeze i8 %447
   %.not209 = icmp eq i8 %.fr396, 0
   %spec.select395 = select i1 %.not209, i8 0, i8 %spec.select224
-  %.pre491 = load i32, ptr %4, align 4, !tbaa !3
-  %448 = icmp slt i32 %.pre491, 1
+  %.pre492 = load i32, ptr %4, align 4, !tbaa !3
+  %448 = icmp slt i32 %.pre492, 1
   br i1 %448, label %449, label %.thread369
 
 449:                                              ; preds = %_ZL15isBreakBoundaryP13UStringSearchiR10UErrorCode.exit314.thread, %428
@@ -3883,8 +3883,8 @@ _ZL15isBreakBoundaryP13UStringSearchiR10UErrorCode.exit314.thread: ; preds = %_Z
   %452 = add nuw nsw i32 %.0151, 1
   br label %47, !llvm.loop !96
 
-453:                                              ; preds = %.loopexit, %.loopexit.split-lp, %.loopexit399, %.loopexit.split-lp400, %233, %375, %425
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %234, %233 ], [ %376, %375 ], [ %426, %425 ], [ %lpad.loopexit401, %.loopexit399 ], [ %lpad.loopexit.split-lp402, %.loopexit.split-lp400 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+453:                                              ; preds = %.loopexit, %.loopexit.split-lp, %.loopexit400, %.loopexit.split-lp401, %233, %375, %425
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %234, %233 ], [ %376, %375 ], [ %426, %425 ], [ %lpad.loopexit402, %.loopexit400 ], [ %lpad.loopexit.split-lp403, %.loopexit.split-lp401 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call fastcc void @_ZN6icu_7712_GLOBAL__N_19CEIBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(1576) %11) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %.pn.pn.pn.pn

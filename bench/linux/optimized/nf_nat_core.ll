@@ -2333,8 +2333,8 @@ define internal void @__nf_nat_decode_session(ptr noundef readonly captures(none
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %.offs1 = select i1 %12, i64 72, i64 16
-  %17 = getelementptr i8, ptr %16, i64 %.offs1
+  %.offs2 = select i1 %12, i64 72, i64 16
+  %17 = getelementptr i8, ptr %16, i64 %.offs2
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %19 = load i64, ptr %18, align 8
   %20 = and i64 %19, %13

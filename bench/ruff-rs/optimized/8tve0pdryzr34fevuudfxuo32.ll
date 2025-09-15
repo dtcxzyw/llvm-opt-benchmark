@@ -3467,14 +3467,14 @@ define hidden void @"_ZN80_$LT$serde_wasm_bindgen..de..Deserializer$u20$as$u20$s
 .noexc.i:                                         ; preds = %24
   store i32 %30, ptr %8, align 4, !noalias !275
   %31 = invoke noundef i32 @_ZN18serde_wasm_bindgen9ObjectExt16get_with_ref_key17h1eafd8fbaa3aa71aE(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %16, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %8)
-          to label %33 unwind label %.loopexit31.i.i.i, !noalias !262
+          to label %33 unwind label %.loopexit32.i.i.i, !noalias !262
 
-32:                                               ; preds = %51, %.loopexit.split-lp.i.i.i, %.loopexit31.i.i.i
-  %.pn.i.i.i = phi { ptr, i32 } [ %52, %51 ], [ %lpad.loopexit.i.i.i, %.loopexit31.i.i.i ], [ %lpad.loopexit.split-lp.i.i.i, %.loopexit.split-lp.i.i.i ]
+32:                                               ; preds = %51, %.loopexit.split-lp.i.i.i, %.loopexit32.i.i.i
+  %.pn.i.i.i = phi { ptr, i32 } [ %52, %51 ], [ %lpad.loopexit.i.i.i, %.loopexit32.i.i.i ], [ %lpad.loopexit.split-lp.i.i.i, %.loopexit.split-lp.i.i.i ]
   invoke void @"_ZN4core3ptr37drop_in_place$LT$js_sys..JsString$GT$17hb01d88246e6d8e5bE"(ptr noalias noundef nonnull align 4 dereferenceable(4) %8) #11
           to label %.loopexit.split-lp.i unwind label %56, !noalias !262
 
-.loopexit31.i.i.i:                                ; preds = %.noexc.i
+.loopexit32.i.i.i:                                ; preds = %.noexc.i
   %lpad.loopexit.i.i.i = landingpad { ptr, i32 }
           cleanup
   br label %32
@@ -3976,14 +3976,14 @@ define hidden void @"_ZN80_$LT$serde_wasm_bindgen..de..Deserializer$u20$as$u20$s
 .noexc.i:                                         ; preds = %32
   store i32 %38, ptr %8, align 4, !noalias !321
   %39 = invoke noundef i32 @_ZN18serde_wasm_bindgen9ObjectExt16get_with_ref_key17h1eafd8fbaa3aa71aE(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %22, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %8)
-          to label %41 unwind label %.loopexit31.i.i.i, !noalias !308
+          to label %41 unwind label %.loopexit32.i.i.i, !noalias !308
 
-40:                                               ; preds = %59, %.loopexit.split-lp.i.i.i, %.loopexit31.i.i.i
-  %.pn.i.i.i = phi { ptr, i32 } [ %60, %59 ], [ %lpad.loopexit.i.i.i, %.loopexit31.i.i.i ], [ %lpad.loopexit.split-lp.i.i.i, %.loopexit.split-lp.i.i.i ]
+40:                                               ; preds = %59, %.loopexit.split-lp.i.i.i, %.loopexit32.i.i.i
+  %.pn.i.i.i = phi { ptr, i32 } [ %60, %59 ], [ %lpad.loopexit.i.i.i, %.loopexit32.i.i.i ], [ %lpad.loopexit.split-lp.i.i.i, %.loopexit.split-lp.i.i.i ]
   invoke void @"_ZN4core3ptr37drop_in_place$LT$js_sys..JsString$GT$17hb01d88246e6d8e5bE"(ptr noalias noundef nonnull align 4 dereferenceable(4) %8) #11
           to label %.body.i unwind label %64, !noalias !308
 
-.loopexit31.i.i.i:                                ; preds = %.noexc.i
+.loopexit32.i.i.i:                                ; preds = %.noexc.i
   %lpad.loopexit.i.i.i = landingpad { ptr, i32 }
           cleanup
   br label %40
@@ -5150,14 +5150,14 @@ define hidden void @"_ZN80_$LT$serde_wasm_bindgen..de..Deserializer$u20$as$u20$s
 .noexc.i:                                         ; preds = %32
   store i32 %38, ptr %8, align 4, !noalias !434
   %39 = invoke noundef i32 @_ZN18serde_wasm_bindgen9ObjectExt16get_with_ref_key17h1eafd8fbaa3aa71aE(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %24, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %8)
-          to label %41 unwind label %.loopexit31.i.i.i, !noalias !421
+          to label %41 unwind label %.loopexit32.i.i.i, !noalias !421
 
-40:                                               ; preds = %59, %.loopexit.split-lp.i.i.i, %.loopexit31.i.i.i
-  %.pn.i.i.i = phi { ptr, i32 } [ %60, %59 ], [ %lpad.loopexit.i.i.i, %.loopexit31.i.i.i ], [ %lpad.loopexit.split-lp.i.i.i, %.loopexit.split-lp.i.i.i ]
+40:                                               ; preds = %59, %.loopexit.split-lp.i.i.i, %.loopexit32.i.i.i
+  %.pn.i.i.i = phi { ptr, i32 } [ %60, %59 ], [ %lpad.loopexit.i.i.i, %.loopexit32.i.i.i ], [ %lpad.loopexit.split-lp.i.i.i, %.loopexit.split-lp.i.i.i ]
   invoke void @"_ZN4core3ptr37drop_in_place$LT$js_sys..JsString$GT$17hb01d88246e6d8e5bE"(ptr noalias noundef nonnull align 4 dereferenceable(4) %8) #11
           to label %.body.i unwind label %64, !noalias !421
 
-.loopexit31.i.i.i:                                ; preds = %.noexc.i
+.loopexit32.i.i.i:                                ; preds = %.noexc.i
   %lpad.loopexit.i.i.i = landingpad { ptr, i32 }
           cleanup
   br label %40

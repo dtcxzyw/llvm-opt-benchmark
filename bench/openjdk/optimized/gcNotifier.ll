@@ -489,9 +489,9 @@ _ZNK6HandleclEv.exit.i:                           ; preds = %100, %97
   %105 = load i8, ptr @UseCompressedClassPointers, align 1
   %106 = trunc i8 %105 to i1
   %..i.i = select i1 %104, i64 20, i64 24
-  %.8.i.i = select i1 %104, i64 2, i64 3
+  %.9.i.i = select i1 %104, i64 2, i64 3
   %107 = select i1 %106, i64 16, i64 %..i.i
-  %108 = shl nuw nsw i64 %indvars.iv.i, %.8.i.i
+  %108 = shl nuw nsw i64 %indvars.iv.i, %.9.i.i
   %109 = add nuw nsw i64 %107, %108
   %110 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE1EE14_store_at_funcE, align 8
   call void %110(ptr noundef nonnull align 8 dereferenceable(16) %98, i64 noundef %109, ptr noundef %102) #8
@@ -510,9 +510,9 @@ _ZNK6HandleclEv.exit51.i:                         ; preds = %113, %_ZNK6Handlecl
   %118 = load i8, ptr @UseCompressedClassPointers, align 1
   %119 = trunc i8 %118 to i1
   %..i52.i = select i1 %117, i64 20, i64 24
-  %.8.i53.i = select i1 %117, i64 2, i64 3
+  %.9.i53.i = select i1 %117, i64 2, i64 3
   %120 = select i1 %119, i64 16, i64 %..i52.i
-  %121 = shl nuw nsw i64 %indvars.iv.i, %.8.i53.i
+  %121 = shl nuw nsw i64 %indvars.iv.i, %.9.i53.i
   %122 = add nuw nsw i64 %120, %121
   %123 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE1EE14_store_at_funcE, align 8
   call void %123(ptr noundef nonnull align 8 dereferenceable(16) %111, i64 noundef %122, ptr noundef %115) #8

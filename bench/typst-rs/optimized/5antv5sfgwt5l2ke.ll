@@ -2875,8 +2875,8 @@ define hidden void @"_ZN12typst_syntax3ast13Destructuring8bindings28_$u7b$$u7b$c
   tail call void @llvm.experimental.noalias.scope.decl(metadata !548)
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %20 = load i8, ptr %19, align 8, !range !41, !alias.scope !551, !noalias !552, !noundef !4
-  %switch5.i.i.i = icmp eq i8 %20, -126
-  br i1 %switch5.i.i.i, label %21, label %_ZN12typst_syntax3ast5Named7pattern17h573c28d2839c5047E.exit
+  %switch6.i.i.i = icmp eq i8 %20, -126
+  br i1 %switch6.i.i.i, label %21, label %_ZN12typst_syntax3ast5Named7pattern17h573c28d2839c5047E.exit
 
 21:                                               ; preds = %16
   %22 = load ptr, ptr %18, align 8, !alias.scope !551, !noalias !552, !nonnull !4, !noundef !4
@@ -2918,8 +2918,8 @@ _ZN12typst_syntax3ast5Named7pattern17h573c28d2839c5047E.exit: ; preds = %16, %21
   tail call void @llvm.experimental.noalias.scope.decl(metadata !564)
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 24
   %36 = load i8, ptr %35, align 8, !range !41, !alias.scope !567, !noundef !4
-  %switch5.i.i = icmp eq i8 %36, -126
-  br i1 %switch5.i.i, label %37, label %_ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit.i
+  %switch6.i.i = icmp eq i8 %36, -126
+  br i1 %switch6.i.i, label %37, label %_ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit.i
 
 37:                                               ; preds = %32
   %38 = load ptr, ptr %34, align 8, !alias.scope !567, !nonnull !4, !noundef !4

@@ -38871,16 +38871,16 @@ define void @_ZN12polars_arrow6legacy8bit_util26find_first_true_false_null17h9ea
 
 .lr.ph:                                           ; preds = %3, %58
   %.pn = phi { i64, i64 } [ %60, %58 ], [ %4, %3 ]
-  %.sroa.0.086 = phi i64 [ %.sroa.0.1, %58 ], [ -1, %3 ]
-  %.sroa.011.085 = phi i64 [ %.sroa.011.1, %58 ], [ -1, %3 ]
-  %.sroa.013.084 = phi i64 [ %.sroa.013.1, %58 ], [ -1, %3 ]
-  %.sroa.015.083 = phi i64 [ %59, %58 ], [ 0, %3 ]
-  %.sroa.533.082 = phi i64 [ %.sroa.533.4, %58 ], [ undef, %3 ]
-  %.sroa.031.081 = phi i64 [ %.sroa.031.4, %58 ], [ 0, %3 ]
-  %.sroa.026.080 = phi i64 [ %.sroa.026.1, %58 ], [ 0, %3 ]
-  %.sroa.5.079 = phi i64 [ %.sroa.5.1, %58 ], [ undef, %3 ]
-  %.sroa.028.078 = phi i64 [ %.sroa.028.4, %58 ], [ 0, %3 ]
-  %.sroa.530.077 = phi i64 [ %.sroa.530.4, %58 ], [ undef, %3 ]
+  %.sroa.0.087 = phi i64 [ %.sroa.0.1, %58 ], [ -1, %3 ]
+  %.sroa.011.086 = phi i64 [ %.sroa.011.1, %58 ], [ -1, %3 ]
+  %.sroa.013.085 = phi i64 [ %.sroa.013.1, %58 ], [ -1, %3 ]
+  %.sroa.015.084 = phi i64 [ %59, %58 ], [ 0, %3 ]
+  %.sroa.533.083 = phi i64 [ %.sroa.533.4, %58 ], [ undef, %3 ]
+  %.sroa.031.082 = phi i64 [ %.sroa.031.4, %58 ], [ 0, %3 ]
+  %.sroa.026.081 = phi i64 [ %.sroa.026.1, %58 ], [ 0, %3 ]
+  %.sroa.5.080 = phi i64 [ %.sroa.5.1, %58 ], [ undef, %3 ]
+  %.sroa.028.079 = phi i64 [ %.sroa.028.4, %58 ], [ 0, %3 ]
+  %.sroa.530.078 = phi i64 [ %.sroa.530.4, %58 ], [ undef, %3 ]
   %7 = tail call fastcc { i64, i64 } @"_ZN122_$LT$polars_arrow..bitmap..utils..chunk_iterator..BitChunks$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1c354859e8092c7eE"(ptr noalias noundef nonnull align 8 dereferenceable(96) %2), !noalias !2706
   %8 = extractvalue { i64, i64 } %7, 0
   %9 = trunc nuw i64 %8 to i1
@@ -38889,44 +38889,44 @@ define void @_ZN12polars_arrow6legacy8bit_util26find_first_true_false_null17h9ea
 10:                                               ; preds = %.lr.ph
   %11 = extractvalue { i64, i64 } %.pn, 1
   %12 = extractvalue { i64, i64 } %7, 1
-  %13 = and i64 %11, %.sroa.0.086
+  %13 = and i64 %11, %.sroa.0.087
   %14 = and i64 %13, %12
-  %.not38 = icmp eq i64 %14, 0
+  %.not39 = icmp eq i64 %14, 0
   %15 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %14, i1 true)
-  %16 = or disjoint i64 %15, %.sroa.015.083
-  %.sroa.5.1 = select i1 %.not38, i64 %.sroa.5.079, i64 %16
-  %.sroa.026.1 = select i1 %.not38, i64 %.sroa.026.080, i64 1
-  %.sroa.0.1 = select i1 %.not38, i64 %.sroa.0.086, i64 0
+  %16 = or disjoint i64 %15, %.sroa.015.084
+  %.sroa.5.1 = select i1 %.not39, i64 %.sroa.5.080, i64 %16
+  %.sroa.026.1 = select i1 %.not39, i64 %.sroa.026.081, i64 1
+  %.sroa.0.1 = select i1 %.not39, i64 %.sroa.0.087, i64 0
   %17 = xor i64 %11, -1
-  %18 = and i64 %.sroa.011.085, %17
+  %18 = and i64 %.sroa.011.086, %17
   %19 = and i64 %18, %12
-  %.not39 = icmp eq i64 %19, 0
+  %.not40 = icmp eq i64 %19, 0
   %20 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %19, i1 true)
-  %21 = or disjoint i64 %20, %.sroa.015.083
-  %.sroa.530.4 = select i1 %.not39, i64 %.sroa.530.077, i64 %21
-  %.sroa.028.4 = select i1 %.not39, i64 %.sroa.028.078, i64 1
-  %.sroa.011.1 = select i1 %.not39, i64 %.sroa.011.085, i64 0
+  %21 = or disjoint i64 %20, %.sroa.015.084
+  %.sroa.530.4 = select i1 %.not40, i64 %.sroa.530.078, i64 %21
+  %.sroa.028.4 = select i1 %.not40, i64 %.sroa.028.079, i64 1
+  %.sroa.011.1 = select i1 %.not40, i64 %.sroa.011.086, i64 0
   %22 = xor i64 %12, -1
-  %23 = and i64 %.sroa.013.084, %22
-  %.not40 = icmp eq i64 %23, 0
+  %23 = and i64 %.sroa.013.085, %22
+  %.not41 = icmp eq i64 %23, 0
   %24 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %22, i1 false)
-  %25 = add i64 %24, %.sroa.015.083
-  %.sroa.031.4 = select i1 %.not40, i64 %.sroa.031.081, i64 1
-  %.sroa.533.4 = select i1 %.not40, i64 %.sroa.533.082, i64 %25
-  %.sroa.013.1 = select i1 %.not40, i64 %.sroa.013.084, i64 0
+  %25 = add i64 %24, %.sroa.015.084
+  %.sroa.031.4 = select i1 %.not41, i64 %.sroa.031.082, i64 1
+  %.sroa.533.4 = select i1 %.not41, i64 %.sroa.533.083, i64 %25
+  %.sroa.013.1 = select i1 %.not41, i64 %.sroa.013.085, i64 0
   %26 = or i64 %.sroa.0.1, %.sroa.013.1
   %27 = or i64 %26, %.sroa.011.1
   %28 = icmp eq i64 %27, 0
   br i1 %28, label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h7483cbcb85ad49c7E.exit.thread", label %58
 
 ._crit_edge:                                      ; preds = %.lr.ph, %58, %3
-  %.sroa.530.0.lcssa = phi i64 [ undef, %3 ], [ %.sroa.530.4, %58 ], [ %.sroa.530.077, %.lr.ph ]
-  %.sroa.028.0.lcssa = phi i64 [ 0, %3 ], [ %.sroa.028.4, %58 ], [ %.sroa.028.078, %.lr.ph ]
-  %.sroa.5.0.lcssa = phi i64 [ undef, %3 ], [ %.sroa.5.1, %58 ], [ %.sroa.5.079, %.lr.ph ]
-  %.sroa.026.0.lcssa = phi i64 [ 0, %3 ], [ %.sroa.026.1, %58 ], [ %.sroa.026.080, %.lr.ph ]
-  %.sroa.031.0.lcssa = phi i64 [ 0, %3 ], [ %.sroa.031.4, %58 ], [ %.sroa.031.081, %.lr.ph ]
-  %.sroa.533.0.lcssa = phi i64 [ undef, %3 ], [ %.sroa.533.4, %58 ], [ %.sroa.533.082, %.lr.ph ]
-  %.sroa.015.0.lcssa = phi i64 [ 0, %3 ], [ %59, %58 ], [ %.sroa.015.083, %.lr.ph ]
+  %.sroa.530.0.lcssa = phi i64 [ undef, %3 ], [ %.sroa.530.4, %58 ], [ %.sroa.530.078, %.lr.ph ]
+  %.sroa.028.0.lcssa = phi i64 [ 0, %3 ], [ %.sroa.028.4, %58 ], [ %.sroa.028.079, %.lr.ph ]
+  %.sroa.5.0.lcssa = phi i64 [ undef, %3 ], [ %.sroa.5.1, %58 ], [ %.sroa.5.080, %.lr.ph ]
+  %.sroa.026.0.lcssa = phi i64 [ 0, %3 ], [ %.sroa.026.1, %58 ], [ %.sroa.026.081, %.lr.ph ]
+  %.sroa.031.0.lcssa = phi i64 [ 0, %3 ], [ %.sroa.031.4, %58 ], [ %.sroa.031.082, %.lr.ph ]
+  %.sroa.533.0.lcssa = phi i64 [ undef, %3 ], [ %.sroa.533.4, %58 ], [ %.sroa.533.083, %.lr.ph ]
+  %.sroa.015.0.lcssa = phi i64 [ 0, %3 ], [ %59, %58 ], [ %.sroa.015.084, %.lr.ph ]
   %29 = tail call noundef range(i64 0, -9223372036854775808) i64 @"_ZN12polars_arrow6bitmap5utils14chunk_iterator18BitChunks$LT$T$GT$9remainder17h02e95d2ba7a95c76E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %1), !noalias !2709
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %.val.i = load i64, ptr %30, align 8, !alias.scope !2712, !noalias !2709, !noundef !28
@@ -38937,17 +38937,17 @@ define void @_ZN12polars_arrow6legacy8bit_util26find_first_true_false_null17h9ea
 
 "_ZN112_$LT$polars_arrow..types..bit_chunk..BitChunkIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb96ee1f64875befcE.exit.i.preheader": ; preds = %._crit_edge
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 88
-  %.val.i43 = load i64, ptr %34, align 8, !alias.scope !2717, !noalias !2714, !noundef !28
-  %35 = and i64 %.val.i43, 63
+  %.val.i44 = load i64, ptr %34, align 8, !alias.scope !2717, !noalias !2714, !noundef !28
+  %35 = and i64 %.val.i44, 63
   br label %"_ZN112_$LT$polars_arrow..types..bit_chunk..BitChunkIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb96ee1f64875befcE.exit.i"
 
 "_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h7483cbcb85ad49c7E.exit.thread": ; preds = %10, %"_ZN112_$LT$polars_arrow..types..bit_chunk..BitChunkIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb96ee1f64875befcE.exit.i", %55, %._crit_edge
-  %.sroa.530.1 = phi i64 [ %.sroa.530.0.lcssa, %._crit_edge ], [ %.sroa.530.2105, %"_ZN112_$LT$polars_arrow..types..bit_chunk..BitChunkIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb96ee1f64875befcE.exit.i" ], [ %.sroa.530.3, %55 ], [ %.sroa.530.4, %10 ]
-  %.sroa.028.1 = phi i64 [ %.sroa.028.0.lcssa, %._crit_edge ], [ %.sroa.028.2106, %"_ZN112_$LT$polars_arrow..types..bit_chunk..BitChunkIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb96ee1f64875befcE.exit.i" ], [ %.sroa.028.3, %55 ], [ %.sroa.028.4, %10 ]
-  %.sroa.5.2 = phi i64 [ %.sroa.5.0.lcssa, %._crit_edge ], [ %.sroa.5.3107, %"_ZN112_$LT$polars_arrow..types..bit_chunk..BitChunkIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb96ee1f64875befcE.exit.i" ], [ %.sroa.5.4, %55 ], [ %.sroa.5.1, %10 ]
-  %.sroa.026.2 = phi i64 [ %.sroa.026.0.lcssa, %._crit_edge ], [ %.sroa.026.3108, %"_ZN112_$LT$polars_arrow..types..bit_chunk..BitChunkIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb96ee1f64875befcE.exit.i" ], [ %.sroa.026.4, %55 ], [ %.sroa.026.1, %10 ]
-  %.sroa.031.1 = phi i64 [ %.sroa.031.0.lcssa, %._crit_edge ], [ %.sroa.031.2109, %"_ZN112_$LT$polars_arrow..types..bit_chunk..BitChunkIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb96ee1f64875befcE.exit.i" ], [ %.sroa.031.3, %55 ], [ %.sroa.031.4, %10 ]
-  %.sroa.533.1 = phi i64 [ %.sroa.533.0.lcssa, %._crit_edge ], [ %.sroa.533.2110, %"_ZN112_$LT$polars_arrow..types..bit_chunk..BitChunkIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb96ee1f64875befcE.exit.i" ], [ %.sroa.533.3, %55 ], [ %.sroa.533.4, %10 ]
+  %.sroa.530.1 = phi i64 [ %.sroa.530.0.lcssa, %._crit_edge ], [ %.sroa.530.2106, %"_ZN112_$LT$polars_arrow..types..bit_chunk..BitChunkIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb96ee1f64875befcE.exit.i" ], [ %.sroa.530.3, %55 ], [ %.sroa.530.4, %10 ]
+  %.sroa.028.1 = phi i64 [ %.sroa.028.0.lcssa, %._crit_edge ], [ %.sroa.028.2107, %"_ZN112_$LT$polars_arrow..types..bit_chunk..BitChunkIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb96ee1f64875befcE.exit.i" ], [ %.sroa.028.3, %55 ], [ %.sroa.028.4, %10 ]
+  %.sroa.5.2 = phi i64 [ %.sroa.5.0.lcssa, %._crit_edge ], [ %.sroa.5.3108, %"_ZN112_$LT$polars_arrow..types..bit_chunk..BitChunkIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb96ee1f64875befcE.exit.i" ], [ %.sroa.5.4, %55 ], [ %.sroa.5.1, %10 ]
+  %.sroa.026.2 = phi i64 [ %.sroa.026.0.lcssa, %._crit_edge ], [ %.sroa.026.3109, %"_ZN112_$LT$polars_arrow..types..bit_chunk..BitChunkIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb96ee1f64875befcE.exit.i" ], [ %.sroa.026.4, %55 ], [ %.sroa.026.1, %10 ]
+  %.sroa.031.1 = phi i64 [ %.sroa.031.0.lcssa, %._crit_edge ], [ %.sroa.031.2110, %"_ZN112_$LT$polars_arrow..types..bit_chunk..BitChunkIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb96ee1f64875befcE.exit.i" ], [ %.sroa.031.3, %55 ], [ %.sroa.031.4, %10 ]
+  %.sroa.533.1 = phi i64 [ %.sroa.533.0.lcssa, %._crit_edge ], [ %.sroa.533.2111, %"_ZN112_$LT$polars_arrow..types..bit_chunk..BitChunkIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb96ee1f64875befcE.exit.i" ], [ %.sroa.533.3, %55 ], [ %.sroa.533.4, %10 ]
   store i64 %.sroa.026.2, ptr %0, align 8
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.5.2, ptr %36, align 8
@@ -38962,61 +38962,61 @@ define void @_ZN12polars_arrow6legacy8bit_util26find_first_true_false_null17h9ea
   ret void
 
 "_ZN112_$LT$polars_arrow..types..bit_chunk..BitChunkIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb96ee1f64875befcE.exit.i": ; preds = %"_ZN112_$LT$polars_arrow..types..bit_chunk..BitChunkIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb96ee1f64875befcE.exit.i.preheader", %55
-  %.sroa.015.1111 = phi i64 [ %56, %55 ], [ %.sroa.015.0.lcssa, %"_ZN112_$LT$polars_arrow..types..bit_chunk..BitChunkIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb96ee1f64875befcE.exit.i.preheader" ]
-  %.sroa.533.2110 = phi i64 [ %.sroa.533.3, %55 ], [ %.sroa.533.0.lcssa, %"_ZN112_$LT$polars_arrow..types..bit_chunk..BitChunkIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb96ee1f64875befcE.exit.i.preheader" ]
-  %.sroa.031.2109 = phi i64 [ %.sroa.031.3, %55 ], [ %.sroa.031.0.lcssa, %"_ZN112_$LT$polars_arrow..types..bit_chunk..BitChunkIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb96ee1f64875befcE.exit.i.preheader" ]
-  %.sroa.026.3108 = phi i64 [ %.sroa.026.4, %55 ], [ %.sroa.026.0.lcssa, %"_ZN112_$LT$polars_arrow..types..bit_chunk..BitChunkIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb96ee1f64875befcE.exit.i.preheader" ]
-  %.sroa.5.3107 = phi i64 [ %.sroa.5.4, %55 ], [ %.sroa.5.0.lcssa, %"_ZN112_$LT$polars_arrow..types..bit_chunk..BitChunkIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb96ee1f64875befcE.exit.i.preheader" ]
-  %.sroa.028.2106 = phi i64 [ %.sroa.028.3, %55 ], [ %.sroa.028.0.lcssa, %"_ZN112_$LT$polars_arrow..types..bit_chunk..BitChunkIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb96ee1f64875befcE.exit.i.preheader" ]
-  %.sroa.530.2105 = phi i64 [ %.sroa.530.3, %55 ], [ %.sroa.530.0.lcssa, %"_ZN112_$LT$polars_arrow..types..bit_chunk..BitChunkIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb96ee1f64875befcE.exit.i.preheader" ]
-  %.sroa.15.0104 = phi i64 [ %48, %55 ], [ %35, %"_ZN112_$LT$polars_arrow..types..bit_chunk..BitChunkIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb96ee1f64875befcE.exit.i.preheader" ]
-  %.sroa.12.0103 = phi i64 [ %49, %55 ], [ 1, %"_ZN112_$LT$polars_arrow..types..bit_chunk..BitChunkIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb96ee1f64875befcE.exit.i.preheader" ]
-  %.sroa.758.0102 = phi i64 [ %41, %55 ], [ %31, %"_ZN112_$LT$polars_arrow..types..bit_chunk..BitChunkIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb96ee1f64875befcE.exit.i.preheader" ]
-  %.sroa.457.0101 = phi i64 [ %42, %55 ], [ 1, %"_ZN112_$LT$polars_arrow..types..bit_chunk..BitChunkIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb96ee1f64875befcE.exit.i.preheader" ]
-  %41 = add nsw i64 %.sroa.758.0102, -1
-  %42 = shl i64 %.sroa.457.0101, 1
-  %43 = icmp eq i64 %.sroa.15.0104, 0
+  %.sroa.015.1112 = phi i64 [ %56, %55 ], [ %.sroa.015.0.lcssa, %"_ZN112_$LT$polars_arrow..types..bit_chunk..BitChunkIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb96ee1f64875befcE.exit.i.preheader" ]
+  %.sroa.533.2111 = phi i64 [ %.sroa.533.3, %55 ], [ %.sroa.533.0.lcssa, %"_ZN112_$LT$polars_arrow..types..bit_chunk..BitChunkIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb96ee1f64875befcE.exit.i.preheader" ]
+  %.sroa.031.2110 = phi i64 [ %.sroa.031.3, %55 ], [ %.sroa.031.0.lcssa, %"_ZN112_$LT$polars_arrow..types..bit_chunk..BitChunkIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb96ee1f64875befcE.exit.i.preheader" ]
+  %.sroa.026.3109 = phi i64 [ %.sroa.026.4, %55 ], [ %.sroa.026.0.lcssa, %"_ZN112_$LT$polars_arrow..types..bit_chunk..BitChunkIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb96ee1f64875befcE.exit.i.preheader" ]
+  %.sroa.5.3108 = phi i64 [ %.sroa.5.4, %55 ], [ %.sroa.5.0.lcssa, %"_ZN112_$LT$polars_arrow..types..bit_chunk..BitChunkIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb96ee1f64875befcE.exit.i.preheader" ]
+  %.sroa.028.2107 = phi i64 [ %.sroa.028.3, %55 ], [ %.sroa.028.0.lcssa, %"_ZN112_$LT$polars_arrow..types..bit_chunk..BitChunkIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb96ee1f64875befcE.exit.i.preheader" ]
+  %.sroa.530.2106 = phi i64 [ %.sroa.530.3, %55 ], [ %.sroa.530.0.lcssa, %"_ZN112_$LT$polars_arrow..types..bit_chunk..BitChunkIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb96ee1f64875befcE.exit.i.preheader" ]
+  %.sroa.15.0105 = phi i64 [ %48, %55 ], [ %35, %"_ZN112_$LT$polars_arrow..types..bit_chunk..BitChunkIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb96ee1f64875befcE.exit.i.preheader" ]
+  %.sroa.12.0104 = phi i64 [ %49, %55 ], [ 1, %"_ZN112_$LT$polars_arrow..types..bit_chunk..BitChunkIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb96ee1f64875befcE.exit.i.preheader" ]
+  %.sroa.759.0103 = phi i64 [ %41, %55 ], [ %31, %"_ZN112_$LT$polars_arrow..types..bit_chunk..BitChunkIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb96ee1f64875befcE.exit.i.preheader" ]
+  %.sroa.458.0102 = phi i64 [ %42, %55 ], [ 1, %"_ZN112_$LT$polars_arrow..types..bit_chunk..BitChunkIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb96ee1f64875befcE.exit.i.preheader" ]
+  %41 = add nsw i64 %.sroa.759.0103, -1
+  %42 = shl i64 %.sroa.458.0102, 1
+  %43 = icmp eq i64 %.sroa.15.0105, 0
   br i1 %43, label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h7483cbcb85ad49c7E.exit.thread", label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h7483cbcb85ad49c7E.exit"
 
 "_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h7483cbcb85ad49c7E.exit": ; preds = %"_ZN112_$LT$polars_arrow..types..bit_chunk..BitChunkIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb96ee1f64875befcE.exit.i"
-  %44 = and i64 %.sroa.457.0101, %29
+  %44 = and i64 %.sroa.458.0102, %29
   %45 = icmp ne i64 %44, 0
-  %46 = and i64 %.sroa.12.0103, %32
+  %46 = and i64 %.sroa.12.0104, %32
   %47 = icmp ne i64 %46, 0
-  %48 = add nsw i64 %.sroa.15.0104, -1
-  %49 = shl i64 %.sroa.12.0103, 1
-  %50 = icmp ne i64 %.sroa.026.3108, 1
+  %48 = add nsw i64 %.sroa.15.0105, -1
+  %49 = shl i64 %.sroa.12.0104, 1
+  %50 = icmp ne i64 %.sroa.026.3109, 1
   %brmerge.not = select i1 %50, i1 %47, i1 false
   %brmerge3.not = select i1 %brmerge.not, i1 %45, i1 false
   br i1 %brmerge3.not, label %55, label %51
 
 51:                                               ; preds = %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h7483cbcb85ad49c7E.exit"
   %.not1 = xor i1 %47, true
-  %52 = icmp eq i64 %.sroa.028.2106, 1
+  %52 = icmp eq i64 %.sroa.028.2107, 1
   %brmerge6 = select i1 %52, i1 true, i1 %.not1
   %brmerge7 = select i1 %brmerge6, i1 true, i1 %45
   br i1 %brmerge7, label %53, label %55
 
 53:                                               ; preds = %51
-  %54 = icmp eq i64 %.sroa.031.2109, 1
+  %54 = icmp eq i64 %.sroa.031.2110, 1
   %brmerge9 = select i1 %54, i1 true, i1 %47
-  %spec.select = select i1 %brmerge9, i64 %.sroa.031.2109, i64 1
-  %spec.select41 = select i1 %brmerge9, i64 %.sroa.533.2110, i64 %.sroa.015.1111
+  %spec.select = select i1 %brmerge9, i64 %.sroa.031.2110, i64 1
+  %spec.select42 = select i1 %brmerge9, i64 %.sroa.533.2111, i64 %.sroa.015.1112
   br label %55
 
 55:                                               ; preds = %53, %51, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h7483cbcb85ad49c7E.exit"
-  %.sroa.530.3 = phi i64 [ %.sroa.530.2105, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h7483cbcb85ad49c7E.exit" ], [ %.sroa.015.1111, %51 ], [ %.sroa.530.2105, %53 ]
-  %.sroa.028.3 = phi i64 [ %.sroa.028.2106, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h7483cbcb85ad49c7E.exit" ], [ 1, %51 ], [ %.sroa.028.2106, %53 ]
-  %.sroa.5.4 = phi i64 [ %.sroa.015.1111, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h7483cbcb85ad49c7E.exit" ], [ %.sroa.5.3107, %51 ], [ %.sroa.5.3107, %53 ]
-  %.sroa.026.4 = phi i64 [ 1, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h7483cbcb85ad49c7E.exit" ], [ %.sroa.026.3108, %51 ], [ %.sroa.026.3108, %53 ]
-  %.sroa.031.3 = phi i64 [ %.sroa.031.2109, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h7483cbcb85ad49c7E.exit" ], [ %.sroa.031.2109, %51 ], [ %spec.select, %53 ]
-  %.sroa.533.3 = phi i64 [ %.sroa.533.2110, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h7483cbcb85ad49c7E.exit" ], [ %.sroa.533.2110, %51 ], [ %spec.select41, %53 ]
-  %56 = add nuw nsw i64 %.sroa.015.1111, 1
+  %.sroa.530.3 = phi i64 [ %.sroa.530.2106, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h7483cbcb85ad49c7E.exit" ], [ %.sroa.015.1112, %51 ], [ %.sroa.530.2106, %53 ]
+  %.sroa.028.3 = phi i64 [ %.sroa.028.2107, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h7483cbcb85ad49c7E.exit" ], [ 1, %51 ], [ %.sroa.028.2107, %53 ]
+  %.sroa.5.4 = phi i64 [ %.sroa.015.1112, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h7483cbcb85ad49c7E.exit" ], [ %.sroa.5.3108, %51 ], [ %.sroa.5.3108, %53 ]
+  %.sroa.026.4 = phi i64 [ 1, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h7483cbcb85ad49c7E.exit" ], [ %.sroa.026.3109, %51 ], [ %.sroa.026.3109, %53 ]
+  %.sroa.031.3 = phi i64 [ %.sroa.031.2110, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h7483cbcb85ad49c7E.exit" ], [ %.sroa.031.2110, %51 ], [ %spec.select, %53 ]
+  %.sroa.533.3 = phi i64 [ %.sroa.533.2111, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h7483cbcb85ad49c7E.exit" ], [ %.sroa.533.2111, %51 ], [ %spec.select42, %53 ]
+  %56 = add nuw nsw i64 %.sroa.015.1112, 1
   %57 = icmp eq i64 %41, 0
   br i1 %57, label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h7483cbcb85ad49c7E.exit.thread", label %"_ZN112_$LT$polars_arrow..types..bit_chunk..BitChunkIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb96ee1f64875befcE.exit.i"
 
 58:                                               ; preds = %10
-  %59 = add i64 %.sroa.015.083, 64
+  %59 = add i64 %.sroa.015.084, 64
   %60 = tail call fastcc { i64, i64 } @"_ZN122_$LT$polars_arrow..bitmap..utils..chunk_iterator..BitChunks$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1c354859e8092c7eE"(ptr noalias noundef nonnull align 8 dereferenceable(96) %1), !noalias !2706
   %61 = extractvalue { i64, i64 } %60, 0
   %62 = trunc nuw i64 %61 to i1

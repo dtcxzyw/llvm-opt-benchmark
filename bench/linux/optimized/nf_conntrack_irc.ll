@@ -207,11 +207,11 @@ define internal i32 @help(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 no
 20:                                               ; preds = %18
   %21 = call i32 @skb_copy_bits(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %6, i32 noundef 20) #11
   %22 = icmp slt i32 %21, 0
-  br i1 %22, label %.thread, label %..thread21_crit_edge, !prof !9
+  br i1 %22, label %.thread, label %..thread22_crit_edge, !prof !9
 
-..thread21_crit_edge:                             ; preds = %20
+..thread22_crit_edge:                             ; preds = %20
   %.pre = load i32, ptr %11, align 8
-  br label %.thread21
+  br label %.thread22
 
 23:                                               ; preds = %10
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 200
@@ -219,11 +219,11 @@ define internal i32 @help(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 no
   %26 = sext i32 %1 to i64
   %27 = getelementptr i8, ptr %25, i64 %26
   %28 = icmp eq ptr %27, null
-  br i1 %28, label %.thread, label %.thread21
+  br i1 %28, label %.thread, label %.thread22
 
-.thread21:                                        ; preds = %..thread21_crit_edge, %23
-  %29 = phi i32 [ %12, %23 ], [ %.pre, %..thread21_crit_edge ]
-  %30 = phi ptr [ %27, %23 ], [ %6, %..thread21_crit_edge ]
+.thread22:                                        ; preds = %..thread22_crit_edge, %23
+  %29 = phi i32 [ %12, %23 ], [ %.pre, %..thread22_crit_edge ]
+  %30 = phi ptr [ %27, %23 ], [ %6, %..thread22_crit_edge ]
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 12
   %32 = load i16, ptr %31, align 4
   %33 = lshr i16 %32, 2
@@ -233,7 +233,7 @@ define internal i32 @help(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 no
   %37 = icmp ult i32 %36, %29
   br i1 %37, label %38, label %.thread
 
-38:                                               ; preds = %.thread21
+38:                                               ; preds = %.thread22
   %39 = sub nuw i32 %29, %36
   %40 = call i32 @llvm.umin.i32(i32 %39, i32 4095)
   call void @_raw_spin_lock_bh(ptr noundef nonnull @irc_buffer_lock) #11
@@ -254,26 +254,26 @@ define internal i32 @help(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 no
 
 52:                                               ; preds = %38
   %53 = icmp eq ptr %0, null
-  br i1 %53, label %.thread24, label %54
+  br i1 %53, label %.thread25, label %54
 
 54:                                               ; preds = %52
   %55 = call i32 @skb_copy_bits(ptr noundef nonnull %0, i32 noundef %36, ptr noundef %41, i32 noundef %40) #11
   %56 = icmp slt i32 %55, 0
-  br i1 %56, label %.thread24, label %57, !prof !9
+  br i1 %56, label %.thread25, label %57, !prof !9
 
 57:                                               ; preds = %54, %47
   %58 = phi ptr [ %51, %47 ], [ %41, %54 ]
   %59 = icmp eq ptr %58, null
-  br i1 %59, label %.thread24, label %60
+  br i1 %59, label %.thread25, label %60
 
 60:                                               ; preds = %57
   %61 = zext nneg i32 %40 to i64
   %62 = getelementptr i8, ptr %58, i64 %61
   %63 = getelementptr i8, ptr %62, i64 -10
   %64 = icmp ult ptr %58, %63
-  br i1 %64, label %.preheader37, label %.loopexit38
+  br i1 %64, label %.preheader38, label %.loopexit39
 
-.preheader37:                                     ; preds = %60, %67
+.preheader38:                                     ; preds = %60, %67
   %65 = phi ptr [ %68, %67 ], [ %58, %60 ]
   %66 = load i8, ptr %65, align 1
   switch i8 %66, label %70 [
@@ -282,27 +282,27 @@ define internal i32 @help(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 no
     i8 10, label %67
   ]
 
-67:                                               ; preds = %.preheader37, %.preheader37, %.preheader37
+67:                                               ; preds = %.preheader38, %.preheader38, %.preheader38
   %68 = getelementptr i8, ptr %65, i64 1
   %69 = icmp eq ptr %68, %63
-  br i1 %69, label %.loopexit38, label %.preheader37, !llvm.loop !10
+  br i1 %69, label %.loopexit39, label %.preheader38, !llvm.loop !10
 
-70:                                               ; preds = %.preheader37
+70:                                               ; preds = %.preheader38
   %71 = call i32 @strncasecmp(ptr noundef nonnull @.str.5, ptr noundef %65, i64 noundef 8)
   %72 = icmp eq i32 %71, 0
-  br i1 %72, label %73, label %.thread24
+  br i1 %72, label %73, label %.thread25
 
 73:                                               ; preds = %70
   %74 = getelementptr i8, ptr %65, i64 8
-  br label %.loopexit38
+  br label %.loopexit39
 
-.loopexit38:                                      ; preds = %67, %73, %60
+.loopexit39:                                      ; preds = %67, %73, %60
   %75 = phi ptr [ %74, %73 ], [ %58, %60 ], [ %63, %67 ]
   %76 = getelementptr i8, ptr %62, i64 -26
   %77 = icmp ult ptr %75, %76
-  br i1 %77, label %78, label %.thread24
+  br i1 %77, label %78, label %.thread25
 
-78:                                               ; preds = %.loopexit38
+78:                                               ; preds = %.loopexit39
   %79 = getelementptr i8, ptr %62, i64 -12
   %80 = getelementptr i8, ptr %2, i64 32
   %81 = getelementptr i8, ptr %2, i64 108
@@ -310,7 +310,7 @@ define internal i32 @help(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 no
 
 82:                                               ; preds = %189
   %83 = icmp ult ptr %190, %76
-  br i1 %83, label %.backedge, label %.thread24
+  br i1 %83, label %.backedge, label %.thread25
 
 84:                                               ; preds = %.backedge, %78
   %85 = phi ptr [ %75, %78 ], [ %.be, %.backedge ]
@@ -321,7 +321,7 @@ define internal i32 @help(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 no
 88:                                               ; preds = %84
   %89 = getelementptr i8, ptr %85, i64 1
   %90 = icmp ult ptr %89, %76
-  br i1 %90, label %.backedge, label %.thread24
+  br i1 %90, label %.backedge, label %.thread25
 
 .backedge:                                        ; preds = %88, %82
   %.be = phi ptr [ %89, %88 ], [ %190, %82 ]
@@ -331,7 +331,7 @@ define internal i32 @help(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 no
   %92 = getelementptr i8, ptr %85, i64 2
   %93 = call i32 @bcmp(ptr noundef dereferenceable(5) %92, ptr noundef nonnull dereferenceable(5) @.str.7, i64 5)
   %94 = icmp eq i32 %93, 0
-  br i1 %94, label %95, label %.thread24
+  br i1 %94, label %95, label %.thread25
 
 95:                                               ; preds = %91
   %96 = getelementptr i8, ptr %85, i64 7
@@ -362,29 +362,29 @@ define internal i32 @help(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 no
 
 112:                                              ; preds = %107
   %113 = icmp ugt ptr %109, %62
-  br i1 %113, label %.thread26, label %114
+  br i1 %113, label %.thread27, label %114
 
 114:                                              ; preds = %112
   %115 = load i8, ptr %109, align 1
   %116 = icmp eq i8 %115, 10
-  br i1 %116, label %.loopexit34, label %.preheader32
+  br i1 %116, label %.loopexit35, label %.preheader33
 
 117:                                              ; preds = %107
   %118 = icmp ugt ptr %109, %79
-  br i1 %118, label %.thread26, label %107, !llvm.loop !12
+  br i1 %118, label %.thread27, label %107, !llvm.loop !12
 
-119:                                              ; preds = %.preheader32
+119:                                              ; preds = %.preheader33
   %120 = load i8, ptr %123, align 1
   %121 = icmp eq i8 %120, 10
-  br i1 %121, label %.loopexit34, label %.preheader32, !llvm.loop !13
+  br i1 %121, label %.loopexit35, label %.preheader33, !llvm.loop !13
 
-.preheader32:                                     ; preds = %114, %119
+.preheader33:                                     ; preds = %114, %119
   %122 = phi ptr [ %123, %119 ], [ %109, %114 ]
   %123 = getelementptr i8, ptr %122, i64 1
   %124 = icmp ugt ptr %123, %62
-  br i1 %124, label %.thread26, label %119, !llvm.loop !13
+  br i1 %124, label %.thread27, label %119, !llvm.loop !13
 
-.loopexit34:                                      ; preds = %119, %114
+.loopexit35:                                      ; preds = %119, %114
   %125 = call i64 @simple_strtoul(ptr noundef %109, ptr noundef nonnull %5, i32 noundef 10) #11
   %126 = trunc i64 %125 to i32
   %127 = call i32 @llvm.bswap.i32(i32 %126)
@@ -394,10 +394,10 @@ define internal i32 @help(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 no
   %130 = icmp eq i8 %129, 32
   br i1 %130, label %.preheader, label %.loopexit
 
-.preheader:                                       ; preds = %.loopexit34, %133
-  %131 = phi ptr [ %134, %133 ], [ %128, %.loopexit34 ]
+.preheader:                                       ; preds = %.loopexit35, %133
+  %131 = phi ptr [ %134, %133 ], [ %128, %.loopexit35 ]
   %132 = icmp ult ptr %131, %62
-  br i1 %132, label %133, label %.thread26
+  br i1 %132, label %133, label %.thread27
 
 133:                                              ; preds = %.preheader
   %134 = getelementptr i8, ptr %131, i64 1
@@ -406,12 +406,12 @@ define internal i32 @help(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 no
   %136 = icmp eq i8 %135, 32
   br i1 %136, label %.preheader, label %.loopexit, !llvm.loop !14
 
-.thread26:                                        ; preds = %117, %.preheader32, %.preheader, %112
+.thread27:                                        ; preds = %117, %.preheader33, %.preheader, %112
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %189
 
-.loopexit:                                        ; preds = %133, %.loopexit34
-  %137 = phi ptr [ %128, %.loopexit34 ], [ %134, %133 ]
+.loopexit:                                        ; preds = %133, %.loopexit35
+  %137 = phi ptr [ %128, %.loopexit35 ], [ %134, %133 ]
   %138 = call i64 @simple_strtoul(ptr noundef %137, ptr noundef nonnull %5, i32 noundef 10) #11
   %139 = trunc i64 %138 to i16
   %140 = load ptr, ptr %5, align 8
@@ -450,7 +450,7 @@ define internal i32 @help(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 no
 
 161:                                              ; preds = %158
   call void (ptr, ptr, ptr, ...) @nf_ct_helper_log(ptr noundef %0, ptr noundef %2, ptr noundef nonnull @.str.9) #11
-  br label %.thread24
+  br label %.thread25
 
 162:                                              ; preds = %158
   %163 = call i16 @llvm.bswap.i16(i16 %139)
@@ -493,21 +493,21 @@ define internal i32 @help(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 no
 187:                                              ; preds = %186, %183, %174
   %188 = phi i32 [ %182, %174 ], [ 0, %186 ], [ 1, %183 ]
   call void @nf_ct_expect_put(ptr noundef nonnull %159) #11
-  br label %.thread24
+  br label %.thread25
 
-189:                                              ; preds = %.thread26, %154, %151, %97
-  %190 = phi ptr [ %106, %151 ], [ %106, %154 ], [ %99, %97 ], [ %106, %.thread26 ]
+189:                                              ; preds = %.thread27, %154, %151, %97
+  %190 = phi ptr [ %106, %151 ], [ %106, %154 ], [ %99, %97 ], [ %106, %.thread27 ]
   %191 = add nuw nsw i64 %98, 1
   %192 = icmp eq i64 %191, 5
   br i1 %192, label %82, label %97, !llvm.loop !15
 
-.thread24:                                        ; preds = %91, %82, %88, %54, %52, %187, %161, %.loopexit38, %70, %57
-  %193 = phi i32 [ 1, %57 ], [ 1, %70 ], [ 0, %161 ], [ %188, %187 ], [ 1, %.loopexit38 ], [ 1, %52 ], [ 1, %54 ], [ 1, %88 ], [ 1, %82 ], [ 1, %91 ]
+.thread25:                                        ; preds = %91, %82, %88, %54, %52, %187, %161, %.loopexit39, %70, %57
+  %193 = phi i32 [ 1, %57 ], [ 1, %70 ], [ 0, %161 ], [ %188, %187 ], [ 1, %.loopexit39 ], [ 1, %52 ], [ 1, %54 ], [ 1, %88 ], [ 1, %82 ], [ 1, %91 ]
   call void @_raw_spin_unlock_bh(ptr noundef nonnull @irc_buffer_lock) #11
   br label %.thread
 
-.thread:                                          ; preds = %20, %18, %.thread24, %.thread21, %23, %4
-  %194 = phi i32 [ 1, %4 ], [ 1, %23 ], [ 1, %.thread21 ], [ %193, %.thread24 ], [ 1, %18 ], [ 1, %20 ]
+.thread:                                          ; preds = %20, %18, %.thread25, %.thread22, %23, %4
+  %194 = phi i32 [ 1, %4 ], [ 1, %23 ], [ 1, %.thread22 ], [ %193, %.thread25 ], [ 1, %18 ], [ 1, %20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

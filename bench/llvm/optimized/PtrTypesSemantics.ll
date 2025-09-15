@@ -2430,8 +2430,8 @@ _ZN5clang12isCheckedPtrERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.e
   %146 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %147 = load i32, ptr %146, align 4
   %148 = and i32 %147, 127
-  %.not49 = icmp eq i32 %148, 35
-  br i1 %.not49, label %149, label %.critedge13
+  %.not50 = icmp eq i32 %148, 35
+  br i1 %.not50, label %149, label %.critedge13
 
 149:                                              ; preds = %_ZN5clang12isCheckedPtrERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit24.thread
   %150 = getelementptr inbounds nuw i8, ptr %0, i64 48

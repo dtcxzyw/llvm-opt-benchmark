@@ -3069,22 +3069,22 @@ define internal fastcc ptr @phpdbg_find_conditional_breakpoint(ptr noundef reado
   %9 = and i32 %8, 4
   %.not = icmp eq i32 %9, 0
   call void @llvm.assume(i1 %.not)
-  %.not2947 = icmp eq i32 %5, 0
-  br i1 %.not2947, label %._crit_edge, label %.lr.ph
+  %.not2948 = icmp eq i32 %5, 0
+  br i1 %.not2948, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %11
 
 11:                                               ; preds = %.lr.ph, %.thread
-  %.02648 = phi ptr [ %4, %.lr.ph ], [ %138, %.thread ]
-  %12 = getelementptr inbounds nuw i8, ptr %.02648, i64 8
+  %.02649 = phi ptr [ %4, %.lr.ph ], [ %138, %.thread ]
+  %12 = getelementptr inbounds nuw i8, ptr %.02649, i64 8
   %13 = load i8, ptr %12, align 8, !tbaa !12
   %14 = icmp eq i8 %13, 0
   br i1 %14, label %.thread, label %15, !prof !13
 
 15:                                               ; preds = %11
-  %16 = load ptr, ptr %.02648, align 8, !tbaa !12
+  %16 = load ptr, ptr %.02649, align 8, !tbaa !12
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 512), align 8, !tbaa !131
   %18 = load ptr, ptr %17, align 8, !tbaa !184
@@ -3297,7 +3297,7 @@ select.unfold:                                    ; preds = %127, %phpdbg_find_b
   br i1 %.4, label %._crit_edge, label %.thread
 
 .thread:                                          ; preds = %11, %.thread42, %select.unfold
-  %138 = getelementptr inbounds nuw i8, ptr %.02648, i64 32
+  %138 = getelementptr inbounds nuw i8, ptr %.02649, i64 32
   %.not29 = icmp eq ptr %138, %7
   br i1 %.not29, label %._crit_edge, label %11
 

@@ -187,8 +187,8 @@ define range(i32 -1, 1) i32 @H5_init_library() local_unnamed_addr #0 {
 
 ._crit_edge:                                      ; preds = %6
   %.pre = load i8, ptr @H5_init_g, align 1, !tbaa !3, !range !7
-  %.pre17 = load i8, ptr @H5_libterm_g, align 1, !range !7
-  %.pre18 = trunc nuw i8 %.pre to i1
+  %.pre18 = load i8, ptr @H5_libterm_g, align 1, !range !7
+  %.pre19 = trunc nuw i8 %.pre to i1
   br label %13
 
 9:                                                ; preds = %6
@@ -199,8 +199,8 @@ define range(i32 -1, 1) i32 @H5_init_library() local_unnamed_addr #0 {
   br label %101
 
 13:                                               ; preds = %._crit_edge, %0
-  %.pre-phi = phi i1 [ %.pre18, %._crit_edge ], [ %2, %0 ]
-  %14 = phi i8 [ %.pre17, %._crit_edge ], [ %3, %0 ]
+  %.pre-phi = phi i1 [ %.pre19, %._crit_edge ], [ %2, %0 ]
+  %14 = phi i8 [ %.pre18, %._crit_edge ], [ %3, %0 ]
   %15 = trunc nuw i8 %14 to i1
   %not. = xor i1 %.pre-phi, true
   %.not = select i1 %not., i1 %15, i1 false

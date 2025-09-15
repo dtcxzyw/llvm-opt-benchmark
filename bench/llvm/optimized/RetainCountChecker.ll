@@ -1284,11 +1284,11 @@ default.unreachable:                              ; preds = %13
   tail call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %33) #21
   %.pre = load ptr, ptr %30, align 8, !tbaa !65
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 56
-  %.pre76 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !3
+  %.pre78 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !3
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit: ; preds = %29, %34
-  %35 = phi ptr [ null, %29 ], [ %.pre76, %34 ]
+  %35 = phi ptr [ null, %29 ], [ %.pre78, %34 ]
   %36 = phi ptr [ %31, %29 ], [ %.pre, %34 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.sroa.3.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %36, i64 24
@@ -1422,8 +1422,8 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit35: ; preds =
   %.pre.i = load ptr, ptr %30, align 8, !tbaa !65
   %76 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 56
   %77 = load ptr, ptr %76, align 8, !tbaa !3
-  %.not73 = icmp eq ptr %.sroa.057.0, %77
-  br i1 %.not73, label %_ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15ProgramPointTagE.exit, label %78
+  %.not75 = icmp eq ptr %.sroa.057.0, %77
+  br i1 %.not75, label %_ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15ProgramPointTagE.exit, label %78
 
 78:                                               ; preds = %75
   %79 = getelementptr inbounds nuw i8, ptr %2, i64 16

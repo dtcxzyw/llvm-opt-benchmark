@@ -138546,13 +138546,13 @@ _ZN11flatbuffers21FlatBufferBuilderImplILb0EE13TrackMinAlignEm.exit.i.i13: ; pre
   %77 = and i32 %76, 3
   %78 = zext nneg i32 %77 to i64
   %.not.i.i.i.i14 = icmp eq i32 %77, 0
-  %.pre45 = load ptr, ptr %7, align 8, !tbaa !613
+  %.pre46 = load ptr, ptr %7, align 8, !tbaa !613
   br i1 %.not.i.i.i.i14, label %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE5AlignEm.exit.i, label %79
 
 79:                                               ; preds = %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE13TrackMinAlignEm.exit.i.i13
   %.pre4.i.i.i.i16 = load ptr, ptr %.phi.trans.insert.i.i.i, align 8, !tbaa !589
   %80 = ptrtoint ptr %.pre4.i.i.i.i16 to i64
-  %81 = ptrtoint ptr %.pre45 to i64
+  %81 = ptrtoint ptr %.pre46 to i64
   %82 = sub i64 %80, %81
   %83 = and i64 %82, 4294967295
   %84 = icmp samesign ult i64 %83, %78
@@ -138584,11 +138584,11 @@ _ZN11flatbuffers21FlatBufferBuilderImplILb0EE13TrackMinAlignEm.exit.i.i13: ; pre
   br i1 %exitcond.not.i.i.i20, label %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE5AlignEm.exit.i.loopexit, label %.lr.ph.i.i.i18, !llvm.loop !729
 
 _ZN11flatbuffers21FlatBufferBuilderImplILb0EE5AlignEm.exit.i.loopexit: ; preds = %.lr.ph.i.i.i18
-  %.pre44 = load ptr, ptr %7, align 8, !tbaa !613
+  %.pre45 = load ptr, ptr %7, align 8, !tbaa !613
   br label %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE5AlignEm.exit.i
 
 _ZN11flatbuffers21FlatBufferBuilderImplILb0EE5AlignEm.exit.i: ; preds = %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE5AlignEm.exit.i.loopexit, %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE13TrackMinAlignEm.exit.i.i13
-  %94 = phi ptr [ %.pre44, %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE5AlignEm.exit.i.loopexit ], [ %.pre45, %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE13TrackMinAlignEm.exit.i.i13 ]
+  %94 = phi ptr [ %.pre45, %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE5AlignEm.exit.i.loopexit ], [ %.pre46, %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE13TrackMinAlignEm.exit.i.i13 ]
   %.pre4.i.i.i21 = load ptr, ptr %.phi.trans.insert.i.i.i, align 8, !tbaa !589
   %95 = ptrtoint ptr %.pre4.i.i.i21 to i64
   %96 = ptrtoint ptr %94 to i64
@@ -138627,12 +138627,12 @@ _ZN11flatbuffers21FlatBufferBuilderImplILb0EE13TrackMinAlignEm.exit.i.i25: ; pre
   %111 = and i32 %110, 3
   %112 = zext nneg i32 %111 to i64
   %.not.i.i.i.i26 = icmp eq i32 %111, 0
-  %.pre48 = load ptr, ptr %7, align 8, !tbaa !613
+  %.pre49 = load ptr, ptr %7, align 8, !tbaa !613
   br i1 %.not.i.i.i.i26, label %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE5AlignEm.exit.i33, label %113
 
 113:                                              ; preds = %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE13TrackMinAlignEm.exit.i.i25
   %114 = ptrtoint ptr %102 to i64
-  %115 = ptrtoint ptr %.pre48 to i64
+  %115 = ptrtoint ptr %.pre49 to i64
   %116 = sub i64 %114, %115
   %117 = and i64 %116, 4294967295
   %118 = icmp samesign ult i64 %117, %112
@@ -138665,11 +138665,11 @@ _ZN11flatbuffers21FlatBufferBuilderImplILb0EE13TrackMinAlignEm.exit.i.i25: ; pre
 
 _ZN11flatbuffers21FlatBufferBuilderImplILb0EE5AlignEm.exit.i33.loopexit: ; preds = %.lr.ph.i.i.i30
   %.pre4.i.i.i34.pre = load ptr, ptr %.phi.trans.insert.i.i.i, align 8, !tbaa !589
-  %.pre47 = load ptr, ptr %7, align 8, !tbaa !613
+  %.pre48 = load ptr, ptr %7, align 8, !tbaa !613
   br label %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE5AlignEm.exit.i33
 
 _ZN11flatbuffers21FlatBufferBuilderImplILb0EE5AlignEm.exit.i33: ; preds = %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE5AlignEm.exit.i33.loopexit, %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE13TrackMinAlignEm.exit.i.i25
-  %128 = phi ptr [ %.pre47, %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE5AlignEm.exit.i33.loopexit ], [ %.pre48, %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE13TrackMinAlignEm.exit.i.i25 ]
+  %128 = phi ptr [ %.pre48, %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE5AlignEm.exit.i33.loopexit ], [ %.pre49, %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE13TrackMinAlignEm.exit.i.i25 ]
   %.pre4.i.i.i34 = phi ptr [ %.pre4.i.i.i34.pre, %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE5AlignEm.exit.i33.loopexit ], [ %102, %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE13TrackMinAlignEm.exit.i.i25 ]
   %129 = ptrtoint ptr %.pre4.i.i.i34 to i64
   %130 = ptrtoint ptr %128 to i64

@@ -91,8 +91,8 @@ define internal fastcc i32 @ParseTzFile(ptr noundef %0, i32 noundef range(i32 0,
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %12 = load i8, ptr %0, align 1
-  %.not159 = icmp eq i8 %12, 0
-  br i1 %.not159, label %._crit_edge, label %.lr.ph
+  %.not160 = icmp eq i8 %12, 0
+  br i1 %.not160, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
   %13 = tail call ptr @__ctype_b_loc() #10
@@ -100,14 +100,14 @@ define internal fastcc i32 @ParseTzFile(ptr noundef %0, i32 noundef range(i32 0,
   br label %18
 
 15:                                               ; preds = %18
-  %16 = getelementptr inbounds nuw i8, ptr %.056160, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %.056161, i64 1
   %17 = load i8, ptr %16, align 1
   %.not = icmp eq i8 %17, 0
   br i1 %.not, label %._crit_edge, label %18, !llvm.loop !4
 
 18:                                               ; preds = %.lr.ph, %15
   %19 = phi i8 [ %12, %.lr.ph ], [ %17, %15 ]
-  %.056160 = phi ptr [ %0, %.lr.ph ], [ %16, %15 ]
+  %.056161 = phi ptr [ %0, %.lr.ph ], [ %16, %15 ]
   %20 = zext i8 %19 to i64
   %21 = getelementptr inbounds nuw i16, ptr %14, i64 %20
   %22 = load i16, ptr %21, align 2
@@ -144,16 +144,16 @@ define internal fastcc i32 @ParseTzFile(ptr noundef %0, i32 noundef range(i32 0,
   %35 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %9, i64 noundef 1024, ptr noundef nonnull @.str.4, ptr noundef nonnull %8, ptr noundef nonnull %0) #9
   %36 = call ptr @AllocateFile(ptr noundef nonnull %9, ptr noundef nonnull @.str.5) #9
   %.not68 = icmp eq ptr %36, null
-  br i1 %.not68, label %39, label %.preheader128
+  br i1 %.not68, label %39, label %.preheader129
 
-.preheader128:                                    ; preds = %34
+.preheader129:                                    ; preds = %34
   %37 = call i32 @feof(ptr noundef nonnull %36) #9
-  %.not69164168173 = icmp eq i32 %37, 0
-  br i1 %.not69164168173, label %.lr.ph166.lr.ph.lr.ph, label %.loopexit129
+  %.not69165169174 = icmp eq i32 %37, 0
+  br i1 %.not69165169174, label %.lr.ph167.lr.ph.lr.ph, label %.loopexit130
 
-.lr.ph166.lr.ph.lr.ph:                            ; preds = %.preheader128
+.lr.ph167.lr.ph.lr.ph:                            ; preds = %.preheader129
   %38 = add nuw nsw i32 %1, 1
-  br label %.lr.ph166.lr.ph
+  br label %.lr.ph167.lr.ph
 
 39:                                               ; preds = %34
   %40 = tail call ptr @__errno_location() #10
@@ -188,9 +188,9 @@ define internal fastcc i32 @ParseTzFile(ptr noundef %0, i32 noundef range(i32 0,
   store ptr %55, ptr @GUC_check_errmsg_string, align 8
   br label %219
 
-56:                                               ; preds = %.lr.ph166, %.backedge
-  %.058165 = phi i32 [ %.058.ph131169, %.lr.ph166 ], [ %57, %.backedge ]
-  %57 = add i32 %.058165, 1
+56:                                               ; preds = %.lr.ph167, %.backedge
+  %.058166 = phi i32 [ %.058.ph132170, %.lr.ph167 ], [ %57, %.backedge ]
+  %57 = add i32 %.058166, 1
   %58 = call ptr @fgets(ptr noundef nonnull %10, i32 noundef 1024, ptr noundef nonnull %36)
   %59 = icmp eq ptr %58, null
   br i1 %59, label %60, label %66
@@ -198,7 +198,7 @@ define internal fastcc i32 @ParseTzFile(ptr noundef %0, i32 noundef range(i32 0,
 60:                                               ; preds = %56
   %61 = call i32 @ferror(ptr noundef nonnull %36) #9
   %.not74 = icmp eq i32 %61, 0
-  br i1 %.not74, label %.loopexit129, label %62
+  br i1 %.not74, label %.loopexit130, label %62
 
 62:                                               ; preds = %60
   %63 = tail call ptr @__errno_location() #10
@@ -206,7 +206,7 @@ define internal fastcc i32 @ParseTzFile(ptr noundef %0, i32 noundef range(i32 0,
   call void @pre_format_elog_string(i32 noundef %64, ptr noundef null) #9
   %65 = call ptr (ptr, ...) @format_elog_string(ptr noundef nonnull @.str.9, ptr noundef nonnull %0) #9
   store ptr %65, ptr @GUC_check_errmsg_string, align 8
-  br label %.loopexit129
+  br label %.loopexit130
 
 66:                                               ; preds = %56
   %67 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #11
@@ -215,10 +215,10 @@ define internal fastcc i32 @ParseTzFile(ptr noundef %0, i32 noundef range(i32 0,
 
 .preheader:                                       ; preds = %66
   %69 = load i8, ptr %10, align 16
-  %cond161 = icmp eq i8 %69, 0
-  br i1 %cond161, label %.backedge, label %.lr.ph163
+  %cond162 = icmp eq i8 %69, 0
+  br i1 %cond162, label %.backedge, label %.lr.ph164
 
-.lr.ph163:                                        ; preds = %.preheader
+.lr.ph164:                                        ; preds = %.preheader
   %70 = tail call ptr @__ctype_b_loc() #10
   %71 = load ptr, ptr %70, align 8
   br label %76
@@ -229,11 +229,11 @@ define internal fastcc i32 @ParseTzFile(ptr noundef %0, i32 noundef range(i32 0,
   call void @pre_format_elog_string(i32 noundef %74, ptr noundef null) #9
   %75 = call ptr (ptr, ...) @format_elog_string(ptr noundef nonnull @.str.10, ptr noundef nonnull %0, i32 noundef %57) #9
   store ptr %75, ptr @GUC_check_errmsg_string, align 8
-  br label %.loopexit129
+  br label %.loopexit130
 
-76:                                               ; preds = %.lr.ph163, %82
-  %77 = phi i8 [ %69, %.lr.ph163 ], [ %84, %82 ]
-  %.059162 = phi ptr [ %10, %.lr.ph163 ], [ %83, %82 ]
+76:                                               ; preds = %.lr.ph164, %82
+  %77 = phi i8 [ %69, %.lr.ph164 ], [ %84, %82 ]
+  %.059163 = phi ptr [ %10, %.lr.ph164 ], [ %83, %82 ]
   %78 = zext i8 %77 to i64
   %79 = getelementptr inbounds nuw i16, ptr %71, i64 %78
   %80 = load i16, ptr %79, align 2
@@ -242,27 +242,27 @@ define internal fastcc i32 @ParseTzFile(ptr noundef %0, i32 noundef range(i32 0,
   br i1 %.not71, label %.critedge, label %82
 
 82:                                               ; preds = %76
-  %83 = getelementptr inbounds nuw i8, ptr %.059162, i64 1
+  %83 = getelementptr inbounds nuw i8, ptr %.059163, i64 1
   %84 = load i8, ptr %83, align 1
   %cond = icmp eq i8 %84, 0
   br i1 %cond, label %.backedge, label %76, !llvm.loop !6
 
 .critedge:                                        ; preds = %76
-  %cond226 = icmp eq i8 %77, 35
-  br i1 %cond226, label %.backedge, label %86
+  %cond227 = icmp eq i8 %77, 35
+  br i1 %cond227, label %.backedge, label %86
 
 .backedge:                                        ; preds = %82, %.critedge, %.preheader
   %85 = call i32 @feof(ptr noundef nonnull %36) #9
   %.not69 = icmp eq i32 %85, 0
-  br i1 %.not69, label %56, label %.loopexit129
+  br i1 %.not69, label %56, label %.loopexit130
 
 86:                                               ; preds = %.critedge
-  %87 = call i32 @pg_strncasecmp(ptr noundef nonnull %.059162, ptr noundef nonnull @.str.11, i64 noundef 8) #9
+  %87 = call i32 @pg_strncasecmp(ptr noundef nonnull %.059163, ptr noundef nonnull @.str.11, i64 noundef 8) #9
   %88 = icmp eq i32 %87, 0
   br i1 %88, label %89, label %102
 
 89:                                               ; preds = %86
-  %90 = getelementptr inbounds nuw i8, ptr %.059162, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %.059163, i64 8
   %91 = call ptr @pstrdup(ptr noundef nonnull %90) #9
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %92 = call ptr @strtok_r(ptr noundef %91, ptr noundef nonnull @.str.12, ptr noundef nonnull %11) #9
@@ -281,45 +281,45 @@ define internal fastcc i32 @ParseTzFile(ptr noundef %0, i32 noundef range(i32 0,
   %97 = call ptr (ptr, ...) @format_elog_string(ptr noundef nonnull @.str.13, ptr noundef nonnull %0, i32 noundef %57) #9
   store ptr %97, ptr @GUC_check_errmsg_string, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %.loopexit129
+  br label %.loopexit130
 
 98:                                               ; preds = %93
-  %99 = call fastcc i32 @ParseTzFile(ptr noundef nonnull %92, i32 noundef %38, ptr noundef %2, ptr noundef %3, i32 noundef %.053.ph132170)
+  %99 = call fastcc i32 @ParseTzFile(ptr noundef nonnull %92, i32 noundef %38, ptr noundef %2, ptr noundef %3, i32 noundef %.053.ph133171)
   %100 = icmp slt i32 %99, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br i1 %100, label %.loopexit129, label %.outer130.backedge
+  br i1 %100, label %.loopexit130, label %.outer131.backedge
 
-.outer130.backedge:                               ; preds = %98, %addToArray.exit
-  %.053.ph132.be = phi i32 [ %.2.i, %addToArray.exit ], [ %99, %98 ]
+.outer131.backedge:                               ; preds = %98, %addToArray.exit
+  %.053.ph133.be = phi i32 [ %.2.i, %addToArray.exit ], [ %99, %98 ]
   %101 = call i32 @feof(ptr noundef nonnull %36) #9
-  %.not69164 = icmp eq i32 %101, 0
-  br i1 %.not69164, label %.lr.ph166, label %.loopexit129, !llvm.loop !7
+  %.not69165 = icmp eq i32 %101, 0
+  br i1 %.not69165, label %.lr.ph167, label %.loopexit130, !llvm.loop !7
 
-.lr.ph166:                                        ; preds = %.lr.ph166.lr.ph, %.outer130.backedge
-  %.053.ph132170 = phi i32 [ %.053.ph176, %.lr.ph166.lr.ph ], [ %.053.ph132.be, %.outer130.backedge ]
-  %.058.ph131169 = phi i32 [ %.058.ph174, %.lr.ph166.lr.ph ], [ %57, %.outer130.backedge ]
+.lr.ph167:                                        ; preds = %.lr.ph167.lr.ph, %.outer131.backedge
+  %.053.ph133171 = phi i32 [ %.053.ph177, %.lr.ph167.lr.ph ], [ %.053.ph133.be, %.outer131.backedge ]
+  %.058.ph132170 = phi i32 [ %.058.ph175, %.lr.ph167.lr.ph ], [ %57, %.outer131.backedge ]
   br label %56
 
 102:                                              ; preds = %86
-  %103 = call i32 @pg_strncasecmp(ptr noundef nonnull %.059162, ptr noundef nonnull @.str.14, i64 noundef 9) #9
+  %103 = call i32 @pg_strncasecmp(ptr noundef nonnull %.059163, ptr noundef nonnull @.str.14, i64 noundef 9) #9
   %104 = icmp eq i32 %103, 0
   br i1 %104, label %.outer.loopexit, label %106
 
 .outer.loopexit:                                  ; preds = %102
   %105 = call i32 @feof(ptr noundef nonnull %36) #9
-  %.not69164168 = icmp eq i32 %105, 0
-  br i1 %.not69164168, label %.lr.ph166.lr.ph, label %.loopexit129, !llvm.loop !7
+  %.not69165169 = icmp eq i32 %105, 0
+  br i1 %.not69165169, label %.lr.ph167.lr.ph, label %.loopexit130, !llvm.loop !7
 
-.lr.ph166.lr.ph:                                  ; preds = %.lr.ph166.lr.ph.lr.ph, %.outer.loopexit
-  %.053.ph176 = phi i32 [ %4, %.lr.ph166.lr.ph.lr.ph ], [ %.053.ph132170, %.outer.loopexit ]
-  %.057.ph175 = phi i1 [ false, %.lr.ph166.lr.ph.lr.ph ], [ true, %.outer.loopexit ]
-  %.058.ph174 = phi i32 [ 0, %.lr.ph166.lr.ph.lr.ph ], [ %57, %.outer.loopexit ]
-  br label %.lr.ph166
+.lr.ph167.lr.ph:                                  ; preds = %.lr.ph167.lr.ph.lr.ph, %.outer.loopexit
+  %.053.ph177 = phi i32 [ %4, %.lr.ph167.lr.ph.lr.ph ], [ %.053.ph133171, %.outer.loopexit ]
+  %.057.ph176 = phi i1 [ false, %.lr.ph167.lr.ph.lr.ph ], [ true, %.outer.loopexit ]
+  %.058.ph175 = phi i32 [ 0, %.lr.ph167.lr.ph.lr.ph ], [ %57, %.outer.loopexit ]
+  br label %.lr.ph167
 
 106:                                              ; preds = %102
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %107 = call ptr @strtok_r(ptr noundef nonnull %.059162, ptr noundef nonnull @.str.12, ptr noundef nonnull %6) #9
+  %107 = call ptr @strtok_r(ptr noundef nonnull %.059163, ptr noundef nonnull @.str.12, ptr noundef nonnull %6) #9
   %.not.i = icmp eq ptr %107, null
   br i1 %.not.i, label %splitTzLine.exit, label %108
 
@@ -398,7 +398,7 @@ splitTzLine.exit:                                 ; preds = %106, %108, %118, %1
   store ptr %137, ptr @GUC_check_errmsg_string, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %.loopexit129
+  br label %.loopexit130
 
 .thread97:                                        ; preds = %125, %132, %.thread103
   %.sroa.17.3.ph = phi i8 [ %.sroa.17.2109, %.thread103 ], [ %.sroa.17.2, %132 ], [ 0, %125 ]
@@ -447,11 +447,11 @@ splitTzLine.exit:                                 ; preds = %106, %108, %118, %1
 validateTzEntry.exit:                             ; preds = %140, %147
   %.sink.i = phi ptr [ %150, %147 ], [ %143, %140 ]
   store ptr %.sink.i, ptr @GUC_check_errmsg_string, align 8
-  br label %.loopexit129
+  br label %.loopexit130
 
 .loopexit:                                        ; preds = %.lr.ph.i, %.preheader.i
   %155 = load ptr, ptr %2, align 8
-  %156 = add i32 %.053.ph132170, -1
+  %156 = add i32 %.053.ph133171, -1
   %.not76.i = icmp slt i32 %156, 0
   br i1 %.not76.i, label %._crit_edge.i, label %.lr.ph.i78
 
@@ -511,7 +511,7 @@ validateTzEntry.exit:                             ; preds = %140, %147
 
 .thread.i:                                        ; preds = %184, %183, %179, %175, %174
   %187 = phi ptr [ %.sroa.8.3.ph, %174 ], [ null, %175 ], [ null, %179 ], [ %.sroa.8.3.ph, %184 ], [ null, %183 ]
-  br i1 %.057.ph175, label %188, label %addToArray.exit.thread
+  br i1 %.057.ph176, label %188, label %addToArray.exit.thread
 
 188:                                              ; preds = %.thread.i
   store ptr %187, ptr %170, align 8
@@ -535,7 +535,7 @@ addToArray.exit.thread:                           ; preds = %.thread.i
   %198 = load i32, ptr %197, align 8
   %199 = call ptr (ptr, ...) @format_elog_string(ptr noundef nonnull @.str.23, ptr noundef %196, i32 noundef %198, ptr noundef nonnull %0, i32 noundef %57) #9
   store ptr %199, ptr @GUC_check_errdetail_string, align 8
-  br label %.loopexit129
+  br label %.loopexit130
 
 200:                                              ; preds = %167, %164
   %.260.i = phi i32 [ %165, %164 ], [ %.05877.i, %167 ]
@@ -546,7 +546,7 @@ addToArray.exit.thread:                           ; preds = %.thread.i
 ._crit_edge.i:                                    ; preds = %200, %.loopexit
   %.055.lcssa.i = phi i32 [ 0, %.loopexit ], [ %.257.i, %200 ]
   %201 = load i32, ptr %3, align 4
-  %.not65.i = icmp slt i32 %.053.ph132170, %201
+  %.not65.i = icmp slt i32 %.053.ph133171, %201
   br i1 %.not65.i, label %208, label %202
 
 202:                                              ; preds = %._crit_edge.i
@@ -564,7 +564,7 @@ addToArray.exit.thread:                           ; preds = %.thread.i
   %210 = sext i32 %.055.lcssa.i to i64
   %211 = getelementptr inbounds %struct.tzEntry, ptr %209, i64 %210
   %212 = getelementptr inbounds nuw i8, ptr %211, i64 40
-  %213 = sub i32 %.053.ph132170, %.055.lcssa.i
+  %213 = sub i32 %.053.ph133171, %.055.lcssa.i
   %214 = sext i32 %213 to i64
   %215 = mul nsw i64 %214, 40
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %212, ptr align 8 %211, i64 %215, i1 false)
@@ -579,21 +579,21 @@ addToArray.exit.thread:                           ; preds = %.thread.i
   store i32 %57, ptr %.sroa.2287.0..sroa_idx, align 8
   %.sroa.2690.0..sroa_idx = getelementptr inbounds nuw i8, ptr %211, i64 32
   store ptr %0, ptr %.sroa.2690.0..sroa_idx, align 8
-  %216 = add i32 %.053.ph132170, 1
+  %216 = add i32 %.053.ph133171, 1
   br label %addToArray.exit
 
 addToArray.exit:                                  ; preds = %179, %184, %188, %208
-  %.2.i = phi i32 [ %216, %208 ], [ %.053.ph132170, %179 ], [ %.053.ph132170, %184 ], [ %.053.ph132170, %188 ]
+  %.2.i = phi i32 [ %216, %208 ], [ %.053.ph133171, %179 ], [ %.053.ph133171, %184 ], [ %.053.ph133171, %188 ]
   %217 = icmp slt i32 %.2.i, 0
-  br i1 %217, label %.loopexit129, label %.outer130.backedge
+  br i1 %217, label %.loopexit130, label %.outer131.backedge
 
-.loopexit129:                                     ; preds = %.outer.loopexit, %.outer130.backedge, %98, %addToArray.exit, %.backedge, %.preheader128, %addToArray.exit.thread, %validateTzEntry.exit, %splitTzLine.exit, %.thread, %60, %72, %62
-  %.154 = phi i32 [ -1, %62 ], [ %.053.ph132170, %60 ], [ -1, %72 ], [ -1, %splitTzLine.exit ], [ -1, %validateTzEntry.exit ], [ -1, %.thread ], [ -1, %addToArray.exit.thread ], [ %4, %.preheader128 ], [ %.053.ph132170, %.backedge ], [ %.053.ph132.be, %.outer130.backedge ], [ %99, %98 ], [ %.2.i, %addToArray.exit ], [ %.053.ph132170, %.outer.loopexit ]
+.loopexit130:                                     ; preds = %.outer.loopexit, %.outer131.backedge, %98, %addToArray.exit, %.backedge, %.preheader129, %addToArray.exit.thread, %validateTzEntry.exit, %splitTzLine.exit, %.thread, %60, %72, %62
+  %.154 = phi i32 [ -1, %62 ], [ %.053.ph133171, %60 ], [ -1, %72 ], [ -1, %splitTzLine.exit ], [ -1, %validateTzEntry.exit ], [ -1, %.thread ], [ -1, %addToArray.exit.thread ], [ %4, %.preheader129 ], [ %.053.ph133171, %.backedge ], [ %.053.ph133.be, %.outer131.backedge ], [ %99, %98 ], [ %.2.i, %addToArray.exit ], [ %.053.ph133171, %.outer.loopexit ]
   %218 = call i32 @FreeFile(ptr noundef nonnull %36) #9
   br label %219
 
-219:                                              ; preds = %45, %50, %54, %24, %25, %.loopexit129, %30
-  %.0 = phi i32 [ -1, %30 ], [ %.154, %.loopexit129 ], [ -1, %25 ], [ -1, %24 ], [ -1, %54 ], [ -1, %50 ], [ -1, %45 ]
+219:                                              ; preds = %45, %50, %54, %24, %25, %.loopexit130, %30
+  %.0 = phi i32 [ -1, %30 ], [ %.154, %.loopexit130 ], [ -1, %25 ], [ -1, %24 ], [ -1, %54 ], [ -1, %50 ], [ -1, %45 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)

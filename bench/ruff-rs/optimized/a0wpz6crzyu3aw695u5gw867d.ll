@@ -779,7 +779,7 @@ define internal fastcc void @"_ZN185_$LT$ruff_workspace..options.._..$LT$impl$u2
   call void @llvm.experimental.noalias.scope.decl(metadata !12)
   call void @llvm.experimental.noalias.scope.decl(metadata !14)
   %.pre.i.i = load ptr, ptr %132, align 8, !alias.scope !16
-  %.pre23.i.i = load i64, ptr %133, align 8, !alias.scope !16
+  %.pre24.i.i = load i64, ptr %133, align 8, !alias.scope !16
   br label %146
 
 146:                                              ; preds = %"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$serde..__private..de..content..Content$C$serde..__private..de..content..Content$RP$$GT$$GT$17ha8d5cf46b0e4e9a0E.exit.i.i", %.lr.ph.i.i
@@ -787,7 +787,7 @@ define internal fastcc void @"_ZN185_$LT$ruff_workspace..options.._..$LT$impl$u2
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 64
   store ptr %148, ptr %127, align 8, !alias.scope !16
   call void @llvm.lifetime.start.p0(ptr nonnull %50), !noalias !16
-  invoke void @_ZN5serde9__private2de19flat_map_take_entry17hc99d5e7588e2ac27E(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %50, ptr noalias noundef nonnull align 8 dereferenceable(64) %147, ptr noalias noundef nonnull readonly align 8 %.pre.i.i, i64 noundef %.pre23.i.i)
+  invoke void @_ZN5serde9__private2de19flat_map_take_entry17hc99d5e7588e2ac27E(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %50, ptr noalias noundef nonnull align 8 dereferenceable(64) %147, ptr noalias noundef nonnull readonly align 8 %.pre.i.i, i64 noundef %.pre24.i.i)
           to label %.noexc unwind label %.loopexit
 
 .noexc:                                           ; preds = %146

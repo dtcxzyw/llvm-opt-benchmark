@@ -1345,8 +1345,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit341: ; preds = %_Z
           to label %480 unwind label %486
 
 434:                                              ; preds = %368, %473
-  %indvars.iv454 = phi i64 [ 0, %368 ], [ %indvars.iv.next455, %473 ]
-  %435 = getelementptr inbounds nuw [2 x i32], ptr %379, i64 %indvars.iv454
+  %indvars.iv455 = phi i64 [ 0, %368 ], [ %indvars.iv.next456, %473 ]
+  %435 = getelementptr inbounds nuw [2 x i32], ptr %379, i64 %indvars.iv455
   %436 = load i32, ptr %435, align 8, !tbaa !28
   %437 = sext i32 %436 to i64
   %438 = getelementptr inbounds nuw %"class.cv::Point_", ptr %359, i64 %437
@@ -1439,9 +1439,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit341: ; preds = %_Z
   br label %473
 
 473:                                              ; preds = %434, %472
-  %indvars.iv.next455 = add nuw nsw i64 %indvars.iv454, 1
-  %exitcond458.not = icmp eq i64 %indvars.iv.next455, %.090
-  br i1 %exitcond458.not, label %._crit_edge.i.i342, label %434, !llvm.loop !83
+  %indvars.iv.next456 = add nuw nsw i64 %indvars.iv455, 1
+  %exitcond459.not = icmp eq i64 %indvars.iv.next456, %.090
+  br i1 %exitcond459.not, label %._crit_edge.i.i342, label %434, !llvm.loop !83
 
 474:                                              ; preds = %453
   %475 = landingpad { ptr, i32 }

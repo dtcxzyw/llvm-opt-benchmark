@@ -12983,8 +12983,8 @@ lean_obj_tag.exit.i:                              ; preds = %47, %44
 68:                                               ; preds = %61
   %69 = ptrtoint ptr %63 to i64
   %70 = and i64 %69, 1
-  %.not232 = icmp eq i64 %70, 0
-  br i1 %.not232, label %lean_nat_eq.exit149, label %lean_nat_eq.exit149.thread, !prof !11
+  %.not233 = icmp eq i64 %70, 0
+  br i1 %.not233, label %lean_nat_eq.exit149, label %lean_nat_eq.exit149.thread, !prof !11
 
 lean_nat_eq.exit149:                              ; preds = %68
   %71 = tail call zeroext i1 @lean_nat_big_eq(ptr noundef %0, ptr noundef %63) #3
@@ -12995,14 +12995,14 @@ lean_nat_eq.exit149.thread209:                    ; preds = %61
   br i1 %72, label %lean_dec.exit144, label %77
 
 lean_nat_eq.exit149.thread:                       ; preds = %68
-  %.not233 = icmp eq ptr %0, %63
-  br i1 %.not233, label %lean_dec.exit144, label %.thread195
+  %.not234 = icmp eq ptr %0, %63
+  br i1 %.not234, label %lean_dec.exit144, label %.thread195
 
 .thread195:                                       ; preds = %lean_nat_eq.exit149, %lean_nat_eq.exit149.thread
   %73 = ptrtoint ptr %65 to i64
   %74 = and i64 %73, 1
-  %.not234 = icmp eq i64 %74, 0
-  br i1 %.not234, label %77, label %75, !prof !11
+  %.not235 = icmp eq i64 %74, 0
+  br i1 %.not235, label %77, label %75, !prof !11
 
 75:                                               ; preds = %.thread195
   %76 = icmp eq ptr %0, %65

@@ -712,8 +712,8 @@ define internal range(i32 0, 2) i32 @ProcessRawProfile(ptr noundef %0, i64 nound
   br i1 %32, label %HexStringToBytes.exit.thread, label %.preheader.i
 
 .preheader.i:                                     ; preds = %28
-  %.not44.i = icmp eq i64 %sext, 0
-  br i1 %.not44.i, label %HexStringToBytes.exit.thread24, label %.lr.ph.i
+  %.not45.i = icmp eq i64 %sext, 0
+  br i1 %.not45.i, label %HexStringToBytes.exit.thread24, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 1
@@ -721,10 +721,10 @@ define internal range(i32 0, 2) i32 @ProcessRawProfile(ptr noundef %0, i64 nound
   br label %35
 
 35:                                               ; preds = %47, %.lr.ph.i
-  %.01839.i = phi ptr [ %31, %.lr.ph.i ], [ %.136.i, %47 ]
-  %.02038.i = phi i64 [ 0, %.lr.ph.i ], [ %.235.i, %47 ]
-  %.02237.i = phi ptr [ %29, %.lr.ph.i ], [ %48, %47 ]
-  %36 = load i8, ptr %.02237.i, align 1, !tbaa !50
+  %.01840.i = phi ptr [ %31, %.lr.ph.i ], [ %.136.i, %47 ]
+  %.02039.i = phi i64 [ 0, %.lr.ph.i ], [ %.235.i, %47 ]
+  %.02238.i = phi ptr [ %29, %.lr.ph.i ], [ %48, %47 ]
+  %36 = load i8, ptr %.02238.i, align 1, !tbaa !50
   %.not.i = icmp eq i8 %36, 0
   br i1 %.not.i, label %.critedge.i, label %37
 
@@ -740,33 +740,33 @@ define internal range(i32 0, 2) i32 @ProcessRawProfile(ptr noundef %0, i64 nound
   br label %47
 
 39:                                               ; preds = %37
-  %40 = getelementptr inbounds nuw i8, ptr %.02237.i, i64 1
+  %40 = getelementptr inbounds nuw i8, ptr %.02238.i, i64 1
   store i8 %36, ptr %5, align 1, !tbaa !50
   %41 = load i8, ptr %40, align 1, !tbaa !50
   store i8 %41, ptr %33, align 1, !tbaa !50
   store i8 0, ptr %34, align 1, !tbaa !50
   %42 = call i64 @strtol(ptr noundef nonnull %5, ptr noundef nonnull %4, i32 noundef 16) #15
   %43 = trunc i64 %42 to i8
-  %44 = getelementptr inbounds nuw i8, ptr %.01839.i, i64 1
-  store i8 %43, ptr %.01839.i, align 1, !tbaa !50
+  %44 = getelementptr inbounds nuw i8, ptr %.01840.i, i64 1
+  store i8 %43, ptr %.01840.i, align 1, !tbaa !50
   %45 = load ptr, ptr %4, align 8, !tbaa !13
   %.not25.i = icmp eq ptr %45, %34
   %46 = zext i1 %.not25.i to i64
-  %spec.select.i = add nuw i64 %.02038.i, %46
+  %spec.select.i = add nuw i64 %.02039.i, %46
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %.not25.i, label %47, label %.critedge.i
 
 47:                                               ; preds = %39, %.thread.i
-  %.136.i = phi ptr [ %.01839.i, %.thread.i ], [ %44, %39 ]
-  %.235.i = phi i64 [ %.02038.i, %.thread.i ], [ %spec.select.i, %39 ]
-  %.12334.i = phi ptr [ %.02237.i, %.thread.i ], [ %40, %39 ]
+  %.136.i = phi ptr [ %.01840.i, %.thread.i ], [ %44, %39 ]
+  %.235.i = phi i64 [ %.02039.i, %.thread.i ], [ %spec.select.i, %39 ]
+  %.12334.i = phi ptr [ %.02238.i, %.thread.i ], [ %40, %39 ]
   %48 = getelementptr inbounds nuw i8, ptr %.12334.i, i64 1
   %49 = icmp ult i64 %.235.i, %30
   br i1 %49, label %35, label %.critedge.i, !llvm.loop !52
 
 .critedge.i:                                      ; preds = %47, %39, %35
-  %.121.ph.i = phi i64 [ %.02038.i, %35 ], [ %.235.i, %47 ], [ %spec.select.i, %39 ]
+  %.121.ph.i = phi i64 [ %.02039.i, %35 ], [ %.235.i, %47 ], [ %spec.select.i, %39 ]
   %50 = icmp eq i64 %.121.ph.i, %30
   br i1 %50, label %HexStringToBytes.exit.thread24, label %51
 

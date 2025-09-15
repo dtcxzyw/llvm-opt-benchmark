@@ -10268,8 +10268,8 @@ if.end33:                                         ; preds = %if.end26
   %cmp35.not = icmp eq i64 %call34, 30
   %20 = load i32, ptr %local_header_u32, align 16
   %cmp39.not = icmp eq i32 %20, 67324752
-  %or.cond65 = select i1 %cmp35.not, i1 %cmp39.not, i1 false
-  br i1 %or.cond65, label %if.end42, label %return
+  %or.cond66 = select i1 %cmp35.not, i1 %cmp39.not, i1 false
+  br i1 %or.cond66, label %if.end42, label %return
 
 if.end42:                                         ; preds = %if.end33
   %add.ptr = getelementptr inbounds nuw i8, ptr %local_header_u32, i64 26
@@ -12906,8 +12906,8 @@ lor.lhs.false2:                                   ; preds = %lor.lhs.false
   %1 = load i32, ptr %m_zip_mode, align 4
   %cmp.not = icmp ne i32 %1, 2
   %tobool.i.not = icmp eq ptr %pSource_zip, null
-  %or.cond168 = or i1 %tobool.i.not, %cmp.not
-  br i1 %or.cond168, label %return, label %lor.lhs.false.i
+  %or.cond169 = or i1 %tobool.i.not, %cmp.not
+  br i1 %or.cond169, label %return, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %lor.lhs.false2
   %m_pState.i = getelementptr inbounds nuw i8, ptr %pSource_zip, i64 104
@@ -12943,9 +12943,9 @@ if.end5:                                          ; preds = %mz_zip_reader_get_c
   %m_file_offset_alignment.i = getelementptr inbounds nuw i8, ptr %pZip, i64 32
   %8 = load i64, ptr %m_file_offset_alignment.i, align 8
   %tobool.not.i = icmp eq i64 %8, 0
-  br i1 %tobool.not.i, label %mz_zip_writer_compute_padding_needed_for_file_alignment.exit, label %if.end.i143
+  br i1 %tobool.not.i, label %mz_zip_writer_compute_padding_needed_for_file_alignment.exit, label %if.end.i144
 
-if.end.i143:                                      ; preds = %if.end5
+if.end.i144:                                      ; preds = %if.end5
   %9 = load i64, ptr %pZip, align 8
   %sub.i = add i64 %8, -1
   %and.i = and i64 %9, %sub.i
@@ -12954,8 +12954,8 @@ if.end.i143:                                      ; preds = %if.end5
   %conv8.i = trunc i64 %and7.i to i32
   br label %mz_zip_writer_compute_padding_needed_for_file_alignment.exit
 
-mz_zip_writer_compute_padding_needed_for_file_alignment.exit: ; preds = %if.end5, %if.end.i143
-  %retval.0.i = phi i32 [ %conv8.i, %if.end.i143 ], [ 0, %if.end5 ]
+mz_zip_writer_compute_padding_needed_for_file_alignment.exit: ; preds = %if.end5, %if.end.i144
+  %retval.0.i = phi i32 [ %conv8.i, %if.end.i144 ], [ 0, %if.end5 ]
   %m_total_files = getelementptr inbounds nuw i8, ptr %pZip, i64 16
   %10 = load i32, ptr %m_total_files, align 8
   %cmp8 = icmp eq i32 %10, 65535
@@ -13023,17 +13023,17 @@ if.end42:                                         ; preds = %if.end31
   br i1 %cmp67, label %return, label %while.cond.preheader
 
 while.cond.preheader:                             ; preds = %if.end42
-  %tobool71.not175 = icmp eq i32 %add50, 0
-  br i1 %tobool71.not175, label %while.end, label %while.body
+  %tobool71.not176 = icmp eq i32 %add50, 0
+  br i1 %tobool71.not176, label %while.end, label %while.body
 
 while.body:                                       ; preds = %while.cond.preheader, %if.end101
-  %cur_dst_file_ofs.0178 = phi i64 [ %add103, %if.end101 ], [ %add10, %while.cond.preheader ]
-  %cur_src_file_ofs.0177 = phi i64 [ %add90, %if.end101 ], [ %add27, %while.cond.preheader ]
-  %comp_bytes_remaining.0176 = phi i64 [ %sub, %if.end101 ], [ %conv51, %while.cond.preheader ]
-  %cond77 = call i64 @llvm.umin.i64(i64 %comp_bytes_remaining.0176, i64 65536)
+  %cur_dst_file_ofs.0179 = phi i64 [ %add103, %if.end101 ], [ %add10, %while.cond.preheader ]
+  %cur_src_file_ofs.0178 = phi i64 [ %add90, %if.end101 ], [ %add27, %while.cond.preheader ]
+  %comp_bytes_remaining.0177 = phi i64 [ %sub, %if.end101 ], [ %conv51, %while.cond.preheader ]
+  %cond77 = call i64 @llvm.umin.i64(i64 %comp_bytes_remaining.0177, i64 65536)
   %25 = load ptr, ptr %m_pRead, align 8
   %26 = load ptr, ptr %m_pIO_opaque, align 8
-  %call82 = call i64 %25(ptr noundef %26, i64 noundef %cur_src_file_ofs.0177, ptr noundef nonnull %call66, i64 noundef %cond77) #31
+  %call82 = call i64 %25(ptr noundef %26, i64 noundef %cur_src_file_ofs.0178, ptr noundef nonnull %call66, i64 noundef %cond77) #31
   %cmp84.not = icmp eq i64 %call82, %cond77
   br i1 %cmp84.not, label %if.end88, label %if.then86
 
@@ -13047,7 +13047,7 @@ if.then86:                                        ; preds = %while.body
 if.end88:                                         ; preds = %while.body
   %29 = load ptr, ptr %m_pWrite, align 8
   %30 = load ptr, ptr %m_pIO_opaque37, align 8
-  %call94 = call i64 %29(ptr noundef %30, i64 noundef %cur_dst_file_ofs.0178, ptr noundef nonnull %call66, i64 noundef %cond77) #31
+  %call94 = call i64 %29(ptr noundef %30, i64 noundef %cur_dst_file_ofs.0179, ptr noundef nonnull %call66, i64 noundef %cond77) #31
   %cmp96.not = icmp eq i64 %call94, %cond77
   br i1 %cmp96.not, label %if.end101, label %if.then98
 
@@ -13059,9 +13059,9 @@ if.then98:                                        ; preds = %if.end88
   br label %return
 
 if.end101:                                        ; preds = %if.end88
-  %add90 = add i64 %cur_src_file_ofs.0177, %cond77
-  %add103 = add i64 %cur_dst_file_ofs.0178, %cond77
-  %sub = sub i64 %comp_bytes_remaining.0176, %cond77
+  %add90 = add i64 %cur_src_file_ofs.0178, %cond77
+  %add103 = add i64 %cur_dst_file_ofs.0179, %cond77
+  %sub = sub i64 %comp_bytes_remaining.0177, %cond77
   %tobool71.not = icmp eq i64 %sub, 0
   br i1 %tobool71.not, label %while.end, label %while.body, !llvm.loop !106
 
@@ -13190,21 +13190,21 @@ if.end2.i261:                                     ; preds = %if.then.i263, %if.e
 if.then166:                                       ; preds = %if.then.i263
   %57 = load i64, ptr %m_capacity.i, align 8
   %cmp.i304 = icmp ugt i64 %46, %57
-  br i1 %cmp.i304, label %if.end.i146, label %if.end2.i305
+  br i1 %cmp.i304, label %if.end.i147, label %if.end2.i305
 
-if.end.i146:                                      ; preds = %if.then166
+if.end.i147:                                      ; preds = %if.then166
   %m_pRealloc.i = getelementptr inbounds nuw i8, ptr %pZip, i64 56
   %58 = load ptr, ptr %m_pRealloc.i, align 8
   %59 = load ptr, ptr %m_pAlloc_opaque, align 8
   %60 = load ptr, ptr %0, align 8
   %61 = load i32, ptr %m_element_size.i234, align 8
-  %conv.i148 = zext i32 %61 to i64
-  %call.i149 = call ptr %58(ptr noundef %59, ptr noundef %60, i64 noundef %conv.i148, i64 noundef %46) #31
-  %cmp7.i = icmp eq ptr %call.i149, null
+  %conv.i149 = zext i32 %61 to i64
+  %call.i150 = call ptr %58(ptr noundef %59, ptr noundef %60, i64 noundef %conv.i149, i64 noundef %46) #31
+  %cmp7.i = icmp eq ptr %call.i150, null
   br i1 %cmp7.i, label %return, label %mz_zip_array_ensure_capacity.exit
 
-mz_zip_array_ensure_capacity.exit:                ; preds = %if.end.i146
-  store ptr %call.i149, ptr %0, align 8
+mz_zip_array_ensure_capacity.exit:                ; preds = %if.end.i147
+  store ptr %call.i150, ptr %0, align 8
   store i64 %46, ptr %m_capacity.i, align 8
   br label %if.end2.i305
 
@@ -13252,30 +13252,30 @@ if.end2.i276:                                     ; preds = %if.then.i278, %if.e
 if.then179:                                       ; preds = %if.then.i278
   %68 = load i64, ptr %m_capacity.i, align 8
   %cmp.i290 = icmp ugt i64 %46, %68
-  br i1 %cmp.i290, label %if.end.i153, label %if.end2.i291
+  br i1 %cmp.i290, label %if.end.i154, label %if.end2.i291
 
-if.end.i153:                                      ; preds = %if.then179
-  %m_pRealloc.i154 = getelementptr inbounds nuw i8, ptr %pZip, i64 56
-  %69 = load ptr, ptr %m_pRealloc.i154, align 8
+if.end.i154:                                      ; preds = %if.then179
+  %m_pRealloc.i155 = getelementptr inbounds nuw i8, ptr %pZip, i64 56
+  %69 = load ptr, ptr %m_pRealloc.i155, align 8
   %70 = load ptr, ptr %m_pAlloc_opaque, align 8
   %71 = load ptr, ptr %0, align 8
   %72 = load i32, ptr %m_element_size.i234, align 8
-  %conv.i157 = zext i32 %72 to i64
-  %call.i158 = call ptr %69(ptr noundef %70, ptr noundef %71, i64 noundef %conv.i157, i64 noundef %46) #31
-  %cmp7.i159 = icmp eq ptr %call.i158, null
-  br i1 %cmp7.i159, label %return, label %mz_zip_array_ensure_capacity.exit161
+  %conv.i158 = zext i32 %72 to i64
+  %call.i159 = call ptr %69(ptr noundef %70, ptr noundef %71, i64 noundef %conv.i158, i64 noundef %46) #31
+  %cmp7.i160 = icmp eq ptr %call.i159, null
+  br i1 %cmp7.i160, label %return, label %mz_zip_array_ensure_capacity.exit162
 
-mz_zip_array_ensure_capacity.exit161:             ; preds = %if.end.i153
-  store ptr %call.i158, ptr %0, align 8
+mz_zip_array_ensure_capacity.exit162:             ; preds = %if.end.i154
+  store ptr %call.i159, ptr %0, align 8
   store i64 %46, ptr %m_capacity.i, align 8
   br label %if.end2.i291
 
-if.end2.i291:                                     ; preds = %mz_zip_array_ensure_capacity.exit161, %if.then179
+if.end2.i291:                                     ; preds = %mz_zip_array_ensure_capacity.exit162, %if.then179
   store i64 %46, ptr %m_size, align 8
   br label %return
 
-return:                                           ; preds = %if.end.i153, %if.end.i146, %lor.lhs.false.i, %lor.lhs.false2.i, %lor.lhs.false3.i, %if.then.i249, %if.end2.i291, %if.end169, %if.end2.i305, %if.end136, %if.end42, %if.end31, %if.end26, %if.end15, %mz_zip_writer_compute_padding_needed_for_file_alignment.exit, %lor.lhs.false9, %mz_zip_reader_get_cdh.exit, %entry, %lor.lhs.false, %lor.lhs.false2, %if.end2.i276, %if.then130, %if.then114, %if.then98, %if.then86
-  %retval.0 = phi i32 [ 0, %if.then86 ], [ 0, %if.then98 ], [ 0, %if.then114 ], [ 0, %if.then130 ], [ 1, %if.end2.i276 ], [ 0, %lor.lhs.false2 ], [ 0, %lor.lhs.false ], [ 0, %entry ], [ 0, %mz_zip_reader_get_cdh.exit ], [ 0, %lor.lhs.false9 ], [ 0, %mz_zip_writer_compute_padding_needed_for_file_alignment.exit ], [ 0, %if.end15 ], [ 0, %if.end26 ], [ 0, %if.end31 ], [ 0, %if.end42 ], [ 0, %if.end136 ], [ 0, %if.end2.i305 ], [ 0, %if.end169 ], [ 0, %if.end2.i291 ], [ 0, %if.then.i249 ], [ 0, %lor.lhs.false3.i ], [ 0, %lor.lhs.false2.i ], [ 0, %lor.lhs.false.i ], [ 0, %if.end.i146 ], [ 0, %if.end.i153 ]
+return:                                           ; preds = %if.end.i154, %if.end.i147, %lor.lhs.false.i, %lor.lhs.false2.i, %lor.lhs.false3.i, %if.then.i249, %if.end2.i291, %if.end169, %if.end2.i305, %if.end136, %if.end42, %if.end31, %if.end26, %if.end15, %mz_zip_writer_compute_padding_needed_for_file_alignment.exit, %lor.lhs.false9, %mz_zip_reader_get_cdh.exit, %entry, %lor.lhs.false, %lor.lhs.false2, %if.end2.i276, %if.then130, %if.then114, %if.then98, %if.then86
+  %retval.0 = phi i32 [ 0, %if.then86 ], [ 0, %if.then98 ], [ 0, %if.then114 ], [ 0, %if.then130 ], [ 1, %if.end2.i276 ], [ 0, %lor.lhs.false2 ], [ 0, %lor.lhs.false ], [ 0, %entry ], [ 0, %mz_zip_reader_get_cdh.exit ], [ 0, %lor.lhs.false9 ], [ 0, %mz_zip_writer_compute_padding_needed_for_file_alignment.exit ], [ 0, %if.end15 ], [ 0, %if.end26 ], [ 0, %if.end31 ], [ 0, %if.end42 ], [ 0, %if.end136 ], [ 0, %if.end2.i305 ], [ 0, %if.end169 ], [ 0, %if.end2.i291 ], [ 0, %if.then.i249 ], [ 0, %lor.lhs.false3.i ], [ 0, %lor.lhs.false2.i ], [ 0, %lor.lhs.false.i ], [ 0, %if.end.i147 ], [ 0, %if.end.i154 ]
   ret i32 %retval.0
 }
 

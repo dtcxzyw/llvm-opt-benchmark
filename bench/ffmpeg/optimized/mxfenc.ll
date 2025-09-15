@@ -4879,8 +4879,8 @@ define internal fastcc void @mxf_write_essence_container_refs(ptr noundef %0) un
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 48, ptr noundef nonnull @.str.56, i32 noundef %11) #14
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %13 = load i32, ptr %12, align 4, !tbaa !121
-  %.not25 = icmp eq i32 %13, 0
-  br i1 %.not25, label %thread-pre-split, label %.lr.ph
+  %.not26 = icmp eq i32 %13, 0
+  br i1 %.not26, label %thread-pre-split, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 48

@@ -268,8 +268,8 @@ _ZNK6frozen3mapIN4LIEF2PE17ACCELERATOR_CODESEPKcLm171ESt4lessIS3_EE11lower_bound
 19:                                               ; preds = %_ZNK6frozen3mapIN4LIEF2PE17ACCELERATOR_CODESEPKcLm171ESt4lessIS3_EE11lower_boundIS3_EEPKSt4pairIS3_S5_ERKT_.exit.i.i
   %.ptr21.i.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF2PE9to_stringENS0_17ACCELERATOR_CODESE.enums2str, i64 %.add.i.i
   %20 = load i32, ptr %.ptr21.i.i, align 4, !tbaa !3
-  %.not34.i.i = icmp ult i32 %0, %20
-  br i1 %.not34.i.i, label %_ZNK6frozen3mapIN4LIEF2PE17ACCELERATOR_CODESEPKcLm171ESt4lessIS3_EE4findIS3_EEPKSt4pairIS3_S5_ERKT_.exit.thread, label %21
+  %.not36.i.i = icmp ult i32 %0, %20
+  br i1 %.not36.i.i, label %_ZNK6frozen3mapIN4LIEF2PE17ACCELERATOR_CODESEPKcLm171ESt4lessIS3_EE4findIS3_EEPKSt4pairIS3_S5_ERKT_.exit.thread, label %21
 
 21:                                               ; preds = %19
   %22 = getelementptr inbounds nuw i8, ptr %.ptr21.i.i, i64 8

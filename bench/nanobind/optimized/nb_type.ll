@@ -3844,7 +3844,7 @@ _ZN8nanobind6detail8inst_ptrEPNS0_7nb_instE.exit: ; preds = %24, %34
   %37 = load i32, ptr %12, align 4
   switch i32 %spec.select, label %70 [
     i32 4, label %38
-    i32 3, label %.thread78
+    i32 3, label %.thread79
   ]
 
 38:                                               ; preds = %_ZN8nanobind6detail8inst_ptrEPNS0_7nb_instE.exit
@@ -3861,7 +3861,7 @@ _ZN8nanobind6detail8inst_ptrEPNS0_7nb_instE.exit: ; preds = %24, %34
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %44 = load ptr, ptr %43, align 8
   tail call void %44(ptr noundef %36, ptr noundef %0) #31
-  br label %.thread81
+  br label %.thread82
 
 45:                                               ; preds = %40
   %46 = load i32, ptr %1, align 8
@@ -3870,27 +3870,27 @@ _ZN8nanobind6detail8inst_ptrEPNS0_7nb_instE.exit: ; preds = %24, %34
   %48 = load i32, ptr %1, align 8
   %49 = zext i32 %48 to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %0, i8 0, i64 %49, i1 false)
-  br label %.thread81
+  br label %.thread82
 
 50:                                               ; preds = %38
   %51 = and i32 %37, 512
   %.not70 = icmp eq i32 %51, 0
-  br i1 %.not70, label %52, label %.thread78, !prof !4
+  br i1 %.not70, label %52, label %.thread79, !prof !4
 
 52:                                               ; preds = %50
   tail call void @_ZN8nanobind6detail16fail_unspecifiedEv() #29
   unreachable
 
-.thread78:                                        ; preds = %_ZN8nanobind6detail8inst_ptrEPNS0_7nb_instE.exit, %50
+.thread79:                                        ; preds = %_ZN8nanobind6detail8inst_ptrEPNS0_7nb_instE.exit, %50
   %53 = and i32 %37, 512
   %.not72 = icmp eq i32 %53, 0
   br i1 %.not72, label %54, label %55, !prof !4
 
-54:                                               ; preds = %.thread78
+54:                                               ; preds = %.thread79
   tail call void @_ZN8nanobind6detail16fail_unspecifiedEv() #29
   unreachable
 
-55:                                               ; preds = %.thread78
+55:                                               ; preds = %.thread79
   %56 = and i32 %37, 8192
   %.not73 = icmp eq i32 %56, 0
   br i1 %.not73, label %67, label %57
@@ -3899,7 +3899,7 @@ _ZN8nanobind6detail8inst_ptrEPNS0_7nb_instE.exit: ; preds = %24, %34
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %59 = load ptr, ptr %58, align 8
   invoke void %59(ptr noundef %36, ptr noundef %0)
-          to label %.thread81 unwind label %60
+          to label %.thread82 unwind label %60
 
 60:                                               ; preds = %57
   %61 = landingpad { ptr, i32 }
@@ -3909,8 +3909,8 @@ _ZN8nanobind6detail8inst_ptrEPNS0_7nb_instE.exit: ; preds = %24, %34
   %64 = load i64, ptr %.063, align 8
   %65 = add nsw i64 %64, -1
   store i64 %65, ptr %.063, align 8
-  %.not.i75 = icmp eq i64 %65, 0
-  br i1 %.not.i75, label %66, label %_ZL10_Py_DECREFP7_object.exit
+  %.not.i76 = icmp eq i64 %65, 0
+  br i1 %.not.i76, label %66, label %_ZL10_Py_DECREFP7_object.exit
 
 66:                                               ; preds = %60
   invoke void @_Py_Dealloc(ptr noundef nonnull %.063)
@@ -3924,39 +3924,39 @@ _ZL10_Py_DECREFP7_object.exit:                    ; preds = %60, %66
   %68 = load i32, ptr %1, align 8
   %69 = zext i32 %68 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %36, ptr align 1 %0, i64 %69, i1 false)
-  br label %.thread81
+  br label %.thread82
 
 70:                                               ; preds = %_ZN8nanobind6detail8inst_ptrEPNS0_7nb_instE.exit
   %71 = and i32 %37, 1048576
   %72 = icmp eq i32 %71, 0
   %or.cond = or i1 %16, %72
-  br i1 %or.cond, label %.thread81, label %73
+  br i1 %or.cond, label %.thread82, label %73
 
 73:                                               ; preds = %70
   %74 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %75 = load ptr, ptr %74, align 8
   %76 = tail call noundef zeroext i1 %75(ptr noundef nonnull %.063) #31
-  br i1 %76, label %78, label %.thread81
+  br i1 %76, label %78, label %.thread82
 
-.thread81:                                        ; preds = %57, %67, %42, %45, %73, %70
-  %.1617784 = phi i32 [ %spec.select, %73 ], [ %spec.select, %70 ], [ 4, %45 ], [ 4, %42 ], [ 3, %67 ], [ 3, %57 ]
+.thread82:                                        ; preds = %57, %67, %42, %45, %73, %70
+  %.1617885 = phi i32 [ %spec.select, %73 ], [ %spec.select, %70 ], [ 4, %45 ], [ 4, %42 ], [ 3, %67 ], [ 3, %57 ]
   %.not74 = icmp eq ptr %4, null
   br i1 %.not74, label %78, label %77
 
-77:                                               ; preds = %.thread81
+77:                                               ; preds = %.thread82
   store i8 1, ptr %4, align 1
   br label %78
 
-78:                                               ; preds = %73, %.thread81, %77
-  %.262 = phi i32 [ %.1617784, %77 ], [ %.1617784, %.thread81 ], [ 5, %73 ]
+78:                                               ; preds = %73, %.thread82, %77
+  %.262 = phi i32 [ %.1617885, %77 ], [ %.1617885, %.thread82 ], [ 5, %73 ]
   %79 = add i32 %.262, -7
   %80 = icmp ult i32 %79, -2
   %81 = load i32, ptr %31, align 4
   %82 = select i1 %80, i32 16, i32 0
   %83 = and i32 %81, -52
   %84 = icmp eq i32 %.262, 2
-  %spec.select85 = select i1 %84, i32 32, i32 2
-  %85 = or disjoint i32 %83, %spec.select85
+  %spec.select86 = select i1 %84, i32 32, i32 2
+  %85 = or disjoint i32 %83, %spec.select86
   %86 = or disjoint i32 %85, %82
   %87 = or i32 %86, 2
   store i32 %87, ptr %31, align 4

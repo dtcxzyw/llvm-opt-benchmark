@@ -5047,7 +5047,7 @@ define noundef ptr @_ZN4LIEF2PE9to_stringENS0_15ResourceVersion17fixed_file_info
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %2, ptr noundef nonnull align 8 dereferenceable(232) @__const._ZN4LIEF2PE9to_stringENS0_15ResourceVersion17fixed_file_info_t10VERSION_OSE.enums2str, i64 232, i1 false)
   %.not.i.i.i.i.i.i = icmp ugt i32 %0, 131072
-  br i1 %.not.i.i.i.i.i.i, label %3, label %_ZNK6frozen3mapIN4LIEF2PE15ResourceVersion17fixed_file_info_t10VERSION_OSEPKcLm14ESt4lessIS5_EE11lower_boundIS5_EEPKSt4pairIS5_S7_ERKT_.exit.thread28.i.i
+  br i1 %.not.i.i.i.i.i.i, label %3, label %_ZNK6frozen3mapIN4LIEF2PE15ResourceVersion17fixed_file_info_t10VERSION_OSEPKcLm14ESt4lessIS5_EE11lower_boundIS5_EEPKSt4pairIS5_S7_ERKT_.exit.thread29.i.i
 
 3:                                                ; preds = %1
   %.not.i.i.i.i.i.i.i = icmp ugt i32 %0, 262144
@@ -5067,7 +5067,7 @@ _ZNK6frozen3mapIN4LIEF2PE15ResourceVersion17fixed_file_info_t10VERSION_OSEPKcLm1
   %8 = select i1 %.not.i6.i.i.i.i.i.i.i, i64 168, i64 136
   br label %_ZNK6frozen3mapIN4LIEF2PE15ResourceVersion17fixed_file_info_t10VERSION_OSEPKcLm14ESt4lessIS5_EE11lower_boundIS5_EEPKSt4pairIS5_S7_ERKT_.exit.i.i
 
-_ZNK6frozen3mapIN4LIEF2PE15ResourceVersion17fixed_file_info_t10VERSION_OSEPKcLm14ESt4lessIS5_EE11lower_boundIS5_EEPKSt4pairIS5_S7_ERKT_.exit.thread28.i.i: ; preds = %1
+_ZNK6frozen3mapIN4LIEF2PE15ResourceVersion17fixed_file_info_t10VERSION_OSEPKcLm14ESt4lessIS5_EE11lower_boundIS5_EEPKSt4pairIS5_S7_ERKT_.exit.thread29.i.i: ; preds = %1
   %.not.i6.i.i.i.i.i.i = icmp samesign ugt i32 %0, 3
   %.add16.i.i = select i1 %.not.i6.i.i.i.i.i.i, i64 72, i64 8
   %.add16.i.i.sroa.sel.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %.not.i6.i.i.i.i.i.i, i64 88, i64 24
@@ -5095,10 +5095,10 @@ _ZNK6frozen3mapIN4LIEF2PE15ResourceVersion17fixed_file_info_t10VERSION_OSEPKcLm1
   %.not.i.i = icmp eq i64 %.add15.i.i, 232
   br i1 %.not.i.i, label %_ZNK6frozen3mapIN4LIEF2PE15ResourceVersion17fixed_file_info_t10VERSION_OSEPKcLm14ESt4lessIS5_EE4findIS5_EEPKSt4pairIS5_S7_ERKT_.exit.thread, label %_ZNK6frozen3mapIN4LIEF2PE15ResourceVersion17fixed_file_info_t10VERSION_OSEPKcLm14ESt4lessIS5_EE11lower_boundIS5_EEPKSt4pairIS5_S7_ERKT_.exit._crit_edge.i.i
 
-_ZNK6frozen3mapIN4LIEF2PE15ResourceVersion17fixed_file_info_t10VERSION_OSEPKcLm14ESt4lessIS5_EE11lower_boundIS5_EEPKSt4pairIS5_S7_ERKT_.exit._crit_edge.i.i: ; preds = %_ZNK6frozen3mapIN4LIEF2PE15ResourceVersion17fixed_file_info_t10VERSION_OSEPKcLm14ESt4lessIS5_EE11lower_boundIS5_EEPKSt4pairIS5_S7_ERKT_.exit.i.i, %_ZNK6frozen3mapIN4LIEF2PE15ResourceVersion17fixed_file_info_t10VERSION_OSEPKcLm14ESt4lessIS5_EE11lower_boundIS5_EEPKSt4pairIS5_S7_ERKT_.exit.thread28.i.i
-  %14 = phi ptr [ %11, %_ZNK6frozen3mapIN4LIEF2PE15ResourceVersion17fixed_file_info_t10VERSION_OSEPKcLm14ESt4lessIS5_EE11lower_boundIS5_EEPKSt4pairIS5_S7_ERKT_.exit.thread28.i.i ], [ %13, %_ZNK6frozen3mapIN4LIEF2PE15ResourceVersion17fixed_file_info_t10VERSION_OSEPKcLm14ESt4lessIS5_EE11lower_boundIS5_EEPKSt4pairIS5_S7_ERKT_.exit.i.i ]
-  %.0.i.i.i.i.idx31.i.i = phi i64 [ %.add18.i.i, %_ZNK6frozen3mapIN4LIEF2PE15ResourceVersion17fixed_file_info_t10VERSION_OSEPKcLm14ESt4lessIS5_EE11lower_boundIS5_EEPKSt4pairIS5_S7_ERKT_.exit.thread28.i.i ], [ %.add15.i.i, %_ZNK6frozen3mapIN4LIEF2PE15ResourceVersion17fixed_file_info_t10VERSION_OSEPKcLm14ESt4lessIS5_EE11lower_boundIS5_EEPKSt4pairIS5_S7_ERKT_.exit.i.i ]
-  %.0.i.i.i.i.ptr.i.i = getelementptr inbounds nuw i8, ptr %2, i64 %.0.i.i.i.i.idx31.i.i
+_ZNK6frozen3mapIN4LIEF2PE15ResourceVersion17fixed_file_info_t10VERSION_OSEPKcLm14ESt4lessIS5_EE11lower_boundIS5_EEPKSt4pairIS5_S7_ERKT_.exit._crit_edge.i.i: ; preds = %_ZNK6frozen3mapIN4LIEF2PE15ResourceVersion17fixed_file_info_t10VERSION_OSEPKcLm14ESt4lessIS5_EE11lower_boundIS5_EEPKSt4pairIS5_S7_ERKT_.exit.i.i, %_ZNK6frozen3mapIN4LIEF2PE15ResourceVersion17fixed_file_info_t10VERSION_OSEPKcLm14ESt4lessIS5_EE11lower_boundIS5_EEPKSt4pairIS5_S7_ERKT_.exit.thread29.i.i
+  %14 = phi ptr [ %11, %_ZNK6frozen3mapIN4LIEF2PE15ResourceVersion17fixed_file_info_t10VERSION_OSEPKcLm14ESt4lessIS5_EE11lower_boundIS5_EEPKSt4pairIS5_S7_ERKT_.exit.thread29.i.i ], [ %13, %_ZNK6frozen3mapIN4LIEF2PE15ResourceVersion17fixed_file_info_t10VERSION_OSEPKcLm14ESt4lessIS5_EE11lower_boundIS5_EEPKSt4pairIS5_S7_ERKT_.exit.i.i ]
+  %.0.i.i.i.i.idx32.i.i = phi i64 [ %.add18.i.i, %_ZNK6frozen3mapIN4LIEF2PE15ResourceVersion17fixed_file_info_t10VERSION_OSEPKcLm14ESt4lessIS5_EE11lower_boundIS5_EEPKSt4pairIS5_S7_ERKT_.exit.thread29.i.i ], [ %.add15.i.i, %_ZNK6frozen3mapIN4LIEF2PE15ResourceVersion17fixed_file_info_t10VERSION_OSEPKcLm14ESt4lessIS5_EE11lower_boundIS5_EEPKSt4pairIS5_S7_ERKT_.exit.i.i ]
+  %.0.i.i.i.i.ptr.i.i = getelementptr inbounds nuw i8, ptr %2, i64 %.0.i.i.i.i.idx32.i.i
   %.pre.i.i = load i32, ptr %.0.i.i.i.i.ptr.i.i, align 4, !tbaa !199
   br label %_ZNK6frozen3mapIN4LIEF2PE15ResourceVersion17fixed_file_info_t10VERSION_OSEPKcLm14ESt4lessIS5_EE4findIS5_EEPKSt4pairIS5_S7_ERKT_.exit
 
@@ -5106,14 +5106,14 @@ _ZNK6frozen3mapIN4LIEF2PE15ResourceVersion17fixed_file_info_t10VERSION_OSEPKcLm1
   %15 = phi i32 [ 262148, %_ZNK6frozen3mapIN4LIEF2PE15ResourceVersion17fixed_file_info_t10VERSION_OSEPKcLm14ESt4lessIS5_EE11lower_boundIS5_EEPKSt4pairIS5_S7_ERKT_.exit.thread.i.i ], [ %.pre.i.i, %_ZNK6frozen3mapIN4LIEF2PE15ResourceVersion17fixed_file_info_t10VERSION_OSEPKcLm14ESt4lessIS5_EE11lower_boundIS5_EEPKSt4pairIS5_S7_ERKT_.exit._crit_edge.i.i ]
   %16 = phi ptr [ %6, %_ZNK6frozen3mapIN4LIEF2PE15ResourceVersion17fixed_file_info_t10VERSION_OSEPKcLm14ESt4lessIS5_EE11lower_boundIS5_EEPKSt4pairIS5_S7_ERKT_.exit.thread.i.i ], [ %14, %_ZNK6frozen3mapIN4LIEF2PE15ResourceVersion17fixed_file_info_t10VERSION_OSEPKcLm14ESt4lessIS5_EE11lower_boundIS5_EEPKSt4pairIS5_S7_ERKT_.exit._crit_edge.i.i ]
   %.0.i.i.i.i14.i.i = phi ptr [ %5, %_ZNK6frozen3mapIN4LIEF2PE15ResourceVersion17fixed_file_info_t10VERSION_OSEPKcLm14ESt4lessIS5_EE11lower_boundIS5_EEPKSt4pairIS5_S7_ERKT_.exit.thread.i.i ], [ %.0.i.i.i.i.ptr.i.i, %_ZNK6frozen3mapIN4LIEF2PE15ResourceVersion17fixed_file_info_t10VERSION_OSEPKcLm14ESt4lessIS5_EE11lower_boundIS5_EEPKSt4pairIS5_S7_ERKT_.exit._crit_edge.i.i ]
-  %.not25.i.i = icmp ult i32 %0, %15
-  %spec.select.i.i = select i1 %.not25.i.i, ptr %16, ptr %.0.i.i.i.i14.i.i
+  %.not26.i.i = icmp ult i32 %0, %15
+  %spec.select.i.i = select i1 %.not26.i.i, ptr %16, ptr %.0.i.i.i.i14.i.i
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 232
   %.not = icmp eq ptr %spec.select.i.i, %17
   br i1 %.not, label %_ZNK6frozen3mapIN4LIEF2PE15ResourceVersion17fixed_file_info_t10VERSION_OSEPKcLm14ESt4lessIS5_EE4findIS5_EEPKSt4pairIS5_S7_ERKT_.exit.thread, label %18
 
 18:                                               ; preds = %_ZNK6frozen3mapIN4LIEF2PE15ResourceVersion17fixed_file_info_t10VERSION_OSEPKcLm14ESt4lessIS5_EE4findIS5_EEPKSt4pairIS5_S7_ERKT_.exit
-  %spec.select.i.i.sroa.sel.v.sroa.sel.v = select i1 %.not25.i.i, ptr %16, ptr %.0.i.i.i.i14.i.i
+  %spec.select.i.i.sroa.sel.v.sroa.sel.v = select i1 %.not26.i.i, ptr %16, ptr %.0.i.i.i.i14.i.i
   %spec.select.i.i.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.select.i.i.sroa.sel.v.sroa.sel.v, i64 8
   %19 = load ptr, ptr %spec.select.i.i.sroa.sel.v.sroa.sel, align 8, !tbaa !312
   br label %_ZNK6frozen3mapIN4LIEF2PE15ResourceVersion17fixed_file_info_t10VERSION_OSEPKcLm14ESt4lessIS5_EE4findIS5_EEPKSt4pairIS5_S7_ERKT_.exit.thread
@@ -5168,7 +5168,7 @@ define noundef ptr @_ZN4LIEF2PE9to_stringENS0_15ResourceVersion17fixed_file_info
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(264) %2, ptr noundef nonnull align 8 dereferenceable(264) @__const._ZN4LIEF2PE9to_stringENS0_15ResourceVersion17fixed_file_info_t17FILE_TYPE_DETAILSE.enums2str, i64 264, i1 false)
   %.not.i.i.i.i.i.i = icmp ugt i64 %0, 8589934598
-  br i1 %.not.i.i.i.i.i.i, label %3, label %_ZNK6frozen3mapIN4LIEF2PE15ResourceVersion17fixed_file_info_t17FILE_TYPE_DETAILSEPKcLm16ESt4lessIS5_EE11lower_boundIS5_EEPKSt4pairIS5_S7_ERKT_.exit.thread28.i.i
+  br i1 %.not.i.i.i.i.i.i, label %3, label %_ZNK6frozen3mapIN4LIEF2PE15ResourceVersion17fixed_file_info_t17FILE_TYPE_DETAILSEPKcLm16ESt4lessIS5_EE11lower_boundIS5_EEPKSt4pairIS5_S7_ERKT_.exit.thread29.i.i
 
 3:                                                ; preds = %1
   %.not.i.i.i.i.i.i.i = icmp ugt i64 %0, 8589934602
@@ -5191,7 +5191,7 @@ _ZNK6frozen3mapIN4LIEF2PE15ResourceVersion17fixed_file_info_t17FILE_TYPE_DETAILS
   %8 = select i1 %.not.i6.i.i.i.i.i.i.i, i64 168, i64 136
   br label %_ZNK6frozen3mapIN4LIEF2PE15ResourceVersion17fixed_file_info_t17FILE_TYPE_DETAILSEPKcLm16ESt4lessIS5_EE11lower_boundIS5_EEPKSt4pairIS5_S7_ERKT_.exit.i.i
 
-_ZNK6frozen3mapIN4LIEF2PE15ResourceVersion17fixed_file_info_t17FILE_TYPE_DETAILSEPKcLm16ESt4lessIS5_EE11lower_boundIS5_EEPKSt4pairIS5_S7_ERKT_.exit.thread28.i.i: ; preds = %1
+_ZNK6frozen3mapIN4LIEF2PE15ResourceVersion17fixed_file_info_t17FILE_TYPE_DETAILSEPKcLm16ESt4lessIS5_EE11lower_boundIS5_EEPKSt4pairIS5_S7_ERKT_.exit.thread29.i.i: ; preds = %1
   %.not.i6.i.i.i.i.i.i = icmp samesign ugt i64 %0, 8589934594
   %.add16.i.i = select i1 %.not.i6.i.i.i.i.i.i, i64 72, i64 8
   %.add16.i.i.sroa.sel.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %.not.i6.i.i.i.i.i.i, i64 88, i64 24
@@ -5219,10 +5219,10 @@ _ZNK6frozen3mapIN4LIEF2PE15ResourceVersion17fixed_file_info_t17FILE_TYPE_DETAILS
   %.not.i.i = icmp eq i64 %.add15.i.i, 264
   br i1 %.not.i.i, label %_ZNK6frozen3mapIN4LIEF2PE15ResourceVersion17fixed_file_info_t17FILE_TYPE_DETAILSEPKcLm16ESt4lessIS5_EE4findIS5_EEPKSt4pairIS5_S7_ERKT_.exit.thread, label %_ZNK6frozen3mapIN4LIEF2PE15ResourceVersion17fixed_file_info_t17FILE_TYPE_DETAILSEPKcLm16ESt4lessIS5_EE4findIS5_EEPKSt4pairIS5_S7_ERKT_.exit
 
-_ZNK6frozen3mapIN4LIEF2PE15ResourceVersion17fixed_file_info_t17FILE_TYPE_DETAILSEPKcLm16ESt4lessIS5_EE4findIS5_EEPKSt4pairIS5_S7_ERKT_.exit: ; preds = %_ZNK6frozen3mapIN4LIEF2PE15ResourceVersion17fixed_file_info_t17FILE_TYPE_DETAILSEPKcLm16ESt4lessIS5_EE11lower_boundIS5_EEPKSt4pairIS5_S7_ERKT_.exit.thread28.i.i, %_ZNK6frozen3mapIN4LIEF2PE15ResourceVersion17fixed_file_info_t17FILE_TYPE_DETAILSEPKcLm16ESt4lessIS5_EE11lower_boundIS5_EEPKSt4pairIS5_S7_ERKT_.exit.i.i
-  %14 = phi ptr [ %11, %_ZNK6frozen3mapIN4LIEF2PE15ResourceVersion17fixed_file_info_t17FILE_TYPE_DETAILSEPKcLm16ESt4lessIS5_EE11lower_boundIS5_EEPKSt4pairIS5_S7_ERKT_.exit.thread28.i.i ], [ %13, %_ZNK6frozen3mapIN4LIEF2PE15ResourceVersion17fixed_file_info_t17FILE_TYPE_DETAILSEPKcLm16ESt4lessIS5_EE11lower_boundIS5_EEPKSt4pairIS5_S7_ERKT_.exit.i.i ]
-  %.0.i.i.i.i.idx31.i.i = phi i64 [ %.add18.i.i, %_ZNK6frozen3mapIN4LIEF2PE15ResourceVersion17fixed_file_info_t17FILE_TYPE_DETAILSEPKcLm16ESt4lessIS5_EE11lower_boundIS5_EEPKSt4pairIS5_S7_ERKT_.exit.thread28.i.i ], [ %.add15.i.i, %_ZNK6frozen3mapIN4LIEF2PE15ResourceVersion17fixed_file_info_t17FILE_TYPE_DETAILSEPKcLm16ESt4lessIS5_EE11lower_boundIS5_EEPKSt4pairIS5_S7_ERKT_.exit.i.i ]
-  %.0.i.i.i.i.ptr.i.i = getelementptr inbounds nuw i8, ptr %2, i64 %.0.i.i.i.i.idx31.i.i
+_ZNK6frozen3mapIN4LIEF2PE15ResourceVersion17fixed_file_info_t17FILE_TYPE_DETAILSEPKcLm16ESt4lessIS5_EE4findIS5_EEPKSt4pairIS5_S7_ERKT_.exit: ; preds = %_ZNK6frozen3mapIN4LIEF2PE15ResourceVersion17fixed_file_info_t17FILE_TYPE_DETAILSEPKcLm16ESt4lessIS5_EE11lower_boundIS5_EEPKSt4pairIS5_S7_ERKT_.exit.thread29.i.i, %_ZNK6frozen3mapIN4LIEF2PE15ResourceVersion17fixed_file_info_t17FILE_TYPE_DETAILSEPKcLm16ESt4lessIS5_EE11lower_boundIS5_EEPKSt4pairIS5_S7_ERKT_.exit.i.i
+  %14 = phi ptr [ %11, %_ZNK6frozen3mapIN4LIEF2PE15ResourceVersion17fixed_file_info_t17FILE_TYPE_DETAILSEPKcLm16ESt4lessIS5_EE11lower_boundIS5_EEPKSt4pairIS5_S7_ERKT_.exit.thread29.i.i ], [ %13, %_ZNK6frozen3mapIN4LIEF2PE15ResourceVersion17fixed_file_info_t17FILE_TYPE_DETAILSEPKcLm16ESt4lessIS5_EE11lower_boundIS5_EEPKSt4pairIS5_S7_ERKT_.exit.i.i ]
+  %.0.i.i.i.i.idx32.i.i = phi i64 [ %.add18.i.i, %_ZNK6frozen3mapIN4LIEF2PE15ResourceVersion17fixed_file_info_t17FILE_TYPE_DETAILSEPKcLm16ESt4lessIS5_EE11lower_boundIS5_EEPKSt4pairIS5_S7_ERKT_.exit.thread29.i.i ], [ %.add15.i.i, %_ZNK6frozen3mapIN4LIEF2PE15ResourceVersion17fixed_file_info_t17FILE_TYPE_DETAILSEPKcLm16ESt4lessIS5_EE11lower_boundIS5_EEPKSt4pairIS5_S7_ERKT_.exit.i.i ]
+  %.0.i.i.i.i.ptr.i.i = getelementptr inbounds nuw i8, ptr %2, i64 %.0.i.i.i.i.idx32.i.i
   %.pre.i.i = load i64, ptr %.0.i.i.i.i.ptr.i.i, align 8, !tbaa !231
   %15 = icmp ult i64 %0, %.pre.i.i
   %16 = select i1 %15, ptr %14, ptr %.0.i.i.i.i.ptr.i.i
@@ -5231,8 +5231,8 @@ _ZNK6frozen3mapIN4LIEF2PE15ResourceVersion17fixed_file_info_t17FILE_TYPE_DETAILS
   br i1 %.not, label %_ZNK6frozen3mapIN4LIEF2PE15ResourceVersion17fixed_file_info_t17FILE_TYPE_DETAILSEPKcLm16ESt4lessIS5_EE4findIS5_EEPKSt4pairIS5_S7_ERKT_.exit.thread, label %18
 
 18:                                               ; preds = %_ZNK6frozen3mapIN4LIEF2PE15ResourceVersion17fixed_file_info_t17FILE_TYPE_DETAILSEPKcLm16ESt4lessIS5_EE4findIS5_EEPKSt4pairIS5_S7_ERKT_.exit.thread13, %_ZNK6frozen3mapIN4LIEF2PE15ResourceVersion17fixed_file_info_t17FILE_TYPE_DETAILSEPKcLm16ESt4lessIS5_EE4findIS5_EEPKSt4pairIS5_S7_ERKT_.exit
-  %.not25.i.i16 = phi ptr [ %6, %_ZNK6frozen3mapIN4LIEF2PE15ResourceVersion17fixed_file_info_t17FILE_TYPE_DETAILSEPKcLm16ESt4lessIS5_EE4findIS5_EEPKSt4pairIS5_S7_ERKT_.exit.thread13 ], [ %16, %_ZNK6frozen3mapIN4LIEF2PE15ResourceVersion17fixed_file_info_t17FILE_TYPE_DETAILSEPKcLm16ESt4lessIS5_EE4findIS5_EEPKSt4pairIS5_S7_ERKT_.exit ]
-  %spec.select.i.i.sroa.sel = getelementptr inbounds nuw i8, ptr %.not25.i.i16, i64 8
+  %.not26.i.i16 = phi ptr [ %6, %_ZNK6frozen3mapIN4LIEF2PE15ResourceVersion17fixed_file_info_t17FILE_TYPE_DETAILSEPKcLm16ESt4lessIS5_EE4findIS5_EEPKSt4pairIS5_S7_ERKT_.exit.thread13 ], [ %16, %_ZNK6frozen3mapIN4LIEF2PE15ResourceVersion17fixed_file_info_t17FILE_TYPE_DETAILSEPKcLm16ESt4lessIS5_EE4findIS5_EEPKSt4pairIS5_S7_ERKT_.exit ]
+  %spec.select.i.i.sroa.sel = getelementptr inbounds nuw i8, ptr %.not26.i.i16, i64 8
   %19 = load ptr, ptr %spec.select.i.i.sroa.sel, align 8, !tbaa !316
   br label %_ZNK6frozen3mapIN4LIEF2PE15ResourceVersion17fixed_file_info_t17FILE_TYPE_DETAILSEPKcLm16ESt4lessIS5_EE4findIS5_EEPKSt4pairIS5_S7_ERKT_.exit.thread
 
@@ -35652,7 +35652,7 @@ define linkonce_odr hidden ptr @_ZNK3fmt3v109formatterIN4LIEF2PE15ResourceVersio
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %5, ptr noundef nonnull align 8 dereferenceable(232) @__const._ZN4LIEF2PE9to_stringENS0_15ResourceVersion17fixed_file_info_t10VERSION_OSE.enums2str, i64 232, i1 false)
   %.not.i.i.i.i.i.i.i = icmp ugt i32 %6, 131072
-  br i1 %.not.i.i.i.i.i.i.i, label %7, label %_ZNK6frozen3mapIN4LIEF2PE15ResourceVersion17fixed_file_info_t10VERSION_OSEPKcLm14ESt4lessIS5_EE11lower_boundIS5_EEPKSt4pairIS5_S7_ERKT_.exit.thread28.i.i.i
+  br i1 %.not.i.i.i.i.i.i.i, label %7, label %_ZNK6frozen3mapIN4LIEF2PE15ResourceVersion17fixed_file_info_t10VERSION_OSEPKcLm14ESt4lessIS5_EE11lower_boundIS5_EEPKSt4pairIS5_S7_ERKT_.exit.thread29.i.i.i
 
 7:                                                ; preds = %3
   %.not.i.i.i.i.i.i.i.i = icmp ugt i32 %6, 262144
@@ -35672,7 +35672,7 @@ _ZNK6frozen3mapIN4LIEF2PE15ResourceVersion17fixed_file_info_t10VERSION_OSEPKcLm1
   %12 = select i1 %.not.i6.i.i.i.i.i.i.i.i, i64 168, i64 136
   br label %_ZNK6frozen3mapIN4LIEF2PE15ResourceVersion17fixed_file_info_t10VERSION_OSEPKcLm14ESt4lessIS5_EE11lower_boundIS5_EEPKSt4pairIS5_S7_ERKT_.exit.i.i.i
 
-_ZNK6frozen3mapIN4LIEF2PE15ResourceVersion17fixed_file_info_t10VERSION_OSEPKcLm14ESt4lessIS5_EE11lower_boundIS5_EEPKSt4pairIS5_S7_ERKT_.exit.thread28.i.i.i: ; preds = %3
+_ZNK6frozen3mapIN4LIEF2PE15ResourceVersion17fixed_file_info_t10VERSION_OSEPKcLm14ESt4lessIS5_EE11lower_boundIS5_EEPKSt4pairIS5_S7_ERKT_.exit.thread29.i.i.i: ; preds = %3
   %.not.i6.i.i.i.i.i.i.i = icmp samesign ugt i32 %6, 3
   %.add16.i.i.i = select i1 %.not.i6.i.i.i.i.i.i.i, i64 72, i64 8
   %.add16.i.i.sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %.not.i6.i.i.i.i.i.i.i, i64 88, i64 24
@@ -35700,10 +35700,10 @@ _ZNK6frozen3mapIN4LIEF2PE15ResourceVersion17fixed_file_info_t10VERSION_OSEPKcLm1
   %.not.i.i.i = icmp eq i64 %.add15.i.i.i, 232
   br i1 %.not.i.i.i, label %_ZN4LIEF2PE9to_stringENS0_15ResourceVersion17fixed_file_info_t10VERSION_OSE.exit.thread, label %_ZNK6frozen3mapIN4LIEF2PE15ResourceVersion17fixed_file_info_t10VERSION_OSEPKcLm14ESt4lessIS5_EE11lower_boundIS5_EEPKSt4pairIS5_S7_ERKT_.exit._crit_edge.i.i.i
 
-_ZNK6frozen3mapIN4LIEF2PE15ResourceVersion17fixed_file_info_t10VERSION_OSEPKcLm14ESt4lessIS5_EE11lower_boundIS5_EEPKSt4pairIS5_S7_ERKT_.exit._crit_edge.i.i.i: ; preds = %_ZNK6frozen3mapIN4LIEF2PE15ResourceVersion17fixed_file_info_t10VERSION_OSEPKcLm14ESt4lessIS5_EE11lower_boundIS5_EEPKSt4pairIS5_S7_ERKT_.exit.i.i.i, %_ZNK6frozen3mapIN4LIEF2PE15ResourceVersion17fixed_file_info_t10VERSION_OSEPKcLm14ESt4lessIS5_EE11lower_boundIS5_EEPKSt4pairIS5_S7_ERKT_.exit.thread28.i.i.i
-  %18 = phi ptr [ %15, %_ZNK6frozen3mapIN4LIEF2PE15ResourceVersion17fixed_file_info_t10VERSION_OSEPKcLm14ESt4lessIS5_EE11lower_boundIS5_EEPKSt4pairIS5_S7_ERKT_.exit.thread28.i.i.i ], [ %17, %_ZNK6frozen3mapIN4LIEF2PE15ResourceVersion17fixed_file_info_t10VERSION_OSEPKcLm14ESt4lessIS5_EE11lower_boundIS5_EEPKSt4pairIS5_S7_ERKT_.exit.i.i.i ]
-  %.0.i.i.i.i.idx31.i.i.i = phi i64 [ %.add18.i.i.i, %_ZNK6frozen3mapIN4LIEF2PE15ResourceVersion17fixed_file_info_t10VERSION_OSEPKcLm14ESt4lessIS5_EE11lower_boundIS5_EEPKSt4pairIS5_S7_ERKT_.exit.thread28.i.i.i ], [ %.add15.i.i.i, %_ZNK6frozen3mapIN4LIEF2PE15ResourceVersion17fixed_file_info_t10VERSION_OSEPKcLm14ESt4lessIS5_EE11lower_boundIS5_EEPKSt4pairIS5_S7_ERKT_.exit.i.i.i ]
-  %.0.i.i.i.i.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 %.0.i.i.i.i.idx31.i.i.i
+_ZNK6frozen3mapIN4LIEF2PE15ResourceVersion17fixed_file_info_t10VERSION_OSEPKcLm14ESt4lessIS5_EE11lower_boundIS5_EEPKSt4pairIS5_S7_ERKT_.exit._crit_edge.i.i.i: ; preds = %_ZNK6frozen3mapIN4LIEF2PE15ResourceVersion17fixed_file_info_t10VERSION_OSEPKcLm14ESt4lessIS5_EE11lower_boundIS5_EEPKSt4pairIS5_S7_ERKT_.exit.i.i.i, %_ZNK6frozen3mapIN4LIEF2PE15ResourceVersion17fixed_file_info_t10VERSION_OSEPKcLm14ESt4lessIS5_EE11lower_boundIS5_EEPKSt4pairIS5_S7_ERKT_.exit.thread29.i.i.i
+  %18 = phi ptr [ %15, %_ZNK6frozen3mapIN4LIEF2PE15ResourceVersion17fixed_file_info_t10VERSION_OSEPKcLm14ESt4lessIS5_EE11lower_boundIS5_EEPKSt4pairIS5_S7_ERKT_.exit.thread29.i.i.i ], [ %17, %_ZNK6frozen3mapIN4LIEF2PE15ResourceVersion17fixed_file_info_t10VERSION_OSEPKcLm14ESt4lessIS5_EE11lower_boundIS5_EEPKSt4pairIS5_S7_ERKT_.exit.i.i.i ]
+  %.0.i.i.i.i.idx32.i.i.i = phi i64 [ %.add18.i.i.i, %_ZNK6frozen3mapIN4LIEF2PE15ResourceVersion17fixed_file_info_t10VERSION_OSEPKcLm14ESt4lessIS5_EE11lower_boundIS5_EEPKSt4pairIS5_S7_ERKT_.exit.thread29.i.i.i ], [ %.add15.i.i.i, %_ZNK6frozen3mapIN4LIEF2PE15ResourceVersion17fixed_file_info_t10VERSION_OSEPKcLm14ESt4lessIS5_EE11lower_boundIS5_EEPKSt4pairIS5_S7_ERKT_.exit.i.i.i ]
+  %.0.i.i.i.i.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 %.0.i.i.i.i.idx32.i.i.i
   %.pre.i.i.i = load i32, ptr %.0.i.i.i.i.ptr.i.i.i, align 4, !tbaa !199
   br label %_ZNK6frozen3mapIN4LIEF2PE15ResourceVersion17fixed_file_info_t10VERSION_OSEPKcLm14ESt4lessIS5_EE4findIS5_EEPKSt4pairIS5_S7_ERKT_.exit.i
 
@@ -35711,8 +35711,8 @@ _ZNK6frozen3mapIN4LIEF2PE15ResourceVersion17fixed_file_info_t10VERSION_OSEPKcLm1
   %19 = phi i32 [ 262148, %_ZNK6frozen3mapIN4LIEF2PE15ResourceVersion17fixed_file_info_t10VERSION_OSEPKcLm14ESt4lessIS5_EE11lower_boundIS5_EEPKSt4pairIS5_S7_ERKT_.exit.thread.i.i.i ], [ %.pre.i.i.i, %_ZNK6frozen3mapIN4LIEF2PE15ResourceVersion17fixed_file_info_t10VERSION_OSEPKcLm14ESt4lessIS5_EE11lower_boundIS5_EEPKSt4pairIS5_S7_ERKT_.exit._crit_edge.i.i.i ]
   %20 = phi ptr [ %10, %_ZNK6frozen3mapIN4LIEF2PE15ResourceVersion17fixed_file_info_t10VERSION_OSEPKcLm14ESt4lessIS5_EE11lower_boundIS5_EEPKSt4pairIS5_S7_ERKT_.exit.thread.i.i.i ], [ %18, %_ZNK6frozen3mapIN4LIEF2PE15ResourceVersion17fixed_file_info_t10VERSION_OSEPKcLm14ESt4lessIS5_EE11lower_boundIS5_EEPKSt4pairIS5_S7_ERKT_.exit._crit_edge.i.i.i ]
   %.0.i.i.i.i14.i.i.i = phi ptr [ %9, %_ZNK6frozen3mapIN4LIEF2PE15ResourceVersion17fixed_file_info_t10VERSION_OSEPKcLm14ESt4lessIS5_EE11lower_boundIS5_EEPKSt4pairIS5_S7_ERKT_.exit.thread.i.i.i ], [ %.0.i.i.i.i.ptr.i.i.i, %_ZNK6frozen3mapIN4LIEF2PE15ResourceVersion17fixed_file_info_t10VERSION_OSEPKcLm14ESt4lessIS5_EE11lower_boundIS5_EEPKSt4pairIS5_S7_ERKT_.exit._crit_edge.i.i.i ]
-  %.not25.i.i.i = icmp ult i32 %6, %19
-  %spec.select.i.i.i = select i1 %.not25.i.i.i, ptr %20, ptr %.0.i.i.i.i14.i.i.i
+  %.not26.i.i.i = icmp ult i32 %6, %19
+  %spec.select.i.i.i = select i1 %.not26.i.i.i, ptr %20, ptr %.0.i.i.i.i14.i.i.i
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 232
   %.not.i = icmp eq ptr %spec.select.i.i.i, %21
   br i1 %.not.i, label %_ZN4LIEF2PE9to_stringENS0_15ResourceVersion17fixed_file_info_t10VERSION_OSE.exit.thread, label %_ZN4LIEF2PE9to_stringENS0_15ResourceVersion17fixed_file_info_t10VERSION_OSE.exit
@@ -35722,7 +35722,7 @@ _ZN4LIEF2PE9to_stringENS0_15ResourceVersion17fixed_file_info_t10VERSION_OSE.exit
   br label %_ZN3fmt3v106detail5writeIcNS0_8appenderEEET0_S4_PKT_.exit
 
 _ZN4LIEF2PE9to_stringENS0_15ResourceVersion17fixed_file_info_t10VERSION_OSE.exit: ; preds = %_ZNK6frozen3mapIN4LIEF2PE15ResourceVersion17fixed_file_info_t10VERSION_OSEPKcLm14ESt4lessIS5_EE4findIS5_EEPKSt4pairIS5_S7_ERKT_.exit.i
-  %spec.select.i.i.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %.not25.i.i.i, ptr %20, ptr %.0.i.i.i.i14.i.i.i
+  %spec.select.i.i.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %.not26.i.i.i, ptr %20, ptr %.0.i.i.i.i14.i.i.i
   %spec.select.i.i.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.select.i.i.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 8
   %22 = load ptr, ptr %spec.select.i.i.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 8, !tbaa !312
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -35829,7 +35829,7 @@ define linkonce_odr hidden ptr @_ZNK3fmt3v109formatterIN4LIEF2PE15ResourceVersio
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(264) %5, ptr noundef nonnull align 8 dereferenceable(264) @__const._ZN4LIEF2PE9to_stringENS0_15ResourceVersion17fixed_file_info_t17FILE_TYPE_DETAILSE.enums2str, i64 264, i1 false)
   %.not.i.i.i.i.i.i.i = icmp ugt i64 %6, 8589934598
-  br i1 %.not.i.i.i.i.i.i.i, label %7, label %_ZNK6frozen3mapIN4LIEF2PE15ResourceVersion17fixed_file_info_t17FILE_TYPE_DETAILSEPKcLm16ESt4lessIS5_EE11lower_boundIS5_EEPKSt4pairIS5_S7_ERKT_.exit.thread28.i.i.i
+  br i1 %.not.i.i.i.i.i.i.i, label %7, label %_ZNK6frozen3mapIN4LIEF2PE15ResourceVersion17fixed_file_info_t17FILE_TYPE_DETAILSEPKcLm16ESt4lessIS5_EE11lower_boundIS5_EEPKSt4pairIS5_S7_ERKT_.exit.thread29.i.i.i
 
 7:                                                ; preds = %3
   %.not.i.i.i.i.i.i.i.i = icmp ugt i64 %6, 8589934602
@@ -35852,7 +35852,7 @@ _ZNK6frozen3mapIN4LIEF2PE15ResourceVersion17fixed_file_info_t17FILE_TYPE_DETAILS
   %12 = select i1 %.not.i6.i.i.i.i.i.i.i.i, i64 168, i64 136
   br label %_ZNK6frozen3mapIN4LIEF2PE15ResourceVersion17fixed_file_info_t17FILE_TYPE_DETAILSEPKcLm16ESt4lessIS5_EE11lower_boundIS5_EEPKSt4pairIS5_S7_ERKT_.exit.i.i.i
 
-_ZNK6frozen3mapIN4LIEF2PE15ResourceVersion17fixed_file_info_t17FILE_TYPE_DETAILSEPKcLm16ESt4lessIS5_EE11lower_boundIS5_EEPKSt4pairIS5_S7_ERKT_.exit.thread28.i.i.i: ; preds = %3
+_ZNK6frozen3mapIN4LIEF2PE15ResourceVersion17fixed_file_info_t17FILE_TYPE_DETAILSEPKcLm16ESt4lessIS5_EE11lower_boundIS5_EEPKSt4pairIS5_S7_ERKT_.exit.thread29.i.i.i: ; preds = %3
   %.not.i6.i.i.i.i.i.i.i = icmp samesign ugt i64 %6, 8589934594
   %.add16.i.i.i = select i1 %.not.i6.i.i.i.i.i.i.i, i64 72, i64 8
   %.add16.i.i.sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %.not.i6.i.i.i.i.i.i.i, i64 88, i64 24
@@ -35880,10 +35880,10 @@ _ZNK6frozen3mapIN4LIEF2PE15ResourceVersion17fixed_file_info_t17FILE_TYPE_DETAILS
   %.not.i.i.i = icmp eq i64 %.add15.i.i.i, 264
   br i1 %.not.i.i.i, label %_ZN4LIEF2PE9to_stringENS0_15ResourceVersion17fixed_file_info_t17FILE_TYPE_DETAILSE.exit.thread, label %_ZNK6frozen3mapIN4LIEF2PE15ResourceVersion17fixed_file_info_t17FILE_TYPE_DETAILSEPKcLm16ESt4lessIS5_EE4findIS5_EEPKSt4pairIS5_S7_ERKT_.exit.i
 
-_ZNK6frozen3mapIN4LIEF2PE15ResourceVersion17fixed_file_info_t17FILE_TYPE_DETAILSEPKcLm16ESt4lessIS5_EE4findIS5_EEPKSt4pairIS5_S7_ERKT_.exit.i: ; preds = %_ZNK6frozen3mapIN4LIEF2PE15ResourceVersion17fixed_file_info_t17FILE_TYPE_DETAILSEPKcLm16ESt4lessIS5_EE11lower_boundIS5_EEPKSt4pairIS5_S7_ERKT_.exit.i.i.i, %_ZNK6frozen3mapIN4LIEF2PE15ResourceVersion17fixed_file_info_t17FILE_TYPE_DETAILSEPKcLm16ESt4lessIS5_EE11lower_boundIS5_EEPKSt4pairIS5_S7_ERKT_.exit.thread28.i.i.i
-  %18 = phi ptr [ %15, %_ZNK6frozen3mapIN4LIEF2PE15ResourceVersion17fixed_file_info_t17FILE_TYPE_DETAILSEPKcLm16ESt4lessIS5_EE11lower_boundIS5_EEPKSt4pairIS5_S7_ERKT_.exit.thread28.i.i.i ], [ %17, %_ZNK6frozen3mapIN4LIEF2PE15ResourceVersion17fixed_file_info_t17FILE_TYPE_DETAILSEPKcLm16ESt4lessIS5_EE11lower_boundIS5_EEPKSt4pairIS5_S7_ERKT_.exit.i.i.i ]
-  %.0.i.i.i.i.idx31.i.i.i = phi i64 [ %.add18.i.i.i, %_ZNK6frozen3mapIN4LIEF2PE15ResourceVersion17fixed_file_info_t17FILE_TYPE_DETAILSEPKcLm16ESt4lessIS5_EE11lower_boundIS5_EEPKSt4pairIS5_S7_ERKT_.exit.thread28.i.i.i ], [ %.add15.i.i.i, %_ZNK6frozen3mapIN4LIEF2PE15ResourceVersion17fixed_file_info_t17FILE_TYPE_DETAILSEPKcLm16ESt4lessIS5_EE11lower_boundIS5_EEPKSt4pairIS5_S7_ERKT_.exit.i.i.i ]
-  %.0.i.i.i.i.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 %.0.i.i.i.i.idx31.i.i.i
+_ZNK6frozen3mapIN4LIEF2PE15ResourceVersion17fixed_file_info_t17FILE_TYPE_DETAILSEPKcLm16ESt4lessIS5_EE4findIS5_EEPKSt4pairIS5_S7_ERKT_.exit.i: ; preds = %_ZNK6frozen3mapIN4LIEF2PE15ResourceVersion17fixed_file_info_t17FILE_TYPE_DETAILSEPKcLm16ESt4lessIS5_EE11lower_boundIS5_EEPKSt4pairIS5_S7_ERKT_.exit.i.i.i, %_ZNK6frozen3mapIN4LIEF2PE15ResourceVersion17fixed_file_info_t17FILE_TYPE_DETAILSEPKcLm16ESt4lessIS5_EE11lower_boundIS5_EEPKSt4pairIS5_S7_ERKT_.exit.thread29.i.i.i
+  %18 = phi ptr [ %15, %_ZNK6frozen3mapIN4LIEF2PE15ResourceVersion17fixed_file_info_t17FILE_TYPE_DETAILSEPKcLm16ESt4lessIS5_EE11lower_boundIS5_EEPKSt4pairIS5_S7_ERKT_.exit.thread29.i.i.i ], [ %17, %_ZNK6frozen3mapIN4LIEF2PE15ResourceVersion17fixed_file_info_t17FILE_TYPE_DETAILSEPKcLm16ESt4lessIS5_EE11lower_boundIS5_EEPKSt4pairIS5_S7_ERKT_.exit.i.i.i ]
+  %.0.i.i.i.i.idx32.i.i.i = phi i64 [ %.add18.i.i.i, %_ZNK6frozen3mapIN4LIEF2PE15ResourceVersion17fixed_file_info_t17FILE_TYPE_DETAILSEPKcLm16ESt4lessIS5_EE11lower_boundIS5_EEPKSt4pairIS5_S7_ERKT_.exit.thread29.i.i.i ], [ %.add15.i.i.i, %_ZNK6frozen3mapIN4LIEF2PE15ResourceVersion17fixed_file_info_t17FILE_TYPE_DETAILSEPKcLm16ESt4lessIS5_EE11lower_boundIS5_EEPKSt4pairIS5_S7_ERKT_.exit.i.i.i ]
+  %.0.i.i.i.i.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 %.0.i.i.i.i.idx32.i.i.i
   %.pre.i.i.i = load i64, ptr %.0.i.i.i.i.ptr.i.i.i, align 8, !tbaa !231
   %19 = icmp ult i64 %6, %.pre.i.i.i
   %20 = select i1 %19, ptr %18, ptr %.0.i.i.i.i.ptr.i.i.i
@@ -35896,8 +35896,8 @@ _ZN4LIEF2PE9to_stringENS0_15ResourceVersion17fixed_file_info_t17FILE_TYPE_DETAIL
   br label %_ZN3fmt3v106detail5writeIcNS0_8appenderEEET0_S4_PKT_.exit
 
 _ZN4LIEF2PE9to_stringENS0_15ResourceVersion17fixed_file_info_t17FILE_TYPE_DETAILSE.exit: ; preds = %_ZNK6frozen3mapIN4LIEF2PE15ResourceVersion17fixed_file_info_t17FILE_TYPE_DETAILSEPKcLm16ESt4lessIS5_EE4findIS5_EEPKSt4pairIS5_S7_ERKT_.exit.thread13.i, %_ZNK6frozen3mapIN4LIEF2PE15ResourceVersion17fixed_file_info_t17FILE_TYPE_DETAILSEPKcLm16ESt4lessIS5_EE4findIS5_EEPKSt4pairIS5_S7_ERKT_.exit.i
-  %.not25.i.i16.i = phi ptr [ %10, %_ZNK6frozen3mapIN4LIEF2PE15ResourceVersion17fixed_file_info_t17FILE_TYPE_DETAILSEPKcLm16ESt4lessIS5_EE4findIS5_EEPKSt4pairIS5_S7_ERKT_.exit.thread13.i ], [ %20, %_ZNK6frozen3mapIN4LIEF2PE15ResourceVersion17fixed_file_info_t17FILE_TYPE_DETAILSEPKcLm16ESt4lessIS5_EE4findIS5_EEPKSt4pairIS5_S7_ERKT_.exit.i ]
-  %spec.select.i.i.sroa.sel.i = getelementptr inbounds nuw i8, ptr %.not25.i.i16.i, i64 8
+  %.not26.i.i16.i = phi ptr [ %10, %_ZNK6frozen3mapIN4LIEF2PE15ResourceVersion17fixed_file_info_t17FILE_TYPE_DETAILSEPKcLm16ESt4lessIS5_EE4findIS5_EEPKSt4pairIS5_S7_ERKT_.exit.thread13.i ], [ %20, %_ZNK6frozen3mapIN4LIEF2PE15ResourceVersion17fixed_file_info_t17FILE_TYPE_DETAILSEPKcLm16ESt4lessIS5_EE4findIS5_EEPKSt4pairIS5_S7_ERKT_.exit.i ]
+  %spec.select.i.i.sroa.sel.i = getelementptr inbounds nuw i8, ptr %.not26.i.i16.i, i64 8
   %22 = load ptr, ptr %spec.select.i.i.sroa.sel.i, align 8, !tbaa !316
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not.i4 = icmp eq ptr %22, null

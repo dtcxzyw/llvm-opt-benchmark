@@ -2284,16 +2284,16 @@ _ZN3tbb6detail2d119default_concurrencyENS1_11constraintsE.exit: ; preds = %_ZN3t
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store i32 %23, ptr %15, align 8, !tbaa !216
   %.pre = load i32, ptr %13, align 4, !tbaa !215
-  %.pre53 = load i64, ptr %0, align 8, !tbaa !208
-  %.pre54 = load i32, ptr %11, align 8
-  %.pre55 = load i32, ptr %21, align 4
-  %.pre56 = and i64 %.pre53, 1
+  %.pre54 = load i64, ptr %0, align 8, !tbaa !208
+  %.pre55 = load i32, ptr %11, align 8
+  %.pre56 = load i32, ptr %21, align 4
+  %.pre57 = and i64 %.pre54, 1
   br label %24
 
 24:                                               ; preds = %_ZN3tbb6detail2d119default_concurrencyENS1_11constraintsE.exit, %_ZN3tbb6detail2r18governor15get_thread_dataEv.exit
-  %.pre-phi = phi i64 [ %.pre56, %_ZN3tbb6detail2d119default_concurrencyENS1_11constraintsE.exit ], [ %10, %_ZN3tbb6detail2r18governor15get_thread_dataEv.exit ]
-  %25 = phi i32 [ %.pre55, %_ZN3tbb6detail2d119default_concurrencyENS1_11constraintsE.exit ], [ %20, %_ZN3tbb6detail2r18governor15get_thread_dataEv.exit ]
-  %26 = phi i32 [ %.pre54, %_ZN3tbb6detail2d119default_concurrencyENS1_11constraintsE.exit ], [ %18, %_ZN3tbb6detail2r18governor15get_thread_dataEv.exit ]
+  %.pre-phi = phi i64 [ %.pre57, %_ZN3tbb6detail2d119default_concurrencyENS1_11constraintsE.exit ], [ %10, %_ZN3tbb6detail2r18governor15get_thread_dataEv.exit ]
+  %25 = phi i32 [ %.pre56, %_ZN3tbb6detail2d119default_concurrencyENS1_11constraintsE.exit ], [ %20, %_ZN3tbb6detail2r18governor15get_thread_dataEv.exit ]
+  %26 = phi i32 [ %.pre55, %_ZN3tbb6detail2d119default_concurrencyENS1_11constraintsE.exit ], [ %18, %_ZN3tbb6detail2r18governor15get_thread_dataEv.exit ]
   %27 = phi i32 [ %.pre, %_ZN3tbb6detail2d119default_concurrencyENS1_11constraintsE.exit ], [ %14, %_ZN3tbb6detail2r18governor15get_thread_dataEv.exit ]
   %28 = phi i32 [ %23, %_ZN3tbb6detail2d119default_concurrencyENS1_11constraintsE.exit ], [ %16, %_ZN3tbb6detail2r18governor15get_thread_dataEv.exit ]
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 28

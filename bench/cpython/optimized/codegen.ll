@@ -5444,8 +5444,8 @@ Py_DECREF.exit.i:                                 ; preds = %105, %102, %99
 111:                                              ; preds = %107
   %112 = tail call ptr @_PyCompile_InstrSequence(ptr noundef %0) #10
   %113 = tail call i32 @_PyInstructionSequence_Addop(ptr noundef %112, i32 noundef 52, i32 noundef 0, i64 %.sroa.0.4.insert.insert.i, i64 %.sroa.14.12.insert.insert.i) #10
-  %.not338 = icmp eq i32 %113, -1
-  br i1 %.not338, label %codegen_class.exit, label %121
+  %.not339 = icmp eq i32 %113, -1
+  br i1 %.not339, label %codegen_class.exit, label %121
 
 114:                                              ; preds = %.thread313
   %115 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -5813,7 +5813,7 @@ Py_DECREF.exit.i156:                              ; preds = %250, %247, %244
   br i1 %280, label %299, label %..thread319_crit_edge
 
 ..thread319_crit_edge:                            ; preds = %298
-  %.pre406 = load i32, ptr %263, align 8, !tbaa !84
+  %.pre407 = load i32, ptr %263, align 8, !tbaa !84
   br label %.thread319
 
 .thread317:                                       ; preds = %290
@@ -5847,17 +5847,17 @@ Py_DECREF.exit.i156:                              ; preds = %250, %247, %244
 316:                                              ; preds = %302, %299
   %.pr = load ptr, ptr %274, align 8, !tbaa !16
   %317 = icmp eq ptr %.pr, null
-  %.pre407 = load i32, ptr %263, align 8, !tbaa !84
+  %.pre408 = load i32, ptr %263, align 8, !tbaa !84
   br i1 %317, label %.thread319, label %318
 
 318:                                              ; preds = %316
   %319 = getelementptr inbounds nuw i8, ptr %.pr, i64 32
   %320 = load i32, ptr %319, align 8, !tbaa !10
-  %.not51.i = icmp eq i32 %320, %.pre407
+  %.not51.i = icmp eq i32 %320, %.pre408
   br i1 %.not51.i, label %330, label %.thread319
 
 .thread319:                                       ; preds = %..thread319_crit_edge, %318, %316
-  %321 = phi i32 [ %.pre406, %..thread319_crit_edge ], [ %.pre407, %318 ], [ %.pre407, %316 ]
+  %321 = phi i32 [ %.pre407, %..thread319_crit_edge ], [ %.pre408, %318 ], [ %.pre408, %316 ]
   %322 = load i32, ptr %266, align 8, !tbaa !86
   %323 = load i32, ptr %269, align 4, !tbaa !87
   %324 = load i32, ptr %272, align 4, !tbaa !88
@@ -5963,10 +5963,10 @@ codegen_return.exit:                              ; preds = %284, %294, %299, %3
   br i1 %382, label %codegen_class.exit, label %.preheader
 
 .preheader:                                       ; preds = %377
-  %.not144373 = icmp sgt i64 %378, 0
-  br i1 %.not144373, label %.lr.ph375, label %.thread320
+  %.not144374 = icmp sgt i64 %378, 0
+  br i1 %.not144374, label %.lr.ph376, label %.thread320
 
-.lr.ph375:                                        ; preds = %.preheader
+.lr.ph376:                                        ; preds = %.preheader
   %383 = add nsw i64 %378, -1
   %384 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %385 = getelementptr inbounds nuw i8, ptr %1, i64 72
@@ -5975,13 +5975,13 @@ codegen_return.exit:                              ; preds = %284, %294, %299, %3
   br label %390
 
 388:                                              ; preds = %400
-  %389 = add nuw nsw i64 %.0135374, 1
-  %exitcond404.not = icmp eq i64 %389, %378
-  br i1 %exitcond404.not, label %.thread320, label %390, !llvm.loop !99
+  %389 = add nuw nsw i64 %.0135375, 1
+  %exitcond405.not = icmp eq i64 %389, %378
+  br i1 %exitcond405.not, label %.thread320, label %390, !llvm.loop !99
 
-390:                                              ; preds = %.lr.ph375, %388
-  %.0135374 = phi i64 [ 0, %.lr.ph375 ], [ %389, %388 ]
-  %391 = icmp slt i64 %.0135374, %383
+390:                                              ; preds = %.lr.ph376, %388
+  %.0135375 = phi i64 [ 0, %.lr.ph376 ], [ %389, %388 ]
+  %391 = icmp slt i64 %.0135375, %383
   br i1 %391, label %392, label %400
 
 392:                                              ; preds = %390
@@ -6005,7 +6005,7 @@ codegen_return.exit:                              ; preds = %284, %294, %299, %3
 400:                                              ; preds = %390, %392
   %401 = load ptr, ptr %372, align 8, !tbaa !16
   %402 = getelementptr inbounds nuw i8, ptr %401, i64 16
-  %403 = getelementptr ptr, ptr %402, i64 %.0135374
+  %403 = getelementptr ptr, ptr %402, i64 %.0135375
   %404 = load ptr, ptr %403, align 8, !tbaa !22
   %405 = tail call fastcc i32 @codegen_visit_expr(ptr noundef %0, ptr noundef %404)
   %406 = icmp eq i32 %405, -1
@@ -7026,34 +7026,34 @@ codegen_check_annotation.exit.i:                  ; preds = %765
   %962 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %963 = load ptr, ptr %962, align 8, !tbaa !16
   %.not82.i = icmp eq ptr %963, null
-  br i1 %.not82.i, label %.critedge86.i, label %.preheader344
+  br i1 %.not82.i, label %.critedge86.i, label %.preheader345
 
-.preheader344:                                    ; preds = %961
+.preheader345:                                    ; preds = %961
   %964 = load i64, ptr %963, align 8, !tbaa !17
-  %.not84.i370 = icmp sgt i64 %964, 0
-  br i1 %.not84.i370, label %.lr.ph372, label %.critedge86.i
+  %.not84.i371 = icmp sgt i64 %964, 0
+  br i1 %.not84.i371, label %.lr.ph373, label %.critedge86.i
 
-.lr.ph372:                                        ; preds = %.preheader344
+.lr.ph373:                                        ; preds = %.preheader345
   %965 = getelementptr inbounds nuw i8, ptr %963, i64 16
   br label %970
 
 966:                                              ; preds = %970
-  %967 = add i32 %.068.i371, 1
+  %967 = add i32 %.068.i372, 1
   %968 = sext i32 %967 to i64
   %969 = load i64, ptr %963, align 8, !tbaa !17
   %.not84.i = icmp sgt i64 %969, %968
   br i1 %.not84.i, label %970, label %.critedge86.i, !llvm.loop !106
 
-970:                                              ; preds = %.lr.ph372, %966
-  %971 = phi i64 [ 0, %.lr.ph372 ], [ %968, %966 ]
-  %.068.i371 = phi i32 [ 0, %.lr.ph372 ], [ %967, %966 ]
+970:                                              ; preds = %.lr.ph373, %966
+  %971 = phi i64 [ 0, %.lr.ph373 ], [ %968, %966 ]
+  %.068.i372 = phi i32 [ 0, %.lr.ph373 ], [ %967, %966 ]
   %972 = getelementptr ptr, ptr %965, i64 %971
   %973 = load ptr, ptr %972, align 8, !tbaa !71
   %974 = tail call fastcc i32 @codegen_visit_stmt(ptr noundef %0, ptr noundef %973)
   %.not83.i = icmp eq i32 %974, -1
   br i1 %.not83.i, label %codegen_class.exit, label %966
 
-.critedge86.i:                                    ; preds = %966, %.preheader344, %961
+.critedge86.i:                                    ; preds = %966, %.preheader345, %961
   %975 = tail call ptr @_PyCompile_InstrSequence(ptr noundef %0) #10
   %976 = tail call i32 @_PyInstructionSequence_UseLabel(ptr noundef %975, i32 noundef %912) #10
   %977 = icmp eq i32 %976, -1
@@ -7226,8 +7226,8 @@ codegen_check_annotation.exit.i:                  ; preds = %765
   %1073 = phi i1 [ false, %1059 ], [ %spec.select.i311, %1068 ]
   %.neg.i = sext i1 %1073 to i64
   %1074 = add i64 %1060, %.neg.i
-  %.not194.i368 = icmp sgt i64 %1074, 0
-  br i1 %.not194.i368, label %.lr.ph, label %.critedge201.i
+  %.not194.i369 = icmp sgt i64 %1074, 0
+  br i1 %.not194.i369, label %.lr.ph, label %.critedge201.i
 
 .lr.ph:                                           ; preds = %1072
   %1075 = add nsw i64 %1074, -1
@@ -7236,17 +7236,17 @@ codegen_check_annotation.exit.i:                  ; preds = %765
   br label %1080
 
 1078:                                             ; preds = %Py_DECREF.exit206.i
-  %1079 = add nuw nsw i64 %.0178.i369, 1
-  %exitcond403.not = icmp eq i64 %1079, %1074
-  br i1 %exitcond403.not, label %.critedge201.i, label %1080, !llvm.loop !118
+  %1079 = add nuw nsw i64 %.0178.i370, 1
+  %exitcond404.not = icmp eq i64 %1079, %1074
+  br i1 %exitcond404.not, label %.critedge201.i, label %1080, !llvm.loop !118
 
 1080:                                             ; preds = %.lr.ph, %1078
-  %.0178.i369 = phi i64 [ 0, %.lr.ph ], [ %1079, %1078 ]
+  %.0178.i370 = phi i64 [ 0, %.lr.ph ], [ %1079, %1078 ]
   %1081 = load ptr, ptr %1054, align 8, !tbaa !16
   %1082 = getelementptr inbounds nuw i8, ptr %1081, i64 16
-  %1083 = getelementptr ptr, ptr %1082, i64 %.0178.i369
+  %1083 = getelementptr ptr, ptr %1082, i64 %.0178.i370
   %1084 = load ptr, ptr %1083, align 8, !tbaa !111
-  %.not189.i = icmp eq i64 %.0178.i369, %1075
+  %.not189.i = icmp eq i64 %.0178.i370, %1075
   br i1 %.not189.i, label %1098, label %1085
 
 1085:                                             ; preds = %1080
@@ -7282,7 +7282,7 @@ codegen_check_annotation.exit.i:                  ; preds = %765
   %1102 = getelementptr inbounds nuw i8, ptr %1084, i64 8
   %1103 = load ptr, ptr %1102, align 8, !tbaa !124
   %1104 = icmp ne ptr %1103, null
-  %1105 = icmp eq i64 %.0178.i369, %1062
+  %1105 = icmp eq i64 %.0178.i370, %1062
   %1106 = or i1 %1105, %1104
   %1107 = zext i1 %1106 to i32
   store i32 %1107, ptr %1076, align 8, !tbaa !125
@@ -7311,22 +7311,22 @@ codegen_check_annotation.exit.i:                  ; preds = %765
 1118:                                             ; preds = %1101
   %1119 = getelementptr i8, ptr %1111, i64 16
   %.val.i295 = load i64, ptr %1119, align 8, !tbaa !126
-  %.not190.i361 = icmp sgt i64 %.val.i295, 0
-  br i1 %.not190.i361, label %.critedge.i308.lr.ph, label %.critedge199.i
+  %.not190.i362 = icmp sgt i64 %.val.i295, 0
+  br i1 %.not190.i362, label %.critedge.i308.lr.ph, label %.critedge199.i
 
 .critedge.i308.lr.ph:                             ; preds = %1118
   %1120 = getelementptr inbounds nuw i8, ptr %1111, i64 24
   br label %.critedge.i308
 
 1121:                                             ; preds = %.critedge.i308
-  %1122 = add nuw nsw i64 %.0179.i362, 1
+  %1122 = add nuw nsw i64 %.0179.i363, 1
   %exitcond.not = icmp eq i64 %1122, %.val.i295
   br i1 %exitcond.not, label %.critedge199.i, label %.critedge.i308, !llvm.loop !127
 
 .critedge.i308:                                   ; preds = %.critedge.i308.lr.ph, %1121
-  %.0179.i362 = phi i64 [ 0, %.critedge.i308.lr.ph ], [ %1122, %1121 ]
+  %.0179.i363 = phi i64 [ 0, %.critedge.i308.lr.ph ], [ %1122, %1121 ]
   %1123 = load ptr, ptr %1120, align 8, !tbaa !81
-  %1124 = getelementptr ptr, ptr %1123, i64 %.0179.i362
+  %1124 = getelementptr ptr, ptr %1123, i64 %.0179.i363
   %1125 = load ptr, ptr %1124, align 8, !tbaa !24
   %1126 = load ptr, ptr %1084, align 8, !tbaa !113
   %1127 = getelementptr inbounds nuw i8, ptr %1126, i64 40
@@ -7387,11 +7387,11 @@ Py_DECREF.exit.i297:                              ; preds = %1147, %1144, %.crit
 1149:                                             ; preds = %Py_DECREF.exit.i297
   %1150 = load i64, ptr %1077, align 8, !tbaa !128
   %.not.i211.i = icmp slt i64 %1150, 1
-  %.pre405 = load ptr, ptr %1044, align 8, !tbaa !109
+  %.pre406 = load ptr, ptr %1044, align 8, !tbaa !109
   br i1 %.not.i211.i, label %1151, label %ensure_fail_pop.exit.i
 
 1151:                                             ; preds = %1149
-  %1152 = tail call ptr @PyMem_Realloc(ptr noundef %.pre405, i64 noundef 4) #10
+  %1152 = tail call ptr @PyMem_Realloc(ptr noundef %.pre406, i64 noundef 4) #10
   %1153 = icmp eq ptr %1152, null
   br i1 %1153, label %1154, label %1156
 
@@ -7423,7 +7423,7 @@ ensure_fail_pop.exit.i.loopexit:                  ; preds = %1160
   br label %ensure_fail_pop.exit.i
 
 ensure_fail_pop.exit.i:                           ; preds = %ensure_fail_pop.exit.i.loopexit, %1149
-  %1164 = phi ptr [ %1152, %ensure_fail_pop.exit.i.loopexit ], [ %.pre405, %1149 ]
+  %1164 = phi ptr [ %1152, %ensure_fail_pop.exit.i.loopexit ], [ %.pre406, %1149 ]
   %1165 = phi ptr [ %.pre, %ensure_fail_pop.exit.i.loopexit ], [ %1148, %1149 ]
   %1166 = load i32, ptr %1164, align 4
   %1167 = tail call fastcc i32 @codegen_jump_if(ptr noundef %0, ptr noundef %1165, i32 %1166, i32 noundef 0)
@@ -7461,14 +7461,14 @@ ensure_fail_pop.exit.i:                           ; preds = %ensure_fail_pop.exi
   %1185 = load ptr, ptr %1184, align 8, !tbaa !130
   %1186 = icmp eq ptr %1185, null
   %1187 = getelementptr inbounds nuw i8, ptr %1185, i64 16
-  br i1 %1186, label %.split367.us, label %.split
+  br i1 %1186, label %.split368.us, label %.split
 
 .split:                                           ; preds = %1183, %1190
   %.0180.i = phi i32 [ %1194, %1190 ], [ 0, %1183 ]
   %1188 = sext i32 %.0180.i to i64
   %1189 = load i64, ptr %1185, align 8, !tbaa !17
   %.not193.i = icmp sgt i64 %1189, %1188
-  br i1 %.not193.i, label %1190, label %.split367.us
+  br i1 %.not193.i, label %1190, label %.split368.us
 
 1190:                                             ; preds = %.split
   %1191 = getelementptr ptr, ptr %1187, i64 %1188
@@ -7478,13 +7478,13 @@ ensure_fail_pop.exit.i:                           ; preds = %ensure_fail_pop.exi
   %1194 = add i32 %.0180.i, 1
   br i1 %.not192.i, label %codegen_match_inner.exit, label %.split, !llvm.loop !131
 
-.split367.us:                                     ; preds = %.split, %1183
+.split368.us:                                     ; preds = %.split, %1183
   %1195 = tail call ptr @_PyCompile_InstrSequence(ptr noundef %0) #10
   %1196 = tail call i32 @_PyInstructionSequence_Addop(ptr noundef %1195, i32 noundef 256, i32 noundef %1051, i64 -1, i64 -1) #10
   %1197 = icmp eq i32 %1196, -1
   br i1 %1197, label %codegen_match_inner.exit, label %Py_DECREF.exit206.i
 
-Py_DECREF.exit206.i:                              ; preds = %.split367.us
+Py_DECREF.exit206.i:                              ; preds = %.split368.us
   %1198 = load ptr, ptr %1084, align 8, !tbaa !113
   %1199 = getelementptr inbounds nuw i8, ptr %1198, i64 40
   %1200 = load i32, ptr %1199, align 8, !tbaa !119
@@ -7592,8 +7592,8 @@ Py_DECREF.exit206.i:                              ; preds = %.split367.us
   %.204.i = sext i1 %1255 to i32
   br label %codegen_match_inner.exit
 
-codegen_match_inner.exit:                         ; preds = %Py_DECREF.exit206.i, %.split367.us, %1170, %ensure_fail_pop.exit.i, %1085, %1098, %.lr.ph.i.i, %1190, %1248, %1154, %1137, %1139, %1142, %1117, %1114, %1112, %1043, %1049, %1225, %1228, %1234, %.critedge203.i
-  %.0.i286 = phi i32 [ -1, %1043 ], [ -1, %1049 ], [ -1, %1225 ], [ -1, %1228 ], [ -1, %1234 ], [ %.204.i, %.critedge203.i ], [ -1, %1112 ], [ -1, %1114 ], [ -1, %1117 ], [ -1, %1142 ], [ -1, %1139 ], [ -1, %1137 ], [ -1, %1154 ], [ -1, %1248 ], [ -1, %1190 ], [ -1, %.lr.ph.i.i ], [ -1, %1098 ], [ -1, %1085 ], [ -1, %ensure_fail_pop.exit.i ], [ -1, %1170 ], [ -1, %.split367.us ], [ -1, %Py_DECREF.exit206.i ]
+codegen_match_inner.exit:                         ; preds = %Py_DECREF.exit206.i, %.split368.us, %1170, %ensure_fail_pop.exit.i, %1085, %1098, %.lr.ph.i.i, %1190, %1248, %1154, %1137, %1139, %1142, %1117, %1114, %1112, %1043, %1049, %1225, %1228, %1234, %.critedge203.i
+  %.0.i286 = phi i32 [ -1, %1043 ], [ -1, %1049 ], [ -1, %1225 ], [ -1, %1228 ], [ -1, %1234 ], [ %.204.i, %.critedge203.i ], [ -1, %1112 ], [ -1, %1114 ], [ -1, %1117 ], [ -1, %1142 ], [ -1, %1139 ], [ -1, %1137 ], [ -1, %1154 ], [ -1, %1248 ], [ -1, %1190 ], [ -1, %.lr.ph.i.i ], [ -1, %1098 ], [ -1, %1085 ], [ -1, %ensure_fail_pop.exit.i ], [ -1, %1170 ], [ -1, %.split368.us ], [ -1, %Py_DECREF.exit206.i ]
   %1256 = load ptr, ptr %1044, align 8, !tbaa !109
   tail call void @PyMem_Free(ptr noundef %1256) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -7641,8 +7641,8 @@ codegen_match_inner.exit:                         ; preds = %Py_DECREF.exit206.i
   %.sroa.318.8.insert.ext = zext i32 %1276 to i64
   %.sroa.318.8.insert.insert = or disjoint i64 %.sroa.519.8.insert.shift, %.sroa.318.8.insert.ext
   %1279 = tail call i32 @_PyInstructionSequence_Addop(ptr noundef %1270, i32 noundef 101, i32 noundef %.0136, i64 %.sroa.016.0.insert.insert, i64 %.sroa.318.8.insert.insert) #10
-  %.not337 = icmp eq i32 %1279, -1
-  br i1 %.not337, label %codegen_class.exit, label %.thread320
+  %.not338 = icmp eq i32 %1279, -1
+  br i1 %.not338, label %codegen_class.exit, label %.thread320
 
 1280:                                             ; preds = %2
   %1281 = getelementptr inbounds nuw i8, ptr %1, i64 32

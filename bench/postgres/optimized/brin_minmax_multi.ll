@@ -1868,9 +1868,9 @@ define dso_local range(i64 0, 2) i64 @brin_minmax_multi_consistent(ptr noundef r
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 24
   %25 = load i32, ptr %24, align 8
   %26 = icmp sgt i32 %25, 0
-  br i1 %26, label %.lr.ph175, label %.preheader
+  br i1 %26, label %.lr.ph176, label %.preheader
 
-.lr.ph175:                                        ; preds = %1
+.lr.ph176:                                        ; preds = %1
   %27 = getelementptr inbounds nuw i8, ptr %23, i64 48
   %28 = icmp sgt i32 %13, 0
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 40
@@ -1878,7 +1878,7 @@ define dso_local range(i64 0, 2) i64 @brin_minmax_multi_consistent(ptr noundef r
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 16
   br i1 %28, label %.lr.ph.preheader, label %.thread131
 
-.lr.ph.preheader:                                 ; preds = %.lr.ph175
+.lr.ph.preheader:                                 ; preds = %.lr.ph176
   %wide.trip.count = and i64 %12, 2147483647
   br label %.lr.ph
 
@@ -1886,39 +1886,39 @@ define dso_local range(i64 0, 2) i64 @brin_minmax_multi_consistent(ptr noundef r
   %32 = getelementptr inbounds nuw i8, ptr %23, i64 32
   %33 = load i32, ptr %32, align 8
   %34 = icmp sgt i32 %33, 0
-  br i1 %34, label %.lr.ph184, label %.thread131
+  br i1 %34, label %.lr.ph185, label %.thread131
 
-.lr.ph184:                                        ; preds = %.preheader
+.lr.ph185:                                        ; preds = %.preheader
   %35 = getelementptr inbounds nuw i8, ptr %23, i64 48
   %36 = icmp sgt i32 %13, 0
   %37 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %38 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %39 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  br i1 %36, label %.lr.ph180.us.preheader, label %.thread131
+  br i1 %36, label %.lr.ph181.us.preheader, label %.thread131
 
-.lr.ph180.us.preheader:                           ; preds = %.lr.ph184
-  %wide.trip.count228 = and i64 %12, 2147483647
-  br label %.lr.ph180.us
+.lr.ph181.us.preheader:                           ; preds = %.lr.ph185
+  %wide.trip.count229 = and i64 %12, 2147483647
+  br label %.lr.ph181.us
 
-.lr.ph180.us:                                     ; preds = %.lr.ph180.us.preheader, %._crit_edge.us.thread
-  %.0109183.us = phi i32 [ %46, %._crit_edge.us.thread ], [ 0, %.lr.ph180.us.preheader ]
+.lr.ph181.us:                                     ; preds = %.lr.ph181.us.preheader, %._crit_edge.us.thread
+  %.0109184.us = phi i32 [ %46, %._crit_edge.us.thread ], [ 0, %.lr.ph181.us.preheader ]
   %40 = load i32, ptr %24, align 8
   %41 = shl i32 %40, 1
-  %42 = add i32 %41, %.0109183.us
+  %42 = add i32 %41, %.0109184.us
   %43 = sext i32 %42 to i64
   %44 = getelementptr inbounds i64, ptr %35, i64 %43
   %45 = load i64, ptr %44, align 8
   br label %49
 
 ._crit_edge.us.thread:                            ; preds = %105
-  %46 = add nuw nsw i32 %.0109183.us, 1
+  %46 = add nuw nsw i32 %.0109184.us, 1
   %47 = load i32, ptr %32, align 8
   %48 = icmp slt i32 %46, %47
-  br i1 %48, label %.lr.ph180.us, label %.thread131, !llvm.loop !17
+  br i1 %48, label %.lr.ph181.us, label %.thread131, !llvm.loop !17
 
-49:                                               ; preds = %.lr.ph180.us, %.thread133.us
-  %indvars.iv226 = phi i64 [ 0, %.lr.ph180.us ], [ %indvars.iv.next227, %.thread133.us ]
-  %50 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv226
+49:                                               ; preds = %.lr.ph181.us, %.thread133.us
+  %indvars.iv227 = phi i64 [ 0, %.lr.ph181.us ], [ %indvars.iv.next228, %.thread133.us ]
+  %50 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv227
   %51 = load ptr, ptr %50, align 8
   %52 = load i32, ptr %51, align 8
   %53 = and i32 %52, 1
@@ -1991,7 +1991,7 @@ define dso_local range(i64 0, 2) i64 @brin_minmax_multi_consistent(ptr noundef r
   %98 = zext i32 %61 to i64
   %99 = tail call ptr @SearchSysCache4(i32 noundef 4, i64 noundef %94, i64 noundef %97, i64 noundef %98, i64 noundef %76) #12
   %.not35.i126.us = icmp eq ptr %99, null
-  br i1 %.not35.i126.us, label %.split190.us, label %100
+  br i1 %.not35.i126.us, label %.split191.us, label %100
 
 100:                                              ; preds = %82
   %101 = tail call i64 @SysCacheGetAttrNotNull(i32 noundef 4, ptr noundef nonnull %99, i16 noundef signext 7) #12
@@ -2004,18 +2004,18 @@ define dso_local range(i64 0, 2) i64 @brin_minmax_multi_consistent(ptr noundef r
 
 105:                                              ; preds = %100, %75
   %106 = tail call i64 @FunctionCall2Coll(ptr noundef %78, i32 noundef %15, i64 noundef %45, i64 noundef %59) #12
-  %.not272 = icmp eq i64 %106, 0
-  br i1 %.not272, label %._crit_edge.us.thread, label %.thread133.us
+  %.not273 = icmp eq i64 %106, 0
+  br i1 %.not273, label %._crit_edge.us.thread, label %.thread133.us
 
 .thread133.us:                                    ; preds = %105, %49
-  %indvars.iv.next227 = add nuw nsw i64 %indvars.iv226, 1
-  %exitcond229.not = icmp eq i64 %indvars.iv.next227, %wide.trip.count228
-  br i1 %exitcond229.not, label %.thread131, label %49, !llvm.loop !18
+  %indvars.iv.next228 = add nuw nsw i64 %indvars.iv227, 1
+  %exitcond230.not = icmp eq i64 %indvars.iv.next228, %wide.trip.count229
+  br i1 %exitcond230.not, label %.thread131, label %49, !llvm.loop !18
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.thread
-  %indvars.iv223 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next224, %.thread ]
-  %indvars.iv223.tr = trunc i64 %indvars.iv223 to i32
-  %107 = shl i32 %indvars.iv223.tr, 1
+  %indvars.iv224 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next225, %.thread ]
+  %indvars.iv224.tr = trunc i64 %indvars.iv224 to i32
+  %107 = shl i32 %indvars.iv224.tr, 1
   %108 = sext i32 %107 to i64
   %109 = getelementptr inbounds i64, ptr %27, i64 %108
   %110 = load i64, ptr %109, align 8
@@ -2124,14 +2124,14 @@ define dso_local range(i64 0, 2) i64 @brin_minmax_multi_consistent(ptr noundef r
 
 minmax_multi_get_strategy_procinfo.exit:          ; preds = %137, %168
   %173 = tail call i64 @FunctionCall2Coll(ptr noundef %140, i32 noundef %15, i64 noundef %110, i64 noundef %122) #12
-  %.not271 = icmp eq i64 %173, 0
-  br i1 %.not271, label %.thread, label %113
+  %.not272 = icmp eq i64 %173, 0
+  br i1 %.not272, label %.thread, label %113
 
 174:                                              ; preds = %114
   %175 = tail call fastcc ptr @minmax_multi_get_strategy_procinfo(ptr noundef %4, i16 noundef zeroext %118, i32 noundef %120, i16 noundef zeroext 5)
   %176 = tail call i64 @FunctionCall2Coll(ptr noundef %175, i32 noundef %15, i64 noundef %110, i64 noundef %122) #12
-  %.not141 = icmp eq i64 %176, 0
-  br i1 %.not141, label %232, label %.thread
+  %.not142 = icmp eq i64 %176, 0
+  br i1 %.not142, label %232, label %.thread
 
 177:                                              ; preds = %114, %114
   %178 = zext i16 %118 to i64
@@ -2225,17 +2225,17 @@ minmax_multi_get_strategy_procinfo.exit120:       ; preds = %189, %220
 232:                                              ; preds = %174
   %233 = tail call fastcc ptr @minmax_multi_get_strategy_procinfo(ptr noundef %4, i16 noundef zeroext %118, i32 noundef %120, i16 noundef zeroext 1)
   %234 = tail call i64 @FunctionCall2Coll(ptr noundef %233, i32 noundef %15, i64 noundef %112, i64 noundef %122) #12
-  %.not142 = icmp eq i64 %234, 0
-  br i1 %.not142, label %113, label %.thread
+  %.not143 = icmp eq i64 %234, 0
+  br i1 %.not143, label %113, label %.thread
 
 .thread:                                          ; preds = %minmax_multi_get_strategy_procinfo.exit120, %minmax_multi_get_strategy_procinfo.exit, %174, %232
-  %indvars.iv.next224 = add nuw nsw i64 %indvars.iv223, 1
+  %indvars.iv.next225 = add nuw nsw i64 %indvars.iv224, 1
   %235 = load i32, ptr %24, align 8
   %236 = sext i32 %235 to i64
-  %237 = icmp slt i64 %indvars.iv.next224, %236
+  %237 = icmp slt i64 %indvars.iv.next225, %236
   br i1 %237, label %.lr.ph, label %.preheader, !llvm.loop !20
 
-.split190.us:                                     ; preds = %82
+.split191.us:                                     ; preds = %82
   %238 = getelementptr i8, ptr %93, i64 92
   %239 = zext nneg i16 %56 to i32
   %240 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
@@ -2255,8 +2255,8 @@ minmax_multi_get_strategy_procinfo.exit120:       ; preds = %189, %220
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2710, ptr noundef nonnull @__func__.brin_minmax_multi_consistent) #12
   unreachable
 
-.thread131:                                       ; preds = %113, %._crit_edge.us.thread, %.thread133.us, %.lr.ph184, %.lr.ph175, %.preheader
-  %.2 = phi i64 [ 0, %.preheader ], [ 1, %.lr.ph175 ], [ 1, %.lr.ph184 ], [ 1, %.thread133.us ], [ 0, %._crit_edge.us.thread ], [ 1, %113 ]
+.thread131:                                       ; preds = %113, %._crit_edge.us.thread, %.thread133.us, %.lr.ph185, %.lr.ph176, %.preheader
+  %.2 = phi i64 [ 0, %.preheader ], [ 1, %.lr.ph176 ], [ 1, %.lr.ph185 ], [ 1, %.thread133.us ], [ 0, %._crit_edge.us.thread ], [ 1, %113 ]
   ret i64 %.2
 }
 

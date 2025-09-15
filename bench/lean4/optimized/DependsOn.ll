@@ -1449,8 +1449,8 @@ lean_obj_tag.exit.thread.i114:                    ; preds = %69
   %95 = getelementptr inbounds nuw i8, ptr %87, i64 40
   %96 = load ptr, ptr %95, align 8, !tbaa !10
   %97 = tail call zeroext i8 @l___private_Lean_Compiler_LCNF_DependsOn_0__Lean_Compiler_LCNF_depOn(ptr noundef %96, ptr noundef %1)
-  %.not137 = icmp eq i8 %97, 0
-  br i1 %.not137, label %.outer.backedge, label %lean_dec.exit84
+  %.not138 = icmp eq i8 %97, 0
+  br i1 %.not138, label %.outer.backedge, label %lean_dec.exit84
 
 lean_dec.exit84:                                  ; preds = %85, %94, %11, %l___private_Lean_Compiler_LCNF_DependsOn_0__Lean_Compiler_LCNF_LetDecl_depOn.exit, %lean_obj_tag.exit, %60, %62, %63, %36, %38, %39, %84, %83, %81, %lean_obj_tag.exit.thread.i114, %lean_obj_tag.exit.i111, %lean_nat_lt.exit93, %lean_nat_lt.exit, %l___private_Lean_Compiler_LCNF_DependsOn_0__Lean_Compiler_LCNF_fvarDepOn.exit108, %lean_dec.exit, %43, %lean_dec.exit83, %l___private_Lean_Compiler_LCNF_DependsOn_0__Lean_Compiler_LCNF_fvarDepOn.exit
   %.2 = phi i8 [ %42, %lean_dec.exit83 ], [ 1, %l___private_Lean_Compiler_LCNF_DependsOn_0__Lean_Compiler_LCNF_fvarDepOn.exit ], [ %68, %lean_dec.exit ], [ 1, %l___private_Lean_Compiler_LCNF_DependsOn_0__Lean_Compiler_LCNF_fvarDepOn.exit108 ], [ 1, %43 ], [ 0, %lean_nat_lt.exit ], [ 0, %lean_nat_lt.exit93 ], [ 0, %lean_obj_tag.exit.thread.i114 ], [ 1, %84 ], [ 1, %83 ], [ 1, %81 ], [ %spec.select.i112, %lean_obj_tag.exit.i111 ], [ 1, %39 ], [ 1, %38 ], [ 1, %36 ], [ 1, %63 ], [ 1, %62 ], [ 1, %60 ], [ %97, %94 ], [ 1, %85 ], [ 1, %l___private_Lean_Compiler_LCNF_DependsOn_0__Lean_Compiler_LCNF_LetDecl_depOn.exit ], [ 0, %lean_obj_tag.exit ], [ 1, %11 ]

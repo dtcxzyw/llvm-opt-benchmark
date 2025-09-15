@@ -11367,8 +11367,8 @@ _ZNK5clang7VarDecl13isStaticLocalEv.exit.thread:  ; preds = %_ZNK5clang4Decl21ge
   %78 = load i32, ptr %77, align 8
   %79 = and i32 %78, -16
   %80 = and i32 %78, 48
-  %.not420 = icmp eq i32 %80, 0
-  %spec.select.v = select i1 %.not420, i32 3, i32 16387
+  %.not421 = icmp eq i32 %80, 0
+  %spec.select.v = select i1 %.not421, i32 3, i32 16387
   %spec.select = or i32 %79, %spec.select.v
   store i32 %spec.select, ptr %77, align 8
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 8

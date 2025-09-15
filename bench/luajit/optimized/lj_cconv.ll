@@ -1423,8 +1423,8 @@ ctype_rawchild.exit:                              ; preds = %7
   br label %42
 
 41:                                               ; preds = %31, %33
-  %.not52 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not52, label %42, label %43
+  %.not53 = icmp eq i64 %indvars.iv, 0
+  br i1 %.not53, label %42, label %43
 
 42:                                               ; preds = %.thread, %41
   %.151 = phi i32 [ %40, %.thread ], [ %.042, %41 ]
@@ -1448,11 +1448,11 @@ ctype_rawchild.exit:                              ; preds = %7
   br label %48
 
 48:                                               ; preds = %.lr.ph, %48
-  %.254 = phi i32 [ %17, %.lr.ph ], [ %51, %48 ]
-  %49 = zext i32 %.254 to i64
+  %.255 = phi i32 [ %17, %.lr.ph ], [ %51, %48 ]
+  %49 = zext i32 %.255 to i64
   %50 = getelementptr inbounds nuw i8, ptr %2, i64 %49
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %50, ptr align 1 %2, i64 %47, i1 false)
-  %51 = add i32 %.254, %17
+  %51 = add i32 %.255, %17
   %52 = icmp ult i32 %51, %15
   br i1 %52, label %48, label %.loopexit, !llvm.loop !64
 

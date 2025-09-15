@@ -503,8 +503,8 @@ define internal i32 @dissect_iwarp_ddp_rdmap(ptr noundef %0, ptr noundef %1, ptr
   br i1 %or.cond35, label %thread-pre-split, label %100
 
 thread-pre-split:                                 ; preds = %84, %72
-  %.sink159 = phi i32 [ 14, %72 ], [ 18, %84 ]
-  %99 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.sink159)
+  %.sink160 = phi i32 [ 14, %72 ], [ 18, %84 ]
+  %99 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.sink160)
   call fastcc void @dissect_rdmap_payload(ptr noundef %99, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %5)
   %.pr = load i8, ptr %5, align 8
   br label %100
@@ -587,9 +587,9 @@ thread-pre-split:                                 ; preds = %84, %72
 
 dissect_iwarp_atomic.exit.sink.split:             ; preds = %134, %138
   %hf_iwarp_rdma_atomic_original_remote_data_value.sink = phi ptr [ @hf_iwarp_rdma_atomic_original_remote_data_value, %138 ], [ @hf_iwarp_rdma_atomic_compare_mask, %134 ]
-  %.sink160 = phi i32 [ %141, %138 ], [ %137, %134 ]
+  %.sink161 = phi i32 [ %141, %138 ], [ %137, %134 ]
   %142 = load i32, ptr %hf_iwarp_rdma_atomic_original_remote_data_value.sink, align 4
-  %143 = call ptr @proto_tree_add_item(ptr noundef %51, i32 noundef %142, ptr noundef %0, i32 noundef %.sink160, i32 noundef 8, i32 noundef 0)
+  %143 = call ptr @proto_tree_add_item(ptr noundef %51, i32 noundef %142, ptr noundef %0, i32 noundef %.sink161, i32 noundef 8, i32 noundef 0)
   br label %dissect_iwarp_atomic.exit
 
 dissect_iwarp_atomic.exit:                        ; preds = %dissect_iwarp_atomic.exit.sink.split, %107

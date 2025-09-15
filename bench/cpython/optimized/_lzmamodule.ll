@@ -505,8 +505,8 @@ lzma_vli_converter.exit:                          ; preds = %8
   %52 = load i32, ptr %33, align 8, !tbaa !31
   %53 = zext i32 %52 to i64
   %54 = call fastcc i32 @spec_add_field(ptr noundef %23, ptr noundef nonnull @.str.10, i64 noundef %53)
-  %.not44.i.i = icmp eq i32 %54, -1
-  br i1 %.not44.i.i, label %.thread.i.i, label %build_filter_spec.exit.i
+  %.not45.i.i = icmp eq i32 %54, -1
+  br i1 %.not45.i.i, label %.thread.i.i, label %build_filter_spec.exit.i
 
 55:                                               ; preds = %29
   %56 = getelementptr inbounds nuw i8, ptr %4, i64 8

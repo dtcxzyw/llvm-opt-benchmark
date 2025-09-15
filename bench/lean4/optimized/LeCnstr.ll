@@ -6057,8 +6057,8 @@ lean_int_neg.exit:                                ; preds = %33, %37, %39
 
 lean_int_dec_eq.exit:                             ; preds = %45, %.critedge.i.i
   %.0.i.i = phi i1 [ %46, %45 ], [ %47, %.critedge.i.i ]
-  %.not69 = icmp eq i64 %43, 0
-  br i1 %.not69, label %48, label %lean_dec.exit39
+  %.not70 = icmp eq i64 %43, 0
+  br i1 %.not70, label %48, label %lean_dec.exit39
 
 48:                                               ; preds = %lean_int_dec_eq.exit
   %49 = load i32, ptr %.0.i49, align 4, !tbaa !8

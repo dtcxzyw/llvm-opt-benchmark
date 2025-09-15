@@ -1442,15 +1442,15 @@ define internal fastcc i32 @do_x509_check(ptr noundef %0, ptr noundef nonnull %1
   %.056101.ph = phi ptr [ @equal_case, %.thread91 ], [ %.056, %16 ]
   %.063100.ph = phi i32 [ 4, %.thread91 ], [ 22, %16 ]
   %.06498.ph = phi i32 [ 0, %.thread91 ], [ %.064, %16 ]
-  %.ph114 = phi i1 [ true, %.thread91 ], [ false, %16 ]
+  %.ph115 = phi i1 [ true, %.thread91 ], [ false, %16 ]
   %19 = tail call i64 @sk_num(ptr noundef nonnull %.ph) #18
-  %.not122 = icmp eq i64 %19, 0
-  br i1 %.not122, label %._crit_edge, label %.lr.ph
+  %.not123 = icmp eq i64 %19, 0
+  br i1 %.not123, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %.thread
-  %.060116 = phi i32 [ %.26289, %.thread ], [ 0, %.preheader ]
-  %.066115 = phi i64 [ %24, %.thread ], [ 0, %.preheader ]
-  %20 = tail call ptr @sk_value(ptr noundef nonnull %.ph, i64 noundef %.066115) #18
+  %.060117 = phi i32 [ %.26289, %.thread ], [ 0, %.preheader ]
+  %.066116 = phi i64 [ %24, %.thread ], [ 0, %.preheader ]
+  %20 = tail call ptr @sk_value(ptr noundef nonnull %.ph, i64 noundef %.066116) #18
   %21 = load i32, ptr %20, align 8, !tbaa !42
   %.not75 = icmp eq i32 %21, %4
   br i1 %.not75, label %22, label %.thread
@@ -1463,8 +1463,8 @@ define internal fastcc i32 @do_x509_check(ptr noundef %0, ptr noundef nonnull %1
   br i1 %.not76.not, label %.thread, label %._crit_edge.loopexit
 
 .thread:                                          ; preds = %.lr.ph, %22
-  %.26289 = phi i32 [ 1, %22 ], [ %.060116, %.lr.ph ]
-  %24 = add nuw i64 %.066115, 1
+  %.26289 = phi i32 [ 1, %22 ], [ %.060117, %.lr.ph ]
+  %24 = add nuw i64 %.066116, 1
   %25 = tail call i64 @sk_num(ptr noundef nonnull %.ph) #18
   %26 = icmp ult i64 %24, %25
   br i1 %26, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !63
@@ -1480,7 +1480,7 @@ define internal fastcc i32 @do_x509_check(ptr noundef %0, ptr noundef nonnull %1
   %.158 = phi i32 [ 0, %.preheader ], [ %.158.ph, %._crit_edge.loopexit ]
   tail call void @GENERAL_NAMES_free(ptr noundef nonnull %.ph) #18
   %.not77 = icmp ne i32 %.158, 0
-  %brmerge = or i1 %.ph114, %.not77
+  %brmerge = or i1 %.ph115, %.not77
   br i1 %brmerge, label %.thread107, label %28
 
 28:                                               ; preds = %._crit_edge
@@ -1494,8 +1494,8 @@ define internal fastcc i32 @do_x509_check(ptr noundef %0, ptr noundef nonnull %1
   %.056102 = phi ptr [ %.056101.ph, %28 ], [ %.056, %16 ]
   %.06497 = phi i32 [ %.06498.ph, %28 ], [ %.064, %16 ]
   %31 = tail call ptr @X509_get_subject_name(ptr noundef %0) #18
-  %.not123 = icmp eq ptr %5, null
-  br i1 %.not123, label %.split.us, label %.split
+  %.not124 = icmp eq ptr %5, null
+  br i1 %.not124, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %30, %do_check_string.exit.us
   %.065.us = phi i32 [ %32, %do_check_string.exit.us ], [ -1, %30 ]

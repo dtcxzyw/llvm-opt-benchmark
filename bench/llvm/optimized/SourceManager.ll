@@ -12764,11 +12764,11 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang6FileIDEZNKS2_13SourceManager26
   store i64 %68, ptr %110, align 4, !noalias !480
   %.sroa.4219.0..sroa_idx = getelementptr inbounds nuw i8, ptr %102, i64 12
   store i32 %.sroa.0220.0, ptr %.sroa.4219.0..sroa_idx, align 4, !noalias !480
-  %.pre253 = load i32, ptr %1, align 4, !tbaa !85
+  %.pre261 = load i32, ptr %1, align 4, !tbaa !85
   br label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang6FileIDEZNKS2_13SourceManager26isInTheSameTranslationUnitERSt4pairIS3_jES7_E5EntryLj16ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E11try_emplaceIJS8_EEES5_INS_16DenseMapIteratorIS3_S8_SA_SD_Lb0EEEbERKS3_DpOT_.exit
 
 _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang6FileIDEZNKS2_13SourceManager26isInTheSameTranslationUnitERSt4pairIS3_jES7_E5EntryLj16ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E11try_emplaceIJS8_EEES5_INS_16DenseMapIteratorIS3_S8_SA_SD_Lb0EEEbERKS3_DpOT_.exit: ; preds = %83, %74, %109
-  %111 = phi i32 [ %67, %74 ], [ %.pre253, %109 ], [ %67, %83 ]
+  %111 = phi i32 [ %67, %74 ], [ %.pre261, %109 ], [ %67, %83 ]
   %112 = load i32, ptr %2, align 4, !tbaa !85
   %113 = icmp eq i32 %111, %112
   br i1 %113, label %_ZL37MoveUpTranslationUnitIncludeHierarchyRSt4pairIN5clang6FileIDEjERKNS0_13SourceManagerE.exit.thread, label %114
@@ -13083,8 +13083,8 @@ _ZN4llvmeqENS_9StringRefES0_.exit172:             ; preds = %229
   br i1 %.not.i173, label %_ZN4llvmeqENS_9StringRefES0_.exit176, label %_ZN4llvmeqENS_9StringRefES0_.exit172._ZN4llvmeqENS_9StringRefES0_.exit176_crit_edge
 
 _ZN4llvmeqENS_9StringRefES0_.exit172.thread:      ; preds = %229
-  %.not.i173259 = icmp eq i64 %.sroa.2.0.copyload.i136, 15
-  call void @llvm.assume(i1 %.not.i173259)
+  %.not.i173267 = icmp eq i64 %.sroa.2.0.copyload.i136, 15
+  call void @llvm.assume(i1 %.not.i173267)
   br label %_ZN4llvmeqENS_9StringRefES0_.exit176
 
 _ZN4llvmeqENS_9StringRefES0_.exit172._ZN4llvmeqENS_9StringRefES0_.exit176_crit_edge: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit172
@@ -13092,12 +13092,12 @@ _ZN4llvmeqENS_9StringRefES0_.exit172._ZN4llvmeqENS_9StringRefES0_.exit176_crit_e
   br i1 %230, label %239, label %233
 
 _ZN4llvmeqENS_9StringRefES0_.exit176:             ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit172.thread, %_ZN4llvmeqENS_9StringRefES0_.exit172
-  %.0.i170260 = phi i1 [ false, %_ZN4llvmeqENS_9StringRefES0_.exit172.thread ], [ %230, %_ZN4llvmeqENS_9StringRefES0_.exit172 ]
+  %.0.i170268 = phi i1 [ false, %_ZN4llvmeqENS_9StringRefES0_.exit172.thread ], [ %230, %_ZN4llvmeqENS_9StringRefES0_.exit172 ]
   %bcmp.i175 = call i32 @bcmp(ptr noundef nonnull dereferenceable(15) %.sroa.0.0.copyload.i134, ptr noundef nonnull dereferenceable(15) @.str.32, i64 15)
   %231 = icmp eq i32 %bcmp.i175, 0
-  %or.cond5 = or i1 %.0.i170260, %231
+  %or.cond5 = or i1 %.0.i170268, %231
   call void @llvm.assume(i1 %or.cond5)
-  %232 = xor i1 %.0.i170260, %231
+  %232 = xor i1 %.0.i170268, %231
   br i1 %232, label %239, label %233
 
 233:                                              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit172._ZN4llvmeqENS_9StringRefES0_.exit176_crit_edge, %_ZN4llvmeqENS_9StringRefES0_.exit176
@@ -13109,7 +13109,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit176:             ; preds = %_ZN4llvmeqENS_9Stri
   br label %239
 
 239:                                              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit176, %_ZN4llvmeqENS_9StringRefES0_.exit172._ZN4llvmeqENS_9StringRefES0_.exit176_crit_edge, %_ZN4llvmeqENS_9StringRefES0_.exit144.thread, %226, %217, %233, %.thread
-  %.sink = phi i1 [ %228, %226 ], [ %220, %217 ], [ %238, %233 ], [ %.06.i98, %.thread ], [ %.0.i140, %_ZN4llvmeqENS_9StringRefES0_.exit144.thread ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit172._ZN4llvmeqENS_9StringRefES0_.exit176_crit_edge ], [ %.0.i170260, %_ZN4llvmeqENS_9StringRefES0_.exit176 ]
+  %.sink = phi i1 [ %228, %226 ], [ %220, %217 ], [ %238, %233 ], [ %.06.i98, %.thread ], [ %.0.i140, %_ZN4llvmeqENS_9StringRefES0_.exit144.thread ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit172._ZN4llvmeqENS_9StringRefES0_.exit176_crit_edge ], [ %.0.i170268, %_ZN4llvmeqENS_9StringRefES0_.exit176 ]
   %spec.select = select i1 %.sink, i16 257, i16 1
   %240 = load i32, ptr %5, align 8
   %241 = and i32 %240, 1

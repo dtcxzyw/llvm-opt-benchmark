@@ -19506,8 +19506,8 @@ if.else11.i.i:                                    ; preds = %if.then
   %conv26.i.i = zext nneg i32 %shl25.i.i to i64
   %sub.i.i.i = add nsw i64 %shl.i.i, -1
   %shr.i.i.i = lshr i64 %sub.i.i.i, 12
-  %add.i7.i.i = add nuw nsw i64 %shr.i.i.i, 1
-  %mul.i.i.i = mul nuw nsw i64 %add.i7.i.i, %conv26.i.i
+  %add.i8.i.i = add nuw nsw i64 %shr.i.i.i, 1
+  %mul.i.i.i = mul nuw nsw i64 %add.i8.i.i, %conv26.i.i
   %cmp32.i.i = icmp samesign ugt i64 %mul.i.i.i, 4294967295
   br i1 %cmp32.i.i, label %if.then33.i.i, label %_ZN5folly6detail18rawOverAlignedImplISaIhELm16ELb1EEEvRKT_mRPv.exit.i.i.i.i
 

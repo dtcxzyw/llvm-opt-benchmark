@@ -1187,8 +1187,8 @@ get_value_cached.exit192.us227.i.us:              ; preds = %611, %599
 
 get_value_cached.exit192.us.us.i.us:              ; preds = %get_value_cached.exit192.us.us.i.us, %.lr.ph222.split.us.us.i.us
   %indvars.iv288.i.us = phi i64 [ %indvars.iv.next289.i.us, %get_value_cached.exit192.us.us.i.us ], [ 0, %.lr.ph222.split.us.us.i.us ]
-  %gep333.i.us = getelementptr inbounds nuw i32, ptr %invariant.gep.i133.us, i64 %indvars.iv288.i.us
-  store i32 %.pre-phi316.i.us, ptr %gep333.i.us, align 4, !tbaa !48
+  %gep334.i.us = getelementptr inbounds nuw i32, ptr %invariant.gep.i133.us, i64 %indvars.iv288.i.us
+  store i32 %.pre-phi316.i.us, ptr %gep334.i.us, align 4, !tbaa !48
   %indvars.iv.next289.i.us = add nuw nsw i64 %indvars.iv288.i.us, 1
   %exitcond293.not.i.us = icmp eq i64 %indvars.iv.next289.i.us, %579
   br i1 %exitcond293.not.i.us, label %._crit_edge223.us.i.us.loopexit, label %get_value_cached.exit192.us.us.i.us, !llvm.loop !69

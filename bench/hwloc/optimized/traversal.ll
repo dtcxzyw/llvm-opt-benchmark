@@ -647,8 +647,8 @@ define internal fastcc i32 @hwloc__get_largest_objs_inside_cpuset(ptr noundef %0
 .preheader:                                       ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %12 = load i32, ptr %11, align 8, !tbaa !56
-  %.not43 = icmp eq i32 %12, 0
-  br i1 %.not43, label %.loopexit, label %.lr.ph
+  %.not44 = icmp eq i32 %12, 0
+  br i1 %.not44, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -666,7 +666,7 @@ define internal fastcc i32 @hwloc__get_largest_objs_inside_cpuset(ptr noundef %0
 18:                                               ; preds = %.lr.ph, %.thread
   %19 = phi i32 [ %12, %.lr.ph ], [ %40, %.thread ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.thread ]
-  %.02940 = phi i32 [ 0, %.lr.ph ], [ %.238, %.thread ]
+  %.02941 = phi i32 [ 0, %.lr.ph ], [ %.238, %.thread ]
   %20 = load ptr, ptr %13, align 8, !tbaa !57
   %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8, !tbaa !35
@@ -688,7 +688,7 @@ define internal fastcc i32 @hwloc__get_largest_objs_inside_cpuset(ptr noundef %0
   %35 = getelementptr inbounds nuw ptr, ptr %34, i64 %indvars.iv
   %36 = load ptr, ptr %35, align 8, !tbaa !35
   %37 = tail call fastcc i32 @hwloc__get_largest_objs_inside_cpuset(ptr noundef %36, ptr noundef %27, ptr noundef %2, ptr noundef %3)
-  %38 = add nsw i32 %37, %.02940
+  %38 = add nsw i32 %37, %.02941
   tail call void @hwloc_bitmap_free(ptr noundef %27) #22
   %39 = load i32, ptr %3, align 4, !tbaa !3
   %.not33 = icmp eq i32 %39, 0
@@ -700,7 +700,7 @@ define internal fastcc i32 @hwloc__get_largest_objs_inside_cpuset(ptr noundef %0
 
 .thread:                                          ; preds = %..thread_crit_edge, %18
   %40 = phi i32 [ %.pre, %..thread_crit_edge ], [ %19, %18 ]
-  %.238 = phi i32 [ %38, %..thread_crit_edge ], [ %.02940, %18 ]
+  %.238 = phi i32 [ %38, %..thread_crit_edge ], [ %.02941, %18 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %41 = zext i32 %40 to i64
   %42 = icmp samesign ult i64 %indvars.iv.next, %41

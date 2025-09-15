@@ -508,8 +508,8 @@ define internal fastcc noundef zeroext i1 @io_acct_cancel_pending_work(ptr nound
   %8 = phi ptr [ null, %3 ], [ %10, %11 ]
   %9 = phi ptr [ %5, %3 ], [ %10, %11 ]
   %10 = load ptr, ptr %9, align 8
-  %.not7.not.not.not.not = icmp ne ptr %10, null
-  br i1 %.not7.not.not.not.not, label %11, label %66
+  %.not8.not.not.not.not = icmp ne ptr %10, null
+  br i1 %.not8.not.not.not.not, label %11, label %66
 
 11:                                               ; preds = %7
   %12 = load ptr, ptr %2, align 8
@@ -612,7 +612,7 @@ define internal fastcc noundef zeroext i1 @io_acct_cancel_pending_work(ptr nound
   br label %67
 
 67:                                               ; preds = %66, %62
-  ret i1 %.not7.not.not.not.not
+  ret i1 %.not8.not.not.not.not
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)

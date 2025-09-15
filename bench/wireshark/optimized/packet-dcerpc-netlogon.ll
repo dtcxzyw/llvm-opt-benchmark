@@ -3175,8 +3175,8 @@ define internal i32 @netlogon_dissect_netrserverreqchallenge_reply(ptr noundef %
   store ptr null, ptr %23, align 8
   %24 = load ptr, ptr @netlogon_auths, align 8
   %25 = call ptr @wmem_map_lookup(ptr noundef %24, ptr noundef nonnull %7)
-  %.not28.i = icmp eq ptr %25, null
-  br i1 %.not28.i, label %find_tmp_netlogon_auth_vars.exit, label %.lr.ph.i
+  %.not29.i = icmp eq ptr %25, null
+  br i1 %.not29.i, label %find_tmp_netlogon_auth_vars.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %6
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 20
@@ -3193,8 +3193,8 @@ define internal i32 @netlogon_dissect_netrserverreqchallenge_reply(ptr noundef %
   br i1 %.not16.i, label %.lr.ph, label %find_tmp_netlogon_auth_vars.exit, !llvm.loop !10
 
 .lr.ph:                                           ; preds = %.lr.ph.i, %30
-  %.01230.i16 = phi ptr [ %38, %30 ], [ %25, %.lr.ph.i ]
-  %33 = getelementptr inbounds nuw i8, ptr %.01230.i16, i64 292
+  %.01231.i16 = phi ptr [ %38, %30 ], [ %25, %.lr.ph.i ]
+  %33 = getelementptr inbounds nuw i8, ptr %.01231.i16, i64 292
   %34 = load i32, ptr %33, align 4
   %35 = icmp eq i32 %34, -1
   br i1 %35, label %.thread22.i, label %36
@@ -3204,8 +3204,8 @@ define internal i32 @netlogon_dissect_netrserverreqchallenge_reply(ptr noundef %
   br i1 %.not17.not.i, label %.thread22.i, label %find_tmp_netlogon_auth_vars.exit
 
 .thread22.i:                                      ; preds = %36, %.lr.ph
-  %.227.i = phi ptr [ null, %36 ], [ %.01230.i16, %.lr.ph ]
-  %37 = getelementptr inbounds nuw i8, ptr %.01230.i16, i64 392
+  %.227.i = phi ptr [ null, %36 ], [ %.01231.i16, %.lr.ph ]
+  %37 = getelementptr inbounds nuw i8, ptr %.01231.i16, i64 392
   %38 = load ptr, ptr %37, align 8
   %.not.i = icmp eq ptr %38, null
   br i1 %.not.i, label %.thread22.i.find_tmp_netlogon_auth_vars.exit.loopexit_crit_edge, label %30, !llvm.loop !10
@@ -3214,7 +3214,7 @@ define internal i32 @netlogon_dissect_netrserverreqchallenge_reply(ptr noundef %
   br label %find_tmp_netlogon_auth_vars.exit, !llvm.loop !10
 
 find_tmp_netlogon_auth_vars.exit:                 ; preds = %36, %30, %.lr.ph.i, %.thread22.i.find_tmp_netlogon_auth_vars.exit.loopexit_crit_edge, %6
-  %.1.i = phi ptr [ null, %6 ], [ %.227.i, %.thread22.i.find_tmp_netlogon_auth_vars.exit.loopexit_crit_edge ], [ null, %.lr.ph.i ], [ %.01230.i16, %36 ], [ %.227.i, %30 ]
+  %.1.i = phi ptr [ null, %6 ], [ %.227.i, %.thread22.i.find_tmp_netlogon_auth_vars.exit.loopexit_crit_edge ], [ null, %.lr.ph.i ], [ %.01231.i16, %36 ], [ %.227.i, %30 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %39 = load i32, ptr @hf_server_challenge, align 4
   %.val = load i8, ptr %5, align 1
@@ -4036,8 +4036,8 @@ define internal noundef i32 @netlogon_dissect_netrserverpasswordset2_rqst(ptr no
   store ptr null, ptr %39, align 8
   %40 = load ptr, ptr @netlogon_auths, align 8
   %41 = call ptr @wmem_map_lookup(ptr noundef %40, ptr noundef nonnull %7)
-  %.not28.i.i = icmp eq ptr %41, null
-  br i1 %.not28.i.i, label %find_global_netlogon_auth_vars.exit.i, label %.lr.ph.i.i
+  %.not29.i.i = icmp eq ptr %41, null
+  br i1 %.not29.i.i, label %find_global_netlogon_auth_vars.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %23
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 20
@@ -4045,15 +4045,15 @@ define internal noundef i32 @netlogon_dissect_netrserverpasswordset2_rqst(ptr no
   br label %44
 
 44:                                               ; preds = %.thread22.i.i, %.lr.ph.i.i
-  %.01230.i.i = phi ptr [ %41, %.lr.ph.i.i ], [ %53, %.thread22.i.i ]
-  %.01329.i.i = phi ptr [ null, %.lr.ph.i.i ], [ %.227.i.i, %.thread22.i.i ]
-  %45 = getelementptr inbounds nuw i8, ptr %.01230.i.i, i64 384
+  %.01231.i.i = phi ptr [ %41, %.lr.ph.i.i ], [ %53, %.thread22.i.i ]
+  %.01330.i.i = phi ptr [ null, %.lr.ph.i.i ], [ %.227.i.i, %.thread22.i.i ]
+  %45 = getelementptr inbounds nuw i8, ptr %.01231.i.i, i64 384
   %46 = load i32, ptr %45, align 8
   %.not16.i.i = icmp sgt i32 %43, %46
   br i1 %.not16.i.i, label %47, label %find_global_netlogon_auth_vars.exit.i
 
 47:                                               ; preds = %44
-  %48 = getelementptr inbounds nuw i8, ptr %.01230.i.i, i64 292
+  %48 = getelementptr inbounds nuw i8, ptr %.01231.i.i, i64 292
   %49 = load i32, ptr %48, align 4
   %50 = icmp eq i32 %49, -1
   br i1 %50, label %.thread22.i.i, label %51
@@ -4063,14 +4063,14 @@ define internal noundef i32 @netlogon_dissect_netrserverpasswordset2_rqst(ptr no
   br i1 %.not17.not.i.i, label %.thread22.i.i, label %find_global_netlogon_auth_vars.exit.i
 
 .thread22.i.i:                                    ; preds = %51, %47
-  %.227.i.i = phi ptr [ %.01230.i.i, %51 ], [ %.01329.i.i, %47 ]
-  %52 = getelementptr inbounds nuw i8, ptr %.01230.i.i, i64 392
+  %.227.i.i = phi ptr [ %.01231.i.i, %51 ], [ %.01330.i.i, %47 ]
+  %52 = getelementptr inbounds nuw i8, ptr %.01231.i.i, i64 392
   %53 = load ptr, ptr %52, align 8
   %.not.i.i = icmp eq ptr %53, null
   br i1 %.not.i.i, label %find_global_netlogon_auth_vars.exit.i, label %44, !llvm.loop !11
 
 find_global_netlogon_auth_vars.exit.i:            ; preds = %.thread22.i.i, %51, %44, %23
-  %.1.i.i = phi ptr [ null, %23 ], [ %.01329.i.i, %44 ], [ %.01329.i.i, %51 ], [ %.227.i.i, %.thread22.i.i ]
+  %.1.i.i = phi ptr [ null, %23 ], [ %.01330.i.i, %44 ], [ %.01330.i.i, %51 ], [ %.227.i.i, %.thread22.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %54 = add i32 %19, 512
   %55 = load i8, ptr %5, align 1
@@ -5018,8 +5018,8 @@ define internal i32 @netlogon_dissect_netrserverauthenticatekerberos_reply(ptr n
   store ptr null, ptr %39, align 8
   %40 = load ptr, ptr @netlogon_auths, align 8
   %41 = call ptr @wmem_map_lookup(ptr noundef %40, ptr noundef nonnull %7)
-  %.not28.i = icmp eq ptr %41, null
-  br i1 %.not28.i, label %find_tmp_netlogon_auth_vars.exit.thread, label %.lr.ph.i
+  %.not29.i = icmp eq ptr %41, null
+  br i1 %.not29.i, label %find_tmp_netlogon_auth_vars.exit.thread, label %.lr.ph.i
 
 find_tmp_netlogon_auth_vars.exit.thread:          ; preds = %6
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -5044,8 +5044,8 @@ find_tmp_netlogon_auth_vars.exit.thread51:        ; preds = %.lr.ph.i
   br i1 %.not16.i, label %.lr.ph, label %find_tmp_netlogon_auth_vars.exit, !llvm.loop !10
 
 .lr.ph:                                           ; preds = %.lr.ph.i, %46
-  %.01230.i42 = phi ptr [ %54, %46 ], [ %41, %.lr.ph.i ]
-  %49 = getelementptr inbounds nuw i8, ptr %.01230.i42, i64 292
+  %.01231.i42 = phi ptr [ %54, %46 ], [ %41, %.lr.ph.i ]
+  %49 = getelementptr inbounds nuw i8, ptr %.01231.i42, i64 292
   %50 = load i32, ptr %49, align 4
   %51 = icmp eq i32 %50, -1
   br i1 %51, label %.thread22.i, label %52
@@ -5059,8 +5059,8 @@ find_tmp_netlogon_auth_vars.exit.thread36:        ; preds = %52
   br label %55
 
 .thread22.i:                                      ; preds = %52, %.lr.ph
-  %.227.i = phi ptr [ null, %52 ], [ %.01230.i42, %.lr.ph ]
-  %53 = getelementptr inbounds nuw i8, ptr %.01230.i42, i64 392
+  %.227.i = phi ptr [ null, %52 ], [ %.01231.i42, %.lr.ph ]
+  %53 = getelementptr inbounds nuw i8, ptr %.01231.i42, i64 392
   %54 = load ptr, ptr %53, align 8
   %.not.i = icmp eq ptr %54, null
   br i1 %.not.i, label %.thread22.i.find_tmp_netlogon_auth_vars.exit_crit_edge, label %46, !llvm.loop !10
@@ -5074,7 +5074,7 @@ find_tmp_netlogon_auth_vars.exit:                 ; preds = %46, %.thread22.i.fi
   br i1 %.not33, label %66, label %55
 
 55:                                               ; preds = %find_tmp_netlogon_auth_vars.exit.thread36, %find_tmp_netlogon_auth_vars.exit
-  %.1.i39 = phi ptr [ %.01230.i42, %find_tmp_netlogon_auth_vars.exit.thread36 ], [ %.227.i, %find_tmp_netlogon_auth_vars.exit ]
+  %.1.i39 = phi ptr [ %.01231.i42, %find_tmp_netlogon_auth_vars.exit.thread36 ], [ %.227.i, %find_tmp_netlogon_auth_vars.exit ]
   %56 = getelementptr inbounds nuw i8, ptr %.1.i39, i64 344
   store i32 %8, ptr %56, align 8
   %57 = getelementptr inbounds nuw i8, ptr %.1.i39, i64 32
@@ -6513,8 +6513,8 @@ dissect_dcerpc_8bytes.exit:                       ; preds = %31, %33
   store ptr null, ptr %73, align 8
   %74 = load ptr, ptr @netlogon_auths, align 8
   %75 = call ptr @wmem_map_lookup(ptr noundef %74, ptr noundef nonnull %8)
-  %.not28.i = icmp eq ptr %75, null
-  br i1 %.not28.i, label %find_tmp_netlogon_auth_vars.exit.thread, label %.lr.ph.i
+  %.not29.i = icmp eq ptr %75, null
+  br i1 %.not29.i, label %find_tmp_netlogon_auth_vars.exit.thread, label %.lr.ph.i
 
 find_tmp_netlogon_auth_vars.exit.thread:          ; preds = %55
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -6539,8 +6539,8 @@ find_tmp_netlogon_auth_vars.exit.thread242:       ; preds = %.lr.ph.i
   br i1 %.not16.i, label %.lr.ph, label %find_tmp_netlogon_auth_vars.exit, !llvm.loop !10
 
 .lr.ph:                                           ; preds = %.lr.ph.i, %80
-  %.01230.i171 = phi ptr [ %88, %80 ], [ %75, %.lr.ph.i ]
-  %83 = getelementptr inbounds nuw i8, ptr %.01230.i171, i64 292
+  %.01231.i171 = phi ptr [ %88, %80 ], [ %75, %.lr.ph.i ]
+  %83 = getelementptr inbounds nuw i8, ptr %.01231.i171, i64 292
   %84 = load i32, ptr %83, align 4
   %85 = icmp eq i32 %84, -1
   br i1 %85, label %.thread22.i, label %86
@@ -6554,8 +6554,8 @@ find_tmp_netlogon_auth_vars.exit.thread139:       ; preds = %86
   br label %89
 
 .thread22.i:                                      ; preds = %86, %.lr.ph
-  %.227.i = phi ptr [ null, %86 ], [ %.01230.i171, %.lr.ph ]
-  %87 = getelementptr inbounds nuw i8, ptr %.01230.i171, i64 392
+  %.227.i = phi ptr [ null, %86 ], [ %.01231.i171, %.lr.ph ]
+  %87 = getelementptr inbounds nuw i8, ptr %.01231.i171, i64 392
   %88 = load ptr, ptr %87, align 8
   %.not.i134 = icmp eq ptr %88, null
   br i1 %.not.i134, label %.thread22.i.find_tmp_netlogon_auth_vars.exit_crit_edge, label %80, !llvm.loop !10
@@ -6569,7 +6569,7 @@ find_tmp_netlogon_auth_vars.exit:                 ; preds = %80, %.thread22.i.fi
   br i1 %.not122, label %249, label %89
 
 89:                                               ; preds = %find_tmp_netlogon_auth_vars.exit.thread139, %find_tmp_netlogon_auth_vars.exit
-  %.1.i142 = phi ptr [ %.01230.i171, %find_tmp_netlogon_auth_vars.exit.thread139 ], [ %.227.i, %find_tmp_netlogon_auth_vars.exit ]
+  %.1.i142 = phi ptr [ %.01231.i171, %find_tmp_netlogon_auth_vars.exit.thread139 ], [ %.227.i, %find_tmp_netlogon_auth_vars.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr null, ptr %9, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -9081,8 +9081,8 @@ define internal noundef i32 @netlogon_dissect_opaque_buffer_block(ptr noundef %0
   store ptr null, ptr %30, align 8
   %31 = load ptr, ptr @netlogon_auths, align 8
   %32 = call ptr @wmem_map_lookup(ptr noundef %31, ptr noundef nonnull %8)
-  %.not28.i = icmp eq ptr %32, null
-  br i1 %.not28.i, label %find_global_netlogon_auth_vars.exit.thread, label %.lr.ph.i
+  %.not29.i = icmp eq ptr %32, null
+  br i1 %.not29.i, label %find_global_netlogon_auth_vars.exit.thread, label %.lr.ph.i
 
 find_global_netlogon_auth_vars.exit.thread:       ; preds = %14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -9094,15 +9094,15 @@ find_global_netlogon_auth_vars.exit.thread:       ; preds = %14
   br label %35
 
 35:                                               ; preds = %.thread22.i, %.lr.ph.i
-  %.01230.i = phi ptr [ %32, %.lr.ph.i ], [ %44, %.thread22.i ]
-  %.01329.i = phi ptr [ null, %.lr.ph.i ], [ %.227.i, %.thread22.i ]
-  %36 = getelementptr inbounds nuw i8, ptr %.01230.i, i64 384
+  %.01231.i = phi ptr [ %32, %.lr.ph.i ], [ %44, %.thread22.i ]
+  %.01330.i = phi ptr [ null, %.lr.ph.i ], [ %.227.i, %.thread22.i ]
+  %36 = getelementptr inbounds nuw i8, ptr %.01231.i, i64 384
   %37 = load i32, ptr %36, align 8
   %.not16.i = icmp sgt i32 %34, %37
   br i1 %.not16.i, label %38, label %find_global_netlogon_auth_vars.exit
 
 38:                                               ; preds = %35
-  %39 = getelementptr inbounds nuw i8, ptr %.01230.i, i64 292
+  %39 = getelementptr inbounds nuw i8, ptr %.01231.i, i64 292
   %40 = load i32, ptr %39, align 4
   %41 = icmp eq i32 %40, -1
   br i1 %41, label %.thread22.i, label %42
@@ -9112,14 +9112,14 @@ find_global_netlogon_auth_vars.exit.thread:       ; preds = %14
   br i1 %.not17.not.i, label %.thread22.i, label %find_global_netlogon_auth_vars.exit
 
 .thread22.i:                                      ; preds = %42, %38
-  %.227.i = phi ptr [ %.01230.i, %42 ], [ %.01329.i, %38 ]
-  %43 = getelementptr inbounds nuw i8, ptr %.01230.i, i64 392
+  %.227.i = phi ptr [ %.01231.i, %42 ], [ %.01330.i, %38 ]
+  %43 = getelementptr inbounds nuw i8, ptr %.01231.i, i64 392
   %44 = load ptr, ptr %43, align 8
   %.not.i = icmp eq ptr %44, null
   br i1 %.not.i, label %find_global_netlogon_auth_vars.exit, label %35, !llvm.loop !11
 
 find_global_netlogon_auth_vars.exit:              ; preds = %35, %42, %.thread22.i
-  %.1.i = phi ptr [ %.01329.i, %35 ], [ %.01329.i, %42 ], [ %.227.i, %.thread22.i ]
+  %.1.i = phi ptr [ %.01330.i, %35 ], [ %.01330.i, %42 ], [ %.227.i, %.thread22.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %45 = icmp eq ptr %.1.i, null
   br i1 %45, label %46, label %49
@@ -9774,8 +9774,8 @@ define internal fastcc ptr @find_or_create_schannel_netlogon_auth_vars(ptr nound
   store ptr null, ptr %31, align 8
   %32 = load ptr, ptr @netlogon_auths, align 8
   %33 = call ptr @wmem_map_lookup(ptr noundef %32, ptr noundef nonnull %4)
-  %.not28.i = icmp eq ptr %33, null
-  br i1 %.not28.i, label %find_global_netlogon_auth_vars.exit.thread, label %.lr.ph.i
+  %.not29.i = icmp eq ptr %33, null
+  br i1 %.not29.i, label %find_global_netlogon_auth_vars.exit.thread, label %.lr.ph.i
 
 find_global_netlogon_auth_vars.exit.thread:       ; preds = %15
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -9787,15 +9787,15 @@ find_global_netlogon_auth_vars.exit.thread:       ; preds = %15
   br label %36
 
 36:                                               ; preds = %.thread22.i, %.lr.ph.i
-  %.01230.i = phi ptr [ %33, %.lr.ph.i ], [ %45, %.thread22.i ]
-  %.01329.i = phi ptr [ null, %.lr.ph.i ], [ %.227.i, %.thread22.i ]
-  %37 = getelementptr inbounds nuw i8, ptr %.01230.i, i64 384
+  %.01231.i = phi ptr [ %33, %.lr.ph.i ], [ %45, %.thread22.i ]
+  %.01330.i = phi ptr [ null, %.lr.ph.i ], [ %.227.i, %.thread22.i ]
+  %37 = getelementptr inbounds nuw i8, ptr %.01231.i, i64 384
   %38 = load i32, ptr %37, align 8
   %.not16.i = icmp sgt i32 %35, %38
   br i1 %.not16.i, label %39, label %find_global_netlogon_auth_vars.exit
 
 39:                                               ; preds = %36
-  %40 = getelementptr inbounds nuw i8, ptr %.01230.i, i64 292
+  %40 = getelementptr inbounds nuw i8, ptr %.01231.i, i64 292
   %41 = load i32, ptr %40, align 4
   %42 = icmp eq i32 %41, -1
   br i1 %42, label %.thread22.i, label %43
@@ -9805,14 +9805,14 @@ find_global_netlogon_auth_vars.exit.thread:       ; preds = %15
   br i1 %.not17.not.i, label %.thread22.i, label %find_global_netlogon_auth_vars.exit
 
 .thread22.i:                                      ; preds = %43, %39
-  %.227.i = phi ptr [ %.01230.i, %43 ], [ %.01329.i, %39 ]
-  %44 = getelementptr inbounds nuw i8, ptr %.01230.i, i64 392
+  %.227.i = phi ptr [ %.01231.i, %43 ], [ %.01330.i, %39 ]
+  %44 = getelementptr inbounds nuw i8, ptr %.01231.i, i64 392
   %45 = load ptr, ptr %44, align 8
   %.not.i = icmp eq ptr %45, null
   br i1 %.not.i, label %find_global_netlogon_auth_vars.exit, label %36, !llvm.loop !11
 
 find_global_netlogon_auth_vars.exit:              ; preds = %36, %43, %.thread22.i
-  %.1.i = phi ptr [ %.01329.i, %36 ], [ %.01329.i, %43 ], [ %.227.i, %.thread22.i ]
+  %.1.i = phi ptr [ %.01330.i, %36 ], [ %.01330.i, %43 ], [ %.227.i, %.thread22.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %46 = icmp eq ptr %.1.i, null
   br i1 %46, label %67, label %47

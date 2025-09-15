@@ -1536,8 +1536,8 @@ _ZNK6frozen3mapIN4LIEF3ELF15NoteGnuProperty8Property4TYPEEPKcLm9ESt4lessIS5_EE11
 4:                                                ; preds = %_ZNK6frozen3mapIN4LIEF3ELF15NoteGnuProperty8Property4TYPEEPKcLm9ESt4lessIS5_EE11lower_boundIS5_EEPKSt4pairIS5_S7_ERKT_.exit.i.i
   %.ptr.i.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF3ELF9to_stringENS0_15NoteGnuProperty8Property4TYPEE.enums2str, i64 %.sink.i.i.i.i.add.i.i
   %5 = load i32, ptr %.ptr.i.i, align 4, !tbaa !114
-  %.not17.i.i = icmp slt i32 %0, %5
-  br i1 %.not17.i.i, label %_ZNK6frozen3mapIN4LIEF3ELF15NoteGnuProperty8Property4TYPEEPKcLm9ESt4lessIS5_EE4findIS5_EEPKSt4pairIS5_S7_ERKT_.exit.thread, label %6
+  %.not18.i.i = icmp slt i32 %0, %5
+  br i1 %.not18.i.i, label %_ZNK6frozen3mapIN4LIEF3ELF15NoteGnuProperty8Property4TYPEEPKcLm9ESt4lessIS5_EE4findIS5_EEPKSt4pairIS5_S7_ERKT_.exit.thread, label %6
 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %.ptr.i.i, i64 8
@@ -1583,8 +1583,8 @@ _ZNK6frozen3mapIN4LIEF3ELF15NoteGnuProperty8Property4TYPEEPKcLm9ESt4lessIS5_EE11
 7:                                                ; preds = %_ZNK6frozen3mapIN4LIEF3ELF15NoteGnuProperty8Property4TYPEEPKcLm9ESt4lessIS5_EE11lower_boundIS5_EEPKSt4pairIS5_S7_ERKT_.exit.i.i.i
   %.ptr.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF3ELF9to_stringENS0_15NoteGnuProperty8Property4TYPEE.enums2str, i64 %.sink.i.i.i.i.add.i.i.i
   %8 = load i32, ptr %.ptr.i.i.i, align 4, !tbaa !114
-  %.not17.i.i.i = icmp slt i32 %4, %8
-  br i1 %.not17.i.i.i, label %_ZN4LIEF3ELF9to_stringENS0_15NoteGnuProperty8Property4TYPEE.exit.thread, label %_ZN4LIEF3ELF9to_stringENS0_15NoteGnuProperty8Property4TYPEE.exit
+  %.not18.i.i.i = icmp slt i32 %4, %8
+  br i1 %.not18.i.i.i, label %_ZN4LIEF3ELF9to_stringENS0_15NoteGnuProperty8Property4TYPEE.exit.thread, label %_ZN4LIEF3ELF9to_stringENS0_15NoteGnuProperty8Property4TYPEE.exit
 
 _ZN4LIEF3ELF9to_stringENS0_15NoteGnuProperty8Property4TYPEE.exit: ; preds = %7
   %9 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i, i64 8

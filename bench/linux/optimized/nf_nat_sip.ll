@@ -423,8 +423,8 @@ define internal noundef range(i32 0, 2) i32 @nf_nat_sip(ptr noundef %0, i32 noun
   br i1 %87, label %101, label %.thread
 
 88:                                               ; preds = %70
-  %.offs10 = select i1 %30, i64 36, i64 92
-  %89 = getelementptr i8, ptr %71, i64 %.offs10
+  %.offs11 = select i1 %30, i64 36, i64 92
+  %89 = getelementptr i8, ptr %71, i64 %.offs11
   %90 = load i64, ptr %89, align 8
   %91 = getelementptr i8, ptr %89, i64 8
   %92 = load i64, ptr %91, align 8
@@ -462,8 +462,8 @@ define internal noundef range(i32 0, 2) i32 @nf_nat_sip(ptr noundef %0, i32 noun
   br i1 %117, label %118, label %145
 
 118:                                              ; preds = %108
-  %.offs11 = select i1 %30, i64 16, i64 72
-  %119 = getelementptr i8, ptr %71, i64 %.offs11
+  %.offs14 = select i1 %30, i64 16, i64 72
+  %119 = getelementptr i8, ptr %71, i64 %.offs14
   %120 = load i64, ptr %17, align 8
   %121 = load i64, ptr %119, align 8
   %122 = load i64, ptr %73, align 8
@@ -475,8 +475,8 @@ define internal noundef range(i32 0, 2) i32 @nf_nat_sip(ptr noundef %0, i32 noun
   br i1 %127, label %145, label %128
 
 128:                                              ; preds = %118
-  %.offs13 = select i1 %30, i64 92, i64 36
-  %129 = getelementptr i8, ptr %71, i64 %.offs13
+  %.offs17 = select i1 %30, i64 92, i64 36
+  %129 = getelementptr i8, ptr %71, i64 %.offs17
   %130 = load i64, ptr %129, align 8
   %131 = getelementptr i8, ptr %129, i64 8
   %132 = load i64, ptr %131, align 8
@@ -505,8 +505,8 @@ define internal noundef range(i32 0, 2) i32 @nf_nat_sip(ptr noundef %0, i32 noun
   br i1 %149, label %150, label %177
 
 150:                                              ; preds = %145
-  %.offs15 = select i1 %30, i64 36, i64 92
-  %151 = getelementptr i8, ptr %71, i64 %.offs15
+  %.offs21 = select i1 %30, i64 36, i64 92
+  %151 = getelementptr i8, ptr %71, i64 %.offs21
   %152 = load i64, ptr %17, align 8
   %153 = load i64, ptr %151, align 8
   %154 = load i64, ptr %73, align 8
@@ -518,8 +518,8 @@ define internal noundef range(i32 0, 2) i32 @nf_nat_sip(ptr noundef %0, i32 noun
   br i1 %159, label %177, label %160
 
 160:                                              ; preds = %150
-  %.offs16 = select i1 %30, i64 72, i64 16
-  %161 = getelementptr i8, ptr %71, i64 %.offs16
+  %.offs24 = select i1 %30, i64 72, i64 16
+  %161 = getelementptr i8, ptr %71, i64 %.offs24
   %162 = load i64, ptr %161, align 8
   %163 = getelementptr i8, ptr %161, i64 8
   %164 = load i64, ptr %163, align 8
@@ -530,8 +530,8 @@ define internal noundef range(i32 0, 2) i32 @nf_nat_sip(ptr noundef %0, i32 noun
 
 168:                                              ; preds = %160
   %169 = getelementptr i8, ptr %29, i64 50
-  %.val22 = load i16, ptr %169, align 2
-  %170 = icmp eq i16 %.val22, 2
+  %.val36 = load i16, ptr %169, align 2
+  %170 = icmp eq i16 %.val36, 2
   %171 = select i1 %170, ptr @.str.17, ptr @.str.19
   %172 = call noundef i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull dereferenceable(1) %171, ptr noundef %161) #9
   %173 = load i32, ptr %20, align 4
@@ -551,15 +551,15 @@ define internal noundef range(i32 0, 2) i32 @nf_nat_sip(ptr noundef %0, i32 noun
   %183 = load i32, ptr %22, align 4
   %184 = trunc i32 %183 to i16
   %185 = call i16 @llvm.bswap.i16(i16 %184)
-  %.offs19 = select i1 %30, i64 52, i64 108
-  %186 = getelementptr i8, ptr %71, i64 %.offs19
+  %.offs28 = select i1 %30, i64 52, i64 108
+  %186 = getelementptr i8, ptr %71, i64 %.offs28
   %187 = load i16, ptr %186, align 4
   %188 = icmp eq i16 %185, %187
   br i1 %188, label %189, label %.thread
 
 189:                                              ; preds = %182
-  %.offs21 = select i1 %30, i64 88, i64 32
-  %190 = getelementptr i8, ptr %71, i64 %.offs21
+  %.offs33 = select i1 %30, i64 88, i64 32
+  %190 = getelementptr i8, ptr %71, i64 %.offs33
   %191 = load i16, ptr %190, align 8
   %192 = icmp eq i16 %185, %191
   br i1 %192, label %.thread, label %193
@@ -801,8 +801,8 @@ define internal noundef range(i32 0, 2) i32 @nf_nat_sip_expect(ptr noundef %0, i
   %.offs = select i1 %16, i64 16, i64 72
   %35 = getelementptr i8, ptr %34, i64 %.offs
   %36 = zext i1 %16 to i32
-  %.offs6 = select i1 %16, i64 92, i64 36
-  %37 = getelementptr i8, ptr %34, i64 %.offs6
+  %.offs7 = select i1 %16, i64 92, i64 36
+  %37 = getelementptr i8, ptr %34, i64 %.offs7
   %38 = load i64, ptr %35, align 8
   %39 = load i64, ptr %37, align 8
   %40 = getelementptr i8, ptr %35, i64 8
@@ -1074,8 +1074,8 @@ define internal noundef range(i32 0, 2) i32 @nf_nat_sdp_media(ptr noundef %0, i3
   %.offs = select i1 %16, i64 16, i64 72
   %18 = getelementptr i8, ptr %17, i64 %.offs
   %19 = zext i1 %16 to i32
-  %.offs4 = select i1 %16, i64 92, i64 36
-  %20 = getelementptr i8, ptr %17, i64 %.offs4
+  %.offs5 = select i1 %16, i64 92, i64 36
+  %20 = getelementptr i8, ptr %17, i64 %.offs5
   %21 = load i64, ptr %18, align 8
   %22 = load i64, ptr %20, align 8
   %23 = getelementptr i8, ptr %18, i64 8
@@ -1116,17 +1116,17 @@ define internal noundef range(i32 0, 2) i32 @nf_nat_sdp_media(ptr noundef %0, i3
   %47 = icmp eq i16 %45, 0
   br i1 %47, label %.thread, label %.preheader
 
-.preheader:                                       ; preds = %10, %.thread6
-  %48 = phi i16 [ %61, %.thread6 ], [ %46, %10 ]
+.preheader:                                       ; preds = %10, %.thread9
+  %48 = phi i16 [ %61, %.thread9 ], [ %46, %10 ]
   %49 = tail call i16 @llvm.bswap.i16(i16 %48)
   store i16 %49, ptr %33, align 4
   %50 = tail call i32 @nf_ct_expect_related_report(ptr noundef %5, i32 noundef 0, i32 noundef 0, i32 noundef 1) #9
   %51 = icmp eq i32 %50, -16
-  br i1 %51, label %.thread6, label %52
+  br i1 %51, label %.thread9, label %52
 
 52:                                               ; preds = %.preheader
   %53 = icmp slt i32 %50, 0
-  br i1 %53, label %.thread9, label %54
+  br i1 %53, label %.thread12, label %54
 
 54:                                               ; preds = %52
   %55 = add i16 %48, 1
@@ -1140,27 +1140,27 @@ define internal noundef range(i32 0, 2) i32 @nf_nat_sdp_media(ptr noundef %0, i3
 
 58:                                               ; preds = %54
   %59 = icmp slt i32 %57, 0
-  br i1 %59, label %.thread7, label %.thread6
+  br i1 %59, label %.thread10, label %.thread9
 
-.thread7:                                         ; preds = %58
+.thread10:                                        ; preds = %58
   tail call void @nf_ct_unexpect_related(ptr noundef %5) #9
-  br label %.thread9
+  br label %.thread12
 
 60:                                               ; preds = %54
   tail call void @nf_ct_unexpect_related(ptr noundef %5) #9
-  br label %.thread6
+  br label %.thread9
 
-.thread6:                                         ; preds = %58, %.preheader, %60
+.thread9:                                         ; preds = %58, %.preheader, %60
   %61 = add i16 %48, 2
   %62 = icmp eq i16 %61, 0
-  br i1 %62, label %.thread9, label %.preheader, !llvm.loop !16
+  br i1 %62, label %.thread12, label %.preheader, !llvm.loop !16
 
 .thread:                                          ; preds = %54, %10
   %63 = phi i16 [ %46, %10 ], [ %48, %54 ]
   %64 = icmp eq i16 %63, 0
-  br i1 %64, label %.thread9, label %65
+  br i1 %64, label %.thread12, label %65
 
-.thread9:                                         ; preds = %52, %.thread6, %.thread7, %.thread
+.thread12:                                        ; preds = %52, %.thread9, %.thread10, %.thread
   tail call void (ptr, ptr, ptr, ...) @nf_ct_helper_log(ptr noundef %0, ptr noundef %14, ptr noundef nonnull @.str.21) #9
   br label %73
 
@@ -1181,8 +1181,8 @@ define internal noundef range(i32 0, 2) i32 @nf_nat_sdp_media(ptr noundef %0, i3
   tail call void @nf_ct_unexpect_related(ptr noundef %6) #9
   br label %73
 
-73:                                               ; preds = %72, %69, %65, %.thread9
-  %74 = phi i32 [ 1, %69 ], [ 1, %65 ], [ 0, %72 ], [ 0, %.thread9 ]
+73:                                               ; preds = %72, %69, %65, %.thread12
+  %74 = phi i32 [ 1, %69 ], [ 1, %65 ], [ 0, %72 ], [ 0, %.thread12 ]
   ret i32 %74
 }
 
@@ -1253,8 +1253,8 @@ define internal fastcc noundef range(i32 0, 2) i32 @map_addr(ptr noundef %0, i32
   br i1 %49, label %50, label %54
 
 50:                                               ; preds = %46
-  %.offs4 = select i1 %17, i64 92, i64 36
-  %51 = getelementptr i8, ptr %35, i64 %.offs4
+  %.offs5 = select i1 %17, i64 92, i64 36
+  %51 = getelementptr i8, ptr %35, i64 %.offs5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %11, ptr noundef align 4 dereferenceable(16) %51, i64 16, i1 false)
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %53 = load i16, ptr %52, align 4
@@ -1277,8 +1277,8 @@ define internal fastcc noundef range(i32 0, 2) i32 @map_addr(ptr noundef %0, i32
   br i1 %65, label %66, label %126
 
 66:                                               ; preds = %62
-  %.offs5 = select i1 %17, i64 72, i64 16
-  %67 = getelementptr i8, ptr %35, i64 %.offs5
+  %.offs8 = select i1 %17, i64 72, i64 16
+  %67 = getelementptr i8, ptr %35, i64 %.offs8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %11, ptr noundef align 8 dereferenceable(16) %67, i64 16, i1 false)
   %68 = getelementptr inbounds nuw i8, ptr %34, i64 32
   %69 = load i16, ptr %68, align 4

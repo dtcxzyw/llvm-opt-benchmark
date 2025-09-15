@@ -1425,21 +1425,21 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__prepare_prelude_callback_dcpl(
   %42 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %43 = load i32, ptr %42, align 8, !tbaa !43
   %44 = zext i32 %43 to i64
-  %.not97 = icmp eq i32 %43, 0
-  br i1 %.not97, label %._crit_edge, label %.lr.ph
+  %.not98 = icmp eq i32 %43, 0
+  br i1 %.not98, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %41
   %45 = getelementptr inbounds nuw i8, ptr %12, i64 28
   br label %46
 
 46:                                               ; preds = %.lr.ph, %46
-  %.03696 = phi i64 [ 0, %.lr.ph ], [ %51, %46 ]
-  %47 = getelementptr inbounds nuw i32, ptr %45, i64 %.03696
+  %.03697 = phi i64 [ 0, %.lr.ph ], [ %51, %46 ]
+  %47 = getelementptr inbounds nuw i32, ptr %45, i64 %.03697
   %48 = load i32, ptr %47, align 4, !tbaa !43
   %49 = zext i32 %48 to i64
-  %50 = getelementptr inbounds nuw i64, ptr %5, i64 %.03696
+  %50 = getelementptr inbounds nuw i64, ptr %5, i64 %.03697
   store i64 %49, ptr %50, align 8, !tbaa !10
-  %51 = add nuw nsw i64 %.03696, 1
+  %51 = add nuw nsw i64 %.03697, 1
   %exitcond.not = icmp eq i64 %51, %44
   br i1 %exitcond.not, label %._crit_edge, label %46, !llvm.loop !62
 

@@ -1969,19 +1969,19 @@ define dso_local range(i32 0, 2) i32 @pathspec_needs_expanded_index(ptr noundef 
 
 .preheader:                                       ; preds = %5
   %8 = load i32, ptr %1, align 8, !tbaa !4
-  %.not91 = icmp eq i32 %8, 0
-  br i1 %.not91, label %.thread72, label %.lr.ph86
+  %.not92 = icmp eq i32 %8, 0
+  br i1 %.not92, label %.thread72, label %.lr.ph87
 
-.lr.ph86:                                         ; preds = %.preheader
+.lr.ph87:                                         ; preds = %.preheader
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 12
   br label %11
 
-11:                                               ; preds = %.lr.ph86, %.thread64
-  %.03884 = phi i32 [ 0, %.lr.ph86 ], [ %90, %.thread64 ]
-  %.05582 = phi ptr [ null, %.lr.ph86 ], [ %.25770, %.thread64 ]
+11:                                               ; preds = %.lr.ph87, %.thread64
+  %.03885 = phi i32 [ 0, %.lr.ph87 ], [ %90, %.thread64 ]
+  %.05583 = phi ptr [ null, %.lr.ph87 ], [ %.25770, %.thread64 ]
   %12 = load ptr, ptr %9, align 8, !tbaa !63
-  %13 = zext i32 %.03884 to i64
+  %13 = zext i32 %.03885 to i64
   %14 = getelementptr inbounds nuw %struct.pathspec_item, ptr %12, i64 %13
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 8
   %.sroa.3.0.copyload = load ptr, ptr %.sroa.3.0..sroa_idx, align 8, !tbaa !61
@@ -2008,8 +2008,8 @@ define dso_local range(i32 0, 2) i32 @pathspec_needs_expanded_index(ptr noundef 
 
 25:                                               ; preds = %23, %16
   %26 = load i32, ptr %10, align 4, !tbaa !14
-  %.not92 = icmp eq i32 %26, 0
-  br i1 %.not92, label %.thread64, label %.lr.ph
+  %.not93 = icmp eq i32 %26, 0
+  br i1 %.not93, label %.thread64, label %.lr.ph
 
 .lr.ph:                                           ; preds = %25, %47
   %27 = phi i32 [ %48, %47 ], [ %26, %25 ]
@@ -2063,7 +2063,7 @@ define dso_local range(i32 0, 2) i32 @pathspec_needs_expanded_index(ptr noundef 
   br i1 %.not45, label %53, label %.thread64
 
 53:                                               ; preds = %51
-  %.not.i = icmp eq ptr %.05582, null
+  %.not.i = icmp eq ptr %.05583, null
   br i1 %.not.i, label %54, label %matches_skip_worktree.exit
 
 54:                                               ; preds = %53
@@ -2117,22 +2117,22 @@ define dso_local range(i32 0, 2) i32 @pathspec_needs_expanded_index(ptr noundef 
   br i1 %86, label %.lr.ph.i.i, label %matches_skip_worktree.exit, !llvm.loop !53
 
 matches_skip_worktree.exit:                       ; preds = %83, %54, %53
-  %.459 = phi ptr [ %.05582, %53 ], [ %60, %54 ], [ %60, %83 ]
-  %87 = sext i32 %.03884 to i64
+  %.459 = phi ptr [ %.05583, %53 ], [ %60, %54 ], [ %60, %83 ]
+  %87 = sext i32 %.03885 to i64
   %88 = getelementptr inbounds i8, ptr %.459, i64 %87
   %89 = load i8, ptr %88, align 1, !tbaa !11
   %.not46 = icmp eq i8 %89, 0
   br i1 %.not46, label %.thread72, label %.thread64
 
 .thread64:                                        ; preds = %47, %51, %25, %matches_skip_worktree.exit, %23
-  %.25770 = phi ptr [ %.05582, %23 ], [ %.459, %matches_skip_worktree.exit ], [ %.05582, %51 ], [ %.05582, %25 ], [ %.05582, %47 ]
-  %90 = add nuw i32 %.03884, 1
+  %.25770 = phi ptr [ %.05583, %23 ], [ %.459, %matches_skip_worktree.exit ], [ %.05583, %51 ], [ %.05583, %25 ], [ %.05583, %47 ]
+  %90 = add nuw i32 %.03885, 1
   %91 = load i32, ptr %1, align 8, !tbaa !4
   %92 = icmp ult i32 %90, %91
   br i1 %92, label %11, label %.thread72, !llvm.loop !121
 
 .thread72:                                        ; preds = %matches_skip_worktree.exit, %.thread64, %38, %45, %.preheader
-  %.156 = phi ptr [ null, %.preheader ], [ %.05582, %45 ], [ %.05582, %38 ], [ %.459, %matches_skip_worktree.exit ], [ %.25770, %.thread64 ]
+  %.156 = phi ptr [ null, %.preheader ], [ %.05583, %45 ], [ %.05583, %38 ], [ %.459, %matches_skip_worktree.exit ], [ %.25770, %.thread64 ]
   %.1 = phi i32 [ 0, %.preheader ], [ 1, %45 ], [ 1, %38 ], [ 1, %matches_skip_worktree.exit ], [ 0, %.thread64 ]
   tail call void @free(ptr noundef %.156) #17
   br label %93

@@ -1948,12 +1948,12 @@ dlist_push_tail.exit.i.i:                         ; preds = %156, %148
   br label %addItemsToLeaf.exit.thread.i
 
 .preheader.i.i:                                   ; preds = %144, %269
-  %.sroa.0.0138.i.i = phi ptr [ %270, %269 ], [ %145, %144 ]
-  %.075137.i.i = phi ptr [ %.1128.i.i, %269 ], [ %45, %144 ]
-  %.076136.i.i = phi i32 [ %.177127.i.i, %269 ], [ %.1.i, %144 ]
-  %.080135.i.i = phi i1 [ %.2126.i.i, %269 ], [ false, %144 ]
+  %.sroa.0.0139.i.i = phi ptr [ %270, %269 ], [ %145, %144 ]
+  %.075138.i.i = phi ptr [ %.1128.i.i, %269 ], [ %45, %144 ]
+  %.076137.i.i = phi i32 [ %.177127.i.i, %269 ], [ %.1.i, %144 ]
+  %.080136.i.i = phi i1 [ %.2126.i.i, %269 ], [ false, %144 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  %160 = getelementptr i8, ptr %.sroa.0.0138.i.i, i64 8
+  %160 = getelementptr i8, ptr %.sroa.0.0139.i.i, i64 8
   %.sroa.0.0.val.i.i = load ptr, ptr %160, align 8
   %.not.i.i = icmp eq ptr %.sroa.0.0.val.i.i, %81
   br i1 %.not.i.i, label %.critedge.i.i, label %161
@@ -1971,7 +1971,7 @@ dlist_push_tail.exit.i.i:                         ; preds = %156, %148
 
 167:                                              ; preds = %164, %161
   %.pn.i.i = phi ptr [ %166, %164 ], [ %163, %161 ]
-  %168 = icmp sgt i32 %.076136.i.i, 0
+  %168 = icmp sgt i32 %.076137.i.i, 0
   br i1 %168, label %.lr.ph.i.i, label %.thread119.i.i
 
 .lr.ph.i.i:                                       ; preds = %167
@@ -1987,12 +1987,12 @@ dlist_push_tail.exit.i.i:                         ; preds = %156, %148
   %173 = zext i16 %.sroa.6.0.i.i to i64
   %174 = or disjoint i64 %172, %173
   %175 = or disjoint i64 %174, %171
-  %176 = zext nneg i32 %.076136.i.i to i64
+  %176 = zext nneg i32 %.076137.i.i to i64
   br label %177
 
 177:                                              ; preds = %189, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %189 ]
-  %178 = getelementptr inbounds nuw %struct.ItemPointerData, ptr %.075137.i.i, i64 %indvars.iv.i.i
+  %178 = getelementptr inbounds nuw %struct.ItemPointerData, ptr %.075138.i.i, i64 %indvars.iv.i.i
   %.val.i.i.i = load i16, ptr %178, align 2
   %179 = getelementptr i8, ptr %178, i64 2
   %.val5.i.i.i = load i16, ptr %179, align 2
@@ -2018,7 +2018,7 @@ dlist_push_tail.exit.i.i:                         ; preds = %156, %148
   br label %.critedge.i.i
 
 .critedge.i.i:                                    ; preds = %189, %.critedge.loopexit.split.loop.exit.i.i, %.preheader.i.i
-  %.078.i.i = phi i32 [ %.076136.i.i, %.preheader.i.i ], [ %190, %.critedge.loopexit.split.loop.exit.i.i ], [ %.076136.i.i, %189 ]
+  %.078.i.i = phi i32 [ %.076137.i.i, %.preheader.i.i ], [ %190, %.critedge.loopexit.split.loop.exit.i.i ], [ %.076137.i.i, %189 ]
   %191 = icmp eq i32 %.078.i.i, 0
   br i1 %191, label %.thread119.i.i, label %192
 
@@ -2027,15 +2027,15 @@ dlist_push_tail.exit.i.i:                         ; preds = %156, %148
   br label %269
 
 192:                                              ; preds = %.critedge.i.i
-  %193 = getelementptr inbounds nuw i8, ptr %.sroa.0.0138.i.i, i64 48
+  %193 = getelementptr inbounds nuw i8, ptr %.sroa.0.0139.i.i, i64 48
   %194 = load ptr, ptr %193, align 8
   %.not93.i.i = icmp eq ptr %194, null
   br i1 %.not93.i.i, label %195, label %200
 
 195:                                              ; preds = %192
-  %196 = getelementptr inbounds nuw i8, ptr %.sroa.0.0138.i.i, i64 40
+  %196 = getelementptr inbounds nuw i8, ptr %.sroa.0.0139.i.i, i64 40
   %197 = load ptr, ptr %196, align 8
-  %198 = getelementptr inbounds nuw i8, ptr %.sroa.0.0138.i.i, i64 56
+  %198 = getelementptr inbounds nuw i8, ptr %.sroa.0.0139.i.i, i64 56
   %199 = call ptr @ginPostingListDecode(ptr noundef %197, ptr noundef nonnull %198) #11
   store ptr %199, ptr %193, align 8
   %.sroa.0.0.val98.pre.i.i = load ptr, ptr %160, align 8
@@ -2045,7 +2045,7 @@ dlist_push_tail.exit.i.i:                         ; preds = %156, %148
   %201 = phi ptr [ %199, %195 ], [ %194, %192 ]
   %.sroa.0.0.val98.i.i = phi ptr [ %.sroa.0.0.val98.pre.i.i, %195 ], [ %.sroa.0.0.val.i.i, %192 ]
   %.not130.i.i = icmp eq ptr %.sroa.0.0.val98.i.i, %81
-  %202 = getelementptr inbounds nuw i8, ptr %.sroa.0.0138.i.i, i64 56
+  %202 = getelementptr inbounds nuw i8, ptr %.sroa.0.0139.i.i, i64 56
   %203 = load i32, ptr %202, align 8
   br i1 %.not130.i.i, label %204, label %._crit_edge.i.i
 
@@ -2065,15 +2065,15 @@ dlist_push_tail.exit.i.i:                         ; preds = %156, %148
   %.val8.i102.i.i = load i16, ptr %214, align 2
   %215 = zext i16 %.val8.i102.i.i to i64
   %216 = or disjoint i64 %213, %215
-  %.val6.i103.i.i = load i16, ptr %.075137.i.i, align 2
-  %217 = getelementptr i8, ptr %.075137.i.i, i64 2
+  %.val6.i103.i.i = load i16, ptr %.075138.i.i, align 2
+  %217 = getelementptr i8, ptr %.075138.i.i, i64 2
   %.val7.i104.i.i = load i16, ptr %217, align 2
   %218 = zext i16 %.val6.i103.i.i to i64
   %219 = zext i16 %.val7.i104.i.i to i64
   %220 = shl nuw i64 %218, 48
   %221 = shl nuw nsw i64 %219, 32
   %222 = or disjoint i64 %221, %220
-  %223 = getelementptr i8, ptr %.075137.i.i, i64 4
+  %223 = getelementptr i8, ptr %.075138.i.i, i64 4
   %.val9.i105.i.i = load i16, ptr %223, align 2
   %224 = zext i16 %.val9.i105.i.i to i64
   %225 = or disjoint i64 %222, %224
@@ -2081,7 +2081,7 @@ dlist_push_tail.exit.i.i:                         ; preds = %156, %148
   br i1 %226, label %227, label %._crit_edge.i.i
 
 227:                                              ; preds = %204
-  %228 = getelementptr inbounds nuw i8, ptr %.sroa.0.0138.i.i, i64 40
+  %228 = getelementptr inbounds nuw i8, ptr %.sroa.0.0139.i.i, i64 40
   %229 = load ptr, ptr %228, align 8
   %.not94.i.i = icmp eq ptr %229, null
   br i1 %.not94.i.i, label %._crit_edge.i.i, label %230
@@ -2097,7 +2097,7 @@ dlist_push_tail.exit.i.i:                         ; preds = %156, %148
   %236 = getelementptr inbounds nuw i8, ptr %235, i64 40
   store ptr null, ptr %236, align 8
   %237 = getelementptr inbounds nuw i8, ptr %235, i64 48
-  store ptr %.075137.i.i, ptr %237, align 8
+  store ptr %.075138.i.i, ptr %237, align 8
   %238 = getelementptr inbounds nuw i8, ptr %235, i64 56
   store i32 %.078.i.i, ptr %238, align 8
   %239 = getelementptr inbounds nuw i8, ptr %235, i64 16
@@ -2123,7 +2123,7 @@ dlist_push_tail.exit.i.i:                         ; preds = %156, %148
   br label %addItemsToLeaf.exit.thread.i
 
 ._crit_edge.i.i:                                  ; preds = %230, %227, %204, %200
-  %246 = call ptr @ginMergeItemPointers(ptr noundef %201, i32 noundef %203, ptr noundef %.075137.i.i, i32 noundef %.078.i.i, ptr noundef nonnull %13) #11
+  %246 = call ptr @ginMergeItemPointers(ptr noundef %201, i32 noundef %203, ptr noundef %.075138.i.i, i32 noundef %.078.i.i, ptr noundef nonnull %13) #11
   %247 = load i32, ptr %13, align 4
   %248 = load i32, ptr %202, align 8
   %.not95.i.i = icmp eq i32 %247, %248
@@ -2135,50 +2135,50 @@ dlist_push_tail.exit.i.i:                         ; preds = %156, %148
   br i1 %251, label %252, label %260
 
 252:                                              ; preds = %249
-  %253 = getelementptr inbounds nuw i8, ptr %.sroa.0.0138.i.i, i64 16
+  %253 = getelementptr inbounds nuw i8, ptr %.sroa.0.0139.i.i, i64 16
   %254 = load i8, ptr %253, align 8
   %255 = icmp eq i8 %254, 0
   br i1 %255, label %256, label %260
 
 256:                                              ; preds = %252
   store i8 4, ptr %253, align 8
-  %257 = getelementptr inbounds nuw i8, ptr %.sroa.0.0138.i.i, i64 24
-  store ptr %.075137.i.i, ptr %257, align 8
+  %257 = getelementptr inbounds nuw i8, ptr %.sroa.0.0139.i.i, i64 24
+  store ptr %.075138.i.i, ptr %257, align 8
   %258 = trunc i32 %.078.i.i to i16
-  %259 = getelementptr inbounds nuw i8, ptr %.sroa.0.0138.i.i, i64 32
+  %259 = getelementptr inbounds nuw i8, ptr %.sroa.0.0139.i.i, i64 32
   store i16 %258, ptr %259, align 8
   br label %262
 
 260:                                              ; preds = %252, %249
-  %261 = getelementptr inbounds nuw i8, ptr %.sroa.0.0138.i.i, i64 16
+  %261 = getelementptr inbounds nuw i8, ptr %.sroa.0.0139.i.i, i64 16
   store i8 3, ptr %261, align 8
   br label %262
 
 262:                                              ; preds = %260, %256
   store ptr %246, ptr %193, align 8
   store i32 %247, ptr %202, align 8
-  %263 = getelementptr inbounds nuw i8, ptr %.sroa.0.0138.i.i, i64 40
+  %263 = getelementptr inbounds nuw i8, ptr %.sroa.0.0139.i.i, i64 40
   store ptr null, ptr %263, align 8
   br label %264
 
 264:                                              ; preds = %262, %._crit_edge.i.i
-  %.3.i.i = phi i1 [ true, %262 ], [ %.080135.i.i, %._crit_edge.i.i ]
-  %265 = sub i32 %.076136.i.i, %.078.i.i
+  %.3.i.i = phi i1 [ true, %262 ], [ %.080136.i.i, %._crit_edge.i.i ]
+  %265 = sub i32 %.076137.i.i, %.078.i.i
   %266 = icmp eq i32 %265, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  br i1 %266, label %addItemsToLeaf.exit.i, label %._crit_edge143.i.i
+  br i1 %266, label %addItemsToLeaf.exit.i, label %._crit_edge144.i.i
 
-._crit_edge143.i.i:                               ; preds = %264
+._crit_edge144.i.i:                               ; preds = %264
   %267 = sext i32 %.078.i.i to i64
-  %268 = getelementptr inbounds %struct.ItemPointerData, ptr %.075137.i.i, i64 %267
-  %.pre144.i.i = load ptr, ptr %160, align 8
+  %268 = getelementptr inbounds %struct.ItemPointerData, ptr %.075138.i.i, i64 %267
+  %.pre145.i.i = load ptr, ptr %160, align 8
   br label %269
 
-269:                                              ; preds = %._crit_edge143.i.i, %.thread119.i.i
-  %270 = phi ptr [ %.sroa.0.0.val.i.i, %.thread119.i.i ], [ %.pre144.i.i, %._crit_edge143.i.i ]
-  %.1128.i.i = phi ptr [ %.075137.i.i, %.thread119.i.i ], [ %268, %._crit_edge143.i.i ]
-  %.177127.i.i = phi i32 [ %.076136.i.i, %.thread119.i.i ], [ %265, %._crit_edge143.i.i ]
-  %.2126.i.i = phi i1 [ %.080135.i.i, %.thread119.i.i ], [ %.3.i.i, %._crit_edge143.i.i ]
+269:                                              ; preds = %._crit_edge144.i.i, %.thread119.i.i
+  %270 = phi ptr [ %.sroa.0.0.val.i.i, %.thread119.i.i ], [ %.pre145.i.i, %._crit_edge144.i.i ]
+  %.1128.i.i = phi ptr [ %.075138.i.i, %.thread119.i.i ], [ %268, %._crit_edge144.i.i ]
+  %.177127.i.i = phi i32 [ %.076137.i.i, %.thread119.i.i ], [ %265, %._crit_edge144.i.i ]
+  %.2126.i.i = phi i1 [ %.080136.i.i, %.thread119.i.i ], [ %.3.i.i, %._crit_edge144.i.i ]
   %.not91.i.i = icmp eq ptr %270, %81
   br i1 %.not91.i.i, label %addItemsToLeaf.exit.i, label %.preheader.i.i, !llvm.loop !19
 

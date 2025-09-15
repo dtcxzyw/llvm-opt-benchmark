@@ -23296,19 +23296,19 @@ define internal fastcc ptr @php_str_to_str_ex(ptr noundef %0, ptr noundef %1, i6
 
 41:                                               ; preds = %38
   %42 = load i8, ptr %17, align 1, !tbaa !10
-  %.not.i116202 = icmp ugt ptr %.091, %19
-  br i1 %.not.i116202, label %zend_memnstr.exit120.thread, label %.lr.ph204
+  %.not.i116203 = icmp ugt ptr %.091, %19
+  br i1 %.not.i116203, label %zend_memnstr.exit120.thread, label %.lr.ph205
 
-.lr.ph204:                                        ; preds = %41
+.lr.ph205:                                        ; preds = %41
   %43 = load i8, ptr %1, align 1, !tbaa !10
   %44 = sext i8 %43 to i32
   br label %45
 
-45:                                               ; preds = %.lr.ph204, %55
-  %.038.i115203 = phi ptr [ %.091, %.lr.ph204 ], [ %56, %55 ]
-  %46 = ptrtoint ptr %.038.i115203 to i64
+45:                                               ; preds = %.lr.ph205, %55
+  %.038.i115204 = phi ptr [ %.091, %.lr.ph205 ], [ %56, %55 ]
+  %46 = ptrtoint ptr %.038.i115204 to i64
   %47 = sub i64 %21, %46
-  %48 = tail call ptr @memchr(ptr noundef %.038.i115203, i32 noundef %44, i64 noundef %47) #30
+  %48 = tail call ptr @memchr(ptr noundef %.038.i115204, i32 noundef %44, i64 noundef %47) #30
   %.not43.i117 = icmp eq ptr %48, null
   br i1 %.not43.i117, label %zend_memnstr.exit120.thread, label %49
 
@@ -23377,21 +23377,21 @@ zend_string_alloc.exit123:                        ; preds = %zend_memnstr.exit12
 76:                                               ; preds = %10
   switch i64 %2, label %.split [
     i64 1, label %.split.us
-    i64 0, label %zend_memnstr.exit113.us176
+    i64 0, label %zend_memnstr.exit113.us177
   ], !prof !64
 
 .split.us:                                        ; preds = %76
   %77 = load i8, ptr %1, align 1, !tbaa !10
   %78 = sext i8 %77 to i32
   %79 = tail call ptr @memchr(ptr noundef nonnull %12, i32 noundef %78, i64 noundef %8) #30
-  %.not102.us188 = icmp eq ptr %79, null
-  br i1 %.not102.us188, label %.thread147, label %zend_memnstr.exit113.thread133.us
+  %.not102.us189 = icmp eq ptr %79, null
+  br i1 %.not102.us189, label %.thread147, label %zend_memnstr.exit113.thread133.us
 
 zend_memnstr.exit113.thread133.us:                ; preds = %.split.us, %zend_memnstr.exit113.thread133.us
   %80 = phi ptr [ %86, %zend_memnstr.exit113.thread133.us ], [ %79, %.split.us ]
-  %.086.us189 = phi i64 [ %82, %zend_memnstr.exit113.thread133.us ], [ 0, %.split.us ]
+  %.086.us190 = phi i64 [ %82, %zend_memnstr.exit113.thread133.us ], [ 0, %.split.us ]
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 1
-  %82 = add i64 %.086.us189, 1
+  %82 = add i64 %.086.us190, 1
   %83 = icmp uge ptr %13, %81
   tail call void @llvm.assume(i1 %83)
   %84 = ptrtoint ptr %81 to i64
@@ -23400,25 +23400,25 @@ zend_memnstr.exit113.thread133.us:                ; preds = %.split.us, %zend_me
   %.not102.us = icmp eq ptr %86, null
   br i1 %.not102.us, label %zend_memnstr.exit113.thread, label %zend_memnstr.exit113.thread133.us
 
-zend_memnstr.exit113.us176:                       ; preds = %76, %zend_memnstr.exit113.us176
-  br label %zend_memnstr.exit113.us176
+zend_memnstr.exit113.us177:                       ; preds = %76, %zend_memnstr.exit113.us177
+  br label %zend_memnstr.exit113.us177
 
 .split:                                           ; preds = %76
   %87 = icmp ugt i64 %2, %8
-  br i1 %87, label %.thread147, label %.lr.ph185
+  br i1 %87, label %.thread147, label %.lr.ph186
 
-.lr.ph185:                                        ; preds = %.split, %zend_memnstr.exit113.thread133
+.lr.ph186:                                        ; preds = %.split, %zend_memnstr.exit113.thread133
   %88 = phi i64 [ %112, %zend_memnstr.exit113.thread133 ], [ %8, %.split ]
-  %.085184 = phi ptr [ %108, %zend_memnstr.exit113.thread133 ], [ %12, %.split ]
-  %.086183 = phi i64 [ %109, %zend_memnstr.exit113.thread133 ], [ 0, %.split ]
+  %.085185 = phi ptr [ %108, %zend_memnstr.exit113.thread133 ], [ %12, %.split ]
+  %.086184 = phi i64 [ %109, %zend_memnstr.exit113.thread133 ], [ 0, %.split ]
   %89 = icmp ult i64 %88, 1024
   %90 = or i1 %15, %89
   br i1 %90, label %91, label %zend_memnstr.exit113, !prof !12
 
-91:                                               ; preds = %.lr.ph185
+91:                                               ; preds = %.lr.ph186
   %92 = load i8, ptr %17, align 1, !tbaa !10
-  %.not.i109167 = icmp ugt ptr %.085184, %19
-  br i1 %.not.i109167, label %zend_memnstr.exit113.thread, label %.lr.ph
+  %.not.i109168 = icmp ugt ptr %.085185, %19
+  br i1 %.not.i109168, label %zend_memnstr.exit113.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %91
   %93 = load i8, ptr %1, align 1, !tbaa !10
@@ -23426,10 +23426,10 @@ zend_memnstr.exit113.us176:                       ; preds = %76, %zend_memnstr.e
   br label %95
 
 95:                                               ; preds = %.lr.ph, %105
-  %.038.i108168 = phi ptr [ %.085184, %.lr.ph ], [ %106, %105 ]
-  %96 = ptrtoint ptr %.038.i108168 to i64
+  %.038.i108169 = phi ptr [ %.085185, %.lr.ph ], [ %106, %105 ]
+  %96 = ptrtoint ptr %.038.i108169 to i64
   %97 = sub i64 %21, %96
-  %98 = tail call ptr @memchr(ptr noundef %.038.i108168, i32 noundef %94, i64 noundef %97) #30
+  %98 = tail call ptr @memchr(ptr noundef %.038.i108169, i32 noundef %94, i64 noundef %97) #30
   %.not43.i110 = icmp eq ptr %98, null
   br i1 %.not43.i110, label %zend_memnstr.exit113.thread, label %99
 
@@ -23450,25 +23450,25 @@ zend_memnstr.exit113.us176:                       ; preds = %76, %zend_memnstr.e
   %.not.i109 = icmp ugt ptr %106, %19
   br i1 %.not.i109, label %zend_memnstr.exit113.thread, label %95
 
-zend_memnstr.exit113:                             ; preds = %.lr.ph185
-  %107 = tail call ptr @zend_memnstr_ex(ptr noundef %.085184, ptr noundef %1, i64 noundef %2, ptr noundef nonnull %13) #28
+zend_memnstr.exit113:                             ; preds = %.lr.ph186
+  %107 = tail call ptr @zend_memnstr_ex(ptr noundef %.085185, ptr noundef %1, i64 noundef %2, ptr noundef nonnull %13) #28
   %.not102 = icmp eq ptr %107, null
   br i1 %.not102, label %zend_memnstr.exit113.thread, label %zend_memnstr.exit113.thread133
 
 zend_memnstr.exit113.thread133:                   ; preds = %103, %zend_memnstr.exit113
   %.0.i107136 = phi ptr [ %107, %zend_memnstr.exit113 ], [ %98, %103 ]
   %108 = getelementptr inbounds nuw i8, ptr %.0.i107136, i64 %2
-  %109 = add i64 %.086183, 1
+  %109 = add i64 %.086184, 1
   %110 = icmp uge ptr %13, %108
   tail call void @llvm.assume(i1 %110)
   %111 = ptrtoint ptr %108 to i64
   %112 = sub i64 %14, %111
   %113 = icmp ugt i64 %2, %112
-  br i1 %113, label %zend_memnstr.exit113.thread, label %.lr.ph185
+  br i1 %113, label %zend_memnstr.exit113.thread, label %.lr.ph186
 
 zend_memnstr.exit113.thread:                      ; preds = %zend_memnstr.exit113.thread133.us, %zend_memnstr.exit113, %zend_memnstr.exit113.thread133, %91, %95, %105
-  %.086166 = phi i64 [ %.086183, %105 ], [ %.086183, %95 ], [ %.086183, %91 ], [ %.086183, %zend_memnstr.exit113 ], [ %109, %zend_memnstr.exit113.thread133 ], [ %82, %zend_memnstr.exit113.thread133.us ]
-  %114 = icmp eq i64 %.086166, 0
+  %.086167 = phi i64 [ %.086184, %105 ], [ %.086184, %95 ], [ %.086184, %91 ], [ %.086184, %zend_memnstr.exit113 ], [ %109, %zend_memnstr.exit113.thread133 ], [ %82, %zend_memnstr.exit113.thread133.us ]
+  %114 = icmp eq i64 %.086167, 0
   br i1 %114, label %.thread147, label %115
 
 115:                                              ; preds = %zend_memnstr.exit113.thread
@@ -23480,18 +23480,18 @@ zend_memnstr.exit113.thread:                      ; preds = %zend_memnstr.exit11
   %119 = load i64, ptr %7, align 8, !tbaa !16
   %120 = and i64 %119, -8
   %121 = add i64 %120, 32
-  %122 = tail call noalias ptr @_safe_emalloc(i64 noundef %.086166, i64 noundef %117, i64 noundef %121) #28
+  %122 = tail call noalias ptr @_safe_emalloc(i64 noundef %.086167, i64 noundef %117, i64 noundef %121) #28
   store i32 1, ptr %122, align 4, !tbaa !21
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 4
   store i32 22, ptr %123, align 4, !tbaa !10
   %124 = getelementptr inbounds nuw i8, ptr %122, i64 8
   store i64 0, ptr %124, align 8, !tbaa !22
-  %125 = mul i64 %.086166, %117
+  %125 = mul i64 %.086167, %117
   %126 = add i64 %119, %125
   br label %135
 
 zend_string_alloc.exit124:                        ; preds = %115
-  %127 = mul i64 %.086166, %117
+  %127 = mul i64 %.086167, %117
   %128 = load i64, ptr %7, align 8, !tbaa !16
   %129 = add i64 %128, %127
   %130 = and i64 %129, -8
@@ -23505,11 +23505,11 @@ zend_string_alloc.exit124:                        ; preds = %115
   br label %135
 
 135:                                              ; preds = %zend_string_alloc.exit124, %118
-  %.sink262 = phi ptr [ %132, %zend_string_alloc.exit124 ], [ %122, %118 ]
+  %.sink263 = phi ptr [ %132, %zend_string_alloc.exit124 ], [ %122, %118 ]
   %.sink = phi i64 [ %129, %zend_string_alloc.exit124 ], [ %126, %118 ]
-  %136 = getelementptr inbounds nuw i8, ptr %.sink262, i64 16
+  %136 = getelementptr inbounds nuw i8, ptr %.sink263, i64 16
   store i64 %.sink, ptr %136, align 8, !tbaa !16
-  %137 = getelementptr inbounds nuw i8, ptr %.sink262, i64 24
+  %137 = getelementptr inbounds nuw i8, ptr %.sink263, i64 24
   %138 = load i64, ptr %7, align 8, !tbaa !16
   %139 = getelementptr inbounds nuw i8, ptr %12, i64 %138
   %140 = ptrtoint ptr %139 to i64
@@ -23549,19 +23549,19 @@ zend_string_alloc.exit124:                        ; preds = %115
 
 159:                                              ; preds = %156
   %160 = load i8, ptr %17, align 1, !tbaa !10
-  %.not.i191 = icmp ugt ptr %.192, %141
-  br i1 %.not.i191, label %zend_memnstr.exit.thread, label %.lr.ph193
+  %.not.i192 = icmp ugt ptr %.192, %141
+  br i1 %.not.i192, label %zend_memnstr.exit.thread, label %.lr.ph194
 
-.lr.ph193:                                        ; preds = %159
+.lr.ph194:                                        ; preds = %159
   %161 = load i8, ptr %1, align 1, !tbaa !10
   %162 = sext i8 %161 to i32
   br label %163
 
-163:                                              ; preds = %.lr.ph193, %173
-  %.038.i192 = phi ptr [ %.192, %.lr.ph193 ], [ %174, %173 ]
-  %164 = ptrtoint ptr %.038.i192 to i64
+163:                                              ; preds = %.lr.ph194, %173
+  %.038.i193 = phi ptr [ %.192, %.lr.ph194 ], [ %174, %173 ]
+  %164 = ptrtoint ptr %.038.i193 to i64
   %165 = sub i64 %143, %164
-  %166 = tail call ptr @memchr(ptr noundef %.038.i192, i32 noundef %162, i64 noundef %165) #30
+  %166 = tail call ptr @memchr(ptr noundef %.038.i193, i32 noundef %162, i64 noundef %165) #30
   %.not43.i = icmp eq ptr %166, null
   br i1 %.not43.i, label %zend_memnstr.exit.thread, label %167
 
@@ -23693,7 +23693,7 @@ zend_string_alloc.exit:                           ; preds = %199
   br label %zend_string_copy.exit
 
 zend_string_copy.exit:                            ; preds = %215, %213, %zend_string_alloc.exit, %196, %.thread147, %.thread, %zend_memnstr.exit120.thread
-  %.2 = phi ptr [ %.082, %zend_memnstr.exit120.thread ], [ %.sink262, %.thread ], [ %0, %.thread147 ], [ %0, %196 ], [ %205, %zend_string_alloc.exit ], [ %214, %213 ], [ %219, %215 ]
+  %.2 = phi ptr [ %.082, %zend_memnstr.exit120.thread ], [ %.sink263, %.thread ], [ %0, %.thread147 ], [ %0, %196 ], [ %205, %zend_string_alloc.exit ], [ %214, %213 ], [ %219, %215 ]
   ret ptr %.2
 }
 

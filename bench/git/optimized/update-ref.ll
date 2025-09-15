@@ -323,17 +323,17 @@ define dso_local i32 @cmd_update_ref(i32 noundef %0, ptr noundef %1, ptr noundef
   %99 = call ptr @get_main_ref_store(ptr noundef %98) #11
   %100 = call ptr @ref_store_transaction_begin(ptr noundef %99, i32 noundef 0, ptr noundef nonnull %6) #11
   %.not.i = icmp eq ptr %100, null
-  br i1 %.not.i, label %106, label %.preheader68.i
+  br i1 %.not.i, label %106, label %.preheader69.i
 
-.preheader68.i:                                   ; preds = %97
+.preheader69.i:                                   ; preds = %97
   %101 = load ptr, ptr @stdin, align 8, !tbaa !25
-  %.b48102.i = load i1, ptr @line_termination, align 1
-  %102 = select i1 %.b48102.i, i32 0, i32 10
+  %.b48103.i = load i1, ptr @line_termination, align 1
+  %102 = select i1 %.b48103.i, i32 0, i32 10
   %103 = call i32 @strbuf_getwholeline(ptr noundef nonnull %5, ptr noundef %101, i32 noundef %102) #11
-  %.not49103.i = icmp eq i32 %103, 0
-  br i1 %.not49103.i, label %.lr.ph106.i, label %._crit_edge.thread.i
+  %.not49104.i = icmp eq i32 %103, 0
+  br i1 %.not49104.i, label %.lr.ph107.i, label %._crit_edge.thread.i
 
-.lr.ph106.i:                                      ; preds = %.preheader68.i
+.lr.ph107.i:                                      ; preds = %.preheader69.i
   %104 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %105 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %109
@@ -344,9 +344,9 @@ define dso_local i32 @cmd_update_ref(i32 noundef %0, ptr noundef %1, ptr noundef
   call void (ptr, ...) @die(ptr noundef nonnull @.str.16, ptr noundef %108) #12
   unreachable
 
-109:                                              ; preds = %161, %.lr.ph106.i
-  %.032105.i = phi i32 [ 0, %.lr.ph106.i ], [ %.1.i, %161 ]
-  %.033104.i = phi ptr [ %100, %.lr.ph106.i ], [ %.134.i, %161 ]
+109:                                              ; preds = %161, %.lr.ph107.i
+  %.032106.i = phi i32 [ 0, %.lr.ph107.i ], [ %.1.i, %161 ]
+  %.033105.i = phi ptr [ %100, %.lr.ph107.i ], [ %.134.i, %161 ]
   %110 = load ptr, ptr %104, align 8, !tbaa !27
   %111 = load i8, ptr %110, align 1, !tbaa !24
   %112 = sext i8 %111 to i32
@@ -365,13 +365,13 @@ define dso_local i32 @cmd_update_ref(i32 noundef %0, ptr noundef %1, ptr noundef
   %119 = load i8, ptr %118, align 1, !tbaa !24
   %120 = and i8 %119, 1
   %.not52.i = icmp eq i8 %120, 0
-  br i1 %.not52.i, label %.preheader67.i, label %121
+  br i1 %.not52.i, label %.preheader68.i, label %121
 
 121:                                              ; preds = %116
   call void (ptr, ...) @die(ptr noundef nonnull @.str.18, ptr noundef nonnull %110) #12
   unreachable
 
-.preheader67.i:                                   ; preds = %116, %.thread.i
+.preheader68.i:                                   ; preds = %116, %.thread.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.thread.i ], [ 0, %116 ]
   %122 = getelementptr inbounds nuw %struct.parse_cmd, ptr @command, i64 %indvars.iv.i
   %123 = load ptr, ptr %122, align 8, !tbaa !29
@@ -380,7 +380,7 @@ define dso_local i32 @cmd_update_ref(i32 noundef %0, ptr noundef %1, ptr noundef
   %.not53.i = icmp eq i32 %125, 0
   br i1 %.not53.i, label %.thread.i, label %126
 
-126:                                              ; preds = %.preheader67.i
+126:                                              ; preds = %.preheader68.i
   %127 = trunc i64 %indvars.iv.i to i32
   %128 = add i32 %127, -9
   %.not54.i = icmp ult i32 %128, 4
@@ -395,10 +395,10 @@ define dso_local i32 @cmd_update_ref(i32 noundef %0, ptr noundef %1, ptr noundef
   %.not55.not.i = icmp eq i32 %135, %133
   br i1 %.not55.not.i, label %.preheader.i, label %.thread.i
 
-.thread.i:                                        ; preds = %126, %.preheader67.i
+.thread.i:                                        ; preds = %126, %.preheader68.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 13
-  br i1 %exitcond.not.i, label %138, label %.preheader67.i, !llvm.loop !31
+  br i1 %exitcond.not.i, label %138, label %.preheader68.i, !llvm.loop !31
 
 .preheader.i:                                     ; preds = %126
   br i1 %.b46.i, label %.lr.ph.i.preheader, label %.critedge.i
@@ -415,13 +415,13 @@ define dso_local i32 @cmd_update_ref(i32 noundef %0, ptr noundef %1, ptr noundef
   unreachable
 
 140:                                              ; preds = %142
-  %141 = add nuw i32 %.03799.i, 1
+  %141 = add nuw i32 %.037100.i, 1
   %.b.i = load i1, ptr @line_termination, align 1
   br i1 %.b.i, label %.lr.ph.i, label %.critedge.i, !llvm.loop !34
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %140
-  %.03799.i = phi i32 [ %141, %140 ], [ 1, %.lr.ph.i.preheader ]
-  %exitcond.not = icmp eq i32 %.03799.i, %umax
+  %.037100.i = phi i32 [ %141, %140 ], [ 1, %.lr.ph.i.preheader ]
+  %exitcond.not = icmp eq i32 %.037100.i, %umax
   br i1 %exitcond.not, label %.critedge.i, label %142
 
 142:                                              ; preds = %.lr.ph.i
@@ -431,7 +431,7 @@ define dso_local i32 @cmd_update_ref(i32 noundef %0, ptr noundef %1, ptr noundef
   br i1 %.not57.i, label %140, label %.critedge.i
 
 .critedge.i:                                      ; preds = %142, %.lr.ph.i, %140, %.preheader.i
-  switch i32 %.032105.i, label %161 [
+  switch i32 %.032106.i, label %161 [
     i32 3, label %152
     i32 2, label %149
     i32 1, label %145
@@ -449,7 +449,7 @@ define dso_local i32 @cmd_update_ref(i32 noundef %0, ptr noundef %1, ptr noundef
 .critedge._crit_edge.i:                           ; preds = %.critedge.i, %145
   %.in = getelementptr inbounds nuw i8, ptr %122, i64 20
   %148 = load i32, ptr %.in, align 4, !tbaa !35
-  %spec.select.i = call i32 @llvm.umax.i32(i32 %148, i32 %.032105.i)
+  %spec.select.i = call i32 @llvm.umax.i32(i32 %148, i32 %.032106.i)
   br label %161
 
 149:                                              ; preds = %.critedge.i
@@ -483,8 +483,8 @@ define dso_local i32 @cmd_update_ref(i32 noundef %0, ptr noundef %1, ptr noundef
   unreachable
 
 161:                                              ; preds = %154, %149, %.critedge._crit_edge.i, %.critedge.i
-  %.134.i = phi ptr [ %.033104.i, %.critedge.i ], [ %157, %154 ], [ %.033104.i, %.critedge._crit_edge.i ], [ %.033104.i, %149 ]
-  %.1.i = phi i32 [ %.032105.i, %.critedge.i ], [ 1, %154 ], [ %spec.select.i, %.critedge._crit_edge.i ], [ 3, %149 ]
+  %.134.i = phi ptr [ %.033105.i, %.critedge.i ], [ %157, %154 ], [ %.033105.i, %.critedge._crit_edge.i ], [ %.033105.i, %149 ]
+  %.1.i = phi i32 [ %.032106.i, %.critedge.i ], [ 1, %154 ], [ %spec.select.i, %.critedge._crit_edge.i ], [ 3, %149 ]
   %162 = getelementptr inbounds nuw i8, ptr %122, i64 8
   %163 = load ptr, ptr %162, align 8, !tbaa !36
   %164 = load ptr, ptr %104, align 8, !tbaa !27
@@ -510,9 +510,9 @@ define dso_local i32 @cmd_update_ref(i32 noundef %0, ptr noundef %1, ptr noundef
     i32 2, label %180
   ]
 
-._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %.preheader68.i
-  %.033.lcssa120.i = phi ptr [ %.134.i, %._crit_edge.i ], [ %100, %.preheader68.i ]
-  %175 = call i32 @ref_transaction_commit(ptr noundef %.033.lcssa120.i, ptr noundef nonnull %6) #11
+._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %.preheader69.i
+  %.033.lcssa121.i = phi ptr [ %.134.i, %._crit_edge.i ], [ %100, %.preheader69.i ]
+  %175 = call i32 @ref_transaction_commit(ptr noundef %.033.lcssa121.i, ptr noundef nonnull %6) #11
   %.not51.i = icmp eq i32 %175, 0
   br i1 %.not51.i, label %179, label %176
 
@@ -523,7 +523,7 @@ define dso_local i32 @cmd_update_ref(i32 noundef %0, ptr noundef %1, ptr noundef
   unreachable
 
 179:                                              ; preds = %._crit_edge.thread.i
-  call void @ref_transaction_free(ptr noundef %.033.lcssa120.i) #11
+  call void @ref_transaction_free(ptr noundef %.033.lcssa121.i) #11
   br label %update_refs_stdin.exit
 
 180:                                              ; preds = %._crit_edge.i, %._crit_edge.i

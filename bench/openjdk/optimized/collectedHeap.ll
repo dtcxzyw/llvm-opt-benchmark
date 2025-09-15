@@ -898,9 +898,9 @@ define hidden void @_ZN13CollectedHeapC2Ev(ptr noundef nonnull align 8 captures(
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %53, ptr %54, align 8
   %55 = load ptr, ptr %48, align 8
-  %.not14 = icmp eq ptr %55, null
+  %.not15 = icmp eq ptr %55, null
   call void @_ZN13ExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #18
-  br i1 %.not14, label %56, label %87
+  br i1 %.not15, label %56, label %87
 
 56:                                               ; preds = %50, %1
   %57 = load i8, ptr @LogEvents, align 1

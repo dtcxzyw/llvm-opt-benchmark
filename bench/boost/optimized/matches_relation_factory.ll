@@ -84608,8 +84608,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost13re_detail_50012perl_ma
   %20 = load ptr, ptr %19, align 8, !tbaa !1336
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %22 = load ptr, ptr %21, align 8, !tbaa !1224
-  %.not16 = icmp eq ptr %20, %22
-  br i1 %.not16, label %196, label %.thread
+  %.not17 = icmp eq ptr %20, %22
+  br i1 %.not17, label %196, label %.thread
 
 .thread:                                          ; preds = %10, %18
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 216
@@ -84883,11 +84883,11 @@ _ZN5boost13re_detail_50014recursion_infoINS_13match_resultsIPKcSaINS_9sub_matchI
   call void @_ZN5boost13re_detail_50012perl_matcherIPKcSaINS_9sub_matchIS3_EEENS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE12extend_stackEv(ptr noundef nonnull align 8 dereferenceable(236) %0)
   %160 = load ptr, ptr %23, align 8, !tbaa !1266
   %161 = getelementptr inbounds i8, ptr %160, i64 -48
-  %.pre19 = load ptr, ptr %150, align 8, !tbaa !1224
+  %.pre20 = load ptr, ptr %150, align 8, !tbaa !1224
   br label %162
 
 162:                                              ; preds = %159, %_ZN5boost13re_detail_50014recursion_infoINS_13match_resultsIPKcSaINS_9sub_matchIS4_EEEEEED2Ev.exit
-  %163 = phi ptr [ %.pre19, %159 ], [ %151, %_ZN5boost13re_detail_50014recursion_infoINS_13match_resultsIPKcSaINS_9sub_matchIS4_EEEEEED2Ev.exit ]
+  %163 = phi ptr [ %.pre20, %159 ], [ %151, %_ZN5boost13re_detail_50014recursion_infoINS_13match_resultsIPKcSaINS_9sub_matchIS4_EEEEEED2Ev.exit ]
   %.0.i6 = phi ptr [ %161, %159 ], [ %156, %_ZN5boost13re_detail_50014recursion_infoINS_13match_resultsIPKcSaINS_9sub_matchIS4_EEEEEED2Ev.exit ]
   %164 = load ptr, ptr %3, align 8, !tbaa !43
   %165 = load ptr, ptr %4, align 8, !tbaa !43
@@ -96097,8 +96097,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost13re_detail_50012perl_ma
   %20 = load ptr, ptr %19, align 8, !tbaa !1497
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %22 = load ptr, ptr %21, align 8, !tbaa !1397
-  %.not16 = icmp eq ptr %20, %22
-  br i1 %.not16, label %196, label %.thread
+  %.not17 = icmp eq ptr %20, %22
+  br i1 %.not17, label %196, label %.thread
 
 .thread:                                          ; preds = %10, %18
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 216
@@ -96372,11 +96372,11 @@ _ZN5boost13re_detail_50014recursion_infoINS_13match_resultsIPKwSaINS_9sub_matchI
   call void @_ZN5boost13re_detail_50012perl_matcherIPKwSaINS_9sub_matchIS3_EEENS_12regex_traitsIwNS_16cpp_regex_traitsIwEEEEE12extend_stackEv(ptr noundef nonnull align 8 dereferenceable(236) %0)
   %160 = load ptr, ptr %23, align 8, !tbaa !1434
   %161 = getelementptr inbounds i8, ptr %160, i64 -48
-  %.pre19 = load ptr, ptr %150, align 8, !tbaa !1397
+  %.pre20 = load ptr, ptr %150, align 8, !tbaa !1397
   br label %162
 
 162:                                              ; preds = %159, %_ZN5boost13re_detail_50014recursion_infoINS_13match_resultsIPKwSaINS_9sub_matchIS4_EEEEEED2Ev.exit
-  %163 = phi ptr [ %.pre19, %159 ], [ %151, %_ZN5boost13re_detail_50014recursion_infoINS_13match_resultsIPKwSaINS_9sub_matchIS4_EEEEEED2Ev.exit ]
+  %163 = phi ptr [ %.pre20, %159 ], [ %151, %_ZN5boost13re_detail_50014recursion_infoINS_13match_resultsIPKwSaINS_9sub_matchIS4_EEEEEED2Ev.exit ]
   %.0.i6 = phi ptr [ %161, %159 ], [ %156, %_ZN5boost13re_detail_50014recursion_infoINS_13match_resultsIPKwSaINS_9sub_matchIS4_EEEEEED2Ev.exit ]
   %164 = load ptr, ptr %3, align 8, !tbaa !43
   %165 = load ptr, ptr %4, align 8, !tbaa !43

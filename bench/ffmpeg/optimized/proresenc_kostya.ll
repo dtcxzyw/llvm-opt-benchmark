@@ -4017,9 +4017,9 @@ put_bits.exit32:                                  ; preds = %47, %69
   br label %put_bits.exit36
 
 put_bits.exit36:                                  ; preds = %87, %92, %76
-  %.sink53 = phi i32 [ -1, %76 ], [ 31, %92 ], [ 31, %87 ]
+  %.sink54 = phi i32 [ -1, %76 ], [ 31, %92 ], [ 31, %87 ]
   %.026.i.i34 = phi i32 [ %77, %76 ], [ 0, %92 ], [ 0, %87 ]
-  %93 = add nsw i32 %74, %.sink53
+  %93 = add nsw i32 %74, %.sink54
   store i32 %.026.i.i34, ptr %0, align 8, !tbaa !112
   store i32 %93, ptr %73, align 4, !tbaa !111
   %94 = tail call i32 @llvm.abs.i32(i32 %spec.select, i1 true)
@@ -4107,9 +4107,9 @@ put_bits.exit40:                                  ; preds = %97, %119
   br label %put_bits.exit44
 
 put_bits.exit44:                                  ; preds = %134, %142, %122
-  %.sink54 = phi i32 [ -1, %122 ], [ 31, %142 ], [ 31, %134 ]
+  %.sink55 = phi i32 [ -1, %122 ], [ 31, %142 ], [ 31, %134 ]
   %.026.i.i42 = phi i32 [ %124, %122 ], [ %.0.lobit, %142 ], [ %.0.lobit, %134 ]
-  %143 = add nsw i32 %.0.i.i39, %.sink54
+  %143 = add nsw i32 %.0.i.i39, %.sink55
   store i32 %.026.i.i42, ptr %0, align 8, !tbaa !112
   store i32 %143, ptr %73, align 4, !tbaa !111
   br label %144

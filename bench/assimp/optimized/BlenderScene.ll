@@ -35559,8 +35559,8 @@ _ZN6Assimp12StreamReaderILb1ELb1EE5GetF8Ev.exit:  ; preds = %90
   br label %common.resume
 
 114:                                              ; preds = %_ZN6Assimp12StreamReaderILb1ELb1EE5GetU2Ev.exit, %_ZN6Assimp12StreamReaderILb1ELb1EE5GetF4Ev.exit, %_ZN6Assimp12StreamReaderILb1ELb1EE5GetF8Ev.exit, %_ZN6Assimp12StreamReaderILb1ELb1EE5GetU1Ev.exit, %_ZN6Assimp12StreamReaderILb1ELb1EE5GetU4Ev.exit
-  %.sink30 = phi i8 [ %46, %_ZN6Assimp12StreamReaderILb1ELb1EE5GetU2Ev.exit ], [ %86, %_ZN6Assimp12StreamReaderILb1ELb1EE5GetF4Ev.exit ], [ %108, %_ZN6Assimp12StreamReaderILb1ELb1EE5GetF8Ev.exit ], [ %64, %_ZN6Assimp12StreamReaderILb1ELb1EE5GetU1Ev.exit ], [ %24, %_ZN6Assimp12StreamReaderILb1ELb1EE5GetU4Ev.exit ]
-  store i8 %.sink30, ptr %0, align 1
+  %.sink31 = phi i8 [ %46, %_ZN6Assimp12StreamReaderILb1ELb1EE5GetU2Ev.exit ], [ %86, %_ZN6Assimp12StreamReaderILb1ELb1EE5GetF4Ev.exit ], [ %108, %_ZN6Assimp12StreamReaderILb1ELb1EE5GetF8Ev.exit ], [ %64, %_ZN6Assimp12StreamReaderILb1ELb1EE5GetU1Ev.exit ], [ %24, %_ZN6Assimp12StreamReaderILb1ELb1EE5GetU4Ev.exit ]
+  store i8 %.sink31, ptr %0, align 1
   ret void
 }
 
@@ -59958,8 +59958,8 @@ _ZN6Assimp12StreamReaderILb1ELb1EE5GetF8Ev.exit:  ; preds = %90
   br label %common.resume
 
 114:                                              ; preds = %_ZN6Assimp12StreamReaderILb1ELb1EE5GetU2Ev.exit, %_ZN6Assimp12StreamReaderILb1ELb1EE5GetF4Ev.exit, %_ZN6Assimp12StreamReaderILb1ELb1EE5GetF8Ev.exit, %_ZN6Assimp12StreamReaderILb1ELb1EE5GetU1Ev.exit, %_ZN6Assimp12StreamReaderILb1ELb1EE5GetU4Ev.exit
-  %.sink30 = phi i8 [ %46, %_ZN6Assimp12StreamReaderILb1ELb1EE5GetU2Ev.exit ], [ %86, %_ZN6Assimp12StreamReaderILb1ELb1EE5GetF4Ev.exit ], [ %108, %_ZN6Assimp12StreamReaderILb1ELb1EE5GetF8Ev.exit ], [ %64, %_ZN6Assimp12StreamReaderILb1ELb1EE5GetU1Ev.exit ], [ %24, %_ZN6Assimp12StreamReaderILb1ELb1EE5GetU4Ev.exit ]
-  store i8 %.sink30, ptr %0, align 1
+  %.sink31 = phi i8 [ %46, %_ZN6Assimp12StreamReaderILb1ELb1EE5GetU2Ev.exit ], [ %86, %_ZN6Assimp12StreamReaderILb1ELb1EE5GetF4Ev.exit ], [ %108, %_ZN6Assimp12StreamReaderILb1ELb1EE5GetF8Ev.exit ], [ %64, %_ZN6Assimp12StreamReaderILb1ELb1EE5GetU1Ev.exit ], [ %24, %_ZN6Assimp12StreamReaderILb1ELb1EE5GetU4Ev.exit ]
+  store i8 %.sink31, ptr %0, align 1
   ret void
 }
 

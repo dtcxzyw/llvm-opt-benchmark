@@ -663,8 +663,8 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit: ; preds = %46, %48
 _ZNK6frozen3mapIN4LIEF2PE4Pogo10SIGNATURESEPKcLm4ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i: ; preds = %55, %54, %53
   %56 = phi i32 [ 1280590663, %53 ], [ 1346849024, %54 ], [ %.pre.i.pre.i.i, %55 ]
   %.0.i.i.i.i14.i.i.idx.i = phi i64 [ 40, %53 ], [ 56, %54 ], [ %.add15.i.i.i, %55 ]
-  %.not19.i.i.i = icmp slt i32 %52, %56
-  br i1 %.not19.i.i.i, label %_ZN4LIEF2PE9to_stringENS0_4Pogo10SIGNATURESE.exit, label %57
+  %.not21.i.i.i = icmp slt i32 %52, %56
+  br i1 %.not21.i.i.i, label %_ZN4LIEF2PE9to_stringENS0_4Pogo10SIGNATURESE.exit, label %57
 
 57:                                               ; preds = %_ZNK6frozen3mapIN4LIEF2PE4Pogo10SIGNATURESEPKcLm4ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i
   %.0.i.i.i.i14.i.i.ptr.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF2PE9to_stringENS0_4Pogo10SIGNATURESE.enums2str, i64 %.0.i.i.i.i14.i.i.idx.i
@@ -927,8 +927,8 @@ define noundef ptr @_ZN4LIEF2PE9to_stringENS0_4Pogo10SIGNATURESE(i32 noundef %0)
 _ZNK6frozen3mapIN4LIEF2PE4Pogo10SIGNATURESEPKcLm4ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit: ; preds = %3, %4, %2
   %5 = phi i32 [ 1280590663, %2 ], [ 1346849024, %3 ], [ %.pre.i.pre.i, %4 ]
   %.0.i.i.i.i14.i.i.idx = phi i64 [ 40, %2 ], [ 56, %3 ], [ %.add15.i.i, %4 ]
-  %.not19.i.i = icmp slt i32 %0, %5
-  br i1 %.not19.i.i, label %_ZNK6frozen3mapIN4LIEF2PE4Pogo10SIGNATURESEPKcLm4ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread, label %6
+  %.not21.i.i = icmp slt i32 %0, %5
+  br i1 %.not21.i.i, label %_ZNK6frozen3mapIN4LIEF2PE4Pogo10SIGNATURESEPKcLm4ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread, label %6
 
 6:                                                ; preds = %_ZNK6frozen3mapIN4LIEF2PE4Pogo10SIGNATURESEPKcLm4ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit
   %.0.i.i.i.i14.i.i.ptr = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF2PE9to_stringENS0_4Pogo10SIGNATURESE.enums2str, i64 %.0.i.i.i.i14.i.i.idx

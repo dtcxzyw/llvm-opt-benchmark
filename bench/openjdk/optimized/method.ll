@@ -5079,9 +5079,9 @@ _ZNK5Klass11java_mirrorEv.exit:                   ; preds = %_ZN12ResourceMarkD2
   %155 = load i8, ptr @UseCompressedClassPointers, align 1
   %156 = trunc i8 %155 to i1
   %..i = select i1 %154, i64 20, i64 24
-  %.8.i = select i1 %154, i64 2, i64 3
+  %.9.i = select i1 %154, i64 2, i64 3
   %157 = select i1 %156, i64 16, i64 %..i
-  %158 = shl nuw nsw i64 %indvars.iv, %.8.i
+  %158 = shl nuw nsw i64 %indvars.iv, %.9.i
   %159 = add nuw nsw i64 %157, %158
   %160 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE1EE14_store_at_funcE, align 8
   call void %160(ptr noundef nonnull align 8 dereferenceable(16) %145, i64 noundef %159, ptr noundef %152) #24

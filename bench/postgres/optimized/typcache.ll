@@ -4438,7 +4438,7 @@ load_typcache_tupdesc.exit:                       ; preds = %15
 .lr.ph:                                           ; preds = %31, %.thread
   %35 = phi i32 [ %61, %.thread ], [ %33, %31 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %.thread ], [ 0, %31 ]
-  %.052 = phi i32 [ %.250, %.thread ], [ 491520, %31 ]
+  %.053 = phi i32 [ %.250, %.thread ], [ 491520, %31 ]
   %36 = sext i32 %35 to i64
   %37 = shl nsw i64 %36, 4
   %38 = getelementptr i8, ptr %32, i64 %37
@@ -4456,8 +4456,8 @@ load_typcache_tupdesc.exit:                       ; preds = %15
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 48
   %49 = load i32, ptr %48, align 8
   %.not = icmp eq i32 %49, 0
-  %50 = and i32 %.052, -32769
-  %spec.select = select i1 %.not, i32 %50, i32 %.052
+  %50 = and i32 %.053, -32769
+  %spec.select = select i1 %.not, i32 %50, i32 %.053
   %51 = getelementptr inbounds nuw i8, ptr %47, i64 60
   %52 = load i32, ptr %51, align 4
   %.not41 = icmp eq i32 %52, 0
@@ -4477,12 +4477,12 @@ load_typcache_tupdesc.exit:                       ; preds = %15
   br i1 %60, label %._crit_edge, label %..thread_crit_edge
 
 ..thread_crit_edge:                               ; preds = %44
-  %.pre56 = load i32, ptr %32, align 8
+  %.pre57 = load i32, ptr %32, align 8
   br label %.thread
 
 .thread:                                          ; preds = %..thread_crit_edge, %.lr.ph
-  %61 = phi i32 [ %.pre56, %..thread_crit_edge ], [ %35, %.lr.ph ]
-  %.250 = phi i32 [ %.6, %..thread_crit_edge ], [ %.052, %.lr.ph ]
+  %61 = phi i32 [ %.pre57, %..thread_crit_edge ], [ %35, %.lr.ph ]
+  %.250 = phi i32 [ %.6, %..thread_crit_edge ], [ %.053, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %62 = sext i32 %61 to i64
   %63 = icmp slt i64 %indvars.iv.next, %62

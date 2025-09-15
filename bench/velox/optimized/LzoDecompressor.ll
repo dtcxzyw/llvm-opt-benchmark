@@ -55,7 +55,7 @@ $_ZTVN8facebook5velox4dwio6common10ParseErrorE = comdat any
 ; Function Attrs: mustprogress uwtable
 define noundef i64 @_ZN8facebook5velox6common11compression13lzoDecompressEPKcS4_PcS5_(ptr noundef %inputAddress, ptr noundef readnone captures(address) %inputLimit, ptr noundef %outputAddress, ptr noundef readnone captures(address) %outputLimit) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
-  %inputLimit361 = ptrtoint ptr %inputLimit to i64
+  %inputLimit362 = ptrtoint ptr %inputLimit to i64
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp179 = alloca %"class.std::__cxx11::basic_string", align 8
   %cmp = icmp eq ptr %inputAddress, %inputLimit
@@ -68,7 +68,7 @@ if.end:                                           ; preds = %entry
 
 while.body3.preheader.lr.ph:                      ; preds = %if.end
   %add.ptr282 = getelementptr inbounds i8, ptr %inputLimit, i64 -8
-  %0 = trunc i64 %inputLimit361 to i32
+  %0 = trunc i64 %inputLimit362 to i32
   %1 = mul i32 %0, 255
   %2 = add i32 %1, -224
   %3 = add i32 %1, -248
@@ -103,7 +103,7 @@ if.end6:                                          ; preds = %if.end6.outer, %if.
   br i1 %cmp7, label %while.end310, label %if.end9
 
 if.end9:                                          ; preds = %if.end6
-  %input.1303362.le = ptrtoint ptr %input.1303 to i64
+  %input.1303363.le = ptrtoint ptr %input.1303 to i64
   %conv.le = zext i8 %6 to i32
   %and10 = and i32 %conv.le, 240
   %cmp11 = icmp eq i32 %and10, 0
@@ -122,12 +122,12 @@ while.cond18.preheader:                           ; preds = %if.then14
   br i1 %cmp19294, label %land.rhs.preheader, label %while.end
 
 land.rhs.preheader:                               ; preds = %while.cond18.preheader
-  %7 = trunc i64 %input.1303362.le to i32
-  %.neg374 = mul i32 %7, -255
-  %8 = add i32 %.neg374, %4
-  %scevgep367 = getelementptr i8, ptr %input.1303, i64 %inputLimit361
-  %9 = sub i64 0, %input.1303362.le
-  %scevgep368 = getelementptr i8, ptr %scevgep367, i64 %9
+  %7 = trunc i64 %input.1303363.le to i32
+  %.neg375 = mul i32 %7, -255
+  %8 = add i32 %.neg375, %4
+  %scevgep368 = getelementptr i8, ptr %input.1303, i64 %inputLimit362
+  %9 = sub i64 0, %input.1303363.le
+  %scevgep369 = getelementptr i8, ptr %scevgep368, i64 %9
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.preheader, %while.body24
@@ -140,8 +140,8 @@ land.rhs:                                         ; preds = %land.rhs.preheader,
 
 while.body24:                                     ; preds = %land.rhs
   %add = add i32 %literalLength.1295, 255
-  %exitcond369.not = icmp eq ptr %incdec.ptr20, %scevgep368
-  br i1 %exitcond369.not, label %while.end, label %land.rhs, !llvm.loop !4
+  %exitcond370.not = icmp eq ptr %incdec.ptr20, %scevgep369
+  br i1 %exitcond370.not, label %while.end, label %land.rhs, !llvm.loop !4
 
 while.end.split.loop.exit289:                     ; preds = %land.rhs
   %conv21.le = zext i8 %10 to i32
@@ -150,7 +150,7 @@ while.end.split.loop.exit289:                     ; preds = %land.rhs
 while.end:                                        ; preds = %while.body24, %while.cond18.preheader, %while.end.split.loop.exit289
   %literalLength.1.lcssa = phi i32 [ %literalLength.1295, %while.end.split.loop.exit289 ], [ 15, %while.cond18.preheader ], [ %8, %while.body24 ]
   %nextByte.1 = phi i32 [ %conv21.le, %while.end.split.loop.exit289 ], [ 0, %while.cond18.preheader ], [ 0, %while.body24 ]
-  %input.4 = phi ptr [ %incdec.ptr20, %while.end.split.loop.exit289 ], [ %incdec.ptr, %while.cond18.preheader ], [ %scevgep368, %while.body24 ]
+  %input.4 = phi ptr [ %incdec.ptr20, %while.end.split.loop.exit289 ], [ %incdec.ptr, %while.cond18.preheader ], [ %scevgep369, %while.body24 ]
   %add25 = add i32 %nextByte.1, %literalLength.1.lcssa
   br label %if.end26
 
@@ -249,12 +249,12 @@ while.cond75.preheader:                           ; preds = %if.then70
   br i1 %cmp76269, label %land.rhs77.preheader, label %while.end85
 
 land.rhs77.preheader:                             ; preds = %while.cond75.preheader
-  %15 = trunc i64 %input.1303362.le to i32
-  %.neg373 = mul i32 %15, -255
-  %16 = add i32 %.neg373, %3
-  %scevgep364 = getelementptr i8, ptr %input.1303, i64 %inputLimit361
-  %17 = sub i64 0, %input.1303362.le
-  %scevgep365 = getelementptr i8, ptr %scevgep364, i64 %17
+  %15 = trunc i64 %input.1303363.le to i32
+  %.neg374 = mul i32 %15, -255
+  %16 = add i32 %.neg374, %3
+  %scevgep365 = getelementptr i8, ptr %input.1303, i64 %inputLimit362
+  %17 = sub i64 0, %input.1303363.le
+  %scevgep366 = getelementptr i8, ptr %scevgep365, i64 %17
   br label %land.rhs77
 
 land.rhs77:                                       ; preds = %land.rhs77.preheader, %while.body83
@@ -267,8 +267,8 @@ land.rhs77:                                       ; preds = %land.rhs77.preheade
 
 while.body83:                                     ; preds = %land.rhs77
   %add84 = add nuw nsw i32 %matchLength.2270, 255
-  %exitcond366.not = icmp eq ptr %incdec.ptr78, %scevgep365
-  br i1 %exitcond366.not, label %while.end85, label %land.rhs77, !llvm.loop !6
+  %exitcond367.not = icmp eq ptr %incdec.ptr78, %scevgep366
+  br i1 %exitcond367.not, label %while.end85, label %land.rhs77, !llvm.loop !6
 
 while.end85.split.loop.exit264:                   ; preds = %land.rhs77
   %conv79.le = zext i8 %18 to i32
@@ -277,7 +277,7 @@ while.end85.split.loop.exit264:                   ; preds = %land.rhs77
 while.end85:                                      ; preds = %while.body83, %while.cond75.preheader, %while.end85.split.loop.exit264
   %matchLength.2.lcssa = phi i32 [ %matchLength.2270, %while.end85.split.loop.exit264 ], [ 7, %while.cond75.preheader ], [ %16, %while.body83 ]
   %nextByte74.1 = phi i32 [ %conv79.le, %while.end85.split.loop.exit264 ], [ 0, %while.cond75.preheader ], [ 0, %while.body83 ]
-  %input.8 = phi ptr [ %incdec.ptr78, %while.end85.split.loop.exit264 ], [ %incdec.ptr, %while.cond75.preheader ], [ %scevgep365, %while.body83 ]
+  %input.8 = phi ptr [ %incdec.ptr78, %while.end85.split.loop.exit264 ], [ %incdec.ptr, %while.cond75.preheader ], [ %scevgep366, %while.body83 ]
   %add86 = add nuw nsw i32 %nextByte74.1, %matchLength.2.lcssa
   br label %if.end87
 
@@ -331,12 +331,12 @@ while.cond119.preheader:                          ; preds = %if.then114
   br i1 %cmp120259, label %land.rhs121.preheader, label %while.end129
 
 land.rhs121.preheader:                            ; preds = %while.cond119.preheader
-  %21 = trunc i64 %input.1303362.le to i32
+  %21 = trunc i64 %input.1303363.le to i32
   %.neg = mul i32 %21, -255
   %22 = add i32 %.neg, %2
-  %scevgep = getelementptr i8, ptr %input.1303, i64 %inputLimit361
-  %23 = sub i64 0, %input.1303362.le
-  %scevgep363 = getelementptr i8, ptr %scevgep, i64 %23
+  %scevgep = getelementptr i8, ptr %input.1303, i64 %inputLimit362
+  %23 = sub i64 0, %input.1303363.le
+  %scevgep364 = getelementptr i8, ptr %scevgep, i64 %23
   br label %land.rhs121
 
 land.rhs121:                                      ; preds = %land.rhs121.preheader, %while.body127
@@ -349,7 +349,7 @@ land.rhs121:                                      ; preds = %land.rhs121.prehead
 
 while.body127:                                    ; preds = %land.rhs121
   %add128 = add nuw nsw i32 %matchLength.4260, 255
-  %exitcond.not = icmp eq ptr %incdec.ptr122, %scevgep363
+  %exitcond.not = icmp eq ptr %incdec.ptr122, %scevgep364
   br i1 %exitcond.not, label %while.end129, label %land.rhs121, !llvm.loop !7
 
 while.end129.split.loop.exit255:                  ; preds = %land.rhs121
@@ -359,7 +359,7 @@ while.end129.split.loop.exit255:                  ; preds = %land.rhs121
 while.end129:                                     ; preds = %while.body127, %while.cond119.preheader, %while.end129.split.loop.exit255
   %matchLength.4.lcssa = phi i32 [ %matchLength.4260, %while.end129.split.loop.exit255 ], [ 31, %while.cond119.preheader ], [ %22, %while.body127 ]
   %nextByte118.1 = phi i32 [ %conv123.le, %while.end129.split.loop.exit255 ], [ 0, %while.cond119.preheader ], [ 0, %while.body127 ]
-  %input.11 = phi ptr [ %incdec.ptr122, %while.end129.split.loop.exit255 ], [ %incdec.ptr, %while.cond119.preheader ], [ %scevgep363, %while.body127 ]
+  %input.11 = phi ptr [ %incdec.ptr122, %while.end129.split.loop.exit255 ], [ %incdec.ptr, %while.cond119.preheader ], [ %scevgep364, %while.body127 ]
   %add130 = add nuw nsw i32 %nextByte118.1, %matchLength.4.lcssa
   br label %if.end131
 

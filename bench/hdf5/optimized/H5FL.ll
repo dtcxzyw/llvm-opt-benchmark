@@ -1538,11 +1538,11 @@ define noalias noundef ptr @H5FL_arr_free(ptr noundef captures(none) %0, ptr nou
   %.pre38.i = load ptr, ptr %10, align 8, !tbaa !51
   %.pre39.pre.i = load i32, ptr %34, align 8, !tbaa !113
   %.pre = load i64, ptr %22, align 8, !tbaa !111
-  %.pre21 = load i64, ptr @H5FL_arr_gc_head.0, align 8, !tbaa !112
+  %.pre22 = load i64, ptr @H5FL_arr_gc_head.0, align 8, !tbaa !112
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %46
-  %50 = phi i64 [ %.pre21, %._crit_edge.loopexit.i ], [ %38, %46 ]
+  %50 = phi i64 [ %.pre22, %._crit_edge.loopexit.i ], [ %38, %46 ]
   %51 = phi i64 [ %.pre, %._crit_edge.loopexit.i ], [ %39, %46 ]
   %.pre39.i = phi i32 [ %.pre39.pre.i, %._crit_edge.loopexit.i ], [ %.pre3940.i, %46 ]
   %52 = phi ptr [ %.pre38.i, %._crit_edge.loopexit.i ], [ %41, %46 ]

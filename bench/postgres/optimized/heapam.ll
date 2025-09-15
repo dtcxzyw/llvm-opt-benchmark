@@ -12651,24 +12651,24 @@ define internal fastcc noundef zeroext i1 @Do_MultiXactIdWait(i32 noundef %0, i3
   br i1 %20, label %.preheader, label %.thread
 
 .preheader:                                       ; preds = %12
-  %.not67 = icmp eq i32 %19, 0
-  br i1 %.not67, label %._crit_edge, label %.lr.ph
+  %.not68 = icmp eq i32 %19, 0
+  br i1 %.not68, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %21 = zext nneg i32 %1 to i64
   %22 = getelementptr inbounds nuw i32, ptr @MultiXactStatusLock, i64 %21
   %.not = icmp eq ptr %7, null
-  %wide.trip.count87 = zext nneg i32 %19 to i64
+  %wide.trip.count88 = zext nneg i32 %19 to i64
   br i1 %3, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
   br i1 %.not, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %.thread38.us.us
-  %indvars.iv84 = phi i64 [ %indvars.iv.next85, %.thread38.us.us ], [ 0, %.lr.ph.split.us ]
-  %.12947.us.us = phi i32 [ %.33144.us.us, %.thread38.us.us ], [ 0, %.lr.ph.split.us ]
+  %indvars.iv85 = phi i64 [ %indvars.iv.next86, %.thread38.us.us ], [ 0, %.lr.ph.split.us ]
+  %.12948.us.us = phi i32 [ %.33144.us.us, %.thread38.us.us ], [ 0, %.lr.ph.split.us ]
   %23 = load ptr, ptr %9, align 8
-  %24 = getelementptr inbounds nuw %struct.MultiXactMember, ptr %23, i64 %indvars.iv84
+  %24 = getelementptr inbounds nuw %struct.MultiXactMember, ptr %23, i64 %indvars.iv85
   %25 = load i32, ptr %24, align 4
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 4
   %27 = load i32, ptr %26, align 4
@@ -12694,20 +12694,20 @@ define internal fastcc noundef zeroext i1 @Do_MultiXactIdWait(i32 noundef %0, i3
   br i1 %42, label %.thread38.us.us, label %._crit_edge
 
 43:                                               ; preds = %.lr.ph.split.us.split.us
-  %44 = add i32 %.12947.us.us, 1
+  %44 = add i32 %.12948.us.us, 1
   br label %.thread38.us.us
 
 .thread38.us.us:                                  ; preds = %29, %43, %41
-  %.33144.us.us = phi i32 [ %.12947.us.us, %41 ], [ %44, %43 ], [ %.12947.us.us, %29 ]
-  %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
-  %exitcond88.not = icmp eq i64 %indvars.iv.next85, %wide.trip.count87
-  br i1 %exitcond88.not, label %._crit_edge, label %.lr.ph.split.us.split.us, !llvm.loop !45
+  %.33144.us.us = phi i32 [ %.12948.us.us, %41 ], [ %44, %43 ], [ %.12948.us.us, %29 ]
+  %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
+  %exitcond89.not = icmp eq i64 %indvars.iv.next86, %wide.trip.count88
+  br i1 %exitcond89.not, label %._crit_edge, label %.lr.ph.split.us.split.us, !llvm.loop !45
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %.thread38.us
-  %indvars.iv79 = phi i64 [ %indvars.iv.next80, %.thread38.us ], [ 0, %.lr.ph.split.us ]
-  %.12947.us = phi i32 [ %.33144.us, %.thread38.us ], [ 0, %.lr.ph.split.us ]
+  %indvars.iv80 = phi i64 [ %indvars.iv.next81, %.thread38.us ], [ 0, %.lr.ph.split.us ]
+  %.12948.us = phi i32 [ %.33144.us, %.thread38.us ], [ 0, %.lr.ph.split.us ]
   %45 = load ptr, ptr %9, align 8
-  %46 = getelementptr inbounds nuw %struct.MultiXactMember, ptr %45, i64 %indvars.iv79
+  %46 = getelementptr inbounds nuw %struct.MultiXactMember, ptr %45, i64 %indvars.iv80
   %47 = load i32, ptr %46, align 4
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 4
   %49 = load i32, ptr %48, align 4
@@ -12731,7 +12731,7 @@ define internal fastcc noundef zeroext i1 @Do_MultiXactIdWait(i32 noundef %0, i3
 63:                                               ; preds = %51
   %64 = call zeroext i1 @TransactionIdIsInProgress(i32 noundef %47) #13
   %65 = zext i1 %64 to i32
-  %spec.select.us = add i32 %.12947.us, %65
+  %spec.select.us = add i32 %.12948.us, %65
   br label %.thread38.us
 
 66:                                               ; preds = %51
@@ -12739,23 +12739,23 @@ define internal fastcc noundef zeroext i1 @Do_MultiXactIdWait(i32 noundef %0, i3
   br i1 %67, label %.thread38.us, label %._crit_edge
 
 68:                                               ; preds = %.lr.ph.split.us.split
-  %69 = add i32 %.12947.us, 1
+  %69 = add i32 %.12948.us, 1
   br label %.thread38.us
 
 .thread38.us:                                     ; preds = %68, %66, %63
-  %.33144.us = phi i32 [ %.12947.us, %66 ], [ %69, %68 ], [ %spec.select.us, %63 ]
-  %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
-  %exitcond83.not = icmp eq i64 %indvars.iv.next80, %wide.trip.count87
-  br i1 %exitcond83.not, label %._crit_edge, label %.lr.ph.split.us.split, !llvm.loop !45
+  %.33144.us = phi i32 [ %.12948.us, %66 ], [ %69, %68 ], [ %spec.select.us, %63 ]
+  %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
+  %exitcond84.not = icmp eq i64 %indvars.iv.next81, %wide.trip.count88
+  br i1 %exitcond84.not, label %._crit_edge, label %.lr.ph.split.us.split, !llvm.loop !45
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %.not, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
-.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %.thread38.us58
-  %indvars.iv74 = phi i64 [ %indvars.iv.next75, %.thread38.us58 ], [ 0, %.lr.ph.split ]
-  %.12947.us56 = phi i32 [ %.33144.us59, %.thread38.us58 ], [ 0, %.lr.ph.split ]
+.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %.thread38.us59
+  %indvars.iv75 = phi i64 [ %indvars.iv.next76, %.thread38.us59 ], [ 0, %.lr.ph.split ]
+  %.12948.us57 = phi i32 [ %.33144.us60, %.thread38.us59 ], [ 0, %.lr.ph.split ]
   %70 = load ptr, ptr %9, align 8
-  %71 = getelementptr inbounds nuw %struct.MultiXactMember, ptr %70, i64 %indvars.iv74
+  %71 = getelementptr inbounds nuw %struct.MultiXactMember, ptr %70, i64 %indvars.iv75
   %72 = load i32, ptr %71, align 4
   %73 = getelementptr inbounds nuw i8, ptr %71, i64 4
   %74 = load i32, ptr %73, align 4
@@ -12774,25 +12774,25 @@ define internal fastcc noundef zeroext i1 @Do_MultiXactIdWait(i32 noundef %0, i3
   %85 = getelementptr inbounds %struct.anon.3, ptr @tupleLockExtraInfo, i64 %84
   %86 = load i32, ptr %85, align 4
   %87 = call zeroext i1 @DoLockModesConflict(i32 noundef %82, i32 noundef %86) #13
-  br i1 %87, label %88, label %.thread38.us58
+  br i1 %87, label %88, label %.thread38.us59
 
 88:                                               ; preds = %76
   call void @XactLockTableWait(i32 noundef %72, ptr noundef %4, ptr noundef %5, i32 noundef %6) #13
-  br label %.thread38.us58
+  br label %.thread38.us59
 
 89:                                               ; preds = %.lr.ph.split.split.us
-  %90 = add i32 %.12947.us56, 1
-  br label %.thread38.us58
+  %90 = add i32 %.12948.us57, 1
+  br label %.thread38.us59
 
-.thread38.us58:                                   ; preds = %76, %89, %88
-  %.33144.us59 = phi i32 [ %90, %89 ], [ %.12947.us56, %88 ], [ %.12947.us56, %76 ]
-  %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
-  %exitcond78.not = icmp eq i64 %indvars.iv.next75, %wide.trip.count87
-  br i1 %exitcond78.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !45
+.thread38.us59:                                   ; preds = %76, %89, %88
+  %.33144.us60 = phi i32 [ %90, %89 ], [ %.12948.us57, %88 ], [ %.12948.us57, %76 ]
+  %indvars.iv.next76 = add nuw nsw i64 %indvars.iv75, 1
+  %exitcond79.not = icmp eq i64 %indvars.iv.next76, %wide.trip.count88
+  br i1 %exitcond79.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !45
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %.thread38
   %indvars.iv = phi i64 [ %indvars.iv.next, %.thread38 ], [ 0, %.lr.ph.split ]
-  %.12947 = phi i32 [ %.33144, %.thread38 ], [ 0, %.lr.ph.split ]
+  %.12948 = phi i32 [ %.33144, %.thread38 ], [ 0, %.lr.ph.split ]
   %91 = load ptr, ptr %9, align 8
   %92 = getelementptr inbounds nuw %struct.MultiXactMember, ptr %91, i64 %indvars.iv
   %93 = load i32, ptr %92, align 4
@@ -12802,7 +12802,7 @@ define internal fastcc noundef zeroext i1 @Do_MultiXactIdWait(i32 noundef %0, i3
   br i1 %96, label %97, label %99
 
 97:                                               ; preds = %.lr.ph.split.split
-  %98 = add i32 %.12947, 1
+  %98 = add i32 %.12948, 1
   br label %.thread38
 
 99:                                               ; preds = %.lr.ph.split.split
@@ -12822,7 +12822,7 @@ define internal fastcc noundef zeroext i1 @Do_MultiXactIdWait(i32 noundef %0, i3
 111:                                              ; preds = %99
   %112 = call zeroext i1 @TransactionIdIsInProgress(i32 noundef %93) #13
   %113 = zext i1 %112 to i32
-  %spec.select = add i32 %.12947, %113
+  %spec.select = add i32 %.12948, %113
   br label %.thread38
 
 114:                                              ; preds = %99
@@ -12830,14 +12830,14 @@ define internal fastcc noundef zeroext i1 @Do_MultiXactIdWait(i32 noundef %0, i3
   br label %.thread38
 
 .thread38:                                        ; preds = %114, %111, %97
-  %.33144 = phi i32 [ %98, %97 ], [ %spec.select, %111 ], [ %.12947, %114 ]
+  %.33144 = phi i32 [ %98, %97 ], [ %spec.select, %111 ], [ %.12948, %114 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count87
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count88
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !45
 
-._crit_edge:                                      ; preds = %.thread38, %.thread38.us58, %.thread38.us, %66, %.thread38.us.us, %41, %.preheader
-  %.129.lcssa = phi i32 [ 0, %.preheader ], [ %.12947.us.us, %41 ], [ %.33144.us.us, %.thread38.us.us ], [ %.12947.us, %66 ], [ %.33144.us, %.thread38.us ], [ %.33144.us59, %.thread38.us58 ], [ %.33144, %.thread38 ]
-  %.2 = phi i1 [ true, %.preheader ], [ false, %41 ], [ true, %.thread38.us.us ], [ false, %66 ], [ true, %.thread38.us ], [ true, %.thread38.us58 ], [ true, %.thread38 ]
+._crit_edge:                                      ; preds = %.thread38, %.thread38.us59, %.thread38.us, %66, %.thread38.us.us, %41, %.preheader
+  %.129.lcssa = phi i32 [ 0, %.preheader ], [ %.12948.us.us, %41 ], [ %.33144.us.us, %.thread38.us.us ], [ %.12948.us, %66 ], [ %.33144.us, %.thread38.us ], [ %.33144.us60, %.thread38.us59 ], [ %.33144, %.thread38 ]
+  %.2 = phi i1 [ true, %.preheader ], [ false, %41 ], [ true, %.thread38.us.us ], [ false, %66 ], [ true, %.thread38.us ], [ true, %.thread38.us59 ], [ true, %.thread38 ]
   %115 = load ptr, ptr %9, align 8
   call void @pfree(ptr noundef %115) #13
   br label %.thread

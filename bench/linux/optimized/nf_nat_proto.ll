@@ -1148,8 +1148,8 @@ define internal i32 @nf_nat_ipv4_out(ptr noundef %0, ptr noundef %1, ptr noundef
   %.offs = select i1 %42, i64 16, i64 72
   %44 = getelementptr i8, ptr %43, i64 %.offs
   %45 = load i32, ptr %44, align 8
-  %.offs3 = select i1 %42, i64 92, i64 36
-  %46 = getelementptr i8, ptr %43, i64 %.offs3
+  %.offs4 = select i1 %42, i64 92, i64 36
+  %46 = getelementptr i8, ptr %43, i64 %.offs4
   %47 = load i32, ptr %46, align 4
   %48 = icmp eq i32 %45, %47
   br i1 %48, label %49, label %59
@@ -1228,12 +1228,12 @@ define internal i32 @nf_nat_ipv4_local_fn(ptr noundef %0, ptr noundef %1, ptr no
 
 .thread:                                          ; preds = %28
   %.pre = load i64, ptr %4, align 8
-  %.pre3 = and i64 %.pre, -8
-  %31 = icmp eq i64 %.pre3, 0
+  %.pre6 = and i64 %.pre, -8
+  %31 = icmp eq i64 %.pre6, 0
   br i1 %31, label %.thread.thread, label %32
 
 32:                                               ; preds = %.thread
-  %33 = inttoptr i64 %.pre3 to ptr
+  %33 = inttoptr i64 %.pre6 to ptr
   %34 = and i64 %.pre, 7
   %35 = icmp samesign ult i64 %34, 3
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 16
@@ -1769,8 +1769,8 @@ nf_nat_ipv6_fn.exit:                              ; preds = %28, %32
   %49 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %.offs = select i1 %48, i64 16, i64 72
   %50 = getelementptr i8, ptr %49, i64 %.offs
-  %.offs3 = select i1 %48, i64 92, i64 36
-  %51 = getelementptr i8, ptr %49, i64 %.offs3
+  %.offs4 = select i1 %48, i64 92, i64 36
+  %51 = getelementptr i8, ptr %49, i64 %.offs4
   %52 = load i64, ptr %50, align 8
   %53 = load i64, ptr %51, align 8
   %54 = getelementptr i8, ptr %50, i64 8
@@ -1874,12 +1874,12 @@ nf_nat_ipv6_fn.exit:                              ; preds = %28, %32
 
 36:                                               ; preds = %nf_nat_ipv6_fn.exit
   %.pre = load i64, ptr %6, align 8
-  %.pre3 = and i64 %.pre, -8
-  %37 = icmp eq i64 %.pre3, 0
+  %.pre6 = and i64 %.pre, -8
+  %37 = icmp eq i64 %.pre6, 0
   br i1 %37, label %85, label %38
 
 38:                                               ; preds = %36
-  %39 = inttoptr i64 %.pre3 to ptr
+  %39 = inttoptr i64 %.pre6 to ptr
   %40 = and i64 %.pre, 7
   %41 = icmp samesign ult i64 %40, 3
   %42 = getelementptr inbounds nuw i8, ptr %39, i64 16

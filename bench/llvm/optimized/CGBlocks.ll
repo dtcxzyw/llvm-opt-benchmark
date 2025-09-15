@@ -13510,7 +13510,7 @@ _ZNK5clang8QualType12isObjCGCWeakEv.exit.i47:     ; preds = %95
   %.0.copyload.i.i.i.i.i.i28.i = load i64, ptr %137, align 8
   %138 = and i64 %.0.copyload.i.i.i.i.i.i28.i, 8
   %.not.i.i.i40 = icmp eq i64 %138, 0
-  br i1 %.not.i.i.i40, label %.critedge26.i, label %_ZNK5clang8QualType13getQualifiersEv.exit.i41
+  br i1 %.not.i.i.i40, label %.critedge29.i, label %_ZNK5clang8QualType13getQualifiersEv.exit.i41
 
 _ZNK5clang8QualType13getQualifiersEv.exit.i41:    ; preds = %136
   %139 = and i64 %.0.copyload.i.i.i.i.i.i28.i, -16
@@ -13519,16 +13519,16 @@ _ZNK5clang8QualType13getQualifiersEv.exit.i41:    ; preds = %136
   %.sroa.0.0.copyload.i.i.i.i42 = load i64, ptr %141, align 8, !tbaa !8
   %142 = and i64 %.sroa.0.0.copyload.i.i.i.i42, 448
   %143 = icmp eq i64 %142, 0
-  br i1 %143, label %.critedge26.i, label %_ZL33computeDestroyInfoForBlockCaptureRKN5clang9BlockDecl7CaptureENS_8QualTypeERKNS_11LangOptionsE.exit
+  br i1 %143, label %.critedge29.i, label %_ZL33computeDestroyInfoForBlockCaptureRKN5clang9BlockDecl7CaptureENS_8QualTypeERKNS_11LangOptionsE.exit
 
-.critedge26.i:                                    ; preds = %_ZNK5clang8QualType13getQualifiersEv.exit.i41, %136
+.critedge29.i:                                    ; preds = %_ZNK5clang8QualType13getQualifiersEv.exit.i41, %136
   %144 = getelementptr inbounds nuw i8, ptr %.152.val, i64 104
   %145 = load i64, ptr %144, align 8
   %146 = and i64 %145, 67108864
   %.not.i43 = icmp eq i64 %146, 0
   br i1 %.not.i43, label %147, label %_ZL33computeDestroyInfoForBlockCaptureRKN5clang9BlockDecl7CaptureENS_8QualTypeERKNS_11LangOptionsE.exit
 
-147:                                              ; preds = %.critedge26.i
+147:                                              ; preds = %.critedge29.i
   %148 = load ptr, ptr %133, align 16, !tbaa !1004
   %149 = call noundef zeroext i1 @_ZNK5clang4Type7hasAttrENS_4attr4KindE(ptr noundef nonnull align 16 dereferenceable(24) %148, i32 noundef 23) #30
   br i1 %149, label %_ZL33computeDestroyInfoForBlockCaptureRKN5clang9BlockDecl7CaptureENS_8QualTypeERKNS_11LangOptionsE.exit, label %150
@@ -13549,8 +13549,8 @@ _ZNK5clang8QualType13getQualifiersEv.exit.i41:    ; preds = %136
 159:                                              ; preds = %106
   unreachable
 
-_ZL33computeDestroyInfoForBlockCaptureRKN5clang9BlockDecl7CaptureENS_8QualTypeERKNS_11LangOptionsE.exit: ; preds = %95, %_ZNK5clang8QualType12isObjCGCWeakEv.exit.i47, %106, %108, %119, %130, %131, %_ZNK5clang8QualType13getQualifiersEv.exit.i41, %.critedge26.i, %147, %150
-  %.sroa.07.0.i = phi i64 [ %.sroa.0.0.insert.insert.i16.i, %108 ], [ %.sroa.0.0.insert.insert.i22.i44, %119 ], [ 4, %130 ], [ %.sroa.0.0.insert.insert.i35.i, %150 ], [ 1, %106 ], [ 0, %.critedge26.i ], [ 0, %_ZNK5clang8QualType13getQualifiersEv.exit.i41 ], [ 0, %131 ], [ 0, %147 ], [ 34359738373, %95 ], [ %105, %_ZNK5clang8QualType12isObjCGCWeakEv.exit.i47 ]
+_ZL33computeDestroyInfoForBlockCaptureRKN5clang9BlockDecl7CaptureENS_8QualTypeERKNS_11LangOptionsE.exit: ; preds = %95, %_ZNK5clang8QualType12isObjCGCWeakEv.exit.i47, %106, %108, %119, %130, %131, %_ZNK5clang8QualType13getQualifiersEv.exit.i41, %.critedge29.i, %147, %150
+  %.sroa.07.0.i = phi i64 [ %.sroa.0.0.insert.insert.i16.i, %108 ], [ %.sroa.0.0.insert.insert.i22.i44, %119 ], [ 4, %130 ], [ %.sroa.0.0.insert.insert.i35.i, %150 ], [ 1, %106 ], [ 0, %.critedge29.i ], [ 0, %_ZNK5clang8QualType13getQualifiersEv.exit.i41 ], [ 0, %131 ], [ 0, %147 ], [ 34359738373, %95 ], [ %105, %_ZNK5clang8QualType12isObjCGCWeakEv.exit.i47 ]
   %.sroa.01.0.extract.trunc = trunc i64 %.sroa.07.0.i to i32
   %.sroa.42.0.extract.shift = lshr i64 %.sroa.07.0.i, 32
   %.sroa.42.0.extract.trunc = trunc nuw nsw i64 %.sroa.42.0.extract.shift to i32

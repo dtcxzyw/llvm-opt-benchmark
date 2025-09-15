@@ -823,8 +823,8 @@ sub_0109.lr.ph:                                   ; preds = %117, %.outer
 sub_0109:                                         ; preds = %sub_0109.lr.ph, %125
   %120 = phi ptr [ %119, %sub_0109.lr.ph ], [ %127, %125 ]
   %121 = load i8, ptr %120, align 1
-  %.not119 = icmp eq i8 %121, 45
-  br i1 %.not119, label %.tail108, label %.outer
+  %.not120 = icmp eq i8 %121, 45
+  br i1 %.not120, label %.tail108, label %.outer
 
 .tail108:                                         ; preds = %sub_0109
   %122 = getelementptr inbounds nuw i8, ptr %120, i64 1
@@ -858,9 +858,9 @@ sub_0109:                                         ; preds = %sub_0109.lr.ph, %12
 
 .loopexit.thread:                                 ; preds = %117, %.loopexit
   %133 = phi i32 [ %spec.select, %.loopexit ], [ 0, %117 ]
-  %.not93136.in = load i32, ptr %1, align 4, !tbaa !31
-  %.not93136 = icmp eq i32 %.not93136.in, 0
-  %134 = select i1 %.not93136, i32 %133, i32 1
+  %.not93137.in = load i32, ptr %1, align 4, !tbaa !31
+  %.not93137 = icmp eq i32 %.not93137.in, 0
+  %134 = select i1 %.not93137, i32 %133, i32 1
   br label %.thread
 
 .thread:                                          ; preds = %9, %11, %98, %.loopexit.thread

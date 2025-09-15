@@ -7943,9 +7943,9 @@ define internal fastcc range(i32 -1, 1) i32 @ct_eval_in_array(ptr noundef nonnul
 13:                                               ; preds = %8
   %14 = load ptr, ptr %2, align 8, !tbaa !41
   %15 = tail call ptr @zend_hash_find(ptr noundef %9, ptr noundef %14) #13
-  %.fr52 = freeze ptr %15
-  %.not53 = icmp eq ptr %.fr52, null
-  br i1 %.not53, label %.thread43, label %52
+  %.fr53 = freeze ptr %15
+  %.not54 = icmp eq ptr %.fr53, null
+  br i1 %.not54, label %.thread43, label %52
 
 16:                                               ; preds = %8
   %.not34 = icmp eq i32 %1, 0
@@ -7969,9 +7969,9 @@ define internal fastcc range(i32 -1, 1) i32 @ct_eval_in_array(ptr noundef nonnul
 24:                                               ; preds = %22
   %25 = load ptr, ptr @zend_empty_string, align 8, !tbaa !154
   %26 = tail call ptr @zend_hash_find(ptr noundef %9, ptr noundef %25) #13
-  %.fr50 = freeze ptr %26
-  %.not51 = icmp eq ptr %.fr50, null
-  br i1 %.not51, label %.thread43, label %52
+  %.fr51 = freeze ptr %26
+  %.not52 = icmp eq ptr %.fr51, null
+  br i1 %.not52, label %.thread43, label %52
 
 27:                                               ; preds = %22
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -7987,8 +7987,8 @@ define internal fastcc range(i32 -1, 1) i32 @ct_eval_in_array(ptr noundef nonnul
   %36 = and i32 %35, 4
   %.not35 = icmp eq i32 %36, 0
   tail call void @llvm.assume(i1 %.not35)
-  %.not3654 = icmp eq i32 %31, 0
-  br i1 %.not3654, label %._crit_edge.thread, label %.lr.ph
+  %.not3655 = icmp eq i32 %31, 0
+  br i1 %.not3655, label %._crit_edge.thread, label %.lr.ph
 
 ._crit_edge.thread:                               ; preds = %27
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -7999,14 +7999,14 @@ define internal fastcc range(i32 -1, 1) i32 @ct_eval_in_array(ptr noundef nonnul
   br label %38
 
 38:                                               ; preds = %.lr.ph, %.thread
-  %.03355 = phi ptr [ %29, %.lr.ph ], [ %51, %.thread ]
-  %39 = getelementptr inbounds nuw i8, ptr %.03355, i64 8
+  %.03356 = phi ptr [ %29, %.lr.ph ], [ %51, %.thread ]
+  %39 = getelementptr inbounds nuw i8, ptr %.03356, i64 8
   %40 = load i8, ptr %39, align 8, !tbaa !41
   %41 = icmp eq i8 %40, 0
   br i1 %41, label %.thread, label %42, !prof !37
 
 42:                                               ; preds = %38
-  %43 = getelementptr inbounds nuw i8, ptr %.03355, i64 24
+  %43 = getelementptr inbounds nuw i8, ptr %.03356, i64 24
   %44 = load ptr, ptr %43, align 8, !tbaa !159
   store ptr %44, ptr %5, align 8, !tbaa !41
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 4
@@ -8020,7 +8020,7 @@ define internal fastcc range(i32 -1, 1) i32 @ct_eval_in_array(ptr noundef nonnul
   br i1 %50, label %.critedge, label %.thread
 
 .thread:                                          ; preds = %38, %42
-  %51 = getelementptr inbounds nuw i8, ptr %.03355, i64 32
+  %51 = getelementptr inbounds nuw i8, ptr %.03356, i64 32
   %.not36 = icmp eq ptr %51, %33
   br i1 %.not36, label %._crit_edge, label %38
 

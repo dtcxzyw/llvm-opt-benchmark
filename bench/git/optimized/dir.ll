@@ -495,8 +495,8 @@ define internal fastcc i64 @common_prefix_len(ptr noundef readonly captures(none
 
 10:                                               ; preds = %.lr.ph, %.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.thread ]
-  %.04057 = phi i64 [ 0, %.lr.ph ], [ %.24256, %.thread ]
-  %11 = freeze i64 %.04057
+  %.04058 = phi i64 [ 0, %.lr.ph ], [ %.24256, %.thread ]
+  %11 = freeze i64 %.04058
   %12 = getelementptr inbounds nuw %struct.pathspec_item, ptr %8, i64 %indvars.iv
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load i32, ptr %13, align 8, !tbaa !12
@@ -521,8 +521,8 @@ define internal fastcc i64 @common_prefix_len(ptr noundef readonly captures(none
 .split.us:                                        ; preds = %16, %19
   %.038.us = phi i64 [ %27, %19 ], [ 0, %16 ]
   %.036.us = phi i64 [ %spec.select.us, %19 ], [ 0, %16 ]
-  %exitcond63.not = icmp eq i64 %.038.us, %.035
-  br i1 %exitcond63.not, label %.critedge, label %19
+  %exitcond64.not = icmp eq i64 %.038.us, %.035
+  br i1 %exitcond64.not, label %.critedge, label %19
 
 19:                                               ; preds = %.split.us
   %20 = load ptr, ptr %12, align 8, !tbaa !22
@@ -569,8 +569,8 @@ define internal fastcc i64 @common_prefix_len(ptr noundef readonly captures(none
 .thread:                                          ; preds = %.critedge, %10, %38
   %.24256 = phi i64 [ %.us-phi, %38 ], [ %11, %10 ], [ %11, %.critedge ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond65.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond65.not, label %._crit_edge, label %10, !llvm.loop !25
+  %exitcond66.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond66.not, label %._crit_edge, label %10, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %.thread, %38, %.preheader
   %.141 = phi i64 [ 0, %.preheader ], [ 0, %38 ], [ %.24256, %.thread ]

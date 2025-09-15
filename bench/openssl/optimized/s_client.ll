@@ -7309,7 +7309,7 @@ declare i32 @ASN1_get_object(ptr noundef, ptr noundef, ptr noundef, ptr noundef,
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 5) i32 @user_data_execute(ptr noundef nonnull captures(none) %0, i32 noundef range(i32 0, 6) %1, ptr noundef %2) unnamed_addr #0 {
-  switch i32 %1, label %default.unreachable24 [
+  switch i32 %1, label %default.unreachable25 [
     i32 0, label %4
     i32 1, label %42
     i32 2, label %45
@@ -7424,7 +7424,7 @@ define internal fastcc range(i32 0, 5) i32 @user_data_execute(ptr noundef nonnul
   store i32 1, ptr %73, align 4, !tbaa !67
   br label %.thread
 
-default.unreachable24:                            ; preds = %3
+default.unreachable25:                            ; preds = %3
   unreachable
 
 74:                                               ; preds = %64, %69, %53

@@ -761,9 +761,9 @@ define hidden void @_ZN10JfrJavaLog9log_eventEP7JNIEnv_iP13_jobjectArraybP10Java
   %36 = load i8, ptr @UseCompressedClassPointers, align 1
   %37 = trunc i8 %36 to i1
   %..i.us = select i1 %35, i64 20, i64 24
-  %.7.i.us = select i1 %35, i64 2, i64 3
+  %.8.i.us = select i1 %35, i64 2, i64 3
   %38 = select i1 %37, i64 16, i64 %..i.us
-  %39 = shl nuw nsw i64 %indvars.iv29, %.7.i.us
+  %39 = shl nuw nsw i64 %indvars.iv29, %.8.i.us
   %40 = add nuw nsw i64 %38, %39
   %41 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
   %42 = call noundef ptr %41(ptr noundef nonnull align 8 dereferenceable(16) %13, i64 noundef %40) #6
@@ -784,9 +784,9 @@ define hidden void @_ZN10JfrJavaLog9log_eventEP7JNIEnv_iP13_jobjectArraybP10Java
   %48 = load i8, ptr @UseCompressedClassPointers, align 1
   %49 = trunc i8 %48 to i1
   %..i = select i1 %47, i64 20, i64 24
-  %.7.i = select i1 %47, i64 2, i64 3
+  %.8.i = select i1 %47, i64 2, i64 3
   %50 = select i1 %49, i64 16, i64 %..i
-  %51 = shl nuw nsw i64 %indvars.iv, %.7.i
+  %51 = shl nuw nsw i64 %indvars.iv, %.8.i
   %52 = add nuw nsw i64 %50, %51
   %53 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
   %54 = call noundef ptr %53(ptr noundef nonnull align 8 dereferenceable(16) %13, i64 noundef %52) #6

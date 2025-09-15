@@ -25555,16 +25555,16 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i.i177:         ; preds = %_ZN4llvmeqENS_9Stri
   %79 = select i1 %0, i64 4294970887, i64 4294967861
   %bcmp.i.i.i178 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %71, ptr noundef nonnull dereferenceable(4) @.str.235, i64 4)
   %80 = icmp eq i32 %bcmp.i.i.i178, 0
-  %spec.select814 = select i1 %80, i64 %79, i64 0
+  %spec.select817 = select i1 %80, i64 %79, i64 0
   br label %_ZN4llvm12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit182
 
 _ZN4llvm12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit182: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i177, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i.i169, %_ZN4llvm12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit
-  %.sroa.10629.2 = phi i64 [ %.sroa.0.0.insert.insert.i.i171, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i.i169 ], [ %.sroa.0.0.insert.insert.i.i, %_ZN4llvm12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit ], [ %spec.select814, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i177 ]
+  %.sroa.10629.2 = phi i64 [ %.sroa.0.0.insert.insert.i.i171, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i.i169 ], [ %.sroa.0.0.insert.insert.i.i, %_ZN4llvm12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit ], [ %spec.select817, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i177 ]
   %81 = and i64 %.sroa.10629.2, 4294967296
-  %.not807 = icmp eq i64 %81, 0
+  %.not810 = icmp eq i64 %81, 0
   %.sroa.10629.16.extract.trunc = trunc i64 %.sroa.10629.2 to i32
-  %.not143.not808 = icmp eq i32 %.sroa.10629.16.extract.trunc, 0
-  %.not143.not = or i1 %.not807, %.not143.not808
+  %.not143.not811 = icmp eq i32 %.sroa.10629.16.extract.trunc, 0
+  %.not143.not = or i1 %.not810, %.not143.not811
   br i1 %.not143.not, label %_ZN4llvmeqENS_9StringRefES0_.exit245, label %82
 
 82:                                               ; preds = %_ZN4llvm12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit182
@@ -25598,7 +25598,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.i191:   ; preds = %_ZNK4llvm9StringRef
   br i1 %88, label %_ZN4llvm12StringSwitchIjjE10StartsWithENS_13StringLiteralEj.exit218, label %_ZN4llvm12StringSwitchIjjE10StartsWithENS_13StringLiteralEj.exit194
 
 _ZN4llvm12StringSwitchIjjE10StartsWithENS_13StringLiteralEj.exit194.thread788: ; preds = %_ZN4llvm9StringRef13consume_frontES0_.exit159.thread.thread, %_ZNK4llvm9StringRef11starts_withES0_.exit.i186, %86
-  %.not.i.i154839871891 = phi i1 [ false, %_ZNK4llvm9StringRef11starts_withES0_.exit.i186 ], [ false, %86 ], [ true, %_ZN4llvm9StringRef13consume_frontES0_.exit159.thread.thread ]
+  %.not.i.i154842874894 = phi i1 [ false, %_ZNK4llvm9StringRef11starts_withES0_.exit.i186 ], [ false, %86 ], [ true, %_ZN4llvm9StringRef13consume_frontES0_.exit159.thread.thread ]
   %.sroa.16.1.ph = phi i64 [ 4294967361, %_ZNK4llvm9StringRef11starts_withES0_.exit.i186 ], [ 0, %86 ], [ 0, %_ZN4llvm9StringRef13consume_frontES0_.exit159.thread.thread ]
   %.not.i.i195792 = icmp ult i64 %40, 7
   br label %_ZN4llvm12StringSwitchIjjE10StartsWithENS_13StringLiteralEj.exit200
@@ -25613,7 +25613,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.i197:   ; preds = %_ZN4llvm12StringSwi
   br i1 %89, label %_ZN4llvm12StringSwitchIjjE10StartsWithENS_13StringLiteralEj.exit218, label %_ZN4llvm12StringSwitchIjjE10StartsWithENS_13StringLiteralEj.exit200
 
 _ZN4llvm12StringSwitchIjjE10StartsWithENS_13StringLiteralEj.exit200: ; preds = %_ZN4llvm12StringSwitchIjjE10StartsWithENS_13StringLiteralEj.exit194.thread788, %_ZNK4llvm9StringRef11starts_withES0_.exit.i197
-  %.not.i.i154839871889 = phi i1 [ false, %_ZNK4llvm9StringRef11starts_withES0_.exit.i197 ], [ %.not.i.i154839871891, %_ZN4llvm12StringSwitchIjjE10StartsWithENS_13StringLiteralEj.exit194.thread788 ]
+  %.not.i.i154842874892 = phi i1 [ false, %_ZNK4llvm9StringRef11starts_withES0_.exit.i197 ], [ %.not.i.i154842874894, %_ZN4llvm12StringSwitchIjjE10StartsWithENS_13StringLiteralEj.exit194.thread788 ]
   %.not.i.i195704 = phi i1 [ false, %_ZNK4llvm9StringRef11starts_withES0_.exit.i197 ], [ %.not.i.i195792, %_ZN4llvm12StringSwitchIjjE10StartsWithENS_13StringLiteralEj.exit194.thread788 ]
   %.sroa.16.2 = phi i64 [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i197 ], [ %.sroa.16.1.ph, %_ZN4llvm12StringSwitchIjjE10StartsWithENS_13StringLiteralEj.exit194.thread788 ]
   %90 = and i64 %.sroa.16.2, 4294967296
@@ -25638,13 +25638,13 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.i215:   ; preds = %_ZNK4llvm9StringRef
   br label %_ZN4llvm12StringSwitchIjjE10StartsWithENS_13StringLiteralEj.exit218
 
 _ZN4llvm12StringSwitchIjjE10StartsWithENS_13StringLiteralEj.exit218: ; preds = %_ZN4llvm12StringSwitchIjjE10StartsWithENS_13StringLiteralEj.exit200, %_ZNK4llvm9StringRef11starts_withES0_.exit.i215, %_ZNK4llvm9StringRef11starts_withES0_.exit.i191, %_ZNK4llvm9StringRef11starts_withES0_.exit.i197, %_ZNK4llvm9StringRef11starts_withES0_.exit.i209, %_ZNK4llvm9StringRef11starts_withES0_.exit.i203
-  %.not.i.i154839871890 = phi i1 [ %.not.i.i154839871889, %_ZNK4llvm9StringRef11starts_withES0_.exit.i203 ], [ %.not.i.i154839871889, %_ZNK4llvm9StringRef11starts_withES0_.exit.i209 ], [ false, %_ZNK4llvm9StringRef11starts_withES0_.exit.i197 ], [ false, %_ZNK4llvm9StringRef11starts_withES0_.exit.i191 ], [ %.not.i.i154839871889, %_ZNK4llvm9StringRef11starts_withES0_.exit.i215 ], [ %.not.i.i154839871889, %_ZN4llvm12StringSwitchIjjE10StartsWithENS_13StringLiteralEj.exit200 ]
+  %.not.i.i154842874893 = phi i1 [ %.not.i.i154842874892, %_ZNK4llvm9StringRef11starts_withES0_.exit.i203 ], [ %.not.i.i154842874892, %_ZNK4llvm9StringRef11starts_withES0_.exit.i209 ], [ false, %_ZNK4llvm9StringRef11starts_withES0_.exit.i197 ], [ false, %_ZNK4llvm9StringRef11starts_withES0_.exit.i191 ], [ %.not.i.i154842874892, %_ZNK4llvm9StringRef11starts_withES0_.exit.i215 ], [ %.not.i.i154842874892, %_ZN4llvm12StringSwitchIjjE10StartsWithENS_13StringLiteralEj.exit200 ]
   %.sroa.16.5 = phi i64 [ 4294967653, %_ZNK4llvm9StringRef11starts_withES0_.exit.i203 ], [ 4294967632, %_ZNK4llvm9StringRef11starts_withES0_.exit.i209 ], [ 4294967606, %_ZNK4llvm9StringRef11starts_withES0_.exit.i197 ], [ 4294967362, %_ZNK4llvm9StringRef11starts_withES0_.exit.i191 ], [ %spec.select, %_ZNK4llvm9StringRef11starts_withES0_.exit.i215 ], [ %.sroa.16.2, %_ZN4llvm12StringSwitchIjjE10StartsWithENS_13StringLiteralEj.exit200 ]
   %95 = and i64 %.sroa.16.5, 4294967296
-  %.not810 = icmp eq i64 %95, 0
+  %.not813 = icmp eq i64 %95, 0
   %.sroa.16.16.extract.trunc = trunc i64 %.sroa.16.5 to i32
-  %.not141811 = icmp eq i32 %.sroa.16.16.extract.trunc, 0
-  %.not141 = or i1 %.not810, %.not141811
+  %.not141814 = icmp eq i32 %.sroa.16.16.extract.trunc, 0
+  %.not141 = or i1 %.not813, %.not141814
   br i1 %.not141, label %108, label %96
 
 96:                                               ; preds = %_ZN4llvm12StringSwitchIjjE10StartsWithENS_13StringLiteralEj.exit218
@@ -25673,7 +25673,7 @@ _ZN4llvm8Function9arg_beginEv.exit221:            ; preds = %96, %102
   br label %_ZN4llvmeqENS_9StringRefES0_.exit245
 
 108:                                              ; preds = %_ZN4llvm12StringSwitchIjjE10StartsWithENS_13StringLiteralEj.exit218
-  br i1 %.not.i.i154839871890, label %_ZN4llvmeqENS_9StringRefES0_.exit245, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i224
+  br i1 %.not.i.i154842874893, label %_ZN4llvmeqENS_9StringRefES0_.exit245, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i224
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.i224:   ; preds = %_ZN4llvm12StringSwitchIjjE10StartsWithENS_13StringLiteralEj.exit194, %108
   %bcmp.i.i225 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %39, ptr noundef nonnull dereferenceable(3) @.str.242, i64 3)
@@ -26045,8 +26045,8 @@ _ZNK4llvm9StringRef11starts_withES0_.exit338.thread: ; preds = %_ZNK4llvm9String
   %238 = and i32 %237, 255
   %239 = add nsw i32 %238, -19
   %spec.select.i.i.i.i.i.i.i.i = icmp ult i32 %239, -2
-  %.not140809 = icmp eq ptr %235, null
-  %.not140 = or i1 %.not140809, %spec.select.i.i.i.i.i.i.i.i
+  %.not140812 = icmp eq ptr %235, null
+  %.not140 = or i1 %.not140812, %spec.select.i.i.i.i.i.i.i.i
   br i1 %.not140, label %_ZNK4llvm9StringRef11starts_withES0_.exit338.thread758, label %240
 
 240:                                              ; preds = %230

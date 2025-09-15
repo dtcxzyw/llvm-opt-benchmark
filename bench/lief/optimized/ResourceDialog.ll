@@ -3059,8 +3059,8 @@ define noundef ptr @_ZN4LIEF2PE9to_stringENS0_14ResourceDialog13DIALOG_STYLESE(i
 6:                                                ; preds = %1
   %.ptr18.i.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF2PE9to_stringENS0_14ResourceDialog13DIALOG_STYLESE.enums2str, i64 %.add14.i.i
   %7 = load i32, ptr %.ptr18.i.i, align 8, !tbaa !60
-  %.not19.i.i = icmp ult i32 %0, %7
-  br i1 %.not19.i.i, label %_ZNK6frozen3mapIN4LIEF2PE14ResourceDialog13DIALOG_STYLESEPKcLm15ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread, label %8
+  %.not20.i.i = icmp ult i32 %0, %7
+  br i1 %.not20.i.i, label %_ZNK6frozen3mapIN4LIEF2PE14ResourceDialog13DIALOG_STYLESEPKcLm15ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread, label %8
 
 8:                                                ; preds = %6
   %9 = getelementptr inbounds nuw i8, ptr %.ptr18.i.i, i64 8
@@ -3112,8 +3112,8 @@ define noundef ptr @_ZN4LIEF2PE9to_stringENS0_14ResourceDialog13WINDOW_STYLESE(i
 _ZNK6frozen3mapIN4LIEF2PE14ResourceDialog13WINDOW_STYLESEPKcLm18ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit: ; preds = %3, %4, %2
   %9 = phi i32 [ 1073741824, %2 ], [ -2147483648, %3 ], [ %.pre.i.pre.i, %4 ]
   %.0.i.i.i.i14.i.i.idx = phi i64 [ 264, %2 ], [ 280, %3 ], [ %.add18.i.i, %4 ]
-  %.not25.i.i = icmp ult i32 %0, %9
-  br i1 %.not25.i.i, label %_ZNK6frozen3mapIN4LIEF2PE14ResourceDialog13WINDOW_STYLESEPKcLm18ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread, label %10
+  %.not27.i.i = icmp ult i32 %0, %9
+  br i1 %.not27.i.i, label %_ZNK6frozen3mapIN4LIEF2PE14ResourceDialog13WINDOW_STYLESEPKcLm18ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread, label %10
 
 10:                                               ; preds = %_ZNK6frozen3mapIN4LIEF2PE14ResourceDialog13WINDOW_STYLESEPKcLm18ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit
   %.0.i.i.i.i14.i.i.ptr = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF2PE9to_stringENS0_14ResourceDialog13WINDOW_STYLESE.enums2str, i64 %.0.i.i.i.i14.i.i.idx
@@ -3161,8 +3161,8 @@ _ZNK6frozen3mapIN4LIEF2PE14ResourceDialog22WINDOW_EXTENDED_STYLESEPKcLm17ESt4les
 6:                                                ; preds = %_ZNK6frozen3mapIN4LIEF2PE14ResourceDialog22WINDOW_EXTENDED_STYLESEPKcLm17ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i
   %.ptr.i.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF2PE9to_stringENS0_14ResourceDialog22WINDOW_EXTENDED_STYLESE.enums2str, i64 %.sink.i.i.i.i.add.i.i
   %7 = load i32, ptr %.ptr.i.i, align 4, !tbaa !79
-  %.not19.i.i = icmp ult i32 %0, %7
-  br i1 %.not19.i.i, label %_ZNK6frozen3mapIN4LIEF2PE14ResourceDialog22WINDOW_EXTENDED_STYLESEPKcLm17ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread, label %8
+  %.not20.i.i = icmp ult i32 %0, %7
+  br i1 %.not20.i.i, label %_ZNK6frozen3mapIN4LIEF2PE14ResourceDialog22WINDOW_EXTENDED_STYLESEPKcLm17ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread, label %8
 
 8:                                                ; preds = %6
   %9 = getelementptr inbounds nuw i8, ptr %.ptr.i.i, i64 8

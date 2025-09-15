@@ -1696,9 +1696,9 @@ define linkonce_odr hidden noundef ptr @_ZNK12ConstantPool30resolved_reference_f
   %15 = trunc i8 %14 to i1
   %16 = zext i16 %11 to i64
   %..i = select i1 %13, i64 20, i64 24
-  %.7.i = select i1 %13, i64 2, i64 3
+  %.8.i = select i1 %13, i64 2, i64 3
   %17 = select i1 %15, i64 16, i64 %..i
-  %18 = shl nuw nsw i64 %16, %.7.i
+  %18 = shl nuw nsw i64 %16, %.8.i
   %19 = add nuw nsw i64 %17, %18
   %20 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
   %21 = tail call noundef ptr %20(ptr noundef nonnull align 8 dereferenceable(16) %3, i64 noundef %19) #7

@@ -7423,19 +7423,19 @@ define noundef ptr @_ZN6icu_7724DateTimePatternGenerator10getBestRawERNS_15DateT
   br label %.preheader.i
 
 thread-pre-split:                                 ; preds = %.thread, %.loopexit
-  %.23080 = phi ptr [ %.02897, %.thread ], [ %.020.i, %.loopexit ]
-  %.13379 = phi i32 [ %.03296, %.thread ], [ %124, %.loopexit ]
-  %.13778 = phi i32 [ %.03695, %.thread ], [ %.1.i, %.loopexit ]
-  %.277 = phi ptr [ %.06594, %.thread ], [ %.4, %.loopexit ]
+  %.23080 = phi ptr [ %.02898, %.thread ], [ %.020.i, %.loopexit ]
+  %.13379 = phi i32 [ %.03297, %.thread ], [ %124, %.loopexit ]
+  %.13778 = phi i32 [ %.03696, %.thread ], [ %.1.i, %.loopexit ]
+  %.277 = phi ptr [ %.06595, %.thread ], [ %.4, %.loopexit ]
   %.pr = load ptr, ptr %18, align 8, !tbaa !138
   %34 = icmp eq ptr %.pr, null
   br i1 %34, label %_ZNK6icu_7718PatternMapIterator7hasNextEv.exit.thread, label %.preheader.i
 
 .preheader.i:                                     ; preds = %.preheader.i.lr.ph, %thread-pre-split
-  %.02897 = phi ptr [ null, %.preheader.i.lr.ph ], [ %.23080, %thread-pre-split ]
-  %.03296 = phi i32 [ -1, %.preheader.i.lr.ph ], [ %.13379, %thread-pre-split ]
-  %.03695 = phi i32 [ 2147483647, %.preheader.i.lr.ph ], [ %.13778, %thread-pre-split ]
-  %.06594 = phi ptr [ null, %.preheader.i.lr.ph ], [ %.277, %thread-pre-split ]
+  %.02898 = phi ptr [ null, %.preheader.i.lr.ph ], [ %.23080, %thread-pre-split ]
+  %.03297 = phi i32 [ -1, %.preheader.i.lr.ph ], [ %.13379, %thread-pre-split ]
+  %.03696 = phi i32 [ 2147483647, %.preheader.i.lr.ph ], [ %.13778, %thread-pre-split ]
+  %.06595 = phi ptr [ null, %.preheader.i.lr.ph ], [ %.277, %thread-pre-split ]
   %35 = phi ptr [ %17, %.preheader.i.lr.ph ], [ %.pr, %thread-pre-split ]
   %36 = load i32, ptr %20, align 8, !tbaa !142
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 8
@@ -7651,12 +7651,12 @@ _ZNK6icu_7715DateTimeMatcher6equalsEPKS0_.exit.thread: ; preds = %_ZNK6icu_7715D
 _ZNK6icu_7715DateTimeMatcher11getDistanceERKS0_iRNS_12DistanceInfoE.exit: ; preds = %122
   store i32 %124, ptr %27, align 8
   store i32 %123, ptr %26, align 4
-  %127 = icmp slt i32 %.1.i, %.03695
+  %127 = icmp slt i32 %.1.i, %.03696
   br i1 %127, label %131, label %128
 
 128:                                              ; preds = %_ZNK6icu_7715DateTimeMatcher11getDistanceERKS0_iRNS_12DistanceInfoE.exit
-  %129 = icmp eq i32 %.1.i, %.03695
-  %130 = icmp slt i32 %.03296, %124
+  %129 = icmp eq i32 %.1.i, %.03696
+  %130 = icmp slt i32 %.03297, %124
   %or.cond52 = select i1 %129, i1 %130, i1 false
   br i1 %or.cond52, label %131, label %.thread
 
@@ -7754,8 +7754,8 @@ _ZNK6icu_7714SkeletonFieldseqERKS0_.exit.thread.i: ; preds = %158, %.preheader.s
   br i1 %166, label %_ZNK6icu_7718PatternMapIterator7hasNextEv.exit.thread, label %thread-pre-split
 
 _ZNK6icu_7718PatternMapIterator7hasNextEv.exit.thread: ; preds = %.loopexit, %thread-pre-split, %.preheader.i, %.backedge.i
-  %.1 = phi ptr [ %.06594, %.backedge.i ], [ %.4, %.loopexit ], [ %.277, %thread-pre-split ], [ %.06594, %.preheader.i ]
-  %.129 = phi ptr [ %.02897, %.backedge.i ], [ %.020.i, %.loopexit ], [ %.23080, %thread-pre-split ], [ %.02897, %.preheader.i ]
+  %.1 = phi ptr [ %.06595, %.backedge.i ], [ %.4, %.loopexit ], [ %.277, %thread-pre-split ], [ %.06595, %.preheader.i ]
+  %.129 = phi ptr [ %.02898, %.backedge.i ], [ %.020.i, %.loopexit ], [ %.23080, %thread-pre-split ], [ %.02898, %.preheader.i ]
   %167 = icmp ne ptr %.129, null
   %168 = icmp ne ptr %5, null
   %or.cond = and i1 %168, %167

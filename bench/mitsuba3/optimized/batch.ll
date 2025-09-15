@@ -1365,10 +1365,10 @@ _ZN5drjit15StaticArrayBaseIfLm2ELb0EN7mitsuba5PointIfLm2EEEE5zero_Em.exit.crited
   br label %63
 
 63:                                               ; preds = %63, %62
-  %.04.i.i.i366 = phi i64 [ 0, %62 ], [ %65, %63 ]
-  %64 = getelementptr inbounds nuw %"struct.drjit::Mask.109", ptr %11, i64 %.04.i.i.i366
+  %.05.i.i.i366 = phi i64 [ 0, %62 ], [ %65, %63 ]
+  %64 = getelementptr inbounds nuw %"struct.drjit::Mask.109", ptr %11, i64 %.05.i.i.i366
   store i32 %.sroa.0.0.isplat.i.i.i365, ptr %64, align 1
-  %65 = add nuw nsw i64 %.04.i.i.i366, 1
+  %65 = add nuw nsw i64 %.05.i.i.i366, 1
   %exitcond.not.i.i.i367 = icmp eq i64 %65, 4
   br i1 %exitcond.not.i.i.i367, label %_ZN5drjit4MaskINS0_IN7mitsuba8SpectrumIfLm4EEELm4EEELm4EECI2NS_8MaskBaseIS4_Lm4ES5_EEIRKbNS6_IS4_Lm4ES5_EETnNSt3__19enable_ifIXaasr3stdE11is_scalar_vIu7__decayIT_EEntsrT0_14IsOldStyleMaskEiE4typeELi0EEEOSC_.exit368, label %63, !llvm.loop !16
 
@@ -1642,10 +1642,10 @@ _ZN5drjit15StaticArrayBaseINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_
   br label %25
 
 25:                                               ; preds = %25, %15
-  %.04.i.i.i = phi i64 [ 0, %15 ], [ %27, %25 ]
-  %26 = getelementptr inbounds nuw %"struct.drjit::Mask.109", ptr %6, i64 %.04.i.i.i
+  %.05.i.i.i = phi i64 [ 0, %15 ], [ %27, %25 ]
+  %26 = getelementptr inbounds nuw %"struct.drjit::Mask.109", ptr %6, i64 %.05.i.i.i
   store i32 %.sroa.0.0.isplat.i.i.i, ptr %26, align 1
-  %27 = add nuw nsw i64 %.04.i.i.i, 1
+  %27 = add nuw nsw i64 %.05.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %27, 4
   br i1 %exitcond.not.i.i.i, label %_ZN5drjit4MaskINS0_IN7mitsuba8SpectrumIfLm4EEELm4EEELm4EECI2NS_8MaskBaseIS4_Lm4ES5_EEIRKbNS6_IS4_Lm4ES5_EETnNSt3__19enable_ifIXaasr3stdE11is_scalar_vIu7__decayIT_EEntsrT0_14IsOldStyleMaskEiE4typeELi0EEEOSC_.exit, label %25, !llvm.loop !16
 

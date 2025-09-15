@@ -559,19 +559,19 @@ find_expected_header.exit.i.us.i:                 ; preds = %229, %228, %227, %2
   %243 = load ptr, ptr %242, align 8, !tbaa !79
   %bcmp.i.us.i = call i32 @bcmp(ptr nonnull %4, ptr %243, i64 %235)
   %.not.i.us.i = icmp eq i32 %bcmp.i.us.i, 0
-  br i1 %.not.i.us.i, label %._crit_edge.loopexit.split.loop.exit10.i.us.i, label %244
+  br i1 %.not.i.us.i, label %._crit_edge.loopexit.split.loop.exit11.i.us.i, label %244
 
 244:                                              ; preds = %241, %236
   %indvars.iv.next.i.us.i = add nuw nsw i64 %indvars.iv.i.us.i, 1
   %exitcond.not.i.us.i = icmp eq i64 %indvars.iv.next.i.us.i, %wide.trip.count.i.us.i
   br i1 %exitcond.not.i.us.i, label %find_header_idx.exit.us.i, label %236, !llvm.loop !89
 
-._crit_edge.loopexit.split.loop.exit10.i.us.i:    ; preds = %241
+._crit_edge.loopexit.split.loop.exit11.i.us.i:    ; preds = %241
   %245 = trunc i64 %indvars.iv.i.us.i to i8
   br label %find_header_idx.exit.us.i
 
-find_header_idx.exit.us.i:                        ; preds = %244, %._crit_edge.loopexit.split.loop.exit10.i.us.i, %find_expected_header.exit.i.us.i
-  %.0.i.us.i = phi i8 [ 0, %find_expected_header.exit.i.us.i ], [ %245, %._crit_edge.loopexit.split.loop.exit10.i.us.i ], [ 0, %244 ]
+find_header_idx.exit.us.i:                        ; preds = %244, %._crit_edge.loopexit.split.loop.exit11.i.us.i, %find_expected_header.exit.i.us.i
+  %.0.i.us.i = phi i8 [ 0, %find_expected_header.exit.i.us.i ], [ %245, %._crit_edge.loopexit.split.loop.exit11.i.us.i ], [ 0, %244 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %246 = getelementptr inbounds nuw i8, ptr %219, i64 11
   store i8 %.0.i.us.i, ptr %246, align 1, !tbaa !90
@@ -761,19 +761,19 @@ find_expected_header.exit.i182.i:                 ; preds = %333, %328, %304, %3
   %342 = load ptr, ptr %341, align 8, !tbaa !79
   %bcmp.i190.i = call i32 @bcmp(ptr nonnull %3, ptr %342, i64 %334)
   %.not.i191.i = icmp eq i32 %bcmp.i190.i, 0
-  br i1 %.not.i191.i, label %._crit_edge.loopexit.split.loop.exit10.i192.i, label %343
+  br i1 %.not.i191.i, label %._crit_edge.loopexit.split.loop.exit11.i192.i, label %343
 
 343:                                              ; preds = %340, %335
   %indvars.iv.next.i188.i = add nuw nsw i64 %indvars.iv.i187.i, 1
   %exitcond.not.i189.i = icmp eq i64 %indvars.iv.next.i188.i, %wide.trip.count.i186.i
   br i1 %exitcond.not.i189.i, label %find_header_idx.exit194.i, label %335, !llvm.loop !89
 
-._crit_edge.loopexit.split.loop.exit10.i192.i:    ; preds = %340
+._crit_edge.loopexit.split.loop.exit11.i192.i:    ; preds = %340
   %344 = trunc i64 %indvars.iv.i187.i to i8
   br label %find_header_idx.exit194.i
 
-find_header_idx.exit194.i:                        ; preds = %343, %._crit_edge.loopexit.split.loop.exit10.i192.i, %find_expected_header.exit.i182.i
-  %.0.i184.i = phi i8 [ 0, %find_expected_header.exit.i182.i ], [ %344, %._crit_edge.loopexit.split.loop.exit10.i192.i ], [ 0, %343 ]
+find_header_idx.exit194.i:                        ; preds = %343, %._crit_edge.loopexit.split.loop.exit11.i192.i, %find_expected_header.exit.i182.i
+  %.0.i184.i = phi i8 [ 0, %find_expected_header.exit.i182.i ], [ %344, %._crit_edge.loopexit.split.loop.exit11.i192.i ], [ 0, %343 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %345 = getelementptr inbounds nuw i8, ptr %296, i64 11
   store i8 %.0.i184.i, ptr %345, align 1, !tbaa !90
@@ -956,19 +956,19 @@ find_expected_header.exit.i205.us.i.us:           ; preds = %415, %414, %.lr.ph.
   %424 = load ptr, ptr %423, align 8, !tbaa !79
   %bcmp.i213.us.i.us = call i32 @bcmp(ptr nonnull %2, ptr %424, i64 %416)
   %.not.i214.us.i.us = icmp eq i32 %bcmp.i213.us.i.us, 0
-  br i1 %.not.i214.us.i.us, label %._crit_edge.loopexit.split.loop.exit10.i215.us.i.us, label %425
+  br i1 %.not.i214.us.i.us, label %._crit_edge.loopexit.split.loop.exit11.i215.us.i.us, label %425
 
 425:                                              ; preds = %422, %417
   %indvars.iv.next.i211.us.i.us = add nuw nsw i64 %indvars.iv.i210.us.i.us, 1
   %exitcond.not.i212.us.i.us = icmp eq i64 %indvars.iv.next.i211.us.i.us, %wide.trip.count.i209.us.i
   br i1 %exitcond.not.i212.us.i.us, label %find_header_idx.exit217.us.i.us, label %417, !llvm.loop !89
 
-._crit_edge.loopexit.split.loop.exit10.i215.us.i.us: ; preds = %422
+._crit_edge.loopexit.split.loop.exit11.i215.us.i.us: ; preds = %422
   %426 = trunc i64 %indvars.iv.i210.us.i.us to i8
   br label %find_header_idx.exit217.us.i.us
 
-find_header_idx.exit217.us.i.us:                  ; preds = %425, %._crit_edge.loopexit.split.loop.exit10.i215.us.i.us
-  %.0.i207.us.i.us = phi i8 [ %426, %._crit_edge.loopexit.split.loop.exit10.i215.us.i.us ], [ 0, %425 ]
+find_header_idx.exit217.us.i.us:                  ; preds = %425, %._crit_edge.loopexit.split.loop.exit11.i215.us.i.us
+  %.0.i207.us.i.us = phi i8 [ %426, %._crit_edge.loopexit.split.loop.exit11.i215.us.i.us ], [ 0, %425 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %427 = getelementptr inbounds nuw i8, ptr %406, i64 11
   store i8 %.0.i207.us.i.us, ptr %427, align 1, !tbaa !90

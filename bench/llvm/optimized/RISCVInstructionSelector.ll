@@ -6730,13 +6730,13 @@ _ZNK4llvm5APInt3ultEm.exit:                       ; preds = %127, %_ZNK4llvm5API
 
 149:                                              ; preds = %137
   call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %143, ptr noundef nonnull align 8 dereferenceable(12) %9) #25
-  %.pre103 = load i32, ptr %144, align 8, !tbaa !391
-  %.pre104 = load i64, ptr %143, align 8
+  %.pre104 = load i32, ptr %144, align 8, !tbaa !391
+  %.pre105 = load i64, ptr %143, align 8
   br label %_ZSt10_ConstructISt8functionIFvRN4llvm19MachineInstrBuilderEEEJRKS5_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i
 
 _ZSt10_ConstructISt8functionIFvRN4llvm19MachineInstrBuilderEEEJRKS5_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i: ; preds = %147, %149
-  %150 = phi i64 [ %148, %147 ], [ %.pre104, %149 ]
-  %151 = phi i32 [ %145, %147 ], [ %.pre103, %149 ]
+  %150 = phi i64 [ %148, %147 ], [ %.pre105, %149 ]
+  %151 = phi i32 [ %145, %147 ], [ %.pre104, %149 ]
   %152 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %153 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %154 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -6788,15 +6788,15 @@ _ZNSt8optionalIN4llvm11SmallVectorISt8functionIFvRNS0_19MachineInstrBuilderEEELj
 
 _ZNSt8optionalIN4llvm11SmallVectorISt8functionIFvRNS0_19MachineInstrBuilderEEELj4EEEEC2IS7_TnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS8_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESB_ISC_ISt10in_place_tSJ_EESt16is_constructibleIS7_JSF_EESt14is_convertibleISF_S7_EEEbE4typeELb1EEEOSF_.exit: ; preds = %_ZSt10_ConstructISt8functionIFvRN4llvm19MachineInstrBuilderEEEJRKS5_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i
   %174 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplISt8functionIFvRNS_19MachineInstrBuilderEEEEaSEOS6_(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull align 8 dereferenceable(144) %13)
-  %.pre105 = load i32, ptr %159, align 8, !tbaa !480
+  %.pre106 = load i32, ptr %159, align 8, !tbaa !480
   %175 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i8 1, ptr %175, align 8, !tbaa !503
   %176 = load ptr, ptr %13, align 8, !tbaa !481
-  %.not4.i.i = icmp eq i32 %.pre105, 0
+  %.not4.i.i = icmp eq i32 %.pre106, 0
   br i1 %.not4.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvRNS_19MachineInstrBuilderEEELb0EE13destroy_rangeEPS5_S7_.exit.i, label %.lr.ph.i.preheader.i
 
 .lr.ph.i.preheader.i:                             ; preds = %_ZNSt8optionalIN4llvm11SmallVectorISt8functionIFvRNS0_19MachineInstrBuilderEEELj4EEEEC2IS7_TnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS8_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESB_ISC_ISt10in_place_tSJ_EESt16is_constructibleIS7_JSF_EESt14is_convertibleISF_S7_EEEbE4typeELb1EEEOSF_.exit
-  %177 = zext i32 %.pre105 to i64
+  %177 = zext i32 %.pre106 to i64
   %.idx.i = shl nuw nsw i64 %177, 5
   %178 = getelementptr inbounds nuw i8, ptr %176, i64 %.idx.i
   br label %.lr.ph.i.i
@@ -6892,12 +6892,12 @@ _ZSt10_ConstructISt8functionIFvRN4llvm19MachineInstrBuilderEEEJRKS5_EEvPT_DpOT0_
   %211 = getelementptr inbounds nuw i8, ptr %210, i64 24
   %212 = getelementptr inbounds nuw i8, ptr %210, i64 16
   store i32 %202, ptr %210, align 8, !tbaa !379
-  %.sroa.4174.0..sroa_idx = getelementptr inbounds nuw i8, ptr %210, i64 4
-  store i32 %203, ptr %.sroa.4174.0..sroa_idx, align 4, !tbaa !379
-  %.sroa.5175.0..sroa_idx = getelementptr inbounds nuw i8, ptr %210, i64 8
-  store i32 %125, ptr %.sroa.5175.0..sroa_idx, align 8, !tbaa !379
-  %.sroa.6.0..sroa_idx176 = getelementptr inbounds nuw i8, ptr %210, i64 12
-  store i32 %2, ptr %.sroa.6.0..sroa_idx176, align 4, !tbaa !379
+  %.sroa.4175.0..sroa_idx = getelementptr inbounds nuw i8, ptr %210, i64 4
+  store i32 %203, ptr %.sroa.4175.0..sroa_idx, align 4, !tbaa !379
+  %.sroa.5176.0..sroa_idx = getelementptr inbounds nuw i8, ptr %210, i64 8
+  store i32 %125, ptr %.sroa.5176.0..sroa_idx, align 8, !tbaa !379
+  %.sroa.6.0..sroa_idx177 = getelementptr inbounds nuw i8, ptr %210, i64 12
+  store i32 %2, ptr %.sroa.6.0..sroa_idx177, align 4, !tbaa !379
   store ptr @"_ZNSt17_Function_handlerIFvRN4llvm19MachineInstrBuilderEEZNK12_GLOBAL__N_124RISCVInstructionSelector14selectSHXADDOpERNS0_14MachineOperandEjE3$_1E9_M_invokeERKSt9_Any_dataS2_", ptr %211, align 8, !tbaa !506
   store ptr @"_ZNSt17_Function_handlerIFvRN4llvm19MachineInstrBuilderEEZNK12_GLOBAL__N_124RISCVInstructionSelector14selectSHXADDOpERNS0_14MachineOperandEjE3$_1E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation", ptr %212, align 8, !tbaa !509
   %.pre.i.i.i83 = load i32, ptr %205, align 8, !tbaa !480
@@ -7120,8 +7120,8 @@ _ZSt10_ConstructISt8functionIFvRN4llvm19MachineInstrBuilderEEEJRKS5_EEvPT_DpOT0_
   %305 = getelementptr i8, ptr %302, i64 12
   store i32 0, ptr %305, align 4
   store i32 %294, ptr %302, align 8, !tbaa !379
-  %.sroa.4.0..sroa_idx172 = getelementptr inbounds nuw i8, ptr %302, i64 4
-  store i32 %295, ptr %.sroa.4.0..sroa_idx172, align 4, !tbaa !379
+  %.sroa.4.0..sroa_idx173 = getelementptr inbounds nuw i8, ptr %302, i64 4
+  store i32 %295, ptr %.sroa.4.0..sroa_idx173, align 4, !tbaa !379
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %302, i64 8
   store i32 %.0.i118, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !379
   store ptr @"_ZNSt17_Function_handlerIFvRN4llvm19MachineInstrBuilderEEZNK12_GLOBAL__N_124RISCVInstructionSelector14selectSHXADDOpERNS0_14MachineOperandEjE3$_2E9_M_invokeERKSt9_Any_dataS2_", ptr %303, align 8, !tbaa !506
@@ -7146,15 +7146,15 @@ _ZNSt8optionalIN4llvm11SmallVectorISt8functionIFvRNS0_19MachineInstrBuilderEEELj
 
 _ZNSt8optionalIN4llvm11SmallVectorISt8functionIFvRNS0_19MachineInstrBuilderEEELj4EEEEC2IS7_TnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS8_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESB_ISC_ISt10in_place_tSJ_EESt16is_constructibleIS7_JSF_EESt14is_convertibleISF_S7_EEEbE4typeELb1EEEOSF_.exit139: ; preds = %_ZSt10_ConstructISt8functionIFvRN4llvm19MachineInstrBuilderEEEJRKS5_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i134
   %312 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplISt8functionIFvRNS_19MachineInstrBuilderEEEEaSEOS6_(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull align 8 dereferenceable(144) %19)
-  %.pre106 = load i32, ptr %297, align 8, !tbaa !480
+  %.pre107 = load i32, ptr %297, align 8, !tbaa !480
   %313 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i8 1, ptr %313, align 8, !tbaa !503
   %314 = load ptr, ptr %19, align 8, !tbaa !481
-  %.not4.i.i140 = icmp eq i32 %.pre106, 0
+  %.not4.i.i140 = icmp eq i32 %.pre107, 0
   br i1 %.not4.i.i140, label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvRNS_19MachineInstrBuilderEEELb0EE13destroy_rangeEPS5_S7_.exit.i150, label %.lr.ph.i.preheader.i141
 
 .lr.ph.i.preheader.i141:                          ; preds = %_ZNSt8optionalIN4llvm11SmallVectorISt8functionIFvRNS0_19MachineInstrBuilderEEELj4EEEEC2IS7_TnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS8_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESB_ISC_ISt10in_place_tSJ_EESt16is_constructibleIS7_JSF_EESt14is_convertibleISF_S7_EEEbE4typeELb1EEEOSF_.exit139
-  %315 = zext i32 %.pre106 to i64
+  %315 = zext i32 %.pre107 to i64
   %.idx.i142 = shl nuw nsw i64 %315, 5
   %316 = getelementptr inbounds nuw i8, ptr %314, i64 %.idx.i142
   br label %.lr.ph.i.i143

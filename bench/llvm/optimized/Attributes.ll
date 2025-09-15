@@ -2978,8 +2978,8 @@ _ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit1617: ; preds = %_ZN4ll
   %switch.maskindex = trunc i32 %switch.tableidx to i8
   %switch.shifted = lshr i8 23, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
-  %or.cond25885 = select i1 %257, i1 %switch.lobit, i1 false
-  br i1 %or.cond25885, label %_ZNK5clang10TargetInfo13supportsIFuncEv.exit, label %.thread.i
+  %or.cond25886 = select i1 %257, i1 %switch.lobit, i1 false
+  br i1 %or.cond25886, label %_ZNK5clang10TargetInfo13supportsIFuncEv.exit, label %.thread.i
 
 258:                                              ; preds = %253
   %.old3.i = icmp eq i32 %255, 7

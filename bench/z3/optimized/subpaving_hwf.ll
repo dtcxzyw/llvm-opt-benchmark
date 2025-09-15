@@ -18734,8 +18734,8 @@ _ZN6vectorIPN9subpaving9context_tINS0_10config_hwfEE4ineqELb0EjE3endEv.exit: ; p
   %10 = zext i32 %9 to i64
   %11 = shl nuw nsw i64 %10, 3
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 %11
-  %.not19 = icmp eq i32 %9, 0
-  br i1 %.not19, label %._crit_edge, label %.lr.ph
+  %.not20 = icmp eq i32 %9, 0
+  br i1 %.not20, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN6vectorIPN9subpaving9context_tINS0_10config_hwfEE4ineqELb0EjE3endEv.exit
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 504
@@ -18743,9 +18743,9 @@ _ZN6vectorIPN9subpaving9context_tINS0_10config_hwfEE4ineqELb0EjE3endEv.exit: ; p
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %.lr.ph
-  %.01420 = phi ptr [ %6, %.lr.ph ], [ %.01420.be, %.backedge.backedge ]
+  %.01421 = phi ptr [ %6, %.lr.ph ], [ %.01421.be, %.backedge.backedge ]
   call void @_ZN9subpaving9context_tINS_10config_hwfEE10checkpointEv(ptr noundef nonnull align 8 dereferenceable(840) %0)
-  %15 = load ptr, ptr %.01420, align 8, !tbaa !78
+  %15 = load ptr, ptr %.01421, align 8, !tbaa !78
   %16 = ptrtoint ptr %15 to i64
   %17 = and i64 %16, -8
   %18 = inttoptr i64 %17 to ptr
@@ -18797,18 +18797,18 @@ _ZN6vectorIPN9subpaving9context_tINS0_10config_hwfEE4ineqELb0EjE3endEv.exit: ; p
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %47 = load i32, ptr %14, align 8, !tbaa !45
   %.not18.not = icmp ne i32 %47, -1
-  %48 = getelementptr inbounds nuw i8, ptr %.01420, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %.01421, i64 8
   %.not = icmp eq ptr %48, %12
   %or.cond = select i1 %.not18.not, i1 true, i1 %.not
   br i1 %or.cond, label %._crit_edge, label %.backedge.backedge
 
 .thread:                                          ; preds = %.backedge
-  %.old = getelementptr inbounds nuw i8, ptr %.01420, i64 8
+  %.old = getelementptr inbounds nuw i8, ptr %.01421, i64 8
   %.not.old = icmp eq ptr %.old, %12
   br i1 %.not.old, label %._crit_edge, label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %.thread, %40
-  %.01420.be = phi ptr [ %.old, %.thread ], [ %48, %40 ]
+  %.01421.be = phi ptr [ %.old, %.thread ], [ %48, %40 ]
   br label %.backedge, !llvm.loop !258
 
 ._crit_edge:                                      ; preds = %.thread, %40, %2, %_ZN6vectorIPN9subpaving9context_tINS0_10config_hwfEE4ineqELb0EjE3endEv.exit

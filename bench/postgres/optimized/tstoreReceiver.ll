@@ -75,7 +75,7 @@ define internal void @tstoreStartupReceiver(ptr noundef captures(none) %0, i32 %
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %19 = load ptr, ptr %18, align 8
   %.not = icmp eq ptr %19, null
-  br i1 %.not, label %.thread49, label %20
+  br i1 %.not, label %.thread50, label %20
 
 20:                                               ; preds = %.loopexit
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -85,12 +85,12 @@ define internal void @tstoreStartupReceiver(ptr noundef captures(none) %0, i32 %
   store ptr %23, ptr %24, align 8
   br i1 %.035, label %26, label %37
 
-.thread49:                                        ; preds = %.loopexit
+.thread50:                                        ; preds = %.loopexit
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr null, ptr %25, align 8
-  br i1 %.035, label %26, label %.thread50
+  br i1 %.035, label %26, label %.thread51
 
-26:                                               ; preds = %.thread49, %20
+26:                                               ; preds = %.thread50, %20
   store ptr @tstoreReceiveSlot_detoast, ptr %0, align 8
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %28 = load ptr, ptr %27, align 8
@@ -109,7 +109,7 @@ define internal void @tstoreStartupReceiver(ptr noundef captures(none) %0, i32 %
 
 37:                                               ; preds = %20
   %.not38 = icmp eq ptr %23, null
-  br i1 %.not38, label %.thread50, label %38
+  br i1 %.not38, label %.thread51, label %38
 
 38:                                               ; preds = %37
   store ptr @tstoreReceiveSlot_tupmap, ptr %0, align 8
@@ -121,7 +121,7 @@ define internal void @tstoreStartupReceiver(ptr noundef captures(none) %0, i32 %
   store ptr %41, ptr %42, align 8
   br label %45
 
-.thread50:                                        ; preds = %.thread49, %37
+.thread51:                                        ; preds = %.thread50, %37
   store ptr @tstoreReceiveSlot_notoast, ptr %0, align 8
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -129,7 +129,7 @@ define internal void @tstoreStartupReceiver(ptr noundef captures(none) %0, i32 %
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %43, i8 0, i64 16, i1 false)
   br label %45
 
-45:                                               ; preds = %38, %.thread50, %26
+45:                                               ; preds = %38, %.thread51, %26
   ret void
 }
 

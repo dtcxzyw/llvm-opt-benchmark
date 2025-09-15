@@ -75,8 +75,8 @@ define noundef i32 @H5PL__set_plugin_control_mask(i32 noundef %0) local_unnamed_
   %4 = load i8, ptr @H5_libterm_g, align 1, !range !7
   %5 = trunc nuw i8 %4 to i1
   %.b = load i1, ptr @H5PL_allow_plugins_g, align 1
-  %not.3 = xor i1 %3, true
-  %not. = select i1 %not.3, i1 %5, i1 false
+  %not.4 = xor i1 %3, true
+  %not. = select i1 %not.4, i1 %5, i1 false
   %6 = select i1 %not., i1 true, i1 %.b
   br i1 %6, label %8, label %7, !prof !12
 

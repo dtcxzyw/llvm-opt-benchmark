@@ -3645,8 +3645,8 @@ define ptr @H5E__get_current_stack() local_unnamed_addr #0 {
 14:                                               ; preds = %7
   %15 = load i64, ptr @H5E_stack_g, align 16, !tbaa !13
   store i64 %15, ptr %8, align 8, !tbaa !13
-  %.not29 = icmp eq i64 %15, 0
-  br i1 %.not29, label %._crit_edge, label %.lr.ph
+  %.not30 = icmp eq i64 %15, 0
+  br i1 %.not30, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %14
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -3654,7 +3654,7 @@ define ptr @H5E__get_current_stack() local_unnamed_addr #0 {
 
 17:                                               ; preds = %.lr.ph, %23
   %18 = phi i64 [ 0, %.lr.ph ], [ %25, %23 ]
-  %.02128 = phi i32 [ 0, %.lr.ph ], [ %24, %23 ]
+  %.02129 = phi i32 [ 0, %.lr.ph ], [ %24, %23 ]
   %19 = getelementptr inbounds nuw %struct.H5E_entry_t, ptr %16, i64 %18
   %20 = getelementptr inbounds nuw %struct.H5E_entry_t, ptr getelementptr inbounds nuw (i8, ptr @H5E_stack_g, i64 8), i64 %18
   %21 = tail call fastcc i32 @H5E__copy_stack_entry(ptr noundef nonnull %19, ptr noundef nonnull %20)
@@ -3662,7 +3662,7 @@ define ptr @H5E__get_current_stack() local_unnamed_addr #0 {
   br i1 %22, label %H5E__destroy_stack.exit, label %23
 
 23:                                               ; preds = %17
-  %24 = add i32 %.02128, 1
+  %24 = add i32 %.02129, 1
   %.pr = load i64, ptr @H5E_stack_g, align 16, !tbaa !13
   %25 = zext i32 %24 to i64
   %26 = icmp ugt i64 %.pr, %25

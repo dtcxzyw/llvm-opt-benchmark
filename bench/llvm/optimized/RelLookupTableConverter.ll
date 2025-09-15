@@ -80,19 +80,19 @@ define dso_local void @_ZN4llvm27RelLookupTableConverterPass3runERNS_6ModuleERNS
   %19 = load ptr, ptr %18, align 8, !tbaa !3
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %.sroa.029.041.i = load ptr, ptr %20, align 8, !tbaa !9
-  %.not42.i = icmp eq ptr %.sroa.029.041.i, %21
-  br i1 %.not42.i, label %.thread34.i, label %.lr.ph.i
+  %.sroa.029.042.i = load ptr, ptr %20, align 8, !tbaa !9
+  %.not43.i = icmp eq ptr %.sroa.029.042.i, %21
+  br i1 %.not43.i, label %.thread34.i, label %.lr.ph.i
 
 22:                                               ; preds = %.lr.ph.i
-  %23 = getelementptr inbounds nuw i8, ptr %.sroa.029.043.i, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %.sroa.029.044.i, i64 8
   %.sroa.029.0.i = load ptr, ptr %23, align 8, !tbaa !9
   %.not.i = icmp eq ptr %.sroa.029.0.i, %21
   br i1 %.not.i, label %.thread34.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %4, %22
-  %.sroa.029.043.i = phi ptr [ %.sroa.029.0.i, %22 ], [ %.sroa.029.041.i, %4 ]
-  %24 = getelementptr inbounds i8, ptr %.sroa.029.043.i, i64 -56
+  %.sroa.029.044.i = phi ptr [ %.sroa.029.0.i, %22 ], [ %.sroa.029.042.i, %4 ]
+  %24 = getelementptr inbounds i8, ptr %.sroa.029.044.i, i64 -56
   %25 = tail call noundef zeroext i1 @_ZNK4llvm11GlobalValue13isDeclarationEv(ptr noundef nonnull align 8 dereferenceable(48) %24) #7
   br i1 %25, label %22, label %26
 
@@ -106,10 +106,10 @@ define dso_local void @_ZN4llvm27RelLookupTableConverterPass3runERNS_6ModuleERNS
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %31 = load ptr, ptr %30, align 8, !tbaa !9
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %.not3944.i = icmp eq ptr %31, %32
-  br i1 %.not3944.i, label %_ZN4llvm17PreservedAnalyses11preserveSetINS_11CFGAnalysesEEEvv.exit, label %.lr.ph47.i
+  %.not4045.i = icmp eq ptr %31, %32
+  br i1 %.not4045.i, label %_ZN4llvm17PreservedAnalyses11preserveSetINS_11CFGAnalysesEEEvv.exit, label %.lr.ph48.i
 
-.lr.ph47.i:                                       ; preds = %.thread34.i
+.lr.ph48.i:                                       ; preds = %.thread34.i
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 288
   %34 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %35 = getelementptr inbounds nuw i8, ptr %10, i64 128
@@ -145,26 +145,26 @@ define dso_local void @_ZN4llvm27RelLookupTableConverterPass3runERNS_6ModuleERNS
   %64 = getelementptr inbounds nuw i8, ptr %14, i64 33
   br label %.outer
 
-.outer:                                           ; preds = %_ZL29shouldConvertToRelLookupTableRN4llvm6ModuleERNS_14GlobalVariableE.exit.thread.i.thread, %.lr.ph47.i
-  %.01746.i.ph = phi i1 [ true, %_ZL29shouldConvertToRelLookupTableRN4llvm6ModuleERNS_14GlobalVariableE.exit.thread.i.thread ], [ false, %.lr.ph47.i ]
-  %.sroa.024.045.i.ph = phi ptr [ %67, %_ZL29shouldConvertToRelLookupTableRN4llvm6ModuleERNS_14GlobalVariableE.exit.thread.i.thread ], [ %31, %.lr.ph47.i ]
+.outer:                                           ; preds = %_ZL29shouldConvertToRelLookupTableRN4llvm6ModuleERNS_14GlobalVariableE.exit.thread.i.thread, %.lr.ph48.i
+  %.01747.i.ph = phi i1 [ true, %_ZL29shouldConvertToRelLookupTableRN4llvm6ModuleERNS_14GlobalVariableE.exit.thread.i.thread ], [ false, %.lr.ph48.i ]
+  %.sroa.024.046.i.ph = phi ptr [ %67, %_ZL29shouldConvertToRelLookupTableRN4llvm6ModuleERNS_14GlobalVariableE.exit.thread.i.thread ], [ %31, %.lr.ph48.i ]
   br label %65
 
 65:                                               ; preds = %.outer, %_ZL29shouldConvertToRelLookupTableRN4llvm6ModuleERNS_14GlobalVariableE.exit.thread.i
-  %.sroa.024.045.i = phi ptr [ %67, %_ZL29shouldConvertToRelLookupTableRN4llvm6ModuleERNS_14GlobalVariableE.exit.thread.i ], [ %.sroa.024.045.i.ph, %.outer ]
-  %66 = getelementptr inbounds nuw i8, ptr %.sroa.024.045.i, i64 8
+  %.sroa.024.046.i = phi ptr [ %67, %_ZL29shouldConvertToRelLookupTableRN4llvm6ModuleERNS_14GlobalVariableE.exit.thread.i ], [ %.sroa.024.046.i.ph, %.outer ]
+  %66 = getelementptr inbounds nuw i8, ptr %.sroa.024.046.i, i64 8
   %67 = load ptr, ptr %66, align 8, !tbaa !9
-  %68 = getelementptr inbounds i8, ptr %.sroa.024.045.i, i64 -56
+  %68 = getelementptr inbounds i8, ptr %.sroa.024.046.i, i64 -56
   %69 = call noundef zeroext i1 @_ZNK4llvm11GlobalValue13isDeclarationEv(ptr noundef nonnull align 8 dereferenceable(81) %68) #7
   %70 = xor i1 %69, true
-  %71 = getelementptr inbounds nuw i8, ptr %.sroa.024.045.i, i64 24
+  %71 = getelementptr inbounds nuw i8, ptr %.sroa.024.046.i, i64 24
   %72 = load i8, ptr %71, align 8
   %73 = trunc i8 %72 to i1
   %or.cond.i.i = select i1 %70, i1 %73, i1 false
   br i1 %or.cond.i.i, label %74, label %_ZL29shouldConvertToRelLookupTableRN4llvm6ModuleERNS_14GlobalVariableE.exit.thread.i
 
 74:                                               ; preds = %65
-  %75 = getelementptr inbounds i8, ptr %.sroa.024.045.i, i64 -40
+  %75 = getelementptr inbounds i8, ptr %.sroa.024.046.i, i64 -40
   %76 = load ptr, ptr %75, align 8, !tbaa !12
   %.not.i.i.i.i = icmp eq ptr %76, null
   br i1 %.not.i.i.i.i, label %_ZL29shouldConvertToRelLookupTableRN4llvm6ModuleERNS_14GlobalVariableE.exit.thread.i, label %_ZNK4llvm5Value9hasOneUseEv.exit.i.i
@@ -195,7 +195,7 @@ _ZNK4llvm5Value9hasOneUseEv.exit60.i.i:           ; preds = %84
   br i1 %89, label %90, label %_ZL29shouldConvertToRelLookupTableRN4llvm6ModuleERNS_14GlobalVariableE.exit.thread.i
 
 90:                                               ; preds = %_ZNK4llvm5Value9hasOneUseEv.exit60.i.i
-  %91 = getelementptr inbounds i8, ptr %.sroa.024.045.i, i64 -32
+  %91 = getelementptr inbounds i8, ptr %.sroa.024.046.i, i64 -32
   %92 = load ptr, ptr %91, align 8, !tbaa !25
   %93 = getelementptr inbounds nuw i8, ptr %82, i64 72
   %94 = load ptr, ptr %93, align 8, !tbaa !30
@@ -230,7 +230,7 @@ _ZNK4llvm5Value9hasOneUseEv.exit64.i.i:           ; preds = %99
   br i1 %.not53.i.i, label %110, label %_ZL29shouldConvertToRelLookupTableRN4llvm6ModuleERNS_14GlobalVariableE.exit.thread.i
 
 110:                                              ; preds = %105
-  %111 = getelementptr inbounds i8, ptr %.sroa.024.045.i, i64 -24
+  %111 = getelementptr inbounds i8, ptr %.sroa.024.046.i, i64 -24
   %112 = load i32, ptr %111, align 8
   %113 = and i32 %112, 15
   %114 = add nsw i32 %113, -7
@@ -241,7 +241,7 @@ _ZNK4llvm5Value9hasOneUseEv.exit64.i.i:           ; preds = %99
   br i1 %or.cond78.i.i, label %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.i.i, label %_ZL29shouldConvertToRelLookupTableRN4llvm6ModuleERNS_14GlobalVariableE.exit.thread.i
 
 _ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.i.i: ; preds = %110
-  %117 = getelementptr inbounds i8, ptr %.sroa.024.045.i, i64 -88
+  %117 = getelementptr inbounds i8, ptr %.sroa.024.046.i, i64 -88
   %118 = load ptr, ptr %117, align 8, !tbaa !48
   %119 = load i8, ptr %118, align 8, !tbaa !24
   %.not85.i.i = icmp eq i8 %119, 9
@@ -366,10 +366,10 @@ _ZN4llvm5APIntD2Ev.exit72.i.i:                    ; preds = %173, %170, %.crited
   br label %_ZL29shouldConvertToRelLookupTableRN4llvm6ModuleERNS_14GlobalVariableE.exit.thread.i
 
 _ZL29shouldConvertToRelLookupTableRN4llvm6ModuleERNS_14GlobalVariableE.exit.i: ; preds = %_ZN4llvm4User8operandsEv.exit.i.i, %_ZN4llvm5APIntD2Ev.exit.i.i
-  %174 = getelementptr inbounds nuw i8, ptr %.sroa.024.045.i, i64 24
-  %175 = getelementptr inbounds i8, ptr %.sroa.024.045.i, i64 -40
-  %176 = getelementptr inbounds i8, ptr %.sroa.024.045.i, i64 -24
-  %177 = getelementptr inbounds i8, ptr %.sroa.024.045.i, i64 -88
+  %174 = getelementptr inbounds nuw i8, ptr %.sroa.024.046.i, i64 24
+  %175 = getelementptr inbounds i8, ptr %.sroa.024.046.i, i64 -40
+  %176 = getelementptr inbounds i8, ptr %.sroa.024.046.i, i64 -24
+  %177 = getelementptr inbounds i8, ptr %.sroa.024.046.i, i64 -88
   %178 = load ptr, ptr %175, align 8, !tbaa !12
   %179 = getelementptr inbounds nuw i8, ptr %178, i64 24
   %180 = load ptr, ptr %179, align 8, !tbaa !23
@@ -377,7 +377,7 @@ _ZL29shouldConvertToRelLookupTableRN4llvm6ModuleERNS_14GlobalVariableE.exit.i: ;
   %182 = load ptr, ptr %181, align 8, !tbaa !12
   %183 = getelementptr inbounds nuw i8, ptr %182, i64 24
   %184 = load ptr, ptr %183, align 8, !tbaa !23
-  %185 = getelementptr inbounds i8, ptr %.sroa.024.045.i, i64 -16
+  %185 = getelementptr inbounds i8, ptr %.sroa.024.046.i, i64 -16
   %186 = load ptr, ptr %185, align 8, !tbaa !62
   %187 = getelementptr inbounds nuw i8, ptr %180, i64 24
   %188 = getelementptr inbounds nuw i8, ptr %180, i64 40
@@ -432,7 +432,7 @@ _ZL29shouldConvertToRelLookupTableRN4llvm6ModuleERNS_14GlobalVariableE.exit.i: ;
   %212 = load i32, ptr %176, align 8
   %213 = lshr i32 %212, 10
   %214 = and i32 %213, 7
-  %215 = getelementptr inbounds i8, ptr %.sroa.024.045.i, i64 -48
+  %215 = getelementptr inbounds i8, ptr %.sroa.024.046.i, i64 -48
   %216 = load ptr, ptr %215, align 8, !tbaa !46
   %217 = getelementptr inbounds nuw i8, ptr %216, i64 8
   %218 = load i32, ptr %217, align 8
@@ -723,17 +723,17 @@ _ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit.i.
   br label %_ZL29shouldConvertToRelLookupTableRN4llvm6ModuleERNS_14GlobalVariableE.exit.thread.i.thread
 
 _ZL29shouldConvertToRelLookupTableRN4llvm6ModuleERNS_14GlobalVariableE.exit.thread.i: ; preds = %_ZN4llvm5APIntD2Ev.exit72.i.i, %129, %120, %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.i.i, %110, %105, %_ZNK4llvm5Value9hasOneUseEv.exit64.i.i, %99, %95, %90, %_ZNK4llvm5Value9hasOneUseEv.exit60.i.i, %84, %80, %_ZNK4llvm5Value9hasOneUseEv.exit.i.i, %74, %65
-  %.not39.i = icmp eq ptr %67, %32
-  br i1 %.not39.i, label %_ZL29convertToRelativeLookupTablesRN4llvm6ModuleENS_12function_refIFRNS_19TargetTransformInfoERNS_8FunctionEEEE.exit, label %65
+  %.not40.i = icmp eq ptr %67, %32
+  br i1 %.not40.i, label %_ZL29convertToRelativeLookupTablesRN4llvm6ModuleENS_12function_refIFRNS_19TargetTransformInfoERNS_8FunctionEEEE.exit, label %65
 
 _ZL29shouldConvertToRelLookupTableRN4llvm6ModuleERNS_14GlobalVariableE.exit.thread.i.thread: ; preds = %_ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit.i.i, %330
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @_ZN4llvm14GlobalVariable15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(81) %68) #7
-  %.not39.i32 = icmp eq ptr %67, %32
-  br i1 %.not39.i32, label %_ZL29convertToRelativeLookupTablesRN4llvm6ModuleENS_12function_refIFRNS_19TargetTransformInfoERNS_8FunctionEEEE.exit.thread34, label %.outer
+  %.not40.i32 = icmp eq ptr %67, %32
+  br i1 %.not40.i32, label %_ZL29convertToRelativeLookupTablesRN4llvm6ModuleENS_12function_refIFRNS_19TargetTransformInfoERNS_8FunctionEEEE.exit.thread34, label %.outer
 
 _ZL29convertToRelativeLookupTablesRN4llvm6ModuleENS_12function_refIFRNS_19TargetTransformInfoERNS_8FunctionEEEE.exit: ; preds = %_ZL29shouldConvertToRelLookupTableRN4llvm6ModuleERNS_14GlobalVariableE.exit.thread.i
-  br i1 %.01746.i.ph, label %_ZL29convertToRelativeLookupTablesRN4llvm6ModuleENS_12function_refIFRNS_19TargetTransformInfoERNS_8FunctionEEEE.exit.thread34, label %_ZN4llvm17PreservedAnalyses11preserveSetINS_11CFGAnalysesEEEvv.exit
+  br i1 %.01747.i.ph, label %_ZL29convertToRelativeLookupTablesRN4llvm6ModuleENS_12function_refIFRNS_19TargetTransformInfoERNS_8FunctionEEEE.exit.thread34, label %_ZN4llvm17PreservedAnalyses11preserveSetINS_11CFGAnalysesEEEvv.exit
 
 _ZL29convertToRelativeLookupTablesRN4llvm6ModuleENS_12function_refIFRNS_19TargetTransformInfoERNS_8FunctionEEEE.exit.thread34: ; preds = %_ZL29shouldConvertToRelLookupTableRN4llvm6ModuleERNS_14GlobalVariableE.exit.thread.i.thread, %_ZL29convertToRelativeLookupTablesRN4llvm6ModuleENS_12function_refIFRNS_19TargetTransformInfoERNS_8FunctionEEEE.exit
   br label %_ZN4llvm17PreservedAnalyses11preserveSetINS_11CFGAnalysesEEEvv.exit

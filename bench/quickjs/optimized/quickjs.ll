@@ -95311,7 +95311,7 @@ define internal fastcc range(i32 -1, 1) i32 @perform_promise_then(ptr noundef %0
   %8 = and i64 %2, 4294967295
   %.not.i = icmp eq i64 %8, 4294967295
   %9 = inttoptr i64 %1 to ptr
-  %indvars.iv95129.sroa.gep = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %indvars.iv96130.sroa.gep = getelementptr inbounds nuw i8, ptr %6, i64 8
   br i1 %.not.i, label %10, label %JS_GetOpaque.exit
 
 10:                                               ; preds = %5
@@ -95334,10 +95334,10 @@ JS_GetOpaque.exit:                                ; preds = %5, %10, %13
   %18 = load ptr, ptr %17, align 8, !tbaa !7
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 32
   %20 = tail call ptr %18(ptr noundef nonnull %19, i64 noundef 64) #41
-  %.not.i.i128.not = icmp eq ptr %20, null
-  br i1 %.not.i.i128.not, label %._crit_edge, label %js_mallocz.exit
+  %.not.i.i129.not = icmp eq ptr %20, null
+  br i1 %.not.i.i129.not, label %._crit_edge, label %js_mallocz.exit
 
-21:                                               ; preds = %.thread120
+21:                                               ; preds = %.thread121
   %22 = load ptr, ptr %16, align 8, !tbaa !36
   %23 = load ptr, ptr %22, align 8, !tbaa !7
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 32
@@ -95360,15 +95360,15 @@ JS_GetOpaque.exit:                                ; preds = %5, %10, %13
 
 js_mallocz.exit:                                  ; preds = %JS_GetOpaque.exit, %21
   %31 = phi ptr [ %25, %21 ], [ %20, %JS_GetOpaque.exit ]
-  %indvars.iv95129.sroa.phi = phi ptr [ %indvars.iv95129.sroa.gep, %21 ], [ %6, %JS_GetOpaque.exit ]
-  %indvars.iv95129 = phi i64 [ 1, %21 ], [ 0, %JS_GetOpaque.exit ]
+  %indvars.iv96130.sroa.phi = phi ptr [ %indvars.iv96130.sroa.gep, %21 ], [ %6, %JS_GetOpaque.exit ]
+  %indvars.iv96130 = phi i64 [ 1, %21 ], [ 0, %JS_GetOpaque.exit ]
   %32 = phi i1 [ false, %21 ], [ true, %JS_GetOpaque.exit ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %31, i8 0, i64 64, i1 false)
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 16
   br label %38
 
 34:                                               ; preds = %._crit_edge, %29
-  br i1 %.not.i.i128.not, label %.thread, label %35
+  br i1 %.not.i.i129.not, label %.thread, label %35
 
 35:                                               ; preds = %34
   %36 = load ptr, ptr %16, align 8, !tbaa !36
@@ -95402,20 +95402,20 @@ JS_DupValue.exit:                                 ; preds = %38, %47
   br i1 %39, label %38, label %51, !llvm.loop !817
 
 51:                                               ; preds = %JS_DupValue.exit
-  %52 = getelementptr inbounds nuw %struct.JSValue, ptr %3, i64 %indvars.iv95129
+  %52 = getelementptr inbounds nuw %struct.JSValue, ptr %3, i64 %indvars.iv96130
   %.sroa.08.0.copyload = load i64, ptr %52, align 8, !tbaa !46
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %52, i64 8
   %.sroa.7.0.copyload = load i64, ptr %.sroa.7.0..sroa_idx, align 8, !tbaa !45
   %53 = and i64 %.sroa.7.0.copyload, 4294967295
   %.not.i80 = icmp eq i64 %53, 4294967295
   %54 = inttoptr i64 %.sroa.08.0.copyload to ptr
-  br i1 %.not.i80, label %55, label %.thread120
+  br i1 %.not.i80, label %55, label %.thread121
 
 55:                                               ; preds = %51
   %56 = getelementptr inbounds nuw i8, ptr %54, i64 6
   %57 = load i16, ptr %56, align 2, !tbaa !46
   switch i16 %57, label %58 [
-    i16 13, label %.thread116
+    i16 13, label %.thread117
     i16 48, label %JS_IsFunction.exit
   ]
 
@@ -95427,9 +95427,9 @@ JS_DupValue.exit:                                 ; preds = %38, %47
   %63 = getelementptr inbounds nuw %struct.JSClass, ptr %61, i64 %62
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 24
   %65 = load ptr, ptr %64, align 8, !tbaa !92
-  %.fr126 = freeze ptr %65
-  %.not87 = icmp eq ptr %.fr126, null
-  br i1 %.not87, label %.thread120, label %.thread116
+  %.fr127 = freeze ptr %65
+  %.not87 = icmp eq ptr %.fr127, null
+  br i1 %.not87, label %.thread121, label %.thread117
 
 JS_IsFunction.exit:                               ; preds = %55
   %66 = getelementptr inbounds nuw i8, ptr %54, i64 48
@@ -95438,26 +95438,26 @@ JS_IsFunction.exit:                               ; preds = %55
   %69 = load i8, ptr %68, align 8, !tbaa !355
   %.fr = freeze i8 %69
   %70 = icmp eq i8 %.fr, 0
-  br i1 %70, label %.thread120, label %.thread116
+  br i1 %70, label %.thread121, label %.thread117
 
-.thread116:                                       ; preds = %55, %58, %JS_IsFunction.exit
+.thread117:                                       ; preds = %55, %58, %JS_IsFunction.exit
   %71 = inttoptr i64 %.sroa.08.0.copyload to ptr
   %72 = load i32, ptr %71, align 4, !tbaa !107
   %73 = add i32 %72, 1
   store i32 %73, ptr %71, align 4, !tbaa !107
-  br label %.thread120
+  br label %.thread121
 
-.thread120:                                       ; preds = %JS_IsFunction.exit, %58, %51, %.thread116
-  %74 = phi i64 [ %.sroa.08.0.copyload, %.thread116 ], [ 0, %51 ], [ 0, %58 ], [ 0, %JS_IsFunction.exit ]
-  %75 = phi i64 [ %.sroa.7.0.copyload, %.thread116 ], [ 3, %51 ], [ 3, %58 ], [ 3, %JS_IsFunction.exit ]
+.thread121:                                       ; preds = %JS_IsFunction.exit, %58, %51, %.thread117
+  %74 = phi i64 [ %.sroa.08.0.copyload, %.thread117 ], [ 0, %51 ], [ 0, %58 ], [ 0, %JS_IsFunction.exit ]
+  %75 = phi i64 [ %.sroa.7.0.copyload, %.thread117 ], [ 3, %51 ], [ 3, %58 ], [ 3, %JS_IsFunction.exit ]
   %76 = getelementptr inbounds nuw i8, ptr %31, i64 48
   store i64 %74, ptr %76, align 8, !tbaa !46
   %.sroa.44.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 56
   store i64 %75, ptr %.sroa.44.0..sroa_idx, align 8, !tbaa !45
-  store ptr %31, ptr %indvars.iv95129.sroa.phi, align 8, !tbaa !815
+  store ptr %31, ptr %indvars.iv96130.sroa.phi, align 8, !tbaa !815
   br i1 %32, label %21, label %77, !llvm.loop !814
 
-77:                                               ; preds = %.thread120
+77:                                               ; preds = %.thread121
   %78 = load i32, ptr %.0.i, align 8, !tbaa !613
   %79 = icmp eq i32 %78, 0
   br i1 %79, label %.preheader, label %91

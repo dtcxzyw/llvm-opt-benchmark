@@ -5483,10 +5483,10 @@ define noundef zeroext i1 @_Z32gmx_ana_index_has_complete_elemsP15gmx_ana_index_
 10:                                               ; preds = %8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !36
-  %.not3441 = icmp sgt i32 %6, 0
+  %.not3442 = icmp sgt i32 %6, 0
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8, !tbaa !108
-  br i1 %.not3441, label %.lr.ph, label %._crit_edge
+  br i1 %.not3442, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %10
   %wide.trip.count = zext nneg i32 %6 to i64
@@ -5494,15 +5494,15 @@ define noundef zeroext i1 @_Z32gmx_ana_index_has_complete_elemsP15gmx_ana_index_
 
 13:                                               ; preds = %.lr.ph, %22
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %22 ]
-  %.02643 = phi i32 [ -1, %.lr.ph ], [ %15, %22 ]
+  %.02644 = phi i32 [ -1, %.lr.ph ], [ %15, %22 ]
   %14 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv
   %15 = load i32, ptr %14, align 4, !tbaa !36
-  %16 = add nsw i32 %.02643, 1
+  %16 = add nsw i32 %.02644, 1
   %.not = icmp eq i32 %15, %16
   br i1 %.not, label %22, label %17
 
 17:                                               ; preds = %13
-  %18 = call fastcc noundef zeroext i1 @_ZL22is_at_residue_boundaryRK10gmx_mtop_tiPi(ptr noundef nonnull align 8 dereferenceable(768) %2, i32 noundef %.02643, ptr noundef %4)
+  %18 = call fastcc noundef zeroext i1 @_ZL22is_at_residue_boundaryRK10gmx_mtop_tiPi(ptr noundef nonnull align 8 dereferenceable(768) %2, i32 noundef %.02644, ptr noundef %4)
   br i1 %18, label %19, label %.thread
 
 19:                                               ; preds = %17

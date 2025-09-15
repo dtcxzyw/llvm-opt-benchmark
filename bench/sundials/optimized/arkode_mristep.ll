@@ -4832,9 +4832,9 @@ mriStepInnerStepper_Reset.exit.thread213:         ; preds = %68, %mriStepInnerSt
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 48
   %99 = load i32, ptr %98, align 8, !tbaa !222
   %100 = icmp sgt i32 %99, 0
-  br i1 %100, label %.lr.ph242, label %._crit_edge243
+  br i1 %100, label %.lr.ph243, label %._crit_edge244
 
-.lr.ph242:                                        ; preds = %94
+.lr.ph243:                                        ; preds = %94
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 704
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 592
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 584
@@ -4854,12 +4854,12 @@ mriStepInnerStepper_Reset.exit.thread213:         ; preds = %68, %mriStepInnerSt
   %117 = getelementptr inbounds nuw i8, ptr %5, i64 496
   br label %118
 
-118:                                              ; preds = %.lr.ph242, %._crit_edge
-  %indvars.iv258 = phi i64 [ 0, %.lr.ph242 ], [ %indvars.iv.next259, %._crit_edge ]
-  %119 = phi ptr [ %97, %.lr.ph242 ], [ %264, %._crit_edge ]
+118:                                              ; preds = %.lr.ph243, %._crit_edge
+  %indvars.iv259 = phi i64 [ 0, %.lr.ph243 ], [ %indvars.iv.next260, %._crit_edge ]
+  %119 = phi ptr [ %97, %.lr.ph243 ], [ %264, %._crit_edge ]
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 56
   %121 = load ptr, ptr %120, align 8, !tbaa !223
-  %122 = getelementptr inbounds nuw ptr, ptr %121, i64 %indvars.iv258
+  %122 = getelementptr inbounds nuw ptr, ptr %121, i64 %indvars.iv259
   %123 = load ptr, ptr %122, align 8, !tbaa !117
   %124 = load i32, ptr %123, align 4, !tbaa !119
   %125 = load double, ptr %10, align 8, !tbaa !174
@@ -4882,15 +4882,15 @@ mriStepInnerStepper_Reset.exit.thread213:         ; preds = %68, %mriStepInnerSt
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %260
-  %indvars.iv255 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next256, %260 ]
+  %indvars.iv256 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next257, %260 ]
   %135 = phi i32 [ %132, %.lr.ph.preheader ], [ %261, %260 ]
-  %.0135236 = phi double [ %134, %.lr.ph.preheader ], [ %175, %260 ]
+  %.0135237 = phi double [ %134, %.lr.ph.preheader ], [ %175, %260 ]
   %136 = load ptr, ptr %96, align 8, !tbaa !125
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 56
   %138 = load ptr, ptr %137, align 8, !tbaa !223
-  %139 = getelementptr inbounds nuw ptr, ptr %138, i64 %indvars.iv258
+  %139 = getelementptr inbounds nuw ptr, ptr %138, i64 %indvars.iv259
   %140 = load ptr, ptr %139, align 8, !tbaa !117
-  %141 = getelementptr inbounds nuw i32, ptr %140, i64 %indvars.iv255
+  %141 = getelementptr inbounds nuw i32, ptr %140, i64 %indvars.iv256
   %142 = load i32, ptr %141, align 4, !tbaa !119
   %143 = icmp slt i32 %142, 0
   br i1 %143, label %._crit_edge, label %144
@@ -4911,11 +4911,11 @@ mriStepInnerStepper_Reset.exit.thread213:         ; preds = %68, %mriStepInnerSt
   %152 = load i32, ptr %151, align 8, !tbaa !222
   %153 = add nsw i32 %152, -2
   %154 = zext i32 %153 to i64
-  %155 = icmp eq i64 %indvars.iv258, %154
+  %155 = icmp eq i64 %indvars.iv259, %154
   %spec.select165 = select i1 %155, i1 %.0136, i1 false
   %156 = add nsw i32 %152, -1
   %157 = zext i32 %156 to i64
-  %158 = icmp eq i64 %indvars.iv258, %157
+  %158 = icmp eq i64 %indvars.iv259, %157
   %159 = load i32, ptr %56, align 8, !tbaa !120
   %160 = icmp ne i32 %159, 0
   %or.cond7 = and i1 %160, %spec.select165
@@ -4943,9 +4943,9 @@ mriStepInnerStepper_Reset.exit.thread213:         ; preds = %68, %mriStepInnerSt
   %174 = load double, ptr %101, align 8, !tbaa !185
   %175 = tail call double @llvm.fmuladd.f64(double %172, double %174, double %173)
   %176 = icmp samesign ugt i32 %142, 1
-  %177 = icmp eq i64 %indvars.iv255, 0
+  %177 = icmp eq i64 %indvars.iv256, 0
   %or.cond9 = and i1 %177, %176
-  %.pre262 = load ptr, ptr %103, align 8, !tbaa !186
+  %.pre263 = load ptr, ptr %103, align 8, !tbaa !186
   br i1 %or.cond9, label %178, label %mriStepInnerStepper_Reset.exit174.thread219
 
 178:                                              ; preds = %171
@@ -4966,14 +4966,14 @@ mriStepInnerStepper_Reset.exit.thread213:         ; preds = %68, %mriStepInnerSt
   br i1 %.not.i172, label %mriStepInnerStepper_Reset.exit174.thread219, label %mriStepInnerStepper_Reset.exit174
 
 mriStepInnerStepper_Reset.exit174:                ; preds = %185
-  %188 = tail call i32 %187(ptr noundef nonnull %179, double noundef %.0135236, ptr noundef %.pre262) #14
+  %188 = tail call i32 %187(ptr noundef nonnull %179, double noundef %.0135237, ptr noundef %.pre263) #14
   %189 = getelementptr inbounds nuw i8, ptr %179, i64 40
   store i32 %188, ptr %189, align 8, !tbaa !166
   %.not157 = icmp eq i32 %188, 0
   br i1 %.not157, label %mriStepInnerStepper_Reset.exit174.mriStepInnerStepper_Reset.exit174.thread219_crit_edge, label %mriStepInnerStepper_Reset.exit174.thread
 
 mriStepInnerStepper_Reset.exit174.mriStepInnerStepper_Reset.exit174.thread219_crit_edge: ; preds = %mriStepInnerStepper_Reset.exit174
-  %.pre261 = load ptr, ptr %103, align 8, !tbaa !186
+  %.pre262 = load ptr, ptr %103, align 8, !tbaa !186
   br label %mriStepInnerStepper_Reset.exit174.thread219
 
 mriStepInnerStepper_Reset.exit174.thread:         ; preds = %181, %178, %mriStepInnerStepper_Reset.exit174
@@ -4981,11 +4981,11 @@ mriStepInnerStepper_Reset.exit174.thread:         ; preds = %181, %178, %mriStep
   br label %.loopexit
 
 mriStepInnerStepper_Reset.exit174.thread219:      ; preds = %mriStepInnerStepper_Reset.exit174.mriStepInnerStepper_Reset.exit174.thread219_crit_edge, %185, %171
-  %190 = phi ptr [ %.pre261, %mriStepInnerStepper_Reset.exit174.mriStepInnerStepper_Reset.exit174.thread219_crit_edge ], [ %.pre262, %185 ], [ %.pre262, %171 ]
+  %190 = phi ptr [ %.pre262, %mriStepInnerStepper_Reset.exit174.mriStepInnerStepper_Reset.exit174.thread219_crit_edge ], [ %.pre263, %185 ], [ %.pre263, %171 ]
   %191 = xor i1 %spec.select165, true
   %192 = and i1 %17, %191
   %193 = zext i1 %192 to i32
-  %194 = tail call i32 @mriStep_StageERKFast(ptr noundef nonnull %0, ptr noundef nonnull %5, double noundef %.0135236, double noundef %175, ptr noundef %190, ptr poison, i32 noundef %193)
+  %194 = tail call i32 @mriStep_StageERKFast(ptr noundef nonnull %0, ptr noundef nonnull %5, double noundef %.0135237, double noundef %175, ptr noundef %190, ptr poison, i32 noundef %193)
   %.not158 = icmp eq i32 %194, 0
   br i1 %.not158, label %196, label %195
 
@@ -5124,33 +5124,33 @@ mriStep_ApplyForcing.exit:                        ; preds = %.lr.ph.i, %232
   br label %260
 
 260:                                              ; preds = %257, %258
-  %indvars.iv.next256 = add nuw nsw i64 %indvars.iv255, 1
+  %indvars.iv.next257 = add nuw nsw i64 %indvars.iv256, 1
   %261 = load i32, ptr %104, align 8, !tbaa !131
   %262 = sext i32 %261 to i64
-  %263 = icmp slt i64 %indvars.iv.next256, %262
+  %263 = icmp slt i64 %indvars.iv.next257, %262
   br i1 %263, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %161, %.lr.ph, %260, %129
-  %indvars.iv.next259 = add nuw nsw i64 %indvars.iv258, 1
+  %indvars.iv.next260 = add nuw nsw i64 %indvars.iv259, 1
   %264 = load ptr, ptr %96, align 8, !tbaa !125
   %265 = getelementptr inbounds nuw i8, ptr %264, i64 48
   %266 = load i32, ptr %265, align 8, !tbaa !222
   %267 = sext i32 %266 to i64
-  %268 = icmp slt i64 %indvars.iv.next259, %267
-  br i1 %268, label %118, label %._crit_edge243
+  %268 = icmp slt i64 %indvars.iv.next260, %267
+  br i1 %268, label %118, label %._crit_edge244
 
-._crit_edge243:                                   ; preds = %._crit_edge, %94
+._crit_edge244:                                   ; preds = %._crit_edge, %94
   %269 = load i32, ptr %56, align 8, !tbaa !120
   %.not153 = icmp eq i32 %269, 0
   br i1 %.not153, label %273, label %270
 
-270:                                              ; preds = %._crit_edge243
+270:                                              ; preds = %._crit_edge244
   %271 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %272 = load i32, ptr %271, align 8, !tbaa !122
   %.not154 = icmp eq i32 %272, 0
   br i1 %.not154, label %.loopexit, label %273
 
-273:                                              ; preds = %270, %._crit_edge243
+273:                                              ; preds = %270, %._crit_edge244
   %274 = getelementptr inbounds nuw i8, ptr %0, i64 584
   %275 = load ptr, ptr %274, align 8, !tbaa !186
   %276 = getelementptr inbounds nuw i8, ptr %0, i64 616

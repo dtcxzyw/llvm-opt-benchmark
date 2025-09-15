@@ -865,7 +865,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4LIEF5MachO12BuildVer
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(360) %13, ptr noundef nonnull align 8 dereferenceable(360) @__const._ZN4LIEF5MachO9to_stringENS0_12BuildVersion9PLATFORMSE.enums2str, i64 360, i1 false)
   %.not.i.i.i.i.i.i.i = icmp ugt i32 %26, 15
-  br i1 %.not.i.i.i.i.i.i.i, label %27, label %_ZNK6frozen3mapIN4LIEF5MachO12BuildVersion9PLATFORMSEPKcLm22ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread30.i.i.i
+  br i1 %.not.i.i.i.i.i.i.i, label %27, label %_ZNK6frozen3mapIN4LIEF5MachO12BuildVersion9PLATFORMSEPKcLm22ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread31.i.i.i
 
 27:                                               ; preds = %2
   %.not.i.i.i.i.i.i.i.i = icmp ugt i32 %26, 19
@@ -884,7 +884,7 @@ _ZNK6frozen3mapIN4LIEF5MachO12BuildVersion9PLATFORMSEPKcLm22ESt4lessIS4_EE4findI
   %31 = select i1 %.not.i6.i.i.i.i.i.i.i.i, i64 296, i64 264
   br label %_ZNK6frozen3mapIN4LIEF5MachO12BuildVersion9PLATFORMSEPKcLm22ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i.i
 
-_ZNK6frozen3mapIN4LIEF5MachO12BuildVersion9PLATFORMSEPKcLm22ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread30.i.i.i: ; preds = %2
+_ZNK6frozen3mapIN4LIEF5MachO12BuildVersion9PLATFORMSEPKcLm22ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread31.i.i.i: ; preds = %2
   %.not.i6.i.i.i.i.i.i.i = icmp samesign ugt i32 %26, 7
   %.add16.i.i.i = select i1 %.not.i6.i.i.i.i.i.i.i, i64 136, i64 8
   %.add16.i.i.sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %.not.i6.i.i.i.i.i.i.i, i64 184, i64 56
@@ -918,10 +918,10 @@ _ZNK6frozen3mapIN4LIEF5MachO12BuildVersion9PLATFORMSEPKcLm22ESt4lessIS4_EE11lowe
   %.not.i.i.i = icmp eq i64 %.add15.i.i.i, 360
   br i1 %.not.i.i.i, label %_ZN4LIEF5MachO9to_stringENS0_12BuildVersion9PLATFORMSE.exit, label %_ZNK6frozen3mapIN4LIEF5MachO12BuildVersion9PLATFORMSEPKcLm22ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i
 
-_ZNK6frozen3mapIN4LIEF5MachO12BuildVersion9PLATFORMSEPKcLm22ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i: ; preds = %_ZNK6frozen3mapIN4LIEF5MachO12BuildVersion9PLATFORMSEPKcLm22ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i.i, %_ZNK6frozen3mapIN4LIEF5MachO12BuildVersion9PLATFORMSEPKcLm22ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread30.i.i.i
-  %39 = phi ptr [ %36, %_ZNK6frozen3mapIN4LIEF5MachO12BuildVersion9PLATFORMSEPKcLm22ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread30.i.i.i ], [ %38, %_ZNK6frozen3mapIN4LIEF5MachO12BuildVersion9PLATFORMSEPKcLm22ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i.i ]
-  %.0.i.i.i.i.idx33.i.i.i = phi i64 [ %.add19.i.i.i, %_ZNK6frozen3mapIN4LIEF5MachO12BuildVersion9PLATFORMSEPKcLm22ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread30.i.i.i ], [ %.add15.i.i.i, %_ZNK6frozen3mapIN4LIEF5MachO12BuildVersion9PLATFORMSEPKcLm22ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i.i ]
-  %.0.i.i.i.i.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %13, i64 %.0.i.i.i.i.idx33.i.i.i
+_ZNK6frozen3mapIN4LIEF5MachO12BuildVersion9PLATFORMSEPKcLm22ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i: ; preds = %_ZNK6frozen3mapIN4LIEF5MachO12BuildVersion9PLATFORMSEPKcLm22ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i.i, %_ZNK6frozen3mapIN4LIEF5MachO12BuildVersion9PLATFORMSEPKcLm22ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread31.i.i.i
+  %39 = phi ptr [ %36, %_ZNK6frozen3mapIN4LIEF5MachO12BuildVersion9PLATFORMSEPKcLm22ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread31.i.i.i ], [ %38, %_ZNK6frozen3mapIN4LIEF5MachO12BuildVersion9PLATFORMSEPKcLm22ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i.i ]
+  %.0.i.i.i.i.idx34.i.i.i = phi i64 [ %.add19.i.i.i, %_ZNK6frozen3mapIN4LIEF5MachO12BuildVersion9PLATFORMSEPKcLm22ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread31.i.i.i ], [ %.add15.i.i.i, %_ZNK6frozen3mapIN4LIEF5MachO12BuildVersion9PLATFORMSEPKcLm22ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i.i ]
+  %.0.i.i.i.i.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %13, i64 %.0.i.i.i.i.idx34.i.i.i
   %.pre.i.i.i = load i32, ptr %.0.i.i.i.i.ptr.i.i.i, align 4, !tbaa !49
   %40 = icmp ult i32 %26, %.pre.i.i.i
   %41 = select i1 %40, ptr %39, ptr %.0.i.i.i.i.ptr.i.i.i
@@ -930,8 +930,8 @@ _ZNK6frozen3mapIN4LIEF5MachO12BuildVersion9PLATFORMSEPKcLm22ESt4lessIS4_EE4findI
   br i1 %.not.i, label %_ZN4LIEF5MachO9to_stringENS0_12BuildVersion9PLATFORMSE.exit, label %43
 
 43:                                               ; preds = %_ZNK6frozen3mapIN4LIEF5MachO12BuildVersion9PLATFORMSEPKcLm22ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i, %_ZNK6frozen3mapIN4LIEF5MachO12BuildVersion9PLATFORMSEPKcLm22ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread13.i
-  %.not27.i.i16.i = phi ptr [ %29, %_ZNK6frozen3mapIN4LIEF5MachO12BuildVersion9PLATFORMSEPKcLm22ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread13.i ], [ %41, %_ZNK6frozen3mapIN4LIEF5MachO12BuildVersion9PLATFORMSEPKcLm22ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i ]
-  %spec.select.i.i.sroa.sel.i = getelementptr inbounds nuw i8, ptr %.not27.i.i16.i, i64 8
+  %.not28.i.i16.i = phi ptr [ %29, %_ZNK6frozen3mapIN4LIEF5MachO12BuildVersion9PLATFORMSEPKcLm22ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread13.i ], [ %41, %_ZNK6frozen3mapIN4LIEF5MachO12BuildVersion9PLATFORMSEPKcLm22ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i ]
+  %spec.select.i.i.sroa.sel.i = getelementptr inbounds nuw i8, ptr %.not28.i.i16.i, i64 8
   %44 = load ptr, ptr %spec.select.i.i.sroa.sel.i, align 8, !tbaa !50
   br label %_ZN4LIEF5MachO9to_stringENS0_12BuildVersion9PLATFORMSE.exit
 
@@ -1393,7 +1393,7 @@ define noundef ptr @_ZN4LIEF5MachO9to_stringENS0_12BuildVersion9PLATFORMSE(i32 n
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(360) %2, ptr noundef nonnull align 8 dereferenceable(360) @__const._ZN4LIEF5MachO9to_stringENS0_12BuildVersion9PLATFORMSE.enums2str, i64 360, i1 false)
   %.not.i.i.i.i.i.i = icmp ugt i32 %0, 15
-  br i1 %.not.i.i.i.i.i.i, label %3, label %_ZNK6frozen3mapIN4LIEF5MachO12BuildVersion9PLATFORMSEPKcLm22ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread30.i.i
+  br i1 %.not.i.i.i.i.i.i, label %3, label %_ZNK6frozen3mapIN4LIEF5MachO12BuildVersion9PLATFORMSEPKcLm22ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread31.i.i
 
 3:                                                ; preds = %1
   %.not.i.i.i.i.i.i.i = icmp ugt i32 %0, 19
@@ -1412,7 +1412,7 @@ _ZNK6frozen3mapIN4LIEF5MachO12BuildVersion9PLATFORMSEPKcLm22ESt4lessIS4_EE4findI
   %7 = select i1 %.not.i6.i.i.i.i.i.i.i, i64 296, i64 264
   br label %_ZNK6frozen3mapIN4LIEF5MachO12BuildVersion9PLATFORMSEPKcLm22ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i
 
-_ZNK6frozen3mapIN4LIEF5MachO12BuildVersion9PLATFORMSEPKcLm22ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread30.i.i: ; preds = %1
+_ZNK6frozen3mapIN4LIEF5MachO12BuildVersion9PLATFORMSEPKcLm22ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread31.i.i: ; preds = %1
   %.not.i6.i.i.i.i.i.i = icmp samesign ugt i32 %0, 7
   %.add16.i.i = select i1 %.not.i6.i.i.i.i.i.i, i64 136, i64 8
   %.add16.i.i.sroa.sel.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %.not.i6.i.i.i.i.i.i, i64 184, i64 56
@@ -1446,10 +1446,10 @@ _ZNK6frozen3mapIN4LIEF5MachO12BuildVersion9PLATFORMSEPKcLm22ESt4lessIS4_EE11lowe
   %.not.i.i = icmp eq i64 %.add15.i.i, 360
   br i1 %.not.i.i, label %_ZNK6frozen3mapIN4LIEF5MachO12BuildVersion9PLATFORMSEPKcLm22ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread, label %_ZNK6frozen3mapIN4LIEF5MachO12BuildVersion9PLATFORMSEPKcLm22ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit
 
-_ZNK6frozen3mapIN4LIEF5MachO12BuildVersion9PLATFORMSEPKcLm22ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit: ; preds = %_ZNK6frozen3mapIN4LIEF5MachO12BuildVersion9PLATFORMSEPKcLm22ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread30.i.i, %_ZNK6frozen3mapIN4LIEF5MachO12BuildVersion9PLATFORMSEPKcLm22ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i
-  %15 = phi ptr [ %12, %_ZNK6frozen3mapIN4LIEF5MachO12BuildVersion9PLATFORMSEPKcLm22ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread30.i.i ], [ %14, %_ZNK6frozen3mapIN4LIEF5MachO12BuildVersion9PLATFORMSEPKcLm22ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i ]
-  %.0.i.i.i.i.idx33.i.i = phi i64 [ %.add19.i.i, %_ZNK6frozen3mapIN4LIEF5MachO12BuildVersion9PLATFORMSEPKcLm22ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread30.i.i ], [ %.add15.i.i, %_ZNK6frozen3mapIN4LIEF5MachO12BuildVersion9PLATFORMSEPKcLm22ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i ]
-  %.0.i.i.i.i.ptr.i.i = getelementptr inbounds nuw i8, ptr %2, i64 %.0.i.i.i.i.idx33.i.i
+_ZNK6frozen3mapIN4LIEF5MachO12BuildVersion9PLATFORMSEPKcLm22ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit: ; preds = %_ZNK6frozen3mapIN4LIEF5MachO12BuildVersion9PLATFORMSEPKcLm22ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread31.i.i, %_ZNK6frozen3mapIN4LIEF5MachO12BuildVersion9PLATFORMSEPKcLm22ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i
+  %15 = phi ptr [ %12, %_ZNK6frozen3mapIN4LIEF5MachO12BuildVersion9PLATFORMSEPKcLm22ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread31.i.i ], [ %14, %_ZNK6frozen3mapIN4LIEF5MachO12BuildVersion9PLATFORMSEPKcLm22ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i ]
+  %.0.i.i.i.i.idx34.i.i = phi i64 [ %.add19.i.i, %_ZNK6frozen3mapIN4LIEF5MachO12BuildVersion9PLATFORMSEPKcLm22ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread31.i.i ], [ %.add15.i.i, %_ZNK6frozen3mapIN4LIEF5MachO12BuildVersion9PLATFORMSEPKcLm22ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i ]
+  %.0.i.i.i.i.ptr.i.i = getelementptr inbounds nuw i8, ptr %2, i64 %.0.i.i.i.i.idx34.i.i
   %.pre.i.i = load i32, ptr %.0.i.i.i.i.ptr.i.i, align 4, !tbaa !49
   %16 = icmp ult i32 %0, %.pre.i.i
   %17 = select i1 %16, ptr %15, ptr %.0.i.i.i.i.ptr.i.i
@@ -1458,8 +1458,8 @@ _ZNK6frozen3mapIN4LIEF5MachO12BuildVersion9PLATFORMSEPKcLm22ESt4lessIS4_EE4findI
   br i1 %.not, label %_ZNK6frozen3mapIN4LIEF5MachO12BuildVersion9PLATFORMSEPKcLm22ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread, label %19
 
 19:                                               ; preds = %_ZNK6frozen3mapIN4LIEF5MachO12BuildVersion9PLATFORMSEPKcLm22ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread13, %_ZNK6frozen3mapIN4LIEF5MachO12BuildVersion9PLATFORMSEPKcLm22ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit
-  %.not27.i.i16 = phi ptr [ %5, %_ZNK6frozen3mapIN4LIEF5MachO12BuildVersion9PLATFORMSEPKcLm22ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread13 ], [ %17, %_ZNK6frozen3mapIN4LIEF5MachO12BuildVersion9PLATFORMSEPKcLm22ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit ]
-  %spec.select.i.i.sroa.sel = getelementptr inbounds nuw i8, ptr %.not27.i.i16, i64 8
+  %.not28.i.i16 = phi ptr [ %5, %_ZNK6frozen3mapIN4LIEF5MachO12BuildVersion9PLATFORMSEPKcLm22ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread13 ], [ %17, %_ZNK6frozen3mapIN4LIEF5MachO12BuildVersion9PLATFORMSEPKcLm22ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit ]
+  %spec.select.i.i.sroa.sel = getelementptr inbounds nuw i8, ptr %.not28.i.i16, i64 8
   %20 = load ptr, ptr %spec.select.i.i.sroa.sel, align 8, !tbaa !50
   br label %_ZNK6frozen3mapIN4LIEF5MachO12BuildVersion9PLATFORMSEPKcLm22ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread
 

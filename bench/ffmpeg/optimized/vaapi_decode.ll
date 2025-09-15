@@ -573,12 +573,12 @@ define internal fastcc range(i32 -38, 1) i32 @vaapi_decode_make_config(ptr nound
   br label %120
 
 27:                                               ; preds = %.preheader, %.thread131
-  %indvars.iv153 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next154, %.thread131 ]
-  %.087148 = phi i32 [ undef, %.preheader ], [ %.2140, %.thread131 ]
-  %.089147 = phi i32 [ 0, %.preheader ], [ %.291139, %.thread131 ]
-  %.094146 = phi i32 [ -1, %.preheader ], [ %.296138, %.thread131 ]
+  %indvars.iv154 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next155, %.thread131 ]
+  %.087149 = phi i32 [ undef, %.preheader ], [ %.2140, %.thread131 ]
+  %.089148 = phi i32 [ 0, %.preheader ], [ %.291139, %.thread131 ]
+  %.094147 = phi i32 [ -1, %.preheader ], [ %.296138, %.thread131 ]
   %28 = load i32, ptr %13, align 8, !tbaa !72
-  %29 = getelementptr inbounds nuw %struct.anon, ptr @vaapi_profile_map, i64 %indvars.iv153
+  %29 = getelementptr inbounds nuw %struct.anon, ptr @vaapi_profile_map, i64 %indvars.iv154
   %30 = load i32, ptr %29, align 8, !tbaa !73
   %.not114 = icmp eq i32 %28, %30
   br i1 %.not114, label %31, label %.thread131
@@ -587,14 +587,14 @@ define internal fastcc range(i32 -38, 1) i32 @vaapi_decode_make_config(ptr nound
   %32 = load i32, ptr %24, align 8, !tbaa !75
   %33 = getelementptr inbounds nuw i8, ptr %29, i64 4
   %34 = load i32, ptr %33, align 4, !tbaa !76
-  %.fr151 = freeze i32 %34
+  %.fr152 = freeze i32 %34
   %.fr = freeze i32 %32
-  %35 = icmp eq i32 %.fr, %.fr151
-  %switch.selectcmp.case1 = icmp eq i64 %indvars.iv153, 25
-  %switch.selectcmp.case2 = icmp eq i64 %indvars.iv153, 2
+  %35 = icmp eq i32 %.fr, %.fr152
+  %switch.selectcmp.case1 = icmp eq i64 %indvars.iv154, 25
+  %switch.selectcmp.case2 = icmp eq i64 %indvars.iv154, 2
   %switch.selectcmp = or i1 %switch.selectcmp.case1, %switch.selectcmp.case2
   %narrow = or i1 %switch.selectcmp, %35
-  %36 = trunc i64 %indvars.iv153 to i32
+  %36 = trunc i64 %indvars.iv154 to i32
   %37 = add i32 %36, -16
   %.not115 = icmp ult i32 %37, -2
   br i1 %.not115, label %42, label %38
@@ -638,24 +638,24 @@ define internal fastcc range(i32 -38, 1) i32 @vaapi_decode_make_config(ptr nound
   br i1 %35, label %57, label %switch.early.test
 
 switch.early.test:                                ; preds = %55
-  %56 = trunc nuw nsw i64 %indvars.iv153 to i32
+  %56 = trunc nuw nsw i64 %indvars.iv154 to i32
   switch i32 %56, label %.thread131 [
     i32 25, label %57
     i32 2, label %57
   ]
 
 .thread131:                                       ; preds = %50, %45, %switch.early.test, %27
-  %.2140 = phi i32 [ %.fr151, %switch.early.test ], [ %.087148, %27 ], [ %.087148, %45 ], [ %.087148, %50 ]
-  %.291139 = phi i32 [ %spec.select, %switch.early.test ], [ %.089147, %27 ], [ %.089147, %45 ], [ %.089147, %50 ]
-  %.296138 = phi i32 [ %46, %switch.early.test ], [ %.094146, %27 ], [ %.094146, %45 ], [ %.094146, %50 ]
-  %indvars.iv.next154 = add nuw nsw i64 %indvars.iv153, 1
-  %exitcond156.not = icmp eq i64 %indvars.iv.next154, 32
-  br i1 %exitcond156.not, label %57, label %27, !llvm.loop !80
+  %.2140 = phi i32 [ %.fr152, %switch.early.test ], [ %.087149, %27 ], [ %.087149, %45 ], [ %.087149, %50 ]
+  %.291139 = phi i32 [ %spec.select, %switch.early.test ], [ %.089148, %27 ], [ %.089148, %45 ], [ %.089148, %50 ]
+  %.296138 = phi i32 [ %46, %switch.early.test ], [ %.094147, %27 ], [ %.094147, %45 ], [ %.094147, %50 ]
+  %indvars.iv.next155 = add nuw nsw i64 %indvars.iv154, 1
+  %exitcond157.not = icmp eq i64 %indvars.iv.next155, 32
+  br i1 %exitcond157.not, label %57, label %27, !llvm.loop !80
 
 57:                                               ; preds = %switch.early.test, %switch.early.test, %55, %.thread131
   %.195 = phi i32 [ %46, %switch.early.test ], [ %.296138, %.thread131 ], [ %46, %55 ], [ %46, %switch.early.test ]
   %.190 = phi i32 [ %spec.select, %switch.early.test ], [ %.291139, %.thread131 ], [ %spec.select, %55 ], [ %spec.select, %switch.early.test ]
-  %.188 = phi i32 [ %.fr151, %switch.early.test ], [ %.2140, %.thread131 ], [ %.fr151, %55 ], [ %.fr151, %switch.early.test ]
+  %.188 = phi i32 [ %.fr152, %switch.early.test ], [ %.2140, %.thread131 ], [ %.fr152, %55 ], [ %.fr152, %switch.early.test ]
   call void @av_freep(ptr noundef nonnull %7) #4
   %58 = icmp eq i32 %.195, -1
   br i1 %58, label %59, label %63
@@ -719,9 +719,9 @@ switch.early.test:                                ; preds = %55
   %87 = icmp slt i32 %84, %86
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 124
   %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !91
-  %.phi.trans.insert157 = getelementptr inbounds nuw i8, ptr %81, i64 20
-  %.pre158 = load i32, ptr %.phi.trans.insert157, align 4, !tbaa !92
-  %88 = icmp slt i32 %.pre, %.pre158
+  %.phi.trans.insert158 = getelementptr inbounds nuw i8, ptr %81, i64 20
+  %.pre159 = load i32, ptr %.phi.trans.insert158, align 4, !tbaa !92
+  %88 = icmp slt i32 %.pre, %.pre159
   %or.cond = select i1 %87, i1 true, i1 %88
   br i1 %or.cond, label %._crit_edge, label %89
 
@@ -742,7 +742,7 @@ switch.early.test:                                ; preds = %55
   %98 = load i32, ptr %97, align 8, !tbaa !93
   %99 = getelementptr inbounds nuw i8, ptr %81, i64 28
   %100 = load i32, ptr %99, align 4, !tbaa !94
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.29, i32 noundef %84, i32 noundef %.pre, i32 noundef %86, i32 noundef %98, i32 noundef %.pre158, i32 noundef %100) #4
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.29, i32 noundef %84, i32 noundef %.pre, i32 noundef %86, i32 noundef %98, i32 noundef %.pre159, i32 noundef %100) #4
   br label %120
 
 101:                                              ; preds = %93

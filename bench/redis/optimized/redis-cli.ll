@@ -24323,9 +24323,9 @@ clusterManagerCheckRedisReply.exit.preheader:     ; preds = %5
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %8 = load i64, ptr %7, align 8, !tbaa !28
   %.not = icmp eq i64 %8, 0
-  br i1 %.not, label %.thread15, label %.lr.ph27
+  br i1 %.not, label %.thread15, label %.lr.ph28
 
-.lr.ph27:                                         ; preds = %clusterManagerCheckRedisReply.exit.preheader
+.lr.ph28:                                         ; preds = %clusterManagerCheckRedisReply.exit.preheader
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 56
   br label %19
 
@@ -24342,11 +24342,11 @@ clusterManagerCheckRedisReply.exit.thread.thread20: ; preds = %5
   %18 = tail call i64 @redis_strlcpy(ptr noundef %13, ptr noundef %15, i64 noundef %17) #33
   br label %.thread15
 
-19:                                               ; preds = %.lr.ph27, %.thread9
-  %20 = phi i64 [ %8, %.lr.ph27 ], [ %77, %.thread9 ]
-  %.03325 = phi i64 [ 0, %.lr.ph27 ], [ %78, %.thread9 ]
+19:                                               ; preds = %.lr.ph28, %.thread9
+  %20 = phi i64 [ %8, %.lr.ph28 ], [ %77, %.thread9 ]
+  %.03326 = phi i64 [ 0, %.lr.ph28 ], [ %78, %.thread9 ]
   %21 = load ptr, ptr %9, align 8, !tbaa !33
-  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %.03325
+  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %.03326
   %23 = load ptr, ptr %22, align 8, !tbaa !34
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 56
   %25 = load ptr, ptr %24, align 8, !tbaa !33
@@ -24401,8 +24401,8 @@ clusterManagerCheckRedisReply.exit.thread.thread20: ; preds = %5
   %61 = load ptr, ptr @cluster_manager.0, align 8, !tbaa !71
   call void @listRewind(ptr noundef %61, ptr noundef nonnull %3) #33
   %62 = call ptr @listNext(ptr noundef nonnull %3) #33
-  %.not4222 = icmp eq ptr %62, null
-  br i1 %.not4222, label %.thread5, label %.lr.ph
+  %.not4223 = icmp eq ptr %62, null
+  br i1 %.not4223, label %.thread5, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.thread, %74
   %63 = phi ptr [ %75, %74 ], [ %62, %.thread ]
@@ -24436,12 +24436,12 @@ clusterManagerCheckRedisReply.exit.thread.thread20: ; preds = %5
   br i1 %.not43.not, label %..thread9_crit_edge, label %.thread15
 
 ..thread9_crit_edge:                              ; preds = %76
-  %.pre30 = load i64, ptr %7, align 8, !tbaa !28
+  %.pre31 = load i64, ptr %7, align 8, !tbaa !28
   br label %.thread9
 
 .thread9:                                         ; preds = %..thread9_crit_edge, %19, %31
-  %77 = phi i64 [ %.pre30, %..thread9_crit_edge ], [ %20, %31 ], [ %20, %19 ]
-  %78 = add nuw i64 %.03325, 1
+  %77 = phi i64 [ %.pre31, %..thread9_crit_edge ], [ %20, %31 ], [ %20, %19 ]
+  %78 = add nuw i64 %.03326, 1
   %79 = icmp ult i64 %78, %77
   br i1 %79, label %19, label %.thread15, !llvm.loop !489
 

@@ -497,8 +497,8 @@ hash_filespec.exit.i.i:                           ; preds = %189, %180
   store ptr null, ptr %18, align 8, !tbaa !101
   %190 = call ptr @hashmap_get(ptr noundef nonnull %19, ptr noundef nonnull %18, ptr noundef null) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
-  %.not75.i.i = icmp eq ptr %190, null
-  br i1 %.not75.i.i, label %find_identical_files.exit.i, label %.lr.ph.i.i
+  %.not76.i.i = icmp eq ptr %190, null
+  br i1 %.not76.i.i, label %find_identical_files.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %hash_filespec.exit.i.i
   %191 = getelementptr inbounds nuw i8, ptr %175, i64 80
@@ -506,11 +506,11 @@ hash_filespec.exit.i.i:                           ; preds = %189, %180
   br label %193
 
 193:                                              ; preds = %.thread.i.i, %.lr.ph.i.i
-  %.03379.i.i = phi ptr [ %190, %.lr.ph.i.i ], [ %244, %.thread.i.i ]
-  %.03478.i.i = phi i32 [ -1, %.lr.ph.i.i ], [ %.162.i.i, %.thread.i.i ]
-  %.03577.i.i = phi i32 [ 100, %.lr.ph.i.i ], [ %.13661.i.i, %.thread.i.i ]
-  %.03776.i.i = phi ptr [ null, %.lr.ph.i.i ], [ %.23960.i.i, %.thread.i.i ]
-  %194 = getelementptr inbounds nuw i8, ptr %.03379.i.i, i64 24
+  %.03380.i.i = phi ptr [ %190, %.lr.ph.i.i ], [ %244, %.thread.i.i ]
+  %.03479.i.i = phi i32 [ -1, %.lr.ph.i.i ], [ %.162.i.i, %.thread.i.i ]
+  %.03578.i.i = phi i32 [ 100, %.lr.ph.i.i ], [ %.13661.i.i, %.thread.i.i ]
+  %.03777.i.i = phi ptr [ null, %.lr.ph.i.i ], [ %.23960.i.i, %.thread.i.i ]
+  %194 = getelementptr inbounds nuw i8, ptr %.03380.i.i, i64 24
   %195 = load ptr, ptr %194, align 8, !tbaa !97
   %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %195, ptr noundef nonnull readonly dereferenceable(32) %175, i64 32)
   %.not.i51.not.i.i = icmp eq i32 %bcmp.i.i.i, 0
@@ -524,8 +524,8 @@ hash_filespec.exit.i.i:                           ; preds = %189, %180
   %200 = icmp slt i16 %.pre.i.i, -28672
   %or.cond.i.i = select i1 %199, i1 %200, i1 false
   %.not44.i.i = icmp eq i16 %198, %.pre.i.i
-  %or.cond100.i.i = select i1 %or.cond.i.i, i1 true, i1 %.not44.i.i
-  br i1 %or.cond100.i.i, label %201, label %.thread.i.i
+  %or.cond101.i.i = select i1 %or.cond.i.i, i1 true, i1 %.not44.i.i
+  br i1 %or.cond101.i.i, label %201, label %.thread.i.i
 
 201:                                              ; preds = %196
   %202 = getelementptr inbounds nuw i8, ptr %195, i64 76
@@ -604,7 +604,7 @@ hash_filespec.exit.i.i:                           ; preds = %189, %180
 basename_same.exit.i.i:                           ; preds = %217, %231, %230, %224
   %.2.i.i.i = phi i32 [ %.mux.i.i.i, %224 ], [ 1, %230 ], [ %237, %231 ], [ %.1.i.i.i, %217 ]
   %238 = add nsw i32 %.2.i.i.i, %204
-  %239 = icmp sgt i32 %238, %.03478.i.i
+  %239 = icmp sgt i32 %238, %.03479.i.i
   br i1 %239, label %240, label %242
 
 240:                                              ; preds = %basename_same.exit.i.i
@@ -612,22 +612,22 @@ basename_same.exit.i.i:                           ; preds = %217, %231, %230, %2
   br i1 %241, label %.thread63.i.i, label %242
 
 242:                                              ; preds = %240, %basename_same.exit.i.i
-  %.3.i.i = phi ptr [ %.03379.i.i, %240 ], [ %.03776.i.i, %basename_same.exit.i.i ]
-  %.2.i.i = phi i32 [ %238, %240 ], [ %.03478.i.i, %basename_same.exit.i.i ]
-  %243 = add nsw i32 %.03577.i.i, -1
+  %.3.i.i = phi ptr [ %.03380.i.i, %240 ], [ %.03777.i.i, %basename_same.exit.i.i ]
+  %.2.i.i = phi i32 [ %238, %240 ], [ %.03479.i.i, %basename_same.exit.i.i ]
+  %243 = add nsw i32 %.03578.i.i, -1
   %.not47.i.i = icmp eq i32 %243, 0
   br i1 %.not47.i.i, label %.thread63.i.i, label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %242, %205, %196, %193
-  %.162.i.i = phi i32 [ %.2.i.i, %242 ], [ %.03478.i.i, %193 ], [ %.03478.i.i, %205 ], [ %.03478.i.i, %196 ]
-  %.13661.i.i = phi i32 [ %243, %242 ], [ %.03577.i.i, %193 ], [ %.03577.i.i, %205 ], [ %.03577.i.i, %196 ]
-  %.23960.i.i = phi ptr [ %.3.i.i, %242 ], [ %.03776.i.i, %193 ], [ %.03776.i.i, %205 ], [ %.03776.i.i, %196 ]
-  %244 = call ptr @hashmap_get_next(ptr noundef nonnull %19, ptr noundef nonnull %.03379.i.i) #14
+  %.162.i.i = phi i32 [ %.2.i.i, %242 ], [ %.03479.i.i, %193 ], [ %.03479.i.i, %205 ], [ %.03479.i.i, %196 ]
+  %.13661.i.i = phi i32 [ %243, %242 ], [ %.03578.i.i, %193 ], [ %.03578.i.i, %205 ], [ %.03578.i.i, %196 ]
+  %.23960.i.i = phi ptr [ %.3.i.i, %242 ], [ %.03777.i.i, %193 ], [ %.03777.i.i, %205 ], [ %.03777.i.i, %196 ]
+  %244 = call ptr @hashmap_get_next(ptr noundef nonnull %19, ptr noundef nonnull %.03380.i.i) #14
   %.not.i.i238 = icmp eq ptr %244, null
   br i1 %.not.i.i238, label %.thread63.i.i, label %193, !llvm.loop !105
 
 .thread63.i.i:                                    ; preds = %.thread.i.i, %242, %240
-  %.138.i.i = phi ptr [ %.23960.i.i, %.thread.i.i ], [ %.3.i.i, %242 ], [ %.03379.i.i, %240 ]
+  %.138.i.i = phi ptr [ %.23960.i.i, %.thread.i.i ], [ %.3.i.i, %242 ], [ %.03380.i.i, %240 ]
   %.not48.i.i = icmp eq ptr %.138.i.i, null
   br i1 %.not48.i.i, label %find_identical_files.exit.i, label %245
 

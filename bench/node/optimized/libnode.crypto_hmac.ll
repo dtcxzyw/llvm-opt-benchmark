@@ -2891,9 +2891,9 @@ cond.false.i:                                     ; preds = %sw.bb6, %land.rhs
   br label %_ZN2v87Boolean3NewEPNS_7IsolateEb.exit
 
 _ZN2v87Boolean3NewEPNS_7IsolateEb.exit:           ; preds = %land.rhs, %cond.false.i
-  %.sink16 = phi i64 [ 640, %cond.false.i ], [ 632, %land.rhs ]
+  %.sink17 = phi i64 [ 640, %cond.false.i ], [ 632, %land.rhs ]
   %6 = ptrtoint ptr %1 to i64
-  %add1.i.i45 = add i64 %.sink16, %6
+  %add1.i.i45 = add i64 %.sink17, %6
   %retval.i.sroa.0.0 = inttoptr i64 %add1.i.i45 to ptr
   br label %sw.epilog
 
@@ -5439,9 +5439,9 @@ cond.false.i.i:                                   ; preds = %land.rhs.i, %sw.bb6
   br label %_ZN2v87Boolean3NewEPNS_7IsolateEb.exit.i
 
 _ZN2v87Boolean3NewEPNS_7IsolateEb.exit.i:         ; preds = %cond.false.i.i, %land.rhs.i
-  %.sink16.i = phi i64 [ 640, %cond.false.i.i ], [ 632, %land.rhs.i ]
+  %.sink17.i = phi i64 [ 640, %cond.false.i.i ], [ 632, %land.rhs.i ]
   %12 = ptrtoint ptr %7 to i64
-  %add1.i.i45.i = add i64 %.sink16.i, %12
+  %add1.i.i45.i = add i64 %.sink17.i, %12
   %retval.i.sroa.0.0.i = inttoptr i64 %add1.i.i45.i to ptr
   br label %_ZN4node6crypto10HmacTraits12EncodeOutputEPNS_11EnvironmentERKNS0_10HmacConfigEPNS0_10ByteSourceEPN2v85LocalINS9_5ValueEEE.exit
 

@@ -2528,23 +2528,23 @@ define internal fastcc ptr @tls1_get_legacy_sigalg(ptr noundef %0, i32 noundef %
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %6 = load i32, ptr %5, align 8, !tbaa !151
   %.not = icmp eq i32 %6, 0
-  br i1 %.not, label %55, label %.preheader76
+  br i1 %.not, label %55, label %.preheader77
 
-.preheader76:                                     ; preds = %4
+.preheader77:                                     ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %8 = load i64, ptr %7, align 8, !tbaa !197
-  %.not86 = icmp eq i64 %8, 0
-  br i1 %.not86, label %tls1_lookup_sigalg.exit.thread, label %.lr.ph
+  %.not87 = icmp eq i64 %8, 0
+  br i1 %.not87, label %tls1_lookup_sigalg.exit.thread, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader76
+.lr.ph:                                           ; preds = %.preheader77
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 768
   br label %11
 
 11:                                               ; preds = %.lr.ph, %.thread
-  %.04880 = phi i64 [ 0, %.lr.ph ], [ %22, %.thread ]
+  %.04881 = phi i64 [ 0, %.lr.ph ], [ %22, %.thread ]
   %12 = load ptr, ptr %9, align 8, !tbaa !126
-  %13 = tail call ptr @ssl_cert_lookup_by_idx(i64 noundef %.04880, ptr noundef %12) #14
+  %13 = tail call ptr @ssl_cert_lookup_by_idx(i64 noundef %.04881, ptr noundef %12) #14
   %14 = icmp eq ptr %13, null
   br i1 %14, label %.thread, label %15
 
@@ -2556,26 +2556,26 @@ define internal fastcc ptr @tls1_get_legacy_sigalg(ptr noundef %0, i32 noundef %
   %20 = load i32, ptr %19, align 8, !tbaa !198
   %21 = and i32 %20, %17
   %.not53.not = icmp eq i32 %21, 0
-  br i1 %.not53.not, label %.thread, label %._crit_edge.split.loop.exit105
+  br i1 %.not53.not, label %.thread, label %._crit_edge.split.loop.exit106
 
 .thread:                                          ; preds = %11, %15
-  %22 = add nuw i64 %.04880, 1
+  %22 = add nuw i64 %.04881, 1
   %23 = load i64, ptr %7, align 8, !tbaa !197
   %24 = icmp ult i64 %22, %23
   br i1 %24, label %11, label %._crit_edge, !llvm.loop !199
 
-._crit_edge.split.loop.exit105:                   ; preds = %15
-  %25 = trunc i64 %.04880 to i32
+._crit_edge.split.loop.exit106:                   ; preds = %15
+  %25 = trunc i64 %.04881 to i32
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %.thread, %._crit_edge.split.loop.exit105
-  %.2 = phi i32 [ %25, %._crit_edge.split.loop.exit105 ], [ -1, %.thread ]
+._crit_edge:                                      ; preds = %.thread, %._crit_edge.split.loop.exit106
+  %.2 = phi i32 [ %25, %._crit_edge.split.loop.exit106 ], [ -1, %.thread ]
   switch i32 %.2, label %.loopexit [
     i32 4, label %30
-    i32 5, label %.preheader73
+    i32 5, label %.preheader74
   ]
 
-.preheader73:                                     ; preds = %._crit_edge
+.preheader74:                                     ; preds = %._crit_edge
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 2176
   %27 = load ptr, ptr %26, align 8, !tbaa !127
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 32
@@ -2598,8 +2598,8 @@ define internal fastcc ptr @tls1_get_legacy_sigalg(ptr noundef %0, i32 noundef %
   br label %39
 
 39:                                               ; preds = %.preheader, %44
-  %.04485 = phi i32 [ 6, %.preheader ], [ %45, %44 ]
-  %40 = zext nneg i32 %.04485 to i64
+  %.04486 = phi i32 [ 6, %.preheader ], [ %45, %44 ]
+  %40 = zext nneg i32 %.04486 to i64
   %41 = getelementptr inbounds nuw %struct.cert_pkey_st, ptr %38, i64 %40
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %43 = load ptr, ptr %42, align 8, !tbaa !201
@@ -2607,13 +2607,13 @@ define internal fastcc ptr @tls1_get_legacy_sigalg(ptr noundef %0, i32 noundef %
   br i1 %.not56, label %44, label %.loopexit
 
 44:                                               ; preds = %39
-  %45 = add nsw i32 %.04485, -1
-  %46 = icmp samesign ugt i32 %.04485, 4
+  %45 = add nsw i32 %.04486, -1
+  %46 = icmp samesign ugt i32 %.04486, 4
   br i1 %46, label %39, label %.thread66, !llvm.loop !203
 
-47:                                               ; preds = %.preheader73, %52
-  %.04384 = phi i32 [ 6, %.preheader73 ], [ %53, %52 ]
-  %48 = zext nneg i32 %.04384 to i64
+47:                                               ; preds = %.preheader74, %52
+  %.04385 = phi i32 [ 6, %.preheader74 ], [ %53, %52 ]
+  %48 = zext nneg i32 %.04385 to i64
   %49 = getelementptr inbounds nuw %struct.cert_pkey_st, ptr %29, i64 %48
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %51 = load ptr, ptr %50, align 8, !tbaa !201
@@ -2621,8 +2621,8 @@ define internal fastcc ptr @tls1_get_legacy_sigalg(ptr noundef %0, i32 noundef %
   br i1 %.not55, label %52, label %.loopexit
 
 52:                                               ; preds = %47
-  %53 = add nsw i32 %.04384, -1
-  %54 = icmp samesign ugt i32 %.04384, 5
+  %53 = add nsw i32 %.04385, -1
+  %54 = icmp samesign ugt i32 %.04385, 5
   br i1 %54, label %47, label %.thread66, !llvm.loop !204
 
 55:                                               ; preds = %4
@@ -2639,7 +2639,7 @@ define internal fastcc ptr @tls1_get_legacy_sigalg(ptr noundef %0, i32 noundef %
   br label %.loopexit
 
 .loopexit:                                        ; preds = %47, %39, %._crit_edge, %55, %2
-  %.046 = phi i32 [ %65, %55 ], [ %1, %2 ], [ %.2, %._crit_edge ], [ %.04485, %39 ], [ %.04384, %47 ]
+  %.046 = phi i32 [ %65, %55 ], [ %1, %2 ], [ %.2, %._crit_edge ], [ %.04486, %39 ], [ %.04385, %47 ]
   %or.cond = icmp ugt i32 %.046, 8
   br i1 %or.cond, label %tls1_lookup_sigalg.exit.thread, label %.thread66
 
@@ -2706,14 +2706,14 @@ tls1_lookup_sigalg.exit:                          ; preds = %86
   br i1 %99, label %tls1_lookup_sigalg.exit.thread, label %tls1_lookup_sigalg.exit.thread.sink.split
 
 tls1_lookup_sigalg.exit.thread.sink.split:        ; preds = %.thread66, %tls1_lookup_sigalg.exit, %95
-  %legacy_rsa_sigalg.sink107 = phi ptr [ %.03.i, %95 ], [ %.03.i, %tls1_lookup_sigalg.exit ], [ @legacy_rsa_sigalg, %.thread66 ]
-  %100 = tail call fastcc i32 @tls12_sigalg_allowed(ptr noundef %0, i32 noundef 327691, ptr noundef nonnull %legacy_rsa_sigalg.sink107)
+  %legacy_rsa_sigalg.sink108 = phi ptr [ %.03.i, %95 ], [ %.03.i, %tls1_lookup_sigalg.exit ], [ @legacy_rsa_sigalg, %.thread66 ]
+  %100 = tail call fastcc i32 @tls12_sigalg_allowed(ptr noundef %0, i32 noundef 327691, ptr noundef nonnull %legacy_rsa_sigalg.sink108)
   %.not57 = icmp eq i32 %100, 0
-  %.legacy_rsa_sigalg = select i1 %.not57, ptr null, ptr %legacy_rsa_sigalg.sink107
+  %.legacy_rsa_sigalg = select i1 %.not57, ptr null, ptr %legacy_rsa_sigalg.sink108
   br label %tls1_lookup_sigalg.exit.thread
 
-tls1_lookup_sigalg.exit.thread:                   ; preds = %89, %tls1_lookup_sigalg.exit.thread.sink.split, %.preheader76, %95, %86, %74, %.loopexit
-  %.0 = phi ptr [ null, %.loopexit ], [ null, %74 ], [ null, %86 ], [ null, %95 ], [ null, %.preheader76 ], [ %.legacy_rsa_sigalg, %tls1_lookup_sigalg.exit.thread.sink.split ], [ null, %89 ]
+tls1_lookup_sigalg.exit.thread:                   ; preds = %89, %tls1_lookup_sigalg.exit.thread.sink.split, %.preheader77, %95, %86, %74, %.loopexit
+  %.0 = phi ptr [ null, %.loopexit ], [ null, %74 ], [ null, %86 ], [ null, %95 ], [ null, %.preheader77 ], [ %.legacy_rsa_sigalg, %tls1_lookup_sigalg.exit.thread.sink.split ], [ null, %89 ]
   ret ptr %.0
 }
 
@@ -5274,8 +5274,8 @@ define internal fastcc i32 @tls12_sigalg_allowed(ptr noundef %0, i32 noundef %1,
   br i1 %76, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %74, %.thread75
-  %.05180 = phi i32 [ %83, %.thread75 ], [ 0, %74 ]
-  %77 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %73, i32 noundef %.05180) #14
+  %.05181 = phi i32 [ %83, %.thread75 ], [ 0, %74 ]
+  %77 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %73, i32 noundef %.05181) #14
   %78 = tail call i32 @ssl_cipher_disabled(ptr noundef nonnull %0, ptr noundef %77, i32 noundef 65537, i32 noundef 0)
   %.not68 = icmp eq i32 %78, 0
   br i1 %.not68, label %79, label %.thread75
@@ -5288,14 +5288,14 @@ define internal fastcc i32 @tls12_sigalg_allowed(ptr noundef %0, i32 noundef %1,
   br i1 %.not69.not, label %.thread75, label %._crit_edge
 
 .thread75:                                        ; preds = %.lr.ph, %79
-  %83 = add nuw nsw i32 %.05180, 1
+  %83 = add nuw nsw i32 %.05181, 1
   %exitcond.not = icmp eq i32 %83, %75
   br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !269
 
 ._crit_edge:                                      ; preds = %79, %74
-  %.051.lcssa = phi i32 [ 0, %74 ], [ %.05180, %79 ]
-  %.not79 = icmp eq i32 %.051.lcssa, %75
-  br i1 %.not79, label %.critedge, label %.thread74
+  %.051.lcssa = phi i32 [ 0, %74 ], [ %.05181, %79 ]
+  %.not80 = icmp eq i32 %.051.lcssa, %75
+  br i1 %.not80, label %.critedge, label %.thread74
 
 .thread74:                                        ; preds = %52, %58, %46, %61, %64, %._crit_edge
   %84 = load ptr, ptr %40, align 8, !tbaa !126

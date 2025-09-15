@@ -5343,25 +5343,25 @@ while.cond.preheader:                             ; preds = %sw.bb
   %2 = zext nneg i8 %change.0 to i32
   %spec.select = add i32 %e.0, %2
   %_M_finish.i30 = getelementptr inbounds nuw i8, ptr %contour.0, i64 8
-  %conv1047 = zext i32 %spec.select to i64
+  %conv1048 = zext i32 %spec.select to i64
   %3 = load ptr, ptr %_M_finish.i30, align 8
   %4 = load ptr, ptr %contour.0, align 8
-  %sub.ptr.lhs.cast.i3148 = ptrtoint ptr %3 to i64
-  %sub.ptr.rhs.cast.i3249 = ptrtoint ptr %4 to i64
-  %sub.ptr.sub.i3350 = sub i64 %sub.ptr.lhs.cast.i3148, %sub.ptr.rhs.cast.i3249
-  %sub.ptr.div.i3451 = ashr exact i64 %sub.ptr.sub.i3350, 3
-  %cmp1252 = icmp ugt i64 %sub.ptr.div.i3451, %conv1047
-  br i1 %cmp1252, label %while.body, label %if.end18
+  %sub.ptr.lhs.cast.i3149 = ptrtoint ptr %3 to i64
+  %sub.ptr.rhs.cast.i3250 = ptrtoint ptr %4 to i64
+  %sub.ptr.sub.i3351 = sub i64 %sub.ptr.lhs.cast.i3149, %sub.ptr.rhs.cast.i3250
+  %sub.ptr.div.i3452 = ashr exact i64 %sub.ptr.sub.i3351, 3
+  %cmp1253 = icmp ugt i64 %sub.ptr.div.i3452, %conv1048
+  br i1 %cmp1253, label %while.body, label %if.end18
 
 while.body:                                       ; preds = %while.cond.preheader, %while.body
   %5 = phi ptr [ %7, %while.body ], [ %4, %while.cond.preheader ]
-  %conv1054 = phi i64 [ %conv10, %while.body ], [ %conv1047, %while.cond.preheader ]
-  %e.253 = phi i32 [ %inc17, %while.body ], [ %spec.select, %while.cond.preheader ]
-  %add.ptr.i = getelementptr inbounds nuw %"class.msdfgen::EdgeHolder", ptr %5, i64 %conv1054
+  %conv1055 = phi i64 [ %conv10, %while.body ], [ %conv1048, %while.cond.preheader ]
+  %e.254 = phi i32 [ %inc17, %while.body ], [ %spec.select, %while.cond.preheader ]
+  %add.ptr.i = getelementptr inbounds nuw %"class.msdfgen::EdgeHolder", ptr %5, i64 %conv1055
   %call16 = tail call noundef ptr @_ZN7msdfgen10EdgeHolderptEv(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i)
   %color = getelementptr inbounds nuw i8, ptr %call16, i64 8
   store i32 7, ptr %color, align 8
-  %inc17 = add i32 %e.253, 1
+  %inc17 = add i32 %e.254, 1
   %conv10 = zext i32 %inc17 to i64
   %6 = load ptr, ptr %_M_finish.i30, align 8
   %7 = load ptr, ptr %contour.0, align 8

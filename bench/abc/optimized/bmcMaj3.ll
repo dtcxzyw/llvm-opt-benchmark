@@ -1700,9 +1700,9 @@ Abc_Clock.exit38:                                 ; preds = %118, %133
   %149 = phi i32 [ %146, %145 ], [ %.pre.i44, %.preheader.loopexit.i ]
   %.lcssa.i = phi i32 [ %147, %145 ], [ %219, %.preheader.loopexit.i ]
   %.not.i39 = icmp eq i32 %149, 31
-  br i1 %.not.i39, label %.thread75.loopexit, label %.lr.ph70.i
+  br i1 %.not.i39, label %.thread75.loopexit, label %.lr.ph71.i
 
-.lr.ph70.i:                                       ; preds = %.preheader.i
+.lr.ph71.i:                                       ; preds = %.preheader.i
   %150 = shl nuw nsw i32 1, %149
   %151 = sdiv i32 %149, 2
   %152 = add nsw i32 %151, 1
@@ -1710,15 +1710,15 @@ Abc_Clock.exit38:                                 ; preds = %118, %133
   br label %221
 
 .lr.ph.i42:                                       ; preds = %145, %Abc_TtMaj.exit.i
-  %.04267.i = phi i32 [ %218, %Abc_TtMaj.exit.i ], [ %146, %145 ]
+  %.04268.i = phi i32 [ %218, %Abc_TtMaj.exit.i ], [ %146, %145 ]
   store i32 0, ptr %40, align 8, !tbaa !27
   store i32 0, ptr %41, align 4, !tbaa !27
   store i32 0, ptr %39, align 8, !tbaa !27
-  %154 = icmp sgt i32 %.04267.i, 0
+  %154 = icmp sgt i32 %.04268.i, 0
   br i1 %154, label %.lr.ph.i.i45, label %Maj3_ManFindFanin.exit.i43
 
 .lr.ph.i.i45:                                     ; preds = %.lr.ph.i42
-  %155 = zext nneg i32 %.04267.i to i64
+  %155 = zext nneg i32 %.04268.i to i64
   %156 = getelementptr inbounds nuw [32 x i32], ptr %42, i64 %155
   br label %157
 
@@ -1804,7 +1804,7 @@ Maj3_ManFindFanin.exit.i43:                       ; preds = %190, %.lr.ph.i42
   br i1 %exitcond.not.i, label %199, label %192, !llvm.loop !72
 
 199:                                              ; preds = %192
-  %200 = mul nsw i32 %.val55.i, %.04267.i
+  %200 = mul nsw i32 %.val55.i, %.04268.i
   %201 = sext i32 %200 to i64
   %202 = getelementptr inbounds i64, ptr %.val56.val.i, i64 %201
   %203 = load ptr, ptr %8, align 16, !tbaa !71
@@ -1836,14 +1836,14 @@ Maj3_ManFindFanin.exit.i43:                       ; preds = %190, %.lr.ph.i42
   br i1 %exitcond.not.i60.i, label %Abc_TtMaj.exit.i, label %.lr.ph.i57.i, !llvm.loop !73
 
 Abc_TtMaj.exit.i:                                 ; preds = %.lr.ph.i57.i, %199
-  %218 = add nsw i32 %.04267.i, 1
+  %218 = add nsw i32 %.04268.i, 1
   %219 = load i32, ptr %24, align 8, !tbaa !11
   %220 = icmp slt i32 %218, %219
   br i1 %220, label %.lr.ph.i42, label %.preheader.loopexit.i, !llvm.loop !74
 
-221:                                              ; preds = %.thread.i41, %.lr.ph70.i
-  %.169.i = phi i32 [ 0, %.lr.ph70.i ], [ %246, %.thread.i41 ]
-  %222 = and i32 %.169.i, 65535
+221:                                              ; preds = %.thread.i41, %.lr.ph71.i
+  %.170.i = phi i32 [ 0, %.lr.ph71.i ], [ %246, %.thread.i41 ]
+  %222 = and i32 %.170.i, 65535
   %223 = call range(i32 0, 17) i32 @llvm.ctpop.i32(i32 %222)
   %224 = icmp slt i32 %223, %151
   %225 = icmp sgt i32 %223, %152
@@ -1858,11 +1858,11 @@ Abc_TtMaj.exit.i:                                 ; preds = %.lr.ph.i57.i, %199
   %228 = mul nsw i32 %.val51.i, %.lcssa.i
   %229 = sext i32 %228 to i64
   %230 = getelementptr inbounds i64, ptr %.val52.val.i, i64 %229
-  %231 = lshr i32 %.169.i, 6
+  %231 = lshr i32 %.170.i, 6
   %232 = zext nneg i32 %231 to i64
   %233 = getelementptr inbounds nuw i64, ptr %230, i64 %232
   %234 = load i64, ptr %233, align 8, !tbaa !19
-  %235 = and i32 %.169.i, 63
+  %235 = and i32 %.170.i, 63
   %236 = zext nneg i32 %235 to i64
   %237 = mul nsw i32 %.val51.i, %153
   %238 = sext i32 %237 to i64
@@ -1876,14 +1876,14 @@ Abc_TtMaj.exit.i:                                 ; preds = %.lr.ph.i57.i, %199
   br i1 %245, label %.thread.i41, label %.loopexit
 
 .thread.i41:                                      ; preds = %226, %221
-  %246 = add nuw nsw i32 %.169.i, 1
-  %exitcond76.not.i = icmp eq i32 %246, %150
-  br i1 %exitcond76.not.i, label %.thread75.loopexit, label %221, !llvm.loop !75
+  %246 = add nuw nsw i32 %.170.i, 1
+  %exitcond77.not.i = icmp eq i32 %246, %150
+  br i1 %exitcond77.not.i, label %.thread75.loopexit, label %221, !llvm.loop !75
 
 .loopexit:                                        ; preds = %226
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  store i32 %.169.i, ptr %12, align 4, !tbaa !27
+  store i32 %.170.i, ptr %12, align 4, !tbaa !27
   %247 = add nuw nsw i32 %.02697, 1
   br label %48
 

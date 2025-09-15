@@ -7070,7 +7070,7 @@ switch.lookup:                                    ; preds = %switch.hole_check, 
   %65 = phi i1 [ true, %61 ], [ false, %62 ], [ false, %switch.lookup ], [ false, %switch.lookup ], [ false, %switch.lookup ], [ false, %switch.lookup ], [ false, %switch.lookup ]
   %.0193 = phi i8 [ 1, %61 ], [ 2, %62 ], [ 0, %switch.lookup ], [ 0, %switch.lookup ], [ 0, %switch.lookup ], [ 0, %switch.lookup ], [ 0, %switch.lookup ]
   %66 = icmp samesign ult i8 %3, 4
-  br i1 %66, label %switch.lookup421, label %68
+  br i1 %66, label %switch.lookup422, label %68
 
 67:                                               ; preds = %71
   tail call void @_ZN12jpeg_decoder6parser9parse_sof19panic_cold_explicit17h917e217c992f29c9E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.dbc83011fcb707429349569d3c6bc524.66) #21
@@ -7080,17 +7080,17 @@ switch.lookup:                                    ; preds = %switch.hole_check, 
   %69 = icmp ne i8 %3, 4
   %70 = icmp samesign ult i8 %3, 8
   %or.cond17 = and i1 %69, %70
-  br i1 %or.cond17, label %switch.lookup421, label %71
+  br i1 %or.cond17, label %switch.lookup422, label %71
 
 71:                                               ; preds = %68
   %switch.tableidx = add i8 %3, -9
   %72 = icmp ult i8 %switch.tableidx, 7
-  %switch.shifted422 = lshr i8 119, %switch.tableidx
-  %switch.lobit423 = trunc i8 %switch.shifted422 to i1
-  %or.cond = select i1 %72, i1 %switch.lobit423, i1 false
-  br i1 %or.cond, label %switch.lookup421, label %67
+  %switch.shifted423 = lshr i8 119, %switch.tableidx
+  %switch.lobit424 = trunc i8 %switch.shifted423 to i1
+  %or.cond = select i1 %72, i1 %switch.lobit424, i1 false
+  br i1 %or.cond, label %switch.lookup422, label %67
 
-switch.lookup421:                                 ; preds = %71, %63, %68
+switch.lookup422:                                 ; preds = %71, %63, %68
   %.0 = phi i8 [ 0, %68 ], [ 0, %63 ], [ 1, %71 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %34)
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !1130
@@ -7098,12 +7098,12 @@ switch.lookup421:                                 ; preds = %71, %63, %68
   %73 = call noundef zeroext i1 @_ZN3std2io8buffered9bufreader6buffer6Buffer12consume_with17hac20cae46eef1a1bE.llvm.9832446184049035033(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, i64 noundef 1, ptr noalias noundef nonnull align 1 %8, i64 noundef 1), !noalias !1134
   br i1 %73, label %76, label %"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h618c1d1c9bbd9fd5E.exit.i"
 
-"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h618c1d1c9bbd9fd5E.exit.i": ; preds = %switch.lookup421
+"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h618c1d1c9bbd9fd5E.exit.i": ; preds = %switch.lookup422
   %74 = call noundef ptr @_ZN3std2io18default_read_exact17hafb8c1a6e12607feE(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noalias noundef nonnull align 1 %8, i64 noundef 1), !noalias !1134
   %75 = icmp eq ptr %74, null
   br i1 %75, label %76, label %78
 
-76:                                               ; preds = %switch.lookup421, %"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h618c1d1c9bbd9fd5E.exit.i"
+76:                                               ; preds = %switch.lookup422, %"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h618c1d1c9bbd9fd5E.exit.i"
   %77 = load i8, ptr %8, align 1, !noalias !1130, !noundef !19
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !1130
   store i8 %77, ptr %34, align 1
@@ -7386,9 +7386,9 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit:    ; preds = %80
           to label %179 unwind label %.loopexit.split-lp
 
 177:                                              ; preds = %150, %232
-  %.sroa.679.0359 = phi i8 [ undef, %150 ], [ %.sroa.679.1, %232 ]
-  %.sroa.073.0358 = phi i8 [ 0, %150 ], [ %178, %232 ]
-  %178 = add nuw i8 %.sroa.073.0358, 1
+  %.sroa.679.0360 = phi i8 [ undef, %150 ], [ %.sroa.679.1, %232 ]
+  %.sroa.073.0359 = phi i8 [ 0, %150 ], [ %178, %232 ]
+  %178 = add nuw i8 %.sroa.073.0359, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %29)
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
   invoke void @_ZN12jpeg_decoder7read_u817h354cb4f0ba47111dE(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %28, ptr noalias noundef nonnull align 8 dereferenceable(48) %1)
@@ -7461,7 +7461,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit:    ; preds = %80
   %trunc205 = trunc nuw i8 %193 to i1
   %194 = load i8, ptr %156, align 1
   %195 = load ptr, ptr %157, align 8, !nonnull !19
-  %.sroa.679.1 = select i1 %trunc205, i8 %.sroa.679.0359, i8 %194
+  %.sroa.679.1 = select i1 %trunc205, i8 %.sroa.679.0360, i8 %194
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br i1 %trunc205, label %206, label %196
 
@@ -8684,7 +8684,7 @@ switch.lookup:                                    ; preds = %switch.hole_check, 
   %68 = phi i1 [ true, %64 ], [ false, %65 ], [ false, %switch.lookup ], [ false, %switch.lookup ], [ false, %switch.lookup ], [ false, %switch.lookup ], [ false, %switch.lookup ]
   %.0193 = phi i8 [ 1, %64 ], [ 2, %65 ], [ 0, %switch.lookup ], [ 0, %switch.lookup ], [ 0, %switch.lookup ], [ 0, %switch.lookup ], [ 0, %switch.lookup ]
   %69 = icmp samesign ult i8 %3, 4
-  br i1 %69, label %switch.lookup427, label %71
+  br i1 %69, label %switch.lookup428, label %71
 
 70:                                               ; preds = %74
   tail call void @_ZN12jpeg_decoder6parser9parse_sof19panic_cold_explicit17h917e217c992f29c9E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.dbc83011fcb707429349569d3c6bc524.66) #21
@@ -8694,17 +8694,17 @@ switch.lookup:                                    ; preds = %switch.hole_check, 
   %72 = icmp ne i8 %3, 4
   %73 = icmp samesign ult i8 %3, 8
   %or.cond17 = and i1 %72, %73
-  br i1 %or.cond17, label %switch.lookup427, label %74
+  br i1 %or.cond17, label %switch.lookup428, label %74
 
 74:                                               ; preds = %71
   %switch.tableidx = add i8 %3, -9
   %75 = icmp ult i8 %switch.tableidx, 7
-  %switch.shifted428 = lshr i8 119, %switch.tableidx
-  %switch.lobit429 = trunc i8 %switch.shifted428 to i1
-  %or.cond = select i1 %75, i1 %switch.lobit429, i1 false
-  br i1 %or.cond, label %switch.lookup427, label %70
+  %switch.shifted429 = lshr i8 119, %switch.tableidx
+  %switch.lobit430 = trunc i8 %switch.shifted429 to i1
+  %or.cond = select i1 %75, i1 %switch.lobit430, i1 false
+  br i1 %or.cond, label %switch.lookup428, label %70
 
-switch.lookup427:                                 ; preds = %74, %66, %71
+switch.lookup428:                                 ; preds = %74, %66, %71
   %.0 = phi i8 [ 0, %71 ], [ 0, %66 ], [ 1, %74 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %37)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1347)
@@ -8722,11 +8722,11 @@ switch.lookup427:                                 ; preds = %74, %66, %71
   %82 = icmp ugt i64 %81, %80
   br i1 %82, label %83, label %"_ZN3std2io6cursor15Cursor$LT$T$GT$15remaining_slice17h261919fa0e8332fbE.llvm.98706352026558795.exit.i.i"
 
-83:                                               ; preds = %switch.lookup427
+83:                                               ; preds = %switch.lookup428
   tail call void @_ZN4core5slice5index26slice_start_index_len_fail17h0187bf4d120fc375E(i64 noundef %81, i64 noundef %80, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1fb7ff8ae5a2b866dafd4482df872917.39.llvm.98706352026558795) #21, !noalias !1365
   unreachable
 
-"_ZN3std2io6cursor15Cursor$LT$T$GT$15remaining_slice17h261919fa0e8332fbE.llvm.98706352026558795.exit.i.i": ; preds = %switch.lookup427
+"_ZN3std2io6cursor15Cursor$LT$T$GT$15remaining_slice17h261919fa0e8332fbE.llvm.98706352026558795.exit.i.i": ; preds = %switch.lookup428
   %84 = sub nuw i64 %80, %81
   %85 = getelementptr inbounds i8, ptr %78, i64 %81
   store ptr %85, ptr %10, align 8, !noalias !1355
@@ -9054,9 +9054,9 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit:    ; preds = %93
           to label %202 unwind label %.loopexit.split-lp
 
 200:                                              ; preds = %173, %255
-  %.sroa.679.0358 = phi i8 [ undef, %173 ], [ %.sroa.679.1, %255 ]
-  %.sroa.073.0357 = phi i8 [ 0, %173 ], [ %201, %255 ]
-  %201 = add nuw i8 %.sroa.073.0357, 1
+  %.sroa.679.0359 = phi i8 [ undef, %173 ], [ %.sroa.679.1, %255 ]
+  %.sroa.073.0358 = phi i8 [ 0, %173 ], [ %201, %255 ]
+  %201 = add nuw i8 %.sroa.073.0358, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %32)
   call void @llvm.lifetime.start.p0(ptr nonnull %31)
   invoke void @_ZN12jpeg_decoder7read_u817h69b5d9908e7785ebE(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %31, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
@@ -9129,7 +9129,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit:    ; preds = %93
   %trunc205 = trunc nuw i8 %216 to i1
   %217 = load i8, ptr %179, align 1
   %218 = load ptr, ptr %180, align 8, !nonnull !19
-  %.sroa.679.1 = select i1 %trunc205, i8 %.sroa.679.0358, i8 %217
+  %.sroa.679.1 = select i1 %trunc205, i8 %.sroa.679.0359, i8 %217
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
   br i1 %trunc205, label %229, label %219
 

@@ -3377,9 +3377,9 @@ _ZNK6HandleclEv.exit:                             ; preds = %49, %52
   %57 = load i8, ptr @UseCompressedClassPointers, align 1
   %58 = trunc i8 %57 to i1
   %..i = select i1 %56, i64 20, i64 24
-  %.8.i = select i1 %56, i64 2, i64 3
+  %.9.i = select i1 %56, i64 2, i64 3
   %59 = select i1 %58, i64 16, i64 %..i
-  %60 = shl nuw nsw i64 %indvars.iv, %.8.i
+  %60 = shl nuw nsw i64 %indvars.iv, %.9.i
   %61 = add nuw nsw i64 %59, %60
   %62 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE1EE14_store_at_funcE, align 8
   tail call void %62(ptr noundef nonnull align 8 dereferenceable(16) %50, i64 noundef %61, ptr noundef %54) #21

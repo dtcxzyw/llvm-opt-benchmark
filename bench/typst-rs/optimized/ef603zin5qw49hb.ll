@@ -1377,8 +1377,8 @@ _ZN12typst_syntax4node10SyntaxNode3len17hac1f0d036770c8edE.exit.i: ; preds = %28
   %.0.i10.i = phi i64 [ %.0.i.i.i.i, %16 ], [ %27, %24 ], [ %.0.i.i1.i.i, %28 ]
   %38 = add i64 %.0.i10.i, %.0724.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !156)
-  %switch1.i.i = icmp eq i8 %11, -126
-  br i1 %switch1.i.i, label %39, label %_ZN12typst_syntax4node10SyntaxNode11descendants17h0a0a546ffd69f1ffE.exit.i
+  %switch2.i.i = icmp eq i8 %11, -126
+  br i1 %switch2.i.i, label %39, label %_ZN12typst_syntax4node10SyntaxNode11descendants17h0a0a546ffd69f1ffE.exit.i
 
 39:                                               ; preds = %_ZN12typst_syntax4node10SyntaxNode3len17hac1f0d036770c8edE.exit.i
   %40 = load ptr, ptr %.sroa.0.022.i, align 8, !alias.scope !156, !noalias !144, !nonnull !7, !noundef !7
@@ -1945,8 +1945,8 @@ define void @_ZN12typst_syntax4node10SyntaxNode9into_text17h9658513e8f7c4ed8E(pt
 define { ptr, ptr } @_ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #12 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i8, ptr %2, align 8, !range !16, !noundef !7
-  %switch5 = icmp eq i8 %3, -126
-  br i1 %switch5, label %4, label %11
+  %switch6 = icmp eq i8 %3, -126
+  br i1 %switch6, label %4, label %11
 
 4:                                                ; preds = %1
   %5 = load ptr, ptr %0, align 8, !nonnull !7, !noundef !7
@@ -2126,8 +2126,8 @@ _ZN5alloc5alloc15exchange_malloc17ha641d2894b944555E.llvm.5914695560033043764.ex
 
 50:                                               ; preds = %_ZN12typst_syntax4node10SyntaxNode9erroneous17h0b18f09075a7e163E.exit.thread
   tail call void @llvm.experimental.noalias.scope.decl(metadata !284)
-  %switch5.i = icmp eq i8 %6, -126
-  br i1 %switch5.i, label %51, label %_ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit
+  %switch6.i = icmp eq i8 %6, -126
+  br i1 %switch6.i, label %51, label %_ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit
 
 51:                                               ; preds = %50
   %52 = load ptr, ptr %1, align 8, !alias.scope !284, !nonnull !7, !noundef !7
@@ -2965,8 +2965,8 @@ define hidden noundef zeroext i1 @_ZN12typst_syntax4node10SyntaxNode7is_leaf17hf
 define hidden noundef i64 @_ZN12typst_syntax4node10SyntaxNode11descendants17h0a0a546ffd69f1ffE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #12 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i8, ptr %2, align 8, !range !16, !noundef !7
-  %switch1 = icmp eq i8 %3, -126
-  br i1 %switch1, label %4, label %8
+  %switch2 = icmp eq i8 %3, -126
+  br i1 %switch2, label %4, label %8
 
 4:                                                ; preds = %1
   %5 = load ptr, ptr %0, align 8, !nonnull !7, !noundef !7
@@ -2983,8 +2983,8 @@ define hidden noundef i64 @_ZN12typst_syntax4node10SyntaxNode11descendants17h0a0
 define hidden { ptr, i64 } @_ZN12typst_syntax4node10SyntaxNode12children_mut17hf88f7e8b754fdb5dE(ptr noalias noundef align 8 dereferenceable(32) %0) unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i8, ptr %2, align 8, !range !16, !noundef !7
-  %switch4 = icmp eq i8 %3, -126
-  br i1 %switch4, label %4, label %10
+  %switch5 = icmp eq i8 %3, -126
+  br i1 %switch5, label %4, label %10
 
 4:                                                ; preds = %1
   %5 = tail call noundef align 8 dereferenceable(64) ptr @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$8make_mut17hfff7c36d1238e7d7E.llvm.5914695560033043764"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
@@ -3397,8 +3397,8 @@ _ZN12typst_syntax4node10SyntaxNode3len17hac1f0d036770c8edE.exit: ; preds = %28, 
   %.0.i10 = phi i64 [ %.0.i.i.i, %16 ], [ %27, %24 ], [ %.0.i.i1.i, %28 ]
   %44 = add i64 %.0.i10, %.0724
   tail call void @llvm.experimental.noalias.scope.decl(metadata !503)
-  %switch1.i = icmp eq i8 %11, -126
-  br i1 %switch1.i, label %45, label %_ZN12typst_syntax4node10SyntaxNode11descendants17h0a0a546ffd69f1ffE.exit
+  %switch2.i = icmp eq i8 %11, -126
+  br i1 %switch2.i, label %45, label %_ZN12typst_syntax4node10SyntaxNode11descendants17h0a0a546ffd69f1ffE.exit
 
 45:                                               ; preds = %_ZN12typst_syntax4node10SyntaxNode3len17hac1f0d036770c8edE.exit
   %46 = load ptr, ptr %.sroa.0.022, align 8, !alias.scope !503, !nonnull !7, !noundef !7
@@ -3487,8 +3487,8 @@ define hidden noundef zeroext i1 @_ZN12typst_syntax4node9InnerNode9numberize17h8
   %29 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] } }, ptr %26, i64 %.016.i
   %30 = getelementptr i8, ptr %29, i64 24
   %.val21.i = load i8, ptr %30, align 8, !range !16, !alias.scope !514, !noundef !7
-  %switch1.i.i.i.i = icmp eq i8 %.val21.i, -126
-  br i1 %switch1.i.i.i.i, label %31, label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h57e4aa0f4d6b5671E.exit.i"
+  %switch2.i.i.i.i = icmp eq i8 %.val21.i, -126
+  br i1 %switch2.i.i.i.i, label %31, label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h57e4aa0f4d6b5671E.exit.i"
 
 31:                                               ; preds = %28
   %.val.i = load ptr, ptr %29, align 8, !nonnull !7, !noundef !7
@@ -3598,8 +3598,8 @@ define hidden noundef zeroext i1 @_ZN12typst_syntax4node9InnerNode9numberize17h8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !524)
   %74 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 24
   %75 = load i8, ptr %74, align 8, !range !16, !alias.scope !524, !noundef !7
-  %switch1.i = icmp eq i8 %75, -126
-  br i1 %switch1.i, label %76, label %_ZN12typst_syntax4node10SyntaxNode11descendants17h0a0a546ffd69f1ffE.exit
+  %switch2.i = icmp eq i8 %75, -126
+  br i1 %switch2.i, label %76, label %_ZN12typst_syntax4node10SyntaxNode11descendants17h0a0a546ffd69f1ffE.exit
 
 76:                                               ; preds = %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h73bd899027c71a6bE.exit"
   %77 = load ptr, ptr %.sroa.0.0, align 8, !alias.scope !524, !nonnull !7, !noundef !7
@@ -3952,8 +3952,8 @@ define hidden noundef zeroext i1 @_ZN12typst_syntax4node9InnerNode16replace_chil
   %168 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] } }, ptr %80, i64 %.016.i137
   %169 = getelementptr i8, ptr %168, i64 24
   %.val21.i = load i8, ptr %169, align 8, !range !16, !alias.scope !568, !noundef !7
-  %switch1.i.i.i.i = icmp eq i8 %.val21.i, -126
-  br i1 %switch1.i.i.i.i, label %170, label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h57e4aa0f4d6b5671E.exit.i"
+  %switch2.i.i.i.i = icmp eq i8 %.val21.i, -126
+  br i1 %switch2.i.i.i.i, label %170, label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h57e4aa0f4d6b5671E.exit.i"
 
 170:                                              ; preds = %167
   %.val.i = load ptr, ptr %168, align 8, !nonnull !7, !noundef !7
@@ -3983,8 +3983,8 @@ define hidden noundef zeroext i1 @_ZN12typst_syntax4node9InnerNode16replace_chil
   %179 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] } }, ptr %87, i64 %.016.i141
   %180 = getelementptr i8, ptr %179, i64 24
   %.val21.i142 = load i8, ptr %180, align 8, !range !16, !alias.scope !574, !noundef !7
-  %switch1.i.i.i.i143 = icmp eq i8 %.val21.i142, -126
-  br i1 %switch1.i.i.i.i143, label %181, label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h57e4aa0f4d6b5671E.exit.i144"
+  %switch2.i.i.i.i143 = icmp eq i8 %.val21.i142, -126
+  br i1 %switch2.i.i.i.i143, label %181, label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h57e4aa0f4d6b5671E.exit.i144"
 
 181:                                              ; preds = %178
   %.val.i147 = load ptr, ptr %179, align 8, !nonnull !7, !noundef !7
@@ -4826,8 +4826,8 @@ define void @_ZN12typst_syntax4node10LinkedNode8children17h64f63f77cb76667dE(ptr
   tail call void @llvm.experimental.noalias.scope.decl(metadata !731)
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %29 = load i8, ptr %28, align 8, !range !16, !alias.scope !731, !noundef !7
-  %switch5.i = icmp eq i8 %29, -126
-  br i1 %switch5.i, label %30, label %37
+  %switch6.i = icmp eq i8 %29, -126
+  br i1 %switch6.i, label %30, label %37
 
 30:                                               ; preds = %"_ZN5alloc2rc11Rc$LT$T$GT$3new17h7b2baa518dac40fbE.exit"
   %31 = load ptr, ptr %4, align 8, !alias.scope !731, !nonnull !7, !noundef !7
@@ -5357,8 +5357,8 @@ define void @_ZN12typst_syntax4node10LinkedNode12prev_sibling17h4dc2d3e396d591c4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !864)
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load i8, ptr %15, align 8, !range !16, !alias.scope !864, !noundef !7
-  %switch5.i = icmp eq i8 %16, -126
-  br i1 %switch5.i, label %17, label %_ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit
+  %switch6.i = icmp eq i8 %16, -126
+  br i1 %switch6.i, label %17, label %_ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit
 
 17:                                               ; preds = %13
   %18 = load ptr, ptr %14, align 8, !alias.scope !864, !nonnull !7, !noundef !7
@@ -5551,8 +5551,8 @@ define void @_ZN12typst_syntax4node10LinkedNode12next_sibling17h598b634df6211ffb
   tail call void @llvm.experimental.noalias.scope.decl(metadata !888)
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %18 = load i8, ptr %17, align 8, !range !16, !alias.scope !888, !noundef !7
-  %switch5.i = icmp eq i8 %18, -126
-  br i1 %switch5.i, label %19, label %_ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit
+  %switch6.i = icmp eq i8 %18, -126
+  br i1 %switch6.i, label %19, label %_ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit
 
 19:                                               ; preds = %15
   %20 = load ptr, ptr %16, align 8, !alias.scope !888, !nonnull !7, !noundef !7
@@ -6296,8 +6296,8 @@ define void @_ZN12typst_syntax4node10LinkedNode7leaf_at17h2dc7fd554746f3f2E(ptr 
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1002)
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %8 = load i8, ptr %7, align 8, !range !16, !alias.scope !1002, !noundef !7
-  %switch5.i = icmp eq i8 %8, -126
-  br i1 %switch5.i, label %_ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit, label %.critedge
+  %switch6.i = icmp eq i8 %8, -126
+  br i1 %switch6.i, label %_ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit, label %.critedge
 
 _ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit: ; preds = %3
   %9 = load ptr, ptr %6, align 8, !alias.scope !1002, !nonnull !7, !noundef !7
@@ -6397,7 +6397,7 @@ _ZN12typst_syntax4node10SyntaxNode3len17hac1f0d036770c8edE.exit: ; preds = %19, 
 
 53:                                               ; preds = %_ZN12typst_syntax4node10SyntaxNode3len17hac1f0d036770c8edE.exit
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1024)
-  br i1 %switch5.i, label %54, label %_ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit13
+  br i1 %switch6.i, label %54, label %_ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit13
 
 54:                                               ; preds = %.thread, %53
   %55 = phi i64 [ %.pre, %.thread ], [ %14, %53 ]

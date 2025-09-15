@@ -1109,16 +1109,16 @@ define internal range(i32 -1, 2) i32 @H5D__btree_cmp2(ptr noundef readonly captu
   br i1 %18, label %H5VM_vector_cmp_u.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %17
-  %.not19.i = icmp eq i32 %13, 0
-  br i1 %.not19.i, label %H5VM_vector_cmp_u.exit, label %.lr.ph.i
+  %.not20.i = icmp eq i32 %13, 0
+  br i1 %.not20.i, label %H5VM_vector_cmp_u.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %25
   %.in.i = phi i32 [ %19, %25 ], [ %13, %.preheader.i ]
-  %.01121.i = phi ptr [ %27, %25 ], [ %2, %.preheader.i ]
-  %.01220.i = phi ptr [ %26, %25 ], [ %0, %.preheader.i ]
+  %.01122.i = phi ptr [ %27, %25 ], [ %2, %.preheader.i ]
+  %.01221.i = phi ptr [ %26, %25 ], [ %0, %.preheader.i ]
   %19 = add i32 %.in.i, -1
-  %20 = load i64, ptr %.01220.i, align 8, !tbaa !20
-  %21 = load i64, ptr %.01121.i, align 8, !tbaa !20
+  %20 = load i64, ptr %.01221.i, align 8, !tbaa !20
+  %21 = load i64, ptr %.01122.i, align 8, !tbaa !20
   %22 = icmp ult i64 %20, %21
   br i1 %22, label %H5VM_vector_cmp_u.exit, label %23
 
@@ -1127,8 +1127,8 @@ define internal range(i32 -1, 2) i32 @H5D__btree_cmp2(ptr noundef readonly captu
   br i1 %24, label %H5VM_vector_cmp_u.exit, label %25
 
 25:                                               ; preds = %23
-  %26 = getelementptr inbounds nuw i8, ptr %.01220.i, i64 8
-  %27 = getelementptr inbounds nuw i8, ptr %.01121.i, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %.01221.i, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %.01122.i, i64 8
   %.not.i = icmp eq i32 %19, 0
   br i1 %.not.i, label %H5VM_vector_cmp_u.exit, label %.lr.ph.i, !llvm.loop !67
 
@@ -1193,24 +1193,24 @@ define internal range(i32 -1, 2) i32 @H5D__btree_cmp3(ptr noundef readonly captu
 
 35:                                               ; preds = %33
   %36 = icmp eq ptr %2, null
-  %.not19.i = icmp eq i32 %13, 0
-  %or.cond = or i1 %36, %.not19.i
+  %.not20.i = icmp eq i32 %13, 0
+  %or.cond = or i1 %36, %.not20.i
   br i1 %or.cond, label %H5VM_vector_cmp_u.exit33, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %35, %40
   %.in.i = phi i32 [ %41, %40 ], [ %13, %35 ]
-  %.01121.i = phi ptr [ %44, %40 ], [ %2, %35 ]
-  %.01220.i = phi ptr [ %43, %40 ], [ %16, %35 ]
-  %37 = load i64, ptr %.01220.i, align 8, !tbaa !20
-  %38 = load i64, ptr %.01121.i, align 8, !tbaa !20
+  %.01122.i = phi ptr [ %44, %40 ], [ %2, %35 ]
+  %.01221.i = phi ptr [ %43, %40 ], [ %16, %35 ]
+  %37 = load i64, ptr %.01221.i, align 8, !tbaa !20
+  %38 = load i64, ptr %.01122.i, align 8, !tbaa !20
   %39 = icmp ult i64 %37, %38
   br i1 %39, label %H5VM_vector_cmp_u.exit, label %40
 
 40:                                               ; preds = %.lr.ph.i
   %41 = add i32 %.in.i, -1
   %42 = icmp ugt i64 %37, %38
-  %43 = getelementptr inbounds nuw i8, ptr %.01220.i, i64 8
-  %44 = getelementptr inbounds nuw i8, ptr %.01121.i, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %.01221.i, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %.01122.i, i64 8
   %.not.i = icmp eq i32 %41, 0
   %or.cond40 = select i1 %42, i1 true, i1 %.not.i
   br i1 %or.cond40, label %H5VM_vector_cmp_u.exit33, label %.lr.ph.i, !llvm.loop !67
@@ -1227,18 +1227,18 @@ H5VM_vector_cmp_u.exit.thread35:                  ; preds = %33
 
 .lr.ph.i27:                                       ; preds = %H5VM_vector_cmp_u.exit, %52
   %.in.i28 = phi i32 [ %53, %52 ], [ %13, %H5VM_vector_cmp_u.exit ]
-  %.01121.i29 = phi ptr [ %56, %52 ], [ %0, %H5VM_vector_cmp_u.exit ]
-  %.01220.i30 = phi ptr [ %55, %52 ], [ %16, %H5VM_vector_cmp_u.exit ]
-  %49 = load i64, ptr %.01220.i30, align 8, !tbaa !20
-  %50 = load i64, ptr %.01121.i29, align 8, !tbaa !20
+  %.01122.i29 = phi ptr [ %56, %52 ], [ %0, %H5VM_vector_cmp_u.exit ]
+  %.01221.i30 = phi ptr [ %55, %52 ], [ %16, %H5VM_vector_cmp_u.exit ]
+  %49 = load i64, ptr %.01221.i30, align 8, !tbaa !20
+  %50 = load i64, ptr %.01122.i29, align 8, !tbaa !20
   %51 = icmp ult i64 %49, %50
   br i1 %51, label %H5VM_vector_cmp_u.exit33, label %52
 
 52:                                               ; preds = %.lr.ph.i27
   %53 = add i32 %.in.i28, -1
   %54 = icmp ugt i64 %49, %50
-  %55 = getelementptr inbounds nuw i8, ptr %.01220.i30, i64 8
-  %56 = getelementptr inbounds nuw i8, ptr %.01121.i29, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %.01221.i30, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %.01122.i29, i64 8
   %.not.i31 = icmp eq i32 %53, 0
   %or.cond43 = select i1 %54, i1 true, i1 %.not.i31
   br i1 %or.cond43, label %H5VM_vector_cmp_u.exit33.thread, label %.lr.ph.i27, !llvm.loop !67
@@ -1362,24 +1362,24 @@ define internal range(i32 -1, 4) i32 @H5D__btree_insert(ptr readnone captures(no
 
 38:                                               ; preds = %36
   %39 = icmp eq ptr %6, null
-  %.not19.i.i = icmp eq i32 %19, 0
-  %or.cond.i = or i1 %39, %.not19.i.i
+  %.not20.i.i = icmp eq i32 %19, 0
+  %or.cond.i = or i1 %39, %.not20.i.i
   br i1 %or.cond.i, label %H5D__btree_cmp3.exit.thread, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %38, %43
   %.in.i.i = phi i32 [ %44, %43 ], [ %19, %38 ]
-  %.01121.i.i = phi ptr [ %47, %43 ], [ %6, %38 ]
-  %.01220.i.i = phi ptr [ %46, %43 ], [ %22, %38 ]
-  %40 = load i64, ptr %.01220.i.i, align 8, !tbaa !20
-  %41 = load i64, ptr %.01121.i.i, align 8, !tbaa !20
+  %.01122.i.i = phi ptr [ %47, %43 ], [ %6, %38 ]
+  %.01221.i.i = phi ptr [ %46, %43 ], [ %22, %38 ]
+  %40 = load i64, ptr %.01221.i.i, align 8, !tbaa !20
+  %41 = load i64, ptr %.01122.i.i, align 8, !tbaa !20
   %42 = icmp ult i64 %40, %41
   br i1 %42, label %H5VM_vector_cmp_u.exit.i, label %43
 
 43:                                               ; preds = %.lr.ph.i.i
   %44 = add i32 %.in.i.i, -1
   %45 = icmp ugt i64 %40, %41
-  %46 = getelementptr inbounds nuw i8, ptr %.01220.i.i, i64 8
-  %47 = getelementptr inbounds nuw i8, ptr %.01121.i.i, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %.01221.i.i, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %.01122.i.i, i64 8
   %.not.i.i = icmp eq i32 %44, 0
   %or.cond40.i = select i1 %45, i1 true, i1 %.not.i.i
   br i1 %or.cond40.i, label %H5D__btree_cmp3.exit.thread, label %.lr.ph.i.i, !llvm.loop !67
@@ -1396,18 +1396,18 @@ H5VM_vector_cmp_u.exit.thread35.i:                ; preds = %36
 
 .lr.ph.i27.i:                                     ; preds = %H5VM_vector_cmp_u.exit.i, %55
   %.in.i28.i = phi i32 [ %56, %55 ], [ %19, %H5VM_vector_cmp_u.exit.i ]
-  %.01121.i29.i = phi ptr [ %59, %55 ], [ %2, %H5VM_vector_cmp_u.exit.i ]
-  %.01220.i30.i = phi ptr [ %58, %55 ], [ %22, %H5VM_vector_cmp_u.exit.i ]
-  %52 = load i64, ptr %.01220.i30.i, align 8, !tbaa !20
-  %53 = load i64, ptr %.01121.i29.i, align 8, !tbaa !20
+  %.01122.i29.i = phi ptr [ %59, %55 ], [ %2, %H5VM_vector_cmp_u.exit.i ]
+  %.01221.i30.i = phi ptr [ %58, %55 ], [ %22, %H5VM_vector_cmp_u.exit.i ]
+  %52 = load i64, ptr %.01221.i30.i, align 8, !tbaa !20
+  %53 = load i64, ptr %.01122.i29.i, align 8, !tbaa !20
   %54 = icmp ult i64 %52, %53
   br i1 %54, label %H5D__btree_cmp3.exit.thread50, label %55
 
 55:                                               ; preds = %.lr.ph.i27.i
   %56 = add i32 %.in.i28.i, -1
   %57 = icmp ugt i64 %52, %53
-  %58 = getelementptr inbounds nuw i8, ptr %.01220.i30.i, i64 8
-  %59 = getelementptr inbounds nuw i8, ptr %.01121.i29.i, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %.01221.i30.i, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %.01122.i29.i, i64 8
   %.not.i31.i = icmp eq i32 %56, 0
   %or.cond43.i = select i1 %57, i1 true, i1 %.not.i31.i
   br i1 %or.cond43.i, label %H5D__btree_cmp3.exit.thread, label %.lr.ph.i27.i, !llvm.loop !67
@@ -1437,22 +1437,22 @@ H5D__btree_cmp3.exit.thread:                      ; preds = %43, %55, %H5VM_vect
   br i1 %or.cond, label %H5VM_vector_cmp_u.exit.thread, label %.preheader.i
 
 .preheader.i:                                     ; preds = %66
-  %.not19.i = icmp eq i32 %19, 0
-  br i1 %.not19.i, label %H5VM_vector_cmp_u.exit, label %.lr.ph.i
+  %.not20.i = icmp eq i32 %19, 0
+  br i1 %.not20.i, label %H5VM_vector_cmp_u.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %71
   %.in.i = phi i32 [ %72, %71 ], [ %19, %.preheader.i ]
-  %.01121.i = phi ptr [ %74, %71 ], [ %2, %.preheader.i ]
-  %.01220.i = phi ptr [ %73, %71 ], [ %22, %.preheader.i ]
-  %69 = load i64, ptr %.01220.i, align 8, !tbaa !20
-  %70 = load i64, ptr %.01121.i, align 8, !tbaa !20
+  %.01122.i = phi ptr [ %74, %71 ], [ %2, %.preheader.i ]
+  %.01221.i = phi ptr [ %73, %71 ], [ %22, %.preheader.i ]
+  %69 = load i64, ptr %.01221.i, align 8, !tbaa !20
+  %70 = load i64, ptr %.01122.i, align 8, !tbaa !20
   %or.cond54.not = icmp eq i64 %69, %70
   br i1 %or.cond54.not, label %71, label %H5VM_vector_cmp_u.exit.thread
 
 71:                                               ; preds = %.lr.ph.i
   %72 = add i32 %.in.i, -1
-  %73 = getelementptr inbounds nuw i8, ptr %.01220.i, i64 8
-  %74 = getelementptr inbounds nuw i8, ptr %.01121.i, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %.01221.i, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %.01122.i, i64 8
   %.not.i43 = icmp eq i32 %72, 0
   br i1 %.not.i43, label %H5VM_vector_cmp_u.exit, label %.lr.ph.i, !llvm.loop !67
 

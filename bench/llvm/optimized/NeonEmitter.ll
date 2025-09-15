@@ -4619,31 +4619,31 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit.i.i.i: ; preds 
 
 .thread.i.i.i:                                    ; preds = %..thread.i_crit_edge.i.i, %switch.early.test.i.i.i, %switch.early.test.i.i.i, %switch.early.test.i.i.i
   %.val12.pr.i.i.i = phi i32 [ %.val.i33.fr.i.i.i, %switch.early.test.i.i.i ], [ %.val.i33.fr.i.i.i, %switch.early.test.i.i.i ], [ %.val.i33.fr.i.i.i, %switch.early.test.i.i.i ], [ %.val12.pr.i.pre.i.i, %..thread.i_crit_edge.i.i ]
-  %.val2888.ph.i.i.i = phi i32 [ 0, %switch.early.test.i.i.i ], [ 0, %switch.early.test.i.i.i ], [ 0, %switch.early.test.i.i.i ], [ %.val28.i.i.i, %..thread.i_crit_edge.i.i ]
+  %.val2889.ph.i.i.i = phi i32 [ 0, %switch.early.test.i.i.i ], [ 0, %switch.early.test.i.i.i ], [ 0, %switch.early.test.i.i.i ], [ %.val28.i.i.i, %..thread.i_crit_edge.i.i ]
   %172 = icmp eq i32 %.val12.pr.i.i.i, 4
   br i1 %172, label %.sink.split.i.i.i, label %173
 
 .sink.split.i.i.i:                                ; preds = %.thread.i.i.i, %switch.early.test.i.i.i
-  %.val288896.ph.i.i.i = phi i32 [ 0, %switch.early.test.i.i.i ], [ %.val2888.ph.i.i.i, %.thread.i.i.i ]
+  %.val288997.ph.i.i.i = phi i32 [ 0, %switch.early.test.i.i.i ], [ %.val2889.ph.i.i.i, %.thread.i.i.i ]
   store i32 3, ptr %74, align 8, !tbaa !137, !noalias !128
   store i8 0, ptr %77, align 4, !tbaa !138, !noalias !128
   br label %173
 
 173:                                              ; preds = %.sink.split.i.i.i, %.thread.i.i.i
-  %.val288896.i.i.i = phi i32 [ %.val2888.ph.i.i.i, %.thread.i.i.i ], [ %.val288896.ph.i.i.i, %.sink.split.i.i.i ]
+  %.val288997.i.i.i = phi i32 [ %.val2889.ph.i.i.i, %.thread.i.i.i ], [ %.val288997.ph.i.i.i, %.sink.split.i.i.i ]
   %.val.i34.i.i.i = phi i32 [ %.val12.pr.i.i.i, %.thread.i.i.i ], [ 3, %.sink.split.i.i.i ]
   %.val1.i35.i.i.i = load i8, ptr %75, align 2, !noalias !128
   %174 = icmp ne i32 %.val.i34.i.i.i, 0
   %175 = trunc nuw i8 %.val1.i35.i.i.i to i1
   %176 = xor i1 %175, true
   %177 = select i1 %174, i1 %176, i1 false
-  %178 = icmp eq i32 %.val288896.i.i.i, 0
+  %178 = icmp eq i32 %.val288997.i.i.i, 0
   %179 = and i1 %178, %177
   %180 = and i32 %.val.i34.i.i.i, -2
   %spec.select.i.i.i.i = icmp ne i32 %180, 2
-  %or.cond56.not65.i.i.i = or i1 %spec.select.i.i.i.i, %179
+  %or.cond56.not66.i.i.i = or i1 %spec.select.i.i.i.i, %179
   %181 = icmp eq i32 %.val.i34.i.i.i, 2
-  %or.cond57.i.i.i = or i1 %181, %or.cond56.not65.i.i.i
+  %or.cond57.i.i.i = or i1 %181, %or.cond56.not66.i.i.i
   br i1 %or.cond57.i.i.i, label %183, label %182
 
 182:                                              ; preds = %173
@@ -4657,8 +4657,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit.i.i.i: ; preds 
 
 185:                                              ; preds = %183
   %186 = icmp eq i32 %.val19.i.i.i, 0
-  %.not66.i.i.i = select i1 %186, i1 true, i1 %175
-  %brmerge.i.i.i = or i1 %178, %.not66.i.i.i
+  %.not67.i.i.i = select i1 %186, i1 true, i1 %175
+  %brmerge.i.i.i = or i1 %178, %.not67.i.i.i
   br i1 %brmerge.i.i.i, label %188, label %187
 
 187:                                              ; preds = %185
@@ -4704,10 +4704,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i: ; preds = 
   br label %202
 
 202:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit.i.i.i
-  %.val3068.i.i.i = load ptr, ptr %138, align 8, !tbaa !140, !noalias !128
-  %.val3169.i.i.i = load ptr, ptr %139, align 8, !tbaa !141, !noalias !128
-  %203 = ptrtoint ptr %.val3169.i.i.i to i64
-  %204 = ptrtoint ptr %.val3068.i.i.i to i64
+  %.val3069.i.i.i = load ptr, ptr %138, align 8, !tbaa !140, !noalias !128
+  %.val3170.i.i.i = load ptr, ptr %139, align 8, !tbaa !141, !noalias !128
+  %203 = ptrtoint ptr %.val3170.i.i.i to i64
+  %204 = ptrtoint ptr %.val3069.i.i.i to i64
   %205 = sub i64 %203, %204
   %206 = sdiv exact i64 %205, 56
   %207 = and i64 %206, 4294967295
@@ -4724,11 +4724,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i: ; preds = 
 
 210:                                              ; preds = %_ZN12_GLOBAL__N_14TypeD2Ev.exit.i.i.i, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %_ZN12_GLOBAL__N_14TypeD2Ev.exit.i.i.i ]
-  %.val3071.i.i.i = phi ptr [ %.val3068.i.i.i, %.lr.ph.i.i.i ], [ %.val30.i.i.i, %_ZN12_GLOBAL__N_14TypeD2Ev.exit.i.i.i ]
+  %.val3072.i.i.i = phi ptr [ %.val3069.i.i.i, %.lr.ph.i.i.i ], [ %.val30.i.i.i, %_ZN12_GLOBAL__N_14TypeD2Ev.exit.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %26), !noalias !128
   call void @llvm.experimental.noalias.scope.decl(metadata !142)
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
-  %211 = getelementptr inbounds nuw %"class.(anonymous namespace)::Type", ptr %.val3071.i.i.i, i64 %indvars.iv.next.i.i.i
+  %211 = getelementptr inbounds nuw %"class.(anonymous namespace)::Type", ptr %.val3072.i.i.i, i64 %indvars.iv.next.i.i.i
   store ptr %81, ptr %26, align 8, !tbaa !13, !alias.scope !142, !noalias !128
   %212 = load ptr, ptr %211, align 8, !tbaa !19, !noalias !142
   %213 = getelementptr inbounds nuw i8, ptr %211, i64 8
@@ -4792,9 +4792,9 @@ _ZNK12_GLOBAL__N_19Intrinsic12getParamTypeEj.exit.i.i.i: ; preds = %222, %220, %
   %235 = load i32, ptr %86, align 4, !noalias !128
   %236 = icmp eq i32 %235, 0
   %237 = select i1 %234, i1 %236, i1 false
-  br i1 %237, label %238, label %.thread92.i.i.i
+  br i1 %237, label %238, label %.thread93.i.i.i
 
-.thread92.i.i.i:                                  ; preds = %230
+.thread93.i.i.i:                                  ; preds = %230
   store i32 2, ptr %83, align 8, !tbaa !137, !noalias !128
   store i8 0, ptr %84, align 4, !tbaa !138, !noalias !128
   store i32 8, ptr %87, align 8, !tbaa !139, !noalias !128
@@ -4812,10 +4812,10 @@ _ZNK12_GLOBAL__N_19Intrinsic12getParamTypeEj.exit.i.i.i: ; preds = %222, %220, %
   %243 = trunc nuw i8 %.val1.i42.i.i.i to i1
   %244 = load i32, ptr %86, align 4, !noalias !128
   %245 = icmp eq i32 %244, 0
-  %.not67.i.i.i = select i1 %243, i1 true, i1 %245
+  %.not68.i.i.i = select i1 %243, i1 true, i1 %245
   %.val29.i.i.i = load i8, ptr %88, align 1, !range !146, !noalias !128
   %246 = trunc nuw i8 %.val29.i.i.i to i1
-  %or.cond61.i.i.i = select i1 %.not67.i.i.i, i1 true, i1 %246
+  %or.cond61.i.i.i = select i1 %.not68.i.i.i, i1 true, i1 %246
   br i1 %or.cond61.i.i.i, label %.thread.i.i, label %247
 
 247:                                              ; preds = %242
@@ -4835,7 +4835,7 @@ _ZNK12_GLOBAL__N_19Intrinsic12getParamTypeEj.exit.i.i.i: ; preds = %222, %220, %
   store i32 2, ptr %83, align 8, !tbaa !137, !noalias !128
   br label %.thread.i.i
 
-.thread.i.i:                                      ; preds = %250, %248, %242, %.thread92.i.i.i
+.thread.i.i:                                      ; preds = %250, %248, %242, %.thread93.i.i.i
   %.val32.i.i.i = load ptr, ptr %138, align 8, !tbaa !140, !noalias !128
   %251 = getelementptr inbounds nuw %"class.(anonymous namespace)::Type", ptr %.val32.i.i.i, i64 %indvars.iv.next.i.i.i
   %252 = getelementptr i8, ptr %251, i64 36
@@ -31957,94 +31957,94 @@ define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_19Intrinsic14protoHa
   br label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %47, %.lr.ph.preheader.i.i.i.i.i.i
-  %.091.i.i.i.i.i.i = phi i64 [ %49, %47 ], [ %5, %.lr.ph.preheader.i.i.i.i.i.i ]
-  %.sroa.045.090.i.i.i.i.i.i = phi ptr [ %48, %47 ], [ %.192.val, %.lr.ph.preheader.i.i.i.i.i.i ]
-  %8 = getelementptr inbounds nuw i8, ptr %.sroa.045.090.i.i.i.i.i.i, i64 32
+  %.098.i.i.i.i.i.i = phi i64 [ %49, %47 ], [ %5, %.lr.ph.preheader.i.i.i.i.i.i ]
+  %.sroa.045.097.i.i.i.i.i.i = phi ptr [ %48, %47 ], [ %.192.val, %.lr.ph.preheader.i.i.i.i.i.i ]
+  %8 = getelementptr inbounds nuw i8, ptr %.sroa.045.097.i.i.i.i.i.i, i64 32
   %.val.i.i.i.i.i.i.i.i.i = load i32, ptr %8, align 8, !tbaa !137
-  %9 = getelementptr inbounds nuw i8, ptr %.sroa.045.090.i.i.i.i.i.i, i64 38
+  %9 = getelementptr inbounds nuw i8, ptr %.sroa.045.097.i.i.i.i.i.i, i64 38
   %.val1.i.i.i.i.i.i.i.i.i = load i8, ptr %9, align 2
   %10 = icmp eq i32 %.val.i.i.i.i.i.i.i.i.i, 0
   %11 = trunc nuw i8 %.val1.i.i.i.i.i.i.i.i.i to i1
-  %.not65.i.i.i.i.i.i = select i1 %10, i1 true, i1 %11
-  %12 = getelementptr inbounds nuw i8, ptr %.sroa.045.090.i.i.i.i.i.i, i64 52
+  %.not68.i.i.i.i.i.i = select i1 %10, i1 true, i1 %11
+  %12 = getelementptr inbounds nuw i8, ptr %.sroa.045.097.i.i.i.i.i.i, i64 52
   %13 = load i32, ptr %12, align 4
   %14 = icmp ne i32 %13, 0
-  %.not67.i.i.i.i.i.i = select i1 %.not65.i.i.i.i.i.i, i1 true, i1 %14
-  %15 = getelementptr inbounds nuw i8, ptr %.sroa.045.090.i.i.i.i.i.i, i64 36
+  %.not70.i.i.i.i.i.i = select i1 %.not68.i.i.i.i.i.i, i1 true, i1 %14
+  %15 = getelementptr inbounds nuw i8, ptr %.sroa.045.097.i.i.i.i.i.i, i64 36
   %.val.i.i.i.i.i.i.i.i = load i8, ptr %15, align 4, !range !146
   %16 = trunc nuw i8 %.val.i.i.i.i.i.i.i.i to i1
-  %.not64.i.i.i.i.i.i = select i1 %.not67.i.i.i.i.i.i, i1 true, i1 %16
-  br i1 %.not64.i.i.i.i.i.i, label %17, label %"_ZN4llvm6any_ofIRKSt6vectorIN12_GLOBAL__N_14TypeESaIS3_EEZNKS2_9Intrinsic14protoHasScalarEvE3$_0EEbOT_T0_.exit"
+  %.not67.i.i.i.i.i.i = select i1 %.not70.i.i.i.i.i.i, i1 true, i1 %16
+  br i1 %.not67.i.i.i.i.i.i, label %17, label %"_ZN4llvm6any_ofIRKSt6vectorIN12_GLOBAL__N_14TypeESaIS3_EEZNKS2_9Intrinsic14protoHasScalarEvE3$_0EEbOT_T0_.exit"
 
 17:                                               ; preds = %.lr.ph.i.i.i.i.i.i
-  %18 = getelementptr inbounds nuw i8, ptr %.sroa.045.090.i.i.i.i.i.i, i64 88
+  %18 = getelementptr inbounds nuw i8, ptr %.sroa.045.097.i.i.i.i.i.i, i64 88
   %.val.i.i.i19.i.i.i.i.i.i = load i32, ptr %18, align 8, !tbaa !137
-  %19 = getelementptr inbounds nuw i8, ptr %.sroa.045.090.i.i.i.i.i.i, i64 94
+  %19 = getelementptr inbounds nuw i8, ptr %.sroa.045.097.i.i.i.i.i.i, i64 94
   %.val1.i.i.i20.i.i.i.i.i.i = load i8, ptr %19, align 2
   %20 = icmp eq i32 %.val.i.i.i19.i.i.i.i.i.i, 0
   %21 = trunc nuw i8 %.val1.i.i.i20.i.i.i.i.i.i to i1
-  %.not69.i.i.i.i.i.i = select i1 %20, i1 true, i1 %21
-  %22 = getelementptr inbounds nuw i8, ptr %.sroa.045.090.i.i.i.i.i.i, i64 108
+  %.not73.i.i.i.i.i.i = select i1 %20, i1 true, i1 %21
+  %22 = getelementptr inbounds nuw i8, ptr %.sroa.045.097.i.i.i.i.i.i, i64 108
   %23 = load i32, ptr %22, align 4
   %24 = icmp ne i32 %23, 0
-  %.not71.i.i.i.i.i.i = select i1 %.not69.i.i.i.i.i.i, i1 true, i1 %24
-  %25 = getelementptr inbounds nuw i8, ptr %.sroa.045.090.i.i.i.i.i.i, i64 92
+  %.not75.i.i.i.i.i.i = select i1 %.not73.i.i.i.i.i.i, i1 true, i1 %24
+  %25 = getelementptr inbounds nuw i8, ptr %.sroa.045.097.i.i.i.i.i.i, i64 92
   %.val.i.i21.i.i.i.i.i.i = load i8, ptr %25, align 4, !range !146
   %26 = trunc nuw i8 %.val.i.i21.i.i.i.i.i.i to i1
-  %.not68.i.i.i.i.i.i = select i1 %.not71.i.i.i.i.i.i, i1 true, i1 %26
-  br i1 %.not68.i.i.i.i.i.i, label %27, label %.loopexit.split.loop.exit81.i.i.i.i.i.i
+  %.not72.i.i.i.i.i.i = select i1 %.not75.i.i.i.i.i.i, i1 true, i1 %26
+  br i1 %.not72.i.i.i.i.i.i, label %27, label %.loopexit.split.loop.exit88.i.i.i.i.i.i
 
 27:                                               ; preds = %17
-  %28 = getelementptr inbounds nuw i8, ptr %.sroa.045.090.i.i.i.i.i.i, i64 144
+  %28 = getelementptr inbounds nuw i8, ptr %.sroa.045.097.i.i.i.i.i.i, i64 144
   %.val.i.i.i22.i.i.i.i.i.i = load i32, ptr %28, align 8, !tbaa !137
-  %29 = getelementptr inbounds nuw i8, ptr %.sroa.045.090.i.i.i.i.i.i, i64 150
+  %29 = getelementptr inbounds nuw i8, ptr %.sroa.045.097.i.i.i.i.i.i, i64 150
   %.val1.i.i.i23.i.i.i.i.i.i = load i8, ptr %29, align 2
   %30 = icmp eq i32 %.val.i.i.i22.i.i.i.i.i.i, 0
   %31 = trunc nuw i8 %.val1.i.i.i23.i.i.i.i.i.i to i1
-  %.not73.i.i.i.i.i.i = select i1 %30, i1 true, i1 %31
-  %32 = getelementptr inbounds nuw i8, ptr %.sroa.045.090.i.i.i.i.i.i, i64 164
+  %.not78.i.i.i.i.i.i = select i1 %30, i1 true, i1 %31
+  %32 = getelementptr inbounds nuw i8, ptr %.sroa.045.097.i.i.i.i.i.i, i64 164
   %33 = load i32, ptr %32, align 4
   %34 = icmp ne i32 %33, 0
-  %.not75.i.i.i.i.i.i = select i1 %.not73.i.i.i.i.i.i, i1 true, i1 %34
-  %35 = getelementptr inbounds nuw i8, ptr %.sroa.045.090.i.i.i.i.i.i, i64 148
+  %.not80.i.i.i.i.i.i = select i1 %.not78.i.i.i.i.i.i, i1 true, i1 %34
+  %35 = getelementptr inbounds nuw i8, ptr %.sroa.045.097.i.i.i.i.i.i, i64 148
   %.val.i.i24.i.i.i.i.i.i = load i8, ptr %35, align 4, !range !146
   %36 = trunc nuw i8 %.val.i.i24.i.i.i.i.i.i to i1
-  %.not72.i.i.i.i.i.i = select i1 %.not75.i.i.i.i.i.i, i1 true, i1 %36
-  br i1 %.not72.i.i.i.i.i.i, label %37, label %.loopexit.split.loop.exit83.i.i.i.i.i.i
+  %.not77.i.i.i.i.i.i = select i1 %.not80.i.i.i.i.i.i, i1 true, i1 %36
+  br i1 %.not77.i.i.i.i.i.i, label %37, label %.loopexit.split.loop.exit90.i.i.i.i.i.i
 
 37:                                               ; preds = %27
-  %38 = getelementptr inbounds nuw i8, ptr %.sroa.045.090.i.i.i.i.i.i, i64 200
+  %38 = getelementptr inbounds nuw i8, ptr %.sroa.045.097.i.i.i.i.i.i, i64 200
   %.val.i.i.i25.i.i.i.i.i.i = load i32, ptr %38, align 8, !tbaa !137
-  %39 = getelementptr inbounds nuw i8, ptr %.sroa.045.090.i.i.i.i.i.i, i64 206
+  %39 = getelementptr inbounds nuw i8, ptr %.sroa.045.097.i.i.i.i.i.i, i64 206
   %.val1.i.i.i26.i.i.i.i.i.i = load i8, ptr %39, align 2
   %40 = icmp eq i32 %.val.i.i.i25.i.i.i.i.i.i, 0
   %41 = trunc nuw i8 %.val1.i.i.i26.i.i.i.i.i.i to i1
-  %.not77.i.i.i.i.i.i = select i1 %40, i1 true, i1 %41
-  %42 = getelementptr inbounds nuw i8, ptr %.sroa.045.090.i.i.i.i.i.i, i64 220
+  %.not83.i.i.i.i.i.i = select i1 %40, i1 true, i1 %41
+  %42 = getelementptr inbounds nuw i8, ptr %.sroa.045.097.i.i.i.i.i.i, i64 220
   %43 = load i32, ptr %42, align 4
   %44 = icmp ne i32 %43, 0
-  %.not79.i.i.i.i.i.i = select i1 %.not77.i.i.i.i.i.i, i1 true, i1 %44
-  %45 = getelementptr inbounds nuw i8, ptr %.sroa.045.090.i.i.i.i.i.i, i64 204
+  %.not85.i.i.i.i.i.i = select i1 %.not83.i.i.i.i.i.i, i1 true, i1 %44
+  %45 = getelementptr inbounds nuw i8, ptr %.sroa.045.097.i.i.i.i.i.i, i64 204
   %.val.i.i27.i.i.i.i.i.i = load i8, ptr %45, align 4, !range !146
   %46 = trunc nuw i8 %.val.i.i27.i.i.i.i.i.i to i1
-  %.not76.i.i.i.i.i.i = select i1 %.not79.i.i.i.i.i.i, i1 true, i1 %46
-  br i1 %.not76.i.i.i.i.i.i, label %47, label %.loopexit.split.loop.exit85.i.i.i.i.i.i
+  %.not82.i.i.i.i.i.i = select i1 %.not85.i.i.i.i.i.i, i1 true, i1 %46
+  br i1 %.not82.i.i.i.i.i.i, label %47, label %.loopexit.split.loop.exit92.i.i.i.i.i.i
 
 47:                                               ; preds = %37
-  %48 = getelementptr inbounds nuw i8, ptr %.sroa.045.090.i.i.i.i.i.i, i64 224
-  %49 = add nsw i64 %.091.i.i.i.i.i.i, -1
-  %50 = icmp sgt i64 %.091.i.i.i.i.i.i, 1
+  %48 = getelementptr inbounds nuw i8, ptr %.sroa.045.097.i.i.i.i.i.i, i64 224
+  %49 = add nsw i64 %.098.i.i.i.i.i.i, -1
+  %50 = icmp sgt i64 %.098.i.i.i.i.i.i, 1
   br i1 %50, label %.lr.ph.i.i.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i.i.i, !llvm.loop !841
 
 ._crit_edge.loopexit.i.i.i.i.i.i:                 ; preds = %47
   %.pre.i.i.i.i.i.i = ptrtoint ptr %scevgep.i.i.i.i.i.i to i64
-  %.pre96.i.i.i.i.i.i = sub i64 %1, %.pre.i.i.i.i.i.i
+  %.pre103.i.i.i.i.i.i = sub i64 %1, %.pre.i.i.i.i.i.i
   br label %._crit_edge.i.i.i.i.i.i
 
 ._crit_edge.i.i.i.i.i.i:                          ; preds = %._crit_edge.loopexit.i.i.i.i.i.i, %0
-  %.pre-phi97.i.i.i.i.i.i = phi i64 [ %.pre96.i.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i.i ], [ %3, %0 ]
+  %.pre-phi104.i.i.i.i.i.i = phi i64 [ %.pre103.i.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i.i ], [ %3, %0 ]
   %.sroa.045.0.lcssa.i.i.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i.i ], [ %.192.val, %0 ]
-  %51 = sdiv exact i64 %.pre-phi97.i.i.i.i.i.i, 56
+  %51 = sdiv exact i64 %.pre-phi104.i.i.i.i.i.i, 56
   switch i64 %51, label %"_ZN4llvm6any_ofIRKSt6vectorIN12_GLOBAL__N_14TypeESaIS3_EEZNKS2_9Intrinsic14protoHasScalarEvE3$_0EEbOT_T0_.exit" [
     i64 3, label %52
     i64 2, label %64
@@ -32081,16 +32081,16 @@ define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_19Intrinsic14protoHa
   %.val1.i.i.i32.i.i.i.i.i.i = load i8, ptr %66, align 2
   %67 = icmp eq i32 %.val.i.i.i31.i.i.i.i.i.i, 0
   %68 = trunc nuw i8 %.val1.i.i.i32.i.i.i.i.i.i to i1
-  %.not57.i.i.i.i.i.i = select i1 %67, i1 true, i1 %68
+  %.not58.i.i.i.i.i.i = select i1 %67, i1 true, i1 %68
   %69 = getelementptr inbounds nuw i8, ptr %.sroa.045.1.i.i.i.i.i.i, i64 52
   %70 = load i32, ptr %69, align 4
   %71 = icmp ne i32 %70, 0
-  %.not59.i.i.i.i.i.i = select i1 %.not57.i.i.i.i.i.i, i1 true, i1 %71
+  %.not60.i.i.i.i.i.i = select i1 %.not58.i.i.i.i.i.i, i1 true, i1 %71
   %72 = getelementptr inbounds nuw i8, ptr %.sroa.045.1.i.i.i.i.i.i, i64 36
   %.val.i.i33.i.i.i.i.i.i = load i8, ptr %72, align 4, !range !146
   %73 = trunc nuw i8 %.val.i.i33.i.i.i.i.i.i to i1
-  %.not56.i.i.i.i.i.i = select i1 %.not59.i.i.i.i.i.i, i1 true, i1 %73
-  br i1 %.not56.i.i.i.i.i.i, label %74, label %"_ZN4llvm6any_ofIRKSt6vectorIN12_GLOBAL__N_14TypeESaIS3_EEZNKS2_9Intrinsic14protoHasScalarEvE3$_0EEbOT_T0_.exit"
+  %.not57.i.i.i.i.i.i = select i1 %.not60.i.i.i.i.i.i, i1 true, i1 %73
+  br i1 %.not57.i.i.i.i.i.i, label %74, label %"_ZN4llvm6any_ofIRKSt6vectorIN12_GLOBAL__N_14TypeESaIS3_EEZNKS2_9Intrinsic14protoHasScalarEvE3$_0EEbOT_T0_.exit"
 
 74:                                               ; preds = %64
   %75 = getelementptr inbounds nuw i8, ptr %.sroa.045.1.i.i.i.i.i.i, i64 56
@@ -32104,32 +32104,32 @@ define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_19Intrinsic14protoHa
   %.val1.i.i.i35.i.i.i.i.i.i = load i8, ptr %78, align 2
   %79 = icmp eq i32 %.val.i.i.i34.i.i.i.i.i.i, 0
   %80 = trunc nuw i8 %.val1.i.i.i35.i.i.i.i.i.i to i1
-  %.not61.i.i.i.i.i.i = select i1 %79, i1 true, i1 %80
+  %.not63.i.i.i.i.i.i = select i1 %79, i1 true, i1 %80
   %81 = getelementptr inbounds nuw i8, ptr %.sroa.045.2.i.i.i.i.i.i, i64 52
   %82 = load i32, ptr %81, align 4
   %83 = icmp ne i32 %82, 0
-  %.not63.i.i.i.i.i.i = select i1 %.not61.i.i.i.i.i.i, i1 true, i1 %83
+  %.not65.i.i.i.i.i.i = select i1 %.not63.i.i.i.i.i.i, i1 true, i1 %83
   %84 = getelementptr inbounds nuw i8, ptr %.sroa.045.2.i.i.i.i.i.i, i64 36
   %.val.i.i36.i.i.i.i.i.i = load i8, ptr %84, align 4, !range !146
   %85 = trunc nuw i8 %.val.i.i36.i.i.i.i.i.i to i1
-  %.not60.i.i.i.i.i.i = select i1 %.not63.i.i.i.i.i.i, i1 true, i1 %85
-  %spec.select.i.i.i.i.i.i = select i1 %.not60.i.i.i.i.i.i, ptr %.200.val, ptr %.sroa.045.2.i.i.i.i.i.i
+  %.not62.i.i.i.i.i.i = select i1 %.not65.i.i.i.i.i.i, i1 true, i1 %85
+  %spec.select.i.i.i.i.i.i = select i1 %.not62.i.i.i.i.i.i, ptr %.200.val, ptr %.sroa.045.2.i.i.i.i.i.i
   br label %"_ZN4llvm6any_ofIRKSt6vectorIN12_GLOBAL__N_14TypeESaIS3_EEZNKS2_9Intrinsic14protoHasScalarEvE3$_0EEbOT_T0_.exit"
 
-.loopexit.split.loop.exit81.i.i.i.i.i.i:          ; preds = %17
-  %86 = getelementptr inbounds nuw i8, ptr %.sroa.045.090.i.i.i.i.i.i, i64 56
+.loopexit.split.loop.exit88.i.i.i.i.i.i:          ; preds = %17
+  %86 = getelementptr inbounds nuw i8, ptr %.sroa.045.097.i.i.i.i.i.i, i64 56
   br label %"_ZN4llvm6any_ofIRKSt6vectorIN12_GLOBAL__N_14TypeESaIS3_EEZNKS2_9Intrinsic14protoHasScalarEvE3$_0EEbOT_T0_.exit"
 
-.loopexit.split.loop.exit83.i.i.i.i.i.i:          ; preds = %27
-  %87 = getelementptr inbounds nuw i8, ptr %.sroa.045.090.i.i.i.i.i.i, i64 112
+.loopexit.split.loop.exit90.i.i.i.i.i.i:          ; preds = %27
+  %87 = getelementptr inbounds nuw i8, ptr %.sroa.045.097.i.i.i.i.i.i, i64 112
   br label %"_ZN4llvm6any_ofIRKSt6vectorIN12_GLOBAL__N_14TypeESaIS3_EEZNKS2_9Intrinsic14protoHasScalarEvE3$_0EEbOT_T0_.exit"
 
-.loopexit.split.loop.exit85.i.i.i.i.i.i:          ; preds = %37
-  %88 = getelementptr inbounds nuw i8, ptr %.sroa.045.090.i.i.i.i.i.i, i64 168
+.loopexit.split.loop.exit92.i.i.i.i.i.i:          ; preds = %37
+  %88 = getelementptr inbounds nuw i8, ptr %.sroa.045.097.i.i.i.i.i.i, i64 168
   br label %"_ZN4llvm6any_ofIRKSt6vectorIN12_GLOBAL__N_14TypeESaIS3_EEZNKS2_9Intrinsic14protoHasScalarEvE3$_0EEbOT_T0_.exit"
 
-"_ZN4llvm6any_ofIRKSt6vectorIN12_GLOBAL__N_14TypeESaIS3_EEZNKS2_9Intrinsic14protoHasScalarEvE3$_0EEbOT_T0_.exit": ; preds = %.lr.ph.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i, %52, %64, %76, %.loopexit.split.loop.exit81.i.i.i.i.i.i, %.loopexit.split.loop.exit83.i.i.i.i.i.i, %.loopexit.split.loop.exit85.i.i.i.i.i.i
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i = phi ptr [ %.sroa.045.0.lcssa.i.i.i.i.i.i, %52 ], [ %.sroa.045.1.i.i.i.i.i.i, %64 ], [ %.200.val, %._crit_edge.i.i.i.i.i.i ], [ %spec.select.i.i.i.i.i.i, %76 ], [ %86, %.loopexit.split.loop.exit81.i.i.i.i.i.i ], [ %87, %.loopexit.split.loop.exit83.i.i.i.i.i.i ], [ %88, %.loopexit.split.loop.exit85.i.i.i.i.i.i ], [ %.sroa.045.090.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
+"_ZN4llvm6any_ofIRKSt6vectorIN12_GLOBAL__N_14TypeESaIS3_EEZNKS2_9Intrinsic14protoHasScalarEvE3$_0EEbOT_T0_.exit": ; preds = %.lr.ph.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i, %52, %64, %76, %.loopexit.split.loop.exit88.i.i.i.i.i.i, %.loopexit.split.loop.exit90.i.i.i.i.i.i, %.loopexit.split.loop.exit92.i.i.i.i.i.i
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i = phi ptr [ %.sroa.045.0.lcssa.i.i.i.i.i.i, %52 ], [ %.sroa.045.1.i.i.i.i.i.i, %64 ], [ %.200.val, %._crit_edge.i.i.i.i.i.i ], [ %spec.select.i.i.i.i.i.i, %76 ], [ %86, %.loopexit.split.loop.exit88.i.i.i.i.i.i ], [ %87, %.loopexit.split.loop.exit90.i.i.i.i.i.i ], [ %88, %.loopexit.split.loop.exit92.i.i.i.i.i.i ], [ %.sroa.045.097.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
   %89 = icmp ne ptr %.200.val, %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i
   ret i1 %89
 }

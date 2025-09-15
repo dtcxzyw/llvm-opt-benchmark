@@ -11010,26 +11010,26 @@ declare x86_fp80 @sqrtl(x86_fp80 noundef) local_unnamed_addr #5
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef double @_ZN5boost4math5tools6detail24second_order_root_finderINS2_11halley_stepENS0_6detail20gamma_p_inverse_funcIdNS0_8policies6policyINS7_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EEEEdEET1_T0_SC_SC_SC_iRm(ptr noundef byval(%"struct.boost::math::detail::gamma_p_inverse_func") align 8 %f, double noundef %guess, double noundef %min, double noundef %max, i32 noundef %digits, ptr noundef nonnull align 8 dereferenceable(8) %max_iter) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
 entry:
-  %ref.tmp.i.i60 = alloca double, align 8
-  %ref.tmp2.i.i61 = alloca %"struct.std::integral_constant", align 1
-  %ref.tmp.i62 = alloca %"class.boost::math::policies::policy", align 1
-  %ref.tmp.i.i56 = alloca double, align 8
-  %ref.tmp2.i.i57 = alloca %"struct.std::integral_constant", align 1
-  %ref.tmp.i58 = alloca %"class.boost::math::policies::policy", align 1
-  %ref.tmp.i.i51 = alloca double, align 8
-  %ref.tmp2.i.i52 = alloca double, align 8
-  %ref.tmp5.i.i53 = alloca %"struct.std::integral_constant", align 1
-  %ref.tmp.i54 = alloca %"class.boost::math::policies::policy", align 1
-  %ref.tmp.i.i47 = alloca double, align 8
-  %ref.tmp2.i.i48 = alloca %"struct.std::integral_constant", align 1
-  %ref.tmp.i49 = alloca %"class.boost::math::policies::policy", align 1
-  %ref.tmp.i.i44 = alloca double, align 8
-  %ref.tmp2.i.i45 = alloca %"struct.std::integral_constant", align 1
-  %ref.tmp.i46 = alloca %"class.boost::math::policies::policy", align 1
-  %ref.tmp.i.i42 = alloca double, align 8
+  %ref.tmp.i.i61 = alloca double, align 8
+  %ref.tmp2.i.i62 = alloca %"struct.std::integral_constant", align 1
+  %ref.tmp.i63 = alloca %"class.boost::math::policies::policy", align 1
+  %ref.tmp.i.i57 = alloca double, align 8
+  %ref.tmp2.i.i58 = alloca %"struct.std::integral_constant", align 1
+  %ref.tmp.i59 = alloca %"class.boost::math::policies::policy", align 1
+  %ref.tmp.i.i52 = alloca double, align 8
+  %ref.tmp2.i.i53 = alloca double, align 8
+  %ref.tmp5.i.i54 = alloca %"struct.std::integral_constant", align 1
+  %ref.tmp.i55 = alloca %"class.boost::math::policies::policy", align 1
+  %ref.tmp.i.i48 = alloca double, align 8
+  %ref.tmp2.i.i49 = alloca %"struct.std::integral_constant", align 1
+  %ref.tmp.i50 = alloca %"class.boost::math::policies::policy", align 1
+  %ref.tmp.i.i45 = alloca double, align 8
+  %ref.tmp2.i.i46 = alloca %"struct.std::integral_constant", align 1
+  %ref.tmp.i47 = alloca %"class.boost::math::policies::policy", align 1
+  %ref.tmp.i.i43 = alloca double, align 8
   %ref.tmp2.i.i = alloca double, align 8
   %ref.tmp5.i.i = alloca %"struct.std::integral_constant", align 1
-  %ref.tmp.i43 = alloca %"class.boost::math::policies::policy", align 1
+  %ref.tmp.i44 = alloca %"class.boost::math::policies::policy", align 1
   %ft.i.i = alloca x86_fp80, align 16
   %ref.tmp.i.i = alloca %"struct.boost::math::policies::policy", align 1
   %ft.i = alloca x86_fp80, align 16
@@ -11064,23 +11064,23 @@ if.end:                                           ; preds = %entry
   %invert.i = getelementptr inbounds nuw i8, ptr %f, i64 16
   %p.i = getelementptr inbounds nuw i8, ptr %f, i64 8
   %.pre = load double, ptr %f, align 8, !tbaa !147, !noalias !149
-  %.pre151 = load i8, ptr %invert.i, align 8, !tbaa !152, !range !101, !noalias !149
+  %.pre152 = load i8, ptr %invert.i, align 8, !tbaa !152, !range !101, !noalias !149
   %conv.i = fpext double %.pre to x86_fp80
-  %loadedv.i = trunc nuw i8 %.pre151 to i1
+  %loadedv.i = trunc nuw i8 %.pre152 to i1
   br label %do.body
 
 do.body:                                          ; preds = %land.rhs, %if.end
-  %delta.0 = phi double [ %.sroa.speculated, %if.end ], [ %delta.5135, %land.rhs ]
-  %2 = phi double [ %guess, %if.end ], [ %result.5136, %land.rhs ]
-  %max_range_f.0 = phi double [ 0.000000e+00, %if.end ], [ %max_range_f.1137, %land.rhs ]
-  %min_range_f.0 = phi double [ 0.000000e+00, %if.end ], [ %min_range_f.1138, %land.rhs ]
-  %out_of_bounds_sentry.0 = phi i8 [ 0, %if.end ], [ %out_of_bounds_sentry.2139, %land.rhs ]
+  %delta.0 = phi double [ %.sroa.speculated, %if.end ], [ %delta.5136, %land.rhs ]
+  %2 = phi double [ %guess, %if.end ], [ %result.5137, %land.rhs ]
+  %max_range_f.0 = phi double [ 0.000000e+00, %if.end ], [ %max_range_f.1138, %land.rhs ]
+  %min_range_f.0 = phi double [ 0.000000e+00, %if.end ], [ %min_range_f.1139, %land.rhs ]
+  %out_of_bounds_sentry.0 = phi i8 [ 0, %if.end ], [ %out_of_bounds_sentry.2140, %land.rhs ]
   %delta1.0 = phi double [ %.sroa.speculated, %if.end ], [ %delta1.1, %land.rhs ]
   %3 = load double, ptr %f0, align 8, !tbaa !52
   call void @llvm.lifetime.start.p0(ptr nonnull %ft.i), !noalias !149
   %conv2.i = fpext double %2 to x86_fp80
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i), !noalias !149
-  %call.i31 = invoke noundef x86_fp80 @_ZN5boost4math6detail20gamma_incomplete_impIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EEEET_SB_SB_bbRKT0_PSB_(x86_fp80 noundef %conv.i, x86_fp80 noundef %conv2.i, i1 noundef zeroext true, i1 noundef zeroext %loadedv.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i, ptr noundef nonnull %ft.i)
+  %call.i32 = invoke noundef x86_fp80 @_ZN5boost4math6detail20gamma_incomplete_impIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EEEET_SB_SB_bbRKT0_PSB_(x86_fp80 noundef %conv.i, x86_fp80 noundef %conv2.i, i1 noundef zeroext true, i1 noundef zeroext %loadedv.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i, ptr noundef nonnull %ft.i)
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %do.body
@@ -11091,8 +11091,8 @@ call.i.noexc:                                     ; preds = %do.body
   %sub6.i = fadd double %sub.i, -1.000000e+00
   %div7.i = fdiv double %sub6.i, %2
   %5 = call double @llvm.fabs.f64(double %div7.i)
-  %cmp.i30 = fcmp ogt double %5, 1.000000e+00
-  br i1 %cmp.i30, label %if.then.i, label %if.else14.i
+  %cmp.i31 = fcmp ogt double %5, 1.000000e+00
+  br i1 %cmp.i31, label %if.then.i, label %if.else14.i
 
 if.then.i:                                        ; preds = %call.i.noexc
   %div9.i = fdiv double 0x7FEFFFFFFFFFFFFF, %5
@@ -11120,7 +11120,7 @@ try.cont:                                         ; preds = %if.then.i, %if.else
   %f2.0.i = phi double [ %mul.i, %if.else.i ], [ %mul15.i, %if.else14.i ], [ 0xFFDFFFFFFFFFFFFF, %if.then.i ]
   %fneg20.i = fneg double %conv4.i
   %f1.0.i = select i1 %loadedv.i, double %fneg20.i, double %conv4.i
-  %conv3.i = fptrunc x86_fp80 %call.i31 to double
+  %conv3.i = fptrunc x86_fp80 %call.i32 to double
   %9 = load double, ptr %p.i, align 8, !tbaa !153, !noalias !149
   %sub24.i = fsub double %conv3.i, %9
   call void @llvm.lifetime.end.p0(ptr nonnull %ft.i), !noalias !149
@@ -11141,10 +11141,10 @@ try.cont.thread:                                  ; preds = %lpad
   call void @__cxa_end_catch()
   %.pr = load double, ptr %f0, align 8, !tbaa !52
   %14 = load i64, ptr %count, align 8, !tbaa !43
-  %dec100 = add i64 %14, -1
-  store i64 %dec100, ptr %count, align 8, !tbaa !43
-  %cmp9101 = fcmp oeq double %.pr, 0.000000e+00
-  br i1 %cmp9101, label %do.end, label %if.then13
+  %dec101 = add i64 %14, -1
+  store i64 %dec101, ptr %count, align 8, !tbaa !43
+  %cmp9102 = fcmp oeq double %.pr, 0.000000e+00
+  br i1 %cmp9102, label %do.end, label %if.then13
 
 if.end11:                                         ; preds = %try.cont
   %cmp12 = fcmp oeq double %conv4.i, 0.000000e+00
@@ -11152,10 +11152,10 @@ if.end11:                                         ; preds = %try.cont
 
 if.then13:                                        ; preds = %try.cont.thread, %if.end11
   %15 = phi double [ %.pr, %try.cont.thread ], [ %sub24.i, %if.end11 ]
-  %cmp.i33 = fcmp oeq double %3, 0.000000e+00
-  br i1 %cmp.i33, label %if.then.i35, label %_ZN5boost4math5tools6detail22handle_zero_derivativeINS0_6detail20gamma_p_inverse_funcIdNS0_8policies6policyINS6_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEEdEEvT_RT0_RKSC_SD_SD_SD_SF_SF_.exit
+  %cmp.i34 = fcmp oeq double %3, 0.000000e+00
+  br i1 %cmp.i34, label %if.then.i36, label %_ZN5boost4math5tools6detail22handle_zero_derivativeINS0_6detail20gamma_p_inverse_funcIdNS0_8policies6policyINS6_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEEdEEvT_RT0_RKSC_SD_SD_SD_SF_SF_.exit
 
-if.then.i35:                                      ; preds = %if.then13
+if.then.i36:                                      ; preds = %if.then13
   %agg.tmp.sroa.2.0.copyload = load double, ptr %p.i, align 8, !tbaa !52
   %16 = load double, ptr %min.addr, align 8, !tbaa !52
   %cmp1.i = fcmp oeq double %2, %16
@@ -11170,14 +11170,14 @@ if.then.i35:                                      ; preds = %if.then13
   %conv3.i.i = fptrunc x86_fp80 %call.i.i to double
   %sub24.i.i = fsub double %conv3.i.i, %agg.tmp.sroa.2.0.copyload
   call void @llvm.lifetime.end.p0(ptr nonnull %ft.i.i), !noalias !154
-  %sub.i36 = fsub double %storemerge.i, %2
-  %.pre152 = load double, ptr %f0, align 8, !tbaa !52
+  %sub.i37 = fsub double %storemerge.i, %2
+  %.pre153 = load double, ptr %f0, align 8, !tbaa !52
   br label %_ZN5boost4math5tools6detail22handle_zero_derivativeINS0_6detail20gamma_p_inverse_funcIdNS0_8policies6policyINS6_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEEdEEvT_RT0_RKSC_SD_SD_SD_SF_SF_.exit
 
-_ZN5boost4math5tools6detail22handle_zero_derivativeINS0_6detail20gamma_p_inverse_funcIdNS0_8policies6policyINS6_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEEdEEvT_RT0_RKSC_SD_SD_SD_SF_SF_.exit: ; preds = %if.then13, %if.then.i35
-  %18 = phi double [ %.pre152, %if.then.i35 ], [ %15, %if.then13 ]
-  %delta.8 = phi double [ %sub.i36, %if.then.i35 ], [ %delta.0, %if.then13 ]
-  %19 = phi double [ %sub24.i.i, %if.then.i35 ], [ %3, %if.then13 ]
+_ZN5boost4math5tools6detail22handle_zero_derivativeINS0_6detail20gamma_p_inverse_funcIdNS0_8policies6policyINS6_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEEdEEvT_RT0_RKSC_SD_SD_SD_SF_SF_.exit: ; preds = %if.then13, %if.then.i36
+  %18 = phi double [ %.pre153, %if.then.i36 ], [ %15, %if.then13 ]
+  %delta.8 = phi double [ %sub.i37, %if.then.i36 ], [ %delta.0, %if.then13 ]
+  %19 = phi double [ %sub24.i.i, %if.then.i36 ], [ %3, %if.then13 ]
   %cmp.i22.i = fcmp oeq double %19, 0.000000e+00
   %20 = bitcast double %19 to i64
   %tobool.not.i.i = icmp sgt i64 %20, -1
@@ -11188,8 +11188,8 @@ _ZN5boost4math5tools6detail22handle_zero_derivativeINS0_6detail20gamma_p_inverse
   %tobool.not.i24.i = icmp sgt i64 %21, -1
   %cond.i25.i = select i1 %tobool.not.i24.i, i32 1, i32 -1
   %cond1.i26.i = select i1 %cmp.i23.i, i32 0, i32 %cond.i25.i
-  %mul.i34 = mul nsw i32 %cond1.i26.i, %cond1.i.i
-  %cmp5.i = icmp slt i32 %mul.i34, 0
+  %mul.i35 = mul nsw i32 %cond1.i26.i, %cond1.i.i
+  %cmp5.i = icmp slt i32 %mul.i35, 0
   %cmp7.i = fcmp olt double %delta.8, 0.000000e+00
   %22 = xor i1 %cmp7.i, %cmp5.i
   %max.val.i = load double, ptr %max.addr, align 8
@@ -11204,32 +11204,32 @@ if.else:                                          ; preds = %if.end11
   br i1 %cmp14, label %if.then15, label %if.else30
 
 if.then15:                                        ; preds = %if.else
-  %mul.i37 = fmul double %sub24.i, 2.000000e+00
+  %mul.i38 = fmul double %sub24.i, 2.000000e+00
   %f2.0.i.neg = fneg double %f2.0.i
   %24 = select i1 %loadedv.i, double %f2.0.i, double %f2.0.i.neg
   %25 = fdiv double %24, %f1.0.i
   %neg.i = fmul double %sub24.i, %25
   %26 = call double @llvm.fmuladd.f64(double %f1.0.i, double 2.000000e+00, double %neg.i)
   %27 = call double @llvm.fabs.f64(double %26)
-  %cmp.i38 = fcmp olt double %27, 1.000000e+00
-  br i1 %cmp.i38, label %land.lhs.true.i, label %if.else.i39
+  %cmp.i39 = fcmp olt double %27, 1.000000e+00
+  br i1 %cmp.i39, label %land.lhs.true.i, label %if.else.i40
 
 land.lhs.true.i:                                  ; preds = %if.then15
-  %28 = call double @llvm.fabs.f64(double %mul.i37)
+  %28 = call double @llvm.fabs.f64(double %mul.i38)
   %mul3.i = fmul double %27, 0x7FEFFFFFFFFFFFFF
   %cmp4.i = fcmp ult double %28, %mul3.i
-  br i1 %cmp4.i, label %if.else.i39, label %if.then.i40
+  br i1 %cmp4.i, label %if.else.i40, label %if.then.i41
 
-if.then.i40:                                      ; preds = %land.lhs.true.i
+if.then.i41:                                      ; preds = %land.lhs.true.i
   %div5.i = fdiv double %sub24.i, %f1.0.i
   br label %_ZN5boost4math5tools6detail11halley_step4stepIdEET_RKS5_S7_S7_S7_.exit
 
-if.else.i39:                                      ; preds = %land.lhs.true.i, %if.then15
-  %div6.i = fdiv double %mul.i37, %26
+if.else.i40:                                      ; preds = %land.lhs.true.i, %if.then15
+  %div6.i = fdiv double %mul.i38, %26
   br label %_ZN5boost4math5tools6detail11halley_step4stepIdEET_RKS5_S7_S7_S7_.exit
 
-_ZN5boost4math5tools6detail11halley_step4stepIdEET_RKS5_S7_S7_S7_.exit: ; preds = %if.then.i40, %if.else.i39
-  %delta.0.i = phi double [ %div5.i, %if.then.i40 ], [ %div6.i, %if.else.i39 ]
+_ZN5boost4math5tools6detail11halley_step4stepIdEET_RKS5_S7_S7_S7_.exit: ; preds = %if.then.i41, %if.else.i40
+  %delta.0.i = phi double [ %div5.i, %if.then.i41 ], [ %div6.i, %if.else.i40 ]
   %mul17 = fmul double %f1.0.i, %delta.0.i
   %div = fdiv double %mul17, %sub24.i
   %cmp18 = fcmp olt double %div, 0.000000e+00
@@ -11316,13 +11316,13 @@ if.else60:                                        ; preds = %cond.false48, %cond
   %cmp70 = fcmp une double %2, 0.000000e+00
   %43 = call double @llvm.fabs.f64(double %cond69)
   %cmp72 = fcmp ogt double %43, %2
-  %or.cond27 = select i1 %cmp70, i1 %cmp72, i1 false
-  br i1 %or.cond27, label %if.then73, label %if.end79
+  %or.cond28 = select i1 %cmp70, i1 %cmp72, i1 false
+  br i1 %or.cond28, label %if.then73, label %if.end79
 
 if.then73:                                        ; preds = %if.else60
-  %cmp.i41 = fcmp oeq double %cond69, 0.000000e+00
+  %cmp.i42 = fcmp oeq double %cond69, 0.000000e+00
   %44 = call double @llvm.copysign.f64(double 1.000000e+00, double %cond69)
-  %conv75 = select i1 %cmp.i41, double 0.000000e+00, double %44
+  %conv75 = select i1 %cmp.i42, double 0.000000e+00, double %44
   %45 = call double @llvm.fabs.f64(double %2)
   %mul76 = fmul double %45, %conv75
   %mul77 = fmul double %mul76, 0x3FECCCCCC0000000
@@ -11350,8 +11350,8 @@ if.then85:                                        ; preds = %if.end82
   %div91 = fdiv double 0x7FEFFFFFFFFFFFFF, %48
   %cmp92 = fcmp olt double %div91, %47
   %49 = and i1 %cmp88, %cmp92
-  %or.cond149 = and i1 %cmp86, %49
-  br i1 %or.cond149, label %cond.end114, label %cond.false94
+  %or.cond150 = and i1 %cmp86, %49
+  br i1 %or.cond150, label %cond.end114, label %cond.false94
 
 cond.false94:                                     ; preds = %if.then85
   br i1 %cmp86, label %land.lhs.true96, label %cond.false110
@@ -11382,23 +11382,23 @@ cond.end114:                                      ; preds = %if.then85, %cond.tr
   %loadedv = trunc nuw i8 %out_of_bounds_sentry.0 to i1
   %cmp121 = fcmp ule double %diff.0, 0.000000e+00
   %cmp123 = fcmp uge double %diff.0, 3.000000e+00
-  %.not26 = or i1 %cmp121, %cmp123
-  %or.cond4.not = select i1 %loadedv, i1 true, i1 %.not26
+  %.not27 = or i1 %cmp121, %cmp123
+  %or.cond4.not = select i1 %loadedv, i1 true, i1 %.not27
   br i1 %or.cond4.not, label %if.else128, label %cleanup
 
 if.else128:                                       ; preds = %cond.end114
-  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i43)
-  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i42)
-  store double %46, ptr %ref.tmp.i.i42, align 8, !tbaa !52
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i44)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i43)
+  store double %46, ptr %ref.tmp.i.i43, align 8, !tbaa !52
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp2.i.i)
   %53 = load double, ptr %max.addr, align 8, !tbaa !52
   store double %53, ptr %ref.tmp2.i.i, align 8, !tbaa !52
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp5.i.i)
-  %call6.i.i = call noundef double @_ZN5boost4math6detail18float_distance_impIdNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEEET_RKS7_S9_RKSt17integral_constantIbLb1EERKT0_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i42, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp2.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp5.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i43) #37
+  %call6.i.i = call noundef double @_ZN5boost4math6detail18float_distance_impIdNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEEET_RKS7_S9_RKSt17integral_constantIbLb1EERKT0_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i43, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp2.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp5.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i44) #37
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp5.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp2.i.i)
-  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i42)
-  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i43)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i43)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i44)
   %54 = call double @llvm.fabs.f64(double %call6.i.i)
   %cmp130 = fcmp olt double %54, 2.000000e+00
   br i1 %cmp130, label %if.then131, label %if.end133
@@ -11418,14 +11418,14 @@ if.end133:                                        ; preds = %if.else128
   br i1 %cmp137, label %if.end140, label %if.then138
 
 if.then138:                                       ; preds = %if.end133
-  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i46)
-  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i44)
-  store double %57, ptr %ref.tmp.i.i44, align 8, !tbaa !52
-  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp2.i.i45)
-  %call3.i.i = call noundef double @_ZN5boost4math6detail14float_next_impIdNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEEET_RKS7_RKSt17integral_constantIbLb1EERKT0_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i44, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2.i.i45, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i46)
-  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp2.i.i45)
-  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i44)
-  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i46)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i47)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i45)
+  store double %57, ptr %ref.tmp.i.i45, align 8, !tbaa !52
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp2.i.i46)
+  %call3.i.i = call noundef double @_ZN5boost4math6detail14float_next_impIdNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEEET_RKS7_RKSt17integral_constantIbLb1EERKT0_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i45, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2.i.i46, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i47)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp2.i.i46)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i45)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i47)
   br label %if.end140
 
 if.end140:                                        ; preds = %if.then138, %if.end133
@@ -11435,18 +11435,18 @@ if.end140:                                        ; preds = %if.then138, %if.end
   br i1 %cmp141, label %if.end144, label %if.then142
 
 if.then142:                                       ; preds = %if.end140
-  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i49)
-  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i47)
-  store double %58, ptr %ref.tmp.i.i47, align 8, !tbaa !52
-  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp2.i.i48)
-  %call3.i.i50 = call noundef double @_ZN5boost4math6detail15float_prior_impIdNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEEET_RKS7_RKSt17integral_constantIbLb1EERKT0_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i47, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2.i.i48, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i49)
-  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp2.i.i48)
-  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i47)
-  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i49)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i50)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i48)
+  store double %58, ptr %ref.tmp.i.i48, align 8, !tbaa !52
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp2.i.i49)
+  %call3.i.i51 = call noundef double @_ZN5boost4math6detail15float_prior_impIdNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEEET_RKS7_RKSt17integral_constantIbLb1EERKT0_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i48, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2.i.i49, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i50)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp2.i.i49)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i48)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i50)
   br label %if.end144
 
 if.end144:                                        ; preds = %if.then142, %if.end140
-  %result.4 = phi double [ %result.3, %if.end140 ], [ %call3.i.i50, %if.then142 ]
+  %result.4 = phi double [ %result.3, %if.end140 ], [ %call3.i.i51, %if.then142 ]
   %59 = load double, ptr %min.addr, align 8, !tbaa !52
   br label %do.cond.sink.split
 
@@ -11466,12 +11466,12 @@ if.then148:                                       ; preds = %if.else146
   %cmp150 = fcmp olt double %61, 1.000000e+00
   %62 = call double @llvm.fabs.f64(double %sub83)
   %cmp152 = fcmp ogt double %62, 1.000000e+00
-  %or.cond29 = and i1 %cmp152, %cmp150
+  %or.cond30 = and i1 %cmp152, %cmp150
   %div155 = fdiv double 0x7FEFFFFFFFFFFFFF, %62
   %cmp156 = fcmp olt double %div155, %61
-  %or.cond150 = and i1 %cmp156, %or.cond29
+  %or.cond151 = and i1 %cmp156, %or.cond30
   %div159 = fdiv double %sub83, %60
-  %cond161 = select i1 %or.cond150, double 1.000000e+03, double %div159
+  %cond161 = select i1 %or.cond151, double 1.000000e+03, double %div159
   %63 = call double @llvm.fabs.f64(double %cond161)
   %cmp162 = fcmp olt double %63, 1.000000e+00
   %div164 = fdiv double 1.000000e+00, %cond161
@@ -11479,23 +11479,23 @@ if.then148:                                       ; preds = %if.else146
   %loadedv166 = trunc nuw i8 %out_of_bounds_sentry.0 to i1
   %cmp168 = fcmp ule double %diff149.0, 0.000000e+00
   %cmp170 = fcmp uge double %diff149.0, 3.000000e+00
-  %.not25 = or i1 %cmp168, %cmp170
-  %or.cond6.not = select i1 %loadedv166, i1 true, i1 %.not25
+  %.not26 = or i1 %cmp168, %cmp170
+  %or.cond6.not = select i1 %loadedv166, i1 true, i1 %.not26
   br i1 %or.cond6.not, label %if.else175, label %cleanup194
 
 if.else175:                                       ; preds = %if.then148
-  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i54)
-  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i51)
-  store double %46, ptr %ref.tmp.i.i51, align 8, !tbaa !52
-  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp2.i.i52)
-  store double %60, ptr %ref.tmp2.i.i52, align 8, !tbaa !52
-  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp5.i.i53)
-  %call6.i.i55 = call noundef double @_ZN5boost4math6detail18float_distance_impIdNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEEET_RKS7_S9_RKSt17integral_constantIbLb1EERKT0_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i51, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp2.i.i52, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp5.i.i53, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i54) #37
-  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp5.i.i53)
-  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp2.i.i52)
-  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i51)
-  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i54)
-  %64 = call double @llvm.fabs.f64(double %call6.i.i55)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i55)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i52)
+  store double %46, ptr %ref.tmp.i.i52, align 8, !tbaa !52
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp2.i.i53)
+  store double %60, ptr %ref.tmp2.i.i53, align 8, !tbaa !52
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp5.i.i54)
+  %call6.i.i56 = call noundef double @_ZN5boost4math6detail18float_distance_impIdNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEEET_RKS7_S9_RKSt17integral_constantIbLb1EERKT0_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i52, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp2.i.i53, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp5.i.i54, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i55) #37
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp5.i.i54)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp2.i.i53)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i52)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i55)
+  %64 = call double @llvm.fabs.f64(double %call6.i.i56)
   %cmp177 = fcmp olt double %64, 2.000000e+00
   br i1 %cmp177, label %if.then178, label %if.end181
 
@@ -11514,32 +11514,32 @@ if.end181:                                        ; preds = %if.else175
   br i1 %cmp185, label %if.end188, label %if.then186
 
 if.then186:                                       ; preds = %if.end181
-  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i58)
-  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i56)
-  store double %67, ptr %ref.tmp.i.i56, align 8, !tbaa !52
-  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp2.i.i57)
-  %call3.i.i59 = call noundef double @_ZN5boost4math6detail15float_prior_impIdNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEEET_RKS7_RKSt17integral_constantIbLb1EERKT0_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i56, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2.i.i57, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i58)
-  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp2.i.i57)
-  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i56)
-  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i58)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i59)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i57)
+  store double %67, ptr %ref.tmp.i.i57, align 8, !tbaa !52
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp2.i.i58)
+  %call3.i.i60 = call noundef double @_ZN5boost4math6detail15float_prior_impIdNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEEET_RKS7_RKSt17integral_constantIbLb1EERKT0_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i57, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2.i.i58, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i59)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp2.i.i58)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i57)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i59)
   br label %if.end188
 
 if.end188:                                        ; preds = %if.then186, %if.end181
-  %result.8 = phi double [ %sub184, %if.end181 ], [ %call3.i.i59, %if.then186 ]
+  %result.8 = phi double [ %sub184, %if.end181 ], [ %call3.i.i60, %if.then186 ]
   %68 = load double, ptr %min.addr, align 8, !tbaa !52
   %cmp189 = fcmp ugt double %result.8, %68
   br i1 %cmp189, label %do.cond.sink.split, label %if.then190
 
 if.then190:                                       ; preds = %if.end188
-  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i62)
-  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i60)
-  store double %68, ptr %ref.tmp.i.i60, align 8, !tbaa !52
-  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp2.i.i61)
-  %call3.i.i63 = call noundef double @_ZN5boost4math6detail14float_next_impIdNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEEET_RKS7_RKSt17integral_constantIbLb1EERKT0_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i60, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2.i.i61, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i62)
-  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp2.i.i61)
-  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i60)
-  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i62)
-  %.pre153 = load double, ptr %min.addr, align 8, !tbaa !52
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i63)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i61)
+  store double %68, ptr %ref.tmp.i.i61, align 8, !tbaa !52
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp2.i.i62)
+  %call3.i.i64 = call noundef double @_ZN5boost4math6detail14float_next_impIdNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEEET_RKS7_RKSt17integral_constantIbLb1EERKT0_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i61, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2.i.i62, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i63)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp2.i.i62)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i61)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i63)
+  %.pre154 = load double, ptr %min.addr, align 8, !tbaa !52
   br label %do.cond.sink.split
 
 cleanup194:                                       ; preds = %if.then148
@@ -11578,31 +11578,31 @@ cleanup209.thread:                                ; preds = %if.end202
   br label %cleanup215
 
 do.cond.sink.split:                               ; preds = %if.end188, %if.then190, %if.end144
-  %.sink = phi double [ %59, %if.end144 ], [ %68, %if.end188 ], [ %.pre153, %if.then190 ]
-  %result.5136.ph = phi double [ %result.4, %if.end144 ], [ %result.8, %if.end188 ], [ %call3.i.i63, %if.then190 ]
-  %delta.5135.ph = phi double [ %call135, %if.end144 ], [ %call183, %if.end188 ], [ %call183, %if.then190 ]
+  %.sink = phi double [ %59, %if.end144 ], [ %68, %if.end188 ], [ %.pre154, %if.then190 ]
+  %result.5137.ph = phi double [ %result.4, %if.end144 ], [ %result.8, %if.end188 ], [ %call3.i.i64, %if.then190 ]
+  %delta.5136.ph = phi double [ %call135, %if.end144 ], [ %call183, %if.end188 ], [ %call183, %if.then190 ]
   store double %.sink, ptr %guess.addr, align 8, !tbaa !52
   br label %do.cond
 
 do.cond:                                          ; preds = %do.cond.sink.split, %if.end202
-  %out_of_bounds_sentry.2139 = phi i8 [ %out_of_bounds_sentry.3, %if.end202 ], [ %out_of_bounds_sentry.0, %do.cond.sink.split ]
-  %min_range_f.1138 = phi double [ %min_range_f.2, %if.end202 ], [ %min_range_f.0, %do.cond.sink.split ]
-  %max_range_f.1137 = phi double [ %max_range_f.2, %if.end202 ], [ %max_range_f.0, %do.cond.sink.split ]
-  %result.5136 = phi double [ %result.6, %if.end202 ], [ %result.5136.ph, %do.cond.sink.split ]
-  %delta.5135 = phi double [ %delta.6, %if.end202 ], [ %delta.5135.ph, %do.cond.sink.split ]
+  %out_of_bounds_sentry.2140 = phi i8 [ %out_of_bounds_sentry.3, %if.end202 ], [ %out_of_bounds_sentry.0, %do.cond.sink.split ]
+  %min_range_f.1139 = phi double [ %min_range_f.2, %if.end202 ], [ %min_range_f.0, %do.cond.sink.split ]
+  %max_range_f.1138 = phi double [ %max_range_f.2, %if.end202 ], [ %max_range_f.0, %do.cond.sink.split ]
+  %result.5137 = phi double [ %result.6, %if.end202 ], [ %result.5137.ph, %do.cond.sink.split ]
+  %delta.5136 = phi double [ %delta.6, %if.end202 ], [ %delta.5136.ph, %do.cond.sink.split ]
   %72 = load i64, ptr %count, align 8, !tbaa !43
   %tobool.not = icmp eq i64 %72, 0
   br i1 %tobool.not, label %do.end, label %land.rhs
 
 land.rhs:                                         ; preds = %do.cond
-  %mul212 = fmul double %call1, %result.5136
+  %mul212 = fmul double %call1, %result.5137
   %73 = call double @llvm.fabs.f64(double %mul212)
-  %74 = call double @llvm.fabs.f64(double %delta.5135)
+  %74 = call double @llvm.fabs.f64(double %delta.5136)
   %cmp213 = fcmp olt double %73, %74
   br i1 %cmp213, label %do.body, label %do.end, !llvm.loop !157
 
 do.end:                                           ; preds = %try.cont.thread, %do.cond, %try.cont, %land.rhs, %if.then131, %if.then178
-  %result.1 = phi double [ %div132, %if.then131 ], [ %div180, %if.then178 ], [ %2, %try.cont.thread ], [ %result.5136, %land.rhs ], [ %result.5136, %do.cond ], [ %2, %try.cont ]
+  %result.1 = phi double [ %div132, %if.then131 ], [ %div180, %if.then178 ], [ %2, %try.cont.thread ], [ %result.5137, %land.rhs ], [ %result.5137, %do.cond ], [ %2, %try.cont ]
   %75 = load i64, ptr %count, align 8, !tbaa !43
   %76 = load i64, ptr %max_iter, align 8, !tbaa !43
   %sub214 = sub i64 %76, %75

@@ -651,9 +651,9 @@ define hidden noundef zeroext i1 @_ZN13JVMCICompiler26force_comp_at_level_simple
   %67 = load i8, ptr @UseCompressedOops, align 1
   %68 = trunc i8 %67 to i1
   %..i = select i1 %68, i64 20, i64 24
-  %.7.i = select i1 %68, i64 2, i64 3
+  %.8.i = select i1 %68, i64 2, i64 3
   %69 = select i1 %65, i64 16, i64 %..i
-  %70 = shl nuw nsw i64 %indvars.iv, %.7.i
+  %70 = shl nuw nsw i64 %indvars.iv, %.8.i
   %71 = add nuw nsw i64 %69, %70
   %72 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
   %73 = tail call noundef ptr %72(ptr noundef nonnull align 8 dereferenceable(16) %66, i64 noundef %71) #11

@@ -4708,11 +4708,11 @@ textbuffer_done.exit:                             ; preds = %textbuffer_putc.exi
   store i64 %56, ptr %57, align 8, !tbaa !58
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
   %.not50 = icmp eq ptr %.0.i54, null
-  %spec.select69 = select i1 %.not50, i32 1, i32 2
-  %spec.select70 = select i1 %.not50, ptr @.str.42, ptr %.0.i54
+  %spec.select70 = select i1 %.not50, i32 1, i32 2
+  %spec.select71 = select i1 %.not50, ptr @.str.42, ptr %.0.i54
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %spec.select69, ptr %58, align 4, !tbaa !27
-  store ptr %spec.select70, ptr %0, align 8, !tbaa !3
+  store i32 %spec.select70, ptr %58, align 4, !tbaa !27
+  store ptr %spec.select71, ptr %0, align 8, !tbaa !3
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 72
   store i32 0, ptr %59, align 8, !tbaa !15
   %60 = load ptr, ptr %0, align 8, !tbaa !3

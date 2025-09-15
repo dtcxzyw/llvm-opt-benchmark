@@ -12601,8 +12601,8 @@ _ZN5gimli4read6abbrev13Abbreviations3get17hd53087f1b1f6fd2dE.exit.thread738.i: ;
   %.val137.i = load ptr, ptr %308, align 8, !noalias !3526, !nonnull !4, !align !5, !noundef !4
   %309 = ptrtoint ptr %.val137.i to i64
   %310 = ptrtoint ptr %.sroa.7.0.ph.i to i64
-  %.neg70 = add i64 %.val.i154.i, %310
-  %311 = add i64 %.neg70, %spec.select.i.i157.i
+  %.neg72 = add i64 %.val.i154.i, %310
+  %311 = add i64 %.neg72, %spec.select.i.i157.i
   %312 = add i64 %307, %309
   %313 = sub i64 %311, %312
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !3683
@@ -12696,8 +12696,8 @@ _ZN5gimli4read6reader6Reader12read_uleb12817hd5eeb575a80e5ebbE.exit170.i: ; pred
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %23, i64 80
   store i64 %.sroa.19.0.ph.i, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !3523, !noalias !3526
   store i64 0, ptr %250, align 8, !alias.scope !3523, !noalias !3526
-  %.not65 = icmp eq ptr %.sroa.7173.0.ph.i, null
-  %349 = select i1 %.not65, ptr inttoptr (i64 75 to ptr), ptr inttoptr (i64 331 to ptr)
+  %.not66 = icmp eq ptr %.sroa.7173.0.ph.i, null
+  %349 = select i1 %.not66, ptr inttoptr (i64 75 to ptr), ptr inttoptr (i64 331 to ptr)
   br label %"_ZN5gimli4read4unit20EntriesTree$LT$R$GT$4next17ha3535bb9b8083df4E.exit"
 
 350:                                              ; preds = %342, %.loopexit.i
@@ -12721,8 +12721,8 @@ _ZN5gimli4read6reader6Reader12read_uleb12817hd5eeb575a80e5ebbE.exit170.i: ; pred
 
 355:                                              ; preds = %"_ZN5gimli4read4unit20EntriesTree$LT$R$GT$4next17ha3535bb9b8083df4E.exit"
   %356 = and i64 %351, 256
-  %.not66 = icmp eq i64 %356, 0
-  br i1 %.not66, label %359, label %360
+  %.not68 = icmp eq i64 %356, 0
+  br i1 %.not68, label %359, label %360
 
 357:                                              ; preds = %"_ZN5gimli4read4unit20EntriesTree$LT$R$GT$4next17ha3535bb9b8083df4E.exit"
   %358 = getelementptr inbounds nuw i8, ptr %0, i64 8

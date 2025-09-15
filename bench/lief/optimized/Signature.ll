@@ -1905,8 +1905,8 @@ _ZNK6frozen3mapIN4LIEF2PE9Signature18VERIFICATION_FLAGSEPKcLm13ESt4lessIS4_EE11l
 7:                                                ; preds = %_ZNK6frozen3mapIN4LIEF2PE9Signature18VERIFICATION_FLAGSEPKcLm13ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i
   %.ptr.i.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF2PE9Signature14flag_to_stringB5cxx11ENS1_18VERIFICATION_FLAGSE.enumStrings, i64 %.sink.i.i.i.i.add.i.i
   %8 = load i32, ptr %.ptr.i.i, align 4, !tbaa !65
-  %.not19.i.i = icmp ult i32 %1, %8
-  br i1 %.not19.i.i, label %.thread, label %10
+  %.not20.i.i = icmp ult i32 %1, %8
+  br i1 %.not20.i.i, label %.thread, label %10
 
 .thread:                                          ; preds = %_ZNK6frozen3mapIN4LIEF2PE9Signature18VERIFICATION_FLAGSEPKcLm13ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i, %7
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16

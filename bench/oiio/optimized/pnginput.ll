@@ -1742,8 +1742,8 @@ _ZN11OpenImageIO6v3_1_09ImageSpecD2Ev.exit:       ; preds = %_ZNSt6vectorINSt7__
   %211 = load i32, ptr %31, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
   call void @llvm.lifetime.end.p0(ptr nonnull %32)
-  %.not125192 = icmp ne i32 %211, 0
-  %.not125.not = select i1 %209, i1 %.not125192, i1 false
+  %.not125193 = icmp ne i32 %211, 0
+  %.not125.not = select i1 %209, i1 %.not125193, i1 false
   br i1 %.not125.not, label %212, label %246
 
 212:                                              ; preds = %210

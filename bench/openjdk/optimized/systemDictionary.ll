@@ -6922,9 +6922,9 @@ _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i77: ; preds = %191, %189
   %199 = trunc i8 %198 to i1
   %200 = sext i32 %.050147 to i64
   %..i = select i1 %197, i64 20, i64 24
-  %.8.i = select i1 %197, i64 2, i64 3
+  %.9.i = select i1 %197, i64 2, i64 3
   %201 = select i1 %199, i64 16, i64 %..i
-  %202 = shl nsw i64 %200, %.8.i
+  %202 = shl nsw i64 %200, %.9.i
   %203 = add nsw i64 %201, %202
   %204 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE1EE14_store_at_funcE, align 8
   call void %204(ptr noundef nonnull align 8 dereferenceable(16) %194, i64 noundef %203, ptr noundef %.154) #14

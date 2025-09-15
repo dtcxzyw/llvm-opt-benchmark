@@ -680,11 +680,11 @@ FT_Get_Font_Format.exit:                          ; preds = %111
 
 219:                                              ; preds = %218, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %218 ]
-  %.02542.i = phi i32 [ -1, %.preheader.i ], [ %222, %218 ]
+  %.02543.i = phi i32 [ -1, %.preheader.i ], [ %222, %218 ]
   %220 = getelementptr inbounds nuw i16, ptr %217, i64 %indvars.iv.i
   %221 = load i16, ptr %220, align 2, !tbaa !133
   %222 = zext i16 %221 to i32
-  %.not31.i = icmp slt i32 %.02542.i, %222
+  %.not31.i = icmp slt i32 %.02543.i, %222
   %.not32.i = icmp ult i16 %221, %210
   %or.cond33.i = and i1 %.not32.i, %.not31.i
   br i1 %or.cond33.i, label %218, label %FT_Outline_Check.exit
@@ -5647,11 +5647,11 @@ define range(i32 0, 21) i32 @FT_Outline_Check(ptr noundef readonly captures(addr
 
 13:                                               ; preds = %.preheader, %12
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %12 ]
-  %.02542 = phi i32 [ -1, %.preheader ], [ %16, %12 ]
+  %.02543 = phi i32 [ -1, %.preheader ], [ %16, %12 ]
   %14 = getelementptr inbounds nuw i16, ptr %11, i64 %indvars.iv
   %15 = load i16, ptr %14, align 2, !tbaa !133
   %16 = zext i16 %15 to i32
-  %.not31 = icmp slt i32 %.02542, %16
+  %.not31 = icmp slt i32 %.02543, %16
   %.not32 = icmp ult i16 %15, %4
   %or.cond33 = and i1 %.not32, %.not31
   br i1 %or.cond33, label %12, label %.thread

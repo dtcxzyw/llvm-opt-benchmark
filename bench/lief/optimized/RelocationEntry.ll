@@ -823,7 +823,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN4LIEF2PElsERSoRKNS0_15
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(264) %5, ptr noundef nonnull align 8 dereferenceable(264) @__const._ZN4LIEF2PE9to_stringENS0_15RelocationEntry10BASE_TYPESE.enums2str, i64 264, i1 false)
   %.not.i.i.i.i.i.i.i = icmp sgt i32 %9, 9
-  br i1 %.not.i.i.i.i.i.i.i, label %14, label %_ZNK6frozen3mapIN4LIEF2PE15RelocationEntry10BASE_TYPESEPKcLm16ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread28.i.i.i
+  br i1 %.not.i.i.i.i.i.i.i, label %14, label %_ZNK6frozen3mapIN4LIEF2PE15RelocationEntry10BASE_TYPESEPKcLm16ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread29.i.i.i
 
 14:                                               ; preds = %2
   %.not.i.i.i.i.i.i.i.i = icmp samesign ugt i32 %9, 517
@@ -847,7 +847,7 @@ _ZNK6frozen3mapIN4LIEF2PE15RelocationEntry10BASE_TYPESEPKcLm16ESt4lessIS4_EE11lo
   %20 = select i1 %.not.i6.i.i.i.i.i.i.i.i, i64 168, i64 136
   br label %_ZNK6frozen3mapIN4LIEF2PE15RelocationEntry10BASE_TYPESEPKcLm16ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i.i
 
-_ZNK6frozen3mapIN4LIEF2PE15RelocationEntry10BASE_TYPESEPKcLm16ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread28.i.i.i: ; preds = %2
+_ZNK6frozen3mapIN4LIEF2PE15RelocationEntry10BASE_TYPESEPKcLm16ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread29.i.i.i: ; preds = %2
   %.not.i6.i.i.i.i.i.i.i = icmp sgt i32 %9, 2
   %.add16.i.i.i = select i1 %.not.i6.i.i.i.i.i.i.i, i64 72, i64 8
   %.add16.i.i.sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %.not.i6.i.i.i.i.i.i.i, i64 88, i64 24
@@ -875,10 +875,10 @@ _ZNK6frozen3mapIN4LIEF2PE15RelocationEntry10BASE_TYPESEPKcLm16ESt4lessIS4_EE11lo
   %.not.i.i.i = icmp eq i64 %.add15.i.i.i, 264
   br i1 %.not.i.i.i, label %_ZN4LIEF2PE9to_stringENS0_15RelocationEntry10BASE_TYPESE.exit, label %_ZNK6frozen3mapIN4LIEF2PE15RelocationEntry10BASE_TYPESEPKcLm16ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit._crit_edge.i.i.i
 
-_ZNK6frozen3mapIN4LIEF2PE15RelocationEntry10BASE_TYPESEPKcLm16ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit._crit_edge.i.i.i: ; preds = %_ZNK6frozen3mapIN4LIEF2PE15RelocationEntry10BASE_TYPESEPKcLm16ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i.i, %_ZNK6frozen3mapIN4LIEF2PE15RelocationEntry10BASE_TYPESEPKcLm16ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread28.i.i.i
-  %26 = phi ptr [ %23, %_ZNK6frozen3mapIN4LIEF2PE15RelocationEntry10BASE_TYPESEPKcLm16ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread28.i.i.i ], [ %25, %_ZNK6frozen3mapIN4LIEF2PE15RelocationEntry10BASE_TYPESEPKcLm16ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i.i ]
-  %.0.i.i.i.i.idx31.i.i.i = phi i64 [ %.add18.i.i.i, %_ZNK6frozen3mapIN4LIEF2PE15RelocationEntry10BASE_TYPESEPKcLm16ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread28.i.i.i ], [ %.add15.i.i.i, %_ZNK6frozen3mapIN4LIEF2PE15RelocationEntry10BASE_TYPESEPKcLm16ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i.i ]
-  %.0.i.i.i.i.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 %.0.i.i.i.i.idx31.i.i.i
+_ZNK6frozen3mapIN4LIEF2PE15RelocationEntry10BASE_TYPESEPKcLm16ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit._crit_edge.i.i.i: ; preds = %_ZNK6frozen3mapIN4LIEF2PE15RelocationEntry10BASE_TYPESEPKcLm16ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i.i, %_ZNK6frozen3mapIN4LIEF2PE15RelocationEntry10BASE_TYPESEPKcLm16ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread29.i.i.i
+  %26 = phi ptr [ %23, %_ZNK6frozen3mapIN4LIEF2PE15RelocationEntry10BASE_TYPESEPKcLm16ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread29.i.i.i ], [ %25, %_ZNK6frozen3mapIN4LIEF2PE15RelocationEntry10BASE_TYPESEPKcLm16ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i.i ]
+  %.0.i.i.i.i.idx32.i.i.i = phi i64 [ %.add18.i.i.i, %_ZNK6frozen3mapIN4LIEF2PE15RelocationEntry10BASE_TYPESEPKcLm16ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread29.i.i.i ], [ %.add15.i.i.i, %_ZNK6frozen3mapIN4LIEF2PE15RelocationEntry10BASE_TYPESEPKcLm16ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i.i ]
+  %.0.i.i.i.i.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 %.0.i.i.i.i.idx32.i.i.i
   %.pre.i.i.i = load i32, ptr %.0.i.i.i.i.ptr.i.i.i, align 4, !tbaa !33
   br label %_ZNK6frozen3mapIN4LIEF2PE15RelocationEntry10BASE_TYPESEPKcLm16ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i
 
@@ -886,14 +886,14 @@ _ZNK6frozen3mapIN4LIEF2PE15RelocationEntry10BASE_TYPESEPKcLm16ESt4lessIS4_EE4fin
   %27 = phi i32 [ 4103, %_ZNK6frozen3mapIN4LIEF2PE15RelocationEntry10BASE_TYPESEPKcLm16ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread.i.i.i ], [ %.pre.i.i.i, %_ZNK6frozen3mapIN4LIEF2PE15RelocationEntry10BASE_TYPESEPKcLm16ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit._crit_edge.i.i.i ]
   %28 = phi ptr [ %18, %_ZNK6frozen3mapIN4LIEF2PE15RelocationEntry10BASE_TYPESEPKcLm16ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread.i.i.i ], [ %26, %_ZNK6frozen3mapIN4LIEF2PE15RelocationEntry10BASE_TYPESEPKcLm16ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit._crit_edge.i.i.i ]
   %.0.i.i.i.i14.i.i.i = phi ptr [ %17, %_ZNK6frozen3mapIN4LIEF2PE15RelocationEntry10BASE_TYPESEPKcLm16ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread.i.i.i ], [ %.0.i.i.i.i.ptr.i.i.i, %_ZNK6frozen3mapIN4LIEF2PE15RelocationEntry10BASE_TYPESEPKcLm16ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit._crit_edge.i.i.i ]
-  %.not25.i.i.i = icmp slt i32 %9, %27
-  %spec.select.i.i.i = select i1 %.not25.i.i.i, ptr %28, ptr %.0.i.i.i.i14.i.i.i
+  %.not26.i.i.i = icmp slt i32 %9, %27
+  %spec.select.i.i.i = select i1 %.not26.i.i.i, ptr %28, ptr %.0.i.i.i.i14.i.i.i
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 264
   %.not.i = icmp eq ptr %spec.select.i.i.i, %29
   br i1 %.not.i, label %_ZN4LIEF2PE9to_stringENS0_15RelocationEntry10BASE_TYPESE.exit, label %30
 
 30:                                               ; preds = %_ZNK6frozen3mapIN4LIEF2PE15RelocationEntry10BASE_TYPESEPKcLm16ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i
-  %spec.select.i.i.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %.not25.i.i.i, ptr %28, ptr %.0.i.i.i.i14.i.i.i
+  %spec.select.i.i.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %.not26.i.i.i, ptr %28, ptr %.0.i.i.i.i14.i.i.i
   %spec.select.i.i.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.select.i.i.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 8
   %31 = load ptr, ptr %spec.select.i.i.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 8, !tbaa !34
   br label %_ZN4LIEF2PE9to_stringENS0_15RelocationEntry10BASE_TYPESE.exit
@@ -1019,7 +1019,7 @@ define noundef ptr @_ZN4LIEF2PE9to_stringENS0_15RelocationEntry10BASE_TYPESE(i32
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(264) %2, ptr noundef nonnull align 8 dereferenceable(264) @__const._ZN4LIEF2PE9to_stringENS0_15RelocationEntry10BASE_TYPESE.enums2str, i64 264, i1 false)
   %.not.i.i.i.i.i.i = icmp sgt i32 %0, 9
-  br i1 %.not.i.i.i.i.i.i, label %3, label %_ZNK6frozen3mapIN4LIEF2PE15RelocationEntry10BASE_TYPESEPKcLm16ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread28.i.i
+  br i1 %.not.i.i.i.i.i.i, label %3, label %_ZNK6frozen3mapIN4LIEF2PE15RelocationEntry10BASE_TYPESEPKcLm16ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread29.i.i
 
 3:                                                ; preds = %1
   %.not.i.i.i.i.i.i.i = icmp samesign ugt i32 %0, 517
@@ -1043,7 +1043,7 @@ _ZNK6frozen3mapIN4LIEF2PE15RelocationEntry10BASE_TYPESEPKcLm16ESt4lessIS4_EE11lo
   %9 = select i1 %.not.i6.i.i.i.i.i.i.i, i64 168, i64 136
   br label %_ZNK6frozen3mapIN4LIEF2PE15RelocationEntry10BASE_TYPESEPKcLm16ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i
 
-_ZNK6frozen3mapIN4LIEF2PE15RelocationEntry10BASE_TYPESEPKcLm16ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread28.i.i: ; preds = %1
+_ZNK6frozen3mapIN4LIEF2PE15RelocationEntry10BASE_TYPESEPKcLm16ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread29.i.i: ; preds = %1
   %.not.i6.i.i.i.i.i.i = icmp sgt i32 %0, 2
   %.add16.i.i = select i1 %.not.i6.i.i.i.i.i.i, i64 72, i64 8
   %.add16.i.i.sroa.sel.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %.not.i6.i.i.i.i.i.i, i64 88, i64 24
@@ -1071,10 +1071,10 @@ _ZNK6frozen3mapIN4LIEF2PE15RelocationEntry10BASE_TYPESEPKcLm16ESt4lessIS4_EE11lo
   %.not.i.i = icmp eq i64 %.add15.i.i, 264
   br i1 %.not.i.i, label %_ZNK6frozen3mapIN4LIEF2PE15RelocationEntry10BASE_TYPESEPKcLm16ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread, label %_ZNK6frozen3mapIN4LIEF2PE15RelocationEntry10BASE_TYPESEPKcLm16ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit._crit_edge.i.i
 
-_ZNK6frozen3mapIN4LIEF2PE15RelocationEntry10BASE_TYPESEPKcLm16ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit._crit_edge.i.i: ; preds = %_ZNK6frozen3mapIN4LIEF2PE15RelocationEntry10BASE_TYPESEPKcLm16ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i, %_ZNK6frozen3mapIN4LIEF2PE15RelocationEntry10BASE_TYPESEPKcLm16ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread28.i.i
-  %15 = phi ptr [ %12, %_ZNK6frozen3mapIN4LIEF2PE15RelocationEntry10BASE_TYPESEPKcLm16ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread28.i.i ], [ %14, %_ZNK6frozen3mapIN4LIEF2PE15RelocationEntry10BASE_TYPESEPKcLm16ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i ]
-  %.0.i.i.i.i.idx31.i.i = phi i64 [ %.add18.i.i, %_ZNK6frozen3mapIN4LIEF2PE15RelocationEntry10BASE_TYPESEPKcLm16ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread28.i.i ], [ %.add15.i.i, %_ZNK6frozen3mapIN4LIEF2PE15RelocationEntry10BASE_TYPESEPKcLm16ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i ]
-  %.0.i.i.i.i.ptr.i.i = getelementptr inbounds nuw i8, ptr %2, i64 %.0.i.i.i.i.idx31.i.i
+_ZNK6frozen3mapIN4LIEF2PE15RelocationEntry10BASE_TYPESEPKcLm16ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit._crit_edge.i.i: ; preds = %_ZNK6frozen3mapIN4LIEF2PE15RelocationEntry10BASE_TYPESEPKcLm16ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i, %_ZNK6frozen3mapIN4LIEF2PE15RelocationEntry10BASE_TYPESEPKcLm16ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread29.i.i
+  %15 = phi ptr [ %12, %_ZNK6frozen3mapIN4LIEF2PE15RelocationEntry10BASE_TYPESEPKcLm16ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread29.i.i ], [ %14, %_ZNK6frozen3mapIN4LIEF2PE15RelocationEntry10BASE_TYPESEPKcLm16ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i ]
+  %.0.i.i.i.i.idx32.i.i = phi i64 [ %.add18.i.i, %_ZNK6frozen3mapIN4LIEF2PE15RelocationEntry10BASE_TYPESEPKcLm16ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread29.i.i ], [ %.add15.i.i, %_ZNK6frozen3mapIN4LIEF2PE15RelocationEntry10BASE_TYPESEPKcLm16ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i ]
+  %.0.i.i.i.i.ptr.i.i = getelementptr inbounds nuw i8, ptr %2, i64 %.0.i.i.i.i.idx32.i.i
   %.pre.i.i = load i32, ptr %.0.i.i.i.i.ptr.i.i, align 4, !tbaa !33
   br label %_ZNK6frozen3mapIN4LIEF2PE15RelocationEntry10BASE_TYPESEPKcLm16ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit
 
@@ -1082,14 +1082,14 @@ _ZNK6frozen3mapIN4LIEF2PE15RelocationEntry10BASE_TYPESEPKcLm16ESt4lessIS4_EE4fin
   %16 = phi i32 [ 4103, %_ZNK6frozen3mapIN4LIEF2PE15RelocationEntry10BASE_TYPESEPKcLm16ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread.i.i ], [ %.pre.i.i, %_ZNK6frozen3mapIN4LIEF2PE15RelocationEntry10BASE_TYPESEPKcLm16ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit._crit_edge.i.i ]
   %17 = phi ptr [ %7, %_ZNK6frozen3mapIN4LIEF2PE15RelocationEntry10BASE_TYPESEPKcLm16ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread.i.i ], [ %15, %_ZNK6frozen3mapIN4LIEF2PE15RelocationEntry10BASE_TYPESEPKcLm16ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit._crit_edge.i.i ]
   %.0.i.i.i.i14.i.i = phi ptr [ %6, %_ZNK6frozen3mapIN4LIEF2PE15RelocationEntry10BASE_TYPESEPKcLm16ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread.i.i ], [ %.0.i.i.i.i.ptr.i.i, %_ZNK6frozen3mapIN4LIEF2PE15RelocationEntry10BASE_TYPESEPKcLm16ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit._crit_edge.i.i ]
-  %.not25.i.i = icmp slt i32 %0, %16
-  %spec.select.i.i = select i1 %.not25.i.i, ptr %17, ptr %.0.i.i.i.i14.i.i
+  %.not26.i.i = icmp slt i32 %0, %16
+  %spec.select.i.i = select i1 %.not26.i.i, ptr %17, ptr %.0.i.i.i.i14.i.i
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 264
   %.not = icmp eq ptr %spec.select.i.i, %18
   br i1 %.not, label %_ZNK6frozen3mapIN4LIEF2PE15RelocationEntry10BASE_TYPESEPKcLm16ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread, label %19
 
 19:                                               ; preds = %_ZNK6frozen3mapIN4LIEF2PE15RelocationEntry10BASE_TYPESEPKcLm16ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit
-  %spec.select.i.i.sroa.sel.v.sroa.sel.v = select i1 %.not25.i.i, ptr %17, ptr %.0.i.i.i.i14.i.i
+  %spec.select.i.i.sroa.sel.v.sroa.sel.v = select i1 %.not26.i.i, ptr %17, ptr %.0.i.i.i.i14.i.i
   %spec.select.i.i.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.select.i.i.sroa.sel.v.sroa.sel.v, i64 8
   %20 = load ptr, ptr %spec.select.i.i.sroa.sel.v.sroa.sel, align 8, !tbaa !34
   br label %_ZNK6frozen3mapIN4LIEF2PE15RelocationEntry10BASE_TYPESEPKcLm16ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread

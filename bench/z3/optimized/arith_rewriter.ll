@@ -57965,8 +57965,8 @@ _ZNK13poly_rewriterI19arith_rewriter_coreE8is_powerEP4expr.exit: ; preds = %.thr
   br label %88
 
 .sink.split.sink.split:                           ; preds = %.critedge, %_ZNK13poly_rewriterI19arith_rewriter_coreE10is_numeralEP4expr.exit
-  %.sink44 = phi i64 [ 40, %_ZNK13poly_rewriterI19arith_rewriter_coreE10is_numeralEP4expr.exit ], [ 32, %.critedge ]
-  %80 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink44
+  %.sink45 = phi i64 [ 40, %_ZNK13poly_rewriterI19arith_rewriter_coreE10is_numeralEP4expr.exit ], [ 32, %.critedge ]
+  %80 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink45
   %81 = load ptr, ptr %80, align 8, !tbaa !100
   br label %.sink.split
 

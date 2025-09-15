@@ -1250,9 +1250,9 @@ check_for_new_database_version.exit:              ; preds = %172, %173
   br label %209
 
 209:                                              ; preds = %207, %208, %200, %196
-  %.0152405 = add i32 %.1276, 1
-  %.not207406 = icmp ugt i32 %.0152405, %.1273
-  br i1 %.not207406, label %.thread293, label %.preheader.lr.ph
+  %.0152406 = add i32 %.1276, 1
+  %.not207407 = icmp ugt i32 %.0152406, %.1273
+  br i1 %.not207407, label %.thread293, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %209
   %.not209 = icmp ne i32 %6, 0
@@ -1261,26 +1261,26 @@ check_for_new_database_version.exit:              ; preds = %172, %173
   br i1 %211, label %.preheader.us, label %.preheader
 
 .preheader.us:                                    ; preds = %.preheader.lr.ph, %.preheader.us
-  %.0152408.us = phi i32 [ %.0152.us, %.preheader.us ], [ %.0152405, %.preheader.lr.ph ]
-  %.0150407.us = phi i32 [ %212, %.preheader.us ], [ 0, %.preheader.lr.ph ]
-  %212 = add i32 %.0150407.us, 1
-  %.0152.us = add i32 %.0152408.us, 1
+  %.0152409.us = phi i32 [ %.0152.us, %.preheader.us ], [ %.0152406, %.preheader.lr.ph ]
+  %.0150408.us = phi i32 [ %212, %.preheader.us ], [ 0, %.preheader.lr.ph ]
+  %212 = add i32 %.0150408.us, 1
+  %.0152.us = add i32 %.0152409.us, 1
   %.not207.us = icmp ugt i32 %.0152.us, %.1273
   br i1 %.not207.us, label %.thread280, label %.preheader.us
 
-.preheaderthread-pre-split:                       ; preds = %downloadPatch.exit._crit_edge.thread451
+.preheaderthread-pre-split:                       ; preds = %downloadPatch.exit._crit_edge.thread452
   %.pr = load i32, ptr @g_maxAttempts, align 4, !tbaa !3
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %.preheaderthread-pre-split
   %213 = phi i32 [ %.pr, %.preheaderthread-pre-split ], [ %210, %.preheader.lr.ph ]
-  %.0152408 = phi i32 [ %.0152, %.preheaderthread-pre-split ], [ %.0152405, %.preheader.lr.ph ]
-  %.0150407 = phi i32 [ %320, %.preheaderthread-pre-split ], [ 0, %.preheader.lr.ph ]
-  %.not208401 = icmp eq i32 %213, 0
-  br i1 %.not208401, label %downloadPatch.exit._crit_edge.thread451, label %.lr.ph
+  %.0152409 = phi i32 [ %.0152, %.preheaderthread-pre-split ], [ %.0152406, %.preheader.lr.ph ]
+  %.0150408 = phi i32 [ %320, %.preheaderthread-pre-split ], [ 0, %.preheader.lr.ph ]
+  %.not208402 = icmp eq i32 %213, 0
+  br i1 %.not208402, label %downloadPatch.exit._crit_edge.thread452, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %214 = icmp eq i32 %.0152408, 0
+  %214 = icmp eq i32 %.0152409, 0
   br i1 %214, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
@@ -1311,15 +1311,15 @@ check_for_new_database_version.exit:              ; preds = %172, %173
   %223 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.195) #24
   br label %.thread
 
-.thread280:                                       ; preds = %downloadPatch.exit._crit_edge.thread451, %.preheader.us
-  %.0150.lcssa = phi i32 [ %212, %.preheader.us ], [ %320, %downloadPatch.exit._crit_edge.thread451 ]
+.thread280:                                       ; preds = %downloadPatch.exit._crit_edge.thread452, %.preheader.us
+  %.0150.lcssa = phi i32 [ %212, %.preheader.us ], [ %320, %downloadPatch.exit._crit_edge.thread452 ]
   %224 = icmp eq i32 %.0150.lcssa, 0
   br i1 %224, label %.thread293, label %343
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %317
   %225 = phi i32 [ %319, %317 ], [ %213, %.lr.ph ]
-  %.0151402 = phi i32 [ %318, %317 ], [ 1, %.lr.ph ]
-  %226 = icmp eq i32 %.0151402, %225
+  %.0151403 = phi i32 [ %318, %317 ], [ 1, %.lr.ph ]
+  %226 = icmp eq i32 %.0151403, %225
   %narrow = and i1 %.not209, %226
   %.0149 = zext i1 %narrow to i32
   %227 = load i16, ptr @mprintf_quiet, align 2, !tbaa !26
@@ -1339,7 +1339,7 @@ check_for_new_database_version.exit:              ; preds = %172, %173
   br i1 %.not212, label %235, label %234
 
 234:                                              ; preds = %230, %228
-  call void (i32, ptr, ...) @mprintf(i32 noundef 0, ptr noundef nonnull @.str.37, i32 noundef %.0152408) #24
+  call void (i32, ptr, ...) @mprintf(i32 noundef 0, ptr noundef nonnull @.str.37, i32 noundef %.0152409) #24
   br label %235
 
 235:                                              ; preds = %234, %230, %.lr.ph.split
@@ -1435,7 +1435,7 @@ mkdir_and_chdir_for_cdiff_tmp.exit.thread.i:      ; preds = %276, %270, %266, %2
   br i1 %280, label %312, label %281
 
 281:                                              ; preds = %278
-  %282 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %12, i64 noundef 60, ptr noundef nonnull @.str.198, ptr noundef nonnull %0, i32 noundef %.0152408) #24
+  %282 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %12, i64 noundef 60, ptr noundef nonnull @.str.198, ptr noundef nonnull %0, i32 noundef %.0152409) #24
   %283 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #28
   %284 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %12) #28
   %285 = add i64 %283, 2
@@ -1519,18 +1519,18 @@ downloadPatch.exit:                               ; preds = %312, %313
   switch i32 %.037606976.ph.i, label %.split [
     i32 11, label %317
     i32 5, label %317
-    i32 0, label %downloadPatch.exit._crit_edge.thread451
+    i32 0, label %downloadPatch.exit._crit_edge.thread452
   ]
 
 317:                                              ; preds = %downloadPatch.exit, %downloadPatch.exit
-  %318 = add i32 %.0151402, 1
+  %318 = add i32 %.0151403, 1
   %319 = load i32, ptr @g_maxAttempts, align 4, !tbaa !3
   %.not208 = icmp ugt i32 %318, %319
   br i1 %.not208, label %.split, label %.lr.ph.split
 
-downloadPatch.exit._crit_edge.thread451:          ; preds = %downloadPatch.exit, %.preheader
-  %320 = add i32 %.0150407, 1
-  %.0152 = add i32 %.0152408, 1
+downloadPatch.exit._crit_edge.thread452:          ; preds = %downloadPatch.exit, %.preheader
+  %320 = add i32 %.0150408, 1
+  %.0152 = add i32 %.0152409, 1
   %.not207 = icmp ugt i32 %.0152, %.1273
   br i1 %.not207, label %.thread280, label %.preheaderthread-pre-split, !llvm.loop !30
 
@@ -1538,11 +1538,11 @@ downloadPatch.exit._crit_edge.thread451:          ; preds = %downloadPatch.exit,
   %321 = icmp eq i32 %.037606976.ph.i, 6
   switch i32 %.037606976.ph.i, label %322 [
     i32 6, label %330
-    i32 14, label %.thread455
+    i32 14, label %.thread456
   ]
 
 322:                                              ; preds = %.split
-  %323 = icmp eq i32 %.0150407, 0
+  %323 = icmp eq i32 %.0150408, 0
   %324 = add i32 %.1273, -1
   %325 = icmp ult i32 %.1276, %324
   %or.cond398 = select i1 %323, i1 %325, i1 false
@@ -1551,24 +1551,24 @@ downloadPatch.exit._crit_edge.thread451:          ; preds = %downloadPatch.exit,
 .thread:                                          ; preds = %.thread.i235.us, %downloadPatch.exit.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  %326 = icmp eq i32 %.0150407, 0
+  %326 = icmp eq i32 %.0150408, 0
   %327 = add i32 %.1273, -1
   %328 = icmp ult i32 %.1276, %327
-  %or.cond398454 = select i1 %326, i1 %328, i1 false
-  br i1 %or.cond398454, label %.thread455, label %339
+  %or.cond398455 = select i1 %326, i1 %328, i1 false
+  br i1 %or.cond398455, label %.thread456, label %339
 
 329:                                              ; preds = %322
-  br i1 %321, label %330, label %.thread455
+  br i1 %321, label %330, label %.thread456
 
 330:                                              ; preds = %.split, %329
   %331 = call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull @.str.38, ptr noundef %.3268) #24
   br label %333
 
-.thread455:                                       ; preds = %.thread, %.split, %329
+.thread456:                                       ; preds = %.thread, %.split, %329
   %332 = call i32 (i32, ptr, ...) @logg(i32 noundef 4, ptr noundef nonnull @.str.39, ptr noundef %.3268) #24
   br label %333
 
-333:                                              ; preds = %.thread455, %330
+333:                                              ; preds = %.thread456, %330
   %334 = call fastcc i32 @getcvd(ptr noundef %.3268, ptr noundef %181, ptr noundef %2, i32 noundef %.0277, i32 noundef %.1273, i32 noundef %6)
   switch i32 %334, label %.thread317 [
     i32 0, label %337
@@ -1594,13 +1594,13 @@ downloadPatch.exit._crit_edge.thread451:          ; preds = %downloadPatch.exit,
   br label %.thread317
 
 343:                                              ; preds = %.thread280, %339
-  %.0150400 = phi i32 [ %.0150.lcssa, %.thread280 ], [ %.0150407, %339 ]
+  %.0150401 = phi i32 [ %.0150.lcssa, %.thread280 ], [ %.0150408, %339 ]
   %344 = sub i32 %.1273, %.1276
-  %345 = icmp ult i32 %.0150400, %344
+  %345 = icmp ult i32 %.0150401, %344
   br i1 %345, label %346, label %349
 
 346:                                              ; preds = %343
-  %347 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.42, i32 noundef %.0150400, ptr noundef nonnull %0, i32 noundef %344) #24
+  %347 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.42, i32 noundef %.0150401, ptr noundef nonnull %0, i32 noundef %344) #24
   %348 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.43) #24
   br label %349
 

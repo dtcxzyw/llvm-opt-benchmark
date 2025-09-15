@@ -5631,29 +5631,29 @@ place_children_vert.exit:                         ; preds = %pci_link_speed.exit
   %.050.i = phi float [ 8.000000e+00, %90 ], [ %..i, %92 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %96 = call fastcc ptr @next_child(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef %2, ptr noundef null, ptr noundef %8)
-  %.not130.i.i = icmp ne ptr %96, null
-  tail call void @llvm.assume(i1 %.not130.i.i)
+  %.not131.i.i = icmp ne ptr %96, null
+  tail call void @llvm.assume(i1 %.not131.i.i)
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %95
   %97 = phi ptr [ %111, %.lr.ph.i.i ], [ %96, %95 ]
-  %.097134.i.i = phi i32 [ %100, %.lr.ph.i.i ], [ 0, %95 ]
-  %.098133.i.i = phi i32 [ %104, %.lr.ph.i.i ], [ 0, %95 ]
-  %.0103132.i.i = phi i32 [ %108, %.lr.ph.i.i ], [ 0, %95 ]
-  %.0104131.i.i = phi i32 [ %110, %.lr.ph.i.i ], [ 0, %95 ]
+  %.097135.i.i = phi i32 [ %100, %.lr.ph.i.i ], [ 0, %95 ]
+  %.098134.i.i = phi i32 [ %104, %.lr.ph.i.i ], [ 0, %95 ]
+  %.0103133.i.i = phi i32 [ %108, %.lr.ph.i.i ], [ 0, %95 ]
+  %.0104132.i.i = phi i32 [ %110, %.lr.ph.i.i ], [ 0, %95 ]
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 232
   %99 = load ptr, ptr %98, align 8, !tbaa !37
-  %100 = add i32 %.097134.i.i, 1
+  %100 = add i32 %.097135.i.i, 1
   %101 = getelementptr inbounds nuw i8, ptr %99, i64 72
   %102 = load i32, ptr %101, align 8, !tbaa !98
   %103 = add i32 %102, %4
-  %104 = add i32 %103, %.098133.i.i
+  %104 = add i32 %103, %.098134.i.i
   %105 = getelementptr inbounds nuw i8, ptr %99, i64 76
   %106 = load i32, ptr %105, align 4, !tbaa !100
   %107 = add i32 %106, %4
-  %108 = add i32 %107, %.0103132.i.i
+  %108 = add i32 %107, %.0103133.i.i
   %109 = mul i32 %107, %103
-  %110 = add i32 %109, %.0104131.i.i
+  %110 = add i32 %109, %.0104132.i.i
   %111 = call fastcc ptr @next_child(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef %2, ptr noundef nonnull %97, ptr noundef %8)
   %.not.i.i = icmp eq ptr %111, null
   br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !186
@@ -5673,22 +5673,22 @@ place_children_vert.exit:                         ; preds = %pci_link_speed.exit
   %122 = icmp eq i32 %121, 0
   %123 = icmp ugt i32 %117, 1
   %124 = select i1 %122, i1 %123, i1 false
-  br i1 %124, label %.lr.ph143.i.i, label %._crit_edge144.thread.i.i
+  br i1 %124, label %.lr.ph144.i.i, label %._crit_edge145.thread.i.i
 
-.lr.ph143.i.i:                                    ; preds = %._crit_edge.i.i, %.thread.i.i
-  %.092140.i.i = phi i32 [ %.193125.i.i, %.thread.i.i ], [ 0, %._crit_edge.i.i ]
-  %.096139.i.i = phi i32 [ %154, %.thread.i.i ], [ %117, %._crit_edge.i.i ]
-  %.0100138.i.i = phi float [ %.1101124.i.i, %.thread.i.i ], [ 0.000000e+00, %._crit_edge.i.i ]
-  %125 = udiv i32 %100, %.096139.i.i
+.lr.ph144.i.i:                                    ; preds = %._crit_edge.i.i, %.thread.i.i
+  %.092141.i.i = phi i32 [ %.193125.i.i, %.thread.i.i ], [ 0, %._crit_edge.i.i ]
+  %.096140.i.i = phi i32 [ %154, %.thread.i.i ], [ %117, %._crit_edge.i.i ]
+  %.0100139.i.i = phi float [ %.1101124.i.i, %.thread.i.i ], [ 0.000000e+00, %._crit_edge.i.i ]
+  %125 = udiv i32 %100, %.096140.i.i
   %126 = icmp samesign ugt i32 %125, 1
-  %127 = mul nuw i32 %125, %.096139.i.i
+  %127 = mul nuw i32 %125, %.096140.i.i
   %.not113.i.i = icmp eq i32 %127, %100
   %or.cond.i.i = and i1 %126, %.not113.i.i
   br i1 %or.cond.i.i, label %128, label %.thread.i.i
 
-128:                                              ; preds = %.lr.ph143.i.i
+128:                                              ; preds = %.lr.ph144.i.i
   %129 = mul i32 %125, %112
-  %130 = mul i32 %.096139.i.i, %113
+  %130 = mul i32 %.096140.i.i, %113
   %131 = uitofp i32 %129 to float
   %132 = uitofp i32 %130 to float
   %133 = fdiv float %131, %132
@@ -5696,7 +5696,7 @@ place_children_vert.exit:                         ; preds = %pci_link_speed.exit
   %135 = fcmp ogt float %134, 1.000000e+00
   %136 = fdiv float 1.000000e+00, %134
   %.0.i.i.i = select i1 %135, float %136, float %134
-  %137 = mul i32 %.096139.i.i, %112
+  %137 = mul i32 %.096140.i.i, %112
   %138 = mul i32 %125, %113
   %139 = uitofp i32 %137 to float
   %140 = uitofp i32 %138 to float
@@ -5709,37 +5709,37 @@ place_children_vert.exit:                         ; preds = %pci_link_speed.exit
   br i1 %145, label %146, label %149
 
 146:                                              ; preds = %128
-  %147 = fcmp ogt float %.0.i.i.i, %.0100138.i.i
+  %147 = fcmp ogt float %.0.i.i.i, %.0100139.i.i
   br i1 %147, label %148, label %152
 
 148:                                              ; preds = %146
   br label %152
 
 149:                                              ; preds = %128
-  %150 = fcmp ogt float %.0.i115.i.i, %.0100138.i.i
+  %150 = fcmp ogt float %.0.i115.i.i, %.0100139.i.i
   br i1 %150, label %151, label %152
 
 151:                                              ; preds = %149
   br label %152
 
 152:                                              ; preds = %151, %149, %148, %146
-  %.2102.i.i = phi float [ %.0.i.i.i, %148 ], [ %.0100138.i.i, %146 ], [ %.0.i115.i.i, %151 ], [ %.0100138.i.i, %149 ]
-  %.294.i.i = phi i32 [ %125, %148 ], [ %.092140.i.i, %146 ], [ %.096139.i.i, %151 ], [ %.092140.i.i, %149 ]
-  %153 = fcmp oeq float %.0100138.i.i, %.2102.i.i
+  %.2102.i.i = phi float [ %.0.i.i.i, %148 ], [ %.0100139.i.i, %146 ], [ %.0.i115.i.i, %151 ], [ %.0100139.i.i, %149 ]
+  %.294.i.i = phi i32 [ %125, %148 ], [ %.092141.i.i, %146 ], [ %.096140.i.i, %151 ], [ %.092141.i.i, %149 ]
+  %153 = fcmp oeq float %.0100139.i.i, %.2102.i.i
   br i1 %153, label %find_children_rectangle.exit.i, label %.thread.i.i
 
-.thread.i.i:                                      ; preds = %152, %.lr.ph143.i.i
-  %.193125.i.i = phi i32 [ %.294.i.i, %152 ], [ %.092140.i.i, %.lr.ph143.i.i ]
-  %.1101124.i.i = phi float [ %.2102.i.i, %152 ], [ %.0100138.i.i, %.lr.ph143.i.i ]
-  %154 = add i32 %.096139.i.i, -1
+.thread.i.i:                                      ; preds = %152, %.lr.ph144.i.i
+  %.193125.i.i = phi i32 [ %.294.i.i, %152 ], [ %.092141.i.i, %.lr.ph144.i.i ]
+  %.1101124.i.i = phi float [ %.2102.i.i, %152 ], [ %.0100139.i.i, %.lr.ph144.i.i ]
+  %154 = add i32 %.096140.i.i, -1
   %155 = icmp ugt i32 %154, 1
-  br i1 %155, label %.lr.ph143.i.i, label %._crit_edge144.i.i, !llvm.loop !187
+  br i1 %155, label %.lr.ph144.i.i, label %._crit_edge145.i.i, !llvm.loop !187
 
-._crit_edge144.i.i:                               ; preds = %.thread.i.i
+._crit_edge145.i.i:                               ; preds = %.thread.i.i
   %156 = fcmp une float %.1101124.i.i, 0.000000e+00
-  br i1 %156, label %find_children_rectangle.exit.i, label %._crit_edge144.thread.i.i
+  br i1 %156, label %find_children_rectangle.exit.i, label %._crit_edge145.thread.i.i
 
-._crit_edge144.thread.i.i:                        ; preds = %._crit_edge144.i.i, %._crit_edge.i.i
+._crit_edge145.thread.i.i:                        ; preds = %._crit_edge145.i.i, %._crit_edge.i.i
   %157 = uitofp i32 %110 to float
   %158 = fdiv float %157, %.050.i
   %sqrt.i = tail call float @llvm.sqrt.f32(float %158)
@@ -5749,13 +5749,13 @@ place_children_vert.exit:                         ; preds = %pci_link_speed.exit
   %.not112.i.i = icmp eq i32 %161, 0
   br i1 %.not112.i.i, label %165, label %162
 
-162:                                              ; preds = %._crit_edge144.thread.i.i
-  %163 = add i32 %.097134.i.i, %161
+162:                                              ; preds = %._crit_edge145.thread.i.i
+  %163 = add i32 %.097135.i.i, %161
   %164 = udiv i32 %163, %161
   br label %165
 
-165:                                              ; preds = %162, %._crit_edge144.thread.i.i
-  %166 = phi i32 [ %164, %162 ], [ 1, %._crit_edge144.thread.i.i ]
+165:                                              ; preds = %162, %._crit_edge145.thread.i.i
+  %166 = phi i32 [ %164, %162 ], [ 1, %._crit_edge145.thread.i.i ]
   %167 = mul i32 %166, %112
   %168 = mul i32 %113, %161
   %169 = uitofp i32 %167 to float
@@ -5783,12 +5783,12 @@ place_children_vert.exit:                         ; preds = %pci_link_speed.exit
   br i1 %or.cond114.i.i, label %188, label %find_children_rectangle.exit.i
 
 188:                                              ; preds = %165
-  %189 = add i32 %.097134.i.i, %161
+  %189 = add i32 %.097135.i.i, %161
   %190 = udiv i32 %189, %161
   br label %find_children_rectangle.exit.i
 
-find_children_rectangle.exit.i:                   ; preds = %152, %188, %165, %._crit_edge144.i.i
-  %.395.i.i = phi i32 [ %.193125.i.i, %._crit_edge144.i.i ], [ %190, %188 ], [ %177, %165 ], [ %.294.i.i, %152 ]
+find_children_rectangle.exit.i:                   ; preds = %152, %188, %165, %._crit_edge145.i.i
+  %.395.i.i = phi i32 [ %.193125.i.i, %._crit_edge145.i.i ], [ %190, %188 ], [ %177, %165 ], [ %.294.i.i, %152 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %191 = call fastcc ptr @next_child(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef %2, ptr noundef null, ptr noundef %9)
   %.not66.i = icmp eq ptr %191, null

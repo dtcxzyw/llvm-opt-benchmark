@@ -1017,9 +1017,9 @@ _ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit: ; preds = %38, %_ZN10Hand
   %63 = load i8, ptr @UseCompressedClassPointers, align 1
   %64 = trunc i8 %63 to i1
   %..i = select i1 %62, i64 20, i64 24
-  %.8.i = select i1 %62, i64 2, i64 3
+  %.9.i = select i1 %62, i64 2, i64 3
   %65 = select i1 %64, i64 16, i64 %..i
-  %66 = shl nuw nsw i64 %indvars.iv, %.8.i
+  %66 = shl nuw nsw i64 %indvars.iv, %.9.i
   %67 = add nuw nsw i64 %65, %66
   %68 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE1EE14_store_at_funcE, align 8
   call void %68(ptr noundef nonnull align 8 dereferenceable(16) %60, i64 noundef %67, ptr noundef null) #13
@@ -1047,9 +1047,9 @@ _ZNK6HandleclEv.exit:                             ; preds = %72, %75
   %80 = load i8, ptr @UseCompressedClassPointers, align 1
   %81 = trunc i8 %80 to i1
   %..i23 = select i1 %79, i64 20, i64 24
-  %.8.i24 = select i1 %79, i64 2, i64 3
+  %.9.i24 = select i1 %79, i64 2, i64 3
   %82 = select i1 %81, i64 16, i64 %..i23
-  %83 = shl nuw nsw i64 %indvars.iv, %.8.i24
+  %83 = shl nuw nsw i64 %indvars.iv, %.9.i24
   %84 = add nuw nsw i64 %82, %83
   %85 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE1EE14_store_at_funcE, align 8
   call void %85(ptr noundef nonnull align 8 dereferenceable(16) %73, i64 noundef %84, ptr noundef %77) #13
@@ -1215,9 +1215,9 @@ _ZN12methodHandleC2EP6ThreadP6Method.exit:        ; preds = %31, %_ZN26GrowableA
   %67 = load i8, ptr @UseCompressedClassPointers, align 1
   %68 = trunc i8 %67 to i1
   %..i = select i1 %66, i64 20, i64 24
-  %.8.i = select i1 %66, i64 2, i64 3
+  %.9.i = select i1 %66, i64 2, i64 3
   %69 = select i1 %68, i64 16, i64 %..i
-  %70 = shl nuw nsw i64 %indvars.iv, %.8.i
+  %70 = shl nuw nsw i64 %indvars.iv, %.9.i
   %71 = add nuw nsw i64 %69, %70
   %72 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE1EE14_store_at_funcE, align 8
   call void %72(ptr noundef nonnull align 8 dereferenceable(16) %64, i64 noundef %71, ptr noundef %60) #13

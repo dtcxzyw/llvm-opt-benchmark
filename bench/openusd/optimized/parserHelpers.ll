@@ -29759,9 +29759,9 @@ define linkonce_odr noundef zeroext i8 @_ZN32pxrInternal_v0_24__pxrReserved__17S
   %3 = tail call double @llvm.fabs.f64(double %1)
   %or.cond = fcmp ueq double %3, 0x7FF0000000000000
   %4 = fcmp ole double %1, -1.000000e+00
-  %or.cond7.not11 = or i1 %4, %or.cond
+  %or.cond7.not12 = or i1 %4, %or.cond
   %5 = fcmp oge double %1, 2.560000e+02
-  %or.cond8.not = or i1 %5, %or.cond7.not11
+  %or.cond8.not = or i1 %5, %or.cond7.not12
   br i1 %or.cond8.not, label %6, label %_ZNOSt8optionalIhE5valueEv.exit
 
 6:                                                ; preds = %2
@@ -30845,9 +30845,9 @@ define linkonce_odr noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_Pars
   %3 = tail call double @llvm.fabs.f64(double %1)
   %or.cond = fcmp ueq double %3, 0x7FF0000000000000
   %4 = fcmp ole double %1, 0xC1E0000000200000
-  %or.cond7.not11 = or i1 %4, %or.cond
+  %or.cond7.not12 = or i1 %4, %or.cond
   %5 = fcmp oge double %1, 0x41E0000000000000
-  %or.cond8.not = or i1 %5, %or.cond7.not11
+  %or.cond8.not = or i1 %5, %or.cond7.not12
   br i1 %or.cond8.not, label %6, label %_ZNOSt8optionalIiE5valueEv.exit
 
 6:                                                ; preds = %2
@@ -31932,9 +31932,9 @@ define linkonce_odr noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_Pars
   %3 = tail call double @llvm.fabs.f64(double %1)
   %or.cond = fcmp ueq double %3, 0x7FF0000000000000
   %4 = fcmp ole double %1, -1.000000e+00
-  %or.cond7.not11 = or i1 %4, %or.cond
+  %or.cond7.not12 = or i1 %4, %or.cond
   %5 = fcmp oge double %1, 0x41F0000000000000
-  %or.cond8.not = or i1 %5, %or.cond7.not11
+  %or.cond8.not = or i1 %5, %or.cond7.not12
   br i1 %or.cond8.not, label %6, label %_ZNOSt8optionalIjE5valueEv.exit
 
 6:                                                ; preds = %2

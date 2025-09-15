@@ -1583,10 +1583,10 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit119: ; preds = %_ZNK2v820Funct
 _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit119.if.then.i_crit_edge: ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit119
   %.pre = load ptr, ptr %args, align 8
   %arrayidx.i213.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 8
-  %.pre34 = load ptr, ptr %arrayidx.i213.phi.trans.insert, align 8
-  %.pre35 = ptrtoint ptr %.pre34 to i64
-  %.pre36 = add i64 %.pre35, 608
-  %.pre37 = inttoptr i64 %.pre36 to ptr
+  %.pre35 = load ptr, ptr %arrayidx.i213.phi.trans.insert, align 8
+  %.pre36 = ptrtoint ptr %.pre35 to i64
+  %.pre37 = add i64 %.pre36, 608
+  %.pre38 = inttoptr i64 %.pre37 to ptr
   br label %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit
 
 if.end.i:                                         ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit119
@@ -1594,7 +1594,7 @@ if.end.i:                                         ; preds = %_ZNK2v820FunctionCa
   br label %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit
 
 _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit: ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit119.thread, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit119.if.then.i_crit_edge, %if.end.i
-  %retval.i.sroa.0.0 = phi ptr [ %add.ptr.i, %if.end.i ], [ %.pre37, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit119.if.then.i_crit_edge ], [ %39, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit119.thread ]
+  %retval.i.sroa.0.0 = phi ptr [ %add.ptr.i, %if.end.i ], [ %.pre38, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit119.if.then.i_crit_edge ], [ %39, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit119.thread ]
   %call89 = tail call noundef i32 @_ZNK2v86Uint325ValueEv(ptr noundef nonnull align 1 dereferenceable(1) %retval.i.sroa.0.0) #26
   %ptr_.i.i = getelementptr inbounds nuw i8, ptr %retval.i11.0.i, i64 144
   %41 = load ptr, ptr %ptr_.i.i, align 8

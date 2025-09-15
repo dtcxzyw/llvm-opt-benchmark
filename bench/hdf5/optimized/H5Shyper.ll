@@ -6695,13 +6695,13 @@ define range(i32 -1, 2) i32 @H5S_hyper_normalize_offset(ptr noundef captures(non
   store i8 1, ptr @H5S_init_g, align 1, !tbaa !3
   %9 = tail call i32 @H5S__init_package() #14
   %10 = icmp slt i32 %9, 0
-  br i1 %10, label %11, label %._crit_edge28
+  br i1 %10, label %11, label %._crit_edge29
 
-._crit_edge28:                                    ; preds = %8
+._crit_edge29:                                    ; preds = %8
   %.pre = load i8, ptr @H5S_init_g, align 1, !tbaa !3, !range !7
-  %.pre29 = load i8, ptr @H5_libterm_g, align 1, !range !7
-  %.pre32 = trunc nuw i8 %.pre to i1
-  %.pre33 = trunc nuw i8 %.pre29 to i1
+  %.pre30 = load i8, ptr @H5_libterm_g, align 1, !range !7
+  %.pre33 = trunc nuw i8 %.pre to i1
+  %.pre34 = trunc nuw i8 %.pre30 to i1
   br label %15
 
 11:                                               ; preds = %8
@@ -6711,10 +6711,10 @@ define range(i32 -1, 2) i32 @H5S_hyper_normalize_offset(ptr noundef captures(non
   %14 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5S_hyper_normalize_offset, i32 noundef 7133, i64 noundef %12, i64 noundef %13, ptr noundef nonnull @.str.2) #14
   br label %73
 
-15:                                               ; preds = %._crit_edge28, %2
-  %.pre-phi34 = phi i1 [ %.pre33, %._crit_edge28 ], [ %6, %2 ]
-  %.pre-phi = phi i1 [ %.pre32, %._crit_edge28 ], [ %4, %2 ]
-  %16 = xor i1 %.pre-phi34, true
+15:                                               ; preds = %._crit_edge29, %2
+  %.pre-phi35 = phi i1 [ %.pre34, %._crit_edge29 ], [ %6, %2 ]
+  %.pre-phi = phi i1 [ %.pre33, %._crit_edge29 ], [ %4, %2 ]
+  %16 = xor i1 %.pre-phi35, true
   %17 = select i1 %.pre-phi, i1 true, i1 %16
   br i1 %17, label %18, label %73, !prof !9
 
@@ -6734,9 +6734,9 @@ define range(i32 -1, 2) i32 @H5S_hyper_normalize_offset(ptr noundef captures(non
 .preheader:                                       ; preds = %23
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %28 = load i32, ptr %27, align 8, !tbaa !21
-  %.not26 = icmp eq i32 %28, 0
+  %.not27 = icmp eq i32 %28, 0
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  br i1 %.not26, label %H5S__hyper_adjust_s.exit, label %.lr.ph
+  br i1 %.not27, label %H5S__hyper_adjust_s.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %wide.trip.count = zext i32 %28 to i64
@@ -6755,11 +6755,11 @@ define range(i32 -1, 2) i32 @H5S_hyper_normalize_offset(ptr noundef captures(non
   br i1 %exitcond.not, label %._crit_edge, label %30, !llvm.loop !150
 
 ._crit_edge:                                      ; preds = %30
-  %.pre30 = load i8, ptr @H5_libterm_g, align 1, !range !7
-  %.pre35 = trunc nuw i8 %.pre30 to i1
+  %.pre31 = load i8, ptr @H5_libterm_g, align 1, !range !7
+  %.pre36 = trunc nuw i8 %.pre31 to i1
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %not. = xor i1 %.pre-phi, true
-  %.not = select i1 %not., i1 %.pre35, i1 false
+  %.not = select i1 %not., i1 %.pre36, i1 false
   br i1 %.not, label %H5S__hyper_adjust_s.exit, label %.lr.ph.preheader.i, !prof !151
 
 .lr.ph.preheader.i:                               ; preds = %._crit_edge
@@ -6829,12 +6829,12 @@ define range(i32 -1, 2) i32 @H5S_hyper_normalize_offset(ptr noundef captures(non
   %68 = add i64 %67, 1
   store i64 %68, ptr @H5S_hyper_op_gen_g, align 8, !tbaa !11
   tail call fastcc void @H5S__hyper_adjust_s_helper(ptr noundef nonnull %65, i32 noundef %28, ptr noundef nonnull readonly %35, i64 noundef %67)
-  %.pre31 = load i32, ptr %27, align 8, !tbaa !21
+  %.pre32 = load i32, ptr %27, align 8, !tbaa !21
   br label %H5S__hyper_adjust_s.exit
 
 H5S__hyper_adjust_s.exit:                         ; preds = %36, %.preheader, %._crit_edge, %.loopexit.i, %66
   %69 = phi ptr [ %35, %._crit_edge ], [ %35, %.loopexit.i ], [ %35, %66 ], [ %29, %.preheader ], [ %35, %36 ]
-  %70 = phi i32 [ %28, %._crit_edge ], [ %28, %.loopexit.i ], [ %.pre31, %66 ], [ 0, %.preheader ], [ %28, %36 ]
+  %70 = phi i32 [ %28, %._crit_edge ], [ %28, %.loopexit.i ], [ %.pre32, %66 ], [ 0, %.preheader ], [ %28, %36 ]
   %71 = zext i32 %70 to i64
   %72 = shl nuw nsw i64 %71, 3
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %69, i8 0, i64 %72, i1 false)
@@ -16442,46 +16442,46 @@ define internal fastcc zeroext i1 @H5S__hyper_cmp_spans(ptr noundef readonly cap
 24:                                               ; preds = %17
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %.03152 = load ptr, ptr %26, align 8, !tbaa !88
-  %.03253 = load ptr, ptr %25, align 8, !tbaa !88
-  %27 = icmp eq ptr %.03253, null
-  %28 = icmp eq ptr %.03152, null
-  %or.cond4454 = select i1 %27, i1 true, i1 %28
-  br i1 %or.cond4454, label %.loopexit.split.loop.exit, label %.lr.ph
+  %.03153 = load ptr, ptr %26, align 8, !tbaa !88
+  %.03254 = load ptr, ptr %25, align 8, !tbaa !88
+  %27 = icmp eq ptr %.03254, null
+  %28 = icmp eq ptr %.03153, null
+  %or.cond4455 = select i1 %27, i1 true, i1 %28
+  br i1 %or.cond4455, label %.loopexit.split.loop.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %24, %42
-  %.03256 = phi ptr [ %.032, %42 ], [ %.03253, %24 ]
-  %.03155 = phi ptr [ %.031, %42 ], [ %.03152, %24 ]
-  %29 = load i64, ptr %.03256, align 8, !tbaa !90
-  %30 = load i64, ptr %.03155, align 8, !tbaa !90
+  %.03257 = phi ptr [ %.032, %42 ], [ %.03254, %24 ]
+  %.03156 = phi ptr [ %.031, %42 ], [ %.03153, %24 ]
+  %29 = load i64, ptr %.03257, align 8, !tbaa !90
+  %30 = load i64, ptr %.03156, align 8, !tbaa !90
   %.not38 = icmp eq i64 %29, %30
   br i1 %.not38, label %31, label %.loopexit
 
 31:                                               ; preds = %.lr.ph
-  %32 = getelementptr inbounds nuw i8, ptr %.03256, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %.03257, i64 8
   %33 = load i64, ptr %32, align 8, !tbaa !97
-  %34 = getelementptr inbounds nuw i8, ptr %.03155, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %.03156, i64 8
   %35 = load i64, ptr %34, align 8, !tbaa !97
   %.not39 = icmp eq i64 %33, %35
   br i1 %.not39, label %36, label %.loopexit
 
 36:                                               ; preds = %31
-  %37 = getelementptr inbounds nuw i8, ptr %.03256, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %.03257, i64 16
   %38 = load ptr, ptr %37, align 8, !tbaa !92
   %.not40 = icmp eq ptr %38, null
-  %39 = getelementptr inbounds nuw i8, ptr %.03155, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %.03156, i64 16
   %40 = load ptr, ptr %39, align 8, !tbaa !92
   %.not41 = icmp eq ptr %40, null
-  %or.cond64 = select i1 %.not40, i1 %.not41, i1 false
-  br i1 %or.cond64, label %42, label %._crit_edge
+  %or.cond65 = select i1 %.not40, i1 %.not41, i1 false
+  br i1 %or.cond65, label %42, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %36
   %41 = tail call fastcc zeroext i1 @H5S__hyper_cmp_spans(ptr noundef %38, ptr noundef %40) #15
   br i1 %41, label %42, label %.loopexit
 
 42:                                               ; preds = %36, %._crit_edge
-  %43 = getelementptr inbounds nuw i8, ptr %.03256, i64 24
-  %44 = getelementptr inbounds nuw i8, ptr %.03155, i64 24
+  %43 = getelementptr inbounds nuw i8, ptr %.03257, i64 24
+  %44 = getelementptr inbounds nuw i8, ptr %.03156, i64 24
   %.031 = load ptr, ptr %44, align 8, !tbaa !88
   %.032 = load ptr, ptr %43, align 8, !tbaa !88
   %45 = icmp eq ptr %.032, null
@@ -16490,9 +16490,9 @@ define internal fastcc zeroext i1 @H5S__hyper_cmp_spans(ptr noundef readonly cap
   br i1 %or.cond44, label %.loopexit.split.loop.exit, label %.lr.ph
 
 .loopexit.split.loop.exit:                        ; preds = %42, %24
-  %.lcssa51 = phi i1 [ %28, %24 ], [ %46, %42 ]
+  %.lcssa52 = phi i1 [ %28, %24 ], [ %46, %42 ]
   %.lcssa = phi i1 [ %27, %24 ], [ %45, %42 ]
-  %or.cond3.le = select i1 %.lcssa, i1 %.lcssa51, i1 false
+  %or.cond3.le = select i1 %.lcssa, i1 %.lcssa52, i1 false
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %31, %._crit_edge, %.loopexit.split.loop.exit, %2, %7, %10, %17

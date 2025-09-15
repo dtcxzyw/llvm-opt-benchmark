@@ -2951,8 +2951,8 @@ define void @_ZN6LibRaw24identify_finetune_pentaxEv(ptr noundef nonnull align 8 
 18:                                               ; preds = %12
   %19 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %20 = load i32, ptr %19, align 8, !tbaa !206
-  %.not54 = icmp eq i32 %20, 34892
-  br i1 %.not54, label %.thread50, label %.thread
+  %.not55 = icmp eq i32 %20, 34892
+  br i1 %.not55, label %.thread50, label %.thread
 
 .thread:                                          ; preds = %11, %.preheader, %18, %4, %1
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 524

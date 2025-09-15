@@ -3199,8 +3199,8 @@ _ZN5QListIiED2Ev.exit175:                         ; preds = %122, %_ZN17QArrayDa
   br label %.body
 
 128:                                              ; preds = %_ZN5QListIiED2Ev.exit, %100
-  %.not531 = icmp sgt i32 %2, %47
-  br i1 %.not531, label %._crit_edge, label %.lr.ph
+  %.not532 = icmp sgt i32 %2, %47
+  br i1 %.not532, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %128
   %129 = xor i32 %2, -1
@@ -3227,13 +3227,13 @@ _ZN5QListIiED2Ev.exit175:                         ; preds = %122, %_ZN17QArrayDa
           to label %378 unwind label %407
 
 145:                                              ; preds = %.lr.ph, %376
-  %.099532 = phi i32 [ %2, %.lr.ph ], [ %377, %376 ]
+  %.099533 = phi i32 [ %2, %.lr.ph ], [ %377, %376 ]
   %146 = invoke noundef align 8 dereferenceable(24) ptr @_ZN7QString6appendE5QChar(ptr noundef nonnull align 8 dereferenceable_or_null(24) %13, i16 32)
           to label %_ZN7QStringpLE5QChar.exit unwind label %165
 
 _ZN7QStringpLE5QChar.exit:                        ; preds = %145
-  %.not139 = icmp ne i32 %.099532, %2
-  %147 = and i32 %.099532, 7
+  %.not139 = icmp ne i32 %.099533, %2
+  %147 = and i32 %.099533, 7
   %148 = icmp eq i32 %147, 0
   %or.cond = and i1 %.not139, %148
   br i1 %or.cond, label %149, label %173
@@ -3244,7 +3244,7 @@ _ZN7QStringpLE5QChar.exit:                        ; preds = %145
 
 _ZN7QStringpLE5QChar.exit178:                     ; preds = %149
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
-  %151 = add i32 %.099532, %129
+  %151 = add i32 %.099533, %129
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, i8 0, i64 24, i1 false)
   %152 = load i32, ptr %104, align 8
   %153 = sext i32 %152 to i64
@@ -3309,17 +3309,17 @@ _ZN5QListIiED2Ev.exit188:                         ; preds = %167, %_ZN17QArrayDa
   %174 = load i32, ptr getelementptr inbounds nuw (i8, ptr @recent, i64 28), align 4
   switch i32 %174, label %_ZN7QStringpLE5QChar.exit198 [
     i32 0, label %176
-    i32 1, label %.preheader502
+    i32 1, label %.preheader503
     i32 2, label %218
     i32 3, label %250
   ]
 
-.preheader502:                                    ; preds = %173
-  %175 = sext i32 %.099532 to i64
+.preheader503:                                    ; preds = %173
+  %175 = sext i32 %.099533 to i64
   br label %201
 
 176:                                              ; preds = %173
-  %177 = sext i32 %.099532 to i64
+  %177 = sext i32 %.099533 to i64
   %178 = load ptr, ptr %34, align 8
   %.not.i.i.i.i = icmp eq ptr %178, null
   br i1 %.not.i.i.i.i, label %_ZNK17QArrayDataPointerIcE11needsDetachEv.exit.thread.i.i.i, label %_ZNK17QArrayDataPointerIcE11needsDetachEv.exit.i.i.i
@@ -3368,8 +3368,8 @@ _ZNK17QArrayDataPointerIcE11needsDetachEv.exit.thread.i.i.i194: ; preds = %_ZNK1
   %200 = and i8 %199, 15
   br label %.invoke
 
-201:                                              ; preds = %.preheader502, %_ZN7QStringpLE5QChar.exit205
-  %.098530 = phi i32 [ 7, %.preheader502 ], [ %215, %_ZN7QStringpLE5QChar.exit205 ]
+201:                                              ; preds = %.preheader503, %_ZN7QStringpLE5QChar.exit205
+  %.098531 = phi i32 [ 7, %.preheader503 ], [ %215, %_ZN7QStringpLE5QChar.exit205 ]
   %202 = load ptr, ptr %34, align 8
   %.not.i.i.i.i199 = icmp eq ptr %202, null
   br i1 %.not.i.i.i.i199, label %_ZNK17QArrayDataPointerIcE11needsDetachEv.exit.thread.i.i.i201, label %_ZNK17QArrayDataPointerIcE11needsDetachEv.exit.i.i.i200
@@ -3389,7 +3389,7 @@ _ZNK17QArrayDataPointerIcE11needsDetachEv.exit.thread.i.i.i201: ; preds = %_ZNK1
   %208 = getelementptr i8, ptr %207, i64 %175
   %209 = load i8, ptr %208, align 1
   %210 = sext i8 %209 to i32
-  %211 = shl nuw i32 1, %.098530
+  %211 = shl nuw i32 1, %.098531
   %212 = and i32 %211, %210
   %.not140 = icmp eq i32 %212, 0
   %213 = select i1 %.not140, i16 48, i16 49
@@ -3397,9 +3397,9 @@ _ZNK17QArrayDataPointerIcE11needsDetachEv.exit.thread.i.i.i201: ; preds = %_ZNK1
           to label %_ZN7QStringpLE5QChar.exit205 unwind label %216
 
 _ZN7QStringpLE5QChar.exit205:                     ; preds = %206
-  %215 = add nsw i32 %.098530, -1
-  %.not614 = icmp eq i32 %.098530, 0
-  br i1 %.not614, label %_ZN7QStringpLE5QChar.exit198, label %201, !llvm.loop !38
+  %215 = add nsw i32 %.098531, -1
+  %.not615 = icmp eq i32 %.098531, 0
+  br i1 %.not615, label %_ZN7QStringpLE5QChar.exit198, label %201, !llvm.loop !38
 
 216:                                              ; preds = %206, %_ZNK17QArrayDataPointerIcE11needsDetachEv.exit.thread.i.i.i201
   %217 = landingpad { ptr, i32 }
@@ -3407,7 +3407,7 @@ _ZN7QStringpLE5QChar.exit205:                     ; preds = %206
   br label %.body
 
 218:                                              ; preds = %173
-  %219 = sext i32 %.099532 to i64
+  %219 = sext i32 %.099533 to i64
   %220 = load ptr, ptr %34, align 8
   %.not.i.i.i.i206 = icmp eq ptr %220, null
   br i1 %.not.i.i.i.i206, label %_ZNK17QArrayDataPointerIcE11needsDetachEv.exit.thread.i.i.i208, label %_ZNK17QArrayDataPointerIcE11needsDetachEv.exit.i.i.i207
@@ -3465,7 +3465,7 @@ _ZN7QStringpLE5QChar.exit214:                     ; preds = %246
   br label %.invoke
 
 250:                                              ; preds = %173
-  %251 = sext i32 %.099532 to i64
+  %251 = sext i32 %.099533 to i64
   %252 = load ptr, ptr %34, align 8
   %.not.i.i.i.i217 = icmp eq ptr %252, null
   br i1 %.not.i.i.i.i217, label %_ZNK17QArrayDataPointerIcE11needsDetachEv.exit.thread.i.i.i219, label %_ZNK17QArrayDataPointerIcE11needsDetachEv.exit.i.i.i218
@@ -3543,8 +3543,8 @@ _ZNK17QArrayDataPointerIcE11needsDetachEv.exit.thread.i.i.i233: ; preds = %_ZNK1
   br label %.invoke
 
 .invoke:                                          ; preds = %196, %_ZN7QStringpLE5QChar.exit214, %285
-  %.sink637 = phi i8 [ %200, %196 ], [ %249, %_ZN7QStringpLE5QChar.exit214 ], [ %289, %285 ]
-  %290 = zext nneg i8 %.sink637 to i64
+  %.sink638 = phi i8 [ %200, %196 ], [ %249, %_ZN7QStringpLE5QChar.exit214 ], [ %289, %285 ]
+  %290 = zext nneg i8 %.sink638 to i64
   %291 = getelementptr i8, ptr @_ZZN12ByteViewText8drawLineEP8QPainteriiE8hexchars, i64 %290
   %292 = load i8, ptr %291, align 1
   %293 = zext i8 %292 to i16
@@ -3582,7 +3582,7 @@ _ZN7QStringpLE5QChar.exit198:                     ; preds = %_ZN7QStringpLE5QCha
 303:                                              ; preds = %.noexc239
   call void @_ZN12QFontMetricsD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(8) %10) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  %304 = sub i32 %.099532, %2
+  %304 = sub i32 %.099533, %2
   %305 = sext i32 %300 to i64
   %306 = load i64, ptr %40, align 8
   %307 = add nsw i64 %305, %131
@@ -3645,12 +3645,12 @@ _ZN5QListIiED2Ev.exit252:                         ; preds = %.body240, %_ZN17QAr
 
 326:                                              ; preds = %_ZN5QListIiED2Ev.exit248, %_ZN7QStringpLE5QChar.exit198
   %327 = load i32, ptr %132, align 8
-  %328 = icmp eq i32 %.099532, %327
+  %328 = icmp eq i32 %.099533, %327
   br i1 %328, label %332, label %329
 
 329:                                              ; preds = %326
   %330 = load i32, ptr %133, align 4
-  %331 = icmp eq i32 %.099532, %330
+  %331 = icmp eq i32 %.099533, %330
   br i1 %331, label %332, label %376
 
 332:                                              ; preds = %329, %326
@@ -3794,7 +3794,7 @@ _ZN7QStringD2Ev.exit266:                          ; preds = %372, %_ZN17QArrayDa
   br label %.body
 
 376:                                              ; preds = %329, %_ZN5QListI5QRectE6appendERKS0_.exit
-  %377 = add i32 %.099532, 1
+  %377 = add i32 %.099533, 1
   %.not = icmp sgt i32 %377, %47
   br i1 %.not, label %._crit_edge, label %145, !llvm.loop !45
 
@@ -3956,13 +3956,13 @@ _ZN5QListIiED2Ev.exit290:                         ; preds = %.body274, %_ZN17QAr
 433:                                              ; preds = %430
   %434 = load i32, ptr getelementptr inbounds nuw (i8, ptr @recent, i64 28), align 4
   %435 = icmp ult i32 %434, 4
-  br i1 %435, label %switch.lookup657, label %.invoke638
+  br i1 %435, label %switch.lookup658, label %.invoke639
 
-switch.lookup657:                                 ; preds = %433
+switch.lookup658:                                 ; preds = %433
   %436 = zext nneg i32 %434 to i64
-  %switch.gep658 = getelementptr inbounds nuw i32, ptr @switch.table._ZN12ByteViewText17addHexFormatRangeER5QListIN11QTextLayout11FormatRangeEEiiiiNS_13HighlightModeE, i64 %436
-  %switch.load659 = load i32, ptr %switch.gep658, align 4
-  %437 = add nuw nsw i32 %switch.load659, 1
+  %switch.gep659 = getelementptr inbounds nuw i32, ptr @switch.table._ZN12ByteViewText17addHexFormatRangeER5QListIN11QTextLayout11FormatRangeEEiiiiNS_13HighlightModeE, i64 %436
+  %switch.load660 = load i32, ptr %switch.gep659, align 4
+  %437 = add nuw nsw i32 %switch.load660, 1
   %.sroa.speculated30.i = call i32 @llvm.smax.i32(i32 %2, i32 %423)
   %438 = sub i32 %.sroa.speculated30.i, %2
   %.sroa.speculated.i = call i32 @llvm.smin.i32(i32 %47, i32 %427)
@@ -3976,13 +3976,13 @@ switch.lookup657:                                 ; preds = %433
   %446 = add i32 %445, %442
   %447 = sdiv i32 %439, 8
   %448 = mul i32 %437, %439
-  %449 = add nsw i32 %switch.load659, %447
+  %449 = add nsw i32 %switch.load660, %447
   %450 = add i32 %449, %448
   %451 = sub i32 %450, %445
   %452 = invoke noundef zeroext i1 @_ZN12ByteViewText14addFormatRangeER5QListIN11QTextLayout11FormatRangeEEiiNS_13HighlightModeE(ptr noundef align 8 dereferenceable_or_null(328) %0, ptr noundef nonnull align 8 dereferenceable(24) %12, i32 noundef %446, i32 noundef %451, i32 noundef 2)
           to label %_ZN12ByteViewText17addHexFormatRangeER5QListIN11QTextLayout11FormatRangeEEiiiiNS_13HighlightModeE.exit unwind label %516
 
-_ZN12ByteViewText17addHexFormatRangeER5QListIN11QTextLayout11FormatRangeEEiiiiNS_13HighlightModeE.exit: ; preds = %430, %421, %switch.lookup657
+_ZN12ByteViewText17addHexFormatRangeER5QListIN11QTextLayout11FormatRangeEEiiiiNS_13HighlightModeE.exit: ; preds = %430, %421, %switch.lookup658
   %453 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %454 = load i32, ptr %453, align 8
   %455 = getelementptr inbounds nuw i8, ptr %0, i64 180
@@ -4003,13 +4003,13 @@ _ZN12ByteViewText17addHexFormatRangeER5QListIN11QTextLayout11FormatRangeEEiiiiNS
 464:                                              ; preds = %461
   %465 = load i32, ptr getelementptr inbounds nuw (i8, ptr @recent, i64 28), align 4
   %466 = icmp ult i32 %465, 4
-  br i1 %466, label %switch.lookup660, label %.invoke638
+  br i1 %466, label %switch.lookup661, label %.invoke639
 
-switch.lookup660:                                 ; preds = %464
+switch.lookup661:                                 ; preds = %464
   %467 = zext nneg i32 %465 to i64
-  %switch.gep661 = getelementptr inbounds nuw i32, ptr @switch.table._ZN12ByteViewText17addHexFormatRangeER5QListIN11QTextLayout11FormatRangeEEiiiiNS_13HighlightModeE, i64 %467
-  %switch.load662 = load i32, ptr %switch.gep661, align 4
-  %468 = add nuw nsw i32 %switch.load662, 1
+  %switch.gep662 = getelementptr inbounds nuw i32, ptr @switch.table._ZN12ByteViewText17addHexFormatRangeER5QListIN11QTextLayout11FormatRangeEEiiiiNS_13HighlightModeE, i64 %467
+  %switch.load663 = load i32, ptr %switch.gep662, align 4
+  %468 = add nuw nsw i32 %switch.load663, 1
   %.sroa.speculated30.i296 = call i32 @llvm.smax.i32(i32 %2, i32 %454)
   %469 = sub i32 %.sroa.speculated30.i296, %2
   %.sroa.speculated.i297 = call i32 @llvm.smin.i32(i32 %47, i32 %458)
@@ -4023,13 +4023,13 @@ switch.lookup660:                                 ; preds = %464
   %477 = add i32 %476, %473
   %478 = sdiv i32 %470, 8
   %479 = mul i32 %468, %470
-  %480 = add nsw i32 %switch.load662, %478
+  %480 = add nsw i32 %switch.load663, %478
   %481 = add i32 %480, %479
   %482 = sub i32 %481, %476
   %483 = invoke noundef zeroext i1 @_ZN12ByteViewText14addFormatRangeER5QListIN11QTextLayout11FormatRangeEEiiNS_13HighlightModeE(ptr noundef align 8 dereferenceable_or_null(328) %0, ptr noundef nonnull align 8 dereferenceable(24) %12, i32 noundef %477, i32 noundef %482, i32 noundef 1)
           to label %_ZN12ByteViewText17addHexFormatRangeER5QListIN11QTextLayout11FormatRangeEEiiiiNS_13HighlightModeE.exit301 unwind label %516
 
-_ZN12ByteViewText17addHexFormatRangeER5QListIN11QTextLayout11FormatRangeEEiiiiNS_13HighlightModeE.exit301: ; preds = %switch.lookup660
+_ZN12ByteViewText17addHexFormatRangeER5QListIN11QTextLayout11FormatRangeEEiiiiNS_13HighlightModeE.exit301: ; preds = %switch.lookup661
   %spec.select = select i1 %483, i32 4, i32 3
   br label %_ZN12ByteViewText17addHexFormatRangeER5QListIN11QTextLayout11FormatRangeEEiiiiNS_13HighlightModeE.exit301.thread
 
@@ -4055,20 +4055,20 @@ _ZN12ByteViewText17addHexFormatRangeER5QListIN11QTextLayout11FormatRangeEEiiiiNS
 496:                                              ; preds = %493
   %497 = load i32, ptr getelementptr inbounds nuw (i8, ptr @recent, i64 28), align 4
   %498 = icmp ult i32 %497, 4
-  br i1 %498, label %switch.lookup663, label %.invoke638
+  br i1 %498, label %switch.lookup664, label %.invoke639
 
-.invoke638:                                       ; preds = %496, %464, %433
+.invoke639:                                       ; preds = %496, %464, %433
   invoke void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.10, i32 noundef 7, ptr noundef nonnull @.str.11, i64 noundef 647, ptr noundef nonnull @__func__._ZN12ByteViewText17addHexFormatRangeER5QListIN11QTextLayout11FormatRangeEEiiiiNS_13HighlightModeE, ptr noundef nonnull @.str.12) #30
           to label %.cont unwind label %516
 
-.cont:                                            ; preds = %.invoke638
+.cont:                                            ; preds = %.invoke639
   unreachable
 
-switch.lookup663:                                 ; preds = %496
+switch.lookup664:                                 ; preds = %496
   %499 = zext nneg i32 %497 to i64
-  %switch.gep664 = getelementptr inbounds nuw i32, ptr @switch.table._ZN12ByteViewText17addHexFormatRangeER5QListIN11QTextLayout11FormatRangeEEiiiiNS_13HighlightModeE, i64 %499
-  %switch.load665 = load i32, ptr %switch.gep664, align 4
-  %500 = add nuw nsw i32 %switch.load665, 1
+  %switch.gep665 = getelementptr inbounds nuw i32, ptr @switch.table._ZN12ByteViewText17addHexFormatRangeER5QListIN11QTextLayout11FormatRangeEEiiiiNS_13HighlightModeE, i64 %499
+  %switch.load666 = load i32, ptr %switch.gep665, align 4
+  %500 = add nuw nsw i32 %switch.load666, 1
   %.sroa.speculated30.i305 = call i32 @llvm.smax.i32(i32 %2, i32 %486)
   %501 = sub i32 %.sroa.speculated30.i305, %2
   %.sroa.speculated.i306 = call i32 @llvm.smin.i32(i32 %47, i32 %490)
@@ -4082,29 +4082,29 @@ switch.lookup663:                                 ; preds = %496
   %509 = add i32 %508, %505
   %510 = sdiv i32 %502, 8
   %511 = mul i32 %500, %502
-  %512 = add nsw i32 %switch.load665, %510
+  %512 = add nsw i32 %switch.load666, %510
   %513 = add i32 %512, %511
   %514 = sub i32 %513, %508
   %515 = invoke noundef zeroext i1 @_ZN12ByteViewText14addFormatRangeER5QListIN11QTextLayout11FormatRangeEEiiNS_13HighlightModeE(ptr noundef align 8 dereferenceable_or_null(328) %0, ptr noundef nonnull align 8 dereferenceable(24) %12, i32 noundef %509, i32 noundef %514, i32 noundef 1)
           to label %_ZN12ByteViewText17addHexFormatRangeER5QListIN11QTextLayout11FormatRangeEEiiiiNS_13HighlightModeE.exit310 unwind label %516
 
-516:                                              ; preds = %.invoke638, %switch.lookup663, %switch.lookup660, %switch.lookup657
+516:                                              ; preds = %.invoke639, %switch.lookup664, %switch.lookup661, %switch.lookup658
   %517 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-_ZN12ByteViewText17addHexFormatRangeER5QListIN11QTextLayout11FormatRangeEEiiiiNS_13HighlightModeE.exit310: ; preds = %493, %_ZN12ByteViewText17addHexFormatRangeER5QListIN11QTextLayout11FormatRangeEEiiiiNS_13HighlightModeE.exit301.thread, %switch.lookup663, %92
-  %.0100 = phi i32 [ 3, %92 ], [ %484, %switch.lookup663 ], [ %484, %_ZN12ByteViewText17addHexFormatRangeER5QListIN11QTextLayout11FormatRangeEEiiiiNS_13HighlightModeE.exit301.thread ], [ %484, %493 ]
+_ZN12ByteViewText17addHexFormatRangeER5QListIN11QTextLayout11FormatRangeEEiiiiNS_13HighlightModeE.exit310: ; preds = %493, %_ZN12ByteViewText17addHexFormatRangeER5QListIN11QTextLayout11FormatRangeEEiiiiNS_13HighlightModeE.exit301.thread, %switch.lookup664, %92
+  %.0100 = phi i32 [ 3, %92 ], [ %484, %switch.lookup664 ], [ %484, %_ZN12ByteViewText17addHexFormatRangeER5QListIN11QTextLayout11FormatRangeEEiiiiNS_13HighlightModeE.exit301.thread ], [ %484, %493 ]
   %518 = getelementptr inbounds nuw i8, ptr %0, i64 194
   %519 = load i8, ptr %518, align 2, !range !15, !noundef !16
   %520 = trunc nuw i8 %519 to i1
   br i1 %520, label %.preheader, label %849
 
 .preheader:                                       ; preds = %_ZN12ByteViewText17addHexFormatRangeER5QListIN11QTextLayout11FormatRangeEEiiiiNS_13HighlightModeE.exit310
-  %.not127534 = icmp sgt i32 %2, %47
-  br i1 %.not127534, label %_ZN12ByteViewText19addAsciiFormatRangeER5QListIN11QTextLayout11FormatRangeEEiiiiNS_13HighlightModeE.exit386, label %.lr.ph540
+  %.not127535 = icmp sgt i32 %2, %47
+  br i1 %.not127535, label %_ZN12ByteViewText19addAsciiFormatRangeER5QListIN11QTextLayout11FormatRangeEEiiiiNS_13HighlightModeE.exit386, label %.lr.ph541
 
-.lr.ph540:                                        ; preds = %.preheader
+.lr.ph541:                                        ; preds = %.preheader
   %521 = xor i32 %2, -1
   %522 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %523 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -4122,17 +4122,17 @@ _ZN12ByteViewText17addHexFormatRangeER5QListIN11QTextLayout11FormatRangeEEiiiiNS
   %535 = getelementptr inbounds nuw i8, ptr %0, i64 224
   br label %537
 
-._crit_edge541:                                   ; preds = %719
+._crit_edge542:                                   ; preds = %719
   %536 = trunc nuw i8 %.196 to i1
   br i1 %536, label %721, label %_ZN12ByteViewText19addAsciiFormatRangeER5QListIN11QTextLayout11FormatRangeEEiiiiNS_13HighlightModeE.exit386
 
-537:                                              ; preds = %.lr.ph540, %719
-  %.0538 = phi i32 [ %2, %.lr.ph540 ], [ %720, %719 ]
-  %.092537 = phi i32 [ 0, %.lr.ph540 ], [ %.1, %719 ]
-  %.093536 = phi i32 [ 0, %.lr.ph540 ], [ %.194, %719 ]
-  %.095535 = phi i8 [ 0, %.lr.ph540 ], [ %.196, %719 ]
-  %.not130 = icmp ne i32 %.0538, %2
-  %538 = and i32 %.0538, 7
+537:                                              ; preds = %.lr.ph541, %719
+  %.0539 = phi i32 [ %2, %.lr.ph541 ], [ %720, %719 ]
+  %.092538 = phi i32 [ 0, %.lr.ph541 ], [ %.1, %719 ]
+  %.093537 = phi i32 [ 0, %.lr.ph541 ], [ %.194, %719 ]
+  %.095536 = phi i8 [ 0, %.lr.ph541 ], [ %.196, %719 ]
+  %.not130 = icmp ne i32 %.0539, %2
+  %538 = and i32 %.0539, 7
   %539 = icmp eq i32 %538, 0
   %or.cond153 = and i1 %.not130, %539
   br i1 %or.cond153, label %540, label %566
@@ -4146,7 +4146,7 @@ _ZN7QStringpLE5QChar.exit312:                     ; preds = %540
 
 542:                                              ; preds = %_ZN7QStringpLE5QChar.exit312
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
-  %543 = add i32 %.0538, %521
+  %543 = add i32 %.0539, %521
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %24, i8 0, i64 24, i1 false)
   %544 = load i32, ptr %522, align 8
   %545 = sdiv i32 %544, 2
@@ -4219,7 +4219,7 @@ _ZN5QListIiED2Ev.exit322:                         ; preds = %560, %_ZN17QArrayDa
   br i1 %570, label %571, label %581
 
 571:                                              ; preds = %568
-  %572 = sext i32 %.0538 to i64
+  %572 = sext i32 %.0539 to i64
   %573 = load ptr, ptr %34, align 8
   %.not.i.i.i.i323 = icmp eq ptr %573, null
   br i1 %.not.i.i.i.i323, label %_ZNK17QArrayDataPointerIcE11needsDetachEv.exit.thread.i.i.i325, label %_ZNK17QArrayDataPointerIcE11needsDetachEv.exit.i.i.i324
@@ -4241,7 +4241,7 @@ _ZNK17QArrayDataPointerIcE11needsDetachEv.exit.thread.i.i.i325: ; preds = %_ZNK1
   br label %592
 
 581:                                              ; preds = %568, %566
-  %582 = sext i32 %.0538 to i64
+  %582 = sext i32 %.0539 to i64
   %583 = load ptr, ptr %34, align 8
   %.not.i.i.i.i328 = icmp eq ptr %583, null
   br i1 %.not.i.i.i.i328, label %_ZNK17QArrayDataPointerIcE11needsDetachEv.exit.thread.i.i.i330, label %_ZNK17QArrayDataPointerIcE11needsDetachEv.exit.i.i.i329
@@ -4278,19 +4278,19 @@ _ZNK17QArrayDataPointerIcE11needsDetachEv.exit.thread.i.i.i330: ; preds = %_ZNK1
           to label %_ZN7QStringpLE5QChar.exit334 unwind label %558
 
 _ZN7QStringpLE5QChar.exit334:                     ; preds = %597
-  %600 = trunc nuw i8 %.095535 to i1
+  %600 = trunc nuw i8 %.095536 to i1
   br i1 %600, label %601, label %_ZN12ByteViewText19addAsciiFormatRangeER5QListIN11QTextLayout11FormatRangeEEiiiiNS_13HighlightModeE.exit
 
 601:                                              ; preds = %_ZN7QStringpLE5QChar.exit334
-  %602 = add i32 %.093536, -1
-  %603 = add i32 %602, %.092537
-  %604 = icmp slt i32 %.093536, 0
-  %605 = icmp slt i32 %.092537, 1
+  %602 = add i32 %.093537, -1
+  %603 = add i32 %602, %.092538
+  %604 = icmp slt i32 %.093537, 0
+  %605 = icmp slt i32 %.092538, 1
   %or.cond.i335 = or i1 %604, %605
   br i1 %or.cond.i335, label %_ZN12ByteViewText19addAsciiFormatRangeER5QListIN11QTextLayout11FormatRangeEEiiiiNS_13HighlightModeE.exit, label %606
 
 606:                                              ; preds = %601
-  %607 = icmp sgt i32 %.093536, %47
+  %607 = icmp sgt i32 %.093537, %47
   %608 = icmp slt i32 %603, %2
   %or.cond15.i = and i1 %607, %608
   br i1 %or.cond15.i, label %_ZN12ByteViewText19addAsciiFormatRangeER5QListIN11QTextLayout11FormatRangeEEiiiiNS_13HighlightModeE.exit, label %609
@@ -4310,7 +4310,7 @@ _ZN7QStringpLE5QChar.exit334:                     ; preds = %597
 .noexc339:                                        ; preds = %.noexc338
   %615 = icmp sgt i64 %613, 65535
   %.0.i17.i = select i1 %615, i32 10, i32 6
-  %.sroa.speculated25.i = call i32 @llvm.smax.i32(i32 %2, i32 %.093536)
+  %.sroa.speculated25.i = call i32 @llvm.smax.i32(i32 %2, i32 %.093537)
   %616 = sub i32 %.sroa.speculated25.i, %2
   %617 = add i32 %616, 3
   %618 = sdiv i32 %616, 8
@@ -4375,16 +4375,16 @@ _ZN7QStringD2Ev.exit5.i:                          ; preds = %641, %_ZN17QArrayDa
 
 643:                                              ; preds = %635, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i, %632
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %644 = trunc nuw i8 %.095535 to i1
-  %645 = add i32 %.092537, 1
-  %spec.select487 = select i1 %644, i32 %.093536, i32 %.0538
+  %644 = trunc nuw i8 %.095536 to i1
+  %645 = add i32 %.092538, 1
+  %spec.select487 = select i1 %644, i32 %.093537, i32 %.0539
   %spec.select488 = select i1 %644, i32 %645, i32 1
   br label %_ZN12ByteViewText19addAsciiFormatRangeER5QListIN11QTextLayout11FormatRangeEEiiiiNS_13HighlightModeE.exit
 
 _ZN12ByteViewText19addAsciiFormatRangeER5QListIN11QTextLayout11FormatRangeEEiiiiNS_13HighlightModeE.exit: ; preds = %643, %606, %601, %.noexc339, %_ZN7QStringpLE5QChar.exit334
   %.196 = phi i8 [ 0, %_ZN7QStringpLE5QChar.exit334 ], [ 0, %.noexc339 ], [ 0, %601 ], [ 0, %606 ], [ 1, %643 ]
-  %.194 = phi i32 [ %.093536, %_ZN7QStringpLE5QChar.exit334 ], [ %.093536, %.noexc339 ], [ %.093536, %601 ], [ %.093536, %606 ], [ %spec.select487, %643 ]
-  %.1 = phi i32 [ %.092537, %_ZN7QStringpLE5QChar.exit334 ], [ %.092537, %.noexc339 ], [ %.092537, %601 ], [ %.092537, %606 ], [ %spec.select488, %643 ]
+  %.194 = phi i32 [ %.093537, %_ZN7QStringpLE5QChar.exit334 ], [ %.093537, %.noexc339 ], [ %.093537, %601 ], [ %.093537, %606 ], [ %spec.select487, %643 ]
+  %.1 = phi i32 [ %.092538, %_ZN7QStringpLE5QChar.exit334 ], [ %.092538, %.noexc339 ], [ %.092538, %601 ], [ %.092538, %606 ], [ %spec.select488, %643 ]
   br i1 %42, label %646, label %676
 
 646:                                              ; preds = %_ZN12ByteViewText19addAsciiFormatRangeER5QListIN11QTextLayout11FormatRangeEEiiiiNS_13HighlightModeE.exit
@@ -4415,7 +4415,7 @@ _ZN12ByteViewText19addAsciiFormatRangeER5QListIN11QTextLayout11FormatRangeEEiiii
 654:                                              ; preds = %.noexc347
   call void @_ZN12QFontMetricsD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(8) %6) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %655 = sub i32 %.0538, %2
+  %655 = sub i32 %.0539, %2
   %656 = sext i32 %651 to i64
   %657 = load i64, ptr %40, align 8
   %658 = sub i64 %656, %657
@@ -4477,12 +4477,12 @@ _ZN5QListIiED2Ev.exit360:                         ; preds = %.body348, %_ZN17QAr
 
 676:                                              ; preds = %_ZN5QListIiED2Ev.exit356, %_ZN12ByteViewText19addAsciiFormatRangeER5QListIN11QTextLayout11FormatRangeEEiiiiNS_13HighlightModeE.exit
   %677 = load i32, ptr %526, align 8
-  %678 = icmp eq i32 %.0538, %677
+  %678 = icmp eq i32 %.0539, %677
   br i1 %678, label %682, label %679
 
 679:                                              ; preds = %676
   %680 = load i32, ptr %527, align 4
-  %681 = icmp eq i32 %.0538, %680
+  %681 = icmp eq i32 %.0539, %680
   br i1 %681, label %682, label %719
 
 682:                                              ; preds = %679, %676
@@ -4606,11 +4606,11 @@ _ZN7QStringD2Ev.exit375:                          ; preds = %715, %_ZN17QArrayDa
   br label %.body
 
 719:                                              ; preds = %679, %_ZN5QListI5QRectE6appendERKS0_.exit371
-  %720 = add i32 %.0538, 1
+  %720 = add i32 %.0539, 1
   %.not127 = icmp sgt i32 %720, %47
-  br i1 %.not127, label %._crit_edge541, label %537, !llvm.loop !55
+  br i1 %.not127, label %._crit_edge542, label %537, !llvm.loop !55
 
-721:                                              ; preds = %._crit_edge541
+721:                                              ; preds = %._crit_edge542
   %722 = add i32 %.194, -1
   %723 = add i32 %722, %.1
   %724 = icmp slt i32 %.194, 0
@@ -4662,7 +4662,7 @@ _ZN7QStringD2Ev.exit375:                          ; preds = %715, %_ZN17QArrayDa
           cleanup
   br label %.body
 
-_ZN12ByteViewText19addAsciiFormatRangeER5QListIN11QTextLayout11FormatRangeEEiiiiNS_13HighlightModeE.exit386: ; preds = %.preheader, %726, %721, %.noexc384, %._crit_edge541
+_ZN12ByteViewText19addAsciiFormatRangeER5QListIN11QTextLayout11FormatRangeEEiiiiNS_13HighlightModeE.exit386: ; preds = %.preheader, %726, %721, %.noexc384, %._crit_edge542
   %752 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %753 = load i32, ptr %752, align 8
   %754 = getelementptr inbounds nuw i8, ptr %0, i64 172

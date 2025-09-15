@@ -491,8 +491,8 @@ if.end38.i.i.i.i:                                 ; preds = %land.lhs.true32.i.i
   %.not.i.i.i.i = icmp eq i32 %30, 0
   %31 = and i32 %retval.sroa.0.0.copyload.i39.i.i.i.i, 960
   %.not94.i.i.i.i = icmp eq i32 %31, 0
-  %or.cond95.i.i.i.i = select i1 %.not.i.i.i.i, i1 true, i1 %.not94.i.i.i.i
-  %mayBeBigInt.sroa.0.0.i.i.i.i = select i1 %or.cond95.i.i.i.i, i32 458784, i32 458848
+  %or.cond97.i.i.i.i = select i1 %.not.i.i.i.i, i1 true, i1 %.not94.i.i.i.i
+  %mayBeBigInt.sroa.0.0.i.i.i.i = select i1 %or.cond97.i.i.i.i, i32 458784, i32 458848
   %call51.i.i.i.i = call noundef zeroext i1 @_ZN6hermes16isSideEffectFreeENS_4TypeE(i32 %retval.sroa.0.0.copyload.i.i.i78.i.i) #7
   br i1 %call51.i.i.i.i, label %land.lhs.true52.i.i.i.i, label %if.end62.i.i.i.i
 

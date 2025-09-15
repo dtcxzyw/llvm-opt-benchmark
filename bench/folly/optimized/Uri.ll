@@ -47455,8 +47455,8 @@ define linkonce_odr noundef zeroext i1 @_ZN5boost16re_detail_10740012perl_matche
   %20 = load ptr, ptr %19, align 8, !tbaa !911
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %22 = load ptr, ptr %21, align 8, !tbaa !123
-  %.not16 = icmp eq ptr %20, %22
-  br i1 %.not16, label %203, label %.thread
+  %.not17 = icmp eq ptr %20, %22
+  br i1 %.not17, label %203, label %.thread
 
 .thread:                                          ; preds = %10, %18
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 216
@@ -47728,11 +47728,11 @@ _ZN5boost16re_detail_10740012perl_matcherIPKcSaINS_9sub_matchIS3_EEENS_12regex_t
   %168 = phi ptr [ %160, %157 ], [ %.pre.i10, %165 ]
   %169 = getelementptr inbounds i8, ptr %168, i64 -48
   %.pre = load ptr, ptr %145, align 8, !tbaa !123
-  %.pre19 = load ptr, ptr %4, align 8, !tbaa !140
+  %.pre20 = load ptr, ptr %4, align 8, !tbaa !140
   br label %170
 
 170:                                              ; preds = %_ZN5boost16re_detail_10740012perl_matcherIPKcSaINS_9sub_matchIS3_EEENS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE12extend_stackEv.exit.i9, %_ZN5boost13match_resultsIPKcSaINS_9sub_matchIS2_EEEEaSERKS6_.exit
-  %171 = phi ptr [ %.pre19, %_ZN5boost16re_detail_10740012perl_matcherIPKcSaINS_9sub_matchIS3_EEENS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE12extend_stackEv.exit.i9 ], [ %143, %_ZN5boost13match_resultsIPKcSaINS_9sub_matchIS2_EEEEaSERKS6_.exit ]
+  %171 = phi ptr [ %.pre20, %_ZN5boost16re_detail_10740012perl_matcherIPKcSaINS_9sub_matchIS3_EEENS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE12extend_stackEv.exit.i9 ], [ %143, %_ZN5boost13match_resultsIPKcSaINS_9sub_matchIS2_EEEEaSERKS6_.exit ]
   %172 = phi ptr [ %.pre, %_ZN5boost16re_detail_10740012perl_matcherIPKcSaINS_9sub_matchIS3_EEENS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE12extend_stackEv.exit.i9 ], [ %146, %_ZN5boost13match_resultsIPKcSaINS_9sub_matchIS2_EEEEaSERKS6_.exit ]
   %.0.i7 = phi ptr [ %169, %_ZN5boost16re_detail_10740012perl_matcherIPKcSaINS_9sub_matchIS3_EEENS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE12extend_stackEv.exit.i9 ], [ %151, %_ZN5boost13match_resultsIPKcSaINS_9sub_matchIS2_EEEEaSERKS6_.exit ]
   %173 = load ptr, ptr %3, align 8, !tbaa !139

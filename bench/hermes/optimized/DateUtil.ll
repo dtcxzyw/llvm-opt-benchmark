@@ -5346,8 +5346,8 @@ _ZNK6hermes2vm10StringView14const_iteratordeEv.exit: ; preds = %land.lhs.true
   %call15 = tail call i32 @isspace(i32 noundef %conv14) #18
   %tobool.not = icmp ne i32 %call15, 0
   %cmp.not = icmp eq i16 %23, 45
-  %or.cond39 = or i1 %tobool.not, %cmp.not
-  br i1 %or.cond39, label %return, label %if.else.i
+  %or.cond40 = or i1 %tobool.not, %cmp.not
+  br i1 %or.cond40, label %return, label %if.else.i
 
 _ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread: ; preds = %land.lhs.true
   %24 = load i8, ptr %21, align 1

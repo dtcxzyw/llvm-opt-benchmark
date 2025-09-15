@@ -863,24 +863,24 @@ hash_match.exit.thread83.us.us.us.preheader.i.i:  ; preds = %.lr.ph.us.us.i.i
   %214 = load i32, ptr %15, align 4, !tbaa !71
   %215 = and i32 %214, 2
   %.not68.i = icmp eq i32 %215, 0
-  %.pre183.i = load ptr, ptr %37, align 8, !tbaa !70
+  %.pre184.i = load ptr, ptr %37, align 8, !tbaa !70
   br i1 %.not68.i, label %.thread125.i, label %216
 
 216:                                              ; preds = %213
-  %.not.i94.i = icmp eq ptr %.pre183.i, null
+  %.not.i94.i = icmp eq ptr %.pre184.i, null
   br i1 %.not.i94.i, label %.thread125.i, label %isNumericURL.exit.i
 
 isNumericURL.exit.i:                              ; preds = %216
-  %217 = call i32 @cli_regexec(ptr noundef %94, ptr noundef nonnull %.pre183.i, i64 noundef 0, ptr noundef null, i32 noundef 0) #17
+  %217 = call i32 @cli_regexec(ptr noundef %94, ptr noundef nonnull %.pre184.i, i64 noundef 0, ptr noundef null, i32 noundef 0) #17
   %.not3.i.not.i = icmp eq i32 %217, 0
   br i1 %.not3.i.not.i, label %219, label %isNumericURL.exit..thread125_crit_edge.i
 
 isNumericURL.exit..thread125_crit_edge.i:         ; preds = %isNumericURL.exit.i
-  %.pre182.i = load ptr, ptr %37, align 8, !tbaa !70
+  %.pre183.i = load ptr, ptr %37, align 8, !tbaa !70
   br label %.thread125.i
 
 .thread125.i:                                     ; preds = %isNumericURL.exit..thread125_crit_edge.i, %216, %213
-  %218 = phi ptr [ %.pre182.i, %isNumericURL.exit..thread125_crit_edge.i ], [ null, %216 ], [ %.pre183.i, %213 ]
+  %218 = phi ptr [ %.pre183.i, %isNumericURL.exit..thread125_crit_edge.i ], [ null, %216 ], [ %.pre184.i, %213 ]
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.28, ptr noundef %218) #17
   br label %.thread160.i
 

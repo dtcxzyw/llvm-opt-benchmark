@@ -3300,8 +3300,8 @@ define internal fastcc zeroext i1 @PrintQueryResult(ptr noundef %0, i1 noundef z
   br i1 %18, label %.lr.ph.i, label %StoreQueryTuple.exit
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %31
-  %.02127.i = phi i32 [ %32, %31 ], [ 0, %.preheader.i ]
-  %19 = tail call ptr @PQfname(ptr noundef nonnull %0, i32 noundef %.02127.i) #16
+  %.02128.i = phi i32 [ %32, %31 ], [ 0, %.preheader.i ]
+  %19 = tail call ptr @PQfname(ptr noundef nonnull %0, i32 noundef %.02128.i) #16
   %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 232), align 8
   %21 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.24, ptr noundef %20, ptr noundef %19) #16
   %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 384), align 8
@@ -3313,12 +3313,12 @@ define internal fastcc zeroext i1 @PrintQueryResult(ptr noundef %0, i1 noundef z
   br label %31
 
 24:                                               ; preds = %.lr.ph.i
-  %25 = tail call i32 @PQgetisnull(ptr noundef nonnull %0, i32 noundef 0, i32 noundef %.02127.i) #16
+  %25 = tail call i32 @PQgetisnull(ptr noundef nonnull %0, i32 noundef 0, i32 noundef %.02128.i) #16
   %.not.i = icmp eq i32 %25, 0
   br i1 %.not.i, label %26, label %28
 
 26:                                               ; preds = %24
-  %27 = tail call ptr @PQgetvalue(ptr noundef nonnull %0, i32 noundef 0, i32 noundef %.02127.i) #16
+  %27 = tail call ptr @PQgetvalue(ptr noundef nonnull %0, i32 noundef 0, i32 noundef %.02128.i) #16
   br label %28
 
 28:                                               ; preds = %26, %24
@@ -3329,7 +3329,7 @@ define internal fastcc zeroext i1 @PrintQueryResult(ptr noundef %0, i1 noundef z
   br i1 %30, label %31, label %StoreQueryTuple.exit
 
 31:                                               ; preds = %28, %.thread.i
-  %32 = add nuw nsw i32 %.02127.i, 1
+  %32 = add nuw nsw i32 %.02128.i, 1
   %33 = tail call i32 @PQnfields(ptr noundef nonnull %0) #16
   %34 = icmp slt i32 %32, %33
   br i1 %34, label %.lr.ph.i, label %StoreQueryTuple.exit, !llvm.loop !24

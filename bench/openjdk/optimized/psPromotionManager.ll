@@ -1034,16 +1034,16 @@ define hidden void @_ZN18PSPromotionManager18drain_stacks_depthEb(ptr noundef no
 
 19:                                               ; preds = %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.thread109, %2
   %20 = phi ptr [ %520, %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.thread109 ], [ %.pre, %2 ]
-  %.not119 = icmp eq ptr %20, null
-  br i1 %.not119, label %_ZN17OverflowTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE12pop_overflowERS0_.exit.preheader, label %.lr.ph
+  %.not121 = icmp eq ptr %20, null
+  br i1 %.not121, label %_ZN17OverflowTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE12pop_overflowERS0_.exit.preheader, label %.lr.ph
 
 _ZN17OverflowTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE12pop_overflowERS0_.exit.preheader: ; preds = %_ZN18PSPromotionManager29process_popped_location_depthE11ScannerTask.exit, %19
   %21 = load volatile i32, ptr %14, align 8
   %22 = load volatile i32, ptr %15, align 8
   %23 = sub i32 %21, %22
   %24 = and i32 %23, 131071
-  %.not.i8120 = icmp ugt i32 %24, %5
-  br i1 %.not.i8120, label %.lr.ph121, label %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.thread109
+  %.not.i8122 = icmp ugt i32 %24, %5
+  br i1 %.not.i8122, label %.lr.ph123, label %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.thread109
 
 .lr.ph:                                           ; preds = %19, %_ZN18PSPromotionManager29process_popped_location_depthE11ScannerTask.exit
   %25 = phi ptr [ %284, %_ZN18PSPromotionManager29process_popped_location_depthE11ScannerTask.exit ], [ %20, %19 ]
@@ -1098,8 +1098,8 @@ _ZN5StackI11ScannerTaskL8MEMFLAGS5EE11pop_segmentEv.exit.i.i: ; preds = %42, %38
   %53 = load volatile i32, ptr %15, align 8
   %54 = sub i32 %52, %53
   %55 = and i32 %54, 131070
-  %.not114 = icmp eq i32 %55, 131070
-  br i1 %.not114, label %_ZN17OverflowTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE21try_push_to_taskqueueES0_.exit, label %_ZN17OverflowTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE21try_push_to_taskqueueES0_.exit.thread
+  %.not115 = icmp eq i32 %55, 131070
+  br i1 %.not115, label %_ZN17OverflowTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE21try_push_to_taskqueueES0_.exit, label %_ZN17OverflowTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE21try_push_to_taskqueueES0_.exit.thread
 
 _ZN17OverflowTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE21try_push_to_taskqueueES0_.exit.thread: ; preds = %51
   %56 = load ptr, ptr %16, align 8
@@ -1546,7 +1546,7 @@ _ZN18PSPromotionManager29process_popped_location_depthE11ScannerTask.exit: ; pre
   %.not = icmp eq ptr %284, null
   br i1 %.not, label %_ZN17OverflowTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE12pop_overflowERS0_.exit.preheader, label %.lr.ph, !llvm.loop !17
 
-.lr.ph121:                                        ; preds = %_ZN17OverflowTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE12pop_overflowERS0_.exit.preheader, %_ZN18PSPromotionManager29process_popped_location_depthE11ScannerTask.exit23
+.lr.ph123:                                        ; preds = %_ZN17OverflowTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE12pop_overflowERS0_.exit.preheader, %_ZN18PSPromotionManager29process_popped_location_depthE11ScannerTask.exit23
   %285 = phi i32 [ %516, %_ZN18PSPromotionManager29process_popped_location_depthE11ScannerTask.exit23 ], [ %21, %_ZN17OverflowTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE12pop_overflowERS0_.exit.preheader ]
   %286 = add i32 %285, 131071
   %287 = and i32 %286, 131071
@@ -1566,7 +1566,7 @@ _ZN18PSPromotionManager29process_popped_location_depthE11ScannerTask.exit: ; pre
     i32 0, label %296
   ]
 
-296:                                              ; preds = %.lr.ph121, %.lr.ph121
+296:                                              ; preds = %.lr.ph123, %.lr.ph123
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !13
   %297 = load volatile i64, ptr %15, align 8
   %.sroa.016.0.extract.trunc.i.i = trunc i64 %297 to i32
@@ -1590,7 +1590,7 @@ _ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit: 
   %304 = load volatile i32, ptr %15, align 8
   br label %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.thread109
 
-_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.thread: ; preds = %.lr.ph121, %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.thread112
+_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.thread: ; preds = %.lr.ph123, %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.thread112
   %305 = and i64 %291, 2
   %.not.i9 = icmp eq i64 %305, 0
   br i1 %.not.i9, label %469, label %306
@@ -2002,12 +2002,12 @@ _ZN18PSPromotionManager22copy_to_survivor_spaceILb0EEEP7oopDescS2_.exit.i1.i20: 
 _ZN18PSPromotionManager29process_popped_location_depthE11ScannerTask.exit23.sink.split: ; preds = %_ZN18PSPromotionManager22copy_to_survivor_spaceILb0EEEP7oopDescS2_.exit.i1.i20, %497
   %.sink = phi i64 [ %498, %497 ], [ %291, %_ZN18PSPromotionManager22copy_to_survivor_spaceILb0EEEP7oopDescS2_.exit.i1.i20 ]
   %.pn = load ptr, ptr @_ZN10PSScavenge11_card_tableE, align 8
-  %.sink158.in = getelementptr inbounds nuw i8, ptr %.pn, i64 48
-  %.sink158 = load ptr, ptr %.sink158.in, align 8
+  %.sink160.in = getelementptr inbounds nuw i8, ptr %.pn, i64 48
+  %.sink160 = load ptr, ptr %.sink160.in, align 8
   %512 = load i32, ptr @_ZN9CardTable11_card_shiftE, align 4
   %513 = zext nneg i32 %512 to i64
   %514 = lshr i64 %.sink, %513
-  %515 = getelementptr inbounds i8, ptr %.sink158, i64 %514
+  %515 = getelementptr inbounds i8, ptr %.sink160, i64 %514
   store i8 0, ptr %515, align 1
   br label %_ZN18PSPromotionManager29process_popped_location_depthE11ScannerTask.exit23
 
@@ -2017,7 +2017,7 @@ _ZN18PSPromotionManager29process_popped_location_depthE11ScannerTask.exit23: ; p
   %518 = sub i32 %516, %517
   %519 = and i32 %518, 131071
   %.not.i8 = icmp ugt i32 %519, %5
-  br i1 %.not.i8, label %.lr.ph121, label %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.thread109, !llvm.loop !20
+  br i1 %.not.i8, label %.lr.ph123, label %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.thread109, !llvm.loop !20
 
 _ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.thread109: ; preds = %_ZN18PSPromotionManager29process_popped_location_depthE11ScannerTask.exit23, %_ZN17OverflowTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE12pop_overflowERS0_.exit.preheader, %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit
   %520 = load ptr, ptr %6, align 8

@@ -2850,18 +2850,18 @@ define internal fastcc void @transformIndexConstraints(ptr noundef nonnull captu
   %320 = load ptr, ptr %319, align 8
   %321 = getelementptr inbounds nuw i8, ptr %320, i64 4
   %.not452.i = icmp eq ptr %320, null
-  br i1 %.not452.i, label %.critedge468.i, label %.lr.ph604.i
+  br i1 %.not452.i, label %.critedge468.i, label %.lr.ph605.i
 
-.lr.ph604.i:                                      ; preds = %318
+.lr.ph605.i:                                      ; preds = %318
   %322 = getelementptr inbounds nuw i8, ptr %320, i64 16
   %323 = load i32, ptr %321, align 4
   %324 = icmp sgt i32 %323, 0
-  br i1 %324, label %.lr.ph607.i, label %.critedge468.i
+  br i1 %324, label %.lr.ph608.i, label %.critedge468.i
 
-.lr.ph607.i:                                      ; preds = %.lr.ph604.i, %.lr.ph607.i
-  %indvars.iv684.i = phi i64 [ %indvars.iv.next685.i, %.lr.ph607.i ], [ 0, %.lr.ph604.i ]
+.lr.ph608.i:                                      ; preds = %.lr.ph605.i, %.lr.ph608.i
+  %indvars.iv685.i = phi i64 [ %indvars.iv.next686.i, %.lr.ph608.i ], [ 0, %.lr.ph605.i ]
   %325 = load ptr, ptr %322, align 8
-  %326 = getelementptr inbounds nuw %union.ListCell, ptr %325, i64 %indvars.iv684.i
+  %326 = getelementptr inbounds nuw %union.ListCell, ptr %325, i64 %indvars.iv685.i
   %327 = load ptr, ptr %326, align 8
   %328 = getelementptr i8, ptr %327, i64 16
   %.val485.i = load ptr, ptr %328, align 8
@@ -2874,61 +2874,61 @@ define internal fastcc void @transformIndexConstraints(ptr noundef nonnull captu
   %334 = load ptr, ptr %78, align 8
   %335 = tail call ptr @lappend(ptr noundef %334, ptr noundef %331) #8
   store ptr %335, ptr %78, align 8
-  %indvars.iv.next685.i = add nuw nsw i64 %indvars.iv684.i, 1
+  %indvars.iv.next686.i = add nuw nsw i64 %indvars.iv685.i, 1
   %336 = load i32, ptr %321, align 4
   %337 = sext i32 %336 to i64
-  %338 = icmp slt i64 %indvars.iv.next685.i, %337
-  br i1 %338, label %.lr.ph607.i, label %.critedge468.i
+  %338 = icmp slt i64 %indvars.iv.next686.i, %337
+  br i1 %338, label %.lr.ph608.i, label %.critedge468.i
 
 339:                                              ; preds = %315
   %340 = getelementptr inbounds nuw i8, ptr %17, i64 48
   %341 = load ptr, ptr %340, align 8
   %.not435.i = icmp eq ptr %341, null
-  br i1 %.not435.i, label %._crit_edge600.i, label %.lr.ph599.i
+  br i1 %.not435.i, label %._crit_edge601.i, label %.lr.ph600.i
 
-.lr.ph599.i:                                      ; preds = %339
+.lr.ph600.i:                                      ; preds = %339
   %342 = getelementptr inbounds nuw i8, ptr %341, i64 4
   %343 = getelementptr inbounds nuw i8, ptr %341, i64 16
   %344 = load i32, ptr %342, align 4
   %345 = icmp sgt i32 %344, 0
-  br i1 %345, label %.lr.ph, label %._crit_edge600.i
+  br i1 %345, label %.lr.ph, label %._crit_edge601.i
 
-._crit_edge600.i:                                 ; preds = %.thread523.i, %.lr.ph599.i, %339
+._crit_edge601.i:                                 ; preds = %.thread523.i, %.lr.ph600.i, %339
   %346 = load i8, ptr %47, align 8, !range !4, !noundef !5
   %347 = trunc nuw i8 %346 to i1
   br i1 %347, label %565, label %.critedge468.i
 
-.lr.ph:                                           ; preds = %.lr.ph599.i, %.thread523.i
-  %indvars.iv681.i203 = phi i64 [ %indvars.iv.next682.i, %.thread523.i ], [ 0, %.lr.ph599.i ]
+.lr.ph:                                           ; preds = %.lr.ph600.i, %.thread523.i
+  %indvars.iv682.i203 = phi i64 [ %indvars.iv.next683.i, %.thread523.i ], [ 0, %.lr.ph600.i ]
   %348 = load ptr, ptr %343, align 8
-  %349 = getelementptr inbounds nuw %union.ListCell, ptr %348, i64 %indvars.iv681.i203
+  %349 = getelementptr inbounds nuw %union.ListCell, ptr %348, i64 %indvars.iv682.i203
   %350 = load ptr, ptr %349, align 8
   %351 = getelementptr inbounds nuw i8, ptr %350, i64 8
   %352 = load ptr, ptr %351, align 8
   %353 = load ptr, ptr %11, align 8
   %.not437.i = icmp eq ptr %353, null
-  br i1 %.not437.i, label %._crit_edge565.split.us.i, label %.lr.ph564.i
+  br i1 %.not437.i, label %._crit_edge566.split.us.i, label %.lr.ph565.i
 
-.lr.ph564.i:                                      ; preds = %.lr.ph
+.lr.ph565.i:                                      ; preds = %.lr.ph
   %354 = getelementptr inbounds nuw i8, ptr %353, i64 4
   %355 = load i32, ptr %354, align 4
   %356 = icmp sgt i32 %355, 0
-  br i1 %356, label %.lr.ph568.i, label %._crit_edge565.split.us.i
+  br i1 %356, label %.lr.ph569.i, label %._crit_edge566.split.us.i
 
-.lr.ph568.i:                                      ; preds = %.lr.ph564.i
+.lr.ph569.i:                                      ; preds = %.lr.ph565.i
   %357 = getelementptr inbounds nuw i8, ptr %353, i64 16
   %358 = load ptr, ptr %357, align 8
   %wide.trip.count.i = zext nneg i32 %355 to i64
   br label %360
 
 359:                                              ; preds = %360
-  %indvars.iv.next656.i = add nuw nsw i64 %indvars.iv655.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next656.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge565.split.us.i, label %360
+  %indvars.iv.next657.i = add nuw nsw i64 %indvars.iv656.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next657.i, %wide.trip.count.i
+  br i1 %exitcond.not.i, label %._crit_edge566.split.us.i, label %360
 
-360:                                              ; preds = %359, %.lr.ph568.i
-  %indvars.iv655.i = phi i64 [ 0, %.lr.ph568.i ], [ %indvars.iv.next656.i, %359 ]
-  %361 = getelementptr inbounds nuw %union.ListCell, ptr %358, i64 %indvars.iv655.i
+360:                                              ; preds = %359, %.lr.ph569.i
+  %indvars.iv656.i = phi i64 [ 0, %.lr.ph569.i ], [ %indvars.iv.next657.i, %359 ]
+  %361 = getelementptr inbounds nuw %union.ListCell, ptr %358, i64 %indvars.iv656.i
   %362 = load ptr, ptr %361, align 8
   %363 = getelementptr inbounds nuw i8, ptr %362, i64 8
   %364 = load ptr, ptr %363, align 8
@@ -2950,33 +2950,33 @@ define internal fastcc void @transformIndexConstraints(ptr noundef nonnull captu
   %373 = getelementptr inbounds nuw i8, ptr %362, i64 35
   %374 = load i8, ptr %373, align 1, !range !4, !noundef !5
   %375 = trunc nuw i8 %374 to i1
-  br i1 %375, label %.preheader542.i, label %401
+  br i1 %375, label %.preheader543.i, label %401
 
-.preheader542.i:                                  ; preds = %372
+.preheader543.i:                                  ; preds = %372
   %376 = load ptr, ptr %10, align 8
   %.not447.i = icmp eq ptr %376, null
   %377 = getelementptr inbounds nuw i8, ptr %376, i64 16
-  br i1 %.not447.i, label %.critedge473.thread.i, label %.preheader542.split.i
+  br i1 %.not447.i, label %.critedge473.thread.i, label %.preheader543.split.i
 
-.preheader542.split.i:                            ; preds = %.preheader542.i
+.preheader543.split.i:                            ; preds = %.preheader543.i
   %378 = getelementptr inbounds nuw i8, ptr %376, i64 4
   %379 = load i32, ptr %378, align 4
   %380 = icmp sgt i32 %379, 0
-  br i1 %380, label %.lr.ph577.i, label %.critedge473.thread.i
+  br i1 %380, label %.lr.ph578.i, label %.critedge473.thread.i
 
-.lr.ph577.i:                                      ; preds = %.preheader542.split.i
+.lr.ph578.i:                                      ; preds = %.preheader543.split.i
   %381 = load ptr, ptr %377, align 8
-  %wide.trip.count661.i = zext nneg i32 %379 to i64
+  %wide.trip.count662.i = zext nneg i32 %379 to i64
   br label %383
 
 382:                                              ; preds = %383
-  %indvars.iv.next659.i = add nuw nsw i64 %indvars.iv658.i, 1
-  %exitcond662.not.i = icmp eq i64 %indvars.iv.next659.i, %wide.trip.count661.i
-  br i1 %exitcond662.not.i, label %.critedge473.thread.i, label %383
+  %indvars.iv.next660.i = add nuw nsw i64 %indvars.iv659.i, 1
+  %exitcond663.not.i = icmp eq i64 %indvars.iv.next660.i, %wide.trip.count662.i
+  br i1 %exitcond663.not.i, label %.critedge473.thread.i, label %383
 
-383:                                              ; preds = %382, %.lr.ph577.i
-  %indvars.iv658.i = phi i64 [ 0, %.lr.ph577.i ], [ %indvars.iv.next659.i, %382 ]
-  %384 = getelementptr inbounds nuw %union.ListCell, ptr %381, i64 %indvars.iv658.i
+383:                                              ; preds = %382, %.lr.ph578.i
+  %indvars.iv659.i = phi i64 [ 0, %.lr.ph578.i ], [ %indvars.iv.next660.i, %382 ]
+  %384 = getelementptr inbounds nuw %union.ListCell, ptr %381, i64 %indvars.iv659.i
   %385 = load ptr, ptr %384, align 8
   %386 = getelementptr inbounds nuw i8, ptr %385, i64 48
   %387 = load ptr, ptr %386, align 8
@@ -2987,15 +2987,15 @@ define internal fastcc void @transformIndexConstraints(ptr noundef nonnull captu
   %391 = load ptr, ptr %390, align 8
   %392 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %391, ptr noundef nonnull dereferenceable(1) %352) #10
   %393 = icmp eq i32 %392, 0
-  br i1 %393, label %.split574.i, label %382
+  br i1 %393, label %.split575.i, label %382
 
-.split574.i:                                      ; preds = %383
+.split575.i:                                      ; preds = %383
   %394 = getelementptr inbounds nuw i8, ptr %385, i64 21
   %395 = load i8, ptr %394, align 1, !range !4, !noundef !5
   %396 = trunc nuw i8 %395 to i1
   br i1 %396, label %397, label %.critedge473.thread.i
 
-397:                                              ; preds = %.split574.i
+397:                                              ; preds = %.split575.i
   %398 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   tail call void @llvm.assume(i1 %398)
   %399 = tail call i32 @errcode(i32 noundef 16801924) #8
@@ -3012,30 +3012,30 @@ define internal fastcc void @transformIndexConstraints(ptr noundef nonnull captu
   store ptr %405, ptr %10, align 8
   br label %.critedge473.thread.i
 
-._crit_edge565.split.us.i:                        ; preds = %359, %.lr.ph564.i, %.lr.ph
+._crit_edge566.split.us.i:                        ; preds = %359, %.lr.ph565.i, %.lr.ph
   %406 = tail call ptr @SystemAttributeByName(ptr noundef %352) #8
   %.not439.i = icmp eq ptr %406, null
   br i1 %.not439.i, label %407, label %.critedge473.thread.i
 
-407:                                              ; preds = %._crit_edge565.split.us.i
+407:                                              ; preds = %._crit_edge566.split.us.i
   %408 = load ptr, ptr %12, align 8
   %.not440.i = icmp eq ptr %408, null
-  br i1 %.not440.i, label %.critedge473.thread515.i, label %.preheader541.i
+  br i1 %.not440.i, label %.critedge473.thread515.i, label %.preheader542.i
 
-.preheader541.i:                                  ; preds = %407
+.preheader542.i:                                  ; preds = %407
   %409 = getelementptr inbounds nuw i8, ptr %408, i64 4
   %410 = load i32, ptr %409, align 4
-  %.not442582.i = icmp sgt i32 %410, 0
-  br i1 %.not442582.i, label %.lr.ph584.i, label %.critedge473.thread515.i
+  %.not442583.i = icmp sgt i32 %410, 0
+  br i1 %.not442583.i, label %.lr.ph585.i, label %.critedge473.thread515.i
 
-.lr.ph584.i:                                      ; preds = %.preheader541.i
+.lr.ph585.i:                                      ; preds = %.preheader542.i
   %411 = getelementptr inbounds nuw i8, ptr %408, i64 16
   br label %412
 
-412:                                              ; preds = %._crit_edge581.i, %.lr.ph584.i
-  %indvars.iv668.i = phi i64 [ 0, %.lr.ph584.i ], [ %indvars.iv.next669.i, %._crit_edge581.i ]
+412:                                              ; preds = %._crit_edge582.i, %.lr.ph585.i
+  %indvars.iv669.i = phi i64 [ 0, %.lr.ph585.i ], [ %indvars.iv.next670.i, %._crit_edge582.i ]
   %413 = load ptr, ptr %411, align 8
-  %414 = getelementptr inbounds nuw %union.ListCell, ptr %413, i64 %indvars.iv668.i
+  %414 = getelementptr inbounds nuw %union.ListCell, ptr %413, i64 %indvars.iv669.i
   %415 = load ptr, ptr %414, align 8
   %416 = tail call ptr @table_openrv(ptr noundef %415, i32 noundef 1) #8
   %417 = getelementptr inbounds nuw i8, ptr %416, i64 56
@@ -3063,18 +3063,18 @@ define internal fastcc void @transformIndexConstraints(ptr noundef nonnull captu
   %429 = load ptr, ptr %428, align 8
   %430 = load i32, ptr %429, align 8
   %431 = icmp sgt i32 %430, 0
-  br i1 %431, label %.lr.ph580.i, label %._crit_edge581.i
+  br i1 %431, label %.lr.ph581.i, label %._crit_edge582.i
 
-.lr.ph580.i:                                      ; preds = %427
+.lr.ph581.i:                                      ; preds = %427
   %432 = zext nneg i32 %430 to i64
   %433 = shl nuw nsw i64 %432, 4
   %434 = getelementptr i8, ptr %429, i64 %433
   %435 = getelementptr i8, ptr %434, i64 24
   br label %436
 
-436:                                              ; preds = %456, %.lr.ph580.i
-  %indvars.iv663.i = phi i64 [ 0, %.lr.ph580.i ], [ %indvars.iv.next664.i, %456 ]
-  %437 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %435, i64 %indvars.iv663.i
+436:                                              ; preds = %456, %.lr.ph581.i
+  %indvars.iv664.i = phi i64 [ 0, %.lr.ph581.i ], [ %indvars.iv.next665.i, %456 ]
+  %437 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %435, i64 %indvars.iv664.i
   %438 = getelementptr inbounds nuw i8, ptr %437, i64 91
   %439 = load i8, ptr %438, align 1, !range !4, !noundef !5
   %440 = trunc nuw i8 %439 to i1
@@ -3107,19 +3107,19 @@ define internal fastcc void @transformIndexConstraints(ptr noundef nonnull captu
   br label %.critedge473.thread.i
 
 456:                                              ; preds = %441, %436
-  %indvars.iv.next664.i = add nuw nsw i64 %indvars.iv663.i, 1
-  %exitcond667.not.i = icmp eq i64 %indvars.iv.next664.i, %432
-  br i1 %exitcond667.not.i, label %._crit_edge581.i, label %436, !llvm.loop !11
+  %indvars.iv.next665.i = add nuw nsw i64 %indvars.iv664.i, 1
+  %exitcond668.not.i = icmp eq i64 %indvars.iv.next665.i, %432
+  br i1 %exitcond668.not.i, label %._crit_edge582.i, label %436, !llvm.loop !11
 
-._crit_edge581.i:                                 ; preds = %456, %427
+._crit_edge582.i:                                 ; preds = %456, %427
   tail call void @table_close(ptr noundef nonnull %416, i32 noundef 0) #8
-  %indvars.iv.next669.i = add nuw nsw i64 %indvars.iv668.i, 1
+  %indvars.iv.next670.i = add nuw nsw i64 %indvars.iv669.i, 1
   %457 = load i32, ptr %409, align 4
   %458 = sext i32 %457 to i64
-  %.not442.i = icmp slt i64 %indvars.iv.next669.i, %458
+  %.not442.i = icmp slt i64 %indvars.iv.next670.i, %458
   br i1 %.not442.i, label %412, label %.critedge473.thread515.i, !llvm.loop !12
 
-.critedge473.thread515.i:                         ; preds = %._crit_edge581.i, %.preheader541.i, %407
+.critedge473.thread515.i:                         ; preds = %._crit_edge582.i, %.preheader542.i, %407
   %459 = load i8, ptr %9, align 1, !range !4, !noundef !5
   %460 = trunc nuw i8 %459 to i1
   br i1 %460, label %.critedge473.thread.i, label %461
@@ -3136,36 +3136,36 @@ define internal fastcc void @transformIndexConstraints(ptr noundef nonnull captu
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2728, ptr noundef nonnull @__func__.transformIndexConstraint) #8
   unreachable
 
-.critedge473.thread.i:                            ; preds = %382, %.critedge473.thread515.i, %.thread503.i, %._crit_edge565.split.us.i, %401, %.split574.i, %.preheader542.split.i, %.preheader542.i, %369, %.split.i
-  %469 = phi i1 [ false, %.critedge473.thread515.i ], [ true, %401 ], [ true, %369 ], [ true, %.split.i ], [ true, %._crit_edge565.split.us.i ], [ true, %.thread503.i ], [ true, %.preheader542.split.i ], [ true, %.split574.i ], [ true, %.preheader542.i ], [ true, %382 ]
-  %.0394510.i = phi i32 [ 0, %.critedge473.thread515.i ], [ 0, %401 ], [ 0, %369 ], [ 0, %.split.i ], [ 0, %._crit_edge565.split.us.i ], [ %447, %.thread503.i ], [ 0, %.preheader542.split.i ], [ 0, %.split574.i ], [ 0, %.preheader542.i ], [ 0, %382 ]
-  %spec.select471494509.i = phi ptr [ null, %.critedge473.thread515.i ], [ %362, %401 ], [ %362, %369 ], [ %362, %.split.i ], [ null, %._crit_edge565.split.us.i ], [ null, %.thread503.i ], [ %362, %.preheader542.split.i ], [ %362, %.split574.i ], [ %362, %.preheader542.i ], [ %362, %382 ]
+.critedge473.thread.i:                            ; preds = %382, %.critedge473.thread515.i, %.thread503.i, %._crit_edge566.split.us.i, %401, %.split575.i, %.preheader543.split.i, %.preheader543.i, %369, %.split.i
+  %469 = phi i1 [ false, %.critedge473.thread515.i ], [ true, %401 ], [ true, %369 ], [ true, %.split.i ], [ true, %._crit_edge566.split.us.i ], [ true, %.thread503.i ], [ true, %.preheader543.split.i ], [ true, %.split575.i ], [ true, %.preheader543.i ], [ true, %382 ]
+  %.0394510.i = phi i32 [ 0, %.critedge473.thread515.i ], [ 0, %401 ], [ 0, %369 ], [ 0, %.split.i ], [ 0, %._crit_edge566.split.us.i ], [ %447, %.thread503.i ], [ 0, %.preheader543.split.i ], [ 0, %.split575.i ], [ 0, %.preheader543.i ], [ 0, %382 ]
+  %spec.select471494509.i = phi ptr [ null, %.critedge473.thread515.i ], [ %362, %401 ], [ %362, %369 ], [ %362, %.split.i ], [ null, %._crit_edge566.split.us.i ], [ null, %.thread503.i ], [ %362, %.preheader543.split.i ], [ %362, %.split575.i ], [ %362, %.preheader543.i ], [ %362, %382 ]
   %470 = load ptr, ptr %76, align 8
   %.not448.i = icmp eq ptr %470, null
-  br i1 %.not448.i, label %.critedge475.i, label %.lr.ph586.i
+  br i1 %.not448.i, label %.critedge475.i, label %.lr.ph587.i
 
-.lr.ph586.i:                                      ; preds = %.critedge473.thread.i
+.lr.ph587.i:                                      ; preds = %.critedge473.thread.i
   %471 = getelementptr inbounds nuw i8, ptr %470, i64 4
   %472 = load i32, ptr %471, align 4
   %473 = icmp sgt i32 %472, 0
-  br i1 %473, label %.lr.ph592.i, label %.critedge475.i
+  br i1 %473, label %.lr.ph593.i, label %.critedge475.i
 
-.lr.ph592.i:                                      ; preds = %.lr.ph586.i
+.lr.ph593.i:                                      ; preds = %.lr.ph587.i
   %474 = getelementptr inbounds nuw i8, ptr %470, i64 16
   %475 = load ptr, ptr %474, align 8
-  %wide.trip.count674.i = zext nneg i32 %472 to i64
+  %wide.trip.count675.i = zext nneg i32 %472 to i64
   br label %476
 
-476:                                              ; preds = %502, %.lr.ph592.i
-  %indvars.iv671.i = phi i64 [ 0, %.lr.ph592.i ], [ %indvars.iv.next672.i, %502 ]
-  %477 = getelementptr inbounds nuw %union.ListCell, ptr %475, i64 %indvars.iv671.i
+476:                                              ; preds = %502, %.lr.ph593.i
+  %indvars.iv672.i = phi i64 [ 0, %.lr.ph593.i ], [ %indvars.iv.next673.i, %502 ]
+  %477 = getelementptr inbounds nuw %union.ListCell, ptr %475, i64 %indvars.iv672.i
   %478 = load ptr, ptr %477, align 8
   %479 = getelementptr inbounds nuw i8, ptr %478, i64 8
   %480 = load ptr, ptr %479, align 8
   %.not451.i = icmp eq ptr %480, null
   br i1 %.not451.i, label %502, label %483
 
-.critedge475.i:                                   ; preds = %502, %.lr.ph586.i, %.critedge473.thread.i
+.critedge475.i:                                   ; preds = %502, %.lr.ph587.i, %.critedge473.thread.i
   %481 = load i8, ptr %47, align 8, !range !4, !noundef !5
   %482 = trunc nuw i8 %481 to i1
   br i1 %482, label %503, label %.thread523.i
@@ -3173,9 +3173,9 @@ define internal fastcc void @transformIndexConstraints(ptr noundef nonnull captu
 483:                                              ; preds = %476
   %484 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %352, ptr noundef nonnull dereferenceable(1) %480) #10
   %485 = icmp eq i32 %484, 0
-  br i1 %485, label %.split589.i, label %502
+  br i1 %485, label %.split590.i, label %502
 
-.split589.i:                                      ; preds = %483
+.split590.i:                                      ; preds = %483
   %486 = getelementptr inbounds nuw i8, ptr %18, i64 106
   %487 = load i8, ptr %486, align 2, !range !4, !noundef !5
   %488 = trunc nuw i8 %487 to i1
@@ -3185,7 +3185,7 @@ define internal fastcc void @transformIndexConstraints(ptr noundef nonnull captu
   %491 = getelementptr inbounds nuw i8, ptr %17, i64 180
   br i1 %488, label %492, label %497
 
-492:                                              ; preds = %.split589.i
+492:                                              ; preds = %.split590.i
   %493 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.118, ptr noundef nonnull %352) #8
   %494 = load ptr, ptr %0, align 8
   %495 = load i32, ptr %491, align 4
@@ -3193,7 +3193,7 @@ define internal fastcc void @transformIndexConstraints(ptr noundef nonnull captu
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2741, ptr noundef nonnull @__func__.transformIndexConstraint) #8
   unreachable
 
-497:                                              ; preds = %.split589.i
+497:                                              ; preds = %.split590.i
   %498 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.119, ptr noundef nonnull %352) #8
   %499 = load ptr, ptr %0, align 8
   %500 = load i32, ptr %491, align 4
@@ -3202,9 +3202,9 @@ define internal fastcc void @transformIndexConstraints(ptr noundef nonnull captu
   unreachable
 
 502:                                              ; preds = %483, %476
-  %indvars.iv.next672.i = add nuw nsw i64 %indvars.iv671.i, 1
-  %exitcond675.not.i = icmp eq i64 %indvars.iv.next672.i, %wide.trip.count674.i
-  br i1 %exitcond675.not.i, label %.critedge475.i, label %476
+  %indvars.iv.next673.i = add nuw nsw i64 %indvars.iv672.i, 1
+  %exitcond676.not.i = icmp eq i64 %indvars.iv.next673.i, %wide.trip.count675.i
+  br i1 %exitcond676.not.i, label %.critedge475.i, label %476
 
 503:                                              ; preds = %.critedge475.i
   %504 = load ptr, ptr %340, align 8
@@ -3219,7 +3219,7 @@ define internal fastcc void @transformIndexConstraints(ptr noundef nonnull captu
   br i1 %510, label %511, label %.thread523.i
 
 511:                                              ; preds = %503
-  br i1 %469, label %.critedge539.i, label %512
+  br i1 %469, label %.critedge540.i, label %512
 
 512:                                              ; preds = %511
   %513 = load i8, ptr %9, align 1, !range !4, !noundef !5
@@ -3232,9 +3232,9 @@ define internal fastcc void @transformIndexConstraints(ptr noundef nonnull captu
   %518 = load ptr, ptr %517, align 8
   %519 = load i32, ptr %518, align 8
   %520 = icmp sgt i32 %519, 0
-  br i1 %520, label %.lr.ph595.i, label %.thread523.i
+  br i1 %520, label %.lr.ph596.i, label %.thread523.i
 
-.lr.ph595.i:                                      ; preds = %515
+.lr.ph596.i:                                      ; preds = %515
   %521 = zext nneg i32 %519 to i64
   %522 = shl nuw nsw i64 %521, 4
   %523 = getelementptr i8, ptr %518, i64 %522
@@ -3242,13 +3242,13 @@ define internal fastcc void @transformIndexConstraints(ptr noundef nonnull captu
   br label %526
 
 525:                                              ; preds = %531
-  %indvars.iv.next677.i = add nuw nsw i64 %indvars.iv676.i, 1
-  %exitcond680.not.i = icmp eq i64 %indvars.iv.next677.i, %521
-  br i1 %exitcond680.not.i, label %.thread523.i, label %526, !llvm.loop !13
+  %indvars.iv.next678.i = add nuw nsw i64 %indvars.iv677.i, 1
+  %exitcond681.not.i = icmp eq i64 %indvars.iv.next678.i, %521
+  br i1 %exitcond681.not.i, label %.thread523.i, label %526, !llvm.loop !13
 
-526:                                              ; preds = %525, %.lr.ph595.i
-  %indvars.iv676.i = phi i64 [ 0, %.lr.ph595.i ], [ %indvars.iv.next677.i, %525 ]
-  %527 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %524, i64 %indvars.iv676.i
+526:                                              ; preds = %525, %.lr.ph596.i
+  %indvars.iv677.i = phi i64 [ 0, %.lr.ph596.i ], [ %indvars.iv.next678.i, %525 ]
+  %527 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %524, i64 %indvars.iv677.i
   %528 = getelementptr inbounds nuw i8, ptr %527, i64 91
   %529 = load i8, ptr %528, align 1, !range !4, !noundef !5
   %530 = trunc nuw i8 %529 to i1
@@ -3263,23 +3263,23 @@ define internal fastcc void @transformIndexConstraints(ptr noundef nonnull captu
 .thread523.thread.i:                              ; preds = %531
   %535 = getelementptr inbounds nuw i8, ptr %527, i64 68
   %536 = load i32, ptr %535, align 4
-  br label %.critedge539.i
+  br label %.critedge540.i
 
-.critedge539.i:                                   ; preds = %.thread523.thread.i, %511
+.critedge540.i:                                   ; preds = %.thread523.thread.i, %511
   %.6400538.i = phi i32 [ %536, %.thread523.thread.i ], [ %.0394510.i, %511 ]
   %537 = icmp eq i32 %.6400538.i, 0
   %538 = icmp ne ptr %spec.select471494509.i, null
   %or.cond5.i = and i1 %538, %537
   br i1 %or.cond5.i, label %539, label %543
 
-539:                                              ; preds = %.critedge539.i
+539:                                              ; preds = %.critedge540.i
   %540 = getelementptr inbounds nuw i8, ptr %spec.select471494509.i, i64 16
   %541 = load ptr, ptr %540, align 8
   %542 = tail call i32 @typenameTypeId(ptr noundef null, ptr noundef %541) #8
   br label %543
 
-543:                                              ; preds = %539, %.critedge539.i
-  %.10404.i = phi i32 [ %542, %539 ], [ %.6400538.i, %.critedge539.i ]
+543:                                              ; preds = %539, %.critedge540.i
+  %.10404.i = phi i32 [ %542, %539 ], [ %.6400538.i, %.critedge540.i ]
   %.not450.i = icmp eq i32 %.10404.i, 0
   br i1 %.not450.i, label %548, label %544
 
@@ -3314,13 +3314,13 @@ define internal fastcc void @transformIndexConstraints(ptr noundef nonnull captu
   %560 = load ptr, ptr %76, align 8
   %561 = tail call ptr @lappend(ptr noundef %560, ptr noundef nonnull %556) #8
   store ptr %561, ptr %76, align 8
-  %indvars.iv.next682.i = add nuw nsw i64 %indvars.iv681.i203, 1
+  %indvars.iv.next683.i = add nuw nsw i64 %indvars.iv682.i203, 1
   %562 = load i32, ptr %342, align 4
   %563 = sext i32 %562 to i64
-  %564 = icmp slt i64 %indvars.iv.next682.i, %563
-  br i1 %564, label %.lr.ph, label %._crit_edge600.i
+  %564 = icmp slt i64 %indvars.iv.next683.i, %563
+  br i1 %564, label %.lr.ph, label %._crit_edge601.i
 
-565:                                              ; preds = %._crit_edge600.i
+565:                                              ; preds = %._crit_edge601.i
   %566 = load ptr, ptr %340, align 8
   %.not.i.i = icmp eq ptr %566, null
   br i1 %.not.i.i, label %list_length.exit.thread.i, label %list_length.exit.i
@@ -3343,50 +3343,50 @@ list_length.exit.thread.i:                        ; preds = %list_length.exit.i,
   store ptr @.str.122, ptr %66, align 8
   br label %.critedge468.i
 
-.critedge468.i:                                   ; preds = %.lr.ph607.i, %573, %._crit_edge600.i, %.lr.ph604.i, %318
+.critedge468.i:                                   ; preds = %.lr.ph608.i, %573, %._crit_edge601.i, %.lr.ph605.i, %318
   %574 = getelementptr inbounds nuw i8, ptr %17, i64 64
   %575 = load ptr, ptr %574, align 8
   %.not454.i = icmp eq ptr %575, null
-  br i1 %.not454.i, label %transformIndexConstraint.exit, label %.lr.ph626.i
+  br i1 %.not454.i, label %transformIndexConstraint.exit, label %.lr.ph627.i
 
-.lr.ph626.i:                                      ; preds = %.critedge468.i
+.lr.ph627.i:                                      ; preds = %.critedge468.i
   %576 = getelementptr inbounds nuw i8, ptr %575, i64 4
   %577 = getelementptr inbounds nuw i8, ptr %575, i64 16
   %578 = load i32, ptr %576, align 4
   %579 = icmp sgt i32 %578, 0
   br i1 %579, label %.lr.ph205, label %transformIndexConstraint.exit
 
-.lr.ph205:                                        ; preds = %.lr.ph626.i, %.critedge481.thread.i
-  %indvars.iv699.i204 = phi i64 [ %indvars.iv.next700.i, %.critedge481.thread.i ], [ 0, %.lr.ph626.i ]
+.lr.ph205:                                        ; preds = %.lr.ph627.i, %.critedge481.thread.i
+  %indvars.iv700.i204 = phi i64 [ %indvars.iv.next701.i, %.critedge481.thread.i ], [ 0, %.lr.ph627.i ]
   %580 = load ptr, ptr %577, align 8
-  %581 = getelementptr inbounds nuw %union.ListCell, ptr %580, i64 %indvars.iv699.i204
+  %581 = getelementptr inbounds nuw %union.ListCell, ptr %580, i64 %indvars.iv700.i204
   %582 = load ptr, ptr %581, align 8
   %583 = getelementptr inbounds nuw i8, ptr %582, i64 8
   %584 = load ptr, ptr %583, align 8
   %585 = load ptr, ptr %11, align 8
   %.not456.i = icmp eq ptr %585, null
-  br i1 %.not456.i, label %._crit_edge611.split.us.i, label %.lr.ph610.i
+  br i1 %.not456.i, label %._crit_edge612.split.us.i, label %.lr.ph611.i
 
-.lr.ph610.i:                                      ; preds = %.lr.ph205
+.lr.ph611.i:                                      ; preds = %.lr.ph205
   %586 = getelementptr inbounds nuw i8, ptr %585, i64 4
   %587 = load i32, ptr %586, align 4
   %588 = icmp sgt i32 %587, 0
-  br i1 %588, label %.lr.ph614.i, label %._crit_edge611.split.us.i
+  br i1 %588, label %.lr.ph615.i, label %._crit_edge612.split.us.i
 
-.lr.ph614.i:                                      ; preds = %.lr.ph610.i
+.lr.ph615.i:                                      ; preds = %.lr.ph611.i
   %589 = getelementptr inbounds nuw i8, ptr %585, i64 16
   %590 = load ptr, ptr %589, align 8
-  %wide.trip.count690.i = zext nneg i32 %587 to i64
+  %wide.trip.count691.i = zext nneg i32 %587 to i64
   br label %592
 
 591:                                              ; preds = %592
-  %indvars.iv.next688.i = add nuw nsw i64 %indvars.iv687.i, 1
-  %exitcond691.not.i = icmp eq i64 %indvars.iv.next688.i, %wide.trip.count690.i
-  br i1 %exitcond691.not.i, label %._crit_edge611.split.us.i, label %592
+  %indvars.iv.next689.i = add nuw nsw i64 %indvars.iv688.i, 1
+  %exitcond692.not.i = icmp eq i64 %indvars.iv.next689.i, %wide.trip.count691.i
+  br i1 %exitcond692.not.i, label %._crit_edge612.split.us.i, label %592
 
-592:                                              ; preds = %591, %.lr.ph614.i
-  %indvars.iv687.i = phi i64 [ 0, %.lr.ph614.i ], [ %indvars.iv.next688.i, %591 ]
-  %593 = getelementptr inbounds nuw %union.ListCell, ptr %590, i64 %indvars.iv687.i
+592:                                              ; preds = %591, %.lr.ph615.i
+  %indvars.iv688.i = phi i64 [ 0, %.lr.ph615.i ], [ %indvars.iv.next689.i, %591 ]
+  %593 = getelementptr inbounds nuw %union.ListCell, ptr %590, i64 %indvars.iv688.i
   %594 = load ptr, ptr %593, align 8
   %595 = getelementptr inbounds nuw i8, ptr %594, i64 8
   %596 = load ptr, ptr %595, align 8
@@ -3394,12 +3394,12 @@ list_length.exit.thread.i:                        ; preds = %list_length.exit.i,
   %598 = icmp eq i32 %597, 0
   br i1 %598, label %.critedge481.thread.i, label %591
 
-._crit_edge611.split.us.i:                        ; preds = %591, %.lr.ph610.i, %.lr.ph205
+._crit_edge612.split.us.i:                        ; preds = %591, %.lr.ph611.i, %.lr.ph205
   %599 = tail call ptr @SystemAttributeByName(ptr noundef %584) #8
   %.not458.i = icmp eq ptr %599, null
   br i1 %.not458.i, label %600, label %.critedge481.thread.i
 
-600:                                              ; preds = %._crit_edge611.split.us.i
+600:                                              ; preds = %._crit_edge612.split.us.i
   %601 = load ptr, ptr %12, align 8
   %.not459.i = icmp eq ptr %601, null
   br i1 %.not459.i, label %.critedge481.i, label %.preheader.i
@@ -3407,25 +3407,25 @@ list_length.exit.thread.i:                        ; preds = %list_length.exit.i,
 .preheader.i:                                     ; preds = %600
   %602 = getelementptr inbounds nuw i8, ptr %601, i64 4
   %603 = load i32, ptr %602, align 4
-  %.not461622.i = icmp sgt i32 %603, 0
-  br i1 %.not461622.i, label %.lr.ph624.i, label %.critedge481.i
+  %.not461623.i = icmp sgt i32 %603, 0
+  br i1 %.not461623.i, label %.lr.ph625.i, label %.critedge481.i
 
-.lr.ph624.i:                                      ; preds = %.preheader.i
+.lr.ph625.i:                                      ; preds = %.preheader.i
   %604 = getelementptr inbounds nuw i8, ptr %601, i64 16
   br label %607
 
-._crit_edge619.thread.i:                          ; preds = %.thread529.i, %622
+._crit_edge620.thread.i:                          ; preds = %.thread529.i, %622
   tail call void @table_close(ptr noundef nonnull %611, i32 noundef 0) #8
-  %indvars.iv.next697.i = add nuw nsw i64 %indvars.iv696.i, 1
+  %indvars.iv.next698.i = add nuw nsw i64 %indvars.iv697.i, 1
   %605 = load i32, ptr %602, align 4
   %606 = sext i32 %605 to i64
-  %.not461.i = icmp slt i64 %indvars.iv.next697.i, %606
+  %.not461.i = icmp slt i64 %indvars.iv.next698.i, %606
   br i1 %.not461.i, label %607, label %.critedge481.i, !llvm.loop !14
 
-607:                                              ; preds = %._crit_edge619.thread.i, %.lr.ph624.i
-  %indvars.iv696.i = phi i64 [ 0, %.lr.ph624.i ], [ %indvars.iv.next697.i, %._crit_edge619.thread.i ]
+607:                                              ; preds = %._crit_edge620.thread.i, %.lr.ph625.i
+  %indvars.iv697.i = phi i64 [ 0, %.lr.ph625.i ], [ %indvars.iv.next698.i, %._crit_edge620.thread.i ]
   %608 = load ptr, ptr %604, align 8
-  %609 = getelementptr inbounds nuw %union.ListCell, ptr %608, i64 %indvars.iv696.i
+  %609 = getelementptr inbounds nuw %union.ListCell, ptr %608, i64 %indvars.iv697.i
   %610 = load ptr, ptr %609, align 8
   %611 = tail call ptr @table_openrv(ptr noundef %610, i32 noundef 1) #8
   %612 = getelementptr inbounds nuw i8, ptr %611, i64 56
@@ -3453,18 +3453,18 @@ list_length.exit.thread.i:                        ; preds = %list_length.exit.i,
   %624 = load ptr, ptr %623, align 8
   %625 = load i32, ptr %624, align 8
   %626 = icmp sgt i32 %625, 0
-  br i1 %626, label %.lr.ph618.i, label %._crit_edge619.thread.i
+  br i1 %626, label %.lr.ph619.i, label %._crit_edge620.thread.i
 
-.lr.ph618.i:                                      ; preds = %622
+.lr.ph619.i:                                      ; preds = %622
   %627 = zext nneg i32 %625 to i64
   %628 = shl nuw nsw i64 %627, 4
   %629 = getelementptr i8, ptr %624, i64 %628
   %630 = getelementptr i8, ptr %629, i64 24
   br label %631
 
-631:                                              ; preds = %.thread529.i, %.lr.ph618.i
-  %indvars.iv692.i = phi i64 [ 0, %.lr.ph618.i ], [ %indvars.iv.next693.i, %.thread529.i ]
-  %632 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %630, i64 %indvars.iv692.i
+631:                                              ; preds = %.thread529.i, %.lr.ph619.i
+  %indvars.iv693.i = phi i64 [ 0, %.lr.ph619.i ], [ %indvars.iv.next694.i, %.thread529.i ]
+  %632 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %630, i64 %indvars.iv693.i
   %633 = getelementptr inbounds nuw i8, ptr %632, i64 91
   %634 = load i8, ptr %633, align 1, !range !4, !noundef !5
   %635 = trunc nuw i8 %634 to i1
@@ -3474,18 +3474,18 @@ list_length.exit.thread.i:                        ; preds = %list_length.exit.i,
   %637 = getelementptr inbounds nuw i8, ptr %632, i64 4
   %638 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %584, ptr noundef nonnull dereferenceable(1) %637) #10
   %639 = icmp eq i32 %638, 0
-  br i1 %639, label %._crit_edge619.i, label %.thread529.i
+  br i1 %639, label %._crit_edge620.i, label %.thread529.i
 
 .thread529.i:                                     ; preds = %636, %631
-  %indvars.iv.next693.i = add nuw nsw i64 %indvars.iv692.i, 1
-  %exitcond695.not.i = icmp eq i64 %indvars.iv.next693.i, %627
-  br i1 %exitcond695.not.i, label %._crit_edge619.thread.i, label %631, !llvm.loop !15
+  %indvars.iv.next694.i = add nuw nsw i64 %indvars.iv693.i, 1
+  %exitcond696.not.i = icmp eq i64 %indvars.iv.next694.i, %627
+  br i1 %exitcond696.not.i, label %._crit_edge620.thread.i, label %631, !llvm.loop !15
 
-._crit_edge619.i:                                 ; preds = %636
+._crit_edge620.i:                                 ; preds = %636
   tail call void @table_close(ptr noundef nonnull %611, i32 noundef 0) #8
   br label %.critedge481.thread.i
 
-.critedge481.i:                                   ; preds = %._crit_edge619.thread.i, %.preheader.i, %600
+.critedge481.i:                                   ; preds = %._crit_edge620.thread.i, %.preheader.i, %600
   %640 = load i8, ptr %9, align 1, !range !4, !noundef !5
   %641 = trunc nuw i8 %640 to i1
   br i1 %641, label %.critedge481.thread.i, label %642
@@ -3502,7 +3502,7 @@ list_length.exit.thread.i:                        ; preds = %list_length.exit.i,
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2911, ptr noundef nonnull @__func__.transformIndexConstraint) #8
   unreachable
 
-.critedge481.thread.i:                            ; preds = %592, %.critedge481.i, %._crit_edge619.i, %._crit_edge611.split.us.i
+.critedge481.thread.i:                            ; preds = %592, %.critedge481.i, %._crit_edge620.i, %._crit_edge612.split.us.i
   %650 = tail call noundef ptr @palloc0(i64 noundef 64) #8
   store i32 92, ptr %650, align 4
   %651 = tail call ptr @pstrdup(ptr noundef %584) #8
@@ -3513,13 +3513,13 @@ list_length.exit.thread.i:                        ; preds = %list_length.exit.i,
   %654 = load ptr, ptr %77, align 8
   %655 = tail call ptr @lappend(ptr noundef %654, ptr noundef nonnull %650) #8
   store ptr %655, ptr %77, align 8
-  %indvars.iv.next700.i = add nuw nsw i64 %indvars.iv699.i204, 1
+  %indvars.iv.next701.i = add nuw nsw i64 %indvars.iv700.i204, 1
   %656 = load i32, ptr %576, align 4
   %657 = sext i32 %656 to i64
-  %658 = icmp slt i64 %indvars.iv.next700.i, %657
+  %658 = icmp slt i64 %indvars.iv.next701.i, %657
   br i1 %658, label %.lr.ph205, label %transformIndexConstraint.exit
 
-transformIndexConstraint.exit:                    ; preds = %.critedge481.thread.i, %.lr.ph626.i, %.critedge468.i
+transformIndexConstraint.exit:                    ; preds = %.critedge481.thread.i, %.lr.ph627.i, %.critedge468.i
   %659 = tail call ptr @lappend(ptr noundef %.0209598, ptr noundef nonnull %18) #8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv597, 1
   %660 = load i32, ptr %4, align 4

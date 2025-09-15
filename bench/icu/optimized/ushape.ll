@@ -196,13 +196,13 @@ define i32 @u_shapeArabic_77(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32
   br label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %101
-  %indvars.iv410 = phi i64 [ %indvars.iv.next411, %101 ], [ %82, %.lr.ph ]
+  %indvars.iv411 = phi i64 [ %indvars.iv.next412, %101 ], [ %82, %.lr.ph ]
   %.0283393.us = phi i32 [ %.1284.us, %101 ], [ 0, %.lr.ph ]
   %.0285392.us = phi i16 [ %.1286.us, %101 ], [ 0, %.lr.ph ]
   %.0289391.us = phi i16 [ %.1290.us, %101 ], [ 0, %.lr.ph ]
   %.0291390.us = phi i32 [ %.1292.us, %101 ], [ 1, %.lr.ph ]
   %.0296389.us = phi i32 [ %.1297.us, %101 ], [ %73, %.lr.ph ]
-  %84 = getelementptr inbounds i16, ptr %0, i64 %indvars.iv410
+  %84 = getelementptr inbounds i16, ptr %0, i64 %indvars.iv411
   %85 = load i16, ptr %84, align 2, !tbaa !9
   %86 = tail call fastcc noundef zeroext i16 @_ZL7getLinkDs(i16 noundef zeroext %85)
   %87 = or i16 %86, %.0285392.us
@@ -235,8 +235,8 @@ define i32 @u_shapeArabic_77(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32
   %.1290.us = phi i16 [ %.0289391.us, %96 ], [ %85, %91 ]
   %.1286.us = phi i16 [ %100, %96 ], [ %86, %91 ]
   %.1284.us = phi i32 [ %.0283393.us, %96 ], [ %95, %91 ]
-  %indvars.iv.next411 = add nsw i64 %indvars.iv410, %81
-  %102 = trunc nsw i64 %indvars.iv.next411 to i32
+  %indvars.iv.next412 = add nsw i64 %indvars.iv411, %81
+  %102 = trunc nsw i64 %indvars.iv.next412 to i32
   %.not335.us = icmp eq i32 %74, %102
   br i1 %.not335.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !11
 
@@ -245,27 +245,27 @@ define i32 @u_shapeArabic_77(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32
   br label %.thread380
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %.lr.ph.split
-  %indvars.iv405 = phi i64 [ %83, %.lr.ph.split.preheader ], [ %indvars.iv.next406, %.lr.ph.split ]
+  %indvars.iv406 = phi i64 [ %83, %.lr.ph.split.preheader ], [ %indvars.iv.next407, %.lr.ph.split ]
   %indvars.iv = phi i64 [ %82, %.lr.ph.split.preheader ], [ %indvars.iv.next, %.lr.ph.split ]
   %.0283393 = phi i32 [ 0, %.lr.ph.split.preheader ], [ %106, %.lr.ph.split ]
   %103 = getelementptr inbounds i16, ptr %0, i64 %indvars.iv
   %104 = load i16, ptr %103, align 2, !tbaa !9
-  %indvars.iv.next406 = add nsw i64 %indvars.iv405, %81
-  %105 = getelementptr inbounds i16, ptr %77, i64 %indvars.iv.next406
+  %indvars.iv.next407 = add nsw i64 %indvars.iv406, %81
+  %105 = getelementptr inbounds i16, ptr %77, i64 %indvars.iv.next407
   store i16 %104, ptr %105, align 2, !tbaa !9
   %106 = add nuw nsw i32 %.0283393, 1
   %indvars.iv.next = add nsw i64 %indvars.iv, %81
   %107 = trunc nsw i64 %indvars.iv.next to i32
   %.not335 = icmp eq i32 %74, %107
-  br i1 %.not335, label %._crit_edge.loopexit403, label %.lr.ph.split, !llvm.loop !11
+  br i1 %.not335, label %._crit_edge.loopexit404, label %.lr.ph.split, !llvm.loop !11
 
-._crit_edge.loopexit403:                          ; preds = %.lr.ph.split
-  %108 = trunc nsw i64 %indvars.iv.next406 to i32
+._crit_edge.loopexit404:                          ; preds = %.lr.ph.split
+  %108 = trunc nsw i64 %indvars.iv.next407 to i32
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %101, %._crit_edge.loopexit403, %.preheader387
-  %.0296.lcssa = phi i32 [ %73, %.preheader387 ], [ %108, %._crit_edge.loopexit403 ], [ %.1297.us, %101 ]
-  %.0283.lcssa = phi i32 [ 0, %.preheader387 ], [ %106, %._crit_edge.loopexit403 ], [ %.1284.us, %101 ]
+._crit_edge:                                      ; preds = %101, %._crit_edge.loopexit404, %.preheader387
+  %.0296.lcssa = phi i32 [ %73, %.preheader387 ], [ %108, %._crit_edge.loopexit404 ], [ %.1297.us, %101 ]
+  %.0283.lcssa = phi i32 [ 0, %.preheader387 ], [ %106, %._crit_edge.loopexit404 ], [ %.1284.us, %101 ]
   %109 = select i1 %68, i32 0, i32 %.0296.lcssa
   %110 = sext i32 %109 to i64
   %111 = getelementptr inbounds i16, ptr %77, i64 %110
@@ -588,12 +588,12 @@ _ZL12invertBufferPDsijii.exit375:                 ; preds = %.lr.ph.i370, %172, 
   br i1 %206, label %.lr.ph400.preheader, label %.loopexit
 
 .lr.ph400.preheader:                              ; preds = %204
-  %wide.trip.count418 = zext nneg i32 %.2303 to i64
+  %wide.trip.count419 = zext nneg i32 %.2303 to i64
   br label %.lr.ph400
 
 .lr.ph400:                                        ; preds = %.lr.ph400.preheader, %213
-  %indvars.iv415 = phi i64 [ 0, %.lr.ph400.preheader ], [ %indvars.iv.next416, %213 ]
-  %207 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv415
+  %indvars.iv416 = phi i64 [ 0, %.lr.ph400.preheader ], [ %indvars.iv.next417, %213 ]
+  %207 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv416
   %208 = load i16, ptr %207, align 2, !tbaa !9
   %209 = add i16 %208, -48
   %210 = icmp ult i16 %209, 10
@@ -605,13 +605,13 @@ _ZL12invertBufferPDsijii.exit375:                 ; preds = %.lr.ph.i370, %172, 
   br label %213
 
 213:                                              ; preds = %.lr.ph400, %211
-  %indvars.iv.next416 = add nuw nsw i64 %indvars.iv415, 1
-  %exitcond419.not = icmp eq i64 %indvars.iv.next416, %wide.trip.count418
-  br i1 %exitcond419.not, label %.loopexit, label %.lr.ph400, !llvm.loop !14
+  %indvars.iv.next417 = add nuw nsw i64 %indvars.iv416, 1
+  %exitcond420.not = icmp eq i64 %indvars.iv.next417, %wide.trip.count419
+  br i1 %exitcond420.not, label %.loopexit, label %.lr.ph400, !llvm.loop !14
 
 214:                                              ; preds = %.lr.ph397, %222
-  %indvars.iv412 = phi i64 [ 0, %.lr.ph397 ], [ %indvars.iv.next413, %222 ]
-  %215 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv412
+  %indvars.iv413 = phi i64 [ 0, %.lr.ph397 ], [ %indvars.iv.next414, %222 ]
+  %215 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv413
   %216 = load i16, ptr %215, align 2, !tbaa !9
   %217 = zext i16 %216 to i32
   %218 = sub nsw i32 %217, %203
@@ -624,19 +624,19 @@ _ZL12invertBufferPDsijii.exit375:                 ; preds = %.lr.ph.i370, %172, 
   br label %222
 
 222:                                              ; preds = %214, %220
-  %indvars.iv.next413 = add nuw nsw i64 %indvars.iv412, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next413, %wide.trip.count
+  %indvars.iv.next414 = add nuw nsw i64 %indvars.iv413, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next414, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %214, !llvm.loop !15
 
 223:                                              ; preds = %198
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %198, %223
-  %.sink434 = phi i8 [ 1, %223 ], [ 0, %198 ]
+  %.sink435 = phi i8 [ 1, %223 ], [ 0, %198 ]
   %224 = and i32 %4, 4
   %225 = icmp eq i32 %224, 0
   %226 = zext i1 %225 to i8
-  call fastcc void @_ZL31_shapeToArabicDigitsWithContextPDsiDsaa(ptr noundef %2, i32 noundef %.2303, i16 noundef zeroext %.368, i8 noundef signext %226, i8 noundef signext %.sink434)
+  call fastcc void @_ZL31_shapeToArabicDigitsWithContextPDsiDsaa(ptr noundef %2, i32 noundef %.2303, i16 noundef zeroext %.368, i8 noundef signext %226, i8 noundef signext %.sink435)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %222, %213, %.loopexit.sink.split, %.preheader, %204, %198, %197

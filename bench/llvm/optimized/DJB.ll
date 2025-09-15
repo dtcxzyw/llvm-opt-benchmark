@@ -18,16 +18,16 @@ define dso_local noundef i32 @_ZN4llvm18caseFoldingDjbHashENS_9StringRefEj(ptr %
   %9 = alloca ptr, align 8
   %10 = alloca %"struct.std::array", align 1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 %1
-  %.not20.i = icmp eq i64 %1, 0
-  br i1 %.not20.i, label %_ZL22fastCaseFoldingDjbHashN4llvm9StringRefEj.exit, label %.lr.ph.i
+  %.not21.i = icmp eq i64 %1, 0
+  br i1 %.not21.i, label %_ZL22fastCaseFoldingDjbHashN4llvm9StringRefEj.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3, %.lr.ph.i
-  %.023.i = phi i1 [ %20, %.lr.ph.i ], [ true, %3 ]
-  %.01422.i = phi ptr [ %21, %.lr.ph.i ], [ %0, %3 ]
-  %.01821.i = phi i32 [ %18, %.lr.ph.i ], [ %2, %3 ]
-  %12 = load i8, ptr %.01422.i, align 1, !tbaa !3
+  %.024.i = phi i1 [ %20, %.lr.ph.i ], [ true, %3 ]
+  %.01423.i = phi ptr [ %21, %.lr.ph.i ], [ %0, %3 ]
+  %.01822.i = phi i32 [ %18, %.lr.ph.i ], [ %2, %3 ]
+  %12 = load i8, ptr %.01423.i, align 1, !tbaa !3
   %.fr.i = freeze i8 %12
-  %13 = mul i32 %.01821.i, 33
+  %13 = mul i32 %.01822.i, 33
   %14 = zext i8 %.fr.i to i32
   %15 = add i8 %.fr.i, -65
   %or.cond.i = icmp ult i8 %15, 26
@@ -35,8 +35,8 @@ define dso_local noundef i32 @_ZN4llvm18caseFoldingDjbHashENS_9StringRefEj(ptr %
   %17 = select i1 %or.cond.i, i32 %16, i32 %14
   %18 = add i32 %17, %13
   %19 = icmp sgt i8 %.fr.i, -1
-  %20 = and i1 %.023.i, %19
-  %21 = getelementptr inbounds nuw i8, ptr %.01422.i, i64 1
+  %20 = and i1 %.024.i, %19
+  %21 = getelementptr inbounds nuw i8, ptr %.01423.i, i64 1
   %.not.i = icmp eq ptr %21, %11
   br i1 %.not.i, label %_ZL22fastCaseFoldingDjbHashN4llvm9StringRefEj.exit.thread, label %.lr.ph.i
 

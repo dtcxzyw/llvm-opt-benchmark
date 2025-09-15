@@ -2685,7 +2685,7 @@ define dso_local void @WalSndWaitStopping() local_unnamed_addr #0 {
   %.not15.not = icmp eq i32 %15, 4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17
   store i8 0, ptr %6, align 4
-  br i1 %.not15.not, label %16, label %.critedge29
+  br i1 %.not15.not, label %16, label %.critedge30
 
 16:                                               ; preds = %.thread, %13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2694,17 +2694,17 @@ define dso_local void @WalSndWaitStopping() local_unnamed_addr #0 {
   %19 = icmp slt i64 %indvars.iv.next, %18
   br i1 %19, label %.lr.ph.backedge, label %.critedge
 
-.lr.ph.backedge:                                  ; preds = %16, %.critedge29
-  %indvars.iv.be = phi i64 [ %indvars.iv.next, %16 ], [ 0, %.critedge29 ]
+.lr.ph.backedge:                                  ; preds = %16, %.critedge30
+  %indvars.iv.be = phi i64 [ %indvars.iv.next, %16 ], [ 0, %.critedge30 ]
   br label %.lr.ph, !llvm.loop !54
 
-.critedge29:                                      ; preds = %13
+.critedge30:                                      ; preds = %13
   tail call void @pg_usleep(i64 noundef 10000) #17
   %20 = load i32, ptr @max_wal_senders, align 4
   %21 = icmp sgt i32 %20, 0
   br i1 %21, label %.lr.ph.backedge, label %.critedge
 
-.critedge:                                        ; preds = %.critedge29, %16, %0
+.critedge:                                        ; preds = %.critedge30, %16, %0
   ret void
 }
 

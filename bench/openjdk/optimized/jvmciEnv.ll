@@ -2860,9 +2860,9 @@ define hidden { ptr, i8 } @_ZN8JVMCIEnv13get_object_atE16JVMCIObjectArrayi(ptr n
   %14 = trunc i8 %13 to i1
   %15 = sext i32 %3 to i64
   %..i = select i1 %12, i64 20, i64 24
-  %.7.i = select i1 %12, i64 2, i64 3
+  %.8.i = select i1 %12, i64 2, i64 3
   %16 = select i1 %14, i64 16, i64 %..i
-  %17 = shl nsw i64 %15, %.7.i
+  %17 = shl nsw i64 %15, %.8.i
   %18 = add nsw i64 %16, %17
   %19 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
   %20 = tail call noundef ptr %19(ptr noundef nonnull align 8 dereferenceable(16) %10, i64 noundef %18) #14
@@ -2981,9 +2981,9 @@ define hidden void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject
   %17 = trunc i8 %16 to i1
   %18 = sext i32 %3 to i64
   %..i = select i1 %15, i64 20, i64 24
-  %.8.i = select i1 %15, i64 2, i64 3
+  %.9.i = select i1 %15, i64 2, i64 3
   %19 = select i1 %17, i64 16, i64 %..i
-  %20 = shl nsw i64 %18, %.8.i
+  %20 = shl nsw i64 %18, %.9.i
   %21 = add nsw i64 %19, %20
   %22 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE1EE14_store_at_funcE, align 8
   tail call void %22(ptr noundef nonnull align 8 dereferenceable(16) %12, i64 noundef %21, ptr noundef %13) #14

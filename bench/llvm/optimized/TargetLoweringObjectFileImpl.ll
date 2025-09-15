@@ -10800,8 +10800,8 @@ _ZN4llvm11SmallVectorIcLj128EED2Ev.exit64:        ; preds = %43, %59
   %63 = getelementptr inbounds nuw i8, ptr %3, i64 876
   %64 = load i32, ptr %63, align 4
   %65 = and i32 %64, 4
-  %.not160 = icmp eq i32 %65, 0
-  br i1 %.not160, label %72, label %66
+  %.not162 = icmp eq i32 %65, 0
+  br i1 %.not162, label %72, label %66
 
 66:                                               ; preds = %62
   %67 = load ptr, ptr %0, align 8, !tbaa !3
@@ -10829,8 +10829,8 @@ _ZN4llvm11SmallVectorIcLj128EED2Ev.exit64:        ; preds = %43, %59
   %81 = getelementptr inbounds nuw i8, ptr %3, i64 876
   %82 = load i32, ptr %81, align 4
   %83 = and i32 %82, 8
-  %.not159 = icmp eq i32 %83, 0
-  br i1 %.not159, label %84, label %85
+  %.not161 = icmp eq i32 %83, 0
+  br i1 %.not161, label %84, label %85
 
 84:                                               ; preds = %80
   tail call void @_ZN4llvm18report_fatal_errorEPKcb(ptr noundef nonnull @.str.57, i1 noundef zeroext true) #28
@@ -10878,8 +10878,8 @@ _ZN4llvm11SmallVectorIcLj128EED2Ev.exit67:        ; preds = %85, %99
   %102 = getelementptr inbounds nuw i8, ptr %3, i64 876
   %103 = load i32, ptr %102, align 4
   %104 = and i32 %103, 8
-  %.not156 = icmp eq i32 %104, 0
-  br i1 %.not156, label %120, label %105
+  %.not158 = icmp eq i32 %104, 0
+  br i1 %.not158, label %120, label %105
 
 105:                                              ; preds = %101
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -10926,8 +10926,8 @@ _ZN4llvm11SmallVectorIcLj128EED2Ev.exit70:        ; preds = %105, %119
   %126 = getelementptr inbounds nuw i8, ptr %3, i64 876
   %127 = load i32, ptr %126, align 4
   %128 = and i32 %127, 8
-  %.not157 = icmp eq i32 %128, 0
-  br i1 %.not157, label %144, label %129
+  %.not159 = icmp eq i32 %128, 0
+  br i1 %.not159, label %144, label %129
 
 129:                                              ; preds = %125
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -10972,8 +10972,8 @@ _ZN4llvm11SmallVectorIcLj128EED2Ev.exit74:        ; preds = %129, %143
   %149 = getelementptr inbounds nuw i8, ptr %3, i64 876
   %150 = load i32, ptr %149, align 4
   %151 = and i32 %150, 8
-  %.not158 = icmp eq i32 %151, 0
-  br i1 %.not158, label %167, label %152
+  %.not160 = icmp eq i32 %151, 0
+  br i1 %.not160, label %167, label %152
 
 152:                                              ; preds = %148
   call void @llvm.lifetime.start.p0(ptr nonnull %10)

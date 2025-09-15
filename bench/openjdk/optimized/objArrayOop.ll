@@ -113,9 +113,9 @@ define hidden noundef ptr @_ZN15objArrayOopDesc15replace_if_nullEiP7oopDesc(ptr 
   %7 = trunc i8 %6 to i1
   %8 = sext i32 %1 to i64
   %. = select i1 %5, i64 20, i64 24
-  %.8 = select i1 %5, i64 2, i64 3
+  %.9 = select i1 %5, i64 2, i64 3
   %9 = select i1 %7, i64 16, i64 %.
-  %10 = shl nsw i64 %8, %.8
+  %10 = shl nsw i64 %8, %.9
   %11 = add nsw i64 %9, %10
   %12 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm2384902EP7oopDescLNS_11BarrierTypeE5EE23_atomic_cmpxchg_at_funcE, align 8
   %13 = tail call noundef ptr %12(ptr noundef nonnull %0, i64 noundef %11, ptr noundef null, ptr noundef %2) #6

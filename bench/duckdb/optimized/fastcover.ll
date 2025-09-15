@@ -549,8 +549,8 @@ define internal fastcc noundef i64 @_ZN11duckdb_zstdL25FASTCOVER_buildDictionary
   br label %20
 
 20:                                               ; preds = %15, %6
-  %.not62 = icmp eq i64 %3, 0
-  br i1 %.not62, label %.thread56, label %.lr.ph
+  %.not63 = icmp eq i64 %3, 0
+  br i1 %.not63, label %.thread56, label %.lr.ph
 
 .lr.ph:                                           ; preds = %20
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -566,10 +566,10 @@ define internal fastcc noundef i64 @_ZN11duckdb_zstdL25FASTCOVER_buildDictionary
   br label %28
 
 28:                                               ; preds = %.lr.ph, %.thread
-  %.04065 = phi i64 [ %3, %.lr.ph ], [ %.255, %.thread ]
-  %.04164 = phi i64 [ 0, %.lr.ph ], [ %.14254, %.thread ]
-  %.04363 = phi i64 [ 0, %.lr.ph ], [ %126, %.thread ]
-  %29 = mul i64 %.04363, %.sroa.5.0.extract.shift
+  %.04066 = phi i64 [ %3, %.lr.ph ], [ %.255, %.thread ]
+  %.04165 = phi i64 [ 0, %.lr.ph ], [ %.14254, %.thread ]
+  %.04364 = phi i64 [ 0, %.lr.ph ], [ %126, %.thread ]
+  %29 = mul i64 %.04364, %.sroa.5.0.extract.shift
   %30 = trunc i64 %29 to i32
   %31 = add i32 %30, %.sroa.5.0.extract.trunc
   %32 = load i32, ptr %21, align 4, !tbaa !34
@@ -715,12 +715,12 @@ _ZN11duckdb_zstdL23FASTCOVER_selectSegmentEPKNS_15FASTCOVER_ctx_tEPjjjNS_20ZDICT
   %94 = add i32 %25, %.sroa.049.sroa.4.0.lcssa.i
   %95 = sub i32 %94, %.sroa.049.sroa.0.0.lcssa.i
   %96 = zext i32 %95 to i64
-  %..040 = tail call i64 @llvm.umin.i64(i64 %.04065, i64 %96)
+  %..040 = tail call i64 @llvm.umin.i64(i64 %.04066, i64 %96)
   %97 = icmp samesign ult i64 %..040, %26
   br i1 %97, label %.thread56, label %98
 
 98:                                               ; preds = %93
-  %99 = sub i64 %.04065, %..040
+  %99 = sub i64 %.04066, %..040
   %100 = getelementptr inbounds nuw i8, ptr %2, i64 %99
   %101 = load ptr, ptr %0, align 8, !tbaa !29
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 %.sroa.049.sroa.0.0.insert.ext.i
@@ -753,20 +753,20 @@ _ZN11duckdb_zstdL23FASTCOVER_selectSegmentEPKNS_15FASTCOVER_ctx_tEPjjjNS_20ZDICT
   br label %.thread
 
 122:                                              ; preds = %_ZN11duckdb_zstdL23FASTCOVER_selectSegmentEPKNS_15FASTCOVER_ctx_tEPjjjNS_20ZDICT_cover_params_tEPt.exit
-  %123 = add nuw nsw i64 %.04164, 1
-  %124 = icmp ugt i64 %.04164, 8
+  %123 = add nuw nsw i64 %.04165, 1
+  %124 = icmp ugt i64 %.04165, 8
   br i1 %124, label %.thread56, label %.thread
 
 .thread:                                          ; preds = %98, %105, %112, %122
-  %.255 = phi i64 [ %.04065, %122 ], [ %99, %112 ], [ %99, %105 ], [ %99, %98 ]
+  %.255 = phi i64 [ %.04066, %122 ], [ %99, %112 ], [ %99, %105 ], [ %99, %98 ]
   %.14254 = phi i64 [ %123, %122 ], [ 0, %112 ], [ 0, %105 ], [ 0, %98 ]
-  %125 = add nsw i64 %.04363, 1
+  %125 = add nsw i64 %.04364, 1
   %126 = urem i64 %125, %27
   %.not = icmp eq i64 %.255, 0
   br i1 %.not, label %.thread56, label %28, !llvm.loop !48
 
 .thread56:                                        ; preds = %.thread, %122, %93, %20
-  %.040.lcssa = phi i64 [ 0, %20 ], [ %.04065, %93 ], [ %.04065, %122 ], [ 0, %.thread ]
+  %.040.lcssa = phi i64 [ 0, %20 ], [ %.04066, %93 ], [ %.04066, %122 ], [ 0, %.thread ]
   %127 = load i32, ptr @_ZN11duckdb_zstdL14g_displayLevelE, align 4, !tbaa !10
   %128 = icmp sgt i32 %127, 1
   br i1 %128, label %129, label %134

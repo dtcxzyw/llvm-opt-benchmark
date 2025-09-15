@@ -268,8 +268,8 @@ define hidden noundef zeroext i1 @KMSDRM_Vulkan_CreateSurface(ptr noundef readon
   %45 = call noalias ptr @SDL_malloc_REAL(i64 noundef 824) #5
   %46 = call i32 %20(ptr noundef %2, ptr noundef nonnull %6, ptr noundef %44) #5
   %47 = load i32, ptr %6, align 4
-  %.not278 = icmp eq i32 %47, 0
-  br i1 %.not278, label %._crit_edge, label %.lr.ph
+  %.not279 = icmp eq i32 %47, 0
+  br i1 %.not279, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %41
   %48 = getelementptr inbounds nuw i8, ptr %45, i64 16
@@ -338,19 +338,19 @@ define hidden noundef zeroext i1 @KMSDRM_Vulkan_CreateSurface(ptr noundef readon
   %86 = call noalias ptr @SDL_malloc_REAL(i64 noundef %85) #5
   %87 = call i32 %23(ptr noundef %62, ptr noundef %75, ptr noundef nonnull %8, ptr noundef %86) #5
   %88 = load i32, ptr %8, align 4
-  %.not279 = icmp eq i32 %88, 0
+  %.not280 = icmp eq i32 %88, 0
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.pre = load i32, ptr %.phi.trans.insert, align 8
-  br i1 %.not279, label %.thread181, label %.lr.ph265
+  br i1 %.not280, label %.thread181, label %.lr.ph266
 
-.lr.ph265:                                        ; preds = %83
+.lr.ph266:                                        ; preds = %83
   %89 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %wide.trip.count = zext i32 %88 to i64
   br label %90
 
-90:                                               ; preds = %.lr.ph265, %100
-  %indvars.iv289 = phi i64 [ 0, %.lr.ph265 ], [ %indvars.iv.next290, %100 ]
-  %91 = getelementptr inbounds nuw %struct.VkDisplayModePropertiesKHR, ptr %86, i64 %indvars.iv289
+90:                                               ; preds = %.lr.ph266, %100
+  %indvars.iv290 = phi i64 [ 0, %.lr.ph266 ], [ %indvars.iv.next291, %100 ]
+  %91 = getelementptr inbounds nuw %struct.VkDisplayModePropertiesKHR, ptr %86, i64 %indvars.iv290
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 8
   %93 = load i32, ptr %92, align 8
   %94 = icmp eq i32 %93, %.pre
@@ -364,8 +364,8 @@ define hidden noundef zeroext i1 @KMSDRM_Vulkan_CreateSurface(ptr noundef readon
   br i1 %99, label %101, label %100
 
 100:                                              ; preds = %90, %95
-  %indvars.iv.next290 = add nuw nsw i64 %indvars.iv289, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next290, %wide.trip.count
+  %indvars.iv.next291 = add nuw nsw i64 %indvars.iv290, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next291, %wide.trip.count
   br i1 %exitcond.not, label %.thread181, label %90, !llvm.loop !6
 
 101:                                              ; preds = %95
@@ -431,25 +431,25 @@ thread-pre-split:                                 ; preds = %.thread181
   %128 = call noalias ptr @SDL_malloc_REAL(i64 noundef %127) #5
   %129 = call i32 %24(ptr noundef %62, ptr noundef nonnull %9, ptr noundef %128) #5
   %130 = load i32, ptr %9, align 4
-  %.not280 = icmp eq i32 %130, 0
-  br i1 %.not280, label %._crit_edge275.thread, label %.lr.ph274
+  %.not281 = icmp eq i32 %130, 0
+  br i1 %.not281, label %._crit_edge276.thread, label %.lr.ph275
 
-.lr.ph274:                                        ; preds = %125, %154
-  %indvars.iv297 = phi i64 [ %indvars.iv.next298, %154 ], [ 0, %125 ]
+.lr.ph275:                                        ; preds = %125, %154
+  %indvars.iv298 = phi i64 [ %indvars.iv.next299, %154 ], [ 0, %125 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i32 0, ptr %14, align 4
-  %131 = trunc nuw nsw i64 %indvars.iv297 to i32
+  %131 = trunc nuw nsw i64 %indvars.iv298 to i32
   %132 = call i32 %25(ptr noundef %62, i32 noundef %131, ptr noundef nonnull %14, ptr noundef null) #5
   %133 = load i32, ptr %14, align 4
   %134 = icmp eq i32 %133, 0
   br i1 %134, label %.thread191, label %135
 
-135:                                              ; preds = %.lr.ph274
+135:                                              ; preds = %.lr.ph275
   %136 = zext i32 %133 to i64
   %137 = shl nuw nsw i64 %136, 3
   %138 = call noalias ptr @SDL_malloc_REAL(i64 noundef %137) #5
   %139 = call i32 %25(ptr noundef %62, i32 noundef %131, ptr noundef nonnull %14, ptr noundef %138) #5
-  %140 = getelementptr inbounds nuw %struct.VkDisplayPlanePropertiesKHR, ptr %128, i64 %indvars.iv297
+  %140 = getelementptr inbounds nuw %struct.VkDisplayPlanePropertiesKHR, ptr %128, i64 %indvars.iv298
   %141 = load ptr, ptr %140, align 8
   %142 = icmp eq ptr %141, %75
   %143 = icmp eq ptr %141, null
@@ -458,63 +458,63 @@ thread-pre-split:                                 ; preds = %.thread181
 
 .preheader:                                       ; preds = %135
   %144 = load i32, ptr %14, align 4
-  %.not281 = icmp eq i32 %144, 0
-  br i1 %.not281, label %._crit_edge268, label %.lr.ph267.preheader
+  %.not282 = icmp eq i32 %144, 0
+  br i1 %.not282, label %._crit_edge269, label %.lr.ph268.preheader
 
-.lr.ph267.preheader:                              ; preds = %.preheader
-  %wide.trip.count295 = zext i32 %144 to i64
-  br label %.lr.ph267
+.lr.ph268.preheader:                              ; preds = %.preheader
+  %wide.trip.count296 = zext i32 %144 to i64
+  br label %.lr.ph268
 
-145:                                              ; preds = %.lr.ph267
-  %indvars.iv.next293 = add nuw nsw i64 %indvars.iv292, 1
-  %exitcond296.not = icmp eq i64 %indvars.iv.next293, %wide.trip.count295
-  br i1 %exitcond296.not, label %._crit_edge268.thread, label %.lr.ph267, !llvm.loop !7
+145:                                              ; preds = %.lr.ph268
+  %indvars.iv.next294 = add nuw nsw i64 %indvars.iv293, 1
+  %exitcond297.not = icmp eq i64 %indvars.iv.next294, %wide.trip.count296
+  br i1 %exitcond297.not, label %._crit_edge269.thread, label %.lr.ph268, !llvm.loop !7
 
-.lr.ph267:                                        ; preds = %.lr.ph267.preheader, %145
-  %indvars.iv292 = phi i64 [ 0, %.lr.ph267.preheader ], [ %indvars.iv.next293, %145 ]
-  %146 = getelementptr inbounds nuw ptr, ptr %138, i64 %indvars.iv292
+.lr.ph268:                                        ; preds = %.lr.ph268.preheader, %145
+  %indvars.iv293 = phi i64 [ 0, %.lr.ph268.preheader ], [ %indvars.iv.next294, %145 ]
+  %146 = getelementptr inbounds nuw ptr, ptr %138, i64 %indvars.iv293
   %147 = load ptr, ptr %146, align 8
   %148 = icmp eq ptr %147, %75
   br i1 %148, label %149, label %145
 
-._crit_edge268:                                   ; preds = %.preheader
+._crit_edge269:                                   ; preds = %.preheader
   %.not170 = icmp eq ptr %138, null
-  br i1 %.not170, label %.thread191, label %._crit_edge268.thread
+  br i1 %.not170, label %.thread191, label %._crit_edge269.thread
 
-._crit_edge268.thread:                            ; preds = %145, %._crit_edge268
+._crit_edge269.thread:                            ; preds = %145, %._crit_edge269
   call void @SDL_free_REAL(ptr noundef nonnull %138) #5
   br label %.thread191
 
-.thread191:                                       ; preds = %.lr.ph274, %135, %._crit_edge268.thread, %._crit_edge268
+.thread191:                                       ; preds = %.lr.ph275, %135, %._crit_edge269.thread, %._crit_edge269
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %154
 
-149:                                              ; preds = %.lr.ph267
+149:                                              ; preds = %.lr.ph268
   call void @SDL_free_REAL(ptr noundef nonnull %138) #5
   %150 = load ptr, ptr %13, align 8
   %151 = call i32 %26(ptr noundef %62, ptr noundef %150, i32 noundef %131, ptr noundef nonnull %10) #5
   %152 = load i32, ptr %10, align 4
   %153 = icmp eq i32 %152, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  br i1 %153, label %._crit_edge275, label %154
+  br i1 %153, label %._crit_edge276, label %154
 
 154:                                              ; preds = %.thread191, %149
-  %indvars.iv.next298 = add nuw nsw i64 %indvars.iv297, 1
+  %indvars.iv.next299 = add nuw nsw i64 %indvars.iv298, 1
   %155 = load i32, ptr %9, align 4
   %156 = zext i32 %155 to i64
-  %157 = icmp samesign ult i64 %indvars.iv.next298, %156
-  br i1 %157, label %.lr.ph274, label %._crit_edge275, !llvm.loop !8
+  %157 = icmp samesign ult i64 %indvars.iv.next299, %156
+  br i1 %157, label %.lr.ph275, label %._crit_edge276, !llvm.loop !8
 
-._crit_edge275:                                   ; preds = %154, %149
+._crit_edge276:                                   ; preds = %154, %149
   %.1 = phi i32 [ -1, %154 ], [ %131, %149 ]
   %158 = icmp eq i32 %.1, -1
-  br i1 %158, label %._crit_edge275.thread, label %160
+  br i1 %158, label %._crit_edge276.thread, label %160
 
-._crit_edge275.thread:                            ; preds = %125, %._crit_edge275
+._crit_edge276.thread:                            ; preds = %125, %._crit_edge276
   %159 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.27) #5
   br label %175
 
-160:                                              ; preds = %._crit_edge275
+160:                                              ; preds = %._crit_edge276
   %161 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %162 = load i32, ptr %161, align 8
   %163 = getelementptr inbounds nuw i8, ptr %1, i64 36
@@ -543,11 +543,11 @@ thread-pre-split:                                 ; preds = %.thread181
   %174 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.28, ptr noundef %173) #5
   br label %175
 
-175:                                              ; preds = %160, %172, %._crit_edge275.thread, %123, %117, %113, %._crit_edge
-  %.0154 = phi i1 [ false, %123 ], [ false, %._crit_edge275.thread ], [ false, %172 ], [ false, %117 ], [ false, %113 ], [ false, %._crit_edge ], [ true, %160 ]
-  %.0146 = phi ptr [ null, %123 ], [ %128, %._crit_edge275.thread ], [ %128, %172 ], [ null, %117 ], [ null, %113 ], [ null, %._crit_edge ], [ %128, %160 ]
-  %.0145 = phi ptr [ %86, %123 ], [ %86, %._crit_edge275.thread ], [ %86, %172 ], [ %86, %117 ], [ %86, %113 ], [ null, %._crit_edge ], [ %86, %160 ]
-  %.0144 = phi ptr [ %71, %123 ], [ %71, %._crit_edge275.thread ], [ %71, %172 ], [ %71, %117 ], [ %71, %113 ], [ null, %._crit_edge ], [ %71, %160 ]
+175:                                              ; preds = %160, %172, %._crit_edge276.thread, %123, %117, %113, %._crit_edge
+  %.0154 = phi i1 [ false, %123 ], [ false, %._crit_edge276.thread ], [ false, %172 ], [ false, %117 ], [ false, %113 ], [ false, %._crit_edge ], [ true, %160 ]
+  %.0146 = phi ptr [ null, %123 ], [ %128, %._crit_edge276.thread ], [ %128, %172 ], [ null, %117 ], [ null, %113 ], [ null, %._crit_edge ], [ %128, %160 ]
+  %.0145 = phi ptr [ %86, %123 ], [ %86, %._crit_edge276.thread ], [ %86, %172 ], [ %86, %117 ], [ %86, %113 ], [ null, %._crit_edge ], [ %86, %160 ]
+  %.0144 = phi ptr [ %71, %123 ], [ %71, %._crit_edge276.thread ], [ %71, %172 ], [ %71, %117 ], [ %71, %113 ], [ null, %._crit_edge ], [ %71, %160 ]
   %.not172 = icmp eq ptr %44, null
   br i1 %.not172, label %176, label %.thread212
 

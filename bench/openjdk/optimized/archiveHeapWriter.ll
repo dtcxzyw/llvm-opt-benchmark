@@ -1220,33 +1220,33 @@ _ZN7oopDesc11oop_iterateIN17ArchiveHeapWriter20EmbeddedOopRelocatorEEEvPT_.exit:
   %145 = getelementptr inbounds i8, ptr %143, i64 %144
   call void @_ZN7oopDesc16set_narrow_klassEj(ptr noundef nonnull align 8 dereferenceable(16) %145, i32 noundef %136) #18
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %._crit_edge57, label %146
+  br i1 %.not, label %._crit_edge58, label %146
 
 146:                                              ; preds = %._crit_edge
   %147 = load i32, ptr %0, align 4
   %148 = icmp sgt i32 %147, 0
-  br i1 %148, label %.lr.ph56.preheader, label %._crit_edge57
+  br i1 %148, label %.lr.ph57.preheader, label %._crit_edge58
 
-.lr.ph56.preheader:                               ; preds = %146
+.lr.ph57.preheader:                               ; preds = %146
   %wide.trip.count = zext nneg i32 %147 to i64
-  br label %.lr.ph56
+  br label %.lr.ph57
 
-.lr.ph56:                                         ; preds = %.lr.ph56.preheader, %_ZN17ArchiveHeapWriter16relocate_root_atIP7oopDescEEvS2_iP11CHeapBitMap.exit
-  %indvars.iv64 = phi i64 [ 0, %.lr.ph56.preheader ], [ %indvars.iv.next65, %_ZN17ArchiveHeapWriter16relocate_root_atIP7oopDescEEvS2_iP11CHeapBitMap.exit ]
+.lr.ph57:                                         ; preds = %.lr.ph57.preheader, %_ZN17ArchiveHeapWriter16relocate_root_atIP7oopDescEEvS2_iP11CHeapBitMap.exit
+  %indvars.iv65 = phi i64 [ 0, %.lr.ph57.preheader ], [ %indvars.iv.next66, %_ZN17ArchiveHeapWriter16relocate_root_atIP7oopDescEEvS2_iP11CHeapBitMap.exit ]
   %149 = load i8, ptr @UseCompressedOops, align 1
   %150 = trunc i8 %149 to i1
   br i1 %150, label %151, label %153
 
-151:                                              ; preds = %.lr.ph56
-  %152 = trunc nuw nsw i64 %indvars.iv64 to i32
+151:                                              ; preds = %.lr.ph57
+  %152 = trunc nuw nsw i64 %indvars.iv65 to i32
   call void @_ZN17ArchiveHeapWriter16relocate_root_atI9narrowOopEEvP7oopDesciP11CHeapBitMap(ptr noundef %133, i32 noundef %152, ptr noundef nonnull %9)
   br label %_ZN17ArchiveHeapWriter16relocate_root_atIP7oopDescEEvS2_iP11CHeapBitMap.exit
 
-153:                                              ; preds = %.lr.ph56
+153:                                              ; preds = %.lr.ph57
   %154 = load i8, ptr @UseCompressedClassPointers, align 1
   %155 = trunc i8 %154 to i1
   %156 = select i1 %155, i64 16, i64 24
-  %157 = shl nuw nsw i64 %indvars.iv64, 3
+  %157 = shl nuw nsw i64 %indvars.iv65, 3
   %158 = load i64, ptr @_ZN17ArchiveHeapWriter18_heap_roots_offsetE, align 8
   %159 = load ptr, ptr @_ZN17ArchiveHeapWriter7_bufferE, align 8
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 8
@@ -1326,11 +1326,11 @@ _ZN17ArchiveHeapWriter27source_obj_to_requested_objEP7oopDesc.exit.i.i: ; preds 
   br label %_ZN17ArchiveHeapWriter16relocate_root_atIP7oopDescEEvS2_iP11CHeapBitMap.exit
 
 _ZN17ArchiveHeapWriter16relocate_root_atIP7oopDescEEvS2_iP11CHeapBitMap.exit: ; preds = %_ZN17ArchiveHeapWriter27source_obj_to_requested_objEP7oopDesc.exit.i.i, %153, %151
-  %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next65, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge57, label %.lr.ph56, !llvm.loop !19
+  %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next66, %wide.trip.count
+  br i1 %exitcond.not, label %._crit_edge58, label %.lr.ph57, !llvm.loop !19
 
-._crit_edge57:                                    ; preds = %_ZN17ArchiveHeapWriter16relocate_root_atIP7oopDescEEvS2_iP11CHeapBitMap.exit, %._crit_edge, %146
+._crit_edge58:                                    ; preds = %_ZN17ArchiveHeapWriter16relocate_root_atIP7oopDescEEvS2_iP11CHeapBitMap.exit, %._crit_edge, %146
   call void @_ZN17ArchiveHeapWriter14compute_ptrmapEP15ArchiveHeapInfo(ptr noundef nonnull %1)
   %209 = load ptr, ptr @_ZN17ArchiveHeapWriter7_bufferE, align 8
   %210 = load i32, ptr %209, align 4
@@ -1344,7 +1344,7 @@ _ZN17ArchiveHeapWriter16relocate_root_atIP7oopDescEEvS2_iP11CHeapBitMap.exit: ; 
   %.not.i35 = icmp eq i64 %217, 0
   br i1 %.not.i35, label %.loopexit.i.i.i.i, label %218
 
-218:                                              ; preds = %._crit_edge57
+218:                                              ; preds = %._crit_edge58
   %219 = load ptr, ptr %9, align 8
   %220 = load i64, ptr %219, align 8
   %221 = and i64 %220, 1
@@ -1385,7 +1385,7 @@ _ZN17ArchiveHeapWriter16relocate_root_atIP7oopDescEEvS2_iP11CHeapBitMap.exit: ; 
   %238 = icmp ult i64 %237, %217
   br i1 %238, label %_ZNK6BitMap18find_first_set_bitEm.exit.i, label %.loopexit.i.i.i.i
 
-.loopexit.i.i.i.i:                                ; preds = %228, %235, %._crit_edge57
+.loopexit.i.i.i.i:                                ; preds = %228, %235, %._crit_edge58
   br label %_ZNK6BitMap18find_first_set_bitEm.exit.i
 
 _ZNK6BitMap18find_first_set_bitEm.exit.i:         ; preds = %.loopexit.i.i.i.i, %235, %218

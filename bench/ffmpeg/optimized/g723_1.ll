@@ -50,22 +50,22 @@ define range(i32 -3, 12) i32 @ff_g723_1_scale_vector(ptr noundef writeonly captu
   br i1 %4, label %.lr.ph30.preheader, label %._crit_edge31
 
 .lr.ph30.preheader:                               ; preds = %._crit_edge
-  %wide.trip.count37 = zext nneg i32 %2 to i64
+  %wide.trip.count38 = zext nneg i32 %2 to i64
   br label %.lr.ph30
 
 .lr.ph30:                                         ; preds = %.lr.ph30.preheader, %.lr.ph30
-  %indvars.iv34 = phi i64 [ 0, %.lr.ph30.preheader ], [ %indvars.iv.next35, %.lr.ph30 ]
-  %17 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv34
+  %indvars.iv35 = phi i64 [ 0, %.lr.ph30.preheader ], [ %indvars.iv.next36, %.lr.ph30 ]
+  %17 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv35
   %18 = load i16, ptr %17, align 2, !tbaa !4
   %19 = sext i16 %18 to i32
   %20 = shl nsw i32 %19, %16
   %21 = lshr i32 %20, 3
   %22 = trunc i32 %21 to i16
-  %23 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv34
+  %23 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv35
   store i16 %22, ptr %23, align 2, !tbaa !4
-  %indvars.iv.next35 = add nuw nsw i64 %indvars.iv34, 1
-  %exitcond38.not = icmp eq i64 %indvars.iv.next35, %wide.trip.count37
-  br i1 %exitcond38.not, label %._crit_edge31, label %.lr.ph30, !llvm.loop !11
+  %indvars.iv.next36 = add nuw nsw i64 %indvars.iv35, 1
+  %exitcond39.not = icmp eq i64 %indvars.iv.next36, %wide.trip.count38
+  br i1 %exitcond39.not, label %._crit_edge31, label %.lr.ph30, !llvm.loop !11
 
 ._crit_edge31:                                    ; preds = %.lr.ph30, %._crit_edge
   %24 = add nsw i32 %16, -3

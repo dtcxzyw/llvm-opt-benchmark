@@ -29648,8 +29648,8 @@ _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE17TraverseWhi
 _ZNK5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEdeEv.exit: ; preds = %.lr.ph.split, %68
   %70 = phi ptr [ %69, %68 ], [ %65, %.lr.ph.split ]
   %71 = load ptr, ptr %70, align 8, !tbaa !829
-  %.not37 = icmp eq ptr %71, null
-  br i1 %.not37, label %105, label %72
+  %.not38 = icmp eq ptr %71, null
+  br i1 %.not38, label %105, label %72
 
 72:                                               ; preds = %_ZNK5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEdeEv.exit
   %73 = load i16, ptr %1, align 8
@@ -51925,8 +51925,8 @@ _ZN5clang6IfStmt8childrenEv.exit:                 ; preds = %._crit_edge.i, %51
   store ptr %57, ptr %8, align 8
   %.sroa.4105.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 0, ptr %.sroa.4105.0..sroa_idx, align 8
-  %.not127 = icmp samesign eq i64 %.idx, %62
-  br i1 %.not127, label %._crit_edge, label %.lr.ph
+  %.not128 = icmp samesign eq i64 %.idx, %62
+  br i1 %.not128, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN5clang6IfStmt8childrenEv.exit
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 176
@@ -52004,24 +52004,24 @@ _ZN5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEppEv.exit.us: ; preds 
 _ZN5clang6IfStmt8childrenEv.exit42:               ; preds = %._crit_edge.i28, %85
   %.lobit1.i.pre-phi.i33 = phi i16 [ %.pre11.i32, %._crit_edge.i28 ], [ %.lobit.i.i.i38, %85 ]
   %.lobit.i.pre-phi.i34 = phi i16 [ %.pre8.i30, %._crit_edge.i28 ], [ %.lobit1.i.i.i39, %85 ]
-  %.idx129 = phi i64 [ 0, %._crit_edge.i28 ], [ %89, %85 ]
-  %90 = getelementptr inbounds nuw i8, ptr %56, i64 %.idx129
+  %.idx130 = phi i64 [ 0, %._crit_edge.i28 ], [ %89, %85 ]
+  %90 = getelementptr inbounds nuw i8, ptr %56, i64 %.idx130
   %91 = and i16 %83, 4096
   %.not.i.i35 = icmp eq i16 %91, 0
-  %.idx130 = select i1 %.not.i.i35, i64 16, i64 24
+  %.idx131 = select i1 %.not.i.i35, i64 16, i64 24
   %92 = shl nuw nsw i16 %.lobit.i.pre-phi.i34, 3
-  %.idx131 = zext nneg i16 %92 to i64
-  %93 = add nuw nsw i64 %.idx130, %.idx131
+  %.idx132 = zext nneg i16 %92 to i64
+  %93 = add nuw nsw i64 %.idx131, %.idx132
   %94 = shl nuw nsw i16 %.lobit1.i.pre-phi.i33, 3
-  %.idx132 = zext nneg i16 %94 to i64
-  %95 = add nuw nsw i64 %93, %.idx132
+  %.idx133 = zext nneg i16 %94 to i64
+  %95 = add nuw nsw i64 %93, %.idx133
   %96 = getelementptr inbounds nuw i8, ptr %56, i64 %95
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr %90, ptr %11, align 8
   %.sroa.494.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 0, ptr %.sroa.494.0..sroa_idx, align 8
-  %.not133 = icmp samesign eq i64 %.idx129, %95
-  br i1 %.not133, label %._crit_edge118, label %.lr.ph117
+  %.not135 = icmp samesign eq i64 %.idx130, %95
+  br i1 %.not135, label %._crit_edge118, label %.lr.ph117
 
 .lr.ph117:                                        ; preds = %_ZN5clang6IfStmt8childrenEv.exit42
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -52042,8 +52042,8 @@ _ZN5clang6IfStmt8childrenEv.exit42:               ; preds = %._crit_edge.i28, %8
 _ZNK5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEdeEv.exit: ; preds = %.lr.ph.split, %103
   %105 = phi ptr [ %104, %103 ], [ %100, %.lr.ph.split ]
   %106 = load ptr, ptr %105, align 8, !tbaa !829
-  %.not128 = icmp eq ptr %106, null
-  br i1 %.not128, label %_ZN5clang6IfStmt7getElseEv.exit.thread, label %107
+  %.not129 = icmp eq ptr %106, null
+  br i1 %.not129, label %_ZN5clang6IfStmt7getElseEv.exit.thread, label %107
 
 107:                                              ; preds = %_ZNK5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEdeEv.exit
   %108 = load i16, ptr %1, align 8
@@ -52272,13 +52272,13 @@ _ZN5clang6IfStmt7getElseEv.exit81:                ; preds = %192
   br label %_ZN5clang6IfStmt7getElseEv.exit81.thread.sink.split
 
 _ZN5clang6IfStmt7getElseEv.exit81.thread.sink.split: ; preds = %202, %198, %191, %187
-  %.sink141 = phi i32 [ %.pre.i74, %191 ], [ %188, %187 ], [ %.pre.i85, %202 ], [ %199, %198 ]
+  %.sink143 = phi i32 [ %.pre.i74, %191 ], [ %188, %187 ], [ %.pre.i85, %202 ], [ %199, %198 ]
   %.sink = phi i64 [ 0, %191 ], [ %.pre2.i73, %187 ], [ 0, %202 ], [ %.pre2.i84, %198 ]
-  %.sink139 = phi i64 [ 18, %191 ], [ 18, %187 ], [ 19, %202 ], [ 19, %198 ]
-  %203 = add i32 %.sink141, 1
+  %.sink141 = phi i64 [ 18, %191 ], [ 18, %187 ], [ 19, %202 ], [ 19, %198 ]
+  %203 = add i32 %.sink143, 1
   store i32 %203, ptr %97, align 8, !tbaa !807
   %204 = shl i64 %.sink, 6
-  %205 = or disjoint i64 %204, %.sink139
+  %205 = or disjoint i64 %204, %.sink141
   store i64 %205, ptr %12, align 8, !tbaa !806
   br label %_ZN5clang6IfStmt7getElseEv.exit81.thread
 

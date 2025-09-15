@@ -964,8 +964,8 @@ define dso_local noundef i64 @pg_stat_get_activity(ptr noundef %0) local_unnamed
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = load ptr, ptr %16, align 8
   tail call void @InitMaterializedSRF(ptr noundef nonnull %0, i32 noundef 0) #9
-  %.not162 = icmp slt i32 %6, 1
-  br i1 %.not162, label %._crit_edge, label %.lr.ph
+  %.not163 = icmp slt i32 %6, 1
+  br i1 %.not163, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %14
   %.not117.not = icmp ne i32 %15, -1
@@ -1027,12 +1027,12 @@ define dso_local noundef i64 @pg_stat_get_activity(ptr noundef %0) local_unnamed
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %.lr.ph
-  %.0163 = phi i32 [ 1, %.lr.ph ], [ %.0163.be, %.backedge.backedge ]
+  %.0164 = phi i32 [ 1, %.lr.ph ], [ %.0164.be, %.backedge.backedge ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(248) %2, i8 0, i64 248, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(31) %3, i8 0, i64 31, i1 false)
-  %73 = call ptr @pgstat_get_local_beentry_by_index(i32 noundef %.0163) #9
+  %73 = call ptr @pgstat_get_local_beentry_by_index(i32 noundef %.0164) #9
   br i1 %.not117.not, label %74, label %77
 
 74:                                               ; preds = %.backedge
@@ -1044,12 +1044,12 @@ define dso_local noundef i64 @pg_stat_get_activity(ptr noundef %0) local_unnamed
 .thread155:                                       ; preds = %74
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %.old = add i32 %.0163, 1
+  %.old = add i32 %.0164, 1
   %.not.old = icmp sgt i32 %.old, %6
   br i1 %.not.old, label %._crit_edge, label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %.thread155, %358
-  %.0163.be = phi i32 [ %.old, %.thread155 ], [ %361, %358 ]
+  %.0164.be = phi i32 [ %.old, %.thread155 ], [ %361, %358 ]
   br label %.backedge, !llvm.loop !9
 
 77:                                               ; preds = %74, %.backedge
@@ -1253,8 +1253,8 @@ define dso_local noundef i64 @pg_stat_get_activity(ptr noundef %0) local_unnamed
   br i1 %.not128, label %173, label %.sink.split
 
 .sink.split:                                      ; preds = %169, %161
-  %.sink196 = phi i32 [ %163, %161 ], [ %171, %169 ]
-  %172 = sext i32 %.sink196 to i64
+  %.sink197 = phi i32 [ %163, %161 ], [ %171, %169 ]
+  %172 = sext i32 %.sink197 to i64
   store i64 %172, ptr %47, align 8
   store i8 0, ptr %44, align 1
   br label %173
@@ -1608,7 +1608,7 @@ pg_memory_is_all_zeros.exit:                      ; preds = %.preheader.i
   %317 = ptrtoint ptr %314 to i64
   %318 = call i64 @DirectFunctionCall3Coll(ptr noundef nonnull @numeric_in, i32 noundef 0, i64 noundef %317, i64 noundef 0, i64 noundef -1) #9
   store i64 %318, ptr %64, align 8
-  %.pre168 = load ptr, ptr %294, align 8
+  %.pre169 = load ptr, ptr %294, align 8
   br label %320
 
 319:                                              ; preds = %312
@@ -1616,7 +1616,7 @@ pg_memory_is_all_zeros.exit:                      ; preds = %.preheader.i
   br label %320
 
 320:                                              ; preds = %319, %316
-  %321 = phi ptr [ %313, %319 ], [ %.pre168, %316 ]
+  %321 = phi ptr [ %313, %319 ], [ %.pre169, %316 ]
   %322 = getelementptr inbounds nuw i8, ptr %321, i64 260
   %323 = load i8, ptr %322, align 4
   %.not141 = icmp eq i8 %323, 0
@@ -1700,7 +1700,7 @@ pg_memory_is_all_zeros.exit:                      ; preds = %.preheader.i
   call void @tuplestore_putvalues(ptr noundef %359, ptr noundef %360, ptr noundef nonnull %2, ptr noundef nonnull %3) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %361 = add i32 %.0163, 1
+  %361 = add i32 %.0164, 1
   %.not = icmp sgt i32 %361, %6
   %or.cond = select i1 %.not117.not, i1 true, i1 %.not
   br i1 %or.cond, label %._crit_edge, label %.backedge.backedge

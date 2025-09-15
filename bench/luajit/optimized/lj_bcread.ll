@@ -193,8 +193,8 @@ bcread_uv.exit:                                   ; preds = %.preheader.i, %bcre
   br label %101
 
 101:                                              ; preds = %240, %.lr.ph.i105
-  %.02.i = phi i32 [ 0, %.lr.ph.i105 ], [ %241, %240 ]
-  %.0441.i = phi ptr [ %98, %.lr.ph.i105 ], [ %242, %240 ]
+  %.03.i = phi i32 [ 0, %.lr.ph.i105 ], [ %241, %240 ]
+  %.0442.i = phi ptr [ %98, %.lr.ph.i105 ], [ %242, %240 ]
   %102 = call i32 @lj_buf_ruleb128(ptr noundef nonnull %3) #11
   %103 = icmp ugt i32 %102, 4
   br i1 %103, label %104, label %112
@@ -208,7 +208,7 @@ bcread_uv.exit:                                   ; preds = %.preheader.i, %bcre
   %109 = load ptr, ptr %40, align 8, !tbaa !21
   %110 = call ptr @lj_str_new(ptr noundef %109, ptr noundef %106, i64 noundef %107) #11
   %111 = ptrtoint ptr %110 to i64
-  store i64 %111, ptr %.0441.i, align 8, !tbaa !45
+  store i64 %111, ptr %.0442.i, align 8, !tbaa !45
   br label %240
 
 112:                                              ; preds = %101
@@ -403,7 +403,7 @@ bcread_ktabk.exit29.i.i:                          ; preds = %199, %195, %192, %1
 
 bcread_ktab.exit.i:                               ; preds = %bcread_ktabk.exit29.i.i, %.loopexit30.i.i
   %204 = ptrtoint ptr %125 to i64
-  store i64 %204, ptr %.0441.i, align 8, !tbaa !45
+  store i64 %204, ptr %.0442.i, align 8, !tbaa !45
   br label %240
 
 205:                                              ; preds = %112
@@ -420,7 +420,7 @@ bcread_ktab.exit.i:                               ; preds = %bcread_ktabk.exit29
   store i16 %212, ptr %213, align 2, !tbaa !52
   %214 = getelementptr inbounds nuw i8, ptr %209, i64 16
   %215 = ptrtoint ptr %209 to i64
-  store i64 %215, ptr %.0441.i, align 8, !tbaa !45
+  store i64 %215, ptr %.0442.i, align 8, !tbaa !45
   %216 = call i32 @lj_buf_ruleb128(ptr noundef nonnull %3) #11
   store i32 %216, ptr %214, align 8, !tbaa !19
   %217 = call i32 @lj_buf_ruleb128(ptr noundef nonnull %3) #11
@@ -461,12 +461,12 @@ bcread_ktab.exit.i:                               ; preds = %bcread_ktabk.exit29
   store ptr %237, ptr %226, align 8, !tbaa !53
   %238 = load i64, ptr %237, align 8, !tbaa !19
   %239 = and i64 %238, 140737488355327
-  store i64 %239, ptr %.0441.i, align 8, !tbaa !45
+  store i64 %239, ptr %.0442.i, align 8, !tbaa !45
   br label %240
 
 240:                                              ; preds = %236, %219, %205, %bcread_ktab.exit.i, %104
-  %241 = add nuw i32 %.02.i, 1
-  %242 = getelementptr inbounds nuw i8, ptr %.0441.i, i64 8
+  %241 = add nuw i32 %.03.i, 1
+  %242 = getelementptr inbounds nuw i8, ptr %.0442.i, i64 8
   %exitcond.not.i106 = icmp eq i32 %241, %15
   br i1 %exitcond.not.i106, label %bcread_kgc.exit, label %101, !llvm.loop !59
 
@@ -481,7 +481,7 @@ bcread_kgc.exit:                                  ; preds = %240, %bcread_uv.exi
   br label %244
 
 244:                                              ; preds = %268, %.lr.ph.i107
-  %.03.i = phi i32 [ 0, %.lr.ph.i107 ], [ %269, %268 ]
+  %.03.i108 = phi i32 [ 0, %.lr.ph.i107 ], [ %269, %268 ]
   %.0132.i = phi ptr [ %243, %.lr.ph.i107 ], [ %270, %268 ]
   %245 = load ptr, ptr %3, align 8, !tbaa !4
   %246 = load i8, ptr %245, align 1, !tbaa !19
@@ -514,8 +514,8 @@ bcread_uleb128_33.exit.i:                         ; preds = %254, %244
   %.011.i.i = phi ptr [ %248, %244 ], [ %261, %254 ]
   %.010.i.i = phi i32 [ %250, %244 ], [ %260, %254 ]
   store ptr %.011.i.i, ptr %3, align 8, !tbaa !4
-  %.not.i108 = icmp eq i8 %247, 0
-  br i1 %.not.i108, label %266, label %263
+  %.not.i109 = icmp eq i8 %247, 0
+  br i1 %.not.i109, label %266, label %263
 
 263:                                              ; preds = %bcread_uleb128_33.exit.i
   store i32 %.010.i.i, ptr %.0132.i, align 8, !tbaa !19
@@ -530,10 +530,10 @@ bcread_uleb128_33.exit.i:                         ; preds = %254, %244
   br label %268
 
 268:                                              ; preds = %266, %263
-  %269 = add nuw i32 %.03.i, 1
+  %269 = add nuw i32 %.03.i108, 1
   %270 = getelementptr inbounds nuw i8, ptr %.0132.i, i64 8
-  %exitcond.not.i109 = icmp eq i32 %269, %16
-  br i1 %exitcond.not.i109, label %bcread_knum.exit, label %244, !llvm.loop !62
+  %exitcond.not.i110 = icmp eq i32 %269, %16
+  br i1 %exitcond.not.i110, label %bcread_knum.exit, label %244, !llvm.loop !62
 
 bcread_knum.exit:                                 ; preds = %268, %bcread_kgc.exit
   %271 = getelementptr inbounds nuw i8, ptr %43, i64 72
@@ -566,8 +566,8 @@ bcread_knum.exit:                                 ; preds = %268, %bcread_kgc.ex
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %280, ptr noundef nonnull align 1 dereferenceable(1) %287, i64 %288, i1 false)
   %290 = load i32, ptr %19, align 4, !tbaa !20
   %291 = and i32 %290, 1
-  %.not.i110 = icmp eq i32 %291, 0
-  br i1 %.not.i110, label %bcread_dbg.exit, label %292
+  %.not.i111 = icmp eq i32 %291, 0
+  br i1 %.not.i111, label %bcread_dbg.exit, label %292
 
 292:                                              ; preds = %273
   %293 = load i32, ptr %272, align 4, !tbaa !64
@@ -579,19 +579,19 @@ bcread_knum.exit:                                 ; preds = %268, %bcread_kgc.ex
   %297 = add i32 %296, -1
   %298 = icmp samesign ult i32 %293, 65536
   %.not32.i = icmp eq i32 %297, 0
-  br i1 %298, label %.preheader.i117, label %.preheader26.i
+  br i1 %298, label %.preheader.i118, label %.preheader26.i
 
 .preheader26.i:                                   ; preds = %295
-  br i1 %.not32.i, label %bcread_dbg.exit, label %.lr.ph.preheader.i111
+  br i1 %.not32.i, label %bcread_dbg.exit, label %.lr.ph.preheader.i112
 
-.lr.ph.preheader.i111:                            ; preds = %.preheader26.i
-  %wide.trip.count.i112 = zext i32 %297 to i64
-  br label %.lr.ph.i113
+.lr.ph.preheader.i112:                            ; preds = %.preheader26.i
+  %wide.trip.count.i113 = zext i32 %297 to i64
+  br label %.lr.ph.i114
 
-.preheader.i117:                                  ; preds = %295
+.preheader.i118:                                  ; preds = %295
   br i1 %.not32.i, label %bcread_dbg.exit, label %.lr.ph30.preheader.i
 
-.lr.ph30.preheader.i:                             ; preds = %.preheader.i117
+.lr.ph30.preheader.i:                             ; preds = %.preheader.i118
   %wide.trip.count38.i = zext i32 %297 to i64
   br label %.lr.ph30.i
 
@@ -605,43 +605,43 @@ bcread_knum.exit:                                 ; preds = %268, %bcread_kgc.ex
   %exitcond39.not.i = icmp eq i64 %indvars.iv.next36.i, %wide.trip.count38.i
   br i1 %exitcond39.not.i, label %bcread_dbg.exit, label %.lr.ph30.i, !llvm.loop !67
 
-.lr.ph.i113:                                      ; preds = %.lr.ph.i113, %.lr.ph.preheader.i111
-  %indvars.iv.i114 = phi i64 [ 0, %.lr.ph.preheader.i111 ], [ %indvars.iv.next.i115, %.lr.ph.i113 ]
-  %302 = getelementptr inbounds nuw i32, ptr %280, i64 %indvars.iv.i114
+.lr.ph.i114:                                      ; preds = %.lr.ph.i114, %.lr.ph.preheader.i112
+  %indvars.iv.i115 = phi i64 [ 0, %.lr.ph.preheader.i112 ], [ %indvars.iv.next.i116, %.lr.ph.i114 ]
+  %302 = getelementptr inbounds nuw i32, ptr %280, i64 %indvars.iv.i115
   %303 = load i32, ptr %302, align 4, !tbaa !39
   %304 = call i32 @llvm.bswap.i32(i32 %303)
   store i32 %304, ptr %302, align 4, !tbaa !39
-  %indvars.iv.next.i115 = add nuw nsw i64 %indvars.iv.i114, 1
-  %exitcond.not.i116 = icmp eq i64 %indvars.iv.next.i115, %wide.trip.count.i112
-  br i1 %exitcond.not.i116, label %bcread_dbg.exit, label %.lr.ph.i113, !llvm.loop !68
+  %indvars.iv.next.i116 = add nuw nsw i64 %indvars.iv.i115, 1
+  %exitcond.not.i117 = icmp eq i64 %indvars.iv.next.i116, %wide.trip.count.i113
+  br i1 %exitcond.not.i117, label %bcread_dbg.exit, label %.lr.ph.i114, !llvm.loop !68
 
-bcread_dbg.exit:                                  ; preds = %.lr.ph.i113, %.lr.ph30.i, %273, %292, %.preheader26.i, %.preheader.i117
+bcread_dbg.exit:                                  ; preds = %.lr.ph.i114, %.lr.ph30.i, %273, %292, %.preheader26.i, %.preheader.i118
   %.val97 = load i8, ptr %59, align 4, !tbaa !34
   %.val98 = load i64, ptr %286, align 8, !tbaa !66
-  %.not.i118 = icmp eq i8 %.val97, 0
-  br i1 %.not.i118, label %bcread_varinfo.exit, label %.preheader.preheader.i119
+  %.not.i119 = icmp eq i8 %.val97, 0
+  br i1 %.not.i119, label %bcread_varinfo.exit, label %.preheader.preheader.i120
 
-.preheader.preheader.i119:                        ; preds = %bcread_dbg.exit
+.preheader.preheader.i120:                        ; preds = %bcread_dbg.exit
   %305 = inttoptr i64 %.val98 to ptr
   %306 = zext i8 %.val97 to i32
-  br label %.preheader.i120.outer
+  br label %.preheader.i121.outer
 
-.preheader.i120.outer:                            ; preds = %309, %.preheader.preheader.i119
-  %.16.i.ph = phi ptr [ %307, %309 ], [ %305, %.preheader.preheader.i119 ]
-  %.0.i.ph = phi i32 [ %310, %309 ], [ %306, %.preheader.preheader.i119 ]
-  br label %.preheader.i120
+.preheader.i121.outer:                            ; preds = %309, %.preheader.preheader.i120
+  %.16.i.ph = phi ptr [ %307, %309 ], [ %305, %.preheader.preheader.i120 ]
+  %.0.i.ph = phi i32 [ %310, %309 ], [ %306, %.preheader.preheader.i120 ]
+  br label %.preheader.i121
 
-.preheader.i120:                                  ; preds = %.preheader.i120.outer, %.preheader.i120
-  %.16.i = phi ptr [ %307, %.preheader.i120 ], [ %.16.i.ph, %.preheader.i120.outer ]
+.preheader.i121:                                  ; preds = %.preheader.i121.outer, %.preheader.i121
+  %.16.i = phi ptr [ %307, %.preheader.i121 ], [ %.16.i.ph, %.preheader.i121.outer ]
   %307 = getelementptr inbounds nuw i8, ptr %.16.i, i64 1
   %308 = load i8, ptr %.16.i, align 1, !tbaa !19
   %.not9.i = icmp eq i8 %308, 0
-  br i1 %.not9.i, label %309, label %.preheader.i120, !llvm.loop !69
+  br i1 %.not9.i, label %309, label %.preheader.i121, !llvm.loop !69
 
-309:                                              ; preds = %.preheader.i120
+309:                                              ; preds = %.preheader.i121
   %310 = add nsw i32 %.0.i.ph, -1
   %.not10.i = icmp eq i32 %310, 0
-  br i1 %.not10.i, label %bcread_varinfo.exit.loopexit, label %.preheader.i120.outer, !llvm.loop !69
+  br i1 %.not10.i, label %bcread_varinfo.exit.loopexit, label %.preheader.i121.outer, !llvm.loop !69
 
 bcread_varinfo.exit.loopexit:                     ; preds = %309
   %311 = ptrtoint ptr %307 to i64

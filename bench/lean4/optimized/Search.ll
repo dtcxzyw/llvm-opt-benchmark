@@ -41436,7 +41436,7 @@ define zeroext range(i8 0, 2) i8 @l___private_Lean_Meta_Tactic_Grind_Arith_Cutsa
 lean_obj_tag.exit.us:                             ; preds = %10, %7
   %.0.i67.us = phi i32 [ %9, %7 ], [ %12, %10 ]
   %13 = icmp eq i32 %.0.i67.us, 0
-  br i1 %13, label %.split100.us, label %14
+  br i1 %13, label %.split102.us, label %14
 
 14:                                               ; preds = %lean_obj_tag.exit.us
   %15 = ptrtoint ptr %.048.us to i64
@@ -41531,21 +41531,21 @@ lean_int_dec_eq.exit.us:                          ; preds = %24
 lean_obj_tag.exit:                                ; preds = %56, %59
   %.0.i67 = phi i32 [ %58, %56 ], [ %61, %59 ]
   %62 = icmp eq i32 %.0.i67, 0
-  br i1 %62, label %.split100.us, label %72
+  br i1 %62, label %.split102.us, label %72
 
-.split100.us:                                     ; preds = %lean_obj_tag.exit, %lean_obj_tag.exit.us
+.split102.us:                                     ; preds = %lean_obj_tag.exit, %lean_obj_tag.exit.us
   %.us-phi = phi ptr [ %.048.us, %lean_obj_tag.exit.us ], [ %.048, %lean_obj_tag.exit ]
   %63 = ptrtoint ptr %.us-phi to i64
   %64 = and i64 %63, 1
   %.not.i68 = icmp eq i64 %64, 0
   br i1 %.not.i68, label %68, label %65
 
-65:                                               ; preds = %.split100.us
+65:                                               ; preds = %.split102.us
   %66 = lshr i64 %63, 1
   %67 = trunc i64 %66 to i32
   br label %lean_obj_tag.exit71
 
-68:                                               ; preds = %.split100.us
+68:                                               ; preds = %.split102.us
   %69 = getelementptr i8, ptr %.us-phi, i64 4
   %.val.i70 = load i32, ptr %69, align 4
   %70 = lshr i32 %.val.i70, 24

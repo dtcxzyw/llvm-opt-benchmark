@@ -438,14 +438,14 @@ lor.lhs.false:                                    ; preds = %entry
 if.end:                                           ; preds = %lor.lhs.false
   tail call void @_ZN4llvh5APInt5tcSetEPmmj(ptr noundef %retval.0.i, i64 noundef 0, i32 noundef %div1.i.i) #26
   %.pre = load i32, ptr %BitWidth.i, align 8
-  %.pre42 = zext i32 %.pre to i64
-  %.pre43 = add nuw nsw i64 %.pre42, 63
-  %.pre44 = lshr i64 %.pre43, 6
-  %.pre45 = trunc nuw nsw i64 %.pre44 to i32
+  %.pre43 = zext i32 %.pre to i64
+  %.pre44 = add nuw nsw i64 %.pre43, 63
+  %.pre45 = lshr i64 %.pre44, 6
+  %.pre46 = trunc nuw nsw i64 %.pre45 to i32
   br label %if.then10
 
 if.then10:                                        ; preds = %lor.lhs.false, %if.end
-  %conv1.i.i30.pre-phi = phi i32 [ %conv1.i.i, %lor.lhs.false ], [ %.pre45, %if.end ]
+  %conv1.i.i30.pre-phi = phi i32 [ %conv1.i.i, %lor.lhs.false ], [ %.pre46, %if.end ]
   %5 = phi i32 [ %4, %lor.lhs.false ], [ %.pre, %if.end ]
   %cmp.i.i = icmp ult i32 %5, 65
   %6 = load ptr, ptr %fill, align 8

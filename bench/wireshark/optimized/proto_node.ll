@@ -58,9 +58,9 @@ define void @_ZN9ProtoNodeC2EP11_proto_nodePS_(ptr noundef align 8 dereferenceab
   br i1 %.not, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %3
-  %.01629 = load ptr, ptr %1, align 8
-  %.not2030 = icmp eq ptr %.01629, null
-  br i1 %.not2030, label %._crit_edge, label %.lr.ph
+  %.01630 = load ptr, ptr %1, align 8
+  %.not2031 = icmp eq ptr %.01630, null
+  br i1 %.not2031, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %7 = load i8, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 380), align 4, !range !6
@@ -77,9 +77,9 @@ define void @_ZN9ProtoNodeC2EP11_proto_nodePS_(ptr noundef align 8 dereferenceab
           to label %21 unwind label %24
 
 10:                                               ; preds = %.lr.ph, %19
-  %.01632 = phi ptr [ %.01629, %.lr.ph ], [ %.016, %19 ]
-  %.01731 = phi i32 [ 0, %.lr.ph ], [ %spec.select, %19 ]
-  %11 = getelementptr inbounds nuw i8, ptr %.01632, i64 40
+  %.01633 = phi ptr [ %.01630, %.lr.ph ], [ %.016, %19 ]
+  %.01732 = phi i32 [ 0, %.lr.ph ], [ %spec.select, %19 ]
+  %11 = getelementptr inbounds nuw i8, ptr %.01633, i64 40
   %12 = load ptr, ptr %11, align 8
   %.not7.i.i = icmp eq ptr %12, null
   br i1 %.not7.i.i, label %19, label %13
@@ -94,19 +94,19 @@ define void @_ZN9ProtoNodeC2EP11_proto_nodePS_(ptr noundef align 8 dereferenceab
 
 19:                                               ; preds = %13, %10
   %.0.i.i = phi i32 [ %18, %13 ], [ %8, %10 ]
-  %spec.select = add i32 %.0.i.i, %.01731
-  %20 = getelementptr inbounds nuw i8, ptr %.01632, i64 16
+  %spec.select = add i32 %.0.i.i, %.01732
+  %20 = getelementptr inbounds nuw i8, ptr %.01633, i64 16
   %.016 = load ptr, ptr %20, align 8
   %.not20 = icmp eq ptr %.016, null
   br i1 %.not20, label %._crit_edge.loopexit, label %10, !llvm.loop !7
 
 21:                                               ; preds = %._crit_edge
   %22 = load ptr, ptr %0, align 8
-  %.033 = load ptr, ptr %22, align 8
-  %.not2134 = icmp eq ptr %.033, null
-  br i1 %.not2134, label %.loopexit, label %.lr.ph37
+  %.034 = load ptr, ptr %22, align 8
+  %.not2135 = icmp eq ptr %.034, null
+  br i1 %.not2135, label %.loopexit, label %.lr.ph38
 
-.lr.ph37:                                         ; preds = %21
+.lr.ph38:                                         ; preds = %21
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %26
 
@@ -115,9 +115,9 @@ define void @_ZN9ProtoNodeC2EP11_proto_nodePS_(ptr noundef align 8 dereferenceab
           cleanup
   br label %49
 
-26:                                               ; preds = %.lr.ph37, %47
-  %.035 = phi ptr [ %.033, %.lr.ph37 ], [ %.0, %47 ]
-  %27 = getelementptr inbounds nuw i8, ptr %.035, i64 40
+26:                                               ; preds = %.lr.ph38, %47
+  %.036 = phi ptr [ %.034, %.lr.ph38 ], [ %.0, %47 ]
+  %27 = getelementptr inbounds nuw i8, ptr %.036, i64 40
   %28 = load ptr, ptr %27, align 8
   %.not7.i.i26 = icmp eq ptr %28, null
   br i1 %.not7.i.i26, label %34, label %29
@@ -141,7 +141,7 @@ define void @_ZN9ProtoNodeC2EP11_proto_nodePS_(ptr noundef align 8 dereferenceab
           to label %40 unwind label %43
 
 40:                                               ; preds = %38
-  invoke void @_ZN9ProtoNodeC1EP11_proto_nodePS_(ptr noundef align 8 dereferenceable_or_null(40) %39, ptr noundef nonnull %.035, ptr noundef %0)
+  invoke void @_ZN9ProtoNodeC1EP11_proto_nodePS_(ptr noundef align 8 dereferenceable_or_null(40) %39, ptr noundef nonnull %.036, ptr noundef %0)
           to label %41 unwind label %45
 
 41:                                               ; preds = %40
@@ -167,7 +167,7 @@ _ZN5QListIP9ProtoNodeE6appendES1_.exit:           ; preds = %41
   br label %49
 
 47:                                               ; preds = %_ZN5QListIP9ProtoNodeE6appendES1_.exit, %34
-  %48 = getelementptr inbounds nuw i8, ptr %.035, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %.036, i64 16
   %.0 = load ptr, ptr %48, align 8
   %.not21 = icmp eq ptr %.0, null
   br i1 %.not21, label %.loopexit, label %26, !llvm.loop !9

@@ -6225,12 +6225,12 @@ _ZN16markdown_preview15markdown_parser14MarkdownParser7current17h30686fabb057568
   %60 = load i64, ptr %59, align 8, !noundef !4
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.pre = load i64, ptr %.phi.trans.insert, align 8, !alias.scope !1321
-  %.phi.trans.insert500 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %.pre501 = load i64, ptr %.phi.trans.insert500, align 8, !alias.scope !1321
+  %.phi.trans.insert501 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %.pre502 = load i64, ptr %.phi.trans.insert501, align 8, !alias.scope !1321
   br label %"_ZN16markdown_preview15markdown_parser14MarkdownParser10parse_text28_$u7b$$u7b$closure$u7d$$u7d$17h7c4fea1135c91586E.exit"
 
 "_ZN16markdown_preview15markdown_parser14MarkdownParser10parse_text28_$u7b$$u7b$closure$u7d$$u7d$17h7c4fea1135c91586E.exit": ; preds = %51, %_ZN16markdown_preview15markdown_parser14MarkdownParser7current17h30686fabb0575686E.exit.i, %42, %56
-  %61 = phi i64 [ %.pre501, %56 ], [ %39, %51 ], [ %39, %_ZN16markdown_preview15markdown_parser14MarkdownParser7current17h30686fabb0575686E.exit.i ], [ %39, %42 ]
+  %61 = phi i64 [ %.pre502, %56 ], [ %39, %51 ], [ %39, %_ZN16markdown_preview15markdown_parser14MarkdownParser7current17h30686fabb0575686E.exit.i ], [ %39, %42 ]
   %62 = phi i64 [ %.pre, %56 ], [ %36, %51 ], [ %36, %_ZN16markdown_preview15markdown_parser14MarkdownParser7current17h30686fabb0575686E.exit.i ], [ 0, %42 ]
   %.sroa.0159.0 = phi i64 [ %58, %56 ], [ %53, %51 ], [ 0, %_ZN16markdown_preview15markdown_parser14MarkdownParser7current17h30686fabb0575686E.exit.i ], [ 0, %42 ]
   %.sroa.3.0 = phi i64 [ %60, %56 ], [ %55, %51 ], [ 0, %_ZN16markdown_preview15markdown_parser14MarkdownParser7current17h30686fabb0575686E.exit.i ], [ 0, %42 ]
@@ -6321,7 +6321,7 @@ _ZN16markdown_preview15markdown_parser14MarkdownParser7current17h30686fabb057568
   %102 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %103 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %104 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  %.pre502 = load ptr, ptr %79, align 8, !alias.scope !1324
+  %.pre503 = load ptr, ptr %79, align 8, !alias.scope !1324
   br label %110
 
 .body240:                                         ; preds = %.loopexit322, %.loopexit.split-lp323, %254, %237, %242, %491, %494, %.body, %447, %.body198, %194, %179, %171
@@ -6354,7 +6354,7 @@ _ZN16markdown_preview15markdown_parser14MarkdownParser7current17h30686fabb057568
   %.sroa.0.0435 = phi i32 [ 0, %.lr.ph ], [ %.sroa.0.1, %173 ]
   %.sroa.022.0434 = phi i32 [ 0, %.lr.ph ], [ %.sroa.022.1, %173 ]
   %.sroa.025.0433 = phi i32 [ 0, %.lr.ph ], [ %.sroa.025.1, %173 ]
-  %112 = getelementptr inbounds { { i8, [79 x i8] }, { i64, i64 } }, ptr %.pre502, i64 %111
+  %112 = getelementptr inbounds { { i8, [79 x i8] }, { i64, i64 } }, ptr %.pre503, i64 %111
   %113 = load i64, ptr %.sroa.5162.0..sroa_idx, align 8, !noundef !4
   %114 = load i8, ptr %112, align 8, !range !19, !noundef !4
   %115 = add nsw i8 %114, -21
@@ -6666,8 +6666,8 @@ _ZN5alloc6string6String4push17h41bd6cc148f6c106E.exit: ; preds = %134, %131
 218:                                              ; preds = %217
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %25, ptr noundef nonnull align 8 dereferenceable(48) %12, i64 48, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  %.pre503 = load i64, ptr %81, align 8, !range !1365
-  %219 = icmp eq i64 %.pre503, -9223372036854775807
+  %.pre504 = load i64, ptr %81, align 8, !range !1365
+  %219 = icmp eq i64 %.pre504, -9223372036854775807
   br i1 %219, label %226, label %220
 
 220:                                              ; preds = %218
@@ -6805,7 +6805,7 @@ _ZN5alloc6string6String4push17h41bd6cc148f6c106E.exit: ; preds = %134, %131
           cleanup
   br label %.body210
 
-.loopexit.split-lp:                               ; preds = %.invoke584, %.invoke
+.loopexit.split-lp:                               ; preds = %.invoke585, %.invoke
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body210
@@ -6941,11 +6941,11 @@ _ZN5alloc6string6String4push17h41bd6cc148f6c106E.exit: ; preds = %134, %131
           to label %._crit_edge unwind label %.loopexit322
 
 ._crit_edge:                                      ; preds = %321
-  %.pre505 = load ptr, ptr %68, align 8, !alias.scope !1407, !noalias !1410
+  %.pre506 = load ptr, ptr %68, align 8, !alias.scope !1407, !noalias !1410
   br label %322
 
 322:                                              ; preds = %._crit_edge, %"_ZN95_$LT$markdown_preview..markdown_elements..MarkdownHighlight$u20$as$u20$core..cmp..PartialEq$GT$2eq17hac6e46db90838200E.exit.thread"
-  %323 = phi ptr [ %.pre505, %._crit_edge ], [ %292, %"_ZN95_$LT$markdown_preview..markdown_elements..MarkdownHighlight$u20$as$u20$core..cmp..PartialEq$GT$2eq17hac6e46db90838200E.exit.thread" ]
+  %323 = phi ptr [ %.pre506, %._crit_edge ], [ %292, %"_ZN95_$LT$markdown_preview..markdown_elements..MarkdownHighlight$u20$as$u20$core..cmp..PartialEq$GT$2eq17hac6e46db90838200E.exit.thread" ]
   %324 = getelementptr inbounds { { i64, i64 }, { [6 x i8], i8, [1 x i8] } }, ptr %323, i64 %291
   store i64 %.sroa.078.0, ptr %324, align 8
   %.sroa.4262.0..sroa_idx = getelementptr inbounds nuw i8, ptr %324, i64 8
@@ -7042,15 +7042,15 @@ _ZN5alloc6string6String4push17h41bd6cc148f6c106E.exit: ; preds = %134, %131
 
 367:                                              ; preds = %.noexc208
   %368 = load i64, ptr %88, align 8, !noalias !1418
-  br label %.invoke584
+  br label %.invoke585
 
-.invoke584:                                       ; preds = %431, %367
+.invoke585:                                       ; preds = %431, %367
   %369 = phi i64 [ %366, %367 ], [ %430, %431 ]
   %370 = phi i64 [ %368, %367 ], [ %432, %431 ]
   invoke void @_ZN5alloc7raw_vec12handle_error17hc0e4a0ae60df49a1E(i64 noundef %369, i64 %370) #40
-          to label %.cont585 unwind label %.loopexit.split-lp
+          to label %.cont586 unwind label %.loopexit.split-lp
 
-.cont585:                                         ; preds = %.invoke584
+.cont586:                                         ; preds = %.invoke585
   unreachable
 
 371:                                              ; preds = %.noexc208
@@ -7090,12 +7090,12 @@ _ZN5alloc6string6String4push17h41bd6cc148f6c106E.exit: ; preds = %134, %131
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   %385 = icmp ult i64 %.sroa.030.0, %329
   %or.cond19 = and i1 %.188, %385
-  %.pre504 = load i64, ptr %69, align 8, !alias.scope !1428, !noalias !1431
+  %.pre505 = load i64, ptr %69, align 8, !alias.scope !1428, !noalias !1431
   br i1 %or.cond19, label %386, label %394
 
 386:                                              ; preds = %381
   %387 = load i64, ptr %28, align 8, !alias.scope !1433, !noalias !1436, !noundef !4
-  %388 = icmp eq i64 %.pre504, %387
+  %388 = icmp eq i64 %.pre505, %387
   br i1 %388, label %389, label %390
 
 389:                                              ; preds = %386
@@ -7104,18 +7104,18 @@ _ZN5alloc6string6String4push17h41bd6cc148f6c106E.exit: ; preds = %134, %131
 
 390:                                              ; preds = %386, %389
   %391 = load ptr, ptr %68, align 8, !alias.scope !1433, !noalias !1436, !nonnull !4, !noundef !4
-  %392 = getelementptr inbounds { { i64, i64 }, { [6 x i8], i8, [1 x i8] } }, ptr %391, i64 %.pre504
+  %392 = getelementptr inbounds { { i64, i64 }, { [6 x i8], i8, [1 x i8] } }, ptr %391, i64 %.pre505
   store i64 %.sroa.030.0, ptr %392, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %392, i64 8
   store i64 %329, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %392, i64 16
   store i64 %.sroa.033.sroa.0.0.insert.insert, ptr %.sroa.5.0..sroa_idx, align 8
-  %393 = add i64 %.pre504, 1
+  %393 = add i64 %.pre505, 1
   store i64 %393, ptr %69, align 8, !alias.scope !1433, !noalias !1436
   br label %394
 
 394:                                              ; preds = %381, %390
-  %395 = phi i64 [ %.pre504, %381 ], [ %393, %390 ]
+  %395 = phi i64 [ %.pre505, %381 ], [ %393, %390 ]
   %396 = load i64, ptr %28, align 8, !alias.scope !1428, !noalias !1431, !noundef !4
   %397 = icmp eq i64 %395, %396
   br i1 %397, label %398, label %399
@@ -7197,7 +7197,7 @@ _ZN5alloc6string6String4push17h41bd6cc148f6c106E.exit: ; preds = %134, %131
 
 431:                                              ; preds = %.noexc225
   %432 = load i64, ptr %90, align 8, !noalias !1444
-  br label %.invoke584
+  br label %.invoke585
 
 433:                                              ; preds = %.noexc225
   %434 = load ptr, ptr %90, align 8, !noalias !1444, !nonnull !4, !noundef !4

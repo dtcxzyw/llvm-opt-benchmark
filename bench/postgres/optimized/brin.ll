@@ -1539,10 +1539,10 @@ define dso_local i64 @bringetbitmap(ptr noundef readonly captures(none) %0, ptr 
   %45 = shl nsw i64 %39, 2
   %46 = add nsw i64 %45, 7
   %47 = and i64 %46, 9223372036854775800
-  %factor220 = mul i64 %44, %39
+  %factor221 = mul i64 %44, %39
   %reass.add = add i64 %47, %40
-  %reass.add222 = add i64 %reass.add, %factor220
-  %reass.mul = shl i64 %reass.add222, 1
+  %reass.add223 = add i64 %reass.add, %factor221
+  %reass.mul = shl i64 %reass.add223, 1
   %48 = tail call ptr @palloc(i64 noundef %reass.mul) #10
   %49 = load ptr, ptr %31, align 8
   %50 = load i32, ptr %49, align 8
@@ -1562,12 +1562,12 @@ define dso_local i64 @bringetbitmap(ptr noundef readonly captures(none) %0, ptr 
   br label %.lr.ph
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %.pre275 = shl nsw i64 %80, 2
+  %.pre276 = shl nsw i64 %80, 2
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %25
-  %.pre-phi276 = phi i64 [ %.pre275, %._crit_edge.loopexit ], [ %55, %25 ]
-  tail call void @llvm.memset.p0.i64(ptr align 4 %54, i8 0, i64 %.pre-phi276, i1 false)
+  %.pre-phi277 = phi i64 [ %.pre276, %._crit_edge.loopexit ], [ %55, %25 ]
+  tail call void @llvm.memset.p0.i64(ptr align 4 %54, i8 0, i64 %.pre-phi277, i1 false)
   %61 = load ptr, ptr %31, align 8
   %62 = load i32, ptr %61, align 8
   %63 = sext i32 %62 to i64
@@ -1575,21 +1575,21 @@ define dso_local i64 @bringetbitmap(ptr noundef readonly captures(none) %0, ptr 
   tail call void @llvm.memset.p0.i64(ptr align 4 %58, i8 0, i64 %64, i1 false)
   %65 = load i32, ptr %41, align 8
   %66 = icmp sgt i32 %65, 0
-  br i1 %66, label %.lr.ph233, label %._crit_edge234
+  br i1 %66, label %.lr.ph234, label %._crit_edge235
 
-.lr.ph233:                                        ; preds = %._crit_edge
+.lr.ph234:                                        ; preds = %._crit_edge
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %89
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.0178230 = phi ptr [ %60, %.lr.ph.preheader ], [ %77, %.lr.ph ]
+  %.0178231 = phi ptr [ %60, %.lr.ph.preheader ], [ %77, %.lr.ph ]
   %68 = getelementptr inbounds nuw ptr, ptr %48, i64 %indvars.iv
-  store ptr %.0178230, ptr %68, align 8
+  store ptr %.0178231, ptr %68, align 8
   %69 = load i32, ptr %41, align 8
   %70 = sext i32 %69 to i64
   %71 = shl nsw i64 %70, 3
-  %72 = getelementptr inbounds nuw i8, ptr %.0178230, i64 %71
+  %72 = getelementptr inbounds nuw i8, ptr %.0178231, i64 %71
   %73 = getelementptr inbounds nuw ptr, ptr %53, i64 %indvars.iv
   store ptr %72, ptr %73, align 8
   %74 = load i32, ptr %41, align 8
@@ -1603,25 +1603,25 @@ define dso_local i64 @bringetbitmap(ptr noundef readonly captures(none) %0, ptr 
   %81 = icmp slt i64 %indvars.iv.next, %80
   br i1 %81, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !17
 
-._crit_edge234:                                   ; preds = %103, %._crit_edge
+._crit_edge235:                                   ; preds = %103, %._crit_edge
   %82 = tail call ptr @brin_new_memtuple(ptr noundef %12) #10
   %83 = load ptr, ptr @CurrentMemoryContext, align 8
   %84 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %83, ptr noundef nonnull @.str.3, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #10
   %85 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %84, ptr @CurrentMemoryContext, align 8
-  %.not260 = icmp eq i32 %30, 0
-  br i1 %.not260, label %._crit_edge258, label %.lr.ph257
+  %.not261 = icmp eq i32 %30, 0
+  br i1 %.not261, label %._crit_edge259, label %.lr.ph258
 
-.lr.ph257:                                        ; preds = %._crit_edge234
+.lr.ph258:                                        ; preds = %._crit_edge235
   %86 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %87 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %88 = ptrtoint ptr %12 to i64
   br label %117
 
-89:                                               ; preds = %.lr.ph233, %103
-  %indvars.iv267 = phi i64 [ 0, %.lr.ph233 ], [ %indvars.iv.next268, %103 ]
+89:                                               ; preds = %.lr.ph234, %103
+  %indvars.iv268 = phi i64 [ 0, %.lr.ph234 ], [ %indvars.iv.next269, %103 ]
   %90 = load ptr, ptr %67, align 8
-  %91 = getelementptr inbounds nuw %struct.ScanKeyData, ptr %90, i64 %indvars.iv267
+  %91 = getelementptr inbounds nuw %struct.ScanKeyData, ptr %90, i64 %indvars.iv268
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 4
   %93 = load i16, ptr %92, align 4
   %94 = sext i16 %93 to i64
@@ -1643,10 +1643,10 @@ define dso_local i64 @bringetbitmap(ptr noundef readonly captures(none) %0, ptr 
   %105 = and i32 %104, 1
   %.not192 = icmp eq i32 %105, 0
   %. = select i1 %.not192, ptr %48, ptr %53
-  %.304 = select i1 %.not192, ptr %54, ptr %58
+  %.305 = select i1 %.not192, ptr %54, ptr %58
   %106 = getelementptr inbounds ptr, ptr %., i64 %95
   %107 = load ptr, ptr %106, align 8
-  %108 = getelementptr inbounds i32, ptr %.304, i64 %95
+  %108 = getelementptr inbounds i32, ptr %.305, i64 %95
   %109 = load i32, ptr %108, align 4
   %110 = sext i32 %109 to i64
   %111 = getelementptr inbounds ptr, ptr %107, i64 %110
@@ -1654,17 +1654,17 @@ define dso_local i64 @bringetbitmap(ptr noundef readonly captures(none) %0, ptr 
   %112 = load i32, ptr %108, align 4
   %113 = add i32 %112, 1
   store i32 %113, ptr %108, align 4
-  %indvars.iv.next268 = add nuw nsw i64 %indvars.iv267, 1
+  %indvars.iv.next269 = add nuw nsw i64 %indvars.iv268, 1
   %114 = load i32, ptr %41, align 8
   %115 = sext i32 %114 to i64
-  %116 = icmp slt i64 %indvars.iv.next268, %115
-  br i1 %116, label %89, label %._crit_edge234, !llvm.loop !18
+  %116 = icmp slt i64 %indvars.iv.next269, %115
+  br i1 %116, label %89, label %._crit_edge235, !llvm.loop !18
 
-117:                                              ; preds = %.lr.ph257, %.thread209.thread
-  %.0167254 = phi i32 [ 0, %.lr.ph257 ], [ %225, %.thread209.thread ]
-  %.0168253 = phi i64 [ 0, %.lr.ph257 ], [ %.1, %.thread209.thread ]
-  %.0170252 = phi ptr [ %82, %.lr.ph257 ], [ %.1171216, %.thread209.thread ]
-  %.0176251 = phi ptr [ null, %.lr.ph257 ], [ %.1177195214, %.thread209.thread ]
+117:                                              ; preds = %.lr.ph258, %.thread209.thread
+  %.0167255 = phi i32 [ 0, %.lr.ph258 ], [ %225, %.thread209.thread ]
+  %.0168254 = phi i64 [ 0, %.lr.ph258 ], [ %.1, %.thread209.thread ]
+  %.0170253 = phi ptr [ %82, %.lr.ph258 ], [ %.1171216, %.thread209.thread ]
+  %.0176252 = phi ptr [ null, %.lr.ph258 ], [ %.1177195214, %.thread209.thread ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %118 = load volatile i32, ptr @InterruptPending, align 4
@@ -1678,35 +1678,35 @@ define dso_local i64 @bringetbitmap(ptr noundef readonly captures(none) %0, ptr 
 120:                                              ; preds = %119, %117
   call void @MemoryContextReset(ptr noundef %84) #10
   %121 = load ptr, ptr %86, align 8
-  %122 = call ptr @brinGetTupleForHeapBlock(ptr noundef %121, i32 noundef %.0167254, ptr noundef nonnull %3, ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef 1) #10
+  %122 = call ptr @brinGetTupleForHeapBlock(ptr noundef %121, i32 noundef %.0167255, ptr noundef nonnull %3, ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef 1) #10
   %.not188.not = icmp eq ptr %122, null
-  br i1 %.not188.not, label %.preheader224, label %123
+  br i1 %.not188.not, label %.preheader225, label %123
 
 123:                                              ; preds = %120
   %124 = load i64, ptr %6, align 8
-  %125 = call ptr @brin_copy_tuple(ptr noundef nonnull %122, i64 noundef %124, ptr noundef %.0176251, ptr noundef nonnull %4) #10
+  %125 = call ptr @brin_copy_tuple(ptr noundef nonnull %122, i64 noundef %124, ptr noundef %.0176252, ptr noundef nonnull %4) #10
   %126 = load i32, ptr %3, align 4
   call void @LockBuffer(i32 noundef %126, i32 noundef 0) #10
-  %127 = call ptr @brin_deform_tuple(ptr noundef %12, ptr noundef %125, ptr noundef %.0170252) #10
+  %127 = call ptr @brin_deform_tuple(ptr noundef %12, ptr noundef %125, ptr noundef %.0170253) #10
   %128 = load i8, ptr %127, align 8, !range !4, !noundef !5
   %129 = trunc nuw i8 %128 to i1
-  br i1 %129, label %.preheader224, label %.preheader226
+  br i1 %129, label %.preheader225, label %.preheader227
 
-.preheader226:                                    ; preds = %123
+.preheader227:                                    ; preds = %123
   %130 = load ptr, ptr %31, align 8
   %131 = load i32, ptr %130, align 8
-  %.not189238 = icmp slt i32 %131, 1
-  br i1 %.not189238, label %.preheader224, label %.lr.ph241
+  %.not189239 = icmp slt i32 %131, 1
+  br i1 %.not189239, label %.preheader225, label %.lr.ph242
 
-.lr.ph241:                                        ; preds = %.preheader226
+.lr.ph242:                                        ; preds = %.preheader227
   %132 = getelementptr inbounds nuw i8, ptr %127, i64 40
   %133 = getelementptr inbounds nuw i8, ptr %127, i64 1
   br label %134
 
-134:                                              ; preds = %.lr.ph241, %.thread203
-  %135 = phi i32 [ %131, %.lr.ph241 ], [ %214, %.thread203 ]
-  %.0169240 = phi i32 [ 1, %.lr.ph241 ], [ %215, %.thread203 ]
-  %136 = add i32 %.0169240, -1
+134:                                              ; preds = %.lr.ph242, %.thread203
+  %135 = phi i32 [ %131, %.lr.ph242 ], [ %214, %.thread203 ]
+  %.0169241 = phi i32 [ 1, %.lr.ph242 ], [ %215, %.thread203 ]
+  %136 = add i32 %.0169241, -1
   %137 = sext i32 %136 to i64
   %138 = getelementptr inbounds i32, ptr %54, i64 %137
   %139 = load i32, ptr %138, align 4
@@ -1805,23 +1805,23 @@ check_null_keys.exit:                             ; preds = %181, %155, %149
 
 .preheader:                                       ; preds = %186
   %192 = icmp sgt i32 %139, 0
-  br i1 %192, label %.lr.ph236, label %.loopexit..thread203_crit_edge
+  br i1 %192, label %.lr.ph237, label %.loopexit..thread203_crit_edge
 
-.lr.ph236:                                        ; preds = %.preheader
+.lr.ph237:                                        ; preds = %.preheader
   %193 = ptrtoint ptr %146 to i64
   br label %198
 
 194:                                              ; preds = %198
-  %indvars.iv.next271 = add nuw nsw i64 %indvars.iv270, 1
+  %indvars.iv.next272 = add nuw nsw i64 %indvars.iv271, 1
   %195 = load i32, ptr %138, align 4
   %196 = sext i32 %195 to i64
-  %197 = icmp slt i64 %indvars.iv.next271, %196
+  %197 = icmp slt i64 %indvars.iv.next272, %196
   br i1 %197, label %198, label %.loopexit..thread203_crit_edge, !llvm.loop !20
 
-198:                                              ; preds = %.lr.ph236, %194
-  %indvars.iv270 = phi i64 [ 0, %.lr.ph236 ], [ %indvars.iv.next271, %194 ]
+198:                                              ; preds = %.lr.ph237, %194
+  %indvars.iv271 = phi i64 [ 0, %.lr.ph237 ], [ %indvars.iv.next272, %194 ]
   %199 = load ptr, ptr %187, align 8
-  %200 = getelementptr inbounds nuw ptr, ptr %199, i64 %indvars.iv270
+  %200 = getelementptr inbounds nuw ptr, ptr %199, i64 %indvars.iv271
   %201 = load ptr, ptr %200, align 8
   %202 = getelementptr inbounds nuw i8, ptr %201, i64 12
   %203 = load i32, ptr %202, align 4
@@ -1839,73 +1839,73 @@ check_null_keys.exit:                             ; preds = %181, %155, %149
   %211 = ptrtoint ptr %206 to i64
   %212 = sext i32 %139 to i64
   %213 = call i64 @FunctionCall4Coll(ptr noundef nonnull %188, i32 noundef %209, i64 noundef %88, i64 noundef %210, i64 noundef %211, i64 noundef %212) #10
-  %.not305 = icmp eq i64 %213, 0
-  br i1 %.not305, label %.thread209.thread, label %.loopexit..thread203_crit_edge
+  %.not306 = icmp eq i64 %213, 0
+  br i1 %.not306, label %.thread209.thread, label %.loopexit..thread203_crit_edge
 
 .loopexit..thread203_crit_edge:                   ; preds = %194, %.preheader, %.loopexit
-  %.pre273 = load ptr, ptr %31, align 8
-  %.pre274 = load i32, ptr %.pre273, align 8
+  %.pre274 = load ptr, ptr %31, align 8
+  %.pre275 = load i32, ptr %.pre274, align 8
   br label %.thread203
 
 .thread203:                                       ; preds = %.loopexit..thread203_crit_edge, %check_null_keys.exit, %141
-  %214 = phi i32 [ %.pre274, %.loopexit..thread203_crit_edge ], [ %135, %141 ], [ %135, %check_null_keys.exit ]
-  %215 = add i32 %.0169240, 1
+  %214 = phi i32 [ %.pre275, %.loopexit..thread203_crit_edge ], [ %135, %141 ], [ %135, %check_null_keys.exit ]
+  %215 = add i32 %.0169241, 1
   %.not189 = icmp sgt i32 %215, %214
-  br i1 %.not189, label %.preheader224, label %134, !llvm.loop !21
+  br i1 %.not189, label %.preheader225, label %134, !llvm.loop !21
 
-.preheader224:                                    ; preds = %.thread203, %.preheader226, %123, %120
-  %.1171217.ph = phi ptr [ %127, %123 ], [ %.0170252, %120 ], [ %127, %.preheader226 ], [ %127, %.thread203 ]
-  %.1177195215.ph = phi ptr [ %125, %123 ], [ %.0176251, %120 ], [ %125, %.preheader226 ], [ %125, %.thread203 ]
+.preheader225:                                    ; preds = %.thread203, %.preheader227, %123, %120
+  %.1171217.ph = phi ptr [ %127, %123 ], [ %.0170253, %120 ], [ %127, %.preheader227 ], [ %127, %.thread203 ]
+  %.1177195215.ph = phi ptr [ %125, %123 ], [ %.0176252, %120 ], [ %125, %.preheader227 ], [ %125, %.thread203 ]
   %216 = load i32, ptr %10, align 8
-  %217 = add i32 %216, %.0167254
-  %.193245 = call i32 @llvm.umin.i32(i32 %30, i32 %217)
-  %218 = add i32 %.193245, -1
-  %.not191246 = icmp ugt i32 %.0167254, %218
-  br i1 %.not191246, label %.thread209.thread, label %.lr.ph249
+  %217 = add i32 %216, %.0167255
+  %.193246 = call i32 @llvm.umin.i32(i32 %30, i32 %217)
+  %218 = add i32 %.193246, -1
+  %.not191247 = icmp ugt i32 %.0167255, %218
+  br i1 %.not191247, label %.thread209.thread, label %.lr.ph250
 
-.lr.ph249:                                        ; preds = %.preheader224, %.lr.ph249
-  %.0248 = phi i32 [ %220, %.lr.ph249 ], [ %.0167254, %.preheader224 ]
-  %.2247 = phi i64 [ %219, %.lr.ph249 ], [ %.0168253, %.preheader224 ]
+.lr.ph250:                                        ; preds = %.preheader225, %.lr.ph250
+  %.0249 = phi i32 [ %220, %.lr.ph250 ], [ %.0167255, %.preheader225 ]
+  %.2248 = phi i64 [ %219, %.lr.ph250 ], [ %.0168254, %.preheader225 ]
   store ptr %85, ptr @CurrentMemoryContext, align 8
-  call void @tbm_add_page(ptr noundef %1, i32 noundef %.0248) #10
-  %219 = add i64 %.2247, 1
+  call void @tbm_add_page(ptr noundef %1, i32 noundef %.0249) #10
+  %219 = add i64 %.2248, 1
   store ptr %84, ptr @CurrentMemoryContext, align 8
-  %220 = add i32 %.0248, 1
+  %220 = add i32 %.0249, 1
   %221 = load i32, ptr %10, align 8
-  %222 = add i32 %221, %.0167254
+  %222 = add i32 %221, %.0167255
   %.193 = call i32 @llvm.umin.i32(i32 %30, i32 %222)
   %223 = add i32 %.193, -1
   %.not191 = icmp ugt i32 %220, %223
-  br i1 %.not191, label %.thread209.thread, label %.lr.ph249, !llvm.loop !22
+  br i1 %.not191, label %.thread209.thread, label %.lr.ph250, !llvm.loop !22
 
-.thread209.thread:                                ; preds = %182, %145, %.loopexit, %.lr.ph249, %173, %178, %176, %198, %.preheader224
-  %.1171216 = phi ptr [ %.1171217.ph, %.preheader224 ], [ %127, %198 ], [ %127, %176 ], [ %127, %178 ], [ %127, %173 ], [ %.1171217.ph, %.lr.ph249 ], [ %127, %.loopexit ], [ %127, %145 ], [ %127, %182 ]
-  %.1177195214 = phi ptr [ %.1177195215.ph, %.preheader224 ], [ %125, %198 ], [ %125, %176 ], [ %125, %178 ], [ %125, %173 ], [ %.1177195215.ph, %.lr.ph249 ], [ %125, %.loopexit ], [ %125, %145 ], [ %125, %182 ]
-  %.1 = phi i64 [ %.0168253, %.preheader224 ], [ %.0168253, %198 ], [ %.0168253, %176 ], [ %.0168253, %178 ], [ %.0168253, %173 ], [ %219, %.lr.ph249 ], [ %.0168253, %.loopexit ], [ %.0168253, %145 ], [ %.0168253, %182 ]
+.thread209.thread:                                ; preds = %182, %145, %.loopexit, %.lr.ph250, %173, %178, %176, %198, %.preheader225
+  %.1171216 = phi ptr [ %.1171217.ph, %.preheader225 ], [ %127, %198 ], [ %127, %176 ], [ %127, %178 ], [ %127, %173 ], [ %.1171217.ph, %.lr.ph250 ], [ %127, %.loopexit ], [ %127, %145 ], [ %127, %182 ]
+  %.1177195214 = phi ptr [ %.1177195215.ph, %.preheader225 ], [ %125, %198 ], [ %125, %176 ], [ %125, %178 ], [ %125, %173 ], [ %.1177195215.ph, %.lr.ph250 ], [ %125, %.loopexit ], [ %125, %145 ], [ %125, %182 ]
+  %.1 = phi i64 [ %.0168254, %.preheader225 ], [ %.0168254, %198 ], [ %.0168254, %176 ], [ %.0168254, %178 ], [ %.0168254, %173 ], [ %219, %.lr.ph250 ], [ %.0168254, %.loopexit ], [ %.0168254, %145 ], [ %.0168254, %182 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %224 = load i32, ptr %10, align 8
-  %225 = add i32 %224, %.0167254
+  %225 = add i32 %224, %.0167255
   %226 = icmp ult i32 %225, %30
-  br i1 %226, label %117, label %._crit_edge258.loopexit, !llvm.loop !23
+  br i1 %226, label %117, label %._crit_edge259.loopexit, !llvm.loop !23
 
-._crit_edge258.loopexit:                          ; preds = %.thread209.thread
+._crit_edge259.loopexit:                          ; preds = %.thread209.thread
   %227 = mul i64 %.1, 10
-  br label %._crit_edge258
+  br label %._crit_edge259
 
-._crit_edge258:                                   ; preds = %._crit_edge258.loopexit, %._crit_edge234
-  %.0168.lcssa = phi i64 [ 0, %._crit_edge234 ], [ %227, %._crit_edge258.loopexit ]
+._crit_edge259:                                   ; preds = %._crit_edge259.loopexit, %._crit_edge235
+  %.0168.lcssa = phi i64 [ 0, %._crit_edge235 ], [ %227, %._crit_edge259.loopexit ]
   store ptr %85, ptr @CurrentMemoryContext, align 8
   call void @MemoryContextDelete(ptr noundef %84) #10
   %228 = load i32, ptr %3, align 4
   %.not186 = icmp eq i32 %228, 0
   br i1 %.not186, label %230, label %229
 
-229:                                              ; preds = %._crit_edge258
+229:                                              ; preds = %._crit_edge259
   call void @ReleaseBuffer(i32 noundef %228) #10
   br label %230
 
-230:                                              ; preds = %229, %._crit_edge258
+230:                                              ; preds = %229, %._crit_edge259
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i64 %.0168.lcssa

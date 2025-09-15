@@ -3586,9 +3586,9 @@ haveTooManyMIMEPartsPerMessage.exit:              ; preds = %.loopexit835
   br label %605
 
 605:                                              ; preds = %628, %603
-  %.02373.i = phi ptr [ %602, %603 ], [ %.243.i, %628 ]
-  %.02672.i = phi ptr [ %602, %603 ], [ %630, %628 ]
-  %606 = load ptr, ptr %.02672.i, align 8, !tbaa !57
+  %.02374.i = phi ptr [ %602, %603 ], [ %.243.i, %628 ]
+  %.02673.i = phi ptr [ %602, %603 ], [ %630, %628 ]
+  %606 = load ptr, ptr %.02673.i, align 8, !tbaa !57
   %607 = call ptr @lineGetData(ptr noundef %606) #21
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %608 = icmp eq ptr %607, null
@@ -3626,23 +3626,23 @@ haveTooManyMIMEPartsPerMessage.exit:              ; preds = %.loopexit835
 623:                                              ; preds = %620
   %624 = call i32 @strcasecmp(ptr noundef nonnull %5, ptr noundef nonnull @.str.53) #23
   %625 = icmp eq i32 %624, 0
-  %spec.select35.i = select i1 %625, ptr %.02672.i, ptr %.02373.i
+  %spec.select35.i = select i1 %625, ptr %.02673.i, ptr %.02374.i
   br label %.thread.i
 
 .thread.i:                                        ; preds = %623, %620, %615, %609, %605
-  %.2.ph.i = phi ptr [ %spec.select35.i, %623 ], [ %.02672.i, %620 ], [ %.02373.i, %615 ], [ %.02373.i, %609 ], [ %.02373.i, %605 ]
+  %.2.ph.i = phi ptr [ %spec.select35.i, %623 ], [ %.02673.i, %620 ], [ %.02374.i, %615 ], [ %.02374.i, %609 ], [ %.02374.i, %605 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %628
 
 626:                                              ; preds = %615
   %627 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %607, ptr noundef nonnull dereferenceable(1) @.str.303) #23
-  %.not64.i = icmp eq ptr %627, null
+  %.not65.i = icmp eq ptr %627, null
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br i1 %.not64.i, label %.thread55.i, label %628
+  br i1 %.not65.i, label %.thread55.i, label %628
 
 628:                                              ; preds = %626, %.thread.i
-  %.243.i = phi ptr [ %.2.ph.i, %.thread.i ], [ %.02373.i, %626 ]
-  %629 = getelementptr inbounds nuw i8, ptr %.02672.i, i64 8
+  %.243.i = phi ptr [ %.2.ph.i, %.thread.i ], [ %.02374.i, %626 ]
+  %629 = getelementptr inbounds nuw i8, ptr %.02673.i, i64 8
   %630 = load ptr, ptr %629, align 8, !tbaa !63
   %.not.i739 = icmp eq ptr %630, null
   br i1 %.not.i739, label %exportBounceMessage.exit.thread, label %605
@@ -3666,7 +3666,7 @@ haveTooManyMIMEPartsPerMessage.exit:              ; preds = %.loopexit835
   call void @fileblobSetFilename(ptr noundef nonnull %632, ptr noundef %634, ptr noundef nonnull @.str.153) #21
   %635 = load ptr, ptr %9, align 8, !tbaa !36
   call void @fileblobSetCTX(ptr noundef nonnull %632, ptr noundef %635) #21
-  %636 = call ptr @textToFileblob(ptr noundef %.02373.i, ptr noundef nonnull %632, i32 noundef 1) #21
+  %636 = call ptr @textToFileblob(ptr noundef %.02374.i, ptr noundef nonnull %632, i32 noundef 1) #21
   %637 = icmp eq ptr %636, null
   br i1 %637, label %exportBounceMessage.exit.thread813, label %exportBounceMessage.exit
 

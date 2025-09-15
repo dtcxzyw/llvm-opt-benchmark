@@ -1036,9 +1036,9 @@ define dso_local noundef i64 @spg_text_inner_consistent(ptr noundef readonly cap
   store i32 0, ptr %7, align 8
   %87 = load i32, ptr %71, align 8
   %88 = icmp sgt i32 %87, 0
-  br i1 %88, label %.lr.ph140, label %._crit_edge141
+  br i1 %88, label %.lr.ph141, label %._crit_edge142
 
-.lr.ph140:                                        ; preds = %70
+.lr.ph141:                                        ; preds = %70
   %89 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %90 = getelementptr inbounds nuw i8, ptr %53, i64 4
   %91 = add i32 %.0100, -1
@@ -1048,10 +1048,10 @@ define dso_local noundef i64 @spg_text_inner_consistent(ptr noundef readonly cap
   %95 = ptrtoint ptr %53 to i64
   br label %96
 
-96:                                               ; preds = %.lr.ph140, %._crit_edge.thread
-  %indvars.iv143 = phi i64 [ 0, %.lr.ph140 ], [ %indvars.iv.next144, %._crit_edge.thread ]
+96:                                               ; preds = %.lr.ph141, %._crit_edge.thread
+  %indvars.iv144 = phi i64 [ 0, %.lr.ph141 ], [ %indvars.iv.next145, %._crit_edge.thread ]
   %97 = load ptr, ptr %89, align 8
-  %98 = getelementptr inbounds nuw i64, ptr %97, i64 %indvars.iv143
+  %98 = getelementptr inbounds nuw i64, ptr %97, i64 %indvars.iv144
   %99 = load i64, ptr %98, align 8
   %100 = trunc i64 %99 to i16
   %101 = icmp slt i16 %100, 1
@@ -1188,7 +1188,7 @@ define dso_local noundef i64 @spg_text_inner_consistent(ptr noundef readonly cap
   %167 = load i32, ptr %7, align 8
   %168 = sext i32 %167 to i64
   %169 = getelementptr inbounds i32, ptr %166, i64 %168
-  %170 = trunc nuw nsw i64 %indvars.iv143 to i32
+  %170 = trunc nuw nsw i64 %indvars.iv144 to i32
   store i32 %170, ptr %169, align 4
   %171 = load i32, ptr %17, align 8
   %172 = sub i32 %.0106, %171
@@ -1212,13 +1212,13 @@ define dso_local noundef i64 @spg_text_inner_consistent(ptr noundef readonly cap
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %152, %150, %148, %161, %._crit_edge
-  %indvars.iv.next144 = add nuw nsw i64 %indvars.iv143, 1
+  %indvars.iv.next145 = add nuw nsw i64 %indvars.iv144, 1
   %186 = load i32, ptr %71, align 8
   %187 = sext i32 %186 to i64
-  %188 = icmp slt i64 %indvars.iv.next144, %187
-  br i1 %188, label %96, label %._crit_edge141, !llvm.loop !13
+  %188 = icmp slt i64 %indvars.iv.next145, %187
+  br i1 %188, label %96, label %._crit_edge142, !llvm.loop !13
 
-._crit_edge141:                                   ; preds = %._crit_edge.thread, %70
+._crit_edge142:                                   ; preds = %._crit_edge.thread, %70
   ret i64 0
 }
 
@@ -1345,18 +1345,18 @@ define dso_local range(i64 0, 2) i64 @spg_text_leaf_consistent(ptr noundef reado
 68:                                               ; preds = %61
   %69 = and i32 %63, 1
   %.not135 = icmp eq i32 %69, 0
-  br i1 %.not135, label %70, label %.thread188
+  br i1 %.not135, label %70, label %.thread189
 
 70:                                               ; preds = %68
   %71 = load i32, ptr %14, align 4
-  %.mask193 = and i32 %71, -4
-  %.not136 = icmp eq i32 %.mask193, 16
+  %.mask194 = and i32 %71, -4
+  %.not136 = icmp eq i32 %.mask194, 16
   br i1 %.not136, label %89, label %79
 
-.thread188:                                       ; preds = %68
+.thread189:                                       ; preds = %68
   %.mask = and i32 %63, 254
-  %.not136189 = icmp eq i32 %.mask, 2
-  br i1 %.not136189, label %89, label %.thread190
+  %.not136190 = icmp eq i32 %.mask, 2
+  br i1 %.not136190, label %89, label %.thread191
 
 .thread157:                                       ; preds = %65, %65, %65, %65
   %.off = add i8 %67, -1
@@ -1366,7 +1366,7 @@ define dso_local range(i64 0, 2) i64 @spg_text_leaf_consistent(ptr noundef reado
   %74 = select i1 %switch177, i64 8, i64 %73
   br label %85
 
-.thread190:                                       ; preds = %.thread188
+.thread191:                                       ; preds = %.thread189
   %75 = getelementptr inbounds nuw i8, ptr %14, i64 1
   %76 = lshr i32 %63, 1
   %77 = zext nneg i32 %76 to i64
@@ -1381,14 +1381,14 @@ define dso_local range(i64 0, 2) i64 @spg_text_leaf_consistent(ptr noundef reado
   %84 = zext i32 %83 to i64
   br label %85
 
-85:                                               ; preds = %.thread190, %79, %.thread157
-  %86 = phi ptr [ %66, %.thread157 ], [ %75, %.thread190 ], [ %80, %79 ]
-  %87 = phi i64 [ %74, %.thread157 ], [ %78, %.thread190 ], [ %84, %79 ]
+85:                                               ; preds = %.thread191, %79, %.thread157
+  %86 = phi ptr [ %66, %.thread157 ], [ %75, %.thread191 ], [ %80, %79 ]
+  %87 = phi i64 [ %74, %.thread157 ], [ %78, %.thread191 ], [ %84, %79 ]
   %88 = getelementptr inbounds i8, ptr %58, i64 %18
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %88, ptr nonnull align 1 %86, i64 %87, i1 false)
   br label %89
 
-89:                                               ; preds = %65, %.thread188, %85, %70
+89:                                               ; preds = %65, %.thread189, %85, %70
   %90 = ptrtoint ptr %56 to i64
   br label %91
 

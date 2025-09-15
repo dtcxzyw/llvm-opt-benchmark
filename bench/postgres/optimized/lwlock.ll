@@ -1937,17 +1937,17 @@ LWLockWaitListLock.exit.i:                        ; preds = %._crit_edge.i.i, %3
 56:                                               ; preds = %106, %.lr.ph.i
   %57 = phi ptr [ %52, %.lr.ph.i ], [ %107, %106 ]
   %58 = phi ptr [ %51, %.lr.ph.i ], [ %104, %106 ]
-  %.069.i = phi i8 [ 1, %.lr.ph.i ], [ %.261.i, %106 ]
-  %.03368.i = phi i1 [ false, %.lr.ph.i ], [ %.13460.i, %106 ]
+  %.070.i = phi i8 [ 1, %.lr.ph.i ], [ %.261.i, %106 ]
+  %.03369.i = phi i1 [ false, %.lr.ph.i ], [ %.13460.i, %106 ]
   %.pn.i = phi ptr [ %54, %.lr.ph.i ], [ %109, %106 ]
-  %.sroa.0.066.i = phi i32 [ %49, %.lr.ph.i ], [ %.sroa.21.067.i, %106 ]
-  %.sroa.0.04965.i = phi i32 [ -1, %.lr.ph.i ], [ %.sroa.0.259.i, %106 ]
-  %.sroa.7.064.i = phi i32 [ -1, %.lr.ph.i ], [ %.sroa.7.158.i, %106 ]
-  %.sroa.21.067.in.i = getelementptr inbounds nuw i8, ptr %.pn.i, i64 92
-  %.sroa.21.067.i = load i32, ptr %.sroa.21.067.in.i, align 4
-  %59 = sext i32 %.sroa.0.066.i to i64
+  %.sroa.0.067.i = phi i32 [ %49, %.lr.ph.i ], [ %.sroa.21.068.i, %106 ]
+  %.sroa.0.04966.i = phi i32 [ -1, %.lr.ph.i ], [ %.sroa.0.259.i, %106 ]
+  %.sroa.7.065.i = phi i32 [ -1, %.lr.ph.i ], [ %.sroa.7.158.i, %106 ]
+  %.sroa.21.068.in.i = getelementptr inbounds nuw i8, ptr %.pn.i, i64 92
+  %.sroa.21.068.i = load i32, ptr %.sroa.21.068.in.i, align 4
+  %59 = sext i32 %.sroa.0.067.i to i64
   %60 = getelementptr inbounds %struct.PGPROC, ptr %57, i64 %59
-  br i1 %.03368.i, label %61, label %65
+  br i1 %.03369.i, label %61, label %65
 
 61:                                               ; preds = %56
   %62 = getelementptr inbounds nuw i8, ptr %60, i64 91
@@ -1965,7 +1965,7 @@ LWLockWaitListLock.exit.i:                        ; preds = %._crit_edge.i.i, %3
 
 71:                                               ; preds = %65
   store i32 %70, ptr %48, align 4
-  %.pre81.i = load i32, ptr %67, align 4
+  %.pre82.i = load i32, ptr %67, align 4
   br label %76
 
 72:                                               ; preds = %65
@@ -1976,7 +1976,7 @@ LWLockWaitListLock.exit.i:                        ; preds = %._crit_edge.i.i, %3
   br label %76
 
 76:                                               ; preds = %72, %71
-  %77 = phi i32 [ %68, %72 ], [ %.pre81.i, %71 ]
+  %77 = phi i32 [ %68, %72 ], [ %.pre82.i, %71 ]
   %78 = icmp eq i32 %70, -1
   br i1 %78, label %79, label %80
 
@@ -2000,7 +2000,7 @@ proclist_delete_offset.exit.i:                    ; preds = %80, %79
   %87 = load ptr, ptr %86, align 8
   %88 = getelementptr inbounds %struct.PGPROC, ptr %87, i64 %59
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 92
-  %90 = icmp eq i32 %.sroa.7.064.i, -1
+  %90 = icmp eq i32 %.sroa.7.065.i, -1
   %91 = getelementptr inbounds nuw i8, ptr %88, i64 96
   br i1 %90, label %92, label %93
 
@@ -2009,23 +2009,23 @@ proclist_delete_offset.exit.i:                    ; preds = %80, %79
   br label %99
 
 93:                                               ; preds = %proclist_delete_offset.exit.i
-  store i32 %.sroa.7.064.i, ptr %91, align 4
+  store i32 %.sroa.7.065.i, ptr %91, align 4
   %94 = load ptr, ptr @ProcGlobal, align 8
   %95 = load ptr, ptr %94, align 8
-  %96 = sext i32 %.sroa.7.064.i to i64
+  %96 = sext i32 %.sroa.7.065.i to i64
   %97 = getelementptr inbounds %struct.PGPROC, ptr %95, i64 %96
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 92
-  store i32 %.sroa.0.066.i, ptr %98, align 4
+  store i32 %.sroa.0.067.i, ptr %98, align 4
   br label %99
 
 99:                                               ; preds = %93, %92
-  %.sroa.0.3.i = phi i32 [ %.sroa.0.066.i, %92 ], [ %.sroa.0.04965.i, %93 ]
+  %.sroa.0.3.i = phi i32 [ %.sroa.0.067.i, %92 ], [ %.sroa.0.04966.i, %93 ]
   store i32 -1, ptr %89, align 4
   %100 = getelementptr inbounds nuw i8, ptr %60, i64 91
   %101 = load i8, ptr %100, align 1
   %.not41.i = icmp ne i8 %101, 2
-  %spec.select.i = or i1 %.03368.i, %.not41.i
-  %spec.select43.i = select i1 %.not41.i, i8 0, i8 %.069.i
+  %spec.select.i = or i1 %.03369.i, %.not41.i
+  %spec.select43.i = select i1 %.not41.i, i8 0, i8 %.070.i
   %102 = getelementptr inbounds nuw i8, ptr %60, i64 90
   store i8 2, ptr %102, align 2
   %103 = icmp eq i8 %101, 0
@@ -2034,16 +2034,16 @@ proclist_delete_offset.exit.i:                    ; preds = %80, %79
 
 .thread.i:                                        ; preds = %99, %61
   %104 = phi ptr [ %.pre.i, %99 ], [ %58, %61 ]
-  %.261.i = phi i8 [ %spec.select43.i, %99 ], [ %.069.i, %61 ]
+  %.261.i = phi i8 [ %spec.select43.i, %99 ], [ %.070.i, %61 ]
   %.13460.i = phi i1 [ %spec.select.i, %99 ], [ true, %61 ]
-  %.sroa.0.259.i = phi i32 [ %.sroa.0.3.i, %99 ], [ %.sroa.0.04965.i, %61 ]
-  %.sroa.7.158.i = phi i32 [ %.sroa.0.066.i, %99 ], [ %.sroa.7.064.i, %61 ]
-  %105 = icmp eq i32 %.sroa.21.067.i, -1
+  %.sroa.0.259.i = phi i32 [ %.sroa.0.3.i, %99 ], [ %.sroa.0.04966.i, %61 ]
+  %.sroa.7.158.i = phi i32 [ %.sroa.0.067.i, %99 ], [ %.sroa.7.065.i, %61 ]
+  %105 = icmp eq i32 %.sroa.21.068.i, -1
   br i1 %105, label %._crit_edge.loopexit.i, label %106
 
 106:                                              ; preds = %.thread.i
   %107 = load ptr, ptr %104, align 8
-  %108 = sext i32 %.sroa.21.067.i to i64
+  %108 = sext i32 %.sroa.21.068.i to i64
   %109 = getelementptr inbounds %struct.PGPROC, ptr %107, i64 %108
   br label %56, !llvm.loop !30
 
@@ -2070,17 +2070,17 @@ proclist_delete_offset.exit.i:                    ; preds = %80, %79
   %117 = call { i32, i8 } asm sideeffect "\09lock\09\09\09\09\0A\09cmpxchgl\09$4,$5\09\0A   setz\09\09$2\09\09\0A", "={ax},=*m,=q,{ax},r,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %33, i32 %.048.i, i32 %116, ptr nonnull elementtype(i32) %33) #15, !srcloc !19
   %118 = extractvalue { i32, i8 } %117, 0
   %119 = extractvalue { i32, i8 } %117, 1
-  %.not62.i = icmp eq i8 %119, 0
-  br i1 %.not62.i, label %114, label %120
+  %.not63.i = icmp eq i8 %119, 0
+  br i1 %.not63.i, label %114, label %120
 
 120:                                              ; preds = %114
-  br i1 %113, label %.critedge, label %.lr.ph78.i
+  br i1 %113, label %.critedge, label %.lr.ph79.i
 
-.lr.ph78.i:                                       ; preds = %120, %proclist_delete_offset.exit45.i
-  %.sink93.i = phi i32 [ %126, %proclist_delete_offset.exit45.i ], [ %.sroa.0.150.i, %120 ]
+.lr.ph79.i:                                       ; preds = %120, %proclist_delete_offset.exit45.i
+  %.sink94.i = phi i32 [ %126, %proclist_delete_offset.exit45.i ], [ %.sroa.0.150.i, %120 ]
   %121 = load ptr, ptr @ProcGlobal, align 8
   %122 = load ptr, ptr %121, align 8
-  %123 = sext i32 %.sink93.i to i64
+  %123 = sext i32 %.sink94.i to i64
   %124 = getelementptr inbounds %struct.PGPROC, ptr %122, i64 %123
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 92
   %126 = load i32, ptr %125, align 4
@@ -2089,14 +2089,14 @@ proclist_delete_offset.exit.i:                    ; preds = %80, %79
   %129 = icmp eq i32 %128, -1
   br i1 %129, label %134, label %130
 
-130:                                              ; preds = %.lr.ph78.i
+130:                                              ; preds = %.lr.ph79.i
   %131 = sext i32 %128 to i64
   %132 = getelementptr inbounds %struct.PGPROC, ptr %122, i64 %131
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 92
   store i32 %126, ptr %133, align 4
   br label %134
 
-134:                                              ; preds = %130, %.lr.ph78.i
+134:                                              ; preds = %130, %.lr.ph79.i
   %135 = icmp eq i32 %126, -1
   br i1 %135, label %.critedge.critedge, label %proclist_delete_offset.exit45.i
 
@@ -2115,7 +2115,7 @@ proclist_delete_offset.exit45.i:                  ; preds = %134
   %142 = getelementptr inbounds nuw i8, ptr %124, i64 24
   %143 = load ptr, ptr %142, align 8
   call void @PGSemaphoreUnlock(ptr noundef %143) #15
-  br label %.lr.ph78.i, !llvm.loop !32
+  br label %.lr.ph79.i, !llvm.loop !32
 
 .critedge.critedge:                               ; preds = %134
   store i32 0, ptr %127, align 4

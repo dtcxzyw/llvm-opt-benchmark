@@ -5441,8 +5441,8 @@ _ZN4llvm8DebugLocC2ERKS0_.exit65:                 ; preds = %121
   br label %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit67.sink.split
 
 _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit67.sink.split: ; preds = %121, %124
-  %.sink180 = phi ptr [ %25, %124 ], [ %24, %121 ]
-  store ptr null, ptr %.sink180, align 8, !tbaa !255
+  %.sink181 = phi ptr [ %25, %124 ], [ %24, %121 ]
+  store ptr null, ptr %.sink181, align 8, !tbaa !255
   br label %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit67
 
 _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit67: ; preds = %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit67.sink.split, %_ZN4llvm8DebugLocC2ERKS0_.exit65
@@ -5525,8 +5525,8 @@ _ZN4llvm8DebugLocC2ERKS0_.exit81:                 ; preds = %145
   br label %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit83.sink.split
 
 _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit83.sink.split: ; preds = %145, %148
-  %.sink181 = phi ptr [ %27, %148 ], [ %26, %145 ]
-  store ptr null, ptr %.sink181, align 8, !tbaa !255
+  %.sink182 = phi ptr [ %27, %148 ], [ %26, %145 ]
+  store ptr null, ptr %.sink182, align 8, !tbaa !255
   br label %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit83
 
 _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit83: ; preds = %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit83.sink.split, %_ZN4llvm8DebugLocC2ERKS0_.exit81
@@ -5609,8 +5609,8 @@ _ZN4llvm8DebugLocC2ERKS0_.exit101:                ; preds = %169
   br label %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit103.sink.split
 
 _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit103.sink.split: ; preds = %169, %172
-  %.sink182 = phi ptr [ %29, %172 ], [ %28, %169 ]
-  store ptr null, ptr %.sink182, align 8, !tbaa !255
+  %.sink183 = phi ptr [ %29, %172 ], [ %28, %169 ]
+  store ptr null, ptr %.sink183, align 8, !tbaa !255
   br label %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit103
 
 _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit103: ; preds = %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit103.sink.split, %_ZN4llvm8DebugLocC2ERKS0_.exit101

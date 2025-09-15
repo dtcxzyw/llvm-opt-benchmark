@@ -854,8 +854,8 @@ define void @_ZN2cv9RodriguesERKNS_11_InputArrayERKNS_12_OutputArrayES5_(ptr nou
   %or.cond4 = and i1 %93, %94
   %95 = select i1 %83, i1 %88, i1 false
   %96 = and i1 %95, %90
-  %or.cond435 = select i1 %or.cond4, i1 true, i1 %96
-  br i1 %or.cond435, label %.critedge, label %.thread397
+  %or.cond436 = select i1 %or.cond4, i1 true, i1 %96
+  br i1 %or.cond436, label %.critedge, label %.thread397
 
 97:                                               ; preds = %72, %69, %3
   %98 = landingpad { ptr, i32 }
@@ -1155,9 +1155,9 @@ _ZN2cv3MataSERKNS_7MatExprE.exit:                 ; preds = %210
   %218 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %219 = load ptr, ptr %218, align 8, !tbaa !41
   %.not255 = icmp eq ptr %219, null
-  br i1 %.not255, label %.thread, label %.thread431
+  br i1 %.not255, label %.thread, label %.thread432
 
-.thread431:                                       ; preds = %_ZN2cv3MataSERKNS_7MatExprE.exit
+.thread432:                                       ; preds = %_ZN2cv3MataSERKNS_7MatExprE.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(216) %11, i8 0, i64 216, i1 false)
   %220 = getelementptr inbounds nuw i8, ptr %11, i64 152
   store double -1.000000e+00, ptr %220, align 8, !tbaa !42
@@ -1403,9 +1403,9 @@ _ZN2cvplIdLi3ELi3EEENS_4MatxIT_XT0_EXT1_EEERKS3_S5_.exit326: ; preds = %288
   %310 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %311 = load ptr, ptr %310, align 8, !tbaa !41
   %.not250 = icmp eq ptr %311, null
-  br i1 %.not250, label %.thread433, label %312
+  br i1 %.not250, label %.thread434, label %312
 
-.thread433:                                       ; preds = %309
+.thread434:                                       ; preds = %309
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
@@ -1507,21 +1507,21 @@ _ZN2cvplIdLi3ELi3EEENS_4MatxIT_XT0_EXT1_EEERKS3_S5_.exit326: ; preds = %288
   br label %769
 
 354:                                              ; preds = %312, %363
-  %indvars.iv420 = phi i64 [ 0, %312 ], [ %indvars.iv.next421, %363 ]
-  %355 = icmp eq i64 %indvars.iv420, 0
-  %356 = icmp eq i64 %indvars.iv420, 1
+  %indvars.iv421 = phi i64 [ 0, %312 ], [ %indvars.iv.next422, %363 ]
+  %355 = icmp eq i64 %indvars.iv421, 0
+  %356 = icmp eq i64 %indvars.iv421, 1
   %357 = select i1 %356, double %236, double %237
   %358 = select i1 %355, double %235, double %357
   %359 = fmul double %358, %344
   %360 = fmul double %346, %358
   %361 = fmul double %348, %358
-  %362 = mul nuw nsw i64 %indvars.iv420, 9
+  %362 = mul nuw nsw i64 %indvars.iv421, 9
   br label %364
 
 363:                                              ; preds = %364
-  %indvars.iv.next421 = add nuw nsw i64 %indvars.iv420, 1
-  %exitcond423.not = icmp eq i64 %indvars.iv.next421, 3
-  br i1 %exitcond423.not, label %382, label %354, !llvm.loop !96
+  %indvars.iv.next422 = add nuw nsw i64 %indvars.iv421, 1
+  %exitcond424.not = icmp eq i64 %indvars.iv.next422, 3
+  br i1 %exitcond424.not, label %382, label %354, !llvm.loop !96
 
 364:                                              ; preds = %354, %364
   %indvars.iv = phi i64 [ 0, %354 ], [ %indvars.iv.next, %364 ]
@@ -1780,15 +1780,15 @@ _ZN2cvmlIdLi3ELi3ELi3EEENS_4MatxIT_XT0_EXT1_EEERKNS1_IS2_XT0_EXT2_EEERKNS1_IS2_X
   %476 = fmul double %475, 5.000000e-01
   %477 = fcmp olt double %476, 0.000000e+00
   %478 = select i1 %477, double 0.000000e+00, double %476
-  %sqrt416 = call double @llvm.sqrt.f64(double %478)
+  %sqrt417 = call double @llvm.sqrt.f64(double %478)
   %479 = fadd double %459, 1.000000e+00
   %480 = fmul double %479, 5.000000e-01
   %481 = fcmp olt double %480, 0.000000e+00
   %482 = select i1 %481, double 0.000000e+00, double %480
-  %sqrt415 = call double @llvm.sqrt.f64(double %482)
+  %sqrt416 = call double @llvm.sqrt.f64(double %482)
   %483 = fcmp olt double %450, 0.000000e+00
-  %484 = fneg double %sqrt415
-  %485 = select i1 %483, double %484, double %sqrt415
+  %484 = fneg double %sqrt416
+  %485 = select i1 %483, double %484, double %sqrt416
   %486 = fadd double %462, 1.000000e+00
   %487 = fmul double %486, 5.000000e-01
   %488 = fcmp olt double %487, 0.000000e+00
@@ -1797,8 +1797,8 @@ _ZN2cvmlIdLi3ELi3ELi3EEENS_4MatxIT_XT0_EXT1_EEERKNS1_IS2_XT0_EXT2_EEERKNS1_IS2_X
   %490 = fcmp olt double %443, 0.000000e+00
   %491 = fneg double %sqrt
   %492 = select i1 %490, double %491, double %sqrt
-  %493 = call double @llvm.fabs.f64(double %sqrt416)
-  %494 = call double @llvm.fabs.f64(double %sqrt415)
+  %493 = call double @llvm.fabs.f64(double %sqrt417)
+  %494 = call double @llvm.fabs.f64(double %sqrt416)
   %495 = fcmp olt double %493, %494
   %496 = call double @llvm.fabs.f64(double %sqrt)
   %497 = fcmp olt double %493, %496
@@ -1825,11 +1825,11 @@ _ZN2cvmlIdLi3ELi3ELi3EEENS_4MatxIT_XT0_EXT1_EEERKNS1_IS2_XT0_EXT2_EEERKNS1_IS2_X
 .thread398:                                       ; preds = %474, %498, %502
   %.sroa.32.1 = phi double [ %492, %498 ], [ %503, %502 ], [ %492, %474 ]
   %507 = fmul double %485, %485
-  %508 = call double @llvm.fmuladd.f64(double %sqrt416, double %sqrt416, double %507)
+  %508 = call double @llvm.fmuladd.f64(double %sqrt417, double %sqrt417, double %507)
   %509 = call double @llvm.fmuladd.f64(double %.sroa.32.1, double %.sroa.32.1, double %508)
   %sqrt.i331 = call noundef double @llvm.sqrt.f64(double %509)
   %510 = fdiv double %470, %sqrt.i331
-  %511 = fmul double %sqrt416, %510
+  %511 = fmul double %sqrt417, %510
   %512 = fmul double %485, %510
   %513 = fmul double %.sroa.32.1, %510
   %514 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -2326,7 +2326,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit334: ; preds = %_Z
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
   br label %769
 
-712:                                              ; preds = %382, %.thread431, %707
+712:                                              ; preds = %382, %.thread432, %707
   %713 = icmp eq i32 %82, 5
   %714 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %715 = load i32, ptr %714, align 8, !tbaa !31
@@ -2485,7 +2485,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit334: ; preds = %_Z
   call void @llvm.lifetime.end.p0(ptr nonnull %65)
   br label %769
 
-.thread:                                          ; preds = %_ZN2cv3MataSERKNS_7MatExprE.exit, %.thread433, %.thread410, %751, %760, %723, %738, %707
+.thread:                                          ; preds = %_ZN2cv3MataSERKNS_7MatExprE.exit, %.thread434, %.thread410, %751, %760, %723, %738, %707
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %12) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)

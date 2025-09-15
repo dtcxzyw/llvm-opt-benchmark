@@ -2722,8 +2722,8 @@ _ZNK6frozen3mapIN4LIEF2PE16ResourcesManager4TYPEEPKcLm21ESt4lessIS4_EE11lower_bo
 7:                                                ; preds = %_ZNK6frozen3mapIN4LIEF2PE16ResourcesManager4TYPEEPKcLm21ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i
   %.ptr.i.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF2PE9to_stringENS0_16ResourcesManager4TYPEE.enums2str, i64 %.sink.i.i.i.i.add.i.i
   %8 = load i32, ptr %.ptr.i.i, align 4, !tbaa !50
-  %.not21.i.i = icmp slt i32 %0, %8
-  br i1 %.not21.i.i, label %_ZNK6frozen3mapIN4LIEF2PE16ResourcesManager4TYPEEPKcLm21ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread, label %9
+  %.not22.i.i = icmp slt i32 %0, %8
+  br i1 %.not22.i.i, label %_ZNK6frozen3mapIN4LIEF2PE16ResourcesManager4TYPEEPKcLm21ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread, label %9
 
 9:                                                ; preds = %7
   %10 = getelementptr inbounds nuw i8, ptr %.ptr.i.i, i64 8
@@ -8438,8 +8438,8 @@ _ZNK6frozen3mapIN4LIEF2PE16ResourcesManager4TYPEEPKcLm21ESt4lessIS4_EE11lower_bo
 159:                                              ; preds = %_ZNK6frozen3mapIN4LIEF2PE16ResourcesManager4TYPEEPKcLm21ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i.i
   %.ptr.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF2PE9to_stringENS0_16ResourcesManager4TYPEE.enums2str, i64 %.sink.i.i.i.i.add.i.i.i
   %160 = load i32, ptr %.ptr.i.i.i, align 4, !tbaa !50
-  %.not21.i.i.i = icmp slt i32 %97, %160
-  br i1 %.not21.i.i.i, label %_ZN4LIEF2PE9to_stringENS0_16ResourcesManager4TYPEE.exit.thread, label %_ZN4LIEF2PE9to_stringENS0_16ResourcesManager4TYPEE.exit
+  %.not22.i.i.i = icmp slt i32 %97, %160
+  br i1 %.not22.i.i.i, label %_ZN4LIEF2PE9to_stringENS0_16ResourcesManager4TYPEE.exit.thread, label %_ZN4LIEF2PE9to_stringENS0_16ResourcesManager4TYPEE.exit
 
 _ZN4LIEF2PE9to_stringENS0_16ResourcesManager4TYPEE.exit.thread: ; preds = %_ZNK6frozen3mapIN4LIEF2PE16ResourcesManager4TYPEEPKcLm21ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i.i, %159
   %161 = getelementptr inbounds nuw i8, ptr %45, i64 16
@@ -42452,8 +42452,8 @@ _ZNK6frozen3mapIN4LIEF2PE16ResourcesManager4TYPEEPKcLm21ESt4lessIS4_EE11lower_bo
 11:                                               ; preds = %_ZNK6frozen3mapIN4LIEF2PE16ResourcesManager4TYPEEPKcLm21ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i.i
   %.ptr.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF2PE9to_stringENS0_16ResourcesManager4TYPEE.enums2str, i64 %.sink.i.i.i.i.add.i.i.i
   %12 = load i32, ptr %.ptr.i.i.i, align 4, !tbaa !50
-  %.not21.i.i.i = icmp slt i32 %5, %12
-  br i1 %.not21.i.i.i, label %_ZN3fmt3v106detail5writeIcNS0_8appenderEEET0_S4_PKT_.exit, label %_ZN4LIEF2PE9to_stringENS0_16ResourcesManager4TYPEE.exit
+  %.not22.i.i.i = icmp slt i32 %5, %12
+  br i1 %.not22.i.i.i, label %_ZN3fmt3v106detail5writeIcNS0_8appenderEEET0_S4_PKT_.exit, label %_ZN4LIEF2PE9to_stringENS0_16ResourcesManager4TYPEE.exit
 
 _ZN4LIEF2PE9to_stringENS0_16ResourcesManager4TYPEE.exit: ; preds = %11
   %13 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i, i64 8

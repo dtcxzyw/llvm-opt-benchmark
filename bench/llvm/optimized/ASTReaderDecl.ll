@@ -62525,13 +62525,13 @@ define linkonce_odr hidden void @_ZN5clang13serialization15BasicReaderBaseINS_15
   %29 = getelementptr inbounds nuw i64, ptr %13, i64 %27
   %30 = load i64, ptr %29, align 8, !tbaa !112
   %31 = tail call i64 @_ZN5clang9ASTReader12getLocalTypeERNS_13serialization10ModuleFileEm(ptr noundef nonnull align 8 dereferenceable(16272) %26, ptr noundef nonnull align 8 dereferenceable(3464) %24, i64 noundef %30) #26
-  %.pre86 = load i32, ptr %9, align 8, !tbaa !104
-  %.pre87 = load ptr, ptr %8, align 8, !tbaa !111
+  %.pre87 = load i32, ptr %9, align 8, !tbaa !104
+  %.pre88 = load ptr, ptr %8, align 8, !tbaa !111
   br label %_ZN5clang15ASTRecordReader12readQualTypeEv.exit
 
 _ZN5clang15ASTRecordReader12readQualTypeEv.exit:  ; preds = %19, %22
-  %32 = phi ptr [ %.pre87, %22 ], [ %13, %19 ]
-  %33 = phi i32 [ %.pre86, %22 ], [ %11, %19 ]
+  %32 = phi ptr [ %.pre88, %22 ], [ %13, %19 ]
+  %33 = phi i32 [ %.pre87, %22 ], [ %11, %19 ]
   %.sroa.0.0.i.i.i = phi i64 [ %31, %22 ], [ 0, %19 ]
   %34 = add i32 %33, 1
   store i32 %34, ptr %9, align 8, !tbaa !104
@@ -62565,11 +62565,11 @@ _ZN5clang15ASTRecordReader12readQualTypeEv.exit:  ; preds = %19, %22
   %55 = getelementptr inbounds nuw i64, ptr %54, i64 %52
   %56 = load i64, ptr %55, align 8, !tbaa !112
   %57 = tail call i64 @_ZN5clang9ASTReader12getLocalTypeERNS_13serialization10ModuleFileEm(ptr noundef nonnull align 8 dereferenceable(16272) %51, ptr noundef nonnull align 8 dereferenceable(3464) %50, i64 noundef %56) #26
-  %.pre85 = load i32, ptr %9, align 8, !tbaa !104
+  %.pre86 = load i32, ptr %9, align 8, !tbaa !104
   br label %_ZN5clang15ASTRecordReader12readQualTypeEv.exit61
 
 _ZN5clang15ASTRecordReader12readQualTypeEv.exit61: ; preds = %39, %49
-  %58 = phi i32 [ %.pre85, %49 ], [ %46, %39 ]
+  %58 = phi i32 [ %.pre86, %49 ], [ %46, %39 ]
   %.sroa.0.0.i.i.i60 = phi i64 [ %57, %49 ], [ 0, %39 ]
   %59 = add i32 %58, 1
   store i32 %59, ptr %9, align 8, !tbaa !104
@@ -62598,13 +62598,13 @@ _ZN5clang15ASTRecordReader12readQualTypeEv.exit61: ; preds = %39, %49
   %75 = getelementptr inbounds nuw i64, ptr %13, i64 %73
   %76 = load i64, ptr %75, align 8, !tbaa !112
   %77 = tail call i64 @_ZN5clang9ASTReader12getLocalTypeERNS_13serialization10ModuleFileEm(ptr noundef nonnull align 8 dereferenceable(16272) %72, ptr noundef nonnull align 8 dereferenceable(3464) %70, i64 noundef %76) #26
-  %.pre83 = load i32, ptr %9, align 8, !tbaa !104
-  %.pre84 = load ptr, ptr %8, align 8, !tbaa !111
+  %.pre84 = load i32, ptr %9, align 8, !tbaa !104
+  %.pre85 = load ptr, ptr %8, align 8, !tbaa !111
   br label %_ZN5clang15ASTRecordReader12readQualTypeEv.exit64
 
 _ZN5clang15ASTRecordReader12readQualTypeEv.exit64: ; preds = %65, %68
-  %78 = phi ptr [ %.pre84, %68 ], [ %13, %65 ]
-  %79 = phi i32 [ %.pre83, %68 ], [ %11, %65 ]
+  %78 = phi ptr [ %.pre85, %68 ], [ %13, %65 ]
+  %79 = phi i32 [ %.pre84, %68 ], [ %11, %65 ]
   %.sroa.0.0.i.i.i63 = phi i64 [ %77, %68 ], [ 0, %65 ]
   %80 = add i32 %79, 1
   store i32 %80, ptr %9, align 8, !tbaa !104
@@ -62654,11 +62654,11 @@ _ZN5clang15ASTRecordReader12readQualTypeEv.exit64: ; preds = %65, %68
   %108 = getelementptr inbounds nuw i64, ptr %107, i64 %105
   %109 = load i64, ptr %108, align 8, !tbaa !112
   %110 = call i64 @_ZN5clang9ASTReader12getLocalTypeERNS_13serialization10ModuleFileEm(ptr noundef nonnull align 8 dereferenceable(16272) %104, ptr noundef nonnull align 8 dereferenceable(3464) %102, i64 noundef %109) #26
-  %.pre82 = load i32, ptr %9, align 8, !tbaa !104
+  %.pre83 = load i32, ptr %9, align 8, !tbaa !104
   br label %_ZN5clang15ASTRecordReader12readQualTypeEv.exit67
 
 _ZN5clang15ASTRecordReader12readQualTypeEv.exit67: ; preds = %85, %100
-  %111 = phi i32 [ %.pre82, %100 ], [ %97, %85 ]
+  %111 = phi i32 [ %.pre83, %100 ], [ %97, %85 ]
   %.sroa.0.0.i.i.i66 = phi i64 [ %110, %100 ], [ 0, %85 ]
   %112 = add i32 %111, 1
   store i32 %112, ptr %9, align 8, !tbaa !104
@@ -62741,8 +62741,8 @@ _ZN5clang7APValueD2Ev.exit:                       ; preds = %_ZN5clang15ASTRecor
   %153 = load ptr, ptr %8, align 8, !tbaa !111
   %154 = getelementptr inbounds nuw i64, ptr %153, i64 %152
   %155 = load i64, ptr %154, align 8, !tbaa !112
-  %.not79 = icmp eq i64 %155, 0
-  %156 = select i1 %.not79, i32 6, i32 -2147483642
+  %.not80 = icmp eq i64 %155, 0
+  %156 = select i1 %.not80, i32 6, i32 -2147483642
   store i32 %156, ptr %0, align 8
   %157 = inttoptr i64 %149 to ptr
   %158 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -62880,11 +62880,11 @@ _ZN4llvm11SmallVectorIN5clang16TemplateArgumentELj8EED2Ev.exit: ; preds = %._cri
   br label %241
 
 .lr.ph:                                           ; preds = %226, %.lr.ph
-  %.081 = phi i64 [ %239, %.lr.ph ], [ 0, %226 ]
-  %237 = getelementptr inbounds nuw %"class.clang::TemplateArgument", ptr %198, i64 %.081
-  %238 = getelementptr inbounds nuw %"class.clang::TemplateArgument", ptr %.0.i.i.i.i, i64 %.081
+  %.082 = phi i64 [ %239, %.lr.ph ], [ 0, %226 ]
+  %237 = getelementptr inbounds nuw %"class.clang::TemplateArgument", ptr %198, i64 %.082
+  %238 = getelementptr inbounds nuw %"class.clang::TemplateArgument", ptr %.0.i.i.i.i, i64 %.082
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %238, ptr noundef nonnull align 8 dereferenceable(24) %237, i64 24, i1 false), !tbaa.struct !1624
-  %239 = add nuw i64 %.081, 1
+  %239 = add nuw i64 %.082, 1
   %.not = icmp eq i64 %239, %199
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !2176
 

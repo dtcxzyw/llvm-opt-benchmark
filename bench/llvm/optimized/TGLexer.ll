@@ -1549,15 +1549,15 @@ _ZN4llvm7TGLexer28prepEatPreprocessorDirectiveENS_5tgtok7TokKindE.exit: ; preds 
   %or.cond = icmp eq i32 %33, 24
   br i1 %or.cond, label %.preheader, label %129
 
-.preheader:                                       ; preds = %_ZN4llvm7TGLexer28prepEatPreprocessorDirectiveENS_5tgtok7TokKindE.exit, %.critedge.i43
-  %34 = phi ptr [ %36, %.critedge.i43 ], [ %.promoted.i, %_ZN4llvm7TGLexer28prepEatPreprocessorDirectiveENS_5tgtok7TokKindE.exit ]
+.preheader:                                       ; preds = %_ZN4llvm7TGLexer28prepEatPreprocessorDirectiveENS_5tgtok7TokKindE.exit, %.critedge.i44
+  %34 = phi ptr [ %36, %.critedge.i44 ], [ %.promoted.i, %_ZN4llvm7TGLexer28prepEatPreprocessorDirectiveENS_5tgtok7TokKindE.exit ]
   %35 = load i8, ptr %34, align 1, !tbaa !14
   switch i8 %35, label %37 [
-    i8 32, label %.critedge.i43
-    i8 9, label %.critedge.i43
+    i8 32, label %.critedge.i44
+    i8 9, label %.critedge.i44
   ]
 
-.critedge.i43:                                    ; preds = %.preheader, %.preheader
+.critedge.i44:                                    ; preds = %.preheader, %.preheader
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 1
   store ptr %36, ptr %26, align 8, !tbaa !57
   br label %.preheader, !llvm.loop !83
@@ -1593,9 +1593,9 @@ _ZL13isValidIDCharcb.exit.thread.i.i:             ; preds = %_ZL13isValidIDCharc
   %54 = getelementptr i8, ptr %34, i64 %46
   %.0914.i.i = getelementptr inbounds nuw i8, ptr %34, i64 1
   %.not15.i.i = icmp samesign eq i64 %46, 1
-  br i1 %.not15.i.i, label %_ZN4llvm7TGLexer16prepLexMacroNameEv.exit.thread110, label %.lr.ph.i.i
+  br i1 %.not15.i.i, label %_ZN4llvm7TGLexer16prepLexMacroNameEv.exit.thread111, label %.lr.ph.i.i
 
-_ZN4llvm7TGLexer16prepLexMacroNameEv.exit.thread110: ; preds = %_ZL13isValidIDCharcb.exit.thread.i.i
+_ZN4llvm7TGLexer16prepLexMacroNameEv.exit.thread111: ; preds = %_ZL13isValidIDCharcb.exit.thread.i.i
   store ptr %.0914.i.i, ptr %26, align 8, !tbaa !57
   %55 = select i1 %38, ptr @.str.98, ptr @.str.99
   %56 = select i1 %38, i64 6, i64 7
@@ -1649,11 +1649,11 @@ _ZN4llvm7TGLexer16prepLexMacroNameEv.exit:        ; preds = %59, %.backedge.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %247
 
-75:                                               ; preds = %_ZN4llvm7TGLexer16prepLexMacroNameEv.exit.thread110, %_ZN4llvm7TGLexer16prepLexMacroNameEv.exit
-  %76 = phi i64 [ %56, %_ZN4llvm7TGLexer16prepLexMacroNameEv.exit.thread110 ], [ %66, %_ZN4llvm7TGLexer16prepLexMacroNameEv.exit ]
-  %77 = phi ptr [ %55, %_ZN4llvm7TGLexer16prepLexMacroNameEv.exit.thread110 ], [ %65, %_ZN4llvm7TGLexer16prepLexMacroNameEv.exit ]
-  %.0.i.i112 = phi ptr [ %.0914.i.i, %_ZN4llvm7TGLexer16prepLexMacroNameEv.exit.thread110 ], [ %.0.i.i, %_ZN4llvm7TGLexer16prepLexMacroNameEv.exit ]
-  %78 = ptrtoint ptr %.0.i.i112 to i64
+75:                                               ; preds = %_ZN4llvm7TGLexer16prepLexMacroNameEv.exit.thread111, %_ZN4llvm7TGLexer16prepLexMacroNameEv.exit
+  %76 = phi i64 [ %56, %_ZN4llvm7TGLexer16prepLexMacroNameEv.exit.thread111 ], [ %66, %_ZN4llvm7TGLexer16prepLexMacroNameEv.exit ]
+  %77 = phi ptr [ %55, %_ZN4llvm7TGLexer16prepLexMacroNameEv.exit.thread111 ], [ %65, %_ZN4llvm7TGLexer16prepLexMacroNameEv.exit ]
+  %.0.i.i113 = phi ptr [ %.0914.i.i, %_ZN4llvm7TGLexer16prepLexMacroNameEv.exit.thread111 ], [ %.0.i.i, %_ZN4llvm7TGLexer16prepLexMacroNameEv.exit ]
+  %78 = ptrtoint ptr %.0.i.i113 to i64
   %79 = sub i64 %78, %45
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %81 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull %34, i64 %79) #25
@@ -1765,8 +1765,8 @@ _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %_ZN4llvm23SmallVect
   %136 = getelementptr inbounds nuw %"class.llvm::SmallVector.11", ptr %132, i64 %135
   %137 = getelementptr inbounds i8, ptr %136, i64 -56
   %138 = load i32, ptr %137, align 8, !tbaa !58
-  %.not.i46 = icmp eq i32 %138, 0
-  br i1 %.not.i46, label %139, label %142
+  %.not.i47 = icmp eq i32 %138, 0
+  br i1 %.not.i47, label %139, label %142
 
 139:                                              ; preds = %130
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
@@ -1863,8 +1863,8 @@ _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %_ZN4llvm23SmallVect
   %172 = getelementptr inbounds nuw %"class.llvm::SmallVector.11", ptr %168, i64 %171
   %173 = getelementptr inbounds i8, ptr %172, i64 -56
   %174 = load i32, ptr %173, align 8, !tbaa !58
-  %.not.i47 = icmp eq i32 %174, 0
-  br i1 %.not.i47, label %175, label %178
+  %.not.i48 = icmp eq i32 %174, 0
+  br i1 %.not.i48, label %175, label %178
 
 175:                                              ; preds = %166
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
@@ -1919,15 +1919,15 @@ _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %_ZN4llvm23SmallVect
   tail call void @llvm.assume(i1 %195)
   br label %196
 
-196:                                              ; preds = %.critedge.i49, %194
-  %197 = phi ptr [ %199, %.critedge.i49 ], [ %.promoted.i, %194 ]
+196:                                              ; preds = %.critedge.i50, %194
+  %197 = phi ptr [ %199, %.critedge.i50 ], [ %.promoted.i, %194 ]
   %198 = load i8, ptr %197, align 1, !tbaa !14
   switch i8 %198, label %200 [
-    i8 32, label %.critedge.i49
-    i8 9, label %.critedge.i49
+    i8 32, label %.critedge.i50
+    i8 9, label %.critedge.i50
   ]
 
-.critedge.i49:                                    ; preds = %196, %196
+.critedge.i50:                                    ; preds = %196, %196
   %199 = getelementptr inbounds nuw i8, ptr %197, i64 1
   store ptr %199, ptr %26, align 8, !tbaa !57
   br label %196, !llvm.loop !83
@@ -1944,57 +1944,57 @@ _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %_ZN4llvm23SmallVect
   %208 = sub i64 %206, %207
   %209 = load i8, ptr %197, align 1, !tbaa !14
   %210 = icmp eq i8 %209, 95
-  br i1 %210, label %_ZL13isValidIDCharcb.exit.thread.i.i54, label %_ZL13isValidIDCharcb.exit.i.i50
+  br i1 %210, label %_ZL13isValidIDCharcb.exit.thread.i.i55, label %_ZL13isValidIDCharcb.exit.i.i51
 
-_ZL13isValidIDCharcb.exit.i.i50:                  ; preds = %200
+_ZL13isValidIDCharcb.exit.i.i51:                  ; preds = %200
   %211 = and i8 %209, -33
   %212 = add i8 %211, -65
   %213 = icmp ult i8 %212, 26
-  br i1 %213, label %_ZL13isValidIDCharcb.exit.thread.i.i54, label %_ZN4llvm7TGLexer16prepLexMacroNameEv.exit63.thread
+  br i1 %213, label %_ZL13isValidIDCharcb.exit.thread.i.i55, label %_ZN4llvm7TGLexer16prepLexMacroNameEv.exit64.thread
 
-_ZN4llvm7TGLexer16prepLexMacroNameEv.exit63.thread: ; preds = %_ZL13isValidIDCharcb.exit.i.i50
+_ZN4llvm7TGLexer16prepLexMacroNameEv.exit64.thread: ; preds = %_ZL13isValidIDCharcb.exit.i.i51
   store ptr %197, ptr %26, align 8, !tbaa !57
   br label %226
 
-_ZL13isValidIDCharcb.exit.thread.i.i54:           ; preds = %_ZL13isValidIDCharcb.exit.i.i50, %200
+_ZL13isValidIDCharcb.exit.thread.i.i55:           ; preds = %_ZL13isValidIDCharcb.exit.i.i51, %200
   %214 = getelementptr i8, ptr %197, i64 %208
-  %.0914.i.i55 = getelementptr inbounds nuw i8, ptr %197, i64 1
-  %.not15.i.i56 = icmp samesign eq i64 %208, 1
-  br i1 %.not15.i.i56, label %_ZN4llvm7TGLexer16prepLexMacroNameEv.exit63.thread114, label %.lr.ph.i.i57
+  %.0914.i.i56 = getelementptr inbounds nuw i8, ptr %197, i64 1
+  %.not15.i.i57 = icmp samesign eq i64 %208, 1
+  br i1 %.not15.i.i57, label %_ZN4llvm7TGLexer16prepLexMacroNameEv.exit64.thread115, label %.lr.ph.i.i58
 
-_ZN4llvm7TGLexer16prepLexMacroNameEv.exit63.thread114: ; preds = %_ZL13isValidIDCharcb.exit.thread.i.i54
-  store ptr %.0914.i.i55, ptr %26, align 8, !tbaa !57
+_ZN4llvm7TGLexer16prepLexMacroNameEv.exit64.thread115: ; preds = %_ZL13isValidIDCharcb.exit.thread.i.i55
+  store ptr %.0914.i.i56, ptr %26, align 8, !tbaa !57
   br label %229
 
-.lr.ph.i.i57:                                     ; preds = %_ZL13isValidIDCharcb.exit.thread.i.i54, %.backedge.i.i60
-  %.0916.i.i58 = phi ptr [ %.09.i.i61, %.backedge.i.i60 ], [ %.0914.i.i55, %_ZL13isValidIDCharcb.exit.thread.i.i54 ]
-  %215 = load i8, ptr %.0916.i.i58, align 1, !tbaa !14
+.lr.ph.i.i58:                                     ; preds = %_ZL13isValidIDCharcb.exit.thread.i.i55, %.backedge.i.i61
+  %.0916.i.i59 = phi ptr [ %.09.i.i62, %.backedge.i.i61 ], [ %.0914.i.i56, %_ZL13isValidIDCharcb.exit.thread.i.i55 ]
+  %215 = load i8, ptr %.0916.i.i59, align 1, !tbaa !14
   %216 = icmp eq i8 %215, 95
-  br i1 %216, label %.backedge.i.i60, label %217
+  br i1 %216, label %.backedge.i.i61, label %217
 
-217:                                              ; preds = %.lr.ph.i.i57
+217:                                              ; preds = %.lr.ph.i.i58
   %218 = and i8 %215, -33
   %219 = add i8 %218, -65
   %220 = icmp ult i8 %219, 26
   %221 = add i8 %215, -48
   %222 = icmp ult i8 %221, 10
-  %or.cond.i.i59 = or i1 %222, %220
-  br i1 %or.cond.i.i59, label %.backedge.i.i60, label %_ZN4llvm7TGLexer16prepLexMacroNameEv.exit63
+  %or.cond.i.i60 = or i1 %222, %220
+  br i1 %or.cond.i.i60, label %.backedge.i.i61, label %_ZN4llvm7TGLexer16prepLexMacroNameEv.exit64
 
-.backedge.i.i60:                                  ; preds = %217, %.lr.ph.i.i57
-  %.09.i.i61 = getelementptr inbounds nuw i8, ptr %.0916.i.i58, i64 1
-  %.not.i.i62 = icmp eq ptr %.09.i.i61, %205
-  br i1 %.not.i.i62, label %_ZN4llvm7TGLexer16prepLexMacroNameEv.exit63, label %.lr.ph.i.i57, !llvm.loop !60
+.backedge.i.i61:                                  ; preds = %217, %.lr.ph.i.i58
+  %.09.i.i62 = getelementptr inbounds nuw i8, ptr %.0916.i.i59, i64 1
+  %.not.i.i63 = icmp eq ptr %.09.i.i62, %205
+  br i1 %.not.i.i63, label %_ZN4llvm7TGLexer16prepLexMacroNameEv.exit64, label %.lr.ph.i.i58, !llvm.loop !60
 
-_ZN4llvm7TGLexer16prepLexMacroNameEv.exit63:      ; preds = %217, %.backedge.i.i60
-  %.0.i.i51 = phi ptr [ %.0916.i.i58, %217 ], [ %214, %.backedge.i.i60 ]
-  store ptr %.0.i.i51, ptr %26, align 8, !tbaa !57
-  %223 = ptrtoint ptr %.0.i.i51 to i64
+_ZN4llvm7TGLexer16prepLexMacroNameEv.exit64:      ; preds = %217, %.backedge.i.i61
+  %.0.i.i52 = phi ptr [ %.0916.i.i59, %217 ], [ %214, %.backedge.i.i61 ]
+  store ptr %.0.i.i52, ptr %26, align 8, !tbaa !57
+  %223 = ptrtoint ptr %.0.i.i52 to i64
   %224 = sub i64 %223, %207
-  %225 = icmp eq ptr %.0.i.i51, %197
+  %225 = icmp eq ptr %.0.i.i52, %197
   br i1 %225, label %226, label %229
 
-226:                                              ; preds = %_ZN4llvm7TGLexer16prepLexMacroNameEv.exit63.thread, %_ZN4llvm7TGLexer16prepLexMacroNameEv.exit63
+226:                                              ; preds = %_ZN4llvm7TGLexer16prepLexMacroNameEv.exit64.thread, %_ZN4llvm7TGLexer16prepLexMacroNameEv.exit64
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %227 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %228 = getelementptr inbounds nuw i8, ptr %22, i64 33
@@ -2008,16 +2008,16 @@ _ZN4llvm7TGLexer16prepLexMacroNameEv.exit63:      ; preds = %217, %.backedge.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %247
 
-229:                                              ; preds = %_ZN4llvm7TGLexer16prepLexMacroNameEv.exit63.thread114, %_ZN4llvm7TGLexer16prepLexMacroNameEv.exit63
-  %230 = phi i64 [ 1, %_ZN4llvm7TGLexer16prepLexMacroNameEv.exit63.thread114 ], [ %224, %_ZN4llvm7TGLexer16prepLexMacroNameEv.exit63 ]
+229:                                              ; preds = %_ZN4llvm7TGLexer16prepLexMacroNameEv.exit64.thread115, %_ZN4llvm7TGLexer16prepLexMacroNameEv.exit64
+  %230 = phi i64 [ 1, %_ZN4llvm7TGLexer16prepLexMacroNameEv.exit64.thread115 ], [ %224, %_ZN4llvm7TGLexer16prepLexMacroNameEv.exit64 ]
   %231 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %232 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull %197, i64 %230) #25
   %233 = tail call { ptr, i8 } @_ZN4llvm9StringMapISt9nullopt_tNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIS1_EEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %231, ptr nonnull %197, i64 %230, i32 noundef %232)
   %.fca.1.extract = extractvalue { ptr, i8 } %233, 1
   %234 = trunc i8 %.fca.1.extract to i1
-  br i1 %234, label %239, label %_ZN4llvmplERKNS_5TwineES2_.exit78
+  br i1 %234, label %239, label %_ZN4llvmplERKNS_5TwineES2_.exit79
 
-_ZN4llvmplERKNS_5TwineES2_.exit78:                ; preds = %229
+_ZN4llvmplERKNS_5TwineES2_.exit79:                ; preds = %229
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   %235 = load ptr, ptr %28, align 8, !tbaa !74
   store ptr %235, ptr %23, align 8
@@ -2025,8 +2025,8 @@ _ZN4llvmplERKNS_5TwineES2_.exit78:                ; preds = %229
   store ptr @.str.110, ptr %24, align 8, !alias.scope !98
   %236 = getelementptr inbounds nuw i8, ptr %24, i64 16
   store ptr %197, ptr %236, align 8, !alias.scope !98
-  %.sroa.2.0..sroa_idx.i.i.i77 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  store i64 %230, ptr %.sroa.2.0..sroa_idx.i.i.i77, align 8, !tbaa !14, !alias.scope !98
+  %.sroa.2.0..sroa_idx.i.i.i78 = getelementptr inbounds nuw i8, ptr %24, i64 24
+  store i64 %230, ptr %.sroa.2.0..sroa_idx.i.i.i78, align 8, !tbaa !14, !alias.scope !98
   %237 = getelementptr inbounds nuw i8, ptr %24, i64 32
   store i8 3, ptr %237, align 8, !tbaa !62, !alias.scope !98
   %238 = getelementptr inbounds nuw i8, ptr %24, i64 33
@@ -2036,7 +2036,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit78:                ; preds = %229
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %239
 
-239:                                              ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit78, %229
+239:                                              ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit79, %229
   %240 = call noundef zeroext i1 @_ZN4llvm7TGLexer20prepSkipDirectiveEndEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
   br i1 %240, label %245, label %241
 
@@ -4001,8 +4001,8 @@ define dso_local noundef zeroext i1 @_ZN4llvm7TGLexer14prepSkipRegionEb(ptr noun
   %17 = load i64, ptr %7, align 8, !tbaa !77
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 %17
   %.promoted.i = load ptr, ptr %5, align 8, !tbaa !57
-  %.not13.i = icmp eq ptr %.promoted.i, %18
-  br i1 %.not13.i, label %.loopexitthread-pre-split, label %.lr.ph.i
+  %.not14.i = icmp eq ptr %.promoted.i, %18
+  br i1 %.not14.i, label %.loopexitthread-pre-split, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.outer.i, %27
   %19 = phi ptr [ %28, %27 ], [ %.promoted.i, %.outer.i ]
@@ -4286,8 +4286,8 @@ define dso_local noundef zeroext i1 @_ZN4llvm7TGLexer17prepSkipLineBeginEv(ptr n
   %7 = load i64, ptr %4, align 8, !tbaa !77
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 %7
   %.promoted = load ptr, ptr %2, align 8, !tbaa !57
-  %.not13 = icmp eq ptr %.promoted, %8
-  br i1 %.not13, label %.thread, label %.lr.ph
+  %.not14 = icmp eq ptr %.promoted, %8
+  br i1 %.not14, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.outer, %17
   %9 = phi ptr [ %18, %17 ], [ %.promoted, %.outer ]

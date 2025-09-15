@@ -4967,7 +4967,7 @@ define dso_local zeroext i1 @MinimumActiveBackends(i32 noundef %0) local_unnamed
 
 9:                                                ; preds = %.lr.ph, %.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.thread ]
-  %.01833 = phi i32 [ 0, %.lr.ph ], [ %.231, %.thread ]
+  %.01834 = phi i32 [ 0, %.lr.ph ], [ %.231, %.thread ]
   %10 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
   %11 = load i32, ptr %10, align 4
   %12 = sext i32 %11 to i64
@@ -4996,12 +4996,12 @@ define dso_local zeroext i1 @MinimumActiveBackends(i32 noundef %0) local_unnamed
   br i1 %.not, label %27, label %.thread
 
 27:                                               ; preds = %24
-  %28 = add i32 %.01833, 1
+  %28 = add i32 %.01834, 1
   %.not25.not = icmp slt i32 %28, %0
   br i1 %.not25.not, label %.thread, label %._crit_edge
 
 .thread:                                          ; preds = %24, %20, %16, %9, %27
-  %.231 = phi i32 [ %28, %27 ], [ %.01833, %9 ], [ %.01833, %16 ], [ %.01833, %20 ], [ %.01833, %24 ]
+  %.231 = phi i32 [ %28, %27 ], [ %.01834, %9 ], [ %.01834, %16 ], [ %.01834, %20 ], [ %.01834, %24 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %9, !llvm.loop !59

@@ -14509,8 +14509,8 @@ define noundef ptr @_ZN4LIEF2PE9to_stringENS0_17LoadConfiguration11IMAGE_GUARDE(
 6:                                                ; preds = %1
   %.ptr18.i.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF2PE9to_stringENS0_17LoadConfiguration11IMAGE_GUARDE.enums2str, i64 %.add14.i.i
   %7 = load i32, ptr %.ptr18.i.i, align 8, !tbaa !680
-  %.not19.i.i = icmp ult i32 %0, %7
-  br i1 %.not19.i.i, label %_ZNK6frozen3mapIN4LIEF2PE17LoadConfiguration11IMAGE_GUARDEPKcLm15ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread, label %8
+  %.not20.i.i = icmp ult i32 %0, %7
+  br i1 %.not20.i.i, label %_ZNK6frozen3mapIN4LIEF2PE17LoadConfiguration11IMAGE_GUARDEPKcLm15ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread, label %8
 
 8:                                                ; preds = %6
   %9 = getelementptr inbounds nuw i8, ptr %.ptr18.i.i, i64 8
@@ -44342,8 +44342,8 @@ define linkonce_odr hidden ptr @_ZNK3fmt3v109formatterIN4LIEF2PE17LoadConfigurat
 10:                                               ; preds = %3
   %.ptr18.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF2PE9to_stringENS0_17LoadConfiguration11IMAGE_GUARDE.enums2str, i64 %.add14.i.i.i
   %11 = load i32, ptr %.ptr18.i.i.i, align 8, !tbaa !680
-  %.not19.i.i.i = icmp ult i32 %5, %11
-  br i1 %.not19.i.i.i, label %_ZN3fmt3v106detail5writeIcNS0_8appenderEEET0_S4_PKT_.exit, label %_ZN4LIEF2PE9to_stringENS0_17LoadConfiguration11IMAGE_GUARDE.exit
+  %.not20.i.i.i = icmp ult i32 %5, %11
+  br i1 %.not20.i.i.i, label %_ZN3fmt3v106detail5writeIcNS0_8appenderEEET0_S4_PKT_.exit, label %_ZN4LIEF2PE9to_stringENS0_17LoadConfiguration11IMAGE_GUARDE.exit
 
 _ZN4LIEF2PE9to_stringENS0_17LoadConfiguration11IMAGE_GUARDE.exit: ; preds = %10
   %12 = getelementptr inbounds nuw i8, ptr %.ptr18.i.i.i, i64 8

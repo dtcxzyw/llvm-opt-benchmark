@@ -4787,8 +4787,8 @@ _ZNK6frozen3mapIN4LIEF3ELF12CorePrStatus9Registers3ARMEPKcLm17ESt4lessIS5_EE11lo
 24:                                               ; preds = %_ZNK6frozen3mapIN4LIEF3ELF12CorePrStatus9Registers3ARMEPKcLm17ESt4lessIS5_EE11lower_boundIS5_EEPKSt4pairIS5_S7_ERKT_.exit.i.i.i
   %.ptr.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF3ELF9to_stringENS0_12CorePrStatus9Registers3ARME.enums2str, i64 %.sink.i.i.i.i.add.i.i.i
   %25 = load i32, ptr %.ptr.i.i.i, align 4, !tbaa !253
-  %.not19.i.i.i = icmp sgt i32 %25, %19
-  br i1 %.not19.i.i.i, label %_ZN4LIEF3ELF9to_stringENS0_12CorePrStatus9Registers3ARME.exit, label %26
+  %.not20.i.i.i = icmp sgt i32 %25, %19
+  br i1 %.not20.i.i.i, label %_ZN4LIEF3ELF9to_stringENS0_12CorePrStatus9Registers3ARME.exit, label %26
 
 26:                                               ; preds = %24
   %27 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i, i64 8
@@ -4976,8 +4976,8 @@ _ZNK6frozen3mapIN4LIEF3ELF12CorePrStatus9Registers7AARCH64EPKcLm35ESt4lessIS5_EE
 26:                                               ; preds = %_ZNK6frozen3mapIN4LIEF3ELF12CorePrStatus9Registers7AARCH64EPKcLm35ESt4lessIS5_EE11lower_boundIS5_EEPKSt4pairIS5_S7_ERKT_.exit.i.i.i
   %.ptr15.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF3ELF9to_stringENS0_12CorePrStatus9Registers7AARCH64E.enum_strings, i64 %.add.i.i.i
   %27 = load i32, ptr %.ptr15.i.i.i, align 4, !tbaa !272
-  %.not21.i.i.i = icmp sgt i32 %27, %19
-  br i1 %.not21.i.i.i, label %_ZN4LIEF3ELF9to_stringENS0_12CorePrStatus9Registers7AARCH64E.exit, label %28
+  %.not22.i.i.i = icmp sgt i32 %27, %19
+  br i1 %.not22.i.i.i, label %_ZN4LIEF3ELF9to_stringENS0_12CorePrStatus9Registers7AARCH64E.exit, label %28
 
 28:                                               ; preds = %26
   %29 = getelementptr inbounds nuw i8, ptr %.ptr15.i.i.i, i64 8
@@ -5158,8 +5158,8 @@ _ZNK6frozen3mapIN4LIEF3ELF12CorePrStatus9Registers3X86EPKcLm17ESt4lessIS5_EE11lo
 24:                                               ; preds = %_ZNK6frozen3mapIN4LIEF3ELF12CorePrStatus9Registers3X86EPKcLm17ESt4lessIS5_EE11lower_boundIS5_EEPKSt4pairIS5_S7_ERKT_.exit.i.i.i
   %.ptr.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF3ELF9to_stringENS0_12CorePrStatus9Registers3X86E.enum_strings, i64 %.sink.i.i.i.i.add.i.i.i
   %25 = load i32, ptr %.ptr.i.i.i, align 4, !tbaa !291
-  %.not19.i.i.i = icmp sgt i32 %25, %19
-  br i1 %.not19.i.i.i, label %_ZN4LIEF3ELF9to_stringENS0_12CorePrStatus9Registers3X86E.exit, label %26
+  %.not20.i.i.i = icmp sgt i32 %25, %19
+  br i1 %.not20.i.i.i, label %_ZN4LIEF3ELF9to_stringENS0_12CorePrStatus9Registers3X86E.exit, label %26
 
 26:                                               ; preds = %24
   %27 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i, i64 8
@@ -5347,8 +5347,8 @@ _ZNK6frozen3mapIN4LIEF3ELF12CorePrStatus9Registers6X86_64EPKcLm21ESt4lessIS5_EE1
 25:                                               ; preds = %_ZNK6frozen3mapIN4LIEF3ELF12CorePrStatus9Registers6X86_64EPKcLm21ESt4lessIS5_EE11lower_boundIS5_EEPKSt4pairIS5_S7_ERKT_.exit.i.i.i
   %.ptr.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF3ELF9to_stringENS0_12CorePrStatus9Registers6X86_64E.enums2str, i64 %.sink.i.i.i.i.add.i.i.i
   %26 = load i32, ptr %.ptr.i.i.i, align 4, !tbaa !310
-  %.not21.i.i.i = icmp sgt i32 %26, %19
-  br i1 %.not21.i.i.i, label %_ZN4LIEF3ELF9to_stringENS0_12CorePrStatus9Registers6X86_64E.exit, label %27
+  %.not22.i.i.i = icmp sgt i32 %26, %19
+  br i1 %.not22.i.i.i, label %_ZN4LIEF3ELF9to_stringENS0_12CorePrStatus9Registers6X86_64E.exit, label %27
 
 27:                                               ; preds = %25
   %28 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i, i64 8
@@ -5644,8 +5644,8 @@ _ZNK6frozen3mapIN4LIEF3ELF12CorePrStatus9Registers3X86EPKcLm17ESt4lessIS5_EE11lo
 6:                                                ; preds = %_ZNK6frozen3mapIN4LIEF3ELF12CorePrStatus9Registers3X86EPKcLm17ESt4lessIS5_EE11lower_boundIS5_EEPKSt4pairIS5_S7_ERKT_.exit.i.i
   %.ptr.i.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF3ELF9to_stringENS0_12CorePrStatus9Registers3X86E.enum_strings, i64 %.sink.i.i.i.i.add.i.i
   %7 = load i32, ptr %.ptr.i.i, align 4, !tbaa !291
-  %.not19.i.i = icmp slt i32 %0, %7
-  br i1 %.not19.i.i, label %_ZNK6frozen3mapIN4LIEF3ELF12CorePrStatus9Registers3X86EPKcLm17ESt4lessIS5_EE4findIS5_EEPKSt4pairIS5_S7_ERKT_.exit.thread, label %8
+  %.not20.i.i = icmp slt i32 %0, %7
+  br i1 %.not20.i.i, label %_ZNK6frozen3mapIN4LIEF3ELF12CorePrStatus9Registers3X86EPKcLm17ESt4lessIS5_EE4findIS5_EEPKSt4pairIS5_S7_ERKT_.exit.thread, label %8
 
 8:                                                ; preds = %6
   %9 = getelementptr inbounds nuw i8, ptr %.ptr.i.i, i64 8
@@ -5699,8 +5699,8 @@ _ZNK6frozen3mapIN4LIEF3ELF12CorePrStatus9Registers6X86_64EPKcLm21ESt4lessIS5_EE1
 7:                                                ; preds = %_ZNK6frozen3mapIN4LIEF3ELF12CorePrStatus9Registers6X86_64EPKcLm21ESt4lessIS5_EE11lower_boundIS5_EEPKSt4pairIS5_S7_ERKT_.exit.i.i
   %.ptr.i.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF3ELF9to_stringENS0_12CorePrStatus9Registers6X86_64E.enums2str, i64 %.sink.i.i.i.i.add.i.i
   %8 = load i32, ptr %.ptr.i.i, align 4, !tbaa !310
-  %.not21.i.i = icmp slt i32 %0, %8
-  br i1 %.not21.i.i, label %_ZNK6frozen3mapIN4LIEF3ELF12CorePrStatus9Registers6X86_64EPKcLm21ESt4lessIS5_EE4findIS5_EEPKSt4pairIS5_S7_ERKT_.exit.thread, label %9
+  %.not22.i.i = icmp slt i32 %0, %8
+  br i1 %.not22.i.i, label %_ZNK6frozen3mapIN4LIEF3ELF12CorePrStatus9Registers6X86_64EPKcLm21ESt4lessIS5_EE4findIS5_EEPKSt4pairIS5_S7_ERKT_.exit.thread, label %9
 
 9:                                                ; preds = %7
   %10 = getelementptr inbounds nuw i8, ptr %.ptr.i.i, i64 8
@@ -5747,8 +5747,8 @@ _ZNK6frozen3mapIN4LIEF3ELF12CorePrStatus9Registers3ARMEPKcLm17ESt4lessIS5_EE11lo
 6:                                                ; preds = %_ZNK6frozen3mapIN4LIEF3ELF12CorePrStatus9Registers3ARMEPKcLm17ESt4lessIS5_EE11lower_boundIS5_EEPKSt4pairIS5_S7_ERKT_.exit.i.i
   %.ptr.i.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF3ELF9to_stringENS0_12CorePrStatus9Registers3ARME.enums2str, i64 %.sink.i.i.i.i.add.i.i
   %7 = load i32, ptr %.ptr.i.i, align 4, !tbaa !253
-  %.not19.i.i = icmp slt i32 %0, %7
-  br i1 %.not19.i.i, label %_ZNK6frozen3mapIN4LIEF3ELF12CorePrStatus9Registers3ARMEPKcLm17ESt4lessIS5_EE4findIS5_EEPKSt4pairIS5_S7_ERKT_.exit.thread, label %8
+  %.not20.i.i = icmp slt i32 %0, %7
+  br i1 %.not20.i.i, label %_ZNK6frozen3mapIN4LIEF3ELF12CorePrStatus9Registers3ARMEPKcLm17ESt4lessIS5_EE4findIS5_EEPKSt4pairIS5_S7_ERKT_.exit.thread, label %8
 
 8:                                                ; preds = %6
   %9 = getelementptr inbounds nuw i8, ptr %.ptr.i.i, i64 8
@@ -5802,8 +5802,8 @@ _ZNK6frozen3mapIN4LIEF3ELF12CorePrStatus9Registers7AARCH64EPKcLm35ESt4lessIS5_EE
 8:                                                ; preds = %_ZNK6frozen3mapIN4LIEF3ELF12CorePrStatus9Registers7AARCH64EPKcLm35ESt4lessIS5_EE11lower_boundIS5_EEPKSt4pairIS5_S7_ERKT_.exit.i.i
   %.ptr15.i.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF3ELF9to_stringENS0_12CorePrStatus9Registers7AARCH64E.enum_strings, i64 %.add.i.i
   %9 = load i32, ptr %.ptr15.i.i, align 4, !tbaa !272
-  %.not21.i.i = icmp slt i32 %0, %9
-  br i1 %.not21.i.i, label %_ZNK6frozen3mapIN4LIEF3ELF12CorePrStatus9Registers7AARCH64EPKcLm35ESt4lessIS5_EE4findIS5_EEPKSt4pairIS5_S7_ERKT_.exit.thread, label %10
+  %.not22.i.i = icmp slt i32 %0, %9
+  br i1 %.not22.i.i, label %_ZNK6frozen3mapIN4LIEF3ELF12CorePrStatus9Registers7AARCH64EPKcLm35ESt4lessIS5_EE4findIS5_EEPKSt4pairIS5_S7_ERKT_.exit.thread, label %10
 
 10:                                               ; preds = %8
   %11 = getelementptr inbounds nuw i8, ptr %.ptr15.i.i, i64 8

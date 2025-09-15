@@ -486,14 +486,14 @@ _ZNK4llvm16AArch64Subtarget15isNeonAvailableEv.exit.thread.i.i: ; preds = %_ZNK4
   %108 = getelementptr inbounds nuw i8, ptr %1, i64 785
   %109 = load i8, ptr %108, align 1, !tbaa !233, !range !225, !noundef !226
   %110 = trunc nuw i8 %109 to i1
-  br i1 %110, label %.thread50.i, label %_ZNK4llvm16AArch64Subtarget14isSVEAvailableEv.exit124.i.i
+  br i1 %110, label %.thread51.i, label %_ZNK4llvm16AArch64Subtarget14isSVEAvailableEv.exit124.i.i
 
-.thread50.i:                                      ; preds = %107
+.thread51.i:                                      ; preds = %107
   %111 = getelementptr inbounds nuw i8, ptr %1, i64 461
   %112 = load i8, ptr %111, align 1, !tbaa !247, !range !225, !noundef !226
   %113 = zext nneg i8 %112 to i64
   %114 = shl nuw nsw i64 %113, 35
-  %spec.select326367.i1352.i = or i64 %114, %.sroa.0.16.i.i
+  %spec.select326367.i1353.i = or i64 %114, %.sroa.0.16.i.i
   br label %_ZNK4llvm16AArch64Subtarget14isSVEAvailableEv.exit127.thread.i.i
 
 _ZNK4llvm16AArch64Subtarget14isSVEAvailableEv.exit124.i.i: ; preds = %107
@@ -547,9 +547,9 @@ _ZNK4llvm16AArch64Subtarget14isSVEAvailableEv.exit127.thread182.i.i: ; preds = %
   %spec.select328.i.i = or i64 %148, %.sroa.129.3.i.i
   br label %_ZNK4llvm16AArch64Subtarget14isSVEAvailableEv.exit127.thread.i.i
 
-_ZNK4llvm16AArch64Subtarget14isSVEAvailableEv.exit127.thread.i.i: ; preds = %_ZNK4llvm16AArch64Subtarget14isSVEAvailableEv.exit126.i.i.thread, %_ZNK4llvm16AArch64Subtarget14isSVEAvailableEv.exit127.thread182.i.i, %_ZNK4llvm16AArch64Subtarget14isSVEAvailableEv.exit125.thread.i.i, %.thread50.i
-  %.sroa.0.21177181.i.i = phi i64 [ %spec.select326.i.i, %_ZNK4llvm16AArch64Subtarget14isSVEAvailableEv.exit125.thread.i.i ], [ %.sroa.0.21178371.i.i, %_ZNK4llvm16AArch64Subtarget14isSVEAvailableEv.exit127.thread182.i.i ], [ %spec.select326367.i1352.i, %.thread50.i ], [ %spec.select326367.i13.i, %_ZNK4llvm16AArch64Subtarget14isSVEAvailableEv.exit126.i.i.thread ]
-  %.sroa.129.4.i.i = phi i64 [ %.sroa.129.3.i.i, %_ZNK4llvm16AArch64Subtarget14isSVEAvailableEv.exit125.thread.i.i ], [ %spec.select328.i.i, %_ZNK4llvm16AArch64Subtarget14isSVEAvailableEv.exit127.thread182.i.i ], [ %.sroa.129.3.i.i, %.thread50.i ], [ %.sroa.129.3.i.i, %_ZNK4llvm16AArch64Subtarget14isSVEAvailableEv.exit126.i.i.thread ]
+_ZNK4llvm16AArch64Subtarget14isSVEAvailableEv.exit127.thread.i.i: ; preds = %_ZNK4llvm16AArch64Subtarget14isSVEAvailableEv.exit126.i.i.thread, %_ZNK4llvm16AArch64Subtarget14isSVEAvailableEv.exit127.thread182.i.i, %_ZNK4llvm16AArch64Subtarget14isSVEAvailableEv.exit125.thread.i.i, %.thread51.i
+  %.sroa.0.21177181.i.i = phi i64 [ %spec.select326.i.i, %_ZNK4llvm16AArch64Subtarget14isSVEAvailableEv.exit125.thread.i.i ], [ %.sroa.0.21178371.i.i, %_ZNK4llvm16AArch64Subtarget14isSVEAvailableEv.exit127.thread182.i.i ], [ %spec.select326367.i1353.i, %.thread51.i ], [ %spec.select326367.i13.i, %_ZNK4llvm16AArch64Subtarget14isSVEAvailableEv.exit126.i.i.thread ]
+  %.sroa.129.4.i.i = phi i64 [ %.sroa.129.3.i.i, %_ZNK4llvm16AArch64Subtarget14isSVEAvailableEv.exit125.thread.i.i ], [ %spec.select328.i.i, %_ZNK4llvm16AArch64Subtarget14isSVEAvailableEv.exit127.thread182.i.i ], [ %.sroa.129.3.i.i, %.thread51.i ], [ %.sroa.129.3.i.i, %_ZNK4llvm16AArch64Subtarget14isSVEAvailableEv.exit126.i.i.thread ]
   %149 = getelementptr inbounds nuw i8, ptr %1, i64 463
   %150 = load i8, ptr %149, align 1, !tbaa !251, !range !225, !noundef !226
   %151 = zext nneg i8 %150 to i64
@@ -901,9 +901,9 @@ _ZNK4llvm16AArch64Subtarget28isSVEorStreamingSVEAvailableEv.exit130.thread391.i.
   %335 = getelementptr inbounds nuw i8, ptr %1, i64 433
   %336 = load i8, ptr %335, align 1, !range !225
   %337 = trunc nuw i8 %336 to i1
-  %or.cond3858.i = select i1 %334, i1 true, i1 %337
+  %or.cond3859.i = select i1 %334, i1 true, i1 %337
   %338 = or i64 %.sroa.0.46.i.i, 1073741824
-  %.sroa.0.50.i59.i = select i1 %or.cond3858.i, i64 %338, i64 %.sroa.0.46.i.i
+  %.sroa.0.50.i60.i = select i1 %or.cond3859.i, i64 %338, i64 %.sroa.0.46.i.i
   br label %.thread407.i.i
 
 _ZNK4llvm16AArch64Subtarget28isSVEorStreamingSVEAvailableEv.exit131.thread.i.thread.i: ; preds = %.thread421.i.i, %.thread426.i.i
@@ -914,9 +914,9 @@ _ZNK4llvm16AArch64Subtarget28isSVEorStreamingSVEAvailableEv.exit131.thread.i.thr
   %342 = getelementptr inbounds nuw i8, ptr %1, i64 433
   %343 = load i8, ptr %342, align 1, !range !225
   %344 = trunc nuw i8 %343 to i1
-  %or.cond3854.i = select i1 %341, i1 true, i1 %344
+  %or.cond3855.i = select i1 %341, i1 true, i1 %344
   %345 = or i64 %.sroa.0.49417.i.ph.i, 1073741824
-  %.sroa.0.50.i55.i = select i1 %or.cond3854.i, i64 %345, i64 %.sroa.0.49417.i.ph.i
+  %.sroa.0.50.i56.i = select i1 %or.cond3855.i, i64 %345, i64 %.sroa.0.49417.i.ph.i
   br label %.thread401.thread424.i.i
 
 _ZNK4llvm16AArch64Subtarget28isSVEorStreamingSVEAvailableEv.exit131.thread.i.i: ; preds = %326
@@ -941,14 +941,14 @@ _ZNK4llvm16AArch64Subtarget28isSVEorStreamingSVEAvailableEv.exit133.i.thread.i: 
   %356 = getelementptr inbounds nuw i8, ptr %1, i64 437
   %357 = load i8, ptr %356, align 1, !range !225
   %358 = trunc nuw i8 %357 to i1
-  %or.cond4162.i = select i1 %355, i1 true, i1 %358
+  %or.cond4163.i = select i1 %355, i1 true, i1 %358
   %359 = or i64 %.sroa.0.46.i.i, 40541192873574400
-  %.sroa.0.51.i63.i = select i1 %or.cond4162.i, i64 %359, i64 %327
+  %.sroa.0.51.i64.i = select i1 %or.cond4163.i, i64 %359, i64 %327
   br label %_ZNK4llvm16AArch64Subtarget28isSVEorStreamingSVEAvailableEv.exit133.thread399.i.i
 
 .thread401.thread424.i.i:                         ; preds = %_ZNK4llvm16AArch64Subtarget28isSVEorStreamingSVEAvailableEv.exit131.thread.i.i, %_ZNK4llvm16AArch64Subtarget28isSVEorStreamingSVEAvailableEv.exit131.thread.i.thread.i, %.thread421.i.i, %.thread426.i.i
   %360 = phi i1 [ %328, %_ZNK4llvm16AArch64Subtarget28isSVEorStreamingSVEAvailableEv.exit131.thread.i.i ], [ %155, %.thread421.i.i ], [ %155, %.thread426.i.i ], [ %155, %_ZNK4llvm16AArch64Subtarget28isSVEorStreamingSVEAvailableEv.exit131.thread.i.thread.i ]
-  %.sroa.0.50403.i.i = phi i64 [ %.sroa.0.50.i.i, %_ZNK4llvm16AArch64Subtarget28isSVEorStreamingSVEAvailableEv.exit131.thread.i.i ], [ %.sroa.0.48275281.i.i, %.thread421.i.i ], [ %329, %.thread426.i.i ], [ %.sroa.0.50.i55.i, %_ZNK4llvm16AArch64Subtarget28isSVEorStreamingSVEAvailableEv.exit131.thread.i.thread.i ]
+  %.sroa.0.50403.i.i = phi i64 [ %.sroa.0.50.i.i, %_ZNK4llvm16AArch64Subtarget28isSVEorStreamingSVEAvailableEv.exit131.thread.i.i ], [ %.sroa.0.48275281.i.i, %.thread421.i.i ], [ %329, %.thread426.i.i ], [ %.sroa.0.50.i56.i, %_ZNK4llvm16AArch64Subtarget28isSVEorStreamingSVEAvailableEv.exit131.thread.i.thread.i ]
   %361 = getelementptr inbounds nuw i8, ptr %1, i64 435
   %362 = load i8, ptr %361, align 1, !tbaa !273, !range !225, !noundef !226
   %363 = trunc nuw i8 %362 to i1
@@ -970,7 +970,7 @@ _ZNK4llvm16AArch64Subtarget28isSVEorStreamingSVEAvailableEv.exit133.i.thread.i: 
   br i1 %371, label %_ZNK4llvm16AArch64Subtarget14isSVEAvailableEv.exit132.thread284.i.i, label %_ZNK4llvm16AArch64Subtarget28isSVEorStreamingSVEAvailableEv.exit133.thread.i.i
 
 .thread407.i.i:                                   ; preds = %.thread393.i.i, %.thread393.i.thread.i
-  %.sroa.0.50.i6066.i = phi i64 [ %.sroa.0.50.i59.i, %.thread393.i.thread.i ], [ %.sroa.0.50.i.i, %.thread393.i.i ]
+  %.sroa.0.50.i6167.i = phi i64 [ %.sroa.0.50.i60.i, %.thread393.i.thread.i ], [ %.sroa.0.50.i.i, %.thread393.i.i ]
   %372 = getelementptr inbounds nuw i8, ptr %1, i64 439
   %373 = load i8, ptr %372, align 1, !tbaa !232, !range !225, !noundef !226
   %374 = trunc nuw i8 %373 to i1
@@ -986,7 +986,7 @@ _ZNK4llvm16AArch64Subtarget14isSVEAvailableEv.exit132.i.i: ; preds = %.thread407
 
 _ZNK4llvm16AArch64Subtarget14isSVEAvailableEv.exit132.thread284.i.i: ; preds = %.thread407.i.i, %368
   %378 = phi i1 [ false, %.thread407.i.i ], [ true, %368 ]
-  %.sroa.0.51398410.i.i = phi i64 [ %.sroa.0.50.i6066.i, %.thread407.i.i ], [ %.sroa.0.51.i.i, %368 ]
+  %.sroa.0.51398410.i.i = phi i64 [ %.sroa.0.50.i6167.i, %.thread407.i.i ], [ %.sroa.0.51.i.i, %368 ]
   br i1 %312, label %383, label %_ZNK4llvm16AArch64Subtarget28isSVEorStreamingSVEAvailableEv.exit133.thread.i.i
 
 _ZNK4llvm16AArch64Subtarget28isSVEorStreamingSVEAvailableEv.exit133.i.i: ; preds = %.thread401.thread424.i.i
@@ -994,21 +994,21 @@ _ZNK4llvm16AArch64Subtarget28isSVEorStreamingSVEAvailableEv.exit133.i.i: ; preds
 
 _ZNK4llvm16AArch64Subtarget28isSVEorStreamingSVEAvailableEv.exit133.thread.i.i: ; preds = %_ZNK4llvm16AArch64Subtarget28isSVEorStreamingSVEAvailableEv.exit133.i.i, %_ZNK4llvm16AArch64Subtarget14isSVEAvailableEv.exit132.thread284.i.i, %_ZNK4llvm16AArch64Subtarget14isSVEAvailableEv.exit132.i.i, %368
   %379 = phi i1 [ false, %_ZNK4llvm16AArch64Subtarget14isSVEAvailableEv.exit132.i.i ], [ %378, %_ZNK4llvm16AArch64Subtarget14isSVEAvailableEv.exit132.thread284.i.i ], [ true, %_ZNK4llvm16AArch64Subtarget28isSVEorStreamingSVEAvailableEv.exit133.i.i ], [ true, %368 ]
-  %.sroa.0.51396.i.i = phi i64 [ %.sroa.0.50.i6066.i, %_ZNK4llvm16AArch64Subtarget14isSVEAvailableEv.exit132.i.i ], [ %.sroa.0.51398410.i.i, %_ZNK4llvm16AArch64Subtarget14isSVEAvailableEv.exit132.thread284.i.i ], [ %.sroa.0.51.i.i, %_ZNK4llvm16AArch64Subtarget28isSVEorStreamingSVEAvailableEv.exit133.i.i ], [ %.sroa.0.51.i.i, %368 ]
+  %.sroa.0.51396.i.i = phi i64 [ %.sroa.0.50.i6167.i, %_ZNK4llvm16AArch64Subtarget14isSVEAvailableEv.exit132.i.i ], [ %.sroa.0.51398410.i.i, %_ZNK4llvm16AArch64Subtarget14isSVEAvailableEv.exit132.thread284.i.i ], [ %.sroa.0.51.i.i, %_ZNK4llvm16AArch64Subtarget28isSVEorStreamingSVEAvailableEv.exit133.i.i ], [ %.sroa.0.51.i.i, %368 ]
   %380 = getelementptr inbounds nuw i8, ptr %1, i64 449
   %381 = load i8, ptr %380, align 1, !tbaa !274, !range !225, !noundef !226
   %382 = trunc nuw i8 %381 to i1
   br i1 %382, label %383, label %_ZNK4llvm16AArch64Subtarget28isSVEorStreamingSVEAvailableEv.exit133.thread399.i.i
 
 383:                                              ; preds = %_ZNK4llvm16AArch64Subtarget28isSVEorStreamingSVEAvailableEv.exit133.thread.i.i, %_ZNK4llvm16AArch64Subtarget14isSVEAvailableEv.exit132.thread284.i.i, %_ZNK4llvm16AArch64Subtarget14isSVEAvailableEv.exit132.i.i
-  %.sroa.0.51395.i.i = phi i64 [ %.sroa.0.50.i6066.i, %_ZNK4llvm16AArch64Subtarget14isSVEAvailableEv.exit132.i.i ], [ %.sroa.0.51396.i.i, %_ZNK4llvm16AArch64Subtarget28isSVEorStreamingSVEAvailableEv.exit133.thread.i.i ], [ %.sroa.0.51398410.i.i, %_ZNK4llvm16AArch64Subtarget14isSVEAvailableEv.exit132.thread284.i.i ]
+  %.sroa.0.51395.i.i = phi i64 [ %.sroa.0.50.i6167.i, %_ZNK4llvm16AArch64Subtarget14isSVEAvailableEv.exit132.i.i ], [ %.sroa.0.51396.i.i, %_ZNK4llvm16AArch64Subtarget28isSVEorStreamingSVEAvailableEv.exit133.thread.i.i ], [ %.sroa.0.51398410.i.i, %_ZNK4llvm16AArch64Subtarget14isSVEAvailableEv.exit132.thread284.i.i ]
   %384 = phi i1 [ false, %_ZNK4llvm16AArch64Subtarget14isSVEAvailableEv.exit132.i.i ], [ %379, %_ZNK4llvm16AArch64Subtarget28isSVEorStreamingSVEAvailableEv.exit133.thread.i.i ], [ %378, %_ZNK4llvm16AArch64Subtarget14isSVEAvailableEv.exit132.thread284.i.i ]
   %385 = or i64 %.sroa.0.51395.i.i, 68719476736
   br label %_ZNK4llvm16AArch64Subtarget28isSVEorStreamingSVEAvailableEv.exit133.thread399.i.i
 
 _ZNK4llvm16AArch64Subtarget28isSVEorStreamingSVEAvailableEv.exit133.thread399.i.i: ; preds = %383, %_ZNK4llvm16AArch64Subtarget28isSVEorStreamingSVEAvailableEv.exit133.thread.i.i, %_ZNK4llvm16AArch64Subtarget28isSVEorStreamingSVEAvailableEv.exit133.i.i, %.thread393.i.i, %_ZNK4llvm16AArch64Subtarget28isSVEorStreamingSVEAvailableEv.exit133.i.thread.i, %.thread401.i.i, %.thread414.i.i, %_ZNK4llvm16AArch64Subtarget28isSVEorStreamingSVEAvailableEv.exit130.thread391.i.thread.i
   %386 = phi i1 [ %384, %383 ], [ %379, %_ZNK4llvm16AArch64Subtarget28isSVEorStreamingSVEAvailableEv.exit133.thread.i.i ], [ true, %_ZNK4llvm16AArch64Subtarget28isSVEorStreamingSVEAvailableEv.exit133.i.i ], [ false, %.thread393.i.i ], [ false, %.thread401.i.i ], [ false, %.thread414.i.i ], [ false, %_ZNK4llvm16AArch64Subtarget28isSVEorStreamingSVEAvailableEv.exit130.thread391.i.thread.i ], [ true, %_ZNK4llvm16AArch64Subtarget28isSVEorStreamingSVEAvailableEv.exit133.i.thread.i ]
-  %.sroa.0.52.i.i = phi i64 [ %385, %383 ], [ %.sroa.0.51396.i.i, %_ZNK4llvm16AArch64Subtarget28isSVEorStreamingSVEAvailableEv.exit133.thread.i.i ], [ %.sroa.0.51.i.i, %_ZNK4llvm16AArch64Subtarget28isSVEorStreamingSVEAvailableEv.exit133.i.i ], [ %.sroa.0.50.i.i, %.thread393.i.i ], [ %327, %.thread401.i.i ], [ %.sroa.0.46.i.i, %.thread414.i.i ], [ %spec.select.i, %_ZNK4llvm16AArch64Subtarget28isSVEorStreamingSVEAvailableEv.exit130.thread391.i.thread.i ], [ %.sroa.0.51.i63.i, %_ZNK4llvm16AArch64Subtarget28isSVEorStreamingSVEAvailableEv.exit133.i.thread.i ]
+  %.sroa.0.52.i.i = phi i64 [ %385, %383 ], [ %.sroa.0.51396.i.i, %_ZNK4llvm16AArch64Subtarget28isSVEorStreamingSVEAvailableEv.exit133.thread.i.i ], [ %.sroa.0.51.i.i, %_ZNK4llvm16AArch64Subtarget28isSVEorStreamingSVEAvailableEv.exit133.i.i ], [ %.sroa.0.50.i.i, %.thread393.i.i ], [ %327, %.thread401.i.i ], [ %.sroa.0.46.i.i, %.thread414.i.i ], [ %spec.select.i, %_ZNK4llvm16AArch64Subtarget28isSVEorStreamingSVEAvailableEv.exit130.thread391.i.thread.i ], [ %.sroa.0.51.i64.i, %_ZNK4llvm16AArch64Subtarget28isSVEorStreamingSVEAvailableEv.exit133.i.thread.i ]
   br i1 %38, label %387, label %_ZNK12_GLOBAL__N_126AArch64InstructionSelector30computeAvailableModuleFeaturesEPKN4llvm16AArch64SubtargetE.exit.i
 
 387:                                              ; preds = %_ZNK4llvm16AArch64Subtarget28isSVEorStreamingSVEAvailableEv.exit133.thread399.i.i

@@ -1098,15 +1098,15 @@ packed_downcast.exit:                             ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.val = load ptr, ptr %15, align 8, !tbaa !23
   %.not39 = icmp eq ptr %.val, null
-  br i1 %.not39, label %20, label %.preheader40
+  br i1 %.not39, label %20, label %.preheader41
 
-.preheader40:                                     ; preds = %packed_downcast.exit
+.preheader41:                                     ; preds = %packed_downcast.exit
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %17 = load i64, ptr %16, align 8, !tbaa !72
   %.not = icmp eq i64 %17, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader40
+.lr.ph:                                           ; preds = %.preheader41
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !75
   br label %22
@@ -1115,13 +1115,13 @@ packed_downcast.exit:                             ; preds = %10
   tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.6, i32 noundef 1521, ptr noundef nonnull @.str.11) #19
   unreachable
 
-.lr.ph45:                                         ; preds = %.critedge
+.lr.ph46:                                         ; preds = %.critedge
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %32
 
 22:                                               ; preds = %.lr.ph, %.critedge
-  %.02442 = phi i64 [ 0, %.lr.ph ], [ %31, %.critedge ]
-  %23 = getelementptr inbounds nuw ptr, ptr %19, i64 %.02442
+  %.02443 = phi i64 [ 0, %.lr.ph ], [ %31, %.critedge ]
+  %23 = getelementptr inbounds nuw ptr, ptr %19, i64 %.02443
   %24 = load ptr, ptr %23, align 8, !tbaa !76
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 88
   %26 = load i32, ptr %25, align 8, !tbaa !22
@@ -1140,15 +1140,15 @@ packed_downcast.exit:                             ; preds = %10
   br i1 %.not.i33.not, label %.critedge, label %.loopexit
 
 .critedge:                                        ; preds = %30, %28
-  %31 = add nuw i64 %.02442, 1
+  %31 = add nuw i64 %.02443, 1
   %exitcond.not = icmp eq i64 %31, %17
-  br i1 %exitcond.not, label %.lr.ph45, label %22, !llvm.loop !78
+  br i1 %exitcond.not, label %.lr.ph46, label %22, !llvm.loop !78
 
-32:                                               ; preds = %.lr.ph45, %46
-  %33 = phi i64 [ %17, %.lr.ph45 ], [ %47, %46 ]
-  %.12544 = phi i64 [ 0, %.lr.ph45 ], [ %48, %46 ]
+32:                                               ; preds = %.lr.ph46, %46
+  %33 = phi i64 [ %17, %.lr.ph46 ], [ %47, %46 ]
+  %.12545 = phi i64 [ 0, %.lr.ph46 ], [ %48, %46 ]
   %34 = load ptr, ptr %21, align 8, !tbaa !75
-  %35 = getelementptr inbounds nuw ptr, ptr %34, i64 %.12544
+  %35 = getelementptr inbounds nuw ptr, ptr %34, i64 %.12545
   %36 = load ptr, ptr %35, align 8, !tbaa !76
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -1175,20 +1175,20 @@ packed_downcast.exit:                             ; preds = %10
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %or.cond, label %._crit_edge, label %._crit_edge49
+  br i1 %or.cond, label %._crit_edge, label %._crit_edge50
 
-._crit_edge49:                                    ; preds = %40
+._crit_edge50:                                    ; preds = %40
   %.pre = load i64, ptr %16, align 8, !tbaa !72
   br label %46
 
-46:                                               ; preds = %._crit_edge49, %.thread
-  %47 = phi i64 [ %33, %.thread ], [ %.pre, %._crit_edge49 ]
-  %48 = add nuw i64 %.12544, 1
+46:                                               ; preds = %._crit_edge50, %.thread
+  %47 = phi i64 [ %33, %.thread ], [ %.pre, %._crit_edge50 ]
+  %48 = add nuw i64 %.12545, 1
   %49 = icmp ult i64 %48, %47
   br i1 %49, label %32, label %._crit_edge, !llvm.loop !79
 
-._crit_edge:                                      ; preds = %46, %40, %.preheader40
-  %.127 = phi i32 [ 0, %.preheader40 ], [ 1, %40 ], [ 0, %46 ]
+._crit_edge:                                      ; preds = %46, %40, %.preheader41
+  %.127 = phi i32 [ 0, %.preheader41 ], [ 1, %40 ], [ 0, %46 ]
   call void @strbuf_release(ptr noundef nonnull %3) #18
   br label %.loopexit
 

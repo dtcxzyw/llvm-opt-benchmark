@@ -2022,8 +2022,8 @@ define dso_local noundef i64 @pg_stat_get_subscription(ptr noundef %0) local_unn
   %45 = call zeroext i1 @IsBackendPid(i32 noundef %44) #13
   %.not37 = icmp eq i32 %.sroa.1113.0.copyload, %12
   %or.cond38 = select i1 %.not36, i1 true, i1 %.not37
-  %or.cond46 = select i1 %45, i1 %or.cond38, i1 false
-  br i1 %or.cond46, label %46, label %.thread40
+  %or.cond47 = select i1 %45, i1 %or.cond38, i1 false
+  br i1 %or.cond47, label %46, label %.thread40
 
 46:                                               ; preds = %42
   %47 = load i32, ptr %43, align 4

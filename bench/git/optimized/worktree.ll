@@ -3918,7 +3918,7 @@ define internal fastcc void @validate_no_submodules(ptr noundef nonnull %0) unna
   %7 = tail call ptr (ptr, ptr, ptr, ...) @worktree_git_path(ptr noundef %6, ptr noundef nonnull %0, ptr noundef nonnull @.str.159) #18
   %8 = tail call i32 @is_directory(ptr noundef %7) #18
   %.not = icmp eq i32 %8, 0
-  br i1 %.not, label %9, label %.critedge26
+  br i1 %.not, label %9, label %.critedge27
 
 9:                                                ; preds = %1
   %10 = load ptr, ptr @the_repository, align 8, !tbaa !17
@@ -3931,8 +3931,8 @@ define internal fastcc void @validate_no_submodules(ptr noundef nonnull %0) unna
 .preheader:                                       ; preds = %9
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %16 = load i32, ptr %15, align 4, !tbaa !107
-  %.not23 = icmp eq i32 %16, 0
-  br i1 %.not23, label %.loopexit.loopexit, label %.lr.ph
+  %.not24 = icmp eq i32 %16, 0
+  br i1 %.not24, label %.loopexit.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -3975,7 +3975,7 @@ define internal fastcc void @validate_no_submodules(ptr noundef nonnull %0) unna
   %36 = call i32 @is_submodule_populated_gently(ptr noundef %35, ptr noundef nonnull %4) #18
   %.not12 = icmp eq i32 %36, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %.not12, label %._crit_edge, label %.critedge26
+  br i1 %.not12, label %._crit_edge, label %.critedge27
 
 ._crit_edge:                                      ; preds = %32
   %.pre = load i32, ptr %15, align 4, !tbaa !107
@@ -3988,7 +3988,7 @@ define internal fastcc void @validate_no_submodules(ptr noundef nonnull %0) unna
   %40 = icmp samesign ult i64 %indvars.iv.next, %39
   br i1 %40, label %20, label %.loopexit.loopexit, !llvm.loop !111
 
-.critedge26:                                      ; preds = %32, %1
+.critedge27:                                      ; preds = %32, %1
   call void @discard_index(ptr noundef nonnull %2) #18
   call void @strbuf_release(ptr noundef nonnull %3) #18
   %41 = call fastcc ptr @_(ptr noundef nonnull @.str.162)

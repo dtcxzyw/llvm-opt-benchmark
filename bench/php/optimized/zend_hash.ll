@@ -12695,13 +12695,13 @@ define dso_local void @zend_hash_apply(ptr noundef captures(address) %0, ptr nou
   %.not = icmp eq i32 %7, 0
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load i32, ptr %8, align 8, !tbaa !27
-  %.not78 = icmp eq i32 %9, 0
-  br i1 %.not, label %.preheader57, label %.preheader60
+  %.not79 = icmp eq i32 %9, 0
+  br i1 %.not, label %.preheader58, label %.preheader61
 
-.preheader60:                                     ; preds = %2
-  br i1 %.not78, label %.loopexit58, label %.lr.ph67
+.preheader61:                                     ; preds = %2
+  br i1 %.not79, label %.loopexit59, label %.lr.ph68
 
-.lr.ph67:                                         ; preds = %.preheader60
+.lr.ph68:                                         ; preds = %.preheader61
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 36
@@ -12710,10 +12710,10 @@ define dso_local void @zend_hash_apply(ptr noundef captures(address) %0, ptr nou
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %23
 
-.preheader57:                                     ; preds = %2
-  br i1 %.not78, label %.loopexit58, label %.lr.ph75
+.preheader58:                                     ; preds = %2
+  br i1 %.not79, label %.loopexit59, label %.lr.ph76
 
-.lr.ph75:                                         ; preds = %.preheader57
+.lr.ph76:                                         ; preds = %.preheader58
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -12723,9 +12723,9 @@ define dso_local void @zend_hash_apply(ptr noundef captures(address) %0, ptr nou
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %75
 
-23:                                               ; preds = %.lr.ph67, %.thread
-  %24 = phi i32 [ %9, %.lr.ph67 ], [ %72, %.thread ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph67 ], [ %indvars.iv.next, %.thread ]
+23:                                               ; preds = %.lr.ph68, %.thread
+  %24 = phi i32 [ %9, %.lr.ph68 ], [ %72, %.thread ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph68 ], [ %indvars.iv.next, %.thread ]
   %25 = load ptr, ptr %10, align 8, !tbaa !5
   %26 = getelementptr inbounds nuw %struct._zval_struct, ptr %25, i64 %indvars.iv
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
@@ -12747,16 +12747,16 @@ define dso_local void @zend_hash_apply(ptr noundef captures(address) %0, ptr nou
   %37 = add i32 %36, -1
   %38 = zext i32 %37 to i64
   %39 = icmp eq i64 %indvars.iv, %38
-  br i1 %39, label %.preheader59, label %zend_hash_iterators_clamp_max.exit48
+  br i1 %39, label %.preheader60, label %zend_hash_iterators_clamp_max.exit48
 
-.preheader59:                                     ; preds = %33, %42
+.preheader60:                                     ; preds = %33, %42
   %40 = phi i32 [ %41, %42 ], [ %36, %33 ]
   %41 = add i32 %40, -1
   store i32 %41, ptr %8, align 8, !tbaa !27
   %.not.i = icmp eq i32 %41, 0
   br i1 %.not.i, label %.critedge.i, label %42
 
-42:                                               ; preds = %.preheader59
+42:                                               ; preds = %.preheader60
   %43 = load ptr, ptr %10, align 8, !tbaa !5
   %44 = add i32 %40, -2
   %45 = zext i32 %44 to i64
@@ -12764,9 +12764,9 @@ define dso_local void @zend_hash_apply(ptr noundef captures(address) %0, ptr nou
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %48 = load i8, ptr %47, align 8, !tbaa !5
   %49 = icmp eq i8 %48, 0
-  br i1 %49, label %.preheader59, label %.critedge.i
+  br i1 %49, label %.preheader60, label %.critedge.i
 
-.critedge.i:                                      ; preds = %42, %.preheader59
+.critedge.i:                                      ; preds = %42, %.preheader60
   %50 = load i32, ptr %12, align 4, !tbaa !29
   %..i = call i32 @llvm.umin.i32(i32 %50, i32 %41)
   store i32 %..i, ptr %12, align 4, !tbaa !29
@@ -12780,24 +12780,24 @@ define dso_local void @zend_hash_apply(ptr noundef captures(address) %0, ptr nou
   %55 = zext i32 %54 to i64
   %.idx = shl nuw nsw i64 %55, 4
   %56 = getelementptr inbounds nuw i8, ptr %53, i64 %.idx
-  %.not13.i4663 = icmp eq i32 %54, 0
-  br i1 %.not13.i4663, label %zend_hash_iterators_clamp_max.exit48, label %.lr.ph
+  %.not13.i4664 = icmp eq i32 %54, 0
+  br i1 %.not13.i4664, label %zend_hash_iterators_clamp_max.exit48, label %.lr.ph
 
 .lr.ph:                                           ; preds = %52, %62
-  %.0.i4564 = phi ptr [ %63, %62 ], [ %53, %52 ]
-  %57 = load ptr, ptr %.0.i4564, align 8, !tbaa !63
+  %.0.i4565 = phi ptr [ %63, %62 ], [ %53, %52 ]
+  %57 = load ptr, ptr %.0.i4565, align 8, !tbaa !63
   %58 = icmp eq ptr %57, %0
   br i1 %58, label %59, label %62
 
 59:                                               ; preds = %.lr.ph
-  %60 = getelementptr inbounds nuw i8, ptr %.0.i4564, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %.0.i4565, i64 8
   %61 = load i32, ptr %60, align 8, !tbaa !65
   %..i47 = call i32 @llvm.umin.i32(i32 %61, i32 %41)
   store i32 %..i47, ptr %60, align 8, !tbaa !65
   br label %62
 
 62:                                               ; preds = %59, %.lr.ph
-  %63 = getelementptr inbounds nuw i8, ptr %.0.i4564, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %.0.i4565, i64 16
   %.not13.i46 = icmp eq ptr %63, %56
   br i1 %.not13.i46, label %zend_hash_iterators_clamp_max.exit48, label %.lr.ph
 
@@ -12825,7 +12825,7 @@ zend_hash_iterators_clamp_max.exit48:             ; preds = %62, %52, %.critedge
 70:                                               ; preds = %30, %65, %69
   %71 = and i32 %31, 2
   %switch.not = icmp eq i32 %71, 0
-  br i1 %switch.not, label %..thread_crit_edge, label %.loopexit58
+  br i1 %switch.not, label %..thread_crit_edge, label %.loopexit59
 
 ..thread_crit_edge:                               ; preds = %70
   %.pre = load i32, ptr %8, align 8, !tbaa !27
@@ -12836,13 +12836,13 @@ zend_hash_iterators_clamp_max.exit48:             ; preds = %62, %52, %.critedge
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %73 = zext i32 %72 to i64
   %74 = icmp samesign ult i64 %indvars.iv.next, %73
-  br i1 %74, label %23, label %.loopexit58
+  br i1 %74, label %23, label %.loopexit59
 
-75:                                               ; preds = %.lr.ph75, %.thread52
-  %76 = phi i32 [ %9, %.lr.ph75 ], [ %165, %.thread52 ]
-  %indvars.iv83 = phi i64 [ 0, %.lr.ph75 ], [ %indvars.iv.next84, %.thread52 ]
+75:                                               ; preds = %.lr.ph76, %.thread52
+  %76 = phi i32 [ %9, %.lr.ph76 ], [ %165, %.thread52 ]
+  %indvars.iv84 = phi i64 [ 0, %.lr.ph76 ], [ %indvars.iv.next85, %.thread52 ]
   %77 = load ptr, ptr %16, align 8, !tbaa !5
-  %78 = getelementptr inbounds nuw %struct._Bucket, ptr %77, i64 %indvars.iv83
+  %78 = getelementptr inbounds nuw %struct._Bucket, ptr %77, i64 %indvars.iv84
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
   %80 = load i8, ptr %79, align 8, !tbaa !5
   %81 = icmp eq i8 %80, 0
@@ -12865,21 +12865,21 @@ zend_hash_iterators_clamp_max.exit48:             ; preds = %62, %52, %.critedge
   %93 = getelementptr inbounds i32, ptr %91, i64 %92
   %94 = load i32, ptr %93, align 4, !tbaa !17
   %95 = zext i32 %94 to i64
-  %.not.i37 = icmp eq i64 %indvars.iv83, %95
-  br i1 %.not.i37, label %.loopexit, label %.preheader56
+  %.not.i37 = icmp eq i64 %indvars.iv84, %95
+  br i1 %.not.i37, label %.loopexit, label %.preheader57
 
-.preheader56:                                     ; preds = %85, %.preheader56
-  %.pn.in = phi i32 [ %97, %.preheader56 ], [ %94, %85 ]
+.preheader57:                                     ; preds = %85, %.preheader57
+  %.pn.in = phi i32 [ %97, %.preheader57 ], [ %94, %85 ]
   %.pn = zext i32 %.pn.in to i64
   %.1.i = getelementptr inbounds nuw %struct._Bucket, ptr %91, i64 %.pn
   %96 = getelementptr inbounds nuw i8, ptr %.1.i, i64 12
   %97 = load i32, ptr %96, align 4, !tbaa !5
   %98 = zext i32 %97 to i64
-  %.not23.i = icmp eq i64 %indvars.iv83, %98
-  br i1 %.not23.i, label %.loopexit, label %.preheader56
+  %.not23.i = icmp eq i64 %indvars.iv84, %98
+  br i1 %.not23.i, label %.loopexit, label %.preheader57
 
-.loopexit:                                        ; preds = %.preheader56, %85
-  %.0.i = phi ptr [ null, %85 ], [ %.1.i, %.preheader56 ]
+.loopexit:                                        ; preds = %.preheader57, %85
+  %.0.i = phi ptr [ null, %85 ], [ %.1.i, %.preheader57 ]
   %99 = getelementptr inbounds nuw i8, ptr %78, i64 24
   %100 = load ptr, ptr %99, align 8, !tbaa !18
   %.not24.i = icmp eq ptr %100, null
@@ -12947,7 +12947,7 @@ _zend_hash_del_el.exit:                           ; preds = %.loopexit, %zend_st
   %129 = load i32, ptr %8, align 8, !tbaa !27
   %130 = add i32 %129, -1
   %131 = zext i32 %130 to i64
-  %132 = icmp eq i64 %indvars.iv83, %131
+  %132 = icmp eq i64 %indvars.iv84, %131
   br i1 %132, label %.preheader, label %zend_hash_iterators_clamp_max.exit
 
 .preheader:                                       ; preds = %126, %135
@@ -12979,28 +12979,28 @@ _zend_hash_del_el.exit:                           ; preds = %.loopexit, %zend_st
   %146 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1112), align 8, !tbaa !33
   %147 = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1108), align 4, !tbaa !62
   %148 = zext i32 %147 to i64
-  %.idx79 = shl nuw nsw i64 %148, 4
-  %149 = getelementptr inbounds nuw i8, ptr %146, i64 %.idx79
-  %.not13.i70 = icmp eq i32 %147, 0
-  br i1 %.not13.i70, label %zend_hash_iterators_clamp_max.exit, label %.lr.ph72
+  %.idx80 = shl nuw nsw i64 %148, 4
+  %149 = getelementptr inbounds nuw i8, ptr %146, i64 %.idx80
+  %.not13.i71 = icmp eq i32 %147, 0
+  br i1 %.not13.i71, label %zend_hash_iterators_clamp_max.exit, label %.lr.ph73
 
-.lr.ph72:                                         ; preds = %145, %155
-  %.0.i4271 = phi ptr [ %156, %155 ], [ %146, %145 ]
-  %150 = load ptr, ptr %.0.i4271, align 8, !tbaa !63
+.lr.ph73:                                         ; preds = %145, %155
+  %.0.i4272 = phi ptr [ %156, %155 ], [ %146, %145 ]
+  %150 = load ptr, ptr %.0.i4272, align 8, !tbaa !63
   %151 = icmp eq ptr %150, %0
   br i1 %151, label %152, label %155
 
-152:                                              ; preds = %.lr.ph72
-  %153 = getelementptr inbounds nuw i8, ptr %.0.i4271, i64 8
+152:                                              ; preds = %.lr.ph73
+  %153 = getelementptr inbounds nuw i8, ptr %.0.i4272, i64 8
   %154 = load i32, ptr %153, align 8, !tbaa !65
   %..i43 = call i32 @llvm.umin.i32(i32 %154, i32 %134)
   store i32 %..i43, ptr %153, align 8, !tbaa !65
   br label %155
 
-155:                                              ; preds = %152, %.lr.ph72
-  %156 = getelementptr inbounds nuw i8, ptr %.0.i4271, i64 16
+155:                                              ; preds = %152, %.lr.ph73
+  %156 = getelementptr inbounds nuw i8, ptr %.0.i4272, i64 16
   %.not13.i = icmp eq ptr %156, %149
-  br i1 %.not13.i, label %zend_hash_iterators_clamp_max.exit, label %.lr.ph72
+  br i1 %.not13.i, label %zend_hash_iterators_clamp_max.exit, label %.lr.ph73
 
 zend_hash_iterators_clamp_max.exit:               ; preds = %155, %145, %.critedge.i39, %126
   %157 = load ptr, ptr %21, align 8, !tbaa !31
@@ -13026,20 +13026,20 @@ zend_hash_iterators_clamp_max.exit:               ; preds = %155, %145, %.crited
 163:                                              ; preds = %82, %158, %162
   %164 = and i32 %83, 2
   %.not31.not = icmp eq i32 %164, 0
-  br i1 %.not31.not, label %..thread52_crit_edge, label %.loopexit58
+  br i1 %.not31.not, label %..thread52_crit_edge, label %.loopexit59
 
 ..thread52_crit_edge:                             ; preds = %163
-  %.pre86 = load i32, ptr %8, align 8, !tbaa !27
+  %.pre87 = load i32, ptr %8, align 8, !tbaa !27
   br label %.thread52
 
 .thread52:                                        ; preds = %..thread52_crit_edge, %75
-  %165 = phi i32 [ %.pre86, %..thread52_crit_edge ], [ %76, %75 ]
-  %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
+  %165 = phi i32 [ %.pre87, %..thread52_crit_edge ], [ %76, %75 ]
+  %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
   %166 = zext i32 %165 to i64
-  %167 = icmp samesign ult i64 %indvars.iv.next84, %166
-  br i1 %167, label %75, label %.loopexit58
+  %167 = icmp samesign ult i64 %indvars.iv.next85, %166
+  br i1 %167, label %75, label %.loopexit59
 
-.loopexit58:                                      ; preds = %.thread, %70, %.thread52, %163, %.preheader60, %.preheader57
+.loopexit59:                                      ; preds = %.thread, %70, %.thread52, %163, %.preheader61, %.preheader58
   ret void
 }
 
@@ -13053,13 +13053,13 @@ define dso_local void @zend_hash_apply_with_argument(ptr noundef captures(addres
   %.not = icmp eq i32 %8, 0
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load i32, ptr %9, align 8, !tbaa !27
-  %.not80 = icmp eq i32 %10, 0
-  br i1 %.not, label %.preheader59, label %.preheader62
+  %.not81 = icmp eq i32 %10, 0
+  br i1 %.not, label %.preheader60, label %.preheader63
 
-.preheader62:                                     ; preds = %3
-  br i1 %.not80, label %.loopexit60, label %.lr.ph69
+.preheader63:                                     ; preds = %3
+  br i1 %.not81, label %.loopexit61, label %.lr.ph70
 
-.lr.ph69:                                         ; preds = %.preheader62
+.lr.ph70:                                         ; preds = %.preheader63
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 36
@@ -13068,10 +13068,10 @@ define dso_local void @zend_hash_apply_with_argument(ptr noundef captures(addres
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %24
 
-.preheader59:                                     ; preds = %3
-  br i1 %.not80, label %.loopexit60, label %.lr.ph77
+.preheader60:                                     ; preds = %3
+  br i1 %.not81, label %.loopexit61, label %.lr.ph78
 
-.lr.ph77:                                         ; preds = %.preheader59
+.lr.ph78:                                         ; preds = %.preheader60
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -13081,9 +13081,9 @@ define dso_local void @zend_hash_apply_with_argument(ptr noundef captures(addres
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %76
 
-24:                                               ; preds = %.lr.ph69, %.thread
-  %25 = phi i32 [ %10, %.lr.ph69 ], [ %73, %.thread ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph69 ], [ %indvars.iv.next, %.thread ]
+24:                                               ; preds = %.lr.ph70, %.thread
+  %25 = phi i32 [ %10, %.lr.ph70 ], [ %73, %.thread ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph70 ], [ %indvars.iv.next, %.thread ]
   %26 = load ptr, ptr %11, align 8, !tbaa !5
   %27 = getelementptr inbounds nuw %struct._zval_struct, ptr %26, i64 %indvars.iv
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
@@ -13105,16 +13105,16 @@ define dso_local void @zend_hash_apply_with_argument(ptr noundef captures(addres
   %38 = add i32 %37, -1
   %39 = zext i32 %38 to i64
   %40 = icmp eq i64 %indvars.iv, %39
-  br i1 %40, label %.preheader61, label %zend_hash_iterators_clamp_max.exit50
+  br i1 %40, label %.preheader62, label %zend_hash_iterators_clamp_max.exit50
 
-.preheader61:                                     ; preds = %34, %43
+.preheader62:                                     ; preds = %34, %43
   %41 = phi i32 [ %42, %43 ], [ %37, %34 ]
   %42 = add i32 %41, -1
   store i32 %42, ptr %9, align 8, !tbaa !27
   %.not.i = icmp eq i32 %42, 0
   br i1 %.not.i, label %.critedge.i, label %43
 
-43:                                               ; preds = %.preheader61
+43:                                               ; preds = %.preheader62
   %44 = load ptr, ptr %11, align 8, !tbaa !5
   %45 = add i32 %41, -2
   %46 = zext i32 %45 to i64
@@ -13122,9 +13122,9 @@ define dso_local void @zend_hash_apply_with_argument(ptr noundef captures(addres
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %49 = load i8, ptr %48, align 8, !tbaa !5
   %50 = icmp eq i8 %49, 0
-  br i1 %50, label %.preheader61, label %.critedge.i
+  br i1 %50, label %.preheader62, label %.critedge.i
 
-.critedge.i:                                      ; preds = %43, %.preheader61
+.critedge.i:                                      ; preds = %43, %.preheader62
   %51 = load i32, ptr %13, align 4, !tbaa !29
   %..i = call i32 @llvm.umin.i32(i32 %51, i32 %42)
   store i32 %..i, ptr %13, align 4, !tbaa !29
@@ -13138,24 +13138,24 @@ define dso_local void @zend_hash_apply_with_argument(ptr noundef captures(addres
   %56 = zext i32 %55 to i64
   %.idx = shl nuw nsw i64 %56, 4
   %57 = getelementptr inbounds nuw i8, ptr %54, i64 %.idx
-  %.not13.i4865 = icmp eq i32 %55, 0
-  br i1 %.not13.i4865, label %zend_hash_iterators_clamp_max.exit50, label %.lr.ph
+  %.not13.i4866 = icmp eq i32 %55, 0
+  br i1 %.not13.i4866, label %zend_hash_iterators_clamp_max.exit50, label %.lr.ph
 
 .lr.ph:                                           ; preds = %53, %63
-  %.0.i4766 = phi ptr [ %64, %63 ], [ %54, %53 ]
-  %58 = load ptr, ptr %.0.i4766, align 8, !tbaa !63
+  %.0.i4767 = phi ptr [ %64, %63 ], [ %54, %53 ]
+  %58 = load ptr, ptr %.0.i4767, align 8, !tbaa !63
   %59 = icmp eq ptr %58, %0
   br i1 %59, label %60, label %63
 
 60:                                               ; preds = %.lr.ph
-  %61 = getelementptr inbounds nuw i8, ptr %.0.i4766, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %.0.i4767, i64 8
   %62 = load i32, ptr %61, align 8, !tbaa !65
   %..i49 = call i32 @llvm.umin.i32(i32 %62, i32 %42)
   store i32 %..i49, ptr %61, align 8, !tbaa !65
   br label %63
 
 63:                                               ; preds = %60, %.lr.ph
-  %64 = getelementptr inbounds nuw i8, ptr %.0.i4766, i64 16
+  %64 = getelementptr inbounds nuw i8, ptr %.0.i4767, i64 16
   %.not13.i48 = icmp eq ptr %64, %57
   br i1 %.not13.i48, label %zend_hash_iterators_clamp_max.exit50, label %.lr.ph
 
@@ -13183,7 +13183,7 @@ zend_hash_iterators_clamp_max.exit50:             ; preds = %63, %53, %.critedge
 71:                                               ; preds = %31, %66, %70
   %72 = and i32 %32, 2
   %switch.not = icmp eq i32 %72, 0
-  br i1 %switch.not, label %..thread_crit_edge, label %.loopexit60
+  br i1 %switch.not, label %..thread_crit_edge, label %.loopexit61
 
 ..thread_crit_edge:                               ; preds = %71
   %.pre = load i32, ptr %9, align 8, !tbaa !27
@@ -13194,13 +13194,13 @@ zend_hash_iterators_clamp_max.exit50:             ; preds = %63, %53, %.critedge
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %74 = zext i32 %73 to i64
   %75 = icmp samesign ult i64 %indvars.iv.next, %74
-  br i1 %75, label %24, label %.loopexit60
+  br i1 %75, label %24, label %.loopexit61
 
-76:                                               ; preds = %.lr.ph77, %.thread54
-  %77 = phi i32 [ %10, %.lr.ph77 ], [ %166, %.thread54 ]
-  %indvars.iv85 = phi i64 [ 0, %.lr.ph77 ], [ %indvars.iv.next86, %.thread54 ]
+76:                                               ; preds = %.lr.ph78, %.thread54
+  %77 = phi i32 [ %10, %.lr.ph78 ], [ %166, %.thread54 ]
+  %indvars.iv86 = phi i64 [ 0, %.lr.ph78 ], [ %indvars.iv.next87, %.thread54 ]
   %78 = load ptr, ptr %17, align 8, !tbaa !5
-  %79 = getelementptr inbounds nuw %struct._Bucket, ptr %78, i64 %indvars.iv85
+  %79 = getelementptr inbounds nuw %struct._Bucket, ptr %78, i64 %indvars.iv86
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
   %81 = load i8, ptr %80, align 8, !tbaa !5
   %82 = icmp eq i8 %81, 0
@@ -13223,21 +13223,21 @@ zend_hash_iterators_clamp_max.exit50:             ; preds = %63, %53, %.critedge
   %94 = getelementptr inbounds i32, ptr %92, i64 %93
   %95 = load i32, ptr %94, align 4, !tbaa !17
   %96 = zext i32 %95 to i64
-  %.not.i39 = icmp eq i64 %indvars.iv85, %96
-  br i1 %.not.i39, label %.loopexit, label %.preheader58
+  %.not.i39 = icmp eq i64 %indvars.iv86, %96
+  br i1 %.not.i39, label %.loopexit, label %.preheader59
 
-.preheader58:                                     ; preds = %86, %.preheader58
-  %.pn.in = phi i32 [ %98, %.preheader58 ], [ %95, %86 ]
+.preheader59:                                     ; preds = %86, %.preheader59
+  %.pn.in = phi i32 [ %98, %.preheader59 ], [ %95, %86 ]
   %.pn = zext i32 %.pn.in to i64
   %.1.i = getelementptr inbounds nuw %struct._Bucket, ptr %92, i64 %.pn
   %97 = getelementptr inbounds nuw i8, ptr %.1.i, i64 12
   %98 = load i32, ptr %97, align 4, !tbaa !5
   %99 = zext i32 %98 to i64
-  %.not23.i = icmp eq i64 %indvars.iv85, %99
-  br i1 %.not23.i, label %.loopexit, label %.preheader58
+  %.not23.i = icmp eq i64 %indvars.iv86, %99
+  br i1 %.not23.i, label %.loopexit, label %.preheader59
 
-.loopexit:                                        ; preds = %.preheader58, %86
-  %.0.i = phi ptr [ null, %86 ], [ %.1.i, %.preheader58 ]
+.loopexit:                                        ; preds = %.preheader59, %86
+  %.0.i = phi ptr [ null, %86 ], [ %.1.i, %.preheader59 ]
   %100 = getelementptr inbounds nuw i8, ptr %79, i64 24
   %101 = load ptr, ptr %100, align 8, !tbaa !18
   %.not24.i = icmp eq ptr %101, null
@@ -13305,7 +13305,7 @@ _zend_hash_del_el.exit:                           ; preds = %.loopexit, %zend_st
   %130 = load i32, ptr %9, align 8, !tbaa !27
   %131 = add i32 %130, -1
   %132 = zext i32 %131 to i64
-  %133 = icmp eq i64 %indvars.iv85, %132
+  %133 = icmp eq i64 %indvars.iv86, %132
   br i1 %133, label %.preheader, label %zend_hash_iterators_clamp_max.exit
 
 .preheader:                                       ; preds = %127, %136
@@ -13337,28 +13337,28 @@ _zend_hash_del_el.exit:                           ; preds = %.loopexit, %zend_st
   %147 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1112), align 8, !tbaa !33
   %148 = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1108), align 4, !tbaa !62
   %149 = zext i32 %148 to i64
-  %.idx81 = shl nuw nsw i64 %149, 4
-  %150 = getelementptr inbounds nuw i8, ptr %147, i64 %.idx81
-  %.not13.i72 = icmp eq i32 %148, 0
-  br i1 %.not13.i72, label %zend_hash_iterators_clamp_max.exit, label %.lr.ph74
+  %.idx82 = shl nuw nsw i64 %149, 4
+  %150 = getelementptr inbounds nuw i8, ptr %147, i64 %.idx82
+  %.not13.i73 = icmp eq i32 %148, 0
+  br i1 %.not13.i73, label %zend_hash_iterators_clamp_max.exit, label %.lr.ph75
 
-.lr.ph74:                                         ; preds = %146, %156
-  %.0.i4473 = phi ptr [ %157, %156 ], [ %147, %146 ]
-  %151 = load ptr, ptr %.0.i4473, align 8, !tbaa !63
+.lr.ph75:                                         ; preds = %146, %156
+  %.0.i4474 = phi ptr [ %157, %156 ], [ %147, %146 ]
+  %151 = load ptr, ptr %.0.i4474, align 8, !tbaa !63
   %152 = icmp eq ptr %151, %0
   br i1 %152, label %153, label %156
 
-153:                                              ; preds = %.lr.ph74
-  %154 = getelementptr inbounds nuw i8, ptr %.0.i4473, i64 8
+153:                                              ; preds = %.lr.ph75
+  %154 = getelementptr inbounds nuw i8, ptr %.0.i4474, i64 8
   %155 = load i32, ptr %154, align 8, !tbaa !65
   %..i45 = call i32 @llvm.umin.i32(i32 %155, i32 %135)
   store i32 %..i45, ptr %154, align 8, !tbaa !65
   br label %156
 
-156:                                              ; preds = %153, %.lr.ph74
-  %157 = getelementptr inbounds nuw i8, ptr %.0.i4473, i64 16
+156:                                              ; preds = %153, %.lr.ph75
+  %157 = getelementptr inbounds nuw i8, ptr %.0.i4474, i64 16
   %.not13.i = icmp eq ptr %157, %150
-  br i1 %.not13.i, label %zend_hash_iterators_clamp_max.exit, label %.lr.ph74
+  br i1 %.not13.i, label %zend_hash_iterators_clamp_max.exit, label %.lr.ph75
 
 zend_hash_iterators_clamp_max.exit:               ; preds = %156, %146, %.critedge.i41, %127
   %158 = load ptr, ptr %22, align 8, !tbaa !31
@@ -13384,20 +13384,20 @@ zend_hash_iterators_clamp_max.exit:               ; preds = %156, %146, %.crited
 164:                                              ; preds = %83, %159, %163
   %165 = and i32 %84, 2
   %.not33.not = icmp eq i32 %165, 0
-  br i1 %.not33.not, label %..thread54_crit_edge, label %.loopexit60
+  br i1 %.not33.not, label %..thread54_crit_edge, label %.loopexit61
 
 ..thread54_crit_edge:                             ; preds = %164
-  %.pre88 = load i32, ptr %9, align 8, !tbaa !27
+  %.pre89 = load i32, ptr %9, align 8, !tbaa !27
   br label %.thread54
 
 .thread54:                                        ; preds = %..thread54_crit_edge, %76
-  %166 = phi i32 [ %.pre88, %..thread54_crit_edge ], [ %77, %76 ]
-  %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
+  %166 = phi i32 [ %.pre89, %..thread54_crit_edge ], [ %77, %76 ]
+  %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
   %167 = zext i32 %166 to i64
-  %168 = icmp samesign ult i64 %indvars.iv.next86, %167
-  br i1 %168, label %76, label %.loopexit60
+  %168 = icmp samesign ult i64 %indvars.iv.next87, %167
+  br i1 %168, label %76, label %.loopexit61
 
-.loopexit60:                                      ; preds = %.thread, %71, %.thread54, %164, %.preheader62, %.preheader59
+.loopexit61:                                      ; preds = %.thread, %71, %.thread54, %164, %.preheader63, %.preheader60
   ret void
 }
 
@@ -13415,13 +13415,13 @@ define dso_local void @zend_hash_apply_with_arguments(ptr noundef captures(addre
   %.not = icmp eq i32 %10, 0
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load i32, ptr %11, align 8, !tbaa !27
-  %.not83 = icmp eq i32 %12, 0
-  br i1 %.not, label %.preheader62, label %.preheader65
+  %.not84 = icmp eq i32 %12, 0
+  br i1 %.not, label %.preheader63, label %.preheader66
 
-.preheader65:                                     ; preds = %3
-  br i1 %.not83, label %.loopexit63, label %.lr.ph72
+.preheader66:                                     ; preds = %3
+  br i1 %.not84, label %.loopexit64, label %.lr.ph73
 
-.lr.ph72:                                         ; preds = %.preheader65
+.lr.ph73:                                         ; preds = %.preheader66
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -13431,10 +13431,10 @@ define dso_local void @zend_hash_apply_with_arguments(ptr noundef captures(addre
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %28
 
-.preheader62:                                     ; preds = %3
-  br i1 %.not83, label %.loopexit63, label %.lr.ph80
+.preheader63:                                     ; preds = %3
+  br i1 %.not84, label %.loopexit64, label %.lr.ph81
 
-.lr.ph80:                                         ; preds = %.preheader62
+.lr.ph81:                                         ; preds = %.preheader63
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %21 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -13445,9 +13445,9 @@ define dso_local void @zend_hash_apply_with_arguments(ptr noundef captures(addre
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %80
 
-28:                                               ; preds = %.lr.ph72, %.thread
-  %29 = phi i32 [ %12, %.lr.ph72 ], [ %77, %.thread ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph72 ], [ %indvars.iv.next, %.thread ]
+28:                                               ; preds = %.lr.ph73, %.thread
+  %29 = phi i32 [ %12, %.lr.ph73 ], [ %77, %.thread ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph73 ], [ %indvars.iv.next, %.thread ]
   %30 = load ptr, ptr %13, align 8, !tbaa !5
   %31 = getelementptr inbounds nuw %struct._zval_struct, ptr %30, i64 %indvars.iv
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
@@ -13472,16 +13472,16 @@ define dso_local void @zend_hash_apply_with_arguments(ptr noundef captures(addre
   %42 = add i32 %41, -1
   %43 = zext i32 %42 to i64
   %44 = icmp eq i64 %indvars.iv, %43
-  br i1 %44, label %.preheader64, label %zend_hash_iterators_clamp_max.exit53
+  br i1 %44, label %.preheader65, label %zend_hash_iterators_clamp_max.exit53
 
-.preheader64:                                     ; preds = %38, %47
+.preheader65:                                     ; preds = %38, %47
   %45 = phi i32 [ %46, %47 ], [ %41, %38 ]
   %46 = add i32 %45, -1
   store i32 %46, ptr %11, align 8, !tbaa !27
   %.not.i = icmp eq i32 %46, 0
   br i1 %.not.i, label %.critedge.i, label %47
 
-47:                                               ; preds = %.preheader64
+47:                                               ; preds = %.preheader65
   %48 = load ptr, ptr %13, align 8, !tbaa !5
   %49 = add i32 %45, -2
   %50 = zext i32 %49 to i64
@@ -13489,9 +13489,9 @@ define dso_local void @zend_hash_apply_with_arguments(ptr noundef captures(addre
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %53 = load i8, ptr %52, align 8, !tbaa !5
   %54 = icmp eq i8 %53, 0
-  br i1 %54, label %.preheader64, label %.critedge.i
+  br i1 %54, label %.preheader65, label %.critedge.i
 
-.critedge.i:                                      ; preds = %47, %.preheader64
+.critedge.i:                                      ; preds = %47, %.preheader65
   %55 = load i32, ptr %16, align 4, !tbaa !29
   %..i = call i32 @llvm.umin.i32(i32 %55, i32 %46)
   store i32 %..i, ptr %16, align 4, !tbaa !29
@@ -13505,24 +13505,24 @@ define dso_local void @zend_hash_apply_with_arguments(ptr noundef captures(addre
   %60 = zext i32 %59 to i64
   %.idx = shl nuw nsw i64 %60, 4
   %61 = getelementptr inbounds nuw i8, ptr %58, i64 %.idx
-  %.not13.i5168 = icmp eq i32 %59, 0
-  br i1 %.not13.i5168, label %zend_hash_iterators_clamp_max.exit53, label %.lr.ph
+  %.not13.i5169 = icmp eq i32 %59, 0
+  br i1 %.not13.i5169, label %zend_hash_iterators_clamp_max.exit53, label %.lr.ph
 
 .lr.ph:                                           ; preds = %57, %67
-  %.0.i5069 = phi ptr [ %68, %67 ], [ %58, %57 ]
-  %62 = load ptr, ptr %.0.i5069, align 8, !tbaa !63
+  %.0.i5070 = phi ptr [ %68, %67 ], [ %58, %57 ]
+  %62 = load ptr, ptr %.0.i5070, align 8, !tbaa !63
   %63 = icmp eq ptr %62, %0
   br i1 %63, label %64, label %67
 
 64:                                               ; preds = %.lr.ph
-  %65 = getelementptr inbounds nuw i8, ptr %.0.i5069, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %.0.i5070, i64 8
   %66 = load i32, ptr %65, align 8, !tbaa !65
   %..i52 = call i32 @llvm.umin.i32(i32 %66, i32 %46)
   store i32 %..i52, ptr %65, align 8, !tbaa !65
   br label %67
 
 67:                                               ; preds = %64, %.lr.ph
-  %68 = getelementptr inbounds nuw i8, ptr %.0.i5069, i64 16
+  %68 = getelementptr inbounds nuw i8, ptr %.0.i5070, i64 16
   %.not13.i51 = icmp eq ptr %68, %61
   br i1 %.not13.i51, label %zend_hash_iterators_clamp_max.exit53, label %.lr.ph
 
@@ -13551,7 +13551,7 @@ zend_hash_iterators_clamp_max.exit53:             ; preds = %67, %57, %.critedge
   %76 = and i32 %36, 2
   call void @llvm.va_end.p0(ptr nonnull %6)
   %switch.not = icmp eq i32 %76, 0
-  br i1 %switch.not, label %..thread_crit_edge, label %.loopexit63
+  br i1 %switch.not, label %..thread_crit_edge, label %.loopexit64
 
 ..thread_crit_edge:                               ; preds = %75
   %.pre = load i32, ptr %11, align 8, !tbaa !27
@@ -13562,13 +13562,13 @@ zend_hash_iterators_clamp_max.exit53:             ; preds = %67, %57, %.critedge
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %78 = zext i32 %77 to i64
   %79 = icmp samesign ult i64 %indvars.iv.next, %78
-  br i1 %79, label %28, label %.loopexit63
+  br i1 %79, label %28, label %.loopexit64
 
-80:                                               ; preds = %.lr.ph80, %.thread57
-  %81 = phi i32 [ %12, %.lr.ph80 ], [ %172, %.thread57 ]
-  %indvars.iv88 = phi i64 [ 0, %.lr.ph80 ], [ %indvars.iv.next89, %.thread57 ]
+80:                                               ; preds = %.lr.ph81, %.thread57
+  %81 = phi i32 [ %12, %.lr.ph81 ], [ %172, %.thread57 ]
+  %indvars.iv89 = phi i64 [ 0, %.lr.ph81 ], [ %indvars.iv.next90, %.thread57 ]
   %82 = load ptr, ptr %20, align 8, !tbaa !5
-  %83 = getelementptr inbounds nuw %struct._Bucket, ptr %82, i64 %indvars.iv88
+  %83 = getelementptr inbounds nuw %struct._Bucket, ptr %82, i64 %indvars.iv89
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 8
   %85 = load i8, ptr %84, align 8, !tbaa !5
   %86 = icmp eq i8 %85, 0
@@ -13597,21 +13597,21 @@ zend_hash_iterators_clamp_max.exit53:             ; preds = %67, %57, %.critedge
   %101 = getelementptr inbounds i32, ptr %99, i64 %100
   %102 = load i32, ptr %101, align 4, !tbaa !17
   %103 = zext i32 %102 to i64
-  %.not.i42 = icmp eq i64 %indvars.iv88, %103
-  br i1 %.not.i42, label %.loopexit, label %.preheader61
+  %.not.i42 = icmp eq i64 %indvars.iv89, %103
+  br i1 %.not.i42, label %.loopexit, label %.preheader62
 
-.preheader61:                                     ; preds = %94, %.preheader61
-  %.pn.in = phi i32 [ %105, %.preheader61 ], [ %102, %94 ]
+.preheader62:                                     ; preds = %94, %.preheader62
+  %.pn.in = phi i32 [ %105, %.preheader62 ], [ %102, %94 ]
   %.pn = zext i32 %.pn.in to i64
   %.1.i = getelementptr inbounds nuw %struct._Bucket, ptr %99, i64 %.pn
   %104 = getelementptr inbounds nuw i8, ptr %.1.i, i64 12
   %105 = load i32, ptr %104, align 4, !tbaa !5
   %106 = zext i32 %105 to i64
-  %.not23.i = icmp eq i64 %indvars.iv88, %106
-  br i1 %.not23.i, label %.loopexit, label %.preheader61
+  %.not23.i = icmp eq i64 %indvars.iv89, %106
+  br i1 %.not23.i, label %.loopexit, label %.preheader62
 
-.loopexit:                                        ; preds = %.preheader61, %94
-  %.0.i = phi ptr [ null, %94 ], [ %.1.i, %.preheader61 ]
+.loopexit:                                        ; preds = %.preheader62, %94
+  %.0.i = phi ptr [ null, %94 ], [ %.1.i, %.preheader62 ]
   %107 = load ptr, ptr %90, align 8, !tbaa !18
   %.not24.i = icmp eq ptr %107, null
   br i1 %.not24.i, label %_zend_hash_del_el.exit, label %108
@@ -13678,7 +13678,7 @@ _zend_hash_del_el.exit:                           ; preds = %.loopexit, %zend_st
   %136 = load i32, ptr %11, align 8, !tbaa !27
   %137 = add i32 %136, -1
   %138 = zext i32 %137 to i64
-  %139 = icmp eq i64 %indvars.iv88, %138
+  %139 = icmp eq i64 %indvars.iv89, %138
   br i1 %139, label %.preheader, label %zend_hash_iterators_clamp_max.exit
 
 .preheader:                                       ; preds = %133, %142
@@ -13710,28 +13710,28 @@ _zend_hash_del_el.exit:                           ; preds = %.loopexit, %zend_st
   %153 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1112), align 8, !tbaa !33
   %154 = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1108), align 4, !tbaa !62
   %155 = zext i32 %154 to i64
-  %.idx84 = shl nuw nsw i64 %155, 4
-  %156 = getelementptr inbounds nuw i8, ptr %153, i64 %.idx84
-  %.not13.i75 = icmp eq i32 %154, 0
-  br i1 %.not13.i75, label %zend_hash_iterators_clamp_max.exit, label %.lr.ph77
+  %.idx85 = shl nuw nsw i64 %155, 4
+  %156 = getelementptr inbounds nuw i8, ptr %153, i64 %.idx85
+  %.not13.i76 = icmp eq i32 %154, 0
+  br i1 %.not13.i76, label %zend_hash_iterators_clamp_max.exit, label %.lr.ph78
 
-.lr.ph77:                                         ; preds = %152, %162
-  %.0.i4776 = phi ptr [ %163, %162 ], [ %153, %152 ]
-  %157 = load ptr, ptr %.0.i4776, align 8, !tbaa !63
+.lr.ph78:                                         ; preds = %152, %162
+  %.0.i4777 = phi ptr [ %163, %162 ], [ %153, %152 ]
+  %157 = load ptr, ptr %.0.i4777, align 8, !tbaa !63
   %158 = icmp eq ptr %157, %0
   br i1 %158, label %159, label %162
 
-159:                                              ; preds = %.lr.ph77
-  %160 = getelementptr inbounds nuw i8, ptr %.0.i4776, i64 8
+159:                                              ; preds = %.lr.ph78
+  %160 = getelementptr inbounds nuw i8, ptr %.0.i4777, i64 8
   %161 = load i32, ptr %160, align 8, !tbaa !65
   %..i48 = call i32 @llvm.umin.i32(i32 %161, i32 %141)
   store i32 %..i48, ptr %160, align 8, !tbaa !65
   br label %162
 
-162:                                              ; preds = %159, %.lr.ph77
-  %163 = getelementptr inbounds nuw i8, ptr %.0.i4776, i64 16
+162:                                              ; preds = %159, %.lr.ph78
+  %163 = getelementptr inbounds nuw i8, ptr %.0.i4777, i64 16
   %.not13.i = icmp eq ptr %163, %156
-  br i1 %.not13.i, label %zend_hash_iterators_clamp_max.exit, label %.lr.ph77
+  br i1 %.not13.i, label %zend_hash_iterators_clamp_max.exit, label %.lr.ph78
 
 zend_hash_iterators_clamp_max.exit:               ; preds = %162, %152, %.critedge.i44, %133
   %164 = load ptr, ptr %26, align 8, !tbaa !31
@@ -13758,20 +13758,20 @@ zend_hash_iterators_clamp_max.exit:               ; preds = %162, %152, %.crited
   %171 = and i32 %92, 2
   %.not36.not = icmp eq i32 %171, 0
   call void @llvm.va_end.p0(ptr nonnull %6)
-  br i1 %.not36.not, label %..thread57_crit_edge, label %.loopexit63
+  br i1 %.not36.not, label %..thread57_crit_edge, label %.loopexit64
 
 ..thread57_crit_edge:                             ; preds = %170
-  %.pre91 = load i32, ptr %11, align 8, !tbaa !27
+  %.pre92 = load i32, ptr %11, align 8, !tbaa !27
   br label %.thread57
 
 .thread57:                                        ; preds = %..thread57_crit_edge, %80
-  %172 = phi i32 [ %.pre91, %..thread57_crit_edge ], [ %81, %80 ]
-  %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
+  %172 = phi i32 [ %.pre92, %..thread57_crit_edge ], [ %81, %80 ]
+  %indvars.iv.next90 = add nuw nsw i64 %indvars.iv89, 1
   %173 = zext i32 %172 to i64
-  %174 = icmp samesign ult i64 %indvars.iv.next89, %173
-  br i1 %174, label %80, label %.loopexit63
+  %174 = icmp samesign ult i64 %indvars.iv.next90, %173
+  br i1 %174, label %80, label %.loopexit64
 
-.loopexit63:                                      ; preds = %.thread, %75, %.thread57, %170, %.preheader65, %.preheader62
+.loopexit64:                                      ; preds = %.thread, %75, %.thread57, %170, %.preheader66, %.preheader63
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void

@@ -6533,7 +6533,7 @@ define internal noundef zeroext i1 @nf_conntrack_get_tuple_skb(ptr noundef write
   %.offs = select i1 %13, i64 72, i64 16
   %14 = getelementptr i8, ptr %11, i64 %.offs
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(40) %0, ptr noundef align 8 dereferenceable(40) %14, i64 40, i1 false)
-  br label %.thread12
+  br label %.thread13
 
 15:                                               ; preds = %2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %4, i8 0, i64 40, i1 false), !annotation !10
@@ -6566,29 +6566,29 @@ define internal noundef zeroext i1 @nf_conntrack_get_tuple_skb(ptr noundef write
 
 39:                                               ; preds = %15
   %40 = icmp eq ptr %1, null
-  br i1 %40, label %.thread10, label %41
+  br i1 %40, label %.thread11, label %41
 
 41:                                               ; preds = %39
   %42 = call i32 @skb_copy_bits(ptr noundef nonnull %1, i32 noundef %27, ptr noundef nonnull %3, i32 noundef 20) #17
   %43 = icmp slt i32 %42, 0
-  br i1 %43, label %.thread10, label %.thread7, !prof !11
+  br i1 %43, label %.thread11, label %.thread8, !prof !11
 
 44:                                               ; preds = %15
   %45 = shl i64 %26, 32
   %46 = ashr exact i64 %45, 32
   %47 = getelementptr i8, ptr %23, i64 %46
   %48 = icmp eq ptr %47, null
-  br i1 %48, label %.thread10, label %.thread7
+  br i1 %48, label %.thread11, label %.thread8
 
-.thread7:                                         ; preds = %41, %44
+.thread8:                                         ; preds = %41, %44
   %49 = phi ptr [ %47, %44 ], [ %3, %41 ]
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 6
   %51 = load i16, ptr %50, align 2
   %52 = and i16 %51, -225
   %53 = icmp eq i16 %52, 0
-  br i1 %53, label %54, label %.thread10
+  br i1 %53, label %54, label %.thread11
 
-54:                                               ; preds = %.thread7
+54:                                               ; preds = %.thread8
   %55 = load i8, ptr %49, align 4
   %56 = shl i8 %55, 2
   %57 = and i8 %56, 60
@@ -6598,20 +6598,20 @@ define internal noundef zeroext i1 @nf_conntrack_get_tuple_skb(ptr noundef write
   %61 = load i8, ptr %60, align 1
   %62 = load i32, ptr %32, align 8
   %63 = icmp ugt i32 %59, %62
-  br i1 %63, label %.thread10, label %64
+  br i1 %63, label %.thread11, label %64
 
-.thread10:                                        ; preds = %44, %.thread7, %39, %41, %54
+.thread11:                                        ; preds = %44, %.thread8, %39, %41, %54
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %.thread12
+  br label %.thread13
 
 64:                                               ; preds = %54
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %65 = icmp slt i32 %59, 1
-  br i1 %65, label %.thread12, label %66
+  br i1 %65, label %.thread13, label %66
 
 66:                                               ; preds = %64
   %67 = call fastcc zeroext i1 @nf_ct_get_tuple(ptr noundef %1, i32 noundef %27, i32 noundef %59, i16 noundef zeroext 2, i8 noundef zeroext %61, ptr noundef %31, ptr noundef nonnull %4)
-  br i1 %67, label %68, label %.thread12
+  br i1 %67, label %68, label %.thread13
 
 68:                                               ; preds = %66
   %69 = load ptr, ptr %28, align 8
@@ -6619,7 +6619,7 @@ define internal noundef zeroext i1 @nf_conntrack_get_tuple_skb(ptr noundef write
   %71 = load ptr, ptr %70, align 8
   %72 = call ptr @nf_conntrack_find_get(ptr noundef %71, ptr nonnull poison, ptr noundef nonnull %4)
   %73 = icmp eq ptr %72, null
-  br i1 %73, label %.thread12, label %74
+  br i1 %73, label %.thread13, label %74
 
 74:                                               ; preds = %68
   %75 = getelementptr inbounds nuw i8, ptr %72, i64 55
@@ -6634,7 +6634,7 @@ define internal noundef zeroext i1 @nf_conntrack_get_tuple_skb(ptr noundef write
   %83 = getelementptr i8, ptr %.split, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(40) %0, ptr noundef align 4 dereferenceable(40) %83, i64 40, i1 false)
   %84 = icmp eq ptr %80, null
-  br i1 %84, label %.thread12, label %85
+  br i1 %84, label %.thread13, label %85
 
 85:                                               ; preds = %74
   %86 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %80, i32 -1, ptr nonnull elementtype(i32) %80) #17, !srcloc !17
@@ -6643,19 +6643,19 @@ define internal noundef zeroext i1 @nf_conntrack_get_tuple_skb(ptr noundef write
 
 88:                                               ; preds = %85
   %89 = icmp sgt i32 %86, 0
-  br i1 %89, label %.thread12, label %90, !prof !9
+  br i1 %89, label %.thread13, label %90, !prof !9
 
 90:                                               ; preds = %88
   call void @refcount_warn_saturate(ptr noundef nonnull %80, i32 noundef 3) #17
-  br label %.thread12
+  br label %.thread13
 
 91:                                               ; preds = %85
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !18
   call void @nf_ct_destroy(ptr noundef nonnull %80)
-  br label %.thread12
+  br label %.thread13
 
-.thread12:                                        ; preds = %88, %90, %.thread10, %91, %74, %68, %66, %64, %9
-  %92 = phi i1 [ true, %9 ], [ false, %66 ], [ false, %68 ], [ true, %74 ], [ true, %91 ], [ false, %64 ], [ false, %.thread10 ], [ true, %90 ], [ true, %88 ]
+.thread13:                                        ; preds = %88, %90, %.thread11, %91, %74, %68, %66, %64, %9
+  %92 = phi i1 [ true, %9 ], [ false, %66 ], [ false, %68 ], [ true, %74 ], [ true, %91 ], [ false, %64 ], [ false, %.thread11 ], [ true, %90 ], [ true, %88 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %92
 }

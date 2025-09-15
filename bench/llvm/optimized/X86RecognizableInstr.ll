@@ -3101,9 +3101,9 @@ define dso_local noundef range(i32 0, 219) i32 @_ZNK4llvm15X86Disassembler17Reco
   br i1 %or.cond204, label %614, label %540
 
 540:                                              ; preds = %539
-  %switch.tableidx339 = add i8 %519, -2
-  %541 = icmp ult i8 %switch.tableidx339, 3
-  br i1 %541, label %switch.lookup340, label %542
+  %switch.tableidx340 = add i8 %519, -2
+  %541 = icmp ult i8 %switch.tableidx340, 3
+  br i1 %541, label %switch.lookup341, label %542
 
 542:                                              ; preds = %540
   %543 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #17
@@ -3151,45 +3151,45 @@ define dso_local noundef range(i32 0, 219) i32 @_ZNK4llvm15X86Disassembler17Reco
   %568 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %569 = load i8, ptr %568, align 2
   %570 = icmp eq i8 %569, 2
-  br i1 %570, label %614, label %.thread334
+  br i1 %570, label %614, label %.thread335
 
-.thread334:                                       ; preds = %567
+.thread335:                                       ; preds = %567
   %571 = icmp eq i8 %565, 3
   %572 = icmp eq i8 %565, 2
   br label %581
 
 573:                                              ; preds = %555, %..thread239_crit_edge
   %574 = phi i1 [ %560, %..thread239_crit_edge ], [ false, %555 ]
-  %.phi.trans.insert323 = getelementptr inbounds nuw i8, ptr %0, i64 5
-  %.pre324 = load i8, ptr %.phi.trans.insert323, align 1, !tbaa !108
-  %.pre325 = load i8, ptr %0, align 8
-  %.pre324.fr = freeze i8 %.pre324
-  %575 = icmp eq i8 %.pre324.fr, 1
-  %576 = icmp eq i8 %.pre325, 3
+  %.phi.trans.insert324 = getelementptr inbounds nuw i8, ptr %0, i64 5
+  %.pre325 = load i8, ptr %.phi.trans.insert324, align 1, !tbaa !108
+  %.pre326 = load i8, ptr %0, align 8
+  %.pre325.fr = freeze i8 %.pre325
+  %575 = icmp eq i8 %.pre325.fr, 1
+  %576 = icmp eq i8 %.pre326, 3
   %or.cond214 = select i1 %575, i1 %576, i1 false
   br i1 %or.cond214, label %614, label %577
 
 577:                                              ; preds = %573
-  %578 = icmp eq i8 %.pre325, 2
+  %578 = icmp eq i8 %.pre326, 2
   %or.cond216 = select i1 %575, i1 %578, i1 false
   br i1 %or.cond216, label %614, label %579
 
 579:                                              ; preds = %577
-  %580 = icmp eq i8 %.pre325, 1
+  %580 = icmp eq i8 %.pre326, 1
   %or.cond218 = select i1 %574, i1 %580, i1 false
-  %spec.select338 = select i1 %575, i1 %574, i1 %or.cond218
+  %spec.select339 = select i1 %575, i1 %574, i1 %or.cond218
   br label %581
 
-581:                                              ; preds = %579, %.thread334
-  %or.cond218337 = phi i1 [ false, %.thread334 ], [ %or.cond218, %579 ]
-  %582 = phi i1 [ false, %.thread334 ], [ %580, %579 ]
-  %583 = phi i1 [ %571, %.thread334 ], [ %576, %579 ]
-  %584 = phi i1 [ false, %.thread334 ], [ %574, %579 ]
-  %585 = phi i1 [ false, %.thread334 ], [ %575, %579 ]
-  %586 = phi i8 [ %565, %.thread334 ], [ %.pre325, %579 ]
-  %587 = phi i1 [ %572, %.thread334 ], [ %578, %579 ]
-  %588 = phi i1 [ false, %.thread334 ], [ %spec.select338, %579 ]
-  %brmerge313 = or i1 %585, %or.cond218337
+581:                                              ; preds = %579, %.thread335
+  %or.cond218338 = phi i1 [ false, %.thread335 ], [ %or.cond218, %579 ]
+  %582 = phi i1 [ false, %.thread335 ], [ %580, %579 ]
+  %583 = phi i1 [ %571, %.thread335 ], [ %576, %579 ]
+  %584 = phi i1 [ false, %.thread335 ], [ %574, %579 ]
+  %585 = phi i1 [ false, %.thread335 ], [ %575, %579 ]
+  %586 = phi i8 [ %565, %.thread335 ], [ %.pre326, %579 ]
+  %587 = phi i1 [ %572, %.thread335 ], [ %578, %579 ]
+  %588 = phi i1 [ false, %.thread335 ], [ %spec.select339, %579 ]
+  %brmerge313 = or i1 %585, %or.cond218338
   %brmerge315 = select i1 %585, i1 true, i1 %582
   %589 = and i1 %brmerge313, %588
   %.mux314.mux = select i1 %589, i32 15, i32 13
@@ -3267,14 +3267,14 @@ switch.lookup:                                    ; preds = %520
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %614
 
-switch.lookup340:                                 ; preds = %540
-  %613 = zext nneg i8 %switch.tableidx339 to i64
-  %switch.gep341 = getelementptr inbounds nuw i32, ptr @switch.table._ZNK4llvm15X86Disassembler17RecognizableInstr11insnContextEv.3, i64 %613
-  %switch.load342 = load i32, ptr %switch.gep341, align 4
+switch.lookup341:                                 ; preds = %540
+  %613 = zext nneg i8 %switch.tableidx340 to i64
+  %switch.gep342 = getelementptr inbounds nuw i32, ptr @switch.table._ZNK4llvm15X86Disassembler17RecognizableInstr11insnContextEv.3, i64 %613
+  %switch.load343 = load i32, ptr %switch.gep342, align 4
   br label %614
 
-614:                                              ; preds = %switch.lookup340, %switch.lookup, %594, %504, %491, %474, %457, %433, %420, %407, %394, %373, %360, %347, %334, %313, %300, %287, %274, %252, %239, %226, %213, %191, %178, %165, %152, %609, %581, %530, %500, %487, %470, %453, %429, %416, %403, %390, %369, %356, %343, %330, %309, %296, %283, %270, %248, %235, %222, %209, %187, %174, %161, %148, %611, %608, %606, %604, %598, %592, %591, %590, %577, %573, %567, %561, %539, %537, %536, %535, %533, %531, %528, %493, %476, %480, %459, %463, %442, %446, %422, %409, %396, %383, %362, %349, %336, %323, %302, %289, %276, %263, %241, %228, %215, %202, %180, %167, %154, %141, %593, %73, %91, %100, %82, %30, %48, %57, %39, %122, %134, %133
-  %.0 = phi i32 [ %38, %30 ], [ %47, %39 ], [ %56, %48 ], [ %65, %57 ], [ %81, %73 ], [ %90, %82 ], [ %99, %91 ], [ %108, %100 ], [ %., %122 ], [ %.21, %133 ], [ %.22, %134 ], [ 17, %593 ], [ 162, %141 ], [ %.mux, %148 ], [ 160, %154 ], [ %.mux242, %161 ], [ 161, %167 ], [ %.mux245, %174 ], [ 159, %180 ], [ %.mux248, %187 ], [ 158, %202 ], [ %.mux251, %209 ], [ 156, %215 ], [ %.mux254, %222 ], [ 157, %228 ], [ %.mux257, %235 ], [ 155, %241 ], [ %.mux260, %248 ], [ 170, %263 ], [ %.mux263, %270 ], [ 168, %276 ], [ %.mux266, %283 ], [ 169, %289 ], [ %.mux269, %296 ], [ 167, %302 ], [ %.mux272, %309 ], [ 166, %323 ], [ %.mux275, %330 ], [ 165, %336 ], [ %.mux278, %343 ], [ 164, %349 ], [ %.mux281, %356 ], [ 163, %362 ], [ %.mux284, %369 ], [ 154, %383 ], [ %.mux287, %390 ], [ 152, %396 ], [ %.mux290, %403 ], [ 153, %409 ], [ %.mux293, %416 ], [ 151, %422 ], [ %.mux296, %429 ], [ 50, %442 ], [ 150, %446 ], [ %.mux299, %453 ], [ 47, %459 ], [ 149, %463 ], [ %.mux302, %470 ], [ 45, %476 ], [ 148, %480 ], [ %.mux305, %487 ], [ 147, %493 ], [ %.mux308, %500 ], [ 37, %528 ], [ %.mux311, %530 ], [ 35, %531 ], [ 36, %533 ], [ 31, %535 ], [ 32, %536 ], [ 30, %537 ], [ 34, %539 ], [ 24, %561 ], [ 12, %567 ], [ 18, %573 ], [ 19, %577 ], [ %.mux314.mux.mux, %581 ], [ 22, %590 ], [ 23, %591 ], [ 16, %592 ], [ 7, %598 ], [ 8, %604 ], [ 9, %606 ], [ 10, %608 ], [ %.mux320.mux.mux, %609 ], [ %switch.select238, %611 ], [ %spec.select, %152 ], [ %spec.select243, %165 ], [ %spec.select246, %178 ], [ %spec.select249, %191 ], [ %spec.select252, %213 ], [ %spec.select255, %226 ], [ %spec.select258, %239 ], [ %spec.select261, %252 ], [ %spec.select264, %274 ], [ %spec.select267, %287 ], [ %spec.select270, %300 ], [ %spec.select273, %313 ], [ %spec.select276, %334 ], [ %spec.select279, %347 ], [ %spec.select282, %360 ], [ %spec.select285, %373 ], [ %spec.select288, %394 ], [ %spec.select291, %407 ], [ %spec.select294, %420 ], [ %spec.select297, %433 ], [ %spec.select300, %457 ], [ %spec.select303, %474 ], [ %spec.select306, %491 ], [ %spec.select309, %504 ], [ %spec.select317, %594 ], [ %switch.load, %switch.lookup ], [ %switch.load342, %switch.lookup340 ]
+614:                                              ; preds = %switch.lookup341, %switch.lookup, %594, %504, %491, %474, %457, %433, %420, %407, %394, %373, %360, %347, %334, %313, %300, %287, %274, %252, %239, %226, %213, %191, %178, %165, %152, %609, %581, %530, %500, %487, %470, %453, %429, %416, %403, %390, %369, %356, %343, %330, %309, %296, %283, %270, %248, %235, %222, %209, %187, %174, %161, %148, %611, %608, %606, %604, %598, %592, %591, %590, %577, %573, %567, %561, %539, %537, %536, %535, %533, %531, %528, %493, %476, %480, %459, %463, %442, %446, %422, %409, %396, %383, %362, %349, %336, %323, %302, %289, %276, %263, %241, %228, %215, %202, %180, %167, %154, %141, %593, %73, %91, %100, %82, %30, %48, %57, %39, %122, %134, %133
+  %.0 = phi i32 [ %38, %30 ], [ %47, %39 ], [ %56, %48 ], [ %65, %57 ], [ %81, %73 ], [ %90, %82 ], [ %99, %91 ], [ %108, %100 ], [ %., %122 ], [ %.21, %133 ], [ %.22, %134 ], [ 17, %593 ], [ 162, %141 ], [ %.mux, %148 ], [ 160, %154 ], [ %.mux242, %161 ], [ 161, %167 ], [ %.mux245, %174 ], [ 159, %180 ], [ %.mux248, %187 ], [ 158, %202 ], [ %.mux251, %209 ], [ 156, %215 ], [ %.mux254, %222 ], [ 157, %228 ], [ %.mux257, %235 ], [ 155, %241 ], [ %.mux260, %248 ], [ 170, %263 ], [ %.mux263, %270 ], [ 168, %276 ], [ %.mux266, %283 ], [ 169, %289 ], [ %.mux269, %296 ], [ 167, %302 ], [ %.mux272, %309 ], [ 166, %323 ], [ %.mux275, %330 ], [ 165, %336 ], [ %.mux278, %343 ], [ 164, %349 ], [ %.mux281, %356 ], [ 163, %362 ], [ %.mux284, %369 ], [ 154, %383 ], [ %.mux287, %390 ], [ 152, %396 ], [ %.mux290, %403 ], [ 153, %409 ], [ %.mux293, %416 ], [ 151, %422 ], [ %.mux296, %429 ], [ 50, %442 ], [ 150, %446 ], [ %.mux299, %453 ], [ 47, %459 ], [ 149, %463 ], [ %.mux302, %470 ], [ 45, %476 ], [ 148, %480 ], [ %.mux305, %487 ], [ 147, %493 ], [ %.mux308, %500 ], [ 37, %528 ], [ %.mux311, %530 ], [ 35, %531 ], [ 36, %533 ], [ 31, %535 ], [ 32, %536 ], [ 30, %537 ], [ 34, %539 ], [ 24, %561 ], [ 12, %567 ], [ 18, %573 ], [ 19, %577 ], [ %.mux314.mux.mux, %581 ], [ 22, %590 ], [ 23, %591 ], [ 16, %592 ], [ 7, %598 ], [ 8, %604 ], [ 9, %606 ], [ 10, %608 ], [ %.mux320.mux.mux, %609 ], [ %switch.select238, %611 ], [ %spec.select, %152 ], [ %spec.select243, %165 ], [ %spec.select246, %178 ], [ %spec.select249, %191 ], [ %spec.select252, %213 ], [ %spec.select255, %226 ], [ %spec.select258, %239 ], [ %spec.select261, %252 ], [ %spec.select264, %274 ], [ %spec.select267, %287 ], [ %spec.select270, %300 ], [ %spec.select273, %313 ], [ %spec.select276, %334 ], [ %spec.select279, %347 ], [ %spec.select282, %360 ], [ %spec.select285, %373 ], [ %spec.select288, %394 ], [ %spec.select291, %407 ], [ %spec.select294, %420 ], [ %spec.select297, %433 ], [ %spec.select300, %457 ], [ %spec.select303, %474 ], [ %spec.select306, %491 ], [ %spec.select309, %504 ], [ %spec.select317, %594 ], [ %switch.load, %switch.lookup ], [ %switch.load343, %switch.lookup341 ]
   ret i32 %.0
 }
 

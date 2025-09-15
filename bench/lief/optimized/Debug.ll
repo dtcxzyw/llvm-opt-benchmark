@@ -1166,8 +1166,8 @@ _ZNK6frozen3mapIN4LIEF2PE5Debug5TYPESEPKcLm19ESt4lessIS4_EE11lower_boundIS4_EEPK
 162:                                              ; preds = %_ZNK6frozen3mapIN4LIEF2PE5Debug5TYPESEPKcLm19ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i.i
   %.ptr14.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF2PE9to_stringENS0_5Debug5TYPESE.enums2str, i64 %.add.i.i.i
   %163 = load i32, ptr %.ptr14.i.i.i, align 4, !tbaa !103
-  %.not19.i.i.i = icmp slt i32 %157, %163
-  br i1 %.not19.i.i.i, label %_ZN4LIEF2PE9to_stringENS0_5Debug5TYPESE.exit, label %164
+  %.not20.i.i.i = icmp slt i32 %157, %163
+  br i1 %.not20.i.i.i, label %_ZN4LIEF2PE9to_stringENS0_5Debug5TYPESE.exit, label %164
 
 164:                                              ; preds = %162
   %165 = getelementptr inbounds nuw i8, ptr %.ptr14.i.i.i, i64 8
@@ -1739,8 +1739,8 @@ _ZNK6frozen3mapIN4LIEF2PE5Debug5TYPESEPKcLm19ESt4lessIS4_EE11lower_boundIS4_EEPK
 6:                                                ; preds = %_ZNK6frozen3mapIN4LIEF2PE5Debug5TYPESEPKcLm19ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i
   %.ptr14.i.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF2PE9to_stringENS0_5Debug5TYPESE.enums2str, i64 %.add.i.i
   %7 = load i32, ptr %.ptr14.i.i, align 4, !tbaa !103
-  %.not19.i.i = icmp slt i32 %0, %7
-  br i1 %.not19.i.i, label %_ZNK6frozen3mapIN4LIEF2PE5Debug5TYPESEPKcLm19ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread, label %8
+  %.not20.i.i = icmp slt i32 %0, %7
+  br i1 %.not20.i.i, label %_ZNK6frozen3mapIN4LIEF2PE5Debug5TYPESEPKcLm19ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread, label %8
 
 8:                                                ; preds = %6
   %9 = getelementptr inbounds nuw i8, ptr %.ptr14.i.i, i64 8

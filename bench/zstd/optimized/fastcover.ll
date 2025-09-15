@@ -548,8 +548,8 @@ define internal fastcc i64 @FASTCOVER_buildDictionary(ptr noundef readonly captu
   br label %18
 
 18:                                               ; preds = %13, %5
-  %.not14 = icmp eq i64 %3, 0
-  br i1 %.not14, label %.thread8, label %.lr.ph
+  %.not15 = icmp eq i64 %3, 0
+  br i1 %.not15, label %.thread8, label %.lr.ph
 
 .lr.ph:                                           ; preds = %18
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 68
@@ -563,10 +563,10 @@ define internal fastcc i64 @FASTCOVER_buildDictionary(ptr noundef readonly captu
   br label %26
 
 26:                                               ; preds = %.lr.ph, %.thread
-  %.04017 = phi i64 [ %3, %.lr.ph ], [ %.27, %.thread ]
-  %.04116 = phi i64 [ 0, %.lr.ph ], [ %.1426, %.thread ]
-  %.04315 = phi i64 [ 0, %.lr.ph ], [ %124, %.thread ]
-  %27 = mul i64 %.04315, %.sroa.5.0.extract.shift
+  %.04018 = phi i64 [ %3, %.lr.ph ], [ %.27, %.thread ]
+  %.04117 = phi i64 [ 0, %.lr.ph ], [ %.1426, %.thread ]
+  %.04316 = phi i64 [ 0, %.lr.ph ], [ %124, %.thread ]
+  %27 = mul i64 %.04316, %.sroa.5.0.extract.shift
   %28 = trunc i64 %27 to i32
   %29 = add i32 %28, %.sroa.5.0.extract.trunc
   %30 = load i32, ptr %19, align 4, !tbaa !39
@@ -712,12 +712,12 @@ FASTCOVER_selectSegment.exit:                     ; preds = %84, %.preheader.i
   %92 = add i32 %23, %.sroa.049.sroa.4.0.lcssa.i
   %93 = sub i32 %92, %.sroa.049.sroa.0.0.lcssa.i
   %94 = zext i32 %93 to i64
-  %..040 = tail call i64 @llvm.umin.i64(i64 %.04017, i64 %94)
+  %..040 = tail call i64 @llvm.umin.i64(i64 %.04018, i64 %94)
   %95 = icmp samesign ult i64 %..040, %24
   br i1 %95, label %.thread8, label %96
 
 96:                                               ; preds = %91
-  %97 = sub i64 %.04017, %..040
+  %97 = sub i64 %.04018, %..040
   %98 = getelementptr inbounds nuw i8, ptr %2, i64 %97
   %99 = load ptr, ptr %0, align 8, !tbaa !34
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 %.sroa.049.sroa.0.0.insert.ext.i
@@ -750,20 +750,20 @@ FASTCOVER_selectSegment.exit:                     ; preds = %84, %.preheader.i
   br label %.thread
 
 120:                                              ; preds = %FASTCOVER_selectSegment.exit
-  %121 = add nuw nsw i64 %.04116, 1
-  %122 = icmp ugt i64 %.04116, 8
+  %121 = add nuw nsw i64 %.04117, 1
+  %122 = icmp ugt i64 %.04117, 8
   br i1 %122, label %.thread8, label %.thread
 
 .thread:                                          ; preds = %96, %103, %110, %120
-  %.27 = phi i64 [ %.04017, %120 ], [ %97, %110 ], [ %97, %103 ], [ %97, %96 ]
+  %.27 = phi i64 [ %.04018, %120 ], [ %97, %110 ], [ %97, %103 ], [ %97, %96 ]
   %.1426 = phi i64 [ %121, %120 ], [ 0, %110 ], [ 0, %103 ], [ 0, %96 ]
-  %123 = add nsw i64 %.04315, 1
+  %123 = add nsw i64 %.04316, 1
   %124 = urem i64 %123, %25
   %.not = icmp eq i64 %.27, 0
   br i1 %.not, label %.thread8, label %26, !llvm.loop !51
 
 .thread8:                                         ; preds = %.thread, %120, %91, %18
-  %.040.lcssa = phi i64 [ 0, %18 ], [ %.04017, %91 ], [ %.04017, %120 ], [ 0, %.thread ]
+  %.040.lcssa = phi i64 [ 0, %18 ], [ %.04018, %91 ], [ %.04018, %120 ], [ 0, %.thread ]
   %125 = load i32, ptr @g_displayLevel, align 4, !tbaa !10
   %126 = icmp sgt i32 %125, 1
   br i1 %126, label %127, label %132

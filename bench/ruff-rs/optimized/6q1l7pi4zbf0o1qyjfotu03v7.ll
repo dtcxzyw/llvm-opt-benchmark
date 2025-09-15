@@ -5827,8 +5827,8 @@ define hidden i64 @"_ZN103_$LT$serde..__private..de..content..ContentDeserialize
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 32, i1 false)
   %6 = call i64 @"_ZN14ruff_workspace7options1_102_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_workspace..options..Flake8AnnotationsOptions$GT$11deserialize17hdb068c3c1aac8a18E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %2)
   %7 = trunc i64 %6 to i1
-  %.sroa.0.013.i = select i1 %7, i64 -255, i64 281474976710401
-  %.sroa.0.0.insert.insert.i = and i64 %.sroa.0.013.i, %6
+  %.sroa.0.014.i = select i1 %7, i64 -255, i64 281474976710401
+  %.sroa.0.0.insert.insert.i = and i64 %.sroa.0.014.i, %6
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %20
 
@@ -5850,8 +5850,8 @@ define hidden i64 @"_ZN103_$LT$serde..__private..de..content..ContentDeserialize
 
 16:                                               ; preds = %8
   %17 = trunc i64 %11 to i1
-  %.sroa.0.013.i21 = select i1 %17, i64 -255, i64 281474976710401
-  %.sroa.0.0.insert.insert.i22 = and i64 %.sroa.0.013.i21, %11
+  %.sroa.0.014.i21 = select i1 %17, i64 -255, i64 281474976710401
+  %.sroa.0.0.insert.insert.i22 = and i64 %.sroa.0.014.i21, %11
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   tail call void @_RNvCscSpY9Juk0HT_7___rustc14___rust_dealloc(ptr noundef nonnull %10, i64 noundef 32, i64 noundef 8) #16
   %18 = load i8, ptr %0, align 8, !range !12
@@ -6881,8 +6881,8 @@ define hidden i64 @"_ZN103_$LT$serde..__private..de..content..ContentDeserialize
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 32, i1 false)
   %6 = call i64 @"_ZN14ruff_workspace7options1_97_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_workspace..options..Flake8QuotesOptions$GT$11deserialize17h84ba4f2b5751b25aE"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %2)
   %7 = trunc i64 %6 to i1
-  %.sroa.0.013.i = select i1 %7, i64 -255, i64 1099511627521
-  %.sroa.0.0.insert.insert.i = and i64 %.sroa.0.013.i, %6
+  %.sroa.0.014.i = select i1 %7, i64 -255, i64 1099511627521
+  %.sroa.0.0.insert.insert.i = and i64 %.sroa.0.014.i, %6
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %20
 
@@ -6904,8 +6904,8 @@ define hidden i64 @"_ZN103_$LT$serde..__private..de..content..ContentDeserialize
 
 16:                                               ; preds = %8
   %17 = trunc i64 %11 to i1
-  %.sroa.0.013.i21 = select i1 %17, i64 -255, i64 1099511627521
-  %.sroa.0.0.insert.insert.i22 = and i64 %.sroa.0.013.i21, %11
+  %.sroa.0.014.i21 = select i1 %17, i64 -255, i64 1099511627521
+  %.sroa.0.0.insert.insert.i22 = and i64 %.sroa.0.014.i21, %11
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   tail call void @_RNvCscSpY9Juk0HT_7___rustc14___rust_dealloc(ptr noundef nonnull %10, i64 noundef 32, i64 noundef 8) #16
   %18 = load i8, ptr %0, align 8, !range !12

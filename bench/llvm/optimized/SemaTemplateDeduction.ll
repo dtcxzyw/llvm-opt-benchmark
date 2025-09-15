@@ -59850,8 +59850,8 @@ define internal fastcc i64 @_ZN5clang13TreeTransformIN12_GLOBAL__N_130Substitute
   store i32 %.sroa.0.0.copyload.i30, ptr %19, align 4, !tbaa !877
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %23 = load i32, ptr %22, align 4, !tbaa !12
-  %.not137139 = icmp eq i32 %23, 0
-  br i1 %.not137139, label %_ZN5clang13TreeTransformIN12_GLOBAL__N_130SubstituteDeducedTypeTransformEE26TransformTemplateArgumentsINS_36TemplateArgumentLocContainerIteratorINS_29TemplateSpecializationTypeLocEEEEEbT_S8_RNS_24TemplateArgumentListInfoEb.exit.thread131, label %.lr.ph
+  %.not137140 = icmp eq i32 %23, 0
+  br i1 %.not137140, label %_ZN5clang13TreeTransformIN12_GLOBAL__N_130SubstituteDeducedTypeTransformEE26TransformTemplateArgumentsINS_36TemplateArgumentLocContainerIteratorINS_29TemplateSpecializationTypeLocEEEEEbT_S8_RNS_24TemplateArgumentListInfoEb.exit.thread131, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -60107,24 +60107,24 @@ _ZN5clang13TreeTransformIN12_GLOBAL__N_130SubstituteDeducedTypeTransformEE26Tran
   %136 = getelementptr inbounds nuw i8, ptr %130, i64 28
   store i32 %.sroa.0.0.copyload.i38, ptr %136, align 4, !tbaa !877
   %137 = load i32, ptr %16, align 8, !tbaa !723
-  %.not29144 = icmp eq i32 %137, 0
-  br i1 %.not29144, label %.loopexit, label %.lr.ph146
+  %.not29145 = icmp eq i32 %137, 0
+  br i1 %.not29145, label %.loopexit, label %.lr.ph147
 
-.lr.ph146:                                        ; preds = %121
+.lr.ph147:                                        ; preds = %121
   %138 = getelementptr inbounds nuw i8, ptr %130, i64 32
   %139 = zext i32 %137 to i64
   br label %140
 
-140:                                              ; preds = %.lr.ph146, %140
-  %indvars.iv152 = phi i64 [ 0, %.lr.ph146 ], [ %indvars.iv.next153, %140 ]
+140:                                              ; preds = %.lr.ph147, %140
+  %indvars.iv153 = phi i64 [ 0, %.lr.ph147 ], [ %indvars.iv.next154, %140 ]
   %141 = load ptr, ptr %14, align 8, !tbaa !722
-  %142 = getelementptr inbounds nuw %"class.clang::TemplateArgumentLoc", ptr %141, i64 %indvars.iv152
+  %142 = getelementptr inbounds nuw %"class.clang::TemplateArgumentLoc", ptr %141, i64 %indvars.iv153
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 24
   %.sroa.0.0.copyload.i39 = load i64, ptr %143, align 8
-  %144 = getelementptr inbounds nuw %"struct.clang::TemplateArgumentLocInfo", ptr %138, i64 %indvars.iv152
+  %144 = getelementptr inbounds nuw %"struct.clang::TemplateArgumentLocInfo", ptr %138, i64 %indvars.iv153
   store i64 %.sroa.0.0.copyload.i39, ptr %144, align 8
-  %indvars.iv.next153 = add nuw nsw i64 %indvars.iv152, 1
-  %.not29 = icmp eq i64 %indvars.iv.next153, %139
+  %indvars.iv.next154 = add nuw nsw i64 %indvars.iv153, 1
+  %.not29 = icmp eq i64 %indvars.iv.next154, %139
   br i1 %.not29, label %.loopexit, label %140, !llvm.loop !2459
 
 145:                                              ; preds = %110
@@ -60151,24 +60151,24 @@ _ZN5clang13TreeTransformIN12_GLOBAL__N_130SubstituteDeducedTypeTransformEE26Tran
   %158 = getelementptr inbounds nuw i8, ptr %154, i64 12
   store i32 %.sroa.0.0.copyload.i44, ptr %158, align 4, !tbaa !877
   %159 = load i32, ptr %16, align 8, !tbaa !723
-  %.not141 = icmp eq i32 %159, 0
-  br i1 %.not141, label %.loopexit, label %.lr.ph143
+  %.not142 = icmp eq i32 %159, 0
+  br i1 %.not142, label %.loopexit, label %.lr.ph144
 
-.lr.ph143:                                        ; preds = %145
+.lr.ph144:                                        ; preds = %145
   %160 = getelementptr inbounds nuw i8, ptr %154, i64 16
   %161 = zext i32 %159 to i64
   br label %162
 
-162:                                              ; preds = %.lr.ph143, %162
-  %indvars.iv149 = phi i64 [ 0, %.lr.ph143 ], [ %indvars.iv.next150, %162 ]
+162:                                              ; preds = %.lr.ph144, %162
+  %indvars.iv150 = phi i64 [ 0, %.lr.ph144 ], [ %indvars.iv.next151, %162 ]
   %163 = load ptr, ptr %14, align 8, !tbaa !722
-  %164 = getelementptr inbounds nuw %"class.clang::TemplateArgumentLoc", ptr %163, i64 %indvars.iv149
+  %164 = getelementptr inbounds nuw %"class.clang::TemplateArgumentLoc", ptr %163, i64 %indvars.iv150
   %165 = getelementptr inbounds nuw i8, ptr %164, i64 24
   %.sroa.0.0.copyload.i45 = load i64, ptr %165, align 8
-  %166 = getelementptr inbounds nuw %"struct.clang::TemplateArgumentLocInfo", ptr %160, i64 %indvars.iv149
+  %166 = getelementptr inbounds nuw %"struct.clang::TemplateArgumentLocInfo", ptr %160, i64 %indvars.iv150
   store i64 %.sroa.0.0.copyload.i45, ptr %166, align 8
-  %indvars.iv.next150 = add nuw nsw i64 %indvars.iv149, 1
-  %.not = icmp eq i64 %indvars.iv.next150, %161
+  %indvars.iv.next151 = add nuw nsw i64 %indvars.iv150, 1
+  %.not = icmp eq i64 %indvars.iv.next151, %161
   br i1 %.not, label %.loopexit, label %162, !llvm.loop !2460
 
 .loopexit:                                        ; preds = %.thread132, %103, %162, %140, %_ZN5clang13TreeTransformIN12_GLOBAL__N_130SubstituteDeducedTypeTransformEE26TransformTemplateArgumentsINS_36TemplateArgumentLocContainerIteratorINS_29TemplateSpecializationTypeLocEEEEEbT_S8_RNS_24TemplateArgumentListInfoEb.exit.thread, %145, %121, %_ZN5clang13TreeTransformIN12_GLOBAL__N_130SubstituteDeducedTypeTransformEE26TransformTemplateArgumentsINS_36TemplateArgumentLocContainerIteratorINS_29TemplateSpecializationTypeLocEEEEEbT_S8_RNS_24TemplateArgumentListInfoEb.exit.thread131

@@ -3074,8 +3074,8 @@ define hidden void @_ZN12typst_syntax8reparser11try_reparse17h1580dcd1557a7fcdE.
 
 _ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit: ; preds = %9, %34, %38
   %.0.i = phi i8 [ %37, %34 ], [ -128, %38 ], [ %29, %9 ]
-  %switch4.i = icmp eq i8 %29, -126
-  br i1 %switch4.i, label %_ZN12typst_syntax4node10SyntaxNode12children_mut17hf88f7e8b754fdb5dE.exit, label %_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit149.thread
+  %switch5.i = icmp eq i8 %29, -126
+  br i1 %switch5.i, label %_ZN12typst_syntax4node10SyntaxNode12children_mut17hf88f7e8b754fdb5dE.exit, label %_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit149.thread
 
 _ZN12typst_syntax4node10SyntaxNode12children_mut17hf88f7e8b754fdb5dE.exit: ; preds = %_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit
   %39 = tail call noundef align 8 dereferenceable(64) ptr @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$8make_mut17hfff7c36d1238e7d7E.llvm.5914695560033043764"(ptr noalias noundef nonnull align 8 dereferenceable(32) %7)
@@ -3164,8 +3164,8 @@ _ZN12typst_syntax4node10SyntaxNode3len17hac1f0d036770c8edE.exit127: ; preds = %5
   %.0.i125 = phi i64 [ %.0.i.i.i126, %57 ], [ %71, %68 ], [ %.0.i.i1.i124, %72 ]
   %84 = add i64 %.0.i.i.i.pn, %.081332
   call void @llvm.experimental.noalias.scope.decl(metadata !405)
-  %switch1.i = icmp eq i8 %52, -126
-  br i1 %switch1.i, label %_ZN12typst_syntax4node10SyntaxNode11descendants17h0a0a546ffd69f1ffE.exit.thread, label %_ZN12typst_syntax4node10SyntaxNode11descendants17h0a0a546ffd69f1ffE.exit
+  %switch2.i = icmp eq i8 %52, -126
+  br i1 %switch2.i, label %_ZN12typst_syntax4node10SyntaxNode11descendants17h0a0a546ffd69f1ffE.exit.thread, label %_ZN12typst_syntax4node10SyntaxNode11descendants17h0a0a546ffd69f1ffE.exit
 
 _ZN12typst_syntax4node10SyntaxNode11descendants17h0a0a546ffd69f1ffE.exit.thread: ; preds = %_ZN12typst_syntax4node10SyntaxNode3len17hac1f0d036770c8edE.exit127
   %85 = load ptr, ptr %.sroa.0209.0331, align 8, !alias.scope !405, !nonnull !5, !noundef !5
@@ -3300,8 +3300,8 @@ _ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit138: ; preds = %
 142:                                              ; preds = %_ZN12typst_syntax4node10SyntaxNode3len17hac1f0d036770c8edE.exit135
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   call void @llvm.experimental.noalias.scope.decl(metadata !424)
-  %switch1.i139 = icmp eq i8 %104, -126
-  br i1 %switch1.i139, label %143, label %_ZN12typst_syntax4node10SyntaxNode11descendants17h0a0a546ffd69f1ffE.exit141
+  %switch2.i139 = icmp eq i8 %104, -126
+  br i1 %switch2.i139, label %143, label %_ZN12typst_syntax4node10SyntaxNode11descendants17h0a0a546ffd69f1ffE.exit141
 
 143:                                              ; preds = %142
   %144 = load ptr, ptr %.sroa.0209.0331, align 8, !alias.scope !424, !nonnull !5, !noundef !5
@@ -3541,8 +3541,8 @@ _ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit149.thread: ; pr
   br label %469
 
 235:                                              ; preds = %234, %234
-  %switch4.i150 = icmp eq i8 %225, -126
-  br i1 %switch4.i150, label %236, label %_ZN12typst_syntax4node10SyntaxNode12children_mut17hf88f7e8b754fdb5dE.exit153
+  %switch5.i150 = icmp eq i8 %225, -126
+  br i1 %switch5.i150, label %236, label %_ZN12typst_syntax4node10SyntaxNode12children_mut17hf88f7e8b754fdb5dE.exit153
 
 236:                                              ; preds = %235
   %237 = call noundef align 8 dereferenceable(64) ptr @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$8make_mut17hfff7c36d1238e7d7E.llvm.5914695560033043764"(ptr noalias noundef nonnull align 8 dereferenceable(32) %7)

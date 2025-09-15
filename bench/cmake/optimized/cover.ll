@@ -851,10 +851,10 @@ COVER_computeEpochs.exit:                         ; preds = %5, %14
   br label %28
 
 28:                                               ; preds = %23, %COVER_computeEpochs.exit
-  %.not38 = icmp eq i64 %4, 0
-  br i1 %.not38, label %.thread17, label %.lr.ph42
+  %.not39 = icmp eq i64 %4, 0
+  br i1 %.not39, label %.thread17, label %.lr.ph43
 
-.lr.ph42:                                         ; preds = %28
+.lr.ph43:                                         ; preds = %28
   %29 = getelementptr i8, ptr %2, i64 12
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %31 = getelementptr i8, ptr %2, i64 8
@@ -865,11 +865,11 @@ COVER_computeEpochs.exit:                         ; preds = %5, %14
   %36 = zext i32 %.4.val to i64
   br label %37
 
-37:                                               ; preds = %.lr.ph42, %.thread
-  %.04541 = phi i64 [ %4, %.lr.ph42 ], [ %.216, %.thread ]
-  %.04640 = phi i64 [ 0, %.lr.ph42 ], [ %.14715, %.thread ]
-  %.04839 = phi i64 [ 0, %.lr.ph42 ], [ %212, %.thread ]
-  %38 = trunc i64 %.04839 to i32
+37:                                               ; preds = %.lr.ph43, %.thread
+  %.04542 = phi i64 [ %4, %.lr.ph43 ], [ %.216, %.thread ]
+  %.04641 = phi i64 [ 0, %.lr.ph43 ], [ %.14715, %.thread ]
+  %.04840 = phi i64 [ 0, %.lr.ph43 ], [ %212, %.thread ]
+  %38 = trunc i64 %.04840 to i32
   %39 = mul i32 %.sroa.4.0.i, %38
   %40 = add i32 %39, %.sroa.4.0.i
   %.val.i = load ptr, ptr %2, align 8, !tbaa !31
@@ -913,8 +913,8 @@ COVER_computeEpochs.exit:                         ; preds = %5, %14
 
 .lr.ph.i.i.i.preheader:                           ; preds = %47
   %58 = load i32, ptr %54, align 4, !tbaa !52
-  %.not.i.not.i.i30 = icmp eq i32 %58, %49
-  br i1 %.not.i.not.i.i30, label %COVER_map_at.exit.i, label %.lr.ph
+  %.not.i.not.i.i31 = icmp eq i32 %58, %49
+  br i1 %.not.i.not.i.i31, label %COVER_map_at.exit.i, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.i.i.i.preheader
   %59 = load i32, ptr %32, align 8, !tbaa !30
@@ -926,8 +926,8 @@ COVER_computeEpochs.exit:                         ; preds = %5, %14
   br i1 %.not.i.not.i.i, label %COVER_map_at.exit.i, label %61
 
 61:                                               ; preds = %.lr.ph, %.lr.ph.i.i.i
-  %.01418.i.i.i31 = phi i32 [ %52, %.lr.ph ], [ %63, %.lr.ph.i.i.i ]
-  %62 = add i32 %.01418.i.i.i31, 1
+  %.01418.i.i.i32 = phi i32 [ %52, %.lr.ph ], [ %63, %.lr.ph.i.i.i ]
+  %62 = add i32 %.01418.i.i.i32, 1
   %63 = and i32 %59, %62
   %64 = zext i32 %63 to i64
   %65 = getelementptr inbounds nuw %struct.COVER_map_pair_t_s, ptr %45, i64 %64
@@ -989,10 +989,10 @@ COVER_map_at.exit.i:                              ; preds = %.lr.ph.i.i.i, %.lr.
 
 .lr.ph.i.i72.i.preheader:                         ; preds = %86
   %98 = load i32, ptr %94, align 4, !tbaa !52
-  %.not.i.not.i74.i33 = icmp eq i32 %98, %89
-  br i1 %.not.i.not.i74.i33, label %COVER_map_at.exit79.i, label %.lr.ph35
+  %.not.i.not.i74.i34 = icmp eq i32 %98, %89
+  br i1 %.not.i.not.i74.i34, label %COVER_map_at.exit79.i, label %.lr.ph36
 
-.lr.ph35:                                         ; preds = %.lr.ph.i.i72.i.preheader
+.lr.ph36:                                         ; preds = %.lr.ph.i.i72.i.preheader
   %99 = load i32, ptr %32, align 8, !tbaa !30
   br label %101
 
@@ -1001,9 +1001,9 @@ COVER_map_at.exit.i:                              ; preds = %.lr.ph.i.i.i, %.lr.
   %.not.i.not.i74.i = icmp eq i32 %100, %89
   br i1 %.not.i.not.i74.i, label %COVER_map_at.exit79.i, label %101
 
-101:                                              ; preds = %.lr.ph35, %.lr.ph.i.i72.i
-  %.01418.i.i73.i34 = phi i32 [ %92, %.lr.ph35 ], [ %103, %.lr.ph.i.i72.i ]
-  %102 = add i32 %.01418.i.i73.i34, 1
+101:                                              ; preds = %.lr.ph36, %.lr.ph.i.i72.i
+  %.01418.i.i73.i35 = phi i32 [ %92, %.lr.ph36 ], [ %103, %.lr.ph.i.i72.i ]
+  %102 = add i32 %.01418.i.i73.i35, 1
   %103 = and i32 %99, %102
   %104 = zext i32 %103 to i64
   %105 = getelementptr inbounds nuw %struct.COVER_map_pair_t_s, ptr %45, i64 %104
@@ -1023,10 +1023,10 @@ COVER_map_at.exit79.thread.i:                     ; preds = %101, %86
 
 COVER_map_at.exit79.i:                            ; preds = %.lr.ph.i.i72.i, %.lr.ph.i.i72.i.preheader
   %.phi.trans.insert.phi.trans.insert.i78.i.pre-phi = phi i64 [ %93, %.lr.ph.i.i72.i.preheader ], [ %104, %.lr.ph.i.i72.i ]
-  %.lcssa26 = phi i32 [ %96, %.lr.ph.i.i72.i.preheader ], [ %107, %.lr.ph.i.i72.i ]
+  %.lcssa27 = phi i32 [ %96, %.lr.ph.i.i72.i.preheader ], [ %107, %.lr.ph.i.i72.i ]
   %112 = getelementptr inbounds nuw %struct.COVER_map_pair_t_s, ptr %45, i64 %.phi.trans.insert.phi.trans.insert.i78.i.pre-phi
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 4
-  %114 = add i32 %.lcssa26, -1
+  %114 = add i32 %.lcssa27, -1
   %115 = add i32 %.sroa.022.06.i, 1
   store i32 %114, ptr %113, align 4, !tbaa !19
   %116 = icmp eq i32 %114, 0
@@ -1178,12 +1178,12 @@ COVER_selectSegment.exit:                         ; preds = %.lr.ph24.i, %.prehe
   %182 = add i32 %35, %.065.lcssa49.i
   %183 = sub i32 %182, %.066.lcssa48.i
   %184 = zext i32 %183 to i64
-  %..045 = tail call i64 @llvm.umin.i64(i64 %.04541, i64 %184)
+  %..045 = tail call i64 @llvm.umin.i64(i64 %.04542, i64 %184)
   %185 = icmp samesign ult i64 %..045, %36
   br i1 %185, label %.thread17, label %186
 
 186:                                              ; preds = %181
-  %187 = sub i64 %.04541, %..045
+  %187 = sub i64 %.04542, %..045
   %188 = getelementptr inbounds nuw i8, ptr %3, i64 %187
   %189 = load ptr, ptr %0, align 8, !tbaa !36
   %190 = getelementptr inbounds nuw i8, ptr %189, i64 %.sroa.048.sroa.0.0.insert.ext.i
@@ -1216,20 +1216,20 @@ COVER_selectSegment.exit:                         ; preds = %.lr.ph24.i, %.prehe
   br label %.thread
 
 COVER_selectSegment.exit.thread:                  ; preds = %37, %COVER_selectSegment.exit
-  %210 = add i64 %.04640, 1
+  %210 = add i64 %.04641, 1
   %.not54.not = icmp ult i64 %210, %20
   br i1 %.not54.not, label %.thread, label %.thread17
 
 .thread:                                          ; preds = %186, %193, %200, %COVER_selectSegment.exit.thread
-  %.216 = phi i64 [ %.04541, %COVER_selectSegment.exit.thread ], [ %187, %200 ], [ %187, %193 ], [ %187, %186 ]
+  %.216 = phi i64 [ %.04542, %COVER_selectSegment.exit.thread ], [ %187, %200 ], [ %187, %193 ], [ %187, %186 ]
   %.14715 = phi i64 [ %210, %COVER_selectSegment.exit.thread ], [ 0, %200 ], [ 0, %193 ], [ 0, %186 ]
-  %211 = add nsw i64 %.04839, 1
+  %211 = add nsw i64 %.04840, 1
   %212 = urem i64 %211, %.sroa.0.0.insert.ext.i
   %.not = icmp eq i64 %.216, 0
   br i1 %.not, label %.thread17, label %37, !llvm.loop !56
 
 .thread17:                                        ; preds = %.thread, %COVER_selectSegment.exit.thread, %181, %28
-  %.045.lcssa = phi i64 [ 0, %28 ], [ %.04541, %181 ], [ %.04541, %COVER_selectSegment.exit.thread ], [ 0, %.thread ]
+  %.045.lcssa = phi i64 [ 0, %28 ], [ %.04542, %181 ], [ %.04542, %COVER_selectSegment.exit.thread ], [ 0, %.thread ]
   %213 = load i32, ptr @g_displayLevel, align 4, !tbaa !19
   %214 = icmp sgt i32 %213, 1
   br i1 %214, label %215, label %220

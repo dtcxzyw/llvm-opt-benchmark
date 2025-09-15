@@ -2616,9 +2616,9 @@ tlsa_md_get.exit.thread.i:                        ; preds = %tlsa_md_get.exit.i,
   br label %123
 
 123:                                              ; preds = %.thread122.i, %.lr.ph.i
-  %.082131.i = phi i32 [ 0, %.lr.ph.i ], [ %148, %.thread122.i ]
+  %.082132.i = phi i32 [ 0, %.lr.ph.i ], [ %148, %.thread122.i ]
   %124 = load ptr, ptr %21, align 8, !tbaa !267
-  %125 = call ptr @OPENSSL_sk_value(ptr noundef %124, i32 noundef %.082131.i) #20
+  %125 = call ptr @OPENSSL_sk_value(ptr noundef %124, i32 noundef %.082132.i) #20
   %126 = load i8, ptr %125, align 8, !tbaa !279
   %127 = icmp ugt i8 %126, %1
   br i1 %127, label %.thread122.i, label %128
@@ -2652,12 +2652,12 @@ tlsa_md_get.exit.thread.i:                        ; preds = %tlsa_md_get.exit.i,
   br i1 %147, label %.thread122.i, label %.thread127.i
 
 .thread122.i:                                     ; preds = %136, %130, %123
-  %148 = add nuw nsw i32 %.082131.i, 1
+  %148 = add nuw nsw i32 %.082132.i, 1
   %exitcond.not.i = icmp eq i32 %148, %120
   br i1 %exitcond.not.i, label %.thread127.i, label %123, !llvm.loop !287
 
 .thread127.i:                                     ; preds = %.thread122.i, %136, %134, %128, %118
-  %.082.lcssa.i = phi i32 [ 0, %118 ], [ %120, %.thread122.i ], [ %.082131.i, %136 ], [ %.082131.i, %128 ], [ %.082131.i, %134 ]
+  %.082.lcssa.i = phi i32 [ 0, %118 ], [ %120, %.thread122.i ], [ %.082132.i, %136 ], [ %.082132.i, %128 ], [ %.082132.i, %134 ]
   %149 = load ptr, ptr %21, align 8, !tbaa !267
   %150 = call i32 @OPENSSL_sk_insert(ptr noundef %149, ptr noundef nonnull %54, i32 noundef %.082.lcssa.i) #20
   %.not107.i = icmp eq i32 %150, 0

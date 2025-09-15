@@ -11032,9 +11032,9 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIfEERKT_v.exit: ; p
   %14 = tail call float @llvm.fabs.f32(float %13)
   %or.cond = fcmp ueq float %14, 0x7FF0000000000000
   %15 = fcmp ole float %13, -1.290000e+02
-  %or.cond4.not8 = or i1 %15, %or.cond
+  %or.cond4.not9 = or i1 %15, %or.cond
   %16 = fcmp oge float %13, 1.280000e+02
-  %or.cond5.not = or i1 %16, %or.cond4.not8
+  %or.cond5.not = or i1 %16, %or.cond4.not9
   br i1 %or.cond5.not, label %20, label %_ZNRSt8optionalIcE5valueEv.exit
 
 _ZNRSt8optionalIcE5valueEv.exit:                  ; preds = %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIfEERKT_v.exit
@@ -11103,9 +11103,9 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIdEERKT_v.exit: ; p
   %14 = tail call double @llvm.fabs.f64(double %13)
   %or.cond = fcmp ueq double %14, 0x7FF0000000000000
   %15 = fcmp ole double %13, -1.290000e+02
-  %or.cond4.not8 = or i1 %15, %or.cond
+  %or.cond4.not9 = or i1 %15, %or.cond
   %16 = fcmp oge double %13, 1.280000e+02
-  %or.cond5.not = or i1 %16, %or.cond4.not8
+  %or.cond5.not = or i1 %16, %or.cond4.not9
   br i1 %or.cond5.not, label %20, label %_ZNRSt8optionalIcE5valueEv.exit
 
 _ZNRSt8optionalIcE5valueEv.exit:                  ; preds = %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIdEERKT_v.exit
@@ -12129,9 +12129,9 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIfEERKT_v.exit: ; p
   %14 = tail call float @llvm.fabs.f32(float %13)
   %or.cond = fcmp ueq float %14, 0x7FF0000000000000
   %15 = fcmp ole float %13, -1.290000e+02
-  %or.cond4.not8 = or i1 %15, %or.cond
+  %or.cond4.not9 = or i1 %15, %or.cond
   %16 = fcmp oge float %13, 1.280000e+02
-  %or.cond5.not = or i1 %16, %or.cond4.not8
+  %or.cond5.not = or i1 %16, %or.cond4.not9
   br i1 %or.cond5.not, label %20, label %_ZNRSt8optionalIaE5valueEv.exit
 
 _ZNRSt8optionalIaE5valueEv.exit:                  ; preds = %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIfEERKT_v.exit
@@ -12200,9 +12200,9 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIdEERKT_v.exit: ; p
   %14 = tail call double @llvm.fabs.f64(double %13)
   %or.cond = fcmp ueq double %14, 0x7FF0000000000000
   %15 = fcmp ole double %13, -1.290000e+02
-  %or.cond4.not8 = or i1 %15, %or.cond
+  %or.cond4.not9 = or i1 %15, %or.cond
   %16 = fcmp oge double %13, 1.280000e+02
-  %or.cond5.not = or i1 %16, %or.cond4.not8
+  %or.cond5.not = or i1 %16, %or.cond4.not9
   br i1 %or.cond5.not, label %20, label %_ZNRSt8optionalIaE5valueEv.exit
 
 _ZNRSt8optionalIaE5valueEv.exit:                  ; preds = %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIdEERKT_v.exit
@@ -13128,9 +13128,9 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIfEERKT_v.exit: ; p
   %14 = tail call float @llvm.fabs.f32(float %13)
   %or.cond = fcmp ueq float %14, 0x7FF0000000000000
   %15 = fcmp ole float %13, -1.000000e+00
-  %or.cond4.not8 = or i1 %15, %or.cond
+  %or.cond4.not9 = or i1 %15, %or.cond
   %16 = fcmp oge float %13, 2.560000e+02
-  %or.cond5.not = or i1 %16, %or.cond4.not8
+  %or.cond5.not = or i1 %16, %or.cond4.not9
   br i1 %or.cond5.not, label %20, label %_ZNRSt8optionalIhE5valueEv.exit
 
 _ZNRSt8optionalIhE5valueEv.exit:                  ; preds = %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIfEERKT_v.exit
@@ -13199,9 +13199,9 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIdEERKT_v.exit: ; p
   %14 = tail call double @llvm.fabs.f64(double %13)
   %or.cond = fcmp ueq double %14, 0x7FF0000000000000
   %15 = fcmp ole double %13, -1.000000e+00
-  %or.cond4.not8 = or i1 %15, %or.cond
+  %or.cond4.not9 = or i1 %15, %or.cond
   %16 = fcmp oge double %13, 2.560000e+02
-  %or.cond5.not = or i1 %16, %or.cond4.not8
+  %or.cond5.not = or i1 %16, %or.cond4.not9
   br i1 %or.cond5.not, label %20, label %_ZNRSt8optionalIhE5valueEv.exit
 
 _ZNRSt8optionalIhE5valueEv.exit:                  ; preds = %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIdEERKT_v.exit
@@ -14079,9 +14079,9 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIfEERKT_v.exit: ; p
   %14 = tail call float @llvm.fabs.f32(float %13)
   %or.cond = fcmp ueq float %14, 0x7FF0000000000000
   %15 = fcmp ole float %13, -3.276900e+04
-  %or.cond4.not8 = or i1 %15, %or.cond
+  %or.cond4.not9 = or i1 %15, %or.cond
   %16 = fcmp oge float %13, 3.276800e+04
-  %or.cond5.not = or i1 %16, %or.cond4.not8
+  %or.cond5.not = or i1 %16, %or.cond4.not9
   br i1 %or.cond5.not, label %20, label %_ZNRSt8optionalIsE5valueEv.exit
 
 _ZNRSt8optionalIsE5valueEv.exit:                  ; preds = %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIfEERKT_v.exit
@@ -14150,9 +14150,9 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIdEERKT_v.exit: ; p
   %14 = tail call double @llvm.fabs.f64(double %13)
   %or.cond = fcmp ueq double %14, 0x7FF0000000000000
   %15 = fcmp ole double %13, -3.276900e+04
-  %or.cond4.not8 = or i1 %15, %or.cond
+  %or.cond4.not9 = or i1 %15, %or.cond
   %16 = fcmp oge double %13, 3.276800e+04
-  %or.cond5.not = or i1 %16, %or.cond4.not8
+  %or.cond5.not = or i1 %16, %or.cond4.not9
   br i1 %or.cond5.not, label %20, label %_ZNRSt8optionalIsE5valueEv.exit
 
 _ZNRSt8optionalIsE5valueEv.exit:                  ; preds = %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIdEERKT_v.exit
@@ -14936,9 +14936,9 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIfEERKT_v.exit: ; p
   %14 = tail call float @llvm.fabs.f32(float %13)
   %or.cond = fcmp ueq float %14, 0x7FF0000000000000
   %15 = fcmp ole float %13, -1.000000e+00
-  %or.cond4.not8 = or i1 %15, %or.cond
+  %or.cond4.not9 = or i1 %15, %or.cond
   %16 = fcmp oge float %13, 6.553600e+04
-  %or.cond5.not = or i1 %16, %or.cond4.not8
+  %or.cond5.not = or i1 %16, %or.cond4.not9
   br i1 %or.cond5.not, label %20, label %_ZNRSt8optionalItE5valueEv.exit
 
 _ZNRSt8optionalItE5valueEv.exit:                  ; preds = %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIfEERKT_v.exit
@@ -15007,9 +15007,9 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIdEERKT_v.exit: ; p
   %14 = tail call double @llvm.fabs.f64(double %13)
   %or.cond = fcmp ueq double %14, 0x7FF0000000000000
   %15 = fcmp ole double %13, -1.000000e+00
-  %or.cond4.not8 = or i1 %15, %or.cond
+  %or.cond4.not9 = or i1 %15, %or.cond
   %16 = fcmp oge double %13, 6.553600e+04
-  %or.cond5.not = or i1 %16, %or.cond4.not8
+  %or.cond5.not = or i1 %16, %or.cond4.not9
   br i1 %or.cond5.not, label %20, label %_ZNRSt8optionalItE5valueEv.exit
 
 _ZNRSt8optionalItE5valueEv.exit:                  ; preds = %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIdEERKT_v.exit
@@ -15805,9 +15805,9 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIdEERKT_v.exit: ; p
   %14 = tail call double @llvm.fabs.f64(double %13)
   %or.cond = fcmp ueq double %14, 0x7FF0000000000000
   %15 = fcmp ole double %13, 0xC1E0000000200000
-  %or.cond4.not8 = or i1 %15, %or.cond
+  %or.cond4.not9 = or i1 %15, %or.cond
   %16 = fcmp oge double %13, 0x41E0000000000000
-  %or.cond5.not = or i1 %16, %or.cond4.not8
+  %or.cond5.not = or i1 %16, %or.cond4.not9
   br i1 %or.cond5.not, label %20, label %_ZNRSt8optionalIiE5valueEv.exit
 
 _ZNRSt8optionalIiE5valueEv.exit:                  ; preds = %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIdEERKT_v.exit
@@ -16446,9 +16446,9 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIfEERKT_v.exit: ; p
   %14 = tail call float @llvm.fabs.f32(float %13)
   %or.cond = fcmp ueq float %14, 0x7FF0000000000000
   %15 = fcmp ole float %13, -1.000000e+00
-  %or.cond4.not8 = or i1 %15, %or.cond
+  %or.cond4.not9 = or i1 %15, %or.cond
   %16 = fcmp oge float %13, 0x41F0000000000000
-  %or.cond5.not = or i1 %16, %or.cond4.not8
+  %or.cond5.not = or i1 %16, %or.cond4.not9
   br i1 %or.cond5.not, label %20, label %_ZNRSt8optionalIjE5valueEv.exit
 
 _ZNRSt8optionalIjE5valueEv.exit:                  ; preds = %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIfEERKT_v.exit
@@ -16517,9 +16517,9 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIdEERKT_v.exit: ; p
   %14 = tail call double @llvm.fabs.f64(double %13)
   %or.cond = fcmp ueq double %14, 0x7FF0000000000000
   %15 = fcmp ole double %13, -1.000000e+00
-  %or.cond4.not8 = or i1 %15, %or.cond
+  %or.cond4.not9 = or i1 %15, %or.cond
   %16 = fcmp oge double %13, 0x41F0000000000000
-  %or.cond5.not = or i1 %16, %or.cond4.not8
+  %or.cond5.not = or i1 %16, %or.cond4.not9
   br i1 %or.cond5.not, label %20, label %_ZNRSt8optionalIjE5valueEv.exit
 
 _ZNRSt8optionalIjE5valueEv.exit:                  ; preds = %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIdEERKT_v.exit

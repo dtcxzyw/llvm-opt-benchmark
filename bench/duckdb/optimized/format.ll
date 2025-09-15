@@ -1141,11 +1141,11 @@ _ZN10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE7reserveEm.exit
 
 .loopexit42.loopexit:                             ; preds = %.lr.ph.i.i.i
   %.pre = load i64, ptr %7, align 8, !tbaa !8
-  %.pre46 = load i64, ptr %6, align 8, !tbaa !13
+  %.pre47 = load i64, ptr %6, align 8, !tbaa !13
   br label %.loopexit42
 
 .loopexit42:                                      ; preds = %.loopexit42.loopexit, %_ZN10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE7reserveEm.exit.i
-  %34 = phi i64 [ %.pre46, %.loopexit42.loopexit ], [ %23, %_ZN10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE7reserveEm.exit.i ]
+  %34 = phi i64 [ %.pre47, %.loopexit42.loopexit ], [ %23, %_ZN10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE7reserveEm.exit.i ]
   %35 = phi i64 [ %.pre, %.loopexit42.loopexit ], [ 0, %_ZN10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE7reserveEm.exit.i ]
   %36 = add i64 %35, 2
   %37 = icmp ugt i64 %36, %34
@@ -1176,11 +1176,11 @@ _ZN10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE7reserveEm.exit
   br i1 %.not.i.i.i18, label %.loopexit.loopexit, label %.lr.ph.i.i.i15, !llvm.loop !18
 
 .loopexit.loopexit:                               ; preds = %.lr.ph.i.i.i15
-  %.pre47 = load i64, ptr %7, align 8, !tbaa !8
+  %.pre48 = load i64, ptr %7, align 8, !tbaa !8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %4
-  %46 = phi i64 [ %.pre47, %.loopexit.loopexit ], [ 0, %4 ]
+  %46 = phi i64 [ %.pre48, %.loopexit.loopexit ], [ 0, %4 ]
   %47 = add i64 %46, 6
   %48 = load i64, ptr %6, align 8, !tbaa !13
   %49 = icmp ugt i64 %47, %48

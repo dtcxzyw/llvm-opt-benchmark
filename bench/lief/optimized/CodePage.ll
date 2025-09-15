@@ -291,8 +291,8 @@ _ZNK6frozen3mapIN4LIEF2PE10CODE_PAGESEPKcLm140ESt4lessIS3_EE11lower_boundIS3_EEP
   %40 = phi i32 [ %.pre.i, %_ZNK6frozen3mapIN4LIEF2PE10CODE_PAGESEPKcLm140ESt4lessIS3_EE11lower_boundIS3_EEPKSt4pairIS3_S5_ERKT_.exit._crit_edge.i ], [ %14, %12 ]
   %.0.i.i.i.i14.i = phi ptr [ %.0.i.i.i.i.ptr.i, %_ZNK6frozen3mapIN4LIEF2PE10CODE_PAGESEPKcLm140ESt4lessIS3_EE11lower_boundIS3_EEPKSt4pairIS3_S5_ERKT_.exit._crit_edge.i ], [ %13, %12 ]
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 2248
-  %.not41.i = icmp ult i32 %5, %40
-  %spec.select.i = select i1 %.not41.i, ptr %41, ptr %.0.i.i.i.i14.i
+  %.not45.i = icmp ult i32 %5, %40
+  %spec.select.i = select i1 %.not45.i, ptr %41, ptr %.0.i.i.i.i14.i
   br label %_ZN6frozen3mapIN4LIEF2PE10CODE_PAGESEPKcLm140ESt4lessIS3_EE9find_implIRKS8_S3_EEDaOT_RKT0_.exit
 
 _ZN6frozen3mapIN4LIEF2PE10CODE_PAGESEPKcLm140ESt4lessIS3_EE9find_implIRKS8_S3_EEDaOT_RKT0_.exit: ; preds = %_ZNK6frozen3mapIN4LIEF2PE10CODE_PAGESEPKcLm140ESt4lessIS3_EE11lower_boundIS3_EEPKSt4pairIS3_S5_ERKT_.exit.i, %_ZNK6frozen3mapIN4LIEF2PE10CODE_PAGESEPKcLm140ESt4lessIS3_EE11lower_boundIS3_EEPKSt4pairIS3_S5_ERKT_.exit.thread.i

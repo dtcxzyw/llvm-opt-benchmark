@@ -13643,26 +13643,26 @@ declare x86_fp80 @sqrtl(x86_fp80 noundef) local_unnamed_addr #11
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef x86_fp80 @_ZN5boost4math5tools6detail24second_order_root_finderINS2_11halley_stepENS0_6detail20gamma_p_inverse_funcIeNS0_8policies6policyINS7_13promote_floatILb0EEENS7_14promote_doubleILb0EEENS7_14default_policyESD_SD_SD_SD_SD_SD_SD_SD_SD_SD_EEEEeEET1_T0_SG_SG_SG_iRm(ptr noundef byval(%"struct.boost::math::detail::gamma_p_inverse_func") align 16 %f, x86_fp80 noundef %guess, x86_fp80 noundef %min, x86_fp80 noundef %max, i32 noundef %digits, ptr noundef nonnull align 8 dereferenceable(8) %max_iter) local_unnamed_addr #6 comdat personality ptr @__gxx_personality_v0 {
 entry:
-  %ref.tmp.i.i57 = alloca x86_fp80, align 16
-  %ref.tmp2.i.i58 = alloca %"struct.std::integral_constant", align 1
-  %ref.tmp.i59 = alloca %"class.boost::math::policies::policy", align 1
-  %ref.tmp.i.i53 = alloca x86_fp80, align 16
-  %ref.tmp2.i.i54 = alloca %"struct.std::integral_constant", align 1
-  %ref.tmp.i55 = alloca %"class.boost::math::policies::policy", align 1
-  %ref.tmp.i.i48 = alloca x86_fp80, align 16
-  %ref.tmp2.i.i49 = alloca x86_fp80, align 16
-  %ref.tmp5.i.i50 = alloca %"struct.std::integral_constant", align 1
-  %ref.tmp.i51 = alloca %"class.boost::math::policies::policy", align 1
-  %ref.tmp.i.i44 = alloca x86_fp80, align 16
-  %ref.tmp2.i.i45 = alloca %"struct.std::integral_constant", align 1
-  %ref.tmp.i46 = alloca %"class.boost::math::policies::policy", align 1
-  %ref.tmp.i.i41 = alloca x86_fp80, align 16
-  %ref.tmp2.i.i42 = alloca %"struct.std::integral_constant", align 1
-  %ref.tmp.i43 = alloca %"class.boost::math::policies::policy", align 1
-  %ref.tmp.i.i39 = alloca x86_fp80, align 16
+  %ref.tmp.i.i58 = alloca x86_fp80, align 16
+  %ref.tmp2.i.i59 = alloca %"struct.std::integral_constant", align 1
+  %ref.tmp.i60 = alloca %"class.boost::math::policies::policy", align 1
+  %ref.tmp.i.i54 = alloca x86_fp80, align 16
+  %ref.tmp2.i.i55 = alloca %"struct.std::integral_constant", align 1
+  %ref.tmp.i56 = alloca %"class.boost::math::policies::policy", align 1
+  %ref.tmp.i.i49 = alloca x86_fp80, align 16
+  %ref.tmp2.i.i50 = alloca x86_fp80, align 16
+  %ref.tmp5.i.i51 = alloca %"struct.std::integral_constant", align 1
+  %ref.tmp.i52 = alloca %"class.boost::math::policies::policy", align 1
+  %ref.tmp.i.i45 = alloca x86_fp80, align 16
+  %ref.tmp2.i.i46 = alloca %"struct.std::integral_constant", align 1
+  %ref.tmp.i47 = alloca %"class.boost::math::policies::policy", align 1
+  %ref.tmp.i.i42 = alloca x86_fp80, align 16
+  %ref.tmp2.i.i43 = alloca %"struct.std::integral_constant", align 1
+  %ref.tmp.i44 = alloca %"class.boost::math::policies::policy", align 1
+  %ref.tmp.i.i40 = alloca x86_fp80, align 16
   %ref.tmp2.i.i = alloca x86_fp80, align 16
   %ref.tmp5.i.i = alloca %"struct.std::integral_constant", align 1
-  %ref.tmp.i40 = alloca %"class.boost::math::policies::policy", align 1
+  %ref.tmp.i41 = alloca %"class.boost::math::policies::policy", align 1
   %ft.i.i = alloca x86_fp80, align 16
   %ref.tmp.i.i = alloca %"struct.boost::math::policies::policy", align 1
   %ft.i = alloca x86_fp80, align 16
@@ -13697,34 +13697,34 @@ if.end:                                           ; preds = %entry
   %invert.i = getelementptr inbounds nuw i8, ptr %f, i64 32
   %p.i = getelementptr inbounds nuw i8, ptr %f, i64 16
   %.pre = load x86_fp80, ptr %f, align 16, !tbaa !234, !noalias !236
-  %.pre159 = load i8, ptr %invert.i, align 16, !tbaa !239, !range !26, !noalias !236
-  %loadedv.i = trunc nuw i8 %.pre159 to i1
+  %.pre160 = load i8, ptr %invert.i, align 16, !tbaa !239, !range !26, !noalias !236
+  %loadedv.i = trunc nuw i8 %.pre160 to i1
   br label %do.body
 
 do.body:                                          ; preds = %land.rhs, %if.end
-  %delta.0 = phi x86_fp80 [ %1, %if.end ], [ %delta.5142, %land.rhs ]
-  %3 = phi x86_fp80 [ %guess, %if.end ], [ %result.5143, %land.rhs ]
-  %min_range_f.0 = phi x86_fp80 [ 0xK00000000000000000000, %if.end ], [ %min_range_f.1144, %land.rhs ]
-  %max_range_f.0 = phi x86_fp80 [ 0xK00000000000000000000, %if.end ], [ %max_range_f.1145, %land.rhs ]
-  %out_of_bounds_sentry.0 = phi i8 [ 0, %if.end ], [ %out_of_bounds_sentry.2146, %land.rhs ]
+  %delta.0 = phi x86_fp80 [ %1, %if.end ], [ %delta.5143, %land.rhs ]
+  %3 = phi x86_fp80 [ %guess, %if.end ], [ %result.5144, %land.rhs ]
+  %min_range_f.0 = phi x86_fp80 [ 0xK00000000000000000000, %if.end ], [ %min_range_f.1145, %land.rhs ]
+  %max_range_f.0 = phi x86_fp80 [ 0xK00000000000000000000, %if.end ], [ %max_range_f.1146, %land.rhs ]
+  %out_of_bounds_sentry.0 = phi i8 [ 0, %if.end ], [ %out_of_bounds_sentry.2147, %land.rhs ]
   %delta1.0 = phi x86_fp80 [ %1, %if.end ], [ %delta1.1, %land.rhs ]
   %4 = load x86_fp80, ptr %f0, align 16, !tbaa !155
   call void @llvm.lifetime.start.p0(ptr nonnull %ft.i), !noalias !236
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i), !noalias !236
-  %call.i2426 = invoke noundef x86_fp80 @_ZN5boost4math6detail20gamma_incomplete_impIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EEEET_SB_SB_bbRKT0_PSB_(x86_fp80 noundef %.pre, x86_fp80 noundef %3, i1 noundef zeroext true, i1 noundef zeroext %loadedv.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i, ptr noundef nonnull %ft.i)
-          to label %call.i24.noexc unwind label %lpad
+  %call.i2527 = invoke noundef x86_fp80 @_ZN5boost4math6detail20gamma_incomplete_impIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EEEET_SB_SB_bbRKT0_PSB_(x86_fp80 noundef %.pre, x86_fp80 noundef %3, i1 noundef zeroext true, i1 noundef zeroext %loadedv.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i, ptr noundef nonnull %ft.i)
+          to label %call.i25.noexc unwind label %lpad
 
-call.i24.noexc:                                   ; preds = %do.body
+call.i25.noexc:                                   ; preds = %do.body
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i), !noalias !236
   %5 = load x86_fp80, ptr %ft.i, align 16, !tbaa !155, !noalias !236
   %sub.i = fsub x86_fp80 %.pre, %3
   %sub3.i = fadd x86_fp80 %sub.i, 0xKBFFF8000000000000000
   %div4.i = fdiv x86_fp80 %sub3.i, %3
   %6 = call noundef x86_fp80 @llvm.fabs.f80(x86_fp80 %div4.i)
-  %cmp.i25 = fcmp ogt x86_fp80 %6, 0xK3FFF8000000000000000
-  br i1 %cmp.i25, label %if.then.i, label %if.else13.i
+  %cmp.i26 = fcmp ogt x86_fp80 %6, 0xK3FFF8000000000000000
+  br i1 %cmp.i26, label %if.then.i, label %if.else13.i
 
-if.then.i:                                        ; preds = %call.i24.noexc
+if.then.i:                                        ; preds = %call.i25.noexc
   %div8.i = fdiv x86_fp80 0xK7FFEFFFFFFFFFFFFFFFF, %6
   %cmp9.i = fcmp olt x86_fp80 %div8.i, %5
   br i1 %cmp9.i, label %try.cont, label %if.else.i
@@ -13733,7 +13733,7 @@ if.else.i:                                        ; preds = %if.then.i
   %mul.i = fmul x86_fp80 %div4.i, %5
   br label %try.cont
 
-if.else13.i:                                      ; preds = %call.i24.noexc
+if.else13.i:                                      ; preds = %call.i25.noexc
   %mul14.i = fmul x86_fp80 %div4.i, %5
   br label %try.cont
 
@@ -13751,7 +13751,7 @@ try.cont:                                         ; preds = %if.then.i, %if.else
   %fneg19.i = fneg x86_fp80 %5
   %f1.0.i = select i1 %loadedv.i, x86_fp80 %fneg19.i, x86_fp80 %5
   %10 = load x86_fp80, ptr %p.i, align 16, !tbaa !240, !noalias !236
-  %sub23.i = fsub x86_fp80 %call.i2426, %10
+  %sub23.i = fsub x86_fp80 %call.i2527, %10
   call void @llvm.lifetime.end.p0(ptr nonnull %ft.i), !noalias !236
   store x86_fp80 %sub23.i, ptr %f0, align 16, !tbaa !155
   %11 = load i64, ptr %count, align 8, !tbaa !30
@@ -13770,10 +13770,10 @@ try.cont.thread:                                  ; preds = %lpad
   call void @__cxa_end_catch()
   %.pr = load x86_fp80, ptr %f0, align 16, !tbaa !155
   %15 = load i64, ptr %count, align 8, !tbaa !30
-  %dec107 = add i64 %15, -1
-  store i64 %dec107, ptr %count, align 8, !tbaa !30
-  %cmp9108 = fcmp oeq x86_fp80 %.pr, 0xK00000000000000000000
-  br i1 %cmp9108, label %do.end, label %if.then13
+  %dec108 = add i64 %15, -1
+  store i64 %dec108, ptr %count, align 8, !tbaa !30
+  %cmp9109 = fcmp oeq x86_fp80 %.pr, 0xK00000000000000000000
+  br i1 %cmp9109, label %do.end, label %if.then13
 
 if.end11:                                         ; preds = %try.cont
   %cmp12 = fcmp oeq x86_fp80 %5, 0xK00000000000000000000
@@ -13781,10 +13781,10 @@ if.end11:                                         ; preds = %try.cont
 
 if.then13:                                        ; preds = %try.cont.thread, %if.end11
   %16 = phi x86_fp80 [ %.pr, %try.cont.thread ], [ %sub23.i, %if.end11 ]
-  %cmp.i28 = fcmp oeq x86_fp80 %4, 0xK00000000000000000000
-  br i1 %cmp.i28, label %if.then.i30, label %_ZN5boost4math5tools6detail22handle_zero_derivativeINS0_6detail20gamma_p_inverse_funcIeNS0_8policies6policyINS6_13promote_floatILb0EEENS6_14promote_doubleILb0EEENS6_14default_policyESC_SC_SC_SC_SC_SC_SC_SC_SC_SC_EEEEeEEvT_RT0_RKSG_SH_SH_SH_SJ_SJ_.exit
+  %cmp.i29 = fcmp oeq x86_fp80 %4, 0xK00000000000000000000
+  br i1 %cmp.i29, label %if.then.i31, label %_ZN5boost4math5tools6detail22handle_zero_derivativeINS0_6detail20gamma_p_inverse_funcIeNS0_8policies6policyINS6_13promote_floatILb0EEENS6_14promote_doubleILb0EEENS6_14default_policyESC_SC_SC_SC_SC_SC_SC_SC_SC_SC_EEEEeEEvT_RT0_RKSG_SH_SH_SH_SJ_SJ_.exit
 
-if.then.i30:                                      ; preds = %if.then13
+if.then.i31:                                      ; preds = %if.then13
   %agg.tmp.sroa.3.0.copyload = load x86_fp80, ptr %p.i, align 16
   %17 = load x86_fp80, ptr %min.addr, align 16, !tbaa !155
   %cmp1.i = fcmp oeq x86_fp80 %3, %17
@@ -13797,14 +13797,14 @@ if.then.i30:                                      ; preds = %if.then13
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i), !noalias !241
   %sub23.i.i = fsub x86_fp80 %call.i.i, %agg.tmp.sroa.3.0.copyload
   call void @llvm.lifetime.end.p0(ptr nonnull %ft.i.i), !noalias !241
-  %sub.i31 = fsub x86_fp80 %storemerge.i, %3
-  %.pre160 = load x86_fp80, ptr %f0, align 16, !tbaa !155
+  %sub.i32 = fsub x86_fp80 %storemerge.i, %3
+  %.pre161 = load x86_fp80, ptr %f0, align 16, !tbaa !155
   br label %_ZN5boost4math5tools6detail22handle_zero_derivativeINS0_6detail20gamma_p_inverse_funcIeNS0_8policies6policyINS6_13promote_floatILb0EEENS6_14promote_doubleILb0EEENS6_14default_policyESC_SC_SC_SC_SC_SC_SC_SC_SC_SC_EEEEeEEvT_RT0_RKSG_SH_SH_SH_SJ_SJ_.exit
 
-_ZN5boost4math5tools6detail22handle_zero_derivativeINS0_6detail20gamma_p_inverse_funcIeNS0_8policies6policyINS6_13promote_floatILb0EEENS6_14promote_doubleILb0EEENS6_14default_policyESC_SC_SC_SC_SC_SC_SC_SC_SC_SC_EEEEeEEvT_RT0_RKSG_SH_SH_SH_SJ_SJ_.exit: ; preds = %if.then13, %if.then.i30
-  %19 = phi x86_fp80 [ %.pre160, %if.then.i30 ], [ %16, %if.then13 ]
-  %delta.8 = phi x86_fp80 [ %sub.i31, %if.then.i30 ], [ %delta.0, %if.then13 ]
-  %20 = phi x86_fp80 [ %sub23.i.i, %if.then.i30 ], [ %4, %if.then13 ]
+_ZN5boost4math5tools6detail22handle_zero_derivativeINS0_6detail20gamma_p_inverse_funcIeNS0_8policies6policyINS6_13promote_floatILb0EEENS6_14promote_doubleILb0EEENS6_14default_policyESC_SC_SC_SC_SC_SC_SC_SC_SC_SC_EEEEeEEvT_RT0_RKSG_SH_SH_SH_SJ_SJ_.exit: ; preds = %if.then13, %if.then.i31
+  %19 = phi x86_fp80 [ %.pre161, %if.then.i31 ], [ %16, %if.then13 ]
+  %delta.8 = phi x86_fp80 [ %sub.i32, %if.then.i31 ], [ %delta.0, %if.then13 ]
+  %20 = phi x86_fp80 [ %sub23.i.i, %if.then.i31 ], [ %4, %if.then13 ]
   %cmp.i22.i = fcmp oeq x86_fp80 %20, 0xK00000000000000000000
   %21 = bitcast x86_fp80 %20 to i80
   %tobool.not.i.i = icmp sgt i80 %21, -1
@@ -13815,8 +13815,8 @@ _ZN5boost4math5tools6detail22handle_zero_derivativeINS0_6detail20gamma_p_inverse
   %tobool.not.i24.i = icmp sgt i80 %22, -1
   %cond.i25.i = select i1 %tobool.not.i24.i, i32 1, i32 -1
   %cond1.i26.i = select i1 %cmp.i23.i, i32 0, i32 %cond.i25.i
-  %mul.i29 = mul nsw i32 %cond1.i26.i, %cond1.i.i
-  %cmp5.i = icmp slt i32 %mul.i29, 0
+  %mul.i30 = mul nsw i32 %cond1.i26.i, %cond1.i.i
+  %cmp5.i = icmp slt i32 %mul.i30, 0
   %cmp7.i = fcmp olt x86_fp80 %delta.8, 0xK00000000000000000000
   %23 = xor i1 %cmp7.i, %cmp5.i
   %max.val.i = load x86_fp80, ptr %max.addr, align 16
@@ -13831,32 +13831,32 @@ if.else:                                          ; preds = %if.end11
   br i1 %cmp14, label %if.then15, label %if.else33
 
 if.then15:                                        ; preds = %if.else
-  %mul.i32 = fmul x86_fp80 %sub23.i, 0xK40008000000000000000
+  %mul.i33 = fmul x86_fp80 %sub23.i, 0xK40008000000000000000
   %f2.0.i.neg = fneg x86_fp80 %f2.0.i
   %25 = select i1 %loadedv.i, x86_fp80 %f2.0.i, x86_fp80 %f2.0.i.neg
   %26 = fdiv x86_fp80 %25, %f1.0.i
   %neg.i = fmul x86_fp80 %sub23.i, %26
   %27 = call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %f1.0.i, x86_fp80 0xK40008000000000000000, x86_fp80 %neg.i)
   %28 = call noundef x86_fp80 @llvm.fabs.f80(x86_fp80 %27)
-  %cmp.i33 = fcmp olt x86_fp80 %28, 0xK3FFF8000000000000000
-  br i1 %cmp.i33, label %land.lhs.true.i, label %if.else.i34
+  %cmp.i34 = fcmp olt x86_fp80 %28, 0xK3FFF8000000000000000
+  br i1 %cmp.i34, label %land.lhs.true.i, label %if.else.i35
 
 land.lhs.true.i:                                  ; preds = %if.then15
-  %29 = call noundef x86_fp80 @llvm.fabs.f80(x86_fp80 %mul.i32)
+  %29 = call noundef x86_fp80 @llvm.fabs.f80(x86_fp80 %mul.i33)
   %mul6.i = fmul x86_fp80 %28, 0xK7FFEFFFFFFFFFFFFFFFF
-  %cmp7.i35 = fcmp ult x86_fp80 %29, %mul6.i
-  br i1 %cmp7.i35, label %if.else.i34, label %if.then.i36
+  %cmp7.i36 = fcmp ult x86_fp80 %29, %mul6.i
+  br i1 %cmp7.i36, label %if.else.i35, label %if.then.i37
 
-if.then.i36:                                      ; preds = %land.lhs.true.i
-  %div8.i37 = fdiv x86_fp80 %sub23.i, %f1.0.i
+if.then.i37:                                      ; preds = %land.lhs.true.i
+  %div8.i38 = fdiv x86_fp80 %sub23.i, %f1.0.i
   br label %_ZN5boost4math5tools6detail11halley_step4stepIeEET_RKS5_S7_S7_S7_.exit
 
-if.else.i34:                                      ; preds = %land.lhs.true.i, %if.then15
-  %div9.i = fdiv x86_fp80 %mul.i32, %27
+if.else.i35:                                      ; preds = %land.lhs.true.i, %if.then15
+  %div9.i = fdiv x86_fp80 %mul.i33, %27
   br label %_ZN5boost4math5tools6detail11halley_step4stepIeEET_RKS5_S7_S7_S7_.exit
 
-_ZN5boost4math5tools6detail11halley_step4stepIeEET_RKS5_S7_S7_S7_.exit: ; preds = %if.then.i36, %if.else.i34
-  %delta.0.i = phi x86_fp80 [ %div8.i37, %if.then.i36 ], [ %div9.i, %if.else.i34 ]
+_ZN5boost4math5tools6detail11halley_step4stepIeEET_RKS5_S7_S7_S7_.exit: ; preds = %if.then.i37, %if.else.i35
+  %delta.0.i = phi x86_fp80 [ %div8.i38, %if.then.i37 ], [ %div9.i, %if.else.i35 ]
   %mul17 = fmul x86_fp80 %f1.0.i, %delta.0.i
   %div = fdiv x86_fp80 %mul17, %sub23.i
   %cmp18 = fcmp olt x86_fp80 %div, 0xK00000000000000000000
@@ -13943,13 +13943,13 @@ if.else71:                                        ; preds = %cond.false58, %cond
   %cmp81 = fcmp une x86_fp80 %3, 0xK00000000000000000000
   %44 = call x86_fp80 @llvm.fabs.f80(x86_fp80 %cond80)
   %cmp84 = fcmp ogt x86_fp80 %44, %3
-  %or.cond156 = select i1 %cmp81, i1 %cmp84, i1 false
-  br i1 %or.cond156, label %if.then85, label %if.end92
+  %or.cond157 = select i1 %cmp81, i1 %cmp84, i1 false
+  br i1 %or.cond157, label %if.then85, label %if.end92
 
 if.then85:                                        ; preds = %if.else71
-  %cmp.i38 = fcmp oeq x86_fp80 %cond80, 0xK00000000000000000000
+  %cmp.i39 = fcmp oeq x86_fp80 %cond80, 0xK00000000000000000000
   %45 = call x86_fp80 @llvm.copysign.f80(x86_fp80 0xK3FFF8000000000000000, x86_fp80 %cond80)
-  %conv87 = select i1 %cmp.i38, x86_fp80 0xK00000000000000000000, x86_fp80 %45
+  %conv87 = select i1 %cmp.i39, x86_fp80 0xK00000000000000000000, x86_fp80 %45
   %46 = call noundef x86_fp80 @llvm.fabs.f80(x86_fp80 %3)
   %mul89 = fmul x86_fp80 %46, %conv87
   %mul90 = fmul x86_fp80 %mul89, 0xK3FFEE666660000000000
@@ -13979,8 +13979,8 @@ land.lhs.true101:                                 ; preds = %if.then98
   %cmp103 = fcmp ogt x86_fp80 %49, 0xK3FFF8000000000000000
   %div107 = fdiv x86_fp80 0xK7FFEFFFFFFFFFFFFFFFF, %49
   %cmp109 = fcmp olt x86_fp80 %div107, %48
-  %or.cond157 = and i1 %cmp103, %cmp109
-  br i1 %or.cond157, label %cond.end134, label %land.lhs.true114
+  %or.cond158 = and i1 %cmp103, %cmp109
+  br i1 %or.cond158, label %cond.end134, label %land.lhs.true114
 
 land.lhs.true114:                                 ; preds = %land.lhs.true101
   %mul116 = fmul x86_fp80 %47, 0xK7FFEFFFFFFFFFFFFFFFF
@@ -14014,18 +14014,18 @@ cond.end134:                                      ; preds = %land.lhs.true101, %
   br i1 %or.cond4, label %cleanup, label %if.else149
 
 if.else149:                                       ; preds = %cond.end134
-  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i40)
-  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i39)
-  store x86_fp80 %47, ptr %ref.tmp.i.i39, align 16, !tbaa !155
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i41)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i40)
+  store x86_fp80 %47, ptr %ref.tmp.i.i40, align 16, !tbaa !155
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp2.i.i)
   %53 = load x86_fp80, ptr %max.addr, align 16, !tbaa !155
   store x86_fp80 %53, ptr %ref.tmp2.i.i, align 16, !tbaa !155
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp5.i.i)
-  %call6.i.i = call noundef x86_fp80 @_ZN5boost4math6detail18float_distance_impIeNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEEET_RKS7_S9_RKSt17integral_constantIbLb1EERKT0_(ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp.i.i39, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp2.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp5.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i40) #39
+  %call6.i.i = call noundef x86_fp80 @_ZN5boost4math6detail18float_distance_impIeNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEEET_RKS7_S9_RKSt17integral_constantIbLb1EERKT0_(ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp.i.i40, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp2.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp5.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i41) #39
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp5.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp2.i.i)
-  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i39)
-  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i40)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i40)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i41)
   %54 = call noundef x86_fp80 @llvm.fabs.f80(x86_fp80 %call6.i.i)
   %cmp152 = fcmp olt x86_fp80 %54, 0xK40008000000000000000
   br i1 %cmp152, label %if.then153, label %if.end155
@@ -14045,14 +14045,14 @@ if.end155:                                        ; preds = %if.else149
   br i1 %cmp159, label %if.end162, label %if.then160
 
 if.then160:                                       ; preds = %if.end155
-  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i43)
-  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i41)
-  store x86_fp80 %57, ptr %ref.tmp.i.i41, align 16, !tbaa !155
-  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp2.i.i42)
-  %call3.i.i = call noundef x86_fp80 @_ZN5boost4math6detail14float_next_impIeNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEEET_RKS7_RKSt17integral_constantIbLb1EERKT0_(ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp.i.i41, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2.i.i42, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i43)
-  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp2.i.i42)
-  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i41)
-  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i43)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i44)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i42)
+  store x86_fp80 %57, ptr %ref.tmp.i.i42, align 16, !tbaa !155
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp2.i.i43)
+  %call3.i.i = call noundef x86_fp80 @_ZN5boost4math6detail14float_next_impIeNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEEET_RKS7_RKSt17integral_constantIbLb1EERKT0_(ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp.i.i42, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2.i.i43, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i44)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp2.i.i43)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i42)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i44)
   br label %if.end162
 
 if.end162:                                        ; preds = %if.then160, %if.end155
@@ -14062,18 +14062,18 @@ if.end162:                                        ; preds = %if.then160, %if.end
   br i1 %cmp163, label %if.end166, label %if.then164
 
 if.then164:                                       ; preds = %if.end162
-  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i46)
-  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i44)
-  store x86_fp80 %58, ptr %ref.tmp.i.i44, align 16, !tbaa !155
-  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp2.i.i45)
-  %call3.i.i47 = call noundef x86_fp80 @_ZN5boost4math6detail15float_prior_impIeNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEEET_RKS7_RKSt17integral_constantIbLb1EERKT0_(ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp.i.i44, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2.i.i45, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i46)
-  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp2.i.i45)
-  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i44)
-  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i46)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i47)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i45)
+  store x86_fp80 %58, ptr %ref.tmp.i.i45, align 16, !tbaa !155
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp2.i.i46)
+  %call3.i.i48 = call noundef x86_fp80 @_ZN5boost4math6detail15float_prior_impIeNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEEET_RKS7_RKSt17integral_constantIbLb1EERKT0_(ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp.i.i45, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2.i.i46, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i47)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp2.i.i46)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i45)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i47)
   br label %if.end166
 
 if.end166:                                        ; preds = %if.then164, %if.end162
-  %result.4 = phi x86_fp80 [ %result.3, %if.end162 ], [ %call3.i.i47, %if.then164 ]
+  %result.4 = phi x86_fp80 [ %result.3, %if.end162 ], [ %call3.i.i48, %if.then164 ]
   %59 = load x86_fp80, ptr %min.addr, align 16, !tbaa !155
   br label %do.cond.sink.split
 
@@ -14098,8 +14098,8 @@ land.lhs.true174:                                 ; preds = %if.then170
   %cmp176 = fcmp ogt x86_fp80 %62, 0xK3FFF8000000000000000
   %div180 = fdiv x86_fp80 0xK7FFEFFFFFFFFFFFFFFFF, %62
   %cmp182 = fcmp olt x86_fp80 %div180, %61
-  %or.cond158 = and i1 %cmp176, %cmp182
-  br i1 %or.cond158, label %cond.end186, label %cond.false184
+  %or.cond159 = and i1 %cmp176, %cmp182
+  br i1 %or.cond159, label %cond.end186, label %cond.false184
 
 cond.false184:                                    ; preds = %land.lhs.true174, %if.then170
   %div185 = fdiv x86_fp80 %sub96, %60
@@ -14120,18 +14120,18 @@ cond.end186:                                      ; preds = %land.lhs.true174, %
   br i1 %or.cond6, label %cleanup222, label %if.else202
 
 if.else202:                                       ; preds = %cond.end186
-  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i51)
-  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i48)
-  store x86_fp80 %47, ptr %ref.tmp.i.i48, align 16, !tbaa !155
-  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp2.i.i49)
-  store x86_fp80 %60, ptr %ref.tmp2.i.i49, align 16, !tbaa !155
-  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp5.i.i50)
-  %call6.i.i52 = call noundef x86_fp80 @_ZN5boost4math6detail18float_distance_impIeNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEEET_RKS7_S9_RKSt17integral_constantIbLb1EERKT0_(ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp.i.i48, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp2.i.i49, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp5.i.i50, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i51) #39
-  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp5.i.i50)
-  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp2.i.i49)
-  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i48)
-  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i51)
-  %64 = call noundef x86_fp80 @llvm.fabs.f80(x86_fp80 %call6.i.i52)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i52)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i49)
+  store x86_fp80 %47, ptr %ref.tmp.i.i49, align 16, !tbaa !155
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp2.i.i50)
+  store x86_fp80 %60, ptr %ref.tmp2.i.i50, align 16, !tbaa !155
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp5.i.i51)
+  %call6.i.i53 = call noundef x86_fp80 @_ZN5boost4math6detail18float_distance_impIeNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEEET_RKS7_S9_RKSt17integral_constantIbLb1EERKT0_(ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp.i.i49, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp2.i.i50, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp5.i.i51, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i52) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp5.i.i51)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp2.i.i50)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i49)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i52)
+  %64 = call noundef x86_fp80 @llvm.fabs.f80(x86_fp80 %call6.i.i53)
   %cmp205 = fcmp olt x86_fp80 %64, 0xK40008000000000000000
   br i1 %cmp205, label %if.then206, label %if.end209
 
@@ -14150,32 +14150,32 @@ if.end209:                                        ; preds = %if.else202
   br i1 %cmp213, label %if.end216, label %if.then214
 
 if.then214:                                       ; preds = %if.end209
-  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i55)
-  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i53)
-  store x86_fp80 %67, ptr %ref.tmp.i.i53, align 16, !tbaa !155
-  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp2.i.i54)
-  %call3.i.i56 = call noundef x86_fp80 @_ZN5boost4math6detail15float_prior_impIeNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEEET_RKS7_RKSt17integral_constantIbLb1EERKT0_(ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp.i.i53, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2.i.i54, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i55)
-  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp2.i.i54)
-  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i53)
-  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i55)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i56)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i54)
+  store x86_fp80 %67, ptr %ref.tmp.i.i54, align 16, !tbaa !155
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp2.i.i55)
+  %call3.i.i57 = call noundef x86_fp80 @_ZN5boost4math6detail15float_prior_impIeNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEEET_RKS7_RKSt17integral_constantIbLb1EERKT0_(ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp.i.i54, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2.i.i55, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i56)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp2.i.i55)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i54)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i56)
   br label %if.end216
 
 if.end216:                                        ; preds = %if.then214, %if.end209
-  %result.8 = phi x86_fp80 [ %sub212, %if.end209 ], [ %call3.i.i56, %if.then214 ]
+  %result.8 = phi x86_fp80 [ %sub212, %if.end209 ], [ %call3.i.i57, %if.then214 ]
   %68 = load x86_fp80, ptr %min.addr, align 16, !tbaa !155
   %cmp217 = fcmp ugt x86_fp80 %result.8, %68
   br i1 %cmp217, label %do.cond.sink.split, label %if.then218
 
 if.then218:                                       ; preds = %if.end216
-  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i59)
-  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i57)
-  store x86_fp80 %68, ptr %ref.tmp.i.i57, align 16, !tbaa !155
-  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp2.i.i58)
-  %call3.i.i60 = call noundef x86_fp80 @_ZN5boost4math6detail14float_next_impIeNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEEET_RKS7_RKSt17integral_constantIbLb1EERKT0_(ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp.i.i57, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2.i.i58, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i59)
-  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp2.i.i58)
-  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i57)
-  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i59)
-  %.pre161 = load x86_fp80, ptr %min.addr, align 16, !tbaa !155
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i60)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i58)
+  store x86_fp80 %68, ptr %ref.tmp.i.i58, align 16, !tbaa !155
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp2.i.i59)
+  %call3.i.i61 = call noundef x86_fp80 @_ZN5boost4math6detail14float_next_impIeNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEEET_RKS7_RKSt17integral_constantIbLb1EERKT0_(ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp.i.i58, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2.i.i59, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i60)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp2.i.i59)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i58)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i60)
+  %.pre162 = load x86_fp80, ptr %min.addr, align 16, !tbaa !155
   br label %do.cond.sink.split
 
 cleanup222:                                       ; preds = %cond.end186
@@ -14214,31 +14214,31 @@ cleanup237.thread:                                ; preds = %if.end230
   br label %cleanup245
 
 do.cond.sink.split:                               ; preds = %if.end216, %if.then218, %if.end166
-  %.sink = phi x86_fp80 [ %59, %if.end166 ], [ %68, %if.end216 ], [ %.pre161, %if.then218 ]
-  %result.5143.ph = phi x86_fp80 [ %result.4, %if.end166 ], [ %result.8, %if.end216 ], [ %call3.i.i60, %if.then218 ]
-  %delta.5142.ph = phi x86_fp80 [ %call157, %if.end166 ], [ %call211, %if.end216 ], [ %call211, %if.then218 ]
+  %.sink = phi x86_fp80 [ %59, %if.end166 ], [ %68, %if.end216 ], [ %.pre162, %if.then218 ]
+  %result.5144.ph = phi x86_fp80 [ %result.4, %if.end166 ], [ %result.8, %if.end216 ], [ %call3.i.i61, %if.then218 ]
+  %delta.5143.ph = phi x86_fp80 [ %call157, %if.end166 ], [ %call211, %if.end216 ], [ %call211, %if.then218 ]
   store x86_fp80 %.sink, ptr %guess.addr, align 16, !tbaa !155
   br label %do.cond
 
 do.cond:                                          ; preds = %do.cond.sink.split, %if.end230
-  %out_of_bounds_sentry.2146 = phi i8 [ %out_of_bounds_sentry.3, %if.end230 ], [ %out_of_bounds_sentry.0, %do.cond.sink.split ]
-  %max_range_f.1145 = phi x86_fp80 [ %max_range_f.2, %if.end230 ], [ %max_range_f.0, %do.cond.sink.split ]
-  %min_range_f.1144 = phi x86_fp80 [ %min_range_f.2, %if.end230 ], [ %min_range_f.0, %do.cond.sink.split ]
-  %result.5143 = phi x86_fp80 [ %result.6, %if.end230 ], [ %result.5143.ph, %do.cond.sink.split ]
-  %delta.5142 = phi x86_fp80 [ %delta.6, %if.end230 ], [ %delta.5142.ph, %do.cond.sink.split ]
+  %out_of_bounds_sentry.2147 = phi i8 [ %out_of_bounds_sentry.3, %if.end230 ], [ %out_of_bounds_sentry.0, %do.cond.sink.split ]
+  %max_range_f.1146 = phi x86_fp80 [ %max_range_f.2, %if.end230 ], [ %max_range_f.0, %do.cond.sink.split ]
+  %min_range_f.1145 = phi x86_fp80 [ %min_range_f.2, %if.end230 ], [ %min_range_f.0, %do.cond.sink.split ]
+  %result.5144 = phi x86_fp80 [ %result.6, %if.end230 ], [ %result.5144.ph, %do.cond.sink.split ]
+  %delta.5143 = phi x86_fp80 [ %delta.6, %if.end230 ], [ %delta.5143.ph, %do.cond.sink.split ]
   %72 = load i64, ptr %count, align 8, !tbaa !30
   %tobool.not = icmp eq i64 %72, 0
   br i1 %tobool.not, label %do.end, label %land.rhs
 
 land.rhs:                                         ; preds = %do.cond
-  %mul240 = fmul x86_fp80 %call.i, %result.5143
+  %mul240 = fmul x86_fp80 %call.i, %result.5144
   %73 = call noundef x86_fp80 @llvm.fabs.f80(x86_fp80 %mul240)
-  %74 = call noundef x86_fp80 @llvm.fabs.f80(x86_fp80 %delta.5142)
+  %74 = call noundef x86_fp80 @llvm.fabs.f80(x86_fp80 %delta.5143)
   %cmp243 = fcmp olt x86_fp80 %73, %74
   br i1 %cmp243, label %do.body, label %do.end, !llvm.loop !244
 
 do.end:                                           ; preds = %try.cont.thread, %do.cond, %try.cont, %land.rhs, %if.then153, %if.then206
-  %result.1 = phi x86_fp80 [ %div154, %if.then153 ], [ %div208, %if.then206 ], [ %3, %try.cont.thread ], [ %result.5143, %land.rhs ], [ %result.5143, %do.cond ], [ %3, %try.cont ]
+  %result.1 = phi x86_fp80 [ %div154, %if.then153 ], [ %div208, %if.then206 ], [ %3, %try.cont.thread ], [ %result.5144, %land.rhs ], [ %result.5144, %do.cond ], [ %3, %try.cont ]
   %75 = load i64, ptr %count, align 8, !tbaa !30
   %76 = load i64, ptr %max_iter, align 8, !tbaa !30
   %sub244 = sub i64 %76, %75

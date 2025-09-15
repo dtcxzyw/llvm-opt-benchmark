@@ -1705,9 +1705,9 @@ Abc_Clock.exit48:                                 ; preds = %726, %740
   %753 = add nsw i32 %752, 2
   %754 = load i32, ptr %29, align 8, !tbaa !18
   %755 = icmp slt i32 %753, %754
-  br i1 %755, label %.preheader67.lr.ph.i, label %.preheader.i49
+  br i1 %755, label %.preheader68.lr.ph.i, label %.preheader.i49
 
-.preheader67.lr.ph.i:                             ; preds = %751
+.preheader68.lr.ph.i:                             ; preds = %751
   %756 = icmp sgt i32 %754, 0
   %.val.i54 = load i32, ptr %39, align 4, !tbaa !24
   %.val50.i = load ptr, ptr %497, align 8, !tbaa !64
@@ -1719,17 +1719,17 @@ Abc_Clock.exit48:                                 ; preds = %726, %740
   %760 = getelementptr inbounds i64, ptr %.val50.val.i, i64 %759
   %761 = icmp sgt i32 %.val.i54, 0
   %wide.trip.count.i57.i = zext nneg i32 %.val.i54 to i64
-  br i1 %756, label %.preheader67.us.preheader.i, label %.preheader67.lr.ph.split.i
+  br i1 %756, label %.preheader68.us.preheader.i, label %.preheader68.lr.ph.split.i
 
-.preheader67.us.preheader.i:                      ; preds = %.preheader67.lr.ph.i
+.preheader68.us.preheader.i:                      ; preds = %.preheader68.lr.ph.i
   %762 = sext i32 %752 to i64
   %763 = add nsw i64 %762, 2
   %764 = sext i32 %.val.i54 to i64
-  br label %.preheader67.us.i
+  br label %.preheader68.us.i
 
-.preheader67.us.i:                                ; preds = %Abc_TtMaj.exit.us.i, %.preheader67.us.preheader.i
-  %indvars.iv102.i = phi i64 [ %763, %.preheader67.us.preheader.i ], [ %indvars.iv.next103.i, %Abc_TtMaj.exit.us.i ]
-  %765 = getelementptr inbounds [3 x [32 x i32]], ptr %600, i64 %indvars.iv102.i
+.preheader68.us.i:                                ; preds = %Abc_TtMaj.exit.us.i, %.preheader68.us.preheader.i
+  %indvars.iv103.i = phi i64 [ %763, %.preheader68.us.preheader.i ], [ %indvars.iv.next104.i, %Abc_TtMaj.exit.us.i ]
+  %765 = getelementptr inbounds [3 x [32 x i32]], ptr %600, i64 %indvars.iv103.i
   br label %.lr.ph.i.us.us.i
 
 .lr.ph.i58.us.i:                                  ; preds = %.split.us.us.i, %.lr.ph.i58.us.i
@@ -1751,14 +1751,14 @@ Abc_Clock.exit48:                                 ; preds = %726, %740
   br i1 %exitcond.not.i61.us.i, label %Abc_TtMaj.exit.us.i, label %.lr.ph.i58.us.i, !llvm.loop !82
 
 Abc_TtMaj.exit.us.i:                              ; preds = %.lr.ph.i58.us.i, %.split.us.us.i
-  %indvars.iv.next103.i = add nsw i64 %indvars.iv102.i, 1
-  %lftr.wideiv105.i = trunc i64 %indvars.iv.next103.i to i32
-  %exitcond106.not.i = icmp eq i32 %754, %lftr.wideiv105.i
-  br i1 %exitcond106.not.i, label %.preheader.i49, label %.preheader67.us.i, !llvm.loop !83
+  %indvars.iv.next104.i = add nsw i64 %indvars.iv103.i, 1
+  %lftr.wideiv106.i = trunc i64 %indvars.iv.next104.i to i32
+  %exitcond107.not.i = icmp eq i32 %754, %lftr.wideiv106.i
+  br i1 %exitcond107.not.i, label %.preheader.i49, label %.preheader68.us.i, !llvm.loop !83
 
-.lr.ph.i.us.us.i:                                 ; preds = %Maj_ManFindFanin.exit.loopexit.us.us.i, %.preheader67.us.i
-  %indvars.iv98.i = phi i64 [ %indvars.iv.next99.i, %Maj_ManFindFanin.exit.loopexit.us.us.i ], [ 0, %.preheader67.us.i ]
-  %777 = getelementptr inbounds nuw [32 x i32], ptr %765, i64 %indvars.iv98.i
+.lr.ph.i.us.us.i:                                 ; preds = %Maj_ManFindFanin.exit.loopexit.us.us.i, %.preheader68.us.i
+  %indvars.iv99.i = phi i64 [ %indvars.iv.next100.i, %Maj_ManFindFanin.exit.loopexit.us.us.i ], [ 0, %.preheader68.us.i ]
+  %777 = getelementptr inbounds nuw [32 x i32], ptr %765, i64 %indvars.iv99.i
   br label %778
 
 778:                                              ; preds = %788, %.lr.ph.i.us.us.i
@@ -1791,77 +1791,77 @@ Maj_ManFindFanin.exit.loopexit.us.us.i:           ; preds = %788
   %789 = mul nsw i32 %.1.i.us.us.i, %.val.i54
   %790 = sext i32 %789 to i64
   %791 = getelementptr inbounds i64, ptr %.val50.val.i, i64 %790
-  %792 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv98.i
+  %792 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv99.i
   store ptr %791, ptr %792, align 8, !tbaa !96
-  %indvars.iv.next99.i = add nuw nsw i64 %indvars.iv98.i, 1
-  %exitcond101.not.i = icmp eq i64 %indvars.iv.next99.i, 3
-  br i1 %exitcond101.not.i, label %.split.us.us.i, label %.lr.ph.i.us.us.i, !llvm.loop !97
+  %indvars.iv.next100.i = add nuw nsw i64 %indvars.iv99.i, 1
+  %exitcond102.not.i = icmp eq i64 %indvars.iv.next100.i, 3
+  br i1 %exitcond102.not.i, label %.split.us.us.i, label %.lr.ph.i.us.us.i, !llvm.loop !97
 
 .split.us.us.i:                                   ; preds = %Maj_ManFindFanin.exit.loopexit.us.us.i
-  %793 = mul nsw i64 %indvars.iv102.i, %764
+  %793 = mul nsw i64 %indvars.iv103.i, %764
   %794 = getelementptr inbounds i64, ptr %.val50.val.i, i64 %793
   %795 = load ptr, ptr %9, align 16, !tbaa !96
   %796 = load ptr, ptr %605, align 8, !tbaa !96
   %797 = load ptr, ptr %606, align 16, !tbaa !96
   br i1 %761, label %.lr.ph.i58.us.i, label %Abc_TtMaj.exit.us.i
 
-.preheader67.lr.ph.split.i:                       ; preds = %.preheader67.lr.ph.i
-  br i1 %761, label %.preheader67.us70.preheader.i, label %.preheader67.i
+.preheader68.lr.ph.split.i:                       ; preds = %.preheader68.lr.ph.i
+  br i1 %761, label %.preheader68.us71.preheader.i, label %.preheader68.i
 
-.preheader67.us70.preheader.i:                    ; preds = %.preheader67.lr.ph.split.i
+.preheader68.us71.preheader.i:                    ; preds = %.preheader68.lr.ph.split.i
   %798 = sext i32 %752 to i64
   %799 = add nsw i64 %798, 2
-  br label %.preheader67.us70.i
+  br label %.preheader68.us71.i
 
-.preheader67.us70.i:                              ; preds = %Abc_TtMaj.exit.loopexit.us78.i, %.preheader67.us70.preheader.i
-  %indvars.iv94.i = phi i64 [ %799, %.preheader67.us70.preheader.i ], [ %indvars.iv.next95.i, %Abc_TtMaj.exit.loopexit.us78.i ]
+.preheader68.us71.i:                              ; preds = %Abc_TtMaj.exit.loopexit.us79.i, %.preheader68.us71.preheader.i
+  %indvars.iv95.i = phi i64 [ %799, %.preheader68.us71.preheader.i ], [ %indvars.iv.next96.i, %Abc_TtMaj.exit.loopexit.us79.i ]
   br label %Maj_ManFindFanin.exit.us.i
 
 .split.us.i:                                      ; preds = %Maj_ManFindFanin.exit.us.i
-  %800 = mul nsw i64 %indvars.iv94.i, %wide.trip.count.i57.i
+  %800 = mul nsw i64 %indvars.iv95.i, %wide.trip.count.i57.i
   %801 = getelementptr inbounds i64, ptr %.val50.val.i, i64 %800
   %802 = load ptr, ptr %9, align 16, !tbaa !96
   %803 = load ptr, ptr %605, align 8, !tbaa !96
   %804 = load ptr, ptr %606, align 16, !tbaa !96
-  br label %.lr.ph.i58.us73.i
+  br label %.lr.ph.i58.us74.i
 
-.lr.ph.i58.us73.i:                                ; preds = %.lr.ph.i58.us73.i, %.split.us.i
-  %indvars.iv.i59.us74.i = phi i64 [ 0, %.split.us.i ], [ %indvars.iv.next.i60.us75.i, %.lr.ph.i58.us73.i ]
-  %805 = getelementptr inbounds nuw i64, ptr %802, i64 %indvars.iv.i59.us74.i
+.lr.ph.i58.us74.i:                                ; preds = %.lr.ph.i58.us74.i, %.split.us.i
+  %indvars.iv.i59.us75.i = phi i64 [ 0, %.split.us.i ], [ %indvars.iv.next.i60.us76.i, %.lr.ph.i58.us74.i ]
+  %805 = getelementptr inbounds nuw i64, ptr %802, i64 %indvars.iv.i59.us75.i
   %806 = load i64, ptr %805, align 8, !tbaa !58
-  %807 = getelementptr inbounds nuw i64, ptr %803, i64 %indvars.iv.i59.us74.i
+  %807 = getelementptr inbounds nuw i64, ptr %803, i64 %indvars.iv.i59.us75.i
   %808 = load i64, ptr %807, align 8, !tbaa !58
-  %809 = getelementptr inbounds nuw i64, ptr %804, i64 %indvars.iv.i59.us74.i
+  %809 = getelementptr inbounds nuw i64, ptr %804, i64 %indvars.iv.i59.us75.i
   %810 = load i64, ptr %809, align 8, !tbaa !58
   %811 = or i64 %810, %808
   %812 = and i64 %811, %806
   %813 = and i64 %810, %808
   %814 = or i64 %812, %813
-  %815 = getelementptr inbounds nuw i64, ptr %801, i64 %indvars.iv.i59.us74.i
+  %815 = getelementptr inbounds nuw i64, ptr %801, i64 %indvars.iv.i59.us75.i
   store i64 %814, ptr %815, align 8, !tbaa !58
-  %indvars.iv.next.i60.us75.i = add nuw nsw i64 %indvars.iv.i59.us74.i, 1
-  %exitcond.not.i61.us76.i = icmp eq i64 %indvars.iv.next.i60.us75.i, %wide.trip.count.i57.i
-  br i1 %exitcond.not.i61.us76.i, label %Abc_TtMaj.exit.loopexit.us78.i, label %.lr.ph.i58.us73.i, !llvm.loop !82
+  %indvars.iv.next.i60.us76.i = add nuw nsw i64 %indvars.iv.i59.us75.i, 1
+  %exitcond.not.i61.us77.i = icmp eq i64 %indvars.iv.next.i60.us76.i, %wide.trip.count.i57.i
+  br i1 %exitcond.not.i61.us77.i, label %Abc_TtMaj.exit.loopexit.us79.i, label %.lr.ph.i58.us74.i, !llvm.loop !82
 
-Maj_ManFindFanin.exit.us.i:                       ; preds = %Maj_ManFindFanin.exit.us.i, %.preheader67.us70.i
-  %indvars.iv90.i = phi i64 [ %indvars.iv.next91.i, %Maj_ManFindFanin.exit.us.i ], [ 0, %.preheader67.us70.i ]
-  %816 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv90.i
+Maj_ManFindFanin.exit.us.i:                       ; preds = %Maj_ManFindFanin.exit.us.i, %.preheader68.us71.i
+  %indvars.iv91.i = phi i64 [ %indvars.iv.next92.i, %Maj_ManFindFanin.exit.us.i ], [ 0, %.preheader68.us71.i ]
+  %816 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv91.i
   store ptr %760, ptr %816, align 8, !tbaa !96
-  %indvars.iv.next91.i = add nuw nsw i64 %indvars.iv90.i, 1
-  %exitcond93.not.i = icmp eq i64 %indvars.iv.next91.i, 3
-  br i1 %exitcond93.not.i, label %.split.us.i, label %Maj_ManFindFanin.exit.us.i, !llvm.loop !97
+  %indvars.iv.next92.i = add nuw nsw i64 %indvars.iv91.i, 1
+  %exitcond94.not.i = icmp eq i64 %indvars.iv.next92.i, 3
+  br i1 %exitcond94.not.i, label %.split.us.i, label %Maj_ManFindFanin.exit.us.i, !llvm.loop !97
 
-Abc_TtMaj.exit.loopexit.us78.i:                   ; preds = %.lr.ph.i58.us73.i
-  %indvars.iv.next95.i = add nsw i64 %indvars.iv94.i, 1
-  %lftr.wideiv.i = trunc i64 %indvars.iv.next95.i to i32
-  %exitcond97.not.i = icmp eq i32 %754, %lftr.wideiv.i
-  br i1 %exitcond97.not.i, label %.preheader.i49, label %.preheader67.us70.i, !llvm.loop !83
+Abc_TtMaj.exit.loopexit.us79.i:                   ; preds = %.lr.ph.i58.us74.i
+  %indvars.iv.next96.i = add nsw i64 %indvars.iv95.i, 1
+  %lftr.wideiv.i = trunc i64 %indvars.iv.next96.i to i32
+  %exitcond98.not.i = icmp eq i32 %754, %lftr.wideiv.i
+  br i1 %exitcond98.not.i, label %.preheader.i49, label %.preheader68.us71.i, !llvm.loop !83
 
-.preheader67.i:                                   ; preds = %.preheader67.lr.ph.split.i, %.split.i
-  %.04269.i = phi i32 [ %822, %.split.i ], [ %753, %.preheader67.lr.ph.split.i ]
+.preheader68.i:                                   ; preds = %.preheader68.lr.ph.split.i, %.split.i
+  %.04270.i = phi i32 [ %822, %.split.i ], [ %753, %.preheader68.lr.ph.split.i ]
   br label %Maj_ManFindFanin.exit.i
 
-.preheader.i49:                                   ; preds = %.split.i, %Abc_TtMaj.exit.loopexit.us78.i, %Abc_TtMaj.exit.us.i, %751
+.preheader.i49:                                   ; preds = %.split.i, %Abc_TtMaj.exit.loopexit.us79.i, %Abc_TtMaj.exit.us.i, %751
   %.not.i50 = icmp eq i32 %752, 31
   br i1 %.not.i50, label %.thread85.loopexit, label %.lr.ph.i51
 
@@ -1872,8 +1872,8 @@ Abc_TtMaj.exit.loopexit.us78.i:                   ; preds = %.lr.ph.i58.us73.i
   %820 = add nsw i32 %754, -1
   br label %823
 
-Maj_ManFindFanin.exit.i:                          ; preds = %Maj_ManFindFanin.exit.i, %.preheader67.i
-  %indvars.iv.i56 = phi i64 [ 0, %.preheader67.i ], [ %indvars.iv.next.i57, %Maj_ManFindFanin.exit.i ]
+Maj_ManFindFanin.exit.i:                          ; preds = %Maj_ManFindFanin.exit.i, %.preheader68.i
+  %indvars.iv.i56 = phi i64 [ 0, %.preheader68.i ], [ %indvars.iv.next.i57, %Maj_ManFindFanin.exit.i ]
   %821 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv.i56
   store ptr %760, ptr %821, align 8, !tbaa !96
   %indvars.iv.next.i57 = add nuw nsw i64 %indvars.iv.i56, 1
@@ -1881,13 +1881,13 @@ Maj_ManFindFanin.exit.i:                          ; preds = %Maj_ManFindFanin.ex
   br i1 %exitcond.not.i58, label %.split.i, label %Maj_ManFindFanin.exit.i, !llvm.loop !97
 
 .split.i:                                         ; preds = %Maj_ManFindFanin.exit.i
-  %822 = add nsw i32 %.04269.i, 1
-  %exitcond89.not.i59 = icmp eq i32 %822, %754
-  br i1 %exitcond89.not.i59, label %.preheader.i49, label %.preheader67.i, !llvm.loop !83
+  %822 = add nsw i32 %.04270.i, 1
+  %exitcond90.not.i59 = icmp eq i32 %822, %754
+  br i1 %exitcond90.not.i59, label %.preheader.i49, label %.preheader68.i, !llvm.loop !83
 
 823:                                              ; preds = %.thread.i, %.lr.ph.i51
-  %.182.i = phi i32 [ 0, %.lr.ph.i51 ], [ %848, %.thread.i ]
-  %824 = and i32 %.182.i, 65535
+  %.183.i = phi i32 [ 0, %.lr.ph.i51 ], [ %848, %.thread.i ]
+  %824 = and i32 %.183.i, 65535
   %825 = call range(i32 0, 17) i32 @llvm.ctpop.i32(i32 %824)
   %826 = icmp slt i32 %825, %818
   %827 = icmp sgt i32 %825, %819
@@ -1902,11 +1902,11 @@ Maj_ManFindFanin.exit.i:                          ; preds = %Maj_ManFindFanin.ex
   %830 = mul nsw i32 %.val53.i, %754
   %831 = sext i32 %830 to i64
   %832 = getelementptr inbounds i64, ptr %.val54.val.i, i64 %831
-  %833 = lshr i32 %.182.i, 6
+  %833 = lshr i32 %.183.i, 6
   %834 = zext nneg i32 %833 to i64
   %835 = getelementptr inbounds nuw i64, ptr %832, i64 %834
   %836 = load i64, ptr %835, align 8, !tbaa !58
-  %837 = and i32 %.182.i, 63
+  %837 = and i32 %.183.i, 63
   %838 = zext nneg i32 %837 to i64
   %839 = mul nsw i32 %.val53.i, %820
   %840 = sext i32 %839 to i64
@@ -1920,13 +1920,13 @@ Maj_ManFindFanin.exit.i:                          ; preds = %Maj_ManFindFanin.ex
   br i1 %847, label %.thread.i, label %.loopexit92
 
 .thread.i:                                        ; preds = %828, %823
-  %848 = add nuw nsw i32 %.182.i, 1
-  %exitcond107.not.i = icmp eq i32 %848, %817
-  br i1 %exitcond107.not.i, label %.thread85.loopexit, label %823, !llvm.loop !98
+  %848 = add nuw nsw i32 %.183.i, 1
+  %exitcond108.not.i = icmp eq i32 %848, %817
+  br i1 %exitcond108.not.i, label %.thread85.loopexit, label %823, !llvm.loop !98
 
 .loopexit92:                                      ; preds = %828
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  store i32 %.182.i, ptr %18, align 4, !tbaa !3
+  store i32 %.183.i, ptr %18, align 4, !tbaa !3
   %849 = add nuw nsw i32 %.028136, 1
   br label %607
 

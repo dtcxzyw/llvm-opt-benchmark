@@ -24730,8 +24730,8 @@ _ZNK5clang10CXXNewExpr16getAllocatedTypeEv.exit:  ; preds = %_ZNK5clang10CXXNewE
 78:                                               ; preds = %76
   %79 = load i32, ptr %1, align 8
   %80 = and i32 %79, 1048576
-  %.not134 = icmp eq i32 %80, 0
-  br i1 %.not134, label %81, label %116
+  %.not135 = icmp eq i32 %80, 0
+  br i1 %.not135, label %81, label %116
 
 81:                                               ; preds = %78
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 496
@@ -24796,8 +24796,8 @@ _ZN5clang6interp7Program16createDescriptorERKN4llvm12PointerUnionIJPKNS_4DeclEPK
   %.078 = phi ptr [ %.0.i.i.i.i.i, %_ZN5clang6interp7Program16createDescriptorERKN4llvm12PointerUnionIJPKNS_4DeclEPKNS_4ExprEEEENS0_8PrimTypeESt8optionalIjEbbb.exit ], [ %115, %105 ], [ null, %78 ]
   %117 = load i32, ptr %1, align 8
   %118 = and i32 %117, 1048576
-  %.not135 = icmp eq i32 %118, 0
-  br i1 %.not135, label %167, label %_ZNK5clang10CXXNewExpr12getArraySizeEv.exit
+  %.not136 = icmp eq i32 %118, 0
+  br i1 %.not136, label %167, label %_ZNK5clang10CXXNewExpr12getArraySizeEv.exit
 
 .thread116:                                       ; preds = %64
   %119 = load i32, ptr %1, align 8
@@ -24818,12 +24818,12 @@ _ZNK5clang10CXXNewExpr12getArraySizeEv.exit:      ; preds = %.thread116, %116
 .preheader:                                       ; preds = %_ZNK5clang10CXXNewExpr12getArraySizeEv.exit
   %123 = load i16, ptr %122, align 8
   %124 = and i16 %123, 511
-  %.not137138 = icmp eq i16 %124, 81
-  br i1 %.not137138, label %.lr.ph, label %._crit_edge
+  %.not138139 = icmp eq i16 %124, 81
+  br i1 %.not138139, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader, %128
-  %.072139 = phi ptr [ %130, %128 ], [ %122, %.preheader ]
-  %125 = load i32, ptr %.072139, align 8
+  %.072140 = phi ptr [ %130, %128 ], [ %122, %.preheader ]
+  %125 = load i32, ptr %.072140, align 8
   %126 = lshr i32 %125, 19
   %127 = and i32 %126, 127
   switch i32 %127, label %._crit_edge [
@@ -24832,15 +24832,15 @@ _ZNK5clang10CXXNewExpr12getArraySizeEv.exit:      ; preds = %.thread116, %116
   ]
 
 128:                                              ; preds = %.lr.ph, %.lr.ph
-  %129 = getelementptr inbounds nuw i8, ptr %.072139, i64 16
+  %129 = getelementptr inbounds nuw i8, ptr %.072140, i64 16
   %130 = load ptr, ptr %129, align 8, !tbaa !8
   %131 = load i16, ptr %130, align 8
   %132 = and i16 %131, 511
-  %.not137 = icmp eq i16 %132, 81
-  br i1 %.not137, label %.lr.ph, label %._crit_edge
+  %.not138 = icmp eq i16 %132, 81
+  br i1 %.not138, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %128, %.lr.ph, %.preheader
-  %.072.lcssa = phi ptr [ %122, %.preheader ], [ %130, %128 ], [ %.072139, %.lr.ph ]
+  %.072.lcssa = phi ptr [ %122, %.preheader ], [ %130, %128 ], [ %.072140, %.lr.ph ]
   %133 = getelementptr inbounds nuw i8, ptr %.072.lcssa, i64 8
   %.sroa.0.0.copyload.i90 = load i64, ptr %133, align 8, !tbaa !77
   %134 = load ptr, ptr %33, align 8, !tbaa !78
@@ -57202,8 +57202,8 @@ _ZNK5clang10CXXNewExpr16getAllocatedTypeEv.exit:  ; preds = %_ZNK5clang10CXXNewE
 78:                                               ; preds = %76
   %79 = load i32, ptr %1, align 8
   %80 = and i32 %79, 1048576
-  %.not134 = icmp eq i32 %80, 0
-  br i1 %.not134, label %81, label %116
+  %.not135 = icmp eq i32 %80, 0
+  br i1 %.not135, label %81, label %116
 
 81:                                               ; preds = %78
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 1056
@@ -57268,8 +57268,8 @@ _ZN5clang6interp7Program16createDescriptorERKN4llvm12PointerUnionIJPKNS_4DeclEPK
   %.078 = phi ptr [ %.0.i.i.i.i.i, %_ZN5clang6interp7Program16createDescriptorERKN4llvm12PointerUnionIJPKNS_4DeclEPKNS_4ExprEEEENS0_8PrimTypeESt8optionalIjEbbb.exit ], [ %115, %105 ], [ null, %78 ]
   %117 = load i32, ptr %1, align 8
   %118 = and i32 %117, 1048576
-  %.not135 = icmp eq i32 %118, 0
-  br i1 %.not135, label %167, label %_ZNK5clang10CXXNewExpr12getArraySizeEv.exit
+  %.not136 = icmp eq i32 %118, 0
+  br i1 %.not136, label %167, label %_ZNK5clang10CXXNewExpr12getArraySizeEv.exit
 
 .thread116:                                       ; preds = %64
   %119 = load i32, ptr %1, align 8
@@ -57290,12 +57290,12 @@ _ZNK5clang10CXXNewExpr12getArraySizeEv.exit:      ; preds = %.thread116, %116
 .preheader:                                       ; preds = %_ZNK5clang10CXXNewExpr12getArraySizeEv.exit
   %123 = load i16, ptr %122, align 8
   %124 = and i16 %123, 511
-  %.not137138 = icmp eq i16 %124, 81
-  br i1 %.not137138, label %.lr.ph, label %._crit_edge
+  %.not138139 = icmp eq i16 %124, 81
+  br i1 %.not138139, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader, %128
-  %.072139 = phi ptr [ %130, %128 ], [ %122, %.preheader ]
-  %125 = load i32, ptr %.072139, align 8
+  %.072140 = phi ptr [ %130, %128 ], [ %122, %.preheader ]
+  %125 = load i32, ptr %.072140, align 8
   %126 = lshr i32 %125, 19
   %127 = and i32 %126, 127
   switch i32 %127, label %._crit_edge [
@@ -57304,15 +57304,15 @@ _ZNK5clang10CXXNewExpr12getArraySizeEv.exit:      ; preds = %.thread116, %116
   ]
 
 128:                                              ; preds = %.lr.ph, %.lr.ph
-  %129 = getelementptr inbounds nuw i8, ptr %.072139, i64 16
+  %129 = getelementptr inbounds nuw i8, ptr %.072140, i64 16
   %130 = load ptr, ptr %129, align 8, !tbaa !8
   %131 = load i16, ptr %130, align 8
   %132 = and i16 %131, 511
-  %.not137 = icmp eq i16 %132, 81
-  br i1 %.not137, label %.lr.ph, label %._crit_edge
+  %.not138 = icmp eq i16 %132, 81
+  br i1 %.not138, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %128, %.lr.ph, %.preheader
-  %.072.lcssa = phi ptr [ %122, %.preheader ], [ %130, %128 ], [ %.072139, %.lr.ph ]
+  %.072.lcssa = phi ptr [ %122, %.preheader ], [ %130, %128 ], [ %.072140, %.lr.ph ]
   %133 = getelementptr inbounds nuw i8, ptr %.072.lcssa, i64 8
   %.sroa.0.0.copyload.i90 = load i64, ptr %133, align 8, !tbaa !77
   %134 = load ptr, ptr %33, align 8, !tbaa !1194

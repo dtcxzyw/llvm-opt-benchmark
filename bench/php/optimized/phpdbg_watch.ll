@@ -5205,39 +5205,39 @@ define hidden void @phpdbg_watch_efree(ptr noundef %0) local_unnamed_addr #0 {
   %21 = and i32 %20, 4
   %.not32 = icmp eq i32 %21, 0
   tail call void @llvm.assume(i1 %.not32)
-  %.not3339 = icmp eq i32 %16, 0
-  br i1 %.not3339, label %.loopexit, label %.lr.ph
+  %.not3340 = icmp eq i32 %16, 0
+  br i1 %.not3340, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %12
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 188
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %.lr.ph
-  %.040 = phi ptr [ %14, %.lr.ph ], [ %.040.be, %.backedge.backedge ]
-  %23 = getelementptr inbounds nuw i8, ptr %.040, i64 8
+  %.041 = phi ptr [ %14, %.lr.ph ], [ %.041.be, %.backedge.backedge ]
+  %23 = getelementptr inbounds nuw i8, ptr %.041, i64 8
   %24 = load i8, ptr %23, align 8, !tbaa !20
   %25 = icmp eq i8 %24, 0
   br i1 %25, label %.thread, label %26, !prof !106
 
 26:                                               ; preds = %.backedge
-  %27 = load ptr, ptr %.040, align 8, !tbaa !20
+  %27 = load ptr, ptr %.041, align 8, !tbaa !20
   %28 = load i32, ptr %22, align 4, !tbaa !22
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %30 = load ptr, ptr %29, align 8, !tbaa !90
   tail call void @phpdbg_remove_watchpoint(ptr noundef %30)
   %31 = icmp eq i32 %28, 1
-  %32 = getelementptr inbounds nuw i8, ptr %.040, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %.041, i64 32
   %.not33 = icmp eq ptr %32, %18
   %or.cond = select i1 %31, i1 true, i1 %.not33
   br i1 %or.cond, label %.loopexit, label %.backedge.backedge
 
 .thread:                                          ; preds = %.backedge
-  %.old = getelementptr inbounds nuw i8, ptr %.040, i64 32
+  %.old = getelementptr inbounds nuw i8, ptr %.041, i64 32
   %.not33.old = icmp eq ptr %.old, %18
   br i1 %.not33.old, label %.loopexit, label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %.thread, %26
-  %.040.be = phi ptr [ %.old, %.thread ], [ %32, %26 ]
+  %.041.be = phi ptr [ %.old, %.thread ], [ %32, %26 ]
   br label %.backedge
 
 .loopexit:                                        ; preds = %.thread, %26, %12, %11, %3

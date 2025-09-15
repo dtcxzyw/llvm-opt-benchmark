@@ -56186,7 +56186,7 @@ define hidden range(i40 0, 65794) i40 @"_ZN75_$LT$citationberg..Date$u20$as$u20$
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %7 = load i8, ptr %6, align 8, !range !7177, !noundef !4
   %.not = icmp eq i8 %7, 6
-  br i1 %.not, label %"_ZN75_$LT$citationberg..Date$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$11will_render17hbb1d81b452613e35E.exit.thread22", label %8
+  br i1 %.not, label %"_ZN75_$LT$citationberg..Date$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$11will_render17hbb1d81b452613e35E.exit.thread23", label %8
 
 8:                                                ; preds = %2
   %9 = trunc nuw i8 %5 to i1
@@ -56194,27 +56194,27 @@ define hidden range(i40 0, 65794) i40 @"_ZN75_$LT$citationberg..Date$u20$as$u20$
 
 10:                                               ; preds = %20, %8
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 184
-  %.val19 = load i8, ptr %11, align 8, !range !11651, !noundef !4
+  %.val20 = load i8, ptr %11, align 8, !range !11651, !noundef !4
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 645
-  %.val20 = load i8, ptr %12, align 1
-  %.not.i = icmp eq i8 %.val19, 7
+  %.val21 = load i8, ptr %12, align 1
+  %.not.i = icmp eq i8 %.val20, 7
   br i1 %.not.i, label %"_ZN75_$LT$citationberg..Date$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$11will_render17hbb1d81b452613e35E.exit.thread", label %13
 
 13:                                               ; preds = %10
-  %14 = add nsw i8 %.val19, -4
+  %14 = add nsw i8 %.val20, -4
   %15 = icmp ult i8 %14, 3
-  %16 = zext nneg i8 %.val19 to i64
+  %16 = zext nneg i8 %.val20 to i64
   %17 = add nsw i64 %16, -3
   %18 = select i1 %15, i64 %17, i64 0
   switch i64 %18, label %"_ZN75_$LT$citationberg..Date$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$11will_render17hbb1d81b452613e35E.exit.thread" [
-    i64 0, label %"_ZN75_$LT$citationberg..Date$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$11will_render17hbb1d81b452613e35E.exit.thread22"
+    i64 0, label %"_ZN75_$LT$citationberg..Date$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$11will_render17hbb1d81b452613e35E.exit.thread23"
     i64 1, label %"_ZN75_$LT$citationberg..Date$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$11will_render17hbb1d81b452613e35E.exit"
     i64 2, label %"_ZN75_$LT$citationberg..Date$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$11will_render17hbb1d81b452613e35E.exit"
   ]
 
 "_ZN75_$LT$citationberg..Date$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$11will_render17hbb1d81b452613e35E.exit": ; preds = %13, %13
-  %19 = trunc nuw i8 %.val20 to i1
-  br i1 %19, label %"_ZN75_$LT$citationberg..Date$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$11will_render17hbb1d81b452613e35E.exit.thread", label %"_ZN75_$LT$citationberg..Date$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$11will_render17hbb1d81b452613e35E.exit.thread22"
+  %19 = trunc nuw i8 %.val21 to i1
+  br i1 %19, label %"_ZN75_$LT$citationberg..Date$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$11will_render17hbb1d81b452613e35E.exit.thread", label %"_ZN75_$LT$citationberg..Date$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$11will_render17hbb1d81b452613e35E.exit.thread23"
 
 20:                                               ; preds = %8
   store i8 1, ptr %4, align 1
@@ -56228,13 +56228,13 @@ define hidden range(i40 0, 65794) i40 @"_ZN75_$LT$citationberg..Date$u20$as$u20$
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.sroa.014.0.insert.insert = select i1 %22, i32 65792, i32 256
   %23 = zext i1 %22 to i32
-  br label %"_ZN75_$LT$citationberg..Date$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$11will_render17hbb1d81b452613e35E.exit.thread22"
+  br label %"_ZN75_$LT$citationberg..Date$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$11will_render17hbb1d81b452613e35E.exit.thread23"
 
-"_ZN75_$LT$citationberg..Date$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$11will_render17hbb1d81b452613e35E.exit.thread22": ; preds = %13, %"_ZN75_$LT$citationberg..Date$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$11will_render17hbb1d81b452613e35E.exit", %2, %"_ZN75_$LT$citationberg..Date$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$11will_render17hbb1d81b452613e35E.exit.thread"
+"_ZN75_$LT$citationberg..Date$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$11will_render17hbb1d81b452613e35E.exit.thread23": ; preds = %13, %"_ZN75_$LT$citationberg..Date$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$11will_render17hbb1d81b452613e35E.exit", %2, %"_ZN75_$LT$citationberg..Date$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$11will_render17hbb1d81b452613e35E.exit.thread"
   %.sroa.4.sroa.0.0 = phi i32 [ %.sroa.014.0.insert.insert, %"_ZN75_$LT$citationberg..Date$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$11will_render17hbb1d81b452613e35E.exit.thread" ], [ 256, %2 ], [ 0, %"_ZN75_$LT$citationberg..Date$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$11will_render17hbb1d81b452613e35E.exit" ], [ 0, %13 ]
   %.sroa.0.0 = phi i32 [ %23, %"_ZN75_$LT$citationberg..Date$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$11will_render17hbb1d81b452613e35E.exit.thread" ], [ 0, %2 ], [ 0, %"_ZN75_$LT$citationberg..Date$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$11will_render17hbb1d81b452613e35E.exit" ], [ 0, %13 ]
-  %.sroa.0.0.insert.insert18 = or disjoint i32 %.sroa.0.0, %.sroa.4.sroa.0.0
-  %.sroa.0.0.insert.insert = zext nneg i32 %.sroa.0.0.insert.insert18 to i40
+  %.sroa.0.0.insert.insert19 = or disjoint i32 %.sroa.0.0, %.sroa.4.sroa.0.0
+  %.sroa.0.0.insert.insert = zext nneg i32 %.sroa.0.0.insert.insert19 to i40
   ret i40 %.sroa.0.0.insert.insert
 }
 
@@ -61437,25 +61437,25 @@ define hidden range(i40 256, 65794) i40 @"_ZN77_$LT$citationberg..Number$u20$as$
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load i8, ptr %5, align 8, !range !9154, !noundef !4
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 184
-  %.val10 = load i8, ptr %7, align 8, !range !11651, !noundef !4
-  %.not.i = icmp eq i8 %.val10, 7
+  %.val11 = load i8, ptr %7, align 8, !range !11651, !noundef !4
+  %.not.i = icmp eq i8 %.val11, 7
   br i1 %.not.i, label %"_ZN77_$LT$citationberg..Number$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$11will_render17hf083e9bc532aa47fE.exit.thread", label %8
 
 8:                                                ; preds = %2
-  %9 = add nsw i8 %.val10, -4
+  %9 = add nsw i8 %.val11, -4
   %10 = icmp ult i8 %9, 3
-  %11 = zext nneg i8 %.val10 to i64
+  %11 = zext nneg i8 %.val11 to i64
   %12 = add nsw i64 %11, -3
   %13 = select i1 %10, i64 %12, i64 0
   switch i64 %13, label %"_ZN77_$LT$citationberg..Number$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$11will_render17hf083e9bc532aa47fE.exit.thread" [
-    i64 0, label %"_ZN77_$LT$citationberg..Number$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$11will_render17hf083e9bc532aa47fE.exit.thread12"
+    i64 0, label %"_ZN77_$LT$citationberg..Number$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$11will_render17hf083e9bc532aa47fE.exit.thread13"
     i64 1, label %"_ZN77_$LT$citationberg..Number$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$11will_render17hf083e9bc532aa47fE.exit"
     i64 2, label %"_ZN77_$LT$citationberg..Number$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$11will_render17hf083e9bc532aa47fE.exit"
   ]
 
 "_ZN77_$LT$citationberg..Number$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$11will_render17hf083e9bc532aa47fE.exit": ; preds = %8, %8
   %14 = icmp eq i8 %6, 6
-  br i1 %14, label %"_ZN77_$LT$citationberg..Number$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$11will_render17hf083e9bc532aa47fE.exit.thread", label %"_ZN77_$LT$citationberg..Number$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$11will_render17hf083e9bc532aa47fE.exit.thread12"
+  br i1 %14, label %"_ZN77_$LT$citationberg..Number$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$11will_render17hf083e9bc532aa47fE.exit.thread", label %"_ZN77_$LT$citationberg..Number$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$11will_render17hf083e9bc532aa47fE.exit.thread13"
 
 "_ZN77_$LT$citationberg..Number$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$11will_render17hf083e9bc532aa47fE.exit.thread": ; preds = %8, %2, %"_ZN77_$LT$citationberg..Number$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$11will_render17hf083e9bc532aa47fE.exit"
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 643
@@ -61466,9 +61466,9 @@ define hidden range(i40 256, 65794) i40 @"_ZN77_$LT$citationberg..Number$u20$as$
   call fastcc void @"_ZN9hayagriva3csl16Context$LT$T$GT$23resolve_number_variable17h13cdfc6bf7272f70E"(ptr noalias noundef align 8 captures(none) dereferenceable(40) %4, ptr noundef nonnull align 8 %1, i8 noundef %6)
   br i1 %17, label %34, label %18
 
-"_ZN77_$LT$citationberg..Number$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$11will_render17hf083e9bc532aa47fE.exit.thread12": ; preds = %8, %"_ZN77_$LT$citationberg..Number$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$11will_render17hf083e9bc532aa47fE.exit", %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$hayagriva..csl..taxonomy..NumberVariableResult$GT$$GT$17h9e0a3df011ce7ce5E.exit"
-  %.sroa.0.0.insert.insert9 = phi i32 [ %33, %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$hayagriva..csl..taxonomy..NumberVariableResult$GT$$GT$17h9e0a3df011ce7ce5E.exit" ], [ 256, %"_ZN77_$LT$citationberg..Number$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$11will_render17hf083e9bc532aa47fE.exit" ], [ 256, %8 ]
-  %.sroa.0.0.insert.insert = zext nneg i32 %.sroa.0.0.insert.insert9 to i40
+"_ZN77_$LT$citationberg..Number$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$11will_render17hf083e9bc532aa47fE.exit.thread13": ; preds = %8, %"_ZN77_$LT$citationberg..Number$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$11will_render17hf083e9bc532aa47fE.exit", %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$hayagriva..csl..taxonomy..NumberVariableResult$GT$$GT$17h9e0a3df011ce7ce5E.exit"
+  %.sroa.0.0.insert.insert10 = phi i32 [ %33, %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$hayagriva..csl..taxonomy..NumberVariableResult$GT$$GT$17h9e0a3df011ce7ce5E.exit" ], [ 256, %"_ZN77_$LT$citationberg..Number$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$11will_render17hf083e9bc532aa47fE.exit" ], [ 256, %8 ]
+  %.sroa.0.0.insert.insert = zext nneg i32 %.sroa.0.0.insert.insert10 to i40
   ret i40 %.sroa.0.0.insert.insert
 
 18:                                               ; preds = %34, %"_ZN77_$LT$citationberg..Number$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$11will_render17hf083e9bc532aa47fE.exit.thread"
@@ -61514,7 +61514,7 @@ define hidden range(i40 256, 65794) i40 @"_ZN77_$LT$citationberg..Number$u20$as$
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %32 = zext i1 %20 to i32
   %33 = or disjoint i32 %.sroa.03.0.insert.insert, %32
-  br label %"_ZN77_$LT$citationberg..Number$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$11will_render17hf083e9bc532aa47fE.exit.thread12"
+  br label %"_ZN77_$LT$citationberg..Number$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$11will_render17hf083e9bc532aa47fE.exit.thread13"
 
 34:                                               ; preds = %"_ZN77_$LT$citationberg..Number$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$11will_render17hf083e9bc532aa47fE.exit.thread"
   store i8 1, ptr %15, align 1
@@ -71119,16 +71119,16 @@ default.unreachable26:                            ; preds = %2
 
 17:                                               ; preds = %27, %15
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 184
-  %.val19.i = load i8, ptr %18, align 8, !range !11651, !alias.scope !14639, !noalias !14636, !noundef !4
+  %.val20.i = load i8, ptr %18, align 8, !range !11651, !alias.scope !14639, !noalias !14636, !noundef !4
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 645
-  %.val20.i = load i8, ptr %19, align 1, !alias.scope !14639, !noalias !14636
-  %.not.i.i = icmp eq i8 %.val19.i, 7
+  %.val21.i = load i8, ptr %19, align 1, !alias.scope !14639, !noalias !14636
+  %.not.i.i = icmp eq i8 %.val20.i, 7
   br i1 %.not.i.i, label %"_ZN75_$LT$citationberg..Date$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$11will_render17hbb1d81b452613e35E.exit.thread.i", label %20
 
 20:                                               ; preds = %17
-  %21 = add nsw i8 %.val19.i, -4
+  %21 = add nsw i8 %.val20.i, -4
   %22 = icmp ult i8 %21, 3
-  %23 = zext nneg i8 %.val19.i to i64
+  %23 = zext nneg i8 %.val20.i to i64
   %24 = add nsw i64 %23, -3
   %25 = select i1 %22, i64 %24, i64 0
   switch i64 %25, label %"_ZN75_$LT$citationberg..Date$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$11will_render17hbb1d81b452613e35E.exit.thread.i" [
@@ -71138,7 +71138,7 @@ default.unreachable26:                            ; preds = %2
   ]
 
 "_ZN75_$LT$citationberg..Date$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$11will_render17hbb1d81b452613e35E.exit.i": ; preds = %20, %20
-  %26 = trunc nuw i8 %.val20.i to i1
+  %26 = trunc nuw i8 %.val21.i to i1
   br i1 %26, label %"_ZN75_$LT$citationberg..Date$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$11will_render17hbb1d81b452613e35E.exit.thread.i", label %"_ZN75_$LT$citationberg..Date$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$14will_have_info17hd4eb81c7ac9f9cafE.llvm.16978709814855407318.exit"
 
 27:                                               ; preds = %15
@@ -71158,8 +71158,8 @@ default.unreachable26:                            ; preds = %2
 "_ZN75_$LT$citationberg..Date$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$14will_have_info17hd4eb81c7ac9f9cafE.llvm.16978709814855407318.exit": ; preds = %10, %20, %"_ZN75_$LT$citationberg..Date$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$11will_render17hbb1d81b452613e35E.exit.i", %"_ZN75_$LT$citationberg..Date$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$11will_render17hbb1d81b452613e35E.exit.thread.i"
   %.sroa.4.sroa.0.0.i = phi i32 [ %.sroa.014.0.insert.insert.i, %"_ZN75_$LT$citationberg..Date$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$11will_render17hbb1d81b452613e35E.exit.thread.i" ], [ 256, %10 ], [ 0, %"_ZN75_$LT$citationberg..Date$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$11will_render17hbb1d81b452613e35E.exit.i" ], [ 0, %20 ]
   %.sroa.0.0.i = phi i32 [ %30, %"_ZN75_$LT$citationberg..Date$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$11will_render17hbb1d81b452613e35E.exit.thread.i" ], [ 0, %10 ], [ 0, %"_ZN75_$LT$citationberg..Date$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$11will_render17hbb1d81b452613e35E.exit.i" ], [ 0, %20 ]
-  %.sroa.0.0.insert.insert18.i = or disjoint i32 %.sroa.0.0.i, %.sroa.4.sroa.0.0.i
-  %.sroa.0.0.insert.insert.i = zext nneg i32 %.sroa.0.0.insert.insert18.i to i40
+  %.sroa.0.0.insert.insert19.i = or disjoint i32 %.sroa.0.0.i, %.sroa.4.sroa.0.0.i
+  %.sroa.0.0.insert.insert.i = zext nneg i32 %.sroa.0.0.insert.insert19.i to i40
   br label %72
 
 31:                                               ; preds = %2

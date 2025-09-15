@@ -147052,7 +147052,7 @@ define hidden noundef zeroext i1 @_ZN4gpui8platform9keystroke9Keystroke12should_
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val = load ptr, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.val22 = load i64, ptr %7, align 8
+  %.val23 = load i64, ptr %7, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !41687)
   br i1 %5, label %"_ZN4core6option15Option$LT$T$GT$6filter17hbc139376daf2fad3E.exit.thread", label %8
 
@@ -147062,7 +147062,7 @@ define hidden noundef zeroext i1 @_ZN4gpui8platform9keystroke9Keystroke12should_
   tail call void @llvm.experimental.noalias.scope.decl(metadata !41696)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load i64, ptr %9, align 8, !alias.scope !41699, !noalias !41700, !noundef !4
-  %.not.i.i.i.i.i.i.i = icmp eq i64 %10, %.val22
+  %.not.i.i.i.i.i.i.i = icmp eq i64 %10, %.val23
   br i1 %.not.i.i.i.i.i.i.i, label %"_ZN4gpui8platform9keystroke9Keystroke12should_match28_$u7b$$u7b$closure$u7d$$u7d$17he0776766b989dccfE.exit.i", label %"_ZN4core6option15Option$LT$T$GT$6filter17hbc139376daf2fad3E.exit"
 
 "_ZN4gpui8platform9keystroke9Keystroke12should_match28_$u7b$$u7b$closure$u7d$$u7d$17he0776766b989dccfE.exit.i": ; preds = %8
@@ -147070,7 +147070,7 @@ define hidden noundef zeroext i1 @_ZN4gpui8platform9keystroke9Keystroke12should_
   tail call void @llvm.assume(i1 %11)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %13 = load ptr, ptr %12, align 8, !alias.scope !41699, !noalias !41700, !nonnull !4, !noundef !4
-  %bcmp.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %13, ptr nonnull readonly align 1 %.val, i64 %.val22), !alias.scope !41706, !noalias !41710
+  %bcmp.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %13, ptr nonnull readonly align 1 %.val, i64 %.val23), !alias.scope !41706, !noalias !41710
   %.not.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i, 0
   br i1 %.not.i, label %"_ZN4core6option15Option$LT$T$GT$6filter17hbc139376daf2fad3E.exit.thread", label %"_ZN4core6option15Option$LT$T$GT$6filter17hbc139376daf2fad3E.exit"
 
@@ -147115,7 +147115,7 @@ define hidden noundef zeroext i1 @_ZN4gpui8platform9keystroke9Keystroke12should_
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %37 = load i8, ptr %36, align 8, !range !382, !noundef !4
   %38 = icmp eq i8 %35, %37
-  br i1 %38, label %47, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17ha5fc300ab06e5984E.llvm.9792776892897051010.exit26"
+  br i1 %38, label %47, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17ha5fc300ab06e5984E.llvm.9792776892897051010.exit27"
 
 39:                                               ; preds = %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17ha5fc300ab06e5984E.llvm.9792776892897051010.exit"
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 51
@@ -147125,9 +147125,9 @@ define hidden noundef zeroext i1 @_ZN4gpui8platform9keystroke9Keystroke12should_
   %44 = load i8, ptr %43, align 4, !range !382
   %45 = trunc nuw i8 %44 to i1
   %46 = select i1 %42, i1 true, i1 %45
-  br i1 %46, label %"_ZN4core6option15Option$LT$T$GT$6filter17hbc139376daf2fad3E.exit.thread", label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17ha5fc300ab06e5984E.llvm.9792776892897051010.exit26"
+  br i1 %46, label %"_ZN4core6option15Option$LT$T$GT$6filter17hbc139376daf2fad3E.exit.thread", label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17ha5fc300ab06e5984E.llvm.9792776892897051010.exit27"
 
-"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17ha5fc300ab06e5984E.llvm.9792776892897051010.exit26": ; preds = %74, %71, %65, %"_ZN4core6option15Option$LT$T$GT$6filter17hbc139376daf2fad3E.exit.thread", %47, %53, %59, %39
+"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17ha5fc300ab06e5984E.llvm.9792776892897051010.exit27": ; preds = %74, %71, %65, %"_ZN4core6option15Option$LT$T$GT$6filter17hbc139376daf2fad3E.exit.thread", %47, %53, %59, %39
   %.sroa.0.0 = phi i1 [ true, %39 ], [ false, %59 ], [ false, %53 ], [ false, %47 ], [ false, %"_ZN4core6option15Option$LT$T$GT$6filter17hbc139376daf2fad3E.exit.thread" ], [ false, %65 ], [ %77, %74 ], [ false, %71 ]
   ret i1 %.sroa.0.0
 
@@ -147137,7 +147137,7 @@ define hidden noundef zeroext i1 @_ZN4gpui8platform9keystroke9Keystroke12should_
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 49
   %51 = load i8, ptr %50, align 1, !range !382, !noundef !4
   %52 = icmp eq i8 %49, %51
-  br i1 %52, label %53, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17ha5fc300ab06e5984E.llvm.9792776892897051010.exit26"
+  br i1 %52, label %53, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17ha5fc300ab06e5984E.llvm.9792776892897051010.exit27"
 
 53:                                               ; preds = %47
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 50
@@ -147145,7 +147145,7 @@ define hidden noundef zeroext i1 @_ZN4gpui8platform9keystroke9Keystroke12should_
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 50
   %57 = load i8, ptr %56, align 2, !range !382, !noundef !4
   %58 = icmp eq i8 %55, %57
-  br i1 %58, label %59, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17ha5fc300ab06e5984E.llvm.9792776892897051010.exit26"
+  br i1 %58, label %59, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17ha5fc300ab06e5984E.llvm.9792776892897051010.exit27"
 
 59:                                               ; preds = %53
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 51
@@ -147153,7 +147153,7 @@ define hidden noundef zeroext i1 @_ZN4gpui8platform9keystroke9Keystroke12should_
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 51
   %63 = load i8, ptr %62, align 1, !range !382, !noundef !4
   %64 = icmp eq i8 %61, %63
-  br i1 %64, label %65, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17ha5fc300ab06e5984E.llvm.9792776892897051010.exit26"
+  br i1 %64, label %65, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17ha5fc300ab06e5984E.llvm.9792776892897051010.exit27"
 
 65:                                               ; preds = %59
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 52
@@ -147161,21 +147161,21 @@ define hidden noundef zeroext i1 @_ZN4gpui8platform9keystroke9Keystroke12should_
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %69 = load i8, ptr %68, align 4, !range !382, !noundef !4
   %70 = icmp eq i8 %67, %69
-  br i1 %70, label %71, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17ha5fc300ab06e5984E.llvm.9792776892897051010.exit26"
+  br i1 %70, label %71, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17ha5fc300ab06e5984E.llvm.9792776892897051010.exit27"
 
 71:                                               ; preds = %65
   tail call void @llvm.experimental.noalias.scope.decl(metadata !41721)
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %73 = load i64, ptr %72, align 8, !alias.scope !41721, !noalias !41724, !noundef !4
-  %.not.i.i23 = icmp eq i64 %73, %.val22
-  br i1 %.not.i.i23, label %74, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17ha5fc300ab06e5984E.llvm.9792776892897051010.exit26"
+  %.not.i.i24 = icmp eq i64 %73, %.val23
+  br i1 %.not.i.i24, label %74, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17ha5fc300ab06e5984E.llvm.9792776892897051010.exit27"
 
 74:                                               ; preds = %71
   %75 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %76 = load ptr, ptr %75, align 8, !alias.scope !41721, !noalias !41724, !nonnull !4, !noundef !4
-  %bcmp.i.i25 = tail call i32 @bcmp(ptr nonnull readonly align 1 %76, ptr nonnull readonly align 1 %.val, i64 %.val22), !alias.scope !41726, !noalias !41730
-  %77 = icmp eq i32 %bcmp.i.i25, 0
-  br label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17ha5fc300ab06e5984E.llvm.9792776892897051010.exit26"
+  %bcmp.i.i26 = tail call i32 @bcmp(ptr nonnull readonly align 1 %76, ptr nonnull readonly align 1 %.val, i64 %.val23), !alias.scope !41726, !noalias !41730
+  %77 = icmp eq i32 %bcmp.i.i26, 0
+  br label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17ha5fc300ab06e5984E.llvm.9792776892897051010.exit27"
 }
 
 ; Function Attrs: nonlazybind uwtable

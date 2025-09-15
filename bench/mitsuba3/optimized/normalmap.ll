@@ -1127,10 +1127,10 @@ _ZNSt3__14pairIN7mitsuba11BSDFSample3IfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EE
   br label %98
 
 98:                                               ; preds = %98, %85
-  %.04.i.i.i = phi i64 [ 0, %85 ], [ %100, %98 ]
-  %99 = getelementptr inbounds nuw %"struct.drjit::Mask.67", ptr %11, i64 %.04.i.i.i
+  %.05.i.i.i = phi i64 [ 0, %85 ], [ %100, %98 ]
+  %99 = getelementptr inbounds nuw %"struct.drjit::Mask.67", ptr %11, i64 %.05.i.i.i
   store i32 %.sroa.0.0.isplat.i.i.i, ptr %99, align 1, !noalias !15
-  %100 = add nuw nsw i64 %.04.i.i.i, 1
+  %100 = add nuw nsw i64 %.05.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %100, 4
   br i1 %exitcond.not.i.i.i, label %_ZN5drjit4MaskINS0_IN7mitsuba8SpectrumIfLm4EEELm4EEELm4EECI2NS_8MaskBaseIS4_Lm4ES5_EEIRKbNS6_IS4_Lm4ES5_EETnNSt3__19enable_ifIXaasr3stdE11is_scalar_vIu7__decayIT_EEntsrT0_14IsOldStyleMaskEiE4typeELi0EEEOSC_.exit, label %98, !llvm.loop !18
 
@@ -1322,10 +1322,10 @@ define weak_odr void @_ZNK7mitsuba9NormalMapIfN5drjit6MatrixINS_8SpectrumIfLm4EE
   br label %71
 
 71:                                               ; preds = %71, %6
-  %.04.i.i.i = phi i64 [ 0, %6 ], [ %73, %71 ]
-  %72 = getelementptr inbounds nuw %"struct.drjit::Mask.67", ptr %8, i64 %.04.i.i.i
+  %.05.i.i.i = phi i64 [ 0, %6 ], [ %73, %71 ]
+  %72 = getelementptr inbounds nuw %"struct.drjit::Mask.67", ptr %8, i64 %.05.i.i.i
   store i32 %.sroa.0.0.isplat.i.i.i, ptr %72, align 1, !noalias !35
-  %73 = add nuw nsw i64 %.04.i.i.i, 1
+  %73 = add nuw nsw i64 %.05.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %73, 4
   br i1 %exitcond.not.i.i.i, label %_ZN5drjit4MaskINS0_IN7mitsuba8SpectrumIfLm4EEELm4EEELm4EECI2NS_8MaskBaseIS4_Lm4ES5_EEIRKbNS6_IS4_Lm4ES5_EETnNSt3__19enable_ifIXaasr3stdE11is_scalar_vIu7__decayIT_EEntsrT0_14IsOldStyleMaskEiE4typeELi0EEEOSC_.exit, label %71, !llvm.loop !18
 
@@ -1542,10 +1542,10 @@ define weak_odr void @_ZNK7mitsuba9NormalMapIfN5drjit6MatrixINS_8SpectrumIfLm4EE
   br label %71
 
 71:                                               ; preds = %71, %6
-  %.04.i.i.i = phi i64 [ 0, %6 ], [ %73, %71 ]
-  %72 = getelementptr inbounds nuw %"struct.drjit::Mask.67", ptr %8, i64 %.04.i.i.i
+  %.05.i.i.i = phi i64 [ 0, %6 ], [ %73, %71 ]
+  %72 = getelementptr inbounds nuw %"struct.drjit::Mask.67", ptr %8, i64 %.05.i.i.i
   store i32 %.sroa.0.0.isplat.i.i.i, ptr %72, align 1
-  %73 = add nuw nsw i64 %.04.i.i.i, 1
+  %73 = add nuw nsw i64 %.05.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %73, 4
   br i1 %exitcond.not.i.i.i, label %_ZN5drjit4MaskINS0_IN7mitsuba8SpectrumIfLm4EEELm4EEELm4EECI2NS_8MaskBaseIS4_Lm4ES5_EEIRKbNS6_IS4_Lm4ES5_EETnNSt3__19enable_ifIXaasr3stdE11is_scalar_vIu7__decayIT_EEntsrT0_14IsOldStyleMaskEiE4typeELi0EEEOSC_.exit, label %71, !llvm.loop !18
 

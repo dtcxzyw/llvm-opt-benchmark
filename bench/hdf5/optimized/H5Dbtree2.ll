@@ -1454,16 +1454,16 @@ define internal noundef i32 @H5D__bt2_compare(ptr noundef readonly captures(addr
   br i1 %15, label %H5VM_vector_cmp_u.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %14
-  %.not19.i = icmp eq i32 %12, 0
-  br i1 %.not19.i, label %H5VM_vector_cmp_u.exit, label %.lr.ph.i
+  %.not20.i = icmp eq i32 %12, 0
+  br i1 %.not20.i, label %H5VM_vector_cmp_u.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %22
   %.in.i = phi i32 [ %16, %22 ], [ %12, %.preheader.i ]
-  %.01121.i = phi ptr [ %24, %22 ], [ %1, %.preheader.i ]
-  %.01220.i = phi ptr [ %23, %22 ], [ %0, %.preheader.i ]
+  %.01122.i = phi ptr [ %24, %22 ], [ %1, %.preheader.i ]
+  %.01221.i = phi ptr [ %23, %22 ], [ %0, %.preheader.i ]
   %16 = add i32 %.in.i, -1
-  %17 = load i64, ptr %.01220.i, align 8, !tbaa !43
-  %18 = load i64, ptr %.01121.i, align 8, !tbaa !43
+  %17 = load i64, ptr %.01221.i, align 8, !tbaa !43
+  %18 = load i64, ptr %.01122.i, align 8, !tbaa !43
   %19 = icmp ult i64 %17, %18
   br i1 %19, label %H5VM_vector_cmp_u.exit, label %20
 
@@ -1472,8 +1472,8 @@ define internal noundef i32 @H5D__bt2_compare(ptr noundef readonly captures(addr
   br i1 %21, label %H5VM_vector_cmp_u.exit, label %22
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds nuw i8, ptr %.01220.i, i64 8
-  %24 = getelementptr inbounds nuw i8, ptr %.01121.i, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %.01221.i, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %.01122.i, i64 8
   %.not.i = icmp eq i32 %16, 0
   br i1 %.not.i, label %H5VM_vector_cmp_u.exit, label %.lr.ph.i, !llvm.loop !85
 

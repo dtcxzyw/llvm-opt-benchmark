@@ -20126,8 +20126,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %37
   %48 = load ptr, ptr %13, align 8, !tbaa !179
   %49 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %50 = load ptr, ptr %49, align 8, !tbaa !179
-  %.not114124 = icmp eq ptr %48, %50
-  br i1 %.not114124, label %._crit_edge, label %.lr.ph
+  %.not114125 = icmp eq ptr %48, %50
+  br i1 %.not114125, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %47
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -20140,8 +20140,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %37
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %47
   %53 = phi ptr [ %48, %47 ], [ %.pre, %._crit_edge.loopexit ]
-  %.lcssa121 = phi ptr [ null, %47 ], [ %83, %._crit_edge.loopexit ]
-  store ptr %.lcssa121, ptr %0, align 8
+  %.lcssa122 = phi ptr [ null, %47 ], [ %83, %._crit_edge.loopexit ]
+  store ptr %.lcssa122, ptr %0, align 8
   %.not.i.i.i = icmp eq ptr %53, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN6duckdb13PrimitiveTypeIlEESaIS2_EED2Ev.exit, label %54
 
@@ -20156,9 +20156,9 @@ _ZNSt6vectorIN6duckdb13PrimitiveTypeIlEESaIS2_EED2Ev.exit: ; preds = %._crit_edg
 55:                                               ; preds = %.lr.ph, %_ZNSt6vectorIN6duckdb13PrimitiveTypeINS0_11timestamp_tEEESaIS3_EE9push_backEOS3_.exit
   %56 = phi ptr [ null, %.lr.ph ], [ %81, %_ZNSt6vectorIN6duckdb13PrimitiveTypeINS0_11timestamp_tEEESaIS3_EE9push_backEOS3_.exit ]
   %57 = phi ptr [ null, %.lr.ph ], [ %82, %_ZNSt6vectorIN6duckdb13PrimitiveTypeINS0_11timestamp_tEEESaIS3_EE9push_backEOS3_.exit ]
-  %.sroa.0108.0125 = phi ptr [ %48, %.lr.ph ], [ %84, %_ZNSt6vectorIN6duckdb13PrimitiveTypeINS0_11timestamp_tEEESaIS3_EE9push_backEOS3_.exit ]
+  %.sroa.0108.0126 = phi ptr [ %48, %.lr.ph ], [ %84, %_ZNSt6vectorIN6duckdb13PrimitiveTypeINS0_11timestamp_tEEESaIS3_EE9push_backEOS3_.exit ]
   %58 = phi ptr [ null, %.lr.ph ], [ %83, %_ZNSt6vectorIN6duckdb13PrimitiveTypeINS0_11timestamp_tEEESaIS3_EE9push_backEOS3_.exit ]
-  %59 = load i64, ptr %.sroa.0108.0125, align 8, !tbaa !177
+  %59 = load i64, ptr %.sroa.0108.0126, align 8, !tbaa !177
   %.not.i.i = icmp eq ptr %57, %56
   br i1 %.not.i.i, label %62, label %60
 
@@ -20178,7 +20178,7 @@ _ZNSt6vectorIN6duckdb13PrimitiveTypeIlEESaIS2_EED2Ev.exit: ; preds = %._crit_edg
 67:                                               ; preds = %62
   store ptr %58, ptr %0, align 8
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.6) #29
-          to label %.noexc unwind label %.loopexit.split-lp116
+          to label %.noexc unwind label %.loopexit.split-lp117
 
 .noexc:                                           ; preds = %67
   unreachable
@@ -20194,7 +20194,7 @@ _ZNKSt6vectorIN6duckdb13PrimitiveTypeINS0_11timestamp_tEEESaIS3_EE12_M_check_len
   call void @llvm.assume(i1 %.not.i.i.i.i)
   %73 = shl nuw nsw i64 %72, 3
   %74 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %73) #27
-          to label %.noexc85 unwind label %.loopexit115
+          to label %.noexc85 unwind label %.loopexit116
 
 .noexc85:                                         ; preds = %_ZNKSt6vectorIN6duckdb13PrimitiveTypeINS0_11timestamp_tEEESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i
   %75 = getelementptr inbounds i8, ptr %74, i64 %65
@@ -20225,23 +20225,23 @@ _ZNSt6vectorIN6duckdb13PrimitiveTypeINS0_11timestamp_tEEESaIS3_EE9push_backEOS3_
   %81 = phi ptr [ %80, %_ZNSt6vectorIN6duckdb13PrimitiveTypeINS0_11timestamp_tEEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ], [ %56, %60 ]
   %82 = phi ptr [ %78, %_ZNSt6vectorIN6duckdb13PrimitiveTypeINS0_11timestamp_tEEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ], [ %61, %60 ]
   %83 = phi ptr [ %74, %_ZNSt6vectorIN6duckdb13PrimitiveTypeINS0_11timestamp_tEEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ], [ %58, %60 ]
-  %84 = getelementptr inbounds nuw i8, ptr %.sroa.0108.0125, i64 8
+  %84 = getelementptr inbounds nuw i8, ptr %.sroa.0108.0126, i64 8
   %.not114 = icmp eq ptr %84, %50
   br i1 %.not114, label %._crit_edge.loopexit, label %55
 
-.loopexit115:                                     ; preds = %_ZNKSt6vectorIN6duckdb13PrimitiveTypeINS0_11timestamp_tEEESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i
-  %lpad.loopexit117 = landingpad { ptr, i32 }
+.loopexit116:                                     ; preds = %_ZNKSt6vectorIN6duckdb13PrimitiveTypeINS0_11timestamp_tEEESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i
+  %lpad.loopexit118 = landingpad { ptr, i32 }
           cleanup
   store ptr %58, ptr %0, align 8
   br label %85
 
-.loopexit.split-lp116:                            ; preds = %67
-  %lpad.loopexit.split-lp118 = landingpad { ptr, i32 }
+.loopexit.split-lp117:                            ; preds = %67
+  %lpad.loopexit.split-lp119 = landingpad { ptr, i32 }
           cleanup
   br label %85
 
-85:                                               ; preds = %.loopexit.split-lp116, %.loopexit115
-  %lpad.phi119 = phi { ptr, i32 } [ %lpad.loopexit117, %.loopexit115 ], [ %lpad.loopexit.split-lp118, %.loopexit.split-lp116 ]
+85:                                               ; preds = %.loopexit.split-lp117, %.loopexit116
+  %lpad.phi120 = phi { ptr, i32 } [ %lpad.loopexit118, %.loopexit116 ], [ %lpad.loopexit.split-lp119, %.loopexit.split-lp117 ]
   %.not.i.i.i86 = icmp eq ptr %58, null
   br i1 %.not.i.i.i86, label %_ZNSt6vectorIN6duckdb13PrimitiveTypeINS0_11timestamp_tEEESaIS3_EED2Ev.exit, label %86
 
@@ -20600,7 +20600,7 @@ _ZNSt6vectorIN6duckdb13PrimitiveTypeINS0_11timestamp_tEEESaIS3_EED2Ev.exit102: ;
   ret void
 
 226:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %45, %_ZNSt6vectorIN6duckdb13PrimitiveTypeINS0_11timestamp_tEEESaIS3_EED2Ev.exit102, %_ZNSt6vectorIN6duckdb13PrimitiveTypeIlEESaIS2_EED2Ev.exit88
-  %.pn82.pn = phi { ptr, i32 } [ %.pn82, %_ZNSt6vectorIN6duckdb13PrimitiveTypeINS0_11timestamp_tEEESaIS3_EED2Ev.exit102 ], [ %lpad.phi119, %_ZNSt6vectorIN6duckdb13PrimitiveTypeIlEESaIS2_EED2Ev.exit88 ], [ %.pn113, %45 ], [ %38, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %38, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
+  %.pn82.pn = phi { ptr, i32 } [ %.pn82, %_ZNSt6vectorIN6duckdb13PrimitiveTypeINS0_11timestamp_tEEESaIS3_EED2Ev.exit102 ], [ %lpad.phi120, %_ZNSt6vectorIN6duckdb13PrimitiveTypeIlEESaIS2_EED2Ev.exit88 ], [ %.pn113, %45 ], [ %38, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %38, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
   resume { ptr, i32 } %.pn82.pn
 
 227:                                              ; preds = %35
