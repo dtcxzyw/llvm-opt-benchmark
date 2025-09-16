@@ -486,29 +486,27 @@ define dso_local void @cost_gather_merge(ptr noundef captures(none) initializes(
   %23 = fmul double %22, 2.000000e+00
   %24 = fmul double %19, %23
   %25 = tail call double @llvm.fmuladd.f64(double %24, double %21, double 0.000000e+00)
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %27 = load double, ptr %26, align 8
-  %28 = fmul double %27, %23
-  %29 = tail call double @llvm.fmuladd.f64(double %28, double %21, double 0.000000e+00)
-  %30 = tail call double @llvm.fmuladd.f64(double %22, double %27, double %29)
-  %31 = load double, ptr @parallel_setup_cost, align 8
-  %32 = fadd double %31, %25
-  %33 = load double, ptr @parallel_tuple_cost, align 8
-  %34 = fmul double %27, %33
-  %35 = tail call double @llvm.fmuladd.f64(double %34, double 1.050000e+00, double %30)
-  %36 = load i8, ptr @enable_gathermerge, align 1, !range !4, !noundef !5
-  %37 = xor i8 %36, 1
-  %not. = zext nneg i8 %37 to i32
-  %38 = add i32 %4, %not.
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i32 %38, ptr %39, align 8
-  %40 = fadd double %5, %32
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store double %40, ptr %41, align 8
-  %42 = fadd double %32, %35
-  %43 = fadd double %6, %42
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store double %43, ptr %44, align 8
+  %26 = fmul double %.sink, %23
+  %27 = tail call double @llvm.fmuladd.f64(double %26, double %21, double 0.000000e+00)
+  %28 = tail call double @llvm.fmuladd.f64(double %22, double %.sink, double %27)
+  %29 = load double, ptr @parallel_setup_cost, align 8
+  %30 = fadd double %29, %25
+  %31 = load double, ptr @parallel_tuple_cost, align 8
+  %32 = fmul double %.sink, %31
+  %33 = tail call double @llvm.fmuladd.f64(double %32, double 1.050000e+00, double %28)
+  %34 = load i8, ptr @enable_gathermerge, align 1, !range !4, !noundef !5
+  %35 = xor i8 %34, 1
+  %not. = zext nneg i8 %35 to i32
+  %36 = add i32 %4, %not.
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i32 %36, ptr %37, align 8
+  %38 = fadd double %5, %30
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store double %38, ptr %39, align 8
+  %40 = fadd double %30, %33
+  %41 = fadd double %6, %40
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store double %41, ptr %42, align 8
   ret void
 }
 
@@ -3181,7 +3179,7 @@ declare ptr @lappend(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare double @estimate_num_groups(ptr noundef, ptr noundef, double noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @cost_tuplesort(ptr noundef nonnull captures(none) initializes((0, 8)) %0, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %1, double noundef %2, i32 noundef %3, double noundef %4, i32 noundef %5, double noundef %6) unnamed_addr #2 {
+define internal fastcc void @cost_tuplesort(ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %0, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %1, double noundef %2, i32 noundef %3, double noundef %4, i32 noundef %5, double noundef %6) unnamed_addr #2 {
   %8 = sext i32 %3 to i64
   %9 = add nsw i64 %8, 7
   %10 = and i64 %9, -8
@@ -3202,7 +3200,7 @@ define internal fastcc void @cost_tuplesort(ptr noundef nonnull captures(none) i
   %22 = sitofp i64 %15 to double
   %23 = fcmp ogt double %.045, %22
   %24 = fmul double %.0, %18
-  br i1 %23, label %25, label %49
+  br i1 %23, label %25, label %48
 
 25:                                               ; preds = %7
   %26 = fmul double %13, 0x3F20000000000000
@@ -3222,47 +3220,45 @@ define internal fastcc void @cost_tuplesort(ptr noundef nonnull captures(none) i
   %37 = tail call double @log(double noundef %30) #17
   %38 = fdiv double %36, %37
   %39 = tail call double @llvm.ceil.f64(double %38)
-  %.pre = load double, ptr %0, align 8
   br label %40
 
 40:                                               ; preds = %25, %35
-  %41 = phi double [ %.pre, %35 ], [ %33, %25 ]
   %.044 = phi double [ %39, %35 ], [ 1.000000e+00, %25 ]
-  %42 = fmul double %27, 2.000000e+00
-  %43 = fmul double %42, %.044
-  %44 = load double, ptr @seq_page_cost, align 8
-  %45 = load double, ptr @random_page_cost, align 8
-  %46 = fmul double %45, 2.500000e-01
-  %47 = tail call double @llvm.fmuladd.f64(double %44, double 7.500000e-01, double %46)
-  %48 = tail call double @llvm.fmuladd.f64(double %43, double %47, double %41)
-  br label %61
+  %41 = fmul double %27, 2.000000e+00
+  %42 = fmul double %41, %.044
+  %43 = load double, ptr @seq_page_cost, align 8
+  %44 = load double, ptr @random_page_cost, align 8
+  %45 = fmul double %44, 2.500000e-01
+  %46 = tail call double @llvm.fmuladd.f64(double %43, double 7.500000e-01, double %45)
+  %47 = tail call double @llvm.fmuladd.f64(double %42, double %46, double %33)
+  br label %60
 
-49:                                               ; preds = %7
+48:                                               ; preds = %7
   %.046 = select i1 %or.cond, double %6, double %.0
-  %50 = fmul double %.046, 2.000000e+00
-  %51 = fcmp ogt double %.0, %50
-  %52 = fcmp ogt double %13, %22
-  %or.cond52 = or i1 %52, %51
-  br i1 %or.cond52, label %53, label %57
+  %49 = fmul double %.046, 2.000000e+00
+  %50 = fcmp ogt double %.0, %49
+  %51 = fcmp ogt double %13, %22
+  %or.cond52 = or i1 %51, %50
+  br i1 %or.cond52, label %52, label %56
 
-53:                                               ; preds = %49
-  %54 = tail call double @log(double noundef %50) #17
-  %55 = fdiv double %54, 0x3FE62E42FEFA39EC
-  %56 = fmul double %24, %55
-  br label %61
+52:                                               ; preds = %48
+  %53 = tail call double @log(double noundef %49) #17
+  %54 = fdiv double %53, 0x3FE62E42FEFA39EC
+  %55 = fmul double %24, %54
+  br label %60
 
-57:                                               ; preds = %49
-  %58 = tail call double @llvm.log.f64(double %.0)
-  %59 = fdiv double %58, 0x3FE62E42FEFA39EC
-  %60 = fmul double %59, %24
-  br label %61
+56:                                               ; preds = %48
+  %57 = tail call double @llvm.log.f64(double %.0)
+  %58 = fdiv double %57, 0x3FE62E42FEFA39EC
+  %59 = fmul double %58, %24
+  br label %60
 
-61:                                               ; preds = %53, %57, %40
-  %.sink = phi double [ %56, %53 ], [ %60, %57 ], [ %48, %40 ]
+60:                                               ; preds = %52, %56, %40
+  %.sink = phi double [ %55, %52 ], [ %59, %56 ], [ %47, %40 ]
   store double %.sink, ptr %0, align 8
-  %62 = load double, ptr @cpu_operator_cost, align 8
-  %63 = fmul double %.0, %62
-  store double %63, ptr %1, align 8
+  %61 = load double, ptr @cpu_operator_cost, align 8
+  %62 = fmul double %.0, %61
+  store double %62, ptr %1, align 8
   ret void
 }
 

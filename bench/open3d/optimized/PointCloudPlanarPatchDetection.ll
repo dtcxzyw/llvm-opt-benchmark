@@ -11292,12 +11292,12 @@ define internal fastcc void @_ZN6open3d8geometry12_GLOBAL__N_113PlaneDetector11R
   %.scalar = fmul double %12, 0.000000e+00
   %13 = tail call double @cos(double noundef %11) #4, !tbaa !64, !noalias !323
   %14 = fsub double 1.000000e+00, %13
-  %.scalar81 = fmul double %14, 0.000000e+00
-  %15 = fmul double %.scalar81, 0.000000e+00
+  %.scalar79 = fmul double %14, 0.000000e+00
+  %15 = fmul double %.scalar79, 0.000000e+00
   %16 = fsub double %15, %12
   %17 = fadd double %12, %15
-  %18 = fadd double %.scalar, %.scalar81
-  %19 = fsub double %.scalar81, %.scalar
+  %18 = fadd double %.scalar, %.scalar79
+  %19 = fsub double %.scalar79, %.scalar
   %20 = fadd double %13, %15
   %21 = fadd double %13, %14
   store double %20, ptr %7, align 8

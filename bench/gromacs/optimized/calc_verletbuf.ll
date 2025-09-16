@@ -6071,22 +6071,22 @@ _ZL22getAtomConstraintPropsRK13gmx_moltype_tRK14gmx_ffparams_t.exit.i.i: ; preds
   %504 = sub i64 %502, %503
   %505 = lshr exact i64 %504, 2
   %506 = trunc i64 %505 to i32
+  %507 = load ptr, ptr %111, align 8
+  %508 = load ptr, ptr %436, align 8
   br i1 %501, label %542, label %.lr.ph171.split.i.i
 
 .lr.ph171.split.i.i:                              ; preds = %.lr.ph171.i.i
-  %507 = icmp sgt i32 %506, 0
-  br i1 %507, label %.preheader.us.preheader.i.i, label %.loopexit.i.i
+  %509 = icmp sgt i32 %506, 0
+  br i1 %509, label %.preheader.us.preheader.i.i, label %.loopexit.i.i
 
 .preheader.us.preheader.i.i:                      ; preds = %.lr.ph171.split.i.i
-  %508 = sext i32 %446 to i64
+  %510 = sext i32 %446 to i64
   br label %.preheader.us.i.i
 
 .preheader.us.i.i:                                ; preds = %._crit_edge166.us.i.i, %.preheader.us.preheader.i.i
-  %indvars.iv198.i.i = phi i64 [ %508, %.preheader.us.preheader.i.i ], [ %indvars.iv.next199.i.i, %._crit_edge166.us.i.i ]
+  %indvars.iv198.i.i = phi i64 [ %510, %.preheader.us.preheader.i.i ], [ %indvars.iv.next199.i.i, %._crit_edge166.us.i.i ]
   %.4169.us.i.i = phi float [ 0.000000e+00, %.preheader.us.preheader.i.i ], [ %.6.us.i.i, %._crit_edge166.us.i.i ]
-  %509 = load ptr, ptr %111, align 8
-  %510 = load ptr, ptr %436, align 8
-  %511 = getelementptr inbounds %struct.t_atom, ptr %510, i64 %indvars.iv198.i.i
+  %511 = getelementptr inbounds %struct.t_atom, ptr %508, i64 %indvars.iv198.i.i
   %512 = trunc nsw i64 %indvars.iv198.i.i to i32
   br label %513
 
@@ -6103,7 +6103,7 @@ _ZL22getAtomConstraintPropsRK13gmx_moltype_tRK14gmx_ffparams_t.exit.i.i: ; preds
 519:                                              ; preds = %513
   %520 = load i32, ptr %515, align 4, !tbaa !26
   %521 = sext i32 %520 to i64
-  %522 = getelementptr inbounds nuw %union.t_iparams, ptr %509, i64 %521
+  %522 = getelementptr inbounds nuw %union.t_iparams, ptr %507, i64 %521
   %523 = load float, ptr %522, align 4, !tbaa !14
   %524 = getelementptr inbounds nuw i8, ptr %522, i64 4
   %525 = load float, ptr %524, align 4, !tbaa !14

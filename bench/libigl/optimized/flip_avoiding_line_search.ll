@@ -889,21 +889,20 @@ define dso_local noundef double @_ZN3igl13flip_avoiding35compute_max_step_from_s
   %12 = fcmp olt double %11, %.02227
   %.sroa.speculated17 = select i1 %12, double %11, double %.02227
   %indvars.iv.next34 = add nuw nsw i64 %indvars.iv33, 1
-  %13 = load i64, ptr %7, align 8, !tbaa !18
-  %14 = icmp sgt i64 %13, %indvars.iv.next34
-  br i1 %14, label %.lr.ph29, label %.loopexit, !llvm.loop !25
+  %exitcond.not = icmp eq i64 %indvars.iv.next34, %8
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph29, !llvm.loop !25
 
 .lr.ph:                                           ; preds = %.preheader23, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader23 ]
   %.225 = phi double [ %.sroa.speculated, %.lr.ph ], [ 0x7FF0000000000000, %.preheader23 ]
-  %15 = trunc nuw nsw i64 %indvars.iv to i32
-  %16 = tail call noundef double @_ZN3igl13flip_avoiding19get_min_pos_root_3DERKN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEERKNS2_IiLin1ELin1ELi0ELin1ELin1EEERS3_i(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, i32 noundef %15)
-  %17 = fcmp olt double %16, %.225
-  %.sroa.speculated = select i1 %17, double %16, double %.225
+  %13 = trunc nuw nsw i64 %indvars.iv to i32
+  %14 = tail call noundef double @_ZN3igl13flip_avoiding19get_min_pos_root_3DERKN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEERKNS2_IiLin1ELin1ELi0ELin1ELin1EEERS3_i(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, i32 noundef %13)
+  %15 = fcmp olt double %14, %.225
+  %.sroa.speculated = select i1 %15, double %14, double %.225
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %18 = load i64, ptr %7, align 8, !tbaa !18
-  %19 = icmp sgt i64 %18, %indvars.iv.next
-  br i1 %19, label %.lr.ph, label %.loopexit, !llvm.loop !27
+  %16 = load i64, ptr %7, align 8, !tbaa !18
+  %17 = icmp sgt i64 %16, %indvars.iv.next
+  br i1 %17, label %.lr.ph, label %.loopexit, !llvm.loop !27
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph29, %.preheader23, %.preheader
   %.1 = phi double [ 0x7FF0000000000000, %.preheader ], [ 0x7FF0000000000000, %.preheader23 ], [ %.sroa.speculated17, %.lr.ph29 ], [ %.sroa.speculated, %.lr.ph ]
@@ -944,121 +943,120 @@ define dso_local noundef double @_ZN3igl25flip_avoiding_line_searchERKN5Eigen6Ma
   %18 = fcmp olt double %17, %.02227.i
   %.sroa.speculated17.i = select i1 %18, double %17, double %.02227.i
   %indvars.iv.next34.i = add nuw nsw i64 %indvars.iv33.i, 1
-  %19 = load i64, ptr %13, align 8, !tbaa !18
-  %20 = icmp sgt i64 %19, %indvars.iv.next34.i
-  br i1 %20, label %.lr.ph29.i, label %_ZN3igl13flip_avoiding35compute_max_step_from_singularitiesERKN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEERKNS2_IiLin1ELin1ELi0ELin1ELin1EEERS3_.exit, !llvm.loop !25
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next34.i, %14
+  br i1 %exitcond.not.i, label %_ZN3igl13flip_avoiding35compute_max_step_from_singularitiesERKN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEERKNS2_IiLin1ELin1ELi0ELin1ELin1EEERS3_.exit, label %.lr.ph29.i, !llvm.loop !25
 
 .lr.ph.i:                                         ; preds = %.preheader23.i, %.noexc
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.noexc ], [ 0, %.preheader23.i ]
   %.225.i = phi double [ %.sroa.speculated.i, %.noexc ], [ 0x7FF0000000000000, %.preheader23.i ]
-  %21 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %22 = invoke noundef double @_ZN3igl13flip_avoiding19get_min_pos_root_3DERKN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEERKNS2_IiLin1ELin1ELi0ELin1ELin1EEERS3_i(ptr noundef nonnull readonly align 8 dereferenceable(24) %1, ptr noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef nonnull readonly align 8 dereferenceable(24) %6, i32 noundef %21)
-          to label %.noexc unwind label %55
+  %19 = trunc nuw nsw i64 %indvars.iv.i to i32
+  %20 = invoke noundef double @_ZN3igl13flip_avoiding19get_min_pos_root_3DERKN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEERKNS2_IiLin1ELin1ELi0ELin1ELin1EEERS3_i(ptr noundef nonnull readonly align 8 dereferenceable(24) %1, ptr noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef nonnull readonly align 8 dereferenceable(24) %6, i32 noundef %19)
+          to label %.noexc unwind label %53
 
 .noexc:                                           ; preds = %.lr.ph.i
-  %23 = fcmp olt double %22, %.225.i
-  %.sroa.speculated.i = select i1 %23, double %22, double %.225.i
+  %21 = fcmp olt double %20, %.225.i
+  %.sroa.speculated.i = select i1 %21, double %20, double %.225.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %24 = load i64, ptr %13, align 8, !tbaa !18
-  %25 = icmp sgt i64 %24, %indvars.iv.next.i
-  br i1 %25, label %.lr.ph.i, label %_ZN3igl13flip_avoiding35compute_max_step_from_singularitiesERKN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEERKNS2_IiLin1ELin1ELi0ELin1ELin1EEERS3_.exit, !llvm.loop !27
+  %22 = load i64, ptr %13, align 8, !tbaa !18
+  %23 = icmp sgt i64 %22, %indvars.iv.next.i
+  br i1 %23, label %.lr.ph.i, label %_ZN3igl13flip_avoiding35compute_max_step_from_singularitiesERKN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEERKNS2_IiLin1ELin1ELi0ELin1ELin1EEERS3_.exit, !llvm.loop !27
 
 _ZN3igl13flip_avoiding35compute_max_step_from_singularitiesERKN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEERKNS2_IiLin1ELin1ELi0ELin1ELin1EEERS3_.exit: ; preds = %.noexc, %.lr.ph29.i, %.preheader.i, %.preheader23.i
   %.1.i = phi double [ 0x7FF0000000000000, %.preheader.i ], [ 0x7FF0000000000000, %.preheader23.i ], [ %.sroa.speculated17.i, %.lr.ph29.i ], [ %.sroa.speculated.i, %.noexc ]
-  %26 = fmul double %.1.i, 8.000000e-01
-  %27 = fcmp olt double %26, 1.000000e+00
-  %.sroa.speculated = select i1 %27, double %26, double 1.000000e+00
-  %28 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %29 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %30 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %24 = fmul double %.1.i, 8.000000e-01
+  %25 = fcmp olt double %24, 1.000000e+00
+  %.sroa.speculated = select i1 %25, double %24, double 1.000000e+00
+  %26 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, i8 0, i64 32, i1 false)
-  %31 = load ptr, ptr %30, align 8, !tbaa !33
-  %.not.i.i.not.i = icmp eq ptr %31, null
-  br i1 %.not.i.i.not.i, label %_ZNSt8functionIFdRN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEEC2ERKS5_.exit, label %32
+  %29 = load ptr, ptr %28, align 8, !tbaa !33
+  %.not.i.i.not.i = icmp eq ptr %29, null
+  br i1 %.not.i.i.not.i, label %_ZNSt8functionIFdRN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEEC2ERKS5_.exit, label %30
 
-32:                                               ; preds = %_ZN3igl13flip_avoiding35compute_max_step_from_singularitiesERKN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEERKNS2_IiLin1ELin1ELi0ELin1ELin1EEERS3_.exit
-  %33 = invoke noundef zeroext i1 %31(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 2)
-          to label %34 unwind label %38
+30:                                               ; preds = %_ZN3igl13flip_avoiding35compute_max_step_from_singularitiesERKN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEERKNS2_IiLin1ELin1ELi0ELin1ELin1EEERS3_.exit
+  %31 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 2)
+          to label %32 unwind label %36
 
-34:                                               ; preds = %32
-  %35 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %36 = load ptr, ptr %35, align 8, !tbaa !35
-  store ptr %36, ptr %29, align 8, !tbaa !35
-  %37 = load ptr, ptr %30, align 8, !tbaa !33
-  store ptr %37, ptr %28, align 8, !tbaa !33
+32:                                               ; preds = %30
+  %33 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %34 = load ptr, ptr %33, align 8, !tbaa !35
+  store ptr %34, ptr %27, align 8, !tbaa !35
+  %35 = load ptr, ptr %28, align 8, !tbaa !33
+  store ptr %35, ptr %26, align 8, !tbaa !33
   br label %_ZNSt8functionIFdRN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEEC2ERKS5_.exit
 
-38:                                               ; preds = %32
-  %39 = landingpad { ptr, i32 }
+36:                                               ; preds = %30
+  %37 = landingpad { ptr, i32 }
           cleanup
-  %40 = load ptr, ptr %28, align 8, !tbaa !33
-  %.not.i.i = icmp eq ptr %40, null
-  br i1 %.not.i.i, label %.body, label %41
+  %38 = load ptr, ptr %26, align 8, !tbaa !33
+  %.not.i.i = icmp eq ptr %38, null
+  br i1 %.not.i.i, label %.body, label %39
 
-41:                                               ; preds = %38
-  %42 = invoke noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 3)
-          to label %.body unwind label %43
+39:                                               ; preds = %36
+  %40 = invoke noundef zeroext i1 %38(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 3)
+          to label %.body unwind label %41
 
-43:                                               ; preds = %41
-  %44 = landingpad { ptr, i32 }
+41:                                               ; preds = %39
+  %42 = landingpad { ptr, i32 }
           catch ptr null
-  %45 = extractvalue { ptr, i32 } %44, 0
-  call void @__clang_call_terminate(ptr %45) #22
+  %43 = extractvalue { ptr, i32 } %42, 0
+  call void @__clang_call_terminate(ptr %43) #22
   unreachable
 
-_ZNSt8functionIFdRN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEEC2ERKS5_.exit: ; preds = %34, %_ZN3igl13flip_avoiding35compute_max_step_from_singularitiesERKN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEERKNS2_IiLin1ELin1ELi0ELin1ELin1EEERS3_.exit
-  %46 = invoke noundef double @_ZN3igl11line_searchERN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEERKS2_dSt8functionIFdS3_EEd(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %6, double noundef %.sroa.speculated, ptr noundef nonnull %8, double noundef %4)
-          to label %47 unwind label %57
+_ZNSt8functionIFdRN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEEC2ERKS5_.exit: ; preds = %32, %_ZN3igl13flip_avoiding35compute_max_step_from_singularitiesERKN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEERKNS2_IiLin1ELin1ELi0ELin1ELin1EEERS3_.exit
+  %44 = invoke noundef double @_ZN3igl11line_searchERN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEERKS2_dSt8functionIFdS3_EEd(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %6, double noundef %.sroa.speculated, ptr noundef nonnull %8, double noundef %4)
+          to label %45 unwind label %55
 
-47:                                               ; preds = %_ZNSt8functionIFdRN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEEC2ERKS5_.exit
-  %48 = load ptr, ptr %28, align 8, !tbaa !33
-  %.not.i = icmp eq ptr %48, null
-  br i1 %.not.i, label %_ZNSt14_Function_baseD2Ev.exit, label %49
+45:                                               ; preds = %_ZNSt8functionIFdRN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEEC2ERKS5_.exit
+  %46 = load ptr, ptr %26, align 8, !tbaa !33
+  %.not.i = icmp eq ptr %46, null
+  br i1 %.not.i, label %_ZNSt14_Function_baseD2Ev.exit, label %47
+
+47:                                               ; preds = %45
+  %48 = invoke noundef zeroext i1 %46(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 3)
+          to label %_ZNSt14_Function_baseD2Ev.exit unwind label %49
 
 49:                                               ; preds = %47
-  %50 = invoke noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 3)
-          to label %_ZNSt14_Function_baseD2Ev.exit unwind label %51
-
-51:                                               ; preds = %49
-  %52 = landingpad { ptr, i32 }
+  %50 = landingpad { ptr, i32 }
           catch ptr null
-  %53 = extractvalue { ptr, i32 } %52, 0
-  call void @__clang_call_terminate(ptr %53) #22
+  %51 = extractvalue { ptr, i32 } %50, 0
+  call void @__clang_call_terminate(ptr %51) #22
   unreachable
 
-_ZNSt14_Function_baseD2Ev.exit:                   ; preds = %47, %49
-  %54 = load ptr, ptr %6, align 8, !tbaa !19
-  call void @free(ptr noundef %54) #19
+_ZNSt14_Function_baseD2Ev.exit:                   ; preds = %45, %47
+  %52 = load ptr, ptr %6, align 8, !tbaa !19
+  call void @free(ptr noundef %52) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  ret double %46
+  ret double %44
 
-55:                                               ; preds = %.lr.ph.i
-  %56 = landingpad { ptr, i32 }
+53:                                               ; preds = %.lr.ph.i
+  %54 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-57:                                               ; preds = %_ZNSt8functionIFdRN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEEC2ERKS5_.exit
-  %58 = landingpad { ptr, i32 }
+55:                                               ; preds = %_ZNSt8functionIFdRN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEEC2ERKS5_.exit
+  %56 = landingpad { ptr, i32 }
           cleanup
-  %59 = load ptr, ptr %28, align 8, !tbaa !33
-  %.not.i14 = icmp eq ptr %59, null
-  br i1 %.not.i14, label %.body, label %60
+  %57 = load ptr, ptr %26, align 8, !tbaa !33
+  %.not.i14 = icmp eq ptr %57, null
+  br i1 %.not.i14, label %.body, label %58
 
-60:                                               ; preds = %57
-  %61 = invoke noundef zeroext i1 %59(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 3)
-          to label %.body unwind label %62
+58:                                               ; preds = %55
+  %59 = invoke noundef zeroext i1 %57(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 3)
+          to label %.body unwind label %60
 
-62:                                               ; preds = %60
-  %63 = landingpad { ptr, i32 }
+60:                                               ; preds = %58
+  %61 = landingpad { ptr, i32 }
           catch ptr null
-  %64 = extractvalue { ptr, i32 } %63, 0
-  call void @__clang_call_terminate(ptr %64) #22
+  %62 = extractvalue { ptr, i32 } %61, 0
+  call void @__clang_call_terminate(ptr %62) #22
   unreachable
 
-.body:                                            ; preds = %60, %57, %41, %38, %55
-  %.pn.pn = phi { ptr, i32 } [ %56, %55 ], [ %39, %41 ], [ %39, %38 ], [ %58, %57 ], [ %58, %60 ]
-  %65 = load ptr, ptr %6, align 8, !tbaa !19
-  call void @free(ptr noundef %65) #19
+.body:                                            ; preds = %58, %55, %39, %36, %53
+  %.pn.pn = phi { ptr, i32 } [ %54, %53 ], [ %37, %39 ], [ %37, %36 ], [ %56, %55 ], [ %56, %58 ]
+  %63 = load ptr, ptr %6, align 8, !tbaa !19
+  call void @free(ptr noundef %63) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %.pn.pn
 }

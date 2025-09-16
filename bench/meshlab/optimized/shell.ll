@@ -17105,38 +17105,36 @@ define linkonce_odr void @_ZN3vcg3tri10TrivialEarI4MeshE12ComputeAngleEv(ptr nou
 56:                                               ; preds = %55, %53, %47
   %.0.i = phi double [ -1.000000e+00, %55 ], [ %51, %53 ], [ 1.000000e+00, %47 ]
   %57 = tail call double @acos(double noundef %.0.i) #26
-  %.pre = load ptr, ptr %12, align 8
   br label %_ZN3vcg5AngleIdEET_RKNS_6Point3IS1_EES5_.exit
 
 _ZN3vcg5AngleIdEET_RKNS_6Point3IS1_EES5_.exit:    ; preds = %1, %56
-  %58 = phi ptr [ %.pre, %56 ], [ %13, %1 ]
   %.010.i = phi double [ %57, %56 ], [ -1.000000e+00, %1 ]
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store double %.010.i, ptr %59, align 8
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %61 = getelementptr inbounds nuw i8, ptr %58, i64 48
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store double %.010.i, ptr %58, align 8
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %60 = getelementptr inbounds nuw i8, ptr %13, i64 48
+  %61 = load double, ptr %59, align 8
   %62 = load double, ptr %60, align 8
-  %63 = load double, ptr %61, align 8
-  %64 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %65 = load double, ptr %64, align 8
-  %66 = getelementptr inbounds nuw i8, ptr %58, i64 56
-  %67 = load double, ptr %66, align 8
-  %68 = fmul double %65, %67
-  %69 = tail call double @llvm.fmuladd.f64(double %62, double %63, double %68)
-  %70 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %71 = load double, ptr %70, align 8
-  %72 = getelementptr inbounds nuw i8, ptr %58, i64 64
-  %73 = load double, ptr %72, align 8
-  %74 = tail call noundef double @llvm.fmuladd.f64(double %71, double %73, double %69)
-  %75 = fcmp olt double %74, 0.000000e+00
-  br i1 %75, label %76, label %78
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %64 = load double, ptr %63, align 8
+  %65 = getelementptr inbounds nuw i8, ptr %13, i64 56
+  %66 = load double, ptr %65, align 8
+  %67 = fmul double %64, %66
+  %68 = tail call double @llvm.fmuladd.f64(double %61, double %62, double %67)
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %70 = load double, ptr %69, align 8
+  %71 = getelementptr inbounds nuw i8, ptr %13, i64 64
+  %72 = load double, ptr %71, align 8
+  %73 = tail call noundef double @llvm.fmuladd.f64(double %70, double %72, double %68)
+  %74 = fcmp olt double %73, 0.000000e+00
+  br i1 %74, label %75, label %77
 
-76:                                               ; preds = %_ZN3vcg5AngleIdEET_RKNS_6Point3IS1_EES5_.exit
-  %77 = fsub double 0x401921FB54442D18, %.010.i
-  store double %77, ptr %59, align 8
-  br label %78
+75:                                               ; preds = %_ZN3vcg5AngleIdEET_RKNS_6Point3IS1_EES5_.exit
+  %76 = fsub double 0x401921FB54442D18, %.010.i
+  store double %76, ptr %58, align 8
+  br label %77
 
-78:                                               ; preds = %76, %_ZN3vcg5AngleIdEET_RKNS_6Point3IS1_EES5_.exit
+77:                                               ; preds = %75, %_ZN3vcg5AngleIdEET_RKNS_6Point3IS1_EES5_.exit
   ret void
 }
 

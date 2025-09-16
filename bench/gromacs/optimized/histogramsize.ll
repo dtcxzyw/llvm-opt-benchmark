@@ -67,7 +67,7 @@ define noundef double @_ZN3gmx13HistogramSize28newHistogramSizeInitialStageERKNS
 20:                                               ; preds = %11, %7
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = load double, ptr %21, align 8, !tbaa !11
-  br label %70
+  br label %68
 
 23:                                               ; preds = %11
   %.not4.i.i.i = icmp eq ptr %4, %5
@@ -102,57 +102,55 @@ _ZSt4fillIN3gmx12ArrayRefIterIdEEiEvT_S3_RKT0_.exit: ; preds = %.lr.ph.i.i.i.pre
   %42 = tail call double @log(double noundef %41) #12, !tbaa !36
   %43 = fsub double %28, %42
   %44 = fcmp ugt double %43, %29
-  %45 = load double, ptr %37, align 8
-  %46 = load double, ptr %30, align 8
-  %47 = fmul double %45, %46
-  %48 = select i1 %44, double %47, double %45
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %50 = zext i1 %44 to i8
-  store i8 %50, ptr %49, align 8, !tbaa !23
+  %45 = fmul double %31, %38
+  %46 = select i1 %44, double %45, double %38
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %48 = zext i1 %44 to i8
+  store i8 %48, ptr %47, align 8, !tbaa !23
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %70, label %51
+  br i1 %.not, label %68, label %49
 
-51:                                               ; preds = %_ZSt4fillIN3gmx12ArrayRefIterIdEEiEvT_S3_RKT0_.exit
+49:                                               ; preds = %_ZSt4fillIN3gmx12ArrayRefIterIdEEiEvT_S3_RKT0_.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %52 = getelementptr inbounds nuw i8, ptr %1, i64 132
-  %53 = load i32, ptr %52, align 4, !tbaa !37
-  %54 = add nsw i32 %53, 1
-  call void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %10, ptr noundef nonnull @.str, i32 noundef %54)
-  %55 = load ptr, ptr %10, align 8, !tbaa !38
-  %56 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.1, ptr noundef %55, double noundef %2) #12
-  br i1 %44, label %60, label %57
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 132
+  %51 = load i32, ptr %50, align 4, !tbaa !37
+  %52 = add nsw i32 %51, 1
+  call void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %10, ptr noundef nonnull @.str, i32 noundef %52)
+  %53 = load ptr, ptr %10, align 8, !tbaa !38
+  %54 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.1, ptr noundef %53, double noundef %2) #12
+  br i1 %44, label %58, label %55
 
-57:                                               ; preds = %51
-  %58 = load ptr, ptr %10, align 8, !tbaa !38
-  %59 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.2, ptr noundef %58, double noundef %2) #12
-  br label %60
+55:                                               ; preds = %49
+  %56 = load ptr, ptr %10, align 8, !tbaa !38
+  %57 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.2, ptr noundef %56, double noundef %2) #12
+  br label %58
 
-60:                                               ; preds = %57, %51
-  %61 = call i32 @fflush(ptr noundef nonnull %6)
-  %62 = load ptr, ptr %10, align 8, !tbaa !38
-  %63 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %64 = icmp eq ptr %62, %63
-  br i1 %64, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
+58:                                               ; preds = %55, %49
+  %59 = call i32 @fflush(ptr noundef nonnull %6)
+  %60 = load ptr, ptr %10, align 8, !tbaa !38
+  %61 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %62 = icmp eq ptr %60, %61
+  br i1 %62, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %60
-  %65 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %66 = load i64, ptr %65, align 8, !tbaa !42
-  %67 = icmp ult i64 %66, 16
-  call void @llvm.assume(i1 %67)
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %58
+  %63 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %64 = load i64, ptr %63, align 8, !tbaa !42
+  %65 = icmp ult i64 %64, 16
+  call void @llvm.assume(i1 %65)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %60
-  %68 = load i64, ptr %63, align 8, !tbaa !43
-  %69 = add i64 %68, 1
-  call void @_ZdlPvm(ptr noundef %62, i64 noundef %69) #13
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %58
+  %66 = load i64, ptr %61, align 8, !tbaa !43
+  %67 = add i64 %66, 1
+  call void @_ZdlPvm(ptr noundef %60, i64 noundef %67) #13
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %70
+  br label %68
 
-70:                                               ; preds = %_ZSt4fillIN3gmx12ArrayRefIterIdEEiEvT_S3_RKT0_.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %20
-  %.0 = phi double [ %22, %20 ], [ %48, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %48, %_ZSt4fillIN3gmx12ArrayRefIterIdEEiEvT_S3_RKT0_.exit ]
+68:                                               ; preds = %_ZSt4fillIN3gmx12ArrayRefIterIdEEiEvT_S3_RKT0_.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %20
+  %.0 = phi double [ %22, %20 ], [ %46, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %46, %_ZSt4fillIN3gmx12ArrayRefIterIdEEiEvT_S3_RKT0_.exit ]
   ret double %.0
 }
 

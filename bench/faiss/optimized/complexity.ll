@@ -304,13 +304,13 @@ _ZN9benchmark8internal18GetNullLogInstanceEv.exit20: ; preds = %_ZN9benchmark8in
 
 _ZN9benchmark8internal18GetNullLogInstanceEv.exit22: ; preds = %_ZN9benchmark8internal18GetNullLogInstanceEv.exit20, %17, %19
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %0, i8 0, i64 20, i1 false)
-  switch i32 %3, label %108 [
+  switch i32 %3, label %110 [
     i32 7, label %20
     i32 2, label %_ZN9benchmark12FittingCurveENS_4BigOE.exit48
-    i32 3, label %104
-    i32 4, label %105
-    i32 5, label %106
-    i32 6, label %107
+    i32 3, label %106
+    i32 4, label %107
+    i32 5, label %108
+    i32 6, label %109
   ]
 
 20:                                               ; preds = %_ZN9benchmark8internal18GetNullLogInstanceEv.exit22
@@ -377,35 +377,35 @@ _ZN9benchmark8internal18GetNullLogInstanceEv.exit22: ; preds = %_ZN9benchmark8in
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %47
 
-_ZNSt6vectorIN9benchmark4BigOESaIS1_EED2Ev.exit:  ; preds = %101
-  store double %103, ptr %.sroa.677.0..sroa_idx, align 8
+_ZNSt6vectorIN9benchmark4BigOESaIS1_EED2Ev.exit:  ; preds = %103
+  store double %105, ptr %.sroa.677.0..sroa_idx, align 8
   store double %.sroa.069.0108, ptr %0, align 8
-  store i32 %102, ptr %.sroa.7.0..sroa_idx, align 8
+  store i32 %104, ptr %.sroa.7.0..sroa_idx, align 8
   tail call void @_ZdlPvm(ptr noundef nonnull %21, i64 noundef 20) #26
-  br label %155
+  br label %157
 
-47:                                               ; preds = %.loopexit85, %101
-  %.sroa.073.0.idx116 = phi i64 [ 0, %.loopexit85 ], [ %.sroa.073.0.add, %101 ]
-  %48 = phi double [ %46, %.loopexit85 ], [ %103, %101 ]
-  %.sroa.069.0109115 = phi double [ %.sroa.076.0, %.loopexit85 ], [ %.sroa.069.0108, %101 ]
-  %49 = phi i32 [ 1, %.loopexit85 ], [ %102, %101 ]
+47:                                               ; preds = %.loopexit85, %103
+  %48 = phi ptr [ %24, %.loopexit85 ], [ %94, %103 ]
+  %49 = phi ptr [ %23, %.loopexit85 ], [ %95, %103 ]
+  %.sroa.073.0.idx116 = phi i64 [ 0, %.loopexit85 ], [ %.sroa.073.0.add, %103 ]
+  %50 = phi double [ %46, %.loopexit85 ], [ %105, %103 ]
+  %.sroa.069.0109115 = phi double [ %.sroa.076.0, %.loopexit85 ], [ %.sroa.069.0108, %103 ]
+  %51 = phi i32 [ 1, %.loopexit85 ], [ %104, %103 ]
   %.sroa.073.0.ptr117 = getelementptr inbounds nuw i8, ptr %21, i64 %.sroa.073.0.idx116
-  %50 = load i32, ptr %.sroa.073.0.ptr117, align 4, !tbaa !40
-  %switch.tableidx = add i32 %50, -2
-  %51 = icmp ult i32 %switch.tableidx, 5
-  br i1 %51, label %switch.lookup, label %_ZN9benchmark12FittingCurveENS_4BigOE.exit
+  %52 = load i32, ptr %.sroa.073.0.ptr117, align 4, !tbaa !40
+  %switch.tableidx = add i32 %52, -2
+  %53 = icmp ult i32 %switch.tableidx, 5
+  br i1 %53, label %switch.lookup, label %_ZN9benchmark12FittingCurveENS_4BigOE.exit
 
 switch.lookup:                                    ; preds = %47
-  %52 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN9benchmark14MinimalLeastSqERKSt6vectorIlSaIlEERKS0_IdSaIdEENS_4BigOE, i64 %52
+  %54 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN9benchmark14MinimalLeastSqERKSt6vectorIlSaIlEERKS0_IdSaIdEENS_4BigOE, i64 %54
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN9benchmark12FittingCurveENS_4BigOE.exit
 
 _ZN9benchmark12FittingCurveENS_4BigOE.exit:       ; preds = %47, %switch.lookup
   %.0.i = phi ptr [ %switch.load, %switch.lookup ], [ @"_ZZN9benchmark12FittingCurveENS_4BigOEEN3$_58__invokeEl", %47 ]
-  %53 = load ptr, ptr %22, align 8, !tbaa !13, !noalias !41
-  %54 = load ptr, ptr %1, align 8, !tbaa !16, !noalias !41
-  %.not.i24 = icmp eq ptr %53, %54
+  %.not.i24 = icmp eq ptr %49, %48
   br i1 %.not.i24, label %.loopexit, label %.lr.ph.i25
 
 ._crit_edge.i30:                                  ; preds = %.noexc
@@ -414,7 +414,7 @@ _ZN9benchmark12FittingCurveENS_4BigOE.exit:       ; preds = %47, %switch.lookup
   br i1 %56, label %.loopexit, label %.lr.ph47.i31
 
 .lr.ph.i25:                                       ; preds = %_ZN9benchmark12FittingCurveENS_4BigOE.exit, %.noexc
-  %57 = phi ptr [ %69, %.noexc ], [ %54, %_ZN9benchmark12FittingCurveENS_4BigOE.exit ]
+  %57 = phi ptr [ %69, %.noexc ], [ %48, %_ZN9benchmark12FittingCurveENS_4BigOE.exit ]
   %.041.i26 = phi double [ %61, %.noexc ], [ 0.000000e+00, %_ZN9benchmark12FittingCurveENS_4BigOE.exit ]
   %.03240.i27 = phi double [ %65, %.noexc ], [ 0.000000e+00, %_ZN9benchmark12FittingCurveENS_4BigOE.exit ]
   %.03539.i28 = phi double [ %66, %.noexc ], [ 0.000000e+00, %_ZN9benchmark12FittingCurveENS_4BigOE.exit ]
@@ -473,20 +473,22 @@ _ZN9benchmark12FittingCurveENS_4BigOE.exit:       ; preds = %47, %switch.lookup
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZN9benchmark12FittingCurveENS_4BigOE.exit, %.loopexit.loopexit, %._crit_edge.i30
+  %94 = phi ptr [ %69, %._crit_edge.i30 ], [ %87, %.loopexit.loopexit ], [ %48, %_ZN9benchmark12FittingCurveENS_4BigOE.exit ]
+  %95 = phi ptr [ %68, %._crit_edge.i30 ], [ %86, %.loopexit.loopexit ], [ %48, %_ZN9benchmark12FittingCurveENS_4BigOE.exit ]
   %.sroa.069.0 = phi double [ %55, %._crit_edge.i30 ], [ %55, %.loopexit.loopexit ], [ 0x7FF8000000000000, %_ZN9benchmark12FittingCurveENS_4BigOE.exit ]
   %.032.lcssa70.i35 = phi double [ %65, %._crit_edge.i30 ], [ %65, %.loopexit.loopexit ], [ 0.000000e+00, %_ZN9benchmark12FittingCurveENS_4BigOE.exit ]
   %.034.lcssa.i36 = phi double [ 0.000000e+00, %._crit_edge.i30 ], [ %84, %.loopexit.loopexit ], [ 0.000000e+00, %_ZN9benchmark12FittingCurveENS_4BigOE.exit ]
   %.lcssa.i37 = phi double [ 0.000000e+00, %._crit_edge.i30 ], [ %93, %.loopexit.loopexit ], [ 0.000000e+00, %_ZN9benchmark12FittingCurveENS_4BigOE.exit ]
-  %94 = fdiv double %.032.lcssa70.i35, %.lcssa.i37
-  %95 = fdiv double %.034.lcssa.i36, %.lcssa.i37
-  %96 = tail call double @sqrt(double noundef %95) #24, !tbaa !29, !noalias !41
-  %97 = fdiv double %96, %94
-  %98 = fcmp olt double %97, %48
-  br i1 %98, label %99, label %101
+  %96 = fdiv double %.032.lcssa70.i35, %.lcssa.i37
+  %97 = fdiv double %.034.lcssa.i36, %.lcssa.i37
+  %98 = tail call double @sqrt(double noundef %97) #24, !tbaa !29, !noalias !41
+  %99 = fdiv double %98, %96
+  %100 = fcmp olt double %99, %50
+  br i1 %100, label %101, label %103
 
-99:                                               ; preds = %.loopexit
-  %100 = load i32, ptr %.sroa.073.0.ptr117, align 4, !tbaa !40
-  br label %101
+101:                                              ; preds = %.loopexit
+  %102 = load i32, ptr %.sroa.073.0.ptr117, align 4, !tbaa !40
+  br label %103
 
 _ZNSt6vectorIN9benchmark4BigOESaIS1_EED2Ev.exit46.loopexit: ; preds = %.lr.ph47.i31
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -500,25 +502,19 @@ _ZNSt6vectorIN9benchmark4BigOESaIS1_EED2Ev.exit46.loopexit.split-lp: ; preds = %
 
 _ZNSt6vectorIN9benchmark4BigOESaIS1_EED2Ev.exit46: ; preds = %_ZNSt6vectorIN9benchmark4BigOESaIS1_EED2Ev.exit46.loopexit.split-lp, %_ZNSt6vectorIN9benchmark4BigOESaIS1_EED2Ev.exit46.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %_ZNSt6vectorIN9benchmark4BigOESaIS1_EED2Ev.exit46.loopexit.split-lp ], [ %lpad.loopexit, %_ZNSt6vectorIN9benchmark4BigOESaIS1_EED2Ev.exit46.loopexit ]
-  store double %48, ptr %.sroa.677.0..sroa_idx, align 8
+  store double %50, ptr %.sroa.677.0..sroa_idx, align 8
   store double %.sroa.069.0109115, ptr %0, align 8
-  store i32 %49, ptr %.sroa.7.0..sroa_idx, align 8
+  store i32 %51, ptr %.sroa.7.0..sroa_idx, align 8
   tail call void @_ZdlPvm(ptr noundef nonnull %21, i64 noundef 20) #26
   resume { ptr, i32 } %lpad.phi
 
-101:                                              ; preds = %99, %.loopexit
-  %102 = phi i32 [ %100, %99 ], [ %49, %.loopexit ]
-  %.sroa.069.0108 = phi double [ %.sroa.069.0, %99 ], [ %.sroa.069.0109115, %.loopexit ]
-  %103 = phi double [ %97, %99 ], [ %48, %.loopexit ]
+103:                                              ; preds = %101, %.loopexit
+  %104 = phi i32 [ %102, %101 ], [ %51, %.loopexit ]
+  %.sroa.069.0108 = phi double [ %.sroa.069.0, %101 ], [ %.sroa.069.0109115, %.loopexit ]
+  %105 = phi double [ %99, %101 ], [ %50, %.loopexit ]
   %.sroa.073.0.add = add nuw nsw i64 %.sroa.073.0.idx116, 4
   %.not = icmp eq i64 %.sroa.073.0.add, 20
   br i1 %.not, label %_ZNSt6vectorIN9benchmark4BigOESaIS1_EED2Ev.exit, label %47
-
-104:                                              ; preds = %_ZN9benchmark8internal18GetNullLogInstanceEv.exit22
-  br label %_ZN9benchmark12FittingCurveENS_4BigOE.exit48
-
-105:                                              ; preds = %_ZN9benchmark8internal18GetNullLogInstanceEv.exit22
-  br label %_ZN9benchmark12FittingCurveENS_4BigOE.exit48
 
 106:                                              ; preds = %_ZN9benchmark8internal18GetNullLogInstanceEv.exit22
   br label %_ZN9benchmark12FittingCurveENS_4BigOE.exit48
@@ -529,89 +525,95 @@ _ZNSt6vectorIN9benchmark4BigOESaIS1_EED2Ev.exit46: ; preds = %_ZNSt6vectorIN9ben
 108:                                              ; preds = %_ZN9benchmark8internal18GetNullLogInstanceEv.exit22
   br label %_ZN9benchmark12FittingCurveENS_4BigOE.exit48
 
-_ZN9benchmark12FittingCurveENS_4BigOE.exit48:     ; preds = %_ZN9benchmark8internal18GetNullLogInstanceEv.exit22, %104, %105, %106, %107, %108
-  %.0.i47 = phi ptr [ @"_ZZN9benchmark12FittingCurveENS_4BigOEEN3$_58__invokeEl", %108 ], [ @"_ZZN9benchmark12FittingCurveENS_4BigOEEN3$_18__invokeEl", %104 ], [ @"_ZZN9benchmark12FittingCurveENS_4BigOEEN3$_28__invokeEl", %105 ], [ @"_ZZN9benchmark12FittingCurveENS_4BigOEEN3$_38__invokeEl", %106 ], [ @"_ZZN9benchmark12FittingCurveENS_4BigOEEN3$_48__invokeEl", %107 ], [ @"_ZZN9benchmark12FittingCurveENS_4BigOEEN3$_08__invokeEl", %_ZN9benchmark8internal18GetNullLogInstanceEv.exit22 ]
-  %109 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %110 = load ptr, ptr %109, align 8, !tbaa !13, !noalias !44
-  %111 = load ptr, ptr %1, align 8, !tbaa !16, !noalias !44
-  %.not.i49 = icmp eq ptr %110, %111
+109:                                              ; preds = %_ZN9benchmark8internal18GetNullLogInstanceEv.exit22
+  br label %_ZN9benchmark12FittingCurveENS_4BigOE.exit48
+
+110:                                              ; preds = %_ZN9benchmark8internal18GetNullLogInstanceEv.exit22
+  br label %_ZN9benchmark12FittingCurveENS_4BigOE.exit48
+
+_ZN9benchmark12FittingCurveENS_4BigOE.exit48:     ; preds = %_ZN9benchmark8internal18GetNullLogInstanceEv.exit22, %106, %107, %108, %109, %110
+  %.0.i47 = phi ptr [ @"_ZZN9benchmark12FittingCurveENS_4BigOEEN3$_58__invokeEl", %110 ], [ @"_ZZN9benchmark12FittingCurveENS_4BigOEEN3$_18__invokeEl", %106 ], [ @"_ZZN9benchmark12FittingCurveENS_4BigOEEN3$_28__invokeEl", %107 ], [ @"_ZZN9benchmark12FittingCurveENS_4BigOEEN3$_38__invokeEl", %108 ], [ @"_ZZN9benchmark12FittingCurveENS_4BigOEEN3$_48__invokeEl", %109 ], [ @"_ZZN9benchmark12FittingCurveENS_4BigOEEN3$_08__invokeEl", %_ZN9benchmark8internal18GetNullLogInstanceEv.exit22 ]
+  %111 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %112 = load ptr, ptr %111, align 8, !tbaa !13, !noalias !44
+  %113 = load ptr, ptr %1, align 8, !tbaa !16, !noalias !44
+  %.not.i49 = icmp eq ptr %112, %113
   br i1 %.not.i49, label %_ZN9benchmark14MinimalLeastSqERKSt6vectorIlSaIlEERKS0_IdSaIdEEPFdlE.exit68, label %.lr.ph.i50
 
 ._crit_edge.i55:                                  ; preds = %.lr.ph.i50
-  %112 = fdiv double %123, %118
-  %113 = icmp eq ptr %125, %126
-  br i1 %113, label %_ZN9benchmark14MinimalLeastSqERKSt6vectorIlSaIlEERKS0_IdSaIdEEPFdlE.exit68, label %.lr.ph47.i56
+  %114 = fdiv double %125, %120
+  %115 = icmp eq ptr %127, %128
+  br i1 %115, label %_ZN9benchmark14MinimalLeastSqERKSt6vectorIlSaIlEERKS0_IdSaIdEEPFdlE.exit68, label %.lr.ph47.i56
 
 .lr.ph.i50:                                       ; preds = %_ZN9benchmark12FittingCurveENS_4BigOE.exit48, %.lr.ph.i50
-  %114 = phi ptr [ %126, %.lr.ph.i50 ], [ %111, %_ZN9benchmark12FittingCurveENS_4BigOE.exit48 ]
-  %.041.i51 = phi double [ %118, %.lr.ph.i50 ], [ 0.000000e+00, %_ZN9benchmark12FittingCurveENS_4BigOE.exit48 ]
-  %.03240.i52 = phi double [ %122, %.lr.ph.i50 ], [ 0.000000e+00, %_ZN9benchmark12FittingCurveENS_4BigOE.exit48 ]
-  %.03539.i53 = phi double [ %123, %.lr.ph.i50 ], [ 0.000000e+00, %_ZN9benchmark12FittingCurveENS_4BigOE.exit48 ]
-  %.03638.i54 = phi i64 [ %124, %.lr.ph.i50 ], [ 0, %_ZN9benchmark12FittingCurveENS_4BigOE.exit48 ]
-  %115 = getelementptr inbounds nuw i64, ptr %114, i64 %.03638.i54
-  %116 = load i64, ptr %115, align 8, !tbaa !22, !noalias !44
-  %117 = tail call noundef double %.0.i47(i64 noundef %116), !noalias !44
-  %118 = tail call double @llvm.fmuladd.f64(double %117, double %117, double %.041.i51)
-  %119 = load ptr, ptr %2, align 8, !tbaa !23, !noalias !44
-  %120 = getelementptr inbounds nuw double, ptr %119, i64 %.03638.i54
-  %121 = load double, ptr %120, align 8, !tbaa !26, !noalias !44
-  %122 = fadd double %.03240.i52, %121
-  %123 = tail call double @llvm.fmuladd.f64(double %121, double %117, double %.03539.i53)
-  %124 = add nuw i64 %.03638.i54, 1
-  %125 = load ptr, ptr %109, align 8, !tbaa !13, !noalias !44
-  %126 = load ptr, ptr %1, align 8, !tbaa !16, !noalias !44
-  %127 = ptrtoint ptr %125 to i64
-  %128 = ptrtoint ptr %126 to i64
-  %129 = sub i64 %127, %128
-  %130 = ashr exact i64 %129, 3
-  %131 = icmp ult i64 %124, %130
-  br i1 %131, label %.lr.ph.i50, label %._crit_edge.i55, !llvm.loop !27
+  %116 = phi ptr [ %128, %.lr.ph.i50 ], [ %113, %_ZN9benchmark12FittingCurveENS_4BigOE.exit48 ]
+  %.041.i51 = phi double [ %120, %.lr.ph.i50 ], [ 0.000000e+00, %_ZN9benchmark12FittingCurveENS_4BigOE.exit48 ]
+  %.03240.i52 = phi double [ %124, %.lr.ph.i50 ], [ 0.000000e+00, %_ZN9benchmark12FittingCurveENS_4BigOE.exit48 ]
+  %.03539.i53 = phi double [ %125, %.lr.ph.i50 ], [ 0.000000e+00, %_ZN9benchmark12FittingCurveENS_4BigOE.exit48 ]
+  %.03638.i54 = phi i64 [ %126, %.lr.ph.i50 ], [ 0, %_ZN9benchmark12FittingCurveENS_4BigOE.exit48 ]
+  %117 = getelementptr inbounds nuw i64, ptr %116, i64 %.03638.i54
+  %118 = load i64, ptr %117, align 8, !tbaa !22, !noalias !44
+  %119 = tail call noundef double %.0.i47(i64 noundef %118), !noalias !44
+  %120 = tail call double @llvm.fmuladd.f64(double %119, double %119, double %.041.i51)
+  %121 = load ptr, ptr %2, align 8, !tbaa !23, !noalias !44
+  %122 = getelementptr inbounds nuw double, ptr %121, i64 %.03638.i54
+  %123 = load double, ptr %122, align 8, !tbaa !26, !noalias !44
+  %124 = fadd double %.03240.i52, %123
+  %125 = tail call double @llvm.fmuladd.f64(double %123, double %119, double %.03539.i53)
+  %126 = add nuw i64 %.03638.i54, 1
+  %127 = load ptr, ptr %111, align 8, !tbaa !13, !noalias !44
+  %128 = load ptr, ptr %1, align 8, !tbaa !16, !noalias !44
+  %129 = ptrtoint ptr %127 to i64
+  %130 = ptrtoint ptr %128 to i64
+  %131 = sub i64 %129, %130
+  %132 = ashr exact i64 %131, 3
+  %133 = icmp ult i64 %126, %132
+  br i1 %133, label %.lr.ph.i50, label %._crit_edge.i55, !llvm.loop !27
 
 .lr.ph47.i56:                                     ; preds = %._crit_edge.i55, %.lr.ph47.i56
-  %132 = phi ptr [ %144, %.lr.ph47.i56 ], [ %126, %._crit_edge.i55 ]
-  %.03345.i57 = phi i64 [ %142, %.lr.ph47.i56 ], [ 0, %._crit_edge.i55 ]
-  %.03444.i58 = phi double [ %141, %.lr.ph47.i56 ], [ 0.000000e+00, %._crit_edge.i55 ]
-  %133 = getelementptr inbounds nuw i64, ptr %132, i64 %.03345.i57
-  %134 = load i64, ptr %133, align 8, !tbaa !22, !noalias !44
-  %135 = tail call noundef double %.0.i47(i64 noundef %134), !noalias !44
-  %136 = fmul double %112, %135
-  %137 = load ptr, ptr %2, align 8, !tbaa !23, !noalias !44
-  %138 = getelementptr inbounds nuw double, ptr %137, i64 %.03345.i57
-  %139 = load double, ptr %138, align 8, !tbaa !26, !noalias !44
-  %140 = fsub double %139, %136
-  %square.i59 = fmul double %140, %140
-  %141 = fadd double %.03444.i58, %square.i59
-  %142 = add nuw i64 %.03345.i57, 1
-  %143 = load ptr, ptr %109, align 8, !tbaa !13, !noalias !44
-  %144 = load ptr, ptr %1, align 8, !tbaa !16, !noalias !44
-  %145 = ptrtoint ptr %143 to i64
-  %146 = ptrtoint ptr %144 to i64
-  %147 = sub i64 %145, %146
-  %148 = ashr exact i64 %147, 3
-  %149 = icmp ult i64 %142, %148
-  br i1 %149, label %.lr.ph47.i56, label %_ZN9benchmark14MinimalLeastSqERKSt6vectorIlSaIlEERKS0_IdSaIdEEPFdlE.exit68.loopexit, !llvm.loop !32
+  %134 = phi ptr [ %146, %.lr.ph47.i56 ], [ %128, %._crit_edge.i55 ]
+  %.03345.i57 = phi i64 [ %144, %.lr.ph47.i56 ], [ 0, %._crit_edge.i55 ]
+  %.03444.i58 = phi double [ %143, %.lr.ph47.i56 ], [ 0.000000e+00, %._crit_edge.i55 ]
+  %135 = getelementptr inbounds nuw i64, ptr %134, i64 %.03345.i57
+  %136 = load i64, ptr %135, align 8, !tbaa !22, !noalias !44
+  %137 = tail call noundef double %.0.i47(i64 noundef %136), !noalias !44
+  %138 = fmul double %114, %137
+  %139 = load ptr, ptr %2, align 8, !tbaa !23, !noalias !44
+  %140 = getelementptr inbounds nuw double, ptr %139, i64 %.03345.i57
+  %141 = load double, ptr %140, align 8, !tbaa !26, !noalias !44
+  %142 = fsub double %141, %138
+  %square.i59 = fmul double %142, %142
+  %143 = fadd double %.03444.i58, %square.i59
+  %144 = add nuw i64 %.03345.i57, 1
+  %145 = load ptr, ptr %111, align 8, !tbaa !13, !noalias !44
+  %146 = load ptr, ptr %1, align 8, !tbaa !16, !noalias !44
+  %147 = ptrtoint ptr %145 to i64
+  %148 = ptrtoint ptr %146 to i64
+  %149 = sub i64 %147, %148
+  %150 = ashr exact i64 %149, 3
+  %151 = icmp ult i64 %144, %150
+  br i1 %151, label %.lr.ph47.i56, label %_ZN9benchmark14MinimalLeastSqERKSt6vectorIlSaIlEERKS0_IdSaIdEEPFdlE.exit68.loopexit, !llvm.loop !32
 
 _ZN9benchmark14MinimalLeastSqERKSt6vectorIlSaIlEERKS0_IdSaIdEEPFdlE.exit68.loopexit: ; preds = %.lr.ph47.i56
-  %150 = uitofp i64 %148 to double
+  %152 = uitofp i64 %150 to double
   br label %_ZN9benchmark14MinimalLeastSqERKSt6vectorIlSaIlEERKS0_IdSaIdEEPFdlE.exit68
 
 _ZN9benchmark14MinimalLeastSqERKSt6vectorIlSaIlEERKS0_IdSaIdEEPFdlE.exit68: ; preds = %_ZN9benchmark12FittingCurveENS_4BigOE.exit48, %_ZN9benchmark14MinimalLeastSqERKSt6vectorIlSaIlEERKS0_IdSaIdEEPFdlE.exit68.loopexit, %._crit_edge.i55
-  %.sroa.0.0 = phi double [ %112, %._crit_edge.i55 ], [ %112, %_ZN9benchmark14MinimalLeastSqERKSt6vectorIlSaIlEERKS0_IdSaIdEEPFdlE.exit68.loopexit ], [ 0x7FF8000000000000, %_ZN9benchmark12FittingCurveENS_4BigOE.exit48 ]
-  %.032.lcssa70.i60 = phi double [ %122, %._crit_edge.i55 ], [ %122, %_ZN9benchmark14MinimalLeastSqERKSt6vectorIlSaIlEERKS0_IdSaIdEEPFdlE.exit68.loopexit ], [ 0.000000e+00, %_ZN9benchmark12FittingCurveENS_4BigOE.exit48 ]
-  %.034.lcssa.i61 = phi double [ 0.000000e+00, %._crit_edge.i55 ], [ %141, %_ZN9benchmark14MinimalLeastSqERKSt6vectorIlSaIlEERKS0_IdSaIdEEPFdlE.exit68.loopexit ], [ 0.000000e+00, %_ZN9benchmark12FittingCurveENS_4BigOE.exit48 ]
-  %.lcssa.i62 = phi double [ 0.000000e+00, %._crit_edge.i55 ], [ %150, %_ZN9benchmark14MinimalLeastSqERKSt6vectorIlSaIlEERKS0_IdSaIdEEPFdlE.exit68.loopexit ], [ 0.000000e+00, %_ZN9benchmark12FittingCurveENS_4BigOE.exit48 ]
-  %151 = fdiv double %.032.lcssa70.i60, %.lcssa.i62
-  %152 = fdiv double %.034.lcssa.i61, %.lcssa.i62
-  %153 = tail call double @sqrt(double noundef %152) #24, !tbaa !29, !noalias !44
-  %154 = fdiv double %153, %151
+  %.sroa.0.0 = phi double [ %114, %._crit_edge.i55 ], [ %114, %_ZN9benchmark14MinimalLeastSqERKSt6vectorIlSaIlEERKS0_IdSaIdEEPFdlE.exit68.loopexit ], [ 0x7FF8000000000000, %_ZN9benchmark12FittingCurveENS_4BigOE.exit48 ]
+  %.032.lcssa70.i60 = phi double [ %124, %._crit_edge.i55 ], [ %124, %_ZN9benchmark14MinimalLeastSqERKSt6vectorIlSaIlEERKS0_IdSaIdEEPFdlE.exit68.loopexit ], [ 0.000000e+00, %_ZN9benchmark12FittingCurveENS_4BigOE.exit48 ]
+  %.034.lcssa.i61 = phi double [ 0.000000e+00, %._crit_edge.i55 ], [ %143, %_ZN9benchmark14MinimalLeastSqERKSt6vectorIlSaIlEERKS0_IdSaIdEEPFdlE.exit68.loopexit ], [ 0.000000e+00, %_ZN9benchmark12FittingCurveENS_4BigOE.exit48 ]
+  %.lcssa.i62 = phi double [ 0.000000e+00, %._crit_edge.i55 ], [ %152, %_ZN9benchmark14MinimalLeastSqERKSt6vectorIlSaIlEERKS0_IdSaIdEEPFdlE.exit68.loopexit ], [ 0.000000e+00, %_ZN9benchmark12FittingCurveENS_4BigOE.exit48 ]
+  %153 = fdiv double %.032.lcssa70.i60, %.lcssa.i62
+  %154 = fdiv double %.034.lcssa.i61, %.lcssa.i62
+  %155 = tail call double @sqrt(double noundef %154) #24, !tbaa !29, !noalias !44
+  %156 = fdiv double %155, %153
   store double %.sroa.0.0, ptr %0, align 8, !tbaa !26
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store double %154, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !26
+  store double %156, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !26
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %3, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !17
-  br label %155
+  br label %157
 
-155:                                              ; preds = %_ZN9benchmark14MinimalLeastSqERKSt6vectorIlSaIlEERKS0_IdSaIdEEPFdlE.exit68, %_ZNSt6vectorIN9benchmark4BigOESaIS1_EED2Ev.exit
+157:                                              ; preds = %_ZN9benchmark14MinimalLeastSqERKSt6vectorIlSaIlEERKS0_IdSaIdEEPFdlE.exit68, %_ZNSt6vectorIN9benchmark4BigOESaIS1_EED2Ev.exit
   ret void
 }
 

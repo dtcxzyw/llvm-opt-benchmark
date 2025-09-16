@@ -199,7 +199,11 @@ define noundef zeroext i1 @_ZN5Ipopt21Mc19TSymScalingMethod25ComputeSymTScalingF
   call void @_ZdaPv(ptr noundef nonnull %31) #15
   %34 = load i32, ptr %8, align 4, !tbaa !33
   %35 = icmp sgt i32 %34, 0
-  br i1 %35, label %.lr.ph83, label %._crit_edge84
+  br i1 %35, label %.lr.ph83.preheader, label %._crit_edge84
+
+.lr.ph83.preheader:                               ; preds = %._crit_edge
+  %wide.trip.count94 = zext nneg i32 %34 to i64
+  br label %.lr.ph83
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %55
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %55 ]
@@ -253,12 +257,12 @@ define noundef zeroext i1 @_ZN5Ipopt21Mc19TSymScalingMethod25ComputeSymTScalingF
   %.071.lcssa = phi i1 [ true, %._crit_edge ], [ %56, %._crit_edge84.loopexit ]
   %57 = call noundef zeroext i1 @_ZN5Ipopt14IsFiniteNumberEd(double noundef %.072.lcssa)
   %or.cond.not = and i1 %.071.lcssa, %57
-  br i1 %or.cond.not, label %.loopexit, label %72
+  br i1 %or.cond.not, label %.loopexit, label %69
 
-.lr.ph83:                                         ; preds = %._crit_edge, %.lr.ph83
-  %indvars.iv91 = phi i64 [ %indvars.iv.next92, %.lr.ph83 ], [ 0, %._crit_edge ]
-  %.07180 = phi double [ %.sroa.speculated.i, %.lr.ph83 ], [ 0.000000e+00, %._crit_edge ]
-  %.07279 = phi double [ %67, %.lr.ph83 ], [ 0.000000e+00, %._crit_edge ]
+.lr.ph83:                                         ; preds = %.lr.ph83.preheader, %.lr.ph83
+  %indvars.iv91 = phi i64 [ 0, %.lr.ph83.preheader ], [ %indvars.iv.next92, %.lr.ph83 ]
+  %.07180 = phi double [ 0.000000e+00, %.lr.ph83.preheader ], [ %.sroa.speculated.i, %.lr.ph83 ]
+  %.07279 = phi double [ 0.000000e+00, %.lr.ph83.preheader ], [ %67, %.lr.ph83 ]
   %58 = getelementptr inbounds nuw float, ptr %25, i64 %indvars.iv91
   %59 = load float, ptr %58, align 4, !tbaa !38
   %60 = getelementptr inbounds nuw float, ptr %26, i64 %indvars.iv91
@@ -273,35 +277,33 @@ define noundef zeroext i1 @_ZN5Ipopt21Mc19TSymScalingMethod25ComputeSymTScalingF
   %68 = fcmp olt double %.07180, %65
   %.sroa.speculated.i = select i1 %68, double %65, double %.07180
   %indvars.iv.next92 = add nuw nsw i64 %indvars.iv91, 1
-  %69 = load i32, ptr %8, align 4, !tbaa !33
-  %70 = sext i32 %69 to i64
-  %71 = icmp slt i64 %indvars.iv.next92, %70
-  br i1 %71, label %.lr.ph83, label %._crit_edge84.loopexit, !llvm.loop !40
+  %exitcond95.not = icmp eq i64 %indvars.iv.next92, %wide.trip.count94
+  br i1 %exitcond95.not, label %._crit_edge84.loopexit, label %.lr.ph83, !llvm.loop !40
 
-72:                                               ; preds = %._crit_edge84
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %74 = load ptr, ptr %73, align 8, !tbaa !41
-  %75 = load ptr, ptr %74, align 8, !tbaa !42
-  %76 = getelementptr inbounds nuw i8, ptr %75, i64 16
-  %77 = load ptr, ptr %76, align 8
-  call void (ptr, i32, i32, ptr, ...) %77(ptr noundef nonnull align 8 dereferenceable(40) %74, i32 noundef 4, i32 noundef 7, ptr noundef nonnull @.str.1)
-  %78 = load i32, ptr %8, align 4, !tbaa !33
-  %79 = icmp sgt i32 %78, 0
-  br i1 %79, label %.lr.ph89.preheader, label %.loopexit
+69:                                               ; preds = %._crit_edge84
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %71 = load ptr, ptr %70, align 8, !tbaa !41
+  %72 = load ptr, ptr %71, align 8, !tbaa !42
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 16
+  %74 = load ptr, ptr %73, align 8
+  call void (ptr, i32, i32, ptr, ...) %74(ptr noundef nonnull align 8 dereferenceable(40) %71, i32 noundef 4, i32 noundef 7, ptr noundef nonnull @.str.1)
+  %75 = load i32, ptr %8, align 4, !tbaa !33
+  %76 = icmp sgt i32 %75, 0
+  br i1 %76, label %.lr.ph89.preheader, label %.loopexit
 
-.lr.ph89.preheader:                               ; preds = %72
-  %wide.trip.count97 = zext nneg i32 %78 to i64
+.lr.ph89.preheader:                               ; preds = %69
+  %wide.trip.count99 = zext nneg i32 %75 to i64
   br label %.lr.ph89
 
 .lr.ph89:                                         ; preds = %.lr.ph89.preheader, %.lr.ph89
-  %indvars.iv94 = phi i64 [ 0, %.lr.ph89.preheader ], [ %indvars.iv.next95, %.lr.ph89 ]
-  %80 = getelementptr inbounds nuw double, ptr %6, i64 %indvars.iv94
-  store double 1.000000e+00, ptr %80, align 8, !tbaa !34
-  %indvars.iv.next95 = add nuw nsw i64 %indvars.iv94, 1
-  %exitcond98.not = icmp eq i64 %indvars.iv.next95, %wide.trip.count97
-  br i1 %exitcond98.not, label %.loopexit, label %.lr.ph89, !llvm.loop !44
+  %indvars.iv96 = phi i64 [ 0, %.lr.ph89.preheader ], [ %indvars.iv.next97, %.lr.ph89 ]
+  %77 = getelementptr inbounds nuw double, ptr %6, i64 %indvars.iv96
+  store double 1.000000e+00, ptr %77, align 8, !tbaa !34
+  %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
+  %exitcond100.not = icmp eq i64 %indvars.iv.next97, %wide.trip.count99
+  br i1 %exitcond100.not, label %.loopexit, label %.lr.ph89, !llvm.loop !44
 
-.loopexit:                                        ; preds = %.lr.ph89, %72, %._crit_edge84
+.loopexit:                                        ; preds = %.lr.ph89, %69, %._crit_edge84
   call void @_ZdaPv(ptr noundef nonnull %26) #15
   call void @_ZdaPv(ptr noundef nonnull %25) #15
   call void @_ZdaPv(ptr noundef nonnull %19) #15

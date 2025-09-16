@@ -8165,23 +8165,23 @@ _ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE11setConstantERKd.exit.
 
 _ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE7setZeroEv.exit: ; preds = %_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2ERKS1_.exit, %86, %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE11setConstantERKd.exit.loopexit.i
   %.sink = phi i64 [ %85, %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE11setConstantERKd.exit.loopexit.i ], [ %85, %86 ], [ 0, %_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2ERKS1_.exit ]
-  %94 = phi i32 [ %84, %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE11setConstantERKd.exit.loopexit.i ], [ %84, %86 ], [ 0, %_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2ERKS1_.exit ]
-  %95 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i64 %.sink, ptr %95, align 8, !tbaa !458
-  %96 = load double, ptr %80, align 8, !tbaa !10
-  %97 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %98 = load double, ptr %97, align 8, !tbaa !461
-  %99 = call double @sqrt(double noundef %98) #40, !tbaa !12
-  %100 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %101 = load i32, ptr %100, align 8, !tbaa !462
-  %102 = icmp slt i32 %101, 0
-  %103 = sub nsw i32 %94, %101
-  %.sroa.speculated = call i32 @llvm.smin.i32(i32 %103, i32 %94)
-  %104 = icmp sgt i32 %.sroa.speculated, 0
-  br i1 %104, label %.lr.ph181, label %.thread166
+  %94 = phi ptr [ %calloc, %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE11setConstantERKd.exit.loopexit.i ], [ null, %86 ], [ null, %_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2ERKS1_.exit ]
+  %95 = phi i32 [ %84, %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE11setConstantERKd.exit.loopexit.i ], [ %84, %86 ], [ 0, %_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2ERKS1_.exit ]
+  %96 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store i64 %.sink, ptr %96, align 8, !tbaa !458
+  %97 = load double, ptr %80, align 8, !tbaa !10
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %99 = load double, ptr %98, align 8, !tbaa !461
+  %100 = call double @sqrt(double noundef %99) #40, !tbaa !12
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %102 = load i32, ptr %101, align 8, !tbaa !462
+  %103 = icmp slt i32 %102, 0
+  %104 = sub nsw i32 %95, %102
+  %.sroa.speculated = call i32 @llvm.smin.i32(i32 %104, i32 %95)
+  %105 = icmp sgt i32 %.sroa.speculated, 0
+  br i1 %105, label %.lr.ph181, label %.thread166
 
 .lr.ph181:                                        ; preds = %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE7setZeroEv.exit
-  %105 = load ptr, ptr %9, align 8
   %wide.trip.count199 = zext nneg i32 %.sroa.speculated to i64
   br label %112
 
@@ -8204,12 +8204,12 @@ _ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE7setZeroEv.exit: ; pred
   %indvars.iv196 = phi i64 [ 0, %.lr.ph181 ], [ %indvars.iv.next197, %130 ]
   %113 = getelementptr inbounds nuw double, ptr %80, i64 %indvars.iv196
   %114 = load double, ptr %113, align 8, !tbaa !10
-  %115 = fdiv double %114, %96
-  %116 = fcmp uge double %115, %99
+  %115 = fdiv double %114, %97
+  %116 = fcmp uge double %115, %100
   br i1 %116, label %130, label %117
 
 117:                                              ; preds = %112
-  br i1 %102, label %.thread166, label %118
+  br i1 %103, label %.thread166, label %118
 
 118:                                              ; preds = %117
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -8253,7 +8253,7 @@ _ZN4absl12lts_2024011612log_internal10LogMessagelsILi2EEERS2_RAT__Kc.exit: ; pre
           to label %_ZN4absl12lts_2024011612log_internal10LogMessagelsILi34EEERS2_RAT__Kc.exit unwind label %127
 
 _ZN4absl12lts_2024011612log_internal10LogMessagelsILi34EEERS2_RAT__Kc.exit: ; preds = %_ZN4absl12lts_2024011612log_internal10LogMessagelsILi2EEERS2_RAT__Kc.exit
-  %123 = load double, ptr %97, align 8, !tbaa !461
+  %123 = load double, ptr %98, align 8, !tbaa !461
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store double %123, ptr %3, align 8, !tbaa !10
   %124 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2024011612log_internal10LogMessagelsIdTnNSt9enable_ifIXntsr4absl16HasAbslStringifyIT_EE5valueEiE4typeELi0EEERS2_RKS5_(ptr noundef nonnull align 8 dereferenceable(16) %121, ptr noundef nonnull align 8 dereferenceable(8) %3)
@@ -8276,7 +8276,7 @@ _ZN4absl12lts_2024011612log_internal10LogMessagelsILi34EEERS2_RAT__Kc.exit: ; pr
   br label %.body93
 
 130:                                              ; preds = %112
-  %131 = getelementptr inbounds nuw double, ptr %105, i64 %indvars.iv196
+  %131 = getelementptr inbounds nuw double, ptr %94, i64 %indvars.iv196
   %132 = fmul double %114, %114
   %133 = fdiv double 1.000000e+00, %132
   store double %133, ptr %131, align 8, !tbaa !10

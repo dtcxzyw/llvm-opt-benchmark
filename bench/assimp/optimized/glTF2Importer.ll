@@ -12420,7 +12420,7 @@ define hidden void @_ZN6Assimp13glTF2Importer13ImportCamerasERN5glTF25AssetE(ptr
   %11 = lshr exact i64 %10, 3
   %12 = trunc i64 %11 to i32
   %.not = icmp eq i32 %12, 0
-  br i1 %.not, label %83, label %13
+  br i1 %.not, label %79, label %13
 
 13:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -12447,16 +12447,16 @@ _ZSt4fillIPP8aiCameraDnEvT_S3_RKT0_.exit:         ; preds = %13
   %26 = load ptr, ptr %25, align 8
   call void @llvm.memset.p0.i64(ptr align 8 %26, i8 0, i64 %20, i1 false)
   %.pre = load i32, ptr %3, align 4
+  %27 = zext i32 %.pre to i64
   %.not34 = icmp eq i32 %.pre, 0
   br i1 %.not34, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %78, %13, %_ZSt4fillIPP8aiCameraDnEvT_S3_RKT0_.exit
+._crit_edge:                                      ; preds = %77, %13, %_ZSt4fillIPP8aiCameraDnEvT_S3_RKT0_.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %83
+  br label %79
 
-.lr.ph:                                           ; preds = %_ZSt4fillIPP8aiCameraDnEvT_S3_RKT0_.exit, %78
-  %27 = phi i32 [ %79, %78 ], [ %.pre, %_ZSt4fillIPP8aiCameraDnEvT_S3_RKT0_.exit ]
-  %.033 = phi i64 [ %80, %78 ], [ 0, %_ZSt4fillIPP8aiCameraDnEvT_S3_RKT0_.exit ]
+.lr.ph:                                           ; preds = %_ZSt4fillIPP8aiCameraDnEvT_S3_RKT0_.exit, %77
+  %.033 = phi i64 [ %78, %77 ], [ 0, %_ZSt4fillIPP8aiCameraDnEvT_S3_RKT0_.exit ]
   %28 = load ptr, ptr %4, align 8
   %29 = getelementptr inbounds nuw ptr, ptr %28, i64 %.033
   %30 = load ptr, ptr %29, align 8
@@ -12494,7 +12494,7 @@ _ZSt4fillIPP8aiCameraDnEvT_S3_RKT0_.exit:         ; preds = %13
   %47 = load i32, ptr %46, align 8
   %48 = icmp eq i32 %47, 0
   %49 = getelementptr inbounds nuw i8, ptr %30, i64 268
-  br i1 %48, label %50, label %66
+  br i1 %48, label %50, label %65
 
 50:                                               ; preds = %.lr.ph
   %51 = load float, ptr %49, align 4
@@ -12503,52 +12503,48 @@ _ZSt4fillIPP8aiCameraDnEvT_S3_RKT0_.exit:         ; preds = %13
   %53 = load float, ptr %52, align 4
   %54 = fmul float %53, 5.000000e-01
   %55 = call noundef float @tanf(float noundef %54) #37
-  %56 = load float, ptr %40, align 4
-  %57 = fcmp oeq float %56, 0.000000e+00
-  %58 = select i1 %57, float 1.000000e+00, float %56
-  %59 = fmul float %55, %58
-  %60 = call noundef float @atanf(float noundef %59) #37
-  %61 = fmul float %60, 2.000000e+00
-  store float %61, ptr %37, align 4
-  %62 = getelementptr inbounds nuw i8, ptr %30, i64 276
-  %63 = load float, ptr %62, align 4
-  store float %63, ptr %39, align 4
-  %64 = getelementptr inbounds nuw i8, ptr %30, i64 280
-  %65 = load float, ptr %64, align 4
-  store float %65, ptr %38, align 4
-  %.pre35 = load i32, ptr %3, align 4
-  br label %78
+  %56 = fcmp oeq float %51, 0.000000e+00
+  %57 = select i1 %56, float 1.000000e+00, float %51
+  %58 = fmul float %57, %55
+  %59 = call noundef float @atanf(float noundef %58) #37
+  %60 = fmul float %59, 2.000000e+00
+  store float %60, ptr %37, align 4
+  %61 = getelementptr inbounds nuw i8, ptr %30, i64 276
+  %62 = load float, ptr %61, align 4
+  store float %62, ptr %39, align 4
+  %63 = getelementptr inbounds nuw i8, ptr %30, i64 280
+  %64 = load float, ptr %63, align 4
+  store float %64, ptr %38, align 4
+  br label %77
 
-66:                                               ; preds = %.lr.ph
-  %67 = getelementptr inbounds nuw i8, ptr %30, i64 276
-  %68 = load float, ptr %67, align 4
-  store float %68, ptr %39, align 4
-  %69 = getelementptr inbounds nuw i8, ptr %30, i64 280
-  %70 = load float, ptr %69, align 4
-  store float %70, ptr %38, align 4
+65:                                               ; preds = %.lr.ph
+  %66 = getelementptr inbounds nuw i8, ptr %30, i64 276
+  %67 = load float, ptr %66, align 4
+  store float %67, ptr %39, align 4
+  %68 = getelementptr inbounds nuw i8, ptr %30, i64 280
+  %69 = load float, ptr %68, align 4
+  store float %69, ptr %38, align 4
   store float 0.000000e+00, ptr %37, align 4
-  %71 = load float, ptr %49, align 4
-  store float %71, ptr %41, align 4
+  %70 = load float, ptr %49, align 4
+  store float %70, ptr %41, align 4
   store float 1.000000e+00, ptr %40, align 4
-  %72 = getelementptr inbounds nuw i8, ptr %30, i64 272
-  %73 = load float, ptr %72, align 4
-  %74 = fcmp une float %73, 0.000000e+00
-  br i1 %74, label %75, label %78
+  %71 = getelementptr inbounds nuw i8, ptr %30, i64 272
+  %72 = load float, ptr %71, align 4
+  %73 = fcmp une float %72, 0.000000e+00
+  br i1 %73, label %74, label %77
 
-75:                                               ; preds = %66
-  %76 = load float, ptr %49, align 4
-  %77 = fdiv float %76, %73
-  store float %77, ptr %40, align 4
-  br label %78
+74:                                               ; preds = %65
+  %75 = load float, ptr %49, align 4
+  %76 = fdiv float %75, %72
+  store float %76, ptr %40, align 4
+  br label %77
 
-78:                                               ; preds = %66, %75, %50
-  %79 = phi i32 [ %27, %66 ], [ %27, %75 ], [ %.pre35, %50 ]
-  %80 = add nuw nsw i64 %.033, 1
-  %81 = zext i32 %79 to i64
-  %82 = icmp samesign ult i64 %80, %81
-  br i1 %82, label %.lr.ph, label %._crit_edge, !llvm.loop !51
+77:                                               ; preds = %65, %74, %50
+  %78 = add nuw nsw i64 %.033, 1
+  %exitcond.not = icmp eq i64 %78, %27
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !51
 
-83:                                               ; preds = %2, %._crit_edge
+79:                                               ; preds = %2, %._crit_edge
   ret void
 }
 

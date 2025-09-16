@@ -342,39 +342,35 @@ define double @pg_prng_double_normal(ptr noundef captures(none) %0) local_unname
   %12 = shl i64 %5, 16
   %13 = xor i64 %11, %12
   %14 = xor i64 %13, %5
-  store i64 %14, ptr %0, align 8
   %15 = tail call i64 @llvm.fshl.i64(i64 %5, i64 %5, i64 37)
-  store i64 %15, ptr %3, align 8
   %16 = lshr i64 %10, 12
   %17 = uitofp nneg i64 %16 to double
   %18 = tail call double @ldexp(double noundef %17, i32 noundef -52) #7
   %19 = fsub double 1.000000e+00, %18
-  %20 = load i64, ptr %0, align 8
-  %21 = load i64, ptr %3, align 8
-  %22 = xor i64 %21, %20
-  %23 = mul i64 %20, 5
-  %24 = mul i64 %20, 640
-  %25 = lshr i64 %23, 57
-  %26 = or disjoint i64 %25, %24
-  %27 = mul i64 %26, 9
-  %28 = tail call i64 @llvm.fshl.i64(i64 %20, i64 %20, i64 24)
-  %29 = shl i64 %22, 16
-  %30 = xor i64 %28, %29
-  %31 = xor i64 %30, %22
-  store i64 %31, ptr %0, align 8
-  %32 = tail call i64 @llvm.fshl.i64(i64 %22, i64 %22, i64 37)
-  store i64 %32, ptr %3, align 8
-  %33 = lshr i64 %27, 12
-  %34 = uitofp nneg i64 %33 to double
-  %35 = tail call double @ldexp(double noundef %34, i32 noundef -52) #7
-  %36 = fsub double 1.000000e+00, %35
-  %37 = tail call double @log(double noundef %19) #7
-  %38 = fmul double %37, -2.000000e+00
-  %39 = tail call double @sqrt(double noundef %38) #7
-  %40 = fmul double %36, 0x401921FB54442D18
-  %41 = tail call double @sin(double noundef %40) #7
-  %42 = fmul double %39, %41
-  ret double %42
+  %20 = xor i64 %14, %15
+  %21 = mul i64 %14, 5
+  %22 = mul i64 %14, 640
+  %23 = lshr i64 %21, 57
+  %24 = or disjoint i64 %23, %22
+  %25 = mul i64 %24, 9
+  %26 = tail call i64 @llvm.fshl.i64(i64 %14, i64 %14, i64 24)
+  %27 = shl i64 %20, 16
+  %28 = xor i64 %26, %27
+  %29 = xor i64 %28, %20
+  store i64 %29, ptr %0, align 8
+  %30 = tail call i64 @llvm.fshl.i64(i64 %20, i64 %20, i64 37)
+  store i64 %30, ptr %3, align 8
+  %31 = lshr i64 %25, 12
+  %32 = uitofp nneg i64 %31 to double
+  %33 = tail call double @ldexp(double noundef %32, i32 noundef -52) #7
+  %34 = fsub double 1.000000e+00, %33
+  %35 = tail call double @log(double noundef %19) #7
+  %36 = fmul double %35, -2.000000e+00
+  %37 = tail call double @sqrt(double noundef %36) #7
+  %38 = fmul double %34, 0x401921FB54442D18
+  %39 = tail call double @sin(double noundef %38) #7
+  %40 = fmul double %37, %39
+  ret double %40
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)

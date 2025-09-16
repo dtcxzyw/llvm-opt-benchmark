@@ -87,8 +87,7 @@ define ptr @cuddSubsetHeavyBranch(ptr noundef %0, ptr noundef %1, i32 noundef %2
 
 25:                                               ; preds = %14
   %ldexp = tail call double @ldexp(double 1.000000e+00, i32 %spec.store.select)
-  %ldexp.i = tail call double @ldexp(double 1.000000e+00, i32 %spec.store.select)
-  store double %ldexp.i, ptr @max, align 8, !tbaa !30
+  store double %ldexp, ptr @max, align 8, !tbaa !30
   %26 = tail call ptr @st__init_table(ptr noundef nonnull @st__ptrcmp, ptr noundef nonnull @st__ptrhash) #7
   %27 = icmp eq ptr %26, null
   br i1 %27, label %45, label %28

@@ -3024,148 +3024,122 @@ define internal fastcc void @init_degree_constants() unnamed_addr #12 {
   %16 = load double, ptr @degree_c_one_half, align 8
   %17 = tail call double @asin(double noundef %16) #20
   store double %17, ptr @asin_0_5, align 8
-  %18 = load double, ptr @degree_c_one_half, align 8
-  %19 = tail call double @acos(double noundef %18) #20
-  store double %19, ptr @acos_0_5, align 8
-  %20 = load double, ptr @degree_c_one, align 8
-  %21 = tail call double @atan(double noundef %20) #20
-  store double %21, ptr @atan_1_0, align 8
-  %22 = load double, ptr @degree_c_forty_five, align 8
-  %23 = fcmp ugt double %22, 3.000000e+01
-  br i1 %23, label %30, label %24
+  %18 = tail call double @acos(double noundef %16) #20
+  store double %18, ptr @acos_0_5, align 8
+  %19 = load double, ptr @degree_c_one, align 8
+  %20 = tail call double @atan(double noundef %19) #20
+  store double %20, ptr @atan_1_0, align 8
+  %21 = load double, ptr @degree_c_forty_five, align 8
+  %22 = fcmp ugt double %21, 3.000000e+01
+  br i1 %22, label %28, label %23
 
-24:                                               ; preds = %0
+23:                                               ; preds = %0
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %25 = fmul double %22, 0x3F91DF46A2529D39
-  %26 = tail call double @sin(double noundef %25) #20
-  store volatile double %26, ptr %8, align 8
+  %24 = fmul double %21, 0x3F91DF46A2529D39
+  %25 = tail call double @sin(double noundef %24) #20
+  store volatile double %25, ptr %8, align 8
   %.0..0..0..0..0..0..0..0..i.i = load volatile double, ptr %8, align 8
-  %27 = load double, ptr @sin_30, align 8
-  %28 = fdiv double %.0..0..0..0..0..0..0..0..i.i, %27
-  %29 = fmul double %28, 5.000000e-01
+  %26 = fdiv double %.0..0..0..0..0..0..0..0..i.i, %11
+  %27 = fmul double %26, 5.000000e-01
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %sind_q1.exit
 
-30:                                               ; preds = %0
-  %31 = fsub double 9.000000e+01, %22
+28:                                               ; preds = %0
+  %29 = fsub double 9.000000e+01, %21
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %32 = fmul double %31, 0x3F91DF46A2529D39
-  %33 = tail call double @cos(double noundef %32) #20
-  %34 = fsub double 1.000000e+00, %33
-  store volatile double %34, ptr %7, align 8
+  %30 = fmul double %29, 0x3F91DF46A2529D39
+  %31 = tail call double @cos(double noundef %30) #20
+  %32 = fsub double 1.000000e+00, %31
+  store volatile double %32, ptr %7, align 8
   %.0..0..0..0..0..0..0..0..i5.i = load volatile double, ptr %7, align 8
-  %35 = load double, ptr @one_minus_cos_60, align 8
-  %36 = fdiv double %.0..0..0..0..0..0..0..0..i5.i, %35
-  %37 = fmul double %36, 5.000000e-01
-  %38 = fsub double 1.000000e+00, %37
+  %33 = fdiv double %.0..0..0..0..0..0..0..0..i5.i, %15
+  %34 = fmul double %33, 5.000000e-01
+  %35 = fsub double 1.000000e+00, %34
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %sind_q1.exit
 
-sind_q1.exit:                                     ; preds = %24, %30
-  %.0.i = phi double [ %29, %24 ], [ %38, %30 ]
-  %39 = load double, ptr @degree_c_forty_five, align 8
-  %40 = fcmp ugt double %39, 6.000000e+01
-  br i1 %40, label %49, label %41
+sind_q1.exit:                                     ; preds = %23, %28
+  %.0.i = phi double [ %27, %23 ], [ %35, %28 ]
+  %36 = fcmp ugt double %21, 6.000000e+01
+  br i1 %36, label %49, label %37
 
-41:                                               ; preds = %sind_q1.exit
+37:                                               ; preds = %sind_q1.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %42 = fmul double %39, 0x3F91DF46A2529D39
-  %43 = tail call double @cos(double noundef %42) #20
-  %44 = fsub double 1.000000e+00, %43
-  store volatile double %44, ptr %6, align 8
+  %38 = fmul double %21, 0x3F91DF46A2529D39
+  %39 = tail call double @cos(double noundef %38) #20
+  %40 = fsub double 1.000000e+00, %39
+  store volatile double %40, ptr %6, align 8
   %.0..0..0..0..0..0..0..0..i.i1 = load volatile double, ptr %6, align 8
-  %45 = load double, ptr @one_minus_cos_60, align 8
-  %46 = fdiv double %.0..0..0..0..0..0..0..0..i.i1, %45
+  %41 = fdiv double %.0..0..0..0..0..0..0..0..i.i1, %15
+  %42 = fmul double %41, 5.000000e-01
+  %43 = fsub double 1.000000e+00, %42
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  %44 = tail call double @cos(double noundef %38) #20
+  %45 = fsub double 1.000000e+00, %44
+  store volatile double %45, ptr %4, align 8
+  %.0..0..0..0..0..0..0..0..i.i4 = load volatile double, ptr %4, align 8
+  %46 = fdiv double %.0..0..0..0..0..0..0..0..i.i4, %15
   %47 = fmul double %46, 5.000000e-01
   %48 = fsub double 1.000000e+00, %47
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %cosd_q1.exit
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  br label %cosd_q1.exit7
 
 49:                                               ; preds = %sind_q1.exit
-  %50 = fsub double 9.000000e+01, %39
+  %50 = fsub double 9.000000e+01, %21
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %51 = fmul double %50, 0x3F91DF46A2529D39
   %52 = tail call double @sin(double noundef %51) #20
   store volatile double %52, ptr %5, align 8
   %.0..0..0..0..0..0..0..0..i5.i3 = load volatile double, ptr %5, align 8
-  %53 = load double, ptr @sin_30, align 8
-  %54 = fdiv double %.0..0..0..0..0..0..0..0..i5.i3, %53
-  %55 = fmul double %54, 5.000000e-01
+  %53 = fdiv double %.0..0..0..0..0..0..0..0..i5.i3, %11
+  %54 = fmul double %53, 5.000000e-01
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %cosd_q1.exit
-
-cosd_q1.exit:                                     ; preds = %41, %49
-  %.0.i2 = phi double [ %48, %41 ], [ %55, %49 ]
-  %56 = fdiv double %.0.i, %.0.i2
-  store double %56, ptr @tan_45, align 8
-  %57 = load double, ptr @degree_c_forty_five, align 8
-  %58 = fcmp ugt double %57, 6.000000e+01
-  br i1 %58, label %67, label %59
-
-59:                                               ; preds = %cosd_q1.exit
-  call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %60 = fmul double %57, 0x3F91DF46A2529D39
-  %61 = tail call double @cos(double noundef %60) #20
-  %62 = fsub double 1.000000e+00, %61
-  store volatile double %62, ptr %4, align 8
-  %.0..0..0..0..0..0..0..0..i.i4 = load volatile double, ptr %4, align 8
-  %63 = load double, ptr @one_minus_cos_60, align 8
-  %64 = fdiv double %.0..0..0..0..0..0..0..0..i.i4, %63
-  %65 = fmul double %64, 5.000000e-01
-  %66 = fsub double 1.000000e+00, %65
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %cosd_q1.exit7
-
-67:                                               ; preds = %cosd_q1.exit
-  %68 = fsub double 9.000000e+01, %57
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %69 = fmul double %68, 0x3F91DF46A2529D39
-  %70 = tail call double @sin(double noundef %69) #20
-  store volatile double %70, ptr %3, align 8
+  %55 = tail call double @sin(double noundef %51) #20
+  store volatile double %55, ptr %3, align 8
   %.0..0..0..0..0..0..0..0..i5.i6 = load volatile double, ptr %3, align 8
-  %71 = load double, ptr @sin_30, align 8
-  %72 = fdiv double %.0..0..0..0..0..0..0..0..i5.i6, %71
-  %73 = fmul double %72, 5.000000e-01
+  %56 = fdiv double %.0..0..0..0..0..0..0..0..i5.i6, %11
+  %57 = fmul double %56, 5.000000e-01
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %cosd_q1.exit7
 
-cosd_q1.exit7:                                    ; preds = %59, %67
-  %.0.i5 = phi double [ %66, %59 ], [ %73, %67 ]
-  %74 = load double, ptr @degree_c_forty_five, align 8
-  %75 = fcmp ugt double %74, 3.000000e+01
-  br i1 %75, label %82, label %76
+cosd_q1.exit7:                                    ; preds = %37, %49
+  %.pn = phi double [ %54, %49 ], [ %43, %37 ]
+  %.0.i5 = phi double [ %57, %49 ], [ %48, %37 ]
+  %.sink = fdiv double %.0.i, %.pn
+  store double %.sink, ptr @tan_45, align 8
+  br i1 %22, label %63, label %58
 
-76:                                               ; preds = %cosd_q1.exit7
+58:                                               ; preds = %cosd_q1.exit7
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %77 = fmul double %74, 0x3F91DF46A2529D39
-  %78 = tail call double @sin(double noundef %77) #20
-  store volatile double %78, ptr %2, align 8
+  %59 = fmul double %21, 0x3F91DF46A2529D39
+  %60 = tail call double @sin(double noundef %59) #20
+  store volatile double %60, ptr %2, align 8
   %.0..0..0..0..0..0..0..0..i.i8 = load volatile double, ptr %2, align 8
-  %79 = load double, ptr @sin_30, align 8
-  %80 = fdiv double %.0..0..0..0..0..0..0..0..i.i8, %79
-  %81 = fmul double %80, 5.000000e-01
+  %61 = fdiv double %.0..0..0..0..0..0..0..0..i.i8, %11
+  %62 = fmul double %61, 5.000000e-01
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %sind_q1.exit11
 
-82:                                               ; preds = %cosd_q1.exit7
-  %83 = fsub double 9.000000e+01, %74
+63:                                               ; preds = %cosd_q1.exit7
+  %64 = fsub double 9.000000e+01, %21
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
-  %84 = fmul double %83, 0x3F91DF46A2529D39
-  %85 = tail call double @cos(double noundef %84) #20
-  %86 = fsub double 1.000000e+00, %85
-  store volatile double %86, ptr %1, align 8
+  %65 = fmul double %64, 0x3F91DF46A2529D39
+  %66 = tail call double @cos(double noundef %65) #20
+  %67 = fsub double 1.000000e+00, %66
+  store volatile double %67, ptr %1, align 8
   %.0..0..0..0..0..0..0..0..i5.i10 = load volatile double, ptr %1, align 8
-  %87 = load double, ptr @one_minus_cos_60, align 8
-  %88 = fdiv double %.0..0..0..0..0..0..0..0..i5.i10, %87
-  %89 = fmul double %88, 5.000000e-01
-  %90 = fsub double 1.000000e+00, %89
+  %68 = fdiv double %.0..0..0..0..0..0..0..0..i5.i10, %15
+  %69 = fmul double %68, 5.000000e-01
+  %70 = fsub double 1.000000e+00, %69
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %sind_q1.exit11
 
-sind_q1.exit11:                                   ; preds = %76, %82
-  %.0.i9 = phi double [ %81, %76 ], [ %90, %82 ]
-  %91 = fdiv double %.0.i5, %.0.i9
-  store double %91, ptr @cot_45, align 8
+sind_q1.exit11:                                   ; preds = %58, %63
+  %.0.i9 = phi double [ %62, %58 ], [ %70, %63 ]
+  %71 = fdiv double %.0.i5, %.0.i9
+  store double %71, ptr @cot_45, align 8
   store i1 true, ptr @degree_consts_set, align 1
   ret void
 }

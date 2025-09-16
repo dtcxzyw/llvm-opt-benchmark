@@ -1180,7 +1180,7 @@ cmsIT8GetProperty.exit.thread:                    ; preds = %22, %.lr.ph.split.i
 ; Function Attrs: nofree nounwind memory(read, errnomem: readwrite) uwtable
 define internal fastcc double @ParseFloatNumber(ptr noundef readonly captures(address_is_null) %0) unnamed_addr #4 {
   %2 = icmp eq ptr %0, null
-  br i1 %2, label %78, label %3
+  br i1 %2, label %76, label %3
 
 3:                                                ; preds = %1
   %4 = load i8, ptr %0, align 1
@@ -1313,51 +1313,47 @@ thread-pre-split:                                 ; preds = %48, %51
   %.not7499 = icmp eq i8 %54, 0
   br i1 %.not7499, label %.critedge4, label %.lr.ph102
 
-.lr.ph102:                                        ; preds = %53
-  %55 = load ptr, ptr %11, align 8
-  br label %56
+.lr.ph102:                                        ; preds = %53, %60
+  %55 = phi i8 [ %70, %60 ], [ %54, %53 ]
+  %.054101 = phi i32 [ %.1, %60 ], [ 0, %53 ]
+  %.9100 = phi ptr [ %69, %60 ], [ %.8, %53 ]
+  %56 = sext i8 %55 to i64
+  %57 = getelementptr inbounds i16, ptr %12, i64 %56
+  %58 = load i16, ptr %57, align 2
+  %59 = and i16 %58, 2048
+  %.not75 = icmp eq i16 %59, 0
+  br i1 %.not75, label %.critedge4, label %60
 
-56:                                               ; preds = %.lr.ph102, %62
-  %57 = phi i8 [ %54, %.lr.ph102 ], [ %72, %62 ]
-  %.054101 = phi i32 [ 0, %.lr.ph102 ], [ %.1, %62 ]
-  %.9100 = phi ptr [ %.8, %.lr.ph102 ], [ %71, %62 ]
-  %58 = sext i8 %57 to i64
-  %59 = getelementptr inbounds i16, ptr %55, i64 %58
-  %60 = load i16, ptr %59, align 2
-  %61 = and i16 %60, 2048
-  %.not75 = icmp eq i16 %61, 0
-  br i1 %.not75, label %.critedge4, label %62
+60:                                               ; preds = %.lr.ph102
+  %61 = sext i8 %55 to i32
+  %62 = add nsw i32 %61, -48
+  %63 = sitofp i32 %.054101 to double
+  %64 = sitofp i32 %62 to double
+  %65 = tail call double @llvm.fmuladd.f64(double %63, double 1.000000e+01, double %64)
+  %66 = fcmp olt double %65, 0x41DFFFFFFFC00000
+  %67 = mul nsw i32 %.054101, 10
+  %68 = add nsw i32 %62, %67
+  %.1 = select i1 %66, i32 %68, i32 %.054101
+  %69 = getelementptr inbounds nuw i8, ptr %.9100, i64 1
+  %70 = load i8, ptr %69, align 1
+  %.not74 = icmp eq i8 %70, 0
+  br i1 %.not74, label %.critedge4, label %.lr.ph102, !llvm.loop !18
 
-62:                                               ; preds = %56
-  %63 = sext i8 %57 to i32
-  %64 = add nsw i32 %63, -48
-  %65 = sitofp i32 %.054101 to double
-  %66 = sitofp i32 %64 to double
-  %67 = tail call double @llvm.fmuladd.f64(double %65, double 1.000000e+01, double %66)
-  %68 = fcmp olt double %67, 0x41DFFFFFFFC00000
-  %69 = mul nsw i32 %.054101, 10
-  %70 = add nsw i32 %64, %69
-  %.1 = select i1 %68, i32 %70, i32 %.054101
-  %71 = getelementptr inbounds nuw i8, ptr %.9100, i64 1
-  %72 = load i8, ptr %71, align 1
-  %.not74 = icmp eq i8 %72, 0
-  br i1 %.not74, label %.critedge4, label %56, !llvm.loop !18
-
-.critedge4:                                       ; preds = %56, %62, %53
-  %.054.lcssa = phi i32 [ 0, %53 ], [ %.1, %62 ], [ %.054101, %56 ]
-  %73 = mul nsw i32 %.054.lcssa, %.053
-  %74 = sitofp i32 %73 to double
-  %75 = tail call double @pow(double noundef 1.000000e+01, double noundef %74) #19
-  %76 = fmul double %.159.ph126, %75
+.critedge4:                                       ; preds = %.lr.ph102, %60, %53
+  %.054.lcssa = phi i32 [ 0, %53 ], [ %.1, %60 ], [ %.054101, %.lr.ph102 ]
+  %71 = mul nsw i32 %.054.lcssa, %.053
+  %72 = sitofp i32 %71 to double
+  %73 = tail call double @pow(double noundef 1.000000e+01, double noundef %72) #19
+  %74 = fmul double %.159.ph126, %73
   br label %.thread
 
 .thread:                                          ; preds = %19, %9, %.critedge4, %.thread119, %41
-  %.2 = phi double [ %76, %.critedge4 ], [ %.159.ph126, %.thread119 ], [ %44, %41 ], [ 0.000000e+00, %9 ], [ %23, %19 ]
-  %77 = fmul double %.057, %.2
-  br label %78
+  %.2 = phi double [ %74, %.critedge4 ], [ %.159.ph126, %.thread119 ], [ %44, %41 ], [ 0.000000e+00, %9 ], [ %23, %19 ]
+  %75 = fmul double %.057, %.2
+  br label %76
 
-78:                                               ; preds = %1, %.thread
-  %.0 = phi double [ %77, %.thread ], [ 0.000000e+00, %1 ]
+76:                                               ; preds = %1, %.thread
+  %.0 = phi double [ %75, %.thread ], [ 0.000000e+00, %1 ]
   ret double %.0
 }
 

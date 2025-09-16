@@ -2001,107 +2001,64 @@ define hidden noundef zeroext i1 @_ZNK3p2t5Sweep18LargeHole_DontFillEPKNS_4NodeE
   %28 = tail call noundef double @atan2(double noundef %25, double noundef %27) #20
   %29 = tail call double @llvm.fabs.f64(double %28)
   %30 = fcmp ogt double %29, 0x3FF921FB54442D18
-  br i1 %30, label %31, label %114
+  br i1 %30, label %31, label %71
 
 31:                                               ; preds = %2
-  %32 = load ptr, ptr %1, align 8
-  %33 = load ptr, ptr %4, align 8
-  %34 = load ptr, ptr %6, align 8
-  %35 = load double, ptr %32, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  %37 = load double, ptr %36, align 8
-  %38 = load double, ptr %33, align 8
-  %39 = fsub double %38, %35
-  %40 = getelementptr inbounds nuw i8, ptr %33, i64 8
+  %32 = fcmp olt double %28, 0.000000e+00
+  br i1 %32, label %71, label %33
+
+33:                                               ; preds = %31
+  %34 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %35 = load ptr, ptr %34, align 8
+  %.not = icmp eq ptr %35, null
+  br i1 %.not, label %51, label %36
+
+36:                                               ; preds = %33
+  %37 = load ptr, ptr %35, align 8
+  %38 = load double, ptr %37, align 8
+  %39 = fsub double %38, %10
+  %40 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %41 = load double, ptr %40, align 8
-  %42 = fsub double %41, %37
-  %43 = load double, ptr %34, align 8
-  %44 = fsub double %43, %35
-  %45 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  %46 = load double, ptr %45, align 8
-  %47 = fsub double %46, %37
-  %48 = fneg double %44
-  %49 = fmul double %42, %48
-  %50 = tail call double @llvm.fmuladd.f64(double %39, double %47, double %49)
-  %51 = fmul double %42, %47
-  %52 = tail call double @llvm.fmuladd.f64(double %39, double %44, double %51)
-  %53 = tail call noundef double @atan2(double noundef %50, double noundef %52) #20
-  %54 = fcmp olt double %53, 0.000000e+00
-  br i1 %54, label %114, label %55
+  %42 = fsub double %41, %12
+  %43 = fmul double %42, %23
+  %44 = tail call double @llvm.fmuladd.f64(double %39, double %22, double %43)
+  %45 = fmul double %22, %42
+  %46 = tail call double @llvm.fmuladd.f64(double %39, double %19, double %45)
+  %47 = tail call noundef double @atan2(double noundef %44, double noundef %46) #20
+  %48 = fcmp ogt double %47, 0x3FF921FB54442D18
+  %49 = fcmp olt double %47, 0.000000e+00
+  %50 = or i1 %48, %49
+  br i1 %50, label %51, label %71
 
-55:                                               ; preds = %31
-  %56 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %57 = load ptr, ptr %56, align 8
-  %.not = icmp eq ptr %57, null
-  br i1 %.not, label %84, label %58
+51:                                               ; preds = %36, %33
+  %52 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %53 = load ptr, ptr %52, align 8
+  %.not22 = icmp eq ptr %53, null
+  br i1 %.not22, label %70, label %54
 
-58:                                               ; preds = %55
-  %59 = load ptr, ptr %1, align 8
-  %60 = load ptr, ptr %57, align 8
-  %61 = load ptr, ptr %6, align 8
-  %62 = load double, ptr %59, align 8
-  %63 = getelementptr inbounds nuw i8, ptr %59, i64 8
-  %64 = load double, ptr %63, align 8
-  %65 = load double, ptr %60, align 8
-  %66 = fsub double %65, %62
-  %67 = getelementptr inbounds nuw i8, ptr %60, i64 8
-  %68 = load double, ptr %67, align 8
-  %69 = fsub double %68, %64
-  %70 = load double, ptr %61, align 8
-  %71 = fsub double %70, %62
-  %72 = getelementptr inbounds nuw i8, ptr %61, i64 8
-  %73 = load double, ptr %72, align 8
-  %74 = fsub double %73, %64
-  %75 = fneg double %71
-  %76 = fmul double %69, %75
-  %77 = tail call double @llvm.fmuladd.f64(double %66, double %74, double %76)
-  %78 = fmul double %69, %74
-  %79 = tail call double @llvm.fmuladd.f64(double %66, double %71, double %78)
-  %80 = tail call noundef double @atan2(double noundef %77, double noundef %79) #20
-  %81 = fcmp ogt double %80, 0x3FF921FB54442D18
-  %82 = fcmp olt double %80, 0.000000e+00
-  %83 = or i1 %81, %82
-  br i1 %83, label %84, label %114
+54:                                               ; preds = %51
+  %55 = load ptr, ptr %53, align 8
+  %56 = load double, ptr %55, align 8
+  %57 = fsub double %56, %10
+  %58 = getelementptr inbounds nuw i8, ptr %55, i64 8
+  %59 = load double, ptr %58, align 8
+  %60 = fsub double %59, %12
+  %61 = fneg double %57
+  %62 = fmul double %17, %61
+  %63 = tail call double @llvm.fmuladd.f64(double %14, double %60, double %62)
+  %64 = fmul double %17, %60
+  %65 = tail call double @llvm.fmuladd.f64(double %14, double %57, double %64)
+  %66 = tail call noundef double @atan2(double noundef %63, double noundef %65) #20
+  %67 = fcmp ogt double %66, 0x3FF921FB54442D18
+  %68 = fcmp olt double %66, 0.000000e+00
+  %69 = or i1 %67, %68
+  br i1 %69, label %70, label %71
 
-84:                                               ; preds = %58, %55
-  %85 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %86 = load ptr, ptr %85, align 8
-  %.not22 = icmp eq ptr %86, null
-  br i1 %.not22, label %113, label %87
+70:                                               ; preds = %54, %51
+  br label %71
 
-87:                                               ; preds = %84
-  %88 = load ptr, ptr %1, align 8
-  %89 = load ptr, ptr %4, align 8
-  %90 = load ptr, ptr %86, align 8
-  %91 = load double, ptr %88, align 8
-  %92 = getelementptr inbounds nuw i8, ptr %88, i64 8
-  %93 = load double, ptr %92, align 8
-  %94 = load double, ptr %89, align 8
-  %95 = fsub double %94, %91
-  %96 = getelementptr inbounds nuw i8, ptr %89, i64 8
-  %97 = load double, ptr %96, align 8
-  %98 = fsub double %97, %93
-  %99 = load double, ptr %90, align 8
-  %100 = fsub double %99, %91
-  %101 = getelementptr inbounds nuw i8, ptr %90, i64 8
-  %102 = load double, ptr %101, align 8
-  %103 = fsub double %102, %93
-  %104 = fneg double %100
-  %105 = fmul double %98, %104
-  %106 = tail call double @llvm.fmuladd.f64(double %95, double %103, double %105)
-  %107 = fmul double %98, %103
-  %108 = tail call double @llvm.fmuladd.f64(double %95, double %100, double %107)
-  %109 = tail call noundef double @atan2(double noundef %106, double noundef %108) #20
-  %110 = fcmp ogt double %109, 0x3FF921FB54442D18
-  %111 = fcmp olt double %109, 0.000000e+00
-  %112 = or i1 %110, %111
-  br i1 %112, label %113, label %114
-
-113:                                              ; preds = %87, %84
-  br label %114
-
-114:                                              ; preds = %58, %87, %113, %31, %2
-  %.0 = phi i1 [ false, %2 ], [ true, %31 ], [ false, %58 ], [ true, %113 ], [ false, %87 ]
+71:                                               ; preds = %36, %54, %70, %31, %2
+  %.0 = phi i1 [ false, %2 ], [ true, %31 ], [ false, %36 ], [ true, %70 ], [ false, %54 ]
   ret i1 %.0
 }
 

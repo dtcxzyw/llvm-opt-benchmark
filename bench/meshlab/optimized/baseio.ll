@@ -50368,8 +50368,8 @@ define linkonce_odr void @_ZN3vcg3tri7BitQuadI6CMeshONS0_21GeometricInterpolator
   %3 = alloca %"struct.std::pair.393", align 8
   %4 = load atomic i8, ptr @_ZGVZN3vcg3tri7BitQuadI6CMeshONS0_21GeometricInterpolatorI8CVertexOEEE15QuadTriangulateERSt6vectorIPS4_SaIS8_EEE7diagSet acquire, align 8
   %5 = icmp eq i8 %4, 0
-  %.sink137.sroa.gep = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %.sink137.sroa.gep138 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %.sink138.sroa.gep = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.sink138.sroa.gep139 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br i1 %5, label %6, label %10, !prof !55
 
 6:                                                ; preds = %1
@@ -50414,7 +50414,7 @@ _ZNSt3setISt4pairIP8CVertexOS2_ESt4lessIS3_ESaIS3_EE5clearEv.exit: ; preds = %17
   store ptr getelementptr inbounds nuw (i8, ptr @_ZZN3vcg3tri7BitQuadI6CMeshONS0_21GeometricInterpolatorI8CVertexOEEE15QuadTriangulateERSt6vectorIPS4_SaIS8_EEE7diagSet, i64 8), ptr getelementptr inbounds nuw (i8, ptr @_ZZN3vcg3tri7BitQuadI6CMeshONS0_21GeometricInterpolatorI8CVertexOEEE15QuadTriangulateERSt6vectorIPS4_SaIS8_EEE7diagSet, i64 24), align 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZZN3vcg3tri7BitQuadI6CMeshONS0_21GeometricInterpolatorI8CVertexOEEE15QuadTriangulateERSt6vectorIPS4_SaIS8_EEE7diagSet, i64 8), ptr getelementptr inbounds nuw (i8, ptr @_ZZN3vcg3tri7BitQuadI6CMeshONS0_21GeometricInterpolatorI8CVertexOEEE15QuadTriangulateERSt6vectorIPS4_SaIS8_EEE7diagSet, i64 32), align 8
   store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN3vcg3tri7BitQuadI6CMeshONS0_21GeometricInterpolatorI8CVertexOEEE15QuadTriangulateERSt6vectorIPS4_SaIS8_EEE7diagSet, i64 40), align 8
-  br label %306
+  br label %302
 
 22:                                               ; preds = %10
   %23 = load ptr, ptr %13, align 8
@@ -50745,50 +50745,48 @@ _ZN3vcg12QualityRadiiIfEET_RKNS_6Point3IS1_EES5_S5_.exit100: ; preds = %_ZN3vcg1
   %284 = fcmp uge float %.sroa.speculated112, %.sroa.speculated
   %285 = and i1 %.010.i, %.010.i82
   %or.cond = or i1 %285, %284
-  %.pre124 = load ptr, ptr %0, align 8
-  br i1 %or.cond, label %290, label %286
+  br i1 %or.cond, label %288, label %286
 
 286:                                              ; preds = %_ZN3vcg12QualityRadiiIfEET_RKNS_6Point3IS1_EES5_S5_.exit100
-  %287 = getelementptr inbounds nuw i8, ptr %.pre124, i64 8
-  %288 = load ptr, ptr %11, align 8
-  %289 = tail call ptr @_ZNSt3_V28__rotateIN9__gnu_cxx17__normal_iteratorIPP8CVertexOSt6vectorIS4_SaIS4_EEEEEET_SA_SA_SA_St26random_access_iterator_tag(ptr %.pre124, ptr nonnull %287, ptr %288)
+  %287 = tail call ptr @_ZNSt3_V28__rotateIN9__gnu_cxx17__normal_iteratorIPP8CVertexOSt6vectorIS4_SaIS4_EEEEEET_SA_SA_SA_St26random_access_iterator_tag(ptr nonnull %13, ptr nonnull %25, ptr %12)
   %.pre = load ptr, ptr %0, align 8
-  br label %290
+  %.pre124 = load ptr, ptr %.pre, align 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 16
+  %.pre125 = load ptr, ptr %.phi.trans.insert, align 8
+  br label %288
 
-290:                                              ; preds = %286, %_ZN3vcg12QualityRadiiIfEET_RKNS_6Point3IS1_EES5_S5_.exit100
-  %291 = phi ptr [ %.pre, %286 ], [ %.pre124, %_ZN3vcg12QualityRadiiIfEET_RKNS_6Point3IS1_EES5_S5_.exit100 ]
-  %292 = load ptr, ptr %291, align 8
-  %293 = getelementptr inbounds nuw i8, ptr %291, i64 16
-  %294 = load ptr, ptr %293, align 8
-  %295 = icmp ult ptr %292, %294
-  br i1 %295, label %296, label %297
+288:                                              ; preds = %286, %_ZN3vcg12QualityRadiiIfEET_RKNS_6Point3IS1_EES5_S5_.exit100
+  %289 = phi ptr [ %.pre125, %286 ], [ %29, %_ZN3vcg12QualityRadiiIfEET_RKNS_6Point3IS1_EES5_S5_.exit100 ]
+  %290 = phi ptr [ %.pre124, %286 ], [ %23, %_ZN3vcg12QualityRadiiIfEET_RKNS_6Point3IS1_EES5_S5_.exit100 ]
+  %291 = icmp ult ptr %290, %289
+  br i1 %291, label %292, label %293
 
-296:                                              ; preds = %290
-  store ptr %292, ptr %2, align 8
-  br label %298
+292:                                              ; preds = %288
+  store ptr %290, ptr %2, align 8
+  br label %294
 
-297:                                              ; preds = %290
-  store ptr %294, ptr %3, align 8
-  br label %298
+293:                                              ; preds = %288
+  store ptr %289, ptr %3, align 8
+  br label %294
 
-298:                                              ; preds = %297, %296
-  %.sink137.sroa.phi = phi ptr [ %.sink137.sroa.gep, %297 ], [ %.sink137.sroa.gep138, %296 ]
-  %.sink137 = phi ptr [ %3, %297 ], [ %2, %296 ]
-  %.sink135 = phi ptr [ %292, %297 ], [ %294, %296 ]
-  store ptr %.sink135, ptr %.sink137.sroa.phi, align 8
-  %299 = call { ptr, i8 } @_ZNSt8_Rb_treeISt4pairIP8CVertexOS2_ES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE16_M_insert_uniqueIS3_EES0_ISt17_Rb_tree_iteratorIS3_EbEOT_(ptr noundef nonnull align 8 dereferenceable(48) @_ZZN3vcg3tri7BitQuadI6CMeshONS0_21GeometricInterpolatorI8CVertexOEEE15QuadTriangulateERSt6vectorIPS4_SaIS8_EEE7diagSet, ptr noundef nonnull align 8 dereferenceable(16) %.sink137)
-  %.sroa.3.0.in = extractvalue { ptr, i8 } %299, 1
-  %300 = trunc i8 %.sroa.3.0.in to i1
-  br i1 %300, label %306, label %301
+294:                                              ; preds = %293, %292
+  %.sink138.sroa.phi = phi ptr [ %.sink138.sroa.gep, %293 ], [ %.sink138.sroa.gep139, %292 ]
+  %.sink138 = phi ptr [ %3, %293 ], [ %2, %292 ]
+  %.sink136 = phi ptr [ %290, %293 ], [ %289, %292 ]
+  store ptr %.sink136, ptr %.sink138.sroa.phi, align 8
+  %295 = call { ptr, i8 } @_ZNSt8_Rb_treeISt4pairIP8CVertexOS2_ES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE16_M_insert_uniqueIS3_EES0_ISt17_Rb_tree_iteratorIS3_EbEOT_(ptr noundef nonnull align 8 dereferenceable(48) @_ZZN3vcg3tri7BitQuadI6CMeshONS0_21GeometricInterpolatorI8CVertexOEEE15QuadTriangulateERSt6vectorIPS4_SaIS8_EEE7diagSet, ptr noundef nonnull align 8 dereferenceable(16) %.sink138)
+  %.sroa.3.0.in = extractvalue { ptr, i8 } %295, 1
+  %296 = trunc i8 %.sroa.3.0.in to i1
+  br i1 %296, label %302, label %297
 
-301:                                              ; preds = %298
-  %302 = load ptr, ptr %0, align 8
-  %303 = getelementptr inbounds nuw i8, ptr %302, i64 8
-  %304 = load ptr, ptr %11, align 8
-  %305 = call ptr @_ZNSt3_V28__rotateIN9__gnu_cxx17__normal_iteratorIPP8CVertexOSt6vectorIS4_SaIS4_EEEEEET_SA_SA_SA_St26random_access_iterator_tag(ptr %302, ptr nonnull %303, ptr %304)
-  br label %306
+297:                                              ; preds = %294
+  %298 = load ptr, ptr %0, align 8
+  %299 = getelementptr inbounds nuw i8, ptr %298, i64 8
+  %300 = load ptr, ptr %11, align 8
+  %301 = call ptr @_ZNSt3_V28__rotateIN9__gnu_cxx17__normal_iteratorIPP8CVertexOSt6vectorIS4_SaIS4_EEEEEET_SA_SA_SA_St26random_access_iterator_tag(ptr %298, ptr nonnull %299, ptr %300)
+  br label %302
 
-306:                                              ; preds = %301, %298, %_ZNSt3setISt4pairIP8CVertexOS2_ESt4lessIS3_ESaIS3_EE5clearEv.exit
+302:                                              ; preds = %297, %294, %_ZNSt3setISt4pairIP8CVertexOS2_ESt4lessIS3_ESaIS3_EE5clearEv.exit
   ret void
 }
 

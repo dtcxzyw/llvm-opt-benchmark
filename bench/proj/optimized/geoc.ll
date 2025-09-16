@@ -30,9 +30,9 @@ define hidden void @_Z22pj_geocentric_latitudePK8PJconsts12PJ_DIRECTION8PJ_COORD
   %. = select i1 %12, i64 256, i64 264
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 %.
   %15 = load double, ptr %14, align 8, !tbaa !38
-  %16 = tail call double @tan(double noundef %6) #7, !tbaa !39
+  %16 = tail call double @tan(double noundef %6) #6, !tbaa !39
   %17 = fmul double %15, %16
-  %18 = tail call double @atan(double noundef %17) #7, !tbaa !39
+  %18 = tail call double @atan(double noundef %17) #6, !tbaa !39
   store double %18, ptr %13, align 8, !tbaa !4
   br label %19
 
@@ -94,13 +94,8 @@ declare noundef ptr @_Z6pj_newv() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite, errnomem: write) uwtable
 define internal void @_ZL7inverseR8PJ_COORDP8PJconsts(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0, ptr noundef readonly captures(none) %1) #0 {
-  %.sroa.5 = alloca [2 x double], align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5)
-  %.sroa.0.sroa.0.0.copyload = load double, ptr %0, align 8
   %.sroa.0.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.0.sroa.2.0.copyload = load double, ptr %.sroa.0.sroa.2.0..sroa_idx, align 8
-  %.sroa.0.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.sroa.3.0..sroa_idx, i64 16, i1 false)
   %3 = tail call double @llvm.fabs.f64(double %.sroa.0.sroa.2.0.copyload)
   %or.cond.i = fcmp ogt double %3, 0x3FF921FB53FF74E8
   br i1 %or.cond.i, label %_Z22pj_geocentric_latitudePK8PJconsts12PJ_DIRECTION8PJ_COORD.exit, label %4
@@ -114,73 +109,55 @@ define internal void @_ZL7inverseR8PJ_COORDP8PJconsts(ptr noundef nonnull align 
 .sink.split.i:                                    ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 264
   %9 = load double, ptr %8, align 8, !tbaa !38, !noalias !48
-  %10 = tail call double @tan(double noundef %.sroa.0.sroa.2.0.copyload) #7, !tbaa !39, !noalias !48
+  %10 = tail call double @tan(double noundef %.sroa.0.sroa.2.0.copyload) #6, !tbaa !39, !noalias !48
   %11 = fmul double %9, %10
-  %12 = tail call double @atan(double noundef %11) #7, !tbaa !39, !noalias !48
+  %12 = tail call double @atan(double noundef %11) #6, !tbaa !39, !noalias !48
   br label %_Z22pj_geocentric_latitudePK8PJconsts12PJ_DIRECTION8PJ_COORD.exit
 
 _Z22pj_geocentric_latitudePK8PJconsts12PJ_DIRECTION8PJ_COORD.exit: ; preds = %2, %4, %.sink.split.i
   %.sroa.4.0 = phi double [ %.sroa.0.sroa.2.0.copyload, %2 ], [ %.sroa.0.sroa.2.0.copyload, %4 ], [ %12, %.sink.split.i ]
-  store double %.sroa.0.sroa.0.0.copyload, ptr %0, align 8
   store double %.sroa.4.0, ptr %.sroa.0.sroa.2.0..sroa_idx, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.sroa.3.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5, i64 16, i1 false), !tbaa.struct !51
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite, errnomem: write) uwtable
 define internal void @_ZL7forwardR8PJ_COORDP8PJconsts(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0, ptr noundef readonly captures(none) %1) #0 {
-  %.sroa.5 = alloca [2 x double], align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5)
-  %.sroa.0.sroa.0.0.copyload = load double, ptr %0, align 8
   %.sroa.0.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.0.sroa.2.0.copyload = load double, ptr %.sroa.0.sroa.2.0..sroa_idx, align 8
-  %.sroa.0.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.sroa.3.0..sroa_idx, i64 16, i1 false)
   %3 = tail call double @llvm.fabs.f64(double %.sroa.0.sroa.2.0.copyload)
   %or.cond.i = fcmp ogt double %3, 0x3FF921FB53FF74E8
   br i1 %or.cond.i, label %_Z22pj_geocentric_latitudePK8PJconsts12PJ_DIRECTION8PJ_COORD.exit, label %4
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 216
-  %6 = load double, ptr %5, align 8, !tbaa !7, !noalias !52
+  %6 = load double, ptr %5, align 8, !tbaa !7, !noalias !51
   %7 = fcmp oeq double %6, 0.000000e+00
   br i1 %7, label %_Z22pj_geocentric_latitudePK8PJconsts12PJ_DIRECTION8PJ_COORD.exit, label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 256
-  %9 = load double, ptr %8, align 8, !tbaa !38, !noalias !52
-  %10 = tail call double @tan(double noundef %.sroa.0.sroa.2.0.copyload) #7, !tbaa !39, !noalias !52
+  %9 = load double, ptr %8, align 8, !tbaa !38, !noalias !51
+  %10 = tail call double @tan(double noundef %.sroa.0.sroa.2.0.copyload) #6, !tbaa !39, !noalias !51
   %11 = fmul double %9, %10
-  %12 = tail call double @atan(double noundef %11) #7, !tbaa !39, !noalias !52
+  %12 = tail call double @atan(double noundef %11) #6, !tbaa !39, !noalias !51
   br label %_Z22pj_geocentric_latitudePK8PJconsts12PJ_DIRECTION8PJ_COORD.exit
 
 _Z22pj_geocentric_latitudePK8PJconsts12PJ_DIRECTION8PJ_COORD.exit: ; preds = %2, %4, %.sink.split.i
   %.sroa.4.0 = phi double [ %.sroa.0.sroa.2.0.copyload, %2 ], [ %.sroa.0.sroa.2.0.copyload, %4 ], [ %12, %.sink.split.i ]
-  store double %.sroa.0.sroa.0.0.copyload, ptr %0, align 8
   store double %.sroa.4.0, ptr %.sroa.0.sroa.2.0..sroa_idx, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.sroa.3.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5, i64 16, i1 false), !tbaa.struct !51
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5)
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
-
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #6
+declare double @llvm.fabs.f64(double) #5
 
 attributes #0 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite, errnomem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { nounwind }
+attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 
@@ -235,7 +212,6 @@ attributes #7 = { nounwind }
 !48 = !{!49}
 !49 = distinct !{!49, !50, !"_Z22pj_geocentric_latitudePK8PJconsts12PJ_DIRECTION8PJ_COORD: argument 0"}
 !50 = distinct !{!50, !"_Z22pj_geocentric_latitudePK8PJconsts12PJ_DIRECTION8PJ_COORD"}
-!51 = !{i64 0, i64 16, !4}
-!52 = !{!53}
-!53 = distinct !{!53, !54, !"_Z22pj_geocentric_latitudePK8PJconsts12PJ_DIRECTION8PJ_COORD: argument 0"}
-!54 = distinct !{!54, !"_Z22pj_geocentric_latitudePK8PJconsts12PJ_DIRECTION8PJ_COORD"}
+!51 = !{!52}
+!52 = distinct !{!52, !53, !"_Z22pj_geocentric_latitudePK8PJconsts12PJ_DIRECTION8PJ_COORD: argument 0"}
+!53 = distinct !{!53, !"_Z22pj_geocentric_latitudePK8PJconsts12PJ_DIRECTION8PJ_COORD"}

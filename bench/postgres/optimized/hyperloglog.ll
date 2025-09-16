@@ -199,18 +199,18 @@ define dso_local double @estimateHyperLogLog(ptr noundef readonly captures(none)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %.not41 = icmp eq i64 %3, 0
-  br i1 %.not41, label %._crit_edge.thread, label %.lr.ph
+  br i1 %.not41, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  br label %5
+  %5 = load ptr, ptr %4, align 8
+  br label %6
 
-5:                                                ; preds = %.lr.ph, %5
-  %6 = phi i64 [ 0, %.lr.ph ], [ %14, %5 ]
-  %.02234 = phi i32 [ 0, %.lr.ph ], [ %13, %5 ]
-  %.02433 = phi double [ 0.000000e+00, %.lr.ph ], [ %12, %5 ]
-  %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 %6
+6:                                                ; preds = %.lr.ph, %6
+  %7 = phi i64 [ 0, %.lr.ph ], [ %14, %6 ]
+  %.02234 = phi i32 [ 0, %.lr.ph ], [ %13, %6 ]
+  %.02433 = phi double [ 0.000000e+00, %.lr.ph ], [ %12, %6 ]
+  %8 = getelementptr inbounds i8, ptr %5, i64 %7
   %9 = load i8, ptr %8, align 1
   %10 = zext i8 %9 to i32
   %ldexp = tail call double @ldexp(double 1.000000e+00, i32 %10)
@@ -218,77 +218,74 @@ define dso_local double @estimateHyperLogLog(ptr noundef readonly captures(none)
   %12 = fadd double %.02433, %11
   %13 = add i32 %.02234, 1
   %14 = sext i32 %13 to i64
-  %15 = load i64, ptr %2, align 8
-  %16 = icmp ugt i64 %15, %14
-  br i1 %16, label %5, label %._crit_edge, !llvm.loop !4
+  %15 = icmp ugt i64 %3, %14
+  br i1 %15, label %6, label %._crit_edge.thread, !llvm.loop !4
 
-._crit_edge:                                      ; preds = %5
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %18 = load double, ptr %17, align 8
-  %19 = fdiv double %18, %12
-  %20 = uitofp i64 %15 to double
-  %21 = fmul double %20, 2.500000e+00
-  %22 = fcmp ugt double %19, %21
-  br i1 %22, label %41, label %.preheader
+._crit_edge:                                      ; preds = %1
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %17 = load double, ptr %16, align 8
+  %18 = fdiv double %17, 0.000000e+00
+  %19 = uitofp i64 %3 to double
+  %20 = fmul double %19, 2.500000e+00
+  %21 = fcmp ugt double %18, %20
+  br i1 %21, label %42, label %._crit_edge39.thread
 
-._crit_edge.thread:                               ; preds = %1
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %24 = load double, ptr %23, align 8
-  %25 = fdiv double %24, 0.000000e+00
-  %26 = fcmp ugt double %25, 0.000000e+00
-  br i1 %26, label %41, label %._crit_edge39.thread
+._crit_edge.thread:                               ; preds = %6
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %23 = load double, ptr %22, align 8
+  %24 = fdiv double %23, %12
+  %25 = uitofp i64 %3 to double
+  %26 = fmul double %25, 2.500000e+00
+  %27 = fcmp ugt double %24, %26
+  br i1 %27, label %42, label %.lr.ph38
 
-.preheader:                                       ; preds = %._crit_edge
-  %.not42 = icmp eq i64 %15, 0
-  br i1 %.not42, label %._crit_edge39.thread, label %.lr.ph38
+.lr.ph38:                                         ; preds = %._crit_edge.thread
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %29 = load ptr, ptr %28, align 8
+  br label %30
 
-.lr.ph38:                                         ; preds = %.preheader
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %28 = load ptr, ptr %27, align 8
-  br label %29
+30:                                               ; preds = %.lr.ph38, %30
+  %31 = phi i64 [ 0, %.lr.ph38 ], [ %37, %30 ]
+  %.037 = phi i32 [ 0, %.lr.ph38 ], [ %spec.select, %30 ]
+  %.12336 = phi i32 [ 0, %.lr.ph38 ], [ %36, %30 ]
+  %32 = getelementptr inbounds i8, ptr %29, i64 %31
+  %33 = load i8, ptr %32, align 1
+  %34 = icmp eq i8 %33, 0
+  %35 = zext i1 %34 to i32
+  %spec.select = add i32 %.037, %35
+  %36 = add i32 %.12336, 1
+  %37 = sext i32 %36 to i64
+  %38 = icmp ugt i64 %3, %37
+  br i1 %38, label %30, label %._crit_edge39, !llvm.loop !6
 
-29:                                               ; preds = %.lr.ph38, %29
-  %30 = phi i64 [ 0, %.lr.ph38 ], [ %36, %29 ]
-  %.037 = phi i32 [ 0, %.lr.ph38 ], [ %spec.select, %29 ]
-  %.12336 = phi i32 [ 0, %.lr.ph38 ], [ %35, %29 ]
-  %31 = getelementptr inbounds i8, ptr %28, i64 %30
-  %32 = load i8, ptr %31, align 1
-  %33 = icmp eq i8 %32, 0
-  %34 = zext i1 %33 to i32
-  %spec.select = add i32 %.037, %34
-  %35 = add i32 %.12336, 1
-  %36 = sext i32 %35 to i64
-  %37 = icmp ugt i64 %15, %36
-  br i1 %37, label %29, label %._crit_edge39, !llvm.loop !6
-
-._crit_edge39:                                    ; preds = %29
+._crit_edge39:                                    ; preds = %30
   %.not = icmp eq i32 %spec.select, 0
-  br i1 %.not, label %._crit_edge39.thread, label %38
+  br i1 %.not, label %._crit_edge39.thread, label %39
 
-38:                                               ; preds = %._crit_edge39
-  %39 = sitofp i32 %spec.select to double
-  %40 = fdiv double %20, %39
+39:                                               ; preds = %._crit_edge39
+  %40 = sitofp i32 %spec.select to double
+  %41 = fdiv double %25, %40
   br label %._crit_edge39.thread.sink.split
 
-41:                                               ; preds = %._crit_edge.thread, %._crit_edge
-  %42 = phi double [ %25, %._crit_edge.thread ], [ %19, %._crit_edge ]
-  %43 = fcmp ogt double %42, 0x41A1111111111111
-  br i1 %43, label %44, label %._crit_edge39.thread
+42:                                               ; preds = %._crit_edge.thread, %._crit_edge
+  %43 = phi double [ %24, %._crit_edge.thread ], [ %18, %._crit_edge ]
+  %44 = fcmp ogt double %43, 0x41A1111111111111
+  br i1 %44, label %45, label %._crit_edge39.thread
 
-44:                                               ; preds = %41
-  %45 = fmul double %42, 0x3DF0000000000000
-  %46 = fsub double 1.000000e+00, %45
+45:                                               ; preds = %42
+  %46 = fmul double %43, 0x3DF0000000000000
+  %47 = fsub double 1.000000e+00, %46
   br label %._crit_edge39.thread.sink.split
 
-._crit_edge39.thread.sink.split:                  ; preds = %44, %38
-  %.sink56 = phi double [ %40, %38 ], [ %46, %44 ]
-  %.sink55 = phi double [ %20, %38 ], [ 0xC1F0000000000000, %44 ]
-  %47 = tail call double @log(double noundef %.sink56) #11
-  %48 = fmul double %47, %.sink55
+._crit_edge39.thread.sink.split:                  ; preds = %45, %39
+  %.sink48 = phi double [ %41, %39 ], [ %47, %45 ]
+  %.sink47 = phi double [ %25, %39 ], [ 0xC1F0000000000000, %45 ]
+  %48 = tail call double @log(double noundef %.sink48) #11
+  %49 = fmul double %48, %.sink47
   br label %._crit_edge39.thread
 
-._crit_edge39.thread:                             ; preds = %._crit_edge39.thread.sink.split, %._crit_edge.thread, %.preheader, %._crit_edge39, %41
-  %.126 = phi double [ %42, %41 ], [ %19, %._crit_edge39 ], [ %19, %.preheader ], [ %25, %._crit_edge.thread ], [ %48, %._crit_edge39.thread.sink.split ]
+._crit_edge39.thread:                             ; preds = %._crit_edge39.thread.sink.split, %._crit_edge, %._crit_edge39, %42
+  %.126 = phi double [ %43, %42 ], [ %24, %._crit_edge39 ], [ %18, %._crit_edge ], [ %49, %._crit_edge39.thread.sink.split ]
   ret double %.126
 }
 

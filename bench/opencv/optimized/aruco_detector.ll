@@ -5771,7 +5771,6 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEmEC
   %389 = call noundef float @sqrtf(float noundef %.sroa.speculated.i204) #34, !tbaa !33
   %390 = load i32, ptr %157, align 8, !tbaa !206
   %391 = load i32, ptr %158, align 8, !tbaa !207
-  %.val112 = load ptr, ptr %371, align 8
   %392 = getelementptr i8, ptr %371, i64 8
   %.val113 = load ptr, ptr %392, align 8
   br label %393
@@ -5779,10 +5778,10 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEmEC
 393:                                              ; preds = %393, %388
   %.02.i = phi float [ 0.000000e+00, %388 ], [ %404, %393 ]
   %.0121.i = phi i64 [ 0, %388 ], [ %395, %393 ]
-  %394 = getelementptr inbounds nuw %"class.cv::Point_", ptr %.val112, i64 %.0121.i
+  %394 = getelementptr inbounds nuw %"class.cv::Point_", ptr %.val110, i64 %.0121.i
   %395 = add nuw nsw i64 %.0121.i, 1
   %396 = and i64 %395, 3
-  %397 = getelementptr inbounds nuw %"class.cv::Point_", ptr %.val112, i64 %396
+  %397 = getelementptr inbounds nuw %"class.cv::Point_", ptr %.val110, i64 %396
   %.val.i208 = load float, ptr %394, align 4, !tbaa !100
   %398 = getelementptr i8, ptr %394, i64 4
   %.val13.i = load float, ptr %398, align 4, !tbaa !102
@@ -5802,7 +5801,7 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEmEC
   %406 = shl nsw i32 %391, 1
   %407 = add nsw i32 %406, %390
   %408 = ptrtoint ptr %.val113 to i64
-  %409 = ptrtoint ptr %.val112 to i64
+  %409 = ptrtoint ptr %.val110 to i64
   %410 = sub i64 %408, %409
   %411 = ashr exact i64 %410, 3
   %412 = uitofp i64 %411 to float
@@ -5826,7 +5825,7 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEmEC
 
 426:                                              ; preds = %419
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %423, i8 0, i64 24, i1 false)
-  %.not.i.i.i.i.i240 = icmp eq ptr %.val113, %.val112
+  %.not.i.i.i.i.i240 = icmp eq ptr %.val113, %.val110
   br i1 %.not.i.i.i.i.i240, label %.noexc244, label %427
 
 427:                                              ; preds = %426

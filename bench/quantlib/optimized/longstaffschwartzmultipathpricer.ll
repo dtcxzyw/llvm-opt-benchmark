@@ -4712,7 +4712,11 @@ for.inc159:                                       ; preds = %invoke.cont143, %fo
 for.end161:                                       ; preds = %for.inc159, %invoke.cont110
   %88 = load i64, ptr %n_.i56, align 8, !tbaa !19, !noalias !137
   %cmp.not.i.i = icmp eq i64 %88, 0
-  br i1 %cmp.not.i.i, label %invoke.cont165, label %for.body.i.preheader.i
+  br i1 %cmp.not.i.i, label %for.end161.invoke.cont165_crit_edge, label %for.body.i.preheader.i
+
+for.end161.invoke.cont165_crit_edge:              ; preds = %for.end161
+  %.pre = load ptr, ptr %err_, align 8, !tbaa !18
+  br label %invoke.cont165
 
 for.body.i.preheader.i:                           ; preds = %for.end161
   %89 = icmp ugt i64 %88, 2305843009213693951
@@ -4737,9 +4741,9 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %call
   %cmp.not.i5.i = icmp eq ptr %incdec.ptr.i.i131, %add.ptr.i.i130
   br i1 %cmp.not.i5.i, label %invoke.cont165, label %for.body.i.i, !llvm.loop !142
 
-invoke.cont165:                                   ; preds = %for.body.i.i, %for.end161
-  %ref.tmp162.sroa.0.0 = phi ptr [ null, %for.end161 ], [ %call.i.i129132, %for.body.i.i ]
-  %94 = load ptr, ptr %err_, align 8, !tbaa !18
+invoke.cont165:                                   ; preds = %for.body.i.i, %for.end161.invoke.cont165_crit_edge
+  %94 = phi ptr [ %.pre, %for.end161.invoke.cont165_crit_edge ], [ %92, %for.body.i.i ]
+  %ref.tmp162.sroa.0.0 = phi ptr [ null, %for.end161.invoke.cont165_crit_edge ], [ %call.i.i129132, %for.body.i.i ]
   store ptr %ref.tmp162.sroa.0.0, ptr %err_, align 8, !tbaa !18
   %cmp.not.i.i134 = icmp eq ptr %94, null
   br i1 %cmp.not.i.i134, label %_ZN8QuantLib5ArrayD2Ev.exit, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i

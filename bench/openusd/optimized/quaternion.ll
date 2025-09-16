@@ -77,10 +77,10 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__12GfQuaternion13GetNormalized
 
 18:                                               ; preds = %3
   %19 = fdiv double 1.000000e+00, %sqrt
-  %20 = fmul double %19, %4
-  %21 = fmul double %19, %6
-  %22 = fmul double %19, %8
-  %23 = fmul double %19, %12
+  %20 = fmul double %4, %19
+  %21 = fmul double %6, %19
+  %22 = fmul double %8, %19
+  %23 = fmul double %12, %19
   %.sroa.4.0..sroa_idx3.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %21, ptr %.sroa.4.0..sroa_idx3.i, align 8, !alias.scope !7
   %.sroa.6.0..sroa_idx5.i = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -118,12 +118,12 @@ define noundef double @_ZN32pxrInternal_v0_24__pxrReserved__12GfQuaternion9Norma
 
 16:                                               ; preds = %2
   %17 = fdiv double 1.000000e+00, %sqrt
-  %18 = fmul double %17, %3
-  %19 = fmul double %17, %5
+  %18 = fmul double %3, %17
+  %19 = fmul double %5, %17
   store double %19, ptr %4, align 8
-  %20 = fmul double %17, %7
+  %20 = fmul double %7, %17
   store double %20, ptr %6, align 8
-  %21 = fmul double %17, %11
+  %21 = fmul double %11, %17
   store double %21, ptr %10, align 8
   br label %22
 
@@ -274,14 +274,6 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__7GfSlerpERKNS_12GfQuaternionES
   %34 = fmul double %3, %28
   %35 = tail call double @sin(double noundef %34) #18, !noalias !16
   %36 = fdiv double %35, %29
-  %.sroa.0.0.copyload.i.pre.i = load double, ptr %1, align 8, !noalias !19
-  %.sroa.4.0.copyload.i.pre.i = load double, ptr %5, align 8, !noalias !19
-  %.sroa.6.0.copyload.i.pre.i = load double, ptr %9, align 8, !noalias !19
-  %.sroa.8.0.copyload.i.pre.i = load double, ptr %15, align 8, !noalias !19
-  %.sroa.0.0.copyload.i27.pre.i = load double, ptr %2, align 8, !noalias !22
-  %.sroa.4.0.copyload.i29.pre.i = load double, ptr %6, align 8, !noalias !22
-  %.sroa.6.0.copyload.i31.pre.i = load double, ptr %11, align 8, !noalias !22
-  %.sroa.8.0.copyload.i33.pre.i = load double, ptr %17, align 8, !noalias !22
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7GfSlerpEdRKNS_12GfQuaternionES2_.exit
 
 37:                                               ; preds = %4
@@ -289,37 +281,29 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__7GfSlerpERKNS_12GfQuaternionES
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7GfSlerpEdRKNS_12GfQuaternionES2_.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7GfSlerpEdRKNS_12GfQuaternionES2_.exit: ; preds = %27, %37
-  %.sroa.8.0.copyload.i33.i = phi double [ %.sroa.8.0.copyload.i33.pre.i, %27 ], [ %18, %37 ]
-  %.sroa.6.0.copyload.i31.i = phi double [ %.sroa.6.0.copyload.i31.pre.i, %27 ], [ %12, %37 ]
-  %.sroa.4.0.copyload.i29.i = phi double [ %.sroa.4.0.copyload.i29.pre.i, %27 ], [ %8, %37 ]
-  %.sroa.0.0.copyload.i27.i = phi double [ %.sroa.0.0.copyload.i27.pre.i, %27 ], [ %21, %37 ]
-  %.sroa.8.0.copyload.i.i = phi double [ %.sroa.8.0.copyload.i.pre.i, %27 ], [ %16, %37 ]
-  %.sroa.6.0.copyload.i.i = phi double [ %.sroa.6.0.copyload.i.pre.i, %27 ], [ %10, %37 ]
-  %.sroa.4.0.copyload.i.i = phi double [ %.sroa.4.0.copyload.i.pre.i, %27 ], [ %7, %37 ]
-  %.sroa.0.0.copyload.i.i = phi double [ %.sroa.0.0.copyload.i.pre.i, %27 ], [ %20, %37 ]
   %.024.i = phi double [ %33, %27 ], [ %38, %37 ]
   %.023.i = phi double [ %36, %27 ], [ %3, %37 ]
   %39 = fneg double %.023.i
   %.1.i = select i1 %23, double %39, double %.023.i
-  %40 = fmul double %.sroa.0.0.copyload.i.i, %.024.i
-  %41 = fmul double %.sroa.4.0.copyload.i.i, %.024.i
-  %42 = fmul double %.sroa.6.0.copyload.i.i, %.024.i
-  %43 = fmul double %.sroa.8.0.copyload.i.i, %.024.i
-  %44 = fmul double %.sroa.0.0.copyload.i27.i, %.1.i
-  %45 = fmul double %.sroa.4.0.copyload.i29.i, %.1.i
-  %46 = fmul double %.sroa.6.0.copyload.i31.i, %.1.i
-  %47 = fmul double %.sroa.8.0.copyload.i33.i, %.1.i
+  %40 = fmul double %20, %.024.i
+  %41 = fmul double %7, %.024.i
+  %42 = fmul double %10, %.024.i
+  %43 = fmul double %16, %.024.i
+  %44 = fmul double %21, %.1.i
+  %45 = fmul double %8, %.1.i
+  %46 = fmul double %12, %.1.i
+  %47 = fmul double %18, %.1.i
   %48 = fadd double %40, %44
   %49 = fadd double %41, %45
   %50 = fadd double %42, %46
   %51 = fadd double %43, %47
-  store double %48, ptr %0, align 8, !alias.scope !25
+  store double %48, ptr %0, align 8, !alias.scope !19
   %.sroa.4.0..sroa_idx3.i44.i = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store double %49, ptr %.sroa.4.0..sroa_idx3.i44.i, align 8, !alias.scope !25
+  store double %49, ptr %.sroa.4.0..sroa_idx3.i44.i, align 8, !alias.scope !19
   %.sroa.6.0..sroa_idx5.i45.i = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store double %50, ptr %.sroa.6.0..sroa_idx5.i45.i, align 8, !alias.scope !25
+  store double %50, ptr %.sroa.6.0..sroa_idx5.i45.i, align 8, !alias.scope !19
   %.sroa.8.0..sroa_idx7.i46.i = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store double %51, ptr %.sroa.8.0..sroa_idx7.i46.i, align 8, !alias.scope !25
+  store double %51, ptr %.sroa.8.0..sroa_idx7.i46.i, align 8, !alias.scope !19
   ret void
 }
 
@@ -360,14 +344,6 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__7GfSlerpEdRKNS_12GfQuaternionE
   %34 = fmul double %1, %28
   %35 = tail call double @sin(double noundef %34) #18
   %36 = fdiv double %35, %29
-  %.sroa.0.0.copyload.i.pre = load double, ptr %2, align 8, !noalias !28
-  %.sroa.4.0.copyload.i.pre = load double, ptr %5, align 8, !noalias !28
-  %.sroa.6.0.copyload.i.pre = load double, ptr %9, align 8, !noalias !28
-  %.sroa.8.0.copyload.i.pre = load double, ptr %15, align 8, !noalias !28
-  %.sroa.0.0.copyload.i27.pre = load double, ptr %3, align 8, !noalias !31
-  %.sroa.4.0.copyload.i29.pre = load double, ptr %6, align 8, !noalias !31
-  %.sroa.6.0.copyload.i31.pre = load double, ptr %11, align 8, !noalias !31
-  %.sroa.8.0.copyload.i33.pre = load double, ptr %17, align 8, !noalias !31
   br label %39
 
 37:                                               ; preds = %4
@@ -375,37 +351,29 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__7GfSlerpEdRKNS_12GfQuaternionE
   br label %39
 
 39:                                               ; preds = %37, %27
-  %.sroa.8.0.copyload.i33 = phi double [ %.sroa.8.0.copyload.i33.pre, %27 ], [ %18, %37 ]
-  %.sroa.6.0.copyload.i31 = phi double [ %.sroa.6.0.copyload.i31.pre, %27 ], [ %12, %37 ]
-  %.sroa.4.0.copyload.i29 = phi double [ %.sroa.4.0.copyload.i29.pre, %27 ], [ %8, %37 ]
-  %.sroa.0.0.copyload.i27 = phi double [ %.sroa.0.0.copyload.i27.pre, %27 ], [ %21, %37 ]
-  %.sroa.8.0.copyload.i = phi double [ %.sroa.8.0.copyload.i.pre, %27 ], [ %16, %37 ]
-  %.sroa.6.0.copyload.i = phi double [ %.sroa.6.0.copyload.i.pre, %27 ], [ %10, %37 ]
-  %.sroa.4.0.copyload.i = phi double [ %.sroa.4.0.copyload.i.pre, %27 ], [ %7, %37 ]
-  %.sroa.0.0.copyload.i = phi double [ %.sroa.0.0.copyload.i.pre, %27 ], [ %20, %37 ]
   %.024 = phi double [ %33, %27 ], [ %38, %37 ]
   %.023 = phi double [ %36, %27 ], [ %1, %37 ]
   %40 = fneg double %.023
   %.1 = select i1 %23, double %40, double %.023
-  %41 = fmul double %.024, %.sroa.0.0.copyload.i
-  %42 = fmul double %.024, %.sroa.4.0.copyload.i
-  %43 = fmul double %.024, %.sroa.6.0.copyload.i
-  %44 = fmul double %.024, %.sroa.8.0.copyload.i
-  %45 = fmul double %.1, %.sroa.0.0.copyload.i27
-  %46 = fmul double %.1, %.sroa.4.0.copyload.i29
-  %47 = fmul double %.1, %.sroa.6.0.copyload.i31
-  %48 = fmul double %.1, %.sroa.8.0.copyload.i33
+  %41 = fmul double %20, %.024
+  %42 = fmul double %7, %.024
+  %43 = fmul double %.024, %10
+  %44 = fmul double %.024, %16
+  %45 = fmul double %21, %.1
+  %46 = fmul double %8, %.1
+  %47 = fmul double %.1, %12
+  %48 = fmul double %.1, %18
   %49 = fadd double %41, %45
   %50 = fadd double %42, %46
   %51 = fadd double %43, %47
   %52 = fadd double %44, %48
-  store double %49, ptr %0, align 8, !alias.scope !34
+  store double %49, ptr %0, align 8, !alias.scope !22
   %.sroa.4.0..sroa_idx3.i44 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store double %50, ptr %.sroa.4.0..sroa_idx3.i44, align 8, !alias.scope !34
+  store double %50, ptr %.sroa.4.0..sroa_idx3.i44, align 8, !alias.scope !22
   %.sroa.6.0..sroa_idx5.i45 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store double %51, ptr %.sroa.6.0..sroa_idx5.i45, align 8, !alias.scope !34
+  store double %51, ptr %.sroa.6.0..sroa_idx5.i45, align 8, !alias.scope !22
   %.sroa.8.0..sroa_idx7.i46 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store double %52, ptr %.sroa.8.0..sroa_idx7.i46, align 8, !alias.scope !34
+  store double %52, ptr %.sroa.8.0..sroa_idx7.i46, align 8, !alias.scope !22
   ret void
 }
 
@@ -542,20 +510,8 @@ attributes #19 = { noreturn nounwind }
 !17 = distinct !{!17, !18, !"_ZN32pxrInternal_v0_24__pxrReserved__7GfSlerpEdRKNS_12GfQuaternionES2_: argument 0"}
 !18 = distinct !{!18, !"_ZN32pxrInternal_v0_24__pxrReserved__7GfSlerpEdRKNS_12GfQuaternionES2_"}
 !19 = !{!20, !17}
-!20 = distinct !{!20, !21, !"_ZN32pxrInternal_v0_24__pxrReserved__mlEdRKNS_12GfQuaternionE: argument 0"}
-!21 = distinct !{!21, !"_ZN32pxrInternal_v0_24__pxrReserved__mlEdRKNS_12GfQuaternionE"}
-!22 = !{!23, !17}
-!23 = distinct !{!23, !24, !"_ZN32pxrInternal_v0_24__pxrReserved__mlEdRKNS_12GfQuaternionE: argument 0"}
-!24 = distinct !{!24, !"_ZN32pxrInternal_v0_24__pxrReserved__mlEdRKNS_12GfQuaternionE"}
-!25 = !{!26, !17}
-!26 = distinct !{!26, !27, !"_ZN32pxrInternal_v0_24__pxrReserved__plERKNS_12GfQuaternionES2_: argument 0"}
-!27 = distinct !{!27, !"_ZN32pxrInternal_v0_24__pxrReserved__plERKNS_12GfQuaternionES2_"}
-!28 = !{!29}
-!29 = distinct !{!29, !30, !"_ZN32pxrInternal_v0_24__pxrReserved__mlEdRKNS_12GfQuaternionE: argument 0"}
-!30 = distinct !{!30, !"_ZN32pxrInternal_v0_24__pxrReserved__mlEdRKNS_12GfQuaternionE"}
-!31 = !{!32}
-!32 = distinct !{!32, !33, !"_ZN32pxrInternal_v0_24__pxrReserved__mlEdRKNS_12GfQuaternionE: argument 0"}
-!33 = distinct !{!33, !"_ZN32pxrInternal_v0_24__pxrReserved__mlEdRKNS_12GfQuaternionE"}
-!34 = !{!35}
-!35 = distinct !{!35, !36, !"_ZN32pxrInternal_v0_24__pxrReserved__plERKNS_12GfQuaternionES2_: argument 0"}
-!36 = distinct !{!36, !"_ZN32pxrInternal_v0_24__pxrReserved__plERKNS_12GfQuaternionES2_"}
+!20 = distinct !{!20, !21, !"_ZN32pxrInternal_v0_24__pxrReserved__plERKNS_12GfQuaternionES2_: argument 0"}
+!21 = distinct !{!21, !"_ZN32pxrInternal_v0_24__pxrReserved__plERKNS_12GfQuaternionES2_"}
+!22 = !{!23}
+!23 = distinct !{!23, !24, !"_ZN32pxrInternal_v0_24__pxrReserved__plERKNS_12GfQuaternionES2_: argument 0"}
+!24 = distinct !{!24, !"_ZN32pxrInternal_v0_24__pxrReserved__plERKNS_12GfQuaternionES2_"}
