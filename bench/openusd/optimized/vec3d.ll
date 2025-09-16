@@ -710,9 +710,9 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__7GfSlerpEdRKNS_7GfVec3dES2_(pt
   %25 = fmul double %24, %5
   %26 = fmul double %24, %8
   %27 = fmul double %24, %14
-  %28 = fmul double %1, %6
-  %29 = fmul double %1, %10
-  %30 = fmul double %1, %16
+  %25 = fmul double %1, %6
+  %26 = fmul double %1, %10
+  %27 = fmul double %1, %16
   %31 = fadd double %25, %28
   %32 = fadd double %26, %29
   %33 = fadd double %27, %30
@@ -728,11 +728,11 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__7GfSlerpEdRKNS_7GfVec3dES2_(pt
   %39 = fmul double %8, %8
   %40 = tail call double @llvm.fmuladd.f64(double %5, double %5, double %39)
   %41 = tail call noundef double @llvm.fmuladd.f64(double %14, double %14, double %40)
-  %sqrt.i.i = tail call noundef double @llvm.sqrt.f64(double %41)
+  %42 = tail call noundef double @llvm.sqrt.f64(double %41)
   %42 = fcmp oeq double %41, 0.000000e+00
   br i1 %42, label %_ZN32pxrInternal_v0_24__pxrReserved__23GfBuildOrthonormalFrameERKNS_7GfVec3dEPS0_S3_d.exit, label %43
 
-43:                                               ; preds = %38
+43:; preds = %38
   %44 = fdiv double 1.000000e+00, %sqrt.i.i
   %45 = fmul double %5, %44
   %46 = fmul double %8, %44
@@ -749,45 +749,45 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__7GfSlerpEdRKNS_7GfVec3dES2_(pt
   %57 = fcmp olt double %56, 1.000000e-08
   br i1 %57, label %58, label %64
 
-58:                                               ; preds = %43
+58:; preds = %43
   %59 = fneg double %45
   %60 = fadd double %47, %48
   %61 = fmul double %47, -0.000000e+00
   %62 = tail call double @llvm.fmuladd.f64(double %45, double 0.000000e+00, double %61)
   %63 = tail call double @llvm.fmuladd.f64(double %46, double 0.000000e+00, double %59)
-  %.pre.i = fmul double %62, %62
-  %.pre43.i = tail call double @llvm.fmuladd.f64(double %60, double %60, double %.pre.i)
-  %.pre45.i = tail call noundef double @llvm.fmuladd.f64(double %63, double %63, double %.pre43.i)
+  %64 = fmul double %62, %62
+  %65 = tail call double @llvm.fmuladd.f64(double %60, double %60, double %64)
+  %66 = tail call noundef double @llvm.fmuladd.f64(double %63, double %63, double %65)
   br label %64
 
-64:                                               ; preds = %58, %43
-  %.pre-phi46.i = phi double [ %.pre45.i, %58 ], [ %56, %43 ]
+64:; preds = %58, %43
+  %.pre-phi46.i = phi double [ %66, %58 ], [ %56, %43 ]
   %65 = phi double [ %63, %58 ], [ %53, %43 ]
   %66 = phi double [ %62, %58 ], [ %51, %43 ]
-  %67 = phi double [ %60, %58 ], [ %49, %43 ]
+  %.pre-phi46.i = phi double [ %60, %58 ], [ %49, %43 ]
   %sqrt.i.i.i.i = tail call noundef double @llvm.sqrt.f64(double %.pre-phi46.i)
-  %68 = fcmp ogt double %sqrt.i.i.i.i, 1.000000e-10
-  %69 = select i1 %68, double %sqrt.i.i.i.i, double 1.000000e-10
-  %70 = fdiv double 1.000000e+00, %69
-  %71 = fmul double %67, %70
-  %72 = fmul double %66, %70
-  %73 = fmul double %65, %70
-  %74 = fcmp olt double %sqrt.i.i, 1.000000e-10
-  br i1 %74, label %75, label %_ZN32pxrInternal_v0_24__pxrReserved__23GfBuildOrthonormalFrameERKNS_7GfVec3dEPS0_S3_d.exit
+  %71 = fcmp ogt double %sqrt.i.i.i.i, 1.000000e-10
+  %72 = select i1 %71, double %sqrt.i.i.i.i, double 1.000000e-10
+  %73 = fdiv double 1.000000e+00, %72
+  %74 = fmul double %67, %73
+  %75 = fmul double %66, %73
+  %76 = fmul double %65, %73
+  %77 = fcmp olt double %sqrt.i.i, 1.000000e-10
+  br i1 %77, label %78, label %_ZN32pxrInternal_v0_24__pxrReserved__23GfBuildOrthonormalFrameERKNS_7GfVec3dEPS0_S3_d.exit
 
-75:                                               ; preds = %64
-  %76 = fdiv double %sqrt.i.i, 1.000000e-10
-  %77 = fmul double %76, %71
-  %78 = fmul double %76, %72
-  %79 = fmul double %76, %73
+78:                                               ; preds = %64
+  %79 = fdiv double %sqrt.i.i, 1.000000e-10
+  %80 = fmul double %79, %74
+  %81 = fmul double %79, %75
+  %82 = fmul double %79, %76
   br label %_ZN32pxrInternal_v0_24__pxrReserved__23GfBuildOrthonormalFrameERKNS_7GfVec3dEPS0_S3_d.exit
 
-_ZN32pxrInternal_v0_24__pxrReserved__23GfBuildOrthonormalFrameERKNS_7GfVec3dEPS0_S3_d.exit: ; preds = %38, %64, %75
-  %.sroa.9.0 = phi double [ %79, %75 ], [ %73, %64 ], [ 0.000000e+00, %38 ]
-  %.sroa.5.0 = phi double [ %78, %75 ], [ %72, %64 ], [ 0.000000e+00, %38 ]
-  %.sroa.067.0 = phi double [ %77, %75 ], [ %71, %64 ], [ 0.000000e+00, %38 ]
-  %80 = fmul double %1, 0x400921FB54442D18
-  %81 = tail call double @cos(double noundef %80) #17
+_ZN32pxrInternal_v0_24__pxrReserved__23GfBuildOrthonormalFrameERKNS_7GfVec3dEPS0_S3_d.exit: ; preds = %38, %64, %78
+  %.sroa.9.0 = phi double [ %82, %75 ], [ %76, %64 ], [ 0.000000e+00, %38 ]
+  %.sroa.5.0 = phi double [ %81, %75 ], [ %75, %64 ], [ 0.000000e+00, %38 ]
+  %.sroa.067.0 = phi double [ %80, %75 ], [ %74, %64 ], [ 0.000000e+00, %38 ]
+  %83 = fmul double %1, 0x400921FB54442D18
+  %84 = tail call double @cos(double noundef %83) #17
   %82 = fmul double %5, %81
   %83 = fmul double %8, %81
   %84 = fmul double %14, %81
@@ -800,7 +800,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__23GfBuildOrthonormalFrameERKNS_7GfVec3dEPS0
   %91 = fadd double %84, %88
   br label %110
 
-92:                                               ; preds = %34
+92:; preds = %34
   %93 = fdiv double 1.000000e+00, %35
   %94 = fsub double 1.000000e+00, %1
   %95 = fmul double %94, %20
@@ -812,15 +812,15 @@ _ZN32pxrInternal_v0_24__pxrReserved__23GfBuildOrthonormalFrameERKNS_7GfVec3dEPS0
   %101 = fmul double %1, %20
   %102 = tail call double @sin(double noundef %101) #17
   %103 = fmul double %93, %102
-  %104 = fmul double %6, %103
-  %105 = fmul double %10, %103
-  %106 = fmul double %16, %103
+  %101 = fmul double %6, %103
+  %102 = fmul double %10, %103
+  %103 = fmul double %16, %103
   %107 = fadd double %98, %104
   %108 = fadd double %99, %105
   %109 = fadd double %100, %106
   br label %110
 
-110:                                              ; preds = %92, %_ZN32pxrInternal_v0_24__pxrReserved__23GfBuildOrthonormalFrameERKNS_7GfVec3dEPS0_S3_d.exit, %23
+110:; preds = %92, %_ZN32pxrInternal_v0_24__pxrReserved__23GfBuildOrthonormalFrameERKNS_7GfVec3dEPS0_S3_d.exit, %23
   %.sink69 = phi double [ %107, %92 ], [ %89, %_ZN32pxrInternal_v0_24__pxrReserved__23GfBuildOrthonormalFrameERKNS_7GfVec3dEPS0_S3_d.exit ], [ %31, %23 ]
   %.sink68 = phi double [ %108, %92 ], [ %90, %_ZN32pxrInternal_v0_24__pxrReserved__23GfBuildOrthonormalFrameERKNS_7GfVec3dEPS0_S3_d.exit ], [ %32, %23 ]
   %.sink = phi double [ %109, %92 ], [ %91, %_ZN32pxrInternal_v0_24__pxrReserved__23GfBuildOrthonormalFrameERKNS_7GfVec3dEPS0_S3_d.exit ], [ %33, %23 ]

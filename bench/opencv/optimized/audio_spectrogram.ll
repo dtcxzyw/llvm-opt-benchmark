@@ -7171,7 +7171,7 @@ _ZNSt6vectorIdSaIdEE9push_backEOd.exit83:         ; preds = %_ZNSt6vectorIdSaIdE
   %95 = ptrtoint ptr %93 to i64
   %96 = sub i64 %94, %95
   %97 = ashr exact i64 %96, 2
-  %.pre273 = sext i32 %13 to i64
+  %.pre = sext i32 %13 to i64
   br label %._crit_edge236
 
 .lr.ph235:                                        ; preds = %.loopexit167
@@ -7190,7 +7190,7 @@ _ZNSt6vectorIdSaIdEE9push_backEOd.exit83:         ; preds = %_ZNSt6vectorIdSaIdE
   br label %125
 
 ._crit_edge236:                                   ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit, %.loopexit167.._crit_edge236_crit_edge
-  %.pre-phi = phi i64 [ %.pre273, %.loopexit167.._crit_edge236_crit_edge ], [ %109, %_ZNSt6vectorIdSaIdEED2Ev.exit ]
+  %.pre-phi = phi i64 [ %.pre, %.loopexit167.._crit_edge236_crit_edge ], [ %109, %_ZNSt6vectorIdSaIdEED2Ev.exit ]
   %.sroa.0144.1.lcssa = phi ptr [ null, %.loopexit167.._crit_edge236_crit_edge ], [ %.sroa.0144.3.lcssa, %_ZNSt6vectorIdSaIdEED2Ev.exit ]
   %.lcssa = phi i64 [ %97, %.loopexit167.._crit_edge236_crit_edge ], [ %171, %_ZNSt6vectorIdSaIdEED2Ev.exit ]
   %110 = udiv i64 %.lcssa, %.pre-phi
@@ -7389,7 +7389,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %._crit_edge226, %16
   br label %319
 
 .lr.ph225:                                        ; preds = %160, %_ZNSt6vectorIdSaIdEE9push_backERKd.exit
-  %.pre270 = phi i32 [ %.pre271, %_ZNSt6vectorIdSaIdEE9push_backERKd.exit ], [ %161, %160 ]
+  %indvars.iv265 = phi i32 [ %.pre271, %_ZNSt6vectorIdSaIdEE9push_backERKd.exit ], [ %161, %160 ]
   %175 = phi i32 [ %315, %_ZNSt6vectorIdSaIdEE9push_backERKd.exit ], [ %161, %160 ]
   %indvars.iv265 = phi i64 [ %indvars.iv.next266, %_ZNSt6vectorIdSaIdEE9push_backERKd.exit ], [ 0, %160 ]
   %.sroa.0144.3222 = phi ptr [ %.sroa.0144.5, %_ZNSt6vectorIdSaIdEE9push_backERKd.exit ], [ %.sroa.0144.1232, %160 ]
@@ -7516,8 +7516,8 @@ _ZN2cv3Mat2atIdEERT_i.exit102.thread:             ; preds = %180
   %261 = phi ptr [ %256, %_ZN2cv3Mat2atIdEERT_i.exit102.thread ], [ %252, %_ZN2cv3Mat2atIdEERT_i.exit102 ]
   %.in = phi ptr [ %259, %_ZN2cv3Mat2atIdEERT_i.exit102.thread ], [ %254, %_ZN2cv3Mat2atIdEERT_i.exit102 ]
   %262 = phi i32 [ %257, %_ZN2cv3Mat2atIdEERT_i.exit102.thread ], [ %255, %_ZN2cv3Mat2atIdEERT_i.exit102 ]
-  %.in318 = getelementptr inbounds nuw double, ptr %261, i64 %176
-  %263 = load double, ptr %.in318, align 8, !tbaa !105
+  %.in314 = getelementptr inbounds nuw double, ptr %261, i64 %176
+  %263 = load double, ptr %.in314, align 8, !tbaa !105
   %264 = load double, ptr %.in, align 8, !tbaa !105
   %265 = sext i32 %262 to i64
   %266 = getelementptr inbounds double, ptr %261, i64 %265

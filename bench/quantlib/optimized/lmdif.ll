@@ -2802,8 +2802,8 @@ for.body99:                                       ; preds = %for.body92, %for.bo
   br i1 %exitcond844.not, label %for.body111.preheader, label %for.body99, !llvm.loop !55
 
 for.body111.preheader:                            ; preds = %for.body99
-  %fneg953 = fneg double %39
-  %div954 = fdiv double %fneg953, %36
+  %fneg949 = fneg double %39
+  %div950 = fdiv double %fneg949, %36
   br label %for.body111
 
 for.body111:                                      ; preds = %for.body111.preheader, %for.body111
@@ -2813,7 +2813,7 @@ for.body111:                                      ; preds = %for.body111.prehead
   %40 = load double, ptr %arrayidx113, align 8, !tbaa !3
   %arrayidx116 = getelementptr inbounds nuw double, ptr %wa4, i64 %indvars.iv845
   %41 = load double, ptr %arrayidx116, align 8, !tbaa !3
-  %42 = call double @llvm.fmuladd.f64(double %40, double %div954, double %41)
+  %42 = call double @llvm.fmuladd.f64(double %40, double %div950, double %41)
   store double %42, ptr %arrayidx116, align 8, !tbaa !3
   %indvars.iv.next850 = add nuw nsw i64 %indvars.iv849, 1
   %indvars.iv.next846 = add nuw nsw i64 %indvars.iv845, 1
@@ -2884,7 +2884,7 @@ if.end163:                                        ; preds = %for.end158, %for.bo
 if.end168:                                        ; preds = %if.end163, %for.end134
   %gnorm.0 = phi double [ 0.000000e+00, %for.end134 ], [ %gnorm.2, %if.end163 ]
   %cmp169 = fcmp ugt double %gnorm.0, %gtol
-  br i1 %cmp169, label %if.end171, label %if.end383.sink.split
+  br i1 %cmp169, label %if.end171, label %L300.sink.split
 
 if.end171:                                        ; preds = %if.end168
   %.pr = load i32, ptr %info, align 4, !tbaa !9
@@ -3575,8 +3575,8 @@ if.end332:                                        ; preds = %_ZN8QuantLib7MINPAC
 112:                                              ; preds = %if.end332, %111
   %.pr724 = load i32, ptr %info, align 4, !tbaa !9
   %cmp351 = icmp ne i32 %.pr724, 2
-  %or.cond1000.not = select i1 %or.cond309, i1 true, i1 %cmp351
-  br i1 %or.cond1000.not, label %if.end353, label %if.end383.sink.split
+  %or.cond996.not = select i1 %or.cond309, i1 true, i1 %cmp351
+  br i1 %or.cond996.not, label %if.end353, label %L300.sink.split
 
 if.end353:                                        ; preds = %112
   %cmp354.not = icmp eq i32 %.pr724, 0
@@ -3604,13 +3604,13 @@ if.end359:                                        ; preds = %if.then358, %if.end
 
 115:                                              ; preds = %if.end359
   %cmp372 = fcmp ugt double %gnorm.0, %114
-  br i1 %cmp372, label %if.end374, label %if.end383.sink.split
+  br i1 %cmp372, label %if.end374, label %L300.sink.split
 
 .thread:                                          ; preds = %if.end359
   %simplifycfg.merge730 = select i1 %cmp369, i32 6, i32 7
   store i32 %simplifycfg.merge730, ptr %info, align 4, !tbaa !9
-  %cmp372957 = fcmp ugt double %gnorm.0, %114
-  br i1 %cmp372957, label %if.end383, label %if.end383.sink.split
+  %cmp372953 = fcmp ugt double %gnorm.0, %114
+  br i1 %cmp372953, label %if.end383, label %L300.sink.split
 
 if.end374:                                        ; preds = %115
   br i1 %cmp357.not, label %if.end377, label %if.end383
@@ -3619,12 +3619,12 @@ if.end377:                                        ; preds = %if.end374
   %cmp378 = fcmp olt double %ratio.0, 1.000000e-04
   br i1 %cmp378, label %for.body193.preheader, label %L30
 
-if.end383.sink.split:                             ; preds = %_ZNKSt8functionIFviiPdS0_PiEEclEiiS0_S0_S1_.exit339, %if.end26, %if.end168, %_ZNKSt8functionIFviiPdS0_PiEEclEiiS0_S0_S1_.exit496, %115, %112, %_ZNKSt8functionIFviiPdS0_PiEEclEiiS0_S0_S1_.exit, %.thread
+L300.sink.split:                                  ; preds = %_ZNKSt8functionIFviiPdS0_PiEEclEiiS0_S0_S1_.exit339, %if.end26, %if.end168, %_ZNKSt8functionIFviiPdS0_PiEEclEiiS0_S0_S1_.exit496, %115, %112, %_ZNKSt8functionIFviiPdS0_PiEEclEiiS0_S0_S1_.exit, %.thread
   %.sink = phi i32 [ 8, %.thread ], [ %3, %_ZNKSt8functionIFviiPdS0_PiEEclEiiS0_S0_S1_.exit ], [ 3, %112 ], [ 8, %115 ], [ %69, %_ZNKSt8functionIFviiPdS0_PiEEclEiiS0_S0_S1_.exit496 ], [ 4, %if.end168 ], [ %22, %_ZNKSt8functionIFviiPdS0_PiEEclEiiS0_S0_S1_.exit339 ], [ %19, %if.end26 ]
   store i32 %.sink, ptr %info, align 4, !tbaa !9
   br label %if.end383
 
-if.end383:                                        ; preds = %for.body, %if.end171, %if.end353, %if.end374, %if.end383.sink.split, %.thread, %lor.lhs.false8, %entry
+if.end383:                                        ; preds = %for.body, %if.end171, %if.end353, %if.end374, %L300.sink.split, %.thread, %lor.lhs.false8, %entry
   store i32 0, ptr %iflag, align 4, !tbaa !9
   %cmp384 = icmp sgt i32 %nprint, 0
   br i1 %cmp384, label %if.then385, label %if.end386
@@ -3641,8 +3641,8 @@ if.then385:                                       ; preds = %if.end383
   store ptr %fvec, ptr %__args.addr6.i715, align 8, !tbaa !11
   store ptr %iflag, ptr %__args.addr8.i716, align 8, !tbaa !11
   %_M_manager.i.i717 = getelementptr inbounds nuw i8, ptr %fcn, i64 16
-  %116 = load ptr, ptr %_M_manager.i.i717, align 8, !tbaa !13
-  %tobool.not.i.i718 = icmp eq ptr %116, null
+  %117 = load ptr, ptr %_M_manager.i.i717, align 8, !tbaa !13
+  %tobool.not.i.i718 = icmp eq ptr %117, null
   br i1 %tobool.not.i.i718, label %if.then.i721, label %_ZNKSt8functionIFviiPdS0_PiEEclEiiS0_S0_S1_.exit722
 
 if.then.i721:                                     ; preds = %if.then385
@@ -3651,7 +3651,7 @@ if.then.i721:                                     ; preds = %if.then385
 
 _ZNKSt8functionIFviiPdS0_PiEEclEiiS0_S0_S1_.exit722: ; preds = %if.then385
   %_M_invoker.i720 = getelementptr inbounds nuw i8, ptr %fcn, i64 24
-  %117 = load ptr, ptr %_M_invoker.i720, align 8, !tbaa !15
+  %118 = load ptr, ptr %_M_invoker.i720, align 8, !tbaa !15
   call void %117(ptr noundef nonnull align 8 dereferenceable(32) %fcn, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i712, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr2.i713, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr4.i714, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr6.i715, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr8.i716)
   call void @llvm.lifetime.end.p0(ptr nonnull %__args.addr.i712)
   call void @llvm.lifetime.end.p0(ptr nonnull %__args.addr2.i713)

@@ -829,9 +829,9 @@ define internal void @format_hertz(ptr noundef %0, i64 noundef %1) #1 {
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %18, %17, %16, %15, %14, %13, %12, %11, %2
-  %.sink11.i = phi double [ 0x3D719799812DEA11, %18 ], [ 1.000000e-09, %17 ], [ 0x3EB0C6F7A0B5ED8D, %16 ], [ 1.000000e-03, %15 ], [ 1.000000e+03, %14 ], [ 1.000000e+06, %13 ], [ 1.000000e+09, %12 ], [ 1.000000e+12, %11 ], [ 1.000000e+15, %2 ]
+  %.sink12.i = phi double [ 0x3D719799812DEA11, %18 ], [ 1.000000e-09, %17 ], [ 0x3EB0C6F7A0B5ED8D, %16 ], [ 1.000000e-03, %15 ], [ 1.000000e+03, %14 ], [ 1.000000e+06, %13 ], [ 1.000000e+09, %12 ], [ 1.000000e+12, %11 ], [ 1.000000e+15, %2 ]
   %.0.ph.i = phi ptr [ @.str.476, %18 ], [ @.str.475, %17 ], [ @.str.474, %16 ], [ @.str.473, %15 ], [ @.str.472, %14 ], [ @.str.471, %13 ], [ @.str.470, %12 ], [ @.str.469, %11 ], [ @.str.468, %2 ]
-  %19 = fmul double %4, %.sink11.i
+  %19 = fmul double %4, %.sink12.i
   br label %get_engr_prefix.exit
 
 get_engr_prefix.exit:                             ; preds = %2, %.sink.split.i
@@ -904,9 +904,9 @@ define internal void @format_second(ptr noundef %0, i64 noundef %1) #1 {
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %18, %17, %16, %15, %14, %13, %12, %11, %2
-  %.sink11.i = phi double [ 0x3D719799812DEA11, %18 ], [ 1.000000e-09, %17 ], [ 0x3EB0C6F7A0B5ED8D, %16 ], [ 1.000000e-03, %15 ], [ 1.000000e+03, %14 ], [ 1.000000e+06, %13 ], [ 1.000000e+09, %12 ], [ 1.000000e+12, %11 ], [ 1.000000e+15, %2 ]
+  %.sink12.i = phi double [ 0x3D719799812DEA11, %18 ], [ 1.000000e-09, %17 ], [ 0x3EB0C6F7A0B5ED8D, %16 ], [ 1.000000e-03, %15 ], [ 1.000000e+03, %14 ], [ 1.000000e+06, %13 ], [ 1.000000e+09, %12 ], [ 1.000000e+12, %11 ], [ 1.000000e+15, %2 ]
   %.0.ph.i = phi ptr [ @.str.476, %18 ], [ @.str.475, %17 ], [ @.str.474, %16 ], [ @.str.473, %15 ], [ @.str.472, %14 ], [ @.str.471, %13 ], [ @.str.470, %12 ], [ @.str.469, %11 ], [ @.str.468, %2 ]
-  %19 = fmul double %4, %.sink11.i
+  %19 = fmul double %4, %.sink12.i
   br label %get_engr_prefix.exit
 
 get_engr_prefix.exit:                             ; preds = %2, %.sink.split.i
@@ -979,9 +979,9 @@ define internal void @format_meter(ptr noundef %0, i32 noundef %1) #1 {
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %18, %17, %16, %15, %14, %13, %12, %11, %2
-  %.sink11.i = phi double [ 0x3D719799812DEA11, %18 ], [ 1.000000e-09, %17 ], [ 0x3EB0C6F7A0B5ED8D, %16 ], [ 1.000000e-03, %15 ], [ 1.000000e+03, %14 ], [ 1.000000e+06, %13 ], [ 1.000000e+09, %12 ], [ 1.000000e+12, %11 ], [ 1.000000e+15, %2 ]
+  %.sink12.i = phi double [ 0x3D719799812DEA11, %18 ], [ 1.000000e-09, %17 ], [ 0x3EB0C6F7A0B5ED8D, %16 ], [ 1.000000e-03, %15 ], [ 1.000000e+03, %14 ], [ 1.000000e+06, %13 ], [ 1.000000e+09, %12 ], [ 1.000000e+12, %11 ], [ 1.000000e+15, %2 ]
   %.0.ph.i = phi ptr [ @.str.476, %18 ], [ @.str.475, %17 ], [ @.str.474, %16 ], [ @.str.473, %15 ], [ @.str.472, %14 ], [ @.str.471, %13 ], [ @.str.470, %12 ], [ @.str.469, %11 ], [ @.str.468, %2 ]
-  %19 = fmul double %4, %.sink11.i
+  %19 = fmul double %4, %.sink12.i
   br label %get_engr_prefix.exit
 
 get_engr_prefix.exit:                             ; preds = %2, %.sink.split.i
@@ -1038,9 +1038,9 @@ define internal void @format_meters_per_second(ptr noundef %0, i32 noundef %1) #
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %18, %17, %16, %15, %14, %13, %12, %11, %2
-  %.sink11.i = phi double [ 0x3D719799812DEA11, %18 ], [ 1.000000e-09, %17 ], [ 0x3EB0C6F7A0B5ED8D, %16 ], [ 1.000000e-03, %15 ], [ 1.000000e+03, %14 ], [ 1.000000e+06, %13 ], [ 1.000000e+09, %12 ], [ 1.000000e+12, %11 ], [ 1.000000e+15, %2 ]
+  %.sink12.i = phi double [ 0x3D719799812DEA11, %18 ], [ 1.000000e-09, %17 ], [ 0x3EB0C6F7A0B5ED8D, %16 ], [ 1.000000e-03, %15 ], [ 1.000000e+03, %14 ], [ 1.000000e+06, %13 ], [ 1.000000e+09, %12 ], [ 1.000000e+12, %11 ], [ 1.000000e+15, %2 ]
   %.0.ph.i = phi ptr [ @.str.476, %18 ], [ @.str.475, %17 ], [ @.str.474, %16 ], [ @.str.473, %15 ], [ @.str.472, %14 ], [ @.str.471, %13 ], [ @.str.470, %12 ], [ @.str.469, %11 ], [ @.str.468, %2 ]
-  %19 = fmul double %4, %.sink11.i
+  %19 = fmul double %4, %.sink12.i
   br label %get_engr_prefix.exit
 
 get_engr_prefix.exit:                             ; preds = %2, %.sink.split.i
@@ -1112,9 +1112,9 @@ define internal void @format_meter_unsigned(ptr noundef %0, i32 noundef %1) #1 {
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %17, %16, %15, %14, %13, %12, %11, %10, %2
-  %.sink11.i = phi double [ 0x3D719799812DEA11, %17 ], [ 1.000000e-09, %16 ], [ 0x3EB0C6F7A0B5ED8D, %15 ], [ 1.000000e-03, %14 ], [ 1.000000e+03, %13 ], [ 1.000000e+06, %12 ], [ 1.000000e+09, %11 ], [ 1.000000e+12, %10 ], [ 1.000000e+15, %2 ]
+  %.sink12.i = phi double [ 0x3D719799812DEA11, %17 ], [ 1.000000e-09, %16 ], [ 0x3EB0C6F7A0B5ED8D, %15 ], [ 1.000000e-03, %14 ], [ 1.000000e+03, %13 ], [ 1.000000e+06, %12 ], [ 1.000000e+09, %11 ], [ 1.000000e+12, %10 ], [ 1.000000e+15, %2 ]
   %.0.ph.i = phi ptr [ @.str.476, %17 ], [ @.str.475, %16 ], [ @.str.474, %15 ], [ @.str.473, %14 ], [ @.str.472, %13 ], [ @.str.471, %12 ], [ @.str.470, %11 ], [ @.str.469, %10 ], [ @.str.468, %2 ]
-  %18 = fmul double %4, %.sink11.i
+  %18 = fmul double %4, %.sink12.i
   br label %get_engr_prefix.exit
 
 get_engr_prefix.exit:                             ; preds = %2, %.sink.split.i

@@ -6998,14 +6998,14 @@ define internal ptr @Type_vcgt_Read(ptr noundef readonly captures(none) %0, ptr 
   store i32 0, ptr %2, align 4
   %12 = call i32 @_cmsReadUInt32Number(ptr noundef %1, ptr noundef nonnull %5) #14
   %.not = icmp eq i32 %12, 0
-  br i1 %.not, label %99, label %13
+  br i1 %.not, label %100, label %13
 
 13:                                               ; preds = %4
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %15 = load ptr, ptr %14, align 8
   %16 = call ptr @_cmsCalloc(ptr noundef %15, i32 noundef 3, i32 noundef 8) #14
   %17 = icmp eq ptr %16, null
-  br i1 %17, label %99, label %18
+  br i1 %17, label %100, label %18
 
 18:                                               ; preds = %13
   %19 = load i32, ptr %5, align 4
@@ -7166,29 +7166,29 @@ define internal ptr @Type_vcgt_Read(ptr noundef readonly captures(none) %0, ptr 
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %21, i8 0, i64 24, i1 false)
   store double %88, ptr %22, align 8
   store double 0.000000e+00, ptr %23, align 16
-  %92 = load ptr, ptr %14, align 8
-  %93 = call ptr @cmsBuildParametricToneCurve(ptr noundef %92, i32 noundef 5, ptr noundef nonnull %11) #14
-  %94 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv
-  store ptr %93, ptr %94, align 8
-  %95 = icmp eq ptr %93, null
-  br i1 %95, label %.loopexit68, label %75
+  %93 = load ptr, ptr %14, align 8
+  %94 = call ptr @cmsBuildParametricToneCurve(ptr noundef %93, i32 noundef 5, ptr noundef nonnull %11) #14
+  %95 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv
+  store ptr %94, ptr %95, align 8
+  %96 = icmp eq ptr %94, null
+  br i1 %96, label %.loopexit68, label %75
 
-96:                                               ; preds = %18
-  %97 = load ptr, ptr %14, align 8
-  call void (ptr, i32, ptr, ...) @cmsSignalError(ptr noundef %97, i32 noundef 8, ptr noundef nonnull @.str.34, i32 noundef %19) #14
+97:                                               ; preds = %18
+  %98 = load ptr, ptr %14, align 8
+  call void (ptr, i32, ptr, ...) @cmsSignalError(ptr noundef %98, i32 noundef 8, ptr noundef nonnull @.str.34, i32 noundef %19) #14
   br label %.loopexit68
 
 .loopexit69:                                      ; preds = %75, %.loopexit
   store i32 1, ptr %2, align 4
-  br label %99
+  br label %100
 
-.loopexit68:                                      ; preds = %85, %82, %79, %76, %65, %42, %.lr.ph, %33, %31, %24, %96, %71, %28
+.loopexit68:                                      ; preds = %85, %82, %79, %76, %65, %42, %.lr.ph, %33, %31, %24, %97, %71, %28
   call void @cmsFreeToneCurveTriple(ptr noundef nonnull %16) #14
-  %98 = load ptr, ptr %14, align 8
-  call void @_cmsFree(ptr noundef %98, ptr noundef nonnull %16) #14
-  br label %99
+  %99 = load ptr, ptr %14, align 8
+  call void @_cmsFree(ptr noundef %99, ptr noundef nonnull %16) #14
+  br label %100
 
-99:                                               ; preds = %13, %4, %.loopexit68, %.loopexit69
+100:                                              ; preds = %13, %4, %.loopexit68, %.loopexit69
   %.0 = phi ptr [ null, %.loopexit68 ], [ %16, %.loopexit69 ], [ null, %4 ], [ null, %13 ]
   ret ptr %.0
 }

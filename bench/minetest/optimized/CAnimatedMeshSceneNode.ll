@@ -4260,8 +4260,8 @@ _ZN3irr4core10quaternion5slerpES1_S1_ff.exit:     ; preds = %if.else.i, %if.then
   %mul7.i = fmul float %QRotation.sroa.0.4.vec.extract, %QRotation.sroa.0.4.vec.extract
   %conv8.i = fpext float %mul7.i to double
   %QRotation.sroa.7.8.vec.extract = extractelement <2 x float> %retval.sroa.3.12.vec.insert.i62.sink.i, i64 0
-  %foldExtExtBinop31 = fmul <2 x float> %retval.sroa.3.12.vec.insert.i62.sink.i, %retval.sroa.3.12.vec.insert.i62.sink.i
-  %mul10.i = extractelement <2 x float> %foldExtExtBinop31, i64 0
+  %foldExtExtBinop32 = fmul <2 x float> %retval.sroa.3.12.vec.insert.i62.sink.i, %retval.sroa.3.12.vec.insert.i62.sink.i
+  %mul10.i = extractelement <2 x float> %foldExtExtBinop32, i64 0
   %conv11.i = fpext float %mul10.i to double
   %195 = fneg float %QRotation.sroa.0.0.vec.extract
   %neg.i = fmul float %QRotation.sroa.7.8.vec.extract, %195
@@ -4324,7 +4324,7 @@ if.else42.i:                                      ; preds = %if.else.i11
   br label %_ZNK3irr4core10quaternion7toEulerERNS0_8vector3dIfEE.exit
 
 _ZNK3irr4core10quaternion7toEulerERNS0_8vector3dIfEE.exit: ; preds = %if.then.i10, %if.then31.i, %if.else42.i
-  %.in = phi double [ %mul37.i, %if.then31.i ], [ %call52.i, %if.else42.i ], [ %mul25.i, %if.then.i10 ]
+  %203 = phi double [ %mul37.i, %if.then31.i ], [ %call52.i, %if.else42.i ], [ %mul25.i, %if.then.i10 ]
   %.sink.i = phi float [ 0xBFF921FB60000000, %if.then31.i ], [ %conv72.i, %if.else42.i ], [ 0x3FF921FB60000000, %if.then.i10 ]
   %203 = fptrunc double %.in to float
   store float %.sink.i, ptr %Y41.i, align 4, !tbaa !172

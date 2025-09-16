@@ -7445,7 +7445,7 @@ _ZN4absl24uniform_int_distributionIiEclISt23mersenne_twister_engineImLm64ELm312E
   %.0.i.i.in.i = phi i64 [ %14, %13 ], [ %30, %.loopexit.i.i.i ]
   %.0.i.i.i = trunc nuw i64 %.0.i.i.in.i to i32
   %31 = icmp eq i64 %.0.i.i.in.i, 0
-  br i1 %31, label %64, label %32
+  br i1 %31, label %65, label %32
 
 32:                                               ; preds = %_ZN4absl24uniform_int_distributionIiEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEiRT_.exit
   %33 = add nsw i32 %.0.i.i.i, -1
@@ -7484,7 +7484,7 @@ _ZN4absl24uniform_int_distributionIiEclISt23mersenne_twister_engineImLm64ELm312E
   %.pn = phi { i64, i64 } [ %.fca.1.insert.i69, %40 ], [ { i64 -1, i64 -1 }, %36 ]
   %.sroa.523.0 = extractvalue { i64, i64 } %.pn, 1
   %.sroa.022.0 = extractvalue { i64, i64 } %.pn, 0
-  br label %55
+  br label %56
 
 44:                                               ; preds = %32
   %45 = sitofp i128 %.sroa.01.0.insert.insert.i to double
@@ -7492,44 +7492,44 @@ _ZN4absl24uniform_int_distributionIiEclISt23mersenne_twister_engineImLm64ELm312E
   %47 = tail call noundef double @pow(double noundef %45, double noundef %46) #18, !tbaa !32
   %48 = tail call double @llvm.fmuladd.f64(double %47, double %45, double -1.000000e+00)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %49 = fcmp ogt double %47, 0x47F0000000000000
-  br i1 %49, label %51, label %50
+  %50 = fcmp ogt double %47, 0x47F0000000000000
+  br i1 %50, label %52, label %51
 
-50:                                               ; preds = %44
+51:                                               ; preds = %44
   call void @_ZN4absl7uint128C1Ed(ptr noundef nonnull align 16 dereferenceable(16) %4, double noundef %47)
   %.sroa.029.0.copyload.pre = load i64, ptr %4, align 16, !tbaa !20
   %.sroa.630.0..sroa_idx.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.sroa.630.0.copyload.pre = load i64, ptr %.sroa.630.0..sroa_idx.phi.trans.insert, align 8, !tbaa !20
-  br label %51
+  br label %52
 
-51:                                               ; preds = %44, %50
+52:                                               ; preds = %44, %51
   %.sroa.630.0.copyload = phi i64 [ %.sroa.630.0.copyload.pre, %50 ], [ -1, %44 ]
   %.sroa.029.0.copyload = phi i64 [ %.sroa.029.0.copyload.pre, %50 ], [ -1, %44 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %52 = fcmp ogt double %48, 0x47F0000000000000
-  br i1 %52, label %54, label %53
+  %53 = fcmp ogt double %48, 0x47F0000000000000
+  br i1 %53, label %55, label %54
 
-53:                                               ; preds = %51
+54:                                               ; preds = %52
   call void @_ZN4absl7uint128C1Ed(ptr noundef nonnull align 16 dereferenceable(16) %5, double noundef %48)
   %.sroa.027.0.copyload.pre = load i64, ptr %5, align 16, !tbaa !20
   %.sroa.6.0..sroa_idx.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.sroa.6.0.copyload.pre = load i64, ptr %.sroa.6.0..sroa_idx.phi.trans.insert, align 8, !tbaa !20
-  br label %54
+  br label %55
 
-54:                                               ; preds = %51, %53
+55:                                               ; preds = %52, %54
   %.sroa.6.0.copyload = phi i64 [ %.sroa.6.0.copyload.pre, %53 ], [ -1, %51 ]
   %.sroa.027.0.copyload = phi i64 [ %.sroa.027.0.copyload.pre, %53 ], [ -1, %51 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %55
+  br label %56
 
-55:                                               ; preds = %54, %43
+56:                                               ; preds = %55, %43
   %.sroa.027.0 = phi i64 [ %.sroa.022.0, %43 ], [ %.sroa.027.0.copyload, %54 ]
   %.sroa.6.0 = phi i64 [ %.sroa.523.0, %43 ], [ %.sroa.6.0.copyload, %54 ]
   %.sroa.029.0 = phi i64 [ %.sroa.0.0.extract.trunc.i54, %43 ], [ %.sroa.029.0.copyload, %54 ]
   %.sroa.630.0 = phi i64 [ %.sroa.2.0.extract.trunc.i, %43 ], [ %.sroa.630.0.copyload, %54 ]
-  %56 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %.sroa.0.0.copyload.i80 = load i64, ptr %56, align 16, !tbaa !20
+  %57 = getelementptr inbounds nuw i8, ptr %2, i64 48
+  %.sroa.0.0.copyload.i80 = load i64, ptr %57, align 16, !tbaa !20
   %.sroa.2.0..sroa_idx.i81 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %.sroa.2.0.copyload.i82 = load i64, ptr %.sroa.2.0..sroa_idx.i81, align 8, !tbaa !20
   %.sroa.22.0.insert.ext.i.i = zext i64 %.sroa.630.0 to i128
@@ -7556,34 +7556,34 @@ _ZN4absl24uniform_int_distributionIiEclISt23mersenne_twister_engineImLm64ELm312E
   store i64 %spec.select, ptr %6, align 16
   %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %spec.select140, ptr %.sroa.3.0..sroa_idx.i.i, align 8, !tbaa !123
-  %57 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %58 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %.sroa.03.0.insert.ext.i.i.i = zext i64 %.sroa.09.0 to i128
   %.sroa.01.0.insert.ext.i.i.i = zext i64 %spec.select to i128
   %.sroa.01.0.insert.insert.neg.i.i.i = sub nsw i128 %.sroa.03.0.insert.ext.i.i.i, %.sroa.01.0.insert.ext.i.i.i
   %.sroa.0.0.extract.trunc.i.i.i = trunc i128 %.sroa.01.0.insert.insert.neg.i.i.i to i64
-  %58 = lshr i128 %.sroa.01.0.insert.insert.neg.i.i.i, 64
-  %.tr.i.i = trunc nuw i128 %58 to i64
+  %59 = lshr i128 %.sroa.01.0.insert.insert.neg.i.i.i, 64
+  %.tr.i.i = trunc nuw i128 %59 to i64
   %.narrow.i.i = sub i64 %.sroa.5.0, %spec.select140
   %.narrow.i.i.i = add i64 %.narrow.i.i, %.tr.i.i
-  store i64 %.sroa.0.0.extract.trunc.i.i.i, ptr %57, align 16
-  %59 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store i64 %.narrow.i.i.i, ptr %59, align 8
-  %60 = call { i64, i64 } @_ZN4absl24uniform_int_distributionINS_6int128EE8GenerateISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEENS_7uint128ERT_S6_(ptr noundef nonnull align 16 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(2504) %1, i64 %.sroa.0.0.extract.trunc.i.i.i, i64 %.narrow.i.i.i)
-  %61 = extractvalue { i64, i64 } %60, 0
-  %62 = extractvalue { i64, i64 } %60, 1
-  %.sroa.01.0.insert.ext.i.i.i118 = zext i64 %61 to i128
+  store i64 %.sroa.0.0.extract.trunc.i.i.i, ptr %58, align 16
+  %60 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  store i64 %.narrow.i.i.i, ptr %60, align 8
+  %61 = call { i64, i64 } @_ZN4absl24uniform_int_distributionINS_6int128EE8GenerateISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEENS_7uint128ERT_S6_(ptr noundef nonnull align 16 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(2504) %1, i64 %.sroa.0.0.extract.trunc.i.i.i, i64 %.narrow.i.i.i)
+  %62 = extractvalue { i64, i64 } %61, 0
+  %63 = extractvalue { i64, i64 } %61, 1
+  %.sroa.01.0.insert.ext.i.i.i118 = zext i64 %62 to i128
   %.sroa.01.0.insert.insert.i.i.i = or disjoint i128 %.sroa.2.0.insert.shift.i109, %.sroa.01.0.insert.ext.i.i.i
   %.sroa.03.0.insert.insert.i.i.i = add i128 %.sroa.01.0.insert.insert.i.i.i, %.sroa.01.0.insert.ext.i.i.i118
-  %63 = lshr i128 %.sroa.03.0.insert.insert.i.i.i, 64
-  %.tr.i.i.i = trunc nuw i128 %63 to i64
-  %.narrow.i.i.i119 = add i64 %62, %.tr.i.i.i
+  %64 = lshr i128 %.sroa.03.0.insert.insert.i.i.i, 64
+  %.tr.i.i.i = trunc nuw i128 %64 to i64
+  %.narrow.i.i.i119 = add i64 %63, %.tr.i.i.i
   %.sroa.017.0.extract.trunc.i.i = trunc i128 %.sroa.03.0.insert.insert.i.i.i to i64
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %64
+  br label %65
 
-64:                                               ; preds = %_ZN4absl24uniform_int_distributionIiEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEiRT_.exit, %55
-  %.sroa.0139.0 = phi i64 [ %.sroa.017.0.extract.trunc.i.i, %55 ], [ 0, %_ZN4absl24uniform_int_distributionIiEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEiRT_.exit ]
-  %.sroa.3.0 = phi i64 [ %.narrow.i.i.i119, %55 ], [ 0, %_ZN4absl24uniform_int_distributionIiEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEiRT_.exit ]
+65:                                               ; preds = %_ZN4absl24uniform_int_distributionIiEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEiRT_.exit, %56
+  %.sroa.0139.0 = phi i64 [ %.sroa.017.0.extract.trunc.i.i, %56 ], [ 0, %_ZN4absl24uniform_int_distributionIiEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEiRT_.exit ]
+  %.sroa.3.0 = phi i64 [ %.narrow.i.i.i119, %56 ], [ 0, %_ZN4absl24uniform_int_distributionIiEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEiRT_.exit ]
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.0139.0, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.3.0, 1
   ret { i64, i64 } %.fca.1.insert
@@ -16023,7 +16023,7 @@ _ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseI
   %.0.i.i.i = trunc nuw i64 %.0.i.i.in.i to i32
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %49 = icmp eq i64 %.0.i.i.in.i, 0
-  br i1 %49, label %82, label %50
+  br i1 %49, label %83, label %50
 
 50:                                               ; preds = %_ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEiRT_.exit
   %51 = add nsw i32 %.0.i.i.i, -1
@@ -16062,52 +16062,52 @@ _ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseI
   %.pn = phi { i64, i64 } [ %.fca.1.insert.i69, %58 ], [ { i64 -1, i64 -1 }, %54 ]
   %.sroa.523.0 = extractvalue { i64, i64 } %.pn, 1
   %.sroa.022.0 = extractvalue { i64, i64 } %.pn, 0
-  br label %73
+  br label %74
 
 62:                                               ; preds = %50
   %63 = sitofp i128 %.sroa.01.0.insert.insert.i to double
   %64 = sitofp i32 %51 to double
   %65 = call noundef double @pow(double noundef %63, double noundef %64) #18, !tbaa !32
-  %66 = call double @llvm.fmuladd.f64(double %65, double %63, double -1.000000e+00)
+  %67 = call double @llvm.fmuladd.f64(double %65, double %64, double -1.000000e+00)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %67 = fcmp ogt double %65, 0x47F0000000000000
-  br i1 %67, label %69, label %68
+  %68 = fcmp ogt double %65, 0x47F0000000000000
+  br i1 %68, label %70, label %69
 
-68:                                               ; preds = %62
+69:                                               ; preds = %62
   call void @_ZN4absl7uint128C1Ed(ptr noundef nonnull align 16 dereferenceable(16) %5, double noundef %65)
   %.sroa.029.0.copyload.pre = load i64, ptr %5, align 16, !tbaa !20
   %.sroa.630.0..sroa_idx.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.sroa.630.0.copyload.pre = load i64, ptr %.sroa.630.0..sroa_idx.phi.trans.insert, align 8, !tbaa !20
-  br label %69
+  br label %70
 
-69:                                               ; preds = %62, %68
-  %.sroa.630.0.copyload = phi i64 [ %.sroa.630.0.copyload.pre, %68 ], [ -1, %62 ]
-  %.sroa.029.0.copyload = phi i64 [ %.sroa.029.0.copyload.pre, %68 ], [ -1, %62 ]
+70:                                               ; preds = %62, %69
+  %.sroa.630.0.copyload = phi i64 [ %.sroa.630.0.copyload.pre, %69 ], [ -1, %62 ]
+  %.sroa.029.0.copyload = phi i64 [ %.sroa.029.0.copyload.pre, %69 ], [ -1, %62 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %70 = fcmp ogt double %66, 0x47F0000000000000
-  br i1 %70, label %72, label %71
+  %71 = fcmp ogt double %67, 0x47F0000000000000
+  br i1 %71, label %73, label %72
 
-71:                                               ; preds = %69
-  call void @_ZN4absl7uint128C1Ed(ptr noundef nonnull align 16 dereferenceable(16) %6, double noundef %66)
+72:                                               ; preds = %70
+  call void @_ZN4absl7uint128C1Ed(ptr noundef nonnull align 16 dereferenceable(16) %6, double noundef %67)
   %.sroa.027.0.copyload.pre = load i64, ptr %6, align 16, !tbaa !20
   %.sroa.6.0..sroa_idx.phi.trans.insert = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.6.0.copyload.pre = load i64, ptr %.sroa.6.0..sroa_idx.phi.trans.insert, align 8, !tbaa !20
-  br label %72
-
-72:                                               ; preds = %69, %71
-  %.sroa.6.0.copyload = phi i64 [ %.sroa.6.0.copyload.pre, %71 ], [ -1, %69 ]
-  %.sroa.027.0.copyload = phi i64 [ %.sroa.027.0.copyload.pre, %71 ], [ -1, %69 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %73
 
-73:                                               ; preds = %72, %61
+73:                                               ; preds = %70, %72
+  %.sroa.6.0.copyload = phi i64 [ %.sroa.6.0.copyload.pre, %71 ], [ -1, %70 ]
+  %.sroa.027.0.copyload = phi i64 [ %.sroa.027.0.copyload.pre, %71 ], [ -1, %70 ]
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  br label %74
+
+74:                                               ; preds = %73, %61
   %.sroa.027.0 = phi i64 [ %.sroa.022.0, %61 ], [ %.sroa.027.0.copyload, %72 ]
   %.sroa.6.0 = phi i64 [ %.sroa.523.0, %61 ], [ %.sroa.6.0.copyload, %72 ]
   %.sroa.029.0 = phi i64 [ %.sroa.0.0.extract.trunc.i54, %61 ], [ %.sroa.029.0.copyload, %72 ]
   %.sroa.630.0 = phi i64 [ %.sroa.2.0.extract.trunc.i, %61 ], [ %.sroa.630.0.copyload, %72 ]
-  %74 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %.sroa.0.0.copyload.i80 = load i64, ptr %74, align 16, !tbaa !20
+  %75 = getelementptr inbounds nuw i8, ptr %2, i64 48
+  %.sroa.0.0.copyload.i80 = load i64, ptr %75, align 16, !tbaa !20
   %.sroa.2.0..sroa_idx.i81 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %.sroa.2.0.copyload.i82 = load i64, ptr %.sroa.2.0..sroa_idx.i81, align 8, !tbaa !20
   %.sroa.22.0.insert.ext.i.i = zext i64 %.sroa.630.0 to i128
@@ -16134,32 +16134,32 @@ _ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseI
   store i64 %spec.select, ptr %7, align 16
   %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %spec.select140, ptr %.sroa.3.0..sroa_idx.i.i, align 8, !tbaa !123
-  %75 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %76 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %.sroa.03.0.insert.ext.i.i.i = zext i64 %.sroa.09.0 to i128
   %.sroa.01.0.insert.ext.i.i.i = zext i64 %spec.select to i128
   %.sroa.01.0.insert.insert.neg.i.i.i = sub nsw i128 %.sroa.03.0.insert.ext.i.i.i, %.sroa.01.0.insert.ext.i.i.i
   %.sroa.0.0.extract.trunc.i.i.i = trunc i128 %.sroa.01.0.insert.insert.neg.i.i.i to i64
-  %76 = lshr i128 %.sroa.01.0.insert.insert.neg.i.i.i, 64
-  %.tr.i.i = trunc nuw i128 %76 to i64
+  %77 = lshr i128 %.sroa.01.0.insert.insert.neg.i.i.i, 64
+  %.tr.i.i = trunc nuw i128 %77 to i64
   %.narrow.i.i = sub i64 %.sroa.5.0, %spec.select140
   %.narrow.i.i.i = add i64 %.narrow.i.i, %.tr.i.i
-  store i64 %.sroa.0.0.extract.trunc.i.i.i, ptr %75, align 16
-  %77 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store i64 %.narrow.i.i.i, ptr %77, align 8
-  %78 = call { i64, i64 } @_ZN4absl24uniform_int_distributionINS_6int128EE8GenerateINS_15random_internal17NonsecureURBGBaseINS4_13randen_engineImEENS4_17RandenPoolSeedSeqEEEEENS_7uint128ERT_SA_(ptr noundef nonnull align 16 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(288) %1, i64 %.sroa.0.0.extract.trunc.i.i.i, i64 %.narrow.i.i.i)
-  %79 = extractvalue { i64, i64 } %78, 0
-  %80 = extractvalue { i64, i64 } %78, 1
-  %.sroa.01.0.insert.ext.i.i.i118 = zext i64 %79 to i128
+  store i64 %.sroa.0.0.extract.trunc.i.i.i, ptr %76, align 16
+  %78 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  store i64 %.narrow.i.i.i, ptr %78, align 8
+  %79 = call { i64, i64 } @_ZN4absl24uniform_int_distributionINS_6int128EE8GenerateINS_15random_internal17NonsecureURBGBaseINS4_13randen_engineImEENS4_17RandenPoolSeedSeqEEEEENS_7uint128ERT_SA_(ptr noundef nonnull align 16 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(288) %1, i64 %.sroa.0.0.extract.trunc.i.i.i, i64 %.narrow.i.i.i)
+  %80 = extractvalue { i64, i64 } %79, 0
+  %81 = extractvalue { i64, i64 } %79, 1
+  %.sroa.01.0.insert.ext.i.i.i118 = zext i64 %80 to i128
   %.sroa.01.0.insert.insert.i.i.i = or disjoint i128 %.sroa.2.0.insert.shift.i109, %.sroa.01.0.insert.ext.i.i.i
   %.sroa.03.0.insert.insert.i.i.i = add i128 %.sroa.01.0.insert.insert.i.i.i, %.sroa.01.0.insert.ext.i.i.i118
-  %81 = lshr i128 %.sroa.03.0.insert.insert.i.i.i, 64
-  %.tr.i.i.i = trunc nuw i128 %81 to i64
-  %.narrow.i.i.i119 = add i64 %80, %.tr.i.i.i
+  %82 = lshr i128 %.sroa.03.0.insert.insert.i.i.i, 64
+  %.tr.i.i.i = trunc nuw i128 %82 to i64
+  %.narrow.i.i.i119 = add i64 %81, %.tr.i.i.i
   %.sroa.017.0.extract.trunc.i.i = trunc i128 %.sroa.03.0.insert.insert.i.i.i to i64
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %82
+  br label %83
 
-82:                                               ; preds = %_ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEiRT_.exit, %73
+83:                                               ; preds = %_ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEiRT_.exit, %74
   %.sroa.0139.0 = phi i64 [ %.sroa.017.0.extract.trunc.i.i, %73 ], [ 0, %_ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEiRT_.exit ]
   %.sroa.3.0 = phi i64 [ %.narrow.i.i.i119, %73 ], [ 0, %_ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEiRT_.exit ]
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.0139.0, 0
@@ -23976,7 +23976,7 @@ _ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseI
   %.0.i.i.in.i = phi i64 [ %17, %16 ], [ %36, %.loopexit.i.i.i ]
   %.0.i.i.i = trunc nuw i64 %.0.i.i.in.i to i32
   %37 = icmp eq i64 %.0.i.i.in.i, 0
-  br i1 %37, label %70, label %38
+  br i1 %37, label %71, label %38
 
 38:                                               ; preds = %_ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEiRT_.exit
   %39 = add nsw i32 %.0.i.i.i, -1
@@ -24015,52 +24015,52 @@ _ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseI
   %.pn = phi { i64, i64 } [ %.fca.1.insert.i69, %46 ], [ { i64 -1, i64 -1 }, %42 ]
   %.sroa.523.0 = extractvalue { i64, i64 } %.pn, 1
   %.sroa.022.0 = extractvalue { i64, i64 } %.pn, 0
-  br label %61
+  br label %62
 
 50:                                               ; preds = %38
   %51 = sitofp i128 %.sroa.01.0.insert.insert.i to double
   %52 = sitofp i32 %39 to double
   %53 = tail call noundef double @pow(double noundef %51, double noundef %52) #18, !tbaa !32
-  %54 = tail call double @llvm.fmuladd.f64(double %53, double %51, double -1.000000e+00)
+  %54 = tail call double @llvm.fmuladd.f64(double %54, double %51, double -1.000000e+00)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %55 = fcmp ogt double %53, 0x47F0000000000000
-  br i1 %55, label %57, label %56
+  %56 = fcmp ogt double %53, 0x47F0000000000000
+  br i1 %56, label %58, label %57
 
-56:                                               ; preds = %50
+57:                                               ; preds = %50
   call void @_ZN4absl7uint128C1Ed(ptr noundef nonnull align 16 dereferenceable(16) %4, double noundef %53)
   %.sroa.029.0.copyload.pre = load i64, ptr %4, align 16, !tbaa !20
   %.sroa.630.0..sroa_idx.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.sroa.630.0.copyload.pre = load i64, ptr %.sroa.630.0..sroa_idx.phi.trans.insert, align 8, !tbaa !20
-  br label %57
+  br label %58
 
-57:                                               ; preds = %50, %56
-  %.sroa.630.0.copyload = phi i64 [ %.sroa.630.0.copyload.pre, %56 ], [ -1, %50 ]
-  %.sroa.029.0.copyload = phi i64 [ %.sroa.029.0.copyload.pre, %56 ], [ -1, %50 ]
+58:                                               ; preds = %50, %57
+  %.sroa.630.0.copyload = phi i64 [ %.sroa.630.0.copyload.pre, %57 ], [ -1, %50 ]
+  %.sroa.029.0.copyload = phi i64 [ %.sroa.029.0.copyload.pre, %57 ], [ -1, %50 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %58 = fcmp ogt double %54, 0x47F0000000000000
-  br i1 %58, label %60, label %59
+  %59 = fcmp ogt double %55, 0x47F0000000000000
+  br i1 %59, label %61, label %60
 
-59:                                               ; preds = %57
-  call void @_ZN4absl7uint128C1Ed(ptr noundef nonnull align 16 dereferenceable(16) %5, double noundef %54)
+60:                                               ; preds = %58
+  call void @_ZN4absl7uint128C1Ed(ptr noundef nonnull align 16 dereferenceable(16) %5, double noundef %55)
   %.sroa.027.0.copyload.pre = load i64, ptr %5, align 16, !tbaa !20
   %.sroa.6.0..sroa_idx.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.sroa.6.0.copyload.pre = load i64, ptr %.sroa.6.0..sroa_idx.phi.trans.insert, align 8, !tbaa !20
-  br label %60
-
-60:                                               ; preds = %57, %59
-  %.sroa.6.0.copyload = phi i64 [ %.sroa.6.0.copyload.pre, %59 ], [ -1, %57 ]
-  %.sroa.027.0.copyload = phi i64 [ %.sroa.027.0.copyload.pre, %59 ], [ -1, %57 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %61
 
-61:                                               ; preds = %60, %49
-  %.sroa.027.0 = phi i64 [ %.sroa.022.0, %49 ], [ %.sroa.027.0.copyload, %60 ]
-  %.sroa.6.0 = phi i64 [ %.sroa.523.0, %49 ], [ %.sroa.6.0.copyload, %60 ]
-  %.sroa.029.0 = phi i64 [ %.sroa.0.0.extract.trunc.i54, %49 ], [ %.sroa.029.0.copyload, %60 ]
-  %.sroa.630.0 = phi i64 [ %.sroa.2.0.extract.trunc.i, %49 ], [ %.sroa.630.0.copyload, %60 ]
-  %62 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %.sroa.0.0.copyload.i80 = load i64, ptr %62, align 16, !tbaa !20
+61:                                               ; preds = %58, %60
+  %.sroa.6.0.copyload = phi i64 [ %.sroa.6.0.copyload.pre, %60 ], [ -1, %58 ]
+  %.sroa.027.0.copyload = phi i64 [ %.sroa.027.0.copyload.pre, %60 ], [ -1, %58 ]
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  br label %62
+
+62:                                               ; preds = %61, %49
+  %.sroa.027.0 = phi i64 [ %.sroa.022.0, %49 ], [ %.sroa.027.0.copyload, %61 ]
+  %.sroa.6.0 = phi i64 [ %.sroa.523.0, %49 ], [ %.sroa.6.0.copyload, %61 ]
+  %.sroa.029.0 = phi i64 [ %.sroa.0.0.extract.trunc.i54, %49 ], [ %.sroa.029.0.copyload, %61 ]
+  %.sroa.630.0 = phi i64 [ %.sroa.2.0.extract.trunc.i, %49 ], [ %.sroa.630.0.copyload, %61 ]
+  %63 = getelementptr inbounds nuw i8, ptr %2, i64 48
+  %.sroa.0.0.copyload.i80 = load i64, ptr %63, align 16, !tbaa !20
   %.sroa.2.0..sroa_idx.i81 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %.sroa.2.0.copyload.i82 = load i64, ptr %.sroa.2.0..sroa_idx.i81, align 8, !tbaa !20
   %.sroa.22.0.insert.ext.i.i = zext i64 %.sroa.630.0 to i128
@@ -24087,34 +24087,34 @@ _ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseI
   store i64 %spec.select, ptr %6, align 16
   %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %spec.select140, ptr %.sroa.3.0..sroa_idx.i.i, align 8, !tbaa !123
-  %63 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %64 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %.sroa.03.0.insert.ext.i.i.i = zext i64 %.sroa.09.0 to i128
   %.sroa.01.0.insert.ext.i.i.i = zext i64 %spec.select to i128
   %.sroa.01.0.insert.insert.neg.i.i.i = sub nsw i128 %.sroa.03.0.insert.ext.i.i.i, %.sroa.01.0.insert.ext.i.i.i
   %.sroa.0.0.extract.trunc.i.i.i = trunc i128 %.sroa.01.0.insert.insert.neg.i.i.i to i64
-  %64 = lshr i128 %.sroa.01.0.insert.insert.neg.i.i.i, 64
-  %.tr.i.i = trunc nuw i128 %64 to i64
+  %65 = lshr i128 %.sroa.01.0.insert.insert.neg.i.i.i, 64
+  %.tr.i.i = trunc nuw i128 %65 to i64
   %.narrow.i.i = sub i64 %.sroa.5.0, %spec.select140
   %.narrow.i.i.i = add i64 %.narrow.i.i, %.tr.i.i
-  store i64 %.sroa.0.0.extract.trunc.i.i.i, ptr %63, align 16
-  %65 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store i64 %.narrow.i.i.i, ptr %65, align 8
-  %66 = call { i64, i64 } @_ZN4absl24uniform_int_distributionINS_6int128EE8GenerateINS_15random_internal17NonsecureURBGBaseINS4_10pcg_engineINS4_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS4_17pcg_xsl_rr_128_64EEENS4_17RandenPoolSeedSeqEEEEENS_7uint128ERT_SD_(ptr noundef nonnull align 16 dereferenceable(32) %6, ptr noundef nonnull align 16 dereferenceable(16) %1, i64 %.sroa.0.0.extract.trunc.i.i.i, i64 %.narrow.i.i.i)
-  %67 = extractvalue { i64, i64 } %66, 0
-  %68 = extractvalue { i64, i64 } %66, 1
-  %.sroa.01.0.insert.ext.i.i.i118 = zext i64 %67 to i128
+  store i64 %.sroa.0.0.extract.trunc.i.i.i, ptr %64, align 16
+  %66 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  store i64 %.narrow.i.i.i, ptr %66, align 8
+  %67 = call { i64, i64 } @_ZN4absl24uniform_int_distributionINS_6int128EE8GenerateINS_15random_internal17NonsecureURBGBaseINS4_10pcg_engineINS4_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS4_17pcg_xsl_rr_128_64EEENS4_17RandenPoolSeedSeqEEEEENS_7uint128ERT_SD_(ptr noundef nonnull align 16 dereferenceable(32) %6, ptr noundef nonnull align 16 dereferenceable(16) %1, i64 %.sroa.0.0.extract.trunc.i.i.i, i64 %.narrow.i.i.i)
+  %68 = extractvalue { i64, i64 } %67, 0
+  %69 = extractvalue { i64, i64 } %67, 1
+  %.sroa.01.0.insert.ext.i.i.i118 = zext i64 %68 to i128
   %.sroa.01.0.insert.insert.i.i.i = or disjoint i128 %.sroa.2.0.insert.shift.i109, %.sroa.01.0.insert.ext.i.i.i
   %.sroa.03.0.insert.insert.i.i.i = add i128 %.sroa.01.0.insert.insert.i.i.i, %.sroa.01.0.insert.ext.i.i.i118
-  %69 = lshr i128 %.sroa.03.0.insert.insert.i.i.i, 64
-  %.tr.i.i.i = trunc nuw i128 %69 to i64
-  %.narrow.i.i.i119 = add i64 %68, %.tr.i.i.i
+  %70 = lshr i128 %.sroa.03.0.insert.insert.i.i.i, 64
+  %.tr.i.i.i = trunc nuw i128 %70 to i64
+  %.narrow.i.i.i119 = add i64 %69, %.tr.i.i.i
   %.sroa.017.0.extract.trunc.i.i = trunc i128 %.sroa.03.0.insert.insert.i.i.i to i64
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %70
+  br label %71
 
-70:                                               ; preds = %_ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEiRT_.exit, %61
-  %.sroa.0139.0 = phi i64 [ %.sroa.017.0.extract.trunc.i.i, %61 ], [ 0, %_ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEiRT_.exit ]
-  %.sroa.3.0 = phi i64 [ %.narrow.i.i.i119, %61 ], [ 0, %_ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEiRT_.exit ]
+71:                                               ; preds = %_ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEiRT_.exit, %62
+  %.sroa.0139.0 = phi i64 [ %.sroa.017.0.extract.trunc.i.i, %62 ], [ 0, %_ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEiRT_.exit ]
+  %.sroa.3.0 = phi i64 [ %.narrow.i.i.i119, %62 ], [ 0, %_ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEiRT_.exit ]
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.0139.0, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.3.0, 1
   ret { i64, i64 } %.fca.1.insert

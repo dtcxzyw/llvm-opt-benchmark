@@ -31372,7 +31372,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %8 = alloca i32, align 4
   %9 = load i64, ptr %2, align 8, !tbaa !41
   %10 = icmp sgt i64 %9, 0
-  br i1 %10, label %11, label %34
+  br i1 %10, label %11, label %35
 
 11:                                               ; preds = %4
   %12 = add nsw i64 %9, -1
@@ -31394,42 +31394,42 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   br i1 %.not13, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %11
-  %.val = load ptr, ptr %3, align 8, !tbaa !47
-  br label %17
+  %17 = load ptr, ptr %3, align 8, !tbaa !47
+  br label %18
 
-17:                                               ; preds = %.lr.ph, %"_ZZZZN6open3d1t8geometry6kernel12trianglemesh19NormalizeNormalsCPUERNS_4core6TensorEENK3$_0clEvENKUlvE_clEvENKUllE_clEl.exit"
-  %.014 = phi i64 [ %16, %.lr.ph ], [ %33, %"_ZZZZN6open3d1t8geometry6kernel12trianglemesh19NormalizeNormalsCPUERNS_4core6TensorEENK3$_0clEvENKUlvE_clEvENKUllE_clEl.exit" ]
-  %.idx.i = mul i64 %.014, 12
-  %18 = getelementptr i8, ptr %.val, i64 %.idx.i
-  %19 = load float, ptr %18, align 4, !tbaa !667
-  %20 = fcmp uno float %19, 0.000000e+00
-  br i1 %20, label %"_ZZZZN6open3d1t8geometry6kernel12trianglemesh19NormalizeNormalsCPUERNS_4core6TensorEENK3$_0clEvENKUlvE_clEvENKUllE_clEl.exit", label %21
+18:                                               ; preds = %.lr.ph, %"_ZZZZN6open3d1t8geometry6kernel12trianglemesh19NormalizeNormalsCPUERNS_4core6TensorEENK3$_0clEvENKUlvE_clEvENKUllE_clEl.exit"
+  %.014 = phi i64 [ %16, %.lr.ph ], [ %34, %"_ZZZZN6open3d1t8geometry6kernel12trianglemesh19NormalizeNormalsCPUERNS_4core6TensorEENK3$_0clEvENKUlvE_clEvENKUllE_clEl.exit" ]
+  %.idx = mul i64 %.014, 12
+  %19 = getelementptr i8, ptr %17, i64 %.idx
+  %20 = load float, ptr %19, align 4, !tbaa !667
+  %21 = fcmp uno float %20, 0.000000e+00
+  br i1 %21, label %"_ZZZZN6open3d1t8geometry6kernel12trianglemesh19NormalizeNormalsCPUERNS_4core6TensorEENK3$_0clEvENKUlvE_clEvENKUllE_clEl.exit", label %22
 
-21:                                               ; preds = %17
-  %22 = getelementptr i8, ptr %18, i64 8
-  %23 = load float, ptr %22, align 4, !tbaa !667
-  %24 = getelementptr i8, ptr %18, i64 4
-  %25 = load float, ptr %24, align 4, !tbaa !667
-  %26 = fmul float %25, %25
-  %27 = call float @llvm.fmuladd.f32(float %19, float %19, float %26)
-  %28 = call float @llvm.fmuladd.f32(float %23, float %23, float %27)
-  %sqrt.i = call float @llvm.sqrt.f32(float %28)
-  %29 = fcmp ogt float %28, 0.000000e+00
-  %30 = fdiv float %25, %sqrt.i
-  %31 = fdiv float %23, %sqrt.i
-  %.025.i = select i1 %29, float %30, float %25
-  %.024.i = select i1 %29, float %31, float %23
-  %32 = select i1 %29, float %sqrt.i, float 1.000000e+00
-  %.0.i = fdiv float %19, %32
-  store float %.0.i, ptr %18, align 4, !tbaa !667
-  store float %.025.i, ptr %24, align 4, !tbaa !667
-  store float %.024.i, ptr %22, align 4, !tbaa !667
+22:                                               ; preds = %18
+  %23 = getelementptr i8, ptr %19, i64 8
+  %24 = load float, ptr %23, align 4, !tbaa !667
+  %25 = getelementptr i8, ptr %19, i64 4
+  %26 = load float, ptr %25, align 4, !tbaa !667
+  %27 = fmul float %26, %26
+  %28 = call float @llvm.fmuladd.f32(float %20, float %20, float %27)
+  %29 = call float @llvm.fmuladd.f32(float %24, float %24, float %28)
+  %sqrt.i = call float @llvm.sqrt.f32(float %29)
+  %30 = fcmp ogt float %29, 0.000000e+00
+  %31 = fdiv float %26, %sqrt.i
+  %32 = fdiv float %24, %sqrt.i
+  %.025.i = select i1 %30, float %31, float %26
+  %.024.i = select i1 %30, float %32, float %24
+  %33 = select i1 %30, float %sqrt.i, float 1.000000e+00
+  %.0.i = fdiv float %20, %33
+  store float %.0.i, ptr %19, align 4, !tbaa !667
+  store float %.025.i, ptr %25, align 4, !tbaa !667
+  store float %.024.i, ptr %23, align 4, !tbaa !667
   br label %"_ZZZZN6open3d1t8geometry6kernel12trianglemesh19NormalizeNormalsCPUERNS_4core6TensorEENK3$_0clEvENKUlvE_clEvENKUllE_clEl.exit"
 
-"_ZZZZN6open3d1t8geometry6kernel12trianglemesh19NormalizeNormalsCPUERNS_4core6TensorEENK3$_0clEvENKUlvE_clEvENKUllE_clEl.exit": ; preds = %17, %21
-  %33 = add i64 %.014, 1
+"_ZZZZN6open3d1t8geometry6kernel12trianglemesh19NormalizeNormalsCPUERNS_4core6TensorEENK3$_0clEvENKUlvE_clEvENKUllE_clEl.exit": ; preds = %18, %22
+  %34 = add i64 %.014, 1
   %exitcond.not = icmp eq i64 %.014, %15
-  br i1 %exitcond.not, label %._crit_edge, label %17
+  br i1 %exitcond.not, label %._crit_edge, label %18
 
 ._crit_edge:                                      ; preds = %"_ZZZZN6open3d1t8geometry6kernel12trianglemesh19NormalizeNormalsCPUERNS_4core6TensorEENK3$_0clEvENKUlvE_clEvENKUllE_clEl.exit", %11
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %13)
@@ -31437,9 +31437,9 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %34
+  br label %35
 
-34:                                               ; preds = %._crit_edge, %4
+35:                                               ; preds = %._crit_edge, %4
   ret void
 }
 

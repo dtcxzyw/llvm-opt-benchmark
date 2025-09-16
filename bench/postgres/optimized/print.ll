@@ -3227,23 +3227,23 @@ IsPagerNeeded.exit:                               ; preds = %.loopexit.i, %64, %
 
 180:                                              ; preds = %177
   %181 = icmp eq i16 %.fr, 1
-  br i1 %181, label %182, label %.thread628
+  br i1 %181, label %182, label %.thread627
 
 182:                                              ; preds = %180
   %183 = add i32 %.1348, 12
   br label %187
 
-.thread628:                                       ; preds = %180
+.thread627:                                       ; preds = %180
   %184 = add i32 %.1348, 15
   %.not = icmp eq i32 %.0359, 0
   %185 = add i32 %spec.select436, %.0383.lcssa
   %186 = add i32 %185, %.0380.lcssa
-  %spec.select437.us631 = call i32 @llvm.umax.i32(i32 %186, i32 %184)
+  %spec.select437.us630 = call i32 @llvm.umax.i32(i32 %186, i32 %184)
   br i1 %.not, label %.loopexit544.split.us, label %191
 
 187:                                              ; preds = %178, %182, %163
   %.0347 = phi i32 [ 0, %163 ], [ %179, %178 ], [ %183, %182 ]
-  %.not639 = icmp eq i32 %.0359, 0
+  %.not638 = icmp eq i32 %.0359, 0
   %188 = and i1 %166, %165
   br i1 %188, label %.split, label %.split.us
 
@@ -3251,29 +3251,29 @@ IsPagerNeeded.exit:                               ; preds = %.loopexit.i, %64, %
   %189 = add i32 %spec.select436, %.0383.lcssa
   %190 = add i32 %189, %.0380.lcssa
   %spec.select437.us = call i32 @llvm.umax.i32(i32 %190, i32 %.0347)
-  br i1 %.not639, label %.loopexit544.split.us, label %191
+  br i1 %.not638, label %.loopexit544.split.us, label %191
 
-191:                                              ; preds = %.thread628, %.split.us
-  %spec.select437.us633 = phi i32 [ %spec.select437.us631, %.thread628 ], [ %spec.select437.us, %.split.us ]
+191:                                              ; preds = %.thread627, %.split.us
+  %spec.select437.us632 = phi i32 [ %spec.select437.us630, %.thread628 ], [ %spec.select437.us, %.split.us ]
   %192 = phi i32 [ %185, %.thread628 ], [ %189, %.split.us ]
-  %.0347630632 = phi i32 [ %184, %.thread628 ], [ %.0347, %.split.us ]
-  %.not411.us = icmp ult i32 %.0359, %spec.select437.us633
+  %.0347629631 = phi i32 [ %184, %.thread628 ], [ %.0347, %.split.us ]
+  %.not411.us = icmp ult i32 %.0359, %spec.select437.us632
   br i1 %.not411.us, label %193, label %.loopexit544.split.us
 
 193:                                              ; preds = %191
   %194 = add i32 %192, 3
-  %spec.select438.us = call i32 @llvm.umax.i32(i32 %194, i32 %.0347630632)
+  %spec.select438.us = call i32 @llvm.umax.i32(i32 %194, i32 %.0347629631)
   %spec.select438..0359.us = call i32 @llvm.umax.i32(i32 %.0359, i32 %spec.select438.us)
   br label %.loopexit544.split.us
 
-.loopexit544.split.us:                            ; preds = %.thread628, %193, %191, %.split.us
+.loopexit544.split.us:                            ; preds = %.thread627, %193, %191, %.split.us
   %195 = phi i32 [ %192, %191 ], [ %192, %193 ], [ %189, %.split.us ], [ %185, %.thread628 ]
-  %spec.select437.pn.us = phi i32 [ %spec.select437.us633, %191 ], [ %spec.select438..0359.us, %193 ], [ %spec.select437.us, %.split.us ], [ %spec.select437.us631, %.thread628 ]
+  %spec.select437.pn.us = phi i32 [ %spec.select437.us632, %191 ], [ %spec.select438..0359.us, %193 ], [ %spec.select437.us, %.split.us ], [ %spec.select437.us630, %.thread628 ]
   %.1346.us = sub i32 %spec.select437.pn.us, %195
   br label %.loopexit544
 
 .split:                                           ; preds = %187
-  br i1 %.not639, label %.split.split, label %.split.split.us
+  br i1 %.not638, label %.split.split, label %.split.split.us
 
 .split.split.us:                                  ; preds = %.split, %.split.split.us
   %.3364.us569 = phi i8 [ 1, %.split.split.us ], [ %.0361.lcssa, %.split ]
@@ -3356,7 +3356,7 @@ IsPagerNeeded.exit:                               ; preds = %.loopexit.i, %64, %
   %.1371588 = phi i32 [ 0, %.lr.ph592 ], [ %381, %380 ]
   %229 = load volatile i32, ptr @cancel_pressed, align 4
   %.not413 = icmp eq i32 %229, 0
-  br i1 %.not413, label %230, label %._crit_edge593.loopexit
+  br i1 %.not413, label %230, label %._crit_edge593
 
 230:                                              ; preds = %228
   %231 = icmp ne i32 %.1371588, 0
@@ -3519,8 +3519,8 @@ strlen_max_width.exit:                            ; preds = %strlen_max_width.ex
 .thread.sink.split:                               ; preds = %301
   %.not422 = icmp eq i32 %.0327583, 0
   %302 = icmp eq i32 %.0339581, 0
-  %.641.v = select i1 %302, i64 120, i64 136
-  %.sink.in.v = select i1 %.not422, i64 %.641.v, i64 144
+  %.640.v = select i1 %302, i64 120, i64 136
+  %.sink.in.v = select i1 %.not422, i64 %.640.v, i64 144
   %.sink.in = getelementptr inbounds nuw i8, ptr %pg_asciiformat..i, i64 %.sink.in.v
   %.sink = load ptr, ptr %.sink.in, align 8
   %303 = call i32 @fputs(ptr noundef %.sink, ptr noundef %.0512)
@@ -3704,10 +3704,10 @@ strlen_max_width.exit468:                         ; preds = %strlen_max_width.ex
   %382 = getelementptr inbounds nuw i8, ptr %.1369589, i64 8
   %383 = load ptr, ptr %382, align 8
   %.not412 = icmp eq ptr %383, null
-  br i1 %.not412, label %._crit_edge593.loopexit, label %228, !llvm.loop !37
+  br i1 %.not412, label %._crit_edge593, label %228, !llvm.loop !37
 
-._crit_edge593.loopexit:                          ; preds = %228, %380
-  %.pre612 = load ptr, ptr %0, align 8
+._crit_edge593:                                   ; preds = %228, %380
+  %384 = load ptr, ptr %0, align 8
   br label %._crit_edge593
 
 ._crit_edge593:                                   ; preds = %._crit_edge593.loopexit, %.loopexit544

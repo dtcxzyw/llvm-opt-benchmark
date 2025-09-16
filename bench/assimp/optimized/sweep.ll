@@ -2007,9 +2007,9 @@ define hidden noundef zeroext i1 @_ZNK3p2t5Sweep18LargeHole_DontFillEPKNS_4NodeE
   %32 = fcmp olt double %28, 0.000000e+00
   br i1 %32, label %71, label %33
 
-33:                                               ; preds = %31
-  %34 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %35 = load ptr, ptr %34, align 8
+33:; preds = %31
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %37 = load ptr, ptr %36, align 8
   %.not = icmp eq ptr %35, null
   br i1 %.not, label %51, label %36
 
@@ -2030,13 +2030,13 @@ define hidden noundef zeroext i1 @_ZNK3p2t5Sweep18LargeHole_DontFillEPKNS_4NodeE
   %50 = or i1 %48, %49
   br i1 %50, label %51, label %71
 
-51:                                               ; preds = %36, %33
+51:; preds = %36, %33
   %52 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %53 = load ptr, ptr %52, align 8
   %.not22 = icmp eq ptr %53, null
   br i1 %.not22, label %70, label %54
 
-54:                                               ; preds = %51
+54:; preds = %51
   %55 = load ptr, ptr %53, align 8
   %56 = load double, ptr %55, align 8
   %57 = fsub double %56, %10
@@ -2054,10 +2054,10 @@ define hidden noundef zeroext i1 @_ZNK3p2t5Sweep18LargeHole_DontFillEPKNS_4NodeE
   %69 = or i1 %67, %68
   br i1 %69, label %70, label %71
 
-70:                                               ; preds = %54, %51
+70: ; preds = %54, %51
   br label %71
 
-71:                                               ; preds = %36, %54, %70, %31, %2
+71:; preds = %36, %54, %70, %31, %2
   %.0 = phi i1 [ false, %2 ], [ true, %31 ], [ false, %36 ], [ true, %70 ], [ false, %54 ]
   ret i1 %.0
 }

@@ -1009,7 +1009,7 @@ define internal fastcc void @_ZL29pj_deformation_get_grid_shiftP8PJconstsRK6PJ_X
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %63
+  br label %66
 
 25:                                               ; preds = %3
   %26 = getelementptr inbounds nuw i8, ptr %11, i64 48
@@ -1044,32 +1044,32 @@ define internal fastcc void @_ZL29pj_deformation_get_grid_shiftP8PJconstsRK6PJ_X
   %.sroa.10.1 = phi double [ %39, %37 ], [ %22, %.thread ]
   %.sroa.18.1 = phi double [ %40, %37 ], [ %23, %.thread ]
   %44 = call double @sin(double noundef %43) #13, !tbaa !93
-  %45 = call double @cos(double noundef %43) #13, !tbaa !93
+  %44 = call double @cos(double noundef %43) #13, !tbaa !93
   %46 = call double @sin(double noundef %42) #13, !tbaa !93
-  %47 = call double @cos(double noundef %42) #13, !tbaa !93
+  %46 = call double @cos(double noundef %42) #13, !tbaa !93
   %48 = fneg double %44
   %49 = fmul double %47, %48
   %50 = fneg double %.sroa.023.1
   %51 = fmul double %46, %50
   %52 = call double @llvm.fmuladd.f64(double %49, double %.sroa.10.1, double %51)
-  %53 = fmul double %45, %47
+  %52 = fmul double %45, %47
   %54 = call double @llvm.fmuladd.f64(double %53, double %.sroa.18.1, double %52)
-  %55 = fmul double %46, %48
+  %54 = fmul double %46, %48
   %56 = fmul double %.sroa.023.1, %47
   %57 = call double @llvm.fmuladd.f64(double %55, double %.sroa.10.1, double %56)
   %58 = fmul double %45, %46
   %59 = call double @llvm.fmuladd.f64(double %58, double %.sroa.18.1, double %57)
-  %60 = fmul double %.sroa.18.1, %44
-  %61 = call double @llvm.fmuladd.f64(double %45, double %.sroa.10.1, double %60)
+  %59 = fmul double %.sroa.18.1, %44
+  %60 = call double @llvm.fmuladd.f64(double %45, double %.sroa.10.1, double %59)
   %62 = call i32 @proj_errno_restore(ptr noundef nonnull %1, i32 noundef %9)
   store double %54, ptr %0, align 8, !tbaa !90
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %59, ptr %.sroa.10.0..sroa_idx, align 8, !tbaa !90
   %.sroa.18.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double %61, ptr %.sroa.18.0..sroa_idx, align 8, !tbaa !90
-  br label %63
+  br label %66
 
-63:                                               ; preds = %24, %41
+66:                                               ; preds = %24, %41
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }

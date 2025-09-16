@@ -2399,7 +2399,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev20GradingTonePreRender6updateERKNS_1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %5 = zext i1 %3 to i8
   store i8 %5, ptr %4, align 8, !tbaa !31
-  br i1 %3, label %57, label %6
+  br i1 %3, label %61, label %6
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 168
@@ -2427,8 +2427,8 @@ define hidden void @_ZN19OpenColorIO_v2_5dev20GradingTonePreRender6updateERKNS_1
   %26 = fsub double %24, %22
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store double %26, ptr %27, align 8, !tbaa !42
-  %28 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %29 = load double, ptr %28, align 8, !tbaa !43
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %29 = load double, ptr %29, align 8, !tbaa !43
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %31 = load double, ptr %30, align 8, !tbaa !44
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 88
@@ -2453,20 +2453,20 @@ define hidden void @_ZN19OpenColorIO_v2_5dev20GradingTonePreRender6updateERKNS_1
   store double %46, ptr %47, align 8, !tbaa !51
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 912
   %49 = load float, ptr %48, align 8, !tbaa !23
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 920
-  %51 = load float, ptr %50, align 8, !tbaa !29
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 920
+  %51 = load float, ptr %51, align 8, !tbaa !29
   tail call void @_ZN19OpenColorIO_v2_5dev20GradingTonePreRender15mids_precomputeERKNS_11GradingToneEff(ptr noundef nonnull align 8 dereferenceable(936) %0, ptr noundef nonnull align 8 dereferenceable(248) %1, float noundef %49, float noundef %51)
   tail call void @_ZN19OpenColorIO_v2_5dev20GradingTonePreRender26highlightShadow_precomputeERKNS_11GradingToneE(ptr noundef nonnull align 8 dereferenceable(936) %0, ptr noundef nonnull align 8 dereferenceable(248) %1)
   tail call void @_ZN19OpenColorIO_v2_5dev20GradingTonePreRender21whiteBlack_precomputeERKNS_11GradingToneE(ptr noundef nonnull align 8 dereferenceable(936) %0, ptr noundef nonnull align 8 dereferenceable(248) %1)
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 916
-  %53 = load float, ptr %52, align 4, !tbaa !28
-  %54 = load float, ptr %50, align 8, !tbaa !29
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 924
-  %56 = load float, ptr %55, align 4, !tbaa !30
-  tail call void @_ZN19OpenColorIO_v2_5dev20GradingTonePreRender20scontrast_precomputeERKNS_11GradingToneEfff(ptr noundef nonnull align 8 dereferenceable(936) %0, ptr noundef nonnull align 8 dereferenceable(248) %1, float noundef %53, float noundef %54, float noundef %56)
-  br label %57
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 916
+  %57 = load float, ptr %56, align 4, !tbaa !28
+  %58 = load float, ptr %50, align 8, !tbaa !29
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 924
+  %60 = load float, ptr %59, align 4, !tbaa !30
+  tail call void @_ZN19OpenColorIO_v2_5dev20GradingTonePreRender20scontrast_precomputeERKNS_11GradingToneEfff(ptr noundef nonnull align 8 dereferenceable(936) %0, ptr noundef nonnull align 8 dereferenceable(248) %1, float noundef %57, float noundef %58, float noundef %60)
+  br label %61
 
-57:                                               ; preds = %2, %6
+61:                                               ; preds = %2, %6
   ret void
 }
 

@@ -340,11 +340,11 @@ _ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i: 
   store i64 %196, ptr %97, align 8, !noalias !16
   store i64 %197, ptr %.sroa.4.0..sroa_idx.i.i.i.i.i, align 8, !tbaa !9, !noalias !16
   store i32 0, ptr %98, align 8, !tbaa !12, !noalias !16
-  %198 = fdiv float %114, %125
-  %199 = call noundef float @sqrtf(float noundef %198) #28, !tbaa !30, !noalias !16
-  %200 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr %110, i64 %.05083.i
-  %201 = fpext float %125 to double
-  %202 = fmul double %201, 5.000000e-01
+  %197 = fdiv float %114, %125
+  %198 = call noundef float @sqrtf(float noundef %197) #28, !tbaa !30, !noalias !16
+  %199 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr %110, i64 %.05083.i
+  %200 = fpext float %125 to double
+  %201 = fmul double %200, 5.000000e-01
   br label %205
 
 203:                                              ; preds = %302
@@ -539,11 +539,11 @@ _ZN3gmx19ThreeFry2x64GeneralILj20ELj64EEclEv.exit.i.i.i: ; preds = %.noexc59.i, 
   %309 = load float, ptr %308, align 4, !tbaa !28, !noalias !16
   %310 = lshr i64 %306, 14
   %311 = fadd float %309, 0.000000e+00
-  %312 = fmul float %199, %311
-  %313 = getelementptr inbounds nuw float, ptr %200, i64 %indvars.iv.i
+  %312 = fmul float %198, %311
+  %313 = getelementptr inbounds nuw float, ptr %199, i64 %indvars.iv.i
   store float %312, ptr %313, align 4, !tbaa !28, !noalias !16
   %314 = fpext float %312 to double
-  %315 = fmul double %202, %314
+  %315 = fmul double %201, %314
   %316 = fpext float %.280.i to double
   %317 = call double @llvm.fmuladd.f64(double %315, double %314, double %316)
   %318 = fptrunc double %317 to float

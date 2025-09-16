@@ -280,28 +280,28 @@ define noundef zeroext i1 @_ZN5Ipopt21Mc19TSymScalingMethod25ComputeSymTScalingF
   %exitcond95.not = icmp eq i64 %indvars.iv.next92, %wide.trip.count94
   br i1 %exitcond95.not, label %._crit_edge84.loopexit, label %.lr.ph83, !llvm.loop !40
 
-69:                                               ; preds = %._crit_edge84
+69:   ; preds = %._crit_edge84
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %71 = load ptr, ptr %70, align 8, !tbaa !41
   %72 = load ptr, ptr %71, align 8, !tbaa !42
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 16
-  %74 = load ptr, ptr %73, align 8
+  %75 = load ptr, ptr %73, align 8
   call void (ptr, i32, i32, ptr, ...) %74(ptr noundef nonnull align 8 dereferenceable(40) %71, i32 noundef 4, i32 noundef 7, ptr noundef nonnull @.str.1)
-  %75 = load i32, ptr %8, align 4, !tbaa !33
-  %76 = icmp sgt i32 %75, 0
+  %77 = load i32, ptr %8, align 4, !tbaa !33
+  %76 = icmp sgt i32 %77, 0
   br i1 %76, label %.lr.ph89.preheader, label %.loopexit
 
-.lr.ph89.preheader:                               ; preds = %69
+.lr.ph89.preheader:; preds = %69
   %wide.trip.count99 = zext nneg i32 %75 to i64
   br label %.lr.ph89
 
 .lr.ph89:                                         ; preds = %.lr.ph89.preheader, %.lr.ph89
-  %indvars.iv96 = phi i64 [ 0, %.lr.ph89.preheader ], [ %indvars.iv.next97, %.lr.ph89 ]
-  %77 = getelementptr inbounds nuw double, ptr %6, i64 %indvars.iv96
-  store double 1.000000e+00, ptr %77, align 8, !tbaa !34
-  %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
-  %exitcond100.not = icmp eq i64 %indvars.iv.next97, %wide.trip.count99
-  br i1 %exitcond100.not, label %.loopexit, label %.lr.ph89, !llvm.loop !44
+  %indvars.iv94 = phi i64 [ 0, %.lr.ph89.preheader ], [ %indvars.iv.next95, %.lr.ph89 ]
+  %80 = getelementptr inbounds nuw double, ptr %6, i64 %indvars.iv94
+  store double 1.000000e+00, ptr %80, align 8, !tbaa !34
+  %indvars.iv.next95 = add nuw nsw i64 %indvars.iv94, 1
+  %exitcond98.not = icmp eq i64 %indvars.iv.next95, %wide.trip.count99
+  br i1 %exitcond98.not, label %.loopexit, label %.lr.ph89, !llvm.loop !44
 
 .loopexit:                                        ; preds = %.lr.ph89, %69, %._crit_edge84
   call void @_ZdaPv(ptr noundef nonnull %26) #15

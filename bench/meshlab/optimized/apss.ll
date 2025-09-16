@@ -2007,7 +2007,7 @@ define weak_odr noundef zeroext i1 @_ZNK7GaelMls4APSSI6CMeshOE3fitERKN3vcg6Point
 13:                                               ; preds = %2
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 84
   store i8 0, ptr %14, align 4
-  br label %199
+  br label %204
 
 15:                                               ; preds = %2
   %16 = icmp eq i32 %11, 1
@@ -2078,7 +2078,7 @@ _ZNK7GaelMls12NeighborhoodIfE5indexEi.exit:       ; preds = %29
   store double 0.000000e+00, ptr %62, align 8
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 328
   store i32 1, ptr %63, align 8
-  br label %199
+  br label %204
 
 64:                                               ; preds = %.preheader, %_ZNSt6vectorIfSaIfEE2atEm.exit
   %.043137 = phi double [ 0.000000e+00, %.preheader ], [ %110, %_ZNSt6vectorIfSaIfEE2atEm.exit ]
@@ -2262,40 +2262,40 @@ _ZNSt6vectorIfSaIfEE2atEm.exit:                   ; preds = %_ZNK7GaelMls12Neigh
   store double %186, ptr %150, align 8
   %187 = fmul double %141, %185
   store double %187, ptr %144, align 8
-  %188 = fmul double %142, %185
-  store double %188, ptr %.sroa.256.0..sroa_idx, align 8
+  %189 = fmul double %142, %185
+  store double %189, ptr %.sroa.256.0..sroa_idx, align 8
   %189 = fmul double %143, %185
   store double %189, ptr %.sroa.357.0..sroa_idx, align 8
   %190 = fmul double %133, %185
   store double %190, ptr %151, align 8
   br label %191
 
-191:                                              ; preds = %175, %181, %154
+191:; preds = %175, %181, %154
   %192 = getelementptr inbounds nuw i8, ptr %0, i64 336
   store double %98, ptr %192, align 8
   %.sroa.890.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 344
   store double %99, ptr %.sroa.890.0..sroa_idx, align 8
   %.sroa.14.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 352
   store double %100, ptr %.sroa.14.0..sroa_idx, align 8
-  %193 = getelementptr inbounds nuw i8, ptr %0, i64 360
-  store double %104, ptr %193, align 8
+  %198 = getelementptr inbounds nuw i8, ptr %0, i64 360
+  store double %104, ptr %198, align 8
   %.sroa.680.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 368
   store double %105, ptr %.sroa.680.0..sroa_idx, align 8
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 376
   store double %106, ptr %.sroa.10.0..sroa_idx, align 8
-  %194 = getelementptr inbounds nuw i8, ptr %0, i64 400
-  store double %115, ptr %194, align 8
-  %195 = getelementptr inbounds nuw i8, ptr %0, i64 384
-  store double %114, ptr %195, align 8
-  %196 = getelementptr inbounds nuw i8, ptr %0, i64 392
-  store double %110, ptr %196, align 8
-  %197 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %197, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false)
-  %198 = getelementptr inbounds nuw i8, ptr %0, i64 84
-  store i8 1, ptr %198, align 4
-  br label %199
+  %199 = getelementptr inbounds nuw i8, ptr %0, i64 400
+  store double %115, ptr %199, align 8
+  %200 = getelementptr inbounds nuw i8, ptr %0, i64 384
+  store double %114, ptr %200, align 8
+  %201 = getelementptr inbounds nuw i8, ptr %0, i64 392
+  store double %110, ptr %201, align 8
+  %202 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %202, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false)
+  %203 = getelementptr inbounds nuw i8, ptr %0, i64 84
+  store i8 1, ptr %203, align 4
+  br label %204
 
-199:                                              ; preds = %191, %_ZNK7GaelMls12NeighborhoodIfE5indexEi.exit, %13
+204:                                              ; preds = %191, %_ZNK7GaelMls12NeighborhoodIfE5indexEi.exit, %13
   ret i1 %12
 }
 

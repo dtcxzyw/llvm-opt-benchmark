@@ -171,9 +171,9 @@ _ZNK5Eigen10MatrixBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEE10normalizedEv.exit:
   %59 = extractelement <2 x double> %foldExtExtBinop, i64 0
   %60 = fcmp ogt double %59, 0.000000e+00
   %.scalar.i.i = tail call double @llvm.sqrt.f64(double %59)
-  %61 = insertelement <2 x double> poison, double %.scalar.i.i, i64 0
-  %62 = shufflevector <2 x double> %61, <2 x double> poison, <2 x i32> zeroinitializer
-  %63 = fdiv <2 x double> %42, %62
+  %62 = insertelement <2 x double> poison, double %.scalar.i.i, i64 0
+  %63 = shufflevector <2 x double> %62, <2 x double> poison, <2 x i32> zeroinitializer
+  %64 = fdiv <2 x double> %42, %63
   %64 = fdiv <2 x double> %54, %62
   %65 = select i1 %60, <2 x double> %64, <2 x double> %54
   %66 = select i1 %60, <2 x double> %63, <2 x double> %42
@@ -182,7 +182,7 @@ _ZNK5Eigen10MatrixBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEE10normalizedEv.exit:
   %69 = fmul double %68, 0x400921FB54442D18
   %70 = sitofp i32 %1 to double
   %71 = fdiv double %69, %70
-  %72 = fmul double %2, %71
+  %68 = fmul double %2, %71
   %73 = fmul double %72, 5.000000e-01
   %74 = fmul double %73, 5.000000e-01
   %75 = tail call double @cos(double noundef %74) #4, !tbaa !4
@@ -232,17 +232,17 @@ _ZNK5Eigen10MatrixBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEE10normalizedEv.exit:
   %114 = fcmp ogt double %113, 0.000000e+00
   br i1 %114, label %115, label %_ZN5Eigen14QuaternionBaseINS_10QuaternionIdLi0EEEE9normalizeEv.exit18
 
-115:                                              ; preds = %_ZNK5Eigen10MatrixBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEE10normalizedEv.exit
+116:                                              ; preds = %_ZNK5Eigen10MatrixBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEE10normalizedEv.exit
   %.scalar.i.i17 = tail call double @llvm.sqrt.f64(double %113)
-  %116 = insertelement <2 x double> poison, double %.scalar.i.i17, i64 0
-  %117 = shufflevector <2 x double> %116, <2 x double> poison, <2 x i32> zeroinitializer
-  %118 = fdiv <2 x double> %96, %117
-  store <2 x double> %118, ptr %8, align 16, !tbaa !8
-  %119 = fdiv <2 x double> %108, %117
-  store <2 x double> %119, ptr %.sroa.443.0..sroa_idx, align 16, !tbaa !8
+  %117 = insertelement <2 x double> poison, double %.scalar.i.i17, i64 0
+  %118 = shufflevector <2 x double> %117, <2 x double> poison, <2 x i32> zeroinitializer
+  %119 = fdiv <2 x double> %96, %118
+  store <2 x double> %119, ptr %8, align 16, !tbaa !8
+  %120 = fdiv <2 x double> %108, %118
+  store <2 x double> %120, ptr %.sroa.443.0..sroa_idx, align 16, !tbaa !8
   br label %_ZN5Eigen14QuaternionBaseINS_10QuaternionIdLi0EEEE9normalizeEv.exit18
 
-_ZN5Eigen14QuaternionBaseINS_10QuaternionIdLi0EEEE9normalizeEv.exit18: ; preds = %115, %_ZNK5Eigen10MatrixBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEE10normalizedEv.exit
+_ZN5Eigen14QuaternionBaseINS_10QuaternionIdLi0EEEE9normalizeEv.exit18: ; preds = %116, %_ZNK5Eigen10MatrixBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEE10normalizedEv.exit
   ret void
 }
 

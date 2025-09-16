@@ -1180,7 +1180,7 @@ cmsIT8GetProperty.exit.thread:                    ; preds = %22, %.lr.ph.split.i
 ; Function Attrs: nofree nounwind memory(read, errnomem: readwrite) uwtable
 define internal fastcc double @ParseFloatNumber(ptr noundef readonly captures(address_is_null) %0) unnamed_addr #4 {
   %2 = icmp eq ptr %0, null
-  br i1 %2, label %76, label %3
+  br i1 %2, label %78, label %3
 
 3:                                                ; preds = %1
   %4 = load i8, ptr %0, align 1
@@ -1324,7 +1324,7 @@ thread-pre-split:                                 ; preds = %48, %51
   %.not75 = icmp eq i16 %59, 0
   br i1 %.not75, label %.critedge4, label %60
 
-60:                                               ; preds = %.lr.ph102
+60:; preds = %.lr.ph102
   %61 = sext i8 %55 to i32
   %62 = add nsw i32 %61, -48
   %63 = sitofp i32 %.054101 to double
@@ -1339,7 +1339,7 @@ thread-pre-split:                                 ; preds = %48, %51
   %.not74 = icmp eq i8 %70, 0
   br i1 %.not74, label %.critedge4, label %.lr.ph102, !llvm.loop !18
 
-.critedge4:                                       ; preds = %.lr.ph102, %60, %53
+.critedge4:; preds = %.lr.ph102, %60, %53
   %.054.lcssa = phi i32 [ 0, %53 ], [ %.1, %60 ], [ %.054101, %.lr.ph102 ]
   %71 = mul nsw i32 %.054.lcssa, %.053
   %72 = sitofp i32 %71 to double
@@ -1349,11 +1349,11 @@ thread-pre-split:                                 ; preds = %48, %51
 
 .thread:                                          ; preds = %19, %9, %.critedge4, %.thread119, %41
   %.2 = phi double [ %74, %.critedge4 ], [ %.159.ph126, %.thread119 ], [ %44, %41 ], [ 0.000000e+00, %9 ], [ %23, %19 ]
-  %75 = fmul double %.057, %.2
-  br label %76
+  %77 = fmul double %.057, %.2
+  br label %78
 
-76:                                               ; preds = %1, %.thread
-  %.0 = phi double [ %75, %.thread ], [ 0.000000e+00, %1 ]
+78:                                               ; preds = %1, %.thread
+  %.0 = phi double [ %77, %.thread ], [ 0.000000e+00, %1 ]
   ret double %.0
 }
 

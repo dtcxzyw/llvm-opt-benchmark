@@ -323,14 +323,14 @@ define dso_local range(i32 0, 2) i32 @AnalyzeSamples(ptr noundef readonly captur
   %lsum.promoted234 = load double, ptr @lsum, align 8
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader.preheader, %207
-  %.lcssa229237 = phi double [ %.lcssa229235, %207 ], [ %lsum.promoted234, %.preheader.preheader ]
-  %.lcssa228233 = phi double [ %.lcssa228231, %207 ], [ %rsum.promoted230, %.preheader.preheader ]
-  %41 = phi i64 [ %208, %207 ], [ %totsamp.promoted, %.preheader.preheader ]
+.preheader:                                       ; preds = %.preheader.preheader, %209
+  %41 = phi double [ %.lcssa229235, %207 ], [ %lsum.promoted234, %.preheader.preheader ]
+  %.090 = phi double [ %.lcssa228231, %207 ], [ %rsum.promoted230, %.preheader.preheader ]
+  %.088 = phi i64 [ %208, %207 ], [ %totsamp.promoted, %.preheader.preheader ]
   %.090 = phi i64 [ %187, %207 ], [ %9, %.preheader.preheader ]
   %.088 = phi i64 [ %188, %207 ], [ 0, %.preheader.preheader ]
   %42 = icmp sgt i64 %.090, 0
-  br i1 %42, label %43, label %210
+  br i1 %42, label %43, label %212
 
 43:                                               ; preds = %.preheader
   %44 = load i32, ptr @sampleWindow, align 4, !tbaa !18
@@ -563,8 +563,8 @@ filter.exit137:                                   ; preds = %165
 
 174:                                              ; preds = %.lr.ph177, %174
   %indvars.iv188 = phi i64 [ 0, %.lr.ph177 ], [ %indvars.iv.next189, %174 ]
-  %175 = phi double [ %.lcssa229237, %.lr.ph177 ], [ %181, %174 ]
-  %176 = phi double [ %.lcssa228233, %.lr.ph177 ], [ %186, %174 ]
+  %175 = phi double [ %.088, %.lr.ph177 ], [ %181, %174 ]
+  %176 = phi double [ %.090, %.lr.ph177 ], [ %186, %174 ]
   %177 = getelementptr float, ptr %173, i64 %indvars.iv188
   %178 = load float, ptr %177, align 4, !tbaa !23
   %179 = fmul float %178, %178
@@ -593,7 +593,7 @@ filter.exit137.thread:                            ; preds = %60, %._crit_edge, %
   %189 = add i64 %.089149157162170206, %41
   store i64 %189, ptr @totsamp, align 8, !tbaa !17
   %190 = icmp eq i64 %189, %45
-  br i1 %190, label %191, label %207
+  br i1 %190, label %191, label %209
 
 191:                                              ; preds = %filter.exit137.thread
   %192 = fadd double %.lcssa229236, %.lcssa228232
@@ -605,80 +605,80 @@ filter.exit137.thread:                            ; preds = %60, %._crit_edge, %
   %198 = fptosi double %197 to i32
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %198, i32 0)
   %spec.store.select1 = tail call i32 @llvm.umin.i32(i32 %spec.store.select, i32 11999)
-  %199 = zext nneg i32 %spec.store.select1 to i64
-  %200 = getelementptr inbounds nuw i32, ptr @A, i64 %199
-  %201 = load i32, ptr %200, align 4, !tbaa !18
-  %202 = add i32 %201, 1
-  store i32 %202, ptr %200, align 4, !tbaa !18
+  %201 = zext nneg i32 %spec.store.select1 to i64
+  %202 = getelementptr inbounds nuw i32, ptr @A, i64 %201
+  %203 = load i32, ptr %202, align 4, !tbaa !18
+  %204 = add i32 %203, 1
+  store i32 %204, ptr %202, align 4, !tbaa !18
   store double 0.000000e+00, ptr @rsum, align 8, !tbaa !26
   store double 0.000000e+00, ptr @lsum, align 8, !tbaa !26
-  %203 = getelementptr inbounds nuw float, ptr %37, i64 %45
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %37, ptr noundef nonnull align 1 dereferenceable(40) %203, i64 noundef 40, i1 noundef false) #15
-  %204 = getelementptr inbounds nuw float, ptr %38, i64 %189
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %38, ptr noundef nonnull align 1 dereferenceable(40) %204, i64 noundef 40, i1 noundef false) #15
-  %205 = getelementptr inbounds nuw float, ptr %39, i64 %189
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %39, ptr noundef nonnull align 1 dereferenceable(40) %205, i64 noundef 40, i1 noundef false) #15
-  %206 = getelementptr inbounds nuw float, ptr %40, i64 %189
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %40, ptr noundef nonnull align 1 dereferenceable(40) %206, i64 noundef 40, i1 noundef false) #15
+  %205 = getelementptr inbounds nuw float, ptr %37, i64 %45
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %37, ptr noundef nonnull align 1 dereferenceable(40) %205, i64 noundef 40, i1 noundef false) #15
+  %206 = getelementptr inbounds nuw float, ptr %38, i64 %189
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %38, ptr noundef nonnull align 1 dereferenceable(40) %206, i64 noundef 40, i1 noundef false) #15
+  %207 = getelementptr inbounds nuw float, ptr %39, i64 %189
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %39, ptr noundef nonnull align 1 dereferenceable(40) %207, i64 noundef 40, i1 noundef false) #15
+  %208 = getelementptr inbounds nuw float, ptr %40, i64 %189
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %40, ptr noundef nonnull align 1 dereferenceable(40) %208, i64 noundef 40, i1 noundef false) #15
   store i64 0, ptr @totsamp, align 8, !tbaa !17
   %.pre = load i32, ptr @sampleWindow, align 4, !tbaa !18
   %.pre195 = zext i32 %.pre to i64
-  br label %207
+  br label %209
 
-207:                                              ; preds = %191, %filter.exit137.thread
+209:                                              ; preds = %191, %filter.exit137.thread
   %.lcssa229235 = phi double [ 0.000000e+00, %191 ], [ %.lcssa229236, %filter.exit137.thread ]
   %.lcssa228231 = phi double [ 0.000000e+00, %191 ], [ %.lcssa228232, %filter.exit137.thread ]
   %.pre-phi = phi i64 [ %.pre195, %191 ], [ %45, %filter.exit137.thread ]
-  %208 = phi i64 [ 0, %191 ], [ %189, %filter.exit137.thread ]
-  %209 = icmp ugt i64 %208, %.pre-phi
-  br i1 %209, label %.loopexit, label %.preheader, !llvm.loop !32
+  %210 = phi i64 [ 0, %191 ], [ %189, %filter.exit137.thread ]
+  %211 = icmp ugt i64 %210, %.pre-phi
+  br i1 %211, label %.loopexit, label %.preheader, !llvm.loop !32
 
-210:                                              ; preds = %.preheader
-  br i1 %13, label %211, label %221
+212:                                              ; preds = %.preheader
+  br i1 %13, label %213, label %223
 
-211:                                              ; preds = %210
-  %212 = getelementptr inbounds nuw float, ptr @linprebuf, i64 %9
-  %213 = shl nuw nsw i64 %9, 2
-  %214 = sub nuw nsw i64 40, %213
-  %215 = tail call ptr @__memmove_chk(ptr noundef nonnull @linprebuf, ptr noundef nonnull %212, i64 noundef range(i64 4, 41) %214, i64 noundef 80) #15
-  %216 = getelementptr inbounds nuw float, ptr @rinprebuf, i64 %9
-  %217 = tail call ptr @__memmove_chk(ptr noundef nonnull @rinprebuf, ptr noundef nonnull %216, i64 noundef range(i64 4, 41) %214, i64 noundef 80) #15
-  %218 = sub nsw i64 0, %9
-  %219 = getelementptr inbounds float, ptr getelementptr inbounds nuw (i8, ptr @linprebuf, i64 40), i64 %218
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 %219, ptr noundef nonnull align 1 %0, i64 noundef range(i64 4, 37) %213, i1 noundef false) #15
-  %220 = getelementptr inbounds float, ptr getelementptr inbounds nuw (i8, ptr @rinprebuf, i64 40), i64 %218
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 %220, ptr noundef nonnull align 1 %.095, i64 noundef range(i64 4, 37) %213, i1 noundef false) #15
+213:                                              ; preds = %212
+  %214 = getelementptr inbounds nuw float, ptr @linprebuf, i64 %9
+  %215 = shl nuw nsw i64 %9, 2
+  %216 = sub nuw nsw i64 40, %215
+  %217 = tail call ptr @__memmove_chk(ptr noundef nonnull @linprebuf, ptr noundef nonnull %214, i64 noundef range(i64 4, 41) %216, i64 noundef 80) #15
+  %218 = getelementptr inbounds nuw float, ptr @rinprebuf, i64 %9
+  %219 = tail call ptr @__memmove_chk(ptr noundef nonnull @rinprebuf, ptr noundef nonnull %218, i64 noundef range(i64 4, 41) %216, i64 noundef 80) #15
+  %220 = sub nsw i64 0, %9
+  %221 = getelementptr inbounds float, ptr getelementptr inbounds nuw (i8, ptr @linprebuf, i64 40), i64 %220
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 %221, ptr noundef nonnull align 1 %0, i64 noundef range(i64 4, 37) %215, i1 noundef false) #15
+  %222 = getelementptr inbounds float, ptr getelementptr inbounds nuw (i8, ptr @rinprebuf, i64 40), i64 %220
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 %222, ptr noundef nonnull align 1 %.095, i64 noundef range(i64 4, 37) %215, i1 noundef false) #15
   br label %.loopexit
 
-221:                                              ; preds = %210
-  %222 = load ptr, ptr @replaygainfilter, align 8, !tbaa !13
-  %223 = getelementptr inbounds nuw i8, ptr %222, i64 8
-  %224 = load i32, ptr %223, align 8, !tbaa !20
-  %225 = add i64 %9, -10
-  %226 = zext i32 %224 to i64
-  %227 = mul i64 %225, %226
-  %228 = getelementptr inbounds nuw float, ptr %0, i64 %227
-  %229 = getelementptr inbounds nuw float, ptr %.095, i64 %227
-  br label %230
+223:                                              ; preds = %212
+  %224 = load ptr, ptr @replaygainfilter, align 8, !tbaa !13
+  %225 = getelementptr inbounds nuw i8, ptr %224, i64 8
+  %226 = load i32, ptr %225, align 8, !tbaa !20
+  %227 = add i64 %9, -10
+  %228 = zext i32 %226 to i64
+  %229 = mul i64 %227, %228
+  %230 = getelementptr inbounds nuw float, ptr %0, i64 %229
+  %231 = getelementptr inbounds nuw float, ptr %.095, i64 %229
+  br label %232
 
-230:                                              ; preds = %221, %230
+232:                                              ; preds = %223, %232
   %indvars.iv191 = phi i64 [ 0, %221 ], [ %indvars.iv.next192, %230 ]
-  %231 = trunc nuw nsw i64 %indvars.iv191 to i32
-  %232 = mul i32 %224, %231
-  %233 = zext i32 %232 to i64
-  %234 = getelementptr inbounds nuw float, ptr %228, i64 %233
-  %235 = load float, ptr %234, align 4, !tbaa !23
-  %236 = getelementptr inbounds nuw float, ptr @linprebuf, i64 %indvars.iv191
-  store float %235, ptr %236, align 4, !tbaa !23
-  %237 = getelementptr inbounds nuw float, ptr %229, i64 %233
-  %238 = load float, ptr %237, align 4, !tbaa !23
-  %239 = getelementptr inbounds nuw float, ptr @rinprebuf, i64 %indvars.iv191
-  store float %238, ptr %239, align 4, !tbaa !23
+  %233 = trunc nuw nsw i64 %indvars.iv191 to i32
+  %234 = mul i32 %226, %233
+  %235 = zext i32 %234 to i64
+  %236 = getelementptr inbounds nuw float, ptr %230, i64 %235
+  %237 = load float, ptr %236, align 4, !tbaa !23
+  %238 = getelementptr inbounds nuw float, ptr @linprebuf, i64 %indvars.iv191
+  store float %237, ptr %238, align 4, !tbaa !23
+  %239 = getelementptr inbounds nuw float, ptr %231, i64 %235
+  %240 = load float, ptr %239, align 4, !tbaa !23
+  %241 = getelementptr inbounds nuw float, ptr @rinprebuf, i64 %indvars.iv191
+  store float %240, ptr %241, align 4, !tbaa !23
   %indvars.iv.next192 = add nuw nsw i64 %indvars.iv191, 1
   %exitcond194.not = icmp eq i64 %indvars.iv.next192, 10
-  br i1 %exitcond194.not, label %.loopexit, label %230, !llvm.loop !33
+  br i1 %exitcond194.not, label %.loopexit, label %232, !llvm.loop !33
 
-.loopexit:                                        ; preds = %207, %230, %211, %11, %4
+.loopexit:                                        ; preds = %209, %232, %213, %11, %4
   %.0 = phi i32 [ 1, %4 ], [ 0, %11 ], [ 1, %211 ], [ 1, %230 ], [ 0, %207 ]
   ret i32 %.0
 }

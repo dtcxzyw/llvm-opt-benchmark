@@ -17109,10 +17109,10 @@ define linkonce_odr void @_ZN3vcg3tri10TrivialEarI4MeshE12ComputeAngleEv(ptr nou
 
 _ZN3vcg5AngleIdEET_RKNS_6Point3IS1_EES5_.exit:    ; preds = %1, %56
   %.010.i = phi double [ %57, %56 ], [ -1.000000e+00, %1 ]
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store double %.010.i, ptr %58, align 8
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %60 = getelementptr inbounds nuw i8, ptr %13, i64 48
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store double %.010.i, ptr %59, align 8
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %61 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %61 = load double, ptr %59, align 8
   %62 = load double, ptr %60, align 8
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -17129,12 +17129,12 @@ _ZN3vcg5AngleIdEET_RKNS_6Point3IS1_EES5_.exit:    ; preds = %1, %56
   %74 = fcmp olt double %73, 0.000000e+00
   br i1 %74, label %75, label %77
 
-75:                                               ; preds = %_ZN3vcg5AngleIdEET_RKNS_6Point3IS1_EES5_.exit
-  %76 = fsub double 0x401921FB54442D18, %.010.i
-  store double %76, ptr %58, align 8
-  br label %77
+76:                                               ; preds = %_ZN3vcg5AngleIdEET_RKNS_6Point3IS1_EES5_.exit
+  %77 = fsub double 0x401921FB54442D18, %.010.i
+  store double %77, ptr %59, align 8
+  br label %78
 
-77:                                               ; preds = %75, %_ZN3vcg5AngleIdEET_RKNS_6Point3IS1_EES5_.exit
+78:                                               ; preds = %76, %_ZN3vcg5AngleIdEET_RKNS_6Point3IS1_EES5_.exit
   ret void
 }
 

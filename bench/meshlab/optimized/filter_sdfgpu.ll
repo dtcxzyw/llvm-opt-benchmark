@@ -10743,14 +10743,14 @@ _ZN3vcg3tri12UpdateNormalI6CMeshOE14PerVertexClearERS2_b.exit: ; preds = %_ZN3vc
   %.not154 = icmp eq ptr %46, %45
   br i1 %.not154, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %_ZN3vcg3tri12UpdateNormalI6CMeshOE14PerVertexClearERS2_b.exit, %200
-  %47 = phi ptr [ %201, %200 ], [ %45, %_ZN3vcg3tri12UpdateNormalI6CMeshOE14PerVertexClearERS2_b.exit ]
-  %.sroa.0139.0155 = phi ptr [ %202, %200 ], [ %46, %_ZN3vcg3tri12UpdateNormalI6CMeshOE14PerVertexClearERS2_b.exit ]
+.lr.ph:                                           ; preds = %_ZN3vcg3tri12UpdateNormalI6CMeshOE14PerVertexClearERS2_b.exit, %201
+  %47 = phi ptr [ %202, %200 ], [ %45, %_ZN3vcg3tri12UpdateNormalI6CMeshOE14PerVertexClearERS2_b.exit ]
+  %.sroa.0139.0155 = phi ptr [ %203, %200 ], [ %46, %_ZN3vcg3tri12UpdateNormalI6CMeshOE14PerVertexClearERS2_b.exit ]
   %48 = getelementptr inbounds nuw i8, ptr %.sroa.0139.0155, i64 32
   %49 = load i32, ptr %48, align 8
   %50 = and i32 %49, 3
   %or.cond = icmp eq i32 %50, 0
-  br i1 %or.cond, label %51, label %200
+  br i1 %or.cond, label %51, label %201
 
 51:                                               ; preds = %.lr.ph
   %52 = getelementptr inbounds nuw i8, ptr %.sroa.0139.0155, i64 8
@@ -10923,83 +10923,83 @@ _ZN3vcg6AngleNIfEET_RKNS_6Point3IS1_EES5_.exit:   ; preds = %_ZN3vcg6Point3IfE9N
   %154 = fneg float %.sroa.6115.0
   %.sroa.0105.0.vec.extract = extractelement <2 x float> %.sroa.0101.0, i64 0
   %.sroa.0105.4.vec.extract = extractelement <2 x float> %.sroa.0101.0, i64 1
-  %155 = fmul float %.sroa.0105.4.vec.extract, %153
-  %156 = tail call float @llvm.fmuladd.f32(float %152, float %.sroa.0105.0.vec.extract, float %155)
-  %157 = tail call noundef float @llvm.fmuladd.f32(float %154, float %.sroa.6104.0, float %156)
-  %158 = fcmp ogt float %157, 1.000000e+00
-  br i1 %158, label %_ZN3vcg6AngleNIfEET_RKNS_6Point3IS1_EES5_.exit67, label %159
+  %156 = fmul float %.sroa.0105.4.vec.extract, %153
+  %157 = tail call float @llvm.fmuladd.f32(float %152, float %.sroa.0105.0.vec.extract, float %156)
+  %158 = tail call noundef float @llvm.fmuladd.f32(float %154, float %.sroa.6104.0, float %157)
+  %159 = fcmp ogt float %158, 1.000000e+00
+  br i1 %159, label %_ZN3vcg6AngleNIfEET_RKNS_6Point3IS1_EES5_.exit67, label %160
 
-159:                                              ; preds = %_ZN3vcg6AngleNIfEET_RKNS_6Point3IS1_EES5_.exit
-  %160 = fcmp olt float %157, -1.000000e+00
-  br i1 %160, label %161, label %_ZN3vcg6AngleNIfEET_RKNS_6Point3IS1_EES5_.exit67
+160:                                              ; preds = %_ZN3vcg6AngleNIfEET_RKNS_6Point3IS1_EES5_.exit
+  %161 = fcmp olt float %158, -1.000000e+00
+  br i1 %161, label %162, label %_ZN3vcg6AngleNIfEET_RKNS_6Point3IS1_EES5_.exit67
 
-161:                                              ; preds = %159
+162:                                              ; preds = %160
   br label %_ZN3vcg6AngleNIfEET_RKNS_6Point3IS1_EES5_.exit67
 
-_ZN3vcg6AngleNIfEET_RKNS_6Point3IS1_EES5_.exit67: ; preds = %_ZN3vcg6AngleNIfEET_RKNS_6Point3IS1_EES5_.exit, %159, %161
-  %.0.i66 = phi float [ -1.000000e+00, %161 ], [ %157, %159 ], [ 1.000000e+00, %_ZN3vcg6AngleNIfEET_RKNS_6Point3IS1_EES5_.exit ]
-  %162 = tail call noundef float @acosf(float noundef %.0.i66) #28
-  %163 = fmul float %.sroa.0127.0.vec.extract, %162
-  %164 = fmul float %.sroa.0127.4.vec.extract, %162
-  %165 = fmul float %.sroa.6126.0, %162
-  %166 = load ptr, ptr %53, align 8
-  %167 = getelementptr inbounds nuw i8, ptr %166, i64 24
-  %168 = load float, ptr %167, align 4
-  %169 = fadd float %163, %168
-  store float %169, ptr %167, align 4
-  %170 = getelementptr inbounds nuw i8, ptr %166, i64 28
-  %171 = load float, ptr %170, align 4
-  %172 = fadd float %164, %171
-  store float %172, ptr %170, align 4
-  %173 = getelementptr inbounds nuw i8, ptr %166, i64 32
-  %174 = load float, ptr %173, align 4
-  %175 = fadd float %165, %174
-  store float %175, ptr %173, align 4
-  %176 = fneg float %.sroa.0105.0.vec.extract
-  %177 = fneg float %.sroa.0105.4.vec.extract
-  %178 = fneg float %.sroa.6104.0
-  %179 = fmul float %.sroa.095.4.vec.extract, %177
-  %180 = tail call float @llvm.fmuladd.f32(float %176, float %.sroa.095.0.vec.extract, float %179)
-  %181 = tail call noundef float @llvm.fmuladd.f32(float %178, float %.sroa.6.0, float %180)
-  %182 = fcmp ogt float %181, 1.000000e+00
-  br i1 %182, label %_ZN3vcg6AngleNIfEET_RKNS_6Point3IS1_EES5_.exit77, label %183
+_ZN3vcg6AngleNIfEET_RKNS_6Point3IS1_EES5_.exit67: ; preds = %_ZN3vcg6AngleNIfEET_RKNS_6Point3IS1_EES5_.exit, %160, %162
+  %.0.i66 = phi float [ -1.000000e+00, %161 ], [ %158, %159 ], [ 1.000000e+00, %_ZN3vcg6AngleNIfEET_RKNS_6Point3IS1_EES5_.exit ]
+  %163 = tail call noundef float @acosf(float noundef %.0.i66) #28
+  %164 = fmul float %.sroa.0127.0.vec.extract, %163
+  %165 = fmul float %.sroa.0127.4.vec.extract, %163
+  %166 = fmul float %.sroa.6126.0, %163
+  %167 = load ptr, ptr %53, align 8
+  %168 = getelementptr inbounds nuw i8, ptr %167, i64 24
+  %169 = load float, ptr %168, align 4
+  %170 = fadd float %164, %169
+  store float %170, ptr %168, align 4
+  %171 = getelementptr inbounds nuw i8, ptr %167, i64 28
+  %172 = load float, ptr %171, align 4
+  %173 = fadd float %165, %172
+  store float %173, ptr %171, align 4
+  %174 = getelementptr inbounds nuw i8, ptr %167, i64 32
+  %175 = load float, ptr %174, align 4
+  %176 = fadd float %166, %175
+  store float %176, ptr %174, align 4
+  %177 = fneg float %.sroa.0105.0.vec.extract
+  %178 = fneg float %.sroa.0105.4.vec.extract
+  %179 = fneg float %.sroa.6104.0
+  %180 = fmul float %.sroa.095.4.vec.extract, %178
+  %181 = tail call float @llvm.fmuladd.f32(float %177, float %.sroa.095.0.vec.extract, float %180)
+  %182 = tail call noundef float @llvm.fmuladd.f32(float %179, float %.sroa.6.0, float %181)
+  %183 = fcmp ogt float %182, 1.000000e+00
+  br i1 %183, label %_ZN3vcg6AngleNIfEET_RKNS_6Point3IS1_EES5_.exit77, label %184
 
-183:                                              ; preds = %_ZN3vcg6AngleNIfEET_RKNS_6Point3IS1_EES5_.exit67
-  %184 = fcmp olt float %181, -1.000000e+00
-  br i1 %184, label %185, label %_ZN3vcg6AngleNIfEET_RKNS_6Point3IS1_EES5_.exit77
+184:                                              ; preds = %_ZN3vcg6AngleNIfEET_RKNS_6Point3IS1_EES5_.exit67
+  %185 = fcmp olt float %182, -1.000000e+00
+  br i1 %185, label %186, label %_ZN3vcg6AngleNIfEET_RKNS_6Point3IS1_EES5_.exit77
 
-185:                                              ; preds = %183
+186:                                              ; preds = %184
   br label %_ZN3vcg6AngleNIfEET_RKNS_6Point3IS1_EES5_.exit77
 
-_ZN3vcg6AngleNIfEET_RKNS_6Point3IS1_EES5_.exit77: ; preds = %_ZN3vcg6AngleNIfEET_RKNS_6Point3IS1_EES5_.exit67, %183, %185
-  %.0.i76 = phi float [ -1.000000e+00, %185 ], [ %181, %183 ], [ 1.000000e+00, %_ZN3vcg6AngleNIfEET_RKNS_6Point3IS1_EES5_.exit67 ]
-  %186 = tail call noundef float @acosf(float noundef %.0.i76) #28
-  %187 = fmul float %.sroa.0127.0.vec.extract, %186
-  %188 = fmul float %.sroa.0127.4.vec.extract, %186
-  %189 = fmul float %.sroa.6126.0, %186
-  %190 = load ptr, ptr %71, align 8
-  %191 = getelementptr inbounds nuw i8, ptr %190, i64 24
-  %192 = load float, ptr %191, align 4
-  %193 = fadd float %187, %192
-  store float %193, ptr %191, align 4
-  %194 = getelementptr inbounds nuw i8, ptr %190, i64 28
-  %195 = load float, ptr %194, align 4
-  %196 = fadd float %188, %195
-  store float %196, ptr %194, align 4
-  %197 = getelementptr inbounds nuw i8, ptr %190, i64 32
-  %198 = load float, ptr %197, align 4
-  %199 = fadd float %189, %198
-  store float %199, ptr %197, align 4
+_ZN3vcg6AngleNIfEET_RKNS_6Point3IS1_EES5_.exit77: ; preds = %_ZN3vcg6AngleNIfEET_RKNS_6Point3IS1_EES5_.exit67, %184, %186
+  %.0.i76 = phi float [ -1.000000e+00, %185 ], [ %182, %183 ], [ 1.000000e+00, %_ZN3vcg6AngleNIfEET_RKNS_6Point3IS1_EES5_.exit67 ]
+  %187 = tail call noundef float @acosf(float noundef %.0.i76) #28
+  %188 = fmul float %.sroa.0127.0.vec.extract, %187
+  %189 = fmul float %.sroa.0127.4.vec.extract, %187
+  %190 = fmul float %.sroa.6126.0, %187
+  %191 = load ptr, ptr %71, align 8
+  %192 = getelementptr inbounds nuw i8, ptr %191, i64 24
+  %193 = load float, ptr %192, align 4
+  %194 = fadd float %188, %193
+  store float %194, ptr %192, align 4
+  %195 = getelementptr inbounds nuw i8, ptr %191, i64 28
+  %196 = load float, ptr %195, align 4
+  %197 = fadd float %189, %196
+  store float %197, ptr %195, align 4
+  %198 = getelementptr inbounds nuw i8, ptr %191, i64 32
+  %199 = load float, ptr %198, align 4
+  %200 = fadd float %190, %199
+  store float %200, ptr %198, align 4
   %.pre157 = load ptr, ptr %18, align 8
-  br label %200
+  br label %201
 
-200:                                              ; preds = %.lr.ph, %_ZN3vcg6AngleNIfEET_RKNS_6Point3IS1_EES5_.exit77
-  %201 = phi ptr [ %47, %.lr.ph ], [ %.pre157, %_ZN3vcg6AngleNIfEET_RKNS_6Point3IS1_EES5_.exit77 ]
-  %202 = getelementptr inbounds nuw i8, ptr %.sroa.0139.0155, i64 48
-  %.not = icmp eq ptr %202, %201
+201:                                              ; preds = %.lr.ph, %_ZN3vcg6AngleNIfEET_RKNS_6Point3IS1_EES5_.exit77
+  %202 = phi ptr [ %47, %.lr.ph ], [ %.pre157, %_ZN3vcg6AngleNIfEET_RKNS_6Point3IS1_EES5_.exit77 ]
+  %203 = getelementptr inbounds nuw i8, ptr %.sroa.0139.0155, i64 48
+  %.not = icmp eq ptr %203, %202
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !108
 
-._crit_edge:                                      ; preds = %200, %_ZN3vcg3tri12UpdateNormalI6CMeshOE14PerVertexClearERS2_b.exit
+._crit_edge:                                      ; preds = %201, %_ZN3vcg3tri12UpdateNormalI6CMeshOE14PerVertexClearERS2_b.exit
   ret void
 }
 

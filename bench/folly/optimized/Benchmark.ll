@@ -61635,8 +61635,8 @@ _ZN5folly6detail12TimeIterDataD2Ev.exit90.i.i:    ; preds = %432, %_ZNSt10_Hasht
   br label %"_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIdSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5folly10UserMetricESt4hashIS9_ESt8equal_toIS9_ESaIS2_IKS9_SB_EEEESt6vectorISK_SaISK_EEEEZNSA_L37runBenchmarkGetNSPerIterationEstimateERKSt8functionIFNSA_6detail12TimeIterDataEjEEdE3$_0EvT_SY_T0_.exit.i.i"
 
 "_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIdSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5folly10UserMetricESt4hashIS9_ESt8equal_toIS9_ESaIS2_IKS9_SB_EEEESt6vectorISK_SaISK_EEEEZNSA_L37runBenchmarkGetNSPerIterationEstimateERKSt8functionIFNSA_6detail12TimeIterDataEjEEdE3$_0EvT_SY_T0_.exit.i.i": ; preds = %.lr.ph.i.i.i.i.i64.i, %445, %._crit_edge.i.i, %.loopexit120.i.i
-  %.152158.i.i = phi i64 [ %.253.i.i, %445 ], [ 0, %._crit_edge.i.i ], [ 0, %.loopexit120.i.i ], [ %.253.i.i, %.lr.ph.i.i.i.i.i64.i ]
-  %446 = uitofp i64 %.152158.i.i to double
+  %.152159.i.i = phi i64 [ %.253.i.i, %445 ], [ 0, %._crit_edge.i.i ], [ 0, %.loopexit120.i.i ], [ %.253.i.i, %.lr.ph.i.i.i.i.i64.i ]
+  %446 = uitofp i64 %.152159.i.i to double
   %447 = fmul double %446, 2.500000e-01
   %448 = fptoui double %447 to i64
   %449 = fmul double %446, 7.500000e-01
@@ -61647,7 +61647,7 @@ _ZN5folly6detail12TimeIterDataD2Ev.exit90.i.i:    ; preds = %432, %_ZNSt10_Hasht
 
 .preheader.i.i:                                   ; preds = %"_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIdSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5folly10UserMetricESt4hashIS9_ESt8equal_toIS9_ESaIS2_IKS9_SB_EEEESt6vectorISK_SaISK_EEEEZNSA_L37runBenchmarkGetNSPerIterationEstimateERKSt8functionIFNSA_6detail12TimeIterDataEjEEdE3$_0EvT_SY_T0_.exit.i.i"
   %453 = icmp ult i64 %448, %450
-  %.pre.i.i = load ptr, ptr %20, align 8, !tbaa !1322, !noalias !1317
+  %.pre132.i.i = load ptr, ptr %20, align 8, !tbaa !1322, !noalias !1317
   br i1 %453, label %.lr.ph127.i.i, label %._crit_edge128.i.i
 
 454:                                              ; preds = %"_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIdSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5folly10UserMetricESt4hashIS9_ESt8equal_toIS9_ESaIS2_IKS9_SB_EEEESt6vectorISK_SaISK_EEEEZNSA_L37runBenchmarkGetNSPerIterationEstimateERKSt8functionIFNSA_6detail12TimeIterDataEjEEdE3$_0EvT_SY_T0_.exit.i.i"
@@ -61687,7 +61687,7 @@ _ZSt9make_pairIRdRSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIc
   %466 = fdiv double %.0119.lcssa.i.i, %465
   %467 = call double @exp(double noundef %466) #41, !tbaa !47, !noalias !1317
   %468 = lshr i64 %451, 1
-  %469 = getelementptr %"struct.std::pair.348", ptr %.pre.i.i, i64 %468
+  %469 = getelementptr %"struct.std::pair.348", ptr %.pre132.i.i, i64 %468
   %470 = getelementptr %"struct.std::pair.348", ptr %469, i64 %448
   %471 = getelementptr inbounds nuw i8, ptr %470, i64 8
   call void @llvm.experimental.noalias.scope.decl(metadata !1343)
@@ -61711,7 +61711,7 @@ _ZSt9make_pairIRdRSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIc
 .lr.ph127.i.i:                                    ; preds = %.preheader.i.i, %.lr.ph127.i.i
   %.0126.i.i = phi i64 [ %481, %.lr.ph127.i.i ], [ %448, %.preheader.i.i ]
   %.0119125.i.i = phi double [ %480, %.lr.ph127.i.i ], [ 0.000000e+00, %.preheader.i.i ]
-  %477 = getelementptr inbounds nuw %"struct.std::pair.348", ptr %.pre.i.i, i64 %.0126.i.i
+  %477 = getelementptr inbounds nuw %"struct.std::pair.348", ptr %.pre132.i.i, i64 %.0126.i.i
   %478 = load double, ptr %477, align 8, !tbaa !1295, !noalias !1317
   %479 = call double @log(double noundef %478) #41, !tbaa !47, !noalias !1317
   %480 = fadd double %.0119125.i.i, %479

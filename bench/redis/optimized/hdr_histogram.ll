@@ -295,7 +295,7 @@ define dso_local range(i32 0, 23) i32 @hdr_calculate_bucket_config(i64 noundef %
   %8 = shl nuw nsw i64 %0, 1
   %9 = icmp sgt i64 %8, %1
   %or.cond = select i1 %or.cond3, i1 true, i1 %9
-  br i1 %or.cond, label %61, label %10
+  br i1 %or.cond, label %62, label %10
 
 10:                                               ; preds = %4
   store i64 %0, ptr %3, align 8, !tbaa !23
@@ -329,7 +329,7 @@ power.exit:                                       ; preds = %14
   %27 = tail call double @log(double noundef %26) #21, !tbaa !27
   %28 = fdiv double %27, 0x3FE62E42FEFA39EF
   %29 = fcmp ogt double %28, 0x41DFFFFFFFC00000
-  br i1 %29, label %61, label %30
+  br i1 %29, label %62, label %30
 
 30:                                               ; preds = %power.exit
   %31 = fptosi double %28 to i32
@@ -362,33 +362,33 @@ power.exit:                                       ; preds = %14
   %.not13.i = icmp sgt i64 %50, %1
   br i1 %.not13.i, label %buckets_needed_to_cover_value.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %48, %54
-  %.015.i = phi i32 [ %56, %54 ], [ 1, %48 ]
-  %.01014.i = phi i64 [ %55, %54 ], [ %50, %48 ]
-  %51 = icmp sgt i64 %.01014.i, 4611686018427387903
-  br i1 %51, label %52, label %54
+.lr.ph.i:                                         ; preds = %48, %55
+  %.015.i = phi i32 [ %57, %54 ], [ 1, %48 ]
+  %.01014.i = phi i64 [ %56, %54 ], [ %50, %48 ]
+  %52 = icmp sgt i64 %.01014.i, 4611686018427387903
+  br i1 %52, label %53, label %55
 
-52:                                               ; preds = %.lr.ph.i
-  %53 = add nuw nsw i32 %.015.i, 1
+53:                                               ; preds = %.lr.ph.i
+  %54 = add nuw nsw i32 %.015.i, 1
   br label %buckets_needed_to_cover_value.exit
 
-54:                                               ; preds = %.lr.ph.i
-  %55 = shl i64 %.01014.i, 1
-  %56 = add nuw nsw i32 %.015.i, 1
-  %.not.i44 = icmp sgt i64 %55, %1
+55:                                               ; preds = %.lr.ph.i
+  %56 = shl i64 %.01014.i, 1
+  %57 = add nuw nsw i32 %.015.i, 1
+  %.not.i44 = icmp sgt i64 %56, %1
   br i1 %.not.i44, label %buckets_needed_to_cover_value.exit, label %.lr.ph.i
 
-buckets_needed_to_cover_value.exit:               ; preds = %54, %48, %52
-  %.011.i = phi i32 [ %53, %52 ], [ 1, %48 ], [ %56, %54 ]
-  %57 = getelementptr inbounds nuw i8, ptr %3, i64 52
-  store i32 %.011.i, ptr %57, align 4, !tbaa !33
-  %58 = add nsw i32 %.011.i, 1
-  %59 = mul nsw i32 %58, %38
-  %60 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  store i32 %59, ptr %60, align 8, !tbaa !34
-  br label %61
+buckets_needed_to_cover_value.exit:               ; preds = %55, %48, %53
+  %.011.i = phi i32 [ %54, %52 ], [ 1, %48 ], [ %57, %54 ]
+  %58 = getelementptr inbounds nuw i8, ptr %3, i64 52
+  store i32 %.011.i, ptr %58, align 4, !tbaa !33
+  %59 = add nsw i32 %.011.i, 1
+  %60 = mul nsw i32 %59, %38
+  %61 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  store i32 %60, ptr %61, align 8, !tbaa !34
+  br label %62
 
-61:                                               ; preds = %buckets_needed_to_cover_value.exit, %power.exit, %30, %4
+62:                                               ; preds = %buckets_needed_to_cover_value.exit, %power.exit, %30, %4
   %.0 = phi i32 [ 22, %4 ], [ 0, %buckets_needed_to_cover_value.exit ], [ 22, %power.exit ], [ 22, %30 ]
   ret i32 %.0
 }

@@ -19798,10 +19798,10 @@ define hidden void @_ZN2cv8ximgproc15EdgeDrawingImpl24GenerateCandidateCirclesEv
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 904
   br label %11
 
-._crit_edge:                                      ; preds = %235, %1
+._crit_edge:                                      ; preds = %237, %1
   ret void
 
-11:                                               ; preds = %.lr.ph, %235
+11:                                               ; preds = %.lr.ph, %237
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %235 ]
   %12 = getelementptr inbounds nuw %struct.MyArc, ptr %5, i64 %indvars.iv
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 100
@@ -19875,7 +19875,7 @@ define hidden void @_ZN2cv8ximgproc15EdgeDrawingImpl24GenerateCandidateCirclesEv
   store i8 1, ptr %64, align 8, !tbaa !378
   %65 = add nsw i32 %60, 1
   store i32 %65, ptr %10, align 8, !tbaa !15
-  br label %235
+  br label %237
 
 66:                                               ; preds = %20, %18
   %67 = getelementptr inbounds nuw i8, ptr %12, i64 32
@@ -19911,13 +19911,13 @@ define hidden void @_ZN2cv8ximgproc15EdgeDrawingImpl24GenerateCandidateCirclesEv
 
 88:                                               ; preds = %84, %82
   %89 = fcmp ult double %76, 3.300000e-01
-  br i1 %89, label %235, label %90
+  br i1 %89, label %237, label %90
 
 90:                                               ; preds = %88
   %91 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %92 = load double, ptr %91, align 8, !tbaa !453
   %93 = fcmp ugt double %92, 1.000000e+00
-  br i1 %93, label %235, label %94
+  br i1 %93, label %237, label %94
 
 94:                                               ; preds = %90, %84, %78
   %95 = phi double [ %92, %90 ], [ %86, %84 ], [ %80, %78 ]
@@ -19961,11 +19961,11 @@ define hidden void @_ZN2cv8ximgproc15EdgeDrawingImpl24GenerateCandidateCirclesEv
   store i8 0, ptr %124, align 8, !tbaa !378
   %125 = add nsw i32 %121, 1
   store i32 %125, ptr %10, align 8, !tbaa !15
-  br label %235
+  br label %237
 
 126:                                              ; preds = %11
   %127 = fcmp olt double %17, 2.500000e-01
-  br i1 %127, label %235, label %128
+  br i1 %127, label %237, label %128
 
 128:                                              ; preds = %126
   %129 = fcmp ult double %17, 6.700000e-01
@@ -20039,11 +20039,11 @@ define hidden void @_ZN2cv8ximgproc15EdgeDrawingImpl24GenerateCandidateCirclesEv
   store i8 0, ptr %176, align 8, !tbaa !378
   %177 = add nsw i32 %173, 1
   store i32 %177, ptr %10, align 8, !tbaa !15
-  br label %235
+  br label %237
 
 178:                                              ; preds = %142, %140
   %179 = fcmp olt double %17, 3.300000e-01
-  br i1 %179, label %235, label %180
+  br i1 %179, label %237, label %180
 
 180:                                              ; preds = %178
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -20086,12 +20086,12 @@ define hidden void @_ZN2cv8ximgproc15EdgeDrawingImpl24GenerateCandidateCirclesEv
   %210 = sext i32 %209 to i64
   %211 = getelementptr inbounds %struct.Circle, ptr %200, i64 %210
   store double %201, ptr %211, align 8, !tbaa !366
-  %212 = getelementptr inbounds nuw i8, ptr %211, i64 8
-  store double %203, ptr %212, align 8, !tbaa !369
-  %213 = getelementptr inbounds nuw i8, ptr %211, i64 16
-  store double %205, ptr %213, align 8, !tbaa !370
-  %214 = getelementptr inbounds nuw i8, ptr %211, i64 24
-  store double %207, ptr %214, align 8, !tbaa !371
+  %213 = getelementptr inbounds nuw i8, ptr %211, i64 8
+  store double %203, ptr %213, align 8, !tbaa !369
+  %214 = getelementptr inbounds nuw i8, ptr %211, i64 16
+  store double %205, ptr %214, align 8, !tbaa !370
+  %215 = getelementptr inbounds nuw i8, ptr %211, i64 24
+  store double %207, ptr %215, align 8, !tbaa !371
   %215 = sitofp i32 %208 to double
   %216 = call noundef double @_ZN2cv8ximgproc15EdgeDrawingImpl23computeEllipsePerimeterEP15EllipseEquation(ptr noundef nonnull readonly %2)
   %217 = fdiv double %215, %216
@@ -20100,12 +20100,12 @@ define hidden void @_ZN2cv8ximgproc15EdgeDrawingImpl24GenerateCandidateCirclesEv
   %220 = getelementptr inbounds %struct.Circle, ptr %200, i64 %219
   %221 = getelementptr inbounds nuw i8, ptr %220, i64 32
   store double %217, ptr %221, align 8, !tbaa !372
-  %222 = getelementptr inbounds nuw i8, ptr %220, i64 40
-  store ptr %189, ptr %222, align 8, !tbaa !373
-  %223 = getelementptr inbounds nuw i8, ptr %220, i64 48
-  store ptr %190, ptr %223, align 8, !tbaa !374
-  %224 = getelementptr inbounds nuw i8, ptr %220, i64 56
-  store i32 %208, ptr %224, align 8, !tbaa !375
+  %223 = getelementptr inbounds nuw i8, ptr %220, i64 40
+  store ptr %189, ptr %223, align 8, !tbaa !373
+  %224 = getelementptr inbounds nuw i8, ptr %220, i64 48
+  store ptr %190, ptr %224, align 8, !tbaa !374
+  %225 = getelementptr inbounds nuw i8, ptr %220, i64 56
+  store i32 %208, ptr %225, align 8, !tbaa !375
   %225 = load i32, ptr %10, align 8, !tbaa !15
   %226 = sext i32 %225 to i64
   %227 = getelementptr inbounds %struct.Circle, ptr %200, i64 %226
@@ -20116,24 +20116,24 @@ define hidden void @_ZN2cv8ximgproc15EdgeDrawingImpl24GenerateCandidateCirclesEv
   %231 = getelementptr inbounds %struct.Circle, ptr %200, i64 %230
   %232 = getelementptr inbounds nuw i8, ptr %231, i64 120
   store double %191, ptr %232, align 8, !tbaa !377
-  %233 = getelementptr inbounds nuw i8, ptr %231, i64 128
-  store i8 1, ptr %233, align 8, !tbaa !378
+  %234 = getelementptr inbounds nuw i8, ptr %231, i64 128
+  store i8 1, ptr %234, align 8, !tbaa !378
   %234 = add nsw i32 %229, 1
   store i32 %234, ptr %10, align 8, !tbaa !15
   br label %.thread
 
 .thread:                                          ; preds = %180, %199, %188
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %235
+  br label %237
 
-235:                                              ; preds = %88, %90, %94, %.thread, %24, %178, %126, %146
+237:                                              ; preds = %88, %90, %94, %.thread, %24, %178, %126, %146
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %236 = load ptr, ptr %3, align 8, !tbaa !393
-  %237 = getelementptr inbounds nuw i8, ptr %236, i64 8
-  %238 = load i32, ptr %237, align 8, !tbaa !389
-  %239 = sext i32 %238 to i64
-  %240 = icmp slt i64 %indvars.iv.next, %239
-  br i1 %240, label %11, label %._crit_edge, !llvm.loop !503
+  %238 = load ptr, ptr %3, align 8, !tbaa !393
+  %239 = getelementptr inbounds nuw i8, ptr %238, i64 8
+  %240 = load i32, ptr %239, align 8, !tbaa !389
+  %241 = sext i32 %240 to i64
+  %242 = icmp slt i64 %indvars.iv.next, %241
+  br i1 %242, label %11, label %._crit_edge, !llvm.loop !503
 }
 
 ; Function Attrs: mustprogress uwtable

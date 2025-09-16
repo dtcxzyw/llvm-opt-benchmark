@@ -12478,13 +12478,13 @@ if.end:                                           ; preds = %invoke.cont
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
   %cmp2 = icmp ult i64 %sub.ptr.div.i, 2
-  br i1 %cmp2, label %if.then4, label %if.then.i
+  br i1 %cmp2, label %if.then4, label %if.end5
 
 if.then4:                                         ; preds = %if.end
   tail call void @llvm.trap()
   unreachable
 
-if.then.i:                                        ; preds = %if.end
+if.end5:                                          ; preds = %if.end
   %mul = mul nsw i64 %sub.ptr.div.i, 5
   %conv.i = uitofp i64 %mul to double
   %call.i = tail call noundef double @log2(double noundef %conv.i) #36
@@ -12495,7 +12495,7 @@ if.then.i:                                        ; preds = %if.end
   invoke void @_ZNSt6vectorIlSaIlEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %hashTable_, i64 noundef %conv11)
           to label %invoke.cont12 unwind label %lpad7
 
-invoke.cont12:                                    ; preds = %if.then.i
+if.then.i:                                        ; preds = %if.end5
   %_M_finish.i.i24 = getelementptr inbounds nuw i8, ptr %this, i64 40
   %.pre = load ptr, ptr %hashTable_, align 8
   %.pre53 = load ptr, ptr %_M_finish.i.i24, align 8
@@ -12513,9 +12513,9 @@ for.body.i.i.i.i:                                 ; preds = %invoke.cont12, %for
   br i1 %cmp.not.i.i.i.i30, label %invoke.cont21, label %for.body.i.i.i.i, !llvm.loop !134
 
 invoke.cont21:                                    ; preds = %for.body.i.i.i.i, %invoke.cont12
-  %7 = load ptr, ptr %values, align 8
-  %8 = load ptr, ptr %_M_finish.i.i, align 8
-  %cmp.i32.not48 = icmp eq ptr %7, %8
+  %11 = load ptr, ptr %values, align 8
+  %12 = load ptr, ptr %_M_finish.i.i, align 8
+  %cmp.i32.not48 = icmp eq ptr %11, %12
   br i1 %cmp.i32.not48, label %for.body59.preheader, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %invoke.cont21
@@ -12523,9 +12523,9 @@ for.body.lr.ph:                                   ; preds = %invoke.cont21
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc53
-  %__begin2.sroa.0.049 = phi ptr [ %7, %for.body.lr.ph ], [ %incdec.ptr.i, %for.inc53 ]
-  %9 = load i64, ptr %__begin2.sroa.0.049, align 8
-  %cmp28 = icmp eq i64 %9, -2401053089476968723
+  %__begin2.sroa.0.049 = phi ptr [ %11, %for.body.lr.ph ], [ %incdec.ptr.i, %for.inc53 ]
+  %13 = load i64, ptr %__begin2.sroa.0.049, align 8
+  %cmp28 = icmp eq i64 %13, -2401053089476968723
   br i1 %cmp28, label %if.then29, label %if.else
 
 if.then29:                                        ; preds = %for.body
@@ -12533,27 +12533,27 @@ if.then29:                                        ; preds = %for.body
   br label %for.inc53
 
 lpad7:                                            ; preds = %for.end72, %if.then.i
-  %10 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %11 = load ptr, ptr %values_, align 8
-  %tobool.not.i.i.i = icmp eq ptr %11, null
+  %15 = load ptr, ptr %values_, align 8
+  %tobool.not.i.i.i = icmp eq ptr %15, null
   br i1 %tobool.not.i.i.i, label %ehcleanup, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %lpad7
-  tail call void @_ZdlPv(ptr noundef nonnull %11) #40
+  tail call void @_ZdlPv(ptr noundef nonnull %15) #40
   br label %ehcleanup
 
 if.else:                                          ; preds = %for.body
-  %mul31 = mul i64 %9, -4132994306676758123
-  %12 = load i32, ptr %sizeMask_, align 8
-  %conv33 = sext i32 %12 to i64
+  %mul31 = mul i64 %13, -4132994306676758123
+  %16 = load i32, ptr %sizeMask_, align 8
+  %conv33 = sext i32 %16 to i64
   %and = and i64 %mul31, %conv33
   %add36 = add i64 %and, %conv35
   %cmp3746 = icmp ult i64 %and, %add36
   br i1 %cmp3746, label %for.body38.lr.ph, label %for.inc53
 
 for.body38.lr.ph:                                 ; preds = %if.else
-  %13 = load ptr, ptr %hashTable_, align 8
+  %17 = load ptr, ptr %hashTable_, align 8
   br label %for.body38
 
 for.cond34:                                       ; preds = %for.body38
@@ -12563,22 +12563,22 @@ for.cond34:                                       ; preds = %for.body38
 
 for.body38:                                       ; preds = %for.body38.lr.ph, %for.cond34
   %i.047 = phi i64 [ %and, %for.body38.lr.ph ], [ %inc, %for.cond34 ]
-  %14 = trunc i64 %i.047 to i32
-  %conv42 = and i32 %12, %14
+  %18 = trunc i64 %i.047 to i32
+  %conv42 = and i32 %16, %18
   %conv44 = zext i32 %conv42 to i64
-  %add.ptr.i34 = getelementptr inbounds nuw i64, ptr %13, i64 %conv44
-  %15 = load i64, ptr %add.ptr.i34, align 8
-  %cmp46 = icmp eq i64 %15, -2401053089476968723
+  %add.ptr.i34 = getelementptr inbounds nuw i64, ptr %17, i64 %conv44
+  %19 = load i64, ptr %add.ptr.i34, align 8
+  %cmp46 = icmp eq i64 %19, -2401053089476968723
   br i1 %cmp46, label %if.then47, label %for.cond34
 
 if.then47:                                        ; preds = %for.body38
-  %add.ptr.i34.le = getelementptr inbounds nuw i64, ptr %13, i64 %conv44
-  store i64 %9, ptr %add.ptr.i34.le, align 8
+  %add.ptr.i34.le = getelementptr inbounds nuw i64, ptr %17, i64 %conv44
+  store i64 %13, ptr %add.ptr.i34.le, align 8
   br label %for.inc53
 
 for.inc53:                                        ; preds = %for.cond34, %if.else, %if.then29, %if.then47
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.049, i64 8
-  %cmp.i32.not = icmp eq ptr %incdec.ptr.i, %8
+  %cmp.i32.not = icmp eq ptr %incdec.ptr.i, %12
   br i1 %cmp.i32.not, label %for.body59.preheader, label %for.body
 
 for.body59.preheader:                             ; preds = %for.inc53, %invoke.cont21
@@ -12586,36 +12586,36 @@ for.body59.preheader:                             ; preds = %for.inc53, %invoke.
 
 for.body59:                                       ; preds = %for.body59.preheader, %for.body59
   %i56.050 = phi i32 [ %add66, %for.body59 ], [ 0, %for.body59.preheader ]
-  %16 = load i32, ptr %sizeMask_, align 8
-  %conv62 = sext i32 %16 to i64
-  %17 = load ptr, ptr %hashTable_, align 8
-  %add.ptr.i36 = getelementptr inbounds i64, ptr %17, i64 %conv62
-  %18 = load i64, ptr %add.ptr.i36, align 8
+  %20 = load i32, ptr %sizeMask_, align 8
+  %conv62 = sext i32 %20 to i64
+  %21 = load ptr, ptr %hashTable_, align 8
+  %add.ptr.i36 = getelementptr inbounds i64, ptr %21, i64 %conv62
+  %22 = load i64, ptr %add.ptr.i36, align 8
   %add66 = add nuw nsw i32 %i56.050, 1
-  %add67 = add i32 %add66, %16
+  %add67 = add i32 %add66, %20
   %conv68 = sext i32 %add67 to i64
-  %add.ptr.i37 = getelementptr inbounds i64, ptr %17, i64 %conv68
-  store i64 %18, ptr %add.ptr.i37, align 8
+  %add.ptr.i37 = getelementptr inbounds i64, ptr %21, i64 %conv68
+  store i64 %22, ptr %add.ptr.i37, align 8
   %exitcond52.not = icmp eq i32 %add66, 4
   br i1 %exitcond52.not, label %for.end72, label %for.body59, !llvm.loop !136
 
 for.end72:                                        ; preds = %for.body59
-  %19 = load ptr, ptr %values_, align 8
-  %20 = load ptr, ptr %_M_finish.i.i.i, align 8
-  invoke void @_ZSt6__sortIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_less_iterEEvT_S9_T0_(ptr %19, ptr %20)
+  %23 = load ptr, ptr %values_, align 8
+  %24 = load ptr, ptr %_M_finish.i.i.i, align 8
+  invoke void @_ZSt6__sortIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_less_iterEEvT_S9_T0_(ptr %23, ptr %24)
           to label %invoke.cont83 unwind label %lpad7
 
 invoke.cont83:                                    ; preds = %for.end72
   ret void
 
 ehcleanup:                                        ; preds = %if.then.i.i.i, %lpad7, %lpad
-  %.pn = phi { ptr, i32 } [ %4, %lpad ], [ %10, %lpad7 ], [ %10, %if.then.i.i.i ]
-  %21 = load ptr, ptr %hashTable_, align 8
-  %tobool.not.i.i.i41 = icmp eq ptr %21, null
+  %.pn = phi { ptr, i32 } [ %4, %lpad ], [ %14, %lpad7 ], [ %14, %if.then.i.i.i ]
+  %25 = load ptr, ptr %hashTable_, align 8
+  %tobool.not.i.i.i41 = icmp eq ptr %25, null
   br i1 %tobool.not.i.i.i41, label %_ZNSt6vectorIlSaIlEED2Ev.exit43, label %if.then.i.i.i42
 
 if.then.i.i.i42:                                  ; preds = %ehcleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %21) #40
+  tail call void @_ZdlPv(ptr noundef nonnull %25) #40
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit43
 
 _ZNSt6vectorIlSaIlEED2Ev.exit43:                  ; preds = %ehcleanup, %if.then.i.i.i42

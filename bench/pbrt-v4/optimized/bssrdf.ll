@@ -5278,22 +5278,22 @@ define internal void @"_ZNSt17_Function_handlerIFvlEZN4pbrt26ComputeBeamDiffusio
 "_ZSt10__invoke_rIvRZN4pbrt26ComputeBeamDiffusionBSSRDFEffPNS0_11BSSRDFTableEE3$_0JlEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit": ; preds = %.._crit_edge_crit_edge.i.i.i, %._crit_edge.loopexit.i.i.i
   %.pre-phi34.i.i.i = phi i64 [ 0, %.._crit_edge_crit_edge.i.i.i ], [ %10, %._crit_edge.loopexit.i.i.i ]
   %.pre-phi.i.i.i = phi i64 [ %.pre32.i.i.i, %.._crit_edge_crit_edge.i.i.i ], [ %7, %._crit_edge.loopexit.i.i.i ]
-  %39 = phi ptr [ %.pre31.i.i.i, %.._crit_edge_crit_edge.i.i.i ], [ %36, %._crit_edge.loopexit.i.i.i ]
-  %40 = phi i64 [ 0, %.._crit_edge_crit_edge.i.i.i ], [ %.pre.i.i.i, %._crit_edge.loopexit.i.i.i ]
-  %41 = phi ptr [ %4, %.._crit_edge_crit_edge.i.i.i ], [ %34, %._crit_edge.loopexit.i.i.i ]
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 40
-  %43 = load ptr, ptr %42, align 8, !tbaa !37
-  %44 = getelementptr inbounds nuw float, ptr %39, i64 %.pre-phi34.i.i.i
-  %45 = getelementptr inbounds nuw i8, ptr %41, i64 136
-  %46 = load ptr, ptr %45, align 8, !tbaa !37
-  %47 = getelementptr inbounds nuw float, ptr %46, i64 %.pre-phi34.i.i.i
-  %48 = tail call noundef float @_ZN4pbrt19IntegrateCatmullRomEN4pstd4spanIKfEES3_NS1_IfEE(ptr %43, i64 %40, ptr %44, i64 %6, ptr %47, i64 %6)
-  %49 = load ptr, ptr %.val, align 8, !tbaa !197
-  %50 = load ptr, ptr %49, align 8, !tbaa !36
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 104
-  %52 = load ptr, ptr %51, align 8, !tbaa !37
-  %53 = getelementptr inbounds nuw float, ptr %52, i64 %.pre-phi.i.i.i
-  store float %48, ptr %53, align 4, !tbaa !35
+  %41 = phi ptr [ %.pre31.i.i.i, %.._crit_edge_crit_edge.i.i.i ], [ %36, %._crit_edge.loopexit.i.i.i ]
+  %42 = phi i64 [ 0, %.._crit_edge_crit_edge.i.i.i ], [ %.pre.i.i.i, %._crit_edge.loopexit.i.i.i ]
+  %43 = phi ptr [ %4, %.._crit_edge_crit_edge.i.i.i ], [ %34, %._crit_edge.loopexit.i.i.i ]
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 40
+  %45 = load ptr, ptr %44, align 8, !tbaa !37
+  %46 = getelementptr inbounds nuw float, ptr %41, i64 %.pre-phi34.i.i.i
+  %47 = getelementptr inbounds nuw i8, ptr %43, i64 136
+  %48 = load ptr, ptr %47, align 8, !tbaa !37
+  %49 = getelementptr inbounds nuw float, ptr %48, i64 %.pre-phi34.i.i.i
+  %50 = tail call noundef float @_ZN4pbrt19IntegrateCatmullRomEN4pstd4spanIKfEES3_NS1_IfEE(ptr %45, i64 %42, ptr %46, i64 %6, ptr %49, i64 %6)
+  %51 = load ptr, ptr %.val, align 8, !tbaa !197
+  %52 = load ptr, ptr %51, align 8, !tbaa !36
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 104
+  %54 = load ptr, ptr %53, align 8, !tbaa !37
+  %55 = getelementptr inbounds nuw float, ptr %54, i64 %.pre-phi.i.i.i
+  store float %50, ptr %55, align 4, !tbaa !35
   ret void
 }
 

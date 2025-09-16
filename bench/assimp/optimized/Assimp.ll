@@ -6324,8 +6324,8 @@ _ZNK12aiMatrix4x4tIfE9DecomposeER10aiVector3tIfES3_RfS3_.exit: ; preds = %5, %19
   %29 = fneg float %28
   %30 = call float @llvm.fmuladd.f32(float %29, float %28, float 1.000000e+00)
   %31 = call noundef float @sqrtf(float noundef %30) #48
-  %32 = call noundef float @acosf(float noundef %28) #48
-  %33 = fmul float %32, 2.000000e+00
+  %31 = call noundef float @acosf(float noundef %28) #48
+  %33 = fmul float %31, 2.000000e+00
   store float %33, ptr %3, align 4
   %34 = call noundef float @llvm.fabs.f32(float %31)
   %35 = fcmp olt float %34, 0x3F847AE140000000

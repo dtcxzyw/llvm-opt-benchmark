@@ -103,7 +103,7 @@ define dso_local void @_ZN9Stockfish14TimeManagement4initERNS_6Search10LimitsTyp
   %23 = getelementptr inbounds nuw i64, ptr %21, i64 %22
   %24 = load i64, ptr %23, align 8
   %25 = icmp eq i64 %24, 0
-  br i1 %25, label %145, label %26
+  br i1 %25, label %151, label %26
 
 26:                                               ; preds = %5
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #11
@@ -204,7 +204,7 @@ _ZN9Stockfish6OptionD2Ev.exit61:                  ; preds = %_ZN9Stockfish6Optio
   %75 = mul nsw i64 %74, %29
   %76 = sub i64 %72, %75
   %.sroa.speculated102 = call i64 @llvm.smax.i64(i64 %76, i64 1)
-  br i1 %.not58, label %77, label %104
+  br i1 %.not58, label %77, label %110
 
 77:                                               ; preds = %61
   %78 = sitofp i64 %68 to double
@@ -235,89 +235,89 @@ _ZN9Stockfish6OptionD2Ev.exit61:                  ; preds = %_ZN9Stockfish6Optio
   %.sroa.speculated82 = select i1 %99, double %98, double %95
   %100 = fmul double %.sroa.speculated97, %.sroa.speculated82
   store double 6.900000e+00, ptr %12, align 8
-  %101 = fdiv double %92, 1.220000e+01
-  %102 = fadd double %101, %.sroa.speculated87
-  store double %102, ptr %13, align 8
-  %103 = fcmp olt double %102, 6.900000e+00
-  %..i66 = select i1 %103, ptr %13, ptr %12
-  br label %117
+  %107 = fdiv double %92, 1.220000e+01
+  %108 = fadd double %107, %.sroa.speculated87
+  store double %108, ptr %13, align 8
+  %109 = fcmp olt double %108, 6.900000e+00
+  %..i66 = select i1 %109, ptr %13, ptr %12
+  br label %123
 
-104:                                              ; preds = %61
-  %105 = sitofp i32 %3 to double
-  %106 = fdiv double %105, 1.164000e+02
-  %107 = fadd double %106, 8.800000e-01
-  %108 = sitofp i32 %.sroa.speculated107 to double
-  %109 = fdiv double %107, %108
-  %110 = sitofp i64 %65 to double
-  %111 = fmul double %110, 8.800000e-01
-  %112 = uitofp nneg i64 %.sroa.speculated102 to double
-  %113 = fdiv double %111, %112
-  %114 = fcmp olt double %113, %109
-  %.sroa.speculated75 = select i1 %114, double %113, double %109
+110:                                              ; preds = %61
+  %111 = sitofp i32 %3 to double
+  %112 = fdiv double %111, 1.164000e+02
+  %113 = fadd double %112, 8.800000e-01
+  %114 = sitofp i32 %.sroa.speculated107 to double
+  %115 = fdiv double %113, %114
+  %116 = sitofp i64 %65 to double
+  %117 = fmul double %116, 8.800000e-01
+  %118 = uitofp nneg i64 %.sroa.speculated102 to double
+  %119 = fdiv double %117, %118
+  %120 = fcmp olt double %119, %115
+  %.sroa.speculated75 = select i1 %120, double %119, double %115
   store double 6.300000e+00, ptr %14, align 8
-  %115 = call double @llvm.fmuladd.f64(double %108, double 1.100000e-01, double 1.500000e+00)
-  store double %115, ptr %15, align 8
-  %116 = fcmp olt double %115, 6.300000e+00
-  %..i68 = select i1 %116, ptr %15, ptr %14
-  br label %117
+  %121 = call double @llvm.fmuladd.f64(double %114, double 1.100000e-01, double 1.500000e+00)
+  store double %121, ptr %15, align 8
+  %122 = fcmp olt double %121, 6.300000e+00
+  %..i68 = select i1 %122, ptr %15, ptr %14
+  br label %123
 
-117:                                              ; preds = %104, %77
-  %.pre-phi = phi double [ %112, %104 ], [ %97, %77 ]
+123:                                              ; preds = %110, %77
+  %.pre-phi = phi double [ %118, %104 ], [ %97, %77 ]
   %.055.in = phi ptr [ %..i68, %104 ], [ %..i66, %77 ]
   %.0 = phi double [ %.sroa.speculated75, %104 ], [ %100, %77 ]
   %.055 = load double, ptr %.055.in, align 8
-  %118 = fmul double %.0, %.pre-phi
-  %119 = fptosi double %118 to i64
-  %120 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %119, ptr %120, align 8
-  %121 = load i64, ptr %23, align 8
-  %122 = sitofp i64 %121 to double
-  %123 = sitofp i32 %28 to double
-  %124 = fneg double %123
-  %125 = call double @llvm.fmuladd.f64(double %122, double 8.400000e-01, double %124)
-  %126 = sitofp i64 %119 to double
-  %127 = fmul double %.055, %126
-  %128 = fcmp olt double %127, %125
-  %.sroa.speculated = select i1 %128, double %127, double %125
-  %129 = fptosi double %.sroa.speculated to i64
-  %130 = add nsw i64 %129, -10
-  %131 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %130, ptr %131, align 8
+  %124 = fmul double %.0, %.pre-phi
+  %125 = fptosi double %124 to i64
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %125, ptr %126, align 8
+  %127 = load i64, ptr %23, align 8
+  %128 = sitofp i64 %127 to double
+  %129 = sitofp i32 %28 to double
+  %130 = fneg double %129
+  %131 = call double @llvm.fmuladd.f64(double %128, double 8.400000e-01, double %130)
+  %132 = sitofp i64 %125 to double
+  %133 = fmul double %.055, %132
+  %134 = fcmp olt double %133, %131
+  %.sroa.speculated = select i1 %134, double %133, double %131
+  %135 = fptosi double %.sroa.speculated to i64
+  %136 = add nsw i64 %135, -10
+  %137 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %136, ptr %137, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %18) #11
-  %132 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %17) #11
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef %132, ptr noundef nonnull align 1 dereferenceable(1) %18) #11
+  %138 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %17) #11
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef %138, ptr noundef nonnull align 1 dereferenceable(1) %18) #11
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull @.str.2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.2, i64 6))
   call void @_ZNK9Stockfish10OptionsMapixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"class.Stockfish::Option") align 8 %16, ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(32) %17) #11
-  %133 = call noundef i32 @_ZNK9Stockfish6OptioncviEv(ptr noundef nonnull align 8 dereferenceable(144) %16) #11
-  %.not59 = icmp eq i32 %133, 0
-  %134 = getelementptr inbounds nuw i8, ptr %16, i64 128
-  %135 = load ptr, ptr %134, align 8
-  %.not.i.i.i70 = icmp eq ptr %135, null
-  br i1 %.not.i.i.i70, label %_ZN9Stockfish6OptionD2Ev.exit71, label %136
+  %139 = call noundef i32 @_ZNK9Stockfish6OptioncviEv(ptr noundef nonnull align 8 dereferenceable(144) %16) #11
+  %.not59 = icmp eq i32 %139, 0
+  %140 = getelementptr inbounds nuw i8, ptr %16, i64 128
+  %141 = load ptr, ptr %140, align 8
+  %.not.i.i.i70 = icmp eq ptr %141, null
+  br i1 %.not.i.i.i70, label %_ZN9Stockfish6OptionD2Ev.exit71, label %142
 
-136:                                              ; preds = %117
-  %137 = getelementptr inbounds nuw i8, ptr %16, i64 112
-  %138 = call noundef zeroext i1 %135(ptr noundef nonnull align 8 dereferenceable(32) %137, ptr noundef nonnull align 8 dereferenceable(32) %137, i32 noundef 3) #11
+142:                                              ; preds = %123
+  %143 = getelementptr inbounds nuw i8, ptr %16, i64 112
+  %144 = call noundef zeroext i1 %135(ptr noundef nonnull align 8 dereferenceable(32) %143, ptr noundef nonnull align 8 dereferenceable(32) %143, i32 noundef 3) #11
   br label %_ZN9Stockfish6OptionD2Ev.exit71
 
-_ZN9Stockfish6OptionD2Ev.exit71:                  ; preds = %117, %136
-  %139 = getelementptr inbounds nuw i8, ptr %16, i64 64
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %139) #11
-  %140 = getelementptr inbounds nuw i8, ptr %16, i64 32
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %140) #11
+_ZN9Stockfish6OptionD2Ev.exit71:                  ; preds = %123, %142
+  %145 = getelementptr inbounds nuw i8, ptr %16, i64 64
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %145) #11
+  %146 = getelementptr inbounds nuw i8, ptr %16, i64 32
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %146) #11
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(144) %16) #11
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #11
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %18) #11
-  br i1 %.not59, label %145, label %141
+  br i1 %.not59, label %151, label %147
 
-141:                                              ; preds = %_ZN9Stockfish6OptionD2Ev.exit71
-  %142 = load i64, ptr %120, align 8
-  %143 = sdiv i64 %142, 4
-  %144 = add nsw i64 %143, %142
-  store i64 %144, ptr %120, align 8
-  br label %145
+147:                                              ; preds = %_ZN9Stockfish6OptionD2Ev.exit71
+  %148 = load i64, ptr %126, align 8
+  %149 = sdiv i64 %148, 4
+  %150 = add nsw i64 %149, %148
+  store i64 %150, ptr %126, align 8
+  br label %151
 
-145:                                              ; preds = %5, %141, %_ZN9Stockfish6OptionD2Ev.exit71
+151:                                              ; preds = %5, %147, %_ZN9Stockfish6OptionD2Ev.exit71
   ret void
 }
 

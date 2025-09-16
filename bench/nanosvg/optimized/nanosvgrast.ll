@@ -11762,13 +11762,13 @@ define internal fastcc void @nsvg__addPath(ptr noundef captures(none) %0, i8 nou
   br i1 %.not70, label %._crit_edge, label %.lr.ph62
 
 .lr.ph62:                                         ; preds = %.preheader
-  %47 = getelementptr inbounds nuw i8, ptr %calloc, i64 16
-  %48 = getelementptr inbounds nuw i8, ptr %calloc, i64 20
-  %49 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %50 = getelementptr inbounds nuw i8, ptr %calloc, i64 24
-  %51 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %52 = getelementptr inbounds nuw i8, ptr %calloc, i64 28
-  %53 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  %46 = getelementptr inbounds nuw i8, ptr %calloc, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %calloc, i64 20
+  %48 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %49 = getelementptr inbounds nuw i8, ptr %calloc, i64 24
+  %50 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %calloc, i64 28
+  %52 = getelementptr inbounds nuw i8, ptr %3, i64 12
   br label %69
 
 54:                                               ; preds = %.lr.ph, %54
@@ -11807,27 +11807,27 @@ define internal fastcc void @nsvg__addPath(ptr noundef captures(none) %0, i8 nou
   br i1 %75, label %77, label %81
 
 77:                                               ; preds = %69
-  store float %76, ptr %47, align 8, !tbaa !28
-  %78 = load float, ptr %49, align 4, !tbaa !28
-  store float %78, ptr %48, align 4, !tbaa !28
-  %79 = load float, ptr %51, align 8, !tbaa !28
-  store float %79, ptr %50, align 8, !tbaa !28
-  %80 = load float, ptr %53, align 4, !tbaa !28
+  store float %76, ptr %46, align 8, !tbaa !28
+  %78 = load float, ptr %48, align 4, !tbaa !28
+  store float %78, ptr %47, align 4, !tbaa !28
+  %79 = load float, ptr %50, align 8, !tbaa !28
+  store float %79, ptr %49, align 8, !tbaa !28
+  %80 = load float, ptr %52, align 4, !tbaa !28
   br label %93
 
 81:                                               ; preds = %69
   %82 = fcmp olt float %73, %76
   %83 = select i1 %82, float %73, float %76
-  store float %83, ptr %47, align 8, !tbaa !28
-  %84 = load float, ptr %49, align 4, !tbaa !28
+  store float %83, ptr %46, align 8, !tbaa !28
+  %84 = load float, ptr %48, align 4, !tbaa !28
   %85 = fcmp olt float %72, %84
   %86 = select i1 %85, float %72, float %84
-  store float %86, ptr %48, align 4, !tbaa !28
-  %87 = load float, ptr %51, align 8, !tbaa !28
+  store float %86, ptr %47, align 4, !tbaa !28
+  %87 = load float, ptr %50, align 8, !tbaa !28
   %88 = fcmp ogt float %71, %87
   %89 = select i1 %88, float %71, float %87
-  store float %89, ptr %50, align 8, !tbaa !28
-  %90 = load float, ptr %53, align 4, !tbaa !28
+  store float %89, ptr %49, align 8, !tbaa !28
+  %90 = load float, ptr %52, align 4, !tbaa !28
   %91 = fcmp ogt float %70, %90
   %92 = select i1 %91, float %70, float %90
   br label %93
@@ -11837,7 +11837,7 @@ define internal fastcc void @nsvg__addPath(ptr noundef captures(none) %0, i8 nou
   %94 = phi float [ %89, %81 ], [ %79, %77 ]
   %95 = phi float [ %86, %81 ], [ %78, %77 ]
   %96 = phi float [ %83, %81 ], [ %76, %77 ]
-  store float %storemerge, ptr %52, align 4, !tbaa !28
+  store float %storemerge, ptr %51, align 4, !tbaa !28
   %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 3
   %97 = trunc nuw i64 %indvars.iv.next65 to i32
   %98 = icmp sgt i32 %46, %97
@@ -12757,7 +12757,7 @@ define internal fastcc void @nsvg__getLocalBounds(ptr noundef nonnull captures(n
   %45 = icmp eq i32 %.043, 0
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %113
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %114
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %113 ]
   %.140 = phi i1 [ %45, %.lr.ph.preheader ], [ true, %113 ]
   %46 = shl i64 %indvars.iv, 33
@@ -12768,8 +12768,8 @@ define internal fastcc void @nsvg__getLocalBounds(ptr noundef nonnull captures(n
   %50 = shl i64 %indvars.iv, 33
   %sext49 = add i64 %50, 12884901888
   %51 = ashr exact i64 %sext49, 30
-  %52 = getelementptr inbounds i8, ptr %26, i64 %51
-  %53 = load float, ptr %52, align 4, !tbaa !28
+  %52 = getelementptr inbounds i8, ptr %26, i64 %49
+  %53 = load float, ptr %51, align 4, !tbaa !28
   %54 = load float, ptr %2, align 4, !tbaa !28
   %55 = load float, ptr %8, align 4, !tbaa !28
   %56 = fmul float %53, %55
@@ -12785,87 +12785,87 @@ define internal fastcc void @nsvg__getLocalBounds(ptr noundef nonnull captures(n
   %65 = fadd float %64, %63
   store float %65, ptr %14, align 4, !tbaa !28
   %indvars.iv.tr = trunc i64 %indvars.iv to i32
-  %66 = shl i32 %indvars.iv.tr, 1
-  %67 = add i32 %66, 4
-  %68 = sext i32 %67 to i64
-  %69 = getelementptr inbounds float, ptr %26, i64 %68
-  %70 = load float, ptr %69, align 4, !tbaa !28
-  %71 = add i32 %66, 5
-  %72 = sext i32 %71 to i64
-  %73 = getelementptr inbounds float, ptr %26, i64 %72
-  %74 = load float, ptr %73, align 4, !tbaa !28
-  %75 = fmul float %55, %74
-  %76 = tail call float @llvm.fmuladd.f32(float %70, float %54, float %75)
-  %77 = fadd float %58, %76
-  store float %77, ptr %15, align 16, !tbaa !28
-  %78 = fmul float %61, %74
-  %79 = tail call float @llvm.fmuladd.f32(float %70, float %60, float %78)
-  %80 = fadd float %64, %79
-  store float %80, ptr %16, align 4, !tbaa !28
+  %67 = shl i32 %indvars.iv.tr, 1
+  %68 = add i32 %67, 4
+  %69 = sext i32 %68 to i64
+  %70 = getelementptr inbounds float, ptr %26, i64 %69
+  %71 = load float, ptr %70, align 4, !tbaa !28
+  %72 = add i32 %67, 5
+  %73 = sext i32 %72 to i64
+  %74 = getelementptr inbounds float, ptr %26, i64 %73
+  %75 = load float, ptr %74, align 4, !tbaa !28
+  %76 = fmul float %55, %75
+  %77 = tail call float @llvm.fmuladd.f32(float %71, float %54, float %76)
+  %78 = fadd float %58, %77
+  store float %78, ptr %15, align 16, !tbaa !28
+  %79 = fmul float %61, %75
+  %80 = tail call float @llvm.fmuladd.f32(float %71, float %60, float %79)
+  %81 = fadd float %64, %80
+  store float %81, ptr %16, align 4, !tbaa !28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 3
   %.idx = shl nuw nsw i64 %indvars.iv.next, 3
-  %81 = getelementptr inbounds nuw i8, ptr %26, i64 %.idx
-  %82 = load float, ptr %81, align 4, !tbaa !28
-  %83 = getelementptr inbounds nuw i8, ptr %81, i64 4
-  %84 = load float, ptr %83, align 4, !tbaa !28
-  %85 = fmul float %55, %84
-  %86 = tail call float @llvm.fmuladd.f32(float %82, float %54, float %85)
-  %87 = fadd float %58, %86
-  store float %87, ptr %17, align 8, !tbaa !28
-  %88 = fmul float %61, %84
-  %89 = tail call float @llvm.fmuladd.f32(float %82, float %60, float %88)
-  %90 = fadd float %64, %89
-  store float %90, ptr %18, align 4, !tbaa !28
+  %82 = getelementptr inbounds nuw i8, ptr %26, i64 %.idx
+  %83 = load float, ptr %82, align 4, !tbaa !28
+  %84 = getelementptr inbounds nuw i8, ptr %82, i64 4
+  %85 = load float, ptr %84, align 4, !tbaa !28
+  %86 = fmul float %55, %85
+  %87 = tail call float @llvm.fmuladd.f32(float %83, float %54, float %86)
+  %88 = fadd float %58, %87
+  store float %88, ptr %17, align 8, !tbaa !28
+  %89 = fmul float %61, %85
+  %90 = tail call float @llvm.fmuladd.f32(float %83, float %60, float %89)
+  %91 = fadd float %64, %90
+  store float %91, ptr %18, align 4, !tbaa !28
   call fastcc void @nsvg__curveBounds(ptr noundef %5, ptr noundef nonnull %4)
-  br i1 %.140, label %96, label %91
+  br i1 %.140, label %97, label %92
 
-91:                                               ; preds = %.lr.ph
-  %92 = load float, ptr %5, align 16, !tbaa !28
-  store float %92, ptr %0, align 4, !tbaa !28
-  %93 = load float, ptr %19, align 4, !tbaa !28
-  store float %93, ptr %20, align 4, !tbaa !28
-  %94 = load float, ptr %21, align 8, !tbaa !28
-  store float %94, ptr %22, align 4, !tbaa !28
-  %95 = load float, ptr %23, align 4, !tbaa !28
-  br label %113
+92:                                               ; preds = %.lr.ph
+  %93 = load float, ptr %5, align 16, !tbaa !28
+  store float %93, ptr %0, align 4, !tbaa !28
+  %94 = load float, ptr %19, align 4, !tbaa !28
+  store float %94, ptr %20, align 4, !tbaa !28
+  %95 = load float, ptr %21, align 8, !tbaa !28
+  store float %95, ptr %22, align 4, !tbaa !28
+  %96 = load float, ptr %23, align 4, !tbaa !28
+  br label %114
 
-96:                                               ; preds = %.lr.ph
-  %97 = load float, ptr %0, align 4, !tbaa !28
-  %98 = load float, ptr %5, align 16, !tbaa !28
-  %99 = fcmp olt float %97, %98
-  %100 = select i1 %99, float %97, float %98
-  store float %100, ptr %0, align 4, !tbaa !28
-  %101 = load float, ptr %20, align 4, !tbaa !28
-  %102 = load float, ptr %19, align 4, !tbaa !28
-  %103 = fcmp olt float %101, %102
-  %104 = select i1 %103, float %101, float %102
-  store float %104, ptr %20, align 4, !tbaa !28
-  %105 = load float, ptr %22, align 4, !tbaa !28
-  %106 = load float, ptr %21, align 8, !tbaa !28
-  %107 = fcmp ogt float %105, %106
-  %108 = select i1 %107, float %105, float %106
-  store float %108, ptr %22, align 4, !tbaa !28
-  %109 = load float, ptr %24, align 4, !tbaa !28
-  %110 = load float, ptr %23, align 4, !tbaa !28
-  %111 = fcmp ogt float %109, %110
-  %112 = select i1 %111, float %109, float %110
-  br label %113
+97:                                               ; preds = %.lr.ph
+  %98 = load float, ptr %0, align 4, !tbaa !28
+  %99 = load float, ptr %5, align 16, !tbaa !28
+  %100 = fcmp olt float %98, %99
+  %101 = select i1 %100, float %98, float %99
+  store float %101, ptr %0, align 4, !tbaa !28
+  %102 = load float, ptr %20, align 4, !tbaa !28
+  %103 = load float, ptr %19, align 4, !tbaa !28
+  %104 = fcmp olt float %102, %103
+  %105 = select i1 %104, float %102, float %103
+  store float %105, ptr %20, align 4, !tbaa !28
+  %106 = load float, ptr %22, align 4, !tbaa !28
+  %107 = load float, ptr %21, align 8, !tbaa !28
+  %108 = fcmp ogt float %106, %107
+  %109 = select i1 %108, float %106, float %107
+  store float %109, ptr %22, align 4, !tbaa !28
+  %110 = load float, ptr %24, align 4, !tbaa !28
+  %111 = load float, ptr %23, align 4, !tbaa !28
+  %112 = fcmp ogt float %110, %111
+  %113 = select i1 %112, float %110, float %111
+  br label %114
 
-113:                                              ; preds = %96, %91
-  %storemerge = phi float [ %95, %91 ], [ %112, %96 ]
+114:                                              ; preds = %97, %92
+  %storemerge = phi float [ %96, %91 ], [ %113, %96 ]
   store float %storemerge, ptr %24, align 4, !tbaa !28
-  store float %87, ptr %4, align 16, !tbaa !28
-  store float %90, ptr %7, align 4, !tbaa !28
-  %114 = load i32, ptr %42, align 8, !tbaa !61
-  %115 = add nsw i32 %114, -1
-  %116 = sext i32 %115 to i64
-  %117 = icmp slt i64 %indvars.iv.next, %116
-  br i1 %117, label %.lr.ph, label %._crit_edge, !llvm.loop !268
+  store float %88, ptr %4, align 16, !tbaa !28
+  store float %91, ptr %7, align 4, !tbaa !28
+  %115 = load i32, ptr %42, align 8, !tbaa !61
+  %116 = add nsw i32 %115, -1
+  %117 = sext i32 %116 to i64
+  %118 = icmp slt i64 %indvars.iv.next, %117
+  br i1 %118, label %.lr.ph, label %._crit_edge, !llvm.loop !268
 
-._crit_edge:                                      ; preds = %113, %25
+._crit_edge:                                      ; preds = %114, %25
   %.1.lcssa = phi i32 [ %.043, %25 ], [ 0, %113 ]
-  %118 = getelementptr inbounds nuw i8, ptr %.03744, i64 32
-  %.037 = load ptr, ptr %118, align 8, !tbaa !60
+  %119 = getelementptr inbounds nuw i8, ptr %.03744, i64 32
+  %.037 = load ptr, ptr %119, align 8, !tbaa !60
   %.not = icmp eq ptr %.037, null
   br i1 %.not, label %._crit_edge47, label %25, !llvm.loop !269
 

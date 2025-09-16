@@ -117,8 +117,8 @@ define dso_local void @_Z10drawImage1RN7Imf_3_47Array2DINS_4RgbaEEEii(ptr nounde
 
 ._crit_edge:                                      ; preds = %26
   %.pre = fmul double %48, 5.000000e-01
-  %.pre95 = fmul double %.pre, %48
-  %.pre97 = fptrunc double %.pre95 to float
+  %.pre91 = fmul double %.pre, %48
+  %.pre93 = fptrunc double %.pre91 to float
   br label %79
 
 67:                                               ; preds = %26
@@ -134,12 +134,12 @@ define dso_local void @_Z10drawImage1RN7Imf_3_47Array2DINS_4RgbaEEEii(ptr nounde
   %77 = fmul double %76, %48
   %78 = fptrunc double %77 to float
   tail call fastcc void @_ZN12_GLOBAL__N_12spERN7Imf_3_47Array2DINS0_4RgbaEEEiifffffff(i64 %.val79.pre91, ptr %.val80.pre93, i32 noundef %1, i32 noundef %2, float noundef %70, float noundef %73, float noundef %75, float noundef 2.000000e+00, float noundef 0x3FE99999A0000000, float noundef 0x3FB99999A0000000, float noundef %78)
-  %.val79.pre = load i64, ptr %22, align 8
+  %.val78 = load i64, ptr %22, align 8
   %.val80.pre = load ptr, ptr %23, align 8
   br label %79
 
 79:                                               ; preds = %._crit_edge, %67
-  %.pre-phi98 = phi float [ %.pre97, %._crit_edge ], [ %78, %67 ]
+  %.pre-phi94 = phi float [ %.pre93, %._crit_edge ], [ %78, %67 ]
   %.val80 = phi ptr [ %.val80.pre93, %._crit_edge ], [ %.val80.pre, %67 ]
   %.val79 = phi i64 [ %.val79.pre91, %._crit_edge ], [ %.val79.pre, %67 ]
   %80 = fmul float %14, %53
@@ -159,7 +159,7 @@ define dso_local void @_Z10drawImage1RN7Imf_3_47Array2DINS_4RgbaEEEii(ptr nounde
   %93 = fadd float %92, %19
   %.val81 = load i64, ptr %22, align 8
   %.val82 = load ptr, ptr %23, align 8
-  tail call fastcc void @_ZN12_GLOBAL__N_12spERN7Imf_3_47Array2DINS0_4RgbaEEEiifffffff(i64 %.val81, ptr %.val82, i32 noundef %1, i32 noundef %2, float noundef %90, float noundef %93, float noundef %87, float noundef 0x3FC99999A0000000, float noundef 1.500000e+00, float noundef 0x3FB99999A0000000, float noundef %.pre-phi98)
+  tail call fastcc void @_ZN12_GLOBAL__N_12spERN7Imf_3_47Array2DINS0_4RgbaEEEiifffffff(i64 %.val81, ptr %.val82, i32 noundef %1, i32 noundef %2, float noundef %90, float noundef %93, float noundef %87, float noundef 0x3FC99999A0000000, float noundef 1.500000e+00, float noundef 0x3FB99999A0000000, float noundef %.pre-phi94)
   %exitcond90.not = icmp eq i32 %44, 5600
   br i1 %exitcond90.not, label %25, label %26, !llvm.loop !12
 }

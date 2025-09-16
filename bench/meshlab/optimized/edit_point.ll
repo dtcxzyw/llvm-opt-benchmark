@@ -15601,15 +15601,15 @@ define void @_ZN15EditPointPlugin10wheelEventEP11QWheelEventR9MeshModelP6GLArea(
   %26 = load float, ptr %25, align 4
   %27 = fmul float %24, %26
   store float %27, ptr %25, align 4
-  br i1 %.not, label %.critedge16.thread, label %28
+  br i1 %.not, label %.critedge16.thread, label %29
 
-28:                                               ; preds = %21
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 1352
-  tail call void @_ZN3vcg3tri15ComponentFinderI6CMeshOE8DijkstraERS2_R8CVertexOifRSt6vectorIPS5_SaIS8_EE(ptr noundef nonnull align 8 dereferenceable(1196) %2, ptr noundef nonnull align 8 dereferenceable(44) %8, i32 noundef 6, float noundef %27, ptr noundef nonnull align 8 dereferenceable(24) %29)
+29:                                               ; preds = %21
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 1352
+  tail call void @_ZN3vcg3tri15ComponentFinderI6CMeshOE8DijkstraERS2_R8CVertexOifRSt6vectorIPS5_SaIS8_EE(ptr noundef nonnull align 8 dereferenceable(1196) %2, ptr noundef nonnull align 8 dereferenceable(44) %8, i32 noundef 6, float noundef %27, ptr noundef nonnull align 8 dereferenceable(24) %30)
   %.pre = load ptr, ptr %7, align 8
   br label %.critedge16
 
-.critedge16:                                      ; preds = %.critedge, %28
+.critedge16:                                      ; preds = %.critedge, %29
   %30 = phi ptr [ %8, %.critedge ], [ %.pre, %28 ]
   %.not14 = icmp eq ptr %30, null
   br i1 %.not14, label %.critedge16.thread, label %31

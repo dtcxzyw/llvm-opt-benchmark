@@ -3728,14 +3728,14 @@ while.end.loopexit:                               ; preds = %while.body, %land.r
   %96 = phi ptr [ %incdec.ptr982832, %land.rhs ], [ %incdec.ptr98, %while.body ]
   %number.0.lcssa.ph = phi i64 [ %number.033, %land.rhs ], [ %number.1, %while.body ]
   %count.0.lcssa.ph = phi i32 [ %count.034, %land.rhs ], [ %inc, %while.body ]
-  %97 = sub nsw i32 3, %count.0.lcssa.ph
-  %98 = sitofp i32 %97 to double
-  %99 = sitofp i64 %number.0.lcssa.ph to double
+  %96 = sub nsw i32 3, %count.0.lcssa.ph
+  %97 = sitofp i32 %96 to double
+  %98 = sitofp i64 %number.0.lcssa.ph to double
   br label %while.end
 
 while.end:                                        ; preds = %while.end.loopexit, %while.cond.preheader
-  %100 = phi ptr [ %cur.promoted27, %while.cond.preheader ], [ %96, %while.end.loopexit ]
-  %number.0.lcssa = phi double [ 0.000000e+00, %while.cond.preheader ], [ %99, %while.end.loopexit ]
+  %number.0.lcssa = phi ptr [ %cur.promoted27, %while.cond.preheader ], [ %96, %while.end.loopexit ]
+  %count.0.lcssa = phi double [ 0.000000e+00, %while.cond.preheader ], [ %99, %while.end.loopexit ]
   %count.0.lcssa = phi double [ 3.000000e+00, %while.cond.preheader ], [ %98, %while.end.loopexit ]
   %call.i376 = tail call noundef double @pow(double noundef 1.000000e+01, double noundef %count.0.lcssa) #2
   %mul102 = fmul double %call.i376, %number.0.lcssa
@@ -3745,9 +3745,9 @@ while.end:                                        ; preds = %while.end.loopexit,
 if.else104:                                       ; preds = %sw.bb19.i, %sw.bb10.i, %if.end.i, %if.else.i372, %if.then.i374, %if.end82, %_ZN8facebook5velox9functions12_GLOBAL__N_118getMaxDigitConsumeENS1_13FormatPatternEbNS1_21DateTimeFormatterTypeE.exit
   %retval.0.i3714 = phi i32 [ %retval.0.i371, %_ZN8facebook5velox9functions12_GLOBAL__N_118getMaxDigitConsumeENS1_13FormatPatternEbNS1_21DateTimeFormatterTypeE.exit ], [ 2, %if.end82 ], [ 4, %if.else.i372 ], [ %conv27.i, %sw.bb19.i ], [ %conv18.i, %sw.bb10.i ], [ %conv8.i, %if.end.i ], [ %conv3.i, %if.then.i374 ]
   %cmp106 = icmp eq i8 %curPattern.coerce0, 8
-  %101 = and i8 %curPattern.coerce0, -2
-  %102 = icmp eq i8 %101, 2
-  %or.cond1 = or i1 %cmp106, %102
+  %99 = and i8 %curPattern.coerce0, -2
+  %100 = icmp eq i8 %99, 2
+  %or.cond1 = or i1 %cmp106, %100
   %cmp113 = icmp eq i64 %curPattern.coerce1, 2
   %or.cond2 = select i1 %or.cond1, i1 %cmp113, i1 false
   %idx.ext119 = sext i32 %retval.0.i3714 to i64
@@ -3767,14 +3767,14 @@ land.rhs122:                                      ; preds = %while.cond116.prehe
   %count115.022 = phi i32 [ %inc132, %while.body125 ], [ 0, %while.cond116.preheader ]
   %number.321 = phi i64 [ %add130, %while.body125 ], [ 0, %while.cond116.preheader ]
   %incdec.ptr1311620 = phi ptr [ %incdec.ptr131, %while.body125 ], [ %cur.promoted27, %while.cond116.preheader ]
-  %103 = load i8, ptr %incdec.ptr1311620, align 1
-  %104 = add i8 %103, -48
-  %105 = icmp ult i8 %104, 10
-  br i1 %105, label %while.body125, label %while.end133
+  %101 = load i8, ptr %incdec.ptr1311620, align 1
+  %102 = add i8 %101, -48
+  %103 = icmp ult i8 %102, 10
+  br i1 %103, label %while.body125, label %while.end133
 
 while.body125:                                    ; preds = %land.rhs122
   %mul126 = mul nsw i64 %number.321, 10
-  %conv127 = zext nneg i8 %103 to i64
+  %conv127 = zext nneg i8 %101 to i64
   %sub128 = add i64 %mul126, -48
   %add130 = add i64 %sub128, %conv127
   %incdec.ptr131 = getelementptr inbounds nuw i8, ptr %incdec.ptr1311620, i64 1
@@ -3786,11 +3786,11 @@ while.body125:                                    ; preds = %land.rhs122
   br i1 %or.cond245, label %land.rhs122, label %while.end133, !llvm.loop !17
 
 while.end133:                                     ; preds = %land.rhs122, %while.body125
-  %106 = phi ptr [ %incdec.ptr1311620, %land.rhs122 ], [ %incdec.ptr131, %while.body125 ]
+  %104 = phi ptr [ %incdec.ptr1311620, %land.rhs122 ], [ %incdec.ptr131, %while.body125 ]
   %number.3.lcssa.ph = phi i64 [ %number.321, %land.rhs122 ], [ %add130, %while.body125 ]
   %count115.0.lcssa.ph = phi i32 [ %count115.022, %land.rhs122 ], [ %inc132, %while.body125 ]
-  %107 = icmp eq i32 %count115.0.lcssa.ph, 2
-  br i1 %107, label %if.then135, label %if.else147
+  %105 = icmp eq i32 %count115.0.lcssa.ph, 2
+  br i1 %105, label %if.then135, label %if.else147
 
 if.then135:                                       ; preds = %while.end133
   %cmp136 = icmp sgt i64 %number.3.lcssa.ph, 69
@@ -3808,7 +3808,7 @@ if.else139:                                       ; preds = %if.then135
 
 if.else147:                                       ; preds = %while.cond116.preheader, %while.end133
   %number.3.lcssa43 = phi i64 [ %number.3.lcssa.ph, %while.end133 ], [ 0, %while.cond116.preheader ]
-  %108 = phi ptr [ %106, %while.end133 ], [ %cur.promoted27, %while.cond116.preheader ]
+  %106 = phi ptr [ %104, %while.end133 ], [ %cur.promoted27, %while.cond116.preheader ]
   %cmp148 = icmp eq i32 %type, 1
   br i1 %cmp148, label %if.then149, label %if.end181
 
@@ -3819,14 +3819,14 @@ if.then149:                                       ; preds = %if.else147
 land.rhs169:                                      ; preds = %while.cond163.preheader, %while.body172
   %number.413 = phi i64 [ %add177, %while.body172 ], [ 0, %while.cond163.preheader ]
   %incdec.ptr178812 = phi ptr [ %incdec.ptr178, %while.body172 ], [ %cur.promoted27, %while.cond163.preheader ]
-  %109 = load i8, ptr %incdec.ptr178812, align 1
-  %110 = add i8 %109, -48
-  %111 = icmp ult i8 %110, 10
-  br i1 %111, label %while.body172, label %if.end181
+  %107 = load i8, ptr %incdec.ptr178812, align 1
+  %108 = add i8 %107, -48
+  %109 = icmp ult i8 %108, 10
+  br i1 %109, label %while.body172, label %if.end181
 
 while.body172:                                    ; preds = %land.rhs169
   %mul173 = mul nsw i64 %number.413, 10
-  %conv174 = zext nneg i8 %109 to i64
+  %conv174 = zext nneg i8 %107 to i64
   %sub175 = add i64 %mul173, -48
   %add177 = add i64 %sub175, %conv174
   %incdec.ptr178 = getelementptr inbounds nuw i8, ptr %incdec.ptr178812, i64 1
@@ -3837,9 +3837,9 @@ while.body172:                                    ; preds = %land.rhs169
   br i1 %or.cond246, label %land.rhs169, label %if.end181, !llvm.loop !18
 
 if.end181:                                        ; preds = %land.rhs169, %while.body172, %if.else139, %if.else147, %if.then137, %while.end
-  %112 = phi ptr [ %100, %while.end ], [ %106, %if.then137 ], [ %108, %if.else147 ], [ %106, %if.else139 ], [ %incdec.ptr178812, %land.rhs169 ], [ %incdec.ptr178, %while.body172 ]
+  %110 = phi ptr [ %100, %while.end ], [ %104, %if.then137 ], [ %106, %if.else147 ], [ %104, %if.else139 ], [ %incdec.ptr178812, %land.rhs169 ], [ %incdec.ptr178, %while.body172 ]
   %number.2 = phi i64 [ %conv103, %while.end ], [ %add138, %if.then137 ], [ %number.3.lcssa43, %if.else147 ], [ %spec.select, %if.else139 ], [ %number.413, %land.rhs169 ], [ %add177, %while.body172 ]
-  %cmp182.not = icmp ugt ptr %112, %cur.promoted27
+  %cmp182.not = icmp ugt ptr %110, %cur.promoted27
   br i1 %cmp182.not, label %if.end184, label %if.then183
 
 if.then183:                                       ; preds = %while.cond163.preheader, %if.end181
@@ -3880,8 +3880,8 @@ if.then193:                                       ; preds = %sw.bb
 if.end194:                                        ; preds = %sw.bb
   %centuryFormat = getelementptr inbounds nuw i8, ptr %date, i64 33
   store i8 1, ptr %centuryFormat, align 1
-  %113 = trunc nuw nsw i64 %spec.select247 to i32
-  %conv196 = mul nuw nsw i32 %113, 100
+  %111 = trunc nuw nsw i64 %spec.select247 to i32
+  %conv196 = mul nuw nsw i32 %111, 100
   store i32 %conv196, ptr %date, align 8
   %hasYear198 = getelementptr inbounds nuw i8, ptr %date, i64 35
   store i8 1, ptr %hasYear198, align 1
@@ -3894,8 +3894,8 @@ sw.bb199:                                         ; preds = %if.end184, %if.end1
   %isYearOfEra = getelementptr inbounds nuw i8, ptr %date, i64 34
   %frombool203 = zext i1 %cmp202 to i8
   store i8 %frombool203, ptr %isYearOfEra, align 2
-  %114 = add i64 %spec.select247, -292278994
-  %or.cond5 = icmp ult i64 %114, -292278993
+  %112 = add i64 %spec.select247, -292278994
+  %or.cond5 = icmp ult i64 %112, -292278993
   %or.cond248 = and i1 %cmp202, %or.cond5
   br i1 %or.cond248, label %if.then210, label %if.end211
 
@@ -3904,8 +3904,8 @@ if.then210:                                       ; preds = %sw.bb199
   unreachable
 
 if.end211:                                        ; preds = %sw.bb199
-  %115 = add i64 %spec.select247, 292275055
-  %or.cond6 = icmp ult i64 %115, 584554050
+  %113 = add i64 %spec.select247, 292275055
+  %or.cond6 = icmp ult i64 %113, 584554050
   %or.cond249.not = or i1 %cmp202, %or.cond6
   br i1 %or.cond249.not, label %if.end219, label %if.then218
 
@@ -3921,8 +3921,8 @@ if.end219:                                        ; preds = %if.end211
   br label %if.end363
 
 sw.bb223:                                         ; preds = %if.end184
-  %116 = add i64 %spec.select247, -13
-  %or.cond7 = icmp ult i64 %116, -12
+  %114 = add i64 %spec.select247, -13
+  %or.cond7 = icmp ult i64 %114, -12
   br i1 %or.cond7, label %if.then227, label %if.end228
 
 if.then227:                                       ; preds = %sw.bb223
@@ -3938,8 +3938,8 @@ if.end228:                                        ; preds = %sw.bb223
   %dayOfYearFormat231 = getelementptr inbounds nuw i8, ptr %date, i64 32
   store i8 0, ptr %dayOfYearFormat231, align 8
   %hasYear232 = getelementptr inbounds nuw i8, ptr %date, i64 35
-  %117 = load i8, ptr %hasYear232, align 1
-  %tobool233 = trunc i8 %117 to i1
+  %115 = load i8, ptr %hasYear232, align 1
+  %tobool233 = trunc i8 %115 to i1
   br i1 %tobool233, label %if.end363, label %if.then234
 
 if.then234:                                       ; preds = %if.end228
@@ -3959,8 +3959,8 @@ sw.bb238:                                         ; preds = %if.end184
   %dayOfYearFormat242 = getelementptr inbounds nuw i8, ptr %date, i64 32
   store i8 0, ptr %dayOfYearFormat242, align 8
   %hasYear243 = getelementptr inbounds nuw i8, ptr %date, i64 35
-  %118 = load i8, ptr %hasYear243, align 1
-  %tobool244 = trunc i8 %118 to i1
+  %116 = load i8, ptr %hasYear243, align 1
+  %tobool244 = trunc i8 %116 to i1
   br i1 %tobool244, label %if.end363, label %if.then245
 
 if.then245:                                       ; preds = %sw.bb238
@@ -3980,8 +3980,8 @@ sw.bb249:                                         ; preds = %if.end184
   %weekDateFormat254 = getelementptr inbounds nuw i8, ptr %date, i64 24
   store i8 0, ptr %weekDateFormat254, align 8
   %hasYear255 = getelementptr inbounds nuw i8, ptr %date, i64 35
-  %119 = load i8, ptr %hasYear255, align 1
-  %tobool256 = trunc i8 %119 to i1
+  %117 = load i8, ptr %hasYear255, align 1
+  %tobool256 = trunc i8 %117 to i1
   br i1 %tobool256, label %if.end363, label %if.then257
 
 if.then257:                                       ; preds = %sw.bb249
@@ -3990,8 +3990,8 @@ if.then257:                                       ; preds = %sw.bb249
   br label %if.end363
 
 sw.bb261:                                         ; preds = %if.end184
-  %120 = add i64 %spec.select247, -25
-  %or.cond8 = icmp ult i64 %120, -24
+  %118 = add i64 %spec.select247, -25
+  %or.cond8 = icmp ult i64 %118, -24
   br i1 %or.cond8, label %if.then265, label %if.end266
 
 if.then265:                                       ; preds = %sw.bb261
@@ -4030,8 +4030,8 @@ if.end273:                                        ; preds = %sw.bb268
   br label %if.end363
 
 sw.bb278:                                         ; preds = %if.end184
-  %121 = add i64 %spec.select247, -13
-  %or.cond10 = icmp ult i64 %121, -12
+  %119 = add i64 %spec.select247, -13
+  %or.cond10 = icmp ult i64 %119, -12
   br i1 %or.cond10, label %if.then282, label %if.end283
 
 if.then282:                                       ; preds = %sw.bb278
@@ -4098,15 +4098,15 @@ if.end311:                                        ; preds = %sw.bb306
   br label %if.end363
 
 sw.bb313:                                         ; preds = %if.end184
-  %122 = trunc i64 %spec.select247 to i32
-  %conv315 = mul i32 %122, 1000
+  %120 = trunc i64 %spec.select247 to i32
+  %conv315 = mul i32 %120, 1000
   %microsecond = getelementptr inbounds nuw i8, ptr %date, i64 48
   store i32 %conv315, ptr %microsecond, align 8
   br label %if.end363
 
 sw.bb316:                                         ; preds = %if.end184
-  %123 = add i64 %spec.select247, -292278994
-  %or.cond14 = icmp ult i64 %123, -584554048
+  %121 = add i64 %spec.select247, -292278994
+  %or.cond14 = icmp ult i64 %121, -584554048
   br i1 %or.cond14, label %if.then320, label %if.end321
 
 if.then320:                                       ; preds = %sw.bb316
@@ -4127,8 +4127,8 @@ if.end321:                                        ; preds = %sw.bb316
   br label %if.end363
 
 sw.bb328:                                         ; preds = %if.end184
-  %124 = add i64 %spec.select247, -53
-  %or.cond15 = icmp ult i64 %124, -52
+  %122 = add i64 %spec.select247, -53
+  %or.cond15 = icmp ult i64 %122, -52
   br i1 %or.cond15, label %if.then332, label %if.end333
 
 if.then332:                                       ; preds = %sw.bb328
@@ -4144,8 +4144,8 @@ if.end333:                                        ; preds = %sw.bb328
   %dayOfYearFormat336 = getelementptr inbounds nuw i8, ptr %date, i64 32
   store i8 0, ptr %dayOfYearFormat336, align 8
   %hasYear337 = getelementptr inbounds nuw i8, ptr %date, i64 35
-  %125 = load i8, ptr %hasYear337, align 1
-  %tobool338 = trunc i8 %125 to i1
+  %123 = load i8, ptr %hasYear337, align 1
+  %tobool338 = trunc i8 %123 to i1
   br i1 %tobool338, label %if.end363, label %if.then339
 
 if.then339:                                       ; preds = %if.end333
@@ -4154,8 +4154,8 @@ if.then339:                                       ; preds = %if.end333
   br label %if.end363
 
 sw.bb343:                                         ; preds = %if.end184
-  %126 = add i64 %spec.select247, -8
-  %or.cond16 = icmp ult i64 %126, -7
+  %124 = add i64 %spec.select247, -8
+  %or.cond16 = icmp ult i64 %124, -7
   br i1 %or.cond16, label %if.then347, label %if.end348
 
 if.then347:                                       ; preds = %sw.bb343
@@ -4171,8 +4171,8 @@ if.end348:                                        ; preds = %sw.bb343
   %dayOfYearFormat351 = getelementptr inbounds nuw i8, ptr %date, i64 32
   store i8 0, ptr %dayOfYearFormat351, align 8
   %hasYear352 = getelementptr inbounds nuw i8, ptr %date, i64 35
-  %127 = load i8, ptr %hasYear352, align 1
-  %tobool353 = trunc i8 %127 to i1
+  %125 = load i8, ptr %hasYear352, align 1
+  %tobool353 = trunc i8 %125 to i1
   br i1 %tobool353, label %if.end363, label %if.then354
 
 if.then354:                                       ; preds = %if.end348

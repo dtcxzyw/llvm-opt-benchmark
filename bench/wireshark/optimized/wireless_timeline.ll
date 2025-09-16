@@ -1845,7 +1845,7 @@ define void @_ZN16WirelessTimeline10wheelEventEP11QWheelEvent(ptr noundef align 
   %4 = sitofp i32 %.sroa.3.0.extract.trunc to double
   %5 = fdiv double %4, 1.200000e+02
   %6 = fcmp une double %5, 0.000000e+00
-  br i1 %6, label %7, label %70
+  br i1 %6, label %7, label %74
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -1908,7 +1908,7 @@ define void @_ZN16WirelessTimeline10wheelEventEP11QWheelEvent(ptr noundef align 
   %60 = icmp sgt i64 %59, %55
   br i1 %60, label %61, label %._crit_edge.i.i
 
-61:                                               ; preds = %7
+61:   ; preds = %7
   %62 = sub i64 %59, %55
   store i64 %59, ptr %36, align 8
   %63 = add i64 %62, %58
@@ -1916,13 +1916,13 @@ define void @_ZN16WirelessTimeline10wheelEventEP11QWheelEvent(ptr noundef align 
   br label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %61, %7
-  %64 = phi i64 [ %59, %61 ], [ %55, %7 ]
-  %65 = phi i64 [ %63, %61 ], [ %58, %7 ]
-  %66 = load i64, ptr %29, align 8
+  %66 = phi i64 [ %59, %61 ], [ %55, %7 ]
+  %67 = phi i64 [ %63, %61 ], [ %58, %7 ]
+  %68 = load i64, ptr %29, align 8
   %67 = icmp ugt i64 %65, %66
   br i1 %67, label %68, label %_ZN16WirelessTimeline4zoomEd.exit
 
-68:                                               ; preds = %._crit_edge.i.i
+68:; preds = %._crit_edge.i.i
   %.neg.i.i = sub i64 %64, %65
   %69 = add i64 %.neg.i.i, %66
   store i64 %69, ptr %36, align 8
@@ -1931,9 +1931,9 @@ define void @_ZN16WirelessTimeline10wheelEventEP11QWheelEvent(ptr noundef align 
 
 _ZN16WirelessTimeline4zoomEd.exit:                ; preds = %._crit_edge.i.i, %68
   tail call void @_ZN7QWidget6updateEv(ptr noundef align 8 dereferenceable_or_null(896) %0)
-  br label %70
+  br label %74
 
-70:                                               ; preds = %_ZN16WirelessTimeline4zoomEd.exit, %2
+74:                                               ; preds = %_ZN16WirelessTimeline4zoomEd.exit, %2
   ret void
 }
 
@@ -1978,7 +1978,7 @@ define void @_ZN16WirelessTimeline4zoomEd(ptr noundef align 8 dereferenceable_or
   %37 = icmp sgt i64 %36, %32
   br i1 %37, label %38, label %._crit_edge.i
 
-38:                                               ; preds = %2
+38:   ; preds = %2
   %39 = sub i64 %36, %32
   store i64 %36, ptr %12, align 8
   %40 = add i64 %39, %35
@@ -1986,13 +1986,13 @@ define void @_ZN16WirelessTimeline4zoomEd(ptr noundef align 8 dereferenceable_or
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %2, %38
-  %41 = phi i64 [ %36, %38 ], [ %32, %2 ]
-  %42 = phi i64 [ %40, %38 ], [ %35, %2 ]
-  %43 = load i64, ptr %5, align 8
+  %43 = phi i64 [ %36, %38 ], [ %32, %2 ]
+  %44 = phi i64 [ %40, %38 ], [ %35, %2 ]
+  %45 = load i64, ptr %5, align 8
   %44 = icmp ugt i64 %42, %43
   br i1 %44, label %45, label %_ZN16WirelessTimeline8clip_tsfEv.exit
 
-45:                                               ; preds = %._crit_edge.i
+45:   ; preds = %._crit_edge.i
   %.neg.i = sub i64 %41, %42
   %46 = add i64 %.neg.i, %43
   store i64 %46, ptr %12, align 8

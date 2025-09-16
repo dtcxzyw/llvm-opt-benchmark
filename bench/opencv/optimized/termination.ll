@@ -427,8 +427,8 @@ _ZNSt12__shared_ptrIN2cv4usac26SPRTPNapsacTerminationImplELN9__gnu_cxx12_Lock_po
   %39 = getelementptr inbounds nuw i8, ptr %8, i64 96
   store i32 %5, ptr %39, align 8, !tbaa !64, !noalias !53
   store ptr %11, ptr %0, align 8, !tbaa !65
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %8, ptr %40, align 8, !tbaa !32
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %8, ptr %41, align 8, !tbaa !32
   ret void
 }
 

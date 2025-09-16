@@ -38,11 +38,11 @@ define void @dlasq1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store i32 -1, ptr %4, align 4, !tbaa !3
   store i32 1, ptr %6, align 4, !tbaa !3
   %18 = call i32 @xerbla_(ptr noundef nonnull @.str, ptr noundef nonnull %6, i32 noundef 6) #4
-  br label %95
+  br label %97
 
 19:                                               ; preds = %5
   switch i32 %15, label %.lr.ph.preheader [
-    i32 0, label %95
+    i32 0, label %97
     i32 1, label %20
     i32 2, label %25
   ]
@@ -53,7 +53,7 @@ define void @dlasq1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %23 = fneg double %21
   %24 = select i1 %22, double %23, double %21
   store double %24, ptr %1, align 8, !tbaa !7
-  br label %95
+  br label %97
 
 25:                                               ; preds = %19
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -62,7 +62,7 @@ define void @dlasq1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store double %27, ptr %1, align 8, !tbaa !7
   %28 = load double, ptr %10, align 8, !tbaa !7
   store double %28, ptr %26, align 8, !tbaa !7
-  br label %95
+  br label %97
 
 .lr.ph.preheader:                                 ; preds = %19
   %29 = add nsw i32 %15, -1
@@ -103,7 +103,7 @@ define void @dlasq1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 49:                                               ; preds = %._crit_edge
   call void @dlasrt_(ptr noundef nonnull @.str.1, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %9) #4
-  br label %95
+  br label %97
 
 .lr.ph124.preheader:                              ; preds = %._crit_edge
   %50 = add nuw i32 %15, 1
@@ -169,25 +169,25 @@ define void @dlasq1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %74 = load i32, ptr %4, align 4, !tbaa !3
   switch i32 %74, label %95 [
     i32 0, label %75
-    i32 2, label %82
+    i32 2, label %83
   ]
 
 75:                                               ; preds = %._crit_edge131
   %76 = load i32, ptr %0, align 4, !tbaa !3
   store i32 %76, ptr %6, align 4, !tbaa !3
   %.not116137 = icmp slt i32 %76, 1
-  br i1 %.not116137, label %._crit_edge141, label %.lr.ph140.preheader
+  br i1 %.not116137, label %._crit_edge141, label %.lr.ph140
 
-.lr.ph140.preheader:                              ; preds = %75
+.lr.ph140:                                        ; preds = %75
   %77 = add nuw i32 %76, 1
   %wide.trip.count163 = zext i32 %77 to i64
   br label %.lr.ph140
 
-.lr.ph140:                                        ; preds = %.lr.ph140.preheader, %.lr.ph140
+.lr.ph140:; preds = %.lr.ph140, %.lr.ph140
   %indvars.iv160 = phi i64 [ 1, %.lr.ph140.preheader ], [ %indvars.iv.next161, %.lr.ph140 ]
   %78 = getelementptr inbounds nuw double, ptr %12, i64 %indvars.iv160
-  %79 = load double, ptr %78, align 8, !tbaa !7
-  %80 = call double @sqrt(double noundef %79) #4, !tbaa !3
+  %81 = load double, ptr %78, align 8, !tbaa !7
+  %80 = call double @sqrt(double noundef %81) #4, !tbaa !3
   %81 = getelementptr inbounds nuw double, ptr %14, i64 %indvars.iv160
   store double %80, ptr %81, align 8, !tbaa !7
   %indvars.iv.next161 = add nuw nsw i64 %indvars.iv160, 1
@@ -196,15 +196,15 @@ define void @dlasq1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 ._crit_edge141:                                   ; preds = %.lr.ph140, %75
   call void @dlascl_(ptr noundef nonnull @.str.4, ptr noundef nonnull @c__0, ptr noundef nonnull @c__0, ptr noundef nonnull %8, ptr noundef nonnull %11, ptr noundef nonnull %0, ptr noundef nonnull @c__1, ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull %9) #4
-  br label %95
+  br label %97
 
-82:                                               ; preds = %._crit_edge131
-  %83 = load i32, ptr %0, align 4, !tbaa !3
-  store i32 %83, ptr %6, align 4, !tbaa !3
-  %.not115132 = icmp slt i32 %83, 1
-  br i1 %.not115132, label %._crit_edge136, label %.lr.ph135.preheader
+83:                                               ; preds = %._crit_edge131
+  %84 = load i32, ptr %0, align 4, !tbaa !3
+  store i32 %84, ptr %6, align 4, !tbaa !3
+  %.not115132 = icmp slt i32 %84, 1
+  br i1 %.not115132, label %._crit_edge136, label %.lr.ph135
 
-.lr.ph135.preheader:                              ; preds = %82
+.lr.ph135:                                        ; preds = %83
   %84 = add nuw i32 %83, 1
   %wide.trip.count158 = zext i32 %84 to i64
   br label %.lr.ph135
@@ -229,12 +229,12 @@ define void @dlasq1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %exitcond159.not = icmp eq i64 %indvars.iv.next156, %wide.trip.count158
   br i1 %exitcond159.not, label %._crit_edge136, label %.lr.ph135, !llvm.loop !14
 
-._crit_edge136:                                   ; preds = %.lr.ph135, %82
+._crit_edge136:                                   ; preds = %.lr.ph135, %83
   call void @dlascl_(ptr noundef nonnull @.str.4, ptr noundef nonnull @c__0, ptr noundef nonnull @c__0, ptr noundef nonnull %8, ptr noundef nonnull %11, ptr noundef nonnull %0, ptr noundef nonnull @c__1, ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull %9) #4
   call void @dlascl_(ptr noundef nonnull @.str.4, ptr noundef nonnull @c__0, ptr noundef nonnull @c__0, ptr noundef nonnull %8, ptr noundef nonnull %11, ptr noundef nonnull %0, ptr noundef nonnull @c__1, ptr noundef nonnull %2, ptr noundef nonnull %0, ptr noundef nonnull %9) #4
-  br label %95
+  br label %97
 
-95:                                               ; preds = %._crit_edge141, %._crit_edge136, %._crit_edge131, %19, %49, %25, %20, %17
+97:                                               ; preds = %._crit_edge141, %._crit_edge136, %._crit_edge131, %19, %49, %25, %20, %17
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)

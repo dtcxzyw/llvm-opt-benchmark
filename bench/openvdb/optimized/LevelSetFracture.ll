@@ -87696,21 +87696,21 @@ _ZNK7openvdb5v11_04math4Vec3IdE2eqERKS3_d.exit:   ; preds = %_ZN7openvdb5v11_04m
   br label %for.body.outer
 
 for.body.outer:                                   ; preds = %_ZNK7openvdb5v11_04math4Vec3IdE2eqERKS3_d.exit315, %_ZNK7openvdb5v11_04math4Vec3IdE2eqERKS3_d.exit
-  %n.0350.ph = phi i64 [ 0, %_ZNK7openvdb5v11_04math4Vec3IdE2eqERKS3_d.exit ], [ %inc354, %_ZNK7openvdb5v11_04math4Vec3IdE2eqERKS3_d.exit315 ]
-  %minAngle.0349.ph = phi double [ 0x7FEFFFFFFFFFFFFF, %_ZNK7openvdb5v11_04math4Vec3IdE2eqERKS3_d.exit ], [ %.sroa.speculated, %_ZNK7openvdb5v11_04math4Vec3IdE2eqERKS3_d.exit315 ]
-  %validDecomposition.0348.ph = phi i1 [ false, %_ZNK7openvdb5v11_04math4Vec3IdE2eqERKS3_d.exit ], [ true, %_ZNK7openvdb5v11_04math4Vec3IdE2eqERKS3_d.exit315 ]
-  %hasRotation.0347.ph = phi i1 [ false, %_ZNK7openvdb5v11_04math4Vec3IdE2eqERKS3_d.exit ], [ %lnot, %_ZNK7openvdb5v11_04math4Vec3IdE2eqERKS3_d.exit315 ]
+  %n.0353.ph = phi i64 [ 0, %_ZNK7openvdb5v11_04math4Vec3IdE2eqERKS3_d.exit ], [ %inc357, %_ZNK7openvdb5v11_04math4Vec3IdE2eqERKS3_d.exit315 ]
+  %minAngle.0352.ph = phi double [ 0x7FEFFFFFFFFFFFFF, %_ZNK7openvdb5v11_04math4Vec3IdE2eqERKS3_d.exit ], [ %.sroa.speculated, %_ZNK7openvdb5v11_04math4Vec3IdE2eqERKS3_d.exit315 ]
+  %validDecomposition.0351.ph = phi i1 [ false, %_ZNK7openvdb5v11_04math4Vec3IdE2eqERKS3_d.exit ], [ true, %_ZNK7openvdb5v11_04math4Vec3IdE2eqERKS3_d.exit315 ]
+  %hasRotation.0350.ph = phi i1 [ false, %_ZNK7openvdb5v11_04math4Vec3IdE2eqERKS3_d.exit ], [ %lnot, %_ZNK7openvdb5v11_04math4Vec3IdE2eqERKS3_d.exit315 ]
   br label %for.body
 
 for.body:                                         ; preds = %for.body.outer, %for.inc
-  %n.0350 = phi i64 [ %inc, %for.inc ], [ %n.0350.ph, %for.body.outer ]
-  %and = and i64 %n.0350, 1
+  %n.0353 = phi i64 [ %inc, %for.inc ], [ %n.0353.ph, %for.body.outer ]
+  %and = and i64 %n.0353, 1
   %tobool.not = icmp eq i64 %and, 0
   %cond = select i1 %tobool.not, double %sqrt.i, double %fneg
-  %and16 = and i64 %n.0350, 2
+  %and16 = and i64 %n.0353, 2
   %tobool17.not = icmp eq i64 %and16, 0
   %cond24 = select i1 %tobool17.not, double %sqrt.i40, double %fneg20
-  %tobool26.not = icmp samesign ult i64 %n.0350, 4
+  %tobool26.not = icmp samesign ult i64 %n.0353, 4
   %cond33 = select i1 %tobool26.not, double %sqrt.i61, double %fneg29
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %arrayidx3.i.i74, i8 0, i64 24, i1 false), !alias.scope !1102
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %arrayidx11.i.i, i8 0, i64 24, i1 false), !alias.scope !1102
@@ -88048,7 +88048,7 @@ if.then53:                                        ; preds = %_ZNK7openvdb5v11_04
   %175 = select i1 %cmp.i, double %174, double %173
   %cmp.i286 = fcmp olt double %172, %175
   %.sroa.speculated = select i1 %cmp.i286, double %175, double %172
-  %cmp65 = fcmp olt double %minAngle.0349.ph, %.sroa.speculated
+  %cmp65 = fcmp olt double %minAngle.0352.ph, %.sroa.speculated
   br i1 %cmp65, label %for.inc, label %if.then66
 
 if.then66:                                        ; preds = %if.then53
@@ -88097,22 +88097,22 @@ _ZNK7openvdb5v11_04math4Vec3IdE2eqERKS3_d.exit315: ; preds = %_ZN7openvdb5v11_04
   %185 = phi i1 [ false, %_ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit11.i305 ], [ false, %_ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit.i310 ], [ %cmp11.i19.i304, %if.end.i15.i300 ]
   %lnot = xor i1 %185, true
   %or.cond.not = or i1 %52, %185
-  %inc354 = add nuw nsw i64 %n.0350, 1
-  %exitcond.not355 = icmp eq i64 %inc354, 8
-  %or.cond366 = select i1 %or.cond.not, i1 true, i1 %exitcond.not355
-  br i1 %or.cond366, label %if.end78, label %for.body.outer, !llvm.loop !1120
+  %inc357 = add nuw nsw i64 %n.0353, 1
+  %exitcond.not358 = icmp eq i64 %inc357, 8
+  %or.cond369 = select i1 %or.cond.not, i1 true, i1 %exitcond.not358
+  br i1 %or.cond369, label %if.end78, label %for.body.outer, !llvm.loop !1120
 
 for.inc:                                          ; preds = %_ZN7openvdb5v11_04math11eulerAnglesINS1_4Mat3IdEEEENS1_4Vec3INT_10value_typeEEERKS6_NS1_13RotationOrderES7_.exit, %land.lhs.true.i276, %land.lhs.true9.i, %land.lhs.true15.i, %land.lhs.true21.i, %land.lhs.true27.i, %land.lhs.true33.i, %land.lhs.true39.i, %_ZNK7openvdb5v11_04math4Mat3IdE2eqERKS3_d.exit, %if.then53, %for.body
-  %inc = add nuw nsw i64 %n.0350, 1
+  %inc = add nuw nsw i64 %n.0353, 1
   %exitcond.not = icmp eq i64 %inc, 8
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !1120
 
 for.end:                                          ; preds = %for.inc
-  br i1 %validDecomposition.0348.ph, label %if.end78, label %return
+  br i1 %validDecomposition.0351.ph, label %if.end78, label %return
 
 if.end78:                                         ; preds = %land.rhs.i295, %_ZNK7openvdb5v11_04math4Vec3IdE2eqERKS3_d.exit315, %for.end
-  %hasRotation.1344 = phi i1 [ %hasRotation.0347.ph, %for.end ], [ false, %land.rhs.i295 ], [ %lnot, %_ZNK7openvdb5v11_04math4Vec3IdE2eqERKS3_d.exit315 ]
-  %tobool79.not = xor i1 %hasRotation.1344, true
+  %hasRotation.1347 = phi i1 [ %hasRotation.0350.ph, %for.end ], [ false, %land.rhs.i295 ], [ %lnot, %_ZNK7openvdb5v11_04math4Vec3IdE2eqERKS3_d.exit315 ]
+  %tobool79.not = xor i1 %hasRotation.1347, true
   %or.cond1 = or i1 %52, %tobool79.not
   %. = select i1 %or.cond1, i32 2, i32 1
   br label %return

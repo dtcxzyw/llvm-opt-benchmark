@@ -3200,7 +3200,7 @@ define internal fastcc void @cost_tuplesort(ptr noundef nonnull writeonly captur
   %22 = sitofp i64 %15 to double
   %23 = fcmp ogt double %.045, %22
   %24 = fmul double %.0, %18
-  br i1 %23, label %25, label %48
+  br i1 %23, label %25, label %49
 
 25:                                               ; preds = %7
   %26 = fmul double %13, 0x3F20000000000000
@@ -3224,30 +3224,30 @@ define internal fastcc void @cost_tuplesort(ptr noundef nonnull writeonly captur
 
 40:                                               ; preds = %25, %35
   %.044 = phi double [ %39, %35 ], [ 1.000000e+00, %25 ]
-  %41 = fmul double %27, 2.000000e+00
-  %42 = fmul double %41, %.044
-  %43 = load double, ptr @seq_page_cost, align 8
-  %44 = load double, ptr @random_page_cost, align 8
-  %45 = fmul double %44, 2.500000e-01
-  %46 = tail call double @llvm.fmuladd.f64(double %43, double 7.500000e-01, double %45)
-  %47 = tail call double @llvm.fmuladd.f64(double %42, double %46, double %33)
+  %42 = fmul double %27, 2.000000e+00
+  %43 = fmul double %42, %.044
+  %44 = load double, ptr @seq_page_cost, align 8
+  %45 = load double, ptr @random_page_cost, align 8
+  %46 = fmul double %45, 2.500000e-01
+  %47 = tail call double @llvm.fmuladd.f64(double %44, double 7.500000e-01, double %46)
+  %48 = tail call double @llvm.fmuladd.f64(double %43, double %47, double %33)
   br label %60
 
-48:                                               ; preds = %7
+49:                                               ; preds = %7
   %.046 = select i1 %or.cond, double %6, double %.0
-  %49 = fmul double %.046, 2.000000e+00
-  %50 = fcmp ogt double %.0, %49
-  %51 = fcmp ogt double %13, %22
-  %or.cond52 = or i1 %51, %50
+  %50 = fmul double %.046, 2.000000e+00
+  %51 = fcmp ogt double %.0, %50
+  %52 = fcmp ogt double %13, %22
+  %or.cond52 = or i1 %52, %51
   br i1 %or.cond52, label %52, label %56
 
-52:                                               ; preds = %48
-  %53 = tail call double @log(double noundef %49) #17
-  %54 = fdiv double %53, 0x3FE62E42FEFA39EC
-  %55 = fmul double %24, %54
+57:                                               ; preds = %49
+  %58 = tail call double @log(double noundef %50) #17
+  %59 = fdiv double %58, 0x3FE62E42FEFA39EC
+  %60 = fmul double %24, %54
   br label %60
 
-56:                                               ; preds = %48
+61:                                               ; preds = %48
   %57 = tail call double @llvm.log.f64(double %.0)
   %58 = fdiv double %57, 0x3FE62E42FEFA39EC
   %59 = fmul double %58, %24
@@ -3256,9 +3256,9 @@ define internal fastcc void @cost_tuplesort(ptr noundef nonnull writeonly captur
 60:                                               ; preds = %52, %56, %40
   %.sink = phi double [ %55, %52 ], [ %59, %56 ], [ %47, %40 ]
   store double %.sink, ptr %0, align 8
-  %61 = load double, ptr @cpu_operator_cost, align 8
-  %62 = fmul double %.0, %61
-  store double %62, ptr %1, align 8
+  %62 = load double, ptr @cpu_operator_cost, align 8
+  %63 = fmul double %.0, %62
+  store double %63, ptr %1, align 8
   ret void
 }
 

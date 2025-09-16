@@ -4742,7 +4742,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %call
   br i1 %cmp.not.i5.i, label %invoke.cont165, label %for.body.i.i, !llvm.loop !142
 
 invoke.cont165:                                   ; preds = %for.body.i.i, %for.end161.invoke.cont165_crit_edge
-  %94 = phi ptr [ %.pre, %for.end161.invoke.cont165_crit_edge ], [ %92, %for.body.i.i ]
+  %ref.tmp162.sroa.0.0 = phi ptr [ %.pre, %for.end161.invoke.cont165_crit_edge ], [ %92, %for.body.i.i ]
   %ref.tmp162.sroa.0.0 = phi ptr [ null, %for.end161.invoke.cont165_crit_edge ], [ %call.i.i129132, %for.body.i.i ]
   store ptr %ref.tmp162.sroa.0.0, ptr %err_, align 8, !tbaa !18
   %cmp.not.i.i134 = icmp eq ptr %94, null

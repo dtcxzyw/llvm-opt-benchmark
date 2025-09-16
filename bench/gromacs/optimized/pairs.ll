@@ -544,7 +544,7 @@ _ZL15do_pairs_simpleIN3gmx9SimdFloatELi8EPKfEviPKiPK9t_iparamsPA3_S2_PA4_fT1_NS0
   call void @llvm.lifetime.end.p0(ptr nonnull %47)
   call void @llvm.lifetime.end.p0(ptr nonnull %46)
   call void @llvm.lifetime.end.p0(ptr nonnull %52)
-  br label %1265
+  br label %1268
 
 393:                                              ; preds = %66
   call void @llvm.lifetime.start.p0(ptr nonnull %53)
@@ -682,7 +682,7 @@ _ZL15do_pairs_simpleIN3gmx9SimdFloatELi8EPKfEviPKiPK9t_iparamsPA3_S2_PA4_fT1_NS0
 
 _ZL15do_pairs_simpleIfLi1EPK5t_pbcEviPKiPK9t_iparamsPA3_KfPA4_fT1_N3gmx8ArrayRefIS8_EEf.exit: ; preds = %.preheader.i66, %395
   call void @llvm.lifetime.end.p0(ptr nonnull %53)
-  br label %1265
+  br label %1268
 
 _ZL28usingUserTableElectrostaticsRK22CoulombInteractionType.exit.thread: ; preds = %58, %58, %58, %_ZL28usingUserTableElectrostaticsRK22CoulombInteractionType.exit, %55, %20
   %489 = getelementptr inbounds nuw i8, ptr %17, i64 4
@@ -1307,7 +1307,7 @@ _ZL16do_pairs_generalIL18BondedKernelFlavor2EEfiiPKiPK9t_iparamsPA3_KfPA4_fPA3_f
   call void @llvm.lifetime.end.p0(ptr nonnull %34)
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
   call void @llvm.lifetime.end.p0(ptr nonnull %32)
-  br label %1265
+  br label %1268
 
 893:                                              ; preds = %_ZL28usingUserTableElectrostaticsRK22CoulombInteractionType.exit.thread
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
@@ -1844,8 +1844,8 @@ _ZL16do_pairs_generalIL18BondedKernelFlavor2EEfiiPKiPK9t_iparamsPA3_KfPA4_fPA3_f
   store float %1244, ptr %21, align 4, !tbaa !155
   %1245 = fmul float %1062, %.1204.i
   store float %1245, ptr %947, align 4, !tbaa !155
-  %1246 = fmul float %1061, %.1204.i
-  store float %1246, ptr %948, align 4, !tbaa !155
+  %1247 = fmul float %1061, %.1204.i
+  store float %1247, ptr %948, align 4, !tbaa !155
   %1247 = getelementptr inbounds [4 x float], ptr %5, i64 %957
   %1248 = load float, ptr %1247, align 4, !tbaa !155
   %1249 = fadd float %1244, %1248
@@ -1854,7 +1854,7 @@ _ZL16do_pairs_generalIL18BondedKernelFlavor2EEfiiPKiPK9t_iparamsPA3_KfPA4_fPA3_f
   %1252 = fadd float %1245, %1251
   %1253 = getelementptr inbounds nuw i8, ptr %1247, i64 8
   %1254 = load float, ptr %1253, align 4, !tbaa !155
-  %1255 = fadd float %1246, %1254
+  %1255 = fadd float %1247, %1254
   store float %1249, ptr %1247, align 4, !tbaa !155
   store float %1252, ptr %1250, align 4, !tbaa !155
   store float %1255, ptr %1253, align 4, !tbaa !155
@@ -1866,7 +1866,7 @@ _ZL16do_pairs_generalIL18BondedKernelFlavor2EEfiiPKiPK9t_iparamsPA3_KfPA4_fPA3_f
   %1261 = fsub float %1260, %1245
   %1262 = getelementptr inbounds nuw i8, ptr %1256, i64 8
   %1263 = load float, ptr %1262, align 4, !tbaa !155
-  %1264 = fsub float %1263, %1246
+  %1264 = fsub float %1263, %1247
   store float %1258, ptr %1256, align 4, !tbaa !155
   store float %1261, ptr %1259, align 4, !tbaa !155
   store float %1264, ptr %1262, align 4, !tbaa !155
@@ -1883,9 +1883,9 @@ _ZL16do_pairs_generalIL18BondedKernelFlavor3EEfiiPKiPK9t_iparamsPA3_KfPA4_fPA3_f
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
-  br label %1265
+  br label %1268
 
-1265:                                             ; preds = %_ZL16do_pairs_generalIL18BondedKernelFlavor2EEfiiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcPS6_PfN3gmx8ArrayRefIS6_EESK_NSJ_IKbEENSJ_IKtEEiPK10t_forcerecP17gmx_grppairener_tPi.exit, %_ZL16do_pairs_generalIL18BondedKernelFlavor3EEfiiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcPS6_PfN3gmx8ArrayRefIS6_EESK_NSJ_IKbEENSJ_IKtEEiPK10t_forcerecP17gmx_grppairener_tPi.exit, %_ZL15do_pairs_simpleIN3gmx9SimdFloatELi8EPKfEviPKiPK9t_iparamsPA3_S2_PA4_fT1_NS0_8ArrayRefIS2_EEf.exit, %_ZL15do_pairs_simpleIfLi1EPK5t_pbcEviPKiPK9t_iparamsPA3_KfPA4_fT1_N3gmx8ArrayRefIS8_EEf.exit
+1268:                                             ; preds = %_ZL16do_pairs_generalIL18BondedKernelFlavor2EEfiiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcPS6_PfN3gmx8ArrayRefIS6_EESK_NSJ_IKbEENSJ_IKtEEiPK10t_forcerecP17gmx_grppairener_tPi.exit, %_ZL16do_pairs_generalIL18BondedKernelFlavor3EEfiiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcPS6_PfN3gmx8ArrayRefIS6_EESK_NSJ_IKbEENSJ_IKtEEiPK10t_forcerecP17gmx_grppairener_tPi.exit, %_ZL15do_pairs_simpleIN3gmx9SimdFloatELi8EPKfEviPKiPK9t_iparamsPA3_S2_PA4_fT1_NS0_8ArrayRefIS2_EEf.exit, %_ZL15do_pairs_simpleIfLi1EPK5t_pbcEviPKiPK9t_iparamsPA3_KfPA4_fT1_N3gmx8ArrayRefIS8_EEf.exit
   ret void
 }
 
